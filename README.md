@@ -2,27 +2,31 @@
 
 Bir kelime ya da isim yazınca kökenini (hangi dilden geldiğini, anlamını, nasıl evrildiğini) internetten getiren mobil uygulama. Google'da tek tek araştırmak yerine, tek bir arama kutusu.
 
+**Aradan geçen sunucu yok.** Telefon, kendi internet bağlantısı üzerinden doğrudan veri kaynaklarına bağlanır — deploy edilecek, ayakta tutulacak hiçbir backend yoktur.
+
 ## Nasıl çalışıyor
 
 ```
-[Mobil Uygulama]  --internet-->  [Backend]  --> Nişanyan Sözlük verisi (yaygın Türkçe kelimeler)
-   (Expo/React                                \-> bulunamazsa: Claude (yapay zeka),
-    Native)                                        özellikle özel isimler için (Ahmet, Ayşe, vb.)
+[Telefon]  --internet-->  Nişanyan Sözlük verisi (etimolojiturkce-api, yaygın Türkçe kelimeler)
+  (Expo/React                \-> bulunamazsa (örn. "Ahmet" gibi özel isimler):
+   Native uygulaması)              --internet--> Claude (Anthropic) - kendi API key'inle, doğrudan
 ```
 
-- **`mobile/`** — Telefonda çalışan React Native (Expo) uygulaması. Veritabanı taşımaz, her arama internete gider.
-- **`backend/`** — Aradaki sunucu. İki kaynağı birleştirir: [etimolojiturkce.com](https://api.etimolojiturkce.com) API'si üzerinden Nişanyan Sözlük verisi, bulunamazsa Anthropic'in Claude modeliyle üretilen açıklama. Aynı kelime bir hafta önbellekte tutulur, tekrar sorulduğunda yapay zekaya tekrar ödeme yapılmaz.
+Tek klasör: **`mobile/`** — telefonda çalışan React Native (Expo) uygulaması.
+- Veritabanı taşımaz, her arama internete gider.
+- Anthropic API key'ini uygulamanın kendi Ayarlar (⚙︎) ekranından girersin; key telefonun güvenli deposunda (Keystore/Keychain) saklanır, hiçbir sunucuya gönderilmez.
+- Aynı kelime 1 hafta telefonda önbelleklenir, tekrar sorulduğunda yapay zekaya tekrar ödeme yapılmaz.
 
 ## Neden bu şekilde kuruldu
 
 - **Yerel veritabanı yok:** Telefona koca bir sözlük gömmek yerine, herkesin zaten sahip olduğu internet bağlantısı üzerinden anlık sorgu yapılıyor.
+- **Backend yok:** Yönetilecek, deploy edilecek, uykuya dalıp uyandırılması gereken bir sunucu yok. Telefon doğrudan Nişanyan verisine ve (gerekirse) Claude'a bağlanıyor.
 - **Nişanyan Sözlük öncelikli:** Türkçe kelimeler için en güvenilir, akademik kaynak bu — ama özel isimleri kapsamıyor (örn. "Ahmet" onda yok).
-- **Yapay zeka yedek olarak:** Sözlükte bulunamayan her şey (isimler, nadir kelimeler, yabancı sözcükler) için Claude'a soruluyor; bu durumda uygulama bunu açıkça "yapay zeka tahmini" rozetiyle işaretliyor, sözlük garantisiyle karıştırmıyor.
+- **Yapay zeka yedek olarak:** Sözlükte bulunamayan her şey (isimler, nadir kelimeler, yabancı sözcükler) için Claude'a soruluyor; uygulama bunu açıkça "yapay zeka tahmini" rozetiyle işaretliyor, sözlük garantisiyle karıştırmıyor.
 
 ## Kurulum
 
-1. Backend'i deploy et: [`backend/README.md`](backend/README.md)
-2. Mobil uygulamayı telefonunda test et: [`mobile/README.md`](mobile/README.md)
+Tek adım: [`mobile/README.md`](mobile/README.md) — telefonuna kurup Anthropic API key'ini eklemen ~10 dakika sürer.
 
 ## Kullanılan açık kaynak / veri kaynakları
 

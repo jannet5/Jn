@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   KeyboardAvoidingView,
+  Linking,
+  Modal,
   Platform,
   Pressable,
   ScrollView,
@@ -11,7 +13,8 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { fetchEtymology } from "./src/api";
+import { getApiKey, setApiKey } from "./src/apiKey";
+import { fetchEtymology } from "./src/etymology";
 import { addToHistory, loadHistory } from "./src/history";
 
 export default function App() {
@@ -20,9 +23,12 @@ export default function App() {
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(false);
 
   useEffect(() => {
     loadHistory().then(setHistory);
+    getApiKey().then((key) => setHasApiKey(Boolean(key)));
   }, []);
 
   async function search(word) {
@@ -55,10 +61,26 @@ export default function App() {
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        <Text style={styles.title}>Kelime Kökeni</Text>
-        <Text style={styles.subtitle}>
-          Bir kelime ya da isim yaz, kökenini öğren.
-        </Text>
+        <View style={styles.headerRow}>
+          <View>
+            <Text style={styles.title}>Kelime Kökeni</Text>
+            <Text style={styles.subtitle}>
+              Bir kelime ya da isim yaz, kökenini öğren.
+            </Text>
+          </View>
+          <Pressable style={styles.gearButton} onPress={() => setSettingsVisible(true)}>
+            <Text style={styles.gearText}>⚙︎</Text>
+          </Pressable>
+        </View>
+
+        {!hasApiKey && (
+          <Pressable style={styles.hint} onPress={() => setSettingsVisible(true)}>
+            <Text style={styles.hintText}>
+              Özel isimler ve nadir kelimeler için Ayarlar'dan bir Anthropic API key
+              ekleyebilirsin. Dokun ve ekle →
+            </Text>
+          </Pressable>
+        )}
 
         <View style={styles.searchRow}>
           <TextInput
@@ -111,7 +133,79 @@ export default function App() {
 
         {result && !loading && <ResultCard result={result} />}
       </ScrollView>
+
+      <SettingsModal
+        visible={settingsVisible}
+        onClose={() => setSettingsVisible(false)}
+        onSaved={(saved) => setHasApiKey(saved)}
+      />
     </KeyboardAvoidingView>
+  );
+}
+
+function SettingsModal({ visible, onClose, onSaved }) {
+  const [value, setValue] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    if (visible) {
+      getApiKey().then((key) => setValue(key || ""));
+    }
+  }, [visible]);
+
+  async function handleSave() {
+    setSaving(true);
+    try {
+      await setApiKey(value);
+      onSaved(Boolean(value.trim()));
+      onClose();
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
+      <View style={styles.modalBackdrop}>
+        <View style={styles.modalCard}>
+          <Text style={styles.modalTitle}>Anthropic API Key</Text>
+          <Text style={styles.modalBody}>
+            Nişanyan Sözlük'te bulunamayan kelimeler/isimler için (örn. "Ahmet") ve ham
+            veriyi okunaklı hale getirmek için yapay zeka kullanılıyor. Bu key telefonunda
+            güvenli bir şekilde saklanır, hiçbir sunucuya gönderilmez — doğrudan
+            Anthropic'e bağlanılır.
+          </Text>
+          <Pressable
+            onPress={() => Linking.openURL("https://console.anthropic.com/settings/keys")}
+          >
+            <Text style={styles.modalLink}>console.anthropic.com'dan key oluştur →</Text>
+          </Pressable>
+
+          <TextInput
+            style={styles.modalInput}
+            placeholder="sk-ant-..."
+            value={value}
+            onChangeText={setValue}
+            autoCapitalize="none"
+            autoCorrect={false}
+            secureTextEntry
+          />
+
+          <View style={styles.modalActions}>
+            <Pressable style={styles.modalSecondaryButton} onPress={onClose}>
+              <Text style={styles.modalSecondaryText}>Vazgeç</Text>
+            </Pressable>
+            <Pressable
+              style={styles.modalPrimaryButton}
+              onPress={handleSave}
+              disabled={saving}
+            >
+              <Text style={styles.buttonText}>{saving ? "Kaydediliyor..." : "Kaydet"}</Text>
+            </Pressable>
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -160,8 +254,29 @@ function Field({ label, value }) {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: "#fbfaf7" },
   content: { padding: 20, paddingTop: 60, paddingBottom: 40 },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
   title: { fontSize: 28, fontWeight: "700", color: "#20201d" },
   subtitle: { fontSize: 14, color: "#6b6a63", marginTop: 4, marginBottom: 20 },
+  gearButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#efece3",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  gearText: { fontSize: 18 },
+  hint: {
+    backgroundColor: "#eef2fb",
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 16,
+  },
+  hintText: { fontSize: 12, color: "#3b5a9a" },
   searchRow: { flexDirection: "row", gap: 10 },
   input: {
     flex: 1,
@@ -231,5 +346,40 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#a07a2b",
     fontStyle: "italic",
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.4)",
+    justifyContent: "flex-end",
+  },
+  modalCard: {
+    backgroundColor: "#fff",
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 24,
+    paddingBottom: 36,
+  },
+  modalTitle: { fontSize: 18, fontWeight: "700", color: "#20201d", marginBottom: 10 },
+  modalBody: { fontSize: 13, color: "#5c5b53", lineHeight: 19, marginBottom: 10 },
+  modalLink: { fontSize: 13, color: "#3b5a9a", marginBottom: 18, fontWeight: "600" },
+  modalInput: {
+    backgroundColor: "#f5f4ef",
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: "#e4e2da",
+    marginBottom: 20,
+  },
+  modalActions: { flexDirection: "row", gap: 10, justifyContent: "flex-end" },
+  modalSecondaryButton: { paddingHorizontal: 18, paddingVertical: 12, justifyContent: "center" },
+  modalSecondaryText: { color: "#6b6a63", fontWeight: "600" },
+  modalPrimaryButton: {
+    backgroundColor: "#20201d",
+    borderRadius: 12,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    justifyContent: "center",
   },
 });
