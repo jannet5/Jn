@@ -104,10 +104,10 @@ private fun TimelineTab(state: FileActivityUiState, viewModel: FileActivityViewM
         if (showFilters) {
             FilterPanel(state, viewModel)
         }
-        when (state.eventsLoad) {
+        when (val load = state.eventsLoad) {
             is LoadState.Loading -> LoadingState(label = "Dosya etkinliği yükleniyor…")
             is LoadState.Error -> ErrorState(
-                message = (state.eventsLoad as LoadState.Error).message,
+                message = load.message,
                 onRetry = viewModel::loadInitialEvents,
             )
             is LoadState.Content -> {

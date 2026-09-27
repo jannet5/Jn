@@ -76,7 +76,7 @@ fun PairingScreen(
                 navigationIcon = {
                     if (onCancel != null) {
                         androidx.compose.material3.IconButton(onClick = onCancel) {
-                            Icon(androidx.compose.material.icons.Icons.Filled.Close, contentDescription = "Kapat")
+                            Icon(Icons.Filled.Close, contentDescription = "Kapat")
                         }
                     }
                 },

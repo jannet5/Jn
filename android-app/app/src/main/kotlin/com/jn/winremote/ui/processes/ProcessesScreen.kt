@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -159,7 +161,7 @@ private fun ProcessRow(item: ProcessItem, protectedHint: Boolean, onKillRequeste
             }
             IconButton(onClick = { onKillRequested(item.pid) }, enabled = !protectedHint) {
                 Icon(
-                    androidx.compose.material.icons.Icons.Filled.Close,
+                    Icons.Filled.Close,
                     contentDescription = "Süreci sonlandır",
                     tint = if (protectedHint) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
                     else MaterialTheme.colorScheme.error,

@@ -26,7 +26,6 @@ val protocolJson: Json = Json {
     encodeDefaults = true
     isLenient = false
     classDiscriminator = "type"
-    explicitNulls = true
 }
 
 // ---------------------------------------------------------------------------

@@ -48,7 +48,9 @@ private fun parseQrPairingPayloadOrThrow(raw: String): QrPairingPayload? {
     val obj = element as? kotlinx.serialization.json.JsonObject ?: return null
     val host = obj["host"]?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content } ?: return null
     val port = obj["port"]?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content?.toIntOrNull() } ?: 8787
-    val fingerprintRaw = listOf("fingerprint", "cert_fingerprint", "fp")
+    // "fingerprint_sha256" is the canonical key per PROTOCOL.md §10 (what
+    // the Windows agent actually emits); the others are tolerated synonyms.
+    val fingerprintRaw = listOf("fingerprint_sha256", "fingerprint", "cert_fingerprint", "fp")
         .firstNotNullOfOrNull { key -> obj[key]?.let { (it as? kotlinx.serialization.json.JsonPrimitive)?.content } }
         ?: return null
     val pairingCode = listOf("pairing_code", "code")

@@ -91,7 +91,6 @@ fun SettingsScreen(
                 }
             }
         }
-    }
 
     val pendingId = state.pendingRemoveDeviceId
     if (pendingId != null) {

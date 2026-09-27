@@ -19,7 +19,8 @@ object Formatting {
         if (value <= 0) return "0 B"
         val digitGroups = (log10(value.toDouble()) / log10(1024.0)).toInt().coerceIn(0, units.lastIndex)
         val scaled = value / 1024.0.pow(digitGroups.toDouble())
-        val pattern = if (digitGroups == 0) "%.0f %s" else "%.1f %s"
+        val isWholeNumber = digitGroups == 0 || scaled == Math.floor(scaled)
+        val pattern = if (isWholeNumber) "%.0f %s" else "%.1f %s"
         return String.format(turkishLocale, pattern, scaled, units[digitGroups])
     }
 

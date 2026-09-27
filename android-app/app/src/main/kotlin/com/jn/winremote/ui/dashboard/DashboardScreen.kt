@@ -63,12 +63,16 @@ private fun DashboardContent(
                     .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.errorContainer)
                     .padding(horizontal = 16.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
             ) {
                 Text(
                     if (status.isCertMismatch) "sunucu kimliği doğrulanamadı" else "Hata: ${status.message}",
                     color = MaterialTheme.colorScheme.onErrorContainer,
                     style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.weight(1f),
                 )
+                androidx.compose.material3.TextButton(onClick = onRetry) { Text("Yeniden dene") }
             }
         }
         if (status is ConnectionStatus.Connecting && state.latest == null) {
