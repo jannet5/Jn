@@ -1,0 +1,17 @@
+# Go
+windows-agent/dist/
+*.exe
+
+# Android / Gradle
+android-app/.gradle/
+android-app/build/
+android-app/app/build/
+android-app/local.properties
+android-app/*.keystore
+android-app/*.jks
+android-app/dist/*.apk
+android-sdk/
+
+# misc
+.DS_Store
+*.log
