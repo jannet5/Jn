@@ -16,6 +16,7 @@ public sealed class PendingPairing
     public string? DeviceName { get; set; }
     public string? DevicePublicKeyBase64 { get; set; }
     public string? ApprovedDeviceId { get; set; }
+    public int FailedPinAttempts { get; set; }
 }
 
 /// <summary>
@@ -29,6 +30,7 @@ public sealed class PairingService
 {
     private static readonly TimeSpan PinWindow = TimeSpan.FromMinutes(2);
     private static readonly TimeSpan ApprovalWindow = TimeSpan.FromMinutes(5);
+    private const int MaxFailedPinAttempts = 10; // a 6-digit PIN has 1e6 combinations; this closes the window fast instead of relying on the 2-minute expiry alone
 
     private readonly ConcurrentDictionary<string, PendingPairing> _pending = new();
     private readonly DeviceRepository _devices;
@@ -93,6 +95,15 @@ public sealed class PairingService
         {
             // Deliberately don't distinguish "wrong pin" from "unknown id" in the response to
             // avoid helping an attacker brute-force the 6-digit PIN via a timing/enumeration oracle.
+            pending.FailedPinAttempts++;
+            if (pending.FailedPinAttempts >= MaxFailedPinAttempts)
+            {
+                // A 6-digit PIN only has 1e6 combinations; without this, an attacker on the same
+                // LAN could script through them well within the 2-minute window. Burning the code
+                // after a handful of misses closes that off — the user just generates a new one.
+                pending.State = PairingState.Expired;
+                return new PairVerifyResponse(PairingState.Expired, null, null, null, null);
+            }
             return new PairVerifyResponse(PairingState.AwaitingPin, null, null, null, null);
         }
 

@@ -48,6 +48,25 @@ public class PairingServiceTests : IDisposable
     }
 
     [Fact]
+    public void TooManyWrongPinsBurnsTheCode()
+    {
+        var (pending, _) = _pairing.BeginLocal();
+        var wrongPin = pending.Pin == "000000" ? "111111" : "000000";
+
+        PairVerifyResponse last = null!;
+        for (var i = 0; i < 10; i++)
+        {
+            last = _pairing.Verify(new PairVerifyRequest(pending.PairingId, wrongPin, "Phone", "pubkey"));
+        }
+
+        Assert.Equal(PairingState.Expired, last.State);
+
+        // Even the *correct* PIN no longer works once the code has been burned.
+        var afterBurn = _pairing.Verify(new PairVerifyRequest(pending.PairingId, pending.Pin, "Phone", "pubkey"));
+        Assert.Equal(PairingState.Expired, afterBurn.State);
+    }
+
+    [Fact]
     public void UnknownPairingIdIsExpired()
     {
         var result = _pairing.Verify(new PairVerifyRequest("not-a-real-id", "123456", "Phone", "pubkey"));
