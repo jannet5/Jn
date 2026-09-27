@@ -46,11 +46,12 @@ public static class AdminEndpoints
         admin.MapGet("/devices", (DeviceRepository devices) =>
             Results.Ok(devices.ListAll().Select(d => new { d.Id, d.Name, d.CreatedAt, d.LastSeenAt, d.Revoked })));
 
-        admin.MapPost("/devices/{id}/revoke", (string id, TokenService tokens, WsHub hub, AuditRepository audit) =>
+        admin.MapPost("/devices/{id}/revoke", (string id, TokenService tokens, DeviceRepository devices, WsHub hub, AuditRepository audit) =>
         {
+            var deviceName = devices.FindById(id)?.Name ?? "Bilinmeyen cihaz";
             tokens.Revoke(id);
             hub.ForceDisconnect(id);
-            audit.Record(id, id, "device.revoke.local", null, true, null);
+            audit.Record(id, deviceName, "device.revoke.local", null, true, null);
             return Results.Ok();
         });
 
