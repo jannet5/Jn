@@ -5,7 +5,7 @@ import com.jn.winremote.crypto.CertificatePinningException
 import com.jn.winremote.crypto.HmacAuth
 import com.jn.winremote.crypto.buildPinnedTls
 import com.jn.winremote.data.PairedDevice
-import com.jn.winremote.data.SecureStore
+import com.jn.winremote.data.ActiveDeviceProvider
 import com.jn.winremote.protocol.AlertData
 import com.jn.winremote.protocol.ClientMessage
 import com.jn.winremote.protocol.FileEventData
@@ -52,7 +52,7 @@ private const val WATCHDOG_INTERVAL_MILLIS = 5_000L
  * user interaction needed after a transient drop).
  */
 class WinRemoteRepository(
-    private val secureStore: SecureStore,
+    private val secureStore: ActiveDeviceProvider,
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 

@@ -41,44 +41,51 @@ func GeneratePairingCode() (string, error) {
 	return string(out), nil
 }
 
-// pairingRecord is one outstanding (or spent) pairing code.
-type pairingRecord struct {
-	code      string
-	createdAt time.Time
-	expiresAt time.Time
-	used      bool
+// PairingCodeStore persists issued pairing codes. This exists (rather than
+// an in-memory map) because `agent --pair` and the long-running `agent`
+// server are two separate OS processes that cannot share Go in-memory
+// state: a code issued by a short-lived `--pair` invocation must still be
+// visible to the already-running (or about-to-be-started) server process
+// that will actually receive the phone's pair_request. The agent package's
+// sqlite-backed Store implements this interface; tests use a small
+// in-memory fake (see pairing_test.go) to keep this package free of any
+// storage-engine dependency.
+type PairingCodeStore interface {
+	PutPairingCode(code string, createdAt, expiresAt time.Time) error
+	GetPairingCode(code string) (createdAt, expiresAt time.Time, used bool, found bool, err error)
+	MarkPairingCodeUsed(code string) error
+	PurgeExpiredPairingCodes(now time.Time) error
 }
 
-// PairingManager owns the set of live pairing codes and the per-connection
-// failed-attempt counters that trigger a hard lockout (PROTOCOL.md §2).
-// It holds no network state; the WS layer calls into it and acts on the
-// result (e.g. closing the socket on LockedOut).
+// PairingManager validates pair_request attempts against codes held in a
+// PairingCodeStore, plus the per-connection failed-attempt counters that
+// trigger a hard lockout (PROTOCOL.md §2). It holds no network state; the
+// WS layer calls into it and acts on the result (e.g. closing the socket
+// on LockedOut).
 type PairingManager struct {
-	mu      sync.Mutex
-	codes   map[string]*pairingRecord
+	mu       sync.Mutex
+	store    PairingCodeStore
 	attempts *SimpleCounter
 }
 
-func NewPairingManager() *PairingManager {
+func NewPairingManager(store PairingCodeStore) *PairingManager {
 	return &PairingManager{
-		codes:    make(map[string]*pairingRecord),
+		store:    store,
 		attempts: NewSimpleCounter(MaxPairAttempts),
 	}
 }
 
-// IssueCode generates and registers a new pairing code, valid from now for
-// PairingCodeTTL. This is what `agent --pair` calls.
+// IssueCode generates and persists a new pairing code, valid from now for
+// PairingCodeTTL. This is what `agent --pair` calls; the server process
+// that later validates a pair_request against this code may be a
+// different OS process than the one that issued it.
 func (pm *PairingManager) IssueCode(now time.Time) (string, error) {
 	code, err := GeneratePairingCode()
 	if err != nil {
 		return "", err
 	}
-	pm.mu.Lock()
-	defer pm.mu.Unlock()
-	pm.codes[code] = &pairingRecord{
-		code:      code,
-		createdAt: now,
-		expiresAt: now.Add(PairingCodeTTL),
+	if err := pm.store.PutPairingCode(code, now, now.Add(PairingCodeTTL)); err != nil {
+		return "", fmt.Errorf("persisting pairing code: %w", err)
 	}
 	return code, nil
 }
@@ -121,23 +128,28 @@ func (pm *PairingManager) Attempt(connectionKey, code string, now time.Time) Pai
 		return PairLockedOut
 	}
 
-	rec, ok := pm.codes[code]
-	valid := ok && !rec.used && now.Before(rec.expiresAt)
-	expired := ok && !rec.used && !now.Before(rec.expiresAt)
+	_, expiresAt, used, found, err := pm.store.GetPairingCode(code)
+	if err != nil {
+		// A storage error is indistinguishable from "no such code" from
+		// the caller's point of view; never treat it as success.
+		found = false
+	}
+	valid := found && !used && now.Before(expiresAt)
+	expired := found && !used && !now.Before(expiresAt)
 
 	if valid {
-		rec.used = true
+		_ = pm.store.MarkPairingCodeUsed(code)
 		pm.attempts.Reset(connectionKey)
 		return PairOK
 	}
 
 	exceeded := pm.attempts.Increment(connectionKey)
-	if ok {
+	if found {
 		// Invalidate a real-but-wrong-state code so it can't be retried,
 		// per "the underlying code is invalidated" on lockout; also
 		// invalidate an expired code outright since it can never succeed.
 		if expired || exceeded {
-			rec.used = true
+			_ = pm.store.MarkPairingCodeUsed(code)
 		}
 	}
 	if exceeded {
@@ -164,14 +176,8 @@ func (pm *PairingManager) IsLockedOut(connectionKey string) bool {
 	return locked
 }
 
-// PurgeExpired drops fully expired, unused codes to bound memory growth on
-// a long-running agent. Safe to call periodically.
-func (pm *PairingManager) PurgeExpired(now time.Time) {
-	pm.mu.Lock()
-	defer pm.mu.Unlock()
-	for code, rec := range pm.codes {
-		if rec.used || now.After(rec.expiresAt) {
-			delete(pm.codes, code)
-		}
-	}
+// PurgeExpired drops spent/expired codes from the store, so it doesn't
+// grow unbounded on a long-running agent. Safe to call periodically.
+func (pm *PairingManager) PurgeExpired(now time.Time) error {
+	return pm.store.PurgeExpiredPairingCodes(now)
 }

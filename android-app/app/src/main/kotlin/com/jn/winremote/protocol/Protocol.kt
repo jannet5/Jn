@@ -26,6 +26,16 @@ val protocolJson: Json = Json {
     encodeDefaults = true
     isLenient = false
     classDiscriminator = "type"
+    // Defense in depth: a server-side "empty list" can legitimately arrive
+    // as JSON null (e.g. Go's encoding/json marshals a nil slice as null,
+    // not []) even though every `items` field here is meant to always be a
+    // list. Without this, such a null would throw during decode -
+    // decodeServerMessage would silently swallow that exception and drop
+    // the whole message, and the caller's request would hang until its
+    // own timeout instead of just seeing an empty list. coerceInputValues
+    // makes a null (or any other invalid value) for a field that has a
+    // default fall back to that default instead of failing decode.
+    coerceInputValues = true
 }
 
 // ---------------------------------------------------------------------------
@@ -331,7 +341,7 @@ sealed class ServerMessage {
     @SerialName("process_list")
     data class ProcessList(
         @SerialName("request_id") val requestId: String,
-        @SerialName("items") val items: List<ProcessItem>,
+        @SerialName("items") val items: List<ProcessItem> = emptyList(),
     ) : ServerMessage()
 
     @Serializable
@@ -348,7 +358,7 @@ sealed class ServerMessage {
     @SerialName("allowed_apps")
     data class AllowedApps(
         @SerialName("request_id") val requestId: String,
-        @SerialName("items") val items: List<AllowedAppItem>,
+        @SerialName("items") val items: List<AllowedAppItem> = emptyList(),
     ) : ServerMessage()
 
     @Serializable
@@ -356,7 +366,7 @@ sealed class ServerMessage {
     data class FileEventsResult(
         @SerialName("request_id") val requestId: String,
         @SerialName("total") val total: Int,
-        @SerialName("items") val items: List<FileEventData>,
+        @SerialName("items") val items: List<FileEventData> = emptyList(),
     ) : ServerMessage()
 
     @Serializable
@@ -364,14 +374,14 @@ sealed class ServerMessage {
     data class TopGrowthResult(
         @SerialName("request_id") val requestId: String,
         @SerialName("window") val window: String,
-        @SerialName("items") val items: List<TopGrowthItem>,
+        @SerialName("items") val items: List<TopGrowthItem> = emptyList(),
     ) : ServerMessage()
 
     @Serializable
     @SerialName("alerts")
     data class AlertsResult(
         @SerialName("request_id") val requestId: String,
-        @SerialName("items") val items: List<AlertData>,
+        @SerialName("items") val items: List<AlertData> = emptyList(),
     ) : ServerMessage()
 
     @Serializable
@@ -379,7 +389,7 @@ sealed class ServerMessage {
     data class HistoryResult(
         @SerialName("request_id") val requestId: String,
         @SerialName("total") val total: Int,
-        @SerialName("items") val items: List<HistoryItem>,
+        @SerialName("items") val items: List<HistoryItem> = emptyList(),
     ) : ServerMessage()
 
     @Serializable

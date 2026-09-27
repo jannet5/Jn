@@ -8,6 +8,21 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 /**
+ * The one piece of [SecureStore] that [com.jn.winremote.repository.WinRemoteRepository]
+ * actually needs: "which paired PC should connect() to by default". Kept
+ * as a narrow interface (rather than depending on the concrete,
+ * Android-Keystore-backed [SecureStore] directly) so the repository/
+ * protocol/crypto layer has no Android-framework dependency and can be
+ * exercised by a plain-JVM test against a real running agent - the
+ * Keystore-backed storage itself still needs a real Android Context and
+ * is only exercisable on-device, but the networking/protocol logic that
+ * consumes its output does not need to be.
+ */
+interface ActiveDeviceProvider {
+    fun getActiveDevice(): PairedDevice?
+}
+
+/**
  * Persists paired-device records (device_id, device_secret, pinned cert
  * fingerprint, host/port) in [EncryptedSharedPreferences] backed by the
  * Android Keystore. Supports multiple paired PCs; one of them is marked
@@ -16,7 +31,7 @@ import kotlinx.serialization.json.Json
  * Nothing here ever calls Log.* or println with a [PairedDevice] — see its
  * redacted [PairedDevice.toString].
  */
-class SecureStore(context: Context) {
+class SecureStore(context: Context) : ActiveDeviceProvider {
 
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -48,7 +63,7 @@ class SecureStore(context: Context) {
         listDevices().firstOrNull { it.deviceId == deviceId }
 
     @Synchronized
-    fun getActiveDevice(): PairedDevice? {
+    override fun getActiveDevice(): PairedDevice? {
         val activeId = prefs.getString(KEY_ACTIVE_DEVICE_ID, null) ?: return listDevices().firstOrNull()
         return getDevice(activeId) ?: listDevices().firstOrNull()
     }

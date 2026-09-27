@@ -8,6 +8,56 @@ import (
 
 var pairingCodeFormat = regexp.MustCompile(`^[23456789ABCDEFGHJKMNPQRSTUVWXYZ]{4}-[23456789ABCDEFGHJKMNPQRSTUVWXYZ]{4}$`)
 
+// fakePairingStore is an in-memory PairingCodeStore for testing the
+// PairingManager's logic in isolation from any real storage engine (the
+// real implementation, agent.Store, is sqlite-backed and lives in a
+// different package specifically so this package stays dependency-free).
+type fakePairingStore struct {
+	codes map[string]*fakePairingRecord
+}
+
+type fakePairingRecord struct {
+	createdAt, expiresAt time.Time
+	used                 bool
+}
+
+func newFakePairingStore() *fakePairingStore {
+	return &fakePairingStore{codes: make(map[string]*fakePairingRecord)}
+}
+
+func (f *fakePairingStore) PutPairingCode(code string, createdAt, expiresAt time.Time) error {
+	f.codes[code] = &fakePairingRecord{createdAt: createdAt, expiresAt: expiresAt}
+	return nil
+}
+
+func (f *fakePairingStore) GetPairingCode(code string) (createdAt, expiresAt time.Time, used bool, found bool, err error) {
+	rec, ok := f.codes[code]
+	if !ok {
+		return time.Time{}, time.Time{}, false, false, nil
+	}
+	return rec.createdAt, rec.expiresAt, rec.used, true, nil
+}
+
+func (f *fakePairingStore) MarkPairingCodeUsed(code string) error {
+	if rec, ok := f.codes[code]; ok {
+		rec.used = true
+	}
+	return nil
+}
+
+func (f *fakePairingStore) PurgeExpiredPairingCodes(now time.Time) error {
+	for code, rec := range f.codes {
+		if rec.used || now.After(rec.expiresAt) {
+			delete(f.codes, code)
+		}
+	}
+	return nil
+}
+
+func newTestPairingManager() *PairingManager {
+	return NewPairingManager(newFakePairingStore())
+}
+
 func TestGeneratePairingCode_Format(t *testing.T) {
 	for i := 0; i < 100; i++ {
 		code, err := GeneratePairingCode()
@@ -21,7 +71,7 @@ func TestGeneratePairingCode_Format(t *testing.T) {
 }
 
 func TestPairingManager_SuccessfulPair(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	code, err := pm.IssueCode(now)
 	if err != nil {
@@ -34,7 +84,7 @@ func TestPairingManager_SuccessfulPair(t *testing.T) {
 }
 
 func TestPairingManager_SingleUse(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	code, _ := pm.IssueCode(now)
 	if outcome := pm.Attempt("conn1", code, now); outcome != PairOK {
@@ -46,7 +96,7 @@ func TestPairingManager_SingleUse(t *testing.T) {
 }
 
 func TestPairingManager_ExpiredCode(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	code, _ := pm.IssueCode(now)
 	later := now.Add(PairingCodeTTL + time.Second)
@@ -57,7 +107,7 @@ func TestPairingManager_ExpiredCode(t *testing.T) {
 }
 
 func TestPairingManager_InvalidCode(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	outcome := pm.Attempt("conn1", "0000-0000", now)
 	if outcome != PairInvalidCode {
@@ -66,7 +116,7 @@ func TestPairingManager_InvalidCode(t *testing.T) {
 }
 
 func TestPairingManager_LockoutAfter5FailedAttempts(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	for i := 0; i < 4; i++ {
 		outcome := pm.Attempt("conn1", "BADCODE1", now)
@@ -92,7 +142,7 @@ func TestPairingManager_LockoutAfter5FailedAttempts(t *testing.T) {
 }
 
 func TestPairingManager_LockoutIsolatedPerConnection(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	for i := 0; i < 5; i++ {
 		pm.Attempt("conn1", "BADCODE1", now)
@@ -111,7 +161,7 @@ func TestPairingManager_LockoutIsolatedPerConnection(t *testing.T) {
 }
 
 func TestPairingManager_PurgeExpired(t *testing.T) {
-	pm := NewPairingManager()
+	pm := newTestPairingManager()
 	now := time.Now()
 	code, _ := pm.IssueCode(now)
 	pm.PurgeExpired(now.Add(PairingCodeTTL + time.Minute))

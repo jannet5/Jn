@@ -8,6 +8,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"time"
 
 	_ "modernc.org/sqlite"
 
@@ -102,6 +103,18 @@ CREATE TABLE IF NOT EXISTS disk_free_history (
 	free_bytes INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_disk_free_ts ON disk_free_history(ts, volume);
+
+-- Pairing codes are persisted (not just held in memory) so that a short-
+-- lived "agent --pair" invocation can issue a code that a separately
+-- running, already-started "agent" server process will actually see and
+-- accept: two OS processes cannot share Go in-memory state, only this
+-- shared sqlite file.
+CREATE TABLE IF NOT EXISTS pairing_codes (
+	code TEXT PRIMARY KEY,
+	created_at INTEGER NOT NULL,
+	expires_at INTEGER NOT NULL,
+	used INTEGER NOT NULL DEFAULT 0
+);
 `
 
 func (s *Store) migrate() error {
@@ -188,6 +201,14 @@ type FileEventQuery struct {
 }
 
 func (s *Store) QueryFileEvents(q FileEventQuery) (items []core.FileEventRecord, total int, err error) {
+	// Start non-nil: Go's encoding/json marshals a nil slice as JSON null,
+	// not []. The Android client's ServerMessage.FileEventsResult.items is
+	// a non-nullable List<FileEventData> with no default, so a literal
+	// `null` fails to decode there (silently, since decodeServerMessage
+	// catches and drops it) and the request hangs until timeout. Found by
+	// actually running this agent against the real Android client code -
+	// see docs/PROTOCOL.md and the E2E test that caught it.
+	items = []core.FileEventRecord{}
 	where := `WHERE ts >= ? AND ts <= ? AND size_bytes >= ?`
 	args := []interface{}{q.FromTS, q.ToTS, q.MinSizeBytes}
 	if q.Op != nil && *q.Op != "" {
@@ -372,7 +393,7 @@ func (s *Store) ListAlerts(limit int) ([]core.AlertRecord, error) {
 		return nil, err
 	}
 	defer rows.Close()
-	var out []core.AlertRecord
+	out := []core.AlertRecord{} // see QueryFileEvents: must not stay nil (-> JSON null)
 	for rows.Next() {
 		var a core.AlertRecord
 		var ctxJSON string
@@ -411,6 +432,7 @@ func (s *Store) InsertHistory(h HistoryEntry) error {
 }
 
 func (s *Store) QueryHistory(fromTS, toTS int64, limit, offset int) (items []core.HistoryItem, total int, err error) {
+	items = []core.HistoryItem{} // see QueryFileEvents: must not stay nil (-> JSON null)
 	if limit <= 0 {
 		limit = 50
 	}
@@ -441,6 +463,44 @@ func (s *Store) QueryHistory(fromTS, toTS int64, limit, offset int) (items []cor
 		items = append(items, h)
 	}
 	return items, total, rows.Err()
+}
+
+// ---- Pairing codes ----
+//
+// This backs core.PairingManager (via the core.PairingCodeStore interface)
+// so pairing state survives across separate process invocations - see the
+// schema comment above.
+
+func (s *Store) PutPairingCode(code string, createdAt, expiresAt time.Time) error {
+	_, err := s.db.Exec(`INSERT INTO pairing_codes (code, created_at, expires_at, used) VALUES (?, ?, ?, 0)`,
+		code, createdAt.Unix(), expiresAt.Unix())
+	return err
+}
+
+func (s *Store) GetPairingCode(code string) (createdAt, expiresAt time.Time, used bool, found bool, err error) {
+	var createdUnix, expiresUnix int64
+	var usedInt int
+	row := s.db.QueryRow(`SELECT created_at, expires_at, used FROM pairing_codes WHERE code = ?`, code)
+	scanErr := row.Scan(&createdUnix, &expiresUnix, &usedInt)
+	if scanErr == sql.ErrNoRows {
+		return time.Time{}, time.Time{}, false, false, nil
+	}
+	if scanErr != nil {
+		return time.Time{}, time.Time{}, false, false, scanErr
+	}
+	return time.Unix(createdUnix, 0), time.Unix(expiresUnix, 0), usedInt != 0, true, nil
+}
+
+func (s *Store) MarkPairingCodeUsed(code string) error {
+	_, err := s.db.Exec(`UPDATE pairing_codes SET used = 1 WHERE code = ?`, code)
+	return err
+}
+
+// PurgeExpiredPairingCodes drops spent/expired codes so the table doesn't
+// grow unbounded on a long-running agent.
+func (s *Store) PurgeExpiredPairingCodes(now time.Time) error {
+	_, err := s.db.Exec(`DELETE FROM pairing_codes WHERE used = 1 OR expires_at < ?`, now.Unix())
+	return err
 }
 
 // ---- helpers ----

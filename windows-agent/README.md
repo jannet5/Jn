@@ -98,12 +98,19 @@ Run everything (vet + full test suite + cross-compile + checksum) with:
 
 ## Pairing from the phone
 
-On the Windows machine, with the agent **already running** (pairing codes
-are generated against the running server's in-memory pairing manager —
-run this in a second console, or briefly stop the server, generate the
-code, and restart it before the phone connects... in practice, the
-cleanest flow is to run the agent normally and use `--pair` from a second
-terminal, since pairing state is per-process; see Known limitations):
+Pairing codes are persisted to the agent's local sqlite database, so
+`--pair` works as a quick, separate command whether the long-running
+server (`winremotemonitor-agent.exe`, no flags) is already running in the
+background or you start it right after — the two are independent
+processes but share the same on-disk state. (Earlier in development
+`--pair` issued codes into an in-memory map private to its own short-lived
+process, which meant a code could never actually reach the real,
+separately-running server — this was a real bug, caught by actually
+running both as separate processes against a real client; see "What has
+and hasn't been verified" and `TestPairingCode_SurvivesAcrossSeparateProcesses`.)
+
+On the Windows machine, with the agent server running (in the background
+or in another console):
 
 ```
 winremotemonitor-agent.exe --pair
@@ -163,20 +170,18 @@ documented choice (in code comments at the relevant spot) rather than
 editing the spec. Summary, for the person reconciling this with the
 Android side:
 
-1. **Device-secret storage vs. challenge-response is contradictory as
-   literally written** (`internal/core/auth.go`). PROTOCOL.md §2 says the
+1. **Device-secret storage vs. challenge-response was contradictory as
+   originally written** (`internal/core/auth.go`). PROTOCOL.md §2 said the
    device secret is "stored on the agent hashed (HMAC-SHA256 with a
    server-local key)" and never in plaintext; §4.3's challenge-response
    requires the agent to compute `HMAC_SHA256(device_secret, nonce||":"||
    device_id)` itself, which needs the *raw* secret, not a one-way hash of
-   it. You cannot do both literally. This implementation stores the
-   secret under **authenticated symmetric encryption (AES-256-GCM)** keyed
-   by the same server-local key, reversible only by the agent, which
-   preserves the spirit ("never plaintext at rest, never leaves the
-   machine") while actually letting challenge-response work. If the
-   Android side (or a future reviewer) assumed the literal one-way-hash
-   reading, that assumption needs to be revisited — challenge-response
-   cannot work with a one-way hash.
+   it. This implementation stores the secret under **authenticated
+   symmetric encryption (AES-256-GCM)** keyed by the same server-local
+   key, reversible only by the agent. **Update:** `docs/PROTOCOL.md` §2
+   has since been corrected to describe this (reversible encryption, not a
+   one-way hash) as the spec itself, once both this implementation and the
+   Android side were reconciled — no remaining mismatch.
 2. **Severity mapping (warning vs. critical) is unspecified** for all four
    alert kinds in §8 — PROTOCOL.md only gives trigger thresholds, not a
    severity rule. This implementation's choice (`internal/core/alerts.go`):
@@ -199,18 +204,24 @@ Android side:
    (`internal/agent/watcher.go`, 500ms window) as a defensive throttle
    independent of the glob list — but this is a best-effort guess at what
    was intended, not a literal implementation of a spec'd mechanism.
-5. **The QR pairing payload schema is not specified** by PROTOCOL.md at
+5. **The QR pairing payload schema was not specified** by PROTOCOL.md at
    all (only that a QR code is shown). This implementation's chosen JSON
    shape is in `internal/agent/pairing_qr.go` and printed above under
-   "Pairing from the phone" — the Android side needs to read the same
-   shape, or the two apps need to agree on a different one.
+   "Pairing from the phone". **Update:** this exact shape (`host`, `port`,
+   `pairing_code`, `fingerprint_sha256`) is now documented as the spec in
+   `docs/PROTOCOL.md` §10, and was confirmed to be exactly what the
+   Android client's QR parser expects, end-to-end, against this agent.
 6. **An expired/missing auth challenge has no dedicated `auth_failed`
    reason** in §4.3's enumerated list (`bad_hmac|unknown_device|revoked|
    locked_out`). This implementation reports it as `bad_hmac`
    (`internal/agent/server.go`), which is defensible but not literally
    what happened.
 
-None of these were "fixed" by editing `docs/PROTOCOL.md`, per instructions.
+Items 1 and 5 were later confirmed against the real Android implementation
+(see "What has and hasn't been verified" below) and folded back into
+`docs/PROTOCOL.md` as the actual spec, once both sides could be reconciled
+against each other rather than guessed independently. Items 2–4, 6 remain
+this implementation's best-effort, unconfirmed-against-Android choices.
 
 ## Known limitations / simplifications
 
@@ -219,19 +230,17 @@ None of these were "fixed" by editing `docs/PROTOCOL.md`, per instructions.
   available, this was a deliberate scope cut. Wiring it up as a proper
   service (`golang.org/x/sys/windows/svc`, or wrapping with NSSM/Task
   Scheduler) is future work, not done here.
-- **Pairing is per-process, in-memory.** `PairingManager` (issued codes,
-  per-connection attempt counters) lives only in the running server
-  process's memory — it is not persisted to sqlite. Restarting the agent
-  invalidates any outstanding (not-yet-used) pairing code. This matches
-  the "codes expire after 5 minutes anyway" spirit of the spec but means
-  `--pair` must talk to an *already-running* agent process (see the
-  pairing section above) rather than being a fully standalone one-shot
-  command; a cleaner design would run `--pair` as a client call to the
-  live agent over a local control channel, which wasn't built here.
-- **Alert severity thresholds, glob semantics, QR payload, and the
-  device-secret storage mechanism are this implementation's own
-  documented interpretations** of underspecified/contradictory parts of
-  the spec — see the section above. Anthropic-flagged, not spec-changed.
+- **Pairing codes are persisted to sqlite** (fixed after this was initially
+  built in-memory-only, which was a real cross-process bug — see the
+  pairing section above); per-connection failed-attempt lockout counters
+  remain in-memory, scoped to the live server process, which is correct
+  since they only ever matter within an active connection attempt.
+- **Alert severity thresholds and glob semantics remain this
+  implementation's own documented interpretations** of underspecified
+  parts of the spec (see the section above); the QR payload schema and
+  device-secret storage mechanism were also this implementation's
+  interpretation originally but have since been folded into
+  `docs/PROTOCOL.md` itself once confirmed against the real Android side.
 - **IPv4-only** for the printed "connect to" LAN IP and cert SANs;
   IPv6-only networks aren't specifically handled.
 - **No rate limiting on non-auth message types** beyond the
@@ -280,6 +289,19 @@ Windows machine. Verified vs. not verified, explicitly:
 - The critical-process predicate, allow-list validation, pairing/lockout
   state machines, growth-delta math, and alert-threshold math are all
   exhaustively table-tested as pure functions (`internal/core/*_test.go`).
+- **This exact agent binary was run live on this Linux machine and driven
+  by the real Android app's real protocol/crypto/repository code** (not a
+  mock of either side) — see `android-app/app/src/test/kotlin/com/jn/winremote/e2e/LiveAgentEndToEndTest.kt`.
+  Real pairing, real HMAC challenge-response, a real live metrics push, a
+  real process kill, a real allow-listed app launch, and real file-created/
+  deleted events all round-tripped correctly. This caught and led to fixing
+  two real bugs that no amount of same-side unit testing could have found:
+  pairing codes not surviving across the `--pair` / long-running-server
+  process boundary (`TestPairingCode_SurvivesAcrossSeparateProcesses`), and
+  empty `items` lists serializing as JSON `null` instead of `[]`
+  (`TestStore_EmptyListsAreNeverNil`) — which the real Android client's
+  non-nullable `List<T>` fields could not decode, hanging every such
+  request until timeout.
 
 **NOT verified — genuinely unknown until this runs on a real Windows box:**
 - **Real Windows process-owner detection.** `core.EvaluateProtection`'s
@@ -296,11 +318,14 @@ Windows machine. Verified vs. not verified, explicitly:
   whether gopsutil's `Process.Name()` returns exactly `"explorer.exe"`
   (vs., say, a different case or a full path) on a real Windows install
   has not been observed.
-- **The actual TLS handshake against a real Android client**, including
-  whether the Android side's certificate-pinning logic (computing the
-  same "SHA-256 of DER-encoded public key, hex, lowercase, no separators"
-  fingerprint this agent prints) actually matches byte-for-byte — this was
-  only tested against Go's own TLS client in this repo's own tests.
+- ~~The actual TLS handshake against a real Android client~~ — **now
+  verified**: the real Android cert-pinning code (computing the same
+  "SHA-256 of DER-encoded public key, hex, lowercase, no separators"
+  fingerprint this agent prints) was run for real against this agent's
+  real TLS listener and matched byte-for-byte (see the live E2E bullet
+  above). What's still unverified is this same TLS stack running on
+  Windows specifically (its certificate store / crypto backend can differ
+  from Linux's).
 - **Windows Defender / Windows Firewall interaction.** Whether a fresh
   Windows install prompts to allow the exe through the firewall for
   inbound WS connections, or whether Defender SmartScreen flags an

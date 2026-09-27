@@ -68,7 +68,7 @@ func NewServer(cfg core.Config, store *Store, allowList *core.AllowList, serverK
 		Metrics:      &MetricsSampler{Volumes: defaultVolumes()},
 		AgentVersion: "1.0.0",
 		Hostname:     hostname,
-		PairingMgr:   core.NewPairingManager(),
+		PairingMgr:   core.NewPairingManager(store),
 		AuthLockout:  core.NewBackoffLockout(AuthLockoutBase, AuthLockoutMax, AuthLockoutThreshold),
 		upgrader:     websocket.Upgrader{ReadBufferSize: 4096, WriteBufferSize: 4096},
 		sessions:     make(map[*Session]struct{}),

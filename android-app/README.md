@@ -70,26 +70,31 @@ type an arbitrary path or command.
 
 ## Spec interpretation notes (things PROTOCOL.md left implicit)
 
-I did not edit `docs/PROTOCOL.md`. Two places where I had to pick a concrete
-interpretation, flagged here since the Windows agent is being built concurrently by a
-different agent against the same document:
+One place I had to pick a concrete interpretation remains open; two others below have
+since been resolved and confirmed by actually running this code against a real,
+live windows-agent instance (see `app/src/test/kotlin/com/jn/winremote/e2e/LiveAgentEndToEndTest.kt`
+and the top-level `README.md`'s "Gerçek uçtan uca doğrulama" section) — not just
+assumed independently by each side:
 
-1. **Fingerprint scope.** §1 calls it "the certificate's SHA-256 fingerprint" in prose
-   but then precisely defines it as "the DER-encoded **public key**, hex-encoded
-   lowercase, no separators" — i.e. an SPKI pin, not a whole-certificate hash. I
-   implemented exactly the precise definition (`crypto/CertPinning.kt:publicKeyFingerprintHex`),
-   verified against an `openssl x509 -pubkey | openssl pkey -pubin -outform DER |
-   openssl dgst -sha256` reference value in `CertPinningTest`. If the Windows agent
-   instead pins/prints a whole-certificate SHA-256, pairing will report a fingerprint
-   mismatch — worth a quick cross-check once both sides run against each other.
-2. **QR payload schema.** §2/§3 require the pairing code and fingerprint to come
-   out-of-band via "QR code or manual entry" but never define the QR's JSON shape.
-   `pairing/QrPairingPayload.kt` assumes `{"host","port","fingerprint","pairing_code",
-   "agent_name"?}` (tolerating `cert_fingerprint`/`fp` and `code` as synonyms for the
-   two security-critical fields). The **manual-entry form is fully independent and
-   equally capable** — every pairing field it needs is typeable by hand — so a schema
-   mismatch degrades to "use manual entry", never to a broken pairing flow.
-3. **`processes` push topic.** §4.4 says the server "allows subscribing to it for a
+1. **Fingerprint scope — confirmed matching.** §1 calls it "the certificate's SHA-256
+   fingerprint" in prose but then precisely defines it as "the DER-encoded **public
+   key**, hex-encoded lowercase, no separators" — i.e. an SPKI pin, not a
+   whole-certificate hash. `crypto/CertPinning.kt:publicKeyFingerprintHex` implements
+   exactly the precise definition (also verified against an `openssl x509 -pubkey |
+   openssl pkey -pubin -outform DER | openssl dgst -sha256` reference value in
+   `CertPinningTest`), and this was confirmed to match the Windows agent's own
+   fingerprint byte-for-byte in a real, live pairing + TLS handshake.
+2. **QR payload schema — confirmed matching.** §2/§3 required the pairing code and
+   fingerprint to come out-of-band via "QR code or manual entry" but didn't originally
+   define the QR's JSON shape. The Windows agent's actual QR payload uses
+   `{"host","port","pairing_code","fingerprint_sha256"}` — now documented as the spec
+   in `docs/PROTOCOL.md` §10. `pairing/QrPairingPayload.kt` recognizes this exact key
+   (`fingerprint_sha256` as canonical, `fingerprint`/`cert_fingerprint`/`fp` tolerated
+   as synonyms), confirmed by a regression test (`QrPairingPayloadTest`) built from
+   this exact interoperability mismatch, which was found and fixed during the live
+   cross-implementation test. The **manual-entry form remains fully independent and
+   equally capable** as a fallback regardless.
+3. **`processes` push topic — still an open interpretation.** §4.4 says the server "allows subscribing to it for a
    lighter periodic snapshot (every 5s)" but the message catalogue never shows what a
    push-mode `process_list` looks like (whether it carries a `request_id` at all, and
    if so, which one). To avoid guessing at undocumented framing, the Süreçler screen
@@ -188,7 +193,8 @@ same screen (only one connection is held at a time).
 
 ## Testing done in this environment
 
-- `./gradlew testDebugUnitTest`: **79 tests, 0 failures, 0 errors, 0 skipped.**
+- `./gradlew testDebugUnitTest`: **81 tests, 0 failures, 0 errors, 1 skipped**
+  (the live-agent E2E test below, which self-skips when no live agent is configured).
   Covers: full protocol JSON round-trips against literal PROTOCOL.md examples
   (`ProtocolCodecTest`), HMAC challenge-response math against an RFC 4231 vector and
   an independently Python-computed vector (`HmacAuthTest`), certificate-pinning
@@ -198,8 +204,11 @@ same screen (only one connection is held at a time).
   critical-process UI-hint rules mirroring PROTOCOL.md §5 (`CriticalProcessRulesTest`),
   QR-payload parsing (`QrPairingPayloadTest`), YUV-plane rotation math for the QR
   analyzer (`YuvRotateTest`), byte/percent/timestamp formatting (`FormattingTest`),
-  Turkish reason-code text coverage (`ReasonTextTest`), and `PairedDevice`
-  JSON round-trip + secret-redaction (`PairedDeviceSerializationTest`).
+  Turkish reason-code text coverage (`ReasonTextTest`), `PairedDevice`
+  JSON round-trip + secret-redaction (`PairedDeviceSerializationTest`), and a real,
+  non-mocked end-to-end run against a live `windows-agent` process
+  (`e2e/LiveAgentEndToEndTest`, self-skipped here but run for real during development
+  — see its class doc for exact reproduction steps, and the top-level `README.md`).
 - `./gradlew assembleDebug` and `./gradlew assembleRelease`: both succeed; both
   output files verified to be real, valid APK/zip archives (`file`, `unzip -l`) and
   correctly signed (`apksigner verify --print-certs`, confirming the release APK
@@ -208,13 +217,18 @@ same screen (only one connection is held at a time).
 - Manually grepped the entire `app/src/main/kotlin` tree for `Log.` / `println(` to
   confirm no call ever logs a secret, HMAC, or nonce value.
 
-## What is NOT verified (no device, emulator, or live Windows agent in this environment)
+## What is NOT verified (no device or emulator in this environment)
 
 This container has the Android SDK's build tools but **no emulator and no physical
-device**, and the Windows agent is a separate binary being built concurrently — not a
-live server reachable here. So the following are implemented per-spec and compile/
-unit-test cleanly, but their actual runtime behavior on a device has **not** been
-observed:
+device** — Android UI/camera/touch/background-lifecycle behavior genuinely cannot be
+observed here (checked: no `/dev/kvm`, no CPU `vmx`/`svm` — an unaccelerated Android
+emulator is not practically usable in this container). A real running windows-agent
+process WAS available (built from `windows-agent/` in this same repo, run natively on
+this machine), so — unlike a typical isolated unit-test suite — this app's actual
+network/protocol/crypto code was driven against a real live server; see
+`app/src/test/kotlin/com/jn/winremote/e2e/LiveAgentEndToEndTest.kt` and the
+"Real TLS handshake / WebSocket connection" bullet below. What genuinely still has
+**not** been observed is Android-framework/on-device behavior:
 
 - **QR camera scanning.** `ui/pairing/QrAnalyzer.kt` (CameraX `ImageAnalysis.Analyzer`
   + ZXing's `QRCodeReader` run directly against the Y/luminance plane) has never
@@ -222,11 +236,19 @@ observed:
   handling sensor-vs-portrait rotation) is unit-tested. Actual decode reliability in
   good/bad lighting, at an angle, or with a low-end camera sensor is unverified.
   The manual-entry pairing path does not depend on this at all.
-- **Real TLS handshake / WebSocket connection.** No live agent to connect to here, so
-  the actual `wss://` handshake, the real pinned-fingerprint check against a live
-  self-signed cert, and the full `hello`/`auth_challenge`/`auth_response` exchange
-  have only been exercised by unit tests against literal JSON and a static test
-  certificate — never against a running Go agent process.
+- ~~Real TLS handshake / WebSocket connection~~ — **now verified**: a real
+  `windows-agent` instance was run live on this machine and this app's actual
+  `PairingClient`/`WinRemoteRepository`/`CertPinning`/`HmacAuth` code connected to it
+  for real — real `wss://` handshake, real pinned-fingerprint check against the
+  agent's real self-signed cert, and the full real `hello`/`pair_request`/
+  `auth_challenge`/`auth_response` exchange, followed by real `list_processes`,
+  `kill_process` (on a real spawned process), `launch_app` (a real allow-listed
+  process, verified running, then cleaned up), and real `file_event` pushes from a
+  real watched directory. This caught two real bugs (a QR field-name mismatch and a
+  Go nil-slice-marshals-as-`null` bug that hung `list_alerts` forever) that were then
+  fixed on both sides — see the top-level `README.md`. What's still unverified is
+  this same code running on an actual Android device/OS rather than a plain JVM, and
+  a live agent running on real Windows rather than this Linux container.
 - **Reconnect-after-real-network-loss.** The backoff *sequencing* is unit-tested;
   actually killing Wi-Fi/mobile data mid-session and observing the phone silently
   recover (or the liveness watchdog in `WinRemoteRepository` correctly detecting a
@@ -250,7 +272,9 @@ observed:
   implemented with standard Compose/Material 3 APIs but never interacted with on a
   real touchscreen.
 
-In short: **the protocol layer, crypto, backoff, filters, and formatting are real and
-verified by tests; the Android-framework-dependent runtime behavior (camera, live
-TLS/WebSocket I/O against a real agent, on-screen rendering, background lifecycle) is
-implemented per-spec but unverified in this environment.**
+In short: **the protocol layer, crypto, backoff, filters, formatting, and the full
+network/auth/request-response flow are real and verified — including live, against a
+real running windows-agent process, not just same-side unit tests. What remains
+unverified is specifically the Android-framework/on-device layer (camera decode,
+on-screen rendering, background lifecycle, touch interaction) and running either side
+on its real target OS (Android device, Windows PC) instead of this Linux container.**

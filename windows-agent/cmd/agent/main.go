@@ -200,9 +200,10 @@ func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int) {
 	}
 	fmt.Printf("QR code written to: %s\n", outPath)
 	fmt.Println()
-	fmt.Println("NOTE: this pairing code and the process that generated it must remain")
-	fmt.Println("running (the agent server) for pairing to succeed; run this alongside")
-	fmt.Println("or right before starting `agent` without --pair.")
+	fmt.Println("This code is saved to the agent's local database, so it works whether")
+	fmt.Println("the agent server (`agent`, no --pair) is already running in the")
+	fmt.Println("background or you start it right after this command - either way, the")
+	fmt.Println("server must be reachable and started before the code expires.")
 }
 
 // runDevicesCommand implements `agent devices <list|revoke> [id] [--config
