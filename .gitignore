@@ -7,6 +7,7 @@ obj/
 .gradle/
 /android-app/local.properties
 /android-app/.idea/
+/android-app/build/
 /android-app/*/build/
 /android-app/captures/
 *.apk
