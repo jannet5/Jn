@@ -19,12 +19,35 @@
     <string name="pairing_success">Eşleşme tamamlandı!</string>
     <string name="pairing_device_name_label">Bu telefonun adı</string>
     <string name="pairing_connect">Bağlan</string>
+    <string name="pairing_qr_parse_error">QR kod okunamadı. Tekrar dene veya elle gir.</string>
+    <string name="pairing_qr_try_manual">Elle bağlan</string>
+    <string name="pairing_camera_permission_required">QR kodu okutmak için kamera izni gerekli.</string>
+    <string name="pairing_camera_permission_denied">Kamera izni verilmedi. Elle bağlanmayı deneyebilirsin.</string>
+    <string name="pairing_manual_title">Elle bağlan</string>
+    <string name="pairing_manual_host_label">IP adresi</string>
+    <string name="pairing_manual_port_label">Port</string>
+    <string name="pairing_manual_pairing_id_label">Eşleştirme kodu</string>
+    <string name="pairing_manual_continue">Devam et</string>
+    <string name="pairing_manual_not_reachable">Bilgisayara bu ağdan ulaşılamadı. IP adresini ve portu kontrol et.</string>
+    <string name="pairing_fingerprint_title">Sertifika parmak izini doğrula</string>
+    <string name="pairing_fingerprint_question">Bilgisayarın yönetim panelinde gösterilen parmak izi bu mu?</string>
+    <string name="pairing_fingerprint_warning">Bu adımı atlama — eşleşmeyen bir parmak izi, başka bir cihaza bağlandığın anlamına gelebilir.</string>
+    <string name="pairing_fingerprint_match_yes">Evet, eşleşiyor</string>
+    <string name="pairing_fingerprint_match_no">Hayır, eşleşmiyor</string>
+    <string name="pairing_fingerprint_fetch_error">Bilgisayara bağlanılamadı veya sertifika okunamadı.</string>
+    <string name="pairing_pin_submit">Onayla</string>
+    <string name="pairing_pin_wrong">PIN hatalı, tekrar dene.</string>
+    <string name="pairing_error_generic">Bir hata oluştu: %1$s</string>
+    <string name="pairing_retry">Baştan başla</string>
 
     <!-- Connection states -->
     <string name="status_online">Çevrimiçi</string>
     <string name="status_offline">Çevrimdışı</string>
     <string name="status_connecting">Bağlanıyor…</string>
     <string name="status_unauthorized">Yetkisiz — yeniden eşleştir</string>
+    <string name="unauthorized_banner_title">Oturum geçersiz kılındı</string>
+    <string name="unauthorized_banner_message">Bu cihazın eşleşmesi bilgisayar tarafından kaldırılmış. Devam etmek için yeniden eşleştir.</string>
+    <string name="unauthorized_banner_action">Yeniden eşleştir</string>
 
     <!-- Dashboard -->
     <string name="dashboard_title">Panel</string>
@@ -32,6 +55,10 @@
     <string name="dashboard_ram">Bellek</string>
     <string name="dashboard_disks">Diskler</string>
     <string name="dashboard_uptime">Çalışma süresi</string>
+    <string name="dashboard_machine">Makine</string>
+    <string name="dashboard_os">İşletim sistemi</string>
+    <string name="dashboard_go_apps">Uygulamalar</string>
+    <string name="dashboard_free_of">%1$s boş / %2$s</string>
 
     <!-- Processes -->
     <string name="processes_title">Süreçler</string>
@@ -44,6 +71,10 @@
     <string name="process_kill_protected">Bu, korunan bir sistem süreci — telefondan sonlandırılamaz.</string>
     <string name="action_kill">Sonlandır</string>
     <string name="action_cancel">Vazgeç</string>
+    <string name="processes_search_empty">Aramanla eşleşen süreç yok.</string>
+    <string name="process_kill_success">“%1$s” sonlandırıldı.</string>
+    <string name="process_kill_reason_confirm">Onay gerekiyor.</string>
+    <string name="process_kill_reason_failed">Süreç sonlandırılamadı: %1$s</string>
 
     <!-- Apps -->
     <string name="apps_title">Uygulamalar</string>
@@ -72,21 +103,49 @@
     <string name="disk_event_deleted">silindi</string>
     <string name="disk_event_renamed">yeniden adlandırıldı</string>
     <string name="disk_event_moved">taşındı</string>
+    <string name="disk_event_filter_all">Tümü</string>
+    <string name="disk_growth_rate_per_hour">%1$s/sa</string>
+    <string name="disk_growth_no_data">Bu aralıkta veri yok.</string>
+    <string name="disk_new_files_count">%1$d yeni dosya</string>
+    <string name="disk_deleted_files_count">%1$d silinen dosya</string>
+    <string name="disk_watched_roots">İzlenen klasörler</string>
+    <string name="disk_no_watched_roots">İzlenen klasör yok.</string>
+    <string name="disk_tab_overview">Genel bakış</string>
+    <string name="disk_tab_history">Geçmiş</string>
+    <string name="disk_tab_growth">Büyüme</string>
+    <string name="disk_history_load_more">Daha fazla yükle</string>
+    <string name="disk_history_empty">Bu filtrede olay bulunamadı.</string>
 
     <!-- Alerts -->
     <string name="alerts_title">Uyarılar</string>
     <string name="alerts_empty">Henüz bir uyarı yok.</string>
+    <string name="alert_severity_info">Bilgi</string>
+    <string name="alert_severity_warning">Uyarı</string>
+    <string name="alert_severity_critical">Kritik</string>
+    <string name="alert_kind_big_file">Büyük dosya</string>
+    <string name="alert_kind_fast_folder_growth">Hızlı klasör büyümesi</string>
+    <string name="alert_kind_low_free_space">Düşük disk alanı</string>
+    <string name="alert_kind_sudden_disk_drop">Ani disk düşüşü</string>
 
     <!-- Audit -->
     <string name="audit_title">İşlem geçmişi</string>
     <string name="audit_empty">Henüz bir işlem yapılmadı.</string>
+    <string name="audit_result_success">başarılı</string>
+    <string name="audit_result_failed">başarısız</string>
 
     <!-- Settings -->
     <string name="settings_title">Ayarlar</string>
     <string name="settings_devices">Eşleşmiş cihazlar</string>
     <string name="settings_unpair">Eşleşmeyi kaldır</string>
     <string name="settings_unpair_confirm">Bu bilgisayarla eşleşmeyi kaldırmak istediğine emin misin?</string>
+    <string name="settings_unpair_success">Eşleşme kaldırıldı.</string>
     <string name="settings_about">Hakkında</string>
+    <string name="settings_about_body">CepGözcü, kişisel bir Türkçe proje olarak geliştirilmiştir. Telefon ile bilgisayar arasındaki bağlantı yalnızca yerel ağ üzerinden, uçtan uca TLS ile şifrelenerek kurulur.</string>
+    <string name="settings_app_version">Sürüm %1$s</string>
+    <string name="settings_paired_host">Bilgisayar adresi</string>
+    <string name="settings_paired_device_id">Cihaz kimliği</string>
+    <string name="settings_connection_section">Bağlantı</string>
+    <string name="settings_audit_entry">İşlem geçmişini görüntüle</string>
 
     <!-- Generic states -->
     <string name="state_loading">Yükleniyor…</string>
@@ -101,4 +160,18 @@
     <string name="nav_disk">Disk</string>
     <string name="nav_alerts">Uyarılar</string>
     <string name="nav_settings">Ayarlar</string>
+
+    <string name="action_yes">Evet</string>
+    <string name="action_no">Hayır</string>
+    <string name="action_ok">Tamam</string>
+    <string name="action_back">Geri</string>
+
+    <!-- Notifications -->
+    <string name="notif_channel_connection_name">Bağlantı durumu</string>
+    <string name="notif_channel_connection_desc">Bilgisayar bağlantı durumunu gösteren kalıcı bildirim</string>
+    <string name="notif_channel_alerts_name">Uyarılar</string>
+    <string name="notif_channel_alerts_desc">Yeni uyarı bildirimleri</string>
+    <string name="notif_connected_text">%1$s ile bağlantı aktif</string>
+    <string name="notif_connecting_text">%1$s adresine bağlanılıyor…</string>
+    <string name="notif_offline_text">%1$s ile bağlantı yok, yeniden deneniyor…</string>
 </resources>

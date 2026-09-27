@@ -39,12 +39,25 @@ sealed class ConnectionState {
 }
 
 /**
+ * Narrow contract for [AgentConnection] so ViewModels/repositories can depend on an interface
+ * instead of the concrete OkHttp-backed class, letting unit tests substitute a fake connection
+ * (fake state/pushes flows) without touching a real socket.
+ */
+interface AgentConnectionContract {
+    val state: StateFlow<ConnectionState>
+    val pushes: SharedFlow<Envelope>
+    fun connect()
+    fun disconnect()
+    suspend fun call(type: String, payload: JsonElement? = null, timeoutMs: Long = 8_000): Envelope
+}
+
+/**
  * Owns the single WebSocket connection to a paired PC: authenticates with the stored bearer
  * token, reconnects with capped exponential backoff on any drop (Wi-Fi hiccup, PC sleeping,
  * agent restart), and exposes both a request/response call() for on-demand queries and a
  * SharedFlow of server-pushed events (metrics.update, disk.fileEvent, alert.push, device.revoked).
  */
-class AgentConnection(private val session: AgentSession) {
+class AgentConnection(private val session: AgentSession) : AgentConnectionContract {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val pending = ConcurrentHashMap<String, CompletableDeferred<Envelope>>()
     private var webSocket: WebSocket? = null
@@ -66,12 +79,12 @@ class AgentConnection(private val session: AgentSession) {
             .build()
     }
 
-    fun connect() {
+    override fun connect() {
         intentionallyClosed = false
         openSocket()
     }
 
-    fun disconnect() {
+    override fun disconnect() {
         intentionallyClosed = true
         webSocket?.close(1000, "client_disconnect")
         webSocket = null
@@ -142,7 +155,7 @@ class AgentConnection(private val session: AgentSession) {
     }
 
     /** Sends a request and suspends for the matching response (by envelope id), or throws on timeout/disconnect. */
-    suspend fun call(type: String, payload: JsonElement? = null, timeoutMs: Long = 8_000): Envelope {
+    override suspend fun call(type: String, payload: JsonElement?, timeoutMs: Long): Envelope {
         val id = UUID.randomUUID().toString()
         val deferred = CompletableDeferred<Envelope>()
         pending[id] = deferred

@@ -94,7 +94,8 @@ class PairingRepository {
         }.getOrElse { PairingOutcome.Error(it.message ?: "Bağlantı hatası") }
     }
 
-    private fun toOutcome(parsed: PairVerifyResponse, host: String, port: Int, certSha256: String): PairingOutcome = when (parsed.state) {
+    /** Internal (not private) so unit tests can exercise the state-machine mapping directly without a real TLS server. */
+    internal fun toOutcome(parsed: PairVerifyResponse, host: String, port: Int, certSha256: String): PairingOutcome = when (parsed.state) {
         PairingState.Approved -> PairingOutcome.Approved(
             host, port, certSha256,
             deviceId = parsed.deviceId.orEmpty(),
