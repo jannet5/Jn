@@ -42,11 +42,18 @@ deviate, update this file first.
 - Pairing codes are single-use, expire after 5 minutes, and the agent
   locks out an offering connection after 5 failed `pair_request` attempts
   (closes the socket; the underlying code is invalidated).
-- Every paired device gets a random 256-bit secret, stored on the agent
-  **hashed** (HMAC-SHA256 with a server-local key) — the raw secret is
-  returned to the client exactly once, at pairing time, and never stored
-  in plaintext on the agent. The client stores it in the Android Keystore
-  via `EncryptedSharedPreferences`.
+- Every paired device gets a random 256-bit secret, returned to the client
+  exactly once at pairing time and never sent over the wire again. The
+  client stores its copy in the Android Keystore via
+  `EncryptedSharedPreferences`. The agent's copy is never stored in
+  plaintext either: it is kept under **authenticated encryption
+  (AES-256-GCM)**, keyed by a random 256-bit server-local key that is
+  generated once, persisted alongside the TLS key material, and never
+  transmitted. This (not a one-way hash) is required because §4.3's
+  challenge-response needs the agent to recompute
+  `HMAC_SHA256(device_secret, ...)` itself, which is only possible if the
+  raw secret can be recovered server-side — a one-way hash could not
+  satisfy that and is not used.
 - Re-authentication uses a **challenge-response** (server nonce + HMAC),
   so the device secret itself is never sent over the wire again after
   pairing, even though the channel is already TLS-encrypted (defense in
@@ -249,12 +256,25 @@ permissions.
 
 ## 7. Noise filtering for file monitoring
 
-Default-ignored path globs (configurable, additive):
+Default-ignored path globs (configurable, additive; `**` matches any
+number of path segments, `*`/`?` match within a segment, and a bare
+pattern like `*.tmp` matches by basename anywhere in the tree, not only at
+a watch root):
 `**\node_modules\**`, `**\.git\**`, `**\AppData\Local\Temp\**`,
-`**\$Recycle.Bin\**`, `**\System Volume Information\**`, `*.tmp`, `*.log`
-churn is throttled (see §8), `**\AppData\Local\Packages\**\TempState\**`.
+`**\$Recycle.Bin\**`, `**\System Volume Information\**`, `*.tmp`, `*.log`,
+`**\AppData\Local\Packages\**\TempState\**`.
+
+Independently of the ignore list, the agent debounces repeated events for
+the same path within a 500ms window (e.g. a file being written in small
+chunks) and emits a single coalesced `file_event` rather than one per
+underlying OS notification.
 
 ## 8. Alert thresholds (defaults, configurable via `config.json`)
+
+Each rule below has one `severity`-crossing threshold and fires as
+`"warning"`; the agent additionally fires `"critical"` once the measured
+value reaches **2x** that threshold (e.g. a file at 500 MiB is a warning,
+one at 1 GiB is critical). This 2x multiplier is also configurable.
 
 - `large_file_bytes`: 500 MiB — single new/grown file crossing this size.
 - `fast_growth`: a directory gaining > 200 MiB within a rolling 10-minute
@@ -268,3 +288,23 @@ churn is throttled (see §8), `**\AppData\Local\Packages\**\TempState\**`.
 `proto_version` is an integer, currently `1`. The server rejects a `hello`
 with an unknown/future major version with `error{reason:"bad_request"}` and
 closes the connection.
+
+## 10. QR pairing payload
+
+The QR code the agent displays/writes to an image on the Windows machine
+encodes a single JSON object as UTF-8 text (this is the exact schema the
+Windows agent implements; the Android client's QR scanner must decode this
+same shape):
+
+```json
+{
+  "host": "192.168.1.42",
+  "port": 8787,
+  "pairing_code": "7F3K-9QRT",
+  "fingerprint_sha256": "3f9c...64 hex chars..."
+}
+```
+
+`fingerprint_sha256` is the lowercase hex SHA-256 of the server's
+certificate's DER-encoded public key (§1). The manual-entry fallback form
+must accept the same four fields typed in by hand.

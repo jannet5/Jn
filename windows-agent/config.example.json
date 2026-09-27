@@ -1,0 +1,24 @@
+{
+  "port": 8787,
+  "watched_roots": [
+    "C:\\Users\\jake\\Downloads",
+    "C:\\Users\\jake\\Desktop",
+    "C:\\Users\\jake\\Documents"
+  ],
+  "ignore_globs": [
+    "**\\my_extra_ignored_folder\\**"
+  ],
+  "alert_thresholds": {
+    "large_file_bytes": 524288000,
+    "fast_growth_bytes": 209715200,
+    "fast_growth_window_sec": 600,
+    "disk_fill_rate_percent": 5.0,
+    "disk_fill_rate_window_sec": 900,
+    "low_free_space_percent": 10.0
+  },
+  "allowed_apps_path": "allowed_apps.json",
+  "data_dir": "",
+  "metrics_interval_sec": 2,
+  "processes_interval_sec": 5,
+  "snapshot_interval_sec": 60
+}
