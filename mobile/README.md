@@ -7,7 +7,18 @@ Bir kelime ya da isim yazıyorsun, uygulama telefonunun interneti üzerinden do�
 
 Telefona hiçbir veritabanı inmiyor, arka planda çalışan/senin yönetmen gereken bir sunucu yok.
 
-## Kurulum (tek seferlik, ~10 dakika)
+## En hızlı yol: hazır .apk
+
+Uygulama zaten derlenip sana bir `.apk` dosyası olarak gönderildi. Tek yapman gereken:
+
+1. `.apk` dosyasını telefonuna indir, dosyaya dokun.
+2. Android "bilinmeyen kaynaklardan yükleme" izni isterse ver, kur.
+3. Uygulamayı aç, sağ üstteki **⚙︎** ikonuna dokun, bir Anthropic API key yapıştır ([console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys)'den ücretsiz alınır).
+4. Bir kelime/isim yaz, "Ara"ya bas.
+
+Bilgisayara, Node.js'e, Expo Go'ya ihtiyaç yok. Aşağıdaki bölümler kaynak koddan kendin bir sürüm derlemek/değiştirmek istersen içindir.
+
+## Kaynak koddan kurulum (tek seferlik, ~10 dakika)
 
 Kod bu bulut oturumunda çalıştığı için doğrudan senin telefonuna bağlanamıyor — aşağıdaki adımları kendi bilgisayarında yapman gerekiyor. Bunu sadece **uygulamayı telefonuna kurmak için** yapıyorsun; kurulduktan sonra bilgisayara ihtiyacın kalmıyor (bkz. aşağıdaki "Kalıcı kurulum" bölümü).
 
