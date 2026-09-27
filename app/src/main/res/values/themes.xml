@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TekPanel is always dark (spec 3.4/5.1): base off the plain Dark theme, not DayNight. -->
+    <style name="Theme.TekPanel" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/tekpanel_background</item>
+        <item name="android:statusBarColor">@color/tekpanel_background</item>
+        <item name="android:navigationBarColor">@color/tekpanel_background</item>
+    </style>
+
+    <style name="Theme.TekPanel.Splash" parent="Theme.TekPanel">
+        <item name="windowSplashScreenBackground">@color/tekpanel_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.TekPanel</item>
+    </style>
+
+    <style name="Theme.TekPanel.Transparent" parent="Theme.TekPanel">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+</resources>

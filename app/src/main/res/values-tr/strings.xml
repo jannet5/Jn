@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TekPanel</string>
+
+    <string name="channel_whatsapp">WhatsApp</string>
+    <string name="channel_whatsapp_business">WhatsApp Business</string>
+    <string name="channel_instagram">Instagram</string>
+    <string name="channel_tiktok">TikTok</string>
+    <string name="channel_x">X</string>
+    <string name="channel_messenger">Messenger</string>
+    <string name="channel_facebook">Facebook</string>
+    <string name="channel_telegram">Telegram</string>
+    <string name="channel_google_messages">Mesajlar</string>
+    <string name="channel_samsung_messages">Samsung Mesajlar</string>
+    <string name="channel_sms">SMS</string>
+    <string name="channel_xiaomi_messages">Xiaomi Mesajlar</string>
+    <string name="share_channel_label">Paylaşım</string>
+
+    <string name="action_open_source">Kaynak uygulamayı aç</string>
+    <string name="action_mark_read">Okundu</string>
+    <string name="filter_all">Tümü</string>
+
+    <string name="onboarding_title">Bildirim erişimini aç</string>
+    <string name="onboarding_description">WhatsApp, Instagram veya seçtiğin başka bir kanaldan yeni mesaj bildirimi geldiğinde burada görünür.</string>
+    <string name="onboarding_action">Ayarları aç</string>
+
+    <string name="no_channels_installed_title">Desteklenen uygulama bulunamadı</string>
+    <string name="no_channels_installed_description">TekPanel\'i kullanmaya başlamak için WhatsApp, Instagram veya desteklenen başka bir mesajlaşma uygulaması kur.</string>
+
+    <string name="no_channels_selected_title">Açık kanal yok</string>
+    <string name="no_channels_selected_description">Yeni mesajları burada görmek için en az bir kanalı aç.</string>
+    <string name="action_open_channel_settings">Kanalları ayarla</string>
+
+    <string name="empty_inbox_title">Henüz bir şey yok</string>
+    <string name="empty_inbox_description">WhatsApp, Instagram veya seçtiğin başka bir kanaldan yeni mesaj geldiğinde burada görünür.</string>
+    <string name="no_messages_for_filter_title">Bu kanalda henüz mesaj yok</string>
+
+    <string name="channel_settings_title">Kanalları ayarla</string>
+    <string name="action_enable_all_channels">Tüm kanalları aç</string>
+    <string name="action_disable_all_channels">Tümünü kapat</string>
+    <string name="action_export_data">Yerel veriyi dışa aktar (JSON)</string>
+    <string name="action_erase_all_data">Tüm yerel veriyi sil</string>
+    <string name="action_open_diagnostics">Tanılama</string>
+
+    <string name="action_undo">Geri al</string>
+    <string name="open_source_failed">Uygulama açılamadı</string>
+
+    <string name="action_clear_screen">Ekranı tertemiz yap</string>
+    <string name="clear_screen_confirm_title">Ekran temizlensin mi?</string>
+    <string name="clear_screen_confirm_message">Ekrandaki mesajları kaldırmak istediğine emin misin? Telefonundaki bildirimlere dokunulmaz.</string>
+    <string name="action_cancel">Vazgeç</string>
+    <string name="clear_screen_undo_label">Ekran temizlendi</string>
+
+    <string name="erase_all_confirm_title">Tüm yerel veri silinsin mi?</string>
+    <string name="erase_all_confirm_message">Bu işlem TekPanel\'in bu cihazda sakladığı tüm mesajları kalıcı olarak siler ve kanal ayarlarını sıfırlar. Bu işlem geri alınamaz.</string>
+
+    <string name="export_share_title">TekPanel verisini dışa aktar</string>
+
+    <string name="share_intake_empty">Eklenecek bir şey yok</string>
+    <string name="share_sender_label">Paylaşım</string>
+    <string name="share_intake_success">TekPanel\'e eklendi</string>
+    <string name="share_intake_duplicate">Bu zaten TekPanel\'de var</string>
+</resources>

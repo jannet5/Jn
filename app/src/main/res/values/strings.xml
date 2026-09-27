@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TekPanel</string>
+
+    <!-- Channel display names (spec CAP-02): never show a raw package name to the user. -->
+    <string name="channel_whatsapp">WhatsApp</string>
+    <string name="channel_whatsapp_business">WhatsApp Business</string>
+    <string name="channel_instagram">Instagram</string>
+    <string name="channel_tiktok">TikTok</string>
+    <string name="channel_x">X</string>
+    <string name="channel_messenger">Messenger</string>
+    <string name="channel_facebook">Facebook</string>
+    <string name="channel_telegram">Telegram</string>
+    <string name="channel_google_messages">Messages</string>
+    <string name="channel_samsung_messages">Samsung Messages</string>
+    <string name="channel_sms">SMS</string>
+    <string name="channel_xiaomi_messages">Xiaomi Messages</string>
+    <string name="share_channel_label">Shared</string>
+
+    <string name="action_open_source">Open source app</string>
+    <string name="action_mark_read">Done</string>
+    <string name="filter_all">All</string>
+
+    <string name="onboarding_title">Turn on notification access</string>
+    <string name="onboarding_description">TekPanel shows new customer messages from WhatsApp, Instagram or any other channel you choose here — right when they arrive as a notification.</string>
+    <string name="onboarding_action">Open settings</string>
+
+    <string name="no_channels_installed_title">No supported app found</string>
+    <string name="no_channels_installed_description">Install WhatsApp, Instagram or another supported messaging app to start using TekPanel.</string>
+
+    <string name="no_channels_selected_title">No channel turned on</string>
+    <string name="no_channels_selected_description">Turn on at least one channel to see new messages here.</string>
+    <string name="action_open_channel_settings">Set up channels</string>
+
+    <string name="empty_inbox_title">Nothing yet</string>
+    <string name="empty_inbox_description">When a new message arrives from WhatsApp, Instagram or another channel you chose, it will show up here.</string>
+    <string name="no_messages_for_filter_title">No messages for this channel yet</string>
+
+    <string name="channel_settings_title">Set up channels</string>
+    <string name="action_enable_all_channels">Turn on all</string>
+    <string name="action_disable_all_channels">Turn off all</string>
+    <string name="action_export_data">Export local data (JSON)</string>
+    <string name="action_erase_all_data">Delete all local data</string>
+    <string name="action_open_diagnostics">Diagnostics</string>
+
+    <string name="action_undo">Undo</string>
+    <string name="open_source_failed">Couldn\'t open the app</string>
+
+    <string name="action_clear_screen">Clear screen</string>
+    <string name="clear_screen_confirm_title">Clear the screen?</string>
+    <string name="clear_screen_confirm_message">This removes the messages from this screen. It does not touch notifications on your phone.</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="clear_screen_undo_label">Screen cleared</string>
+
+    <string name="erase_all_confirm_title">Delete all local data?</string>
+    <string name="erase_all_confirm_message">This permanently deletes every message TekPanel has stored on this device, and resets your channel settings. This cannot be undone.</string>
+
+    <string name="export_share_title">Export TekPanel data</string>
+
+    <string name="share_intake_empty">Nothing to add</string>
+    <string name="share_sender_label">Shared</string>
+    <string name="share_intake_success">Added to TekPanel</string>
+    <string name="share_intake_duplicate">Already in TekPanel</string>
+</resources>

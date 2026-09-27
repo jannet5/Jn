@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Placeholder channel mark: a solid brand-accent-colored dot. Distinguishes channels by
+    color + name text (see MessageCard/ChannelFilterRow) without reproducing any trademarked
+    logo artwork. Replace with an officially licensed brand asset before store submission
+    (see docs/DECISIONS.md) - most brand guidelines restrict logo reuse without permission.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path android:fillColor="#0084FF" android:pathData="M12,2 A10,10 0 1 1 11.99,2 Z" />
+</vector>

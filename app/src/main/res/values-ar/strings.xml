@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TekPanel</string>
+
+    <string name="channel_whatsapp">واتساب</string>
+    <string name="channel_whatsapp_business">واتساب بزنس</string>
+    <string name="channel_instagram">إنستغرام</string>
+    <string name="channel_tiktok">تيك توك</string>
+    <string name="channel_x">X</string>
+    <string name="channel_messenger">ماسنجر</string>
+    <string name="channel_facebook">فيسبوك</string>
+    <string name="channel_telegram">تيليجرام</string>
+    <string name="channel_google_messages">الرسائل</string>
+    <string name="channel_samsung_messages">رسائل سامسونج</string>
+    <string name="channel_sms">الرسائل النصية</string>
+    <string name="channel_xiaomi_messages">رسائل شاومي</string>
+    <string name="share_channel_label">مُشارَك</string>
+
+    <string name="action_open_source">فتح التطبيق المصدر</string>
+    <string name="action_mark_read">تمت القراءة</string>
+    <string name="filter_all">الكل</string>
+
+    <string name="onboarding_title">تفعيل الوصول إلى الإشعارات</string>
+    <string name="onboarding_description">يعرض TekPanel هنا رسائل العملاء الجديدة من واتساب أو إنستغرام أو أي قناة أخرى تختارها، بمجرد وصولها كإشعار.</string>
+    <string name="onboarding_action">فتح الإعدادات</string>
+
+    <string name="no_channels_installed_title">لم يتم العثور على تطبيق مدعوم</string>
+    <string name="no_channels_installed_description">قم بتثبيت واتساب أو إنستغرام أو تطبيق مراسلة آخر مدعوم لاستخدام TekPanel.</string>
+
+    <string name="no_channels_selected_title">لا توجد قناة مفعّلة</string>
+    <string name="no_channels_selected_description">فعّل قناة واحدة على الأقل لرؤية الرسائل الجديدة هنا.</string>
+    <string name="action_open_channel_settings">إعداد القنوات</string>
+
+    <string name="empty_inbox_title">لا يوجد شيء بعد</string>
+    <string name="empty_inbox_description">عند وصول رسالة جديدة من واتساب أو إنستغرام أو قناة أخرى اخترتها، ستظهر هنا.</string>
+    <string name="no_messages_for_filter_title">لا توجد رسائل لهذه القناة بعد</string>
+
+    <string name="channel_settings_title">إعداد القنوات</string>
+    <string name="action_enable_all_channels">تفعيل الكل</string>
+    <string name="action_disable_all_channels">إيقاف الكل</string>
+    <string name="action_export_data">تصدير البيانات المحلية (JSON)</string>
+    <string name="action_erase_all_data">حذف جميع البيانات المحلية</string>
+    <string name="action_open_diagnostics">التشخيص</string>
+
+    <string name="action_undo">تراجع</string>
+    <string name="open_source_failed">تعذّر فتح التطبيق</string>
+
+    <string name="action_clear_screen">تنظيف الشاشة</string>
+    <string name="clear_screen_confirm_title">هل تريد تنظيف الشاشة؟</string>
+    <string name="clear_screen_confirm_message">سيؤدي هذا إلى إزالة الرسائل من هذه الشاشة. لن يتم التأثير على إشعارات هاتفك.</string>
+    <string name="action_cancel">إلغاء</string>
+    <string name="clear_screen_undo_label">تم تنظيف الشاشة</string>
+
+    <string name="erase_all_confirm_title">حذف جميع البيانات المحلية؟</string>
+    <string name="erase_all_confirm_message">سيحذف هذا نهائيًا كل رسالة خزّنها TekPanel على هذا الجهاز، ويعيد ضبط إعدادات قنواتك. لا يمكن التراجع عن هذا الإجراء.</string>
+
+    <string name="export_share_title">تصدير بيانات TekPanel</string>
+
+    <string name="share_intake_empty">لا يوجد شيء لإضافته</string>
+    <string name="share_sender_label">مُشارَك</string>
+    <string name="share_intake_success">تمت الإضافة إلى TekPanel</string>
+    <string name="share_intake_duplicate">موجود بالفعل في TekPanel</string>
+</resources>

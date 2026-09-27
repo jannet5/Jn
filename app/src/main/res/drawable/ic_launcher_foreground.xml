@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Original geometric mark: a single inbox card holding three message lines. Placeholder
+    for a designer pass before store submission (see docs/DECISIONS.md), but original and
+    trademark-safe as-is.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#F3F4F6"
+        android:pathData="M38,36 H70 A8,8 0 0 1 78,44 V64 A8,8 0 0 1 70,72 H38 A8,8 0 0 1 30,64 V44 A8,8 0 0 1 38,36 Z" />
+    <path
+        android:fillColor="#0B0C0E"
+        android:pathData="M40.5,46 H71.5 A2.5,2.5 0 0 1 74,48.5 A2.5,2.5 0 0 1 71.5,51 H40.5 A2.5,2.5 0 0 1 38,48.5 A2.5,2.5 0 0 1 40.5,46 Z" />
+    <path
+        android:fillColor="#0B0C0E"
+        android:pathData="M40.5,55 H63.5 A2.5,2.5 0 0 1 66,57.5 A2.5,2.5 0 0 1 63.5,60 H40.5 A2.5,2.5 0 0 1 38,57.5 A2.5,2.5 0 0 1 40.5,55 Z" />
+    <path
+        android:fillColor="#0B0C0E"
+        android:pathData="M40.5,64 H55.5 A2.5,2.5 0 0 1 58,66.5 A2.5,2.5 0 0 1 55.5,69 H40.5 A2.5,2.5 0 0 1 38,66.5 A2.5,2.5 0 0 1 40.5,64 Z" />
+</vector>

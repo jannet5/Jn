@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    CAP-08: message content must never leave the device via Android's cloud backup
+    or device-to-device transfer. The Room database (message text, sender names)
+    is excluded from both cloud backup and device transfer. Only channel/UI
+    preferences (DataStore) are eligible. Each domain is explicitly included first
+    (lint's FullBackupContent check requires this) so the specific exclude below it
+    actually has something to override.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="database" path="." />
+        <exclude domain="database" path="tekpanel_inbox.db" />
+        <exclude domain="database" path="tekpanel_inbox.db-shm" />
+        <exclude domain="database" path="tekpanel_inbox.db-wal" />
+        <include domain="sharedpref" path="." />
+        <include domain="file" path="datastore/" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="database" path="." />
+        <exclude domain="database" path="tekpanel_inbox.db" />
+        <exclude domain="database" path="tekpanel_inbox.db-shm" />
+        <exclude domain="database" path="tekpanel_inbox.db-wal" />
+        <include domain="sharedpref" path="." />
+        <include domain="file" path="datastore/" />
+    </device-transfer>
+</data-extraction-rules>
