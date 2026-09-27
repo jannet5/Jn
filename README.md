@@ -84,6 +84,19 @@ bkz. sohbetteki dosya ekleri).
 SHA-256: 84487a183365c4651440b559e74416d67e189a8114cc38319ce45a5bfe889397
 ```
 
+Ayrıca, Windows ajanının hazır (derlenmiş) win-x64 çalıştırılabilir dosyası da doğrudan size teslim
+edilir (`CepGozcuAgent-win-x64.zip` — `CepGozcu.Agent.Host.exe` içerir, `scripts/publish.ps1` ile
+aynı komuttan üretilmiştir):
+
+```
+SHA-256 (zip):                ef149f430dbd39b5f274e75a3bc62b93f2f626fd1ea05be1b49af07ce786c333
+SHA-256 (CepGozcu.Agent.Host.exe, zip içinde): 2ab8a8947b543a9fe5d15898cfdd0af722abd2bee565e9c8f9d66448df8911ff
+```
+
+Kurulum için: zip'i açıp Yönetici PowerShell'de
+`../scripts/install.ps1 -SourceDir .\CepGozcuAgent-win-x64` çalıştırın (bkz.
+`windows-agent/README.md`).
+
 Doğrulama:
 
 ```bash
