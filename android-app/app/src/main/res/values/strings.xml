@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CepGözcü</string>
+
+    <!-- Onboarding / pairing -->
+    <string name="onboarding_title">Bilgisayarını telefonundan izle</string>
+    <string name="onboarding_subtitle">CPU, RAM, disk kullanımını gör; süreçleri yönet; disklerini neyin doldurduğunu anla.</string>
+    <string name="onboarding_add_computer">Bilgisayar ekle</string>
+    <string name="pairing_scan_title">QR kodu okut</string>
+    <string name="pairing_scan_hint">Bilgisayarındaki CepGözcü Agent yönetim panelinde “Eşleştirme kodu oluştur” butonuna basıp ekrandaki QR kodu okut.</string>
+    <string name="pairing_scan_button">QR kodu tara</string>
+    <string name="pairing_manual_entry">Elle bağlan</string>
+    <string name="pairing_pin_title">PIN kodunu gir</string>
+    <string name="pairing_pin_hint">Bilgisayar ekranında gördüğün 6 haneli kodu gir.</string>
+    <string name="pairing_waiting_approval">Bilgisayarda onay bekleniyor…</string>
+    <string name="pairing_waiting_approval_hint">Bilgisayarındaki yönetim panelinde bu cihazı onaylaman gerekiyor.</string>
+    <string name="pairing_rejected">Eşleştirme reddedildi.</string>
+    <string name="pairing_expired">Eşleştirme kodunun süresi doldu, tekrar dene.</string>
+    <string name="pairing_success">Eşleşme tamamlandı!</string>
+    <string name="pairing_device_name_label">Bu telefonun adı</string>
+    <string name="pairing_connect">Bağlan</string>
+
+    <!-- Connection states -->
+    <string name="status_online">Çevrimiçi</string>
+    <string name="status_offline">Çevrimdışı</string>
+    <string name="status_connecting">Bağlanıyor…</string>
+    <string name="status_unauthorized">Yetkisiz — yeniden eşleştir</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Panel</string>
+    <string name="dashboard_cpu">İşlemci</string>
+    <string name="dashboard_ram">Bellek</string>
+    <string name="dashboard_disks">Diskler</string>
+    <string name="dashboard_uptime">Çalışma süresi</string>
+
+    <!-- Processes -->
+    <string name="processes_title">Süreçler</string>
+    <string name="processes_search_hint">Süreç ara…</string>
+    <string name="processes_sort_cpu">CPU</string>
+    <string name="processes_sort_ram">Bellek</string>
+    <string name="processes_sort_name">Ad</string>
+    <string name="process_kill_confirm_title">Süreci sonlandır</string>
+    <string name="process_kill_confirm_message">“%1$s” sürecini sonlandırmak istediğine emin misin?</string>
+    <string name="process_kill_protected">Bu, korunan bir sistem süreci — telefondan sonlandırılamaz.</string>
+    <string name="action_kill">Sonlandır</string>
+    <string name="action_cancel">Vazgeç</string>
+
+    <!-- Apps -->
+    <string name="apps_title">Uygulamalar</string>
+    <string name="apps_empty">Bilgisayardaki yönetim panelinden izin verilen uygulama eklenmedi.</string>
+    <string name="action_launch">Başlat</string>
+    <string name="app_launch_success">%1$s başlatıldı</string>
+    <string name="app_launch_failed">%1$s başlatılamadı</string>
+
+    <!-- Disk history -->
+    <string name="disk_title">Disk</string>
+    <string name="disk_overview_title">Genel bakış</string>
+    <string name="disk_history_title">Geçmiş</string>
+    <string name="disk_growth_title">Büyüme analizi</string>
+    <string name="disk_growth_question">Son %1$s diski en çok ne doldurdu?</string>
+    <string name="disk_range_hour">Son 1 saat</string>
+    <string name="disk_range_day">Son 1 gün</string>
+    <string name="disk_range_week">Son 1 hafta</string>
+    <string name="disk_range_month">Son 1 ay</string>
+    <string name="disk_top_growing">En çok büyüyen klasörler</string>
+    <string name="disk_top_shrinking">En çok küçülen klasörler</string>
+    <string name="disk_biggest_files">En büyük yeni/büyüyen dosyalar</string>
+    <string name="disk_event_created">oluşturuldu</string>
+    <string name="disk_event_grew">büyüdü</string>
+    <string name="disk_event_shrank">küçüldü</string>
+    <string name="disk_event_modified">değişti</string>
+    <string name="disk_event_deleted">silindi</string>
+    <string name="disk_event_renamed">yeniden adlandırıldı</string>
+    <string name="disk_event_moved">taşındı</string>
+
+    <!-- Alerts -->
+    <string name="alerts_title">Uyarılar</string>
+    <string name="alerts_empty">Henüz bir uyarı yok.</string>
+
+    <!-- Audit -->
+    <string name="audit_title">İşlem geçmişi</string>
+    <string name="audit_empty">Henüz bir işlem yapılmadı.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_devices">Eşleşmiş cihazlar</string>
+    <string name="settings_unpair">Eşleşmeyi kaldır</string>
+    <string name="settings_unpair_confirm">Bu bilgisayarla eşleşmeyi kaldırmak istediğine emin misin?</string>
+    <string name="settings_about">Hakkında</string>
+
+    <!-- Generic states -->
+    <string name="state_loading">Yükleniyor…</string>
+    <string name="state_empty">Gösterilecek bir şey yok.</string>
+    <string name="state_error">Bir şeyler ters gitti.</string>
+    <string name="state_retry">Tekrar dene</string>
+    <string name="state_offline_message">Bilgisayarla bağlantı yok. Aynı ağda olduğunuzdan emin ol.</string>
+    <string name="state_unauthorized_message">Oturumun geçersiz kılınmış olabilir. Yeniden eşleştirmen gerekebilir.</string>
+
+    <string name="nav_dashboard">Panel</string>
+    <string name="nav_processes">Süreçler</string>
+    <string name="nav_disk">Disk</string>
+    <string name="nav_alerts">Uyarılar</string>
+    <string name="nav_settings">Ayarlar</string>
+</resources>

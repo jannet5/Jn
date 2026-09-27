@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Nothing is backed up: the pairing key and session token must never leave this device. -->
+</full-backup-content>

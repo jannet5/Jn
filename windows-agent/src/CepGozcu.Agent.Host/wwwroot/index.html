@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CepGözcü Agent — Yönetim Paneli</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>CepGözcü Agent</h1>
+    <p class="subtitle">Bu bilgisayarın uzaktan izlenmesini ve yönetimini sağlayan yardımcı programın yerel kontrol paneli.</p>
+  </header>
+
+  <main>
+    <section id="pairing-section" class="card">
+      <h2>Yeni telefon eşle</h2>
+      <p>Telefonundaki CepGözcü uygulamasında "Bilgisayar ekle" seçeneğine dokun, aşağıdaki QR kodunu okut ve ekranda gördüğün 6 haneli kodu telefona gir.</p>
+      <button id="begin-pair-btn">Eşleştirme kodu oluştur</button>
+      <div id="pair-result" hidden>
+        <img id="pair-qr" alt="Eşleştirme QR kodu" />
+        <div class="pin" id="pair-pin"></div>
+        <p class="hint">Bu kod <span id="pair-expiry"></span> saniye içinde geçersiz olur.</p>
+      </div>
+    </section>
+
+    <section id="pending-section" class="card" hidden>
+      <h2>Onay bekleyen cihazlar</h2>
+      <div id="pending-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Eşleşmiş cihazlar</h2>
+      <div id="devices-list">Yükleniyor…</div>
+    </section>
+
+    <section class="card">
+      <h2>İzin verilen uygulamalar</h2>
+      <p class="hint">Telefondan yalnızca burada listelenen uygulamalar başlatılabilir.</p>
+      <div id="allowlist-list"></div>
+      <form id="allowlist-form">
+        <input type="text" id="allowlist-name" placeholder="Görünen ad (örn. Not Defteri)" required />
+        <input type="text" id="allowlist-path" placeholder="Tam yol (örn. C:\\Windows\\System32\\notepad.exe)" required />
+        <button type="submit">Ekle</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>İzlenen diskler / klasörler</h2>
+      <div id="roots-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Denetim günlüğü</h2>
+      <div id="audit-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

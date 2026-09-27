@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  We never rely on the system CA trust store for the agent connection — every self-signed
+  agent certificate is pinned explicitly at pairing time (see net/PinnedTrustManager.kt).
+  cleartextTrafficPermitted stays false: even on the LAN, the phone<->PC channel is always TLS.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>
