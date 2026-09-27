@@ -50,7 +50,7 @@ veritabanı, TLS sertifikası, izin verilenler listesi) varsayılan olarak
 dotnet test
 ```
 
-50 test içerir: gürültü filtresi, kritik süreç koruması, oturum anahtarı yaşam döngüsü, eşleştirme
+51 test içerir: gürültü filtresi, kritik süreç koruması, oturum anahtarı yaşam döngüsü, eşleştirme
 durum makinesi, büyüme analitiği hesaplamaları — hepsi birim testi; ayrıca gerçek bir geçici
 klasörde dosya oluşturma/büyütme/yeniden adlandırma/taşıma/silme senaryolarını çalıştırıp
 `DiskScanner` ve `FileSystemWatcherManager`'ın ürettiği olayları doğrulayan entegrasyon testleri,

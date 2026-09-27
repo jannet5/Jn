@@ -2,9 +2,10 @@ package com.cepgozcu.app.connection
 
 import android.app.Service
 import android.content.Intent
+import android.content.pm.ServiceInfo
+import android.os.Build
 import android.os.IBinder
 import androidx.core.app.ServiceCompat
-import androidx.core.content.pm.ServiceInfoCompat
 import com.cepgozcu.app.CepGozcuApp
 import com.cepgozcu.app.R
 import com.cepgozcu.app.net.ConnectionState
@@ -48,11 +49,12 @@ class ConnectionForegroundService : Service() {
         val app = application as CepGozcuApp
         val initialText = getString(R.string.status_connecting)
         val notification = NotificationHelper.ongoingNotification(this, initialText)
+        val serviceType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC else 0
         ServiceCompat.startForeground(
             this,
             NotificationHelper.ONGOING_NOTIFICATION_ID,
             notification,
-            ServiceInfoCompat.FOREGROUND_SERVICE_TYPE_DATA_SYNC,
+            serviceType,
         )
 
         job = scope.launch {
@@ -73,7 +75,7 @@ class ConnectionForegroundService : Service() {
                 app.connectionRepository.pushes?.collect { envelope ->
                     if (envelope.type == MessageType.ALERT_PUSH) {
                         val payload = envelope.payload ?: return@collect
-                        val alert = runCatching { WireJson.decodeFromJsonElement(AlertDto.serializer(), payload) }.getOrNull()
+                        val alert = runCatching { WireJson.decodeFromJsonElement<AlertDto>(payload) }.getOrNull()
                         if (alert != null) NotificationHelper.postAlert(this@ConnectionForegroundService, alert)
                     }
                 }

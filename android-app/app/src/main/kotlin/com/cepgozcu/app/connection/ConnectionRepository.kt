@@ -19,26 +19,36 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 /**
+ * Narrow view of [ConnectionRepository] that ViewModels depend on, so unit tests can substitute a
+ * fake (no Android Context / real socket needed) instead of a real [ConnectionRepository].
+ */
+interface ConnectionSource {
+    val connectionState: StateFlow<ConnectionState>
+    val api: AgentApiContract?
+    val pushes: SharedFlow<Envelope>?
+}
+
+/**
  * Wraps the current (nullable — unpaired has none) [AgentConnection]/[AgentApi] pair for the
  * whole app to share. Recreated whenever a new [AgentSession] is stored (fresh pairing, or app
  * cold start with a session already on disk).
  */
-class ConnectionRepository(private val credentialStore: CredentialStore) {
+class ConnectionRepository(private val credentialStore: CredentialStore) : ConnectionSource {
 
     private var connection: AgentConnection? = null
     private var stateMirrorJob: Job? = null
     private val mirrorScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     private val _connectionState = MutableStateFlow<ConnectionState>(ConnectionState.Idle)
-    val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
+    override val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
 
-    var api: AgentApiContract? = null
+    override var api: AgentApiContract? = null
         private set
 
     val rawConnection: AgentConnectionContract?
         get() = connection
 
-    val pushes: SharedFlow<Envelope>?
+    override val pushes: SharedFlow<Envelope>?
         get() = connection?.pushes
 
     /** Recreates the connection from whatever session is currently stored, if any, and connects. Call once at app start. */

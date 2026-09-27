@@ -1,7 +1,8 @@
 package com.cepgozcu.app.net
 
 import com.cepgozcu.app.net.protocol.*
-import kotlinx.serialization.encodeToJsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
+import kotlinx.serialization.json.encodeToJsonElement
 
 class AgentApiException(val code: String) : Exception(code)
 

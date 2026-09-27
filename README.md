@@ -76,9 +76,72 @@ Ayrıntılar için `windows-agent/README.md` ve `android-app/README.md`.
 
 ## APK
 
-<!-- Doldurulacak: son üretilen APK'nın konumu ve SHA-256 değeri. -->
+Bu depoda üretilen son sürüm: `android-app/app/build/outputs/apk/release/app-release.apk`
+(APK dosyasının kendisi, imzalama anahtarıyla birlikte, git'e değil size doğrudan teslim edilir —
+bkz. sohbetteki dosya ekleri).
+
+```
+SHA-256: 84487a183365c4651440b559e74416d67e189a8114cc38319ce45a5bfe889397
+```
+
+Doğrulama:
+
+```bash
+sha256sum app-release.apk
+apksigner verify --verbose --print-certs app-release.apk   # Android SDK build-tools içinde gelir
+```
+
+`apksigner verify` bu depoda gerçekten çalıştırılıp doğrulandı: v2 imza şeması geçerli, tek imzalayan,
+paket adı `com.cepgozcu.app`, minSdk 26 / targetSdk 34, dört ana CPU mimarisi (arm64-v8a,
+armeabi-v7a, x86, x86_64) pakete dahil.
 
 ## Bilinen sınırlar / bu ortamda doğrulanamayanlar
 
-<!-- Doldurulacak: bu geliştirme ortamının (Linux konteyner, KVM/emülatör yok, gerçek Windows
-     makinesi yok) neyi doğrulayabildiği ve neyi doğrulayamadığı açıkça listelenecek. -->
+Bu proje, gerçek bir Windows bilgisayarı ve gerçek bir Android cihazı/emülatörü *olmayan* bir Linux
+konteynerde geliştirildi. Aşağıdaki ayrım, neyin gerçekten çalıştırılıp doğrulandığını ve neyin
+yalnızca kod incelemesi + kısmi doğrulamayla bırakıldığını nettir:
+
+**Bu ortamda gerçekten çalıştırılıp doğrulananlar:**
+- Windows ajanının çekirdek mantığı: gerçek CPU/RAM/disk metrikleri (bu Linux konteynerinin kendi
+  değerleriyle, `/proc` üzerinden — Windows'ta aynı sınıf `GetSystemTimes`/`GlobalMemoryStatusEx`
+  P/Invoke çağırılarını kullanır), gerçek süreç listeleme/sonlandırma (gerçek alt süreçler
+  başlatılıp gerçekten sonlandırıldı), kritik süreç koruması (gerçek bir "korunan" PID'i
+  sonlandırma denemesi gerçekten reddedildi), gerçek bir klasörde dosya
+  oluşturma/büyütme/yeniden adlandırma/taşıma/silme olaylarının hem canlı `FileSystemWatcher` hem
+  periyodik tarayıcı tarafından doğru şekilde yakalanması, gürültü filtresi, klasör büyüme
+  analitiği (gerçek iç içe klasör boyutları üzerinden), uyarı motoru (gerçek düşük disk alanı
+  koşuluyla tetiklendi).
+- Tüm eşleştirme akışı: PIN doğrulama → yerel onay → oturum anahtarı üretimi → WebSocket üzerinden
+  kimlik doğrulama — gerçek bir çalışan sunucuya karşı gerçek bir WebSocket istemcisiyle (Node.js
+  `ws` kütüphanesiyle) uçtan uca test edildi (ayrıca xUnit'te ASP.NET Core hattından otomatik
+  olarak da test ediliyor).
+- Kimliği doğrulanmamış bir istemcinin hiçbir işlem yapamadığı (401, bağlantı reddi).
+- Yayımlanan APK'nın gerçekten kurulabilir olduğu (imza doğrulaması, paket bilgileri, mimari
+  kapsamı) ve Android JVM birim testlerinin (protokol serileştirme, eşleştirme durum makinesi,
+  ViewModel durum geçişleri) gerçekten geçtiği.
+- .NET tarafının `dotnet publish -r win-x64` ile gerçek bir win-x64 PE32+ çalıştırılabilir dosyası
+  ürettiği (çapraz derleme; bu makine Windows değil, ama üretilen dosya gerçek bir Windows
+  yürütülebilir dosyasıdır).
+
+**Bu ortamda doğrulanamayan (dürüstçe belirtilmesi gereken) şeyler:**
+- Ajanın gerçek bir Windows bilgisayarında Windows servisi olarak çalıştırılması (P/Invoke
+  çağrılarının gerçek Windows API'lerine karşı davranışı, güvenlik duvarı kuralının gerçekten
+  engellediği, Windows Hizmetleri altında kurulum/kaldırma betiklerinin uçtan uca çalışması).
+  Kod incelemesiyle ve platform API'lerinin belgelenmiş davranışına güvenerek yazıldı, ama bu
+  konteynerde *çalıştırılamadı* — bunu olmuş gibi göstermiyoruz.
+- Android tarafında gerçek cihaz/emülatör akışı (QR kod okutma, gerçek kamera, gerçek bir ajana
+  gerçek Wi-Fi üzerinden bağlanma, ekranlar arası gerçek dokunmatik gezinme). Bu konteynerde
+  KVM/donanım sanallaştırma desteği yok, bu yüzden bir Android emülatörü çalıştırılamadı ve
+  fiziksel bir cihaz da yok. Bunun yerine derleme/imza/test doğrulamasıyla ve dikkatli kod
+  incelemesiyle güvence sağlandı (bkz. yukarıdaki madde ve `android-app/README.md`).
+- Uygulama başlatma/süreç sonlandırma gibi kontrol işlemlerinin *gerçek Windows uygulamalarıyla*
+  (örn. Not Defteri) uçtan uca telefon → ajan → Windows akışı — mantık gerçek süreçlerle test
+  edildi (bu Linux ortamında `sleep`, `/bin/echo` gibi gerçek alt süreçler kullanılarak), ama
+  Windows'a özgü hedefler değil.
+
+Kısacası: **mimari, protokol, güvenlik mantığı ve her iki tarafın iş mantığı gerçek ve test
+edilmiştir; yalnızca "gerçek Windows makinesi + gerçek Android cihazı" kombinasyonuyla ikisini
+aynı anda çalıştırma adımı bu ortamın fiziksel sınırları nedeniyle yapılamamıştır.** Bir Windows
+bilgisayarında ajanı `dotnet run` ile veya kurulum betikleriyle çalıştırıp APK'yı gerçek bir
+telefona kurarak bu son adımı doğrulamak, bu depodaki adımları izleyen herkes için birkaç dakika
+sürer.

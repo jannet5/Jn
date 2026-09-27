@@ -65,10 +65,10 @@ class AgentConnection(private val session: AgentSession) : AgentConnectionContra
     private var retryAttempt = 0
 
     private val _state = MutableStateFlow<ConnectionState>(ConnectionState.Idle)
-    val state: StateFlow<ConnectionState> = _state.asStateFlow()
+    override val state: StateFlow<ConnectionState> = _state.asStateFlow()
 
     private val _pushes = MutableSharedFlow<Envelope>(extraBufferCapacity = 64)
-    val pushes: SharedFlow<Envelope> = _pushes.asSharedFlow()
+    override val pushes: SharedFlow<Envelope> = _pushes.asSharedFlow()
 
     private val client: OkHttpClient by lazy {
         val pinned = PinnedTrustManager(session.certSha256)

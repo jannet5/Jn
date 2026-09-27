@@ -15,3 +15,9 @@
 
 # Room entities
 -keep class com.cepgozcu.app.data.** { *; }
+
+# androidx.security-crypto pulls in Google Tink, which references error-prone's annotations
+# (@CanIgnoreReturnValue etc.) purely for compile-time static analysis — they're not on the
+# runtime classpath and Tink works fine without them. Without this, R8 fails the release build
+# outright ("Missing classes detected") rather than just warning.
+-dontwarn com.google.errorprone.annotations.**
