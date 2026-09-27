@@ -84,18 +84,27 @@ bkz. sohbetteki dosya ekleri).
 SHA-256: 84487a183365c4651440b559e74416d67e189a8114cc38319ce45a5bfe889397
 ```
 
-Ayrıca, Windows ajanının hazır (derlenmiş) win-x64 çalıştırılabilir dosyası da doğrudan size teslim
-edilir (`CepGozcuAgent-win-x64.zip` — `CepGozcu.Agent.Host.exe` içerir, `scripts/publish.ps1` ile
-aynı komuttan üretilmiştir):
+Windows ajanının derlenmiş win-x64 çalıştırılabilir dosyası da iki biçimde üretildi (ikisi de
+`scripts/publish.ps1` ile aynı `dotnet publish -r win-x64` komutundan üretilir, tek fark
+self-contained anahtarı):
 
-```
-SHA-256 (zip):                ef149f430dbd39b5f274e75a3bc62b93f2f626fd1ea05be1b49af07ce786c333
-SHA-256 (CepGozcu.Agent.Host.exe, zip içinde): 2ab8a8947b543a9fe5d15898cfdd0af722abd2bee565e9c8f9d66448df8911ff
-```
+- **Küçük sürüm (doğrudan size teslim edildi, `CepGozcuAgent-win-x64-fx.zip`, ~845 KB):**
+  framework-bağımlı — hedef bilgisayarda [.NET 8 Runtime](https://dotnet.microsoft.com/download/dotnet/8.0)
+  kurulu olmalı.
+  ```
+  SHA-256 (zip):                    963b5b94fbd05f5e1e1d8e154864f7310572dfb4bbb18835d510b98db8ac70ef
+  SHA-256 (CepGozcu.Agent.Host.exe): 59d4a64e189bde784f832ae255d119c2685d24fec63e394d11d8565669157268
+  ```
+- **Kendi kendine yeten sürüm (~97 MB, .NET kurulumu gerektirmez):** sohbet ekleri için çok büyük
+  olduğundan doğrudan teslim edilmedi; `windows-agent/scripts/publish.ps1` çalıştırarak siz üretin
+  (bu komut bu depoda gerçekten çalıştırılıp doğrulandı):
+  ```
+  SHA-256 (CepGozcu.Agent.Host.exe): 2ab8a8947b543a9fe5d15898cfdd0af722abd2bee565e9c8f9d66448df8911ff
+  ```
 
 Kurulum için: zip'i açıp Yönetici PowerShell'de
-`../scripts/install.ps1 -SourceDir .\CepGozcuAgent-win-x64` çalıştırın (bkz.
-`windows-agent/README.md`).
+`../scripts/install.ps1 -SourceDir .\CepGozcuAgent-win-x64-fx` (veya kendi ürettiğiniz klasörün adı
+neyse) çalıştırın (bkz. `windows-agent/README.md`).
 
 Doğrulama:
 
