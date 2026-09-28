@@ -217,64 +217,80 @@ same screen (only one connection is held at a time).
 - Manually grepped the entire `app/src/main/kotlin` tree for `Log.` / `println(` to
   confirm no call ever logs a secret, HMAC, or nonce value.
 
-## What is NOT verified (no device or emulator in this environment)
+## What is verified on a real Android OS (not just JVM)
 
-This container has the Android SDK's build tools but **no emulator and no physical
-device** — Android UI/camera/touch/background-lifecycle behavior genuinely cannot be
-observed here (checked: no `/dev/kvm`, no CPU `vmx`/`svm` — an unaccelerated Android
-emulator is not practically usable in this container). A real running windows-agent
-process WAS available (built from `windows-agent/` in this same repo, run natively on
-this machine), so — unlike a typical isolated unit-test suite — this app's actual
-network/protocol/crypto code was driven against a real live server; see
-`app/src/test/kotlin/com/jn/winremote/e2e/LiveAgentEndToEndTest.kt` and the
-"Real TLS handshake / WebSocket connection" bullet below. What genuinely still has
-**not** been observed is Android-framework/on-device behavior:
+This container has no physical Android device, and initially looked like it had no
+emulator either: no `/dev/kvm`, no CPU `vmx`/`svm` flag (checked directly, not
+assumed) — no hardware-accelerated virtualization is possible here. Rather than stop
+there, this was researched further: community sources (Redroid/Waydroid docs, several
+GitHub issues on KVM-less Android CI) document that the stock Android SDK emulator
+can run in pure software mode (`-no-accel -gpu swiftshader_indirect`) without KVM,
+just slowly. That was tried for real — a real AVD (Android 8.0 / API 26, x86) booted
+in ~2.5 minutes — and `dist/app-debug.apk` (the real, unmodified build artifact) was
+installed on it with `adb install`.
+
+From there, this app's real pairing form was driven through `adb`/`uiautomator`
+(typing into the actual Compose `OutlinedTextField`s, tapping the actual "Eşleştir"
+button) against the real `windows-agent` instance also running live on this machine.
+It paired successfully, and screenshots were taken confirming, on a real running
+Android OS: the Panel screen rendering this host's real live CPU/RAM/disk metrics;
+the Süreçler screen rendering this host's real process list with correct "korumalı"
+badges; and the Ayarlar screen showing the paired device — which only appears there
+if `SecureStore`'s real Android-Keystore-backed `EncryptedSharedPreferences` write
+and read-back actually worked, since nothing else populates that screen. Screenshots
+were sent alongside this report; see the top-level `README.md`'s "Gerçek uçtan uca
+doğrulama" section for the full account (including two real interoperability bugs
+this and the earlier JVM-level testing found and fixed).
+
+Redroid/Waydroid themselves were also checked and ruled out concretely, not assumed
+impossible: the running host kernel's `/proc/config.gz` shows
+`CONFIG_ANDROID_BINDER_IPC` is not set, and there is no `/dev/binder`, no `modprobe`
+to load it, and no path to safely change the shared host kernel from inside this
+container — so those two remain genuinely out of reach here, unlike the plain
+emulator.
+
+## What is still NOT verified
 
 - **QR camera scanning.** `ui/pairing/QrAnalyzer.kt` (CameraX `ImageAnalysis.Analyzer`
   + ZXing's `QRCodeReader` run directly against the Y/luminance plane) has never
-  decoded a real camera frame. Only its pure geometry helper (`util/YuvRotate.kt`,
-  handling sensor-vs-portrait rotation) is unit-tested. Actual decode reliability in
-  good/bad lighting, at an angle, or with a low-end camera sensor is unverified.
-  The manual-entry pairing path does not depend on this at all.
-- ~~Real TLS handshake / WebSocket connection~~ — **now verified**: a real
-  `windows-agent` instance was run live on this machine and this app's actual
-  `PairingClient`/`WinRemoteRepository`/`CertPinning`/`HmacAuth` code connected to it
-  for real — real `wss://` handshake, real pinned-fingerprint check against the
-  agent's real self-signed cert, and the full real `hello`/`pair_request`/
-  `auth_challenge`/`auth_response` exchange, followed by real `list_processes`,
-  `kill_process` (on a real spawned process), `launch_app` (a real allow-listed
-  process, verified running, then cleaned up), and real `file_event` pushes from a
-  real watched directory. This caught two real bugs (a QR field-name mismatch and a
-  Go nil-slice-marshals-as-`null` bug that hung `list_alerts` forever) that were then
-  fixed on both sides — see the top-level `README.md`. What's still unverified is
-  this same code running on an actual Android device/OS rather than a plain JVM, and
-  a live agent running on real Windows rather than this Linux container.
+  decoded a real camera frame — the emulator session above used the manual-entry
+  pairing path, not the camera one, and the AVD's virtual camera was never
+  configured. Only the analyzer's pure geometry helper (`util/YuvRotate.kt`,
+  handling sensor-vs-portrait rotation) is unit-tested. The manual-entry pairing
+  path does not depend on this at all, and is now itself verified end-to-end on a
+  real Android OS (above).
+- **Killing a process / launching an app from the phone's own UI.** The JVM-level
+  `LiveAgentEndToEndTest` did a real `kill_process` and `launch_app` round trip
+  against the live agent; a real on-device tap on the Süreçler/Uygulamalar screens'
+  buttons was not exercised in this round (the Süreçler screen's live process list
+  and its "korumalı" badges were confirmed rendering correctly, just not the tap
+  itself).
+- **Dosya Etkinliği / Uyarılar / Geçmiş screens on-device.** Not opened during the
+  emulator session; their JVM-level data flow (file events, alerts, history queries)
+  is covered by `LiveAgentEndToEndTest` instead.
 - **Reconnect-after-real-network-loss.** The backoff *sequencing* is unit-tested;
   actually killing Wi-Fi/mobile data mid-session and observing the phone silently
   recover (or the liveness watchdog in `WinRemoteRepository` correctly detecting a
   half-open connection) has not been observed.
-- **On-device rendering/layout.** No emulator or device screen was available to
-  actually render any Compose screen. Layouts were written and reviewed for 360dp and
-  420dp widths (comfortable touch targets, no fixed-width elements, scrollable
-  content, Material 3 defaults), but nothing has been screenshotted or visually
-  confirmed. `@Preview` composables were intentionally *not* added with fake data per
-  the "no demo data in the runtime path" constraint on non-test code, so there's
-  currently no visual preview at all — only compiled, logically-tested UI code.
 - **Background/battery behavior.** The app holds its WebSocket connection only while
   the process is alive (no foreground service, no WorkManager keep-alive); how
   Android's battery/Doze management actually treats this connection over a real
   multi-hour idle period is unverified.
-- **EncryptedSharedPreferences / Android Keystore.** Compiles against the real
-  `androidx.security:security-crypto` API, but `SecureStore` itself needs a real
-  Android Keystore and so has no JVM unit test; only the plain-JSON shape it
-  serializes (`PairedDevice`) is round-trip tested.
-- **CameraX permission flow, dropdown/menu interactions, snackbars, dialogs** — all
-  implemented with standard Compose/Material 3 APIs but never interacted with on a
-  real touchscreen.
+- **A real physical phone.** Everything above ran on a real Android *OS* instance,
+  but a software-emulated one (SwiftShader-rendered, x86, no real camera/sensors/
+  radio) — not a physical device. Real hardware performance, real camera, real
+  touchscreen feel, and real cellular/Wi-Fi radio behavior are still unverified.
+- **CameraX permission flow, dropdown/menu interactions, snackbars, dialogs beyond
+  what was screenshotted** — implemented with standard Compose/Material 3 APIs;
+  the pairing form's inputs, tab switching, and the system camera-permission dialog
+  were exercised for real during the session above (the permission dialog was seen
+  and dismissed), but not every interactive element on every screen.
 
-In short: **the protocol layer, crypto, backoff, filters, formatting, and the full
-network/auth/request-response flow are real and verified — including live, against a
-real running windows-agent process, not just same-side unit tests. What remains
-unverified is specifically the Android-framework/on-device layer (camera decode,
-on-screen rendering, background lifecycle, touch interaction) and running either side
-on its real target OS (Android device, Windows PC) instead of this Linux container.**
+In short: **the protocol layer, crypto, backoff, filters, formatting, the full
+network/auth/request-response flow, on-device rendering, and real Android-Keystore-
+backed storage are all real and verified — including live, against a real running
+windows-agent process, on a real (software-emulated) Android OS, not just JVM unit
+tests. What remains unverified is camera QR decoding, a few screens/interactions not
+reached in this round, physical-device-specific behavior, and running either side on
+its real target hardware (a physical Android phone, a real Windows PC) instead of
+this Linux container.**

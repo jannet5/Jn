@@ -302,6 +302,16 @@ Windows machine. Verified vs. not verified, explicitly:
   (`TestStore_EmptyListsAreNeverNil`) — which the real Android client's
   non-nullable `List<T>` fields could not decode, hanging every such
   request until timeout.
+- **This agent was also paired with the real Android app running on a real
+  Android OS** (not just a JVM harness): a KVM-less Android SDK emulator
+  (`-no-accel -gpu swiftshader_indirect`, since this container has no
+  `/dev/kvm` — confirmed, not assumed) was booted, the real
+  `app-debug.apk` was installed on it, and the app's own Eşleştirme
+  screen was used (via `adb`/`uiautomator` driving the real UI) to pair
+  with this exact running agent. The agent's real pairing/auth/metrics/
+  process-listing code served a real request from a real Android
+  client's own UI — see `android-app/README.md` for the on-device
+  details and screenshots.
 
 **NOT verified — genuinely unknown until this runs on a real Windows box:**
 - **Real Windows process-owner detection.** `core.EvaluateProtection`'s
@@ -331,6 +341,15 @@ Windows machine. Verified vs. not verified, explicitly:
   inbound WS connections, or whether Defender SmartScreen flags an
   unsigned/unnotarized exe, is unknown and unhandled (no code signing was
   done or attempted).
+- **Running the actual `.exe` at all, even under emulation.** Cross-compiling
+  and running the built binary under Wine (a community-documented pattern
+  for smoke-testing cross-compiled Go Windows binaries on Linux, e.g.
+  [icio/go-wine-test](https://github.com/icio/go-wine-test)) was
+  attempted: `wine64` was successfully installed in this container (after
+  working around a stale package-mirror index with `apt-get update`), but
+  actually launching the agent under it and observing real behavior was
+  not reached before time ran out. This remains a genuinely open,
+  concretely-scoped next step, not something ruled out.
 - **Whether admin/elevated rights are actually required for any
   operation.** Writing to `%ProgramData%` typically needs at least
   standard-user write access to that specific subfolder (created here on
