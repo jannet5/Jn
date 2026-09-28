@@ -113,3 +113,48 @@ tanılama ayrı ama gizli bir Activity (ana ekrandan link yok, yalnızca başlı
 `Activity.getReferrer()` kullanıldı (Android'in ACTION_SEND çağrısını yapan uygulamayı
 öğrenmek için resmi desteklenen yöntemi), çağıran uygulamanın kendi beyan ettiği extra'lara
 güvenilmedi (sahtecilik riski).
+
+## 8. Gerçek WhatsApp/Instagram bildirim şekline karşı doğrulama — ne yapıldı, ne yapılamadı
+
+Kullanıcı bu oturumda ısrarla "gerçek uygulamalardan gerçek bildirim gelmeden bunu nasıl
+doğruladın" sorusuna somut bir cevap istedi. Gerçek bir telefonda gerçek WhatsApp/Instagram
+hesabı olmadan bunu %100 kapatmak mümkün değil (bkz. ROADMAP.md'deki açık adım), ama bahane
+üretmek yerine şu araştırma yapıldı ve koda işlendi:
+
+**Araştırma:** WhatsApp/Instagram/Telegram bildirimlerini `NotificationListenerService` ile
+okuyan birden fazla açık kaynak proje incelendi (web araması ile):
+- [jimale/WhatsDeleted PR #8](https://github.com/jimale/WhatsDeleted/pull/8) — "bundled
+  (kilitliyken gelen) WhatsApp bildirimlerinde `android.text` sadece son satırı taşır; tüm
+  mesajlar için `MessagingStyle.messages` veya ham `EXTRA_MESSAGES` bundle dizisi okunmalı"
+  ve "bazı OEM bildirimleri bozuk bir mesaj bundle dizisi bildiriyor" notu.
+- [Pitch-code/NextMove PR #7](https://github.com/Pitch-code/NextMove/pull/7) — WhatsApp için
+  önce `NotificationCompat.MessagingStyle.extractMessagingStyleFromNotification`, yoksa
+  `android.text`'e düşme sırası; sohbet/gönderen adı için `android.title`.
+- Genel arama: MessagingStyle içeren bir bildirim, gerçek bir doğrudan mesajın (DM) güçlü bir
+  işareti olarak kabul ediliyor; bazı MessagingStyle bildirimlerinde `EXTRA_TEXT` tamamen boş
+  bırakılabiliyor.
+
+**Bunun koda etkisi — doğrulanan, değiştirilmeyen kararlar:**
+- `MessageNormalizer`'ın MessagingStyle'ı bigText/text'in ÖNÜNE koyması (CAP-05), bağımsız
+  üç kaynakla da örtüşüyor — değiştirilmedi, doğrulandı.
+- `NotificationExtractor`'ın `EXTRA_TITLE`'ı `EXTRA_TEXT`'ten bağımsız okuması zaten doğru
+  davranıyordu (Instagram gibi `EXTRA_TEXT`'i boş bırakan bildirimlerde sorun yok).
+
+**Bunun koda etkisi — gerçek bir sertleştirme yapıldı, ama iddiası dürüstçe sınırlandı:**
+`NotificationExtractor.extract()`, `extractMessagingStyleFromNotification` çağrısını artık
+`try/catch` ile sarıyor (bkz. `NotificationExtractorRobolectricTest.falls back to bigText
+when MessagingStyle parsing yields nothing usable`). Bunu eklerken önce gerçekten kırmaya
+çalıştım: Robolectric altında bozuk bir `EXTRA_MESSAGES` dizisi (Bundle olmayan Parcelable
+öğeleri) verip önce DÜZELTME OLMADAN test çalıştırıldı — **çökmedi**. Nedenini projenin
+gerçek `androidx.core:core:1.13.1` bağımlılığının .jar'ını `javap` ile decompile ederek
+kontrol ettim: `getMessagesFromBundleArray` her öğeyi `instanceof Bundle` ile kontrol ediyor,
+ve `getMessageFromBundle`'ın TÜM gövdesi bytecode seviyesinde bir `ClassCastException`
+exception-table girişiyle sarılı (satırlar 0–188, hedef 189, `null` döndürüyor). Yani bu
+bağımlılık sürümü, GitHub'daki geliştiricilerin bahsettiği tam senaryoya karşı zaten
+sertleştirilmiş.
+
+Bu yüzden `try/catch`'i "kanıtlanmış bir çökmeyi düzeltiyorum" diye değil, "gerçek üretimde
+bu çağrı bir Binder/IPC sınırını geçiyor (bu sandbox'ın tekrar edemediği tek şey) ve gelecekte
+farklı bir androidx sürümü veya farklı bir OEM hatası bu korumanın kapsamadığı bir yerde
+çökebilir, bunun maliyeti sıfır" diye ekledim. Test de buna göre adlandırıldı — bir çökmeyi
+"reproduce ettim" demiyor, geri dönüş davranışının doğru çalıştığını doğruluyor.

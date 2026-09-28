@@ -127,4 +127,36 @@ class NotificationExtractorRobolectricTest {
 
         assertThat(fingerprintA).isEqualTo(fingerprintB)
     }
+
+    /**
+     * Multiple independent notification-reader projects report crashes parsing
+     * `EXTRA_MESSAGES` on some OEM ROMs (see docs/DECISIONS.md §8). This test puts a
+     * malformed `EXTRA_MESSAGES` array (Parcelables that are not `Bundle`s) on a real
+     * notification: `androidx.core:core:1.13.1`'s own `getMessagesFromBundleArray` already
+     * guards this with an `instanceof Bundle` check (confirmed by inspecting its bytecode --
+     * see DECISIONS.md), so this does not currently throw. What this test actually verifies
+     * is the resulting behavior either way: MessagingStyle parsing yields nothing usable, and
+     * [NotificationExtractor]/[MessageNormalizer] correctly fall back to bigText instead of
+     * losing the notification -- the property [NotificationExtractor.extract]'s try/catch
+     * exists to protect if a future/older androidx version, or the Binder/IPC boundary this
+     * sandbox cannot exercise, ever does throw here.
+     */
+    @Test
+    fun `falls back to bigText when MessagingStyle parsing yields nothing usable`() {
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle("Zeynep Aksu")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Ürün ne zaman kargoya verilir?"))
+            .build()
+        // EXTRA_MESSAGES should hold a Bundle[]; this holds Parcelables that are not Bundles,
+        // matching the shape of malformed data reported in the wild (see docstring above).
+        notification.extras.putParcelableArray(Notification.EXTRA_MESSAGES, arrayOf(Intent()))
+
+        val payload = NotificationExtractor.extract(wrap(notification, key = 5))
+        val normalized = MessageNormalizer.normalize(payload)
+
+        assertThat(payload.messagingStyleMessages).isEmpty()
+        assertThat(normalized?.senderName).isEqualTo("Zeynep Aksu")
+        assertThat(normalized?.messageText).isEqualTo("Ürün ne zaman kargoya verilir?")
+    }
 }
