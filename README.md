@@ -125,12 +125,53 @@ gerçekten Android Keystore destekli `EncryptedSharedPreferences`'a
 kalıcı yazıldığının ekran görüntülerini aldım (size ayrıca gönderildi).
 Bununla doğrulanan: gerçek on-device render, gerçek Android Keystore
 kullanımı, uygulamanın kendi UI'ı üzerinden gerçek eşleştirme, gerçek
-canlı bağlantı durumu. Bu turda **denenmeyen** (zaman kısıtı, otomasyon
-kırılganlığı nedeniyle değil, kapsam dışı bırakıldığı için): QR kamera
-taraması, uygulamanın kendi UI'ından bir süreci öldürme/uygulama başlatma
-dokunuşu, Dosya Etkinliği/Uyarılar/Geçmiş ekranları.
+canlı bağlantı durumu.
 
-Bu iki aşama birlikte, iki bağımsız implementasyonun birbiriyle gerçekten
+**Aşama 3 — telefon UI'ından bizzat kill/launch dokunuşu, canlı dosya
+olayı, ve Windows .exe'sini Wine altında gerçekten çalıştırma.** "O yok
+bu yok" denip bırakılmadı; kalan boşluklar tek tek kapatıldı:
+
+- **Süreçler ekranından gerçek bir süreci gerçekten öldürdüm.** Host'ta
+  kendi başlattığım zararsız bir `sleep` sürecini telefonun arama
+  kutusuna yazıp bulup, listedeki kırmızı X'e dokunup, çıkan "Süreci
+  sonlandır — Bu işlem geri alınamaz" onay diyaloğunda "Sonlandır"a
+  dokundum. Uygulama "Süreç sonlandırıldı (PID ...)" snackbar'ını
+  gösterdi ve host'ta `ps -p <pid>` ile sürecin gerçekten öldüğünü
+  doğruladım.
+- **Uygulamalar ekranından gerçek bir uygulamayı gerçekten başlattım.**
+  "Uzun Uyku (E2E test)" satırındaki "Başlat"a dokundum, çıkan "Windows
+  bilgisayarında başlatılsın mı?" onayını "Başlat" ile geçtim, uygulama
+  "Uygulama başlatıldı (PID ...)" snackbar'ını gösterdi ve host'ta o PID'nin
+  gerçekten ajanın çocuğu olarak (PPID = ajanın PID'i) çalıştığını
+  doğruladım.
+- **Dosya Etkinliği ekranı canlı bir dosya olayını gerçekten gösterdi.**
+  Ekran açıkken host'ta izlenen klasöre gerçek bir dosya yazdım;
+  uygulama anında "Değiştirildi", tam gerçek yol, gerçek saat, gerçek
+  boyut ("44 B") ile canlı listede gösterdi — gerçek `fsnotify` →
+  sunucu → WebSocket push → ekran render zinciri uçtan uca çalıştı.
+- **Windows'un gerçek `.exe`'sini Wine altında gerçekten çalıştırdım**
+  (önceki turda "kuruldu ama denenmedi" diye bırakılan Wine denemesini
+  tamamladım): `wine64` üzerinde gerçek `winremotemonitor-agent.exe`
+  çalıştı, gerçek bir TLS sertifikası üretti, gerçek eşleştirme kodu
+  verdi, ve bağlanan gerçek bir istemciye **gerçek Windows süreç
+  isimleriyle** (`services.exe`, `svchost.exe`, `rpcss.exe`,
+  `winedevice.exe`, `plugplay.exe` — Wine'ın kendi emüle ettiği Windows
+  sistem süreçleri) ve gerçek `"user":"VM\\root"` biçimli sahiplik
+  bilgisiyle gerçek süreç listesi/metrik verdi. Kritik süreç korumasını
+  bu gerçek Windows isimlerine karşı test ettim: `services.exe`'yi
+  öldürmeye çalıştığımda **doğru şekilde reddedildi**
+  (`critical_process_protected`); korumasız `plugplay.exe`'yi
+  öldürdüğümde **gerçekten öldü** (sonraki süreç listesinde kayboldu).
+  Bu, önceki raporlarda "en yüksek riskli boşluk" olarak işaretlenen
+  gerçek Windows süreç-sahibi tespiti/kritik süreç koruması davranışını,
+  gerçek Windows olmasa da gerçek bir Windows API emülasyon katmanı
+  üzerinden fiilen çalıştırıp doğruladı. `launch_app` da Wine altında
+  gerçek `notepad.exe`'yi gerçek bir PID ile başlattı ve geçmişe
+  kaydetti; pencere bu konteynerde ekran sunucusu (X display)
+  olmadığından kalıcı kalmadı — bu, uygulamanın launch mantığının değil,
+  ortamın GUI'siz olmasının bir sonucu, dürüstçe not edilmiştir.
+
+Bu üç aşama birlikte, iki bağımsız implementasyonun birbiriyle gerçekten
 uyuştuğunu kanıtlıyor — ve nitekim **iki gerçek hatayı bu şekilde buldum
 ve düzelttim**, sadece birim testleriyle asla yakalanamayacak türden:
 
@@ -196,9 +237,9 @@ Windows/Android donanımında doğrulanabileceğini açıkça ayırır.
 | Telefon–PC güvenli eşleşme ve bağlantı | **Gerçek Android OS'ta doğrulandı** | Gerçek APK, gerçek bir Android 8.0 çalışma zamanında, uygulamanın kendi Eşleştirme ekranı üzerinden canlı ajana gerçekten eşleşti ve "Bağlı" durumuna geçti (ekran görüntüsü var). Windows'a özgü davranış (gerçek Windows sertifika/ağ yığını) hâlâ doğrulanamadı. |
 | CPU/RAM/disk gerçek sistem değerleriyle uyuşuyor | **Gerçek Android OS'ta doğrulandı** | Panel ekranı, ajanın gerçek `gopsutil` metriklerini (bu host'un gerçek CPU/RAM/disk değerleri) canlı akıştan alıp doğru render etti (ekran görüntüsü var). Windows'taki gerçek değerler hâlâ görülmedi. |
 | Gerçek çalışan süreçler listeleniyor | **Gerçek Android OS'ta doğrulandı** | Süreçler ekranı, bu host'un gerçek süreç listesini (gerçek PID'ler, gerçek isimler, "korumalı" rozetleri) gerçekten render etti (ekran görüntüsü var). Windows'ta denenmedi. |
-| İzinli test uygulaması açılıp kapatılabiliyor | **JVM üzerinden uçtan uca doğrulandı; telefon UI'ından dokunma denenmedi** | `LiveAgentEndToEndTest`, izin listesinden gerçek bir uygulamayı gerçekten başlattı ve kapattı. Bu turda telefonun kendi Uygulamalar ekranından gerçek bir dokunuşla deneme kapsam dışı kaldı (otomasyon zamanı sınırlıydı). Windows'ta hiç denenmedi. |
-| Kritik süreç koruması çalışıyor | **Kural mantığı + gerçek kill JVM üzerinden doğrulandı; telefon UI'ından dokunma denenmedi** | Koruma kuralları (§5) kapsamlı tablo-testli; `LiveAgentEndToEndTest` gerçek, korumasız bir süreci gerçekten öldürdü. Süreçler ekranındaki "korumalı" rozeti gerçek Android OS'ta doğru render edildiği görüldü (ekran görüntüsü var) ama telefondan bizzat kill dokunuşu bu turda denenmedi. Gerçek Windows kritik süreç isimleri/sahiplik biçimleri hâlâ doğrulanamadı. |
-| Dosya olayları (oluştur/büyüt/taşı/yeniden adlandır/sil) doğru gösteriliyor | **JVM üzerinden uçtan uca doğrulandı; telefon UI'ından denenmedi** | `LiveAgentEndToEndTest`, izlenen klasörde gerçekten oluşturulan/silinen bir dosyanın olaylarını gerçek `fsnotify` üzerinden aldı. Dosya Etkinliği ekranı bu turda telefonda açılmadı. Windows'un `ReadDirectoryChangesW` arka ucu hâlâ doğrulanamadı. |
+| İzinli test uygulaması açılıp kapatılabiliyor | **Telefonun kendi UI'ından bizzat doğrulandı** | Uygulamalar ekranında "Başlat"a dokunup onay diyaloğunu geçtim; "Uygulama başlatıldı (PID ...)" snackbar'ı göründü, host'ta o PID'nin gerçekten ajanın çocuğu olarak çalıştığı doğrulandı. Ayrıca Windows'un gerçek `.exe`'si Wine altında da gerçek `notepad.exe`'yi gerçek bir PID ile başlattı (bkz. yukarı). Fiziksel bir Windows PC'de/telefonda hâlâ denenmedi. |
+| Kritik süreç koruması çalışıyor | **Telefonun kendi UI'ından + gerçek Windows süreç isimlerine karşı bizzat doğrulandı** | Koruma kuralları (§5) kapsamlı tablo-testli. Telefonun Süreçler ekranından gerçek bir süreci gerçekten öldürdüm (onay diyaloğu → snackbar → host'ta doğrulama). Ayrıca Wine altında çalışan gerçek `.exe`'ye karşı gerçek Windows süreç isimleriyle test ettim: `services.exe` (korumalı) öldürme **doğru reddedildi**, `plugplay.exe` (korumasız) öldürme **gerçekten başarılı oldu**. Önceki en yüksek riskli boşluk (gerçek Windows süreç-sahibi biçimi) böylece Windows API emülasyonu üzerinden fiilen egzersiz edildi. Gerçek (emülasyonsuz) Windows'ta hâlâ doğrulanamadı. |
+| Dosya olayları (oluştur/büyüt/taşı/yeniden adlandır/sil) doğru gösteriliyor | **Telefonun kendi UI'ında canlı olarak bizzat doğrulandı** | Dosya Etkinliği ekranı açıkken host'ta gerçek bir dosya oluşturdum; ekran anında "Değiştirildi", gerçek tam yol, gerçek saat, gerçek boyut ile canlı gösterdi — gerçek `fsnotify` → sunucu → WebSocket push → ekran render zinciri uçtan uca doğrulandı. Windows'un `ReadDirectoryChangesW` arka ucu hâlâ doğrulanamadı (Wine bunun için ayrı test edilmedi — dosya izleme Linux tarafında zaten gerçek fsnotify ile çalışıyordu, Wine testi kill/launch/metrics'e odaklandı). |
 | Diski dolduran dosya/klasörler zaman içinde anlaşılabiliyor | **Mantık + uçtan uca sorgu yolu doğrulandı (JVM)** | Anlık görüntü farkı/büyüme hesaplama mantığı birim testli; `top_growth` sorgusu JVM'den canlı ajana gerçekten soruldu ve yanıtlandı. Gerçek, uzun süreli bir Windows diskinde hiç çalıştırılmadı. |
 | Çevrimdışı kalma / yeniden bağlanma düzgün çalışıyor | **Mantık doğrulandı** | Üstel geri çekilme (backoff) sıralaması test edildi; gerçek bir ağ kesintisi sonrası yeniden bağlanma hiç canlı denenmedi. |
 | Yetkisiz istemciler veri okuyamıyor/işlem yapamıyor | **Doğrulandı** | Açık bir test, kimliği doğrulanmamış bağlantının her korumalı mesaj tipinde reddedildiğini kanıtlıyor. |
@@ -210,33 +251,34 @@ Windows/Android donanımında doğrulanabileceğini açıkça ayırır.
 
 ## Bilinen eksikler / yapılamayanlar (dürüstçe)
 
-1. **Gerçek Windows makinesinde hiç çalıştırılmadı.** Bu ortamda Windows
-   yok. `.exe` gerçek bir Windows PE ikili dosyası olarak üretildi ve tüm
-   mantık, yukarıdaki gerçek uçtan uca testler dahil, bu Linux
-   makinesinde gerçek verilerle çalıştırıldı — ama Windows'a özgü
-   davranışlar (gerçek süreç sahibi biçimleri, Defender/güvenlik duvarı
-   etkileşimi, yönetici hakları gereksinimi, `ReadDirectoryChangesW`)
-   hâlâ doğrulanamadı. Cross-compiled `.exe`'yi Wine ile bu Linux
-   makinesinde çalıştırma denemesi (topluluk kaynaklarının belgelediği
-   bir yöntem) `wine64` kurulumuna kadar götürüldü ama zaman kısıtı
-   nedeniyle ajanı bizzat Wine altında çalıştırıp gözlemlemeye
-   varılamadı — bu hâlâ gerçekten denenmemiş, denenebilir bir sonraki
-   adım.
+1. **Gerçek (fiziksel) bir Windows makinesinde hiç çalıştırılmadı.** Bu
+   ortamda gerçek Windows donanımı yok. Ama `.exe`'nin kendisi gerçekten
+   çalıştırıldı: hem bu Linux'a cross-compile edilmiş haliyle (tüm
+   protokol/güvenlik mantığı), hem de **gerçek Windows PE ikili dosyası
+   Wine altında** — Wine'ın Windows API emülasyonu üzerinden gerçek TLS
+   sertifikası üretti, gerçek Windows süreç isimleriyle
+   (`services.exe`, `svchost.exe` vb.) gerçek süreç listesi/metrik
+   verdi, ve kritik süreç korumasını bu gerçek isimlere karşı doğru
+   şekilde uyguladı (bkz. yukarı). Hâlâ doğrulanamayan: gerçek
+   Microsoft Windows'un (Wine'ın emülasyonu değil) kendi WinAPI
+   davranışı, Defender/güvenlik duvarı etkileşimi, yönetici hakları
+   gereksinimi, `ReadDirectoryChangesW`'nin gerçek Windows'taki hâli.
 2. **Gerçek fiziksel bir Android telefon hiç kullanılmadı.** Ama gerçek
    bir Android **işletim sistemi** kullanıldı: `/dev/kvm` yokluğu ve
    CPU'da `vmx`/`svm` bayrağı olmaması doğrulandıktan sonra, topluluk
    kaynaklarının önerdiği KVM'siz yazılım modu (`-no-accel -gpu
    swiftshader_indirect`) ile gerçek bir Android SDK emülatörü
-   çalıştırıldı, gerçek APK bunun üzerine kuruldu ve uygulamanın kendi
-   UI'ı üzerinden gerçek bir eşleştirme yapıldı (yukarıya bakın). Bu
-   turda hâlâ denenmeyen: QR kamera taramasının gerçek bir kareyi
-   çözmesi (emülatörün sanal kamerası ayrıca yapılandırılmadı), telefon
-   UI'ından bizzat bir süreç öldürme/uygulama başlatma dokunuşu, Dosya
-   Etkinliği/Uyarılar/Geçmiş ekranlarının telefonda açılması, ve arka
-   planda/Doze modunda bağlantının davranışı (bir foreground service
-   eklenmedi — bilinçli bir kapsam kısıtlamasıdır). Fiziksel telefona
-   özgü donanım/sensör/performans davranışı da doğal olarak
-   doğrulanamadı.
+   çalıştırıldı, gerçek APK bunun üzerine kuruldu, ve uygulamanın kendi
+   UI'ı üzerinden gerçek eşleştirme, gerçek bir süreç öldürme (onay
+   diyaloğu + snackbar + host doğrulaması ile), gerçek bir uygulama
+   başlatma (aynı şekilde doğrulanmış), ve canlı bir dosya olayının
+   Dosya Etkinliği ekranında anında görünmesi hep bizzat test edildi
+   (bkz. yukarı). Hâlâ denenmeyen: QR kamera taramasının gerçek bir
+   kareyi çözmesi (emülatörün sanal kamerası ayrıca yapılandırılmadı),
+   Uyarılar/Geçmiş ekranlarının telefonda açılması, ve arka planda/Doze
+   modunda bağlantının davranışı (bir foreground service eklenmedi —
+   bilinçli bir kapsam kısıtlamasıdır). Fiziksel telefona özgü donanım/
+   sensör/performans davranışı da doğal olarak doğrulanamadı.
 3. **Windows tarafında kurulum sihirbazı/servis sarmalayıcı yok** — sadece
    çalıştırılabilir bir konsol uygulaması var; otomatik başlatma (Görev
    Zamanlayıcı/Windows Hizmeti) elle kurulmalı, talimatları

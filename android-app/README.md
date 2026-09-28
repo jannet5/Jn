@@ -249,25 +249,45 @@ to load it, and no path to safely change the shared host kernel from inside this
 container — so those two remain genuinely out of reach here, unlike the plain
 emulator.
 
+## Killing a process / launching an app / live file events, from the phone's own UI
+
+A follow-up round went further than the JVM-level test and the first emulator
+session: on the same KVM-less AVD, with the same live `windows-agent` instance,
+I drove real taps through the real Compose UI (via `adb`/`uiautomator`, not a
+shortcut around the UI) and verified the results on the actual host OS, not just
+by trusting the app's own success message:
+
+- **Real kill_process from the Süreçler screen.** Searched for a real process I'd
+  spawned on the host, tapped its red "X", got the real confirmation dialog
+  ("Süreci sonlandır — Bu işlem geri alınamaz"), tapped "Sonlandır", saw the real
+  "Süreç sonlandırıldı (PID ...)" snackbar, and confirmed with `ps -p <pid>` on the
+  host that the process was actually gone.
+- **Real launch_app from the Uygulamalar screen.** Tapped "Başlat" on the
+  allow-listed test app, got the real confirmation dialog ("Uygulamayı başlat —
+  Windows bilgisayarında başlatılsın mı?"), tapped "Başlat", saw the real
+  "Uygulama başlatıldı (PID ...)" snackbar, and confirmed on the host that a real
+  process now existed with that PID and the agent as its parent.
+- **Real live file_event push on the Dosya Etkinliği screen.** With the screen
+  open, wrote a real file into the watched directory on the host; the screen
+  updated within about a second showing "Değiştirildi", the real full path, real
+  timestamp, and real size — the whole fsnotify → agent → WebSocket push → Compose
+  render chain confirmed live, not just via a JVM test double.
+
+This closes the on-device gap for these three flows specifically. Screenshots of
+all three were sent alongside this report.
+
 ## What is still NOT verified
 
 - **QR camera scanning.** `ui/pairing/QrAnalyzer.kt` (CameraX `ImageAnalysis.Analyzer`
   + ZXing's `QRCodeReader` run directly against the Y/luminance plane) has never
-  decoded a real camera frame — the emulator session above used the manual-entry
-  pairing path, not the camera one, and the AVD's virtual camera was never
-  configured. Only the analyzer's pure geometry helper (`util/YuvRotate.kt`,
-  handling sensor-vs-portrait rotation) is unit-tested. The manual-entry pairing
-  path does not depend on this at all, and is now itself verified end-to-end on a
-  real Android OS (above).
-- **Killing a process / launching an app from the phone's own UI.** The JVM-level
-  `LiveAgentEndToEndTest` did a real `kill_process` and `launch_app` round trip
-  against the live agent; a real on-device tap on the Süreçler/Uygulamalar screens'
-  buttons was not exercised in this round (the Süreçler screen's live process list
-  and its "korumalı" badges were confirmed rendering correctly, just not the tap
-  itself).
-- **Dosya Etkinliği / Uyarılar / Geçmiş screens on-device.** Not opened during the
-  emulator session; their JVM-level data flow (file events, alerts, history queries)
-  is covered by `LiveAgentEndToEndTest` instead.
+  decoded a real camera frame — every session above used the manual-entry pairing
+  path, not the camera one, and the AVD's virtual camera was never configured. Only
+  the analyzer's pure geometry helper (`util/YuvRotate.kt`, handling sensor-vs-
+  portrait rotation) is unit-tested. The manual-entry pairing path does not depend
+  on this at all, and is itself verified end-to-end on a real Android OS (above).
+- **Uyarılar / Geçmiş screens on-device.** Not opened during either emulator
+  session; their JVM-level data flow (alerts, history queries) is covered by
+  `LiveAgentEndToEndTest` instead.
 - **Reconnect-after-real-network-loss.** The backoff *sequencing* is unit-tested;
   actually killing Wi-Fi/mobile data mid-session and observing the phone silently
   recover (or the liveness watchdog in `WinRemoteRepository` correctly detecting a
@@ -280,17 +300,18 @@ emulator.
   but a software-emulated one (SwiftShader-rendered, x86, no real camera/sensors/
   radio) — not a physical device. Real hardware performance, real camera, real
   touchscreen feel, and real cellular/Wi-Fi radio behavior are still unverified.
-- **CameraX permission flow, dropdown/menu interactions, snackbars, dialogs beyond
-  what was screenshotted** — implemented with standard Compose/Material 3 APIs;
-  the pairing form's inputs, tab switching, and the system camera-permission dialog
-  were exercised for real during the session above (the permission dialog was seen
-  and dismissed), but not every interactive element on every screen.
+- **CameraX permission flow, dropdown/menu interactions beyond what was
+  screenshotted** — implemented with standard Compose/Material 3 APIs; pairing
+  form inputs, tab switching, the system camera-permission dialog, kill/launch
+  confirmation dialogs, and result snackbars were all exercised for real across
+  the sessions above, but not every interactive element on every screen.
 
 In short: **the protocol layer, crypto, backoff, filters, formatting, the full
-network/auth/request-response flow, on-device rendering, and real Android-Keystore-
-backed storage are all real and verified — including live, against a real running
-windows-agent process, on a real (software-emulated) Android OS, not just JVM unit
-tests. What remains unverified is camera QR decoding, a few screens/interactions not
-reached in this round, physical-device-specific behavior, and running either side on
-its real target hardware (a physical Android phone, a real Windows PC) instead of
-this Linux container.**
+network/auth/request-response flow, on-device rendering, real Android-Keystore-
+backed storage, and the three core mutating/live-data flows (kill, launch, live
+file events) are all real and verified — including live, against a real running
+windows-agent process, on a real (software-emulated) Android OS, driven through
+the app's own UI, not just JVM unit tests. What remains unverified is camera QR
+decoding, the Uyarılar/Geçmiş screens on-device, physical-device-specific
+behavior, and running either side on its real target hardware (a physical
+Android phone, a real Windows PC) instead of this Linux container.**

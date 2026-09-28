@@ -308,21 +308,35 @@ Windows machine. Verified vs. not verified, explicitly:
   `/dev/kvm` — confirmed, not assumed) was booted, the real
   `app-debug.apk` was installed on it, and the app's own Eşleştirme
   screen was used (via `adb`/`uiautomator` driving the real UI) to pair
-  with this exact running agent. The agent's real pairing/auth/metrics/
-  process-listing code served a real request from a real Android
-  client's own UI — see `android-app/README.md` for the on-device
-  details and screenshots.
+  with this exact running agent. Beyond pairing, the agent served real
+  requests triggered by real taps on the phone's own screens: a real
+  `kill_process` (Süreçler screen, confirmation dialog, success snackbar,
+  host-verified the process actually died), a real `launch_app`
+  (Uygulamalar screen, confirmation dialog, success snackbar, host-
+  verified the launched process's PPID was this agent), and a real live
+  `file_event` push rendered on the Dosya Etkinliği screen within seconds
+  of a file actually being written to a watched directory on the host —
+  see `android-app/README.md` for the on-device details and screenshots.
+- **This exact agent binary (the real Windows PE, not the Linux build)
+  was run under Wine and driven by a real WebSocket client** — see the
+  "Real Windows process-owner detection" entry below for what this
+  proved about the critical-process-protection code path against real
+  Windows process names.
 
 **NOT verified — genuinely unknown until this runs on a real Windows box:**
-- **Real Windows process-owner detection.** `core.EvaluateProtection`'s
-  owner-account check (`NT AUTHORITY\SYSTEM` etc.) is fed by gopsutil's
-  `Process.Username()`, which on Windows wraps `OpenProcessToken` +
-  `LookupAccountSid`. That WinAPI path has never actually executed in this
-  environment — only gopsutil's Linux implementation has run here, which
-  returns a totally different string shape. Whether the exact strings
-  gopsutil returns on a real Windows box match this code's
-  `"nt authority\\system"` etc. comparisons (case/format) is **unverified**
-  and is the single highest-risk gap in this deliverable.
+- **Real Windows process-owner detection — partially de-risked via Wine.**
+  `core.EvaluateProtection`'s owner-account check (`NT AUTHORITY\SYSTEM`
+  etc.) is fed by gopsutil's `Process.Username()`, which on Windows wraps
+  `OpenProcessToken` + `LookupAccountSid`. That WinAPI code path (as
+  implemented by Wine, not Microsoft) has now actually executed — see
+  "Verified here" below — and returned a plausible `DOMAIN\user`-shaped
+  string (`VM\root`) rather than crashing or returning garbage, and
+  critical-process protection correctly matched/refused against real
+  Windows process names built from it. What remains unverified is whether
+  **literal Microsoft Windows'** string format matches byte-for-byte (Wine's
+  emulation could differ in case/format from the real WinAPI) — previously
+  the single highest-risk gap in this deliverable, now a smaller,
+  better-characterized one.
 - **Real Windows critical-process names encountered in practice.** The
   hardcoded name set is transcribed exactly from PROTOCOL.md §5, but
   whether gopsutil's `Process.Name()` returns exactly `"explorer.exe"`
@@ -341,15 +355,32 @@ Windows machine. Verified vs. not verified, explicitly:
   inbound WS connections, or whether Defender SmartScreen flags an
   unsigned/unnotarized exe, is unknown and unhandled (no code signing was
   done or attempted).
-- **Running the actual `.exe` at all, even under emulation.** Cross-compiling
-  and running the built binary under Wine (a community-documented pattern
-  for smoke-testing cross-compiled Go Windows binaries on Linux, e.g.
-  [icio/go-wine-test](https://github.com/icio/go-wine-test)) was
-  attempted: `wine64` was successfully installed in this container (after
-  working around a stale package-mirror index with `apt-get update`), but
-  actually launching the agent under it and observing real behavior was
-  not reached before time ran out. This remains a genuinely open,
-  concretely-scoped next step, not something ruled out.
+- ~~Running the actual `.exe` at all, even under emulation~~ — **now done**:
+  the real `.exe` was run under Wine (`wine64`, a community-documented
+  pattern for smoke-testing cross-compiled Go Windows binaries, e.g.
+  [icio/go-wine-test](https://github.com/icio/go-wine-test)) and driven by
+  a real WebSocket client over real pairing/auth. It reported real
+  Windows-namespace process names it does not fabricate — `services.exe`,
+  `svchost.exe`, `rpcss.exe`, `winedevice.exe`, `plugplay.exe` (Wine's own
+  emulated Windows system processes) — with owner strings in the real
+  `DOMAIN\user` shape (`VM\root`), via gopsutil's actual Windows code path
+  translated by Wine's WinAPI emulation, not its Linux path. Critical-
+  process protection was exercised against these real names: killing
+  `services.exe` was correctly refused
+  (`critical_process_protected`), and killing the unprotected
+  `plugplay.exe` actually succeeded and it was confirmed gone from a
+  follow-up `list_processes`. `launch_app` also launched a real
+  `notepad.exe` under Wine (real PID returned, real history entry) — its
+  window didn't persist only because this container has no X display for
+  a GUI app to render into, which is an environment limitation, not an
+  agent bug. **What this does not prove**: Wine's WinAPI emulation is not
+  literal Microsoft Windows, so real Windows-specific behavior (actual
+  `OpenProcessToken`/`LookupAccountSid` string formats, Defender/firewall,
+  UAC/elevation, `ReadDirectoryChangesW`) is still unverified — but the
+  single previously-flagged "highest-risk gap" (real Windows process-owner
+  detection not crashing and returning a plausible string) has now
+  actually been exercised through a real Windows-API-compatible code path,
+  not just asserted to probably work.
 - **Whether admin/elevated rights are actually required for any
   operation.** Writing to `%ProgramData%` typically needs at least
   standard-user write access to that specific subfolder (created here on
