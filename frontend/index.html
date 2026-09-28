@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cloud Notes</title>
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <h1>Cloud Notes</h1>
+      <button id="logoutBtn" class="ghost-btn" hidden>Çıkış</button>
+    </header>
+
+    <section id="authView" class="view">
+      <form id="authForm" class="card">
+        <h2 id="authTitle">Giriş yap</h2>
+        <label>
+          E-posta
+          <input type="email" id="email" required autocomplete="username" />
+        </label>
+        <label>
+          Şifre
+          <input type="password" id="password" required minlength="8" autocomplete="current-password" />
+        </label>
+        <p id="authError" class="error" role="alert"></p>
+        <button type="submit" class="primary-btn">Giriş yap</button>
+        <button type="button" id="toggleAuthMode" class="link-btn">Hesabın yok mu? Kayıt ol</button>
+      </form>
+    </section>
+
+    <section id="notesView" class="view" hidden>
+      <form id="noteForm" class="card">
+        <input type="text" id="noteTitle" placeholder="Başlık" required />
+        <textarea id="noteBody" placeholder="Not..." rows="3"></textarea>
+        <button type="submit" class="primary-btn">Ekle</button>
+      </form>
+      <p id="syncStatus" class="sync-status"></p>
+      <ul id="notesList" class="notes-list"></ul>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
