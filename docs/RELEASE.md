@@ -17,17 +17,23 @@ Debug APK doğrudan `adb install -r TekPanel-debug-20260927.apk` ile bir Android
 kurulabilir (bildirim erişimi izni ister). Release APK henüz **imzasızdır** (bkz. §5) —
 Play Console'a bu haliyle yüklenemez, önce gerçek bir anahtarla imzalanmalıdır.
 
-Testler: **34/34 geçti**. 26'sı saf JVM birim testleri (`MessageNormalizerTest`,
-`MessageFilterEngineTest`, `FingerprintTest`, `DuplicateGuardTest`); 8'i Robolectric ile
-gerçek `android.app.Notification`/`StatusBarNotification` nesneleri ve gerçek bellek-içi
-Room veritabanı kullanan uçtan uca testler (`NotificationExtractorRobolectricTest`,
-`CaptureCoordinatorRobolectricTest`) — bu sandbox'ta KVM/donanım sanallaştırma olmadığı
-için emulator çalıştırılamıyor (bkz. DECISIONS.md §3), Robolectric bunun yerine gerçek
-Android çerçeve sınıflarını JVM üzerinde simüle ederek elden gelen en güçlü kanıtı verir:
-gerçek bir WhatsApp bildiriminin şeklini taklit eden bir `Notification` nesnesi uçtan uca
-gönderiliyor, Room'a doğru düşüyor, listener yeniden bağlanıp aynı bildirimi tekrar
-işlediğinde (CAP-07) mükerrer kayıt oluşmadığı ve kanal kapatılınca yeni kayıt girmediği
-doğrulanıyor. `./gradlew test` ile tekrar çalıştırılabilir.
+Testler: **35/35 geçti** (JVM/Robolectric, `./gradlew test`). 27'si saf JVM birim testleri
+(`MessageNormalizerTest`, `MessageFilterEngineTest`, `FingerprintTest`, `DuplicateGuardTest`);
+9'u Robolectric ile gerçek `android.app.Notification`/`StatusBarNotification` nesneleri ve
+gerçek bellek-içi Room veritabanı kullanan uçtan uca testler
+(`NotificationExtractorRobolectricTest`, `CaptureCoordinatorRobolectricTest`).
+
+Ayrıca **gerçek, hızlandırılmış bir Android emülatöründe** (bu sandbox'ta değil — GitHub
+Actions'ın KVM'li runner'larında, bkz. `.github/workflows/android-ci.yml`) 2 instrumented
+test daha var (`NotificationListenerRealDeviceTest`): bildirim erişimi gerçekten veriliyor,
+`TekPanelNotificationListenerService` gerçek sisteme gerçekten bağlanıyor, gerçek OS-üretimi
+bir bildirim doğru ayrıştırılıyor. Son doğrulanmış çalıştırma:
+https://github.com/jannet5/Jn/actions/runs/36496578477 (her push'ta otomatik tekrar çalışır).
+
+`MessageNormalizer`'ın alan önceliği (MessagingStyle > bigText > textLines > text) ayrıca
+WhatsApp/Instagram bildirimlerini okuyan bağımsız açık kaynak projelerle çapraz doğrulandı
+(bkz. DECISIONS.md §8) — hâlâ eksik olan, gerçek bir hesapla gerçek bir telefonda anlık
+doğrulama (bkz. ROADMAP.md).
 
 ## 2. Şartname → kod eşleme tablosu (CAP-01..17)
 

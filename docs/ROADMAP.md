@@ -39,13 +39,24 @@ hedefleri, `maxLines` clamp yok, `data_extraction_rules.xml` ile mesaj veritaban
 bulut yedeklemesinden hariç tutuldu.
 
 ## Faz 8 — Test ve build doğrulama
-✅ 34/34 test yeşil: 26 saf JVM birim testi + 8 Robolectric testi (gerçek
+✅ 35/35 test yeşil: 27 saf JVM birim testi + 8 Robolectric testi (gerçek
 `Notification`/`StatusBarNotification` nesneleri + gerçek bellek-içi Room ile uçtan uca
 CAP-04..07 doğrulaması). `assembleDebug` ve `assembleRelease` başarılı, APK'lar üretildi ve
 SHA-256'ları alındı (bkz. RELEASE.md).
-🟡 Gerçek fiziksel cihaz testi henüz yok — bu sandbox'ta KVM yok (kontrol edildi:
-`/dev/kvm` yok, `vmx`/`svm` CPU bayrağı yok), bu yüzden hızlandırılmış emulator da
-çalıştırılamıyor. Robolectric ile gidilebilecek en yakın nokta yapıldı.
+✅ **Gerçek KVM emülatöründe doğrulandı (bu sandbox'ta değil, GitHub Actions'ta).** Bu
+sandbox'ta KVM yok (kontrol edildi: `/dev/kvm` yok, `vmx`/`svm` CPU bayrağı yok), ama
+GitHub-hosted runner'larda var: `.github/workflows/android-ci.yml` her push'ta gerçek,
+hızlandırılmış bir Android 11 emülatöründe `NotificationListenerRealDeviceTest`'i çalıştırıyor
+— bildirim erişimi gerçekten veriliyor, servis gerçek sisteme gerçekten bağlanıyor, gerçek
+OS-üretimi bir `StatusBarNotification` doğru ayrıştırılıyor. Son çalıştırma:
+https://github.com/jannet5/Jn/actions/runs/36496578477
+✅ **WhatsApp/Instagram/Telegram bildirim şekli, bağımsız açık kaynak projelerle
+çapraz doğrulandı** (bkz. DECISIONS.md §8): `MessageNormalizer`'ın öncelik sırası üç ayrı
+kaynakla örtüşüyor; `androidx.core:core:1.13.1`'in `EXTRA_MESSAGES` ayrıştırmasının bozuk
+veriye karşı zaten sertleştirilmiş olduğu bytecode incelemesiyle doğrulandı.
+🟡 Hâlâ eksik olan tek şey — dürüstçe: bu, gerçek WhatsApp/Instagram hesabıyla gerçek bir
+telefonda ANLIK doğrulama değil, dokümante edilmiş/bağımsız doğrulanmış davranışa karşı kod
+incelemesi. Gerçek hesap + gerçek telefon gerektiriyor (aşağıya bakın).
 
 ## Faz 9 — Yayın hazırlığı
 ✅ Uygulama ikonu (özgün, yer tutucu kanal logoları — bkz. DECISIONS.md §5), imzalama
@@ -61,9 +72,11 @@ RELEASE.md → "Yalnızca kullanıcının yapabileceği adımlar".
 
 ## Sıradaki somut adımlar (öncelik sırasıyla)
 
-1. **Gerçek cihaz testi.** `app-debug.apk`'yı bir Android telefona `adb install -r
-   app-debug.apk` ile kur, bildirim erişimini aç, WhatsApp Business + Instagram'dan gerçek
-   mesaj gönder, TekPanel'e düşüp düşmediğini doğrula. Sorun bulunursa
+1. **Gerçek hesapla gerçek cihaz testi.** `app-debug.apk`'yı bir Android telefona `adb
+   install -r app-debug.apk` ile kur, bildirim erişimini aç, WhatsApp Business + Instagram'dan
+   gerçek mesaj gönder, TekPanel'e düşüp düşmediğini doğrula. Kod zaten bağımsız açık kaynak
+   projelerle çapraz doğrulanmış davranışa göre yazıldı (DECISIONS.md §8), yani beklenti
+   "çalışır ama küçük ayarlar gerekebilir" — büyük bir yeniden yazım değil. Sorun bulunursa
    `MessageNormalizer`/`MessageFilterEngine` içinde hedefli düzeltme yapılır (kodun test
    edilebilir yapısı sayesinde tek dosya değişikliği yeterli olur).
 2. **Marka logoları.** DECISIONS.md §5'teki hukuki notu okuyup her marka için karar ver.
