@@ -39,10 +39,13 @@ hedefleri, `maxLines` clamp yok, `data_extraction_rules.xml` ile mesaj veritaban
 bulut yedeklemesinden hariç tutuldu.
 
 ## Faz 8 — Test ve build doğrulama
-✅ 26 JVM birim testi (`testDebugUnitTest`) yeşil. `assembleDebug` başarılı, APK üretildi
-ve SHA-256'sı alındı (bkz. RELEASE.md).
-🟡 Instrumented/UI testleri ve gerçek cihaz/emulator testi henüz yok — bu sandbox'ta
-KVM/emulator çalıştırılamıyor.
+✅ 34/34 test yeşil: 26 saf JVM birim testi + 8 Robolectric testi (gerçek
+`Notification`/`StatusBarNotification` nesneleri + gerçek bellek-içi Room ile uçtan uca
+CAP-04..07 doğrulaması). `assembleDebug` ve `assembleRelease` başarılı, APK'lar üretildi ve
+SHA-256'ları alındı (bkz. RELEASE.md).
+🟡 Gerçek fiziksel cihaz testi henüz yok — bu sandbox'ta KVM yok (kontrol edildi:
+`/dev/kvm` yok, `vmx`/`svm` CPU bayrağı yok), bu yüzden hızlandırılmış emulator da
+çalıştırılamıyor. Robolectric ile gidilebilecek en yakın nokta yapıldı.
 
 ## Faz 9 — Yayın hazırlığı
 ✅ Uygulama ikonu (özgün, yer tutucu kanal logoları — bkz. DECISIONS.md §5), imzalama

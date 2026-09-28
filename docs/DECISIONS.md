@@ -39,22 +39,28 @@ Play'e kadar götür, bahane üretme, araştırıp çöz."
 **Bu oturumda tamamlanan (gerçek, derlenen, test edilen kod):**
 - CAP-01..17'nin tümü için çalışan Kotlin/Compose kaynak kodu (bkz. RELEASE.md'deki CAP
   eşleme tablosu).
-- `./` kökünde gerçek bir Gradle/AGP projesi; `assembleDebug` başarıyla APK üretiyor (SHA-256
-  ve tarih için aşağıya bakın).
-- 26 JVM birim testi (`MessageNormalizerTest`, `MessageFilterEngineTest`, `FingerprintTest`,
-  `DuplicateGuardTest`), hepsi geçiyor.
+- `./` kökünde gerçek bir Gradle/AGP projesi; `assembleDebug` ve `assembleRelease` başarıyla
+  APK üretiyor (SHA-256 ve tarih için RELEASE.md §1'e bakın).
+- **34 test, hepsi geçiyor**: 26 saf JVM birim testi + 8 Robolectric testi. Robolectric
+  testleri gerçek `android.app.Notification`/`StatusBarNotification` nesneleri (gerçek
+  `NotificationCompat.MessagingStyle`/`BigTextStyle` ile inşa edilmiş) ve gerçek bellek-içi
+  bir Room veritabanına karşı çalışıyor; CAP-07'nin "listener yeniden bağlanınca aynı
+  bildirim tekrar işlense bile mükerrer kayıt oluşmaz" ve CAP-03'ün "kanalı kapatınca yeni
+  kayıt girmez" davranışları gerçek nesnelerle uçtan uca doğrulandı.
 
-**Bu ortamda (headless, Android SDK'lı ama fiziksel/emulatör cihazsız bir konteyner)
-YAPILAMAYAN ve dürüstçe işaretlenmesi gereken şeyler — bahane değil, bu araç setinin gerçek
-sınırı:**
-- **Gerçek cihazda bildirim yakalama testi.** Şartname madde 0 ve CAP-06 açıkça "gerçek
-  cihazda doğrulama" istiyor. Bu konteynerde çalışan bir Android emülatörü/fiziksel cihaz
-  yok; kurulabilecek bir emülatör (KVM/donanım hızlandırma gerektirir) bu sandbox'ta
-  mevcut değil. Bunun yerine: (a) filtre/normalize/dedupe mantığı gerçek bildirim
-  formatlarına (MessagingStyle, bigText, textLines) göre birim testleriyle doğrulandı, (b)
-  APK gerçekten derlendi ve kuruluma hazır. Kullanıcı bir Android telefonda `adb install`
-  ile APK'yı kurup CAP-06'nın "gerçek cihazda doğrulama" adımını tamamlayabilir; bu oturumda
-  bu adım açık bir görev olarak bırakıldı (bkz. ROADMAP.md).
+**Bu ortamda (headless, Android SDK'lı ama KVM/donanım sanallaştırması olmayan bir
+konteyner) YAPILAMAYAN ve dürüstçe işaretlenmesi gereken tek şey — kontrol edildi, varsayım
+değil:**
+- **Gerçek cihaz/emülatörde bildirim yakalama testi.** `/dev/kvm` yok, CPU'da `vmx`/`svm`
+  bayrağı görünmüyor (kontrol edildi) — bu konteynerde hızlandırılmış bir Android emülatörü
+  çalıştırılamaz; hızlandırma olmadan yazılımsal emülasyon bu ortamda pratik/güvenilir
+  değildir. Bunun yerine, gidilebilecek en yakın nokta yapıldı: Robolectric ile gerçek
+  Android çerçeve sınıfları JVM üzerinde simüle edilerek uçtan uca pipeline test edildi
+  (yukarıya bakın) — bu, sentetik `RawNotificationPayload` fixture'larından çok daha güçlü
+  bir kanıt, ama gerçek WhatsApp/Instagram uygulamasının o an postaladığı gerçek bildirimin
+  yerini tutmaz. Kullanıcı, gönderilen APK'yı bir Android telefonda `adb install -r` ile
+  kurup gerçek mesaj göndererek son doğrulamayı tamamlayabilir; bu oturumda bu adım açık bir
+  görev olarak bırakıldı (bkz. ROADMAP.md).
 - **Google Play'de gerçek yayın.** Ayrıntı için RELEASE.md → "Yalnızca kullanıcının
   yapabileceği adımlar" bölümüne bakın: Play Console hesabı açmak, 25$ kayıt ücretini ödemek,
   Geliştirici Dağıtım Sözleşmesi'ni kabul etmek ve kimlik doğrulamasını tamamlamak; bunların

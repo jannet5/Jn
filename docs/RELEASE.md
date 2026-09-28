@@ -17,8 +17,17 @@ Debug APK doğrudan `adb install -r TekPanel-debug-20260927.apk` ile bir Android
 kurulabilir (bildirim erişimi izni ister). Release APK henüz **imzasızdır** (bkz. §5) —
 Play Console'a bu haliyle yüklenemez, önce gerçek bir anahtarla imzalanmalıdır.
 
-Birim testleri: 26/26 geçti (`MessageNormalizerTest`, `MessageFilterEngineTest`,
-`FingerprintTest`, `DuplicateGuardTest`). `./gradlew test` ile tekrar çalıştırılabilir.
+Testler: **34/34 geçti**. 26'sı saf JVM birim testleri (`MessageNormalizerTest`,
+`MessageFilterEngineTest`, `FingerprintTest`, `DuplicateGuardTest`); 8'i Robolectric ile
+gerçek `android.app.Notification`/`StatusBarNotification` nesneleri ve gerçek bellek-içi
+Room veritabanı kullanan uçtan uca testler (`NotificationExtractorRobolectricTest`,
+`CaptureCoordinatorRobolectricTest`) — bu sandbox'ta KVM/donanım sanallaştırma olmadığı
+için emulator çalıştırılamıyor (bkz. DECISIONS.md §3), Robolectric bunun yerine gerçek
+Android çerçeve sınıflarını JVM üzerinde simüle ederek elden gelen en güçlü kanıtı verir:
+gerçek bir WhatsApp bildiriminin şeklini taklit eden bir `Notification` nesnesi uçtan uca
+gönderiliyor, Room'a doğru düşüyor, listener yeniden bağlanıp aynı bildirimi tekrar
+işlediğinde (CAP-07) mükerrer kayıt oluşmadığı ve kanal kapatılınca yeni kayıt girmediği
+doğrulanıyor. `./gradlew test` ile tekrar çalıştırılabilir.
 
 ## 2. Şartname → kod eşleme tablosu (CAP-01..17)
 
