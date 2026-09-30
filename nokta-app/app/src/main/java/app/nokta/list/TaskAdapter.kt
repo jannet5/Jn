@@ -10,11 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 class TaskAdapter(
     private val list: TaskList,
     private val onChanged: () -> Unit,
+    private val onDragStart: (RecyclerView.ViewHolder) -> Unit,
 ) : RecyclerView.Adapter<TaskAdapter.VH>() {
 
     class VH(v: View) : RecyclerView.ViewHolder(v) {
         val text: TextView = v.findViewById(R.id.text)
         val delete: View = v.findViewById(R.id.delete)
+        val handle: View = v.findViewById(R.id.handle)
     }
 
     override fun getItemCount() = list.all.size
@@ -33,6 +35,10 @@ class TaskAdapter(
         h.itemView.setOnClickListener {
             val p = h.bindingAdapterPosition
             if (p != RecyclerView.NO_POSITION) { list.toggle(p); notifyItemChanged(p); onChanged() }
+        }
+        h.handle.setOnTouchListener { v, e ->
+            if (e.actionMasked == android.view.MotionEvent.ACTION_DOWN) { onDragStart(h) }
+            false
         }
         h.delete.setOnClickListener {
             val p = h.bindingAdapterPosition

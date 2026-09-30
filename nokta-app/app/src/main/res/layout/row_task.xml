@@ -10,7 +10,15 @@
         android:gravity="center_vertical"
         android:minHeight="60dp"
         android:orientation="horizontal"
-        android:paddingStart="24dp">
+        android:paddingStart="8dp">
+
+        <ImageView
+            android:id="@+id/handle"
+            android:layout_width="40dp"
+            android:layout_height="56dp"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@drawable/ic_handle" />
 
         <TextView
             android:id="@+id/text"
@@ -35,6 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="bottom"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="48dp"
         android:background="@color/line" />
 </FrameLayout>

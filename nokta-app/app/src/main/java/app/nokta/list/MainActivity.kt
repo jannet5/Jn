@@ -32,14 +32,15 @@ class MainActivity : AppCompatActivity() {
         empty = findViewById(R.id.empty)
         bubbleSwitch = findViewById(R.id.bubble_switch)
 
-        adapter = TaskAdapter(list) { Store.save(this); refresh() }
+        lateinit var touch: ItemTouchHelper
+        adapter = TaskAdapter(list, { Store.save(this); refresh() }, { touch.startDrag(it) })
         val rv = findViewById<RecyclerView>(R.id.recycler)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = adapter
         rv.itemAnimator?.changeDuration = 120
 
         // Long-press anywhere on a row to drag and reorder.
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
+        touch = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0) {
             override fun onMove(r: RecyclerView, v: RecyclerView.ViewHolder, t: RecyclerView.ViewHolder): Boolean {
                 adapter.move(v.bindingAdapterPosition, t.bindingAdapterPosition); return true
             }
@@ -56,7 +57,8 @@ class MainActivity : AppCompatActivity() {
                 vh.itemView.animate().scaleX(1f).scaleY(1f).translationZ(0f).setDuration(100).start()
                 Store.save(this@MainActivity)
             }
-        }).attachToRecyclerView(rv)
+        })
+        touch.attachToRecyclerView(rv)
 
         val input = findViewById<EditText>(R.id.input)
         fun submit() {
