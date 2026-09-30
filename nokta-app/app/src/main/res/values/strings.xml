@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">nokta</string>
+    <string name="hint_add">Ne lazım?</string>
+    <string name="add">Ekle</string>
+    <string name="delete">Sil</string>
+    <string name="empty_title">Liste boş</string>
+    <string name="empty_sub">Aşağıdan bir şey yaz, ekle.\nDokun: üstünü çiz. Basılı tut: sırala.</string>
+    <string name="count_none">Henüz bir şey yok</string>
+    <string name="count_all_done">Hepsi tamam</string>
+    <string name="count_left">%d şey kaldı</string>
+    <string name="bubble_label">Yüzen balon</string>
+    <string name="bubble_channel">Balon</string>
+    <string name="bubble_notif">Balon açık</string>
+</resources>
