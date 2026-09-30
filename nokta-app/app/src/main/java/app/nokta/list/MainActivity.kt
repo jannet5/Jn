@@ -69,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         input.setOnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_ACTION_SEND) { submit(); true } else false
         }
+        input.setOnKeyListener { _, code, ev ->
+            if (code == android.view.KeyEvent.KEYCODE_ENTER && ev.action == android.view.KeyEvent.ACTION_UP) { submit(); true } else code == android.view.KeyEvent.KEYCODE_ENTER
+        }
         findViewById<View>(R.id.add).setOnClickListener { submit() }
 
         bubbleSwitch.setOnCheckedChangeListener { b, on -> if (b.isPressed) setBubble(on) }
