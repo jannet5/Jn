@@ -16,3 +16,9 @@ android-sdk/
 # misc
 .DS_Store
 *.log
+
+# NotiBox
+notibox/.gradle/
+notibox/build/
+notibox/app/build/
+notibox/local.properties
