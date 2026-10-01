@@ -1,5 +1,7 @@
 # WinRemoteMonitor
 
+> **Bu depoda ayrıca:** [`yazikart/`](yazikart/README.md) — renkli zemin ya da internetten aranan bir görsel üstüne yazı yazıp PNG/JPEG olarak kaydeden/paylaşan Android uygulaması (YazıKart).
+
 Android telefondan bir Windows bilgisayarı güvenli biçimde canlı izleyip
 yönetmeyi sağlayan iki parçalı bir sistem:
 
