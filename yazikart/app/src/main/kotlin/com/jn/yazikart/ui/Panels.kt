@@ -1,3 +1,4 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class) // parçalı butonlar ve alt pencere deneysel API
 package com.jn.yazikart.ui // arayüz paketi
 
 import androidx.compose.foundation.background // arka plan boyama
