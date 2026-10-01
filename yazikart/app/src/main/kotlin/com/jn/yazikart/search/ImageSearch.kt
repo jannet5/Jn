@@ -91,11 +91,12 @@ class ImageSearch(
         }
     }
 
-    // Openverse'de arar
-    private fun searchOpenverse(query: String): List<ImageResult> {
+    // Openverse'de arar (anahtarsız isteklerde sayfa başı en fazla 20 sonuç verilir)
+    private fun searchOpenverse(query: String, page: Int): List<ImageResult> {
         val url = "https://api.openverse.org/v1/images/".toHttpUrl().newBuilder() // adres kuruluyor
             .addQueryParameter("q", query) // aranan kelime
-            .addQueryParameter("page_size", "30") // 30 sonuç
+            .addQueryParameter("page", page.toString()) // sayfa numarası
+            .addQueryParameter("page_size", "20") // anahtarsız sınır: 20 sonuç
             .addQueryParameter("mature", "false") // uygunsuz içerik yok
             .build().toString() // adres metni
         return parseOpenverse(get(url)) // istek atılıp sonuçlar çözülüyor
@@ -121,9 +122,11 @@ class ImageSearch(
     // İki kaynakta aynı anda arar; biri çökse bile diğerinin sonuçları gelir
     suspend fun search(query: String): List<ImageResult> = withContext(Dispatchers.IO) { // internet işi arka planda
         coroutineScope { // eşzamanlı işler kapsamı
-            val ov = async { runCatching { searchOpenverse(query) } } // Openverse araması başlıyor
+            val ov1 = async { runCatching { searchOpenverse(query, 1) } } // Openverse 1. sayfa
+            val ov2 = async { runCatching { searchOpenverse(query, 2) } } // Openverse 2. sayfa
             val wm = async { runCatching { searchWikimedia(query) } } // Wikimedia araması başlıyor
-            val a = ov.await() // Openverse sonucu bekleniyor
+            val p1 = ov1.await() // 1. sayfa bekleniyor
+            val a = p1.map { it + ov2.await().getOrDefault(emptyList()) } // 2. sayfa varsa eklenir (az sonuçta olmayabilir)
             val b = wm.await() // Wikimedia sonucu bekleniyor
             if (a.isFailure && b.isFailure) throw a.exceptionOrNull()!! // ikisi de başarısızsa hata veriliyor
             interleave(a.getOrDefault(emptyList()), b.getOrDefault(emptyList())) // sonuçlar karıştırılıyor

@@ -217,13 +217,22 @@ fun SizePanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
             color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
             modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
         )
+        Spacer(Modifier.height(12.dp)) // bölümler arası boşluk
+        Label("Kayıt biçimi") // başlık
+        FormatToggle(style.format) { f -> onStyle { it.copy(format = f) } } // PNG / JPEG
+        Text( // biçimlerin farkı
+            if (style.format == ExportFormat.PNG) "PNG: kayıpsız, yazılar jilet gibi net." else "JPEG: daha küçük dosya, fotoğraflı zeminde ideal.", // açıklama
+            style = MaterialTheme.typography.bodyMedium, // gövde yazısı
+            color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
+            modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
+        )
     }
 }
 
 // PNG / JPEG seçimi
 @Composable
 fun FormatToggle(selected: ExportFormat, onSelect: (ExportFormat) -> Unit) {
-    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) { // tek seçimli satır
+    SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth().padding(horizontal = SIDE)) { // tek seçimli satır
         ExportFormat.entries.forEachIndexed { i, f -> // her biçim
             SegmentedButton( // tek parça
                 selected = f == selected, // seçili mi

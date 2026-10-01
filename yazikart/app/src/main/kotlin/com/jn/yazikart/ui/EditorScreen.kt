@@ -48,6 +48,7 @@ import androidx.compose.ui.Modifier // değiştiriciler
 import androidx.compose.ui.draw.clip // kırpma
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas // Android tuvaline erişim
 import androidx.compose.ui.graphics.nativeCanvas // Android tuvali
+import androidx.compose.ui.platform.LocalConfiguration // ekran ölçüleri
 import androidx.compose.ui.platform.LocalContext // uygulama bağlamı
 import androidx.compose.ui.unit.dp // ölçü birimi
 import androidx.compose.ui.unit.min // iki ölçünün küçüğü
@@ -80,7 +81,7 @@ fun EditorScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) }, // mesaj alanı
         containerColor = MaterialTheme.colorScheme.background, // arka plan
-        bottomBar = { ActionBar(style, onStyle, onSave, onShare, busy != null) }, // alt eylem çubuğu
+        bottomBar = { ActionBar(onSave, onShare, busy != null) }, // alt eylem çubuğu
     ) { inner ->
         Column(
             Modifier.fillMaxSize().padding(inner).statusBarsPadding() // iskelet boşlukları
@@ -130,7 +131,7 @@ private fun Preview(style: PostStyle, image: Bitmap?, busy: String?) {
     val fakeBold = FontCatalog.needsFakeBold(style.fontIndex, style.bold) // yapay kalınlık gerekir mi
     BoxWithConstraints(Modifier.fillMaxWidth().padding(horizontal = 16.dp), contentAlignment = Alignment.Center) { // ortalı alan
         val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
-        val maxH = 420.dp // önizleme en fazla bu kadar uzun olsun (hikaye boyutunda ekranı kaplamasın)
+        val maxH = (LocalConfiguration.current.screenHeightDp * 0.42f).dp // önizleme ekran yüksekliğinin en çok %42'si (yazı kutusu görünür kalsın)
         val w = min(maxWidth, maxH * ratio) // genişlik: alan ya da yükseklik sınırı hangisi küçükse
         Box(
             Modifier.width(w).height(w / ratio) // oranlı kutu
@@ -160,18 +161,15 @@ private fun Preview(style: PostStyle, image: Bitmap?, busy: String?) {
     }
 }
 
-// Alt eylem çubuğu: PNG/JPEG seçimi + Kaydet + Paylaş
+// Alt eylem çubuğu: Kaydet + Paylaş (PNG/JPEG seçimi "Boyut" sekmesinde)
 @Composable
 private fun ActionBar(
-    style: PostStyle, // güncel stil
-    onStyle: ((PostStyle) -> PostStyle) -> Unit, // stil değiştir
     onSave: () -> Unit, // kaydet
     onShare: () -> Unit, // paylaş
     busy: Boolean, // iş sürüyor mu
 ) {
     Surface(color = MaterialTheme.colorScheme.surface, tonalElevation = 2.dp) { // alt panel yüzeyi
-        Column(Modifier.navigationBarsPadding().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { // alt alta
-            FormatToggle(style.format) { f -> onStyle { it.copy(format = f) } } // PNG / JPEG
+        Column(Modifier.navigationBarsPadding().padding(horizontal = 16.dp, vertical = 12.dp)) { // kenar boşluklu alan
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) { // yan yana iki buton
                 OutlinedButton(onClick = onSave, enabled = !busy, modifier = Modifier.weight(1f).height(48.dp)) { // kaydet
                     Icon(Icons.Default.Download, contentDescription = null) // indir ikonu
