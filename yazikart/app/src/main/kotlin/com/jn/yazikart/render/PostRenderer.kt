@@ -14,6 +14,9 @@ import com.jn.yazikart.data.PostStyle // görsel ayarları
 import com.jn.yazikart.data.TextAlign // yatay hiza
 import com.jn.yazikart.data.VerticalPos // dikey konum
 
+// Kırpılacak bölge (Android'den bağımsız; testte de çalışsın diye)
+data class CropBox(val left: Int, val top: Int, val right: Int, val bottom: Int)
+
 // Görseli çizen tek yer. Hem ekrandaki önizleme hem de kaydedilen dosya bunu kullanır,
 // bu yüzden ekranda ne görüyorsan dosyada da birebir o çıkar.
 object PostRenderer {
@@ -91,23 +94,24 @@ object PostRenderer {
 
     // Resmi oranını bozmadan tüm alanı kaplayacak şekilde ortadan kırparak çizer
     fun drawCenterCrop(canvas: Canvas, image: Bitmap, w: Int, h: Int) {
-        val src = centerCropRect(image.width, image.height, w, h) // resmin kullanılacak bölgesi
+        val c = centerCropRect(image.width, image.height, w, h) // resmin kullanılacak bölgesi
+        val src = Rect(c.left, c.top, c.right, c.bottom) // Android dikdörtgenine çevriliyor
         val dst = RectF(0f, 0f, w.toFloat(), h.toFloat()) // tüm tuval
         canvas.drawBitmap(image, src, dst, Paint(Paint.FILTER_BITMAP_FLAG or Paint.ANTI_ALIAS_FLAG)) // yumuşak ölçekleyerek çiziliyor
     }
 
     // Kaynak resimden hedef orana uyan ortadaki dikdörtgeni hesaplar (test edilebilir saf hesap)
-    fun centerCropRect(srcW: Int, srcH: Int, dstW: Int, dstH: Int): Rect {
+    fun centerCropRect(srcW: Int, srcH: Int, dstW: Int, dstH: Int): CropBox {
         val srcRatio = srcW.toFloat() / srcH // resmin en/boy oranı
         val dstRatio = dstW.toFloat() / dstH // hedefin en/boy oranı
         return if (srcRatio > dstRatio) { // resim hedefe göre daha geniş
             val cropW = (srcH * dstRatio).toInt() // kullanılacak genişlik
             val left = (srcW - cropW) / 2 // yanlardan eşit kırpılıyor
-            Rect(left, 0, left + cropW, srcH) // ortadaki bölge
+            CropBox(left, 0, left + cropW, srcH) // ortadaki bölge
         } else { // resim hedefe göre daha uzun
             val cropH = (srcW / dstRatio).toInt() // kullanılacak yükseklik
             val topY = (srcH - cropH) / 2 // üstten ve alttan eşit kırpılıyor
-            Rect(0, topY, srcW, topY + cropH) // ortadaki bölge
+            CropBox(0, topY, srcW, topY + cropH) // ortadaki bölge
         }
     }
 
