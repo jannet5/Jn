@@ -34,18 +34,42 @@ Windows tarafında tanımlı izin listesinden). Ayrıntılar için
 
 ### 1) Windows tarafı
 
-```powershell
-# dist/winremotemonitor-agent.exe dosyasını PC'ye kopyalayın, sonra:
-.\winremotemonitor-agent.exe            # ajanı başlatır (varsayılan port 8787)
-.\winremotemonitor-agent.exe --pair     # yeni bir eşleştirme kodu + QR PNG üretir
-.\winremotemonitor-agent.exe devices list
-.\winremotemonitor-agent.exe devices revoke <device-id>
-```
+1. Bir klasör oluşturun (örn. `C:\WinRemoteMonitor`) ve içine
+   `winremotemonitor-agent.exe` ile birlikte şu iki dosyayı koyun:
+   - `config.json` (örnek: `windows-agent/config.example.json`) — port,
+     izlenecek klasörler (`watched_roots`, örn. `C:\\Users\\<siz>\\Downloads`),
+     uyarı eşikleri.
+   - `allowed_apps.json` (örnek: `windows-agent/allowed_apps.example.json`) —
+     telefondan başlatılmasına izin verdiğiniz uygulamalar.
 
-İzin verilen uygulamaları düzenlemek için `%ProgramData%\WinRemoteMonitor\allowed_apps.json`
-dosyasını (örnek: `windows-agent/allowed_apps.example.json`) düzenleyin. İzlenecek
-klasörler, uyarı eşikleri ve port için `config.json` (örnek:
-`windows-agent/config.example.json`). Tam ayrıntılar: `windows-agent/README.md`.
+   Ajan, **exe'nin yanındaki** `config.json`'ı otomatik bulur; config
+   içindeki göreli yollar (örn. `"allowed_apps_path": "allowed_apps.json"`)
+   config dosyasının klasörüne göre çözülür — yani ajanı hangi klasörden
+   başlatırsanız başlatın (Görev Zamanlayıcı dahil) aynı ayarları kullanır.
+   Başlarken `using config C:\WinRemoteMonitor\config.json` satırını görmelisiniz.
+2. SmartScreen "Windows bilgisayarınızı korudu" derse: **Ek bilgi → Yine de
+   çalıştır** (exe kod imzalı değildir).
+3. Telefonun bağlanabilmesi için güvenlik duvarında gelen TCP 8787'ye izin
+   verin — ilk çalıştırmada çıkan Windows Defender Güvenlik Duvarı
+   penceresinde "Özel ağlar"a izin verin ya da yönetici PowerShell'de bir kez:
+   ```powershell
+   netsh advfirewall firewall add rule name="WinRemoteMonitor" dir=in action=allow protocol=TCP localport=8787
+   ```
+4. Çalıştırın:
+   ```powershell
+   cd C:\WinRemoteMonitor
+   .\winremotemonitor-agent.exe            # ajanı başlatır (açık kalmalı)
+   # ikinci bir PowerShell penceresinde:
+   .\winremotemonitor-agent.exe --pair     # eşleştirme kodu + IP + QR (pairing-qr.png)
+   .\winremotemonitor-agent.exe devices list
+   .\winremotemonitor-agent.exe devices revoke <device-id>
+   ```
+   `--pair` çıktısındaki `Connect to:` satırı, bilgisayarın internete çıkarken
+   kullandığı ağ kartının IP'sidir (Hyper-V/WSL/VPN sanal kartları değil).
+   Telefon bağlanamazsa `Other addresses:` satırındaki IP'leri elle girişte
+   deneyin. Telefon ve PC **aynı Wi-Fi/ağda** olmalıdır.
+
+Tam ayrıntılar: `windows-agent/README.md`.
 
 ### 2) Android tarafı
 
@@ -71,15 +95,16 @@ yönet).
 
 | Dosya | Konum | SHA-256 |
 |---|---|---|
-| Windows ajanı (.exe) | `windows-agent/dist/winremotemonitor-agent.exe` | `0fb5581ebddc11e3e40e3c3676da0df15a362b1efbf385b1ea996af2583babbf` |
-| Android APK (release, imzalı) | `android-app/dist/app-release.apk` | `8d1e1ddc897eabbfc89806ed89094a23ef8e5aaa13b6c94e4ba729196ebc5e87` |
-| Android APK (debug) | `android-app/dist/app-debug.apk` | `7cbb8331d1f72ca5d5fee5d93395d192b53dd1921544344080cefd32cbe7ce0b` |
+| Windows ajanı (.exe) | `windows-agent/dist/winremotemonitor-agent.exe` | `4b0c17ba754fa761e11774081c192f5c9b4de2d792b8d232e1eb0784c610f497` |
+| Android APK (release, imzalı) | `android-app/dist/app-release.apk` | `306b33fa2d52cbe9d53f75ef9d4cfca13fd3de7ad58706992edbee558828be66` |
+| Android APK (debug) | `android-app/dist/app-debug.apk` | `42c007b014ad923d13f39fc2dc2498adc6bf980a0d97eac0baf38ffee5dddaf7` |
 
-Bu değerler `windows-agent/dist/SHA256SUMS.txt` ve
-`android-app/dist/SHA256SUMS.txt` dosyalarında da bulunur; ikisi de bu
-depoya commit edilmiştir (ikili dosyaların kendisi `.gitignore` ile
-depodan hariç tutulmuştur — büyük binary'leri git'te taşımamak için;
-teslimat sırasında dosyaların kendisi ayrıca iletilir).
+Bu değerler build sırasında `windows-agent/dist/SHA256SUMS.txt` ve
+`android-app/dist/SHA256SUMS.txt` dosyalarına da yazılır. Depoya yalnızca
+`android-app/dist/SHA256SUMS.txt` commit edilir; `windows-agent/dist/`
+klasörü bütünüyle `.gitignore`'dadır. İkili dosyaların kendisi de büyük
+binary'leri git'te taşımamak için depoda tutulmaz, teslimatta ayrıca
+iletilir. Windows ajanının resmi hash'i yukarıdaki tablodur.
 
 `android-app/dist/app-release.apk`, depoya işlenmiş bir geliştirme/lokal
 imzalama anahtarıyla (`android-app/keystore/dev-release.jks`, parolası
@@ -194,6 +219,93 @@ ve düzelttim**, sadece birim testleriyle asla yakalanamayacak türden:
   `= emptyList()` varsayılanları, savunma amaçlı ikinci bir katman
   olarak) düzeltildi.
 
+## Aşama 4 — "Kullanıcı gibi" baştan sona deneme (ve bulunan 7 hata)
+
+Bu turda ürünü, README'deki kurulum talimatlarını harfiyen izleyen sıradan
+bir kullanıcı gibi baştan kurdum: **sıfır bir Wine "Windows"u** (yeni
+prefix, `C:\WinRemoteMonitor\` klasörü, yanında `config.json` ve
+`allowed_apps.json`) + **verisi silinmiş sıfır bir Android 8.0 emülatörü**
++ **release APK** (daha önce bir cihaza hiç kurulmamıştı). Eşleştirme bu kez
+elle değil, **telefon kamerasıyla QR okutarak** yapıldı: emülatörün sanal
+kamerası bir 3B oda gösterir; `-virtualscene-poster` ve
+`adb emu virtualscene-image wall <png>` ile ajanın ürettiği gerçek
+`pairing-qr.png`'yi odadaki duvar tablosunun yerine koydum, telefonu
+emülatörün gRPC `setPhysicalModel` (konum/dönüş) API'siyle tablonun
+karşısına "yürüttüm". Kamera izni, uygulamanın kendi "İzin ver" düğmesi →
+Android'in gerçek izin penceresi → "ALLOW" ile verildi.
+
+Sonuç: QR kameradan okundu → form `192.0.2.2 / 8787 / parmak izi / kod`
+ile doldu → "Eşleştir" → **Panel canlı veri gösterdi.** Bu yolda gerçek
+kullanımda kullanıcıyı vuracak şu hatalar bulundu ve düzeltildi:
+
+1. **`config.json` exe'nin yanındayken yok sayılıyordu** (ajan sadece
+   `--config` bayrağına bakıyordu) → artık exe'nin yanındaki config
+   otomatik bulunuyor; başlarken `using config ...` yazıyor.
+2. **Ajan Görev Zamanlayıcı/başka klasörden başlatılınca
+   `allowed_apps.json` bulunamıyordu** (göreli yol çalışma klasörüne göre
+   çözülüyordu, Görev Zamanlayıcı'da bu `C:\Windows\System32`) → göreli
+   yollar artık config dosyasının klasörüne göre çözülüyor.
+3. **QR'daki/`Connect to:` satırındaki IP `127.0.0.1` çıkıyordu** — telefon
+   bu adrese asla bağlanamaz. İki katmanlı sebep: (a) ilk ağ kartının
+   IP'sini almak Hyper-V/WSL/VPN sanal kartlarına denk gelebiliyordu;
+   (b) Go 1.25'in UDP soketinde çağırdığı `WSAIoctl(SIO_UDP_NETRESET)`
+   Wine'da desteklenmiyor ve rota sorgusunu düşürüyordu. Artık
+   işletim sisteminin internete çıkarken seçtiği kartın IP'si (rota
+   tablosu) kullanılıyor, gerekirse ham Winsock soketiyle; diğer IP'ler
+   `Other addresses:` satırında; güvenlik duvarı komutu da çıktıda.
+4. **QR ekranından çıkınca kamera kapanmıyordu → "QR Tara"ya geri
+   dönünce uygulama çöküyordu** (Android 8.0'da
+   `CameraDeviceImpl.onCaptureErrorLocked` NPE — logcat'ten). Ayrıca
+   arka planda çalışmaya devam eden tarayıcı, kullanıcının "Elle Gir"de
+   düzelttiği alanların üzerine yeniden yazabiliyordu. → Sekmeden
+   çıkınca kamera serbest bırakılıyor, tek bir başarılı okuma kabul
+   ediliyor, sonuç ana iş parçacığında işleniyor. Düzeltmeden sonra aynı
+   senaryo (okut → Elle Gir → tekrar QR Tara → yeni kodu okut) çökmeden
+   37 saniyede yeni kodu okudu.
+5. **Kamera önizlemesi "QR Tara / Elle Gir" sekmelerinin üstüne
+   taşıyordu** (SurfaceView kırpılmıyordu) → TextureView
+   (`COMPATIBLE`) moduna geçildi; ekran görüntüsünde sekmeler artık
+   görünüyor.
+6. **Diskler gerçek Windows'ta tek bir `/` olarak gösterilecekti** — kodda
+   "Windows'ta sürücü harfleriyle değiştirilir" yazıyordu ama bunu yapan
+   kod yoktu; D: gibi ikinci diskler hiç görünmeyecekti. → Artık her
+   ölçümde yerel sürücüler (`C:\`, `D:\`, takılı USB...) bulunuyor; ağ
+   sürücüleri, bağlantısı kopunca ölçüm döngüsünü dondurmasın diye
+   bilinçli olarak hariç.
+7. **Uyarı yağmuru**: boş alan eşiğin altındayken "Az boş alan" uyarısı
+   **her 2 saniyede bir, her sürücü için yeniden** üretiliyordu (veritabanında
+   ölçüldü: dakikada 58 uyarı); büyük bir dosyanın her yazma olayı da ayrı
+   "Büyük dosya" uyarısı üretiyordu. → Uyarılar artık PROTOCOL.md §8'in
+   dediği gibi *eşik geçişi* olayları: durum başlayınca bir kez, kritik
+   seviyeye yükselirse bir kez daha, durum düzelince yeniden kurulur.
+   Düzeltmeden sonra aynı ortamda 2,5 dakikada toplam 2 uyarı (sürücü başına
+   1). Ayrıca uyarı metinleri telefonda İngilizce görünüyordu ("Low free
+   space on C:\") → artık uyarının yapısal verisinden Türkçe kuruluyor
+   ("C:\ sürücüsünde boş alan azaldı: %7,3 boş.").
+
+Aynı denemede ayrıca doğrulananlar: süresi dolmuş kodla eşleştirme
+denemesinde doğru Türkçe hata ("Eşleştirme kodunun süresi doldu. Windows
+bilgisayarında yeni bir kod alın.") ve bunun Geçmiş ekranına kaydı;
+ajan kapatılıp açılınca uygulamanın kendi kendine yeniden bağlanması
+(~20 sn); APK'nın güncelleme olarak (`install -r`) kurulmasından sonra
+eşleşmenin korunması; Süreçler ekranında Windows exe'sinden gelen süreçler
+ve "korumalı" rozetleri; **Windows dosya izleme yolunun
+(`ReadDirectoryChangesW`) Wine üzerinden gerçekten çalışması** — izlenen
+`Downloads` klasörüne yazılan 2,9 MB'lık dosya ve yeniden adlandırması
+saniyeler içinde Dosya Etkinliği'nde göründü.
+
+Bu aşamada kalan, dürüstçe not edilen sınırlar:
+- QR, kod kameraya **karşıdan** tutulunca okunuyor; ~30° yandan bakışta
+  (ZXing ile aynı kareyi masaüstünde de deneyerek doğrulandı) okunmuyor —
+  QR, 64 karakterlik parmak izi nedeniyle yoğun (sürüm 8). Daha düşük
+  hata düzeltme seviyesi (sürüm 7) da 30°'de okunmadı, bu yüzden
+  değiştirilmedi. Okunmazsa "Elle Gir" her zaman çalışır.
+- Bir yeniden adlandırma, Windows'un bildirdiği gibi iki satır olarak
+  görünür (eski ad "Yeniden adlandırıldı", yeni ad "Oluşturuldu"); tek bir
+  "eski → yeni" satırında birleştirilmiyor.
+- Ajanın bellekteki uyarı durumu yeniden başlatmada sıfırlanır; ajan
+  yeniden başlarsa hâlâ geçerli olan bir durum bir kez daha bildirilir.
+
 ## Android emülatörü nasıl çalıştı (KVM yokken)
 
 Bu konteynerde `/dev/kvm` yok ve CPU'da `vmx`/`svm` bayrağı yok — bunu
@@ -222,9 +334,8 @@ Bu turda ayrıca cross-compiled bir Go `.exe`'yi Wine ile Linux üzerinde
 çalıştırmayı da araştırdım (bu da toplulukta belgelenmiş bir yöntem —
 [icio/go-wine-test](https://github.com/icio/go-wine-test)); `wine64`'ü bu
 konteynere kurmayı başardım (bir mirror'daki eksik bir bağımlılığı
-`apt-get update` ile tazeleyerek çözdüm) ama zaman kısıtı nedeniyle
-gerçek ajanı Wine altında henüz çalıştırıp doğrulamadım — bu hâlâ açık,
-gelecekte denenebilecek bir yol (aşağıya bakın).
+`apt-get update` ile tazeleyerek çözdüm) ve gerçek ajanı Wine altında
+çalıştırdım (Aşama 3 ve 4).
 
 ## Doğrulanan vs. doğrulanamayan — kabul kriterleri karşılaştırması
 
@@ -234,16 +345,16 @@ Windows/Android donanımında doğrulanabileceğini açıkça ayırır.
 
 | Kriter | Durum | Not |
 |---|---|---|
-| Telefon–PC güvenli eşleşme ve bağlantı | **Gerçek Android OS'ta doğrulandı** | Gerçek APK, gerçek bir Android 8.0 çalışma zamanında, uygulamanın kendi Eşleştirme ekranı üzerinden canlı ajana gerçekten eşleşti ve "Bağlı" durumuna geçti (ekran görüntüsü var). Windows'a özgü davranış (gerçek Windows sertifika/ağ yığını) hâlâ doğrulanamadı. |
+| Telefon–PC güvenli eşleşme ve bağlantı | **Gerçek Android OS'ta doğrulandı** | Gerçek APK, gerçek bir Android 8.0 çalışma zamanında, uygulamanın kendi Eşleştirme ekranı üzerinden canlı ajana gerçekten eşleşti ve "Bağlı" durumuna geçti (ekran görüntüsü var). Aşama 4'te ayrıca: Wine altında çalışan Windows `.exe`'sinin ürettiği QR, **release APK'da telefon kamerasıyla okunarak** eşleşildi; süresi dolmuş kod doğru Türkçe hatayla reddedildi. Gerçek (emülasyonsuz) Windows'un ağ yığını ve güvenlik duvarı hâlâ doğrulanamadı. |
 | CPU/RAM/disk gerçek sistem değerleriyle uyuşuyor | **Gerçek Android OS'ta doğrulandı** | Panel ekranı, ajanın gerçek `gopsutil` metriklerini (bu host'un gerçek CPU/RAM/disk değerleri) canlı akıştan alıp doğru render etti (ekran görüntüsü var). Windows'taki gerçek değerler hâlâ görülmedi. |
 | Gerçek çalışan süreçler listeleniyor | **Gerçek Android OS'ta doğrulandı** | Süreçler ekranı, bu host'un gerçek süreç listesini (gerçek PID'ler, gerçek isimler, "korumalı" rozetleri) gerçekten render etti (ekran görüntüsü var). Windows'ta denenmedi. |
 | İzinli test uygulaması açılıp kapatılabiliyor | **Telefonun kendi UI'ından bizzat doğrulandı** | Uygulamalar ekranında "Başlat"a dokunup onay diyaloğunu geçtim; "Uygulama başlatıldı (PID ...)" snackbar'ı göründü, host'ta o PID'nin gerçekten ajanın çocuğu olarak çalıştığı doğrulandı. Ayrıca Windows'un gerçek `.exe`'si Wine altında da gerçek `notepad.exe`'yi gerçek bir PID ile başlattı (bkz. yukarı). Fiziksel bir Windows PC'de/telefonda hâlâ denenmedi. |
 | Kritik süreç koruması çalışıyor | **Telefonun kendi UI'ından + gerçek Windows süreç isimlerine karşı bizzat doğrulandı** | Koruma kuralları (§5) kapsamlı tablo-testli. Telefonun Süreçler ekranından gerçek bir süreci gerçekten öldürdüm (onay diyaloğu → snackbar → host'ta doğrulama). Ayrıca Wine altında çalışan gerçek `.exe`'ye karşı gerçek Windows süreç isimleriyle test ettim: `services.exe` (korumalı) öldürme **doğru reddedildi**, `plugplay.exe` (korumasız) öldürme **gerçekten başarılı oldu**. Önceki en yüksek riskli boşluk (gerçek Windows süreç-sahibi biçimi) böylece Windows API emülasyonu üzerinden fiilen egzersiz edildi. Gerçek (emülasyonsuz) Windows'ta hâlâ doğrulanamadı. |
-| Dosya olayları (oluştur/büyüt/taşı/yeniden adlandır/sil) doğru gösteriliyor | **Telefonun kendi UI'ında canlı olarak bizzat doğrulandı** | Dosya Etkinliği ekranı açıkken host'ta gerçek bir dosya oluşturdum; ekran anında "Değiştirildi", gerçek tam yol, gerçek saat, gerçek boyut ile canlı gösterdi — gerçek `fsnotify` → sunucu → WebSocket push → ekran render zinciri uçtan uca doğrulandı. Windows'un `ReadDirectoryChangesW` arka ucu hâlâ doğrulanamadı (Wine bunun için ayrı test edilmedi — dosya izleme Linux tarafında zaten gerçek fsnotify ile çalışıyordu, Wine testi kill/launch/metrics'e odaklandı). |
+| Dosya olayları (oluştur/büyüt/taşı/yeniden adlandır/sil) doğru gösteriliyor | **Telefonun kendi UI'ında canlı olarak bizzat doğrulandı** | Dosya Etkinliği ekranı açıkken host'ta gerçek bir dosya oluşturdum; ekran anında "Değiştirildi", gerçek tam yol, gerçek saat, gerçek boyut ile canlı gösterdi — gerçek `fsnotify` → sunucu → WebSocket push → ekran render zinciri uçtan uca doğrulandı. Aşama 4'te Windows arka ucu (`ReadDirectoryChangesW`) da Wine altındaki `.exe` üzerinden doğrulandı: izlenen `Downloads` klasöründe 2,9 MB'lık bir dosyanın yazılması ve yeniden adlandırılması telefonda saniyeler içinde göründü. Not: yeniden adlandırma iki satır olarak (eski ad / yeni ad) gösteriliyor. Gerçek (emülasyonsuz) Windows'ta hâlâ denenmedi. |
 | Diski dolduran dosya/klasörler zaman içinde anlaşılabiliyor | **Mantık + uçtan uca sorgu yolu doğrulandı (JVM)** | Anlık görüntü farkı/büyüme hesaplama mantığı birim testli; `top_growth` sorgusu JVM'den canlı ajana gerçekten soruldu ve yanıtlandı. Gerçek, uzun süreli bir Windows diskinde hiç çalıştırılmadı. |
-| Çevrimdışı kalma / yeniden bağlanma düzgün çalışıyor | **Mantık doğrulandı** | Üstel geri çekilme (backoff) sıralaması test edildi; gerçek bir ağ kesintisi sonrası yeniden bağlanma hiç canlı denenmedi. |
+| Çevrimdışı kalma / yeniden bağlanma düzgün çalışıyor | **Telefonda canlı doğrulandı (ajan yeniden başlatma)** | Üstel geri çekilme (backoff) sıralaması test edildi. Aşama 4'te ajan iki kez kapatılıp yeniden başlatıldı; uygulama her seferinde kullanıcı bir şey yapmadan ~20 saniyede yeniden bağlanıp Panel'i güncelledi. Wi-Fi'nin kopması gibi gerçek bir ağ kesintisi ayrıca denenmedi. |
 | Yetkisiz istemciler veri okuyamıyor/işlem yapamıyor | **Doğrulandı** | Açık bir test, kimliği doğrulanmamış bağlantının her korumalı mesaj tipinde reddedildiğini kanıtlıyor. |
-| Otomatik testler ve release build başarıyla tamamlanıyor | **Doğrulandı** | Go: `go vet` temiz, **125/125 test geçti** (canlı ajana karşı gerçek bir TLS+WebSocket entegrasyon testi dahil). Android: **81 testten 80'i geçti, 1'i canlı ajan olmadan bilinçli olarak atlandı** (o test de canlı ajanla ayrıca gerçekten çalıştırılıp geçti); `assembleDebug`+`assembleRelease` başarılı. |
+| Otomatik testler ve release build başarıyla tamamlanıyor | **Doğrulandı** | Go: `go vet` temiz (Linux ve `GOOS=windows`), **136/136 test geçti** (canlı ajana karşı gerçek bir TLS+WebSocket entegrasyon testi dahil). Android: **85 testten 84'ü geçti, 1'i canlı ajan olmadan bilinçli olarak atlandı** (o test de canlı ajanla ayrıca gerçekten çalıştırılıp geçti); `assembleDebug`+`assembleRelease` başarılı. |
 | Güncel, kurulabilir Android APK üretiliyor | **Doğrulandı — gerçek bir Android OS'a bizzat kuruldu ve çalıştı** | Gerçek, geçerli, imzalı bir APK üretildi (`apksigner verify`) ve **bizzat `adb install` ile gerçek bir Android 8.0 çalışma zamanına kuruldu, açıldı, çökmeden çalıştı** (yazılım modunda emüle edilen bir cihazda — gerçek fiziksel telefonda değil; KVM'siz gerçek bir Android emülatörü de bu konteynerde mümkün olduğu için mümkün oldu, yukarıya bakın). |
 | Windows tarafında kolay kurulup çalıştırılabilir çıktı | **Kısmen** | Tek bir çalıştırılabilir `.exe` + örnek config dosyaları + adım adım talimat var; **gerçek bir kurulum sihirbazı/MSI yok** — bu bilinen bir eksiklik (aşağıya bakın). |
 | Kurulum ve kullanım adımları açık | **Doğrulandı** | Bu belge + `windows-agent/README.md` + `android-app/README.md`. |
@@ -261,8 +372,9 @@ Windows/Android donanımında doğrulanabileceğini açıkça ayırır.
    verdi, ve kritik süreç korumasını bu gerçek isimlere karşı doğru
    şekilde uyguladı (bkz. yukarı). Hâlâ doğrulanamayan: gerçek
    Microsoft Windows'un (Wine'ın emülasyonu değil) kendi WinAPI
-   davranışı, Defender/güvenlik duvarı etkileşimi, yönetici hakları
-   gereksinimi, `ReadDirectoryChangesW`'nin gerçek Windows'taki hâli.
+   davranışı, SmartScreen/Defender/güvenlik duvarı etkileşimi, yönetici
+   hakları gereksinimi, `ReadDirectoryChangesW`'nin ve rota tabanlı IP
+   tespitinin gerçek Windows'taki hâli (ikisi de Wine'da çalıştı).
 2. **Gerçek fiziksel bir Android telefon hiç kullanılmadı.** Ama gerçek
    bir Android **işletim sistemi** kullanıldı: `/dev/kvm` yokluğu ve
    CPU'da `vmx`/`svm` bayrağı olmaması doğrulandıktan sonra, topluluk
@@ -273,10 +385,10 @@ Windows/Android donanımında doğrulanabileceğini açıkça ayırır.
    diyaloğu + snackbar + host doğrulaması ile), gerçek bir uygulama
    başlatma (aynı şekilde doğrulanmış), ve canlı bir dosya olayının
    Dosya Etkinliği ekranında anında görünmesi hep bizzat test edildi
-   (bkz. yukarı). Hâlâ denenmeyen: QR kamera taramasının gerçek bir
-   kareyi çözmesi (emülatörün sanal kamerası ayrıca yapılandırılmadı),
-   Uyarılar/Geçmiş ekranlarının telefonda açılması, ve arka planda/Doze
-   modunda bağlantının davranışı (bir foreground service eklenmedi —
+   (bkz. yukarı). Aşama 4'te QR'ın kameradan okunması (emülatörün sanal
+   sahne kamerasıyla) ve Uyarılar/Geçmiş ekranları da telefonda denendi.
+   Hâlâ denenmeyen: gerçek bir telefon kamerasının (otomatik odak, ışık)
+   davranışı ve arka planda/Doze modunda bağlantının davranışı (bir foreground service eklenmedi —
    bilinçli bir kapsam kısıtlamasıdır). Fiziksel telefona özgü donanım/
    sensör/performans davranışı da doğal olarak doğrulanamadı.
 3. **Windows tarafında kurulum sihirbazı/servis sarmalayıcı yok** — sadece

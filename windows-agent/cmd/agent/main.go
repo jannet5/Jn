@@ -19,6 +19,7 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"strings"
 	"syscall"
 	"time"
 
@@ -42,9 +43,13 @@ func main() {
 	qrOut := fs.String("qr-out", "pairing-qr.png", "where to write the pairing QR PNG (used with --pair)")
 	fs.Parse(os.Args[1:])
 
-	cfg, err := core.LoadConfig(*configPath)
+	cfgFile := resolveConfigPath(*configPath)
+	cfg, err := core.LoadConfig(cfgFile)
 	if err != nil {
 		log.Fatalf("loading config: %v", err)
+	}
+	if cfgFile != "" {
+		log.Printf("using config %s", cfgFile)
 	}
 	dataDir := agent.DataDir(*dataDirFlag)
 	if cfg.DataDir != "" && cfg.DataDir != "." {
@@ -58,6 +63,9 @@ func main() {
 	}
 
 	allowedAppsFile := cfg.AllowedAppsPath
+	if allowedAppsFile != "" && !filepath.IsAbs(allowedAppsFile) {
+		allowedAppsFile = filepath.Join(configBaseDir(cfgFile), allowedAppsFile)
+	}
 	if *allowedAppsPath != "" {
 		allowedAppsFile = *allowedAppsPath
 	}
@@ -86,6 +94,43 @@ func main() {
 	}
 
 	runServer(srv, cfg, dataDir)
+}
+
+// exeDir is the folder the agent's executable lives in. Relative config
+// paths resolve against it rather than the working directory, which is
+// System32 when started from Task Scheduler or a service wrapper.
+func exeDir() string {
+	exe, err := os.Executable()
+	if err != nil {
+		wd, _ := os.Getwd()
+		return wd
+	}
+	if resolved, err := filepath.EvalSymlinks(exe); err == nil {
+		exe = resolved
+	}
+	return filepath.Dir(exe)
+}
+
+// resolveConfigPath returns the explicit --config value, or config.json
+// next to the executable if one exists there, or "" for built-in defaults.
+func resolveConfigPath(flagVal string) string {
+	if flagVal != "" {
+		return flagVal
+	}
+	candidate := filepath.Join(exeDir(), "config.json")
+	if _, err := os.Stat(candidate); err == nil {
+		return candidate
+	}
+	return ""
+}
+
+func configBaseDir(cfgFile string) string {
+	if cfgFile != "" {
+		if abs, err := filepath.Abs(cfgFile); err == nil {
+			return filepath.Dir(abs)
+		}
+	}
+	return exeDir()
 }
 
 func loadOrEmptyAllowList(path string) (*core.AllowList, error) {
@@ -182,6 +227,20 @@ func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int) {
 	fmt.Printf("Pairing code:      %s  (expires in %s, single-use)\n", code, core.PairingCodeTTL)
 	fmt.Printf("Connect to:        %s:%d\n", ip, port)
 	fmt.Printf("Cert fingerprint:  %s\n", fingerprint)
+	var others []string
+	for _, c := range agent.LocalIPv4Candidates() {
+		if c != ip {
+			others = append(others, c)
+		}
+	}
+	if len(others) > 0 {
+		fmt.Printf("Other addresses:   %s  (try these in manual entry if the phone can't connect)\n", strings.Join(others, ", "))
+	}
+	fmt.Println()
+	fmt.Printf("The phone must be on the same network, and Windows Firewall must allow\n")
+	fmt.Printf("inbound TCP %d (accept the firewall prompt, or run once as admin:\n", port)
+	fmt.Printf("  netsh advfirewall firewall add rule name=\"WinRemoteMonitor\" dir=in action=allow protocol=TCP localport=%d\n", port)
+	fmt.Println(")")
 	fmt.Println()
 	fmt.Println("Enter the pairing code in the Android app, or scan the QR code below.")
 
@@ -237,7 +296,7 @@ func runDevicesCommand(args []string) {
 	}
 	sub := positional[0]
 
-	cfg, err := core.LoadConfig(configPath)
+	cfg, err := core.LoadConfig(resolveConfigPath(configPath))
 	if err != nil {
 		log.Fatalf("loading config: %v", err)
 	}

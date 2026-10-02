@@ -150,16 +150,41 @@ func localIPs() []net.IP {
 // during pairing (e.g. "Connect to 192.168.1.42:8787"). It is not used for
 // any security decision — only pinned fingerprint verification is.
 func PrimaryLocalIP() string {
-	addrs, err := net.InterfaceAddrs()
-	if err != nil {
-		return "127.0.0.1"
+	if ip := outboundIPv4(); ip != "" {
+		return ip
 	}
-	for _, a := range addrs {
-		if ipnet, ok := a.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
-			if v4 := ipnet.IP.To4(); v4 != nil {
-				return v4.String()
-			}
-		}
+	if c := LocalIPv4Candidates(); len(c) > 0 {
+		return c[0]
 	}
 	return "127.0.0.1"
+}
+
+// outboundIPv4 asks the OS which local address it would use to reach the
+// internet. A UDP "dial" only consults the routing table - no packet is
+// sent. Picking the first interface address instead returns a Hyper-V/WSL/
+// VPN virtual adapter on many Windows PCs, which a phone on the Wi-Fi can't
+// reach.
+func outboundIPv4() string {
+	conn, err := net.Dial("udp4", "8.8.8.8:80")
+	if err != nil {
+		return outboundIPv4Raw()
+	}
+	defer conn.Close()
+	addr, ok := conn.LocalAddr().(*net.UDPAddr)
+	if !ok || addr.IP.IsLoopback() || addr.IP.IsUnspecified() || addr.IP.To4() == nil {
+		return ""
+	}
+	return addr.IP.To4().String()
+}
+
+// LocalIPv4Candidates lists every non-loopback IPv4 address on this machine,
+// so the pairing output can offer alternatives for manual entry.
+func LocalIPv4Candidates() []string {
+	var out []string
+	for _, ip := range localIPs() {
+		if !ip.IsLoopback() {
+			out = append(out, ip.String())
+		}
+	}
+	return out
 }

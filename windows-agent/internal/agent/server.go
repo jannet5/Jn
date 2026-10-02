@@ -65,7 +65,7 @@ func NewServer(cfg core.Config, store *Store, allowList *core.AllowList, serverK
 		ServerKey:    serverKey,
 		ProcessMgr:   NewProcessManager(),
 		Launcher:     &Launcher{AllowList: allowList},
-		Metrics:      &MetricsSampler{Volumes: defaultVolumes()},
+		Metrics:      &MetricsSampler{},
 		AgentVersion: "1.0.0",
 		Hostname:     hostname,
 		PairingMgr:   core.NewPairingManager(store),
@@ -696,10 +696,4 @@ func clientIP(r *http.Request) string {
 		return r.RemoteAddr
 	}
 	return host
-}
-
-func defaultVolumes() []string {
-	// Overridden at construction time by cmd/agent on real Windows drive
-	// letters; "/" is only a sane fallback for this Linux dev environment.
-	return []string{"/"}
 }

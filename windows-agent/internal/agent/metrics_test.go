@@ -92,3 +92,21 @@ func TestSample_FullSnapshot(t *testing.T) {
 		t.Errorf("expected 1 disk in full snapshot, got %d", len(snap.Disks))
 	}
 }
+
+func TestSampleDisks_EmptyVolumesDiscoversDrives(t *testing.T) {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+	m := &MetricsSampler{}
+	disks, err := m.SampleDisks(ctx)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if len(disks) == 0 {
+		t.Fatal("expected at least one discovered volume")
+	}
+	for _, d := range disks {
+		if d.TotalBytes == 0 {
+			t.Errorf("volume %q: expected a real total size", d.Volume)
+		}
+	}
+}

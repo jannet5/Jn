@@ -33,15 +33,18 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.input.KeyboardType
@@ -53,6 +56,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.jn.winremote.ui.components.ConfirmDialog
 import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
+import java.util.concurrent.atomic.AtomicBoolean
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -92,9 +96,7 @@ fun PairingScreen(
             when (tabIndex) {
                 0 -> QrScanTab(
                     onDecoded = { raw ->
-                        if (viewModel.applyScannedQr(raw)) {
-                            tabIndex = 1
-                        }
+                        viewModel.applyScannedQr(raw).also { accepted -> if (accepted) tabIndex = 1 }
                     },
                 )
                 else -> ManualEntryTab(viewModel = viewModel, form = form, uiState = uiState)
@@ -104,7 +106,7 @@ fun PairingScreen(
 }
 
 @Composable
-private fun QrScanTab(onDecoded: (String) -> Unit) {
+private fun QrScanTab(onDecoded: (String) -> Boolean) {
     val context = LocalContext.current
     var hasPermission by remember {
         mutableStateOf(
@@ -151,17 +153,37 @@ private fun QrScanTab(onDecoded: (String) -> Unit) {
 }
 
 @Composable
-private fun CameraPreviewWithScanner(onDecoded: (String) -> Unit) {
+private fun CameraPreviewWithScanner(onDecoded: (String) -> Boolean) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val executor = remember { Executors.newSingleThreadExecutor() }
+    val providerFuture = remember { ProcessCameraProvider.getInstance(context) }
+    val currentOnDecoded by rememberUpdatedState(onDecoded)
+
+    // The camera is bound to the Activity lifecycle, so leaving this tab does not stop it on its
+    // own. Unbind explicitly: otherwise the analyzer keeps decoding in the background (overwriting
+    // fields the user is editing) and re-binding onto the destroyed preview surface crashes the
+    // legacy camera shim on Android 8.0 (NPE in CameraDeviceImpl.onCaptureErrorLocked).
+    DisposableEffect(Unit) {
+        onDispose {
+            providerFuture.addListener({
+                providerFuture.get().unbindAll()
+                executor.shutdown()
+            }, ContextCompat.getMainExecutor(context))
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
         AndroidView(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().clipToBounds(),
             factory = { ctx ->
-                val previewView = PreviewView(ctx)
-                val providerFuture = ProcessCameraProvider.getInstance(ctx)
+                // COMPATIBLE (TextureView) respects Compose clipping; the default SurfaceView
+                // drew over the tab row on API 26.
+                val previewView = PreviewView(ctx).apply {
+                    implementationMode = PreviewView.ImplementationMode.COMPATIBLE
+                }
+                val mainExecutor = ContextCompat.getMainExecutor(ctx)
+                val delivered = AtomicBoolean(false)
                 providerFuture.addListener({
                     val provider = providerFuture.get()
                     val preview = Preview.Builder().build().also {
@@ -170,7 +192,14 @@ private fun CameraPreviewWithScanner(onDecoded: (String) -> Unit) {
                     val analysis = ImageAnalysis.Builder()
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                         .build()
-                        .also { it.setAnalyzer(executor, QrAnalyzer(onDecoded)) }
+                    analysis.setAnalyzer(executor, QrAnalyzer { raw ->
+                        mainExecutor.execute {
+                            if (!delivered.get() && currentOnDecoded(raw)) {
+                                delivered.set(true)
+                                analysis.clearAnalyzer()
+                            }
+                        }
+                    })
                     try {
                         provider.unbindAll()
                         provider.bindToLifecycle(
@@ -183,7 +212,7 @@ private fun CameraPreviewWithScanner(onDecoded: (String) -> Unit) {
                         // Camera bind can fail on devices without the requested camera; the
                         // manual-entry tab remains fully usable regardless.
                     }
-                }, ContextCompat.getMainExecutor(ctx))
+                }, mainExecutor)
                 previewView
             },
         )

@@ -19,9 +19,9 @@ import (
 // here; the same code path reports real Windows numbers when the binary
 // is cross-compiled and run on Windows — see README limitations).
 type MetricsSampler struct {
-	// Volumes lists mount points/drive letters to report on. On Windows
-	// this is drive letters like "C:\\"; on Linux (used only by our own
-	// tests) it's mount points like "/".
+	// Volumes lists mount points/drive letters to report on. Empty means
+	// "discover on every sample": all local drive letters on Windows
+	// ("C:\\", "D:\\", ...), "/" elsewhere. Tests set it explicitly.
 	Volumes []string
 }
 
@@ -50,8 +50,12 @@ func (m *MetricsSampler) SampleRAM(ctx context.Context) (core.RAMInfo, error) {
 // SampleDisks returns real disk usage for each configured volume via
 // gopsutil/disk.
 func (m *MetricsSampler) SampleDisks(ctx context.Context) ([]core.DiskInfo, error) {
-	out := make([]core.DiskInfo, 0, len(m.Volumes))
-	for _, v := range m.Volumes {
+	volumes := m.Volumes
+	if len(volumes) == 0 {
+		volumes = discoverVolumes()
+	}
+	out := make([]core.DiskInfo, 0, len(volumes))
+	for _, v := range volumes {
 		usage, err := disk.UsageWithContext(ctx, v)
 		if err != nil {
 			// A single inaccessible/ejected volume shouldn't take down the

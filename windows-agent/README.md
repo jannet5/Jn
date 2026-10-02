@@ -66,14 +66,31 @@ Run everything (vet + full test suite + cross-compile + checksum) with:
 
 1. Copy `dist/winremotemonitor-agent.exe` to the Windows machine.
 2. (Optional) Copy `config.example.json` to `config.json` and
-   `allowed_apps.example.json` to `allowed_apps.json` next to the exe (or
-   anywhere; point `--config`/`--allowed-apps` at them), and edit them —
-   see "Configuring" below.
-3. Run it from a console:
+   `allowed_apps.example.json` to `allowed_apps.json` next to the exe, and
+   edit them — see "Configuring" below. A `config.json` next to the exe is
+   picked up automatically (no flag needed), and relative paths inside it
+   (e.g. `"allowed_apps_path": "allowed_apps.json"`) resolve against the
+   config file's folder, so the agent behaves the same when started from
+   Task Scheduler (whose working directory is `C:\Windows\System32`).
+   `--config`/`--allowed-apps` still override this.
+3. Allow inbound TCP on the agent's port (default 8787) through Windows
+   Firewall — accept the prompt on first run (Private networks), or once,
+   from an elevated prompt:
 
    ```
-   winremotemonitor-agent.exe --config config.json
+   netsh advfirewall firewall add rule name="WinRemoteMonitor" dir=in action=allow protocol=TCP localport=8787
    ```
+
+   The exe is not code-signed, so SmartScreen may show "Windows protected
+   your PC": choose "More info" → "Run anyway".
+4. Run it from a console:
+
+   ```
+   winremotemonitor-agent.exe
+   ```
+
+   The first log line names the config file in use
+   (`using config C:\...\config.json`).
 
    On first run it generates and persists (under `%ProgramData%\WinRemoteMonitor`
    by default — see Known limitations if that path isn't writable for your
@@ -90,7 +107,7 @@ Run everything (vet + full test suite + cross-compile + checksum) with:
    and it keeps running (foreground console process — see "No Windows
    service wrapper" below) until you Ctrl+C it or send it SIGTERM/Ctrl+Break.
 
-4. There is no installer and no Windows service wrapper in this build (see
+5. There is no installer and no Windows service wrapper in this build (see
    Known limitations). If you want it to survive logoff/reboot, run it via
    Task Scheduler ("run whether user is logged on or not") or wrap it with
    a service manager like [NSSM](https://nssm.cc/) — this was not built or
@@ -118,15 +135,20 @@ winremotemonitor-agent.exe --pair
 
 This prints:
 - A pairing code (`XXXX-XXXX`, expires in 5 minutes, single-use).
-- The machine's best-guess LAN IP and the configured port.
+- The machine's LAN IP and the configured port: the address the OS routes
+  outbound traffic through (so Hyper-V/WSL/VPN virtual adapters are not
+  picked by accident), plus an `Other addresses:` line listing the
+  remaining IPv4 addresses to try in manual entry, and the firewall rule
+  above.
 - The TLS certificate's SHA-256 fingerprint (pinned by the phone
   out-of-band, per PROTOCOL.md §1 — never trust-on-first-use over the
   network itself).
 - A QR code PNG (`pairing-qr.png` by default; `--qr-out` to change the
-  path) encoding `{"host","port","pairing_code","fingerprint_sha256"}` —
-  **this exact QR payload schema is this implementation's own choice, not
-  specified by PROTOCOL.md; confirm the Android side reads the same
-  shape**, or fall back to typing the code and fingerprint in by hand.
+  path) encoding `{"host","port","pairing_code","fingerprint_sha256"}`
+  (PROTOCOL.md §10). Verified end-to-end: the release APK read this exact
+  PNG through the Android emulator's camera and paired. Hold the phone
+  square-on to the screen — the code is dense (version 8) and did not
+  decode at a ~30° angle; manual entry always works as a fallback.
 
 Five wrong pairing-code attempts on one connection locks it out and closes
 the socket, per PROTOCOL.md §2.
@@ -158,7 +180,12 @@ Edit `config.json` (see `config.example.json`):
 - `alert_thresholds`: overrides for `large_file_bytes`, `fast_growth_bytes`
   + `fast_growth_window_sec`, `disk_fill_rate_percent` +
   `disk_fill_rate_window_sec`, `low_free_space_percent`. Defaults exactly
-  match PROTOCOL.md §8.
+  match PROTOCOL.md §8. Each alert fires when its condition *starts*
+  (per drive / per path), once more if it escalates to critical, and
+  re-arms after the condition clears — a drive that stays low on space
+  produces one alert, not one per metrics tick. Disks reported are all
+  local drive letters (fixed + removable), re-detected on every sample;
+  network drives are skipped.
 - `port`, `metrics_interval_sec`, `processes_interval_sec`,
   `snapshot_interval_sec`, `data_dir`.
 
@@ -394,10 +421,11 @@ Windows machine. Verified vs. not verified, explicitly:
   points/symlink loops). The scanner and watcher were only exercised
   against small synthetic directory trees on this Linux machine's
   filesystem.
-- **fsnotify's actual Windows backend** (ReadDirectoryChangesW). fsnotify
-  ran here on its Linux (inotify) backend only; its Windows backend's
-  event shapes/timing/edge cases (e.g. rename semantics, buffer overflow
-  under heavy churn) were not exercised.
+- **fsnotify's Windows backend** (ReadDirectoryChangesW) has now run under
+  Wine: writing and renaming a 2.9 MB file in a watched folder showed up on
+  the phone within seconds (a rename arrives as two events: old name, new
+  name). Its behavior on real NTFS under heavy churn (buffer overflow) is
+  still untested.
 
 In short: the *logic* (protocol state machine, security gating, alert
 math, protection rules) is genuinely tested end-to-end against real

@@ -22,7 +22,9 @@ type Runtime struct {
 	Watcher *FileWatcher
 
 	Thresholds core.AlertThresholds
-	Volumes    []string // e.g. Windows drive letters like `C:\`
+
+	// alerts suppresses repeats of a condition that is still holding.
+	alerts core.AlertGate
 
 	MetricsInterval   time.Duration
 	SnapshotInterval  time.Duration
@@ -75,7 +77,7 @@ func (rt *Runtime) recordDiskHistoryAndEvaluate(snap core.MetricsPush) {
 		}
 
 		// low_free_space
-		if trig, pct, sev := core.CheckLowFreeSpace(d.TotalBytes, d.FreeBytes, rt.Thresholds.LowFreeSpacePercent); trig {
+		if trig, pct, sev := core.CheckLowFreeSpace(d.TotalBytes, d.FreeBytes, rt.Thresholds.LowFreeSpacePercent); rt.alerts.Observe(core.AlertLowFreeSpace+"|"+d.Volume, trig, sev) {
 			rt.raiseAlert(core.AlertLowFreeSpace, sev, now,
 				volumeMessage(core.AlertLowFreeSpace, d.Volume, pct),
 				map[string]interface{}{"volume": d.Volume, "free_percent": pct})
@@ -87,7 +89,7 @@ func (rt *Runtime) recordDiskHistoryAndEvaluate(snap core.MetricsPush) {
 			log.Printf("reading disk free history failed: %v", err)
 			continue
 		}
-		if trig, lossPct, sev := core.CheckDiskFillRate(history, int64(d.FreeBytes), int64(d.TotalBytes), now, rt.Thresholds.DiskFillRateWindowSec, rt.Thresholds.DiskFillRatePercent); trig {
+		if trig, lossPct, sev := core.CheckDiskFillRate(history, int64(d.FreeBytes), int64(d.TotalBytes), now, rt.Thresholds.DiskFillRateWindowSec, rt.Thresholds.DiskFillRatePercent); rt.alerts.Observe(core.AlertDiskFillRate+"|"+d.Volume, trig, sev) {
 			rt.raiseAlert(core.AlertDiskFillRate, sev, now,
 				volumeMessage(core.AlertDiskFillRate, d.Volume, lossPct),
 				map[string]interface{}{"volume": d.Volume, "loss_percent": lossPct})
@@ -150,7 +152,7 @@ func (rt *Runtime) evaluateFastGrowth(now int64, snaps []core.SizeSnapshot) {
 		for _, h := range history {
 			samples = append(samples, h)
 		}
-		if trig, delta, sev := core.CheckFastGrowth(samples, sn.SizeBytes, now, rt.Thresholds.FastGrowthWindowSec, rt.Thresholds.FastGrowthBytes); trig {
+		if trig, delta, sev := core.CheckFastGrowth(samples, sn.SizeBytes, now, rt.Thresholds.FastGrowthWindowSec, rt.Thresholds.FastGrowthBytes); rt.alerts.Observe(core.AlertFastGrowth+"|"+sn.Path, trig, sev) {
 			rt.raiseAlert(core.AlertFastGrowth, sev, now,
 				fastGrowthMessage(sn.Path, delta),
 				map[string]interface{}{"path": sn.Path, "delta_bytes": delta})
@@ -193,10 +195,12 @@ func (rt *Runtime) OnFileEvent(e core.FileEventRecord) {
 	}
 	rt.Server.BroadcastFileEvent(e)
 
-	if e.IsDir || e.SizeBytes <= 0 {
+	if e.IsDir {
 		return
 	}
-	if trig, sev := core.CheckLargeFile(e.SizeBytes, rt.Thresholds.LargeFileBytes); trig {
+	// A file being written produces many modify events; report the size
+	// crossing once per file (deletes/shrinks re-arm it via trig == false).
+	if trig, sev := core.CheckLargeFile(e.SizeBytes, rt.Thresholds.LargeFileBytes); rt.alerts.Observe(core.AlertLargeFile+"|"+e.Path, trig && e.SizeBytes > 0, sev) {
 		rt.raiseAlert(core.AlertLargeFile, sev, e.TS,
 			largeFileMessage(e.Path, e.SizeBytes),
 			map[string]interface{}{"path": e.Path, "size_bytes": e.SizeBytes})

@@ -278,18 +278,25 @@ all three were sent alongside this report.
 
 ## What is still NOT verified
 
-- **QR camera scanning.** `ui/pairing/QrAnalyzer.kt` (CameraX `ImageAnalysis.Analyzer`
-  + ZXing's `QRCodeReader` run directly against the Y/luminance plane) has never
-  decoded a real camera frame — every session above used the manual-entry pairing
-  path, not the camera one, and the AVD's virtual camera was never configured. Only
-  the analyzer's pure geometry helper (`util/YuvRotate.kt`, handling sensor-vs-
-  portrait rotation) is unit-tested. The manual-entry pairing path does not depend
-  on this at all, and is itself verified end-to-end on a real Android OS (above).
-- **Uyarılar / Geçmiş screens on-device.** Not opened during either emulator
-  session; their JVM-level data flow (alerts, history queries) is covered by
-  `LiveAgentEndToEndTest` instead.
-- **Reconnect-after-real-network-loss.** The backoff *sequencing* is unit-tested;
-  actually killing Wi-Fi/mobile data mid-session and observing the phone silently
+- ~~QR camera scanning~~ — **now verified** (see the top-level README, "Aşama 4"):
+  the release APK, freshly installed on a wiped emulator, decoded the agent's real
+  `pairing-qr.png` through the emulator's virtual-scene back camera (poster swapped in
+  with `adb emu virtualscene-image wall`, the virtual phone positioned in front of it
+  through the emulator's gRPC `setPhysicalModel`), filled the form and paired. The
+  camera permission was granted through the app's own button and Android's real
+  permission dialog. This run found and fixed two bugs: the camera stayed bound after
+  leaving the scan tab (the background analyzer could overwrite edited fields, and
+  returning to "QR Tara" crashed with an NPE in Android 8.0's legacy camera shim), and
+  the SurfaceView preview drew over the tab row. Still unverified: a real phone
+  camera's autofocus/lighting, and decoding at an angle — at ~30° the dense
+  (version 8) code did not decode even in desktop ZXing, so hold the phone square-on.
+- ~~Uyarılar / Geçmiş screens on-device~~ — **now opened on-device** against the
+  agent running under Wine; alert text is now built in Turkish from each alert's
+  structured context (`util/AlertText.kt`) instead of showing the agent's English
+  `message`.
+- **Reconnect-after-real-network-loss.** The backoff *sequencing* is unit-tested, and
+  restarting the agent mid-session was observed live (the app reconnected on its own
+  in ~20 s, twice); actually killing Wi-Fi/mobile data mid-session and observing the phone silently
   recover (or the liveness watchdog in `WinRemoteRepository` correctly detecting a
   half-open connection) has not been observed.
 - **Background/battery behavior.** The app holds its WebSocket connection only while
@@ -311,7 +318,7 @@ network/auth/request-response flow, on-device rendering, real Android-Keystore-
 backed storage, and the three core mutating/live-data flows (kill, launch, live
 file events) are all real and verified — including live, against a real running
 windows-agent process, on a real (software-emulated) Android OS, driven through
-the app's own UI, not just JVM unit tests. What remains unverified is camera QR
-decoding, the Uyarılar/Geçmiş screens on-device, physical-device-specific
-behavior, and running either side on its real target hardware (a physical
+the app's own UI, not just JVM unit tests — and since "Aşama 4", camera QR pairing
+too. What remains unverified is physical-device-specific behavior (real camera,
+radio, battery), and running either side on its real target hardware (a physical
 Android phone, a real Windows PC) instead of this Linux container.**

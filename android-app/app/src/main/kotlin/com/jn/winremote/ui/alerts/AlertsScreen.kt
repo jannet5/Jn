@@ -39,6 +39,7 @@ import com.jn.winremote.ui.components.ReconnectingBanner
 import com.jn.winremote.ui.components.UnauthorizedState
 import com.jn.winremote.ui.theme.AmberWarning
 import com.jn.winremote.ui.theme.RedCritical
+import com.jn.winremote.util.AlertText
 import com.jn.winremote.util.Formatting
 import com.jn.winremote.util.ReasonText
 
@@ -110,7 +111,7 @@ private fun AlertBanner(alert: AlertData, onDismiss: () -> Unit) {
                 style = MaterialTheme.typography.titleMedium,
                 color = color,
             )
-            Text(alert.message, style = MaterialTheme.typography.bodyMedium)
+            Text(AlertText.describe(alert), style = MaterialTheme.typography.bodyMedium)
         }
         IconButton(onClick = onDismiss) {
             androidx.compose.material3.Icon(Icons.Filled.Close, contentDescription = "Kapat")
@@ -134,7 +135,7 @@ private fun AlertRow(alert: AlertData) {
                     Text(kindLabels[alert.kind] ?: alert.kind, style = MaterialTheme.typography.titleMedium)
                     Text(Formatting.timestamp(alert.ts), style = MaterialTheme.typography.labelSmall)
                 }
-                Text(alert.message, style = MaterialTheme.typography.bodyMedium)
+                Text(AlertText.describe(alert), style = MaterialTheme.typography.bodyMedium)
                 Text(
                     if (alert.severity == AlertSeverity.CRITICAL) "Kritik" else "Uyarı",
                     style = MaterialTheme.typography.labelSmall,

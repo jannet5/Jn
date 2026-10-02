@@ -130,3 +130,58 @@ func TestRuntime_RecordDiskHistoryAndEvaluate_LowFreeSpace(t *testing.T) {
 		t.Errorf("expected disk free sample to be recorded, got %d", len(history))
 	}
 }
+
+func TestRuntime_LowFreeSpace_ReportedOncePerCrossing(t *testing.T) {
+	rt, store := newTestRuntime(t)
+	rt.Thresholds.LowFreeSpacePercent = 10.0
+
+	tick := func(ts int64, free uint64) {
+		rt.recordDiskHistoryAndEvaluate(core.MetricsPush{TS: ts, Disks: []core.DiskInfo{
+			{Volume: `C:\`, TotalBytes: 1000, UsedBytes: 1000 - free, FreeBytes: free},
+		}})
+	}
+	countLow := func() int {
+		alerts, err := store.ListAlerts(100)
+		if err != nil {
+			t.Fatalf("listing alerts: %v", err)
+		}
+		n := 0
+		for _, a := range alerts {
+			if a.Kind == core.AlertLowFreeSpace {
+				n++
+			}
+		}
+		return n
+	}
+
+	now := time.Now().Unix()
+	for i := int64(0); i < 5; i++ {
+		tick(now+2*i, 80) // 8% free on every 2s metrics tick
+	}
+	if got := countLow(); got != 1 {
+		t.Fatalf("5 ticks below the threshold raised %d low_free_space alerts, want 1", got)
+	}
+
+	tick(now+20, 300) // recovered: 30% free
+	tick(now+22, 80)  // drops below again: a new crossing
+	if got := countLow(); got != 2 {
+		t.Fatalf("after recovering and dropping again: %d alerts, want 2", got)
+	}
+}
+
+func TestRuntime_LargeFile_ReportedOncePerFile(t *testing.T) {
+	rt, store := newTestRuntime(t)
+	rt.Thresholds.LargeFileBytes = 1000
+
+	now := time.Now().Unix()
+	for i := int64(0); i < 4; i++ { // a download growing past the threshold
+		rt.OnFileEvent(core.FileEventRecord{TS: now + i, Op: core.OpModified, Path: `C:\Users\jake\Downloads\big.iso`, SizeBytes: 1200 + i, IsDir: false})
+	}
+	alerts, err := store.ListAlerts(10)
+	if err != nil {
+		t.Fatalf("listing alerts: %v", err)
+	}
+	if len(alerts) != 1 {
+		t.Fatalf("4 write events on one large file raised %d alerts, want 1", len(alerts))
+	}
+}
