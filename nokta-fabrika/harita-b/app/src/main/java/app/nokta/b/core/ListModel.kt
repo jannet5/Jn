@@ -95,11 +95,8 @@ class ListModel(initial: List<Item> = emptyList()) {
         val parsed = text.lines().mapNotNull { line ->
             val t = line.trim()
             if (t.isEmpty()) return@mapNotNull null
-            when {
-                t.startsWith("[x] ", true) -> true to t.drop(4)
-                t.startsWith("[ ] ") -> false to t.drop(4)
-                else -> false to t
-            }
+            val m = BOX.matchEntire(t)
+            if (m != null) (m.groupValues[1].isNotBlank()) to m.groupValues[2] else false to t
         }
         var id = nextId()
         val add = parsed.mapNotNull { (done, raw) ->
@@ -112,5 +109,6 @@ class ListModel(initial: List<Item> = emptyList()) {
 
     companion object {
         const val MAX_TEXT = 200
+        private val BOX = Regex("^\\[([ xX])](?:\\s+(.*))?$")
     }
 }

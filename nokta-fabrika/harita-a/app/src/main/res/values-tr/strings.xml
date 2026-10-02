@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">nokta</string>
+    <string name="empty">Henüz bir şey yok. Aşağıya yaz.</string>
+    <string name="hint">Bir şey ekle</string>
+    <string name="counts">%1$d bekliyor · %2$d alındı</string>
+    <string name="clear_done">Alınanları temizle (%1$d)</string>
+    <string name="export_list">Dışa aktar (metin olarak paylaş)</string>
+    <string name="bubble_on">Balonu göster</string>
+    <string name="bubble_off">Balonu gizle</string>
+    <string name="overlay_needed">Balon için diğer uygulamaların üstünde gösterme izni gerekli</string>
+    <string name="grant">İzin ver</string>
+    <string name="deleted">Öğe silindi</string>
+    <plurals name="cleared">
+        <item quantity="one">%1$d alınan öğe temizlendi</item>
+        <item quantity="other">%1$d alınan öğe temizlendi</item>
+    </plurals>
+    <string name="undo">Geri al</string>
+    <string name="channel_name">Balon</string>
+    <string name="notif_text">Balon açık</string>
+    <string name="notif_stop">Kapat</string>
+    <string name="bubble_hidden">Balon gizlendi. Uygulama menüsünden tekrar açabilirsin.</string>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">nokta</string>
+    <string name="empty">Nothing yet. Type below.</string>
+    <string name="hint">Add an item</string>
+    <string name="counts">%1$d left · %2$d done</string>
+    <string name="clear_done">Clear done (%1$d)</string>
+    <string name="export_list">Export (share as text)</string>
+    <string name="bubble_on">Show bubble</string>
+    <string name="bubble_off">Hide bubble</string>
+    <string name="overlay_needed">The bubble needs permission to show over other apps</string>
+    <string name="grant">Allow</string>
+    <string name="deleted">Item deleted</string>
+    <plurals name="cleared">
+        <item quantity="one">%1$d done item cleared</item>
+        <item quantity="other">%1$d done items cleared</item>
+    </plurals>
+    <string name="undo">Undo</string>
+    <string name="channel_name">Bubble</string>
+    <string name="notif_text">Bubble is on</string>
+    <string name="notif_stop">Turn off</string>
+    <string name="bubble_hidden">Bubble hidden. Turn it back on from the app menu.</string>
+</resources>
