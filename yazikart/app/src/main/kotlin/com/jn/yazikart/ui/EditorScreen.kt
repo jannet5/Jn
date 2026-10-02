@@ -24,6 +24,11 @@ import androidx.compose.material.icons.Icons // ikon seti
 import androidx.compose.material.icons.filled.Download // indir ikonu
 import androidx.compose.material.icons.filled.Share // paylaş ikonu
 import androidx.compose.material.icons.filled.Refresh // yenile (baştan başla) ikonu
+import androidx.compose.material.icons.filled.Fullscreen // tam ekran ikonu
+import androidx.compose.foundation.background // arka plan boyama
+import androidx.compose.foundation.clickable // tıklanabilirlik
+import androidx.compose.foundation.shape.CircleShape // daire şekli
+import androidx.compose.ui.graphics.Color // renk
 import androidx.compose.material3.AlertDialog // onay penceresi
 import androidx.compose.material3.IconButton // ikon buton
 import androidx.compose.material3.TextButton // yazı buton
@@ -54,15 +59,10 @@ import androidx.compose.runtime.setValue // durum yazma
 import androidx.compose.ui.Alignment // hizalama
 import androidx.compose.ui.Modifier // değiştiriciler
 import androidx.compose.ui.draw.clip // kırpma
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas // Android tuvaline erişim
-import androidx.compose.ui.graphics.nativeCanvas // Android tuvali
 import androidx.compose.ui.platform.LocalConfiguration // ekran ölçüleri
-import androidx.compose.ui.platform.LocalContext // uygulama bağlamı
 import androidx.compose.ui.unit.dp // ölçü birimi
 import androidx.compose.ui.unit.min // iki ölçünün küçüğü
-import com.jn.yazikart.data.FontCatalog // yazı tipleri
 import com.jn.yazikart.data.PostStyle // görsel ayarları
-import com.jn.yazikart.render.PostRenderer // görsel çizici
 
 // Ana ekran: üstte canlı önizleme, ortada yazı kutusu, altta ayar sekmeleri, en altta Kaydet/Paylaş
 @Composable
@@ -80,6 +80,7 @@ fun EditorScreen(
     onSave: () -> Unit, // galeriye kaydet
     onShare: () -> Unit, // paylaş
     onReset: () -> Unit, // baştan başla
+    onFullscreen: () -> Unit, // tam ekran
 ) {
     val snackbar = remember { SnackbarHostState() } // alt mesaj durumu
     LaunchedEffect(message) { // yeni mesaj gelince
@@ -131,7 +132,7 @@ fun EditorScreen(
                     Icon(Icons.Default.Refresh, contentDescription = "Baştan başla") // yenile ikonu
                 }
             }
-            Preview(style, image, busy) // canlı önizleme
+            Preview(style, image, busy, onFullscreen) // canlı önizleme (sağ üstte tam ekran)
             Spacer(Modifier.height(16.dp)) // boşluk
             OutlinedTextField( // yazının yazıldığı kutu
                 value = style.text, // güncel yazı
@@ -160,14 +161,9 @@ fun EditorScreen(
     }
 }
 
-// Canlı önizleme: kaydedilecek görselin birebir küçültülmüş hali
+// Canlı önizleme: kaydedilecek görselin birebir küçültülmüş hali + sağ üstte tam ekran düğmesi
 @Composable
-private fun Preview(style: PostStyle, image: Bitmap?, busy: String?) {
-    val context = LocalContext.current // uygulama bağlamı
-    val typeface = remember(style.fontIndex, style.bold) { // yazı tipi değişince yeniden yükleniyor
-        FontCatalog.typeface(context.assets, style.fontIndex, style.bold) // seçili yazı tipi
-    }
-    val fakeBold = FontCatalog.needsFakeBold(style.fontIndex, style.bold) // yapay kalınlık gerekir mi
+private fun Preview(style: PostStyle, image: Bitmap?, busy: String?, onFullscreen: () -> Unit) {
     BoxWithConstraints(Modifier.fillMaxWidth().padding(horizontal = 16.dp), contentAlignment = Alignment.Center) { // ortalı alan
         val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
         val maxH = (LocalConfiguration.current.screenHeightDp * 0.42f).dp // önizleme ekran yüksekliğinin en çok %42'si (yazı kutusu görünür kalsın)
@@ -175,18 +171,12 @@ private fun Preview(style: PostStyle, image: Bitmap?, busy: String?) {
         Box(
             Modifier.width(w).height(w / ratio) // oranlı kutu
                 .clip(RoundedCornerShape(12.dp)) // yuvarlak köşe
-                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp)), // ince çerçeve (siyah zeminde sınır görünsün)
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp)) // ince çerçeve (siyah zeminde sınır görünsün)
+                .clickable(onClick = onFullscreen), // önizlemeye dokununca da tam ekran açılır
             contentAlignment = Alignment.Center, // gösterge ortada
         ) {
-            androidx.compose.foundation.Canvas(Modifier.fillMaxSize()) { // çizim alanı
-                drawIntoCanvas { c -> // Android tuvaline geçiliyor
-                    PostRenderer.draw( // kayıtla aynı çizici
-                        c.nativeCanvas, size.width.toInt(), size.height.toInt(), // tuval ve boyut
-                        style, typeface, fakeBold, image, // ayarlar
-                        placeholder = "Yazın burada görünecek", // boşken ipucu
-                    )
-                }
-            }
+            PostCanvas(style, image, Modifier.fillMaxSize()) // görsel
+            FullscreenButton(onFullscreen, Modifier.align(Alignment.TopEnd).padding(4.dp)) // sağ üst köşede tam ekran düğmesi
             if (busy != null) { // iş sürüyorsa
                 Surface(shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f)) { // yarı saydam kutu
                     Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) { // yan yana
@@ -196,6 +186,19 @@ private fun Preview(style: PostStyle, image: Bitmap?, busy: String?) {
                     }
                 }
             }
+        }
+    }
+}
+
+// Önizlemenin köşesindeki tam ekran düğmesi: her zeminde görünsün diye yarı saydam koyu daire içinde
+@Composable
+private fun FullscreenButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    IconButton(onClick = onClick, modifier = modifier) { // 48dp dokunma alanı
+        Box(
+            Modifier.size(36.dp).clip(CircleShape).background(Color.Black.copy(alpha = 0.55f)), // koyu yarı saydam daire
+            contentAlignment = Alignment.Center, // ikon ortada
+        ) {
+            Icon(Icons.Default.Fullscreen, contentDescription = "Tam ekran", tint = Color.White) // tam ekran ikonu
         }
     }
 }

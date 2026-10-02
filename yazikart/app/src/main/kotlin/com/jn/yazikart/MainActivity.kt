@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat // izin kontrolü
 import androidx.lifecycle.compose.collectAsStateWithLifecycle // akışları güvenle dinleme
 import com.jn.yazikart.ui.EditorScreen // ana ekran
 import com.jn.yazikart.ui.EditorViewModel // ana ekranın beyni
+import com.jn.yazikart.ui.FullscreenScreen // tam ekran
 import com.jn.yazikart.ui.SearchScreen // arama ekranı
 import com.jn.yazikart.ui.YaziKartTheme // tema
 
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
                 val message by vm.message.collectAsStateWithLifecycle() // mesaj
                 val online by vm.online.collectAsStateWithLifecycle() // internet durumu
                 var showSearch by rememberSaveable { mutableStateOf(false) } // arama ekranı açık mı
+                var showFullscreen by rememberSaveable { mutableStateOf(false) } // tam ekran açık mı
 
                 val galleryPicker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri -> // galeri seçici
                     if (uri != null) vm.pickFromGallery(uri) // seçildiyse arka plan yapılıyor
@@ -47,7 +49,14 @@ class MainActivity : ComponentActivity() {
                     if (granted) vm.saveToGallery() // izin verildiyse kaydediliyor
                 }
 
-                if (showSearch) { // arama ekranı
+                if (showFullscreen) { // tam ekran: görsel Reels'teki gibi ekranı kaplar
+                    FullscreenScreen(
+                        style = style, // stil
+                        image = image, // resim
+                        onStyle = vm::updateStyle, // yazı değiştir
+                        onClose = { showFullscreen = false }, // kapat
+                    )
+                } else if (showSearch) { // arama ekranı
                     SearchScreen(
                         state = search, // arama durumu
                         online = online, // internet var mı
@@ -78,6 +87,7 @@ class MainActivity : ComponentActivity() {
                         },
                         onShare = vm::share, // paylaş
                         onReset = vm::resetAll, // baştan başla
+                        onFullscreen = { showFullscreen = true }, // tam ekranı aç
                     )
                 }
             }
