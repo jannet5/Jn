@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#161512</color>
+    <color name="ink">#EDE9DF</color>
+    <color name="muted">#8F8A7E</color>
+    <color name="rule">#2D2B26</color>
+    <color name="accent">#F0663D</color>
+    <color name="panel">#1D1C18</color>
+    <color name="scrim">#99000000</color>
+    <color name="undo_bg">#EDE9DF</color>
+    <color name="undo_fg">#161512</color>
+</resources>
