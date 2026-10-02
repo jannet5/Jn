@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Açılışta kısa süre görünen koyu tema (Compose açılınca kendi temasını çizer) -->
+    <style name="Theme.Oynatici" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/arka</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <color name="arka">#FF121316</color>
+    <color name="ikon_arka">#FF1E6BFF</color>
+</resources>
