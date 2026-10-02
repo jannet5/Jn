@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notivo</string>
+    <string name="snooze_title">Hatırlatma</string>
+    <string name="channel_snooze">Ertelenen bildirimler</string>
+</resources>

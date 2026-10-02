@@ -18,7 +18,7 @@ android-sdk/
 *.log
 
 # NotiBox
-notibox/.gradle/
-notibox/build/
-notibox/app/build/
-notibox/local.properties
+notivo/.gradle/
+notivo/build/
+notivo/app/build/
+notivo/local.properties

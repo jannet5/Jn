@@ -1,0 +1,1 @@
+-keep class com.notivo.app.data.** { *; }
