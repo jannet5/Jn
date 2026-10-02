@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">nokta</string>
+    <string name="hint_add">Yeni öğe</string>
+    <string name="remaining_fmt">%d kaldı</string>
+    <string name="all_done">hepsi tamam</string>
+    <string name="empty">Boş. Yukarıya yaz, Enter\'a bas.</string>
+    <string name="clear_done">Alınanları temizle</string>
+    <string name="clear_short">Temizle</string>
+    <string name="undo">Geri al</string>
+    <string name="delete">Sil</string>
+    <string name="drag">Sırala</string>
+    <string name="close">Kapat</string>
+    <string name="menu">Menü</string>
+    <string name="share_backup">Yedeği paylaş</string>
+    <string name="import_clip">Panodan ekle</string>
+    <string name="import_done">%d öğe eklendi</string>
+    <string name="import_none">Panoda eklenecek metin yok</string>
+    <string name="bubble_show">Balonu göster</string>
+    <string name="bubble_hide">Balonu kapat</string>
+    <string name="bubble_perm_title">Balon için izin gerek</string>
+    <string name="bubble_perm_body">Diğer uygulamaların üstünde durması için "üstte görüntüle" iznini ver.</string>
+    <string name="bubble_perm_action">İzin ver</string>
+    <string name="notif_channel">Balon</string>
+    <string name="notif_title">nokta balonu açık</string>
+    <string name="notif_show">Balonu göster</string>
+    <string name="notif_stop">Kapat</string>
+    <string name="notif_hidden">Balon gizlendi</string>
+    <string name="bubble_desc">nokta listesini aç</string>
+    <string name="trash_desc">Balonu gizle</string>
+    <string name="fgs_subtype">Ekranın kenarında kalan yüzen liste balonu; kullanıcı açık tuttuğu sürece görünür kalmalıdır.</string>
+</resources>

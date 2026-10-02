@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Kagit zemin, murekkep metin, TEK vurgu (vermilyon). Renk yalniz anlam tasir: vurgu = nokta / alindi. -->
+    <color name="bg">#F4F1EA</color>
+    <color name="ink">#1C1A17</color>
+    <color name="muted">#7D786D</color>
+    <color name="rule">#DDD8CC</color>
+    <color name="accent">#D9461E</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="panel">#FAF8F3</color>
+    <color name="scrim">#66000000</color>
+    <color name="undo_bg">#1C1A17</color>
+    <color name="undo_fg">#F4F1EA</color>
+    <color name="icon_bg">#1C1A17</color>
+</resources>
