@@ -41,7 +41,7 @@ fun Uygulama(model: UygulamaModeli) {
     val ctx = LocalContext.current // dosya klasörlerine erişim için
     BackHandler(enabled = model.yigin.size > 1) { model.geri() } // geri tuşu bir önceki sayfaya döner
 
-    Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) { // arka plan
+    Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { // arka plan + varsayılan yazı rengi (açık)
         when (val sayfa = model.yigin.last()) { // görünür sayfa
             Sayfa.Ana -> AnaEkran(model) // açılış
             is Sayfa.Liste -> ListeEkrani(model, sayfa.tur, sayfa.klasor) // klasör
@@ -115,7 +115,7 @@ private fun BuyukButon(baslik: String, alt: String, ikon: ImageVector, modifier:
                 Icon(ikon, null, Modifier.padding(20.dp).size(48.dp), tint = MaterialTheme.colorScheme.onPrimaryContainer) // büyük ikon
             }
             Spacer(Modifier.height(16.dp)) // boşluk
-            Text(baslik, fontSize = 26.sp, fontWeight = FontWeight.SemiBold) // "Müzik"
+            Text(baslik, fontSize = 26.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.onSurface) // "Müzik"
             Text(alt, color = MaterialTheme.colorScheme.onSurfaceVariant) // açıklama
         }
     }

@@ -5,7 +5,9 @@ import android.content.ComponentName
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.graphics.Color
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,7 +31,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState) // üst sınıfı çağır
-        enableEdgeToEdge() // ekranın tamamını kullan
+        enableEdgeToEdge( // ekranın tamamını kullan; uygulama hep koyu olduğu için sistem çubuğu ikonları açık renk
+            SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.dark(Color.TRANSPARENT),
+        )
         if (savedInstanceState == null) paylasimiAl(intent) // YouTube'dan paylaşılan link varsa al
         if (Build.VERSION.SDK_INT >= 33) izinIste.launch(Manifest.permission.POST_NOTIFICATIONS) // indirme bildirimi için izin
         setContent { OynaticiTema { Uygulama(model) } } // arayüzü çiz

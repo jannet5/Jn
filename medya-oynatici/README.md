@@ -47,3 +47,20 @@ echo "sdk.dir=/android-sdk/yolu" > local.properties
 ./gradlew assembleRelease
 # çıktı: app/build/outputs/apk/release/app-<abi>-release.apk
 ```
+
+## Ne test edildi (dürüstçe)
+
+Gerçek release APK, Android 8.0 (API 26) emülatöründe kurulup uygulamanın kendi ekranlarından denendi:
+
+| Test | Sonuç |
+|---|---|
+| Açılış ekranı, Müzik/Video bölümleri | ✅ |
+| **Klasör ekle** (içinde alt klasör + 4 ses + 1 video olan klasör) | ✅ Klasör olarak geldi, alt klasör korundu, video müzik bölümüne alınmadı |
+| **Dosya ekle** (video) | ✅ |
+| Müzik çalma (arka plan servisi, medya oturumu) | ✅ |
+| Video oynatma | ✅ |
+| **Ses kırpma** — süreler yazılarak `1.28` → `3.00` | ✅ 92,0 sn'lik yeni MP3, orijinal yerinde (telefondaki ffmpeg çalışıyor) |
+| **Video kırpma** — `0.05` → `0.20` | ✅ 15,0 sn'lik yeni MP4 (H.264 + AAC), orijinal yerinde |
+| Telefondaki yt-dlp motoru | ✅ Emülatörde ayağa kalkıp linki işledi |
+| yt-dlp seçenekleri (MP3 en iyi ses, ≤720p H.264, liste klasör adı) | ✅ Masaüstü yt-dlp ile doğrulandı |
+| **YouTube'dan gerçek indirme** | ⚠️ Test edilemedi: YouTube bu bulut sunucusunun IP'sine indirmede 403 veriyor. Gerçek telefonda (ev/mobil internet) denenmeli |

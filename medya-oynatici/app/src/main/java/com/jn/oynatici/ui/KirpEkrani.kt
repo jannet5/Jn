@@ -107,8 +107,18 @@ fun KirpEkrani(model: UygulamaModeli, tur: Tur, dosya: File) {
         }
     }
 
-    val basHata = Zaman.oku(basYazi).let { it == null || it >= bit.toLong() + 999 } // başlangıç yazısı geçersiz mi
-    val bitHata = Zaman.oku(bitYazi).let { it == null || it > sure + 999 || it <= bas.toLong() } // bitiş yazısı geçersiz mi
+    // İki kutudaki yazıyı birlikte oku; ikisi de geçerliyse (baş < bit <= süre) çubuğa uygula
+    fun yazilariUygula(): Pair<Long, Long>? {
+        val b = Zaman.oku(basYazi) ?: return null // başlangıç okunamadı
+        val e = (Zaman.oku(bitYazi) ?: return null).coerceAtMost(sure) // bitiş (süreyi geçemez; yuvarlama payı)
+        if (b >= e || Zaman.oku(bitYazi)!! > sure + 999) return null // sıra ya da süre hatalı
+        bas = b.toFloat(); bit = e.toFloat() // çubuğu güncelle
+        return b to e // uygulanan değerler
+    }
+    val basOku = Zaman.oku(basYazi) // yazılan başlangıç
+    val bitOku = Zaman.oku(bitYazi) // yazılan bitiş
+    val basHata = basOku == null || (bitOku != null && basOku >= bitOku) // başlangıç geçersiz ya da bitişten sonra
+    val bitHata = bitOku == null || bitOku > sure + 999 || (basOku != null && bitOku <= basOku) // bitiş geçersiz, süreyi aşıyor ya da baştan önce
     val gecerli = sure > 0 && bit - bas >= 1000 && !basHata && !bitHata // en az 1 saniyelik geçerli aralık
 
     Scaffold(
@@ -166,11 +176,11 @@ fun KirpEkrani(model: UygulamaModeli, tur: Tur, dosya: File) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 ZamanKutusu("Başlangıç", basYazi, basHata, Modifier.weight(1f), { y ->
                     basYazi = y // yazıyı güncelle
-                    Zaman.oku(y)?.let { ms -> if (ms < bit) { bas = ms.toFloat(); onizleme.seekTo(ms) } } // geçerliyse çubuğu da taşı
+                    yazilariUygula()?.let { onizleme.seekTo(it.first) } // ikisi de geçerliyse çubuğu taşı, o kareyi göster
                 }) { bas = konum.toFloat().coerceAtMost(bit - 1000).coerceAtLeast(0f); basYazi = Zaman.yaz(bas.toLong()) } // "şu an"
                 ZamanKutusu("Bitiş", bitYazi, bitHata, Modifier.weight(1f), { y ->
                     bitYazi = y // yazıyı güncelle
-                    Zaman.oku(y)?.let { ms -> if (ms > bas && ms <= sure + 999) { bit = ms.coerceAtMost(sure).toFloat(); onizleme.seekTo(bit.toLong()) } } // geçerliyse çubuğu taşı
+                    yazilariUygula()?.let { onizleme.seekTo(it.second) } // ikisi de geçerliyse çubuğu taşı, o kareyi göster
                 }) { bit = konum.toFloat().coerceAtLeast(bas + 1000).coerceAtMost(sure.toFloat()); bitYazi = Zaman.yaz(bit.toLong()) } // "şu an"
             }
             Text( // bilgi

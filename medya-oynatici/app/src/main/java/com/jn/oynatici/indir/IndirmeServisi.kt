@@ -150,6 +150,7 @@ class IndirmeServisi : Service() {
     // Teknik hatayı anlaşılır Türkçe metne çevir
     private fun hataMetni(ham: String): String = when {
         ham.contains("Unsupported URL", true) || ham.contains("is not a valid URL", true) -> "Bu link desteklenmiyor" // geçersiz link
+        ham.contains("looks truncated", true) || ham.contains("Incomplete YouTube ID", true) -> "Link eksik görünüyor, tamamını yapıştır" // yarım link
         ham.contains("Private video", true) -> "Bu video gizli" // gizli video
         ham.contains("unavailable", true) -> "Video kullanılamıyor" // kaldırılmış video
         ham.contains("Unable to download", true) || ham.contains("Failed to resolve", true) || ham.contains("timed out", true) -> "İnternet bağlantısını kontrol et" // internet sorunu
