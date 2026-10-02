@@ -14,6 +14,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -259,7 +260,7 @@ private fun UndoBar(ui: UiState, a: ScreenActions, modifier: Modifier) {
             Box(
                 Modifier.heightIn(min = 48.dp).clickable(role = Role.Button, onClick = a.onUndo).padding(horizontal = 16.dp),
                 contentAlignment = Alignment.Center,
-            ) { Text(stringResource(R.string.undo), style = NoktaType.snack, color = c.dot) }
+            ) { Text(stringResource(R.string.undo), style = NoktaType.snack, color = if (c.bg == app.nokta.a.ui.theme.DarkColors.bg) app.nokta.a.ui.theme.LightColors.dot else c.dot) }
         }
     }
 }

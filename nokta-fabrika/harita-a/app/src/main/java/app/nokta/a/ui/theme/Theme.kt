@@ -40,6 +40,7 @@ val DarkColors = NoktaColors(
 
 val LocalNokta = staticCompositionLocalOf { LightColors }
 
+@OptIn(androidx.compose.ui.text.ExperimentalTextApi::class)
 private fun grotesk(res: Int, w: Int) = FontFamily(
     Font(res, FontWeight(w), variationSettings = FontVariation.Settings(FontVariation.weight(w)))
 )

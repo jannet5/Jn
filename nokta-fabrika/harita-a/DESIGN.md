@@ -20,7 +20,7 @@ Bu dosya ekranlardan ÖNCE yazıldı. Kod `ui/theme/` altında bu sayıları bir
 | inverse | #181B19 | #E9ECE7 | geri al şeridi zemini |
 | onInverse | #F2F3EF | #111312 | geri al şeridi metni |
 - Gradyan yok. Gölge yalnızca sürüklenen satırda (elevation 6dp) ve balonda (4dp).
-- Metin kontrastı: ink/bg ≈ 15:1 (açık), 14:1 (koyu). inkSoft %55 ≈ 3.3:1 — yalnızca "alınmış" ve ikincil metin için bilinçli düşük (Things'te de tamamlanan sönük).
+- Metin kontrastı: ink/bg 15.6:1 (açık), 15.6:1 (koyu). inkSoft %55 = 3.8:1 (açık), 5.4:1 (koyu); dot/bg 3.6:1 (açık), 6.6:1 (koyu) (hesaplandı) — yalnızca "alınmış" ve ikincil metin için bilinçli düşük (Things'te de tamamlanan sönük).
 - Material3 `ColorScheme` bu tokenlardan türetilir: primary=dot, onPrimary=onDot, background/surface=bg, onSurface=ink, outlineVariant=line. Başka M3 rengi kullanılmaz (dynamic color KAPALI: markayı sistem duvar kâğıdına bırakmıyoruz).
 
 ## 3. Tipografi (iki font, bilinçli eş)
@@ -38,8 +38,8 @@ Bu dosya ekranlardan ÖNCE yazıldı. Kod `ui/theme/` altında bu sayıları bir
 ## 4. Boşluk, ölçü (4dp grid)
 - Ekran yatay kenar: 16dp. Üst çubuk: 56dp yükseklik (wordmark sol, menü sağ).
 - Satır: minHeight 56dp, dikey iç boşluk 12dp, ayraç 1dp (soldan 56dp içeride başlar, işaretin altında değil metin hizasından).
-- Sol -> sağ: tutamaç alanı 40x56 (grip ikonu 3x2 nokta, 4dp çapında noktalar, 4dp aralık) | işaret (nokta) 22dp çap, 1.5dp halka | 12dp | metin (esner) | sil alanı 48x48 (ikon 20dp, "x" çizgisi 1.75dp).
-- Dokunma hedefleri >= 48x48dp (tutamaç 40x56 genişlik ama yükseklik 56; Android min 48 için genişlik 48'e çıkarıldı: tutamaç 48x56).
+- Sol -> sağ: tutamaç alanı 48x56 (grip ikonu 3x2 nokta, 4dp çapında noktalar, 4dp aralık) | işaret (nokta) 22dp çap, 1.5dp halka | 12dp | metin (esner) | sil alanı 48x48 (ikon 20dp, "x" çizgisi 1.75dp).
+- Dokunma hedefleri >= 48x48dp (tutamaç 48x56, sil 48x48, menü 56x56).
 - Giriş alanı (altta): yükseklik 56dp, üstünde 1dp line ayracı, zemin bg, imleç dot rengi, klavye üstüne `imePadding`. Gönder: klavyede Enter/Ekle; ayrıca 48dp "+" yok (ekstra kontrol istemiyoruz).
 - Balon: 52dp çap, kenardan 8dp içeride durur, yalnız kenara yaslanır (sağ varsayılan, y=%35). Gölge 4dp.
 
@@ -53,6 +53,7 @@ Bu dosya ekranlardan ÖNCE yazıldı. Kod `ui/theme/` altında bu sayıları bir
 - İşaret dolgusu: 200ms, `FastOutSlowIn`. Metin soluklaşma: 200ms. Çizgi anında (TextDecoration), soluklukla birlikte okunur.
 - Silme: satır `animateItem` ile fade-out + yukarı kayma 150ms (placementSpec tween 150).
 - Sürükleme: ölçek 1.03 (Things 1.02, mobilde elle kapatıldığı için biraz fazla), elevation 6dp, `HapticFeedbackType.GestureThresholdActivate` başlangıçta, bırakmada `GestureEnd`. Tutamaçla anında; satırın geri kalanında uzun basma (sistem timeout ~400ms).
+- Geri al eylemi koyu temada açık-tema dot rengini (#E5481C) kullanır (şerit zemini açık olduğu için kontrast).
 - Geri al şeridi: 5000ms görünür, giriş/çıkış 150ms.
 - Yeni satır: ekleniş sonunda liste en alta kayar (animateScrollToItem), ayrıca fade-in 150ms.
 
