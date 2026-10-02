@@ -77,6 +77,7 @@ class MainActivity : ComponentActivity() {
                             else vm.saveToGallery() // doğrudan kaydediliyor
                         },
                         onShare = vm::share, // paylaş
+                        onReset = vm::resetAll, // baştan başla
                     )
                 }
             }

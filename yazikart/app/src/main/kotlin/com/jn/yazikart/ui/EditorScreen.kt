@@ -23,6 +23,14 @@ import androidx.compose.foundation.verticalScroll // dikey kaydırma
 import androidx.compose.material.icons.Icons // ikon seti
 import androidx.compose.material.icons.filled.Download // indir ikonu
 import androidx.compose.material.icons.filled.Share // paylaş ikonu
+import androidx.compose.material.icons.filled.Refresh // yenile (baştan başla) ikonu
+import androidx.compose.material3.AlertDialog // onay penceresi
+import androidx.compose.material3.IconButton // ikon buton
+import androidx.compose.material3.TextButton // yazı buton
+import androidx.compose.runtime.mutableStateOf // genel durum
+import androidx.compose.runtime.rememberCoroutineScope // iş kapsamı
+import androidx.compose.ui.platform.LocalFocusManager // odak yöneticisi
+import kotlinx.coroutines.launch // iş başlatma
 import androidx.compose.material3.Button // birincil buton
 import androidx.compose.material3.CircularProgressIndicator // yükleniyor göstergesi
 import androidx.compose.material3.Icon // ikon
@@ -71,12 +79,35 @@ fun EditorScreen(
     onClearImage: () -> Unit, // resmi kaldır
     onSave: () -> Unit, // galeriye kaydet
     onShare: () -> Unit, // paylaş
+    onReset: () -> Unit, // baştan başla
 ) {
     val snackbar = remember { SnackbarHostState() } // alt mesaj durumu
     LaunchedEffect(message) { // yeni mesaj gelince
         if (message != null) { snackbar.showSnackbar(message); onMessageShown() } // gösterilip temizleniyor
     }
     var tab by rememberSaveable { mutableIntStateOf(0) } // seçili sekme
+    val scroll = rememberScrollState() // sayfanın kaydırma durumu
+    val scope = rememberCoroutineScope() // sayfayı en üste kaydırmak için
+    val focus = LocalFocusManager.current // klavyeyi kapatmak için
+    var confirmReset by remember { mutableStateOf(false) } // "baştan başla" onay penceresi açık mı
+
+    if (confirmReset) { // onay penceresi
+        AlertDialog(
+            onDismissRequest = { confirmReset = false }, // dışına basınca kapanır
+            title = { Text("Baştan başla?") }, // başlık
+            text = { Text("Yazı, arka plan görseli ve tüm ayarlar silinip uygulama ilk açıldığı haline döner. Kaydettiğin görseller galeride kalır.") }, // açıklama
+            confirmButton = {
+                TextButton(onClick = { // onaylanınca
+                    confirmReset = false // pencere kapanıyor
+                    focus.clearFocus() // klavye kapanıyor
+                    onReset() // her şey sıfırlanıyor
+                    tab = 0 // ilk sekmeye dönülüyor
+                    scope.launch { scroll.animateScrollTo(0) } // sayfa en üste kayıyor
+                }) { Text("Baştan başla") } // onay butonu
+            },
+            dismissButton = { TextButton(onClick = { confirmReset = false }) { Text("Vazgeç") } }, // iptal
+        )
+    }
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) }, // mesaj alanı
@@ -85,13 +116,21 @@ fun EditorScreen(
     ) { inner ->
         Column(
             Modifier.fillMaxSize().padding(inner).statusBarsPadding() // iskelet boşlukları
-                .imePadding().verticalScroll(rememberScrollState()), // klavye açılınca kaydırılabilir
+                .imePadding().verticalScroll(scroll), // klavye açılınca kaydırılabilir
         ) {
-            Text( // başlık
-                "YazıKart", // uygulama adı
-                style = MaterialTheme.typography.titleLarge, // başlık boyutu
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp), // kenar boşluğu
-            )
+            Row( // üst çubuk: solda ad, sağda "baştan başla"
+                Modifier.fillMaxWidth().padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp), // kenar boşlukları
+                verticalAlignment = Alignment.CenterVertically, // dikey ortalı
+            ) {
+                Text( // başlık
+                    "YazıKart", // uygulama adı
+                    style = MaterialTheme.typography.titleLarge, // başlık boyutu
+                    modifier = Modifier.weight(1f), // kalan genişlik
+                )
+                IconButton(onClick = { confirmReset = true }) { // sağ üstte, kolay erişilir
+                    Icon(Icons.Default.Refresh, contentDescription = "Baştan başla") // yenile ikonu
+                }
+            }
             Preview(style, image, busy) // canlı önizleme
             Spacer(Modifier.height(16.dp)) // boşluk
             OutlinedTextField( // yazının yazıldığı kutu

@@ -72,6 +72,18 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         store.save(_style.value) // telefona kaydediliyor
     }
 
+    // Her şeyi sıfırlar: uygulamayı ilk kez açmış gibi (siyah zemin, beyaz yazı, boş metin, resim yok)
+    fun resetAll() {
+        searchJob?.cancel() // süren arama durduruluyor
+        imageJob?.cancel() // süren resim indirme durduruluyor
+        _style.value = PostStyle() // stil varsayılana dönüyor
+        store.save(_style.value) // varsayılan stil kaydediliyor (sonraki açılışta da temiz)
+        _image.value = null // arka plan resmi kaldırılıyor
+        _search.value = SearchState() // arama kutusu ve sonuçlar temizleniyor
+        _busy.value = null // bekleme göstergesi kapanıyor
+        _message.value = "Baştan başlandı" // kısa bilgi mesajı
+    }
+
     // Mesaj gösterildikten sonra temizlenir
     fun messageShown() { _message.value = null }
 
