@@ -12,4 +12,5 @@ captures/
 *.jks
 *.keystore
 !docs/**/*.jks
+!dist/*.apk
 release/keystore.properties
