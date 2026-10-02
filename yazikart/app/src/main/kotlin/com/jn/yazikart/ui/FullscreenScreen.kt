@@ -28,7 +28,8 @@ import androidx.compose.material3.MaterialTheme // tema
 import androidx.compose.material3.OutlinedTextField // yazı kutusu
 import androidx.compose.material3.Text // yazı
 import androidx.compose.runtime.Composable // Compose bileşeni işareti
-import androidx.compose.runtime.DisposableEffect // açılış/kapanışta iş yapmak için
+import androidx.compose.runtime.DisposableEffect // kapanışta iş yapmak için
+import androidx.compose.runtime.LaunchedEffect // değişince iş yapmak için
 import androidx.compose.runtime.getValue // durum okuma
 import androidx.compose.runtime.mutableStateOf // durum
 import androidx.compose.runtime.remember // hatırlama
@@ -59,7 +60,7 @@ fun FullscreenScreen(
     BackHandler(onBack = onClose) // telefonun geri tuşu tam ekrandan çıkarır
     var controls by rememberSaveable { mutableStateOf(true) } // düğmeler görünüyor mu
     val focus = LocalFocusManager.current // klavyeyi kapatmak için
-    HideSystemBars() // üst saat çubuğu ve alt gezinme çubuğu gizleniyor
+    HideSystemBars(controls) // üst saat çubuğu ve alt gezinme çubuğu gizleniyor (düğmeler değişince yeniden)
 
     Column(Modifier.fillMaxSize().background(Color.Black).imePadding()) { // siyah zemin; klavye açılınca görsel yukarı sığar
         BoxWithConstraints(
@@ -115,13 +116,13 @@ fun FullscreenScreen(
 
 // Tam ekrandayken saat/pil çubuğunu ve alt gezinme çubuğunu gizler; çıkınca geri getirir
 @Composable
-private fun HideSystemBars() {
+private fun HideSystemBars(key: Any) {
     val view = LocalView.current // ekran görünümü
-    DisposableEffect(Unit) { // açılınca bir kez
-        val window = (view.context as Activity).window // uygulamanın penceresi
-        val ctrl = WindowCompat.getInsetsController(window, view) // sistem çubukları denetleyicisi
-        ctrl.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE // kenardan kaydırınca geçici görünür
-        ctrl.hide(WindowInsetsCompat.Type.systemBars()) // çubuklar gizleniyor
-        onDispose { ctrl.show(WindowInsetsCompat.Type.systemBars()) } // çıkınca geri geliyor
+    val ctrl = remember { // sistem çubukları denetleyicisi (bir kez alınıyor)
+        WindowCompat.getInsetsController((view.context as Activity).window, view).apply { // uygulamanın penceresi
+            systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE // kenardan kaydırınca geçici görünür
+        }
     }
+    LaunchedEffect(key) { ctrl.hide(WindowInsetsCompat.Type.systemBars()) } // açılınca ve her dokunuşta gizle (klavye geri getirmiş olabilir)
+    DisposableEffect(Unit) { onDispose { ctrl.show(WindowInsetsCompat.Type.systemBars()) } } // tam ekrandan çıkınca geri getir
 }
