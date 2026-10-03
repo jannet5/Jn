@@ -23,9 +23,21 @@ class Kurallar(unittest.TestCase):
                     'https://a.com:8443/', 'http://a.com:22/', 'https://kisi:parola@a.com/', 'https://a.com@10.0.0.1/']:
             self.reddet(url)
 
+    def test_ascii_disi_yol_kodlanir(self):
+        self.assertEqual(u.url_kural_denetimi('https://a.com/şehir rehberi?q=ğ&x=%C3%BC')[3],
+                         '/%C5%9Fehir%20rehberi?q=%C4%9F&x=%C3%BC')
+
     def test_kamu_adres_gecer(self):
         self.assertEqual(u.url_kural_denetimi('https://Example.com/a?b=1'), ('https', 'example.com', 443, '/a?b=1'))
         self.assertEqual(u.url_kural_denetimi('http://93.184.215.14/')[1], '93.184.215.14')
+
+
+class MetaOkuma(unittest.TestCase):
+    def test_sira_bagimsiz_ve_varlik_cozumu(self):
+        html = '<meta content="Ara &amp; bul" name="description"><meta property="og:description" content=\'OG metni\'>'
+        self.assertEqual(u._meta(html, 'name', 'description'), 'Ara & bul')
+        self.assertEqual(u._meta(html, 'property', 'og:description'), 'OG metni')
+        self.assertEqual(u._meta(html, 'name', 'keywords'), '')
 
 
 class Cozumleme(unittest.TestCase):
@@ -38,6 +50,17 @@ class Cozumleme(unittest.TestCase):
         r = u.denetle('https://esleme.example.com/', cozucu=lambda h, p: ['::ffff:127.0.0.1'], proxy=None)
         self.assertEqual(r['durum'], 'reddedildi')
 
+    def test_baglanti_kopmasi_olu_sayilmaz(self):
+        def kopan(*a, **k):
+            raise ConnectionResetError(104, 'reset')
+        eski = u.tek_istek
+        u.tek_istek = kopan
+        try:
+            r = u.denetle('https://kopan.example.com/')
+        finally:
+            u.tek_istek = eski
+        self.assertEqual(r['durum'], 'kontrol_edilmedi')
+
     def test_bos_cevap(self):
         self.assertEqual(u.denetle('https://bos.example.com/', cozucu=lambda h, p: [], proxy=None)['durum'], 'reddedildi')
 
@@ -45,7 +68,7 @@ class Cozumleme(unittest.TestCase):
 class _Isleyici(http.server.BaseHTTPRequestHandler):
     istekler = []
     YOLLAR = {
-        '/ok': (200, {}, b'<html><head><title>Deneme Sitesi</title><meta name="description" content="sahte"></head></html>'),
+        '/ok': (200, {}, b'<html lang="tr"><head><title>Deneme Sitesi</title><meta name="description" content="sahte"></head><body><h1>Ana <b>Baslik</b></h1></body></html>'),
         '/korumali': (403, {}, b'cf'),
         '/yok': (404, {}, b''),
         '/yonlen-iyi': (302, {'Location': '/ok'}, b''),
@@ -55,6 +78,8 @@ class _Isleyici(http.server.BaseHTTPRequestHandler):
         '/yonlen-port': (302, {'Location': 'http://genel.example.com:8080/ok'}, b''),
         '/yonlen-dosya': (302, {'Location': 'file:///etc/passwd'}, b''),
         '/dongu': (302, {'Location': '/dongu'}, b''),
+        '/ortam': (403, {}, b'{"message":"GitHub access to this repository is not enabled for this session."}'),
+        '/%C5%9Fehir': (200, {}, b'<title>Sehir</title>'),
         '/yonlen-baska-ad': (302, {'Location': 'http://ikinci.example.com/ok'}, b''),
     }
 
@@ -122,7 +147,17 @@ class YerelSunucu(_SunucuTabani):
     def test_calisan_baslik_ve_host_basligi(self):
         r = self.denetle('/ok')
         self.assertEqual((r['durum'], r['kod'], r['baslik'], r['meta']), ('calisiyor', 200, 'Deneme Sitesi', 'sahte'))
+        self.assertEqual((r['h1'], r['dil']), ('Ana Baslik', 'tr'))
         self.assertEqual(_Isleyici.istekler, [('genel.example.com', '/ok')])
+
+    def test_ascii_disi_yol_gercek_istekte(self):
+        r = self.denetle('/şehir')
+        self.assertEqual((r['durum'], r['baslik']), ('calisiyor', 'Sehir'))
+
+    def test_ortam_engeli_korumali_sayilmaz(self):
+        r = self.denetle('/ortam')
+        self.assertEqual(r['durum'], 'kontrol_edilmedi')
+        self.assertIn('proxy engeli', r['neden'])
 
     def test_korumali_ve_olu(self):
         self.assertEqual(self.denetle('/korumali')['durum'], 'korumali')

@@ -35,6 +35,17 @@ TARAYICI_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                '(KHTML, like Gecko) Chrome/141.0 Safari/537.36')
 
 
+# Yanıt sitenin değil aradaki proxy/ortamın engeli olduğunda gövdede görülen imzalar.
+ORTAM_ENGEL_IMZALARI = (
+    'GitHub access to this repository is not enabled for this session',
+    'upstream connect error or disconnect/reset before headers',
+    'request rejected: Host header does not match CONNECT target',
+)
+# Kesin olmayan, geçici ya da ara ağ kaynaklı olabilen bağlantı hataları.
+BELIRSIZ_HATALAR = (ConnectionResetError, TimeoutError, socket.timeout, ssl.SSLEOFError, BrokenPipeError,
+                    ConnectionAbortedError)
+
+
 class Reddedildi(Exception):
     """Adres güvenlik kurallarına uymuyor; ağa hiç çıkılmadı."""
 
@@ -83,9 +94,11 @@ def url_kural_denetimi(url):
                 host = host.encode('idna').decode('ascii')
             except UnicodeError:
                 raise Reddedildi('geçersiz alan adı')
-    yol = p.path or '/'
+    # IRI -> URI: ASCII dışı karakterler yüzde-kodlanır (zaten kodlu olanlar korunur)
+    guvenli = "/%:@!$&'()*+,;=-._~"
+    yol = urllib.parse.quote(p.path or '/', safe=guvenli)
     if p.query:
-        yol += '?' + p.query
+        yol += '?' + urllib.parse.quote(p.query, safe=guvenli + '?')
     return sema, host, port, yol
 
 
@@ -161,6 +174,24 @@ def tek_istek(url, cozucu=varsayilan_cozucu, adres_izinli=adres_kamu_mu,
         b.close()
 
 
+def _temiz(html):
+    metin = re.sub(r'<[^>]+>', ' ', html)
+    for a, b in (('&amp;', '&'), ('&quot;', '"'), ('&#39;', "'"), ('&#x27;', "'"), ('&lt;', '<'), ('&gt;', '>'), ('&nbsp;', ' ')):
+        metin = metin.replace(a, b)
+    return re.sub(r'\s+', ' ', metin).strip()
+
+
+def _meta(metin, ozellik, ad):
+    """<meta name/property=... content=...> değerini sıra bağımsız okur."""
+    for m in re.finditer(r'<meta\b[^>]*>', metin, re.I):
+        etiket = m.group(0)
+        if re.search(ozellik + r'\s*=\s*["\']' + re.escape(ad) + r'["\']', etiket, re.I):
+            c = re.search(r'content\s*=\s*"([^"]*)"', etiket, re.I) or re.search(r"content\s*=\s*'([^']*)'", etiket, re.I)
+            if c:
+                return _temiz(c.group(1))
+    return ''
+
+
 def denetle(url, **kw):
     """Yönlendirmeleri kurallarla izleyerek denetler; sonuç sözlüğü döner.
 
@@ -175,16 +206,26 @@ def denetle(url, **kw):
             kod, basliklar, govde, ip, ip_sabit = tek_istek(simdiki, **kw)
         except Reddedildi as e:
             return {'durum': 'reddedildi', 'neden': str(e), 'url': url, 'son_url': simdiki, 'zincir': zincir}
+        except BELIRSIZ_HATALAR as e:
+            return {'durum': 'kontrol_edilmedi', 'neden': f'ulaşılamadı, kesin değil ({type(e).__name__})',
+                    'url': url, 'son_url': simdiki, 'zincir': zincir}
         except (OSError, http.client.HTTPException, ssl.SSLError) as e:
             return {'durum': 'olu', 'neden': f'{type(e).__name__}: {str(e)[:150]}', 'url': url,
                     'son_url': simdiki, 'zincir': zincir}
+        except Exception as e:  # denetleyicinin kendi hatası siteyi "ölü" yapmaz
+            return {'durum': 'kontrol_edilmedi', 'neden': f'iç hata {type(e).__name__}: {str(e)[:150]}',
+                    'url': url, 'son_url': simdiki, 'zincir': zincir}
         zincir.append({'url': simdiki, 'kod': kod, 'ip': ip, 'ip_sabit': ip_sabit})
         if kod in (301, 302, 303, 307, 308) and basliklar.get('location'):
             simdiki = urllib.parse.urljoin(simdiki, basliklar['location'].strip())
             continue
         metin = govde.decode('utf-8', 'replace')
         baslik = re.search(r'<title[^>]*>(.*?)</title>', metin, re.S | re.I)
-        meta = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']*)', metin, re.I)
+        meta = _meta(metin, 'name', 'description')
+        og = _meta(metin, 'property', 'og:description')
+        og_baslik = _meta(metin, 'property', 'og:title')
+        h1 = re.search(r'<h1[^>]*>(.*?)</h1>', metin, re.S | re.I)
+        dil = re.search(r'<html[^>]+lang=["\']([a-zA-Z-]+)', metin, re.I)
         if 200 <= kod < 300:
             durum = 'calisiyor'
         elif kod in (401, 403, 405, 429, 503):
@@ -192,10 +233,15 @@ def denetle(url, **kw):
         else:
             durum = 'olu'
         sonuc = {'durum': durum, 'kod': kod, 'url': url, 'son_url': simdiki, 'zincir': zincir,
-                 'baslik': re.sub(r'\s+', ' ', baslik.group(1)).strip()[:200] if baslik else '',
-                 'meta': meta.group(1).strip()[:300] if meta else ''}
+                 'baslik': _temiz(baslik.group(1))[:200] if baslik else '',
+                 'meta': meta[:300], 'og_aciklama': og[:300], 'og_baslik': og_baslik[:200],
+                 'h1': _temiz(h1.group(1))[:200] if h1 else '', 'dil': dil.group(1) if dil else ''}
         if durum != 'calisiyor':  # engelin kaynağını (site mi, ara proxy mi) ayırt etmek için
             sonuc['govde_ozeti'] = re.sub(r'\s+', ' ', metin)[:160]
+            imza = next((i for i in ORTAM_ENGEL_IMZALARI if i in metin), None)
+            if imza:
+                sonuc['durum'] = 'kontrol_edilmedi'
+                sonuc['neden'] = 'ara ortam/proxy engeli: ' + imza
         return sonuc
     return {'durum': 'olu', 'neden': f'{AZAMI_YONLENDIRME} adımdan fazla yönlendirme', 'url': url,
             'son_url': simdiki, 'zincir': zincir}

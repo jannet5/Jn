@@ -27,8 +27,20 @@ import url_denetim  # noqa: E402
 IZLEME_PARAMETRELERI = re.compile(
     r'^(utm_.*|fbclid|gclid|dclid|yclid|msclkid|mc_cid|mc_eid|igshid|ref_src)$', re.I)
 # Kendi başına "site" olmayan bağlantılar (görsel barındırma, kısaltıcı, Ekşi içi).
-ATLANACAK = {'eksisozluk.com', 'ekstat.com', 'imgur.com', 'hizliresim.com', 'prnt.sc',
-             'bit.ly', 'goo.gl', 'tinyurl.com', 't.co'}
+ATLANACAK = {'eksisozluk.com', 'ekstat.com', 'imgur.com', 'hizliresim.com', 'prnt.sc'}
+# Kısaltıcılar: hedefleri güvenli denetimle tek adım çözülür; çözülemezse atlanır.
+KISALTICILAR = {'bit.ly', 'goo.gl', 'tinyurl.com', 't.co', 'ow.ly', 'is.gd', 'buff.ly', 'rb.gy', 'cutt.ly', 'shorturl.at'}
+GORSEL_UZANTILAR = re.compile(r'\.(jpe?g|png|gif|webp|bmp|svg|heic|avif)$', re.I)
+
+
+def dogrudan_gorsel_mi(url):
+    """Bağlantı bir sayfa değil doğrudan bir resim dosyasıysa True."""
+    p = urllib.parse.urlsplit(url)
+    sorgu = dict(urllib.parse.parse_qsl(p.query))
+    return bool(GORSEL_UZANTILAR.search(p.path)) or sorgu.get('format', '').lower() in ('jpg', 'jpeg', 'png', 'webp', 'gif')
+
+
+ONARIM_KALIBI = re.compile(r'^https?://(https?)//(.+)$', re.I)
 CALISAN = 'calisiyor'
 # Ağ ve proxy modunun çalıştığını, siteleri 'ölü' işaretlemeden önce sınamak için.
 ON_KONTROL_URL = 'https://example.com/'
@@ -51,6 +63,10 @@ def normalize(url):
     ham = (url or '').strip()
     if not ham:
         return None, 'boş'
+    # Yazım hatası onarımı: "http://https//alan/..." -> "https://alan/..." (kesin kalıp, tahmin yok)
+    m = ONARIM_KALIBI.match(ham)
+    if m:
+        ham = m.group(1).lower() + '://' + m.group(2)
     if ham.startswith('//'):
         ham = 'https:' + ham
         sema = 'belirsiz'
@@ -164,6 +180,46 @@ def kapsam_raporu(sayfalar, ust=None, alt=None):
             'ilk_100': f'{ust}-{max(alt, ust - 99)}', 'sonraki_100': f'{ust - 100}-{alt}' if ust - alt >= 100 else None}
 
 
+def kisalticilari_coz(kayitlar, cozucu=None):
+    """Kısaltıcı bağlantıların hedefini güvenli denetimle tek adım okur.
+
+    Hedef ancak kurallardan geçen bir kamu adresiyse kayda 'url' olarak yazılır;
+    özgün kısa bağlantı 'kisaltici_url' alanında kalır. Hedef okunamazsa kayıt
+    olduğu gibi kalır ve tekilleştirmede atlanır.
+    """
+    if cozucu is None:
+        def cozucu(url):
+            try:
+                kod, basliklar, govde, _, _ = url_denetim.tek_istek(url, proxy_modu=KISALTICI_PROXY_MODU)
+            except Exception:
+                return None
+            if kod in (301, 302, 303, 307, 308) and basliklar.get('location'):
+                return urllib.parse.urljoin(url, basliklar['location'].strip())
+            if kod == 200:  # bazı kısaltıcılar (t.co) hedefi meta-refresh ile verir
+                m = re.search(rb'http-equiv=["\']?refresh["\']?[^>]*?url=([^"\'>\s]+)', govde, re.I)
+                if m:
+                    return urllib.parse.urljoin(url, m.group(1).decode('utf-8', 'replace').replace('&amp;', '&'))
+            return None
+    sonuc = []
+    for k in kayitlar:
+        url, _ = normalize(k['url'])
+        host = kok_alan(_host(url)) if url else ''
+        if host in KISALTICILAR:
+            hedef = cozucu(url)
+            if hedef:
+                try:
+                    url_denetim.url_kural_denetimi(hedef)
+                    if kok_alan(_host(hedef)) not in KISALTICILAR:
+                        k = dict(k, url=hedef, kisaltici_url=k['url'])
+                except url_denetim.Reddedildi:
+                    pass
+        sonuc.append(k)
+    return sonuc
+
+
+KISALTICI_PROXY_MODU = 'ip'
+
+
 def tekillestir(kayitlar):
     siteler, sira, atlanan = {}, [], []
     # Son sayfadan geriye işlenir; aynı sayfada bağlantıların sırası korunur.
@@ -174,6 +230,12 @@ def tekillestir(kayitlar):
             atlanan.append({'ham': k['url'], 'neden': sema, 'page': k['page']})
             continue
         host = kok_alan(_host(url))
+        if host in KISALTICILAR:
+            atlanan.append({'ham': k['url'], 'neden': 'kısaltıcı hedefi çözülemedi', 'page': k['page']})
+            continue
+        if dogrudan_gorsel_mi(url):
+            atlanan.append({'ham': k['url'], 'neden': 'doğrudan görsel dosyası, site değil', 'page': k['page']})
+            continue
         if any(host == a or host.endswith('.' + a) for a in ATLANACAK):
             atlanan.append({'ham': k['url'], 'neden': 'site değil (görsel/kısaltıcı/Ekşi içi)', 'page': k['page']})
             continue
@@ -187,8 +249,13 @@ def tekillestir(kayitlar):
             s['semalar'].append(sema)
         if sema == 'https':  # aynı sayfanın açıkça HTTPS verilmiş hali varsa onu temel al
             s['url'] = url
-        s['kaynaklar'].append({'page': k['page'], 'page_url': k['page_url'], 'observed_at': k['observed_at'],
-                               'label': k['label'][:200], 'ham_url': k['url']})
+        iz = {'page': k['page'], 'page_url': k['page_url'], 'observed_at': k['observed_at'],
+              'label': k['label'][:200], 'ham_url': k.get('kisaltici_url') or k['url']}
+        if k.get('kisaltici_url'):
+            iz['kisaltici_hedefi'] = k['url']
+        if ONARIM_KALIBI.match(iz['ham_url']):
+            iz['onarildi'] = True
+        s['kaynaklar'].append(iz)
     liste = [siteler[a] for a in sira]
     # Aynı alan adında farklı yollar: birleştirilmez, insan incelemesi için raporlanır.
     alanlar = {}
@@ -228,10 +295,23 @@ def site_denetle(site, denetleyici=url_denetim.denetle):
     return ht
 
 
-def kontrol(siteler, es_zamanli=12, denetleyici=url_denetim.denetle):
+def kontrol(siteler, es_zamanli=12, denetleyici=url_denetim.denetle, ara_kayit=None, ilerleme=None):
+    """Siteleri paralel denetler. ara_kayit(siteler) her 100 sonuçta çağrılır;
+    durumu zaten 'kontrol_edilmedi' dışında olanlar (önceki çalıştırma) atlanır."""
+    bekleyen = [s for s in siteler if s.get('kontrol', {}).get('durum', 'kontrol_edilmedi') == 'kontrol_edilmedi'
+                and not s.get('kontrol', {}).get('neden', '').startswith('iç hata')]
     with concurrent.futures.ThreadPoolExecutor(es_zamanli) as h:
-        for site, sonuc in zip(siteler, h.map(lambda s: site_denetle(s, denetleyici), siteler)):
-            site['kontrol'] = sonuc
+        isler = {h.submit(site_denetle, s, denetleyici): s for s in bekleyen}
+        for i, is_ in enumerate(concurrent.futures.as_completed(isler), 1):
+            site = isler[is_]
+            try:
+                site['kontrol'] = is_.result()
+            except Exception as e:
+                site['kontrol'] = {'durum': 'kontrol_edilmedi', 'neden': f'iç hata {type(e).__name__}: {e}'[:200]}
+            if ilerleme and i % 100 == 0:
+                ilerleme(f'{i}/{len(bekleyen)}')
+            if ara_kayit and i % 100 == 0:
+                ara_kayit(siteler)
     return siteler
 
 
@@ -246,8 +326,15 @@ def gosterilecek_url(site):
 CUMLE_SONU = re.compile(r'[.!?…]$')
 
 
+DAYANAKLAR = ('site_metasi', 'genel_bilgi', 'yok')
+
+
 def aciklama_dogrula(a):
+    if a.get('dayanak') == 'yok':  # bilinçli olarak açıklama yazılmadı; uydurma yok
+        return [] if not str(a.get('ne', '')).strip() else ['dayanak "yok" iken açıklama yazılmış']
     hatalar = []
+    if a.get('dayanak') not in (None,) + DAYANAKLAR:
+        hatalar.append(f'geçersiz dayanak: {a.get("dayanak")}')
     for alan in ('kategori', 'ne', 'yapabilirsin'):
         if not str(a.get(alan, '')).strip():
             hatalar.append(f'{alan} boş')
@@ -293,7 +380,7 @@ def uret(siteler, aciklamalar, meta=None):
     Ana listeye YALNIZ 'calisiyor' durumundaki siteler girer. Korumalı ve
     denetlenmemiş siteler ayrı bölümde, durumları yazılarak listelenir.
     """
-    gruplar, dogrulanamayan, eksik, hatali, olu = {}, [], [], [], []
+    gruplar, dogrulanamayan, eksik, hatali, olu, bilgisiz = {}, [], [], [], [], []
     for s in siteler:
         durum = s.get('kontrol', {}).get('durum', 'kontrol_edilmedi')
         if durum in ('olu', 'reddedildi'):
@@ -307,7 +394,9 @@ def uret(siteler, aciklamalar, meta=None):
         if h:
             hatali.append((s['anahtar'], h))
             continue
-        if durum == CALISAN:
+        if a.get('dayanak') == 'yok':
+            bilgisiz.append((s, durum))
+        elif durum == CALISAN:
             gruplar.setdefault(a['kategori'].strip(), []).append((s, a))
         else:
             dogrulanamayan.append((s, a, durum))
@@ -335,7 +424,18 @@ def uret(siteler, aciklamalar, meta=None):
                      'Bu sitelere ulaşıldı ama içerik doğrulanamadı ya da hiç denetlenmedi;', 'kendin açıp bakman gerekir.', '']
         for s, a, durum in sorted(dogrulanamayan, key=lambda x: x[0]['anahtar']):
             satirlar += [satir(s, a, f'  [durum: {DURUM_ADI.get(durum, durum)}]'), '']
+    if bilgisiz:
+        satirlar += ['', f'■ NE İŞE YARADIĞI DOĞRULANAMAYANLAR  ({len(bilgisiz)} site)', '',
+                     'Bu sitelerin sayfasından ya da güvenilir bilgiden ne yaptıkları anlaşılamadı;',
+                     'uydurma açıklama yazılmadı. Ekşi\'deki link etiketi yanında verildi.', '']
+        for s, durum in sorted(bilgisiz, key=lambda x: x[0]['anahtar']):
+            url, https_ok = gosterilecek_url(s)
+            etiket = next((k['label'] for k in s.get('kaynaklar', []) if k.get('label') and k['label'] != k.get('ham_url')), '')
+            not_ = '  [yalnız HTTP; HTTPS doğrulanamadı]' if not https_ok and url.startswith('http://') else ''
+            satirlar += [f'•  {url}{AYRAC}[açıklama yok]' + (f'  Ekşi etiketi: "{etiket}"' if etiket else '') +
+                         f'{not_}  [durum: {DURUM_ADI.get(durum, "çalışıyor") if durum != CALISAN else "çalışıyor"}]   ({_iz(s)})', '']
     rapor = {'dogrulanmis_calisan': toplam, 'kategori': len(gruplar),
+             'aciklamasi_dogrulanamayan': [{'anahtar': s['anahtar'], 'durum': d} for s, d in bilgisiz],
              'dogrulanamayan': [{'anahtar': s['anahtar'], 'durum': d} for s, _, d in dogrulanamayan],
              'aciklamasi_eksik': eksik, 'kurala_uymayan': [{'anahtar': u, 'hatalar': h} for u, h in hatali],
              'calismayan_veya_reddedilen': [{'anahtar': s['anahtar'], 'url': s['url'], 'kontrol': s.get('kontrol'),
@@ -361,6 +461,8 @@ def main(argv=None):
     a1.add_argument('-o', default='siteler.json')
     a1.add_argument('--ust', type=int, help='beklenen ilk (en büyük) sayfa, ör. 809')
     a1.add_argument('--alt', type=int, help='beklenen son (en küçük) sayfa, ör. 610')
+    a1.add_argument('--kisaltici-coz', action='store_true', help='t.co, bit.ly gibi bağlantıların hedefini güvenli denetimle oku')
+    a1.add_argument('--proxy-ad-ile', action='store_true')
     a2 = alt.add_parser('kontrol')
     a2.add_argument('siteler')
     a2.add_argument('--proxy-ad-ile', action='store_true',
@@ -377,6 +479,10 @@ def main(argv=None):
 
     if ar.komut == 'tekillestir':
         kayitlar, sayfalar, uyarilar = girdileri_oku(ar.girdiler)
+        if ar.kisaltici_coz:
+            global KISALTICI_PROXY_MODU
+            KISALTICI_PROXY_MODU = 'ad' if ar.proxy_ad_ile else 'ip'
+            kayitlar = kisalticilari_coz(kayitlar)
         siteler, atlanan, ayni_alan = tekillestir(kayitlar)
         kapsam = kapsam_raporu(sayfalar, ar.ust, ar.alt)
         _yaz_json(ar.o, {'kapsam': kapsam, 'sayfalar': sorted(sayfalar.values(), key=lambda s: -(s['page'] or 0)),
@@ -395,7 +501,8 @@ def main(argv=None):
                   'Ağ yok ya da proxy IP tüneline izin vermiyor olabilir (o durumda --proxy-ad-ile). '
                   'Hiçbir site işaretlenmedi.', file=sys.stderr)
             return 2
-        kontrol(veri['siteler'], denetleyici=lambda u: url_denetim.denetle(u, proxy_modu=mod))
+        kontrol(veri['siteler'], denetleyici=lambda u: url_denetim.denetle(u, proxy_modu=mod),
+                ara_kayit=lambda _: _yaz_json(ar.siteler, veri), ilerleme=lambda m: print('ilerleme', m, flush=True))
         veri['kontrol_modu'] = {'proxy_modu': mod, 'proxy_var': bool(url_denetim._proxy())}
         _yaz_json(ar.siteler, veri)
         say = {}

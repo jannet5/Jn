@@ -23,7 +23,7 @@ dosyaları içeren bir klasör olabilir. Entry metni gerekmez.
 ## Kullanım
 
 ```
-python araclar/katalog_olustur.py tekillestir sayfalar/ -o siteler.json --ust 809 --alt 610
+python araclar/katalog_olustur.py tekillestir sayfalar/ -o siteler.json --ust 809 --alt 610 --kisaltici-coz
 python araclar/katalog_olustur.py kontrol siteler.json          # proxy IP tüneline izin vermiyorsa: --proxy-ad-ile
 python araclar/katalog_olustur.py sablon siteler.json -o aciklamalar.json
 #   aciklamalar.json: her adres için kategori, "ne", "yapabilirsin"
@@ -36,6 +36,11 @@ python araclar/katalog_olustur.py uret siteler.json aciklamalar.json -o katalog.
   `ayni_alan_farkli_yol` altında insan incelemesi için listelenir. Her
   adresin `kaynaklar` alanında hangi sayfada, hangi `page_url` ve
   `observed_at` ile, hangi etiketle geldiği tutulur.
+- **Onarım ve kısaltıcılar:** `http://https//alan/…` biçimindeki çift şema
+  yazım hatası kesin bir kalıpla onarılır ve kayıtta `onarildi: true` olarak
+  işaretlenir. `--kisaltici-coz` verilirse t.co, bit.ly gibi kısaltıcıların
+  hedefi tek adımda güvenli denetimle okunur (301/302 ya da meta-refresh).
+  Hedef kural denetiminden geçmezse ya da okunamazsa kayıt gerekçesiyle atlanır.
 - **kontrol:** Önce `https://example.com/` ile ağı sınar. Bu başarısız olursa
   hiçbir siteyi işaretlemeden çıkış kodu 2 ile durur. HTTP adresleri **körü
   körüne HTTPS'e çevrilmez**: önce HTTPS denenir ve yalnız 2xx dönerse HTTPS
@@ -47,6 +52,10 @@ python araclar/katalog_olustur.py uret siteler.json aciklamalar.json -o katalog.
   yazılır.
 - **uret:** Eksik ya da kurala uymayan açıklama varsa çıkış kodu 1 verir.
   Kurallar: tek tam cümle, 40–220 karakter, "Bu siteyle … ." kalıbı.
+  Her açıklamanın `dayanak` alanı vardır: `site_metasi` (sitenin kendi
+  başlığı/açıklaması), `genel_bilgi` (yaygın bilinen hizmet) ya da `yok`.
+  `yok` olanlara açıklama yazılmaz; "NE İŞE YARADIĞI DOĞRULANAMAYANLAR"
+  bölümünde yalnız Ekşi etiketiyle listelenirler.
 
 ## Güvenli URL denetimi (`araclar/url_denetim.py`)
 

@@ -88,6 +88,38 @@ class JsonGirdi(unittest.TestCase):
         self.assertTrue(all(s['kontrol']['durum'] == 'kontrol_edilmedi' for s in self.siteler))
 
 
+class OnarimVeKisaltici(unittest.TestCase):
+    def kayit(self, url, page=700):
+        return {'url': url, 'label': 'x', 'page': page, 'page_url': 'u', 'observed_at': 't'}
+
+    def test_cift_sema_onarilir_ve_isaretlenir(self):
+        siteler, atlanan, _ = k.tekillestir([self.kayit('http://https//portableapps.com/node/1')])
+        self.assertEqual(siteler[0]['url'], 'https://portableapps.com/node/1')
+        self.assertTrue(siteler[0]['kaynaklar'][0]['onarildi'])
+        self.assertEqual(siteler[0]['kaynaklar'][0]['ham_url'], 'http://https//portableapps.com/node/1')
+
+    def test_kisaltici_hedefi_iz_ile_eklenir(self):
+        kay = k.kisalticilari_coz([self.kayit('https://t.co/abc'), self.kayit('https://bit.ly/yok')],
+                                  cozucu=lambda u: 'https://hedef.example.com/arac' if 't.co' in u else None)
+        siteler, atlanan, _ = k.tekillestir(kay)
+        self.assertEqual([s['url'] for s in siteler], ['https://hedef.example.com/arac'])
+        self.assertEqual(siteler[0]['kaynaklar'][0]['ham_url'], 'https://t.co/abc')
+        self.assertEqual(atlanan[0]['neden'], 'kısaltıcı hedefi çözülemedi')
+
+    def test_dogrudan_gorsel_atlanir(self):
+        self.assertTrue(k.dogrudan_gorsel_mi('https://pbs.twimg.com/media/X?format=jpg&name=medium'))
+        self.assertTrue(k.dogrudan_gorsel_mi('https://a.example/resim.PNG'))
+        self.assertFalse(k.dogrudan_gorsel_mi('https://a.example/galeri/jpg-donustur'))
+        _, atlanan, _ = k.tekillestir([self.kayit('https://a.example/r.jpg')])
+        self.assertEqual(atlanan[0]['neden'], 'doğrudan görsel dosyası, site değil')
+
+    def test_kisaltici_ozel_adrese_giderse_kabul_edilmez(self):
+        kay = k.kisalticilari_coz([self.kayit('https://t.co/abc')], cozucu=lambda u: 'http://169.254.169.254/')
+        siteler, atlanan, _ = k.tekillestir(kay)
+        self.assertEqual(siteler, [])
+        self.assertEqual(len(atlanan), 1)
+
+
 class JsonLinesVeTekrar(unittest.TestCase):
     def test_jsonl_ve_ayni_sayfanin_tekrari(self):
         satirlar = [
@@ -146,6 +178,23 @@ class SiteDenetle(unittest.TestCase):
         self.assertIsNone(r['https_url'])
 
 
+class KontrolDayanikliligi(unittest.TestCase):
+    def test_tek_sitedeki_hata_isi_durdurmaz_ve_devam_eder(self):
+        siteler = [{'url': 'https://a.example/'}, {'url': 'https://b.example/'},
+                   {'url': 'https://c.example/', 'kontrol': {'durum': 'calisiyor', 'https_url': 'https://c.example/'}}]
+        cagri = []
+        def d(url):
+            cagri.append(url)
+            if 'b.example' in url:
+                raise ValueError('beklenmedik')
+            return {'durum': 'calisiyor', 'son_url': url}
+        k.kontrol(siteler, denetleyici=d)
+        self.assertEqual(siteler[0]['kontrol']['durum'], 'calisiyor')
+        self.assertEqual(siteler[1]['kontrol']['durum'], 'kontrol_edilmedi')
+        self.assertIn('iç hata', siteler[1]['kontrol']['neden'])
+        self.assertNotIn('https://c.example/', cagri)  # önceki çalıştırmada denetlenmiş olan atlanır
+
+
 class Dogrulama(unittest.TestCase):
     def test_iyi_gecer(self):
         self.assertEqual(k.aciklama_dogrula(IYI), [])
@@ -156,6 +205,22 @@ class Dogrulama(unittest.TestCase):
         self.assertTrue(k.aciklama_dogrula(dict(IYI, ne='Dönüştürücü.')))
         self.assertTrue(k.aciklama_dogrula(dict(IYI, yapabilirsin='PDF çevirirsin.')))
         self.assertTrue(k.aciklama_dogrula(dict(IYI, yapabilirsin='Bu siteyle ')))
+
+
+class Dayanak(unittest.TestCase):
+    def test_dayanak_yok_aciklamasiz_gecer_ve_ayri_bolume_gider(self):
+        self.assertEqual(k.aciklama_dogrula({'dayanak': 'yok'}), [])
+        self.assertTrue(k.aciklama_dogrula({'dayanak': 'yok', 'ne': 'Uydurma bir açıklama cümlesi burada yazıyor olsun.'}))
+        kay = [{'page': 700, 'page_url': 'u', 'observed_at': 't', 'label': 'gizemli araç', 'ham_url': 'https://g.example/'}]
+        s = [{'anahtar': 'g.example', 'url': 'https://g.example/', 'kaynaklar': kay, 'kontrol': {'durum': 'calisiyor', 'https_url': 'https://g.example/'}}]
+        metin, rapor = k.uret(s, {'g.example': {'dayanak': 'yok'}})
+        self.assertIn('NE İŞE YARADIĞI DOĞRULANAMAYANLAR', metin)
+        self.assertIn('[açıklama yok]  Ekşi etiketi: "gizemli araç"', metin)
+        self.assertIn('doğrulanmış çalışan site: 0', metin)
+        self.assertEqual(len(rapor['aciklamasi_dogrulanamayan']), 1)
+
+    def test_gecersiz_dayanak(self):
+        self.assertTrue(k.aciklama_dogrula(dict(IYI, dayanak='tahmin')))
 
 
 class Uret(unittest.TestCase):
