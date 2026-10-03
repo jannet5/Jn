@@ -1,0 +1,18 @@
+# Birim testi çıktısı — PowerShell 7.4.6 / Linux 6.18.44-fc-v64 / 2026-10-03T11:55:25Z
+# NOT: Sentetik CSV ile; gerçek Windows ölçümü değildir.
+GEÇTİ  Senaryo 1: ajan girdisi yokken karar SENTETIK_GIRDI_GORULMEDI
+GEÇTİ  Senaryo 1: çakışma 0
+GEÇTİ  Senaryo 1: fiziksel tuş toplamı 12
+GEÇTİ  Senaryo 2: karar AJAN_GERCEK_GIRDIYI_KULLANDI
+GEÇTİ  Senaryo 2: 2 ön plan değişimi
+GEÇTİ  Senaryo 2: yalnız 1 değişim ajana atfedildi
+GEÇTİ  Senaryo 2: 1 çakışma aralığı
+GEÇTİ  Senaryo 2: enjekte tık toplamı 3
+GEÇTİ  Senaryo 2: segment süreleri toplamı 4 sn
+GEÇTİ  Senaryo 3: tek satırda anlamlı hata
+GEÇTİ  Senaryo 4: CSV dosyasından okununca aynı sonuç
+GEÇTİ  Senaryo 5: Izle-GirdiGaspi.ps1 içindeki C# derlendi
+GEÇTİ  Senaryo 5: UIA-ArkaPlan-Deneyi.ps1 içindeki C# derlendi
+
+SONUÇ: tüm testler GEÇTİ
+exit=0

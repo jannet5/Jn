@@ -1,0 +1,26 @@
+# Bağlantı kontrolü 2026-10-03T11:55:05Z — curl -L, HTTP durum kodu
+# 403 = github.com / microsoft.com/research curl'ü bot olarak engelliyor; bu sayfalar WebFetch ile okundu (bkz. calisma-gunlugu.md).
+200 https://code.claude.com/docs/en/computer-use
+200 https://code.claude.com/docs/en/desktop
+200 https://codex.danielvaughan.com/2026/06/04/codex-computer-use-windows-foreground-desktop-automation-agent-sandbox-permissions/
+200 https://developers.openai.com/codex/app/computer-use
+200 https://developers.openai.com/codex/use-cases/use-your-computer-with-codex
+403 https://github.com/CursorTouch/Windows-MCP
+403 https://github.com/microsoft/UFO
+403 https://github.com/microsoft/calculator
+403 https://github.com/openai/codex/issues/41323
+200 https://learn.chatgpt.com/docs/computer-use
+200 https://learn.microsoft.com/en-us/dotnet/api/system.windows.automation.invokepattern.invoke
+200 https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
+200 https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/
+200 https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput
+200 https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-msllhookstruct
+200 https://learn.microsoft.com/en-us/windows/win32/winstation/desktops
+200 https://macstories.net/notes/openais-new-codex-app-has-the-best-computer-use-feature-ive-ever-tested/
+200 https://playwright.dev/docs/running-tests
+200 https://pywinauto-recorder.readthedocs.io/en/stable/autosummary/pywinauto_recorder.player.click.html
+200 https://support.microsoft.com/en-us/windows/ai/ai-features/experimental-agentic-features
+403 https://www.microsoft.com/en-us/research/publication/ufo2-the-desktop-agentos/
+200 https://www.pcworld.com/article/3154677/openai-codex-can-finally-control-windows-11-pcs-on-its-own.html
+200 https://www.techtimes.com/articles/317531/20260601/openai-codex-computer-use-now-windows-foreground-takeover-europe-excluded.htm
+200
