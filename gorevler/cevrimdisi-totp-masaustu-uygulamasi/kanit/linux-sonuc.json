@@ -1,0 +1,91 @@
+{
+  "platform": "linux",
+  "adimlar": [
+    {
+      "adim": "Pencere sabit boyutlu ve koyu tema",
+      "gecti": true,
+      "detay": "geometri=440x560"
+    },
+    {
+      "adim": "Güvenli kasa algılandı",
+      "gecti": true,
+      "detay": "Kasa: Bellek · çevrimdışı"
+    },
+    {
+      "adim": "Boş liste mesajı",
+      "gecti": true,
+      "detay": "pencere=normal gorunur=1"
+    },
+    {
+      "adim": "Geçersiz anahtar reddedildi",
+      "gecti": true,
+      "detay": "Gizli anahtarda geçersiz karakter var: 1"
+    },
+    {
+      "adim": "Gizli anahtar maskeli girilir",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "İki hesap eklendi ve kasaya yazıldı",
+      "gecti": true,
+      "detay": "['GitHub - ornek', 'GitHub:ikinci']"
+    },
+    {
+      "adim": "Kasada düz base32 anahtar (kaynaktaki set_password biçimi)",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "Ekleme sonrası anahtar alanı temizlendi",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "Ekrandaki 6 haneli kod beklenen TOTP",
+      "gecti": true,
+      "detay": "ekranda=980 881"
+    },
+    {
+      "adim": "İlerleme çubuğu kalan süreyi gösteriyor",
+      "gecti": true,
+      "detay": "cubuk=0.60 beklenen=0.57 sayac=18 sn"
+    },
+    {
+      "adim": "Kopyala: panoda boşluksuz 6 haneli kod",
+      "gecti": true,
+      "detay": "pano=980881"
+    },
+    {
+      "adim": "30 sn sınırında kod otomatik yenilendi",
+      "gecti": true,
+      "detay": "980 881 -> 437 851"
+    },
+    {
+      "adim": "Yeni periyotta çubuk dolu",
+      "gecti": true,
+      "detay": "0.97"
+    },
+    {
+      "adim": "Pano otomatik temizleme",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "Yeniden açılışta hesaplar kasadan okundu",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "Silme onay sorar ve kasadan kaldırır",
+      "gecti": true,
+      "detay": ""
+    },
+    {
+      "adim": "Temizlik: test kayıtları kaldırıldı",
+      "gecti": true,
+      "detay": ""
+    }
+  ],
+  "ozet": "17/17"
+}

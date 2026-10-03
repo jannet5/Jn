@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- C:\Py312\python.exe
+rootdir: Z:\home\user\Jn\gorevler\cevrimdisi-totp-masaustu-uygulamasi
+collecting ... collected 30 items
+
+testler/test_cekirdek.py::test_rfc6238_vektorleri[59-94287082] PASSED    [  3%]
+testler/test_cekirdek.py::test_rfc6238_vektorleri[1111111109-07081804] PASSED [  6%]
+testler/test_cekirdek.py::test_rfc6238_vektorleri[1111111111-14050471] PASSED [ 10%]
+testler/test_cekirdek.py::test_rfc6238_vektorleri[1234567890-89005924] PASSED [ 13%]
+testler/test_cekirdek.py::test_rfc6238_vektorleri[2000000000-69279037] PASSED [ 16%]
+testler/test_cekirdek.py::test_rfc6238_vektorleri[20000000000-65353130] PASSED [ 20%]
+testler/test_cekirdek.py::test_github_parametreleri_ve_bagimsiz_uygulama_ile_esitlik PASSED [ 23%]
+testler/test_cekirdek.py::test_sunucu_tarafi_dogrulama_simulasyonu PASSED [ 26%]
+testler/test_cekirdek.py::test_setup_key_bicim_toleransi[jbsw y3dp ehpk 3pxp] PASSED [ 30%]
+testler/test_cekirdek.py::test_setup_key_bicim_toleransi[JBSW-Y3DP-EHPK-3PXP] PASSED [ 33%]
+testler/test_cekirdek.py::test_setup_key_bicim_toleransi[  JBSWY3DPEHPK3PXP\n] PASSED [ 36%]
+testler/test_cekirdek.py::test_setup_key_bicim_toleransi[JBSWY3DPEHPK3PXP====] PASSED [ 40%]
+testler/test_cekirdek.py::test_otpauth_uri_github_bicimi PASSED          [ 43%]
+testler/test_cekirdek.py::test_standart_disi_uri_parametreleri_korunur PASSED [ 46%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[-bo\u015f] PASSED [ 50%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[ABC-k\u0131sa] PASSED [ 53%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[JBSWY3DPEHPK3PX1-ge\xe7ersiz] PASSED [ 56%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[otpauth://hotp/X?secret=JBSWY3DPEHPK3PXP-TOTP] PASSED [ 60%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[otpauth://totp/X?secret=JBSWY3DPEHPK3PXP&digits=4-Hane] PASSED [ 63%]
+testler/test_cekirdek.py::test_gecersiz_anahtarlar_reddedilir[otpauth://totp/X?secret=JBSWY3DPEHPK3PXP&algorithm=MD5-Algoritma] PASSED [ 66%]
+testler/test_cekirdek.py::test_sayac_ve_bicim PASSED                     [ 70%]
+testler/test_cekirdek.py::test_kasa_ekle_oku_sil_ve_duz_metin_yok PASSED [ 73%]
+testler/test_cekirdek.py::test_buyuk_hesap_listesi_parcalanir PASSED     [ 76%]
+testler/test_cekirdek.py::test_bozuk_kayit_uygulamayi_dusurmez PASSED    [ 80%]
+testler/test_cekirdek.py::test_ad_dogrulama PASSED                       [ 83%]
+testler/test_cekirdek.py::test_guvensiz_backend_reddedilir PASSED        [ 86%]
+testler/test_cekirdek.py::test_tamamen_cevrimdisi_calisir PASSED         [ 90%]
+testler/test_cekirdek.py::test_kaynakta_ag_kutuphanesi_yok PASSED        [ 93%]
+testler/test_windows_kasa.py::test_windows_backend_winvault PASSED       [ 96%]
+testler/test_windows_kasa.py::test_windows_kasada_tam_dongu PASSED       [100%]
+
+============================= 30 passed in 0.88s ==============================

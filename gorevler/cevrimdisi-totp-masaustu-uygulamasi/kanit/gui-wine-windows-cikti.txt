@@ -1,0 +1,26 @@
+GEÇTİ Pencere sabit boyutlu ve koyu tema | geometri=440x560
+GEÇTİ Güvenli kasa algılandı | Kasa: WinVaultKeyring · çevrimdışı
+GEÇTİ Boş liste mesajı | pencere=normal gorunur=1
+GEÇTİ Geçersiz anahtar reddedildi | Gizli anahtarda geçersiz karakter var: 1
+GEÇTİ Gizli anahtar maskeli girilir
+GEÇTİ İki hesap eklendi ve kasaya yazıldı | ['GitHub - ornek', 'GitHub:ikinci']
+GEÇTİ Kasada düz base32 anahtar (kaynaktaki set_password biçimi)
+GEÇTİ Ekleme sonrası anahtar alanı temizlendi
+GEÇTİ Ekrandaki 6 haneli kod beklenen TOTP | ekranda=463 182
+GEÇTİ İlerleme çubuğu kalan süreyi gösteriyor | cubuk=0.07 beklenen=0.03 sayac=2 sn
+GEÇTİ Kopyala: panoda boşluksuz 6 haneli kod | pano=463182
+GEÇTİ 30 sn sınırında kod otomatik yenilendi | 463 182 -> 980 881
+GEÇTİ Yeni periyotta çubuk dolu | 0.97
+GEÇTİ Pano otomatik temizleme
+invalid command name "139871206532992update"
+    while executing
+"139871206532992update"
+    ("after" script)
+invalid command name "139871206259200check_dpi_scaling"
+    while executing
+"139871206259200check_dpi_scaling"
+    ("after" script)
+GEÇTİ Yeniden açılışta hesaplar kasadan okundu
+GEÇTİ Silme onay sorar ve kasadan kaldırır
+GEÇTİ Temizlik: test kayıtları kaldırıldı
+ÖZET 17/17

@@ -1,0 +1,7 @@
+Paketlenmiş CevrimdisiTOTP.exe (PyInstaller 6.22.3, Windows Python 3.12.10, Wine 9.0) üzerinde
+xdotool ile klavye/fare akışı: ad yaz -> anahtar yaz -> Ekle -> Kopyala -> exe'yi kapat -> yeniden aç.
+Kayıt (son kaynaktan yeniden derlenen exe ile, son çalıştırma):
+beklenen_kod=054402 pano=054402
+EXE_KOPYALA_GECTI
+Yeniden açılışta 'GitHub - exe testi' hesabı Windows Credential Manager'dan (WinVaultKeyring) geri okundu: exe-4-yeniden-acilis.png
+Test kaydı sonra kasadan silindi; user.reg içinde My2FAApp kaydı sayısı: 0
