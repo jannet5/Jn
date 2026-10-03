@@ -56,6 +56,15 @@ android {
             isMinifyEnabled = false
             applicationIdSuffix = ".debug"
         }
+        // Minified like release (~2.5 MB vs ~21 MB debug) but signed with the debug key so it
+        // can be sideloaded for testing. Separate applicationId so it never collides with a
+        // future Play-signed com.tekpanel.app install.
+        create("preview") {
+            initWith(getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            applicationIdSuffix = ".preview"
+            matchingFallbacks += listOf("release")
+        }
     }
 
     compileOptions {
