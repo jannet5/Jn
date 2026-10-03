@@ -1,0 +1,184 @@
+{
+  "tarih": "2026-10-03T11:49:08.619Z",
+  "chromium": "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
+  "gecen": 19,
+  "toplam": 19,
+  "sonuclar": [
+    {
+      "id": "K0",
+      "name": "WebGL spiral galeri kuruldu ve çiziyor",
+      "pass": true,
+      "detail": {
+        "frames": 44,
+        "tiles": 48
+      }
+    },
+    {
+      "id": "K0b",
+      "name": "Canvas boş değil (gerçek görüntü var)",
+      "pass": true,
+      "detail": {
+        "min": 6.666666666666667,
+        "max": 229.33333333333334,
+        "mean": 33.7
+      }
+    },
+    {
+      "id": "K1a",
+      "name": "Fare X hareketi galeriyi döndürüyor",
+      "pass": true,
+      "detail": {
+        "solda_rot": -0.486,
+        "sagda_rot": 0.486,
+        "fark_rad": 0.972
+      }
+    },
+    {
+      "id": "K1b",
+      "name": "Fare hareketi görüntüyü gerçekten değiştiriyor (piksel farkı)",
+      "pass": true,
+      "detail": {
+        "degisen_piksel_orani": 0.437
+      }
+    },
+    {
+      "id": "K2",
+      "name": "Kaydırma hızı dönüşü artırıyor (boşta < yavaş < hızlı)",
+      "pass": true,
+      "detail": {
+        "bosta": 0.058,
+        "yavas": 10.124,
+        "hizli": 28.744
+      }
+    },
+    {
+      "id": "K2b",
+      "name": "Kaydırma kamerayı spiral boyunca hareket ettiriyor",
+      "pass": true,
+      "detail": {
+        "once": -2.68,
+        "sonra": -3.99
+      }
+    },
+    {
+      "id": "K3",
+      "name": "Kahraman başlığı küçültüldü (ilk sürüme göre ≤ %55, yükseklik ≤ ekranın %30u)",
+      "pass": true,
+      "detail": {
+        "yeni_px": 63.36,
+        "ilk_surum_px": 138.2,
+        "oran": 0.46,
+        "baslik_yukseklik_px": 132,
+        "ekran_yukseklik": 900
+      }
+    },
+    {
+      "id": "K4",
+      "name": "Galeri karosu hover ile seçiliyor, etiket görünüyor",
+      "pass": true,
+      "detail": {
+        "x": 860,
+        "y": 450,
+        "hovered": 14,
+        "label": true,
+        "text": "Gece Bahçesi"
+      }
+    },
+    {
+      "id": "K5b",
+      "name": "Tüm kaydırma girişleri tetikleniyor",
+      "pass": true,
+      "detail": {
+        "gorunen": 27,
+        "toplam": 27
+      }
+    },
+    {
+      "id": "K6",
+      "name": "Çalışma görseli hover’da yavaşça geri çekiliyor (1.12 → 1.00)",
+      "pass": true,
+      "detail": {
+        "baslangic": 1.12,
+        "300ms": 1.038,
+        "2.1sn": 1
+      }
+    },
+    {
+      "id": "K6b",
+      "name": "Hizmet satırı hover’da kayıyor",
+      "pass": true,
+      "detail": {
+        "translateX": 14
+      }
+    },
+    {
+      "id": "K7",
+      "name": "Metin/animasyon katmanı galeriyi bozmuyor (başa dönüşte çizim + fare tepkisi sürüyor)",
+      "pass": true,
+      "detail": {
+        "kare_artisi": 19,
+        "rot": -0.47
+      }
+    },
+    {
+      "id": "K8",
+      "name": "Masaüstünde konsol/sayfa hatası yok",
+      "pass": true,
+      "detail": {
+        "hatalar": [],
+        "sayfa_yuksekligi": 7990
+      }
+    },
+    {
+      "id": "K5",
+      "name": "Bölüm yazısı görünmeden önce gizli, kaydırınca yavaşça (≈1.3 sn) beliriyor",
+      "pass": true,
+      "detail": {
+        "once": "0",
+        "350ms_sonra": "0.00",
+        "2.9sn_sonra": "1"
+      }
+    },
+    {
+      "id": "K9",
+      "name": "Mobil (390px): galeri çalışıyor, yatay taşma yok",
+      "pass": true,
+      "detail": {
+        "overflow": 0,
+        "title": 30,
+        "frames": 60
+      }
+    },
+    {
+      "id": "K9b",
+      "name": "Mobilde hata yok",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "K10",
+      "name": "prefers-reduced-motion: yazılar hemen görünür, yumuşak kaydırma kapalı",
+      "pass": true,
+      "detail": {
+        "smooth": false,
+        "allIn": true,
+        "contactOpacity": "1"
+      }
+    },
+    {
+      "id": "K10b",
+      "name": "Hareket azaltma modunda hata yok",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "id": "K11",
+      "name": "dist/index.html çift tıklamayla (file://) açılıyor ve galeri çiziyor",
+      "pass": true,
+      "detail": {
+        "frames": 21,
+        "hatalar": []
+      }
+    }
+  ]
+}
