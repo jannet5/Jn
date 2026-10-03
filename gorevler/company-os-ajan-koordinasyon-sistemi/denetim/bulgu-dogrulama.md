@@ -13,9 +13,9 @@ Gerçek kodda düşmanca senaryolar çalıştırıldı: 19 senaryo, eş zamanlı
 | 4 Kanıt-snapshot bağı | **Zaten kapalı.** 7 kötüye kullanım senaryosunun tamamı reddedildi. |
 | 5 Yol yarışı | Windows dalı burada **test edilemedi.** POSIX dalı **açıktı**: üst dizin takasıyla kök dışına yazılabiliyordu. **Düzeltildi** (tutamak zinciri). |
 | Yeni 3b | Son denemede çöken worker işi kalıcı olarak `executing` durumunda kilitliyordu; resume ve repair imkânsızdı. **Düzeltildi**: iş görünür biçimde `failed` oluyor. |
-| Yeni 5b | Çökmeden kalan sabit adlı geçici dosya sonraki yayınları durduruyor. Mevcut bir test bu davranışı sözleşme olarak sabitlediği için **değiştirilmedi**; öneri raporda. |
+| Yeni 5b | Çökmeden kalan sabit adlı geçici dosya sonraki yayınları ve aday anlık görüntüsünü kalıcı olarak durduruyordu. **Düzeltildi (3. aşama):** her yayın benzersiz ve dışlayıcı (`O_EXCL`, symlink takip etmeyen) bir geçici ad kullanıyor. Yetim temizliği yalnız yazıcı kilidi (`publish_guard`) altında ve yalnız tam kalıba uyan normal dosyalar için yapılıyor. Symlink ve diğer girdilere dokunulmuyor, raporlanıyor. Kilit dışındaki çağrılar hiçbir şey silmiyor. Kararlar deftere yazılıyor. Eski çakışma testi yeni sözleşmeye güncellendi. |
 
-Mevcut 37 test orijinalde ve onarımda geçti. 5 yeni regresyon testinden 2'si orijinal kodda başarısız oluyor (hatayı yakalıyor), onarımda 42/42 OK. Uçtan uca Codex çalıştırması (hesap gerekiyor) ve Windows testleri yapılmadı.
+Mevcut 37 test orijinalde geçiyor; onarımda biri 5b sözleşmesine göre güncellendi. 10 yeni regresyon testinden 6'sı orijinal kodda başarısız oluyor (hatayı yakalıyor). Onarımda 47/47 OK (1 Windows testi atlandı). Düşmanca probda onarımda 20 senaryonun 0'ı açık. 5b'nin 5 hatalı varyantı ve önceki sürüm negatif kontrolde yakalandı. Uçtan uca Codex çalıştırması (hesap gerekiyor) ve Windows testleri yapılmadı.
 
 **Not:** Aşağıdaki "Önceki aşama" bölümü, kaynak gelmeden önce yazılan **bağımsız referans uygulamayı** anlatıyor. O kod mevcut projenin onarımı değildir; mevcut projenin onarımı yukarıdaki özel yamadır.
 

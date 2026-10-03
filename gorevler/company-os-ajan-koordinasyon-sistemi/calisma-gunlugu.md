@@ -121,3 +121,63 @@ Sıfırdan yazılan 1. aşama kodu onarım sayılmayacak. Kaynak kod ve ham meti
   - Bundle'dan klon alındı; içerik onarılmış ağaçla `diff -r` sonucunda aynı.
   - Klonda testler OK (42, 1 atlandı); prob 1 açık (5b, bilinçli olarak bırakıldı).
   - Ham sohbet metni yok. Tek tarama eşleşmesi, projenin kendi `docs/native-subagent-review.json` dosyası (orijinalle bayt bayt aynı, yerel yol içeriyor). Bu dosya yalnız özel pakette.
+
+---
+
+# 3. aşama: 5b sorununun çözümü (2026-10-03)
+
+## İstenen
+Çökmüş işten kalan geçici dosya sonraki yayınları kalıcı olarak durdurmamalı. Koşullar:
+- canlı başka bir işin dosyası silinmemeli,
+- eski/yetim dosya güvenle ayırt edilmeli,
+- eski test yeni sözleşmeye göre güncellenmeli,
+- saldırı ve regresyon testleri çalıştırılmalı,
+- güncel özel ZIP, yama, bundle ve SHA-256 verilmeli.
+
+## Okunan sözleşme
+- architecture.md: yayın aynı DB yazma kilidi altında yapılır; depo başına tek yazıcı; geçici dosya dışlayıcı oluşturulur.
+- threat-model.md: POSIX'te tutamak tabanlı yarış koruması gerekir.
+- operations.md: canlı lease çalınmaz.
+- Kodda ek bulgu: `snapshot()` adayı oluşturmadan önce `git status` ile beklenmeyen dosyaları reddediyor. Kalan geçici dosya bu yüzden toparlanmayı ikinci bir yoldan da bozuyordu.
+
+## Tasarım kararları
+1. Her yayında benzersiz geçici ad kullanılıyor (`ad.company-os-tmp-<16 hex>`). Dosya yine `O_EXCL|O_NOFOLLOW` ile açılıyor; hata durumunda yayın kendi geçici dosyasını siliyor.
+2. Yetim ayrımı ancak `publish_guard` tutulurken yapılıyor. O sırada aynı defteri kullanan başka bir yayın sürüyor olamaz; bu bir testle kanıtlandı: ikinci yazıcı kilidi bekliyor ve birincinin canlı geçici dosyasını görmüyor.
+   - Yalnız tam kalıba uyan **normal dosyalar** siliniyor.
+   - Symlink, dizin ve reparse point silinmiyor, raporlanıyor.
+   - Windows'ta paylaşım ihlali veren (açık tutulan) dosya atlanıyor.
+3. Kilit dışındaki çağrılar hiçbir şey silmiyor.
+4. Kararlar `orphan_temp_files` olayıyla deftere yazılıyor. Olay, kilit bırakıldıktan sonra yazılıyor; çünkü kilit içinde `with db` bloğu işlemi erken commit ederdi.
+5. Mimari belgeye yeni sözleşmeyi anlatan 4 satır eklendi.
+
+## Doğrulama
+| Kontrol | Sonuç |
+|---|---|
+| Tüm testler (37 mevcut, 1'i güncellendi + 10 yeni) | 47 OK (1 Windows testi atlandı) |
+| Gerçek süreç çöküşü (`os._exit` ile yazma ortasında) → kilit altında yeniden yayın | Yetim silindi; dizinde yalnız hedef dosya kaldı |
+| Negatif kontrol: önceki sürüm + 5 hatalı varyant | 6/6 yakalandı |
+| Düşmanca prob (20 senaryo) | Orijinal 4 açık → onarım 0 açık |
+| Yama temiz kaynağa `git am` | Uygulandı; onarım kopyasıyla birebir aynı |
+| `tools/check.py` | exit 0 |
+
+## Sorunlar ve çözümleri
+| Sorun | Çözüm |
+|---|---|
+| Canlı yazıcı testi eski kodda sonsuza kadar bekledi: A iş parçacığı hata alınca B'yi uyaran olay hiç tetiklenmiyordu | Teste `try/finally`, bekleme zaman aşımı ve hata kaydı eklendi; negatif kontrol betiğindeki her koşuya `timeout` konuldu |
+| Takılan arka plan işini `pkill -f` ile durdururken desen kendi kabuğumla da eşleşti ve komut yarıda kaldı | Dosya durumu kontrol edildi; yarım kalan düzenleme ayrı adımda yeniden uygulandı |
+| Bir `rm -f $T/*.patch` komutu güvenlik denetimine takıldı (boş değişken riski) | Komut `"${T:?}"` korumasıyla yeniden yazıldı |
+
+## Teslim
+- Özel ZIP: `company-os-ozel-teslim.zip`, 74 dosya, SHA-256 `59415e7078bae14dc2be5aaad3d75eea82fc7dd2135b607c443d3be2af916edc`.
+  - İçindekiler: 2 commit'lik yama, yalnız 5b yaması, 3 commit'lik bundle, onarılmış ağaç, prob ve negatif kontrol betikleri, kanıt dosyaları, rapor.
+- Geri okuma:
+  - Hash OK.
+  - Bundle onarılmış ağaçla aynı.
+  - Klonda 47 test OK, prob 0/20 açık, negatif kontrol 6/6 yakalandı.
+  - Ham sohbet/görev metni yok.
+  - Yerel yol yalnız projenin kendi orijinal dosyasında var (`docs/native-subagent-review.json`).
+- Public depoya ürün kaynağı, yama ve ham girdi konmadı.
+
+## Açık kalanlar
+- Windows'ta çalıştırılmadı: `_sweep_windows` ve Windows tutamak kilidi.
+- Gerçek Codex uçtan uca akışı çalıştırılmadı: kimliği doğrulanmış Codex CLI ve Playwright gerekiyor.
