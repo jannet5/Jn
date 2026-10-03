@@ -105,3 +105,48 @@ Test/build ─► 37 birim testi · mutasyon kontrolü (5/5 yakalandı) · örne
 Kalıcı teslim ─► jannet5/Jn dalı claude/determined-mendel-dhyjj8 (push + geri okuma)
                ─► özel ZIP (kaynak metni içermez) + SHA-256
 ```
+
+---
+
+# 2. aşama haritası: mevcut ürün Codex-yerel (2026-10-03 güncellemesi)
+
+Sağlanan gerçek kaynak, ürünün **Codex-yerel** olduğunu gösterdi:
+- Codex CLI 0.154.0 App Server, `.agents/skills`, `AGENTS.md`, `.codex/config.toml`,
+- SQLite WAL defteri, varsayılan olarak her şeyi reddeden stdio MCP köprüsü,
+- Windows/PowerShell, yerel ve çevrimdışı V1 kabul profili (yerel kuaför sitesi).
+
+1. aşamadaki Claude Code referans paketi bu ürünün yerine geçmez. Kaynaktaki ürün kararı (Codex-yerel, çevrimdışı V1) korunur.
+
+## Güncel kaynaklar (okundu = sayfa açıldı)
+| Konu | Kaynak | Mevcut ürün için anlamı |
+|---|---|---|
+| App Server protokolü | https://learn.chatgpt.com/docs/app-server (okundu) | stdio üzerinde satır ayrımlı JSON-RPC; `thread/*`, `turn/*` ve `turn/completed` durumları. `codex app-server generate-json-schema` ile şema sürüme sabitlenebilir. |
+| Skills | https://learn.chatgpt.com/docs/build-skills (okundu) | `.agents/skills` repo kökünden yukarı doğru taranıyor; `name` ve `description` zorunlu. Ürünün düzeni uyumlu. |
+| AGENTS.md | https://learn.chatgpt.com/docs/agent-configuration/agents-md (okundu) | Git kökünden çalışma dizinine doğru birleştiriliyor; varsayılan sınır 32 KiB. |
+| Yapılandırma | https://learn.chatgpt.com/docs/config-file/config-reference (okundu) | `approval_policy = "never"` ve `sandbox_mode = "read-only"` geçerli. `"untrusted"` artık desteklenmiyor; ürün onu kullanmıyor. `[agents] max_concurrent_threads_per_session` geçerli anahtar. |
+| Alt ajanlar | https://learn.chatgpt.com/docs/agent-configuration/subagents (okundu) | Roller `.codex/agents/*.toml` dosyalarında; ebeveynin sandbox ve onay ayarları devralınıyor. Etkileşimsiz akışta onay gösterilemezse akış başarısız oluyor; `never` ayarı bu riski azaltıyor. |
+| Codex MCP | https://learn.chatgpt.com/docs/extend/mcp?surface=cli (okundu) | `enabled_tools` ve `disabled_tools` ile süzme yapılıyor. Ürünün kendi izin listesiyle örtüşüyor. |
+| Sürümler | https://github.com/openai/codex/releases (okundu); https://github.com/openai/codex/releases/tag/rust-v0.160.0 (okundu) | Güncel kararlı sürüm 0.160.0. Bu sürüm Windows sandbox, PowerShell, uzun yol ve SQLite bağlantı takılması düzeltmeleri içeriyor. 0.154.0'dan yükseltmeden önce şema ve yapılandırma farkı kontrol edilmeli. |
+| Topluluk deneyimi | https://github.com/openai/codex/issues/19197 (okundu): yetim alt ajanlar eş zamanlılık sınırını tüketiyor · https://github.com/openai/codex/issues/25779 (okundu): Windows'ta büyüyen thread durumu, durdurulamayan turn · https://github.com/openai/codex/issues/23712 (okundu): Windows'ta `unelevated` sandbox modunda tekrar tekrar gelen yükseltme istemi · https://community.openai.com/t/local-skills-in-agents-skills-are-no-longer-discovered-in-new-codex-sessions/1379522 (okundu): skill keşfi gerilemesi | Ürünün "durum otoritesi defterdir, thread yalnız bağlamdır" kararını destekliyor. Öneriler: skill keşfi için bir duman testi; turn kimliklerini defterde tutmak. |
+| Windows dosya güvenliği | https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew (okundu) · https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw (okundu) · https://learn.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-file_rename_info (okundu) | `FILE_SHARE_DELETE` olmadan açılan tutamak, başkasının silme erişimini, dolayısıyla yeniden adlandırmayı engelliyor. Ürünün Windows dalı bu ilkeye dayanıyor. **Bu ortamda Windows'ta test edilemedi.** |
+| Lease doğruluğu | https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html · https://www.sqlite.org/lang_transaction.html · https://www.sqlite.org/wal.html · https://docs.python.org/3.11/library/sqlite3.html (hepsi okundu) | `(owner, attempt)` fence ve `BEGIN IMMEDIATE` doğru desen. **Tuzak:** varsayılan `isolation_level` ile açık bir örtük işlem varken gönderilen `BEGIN IMMEDIATE` hata veriyor. Mevcut kodda tetiklenmiyor (42 test ve prob temiz). Uzun vadeli öneri: `isolation_level=None` ile açık işlem yönetimi. |
+| MCP güvenliği | https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices (okundu) · https://modelcontextprotocol.io/specification/versioning (okundu) | Varsayılan red, stdio ve token aktarımının olmaması önerilerle uyumlu. Güncel spec 2026-07-28; ürünün köprüsü `2024-11-05` bildiriyor ve geri uyumluluk kapsamında çalışıyor. |
+
+## A/B/C (mevcut ürün için)
+| | A: Mevcut ürünü yerinde onarmak (**SEÇİLDİ**) | B: 1. aşama referans paketine taşımak | C: LangGraph veya Agents SDK ile yeniden kurmak |
+|---|---|---|---|
+| Kapsam | V1 profili, Codex-yerel ve çevrimdışı yapı korunur | Codex'ten Claude'a geçiş ve ürün değişikliği gerekir | ADR 002 bunu ölçülmüş bir ihtiyaç olmadan erteliyor |
+| Risk | En düşük: 3 dosya, +161/−1 satır, mevcut 37 test korunuyor | Yüksek: davranış sözleşmeleri değişir | Yüksek |
+| Gerekçe | Bulgu 1–4 zaten kapalıydı; yalnız POSIX bulgu 5 ve yeni 3b gerekiyordu | — | — |
+
+## Bağlı zincir
+```
+Kaynak ZIP (hash ✓) → kod okuma → mevcut testler (37 OK)
+   → düşmanca prob (19 senaryo: B1–B4 kapalı, POSIX B5 / 3b / 5b açık)
+   → A: yerinde onarım (ledger.reconcile, artifacts POSIX tutamak zinciri) + 5 regresyon testi
+   → yeni testler orijinalde 2 FAIL, onarımda 42 OK · prob: 1 açık (5b, bilinçli olarak bırakıldı)
+   → yama temiz kaynağa git am ile uygulandı ✓
+   → özel ZIP (kaynak, yama, kanıt, bundle) + SHA-256 + geri okuma
+   ✗ engelli: Codex hesabıyla uçtan uca çalıştırma · Windows testleri · eksik dosyalar (salon.jpg, önceki run çıktısı, .git)
+```
+Yol kırılırsa: Windows dalı Windows'ta başarısız olursa, araştırmadaki `FileRenameInfo` ile tutamak tabanlı yeniden adlandırma alternatifine geçilir.
