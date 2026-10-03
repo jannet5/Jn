@@ -1,0 +1,187 @@
+{
+ "dogrulanmis_calisan": 0,
+ "kategori": 0,
+ "dogrulanamayan": [
+  {
+   "anahtar": "github.com/kisi/proje",
+   "durum": "korumali"
+  },
+  {
+   "anahtar": "github.com/kisi/baska",
+   "durum": "korumali"
+  }
+ ],
+ "aciklamasi_eksik": [],
+ "kurala_uymayan": [],
+ "calismayan_veya_reddedilen": [
+  {
+   "anahtar": "indirici.example",
+   "url": "https://indirici.example/",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://indirici.example/",
+    "son_url": "https://indirici.example/",
+    "zincir": [],
+    "denenen": [
+     "https://indirici.example/"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 809,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+     "observed_at": "2026-10-03T12:00:00Z",
+     "label": "video indirici",
+     "ham_url": "https://indirici.example/"
+    },
+    {
+     "page": 806,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=806",
+     "observed_at": "2026-10-03T12:00:10Z",
+     "label": "tekrar",
+     "ham_url": "https://indirici.example"
+    }
+   ]
+  },
+  {
+   "anahtar": "araclar.example/pdf-birlestir",
+   "url": "https://araclar.example/pdf-birlestir",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://araclar.example/pdf-birlestir",
+    "son_url": "https://araclar.example/pdf-birlestir",
+    "zincir": [],
+    "denenen": [
+     "https://araclar.example/pdf-birlestir"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 809,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+     "observed_at": "2026-10-03T12:00:00Z",
+     "label": "araç 1",
+     "ham_url": "https://araclar.example/pdf-birlestir"
+    }
+   ]
+  },
+  {
+   "anahtar": "araclar.example/resim-kucult",
+   "url": "https://araclar.example/resim-kucult",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://araclar.example/resim-kucult",
+    "son_url": "https://araclar.example/resim-kucult",
+    "zincir": [],
+    "denenen": [
+     "https://araclar.example/resim-kucult"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 809,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+     "observed_at": "2026-10-03T12:00:00Z",
+     "label": "araç 2",
+     "ham_url": "https://araclar.example/resim-kucult"
+    }
+   ]
+  },
+  {
+   "anahtar": "eski.example/sayfa?id=7",
+   "url": "https://www.eski.example/sayfa/?id=7",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://www.eski.example/sayfa/?id=7",
+    "son_url": "https://www.eski.example/sayfa/?id=7",
+    "zincir": [],
+    "denenen": [
+     "https://www.eski.example/sayfa/?id=7"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 809,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+     "observed_at": "2026-10-03T12:00:00Z",
+     "label": "http verilmiş",
+     "ham_url": "http://eski.example/sayfa?utm_source=eksi&id=7"
+    },
+    {
+     "page": 808,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=808",
+     "observed_at": "2026-10-03T12:00:05Z",
+     "label": "aynı sayfa https+www",
+     "ham_url": "https://www.eski.example/sayfa/?id=7"
+    }
+   ]
+  },
+  {
+   "anahtar": "uygulama.example#/takvim",
+   "url": "https://uygulama.example/#/takvim",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://uygulama.example/#/takvim",
+    "son_url": "https://uygulama.example/#/takvim",
+    "zincir": [],
+    "denenen": [
+     "https://uygulama.example/#/takvim"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 808,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=808",
+     "observed_at": "2026-10-03T12:00:05Z",
+     "label": "spa",
+     "ham_url": "https://uygulama.example/#/takvim"
+    }
+   ]
+  },
+  {
+   "anahtar": "uygulama.example#/notlar",
+   "url": "https://uygulama.example/#/notlar",
+   "kontrol": {
+    "durum": "olu",
+    "neden": "gaierror: [Errno -2] Name or service not known",
+    "url": "https://uygulama.example/#/notlar",
+    "son_url": "https://uygulama.example/#/notlar",
+    "zincir": [],
+    "denenen": [
+     "https://uygulama.example/#/notlar"
+    ],
+    "https_url": null
+   },
+   "kaynaklar": [
+    {
+     "page": 808,
+     "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=808",
+     "observed_at": "2026-10-03T12:00:05Z",
+     "label": "spa 2",
+     "ham_url": "https://uygulama.example/#/notlar"
+    }
+   ]
+  }
+ ],
+ "kapsam": {
+  "gelen_sayfa": 3,
+  "aralik": "809-806",
+  "beklenen": 4,
+  "eksik": [
+   807
+  ],
+  "aralik_disi": [],
+  "ilk_100": "809-806",
+  "sonraki_100": null
+ }
+}

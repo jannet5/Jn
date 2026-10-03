@@ -1,0 +1,14 @@
+{
+ "github.com/kisi/proje": {
+  "kategori": "Sentetik Örnek",
+  "ne": "Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.",
+  "yapabilirsin": "Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.",
+  "_not": "SENTETİK FIXTURE — GERÇEK EKŞİ VERİSİ DEĞİLDİR"
+ },
+ "github.com/kisi/baska": {
+  "kategori": "Sentetik Örnek",
+  "ne": "Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.",
+  "yapabilirsin": "Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.",
+  "_not": "SENTETİK FIXTURE — GERÇEK EKŞİ VERİSİ DEĞİLDİR"
+ }
+}

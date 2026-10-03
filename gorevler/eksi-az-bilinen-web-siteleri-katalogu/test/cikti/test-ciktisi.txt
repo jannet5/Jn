@@ -1,0 +1,129 @@
+=== SENTETİK FIXTURE — GERÇEK EKŞİ VERİSİ DEĞİLDİR ===
+
+tarih (UTC): 2026-10-03T12:37:38+00:00
+python: 3.11.15  platform: Linux-6.18.44-fc-v64-x86_64-with-glibc2.39
+git: c212808
+proxy: var  proxy modu: ad
+
+## 1. Birim ve entegrasyon testleri (SENTETİK)
+
+$ /usr/local/bin/python3 test/test_katalog.py -v
+test_iyi_gecer (__main__.Dogrulama.test_iyi_gecer) ... ok
+test_kurallar (__main__.Dogrulama.test_kurallar) ... ok
+test_atlananlar_nedeniyle (__main__.JsonGirdi.test_atlananlar_nedeniyle) ... ok
+test_ayni_alan_farkli_yollar_birlesmez (__main__.JsonGirdi.test_ayni_alan_farkli_yollar_birlesmez) ... ok
+test_birebir_ayni_sayfa_birlesir_ve_iz_korunur (__main__.JsonGirdi.test_birebir_ayni_sayfa_birlesir_ve_iz_korunur) ... ok
+test_kapsam_200_sayfa_bolunmesi (__main__.JsonGirdi.test_kapsam_200_sayfa_bolunmesi) ... ok
+test_kapsam_eksik_sayfayi_bulur (__main__.JsonGirdi.test_kapsam_eksik_sayfayi_bulur) ... ok
+test_klasor_tek_nesne_ve_dizi_okunur (__main__.JsonGirdi.test_klasor_tek_nesne_ve_dizi_okunur) ... ok
+test_varsayilan_durum_kontrol_edilmedi (__main__.JsonGirdi.test_varsayilan_durum_kontrol_edilmedi) ... ok
+test_jsonl_ve_ayni_sayfanin_tekrari (__main__.JsonLinesVeTekrar.test_jsonl_ve_ayni_sayfanin_tekrari) ... ok
+test_links_alani_yoksa_hata (__main__.JsonLinesVeTekrar.test_links_alani_yoksa_hata) ... ok
+test_uctan_uca_aga_cikmadan (__main__.KomutSatiri.test_uctan_uca_aga_cikmadan) ... /home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/test_katalog.py:206: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp_l6_qbmn/s.json' mode='r' encoding='utf-8'>
+  veri = json.load(open(s, encoding='utf-8'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/test_katalog.py:209: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp_l6_qbmn/s.json' mode='w' encoding='utf-8'>
+  json.dump(veri, open(s, 'w', encoding='utf-8'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/test_katalog.py:211: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp_l6_qbmn/a.json' mode='r' encoding='utf-8'>
+  sablon = json.load(open(a, encoding='utf-8'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/test_katalog.py:214: ResourceWarning: unclosed file <_io.TextIOWrapper name='/tmp/tmp_l6_qbmn/a.json' mode='w' encoding='utf-8'>
+  json.dump({u: IYI for u in sablon}, open(a, 'w', encoding='utf-8'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_sema_korunur_http_yukseltilmez (__main__.Normalize.test_sema_korunur_http_yukseltilmez) ... ok
+test_semasiz_belirsiz (__main__.Normalize.test_semasiz_belirsiz) ... ok
+test_spa_parcasi_korunur_diger_parca_atilir (__main__.Normalize.test_spa_parcasi_korunur_diger_parca_atilir) ... ok
+test_web_disi_ve_goreli (__main__.Normalize.test_web_disi_ve_goreli) ... ok
+test_http_dogrulamasiz_https_olmaz (__main__.SiteDenetle.test_http_dogrulamasiz_https_olmaz) ... ok
+test_http_https_e_yonlenirse_varis_adresi (__main__.SiteDenetle.test_http_https_e_yonlenirse_varis_adresi) ... ok
+test_https_calisirsa_kullanilir (__main__.SiteDenetle.test_https_calisirsa_kullanilir) ... ok
+test_https_yonlenip_http_ye_duserse_dogrulanmaz (__main__.SiteDenetle.test_https_yonlenip_http_ye_duserse_dogrulanmaz) ... ok
+test_korumali_calisan_sayilmaz (__main__.SiteDenetle.test_korumali_calisan_sayilmaz) ... ok
+test_yalniz_dogrulanmis_calisan_ana_listede (__main__.Uret.test_yalniz_dogrulanmis_calisan_ana_listede) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.370s
+
+OK
+[çıkış kodu: 0]
+
+$ /usr/local/bin/python3 test/test_url_denetim.py -v
+test_bos_cevap (__main__.Cozumleme.test_bos_cevap) ... ok
+test_ipv4_esleme_ipv6_reddedilir (__main__.Cozumleme.test_ipv4_esleme_ipv6_reddedilir) ... ok
+test_karisik_cevap_reddedilir (__main__.Cozumleme.test_karisik_cevap_reddedilir) ... ok
+test_ic_ve_ozel_adresler (__main__.Kurallar.test_ic_ve_ozel_adresler) ... ok
+test_kamu_adres_gecer (__main__.Kurallar.test_kamu_adres_gecer) ... ok
+test_sema_port_kullanici (__main__.Kurallar.test_sema_port_kullanici) ... ok
+test_ad_modu_adi_gonderir_ve_isaretler (__main__.ProxyModlari.test_ad_modu_adi_gonderir_ve_isaretler) ... ok
+test_ad_modunda_da_yerel_denetim_ozel_adresi_durdurur (__main__.ProxyModlari.test_ad_modunda_da_yerel_denetim_ozel_adresi_durdurur) ... ok
+test_ip_modu_proxyye_cozulmus_ip_gonderir (__main__.ProxyModlari.test_ip_modu_proxyye_cozulmus_ip_gonderir) ... ok
+test_calisan_baslik_ve_host_basligi (__main__.YerelSunucu.test_calisan_baslik_ve_host_basligi) ... ok
+test_dns_yeniden_cozumleme_engellenir (__main__.YerelSunucu.test_dns_yeniden_cozumleme_engellenir) ... ok
+test_guvenli_yonlendirme_izlenir (__main__.YerelSunucu.test_guvenli_yonlendirme_izlenir) ... ok
+test_her_adimda_tek_cozum_ve_ip_sabitleme (__main__.YerelSunucu.test_her_adimda_tek_cozum_ve_ip_sabitleme) ... ok
+test_korumali_ve_olu (__main__.YerelSunucu.test_korumali_ve_olu) ... ok
+test_localhost_ip_port_sema_yonlendirmeleri_engellenir (__main__.YerelSunucu.test_localhost_ip_port_sema_yonlendirmeleri_engellenir) ... ok
+test_ozel_ip_ye_cozulen_yonlendirme_engellenir (__main__.YerelSunucu.test_ozel_ip_ye_cozulen_yonlendirme_engellenir) ... ok
+test_varsayilan_politika_yerel_sunucuya_hic_baglanmaz (__main__.YerelSunucu.test_varsayilan_politika_yerel_sunucuya_hic_baglanmaz) ... ok
+test_yonlendirme_dongusu_sinirli (__main__.YerelSunucu.test_yonlendirme_dongusu_sinirli) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.722s
+
+OK
+[çıkış kodu: 0]
+
+## 2. Uçtan uca hat (SENTETİK sayfa JSON'ları; adresler .example ve localhost)
+
+$ /usr/local/bin/python3 araclar/katalog_olustur.py tekillestir test/fixture/sentetik -o test/cikti/sentetik-ornek/siteler.json --ust 809 --alt 806
+3 sayfa, 14 ham bağlantı → 8 tekil adres, 4 atlandı, eksik sayfa 1 → /home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/cikti/sentetik-ornek/siteler.json
+[çıkış kodu: 0]
+
+$ /usr/local/bin/python3 araclar/katalog_olustur.py kontrol test/cikti/sentetik-ornek/siteler.json --proxy-ad-ile
+kontrol: {'olu': 6, 'korumali': 2}
+[çıkış kodu: 0]
+
+$ /usr/local/bin/python3 araclar/katalog_olustur.py sablon test/cikti/sentetik-ornek/siteler.json -o test/cikti/sentetik-ornek/aciklamalar.json
+2 adres için şablon → /home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/cikti/sentetik-ornek/aciklamalar.json
+[çıkış kodu: 0]
+
+$ /usr/local/bin/python3 araclar/katalog_olustur.py uret test/cikti/sentetik-ornek/siteler.json test/cikti/sentetik-ornek/aciklamalar.json -o test/cikti/sentetik-ornek/katalog.txt --rapor test/cikti/sentetik-ornek/rapor.json
+katalog: 0 doğrulanmış çalışan, 2 doğrulanamayan, 0 kategori → /home/user/Jn/gorevler/eksi-az-bilinen-web-siteleri-katalogu/test/cikti/sentetik-ornek/katalog.txt; eksik açıklama 0, kurala uymayan 0
+[çıkış kodu: 0]
+
+--- sentetik-ornek/katalog.txt ---
+### SENTETİK FIXTURE — GERÇEK EKŞİ VERİSİ DEĞİLDİR ###
+EKŞİ SÖZLÜK — "az kişinin bildiği muhteşem web siteleri" KATALOĞU
+
+sayfa aralığı: 809-806
+gelen sayfa: 3 / 4
+eksik sayfa: 807
+doğrulanmış çalışan site: 0
+
+
+■ ÇALIŞTIĞI DOĞRULANAMAYANLAR  (2 site)
+
+Bu sitelere ulaşıldı ama içerik doğrulanamadı ya da hiç denetlenmedi;
+kendin açıp bakman gerekir.
+
+•  https://github.com/kisi/baska   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: bot koruması/erişim engeli — çalıştığı doğrulanamadı]   (sayfa 808)
+
+•  https://github.com/kisi/proje   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: bot koruması/erişim engeli — çalıştığı doğrulanamadı]   (sayfa 808)
+
+
+## 3. Gerçek ağ duman testi (kamu adresler; Ekşi verisi değil)
+
+https://cloudconvert.com/ → calisiyor kod=200 başlık="File Converter | CloudConvert" zincir=[(200, '13.226.53.102', False)] neden=
+https://alternativeto.net/ → korumali kod=403 başlık="Just a moment..." zincir=[(403, '172.66.40.84', False)] neden=
+http://example.com/ → calisiyor kod=200 başlık="Example Domain" zincir=[(200, '104.20.23.154', False)] neden=
+https://bu-alan-adi-yok-xyz123.com/ → olu kod=None başlık="" zincir=[] neden=gaierror: [Errno -2] Name or service not known
+http://169.254.169.254/latest/meta-data → reddedildi kod=None başlık="" zincir=[] neden=kamu olmayan IP: 169.254.169.254
+http://localhost/ → reddedildi kod=None başlık="" zincir=[] neden=iç ağ adı: localhost
+https://10.0.0.1/ → reddedildi kod=None başlık="" zincir=[] neden=kamu olmayan IP: 10.0.0.1
+https://example.com:8443/ → reddedildi kod=None başlık="" zincir=[] neden=standart dışı port: 8443
+
+## Özet
+adımlar: {'test_katalog.py': 0, 'test_url_denetim.py': 0, 'tekillestir': 0, 'kontrol': 0, 'uret': 0}
+GENEL: BAŞARILI
