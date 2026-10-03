@@ -1,5 +1,5 @@
 # Kabul 06 — kaynaklar.md içindeki tüm HTTPS bağlantılarının erişilebilirlik kontrolü
-# Tarih: 2026-10-03T11:59:27Z  Yöntem: curl -sIL (yalnız HTTP durum kodu, son yönlendirme)
+# Tarih: 2026-10-03T13:46:32Z  Yöntem: curl -sL (yalnız HTTP durum kodu; içerik doğrulaması kaynaklar.md'deki 'Okundu' sütunundadır)
 
 200  https://code.claude.com/docs/en/overview
 200  https://community.adobe.com/t5/premiere-pro-discussions/google-drive-for-desktop-or-local-disk/m-p/15537350/highlight/true
@@ -14,6 +14,7 @@
 200  https://knowledge.workspace.google.com/admin/drive/advanced-drive-for-desktop-configuration
 200  https://pkg.go.dev/github.com/n24q02m/better-drive@v1.2.0
 200  https://support.claude.com/en/articles/10166901-using-the-google-drive-integration
+200  https://support.google.com/drive/answer/10838124
 200  https://support.google.com/drive/answer/13401938?hl=en
 200  https://support.google.com/drive/answer/13470231?hl=en
 200  https://support.google.com/drive/answer/16631477?hl=en

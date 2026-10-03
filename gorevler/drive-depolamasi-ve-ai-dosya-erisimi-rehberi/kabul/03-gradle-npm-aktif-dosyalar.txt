@@ -1,7 +1,9 @@
-# Kabul 03 — Gradle/npm/Git aktif çalışma dosyaları (GERÇEK kurulum ve derleme)
-# Tarih: 2026-10-03T11:56:43Z
+# Kabul 03 — Gradle/npm/Git aktif çalışma dosyaları (GERÇEK kurulum ve derleme, Linux konteyner)
+# Tarih: 2026-10-03T13:44:22Z
 # Hazırlık: npm 10.9.4 ile 'npm install is-number@7 left-pad@1 express@4' (70 paket), git init + commit,
 #           Gradle 8.14.3 ile tek sınıflık Java projesi 'gradle build --no-daemon' (exit 0).
+# KAPSAM: Proje Linux yerel diskindeydi. 'Senaryo A' yalnız aracın --drive evet ile risk sınıflandırmasıdır;
+#         proje gerçekten G:/Drive for desktop üzerinde çalıştırılıp senkron hatası GÖZLENMEDİ (ortamda yok).
 # Proje kökü (özel scratchpad) aşağıda PROJE olarak kısaltıldı.
 
 $ find PROJE -name '*.lock' (Gradle kilit dosyaları)
@@ -13,22 +15,22 @@ $ find PROJE -name '*.lock' (Gradle kilit dosyaları)
 $ du -sh ~/.npm   (npm önbelleği — Windows'ta %LocalAppData%\npm-cache)
 96M	~/.npm
 
-## Senaryo A: proje G: (Drive) içinde olsaydı  →  --drive evet
+## Senaryo A: proje Drive içinde olsaydı  →  --drive evet (sınıflandırma)
 Kök: PROJE  (Drive içinde olası: evet)
-  [.git] PROJE/.git  — 26 dosya, 26.7 KB  (Git deposu iç verisi)
+  [.git] PROJE/.git  — 38 dosya, 37.4 KB  (Git deposu iç verisi)
       öneri: Senkronize klasörde canlı depo tutma; uzak depoya push et veya `git bundle` dosyasını Drive'a koy.
   [node_modules] PROJE/node_modules  — 630 dosya, 2.3 MB  (npm/pnpm/yarn bağımlılıkları)
       öneri: Drive dışında (C:\dev\...) tut; package.json + lock dosyası yeter, `npm ci` ile yeniden üretilir.
   [.gradle] PROJE/android-benzeri/.gradle  — 13 dosya, 78.4 KB  (Gradle proje önbelleği / GRADLE_USER_HOME)
-      öneri: Yerel diskte tut; GRADLE_USER_HOME'u Drive'a yönlendirme (kilit dosyaları).
+      öneri: Yerel diskte tut; GRADLE_USER_HOME'u senkron/ağ diskine yönlendirme (kilit dosyaları; Gradle forumunda önerilmiyor).
   [build] PROJE/android-benzeri/build  — 4 dosya, 1.4 KB  (derleme çıktısı (Gradle/Android/genel))
       öneri: Yeniden üretilebilir; Drive'a yalnız son APK/ZIP gibi ürünleri kopyala.
-  Toplam: 673 dosya, 2.4 MB
-  Risk: YÜKSEK: Drive içinde 4 aktif klasör, 673 dosya. Drive for desktop'ta klasör/desen hariç tutma yok; her küçük yazma senkron kuyruğuna girer. Projeyi yerel diske taşı, Drive'a yalnız kaynak arşivi/bundle koy.
+  Toplam: 685 dosya, 2.4 MB
+  Risk: YÜKSEK: Drive içinde 4 aktif klasör, 685 dosya. Drive for desktop'ın resmi ayar sayfasında alt klasör/desen hariç tutma ayarı bulunamadı (2026-10-03 kontrolü); her küçük yazma senkron kuyruğuna girebilir. Projeyi yerel diske taşı, Drive'a yalnız kaynak arşivi/bundle koy.
 
-## Senaryo B: proje yerel SSD'de (C:\dev)      →  --drive hayir
-  Toplam: 673 dosya, 2.4 MB
+## Senaryo B: proje yerel SSD'de           →  --drive hayir
+  Toplam: 685 dosya, 2.4 MB
   Risk: Yerel diskte aktif klasörler var (normal). Drive'a kopyalarken bunları dışarıda bırak (ör. `git bundle` veya kaynak ZIP).
 
 ## JSON özeti
-{'.git': (26, 27305), 'node_modules': (630, 2361596), '.gradle': (13, 80245), 'build': (4, 1396)} toplam_dosya= 673
+{'.git': (38, 38273), 'node_modules': (630, 2361596), '.gradle': (13, 80245), 'build': (4, 1396)} toplam_dosya= 685

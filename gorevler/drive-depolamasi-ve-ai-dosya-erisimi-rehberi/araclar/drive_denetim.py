@@ -33,7 +33,7 @@ AKTIF_KLASORLER = {
     "node_modules": ("npm/pnpm/yarn bağımlılıkları",
                      "Drive dışında (C:\\dev\\...) tut; package.json + lock dosyası yeter, `npm ci` ile yeniden üretilir."),
     ".gradle": ("Gradle proje önbelleği / GRADLE_USER_HOME",
-                "Yerel diskte tut; GRADLE_USER_HOME'u Drive'a yönlendirme (kilit dosyaları)."),
+                "Yerel diskte tut; GRADLE_USER_HOME'u senkron/ağ diskine yönlendirme (kilit dosyaları; Gradle forumunda önerilmiyor)."),
     "build": ("derleme çıktısı (Gradle/Android/genel)",
               "Yeniden üretilebilir; Drive'a yalnız son APK/ZIP gibi ürünleri kopyala."),
     ".git": ("Git deposu iç verisi",
@@ -47,12 +47,16 @@ AKTIF_KLASORLER = {
     ".cache": ("araç önbelleği", "Yeniden üretilebilir; yerel diskte tut."),
 }
 
+GOOGLE_KISAYOL_UZANTILARI = (".gdoc", ".gsheet", ".gslides", ".gdraw", ".gform")
+
 WEB_AI_NOTU = (
-    "Web AI (ChatGPT/Claude/Gemini/Grok sohbeti) bu yolu GÖREMEZ: yol senin bilgisayarının "
-    "dosya sistemine aittir. Web AI'ya dosya vermek için: (1) sohbete yükle, (2) servisin Google "
-    "Drive bağlayıcısını OAuth ile bağla — yalnız senin Drive izinlerinin izin verdiği dosyalar, "
-    "(3) paylaşım linki — ancak servis o linki gerçekten açabiliyorsa. Yerel araçlar (Cursor, "
-    "Claude Code CLI/Desktop, Python, ComfyUI) ise bu yolu doğrudan açabilir."
+    "Bir web sohbeti (ChatGPT/Claude/Gemini/Grok) bu yolu kendiliğinden açamaz: yol yalnız dosyanın "
+    "bulunduğu makinenin dosya sisteminde anlamlıdır. Web/bulut AI dosyaya ancak şu yollarla ulaşır: "
+    "(1) dosyayı sohbete yüklemek, (2) servisin Google Drive bağlayıcısı — OAuth, yalnız senin Drive "
+    "izinlerin kadar, (3) bu makinede çalışan ve o klasöre izin verilmiş bir yerel ajan/köprü (masaüstü "
+    "uygulaması, yerel MCP dosya sunucusu vb.), (4) herkese açık link — ancak servis linki açabiliyorsa. "
+    "Yerel araçlar (Cursor, Claude Code CLI/Desktop, Python, ComfyUI) kendi izin/sandbox ayarları elverdiği "
+    "sürece bu yolu doğrudan açabilir."
 )
 
 
@@ -104,6 +108,9 @@ def yol_siniflandir(yol: str, var_mi=os.path.exists, birim_bilgisi=_windows_biri
             isaretler.append(f"birim etiketi '{etiket}'")
         if surucu == "G:":
             isaretler.append("G: Drive for desktop'ın varsayılan sürücü harfi (değiştirilebilir)")
+    if yol.lower().endswith(GOOGLE_KISAYOL_UZANTILARI):
+        isaretler.append("Google Docs/Sheets/Slides dosyası: Google'a göre tarayıcıda açılır; yerel araç bu "
+                         "dosyadan belge metnini okuyamayabilir (doğrulanmadı) — dışa aktar veya bağlayıcı kullan")
     var = bool(var_mi(yol))
     olasi = bool(isaretler)
     if olasi:
@@ -111,7 +118,7 @@ def yol_siniflandir(yol: str, var_mi=os.path.exists, birim_bilgisi=_windows_biri
                  "modunda dosya çevrimdışı değilse internet gerekir (ilk açılışta indirilir). Video, "
                  "büyük ZIP, rastgele okuma ve çok küçük dosya yükünde SSD'den yavaş/kırılgan olabilir.")
     else:
-        yerel = "Yerel disk yolu: yerel araçlar doğrudan ve SSD hızında açar."
+        yerel = "Yerel disk yolu: yerel araçlar, izin/sandbox ayarları elverdiği sürece doğrudan ve yerel disk hızında açar."
     return YolRaporu(yol=yol, windows_bicimi=windows_bicimi, surucu=surucu,
                      drive_sanal_surucu_olasi=olasi, drive_isareti=isaretler,
                      bu_makinede_var=var, birim_etiketi=etiket, dosya_sistemi=fs,
@@ -170,7 +177,8 @@ def tara(kok: str, drive_icinde: Optional[bool] = None) -> TaramaRaporu:
         rapor.risk = "Aktif geliştirme klasörü yok: arşiv/depolama için uygun."
     elif drive_icinde:
         rapor.risk = (f"YÜKSEK: Drive içinde {len(rapor.bulunan)} aktif klasör, {rapor.toplam_dosya} dosya. "
-                      "Drive for desktop'ta klasör/desen hariç tutma yok; her küçük yazma senkron kuyruğuna girer. "
+                      "Drive for desktop'ın resmi ayar sayfasında alt klasör/desen hariç tutma ayarı bulunamadı (2026-10-03 kontrolü); "
+                      "her küçük yazma senkron kuyruğuna girebilir. "
                       "Projeyi yerel diske taşı, Drive'a yalnız kaynak arşivi/bundle koy.")
     else:
         rapor.risk = ("Yerel diskte aktif klasörler var (normal). Drive'a kopyalarken bunları dışarıda bırak "

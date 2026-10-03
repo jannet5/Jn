@@ -3,53 +3,64 @@
 ```
 HEDEF: Drive'ı (G:) depo olarak doğru kullanmak + AI'ya dosyayı doğru yoldan vermek
   │
-  ├─ K1  G: sürücüsü ≠ SSD (önbellek farkı)            [kaynak satır 2, 14, 18]
-  │    bağımlılık: R1, R2, R3 (Google resmi)
-  │    A: Akış modu + "çevrimdışı" yalnız aktif dosyalar      ← ÖNERİLEN
-  │    B: Yansıtma modu (tam yerel kopya, SSD dolar)          ← internet zayıfsa
-  │    C: Önbelleği ContentCachePath ile 2. diske taşı         ← C: küçükse
-  │    uygulama: README §1, araç `onbellek` + `olc`
-  │    kabul: kabul/04 (yerel referans ölçümü) + Windows adımları README'de
+  ├─ K1  G: sürücüsü ≠ yerel disk (önbellek farkı, yerel alan ≠ kota)   [kaynak satır 2, 14, 18]
+  │    bağımlılık: R1, R2, R3, R12 (Google resmi)
+  │    A: Akış modu, yalnız aktif dosyalar çevrimdışı          ← ÖNERİLEN (disk yine dolabilir: önbellek/yükleme)
+  │    B: Yansıtma modu (tam yerel kopya)                      ← internet zayıfsa
+  │    C: Önbelleği ContentCachePath ile 2. diske taşı          ← C: küçükse (Windows)
+  │    uygulama: README §1; araç `onbellek`, `olc`
+  │    kabul: yalnız belge + araç çalışması (kabul/04: Linux, OS önbelleği olası, DriveFS yok)
   │
   ├─ K2  Gradle/npm/git aktif çalışma dosyaları         [tam metin, kavramsal]
-  │    bağımlılık: R10, R11, T1, T2, T3
-  │    A: Proje C:\dev'de, Drive'a git bundle + kaynak ZIP     ← ÖNERİLEN (ek yazılım yok)
-  │    B: Proje GitHub'da, Drive'a yalnız ürünler (APK/ZIP)
-  │    C: Hariç tutmalı 3. parti senkron (Insync/odrive)       ← test edilmedi
+  │    bağımlılık: R4, R10, R11, T1, T2, T3
+  │    A: Proje yerel diskte, Drive'a git bundle + kaynak ZIP    ← ÖNERİLEN (ek yazılım yok)
+  │    B: Proje uzak git deposunda, Drive'a yalnız ürünler
+  │    C: Hariç tutma sunan 3. parti senkron aracı               ← test edilmedi
   │    uygulama: araç `tara`; README §2
-  │    kabul: kabul/03 (gerçek npm 70 paket + Gradle 8.14.3 derleme taraması),
+  │    kabul: kabul/03 (gerçek npm + Gradle projesinin Linux'ta taranması),
   │           kabul/03b (bundle → clone → npm ci → gradle build geri yükleme)
   │
-  └─ K3  Web AI yerel yol ≠ bulut yükleme/bağlayıcı izni [kaynak satır 3, 10, 17]
-       bağımlılık: R5, R6, R7, R9
-       A: Yerel AI aracı → G: yolunu ver                      ← kod/klasör işleri
-       B: Web sohbete yükle                                  ← tek dosya, limitler dahilinde
-       C: Servisin Drive bağlayıcısı (OAuth)                 ← Drive'da duran belgeler
-       (link: yalnız herkese açık + servis açabiliyorsa)
-       uygulama: araç `yol`; README §3 tablo
-       kabul: kabul/02 (bulut ajan G:\ ve C:\ yollarını açamadı, exit 2),
-              kabul/05 (aynı ajan Drive bağlayıcısıyla API sorgusu yaptı)
+  └─ K3  Yerel yol erişimi ≠ yükleme/bağlayıcı izni      [kaynak satır 3, 10, 17]
+       bağımlılık: R5, R6, R7, R9, R12
+       koşullar: mount | izin/sandbox | yükleme | bağlayıcı (OAuth) | köprü | herkese açık link
+       A: PC'deki yerel AI aracı → yolu ver (izin/sandbox elverirse)
+       B: Web sohbete yükle (servis limitleri)
+       C: Servisin Drive bağlayıcısı (OAuth, kendi izinlerin)
+       uygulama: araç `yol`; README §3 tablosu
+       kabul: kabul/02 (YALNIZ bu Linux bulut konteyneri: 3 Windows yolu yok, DriveFS mount yok),
+              kabul/05 (YALNIZ boş bağlayıcı sorgusu hatasız döndü; hesap/dosya testi yok)
 
-TEST/BUILD: araclar/test_drive_denetim.py — 13 birim testi (kabul/01)
-TESLİM: git dalı claude/happy-davinci-gra3j0 → push → uzaktan geri okuma;
-        özel ZIP + git bundle + SHA-256 (özel scratchpad, public depoya değil)
+TEST: araclar/test_drive_denetim.py — 15 birim testi (kabul/01)
+TESLİM: (1) Jn deposu, dal claude/happy-davinci-gra3j0, push + geri okuma
+        (2) Temiz, ürün-köklü bağımsız git deposu (yalnız bu klasör; Jn geçmişi ve özel kaynak yok)
+            → bundle + ZIP + SHA-256, açılıp geri doğrulandı
+        Özel kaynak.txt / gorev.md yalnız oturumun özel scratchpad'inde kalır.
 ```
 
-## Kabul ölçütleri
+## Kabul ölçütleri ve gerçek kapsam
 
 | Ölçüt | Kanıt | Durum |
 |---|---|---|
-| K1: G:/SSD önbellek farkı somut anlatıldı | README §1, kaynaklar R1–R3 | ✅ |
-| K1: çalıştırılmış ölçüm | kabul/04 (yerel disk referansı; `onbellek` Linux'ta "desteklenmeyen" döndü) | ⚠️ Windows G: ölçümü yapılmadı — ortamda Drive for desktop yok |
-| K2: Gradle/npm aktif dosyaları gerçek projede tespit | kabul/03: node_modules 630, .gradle 13 (4 .lock), build 4, .git 26 dosya | ✅ |
+| K1: G:/önbellek/kota farkı somut ve kaynaklı | README §1, R1–R3, R12 | ✅ belge |
+| K1: G: üzerinde ölçüm | — | ❌ yapılmadı: ortamda Windows/DriveFS yok. kabul/04 yalnız aracın Linux'ta çalıştığını gösterir |
+| K2: Aktif klasörler gerçek projede tespit edildi | kabul/03: node_modules 630, .gradle 13 (4 .lock), build 4, .git 38 dosya | ✅ Linux'ta |
+| K2: Proje G:'de çalıştırılınca sorun gözlemi | — | ❌ yapılmadı (aynı neden) |
 | K2: Drive'a güvenli taşıma yolu çalışıyor | kabul/03b: bundle verify, clone, npm ci (70 paket), gradle build exit 0 | ✅ (ilk denemedeki hata kayıtlı) |
-| K3: Yerel yol ≠ bulut izni ayrımı | kabul/02 + kabul/05 | ✅ |
-| Araç testleri | kabul/01: 13/13 OK | ✅ |
-| Kalıcı teslim | uzak dal + geri okuma; ZIP SHA-256 | calisma-gunlugu.md sonu |
+| K2: Hariç tutma ayarının durumu | R4 okundu (ayar geçmiyor), T1 | ⚠️ belirsiz; arayüz görülmedi |
+| K3: Erişim koşulları ayrıştırıldı | README §3 tablosu | ✅ belge |
+| K3: Bu bulut ortamı yol metninden dosya üretmedi | kabul/02 | ✅ yalnız bu ortam için |
+| K3: Bağlayıcıyla gerçek hesap/dosya erişimi | kabul/05 yalnız boş sorgu | ❌ test edilmedi (kişisel veri yetki dışı) |
+| Araç testleri | kabul/01: 15/15 OK | ✅ |
+| Kalıcı teslim | calisma-gunlugu.md §6 | ✅ |
 
 ## Kırılma durumunda devam
 
-- Bir resmi sayfa açılmazsa (R6 gibi): arama özeti + sayfa başlığı ile işaretle, iddiayı zayıf say.
-- Push başarısız olursa: özel scratchpad'deki `teslim/` ZIP + `.bundle` kalıcı yedektir;
-  devam komutu: `git fetch origin claude/happy-davinci-gra3j0 && git checkout claude/happy-davinci-gra3j0`
-  ve `gorevler/drive-depolamasi-ve-ai-dosya-erisimi-rehberi/calisma-gunlugu.md` son bölümünden sürdür.
+- Resmi sayfa açılmazsa (R6 gibi): arama özeti ile işaretle ve iddiayı zayıf say.
+- Push başarısız olursa: özel scratchpad'deki `teslim/` (bağımsız bundle + ZIP + SHA256SUMS) yedektir.
+- Devam komutu:
+
+  ```
+  git fetch origin claude/happy-davinci-gra3j0 && git checkout claude/happy-davinci-gra3j0
+  ```
+
+  Ardından `calisma-gunlugu.md` içindeki "Yapılmayanlar" maddelerini kullanıcı Windows PC'sinde README komutlarıyla tamamla.

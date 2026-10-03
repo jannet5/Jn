@@ -4,16 +4,18 @@ test_onbellek_olcumu (test_drive_denetim.OnbellekVeOlcumTestleri.test_onbellek_o
 test_windows_onbellek_yolu (test_drive_denetim.OnbellekVeOlcumTestleri.test_windows_onbellek_yolu) ... ok
 test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz (test_drive_denetim.TaramaTestleri.test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz) ... ok
 test_cli_json (test_drive_denetim.TaramaTestleri.test_cli_json) ... ok
-test_cli_olmayan_klasor (test_drive_denetim.TaramaTestleri.test_cli_olmayan_klasor) ... Hata: klasör yok: /tmp/tmpe8h7kysv/yok
+test_cli_olmayan_klasor (test_drive_denetim.TaramaTestleri.test_cli_olmayan_klasor) ... Hata: klasör yok: /tmp/tmpdg_st5_5/yok
 ok
 test_temiz_arsiv (test_drive_denetim.TaramaTestleri.test_temiz_arsiv) ... ok
 test_yerel_kok_risk_dusuk (test_drive_denetim.TaramaTestleri.test_yerel_kok_risk_dusuk) ... ok
 test_g_my_drive_drive_olarak_isaretlenir (test_drive_denetim.YolTestleri.test_g_my_drive_drive_olarak_isaretlenir) ... ok
+test_gdoc_kisayol_dosyasi (test_drive_denetim.YolTestleri.test_gdoc_kisayol_dosyasi) ... ok
 test_macos_cloudstorage (test_drive_denetim.YolTestleri.test_macos_cloudstorage) ... ok
 test_turkce_drive_im_ve_etiket (test_drive_denetim.YolTestleri.test_turkce_drive_im_ve_etiket) ... ok
+test_web_ai_notu_kosullari_ayirir (test_drive_denetim.YolTestleri.test_web_ai_notu_kosullari_ayirir) ... ok
 test_yerel_c_yolu_drive_degil (test_drive_denetim.YolTestleri.test_yerel_c_yolu_drive_degil) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.018s
+Ran 15 tests in 0.021s
 
 OK

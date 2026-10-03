@@ -25,7 +25,7 @@ class YolTestleri(unittest.TestCase):
         self.assertEqual(r.surucu, "G:")
         self.assertTrue(r.drive_sanal_surucu_olasi)
         self.assertFalse(r.bu_makinede_var)
-        self.assertIn("GÖREMEZ", r.web_ai_erisimi)
+        self.assertIn("kendiliğinden açamaz", r.web_ai_erisimi)
         self.assertIn("Drive for desktop çalışıyor", r.yerel_arac_erisimi)
 
     def test_turkce_drive_im_ve_etiket(self):
@@ -37,15 +37,25 @@ class YolTestleri(unittest.TestCase):
     def test_yerel_c_yolu_drive_degil(self):
         r = dd.yol_siniflandir(r"C:\dev\proje\app.py", var_mi=_yok, birim_bilgisi=_birim_yok)
         self.assertFalse(r.drive_sanal_surucu_olasi)
-        self.assertIn("SSD hızında", r.yerel_arac_erisimi)
+        self.assertIn("yerel disk hızında", r.yerel_arac_erisimi)
         # Web AI notu her durumda geçerli: yerel yol da web AI'ya görünmez.
-        self.assertIn("GÖREMEZ", r.web_ai_erisimi)
+        self.assertIn("kendiliğinden açamaz", r.web_ai_erisimi)
 
     def test_macos_cloudstorage(self):
         r = dd.yol_siniflandir("/Users/m/Library/CloudStorage/GoogleDrive-a@b.com/My Drive/x.zip",
                                var_mi=_yok, birim_bilgisi=_birim_yok)
         self.assertTrue(r.drive_sanal_surucu_olasi)
         self.assertFalse(r.windows_bicimi)
+
+
+    def test_gdoc_kisayol_dosyasi(self):
+        r = dd.yol_siniflandir(r"G:\My Drive\notlar.gdoc", var_mi=_yok, birim_bilgisi=_birim_yok)
+        self.assertTrue(any("Google Docs/Sheets/Slides dosyası" in i for i in r.drive_isareti))
+
+    def test_web_ai_notu_kosullari_ayirir(self):
+        n = dd.WEB_AI_NOTU
+        for parca in ("yüklemek", "OAuth", "yerel ajan", "herkese açık link", "sandbox"):
+            self.assertIn(parca, n)
 
 
 class TaramaTestleri(unittest.TestCase):

@@ -1,4 +1,7 @@
-# Kabul 04 — Okuma ölçümü ve DriveFS önbelleği (yalnız YEREL disk referansı)
+# Kabul 04 — Okuma ölçümü ve DriveFS önbelleği (yalnız YEREL Linux disk referansı)
+# KAPSAM: Bu ölçüm Drive/G: ölçümü DEĞİLDİR. Ortamda Drive for desktop ve DriveFS yok. 128 MB dosya az önce
+#         yazıldığı için iki ölçüm de büyük olasılıkla işletim sistemi sayfa önbelleğinden okundu; sayılar
+#         SSD/disk hızı da sayılmamalı. Yalnız aracın 'olc' komutunun çalıştığını gösterir.
 # Tarih: 2026-10-03T11:57:22Z  Makine: Linux 6.18.44-fc-v64, cloud konteyner diski
 
 $ python3 drive_denetim.py olc ornek-128MB.bin   (1. ölçüm)

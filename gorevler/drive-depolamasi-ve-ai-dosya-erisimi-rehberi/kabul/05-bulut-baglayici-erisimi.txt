@@ -7,11 +7,15 @@ Sorgu        : title contains 'kaynak' and title contains 'drive-depolamasi'
 Seçenekler   : excludeContentSnippets=true, pageSize=5
 Yanıt        : {}   (hata yok, sonuç yok)
 
-Yorum (yalnız bu kanıtın desteklediği kadar):
-- Bağlayıcı çağrısı kimlik doğrulama hatası vermeden döndü → bulut AI, Drive'a dosya sistemi yolu ile değil,
-  kullanıcının verdiği OAuth yetkisiyle Drive API üzerinden erişiyor.
-- Görevin Windows'taki kaynak.txt dosyası bu adla Drive'da bulunamadı; dosya kullanıcının yerel C: diskinde.
-  Bulut tarafı onu ancak sohbete yüklendiğinde (bu görevde yapıldığı gibi) veya Drive'a konduğunda görür.
-- Kabul 02 ile birlikte: aynı bulut ajan G:\ ve C:\ yollarını açamadı (ls çıkış kodu 2), ama bağlayıcıyla
-  Drive sorgulayabildi. "Yol vermek" ≠ "erişim izni vermek".
-- Gizlilik: kullanıcının Drive dosya adları/içerikleri bu public depoya YAZILMADI; bilerek boş dönen bir sorgu seçildi.
+Yorum — bu kanıtın KAPSAMI DARDIR:
+- Gösterdiği tek şey: bu oturumdaki Google Drive bağlayıcı aracının, verilen sorgu için hata döndürmeden
+  boş bir yanıt ({}) verdiği.
+- Göstermedikleri (TEST EDİLMEDİ):
+  * Hangi Google hesabına bağlı olduğu ve bunun doğru/beklenen hesap olduğu,
+  * Gerçek bir dosyanın adının listelenmesi, içeriğinin okunması veya hash ile doğrulanması,
+  * Hesap kotası / depolama kullanımı,
+  * Boş yanıtın "dosya yok" mu yoksa "yetki/kapsam yok" mu anlamına geldiği (ayırt edilemez).
+- Gerçek özel hesap veya dosya erişimi bilerek test edilmedi: kişisel dosya okumak, paylaşmak veya hesap
+  kurmak bu görevin yetkisi dışında tutuldu.
+- Bağlayıcının çalışma biçimi (OAuth, kullanıcının mevcut izinleri) Kabul 05'ten değil, resmi belgelerden
+  (kaynaklar.md R5, R6, R7) gelir.

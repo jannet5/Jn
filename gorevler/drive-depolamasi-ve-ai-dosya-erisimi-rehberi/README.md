@@ -7,117 +7,134 @@ konu. Bu rehber üçünü kaynaklı olarak ayırır. Araştırma tarihi: 2026-10
 - Kaynaklar ve hangi iddianın neyle doğrulandığı: [`kaynaklar.md`](kaynaklar.md)
 - Hedef → bağımlılık → A/B/C yolları → kabul haritası: [`harita.md`](harita.md)
 - Yerel denetim aracı: [`araclar/drive_denetim.py`](araclar/drive_denetim.py)
-- Çalıştırılmış kabul kanıtları: [`kabul/`](kabul/)
+- Çalıştırılmış kabul kayıtları ve kapsamları: [`kabul/`](kabul/)
 - Ne yapıldığının sıralı kaydı: [`calisma-gunlugu.md`](calisma-gunlugu.md)
 
 ## Kısa cevap
 
 | Soru | Cevap | Dayanak |
 |---|---|---|
-| G:'yi depo olarak kullanabilir miyim? | **Evet**, akış (stream) modunda dosyalar bulutta durur, SSD'de yalnız önbellek kalır. | Google: Stream & mirror |
-| SSD hiç dolmaz mı? | **Dolar, ama sınırlı**: açılan, "çevrimdışı" işaretlenen ve **henüz yüklenmemiş** dosyalar önbellekte (`%LOCALAPPDATA%\Google\DriveFS`) yer kaplar. 200 GB'ı G:'ye kopyalarsan, yüklenene kadar o veri önce yerelde bekler. | Google Workspace: Advanced config |
-| Projeyi (npm/Gradle/git) G:'de çalıştırayım mı? | **Hayır.** Drive for desktop'ta `node_modules` gibi klasörleri hariç tutma yok; Gradle kilit dosyaları ve git iç dosyaları senkronla çakışır. Projeyi `C:\dev`'de tut, Drive'a **bundle/ZIP** koy. | Google forumu, Gradle forumu, kabul/03 |
-| Web AI'ya `G:\...` yazarsam açar mı? | **Hayır.** O yol senin PC'nin dosya sistemi. Web AI dosyayı ancak **yükleme** veya **Drive bağlayıcısı (OAuth)** ile görür. | Claude/ChatGPT/Gemini yardım sayfaları, kabul/02, kabul/05 |
-| PC'mdeki AI aracı G:'yi açar mı? | **Genelde evet** (Cursor, Claude Code CLI/Desktop, Python, ComfyUI): Drive uygulaması açık + dosya indirilebilir durumdaysa. Büyük video/ZIP'te yavaşlayabilir. | Google: "Files can only be accessed when Drive for desktop is running", Adobe topluluğu |
+| G:'yi depo olarak kullanabilir miyim? | **Evet.** Akış (stream) modunda dosyalar bulutta tutulur, bilgisayarda çoğunlukla önbellek kalır. | R1, R12 |
+| SSD'de yer kaplar mı? | **Evet, kaplayabilir; garanti yok.** Akış modunda da açılan, "çevrimdışı" işaretlenen, son/sık kullanılan ve **henüz yüklenmemiş** dosyalar `%LOCALAPPDATA%\Google\DriveFS` önbelleğinde yer tutar. Büyük bir kopyalama yüklenene kadar yerel diskte bekler. Yansıtma (mirror) modunda tam kopya diskte durur. | R1, R3, R12 |
+| Yerel alan = Google kotası mı? | **Hayır.** Google: "Your computer space and Google storage are not the same." Drive for desktop'taki alan göstergesi bilgisayar diskini gösterir, hesap kotasını değil. | R12 |
+| Projeyi (npm/Gradle/git) G:'de çalıştırayım mı? | **Önerilmez.** Binlerce küçük dosya ve kilit dosyası senkronla çakışabilir. Resmi ayar sayfasında alt klasör/desen hariç tutma ayarı **bulunamadı** (kesin "yok" hükmü değil, aşağıya bak). Projeyi yerel diskte tut, Drive'a **bundle/ZIP** koy. | R4, T1, T2, kabul/03, 03b |
+| Web AI'ya `G:\...` yazarsam açar mı? | **Yalnız yol metniyle hayır.** Yol senin bilgisayarının dosya sisteminde anlamlıdır. Web AI dosyaya yükleme, Drive bağlayıcısı (OAuth) veya PC'nde çalışan bir köprü/ajan üzerinden ulaşır. | R5, R6, R7, R9 |
+| PC'mdeki AI aracı G:'yi açar mı? | **Çoğu zaman evet**, koşullarla: Drive for desktop çalışıyor, aracın izin/sandbox ayarı klasörü kapsıyor, dosya indirilebiliyor. Büyük video/ZIP'te yavaşlayabilir. Docs/Sheets/Slides dosyaları tarayıcıda açılır. | R1, R12, T4 |
 
 ## 1. G: sürücüsü ve SSD önbelleği farkı (kaynak satır 2, 14, 18)
 
-**Akış (stream, varsayılan):** Dosyalar bulutta; G: bir sanal sürücü. Google:
-"Files are primarily stored in the cloud, but will be made available offline when
-accessed" ve "Files can only be accessed when Drive for desktop is running."
-Yerel alan yalnız "when you work on files on your computer, or for recently and
-frequently used files" kullanılır.
+**Akış (stream, varsayılan):** Google'a göre "Files are primarily stored in the
+cloud, but will be made available offline when accessed" ve "Files can only be
+accessed when Drive for desktop is running." Yerel alan "when you work on files on
+your computer, or for recently and frequently used files" kullanılır. Ayrı bir
+sayfada da "Streaming a file uses almost no computer space" deniyor (R12). Ancak
+"neredeyse hiç" ≠ "hiç": aşağıdaki durumlar akış modunda da diski doldurabilir.
 
-**Yansıtma (mirror):** "Mirroring keeps a full copy on your computer" — bu modda
-SSD **dolar**. "SSD dolmaz" iddiası yalnız akış modu için doğru.
+**Akış modunda yerel disk ne zaman dolar:**
+- Çevrimdışı işaretlenen dosya ve klasörler.
+- Son açılan ve sık kullanılan dosyalar.
+- G:'ye kopyalanıp **henüz yüklenmemiş** dosyalar. Google: "files are moved here
+  before they're uploaded" (R3). 200 GB kopyalarsan, yükleme bitene kadar bu veri
+  yerelde bekler.
+- Senkronize edilen paylaşılan dosyalar: "Shared files can fill up your hard drive
+  if you sync them, but they never count against your Google space" (R12).
 
-**Önbellek nerede, ne kadar?**
-- Varsayılan: Windows `%LOCALAPPDATA%\Google\DriveFS`, macOS
+**Yansıtma (mirror):** "Mirroring keeps a full copy on your computer" (R1).
+
+**Önbellek ayarları (R3):**
+- Varsayılan konum: Windows `%LOCALAPPDATA%\Google\DriveFS`, macOS
   `~/Library/Application Support/Google/DriveFS`.
-- `ContentCachePath` ile başka NTFS/APFS diske taşınabilir (kayıt defteri
-  `HKCU\Software\Google\DriveFS`). macOS File Provider modunda harici diske taşınamaz.
-- `ContentCacheMaxKbytes` (yalnız yönetici; boş alanın %20'si ile sınırlı) ve
-  `MinFreeDiskSpaceKBytes` (boş alan bu eşiğin altına inince önbelleğe yazmayı durdurur).
-- **Uyarı:** "Unsynced changes are stored in a local cache. These changes can be
-  lost if the cache is cleared or corrupted." Önbelleği elle silme; yükleme
-  bitmeden dosyanın tek kopyası oradadır.
-- Sürücü harfi değiştirilebilir (`G:` sabit değil): ayarlar veya `DefaultMountPoint`.
+- `ContentCachePath` önbelleği başka bir NTFS/APFS diske taşır. macOS File Provider
+  modunda harici diske taşınamaz (R2).
+- `ContentCacheMaxKbytes` yalnız yöneticiye açık bir sınırdır (boş alanın %20'si).
+  `MinFreeDiskSpaceKBytes`, boş alan bu eşiğin altına inince önbelleğe yazmayı durdurur.
+- **Uyarı:** "Unsynced changes are stored in a local cache. These changes can be lost
+  if the cache is cleared or corrupted" (R2). Önbelleği elle silme.
+- Sürücü harfi sabit değildir (`G:` yalnız varsayılan); `DefaultMountPoint` ile değişir.
 
-**"5 TB" notu:** Kaynaktaki 5 TB, kullanıcının Google hesap planına bağlı bir
-beyan; bu çalışmada hesap kotası doğrulanmadı (erişim yok, uydurulmadı).
+**Kota:** Yerel disk alanı ile Google hesap kotası ayrı şeylerdir (R12). Kaynaktaki
+"5 TB" kullanıcının plan beyanıdır ve doğrulanmadı.
 
 **Pratik kural:**
-- Arşiv, üretilmiş görsel/video, yedek → G: uygun.
-- Üzerinde **çalışılan** büyük video, rastgele okunan büyük ZIP/veri seti →
-  önce "Çevrimdışı kullanılabilir" yap veya yerel SSD'ye kopyala, iş bitince G:'ye
-  geri at. (Adobe topluluğu: düzenleme sırasında medya yerel diskte olmalı.)
+- Arşiv, üretilmiş görsel/video ve yedek için G: uygundur.
+- Üzerinde **çalışılan** büyük video veya rastgele okunan veri setini önce
+  "Çevrimdışı kullanılabilir" yap ya da yerel SSD'ye kopyala, iş bitince geri at
+  (Adobe topluluk deneyimi, T4).
 
 ## 2. Gradle / npm / git gibi aktif çalışma dosyaları
 
-Bu dosyalar **binlerce küçük dosya + sık yazma + kilit dosyası** demek:
+Bu klasörler **çok sayıda küçük dosya, sık yazma ve kilit dosyası** demektir.
+Ölçümler kabul/03'teki gerçek Linux projesinden alındı. Proje G: üzerinde
+çalıştırılmadı.
 
-| Klasör | Ne | G:'de sorun | Öneri |
+| Klasör | Ne | G:'de olası sorun | Öneri |
 |---|---|---|---|
-| `node_modules` | npm bağımlılıkları (örnek projede 70 paket = **630 dosya**) | Her `npm install` yüzlerce dosyayı senkron kuyruğuna sokar; Drive'da hariç tutma yok | `C:\dev`'de tut; `package-lock.json` commit'le, `npm ci` ile yeniden üret |
-| `.gradle` (proje) / `GRADLE_USER_HOME` | Gradle önbelleği; gerçek derlemede **4 `.lock` dosyası** oluştu | Gradle ekibi: paylaşılan/ağ diskteki GRADLE_USER_HOME desteklenmez; kilitler çakışır | Varsayılan `C:\Users\<ad>\.gradle` yerinde kalsın; proje yerelde |
+| `node_modules` | npm bağımlılıkları (örnekte 70 paket, **630 dosya**) | Her kurulum yüzlerce dosyayı senkron kuyruğuna sokabilir | Yerel diskte tut; `package-lock.json`'u commit'le, `npm ci` ile yeniden üret |
+| `.gradle` / `GRADLE_USER_HOME` | Gradle önbelleği (örnek derlemede **4 `.lock`** dosyası) | Kilit dosyaları senkron/ağ diskinde çakışabilir. Gradle forumundaki uzman yanıtı (T2) bunu önermiyor; bu bir **resmi "unsupported" belgesi değil** | Varsayılan `C:\Users\<ad>\.gradle` yerinde kalsın; proje yerel diskte olsun |
 | `build/`, `dist/`, `target/` | Yeniden üretilebilir çıktı | Gereksiz yükleme trafiği | Drive'a yalnız son ürünü (APK/ZIP) koy |
-| `.git` | Depo iç verisi | Senkron aracı `.git/refs` içine dosya eklerse depo bozulabilir (topluluk raporu) | Uzak depoya push et veya `git bundle` dosyasını Drive'a koy |
-| npm önbelleği | `%LocalAppData%\npm-cache` (örnek: 96 MB) | Zaten C:'de; G:'ye taşıma | Olduğu yerde bırak |
+| `.git` | Depo iç verisi (örnekte 38 dosya) | Bir senkron aracı `.git/refs` içine dosya eklerse depo bozulabilir (topluluk raporu, T3) | Uzak depoya push et veya `git bundle` dosyasını Drive'a koy |
+| npm önbelleği | `%LocalAppData%\npm-cache` (R11) | Zaten C:'de | Olduğu yerde bırak |
 
-**Kanıtlanmış alternatif (kabul/03b):** 690 dosyalık proje → `git bundle` (12 KB,
-tek dosya) + kaynak ZIP (12 KB). `git clone proje.bundle` + `npm ci` + `gradle build`
-ile proje sıfırdan geri geldi (70 paket, gradle exit 0, `demo.jar`).
-İlk denemede `npm ci` **başarısız** oldu çünkü `package-lock.json` commit'lenmemişti —
-lock dosyasını commit'lemek zorunlu.
+**Hariç tutma durumu: belirsiz.** Google'ın Drive for desktop ayar sayfasında
+(R4, 2026-10-03'te okundu) alt klasör, dosya türü veya desen hariç tutma ayarı
+geçmiyor. Google geliştirici forumunda bu özellik 2025'ten beri isteniyor ve
+resmi yanıt görünmüyor (T1). Bu iki gözlem "özellik yok" hükmü için yeterli
+değil: bir yönetici ayarı veya yeni bir sürüm olabilir. Kesin bilgi için kendi
+sürümündeki **Ayarlar → Tercihler** ekranını kontrol et.
 
-Drive for desktop'ta hariç tutma isteyenler için üçüncü parti araçlar (Insync
-ignore kuralları, odrive, Better-Drive) var; bu rehber bunları **test etmedi**,
-yalnız belgelerini kaynak olarak listeler.
+Üçüncü parti araçlar (Insync, odrive, Better-Drive) hariç tutma sunduğunu
+belgeliyor; bu çalışmada test edilmediler.
 
-## 3. Web AI'nın yerel yol erişimi ≠ bulut yükleme/bağlayıcı izni (kaynak satır 3, 10, 17)
+**Çalıştırılmış alternatif (kabul/03b, Linux):** 690 dosyalık proje 12 KB'lık
+bir `git bundle` ve 12 KB'lık bir kaynak ZIP'e indi. `git clone proje.bundle`,
+`npm ci` (70 paket) ve `gradle build` (exit 0, `demo.jar`) ile proje sıfırdan geri
+geldi. İlk denemede `npm ci` **başarısız** oldu, çünkü `package-lock.json`
+commit'lenmemişti. Lock dosyası şarttır.
 
-Üç ayrı erişim türü var; karıştırılmamalı:
+## 3. Yerel yol erişimi ≠ bulut yükleme / bağlayıcı izni (kaynak satır 3, 10, 17)
 
-| Erişim türü | Nasıl çalışır | `G:\x.mp4` yazmak yeter mi? |
+Bir AI'nın bir dosyayı görmesi şu **ayrı** koşullara bağlıdır:
+
+| Koşul | Ne demek | Kim için geçerli |
 |---|---|---|
-| **A. Yerel araç** (Cursor, Claude Code CLI/Desktop, Python, ComfyUI, yerel model) | Senin PC'nin dosya sistemini okur | **Evet**, Drive uygulaması açıksa ve dosya indirilebiliyorsa |
-| **B. Web sohbete yükleme** (ChatGPT/Claude/Gemini/Grok) | Dosya tarayıcıdan servise kopyalanır; servisin limitleri geçerli (Gemini: istem başına 10 dosya, video ≤2 GB/toplam 5 dk, diğerleri ≤100 MB; kod klasörü ≤5.000 dosya/100 MB) | Hayır — dosyayı seçip yüklemek gerekir |
-| **C. Drive bağlayıcısı (OAuth)** | Servis Drive API'ye **senin izinlerinle** bağlanır. Claude: "Claude mirrors your existing permissions"; Docs/Sheets/Slides/PDF/görsel/Office okur, yalnız metin çıkarır. ChatGPT: Google Drive uygulaması, Shared drives Library'de yok. Gemini: "Add from Drive" için Workspace bağlantısı + Keep Activity gerekir | Hayır — G: yolu değil, Drive'daki dosya adı/URL'si kullanılır |
+| **Mount** | Dosya sistemi, AI'nın çalıştığı makineye bağlı mı? `G:` yalnız senin PC'nde vardır. | Yerel araçlar |
+| **İzin / sandbox** | Aracın o klasörü okumasına izin var mı? Yerel ajanlar çoğunlukla çalışma klasörüyle sınırlıdır. | Yerel araçlar, masaüstü uygulamaları |
+| **Yükleme** | Dosya sohbete kopyalandı mı? Servis limitleri geçerlidir. Gemini (R7): istem başına 10 dosya, video ≤2 GB ve toplam 5 dk, diğerleri ≤100 MB, kod klasörü ≤5.000 dosya / 100 MB. | Web sohbet |
+| **Bağlayıcı (OAuth)** | Servis Drive API'ye **senin izinlerinle** bağlanır ve dosyayı adı/URL'siyle bulur, G: yoluyla değil. Claude (R5): "Claude mirrors your existing permissions"; Docs/Sheets/Slides/PDF/görsel/Office okur, yalnız metin çıkarır. ChatGPT (R6): Library'de Shared drives yok. Gemini (R7): Workspace bağlantısı ve Keep Activity gerekir. | Web sohbet, bulut ajanlar |
+| **Köprü** | PC'nde çalışan ve buluta bağlanan bir uygulama veya ajan (ör. masaüstü uygulaması, yerel MCP dosya sunucusu) varsa, bulut tarafı dolaylı erişebilir. | Kurulumuna bağlı |
+| **Herkese açık link** | Servis linki açabiliyorsa çalışır; herkese açık link dosyayı herkese açar. | Web sohbet (koşullu) |
 
-**Paylaşım linki:** Kaynaktaki "paylaşım linki ver" önerisi **koşullu**: web
-AI'nın o linki açabilmesi servisin bağlayıcısına/gezinme aracına ve linkin
-"herkese açık" olmasına bağlı. Herkese açık link = herkese açık dosya; özel dosya
-için B veya C yolunu kullan.
-
-**Kanıt (kabul/02, kabul/05):** Bu çalışma bir bulut AI ortamında (Claude Code
-cloud) yapıldı. Aynı ajan `G:\My Drive\isler\gorsel.png`, `G:\klasor\dosya.mp4`
-ve bir `C:\Users\...` yolunu açamadı (`ls` çıkış kodu 2, sistemde DriveFS bağlama
-noktası yok); ama Google Drive bağlayıcısıyla Drive API sorgusunu hatasız
-çalıştırdı. Yani bulut tarafı Drive'a **yol ile değil, izin ile** ulaşır.
+**Kabul kayıtlarının kapsamı:**
+- **kabul/02:** Bu Linux bulut konteynerinde üç Windows yolu yok ve DriveFS/SMB
+  bağlaması görünmüyor. Bu, *bu* ortamın yol metninden dosya üretmediğini gösterir.
+  Tüm web AI'lar veya yerel ajanlar için mutlak bir kanıt değildir.
+- **kabul/05:** Bağlayıcı aracı boş bir sorguya hatasız `{}` döndü. Hesap, dosya
+  okuma, hash ve kota **test edilmedi**.
 
 ## Kendi PC'nde doğrulama (Windows — bu çalışmada YAPILMADI)
 
-Bulut ortamında Windows ve Drive for desktop olmadığı için aşağıdakiler kullanıcı
-tarafında çalıştırılmalı (Python 3.8+ yeterli, ek paket yok):
+Python 3.8+ yeterli, ek paket gerekmez. Araç yalnız okur.
 
 ```powershell
 cd <bu klasör>\araclar
 python drive_denetim.py yol "G:\My Drive\isler\gorsel.png"   # etiket/dosya sistemi dahil sınıflandırma
 python drive_denetim.py tara "G:\My Drive"                    # Drive içindeki node_modules/.gradle/.git
-python drive_denetim.py onbellek                              # DriveFS önbelleği SSD'de ne kadar yer tutuyor
+python drive_denetim.py onbellek                              # DriveFS önbelleği diskte ne kadar yer tutuyor
 python drive_denetim.py olc "G:\My Drive\video.mp4"           # 1. ölçüm soğuk (indirme), 2. ölçüm önbellek
-python drive_denetim.py olc "C:\temp\video.mp4"               # aynı dosya SSD'de — karşılaştır
-python -m unittest -v test_drive_denetim                      # 13 birim testi
+python drive_denetim.py olc "C:\temp\video.mp4"               # aynı dosya yerel diskte; karşılaştır
+python -m unittest -v test_drive_denetim                      # 15 birim testi
 ```
 
-Araç yalnız okur; dosya silmez/taşımaz, ağa bağlanmaz. `--json` ile makine
-okunur çıktı verir.
+## Yapılmayan kabuller ve nedenleri
 
-## Doğrulanmayanlar (açıkça)
-
-- Windows/macOS'ta Drive for desktop üzerinde gerçek G: okuma hızı, önbellek boyutu
-  ve birim etiketi/dosya sistemi adı ölçülmedi (ortamda yok).
-- Kullanıcının 5 TB kotası, plan türü ve ChatGPT/Gemini hesap bağlantıları test edilmedi.
-- OpenAI yardım sayfası WebFetch'e 403 döndü; ChatGPT satırları arama sonucu özetine
-  ve sayfa başlığına dayanır (kaynaklar.md'de işaretli).
-- Insync/odrive/Better-Drive denenmedi.
+| Kabul | Durum | Neden |
+|---|---|---|
+| Windows'ta G: birim etiketi, dosya sistemi, okuma hızı | Yapılmadı | Bulut ortamı Linux; Drive for desktop yalnız Windows/macOS'ta çalışır |
+| DriveFS önbellek boyutu, akış modunda gerçek disk dolumu | Yapılmadı | Aynı neden; DriveFS yok |
+| npm/Gradle projesinin gerçekten G: üzerinde çalıştırılması | Yapılmadı | Aynı neden; yalnız Linux'ta sınıflandırma yapıldı |
+| Google hesap kotası (5 TB) | Yapılmadı | Hesap erişimi yok; kişisel hesap verisi okunmadı |
+| Bağlayıcıyla gerçek dosya listeleme/okuma/hash, doğru hesap | Yapılmadı | Kişisel dosya okumak/paylaşmak yetki dışında tutuldu; kabul/05 yalnız boş sorgu |
+| ChatGPT / Gemini / telefon hesap testleri | Yapılmadı | Hesap erişimi yok |
+| Hariç tutma ayarının kesin yokluğu | Belirsiz | Yalnız resmi ayar sayfası ve forum okundu; uygulama arayüzü görülmedi |
+| Insync / odrive / Better-Drive | Yapılmadı | Kapsam dışı; yalnız belgeleri listelendi |
+| OpenAI yardım sayfası | Kısmi | WebFetch'e 403 döndü; arama özetine dayanıldı |

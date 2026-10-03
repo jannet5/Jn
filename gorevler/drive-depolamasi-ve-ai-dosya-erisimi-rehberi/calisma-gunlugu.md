@@ -36,7 +36,7 @@ adı içeriyor) PUBLIC depoya konmadı; yalnız oturumun özel scratchpad'inde
 - Test çıktıları `.txt` (depo `.gitignore`'u `*.log`'u yok sayıyor).
 
 ## 4. Uygulama ve test (sırayla)
-1. Araç + 13 birim testi yazıldı. İlk koşu: **1 hata** — `_yaz(out=sys.stdout)` varsayılanı
+1. Araç + 13 birim testi yazıldı (2. turda 15). İlk koşu: **1 hata** — `_yaz(out=sys.stdout)` varsayılanı
    tanım anında bağlandığı için `redirect_stdout` çalışmıyordu (JSON boş). Düzeltme:
    `out=None` → çalışma anında `sys.stdout`. İkinci koşu 13/13 OK → `kabul/01`.
 2. `kabul/02`: aracın `yol` komutu ve `ls` ile `G:\My Drive\isler\gorsel.png`,
@@ -45,7 +45,7 @@ adı içeriyor) PUBLIC depoya konmadı; yalnız oturumun özel scratchpad'inde
 3. `kabul/03`: scratchpad'de gerçek proje: `npm install is-number@7 left-pad@1 express@4`
    (npm 10.9.4, 70 paket), `git init`, Gradle 8.14.3 ile tek sınıflı Java projesi
    `gradle build --no-daemon` (exit 0). `tara` → node_modules 630 dosya, .gradle 13 (4 `.lock`),
-   build 4, .git 26; Drive senaryosunda risk YÜKSEK.
+   build 4, .git 26 (2. turda 38); Drive senaryosunda (yalnız sınıflandırma) risk YÜKSEK.
 4. `kabul/03b`: `git bundle` + kaynak ZIP. İlk denemede `npm ci` **başarısız**
    (package-lock.json commit'lenmemişti). Lock + kaynaklar + `.gitignore` commit'lendi;
    ikinci deneme: bundle verify, clone (6 dosya), `npm ci` 70 paket, `gradle build` exit 0, `demo.jar`.
@@ -53,22 +53,56 @@ adı içeriyor) PUBLIC depoya konmadı; yalnız oturumun özel scratchpad'inde
    `onbellek` Linux'ta "desteklenmeyen platform" döndü — beklenen.
 6. `kabul/05`: oturumun Google Drive bağlayıcısıyla (`mcp__Google_Drive__search_files`)
    bilerek boş dönecek bir başlık sorgusu → `{}` hatasız. Kişisel Drive içeriği kaydedilmedi.
+   (2. turda kapsamı daraltıldı: bu bir hesap/dosya erişim kanıtı değildir — §6.)
 
-## 5. Yapılmayanlar (ayrı)
-- Windows/macOS üzerinde Drive for desktop, G: hız ölçümü, önbellek boyutu: ortamda yok.
-- Telefon / ChatGPT / Gemini hesap testleri: hesap erişimi yok, uydurulmadı.
-- 5 TB kota: doğrulanmadı.
+## 5. İlk teslim (1. tur, `373c2a8`)
+- İçerik commit'i `2a74967`, günlük commit'i `373c2a8` push edildi. Dal sıfırdan klonlanıp `diff -r` ile geri okundu.
+- 1. turdaki özel ZIP, `kaynak.txt` dosyasını ve Jn deposunun tüm geçmişini içeren bir bundle taşıyordu.
+  2. turda bunun yerine temiz bir bağımsız teslim üretildi (§7).
 
-## 6. Teslim
-- İçerik commit'i `2a74967` → `git push -u origin claude/happy-davinci-gra3j0` başarılı.
-- Geri okuma: dal ayrı klasöre sıfırdan `git clone` edildi; uzak HEAD = yerel HEAD,
-  `diff -r` farksız, klondan birim testleri yeniden koşuldu: OK.
-- Bu günlük güncellemesi ayrı bir commit olarak push edildi.
-- Özel teslim (PUBLIC depoya konmaz): oturum scratchpad'inde `teslim/` altında
-  `drive-rehberi-teslim.zip` (public klasör + özel `kaynak.txt`/`gorev.md` + kabul çıktıları)
-  ve `Jn-gorev-dali.bundle` (git dalı). SHA-256 değerleri `teslim/SHA256SUMS` dosyasında;
-  ZIP açılıp dosya dosya karşılaştırıldı, bundle `git bundle verify` + clone ile geri okundu.
-  (ZIP'in kendi özeti bu dosyanın içinde olamaz — döngüsel; özet sohbet yanıtında ve SHA256SUMS'ta.)
-- Devam komutu (oturum kesilirse): `git fetch origin claude/happy-davinci-gra3j0 &&
-  git checkout claude/happy-davinci-gra3j0`, sonra bu günlüğün 5. bölümündeki açık maddeler
-  (Windows'ta README "Kendi PC'nde doğrulama" komutları).
+## 6. Bağımsız inceleme ve düzeltmeler (2. tur)
+İnceleme `373c2a8` (13 dosya) üzerinde şu bulguları getirdi. Hepsi kabul edildi ve düzeltildi:
+
+| Bulgu | Düzeltme |
+|---|---|
+| Kabul 05 yalnız boş `{}` sorgusunun hatasız döndüğünü kanıtlıyor | kabul/05'e kapsam bölümü eklendi: hesap, dosya adı/okuma/hash ve kota TEST EDİLMEDİ. README ve harita ❌ olarak işaretlendi. Kişisel dosya okunmadı/paylaşılmadı, hesap kurulmadı |
+| "SSD dolmaz sözü stream modunda doğru" kendi önbellek açıklamasıyla çelişiyor | Garanti cümlesi tüm belgelerden kaldırıldı. Akış modunda da önbellek, çevrimdışı dosyalar, yükleme kuyruğu ve paylaşılan dosyalar diski doldurabilir (R1, R3, R12) |
+| "Hariç tutma yok" forumda resmi yanıt olmamasından kesin çıkmaz | R4 resmi ayar sayfası yeniden okundu; ayar geçmiyor. Sonuç "belirsiz" olarak yazıldı. Araç mesajı "resmi ayar sayfasında bulunamadı (2026-10-03)" oldu |
+| Gradle forum tavsiyesi resmi "unsupported" hükmü değil | README, kaynaklar ve araç önerisi "forumda önerilmiyor; resmi hüküm değil" diye düzeltildi |
+| Linux `ls` deneyi web AI / yerel ajan erişiminin mutlak kanıtı değil | kabul/02 yeniden üretildi ve kapsam başlığı eklendi. README §3 erişimi koşullara ayırdı: mount, izin/sandbox, yükleme, bağlayıcı, köprü, link. Araçtaki `WEB_AI_NOTU` "GÖREMEZ" yerine koşullu ifadeye çevrildi |
+| 128 MB Linux okuması: OS önbelleği ihtimali, DriveFS yok | kabul/04 başlığına kapsam eklendi: Drive ölçümü değil, SSD hızı da sayılmamalı |
+| Yerel alan ≠ hesap kotası | R12 (https://support.google.com/drive/answer/10838124) okundu ve eklendi: "Your computer space and Google storage are not the same" |
+
+Ek araç değişikliği: `.gdoc/.gsheet/.gslides` dosyaları için not eklendi. R12'ye göre bu dosyalar
+tarayıcıda açılır; yerel okumanın sonucu doğrulanmadığı için "okuyamayabilir" diye yazıldı.
+- 2 yeni test eklendi. İlk koşuda **1 başarısızlık** oldu: test eski metni arıyordu. Test yeni ifadeye
+  uyarlandı ve 15/15 OK (kabul/01).
+- kabul/03 güncel araçla yeniden üretildi. `.git` artık 38 dosya, çünkü 1. turda bundle için
+  ikinci bir commit eklenmişti.
+
+## 7. Yapılmayanlar ve nedenleri
+- **Windows'ta G: birimi, okuma hızı, DriveFS önbellek boyutu, projenin G:'de çalıştırılması:** Yapılmadı.
+  Ortam Linux ve Drive for desktop yalnız Windows/macOS'ta çalışır.
+- **Google hesap kotası (5 TB):** Yapılmadı; hesap erişimi yok.
+- **Bağlayıcıyla gerçek dosya listeleme/okuma/hash ve doğru hesap kontrolü:** Yapılmadı. Kişisel veriye
+  erişmek bu görevin yetkisi dışında tutuldu.
+- **ChatGPT, Gemini ve telefon hesap testleri:** Yapılmadı; hesap erişimi yok.
+- **Hariç tutma ayarı:** Belirsiz. Uygulama arayüzü görülmedi.
+
+## 8. Teslim (2. tur)
+- Jn dalı `claude/happy-davinci-gra3j0`'a push edildi ve sıfırdan klonla geri okundu. Commit
+  özetleri sohbet yanıtında.
+- **Temiz bağımsız teslim:** Yalnız bu klasörün içeriği yeni bir `git init` deposuna (tek kök commit)
+  kondu. Jn'nin diğer projeleri ve geçmişi ile özel `kaynak.txt`/`gorev.md` bu teslimde yok.
+  - `drive-rehberi.bundle` ve `drive-rehberi.zip` üretildi.
+  - Tam SHA-256 değerleri `SHA256SUMS` dosyasında ve sohbet yanıtında.
+  - ZIP açılıp içerik özetleri kontrol edildi; bundle verify ve clone yapıldı; testler klonda yeniden koşuldu.
+  - ZIP'in kendi özeti döngüsel olacağı için bu dosyada yer almaz.
+- Özel `kaynak.txt`/`gorev.md` yalnız oturumun özel scratchpad'inde (`ozel/`) kalır ve hiçbir teslime konmadı.
+- **Devam komutu:**
+
+  ```
+  git fetch origin claude/happy-davinci-gra3j0 && git checkout claude/happy-davinci-gra3j0
+  ```
+
+  Ardından §7 maddelerini kullanıcı Windows PC'sinde README komutlarıyla tamamla.
