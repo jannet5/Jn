@@ -52,3 +52,7 @@ Teslim için gerçek test ve kabul kanıtı, kalıcı push, kaynak metni içerme
 
 ## 7. Kalıcı teslim
 Push, ZIP ve SHA-256 adımları bu günlüğün sonundaki "Teslim kaydı" bölümüne eklenir.
+
+## Teslim kaydı
+- 1. push: `a7b32ff` → `origin/claude/determined-mendel-dhyjj8`. Geri okuma için uzak daldan temiz klon alındı; orada `unittest` 37 test OK (1 atlama), mutasyon kontrolü GEÇTİ.
+- Özel ZIP: `company-os-teslim.zip`. Kaynak sohbet metnini ve görev dosyasını içermez. İçinde `company-os/` (ürün dosyaları) ve `company-os.bundle` (yalnız bu ürünü içeren, geçmişi temiz, depoya hazır git paketi) var. SHA-256 değeri ZIP üretildikten sonra aşağıya eklenir.
