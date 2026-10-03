@@ -112,3 +112,13 @@ Komutlar ve sonuçlar:
 - Bu turda root, reset, cihaz yeniden başlatma, uygulama kaldırma yapılmadı.
 
 Kalan gerçek girdi: kullanıcının telefonundan `paylasim.zip` ve Güvenli Mod sonucu.
+
+## 10. Sürüm 2 kalıcı teslim ve geri okuma
+- Push: `825eca7` — `git fetch` sonrası uzak = yerel.
+- Temiz ürün ZIP'i uzak commit'ten `git archive` ile üretildi (sabit zaman damgalı, tek kök klasör
+  `telefonun-kendiliginden-yeniden-baslamasi-teshisi/`, 18 dosya; kaynak sohbeti, `gorev.md`,
+  ham/yerel kayıt, `__pycache__`, `.git` yok — yalnız ürünün kendi `.gitignore`'u var).
+  `telefon-reboot-teshis-v2.zip` SHA-256 `161e6360f22a04ec84815bb7f7461a83683a172fbd1c81a3721b3a3f786e8de6`
+  → `sha256sum -c` OK, `unzip -t` hatasız, kaynak metin araması 0, açılan kopyada 21 test OK,
+  `kabul/` raporları `paylasim_denetle` → TEMİZ. (ZIP bu bölüm eklenmeden önceki `825eca7` içeriğidir.)
+- ZIP depoya eklenmedi; özel bulut çalışma alanında tutulup kullanıcıya dosya olarak iletildi.
