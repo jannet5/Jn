@@ -1,0 +1,41 @@
+{
+  "goal": "Company OS kaynak kodunun teknik envanterini uzman ajanlarla çıkar, güvenlik incelemesi yap ve tek raporda topla",
+  "skill_dirs": ["skills"],
+  "tasks": [
+    {
+      "id": "envanter", "title": "Paket envanteri", "role": "arastirmaci",
+      "instructions": "src/company_os altındaki modüllerin dosya, satır ve fonksiyon envanterini çıkar.",
+      "executor": {"type": "command", "argv": ["{python}", "{plan_dir}/ajanlar/envanter.py", "{plan_dir}/../src/company_os"], "outputs": ["envanter.json"]},
+      "acceptance": [{"argv": ["{python}", "{plan_dir}/ajanlar/kontrol.py", "envanter", "envanter.json"], "refs": ["envanter.json"]}],
+      "notify": [{"to": "yazar", "body": "Envanter hazır: {result}"}]
+    },
+    {
+      "id": "mcp-skill-sorgusu", "title": "MCP üzerinden skill keşfi", "role": "entegrasyon",
+      "instructions": "Company OS MCP sunucusunun skills_list aracını çağır ve sonucu getir.",
+      "executor": {"type": "mcp", "server": ["{python}", "-m", "company_os", "mcp-serve", "--db", "mcp-gecici.db", "--skills", "{plan_dir}/skills"],
+                   "tool": "skills_list", "arguments": {}, "output": "skills.json"},
+      "acceptance": [{"argv": ["{python}", "{plan_dir}/ajanlar/kontrol.py", "mcp", "skills.json"], "refs": ["skills.json"]}]
+    },
+    {
+      "id": "guvenlik-incelemesi", "title": "Güvenlik incelemesi (kod inceleme)", "role": "inceleyici",
+      "depends_on": ["envanter"], "skills": ["kod-inceleme"],
+      "instructions": "Envanterdeki subprocess ve dosya yazma çağrılarını güvenlik kontrol listesine göre incele.",
+      "executor": {"type": "command", "argv": ["{python}", "{plan_dir}/ajanlar/guvenlik.py"], "outputs": ["guvenlik.md"]},
+      "acceptance": [{"argv": ["{python}", "{plan_dir}/ajanlar/kontrol.py", "markdown", "guvenlik.md", "# Güvenlik incelemesi", "kod-inceleme"], "refs": ["guvenlik.md"]}],
+      "notify": [{"to": "yazar", "body": "Güvenlik incelemesi bitti"}]
+    },
+    {
+      "id": "kararlilik", "title": "Çökme sonrası yeniden deneme", "role": "operasyon", "max_attempts": 3,
+      "instructions": "İlk denemede çöken worker; ikinci denemede tamamlanmalı.",
+      "executor": {"type": "command", "argv": ["{python}", "{plan_dir}/ajanlar/kararsiz.py"], "outputs": ["kararli.txt"]},
+      "acceptance": [{"argv": ["{python}", "{plan_dir}/ajanlar/kontrol.py", "nonempty", "kararli.txt"], "refs": ["kararli.txt"]}]
+    },
+    {
+      "id": "rapor", "title": "Sonuçları tek teknik rapora topla", "role": "yazar",
+      "depends_on": ["envanter", "mcp-skill-sorgusu", "guvenlik-incelemesi", "kararlilik"], "skills": ["teknik-rapor"],
+      "instructions": "Tüm ajan çıktılarını kaynak hash'leriyle teknik rapora topla.",
+      "executor": {"type": "command", "argv": ["{python}", "{plan_dir}/ajanlar/rapor.py"], "outputs": ["RAPOR.md"]},
+      "acceptance": [{"argv": ["{python}", "{plan_dir}/ajanlar/kontrol.py", "markdown", "RAPOR.md", "## Envanter", "## MCP", "## Güvenlik incelemesi", "## Girdi kanıtları", "Envanter hazır"], "refs": ["RAPOR.md"]}]
+    }
+  ]
+}

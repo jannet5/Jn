@@ -1,0 +1,50 @@
+# 2026-10-03T11:48:21Z | Python 3.11.15 | Linux 6.18.44-fc-v64
+test_ayri_baglantilarla_esz_amanli_claim_tek_kazanan (test_bulgular.B1_ClaimTekGiris.test_ayri_baglantilarla_esz_amanli_claim_tek_kazanan) ... ok
+test_transition_running_reddedilir (test_bulgular.B1_ClaimTekGiris.test_transition_running_reddedilir) ... ok
+test_eski_worker_hicbir_mutasyon_yapamaz (test_bulgular.B2_EskiWorker.test_eski_worker_hicbir_mutasyon_yapamaz) ... ok
+test_reconcile_edilmemis_suresi_dolmus_lease_de_reddedilir (test_bulgular.B2_EskiWorker.test_reconcile_edilmemis_suresi_dolmus_lease_de_reddedilir) ... ok
+test_yeni_worker_normal_tamamlar (test_bulgular.B2_EskiWorker.test_yeni_worker_normal_tamamlar) ... ok
+test_esz_amanli_reconcile_claim_stres (test_bulgular.B3_Reconcile.test_esz_amanli_reconcile_claim_stres)
+Gerçek saatle kısa TTL; birçok iş parçacığı reconcile/claim/complete yapar. ... ok
+test_reconcile_canli_yeni_lease_e_dokunmaz (test_bulgular.B3_Reconcile.test_reconcile_canli_yeni_lease_e_dokunmaz) ... ok
+test_baska_gorevin_artifact_ina_referans_verilemez (test_bulgular.B4_KanitBaglama.test_baska_gorevin_artifact_ina_referans_verilemez) ... ok
+test_bos_snapshot_reddedilir (test_bulgular.B4_KanitBaglama.test_bos_snapshot_reddedilir) ... ok
+test_diskte_gizlice_degisen_artifact_reddedilir (test_bulgular.B4_KanitBaglama.test_diskte_gizlice_degisen_artifact_reddedilir) ... ok
+test_dogru_akis_gecer (test_bulgular.B4_KanitBaglama.test_dogru_akis_gecer) ... ok
+test_eski_deneme_kaniti_sayilmaz (test_bulgular.B4_KanitBaglama.test_eski_deneme_kaniti_sayilmaz) ... ok
+test_kanitsiz_artifact_reddedilir (test_bulgular.B4_KanitBaglama.test_kanitsiz_artifact_reddedilir) ... ok
+test_kanittan_sonra_artifact_degisirse_reddedilir (test_bulgular.B4_KanitBaglama.test_kanittan_sonra_artifact_degisirse_reddedilir) ... ok
+test_kapsanmayan_artifact_ve_basarisiz_kanit (test_bulgular.B4_KanitBaglama.test_kapsanmayan_artifact_ve_basarisiz_kanit) ... ok
+test_gecersiz_yollar (test_bulgular.B5_GuvenliYazma.test_gecersiz_yollar) ... ok
+test_hedefteki_symlink_takip_edilmez (test_bulgular.B5_GuvenliYazma.test_hedefteki_symlink_takip_edilmez) ... ok
+test_symlink_uzerinden_okuma_reddedilir (test_bulgular.B5_GuvenliYazma.test_symlink_uzerinden_okuma_reddedilir) ... ok
+test_ust_dizin_symlink_ise_reddedilir (test_bulgular.B5_GuvenliYazma.test_ust_dizin_symlink_ise_reddedilir) ... ok
+test_yaris_kontrol_sonrasi_ust_dizin_degistirilse_bile_disari_yazilmaz (test_bulgular.B5_GuvenliYazma.test_yaris_kontrol_sonrasi_ust_dizin_degistirilse_bile_disari_yazilmaz) ... ok
+test_gecersiz_yollar (test_bulgular.B5_TasinabilirYol.test_gecersiz_yollar) ... ok
+test_hedefteki_symlink_takip_edilmez (test_bulgular.B5_TasinabilirYol.test_hedefteki_symlink_takip_edilmez) ... ok
+test_symlink_uzerinden_okuma_reddedilir (test_bulgular.B5_TasinabilirYol.test_symlink_uzerinden_okuma_reddedilir) ... ok
+test_ust_dizin_symlink_ise_reddedilir (test_bulgular.B5_TasinabilirYol.test_ust_dizin_symlink_ise_reddedilir) ... ok
+test_yaris_kontrol_sonrasi_ust_dizin_degistirilse_bile_disari_yazilmaz (test_bulgular.B5_TasinabilirYol.test_yaris_kontrol_sonrasi_ust_dizin_degistirilse_bile_disari_yazilmaz) ... skipped 'tutamak zinciri yalnız POSIX yolunda'
+test_handshake_olmadan_ve_yeni_surum (test_mcp_skills.MCPDurumsuz.test_handshake_olmadan_ve_yeni_surum) ... ok
+test_bilinmeyen_yontem_ve_arac (test_mcp_skills.MCPSunucu.test_bilinmeyen_yontem_ve_arac) ... ok
+test_claude_ajan_dongusu_mcp_uzerinden (test_mcp_skills.MCPSunucu.test_claude_ajan_dongusu_mcp_uzerinden) ... ok
+test_el_sikisma_ve_arac_listesi (test_mcp_skills.MCPSunucu.test_el_sikisma_ve_arac_listesi) ... ok
+test_cok_satirli_frontmatter (test_mcp_skills.Skills.test_cok_satirli_frontmatter) ... ok
+test_kesif_ve_secim (test_mcp_skills.Skills.test_kesif_ve_secim) ... ok
+test_kit_kurulumu (test_mcp_skills.Skills.test_kit_kurulumu) ... {
+ ],
+ok
+test_dongu_ve_bilinmeyen_bagimlilik_reddedilir (test_orkestrasyon.Orkestrasyon.test_dongu_ve_bilinmeyen_bagimlilik_reddedilir) ... ok
+test_kabul_basarisizsa_deneme_hakki_biter_bagimli_engellenir (test_orkestrasyon.Orkestrasyon.test_kabul_basarisizsa_deneme_hakki_biter_bagimli_engellenir) ... ok
+ },
+ ],
+ ],
+ }
+ok
+test_paralel_dagitim_ve_girdi_aktarimi (test_orkestrasyon.Orkestrasyon.test_paralel_dagitim_ve_girdi_aktarimi) ... ok
+test_yer_tutucu (test_orkestrasyon.Orkestrasyon.test_yer_tutucu) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 1.963s
+
+OK (skipped=1)

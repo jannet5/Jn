@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "company-os"
+version = "1.0.0"
+description = "Yerel ajan koordinasyon sistemi: görev defteri, lease/fencing token, kanıt kapısı, Agent Skills, MCP sunucu/istemci"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+company-os = "company_os.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+company_os = ["kit/**/*", "kit/*"]

@@ -1,0 +1,107 @@
+# Harita: Company OS ajan koordinasyon sistemi
+
+Araştırma tarihi 2026-10-03. Yıldız sayıları aynı gün GitHub arama API'sinden alındı ve yuvarlatıldı. "(okundu)" işaretli sayfalar açılıp okundu. "(aramada görüldü)" işaretlilerin yalnız arama sonucu görüldü. Lisanslar, ayrıca belirtilmedikçe doğrulanmadı.
+
+## 1. Hedef (kaynaktan)
+Kullanıcının istediği sistemde bir iş verildiğinde yapay zekâ şunları yapmalı:
+1. İşi **uzman ajanlara bölüp dağıtmalı**, ajanlar kendi aralarında haberleşip işi bitirmeli.
+2. Bilgiyi **skills** kaynağından çekmeli.
+3. Bir şey yaptırması gerekince bunu **MCP** üzerinden yaptırıp sonucu geri getirmeli.
+4. Bunun için **hazır GitHub depoları** bulunup değerlendirilmeli.
+
+Kaynağın sonundaki denetim raporu mevcut Company OS kodunda (`ledger.py`, `qa_runner.py`, `artifacts.py`) **beş P1 doğruluk hatası** bildiriyor. Görev bu bulguların da doğrulanmasını ve kapatılmasını istiyor.
+
+## 2. Bağımlılıklar
+| Bağımlılık | Durum | Not |
+|---|---|---|
+| Mevcut Company OS kaynak kodu (`company-os-native-v1-1935`) | **YOK**, yüklenmedi | Windows yolu bulut konteynerinden okunamaz. Bulgular o kod üzerinde yeniden çalıştırılamadı. Bkz. `denetim/bulgu-dogrulama.md`. |
+| Kaynakta geçen TXT belgeleri | **YOK** | İlk mesajdaki "path üstündeki txt dosyaları" yüklenmedi. |
+| Claude Code CLI | Var (`2.1.288`) | Başsız mod ve MCP sağlık kontrolü çalıştırıldı. |
+| Python | 3.11 (hedef ≥3.10) | Yalnız standart kütüphane kullanıldı. |
+| Resmi MCP Python SDK | `mcp 1.30.0`, yalnız test için | Birlikte çalışma kanıtı. Ürüne bağımlılık olarak eklenmedi. |
+
+## 3. Hazır çözümler (karşılaştırma)
+
+### 3a. Resmi yapı taşları
+| Kaynak | Ne sağlar | Uygunluk |
+|---|---|---|
+| Claude Code alt ajanları: https://code.claude.com/docs/en/sub-agents (okundu) | `.claude/agents/*.md` dosyaları. Ön bilgide `tools`, `model`, `skills`, `mcpServers`, `isolation: worktree` alanları. İç içe derinlik varsayılanı 3, eş zamanlı sınır 20. | **Yerel (native) dağıtım katmanı.** Lease veya kanıt yok. |
+| Claude Code Skills: https://code.claude.com/docs/en/skills (okundu) | `.claude/skills/<ad>/SKILL.md`. Aşamalı açıklama: önce yalnız açıklama yüklenir, gövde çağrılınca. | **Bilgi kaynağı katmanı.** |
+| https://github.com/anthropics/skills (~179k★; README okundu) | Resmi skill örnekleri ve spec bağlantısı (agentskills.io, okunmadı). Çoğu Apache-2.0; docx/pdf/pptx/xlsx yalnız kaynak erişimli. | İçerik kaynağı. |
+| MCP spesifikasyonu: https://modelcontextprotocol.io/specification/latest | Güncel sürüm **2026-07-28**. Araçlar: https://modelcontextprotocol.io/specification/2026-07-28/server/tools (okundu). Taşıma: https://modelcontextprotocol.io/specification/2026-07-28/basic/transports (okundu). stdio hâlâ standart. İstek başına durumsuz yapı geldi; `initialize` yalnız geri uyumluluk için kaldı. | **Araç çağırma katmanı.** |
+| MCP Python SDK: https://github.com/modelcontextprotocol/python-sdk (~24.5k★) | Resmi istemci ve sunucu. | Birlikte çalışma testi için kullanıldı. |
+| Claude Agent SDK: https://code.claude.com/docs/en/agent-sdk/overview (okundu); https://github.com/anthropics/claude-agent-sdk-python | Claude Code döngüsü kütüphane olarak. | Kendi orkestratörünü yazmanın resmi yolu. Ticari koşullara tabi. |
+| Resmi kullanım rehberi: https://claude.com/blog/how-and-when-to-use-subagents-in-claude-code (okundu) | Alt ajan önerilen durumlar: ≥10 dosya keşfi ya da ≥3 bağımsız parça. Sıralı işte, aynı dosya düzenlemesinde ve sıkı ajan-ajan koordinasyonunda önerilmiyor. | Plan kuralı olarak skill'e işlendi. |
+
+### 3b. Topluluk depoları (hepsinin var olduğu doğrulandı)
+| Depo | Ne | Değerlendirme |
+|---|---|---|
+| https://github.com/obra/superpowers (~295k★) | Skill çerçevesi: alt ajan güdümlü geliştirme (beyin fırtınası → plan → TDD → inceleme) | En güçlü iş akışı ve skill paketi. **Bu sistemle birlikte kullanılabilir:** skill'leri `--skills` dizinine eklenir. |
+| https://github.com/wshobson/agents (~40k★) | Alt ajan ve skill eklenti pazarı | Rol ajanları için içerik kaynağı. |
+| https://github.com/VoltAgent/awesome-claude-code-subagents (~25k★) | 100+ alt ajan `.md` dosyası | Kopyalanarak kullanılır. Roller genişletilebilir. |
+| https://github.com/hesreallyhim/awesome-claude-code (~55k★) | Derlenmiş liste | Keşif için. |
+| https://github.com/ruvnet/claude-flow → **ruvnet/ruflo** (~74k★, MIT, okundu) | Sürü orkestrasyonu, MCP sunucusu, bellek | Ağır yapı, çok parçalı, ~1.054 açık issue. Yerel ve minimal hedefe uymuyor. |
+| https://github.com/bmad-code-org/BMAD-METHOD (~54k★) | Çevik, spec güdümlü roller (PM, mimar, dev, QA) | Rol tasarımı için ilham. |
+| https://github.com/SuperClaude-Org/SuperClaude_Framework (~24k★) | Persona ve komutlar | İçerik. |
+| https://github.com/contains-studio/agents (~12k★) | Alt ajan seti | İçerik. |
+| https://github.com/Yeachan-Heo/oh-my-claudecode (~40k★), https://github.com/gotalab/cc-sdd (~3.7k★) | Takım ve spec güdümlü orkestrasyon | Aynı sınıf. |
+
+**Ortak sonuç:** Bu depoların hiçbiri lease, fencing token ya da kanıt bağlama sağlamıyor. Hepsi istem ve yapılandırma paketi; yürütme motoru değiller. Denetimdeki beş hatayı hiçbiri çözmüyor.
+
+### 3c. Genel çok ajanlı çatılar
+LangGraph https://github.com/langchain-ai/langgraph (~43k★, checkpoint'li grafik durumu), CrewAI https://github.com/crewAIInc/crewAI (~59k★), AutoGen https://github.com/microsoft/autogen (~61k★), Microsoft Agent Framework https://github.com/microsoft/agent-framework (~14k★), OpenAI Agents SDK https://github.com/openai/openai-agents-python (~30k★). Hiçbiri Claude Code'a yerel olarak bağlanmıyor ve hiçbirinde hazır fencing token yok.
+
+### 3d. Topluluk ve kullanıcı deneyimi
+- Anthropic çok ajanlı araştırma sistemi: https://www.anthropic.com/engineering/multi-agent-research-system. Tek ajana göre +%90,2 başarı, buna karşılık sohbete göre ~15× token. Kazanç geniş, okuma ağırlıklı işte.
+- "Don't Build Multi-Agents" (Cognition) tartışması: https://patmcguinness.substack.com/p/the-ai-agent-architecture-debate (aramada görüldü; Cognition'ın özgün yazısı açılmadı). Bölünen bağlam yanlış anlaşılmaya yol açıyor; yazma işleri tek iş parçacığında tutulmalı.
+- https://mcp.directory/blog/claude-code-parallel-subagents-workflows-2026 (okundu). Dağıtma denetim, araştırma ve göçte kazandırıyor. Sıkı bağlı düzenlemelerde birleştirme maliyeti kazancı aşıyor.
+- https://www.mindstudio.ai/blog/claude-code-subagents-cost-tokens (aramada görüldü). Alt ajanlar bağlamı yeniden yüklüyor, takımlar ~3–7× token harcıyor, küçük işlerde başlatma yükü kazancı yiyor.
+- Reddit'te kanonik bir başlık doğrulanamadı; aramada yalnız ayna siteler çıktı.
+
+**Ders:** Ajanlar araştırma, inceleme ve bağımsız parçalar için kullanılmalı. Ortak duruma paralel yazma, ancak tek yazar garantisi (lease ve fencing) ile güvenli olur. Bu sistem tam bu boşluğu dolduruyor.
+
+### 3e. Doğruluk kaynakları
+- Kleppmann, "How to do distributed locking": https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html (okundu). Monoton fencing token, depolama tarafında koşullu yazma.
+- SQLite işlemleri: https://www.sqlite.org/lang_transaction.html (okundu). `BEGIN IMMEDIATE` yazma kilidini işlemin başında alır; BUSY yalnız BEGIN'de oluşur.
+- Python `os`: https://docs.python.org/3/library/os.html (okundu). `O_NOFOLLOW`, `O_EXCL`, `dir_fd`, `supports_dir_fd`.
+- CERT FIO45-C TOCTOU: https://wiki.sei.cmu.edu/confluence/spaces/c/pages/87151941/FIO45-C.+Avoid+TOCTOU+race+conditions+while+accessing+files (aramada görüldü).
+- openat2 `RESOLVE_BENEATH`: https://manual.cs50.io/2/openat2 (aramada görüldü).
+- Güncel örnek, rsync symlink TOCTOU düzeltmesi (CVE-2026-29518): https://git.almalinux.org/rpms/rsync/commit/cc69bbdd82a094cf40114d5b21f1bd6a9e6e6613 (aramada görüldü).
+
+## 4. A/B/C yolları
+
+| | A: Yerel ince çekirdek + Claude Code yerel katmanları (**SEÇİLDİ**) | B: Topluluk orkestratörü (ruflo/claude-flow) | C: Genel çatı (LangGraph veya CrewAI) |
+|---|---|---|---|
+| Dağıtım | Claude Code alt ajanları (kit) ve kendi worker havuzu | Sürü motoru | Grafik veya ekip |
+| Skills | `SKILL.md` standardı, `skills_list`/`skill_read` | Kendi biçimi ile kısmi | Yok, uyarlama gerekir |
+| MCP | Kendi stdio sunucusu ve istemcisi | Var, ama ağır | Adaptör gerekir |
+| Lease, fencing, kanıt | **Var**, beş bulgu kapatıldı | Yok | Yok (checkpoint var, fencing yok) |
+| Yerel ve çevrimdışı | Evet, yalnız stdlib, sunucusuz | Node, çok bağımlılık | Python, çok bağımlılık |
+| Risk | Bakım bizde | Büyük yüzey, açık issue yükü | Claude Code'dan kopuk |
+
+**Karar gerekçesi:** Kaynaktaki ürün, Claude Code'u "kıdemli" yapan yerel bir Company OS. Mevcut kod zaten Python + SQLite defteri (`ledger.py`, `qa_runner.py`). Asıl eksik doğruluk; hiçbir hazır depo bunu sağlamıyor. A yolu ürünün mevcut tercihlerini koruyor (yerel, Python, SQLite), sunucu eklemiyor, Claude Code'un resmi katmanlarını (alt ajan, skill, MCP) kullanıyor. Topluluk içerik paketleri (superpowers, wshobson/agents, VoltAgent) A'nın üzerine **içerik olarak** eklenebiliyor; skill dizini ve `.claude/agents` ile uyumlu.
+
+**Kırılma planı:**
+- A'da Claude Code proje MCP onayı başsız verilemiyor. Çözüm olarak `--mcp-config` + `--strict-mcp-config` ya da yerel kapsam kaydı kullanılıyor; ikisi de uygulandı ve çalıştı.
+- MCP 2026-07-28 durumsuz istemciler `initialize` göndermezse sunucu yine de `tools/list` ve `tools/call` yanıtlıyor; bu test edildi.
+- Ölçek tek makineyi aşarsa C yoluna (LangGraph) geçilir; defter tasarımı (token ve koşullu güncelleme) Postgres'e taşınabilir.
+
+## 5. Bağlı zincir
+```
+Hedef (kaynak satır 7) ─┬─► Araştırma (§3) ─► Karar A (§4)
+                        │
+Denetim (kaynak satır 14) ─► 5 bulgu ─► davranışsal testler (tests/test_bulgular.py)
+                                              │
+Uygulama: src/company_os ◄────────────────────┘
+  ledger.py (lease + fencing + koşullu reconcile) ── bulgu 1, 2, 3
+  qa.py (snapshot'a bağlı kabul kapısı) ─────────── bulgu 4
+  artifacts.py (dir_fd zinciri, O_EXCL|O_NOFOLLOW) ─ bulgu 5
+  orchestrator.py (dağıtım, girdi aktarımı, mesaj, toplama)
+  skills.py (SKILL.md) · mcp_server.py / mcp_client.py (MCP) · kit/ (Claude Code alt ajanları + skill)
+        │
+Test/build ─► 37 birim testi · mutasyon kontrolü (5/5 yakalandı) · örnek plan uçtan uca
+              · resmi MCP SDK birlikte çalışma · gerçek Claude Code turu (cos-* alt ajanları)
+        │
+Kalıcı teslim ─► jannet5/Jn dalı claude/determined-mendel-dhyjj8 (push + geri okuma)
+               ─► özel ZIP (kaynak metni içermez) + SHA-256
+```

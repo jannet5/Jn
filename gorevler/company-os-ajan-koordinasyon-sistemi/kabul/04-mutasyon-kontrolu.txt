@@ -1,0 +1,6 @@
+Bulgu 1 claim atlatma        düzgün kod: 2/2 geçti | hata enjekte: 1/2 test BAŞARISIZ → YAKALANDI
+Bulgu 2 fencing yok          düzgün kod: 3/3 geçti | hata enjekte: 2/3 test BAŞARISIZ → YAKALANDI
+Bulgu 3 koşulsuz reconcile   düzgün kod: 2/2 geçti | hata enjekte: 1/2 test BAŞARISIZ → YAKALANDI
+Bulgu 4 bağlanmamış kanıt    düzgün kod: 8/8 geçti | hata enjekte: 6/8 test BAŞARISIZ → YAKALANDI
+Bulgu 5 TOCTOU yazma         düzgün kod: 5/5 geçti | hata enjekte: 3/5 test BAŞARISIZ → YAKALANDI
+MUTASYON KONTROLÜ: GEÇTİ
