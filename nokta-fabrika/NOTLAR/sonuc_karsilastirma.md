@@ -26,3 +26,9 @@ Test ortamı: KVM'siz yazılım emülatörü, Android 8.0 (API 26, x86_64), adb 
 
 ## Harita D (kümülatif) için alınanlar
 B tabanı (panel balon, yay animasyonu, Room) + C'nin odak davranışı, erişilebilirlik ve toplu temizle/paylaş özellikleri + A'nın hedef API 36 araç zinciri ve "API 30+ çağrılarını koru" dersi. Lint ile NewApi taraması.
+
+## Harita D — cihaz sonuçları (teslim edilen APK, SHA-256 c943c79a…1c6336)
+API 26 emülatörü: soğuk açılış 6198 ms (A/B ~8,5 sn, C ~5,6 sn; tek örnek, göreli). Art arda ekleme odak kaybetmeden çalıştı (B'nin hatası giderildi). Çizme, silme, tutamaçla sürükleme, kalıcılık, balon (ana ekranda rozet; hepsi tamamsa nokta), balona dokununca ana ekranın üstünde liste paneli çalıştı. Çökme yok.
+Geri al şeridi: 6 sn pencerede emülatörün yavaşlığı yüzünden dokunuşlar zamanında ulaşmadı; geçici 30 sn'lik bir derlemede silinen madde geri geldi (kod doğru, 6 sn değeri gerçek cihazda denenmeli).
+API 35 emülatörü: kurulum, açılış, art arda ekleme, ön plan servisi (specialUse) çalıştı, çökme yok. Bu emülatörde sistem çubuğu inset'i sıfır bildirildi ve ekran görüntüleri bozuk/siyah geldi: kenardan kenara düzeni ve panelin Android 15 görünümü doğrulanamadı.
+Lint: 0 hata, 24 uyarı. Birim test: 32/32.
