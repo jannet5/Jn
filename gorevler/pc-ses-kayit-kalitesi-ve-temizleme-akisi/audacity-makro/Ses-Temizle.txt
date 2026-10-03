@@ -1,0 +1,5 @@
+High-passFilter:frequency="80" rolloff="dB12"
+NoiseReduction:
+Compressor:attackMs="30" compressionRatio="3" kneeWidthDb="5" lookaheadMs="1" makeupGainDb="0" releaseMs="150" thresholdDb="-18"
+LoudnessNormalization:DualMono="0" LUFSLevel="-16" NormalizeTo="0" RMSLevel="-20" StereoIndependent="0"
+Limiter:kneeWidthDb="0" lookaheadMs="5" makeupTargetDb="-1.5" releaseMs="20" thresholdDb="-1.5"

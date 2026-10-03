@@ -1,0 +1,16 @@
+{"dosya": "kayit1__0_ham_seviye.wav", "SIG": 1.475, "BAK": 1.204, "OVRL": 1.186, "LUFS": -16.2, "TP": -1.4, "gurultu_tabani_dBFS": -32.012, "STOI": 0.74, "SI_SDR": -8.303, "gecikme_ms": 0.812}
+{"dosya": "kayit1__1_audacity_makro.wav", "SIG": 2.142, "BAK": 2.002, "OVRL": 1.67, "LUFS": -16.7, "TP": -1.4, "gurultu_tabani_dBFS": -43.527, "STOI": 0.733, "SI_SDR": -8.152, "gecikme_ms": 0.75}
+{"dosya": "kayit1__2_betik_klasik.wav", "SIG": 2.174, "BAK": 2.089, "OVRL": 1.713, "LUFS": -15.8, "TP": -1.5, "gurultu_tabani_dBFS": -42.747, "STOI": 0.72, "SI_SDR": -7.985, "gecikme_ms": 30.812}
+{"dosya": "kayit1__3_ffmpeg_rnnoise.wav", "SIG": 2.436, "BAK": 2.289, "OVRL": 1.918, "LUFS": -16.0, "TP": -1.5, "gurultu_tabani_dBFS": -47.545, "STOI": 0.697, "SI_SDR": -8.502, "gecikme_ms": 10.75}
+{"dosya": "kayit1__4_betik_ai_guc18.wav", "SIG": 3.305, "BAK": 2.985, "OVRL": 2.546, "LUFS": -16.0, "TP": -1.5, "gurultu_tabani_dBFS": -43.491, "STOI": 0.76, "SI_SDR": -7.772, "gecikme_ms": 5.812}
+{"dosya": "kayit1__4_betik_ai_guc30.wav", "SIG": 3.333, "BAK": 3.61, "OVRL": 2.848, "LUFS": -16.1, "TP": -1.5, "gurultu_tabani_dBFS": -54.757, "STOI": 0.763, "SI_SDR": -7.746, "gecikme_ms": 5.812}
+{"dosya": "kayit1__4_betik_ai_varsayilan.wav", "SIG": 3.283, "BAK": 3.928, "OVRL": 2.955, "LUFS": -17.2, "TP": -1.4, "gurultu_tabani_dBFS": -85.261, "STOI": 0.773, "SI_SDR": -8.461, "gecikme_ms": 5.812}
+{"dosya": "kayit2__0_ham_seviye.wav", "SIG": 1.199, "BAK": 1.163, "OVRL": 1.085, "LUFS": -15.9, "TP": -1.4, "gurultu_tabani_dBFS": -18.751, "STOI": 0.611, "SI_SDR": -9.226, "gecikme_ms": 0.688}
+{"dosya": "kayit2__1_audacity_makro.wav", "SIG": 1.285, "BAK": 1.245, "OVRL": 1.135, "LUFS": -16.7, "TP": -1.4, "gurultu_tabani_dBFS": -37.474, "STOI": 0.591, "SI_SDR": -9.14, "gecikme_ms": 0.625}
+{"dosya": "kayit2__2_betik_klasik.wav", "SIG": 2.039, "BAK": 1.989, "OVRL": 1.51, "LUFS": -15.7, "TP": -1.5, "gurultu_tabani_dBFS": -36.571, "STOI": 0.591, "SI_SDR": -8.786, "gecikme_ms": 30.688}
+{"dosya": "kayit2__3_ffmpeg_rnnoise.wav", "SIG": 1.325, "BAK": 1.294, "OVRL": 1.155, "LUFS": -16.6, "TP": -1.5, "gurultu_tabani_dBFS": -39.013, "STOI": 0.585, "SI_SDR": -9.203, "gecikme_ms": 10.625}
+{"dosya": "kayit2__4_betik_ai_guc18.wav", "SIG": 2.439, "BAK": 1.984, "OVRL": 1.701, "LUFS": -15.9, "TP": -1.5, "gurultu_tabani_dBFS": -36.945, "STOI": 0.667, "SI_SDR": -8.478, "gecikme_ms": 5.688}
+{"dosya": "kayit2__4_betik_ai_guc30.wav", "SIG": 2.776, "BAK": 2.817, "OVRL": 2.136, "LUFS": -15.9, "TP": -1.5, "gurultu_tabani_dBFS": -47.836, "STOI": 0.676, "SI_SDR": -8.399, "gecikme_ms": 5.688}
+{"dosya": "kayit2__4_betik_ai_varsayilan.wav", "SIG": 2.789, "BAK": 3.812, "OVRL": 2.464, "LUFS": -16.9, "TP": -1.5, "gurultu_tabani_dBFS": -74.178, "STOI": 0.677, "SI_SDR": -8.361, "gecikme_ms": 5.688}
+{"dosya": "kayit1_referans_temiz.wav", "SIG": 3.587, "BAK": 4.023, "OVRL": 3.292, "LUFS": -27.8, "TP": -6.0, "gurultu_tabani_dBFS": -240.0, "STOI": 1.0, "SI_SDR": Infinity, "gecikme_ms": 0.0}
+{"dosya": "kayit2_referans_temiz.wav", "SIG": 3.535, "BAK": 4.017, "OVRL": 3.233, "LUFS": -26.3, "TP": -6.0, "gurultu_tabani_dBFS": -240.0, "STOI": 1.0, "SI_SDR": Infinity, "gecikme_ms": 0.0}
