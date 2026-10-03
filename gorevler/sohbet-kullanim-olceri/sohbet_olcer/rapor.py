@@ -31,6 +31,15 @@ def kisaltilmis(n):
     return sayi(n)
 
 
+def kisa_ad(oturum):
+    """Kimliğin ilk 8 karakteri; çakışan kimliklerde ayırt edici ek korunur."""
+    for ayrac in ("@", "#"):
+        if ayrac in oturum:
+            kok, _, ek = oturum.partition(ayrac)
+            return f"{kok[:8]}{ayrac}{ek}"
+    return oturum[:8]
+
+
 def es_zamanli_oturumlar(ozetler, hedef, bas, bit):
     """Hedef dışındaki, [bas, bit] aralığında isteği olan yerel oturumlar."""
     sonuc = []
@@ -156,7 +165,7 @@ def _fark_paragrafi(ad, fark, v, okuma, ozetler, tz):
     diger = es_zamanli_oturumlar(ozetler, v["oturum"], bas, bit)
     if diger:
         metin += (f" Bu aralıkta bu bilgisayardaki {len(diger)} başka oturum da istek gönderdi "
-                  f"({', '.join(o.oturum[:8] for o in diger)}).")
+                  f"({', '.join(kisa_ad(o.oturum) for o in diger)}).")
     else:
         metin += " Bu aralıkta bu bilgisayarda başka oturum görünmüyor."
     metin += (" Başka cihazlardan, claude.ai web/mobil sohbetlerinden yapılan kullanım "
