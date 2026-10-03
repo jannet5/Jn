@@ -1,0 +1,4 @@
+2026-10-02 22:40:00.000   300   300 I boot_progress_start: 9000
+2026-10-02 22:44:40.000   553   609 I watchdog: Blocked in handler on main thread (main)
+2026-10-02 22:45:30.000  1497  1497 I boot_progress_start: 9100
+2026-10-02 22:45:31.000  1497  1497 I am_proc_start: [0,1,1,com.ornek.masum,activity]

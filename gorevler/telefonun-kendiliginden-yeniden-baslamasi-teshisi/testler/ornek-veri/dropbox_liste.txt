@@ -1,5 +1,6 @@
-Drop box contents: 5 entries
+Drop box contents: 6 entries
 Max entries: 1000
+2026-09-01 08:00:00 system_server_crash (text, 900 bytes)
 2026-10-02 22:45:12 data_app_crash (text, 2210 bytes)
 2026-10-02 22:45:13 system_server_crash (text, 5123 bytes)
 2026-10-02 22:45:20 SYSTEM_RESTART (text, 410 bytes)

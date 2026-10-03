@@ -5,3 +5,4 @@ Current Battery Service state:
   health: 2
   voltage: 3912
   temperature: 312
+  technology: Li-ion

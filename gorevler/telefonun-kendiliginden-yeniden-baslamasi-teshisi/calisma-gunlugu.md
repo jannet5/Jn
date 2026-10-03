@@ -91,3 +91,24 @@ Kullanıcıdan gereken gerçek girdi: telefon bağlıyken `python reboot_teshis.
   SHA-256 `676ae807def84d032bcbd7c8bf5d18fb64a27585d1d648e43210bb4d1ff2ce74` — `sha256sum -c` OK; ZIP açılıp testler çalıştırıldı → OK.
   (ZIP bu bölüm eklenmeden önceki `86e3d94` içeriğinden üretildi.)
 - Emülatör iş bitince kapatıldı.
+
+## 9. Bağımsız statik inceleme (commit 47d21f1) ve sürüm 2 düzeltmeleri
+İncelemenin bulguları ve yapılan değişiklik:
+| Bulgu | Düzeltme |
+|---|---|
+| Tam getprop, tüm logcat tamponları, ham dropbox içeriği, tam `pm list`, exception/Subject metni ham kişisel içerik topluyordu; maskesiz rapor paylaşıma hazır değildi | 10 izinli getprop anahtarı; logcat/dropbox bellekte süzülür, ham hali diske yazılmaz (`--ham-sakla` yalnız yerel, paylaşıma girmez); istisna/Subject/sinyal metinleri maskelenir; varsayılan 7 günlük zaman penceresi; paylaşımda 3. taraf paketler takma ad; yalnız ilgili (pencerede/yan yüklenen) uygulamalar listelenir |
+| Redaksiyonun geri-okuma kontrolü yoktu | Paylaşım dosyaları diskten ve ZIP'ten geri okunup e-posta/URI/IP/MAC/telefon-IMEI/kullanıcı yolu/yapı parmak izi/seri/gerçek paket adı/maskelenmemiş noktalı ad için taranır; bulgu → paket silinir, çıkış 4; ayrıca `denetle` komutu |
+| "Paket adı görüldü → YÜKSEK tetikleme olasılığı" yanlış nedensellikti | "YÜKSEK" kaldırıldı; hipotez listesi + kanıt düzeyi; ilk hata/olay zamanı/Güvenli Mod karşılaştırmasından biri eksikse "belirsiz hipotez" |
+| Güvenli Mod sonucu kesin gibi; "reset sonrası donanım neredeyse kesin" | Güvenli Mod "olası"; reset sonrası "sistem yazılımı/firmware/sürücü ile donanım hâlâ ayrılmamış" (kılavuz + rapor + test) |
+| adb exit code/timeout/izin bilgisi kayboluyordu; verilen seri hazır listede değilken ilerleyebiliyordu; eksik veri "kayıt yok" gibi okunuyordu | `AdbSonuc` (çıkış kodu, zaman aşımı, izin, servis yok, süre) → `toplama`; `adb devices -l` ayrıştırma + seri doğrulama; "Veri tamlığı" tablosu ve "eksik veri ≠ arıza yok" |
+| Testler anlamlı değildi | 21 test: masum paket adı, PII maskeleme/denetim, sızıntı enjekte edilince paket üretilmemesi, izin (255), zaman aşımı, seri yok/unauthorized/boş/çoklu, zaman penceresi, ham yazılmaması, `--goster`, Güvenli Mod dili |
+
+Kendi gözden geçirmemde ayrıca düzeltilenler: grep boş eşleşmeyi (çıkış 1) hata sanma → süzme Python'da; çökme metnindeki `SecurityException` izin hatası sanılmasın → izin tespiti stderr + ilk 3 satır; cihazın yerel saati pencere için esas; `system_server_wtf/anr` çökme sayılmasın (eski emülatör kaydında 85 → 4).
+
+Komutlar ve sonuçlar:
+- `python3 testler/test_reboot_teshis.py` → 21 test OK (Python 3.10, 3.11, 3.13).
+- `adb devices -l` (platform-tools 37.0.1) → **boş liste**: fiziksel kullanıcı telefonu bağlı görünmüyor. Emülatör kapalı ve kullanıcının kabulü sayılmadı.
+- Eski emülatör ham kayıtları cihaza dokunmadan `reboot_teshis.py isle` ile yeniden işlendi → `kabul/emulator-*-paylasim.md`; üçü de `denetle` → DENETİM TEMİZ. Eski maskesiz `kabul/*-rapor.md` dosyaları depodan kaldırıldı.
+- Bu turda root, reset, cihaz yeniden başlatma, uygulama kaldırma yapılmadı.
+
+Kalan gerçek girdi: kullanıcının telefonundan `paylasim.zip` ve Güvenli Mod sonucu.

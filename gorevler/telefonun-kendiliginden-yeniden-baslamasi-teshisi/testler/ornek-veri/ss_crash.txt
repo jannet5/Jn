@@ -1,6 +1,13 @@
-Drop box contents: 1 entries
+Drop box contents: 2 entries
+========================================
+2026-09-01 08:00:00 system_server_crash (text, 900 bytes)
+Process: system_server
+java.lang.RuntimeException: ESKI-PENCERE-DISI olay
 ========================================
 2026-10-02 22:45:13 system_server_crash (text, 5123 bytes)
 Process: system_server
-Package: com.ornek.benimuygulamam v3 (0.3-debug)
-java.lang.SecurityException: sentetik örnek
+Package: com.ornek.masum v51 (5.1)
+Build: sentetik/test/test:14/TEST/1:user/release-keys
+
+java.lang.IllegalArgumentException: kullanici ali.veli@example.com tel +90 555 123 45 67 dosya /storage/emulated/0/DCIM/IMG_0001.jpg sunucu 192.168.1.20 imei=356938035643809 seri SENTETIK0001 aid a1b2c3d4e5f60718 cagiran com.ornek.masum.ui.MainActivity
+	at com.ornek.masum.Foo.bar(Foo.java:10)

@@ -8,8 +8,13 @@ uygulama ürünü yapmamak (yalnız salt-okunur teşhis aracı + kılavuz).
 HEDEF ─► BAĞIMLILIKLAR ─► A/B/C YOLLARI ─► UYGULAMA ─► TEST ─► KALICI TESLİM
   │           │                 │               │           │          │
   │   adb + USB hata ayıklama   │        arac/reboot_teshis.py│    dal push +
-  │   telefonun kendisi         │        teshis-kilavuzu.md   │    özel ZIP+SHA-256
-  │   (cloud'da YOK → engel)    │                             │
+  │   telefonun kendisi         │        teshis-kilavuzu.md   │    temiz ürün ZIP+SHA-256
+  │   (cloud'da YOK → engel;    │        GİZLİLİK KATMANI:    │    (kaynak/ham kayıt yok)
+  │    adb devices -l boş)      │        izin listesi → zaman │
+  │                             │        penceresi → maskele →│
+  │                             │        takma ad → geri-okuma│
+  │                             │        denetimi → paylasim. │
+  │                             │        zip + SHA            │
   │                             ├─ A: adb kayıt toplama + otomatik analiz (SEÇİLDİ)
   │                             ├─ B: adb bugreport zip + elle inceleme (yedek yol)
   │                             └─ C: kablosuz/ADB'siz: Güvenli Mod + eleme (her durumda)
@@ -28,8 +33,8 @@ HEDEF ─► BAĞIMLILIKLAR ─► A/B/C YOLLARI ─► UYGULAMA ─► TEST ─
 ## 2. Yollar
 | Yol | Ne | Artı | Eksi | Karar |
 |---|---|---|---|---|
-| **A** | `reboot_teshis.py hepsi` → getprop boot reason, dumpsys dropbox, logcat (crash, -L önceki açılış), pil/ısı, depolama, 3. taraf paket kurulum/güncelleme zamanları → `rapor.md` | Tek komut, zaman eşleştirmesi otomatik, root gerekmez, telefonu değiştirmez | Python + adb gerekir; üretici bazı kayıtları kısıtlayabilir | **Seçildi** (kabul K1+K2'yi doğrudan üretir) |
-| **B** | `adb bugreport` (resmî) | Her şeyi içerir, Python gerekmez | 50–300 MB, elle okumak zor | A çalışmazsa yedek; kılavuzda grep komutları var |
+| **A** | `reboot_teshis.py hepsi` → izinli getprop anahtarları, dropbox olay listesi + çökme özetleri, süzülmüş logcat (crash, events, -L), pil/ısı, depolama, 3. taraf paket kurulum zamanları → `rapor-yerel.md` + maskelenmiş `paylasim.zip` | Tek komut, zaman eşleştirmesi otomatik, root gerekmez, telefonu değiştirmez, ham veri diske yazılmaz | Python 3.10+ ve adb gerekir; üretici bazı kayıtları kısıtlayabilir (raporda "veri tamlığı" olarak görünür) | **Seçildi** |
+| **B** | Elle adb komutları / `adb bugreport` (resmî) | Python gerekmez | Maskesiz; bugreport 50–300 MB ve çok kişisel veri içerir → paylaşılmamalı | A çalışmazsa yalnız yerel inceleme için yedek |
 | **C** | Güvenli Mod + son uygulamaları eleme (Google/Samsung resmî) | Bilgisayar gerekmez, kesin ayırt edici test | Yavaş (gözlem süresi gerekir), log vermez | Her durumda A/B'den sonra yapılır (K2, K3) |
 
 Neden A: araştırmada hazır karşılaştırılan seçenekler — Android Studio Logcat
@@ -39,22 +44,37 @@ sınıflamaz), üçüncü taraf “reboot log” uygulamaları (çoğu root iste
 yetkisi yok). Hiçbiri “yeni kurulan uygulama ↔ yeniden başlama anı”
 eşleştirmesini yapmıyor; bu yüzden ince bir salt-okunur betik yazıldı.
 
-## 3. Uygulama → test → teslim zinciri
+## 3. Gizlilik ve karar ilkeleri (bağımsız statik inceleme sonrası, sürüm 2)
+| İlke | Uygulama | Test |
+|---|---|---|
+| Ham içerik paylaşıma girmez | Tam getprop yok (10 izinli anahtar); logcat/dropbox bellekte süzülür; `--ham-sakla` yoksa ham dosya yazılmaz; ZIP yalnız `paylasim/` | `test_basarili_ve_ham_yazilmaz`, `test_ham_sakla_paylasima_girmez` |
+| Zaman sınırı | Varsayılan son 7 gün (cihazın yerel saatine göre) | `test_zaman_penceresi` |
+| Maskeleme + takma ad | e-posta, telefon/IMEI, IP, MAC, URI, kullanıcı yolları, `alan=değer`, seri ve android_id; 3. taraf paketler `uyg-xxxxxxxx` | `test_maskele_*`, `test_paylasimda_pii_ve_gercek_paket_yok` |
+| Geri-okuma denetimi | Paylaşım dosyaları diskten ve ZIP'ten geri okunup taranır; bulgu → paket silinir, çıkış 4 | `test_maskeleme_bozulursa_paket_uretilmez`, `test_denetle_komutu` |
+| Yapısal adb sonucu | Her komut: çıkış kodu, zaman aşımı, izin, servis yok, süre → `toplama` | `test_izin_hatasi_*`, `test_zaman_asimi_*` |
+| Seri güvenliği | `adb devices -l` ayrıştırılır; verilen seri listede/hazır değilse ilerlenmez | `test_cihaz_sec`, `test_cli_seri_listede_yoksa_ilerlemez` |
+| Eksik veri ≠ arıza yok | "Veri tamlığı" tablosu; ilgili bölümler "toplanamadı" der | `test_izin_hatasi_*` |
+| Paket adı ≠ neden | Hipotez dili; ilk hata/olay zamanı/Güvenli Mod biri eksikse "belirsiz hipotez" | `test_masum_paket_adi_neden_ilan_edilmez` |
+| Güvenli Mod ve reset = olasılık | Güvenli Mod sonucu "olası"; reset sonrası firmware/sürücü/sistem ile donanım ayrı | `test_guvenli_mod_olasilik_dili` |
+
+## 4. Uygulama → test → teslim zinciri
 1. `arac/reboot_teshis.py` (topla/analiz/hepsi) — salt-okunur adb komutları.
 2. `testler/test_reboot_teshis.py` — sentetik fikstür + sahte adb ile birim ve uçtan uca test.
-3. Gerçek Android (yazılım-modu emülatör, API 30) üzerinde aracı gerçek `adb` ile çalıştırma; gerçek `reboot,adb` ve gerçek `system_server` yeniden başlaması üretip raporun bunları doğru sınıfladığını görme → `kabul/`.
-4. Kullanıcının telefonunda çalıştırma — **yapılamadı (cihaz yok)**; komut kılavuzda.
-5. Dal push + geri okuma; kaynak metni içermeyen özel ZIP + SHA-256 geri okuma.
+3. Araç doğrulaması (kullanıcı kabulü DEĞİL): yazılım-modu emülatör (API 30) üzerinde sürüm 1 ile alınan ham kayıtlar, sürüm 2 `isle` ile cihaza dokunmadan yeniden işlendi → `kabul/` (yalnız maskelenmiş paylaşım raporları).
+4. Kullanıcının telefonunda çalıştırma — **yapılamadı**: bu ortamda `adb devices -l` boş; komut kılavuzda.
+5. Dal push + geri okuma; yalnız ürün köklü temiz ZIP (kaynak sohbeti, ham kayıt, `__pycache__` yok) + tam SHA-256 + açıp test.
 
-## 4. Kırılma noktaları ve alternatif
+## 5. Kırılma noktaları ve alternatif
 | Kırılma | Alternatif |
 |---|---|
 | `adb devices` → `unauthorized` | Telefonda RSA iznini onayla; olmazsa “USB hata ayıklama yetkilerini iptal et” → yeniden bağla |
 | Python yok | Yol B: `adb bugreport` + kılavuzdaki aramalar |
-| `dumpsys dropbox` boş | Üretici kısıtı/temizlenmiş; bir sonraki kapanmadan hemen sonra tekrar topla; Yol C |
+| `dumpsys dropbox` boş / izin yok / zaman aşımı | Rapor "veri tamlığı"nda gösterir (arıza yok sayılmaz); bir sonraki kapanmadan hemen sonra tekrar topla; Yol C |
+| Paylaşım denetimi bulgu verir (çıkış 4) | Paylaşım paketi üretilmez; yalnız yerel rapor kullanılır; bulgu kategorisi bildirilir |
+| Verilen seri listede yok/unauthorized | Araç ilerlemez; `adb devices -l` ile doğru seriyi seç, telefonda izni onayla |
 | Telefon bilgisayar bağlıyken açık kalmıyor (bootloop) | Yol C: Güvenli Mod / kurtarma modundan önbellek temizleme; servis |
 
-## 5. Referanslar (tam bağlantılar)
+## 6. Referanslar (tam bağlantılar)
 - AOSP Canonical boot reason: https://source.android.com/docs/core/architecture/bootloader/boot-reason
 - Android logcat aracı: https://developer.android.com/tools/logcat
 - Android hata raporu (bugreport): https://developer.android.com/studio/debug/bug-report

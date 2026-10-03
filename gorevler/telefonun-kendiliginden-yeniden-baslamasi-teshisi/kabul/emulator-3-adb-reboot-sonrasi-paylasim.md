@@ -1,0 +1,110 @@
+# Yeniden başlama teşhis raporu — PAYLAŞIM SÜRÜMÜ (maskelenmiş)
+
+Bu sürümde serbest metin maskelenmiş, üçüncü taraf paket adları takma adla (`uyg-xxxxxxxx`) gösterilmiştir. Ham kayıt içermez.
+
+Cihaz saati: 2026-10-03 12:28:38 · Zaman penceresi: son 7 gün
+
+## 1. Cihaz
+
+- Model: Google sdk_gphone_x86_64
+- Android: 11 (SDK 30), güvenlik yaması 2021-08-05
+
+## 2. Son açılış nedeni (AOSP canonical boot reason)
+
+- `sys.boot.reason` = `reboot,shell` → **Kullanıcı/komut/OTA kaynaklı planlı yeniden başlatma**
+- `ro.boot.bootreason` = `reboot,shell`
+- önceki/kalıcı = `reboot,shell`
+
+## 3. Veri tamlığı
+
+Toplama durumu bilinmiyor (ham klasörden yeniden işlendi).
+
+- Olay zamanı: var · İlk hata zamanı: 2026-10-03 11:51:34 · Güvenli Mod karşılaştırması: YOK
+
+## 4. Hipotezler — kanıt düzeyi: **belirsiz hipotez (ilk hata, olay zamanı veya Güvenli Mod karşılaştırmasından en az biri eksik)**
+
+**H1. Android sistem yazılımı tarafında yumuşak yeniden başlama**
+- destek: 4 system_server çökme/watchdog kaydı
+- destek: 2 ek çerçeve başlangıcı (boot_progress_start)
+- destek: crash tamponunda 17 'sistem öldü' satırı
+- not: Tetikleyici bir uygulama, sistem bileşeni, düşük bellek/depolama veya donanım kaynaklı takılma olabilir; çökme metninin ilk istisnası ipucudur, kanıt değildir.
+
+**H2. Üçüncü taraf bir uygulamanın tetiklemesi**
+- destek: yeniden başlamadan önceki pencerede kurulan/güncellenen yan yüklenmiş: `uyg-09cb95d4`
+- not: Paket adının çökme metninde görünmesi veya kurulum zamanının yakınlığı nedensellik değildir (o an ön planda olan ya da etkilenen masum uygulama da görünür). Doğrulama: Güvenli Mod karşılaştırması ve tek tek kaldırarak eleme.
+
+Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
+
+## 5. Olay zaman çizelgesi
+
+| Zaman | Kaynak | Olay |
+|---|---|---|
+| 2026-10-03 11:51:34 | dropbox | system_server_watchdog |
+| 2026-10-03 11:57:49 | dropbox | system_server_watchdog |
+| 2026-10-03 12:14:56 | dropbox | system_server_anr |
+| 2026-10-03 12:16:57 | events | boot_progress_start |
+| 2026-10-03 12:21:03 | dropbox | system_server_crash |
+| 2026-10-03 12:21:12 | events | boot_progress_start |
+| 2026-10-03 12:26:14 | events | watchdog |
+| 2026-10-03 12:27:02 | dropbox | system_server_watchdog |
+| 2026-10-03 12:27:16 | events | boot_progress_start |
+
+### İlk istisna / konu ipuçları (maskelenmiş)
+
+| İpucu | Sayı |
+|---|---|
+| `system_server_crash: java.lang.IllegalStateException: Lost network stack` | 1 |
+| `system_server_watchdog: Blocked in handler on main thread (main)` | 1 |
+| `system_server_watchdog: Blocked in handler on ui thread (android.ui)` | 1 |
+| `system_server_watchdog: Blocked in monitor com.android.server.StorageManagerService on foreground thread (android.fg)` | 1 |
+| `watchdog: Blocked in monitor com.android.server.StorageManagerService on foreground thread (android.fg)` | 1 |
+
+### crash tamponunda çöken süreçler
+
+| Süreç | Sayı |
+|---|---|
+| `com.android.phone` | 2 |
+| `com.android.systemui` | 2 |
+| `com.android.bluetooth` | 2 |
+| `com.android.networkstack.process` | 1 |
+| `com.android.ims.rcsservice` | 1 |
+| `com.google.android.deskclock` | 1 |
+| `com.google.android.apps.nexuslauncher` | 1 |
+| `com.google.android.gms` | 1 |
+| `com.google.android.providers.media.module` | 1 |
+| `com.google.android.inputmethod.latin` | 1 |
+| `com.google.android.googlequicksearchbox:interactor` | 1 |
+
+## 6. Yeniden başlama anları ↔ önceki 72 saatte kurulan/güncellenen uygulamalar
+
+| An | Öncesindeki kurulum/güncellemeler |
+|---|---|
+| 2026-10-03 11:51:34 | — |
+| 2026-10-03 11:57:49 | — |
+| 2026-10-03 12:21:03 | `uyg-09cb95d4` |
+| 2026-10-03 12:21:12 | `uyg-09cb95d4` |
+| 2026-10-03 12:27:02 | `uyg-09cb95d4` |
+| 2026-10-03 12:27:16 | `uyg-09cb95d4` |
+
+Zamansal yakınlık nedensellik değildir.
+
+## 7. İlgili üçüncü taraf uygulamalar (pencerede kurulan/güncellenen veya yan yüklenen; 0 diğer uygulama listelenmedi)
+
+| Paket | Kaynak | İlk kurulum | Son güncelleme |
+|---|---|---|---|
+| `uyg-09cb95d4` | yan yükleme/adb | 2026-10-03 12:06:49 | 2026-10-03 12:06:49 |
+
+## 8. Pil, ısı, depolama
+
+- Sağlık: iyi; seviye %100; sıcaklık 25.0 °C; gerilim 5000 mV (Android'in bildirdiği değer; kapasite/şişme ölçümü değildir)
+- Termal durum kodu: 0
+- /data doluluk: %2
+- Önceki açılış logu (`logcat -L`): yok/desteklenmiyor
+
+## 9. Sonraki güvenli test sırası
+
+1. Telefon bir sonraki kendiliğinden kapanıp açıldığında **hemen** aracı tekrar çalıştırın (kayıtlar halka tampondadır).
+2. Güvenli Mod'da en az normalde kapandığı kadar kullanın; sonucu `--guvenli-mod kapanmadi|kapandi` ile verin. Sonuç **olasılık** bildirir, kesinlik değil.
+3. Güvenli Mod'da kapanmıyorsa: yan yüklenen/son güncellenen uygulamaları birer birer kaldırıp her birinden sonra gözleyin.
+4. Güvenli Mod'da da kapanıyorsa: resmi sistem güncellemelerini kurun; şarjda/pilde, soğuk/sıcak, kılıfsız durumu karşılaştırın; kabarma varsa şarj etmeyin, servise götürün.
+5. Yedek alıp fabrika ayarından sonra uygulama kurmadan da sürerse: üçüncü taraf uygulamalar büyük ölçüde elenir; **sistem yazılımı/firmware/sürücü ile donanım hâlâ ayrılmamıştır** (fabrika ayarı firmware'i değiştirmez). Ayrım için servis: resmi firmware'in yeniden yüklenmesi ve donanım testi (pil ölçümü vb.).
