@@ -1,8 +1,8 @@
 # Checkpoint ve devam komutu
 
-Durum (2026-10-03): Araştırma, rapor, harita, betik ve testler tamamlandı ve `claude/wizardly-bohr-coy8w8` dalına push edildi. Özel ZIP teslimi bulut oturumunun scratchpad dizininde.
+Durum (2026-10-03, ikinci tur): Bağımsız incelemenin istediği düzeltmeler yapıldı. Betik artık önbellek konumunu kanıta dayanarak belirliyor ve klasörü sınırlı tarıyor; 34 testin hepsi geçiyor. Shadow ve Windows 365 fiyatları canlı sayfalardan yeniden doğrulandı. Değişiklikler `claude/wizardly-bohr-coy8w8` dalına push edildi. Ürün klasöründen oluşan ZIP ve SHA-256 değeri özel scratchpad'de.
 
-Açık kalan tek madde: Betiğin gerçek Windows'ta çalıştırılması (T5). Bu adımı kullanıcı yapmalı.
+Açık kalan maddeler (yapılmış sayılmaz): Betiğin gerçek bir Windows bilgisayarda, kurulu Drive for desktop ile çalıştırılması (T5). Hesap açma, ödeme ve gecikme ölçümü de yapılmadı. Bu adımları kullanıcının kendisi yapmalı.
 
 Oturum kesilirse yeni bir Claude Code oturumunda şunu yaz:
 

@@ -8,24 +8,24 @@
       "Etiket": "Windows",
       "DosyaSistemi": "NTFS",
       "Tur": 3,
-      "BoyutBayt": 511101108224,
-      "BosBayt": 200000000000
+      "BoyutBayt": 512110190592,
+      "BosBayt": 107374182400
     },
     {
       "Harf": "D:",
       "Etiket": "Veri",
       "DosyaSistemi": "NTFS",
       "Tur": 3,
-      "BoyutBayt": 1000202039296,
-      "BosBayt": 600000000000
+      "BoyutBayt": 512110190592,
+      "BosBayt": 322122547200
     },
     {
       "Harf": "G:",
       "Etiket": "Google Drive",
       "DosyaSistemi": "(sanal)",
       "Tur": 3,
-      "BoyutBayt": 16106127360,
-      "BosBayt": 15032385536
+      "BoyutBayt": 512110190592,
+      "BosBayt": 322122547200
     }
   ],
   "DriveFsAyar": {
@@ -35,17 +35,5 @@
     "MountKaynak": null,
     "OkumaHatalari": []
   },
-  "OnbellekOlcum": {
-    "Yol": "C:\\Users\\ornek\\AppData\\Local\\Google\\DriveFS",
-    "Durum": "Yok",
-    "KesmeNedeni": [],
-    "ToplamBayt": 0,
-    "DosyaSayisi": 0,
-    "OgeSayisi": 0,
-    "ErisimHatasi": 0,
-    "HataOrnekleri": [],
-    "AtlananBaglanti": 0,
-    "MaxOge": 200000,
-    "MaxSaniye": 20
-  }
+  "OnbellekOlcum": null
 }

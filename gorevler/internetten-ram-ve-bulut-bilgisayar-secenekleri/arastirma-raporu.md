@@ -29,27 +29,34 @@ Erişim tarihi: 2026-10-03. Kanıt düzeyi etiketleri: **[Resmi]** üretici belg
 
 ### Ücret karşılaştırması
 
-| Hizmet | Plan / fiyat (aylık) | Donanım | Kanıt |
-|---|---|---|---|
-| Windows 365 Business | $36.00 | 2 vCPU, 8 GB RAM, 128 GB | [Resmi] https://www.microsoft.com/en-us/windows-365/business/compare-plans-pricing |
-| | $56.00 | 4 vCPU, 16 GB RAM, 128 GB | aynı |
-| | $108.80 | 8 vCPU, 32 GB RAM, 256 GB | aynı (30 gün ücretsiz deneme; en fazla 300 kullanıcı) |
-| Shadow PC Lite | $29.99 | ayda 120 saat, oturum başına 4 saat, 256 GB | [Resmi] https://shadow.tech/us/shadowpc/offers/ |
-| Shadow PC | $37.99 | ayda 210 saat, oturum başına 6 saat, 512 GB | aynı |
-| Shadow PC Pro | $54.99 | ayda 210 saat, Always On, 8 saat | aynı |
-| Shadow Power Lite | $43.99 | 28 GB RAM / 20 GB VRAM, ayda 120 saat | aynı |
-| Shadow Power Pro | $59.99 | 28 GB RAM / 20 GB VRAM, ayda 210 saat | aynı (taahhüt yok) |
-| Amazon WorkSpaces Personal | Standard paketi $44 + RDS SAL lisansı $4.19/kullanıcı | 175 GB kök + 100 GB kullanıcı alanı | [Resmi] https://aws.amazon.com/workspaces-family/workspaces/pricing/ (bölgeye göre değişir; AlwaysOn aylık / AutoStop saatlik) |
-| Azure sanal makine (B2s) | ≈ $0.0416/saat Linux (≈ $30/ay sürekli açık); Windows lisansla daha pahalı | 2 vCPU, 4 GB | [Üçüncü taraf] https://www.azurespeed.com/AzureVmPricing/Standard_B2s |
-| Kendi diğer PC'n | Ücretsiz | o PC'nin donanımı | [Resmi] Chrome Uzak Masaüstü https://remotedesktop.google.com/ · Windows App "Remote PC" |
+Ortak koşullar: Fiyatlar 2026-10-03 tarihinde resmi ABD sayfalarından okundu. Hepsi USD ve vergi hariç; sayfalarda KDV ya da vergi oranı yazmıyor. Satın alma yapılmadı.
 
-**Not:** Üçüncü taraf bir abonelik sitesi Shadow için "Neo Lite / Neo" gibi farklı plan adları listeliyordu. Bu raporda yalnızca Shadow'un kendi teklif sayfasındaki adlar kullanıldı.
+| Hizmet / paket | Aylık | Saat sınırı / oturum | Donanım | Ülke/sayfa | Kaynak |
+|---|---|---|---|---|---|
+| Shadow **Neo Lite** | $29.99 | 120 saat/ay, oturum başına 4 saat | 256 GB, 1440p | ABD sayfası | [Resmi] https://shadow.tech/us/shadowpc/offers/ |
+| Shadow **Power Lite** | $43.99 | 120 saat/ay, oturum başına 4 saat | 28 GB RAM / 20 GB VRAM, 256 GB | aynı | aynı |
+| Shadow **Neo** | $37.99 | sınırsız (adil kullanım), oturum başına 6 saat | 512 GB | aynı | aynı |
+| Shadow **Power** | $54.99 | sınırsız (adil kullanım), oturum başına 6 saat | 28 GB RAM / 20 GB VRAM, 512 GB | aynı | aynı |
+| Shadow **Neo Pro** (profesyonel) | $44.99 | sınırsız (adil kullanım), oturum başına 8 saat | 28 GB RAM / 20 GB VRAM*, 256 + 512 GB | aynı | aynı |
+| Shadow **Power Pro** (profesyonel) | $59.99 | sınırsız (adil kullanım), oturum başına 8 saat | 28 GB RAM / 20 GB VRAM, 256 + 512 GB | aynı | aynı (tüm Shadow paketleri taahhütsüz) |
+| Windows 365 Business 2 vCPU/8 GB/128 GB | $36.00 /kullanıcı | — | | ABD sayfası | [Resmi] https://www.microsoft.com/en-us/windows-365/business/compare-plans-pricing |
+| Windows 365 Business 4 vCPU/16 GB/128 GB | $56.00 /kullanıcı | — | | aynı | aynı |
+| Windows 365 Business 8 vCPU/32 GB/256 GB | $108.80 /kullanıcı | — | | aynı | aynı |
+| Amazon WorkSpaces Personal, Standard | $44 + RDS SAL $4.19/kullanıcı | AlwaysOn aylık; AutoStop saatlik | 175 GB kök + 100 GB kullanıcı alanı | bölgeye göre | [Resmi] https://aws.amazon.com/workspaces-family/workspaces/pricing/ |
+| Azure sanal makine B2s | ≈ $0.0416/saat (Linux) | saat başı | 2 vCPU, 4 GB | bölgeye göre | [Üçüncü taraf] https://www.azurespeed.com/AzureVmPricing/Standard_B2s |
+| Kendi diğer PC'n | ücretsiz | — | o PC'nin donanımı | — | [Resmi] https://remotedesktop.google.com/ |
+
+\* Neo Pro için 28 GB RAM değeri, sayfanın aynı gün WebFetch ile okunan özetinden alındı.
+
+**Windows 365 deneme ve fatura şartları** (aynı resmi sayfadan, alıntı): Paketler "Monthly subscription—auto renews", yani aylık ve otomatik yenileniyor. Deneme yalnızca 2vCPU/8GB/128GB paketi için ve "free for up to 30 days". Şartlar: **"A credit card is required"**, **"After your free trial, you will be charged the applicable subscription fee"**, "Cancel any time to stop future charges", "Only one Trial Period per version". Kısacası kart bilgisi veriliyor, iptal edilmezse deneme bitince ücret otomatik çekiliyor.
+
+**Düzeltme kaydı:** Bu raporun ilk sürümünde (commit b73c85b) Shadow paketleri "Shadow PC Lite / Shadow PC / Shadow PC Pro" adlarıyla, 210 saat sınırıyla ve "Pro $54.99" olarak yazılmıştı. Bu bilgi, sayfanın hatalı özetlenmesinden geldi. 2026-10-03'te resmi teklif sayfası canlı olarak yeniden okundu. Doğru adlar ve fiyatlar şöyle: Neo Lite $29.99, Neo $37.99, Power Lite $43.99, Power $54.99, Neo Pro $44.99, Power Pro $59.99. Neo, Power ve Pro paketlerinde saat sınırı yok, adil kullanım politikası uygulanıyor. Üçüncü taraf bir sitenin verdiği Neo/Power adları da böylece doğrulanmış oldu.
 
 [Topluluk/İnceleme] Kullanıcı deneyimleri genelde aynı şeyi söylüyor: ham indirme hızından çok **gecikme ve bağlantı istikrarı** önemli. Kablolu bağlantı öneriliyor. Rekabetçi ve hızlı oyunlarda gecikme hissedilebiliyor. https://www.techradar.com/reviews/shadow-remote-pc-review
 
 ### A/B/C seçimi (kullanıcı için)
-- **A — Shadow PC Lite (önerilen ilk deneme):** Bireysel kullanıcı için en kolay seçenek; taahhüt yok, her cihazdan bağlanılır. Risk: Türkiye desteklenen bölge değil, gecikmeyi kendi bağlantında ölçmen gerekiyor.
-- **B — Windows 365 Business:** Microsoft'un resmi bulut PC'si, 30 gün deneme var. Risk: iş (Entra) hesabı gerektirir, oyun ve GPU için uygun değil.
+- **A — Shadow Neo Lite (önerilen ilk deneme):** Taahhüt yok, her cihazdan bağlanılır. İki ayrı risk var: (1) **Ülke uygunluğu.** Türkiye resmi listede yok. Abone olmak "teknik olarak mümkün" ama kalite garanti edilmiyor, ve Türkiye'den hesap açma ya da ödeme kabulü denenmedi. (2) **Gecikme.** Ölçülmedi; ancak bir deneme aboneliğiyle görülebilir.
+- **B — Windows 365 Business:** Microsoft'un resmi bulut PC'si. 30 günlük deneme kredi kartı istiyor ve sonunda otomatik ücretlendiriyor. Ayrıca iş (Entra) hesabı gerekiyor. Oyun ve GPU işleri için uygun değil.
 - **C — Fiziksel RAM yükseltmesi ya da kendi diğer PC'ye uzak masaüstü:** Aylık ücret yok, gecikme sorunu yok. Risk: boş yuva veya ikinci bir PC gerekir.
 
 ## Kabul ölçütü 3 — Drive depolaması bellek değildir; "C: ile aynı ve dolu" görünmesi
@@ -63,11 +70,21 @@ Erişim tarihi: 2026-10-03. Kanıt düzeyi etiketleri: **[Resmi]** üretici belg
 | Sanal dosya sistemi sürücüleri, verinin durduğu yerel diskin kapasitesini gösterir. | [Topluluk] Cryptomator/Dokany: "If your vault is located on drive X:, then you can only use the amount of free storage of X:" https://community.cryptomator.org/t/dokany-shows-capacity-free-storage-of-c-drive/5106 |
 | Kullanıcılar G: sürücüsünün C: ile aynı ya da "yanlış" boyutta göründüğünü bildiriyor. | [Topluluk] https://www.elevenforum.com/t/google-drive-app-shows-incorrect-size.26856/ |
 
-**Sonuç:** G: sürücüsündeki "dolu" kısım, C:'nin dolu kısmıdır. Gerçek Drive kotası https://one.google.com/storage adresinde görünür. Drive bir depolama alanıdır, RAM değildir.
+**Sonuç (genel, kaynaklı):** Drive for desktop'un gösterdiği yerel alan değeri Google hesabının kotası değildir; gerçek kota https://one.google.com/storage adresinden görülür. Drive bir depolama alanıdır, RAM değildir.
 
-**Kanıt çıktısı:** `araclar/ram-drive-tani.ps1`, G: ile başka bir yerel diskin toplam boyutu %1'den az farklıysa `DRIVE_YANSITMA` bulgusunu üretir ve her durumda `DRIVE_BELLEK_DEGIL` uyarısını yazar. Örnek veriyle çalıştırılmış çıktı `calisma-gunlugu.md` dosyasında.
+**Sonuç (kişisel teşhis için):** Kullanıcının Drive sürücüsünün C: ile ilişkisi **ölçülmedi**. "G:'deki dolu kısım C:'nin dolu kısmıdır" ifadesi kullanıcının bilgisayarı için yalnızca bir **olasılıktır**. Bu ilişki iki koşul birlikte sağlanırsa doğrulanmış sayılır: Drive'ın önbellek konumu kanıtla bilinmeli (Google'ın belgelediği `ContentCachePath` kayıt defteri değeri ya da uygulamanın Gelişmiş ayarlar ekranı) ve Drive sürücüsünün kapasitesi o diskin kapasitesiyle eşleşmeli.
+
+[Resmi] Drive for desktop yapılandırmayı şu kayıt defteri anahtarlarından okur: `HKLM\Software\Google\DriveFS`, `HKCU\Software\Google\DriveFS`, ve öncelikli olarak `HKLM\Software\Policies\Google\DriveFS`. `ContentCachePath` için varsayılan `%LOCALAPPDATA%\Google\DriveFS`, `DefaultMountPoint` ise sürücü harfini ya da yolu belirtir. https://knowledge.workspace.google.com/admin/drive/advanced-drive-for-desktop-configuration . Kullanıcı ayarı uygulama ekranından değiştirdiyse kayıt defterinde değer bulunmayabilir. Araç bu durumda "bilinmiyor/aday" der ve varsayılan konumu kanıt saymaz.
+
+**Kanıt çıktısı:** `araclar/ram-drive-tani.ps1` dört karardan birini verir:
+- `DOGRULANDI`: kayıt defteri kanıtı var ve kapasite eşleşiyor.
+- `ESLESMIYOR`: kanıt var ama kapasite eşleşmiyor.
+- `ADAY`: kanıt yok, yalnız kapasite benzerliği var; araç ilişkiyi "bilinmiyor" diye yazar.
+- `BILINMIYOR`: ne kanıt ne de benzer kapasite var.
+
+Bu kararlar yanlış pozitif ve eşit kapasiteli bağımsız disk senaryolarıyla test edildi (`calisma-gunlugu.md`).
 
 ## Sınırlar
-- Windows'ta gerçek çalıştırma, Türkiye'den gecikme ölçümü ve hesap açma yapılmadı.
+- Gerçek bir Windows / Drive for desktop kurulumunda çalıştırma, hesap açma, ödeme ve Türkiye'den gecikme ölçümü **yapılmadı**. Bunlar yapılmış sayılmamalıdır.
 - Fiyatlar ABD sayfalarından alındı. Türkiye'de KDV ve kur farkı oluşur; TL karşılığı uydurulmadı.
 - Microsoft fiyat sayfasına bulut ortamından `curl` ile erişim zaman aşımına uğradı. İçerik aynı gün WebFetch aracıyla okundu.
