@@ -51,3 +51,10 @@ B 100, C 95, A 84, D 49. Ayrıntı ve sınırlar: `sonuc.md`. Ekran görüntüle
 - Hesap/anahtar gerektiren araçlar denenmedi (v0, Lovable, Bolt, Stitch web, Figma Make, Magic Patterns, UX Pilot, 21st.dev Magic…).
 - Windows / gerçek telefon / kullanıcı hesabı testi yapılmadı.
 - Kaynaktaki eski dosya gönderme talimatları güncel yetki sayılmadı; bu iş zaten mobil uygulama değil, APK yok.
+
+## 8. Kalıcı teslim ve doğrulama
+- Dal `claude/affectionate-tesla-ii6gxy` push edildi (`710d48b`); `git ls-remote` ile uzak uç aynı commit.
+- Geri okuma: dal temiz klonlandı → `npm ci`, `npm test` (6/6), `npm run karsilastir` aynı puanları verdi (84/100/95/49).
+  Klonda özel kaynak metni yok (kaynak.txt/gorev.md ve özel ad/yol taraması boş).
+- Özel ZIP: depo-hazır görev klasörü (node_modules hariç) + `ozel/` (tam kaynak.txt, gorev.md) + `SHA256SUMS.txt`.
+  ZIP yalnız özel oturum dosyası olarak verildi, public depoya konmadı. ZIP'in kendi SHA-256'sı teslim mesajında.
