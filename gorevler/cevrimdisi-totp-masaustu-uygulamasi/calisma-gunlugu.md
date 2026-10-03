@@ -76,3 +76,19 @@ Hiçbir gerçek hesap, parola veya anahtar kullanılmadı/uydurulmadı.
 - Özel ZIP (kaynak sohbet metni içermez): `CevrimdisiTOTP-1.0.0-teslim.zip` — içinde Windows `.exe` (onedir),
   kaynak kod, testler, kanıtlar, belgeler ve `SHA256SUMS.txt`. SHA-256 değeri ve geri okuma sonucu
   aşağıdaki “Teslim doğrulaması” bölümünde.
+
+## 8. Teslim doğrulaması
+| Öğe | Değer |
+|---|---|
+| ZIP | `CevrimdisiTOTP-1.0.0-teslim.zip` (13 965 296 bayt), sohbete dosya olarak gönderildi; public depoya konmadı |
+| ZIP SHA-256 | `cf1ba0b7d1733babb5c09b7badf0f48c6a0ce6f4775d9ccbf76261f9fb79387e` |
+| `CevrimdisiTOTP.exe` SHA-256 | `83f13520a803f966e50f540fefae7022c73aea76506b3c8a910a42c639c41966` |
+| `totp_masaustu.py` SHA-256 | `59e2bbc235d192bec177196446ef96f8ad96f74ce95098658a01bc293aa47a9b` |
+| Geri okuma | `sha256sum -c` ZIP: OK · `unzip -t`: hata yok · içerideki `SHA256SUMS.txt`: 1009/1009 dosya OK |
+| Çıkarılan kopya | ZIP'ten çıkarılan `.exe` Wine'da açıldı, `Kasa: WinVaultKeyring · çevrimdışı` gösterdi |
+| Gizlilik | Çıkarılan içerikte kaynak sohbet ifadeleri arandı: eşleşme yok |
+| Uzak dal | `claude/vigilant-ptolemy-9gu0li` push edildi; `git fetch` sonrası uzak HEAD = yerel HEAD |
+
+## 9. Sonraki adım (kullanıcı)
+README → “Windows kabul listesi” 8 adımını gerçek Windows'ta uygulayın; sonra README → “GitHub 2FA'yı bu
+uygulamayla kurma” adımlarıyla kendi hesabınızda etkinleştirin (kurtarma kodlarını indirerek).
