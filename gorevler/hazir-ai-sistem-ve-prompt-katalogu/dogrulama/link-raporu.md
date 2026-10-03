@@ -1,10 +1,11 @@
 # Link raporu
 
-Çalıştırma: 2026-10-03 12:05 UTC · araç: `python3 araclar/dogrula.py` (curl ile canlı istek)
+Çalıştırma: 2026-10-03 20:18 UTC · araç: `python3 araclar/dogrula.py` (curl ile canlı istek)
 
-- Toplam benzersiz link: **75** · erişildi: **71** · engelli/başarısız: **4**
+- Toplam benzersiz link: **70** · erişildi: **66** · engelli/başarısız: **4**
 - Ana site linkleri: **34/36** erişildi (%94)
-- Not: github.com HTML sayfaları bu bulut ortamının proxy'sinde 403 döner; bu durumda depo varlığı `raw.githubusercontent.com/.../README.md` 200 yanıtıyla kanıtlanmıştır.
+- github.com HTML sayfaları bu bulut ortamının proxy'sinde 403 döner; bu durumda depo varlığı `raw.githubusercontent.com/.../README.md` 200 yanıtıyla kanıtlanır. github.com/blob permalinkleri aynı commit'teki raw adresle (aşağıda) doğrulanır.
+- ENGEL satırları yalnız bu ortamdaki otomatik isteğin sonucudur; normal tarayıcıda açılıp açılmadıkları test edilmedi, garanti verilmez.
 
 | Durum | HTTP | raw README | Link | Son adres |
 |---|---|---|---|---|
@@ -21,7 +22,6 @@
 | ERİŞİLDİ | 200 |  | https://developers.openai.com/cookbook |  |
 | ERİŞİLDİ | 200 |  | https://docs.anthropic.com/en/resources/prompt-library/library | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-… |
 | ERİŞİLDİ | 200 |  | https://docs.langchain.com/langsmith/manage-prompts |  |
-| ERİŞİLDİ | 200 |  | https://docs.langchain.com/langsmith/manage-prompts.md |  |
 | ERİŞİLDİ | 200 |  | https://flaviocopes.com/agency-agents/ |  |
 | BOT KORUMASI/ENGEL | 403 |  | https://flowgpt.com | https://flowgpt.com/ |
 | ERİŞİLDİ | 403 | 200 | https://github.com/PatrickJS/awesome-cursorrules |  |
@@ -55,23 +55,19 @@
 | BOT KORUMASI/ENGEL | 403 |  | https://promptbase.com | https://promptbase.com/ |
 | ERİŞİLDİ | 200 |  | https://prompthero.com | https://prompthero.com/ |
 | ERİŞİLDİ | 200 |  | https://prompts.chat | https://prompts.chat/ |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/main/categories/01-core-development/api-designer.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/Zie619/n8n-workflows/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/ai-boost/awesome-prompts/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/anthropics/skills/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/extract_wisdom/system.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/b044f956f021b6e8877f16781bcfc466a6a120e9/README.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/82b73821baa7a911d5b14cfb6da238b7f0db6b42/categories/01-core-development/api-designer.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/Zie619/n8n-workflows/94007c1445d9258a7da116646b79473e7c7c3282/README.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/README.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/danielmiessler/Fabric/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md |  |
 | ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/pattern_explanations.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/github/awesome-copilot/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/github/spec-kit/main/README.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/github/awesome-copilot/143a3d976b3c1603cc8932984d5e1f28501cb5fc/README.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/github/spec-kit/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/README.md |  |
 | ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/hesreallyhim/awesome-claude-code/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/jujumilk3/leaked-system-prompts/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/msitarzewski/agency-agents/main/marketing/marketing-growth-hacker.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/obra/superpowers/main/skills/brainstorming/SKILL.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/wshobson/agents/main/README.md |  |
-| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/Cursor%20Prompts/Agent%20Prompt%202.0.txt |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/msitarzewski/agency-agents/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/marketing/marketing-growth-hacker.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/obra/superpowers/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/brainstorming/SKILL.md |  |
+| ERİŞİLDİ | 200 |  | https://raw.githubusercontent.com/wshobson/agents/156b7a5e7a8b93642628a339ee4039c925b34c7f/README.md |  |
 | ERİŞİLDİ | 200 |  | https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf |  |
 | ERİŞİLDİ | 200 |  | https://skills.sh/anthropics/skills | https://www.skills.sh/anthropics/skills |
 | ERİŞİLDİ | 200 |  | https://smith.langchain.com/hub |  |

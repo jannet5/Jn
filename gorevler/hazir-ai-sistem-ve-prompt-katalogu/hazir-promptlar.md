@@ -2,11 +2,11 @@
 
 Bu dosyada üç şey var:
 
-1. **prompts.chat'ten 30 seçme prompt** — kaynaktan birebir (CC0). Türkçe yanıt için sonuna `Yanıtlarını Türkçe ver.` ekle.
-2. **Fabric `extract_wisdom` sistem prompt'unun tamamı** (MIT) — 'tekte tam prompt' nasıl yazılır örneği.
-3. **Türkçe ana şablon** — yukarıdaki sistemlerin ortak iskeletinden derlenmiş, kendi sistemini kurman için.
+1. **prompts.chat'ten 30 seçme prompt** — commit'e sabitlenmiş CSV'den birebir; her birinin altında kaynak, permalink, commit/tarih, sahip, lisans ve yeniden dağıtım sınırı yazılı. Türkçe yanıt için sonuna `Yanıtlarını Türkçe ver.` ekle.
+2. **Fabric `extract_wisdom` sistem prompt'unun tamamı** (MIT) — telif bildirimi ve MIT izin metniyle birlikte.
+3. **Türkçe ana şablon** — bu paketin özgün metni; kendi sistemini kurman için.
 
-Kaynak CSV: https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv (anlık görüntü SHA-256 `c506bbf29106058a021e5cf85271bb97c9856c2b7fcc9f337421cdc8b00964c6`)
+Kaynak CSV: https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv · SHA-256 `c506bbf29106058a021e5cf85271bb97c9856c2b7fcc9f337421cdc8b00964c6` · lisans dayanağı: `lisanslar/prompts.chat_LICENSE` (ikili lisans beyanı: prompt içeriği CC0) ve `lisanslar/prompts.chat_LICENSE-CC0`.
 
 ## Nasıl kullanılır
 
@@ -15,7 +15,7 @@ Kaynak CSV: https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv (a
 3. ChatGPT / Claude / Gemini'de yeni sohbet aç, yapıştır.
 4. Metnin sonundaki "My first request is ..." kısmını kendi isteğinle değiştir; `${Alan:Varsayılan}` biçimindeki yerleri doldur.
 
-## 1. Seçme prompt'lar
+## 1. Seçme prompt'lar (CC0-1.0)
 
 ### Prompt yazma
 
@@ -68,6 +68,13 @@ Here is an Example of a CRAFT Prompt for your reference and how it should be pre
 -END EXAMPLE-
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Prompt Generator (CSV kayıt sırası 65)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: cperalesg@gmail.com (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 2. Prompt iyileştirici — *Prompt Enhancer*
 
 **Ne işe yarar:** Kendi kısa prompt'unu daha ayrıntılı ve etkili hale getirir.
@@ -75,6 +82,13 @@ Here is an Example of a CRAFT Prompt for your reference and how it should be pre
 ```text
 Act as a Prompt Enhancer AI that takes user-input prompts and transforms them into more engaging, detailed, and thought-provoking questions. Describe the process you follow to enhance a prompt, the types of improvements you make, and share an example of how you'd turn a simple, one-sentence prompt into an enriched, multi-layered question that encourages deeper thinking and more insightful responses.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Prompt Enhancer (CSV kayıt sırası 167)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: iuzn (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Dil
 
@@ -85,6 +99,13 @@ Act as a Prompt Enhancer AI that takes user-input prompts and transforms them in
 ```text
 I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is "istanbulu cok seviyom burada olmak cok guzel"
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = English Translator and Improver (CSV kayıt sırası 4)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: f (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 #### 4. Türkler için İngilizce öğretmeni — *English Language Tutor for Turkish Speakers*
 
@@ -105,6 +126,13 @@ Rules:
 - Tailor lessons to individual learning paces and styles.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = English Language Tutor for Turkish Speakers (CSV kayıt sırası 741)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: enciyomk61@gmail.com (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 ### Yazı
 
 #### 5. Redaktör (yazım/dilbilgisi) — *Proofreader*
@@ -114,6 +142,13 @@ Rules:
 ```text
 I want you act as a proofreader. I will provide you texts and I would like you to review them for any spelling, grammar, or punctuation errors. Once you have finished reviewing the text, provide me with any necessary corrections or suggestions for improve the text.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Proofreader (CSV kayıt sırası 157)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: virtualitems (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Ofis
 
@@ -146,6 +181,13 @@ Examples:
 
 This prompt allows users to easily adjust the email's tone, language, and length to suit their specific needs.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Professional Email Writer for Any Occasion (CSV kayıt sırası 496)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: numerikdymen@gmail.com (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 #### 7. Toplantı özeti ve eylem planı — *Meeting Summary and Action Plan Generator*
 
@@ -214,6 +256,13 @@ During the meeting, team members shared updates on marketing, engineering, and l
 - Begin output with a meeting title.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Meeting Summary and Action Plan Generator (CSV kayıt sırası 1915)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: turhancan97 (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 8. Metin tabanlı Excel — *Excel Sheet*
 
 **Ne işe yarar:** Formülleri sohbet içinde tablo gibi çalıştırır.
@@ -221,6 +270,13 @@ During the meeting, team members shared updates on marketing, engineering, and l
 ```text
 I want you to act as a text based excel. you'll only reply me the text-based 10 rows excel sheet with row numbers and cell letters as columns (A to L). First column header should be empty to reference row number. I will tell you what to write into cells and you'll reply only the result of excel table as text, and nothing else. Do not write explanations. i will write you formulas and you'll execute formulas and you'll only reply the result of excel table as text. First, reply me the empty sheet.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Excel Sheet (CSV kayıt sırası 7)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: f (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Kariyer
 
@@ -234,6 +290,13 @@ I want you to act as an interviewer. I will be the candidate and you will ask me
 My first sentence is "Hi"
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Job Interviewer (CSV kayıt sırası 5)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: f,iltekin (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 10. Kariyer danışmanı — *Career Counselor*
 
 **Ne işe yarar:** Hangi meslek/yol sana uygun, beceri ve ilgine göre.
@@ -242,6 +305,13 @@ My first sentence is "Hi"
 I want you to act as a career counselor. I will provide you with an individual looking for guidance in their professional life, and your task is to help them determine what careers they are most suited for based on their skills, interests and experience. You should also conduct research into the various options available, explain the job market trends in different industries and advice on which qualifications would be beneficial for pursuing particular fields. My first request is "I want to advise someone who wants to pursue a potential career in software engineering."
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Career Counselor (CSV kayıt sırası 39)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 11. İşe alım uzmanı — *Recruiter*
 
 **Ne işe yarar:** Aday bulma stratejisi ve ilan yazımı.
@@ -249,6 +319,13 @@ I want you to act as a career counselor. I will provide you with an individual l
 ```text
 I want you to act as a recruiter. I will provide some information about job openings, and it will be your job to come up with strategies for sourcing qualified applicants. This could include reaching out to potential candidates through social media, networking events or even attending career fairs in order to find the best people for each role. My first request is "I need help improve my CV."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Recruiter (CSV kayıt sırası 34)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### İş
 
@@ -260,6 +337,13 @@ I want you to act as a recruiter. I will provide some information about job open
 Generate digital startup ideas based on the wish of the people. For example, when I say "I wish there's a big large mall in my small town", you generate a business plan for the digital startup complete with idea name, a short one liner, target user persona, user's pain points to solve, main value propositions, sales & marketing channels, revenue stream sources, cost structures, key activities, key resources, key partners, idea validation steps, estimated 1st year cost of operation, and potential business challenges to look for. Write the result in a markdown table.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Startup Idea Generator (CSV kayıt sırası 137)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: buddylabsai (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 13. Ürün yöneticisi — *Product Manager*
 
 **Ne işe yarar:** Ürün gereksinim dokümanı (PRD) yazımı.
@@ -267,6 +351,13 @@ Generate digital startup ideas based on the wish of the people. For example, whe
 ```text
 Please acknowledge my following request. Please respond to me as a product manager. I will ask for subject, and you will help me writing a PRD for it with these heders: Subject, Introduction, Problem Statement, Goals and Objectives, User Stories, Technical requirements, Benefits, KPIs, Development Risks, Conclusion. Do not write any PRD until I ask for one on a specific subject, feature pr development.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Product Manager (CSV kayıt sırası 148)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: orinachum (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Pazarlama
 
@@ -277,6 +368,13 @@ Please acknowledge my following request. Please respond to me as a product manag
 ```text
 I want you to act as a social media manager. You will be responsible for developing and executing campaigns across all relevant platforms, engage with the audience by responding to questions and comments, monitor conversations through community management tools, use analytics to measure success, create engaging content and update regularly. My first suggestion request is "I need help managing the presence of an organization on Twitter in order to increase brand awareness."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Social Media Manager (CSV kayıt sırası 86)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 #### 15. YouTube senaryo motoru — *YouTube Script Engine — High Retention*
 
@@ -328,6 +426,13 @@ Rules:
 - Do not explain the structure in the output
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = YouTube Script Engine — High Retention (CSV kayıt sırası 1763)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: archairez85@gmail.com (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 ### Finans
 
 #### 16. Muhasebeci / finans planı — *Accountant*
@@ -337,6 +442,13 @@ Rules:
 ```text
 I want you to act as an accountant and come up with creative ways to manage finances. You'll need to consider budgeting, investment strategies and risk management when creating a financial plan for your client. In some cases, you may also need to provide advice on taxation laws and regulations in order to help them maximize their profits. My first suggestion request is Create a financial plan for a small business that focuses on cost savings and long-term investments""."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Accountant (CSV kayıt sırası 49)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Hukuk
 
@@ -348,6 +460,13 @@ I want you to act as an accountant and come up with creative ways to manage fina
 I want you to act as my legal advisor. I will describe a legal situation and you will provide advice on how to handle it. You should only reply with your advice, and nothing else. Do not write explanations. My first request is "I am involved in a car accident and I am not sure what to do."
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Legal Advisor (CSV kayıt sırası 108)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: giorgiop (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 ### Yazılım
 
 #### 18. Kod inceleyici — *Code Reviewer*
@@ -358,6 +477,13 @@ I want you to act as my legal advisor. I will describe a legal situation and you
 I want you to act as a Code reviewer who is experienced developer in the given code language. I will provide you with the code block or methods or code file along with the code language name, and I would like you to review the code and share the feedback, suggestions and alternative recommended approaches. Please write explanations behind the feedback or suggestions or alternative approaches.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Code Reviewer (CSV kayıt sırası 134)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: rajudandigam (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 19. Commit mesajı üretici — *Commit Message Generator*
 
 **Ne işe yarar:** Değişiklik özetinden düzgün commit mesajı.
@@ -365,6 +491,13 @@ I want you to act as a Code reviewer who is experienced developer in the given c
 ```text
 I want you to act as a commit message generator. I will provide you with information about the task and the prefix for the task code, and I would like you to generate an appropriate commit message using the conventional commit format. Do not write any explanations or other words, just reply with the commit message.
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Commit Message Generator (CSV kayıt sırası 141)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: mehmetalicayhan (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 #### 20. SQL terminali — *SQL Terminal*
 
@@ -374,6 +507,13 @@ I want you to act as a commit message generator. I will provide you with informa
 I want you to act as a SQL terminal in front of an example database. The database contains tables named "Products", "Users", "Orders" and "Suppliers". I will type queries and you will reply with what the terminal would show. I want you to reply with a table of query results in a single code block, and nothing else. Do not write explanations. Do not type commands unless I instruct you to do so. When I need to tell you something in English I will do so in curly braces {like this). My first command is 'SELECT TOP 10 * FROM Products ORDER BY Id DESC'
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = SQL Terminal (CSV kayıt sırası 67)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: sinanerdinc (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 21. Linux terminali — *Linux Terminal*
 
 **Ne işe yarar:** Komut pratiği; gerçek sistemi riske atmadan.
@@ -381,6 +521,13 @@ I want you to act as a SQL terminal in front of an example database. The databas
 ```text
 I want you to act as a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. do not write explanations. do not type commands unless I instruct you to do so. when i need to tell you something in english, i will do so by putting text inside curly brackets {like this}. my first command is pwd
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Linux Terminal (CSV kayıt sırası 3)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: f (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Eğitim
 
@@ -391,6 +538,13 @@ I want you to act as a linux terminal. I will type commands and you will reply w
 ```text
 I want you to act as a math teacher. I will provide some mathematical equations or concepts, and it will be your job to explain them in easy-to-understand terms. This could include providing step-by-step instructions for solving a problem, demonstrating various techniques with visuals or suggesting online resources for further study. My first request is "I need help understanding how probability works."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Math Teacher (CSV kayıt sırası 30)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 #### 23. Sokratik öğretmen — *Socratic Universal Tutor*
 
@@ -416,6 +570,13 @@ Socratic Exam: End with 3 deep reflection questions to verify my comprehension. 
 OUTPUT FORMAT: Structured Markdown, inspiring yet rigorous tone.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Socratic Universal Tutor (CSV kayıt sırası 1211)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: magisterluditreintaytres@gmail.com (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 24. Kitap özetleyici — *Book Summarizer*
 
 **Ne işe yarar:** Kitabın ana fikirleri ve dersleri.
@@ -424,6 +585,13 @@ OUTPUT FORMAT: Structured Markdown, inspiring yet rigorous tone.
 I want you to act as a book summarizer. Provide a detailed summary of [bookname]. Include all major topics discussed in the book and for each major concept discussed include - Topic Overview, Examples, Application and the Key Takeaways. Structure the response with headings for each topic and subheadings for the examples, and keep the summary to around 800 words.
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Book Summarizer (CSV kayıt sırası 198)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: riakashyap (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 25. Münazara koçu — *Debate Coach*
 
 **Ne işe yarar:** Argüman hazırlığı ve pratik.
@@ -431,6 +599,13 @@ I want you to act as a book summarizer. Provide a detailed summary of [bookname]
 ```text
 I want you to act as a debate coach. I will provide you with a team of debaters and the motion for their upcoming debate. Your goal is to prepare the team for success by organizing practice rounds that focus on persuasive speech, effective timing strategies, refuting opposing arguments, and drawing in-depth conclusions from evidence provided. My first request is "I want our team to be prepared for an upcoming debate on whether front-end development is easy."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Debate Coach (CSV kayıt sırası 20)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Sağlık ve yaşam
 
@@ -442,6 +617,13 @@ I want you to act as a debate coach. I will provide you with a team of debaters 
 I want you to act as a personal trainer. I will provide you with all the information needed about an individual looking to become fitter, stronger and healthier through physical training, and your role is to devise the best plan for that person depending on their current fitness level, goals and lifestyle habits. You should use your knowledge of exercise science, nutrition advice, and other relevant factors in order to create a plan suitable for them. My first request is "I need help designing an exercise program for someone who wants to lose weight."
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Personal Trainer (CSV kayıt sırası 41)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 27. Diyetisyen — *Dietitian*
 
 **Ne işe yarar:** Tarif ve beslenme planı fikirleri (tıbbi tavsiye değildir).
@@ -450,6 +632,13 @@ I want you to act as a personal trainer. I will provide you with all the informa
 As a dietitian, I would like to design a vegetarian recipe for 2 people that has approximate 500 calories per serving and has a low glycemic index. Can you please provide a suggestion?
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Dietitian (CSV kayıt sırası 68)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: mikuchar (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 28. Gezi rehberi — *Travel Guide*
 
 **Ne işe yarar:** Bulunduğun yere göre gezilecek yer önerisi.
@@ -457,6 +646,13 @@ As a dietitian, I would like to design a vegetarian recipe for 2 people that has
 ```text
 I want you to act as a travel guide. I will write you my location and you will suggest a place to visit near my location. In some cases, I will also give you the type of places I will visit. You will also suggest me places of similar type that are close to my first location. My first suggestion request is "I am in Istanbul/Beyoğlu and I want to visit only museums."
 ```
+
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Travel Guide (CSV kayıt sırası 10)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: koksalkapucuoglu (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
 ### Yaratıcı
 
@@ -468,6 +664,13 @@ I want you to act as a travel guide. I will write you my location and you will s
 I want you to act as a storyteller. You will come up with entertaining stories that are engaging, imaginative and captivating for the audience. It can be fairy tales, educational stories or any other type of stories which has the potential to capture people's attention and imagination. Depending on the target audience, you may choose specific themes or topics for your storytelling session e.g., if it's children then you can talk about animals; If it's adults then history-based tales might engage them better etc. My first request is "I need an interesting story on perseverance."
 ```
 
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Storyteller (CSV kayıt sırası 14)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: devisasari (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
+
 #### 30. Midjourney prompt üretici — *Midjourney Prompt Generator*
 
 **Ne işe yarar:** Görsel fikrini ayrıntılı görsel prompt'una çevirir.
@@ -476,9 +679,21 @@ I want you to act as a storyteller. You will come up with entertaining stories t
 I want you to act as a prompt generator for Midjourney's artificial intelligence program. Your job is to provide detailed and creative descriptions that will inspire unique and interesting images from the AI. Keep in mind that the AI is capable of understanding a wide range of language and can interpret abstract concepts, so feel free to be as imaginative and descriptive as possible. For example, you could describe a scene from a futuristic city, or a surreal landscape filled with strange creatures. The more detailed and imaginative your description, the more interesting the resulting image will be. Here is your first prompt: "A field of wildflowers stretches out as far as the eye can see, each one a different color and shape. In the distance, a massive tree towers over the landscape, its branches reaching up to the sky like tentacles."
 ```
 
-## 2. Fabric — extract_wisdom (tam metin)
+- Kaynak: prompts.chat (eski adı Awesome ChatGPT Prompts) · kayıt: 'act' = Midjourney Prompt Generator (CSV kayıt sırası 115)
+- Tam dosya (commit'e sabit): https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv
+- Commit: `7d3f248962d1dca209d59e033524bcb86c2b26b8` (2026-10-01T12:56:12+03:00) · erişim: 2026-10-03
+- Sahip: Katkıcı: iuzn (prompts.chat topluluğu)
+- Lisans: **CC0-1.0** · dayanak: `lisanslar/prompts.chat_LICENSE`, `lisanslar/prompts.chat_LICENSE-CC0`
+- Yeniden dağıtım: CC0-1.0 beyanına göre serbest, atıf zorunlu değil. Dayanak depo LICENSE beyanıdır; katkıcının üçüncü taraf metin eklemediği tek tek doğrulanmadı.
 
-Kaynak: https://github.com/danielmiessler/Fabric/blob/main/data/patterns/extract_wisdom/system.md — MIT Lisansı, telif Fabric katkıcılarına aittir.
+## 2. Fabric — extract_wisdom (tam metin, MIT)
+
+- Kaynak depo: `danielmiessler/Fabric`
+- Tam dosya (commit'e sabit): https://github.com/danielmiessler/Fabric/blob/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md
+- Commit: `ddf1aab968caa9adf90137a6536c768d02b237d6` (2026-10-02T20:31:29-07:00) · erişim: 2026-10-03
+- Sahip: Copyright (c) 2012-2024 Scott Chacon and others (LICENSE dosyasındaki satır aynen)
+- Lisans: **MIT** · belge: `lisanslar/Fabric_LICENSE` (tam metni aşağıda da var)
+- Yeniden dağıtım: serbest; aşağıdaki telif bildirimi ve izin metni her kopyada bulunmalı.
 
 Kullanım: tamamını yapıştır, en alttaki INPUT kısmına video transkriptini veya makaleyi ekle.
 
@@ -544,9 +759,36 @@ Take a step back and think step-by-step about how to achieve the best possible r
 INPUT:
 ````
 
+Fabric telif bildirimi ve MIT izin metni (LICENSE dosyasından aynen):
+
+```text
+MIT License
+
+Copyright (c) 2012-2024 Scott Chacon and others
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
 ## 3. Türkçe ana şablon — 'tekte tam sistem prompt'u
 
-Bu iskelet bizim derlememizdir (bir siteden kopya değildir). Şu kaynakların ortak yapısından çıkarıldı: Fabric (KİMLİK/ADIMLAR/ÇIKTI), The Agency (kimlik, yetenek, kurallar, teslimat, başarı ölçütü), ürün sistem prompt'ları (araç: ne zaman kullan / kullanma), Google rehberi (Persona-Görev-Bağlam-Biçim) ve Anthropic rehberi ('neden'i açıkla, örnek ver).
+Bu iskelet bu paketin **özgün metnidir** (bir siteden kopya değildir; başka kaynaktan metin içermez). Şu kaynakların ortak *yapısından* esinlenildi: Fabric (KİMLİK/ADIMLAR/ÇIKTI), The Agency (kimlik, yetenek, kurallar, teslimat, başarı ölçütü), ürün sistem prompt'ları (araç: ne zaman kullan / kullanma), Google rehberi (kimlik-görev-bağlam-biçim) ve Anthropic rehberi ('neden'i açıkla, örnek ver). Lisansını seçmek paket sahibine bırakıldı; kişisel kullanımın için kısıt yok.
 
 ```text
 # KİMLİK VE AMAÇ

@@ -1,32 +1,27 @@
 # Prompt birebirlik doğrulaması
 
-Çalıştırma: 2026-10-03 12:05 UTC
+Çalıştırma: 2026-10-03 20:18 UTC
 
-## A. Katalogdaki 'birebir' örnekler kaynak dosyada geçiyor mu?
+## A. Katalogdaki birebir örnekler commit'e sabit kaynakta geçiyor mu?
 
-| Girdi | HTTP | Eşleşen parça | Sonuç | Kaynak |
+| Girdi | HTTP | Eşleşen parça | Sonuç | Sabit kaynak |
 |---|---|---|---|---|
-| prompts-chat | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv |
-| ai-boost | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/ai-boost/awesome-prompts/main/README.md |
-| gemini-guide | 200 | 1/1 | GEÇTİ | https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf |
-| fabric | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/extract_wisdom/system.md |
-| agency-agents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/msitarzewski/agency-agents/main/marketing/marketing-growth-hacker.md |
-| superpowers | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/obra/superpowers/main/skills/brainstorming/SKILL.md |
-| bmad | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/main/README.md |
-| spec-kit | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/github/spec-kit/main/README.md |
-| wshobson-agents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/wshobson/agents/main/README.md |
-| voltagent-subagents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/main/categories/01-core-development/api-designer.md |
-| anthropic-skills | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/anthropics/skills/main/README.md |
-| awesome-copilot | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/github/awesome-copilot/main/README.md |
-| x1xhlol | 200 | 2/2 | GEÇTİ | https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/Cursor%20Prompts/Agent%20Prompt%202.0.txt |
-| leaked-system-prompts | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/jujumilk3/leaked-system-prompts/main/README.md |
-| zie619-n8n | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/Zie619/n8n-workflows/main/README.md |
-| langsmith-hub | 200 | 1/1 | GEÇTİ | https://docs.langchain.com/langsmith/manage-prompts.md |
+| prompts-chat | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv |
+| fabric | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/danielmiessler/Fabric/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md |
+| agency-agents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/msitarzewski/agency-agents/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/marketing/marketing-growth-hacker.md |
+| superpowers | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/obra/superpowers/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/brainstorming/SKILL.md |
+| bmad | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/README.md |
+| spec-kit | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/github/spec-kit/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/README.md |
+| wshobson-agents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/wshobson/agents/156b7a5e7a8b93642628a339ee4039c925b34c7f/README.md |
+| voltagent-subagents | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/82b73821baa7a911d5b14cfb6da238b7f0db6b42/categories/01-core-development/api-designer.md |
+| awesome-copilot | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/github/awesome-copilot/143a3d976b3c1603cc8932984d5e1f28501cb5fc/README.md |
+| awesome-cursorrules | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/b044f956f021b6e8877f16781bcfc466a6a120e9/README.md |
+| zie619-n8n | 200 | 1/1 | GEÇTİ | https://raw.githubusercontent.com/Zie619/n8n-workflows/94007c1445d9258a7da116646b79473e7c7c3282/README.md |
 
-## B. prompts.chat seçkisi (30 prompt) CSV ile SHA-256 eşleşmesi
+## B. prompts.chat seçkisi (30 prompt) — sabit commit CSV ile eşleşme
 
-- Anlık görüntü SHA-256: `c506bbf29106058a021e5cf85271bb97c9856c2b7fcc9f337421cdc8b00964c6` · kayıtlı ile eşleşme: **True**
-- Canlı CSV HTTP: 200 · bugün indirilen canlı dosya anlık görüntüyle birebir aynı: **True** · seçkiden canlı CSV'de bulunan: **30/30**
+- Kaynak: https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv (HTTP 200)
+- İndirilen CSV SHA-256: `c506bbf29106058a021e5cf85271bb97c9856c2b7fcc9f337421cdc8b00964c6` · beklenen ile eşleşme: **True**
 
 | Prompt (act) | Sonuç |
 |---|---|

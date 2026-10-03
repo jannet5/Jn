@@ -1,9 +1,10 @@
 {
-  "zaman": "2026-10-03 12:05 UTC",
+  "zaman": "2026-10-03 20:18 UTC",
   "gecti": true,
   "sema_hatalari": [],
-  "link_toplam": 75,
-  "link_erisildi": 71,
+  "lisans_hatalari": [],
+  "link_toplam": 70,
+  "link_erisildi": 66,
   "engelli": [
     {
       "url": "https://cursor.directory",
@@ -26,18 +27,6 @@
   "birebir": [
     {
       "id": "prompts-chat",
-      "gecti": true,
-      "eslesen": 1,
-      "parca_sayisi": 1
-    },
-    {
-      "id": "ai-boost",
-      "gecti": true,
-      "eslesen": 1,
-      "parca_sayisi": 1
-    },
-    {
-      "id": "gemini-guide",
       "gecti": true,
       "eslesen": 1,
       "parca_sayisi": 1
@@ -85,25 +74,13 @@
       "parca_sayisi": 1
     },
     {
-      "id": "anthropic-skills",
-      "gecti": true,
-      "eslesen": 1,
-      "parca_sayisi": 1
-    },
-    {
       "id": "awesome-copilot",
       "gecti": true,
       "eslesen": 1,
       "parca_sayisi": 1
     },
     {
-      "id": "x1xhlol",
-      "gecti": true,
-      "eslesen": 2,
-      "parca_sayisi": 2
-    },
-    {
-      "id": "leaked-system-prompts",
+      "id": "awesome-cursorrules",
       "gecti": true,
       "eslesen": 1,
       "parca_sayisi": 1
@@ -113,14 +90,7 @@
       "gecti": true,
       "eslesen": 1,
       "parca_sayisi": 1
-    },
-    {
-      "id": "langsmith-hub",
-      "gecti": true,
-      "eslesen": 1,
-      "parca_sayisi": 1
     }
   ],
-  "secki_gecti": true,
-  "canli_csvde_bulunan": 30
+  "secki_gecti": true
 }

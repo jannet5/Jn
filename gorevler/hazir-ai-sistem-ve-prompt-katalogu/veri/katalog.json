@@ -1,7 +1,7 @@
 {
   "baslik": "Hazır AI Sistem ve Prompt Kataloğu",
   "tarih": "2026-10-03",
-  "aciklama": "Gidip bakıp 'bu güzelmiş, kullanayım' diyebileceğin hazır prompt siteleri, hazır ajan/sistem paketleri, otomasyon şablonları ve gerçek ürünlerin sistem promptları. Her girdi canlı kontrol edildi; örnek prompt'lar kaynaktan birebir alındı.",
+  "aciklama": "Gidip bakıp 'bu güzelmiş, kullanayım' diyebileceğin hazır prompt siteleri, hazır ajan/sistem paketleri, otomasyon şablonları ve gerçek ürünlerin sistem promptları. Metni yalnız açık lisanslı (CC0/MIT) kaynaklardan, commit'e sabitlenmiş kaynak ve lisans bilgisiyle birebir aldık; lisansı belirsiz veya tescilli kaynaklar için kendi açıklamamızı ve linki verdik.",
   "kategoriler": [
     {
       "id": "genel",
@@ -61,7 +61,24 @@
       "ornek": {
         "baslik": "Job Interviewer (iş mülakatçısı) — birebir alıntı (CC0)",
         "metin": "I want you to act as an interviewer. I will be the candidate and you will ask me the interview questions for the ${Position:Software Developer} position. I want you to only reply as the interviewer. ...",
-        "kaynak_url": "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+        "kaynak_url": "https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "f/prompts.chat",
+          "dosya_permalink": "https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv",
+          "ham_permalink": "https://raw.githubusercontent.com/f/prompts.chat/7d3f248962d1dca209d59e033524bcb86c2b26b8/prompts.csv",
+          "commit": "7d3f248962d1dca209d59e033524bcb86c2b26b8",
+          "commit_tarihi": "2026-10-01T12:56:12+03:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "prompts.chat katkıcıları (Fatih Kadir Akın ve topluluk)",
+          "lisans": "CC0-1.0",
+          "lisans_belgesi": [
+            "lisanslar/prompts.chat_LICENSE",
+            "lisanslar/prompts.chat_LICENSE-CC0"
+          ],
+          "yeniden_dagitim": "CC0-1.0 beyanı: telif hakkından feragat; atıf zorunlu değil. Dayanak depo beyanıdır; katkıcı bazında üçüncü taraf hak kontrolü yapılmadı.",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "https://prompts.chat adresine gir, üstteki aramaya konu yaz (ör. 'interview', 'translator', 'diet').",
@@ -69,7 +86,7 @@
         "ChatGPT / Claude / Gemini sohbetine yapıştır; Türkçe yanıt istiyorsan sonuna 'Yanıtlarını Türkçe ver.' ekle.",
         "Toplu kullanmak istersen CSV'yi indir veya Hugging Face veri setini kullan; şirket içi kullanım için depo self-host edilebilir."
       ],
-      "ucret_lisans": "Ücretsiz. Prompt metinleri CC0 (kamu malı), site kodu MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "GitHub'ın en çok yıldızlı prompt deposu; 2.169 prompt (3 Ekim 2026 CSV anlık görüntüsü: 1.836 metin, 312 yapılandırılmış, 21 görsel).",
         "url": "https://github.com/f/prompts.chat"
@@ -83,7 +100,11 @@
       "ek_linkler": [
         "https://huggingface.co/datasets/fka/prompts.chat",
         "https://github.com/f/prompts.chat"
-      ]
+      ],
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "Prompt'lar CC0-1.0 (depo beyanı), site kodu MIT."
+      }
     },
     {
       "id": "gpt-store",
@@ -96,7 +117,13 @@
       "ornek": {
         "baslik": "Kullanım örneği (prompt mağazada gizli; botu açıp doğrudan yazarsın)",
         "metin": "GPT'yi aç → 'Bu PDF'teki sözleşmenin riskli maddelerini maddeler halinde çıkar' gibi doğrudan isteğini yaz.",
-        "kaynak_url": "https://chatgpt.com/gpts"
+        "kaynak_url": "https://chatgpt.com/gpts",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "OpenAI hizmet koşulları + her GPT'nin sahibi; GPT talimatlarının yeniden dağıtım izni yok."
+        }
       },
       "kullanim": [
         "chatgpt.com/gpts adresine ChatGPT hesabınla gir.",
@@ -113,6 +140,10 @@
       "kanit": {
         "http": "200 (giriş ekranı)",
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "OpenAI hizmet koşulları + her GPT'nin sahibi; GPT talimatlarının yeniden dağıtım izni yok."
       }
     },
     {
@@ -124,16 +155,22 @@
       "ne_ise_yarar": "GPT Mağazası'nda üst sıralardaki botların (yazı, akademik, kod, tasarım...) talimat metinlerini ve prompt koruma/saldırı örneklerini toplar. 'Popüler bir GPT nasıl kurulmuş?' sorusuna cevap.",
       "kime": "Kendi Custom GPT'sini / sistem prompt'unu yazacaklar.",
       "ornek": {
-        "baslik": "README içindekiler bölümü (birebir) — depo artık GPT prompt'larının yanında rol bazlı kopyala-yapıştır prompt'lar da içeriyor",
-        "metin": "- [📋 Prompts](#prompts) — copy-paste ready\n  - [Coding & Development](#coding--development)\n  - [DevOps & SRE](#devops--sre)\n  - [Data Engineering](#data-engineering)\n  - [AI & ML](#ai--ml)\n  - [Product & Strategy](#product--strategy)",
-        "kaynak_url": "https://raw.githubusercontent.com/ai-boost/awesome-prompts/main/README.md"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "README'de rol ve alanlara göre (kodlama, DevOps, veri, ürün, proje yönetimi...) gruplanmış prompt listeleri ve popüler GPT'lerin talimat metinleri var. Metinleri buraya kopyalamadık; depoyu açıp kendin incele.",
+        "kaynak_url": "https://github.com/ai-boost/awesome-prompts",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Depo GPL-3.0 beyan ediyor, ancak içindeki GPT talimatları üçüncü kişilere ait; depo lisansı bu metinler üzerinde hak veremez."
+        }
       },
       "kullanim": [
         "README'de kategoriye in, beğendiğin GPT'nin prompt dosyasını aç.",
         "Metni kendi Custom GPT'nin 'Instructions' alanına veya Claude Project talimatına yapıştır.",
         "Bot adını, hedef kitleyi ve çıktı biçimini kendine göre değiştir."
       ],
-      "ucret_lisans": "Ücretsiz depo (prompt'ların özgün sahipleri ayrı).",
+      "ucret_lisans": "Ücretsiz erişim.",
       "topluluk": {
         "not": "≈9 bin yıldız; prompt-injection'a karşı 'prompt protect' örnekleri de içeriyor.",
         "url": "https://github.com/ai-boost/awesome-prompts"
@@ -143,6 +180,10 @@
         "github": "ai-boost/awesome-prompts",
         "yildiz": 8986,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "kisitli",
+        "ozet": "Depo GPL-3.0; içindeki GPT talimatları üçüncü kişilerin, lisansı belirsiz."
       }
     },
     {
@@ -156,7 +197,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Kategori seç → bir prompt/bot aç → site içi sohbette dene → işe yararsa kendi AI aracına taşı.",
-        "kaynak_url": "https://flowgpt.com"
+        "kaynak_url": "https://flowgpt.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Kullanıcı içerikleri; site koşulları bu çalışmada incelenmedi."
+        }
       },
       "kullanim": [
         "flowgpt.com'a gir.",
@@ -168,10 +215,14 @@
         "not": "Ağırlık eğlence/karakter botlarında; iş prompt'ları için prompts.chat daha düzenli.",
         "url": "https://flowgpt.com"
       },
-      "dikkat": "Kategori bilgisi site açıklamasından; otomatik kontrolde bazen 403 (bot koruması) veriyor, tarayıcıda açılır. Karakter/rol yapma içeriği yoğun; iş amaçlı aramada filtre kullan.",
+      "dikkat": "Otomatik kontrolde bir kez 200, sonra 403 (bot koruması) verdi; normal tarayıcıda açılıp açılmadığı test edilmedi. Karakter/rol yapma içeriği yoğun; iş amaçlı aramada filtre kullan.",
       "kanit": {
         "http": "200 ilk kontrolde, 403 ikinci kontrolde (bot koruması)",
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Kullanıcı içerikleri; site koşulları bu çalışmada incelenmedi."
       }
     },
     {
@@ -185,7 +236,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Eklentiyi kur → ChatGPT'yi aç → AIPRM listesinden ör. bir SEO makale şablonu seç → yalnız anahtar kelimeyi yaz.",
-        "kaynak_url": "https://www.aiprm.com"
+        "kaynak_url": "https://www.aiprm.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Ticari ürün; prompt lisansı belirtilmemiş: bilinmiyor."
+        }
       },
       "kullanim": [
         "aiprm.com'dan Chrome veya Edge eklentisini kur.",
@@ -201,6 +258,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Ticari ürün; prompt lisansı belirtilmemiş: bilinmiyor."
       }
     },
     {
@@ -214,7 +275,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Örnek çıktılara bak → prompt'u satın al → gelen şablondaki [köşeli] alanları doldur.",
-        "kaynak_url": "https://promptbase.com"
+        "kaynak_url": "https://promptbase.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Ticari pazaryeri; satın alınan prompt satıcı/site koşullarına tabi. Yeniden dağıtma."
+        }
       },
       "kullanim": [
         "Siteye gir, model (ChatGPT, Midjourney vb.) ve konu seç.",
@@ -226,10 +293,14 @@
         "not": "Reddit'te 'prompt satmak AI'ın açıklığını tehdit ediyor' eleştirisi var; ücretsiz alternatifleri önce dene.",
         "url": "https://godofprompt.ai/blog/in-depth-review-leading-ai-prompt-marketplaces/"
       },
-      "dikkat": "Sunucu bot korumasıyla otomatik kontrolümüze 403 verdi; site tarayıcıda açılır ama bu oturumda içerik doğrulanamadı.",
+      "dikkat": "Otomatik kontrolde 403 (bot koruması) verdi; bu oturumda içerik doğrulanamadı. Normal tarayıcıda açılıp açılmadığı test edilmedi.",
       "kanit": {
         "http": "403 (bot koruması)",
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Ticari pazaryeri; satın alınan prompt satıcı/site koşullarına tabi. Yeniden dağıtma."
       }
     },
     {
@@ -243,7 +314,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Explore → kategori → botu aç → doğrudan isteğini yaz.",
-        "kaynak_url": "https://poe.com/explore"
+        "kaynak_url": "https://poe.com/explore",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Bot prompt'larının lisansı belirtilmemiş."
+        }
       },
       "kullanim": [
         "poe.com/explore adresine gir.",
@@ -259,6 +336,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Bot prompt'larının lisansı belirtilmemiş."
       }
     },
     {
@@ -270,9 +351,15 @@
       "ne_ise_yarar": "İş için hazır prompt'lar: iletişim ve yazı, toplantı ve iş birliği, problem çözme, organizasyon. Ayrıca pazarlama, IT, İK, satış, ürün, mühendislik, sağlık rollerine özel paketlere link verir.",
       "kime": "Ofis çalışanları, yöneticiler, ekip liderleri.",
       "ornek": {
-        "baslik": "E-posta yazma (sayfadan alıntı)",
-        "metin": "Write a professional email to [recipient]. The email is about [topic] and should be polite, clear, and concise.",
-        "kaynak_url": "https://academy.openai.com/public/clubs/work-users-ynjqu/resources/chatgpt-for-any-role"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Kısa ve doldurmalı şablonlar: örneğin kime, hangi konuda ve hangi tonda yazılacağını boşluklara yazdığın bir e-posta isteği ya da toplantı öncesi sorulacak soruları çıkaran bir istek. Şablon metinlerini kopyalamadık; sayfadan kendin al.",
+        "kaynak_url": "https://academy.openai.com/public/clubs/work-users-ynjqu/resources/chatgpt-for-any-role",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "OpenAI sayfasında lisans belirtilmemiş: bilinmiyor."
+        }
       },
       "kullanim": [
         "Sayfayı aç, ilgili başlığı seç (ör. Meetings & collaboration).",
@@ -288,6 +375,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "OpenAI sayfası; içerik lisansı belirtilmemiş."
       }
     },
     {
@@ -299,9 +390,15 @@
       "ne_ise_yarar": "Departmana göre hazır senaryolar: Genel, Pazarlama, Ürün, Mühendislik, İK, Finans, Operasyon, Veri, Tasarım, Hukuk, Satış, Araştırma, Eğitim, Kişisel. Ör. 'Haftanı hazırla', 'Kullanıcı geri bildirimindeki örüntüleri analiz et', 'Olay sonrası raporu (postmortem) taslakla'.",
       "kime": "Claude kullananlar; hazır iş senaryosunu adım adım görmek isteyenler.",
       "ornek": {
-        "baslik": "Senaryo adları (sayfadan)",
-        "metin": "Quickly prep for your week · Analyze patterns in user feedback · Account research · Forecast & scenario modeling · Draft the incident postmortem",
-        "kaynak_url": "https://academy.claude.com/use-cases"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Departmana göre gruplanmış, süresi yazılı kısa rehberler: haftalık planlama, kullanıcı geri bildirimi analizi, müşteri araştırması, finansal senaryo, olay sonrası rapor gibi işler.",
+        "kaynak_url": "https://academy.claude.com/use-cases",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Anthropic sayfasında içerik lisansı belirtilmemiş: bilinmiyor."
+        }
       },
       "kullanim": [
         "Sayfada departman filtresini seç.",
@@ -317,6 +414,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Anthropic sayfası; içerik lisansı belirtilmemiş."
       }
     },
     {
@@ -328,9 +429,15 @@
       "ne_ise_yarar": "Gmail, Docs, Sheets, Slides içinde Gemini için rol bazlı (pazarlama, satış, İK, yönetici, müşteri hizmetleri...) örnek prompt'lar ve 'persona + görev + bağlam + biçim' kalıbı.",
       "kime": "Google Workspace kullanan şirketler.",
       "ornek": {
-        "baslik": "Dört alanı birlikte kullanan örnek (Google PDF rehberinden birebir)",
-        "metin": "You are a business owner in [industry]. Draft an outreach email to suggest a partnership with [persona or company] based on [relevant details about your business]. Use a formal tone.",
-        "kaynak_url": "https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Rehber her prompt'ta dört alanı önerir: sen kimsin, ne istiyorsun (bir fiille), arka plan ne, çıktı nasıl olsun. Ardından pazarlama, satış, İK, yönetici gibi rollere göre köşeli parantezli doldurma şablonları gelir. Örnek prompt'ları kopyalamadık; PDF'ten al.",
+        "kaynak_url": "https://workspace.google.com/learning/content/gemini-prompt-guide",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Google'ın telifli PDF'i; yeniden dağıtım lisansı belirtilmemiş: bilinmiyor."
+        }
       },
       "kullanim": [
         "Rehber sayfasını aç; rolüne uygun bölümü bul.",
@@ -349,7 +456,11 @@
       },
       "ek_linkler": [
         "https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf"
-      ]
+      ],
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Google PDF'i; yeniden dağıtım lisansı belirtilmemiş."
+      }
     },
     {
       "id": "copilot-gallery",
@@ -362,7 +473,13 @@
       "ornek": {
         "baslik": "Kaydet/paylaş akışı (Microsoft destek sayfasından)",
         "metin": "Prompt'u çalıştır → üzerine gelip 'Save prompt' → galeride 'Saved' sekmesi → Share → Copy link.",
-        "kaynak_url": "https://support.microsoft.com/microsoft-365-copilot/share-your-best-prompts-with-others"
+        "kaynak_url": "https://support.microsoft.com/microsoft-365-copilot/share-your-best-prompts-with-others",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Microsoft hizmeti; kullanıcı prompt'ları yalnız kurum içinde paylaşılabilir."
+        }
       },
       "kullanim": [
         "İş hesabınla copilot.cloud.microsoft/prompts adresine gir.",
@@ -378,6 +495,10 @@
       "kanit": {
         "http": "200 (Microsoft giriş ekranı)",
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Microsoft hizmeti; kullanıcı prompt'ları yalnız kurum içinde paylaşılabilir."
       }
     },
     {
@@ -391,7 +512,23 @@
       "ornek": {
         "baslik": "extract_wisdom pattern'inin başı (birebir, MIT)",
         "metin": "# IDENTITY and PURPOSE\n\nYou extract surprising, insightful, and interesting information from text content. You are interested in insights related to the purpose and meaning of life, human flourishing, the role of technology in the future of humanity, artificial intelligence and its affect on humans, memes, learning, reading, books, continuous improvement, and similar topics.",
-        "kaynak_url": "https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/extract_wisdom/system.md"
+        "kaynak_url": "https://raw.githubusercontent.com/danielmiessler/Fabric/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "danielmiessler/Fabric",
+          "dosya_permalink": "https://github.com/danielmiessler/Fabric/blob/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md",
+          "ham_permalink": "https://raw.githubusercontent.com/danielmiessler/Fabric/ddf1aab968caa9adf90137a6536c768d02b237d6/data/patterns/extract_wisdom/system.md",
+          "commit": "ddf1aab968caa9adf90137a6536c768d02b237d6",
+          "commit_tarihi": "2026-10-02T20:31:29-07:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2012-2024 Scott Chacon and others (LICENSE dosyasındaki satır aynen)",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/Fabric_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Kurmadan kullanım: pattern'in system.md dosyasını aç, tamamını kopyala, ChatGPT/Claude'a yapıştır, altına metni/transkripti ekle.",
@@ -399,7 +536,7 @@
         "Örnek komut (README'den birebir): yt URL | fabric -p extract_wisdom  — YouTube videosunun transkriptini pattern'e verir.",
         "Tüm pattern listesi ve açıklamaları: data/patterns/pattern_explanations.md"
       ],
-      "ucret_lisans": "Ücretsiz, MIT. Kendi AI sağlayıcı API anahtarın gerekir (veya yerel model).",
+      "ucret_lisans": "Ücretsiz. Kendi AI sağlayıcı API anahtarın gerekir (veya yerel model).",
       "topluluk": {
         "not": "44 bin+ yıldız; pattern açıklama dosyasında 255 numaralı pattern listelenmiş (3 Ekim 2026).",
         "url": "https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/pattern_explanations.md"
@@ -409,6 +546,10 @@
         "github": "danielmiessler/Fabric",
         "yildiz": 44153,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -422,7 +563,23 @@
       "ornek": {
         "baslik": "Growth Hacker ajanının başı (birebir, MIT)",
         "metin": "# Marketing Growth Hacker Agent\n\n## Identity & Role Definition\nExpert growth strategist specializing in rapid, scalable user acquisition and retention through data-driven experimentation and unconventional marketing tactics.",
-        "kaynak_url": "https://raw.githubusercontent.com/msitarzewski/agency-agents/main/marketing/marketing-growth-hacker.md"
+        "kaynak_url": "https://raw.githubusercontent.com/msitarzewski/agency-agents/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/marketing/marketing-growth-hacker.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "msitarzewski/agency-agents",
+          "dosya_permalink": "https://github.com/msitarzewski/agency-agents/blob/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/marketing/marketing-growth-hacker.md",
+          "ham_permalink": "https://raw.githubusercontent.com/msitarzewski/agency-agents/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/marketing/marketing-growth-hacker.md",
+          "commit": "d3f71c4bb8922d3eea7576237a870dd59b3cdd52",
+          "commit_tarihi": "2026-10-01T14:35:39-05:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2025 AgentLand Contributors",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/agency-agents_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Kodsuz: README'deki rosterden ajan .md dosyasını aç, tamamını sohbetin başına yapıştır, sonra görevini yaz.",
@@ -430,7 +587,7 @@
         "Masaüstü uygulaması (macOS/Linux/Windows) ile tek tıkla kurulum: https://agencyagents.app",
         "README'deki 'Real-World Use Cases' (MVP kurma, kampanya lansmanı) senaryolarını takip et."
       ],
-      "ucret_lisans": "Ücretsiz, MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "155 bin+ yıldız; yazarın Reddit'te özel ajanlarını paylaşmasının ardından 12 saatte 50+ istek gelmesiyle başladığı aktarılıyor.",
         "url": "https://flaviocopes.com/agency-agents/"
@@ -440,6 +597,10 @@
         "github": "msitarzewski/agency-agents",
         "yildiz": 155875,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -453,7 +614,23 @@
       "ornek": {
         "baslik": "brainstorming skill'inin tanımı (birebir, MIT)",
         "metin": "name: brainstorming\ndescription: \"You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.\"",
-        "kaynak_url": "https://raw.githubusercontent.com/obra/superpowers/main/skills/brainstorming/SKILL.md"
+        "kaynak_url": "https://raw.githubusercontent.com/obra/superpowers/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/brainstorming/SKILL.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "obra/superpowers",
+          "dosya_permalink": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/brainstorming/SKILL.md",
+          "ham_permalink": "https://raw.githubusercontent.com/obra/superpowers/8ca22dba9a94f28898bbce59f2537ff4d87c747d/skills/brainstorming/SKILL.md",
+          "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+          "commit_tarihi": "2026-09-25T11:06:27-07:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2025 Jesse Vincent",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/superpowers_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Claude Code: /plugin install superpowers@claude-plugins-official",
@@ -461,7 +638,7 @@
         "Kurulumu doğrula: yeni oturumda 'Let's make a react todo list' yaz; kod yazmadan önce brainstorming başlamalı (README'deki test).",
         "Kodsuz kullanım: skills/*/SKILL.md dosyalarını okuyup kendi sistem prompt'una ilke olarak al."
       ],
-      "ucret_lisans": "Ücretsiz, MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "294 bin+ yıldız; inceleme yazılarında 'test önce' disiplininin kod kalitesini artırdığı anlatılıyor.",
         "url": "https://www.mejba.me/superpowers-plugin-claude-code-review"
@@ -471,6 +648,10 @@
         "github": "obra/superpowers",
         "yildiz": 294680,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -484,14 +665,30 @@
       "ornek": {
         "baslik": "Kurulum (README'den birebir)",
         "metin": "npx skills add bmad-code-org/BMAD-METHOD",
-        "kaynak_url": "https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "bmad-code-org/BMAD-METHOD",
+          "dosya_permalink": "https://github.com/bmad-code-org/BMAD-METHOD/blob/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/README.md",
+          "commit": "3cae711ea5274cf7c7cf6e173bb8d7f29cd71497",
+          "commit_tarihi": "2026-10-03T01:44:54-05:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2025 BMad Code, LLC",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/BMAD-METHOD_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Skill destekleyen bir kodlama aracında: npx skills add bmad-code-org/BMAD-METHOD",
         "Kurulumda 'bmad' + seçtiğin modülleri işaretle.",
         "Ajana 'bmad status' yaz: sürümü ve sıradaki adımı gösterir; güncelleme için 'bmad setup'."
       ],
-      "ucret_lisans": "Ücretsiz, MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "53 bin+ yıldız; Builder ve Test Architect ek modülleri var.",
         "url": "https://github.com/bmad-code-org/BMAD-METHOD"
@@ -501,6 +698,10 @@
         "github": "bmad-code-org/BMAD-METHOD",
         "yildiz": 53751,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -514,14 +715,30 @@
       "ornek": {
         "baslik": "Hazır komut zinciri (README'den birebir)",
         "metin": "/speckit-constitution Create principles focused on code quality, testing, and maintainability.\n/speckit-specify Build a photo organizer with albums grouped by date and a tile preview of each album.\n/speckit-plan Use Vite with vanilla JavaScript. Keep images local and store metadata in SQLite.\n/speckit-tasks\n/speckit-implement",
-        "kaynak_url": "https://raw.githubusercontent.com/github/spec-kit/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/github/spec-kit/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "github/spec-kit",
+          "dosya_permalink": "https://github.com/github/spec-kit/blob/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/github/spec-kit/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/README.md",
+          "commit": "e1fa857a7f536b22760d48c1aa9ace41df0fd1dc",
+          "commit_tarihi": "2026-10-02T16:53:33-05:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright GitHub, Inc.",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/spec-kit_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Python 3.11+ ve uv kur.",
         "uv tool install specify-cli  ardından  specify init my-project --integration copilot",
         "Ajan sohbetinde /speckit-* komutlarını sırayla çalıştır."
       ],
-      "ucret_lisans": "Ücretsiz, MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "139 bin+ yıldız.",
         "url": "https://github.com/github/spec-kit"
@@ -531,6 +748,10 @@
         "github": "github/spec-kit",
         "yildiz": 139923,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -544,14 +765,30 @@
       "ornek": {
         "baslik": "Kurulum (README'den birebir)",
         "metin": "/plugin marketplace add wshobson/agents\n/plugin install python-development",
-        "kaynak_url": "https://raw.githubusercontent.com/wshobson/agents/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/wshobson/agents/156b7a5e7a8b93642628a339ee4039c925b34c7f/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "wshobson/agents",
+          "dosya_permalink": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/wshobson/agents/156b7a5e7a8b93642628a339ee4039c925b34c7f/README.md",
+          "commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+          "commit_tarihi": "2026-09-28T20:45:26-04:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2024 Seth Hobson",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/wshobson-agents_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Claude Code'da marketplace'i ekle.",
         "İhtiyacın olan eklentiyi kur.",
         "Ajanı görev tanımıyla çağır."
       ],
-      "ucret_lisans": "Ücretsiz, MIT.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "40 bin+ yıldız, açık sorun sayısı çok düşük (4).",
         "url": "https://github.com/wshobson/agents"
@@ -561,6 +798,10 @@
         "github": "wshobson/agents",
         "yildiz": 40170,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -574,13 +815,29 @@
       "ornek": {
         "baslik": "api-designer ajanının başı (birebir)",
         "metin": "You are a senior API designer specializing in creating intuitive, scalable API architectures with expertise in REST and GraphQL design patterns.",
-        "kaynak_url": "https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/main/categories/01-core-development/api-designer.md"
+        "kaynak_url": "https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/82b73821baa7a911d5b14cfb6da238b7f0db6b42/categories/01-core-development/api-designer.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "VoltAgent/awesome-claude-code-subagents",
+          "dosya_permalink": "https://github.com/VoltAgent/awesome-claude-code-subagents/blob/82b73821baa7a911d5b14cfb6da238b7f0db6b42/categories/01-core-development/api-designer.md",
+          "ham_permalink": "https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/82b73821baa7a911d5b14cfb6da238b7f0db6b42/categories/01-core-development/api-designer.md",
+          "commit": "82b73821baa7a911d5b14cfb6da238b7f0db6b42",
+          "commit_tarihi": "2026-09-21T11:24:27+03:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2025 VoltAgent",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/awesome-claude-code-subagents_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "İstediğin .md dosyasını ~/.claude/agents/ klasörüne kopyala.",
         "Claude Code'da görevi yaz; uygun ajan otomatik seçilir veya adıyla çağrılır."
       ],
-      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "25 bin+ yıldız.",
         "url": "https://github.com/VoltAgent/awesome-claude-code-subagents"
@@ -590,6 +847,10 @@
         "github": "VoltAgent/awesome-claude-code-subagents",
         "yildiz": 25472,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "MIT."
       }
     },
     {
@@ -601,17 +862,23 @@
       "ne_ise_yarar": "Claude'un dinamik yüklediği talimat klasörleri: yaratıcı/tasarım, geliştirme/teknik, kurumsal iletişim ve Claude'un kendi Word/PDF/PowerPoint/Excel skill'leri. Kendi 'tekte tam prompt'unu skill olarak paketlemenin resmi şablonu.",
       "kime": "Claude.ai (ücretli plan), Claude Code veya Claude API kullananlar.",
       "ornek": {
-        "baslik": "Skill şablonu (README'den birebir)",
-        "metin": "---\nname: my-skill-name\ndescription: A clear description of what this skill does and when to use it\n---\n# My Skill Name\n[Add your instructions here that Claude will follow when this skill is active]",
-        "kaynak_url": "https://raw.githubusercontent.com/anthropics/skills/main/README.md"
+        "baslik": "Skill dosyasının biçimi (özgün örnek, bizim yazdığımız)",
+        "metin": "---\nname: haftalik-rapor\ndescription: Haftalık satış notlarından tek sayfalık özet rapor çıkarır; kullanıcı 'haftalık rapor' dediğinde kullan.\n---\n# Haftalık rapor\n1. Notları oku, rakamları tabloya dök.\n2. En önemli 3 gelişmeyi ve 3 riski yaz.\n3. Bir sonraki hafta için 5 eylem öner.",
+        "kaynak_url": "https://github.com/anthropics/skills",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Depo kökünde lisans dosyası yok; README çoğu skill için Apache-2.0, belge skill'leri için source-available diyor. Bu yüzden şablon metni yerine biçimi gösteren kendi örneğimizi yazdık."
+        }
       },
       "kullanim": [
         "Claude Code: /plugin marketplace add anthropics/skills",
         "Sonra: /plugin install document-skills@anthropic-agent-skills",
-        "Kullanım: 'Use the PDF skill to extract the form fields from path/to/some-file.pdf'",
+        "Kurduktan sonra skill'i adıyla an: ör. 'PDF skill'ini kullanarak şu dosyadaki form alanlarını çıkar' de.",
         "Claude.ai: Ayarlar'dan skill yükle (destek makalesi README'de)."
       ],
-      "ucret_lisans": "Çoğu Apache 2.0; belge skill'leri 'source-available'.",
+      "ucret_lisans": "Depo ücretsiz; Claude.ai'de skill kullanımı ücretli planlarda.",
       "topluluk": {
         "not": "179 bin+ yıldız; skills.sh dizini standartla uyumlu skill'leri listeler.",
         "url": "https://skills.sh/anthropics/skills"
@@ -621,6 +888,10 @@
         "github": "anthropics/skills",
         "yildiz": 179478,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "kisitli",
+        "ozet": "Klasör bazında Apache-2.0 veya source-available; kök lisans dosyası yok."
       }
     },
     {
@@ -634,7 +905,23 @@
       "ornek": {
         "baslik": "Plugin kurulumu (README'den birebir)",
         "metin": "copilot plugin install <plugin-name>@awesome-copilot",
-        "kaynak_url": "https://raw.githubusercontent.com/github/awesome-copilot/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/github/awesome-copilot/143a3d976b3c1603cc8932984d5e1f28501cb5fc/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "github/awesome-copilot",
+          "dosya_permalink": "https://github.com/github/awesome-copilot/blob/143a3d976b3c1603cc8932984d5e1f28501cb5fc/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/github/awesome-copilot/143a3d976b3c1603cc8932984d5e1f28501cb5fc/README.md",
+          "commit": "143a3d976b3c1603cc8932984d5e1f28501cb5fc",
+          "commit_tarihi": "2026-10-02T08:21:25+10:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright GitHub, Inc.",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/awesome-copilot_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "https://awesome-copilot.github.com/agents adresinden gez.",
@@ -651,6 +938,10 @@
         "github": "github/awesome-copilot",
         "yildiz": 39651,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "Depo MIT; içerik üçüncü taraf katkıları (README uyarısı)."
       }
     },
     {
@@ -664,16 +955,32 @@
       "ornek": {
         "baslik": "Kullanım (README'den)",
         "metin": "Drop the `.mdc` in `.cursor/rules/`.",
-        "kaynak_url": "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/b044f956f021b6e8877f16781bcfc466a6a120e9/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "PatrickJS/awesome-cursorrules",
+          "dosya_permalink": "https://github.com/PatrickJS/awesome-cursorrules/blob/b044f956f021b6e8877f16781bcfc466a6a120e9/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/b044f956f021b6e8877f16781bcfc466a6a120e9/README.md",
+          "commit": "b044f956f021b6e8877f16781bcfc466a6a120e9",
+          "commit_tarihi": "2026-05-30T11:01:29-07:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "PatrickJS ve katkıcılar",
+          "lisans": "CC0-1.0",
+          "lisans_belgesi": [
+            "lisanslar/awesome-cursorrules_LICENSE"
+          ],
+          "yeniden_dagitim": "CC0-1.0 depo beyanı; atıf zorunlu değil. Kural dosyaları topluluk katkısıdır, katkıcı bazında kontrol yapılmadı.",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "README'de teknolojine uygun kuralı bul.",
         ".mdc dosyasını projendeki .cursor/rules/ klasörüne koy.",
         "Ekip olarak aynı kuralları paylaş."
       ],
-      "ucret_lisans": "Ücretsiz, CC0.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
-        "not": "40 bin+ yıldız; benzer bir dizin sitesi cursor.directory.",
+        "not": "40 bin+ yıldız; benzer bir dizin sitesi cursor.directory (otomatik kontrolde 429 verdi, içeriği doğrulanmadı).",
         "url": "https://cursor.directory"
       },
       "dikkat": "Eski .cursorrules biçimindeki dosyalar yeni .mdc biçimine taşınmış olabilir.",
@@ -681,6 +988,10 @@
         "github": "PatrickJS/awesome-cursorrules",
         "yildiz": 40872,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "CC0-1.0 (depo beyanı)."
       }
     },
     {
@@ -694,13 +1005,19 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Listeden bir 'CLAUDE.md' veya slash komut örneği seç → kendi projene kopyala.",
-        "kaynak_url": "https://raw.githubusercontent.com/hesreallyhim/awesome-claude-code/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/hesreallyhim/awesome-claude-code/main/README.md",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "CC BY-NC-ND 4.0: ticari kullanım ve değiştirilmiş kopya yasak."
+        }
       },
       "kullanim": [
         "README'de kategoriye göz at.",
         "Bağlantılı depoya git, kurulum talimatını uygula."
       ],
-      "ucret_lisans": "Ücretsiz.",
+      "ucret_lisans": "Ücretsiz erişim.",
       "topluluk": {
         "not": "55 bin yıldız.",
         "url": "https://github.com/hesreallyhim/awesome-claude-code"
@@ -710,6 +1027,10 @@
         "github": "hesreallyhim/awesome-claude-code",
         "yildiz": 54990,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "kisitli",
+        "ozet": "CC BY-NC-ND 4.0: ticari kullanım ve değiştirilmiş kopya yasak."
       }
     },
     {
@@ -721,16 +1042,22 @@
       "ne_ise_yarar": "Cursor, Claude Code, Devin, Lovable, Manus, Notion AI, Perplexity, Replit, v0, Windsurf, Xcode vb. ürünlerin tam sistem prompt'ları ve araç tanımları. Profesyonel bir 'tekte tam prompt'un nasıl bölümlendiğini (araçlar, kurallar, örnekler) görmenin en iyi yeri.",
       "kime": "Kendi ajan/sistem prompt'unu yazan herkes.",
       "ornek": {
-        "baslik": "Cursor 'Agent Prompt 2.0' içinden araç açıklaması (birebir kısa alıntı)",
-        "metin": "// `codebase_search`: semantic search that finds code by meaning, not exact text\n//\n// ### When to Use This Tool\n// ...\n// ### When NOT to Use",
-        "kaynak_url": "https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/Cursor%20Prompts/Agent%20Prompt%202.0.txt"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Ürün klasörlerinde (ör. Cursor) uzun sistem prompt'ları ve JSON araç tanımları var. Yapı genelde şöyle: model kimliği → her araç için 'ne zaman kullan / ne zaman kullanma' ve örnekler → davranış ve biçim kuralları. Metni buraya kopyalamadık.",
+        "kaynak_url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Depo GPL-3.0 beyan ediyor, ancak içerik ürün şirketlerinin tescilli sistem prompt'ları; derleyenin lisansı bu metinler üzerinde hak veremez. Yeniden dağıtım izni yok sayılmalı."
+        }
       },
       "kullanim": [
         "Ürün klasörünü aç (ör. 'Cursor Prompts').",
         "Prompt'un yapısını incele: kimlik → araçlar (ne zaman kullan / kullanma) → kurallar → örnekler.",
         "Bu iskeleti kendi prompt'una uyarla (bkz. hazir-promptlar.md sonundaki Türkçe ana şablon)."
       ],
-      "ucret_lisans": "Ücretsiz erişim; metinlerin hakları ürün sahiplerinde.",
+      "ucret_lisans": "Ücretsiz erişim.",
       "topluluk": {
         "not": "144 bin yıldız; son güncelleme notu 12/07/2026.",
         "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"
@@ -740,6 +1067,10 @@
         "github": "x1xhlol/system-prompts-and-models-of-ai-tools",
         "yildiz": 144001,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Ürün şirketlerinin tescilli metinleri; depo GPL-3.0 beyanı bu metinlere hak veremez."
       }
     },
     {
@@ -753,13 +1084,19 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Üretici klasörünü aç → sistem prompt'unda ton, güvenlik ve biçim kurallarının nasıl yazıldığına bak.",
-        "kaynak_url": "https://github.com/elder-plinius/CL4R1T4S"
+        "kaynak_url": "https://github.com/elder-plinius/CL4R1T4S",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Ürün şirketlerinin tescilli metinleri; depo AGPL-3.0 beyanı bu metinlere hak veremez."
+        }
       },
       "kullanim": [
         "Depoda ürün klasörünü seç.",
         "Biçim/ton kurallarını kendi prompt'una örnek al."
       ],
-      "ucret_lisans": "Ücretsiz erişim; metin hakları ürün sahiplerinde.",
+      "ucret_lisans": "Ücretsiz erişim.",
       "topluluk": {
         "not": "50 bin+ yıldız; 'red-team' topluluğundan.",
         "url": "https://github.com/elder-plinius/CL4R1T4S"
@@ -769,6 +1106,10 @@
         "github": "elder-plinius/CL4R1T4S",
         "yildiz": 50849,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Ürün şirketlerinin tescilli metinleri; depo AGPL-3.0 beyanı bu metinlere hak veremez."
       }
     },
     {
@@ -780,9 +1121,15 @@
       "ne_ise_yarar": "Yaygın LLM servislerinin sistem prompt'ları; katkılarda doğrulanabilir kaynak veya tekrarlanabilir prompt şartı arıyor, akademik makalelerde atıf alıyor.",
       "kime": "Daha 'kaynaklı' bir arşiv isteyenler.",
       "ornek": {
-        "baslik": "Katkı kuralı (README'den birebir)",
-        "metin": "You must include sources that I can verify or reproducible prompts.",
-        "kaynak_url": "https://raw.githubusercontent.com/jujumilk3/leaked-system-prompts/main/README.md"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Servis adına göre dosyalar; derleyen, katkılarda doğrulanabilir kaynak veya tekrar üretilebilir prompt şartı arıyor. Metin kopyalamadık.",
+        "kaynak_url": "https://github.com/jujumilk3/leaked-system-prompts",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Depoda lisans dosyası yok; içerik üçüncü taraf ürünlere ait: bilinmiyor / yeniden dağıtım izni yok sayılmalı."
+        }
       },
       "kullanim": [
         "Depoda servis adına göre dosyayı aç.",
@@ -798,6 +1145,10 @@
         "github": "jujumilk3/leaked-system-prompts",
         "yildiz": 14957,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "tescilli",
+        "ozet": "Lisans dosyası yok; içerik üçüncü taraf ürünlere ait."
       }
     },
     {
@@ -811,7 +1162,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Şablonu aç → 'Use workflow' → n8n'de kimlik bilgilerini (OpenAI, Gmail vb.) bağla → AI düğümündeki prompt'u kendine göre değiştir → çalıştır.",
-        "kaynak_url": "https://n8n.io/workflows/"
+        "kaynak_url": "https://n8n.io/workflows/",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Şablon lisansı tek tek belirtilmemiş."
+        }
       },
       "kullanim": [
         "n8n.io/workflows adresinde 'AI' kategorisini seç.",
@@ -828,6 +1185,10 @@
         "http": 200,
         "sablon_sayisi": 12895,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Şablon lisansı tek tek belirtilmemiş."
       }
     },
     {
@@ -841,7 +1202,23 @@
       "ornek": {
         "baslik": "Yerelde çalıştırma (README'den birebir)",
         "metin": "docker run -p 8000:8000 zie619/n8n-workflows:latest",
-        "kaynak_url": "https://raw.githubusercontent.com/Zie619/n8n-workflows/main/README.md"
+        "kaynak_url": "https://raw.githubusercontent.com/Zie619/n8n-workflows/94007c1445d9258a7da116646b79473e7c7c3282/README.md",
+        "kopya": {
+          "tur": "birebir",
+          "kaynak_depo": "Zie619/n8n-workflows",
+          "dosya_permalink": "https://github.com/Zie619/n8n-workflows/blob/94007c1445d9258a7da116646b79473e7c7c3282/README.md",
+          "ham_permalink": "https://raw.githubusercontent.com/Zie619/n8n-workflows/94007c1445d9258a7da116646b79473e7c7c3282/README.md",
+          "commit": "94007c1445d9258a7da116646b79473e7c7c3282",
+          "commit_tarihi": "2026-06-24T17:16:03+03:00",
+          "erisim_tarihi": "2026-10-03",
+          "sahip": "Copyright (c) 2025 Zie619",
+          "lisans": "MIT",
+          "lisans_belgesi": [
+            "lisanslar/n8n-workflows_LICENSE"
+          ],
+          "yeniden_dagitim": "MIT: kopyalama/dağıtım/ticari kullanım serbest; telif bildirimi ve MIT izin metni her kopyada bulunmalı (bkz. lisans belgesi).",
+          "kopyalanabilir": true
+        }
       },
       "kullanim": [
         "Web arayüzünde ara.",
@@ -858,6 +1235,10 @@
         "github": "Zie619/n8n-workflows",
         "yildiz": 56876,
         "son_guncelleme": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "kisitli",
+        "ozet": "Depo kodu MIT; toplanan iş akışlarının özgün lisansı bilinmiyor."
       }
     },
     {
@@ -869,9 +1250,15 @@
       "ne_ise_yarar": "Tek tıkla Dify'da açılan hazır uygulamalar: 'Daily AI News Digest', 'Competitive Landscape Intelligence', 'AI Technical Research Assistant' gibi. Ayrıca araç/model eklentileri ve MCP destekli ajan stratejileri.",
       "kime": "Kod yazmadan RAG/ajan uygulaması kurmak isteyenler.",
       "ornek": {
-        "baslik": "Şablon adları (marketplace'ten)",
-        "metin": "Daily AI News Digest · Competitive Landscape Intelligence · AI Technical Research Assistant",
-        "kaynak_url": "https://marketplace.dify.ai/"
+        "baslik": "Ne bulursun (özgün açıklama)",
+        "metin": "Tek tıkla açılan hazır uygulamalar: günlük AI haber özeti, rakip analizi, teknik araştırma asistanı gibi. Bunların yanında eklentiler ve ajan stratejileri.",
+        "kaynak_url": "https://marketplace.dify.ai/",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Marketplace şablonlarının lisansı tek tek belirtilmemiş: bilinmiyor. Dify kodu değiştirilmiş Apache-2.0."
+        }
       },
       "kullanim": [
         "Marketplace'te 'Templates' sekmesine gir.",
@@ -889,6 +1276,10 @@
         "github": "langgenius/dify",
         "yildiz": 157760,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Şablon lisansı belirtilmemiş; Dify kodu değiştirilmiş Apache-2.0."
       }
     },
     {
@@ -902,14 +1293,20 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Örnek klasörü klonla → agents.yaml / tasks.yaml içindeki rol ve görev metinlerini değiştir → çalıştır.",
-        "kaynak_url": "https://github.com/crewAIInc/crewAI-examples"
+        "kaynak_url": "https://github.com/crewAIInc/crewAI-examples",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Lisans dosyası yok."
+        }
       },
       "kullanim": [
         "Depoyu klonla, bir örnek klasörü seç.",
         "README'deki kurulum adımlarını uygula, API anahtarını .env'e koy.",
         "Rol/görev metinlerini kendi işine göre uyarla."
       ],
-      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "6 bin yıldız; depo ARŞİVLENMİŞ (salt okunur) görünüyor — güncel örnekler için CrewAI belgelerine bak.",
         "url": "https://github.com/crewAIInc/crewAI-examples"
@@ -920,6 +1317,10 @@
         "yildiz": 6152,
         "arsivli": true,
         "son_guncelleme": "2026-10-02"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Lisans dosyası yok."
       }
     },
     {
@@ -933,7 +1334,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Aramaya 'product photo, studio lighting' yaz → beğendiğin görseli aç → prompt'u kopyala → kendi modelinde konu kelimesini değiştir.",
-        "kaynak_url": "https://prompthero.com"
+        "kaynak_url": "https://prompthero.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Kullanıcı içerikleri; lisans belirtilmemiş."
+        }
       },
       "kullanim": [
         "prompthero.com'da model ve konu ara.",
@@ -949,6 +1356,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Kullanıcı içerikleri; lisans belirtilmemiş."
       }
     },
     {
@@ -962,7 +1373,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Arama → görseli aç → prompt'u kopyala → Lexica'da veya başka modelde üret.",
-        "kaynak_url": "https://lexica.art"
+        "kaynak_url": "https://lexica.art",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Kullanıcı içerikleri; lisans belirtilmemiş."
+        }
       },
       "kullanim": [
         "lexica.art'ta stil/konu ara.",
@@ -970,13 +1387,17 @@
       ],
       "ucret_lisans": "Arama ücretsiz; üretim aylık plan (incelemelere göre 10–60 USD).",
       "topluluk": {
-        "not": "Stable Diffusion döneminin ilk prompt arama motoru. (Capterra sayfası otomatik kontrolde 403 verdi; fiyat bilgisi arama sonuç özetinden.)",
+        "not": "Stable Diffusion döneminin ilk prompt arama motoru. Capterra sayfası otomatik kontrolde 403 verdi; fiyat bilgisi arama sonucu özetinden, doğrulanmadı.",
         "url": "https://www.capterra.com/p/10015083/Lexica/"
       },
       "dikkat": "Arşivin bir kısmı eski SD modellerine ait.",
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Kullanıcı içerikleri; lisans belirtilmemiş."
       }
     },
     {
@@ -990,7 +1411,13 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Görseli aç → paylaşılmışsa üretim bilgisini kopyala → aynı modeli indirip kendi arayüzünde (ComfyUI vb.) kullan.",
-        "kaynak_url": "https://civitai.com"
+        "kaynak_url": "https://civitai.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Kullanıcı içerikleri; model lisansları tek tek farklı."
+        }
       },
       "kullanim": [
         "Görsel veya model ara.",
@@ -1006,6 +1433,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Kullanıcı içerikleri; model lisansları tek tek farklı."
       }
     },
     {
@@ -1019,7 +1450,13 @@
       "ornek": {
         "baslik": "Not",
         "metin": "Eski docs.anthropic.com/.../prompt-library adresi 3 Ekim 2026'da bu sayfaya yönleniyor (curl ile doğrulandı).",
-        "kaynak_url": "https://docs.anthropic.com/en/resources/prompt-library/library"
+        "kaynak_url": "https://docs.anthropic.com/en/resources/prompt-library/library",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Anthropic belgesi; içerik lisansı belirtilmemiş."
+        }
       },
       "kullanim": [
         "Sayfayı oku; kendi prompt'unu bölüm bölüm (rol, bağlam, görev, kurallar, çıktı biçimi) kontrol et."
@@ -1033,6 +1470,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Anthropic belgesi; içerik lisansı belirtilmemiş."
       }
     },
     {
@@ -1046,7 +1487,13 @@
       "ornek": {
         "baslik": "Not",
         "metin": "cookbook.openai.com artık developers.openai.com/cookbook adresine yönleniyor (3 Ekim 2026 kontrolü).",
-        "kaynak_url": "https://cookbook.openai.com"
+        "kaynak_url": "https://cookbook.openai.com",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Site içerik lisansı bu çalışmada doğrulanmadı."
+        }
       },
       "kullanim": [
         "Model adına göre 'prompting guide' ara.",
@@ -1061,6 +1508,10 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Site içerik lisansı bu çalışmada doğrulanmadı."
       }
     },
     {
@@ -1074,13 +1525,19 @@
       "ornek": {
         "baslik": "Kullanım",
         "metin": "Techniques → bir teknik seç → örnek prompt'u kendi probleminle dene.",
-        "kaynak_url": "https://www.promptingguide.ai"
+        "kaynak_url": "https://www.promptingguide.ai",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "Rehber deposu MIT (DAIR.AI)."
+        }
       },
       "kullanim": [
         "Siteyi aç, Techniques veya Prompt Hub bölümüne gir.",
         "Örnekleri kendi görevine uyarla."
       ],
-      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "ucret_lisans": "Ücretsiz.",
       "topluluk": {
         "not": "Deposu 78 bin+ yıldız.",
         "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
@@ -1091,6 +1548,10 @@
         "github": "dair-ai/Prompt-Engineering-Guide",
         "yildiz": 78799,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "acik",
+        "ozet": "Rehber deposu MIT (DAIR.AI)."
       }
     },
     {
@@ -1102,14 +1563,20 @@
       "ne_ise_yarar": "Topluluğun yayımladığı prompt'ları ara, kendi çalışma alanına çatalla (fork), kodda adıyla çek. RAG, ajan, değerlendirme prompt'ları yaygın.",
       "kime": "LangChain/LangSmith ile uygulama geliştirenler.",
       "ornek": {
-        "baslik": "Kodda çekme (resmi belgeden birebir)",
-        "metin": "prompt = client.pull_prompt(\"joke-generator:production\")",
-        "kaynak_url": "https://docs.langchain.com/langsmith/manage-prompts.md"
+        "baslik": "Kodda kullanım (özgün genel biçim)",
+        "metin": "prompt = client.pull_prompt(\"<prompt-adi>:<etiket-veya-commit>\")",
+        "kaynak_url": "https://smith.langchain.com/hub",
+        "kopya": {
+          "tur": "ozgun",
+          "kopyalanabilir": false,
+          "aciklama": "Kaynağın metni kopyalanmadı; bu satırlar katalog yazarının kendi açıklamasıdır.",
+          "neden": "LangChain belge sayfasında içerik lisansı belirtilmemiş: bilinmiyor. Bu yüzden belgedeki örneği değil, genel biçimi yazdık."
+        }
       },
       "kullanim": [
-        "LangSmith'te Prompts → 'Browse all Public Prompts in the LangChain Hub'.",
-        "Prompt'u ara, çatalla.",
-        "Kodda client.pull_prompt ile kullan (LangSmith hesabı/anahtarı gerekir)."
+        "LangSmith'te Prompts bölümünden herkese açık LangChain Hub listesine geç.",
+        "Prompt'u ara, kendi çalışma alanına çatalla (fork).",
+        "Kodda client.pull_prompt ile adıyla çek (LangSmith hesabı/anahtarı gerekir)."
       ],
       "ucret_lisans": "Ücretsiz katman mevcut; hesap gerekir.",
       "topluluk": {
@@ -1120,7 +1587,216 @@
       "kanit": {
         "http": 200,
         "son_kontrol": "2026-10-03"
+      },
+      "icerik_lisansi": {
+        "durum": "bilinmiyor",
+        "ozet": "Kullanıcı prompt'ları doğrulanmamış; lisans tek tek belirtilmemiş."
       }
     }
-  ]
+  ],
+  "kaynak_depolar": {
+    "f/prompts.chat": {
+      "commit": "7d3f248962d1dca209d59e033524bcb86c2b26b8",
+      "commit_tarihi": "2026-10-01T12:56:12+03:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "Prompt içeriği CC0-1.0; site kodu MIT (ikili lisans beyanı)",
+      "sahip": "prompts.chat katkıcıları (Fatih Kadir Akın ve topluluk)",
+      "lisans_permalink": "https://github.com/f/prompts.chat/blob/7d3f248962d1dca209d59e033524bcb86c2b26b8/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/prompts.chat_LICENSE",
+        "lisanslar/prompts.chat_LICENSE-CC0"
+      ]
+    },
+    "danielmiessler/Fabric": {
+      "commit": "ddf1aab968caa9adf90137a6536c768d02b237d6",
+      "commit_tarihi": "2026-10-02T20:31:29-07:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2012-2024 Scott Chacon and others (LICENSE dosyasındaki satır aynen)",
+      "lisans_permalink": "https://github.com/danielmiessler/Fabric/blob/ddf1aab968caa9adf90137a6536c768d02b237d6/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/Fabric_LICENSE"
+      ]
+    },
+    "msitarzewski/agency-agents": {
+      "commit": "d3f71c4bb8922d3eea7576237a870dd59b3cdd52",
+      "commit_tarihi": "2026-10-01T14:35:39-05:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2025 AgentLand Contributors",
+      "lisans_permalink": "https://github.com/msitarzewski/agency-agents/blob/d3f71c4bb8922d3eea7576237a870dd59b3cdd52/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/agency-agents_LICENSE"
+      ]
+    },
+    "obra/superpowers": {
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "commit_tarihi": "2026-09-25T11:06:27-07:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2025 Jesse Vincent",
+      "lisans_permalink": "https://github.com/obra/superpowers/blob/8ca22dba9a94f28898bbce59f2537ff4d87c747d/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/superpowers_LICENSE"
+      ]
+    },
+    "VoltAgent/awesome-claude-code-subagents": {
+      "commit": "82b73821baa7a911d5b14cfb6da238b7f0db6b42",
+      "commit_tarihi": "2026-09-21T11:24:27+03:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2025 VoltAgent",
+      "lisans_permalink": "https://github.com/VoltAgent/awesome-claude-code-subagents/blob/82b73821baa7a911d5b14cfb6da238b7f0db6b42/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/awesome-claude-code-subagents_LICENSE"
+      ]
+    },
+    "bmad-code-org/BMAD-METHOD": {
+      "commit": "3cae711ea5274cf7c7cf6e173bb8d7f29cd71497",
+      "commit_tarihi": "2026-10-03T01:44:54-05:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2025 BMad Code, LLC",
+      "lisans_permalink": "https://github.com/bmad-code-org/BMAD-METHOD/blob/3cae711ea5274cf7c7cf6e173bb8d7f29cd71497/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/BMAD-METHOD_LICENSE"
+      ]
+    },
+    "github/spec-kit": {
+      "commit": "e1fa857a7f536b22760d48c1aa9ace41df0fd1dc",
+      "commit_tarihi": "2026-10-02T16:53:33-05:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright GitHub, Inc.",
+      "lisans_permalink": "https://github.com/github/spec-kit/blob/e1fa857a7f536b22760d48c1aa9ace41df0fd1dc/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/spec-kit_LICENSE"
+      ]
+    },
+    "wshobson/agents": {
+      "commit": "156b7a5e7a8b93642628a339ee4039c925b34c7f",
+      "commit_tarihi": "2026-09-28T20:45:26-04:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2024 Seth Hobson",
+      "lisans_permalink": "https://github.com/wshobson/agents/blob/156b7a5e7a8b93642628a339ee4039c925b34c7f/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/wshobson-agents_LICENSE"
+      ]
+    },
+    "github/awesome-copilot": {
+      "commit": "143a3d976b3c1603cc8932984d5e1f28501cb5fc",
+      "commit_tarihi": "2026-10-02T08:21:25+10:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright GitHub, Inc.",
+      "lisans_permalink": "https://github.com/github/awesome-copilot/blob/143a3d976b3c1603cc8932984d5e1f28501cb5fc/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/awesome-copilot_LICENSE"
+      ]
+    },
+    "Zie619/n8n-workflows": {
+      "commit": "94007c1445d9258a7da116646b79473e7c7c3282",
+      "commit_tarihi": "2026-06-24T17:16:03+03:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2025 Zie619",
+      "lisans_permalink": "https://github.com/Zie619/n8n-workflows/blob/94007c1445d9258a7da116646b79473e7c7c3282/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/n8n-workflows_LICENSE"
+      ]
+    },
+    "PatrickJS/awesome-cursorrules": {
+      "commit": "b044f956f021b6e8877f16781bcfc466a6a120e9",
+      "commit_tarihi": "2026-05-30T11:01:29-07:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "CC0-1.0",
+      "sahip": "PatrickJS ve katkıcılar",
+      "lisans_permalink": "https://github.com/PatrickJS/awesome-cursorrules/blob/b044f956f021b6e8877f16781bcfc466a6a120e9/LICENSE",
+      "lisans_yerel_kopya": [
+        "lisanslar/awesome-cursorrules_LICENSE"
+      ]
+    },
+    "dair-ai/Prompt-Engineering-Guide": {
+      "commit": "57673726396dd94acb23bdb1e67f27c78ee85a8e",
+      "commit_tarihi": "2026-03-11T14:07:25-06:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "MIT",
+      "sahip": "Copyright (c) 2022 DAIR.AI",
+      "lisans_permalink": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/LICENSE.md",
+      "lisans_yerel_kopya": []
+    },
+    "hesreallyhim/awesome-claude-code": {
+      "commit": "1616e38cb2c4e80f75a08a7e88bcb64e135465ab",
+      "commit_tarihi": "2026-10-03T09:10:20+00:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "CC-BY-NC-ND-4.0",
+      "sahip": "© 2026 hesreallyhim",
+      "lisans_permalink": "https://github.com/hesreallyhim/awesome-claude-code/blob/1616e38cb2c4e80f75a08a7e88bcb64e135465ab/LICENSE",
+      "lisans_yerel_kopya": []
+    },
+    "ai-boost/awesome-prompts": {
+      "commit": "3e351e7d0bb8a73a29beebf3d211641af0ae37bd",
+      "commit_tarihi": "2026-10-03T08:33:14+00:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "GPL-3.0 (depo beyanı)",
+      "sahip": "ai-boost",
+      "lisans_permalink": "https://github.com/ai-boost/awesome-prompts/blob/3e351e7d0bb8a73a29beebf3d211641af0ae37bd/LICENSE",
+      "lisans_yerel_kopya": []
+    },
+    "x1xhlol/system-prompts-and-models-of-ai-tools": {
+      "commit": "1e4203a7d88873c1b37ab2d1c07074fea498c274",
+      "commit_tarihi": "2026-08-11T15:01:09+02:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "GPL-3.0 (depo beyanı)",
+      "sahip": "x1xhlol (derleyen)",
+      "lisans_permalink": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools/blob/1e4203a7d88873c1b37ab2d1c07074fea498c274/LICENSE.md",
+      "lisans_yerel_kopya": []
+    },
+    "elder-plinius/CL4R1T4S": {
+      "commit": "a4d3da04e63324e794a65500c3e41994fc4ab02e",
+      "commit_tarihi": "2026-09-22T17:44:41-04:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "AGPL-3.0 (depo beyanı)",
+      "sahip": "elder-plinius (derleyen)",
+      "lisans_permalink": "https://github.com/elder-plinius/CL4R1T4S/blob/a4d3da04e63324e794a65500c3e41994fc4ab02e/LICENSE",
+      "lisans_yerel_kopya": []
+    },
+    "langgenius/dify": {
+      "commit": "8222397ea989a15c305ee60d2e4b867883638f37",
+      "commit_tarihi": "2026-10-03T10:12:10+00:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "Değiştirilmiş Apache-2.0 (ek koşullu)",
+      "sahip": "LangGenius",
+      "lisans_permalink": "https://github.com/langgenius/dify/blob/8222397ea989a15c305ee60d2e4b867883638f37/LICENSE",
+      "lisans_yerel_kopya": []
+    },
+    "jujumilk3/leaked-system-prompts": {
+      "commit": "2bffdfe275e5dc4725b23e20c330e036ef438802",
+      "commit_tarihi": "2026-09-23T13:54:54+09:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "Lisans dosyası yok — bilinmiyor",
+      "sahip": "jujumilk3 (derleyen)",
+      "lisans_permalink": null,
+      "lisans_yerel_kopya": []
+    },
+    "anthropics/skills": {
+      "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "commit_tarihi": "2026-09-28T19:20:03-07:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "Kök lisans dosyası yok; README: çoğu skill Apache-2.0, belge skill'leri source-available — klasör bazında farklı",
+      "sahip": "Anthropic",
+      "lisans_permalink": null,
+      "lisans_yerel_kopya": []
+    },
+    "crewAIInc/crewAI-examples": {
+      "commit": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+      "commit_tarihi": "2026-04-20T14:45:43-05:00",
+      "erisim_tarihi": "2026-10-03",
+      "lisans": "Lisans dosyası yok — bilinmiyor",
+      "sahip": "crewAI Inc.",
+      "lisans_permalink": null,
+      "lisans_yerel_kopya": []
+    }
+  }
 }

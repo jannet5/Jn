@@ -67,7 +67,8 @@ Topluluk/kullanıcı deneyimi kaynakları (WebSearch sonuç özetlerinden; Reddi
 - **Birebirlik ilkesi:** "birebir" etiketli her örnek, kaynak dosyada geçtiği betikle kanıtlanmak
   zorunda. Kanıtlayamadığım yerde örnek metni *kullanım tarifi* olarak etiketledim, alıntı gibi sunmadım.
 - **Tam metin yalnız serbest lisanslılardan:** prompts.chat (CC0) 30 prompt tam; Fabric extract_wisdom
-  (MIT) tam; diğerlerinden kısa alıntı.
+  (MIT) tam. *(Sürüm 1'de diğerlerinden kısa alıntı vardı; sürüm 2'de lisansı CC0/MIT olmayan tüm alıntılar
+  çıkarıldı — bkz. §9.)*
 - Ticari SEO blogları (God of Prompt, SurePrompts) katalogda ayrı girdi yapılmadı: kendi ürünlerini
   öven, doğrulanamayan sayılar içeriyorlar; yalnız karşılaştırma kaynağı olarak anıldı.
 - Türkçe kullanım için her prompt'a "Yanıtlarını Türkçe ver." ekleme önerisi ve kullanıcının "tekte tam
@@ -84,7 +85,8 @@ Topluluk/kullanıcı deneyimi kaynakları (WebSearch sonuç özetlerinden; Reddi
 3. **Eski Anthropic Prompt Library adresi** artık best-practices sayfasına yönleniyor (curl kanıtı) →
    katalogda yerine Claude Academy use-cases ve best-practices girdileri kondu.
 4. **Bot korumaları:** promptbase.com 403, cursor.directory 429, flowgpt.com bir kontrolde 200, sonrakinde
-   403. Girdilerde "tarayıcıda açılır, bu oturumda içerik doğrulanamadı" diye işaretlendi.
+   403. *(Sürüm 1'de girdilerde "tarayıcıda açılır" deniyordu; bu doğrulanmamış bir garantiydi. Sürüm 2'de
+   "bu oturumda doğrulanamadı; normal tarayıcıda açıldığı test edilmedi" olarak düzeltildi.)*
 5. **Giriş gerektiren galeriler:** Microsoft Copilot Prompt Gallery, LangSmith Hub, GPT Mağazası içeriği
    görülemedi → resmi destek/belge sayfalarından tarif, "giriş gerekir" notu.
 6. **Gemini rehber sayfası** otomatik okuyucuda kesildi → resmi PDF indirildi, örnek prompt oradan birebir alındı.
@@ -107,7 +109,7 @@ Topluluk/kullanıcı deneyimi kaynakları (WebSearch sonuç özetlerinden; Reddi
   masaüstü/telefon görünümü emülasyonu yapıldı). ChatGPT/Claude hesabında prompt'ların çalıştırılması
   yapılmadı (hesap erişimi yok).
 
-## 7. Kalıcı teslim
+## 7. Kalıcı teslim — sürüm 1 (geçmiş kayıt; sürüm 2 teslimi §9'da)
 
 Bu bölüm teslim adımında güncellendi — bkz. aşağıdaki "Teslim kaydı".
 
@@ -117,7 +119,7 @@ Bu bölüm teslim adımında güncellendi — bkz. aşağıdaki "Teslim kaydı".
    `origin/claude/youthful-rubin-7bjeo4`. `git fetch` sonrası yerel ve uzak HEAD aynı; GitHub MCP ile
    klasör listesi uzaktan okundu (9 öğe, 26 dosya). Bu commit'te yalnız araştırma çıktısı var; özel
    kaynaklar yok (dosya adı geçişleri dışında `grep` ile kontrol edildi).
-2. **Özel ZIP (bulut özel çalışma alanında, depoya girmez):** `hazir-ai-sistem-ve-prompt-katalogu.zip`
+2. **Özel ZIP (bulut özel çalışma alanında, depoya girmez; sürüm 2'de yerine temiz ürün ZIP'i geldi):** `hazir-ai-sistem-ve-prompt-katalogu.zip`
    - SHA-256: `73728aa5a6b9ef9d4879cf77886c56fb7a576c35ec866a99fb4c2e7d0f74c4bf`
    - İçerik: tüm ürün dosyaları + `_ozel/` (kaynak.txt, gorev.md, `repo-dal.bundle`) + `MANIFEST.sha256` (30 dosya)
    - Geri okuma: `sha256sum -c` OK → açıldı → manifest 30/30 OK → ürün dosyaları repo ile `diff -r`
@@ -133,3 +135,87 @@ Bu bölüm teslim adımında güncellendi — bkz. aşağıdaki "Teslim kaydı".
   hesabında çalıştırabilir; sonuçlar gelirse `veri/katalog.json`'a eklenip
   `python3 araclar/olustur.py && python3 araclar/dogrula.py` ile yeniden üretilir.
 - Windows/telefon gerçek cihaz testi yapılmadı (emülasyon yapıldı).
+
+## 9. Sürüm 2 — bağımsız inceleme sonrası lisans düzeltmesi
+
+### İstenen (inceleme bulguları, kendi cümlelerimle)
+Uzak HEAD `5e3777df4576e110ce9f0b07a05652cbc35bb837` üzerindeki statik incelemede şunlar istendi:
+1. Kopyalanan her prompt için kaynak, tam dosya/permalink, commit/tarih, sahip, lisans ve yeniden dağıtım sınırı alanları.
+2. MIT tam metni ve telif bildirimi, CC0 dayanak belgesi teslimde, ilgili kopyalarla birlikte bulunsun.
+3. Public depo ya da kaynak linki lisans izni sayılmasın. Ticari galeriler, kullanıcı metinleri ve sızdırılmış
+   sistem prompt'ları serbest diye sunulmasın. Belirsiz lisanslı tam metin çıkarılsın, yerine özgün açıklama ve
+   link konsun. Lisans bilinmiyorsa "bilinmiyor" yazılsın.
+4. Filtre ve kopyalama bu sınırları korusun ve bu anlamlı biçimde test edilsin.
+5. Google arayüzü araştırması ve ChatGPT Pro ortak araştırmasının yapılmadığı açıkça korunsun. Bot korumalı
+   4 site için "normal tarayıcıda açılır" garantisi verilmesin.
+6. Harita güncellensin. Temiz, ürün-köklü ZIP + SHA-256 ve uzak tam commit geri okuması verilsin. Başka projelerin
+   geçmişi, ham sohbet ve özel dosyalar pakete girmesin.
+
+### Yapılanlar ve gerçek komutlar
+- `git ls-remote https://github.com/<depo> HEAD` → 20 kaynak deponun tam commit SHA'sı.
+- `curl https://raw.githubusercontent.com/<depo>/<commit>/LICENSE*` → lisans dosyaları. Sonuçlar:
+  - MIT: Fabric, agency-agents, superpowers, VoltAgent, BMAD, spec-kit, wshobson, awesome-copilot, Zie619, DAIR.
+  - CC0: awesome-cursorrules; prompts.chat'in prompt içeriği (ikili lisans).
+  - GPL-3.0 beyanı: ai-boost, x1xhlol. AGPL-3.0 beyanı: CL4R1T4S.
+  - CC BY-NC-ND 4.0: awesome-claude-code. Değiştirilmiş Apache-2.0: Dify.
+  - **Lisans dosyası yok:** jujumilk3, crewAI-examples ve anthropics/skills (kökte).
+- `git fetch --depth 1 --filter=tree:0 <depo> <commit>` + `git log -1 --format=%cI` → commit tarihleri.
+- Pakette tutulan 4 tam dosya ve prompts.csv, sabit commit'teki dosyalarla SHA-256 düzeyinde **aynı**.
+- Lisansa göre sınıflandırma (36 kaynak): açık 11, kısıtlı 4, tescilli/üçüncü taraf 7, bilinmiyor 14.
+- **Çıkarılan birebir metinler** (lisansı CC0/MIT değil):
+  - Cursor sistem prompt'u alıntısı (tescilli; x1xhlol'ün GPL beyanı bu metne hak veremez).
+  - ai-boost README'si (GPL-3.0).
+  - jujumilk3 README cümlesi (lisans dosyası yok).
+  - OpenAI Academy e-posta şablonu, Google Gemini PDF örneği, LangChain belge örneği (lisans belirtilmemiş).
+  - Anthropic skills README şablonu ve cümlesi (kökte lisans yok).
+  - Claude Academy ve Dify başlık listeleri.
+
+  Hepsinin yerine Türkçe özgün açıklama ve link kondu; Anthropic skill biçimi için kendi örneğimizi yazdık.
+- prompts.chat'in **tam CSV'si üründen çıkarıldı**. `secki_cek.py` CSV'yi sabit commit'ten indiriyor, beklenen
+  SHA-256 değeriyle karşılaştırıyor ve her prompt'a `lisans_kaydi` alanlarını yazıyor.
+- Yeni dosyalar:
+  - `lisanslar/` (12 belge: 10 MIT, prompts.chat LICENSE + LICENSE-CC0, cursorrules CC0).
+  - `NOTICE.md`: MIT telif bildirimleri ve izin metinleri tam.
+  - `LISANS-ENVANTERI.md`.
+  - `araclar/negatif_test.py`, `dogrulama/lisans-dogrulama.md`, `dogrulama/negatif-test.txt`.
+- `index.html`:
+  - Lisans filtresi eklendi: tümü / metni kopyalanabilir (CC0/MIT) / yalnız açıklama + link.
+  - Kopyala düğmesi yalnız 11 birebir CC0/MIT örnekte var.
+  - MIT kopyasına telif bildirimi, izin metni ve commit otomatik ekleniyor.
+  - Diğer 25 kartta "Metin kopyalanmaz — kaynağa git" bağlantısı ve kopyalanmama nedeni gösteriliyor.
+- Garanti ifadeleri düzeltildi:
+  - Bot korumalı 4 adres için artık "test edilmedi, garanti yok" yazıyor.
+  - "Google arayüzü kullanılmadı" ve "ChatGPT Pro ortak araştırması yapılmadı" notları
+    `KATALOG.md`, `README.md` ve `harita.md`'de açıkça duruyor.
+
+### Sorun ve çözümler
+- `dogrula.py` CSV'yi okumadan önce alan sınırını yükseltmediği için 131 KB'lık satırda hata verdi. Sınır
+  modül düzeyinde yükseltildi.
+- Fabric kartında uzun commit SHA kutudan taştı (ekran görüntüsünde görüldü). CSS'e `overflow-wrap:anywhere` eklendi.
+- Fabric LICENSE'ındaki telif satırı "Copyright (c) 2012-2024 Scott Chacon and others" şeklinde. Şablondan kalmış
+  gibi görünse de değiştirmeden, dosyada yazdığı gibi aktarıldı.
+
+### Doğrulamalar (bu oturumda yeniden çalıştırıldı)
+- `python3 araclar/dogrula.py` → `şema hatası: 0 | lisans hatası: 0 | link: 66/70 erişildi | ana: 34/36 |
+  birebir: 11/11 | seçki: True | GENEL: GEÇTİ`. Erişilemeyen 4 adres: cursor.directory 429, flowgpt.com 403,
+  promptbase.com 403, Capterra 403 — bot koruması; normal tarayıcıda test edilmedi. Link sayısı 75'ten 70'e
+  düştü, çünkü çıkarılan örneklerin kaynak adresleri artık girdinin kendi linkine işaret ediyor.
+- `python3 araclar/negatif_test.py` → bilerek konan 4 ihlalin 4'ü de YAKALANDI: izinsiz lisans, eksik sahip
+  alanı, tescilli içeriğin kopyalanabilir işaretlenmesi, yasaklı Cursor metni.
+- `node araclar/ekran-testi.mjs` → 20/20 kontrol GEÇTİ. Lisansa özel 8 kontrol:
+  - Kopyala düğmesi yalnız 11 CC0/MIT kartında var.
+  - x1xhlol kartında düğme yok; "kopyalanmadı" notu var.
+  - MIT kopyasında telif satırı, izin metni ve commit yer alıyor.
+  - CC0 kopyası metni değiştirmeden aktarıyor.
+  - Lisans filtresi doğru çalışıyor (11 kart + 25 kart, bunlarda 0 düğme).
+  - Kategori ve lisans filtresi birlikte doğru çalışıyor.
+  - 30 prompt kartının hepsinde lisans kaydı var.
+- Push, uzak commit geri okuması ve ZIP'in SHA-256 değeri bu dosyanın içine yazılamaz (commit kendini içeremez).
+  Bunlar teslim mesajında ve ZIP'in yanındaki `.sha256` dosyasında.
+
+### Teslim — sürüm 2
+- Ürün ZIP'i, uzak commit'ten `git archive <commit>:gorevler/hazir-ai-sistem-ve-prompt-katalogu` ile üretilir.
+  ZIP'in kökü doğrudan ürün klasörüdür; içinde özel dosya, ham sohbet ya da başka projelerin geçmişi yoktur.
+- Bir dosya kendi SHA-256 değerini içeremeyeceği için ZIP'in SHA-256 değeri ZIP'in yanındaki `.sha256` dosyasında
+  ve teslim mesajındadır.
+

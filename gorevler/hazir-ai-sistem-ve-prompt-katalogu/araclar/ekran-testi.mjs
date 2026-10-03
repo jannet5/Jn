@@ -54,10 +54,50 @@ for (const [ad, gorunum, sema] of [['masaustu', { width: 1280, height: 900 }, 'l
     const beklenenMetin = katalog.girdiler[0].ornek.metin;
     const btn = await ilk.locator('.kopyala').getAttribute('data-kopyalandi');
     kontrol('kopyala düğmesi örneği panoya yazar', pano === beklenenMetin || btn === '1', pano ? 'pano eşleşti' : 'düğme durumu: ' + btn);
+
+    // --- Lisans sınırları ---
+    const izinli = katalog.girdiler.filter(g => g.ornek.kopya.kopyalanabilir);
+    const dugmeSayisi = await s.locator('#liste .kart .kopyala').count();
+    kontrol('kopyala düğmesi yalnız CC0/MIT birebir örneklerde', dugmeSayisi === izinli.length, `${dugmeSayisi}/${izinli.length}`);
+    const kapali = s.locator('#liste .kart[data-id="x1xhlol"]');
+    const kapaliDugme = await kapali.locator('.kopyala').count();
+    const kapaliMetin = await kapali.textContent();
+    kontrol('tescilli kaynakta (x1xhlol) kopyala düğmesi yok, "kopyalanmadı" notu var',
+      kapaliDugme === 0 && (await kapali.locator('.kaynaga-git').count()) === 1 && kapaliMetin.includes('kopyalanmadı'));
+    const fab = katalog.girdiler.find(g => g.id === 'fabric');
+    await s.locator('#liste .kart[data-id="fabric"] .kopyala').click();
+    const mitPano = await s.evaluate(() => navigator.clipboard.readText().catch(() => ''));
+    const mitTelif = 'Copyright (c) 2012-2024 Scott Chacon and others';
+    kontrol('MIT örneği kopyalanınca telif bildirimi + izin metni + commit eklenir',
+      mitPano.startsWith(fab.ornek.metin) && mitPano.includes(mitTelif) && mitPano.includes('Permission is hereby granted') && mitPano.includes(fab.ornek.kopya.commit));
+    const cc0 = katalog.girdiler.find(g => g.id === 'prompts-chat');
+    await s.locator('#liste .kart[data-id="prompts-chat"] .kopyala').click();
+    const cc0Pano = await s.evaluate(() => navigator.clipboard.readText().catch(() => ''));
+    kontrol('CC0 örneği değiştirilmeden kopyalanır', cc0Pano === cc0.ornek.metin);
+    await s.click('[data-lisans-filtre="kopya"]');
+    const kopyaKart = await s.locator('#liste .kart').count();
+    const kopyaDugme = await s.locator('#liste .kart .kopyala').count();
+    kontrol('lisans filtresi "kopyalanabilir": yalnız CC0/MIT kartları, hepsinde düğme', kopyaKart === izinli.length && kopyaDugme === kopyaKart, `${kopyaKart} kart`);
+    await s.click('[data-lisans-filtre="link"]');
+    const linkKart = await s.locator('#liste .kart').count();
+    const linkDugme = await s.locator('#liste .kart .kopyala').count();
+    kontrol('lisans filtresi "yalnız link": düğme yok', linkKart === katalog.girdiler.length - izinli.length && linkDugme === 0, `${linkKart} kart, ${linkDugme} düğme`);
+    await s.click('.cip[data-kat="sistem"]');
+    await s.click('[data-lisans-filtre="kopya"]');
+    const birlesik = await s.locator('#liste .kart').count();
+    kontrol('kategori + lisans filtresi birlikte (sistem promptları ∩ kopyalanabilir = 0)', birlesik === 0, `${birlesik} kart`);
+    await s.click('.cip[data-kat="hepsi"]');
+    await s.click('[data-lisans-filtre="hepsi"]');
+    await s.locator('#liste .kart[data-id="fabric"]').screenshot({ path: path.join(CIKTI, 'ekran-kart-mit-fabric.png') });
+    await s.locator('#liste .kart[data-id="x1xhlol"]').screenshot({ path: path.join(CIKTI, 'ekran-kart-tescilli-x1xhlol.png') });
     // Prompt sekmesi
     await s.click('#sekme-prompt');
     const pk = await s.locator('#liste-p .kart').count();
     kontrol('hazır prompt sekmesi 30 kart', pk === secki.length, `${pk}/${secki.length}`);
+    const lisansKutulari = await s.locator('#liste-p .kart .lisans').allTextContents();
+    const commit = secki[0].lisans_kaydi.commit;
+    kontrol('her prompt kartında CC0 lisans kaydı + commit\'e sabit permalink + sahip', lisansKutulari.length === secki.length &&
+      lisansKutulari.every(t => t.includes('CC0-1.0') && t.includes(commit) && t.includes('Katkıcı') && t.includes('Yeniden dağıtım')), `${lisansKutulari.length} kutu`);
     await s.fill('#ara-p', 'interview');
     const pa = await s.locator('#liste-p .kart').count();
     kontrol('prompt araması "interview"', pa >= 1, `${pa} sonuç`);
@@ -78,7 +118,7 @@ const gecti = sonuc.every(r => r.gecti);
 const md = ['# Tarayıcı kabul testi (Chromium, Playwright)', '', `Çalıştırma: ${new Date().toISOString()}`, '',
   '| Kontrol | Sonuç | Ayrıntı |', '|---|---|---|',
   ...sonuc.map(r => `| ${r.ad} | ${r.gecti ? 'GEÇTİ' : 'KALDI'} | ${r.ayrinti} |`), '',
-  'Ekran görüntüleri: `ekran-masaustu-kaynaklar.png`, `ekran-masaustu-ornek-acik.png`, `ekran-masaustu-promptlar.png`, `ekran-telefon-kaynaklar.png`, `ekran-telefon-promptlar.png`', '',
+  'Ekran görüntüleri: `ekran-masaustu-kaynaklar.png`, `ekran-masaustu-ornek-acik.png`, `ekran-masaustu-promptlar.png`, `ekran-kart-mit-fabric.png`, `ekran-kart-tescilli-x1xhlol.png`, `ekran-telefon-kaynaklar.png`, `ekran-telefon-promptlar.png`', '',
   `## Genel: **${gecti ? 'GEÇTİ' : 'KALDI'}**`, ''].join('\n');
 fs.writeFileSync(path.join(CIKTI, 'tarayici-testi.md'), md);
 console.log(md);
