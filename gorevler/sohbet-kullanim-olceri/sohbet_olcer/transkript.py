@@ -55,6 +55,8 @@ class OkumaSonucu:
     ayni_kimlik_farkli_proje: dict = field(default_factory=dict)  # kimlik -> projeler
     ayni_dosyada_coklu_konusma: dict = field(default_factory=dict)  # kimlik -> konuşma sayısı
     kopuk_zincir: int = 0  # ebeveyni bulunamayan istek (ilk konuşmaya sayıldı)
+    _kok_sirasi: dict = field(default_factory=dict)   # (dosya, kimlik) -> {kök: sıra}
+    _ebeveynler: dict = field(default_factory=dict)   # dosya -> {uuid: ebeveyn}
 
 
 def proje_dizini(dosya):
@@ -175,9 +177,29 @@ def oku(yollar, kayitlari_tut=False):
                     mevcut.sayac[a] = v
             if zaman and (mevcut.zaman is None or zaman < mevcut.zaman):
                 mevcut.zaman = zaman
-        _konusmalari_ayir(sonuc, ebeveyn, yeni_istekler)
+        _konusmalari_ayir(sonuc, ebeveyn, yeni_istekler, dosya)
+        if kayitlari_tut:
+            sonuc._ebeveynler[dosya] = ebeveyn
     _ayni_kimligi_ayir(sonuc)
+    if kayitlari_tut:
+        sonuc.kayitlar = [(d, k, _kayit_konusmasi(sonuc, d, k)) for d, k in sonuc.kayitlar]
     return sonuc
+
+
+def _kayit_konusmasi(sonuc, dosya, kayit):
+    """Ham bir kaydın (kullanıcı mesajı, araç çağrısı vb.) ait olduğu
+    konuşma adı; isteklerle aynı kurallar (#sıra, @proje) uygulanır."""
+    kimlik = kayit.get("sessionId") or os.path.splitext(os.path.basename(dosya))[0]
+    ad = kimlik
+    sira = sonuc._kok_sirasi.get((dosya, kimlik))
+    if sira and not kayit.get("isSidechain"):
+        kok = _kok(kayit.get("uuid"), sonuc._ebeveynler.get(dosya, {}), {}) if kayit.get("uuid") else None
+        ad = f"{kimlik}#{sira.get(kok, 1)}"
+    elif sira:
+        ad = f"{kimlik}#1"
+    if ad in sonuc.ayni_kimlik_farkli_proje:
+        ad = f"{ad}@{os.path.basename(proje_dizini(dosya))}"
+    return ad
 
 
 def _kok(uuid, ebeveyn, bellek):
@@ -205,7 +227,7 @@ def _kok(uuid, ebeveyn, bellek):
     return sonuc
 
 
-def _konusmalari_ayir(sonuc, ebeveyn, istekler):
+def _konusmalari_ayir(sonuc, ebeveyn, istekler, dosya=None):
     """Aynı dosyada aynı oturum kimliğiyle birden çok bağımsız konuşma
     olabilir: bu ortamda eşzamanlı iki ``claude -p`` aynı kimliği alıp aynı
     dosyaya iç içe yazdı (gerçek gözlem). Her konuşmanın parentUuid
@@ -223,10 +245,11 @@ def _konusmalari_ayir(sonuc, ebeveyn, istekler):
         if len(gercek) <= 1:
             continue
         en_gec = datetime.max.replace(tzinfo=timezone.utc)
-        sirali = sorted(gercek.values(), key=lambda lst: min(
-            (i.zaman for i in lst if i.zaman), default=en_gec))
+        sirali = sorted(gercek.items(), key=lambda kv: min(
+            (i.zaman for i in kv[1] if i.zaman), default=en_gec))
         sonuc.ayni_dosyada_coklu_konusma[kimlik] = len(sirali)
-        for n, liste in enumerate(sirali, 1):
+        sonuc._kok_sirasi[(dosya, kimlik)] = {kok: n for n, (kok, _) in enumerate(sirali, 1)}
+        for n, (_, liste) in enumerate(sirali, 1):
             for istek in liste:
                 istek.oturum = f"{kimlik}#{n}"
         for istek in koklar.get(None, []):

@@ -78,7 +78,7 @@ def rapor_verisi(okuma, ozetler, oturum, goruntuler, simdi, kota_kaynagi_var):
             # Bitiş = son isteğin tamamlanması; istek zaman damgası yanıtın
             # ilk bloğunun yazıldığı an olduğundan küçük bir pay bırakılır.
             veri["farklar"][p] = kota_mod.fark_hesapla(
-                goruntuler, p, oturum.ilk - timedelta(seconds=1), oturum.son)
+                goruntuler, p, oturum.ilk - timedelta(seconds=1), oturum.son, simdi)
     return veri
 
 

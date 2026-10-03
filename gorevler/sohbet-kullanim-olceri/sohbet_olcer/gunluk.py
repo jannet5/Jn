@@ -37,12 +37,25 @@ def _sonuc_ozeti(icerik):
     return _kisalt(icerik or "(boş çıktı)", 200)
 
 
+def konusma_coz(okuma, oturum):
+    """Kimlik/önekten tek bir konuşma adı çözer; belirsizse KeyError."""
+    adlar = {k for _, _, k in okuma.kayitlar}
+    if oturum in adlar:
+        return oturum
+    adaylar = sorted(a for a in adlar if a.startswith(oturum))
+    if len(adaylar) == 1:
+        return adaylar[0]
+    if not adaylar:
+        raise KeyError(f"'{oturum}' ile eşleşen konuşma yok")
+    raise KeyError(f"'{oturum}' birden çok konuşmayla eşleşiyor: {', '.join(adaylar)}")
+
+
 def gunluk(okuma, oturum=None, tz="Europe/Istanbul", kullanici_metni=False):
     olaylar = []
     son_gerekce = None
     bekleyen = {}
-    for dosya, k in okuma.kayitlar:
-        if oturum and k.get("sessionId") and not k["sessionId"].startswith(oturum):
+    for dosya, k, konusma in okuma.kayitlar:
+        if oturum and konusma != oturum:
             continue
         zaman = iso_ayristir(k.get("timestamp"))
         mesaj = k.get("message") or {}

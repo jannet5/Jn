@@ -136,6 +136,26 @@ class OturumAyirma(unittest.TestCase):
         self.assertEqual(oz["S#2"].sayac["output_tokens"], 22)
         self.assertEqual(ok.ayni_dosyada_coklu_konusma, {"S": 2})
 
+    def test_gunluk_ayni_kimlikli_konusmalari_karistirmaz(self):
+        from sohbet_olcer import gunluk
+        def arac(uuid, ebeveyn, dk, komut):
+            return {"type": "assistant", "uuid": uuid, "parentUuid": ebeveyn, "sessionId": "S",
+                    "timestamp": ts(dk), "message": {"id": "m" + uuid, "content": [
+                        {"type": "tool_use", "id": "t" + uuid, "name": "Bash", "input": {"command": komut}}],
+                        "usage": {"input_tokens": 1, "output_tokens": 1}}}
+        yaz(os.path.join(self.d, "S.jsonl"), [
+            {"type": "user", "uuid": "a1", "parentUuid": None, "sessionId": "S", "timestamp": ts(0), "message": {"content": "x"}},
+            {"type": "user", "uuid": "b1", "parentUuid": None, "sessionId": "S", "timestamp": ts(0, 1), "message": {"content": "y"}},
+            arac("a2", "a1", 1, "echo birinci"), arac("b2", "b1", 2, "echo ikinci")])
+        ok = transkript.oku([self.d], kayitlari_tut=True)
+        self.assertEqual(gunluk.konusma_coz(ok, "S#2"), "S#2")
+        with self.assertRaises(KeyError):
+            gunluk.konusma_coz(ok, "S")
+        metin = gunluk.gunluk(ok, "S#2", "UTC")
+        self.assertIn("echo ikinci", metin)
+        self.assertNotIn("echo birinci", metin)
+        self.assertIn("\n\n", metin)
+
     def test_alt_ajan_dosyasi_ana_oturuma_eklenir(self):
         ana = os.path.join(self.d, "proj", "S1.jsonl")
         yaz(ana, [asistan("S1", "m1", 0)])
@@ -355,7 +375,7 @@ class Eszamanlilik(unittest.TestCase):
 class KomutSatiri(unittest.TestCase):
     def _calistir(self, args, girdi=None):
         return subprocess.run([sys.executable, "-m", "sohbet_olcer"] + args, cwd=KOK,
-                              input=girdi, capture_output=True, text=True, timeout=60)
+                              input=girdi, capture_output=True, text=True, encoding="utf-8", timeout=60)
 
     def test_statusline_kaydet(self):
         d = tempfile.mkdtemp()

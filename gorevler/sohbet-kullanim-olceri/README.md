@@ -12,8 +12,14 @@ asla "bu sohbet şu kadar harcadı" diye yazılmaz. Ölçülemeyen bir değer
 için rapor "erişilemiyor" der. Tahmin yapılan yerde başına
 **TAHMİN (ölçüm değil)** yazılır.
 
+Ayrıca OpenAI **Codex CLI** için ayrı ve salt okunur bir adaptör içerir
+(aşağıdaki "Codex" bölümüne bakın). Codex ve Claude kotaları birbirine
+karışmaz.
+
 Yalnızca Python 3.9+ standart kütüphanesini kullanır. Linux, macOS ve
-Windows'ta çalışır. Windows'ta `tzdata` paketi gerekmez.
+Windows'ta çalışır. Windows'ta `tzdata` paketi gerekmez. Çıktı her zaman
+UTF-8'dir. Bu önemli, çünkü Windows'ta yönlendirilmiş çıktı (kanca, boru,
+dosya) normalde cp1252 olur ve Türkçe karakterde çökerdi.
 
 ## Hızlı başlangıç
 
@@ -53,7 +59,9 @@ Claude Code ayar dosyası (`~/.claude/settings.json`, Windows'ta
   (resmî alan; Pro/Max aboneliklerinde ve oturumun ilk yanıtından sonra
   gelir) kilitli bir JSONL dosyasına ekler. Alt satırda da
   `kota 5s %23 · 7g %41` biçiminde kısa bir durum gösterir. Kullanılan başka
-  bir statusline varsa onun yerine geçer.
+  bir statusline varsa onun yerine geçer. Windows'ta kayıt dosyasının
+  yanında `kota.jsonl.kilit` adlı küçük bir kilit dosyası oluşur. Silinmesi
+  güvenlidir.
 * `kanca`: Her yanıt bittiğinde o konuşmanın raporunu
   `~/.claude/sohbet-olcer/raporlar/<oturum>.txt` dosyasına yazar. Kısa bir
   özeti de Claude Code ekranında bildirim olarak gösterir.
@@ -128,6 +136,44 @@ hesaplanmaz, rapor bunu açıkça söyler. Yenilenme zamanı geçmiş bir değer
 | ccusage | Yok | Günlük ve oturum toplamları | Bilinen tekilleştirme ve alt ajan eksikleri var |
 | OpenTokenUsage (Windows) | Var | Yok (ccusage'ın günlük toplamı) | Kotayı Claude Code'un OAuth kimlik bilgisini okuyup belgelenmemiş `/api/oauth/usage` uç noktasından alır; bu araç o yolu kullanmaz, yalnızca yerel API çıktısını okuyabilir |
 
+## Codex
+
+```text
+python olc.py codex --liste                 # Codex konuşmaları ve token toplamları
+python olc.py codex                         # en son Codex konuşmasının raporu
+python olc.py codex --konusma 019a2b        # belirli bir konuşma (thread kimliği ya da öneki)
+python olc.py codex --kok D:\yedek\sessions # farklı bir rollout dizini
+```
+
+Ne okur: Codex CLI'nin kendi yazdığı oturum kayıtlarını, yani
+`%USERPROFILE%\.codex\sessions\YYYY\MM\DD\rollout-*.jsonl` dosyalarını
+(`CODEX_HOME` tanımlıysa onun altındakileri). `auth.json` ve benzeri
+kimlik bilgisi dosyalarını okumaz. Hiçbir dosyaya yazmaz; bu bir testle
+denetlenir. Biçim, openai/codex deposundaki
+`codex-rs/protocol/src/protocol.rs` dosyasından alındı.
+
+Ne gösterir:
+
+* **Konuşma başına token.** Değer `token_count` olaylarındaki birikimli
+  `total_token_usage` sayacının artışlarından hesaplanır. Girdi, önbellekten
+  gelen girdi, çıktı ve akıl yürütme tokenleri ayrı yazılır.
+* **Hesap kotası.** Kayıttaki `rate_limits.primary` ve `secondary`
+  pencereleri gösterilir; pencere süresi `window_minutes` alanından okunur
+  (300 dakika 5 saatlik, 10080 dakika haftalık demektir). Her pencere için
+  kullanılan ve kalan yüzde, yenilenme zamanı ve **kaynağın tarihi**, yani o
+  kotanın okunduğu kaydın zaman damgası yazılır. Kayıt eskiyse ya da
+  yenilenme zamanı geçtiyse rapor bunu açıkça söyler. Eski Codex
+  sürümlerindeki `resets_in_seconds` alanı da desteklenir.
+* **Doğruluk kuralları.** Birebir tekrar eden olaylar, çatallanmış (fork)
+  konuşmaya kopyalanan eski olaylar ve sayaç değişmeden yazılan olaylar
+  yeniden sayılmaz. Sayaç geriye düşerse yalnızca o turun değeri eklenir ve
+  raporda belirtilir. Aynı anda açık başka bir oturumun eskimiş, daha düşük
+  kota değeri elenir.
+
+Doğrulama durumu: parser, şemaya uygun **sentetik** örnek dosyalarla test
+edildi (`testler/ornekler/codex_uret.py`). Gerçek bir Codex hesabının
+rollout kayıtlarıyla ve gerçek bir Windows makinesinde **denenmedi**.
+
 ## Testler
 
 ```text
@@ -137,5 +183,12 @@ python -m unittest discover -s testler -v
 Testler şunları kapsar: tekilleştirme, konuşmaların ayrılması (iç içe
 geçmiş, aynı kimlikli, alt ajanlı), yarım satırlar, yuvarlama aralıkları,
 pencere yenilenmesi, kota verisinin hiç olmaması, eskimiş eşzamanlı anlık
-görüntüler, 8 sürecin aynı anda kayıt yazması, Windows saat dilimi yedeği
-ve komut satırının uçtan uca çalışması.
+görüntüler, 8 sürecin aynı anda kayıt yazması, Windows saat dilimi yedeği,
+komut satırının uçtan uca çalışması ve Codex adaptörü.
+
+Test paketinin tamamı, Wine 9.0 altında gerçek Windows CPython 3.12.7
+(python.org gömülü dağıtımı) ile de çalıştırıldı. Gerçek transkript
+gerektiren test o ortamda transkript olmadığı için atlandı; geri kalanların
+hepsi geçti. Bu çalıştırma iki gerçek Windows hatasını ortaya çıkardı, ikisi
+de düzeltildi: cp1252 çıktı çökmesi ve msvcrt kilidinin açılırken hata
+vermesi. Gerçek bir Windows makinesinde ise henüz çalıştırılmadı.

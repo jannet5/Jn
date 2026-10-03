@@ -210,25 +210,46 @@ def dosyadan_oku(yol, varsayilan_zaman=None):
 
 
 def kilitli_ekle(yol, nesne):
-    """Eşzamanlı yazıcılar için satırı kilitle ve tek write() ile ekler."""
+    """Eşzamanlı yazıcılar için satırı kilitle ve tek write() ile ekler.
+    Unix'te veri dosyası flock ile kilitlenir. Windows'ta ayrı bir
+    ``<yol>.kilit`` dosyasının ilk baytı msvcrt ile kilitlenir; ekleme kipinde
+    açılmış dosyanın kendisini kilitlemek kilit açarken hata verdi
+    (Windows CPython'da gerçek olarak gözlendi)."""
     os.makedirs(os.path.dirname(os.path.abspath(yol)), exist_ok=True)
     satir = (json.dumps(nesne, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
-    fd = os.open(yol, os.O_WRONLY | os.O_CREAT | os.O_APPEND | getattr(os, "O_BINARY", 0), 0o600)
-    try:
-        if fcntl:
+    if fcntl:
+        fd = os.open(yol, os.O_WRONLY | os.O_CREAT | os.O_APPEND, 0o600)
+        try:
             fcntl.flock(fd, fcntl.LOCK_EX)
-        else:
-            os.lseek(fd, 0, os.SEEK_SET)
-            msvcrt.locking(fd, msvcrt.LK_LOCK, 1)  # ilk baytı kilitle (10 sn dener)
-            os.lseek(fd, 0, os.SEEK_END)
-        os.write(fd, satir)
-    finally:
-        if fcntl:
+            os.write(fd, satir)
+        finally:
             fcntl.flock(fd, fcntl.LOCK_UN)
-        else:
-            os.lseek(fd, 0, os.SEEK_SET)
-            msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
-        os.close(fd)
+            os.close(fd)
+        return
+    import time
+    kfd = os.open(yol + ".kilit", os.O_RDWR | os.O_CREAT | os.O_BINARY, 0o600)
+    try:
+        bitis = time.monotonic() + 60
+        while True:
+            os.lseek(kfd, 0, os.SEEK_SET)
+            try:
+                msvcrt.locking(kfd, msvcrt.LK_NBLCK, 1)
+                break
+            except OSError:
+                if time.monotonic() > bitis:
+                    raise
+                time.sleep(0.01)
+        try:
+            fd = os.open(yol, os.O_WRONLY | os.O_CREAT | os.O_APPEND | os.O_BINARY, 0o600)
+            try:
+                os.write(fd, satir)
+            finally:
+                os.close(fd)
+        finally:
+            os.lseek(kfd, 0, os.SEEK_SET)
+            msvcrt.locking(kfd, msvcrt.LK_UNLCK, 1)
+    finally:
+        os.close(kfd)
 
 
 def ayni_donem(a, b):
@@ -242,14 +263,15 @@ def guncel_durum(goruntuler, pencere, simdi=None):
     dönemindeki değerler artan olmalıdır; farklı oturumların eski anlık
     görüntüleri (#75408) daha düşük gösterebileceğinden en son dönemdeki en
     yüksek değer alınır. Yenilenme zamanı geçmişse veri bayattır."""
-    adaylar = [g for g in goruntuler if g.pencere == pencere]
+    simdi = simdi or datetime.now(timezone.utc)
+    # "Şimdi"den sonraki kayıtlar (saat kayması ya da geçmişe dönük rapor) yok sayılır.
+    adaylar = [g for g in goruntuler if g.pencere == pencere and (g.zaman is None or g.zaman <= simdi)]
     if not adaylar:
         return None
     en_son = max(adaylar, key=lambda g: g.zaman)
     donem = [g for g in adaylar if ayni_donem(g, en_son) is not False]
     olculen = [g for g in donem if g.kullanilan is not None]
     secilen = max(olculen, key=lambda g: (g.kullanilan, g.zaman)) if olculen else en_son
-    simdi = simdi or datetime.now(timezone.utc)
     bayat = bool(secilen.yenilenme and secilen.yenilenme <= simdi)
     return {"goruntu": secilen, "bayat": bayat,
             "eski_dusuk": [g for g in olculen if g.kullanilan < secilen.kullanilan
@@ -278,7 +300,10 @@ def _guvenilir(liste):
     return max(donem, key=lambda g: (g.kullanilan, g.zaman))
 
 
-def fark_hesapla(goruntuler, pencere, baslangic, bitis):
+SONRA_PENCERESI_SN = 120
+
+
+def fark_hesapla(goruntuler, pencere, baslangic, bitis, simdi=None):
     """[baslangic, bitis] aralığının hemen öncesi ve sonrası arasındaki
     hesap geneli değişimi aralık (alt-üst) olarak hesaplar.
 
@@ -287,7 +312,8 @@ def fark_hesapla(goruntuler, pencere, baslangic, bitis):
     aralığındadır; kota pencere içinde azalmadığından alt sınır 0'a
     kırpılır."""
     olculen = sorted((g for g in goruntuler if g.pencere == pencere
-                      and g.kullanilan is not None), key=lambda g: g.zaman)
+                      and g.kullanilan is not None and (simdi is None or g.zaman <= simdi)),
+                     key=lambda g: g.zaman)
     if not olculen:
         return Fark(pencere, None, None, "yetersiz")
     oncekiler = [g for g in olculen if g.zaman <= baslangic]
@@ -304,8 +330,21 @@ def fark_hesapla(goruntuler, pencere, baslangic, bitis):
         else:
             once = icerde[0]
         durum = "ilk_istek_sonrasi"
+    # "Sonra": bitişten sonraki ilk kayıt ve onu izleyen kısa süre içindekiler,
+    # önceki ölçümle aynı yenilenme dönemindeyse. Böylece günler sonraki
+    # kullanım farka katılmaz; eşzamanlı oturumların eskimiş düşük değerleri
+    # _guvenilir ile elenir.
     sonrakiler = [g for g in olculen if g.zaman >= bitis and g.zaman >= once.zaman]
-    sonra = _guvenilir(sonrakiler) if sonrakiler else _guvenilir(olculen)
+    if sonrakiler:
+        ayni_donemde = [g for g in sonrakiler if ayni_donem(g, once) is not False]
+        if ayni_donemde:
+            ilk = ayni_donemde[0].zaman
+            sonra = _guvenilir([g for g in ayni_donemde
+                                if (g.zaman - ilk).total_seconds() <= SONRA_PENCERESI_SN])
+        else:
+            sonra = sonrakiler[0]
+    else:
+        sonra = _guvenilir(olculen)
     if sonra is once:
         return Fark(pencere, once, sonra, "yetersiz")
     ayni = ayni_donem(once, sonra)

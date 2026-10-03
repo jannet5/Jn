@@ -7,6 +7,7 @@
   elle     claude.ai Ayarlar → Kullanım ekranından okunan değeri kaydeder.
   kanca    Claude Code Stop kancası: her yanıt sonunda kısa rapor gösterir.
   uzlastir stream-json/SDK çıktısındaki API sonucunu transkriptle karşılaştırır.
+  codex    Codex CLI rollout kayıtlarından (salt okunur) token ve kota raporu.
 """
 
 import argparse
@@ -79,7 +80,14 @@ def komut_oturumlar(a):
 def komut_gunluk(a):
     okuma = transkript.oku(a.transkript or [VARSAYILAN_TRANSKRIPT], kayitlari_tut=True)
     okuma.kayitlar.sort(key=lambda dk: dk[1].get("timestamp") or "")
-    sys.stdout.write(gunluk_mod.gunluk(okuma, a.oturum, a.tz, a.kullanici_metni))
+    oturum = None
+    if a.oturum:
+        try:
+            oturum = gunluk_mod.konusma_coz(okuma, a.oturum)
+        except KeyError as e:
+            print(f"Hata: {e.args[0]}", file=sys.stderr)
+            return 2
+    sys.stdout.write(gunluk_mod.gunluk(okuma, oturum, a.tz, a.kullanici_metni))
     return 0
 
 
@@ -88,7 +96,7 @@ def komut_kaydet(a):
     bir durum satırı basar. Hiçbir durumda statusline'ı bozmamak için
     hata vermez."""
     try:
-        girdi = json.load(sys.stdin)
+        girdi = json.loads(sys.stdin.buffer.read().decode("utf-8", errors="replace"))
     except ValueError:
         print("kota: girdi okunamadı")
         return 0
@@ -127,7 +135,7 @@ def komut_kanca(a):
     """Stop kancası: stdin'den session_id ve transcript_path alır, raporu
     dosyaya yazar ve systemMessage olarak kısa özet döndürür."""
     try:
-        girdi = json.load(sys.stdin)
+        girdi = json.loads(sys.stdin.buffer.read().decode("utf-8", errors="replace"))
     except ValueError:
         return 0
     yol = girdi.get("transcript_path")
@@ -204,6 +212,32 @@ def komut_uzlastir(a):
     return 1 if hata else 0
 
 
+def komut_codex(a):
+    from . import codex
+    okuma = codex.oku(a.kok or [codex.varsayilan_kok()])
+    if not okuma.dosyalar:
+        print(f"Codex rollout kaydı bulunamadı ({', '.join(a.kok or [codex.varsayilan_kok()])}). "
+              f"Codex token ve kota bilgisi: erişilemiyor.")
+        return 2
+    if a.liste:
+        for k in sorted(okuma.konusmalar.values(), key=lambda c: c.ilk or datetime.min.replace(tzinfo=timezone.utc)):
+            print(f"{k.kimlik}  toplam_token={k.sayac.get('total_tokens', 0)}  "
+                  f"ilk={k.ilk.isoformat() if k.ilk else '?'}  son={k.son.isoformat() if k.son else '?'}")
+        return 0
+    if not okuma.konusmalar:
+        print("Rollout kayıtlarında token_count olayı yok. Codex token ve kota bilgisi: erişilemiyor.")
+        return 2
+    try:
+        konusma = (codex.konusma_bul(okuma, a.konusma) if a.konusma else
+                   max(okuma.konusmalar.values(), key=lambda c: c.son or datetime.min.replace(tzinfo=timezone.utc)))
+    except KeyError as e:
+        print(f"Hata: {e.args[0]}", file=sys.stderr)
+        return 2
+    simdi = iso_ayristir(a.simdi) if a.simdi else datetime.now(timezone.utc)
+    sys.stdout.write(codex.metin_raporu(okuma, konusma, simdi, a.tz))
+    return 0
+
+
 def ayristirici():
     p = argparse.ArgumentParser(prog="sohbet_olcer", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -246,6 +280,13 @@ def ayristirici():
     u.add_argument("--transkript", action="append")
     u.set_defaults(f=komut_uzlastir)
 
+    c = alt.add_parser("codex", help="Codex CLI rollout kayıtlarından rapor (salt okunur)")
+    c.add_argument("--kok", action="append", help="rollout dizini/dosyası (varsayılan $CODEX_HOME/sessions ya da ~/.codex/sessions)")
+    c.add_argument("--konusma", help="konuşma (thread) kimliği ya da öneki (varsayılan: en son)")
+    c.add_argument("--liste", action="store_true", help="konuşmaları listele")
+    c.add_argument("--simdi", help="test için 'şimdi' zamanı (ISO 8601)")
+    c.set_defaults(f=komut_codex)
+
     h = alt.add_parser("kanca", help="Claude Code Stop kancası")
     h.add_argument("--kayit", default=VARSAYILAN_KOTA_KAYDI)
     h.add_argument("--cikti", default=os.path.expanduser("~/.claude/sohbet-olcer/raporlar"))
@@ -253,7 +294,19 @@ def ayristirici():
     return p
 
 
+def _utf8_cikti():
+    """Windows'ta yönlendirilmiş çıktı (kanca, boru, dosya) cp1252 olur ve
+    Türkçe karakterde çöker (Windows CPython'da gerçek olarak gözlendi).
+    Claude Code kanca/statusline çıktısını UTF-8 bekler."""
+    for akis in (sys.stdout, sys.stderr):
+        try:
+            akis.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+
+
 def main(argv=None):
+    _utf8_cikti()
     a = ayristirici().parse_args(argv)
     return a.f(a)
 
