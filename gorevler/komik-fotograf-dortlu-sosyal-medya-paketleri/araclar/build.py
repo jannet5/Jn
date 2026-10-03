@@ -99,8 +99,13 @@ def main():
     for no, it in enumerate(items, 1):
         it["no"] = no
         it["dosya"] = f"foto/{no:02d}_{it['kat']}_{slug(it['baslik'])}.jpg"
-        im = Image.open(io.BytesIO(indir(it["gorsel_url"]))).convert("RGB")
-        im.save(os.path.join(kok, it["dosya"]), "JPEG", quality=92)
+        ham = indir(it["gorsel_url"])
+        kaynak_im = Image.open(io.BytesIO(ham))
+        im = kaynak_im.convert("RGB")
+        if kaynak_im.format == "JPEG":   # orijinal baytlar aynen (yeniden sıkıştırma yok)
+            open(os.path.join(kok, it["dosya"]), "wb").write(ham)
+        else:
+            im.save(os.path.join(kok, it["dosya"]), "JPEG", quality=92)
         it["boyut"] = f"{im.width}x{im.height}"
         it["sha256"] = sha(os.path.join(kok, it["dosya"]))
         it["_img"] = im
@@ -125,15 +130,15 @@ def main():
         fotolar = [items[n - 1] for n in grup]
         for si, it in enumerate(fotolar, 1):
             kr = kredi_metni(it)
-            slayt(it["_img"], IG, kr).save(os.path.join(pd, "instagram", f"{si}.jpg"), "JPEG", quality=88)
-            slayt(it["_img"], TT, kr).save(os.path.join(pd, "tiktok", f"{si}.jpg"), "JPEG", quality=88)
+            slayt(it["_img"], IG, kr).save(os.path.join(pd, "instagram", f"{si}.jpg"), "JPEG", quality=85)
+            slayt(it["_img"], TT, kr).save(os.path.join(pd, "tiktok", f"{si}.jpg"), "JPEG", quality=85)
         # Sessiz önizleme videosu (müzik uygulama içinden eklenecek)
         vid = os.path.join(pd, "tiktok-reels-onizleme-sessiz.mp4")
         cmd = ["ffmpeg", "-y", "-loglevel", "error"]
         for si in range(1, 5):
             cmd += ["-loop", "1", "-t", str(SLAYT_SN), "-i", os.path.join(pd, "tiktok", f"{si}.jpg")]
         cmd += ["-filter_complex", "".join(f"[{i}:v]scale=1080:1920,setsar=1,fps=30[v{i}];" for i in range(4)) + "[v0][v1][v2][v3]concat=n=4:v=1:a=0,format=yuv420p[o]",
-                "-map", "[o]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "26", "-movflags", "+faststart", vid]
+                "-map", "[o]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "28", "-movflags", "+faststart", vid]
         subprocess.run(cmd, check=True)
         m = pv["muzik"]
         aciklama = pv["aciklama"].strip()

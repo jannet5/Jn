@@ -55,3 +55,8 @@ pip install pillow   # ffmpeg gerekli
 python3 araclar/build.py /çıktı/klasörü
 python3 araclar/dogrula.py /çıktı/klasörü
 ```
+
+## 8. Teslim boyutu düzeltmesi
+İlk ZIP 32,3 MiB idi; dosya gönderim sınırı 30 MiB → reddedildi. Çözüm: orijinal JPEG baytları yeniden sıkıştırılmadan saklandı
+(11 MB → 8,6 MB, kaynağa daha sadık), slayt JPEG kalitesi 88→85, video CRF 26→28. Yeni ZIP 29.112.275 bayt (27,8 MiB),
+SHA-256 `9fa22357ca999d2458f71ce96860bb6a2d98af98156d76dfb4e2e94e9ee6948d`; `dogrula.py` yeniden TÜM KABULLER GEÇTİ; kullanıcıya özel dosya olarak iletildi.
