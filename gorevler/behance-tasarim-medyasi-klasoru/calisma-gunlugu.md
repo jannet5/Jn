@@ -41,6 +41,11 @@ klasörde toplamak; kaynak/hak bilgisini eklemek ve indirilemeyenleri dürüstç
     SHA-256 `abfb1b70d181d30cc26061588565fceadb93aee84db1cae63a54c741000125a1`.
     `testzip` temiz, ayrı klasöre açılıp `diff -r` ile birebir aynı, manifestteki 23 SHA-256 eşleşti.
 
+13. **Teslim yüklemesi** — 101 MB'lık tek ZIP sohbet dosya yüklemesinde HTTP 502 verdi. ZIP `split -b 25M`
+    ile 5 parçaya bölündü (4×25 MiB + 0,9 MiB); parçalar birleştirilince SHA-256 yine
+    `abfb1b70…0125a1` çıktı. 5 parça + `parcalar.sha256` + `BIRLESTIR.txt` (Windows `copy /b` talimatı)
+    başarıyla gönderildi.
+
 ## 3. Sonuç
 - Teslim edildi: 23 dosya (14 PNG + 6 GIF + kapak + 2 video kapak karesi), manifest.csv/json, BENI_OKU.md
   (kimlik, sahipler, haklar, eksikler), önizleme sayfası, video indirme betiği.
