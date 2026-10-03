@@ -1,0 +1,126 @@
+{
+  "zaman": "2026-10-03 12:05 UTC",
+  "gecti": true,
+  "sema_hatalari": [],
+  "link_toplam": 75,
+  "link_erisildi": 71,
+  "engelli": [
+    {
+      "url": "https://cursor.directory",
+      "http": "429"
+    },
+    {
+      "url": "https://flowgpt.com",
+      "http": "403"
+    },
+    {
+      "url": "https://promptbase.com",
+      "http": "403"
+    },
+    {
+      "url": "https://www.capterra.com/p/10015083/Lexica/",
+      "http": "403"
+    }
+  ],
+  "ana_oran": 0.944,
+  "birebir": [
+    {
+      "id": "prompts-chat",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "ai-boost",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "gemini-guide",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "fabric",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "agency-agents",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "superpowers",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "bmad",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "spec-kit",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "wshobson-agents",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "voltagent-subagents",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "anthropic-skills",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "awesome-copilot",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "x1xhlol",
+      "gecti": true,
+      "eslesen": 2,
+      "parca_sayisi": 2
+    },
+    {
+      "id": "leaked-system-prompts",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "zie619-n8n",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    },
+    {
+      "id": "langsmith-hub",
+      "gecti": true,
+      "eslesen": 1,
+      "parca_sayisi": 1
+    }
+  ],
+  "secki_gecti": true,
+  "canli_csvde_bulunan": 30
+}

@@ -1,0 +1,1126 @@
+{
+  "baslik": "Hazır AI Sistem ve Prompt Kataloğu",
+  "tarih": "2026-10-03",
+  "aciklama": "Gidip bakıp 'bu güzelmiş, kullanayım' diyebileceğin hazır prompt siteleri, hazır ajan/sistem paketleri, otomasyon şablonları ve gerçek ürünlerin sistem promptları. Her girdi canlı kontrol edildi; örnek prompt'lar kaynaktan birebir alındı.",
+  "kategoriler": [
+    {
+      "id": "genel",
+      "ad": "Her alan: hazır prompt kütüphaneleri",
+      "aciklama": "Kopyala-yapıştır prompt siteleri ve hazır sohbet botu mağazaları. Yazı, iş, eğitim, sağlık, hobi... her konu."
+    },
+    {
+      "id": "ofis",
+      "ad": "İş ve ofis: resmi prompt paketleri",
+      "aciklama": "OpenAI, Anthropic, Google ve Microsoft'un kendi yayımladığı departman/rol bazlı hazır prompt'lar."
+    },
+    {
+      "id": "icerik",
+      "ad": "İçerik işleme ve kişisel üretkenlik sistemi",
+      "aciklama": "Video, makale, toplantı notu gibi içerikleri hazır kalıplarla özete, fikir listesine, eyleme çeviren sistemler."
+    },
+    {
+      "id": "ajan",
+      "ad": "Yazılım ve iş: hazır ajan ekipleri / iş akışı sistemleri",
+      "aciklama": "Tek prompt değil; rolleri, adımları ve kuralları önceden yazılmış çok-ajanlı 'hazır sistem' paketleri."
+    },
+    {
+      "id": "kural",
+      "ad": "Editör kuralları ve skill koleksiyonları",
+      "aciklama": "Cursor, Copilot, Claude gibi araçlara proje kuralı / yetenek (skill) olarak eklenen hazır dosyalar."
+    },
+    {
+      "id": "sistem",
+      "ad": "Gerçek ürünlerin sistem promptları",
+      "aciklama": "Cursor, Claude, ChatGPT, Lovable gibi ürünlerin içindeki uzun sistem promptları: 'profesyoneller nasıl kurmuş' sorusunun cevabı."
+    },
+    {
+      "id": "otomasyon",
+      "ad": "Otomasyon: hazır iş akışı şablonları",
+      "aciklama": "Tek tıkla içe aktarılan, AI adımlı hazır otomasyonlar (e-posta, sosyal medya, rapor, destek botu...)."
+    },
+    {
+      "id": "gorsel",
+      "ad": "Görsel ve video prompt galerileri",
+      "aciklama": "Beğendiğin görselin prompt'unu kopyalayıp kendi görsel modelinde kullanabildiğin galeriler."
+    },
+    {
+      "id": "rehber",
+      "ad": "Öğrenme: resmi prompt rehberleri ve prompt hub'ları",
+      "aciklama": "Kendi sistem prompt'unu yazarken model üreticilerinin resmi kalıplarını görmek için."
+    }
+  ],
+  "girdiler": [
+    {
+      "id": "prompts-chat",
+      "ad": "prompts.chat (eski adı Awesome ChatGPT Prompts)",
+      "url": "https://prompts.chat",
+      "kategori": "genel",
+      "tur": "Ücretsiz prompt kütüphanesi + açık kaynak depo",
+      "ne_ise_yarar": "Dünyanın en büyük açık prompt kütüphanesi. 'Act as ...' (…gibi davran) rol prompt'ları: çevirmen, mülakatçı, kariyer danışmanı, Linux terminali, diyetisyen, Excel tablosu vb. Ayrıca görsel, video, Skill ve Workflow türleri var.",
+      "kime": "Herkes; özellikle 'şu iş için hazır bir prompt var mı?' diye bakanlar.",
+      "ornek": {
+        "baslik": "Job Interviewer (iş mülakatçısı) — birebir alıntı (CC0)",
+        "metin": "I want you to act as an interviewer. I will be the candidate and you will ask me the interview questions for the ${Position:Software Developer} position. I want you to only reply as the interviewer. ...",
+        "kaynak_url": "https://raw.githubusercontent.com/f/prompts.chat/main/prompts.csv"
+      },
+      "kullanim": [
+        "https://prompts.chat adresine gir, üstteki aramaya konu yaz (ör. 'interview', 'translator', 'diet').",
+        "Prompt kartında Kopyala'ya bas; ${Position:Software Developer} gibi alanları kendi bilginle değiştir.",
+        "ChatGPT / Claude / Gemini sohbetine yapıştır; Türkçe yanıt istiyorsan sonuna 'Yanıtlarını Türkçe ver.' ekle.",
+        "Toplu kullanmak istersen CSV'yi indir veya Hugging Face veri setini kullan; şirket içi kullanım için depo self-host edilebilir."
+      ],
+      "ucret_lisans": "Ücretsiz. Prompt metinleri CC0 (kamu malı), site kodu MIT.",
+      "topluluk": {
+        "not": "GitHub'ın en çok yıldızlı prompt deposu; 2.169 prompt (3 Ekim 2026 CSV anlık görüntüsü: 1.836 metin, 312 yapılandırılmış, 21 görsel).",
+        "url": "https://github.com/f/prompts.chat"
+      },
+      "dikkat": "Prompt'lar topluluk yazımı; kalite değişken. En iyi sonuç için kendi bağlamını (kim olduğun, hedefin) ekle.",
+      "kanit": {
+        "github": "f/prompts.chat",
+        "yildiz": 171897,
+        "son_guncelleme": "2026-10-03"
+      },
+      "ek_linkler": [
+        "https://huggingface.co/datasets/fka/prompts.chat",
+        "https://github.com/f/prompts.chat"
+      ]
+    },
+    {
+      "id": "gpt-store",
+      "ad": "ChatGPT GPT Mağazası (Explore GPTs)",
+      "url": "https://chatgpt.com/gpts",
+      "kategori": "genel",
+      "tur": "Hazır özel sohbet botları (Custom GPT)",
+      "ne_ise_yarar": "Başkalarının sistem prompt'u + dosya + araç ile kurup yayımladığı hazır GPT'ler: yazı, verimlilik, araştırma, programlama, eğitim, yaşam tarzı. Prompt yazmadan doğrudan kullanılır.",
+      "kime": "ChatGPT kullananlar; 'prompt'la uğraşmadan hazır asistan' isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım örneği (prompt mağazada gizli; botu açıp doğrudan yazarsın)",
+        "metin": "GPT'yi aç → 'Bu PDF'teki sözleşmenin riskli maddelerini maddeler halinde çıkar' gibi doğrudan isteğini yaz.",
+        "kaynak_url": "https://chatgpt.com/gpts"
+      },
+      "kullanim": [
+        "chatgpt.com/gpts adresine ChatGPT hesabınla gir.",
+        "Kategoriden veya aramadan bir GPT seç, açıklamasını ve puanını oku.",
+        "Sohbeti başlat; beğenirsen kenar çubuğuna sabitle.",
+        "Kendi GPT'ni kurmak için 'Create' ile sistem prompt'unu (Instructions) yaz — bu katalogdaki örnekler başlangıç olabilir."
+      ],
+      "ucret_lisans": "ChatGPT hesabı gerekir; kullanım limitleri plana göre değişir.",
+      "topluluk": {
+        "not": "Popüler GPT'lerin sistem prompt'larını toplayan ayrı bir depo var (ai-boost/awesome-prompts).",
+        "url": "https://github.com/ai-boost/awesome-prompts"
+      },
+      "dikkat": "Üçüncü taraf GPT'lere hassas veri yükleme; geliştiricisi sohbet içeriğini göremese de eklentili GPT'ler dış servislere veri gönderebilir.",
+      "kanit": {
+        "http": "200 (giriş ekranı)",
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "ai-boost",
+      "ad": "ai-boost/awesome-prompts — en iyi GPT'lerin prompt'ları",
+      "url": "https://github.com/ai-boost/awesome-prompts",
+      "kategori": "genel",
+      "tur": "Açık depo: GPT Mağazası'ndaki popüler GPT'lerin sistem prompt'ları",
+      "ne_ise_yarar": "GPT Mağazası'nda üst sıralardaki botların (yazı, akademik, kod, tasarım...) talimat metinlerini ve prompt koruma/saldırı örneklerini toplar. 'Popüler bir GPT nasıl kurulmuş?' sorusuna cevap.",
+      "kime": "Kendi Custom GPT'sini / sistem prompt'unu yazacaklar.",
+      "ornek": {
+        "baslik": "README içindekiler bölümü (birebir) — depo artık GPT prompt'larının yanında rol bazlı kopyala-yapıştır prompt'lar da içeriyor",
+        "metin": "- [📋 Prompts](#prompts) — copy-paste ready\n  - [Coding & Development](#coding--development)\n  - [DevOps & SRE](#devops--sre)\n  - [Data Engineering](#data-engineering)\n  - [AI & ML](#ai--ml)\n  - [Product & Strategy](#product--strategy)",
+        "kaynak_url": "https://raw.githubusercontent.com/ai-boost/awesome-prompts/main/README.md"
+      },
+      "kullanim": [
+        "README'de kategoriye in, beğendiğin GPT'nin prompt dosyasını aç.",
+        "Metni kendi Custom GPT'nin 'Instructions' alanına veya Claude Project talimatına yapıştır.",
+        "Bot adını, hedef kitleyi ve çıktı biçimini kendine göre değiştir."
+      ],
+      "ucret_lisans": "Ücretsiz depo (prompt'ların özgün sahipleri ayrı).",
+      "topluluk": {
+        "not": "≈9 bin yıldız; prompt-injection'a karşı 'prompt protect' örnekleri de içeriyor.",
+        "url": "https://github.com/ai-boost/awesome-prompts"
+      },
+      "dikkat": "Bazı metinler başkalarının ürünlerinden çıkarılmıştır; ticari kopyalama yerine ilham için kullan.",
+      "kanit": {
+        "github": "ai-boost/awesome-prompts",
+        "yildiz": 8986,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "flowgpt",
+      "ad": "FlowGPT",
+      "url": "https://flowgpt.com",
+      "kategori": "genel",
+      "tur": "Topluluk prompt + bot + karakter platformu",
+      "ne_ise_yarar": "Kategorilere ayrılmış (iş arama, iş, programlama, eğlence...) prompt ve botları site içinde doğrudan sohbet ederek dene, beğenirsen kopyala.",
+      "kime": "Denemeden önce prompt'u çalışırken görmek isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Kategori seç → bir prompt/bot aç → site içi sohbette dene → işe yararsa kendi AI aracına taşı.",
+        "kaynak_url": "https://flowgpt.com"
+      },
+      "kullanim": [
+        "flowgpt.com'a gir.",
+        "İlgi alanı kategorisinden bir prompt/bot seç.",
+        "Site içi sohbette dene; beğenirsen prompt metnini kopyala."
+      ],
+      "ucret_lisans": "Freemium (ücretsiz gezinme + ücretli üyelik).",
+      "topluluk": {
+        "not": "Ağırlık eğlence/karakter botlarında; iş prompt'ları için prompts.chat daha düzenli.",
+        "url": "https://flowgpt.com"
+      },
+      "dikkat": "Kategori bilgisi site açıklamasından; otomatik kontrolde bazen 403 (bot koruması) veriyor, tarayıcıda açılır. Karakter/rol yapma içeriği yoğun; iş amaçlı aramada filtre kullan.",
+      "kanit": {
+        "http": "200 ilk kontrolde, 403 ikinci kontrolde (bot koruması)",
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "aiprm",
+      "ad": "AIPRM (tarayıcı eklentisi)",
+      "url": "https://www.aiprm.com",
+      "kategori": "genel",
+      "tur": "Chrome/Edge eklentisi: ChatGPT, Claude, Gemini içine hazır prompt menüsü",
+      "ne_ise_yarar": "ChatGPT/Claude/Gemini arayüzünün içine hazır şablon listesi ekler; özellikle SEO, pazarlama, metin yazarlığı şablonları. Kendi özel prompt'larını da saklarsın.",
+      "kime": "Pazarlama/SEO ekipleri, sürekli aynı tür içerik üretenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Eklentiyi kur → ChatGPT'yi aç → AIPRM listesinden ör. bir SEO makale şablonu seç → yalnız anahtar kelimeyi yaz.",
+        "kaynak_url": "https://www.aiprm.com"
+      },
+      "kullanim": [
+        "aiprm.com'dan Chrome veya Edge eklentisini kur.",
+        "ChatGPT/Claude/Gemini sayfasını aç; prompt listesi sayfanın içinde belirir.",
+        "Şablonu seç, istenen alanı (konu, anahtar kelime) doldur, gönder."
+      ],
+      "ucret_lisans": "Ücretsiz kütüphane + ücretli bireysel/ekip planları.",
+      "topluluk": {
+        "not": "Kendi sitesine göre 5.400+ herkese açık prompt; incelemelerde 'SEO/pazarlama için iyi, ücretli plan pahalı' yorumu öne çıkıyor.",
+        "url": "https://godofprompt.ai/blog/in-depth-review-leading-ai-prompt-marketplaces/"
+      },
+      "dikkat": "Eklenti sohbet sayfasına erişir; şirket verisiyle kullanmadan önce gizlilik politikasını oku.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "promptbase",
+      "ad": "PromptBase (prompt pazaryeri)",
+      "url": "https://promptbase.com",
+      "kategori": "genel",
+      "tur": "Ücretli prompt pazaryeri",
+      "ne_ise_yarar": "Tek tek satın alınan, satıcısının örnek çıktısını gösterdiği prompt'lar (metin ve görsel). Ücretsiz kaynaklarda bulamadığın çok özel bir sonuç için.",
+      "kime": "Belirli bir görsel stil veya niş iş için hazır, test edilmiş prompt'a para vermeye razı olanlar.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Örnek çıktılara bak → prompt'u satın al → gelen şablondaki [köşeli] alanları doldur.",
+        "kaynak_url": "https://promptbase.com"
+      },
+      "kullanim": [
+        "Siteye gir, model (ChatGPT, Midjourney vb.) ve konu seç.",
+        "Örnek çıktıları ve yorumları incele.",
+        "Satın al; şablonu kendi aracında doldurarak kullan."
+      ],
+      "ucret_lisans": "Prompt başına ücret (incelemelere göre çoğu 2–7 USD).",
+      "topluluk": {
+        "not": "Reddit'te 'prompt satmak AI'ın açıklığını tehdit ediyor' eleştirisi var; ücretsiz alternatifleri önce dene.",
+        "url": "https://godofprompt.ai/blog/in-depth-review-leading-ai-prompt-marketplaces/"
+      },
+      "dikkat": "Sunucu bot korumasıyla otomatik kontrolümüze 403 verdi; site tarayıcıda açılır ama bu oturumda içerik doğrulanamadı.",
+      "kanit": {
+        "http": "403 (bot koruması)",
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "poe",
+      "ad": "Poe (hazır botlar)",
+      "url": "https://poe.com/explore",
+      "kategori": "genel",
+      "tur": "Çok modelli sohbet platformu + topluluk botları",
+      "ne_ise_yarar": "Tek yerde birçok model ve başkalarının prompt'la kurduğu botlar; kategoriler: resmi, arama, görsel, video, ses, programlama.",
+      "kime": "Farklı modelleri ve hazır botları tek hesapla denemek isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Explore → kategori → botu aç → doğrudan isteğini yaz.",
+        "kaynak_url": "https://poe.com/explore"
+      },
+      "kullanim": [
+        "poe.com/explore adresine gir.",
+        "Kategoriden bot seç ve sohbet et.",
+        "Beğendiğin botun yaklaşımını kendi prompt'una uyarlayabilirsin."
+      ],
+      "ucret_lisans": "Freemium (puan sistemi).",
+      "topluluk": {
+        "not": "Keşif sayfası resmî/üçüncü taraf botları ayırıyor.",
+        "url": "https://poe.com/explore"
+      },
+      "dikkat": "Bot sahiplerinin prompt'ları her zaman görünmez.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "openai-academy",
+      "ad": "OpenAI Academy — 'ChatGPT for any role' prompt paketleri",
+      "url": "https://academy.openai.com/public/clubs/work-users-ynjqu/resources/chatgpt-for-any-role",
+      "kategori": "ofis",
+      "tur": "Resmi, ücretsiz prompt paketi",
+      "ne_ise_yarar": "İş için hazır prompt'lar: iletişim ve yazı, toplantı ve iş birliği, problem çözme, organizasyon. Ayrıca pazarlama, IT, İK, satış, ürün, mühendislik, sağlık rollerine özel paketlere link verir.",
+      "kime": "Ofis çalışanları, yöneticiler, ekip liderleri.",
+      "ornek": {
+        "baslik": "E-posta yazma (sayfadan alıntı)",
+        "metin": "Write a professional email to [recipient]. The email is about [topic] and should be polite, clear, and concise.",
+        "kaynak_url": "https://academy.openai.com/public/clubs/work-users-ynjqu/resources/chatgpt-for-any-role"
+      },
+      "kullanim": [
+        "Sayfayı aç, ilgili başlığı seç (ör. Meetings & collaboration).",
+        "Prompt'u kopyala, [köşeli] alanları doldur.",
+        "Rolüne özel paketi (ör. HR, Sales) sayfadaki linkten aç."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "Resmi kaynak; kısa ve şablonlu, başlangıç için ideal.",
+        "url": "https://academy.openai.com/"
+      },
+      "dikkat": "Prompt'lar kısa; kendi şirket bağlamını eklemezsen genel sonuç alırsın.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "claude-academy",
+      "ad": "Claude Academy — Use cases (kullanım senaryoları)",
+      "url": "https://academy.claude.com/use-cases",
+      "kategori": "ofis",
+      "tur": "Resmi, adım adım senaryo rehberleri",
+      "ne_ise_yarar": "Departmana göre hazır senaryolar: Genel, Pazarlama, Ürün, Mühendislik, İK, Finans, Operasyon, Veri, Tasarım, Hukuk, Satış, Araştırma, Eğitim, Kişisel. Ör. 'Haftanı hazırla', 'Kullanıcı geri bildirimindeki örüntüleri analiz et', 'Olay sonrası raporu (postmortem) taslakla'.",
+      "kime": "Claude kullananlar; hazır iş senaryosunu adım adım görmek isteyenler.",
+      "ornek": {
+        "baslik": "Senaryo adları (sayfadan)",
+        "metin": "Quickly prep for your week · Analyze patterns in user feedback · Account research · Forecast & scenario modeling · Draft the incident postmortem",
+        "kaynak_url": "https://academy.claude.com/use-cases"
+      },
+      "kullanim": [
+        "Sayfada departman filtresini seç.",
+        "Senaryoyu aç; tahmini süreyi ve adımları gör.",
+        "Verilen prompt/adımları Claude'da uygula."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "Eski 'Anthropic Prompt Library' adresi artık prompting best practices sayfasına yönleniyor (3 Ekim 2026 kontrolü); hazır senaryolar bu sayfada.",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+      },
+      "dikkat": "Bunlar tek satır prompt değil, kısa rehberler; 'hazır prompt' arıyorsan prompts.chat daha hızlı.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "gemini-guide",
+      "ad": "Google — Gemini for Workspace prompt rehberi",
+      "url": "https://workspace.google.com/learning/content/gemini-prompt-guide",
+      "kategori": "ofis",
+      "tur": "Resmi rehber (rol bazlı örnek prompt'lar)",
+      "ne_ise_yarar": "Gmail, Docs, Sheets, Slides içinde Gemini için rol bazlı (pazarlama, satış, İK, yönetici, müşteri hizmetleri...) örnek prompt'lar ve 'persona + görev + bağlam + biçim' kalıbı.",
+      "kime": "Google Workspace kullanan şirketler.",
+      "ornek": {
+        "baslik": "Dört alanı birlikte kullanan örnek (Google PDF rehberinden birebir)",
+        "metin": "You are a business owner in [industry]. Draft an outreach email to suggest a partnership with [persona or company] based on [relevant details about your business]. Use a formal tone.",
+        "kaynak_url": "https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf"
+      },
+      "kullanim": [
+        "Rehber sayfasını aç; rolüne uygun bölümü bul.",
+        "Örnek prompt'u Gmail/Docs'taki Gemini paneline yapıştır.",
+        "Persona/Görev/Bağlam/Biçim alanlarını kendine göre doldur."
+      ],
+      "ucret_lisans": "Rehber ücretsiz; Workspace'te Gemini plana bağlı.",
+      "topluluk": {
+        "not": "Rehber 4 alanı önerir: Persona, Task, Context, Format; ve 'görevde mutlaka bir fiil/komut olsun' der. 21 sayfalık PDF senaryo bazlı örnek prompt'lar içerir.",
+        "url": "https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf"
+      },
+      "dikkat": "Web sayfası otomatik okuyucuda kesildi; içerik resmi PDF'ten (Eylül 2024 KOBİ sürümü) doğrulandı — tarihli olabilir.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      },
+      "ek_linkler": [
+        "https://services.google.com/fh/files/misc/google_workspace_prompting_guide_abridged_smbs_startups_september2024.pdf"
+      ]
+    },
+    {
+      "id": "copilot-gallery",
+      "ad": "Microsoft Copilot Prompt Gallery",
+      "url": "https://copilot.cloud.microsoft/prompts",
+      "kategori": "ofis",
+      "tur": "Resmi galeri (Word, Excel, PowerPoint, Outlook, Teams için hazır prompt'lar)",
+      "ne_ise_yarar": "Microsoft 365 uygulamalarına özel hazır prompt'lar; beğendiğini kaydedip ekip arkadaşlarınla link olarak paylaşırsın.",
+      "kime": "Microsoft 365 Copilot (iş) lisansı olan şirket çalışanları.",
+      "ornek": {
+        "baslik": "Kaydet/paylaş akışı (Microsoft destek sayfasından)",
+        "metin": "Prompt'u çalıştır → üzerine gelip 'Save prompt' → galeride 'Saved' sekmesi → Share → Copy link.",
+        "kaynak_url": "https://support.microsoft.com/microsoft-365-copilot/share-your-best-prompts-with-others"
+      },
+      "kullanim": [
+        "İş hesabınla copilot.cloud.microsoft/prompts adresine gir.",
+        "Uygulamaya (Word, Excel...) ve göreve göre filtrele.",
+        "Prompt'u çalıştır, beğendiğini kaydet ve paylaş."
+      ],
+      "ucret_lisans": "Microsoft 365 Copilot (work) lisansı gerekir.",
+      "topluluk": {
+        "not": "Microsoft Learn'de galeri belgesi var.",
+        "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-prompt-gallery"
+      },
+      "dikkat": "Giriş gerektirir; bu oturumda galeri içeriği görülemedi (giriş ekranına yönlendi).",
+      "kanit": {
+        "http": "200 (Microsoft giriş ekranı)",
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "fabric",
+      "ad": "Fabric (Daniel Miessler) — 250+ hazır 'pattern'",
+      "url": "https://github.com/danielmiessler/Fabric",
+      "kategori": "icerik",
+      "tur": "Açık kaynak komut satırı aracı + hazır sistem prompt'ları",
+      "ne_ise_yarar": "Her 'pattern' tek bir işi yapan, IDENTITY/STEPS/OUTPUT bölümlü uzun bir sistem prompt'udur: extract_wisdom (videodan fikir/alıntı/tavsiye çıkar), summarize, create_quiz, analyze_claims, improve_writing, agility_story... YouTube transkripti, makale veya not üzerinde tek komutla çalışır.",
+      "kime": "Çok video/makale tüketip not çıkaranlar; 'tek tam prompt'la sistem kuran' kişiler için en iyi şablon örneği.",
+      "ornek": {
+        "baslik": "extract_wisdom pattern'inin başı (birebir, MIT)",
+        "metin": "# IDENTITY and PURPOSE\n\nYou extract surprising, insightful, and interesting information from text content. You are interested in insights related to the purpose and meaning of life, human flourishing, the role of technology in the future of humanity, artificial intelligence and its affect on humans, memes, learning, reading, books, continuous improvement, and similar topics.",
+        "kaynak_url": "https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/extract_wisdom/system.md"
+      },
+      "kullanim": [
+        "Kurmadan kullanım: pattern'in system.md dosyasını aç, tamamını kopyala, ChatGPT/Claude'a yapıştır, altına metni/transkripti ekle.",
+        "Kurulum (macOS): brew install fabric-ai · (Windows): winget install danielmiessler.Fabric · (Linux): README'deki tek satırlık kurulum.",
+        "Örnek komut (README'den birebir): yt URL | fabric -p extract_wisdom  — YouTube videosunun transkriptini pattern'e verir.",
+        "Tüm pattern listesi ve açıklamaları: data/patterns/pattern_explanations.md"
+      ],
+      "ucret_lisans": "Ücretsiz, MIT. Kendi AI sağlayıcı API anahtarın gerekir (veya yerel model).",
+      "topluluk": {
+        "not": "44 bin+ yıldız; pattern açıklama dosyasında 255 numaralı pattern listelenmiş (3 Ekim 2026).",
+        "url": "https://raw.githubusercontent.com/danielmiessler/Fabric/main/data/patterns/pattern_explanations.md"
+      },
+      "dikkat": "CLI kurulumu teknik; teknik değilsen sadece system.md metinlerini kopyala-yapıştır yap.",
+      "kanit": {
+        "github": "danielmiessler/Fabric",
+        "yildiz": 44153,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "agency-agents",
+      "ad": "The Agency (msitarzewski/agency-agents) — hazır AI ajans kadrosu",
+      "url": "https://github.com/msitarzewski/agency-agents",
+      "kategori": "ajan",
+      "tur": "Açık depo: departmanlara ayrılmış uzman ajan prompt'ları",
+      "ne_ise_yarar": "Mühendislik, tasarım, ücretli reklam, satış, pazarlama, ürün, proje yönetimi, test, güvenlik, destek, finans, oyun, akademik, sağlık, araştırma bölümlerinde her biri kimlik, yetenek, kurallar, teslimat ve başarı ölçütü yazılmış ajanlar (ör. Growth Hacker, Frontend Developer, Reality Checker). Reddit gönderisinden doğdu.",
+      "kime": "Tek kişilik 'ajans' kurmak isteyen girişimciler; Claude Code/Cursor/Codex/Gemini CLI kullananlar. Kod bilmeyen de prompt'u kopyalayıp kullanabilir.",
+      "ornek": {
+        "baslik": "Growth Hacker ajanının başı (birebir, MIT)",
+        "metin": "# Marketing Growth Hacker Agent\n\n## Identity & Role Definition\nExpert growth strategist specializing in rapid, scalable user acquisition and retention through data-driven experimentation and unconventional marketing tactics.",
+        "kaynak_url": "https://raw.githubusercontent.com/msitarzewski/agency-agents/main/marketing/marketing-growth-hacker.md"
+      },
+      "kullanim": [
+        "Kodsuz: README'deki rosterden ajan .md dosyasını aç, tamamını sohbetin başına yapıştır, sonra görevini yaz.",
+        "Claude Code: cp engineering/*.md ~/.claude/agents/  veya  ./scripts/install.sh --tool claude-code",
+        "Masaüstü uygulaması (macOS/Linux/Windows) ile tek tıkla kurulum: https://agencyagents.app",
+        "README'deki 'Real-World Use Cases' (MVP kurma, kampanya lansmanı) senaryolarını takip et."
+      ],
+      "ucret_lisans": "Ücretsiz, MIT.",
+      "topluluk": {
+        "not": "155 bin+ yıldız; yazarın Reddit'te özel ajanlarını paylaşmasının ardından 12 saatte 50+ istek gelmesiyle başladığı aktarılıyor.",
+        "url": "https://flaviocopes.com/agency-agents/"
+      },
+      "dikkat": "Ajanlar 'kişilikli' ve uzun; her işe hepsini yükleme, ihtiyacın olan 2-3 ajanı seç.",
+      "kanit": {
+        "github": "msitarzewski/agency-agents",
+        "yildiz": 155875,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "superpowers",
+      "ad": "Superpowers (obra) — kodlama ajanı için hazır çalışma yöntemi",
+      "url": "https://github.com/obra/superpowers",
+      "kategori": "ajan",
+      "tur": "Skill paketi + yazılım geliştirme metodolojisi",
+      "ne_ise_yarar": "Ajanı 'stajyer gibi hemen kod yazmaktan' alıkoyup sırayla çalıştırır: brainstorming (önce soru sor, tasarım çıkar) → writing-plans (2-5 dakikalık görevler) → test-driven-development (önce başarısız test) → systematic-debugging → kod incelemesi.",
+      "kime": "Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI ile uygulama yapanlar.",
+      "ornek": {
+        "baslik": "brainstorming skill'inin tanımı (birebir, MIT)",
+        "metin": "name: brainstorming\ndescription: \"You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.\"",
+        "kaynak_url": "https://raw.githubusercontent.com/obra/superpowers/main/skills/brainstorming/SKILL.md"
+      },
+      "kullanim": [
+        "Claude Code: /plugin install superpowers@claude-plugins-official",
+        "Gemini CLI: gemini extensions install https://github.com/obra/superpowers",
+        "Kurulumu doğrula: yeni oturumda 'Let's make a react todo list' yaz; kod yazmadan önce brainstorming başlamalı (README'deki test).",
+        "Kodsuz kullanım: skills/*/SKILL.md dosyalarını okuyup kendi sistem prompt'una ilke olarak al."
+      ],
+      "ucret_lisans": "Ücretsiz, MIT.",
+      "topluluk": {
+        "not": "294 bin+ yıldız; inceleme yazılarında 'test önce' disiplininin kod kalitesini artırdığı anlatılıyor.",
+        "url": "https://www.mejba.me/superpowers-plugin-claude-code-review"
+      },
+      "dikkat": "Küçük işlerde süreç ağır gelebilir; TDD kuralı test yazılmadan yazılan kodu sildirir.",
+      "kanit": {
+        "github": "obra/superpowers",
+        "yildiz": 294680,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "bmad",
+      "ad": "BMAD-METHOD — çevik (agile) AI geliştirme sistemi",
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "kategori": "ajan",
+      "tur": "Ajan + iş akışı paketi (analist, PM, mimar, geliştirici, test rolleri)",
+      "ne_ise_yarar": "Fikirden ürüne: analist → ürün yöneticisi (PRD) → mimar → hikâyeler → geliştirme → test. Ajanlar kararları açık yazar ve sonraki adıma bağlam olarak bırakır.",
+      "kime": "Uygulamayı baştan sona yapay zekâyla planlayıp yazdırmak isteyenler.",
+      "ornek": {
+        "baslik": "Kurulum (README'den birebir)",
+        "metin": "npx skills add bmad-code-org/BMAD-METHOD",
+        "kaynak_url": "https://raw.githubusercontent.com/bmad-code-org/BMAD-METHOD/main/README.md"
+      },
+      "kullanim": [
+        "Skill destekleyen bir kodlama aracında: npx skills add bmad-code-org/BMAD-METHOD",
+        "Kurulumda 'bmad' + seçtiğin modülleri işaretle.",
+        "Ajana 'bmad status' yaz: sürümü ve sıradaki adımı gösterir; güncelleme için 'bmad setup'."
+      ],
+      "ucret_lisans": "Ücretsiz, MIT.",
+      "topluluk": {
+        "not": "53 bin+ yıldız; Builder ve Test Architect ek modülleri var.",
+        "url": "https://github.com/bmad-code-org/BMAD-METHOD"
+      },
+      "dikkat": "Öğrenme eğrisi var; küçük betikler için fazla.",
+      "kanit": {
+        "github": "bmad-code-org/BMAD-METHOD",
+        "yildiz": 53751,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "spec-kit",
+      "ad": "GitHub Spec Kit — şartname odaklı geliştirme (SDD)",
+      "url": "https://github.com/github/spec-kit",
+      "kategori": "ajan",
+      "tur": "Resmi GitHub aracı: hazır komut/skill zinciri",
+      "ne_ise_yarar": "Önce 'anayasa' (proje ilkeleri), sonra her özellik için specify → plan → tasks → implement → converge. Hata düzeltme ve fikir değerlendirme eklentileri de var.",
+      "kime": "Copilot, Claude Code, Gemini CLI vb. ile düzenli proje yürütenler.",
+      "ornek": {
+        "baslik": "Hazır komut zinciri (README'den birebir)",
+        "metin": "/speckit-constitution Create principles focused on code quality, testing, and maintainability.\n/speckit-specify Build a photo organizer with albums grouped by date and a tile preview of each album.\n/speckit-plan Use Vite with vanilla JavaScript. Keep images local and store metadata in SQLite.\n/speckit-tasks\n/speckit-implement",
+        "kaynak_url": "https://raw.githubusercontent.com/github/spec-kit/main/README.md"
+      },
+      "kullanim": [
+        "Python 3.11+ ve uv kur.",
+        "uv tool install specify-cli  ardından  specify init my-project --integration copilot",
+        "Ajan sohbetinde /speckit-* komutlarını sırayla çalıştır."
+      ],
+      "ucret_lisans": "Ücretsiz, MIT.",
+      "topluluk": {
+        "not": "139 bin+ yıldız.",
+        "url": "https://github.com/github/spec-kit"
+      },
+      "dikkat": "Komut satırı gerekir.",
+      "kanit": {
+        "github": "github/spec-kit",
+        "yildiz": 139923,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "wshobson-agents",
+      "ad": "wshobson/agents — çok araçlı ajan eklenti pazarı",
+      "url": "https://github.com/wshobson/agents",
+      "kategori": "ajan",
+      "tur": "Plugin marketplace (Claude Code, Codex, Cursor, OpenCode, Copilot, Antigravity, Pi)",
+      "ne_ise_yarar": "94 eklentide paketlenmiş uzman ajanlar ve skill'ler (Python geliştirme, güvenlik, DevOps, veri...). Tek komutla ihtiyacın olan paketi kurarsın.",
+      "kime": "Kodlama ajanı kullananlar.",
+      "ornek": {
+        "baslik": "Kurulum (README'den birebir)",
+        "metin": "/plugin marketplace add wshobson/agents\n/plugin install python-development",
+        "kaynak_url": "https://raw.githubusercontent.com/wshobson/agents/main/README.md"
+      },
+      "kullanim": [
+        "Claude Code'da marketplace'i ekle.",
+        "İhtiyacın olan eklentiyi kur.",
+        "Ajanı görev tanımıyla çağır."
+      ],
+      "ucret_lisans": "Ücretsiz, MIT.",
+      "topluluk": {
+        "not": "40 bin+ yıldız, açık sorun sayısı çok düşük (4).",
+        "url": "https://github.com/wshobson/agents"
+      },
+      "dikkat": "Çok eklenti kurmak bağlamı şişirir; seçici ol.",
+      "kanit": {
+        "github": "wshobson/agents",
+        "yildiz": 40170,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "voltagent-subagents",
+      "ad": "VoltAgent/awesome-claude-code-subagents — 100+ alt ajan",
+      "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "kategori": "ajan",
+      "tur": "Açık depo: kategorili Claude Code alt ajanları",
+      "ne_ise_yarar": "Çekirdek geliştirme, dil uzmanları, altyapı, kalite/güvenlik, veri/AI, iş, meta-orkestrasyon kategorilerinde hazır alt ajan tanımları (ör. api-designer).",
+      "kime": "Claude Code kullananlar; ajan tanımı yazmayı örnekle öğrenmek isteyenler.",
+      "ornek": {
+        "baslik": "api-designer ajanının başı (birebir)",
+        "metin": "You are a senior API designer specializing in creating intuitive, scalable API architectures with expertise in REST and GraphQL design patterns.",
+        "kaynak_url": "https://raw.githubusercontent.com/VoltAgent/awesome-claude-code-subagents/main/categories/01-core-development/api-designer.md"
+      },
+      "kullanim": [
+        "İstediğin .md dosyasını ~/.claude/agents/ klasörüne kopyala.",
+        "Claude Code'da görevi yaz; uygun ajan otomatik seçilir veya adıyla çağrılır."
+      ],
+      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "topluluk": {
+        "not": "25 bin+ yıldız.",
+        "url": "https://github.com/VoltAgent/awesome-claude-code-subagents"
+      },
+      "dikkat": "Ajan dosyalarındaki 'model:' alanını kendi erişimine göre düzenle.",
+      "kanit": {
+        "github": "VoltAgent/awesome-claude-code-subagents",
+        "yildiz": 25472,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "anthropic-skills",
+      "ad": "Anthropic Agent Skills (anthropics/skills)",
+      "url": "https://github.com/anthropics/skills",
+      "kategori": "kural",
+      "tur": "Resmi skill örnekleri + Agent Skills standardı",
+      "ne_ise_yarar": "Claude'un dinamik yüklediği talimat klasörleri: yaratıcı/tasarım, geliştirme/teknik, kurumsal iletişim ve Claude'un kendi Word/PDF/PowerPoint/Excel skill'leri. Kendi 'tekte tam prompt'unu skill olarak paketlemenin resmi şablonu.",
+      "kime": "Claude.ai (ücretli plan), Claude Code veya Claude API kullananlar.",
+      "ornek": {
+        "baslik": "Skill şablonu (README'den birebir)",
+        "metin": "---\nname: my-skill-name\ndescription: A clear description of what this skill does and when to use it\n---\n# My Skill Name\n[Add your instructions here that Claude will follow when this skill is active]",
+        "kaynak_url": "https://raw.githubusercontent.com/anthropics/skills/main/README.md"
+      },
+      "kullanim": [
+        "Claude Code: /plugin marketplace add anthropics/skills",
+        "Sonra: /plugin install document-skills@anthropic-agent-skills",
+        "Kullanım: 'Use the PDF skill to extract the form fields from path/to/some-file.pdf'",
+        "Claude.ai: Ayarlar'dan skill yükle (destek makalesi README'de)."
+      ],
+      "ucret_lisans": "Çoğu Apache 2.0; belge skill'leri 'source-available'.",
+      "topluluk": {
+        "not": "179 bin+ yıldız; skills.sh dizini standartla uyumlu skill'leri listeler.",
+        "url": "https://skills.sh/anthropics/skills"
+      },
+      "dikkat": "Depo 'gösterim ve eğitim amaçlı' uyarısı taşıyor; kritik işte önce test et.",
+      "kanit": {
+        "github": "anthropics/skills",
+        "yildiz": 179478,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "awesome-copilot",
+      "ad": "GitHub awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "kategori": "kural",
+      "tur": "Resmi topluluk deposu: ajan, talimat, skill, plugin, cookbook",
+      "ne_ise_yarar": "GitHub Copilot için hazır özel ajanlar (MCP'li), dosya türüne göre otomatik uygulanan kodlama standartları, skill'ler ve iş akışı paketleri. Tarayıcıdan gezilebilir sitesi var.",
+      "kime": "VS Code / Copilot CLI kullananlar.",
+      "ornek": {
+        "baslik": "Plugin kurulumu (README'den birebir)",
+        "metin": "copilot plugin install <plugin-name>@awesome-copilot",
+        "kaynak_url": "https://raw.githubusercontent.com/github/awesome-copilot/main/README.md"
+      },
+      "kullanim": [
+        "https://awesome-copilot.github.com/agents adresinden gez.",
+        "Beğendiğin plugin'i copilot plugin install ile kur.",
+        "Talimat dosyalarını projenin .github/ klasörüne ekle."
+      ],
+      "ucret_lisans": "Ücretsiz depo; Copilot aboneliği ayrı.",
+      "topluluk": {
+        "not": "39 bin+ yıldız; README 'üçüncü taraf içerik, kurmadan önce incele' uyarısı veriyor.",
+        "url": "https://awesome-copilot.github.com/agents"
+      },
+      "dikkat": "Topluluk katkısı; güvenlik açısından incele.",
+      "kanit": {
+        "github": "github/awesome-copilot",
+        "yildiz": 39651,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "awesome-cursorrules",
+      "ad": "awesome-cursorrules (PatrickJS)",
+      "url": "https://github.com/PatrickJS/awesome-cursorrules",
+      "kategori": "kural",
+      "tur": "Cursor proje kuralı (.mdc) koleksiyonu",
+      "ne_ise_yarar": "Frontend, backend, mobil, oyun, CSS, veritabanı, test, güvenlik, dokümantasyon başlıklarında hazır kural dosyaları. Örneğin 'Anti-Sycophancy Code Discipline': uydurma API'leri ve sahte özgüveni engelleyen 17 kural.",
+      "kime": "Cursor (ve kural dosyası destekleyen diğer editörler) kullananlar.",
+      "ornek": {
+        "baslik": "Kullanım (README'den)",
+        "metin": "Drop the `.mdc` in `.cursor/rules/`.",
+        "kaynak_url": "https://raw.githubusercontent.com/PatrickJS/awesome-cursorrules/main/README.md"
+      },
+      "kullanim": [
+        "README'de teknolojine uygun kuralı bul.",
+        ".mdc dosyasını projendeki .cursor/rules/ klasörüne koy.",
+        "Ekip olarak aynı kuralları paylaş."
+      ],
+      "ucret_lisans": "Ücretsiz, CC0.",
+      "topluluk": {
+        "not": "40 bin+ yıldız; benzer bir dizin sitesi cursor.directory.",
+        "url": "https://cursor.directory"
+      },
+      "dikkat": "Eski .cursorrules biçimindeki dosyalar yeni .mdc biçimine taşınmış olabilir.",
+      "kanit": {
+        "github": "PatrickJS/awesome-cursorrules",
+        "yildiz": 40872,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "awesome-claude-code",
+      "ad": "awesome-claude-code (hesreallyhim)",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "kategori": "kural",
+      "tur": "Seçilmiş liste: skill, ajan, slash komut, hook, CLAUDE.md örnekleri",
+      "ne_ise_yarar": "Claude Code için en iyi hazır skill'ler, ajanlar, durum satırları, hook'lar ve eklentilerin elle seçilmiş listesi; diğer depolara kapı.",
+      "kime": "Claude Code'u kişiselleştirmek isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Listeden bir 'CLAUDE.md' veya slash komut örneği seç → kendi projene kopyala.",
+        "kaynak_url": "https://raw.githubusercontent.com/hesreallyhim/awesome-claude-code/main/README.md"
+      },
+      "kullanim": [
+        "README'de kategoriye göz at.",
+        "Bağlantılı depoya git, kurulum talimatını uygula."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "55 bin yıldız.",
+        "url": "https://github.com/hesreallyhim/awesome-claude-code"
+      },
+      "dikkat": "Liste; içerikler farklı yazarların, her birini ayrı değerlendir.",
+      "kanit": {
+        "github": "hesreallyhim/awesome-claude-code",
+        "yildiz": 54990,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "x1xhlol",
+      "ad": "system-prompts-and-models-of-ai-tools (x1xhlol)",
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "kategori": "sistem",
+      "tur": "Ürün sistem prompt'ları arşivi",
+      "ne_ise_yarar": "Cursor, Claude Code, Devin, Lovable, Manus, Notion AI, Perplexity, Replit, v0, Windsurf, Xcode vb. ürünlerin tam sistem prompt'ları ve araç tanımları. Profesyonel bir 'tekte tam prompt'un nasıl bölümlendiğini (araçlar, kurallar, örnekler) görmenin en iyi yeri.",
+      "kime": "Kendi ajan/sistem prompt'unu yazan herkes.",
+      "ornek": {
+        "baslik": "Cursor 'Agent Prompt 2.0' içinden araç açıklaması (birebir kısa alıntı)",
+        "metin": "// `codebase_search`: semantic search that finds code by meaning, not exact text\n//\n// ### When to Use This Tool\n// ...\n// ### When NOT to Use",
+        "kaynak_url": "https://raw.githubusercontent.com/x1xhlol/system-prompts-and-models-of-ai-tools/main/Cursor%20Prompts/Agent%20Prompt%202.0.txt"
+      },
+      "kullanim": [
+        "Ürün klasörünü aç (ör. 'Cursor Prompts').",
+        "Prompt'un yapısını incele: kimlik → araçlar (ne zaman kullan / kullanma) → kurallar → örnekler.",
+        "Bu iskeleti kendi prompt'una uyarla (bkz. hazir-promptlar.md sonundaki Türkçe ana şablon)."
+      ],
+      "ucret_lisans": "Ücretsiz erişim; metinlerin hakları ürün sahiplerinde.",
+      "topluluk": {
+        "not": "144 bin yıldız; son güncelleme notu 12/07/2026.",
+        "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"
+      },
+      "dikkat": "Sızdırılmış/çıkarılmış metinler: resmî ve güncel olmayabilir; ticari ürününe birebir kopyalama, yapıdan ilham al.",
+      "kanit": {
+        "github": "x1xhlol/system-prompts-and-models-of-ai-tools",
+        "yildiz": 144001,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "cl4r1t4s",
+      "ad": "CL4R1T4S (elder-plinius)",
+      "url": "https://github.com/elder-plinius/CL4R1T4S",
+      "kategori": "sistem",
+      "tur": "Sohbet botu sistem prompt'ları arşivi",
+      "ne_ise_yarar": "ChatGPT, Claude, Gemini, Grok, Perplexity, Cursor, Lovable, Replit vb. sohbet ürünlerinin sistem prompt'ları; 'AI şeffaflığı' amacıyla.",
+      "kime": "Büyük sohbet ürünlerinin davranış kurallarını merak edenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Üretici klasörünü aç → sistem prompt'unda ton, güvenlik ve biçim kurallarının nasıl yazıldığına bak.",
+        "kaynak_url": "https://github.com/elder-plinius/CL4R1T4S"
+      },
+      "kullanim": [
+        "Depoda ürün klasörünü seç.",
+        "Biçim/ton kurallarını kendi prompt'una örnek al."
+      ],
+      "ucret_lisans": "Ücretsiz erişim; metin hakları ürün sahiplerinde.",
+      "topluluk": {
+        "not": "50 bin+ yıldız; 'red-team' topluluğundan.",
+        "url": "https://github.com/elder-plinius/CL4R1T4S"
+      },
+      "dikkat": "Doğruluğu üreticiler tarafından teyit edilmez; güvenlik aşma (jailbreak) amaçlı kullanma.",
+      "kanit": {
+        "github": "elder-plinius/CL4R1T4S",
+        "yildiz": 50849,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "leaked-system-prompts",
+      "ad": "leaked-system-prompts (jujumilk3)",
+      "url": "https://github.com/jujumilk3/leaked-system-prompts",
+      "kategori": "sistem",
+      "tur": "Kaynak gösterilerek doğrulanan sistem prompt arşivi",
+      "ne_ise_yarar": "Yaygın LLM servislerinin sistem prompt'ları; katkılarda doğrulanabilir kaynak veya tekrarlanabilir prompt şartı arıyor, akademik makalelerde atıf alıyor.",
+      "kime": "Daha 'kaynaklı' bir arşiv isteyenler.",
+      "ornek": {
+        "baslik": "Katkı kuralı (README'den birebir)",
+        "metin": "You must include sources that I can verify or reproducible prompts.",
+        "kaynak_url": "https://raw.githubusercontent.com/jujumilk3/leaked-system-prompts/main/README.md"
+      },
+      "kullanim": [
+        "Depoda servis adına göre dosyayı aç.",
+        "Tarih ve kaynak bilgisine bak; eski olabilir."
+      ],
+      "ucret_lisans": "Ücretsiz erişim.",
+      "topluluk": {
+        "not": "15 bin yıldız.",
+        "url": "https://github.com/jujumilk3/leaked-system-prompts"
+      },
+      "dikkat": "Tarihli içerik; ürünler prompt'larını sık değiştirir.",
+      "kanit": {
+        "github": "jujumilk3/leaked-system-prompts",
+        "yildiz": 14957,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "n8n-templates",
+      "ad": "n8n Workflow Templates (resmi)",
+      "url": "https://n8n.io/workflows/",
+      "kategori": "otomasyon",
+      "tur": "Resmi otomasyon şablon galerisi",
+      "ne_ise_yarar": "12.895 hazır iş akışı (3 Ekim 2026): AI, satış, IT operasyon, pazarlama, belge işlemleri, destek. Ör. gelen e-postayı AI ile sınıflandır, Telegram AI asistanı, Google Sheets'e AI özet yaz. Her şablonun içinde AI adımının prompt'u hazır gelir.",
+      "kime": "Tekrarlayan işini otomatiğe bağlamak isteyen herkes (az kodlu).",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Şablonu aç → 'Use workflow' → n8n'de kimlik bilgilerini (OpenAI, Gmail vb.) bağla → AI düğümündeki prompt'u kendine göre değiştir → çalıştır.",
+        "kaynak_url": "https://n8n.io/workflows/"
+      },
+      "kullanim": [
+        "n8n.io/workflows adresinde 'AI' kategorisini seç.",
+        "Şablonu n8n Cloud'a veya kendi kurduğun n8n'e aktar.",
+        "Bağlantıları kendi hesaplarınla yetkilendir; AI düğümündeki sistem mesajını düzenle."
+      ],
+      "ucret_lisans": "Şablonlar ücretsiz; n8n Cloud ücretli, self-host ücretsiz (lisans koşullarına bağlı). AI servis API'leri ayrı ücretli.",
+      "topluluk": {
+        "not": "Topluluk tüm şablonları toplayıp aranabilir arşiv yapmış (Zie619/n8n-workflows).",
+        "url": "https://github.com/Zie619/n8n-workflows"
+      },
+      "dikkat": "Şablon kendi hesaplarına erişir; yetkileri dar tut.",
+      "kanit": {
+        "http": 200,
+        "sablon_sayisi": 12895,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "zie619-n8n",
+      "ad": "Zie619/n8n-workflows — aranabilir n8n arşivi",
+      "url": "https://zie619.github.io/n8n-workflows",
+      "kategori": "otomasyon",
+      "tur": "Topluluk arşivi + arama arayüzü",
+      "ne_ise_yarar": "Bulunabilen tüm n8n iş akışlarını JSON olarak toplar; web arayüzünden arayıp indirirsin, içe aktarırsın.",
+      "kime": "Belirli bir entegrasyon (ör. 'Telegram + OpenAI') için örnek arayanlar.",
+      "ornek": {
+        "baslik": "Yerelde çalıştırma (README'den birebir)",
+        "metin": "docker run -p 8000:8000 zie619/n8n-workflows:latest",
+        "kaynak_url": "https://raw.githubusercontent.com/Zie619/n8n-workflows/main/README.md"
+      },
+      "kullanim": [
+        "Web arayüzünde ara.",
+        "JSON'u indir; n8n'de 'Import from file' ile aç.",
+        "Kimlik bilgilerini bağla."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "56 bin+ yıldız.",
+        "url": "https://github.com/Zie619/n8n-workflows"
+      },
+      "dikkat": "Topluluk derlemesi; şablonları çalıştırmadan önce incele.",
+      "kanit": {
+        "github": "Zie619/n8n-workflows",
+        "yildiz": 56876,
+        "son_guncelleme": "2026-10-03"
+      }
+    },
+    {
+      "id": "dify-marketplace",
+      "ad": "Dify Marketplace — hazır AI uygulama şablonları",
+      "url": "https://marketplace.dify.ai/",
+      "kategori": "otomasyon",
+      "tur": "Şablon + eklenti + ajan stratejisi pazarı",
+      "ne_ise_yarar": "Tek tıkla Dify'da açılan hazır uygulamalar: 'Daily AI News Digest', 'Competitive Landscape Intelligence', 'AI Technical Research Assistant' gibi. Ayrıca araç/model eklentileri ve MCP destekli ajan stratejileri.",
+      "kime": "Kod yazmadan RAG/ajan uygulaması kurmak isteyenler.",
+      "ornek": {
+        "baslik": "Şablon adları (marketplace'ten)",
+        "metin": "Daily AI News Digest · Competitive Landscape Intelligence · AI Technical Research Assistant",
+        "kaynak_url": "https://marketplace.dify.ai/"
+      },
+      "kullanim": [
+        "Marketplace'te 'Templates' sekmesine gir.",
+        "Şablonu Dify'da aç (cloud veya self-host).",
+        "Model sağlayıcı anahtarını ekle, prompt düğümlerini düzenle, yayımla."
+      ],
+      "ucret_lisans": "Dify açık kaynak (self-host) + ücretli cloud.",
+      "topluluk": {
+        "not": "Dify deposu 157 bin+ yıldız.",
+        "url": "https://github.com/langgenius/dify"
+      },
+      "dikkat": "Model API anahtarı gerekir.",
+      "kanit": {
+        "http": 200,
+        "github": "langgenius/dify",
+        "yildiz": 157760,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "crewai-examples",
+      "ad": "CrewAI Examples",
+      "url": "https://github.com/crewAIInc/crewAI-examples",
+      "kategori": "otomasyon",
+      "tur": "Kod örnekleri: çok-ajanlı 'ekip' (crew) tarifleri",
+      "ne_ise_yarar": "Pazarlama stratejisi, gezi planlayıcı, hisse analizi, işe alım gibi işleri rol-görev tanımlı ajan ekipleriyle yapan örnek projeler.",
+      "kime": "Python bilen ve kendi ajan ekibini kodla kurmak isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Örnek klasörü klonla → agents.yaml / tasks.yaml içindeki rol ve görev metinlerini değiştir → çalıştır.",
+        "kaynak_url": "https://github.com/crewAIInc/crewAI-examples"
+      },
+      "kullanim": [
+        "Depoyu klonla, bir örnek klasörü seç.",
+        "README'deki kurulum adımlarını uygula, API anahtarını .env'e koy.",
+        "Rol/görev metinlerini kendi işine göre uyarla."
+      ],
+      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "topluluk": {
+        "not": "6 bin yıldız; depo ARŞİVLENMİŞ (salt okunur) görünüyor — güncel örnekler için CrewAI belgelerine bak.",
+        "url": "https://github.com/crewAIInc/crewAI-examples"
+      },
+      "dikkat": "Arşivli: yeni CrewAI sürümleriyle bazı örnekler çalışmayabilir.",
+      "kanit": {
+        "github": "crewAIInc/crewAI-examples",
+        "yildiz": 6152,
+        "arsivli": true,
+        "son_guncelleme": "2026-10-02"
+      }
+    },
+    {
+      "id": "prompthero",
+      "ad": "PromptHero",
+      "url": "https://prompthero.com",
+      "kategori": "gorsel",
+      "tur": "Görsel/video prompt arama motoru",
+      "ne_ise_yarar": "Midjourney, Stable Diffusion, FLUX, Sora, ChatGPT Image, Nano Banana, Veo gibi modellerle üretilmiş görsellerin prompt'larını arar ve kopyalarsın.",
+      "kime": "Görsel/video üretenler, tasarımcılar, sosyal medya içerik üreticileri.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Aramaya 'product photo, studio lighting' yaz → beğendiğin görseli aç → prompt'u kopyala → kendi modelinde konu kelimesini değiştir.",
+        "kaynak_url": "https://prompthero.com"
+      },
+      "kullanim": [
+        "prompthero.com'da model ve konu ara.",
+        "Görseli aç, prompt ve ayarları gör.",
+        "Kopyalayıp kendi aracında dene."
+      ],
+      "ucret_lisans": "Ücretsiz gezinme + ücretli planlar.",
+      "topluluk": {
+        "not": "Görsel prompt kütüphanelerinde en sık önerilenlerden.",
+        "url": "https://prompthero.com"
+      },
+      "dikkat": "Aynı prompt farklı model sürümünde farklı sonuç verir.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "lexica",
+      "ad": "Lexica",
+      "url": "https://lexica.art",
+      "kategori": "gorsel",
+      "tur": "Görsel arama + üretim",
+      "ne_ise_yarar": "Milyonlarca AI görselini prompt metadata'sıyla birlikte arar; kendi Aperture modeliyle üretim de yapar.",
+      "kime": "Stil keşfi yapan görsel üreticiler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Arama → görseli aç → prompt'u kopyala → Lexica'da veya başka modelde üret.",
+        "kaynak_url": "https://lexica.art"
+      },
+      "kullanim": [
+        "lexica.art'ta stil/konu ara.",
+        "Prompt'u kopyala ve uyarla."
+      ],
+      "ucret_lisans": "Arama ücretsiz; üretim aylık plan (incelemelere göre 10–60 USD).",
+      "topluluk": {
+        "not": "Stable Diffusion döneminin ilk prompt arama motoru. (Capterra sayfası otomatik kontrolde 403 verdi; fiyat bilgisi arama sonuç özetinden.)",
+        "url": "https://www.capterra.com/p/10015083/Lexica/"
+      },
+      "dikkat": "Arşivin bir kısmı eski SD modellerine ait.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "civitai",
+      "ad": "Civitai",
+      "url": "https://civitai.com",
+      "kategori": "gorsel",
+      "tur": "Açık görsel model + görsel topluluğu",
+      "ne_ise_yarar": "Topluluk görselleri ve bunları üreten modeller (checkpoint, LoRA). Görsel sayfalarında üretim bilgileri (prompt, ayarlar) sıklıkla paylaşılır.",
+      "kime": "Stable Diffusion / açık modellerle yerelde üretim yapanlar.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Görseli aç → paylaşılmışsa üretim bilgisini kopyala → aynı modeli indirip kendi arayüzünde (ComfyUI vb.) kullan.",
+        "kaynak_url": "https://civitai.com"
+      },
+      "kullanim": [
+        "Görsel veya model ara.",
+        "Modeli ve önerilen prompt/ayarları al.",
+        "Yerel arayüzünde dene."
+      ],
+      "ucret_lisans": "Ücretsiz gezinme; site içi üretim kredili. Model lisansları tek tek farklı.",
+      "topluluk": {
+        "not": "Açık görsel modellerin en büyük topluluğu; ana sayfa içeriği otomatik okuyucuyla sınırlı görüldü.",
+        "url": "https://civitai.com"
+      },
+      "dikkat": "Yetişkin içerik filtresi ayarını kontrol et; model lisansını ticari kullanım öncesi oku.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "claude-best-practices",
+      "ad": "Claude prompting best practices (resmi)",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+      "kategori": "rehber",
+      "tur": "Resmi belge",
+      "ne_ise_yarar": "Claude için uzun sistem prompt'u yazma kuralları: açık talimat, bağlam/neden açıklama, örnek verme, XML etiketleriyle bölümleme, rol verme, ajan senaryoları.",
+      "kime": "Claude'a 'tekte tam prompt' veren herkes.",
+      "ornek": {
+        "baslik": "Not",
+        "metin": "Eski docs.anthropic.com/.../prompt-library adresi 3 Ekim 2026'da bu sayfaya yönleniyor (curl ile doğrulandı).",
+        "kaynak_url": "https://docs.anthropic.com/en/resources/prompt-library/library"
+      },
+      "kullanim": [
+        "Sayfayı oku; kendi prompt'unu bölüm bölüm (rol, bağlam, görev, kurallar, çıktı biçimi) kontrol et."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "Anthropic yeni modellerde kısa, hedef odaklı prompt'ların uzun kural yığınlarından iyi çalıştığını vurguluyor (haberlere yansıyan Claude Code sistem prompt'u kısaltması).",
+        "url": "https://aiweekly.co/alerts/anthropic-deletes-80-of-claude-codes-system-prompt-for-claude-5"
+      },
+      "dikkat": "Model sürümüne göre öneriler değişir; güncel sayfaya bak.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "openai-cookbook",
+      "ad": "OpenAI Cookbook (prompting rehberleri)",
+      "url": "https://developers.openai.com/cookbook",
+      "kategori": "rehber",
+      "tur": "Resmi örnek ve rehber koleksiyonu",
+      "ne_ise_yarar": "Model bazlı prompting rehberleri (GPT-5 serisi), ajan iş akışları, örnek sistem prompt'ları ve kod defterleri.",
+      "kime": "API ile kendi sistemini kuranlar.",
+      "ornek": {
+        "baslik": "Not",
+        "metin": "cookbook.openai.com artık developers.openai.com/cookbook adresine yönleniyor (3 Ekim 2026 kontrolü).",
+        "kaynak_url": "https://cookbook.openai.com"
+      },
+      "kullanim": [
+        "Model adına göre 'prompting guide' ara.",
+        "Örnek sistem prompt'unu kendi işine uyarla."
+      ],
+      "ucret_lisans": "Ücretsiz.",
+      "topluluk": {
+        "not": "Topluluk özetleri: 'belirsizlik bir hata; kısa ve sonuç odaklı prompt'lar kazanıyor'.",
+        "url": "https://www.atlabs.ai/blog/gpt-5.2-prompting-guide-the-2026-playbook-for-developers-agents"
+      },
+      "dikkat": "Teknik içerik.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "promptingguide",
+      "ad": "Prompt Engineering Guide (DAIR.AI)",
+      "url": "https://www.promptingguide.ai",
+      "kategori": "rehber",
+      "tur": "Açık rehber + örnek prompt'lar",
+      "ne_ise_yarar": "Teknikler (few-shot, chain-of-thought, ReAct...), uygulamalar, ajanlar, RAG, bağlam mühendisliği; her teknikte örnek prompt.",
+      "kime": "Prompt yazmayı sistematik öğrenmek isteyenler.",
+      "ornek": {
+        "baslik": "Kullanım",
+        "metin": "Techniques → bir teknik seç → örnek prompt'u kendi probleminle dene.",
+        "kaynak_url": "https://www.promptingguide.ai"
+      },
+      "kullanim": [
+        "Siteyi aç, Techniques veya Prompt Hub bölümüne gir.",
+        "Örnekleri kendi görevine uyarla."
+      ],
+      "ucret_lisans": "Ücretsiz, açık kaynak.",
+      "topluluk": {
+        "not": "Deposu 78 bin+ yıldız.",
+        "url": "https://github.com/dair-ai/Prompt-Engineering-Guide"
+      },
+      "dikkat": "Bir kısmı akademik; hızlı hazır prompt için uygun değil.",
+      "kanit": {
+        "http": 200,
+        "github": "dair-ai/Prompt-Engineering-Guide",
+        "yildiz": 78799,
+        "son_kontrol": "2026-10-03"
+      }
+    },
+    {
+      "id": "langsmith-hub",
+      "ad": "LangChain / LangSmith Prompt Hub",
+      "url": "https://smith.langchain.com/hub",
+      "kategori": "rehber",
+      "tur": "Geliştirici prompt hub'ı (herkese açık prompt'lar)",
+      "ne_ise_yarar": "Topluluğun yayımladığı prompt'ları ara, kendi çalışma alanına çatalla (fork), kodda adıyla çek. RAG, ajan, değerlendirme prompt'ları yaygın.",
+      "kime": "LangChain/LangSmith ile uygulama geliştirenler.",
+      "ornek": {
+        "baslik": "Kodda çekme (resmi belgeden birebir)",
+        "metin": "prompt = client.pull_prompt(\"joke-generator:production\")",
+        "kaynak_url": "https://docs.langchain.com/langsmith/manage-prompts.md"
+      },
+      "kullanim": [
+        "LangSmith'te Prompts → 'Browse all Public Prompts in the LangChain Hub'.",
+        "Prompt'u ara, çatalla.",
+        "Kodda client.pull_prompt ile kullan (LangSmith hesabı/anahtarı gerekir)."
+      ],
+      "ucret_lisans": "Ücretsiz katman mevcut; hesap gerekir.",
+      "topluluk": {
+        "not": "Belge uyarısı: herkese açık prompt'lar kullanıcı üretimi ve doğrulanmamıştır.",
+        "url": "https://docs.langchain.com/langsmith/manage-prompts"
+      },
+      "dikkat": "Hub sayfası giriş/JS gerektirdiği için içerik bu oturumda listelenemedi.",
+      "kanit": {
+        "http": 200,
+        "son_kontrol": "2026-10-03"
+      }
+    }
+  ]
+}
