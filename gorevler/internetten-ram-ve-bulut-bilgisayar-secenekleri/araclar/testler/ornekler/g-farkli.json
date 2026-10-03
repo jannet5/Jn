@@ -1,0 +1,11 @@
+{
+  "FizikselRamBayt": 17179869184,
+  "BosRamBayt": 8589934592,
+  "SayfaDosyalari": [],
+  "Diskler": [
+    { "Harf": "C:", "Etiket": "Windows", "DosyaSistemi": "NTFS", "Tur": 3, "BoyutBayt": 511101108224, "BosBayt": 200000000000 },
+    { "Harf": "D:", "Etiket": "Veri", "DosyaSistemi": "NTFS", "Tur": 3, "BoyutBayt": 1000202039296, "BosBayt": 600000000000 },
+    { "Harf": "G:", "Etiket": "Google Drive", "DosyaSistemi": "(sanal)", "Tur": 3, "BoyutBayt": 16106127360, "BosBayt": 15032385536 }
+  ],
+  "DriveFsOnbellekBayt": null
+}

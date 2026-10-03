@@ -1,0 +1,9 @@
+{
+  "FizikselRamBayt": 4294967296,
+  "BosRamBayt": 268435456,
+  "SayfaDosyalari": [ { "Ad": "C:\\pagefile.sys", "BoyutMB": 2048, "KullanilanMB": 1800 } ],
+  "Diskler": [
+    { "Harf": "C:", "Etiket": "", "DosyaSistemi": "NTFS", "Tur": 3, "BoyutBayt": 127999999999, "BosBayt": 5000000000 }
+  ],
+  "DriveFsOnbellekBayt": null
+}
