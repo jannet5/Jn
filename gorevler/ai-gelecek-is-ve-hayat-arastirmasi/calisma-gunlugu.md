@@ -92,7 +92,7 @@ Araç: `WebSearch` (arama) + `WebFetch` (sayfa okuma).
    10 dosyayı gösterdi.
 6. **Özel ZIP:** Özel kaynak, görev dosyası, ham HN yorumları, Medium RSS metni ve
    deponun git bundle'ı özel çalışma alanında ZIP'lendi; SHA-256 değeri ayrı bir
-   `.sha256` dosyasına yazıldı, ZIP açılıp içerik hash'leri ve bundle (`git bundle verify`)
+   `.sha256` dosyasına yazıldı, ZIP açılıp içerik hash'leri ve bundle (bundle'dan klonlanıp HEAD uzak dalla karşılaştırılarak)
    geri okunarak doğrulandı. ZIP public depoya **konmadı**.
 
 ## 8. Yapılamayanlar (açıkça)
