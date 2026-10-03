@@ -1,0 +1,5 @@
+# Özel veri: gerçek transkript dökümleri, kota kayıtları, raporlar, günlük ve
+# görev notları depoya girmez; özel teslim paketinde (ZIP) tutulur.
+ozel/
+__pycache__/
+*.pyc
