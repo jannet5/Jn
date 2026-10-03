@@ -18,12 +18,20 @@ vardır ve fabrika ayarı bunları değiştirmez.
    python reboot_teshis.py hepsi --cikti kayit1 --goster <kendi.paket.adın>
    ```
 4. Çıktılar:
-   - `kayit1\rapor-yerel.md` — **sadece senin için**; gerçek uygulama adlarını içerir.
-   - `kayit1\paylasim.zip` (+ `.sha256`) — paylaşmak için. Serbest metin maskelenmiş,
-     diğer uygulamalar `uyg-xxxxxxxx` takma adıyla; araç dosyayı yazdıktan sonra
-     geri okuyup kişisel veri taraması yapar, bulgu varsa paketi üretmez.
-   - Tam getprop/logcat/dropbox/paket listesi **diske yazılmaz**. Ham kopya
-     istersen `--ham-sakla` (yalnız yerel `yerel-ham\`; paylaşma).
+   - `kayit1\rapor-yerel.md` ve `kayit1\ozet-yerel.json` — **sadece senin için; kişisel veri
+     içerir**: uygulama adları, kurulum/güncelleme zamanları, sürümler, maskelenmiş ama yine de
+     kişisel metin taşıyabilen hata mesajları. Paylaşma; işin bitince sil.
+   - `kayit1\paylasim.zip` (+ `.sha256`) — paylaşmak için. Hata mesajı, Watchdog açıklaması,
+     stderr gibi **serbest metin hiç konmaz**; yalnız izin listesindeki hata sınıfları
+     (ör. `java.lang.IllegalStateException`) ve kategoriler (ör. `handler-takılması:main`).
+     Diğer uygulamalar `uyg-xxxxxxxx` takma adıyla. Paket geçici klasörde üretilip geri
+     okunarak tanımlı örüntüler (e-posta, telefon/IMEI, IP/IPv6, MAC, URI, Android/Windows/ev
+     yolları, JSON sırları, Bearer, seri, gerçek paket adı…) için denetlenir; bulgu olursa
+     paket üretilmez ve önceki çalıştırmadan kalan paylaşım dosyaları da silinmiş olur.
+     "Tanımlı örüntüler bulunmadı" sonucu kişisel veri olmadığının **garantisi değildir**;
+     göndermeden önce `rapor-paylasim.md`'ye bir göz at.
+   - Tam getprop/logcat/dropbox/paket listesi ham hâliyle diske yazılmaz (yukarıdaki yerel
+     dosyalar ise yazılır). Ham kopya istersen `--ham-sakla` (yalnız yerel `yerel-ham\`; paylaşma).
 5. **En iyi zaman:** telefon kendiliğinden yeniden başladıktan hemen sonra
    (kayıtlar halka tampondadır). Varsayılan pencere son 7 gün (`--gun`).
 

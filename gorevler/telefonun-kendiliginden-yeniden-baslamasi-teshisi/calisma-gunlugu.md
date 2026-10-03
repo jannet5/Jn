@@ -122,3 +122,22 @@ Kalan gerçek girdi: kullanıcının telefonundan `paylasim.zip` ve Güvenli Mod
   → `sha256sum -c` OK, `unzip -t` hatasız, kaynak metin araması 0, açılan kopyada 21 test OK,
   `kabul/` raporları `paylasim_denetle` → TEMİZ. (ZIP bu bölüm eklenmeden önceki `825eca7` içeriğidir.)
 - ZIP depoya eklenmedi; özel bulut çalışma alanında tutulup kullanıcıya dosya olarak iletildi.
+
+## 11. İkinci bağımsız statik inceleme (661f1e3) ve düzeltmeler
+İnceleme uzak HEAD ve 18 dosya hash'ini eşleştirdi; iki yüksek öncelikli açık bildirdi:
+
+| Bulgu | Düzeltme | Test |
+|---|---|---|
+| `ciktilari_yaz` eski `paylasim.zip`/`.sha256`'yı başta silmiyordu; yeni denetim başarısız olursa eski paket teslim gibi kalıyordu | `paylasim_temizle()` her çalıştırmanın başında `paylasim/`, `paylasim.zip`, `paylasim.zip.sha256` ve yarım `.paylasim-gecici-*` klasörlerini siler. Yeni paket `tempfile.mkdtemp` geçici klasörde üretilir → disk geri okuma denetimi → ZIP `testzip` + ZIP içeriği geri okuma denetimi → SHA dosyası geri okuma → ancak hepsi geçerse `os.replace` (SHA en son). Bulgu → `None` + hiçbir paylaşım artefaktı; istisna → tam temizlik ve yeniden fırlatma | `EskiPaylasimArtefaktlari`: önceki ZIP/SHA dururken sızıntı enjekte; CLI çıkış 4 + eski paket yok; `_zip_yaz` yarıda hata; yeniden çalıştırmada SHA tutarlılığı |
+| Serbest Subject/exception metni yalnız regex maskelemesiyle paylaşılıyordu (düz kişi metni, IPv6, Windows yolu, JSON sırrı, Bearer kaçabilir) | Paylaşıma serbest metin HİÇ girmez: `HATA_SINIFLARI` izin listesi (diğerleri `<uygulama-istisnası>`/`<diğer-platform-istisnası>`), Watchdog → `handler-takılması:<izinli iş parçacığı>` / `monitor-takılması:com.android.server.*`, sinyal → `sinyal:SIGxxx`; paylaşım JSON'unda `mesaj/konu/sinyal/hata(stderr)` alanı yok. Yerel maskeleme ve denetim desenlerine IPv6, Windows/ev yolu, JSON/anahtar sırrı, Bearer/Basic eklendi | fixture'a düz kişi adı + IPv6 + Windows/ev yolu + JSON api_key + Bearer + 3. taraf istisna sınıfı; `test_paylasimda_serbest_metin_yok_yalniz_yapisal_sinif`, `test_yapisal_siniflar`, `test_maskele_yeni_bicimler`, `test_denetim_yeni_bicimleri_yakalar` |
+| Yerel `ozet-yerel.json`/`rapor-yerel.md` kişisel uygulama ve kurulum metadata tutuyor; "ham dosya yok" ≠ "kişisel veri diske yazılmıyor" | README, kılavuz, harita ve araç açıklaması düzeltildi: yerel dosyalar kişiseldir, paylaşılmamalı, işi bitince silinmeli | `test_yerel_ozet_de_ham_icerik_tutmaz` (ne tuttuğu/tutmadığı) |
+| `denetle` "TEMİZ" diyordu | Çıktı: "Tanımlı örüntüler bulunmadı. (Bu, kişisel veri bulunmadığının garantisi değildir …)" | `test_denetle_komutu` ("TEMİZ" yok) |
+
+Bu turdaki önceki iddiaların düzeltilmesi: §9 ve §10'daki "DENETİM TEMİZ" ifadeleri yalnız "tanımlı
+örüntüler bulunmadı" anlamındadır; §9'daki "istisna/Subject/sinyal metinleri maskelenir" artık
+yalnız YEREL rapor için geçerlidir, paylaşımda bu metinler hiç yoktur.
+
+Doğrulama:
+- `python3 testler/test_reboot_teshis.py` → **29 test OK** (Python 3.10, 3.11, 3.13).
+- `kabul/emulator-*-paylasim.md` eski emülatör ham kayıtlarından `isle` ile cihaza dokunmadan yeniden üretildi; üçü de `denetle` → "Tanımlı örüntüler bulunmadı".
+- Fiziksel telefon yok (`adb devices -l` boş, §9); reset/root/canlı kişisel veri toplama yapılmadı. Cihaz kabulü ayrı ve bulutta tamamlanmış sayılmaz.

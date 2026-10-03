@@ -30,7 +30,7 @@ Toplama durumu bilinmiyor (ham klasörden yeniden işlendi).
 - not: Tetikleyici bir uygulama, sistem bileşeni, düşük bellek/depolama veya donanım kaynaklı takılma olabilir; çökme metninin ilk istisnası ipucudur, kanıt değildir.
 
 **H2. Üçüncü taraf bir uygulamanın tetiklemesi**
-- destek: yeniden başlamadan önceki pencerede kurulan/güncellenen yan yüklenmiş: `uyg-522f1f95`
+- destek: yeniden başlamadan önceki pencerede kurulan/güncellenen yan yüklenmiş: `uyg-0b589599`
 - not: Paket adının çökme metninde görünmesi veya kurulum zamanının yakınlığı nedensellik değildir (o an ön planda olan ya da etkilenen masum uygulama da görünür). Doğrulama: Güvenli Mod karşılaştırması ve tek tek kaldırarak eleme.
 
 Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
@@ -48,14 +48,14 @@ Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
 | 2026-10-03 11:58:12 | events | boot_progress_start |
 | 2026-10-03 12:07:39 | events | boot_progress_start |
 
-### İlk istisna / konu ipuçları (maskelenmiş)
+### İlk hata sınıfı / kategori ipuçları (yapısal; mesaj metni paylaşılmaz)
 
 | İpucu | Sayı |
 |---|---|
-| `system_server_watchdog: Blocked in handler on main thread (main)` | 1 |
-| `system_server_watchdog: Blocked in handler on ui thread (android.ui)` | 1 |
-| `watchdog: Blocked in handler on main thread (main)` | 1 |
-| `watchdog: Blocked in handler on ui thread (android.ui)` | 1 |
+| `system_server_watchdog: handler-takılması:main` | 1 |
+| `system_server_watchdog: handler-takılması:android.ui` | 1 |
+| `watchdog: handler-takılması:main` | 1 |
+| `watchdog: handler-takılması:android.ui` | 1 |
 
 ### crash tamponunda çöken süreçler
 
@@ -80,7 +80,7 @@ Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
 | 2026-10-03 11:51:44 | — |
 | 2026-10-03 11:57:49 | — |
 | 2026-10-03 11:58:12 | — |
-| 2026-10-03 12:07:39 | `uyg-522f1f95` |
+| 2026-10-03 12:07:39 | `uyg-0b589599` |
 
 Zamansal yakınlık nedensellik değildir.
 
@@ -88,7 +88,7 @@ Zamansal yakınlık nedensellik değildir.
 
 | Paket | Kaynak | İlk kurulum | Son güncelleme |
 |---|---|---|---|
-| `uyg-522f1f95` | yan yükleme/adb | 2026-10-03 12:06:49 | 2026-10-03 12:06:49 |
+| `uyg-0b589599` | yan yükleme/adb | 2026-10-03 12:06:49 | 2026-10-03 12:06:49 |
 
 ## 8. Pil, ısı, depolama
 

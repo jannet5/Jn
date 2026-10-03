@@ -33,7 +33,7 @@ HEDEF ─► BAĞIMLILIKLAR ─► A/B/C YOLLARI ─► UYGULAMA ─► TEST ─
 ## 2. Yollar
 | Yol | Ne | Artı | Eksi | Karar |
 |---|---|---|---|---|
-| **A** | `reboot_teshis.py hepsi` → izinli getprop anahtarları, dropbox olay listesi + çökme özetleri, süzülmüş logcat (crash, events, -L), pil/ısı, depolama, 3. taraf paket kurulum zamanları → `rapor-yerel.md` + maskelenmiş `paylasim.zip` | Tek komut, zaman eşleştirmesi otomatik, root gerekmez, telefonu değiştirmez, ham veri diske yazılmaz | Python 3.10+ ve adb gerekir; üretici bazı kayıtları kısıtlayabilir (raporda "veri tamlığı" olarak görünür) | **Seçildi** |
+| **A** | `reboot_teshis.py hepsi` → izinli getprop anahtarları, dropbox olay listesi + çökme özetleri, süzülmüş logcat (crash, events, -L), pil/ısı, depolama, 3. taraf paket kurulum zamanları → `rapor-yerel.md` + serbest metinsiz `paylasim.zip` | Tek komut, zaman eşleştirmesi otomatik, root gerekmez, telefonu değiştirmez, ham veri diske yazılmaz | Python 3.10+ ve adb gerekir; üretici bazı kayıtları kısıtlayabilir (raporda "veri tamlığı" olarak görünür) | **Seçildi** |
 | **B** | Elle adb komutları / `adb bugreport` (resmî) | Python gerekmez | Maskesiz; bugreport 50–300 MB ve çok kişisel veri içerir → paylaşılmamalı | A çalışmazsa yalnız yerel inceleme için yedek |
 | **C** | Güvenli Mod + son uygulamaları eleme (Google/Samsung resmî) | Bilgisayar gerekmez, kesin ayırt edici test | Yavaş (gözlem süresi gerekir), log vermez | Her durumda A/B'den sonra yapılır (K2, K3) |
 
@@ -48,9 +48,12 @@ eşleştirmesini yapmıyor; bu yüzden ince bir salt-okunur betik yazıldı.
 | İlke | Uygulama | Test |
 |---|---|---|
 | Ham içerik paylaşıma girmez | Tam getprop yok (10 izinli anahtar); logcat/dropbox bellekte süzülür; `--ham-sakla` yoksa ham dosya yazılmaz; ZIP yalnız `paylasim/` | `test_basarili_ve_ham_yazilmaz`, `test_ham_sakla_paylasima_girmez` |
+| Yerel çıktı da kişiseldir | `ozet-yerel.json`/`rapor-yerel.md` uygulama adı, kurulum zamanı, maskelenmiş mesaj tutar; belgeler "kişisel veri diske hiç yazılmaz" demez | `test_yerel_ozet_de_ham_icerik_tutmaz` |
+| Paylaşımda serbest metin yok (v3) | İstisna mesajı, Subject, sinyal açıklaması, stderr paylaşılmaz; `HATA_SINIFLARI` izin listesi, Watchdog kategori/izinli iş parçacığı, `SIGxxx`; diğerleri `<uygulama-istisnası>`/`<diğer-…>` | `test_paylasimda_serbest_metin_yok_yalniz_yapisal_sinif`, `test_yapisal_siniflar` |
+| Atomik paylaşım (v3) | Her çalıştırma önce eski `paylasim/`, `.zip`, `.sha256` ve yarım geçici klasörleri siler; paket geçici klasörde üretilir, disk+ZIP+SHA geri okunur, sonra `os.replace` (SHA en son); hata/bulgu → hiçbir paylaşım artefaktı kalmaz | `EskiPaylasimArtefaktlari` (4 test) |
 | Zaman sınırı | Varsayılan son 7 gün (cihazın yerel saatine göre) | `test_zaman_penceresi` |
-| Maskeleme + takma ad | e-posta, telefon/IMEI, IP, MAC, URI, kullanıcı yolları, `alan=değer`, seri ve android_id; 3. taraf paketler `uyg-xxxxxxxx` | `test_maskele_*`, `test_paylasimda_pii_ve_gercek_paket_yok` |
-| Geri-okuma denetimi | Paylaşım dosyaları diskten ve ZIP'ten geri okunup taranır; bulgu → paket silinir, çıkış 4 | `test_maskeleme_bozulursa_paket_uretilmez`, `test_denetle_komutu` |
+| Maskeleme (yerel) + takma ad | e-posta, telefon/IMEI, IPv4/IPv6, MAC, URI, Android/Windows/ev yolları, JSON/`alan=değer` sırları, Bearer/Basic, seri ve android_id; 3. taraf paketler `uyg-xxxxxxxx`. Düz kişi metni regex ile yakalanamaz → bu yüzden paylaşıma serbest metin girmez | `test_maskele_*`, `test_paylasimda_pii_ve_gercek_paket_yok` |
+| Geri-okuma denetimi | Paylaşım dosyaları diskten ve ZIP'ten geri okunup **tanımlı örüntüler** için taranır (IPv6, Windows/ev yolu, JSON sırrı, Bearer dahil); bulgu → paket yok, çıkış 4. "Bulunmadı" bir garanti değildir | `test_maskeleme_bozulursa_paket_uretilmez`, `test_denetle_komutu` |
 | Yapısal adb sonucu | Her komut: çıkış kodu, zaman aşımı, izin, servis yok, süre → `toplama` | `test_izin_hatasi_*`, `test_zaman_asimi_*` |
 | Seri güvenliği | `adb devices -l` ayrıştırılır; verilen seri listede/hazır değilse ilerlenmez | `test_cihaz_sec`, `test_cli_seri_listede_yoksa_ilerlemez` |
 | Eksik veri ≠ arıza yok | "Veri tamlığı" tablosu; ilgili bölümler "toplanamadı" der | `test_izin_hatasi_*` |

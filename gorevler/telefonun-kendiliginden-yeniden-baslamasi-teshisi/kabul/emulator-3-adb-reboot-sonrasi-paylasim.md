@@ -30,7 +30,7 @@ Toplama durumu bilinmiyor (ham klasörden yeniden işlendi).
 - not: Tetikleyici bir uygulama, sistem bileşeni, düşük bellek/depolama veya donanım kaynaklı takılma olabilir; çökme metninin ilk istisnası ipucudur, kanıt değildir.
 
 **H2. Üçüncü taraf bir uygulamanın tetiklemesi**
-- destek: yeniden başlamadan önceki pencerede kurulan/güncellenen yan yüklenmiş: `uyg-09cb95d4`
+- destek: yeniden başlamadan önceki pencerede kurulan/güncellenen yan yüklenmiş: `uyg-e71e61da`
 - not: Paket adının çökme metninde görünmesi veya kurulum zamanının yakınlığı nedensellik değildir (o an ön planda olan ya da etkilenen masum uygulama da görünür). Doğrulama: Güvenli Mod karşılaştırması ve tek tek kaldırarak eleme.
 
 Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
@@ -49,15 +49,15 @@ Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
 | 2026-10-03 12:27:02 | dropbox | system_server_watchdog |
 | 2026-10-03 12:27:16 | events | boot_progress_start |
 
-### İlk istisna / konu ipuçları (maskelenmiş)
+### İlk hata sınıfı / kategori ipuçları (yapısal; mesaj metni paylaşılmaz)
 
 | İpucu | Sayı |
 |---|---|
-| `system_server_crash: java.lang.IllegalStateException: Lost network stack` | 1 |
-| `system_server_watchdog: Blocked in handler on main thread (main)` | 1 |
-| `system_server_watchdog: Blocked in handler on ui thread (android.ui)` | 1 |
-| `system_server_watchdog: Blocked in monitor com.android.server.StorageManagerService on foreground thread (android.fg)` | 1 |
-| `watchdog: Blocked in monitor com.android.server.StorageManagerService on foreground thread (android.fg)` | 1 |
+| `system_server_crash: java.lang.IllegalStateException` | 1 |
+| `system_server_watchdog: handler-takılması:main` | 1 |
+| `system_server_watchdog: handler-takılması:android.ui` | 1 |
+| `system_server_watchdog: monitor-takılması:com.android.server.StorageManagerService` | 1 |
+| `watchdog: monitor-takılması:com.android.server.StorageManagerService` | 1 |
 
 ### crash tamponunda çöken süreçler
 
@@ -81,10 +81,10 @@ Güvenli Mod: Güvenli Mod karşılaştırması henüz yapılmadı/bildirilmedi.
 |---|---|
 | 2026-10-03 11:51:34 | — |
 | 2026-10-03 11:57:49 | — |
-| 2026-10-03 12:21:03 | `uyg-09cb95d4` |
-| 2026-10-03 12:21:12 | `uyg-09cb95d4` |
-| 2026-10-03 12:27:02 | `uyg-09cb95d4` |
-| 2026-10-03 12:27:16 | `uyg-09cb95d4` |
+| 2026-10-03 12:21:03 | `uyg-e71e61da` |
+| 2026-10-03 12:21:12 | `uyg-e71e61da` |
+| 2026-10-03 12:27:02 | `uyg-e71e61da` |
+| 2026-10-03 12:27:16 | `uyg-e71e61da` |
 
 Zamansal yakınlık nedensellik değildir.
 
@@ -92,7 +92,7 @@ Zamansal yakınlık nedensellik değildir.
 
 | Paket | Kaynak | İlk kurulum | Son güncelleme |
 |---|---|---|---|
-| `uyg-09cb95d4` | yan yükleme/adb | 2026-10-03 12:06:49 | 2026-10-03 12:06:49 |
+| `uyg-e71e61da` | yan yükleme/adb | 2026-10-03 12:06:49 | 2026-10-03 12:06:49 |
 
 ## 8. Pil, ısı, depolama
 

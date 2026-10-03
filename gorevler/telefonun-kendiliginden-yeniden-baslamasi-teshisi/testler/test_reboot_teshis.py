@@ -20,7 +20,10 @@ import reboot_teshis as rt  # noqa: E402
 
 PII = ["ali.veli@example.com", "555 123 45 67", "356938035643809", "/storage/emulated",
        "IMG_0001", "192.168.1.20", "SENTETIK0001", "a1b2c3d4e5f60718", "/sdcard/Download",
-       "ozel.pdf", "sentetik/test/test:14"]
+       "ozel.pdf", "sentetik/test/test:14",
+       # serbest metin sınırları: düz kişi metni, IPv6, Windows/ev yolu, JSON sırrı, Bearer, 3. taraf sınıf
+       "Ayşe", "Yılmaz", "notu", "sk-test-123", "api_key", "Bearer", "eyJhbGciOi", "C:\\Users", "Users",
+       "ayse", "2001:db8", "fe80", "GizliVeri", "kullanici", "dosya", "sunucu"]
 GERCEK_PAKETLER = ["com.ornek.benimuygulamam", "com.ornek.masum", "com.whatsapp"]
 
 
@@ -64,6 +67,35 @@ class Maskeleme(unittest.TestCase):
         self.assertEqual(t.ad("com.android.systemui"), "com.android.systemui")
         self.assertEqual(t.ad("com.benim.app"), "com.benim.app")
         self.assertNotIn("com.ornek", t.metin("çağıran com.ornek.x.ui.Main"))
+
+    def test_maskele_yeni_bicimler(self):
+        m = rt.maskele('{"api_key": "sk-1"} Authorization: Bearer abc.def.ghi C:\\Users\\ali\\x '
+                       '/home/ali/y 2001:db8::1 fe80::1ff:fe23:4567:890a saat 22:45:13', uzunluk=400)
+        for parca in ["sk-1", "abc.def", "Users", "/home/ali", "2001:db8", "fe80"]:
+            self.assertNotIn(parca, m)
+        self.assertIn("22:45:13", m)  # zaman damgası IPv6 sanılmaz
+
+    def test_denetim_yeni_bicimleri_yakalar(self):
+        ornekler = {"ipv6": "adres 2001:db8::1", "windows/ev dizini yolu": "C:\\Users\\ayse",
+                    "json/anahtar sırrı": '{"password": "x"}', "bearer/basic kimlik": "Bearer eyJabcdef.gh"}
+        for kategori, metin in ornekler.items():
+            self.assertIn(f"r.md: {kategori}", rt.paylasim_denetle({"r.md": metin}), kategori)
+        self.assertEqual(rt.paylasim_denetle({"r.md": "| 2026-10-02 22:45:13 | watchdog |"}), [])
+
+    def test_yapisal_siniflar(self):
+        self.assertEqual(rt.hata_sinifi_paylasim("java.lang.IllegalStateException"), "java.lang.IllegalStateException")
+        self.assertEqual(rt.hata_sinifi_paylasim("com.ornek.GizliException"), "<uygulama-istisnası>")
+        self.assertEqual(rt.hata_sinifi_paylasim("android.foo.BilinmeyenException"), "<diğer-platform-istisnası>")
+        self.assertEqual(rt.watchdog_kategori("Blocked in handler on main thread (main), dosya /sdcard/x"),
+                         "handler-takılması:main")
+        self.assertEqual(rt.watchdog_kategori("Blocked in handler on ui thread (Ayşe.thread)"),
+                         "handler-takılması:<diğer>")
+        self.assertEqual(rt.watchdog_kategori("Blocked in monitor com.android.server.StorageManagerService on "
+                                              "foreground thread (android.fg)"),
+                         "monitor-takılması:com.android.server.StorageManagerService")
+        self.assertEqual(rt.watchdog_kategori("Ali Veli bir şey yazdı"), "<watchdog-diğer>")
+        self.assertEqual(rt.sinyal_kategori("signal 11 (SIGSEGV), code 1 fault addr 0x0"), "sinyal:SIGSEGV")
+        self.assertEqual(rt.sinyal_kategori("Abort message: 'Ayşe'nin dosyası'"), "<abort-mesajı>")
 
     def test_denetim_sizintiyi_yakalar(self):
         b = rt.paylasim_denetle({"r.md": "iletişim a@b.co ve com.gizli.uygulama"}, ["SER9"])
@@ -135,7 +167,18 @@ class UctanUca(unittest.TestCase):
         for parca in PII + GERCEK_PAKETLER:
             self.assertNotIn(parca, metin, parca)
         self.assertIn("uyg-", metin)
-        self.assertIn("<e-posta>", metin)
+
+    def test_paylasimda_serbest_metin_yok_yalniz_yapisal_sinif(self):
+        metin = paylasim_metni(self.k)
+        oz = json.loads(zipfile.ZipFile(self.k / "paylasim.zip").read("paylasim/ozet-paylasim.json"))
+        for o in oz["cokme_ozetleri"]:
+            self.assertEqual(sorted(o), ["etiket", "ipucu", "paketler", "zaman"])
+        self.assertTrue(all(sorted(w) == ["kategori", "zaman"] for w in oz["watchdog"]))
+        self.assertTrue(all("hata" not in t for t in oz["toplama"]))
+        self.assertIn("system_server_crash: java.lang.IllegalArgumentException", metin)
+        self.assertIn("system_server_crash: <uygulama-istisnası>", metin)
+        self.assertIn("system_server_watchdog: handler-takılması:main", metin)
+        self.assertNotIn("<e-posta>", metin)  # maske etiketi bile yok: mesaj hiç taşınmıyor
 
     def test_yerel_ozet_de_ham_icerik_tutmaz(self):
         yerel = (self.k / "ozet-yerel.json").read_text() + (self.k / "rapor-yerel.md").read_text()
@@ -261,7 +304,69 @@ class GuvenliModVeSizinti(unittest.TestCase):
             p = subprocess.run([sys.executable, str(ARAC), "denetle", f"{t}/k/paylasim.zip"],
                                capture_output=True, text=True)
             self.assertEqual(p.returncode, 0)
-            self.assertIn("DENETİM TEMİZ", p.stdout)
+            self.assertIn("Tanımlı örüntüler bulunmadı", p.stdout)
+            self.assertIn("garantisi değildir", p.stdout)
+            self.assertNotIn("TEMİZ", p.stdout)
+
+
+class EskiPaylasimArtefaktlari(unittest.TestCase):
+    """Önceki başarılı paket dururken yeni çalıştırma başarısız olursa eski paket teslim gibi kalmamalı."""
+
+    def _onceki_basarili(self, t: Path) -> Path:
+        p = calistir(t, "hepsi", "--cikti", str(t / "k"))
+        self.assertEqual(p.returncode, 0, p.stderr)
+        k = t / "k"
+        for ad in rt.PAYLASIM_ARTEFAKTLARI:
+            self.assertTrue((k / ad).exists(), ad)
+        return k
+
+    def _hic_paylasim_yok(self, k: Path):
+        for ad in rt.PAYLASIM_ARTEFAKTLARI:
+            self.assertFalse((k / ad).exists(), ad)
+        self.assertEqual(list(k.glob(rt.GECICI_ONEK + "*")), [])
+
+    def test_sizinti_enjekte_eski_zip_sha_silinir(self):
+        with tempfile.TemporaryDirectory() as t:
+            k = self._onceki_basarili(Path(t))
+            oz = json.loads((k / "ozet-yerel.json").read_text())
+            oz["dropbox_olaylari"][0]["etiket"] = "sizinti ali@ornek.co"
+            z, bulgular = rt.ciktilari_yaz(oz, k, "bilinmiyor", [], ["SENTETIK0001"])
+            self.assertIsNone(z)
+            self.assertTrue(any("e-posta" in b for b in bulgular))
+            self._hic_paylasim_yok(k)
+            self.assertTrue((k / "rapor-yerel.md").exists())
+
+    def test_cli_basarisizlikta_cikis_4_ve_eski_paket_yok(self):
+        with tempfile.TemporaryDirectory() as t:
+            k = self._onceki_basarili(Path(t))
+            # Cihazsız CLI yolu (isle) için ham klasör hazırla, sonra denetime bulgu enjekte et.
+            calistir(Path(t), "hepsi", "--cikti", str(Path(t) / "h"), "--ham-sakla")
+            with mock.patch.object(rt, "paylasim_denetle", return_value=["x: sahte bulgu"]):
+                kod = rt.main(["isle", str(Path(t) / "h" / "yerel-ham"), "--cikti", str(k)])
+            self.assertEqual(kod, 4)
+            self._hic_paylasim_yok(k)
+
+    def test_yarida_kesilmede_artefakt_kalmaz(self):
+        with tempfile.TemporaryDirectory() as t:
+            k = self._onceki_basarili(Path(t))
+            oz = json.loads((k / "ozet-yerel.json").read_text())
+            with mock.patch.object(rt, "_zip_yaz", side_effect=OSError("disk dolu")):
+                with self.assertRaises(OSError):
+                    rt.ciktilari_yaz(oz, k, "bilinmiyor", [], ["SENTETIK0001"])
+            self._hic_paylasim_yok(k)
+
+    def test_yeniden_calistirma_yeni_paketi_tutarli_yazar(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as t:
+            k = self._onceki_basarili(Path(t))
+            eski = (k / "paylasim.zip.sha256").read_text()
+            p = calistir(Path(t), "hepsi", "--cikti", str(k), "--guvenli-mod", "kapandi")
+            self.assertEqual(p.returncode, 0, p.stderr)
+            yeni = (k / "paylasim.zip.sha256").read_text().split()[0]
+            self.assertNotEqual(eski.split()[0], yeni)
+            self.assertEqual(yeni, hashlib.sha256((k / "paylasim.zip").read_bytes()).hexdigest())
+            self.assertEqual(list(k.glob(rt.GECICI_ONEK + "*")), [])
+            self.assertIn("kapandı", paylasim_metni(k))
 
 
 if __name__ == "__main__":

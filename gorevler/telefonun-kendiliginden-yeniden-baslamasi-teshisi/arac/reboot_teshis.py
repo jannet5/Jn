@@ -19,9 +19,17 @@ Güvenlik sınırları:
   * Tam getprop, tam logcat, ham dropbox içeriği ve tam paket listesi DİSKE YAZILMAZ;
     bellekte süzülür. Ham kopya yalnız açıkça `--ham-sakla` verilirse `yerel-ham/`
     altına yazılır ve paylaşım paketine asla girmez.
-  * Paylaşım raporunda serbest metin maskelenir, üçüncü taraf paket adları takma
-    adla gösterilir (`--goster` ile açıkça izin verilenler hariç); yazıldıktan sonra
-    dosyalar geri okunup taranır, bulgu varsa paylaşım paketi silinir.
+  * YEREL çıktılar (`ozet-yerel.json`, `rapor-yerel.md`) yine kişisel veri içerir:
+    uygulama adları, kurulum/güncelleme zamanları, sürümler ve maskelenmiş hata
+    metinleri. Paylaşmayın; işiniz bitince silin.
+  * Paylaşım paketine serbest metin (istisna mesajı, Watchdog Subject, stderr)
+    HİÇ girmez; yalnız izin listesindeki hata sınıfları ve yapısal kategoriler girer.
+    Üçüncü taraf paket adları takma adla gösterilir (`--goster` hariç).
+  * Paylaşım paketi geçici klasörde üretilir, diskten ve ZIP'ten geri okunup
+    denetlenir, ancak tümü geçerse yerine taşınır. Her çalıştırma önce eski
+    paylaşım çıktılarını siler; başarısızlıkta hiçbir paylaşım dosyası kalmaz.
+    Denetim yalnız TANIMLI örüntüleri arar; "temiz" sonucu kişisel veri
+    olmadığının garantisi değildir.
 Yalnız Python 3.10+ standart kütüphanesi ve PATH'te `adb` gerekir.
 """
 from __future__ import annotations
@@ -30,11 +38,13 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import re
 import secrets
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import zipfile
 from dataclasses import asdict, dataclass, field
@@ -78,11 +88,19 @@ ZAMAN_BICIMI = "%Y-%m-%d %H:%M:%S"
 
 
 # ------------------------------------------------------------------ maskeleme ---
+IPV6 = re.compile(r"(?<![\w:])(?=[0-9a-f:]*(?:[a-f][0-9a-f:]*|::))(?:[0-9a-f]{1,4}:|:){2,7}[0-9a-f]{0,4}(?![\w:])",
+                  re.I)
 MASKE_KURALLARI = [
+    (re.compile(r"\b(?:Bearer|Basic|Token)\s+[\w.~+/=-]{6,}", re.I), "<kimlik-bilgisi>"),
+    (re.compile(r"[\"']?(?:password|passwd|secret|token|api[_-]?key|access[_-]?key|authorization|auth|cookie)"
+                r"[\"']?\s*[:=]\s*[\"']?[^\s\"',}]+[\"']?", re.I), "<gizli-alan>"),
+    (re.compile(r"[A-Za-z]:\\[^\s\"']*"), "<yol>"),
+    (re.compile(r"(?:/home|/Users|/root)/[^\s\"']*"), "<yol>"),
     (re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+"), "<e-posta>"),
     (re.compile(r"\b(?:https?|ftp|content|file)://\S+", re.I), "<uri>"),
     (re.compile(r"\b(?:[0-9a-f]{2}[:-]){5}[0-9a-f]{2}\b", re.I), "<mac>"),
     (re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"), "<ip>"),
+    (IPV6, "<ip>"),
     (re.compile(r"(?:/storage|/sdcard|/mnt/media_rw|/data/user(?:_de)?/\d+|/data/data|/data/media)\S*"), "<yol>"),
     (re.compile(r"\b(?:account|acct|email|user(?:name)?|name|phone|number|imei|meid|serial|"
                 r"android_id|ssid|bssid|token|password|pass)\s*[=:]\s*\S+", re.I), "<gizli-alan>"),
@@ -101,6 +119,65 @@ def maskele(metin: str, ozel: list[str] | None = None, uzunluk: int = 160) -> st
     for desen, yerine in MASKE_KURALLARI:
         m = desen.sub(yerine, m)
     return m.strip()[:uzunluk]
+
+
+# Paylaşımda açık gösterilebilen hata sınıfları (yapısal; mesaj metni ASLA paylaşılmaz).
+HATA_SINIFLARI = {
+    "java.lang.RuntimeException", "java.lang.IllegalStateException", "java.lang.IllegalArgumentException",
+    "java.lang.NullPointerException", "java.lang.SecurityException", "java.lang.OutOfMemoryError",
+    "java.lang.StackOverflowError", "java.lang.IndexOutOfBoundsException",
+    "java.lang.ArrayIndexOutOfBoundsException", "java.lang.ClassCastException",
+    "java.lang.UnsupportedOperationException", "java.lang.NumberFormatException",
+    "java.lang.UnsatisfiedLinkError", "java.lang.NoSuchMethodError", "java.lang.NoClassDefFoundError",
+    "java.lang.ArithmeticException", "java.lang.InterruptedException", "java.lang.Error",
+    "java.util.ConcurrentModificationException", "java.util.NoSuchElementException",
+    "java.util.concurrent.TimeoutException", "java.io.IOException", "java.io.FileNotFoundException",
+    "android.os.DeadObjectException", "android.os.DeadSystemException", "android.os.RemoteException",
+    "android.os.TransactionTooLargeException", "android.os.BadParcelableException",
+    "android.os.NetworkOnMainThreadException", "android.app.RemoteServiceException",
+    "android.database.sqlite.SQLiteException", "android.database.sqlite.SQLiteFullException",
+    "android.database.CursorWindowAllocationException", "android.view.WindowManager$BadTokenException",
+    "android.content.ActivityNotFoundException", "android.util.AndroidRuntimeException",
+}
+WATCHDOG_ISPARCACIKLARI = {"main", "android.ui", "android.fg", "android.io", "android.display",
+                           "android.anim", "android.anim.lf", "android.bg", "ActivityManager",
+                           "PowerManagerService", "PackageManager", "WindowManager", "watchdog"}
+PLATFORM_ONEKLERI = ("java.", "javax.", "android.", "dalvik.", "libcore.", "kotlin.", "com.android.")
+
+
+def hata_sinifi_paylasim(istisna: str) -> str:
+    if not istisna:
+        return ""
+    if istisna in HATA_SINIFLARI:
+        return istisna
+    return "<diğer-platform-istisnası>" if istisna.startswith(PLATFORM_ONEKLERI) else "<uygulama-istisnası>"
+
+
+def watchdog_kategori(konu: str) -> str:
+    """Watchdog Subject'ini serbest metin taşımayan bir kategoriye indirger."""
+    m = re.match(r"\s*Blocked in handler on [\w ]*?thread \(([\w.$]+)\)", konu or "")
+    if m:
+        return "handler-takılması:" + (m.group(1) if m.group(1) in WATCHDOG_ISPARCACIKLARI else "<diğer>")
+    m = re.match(r"\s*Blocked in monitor (com\.android\.server\.[A-Za-z][\w.$]{0,80}?)(?:\s|$)", konu or "")
+    if m:
+        return "monitor-takılması:" + m.group(1)
+    return "<watchdog-diğer>" if konu else ""
+
+
+def sinyal_kategori(sinyal: str) -> str:
+    m = re.search(r"\b(SIG[A-Z]{2,7})\b", sinyal or "")
+    if m:
+        return "sinyal:" + m.group(1)
+    return "<abort-mesajı>" if sinyal else ""
+
+
+def paylasim_ipucu(o: dict) -> str:
+    """Çökme özetinin paylaşılabilir, yalnız yapısal temsili."""
+    if o.get("konu"):
+        return watchdog_kategori(o["konu"])
+    if o.get("istisna"):
+        return hata_sinifi_paylasim(o["istisna"])
+    return sinyal_kategori(o.get("sinyal", ""))
 
 
 def sistem_adi_mi(ad: str) -> bool:
@@ -652,14 +729,20 @@ def rapor_yaz(oz: dict, d: dict, paylasim: bool, takma: TakmaAd) -> str:
 
     ozet_satir: dict[str, int] = {}
     for o in oz["cokme_ozetleri"]:
-        metin = o["konu"] or (f"{o['istisna']}: {o['mesaj']}" if o["istisna"] else o["sinyal"])
+        if paylasim:
+            metin = paylasim_ipucu(o)
+        else:
+            metin = o["konu"] or (f"{o['istisna']}: {o['mesaj']}" if o["istisna"] else o["sinyal"])
         if metin:
             anahtar = f"{o['etiket']}: {metin}"
             ozet_satir[anahtar] = ozet_satir.get(anahtar, 0) + 1
     for w in oz["watchdog"]:
-        ozet_satir[f"watchdog: {w['konu']}"] = ozet_satir.get(f"watchdog: {w['konu']}", 0) + 1
+        anahtar = f"watchdog: {watchdog_kategori(w['konu']) if paylasim else w['konu']}"
+        ozet_satir[anahtar] = ozet_satir.get(anahtar, 0) + 1
     if ozet_satir:
-        r.append("\n### İlk istisna / konu ipuçları (maskelenmiş)\n\n| İpucu | Sayı |\n|---|---|\n")
+        baslik = ("İlk hata sınıfı / kategori ipuçları (yapısal; mesaj metni paylaşılmaz)" if paylasim
+                  else "İlk istisna / konu ipuçları (maskelenmiş; YEREL — kişisel metin içerebilir)")
+        r.append(f"\n### {baslik}\n\n| İpucu | Sayı |\n|---|---|\n")
         r.extend(f"| `{P(k_).replace('|', '/')}` | {v} |\n"
                  for k_, v in sorted(ozet_satir.items(), key=lambda x: -x[1])[:15])
     if oz["crash_tamponu"]["surecler"]:
@@ -723,7 +806,14 @@ DENETIM_DESENLERI = {
     "telefon/imei": re.compile(r"(?<![\d-])\+?\d{10,17}(?![\d-])"),
     "kullanıcı yolu": re.compile(r"/storage/|/sdcard|/data/user/\d|/data/data/"),
     "yapı parmak izi": re.compile(r"\b\w+/\w+/\w+:\d+/"),
+    "ipv6": IPV6,
+    "windows/ev dizini yolu": re.compile(r"[A-Za-z]:\\|(?:/home|/Users|/root)/\w"),
+    "json/anahtar sırrı": re.compile(r"[\"']?(?:password|passwd|secret|token|api[_-]?key|access[_-]?key|"
+                                     r"authorization|cookie)[\"']?\s*[:=]", re.I),
+    "bearer/basic kimlik": re.compile(r"\b(?:Bearer|Basic)\s+[\w.~+/=-]{6,}", re.I),
 }
+DENETIM_TEMIZ_METNI = ("Tanımlı örüntüler bulunmadı. (Bu, kişisel veri bulunmadığının garantisi değildir; "
+                       "yalnız denetimdeki örüntü listesi aranmıştır.)")
 
 
 def paylasim_denetle(metinler: dict[str, str], ozel: list[str] | None = None,
@@ -751,67 +841,106 @@ def _paylasim_ozeti(oz: dict, takma: TakmaAd) -> dict:
     """Paylaşım JSON'u: yalnız izinli, maskelenmiş ve takma adlı alanlar."""
     return {
         "surum": oz["surum"], "pencere_gun": oz["pencere_gun"], "cihaz_zamani": oz["cihaz_zamani"],
-        "cihaz": {k: v for k, v in oz["cihaz"].items() if k in PAYLASIM_PROP or "boot.reason" in k
-                  or k == "ro.boot.bootreason"},
+        "cihaz": {k: (v if re.fullmatch(r"[\w ,.()+-]{0,64}", v) else "<biçim-dışı>")
+                  for k, v in oz["cihaz"].items() if k in PAYLASIM_PROP or "boot.reason" in k},
         "dropbox_olaylari": oz["dropbox_olaylari"],
-        "cokme_ozetleri": [{**o, "mesaj": takma.metin(o["mesaj"]), "konu": takma.metin(o["konu"]),
-                            "sinyal": takma.metin(o["sinyal"]), "paketler": [takma.ad(p) for p in o["paketler"]]}
+        "cokme_ozetleri": [{"zaman": o["zaman"], "etiket": o["etiket"], "ipucu": paylasim_ipucu(o),
+                            "paketler": [takma.ad(p) for p in o["paketler"]]}
                            for o in oz["cokme_ozetleri"]],
         "cerceve_baslangiclari": oz["cerceve_baslangiclari"],
-        "watchdog": [{**w, "konu": takma.metin(w["konu"])} for w in oz["watchdog"]],
+        "watchdog": [{"zaman": w["zaman"], "kategori": watchdog_kategori(w["konu"])} for w in oz["watchdog"]],
         "crash_tamponu": {**oz["crash_tamponu"],
                           "surecler": {takma.ad(k): v for k, v in oz["crash_tamponu"]["surecler"].items()}},
-        "pil": oz["pil"], "termal_durum": oz["termal_durum"], "data_doluluk": oz["data_doluluk"],
+        "pil": {k: v for k, v in oz["pil"].items() if re.fullmatch(r"[\w.-]{0,16}", v)},
+        "termal_durum": oz["termal_durum"], "data_doluluk": oz["data_doluluk"],
         "onceki_acilis": oz["onceki_acilis"],
-        "paketler": [{**p, "ad": takma.ad(p["ad"]), "surum": ""} for p in oz["paketler"]
+        "paketler": [{"ad": takma.ad(p["ad"]), "yan_yukleme": p["yan_yukleme"], "pencerede": p["pencerede"],
+                      "ilk": p["ilk"], "son": p["son"]} for p in oz["paketler"]
                      if p["pencerede"] or p["yan_yukleme"]],
-        "toplama": [{**t, "hata": takma.metin(t.get("hata", ""))} for t in oz["toplama"]],
+        # stderr metni (hata) paylaşılmaz; yalnız yapısal alanlar.
+        "toplama": [{k: t[k] for k in ("ad", "cikis_kodu", "zaman_asimi", "izin_hatasi", "servis_yok", "sure_sn")
+                     if k in t} for t in oz["toplama"]],
     }
+
+
+PAYLASIM_ARTEFAKTLARI = ("paylasim", "paylasim.zip", "paylasim.zip.sha256")
+GECICI_ONEK = ".paylasim-gecici-"
+
+
+def paylasim_temizle(cikti: Path) -> None:
+    """Bu çıktı klasöründeki tüm paylaşım artefaktlarını (eski ve yarım kalmış) siler."""
+    for ad in PAYLASIM_ARTEFAKTLARI:
+        p = cikti / ad
+        if p.is_dir() and not p.is_symlink():
+            shutil.rmtree(p)
+        elif p.exists() or p.is_symlink():
+            p.unlink()
+    for p in cikti.glob(GECICI_ONEK + "*"):
+        shutil.rmtree(p, ignore_errors=True)
+
+
+def _zip_yaz(kaynak: Path, hedef: Path) -> None:
+    with zipfile.ZipFile(hedef, "w", zipfile.ZIP_DEFLATED) as zf:
+        for f in sorted(kaynak.iterdir()):
+            zi = zipfile.ZipInfo(f"paylasim/{f.name}", date_time=(2026, 1, 1, 0, 0, 0))
+            zi.compress_type = zipfile.ZIP_DEFLATED
+            zf.writestr(zi, f.read_bytes())
 
 
 def ciktilari_yaz(oz: dict, cikti: Path, guvenli_mod: str, goster: list[str],
                   ozel: list[str] | None = None) -> tuple[Path | None, list[str]]:
-    """Yerel rapor + paylaşım klasörü + ZIP/SHA yazar, geri okuyup denetler."""
+    """Yerel rapor + paylaşım klasörü + ZIP/SHA yazar.
+
+    Paylaşım tarafı: (1) eski paylaşım artefaktları önce silinir; (2) yeni paket geçici
+    klasörde üretilir; (3) dosyalar diskten, ZIP içeriği ZIP'ten, SHA dosyası diskten geri
+    okunup denetlenir; (4) ancak hepsi geçerse os.replace ile yerine taşınır (SHA en son).
+    Herhangi bir hata/bulgu durumunda bu klasörde hiçbir paylaşım artefaktı kalmaz."""
     cikti.mkdir(parents=True, exist_ok=True)
+    paylasim_temizle(cikti)  # önceki çalıştırmanın paketi asla "teslim" gibi kalmasın
     d = degerlendir(oz, guvenli_mod)
     takma = TakmaAd(goster)
     (cikti / "ozet-yerel.json").write_text(json.dumps(oz, ensure_ascii=False, indent=1), encoding="utf-8")
     (cikti / "rapor-yerel.md").write_text(rapor_yaz(oz, d, False, takma), encoding="utf-8")
 
-    pk = cikti / "paylasim"
-    if pk.exists():
-        shutil.rmtree(pk)
-    pk.mkdir()
-    (pk / "rapor-paylasim.md").write_text(rapor_yaz(oz, d, True, takma), encoding="utf-8")
-    (pk / "ozet-paylasim.json").write_text(json.dumps(_paylasim_ozeti(oz, takma), ensure_ascii=False, indent=1),
-                                           encoding="utf-8")
     gizli_paketler = [p["ad"] for p in oz["paketler"] if p["ad"] not in set(goster) and not sistem_adi_mi(p["ad"])]
     gizli_paketler += [p for o in oz["cokme_ozetleri"] for p in o["paketler"]
                        if not sistem_adi_mi(p) and p not in set(goster)]
     gizli_paketler += [p for p in oz["crash_tamponu"]["surecler"] if not sistem_adi_mi(p.split(":")[0])
                        and p.split(":")[0] not in set(goster)]
     ozel_tum = [x for x in (ozel or []) + gizli_paketler if x]
-    # Geri okuma denetimi (diskten okunan içerik üzerinde).
-    bulgular = paylasim_denetle({f.name: f.read_text(encoding="utf-8") for f in pk.iterdir()}, ozel_tum, goster)
-    if bulgular:
-        shutil.rmtree(pk)
-        return None, bulgular
-    z = cikti / "paylasim.zip"
-    with zipfile.ZipFile(z, "w", zipfile.ZIP_DEFLATED) as zf:
-        for f in sorted(pk.iterdir()):
-            zi = zipfile.ZipInfo(f"paylasim/{f.name}", date_time=(2026, 1, 1, 0, 0, 0))
-            zi.compress_type = zipfile.ZIP_DEFLATED
-            zf.writestr(zi, f.read_bytes())
-    sha = hashlib.sha256(z.read_bytes()).hexdigest()
-    (cikti / "paylasim.zip.sha256").write_text(f"{sha}  paylasim.zip\n", encoding="utf-8")
-    # ZIP geri okuma: içerik + SHA.
-    with zipfile.ZipFile(z) as zf:
-        icerik = {n: zf.read(n).decode("utf-8") for n in zf.namelist()}
-    bulgular = paylasim_denetle(icerik, ozel_tum, goster)
-    if bulgular or hashlib.sha256(z.read_bytes()).hexdigest() != sha:
-        z.unlink()
-        return None, bulgular or ["SHA geri okuma uyuşmadı"]
-    return z, []
+
+    gec = Path(tempfile.mkdtemp(prefix=GECICI_ONEK, dir=cikti))
+    try:
+        pk = gec / "paylasim"
+        pk.mkdir()
+        (pk / "rapor-paylasim.md").write_text(rapor_yaz(oz, d, True, takma), encoding="utf-8")
+        (pk / "ozet-paylasim.json").write_text(json.dumps(_paylasim_ozeti(oz, takma), ensure_ascii=False,
+                                                          indent=1), encoding="utf-8")
+        bulgular = paylasim_denetle({f.name: f.read_text(encoding="utf-8") for f in pk.iterdir()},
+                                    ozel_tum, goster)
+        if bulgular:
+            return None, bulgular
+        z, shaf = gec / "paylasim.zip", gec / "paylasim.zip.sha256"
+        _zip_yaz(pk, z)
+        shaf.write_text(f"{hashlib.sha256(z.read_bytes()).hexdigest()}  paylasim.zip\n", encoding="utf-8")
+        with zipfile.ZipFile(z) as zf:
+            if zf.testzip() is not None:
+                return None, ["ZIP bütünlük denetimi başarısız"]
+            icerik = {n: zf.read(n).decode("utf-8") for n in zf.namelist()}
+        bulgular = paylasim_denetle(icerik, ozel_tum, goster)
+        if bulgular:
+            return None, bulgular
+        if shaf.read_text(encoding="utf-8").split()[0] != hashlib.sha256(z.read_bytes()).hexdigest():
+            return None, ["SHA geri okuma uyuşmadı"]
+        os.replace(pk, cikti / "paylasim")
+        os.replace(z, cikti / "paylasim.zip")
+        os.replace(shaf, cikti / "paylasim.zip.sha256")  # SHA'nın varlığı = tamamlanmış paket
+        return cikti / "paylasim.zip", []
+    except BaseException:
+        paylasim_temizle(cikti)
+        raise
+    finally:
+        shutil.rmtree(gec, ignore_errors=True)
 
 
 # --------------------------------------------------------------------- CLI ---
@@ -850,7 +979,7 @@ def main(argv=None):
         else:
             metinler = {f.name: f.read_text(encoding="utf-8", errors="replace") for f in y.iterdir() if f.is_file()}
         b = paylasim_denetle(metinler)
-        print("DENETİM TEMİZ" if not b else "BULGU:\n" + "\n".join(b))
+        print(DENETIM_TEMIZ_METNI if not b else "BULGU:\n" + "\n".join(b))
         return 0 if not b else 3
 
     cikti = Path(a.cikti)
@@ -888,11 +1017,13 @@ def main(argv=None):
         oz = ham_isle(ham, a.gun, gizli=ozel, toplama=[asdict(x) for x in adb.sonuclar])
         del ham
     z, bulgular = ciktilari_yaz(oz, cikti, a.guvenli_mod, a.goster, ozel)
-    print(f"Yerel rapor: {cikti / 'rapor-yerel.md'}")
+    print(f"Yerel rapor (kişisel veri içerir, paylaşmayın): {cikti / 'rapor-yerel.md'}")
     if z:
-        print(f"Paylaşım paketi: {z}\nSHA-256: {(cikti / 'paylasim.zip.sha256').read_text().split()[0]}")
+        print(f"Paylaşım paketi: {z}\nSHA-256: {(cikti / 'paylasim.zip.sha256').read_text().split()[0]}\n"
+              f"Geri okuma denetimi: {DENETIM_TEMIZ_METNI}")
         return 0
-    print("Paylaşım paketi ÜRETİLMEDİ; geri okuma denetiminde bulgu:\n  " + "\n  ".join(bulgular), file=sys.stderr)
+    print("Paylaşım paketi ÜRETİLMEDİ (eski paylaşım dosyaları da silindi); geri okuma denetiminde bulgu:\n  "
+          + "\n  ".join(bulgular), file=sys.stderr)
     return 4
 
 

@@ -15,16 +15,19 @@ değildir. Bu bulut ortamında resmi `adb devices -l` çıktısı (platform-tool
      `kill -9 system_server` ile çerçeve yeniden başlatıldı (12:07:22).
    - 3: `adb reboot` → açılış nedeni `reboot,shell`; ardından yavaş emülatör
      kendi kendine yine Watchdog/`Lost network stack` ile yumuşak yeniden başladı.
-2. Bağımsız statik incelemeden sonra araç sürüm 2'ye geçirildi. Eski ham
-   kayıtlar **cihaza dokunmadan** `reboot_teshis.py isle` ile yeniden işlendi;
-   burada yalnız maskelenmiş **paylaşım** raporları duruyor (ham kayıtlar
-   depoya konmadı). Her biri `reboot_teshis.py denetle` ile "DENETİM TEMİZ".
+2. İki bağımsız statik incelemeden sonra araç güncellendi (sürüm 2, sonra
+   serbest metinsiz paylaşım + atomik paket). Eski ham kayıtlar **cihaza
+   dokunmadan** `reboot_teshis.py isle` ile yeniden işlendi; burada yalnız
+   **paylaşım** raporları duruyor (ham kayıtlar ve yerel raporlar depoya
+   konmadı). Paylaşım raporlarında hata mesajı metni yok, yalnız hata sınıfı
+   ve kategori var. Her biri `reboot_teshis.py denetle` ile "Tanımlı örüntüler
+   bulunmadı" (bu bir garanti değil, yalnız örüntü listesinin sonucu).
 
 | Dosya | Gösterdiği |
 |---|---|
 | `emulator-1-ilk-acilis-paylasim.md` | Açılış nedeni okuma; dropbox Watchdog. Sürüm 1'in events süzgeci boş döndüğü için çerçeve başlangıcı bilgisi yok (o sürümün hatası). |
 | `emulator-2-yan-yukleme-ve-system-server-paylasim.md` | Yan yükleme tespiti (takma adla), `boot_progress_start` ile yumuşak yeniden başlama sayımı, kurulum ↔ yeniden başlama zaman eşleşmesi |
-| `emulator-3-adb-reboot-sonrasi-paylasim.md` | `reboot,shell` sınıflaması; `IllegalStateException: Lost network stack` ve Watchdog konuları; kodsuz test uygulaması zaman olarak yakın olsa da **neden ilan edilmiyor** (belirsiz hipotez) |
+| `emulator-3-adb-reboot-sonrasi-paylasim.md` | `reboot,shell` sınıflaması; `java.lang.IllegalStateException` (mesajı "Lost network stack" yalnız yerel raporda) ve Watchdog kategorileri; kodsuz test uygulaması zaman olarak yakın olsa da **neden ilan edilmiyor** (belirsiz hipotez) |
 
 ## Bu doğrulamanın sınırları
 - Emülatör pili sanaldır; pil/ısı/güç dalı yalnız sentetik testlerle sınandı.

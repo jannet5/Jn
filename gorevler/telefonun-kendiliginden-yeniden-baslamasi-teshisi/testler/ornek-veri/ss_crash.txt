@@ -11,3 +11,9 @@ Build: sentetik/test/test:14/TEST/1:user/release-keys
 
 java.lang.IllegalArgumentException: kullanici ali.veli@example.com tel +90 555 123 45 67 dosya /storage/emulated/0/DCIM/IMG_0001.jpg sunucu 192.168.1.20 imei=356938035643809 seri SENTETIK0001 aid a1b2c3d4e5f60718 cagiran com.ornek.masum.ui.MainActivity
 	at com.ornek.masum.Foo.bar(Foo.java:10)
+========================================
+2026-10-02 22:45:16 system_server_crash (text, 700 bytes)
+Process: system_server
+Package: com.ornek.masum v51 (5.1)
+
+com.ornek.masum.GizliVeriException: Ayşe Yılmaz'ın notu {"api_key": "sk-test-123"} Authorization: Bearer eyJhbGciOiJIUzI1.abc C:\Users\ayse\Desktop\not.txt /home/ayse/x 2001:db8::1 fe80::1ff:fe23:4567:890a
