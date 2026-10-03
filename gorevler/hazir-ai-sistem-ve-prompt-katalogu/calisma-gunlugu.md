@@ -112,3 +112,24 @@ Topluluk/kullanıcı deneyimi kaynakları (WebSearch sonuç özetlerinden; Reddi
 Bu bölüm teslim adımında güncellendi — bkz. aşağıdaki "Teslim kaydı".
 
 ### Teslim kaydı
+
+1. **Public dal push + geri okuma:** commit `d21d61427dbe75e3fdd46cdba4a14f4ce01f3229` →
+   `origin/claude/youthful-rubin-7bjeo4`. `git fetch` sonrası yerel ve uzak HEAD aynı; GitHub MCP ile
+   klasör listesi uzaktan okundu (9 öğe, 26 dosya). Bu commit'te yalnız araştırma çıktısı var; özel
+   kaynaklar yok (dosya adı geçişleri dışında `grep` ile kontrol edildi).
+2. **Özel ZIP (bulut özel çalışma alanında, depoya girmez):** `hazir-ai-sistem-ve-prompt-katalogu.zip`
+   - SHA-256: `73728aa5a6b9ef9d4879cf77886c56fb7a576c35ec866a99fb4c2e7d0f74c4bf`
+   - İçerik: tüm ürün dosyaları + `_ozel/` (kaynak.txt, gorev.md, `repo-dal.bundle`) + `MANIFEST.sha256` (30 dosya)
+   - Geri okuma: `sha256sum -c` OK → açıldı → manifest 30/30 OK → ürün dosyaları repo ile `diff -r`
+     birebir aynı → bundle'dan `git clone` HEAD `d21d614…` ve klasör repo ile aynı → açılan kopyada
+     Chromium testi yeniden GEÇTİ.
+   - Not: Bu günlük girdisi ZIP'ten *sonra* yazıldı; ZIP içindeki günlükte bu "Teslim kaydı" maddeleri yoktur.
+3. **Özel Artifact sayfası:** https://claude.ai/artifact/BU3RnW9nUN8AN2yBoKKjyH (index.html; yalnız
+   sahibi açabilir, paylaşım sayfanın Share menüsünden).
+
+## 8. Kalanlar / sonraki adım
+
+- Açık engel: ChatGPT Pro ile ikinci görüş — kullanıcı `KATALOG.md` sonundaki prompt'u kendi
+  hesabında çalıştırabilir; sonuçlar gelirse `veri/katalog.json`'a eklenip
+  `python3 araclar/olustur.py && python3 araclar/dogrula.py` ile yeniden üretilir.
+- Windows/telefon gerçek cihaz testi yapılmadı (emülasyon yapıldı).
