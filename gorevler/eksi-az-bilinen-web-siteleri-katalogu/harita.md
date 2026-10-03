@@ -34,74 +34,60 @@ araca çevrildi.
 
 ## Bağımlılıklar
 
-1. Başlık sayfalarına erişim → **kullanıcının tarayıcısı** (Cloudflare normal
-   kullanıcıyı geçirir).
-2. Bağlantı listesi (`eksi-linkler.txt`) → katalog üreticisine girdi.
-3. Her sitenin kendisine erişim (üçüncü taraf siteler, Ekşi değil) →
-   açıklama yazmak ve "çalışıyor mu" denetimi için.
-4. Açıklamalar (`aciklamalar.json`) → kurallara göre otomatik doğrulanır.
+1. Başlık sayfalarına erişim → **kullanıcının kendi Chrome'u** (kullanıcı
+   809..610 aralığını görünür sayfadan, sayfa seçiciyle kendisi topluyor).
+2. Sayfa JSON'ları (`page`, `page_url`, `observed_at`, `links:[{label,url}]`;
+   entry metni yok) → `katalog_olustur.py tekillestir`.
+3. Üçüncü taraf sitelere güvenli erişim (`url_denetim.py`) → çalışıyor mu,
+   HTTPS gerçekten var mı.
+4. Açıklamalar (`aciklamalar.json`) → kural denetimi.
 5. Doğrulanmış katalog → kalıcı teslim (depo + özel ZIP, SHA-256).
 
 ## Yollar
 
-### A — Kullanıcı tarayıcısında toplama + buluttan açıklama (SEÇİLEN)
+### A — Kullanıcı Chrome'da toplar, bulut üretir (SEÇİLEN, sürüyor)
 
-1. `araclar/eksi-link-toplayici.js` kullanıcı tarayıcısının konsolunda çalışır;
-   son sayfadan geriye 200 sayfayı 1,5 sn arayla gezer, yalnız bağlantı +
-   sayfa no + entry no içeren `eksi-linkler.txt` indirir. Yarıda kesilirse
-   kaldığı yerden devam eder.
-2. Dosya bu oturuma (veya yeni bir oturuma) yüklenir.
-3. `katalog_olustur.py tekillestir` → HTTPS'e çevirir, izleme parametrelerini
-   atar, aynı siteyi bir kez tutar.
-4. `katalog_olustur.py kontrol` → her siteyi HTTPS ile dener (çalışıyor /
-   korumalı / ölü).
-5. `sablon` → açıklama şablonu; açıklamalar **sitelerin kendisi** incelenerek
-   yazılır (Ekşi metni kullanılmaz).
-6. `uret` → kategorili TXT; kural dışı/eksik açıklama varsa çıkış kodu 1.
-
-Neden: Ekşi'nin beyan ettiği isteğe uyar, kullanıcı zaten başlığı kendisi
-gezebilen biri; Ekşi metni yapay zekâya girmez, yalnız üçüncü taraf site
-adresleri girer.
+Kullanıcı sayfaları kendi tarayıcısında toplayıp JSON olarak veriyor. Bulut
+tarafı yalnız bağlantıları işliyor; Ekşi metni yapay zekâya girmiyor.
+İlk sürümdeki tarayıcı konsolu toplayıcısı (fetch + localStorage)
+kullanılmayacağı için kaldırıldı.
 
 ### B — Ekşi'den açık izin / resmî erişim
 
-Ekşi'nin herkese açık bir API'si yok; mobil uygulama API'si oturum ister.
-İzin alınırsa aynı araçlar sunucudan çalıştırılabilir. Bugün uygulanabilir değil.
+Herkese açık API yok. Bugün uygulanamaz.
 
-### C — Kullanıcı bağlantıları elle kopyalar / tarayıcı eklentisiyle dışa aktarır
+### C — Kısmi veri
 
-A'nın aracı çalışmazsa (Ekşi sayfa yapısını değiştirirse) kullanıcı
-herhangi bir "sayfadaki linkleri dışa aktar" eklentisiyle aynı TXT biçimini
-(`url<TAB>sayfa<TAB>entry`, yalnız `url` de yeterli) üretebilir;
-`katalog_olustur.py` tek sütunlu listeyi de kabul eder.
+JSON 200 sayfanın tamamını içermezse `tekillestir --ust 809 --alt 610`
+eksik sayfaları listeler. Katalog başlığında "gelen sayfa / beklenen" ve
+eksik sayfa numaraları yazılır; eksik sayfa gizlenmez.
 
 ### Reddedilen yol — Bulut ajanının Cloudflare'i aşarak çekmesi
 
-Teknik olarak çalıştı (Chrome TLS taklidi yapan `curl_cffi` ile), ancak
-robots.txt ve Content-Signal'e aykırı olduğu için bırakıldı. Ayrıca proxy
-sertifikasını Chromium'a tanıtmak için denenen bayrak, oturumun güvenlik
-denetiminde reddedildi; o yol da izlenmedi.
+robots.txt ve Content-Signal'e aykırı. Denendi, 43. sayfada durduruldu,
+veri kullanılmadı ve silindi.
 
 ## Kabul ölçütleri ve durumları
 
-| # | Ölçüt | Nasıl kanıtlanır | Durum |
+| # | Ölçüt | Kanıt | Durum |
 |---|---|---|---|
-| K1 | Son sayfadan başlayıp 200 sayfa (100 + 100) | Toplayıcı çıktısının `# aralik:` satırı; testte `5-3` ve `5-1` doğrulandı | Araç test edildi; **gerçek 200 sayfa toplanmadı** (kullanıcı tarayıcısı bekleniyor) |
-| K2 | Tam HTTPS, tekilleştirilmiş bağlantılar | `test_hepsi_https_ve_tekil`, `test_ayni_site_bir_kez` | Araç test edildi |
-| K3 | Her site için tek tam cümle + "Bu siteyle … yapabilirsin." | `aciklama_dogrula` (nokta, tek cümle, 40–220 karakter, kalıp) ve `uret` çıkış kodu | Doğrulayıcı test edildi; açıklamalar gerçek liste gelince yazılacak |
-| K4 | Liste, tablo değil; okunur boşluk | `test_kategorili_liste_ve_rapor` (`|` yok, öğeler arası boş satır, `⟶` ayracı) | Test edildi |
-| K5 | Kategoriler | `■ KATEGORİ (n site)` başlıkları, Türkçe büyük harf | Test edildi (Türkçe "i" hatası bulundu ve düzeltildi) |
-| K6 | Çalışmayan siteler katalog dışında | `kontrol` + `rapor.json` | Gerçek ağda 3 siteyle denendi |
-| K7 | Masaüstü ve `C:\` kopyası | README'deki PowerShell komutu | **Bulutta yapılamaz**, komut verildi |
+| K1 | Son sayfadan geriye 100 + 100 sayfa | `kapsam_raporu`: `809-710` / `709-610`, eksik sayfa listesi; işleme son sayfadan başlar | Test edildi; **gerçek veri bekleniyor** |
+| K2 | Tekil, tam bağlantı; HTTPS yalnız doğrulanınca | `site_denetle`: HTTP sessizce yükseltilmez; tam adres anahtarı farklı yolları birleştirmez | Test edildi + gerçek ağda `http://example.com/` → HTTPS doğrulandı |
+| K3 | Tek tam cümle + "Bu siteyle … yapabilirsin." | `aciklama_dogrula`, `uret` çıkış kodu | Test edildi; açıklamalar veri gelince yazılacak |
+| K4 | Liste, tablo değil; okunur boşluk | `⟶` ayracı, öğeler arası boş satır, `|` yok | Test edildi |
+| K5 | Kategoriler | `■ KATEGORİ (n site)`, Türkçe büyük harf | Test edildi |
+| K6 | Yalnız doğrulanmış çalışanlar "çalışan" | Ana liste yalnız `calisiyor`; korumalı/denetlenmemiş ayrı bölümde | Test edildi + gerçek ağda alternativeto.net (Cloudflare 403) çalışan sayılmadı |
+| K7 | Güvenli ağ denetimi | localhost, özel/link-local IP, port, şema, kullanıcı bilgisi, yönlendirme, DNS yeniden çözümleme testleri | 18 test; gerçek ağda metadata IP ve localhost reddedildi |
+| K8 | Kaynak sayfa izi | `kaynaklar[]`: page, page_url, observed_at, label; katalog satırında `(sayfa …)` | Test edildi |
+| K9 | Masaüstü ve `C:\` kopyası | README'deki PowerShell komutu | **Bulutta yapılamaz** |
 
 ## Uygulama → test → teslim zinciri
 
 ```
-toplayıcı.js (kullanıcı tarayıcısı) ──► eksi-linkler.txt
-        │ test: test/toplayici_test.js (Chromium, sahte yerel başlık, 12 kontrol)
+Kullanıcı Chrome'u ──► sayfa JSON'ları (809..610)
         ▼
-katalog_olustur.py tekillestir ──► kontrol ──► sablon ──► (açıklamalar) ──► uret ──► katalog.txt
-        │ test: test/test_katalog.py (14 birim/uçtan uca test)
+tekillestir ──► kontrol (url_denetim) ──► sablon ──► açıklamalar ──► uret ──► katalog.txt
+        │ test: test/calistir.py → test/cikti/test-ciktisi.txt (SENTETİK etiketli)
         ▼
 git push (claude/relaxed-hopper-of36hr) + özel ZIP (SHA-256, geri okuma)
 ```
@@ -115,9 +101,11 @@ git push (claude/relaxed-hopper-of36hr) + özel ZIP (SHA-256, geri okuma)
 - Topluluk Ekşi kazıyıcıları (karşılaştırma için incelendi, kullanılmadı):
   https://pypi.org/project/limoon/ , https://pypi.org/project/sourpy/ ,
   https://apify.com/epctex/eksisozluk-scraper
-- Playwright (testte kullanılan tarayıcı otomasyonu): https://playwright.dev/
+- OWASP SSRF önleme rehberi (izin listesi, DNS rebinding, yönlendirme): https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html
+- Python ipaddress (`is_global`): https://docs.python.org/3/library/ipaddress.html
+- RFC 2606 (testte kullanılan `.example` alan adları): https://www.rfc-editor.org/info/rfc2606/
 
 Hazır kazıyıcılar (limoon, sourpy, Apify) sunucudan çalışıp aynı robots.txt
-ve Cloudflare sorununa takılır; ayrıca entry metnini de toplar. Bu görevde
-yalnız bağlantı gerektiği ve kullanıcının kendi tarayıcısında çalışması
-gerektiği için bağımsız, bağımlılıksız küçük bir konsol betiği seçildi.
+ve Cloudflare sorununa takılır, ayrıca entry metnini de toplar. Bu yüzden
+toplama kullanıcıya bırakıldı. Üretici bağımlılıksız (yalnız Python
+standart kütüphanesi) yazıldı ve Windows'ta da kurulum gerektirmez.

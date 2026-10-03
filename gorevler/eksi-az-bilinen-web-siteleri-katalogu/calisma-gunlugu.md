@@ -54,19 +54,70 @@ masaüstü ve C:\ kopyası. Kullanıcının kendi metni ve görev dosyası özel
     curl_cffi belgeleri, topluluk kazıyıcıları (limoon, sourpy, Apify)
     karşılaştırıldı.
 
+## 2. tur — kullanıcı incelemesinden gelen düzeltmeler (2026-10-03)
+
+Kullanıcı ZIP'i indirip SHA-256 ve iç hash'leri doğruladı ve statik
+incelemede şu sorunları bildirdi. Gerçek veriyi kendi Chrome'unda,
+sayfa JSON'u olarak topluyor (o sırada 72 sayfa). Konsol toplayıcısı
+kullanılmayacak.
+
+1. **Tarayıcı konsolu toplayıcısı ve testi kaldırıldı**
+   (`eksi-link-toplayici.js`, `toplayici_test.js`, `sahte_sunucu.py`).
+2. **JSON girdisi:** `page`, `page_url`, `observed_at`, `links:[{label,url}]`.
+   Tek nesne, dizi, JSON Lines ya da klasör kabul edilir; eski TSV de okunur.
+   Her adresin `kaynaklar[]` alanında sayfa izi korunur. `--ust/--alt` ile
+   eksik sayfalar raporlanır.
+3. **HTTP artık körü körüne HTTPS yapılmıyor.** `normalize` şemayı korur.
+   `site_denetle` önce HTTPS'i dener; 2xx gelmezse özgün HTTP kalır ve
+   katalogda "[yalnız HTTP; HTTPS doğrulanamadı]" diye işaretlenir.
+4. **Kör host tekilleştirmesi kaldırıldı.** Anahtar artık tam adres
+   (alan + yol + sorgu + `#/` parçası). Aynı alan adındaki farklı yollar
+   raporlanır ama birleştirilmez.
+5. **Durum etiketleri:** varsayılan `kontrol_edilmedi`. Ana listeye yalnız
+   `calisiyor` girer; `korumali` ve `kontrol_edilmedi` ayrı bölümde.
+6. **Güvenli ağ denetimi (`url_denetim.py`):** şema/port/kullanıcı bilgisi
+   kuralları, iç ad ve kamu dışı IP reddi, her adımda tek DNS çözümü ve IP
+   sabitleme, elle ve yeniden denetlenen yönlendirmeler (en fazla 5).
+7. **Ortam bulgusu:** Bu bulutun proxy'si IP'ye CONNECT'i kabul ediyor ama
+   `Host` CONNECT hedefiyle aynı değilse isteği reddediyor ("Host header does
+   not match CONNECT target"); TLS de kopuyor. Bu yüzden açık seçimli
+   `--proxy-ad-ile` modu eklendi: ad yerelde denetlenir, bağlantıyı proxy
+   kurar, sonuçta `ip_sabit: false` yazar. Varsayılan mod IP sabitlemedir.
+8. **Ön kontrol:** `kontrol`, siteleri işaretlemeden önce
+   `https://example.com/` ile ağı sınar. Başarısız olursa çıkış kodu 2 ile
+   durur ve hiçbir siteyi "ölü" işaretlemez. Bu ortamda IP modunda bu
+   gerçekten oldu ve doğru davrandı.
+9. **Testlerin bulduğu hatalar ve düzeltmeleri:**
+   - Klasör okurken `BENIOKU.txt` TSV sanılıyordu → klasörde yalnız `.json`/`.jsonl` okunuyor.
+   - Dosyalar alfabetik işleniyordu → kayıtlar sayfa numarasına göre azalan diziliyor (son sayfadan başla).
+   - Düz HTTP isteğinde `Host: ad:80` gidiyordu → varsayılan port düzeltildi.
+   - HTTP→HTTPS yönlenmesinde gösterilen adres başarısız HTTPS adayı olabiliyordu → gerçek varış adresi (`https_url`) kaydediliyor.
+   - Doğrulanamayan HTTPS adrese "yalnız HTTP" notu düşülüyordu → not yalnız `http://` adreslerde.
+   - Proxy test sınıfı yerel sunucu testlerini miras alıp iki kez sayıyordu → ortak taban sınıfa ayrıldı.
+10. **Gerçek test çıktısı:** `python3 test/calistir.py --proxy-ad-ile` →
+    `test/cikti/test-ciktisi.txt`. Bölümler: birim/entegrasyon (SENTETİK),
+    sentetik uçtan uca hat (gerçek ağ denetimiyle), gerçek ağ duman testi
+    (kamu adresler, Ekşi verisi değil). Uydurma GitHub adreslerinin 403'ü
+    GitHub'dan değil bu bulut ortamının GitHub erişim politikasından geliyor;
+    "çalışan" sayılmadı. Teşhis için 2xx dışı yanıtlarda gövde özeti
+    kaydediliyor.
+
 ## Yapılmayanlar ve nedenleri
 
-- **Gerçek 200 sayfalık katalog üretilmedi.** Ekşi'nin yapay zekâ ajanı
-  yasağı nedeniyle; kullanıcının `eksi-linkler.txt` yüklemesi bekleniyor.
+- **Gerçek 200 sayfalık katalog üretilmedi.** Kullanıcı sayfa JSON'larını
+  Chrome'da topluyor; veri henüz gelmedi.
 - **Masaüstü / C:\ kopyası yapılmadı.** Bulut ortamı kullanıcının Windows
   bilgisayarına erişemez; README'de PowerShell komutu var.
-- **Windows'ta deneme yapılmadı.** Betik standart kütüphaneyle yazıldı ama
-  Windows üzerinde çalıştırılmadı.
+- **Windows'ta deneme yapılmadı.** Betikler standart kütüphaneyle yazıldı
+  ama Windows'ta çalıştırılmadı. IP sabitlemeli proxy'siz mod da yerel
+  sunucu testleriyle sınandı ama gerçek internete karşı yalnız proxy'li
+  (`ad`) modda denendi.
 
 ## Devam komutu
 
-`eksi-linkler.txt` hazır olunca oturuma yükleyip şunu yaz:
+Sayfa JSON'ları hazır olunca oturuma yükleyip şunu yaz:
 
-> eksi-linkler.txt yüklendi; gorevler/eksi-az-bilinen-web-siteleri-katalogu
-> README'deki 2. adımı çalıştır, açıklamaları yaz, kataloğu üret, test et,
-> push et ve özel ZIP'i güncelle.
+> Sayfa JSON'ları yüklendi; gorevler/eksi-az-bilinen-web-siteleri-katalogu
+> README'deki adımları çalıştır (tekillestir --ust 809 --alt 610, kontrol
+> --proxy-ad-ile), açıklamaları sitelerin kendisine bakarak yaz, kataloğu
+> üret, test et, push et ve özel ZIP'i güncelle.

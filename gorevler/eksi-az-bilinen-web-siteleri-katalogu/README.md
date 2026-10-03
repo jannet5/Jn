@@ -1,70 +1,87 @@
 # Ekşi az bilinen web siteleri kataloğu
 
 Ekşi Sözlük'teki "az kişinin bildiği muhteşem web siteleri" başlığının son
-200 sayfasındaki siteleri kategorili, açıklamalı bir TXT listesine çeviren
-araçlar.
+200 sayfasında (bugün 809 → 610) paylaşılan bağlantılardan kategorili,
+açıklamalı bir TXT listesi üreten araçlar.
 
-> **Durum:** Araçlar hazır ve test edildi. **Katalog henüz üretilmedi**,
-> çünkü Ekşi yapay zekâ ajanlarının siteyi gezmesini `robots.txt` ile
-> yasaklıyor. Bağlantıları senin tarayıcında toplaman gerekiyor (aşağıda 1.
-> adım, yaklaşık 6 dakika). Ayrıntı: [harita.md](harita.md).
+> **Durum:** Üretici ve güvenli URL denetimi hazır, testli. **Gerçek katalog
+> henüz yok.** Sayfa verisini kullanıcı kendi Chrome'unda topluyor; JSON
+> gelince aşağıdaki adımlar çalıştırılacak. Ayrıntı: [harita.md](harita.md).
 
-## 1. Bağlantıları topla (senin bilgisayarında, tarayıcıda)
+## Girdi biçimi
 
-1. Başlığı aç: https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697
-2. `F12` → **Console** sekmesi.
-3. [`araclar/eksi-link-toplayici.js`](araclar/eksi-link-toplayici.js) dosyasının
-   tamamını kopyalayıp yapıştır, `Enter`.
-   (Chrome "allow pasting" yazmanı isterse önce onu yazıp Enter'a bas.)
-4. Sayfalar teker teker gezilir (son sayfadan geriye 200 sayfa, sayfa başı
-   1,5 sn). Bitince **`eksi-linkler.txt`** iner.
-5. Bu dosyayı Claude oturumuna yükle. İçinde yalnız bağlantılar, sayfa ve
-   entry numaraları var.
+Her sayfa için bir nesne. Dosya tek nesne, nesne dizisi, JSON Lines ya da bu
+dosyaları içeren bir klasör olabilir. Entry metni gerekmez.
 
-Yarıda kalırsa aynı sekmede betiği tekrar yapıştır; kaldığı yerden devam eder.
-Farklı sayfa sayısı için önce konsolda
-`window.__eksiLinkAyar = { sayfaAdedi: 100 }` yaz.
+```json
+{"page": 809,
+ "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+ "observed_at": "2026-10-03T12:00:00Z",
+ "links": [{"label": "https://savevideo.net/", "url": "https://savevideo.net/"}]}
+```
 
-## 2. Kataloğu üret
+## Kullanım
 
 ```
-python araclar/katalog_olustur.py tekillestir eksi-linkler.txt -o siteler.json
-python araclar/katalog_olustur.py kontrol siteler.json
+python araclar/katalog_olustur.py tekillestir sayfalar/ -o siteler.json --ust 809 --alt 610
+python araclar/katalog_olustur.py kontrol siteler.json          # proxy IP tüneline izin vermiyorsa: --proxy-ad-ile
 python araclar/katalog_olustur.py sablon siteler.json -o aciklamalar.json
-#   aciklamalar.json içindeki her site için kategori, "ne" ve "yapabilirsin" doldurulur
+#   aciklamalar.json: her adres için kategori, "ne", "yapabilirsin"
 python araclar/katalog_olustur.py uret siteler.json aciklamalar.json -o katalog.txt
 ```
 
-`uret`, eksik ya da kurala uymayan açıklama varsa çıkış kodu 1 verir ve
-`rapor.json` içinde hangi sitede ne eksik olduğunu yazar.
+- **tekillestir:** Eksik sayfaları (`kapsam.eksik`) ve ilk 100 / sonraki 100
+  aralıklarını raporlar. Yalnız birebir aynı sayfayı birleştirir (http/https,
+  www ve sondaki `/` farkı). Aynı alan adındaki farklı yollar ayrı kalır ve
+  `ayni_alan_farkli_yol` altında insan incelemesi için listelenir. Her
+  adresin `kaynaklar` alanında hangi sayfada, hangi `page_url` ve
+  `observed_at` ile, hangi etiketle geldiği tutulur.
+- **kontrol:** Önce `https://example.com/` ile ağı sınar. Bu başarısız olursa
+  hiçbir siteyi işaretlemeden çıkış kodu 2 ile durur. HTTP adresleri **körü
+  körüne HTTPS'e çevrilmez**: önce HTTPS denenir ve yalnız 2xx dönerse HTTPS
+  kullanılır. Olmazsa özgün HTTP adresi işaretlenerek kalır.
+- **Durumlar:** `calisiyor` (2xx), `korumali` (401/403/405/429/503, çalıştığı
+  doğrulanamadı), `olu`, `reddedildi` (güvenlik kuralı), `kontrol_edilmedi`.
+  Ana listeye **yalnız `calisiyor`** girer. Korumalı ve denetlenmemiş
+  adresler "ÇALIŞTIĞI DOĞRULANAMAYANLAR" bölümünde, durumlarıyla birlikte
+  yazılır.
+- **uret:** Eksik ya da kurala uymayan açıklama varsa çıkış kodu 1 verir.
+  Kurallar: tek tam cümle, 40–220 karakter, "Bu siteyle … ." kalıbı.
 
-Katalogdaki her satır şöyle görünür:
+## Güvenli URL denetimi (`araclar/url_denetim.py`)
+
+- Yalnız `http`/`https`, yalnız 80/443 portu; adreste kullanıcı:parola olamaz.
+- `localhost`, `.local`, `.internal` gibi iç adlar ve noktasız adlar
+  reddedilir. Özel, loopback, link-local (169.254.x, bulut metadata),
+  CGNAT, multicast, ayrılmış ve IPv4 eşlemeli IPv6 adresleri de reddedilir.
+- Ad her adımda **bir kez** çözülür ve dönen adreslerin **hepsi** kamu olmalı.
+  Bağlantı çözülen IP'ye sabitlenir; TLS yine alan adıyla doğrulanır.
+- Yönlendirmeler elle izlenir (en fazla 5 adım) ve her adım aynı kurallarla
+  yeniden denetlenir.
+- `--proxy-ad-ile`: Bazı proxy'ler (bu bulut ortamınınki dahil) yalnız ada
+  tünel açar. Bu modda ad yine yerelde çözülüp denetlenir ama bağlantıyı
+  proxy kendi çözümüyle kurar. Sonuca `ip_sabit: false` yazılır ve DNS
+  yeniden çözümleme koruması proxy'nin politikasına kalır. Proxy'siz
+  (ör. Windows'ta doğrudan) çalışınca IP sabitleme tam uygulanır.
+
+## Testler
 
 ```
-■ DOSYA VE DÖNÜŞTÜRME  (12 site)
-
-•  https://cloudconvert.com/   ⟶   CloudConvert, yüzlerce dosya biçimini tarayıcı üzerinden birbirine dönüştüren bir sitedir.  Bu siteyle bir videoyu program kurmadan MP3'e ya da bir PDF'i Word belgesine çevirebilirsin.
-
+python test/calistir.py                 # proxy'siz ortam
+python test/calistir.py --proxy-ad-ile  # IP tüneline izin vermeyen proxy arkasında
+python test/calistir.py --ag-yok        # yalnız yerel testler
 ```
 
-## 3. Masaüstüne ve C:\ klasörüne kopyala (Windows)
+`test/cikti/test-ciktisi.txt` dosyasına gerçek çıktıyı yazar. Fixture'lar
+(`test/fixture/sentetik/`) ve `test/cikti/sentetik-ornek/` **sentetiktir,
+gerçek Ekşi verisi değildir**. Yerel sunucu testi 127.0.0.1:80 portunu açar;
+açamazsa o testler atlanır ve çıktıda "skipped" görünür.
 
-PowerShell'de, `katalog.txt` dosyasının bulunduğu klasörde:
+## Masaüstüne ve C:\ klasörüne kopyalama (Windows)
 
 ```powershell
 Copy-Item .\katalog.txt "$([Environment]::GetFolderPath('Desktop'))\eksi-az-bilinen-siteler.txt"
 Copy-Item .\katalog.txt "C:\eksi-az-bilinen-siteler.txt"
 ```
 
-`C:\` köküne yazmak yönetici izni isteyebilir; izin vermek istemezsen
-`C:\Users\Public\` gibi bir klasör kullan.
-
-## Testler
-
-```
-python test/test_katalog.py                              # 14 test
-python test/sahte_sunucu.py 8765 &                       # sahte başlık sunucusu
-node test/toplayici_test.js 8765                         # 12 kontrol, Playwright + Chromium
-```
-
-Sahte sunucunun tüm içeriği uydurmadır; Ekşi'den veri içermez.
+`C:\` köküne yazmak yönetici izni isteyebilir.

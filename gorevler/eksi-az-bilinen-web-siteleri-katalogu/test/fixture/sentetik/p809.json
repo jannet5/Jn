@@ -1,0 +1,11 @@
+{"_not": "SENTETİK FIXTURE — gerçek Ekşi verisi değildir",
+ "page": 809, "page_url": "https://eksisozluk.com/az-kisinin-bildigi-muhtesem-web-siteleri--2764697?p=809",
+ "observed_at": "2026-10-03T12:00:00Z",
+ "links": [
+  {"label": "video indirici", "url": "https://indirici.example/"},
+  {"label": "araç 1", "url": "https://araclar.example/pdf-birlestir"},
+  {"label": "araç 2", "url": "https://araclar.example/resim-kucult"},
+  {"label": "http verilmiş", "url": "http://eski.example/sayfa?utm_source=eksi&id=7"},
+  {"label": "görsel", "url": "https://i.imgur.com/abc.png"},
+  {"label": "(bkz: x)", "url": "/?q=x"}
+ ]}
