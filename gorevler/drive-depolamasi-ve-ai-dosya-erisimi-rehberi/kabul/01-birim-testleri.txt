@@ -1,10 +1,15 @@
+test_bos_dosya_bolme_hatasi_vermez (test_drive_denetim.GecersizGirdiTestleri.test_bos_dosya_bolme_hatasi_vermez) ... ok
+test_gecersiz_rastgele_degerleri_reddedilir (test_drive_denetim.GecersizGirdiTestleri.test_gecersiz_rastgele_degerleri_reddedilir) ... ok
+test_olc_fonksiyonu_sifiri_kontrollu_reddeder (test_drive_denetim.GecersizGirdiTestleri.test_olc_fonksiyonu_sifiri_kontrollu_reddeder) ... ok
+test_olcum_soguk_olarak_etiketlenmez (test_drive_denetim.GecersizGirdiTestleri.test_olcum_soguk_olarak_etiketlenmez) ... ok
+test_sinir_degerleri_kabul_edilir (test_drive_denetim.GecersizGirdiTestleri.test_sinir_degerleri_kabul_edilir) ... ok
 test_linux_desteklenmez (test_drive_denetim.OnbellekVeOlcumTestleri.test_linux_desteklenmez) ... ok
 test_olc (test_drive_denetim.OnbellekVeOlcumTestleri.test_olc) ... ok
 test_onbellek_olcumu (test_drive_denetim.OnbellekVeOlcumTestleri.test_onbellek_olcumu) ... ok
 test_windows_onbellek_yolu (test_drive_denetim.OnbellekVeOlcumTestleri.test_windows_onbellek_yolu) ... ok
 test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz (test_drive_denetim.TaramaTestleri.test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz) ... ok
 test_cli_json (test_drive_denetim.TaramaTestleri.test_cli_json) ... ok
-test_cli_olmayan_klasor (test_drive_denetim.TaramaTestleri.test_cli_olmayan_klasor) ... Hata: klasör yok: /tmp/tmpdg_st5_5/yok
+test_cli_olmayan_klasor (test_drive_denetim.TaramaTestleri.test_cli_olmayan_klasor) ... Hata: klasör yok: /tmp/tmpj2ckk11t/yok
 ok
 test_temiz_arsiv (test_drive_denetim.TaramaTestleri.test_temiz_arsiv) ... ok
 test_yerel_kok_risk_dusuk (test_drive_denetim.TaramaTestleri.test_yerel_kok_risk_dusuk) ... ok
@@ -16,6 +21,6 @@ test_web_ai_notu_kosullari_ayirir (test_drive_denetim.YolTestleri.test_web_ai_no
 test_yerel_c_yolu_drive_degil (test_drive_denetim.YolTestleri.test_yerel_c_yolu_drive_degil) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.021s
+Ran 20 tests in 0.146s
 
 OK

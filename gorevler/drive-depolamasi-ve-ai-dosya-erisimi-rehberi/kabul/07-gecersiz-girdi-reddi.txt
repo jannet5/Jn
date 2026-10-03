@@ -1,0 +1,50 @@
+# Kabul 07 — Geçersiz sayısal girişlerin kontrollü reddi (olumsuz kullanım)
+# Tarih: 2026-10-03T20:12:54Z  Makine: Linux 6.18.44-fc-v64
+# Bulgu (Windows'ta bağımsız doğrulama, 9e86932): '--rastgele 0' ZeroDivisionError traceback'i veriyordu.
+# Düzeltme: argparse türü _pozitif_tamsayi (1..100000) + olc() içinde ValueError koruması.
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '0'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: en az 1 olmalı, verilen: 0 (0 veya negatif örnek ölçülemez)
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '-1'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: en az 1 olmalı, verilen: -1 (0 veya negatif örnek ölçülemez)
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '-64'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: en az 1 olmalı, verilen: -64 (0 veya negatif örnek ölçülemez)
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele 'abc'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: tam sayı bekleniyor, verilen: 'abc'
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '1.5'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: tam sayı bekleniyor, verilen: '1.5'
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele ''
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: tam sayı bekleniyor, verilen: ''
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '100001'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: en çok 100000 olabilir, verilen: 100001
+çıkış kodu: 2
+
+$ python3 drive_denetim.py olc ornek-128MB.bin --rastgele '1e3'
+usage: drive_denetim olc [-h] [--rastgele N] dosya
+drive_denetim olc: error: argument --rastgele: tam sayı bekleniyor, verilen: '1e3'
+çıkış kodu: 2
+
+$ python3 drive_denetim.py --json olc ornek-128MB.bin --rastgele 1   (alt sınır kabul)
+{'rastgele_okuma_sayisi': 1, 'onbellek_durumu': 'bilinmiyor (OS/DriveFS önbelleği boşaltılmadı)'}
+çıkış kodu: 0
+
+Traceback sayısı: 0

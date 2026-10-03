@@ -9,7 +9,7 @@ HEDEF: Drive'ı (G:) depo olarak doğru kullanmak + AI'ya dosyayı doğru yoldan
   │    B: Yansıtma modu (tam yerel kopya)                      ← internet zayıfsa
   │    C: Önbelleği ContentCachePath ile 2. diske taşı          ← C: küçükse (Windows)
   │    uygulama: README §1; araç `onbellek`, `olc`
-  │    kabul: yalnız belge + araç çalışması (kabul/04: Linux, OS önbelleği olası, DriveFS yok)
+  │    kabul: yalnız belge + araç çalışması (kabul/04: Linux, soğuk okuma değil, DriveFS yok)
   │
   ├─ K2  Gradle/npm/git aktif çalışma dosyaları         [tam metin, kavramsal]
   │    bağımlılık: R4, R10, R11, T1, T2, T3
@@ -30,7 +30,7 @@ HEDEF: Drive'ı (G:) depo olarak doğru kullanmak + AI'ya dosyayı doğru yoldan
        kabul: kabul/02 (YALNIZ bu Linux bulut konteyneri: 3 Windows yolu yok, DriveFS mount yok),
               kabul/05 (YALNIZ boş bağlayıcı sorgusu hatasız döndü; hesap/dosya testi yok)
 
-TEST: araclar/test_drive_denetim.py — 15 birim testi (kabul/01)
+TEST: araclar/test_drive_denetim.py — 20 birim testi (kabul/01); geçersiz girdi reddi (kabul/07)
 TESLİM: (1) Jn deposu, dal claude/happy-davinci-gra3j0, push + geri okuma
         (2) Temiz, ürün-köklü bağımsız git deposu (yalnız bu klasör; Jn geçmişi ve özel kaynak yok)
             → bundle + ZIP + SHA-256, açılıp geri doğrulandı
@@ -50,7 +50,8 @@ TESLİM: (1) Jn deposu, dal claude/happy-davinci-gra3j0, push + geri okuma
 | K3: Erişim koşulları ayrıştırıldı | README §3 tablosu | ✅ belge |
 | K3: Bu bulut ortamı yol metninden dosya üretmedi | kabul/02 | ✅ yalnız bu ortam için |
 | K3: Bağlayıcıyla gerçek hesap/dosya erişimi | kabul/05 yalnız boş sorgu | ❌ test edilmedi (kişisel veri yetki dışı) |
-| Araç testleri | kabul/01: 15/15 OK | ✅ |
+| Araç testleri | kabul/01: 20/20 OK | ✅ |
+| Geçersiz sayısal girdi (`--rastgele 0`, negatif, metin, ondalık, >100000) | kabul/07: 8 değer, hepsi çıkış 2 + kullanım mesajı, 0 traceback | ✅ |
 | Kalıcı teslim | calisma-gunlugu.md §6 | ✅ |
 
 ## Kırılma durumunda devam

@@ -210,6 +210,9 @@ def onbellek_raporu(yol: Optional[Path] = None) -> dict:
 
 def olc(dosya: str, blok: int = 1 << 20, rastgele_okuma: int = 64, rastgele_blok: int = 4096,
         tohum: int = 1) -> dict:
+    for ad, deger in (("blok", blok), ("rastgele_okuma", rastgele_okuma), ("rastgele_blok", rastgele_blok)):
+        if not isinstance(deger, int) or isinstance(deger, bool) or deger < 1:
+            raise ValueError(f"{ad} pozitif bir tam sayı olmalı (verilen: {deger!r})")
     p = Path(dosya)
     boyut = p.stat().st_size
     t0 = time.perf_counter()
@@ -233,8 +236,10 @@ def olc(dosya: str, blok: int = 1 << 20, rastgele_okuma: int = 64, rastgele_blok
         "sirali_MBps": round(okunan / sirali_sn / 1e6, 2),
         "rastgele_okuma_sayisi": rastgele_okuma,
         "rastgele_ort_ms": round(rastgele_sn / rastgele_okuma * 1000, 3),
-        "not": ("İlk ölçüm 'soğuk' (Drive'dan indirme dahil), ikinci ölçüm önbellekten gelir. "
-                "SSD ile G: arasında aynı dosyayı iki kez ölçüp karşılaştır."),
+        "onbellek_durumu": "bilinmiyor (OS/DriveFS önbelleği boşaltılmadı)",
+        "not": ("Bu bir soğuk okuma ölçümü DEĞİLDİR. Bir dosyanın ilk çalıştırması yalnız 'ilk gözlenen okuma'dır: "
+                "veri OS sayfa önbelleğinde veya DriveFS önbelleğinde zaten olabilir. Sonraki çalıştırmalar büyük "
+                "olasılıkla önbellekten okur. G: ile yerel diski aynı koşulda birkaç kez ölçüp karşılaştır."),
     }
 
 
@@ -275,6 +280,22 @@ def _yaz(veri, as_json: bool, out=None):
             print(f"{k}: {v}", file=out)
 
 
+RASTGELE_UST_SINIR = 100_000
+
+
+def _pozitif_tamsayi(metin: str) -> int:
+    """argparse türü: 1..RASTGELE_UST_SINIR aralığında tam sayı; aksi halde kullanım hatası."""
+    try:
+        deger = int(metin, 10)
+    except (TypeError, ValueError):
+        raise argparse.ArgumentTypeError(f"tam sayı bekleniyor, verilen: {metin!r}")
+    if deger < 1:
+        raise argparse.ArgumentTypeError(f"en az 1 olmalı, verilen: {deger} (0 veya negatif örnek ölçülemez)")
+    if deger > RASTGELE_UST_SINIR:
+        raise argparse.ArgumentTypeError(f"en çok {RASTGELE_UST_SINIR} olabilir, verilen: {deger}")
+    return deger
+
+
 def main(argv: Optional[Iterable[str]] = None) -> int:
     ap = argparse.ArgumentParser(prog="drive_denetim", description=__doc__.splitlines()[0])
     ap.add_argument("--json", action="store_true", help="JSON çıktı")
@@ -285,7 +306,8 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
                    help="kökün Drive içinde olup olmadığını zorla")
     alt.add_parser("onbellek")
     a = alt.add_parser("olc"); a.add_argument("dosya")
-    a.add_argument("--rastgele", type=int, default=64)
+    a.add_argument("--rastgele", type=_pozitif_tamsayi, default=64, metavar="N",
+                   help=f"rastgele okuma sayısı (1..{RASTGELE_UST_SINIR}, varsayılan 64)")
     ns = ap.parse_args(list(argv) if argv is not None else None)
 
     if ns.komut == "yol":

@@ -106,3 +106,28 @@ tarayıcıda açılır; yerel okumanın sonucu doğrulanmadığı için "okuyama
   ```
 
   Ardından §7 maddelerini kullanıcı Windows PC'sinde README komutlarıyla tamamla.
+
+## 9. Windows bağımsız doğrulaması ve olumsuz girdi düzeltmesi (3. tur)
+Kullanıcı, `9e86932` sürümünü kendi Windows ortamında bağımsız doğruladı:
+- 15 unittest geçti.
+- 13 ürün dosyasının önce/sonra SHA-256 değerleri aynı çıktı.
+- Olumsuz kullanımda `olc --rastgele 0` bir **ZeroDivisionError traceback**'i verdi. Bu gerçek bir hataydı.
+
+Düzeltmeler (yalnız bu ürün klasöründe):
+- `--rastgele` artık argparse türü `_pozitif_tamsayi` ile denetleniyor. Yalnız 1..100000 aralığındaki
+  tam sayılar kabul ediliyor. 0, negatif, ondalık, boş, metin, `1e3` ve 100000'i aşan değerler
+  argparse kullanım mesajıyla reddediliyor (çıkış 2, traceback yok).
+- `olc()` fonksiyonu kütüphane olarak çağrıldığında da `blok`, `rastgele_okuma` ve `rastgele_blok`
+  için 1'den küçük değerlerde açık bir `ValueError` veriyor.
+- Ölçüm etiketi düzeltildi. İlk ölçüm artık "soğuk" sayılmıyor: OS ve DriveFS önbelleği
+  boşaltılmadığı için ilk çalıştırma yalnız "ilk gözlenen okuma"dır. Çıktıya
+  `onbellek_durumu: bilinmiyor` alanı eklendi; README komut yorumu da düzeltildi.
+- 5 yeni test eklendi (toplam 20, hepsi OK; kabul/01):
+  - 8 geçersiz değerin reddi,
+  - alt ve üst sınırın (1 ve 100000) kabulü,
+  - `olc()` içindeki `ValueError`,
+  - boş dosyada bölme hatası olmaması,
+  - "soğuk" etiketinin kullanılmaması.
+- kabul/04 yeni etiketlerle yeniden üretildi. kabul/07 olumsuz girdilerin gerçek CLI çıktısını kaydediyor.
+- Değişmeyen durum: gerçek DriveFS, G: ve 5 TB kabulü **yapılmadı**. Bu ortam Linux; hesap ve
+  Windows erişimi yok (§7).

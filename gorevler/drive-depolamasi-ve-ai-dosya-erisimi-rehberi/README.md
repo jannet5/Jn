@@ -115,14 +115,22 @@ Bir AI'nın bir dosyayı görmesi şu **ayrı** koşullara bağlıdır:
 
 Python 3.8+ yeterli, ek paket gerekmez. Araç yalnız okur.
 
+`olc` notları:
+- Ölçüm **soğuk okuma değildir**. OS ve DriveFS önbellekleri boşaltılmaz; ilk çalıştırma
+  yalnız "ilk gözlenen okuma"dır ve veri önbellekte olabilir. Çıktıdaki `onbellek_durumu`
+  her zaman "bilinmiyor" der.
+- `--rastgele N` değeri 1 ile 100000 arasında bir tam sayı olmalıdır. 0, negatif, ondalık,
+  metin veya üst sınırı aşan değerler kullanım mesajıyla reddedilir (çıkış kodu 2, traceback yok;
+  bkz. kabul/07).
+
 ```powershell
 cd <bu klasör>\araclar
 python drive_denetim.py yol "G:\My Drive\isler\gorsel.png"   # etiket/dosya sistemi dahil sınıflandırma
 python drive_denetim.py tara "G:\My Drive"                    # Drive içindeki node_modules/.gradle/.git
 python drive_denetim.py onbellek                              # DriveFS önbelleği diskte ne kadar yer tutuyor
-python drive_denetim.py olc "G:\My Drive\video.mp4"           # 1. ölçüm soğuk (indirme), 2. ölçüm önbellek
+python drive_denetim.py olc "G:\My Drive\video.mp4"           # ilk gözlenen okuma (soğuk garantisi yok)
 python drive_denetim.py olc "C:\temp\video.mp4"               # aynı dosya yerel diskte; karşılaştır
-python -m unittest -v test_drive_denetim                      # 15 birim testi
+python -m unittest -v test_drive_denetim                      # 20 birim testi
 ```
 
 ## Yapılmayan kabuller ve nedenleri

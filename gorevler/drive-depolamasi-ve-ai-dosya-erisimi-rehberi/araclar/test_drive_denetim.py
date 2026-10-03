@@ -4,7 +4,7 @@ import json
 import os
 import tempfile
 import unittest
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
 import drive_denetim as dd
@@ -134,6 +134,63 @@ class OnbellekVeOlcumTestleri(unittest.TestCase):
             self.assertEqual(r["bayt"], 256 * 1024)
             self.assertGreater(r["sirali_MBps"], 0)
             self.assertEqual(r["rastgele_okuma_sayisi"], 8)
+
+
+class GecersizGirdiTestleri(unittest.TestCase):
+    """--rastgele için geçersiz sayılar traceback değil, argparse kullanım hatası (çıkış 2) vermeli."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dosya = Path(self.tmp.name) / "v.bin"
+        self.dosya.write_bytes(b"a" * 8192)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def _cli(self, *arglar):
+        hata, cikti = io.StringIO(), io.StringIO()
+        with redirect_stderr(hata), redirect_stdout(cikti):
+            try:
+                kod = dd.main(list(arglar))
+            except SystemExit as e:
+                kod = e.code
+        return kod, hata.getvalue(), cikti.getvalue()
+
+    def test_gecersiz_rastgele_degerleri_reddedilir(self):
+        for deger in ("0", "-1", "-64", "abc", "1.5", "", "100001", "1e3"):
+            with self.subTest(deger=deger):
+                kod, hata, cikti = self._cli("olc", str(self.dosya), "--rastgele", deger)
+                self.assertEqual(kod, 2)
+                self.assertIn("usage:", hata)
+                self.assertIn("--rastgele", hata)
+                self.assertNotIn("Traceback", hata)
+                self.assertEqual(cikti, "")
+
+    def test_sinir_degerleri_kabul_edilir(self):
+        for deger in ("1", "100000"):
+            with self.subTest(deger=deger):
+                kod, hata, cikti = self._cli("--json", "olc", str(self.dosya), "--rastgele", deger)
+                self.assertEqual(kod, 0, hata)
+                self.assertEqual(json.loads(cikti)["rastgele_okuma_sayisi"], int(deger))
+
+    def test_olc_fonksiyonu_sifiri_kontrollu_reddeder(self):
+        for ad in ("rastgele_okuma", "blok", "rastgele_blok"):
+            with self.subTest(ad=ad):
+                with self.assertRaises(ValueError):
+                    dd.olc(str(self.dosya), **{ad: 0})
+
+    def test_bos_dosya_bolme_hatasi_vermez(self):
+        bos = Path(self.tmp.name) / "bos.bin"
+        bos.write_bytes(b"")
+        r = dd.olc(str(bos), rastgele_okuma=2)
+        self.assertEqual(r["bayt"], 0)
+        self.assertEqual(r["sirali_MBps"], 0)
+
+    def test_olcum_soguk_olarak_etiketlenmez(self):
+        r = dd.olc(str(self.dosya), rastgele_okuma=1)
+        self.assertIn("DEĞİLDİR", r["not"])
+        self.assertIn("ilk gözlenen okuma", r["not"])
+        self.assertTrue(r["onbellek_durumu"].startswith("bilinmiyor"))
 
 
 if __name__ == "__main__":
