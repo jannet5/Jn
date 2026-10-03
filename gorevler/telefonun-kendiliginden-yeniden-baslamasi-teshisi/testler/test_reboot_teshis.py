@@ -27,15 +27,49 @@ PII = ["ali.veli@example.com", "555 123 45 67", "356938035643809", "/storage/emu
 GERCEK_PAKETLER = ["com.ornek.benimuygulamam", "com.ornek.masum", "com.whatsapp"]
 
 
+# Çocuk süreçler her platformda UTF-8 konuşur; Windows Türkçe kod sayfası (cp1254) varsayılmaz.
+UTF8_ORTAM = {"PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
+TUZAK_IZ = "TUZAK_ADB_CALISTI"
+
+
+def tuzak_adb(t: Path) -> Path:
+    """PATH'in başına konan, çalışırsa iz bırakıp 97 ile çıkan tuzak `adb`.
+    Sentetik testlerde gerçek (PATH'teki) adb'ye düşülürse önce bu yakalanır."""
+    d = t / "tuzak-bin"
+    d.mkdir(exist_ok=True)
+    iz = t / TUZAK_IZ
+    if os.name == "nt":
+        for ad in ("adb.bat", "adb.cmd"):
+            (d / ad).write_text(f'@echo off\r\necho tuzak>>"{iz}"\r\nexit /b 97\r\n', encoding="utf-8")
+    else:
+        f = d / "adb"
+        f.write_text(f'#!/bin/sh\necho tuzak >> "{iz}"\nexit 97\n', encoding="utf-8")
+        f.chmod(f.stat().st_mode | stat.S_IEXEC)
+    return d
+
+
+def ortam(t: Path, senaryo="normal", sahte=True, path=None, **ek) -> dict:
+    env = dict(os.environ, **UTF8_ORTAM)
+    env.pop(rt.ADB_KOMUTU_ORTAM, None)
+    env["PATH"] = path if path is not None else f"{tuzak_adb(t)}{os.pathsep}{env.get('PATH', '')}"
+    if sahte:  # ikiz açık Python komutuyla enjekte edilir; uzantısız betik/shebang yok
+        env[rt.ADB_KOMUTU_ORTAM] = json.dumps([sys.executable, str(B / "sahte_adb.py")])
+    env["SAHTE_ADB_SENARYO"] = senaryo
+    env["SAHTE_ADB_IZ"] = str(t / "sahte_iz.txt")
+    env.update(ek)
+    return env
+
+
+def py(args, env=None, timeout=120, encoding="utf-8"):
+    return subprocess.run([sys.executable, *args], env=env if env is not None else dict(os.environ, **UTF8_ORTAM),
+                          capture_output=True, text=True, encoding=encoding, timeout=timeout)
+
+
 def calistir(t: Path, *args, senaryo="normal"):
-    bin_ = t / "bin"
-    bin_.mkdir(exist_ok=True)
-    shim = bin_ / "adb"
-    shim.write_text(f"#!/bin/sh\nexec {sys.executable} {B / 'sahte_adb.py'} \"$@\"\n")
-    shim.chmod(shim.stat().st_mode | stat.S_IEXEC)
-    env = dict(os.environ, PATH=f"{bin_}{os.pathsep}{os.environ['PATH']}", SAHTE_ADB_SENARYO=senaryo)
-    return subprocess.run([sys.executable, str(ARAC), *args], env=env, capture_output=True, text=True,
-                          timeout=120)
+    p = py([str(ARAC), *args], ortam(t, senaryo))
+    # Güvence: PATH'teki adb hiçbir koşulda çalışmadı.
+    assert not (t / TUZAK_IZ).exists(), "sentetik testte PATH'teki adb çalıştırıldı"
+    return p
 
 
 def paylasim_metni(cikti: Path) -> str:
@@ -136,10 +170,83 @@ class Seri(unittest.TestCase):
             self.assertIn("--seri", p.stderr)
 
     def test_adb_yoksa_anlasilir_hata(self):
-        env = dict(os.environ, PATH="/nonexistent")
-        p = subprocess.run([sys.executable, str(ARAC), "hepsi"], env=env, capture_output=True, text=True)
-        self.assertEqual(p.returncode, 2)
-        self.assertIn("adb", p.stderr)
+        with tempfile.TemporaryDirectory() as t:
+            bos = Path(t) / "bos-path"
+            bos.mkdir()
+            p = py([str(ARAC), "hepsi", "--cikti", f"{t}/k"], ortam(Path(t), sahte=False, path=str(bos)))
+            self.assertEqual(p.returncode, 2)
+            self.assertIn("'adb' bulunamadı", p.stderr)
+            self.assertFalse((Path(t) / "k").exists())
+
+
+class AdbEnjeksiyonu(unittest.TestCase):
+    """Sentetik testler gerçek adb'ye hiçbir koşulda düşmemeli."""
+
+    def test_sahte_ikiz_kullanildi_tuzak_calismadi(self):
+        with tempfile.TemporaryDirectory() as t:
+            p = calistir(Path(t), "hepsi", "--cikti", f"{t}/k")
+            self.assertEqual(p.returncode, 0, p.stderr)
+            iz = (Path(t) / "sahte_iz.txt").read_text(encoding="utf-8").splitlines()
+            self.assertEqual(iz[0], "devices -l")
+            self.assertTrue(any(x.startswith("-s SENTETIK0001 shell getprop") for x in iz))
+            self.assertFalse((Path(t) / TUZAK_IZ).exists())
+
+    def test_gecersiz_enjeksiyon_gercek_adbye_dusmez(self):
+        for deger in ["json-degil", "[]", '["", "x"]', '{"a": 1}', '[1, 2]']:
+            with self.subTest(deger=deger), tempfile.TemporaryDirectory() as t:
+                p = py([str(ARAC), "hepsi", "--cikti", f"{t}/k"],
+                       ortam(Path(t), sahte=False, **{rt.ADB_KOMUTU_ORTAM: deger}))
+                self.assertEqual(p.returncode, 2)
+                self.assertIn("gerçek adb'ye düşülmedi", p.stderr)
+                self.assertFalse((Path(t) / TUZAK_IZ).exists())
+                self.assertFalse((Path(t) / "k").exists())
+
+    def test_olmayan_program_enjeksiyonu_gercek_adbye_dusmez(self):
+        with tempfile.TemporaryDirectory() as t:
+            yok = str(Path(t) / "yok" / "adb-yok.exe")
+            p = py([str(ARAC), "hepsi", "--cikti", f"{t}/k"],
+                   ortam(Path(t), sahte=False, **{rt.ADB_KOMUTU_ORTAM: json.dumps([yok])}))
+            self.assertEqual(p.returncode, 2)
+            self.assertIn("`adb devices -l` başarısız", p.stderr)
+            self.assertFalse((Path(t) / TUZAK_IZ).exists())
+
+    def test_tuzak_mekanizmasi_gercekten_yakalar(self):
+        # Enjeksiyon YOKKEN araç PATH'teki adb'yi kullanır → tuzak çalışmalı (tuzağın kendisinin sınaması).
+        with tempfile.TemporaryDirectory() as t:
+            p = py([str(ARAC), "hepsi", "--cikti", f"{t}/k"], ortam(Path(t), sahte=False))
+            self.assertEqual(p.returncode, 2)
+            self.assertTrue((Path(t) / TUZAK_IZ).exists())
+
+    def test_adb_komutu_birim(self):
+        with mock.patch.dict(os.environ, {rt.ADB_KOMUTU_ORTAM: '["py", "x.py"]'}):
+            self.assertEqual(rt.adb_komutu(), ["py", "x.py"])
+        with mock.patch.dict(os.environ, {rt.ADB_KOMUTU_ORTAM: "adb"}):
+            with self.assertRaises(ValueError):
+                rt.adb_komutu()
+
+
+class KodlamaUTF8(unittest.TestCase):
+    def test_varsayilan_kodlama_kullanilmaz(self):
+        # PEP 597: açık encoding verilmeyen her open/read_text/subprocess(text) EncodingWarning → hata.
+        with tempfile.TemporaryDirectory() as t:
+            env = ortam(Path(t), PYTHONWARNDEFAULTENCODING="1", PYTHONWARNINGS="error::EncodingWarning")
+            for args in (["hepsi", "--cikti", f"{t}/k", "--ham-sakla"],
+                         ["isle", f"{t}/k/yerel-ham", "--cikti", f"{t}/k2"],
+                         ["denetle", f"{t}/k/paylasim.zip"]):
+                p = py([str(ARAC), *args], env)
+                self.assertEqual(p.returncode, 0, f"{args[0]}: {p.stderr}")
+                self.assertNotIn("EncodingWarning", p.stderr)
+
+    def test_turkce_kod_sayfasi_surecte_cihaz_ciktisi_utf8(self):
+        # Windows Türkçe boru kod sayfası benzetimi: aracın stdout'u cp1254, PYTHONUTF8 kapalı.
+        with tempfile.TemporaryDirectory() as t:
+            env = ortam(Path(t), PYTHONUTF8="0", PYTHONIOENCODING="cp1254")
+            p = py([str(ARAC), "hepsi", "--cikti", f"{t}/k"], env, encoding="cp1254")
+            self.assertEqual(p.returncode, 0, p.stderr)
+            self.assertIn("kişisel veri içerir", p.stdout)
+            yerel = (Path(t) / "k/rapor-yerel.md").read_text(encoding="utf-8")
+            self.assertIn("Ayşe Yılmaz", yerel)  # ikizin UTF-8 baytları doğru çözüldü
+            self.assertNotIn("\ufffd", yerel)
 
 
 class UctanUca(unittest.TestCase):
@@ -181,7 +288,7 @@ class UctanUca(unittest.TestCase):
         self.assertNotIn("<e-posta>", metin)  # maske etiketi bile yok: mesaj hiç taşınmıyor
 
     def test_yerel_ozet_de_ham_icerik_tutmaz(self):
-        yerel = (self.k / "ozet-yerel.json").read_text() + (self.k / "rapor-yerel.md").read_text()
+        yerel = (self.k / "ozet-yerel.json").read_text(encoding="utf-8") + (self.k / "rapor-yerel.md").read_text(encoding="utf-8")
         for parca in ["ali.veli@example.com", "356938035643809", "192.168.1.20", "SENTETIK0001",
                       "a1b2c3d4e5f60718", "/storage/emulated", "at com.ornek.masum.Foo", "am_proc_start",
                       "userId=10150"]:
@@ -189,7 +296,7 @@ class UctanUca(unittest.TestCase):
         self.assertIn("com.ornek.benimuygulamam", yerel)  # yerel raporda gerçek ad kalır
 
     def test_masum_paket_adi_neden_ilan_edilmez(self):
-        r = (self.k / "rapor-yerel.md").read_text()
+        r = (self.k / "rapor-yerel.md").read_text(encoding="utf-8")
         self.assertNotIn("YÜKSEK", r)
         self.assertIn("belirsiz hipotez", r)
         self.assertIn("nedensellik değildir", r)
@@ -197,7 +304,7 @@ class UctanUca(unittest.TestCase):
         self.assertNotRegex(r, r"(?i)kesin(?!lik| değil)(?! neden ilan edilemez)")
 
     def test_zaman_penceresi(self):
-        oz = json.loads((self.k / "ozet-yerel.json").read_text())
+        oz = json.loads((self.k / "ozet-yerel.json").read_text(encoding="utf-8"))
         self.assertNotIn("2026-09-01 08:00:00", json.dumps(oz))
         self.assertNotIn("ESKI-PENCERE-DISI", json.dumps(oz))
         self.assertEqual(oz["cerceve_baslangiclari"], ["2026-10-02 22:40:00", "2026-10-02 22:45:30"])
@@ -205,13 +312,13 @@ class UctanUca(unittest.TestCase):
         self.assertEqual(oz["crash_tamponu"]["ilk_hata"], "2026-10-02 22:44:40")
 
     def test_yan_yukleme_zaman_eslesmesi(self):
-        r = (self.k / "rapor-yerel.md").read_text()
+        r = (self.k / "rapor-yerel.md").read_text(encoding="utf-8")
         self.assertIn("| 2026-10-02 22:45:13 | `com.ornek.benimuygulamam` |", r)
         self.assertNotIn("`com.whatsapp`", r.split("## 6.")[1].split("## 7.")[0])
 
     def test_sha_dosyasi_dogru(self):
         import hashlib
-        sha = (self.k / "paylasim.zip.sha256").read_text().split()[0]
+        sha = (self.k / "paylasim.zip.sha256").read_text(encoding="utf-8").split()[0]
         self.assertEqual(sha, hashlib.sha256((self.k / "paylasim.zip").read_bytes()).hexdigest())
         self.assertEqual(len(sha), 64)
 
@@ -221,12 +328,12 @@ class EksikVeri(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             p = calistir(Path(t), "hepsi", "--cikti", f"{t}/k", senaryo="izin")
             self.assertEqual(p.returncode, 0, p.stderr)
-            oz = json.loads((Path(t) / "k/ozet-yerel.json").read_text())
+            oz = json.loads((Path(t) / "k/ozet-yerel.json").read_text(encoding="utf-8"))
             izinli = {s["ad"] for s in oz["toplama"] if s["izin_hatasi"]}
             self.assertIn("dropbox_liste.txt", izinli)
             self.assertIn("paketler_3.txt", izinli)
             self.assertTrue(all(s["cikis_kodu"] == 255 for s in oz["toplama"] if s["ad"] == "dropbox_liste.txt"))
-            r = (Path(t) / "k/rapor-yerel.md").read_text()
+            r = (Path(t) / "k/rapor-yerel.md").read_text(encoding="utf-8")
             self.assertIn("Eksik veri, ilgili arızanın olmadığı anlamına gelmez", r)
             self.assertIn("| dropbox_liste.txt | izin yok |", r)
             self.assertIn("Uygulama listesi/kurulum zamanları toplanamadı", r)
@@ -237,11 +344,11 @@ class EksikVeri(unittest.TestCase):
         with tempfile.TemporaryDirectory() as t:
             p = calistir(Path(t), "hepsi", "--cikti", f"{t}/k", "--zaman-asimi", "3", senaryo="zamanasimi")
             self.assertEqual(p.returncode, 0, p.stderr)
-            oz = json.loads((Path(t) / "k/ozet-yerel.json").read_text())
+            oz = json.loads((Path(t) / "k/ozet-yerel.json").read_text(encoding="utf-8"))
             s = [x for x in oz["toplama"] if x["ad"] == "logcat_crash.txt"][0]
             self.assertTrue(s["zaman_asimi"])
             self.assertIsNone(s["cikis_kodu"])
-            r = (Path(t) / "k/rapor-yerel.md").read_text()
+            r = (Path(t) / "k/rapor-yerel.md").read_text(encoding="utf-8")
             self.assertIn("| logcat_crash.txt | zaman aşımı | crash tamponu |", r)
             # crash tamponu yokken ilk hata diğer kaynaklardan (events/dropbox) bulunur
             self.assertIn("İlk hata zamanı: 2026-10-02 22:44:40", r)
@@ -251,7 +358,7 @@ class GuvenliModVeSizinti(unittest.TestCase):
     def _oz(self):
         with tempfile.TemporaryDirectory() as t:
             calistir(Path(t), "hepsi", "--cikti", f"{t}/k")
-            return json.loads((Path(t) / "k/ozet-yerel.json").read_text())
+            return json.loads((Path(t) / "k/ozet-yerel.json").read_text(encoding="utf-8"))
 
     def test_guvenli_mod_olasilik_dili(self):
         oz = self._oz()
@@ -293,16 +400,14 @@ class GuvenliModVeSizinti(unittest.TestCase):
             with zipfile.ZipFile(Path(t) / "k/paylasim.zip") as zf:
                 self.assertFalse(any("yerel-ham" in n for n in zf.namelist()))
             # isle: ham klasörden aynı özeti yeniden üretir (cihaz gerekmeden)
-            p2 = subprocess.run([sys.executable, str(ARAC), "isle", f"{t}/k/yerel-ham", "--cikti", f"{t}/k2"],
-                                capture_output=True, text=True)
+            p2 = py([str(ARAC), "isle", f"{t}/k/yerel-ham", "--cikti", f"{t}/k2"])
             self.assertEqual(p2.returncode, 0, p2.stderr)
             self.assertIn("SHA-256", p2.stdout)
 
     def test_denetle_komutu(self):
         with tempfile.TemporaryDirectory() as t:
             calistir(Path(t), "hepsi", "--cikti", f"{t}/k")
-            p = subprocess.run([sys.executable, str(ARAC), "denetle", f"{t}/k/paylasim.zip"],
-                               capture_output=True, text=True)
+            p = py([str(ARAC), "denetle", f"{t}/k/paylasim.zip"])
             self.assertEqual(p.returncode, 0)
             self.assertIn("Tanımlı örüntüler bulunmadı", p.stdout)
             self.assertIn("garantisi değildir", p.stdout)
@@ -328,7 +433,7 @@ class EskiPaylasimArtefaktlari(unittest.TestCase):
     def test_sizinti_enjekte_eski_zip_sha_silinir(self):
         with tempfile.TemporaryDirectory() as t:
             k = self._onceki_basarili(Path(t))
-            oz = json.loads((k / "ozet-yerel.json").read_text())
+            oz = json.loads((k / "ozet-yerel.json").read_text(encoding="utf-8"))
             oz["dropbox_olaylari"][0]["etiket"] = "sizinti ali@ornek.co"
             z, bulgular = rt.ciktilari_yaz(oz, k, "bilinmiyor", [], ["SENTETIK0001"])
             self.assertIsNone(z)
@@ -349,7 +454,7 @@ class EskiPaylasimArtefaktlari(unittest.TestCase):
     def test_yarida_kesilmede_artefakt_kalmaz(self):
         with tempfile.TemporaryDirectory() as t:
             k = self._onceki_basarili(Path(t))
-            oz = json.loads((k / "ozet-yerel.json").read_text())
+            oz = json.loads((k / "ozet-yerel.json").read_text(encoding="utf-8"))
             with mock.patch.object(rt, "_zip_yaz", side_effect=OSError("disk dolu")):
                 with self.assertRaises(OSError):
                     rt.ciktilari_yaz(oz, k, "bilinmiyor", [], ["SENTETIK0001"])
@@ -359,10 +464,10 @@ class EskiPaylasimArtefaktlari(unittest.TestCase):
         import hashlib
         with tempfile.TemporaryDirectory() as t:
             k = self._onceki_basarili(Path(t))
-            eski = (k / "paylasim.zip.sha256").read_text()
+            eski = (k / "paylasim.zip.sha256").read_text(encoding="utf-8")
             p = calistir(Path(t), "hepsi", "--cikti", str(k), "--guvenli-mod", "kapandi")
             self.assertEqual(p.returncode, 0, p.stderr)
-            yeni = (k / "paylasim.zip.sha256").read_text().split()[0]
+            yeni = (k / "paylasim.zip.sha256").read_text(encoding="utf-8").split()[0]
             self.assertNotEqual(eski.split()[0], yeni)
             self.assertEqual(yeni, hashlib.sha256((k / "paylasim.zip").read_bytes()).hexdigest())
             self.assertEqual(list(k.glob(rt.GECICI_ONEK + "*")), [])

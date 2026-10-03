@@ -2,11 +2,18 @@
 """SENTETİK test ikizi: gerçek adb yerine fikstür çıktısı döndürür.
 Buradaki veriler gerçek bir telefona/kişiye ait DEĞİLDİR (e-posta, telefon, IMEI vb.
 uydurma test değerleridir); aracın ayrıştırma, maskeleme ve karar mantığını sınar.
-Senaryo: SAHTE_ADB_SENARYO = normal | izin | zamanasimi | bos | coklu"""
+Senaryo: SAHTE_ADB_SENARYO = normal | izin | zamanasimi | bos | coklu
+Çağrı biçimi (platformdan bağımsız): REBOOT_TESHIS_ADB_KOMUTU='["<python>", "<bu dosya>"]'"""
 import os, sys, time
+# Gerçek adb cihaz çıktısını UTF-8 verir; ikiz de süreç kod sayfasından (ör. cp1254) bağımsız UTF-8 yazar.
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ornek-veri")
 SEN = os.environ.get("SAHTE_ADB_SENARYO", "normal")
 a = sys.argv[1:]
+if os.environ.get("SAHTE_ADB_IZ"):  # testler ikizin gerçekten çağrıldığını bu izden doğrular
+    with open(os.environ["SAHTE_ADB_IZ"], "a", encoding="utf-8") as iz:
+        iz.write(" ".join(a) + "\n")
 if a[:1] == ["-s"]:
     a = a[2:]
 if a == ["devices", "-l"]:

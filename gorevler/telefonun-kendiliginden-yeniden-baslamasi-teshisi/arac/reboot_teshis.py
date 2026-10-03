@@ -14,6 +14,12 @@ Kullanım:
   python reboot_teshis.py isle HAM_KLASOR --cikti KLASOR [--gun 7] [--simdi "YYYY-MM-DD HH:MM:SS"]
   python reboot_teshis.py denetle PAYLASIM_KLASORU_VEYA_ZIP
 
+adb seçimi: PATH'teki adb (Windows'ta adb.exe) mutlak yola çözülür. Test/özel kurulum için
+REBOOT_TESHIS_ADB_KOMUTU ortam değişkenine JSON dize listesi verilebilir
+(ör. ["C:\\py\\python.exe", "testler\\sahte_adb.py"]); verilirse YALNIZ o kullanılır,
+geçersizse araç durur ve PATH'teki adb'ye düşmez. Tüm dosya G/Ç ve adb çıktısı UTF-8'dir;
+Windows Türkçe kod sayfası (cp1254) varsayılmaz.
+
 Güvenlik sınırları:
   * Telefonda ayar değiştirmez, uygulama kaldırmaz, yeniden başlatmaz, root istemez.
   * Tam getprop, tam logcat, ham dropbox içeriği ve tam paket listesi DİSKE YAZILMAZ;
@@ -222,15 +228,41 @@ IZIN_DESENI = re.compile(r"permission denied|permission denial|securityexception
 SERVIS_YOK_DESENI = re.compile(r"can't find service", re.I)
 
 
+ADB_KOMUTU_ORTAM = "REBOOT_TESHIS_ADB_KOMUTU"
+
+
+def adb_komutu() -> list[str]:
+    """Çalıştırılacak adb komutunu belirler.
+
+    Ortamda REBOOT_TESHIS_ADB_KOMUTU varsa (JSON dize listesi, ör. ["python", "sahte_adb.py"])
+    YALNIZ o kullanılır; geçersizse ValueError — PATH'teki gerçek adb'ye ASLA düşülmez.
+    Yoksa PATH'teki adb mutlak yola çözülür (Windows'ta adb.exe); bulunamazsa FileNotFoundError."""
+    deger = os.environ.get(ADB_KOMUTU_ORTAM)
+    if deger is not None:
+        try:
+            komut = json.loads(deger)
+        except ValueError:
+            raise ValueError(f"{ADB_KOMUTU_ORTAM} geçerli JSON değil") from None
+        if not (isinstance(komut, list) and komut and all(isinstance(x, str) and x for x in komut)):
+            raise ValueError(f"{ADB_KOMUTU_ORTAM} boş olmayan bir JSON dize listesi olmalı")
+        return komut
+    yol = shutil.which("adb")
+    if not yol:
+        raise FileNotFoundError("adb")
+    return [yol]
+
+
 class Adb:
-    def __init__(self, seri: str | None, zaman_asimi: int = 120, gizli: list[str] | None = None):
+    def __init__(self, seri: str | None, zaman_asimi: int = 120, gizli: list[str] | None = None,
+                 taban: list[str] | None = None):
+        self.taban = list(taban) if taban else adb_komutu()
         self.seri = seri
         self.zaman_asimi = zaman_asimi
         self.gizli = gizli or []
         self.sonuclar: list[AdbSonuc] = []
 
     def calistir(self, ad: str, args: list[str], kaydet: bool = True) -> tuple[AdbSonuc, str]:
-        komut = ["adb"] + (["-s", self.seri] if self.seri else []) + args
+        komut = self.taban + (["-s", self.seri] if self.seri else []) + args
         bas = time.monotonic()
         try:
             p = subprocess.run(komut, capture_output=True, text=True, encoding="utf-8",
@@ -949,6 +981,12 @@ def ham_klasor_oku(k: Path) -> dict[str, str]:
 
 
 def main(argv=None):
+    # Konsol/boru kod sayfası (ör. Windows cp1254) UTF-8 dışı olabilir: yazdırma asla çökmesin.
+    for akis in (sys.stdout, sys.stderr):
+        try:
+            akis.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     alt = ap.add_subparsers(dest="komut", required=True)
     for ad in ("hepsi", "isle"):
@@ -988,11 +1026,16 @@ def main(argv=None):
         simdi = _tarih(a.simdi) if a.simdi else None
         oz = ham_isle(ham_klasor_oku(Path(a.ham_klasor)), a.gun, simdi=simdi)
     else:
-        if shutil.which("adb") is None:
+        try:
+            taban = adb_komutu()
+        except FileNotFoundError:
             print("HATA: 'adb' bulunamadı. Platform-Tools: https://developer.android.com/tools/releases/platform-tools",
                   file=sys.stderr)
             return 2
-        adb = Adb(None, a.zaman_asimi)
+        except ValueError as e:
+            print(f"HATA: {e}; gerçek adb'ye düşülmedi.", file=sys.stderr)
+            return 2
+        adb = Adb(None, a.zaman_asimi, taban=taban)
         s_, liste = adb.calistir("devices", ["devices", "-l"], kaydet=False)
         if not s_.basarili:
             print(f"HATA: `adb devices -l` başarısız ({s_.hata or s_.cikis_kodu}).", file=sys.stderr)
@@ -1003,7 +1046,7 @@ def main(argv=None):
             print(f"HATA: {e}", file=sys.stderr)
             return 2
         ozel = [seri]
-        adb = Adb(seri, a.zaman_asimi, gizli=ozel)
+        adb = Adb(seri, a.zaman_asimi, gizli=ozel, taban=taban)
         _, aid = adb.calistir("android_id", ["shell", "settings get secure android_id"], kaydet=False)
         if aid.strip() and "null" not in aid:
             ozel.append(aid.strip())
@@ -1019,7 +1062,7 @@ def main(argv=None):
     z, bulgular = ciktilari_yaz(oz, cikti, a.guvenli_mod, a.goster, ozel)
     print(f"Yerel rapor (kişisel veri içerir, paylaşmayın): {cikti / 'rapor-yerel.md'}")
     if z:
-        print(f"Paylaşım paketi: {z}\nSHA-256: {(cikti / 'paylasim.zip.sha256').read_text().split()[0]}\n"
+        print(f"Paylaşım paketi: {z}\nSHA-256: {(cikti / 'paylasim.zip.sha256').read_text(encoding='utf-8').split()[0]}\n"
               f"Geri okuma denetimi: {DENETIM_TEMIZ_METNI}")
         return 0
     print("Paylaşım paketi ÜRETİLMEDİ (eski paylaşım dosyaları da silindi); geri okuma denetiminde bulgu:\n  "

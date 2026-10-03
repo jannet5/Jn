@@ -11,7 +11,7 @@ kayıt toplama/analiz betiği ve adım adım kılavuz.
 | `arac/reboot_teshis.py` | `python reboot_teshis.py hepsi` → salt-okunur, izin listeli toplama; `rapor-yerel.md` + serbest metinsiz `paylasim.zip`/SHA-256 |
 | `harita.md` | Hedef → bağımlılıklar → A/B/C yolları → uygulama → test → teslim; referanslar |
 | `kabul/` | Emülatörde araç doğrulaması (maskelenmiş). **Kullanıcının telefonu için kabul değildir** |
-| `testler/` | Birim + uçtan uca testler (sentetik veri; `python3 testler/test_reboot_teshis.py`) |
+| `testler/` | Birim + uçtan uca testler (sentetik veri; Linux/macOS `python3 testler/test_reboot_teshis.py`, Windows `py testler\test_reboot_teshis.py`). Sahte adb açık Python komutuyla enjekte edilir; PATH'teki gerçek adb'ye düşülürse tuzak yakalar |
 | `calisma-gunlugu.md` | Ne yapıldı, hangi komut, hangi kaynak, sorunlar, doğrulamalar |
 
 ## Şu anki sonuç (dürüst durum)

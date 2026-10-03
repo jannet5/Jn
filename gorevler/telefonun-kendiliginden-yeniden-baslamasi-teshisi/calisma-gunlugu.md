@@ -153,3 +153,32 @@ Doğrulama:
   (ZIP bu bölüm eklenmeden önceki `01ca743` içeriğidir.)
 - ZIP depoya eklenmedi; özel bulut çalışma alanından kullanıcıya iletildi.
 - Açık kalan: fiziksel telefonda canlı çalıştırma, Güvenli Mod ve donanım testleri — ayrı cihaz kabulü; bulutta tamamlanmış sayılmaz.
+
+## 13. Windows bağımsız kontrolü (bafb00f) ve test ikizinin taşınabilirliği
+Kullanıcının Windows kontrolü: cihaz gerektirmeyen 8 test ve 5 paket/ZIP/SHA/sızıntı/yarıda-kesilme kontrolü
+geçti; fiziksel telefon/ADB çalıştırılmadı. Bulgu: `calistir` yardımcısı `#!/bin/sh` içerikli uzantısız
+`adb` yazıyordu → Windows PATH bunu çalıştıramaz ve makinedeki gerçek adb'ye düşebilir.
+
+Düzeltme:
+- Araç: `adb_komutu()` — `REBOOT_TESHIS_ADB_KOMUTU` (JSON dize listesi) verilirse YALNIZ o; geçersizse çıkış 2
+  ve "gerçek adb'ye düşülmedi"; yoksa `shutil.which("adb")` mutlak yola çözülür (Windows'ta adb.exe).
+  `main` stdout/stderr'i `errors="replace"` ile yeniden yapılandırır (cp1254 konsolda çökmesin); kalan tek
+  örtük `read_text()` UTF-8 yapıldı.
+- Test ikizi: `[sys.executable, sahte_adb.py]` olarak enjekte; uzantısız betik/shebang yok. İkiz stdout/stderr'i
+  UTF-8'e sabitler ve her çağrıyı `SAHTE_ADB_IZ` dosyasına yazar.
+- Güvence: her testte PATH'in başına tuzak `adb` konur (Windows `adb.bat`/`adb.cmd`, POSIX çalıştırılabilir betik);
+  çalışırsa iz bırakır, `calistir` her çağrıdan sonra izin YOK olduğunu doğrular.
+- Testlerde tüm dosya okumaları `encoding="utf-8"`, çocuk süreçler `PYTHONUTF8=1`, `PYTHONIOENCODING=utf-8`,
+  `subprocess.run(..., encoding="utf-8")`.
+- Yeni testler (36 toplam): ikiz kullanıldı/tuzak çalışmadı; 5 geçersiz enjeksiyon değeri; olmayan program;
+  tuzağın kendisinin çalıştığının sınaması (enjeksiyon yokken); `adb_komutu` birim; PEP 597
+  (`PYTHONWARNDEFAULTENCODING=1` + `EncodingWarning`=hata) altında hepsi/isle/denetle; cp1254 boru benzetiminde
+  cihaz çıktısının UTF-8 çözülmesi ("Ayşe Yılmaz", U+FFFD yok).
+- Mutasyon kontrolü: (1) araca örtük `read_text()` geri konunca PEP 597 testi, (2) ikizin UTF-8 sabitlemesi
+  kaldırılınca cp1254 testi, (3) geçersiz enjeksiyonda PATH'e düşen sürümde enjeksiyon testi — üçü de FAIL verdi;
+  kod geri yüklendi.
+
+Sonuç: Linux konteynerde Python 3.10/3.11/3.13 ile `-X warn_default_encoding -W error::EncodingWarning`
+altında 36 test OK. **Bu bir Windows kabulü değildir**: Windows'a özgü dal (`adb.bat/.cmd` tuzağı, gerçek
+cp1254 konsol, Windows yol ayırıcıları) burada çalıştırılmadı; Windows doğrulaması kullanıcının makinesinde
+yapılmalıdır. Gerçek cihaz kabulü de ayrıdır ve yapılmamıştır.
