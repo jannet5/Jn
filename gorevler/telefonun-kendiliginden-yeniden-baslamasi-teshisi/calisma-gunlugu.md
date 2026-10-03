@@ -182,3 +182,12 @@ Sonuç: Linux konteynerde Python 3.10/3.11/3.13 ile `-X warn_default_encoding -W
 altında 36 test OK. **Bu bir Windows kabulü değildir**: Windows'a özgü dal (`adb.bat/.cmd` tuzağı, gerçek
 cp1254 konsol, Windows yol ayırıcıları) burada çalıştırılmadı; Windows doğrulaması kullanıcının makinesinde
 yapılmalıdır. Gerçek cihaz kabulü de ayrıdır ve yapılmamıştır.
+
+## 14. v4 kalıcı teslim ve geri okuma
+- Push `dc9013f`; `git fetch` sonrası uzak HEAD = yerel.
+- `telefon-reboot-teshis-v4.zip` uzak `dc9013f`'ten `git archive` ile üretildi: tek kök, 18 dosya; `__pycache__`,
+  `.git`, yerel/ham çıktı, paylaşım ZIP'i, tuzak/iz dosyası, kaynak sohbeti, `gorev.md` yok; eski shebang
+  shim kalıntısı 0. SHA-256 `5c916a865ec6699855c1f346c7255f25e29f378bc327424ac09c0cc4851b8197` →
+  `sha256sum -c` OK, `unzip -t` hatasız, açılan kopya uzak commit ile `diff -r` aynı, açılan kopyada
+  PEP 597 hata modunda 36 test OK (Linux). (ZIP bu bölüm eklenmeden önceki `dc9013f` içeriğidir.)
+- Açık kalanlar: Windows'ta tam takımın koşulması (kullanıcı makinesi), gerçek cihaz kabulü.
