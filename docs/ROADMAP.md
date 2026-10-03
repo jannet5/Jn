@@ -5,7 +5,7 @@ Durum lejantı: ✅ bitti ve doğrulandı · 🟡 kod var, gerçek cihazda doğr
 
 ## Faz 0 — Proje iskeleti
 ✅ Yeni özel repo, yeni Gradle/AGP/Kotlin/Compose projesi, `com.tekpanel.app`, minSdk 26,
-targetSdk 34. `./` kökünde gerçek bir Android projesi (eski kod/worktree yok).
+targetSdk 34 (sonradan 36’ya yükseltildi, bkz. Faz 9). `./` kökünde gerçek bir Android projesi (eski kod/worktree yok).
 
 ## Faz 1 — Veri katmanı
 ✅ Room (`InboxMessageEntity` + unique index'ler), DataStore (`AppPreferences`), kapalı
@@ -62,6 +62,19 @@ incelemesi. Gerçek hesap + gerçek telefon gerektiriyor (aşağıya bakın).
 ✅ Uygulama ikonu (özgün, yer tutucu kanal logoları — bkz. DECISIONS.md §5), imzalama
 talimatları, mağaza metinleri (EN/TR taslağı), gizlilik politikası taslağı, data safety
 eşlemesi — hepsi RELEASE.md'de.
+✅ **targetSdk 36.** 31 Ağustos 2026'dan beri Play, Android 16'yı (API 36) hedeflemeyen yeni
+uygulamaları ve güncellemeleri reddediyor; uygulama 34'ü hedefliyordu. compileSdk/targetSdk 36,
+AGP 8.11.1'e yükseltildi; testler, lintVitalRelease ve CI emülatör testleri geçti.
+
+## Faz 9b — Kurulabilir dağıtım
+✅ 2.5 MB'lık küçültülmüş `preview` derlemesi (debug anahtarıyla imzalı, ayrı paket adı),
+GitHub raw ve jsDelivr üzerinden indirilebilir, iki adres de sunucu tarafında SHA-256 ile
+doğrulandı; CI her push'ta bunu gerçek emülatöre kurup açıyor (`preview-smoke` işi). Ayrıntı:
+`dist/README.md`. Drive'a yalnız teslim notu konabildi (APK değil — bağlayıcı ikili dosyayı
+araç çağrısının içinde base64 metin olarak istiyor).
+🟡 **Açık kabul maddesi: kullanıcının telefonunda indirme/kurulum/kullanım.** 21 MB'lık
+`.apk` ve `.zip` bağlantıları telefonda başarısız oldu, hata noktası bilinmiyor. 2.5 MB'lık
+preview henüz telefonda denenmedi.
 
 ## Faz 10 — Google Play'de gerçek yayın
 ⛔ Kullanıcı eylemi gerekiyor (Play Console hesabı, 25$ ödeme, kimlik doğrulama, içerik
@@ -72,8 +85,8 @@ RELEASE.md → "Yalnızca kullanıcının yapabileceği adımlar".
 
 ## Sıradaki somut adımlar (öncelik sırasıyla)
 
-1. **Gerçek hesapla gerçek cihaz testi.** `app-debug.apk`'yı bir Android telefona `adb
-   install -r app-debug.apk` ile kur, bildirim erişimini aç, WhatsApp Business + Instagram'dan
+1. **Gerçek hesapla gerçek cihaz testi.** `dist/TekPanel-preview.apk`'yı telefona kur
+   (bağlantılar `dist/README.md`'de; olmazsa bilgisayardan `adb install -r`), bildirim erişimini aç, WhatsApp Business + Instagram'dan
    gerçek mesaj gönder, TekPanel'e düşüp düşmediğini doğrula. Kod zaten bağımsız açık kaynak
    projelerle çapraz doğrulanmış davranışa göre yazıldı (DECISIONS.md §8), yani beklenti
    "çalışır ama küçük ayarlar gerekebilir" — büyük bir yeniden yazım değil. Sorun bulunursa

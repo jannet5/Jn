@@ -11,7 +11,7 @@ kararlar `docs/DECISIONS.md`'de, kalan işler `docs/ROADMAP.md`'de, yayın hazı
 ## Gereksinimler
 
 - JDK 17+ (proje JDK 21 ile derlendi ve test edildi)
-- Android SDK: `platform-34`, `build-tools;34.0.0`, `platform-tools`
+- Android SDK: `platforms;android-36`, `build-tools;36.0.0`, `platform-tools`
 - Gradle 8.9+ (bu ortamda 8.14.3 ile derlendi)
 
 `local.properties` dosyasında `sdk.dir=<android-sdk-yolu>` tanımlı olmalıdır (git'e girmez).
