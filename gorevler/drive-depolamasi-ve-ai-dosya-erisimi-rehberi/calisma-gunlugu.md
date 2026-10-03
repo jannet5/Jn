@@ -60,4 +60,15 @@ adı içeriyor) PUBLIC depoya konmadı; yalnız oturumun özel scratchpad'inde
 - 5 TB kota: doğrulanmadı.
 
 ## 6. Teslim
-Bu bölüm push ve geri okumadan sonra güncellenir (aşağıda).
+- İçerik commit'i `2a74967` → `git push -u origin claude/happy-davinci-gra3j0` başarılı.
+- Geri okuma: dal ayrı klasöre sıfırdan `git clone` edildi; uzak HEAD = yerel HEAD,
+  `diff -r` farksız, klondan birim testleri yeniden koşuldu: OK.
+- Bu günlük güncellemesi ayrı bir commit olarak push edildi.
+- Özel teslim (PUBLIC depoya konmaz): oturum scratchpad'inde `teslim/` altında
+  `drive-rehberi-teslim.zip` (public klasör + özel `kaynak.txt`/`gorev.md` + kabul çıktıları)
+  ve `Jn-gorev-dali.bundle` (git dalı). SHA-256 değerleri `teslim/SHA256SUMS` dosyasında;
+  ZIP açılıp dosya dosya karşılaştırıldı, bundle `git bundle verify` + clone ile geri okundu.
+  (ZIP'in kendi özeti bu dosyanın içinde olamaz — döngüsel; özet sohbet yanıtında ve SHA256SUMS'ta.)
+- Devam komutu (oturum kesilirse): `git fetch origin claude/happy-davinci-gra3j0 &&
+  git checkout claude/happy-davinci-gra3j0`, sonra bu günlüğün 5. bölümündeki açık maddeler
+  (Windows'ta README "Kendi PC'nde doğrulama" komutları).
