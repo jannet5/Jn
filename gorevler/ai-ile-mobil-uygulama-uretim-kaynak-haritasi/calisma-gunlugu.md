@@ -68,4 +68,10 @@ Kullanıcının özel kaynak metni (kaynak.txt) ve görev özeti (gorev.md) **pu
 
 ## 8. Teslim
 
-(Push ve ZIP doğrulama sonuçları aşağıya eklenir.)
+- İlk teslim commit'i `168b653` → `origin/claude/awesome-brown-ep5d6t` push edildi; yerel ve uzak HEAD aynı.
+- Geri okuma: dal temiz bir klona (`git clone --depth 1`) indirildi, görev klasörü `diff -r` ile yereldekiyle
+  **birebir aynı** çıktı; özel `kaynak.txt`/`gorev.md` public depoda yok.
+- Özel ZIP: oturumun özel çalışma alanında (scratchpad) `ai-mobil-kaynak-haritasi-teslim.zip` olarak üretildi; içinde
+  görev klasörü, özel girdiler, dalın `git bundle`'ı, `DEVAM.md` (kaldığı yerden devam komutu) ve `MANIFEST.sha256`
+  var. ZIP'in kendi SHA-256'sı yanındaki `.sha256` dosyasında ve sohbet yanıtında; ZIP açılıp manifest
+  `sha256sum -c` ile geri okunarak doğrulandı. ZIP public depoya konmadı.
