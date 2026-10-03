@@ -106,44 +106,43 @@ def test_sayac_ve_bicim():
     assert a.kod(60) == a.kod(89.999) != a.kod(90)
 
 
-def test_kasa_ekle_oku_sil_ve_duz_metin_yok(bellek_kasasi, tmp_path, monkeypatch):
+def test_kasa_ekle_oku_sil_ve_duz_metin_yok(kasa, bellek, tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
-    kasa = tm.Kasa()
     kasa.ekle("GitHub - deneme", SAHTE_GITHUB_ANAHTARI)
     # Kaynak gereksinimi: set_password("My2FAApp", hesap_adi, gizli_anahtar)
-    assert keyring.get_password("My2FAApp", "GitHub - deneme") == SAHTE_GITHUB_ANAHTARI
+    assert bellek.veri[("My2FAApp", "GitHub - deneme")] == SAHTE_GITHUB_ANAHTARI
     # "Uygulama yeniden açıldı": yeni Kasa nesnesi aynı hesapları okur
-    assert [a for a, _ in tm.Kasa().hepsi()] == ["GitHub - deneme"]
+    yeni = tm.Kasa("My2FAApp", kr=bellek, izinli=kasa._izinli)
+    assert [a for a, _ in yeni.hepsi()] == ["GitHub - deneme"]
     with pytest.raises(tm.TotpHatasi, match="zaten"):
         kasa.ekle("github - DENEME", SAHTE_GITHUB_ANAHTARI)
     kasa.sil("GitHub - deneme")
-    assert kasa.adlar() == [] and keyring.get_password("My2FAApp", "GitHub - deneme") is None
+    assert kasa.adlar() == [] and bellek.veri == {}  # kasada iz kalmaz
     assert list(tmp_path.iterdir()) == []  # diske hiçbir dosya yazılmadı
 
 
-def test_buyuk_hesap_listesi_parcalanir(bellek_kasasi):
-    kasa = tm.Kasa()
+def test_buyuk_hesap_listesi_parcalanir(kasa, bellek):
     adlar = [f"Hesap-{i:03d}-ğüşiöç-uzun-bir-ad" for i in range(80)]
     for ad in adlar:
         kasa.ekle(ad, pyotp.random_base32())
     assert kasa.adlar() == adlar
-    parcalar = [v for (s, u), v in bellek_kasasi.veri.items() if u.startswith(tm.LISTE_ONEKI)]
+    parcalar = [v for (s, u), v in bellek.veri.items()
+                if u.startswith(tm.LISTE_ONEKI) and u != tm.ISARETCI]
     assert len(parcalar) > 1 and all(len(p.encode("utf-16-le")) <= 2560 for p in parcalar)
     for ad in adlar[:75]:
         kasa.sil(ad)
     assert kasa.adlar() == adlar[75:]
-    kalan = [u for (s, u) in bellek_kasasi.veri if u.startswith(tm.LISTE_ONEKI)]
-    assert len(kalan) == 1  # artık parçalar temizlendi
+    kalan = [u for (s, u) in bellek.veri if u.startswith(tm.LISTE_ONEKI) and u != tm.ISARETCI]
+    assert len(kalan) == 1  # eski nesillerin parçaları temizlendi
     for ad in adlar[75:]:
         kasa.sil(ad)
-    assert bellek_kasasi.veri == {}  # son hesap silinince kasada iz kalmaz
+    assert bellek.veri == {}
 
 
-def test_bozuk_kayit_uygulamayi_dusurmez(bellek_kasasi):
-    kasa = tm.Kasa()
+def test_bozuk_kayit_uygulamayi_dusurmez(kasa, bellek):
     kasa.ekle("iyi", SAHTE_GITHUB_ANAHTARI)
     kasa.ekle("bozuk", SAHTE_GITHUB_ANAHTARI)
-    keyring.set_password("My2FAApp", "bozuk", "!!!")
+    bellek.veri[("My2FAApp", "bozuk")] = "!!!"
     sonuc = dict(kasa.hepsi())
     assert sonuc["iyi"] is not None and sonuc["bozuk"] is None
 
@@ -155,24 +154,13 @@ def test_ad_dogrulama():
     assert tm.ad_dogrula("  GitHub  ") == "GitHub"
 
 
-def test_guvensiz_backend_reddedilir():
-    from keyring.backends import fail, null
-    assert not tm.backend_guvenli_mi(fail.Keyring())[0]
-    assert not tm.backend_guvenli_mi(null.Keyring())[0]
-
-    class PlaintextKeyring:  # keyrings.alt düz metin kasasını taklit eder
-        pass
-    assert not tm.backend_guvenli_mi(PlaintextKeyring())[0]
-
-
-def test_tamamen_cevrimdisi_calisir(bellek_kasasi, monkeypatch):
+def test_tamamen_cevrimdisi_calisir(kasa, monkeypatch):
     """Ağ çağrısı yapılırsa test patlar: soket oluşturma yasaklandı."""
     def yasak(*a, **k):
         raise AssertionError("ağ erişimi denendi!")
     monkeypatch.setattr(socket, "socket", yasak)
     monkeypatch.setattr(socket, "create_connection", yasak)
     monkeypatch.setattr(socket, "getaddrinfo", yasak)
-    kasa = tm.Kasa()
     kasa.ekle("cevrimdisi", SAHTE_GITHUB_ANAHTARI)
     assert len(kasa.ayar("cevrimdisi").kod()) == 6
 

@@ -1,0 +1,11 @@
+YAKALANDI M1 bilinmeyen backend kabul  -> 7 failed, 68 passed, 2 skipped in 0.22s
+YAKALANDI M2 silme doğrulaması yok  -> 3 failed, 72 passed, 2 skipped in 0.19s
+YAKALANDI M3 indeks dışı kayda yazma  -> 1 failed, 74 passed, 2 skipped in 0.18s
+YAKALANDI M4 ekle geri alma yok  -> 4 failed, 71 passed, 2 skipped in 0.21s
+YAKALANDI M5 sil geri yükleme yok  -> 1 failed, 74 passed, 2 skipped in 0.18s
+YAKALANDI M6 issuer eşitliği yok  -> 1 failed, 74 passed, 2 skipped in 0.19s
+YAKALANDI M7 yinelenen parametre kabul  -> 3 failed, 72 passed, 2 skipped in 0.22s
+YAKALANDI M8 strip önce (kontrol kaçar)  -> 1 failed, 74 passed, 2 skipped in 0.25s
+YAKALANDI M9 sır repr'de  -> 1 failed, 74 passed, 2 skipped in 0.19s
+YAKALANDI M10 politika her işlemde değil  -> 1 failed, 74 passed, 2 skipped in 0.18s
+YAKALANDI M11 bütünlük denetimi yok  -> 1 failed, 74 passed, 2 skipped in 0.18s

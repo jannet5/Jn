@@ -1,3 +1,5 @@
-customtkinter>=5.2
-pyotp>=2.9
-keyring>=25.0
+# Geliştirme için esnek aralıklar. Windows sürüm/paket üretimi için hash'li kilit dosyalarını kullanın:
+#   requirements-windows.lock (çalışma), requirements-build-windows.lock (paketleme)
+customtkinter>=5.2,<7
+pyotp>=2.9,<3
+keyring>=25.0,<26

@@ -2,24 +2,34 @@
   "platform": "win32",
   "adimlar": [
     {
+      "adim": "İzinsiz kasa: uygulama fail-closed açıldı",
+      "gecti": true,
+      "detay": "İzin verilmeyen kasa arka ucu: __main__.IzinsizKasa"
+    },
+    {
+      "adim": "Enter ve doğrudan hesap_ekle kapalı Ekle'yi aşamadı",
+      "gecti": true,
+      "detay": "arka uç çağrısı=0; durum='Kasa kullanılamıyor; hesap eklenmedi.'"
+    },
+    {
       "adim": "Pencere sabit boyutlu ve koyu tema",
       "gecti": true,
       "detay": "geometri=440x560"
     },
     {
-      "adim": "Güvenli kasa algılandı",
+      "adim": "Güvenli kasa + sağlık testi geçti",
       "gecti": true,
-      "detay": "Kasa: WinVaultKeyring · çevrimdışı"
+      "detay": "Kasa: Windows.WinVaultKeyring · çevrimdışı"
     },
     {
       "adim": "Boş liste mesajı",
       "gecti": true,
-      "detay": "pencere=normal gorunur=1"
+      "detay": ""
     },
     {
-      "adim": "Geçersiz anahtar reddedildi",
+      "adim": "Geçersiz anahtar reddedildi, hata mesajı girdiyi yansıtmıyor",
       "gecti": true,
-      "detay": "Gizli anahtarda geçersiz karakter var: 1"
+      "detay": "Gizli anahtarda 1 geçersiz karakter var (Base32 yalnız A-Z ve 2-7 içerir)."
     },
     {
       "adim": "Gizli anahtar maskeli girilir",
@@ -27,14 +37,9 @@
       "detay": ""
     },
     {
-      "adim": "İki hesap eklendi ve kasaya yazıldı",
+      "adim": "Üç hesap eklendi (düğme + Enter + 60 sn URI)",
       "gecti": true,
-      "detay": "['GitHub - ornek', 'GitHub:ikinci']"
-    },
-    {
-      "adim": "Kasada düz base32 anahtar (kaynaktaki set_password biçimi)",
-      "gecti": true,
-      "detay": ""
+      "detay": "['GitHub - ornek', 'GitHub:ikinci', 'Ornek60:hesap']"
     },
     {
       "adim": "Ekleme sonrası anahtar alanı temizlendi",
@@ -44,32 +49,67 @@
     {
       "adim": "Ekrandaki 6 haneli kod beklenen TOTP",
       "gecti": true,
-      "detay": "ekranda=463 182"
+      "detay": "ekranda=720 790"
+    },
+    {
+      "adim": "60 sn'lik hesap kendi sayacını gösteriyor (30 sn hesaplarda ayrı sayaç yok)",
+      "gecti": true,
+      "detay": "ekranda='8 sn / 60' beklenen≈'8 sn / 60' kod=715 234"
+    },
+    {
+      "adim": "60 sn'lik hesabın kodu kendi periyoduyla",
+      "gecti": true,
+      "detay": ""
     },
     {
       "adim": "İlerleme çubuğu kalan süreyi gösteriyor",
       "gecti": true,
-      "detay": "cubuk=0.07 beklenen=0.03 sayac=2 sn"
+      "detay": "cubuk=0.27 beklenen=0.25 sayac=8 sn"
     },
     {
-      "adim": "Kopyala: panoda boşluksuz 6 haneli kod",
+      "adim": "Kopyala: başka uygulamadan okunan pano = ekrandaki kod",
       "gecti": true,
-      "detay": "pano=463182"
+      "detay": "pano=720790"
+    },
+    {
+      "adim": "28,5. saniyede pano henüz temizlenmedi",
+      "gecti": true,
+      "detay": "pano='720790'"
+    },
+    {
+      "adim": "Gerçek zamanlı ~30 sn sonra pano kendiliğinden temizlendi (zamanlayıcı, elle çağrı yok)",
+      "gecti": true,
+      "detay": "gecen=31.5 sn pano=''"
     },
     {
       "adim": "30 sn sınırında kod otomatik yenilendi",
       "gecti": true,
-      "detay": "463 182 -> 980 881"
+      "detay": "720 790 -> 402 172"
     },
     {
-      "adim": "Yeni periyotta çubuk dolu",
+      "adim": "Silinemeyen kayıt: hata gösterildi, satır listede kaldı",
       "gecti": true,
-      "detay": "0.97"
+      "detay": "'GitHub:ikinci' silinemedi."
     },
     {
-      "adim": "Pano otomatik temizleme",
+      "adim": "Kapanışta başka uygulamanın pano içeriğine dokunulmadı",
       "gecti": true,
-      "detay": ""
+      "detay": "'kullanicinin-baska-metni'"
+    },
+    {
+      "adim": "Kontrol (temizlik kapalı): kapanış anında kod hâlâ panoda -> ölçüm ayırt edici",
+      "gecti": true,
+      "detay": "kapanış anı='402172' kapanış sonrası='402172'"
+    },
+    {
+      "adim": "Kontrol (temizlik kapalı): Windows'ta kod kapanıştan sonra da panoda kalıyor",
+      "gecti": true,
+      "detay": "'402172'"
+    },
+    {
+      "adim": "Erken kapanış: 30 sn dolmadan kapatınca kendi kodu panodan temizlendi",
+      "gecti": true,
+      "detay": "kopyalanan=997505 kapanış anı='' kapanış sonrası=''"
     },
     {
       "adim": "Yeniden açılışta hesaplar kasadan okundu",
@@ -77,7 +117,7 @@
       "detay": ""
     },
     {
-      "adim": "Silme onay sorar ve kasadan kaldırır",
+      "adim": "Silme onay sorar, kasadan kaldırır ve doğrular",
       "gecti": true,
       "detay": ""
     },
@@ -87,5 +127,5 @@
       "detay": ""
     }
   ],
-  "ozet": "17/17"
+  "ozet": "25/25"
 }

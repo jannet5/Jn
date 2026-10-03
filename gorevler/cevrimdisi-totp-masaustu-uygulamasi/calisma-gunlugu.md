@@ -92,3 +92,55 @@ Hiçbir gerçek hesap, parola veya anahtar kullanılmadı/uydurulmadı.
 ## 9. Sonraki adım (kullanıcı)
 README → “Windows kabul listesi” 8 adımını gerçek Windows'ta uygulayın; sonra README → “GitHub 2FA'yı bu
 uygulamayla kurma” adımlarıyla kendi hesabınızda etkinleştirin (kurtarma kodlarını indirerek).
+
+---
+
+## 10. Tur 2 — Bağımsız inceleme düzeltmeleri (1.0.1)
+Tarih: 2026-10-03. İstek: 77ae732 üzerindeki statik incelemenin 4 bulgu grubunu düzelt, olumsuz senaryoları
+anlamlı testlerle doğrula, son kaynaktan EXE/ZIP üret, push + uzak HEAD + artifact hash geri oku, Wine ile native
+Windows kabulünü ayrı yaz. Yalnız bu klasörde çalışıldı; geçmiş silinmedi; gerçek hesap sırrı kullanılmadı.
+
+### Yapılan değişiklikler (ayrıntı: `harita.md` §6)
+- **Kasa politikası:** `backend_dogrula` izin listesi (Windows'ta yalnız `WinVaultKeyring`), zincir açılımı,
+  `Kasa._kr()` ile her işlemde denetim, açılış sağlık testi (yaz/oku/sil/doğrula), ham hata metni yerine genel mesaj.
+- **Enter engeli:** `hesap_ekle` ve `Kasa.ekle` içinde ayrı ayrı.
+- **Silme/indeks:** silme geri okumayla doğrulanır; listede olmayan mevcut kayıt üzerine yazılmaz; liste nesil +
+  SHA-256 işaretçiyle atomik; ekle/sil geri alma; 1.0.0 liste biçiminden geçiş.
+- **Pano:** `destroy` pano hâlâ kendi koduysa temizler; başka içerik korunur.
+- **URI/sızıntı:** issuer=etiket, yinelenen parametre, kontrol karakteri; `repr=False`; hata mesajlarında sır yok.
+- **Sayaç:** standart dışı periyotlu hesap kendi sayacını gösterir.
+- **Kilit:** `requirements-windows.lock`, `requirements-build-windows.lock` (hash'li); `build_windows.bat` yalıtılmış venv.
+
+### Sorunlar ve çözümler (bu tur)
+1. Etiket sonundaki `%0A`, `.strip()` kontrolden önce çalıştığı için kaçıyordu → yeni test yakaladı; denetim strip'ten önceye alındı.
+2. Hata mesajı testinde "1" karakteri hata sayısıyla çakıştı → test, rakamlar yerine 4'lü anahtar parçaları ve özel karakterlerle kuruldu.
+3. “Windows'ta yalnız WinVault” kuralı Wine'da testlerin açık izin listesini de eziyordu (21 test kaldı) → kural yalnız
+   varsayılan politikaya bağlandı; uygulama her zaman varsayılanla çalışır, testi `test_windows_yalniz_winvault_ister`.
+4. `xclip -o`, pano sahibi aynı süreçteki Tk penceresiyken kilitlendi → okuma sırasında olay döngüsü döndürüldü.
+5. X11'de pencere kapandıktan sonra aynı süreçten pano okunamıyor → ölçüm, uygulamanın temizliğinden sonra ve pencere
+   yok edilmeden hemen önce yapıldı; Windows'ta (Wine) kapanış sonrası da okundu. Ayırt edicilik **kontrol deneyiyle**
+   gösterildi (temizlik kapalıyken kod kapanıştan sonra panoda kalıyor).
+6. `pip download --platform win_amd64` Linux'ta ortam belirteçlerini yanlış çözdü (secretstorage fazla, pywin32-ctypes eksik)
+   → kilit, Wine'daki Windows pip'iyle indirilen wheel'lerden üretildi.
+7. Yeni exe ilk açılışta Wine'da ~20 sn sürdü (12 sn'de siyah ekran) → bekleme 22 sn; paketli konsol sürümü `--kasa-tani` ile
+   `GÜVENLİ: Windows.WinVaultKeyring` doğrulandı.
+8. Pencere yöneticisi olmadığı için Alt+F4/Enter odak almadı → Windows tarafı yardımcıyla `WM_CLOSE` (X düğmesi eşdeğeri),
+   onay penceresinde "Yes" fareyle tıklandı; süreç sayımı kendi kabuğumu da sayıyordu → yalnız `Z:\...exe` eşlendi; Wine
+   çıktısındaki `\r` temizlendi.
+
+### Doğrulamalar (son kaynaktan)
+| Doğrulama | Sonuç |
+|---|---|
+| pytest Linux | 75 geçti, 2 atlandı (Windows'a özel) |
+| pytest Windows Python (Wine) + WinVault | 77/77 |
+| GUI Linux | 24/24 |
+| GUI Wine + WinVault | 25/25 (kontrol deneyi ayırt edici) |
+| oathtool | 50/50 |
+| Mutasyon testi | 11/11 yakalandı |
+| Kilit | temiz venv kurulumu OK; bozuk hash reddedildi |
+| exe (kilitli venv'den) | Enter ile ekle, Kopyala, WM_CLOSE sonrası pano boş, yeniden açılış, onaylı silme; kasa sonunda 0 kayıt |
+
+### Wine kabulü ile native Windows kabulü
+Wine kabulü yapıldı (yukarıdaki tablo). Native Windows 10/11 kabulü **yapılmadı**: gerçek DPAPI, SmartScreen, Win+V pano
+geçmişi ve gerçek pencere yöneticisi davranışı Wine ile kanıtlanmaz. Gerekli girdi: kullanıcının Windows makinesinde
+`README.md` → “B) Native Windows 10/11 kabulü” 10 adımı.

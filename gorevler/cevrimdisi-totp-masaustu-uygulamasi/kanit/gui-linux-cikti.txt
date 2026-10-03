@@ -1,26 +1,25 @@
+GEÇTİ İzinsiz kasa: uygulama fail-closed açıldı | İzin verilmeyen kasa arka ucu: __main__.IzinsizKasa
+GEÇTİ Enter ve doğrudan hesap_ekle kapalı Ekle'yi aşamadı | arka uç çağrısı=0; durum='Kasa kullanılamıyor; hesap eklenmedi.'
 GEÇTİ Pencere sabit boyutlu ve koyu tema | geometri=440x560
-GEÇTİ Güvenli kasa algılandı | Kasa: Bellek · çevrimdışı
-GEÇTİ Boş liste mesajı | pencere=normal gorunur=1
-GEÇTİ Geçersiz anahtar reddedildi | Gizli anahtarda geçersiz karakter var: 1
+GEÇTİ Güvenli kasa + sağlık testi geçti | Kasa: conftest.BellekKasasi · çevrimdışı
+GEÇTİ Boş liste mesajı
+GEÇTİ Geçersiz anahtar reddedildi, hata mesajı girdiyi yansıtmıyor | Gizli anahtarda 1 geçersiz karakter var (Base32 yalnız A-Z ve 2-7 içerir).
 GEÇTİ Gizli anahtar maskeli girilir
-GEÇTİ İki hesap eklendi ve kasaya yazıldı | ['GitHub - ornek', 'GitHub:ikinci']
-GEÇTİ Kasada düz base32 anahtar (kaynaktaki set_password biçimi)
+GEÇTİ Üç hesap eklendi (düğme + Enter + 60 sn URI) | ['GitHub - ornek', 'GitHub:ikinci', 'Ornek60:hesap']
 GEÇTİ Ekleme sonrası anahtar alanı temizlendi
-GEÇTİ Ekrandaki 6 haneli kod beklenen TOTP | ekranda=980 881
-GEÇTİ İlerleme çubuğu kalan süreyi gösteriyor | cubuk=0.60 beklenen=0.57 sayac=18 sn
-GEÇTİ Kopyala: panoda boşluksuz 6 haneli kod | pano=980881
-GEÇTİ 30 sn sınırında kod otomatik yenilendi | 980 881 -> 437 851
-GEÇTİ Yeni periyotta çubuk dolu | 0.97
-GEÇTİ Pano otomatik temizleme
-invalid command name "139665885328640check_dpi_scaling"
-    while executing
-"139665885328640check_dpi_scaling"
-    ("after" script)
-invalid command name "139665914203584update"
-    while executing
-"139665914203584update"
-    ("after" script)
+GEÇTİ Ekrandaki 6 haneli kod beklenen TOTP | ekranda=661 372
+GEÇTİ 60 sn'lik hesap kendi sayacını gösteriyor (30 sn hesaplarda ayrı sayaç yok) | ekranda='15 sn / 60' beklenen≈'14 sn / 60' kod=766 961
+GEÇTİ 60 sn'lik hesabın kodu kendi periyoduyla
+GEÇTİ İlerleme çubuğu kalan süreyi gösteriyor | cubuk=0.50 beklenen=0.47 sayac=15 sn
+GEÇTİ Kopyala: başka uygulamadan okunan pano = ekrandaki kod | pano=661372
+GEÇTİ 28,5. saniyede pano henüz temizlenmedi | pano='661372'
+GEÇTİ Gerçek zamanlı ~30 sn sonra pano kendiliğinden temizlendi (zamanlayıcı, elle çağrı yok) | gecen=31.6 sn pano=''
+GEÇTİ 30 sn sınırında kod otomatik yenilendi | 661 372 -> 948 159
+GEÇTİ Silinemeyen kayıt: hata gösterildi, satır listede kaldı | 'GitHub:ikinci' silinemedi.
+GEÇTİ Kapanışta başka uygulamanın pano içeriğine dokunulmadı | 'kullanicinin-baska-metni'
+GEÇTİ Kontrol (temizlik kapalı): kapanış anında kod hâlâ panoda -> ölçüm ayırt edici | kapanış anı='948159' kapanış sonrası='<X11: sahip kapanınca pano zaten boşalır; ölçülmedi>'
+GEÇTİ Erken kapanış: 30 sn dolmadan kapatınca kendi kodu panodan temizlendi | kopyalanan=948159 kapanış anı='' kapanış sonrası='<X11: sahip kapanınca pano zaten boşalır; ölçülmedi>'
 GEÇTİ Yeniden açılışta hesaplar kasadan okundu
-GEÇTİ Silme onay sorar ve kasadan kaldırır
+GEÇTİ Silme onay sorar, kasadan kaldırır ve doğrular
 GEÇTİ Temizlik: test kayıtları kaldırıldı
-ÖZET 17/17
+ÖZET 24/24

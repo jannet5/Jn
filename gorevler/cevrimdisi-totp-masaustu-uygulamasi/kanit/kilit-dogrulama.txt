@@ -1,0 +1,21 @@
+Kilit dosyası doğrulaması (Wine 9.0 + Windows CPython 3.12.10, temiz venv C:\derlemeenv)
+Komut: python -m pip install --require-hashes --no-deps --only-binary=:all: -r requirements-build-windows.lock
+Sonuç: kurulum başarılı; ortamdaki paketler (pip, venv'in kendi pip'i hariç):
+altgraph==0.17.5
+customtkinter==6.0.0
+darkdetect==0.8.0
+jaraco.classes==3.4.0
+jaraco.context==6.1.2
+jaraco.functools==4.6.0
+keyring==25.7.0
+more-itertools==11.1.0
+packaging==26.3
+pefile==2024.8.26
+pyinstaller==6.22.3
+pyinstaller-hooks-contrib==2026.8
+PyOTP==2.10.0
+pywin32-ctypes==0.2.3
+setuptools==84.0.0
+
+Olumsuz kontrol: customtkinter hash'inin ilk 4 hanesi 0000 yapılmış kopya kilit ile --force-reinstall:
+ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. ... (kurulum reddedildi)
