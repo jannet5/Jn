@@ -13,6 +13,6 @@ doğrulanmış çalışan site: 0
 Bu sitelere ulaşıldı ama içerik doğrulanamadı ya da hiç denetlenmedi;
 kendin açıp bakman gerekir.
 
-•  https://github.com/kisi/baska   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: bot koruması/erişim engeli — çalıştığı doğrulanamadı]   (sayfa 808)
+•  https://github.com/kisi/baska   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: denetlenmedi ya da sonuç kesin değil (ağ/proxy engeli, geçici hata)]   (sayfa 808)
 
-•  https://github.com/kisi/proje   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: bot koruması/erişim engeli — çalıştığı doğrulanamadı]   (sayfa 808)
+•  https://github.com/kisi/proje   ⟶   Bu satır, test için uydurulmuş bir adrese yazılmış sentetik bir açıklama cümlesidir.  Bu siteyle hiçbir şey yapamazsın, çünkü yalnız katalog biçimini sınamak için uyduruldu.  [durum: denetlenmedi ya da sonuç kesin değil (ağ/proxy engeli, geçici hata)]   (sayfa 808)

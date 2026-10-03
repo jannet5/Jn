@@ -61,6 +61,13 @@ class Cozumleme(unittest.TestCase):
             u.tek_istek = eski
         self.assertEqual(r['durum'], 'kontrol_edilmedi')
 
+    def test_gecici_dns_olu_sayilmaz_kalici_olu_sayilir(self):
+        import socket as s
+        def gecici(h, p): raise s.gaierror(s.EAI_AGAIN, 'Temporary failure in name resolution')
+        def yok(h, p): raise s.gaierror(s.EAI_NONAME, 'Name or service not known')
+        self.assertEqual(u.denetle('https://g.example.com/', cozucu=gecici, proxy=None)['durum'], 'kontrol_edilmedi')
+        self.assertEqual(u.denetle('https://y.example.com/', cozucu=yok, proxy=None)['durum'], 'olu')
+
     def test_bos_cevap(self):
         self.assertEqual(u.denetle('https://bos.example.com/', cozucu=lambda h, p: [], proxy=None)['durum'], 'reddedildi')
 

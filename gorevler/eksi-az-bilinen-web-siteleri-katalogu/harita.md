@@ -71,9 +71,9 @@ veri kullanılmadı ve silindi.
 
 | # | Ölçüt | Kanıt | Durum |
 |---|---|---|---|
-| K1 | Son sayfadan geriye 100 + 100 sayfa | `kapsam_raporu`: `809-710` / `709-610`, eksik sayfa listesi; işleme son sayfadan başlar | Test edildi; **gerçek veri bekleniyor** |
+| K1 | Son sayfadan geriye 100 + 100 sayfa | `kapsam_raporu`: `809-710` / `709-610`, eksik sayfa listesi; işleme son sayfadan başlar | **Gerçek veriyle tamam:** 200/200 sayfa, eksik yok |
 | K2 | Tekil, tam bağlantı; HTTPS yalnız doğrulanınca | `site_denetle`: HTTP sessizce yükseltilmez; tam adres anahtarı farklı yolları birleştirmez | Test edildi + gerçek ağda `http://example.com/` → HTTPS doğrulandı |
-| K3 | Tek tam cümle + "Bu siteyle … yapabilirsin." | `aciklama_dogrula`, `uret` çıkış kodu | Test edildi; açıklamalar veri gelince yazılacak |
+| K3 | Tek tam cümle + "Bu siteyle … yapabilirsin." | `aciklama_dogrula`, `uret` çıkış kodu | **Tamam:** 3220 kayıt, 0 kural ihlali; 844 kayıt bilinçli olarak açıklamasız |
 | K4 | Liste, tablo değil; okunur boşluk | `⟶` ayracı, öğeler arası boş satır, `|` yok | Test edildi |
 | K5 | Kategoriler | `■ KATEGORİ (n site)`, Türkçe büyük harf | Test edildi |
 | K6 | Yalnız doğrulanmış çalışanlar "çalışan" | Ana liste yalnız `calisiyor`; korumalı/denetlenmemiş ayrı bölümde | Test edildi + gerçek ağda alternativeto.net (Cloudflare 403) çalışan sayılmadı |

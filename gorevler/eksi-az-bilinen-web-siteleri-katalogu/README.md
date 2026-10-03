@@ -4,9 +4,11 @@ Ekşi Sözlük'teki "az kişinin bildiği muhteşem web siteleri" başlığını
 200 sayfasında (bugün 809 → 610) paylaşılan bağlantılardan kategorili,
 açıklamalı bir TXT listesi üreten araçlar.
 
-> **Durum:** Üretici ve güvenli URL denetimi hazır, testli. **Gerçek katalog
-> henüz yok.** Sayfa verisini kullanıcı kendi Chrome'unda topluyor; JSON
-> gelince aşağıdaki adımlar çalıştırılacak. Ayrıntı: [harita.md](harita.md).
+> **Durum:** Gerçek katalog üretildi (200 sayfa, 809–610; 2258 doğrulanmış
+> çalışan site, 21 kategori). Katalog ve girdi kullanıcının topladığı veriden
+> türediği için yalnız **özel pakette** duruyor; bu depoda araçlar, sentetik
+> testler ve gerçek test çıktısı var. Ayrıntı: [harita.md](harita.md),
+> [calisma-gunlugu.md](calisma-gunlugu.md).
 
 ## Girdi biçimi
 

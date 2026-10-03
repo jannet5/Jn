@@ -206,6 +206,11 @@ def denetle(url, **kw):
             kod, basliklar, govde, ip, ip_sabit = tek_istek(simdiki, **kw)
         except Reddedildi as e:
             return {'durum': 'reddedildi', 'neden': str(e), 'url': url, 'son_url': simdiki, 'zincir': zincir}
+        except socket.gaierror as e:
+            if e.errno == getattr(socket, 'EAI_AGAIN', -3):  # geçici DNS hatası: ölü sayılmaz
+                return {'durum': 'kontrol_edilmedi', 'neden': 'ad çözümü geçici hata verdi (kesin değil)',
+                        'url': url, 'son_url': simdiki, 'zincir': zincir}
+            return {'durum': 'olu', 'neden': f'gaierror: {e}'[:150], 'url': url, 'son_url': simdiki, 'zincir': zincir}
         except BELIRSIZ_HATALAR as e:
             return {'durum': 'kontrol_edilmedi', 'neden': f'ulaşılamadı, kesin değil ({type(e).__name__})',
                     'url': url, 'son_url': simdiki, 'zincir': zincir}

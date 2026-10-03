@@ -361,8 +361,25 @@ def aciklama_dogrula(a):
 
 AYRAC = '   ⟶   '
 DURUM_ADI = {'korumali': 'bot koruması/erişim engeli — çalıştığı doğrulanamadı',
-             'kontrol_edilmedi': 'henüz denetlenmedi', 'olu': 'çalışmıyor',
+             'kontrol_edilmedi': 'denetlenmedi ya da sonuç kesin değil (ağ/proxy engeli, geçici hata)', 'olu': 'çalışmıyor',
              'reddedildi': 'güvenlik kuralıyla denetim dışı bırakıldı'}
+
+
+def kayitli_alan(host):
+    """Kaba kayıtlı alan adı: son iki etiket; .com.tr gibi ikinci düzeylerde son üç."""
+    parca = kok_alan(host or '').split('.')
+    if len(parca) >= 3 and parca[-2] in ('com', 'org', 'net', 'gov', 'edu', 'co', 'ac', 'bel', 'k12', 'gen', 'web', 'av'):
+        return '.'.join(parca[-3:])
+    return '.'.join(parca[-2:])
+
+
+def yonlendirme_notu(site):
+    """Denetim başka bir kayıtlı alan adına vardıysa varış alan adını döner."""
+    son = site.get('kontrol', {}).get('son_url') or ''
+    if not son:
+        return ''
+    a, b = kayitli_alan(_host(site['url'])), kayitli_alan(_host(son))
+    return b if a and b and a != b else ''
 
 
 def tr_buyuk(metin):
@@ -409,7 +426,15 @@ def uret(siteler, aciklamalar, meta=None):
 
     def satir(s, a, ek=''):
         url, https_ok = gosterilecek_url(s)
-        not_ = '  [yalnız HTTP; HTTPS doğrulanamadı]' if not https_ok and url.startswith('http://') else ''
+        durum = s.get('kontrol', {}).get('durum')
+        not_ = ''
+        if not https_ok and url.startswith('http://'):
+            not_ = '  [yalnız HTTP; HTTPS doğrulanamadı]'
+        elif not https_ok and durum == CALISAN:
+            not_ = '  [HTTPS adresi HTTP\'ye yönlendi; HTTPS doğrulanamadı]'
+        yon = yonlendirme_notu(s)
+        if yon and durum == CALISAN:
+            not_ += f'  [başka alan adına yönlendi: {yon}]'
         iz = _iz(s)
         return f'•  {url}{AYRAC}{a["ne"].strip()}  {a["yapabilirsin"].strip()}{not_}{ek}' + \
             (f'   ({iz})' if iz else '')

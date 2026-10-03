@@ -1,14 +1,15 @@
 {
  "dogrulanmis_calisan": 0,
  "kategori": 0,
+ "aciklamasi_dogrulanamayan": [],
  "dogrulanamayan": [
   {
    "anahtar": "github.com/kisi/proje",
-   "durum": "korumali"
+   "durum": "kontrol_edilmedi"
   },
   {
    "anahtar": "github.com/kisi/baska",
-   "durum": "korumali"
+   "durum": "kontrol_edilmedi"
   }
  ],
  "aciklamasi_eksik": [],

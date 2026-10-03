@@ -223,6 +223,21 @@ class Dayanak(unittest.TestCase):
         self.assertTrue(k.aciklama_dogrula(dict(IYI, dayanak='tahmin')))
 
 
+class YonlendirmeNotlari(unittest.TestCase):
+    def test_https_den_http_ye_ve_baska_alana(self):
+        kay = [{'page': 700, 'page_url': 'u', 'observed_at': 't', 'label': '', 'ham_url': ''}]
+        s = [{'anahtar': 'a.example', 'url': 'https://a.example/', 'kaynaklar': kay,
+              'kontrol': {'durum': 'calisiyor', 'https_url': None, 'son_url': 'http://reklam.example.net/x'}},
+             {'anahtar': 'b.example.com.tr', 'url': 'https://b.example.com.tr/', 'kaynaklar': kay,
+              'kontrol': {'durum': 'calisiyor', 'https_url': 'https://b.example.com.tr/', 'son_url': 'https://www.b.example.com.tr/tr'}}]
+        metin, _ = k.uret(s, {'a.example': IYI, 'b.example.com.tr': IYI})
+        a_satiri = next(l for l in metin.splitlines() if 'a.example/' in l)
+        b_satiri = next(l for l in metin.splitlines() if 'b.example.com.tr' in l)
+        self.assertIn("[HTTPS adresi HTTP'ye yönlendi; HTTPS doğrulanamadı]", a_satiri)
+        self.assertIn('[başka alan adına yönlendi: example.net]', a_satiri)
+        self.assertNotIn('yönlendi', b_satiri)
+
+
 class Uret(unittest.TestCase):
     def test_yalniz_dogrulanmis_calisan_ana_listede(self):
         kay = [{'page': 809, 'page_url': 'u', 'observed_at': 't', 'label': '', 'ham_url': ''}]
@@ -251,7 +266,7 @@ class Uret(unittest.TestCase):
         self.assertNotIn('n.example', ana)
         self.assertIn('k.example', dogrulanamayan)
         self.assertIn('bot koruması', dogrulanamayan)
-        self.assertIn('henüz denetlenmedi', dogrulanamayan)
+        self.assertIn('sonuç kesin değil', dogrulanamayan)
         k_satiri = next(s for s in dogrulanamayan.splitlines() if 'k.example' in s)
         self.assertNotIn('yalnız HTTP', k_satiri)  # HTTPS adres, yalnız doğrulanamadı
         self.assertNotIn('o.example', metin)

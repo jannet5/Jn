@@ -102,10 +102,61 @@ kullanılmayacak.
     "çalışan" sayılmadı. Teşhis için 2xx dışı yanıtlarda gövde özeti
     kaydediliyor.
 
+## 3. tur — gerçek girdiyle katalog üretimi (2026-10-03)
+
+Kullanıcı kendi Chrome'unda topladığı `page-trace.json` dosyasını gzip+Base64
+olarak verdi. Bu dosya ve ondan üretilen gerçek katalog yalnız özel pakette
+duruyor; bu depoya konmadı.
+
+1. **Girdi doğrulaması:** Base64 çözüldü; gzip 81369 bayt, SHA-256
+   `60eee952…f15d`; açılmış JSON SHA-256 `166f05cf…30f1`. Üçü de kullanıcının
+   verdiği değerlerle birebir aynı. 200 benzersiz sayfa (809..610, eksik
+   yok), her `page_url` kendi sayfa numarasını taşıyor, 4024 bağlantı.
+2. **Tekilleştirme:** 3580 birebir tekil ham URL → 3437 sayfa düzeyinde tekil
+   adres. 4 çift şemalı yazım hatası (`http://https//…`) onarıldı ve
+   işaretlendi. 18 kısaltıcıdan 15'inin hedefi güvenle çözüldü (t.co
+   meta-refresh ile). 7 doğrudan görsel bağlantısı site sayılmadı → 3430.
+3. **Gerçek veride bulunan hatalar:**
+   - Türkçe karakterli yollar `UnicodeEncodeError` verip tüm denetimi
+     durduruyordu → yol ve sorgu yüzde-kodlanıyor, tek sitedeki iç hata işi
+     durdurmuyor, 100 sonuçta bir ara kayıt alınıyor.
+   - Bekleme döngülerim `pgrep -f` ile kendi komut satırlarını eşleştirip
+     bitmiş süreci bekledi → bekleme PID üzerinden yapıldı.
+   - 42 GitHub adresinin 403'ü GitHub'dan değil bulut ortamının GitHub
+     politikasından geliyordu; bağlantı kopmaları, zaman aşımları ve geçici
+     DNS hataları da kesin değil → bunlar artık `kontrol_edilmedi`, bir kez
+     yeniden denendi.
+   - HTTPS verilip HTTP'ye yönlenen adresler işaretsiz görünüyordu → not
+     eklendi; başka alan adına yönlenen 86 site işaretlendi.
+4. **Açıklamalar:** 3220 adres için Türkçe açıklama yazıldı. Her kaydın
+   dayanağı kayıtlı: sitenin kendi başlık ya da açıklaması 2110, yaygın
+   bilinen hizmet 266. 844 kayıtta dayanak yok; bunlara açıklama
+   yazılmadı. İlk alt ajan turu kullanım limitiyle kesildi. Açık sıra
+   numaralı 529 kayıt kurtarıldı; sıra numarasız kısmi çıktılar yanlış
+   eşleşme riski yüzünden kullanılmadı.
+5. **Eşleşme hatası bulundu ve düzeltildi:** Kataloğun ilk sürümünde bazı
+   açıklamalar yanlış siteye kaymıştı (ör. asciiart.eu → RefSeek
+   açıklaması). `hizalama.py` (komşu karşılaştırması) ve `marka.py` (marka
+   adı kendi sitesinde mi) ile tarandı. k3 partisi büyük ölçüde (275), k4
+   kısmen bozuktu. İkisi sıfırdan yeniden yazıldı. Diğer partilerdeki 197
+   şüpheli kayıt da yeniden yazıldı. Yeniden yazımlarda her satıra sitenin
+   anahtarı da yazıldı ve `derle.py` uyuşmayan satırı reddetti. Kalan
+   işaretler tek tek incelendi; yanlış alarm oldukları görüldü. Rastgele
+   30 örneğin 30'u doğru çıktı.
+6. **Kabul:** `kabul.py` 19/19 geçti. Toplamlar kapanıyor: 2258 doğrulanmış
+   çalışan + 118 çalıştığı doğrulanamayan + 844 ne işe yaradığı
+   doğrulanamayan + 210 çalışmayan/reddedilen = 3430. Ana listedeki
+   sitelerin 1140'ı ilk 100 sayfadan, 1118'i yalnız sonraki 100 sayfadan.
+7. **Testler:** `python3 test/calistir.py --proxy-ad-ile` → 30 + 24 test geçti
+   (`test/cikti/test-ciktisi.txt`).
+
 ## Yapılmayanlar ve nedenleri
 
-- **Gerçek 200 sayfalık katalog üretilmedi.** Kullanıcı sayfa JSON'larını
-  Chrome'da topluyor; veri henüz gelmedi.
+- **Ağ denetimi tek seferlik:** Siteler 2026-10-03'te bu bulut ortamının
+  proxy'si üzerinden denetlendi (`--proxy-ad-ile`, IP sabitleme yok).
+  Durumlar zamanla değişebilir.
+- **844 sitenin ne yaptığı yazılmadı:** Sayfası okunamayan ya da içeriği
+  belirsiz siteler için tahmin yapılmadı.
 - **Masaüstü / C:\ kopyası yapılmadı.** Bulut ortamı kullanıcının Windows
   bilgisayarına erişemez; README'de PowerShell komutu var.
 - **Windows'ta deneme yapılmadı.** Betikler standart kütüphaneyle yazıldı
@@ -115,9 +166,5 @@ kullanılmayacak.
 
 ## Devam komutu
 
-Sayfa JSON'ları hazır olunca oturuma yükleyip şunu yaz:
-
-> Sayfa JSON'ları yüklendi; gorevler/eksi-az-bilinen-web-siteleri-katalogu
-> README'deki adımları çalıştır (tekillestir --ust 809 --alt 610, kontrol
-> --proxy-ad-ile), açıklamaları sitelerin kendisine bakarak yaz, kataloğu
-> üret, test et, push et ve özel ZIP'i güncelle.
+İş tamamlandı. Kataloğu yeniden üretmek için özel paketteki
+`uretim/CHECKPOINT.md` ve README'deki adımlar yeterli.
