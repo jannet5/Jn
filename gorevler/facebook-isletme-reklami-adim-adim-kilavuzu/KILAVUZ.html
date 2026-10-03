@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facebook İşletme Reklamı Kılavuzu</title>
+<style>
+:root { --zemin:#ffffff; --yazi:#1c1e21; --soluk:#5b6470; --vurgu:#0866ff; --kutu:#f0f4fa; --cizgi:#d8dee6; --uyari:#fff6e0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --zemin:#17191c; --yazi:#e8eaed; --soluk:#a4adb8; --vurgu:#5b9dff; --kutu:#22262b; --cizgi:#3a4047; --uyari:#3a3220; } }
+:root[data-theme="dark"] { --zemin:#17191c; --yazi:#e8eaed; --soluk:#a4adb8; --vurgu:#5b9dff; --kutu:#22262b; --cizgi:#3a4047; --uyari:#3a3220; }
+html { -webkit-text-size-adjust:100%; }
+body { background:var(--zemin); color:var(--yazi); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  max-width:880px; margin:0 auto; padding:24px 16px 64px; }
+h1 { font-size:1.7rem; line-height:1.25; margin-top:0; }
+h2 { font-size:1.3rem; border-bottom:2px solid var(--cizgi); padding-bottom:4px; margin-top:2.2em; }
+h3 { font-size:1.08rem; margin-top:1.6em; }
+a, strong, td { overflow-wrap:anywhere; }
+a { color:var(--vurgu); }
+code { background:var(--kutu); padding:1px 5px; border-radius:4px; font-size:.92em; }
+pre { background:var(--kutu); padding:12px; border-radius:8px; overflow-x:auto; font-size:.85rem; line-height:1.4; }
+pre code { background:none; padding:0; }
+blockquote { margin:1em 0; padding:10px 14px; background:var(--uyari); border-left:4px solid #e0a100; border-radius:6px; }
+blockquote p { margin:.3em 0; }
+table { border-collapse:collapse; width:100%; display:block; overflow-x:auto; font-size:.92rem; margin:1em 0; }
+th, td { border:1px solid var(--cizgi); padding:6px 8px; vertical-align:top; text-align:left; }
+th { background:var(--kutu); }
+li { margin:.25em 0; }
+li.kutu { list-style:none; margin-left:-1.2em; }
+hr { border:0; border-top:1px solid var(--cizgi); margin:2em 0; }
+@media print { body { max-width:none; padding:0; font-size:11pt; } a { color:inherit; }
+  h2 { break-after:avoid; } table, pre, blockquote { break-inside:avoid; } }
+</style></head>
+<body><h1 id="facebookta-isletme-reklam-sfrdan-yayna-adm-adm-klavuz">Facebook'ta İşletme Reklamı: Sıfırdan Yayına Adım Adım Kılavuz</h1>
+<blockquote>
+<p><strong>Son doğrulama:</strong> 3 Ekim 2026. Menü adları, Meta Business Yardım Merkezi'nin <strong>Türkçe</strong>
+makalelerinden alındı (bağlantılar <code>kaynaklar.md</code> dosyasında). Gerçek bir reklam hesabıyla
+canlı yayın testi yapılmadı, çünkü bunun için senin kimliğin ve kartın gerekiyor (bkz. §12).</p>
+</blockquote>
+<hr />
+<h2 id="0-baslamadan-once-oku-5-dakika">0. Başlamadan önce oku (5 dakika)</h2>
+<h3 id="01-bu-klavuz-nasl-okunur">0.1 Bu kılavuz nasıl okunur</h3>
+<ul>
+<li>
+<p><strong>Kalın yazılar</strong> ekranda göreceğin buton ya da menü adıdır. Meta Türkçe arayüzünde aynen bu
+  adlar kullanılıyor.</p>
+</li>
+<li>
+<p><code>➜ Farklıysa:</code> ile başlayan kutular, ekranın kılavuzdakinden farklı çıktığı durumları anlatır.</p>
+</li>
+<li>Her bölümün sonunda <strong>✅ Kontrol</strong> satırı var. Orada yazanı görmeden sonraki bölüme geçme.</li>
+</ul>
+<h3 id="02-meta-ekranlar-neden-herkeste-ayn-degil">0.2 Meta ekranları neden herkeste aynı değil?</h3>
+<p>Meta'nın kendi yardım sayfası bunu açıkça yazıyor: <em>"Kampanya oluştururken gördüğün seçenekler
+hesap türüne, satın alma türüne ve reklam amacına göre değişebilir. Burada anlatılan
+özelliklerin hepsini görmeyebilir ya da başka seçenekler görebilirsin."</em> Meta yeni özellikleri
+de hesaptan hesaba kademeli açıyor. Yeni açılmış işletme portfolyolarında bazı reklam
+özellikleri, belirli şartlar sağlanana kadar kapalı olabilir. Hangilerinin açık olduğunu
+<strong>İşletme Desteği Ana Sayfası</strong>'ndan görebilirsin. Yani birebir aynı ekranı göremeyebilirsin.
+Bu kılavuz o yüzden <strong>her adımın amacını</strong> da yazıyor: buton farklı yerde olsa bile ne
+aradığını bileceksin.</p>
+<h3 id="03-ekran-farklysa-genel-kural-her-admda-gecerli">0.3 Ekran farklıysa genel kural (her adımda geçerli)</h3>
+<ol>
+<li>Sayfayı yenile (F5). Olmazsa tarayıcıyı kapatıp aç. Chrome, Edge ya da Firefox'un güncel
+    sürümünü kullan (Meta'nın "Bir sorun oluştu" hatasında ilk önerisi bu).</li>
+<li>Sağ üstteki dili kontrol et. İngilizce görüyorsan kılavuzdaki her adımın yanında
+    İngilizce karşılığı da yazıyor.</li>
+<li>Doğru hesapta olduğunu kontrol et: sol üstteki açılır menüde <strong>işletme portfolyosu</strong> ve
+    <strong>reklam hesabı</strong> adı görünür. Birden fazla hesabın varsa yanlış hesapta olabilirsin.</li>
+<li>Aradığın butonu bulamazsan sayfanın üstündeki arama kutusuna adını yaz. Business Suite ve
+    Ads Manager'da arama var.</li>
+<li>Hâlâ yoksa aynı işi yapan yedek yola geç. Her adımda yedek yol ayrıca yazılı.</li>
+</ol>
+<h3 id="04-hazrlk-listesi-bunlar-elinde-olsun">0.4 Hazırlık listesi (bunlar elinde olsun)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Gerekli</th>
+<th>Neden</th>
+<th>Yoksa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Gerçek adınla açılmış <strong>kişisel Facebook hesabı</strong></td>
+<td>Sayfa ve reklam hesapları kişisel bir hesaba bağlı olmak zorunda. Sahte profil kapatılabilir.</td>
+<td>facebook.com'dan aç, birkaç gün normal kullan</td>
+</tr>
+<tr>
+<td>2</td>
+<td>O hesaba bağlı <strong>telefon</strong> (SMS alabilen)</td>
+<td>İki faktörlü doğrulama ve kart onayı (3D Secure)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Kart</strong>: kredi ya da banka kartı, internetten alışverişe açık, CVV'si olan</td>
+<td>Meta yalnız güvenlik kodu (CVV) olan kartları kabul ediyor</td>
+<td>Bankanın uygulamasından "internet alışverişi"ni aç</td>
+</tr>
+<tr>
+<td>4</td>
+<td>İşletme bilgileri: unvan, adres, e-posta, telefon, <strong>vergi numarası (VKN)</strong> ve vergi dairesi</td>
+<td>Portfolyo ve faturalandırma ekranları</td>
+<td>Mali müşavirinden iste</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Logo (kare, en az 180×180) ve kapak görseli</td>
+<td>Sayfa</td>
+<td>Telefonla çekilmiş net fotoğraf da olur</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reklam görseli/videosu (kare 1080×1080 ve dikey 1080×1920 önerilir)</td>
+<td>Reklam kreatifi</td>
+<td>§5.3'e bak</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Müşteriyi nereye göndereceğin: <strong>web sitesi</strong>, <strong>WhatsApp numarası</strong>, Messenger ya da telefon</td>
+<td>Reklam seti "Dönüşüm konumu"</td>
+<td>WhatsApp Business uygulaması en kolayı</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Bütçe kararı: günlük kaç TL, kaç gün</td>
+<td>Bütçe ekranı</td>
+<td>İlk test için 7 gün sabit bütçe öner (§5.2)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>İşi bilgisayardan yap.</strong> Meta'nın adım adım makalelerinin çoğu masaüstü tarayıcı için
+yazılmış. <strong>iPhone/iPad'deki Facebook ya da Instagram uygulamasından ödeme yaparsan Apple
+%30'a varan bir hizmet ücreti kesebiliyor</strong> (Meta'nın öne çıkarma makalesinde yazıyor).
+Bilgisayardan ya da telefonun internet tarayıcısından ödersen bu ücret yok.</p>
+</blockquote>
+<hr />
+<h2 id="1-buyuk-resim-metada-reklam-neyin-icinde-duruyor">1. Büyük resim: Meta'da reklam neyin içinde duruyor?</h2>
+<pre><code>Kişisel Facebook hesabın (sen)
+ └─ İşletme portfolyosu  (eski adı &quot;Business Manager&quot;; business.facebook.com)
+     ├─ Facebook Sayfası        → reklamın &quot;kimden&quot; göründüğü
+     ├─ Instagram hesabı        → (isteğe bağlı) Instagram'da da aynı kimlik
+     ├─ Reklam hesabı           → para birimi, saat dilimi, ödeme yöntemi, faturalar
+     │    └─ KAMPANYA           → AMAÇ (ne istiyorum?) + bütçe türü
+     │         └─ REKLAM SETİ   → KİME, NEREDE, NE KADAR, NE ZAMAN
+     │              └─ REKLAM   → İNSANLARIN GÖRDÜĞÜ şey (görsel, metin, buton)
+     └─ Meta Pikseli / WhatsApp → ölçüm ve iletişim (isteğe bağlı)
+</code></pre>
+<p>Reklam Yöneticisi'nin üç katmanı Meta'nın resmi yapısıdır: kampanya, reklam seti, reklam.
+Bütün adımlar bu sırayla ilerler.</p>
+<hr />
+<h2 id="2-hangi-yolu-sececegim">2. Hangi yolu seçeceğim?</h2>
+<table>
+<thead>
+<tr>
+<th>Durumun</th>
+<th>Yol</th>
+<th>Bölüm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Satış, mesaj, telefon araması ya da form toplamak istiyorum. Bilgisayarım var.</td>
+<td><strong>B: Reklam Yöneticisi (önerilen)</strong></td>
+<td>§3 → §4 → §5 → §6</td>
+</tr>
+<tr>
+<td>Sayfamdaki bir gönderiyi bugün hemen daha çok kişiye göstermek istiyorum.</td>
+<td><strong>A: Gönderiyi öne çıkar</strong></td>
+<td>§3.1–§3.2 → §7</td>
+</tr>
+<tr>
+<td>Sadece telefonum var.</td>
+<td><strong>C: Business Suite / Ads Manager uygulaması</strong></td>
+<td>§3 → §8</td>
+</tr>
+</tbody>
+</table>
+<p>Yol A ve C de §3'teki hazırlığın (Sayfa ve ödeme) bir kısmına ihtiyaç duyar.</p>
+<hr />
+<h2 id="3-hazrlk-hesap-sayfa-portfolyo-reklam-hesab-odeme">3. Hazırlık: Hesap → Sayfa → Portfolyo → Reklam hesabı → Ödeme</h2>
+<h3 id="31-facebook-hesabn-guvene-al-iki-faktorlu-dogrulama">3.1 Facebook hesabını güvene al (iki faktörlü doğrulama)</h3>
+<p><strong>Neden:</strong> Reklam hesapları en çok, ele geçirilmiş kişisel hesaplar yüzünden kapanıyor. Meta da
+portfolyo güvenliği için iki faktörlü doğrulamayı ya da geçiş anahtarını öneriyor.</p>
+<ol>
+<li>Tarayıcıda <strong><a href="https://accountscenter.facebook.com/password_and_security">https://accountscenter.facebook.com/password_and_security</a></strong> adresine git.</li>
+<li><strong>Şifre ve güvenlik</strong> → <strong>İki faktörlü kimlik doğrulama</strong> → hesabını seç.</li>
+<li>Tercihen <strong>Kimlik doğrulama uygulaması</strong>'nı seç (Google Authenticator veya Microsoft
+    Authenticator). SMS de kabul edilir.</li>
+<li>Gösterilen <strong>kurtarma kodlarını</strong> kaydet. Telefon kaybolursa tek kurtuluşun bunlar.</li>
+</ol>
+<p><code>➜ Farklıysa:</code> "Hesaplar Merkezi" yerine eski <strong>Ayarlar ve gizlilik → Ayarlar → Güvenlik ve
+giriş</strong> menüsünü görüyorsan aynı ayar orada. Meta kişileri kademeli olarak "Meta Hesabı"na
+taşıyor, iki görünüm de geçerli.</p>
+<p>✅ <strong>Kontrol:</strong> Güvenlik sayfasında iki faktörlü doğrulama "Açık" görünüyor.</p>
+<h3 id="32-isletme-facebook-sayfas">3.2 İşletme Facebook Sayfası</h3>
+<p><strong>Neden:</strong> Facebook'ta reklam, bir <strong>Sayfa</strong> adına yayınlanır. Reklamda Sayfa adı ve profil
+resmi görünür. Meta'nın kuralı: Sayfan olmalı ya da başkasının Sayfasında yönetici, editör veya
+reklamveren erişimin olmalı.</p>
+<ol>
+<li><strong><a href="https://www.facebook.com/pages/create">https://www.facebook.com/pages/create</a></strong> adresine git.</li>
+<li><strong>Sayfa adı</strong>: işletmenin müşterinin bildiği adı. <strong>Kategori</strong>: ör. "Kafe", "Kuaför",
+    "Giyim mağazası". <strong>Biyografi</strong>: 1–2 cümle.</li>
+<li><strong>Sayfa oluştur</strong> → profil resmi (logo) ve kapak fotoğrafı ekle → iletişim bilgileri
+    (telefon, adres, çalışma saatleri, WhatsApp) → <strong>Bitti</strong>.</li>
+<li>Sayfaya 2–3 gerçek gönderi paylaş. Boş Sayfa hem müşteriye hem Meta'nın kontrol
+    sistemine güven vermez (topluluk tecrübesi).</li>
+</ol>
+<p><code>➜ Farklıysa:</code></p>
+<ul>
+<li>
+<p><strong>Sayfa zaten var ama başkası yönetiyor</strong> (eski çalışan, ajans, akraba): Sayfa
+  ayarlarından sana erişim vermesini iste. Portfolyon varsa §3.4'teki "erişim talep et"
+  yolunu kullan.</p>
+</li>
+<li>
+<p><strong>"Profile geçiş yap" ekranı çıktı</strong>: Yeni Sayfa deneyiminde Sayfayı yönetmek için sağ
+  üstteki profil resmine tıklayıp Sayfanın adına geçiyorsun. Bu normal.</p>
+</li>
+<li>
+<p><strong>Sayfa oluşturma hata veriyor</strong>: Meta'nın "Sayfa oluşturma sorunları" yardımına bak
+  (kaynaklar §B). Kişisel hesabın çok yeniyse birkaç gün bekleyip tekrar dene.</p>
+</li>
+</ul>
+<p>✅ <strong>Kontrol:</strong> facebook.com'da sağ üstteki profil resmine tıklayınca Sayfanın adı listede
+görünüyor.</p>
+<h3 id="33-isletme-portfolyosu-tavsiye-edilir">3.3 İşletme portfolyosu (tavsiye edilir)</h3>
+<p><strong>Neden:</strong> Sayfa, reklam hesabı, Instagram ve ödeme tek yerde toplanır, başkasına güvenli yetki
+verebilirsin. Eski adı <strong>Business Manager / İşletme Yöneticisi</strong>. Ekranda hâlâ bu adı
+görebilirsin.</p>
+<p>Meta'nın resmi adımları:</p>
+<ol>
+<li><strong><a href="https://business.facebook.com">https://business.facebook.com</a></strong> adresine git, Facebook hesabınla giriş yap.</li>
+<li>Sol üstte <strong>Ana Sayfa</strong>'nın altındaki <strong>açılır menüye</strong> tıkla.</li>
+<li><strong>İşletme portfolyosu oluştur</strong>'a tıkla.</li>
+<li><strong>Portfolyo adı</strong>: işletmenin herkese açık adı. Özel karakter kullanılamaz.</li>
+<li>Ad, soyad ve <strong>işletme e-postası</strong>nı gir. Bu e-posta müşterilere görünmez.</li>
+<li><strong>Oluştur</strong>'a tıkla. Gelen e-postadaki <strong>onayla</strong> bağlantısına tıkla.</li>
+</ol>
+<p>Bilmen gerekenler:</p>
+<ul>
+<li>Bir kişi en fazla <strong>2</strong> portfolyo oluşturabilir. Üye olabileceğin portfolyo sayısında sınır yok.</li>
+<li>Bir varlık (Sayfa, reklam hesabı, Instagram) aynı anda yalnız <strong>1</strong> portfolyoda bulunabilir.</li>
+</ul>
+<p><code>➜ Farklıysa:</code></p>
+<ul>
+<li><strong>a) "Hoş geldin / İşletmeni ayarla" sihirbazı çıktı:</strong> Adımları aynı bilgilerle doldur. Sonuç aynı.</li>
+<li>
+<p><strong>b) Menüde "İşletme portfolyosu oluştur" yok:</strong> Zaten bir portfolyon var ya da 2 sınırına
+  ulaştın. Açılır menüde var olanı seç ve §3.4'e geç.</p>
+</li>
+<li>
+<p><strong>c) Portfolyo açamıyorsan ya da uğraşmak istemiyorsan:</strong> Meta her Facebook hesabına
+  <strong>varsayılan bir reklam hesabı</strong> veriyor. Doğrudan <strong><a href="https://adsmanager.facebook.com">https://adsmanager.facebook.com</a></strong>
+  adresine gidip §3.6'dan devam edebilirsin. Sonradan portfolyoya taşıyabilirsin
+  ("Mevcut bir reklam hesabını üzerinize alın" seçeneği).</p>
+</li>
+<li>
+<p><strong>d) Onay e-postası gelmedi:</strong> Spam ve Promosyonlar klasörlerine bak. Business Suite'te
+  <strong>Ayarlar → İşletme bilgileri</strong>'nden e-postayı kontrol et ve yeniden gönder.</p>
+</li>
+</ul>
+<p>✅ <strong>Kontrol:</strong> business.facebook.com'da sol üstte portfolyonun adı görünüyor.</p>
+<h3 id="34-sayfay-ve-instagram-portfolyoya-ekle">3.4 Sayfayı ve Instagram'ı portfolyoya ekle</h3>
+<ol>
+<li>Business Suite'te sol alttaki <strong>Ayarlar</strong>'a (dişli simgesi) tıkla. Doğrudan adres:
+    <strong><a href="https://business.facebook.com/settings">https://business.facebook.com/settings</a></strong></li>
+<li><strong>Hesaplar</strong> → <strong>Sayfalar</strong> → <strong>+ Ekle</strong> → <strong>Bir Facebook Sayfası ekle</strong>. Sayfa adını
+    yaz ve onayla.<ul>
+<li>Sayfa başkasınınsa <strong>Bir Sayfaya erişim talep et</strong>'i seç.</li>
+</ul>
+</li>
+<li>Instagram için: <strong>Hesaplar → Instagram hesapları → + Ekle</strong>. Instagram hesabının
+    <strong>profesyonel hesap</strong> (işletme ya da içerik üreticisi) olması gerekir.<ul>
+<li>Telefondan alternatif yol: Instagram → profil → <strong>Profili düzenle</strong> → <strong>Sayfa</strong> →
+ <strong>Bağla veya oluştur</strong>.</li>
+<li>Instagram hesabı ile Sayfa <strong>aynı portfolyoda</strong> olmalı.</li>
+</ul>
+</li>
+<li>Kendine yetki ver: <strong>Kullanıcılar → Kişiler</strong> → kendi adın → <strong>Varlık ata</strong> → Sayfa → <strong>Tam
+    kontrol</strong>.</li>
+</ol>
+<p><code>➜ Farklıysa:</code> "Bu Sayfa başka bir işletme portfolyosunda" uyarısı çıkarsa Sayfa sende değil,
+başka bir portfolyoda kayıtlı. O portfolyonun yöneticisinden ya Sayfayı kaldırmasını ya da sana
+"ortak" erişimi vermesini iste. Sayfa iki portfolyoda birden olamaz.</p>
+<p>✅ <strong>Kontrol:</strong> <strong>Ayarlar → Hesaplar → Sayfalar</strong> listesinde Sayfan var ve senin adın "Tam
+kontrol" ile görünüyor.</p>
+<h3 id="35-reklam-hesab-olustur">3.5 Reklam hesabı oluştur</h3>
+<p>Meta'nın resmi adımları (Business Suite):</p>
+<ol>
+<li><strong>Ayarlar</strong> → sol menüde <strong>Hesaplar</strong> → <strong>Reklam hesapları</strong>.</li>
+<li><strong>+ Ekle</strong> → <strong>Yeni bir reklam hesabı oluştur</strong>.</li>
+<li>
+<p><strong>Reklam hesabı adı</strong> (ör. "Kafe Ada – Reklam"). <strong>Saat dilimi:</strong> <em>(GMT+03:00) Europe/Istanbul</em>.
+    <strong>Para birimi:</strong> <em>Türk Lirası (TRY)</em>.</p>
+<p>⚠️ <strong>Saat dilimi ve para birimini doğru seç.</strong> Bunlar sonradan değiştirilmek istendiğinde
+çoğu zaman yeni reklam hesabı açmak gerekiyor. Ayrıca mevcut bakiye yöntemine geçmiş
+hesaplarda <strong>vergi ülkesi değiştirilemiyor</strong> (Meta'nın notu).</p>
+</li>
+<li>
+<p><strong>İleri</strong> → <strong>İşletmem</strong> (kendi işletmen için reklam veriyorsan).</p>
+</li>
+<li>Meta Hizmet Koşulları ve Reklam Standartları kutusunu işaretle → <strong>Reklam hesabı oluştur</strong>.</li>
+<li><strong>Ödeme bilgileri ekle</strong> (şimdi) ya da <strong>Bitti</strong> (sonra §3.6).</li>
+<li>Kendini ata: <strong>Kişi ekle</strong> penceresinde adını seç → <strong>Reklam hesabını yönet</strong> veya <strong>Tam
+    kontrol</strong> → <strong>Ata</strong>.</li>
+</ol>
+<p>Bilmen gerekenler:</p>
+<ul>
+<li>
+<p>Yeni portfolyolar önce <strong>yalnız 1</strong> reklam hesabı açabilir. Bir kampanya yayınlanıp ödeme
+  yapıldıktan sonra sınır 3'e çıkar.</p>
+</li>
+<li>
+<p>Portfolyoda açılan reklam hesabı <strong>silinemez ve başka portfolyoya taşınamaz</strong>. Kapatılsa
+  bile sınıra sayılır. Deneme amaçlı hesap açma.</p>
+</li>
+</ul>
+<p><code>➜ Farklıysa:</code></p>
+<ul>
+<li>
+<p><strong>"+ Ekle" pasif / "Reklam hesabı sınırına ulaştınız":</strong> İlk hesabı kullan, başarılı bir
+  ödeme yap, sonra tekrar dene.</p>
+</li>
+<li>
+<p><strong>Portfolyo kullanmıyorsan:</strong> adsmanager.facebook.com'a ilk girişte varsayılan hesabın
+  açılır. Para birimi ve saat dilimi, ilk ödeme ekranında sorulur.</p>
+</li>
+</ul>
+<p>✅ <strong>Kontrol:</strong> <strong>Ayarlar → Hesaplar → Reklam hesapları</strong>'nda hesap "Aktif" görünüyor ve
+yanında hesap numarası (kimlik) var.</p>
+<h3 id="36-odeme-yontemi-ve-fatura-bilgileri">3.6 Ödeme yöntemi ve fatura bilgileri</h3>
+<p><strong>Nereden:</strong> <strong>Faturalar ve ödemeler</strong> bölümü. Doğrudan adres: <strong><a href="https://business.facebook.com/billing_hub">https://business.facebook.com/billing_hub</a></strong></p>
+<p>Meta'nın resmi adımları:</p>
+<ol>
+<li><strong>Faturalar ve ödemeler</strong>'e git.</li>
+<li>Tek reklam hesabın varsa sol menüde <strong>Ödeme ayarları</strong>'na tıkla. Birden fazlaysa
+    <strong>Hesaplar</strong>'dan reklam hesabını seç ve <strong>Ödeme yöntemleri</strong>'ne tıkla.</li>
+<li><strong>Ödeme yöntemi ekle</strong> → yöntemi seç (Kredi veya banka kartı / PayPal) → <strong>İleri</strong>.</li>
+<li>Kart bilgilerini gir. Bankadan gelen <strong>SMS/3D Secure</strong> onayını tamamla.</li>
+</ol>
+<p><strong>İki ödeme düzeni var.</strong> Hangisinin olacağını, eklediğin ilk ödeme yöntemi belirler:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Otomatik faturalandırma</th>
+<th>Mevcut bakiye (ön ödeme)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nasıl</td>
+<td>Harcama "ödeme düzeyi"ne ulaşınca ve ay sonunda karttan otomatik çekilir</td>
+<td>Önce <strong>Para ekle</strong> ile bakiye yüklersin, Meta günde bir bu bakiyeden düşer</td>
+</tr>
+<tr>
+<td>Kart/PayPal</td>
+<td>Evet</td>
+<td>Kartla bakiye yüklenebilir</td>
+</tr>
+<tr>
+<td>Kontrol</td>
+<td>Daha az. Fatura bütçeyi aşabilir, çünkü dönemdeki tüm reklamları ve ücretleri içerir</td>
+<td>Daha çok. Bakiye bitince reklam durur</td>
+</tr>
+<tr>
+<td>Not</td>
+<td></td>
+<td>Bakiyenin süresi dolmaz. Kanuni zorunluluk dışında iade yok. Kapanış sonrası iade talebi olay bazında değerlendirilir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bakiye yükleme (mevcut bakiye):</strong> <strong>Ödeme ayarları → Mevcut bakiye → Para ekle</strong> → tutar →
+ödeme yöntemi → onay. Minimum bir yükleme tutarı var ve ekranda gösterilir. Meta ayrıca
+<strong>günlük harcama sınırı</strong> koyuyor. Yeni hesaplarda bu sınır düşük başlar, reklam ve ödeme
+geçmişi oluştukça artar. Sınırı <strong>Ödeme ayarları → Mevcut bakiye</strong>'de görebilirsin.</p>
+<p><strong>Vergi ve ek ücretler (Türkiye, Ekim 2026):</strong></p>
+<ul>
+<li>
+<p><strong>KDV:</strong> Meta, Türkiye'deki işletmelerden KDV alıyor. Geçerli bir vergi numarası
+  eklemezsen KDV her ücrete ekleniyor. Bakiyeli hesapta para eklerken uygulanıyor. Vergi
+  numarası ekleyen işletme, KDV'yi kendisi beyan ediyor (2 No.lu KDV beyannamesi; sorumlu sıfatıyla).
+  Bilgileri <strong>Faturalar ve ödemeler → Ödeme ayarları → İşletme bilgileri / Vergi</strong> alanına gir.
+  Hangi seçeneğin sana uygun olduğunu <strong>mali müşavirine</strong> sor. Bu kılavuz vergi tavsiyesi değildir.</p>
+</li>
+<li>
+<p><strong>Konum ücreti %5 (1 Temmuz 2026'dan itibaren):</strong> Türkiye'deki kişilere gösterilen
+  reklamlarda, Dijital Hizmet Vergisini karşılamak için reklam harcamasının üzerine %5 ek
+  ücret alınıyor. Örnek: 1.000 TL harcama + 50 TL konum ücreti = 1.050 TL. KDV de bu
+  toplamın üzerinden hesaplanıyor. Ücreti, reklamın gösterildiği kitlenin ülkesi belirliyor,
+  senin fatura adresin değil.</p>
+</li>
+<li>
+<p><strong>Apple ücreti:</strong> iOS uygulamasından ödersen eklenir. Masaüstünden öde.</p>
+</li>
+</ul>
+<p><code>➜ Farklıysa (kart eklenmiyor / "Ödeme yöntemi eklenemedi" / hata 1359188):</code> Meta'nın
+kontrol listesi:</p>
+<ol>
+<li>Kart <strong>internet işlemlerine açık</strong> mı? Bankanın uygulamasından aç. Bazı bankalarda ayrıca
+    "yurt dışı internet işlemleri" anahtarı var. Meta İrlanda'dan tahsil eder, bu anahtarı da aç.</li>
+<li>Kartın <strong>CVV</strong>'si var mı? CVV'siz kart kabul edilmiyor.</li>
+<li>3D Secure SMS'i gelen <strong>telefon yanında</strong> mı?</li>
+<li>Kartta yeterli <strong>limit/bakiye</strong> var mı? Son kullanma tarihi doğru mu?</li>
+<li>Aynı kart <strong>çok sayıda reklam hesabına</strong> ekli mi? Genelde en fazla 10 hesap.</li>
+<li>Hesabın <strong>ülkesi ve para birimi</strong> ödeme yöntemiyle uyumlu mu?</li>
+<li>Sayfayı yenileyip tekrar dene. Olmazsa <strong>başka bankanın kartını</strong> dene.
+    Topluluk tecrübesi: bazı ön ödemeli ve sanal kartlar reddedilebiliyor.</li>
+</ol>
+<p>✅ <strong>Kontrol:</strong> <strong>Ödeme ayarları</strong>'nda kart "Varsayılan" olarak görünüyor ya da mevcut bakiyede
+yüklediğin tutar yazıyor.</p>
+<h3 id="37-istege-bagl-web-sitesi-olcumu-meta-pikseli">3.7 (İsteğe bağlı) Web sitesi ölçümü: Meta Pikseli</h3>
+<p>Satışı web sitende ölçmek istiyorsan <strong>Etkinlik Yöneticisi</strong>'nde
+(<strong><a href="https://business.facebook.com/events_manager2">https://business.facebook.com/events_manager2</a></strong>) Piksel oluşturup siteye kurman gerekiyor.
+Shopify, IKAS, Ticimax, WooCommerce gibi altyapılarda bunun hazır entegrasyonu var. Pikselin
+yoksa amaç olarak "Satışlar → Site" seçtiğinde <strong>"Tanıtım objesi bulunamadı" (1815430 /
+1487790)</strong> hatası alırsın. Çözüm: Pikseli kur ya da dönüşüm konumu olarak <strong>Mesajlaşma
+uygulamaları</strong> veya <strong>Aramalar</strong>'ı seç.</p>
+<hr />
+<h2 id="4-yol-b-reklam-yoneticisinde-kampanya-1-katman">4. Yol B: Reklam Yöneticisi'nde KAMPANYA (1. katman)</h2>
+<ol>
+<li><strong><a href="https://adsmanager.facebook.com">https://adsmanager.facebook.com</a></strong> adresine git (ya da Business Suite → <strong>Tüm araçlar</strong> →
+    <strong>Reklam Yöneticisi</strong>). Sol üstte doğru reklam hesabının seçili olduğunu kontrol et.</li>
+<li>Sol üstteki yeşil <strong>+ Oluştur</strong> butonuna tıkla.</li>
+<li><strong>Satın alma türü:</strong> <strong>Açık artırma</strong> (önerilen ve varsayılan). "Rezervasyon" büyük marka
+    kampanyaları içindir, seçme.</li>
+<li><strong>Reklam verme amacı</strong>nı seç, <strong>Devam</strong>'a tıkla. Meta'da 6 amaç var:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Amaç (TR)</th>
+<th>İngilizce</th>
+<th>Ne zaman seç</th>
+<th>Örnek işletme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bilinirlik</strong></td>
+<td>Awareness</td>
+<td>Yeni açıldın, çok kişi seni görsün</td>
+<td>Yeni açılan kafe</td>
+</tr>
+<tr>
+<td><strong>Trafik</strong></td>
+<td>Traffic</td>
+<td>Siteye, Sayfaya ya da WhatsApp/Messenger'a tıklama</td>
+<td>Menü sayfası, kampanya duyurusu</td>
+</tr>
+<tr>
+<td><strong>Etkileşim</strong></td>
+<td>Engagement</td>
+<td>Mesaj, video izlenmesi, gönderi etkileşimi</td>
+<td><strong>WhatsApp'tan sipariş/randevu</strong> alan esnaf</td>
+</tr>
+<tr>
+<td><strong>Potansiyel müşteriler</strong></td>
+<td>Leads</td>
+<td>Form, telefon araması, mesajla iletişim bilgisi toplama</td>
+<td>Emlak, sigorta, kurs, klinik</td>
+</tr>
+<tr>
+<td><strong>Uygulama tanıtımı</strong></td>
+<td>App promotion</td>
+<td>Mobil uygulaman varsa</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Satışlar</strong></td>
+<td>Sales</td>
+<td>Siteden satın alma (Piksel gerekir), katalog</td>
+<td>E-ticaret</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Eski amaç adlarını (Dönüşümler, Mesajlar, Erişim…) görürsen: Meta bunları bu 6 amacın
+içine taşıdı. Örneğin eski <strong>Mesajlar</strong> artık <strong>Etkileşim</strong> ya da <strong>Trafik</strong> amacında
+"Dönüşüm konumu: Mesajlaşma uygulamaları / Messenger veya WhatsApp" olarak seçiliyor.</p>
+</blockquote>
+<ol start="5">
+<li><strong>Kampanya adı:</strong> ör. "Ekim 2026 – WhatsApp Sipariş – Kadıköy".</li>
+<li>Kurulum ekranı:<ul>
+<li><strong>Satışlar, Potansiyel müşteriler, Uygulama tanıtımı</strong> seçtiysen Meta 2025'ten beri
+ kampanyayı varsayılan olarak <strong>Advantage+</strong> kurulumuyla açıyor. Bütçe, hedef kitle ve reklam
+ alanları otomatik gelir ve yanlarında <strong>"Advantage+ açık"</strong> etiketi görünür. Yeni
+ başlayan biri için bu ayarları <strong>açık bırakmak</strong> genellikle doğru. İstersen her birini
+ ilgili kartta ayrı ayrı kapatabilirsin.</li>
+<li><code>➜ Farklıysa:</code> "Advantage+ kampanyası mı, manuel kampanya mı?" gibi bir <strong>seçim ekranı</strong>
+ görürsen yeni başlayan için Advantage+ (ya da "Tavsiye edilen") seçeneğini seç. Ekranda
+ hiç seçim yoksa doğrudan aşağıdaki ayarlara geç. Meta bu ekranı hesaplara kademeli
+ açıyor, ikisi de normal.</li>
+</ul>
+</li>
+<li><strong>Bütçe:</strong> <strong>Kampanya bütçesi</strong> (Advantage+ kampanya bütçesi, Meta dağıtır) ya da <strong>Reklam
+    seti bütçesi</strong>. Tek reklam setiyle başlıyorsan fark etmez. Kampanya bütçesini seç →
+    <strong>Günlük bütçe</strong> → tutar (bkz. §5.2).</li>
+<li><strong>A/B testi:</strong> İlk kampanyada kapalı bırak.</li>
+<li><strong>Özel Reklam Kategorileri:</strong> Reklamın <strong>kredi, finansal ürün, sigorta, iş ilanı (istihdam),
+    konut/emlak</strong> ya da <strong>sosyal mesele, seçim, siyaset</strong> ile ilgiliyse buradan kategoriyi ve
+    ülkeyi seç. Bu durumda yaş, cinsiyet gibi hedefleme seçenekleri kısıtlanabilir.
+    Siyasi/sosyal konu reklamları ayrıca <strong>kimlik doğrulama ve yetki</strong> ister. Değilse <strong>boş bırak</strong>.
+    Yanlış beyan reddedilme sebebidir.</li>
+<li>Sağ altta <strong>İleri</strong>'ye tıkla.</li>
+</ol>
+<p>✅ <strong>Kontrol:</strong> Üstteki gezinme çubuğunda (Kampanya → Reklam seti → Reklam) "Reklam seti"
+aktif hale geldi.</p>
+<hr />
+<h2 id="5-yol-b-reklam-seti-ve-reklam-2-ve-3-katman">5. Yol B: REKLAM SETİ ve REKLAM (2. ve 3. katman)</h2>
+<h3 id="51-donusum-konumu-musteri-nereye-gidecek">5.1 Dönüşüm konumu: Müşteri nereye gidecek?</h3>
+<p>Amaca göre şu seçeneklerden biri çıkar:</p>
+<ul>
+<li><strong>İnternet sitesi</strong>: siteye gönder. Satış ölçmek için Piksel gerekir.</li>
+<li>
+<p><strong>Mesajlaşma uygulamaları</strong>: <strong>WhatsApp</strong>, Messenger veya Instagram mesajı.
+  WhatsApp için numaranın Sayfaya bağlı olması gerekir. Bu genellikle <strong>Sayfa ayarları → Bağlı
+  hesaplar → WhatsApp</strong> altında yapılır. Bağlı değilse reklam ekranı seni doğrudan bağlama
+  penceresine yönlendirir. Numaraya gelen doğrulama kodunu gir.</p>
+</li>
+<li>
+<p><strong>Aramalar</strong>: reklamdan doğrudan telefonla arama.</p>
+</li>
+<li><strong>Reklamında</strong>: video izlenmesi ya da gönderi etkileşimi.</li>
+<li><strong>Anında formlar</strong>: Potansiyel müşteriler amacında Facebook içinde form doldurulur.</li>
+<li><strong>Uygulama</strong>: uygulama yüklemesi.</li>
+</ul>
+<p>Altta <strong>Sayfa</strong> seçimi varsa işletme Sayfanı seç. Burada seçtiğin Sayfa ile reklam
+katmanındaki <strong>Kimlik</strong> Sayfası aynı olmalı. Farklı olursa <strong>"Sayfalar eşleşmiyor" (1885029)</strong>
+hatası alırsın.</p>
+<p><code>➜ Farklıysa:</code> <strong>Bilinirlik</strong> amacını seçtiysen dönüşüm konumu bölümü <strong>hiç görünmez</strong>. Bu normal.</p>
+<h3 id="52-butce-ve-plan">5.2 Bütçe ve plan</h3>
+<ul>
+<li>
+<p><strong>Günlük bütçe</strong> ile başla. Meta'nın kuralı: iyi günlerde günlük bütçenin <strong>%75'ine kadar
+  fazlası</strong> harcanabilir. Ama bir günde <strong>%175</strong>'i, bir takvim haftasında (pazar–cumartesi)
+  günlük bütçenin <strong>7 katını</strong> geçmez. Örnek: günlük 100 TL → bazı günler 175 TL, haftada
+  en çok 700 TL (+ %5 konum ücreti + KDV).</p>
+</li>
+<li>
+<p><strong>Başlangıç tarihi:</strong> bugün ya da ileri bir tarih. Reklam gönderildiği an değerlendirmeye
+  girer ama başlangıç tarihine kadar yayınlanmaz.</p>
+</li>
+<li>
+<p><strong>Bitiş tarihi:</strong> İlk test için koy (ör. 7 gün). Unutursan reklam bütçe bitene kadar ya da
+  sen kapatana kadar sürer.</p>
+</li>
+<li>
+<p><strong>Bütçe miktarı için pratik kural (topluluk ve ajans tecrübesi, Meta garantisi değil):</strong>
+  Meta'nın sistemi bir reklam setinin "öğrenme aşamasından" çıkması için haftada yaklaşık <strong>50
+  sonuç</strong> istiyor. Çok düşük bütçede bu olmaz ve durum "Öğrenmeyle sınırlı" kalır. Mesaj veya
+  trafik amaçlı yerel işletme testinde günlük birkaç yüz TL ile 7 gün yaygın bir başlangıç.
+  Ekranın sağındaki <strong>tahmini günlük sonuçlar</strong> kutusu senin hesabına göre tahmin verir.</p>
+</li>
+</ul>
+<h3 id="53-hedef-kitle">5.3 Hedef kitle</h3>
+<ul>
+<li>
+<p><strong>Advantage+ hedef kitle</strong> açık gelir: Meta, verdiğin önerileri başlangıç noktası alıp kitleyi
+  genişletir. Yeni başlayana önerilen budur.</p>
+</li>
+<li>
+<p>Mutlaka kontrol et: <strong>Konumlar</strong> → İşletme yerelse "Türkiye"yi silip <strong>şehir/ilçe</strong> ya da
+  <strong>haritada iğne + km yarıçap</strong> seç (ör. dükkânın etrafında 5–10 km). Ekranda konum türü
+  seçeneği çıkarsa ("bu konumda yaşayan veya yakın zamanda bulunan kişiler" gibi), yerel
+  işletme için bunu tercih et. Bazı hesaplarda bu seçenek hiç görünmez, bu normal.</p>
+</li>
+<li>
+<p><strong>Yaş</strong>: Advantage+ açıkken alt sınır <strong>kontrol</strong> olarak girilir, Meta bunu öneri sayabilir.
+  Kesin sınır gerekiyorsa (ör. 18+ ürün) <strong>Hedef kitle kontrolleri</strong> bölümündeki minimum yaşı kullan.</p>
+</li>
+<li>
+<p><strong>Diller</strong>: Türkçe konuşmayanlara gösterilmesin istiyorsan Türkçe seç.</p>
+</li>
+<li><code>➜ Farklıysa:</code> "Advantage+ hedef kitle" yerine <strong>"Orijinal hedef kitle seçeneklerini kullan"</strong>
+  bağlantısı görürsen o bağlantı manuel moda geçirir: yaş, cinsiyet, detaylı hedefleme (ilgi
+  alanları). Özel Reklam Kategorisi seçtiysen bu alanların bir kısmı <strong>kilitlidir</strong>. Bu normal.</li>
+</ul>
+<h3 id="54-reklam-alanlar">5.4 Reklam alanları</h3>
+<p><strong>Advantage+ reklam alanları</strong> (önerilen): Facebook, Instagram, Messenger ve Audience Network'te
+otomatik. Instagram hesabın bağlı değilse Instagram yine de Sayfa adınla gösterilebilir.
+<strong>Manuel reklam alanları</strong>'nda istemediğin yerleri (ör. Audience Network) kaldırabilirsin.
+İlk kampanyada Advantage+'ı açık bırakmak yeterli.</p>
+<p><strong>İleri</strong>'ye tıkla.</p>
+<h3 id="55-reklam-insanlarn-gorecegi-ksm">5.5 Reklam (insanların göreceği kısım)</h3>
+<p>Meta'nın resmi sırası:</p>
+<ol>
+<li><strong>Reklam adı:</strong> ör. "Kare görsel – Kahvaltı tabağı – WhatsApp".</li>
+<li><strong>Kimlik:</strong> <strong>Facebook Sayfası</strong> ve varsa <strong>Instagram hesabı</strong>. Instagram yoksa <strong>Hesabı
+    bağla</strong>.</li>
+<li><strong>Reklam kurulumu:</strong><ul>
+<li><strong>Reklam oluştur</strong>: sıfırdan reklam (aşağıdaki adımlar).</li>
+<li><strong>Mevcut gönderiyi kullan</strong>: Sayfandaki ya da Instagram'daki bir gönderiyi reklama
+ çevirir. Beğeni ve yorumlar gönderide birikir. <strong>Gönderi seç</strong> → gönderiyi seç →
+ <strong>Devam</strong>. Instagram hikâyesinde yalnız <strong>aktif</strong> hikâyeler seçilebilir, arşiv olmaz.</li>
+<li><strong>Creative Hub taslağını kullan</strong>: önceden hazırlanmış taslak.</li>
+</ul>
+</li>
+<li><strong>Format:</strong> <strong>Tek görsel veya video</strong> (en basiti), <strong>Döngü</strong> (kaydırmalı 2+ kart),
+    <strong>Koleksiyon</strong> (katalog gerekir).</li>
+<li><strong>Reklam kreatifi:</strong> <strong>Kreatif ayarla</strong> / <strong>Medya ekle</strong> → görsel/video yükle →<ul>
+<li><strong>Birincil metin:</strong> ana mesaj. İlk 1–2 satırda teklifi söyle.
+ Örnek: "Kadıköy'de 2 kişilik serpme kahvaltı 650 TL. Hafta içi 09–12. WhatsApp'tan yer ayırt."</li>
+<li><strong>Başlık</strong> (kısa), <strong>Açıklama</strong> (isteğe bağlı)</li>
+<li><strong>Yönlendirme hedefi / URL</strong> (site seçtiysen) ya da WhatsApp (mesaj seçtiysen)</li>
+<li><strong>Eylem çağrısı</strong> düğmesi: <strong>WhatsApp'tan mesaj gönder</strong>, <strong>Daha fazla bilgi al</strong>,
+ <strong>Hemen ara</strong>, <strong>Alışveriş yap</strong> vb.</li>
+</ul>
+</li>
+<li><strong>Advantage+ kreatif iyileştirmeleri / üretken yapay zeka:</strong> Meta görseli kırpabilir, parlaklık
+    ayarlayabilir, metin varyasyonu üretebilir. <strong>Kontrol etmek istiyorsan her
+    iyileştirmeyi tek tek gör ve istemediklerini kapat.</strong> Özellikle yapay zekanın ürettiği
+    metinlerde fiyat ve iddia hatası olabilir.</li>
+<li><strong>Reklam önizlemesi:</strong> sağdaki önizlemede Akış, Hikâyeler ve Reels görünümlerine bak.
+    <strong>Gelişmiş önizleme</strong> ile tüm alanları görürsün. Metin kesiliyorsa kısalt.</li>
+<li>Sağ altta <strong>Yayınla</strong>'ya tıkla. Bu tıklama Meta Hizmet Koşulları, Ticari Koşullar,
+    Self-Servis Reklam Koşulları, İşletme Araçları Koşulları ve <strong>Meta Reklam Standartları</strong>'nı
+    kabul ettiğin anlamına gelir.<ul>
+<li>Henüz hazır değilsen pencereyi kapat. Çalışma <strong>taslak</strong> olarak kalır, sonra yayınlarsın.</li>
+</ul>
+</li>
+</ol>
+<p><code>➜ Farklıysa (Yayınla'ya basınca):</code></p>
+<ul>
+<li><strong>"Ödeme yöntemi ekle" penceresi</strong> → §3.6'yı burada yap. Pencere seni oraya götürür.</li>
+<li>
+<p><strong>"Facebook Sayfası eksik" (1443121)</strong> → Kimlik'te Sayfa seçilmemiş ya da Sayfada reklam
+  yetkin yok (§3.4 adım 4).</p>
+</li>
+<li>
+<p><strong>"Bir sorun oluştu" (1487470)</strong> → tarayıcıyı güncelle, yenile, tekrar dene.</p>
+</li>
+<li><strong>Kırmızı hata noktaları</strong> → sol taraftaki ağaç görünümünde kırmızı işaretli katmana tıkla.
+  Eksik alan orada yazar.</li>
+</ul>
+<p><strong>Görsel kuralları (pratik):</strong></p>
+<ul>
+<li>
+<p>Kare <strong>1080×1080</strong> ve dikey <strong>1080×1920 (9:16)</strong> hazırla. Meta, alanlara göre en boy
+  oranlarını ve minimum pikselleri ayrı makalelerde yayımlıyor (kaynaklar §B).</p>
+</li>
+<li>
+<p>Görselde fazla yazı kullanma. Kural kaldırıldı ama az yazı genelde daha iyi sonuç veriyor.</p>
+</li>
+<li>Logon ve ürünün net görünsün. Başkasının fotoğrafını ya da marka logosunu izinsiz
+  kullanma.</li>
+</ul>
+<hr />
+<h2 id="6-yayndan-sonra-degerlendirme-durumlar-ilk-7-gun">6. Yayından sonra: Değerlendirme, durumlar, ilk 7 gün</h2>
+<h3 id="61-degerlendirme">6.1 Değerlendirme</h3>
+<ul>
+<li>
+<p>Yayınla'dan sonra reklam <strong>otomatik değerlendirmeye</strong> girer. <strong>Çoğu reklam 24 saat içinde</strong>
+  değerlendirilir, bazen daha uzun sürer. Bu süre normal.</p>
+</li>
+<li>
+<p>Durumu Reklam Yöneticisi'nde <strong>Yayın</strong> sütunundan takip et:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Görünen durum</th>
+<th>Anlamı</th>
+<th>Ne yap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Değerlendirmede</strong></td>
+<td>Reklam Standartları'na göre kontrol ediliyor</td>
+<td>Bekle. Düzenleme yapma, süreç baştan başlar</td>
+</tr>
+<tr>
+<td><strong>Aktif</strong></td>
+<td>Yayında</td>
+<td>İzle (§6.3)</td>
+</tr>
+<tr>
+<td><strong>Öğreniyor</strong></td>
+<td>Sistem en iyi yayın yolunu arıyor. Maliyet dalgalı</td>
+<td>Bu sırada önemli düzenleme yapma</td>
+</tr>
+<tr>
+<td><strong>Öğrenmeyle sınırlı</strong></td>
+<td>Haftada yeterli sonuç (≈50) yok</td>
+<td>Bütçeyi artır, kitleyi genişlet, reklam setlerini birleştir ya da daha sık gerçekleşen bir sonuca optimize et</td>
+</tr>
+<tr>
+<td><strong>İşlem sürüyor</strong></td>
+<td>Değişikliğin uygulanıyor. Birkaç dakika, en fazla 8 saat</td>
+<td>Bekle</td>
+</tr>
+<tr>
+<td><strong>Planlandı</strong></td>
+<td>Başlangıç tarihi gelecekte</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Reddedildi</strong></td>
+<td>Standartlara uymadığı düşünüldü</td>
+<td>§6.2</td>
+</tr>
+<tr>
+<td><strong>Reklam yok / Reklamlar kapalı</strong></td>
+<td>Kampanya açık ama altındaki set veya reklam kapalı</td>
+<td>Mavi düğmeleri aç</td>
+</tr>
+<tr>
+<td><strong>Tamamlandı</strong></td>
+<td>Bitiş tarihi geçti</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Kırmızı <strong>HATA</strong> simgesi</td>
+<td>İlgilenmen gereken sorun var, yayın yok</td>
+<td>Simgenin üzerine gel, sebep yazar</td>
+</tr>
+<tr>
+<td>Sarı <strong>UYARI</strong> simgesi</td>
+<td>Sınırlı yayın</td>
+<td>Öneriyi oku</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Yeniden değerlendirmeyi başlatan değişiklikler:</strong> hedefleme, kreatif (görsel, metin, bağlantı,
+video), optimizasyon, fatura olayı. <strong>Başlatmayanlar:</strong> bütçe, teklif tutarı, plan. Bütçeyi
+değiştirmek reklamı yeniden incelemeye sokmaz. Ama büyük bütçe değişiklikleri öğrenme
+aşamasını sıfırlayabilir.</p>
+<h3 id="62-reklam-reddedilirse">6.2 Reklam reddedilirse</h3>
+<p>Sana e-posta gelir. Sebep <strong>İşletme Desteği Ana Sayfası</strong>'nda yazar
+(<strong><a href="https://www.facebook.com/business-support-home">https://www.facebook.com/business-support-home</a></strong>). Seçeneklerin:</p>
+<ol>
+<li><strong>Düzenle ve yeniden gönder:</strong> Sorunlu görseli, metni ya da açılış sayfasını düzelt. Reklam
+    otomatik olarak tekrar değerlendirilir.</li>
+<li><strong>Değerlendirme talep et</strong> (hata olduğunu düşünüyorsan): İşletme Desteği Ana Sayfası →
+    reddedilen reklamın bulunduğu hesap → reklamı seç → <strong>Değerlendirme talep et</strong> → <strong>Gönder</strong>.
+    Meta <strong>48 saat içinde</strong> karar vermeyi hedefliyor. Talep etmek itibarına zarar vermez.
+    İkinci kez reddedilirse aynı reklam için tekrar talep edemezsin.</li>
+<li>⚠️ <strong>Reddedilen reklamı silme.</strong> Silersen yeniden değerlendirme hakkını kaybedebilirsin.
+    Düzenlemek ya da silmek ihlali hesaptan kaldırmaz. Aynı reklamı hiç değiştirmeden
+    kopyalayıp tekrar göndermek genelde yine red getirir. Tekrarlayan ihlaller hesap
+    kısıtlamasına gider.</li>
+</ol>
+<p><strong>En sık red sebepleri (Meta Reklam Standartları özeti):</strong> Kişisel özelliklere hitap etmek
+("Kilolu musun?", "Borçlu musun?"), abartılı ya da yanıltıcı vaatler ("garantili", "1 haftada
+10 kilo"), önce/sonra görselleri, yasaklı veya kısıtlı ürünler (tütün, silah, reçeteli ilaç,
+yetişkin içerik, kumar; alkol, takviye, kripto ve finans ise kısıtlı ve ek kurallara tabi),
+çalışmayan veya reklamla uyuşmayan açılış sayfası, başkasının markasını izinsiz kullanmak. Tam
+liste: <strong><a href="https://transparency.meta.com/policies/ad-standards/">https://transparency.meta.com/policies/ad-standards/</a></strong></p>
+<h3 id="63-ilk-7-gun-nasl-izlenir">6.3 İlk 7 gün nasıl izlenir?</h3>
+<ul>
+<li>
+<p><strong>İlk 7 gün önemli düzenleme yapma.</strong> Meta'ya göre öğrenme aşaması genelde son önemli
+  düzenlemeden sonra haftada 50 sonuçla biter. Düzenleme öğrenmeyi sıfırlar.</p>
+</li>
+<li>
+<p>Reklam Yöneticisi'nde kampanya satırında <strong>Sonuçlar</strong>, <strong>Sonuç başına ücret</strong>, <strong>Harcanan tutar</strong>,
+  <strong>Erişim</strong>, <strong>Gösterimler</strong>, <strong>Bağlantı tıklamaları / Mesajlaşma konuşması başlatıldı</strong>
+  sütunlarına bak. <strong>Sütunlar</strong> menüsünden ekleyip çıkarabilirsin.</p>
+</li>
+<li>
+<p>Reklam Yöneticisi'ndeki tıklama ve gösterim sayısı ile faturadaki <strong>ücretlendirilen</strong> sayı
+  farklı olabilir. Meta bunu normal sayıyor.</p>
+</li>
+<li>
+<p><strong>Durdurmak:</strong> Reklam, set ya da kampanya satırındaki mavi düğmeyi kapat (gri olur). Silmek
+  yerine kapatmak geçmiş veriyi korur.</p>
+</li>
+<li>
+<p><strong>Karşılaştırma:</strong> 7 gün sonra en iyi reklamı bırak, kötüyü kapat, yeni görsel ekle
+  (Meta öneriyor: çok sayıda benzer reklam seti yerine az sayıda, yeterli bütçeli set).</p>
+</li>
+<li>
+<p>Rakiplerin hangi reklamları verdiğini görmek için <strong>Reklam Kütüphanesi</strong>:
+  <strong><a href="https://www.facebook.com/ads/library/">https://www.facebook.com/ads/library/</a></strong></p>
+</li>
+</ul>
+<hr />
+<h2 id="7-yol-a-sayfadan-gonderiyi-one-ckar-en-hzl-yol">7. Yol A: Sayfadan "Gönderiyi öne çıkar" (en hızlı yol)</h2>
+<p>Meta'nın resmi adımları (bilgisayar):</p>
+<ol>
+<li>Facebook'a giriş yap → sağ üstte profil resmine tıkla → <strong>Sayfana geçiş yap</strong>.</li>
+<li>Soldaki <strong>Reklam merkezi</strong> → <strong>Reklam ver</strong> → <strong>Facebook içeriğini öne çıkar</strong>.</li>
+<li>Öne çıkarmak istediğin gönderide <strong>Gönderiyi öne çıkar</strong>.</li>
+<li>Ayarlar: <strong>Hedef</strong> (Meta'nın seçmesine izin ver ya da mesaj, ziyaret, etkileşim seç) →
+    <strong>Hedef kitle</strong> (Advantage+ önerisi ya da <strong>Yeni hedef kitle oluştur</strong>: yaş, konum, ilgi
+    alanı) → <strong>Süre</strong> → <strong>Günlük bütçe</strong> → <strong>Reklam alanları</strong> → <strong>Özel Reklam Kategorisi</strong>
+    (gerekiyorsa aç) → <strong>Ödeme yöntemi</strong>.</li>
+<li><strong>Yayınla</strong> / <strong>Öne Çıkar</strong>. Değerlendirme ve onaydan sonra yayına başlar.</li>
+</ol>
+<p>Kısayol: Sayfandaki gönderinin altındaki <strong>Gönderiyi öne çıkar</strong> butonu da aynı ekranı açar.</p>
+<p><code>➜ Farklıysa (buton gri, "Öne çıkarılamıyor"):</code> İmleci yazının üzerine getir, sebep yazar.
+Meta'nın listesindeki sebepler:</p>
+<ul>
+<li>
+<p><strong>Kapak fotoğrafı ya da profil resmi</strong> öne çıkarılamaz → aynı fotoğrafı <strong>yeni gönderi</strong>
+  olarak paylaş, onu öne çıkar.</p>
+</li>
+<li>
+<p><strong>Taslak / yayınlanmamış</strong> gönderi → önce yayınla.</p>
+</li>
+<li>
+<p><strong>Paylaşılan gönderi</strong> (başkasının içeriği), süresi geçmiş gönderi, Facebook tıklama kimliği
+  (fbclid) içeren bağlantı → yeni gönderi yap, bağlantıyı temiz yapıştır.</p>
+</li>
+<li>
+<p>Sayfada <strong>reklam yetkin yok</strong>, <strong>reklam hesabın kapalı</strong> ya da <strong>ödeme yöntemin devre dışı</strong> →
+  §3.4, §10.</p>
+</li>
+<li>
+<p>Gönderi <strong>Reklam Standartları</strong>'na aykırı → içeriği değiştir.</p>
+</li>
+</ul>
+<p>Öne çıkarmanın sınırları: Amaç ve hedef kitle seçenekleri daha az, ölçüm zayıf. Sonuçlar
+yine Reklam Yöneticisi'nde görünür ve düzenlenebilir. Topluluk ve ajans deneyimi, ciddi
+bütçede Reklam Yöneticisi'ni (Yol B) öneriyor.</p>
+<hr />
+<h2 id="8-yol-c-sadece-telefon-varsa">8. Yol C: Sadece telefon varsa</h2>
+<ul>
+<li>
+<p><strong>Meta Business Suite</strong> uygulaması (Android/iOS): Ana sayfada <strong>Reklam oluştur</strong> / <strong>Öne çıkar</strong>.
+  Sayfa ve Instagram gönderilerini öne çıkarır. Akış Yol A'ya benzer.</p>
+</li>
+<li>
+<p><strong>Meta Reklam Yöneticisi</strong> uygulaması: kampanya izleme, açma ve kapama, bütçe değiştirme,
+  <strong>Ayarlar → reklam hesabı → Faturalar ve ödemeler → Mevcut bakiye → Para ekle</strong>.</p>
+</li>
+<li>
+<p><strong>Instagram uygulaması</strong>: profesyonel hesapta gönderinin altında <strong>Öne çıkar</strong>. Facebook
+  hesabı olmadan da ilk öne çıkarma yapılabiliyor ama reklam hesabının özelliklerinden
+  yararlanılamıyor.</p>
+</li>
+<li>
+<p>⚠️ <strong>iPhone/iPad uygulamalarından ödeme ya da bakiye yükleme yapma.</strong> Apple hizmet ücreti
+  (%30'a kadar) eklenebiliyor. Ödemeyi telefonun <strong>tarayıcısından</strong>
+  (business.facebook.com/billing_hub) yap.</p>
+</li>
+<li>
+<p>Telefonda tam kampanya kurmak zor ve bazı seçenekler görünmüyor. Mümkünse ilk kurulumu bir
+  bilgisayardan yap.</p>
+</li>
+</ul>
+<hr />
+<h2 id="9-para-ne-kadar-odeyecegim-nereden-takip-edecegim">9. Para: Ne kadar ödeyeceğim, nereden takip edeceğim?</h2>
+<ul>
+<li>
+<p><strong>Ne zaman ücret alınır:</strong> Meta açık artırma sistemi kullanır. Aksi belirtilmedikçe
+  <strong>gösterim</strong> başına ücretlendirir. Bütçeyi sen belirlersin. Meta genelde bütçeyi aşmaz
+  (günlük esneklik için bkz. §5.2).</p>
+</li>
+<li>
+<p><strong>Toplam maliyet:</strong> reklam harcaması + <strong>%5 konum ücreti</strong> (Türkiye kitlesi) + <strong>KDV</strong>
+  (vergi numarası yoksa) + varsa <strong>Apple ücreti</strong> + bankanın kendi ücretleri.</p>
+</li>
+<li>
+<p><strong>Takip:</strong> Reklam Yöneticisi'nde <strong>Harcanan tutar</strong> sütunu. Tüm ücretler, vergiler ve
+  faturalar <strong>Faturalar ve ödemeler → Ödeme hareketleri</strong>'nde. Faturayı oradan indirip mali
+  müşavirine ver.</p>
+</li>
+<li>
+<p><strong>Hesap harcama sınırı</strong> (sen koyarsın): Ödeme ayarlarından tüm hesaba üst sınır
+  koyabilirsin. Sınıra ulaşınca bütün reklamlar durur. İlk aylarda güvenlik için iyi bir fikir.</p>
+</li>
+<li>
+<p><strong>Tanımadığın bir çekim varsa:</strong> Önce reklam hesabını paylaştığın kişilere sor. Sonra
+  <strong>Faturalar ve ödemeler</strong>'de hareketi incele ve İşletme Desteği Ana Sayfası'ndan bildir.
+  Hesabın ele geçirildiğinden şüpheleniyorsan §11'e bak.</p>
+</li>
+</ul>
+<hr />
+<h2 id="10-sorun-giderme-tablosu-belirti-sebep-cozum">10. Sorun giderme tablosu (belirti → sebep → çözüm)</h2>
+<table>
+<thead>
+<tr>
+<th>Belirti / mesaj</th>
+<th>Muhtemel sebep</th>
+<th>Ne yap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"Reklam hesabın kısıtlandı / devre dışı bırakıldı"</strong></td>
+<td>Politika ihlali şüphesi, ödeme sorunu, olağandışı hareket, kimlik</td>
+<td>Bilgisayardan <strong>İşletme Desteği Ana Sayfası</strong> → <strong>Hesaba Genel Bakış</strong> → kısıtlı hesap → <strong>Neler yapabilirsin?</strong> adımları: kimliğini onayla, doğrulamayı tamamla, hesabı güvenceye al, <strong>değerlendirme talep et</strong> (hesapta yönetici olmalısın). Politika nedeniyle kapanan ve 6 ay içinde açılmayan hesapta kullanılmamış ön ödeme kaybedilebilir. Yeni hesap açıp aynı reklamı tekrar vermek kısıtlamayı aşmaya çalışmak sayılır, yapma.</td>
+</tr>
+<tr>
+<td>İlk gün, ilk reklamda hesap kapandı</td>
+<td>Yeni hesaplarda güvenlik sistemleri sert çalışıyor (topluluk raporları: farklı ülkeden kart ya da ortak, yeni ve boş profil, VPN)</td>
+<td>Kendi ülkenin kartını kullan, VPN kapat, 2FA aç, Sayfayı doldur, sonra itiraz et.</td>
+</tr>
+<tr>
+<td><strong>Ödeme başarısız, reklamlar durdu</strong></td>
+<td>Kartta limit yok, kart internet işlemine kapalı, süresi geçmiş</td>
+<td><strong>Faturalar ve ödemeler</strong> → hesap → <strong>Ödeme yöntemleri</strong> → <strong>Şimdi öde</strong> (ya da bakiyeli hesapta <strong>Para ekle</strong>). Borç ödenince reklamlar yeniden başlar.</td>
+</tr>
+<tr>
+<td>Borcu ödedim, reklam hâlâ durmuş</td>
+<td><strong>Günlük harcama sınırı</strong>na ulaşıldı</td>
+<td><strong>Ödeme ayarları → Mevcut bakiye</strong>'de sınırı gör. Ertesi gün açılır. Sınır geçmiş oluştukça artar.</td>
+</tr>
+<tr>
+<td><strong>1359188</strong> ödeme hatası</td>
+<td>Ödeme yöntemi eklenemedi</td>
+<td>§3.6 kontrol listesi</td>
+</tr>
+<tr>
+<td><strong>"Sayfalar eşleşmiyor" (1885029)</strong></td>
+<td>Reklam setindeki Sayfa ile reklamdaki Kimlik Sayfası farklı</td>
+<td>İkisini aynı Sayfa yap</td>
+</tr>
+<tr>
+<td><strong>"Facebook Sayfası eksik" (1443121)</strong></td>
+<td>Sayfa seçilmemiş ya da Sayfada reklam iznin yok</td>
+<td>Kimlik'te Sayfa seç, §3.4 adım 4</td>
+</tr>
+<tr>
+<td><strong>"Tanıtım objesi bulunamadı" (1815430 / 1487790)</strong></td>
+<td>Site/uygulama dönüşümü seçildi ama Piksel ya da olay yok</td>
+<td>Pikseli kur (§3.7) ya da dönüşüm konumunu değiştir</td>
+</tr>
+<tr>
+<td><strong>"Bir sorun oluştu" (1487470)</strong></td>
+<td>Tarayıcı uyumsuzluğu, geçici hata</td>
+<td>Tarayıcıyı güncelle, yenile, başka tarayıcı dene</td>
+</tr>
+<tr>
+<td><strong>"Reklama ulaşılamıyor" (2446289)</strong> / reklam yayında takıldı</td>
+<td>Geçici</td>
+<td><strong>Kampanyalar</strong> ve <strong>Reklam setleri</strong> sekmelerine tıkla, yenile, tarayıcıyı yeniden başlat, sürerse destek</td>
+</tr>
+<tr>
+<td><strong>"Desteklenmeyen reklam türü / kaldırılan gönderi"</strong></td>
+<td>Mevcut gönderi silinmiş ya da formatı uygun değil</td>
+<td>Yeni gönderi seç ya da <strong>Reklam oluştur</strong></td>
+</tr>
+<tr>
+<td>Eylem çağrısı düğmesi seçilemiyor</td>
+<td>Gönderinin mevcut düğmesi ya da amaç uyumsuz</td>
+<td>Amaca uygun düğmeyi seç, gerekirse <strong>Reklam oluştur</strong>'la yeni kreatif yap</td>
+</tr>
+<tr>
+<td>Reklam "Aktif" ama hiç gösterim yok</td>
+<td>Bütçe çok düşük, kitle çok dar, başlangıç tarihi gelecekte, hesap harcama sınırı doldu</td>
+<td>Bütçeyi ve kitleyi genişlet, tarihleri kontrol et, birkaç saat bekle</td>
+</tr>
+<tr>
+<td><strong>Öğrenmeyle sınırlı</strong></td>
+<td>Yeterli sonuç yok</td>
+<td>§6.1 tablosu</td>
+</tr>
+<tr>
+<td>Faturada bütçeden fazla tutar</td>
+<td>Günlük esneklik (%75), dönem içindeki tüm reklamlar, konum ücreti, KDV</td>
+<td>§5.2, §9</td>
+</tr>
+<tr>
+<td>Önce onaylandı, sonra reddedildi</td>
+<td>Reklamlar yayında da yeniden değerlendirilebiliyor</td>
+<td>§6.2</td>
+</tr>
+<tr>
+<td>"Reklam hesabı oluşturamıyorum"</td>
+<td>Portfolyo sınırı (yeni portfolyoda 1)</td>
+<td>İlk hesapla kampanya yayınla ve ödeme yap. Sınır 3'e çıkar.</td>
+</tr>
+<tr>
+<td>Sayfada <strong>Reklam merkezi</strong> yok ya da öne çıkar görünmüyor</td>
+<td>Sayfa erişimin "Facebook erişimi/Reklamlar" görevini içermiyor. Profil olarak, Sayfa olarak değil, gezinmektesin</td>
+<td>Sayfaya geç, erişimini kontrol et</td>
+</tr>
+<tr>
+<td>2FA kodu gelmiyor / giriş yapamıyorum</td>
+<td>Telefon değişti</td>
+<td>Kurtarma kodları. <strong><a href="https://www.facebook.com/hacked">https://www.facebook.com/hacked</a></strong></td>
+</tr>
+<tr>
+<td>Yardım: canlı destek</td>
+<td>—</td>
+<td>İşletme Desteği Ana Sayfası → sayfa altında <strong>Destek ekibiyle iletişime geç</strong> (bazı hesaplarda sohbet, bazılarında e-posta çıkar)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-guvenlik-ve-dolandrclk-uyars-onemli">11. Güvenlik ve dolandırıcılık uyarısı (ÖNEMLİ)</h2>
+<ul>
+<li>
+<p><strong>"Sayfanız 24 saat içinde kapatılacak, itiraz için tıklayın"</strong> gibi Messenger mesajları ve
+  e-postalar yaygın bir oltalama (phishing) yöntemi. Kaspersky ve başka güvenlik firmaları,
+  bunların Meta'nın gerçek altyapısı üzerinden bile gönderilebildiğini raporladı.
+  <strong>Hiçbir bağlantıya tıklama.</strong> Hesap durumunu her zaman kendin
+  <strong>business.facebook.com</strong> ya da <strong>İşletme Desteği Ana Sayfası</strong>'na adresi yazarak gir ve
+  orada kontrol et.</p>
+</li>
+<li>
+<p>Meta sana DM ile şifre ya da kart bilgisi sormaz.</p>
+</li>
+<li>
+<p>Ajansa ya da çalışana <strong>şifreni verme</strong>. Portfolyoya <strong>kişi ya da ortak olarak ekle</strong>, sadece
+  gereken varlığa ve gereken yetkiyle (Meta'nın önerisi: tam kontrolü sınırlı kişiye ver, en az
+  2 güvenilir kişi tam kontrolde olsun, 90 gündür girmeyen kişileri çıkar).</p>
+</li>
+<li>
+<p>Şikâyetvar gibi platformlarda en sık rastlanan mağduriyetler: ele geçirilen hesaptan izinsiz
+  reklam harcaması ve durdurulduğu sanılan reklam için çekim. Önlem: 2FA, <strong>hesap harcama
+  sınırı</strong>, durdurmanın gerçekten gri düğmeyle yapıldığını kontrol etmek, kartın SMS
+  bildirimlerini açık tutmak.</p>
+</li>
+</ul>
+<hr />
+<h2 id="12-bu-klavuzda-dogrulananlar-ve-dogrulanamayanlar">12. Bu kılavuzda doğrulananlar ve doğrulanamayanlar</h2>
+<p><strong>Doğrulandı (3 Ekim 2026):</strong> Menü adları, adım sıraları, 6 amaç, ödeme düzenleri, değerlendirme
+süresi (çoğu 24 saat), itirazın 48 saat hedefi, günlük bütçenin %75 / 7 kat kuralı, öğrenme
+aşaması (≈50 sonuç/hafta), portfolyo sınırları (2 portfolyo, yeni portfolyoda 1 reklam hesabı),
+%5 Türkiye konum ücreti, öne çıkarma ve hata kodları. Hepsi Meta Business Yardım Merkezi'nin
+Türkçe sayfalarından okundu. Bağlantılar ve kanıt tablosu <code>kaynaklar.md</code> ve
+<code>kabul-dogrulamasi.md</code> dosyalarında.</p>
+<p><strong>Doğrulanamadı / sana kalan:</strong></p>
+<ul>
+<li>
+<p><strong>Canlı reklam yayını yapılmadı.</strong> Bunun için senin Facebook hesabın, kimliğin ve kartın
+  gerekiyor. Bu kılavuz senin adına hesap açmaz, para harcamaz.</p>
+</li>
+<li>
+<p>Meta'nın "reklam seti nasıl kurulur" Türkçe makalesine verdiği bağlantı, araştırma günü
+  Meta'nın kendi sayfasında kırık çıktı (<code>help/XXXXX</code>). §5'teki reklam seti adımları Meta'nın
+  diğer resmi makalelerinden (dönüşüm konumları, bütçe, planlama, öğrenme) ve güncel üçüncü
+  taraf rehberlerden derlendi.</p>
+</li>
+<li>
+<p>Hesabına özel olanlar: minimum bakiye tutarı, günlük harcama sınırın, hangi Advantage+
+  ekranının çıkacağı, bankanın kartı kabul edip etmeyeceği. Bunlar ancak senin ekranında
+  görünür.</p>
+</li>
+<li>
+<p>KDV ve vergi uygulaması için <strong>mali müşavir</strong> onayı al.</p>
+</li>
+</ul>
+<hr />
+<h2 id="13-yayndan-once-son-kontrol-listesi">13. Yayından önce son kontrol listesi</h2>
+<ul>
+<li class="kutu">☐ 2FA açık, kurtarma kodları kayıtlı</li>
+<li class="kutu">☐ Sayfa dolu (logo, kapak, iletişim, 2–3 gönderi)</li>
+<li class="kutu">☐ Reklam hesabı: <strong>TRY</strong>, <strong>Europe/Istanbul</strong></li>
+<li class="kutu">☐ Ödeme yöntemi ekli / bakiye yüklü. İşletme ve vergi bilgileri girili</li>
+<li class="kutu">☐ Hesap harcama sınırı konuldu (isteğe bağlı ama önerilir)</li>
+<li class="kutu">☐ Amaç işletme hedefine uygun (§4 tablo)</li>
+<li class="kutu">☐ Dönüşüm konumu doğru (WhatsApp bağlı / site açılıyor / telefon doğru)</li>
+<li class="kutu">☐ Konum: dükkânın çevresi ya da hizmet verilen şehirler</li>
+<li class="kutu">☐ Bütçe ve <strong>bitiş tarihi</strong> belli</li>
+<li class="kutu">☐ Görsel net. Metinde fiyat ve teklif doğru, abartılı vaat yok</li>
+<li class="kutu">☐ Reklam setindeki Sayfa = Kimlik'teki Sayfa</li>
+<li class="kutu">☐ Önizlemede Akış ve Hikâye/Reels görünümü kontrol edildi</li>
+<li class="kutu">☐ Yayınla → 24 saat içinde <strong>Yayın</strong> sütununu kontrol et → 7 gün dokunma</li>
+</ul></body></html>
