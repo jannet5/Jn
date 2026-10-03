@@ -84,3 +84,10 @@ Ayrıntı: `kabul/README.md` ve üç rapor.
 | K3 kanıtsız kesin neden yok | Gerçek veriyle gösterildi + birim test | `kabul/README.md`, `test_kanitsiz_kesin_neden_yok` |
 
 Kullanıcıdan gereken gerçek girdi: telefon bağlıyken `python reboot_teshis.py hepsi --cikti kayit1` → `kayit1/rapor.md` (+ isterse tüm `kayit1` klasörü) ve Güvenli Mod sonucu.
+
+## 8. Kalıcı teslim ve geri okuma
+- Dal `claude/busy-ritchie-3w6er3` push edildi; `git fetch` sonrası uzak = yerel `86e3d94`; uzaktan `git archive` ile çıkarılan kopyada testler yeniden çalıştırıldı → OK.
+- Özel ZIP (yalnız bulut scratchpad'de, depoya eklenmedi): `telefon-reboot-teshis-teslim.zip`, 21 dosya, kaynak sohbet metni içermez (metin araması 0 eşleşme).
+  SHA-256 `676ae807def84d032bcbd7c8bf5d18fb64a27585d1d648e43210bb4d1ff2ce74` — `sha256sum -c` OK; ZIP açılıp testler çalıştırıldı → OK.
+  (ZIP bu bölüm eklenmeden önceki `86e3d94` içeriğinden üretildi.)
+- Emülatör iş bitince kapatıldı.
