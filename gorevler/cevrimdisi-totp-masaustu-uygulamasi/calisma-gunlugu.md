@@ -144,3 +144,17 @@ Windows kabulünü ayrı yaz. Yalnız bu klasörde çalışıldı; geçmiş sili
 Wine kabulü yapıldı (yukarıdaki tablo). Native Windows 10/11 kabulü **yapılmadı**: gerçek DPAPI, SmartScreen, Win+V pano
 geçmişi ve gerçek pencere yöneticisi davranışı Wine ile kanıtlanmaz. Gerekli girdi: kullanıcının Windows makinesinde
 `README.md` → “B) Native Windows 10/11 kabulü” 10 adımı.
+
+### Teslim doğrulaması (1.0.1)
+| Öğe | Değer |
+|---|---|
+| Kaynak commit | `686c7e1` (exe'ye giren `totp_masaustu.py` bu commit'tekiyle bayt bayt aynı) |
+| ZIP | `CevrimdisiTOTP-1.0.1-teslim.zip` (14 073 762 bayt), sohbete dosya olarak gönderildi; public depoya konmadı |
+| ZIP SHA-256 | `ff677a0f649c54dd4a3ca10eaa5a950277a944d63407c99bd5391918ec59d34d` |
+| `CevrimdisiTOTP.exe` SHA-256 | `251ef68dbf4cb6b5c7e350c8e3fd7b521eaaa0dbde97682b9412da6a7b6017df` |
+| `totp_masaustu.py` SHA-256 | `043f07e90b1d81b68e0b94d8adad917268eacd12596791e409d1493ed2ca874d` |
+| Geri okuma | ZIP `sha256sum -c`: OK · `unzip -t`: hata yok · iç `SHA256SUMS.txt`: 1019/1019 OK |
+| Uzak dal ↔ ZIP | `git fetch` sonrası uzak daldaki 41 dosyanın her biri ZIP'teki `proje/` kopyasıyla SHA-256 eşit (fark 0) |
+| Çıkarılan exe | Wine'da açıldı: `Kasa: Windows.WinVaultKeyring · çevrimdışı`; WM_CLOSE ile kapandı |
+| Gizlilik | Çıkarılan içerikte kaynak sohbet ifadeleri arandı: eşleşme yok |
+| 1.0.0 paketi | Yerini 1.0.1 aldı; 1.0.0 ZIP'i (`cf1ba0b7…`) inceleme bulgularını içerir, kullanılmamalı |
