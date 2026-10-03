@@ -6,18 +6,24 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.IBinder
+import android.os.PowerManager
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.ServiceCompat
 import com.jn.oynatici.MainActivity
 import com.jn.oynatici.data.Tur
+import com.jn.oynatici.data.Zaman
 import com.yausername.youtubedl_android.YoutubeDL
 import com.yausername.youtubedl_android.YoutubeDLRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -27,6 +33,8 @@ class IndirmeServisi : Service() {
     private val kapsam = CoroutineScope(SupervisorJob() + Dispatchers.IO) // arka plan iş kapsamı
     @Volatile private var calisiyor = false // döngü çalışıyor mu
     private var sonBildirim = 0L // bildirimi çok sık güncellememek için
+    private var uyanikKilit: PowerManager.WakeLock? = null // ekran kapanınca işlemci uyumasın (dönüştürme durmasın)
+    private var wifiKilit: WifiManager.WifiLock? = null // ekran kapanınca Wi-Fi yavaşlamasın
 
     override fun onBind(intent: Intent?): IBinder? = null // bağlanma yok
 
@@ -47,6 +55,7 @@ class IndirmeServisi : Service() {
 
     // Sıradaki işleri bitene kadar sırayla indir
     private suspend fun dongu() {
+        uyanikTut(true) // indirme/dönüştürme bitene kadar telefon uyumasın
         try {
             Motor.hazirla(this) // yt-dlp ve ffmpeg hazır olsun
             Motor.guncelle(this) // yt-dlp'yi güncel tut (günde bir)
@@ -66,6 +75,7 @@ class IndirmeServisi : Service() {
                 if (IndirmeMerkezi.siradaki() != null) { // tam bu arada yeni iş geldiyse
                     kapsam.launch { dongu() } // döngüye devam et
                 } else {
+                    uyanikTut(false) // artık uyanık tutmaya gerek yok
                     calisiyor = false // döngü bitti
                     ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE) // bildirimi kaldır
                     stopSelf() // servisi kapat
@@ -81,20 +91,39 @@ class IndirmeServisi : Service() {
         val oncekiler = isi.hedef.walkTopDown().map { it.path }.toSet() // indirme öncesi dosyalar
         val gecici = File(cacheDir, "ytdl/${isi.id}").apply { mkdirs() } // ara dosyalar için geçici klasör
         var listeBilgi = "" // "3/20" gibi
+        var yuzdeSon = 0f // son indirme yüzdesi
+        var asama = "" // indirme sonrası aşama ("MP3'e dönüştürülüyor" gibi), boşsa indirme sürüyor
+        var asamaBas = System.currentTimeMillis() // aşamanın başladığı an (geçen süreyi göstermek için)
+        // Her saniye ekranı güncelle: dönüştürme sırasında yt-dlp hiç yazı vermediği için süre sayacı gösterilir, donmuş sanılmasın
+        val sayac = kapsam.launch {
+            while (isActive) {
+                val gecen = Zaman.yaz(System.currentTimeMillis() - asamaBas) // aşamada geçen süre
+                val bilgi = when {
+                    asama.isNotEmpty() -> "$asama… $gecen" // "MP3'e dönüştürülüyor… 0:12"
+                    yuzdeSon >= 99.9f -> "İndirme bitti, hazırlanıyor… $gecen" // %100 oldu, sıradaki aşama başlıyor
+                    yuzdeSon > 0f -> "%${yuzdeSon.toInt()} indirildi" // indirme sürüyor
+                    else -> "Bilgiler alınıyor… $gecen" // başlangıç
+                }
+                IndirmeMerkezi.guncelle(isi.id) { if (it.durum == Durum.INIYOR) it.copy(yuzde = yuzdeSon, bilgi = listeBilgi + bilgi) else it } // ekran
+                bildirimGuncelle(listeBilgi + bilgi, yuzdeSon) // bildirim
+                delay(1000) // bir saniye bekle
+            }
+        }
         try {
             YoutubeDL.getInstance().execute(istekOlustur(isi, gecici), isi.id) { yuzde, _, satir -> // indirmeyi başlat
                 Regex("""Downloading item (\d+) of (\d+)""").find(satir)?.let { listeBilgi = "${it.groupValues[1]}/${it.groupValues[2]} · " } // liste sırası
-                Regex("""Destination: (.+)$""").find(satir)?.let { m -> // inen dosyanın adı
+                Regex("""\[download] Destination: (.+)$""").find(satir)?.let { m -> // yeni bir dosyanın indirmesi başladı
                     IndirmeMerkezi.guncelle(isi.id) { it.copy(baslik = File(m.groupValues[1]).nameWithoutExtension) } // başlık olarak göster
+                    asama = ""; yuzdeSon = 0f; asamaBas = System.currentTimeMillis() // indirme aşamasına dön
                 }
-                val bilgi = when {
-                    satir.contains("[ExtractAudio]") -> "MP3'e dönüştürülüyor…" // mp3 dönüştürme aşaması
-                    satir.contains("[Merger]") -> "Ses ve görüntü birleştiriliyor…" // birleştirme aşaması
-                    yuzde > 0 -> "%${yuzde.toInt()} indirildi" // indirme aşaması
-                    else -> "Bilgiler alınıyor…" // başlangıç
+                when {
+                    satir.startsWith("[ExtractAudio]") -> { asama = "MP3'e dönüştürülüyor"; asamaBas = System.currentTimeMillis() } // mp3 dönüştürme
+                    satir.startsWith("[Merger]") -> { asama = "Ses ve görüntü birleştiriliyor"; asamaBas = System.currentTimeMillis() } // birleştirme
+                    asama.isEmpty() && Regex("""^\[download]\s+[\d.]+%""").containsMatchIn(satir) -> { // indirme ilerleme satırı ("[download]  42.0% of ...")
+                        if (yuzde >= 99.9f && yuzdeSon < 99.9f) asamaBas = System.currentTimeMillis() // %100 olduğu an
+                        yuzdeSon = yuzde.coerceIn(0f, 100f) // yüzdeyi kaydet
+                    }
                 }
-                IndirmeMerkezi.guncelle(isi.id) { it.copy(yuzde = yuzde.coerceIn(0f, 100f), bilgi = listeBilgi + bilgi) } // ekranı güncelle
-                bildirimGuncelle(listeBilgi + bilgi, yuzde) // bildirimi güncelle
             }
             IndirmeMerkezi.guncelle(isi.id) { it.copy(durum = Durum.BITTI, yuzde = 100f, bilgi = "İndirildi") } // başarılı
             return true // tamam
@@ -112,6 +141,7 @@ class IndirmeServisi : Service() {
             IndirmeMerkezi.guncelle(isi.id) { it.copy(durum = Durum.HATA, bilgi = hataMetni(e.message ?: "")) } // hata göster
             return true // vazgeç
         } finally {
+            sayac.cancel() // saniye sayacını durdur
             gecici.deleteRecursively() // geçici dosyaları sil
             IndirmeMerkezi.bitti() // ekran listeyi yenilesin
         }
@@ -144,6 +174,23 @@ class IndirmeServisi : Service() {
             val sirala = if (isi.kalite != null) "res:${isi.kalite},vcodec:h264,acodec:aac" else "res,vcodec:h264,acodec:aac" // kalite sınırı, telefon dostu kodek
             addOption("-S", sirala) // format seçim sırası
             addOption("--merge-output-format", "mp4") // her telefonda açılan MP4
+        }
+    }
+
+    // İndirme sürerken işlemciyi ve Wi-Fi'ı uyanık tut; bitince bırak
+    @Suppress("DEPRECATION")
+    private fun uyanikTut(ac: Boolean) {
+        if (ac) {
+            if (uyanikKilit == null) uyanikKilit = getSystemService(PowerManager::class.java)
+                .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Oynatici:indirme").apply { setReferenceCounted(false) } // işlemci kilidi
+            if (wifiKilit == null) wifiKilit = applicationContext.getSystemService(WifiManager::class.java).createWifiLock(
+                if (Build.VERSION.SDK_INT >= 29) WifiManager.WIFI_MODE_FULL_LOW_LATENCY else WifiManager.WIFI_MODE_FULL_HIGH_PERF, "Oynatici:indirme",
+            ).apply { setReferenceCounted(false) } // Wi-Fi kilidi
+            uyanikKilit?.acquire(3 * 60 * 60 * 1000L) // en fazla 3 saat (unutulursa pil bitmesin)
+            runCatching { wifiKilit?.acquire() } // Wi-Fi kilidini al
+        } else {
+            runCatching { if (uyanikKilit?.isHeld == true) uyanikKilit?.release() } // işlemci kilidini bırak
+            runCatching { if (wifiKilit?.isHeld == true) wifiKilit?.release() } // Wi-Fi kilidini bırak
         }
     }
 
@@ -187,6 +234,7 @@ class IndirmeServisi : Service() {
     }
 
     override fun onDestroy() {
+        uyanikTut(false) // kilitler kalmasın
         kapsam.cancel() // arka plan işlerini durdur
         super.onDestroy() // üst sınıfı çağır
     }
