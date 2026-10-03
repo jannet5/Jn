@@ -1,0 +1,20 @@
+test_cli_bitti_mi_exit_codes (test_viralforge.TestCli.test_cli_bitti_mi_exit_codes) ... ok
+test_gallery_dl_sidecar (test_viralforge.TestGalleryDl.test_gallery_dl_sidecar) ... ok
+test_import_meta_capture_and_ytdlp (test_viralforge.TestMeta.test_import_meta_capture_and_ytdlp) ... ok
+test_og_description (test_viralforge.TestMeta.test_og_description) ... ok
+test_api_key_not_passed (test_viralforge.TestPipeline.test_api_key_not_passed) ... ok
+test_end_to_end_done (test_viralforge.TestPipeline.test_end_to_end_done) ... ok
+test_invalid_analysis_rejected (test_viralforge.TestPipeline.test_invalid_analysis_rejected) ... ok
+test_limit_stops_and_resume (test_viralforge.TestPipeline.test_limit_stops_and_resume) ... ok
+test_missing_login_stops_early (test_viralforge.TestPipeline.test_missing_login_stops_early) ... ok
+test_not_done_answer_is_specific (test_viralforge.TestPipeline.test_not_done_answer_is_specific) ... ok
+test_ranking_and_incomplete_excluded (test_viralforge.TestSelect.test_ranking_and_incomplete_excluded) ... ok
+test_import_dyi_zip_html_dedupe (test_viralforge.TestUrls.test_import_dyi_zip_html_dedupe) ... ok
+test_normalize_variants (test_viralforge.TestUrls.test_normalize_variants) ... ok
+test_chatgpt_sheet_and_ingest (test_viralforge.TestVerify.test_chatgpt_sheet_and_ingest) ... ok
+test_duplicate_and_copy_detected (test_viralforge.TestVerify.test_duplicate_and_copy_detected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.340s
+
+OK

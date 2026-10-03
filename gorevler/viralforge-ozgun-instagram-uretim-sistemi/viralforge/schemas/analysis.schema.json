@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ViralForge gönderi analizi ve 4 özgün varyasyon",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["shortcode", "why_it_worked", "success_factors", "audience_emotion", "hook_type", "variants", "originality_guardrails", "confidence"],
+  "properties": {
+    "shortcode": {"type": "string"},
+    "why_it_worked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visual", "audio", "caption", "combined"],
+      "properties": {
+        "visual": {"type": "string"},
+        "audio": {"type": "string"},
+        "caption": {"type": "string"},
+        "combined": {"type": "string"}
+      }
+    },
+    "success_factors": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["factor", "evidence", "modality"],
+        "properties": {
+          "factor": {"type": "string"},
+          "evidence": {"type": "string"},
+          "modality": {"type": "string", "enum": ["visual", "audio", "caption", "combined"]}
+        }
+      }
+    },
+    "audience_emotion": {"type": "string"},
+    "hook_type": {"type": "string"},
+    "variants": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "angle", "how_it_differs", "image_prompt", "caption_draft", "audio_suggestion", "aspect_ratio"],
+        "properties": {
+          "id": {"type": "string", "enum": ["v1", "v2", "v3", "v4"]},
+          "angle": {"type": "string"},
+          "how_it_differs": {"type": "string"},
+          "image_prompt": {"type": "string"},
+          "caption_draft": {"type": "string"},
+          "audio_suggestion": {"type": "string"},
+          "aspect_ratio": {"type": "string", "enum": ["1:1", "4:5", "9:16"]}
+        }
+      }
+    },
+    "originality_guardrails": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number"}
+  }
+}

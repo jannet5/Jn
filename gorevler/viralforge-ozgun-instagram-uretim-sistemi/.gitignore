@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+vf-workspace/
+calisma/
+.venv/
+kabul/yakalama-testi/indirilen/

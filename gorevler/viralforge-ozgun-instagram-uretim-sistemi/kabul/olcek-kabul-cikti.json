@@ -1,0 +1,58 @@
+{
+  "select": {
+    "selected": 1000,
+    "eligible": 1000,
+    "skipped_incomplete": 0,
+    "skipped_no_metrics_or_low": 0
+  },
+  "analyze": {
+    "ok": 1000,
+    "fail": 0,
+    "skip": 0,
+    "exists": 0,
+    "limit": 0,
+    "auth": 0
+  },
+  "generate_1": {
+    "ok": 1488,
+    "fail": 0,
+    "skip": 0,
+    "exists": 0,
+    "limit": 1,
+    "auth": 0
+  },
+  "generate_2_resume": {
+    "ok": 2500,
+    "fail": 0,
+    "skip": 0,
+    "exists": 0,
+    "limit": 0,
+    "auth": 0
+  },
+  "verify": {
+    "verified_images": 4000
+  },
+  "report": "<scratchpad>/olcek-ws/rapor.html",
+  "status": {
+    "posts_total": 1000,
+    "complete_records": 1000,
+    "url_https": 1000,
+    "photo": 1000,
+    "audio": 1000,
+    "caption": 1000,
+    "selected": 1000,
+    "analyses_valid": 1000,
+    "images_present": 4000,
+    "images_verified": 4000,
+    "posts_with_4_verified": 1000,
+    "target_posts": 1000,
+    "target_images": 4000,
+    "done": true
+  },
+  "bitti_mi": {
+    "exit": 0,
+    "answer": "Evet, bitti. 1000 tutmuş gönderi (URL+fotoğraf+ses+açıklama kayıtlı), 1000 geçerli analiz, 4000 doğrulanmış özgün görsel."
+  },
+  "png_files_on_disk": 4000,
+  "seconds": 104.4
+}
