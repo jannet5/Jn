@@ -158,6 +158,10 @@ def main():
         p = os.path.join(KOK, "teslim-sablon", ad)
         if os.path.exists(p):
             shutil.copy(p, os.path.join(kok, ad))
+    os.makedirs(os.path.join(kok, "arastirma"))
+    for ad in ("muzik-listesi.md", "aciklama-ornekleri.md", "kaynaklar.md"):
+        shutil.copy(os.path.join(KOK, "arastirma", ad), os.path.join(kok, "arastirma", ad))
+    shutil.copy(os.path.join(KOK, "harita.md"), os.path.join(kok, "arastirma", "harita.md"))
     for it in items:
         it.pop("_img", None)
 
@@ -176,8 +180,8 @@ def main():
 def galeri(kok, items, ozet):
     e = html.escape
     p = ['<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
-         '<title>Komik Foto Paketleri</title><style>body{font-family:system-ui,sans-serif;margin:0;padding:16px;background:#111;color:#eee}'
-         'h2{margin:28px 0 8px}.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}'
+         '<title>Komik Foto Paketleri</title><style>*{box-sizing:border-box}html,body{max-width:100%;overflow-x:hidden}h1,h2,p,figcaption{overflow-wrap:anywhere}body{font-family:system-ui,sans-serif;margin:0;padding:16px;background:#111;color:#eee}'
+         'h2{margin:28px 0 8px}.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(150px,45%),1fr));gap:8px}'
          'img{width:100%;border-radius:6px;display:block}figure{margin:0}figcaption{font-size:12px;color:#bbb}a{color:#8cf}'
          'pre{white-space:pre-wrap;background:#222;padding:10px;border-radius:6px}</style></head><body>',
          '<h1>Komik Foto Paketleri</h1><p>Her paket 4 fotoğraf; sıra 1-4-7-10 / 2-5-8-11 / 3-6-9-12 kuralıyla karışık. Müzik uygulama içinden eklenir.</p>']
