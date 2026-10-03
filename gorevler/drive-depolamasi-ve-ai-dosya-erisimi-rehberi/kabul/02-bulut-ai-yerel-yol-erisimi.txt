@@ -1,0 +1,50 @@
+# Kabul 02 — Bulut AI ortamında (bu Claude Code cloud konteyneri) Windows/Drive yolları
+# Tarih: 2026-10-03T11:55:57Z  Makine: Linux 6.18.44-fc-v64
+
+$ python3 drive_denetim.py yol 'G:\My Drive\isler\gorsel.png'
+Yol: G:\My Drive\isler\gorsel.png
+  Bu makinede var mı: HAYIR
+  Drive sanal sürücüsü olası: evet
+    - yol parçası 'my drive' içeriyor
+    - G: Drive for desktop'ın varsayılan sürücü harfi (değiştirilebilir)
+  Yerel araç: Yerel araçlar açabilir AMA şartlar: Drive for desktop çalışıyor, oturum açık; akış modunda dosya çevrimdışı değilse internet gerekir (ilk açılışta indirilir). Video, büyük ZIP, rastgele okuma ve çok küçük dosya yükünde SSD'den yavaş/kırılgan olabilir.
+  Web AI: Web AI (ChatGPT/Claude/Gemini/Grok sohbeti) bu yolu GÖREMEZ: yol senin bilgisayarının dosya sistemine aittir. Web AI'ya dosya vermek için: (1) sohbete yükle, (2) servisin Google Drive bağlayıcısını OAuth ile bağla — yalnız senin Drive izinlerinin izin verdiği dosyalar, (3) paylaşım linki — ancak servis o linki gerçekten açabiliyorsa. Yerel araçlar (Cursor, Claude Code CLI/Desktop, Python, ComfyUI) ise bu yolu doğrudan açabilir.
+
+$ ls -la 'G:\My Drive\isler\gorsel.png'
+ls: cannot access 'G:\My Drive\isler\gorsel.png': No such file or directory
+çıkış kodu: 2
+
+$ python3 drive_denetim.py yol 'G:\klasor\dosya.mp4'
+Yol: G:\klasor\dosya.mp4
+  Bu makinede var mı: HAYIR
+  Drive sanal sürücüsü olası: evet
+    - G: Drive for desktop'ın varsayılan sürücü harfi (değiştirilebilir)
+  Yerel araç: Yerel araçlar açabilir AMA şartlar: Drive for desktop çalışıyor, oturum açık; akış modunda dosya çevrimdışı değilse internet gerekir (ilk açılışta indirilir). Video, büyük ZIP, rastgele okuma ve çok küçük dosya yükünde SSD'den yavaş/kırılgan olabilir.
+  Web AI: Web AI (ChatGPT/Claude/Gemini/Grok sohbeti) bu yolu GÖREMEZ: yol senin bilgisayarının dosya sistemine aittir. Web AI'ya dosya vermek için: (1) sohbete yükle, (2) servisin Google Drive bağlayıcısını OAuth ile bağla — yalnız senin Drive izinlerinin izin verdiği dosyalar, (3) paylaşım linki — ancak servis o linki gerçekten açabiliyorsa. Yerel araçlar (Cursor, Claude Code CLI/Desktop, Python, ComfyUI) ise bu yolu doğrudan açabilir.
+
+$ ls -la 'G:\klasor\dosya.mp4'
+ls: cannot access 'G:\klasor\dosya.mp4': No such file or directory
+çıkış kodu: 2
+
+$ python3 drive_denetim.py yol 'C:\Users\KULLANICI\Documents\gorev\kaynak.txt'
+Yol: C:\Users\KULLANICI\Documents\gorev\kaynak.txt
+  Bu makinede var mı: HAYIR
+  Drive sanal sürücüsü olası: hayır
+  Yerel araç: Yerel disk yolu: yerel araçlar doğrudan ve SSD hızında açar.
+  Web AI: Web AI (ChatGPT/Claude/Gemini/Grok sohbeti) bu yolu GÖREMEZ: yol senin bilgisayarının dosya sistemine aittir. Web AI'ya dosya vermek için: (1) sohbete yükle, (2) servisin Google Drive bağlayıcısını OAuth ile bağla — yalnız senin Drive izinlerinin izin verdiği dosyalar, (3) paylaşım linki — ancak servis o linki gerçekten açabiliyorsa. Yerel araçlar (Cursor, Claude Code CLI/Desktop, Python, ComfyUI) ise bu yolu doğrudan açabilir.
+
+$ ls -la 'C:\Users\KULLANICI\Documents\gorev\kaynak.txt'
+ls: cannot access 'C:\Users\KULLANICI\Documents\gorev\kaynak.txt': No such file or directory
+çıkış kodu: 2
+
+$ ls /mnt /media   (bağlı bir G: veya Drive birimi var mı?)
+/media:
+
+/mnt:
+attach
+sandboxing
+skills
+user-data
+
+$ mount | grep -iE 'drivefs|google|cifs|smb'
+eşleşme yok

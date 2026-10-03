@@ -1,0 +1,23 @@
+# Kabul 06 — kaynaklar.md içindeki tüm HTTPS bağlantılarının erişilebilirlik kontrolü
+# Tarih: 2026-10-03T11:59:27Z  Yöntem: curl -sIL (yalnız HTTP durum kodu, son yönlendirme)
+
+200  https://code.claude.com/docs/en/overview
+200  https://community.adobe.com/t5/premiere-pro-discussions/google-drive-for-desktop-or-local-disk/m-p/15537350/highlight/true
+200  https://community.adobe.com/t5/premiere-pro-discussions/quot-google-drive-for-desktop-quot/m-p/12574594
+200  https://discuss.google.dev/t/ability-to-exclude-specific-subfolders-from-google-drive-for-desktop-sync/257296
+200  https://discuss.gradle.org/t/using-gradle-in-a-computer-cluster-causes-daemons-to-lock-each-other-out/46064
+200  https://docs.gradle.org/current/userguide/directory_layout.html
+200  https://docs.npmjs.com/cli/v11/configuring-npm/folders
+200  https://forum.odrive.com/t/git-with-odrive/1471
+200  https://forum.odrive.com/t/syncing-google-team-drives-and-file-type-exclusions/6403
+403  https://help.openai.com/articles/10929079
+200  https://knowledge.workspace.google.com/admin/drive/advanced-drive-for-desktop-configuration
+200  https://pkg.go.dev/github.com/n24q02m/better-drive@v1.2.0
+200  https://support.claude.com/en/articles/10166901-using-the-google-drive-integration
+200  https://support.google.com/drive/answer/13401938?hl=en
+200  https://support.google.com/drive/answer/13470231?hl=en
+200  https://support.google.com/drive/answer/16631477?hl=en
+200  https://support.google.com/drive/answer/16684520
+200  https://support.google.com/gemini/answer/14903178?hl=en
+200  https://www.engadget.com/updated-google-drive-for-desktop-offers-a-recovery-tool-for-missing-files-042758933.html
+200  https://www.insynchq.com/i/features/ignore-rules

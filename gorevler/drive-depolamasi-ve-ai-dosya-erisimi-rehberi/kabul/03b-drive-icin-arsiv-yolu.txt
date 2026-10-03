@@ -1,0 +1,29 @@
+# Kabul 03b — Drive'a NE konmalı: aktif klasör yerine taşınabilir arşiv (gerçek komutlar)
+
+# İlk deneme: yalnız package.json commit'liydi → 'npm ci' hata verdi (package-lock.json yok). Ders: lock dosyasını commit'le.
+# İkinci deneme: .gitignore (node_modules/ .gradle/ build/) + package-lock.json + Gradle kaynakları commit'lendi.
+
+$ git ls-files
+.gitignore
+android-benzeri/build.gradle
+android-benzeri/settings.gradle
+android-benzeri/src/main/java/demo/App.java
+package-lock.json
+package.json
+
+$ git bundle create proje.bundle --all
+$ git bundle verify proje.bundle
+The bundle uses this hash algorithm: sha1
+$ zip -r kaynak.zip . -x 'node_modules/*' '.git/*' '*/.gradle/*' '*/build/*'
+    30726                     11 files
+
+Karşılaştırma:
+  Ham proje klasörü : 690 dosya, 5.1M
+  kaynak.zip        : 1 dosya, 12K
+  proje.bundle      : 1 dosya, 12K  (tam git geçmişi)
+
+$ geri yükleme: git clone proje.bundle geri && npm ci && gradle build
+6
+added 70 packages in 569ms
+gradle exit=0
+demo.jar

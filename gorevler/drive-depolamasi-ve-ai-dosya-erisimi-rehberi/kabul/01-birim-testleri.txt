@@ -1,0 +1,19 @@
+test_linux_desteklenmez (test_drive_denetim.OnbellekVeOlcumTestleri.test_linux_desteklenmez) ... ok
+test_olc (test_drive_denetim.OnbellekVeOlcumTestleri.test_olc) ... ok
+test_onbellek_olcumu (test_drive_denetim.OnbellekVeOlcumTestleri.test_onbellek_olcumu) ... ok
+test_windows_onbellek_yolu (test_drive_denetim.OnbellekVeOlcumTestleri.test_windows_onbellek_yolu) ... ok
+test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz (test_drive_denetim.TaramaTestleri.test_aktif_klasorler_bulunur_ve_ic_ice_sayilmaz) ... ok
+test_cli_json (test_drive_denetim.TaramaTestleri.test_cli_json) ... ok
+test_cli_olmayan_klasor (test_drive_denetim.TaramaTestleri.test_cli_olmayan_klasor) ... Hata: klasör yok: /tmp/tmpe8h7kysv/yok
+ok
+test_temiz_arsiv (test_drive_denetim.TaramaTestleri.test_temiz_arsiv) ... ok
+test_yerel_kok_risk_dusuk (test_drive_denetim.TaramaTestleri.test_yerel_kok_risk_dusuk) ... ok
+test_g_my_drive_drive_olarak_isaretlenir (test_drive_denetim.YolTestleri.test_g_my_drive_drive_olarak_isaretlenir) ... ok
+test_macos_cloudstorage (test_drive_denetim.YolTestleri.test_macos_cloudstorage) ... ok
+test_turkce_drive_im_ve_etiket (test_drive_denetim.YolTestleri.test_turkce_drive_im_ve_etiket) ... ok
+test_yerel_c_yolu_drive_degil (test_drive_denetim.YolTestleri.test_yerel_c_yolu_drive_degil) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.018s
+
+OK

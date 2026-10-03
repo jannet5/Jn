@@ -1,0 +1,17 @@
+# Kabul 05 — Bulut AI'nın Drive'a erişim yolu: yerel yol DEĞİL, OAuth bağlayıcı (Drive API)
+# Tarih: 2026-10-03T11:57:39Z
+# Ortam: bu Claude Code cloud oturumu; kullanıcının claude.ai'de bağladığı Google Drive bağlayıcısı (MCP).
+
+Araç çağrısı : mcp__Google_Drive__search_files
+Sorgu        : title contains 'kaynak' and title contains 'drive-depolamasi'
+Seçenekler   : excludeContentSnippets=true, pageSize=5
+Yanıt        : {}   (hata yok, sonuç yok)
+
+Yorum (yalnız bu kanıtın desteklediği kadar):
+- Bağlayıcı çağrısı kimlik doğrulama hatası vermeden döndü → bulut AI, Drive'a dosya sistemi yolu ile değil,
+  kullanıcının verdiği OAuth yetkisiyle Drive API üzerinden erişiyor.
+- Görevin Windows'taki kaynak.txt dosyası bu adla Drive'da bulunamadı; dosya kullanıcının yerel C: diskinde.
+  Bulut tarafı onu ancak sohbete yüklendiğinde (bu görevde yapıldığı gibi) veya Drive'a konduğunda görür.
+- Kabul 02 ile birlikte: aynı bulut ajan G:\ ve C:\ yollarını açamadı (ls çıkış kodu 2), ama bağlayıcıyla
+  Drive sorgulayabildi. "Yol vermek" ≠ "erişim izni vermek".
+- Gizlilik: kullanıcının Drive dosya adları/içerikleri bu public depoya YAZILMADI; bilerek boş dönen bir sorgu seçildi.
