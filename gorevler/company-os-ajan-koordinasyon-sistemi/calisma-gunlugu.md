@@ -112,3 +112,12 @@ Sıfırdan yazılan 1. aşama kodu onarım sayılmayacak. Kaynak kod ve ham meti
   - `runs/job-84eb359ac9a46d94/worktrees/implementer/site/` (`fault_experiment` için),
   - projenin `.git` geçmişi (`intake` için),
   - varsa önceki `runs/ledger.sqlite` yedeği.
+
+## 2. aşama teslim kaydı
+- Public dal: `claude/determined-mendel-dhyjj8`. 2. aşama commit'leri `c40163d` (doğrulama özeti ve günlük) ve `9d4096e` (Codex-yerel harita). Ürün kaynağı ve yama public depoda **yok**.
+- Özel ZIP: `company-os-ozel-teslim.zip`, 70 dosya, SHA-256 `5cee20deb481a3960e83fa8bee1b9651e6bf69825503c5a668cec7695366abc6`. İçinde onarım raporu, yama, git bundle (orijinal + onarım commit'i), onarılmış ağaç, prob betiği ve kanıt çıktıları var.
+- Geri okuma:
+  - `sha256sum -c` OK.
+  - Bundle'dan klon alındı; içerik onarılmış ağaçla `diff -r` sonucunda aynı.
+  - Klonda testler OK (42, 1 atlandı); prob 1 açık (5b, bilinçli olarak bırakıldı).
+  - Ham sohbet metni yok. Tek tarama eşleşmesi, projenin kendi `docs/native-subagent-review.json` dosyası (orijinalle bayt bayt aynı, yerel yol içeriyor). Bu dosya yalnız özel pakette.
