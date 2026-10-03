@@ -5,7 +5,7 @@
   "description": "Aynı brief ile üretilmiş UI denemelerini aynı ölçütlerle puanlayan karşılaştırma akışı",
   "scripts": {
     "girdiler": "node akis/girdileri-indir.mjs",
-    "build:d": "cd denemeler/d-shadcn-registry && npm ci && npm run build",
+    "build:d": "cd denemeler/d-shadcn-statik-blok && npm ci && npm run build",
     "karsilastir": "node akis/degerlendir.mjs",
     "test": "node --test akis/test/*.test.mjs"
   },

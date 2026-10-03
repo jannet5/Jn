@@ -69,4 +69,4 @@ Topluluğun ortak bulgusu: ilk taslaklar birbirine benziyor; fark **tasarım sis
 eleştiri döngüsü** ve **ölçülebilir kontrol**den çıkıyor. Bu yüzden teslim edilen şey bir mobil uygulama değil,
 tekrar kullanılabilir bir **üret → ölç → karşılaştır** akışıdır: aynı brief, birden çok üretim yolu, aynı otomatik
 değerlendirme betiği (ekran görüntüsü, axe erişilebilirlik, mobil taşma, "AI varsayılanı" işaretleri, yük boyutu).
-Hesap gerektirmeyen dört yol gerçekten denendi; hesap gerektirenler aynı akışa eklenebilir.
+Hesap gerektirmeyen dört yol gerçekten denendi (C = açık kaynak DESIGN.md CLI, Stitch web değil; D = statik shadcn bloğu, v0 değil); hesap gerektirenler ölçülmedi, erişim gelirse aynı akışa eklenebilir.

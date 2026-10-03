@@ -1,6 +1,6 @@
 # Deneme C — Google Stitch DESIGN.md akışı (`@google/design.md@0.4.0`)
 
-Çalışma klasörü: `denemeler/c-stitch-design-md/`
+Çalışma klasörü: `denemeler/c-design-md-cli/`
 
 ## Üretilen dosyalar
 

@@ -5,7 +5,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}}
 :root[data-theme="dark"]{--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}
 *{box-sizing:border-box}body{margin:0;background:var(--zemin);color:var(--metin);font:15px/1.5 system-ui,sans-serif}
-main{max-width:1200px;margin:0 auto;padding:24px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.alt{color:var(--ikincil);margin:0 0 20px}
+main{max-width:1200px;margin:0 auto;padding:24px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.alt{color:var(--ikincil);margin:0 0 20px}p.uyari{background:var(--yuzey);border:1px solid var(--cizgi);border-left:4px solid var(--vurgu);padding:10px 12px;border-radius:4px;margin:8px 0}
 .tablo{overflow-x:auto;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:8px}
 table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px 10px;border-bottom:1px solid var(--cizgi);text-align:left;font-size:14px}
 thead th{color:var(--ikincil);font-weight:600}.sayi{text-align:right;font-variant-numeric:tabular-nums}
@@ -16,27 +16,30 @@ a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4
 @media (max-width:600px){dl{grid-template-columns:1fr}}
 </style></head><body><main>
 <h1>AI UI araçları — aynı brief, aynı ölçüt</h1>
-<p class="alt">Ölçüm: 2026-10-03T11:46:49.178Z · chromium (Playwright) · ağırlıklar: kapsam 30, erisilebilirlik 25, mobil 15, klavye 10, ozgunluk 10, performans 10</p>
-<div class="tablo"><table><thead><tr><th>#</th><th>Deneme</th><th class="sayi">Toplam</th><th class="sayi">kapsam</th><th class="sayi">erisilebilirlik</th><th class="sayi">mobil</th><th class="sayi">klavye</th><th class="sayi">ozgunluk</th><th class="sayi">performans</th>
+<p class="uyari"><strong>Kapsam:</strong> tek brief, tek çalıştırma — genel araç sıralaması değildir.
+C = açık kaynak DESIGN.md CLI yaklaşımı (Google Stitch web hesabı değil). D = statik shadcn/ui bloğu, AI'sız (v0 hesabı değil).
+v0, Stitch web, Lovable, Bolt, Figma Make gibi hesaplı araçlar erişim olmadığı için ölçülmedi.</p>
+<p class="alt">Ölçüm: 2026-10-03T13:10:21.487Z · chromium (Playwright) · ağırlıklar: kapsam 30, erisilebilirlik 25, mobil 15, klavye 10, ozgunluk 10, performans 10</p>
+<div class="tablo"><table><thead><tr><th>Sıra (bu ölçüm)</th><th>Deneme</th><th class="sayi">Toplam</th><th class="sayi">kapsam</th><th class="sayi">erisilebilirlik</th><th class="sayi">mobil</th><th class="sayi">klavye</th><th class="sayi">ozgunluk</th><th class="sayi">performans</th>
 <th class="sayi">Brif</th><th class="sayi">axe K/C/O/A</th><th>Mobil taşma</th><th class="sayi">Boyut</th><th>Gövde fontu</th></tr></thead><tbody><tr><td>1</td><th scope="row">b-claude-frontend-design</th><td class="sayi"><strong>100</strong></td>
       <td class="sayi">30</td><td class="sayi">25</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">10</td><td class="sayi">10</td>
       <td class="sayi">15/15</td>
       <td class="sayi">0/0/0/0</td>
       <td>yok</td>
-      <td class="sayi">212 KB</td>
-      <td>Onest</td></tr><tr><td>2</td><th scope="row">c-stitch-design-md</th><td class="sayi"><strong>95</strong></td>
+      <td class="sayi">229 KB</td>
+      <td>Onest</td></tr><tr><td>2</td><th scope="row">c-design-md-cli</th><td class="sayi"><strong>95</strong></td>
       <td class="sayi">30</td><td class="sayi">25</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">5</td><td class="sayi">10</td>
       <td class="sayi">15/15</td>
       <td class="sayi">0/0/0/0</td>
       <td>yok</td>
-      <td class="sayi">80 KB</td>
+      <td class="sayi">95 KB</td>
       <td>Manrope</td></tr><tr><td>3</td><th scope="row">a-claude-ham</th><td class="sayi"><strong>84</strong></td>
       <td class="sayi">30</td><td class="sayi">20</td><td class="sayi">15</td><td class="sayi">5</td><td class="sayi">4</td><td class="sayi">10</td>
       <td class="sayi">15/15</td>
       <td class="sayi">0/22/0/0</td>
       <td>yok</td>
-      <td class="sayi">91 KB</td>
-      <td>Inter</td></tr><tr><td>4</td><th scope="row">d-shadcn-registry</th><td class="sayi"><strong>49</strong></td>
+      <td class="sayi">192 KB</td>
+      <td>Inter</td></tr><tr><td>4</td><th scope="row">d-shadcn-statik-blok</th><td class="sayi"><strong>49</strong></td>
       <td class="sayi">4</td><td class="sayi">12</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">8</td><td class="sayi">0</td>
       <td class="sayi">2/15</td>
       <td class="sayi">0/1/0/0</td>
@@ -55,14 +58,14 @@ a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4
         <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
         <dt>Klavye</dt><dd>8 öğeye odak, 8 tanesinde görünür gösterge</dd>
         <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Onest, başlık Unbounded, gradyan 2 (mor 0), gölgeli yuvarlak kart 0, BÜYÜK HARF etiket 0, orta nokta 0, krem+terakota hayır</dd>
-        <dt>Ağ</dt><dd>7 istek, 212 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Ağ</dt><dd>7 istek, 229 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
         <dt>Konsol hatası</dt><dd>0</dd>
       </dl>
-    </section><section class="kart" id="c-stitch-design-md">
-      <h2>c-stitch-design-md — 95/100</h2>
+    </section><section class="kart" id="c-design-md-cli">
+      <h2>c-design-md-cli — 95/100</h2>
       <div class="goruntuler">
-        <figure><img loading="lazy" src="ekran/c-stitch-design-md-masaustu-ilk-ekran.png" alt="c-stitch-design-md masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/c-stitch-design-md-masaustu.png">tam sayfa</a></figcaption></figure>
-        <figure class="dar"><img loading="lazy" src="ekran/c-stitch-design-md-mobil-ilk-ekran.png" alt="c-stitch-design-md mobil ilk ekran"><figcaption>390×844 · <a href="ekran/c-stitch-design-md-mobil.png">tam sayfa</a></figcaption></figure>
+        <figure><img loading="lazy" src="ekran/c-design-md-cli-masaustu-ilk-ekran.png" alt="c-design-md-cli masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/c-design-md-cli-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/c-design-md-cli-mobil-ilk-ekran.png" alt="c-design-md-cli mobil ilk ekran"><figcaption>390×844 · <a href="ekran/c-design-md-cli-mobil.png">tam sayfa</a></figcaption></figure>
       </div>
       <dl>
         <dt>Eksik brif maddeleri</dt><dd>yok</dd>
@@ -70,7 +73,7 @@ a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4
         <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
         <dt>Klavye</dt><dd>8 öğeye odak, 8 tanesinde görünür gösterge</dd>
         <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Manrope, başlık Fraunces, gradyan 1 (mor 0), gölgeli yuvarlak kart 6, BÜYÜK HARF etiket 10, orta nokta 2, krem+terakota evet</dd>
-        <dt>Ağ</dt><dd>7 istek, 80 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Ağ</dt><dd>7 istek, 95 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
         <dt>Konsol hatası</dt><dd>0</dd>
       </dl>
     </section><section class="kart" id="a-claude-ham">
@@ -85,14 +88,14 @@ a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4
         <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
         <dt>Klavye</dt><dd>14 öğeye odak, 7 tanesinde görünür gösterge</dd>
         <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Inter, başlık Fraunces, gradyan 0 (mor 0), gölgeli yuvarlak kart 7, BÜYÜK HARF etiket 5, orta nokta 7, krem+terakota evet</dd>
-        <dt>Ağ</dt><dd>7 istek, 91 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Ağ</dt><dd>7 istek, 192 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
         <dt>Konsol hatası</dt><dd>0</dd>
       </dl>
-    </section><section class="kart" id="d-shadcn-registry">
-      <h2>d-shadcn-registry — 49/100</h2>
+    </section><section class="kart" id="d-shadcn-statik-blok">
+      <h2>d-shadcn-statik-blok — 49/100</h2>
       <div class="goruntuler">
-        <figure><img loading="lazy" src="ekran/d-shadcn-registry-masaustu-ilk-ekran.png" alt="d-shadcn-registry masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/d-shadcn-registry-masaustu.png">tam sayfa</a></figcaption></figure>
-        <figure class="dar"><img loading="lazy" src="ekran/d-shadcn-registry-mobil-ilk-ekran.png" alt="d-shadcn-registry mobil ilk ekran"><figcaption>390×844 · <a href="ekran/d-shadcn-registry-mobil.png">tam sayfa</a></figcaption></figure>
+        <figure><img loading="lazy" src="ekran/d-shadcn-statik-blok-masaustu-ilk-ekran.png" alt="d-shadcn-statik-blok masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/d-shadcn-statik-blok-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/d-shadcn-statik-blok-mobil-ilk-ekran.png" alt="d-shadcn-statik-blok mobil ilk ekran"><figcaption>390×844 · <a href="ekran/d-shadcn-statik-blok-mobil.png">tam sayfa</a></figcaption></figure>
       </div>
       <dl>
         <dt>Eksik brif maddeleri</dt><dd>genel bakış, şubeler, ürünler, personel, ayarlar, bu hafta, geçen hafta, son 30 gün, ciro, sipariş, ortalama sepet, iade, html lang=tr (bulunan &quot;en&quot;)</dd>

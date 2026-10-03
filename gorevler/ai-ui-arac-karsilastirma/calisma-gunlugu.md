@@ -26,7 +26,7 @@ Sonradan netleşen düzeltme: istenen şey bir **mobil uygulama/APK değil**, bi
 D shadcn/ui registry). Ortak brief: `akis/brief.md` (kafe zinciri haftalık satış paneli, Türkçe, mobil, klavye).
 
 ## 4. Denemeler (gerçek araçlarla)
-- **D** — komutlar `akis/tarifler/d-shadcn-registry.md`. Sorunlar: `shadcn init` preset sorusunda takıldı → `-p nova` ile
+- **D** — komutlar `akis/tarifler/d-shadcn-statik-blok.md`. Sorunlar: `shadcn init` preset sorusunda takıldı → `-p nova` ile
   çözüldü; blok `tsc` strict'te `TS6133` (kullanılmayan import) ile derlenmedi → `noUnusedLocals:false`; `/avatars/shadcn.jpg` 404.
 - **A, B, C** — her biri ayrı, temiz bağlamlı alt ajanla paralel üretildi (birbirinin çıktısını görmesin diye).
   Promptlar `akis/tarifler/`. C'de gerçek CLI: `npx @google/design.md@0.4.0 lint` (ilk: 0 hata/3 uyarı → son: 0/0) ve `export`.
@@ -58,3 +58,16 @@ B 100, C 95, A 84, D 49. Ayrıntı ve sınırlar: `sonuc.md`. Ekran görüntüle
   Klonda özel kaynak metni yok (kaynak.txt/gorev.md ve özel ad/yol taraması boş).
 - Özel ZIP: depo-hazır görev klasörü (node_modules hariç) + `ozel/` (tam kaynak.txt, gorev.md) + `SHA256SUMS.txt`.
   ZIP yalnız özel oturum dosyası olarak verildi, public depoya konmadı. ZIP'in kendi SHA-256'sı teslim mesajında.
+
+## 9. Koordinatör denetimi sonrası düzeltme
+- **Sorun:** önceki özel ZIP'teki `repo.bundle`, Jn dalının tüm geçmişini (12 commit; android-app/, windows-agent/,
+  `android-app/keystore.properties`, `android-app/keystore/dev-release.jks` yolları) taşıyordu. Teslime uygun değildi.
+  Bu dosyalar bu görevden önce Jn deposuna girmişti (ilk ekleyen commit `a61c086`, 2026-09-27); bu görevde açılmadı,
+  okunmadı, değiştirilmedi.
+- **Çözüm:** yalnız bu klasörün izlenen dosyaları yeni, bağımsız bir Git köküne kopyalandı; tek ürün commit'i ve
+  yalnız onu içeren bundle üretildi. Eski Jn geçmişi paketlenmedi.
+- **Kapsam dili düzeltildi:** C = Google'ın açık kaynak DESIGN.md CLI yaklaşımı (Stitch web hesabı değil);
+  D = statik shadcn/ui bloğu, AI'sız (v0 hesabı değil). Klasörler buna göre yeniden adlandırıldı
+  (`c-design-md-cli`, `d-shadcn-statik-blok`); D yeniden derlendi, tüm ölçüm yeniden koşuldu (84/100/95/49, değişmedi).
+  `sonuc.md` ve `rapor.html` tek brief puanının genel araç sıralaması olmadığını açıkça yazıyor.
+- Hesaplı araçlar (v0, Stitch web, Lovable, Bolt, Figma Make…): gerçek erişim yok → ölçülmedi, öyle bırakıldı.

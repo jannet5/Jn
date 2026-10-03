@@ -3,6 +3,10 @@
 Bu bir mobil uygulama değil: aynı brief'i farklı AI UI yollarıyla ürettirip **aynı otomatik ölçütle** karşılaştıran,
 tekrar kullanılabilir bir iş akışı ve onunla yapılmış gerçek dört deneme.
 
+**Kapsam:** A ve B Claude Code çıktısıdır; C Google Stitch web hesabı değil, açık kaynak DESIGN.md CLI yaklaşımıdır;
+D v0 hesabı değil, statik shadcn/ui bloğudur. Puanlar tek brief'in tek çalıştırmasıdır, genel araç sıralaması değildir.
+Hesap gerektiren araçlar (v0, Stitch web, Lovable, Bolt, Figma Make…) erişim olmadığı için ölçülmedi.
+
 | Dosya | İçerik |
 |---|---|
 | `arastirma.md` | Araç envanteri (18 araç), topluluk/bağımsız testler, resmi doğrulamalar, seçilen yolun gerekçesi |

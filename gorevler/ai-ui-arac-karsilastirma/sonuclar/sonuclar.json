@@ -1,5 +1,5 @@
 {
-  "tarih": "2026-10-03T11:46:49.178Z",
+  "tarih": "2026-10-03T13:10:21.487Z",
   "tarayici": "chromium (Playwright)",
   "proxySertifikaYoksayildi": true,
   "sonuclar": [
@@ -9,8 +9,8 @@
       "gorunumler": {
         "masaustu": {
           "viewport": "1440x900",
-          "yuklemeMs": 1505,
-          "bayt": 93000,
+          "yuklemeMs": 1513,
+          "bayt": 197116,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -141,8 +141,8 @@
         },
         "mobil": {
           "viewport": "390x844",
-          "yuklemeMs": 1431,
-          "bayt": 93000,
+          "yuklemeMs": 1460,
+          "bayt": 129812,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -290,8 +290,8 @@
       "gorunumler": {
         "masaustu": {
           "viewport": "1440x900",
-          "yuklemeMs": 1445,
-          "bayt": 217163,
+          "yuklemeMs": 1426,
+          "bayt": 234307,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -416,7 +416,7 @@
         "mobil": {
           "viewport": "390x844",
           "yuklemeMs": 1429,
-          "bayt": 211855,
+          "bayt": 234307,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -552,13 +552,13 @@
       }
     },
     {
-      "ad": "c-stitch-design-md",
-      "url": "denemeler/c-stitch-design-md/dist/index.html",
+      "ad": "c-design-md-cli",
+      "url": "denemeler/c-design-md-cli/dist/index.html",
       "gorunumler": {
         "masaustu": {
           "viewport": "1440x900",
-          "yuklemeMs": 1415,
-          "bayt": 82358,
+          "yuklemeMs": 1417,
+          "bayt": 97478,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -682,8 +682,8 @@
         },
         "mobil": {
           "viewport": "390x844",
-          "yuklemeMs": 1396,
-          "bayt": 117478,
+          "yuklemeMs": 1394,
+          "bayt": 74998,
           "istek": 7,
           "disAlanlar": [
             "fonts.googleapis.com",
@@ -819,13 +819,13 @@
       }
     },
     {
-      "ad": "d-shadcn-registry",
-      "url": "denemeler/d-shadcn-registry/dist/index.html",
+      "ad": "d-shadcn-statik-blok",
+      "url": "denemeler/d-shadcn-statik-blok/dist/index.html",
       "gorunumler": {
         "masaustu": {
           "viewport": "1440x900",
-          "yuklemeMs": 1794,
-          "bayt": 1150320,
+          "yuklemeMs": 1756,
+          "bayt": 1150323,
           "istek": 5,
           "disAlanlar": [],
           "basarisiz": [
@@ -957,8 +957,8 @@
         },
         "mobil": {
           "viewport": "390x844",
-          "yuklemeMs": 1733,
-          "bayt": 1150320,
+          "yuklemeMs": 1723,
+          "bayt": 1150323,
           "istek": 5,
           "disAlanlar": [],
           "basarisiz": [

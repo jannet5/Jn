@@ -1,7 +1,7 @@
-# Yol D — shadcn/ui registry bloğu (v0'ın hedef yığını; AI'sız taban çizgisi)
+# Yol D — statik shadcn/ui bloğu (AI'sız taban çizgisi; v0 hesabı kullanılmadı)
 ```bash
-npm create vite@latest d-shadcn-registry -- --template react-ts --no-interactive
-cd d-shadcn-registry && npm i && npm i tailwindcss @tailwindcss/vite && npm i -D @types/node
+npm create vite@latest d-shadcn-statik-blok -- --template react-ts --no-interactive
+cd d-shadcn-statik-blok && npm i && npm i tailwindcss @tailwindcss/vite && npm i -D @types/node
 # tsconfig: "@/*" → "./src/*" yolu; vite.config.ts: tailwindcss() eklentisi + alias + base "./"
 npx shadcn@4.21.1 init -y -b radix -p nova --no-monorepo </dev/null
 npx shadcn@4.21.1 add dashboard-01 -y </dev/null

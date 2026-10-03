@@ -1,4 +1,4 @@
-# Yol C — Google Stitch DESIGN.md akışı (açık kaynak CLI ile)
+# Yol C — DESIGN.md yaklaşımı (Google'ın açık kaynak CLI'si; Stitch web hesabı kullanılmadı)
 1. DESIGN.md yaz (YAML token'lar + gerekçe bölümleri; spec: `npm run girdiler` → akis/girdiler/design-md-spec.md).
    Stitch hesabın varsa DESIGN.md'yi Stitch'ten dışa aktarıp doğrudan buraya koyabilirsin.
 2. `npx --yes @google/design.md@0.4.0 lint DESIGN.md > lint.json` → hata 0, WCAG kontrast uyarısı yok olana kadar düzelt.

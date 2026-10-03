@@ -46,7 +46,7 @@ export function raporHtml({ tarih, tarayici, sonuclar }) {
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}}
 :root[data-theme="dark"]{--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}
 *{box-sizing:border-box}body{margin:0;background:var(--zemin);color:var(--metin);font:15px/1.5 system-ui,sans-serif}
-main{max-width:1200px;margin:0 auto;padding:24px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.alt{color:var(--ikincil);margin:0 0 20px}
+main{max-width:1200px;margin:0 auto;padding:24px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.alt{color:var(--ikincil);margin:0 0 20px}p.uyari{background:var(--yuzey);border:1px solid var(--cizgi);border-left:4px solid var(--vurgu);padding:10px 12px;border-radius:4px;margin:8px 0}
 .tablo{overflow-x:auto;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:8px}
 table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px 10px;border-bottom:1px solid var(--cizgi);text-align:left;font-size:14px}
 thead th{color:var(--ikincil);font-weight:600}.sayi{text-align:right;font-variant-numeric:tabular-nums}
@@ -57,8 +57,11 @@ a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4
 @media (max-width:600px){dl{grid-template-columns:1fr}}
 </style></head><body><main>
 <h1>AI UI araçları — aynı brief, aynı ölçüt</h1>
+<p class="uyari"><strong>Kapsam:</strong> tek brief, tek çalıştırma — genel araç sıralaması değildir.
+C = açık kaynak DESIGN.md CLI yaklaşımı (Google Stitch web hesabı değil). D = statik shadcn/ui bloğu, AI'sız (v0 hesabı değil).
+v0, Stitch web, Lovable, Bolt, Figma Make gibi hesaplı araçlar erişim olmadığı için ölçülmedi.</p>
 <p class="alt">Ölçüm: ${kacis(tarih)} · ${kacis(tarayici)} · ağırlıklar: ${kalemler.map((k) => `${k} ${AGIRLIK[k]}`).join(", ")}</p>
-<div class="tablo"><table><thead><tr><th>#</th><th>Deneme</th><th class="sayi">Toplam</th>${kalemler.map((k) => `<th class="sayi">${k}</th>`).join("")}
+<div class="tablo"><table><thead><tr><th>Sıra (bu ölçüm)</th><th>Deneme</th><th class="sayi">Toplam</th>${kalemler.map((k) => `<th class="sayi">${k}</th>`).join("")}
 <th class="sayi">Brif</th><th class="sayi">axe K/C/O/A</th><th>Mobil taşma</th><th class="sayi">Boyut</th><th>Gövde fontu</th></tr></thead><tbody>${satirlar}</tbody></table></div>
 ${kartlar}
 </main></body></html>`;

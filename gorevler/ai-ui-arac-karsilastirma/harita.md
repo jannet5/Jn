@@ -15,14 +15,14 @@ flowchart TD
   B1 & B2 --> Y["3. Aynı brief (akis/brief.md) ile üretim yolları"]
   Y --> A["Yol A: Claude Code ham prompt"]
   Y --> BB["Yol B: Claude Code + resmi frontend-design süreci"]
-  Y --> C["Yol C: Stitch DESIGN.md → lint → Tailwind v4 export → üretim"]
-  Y --> D["Yol D: shadcn/ui registry dashboard-01 (v0'ın hedef yığını, AI'sız taban çizgisi)"]
-  Y -.->|hesap gelince| E["Yol E+: v0/Stitch/Lovable çıktısını denemeler/ içine koy"]
+  Y --> C["Yol C: açık kaynak DESIGN.md CLI → lint → export → Claude üretimi<br/>(Stitch web hesabı DEĞİL)"]
+  Y --> D["Yol D: statik shadcn/ui dashboard-01 bloğu, AI'sız<br/>(v0 hesabı DEĞİL)"]
+  Y -.->|hesap yok: ölçülmedi| E["Yol E+: v0 / Stitch web / Lovable…<br/>hesap gelince denemeler/ içine"]
   A & BB & C & D --> U["4. Uygulama: denemeler/*/dist/index.html"]
   U --> T["5. Test/ölçüm: akis/degerlendir.mjs<br/>ekran görüntüsü 1440 + 390, axe, yatay taşma,<br/>AI-varsayılan işaretleri, yük boyutu, brief kapsamı"]
   T -->|başarısız| U
   T --> K["6. Karşılaştırma: sonuclar/rapor.html + sonuclar.json"]
-  K --> P["7. Kalıcı teslim: dal push + geri okuma;<br/>özel ZIP (kaynak.txt/gorev.md dahil) + SHA-256"]
+  K --> P["7. Kalıcı teslim: dal push + geri okuma;<br/>bağımsız temiz Git kökü + bundle, özel ZIP + SHA-256"]
 ```
 
 ## Zincirin düz metni
