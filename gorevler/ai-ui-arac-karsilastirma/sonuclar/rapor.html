@@ -1,0 +1,107 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI UI Karşılaştırması</title>
+<style>
+:root{--zemin:#f6f7f9;--yuzey:#fff;--metin:#16181d;--ikincil:#5b616e;--cizgi:#d9dce3;--vurgu:#0b5cad}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}}
+:root[data-theme="dark"]{--zemin:#121418;--yuzey:#1b1e24;--metin:#e8eaee;--ikincil:#a3a9b6;--cizgi:#2e333c;--vurgu:#6fb0f2}
+*{box-sizing:border-box}body{margin:0;background:var(--zemin);color:var(--metin);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:24px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.alt{color:var(--ikincil);margin:0 0 20px}
+.tablo{overflow-x:auto;background:var(--yuzey);border:1px solid var(--cizgi);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px 10px;border-bottom:1px solid var(--cizgi);text-align:left;font-size:14px}
+thead th{color:var(--ikincil);font-weight:600}.sayi{text-align:right;font-variant-numeric:tabular-nums}
+.kart{background:var(--yuzey);border:1px solid var(--cizgi);border-radius:8px;padding:16px;margin:20px 0}.kart h2{margin:0 0 12px;font-size:1.15rem}
+.goruntuler{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}figure{margin:0;flex:1 1 520px;min-width:0}figure.dar{flex:0 1 200px}
+img{width:100%;height:auto;border:1px solid var(--cizgi);border-radius:4px;display:block}figcaption{font-size:13px;color:var(--ikincil)}
+a{color:var(--vurgu)}dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:12px 0 0}dt{color:var(--ikincil)}dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:600px){dl{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>AI UI araçları — aynı brief, aynı ölçüt</h1>
+<p class="alt">Ölçüm: 2026-10-03T11:46:49.178Z · chromium (Playwright) · ağırlıklar: kapsam 30, erisilebilirlik 25, mobil 15, klavye 10, ozgunluk 10, performans 10</p>
+<div class="tablo"><table><thead><tr><th>#</th><th>Deneme</th><th class="sayi">Toplam</th><th class="sayi">kapsam</th><th class="sayi">erisilebilirlik</th><th class="sayi">mobil</th><th class="sayi">klavye</th><th class="sayi">ozgunluk</th><th class="sayi">performans</th>
+<th class="sayi">Brif</th><th class="sayi">axe K/C/O/A</th><th>Mobil taşma</th><th class="sayi">Boyut</th><th>Gövde fontu</th></tr></thead><tbody><tr><td>1</td><th scope="row">b-claude-frontend-design</th><td class="sayi"><strong>100</strong></td>
+      <td class="sayi">30</td><td class="sayi">25</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">10</td><td class="sayi">10</td>
+      <td class="sayi">15/15</td>
+      <td class="sayi">0/0/0/0</td>
+      <td>yok</td>
+      <td class="sayi">212 KB</td>
+      <td>Onest</td></tr><tr><td>2</td><th scope="row">c-stitch-design-md</th><td class="sayi"><strong>95</strong></td>
+      <td class="sayi">30</td><td class="sayi">25</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">5</td><td class="sayi">10</td>
+      <td class="sayi">15/15</td>
+      <td class="sayi">0/0/0/0</td>
+      <td>yok</td>
+      <td class="sayi">80 KB</td>
+      <td>Manrope</td></tr><tr><td>3</td><th scope="row">a-claude-ham</th><td class="sayi"><strong>84</strong></td>
+      <td class="sayi">30</td><td class="sayi">20</td><td class="sayi">15</td><td class="sayi">5</td><td class="sayi">4</td><td class="sayi">10</td>
+      <td class="sayi">15/15</td>
+      <td class="sayi">0/22/0/0</td>
+      <td>yok</td>
+      <td class="sayi">91 KB</td>
+      <td>Inter</td></tr><tr><td>4</td><th scope="row">d-shadcn-registry</th><td class="sayi"><strong>49</strong></td>
+      <td class="sayi">4</td><td class="sayi">12</td><td class="sayi">15</td><td class="sayi">10</td><td class="sayi">8</td><td class="sayi">0</td>
+      <td class="sayi">2/15</td>
+      <td class="sayi">0/1/0/0</td>
+      <td>yok</td>
+      <td class="sayi">1123 KB</td>
+      <td>Geist Variable</td></tr></tbody></table></div>
+<section class="kart" id="b-claude-frontend-design">
+      <h2>b-claude-frontend-design — 100/100</h2>
+      <div class="goruntuler">
+        <figure><img loading="lazy" src="ekran/b-claude-frontend-design-masaustu-ilk-ekran.png" alt="b-claude-frontend-design masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/b-claude-frontend-design-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/b-claude-frontend-design-mobil-ilk-ekran.png" alt="b-claude-frontend-design mobil ilk ekran"><figcaption>390×844 · <a href="ekran/b-claude-frontend-design-mobil.png">tam sayfa</a></figcaption></figure>
+      </div>
+      <dl>
+        <dt>Eksik brif maddeleri</dt><dd>yok</dd>
+        <dt>axe kuralları</dt><dd>ihlal yok</dd>
+        <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
+        <dt>Klavye</dt><dd>8 öğeye odak, 8 tanesinde görünür gösterge</dd>
+        <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Onest, başlık Unbounded, gradyan 2 (mor 0), gölgeli yuvarlak kart 0, BÜYÜK HARF etiket 0, orta nokta 0, krem+terakota hayır</dd>
+        <dt>Ağ</dt><dd>7 istek, 212 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Konsol hatası</dt><dd>0</dd>
+      </dl>
+    </section><section class="kart" id="c-stitch-design-md">
+      <h2>c-stitch-design-md — 95/100</h2>
+      <div class="goruntuler">
+        <figure><img loading="lazy" src="ekran/c-stitch-design-md-masaustu-ilk-ekran.png" alt="c-stitch-design-md masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/c-stitch-design-md-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/c-stitch-design-md-mobil-ilk-ekran.png" alt="c-stitch-design-md mobil ilk ekran"><figcaption>390×844 · <a href="ekran/c-stitch-design-md-mobil.png">tam sayfa</a></figcaption></figure>
+      </div>
+      <dl>
+        <dt>Eksik brif maddeleri</dt><dd>yok</dd>
+        <dt>axe kuralları</dt><dd>ihlal yok</dd>
+        <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
+        <dt>Klavye</dt><dd>8 öğeye odak, 8 tanesinde görünür gösterge</dd>
+        <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Manrope, başlık Fraunces, gradyan 1 (mor 0), gölgeli yuvarlak kart 6, BÜYÜK HARF etiket 10, orta nokta 2, krem+terakota evet</dd>
+        <dt>Ağ</dt><dd>7 istek, 80 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Konsol hatası</dt><dd>0</dd>
+      </dl>
+    </section><section class="kart" id="a-claude-ham">
+      <h2>a-claude-ham — 84/100</h2>
+      <div class="goruntuler">
+        <figure><img loading="lazy" src="ekran/a-claude-ham-masaustu-ilk-ekran.png" alt="a-claude-ham masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/a-claude-ham-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/a-claude-ham-mobil-ilk-ekran.png" alt="a-claude-ham mobil ilk ekran"><figcaption>390×844 · <a href="ekran/a-claude-ham-mobil.png">tam sayfa</a></figcaption></figure>
+      </div>
+      <dl>
+        <dt>Eksik brif maddeleri</dt><dd>yok</dd>
+        <dt>axe kuralları</dt><dd>color-contrast (serious)</dd>
+        <dt>Akış: "Geçen hafta"</dt><dd>tıklandı, veriler değişti</dd>
+        <dt>Klavye</dt><dd>14 öğeye odak, 7 tanesinde görünür gösterge</dd>
+        <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Inter, başlık Fraunces, gradyan 0 (mor 0), gölgeli yuvarlak kart 7, BÜYÜK HARF etiket 5, orta nokta 7, krem+terakota evet</dd>
+        <dt>Ağ</dt><dd>7 istek, 91 KB, dış alan: fonts.googleapis.com, fonts.gstatic.com</dd>
+        <dt>Konsol hatası</dt><dd>0</dd>
+      </dl>
+    </section><section class="kart" id="d-shadcn-registry">
+      <h2>d-shadcn-registry — 49/100</h2>
+      <div class="goruntuler">
+        <figure><img loading="lazy" src="ekran/d-shadcn-registry-masaustu-ilk-ekran.png" alt="d-shadcn-registry masaüstü ilk ekran"><figcaption>1440×900 ilk ekran · <a href="ekran/d-shadcn-registry-masaustu.png">tam sayfa</a></figcaption></figure>
+        <figure class="dar"><img loading="lazy" src="ekran/d-shadcn-registry-mobil-ilk-ekran.png" alt="d-shadcn-registry mobil ilk ekran"><figcaption>390×844 · <a href="ekran/d-shadcn-registry-mobil.png">tam sayfa</a></figcaption></figure>
+      </div>
+      <dl>
+        <dt>Eksik brif maddeleri</dt><dd>genel bakış, şubeler, ürünler, personel, ayarlar, bu hafta, geçen hafta, son 30 gün, ciro, sipariş, ortalama sepet, iade, html lang=tr (bulunan &quot;en&quot;)</dd>
+        <dt>axe kuralları</dt><dd>color-contrast (serious), button-name (critical)</dd>
+        <dt>Akış: "Geçen hafta"</dt><dd>seçenek bulunamadı</dd>
+        <dt>Klavye</dt><dd>20 öğeye odak, 20 tanesinde görünür gösterge</dd>
+        <dt>AI varsayılan işaretleri</dt><dd>gövde fontu Geist Variable, başlık Geist Variable, gradyan 4 (mor 0), gölgeli yuvarlak kart 6, BÜYÜK HARF etiket 0, orta nokta 0, krem+terakota hayır</dd>
+        <dt>Ağ</dt><dd>5 istek, 1123 KB, dış alan: yok</dd>
+        <dt>Konsol hatası</dt><dd>2</dd>
+      </dl>
+    </section>
+</main></body></html>

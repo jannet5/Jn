@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kahve Durağı · Haftalık Satış</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f2ea; --surface:#fffdf9; --surface-2:#f1e9dd; --line:#e4d8c6;
+  --ink:#2a1d15; --ink-2:#6b5a4c; --ink-3:#8f7e70;
+  --accent:#b4532a; --accent-ink:#fff; --accent-soft:#f4e0d4;
+  --bar:#c98a5e; --bar-hi:#b4532a;
+  --good:#2f7a4d; --good-bg:#e1f0e5; --bad:#b3372b; --bad-bg:#f7e1de;
+  --warn:#8a5a00; --warn-bg:#f8ecd0; --info:#2d5d8a; --info-bg:#e0eaf4;
+  --focus:#1f5fbf;
+  --radius:14px; --shadow:0 1px 2px rgba(42,29,21,.06),0 4px 16px rgba(42,29,21,.05);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16110d; --surface:#201914; --surface-2:#2a211a; --line:#3a2e25;
+    --ink:#f3ebe1; --ink-2:#c3b3a4; --ink-3:#9a8a7c;
+    --accent:#e08a5c; --accent-ink:#1a120c; --accent-soft:#3b261b;
+    --bar:#8f5f40; --bar-hi:#e08a5c;
+    --good:#7fcf9a; --good-bg:#1d3326; --bad:#f19a8f; --bad-bg:#3d1f1b;
+    --warn:#e8c06a; --warn-bg:#3a2e12; --info:#93bde6; --info-bg:#1b2c3d;
+    --focus:#8fb8ff;
+    --shadow:none; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:8px;z-index:100;text-decoration:none}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Layout */
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.side{background:var(--surface);border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px;font-family:Fraunces,Georgia,serif;font-weight:600;font-size:19px}
+.brand svg{flex:none}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;color:var(--ink-2);text-decoration:none;font-weight:500}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+.nav svg{width:18px;height:18px;flex:none}
+.side-foot{margin-top:auto;padding:12px;border-radius:12px;background:var(--surface-2);font-size:13px;color:var(--ink-2)}
+.side-foot strong{display:block;color:var(--ink);font-weight:600}
+
+main{padding:28px 32px 48px;min-width:0}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.top h1{font-size:30px;line-height:1.15}
+.top p{margin:4px 0 0;color:var(--ink-2)}
+.menu-btn{display:none}
+
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px;gap:2px}
+.seg button{border:0;background:transparent;padding:8px 14px;border-radius:9px;cursor:pointer;color:var(--ink-2);font-weight:500;white-space:nowrap;min-height:40px}
+.seg button[aria-checked="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.seg button:hover{color:var(--ink)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.kpi{padding:18px 18px 16px}
+.kpi h2{font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:500;color:var(--ink-2);letter-spacing:0}
+.kpi .val{font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:600;margin:6px 0 8px;font-variant-numeric:tabular-nums;line-height:1.1}
+.delta{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;padding:2px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+.delta.good{color:var(--good);background:var(--good-bg)}
+.delta.bad{color:var(--bad);background:var(--bad-bg)}
+.kpi small{display:block;color:var(--ink-3);font-size:12px;margin-top:6px}
+
+.grid2{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;margin-bottom:20px}
+.panel{padding:20px}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.panel-head h2{font-size:19px}
+.panel-head span{color:var(--ink-3);font-size:13px}
+
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .bar{fill:var(--bar);transition:fill .15s}
+.chart .bar.max{fill:var(--bar-hi)}
+.chart g.col{cursor:default;outline:none}
+.chart g.col:hover .bar,.chart g.col:focus .bar{fill:var(--accent)}
+.chart g.col:focus .focusring{stroke:var(--focus);stroke-width:2.5}
+.chart .focusring{fill:none;stroke:transparent}
+.chart text{fill:var(--ink-3);font-size:12px;font-family:Inter,system-ui,sans-serif}
+.chart .gl{stroke:var(--line);stroke-dasharray:3 4}
+.chart .vlabel{fill:var(--ink-2);font-weight:600;font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;transition:opacity .12s}
+.tip.on{opacity:1}
+
+.branches{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.branches li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:14px}
+.branches .name{font-weight:500}
+.branches .amt{font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.meter{grid-column:1/-1;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--bar);border-radius:99px}
+.branches li:first-child .meter i{background:var(--accent)}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+caption{text-align:left}
+th{font-weight:500;color:var(--ink-3);font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:0 12px 10px;border-bottom:1px solid var(--line)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface-2)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td.time{font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+.items{color:var(--ink-2)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.done{color:var(--good);background:var(--good-bg)}
+.pill.prep{color:var(--warn);background:var(--warn-bg)}
+.pill.way{color:var(--info);background:var(--info-bg)}
+.pill.refund{color:var(--bad);background:var(--bad-bg)}
+.table-wrap{overflow-x:auto}
+
+.overlay{display:none}
+
+/* Tablet */
+@media (max-width:1100px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid2{grid-template-columns:1fr}
+}
+/* Mobile */
+@media (max-width:760px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:min(280px,82vw);z-index:50;transform:translateX(-100%);transition:transform .2s ease;visibility:hidden}
+  .side.open{transform:none;visibility:visible}
+  .overlay.on{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  main{padding:16px 16px 40px}
+  .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);background:var(--surface);border-radius:12px;cursor:pointer}
+  .top{align-items:flex-start;gap:12px}
+  .top-title{display:flex;gap:12px;align-items:center}
+  .top h1{font-size:24px}
+  .top p{font-size:13px}
+  .seg{width:100%}
+  .seg button{flex:1;padding:8px 6px;font-size:13px}
+  .kpis{gap:10px}
+  .kpi{padding:14px}
+  .kpi .val{font-size:22px}
+  .kpi small{display:none}
+  .panel{padding:16px}
+  /* table -> cards */
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table,tbody,tr,td{display:block}
+  tbody tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  tbody tr:hover{background:none}
+  td{padding:0;border:0}
+  td.time{grid-column:1;grid-row:1;font-size:13px}
+  td.branch{grid-column:1;grid-row:2;font-weight:600}
+  td.items{grid-column:1/-1;grid-row:3;font-size:13px}
+  td.num{grid-column:2;grid-row:1;font-weight:600}
+  td.st{grid-column:2;grid-row:2;text-align:right}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#icerik">İçeriğe atla</a>
+<div class="app">
+  <aside class="side" id="yanmenu" aria-label="Yan menü">
+    <div class="brand">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="var(--accent)"/><path d="M8 11h10v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-5Zm10 1h1.5a2 2 0 0 1 0 4H18" fill="none" stroke="var(--accent-ink)" stroke-width="1.8" stroke-linecap="round"/><path d="M11 6.5c0 1 1 1 1 2M14.5 6.5c0 1 1 1 1 2" stroke="var(--accent-ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Kahve Durağı
+    </div>
+    <nav class="nav" aria-label="Ana menü">
+      <ul>
+        <li><a href="#genel" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Genel bakış</a></li>
+        <li><a href="#subeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10 5 4h14l2 6M4 10v10h16V10M3 10h18M9 20v-5h6v5"/></svg>Şubeler</a></li>
+        <li><a href="#urunler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 8h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V8Zm12 1h1.5a2.5 2.5 0 0 1 0 5H17"/></svg>Ürünler</a></li>
+        <li><a href="#personel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/></svg>Personel</a></li>
+        <li><a href="#ayarlar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>Ayarlar</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot"><strong>Ayşe Kaya</strong>Bölge müdürü · 4 şube</div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <main id="icerik" tabindex="-1">
+    <header class="top">
+      <div class="top-title">
+        <button class="menu-btn" id="menuBtn" aria-label="Menüyü aç" aria-expanded="false" aria-controls="yanmenu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div>
+          <h1>Haftalık satış</h1>
+          <p id="rangeText">28 Eylül – 4 Ekim 2026</p>
+        </div>
+      </div>
+      <div class="seg" role="radiogroup" aria-label="Tarih aralığı" id="seg">
+        <button role="radio" data-r="bu" aria-checked="true" tabindex="0">Bu hafta</button>
+        <button role="radio" data-r="gecen" aria-checked="false" tabindex="-1">Geçen hafta</button>
+        <button role="radio" data-r="otuz" aria-checked="false" tabindex="-1">Son 30 gün</button>
+      </div>
+    </header>
+
+    <section class="kpis" aria-label="Özet ölçütler" aria-live="polite" id="kpis"></section>
+
+    <div class="grid2">
+      <section class="card panel" aria-labelledby="chartTitle">
+        <div class="panel-head"><h2 id="chartTitle">Günlük ciro</h2><span id="chartSub">Son 7 gün · ₺</span></div>
+        <div class="chart" id="chart"></div>
+        <p class="sr">Çubuklar arasında Tab tuşuyla gezinebilirsiniz.</p>
+      </section>
+      <section class="card panel" aria-labelledby="brTitle">
+        <div class="panel-head"><h2 id="brTitle">Şubelere göre ciro</h2><span id="brSub">Toplam payı</span></div>
+        <ul class="branches" id="branches"></ul>
+      </section>
+    </div>
+
+    <section class="card panel" aria-labelledby="ordTitle">
+      <div class="panel-head"><h2 id="ordTitle">Son siparişler</h2><span>Bugün · canlı değil, örnek veri</span></div>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr">Son siparişler: saat, şube, ürünler, tutar ve durum</caption>
+          <thead><tr><th scope="col">Saat</th><th scope="col">Şube</th><th scope="col">Ürünler</th><th scope="col" class="num">Tutar</th><th scope="col">Durum</th></tr></thead>
+          <tbody id="orders"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  const TRY = new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',maximumFractionDigits:0});
+  const TRY2 = new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',minimumFractionDigits:2,maximumFractionDigits:2});
+  const NUM = new Intl.NumberFormat('tr-TR');
+  const PCT = new Intl.NumberFormat('tr-TR',{minimumFractionDigits:1,maximumFractionDigits:1});
+  const kisa = v => v>=1000 ? PCT.format(v/1000).replace(',0','')+' B' : NUM.format(v);
+
+  const DATA = {
+    bu:{
+      label:'28 Eylül – 4 Ekim 2026', cmp:'geçen haftaya göre',
+      chartSub:'Son 7 gün · ₺', chartMode:'gün',
+      days:[['Pzt','28 Eyl',41200],['Sal','29 Eyl',38650],['Çar','30 Eyl',44100],['Per','1 Eki',46900],['Cum','2 Eki',58300],['Cmt','3 Eki',71450],['Paz','4 Eki',64800]],
+      orders:2318, refund:1.4,
+      prev:{revenue:338900, orders:2214, basket:153.07, refund:1.9},
+      branches:[['Kadıköy',118300],['Beşiktaş',97650],['Moda',61900],['Nişantaşı',87550]]
+    },
+    gecen:{
+      label:'21 – 27 Eylül 2026', cmp:'önceki haftaya göre',
+      chartSub:'7 gün · ₺', chartMode:'gün',
+      days:[['Pzt','21 Eyl',39800],['Sal','22 Eyl',37100],['Çar','23 Eyl',42600],['Per','24 Eyl',43900],['Cum','25 Eyl',52700],['Cmt','26 Eyl',66200],['Paz','27 Eyl',56600]],
+      orders:2214, refund:1.9,
+      prev:{revenue:352400, orders:2297, basket:153.42, refund:1.6},
+      branches:[['Kadıköy',111200],['Beşiktaş',93400],['Moda',57800],['Nişantaşı',76500]]
+    },
+    otuz:{
+      label:'5 Eylül – 4 Ekim 2026', cmp:'önceki 30 güne göre',
+      chartSub:'Haftanın günlerine göre ortalama · ₺', chartMode:'ort',
+      days:[['Pzt','4 Pazartesi ort.',40100],['Sal','4 Salı ort.',37900],['Çar','5 Çarşamba ort.',43200],['Per','4 Perşembe ort.',45000],['Cum','4 Cuma ort.',55400],['Cmt','4 Cumartesi ort.',68100],['Paz','5 Pazar ort.',60300]],
+      revenueOverride:1488600, orders:9842, refund:1.6,
+      prev:{revenue:1402300, orders:9518, basket:147.33, refund:1.8},
+      branches:[['Kadıköy',504900],['Beşiktaş',419800],['Moda',248300],['Nişantaşı',315600]]
+    }
+  };
+
+  const ORDERS = {
+    bu:[
+      ['14:52','Kadıköy','2× Flat white, 1× Kruvasan',265,'prep'],
+      ['14:47','Beşiktaş','1× Soğuk demleme, 1× San Sebastian',245,'way'],
+      ['14:41','Moda','3× Türk kahvesi, 1× Lokum tabağı',330,'done'],
+      ['14:36','Nişantaşı','1× Oat latte, 1× Avokadolu tost',310,'done'],
+      ['14:29','Kadıköy','2× Americano',150,'refund'],
+      ['14:22','Beşiktaş','1× Chai latte, 2× Kurabiye',205,'done'],
+      ['14:15','Moda','1× Filtre kahve, 1× Muzlu kek',160,'done'],
+      ['14:09','Nişantaşı','2× Cortado, 1× Simit tabağı',290,'done']
+    ],
+    gecen:[
+      ['Paz 18:58','Nişantaşı','2× Mocha, 1× Brownie',320,'done'],
+      ['Paz 18:44','Kadıköy','1× Flat white',95,'done'],
+      ['Paz 18:31','Moda','2× Soğuk demleme, 2× Kurabiye',330,'refund'],
+      ['Paz 18:20','Beşiktaş','1× Latte, 1× Kruvasan',195,'done'],
+      ['Paz 18:12','Kadıköy','4× Türk kahvesi',280,'done'],
+      ['Paz 18:03','Nişantaşı','1× Matcha latte, 1× Cheesecake',265,'done']
+    ],
+    otuz:null
+  };
+  ORDERS.otuz = ORDERS.bu;
+
+  const STATUS = {done:'Tamamlandı',prep:'Hazırlanıyor',way:'Yolda',refund:'İade'};
+
+  function computed(r){
+    const d = DATA[r];
+    const revenue = d.revenueOverride || d.days.reduce((s,x)=>s+x[2],0);
+    const basket = revenue / d.orders;
+    return {revenue, orders:d.orders, basket, refund:d.refund};
+  }
+  function change(cur, prev){ return (cur-prev)/prev*100; }
+
+  function deltaHTML(pct, lowerIsBetter, isPoints){
+    const up = pct >= 0;
+    const good = lowerIsBetter ? !up : up;
+    const arrow = up ? '▲' : '▼';
+    const txt = (up?'+':'−') + PCT.format(Math.abs(pct)) + (isPoints ? ' puan' : '%');
+    const sr = (up?'artış':'düşüş') + ', ' + (good?'olumlu':'olumsuz');
+    return `<span class="delta ${good?'good':'bad'}"><span aria-hidden="true">${arrow}</span>${txt}<span class="sr"> (${sr})</span></span>`;
+  }
+
+  function renderKPIs(r){
+    const c = computed(r), p = DATA[r].prev, cmp = DATA[r].cmp;
+    const items = [
+      ['Ciro', TRY.format(c.revenue), deltaHTML(change(c.revenue,p.revenue),false)],
+      ['Sipariş sayısı', NUM.format(c.orders), deltaHTML(change(c.orders,p.orders),false)],
+      ['Ortalama sepet', TRY2.format(c.basket), deltaHTML(change(c.basket,p.basket),false)],
+      ['İade oranı', '%'+PCT.format(c.refund), deltaHTML(c.refund-p.refund,true,true)]
+    ];
+    document.getElementById('kpis').innerHTML = items.map(([t,v,d])=>
+      `<article class="card kpi"><h2>${t}</h2><div class="val">${v}</div>${d}<small>${cmp}</small></article>`).join('');
+  }
+
+  function renderChart(r){
+    const d = DATA[r], el = document.getElementById('chart');
+    document.getElementById('chartSub').textContent = d.chartSub;
+    const W=600,H=260,pl=44,pr=8,pt=22,pb=30;
+    const max = Math.max(...d.days.map(x=>x[2]));
+    const top = Math.ceil(max/20000)*20000;
+    const cw=(W-pl-pr)/d.days.length, bw=Math.min(46,cw*0.58);
+    const y = v => pt + (H-pt-pb)*(1-v/top);
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="Günlük ciro çubuk grafiği">`;
+    for(let g=0; g<=top; g+=20000){
+      s += `<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(g)}" y2="${y(g)}"/><text x="${pl-8}" y="${y(g)+4}" text-anchor="end">${g? (g/1000)+' B':'0'}</text>`;
+    }
+    d.days.forEach(([lab,full,v],i)=>{
+      const cx = pl + cw*i + cw/2, bx = cx-bw/2, by=y(v), bh = y(0)-by;
+      const isMax = v===max;
+      const aria = `${full}${d.chartMode==='gün'?' '+lab:''}: ${TRY.format(v)}`;
+      s += `<g class="col" tabindex="0" role="img" aria-label="${aria}" data-x="${cx}" data-y="${by}" data-t="${full} · ${TRY.format(v)}">
+        <rect class="focusring" x="${bx-4}" y="${by-4}" width="${bw+8}" height="${bh+8}" rx="9"/>
+        <rect class="bar${isMax?' max':''}" x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="6"/>
+        <text class="vlabel" x="${cx}" y="${by-7}" text-anchor="middle">${kisa(v)}</text>
+        <text x="${cx}" y="${H-8}" text-anchor="middle">${lab}</text></g>`;
+    });
+    s += `</svg><div class="tip" id="tip" aria-hidden="true"></div>`;
+    el.innerHTML = s;
+    const tip = el.querySelector('#tip'), svg = el.querySelector('svg');
+    const show = g => {
+      const k = svg.getBoundingClientRect().width / W;
+      tip.textContent = g.dataset.t;
+      tip.style.left = (g.dataset.x*k)+'px';
+      tip.style.top = (g.dataset.y*k - 14)+'px';
+      tip.classList.add('on');
+    };
+    const hide = ()=>tip.classList.remove('on');
+    el.querySelectorAll('g.col').forEach(g=>{
+      g.addEventListener('mouseenter',()=>show(g));
+      g.addEventListener('mouseleave',hide);
+      g.addEventListener('focus',()=>show(g));
+      g.addEventListener('blur',hide);
+    });
+  }
+
+  function renderBranches(r){
+    const b = [...DATA[r].branches].sort((a,c)=>c[1]-a[1]);
+    const tot = b.reduce((s,x)=>s+x[1],0);
+    document.getElementById('branches').innerHTML = b.map(([n,v])=>{
+      const pct = v/tot*100;
+      return `<li><span class="name">${n}</span><span class="amt">${TRY.format(v)} · %${PCT.format(pct)}</span>
+        <span class="meter" role="presentation"><i style="width:${(v/b[0][1]*100).toFixed(1)}%"></i></span></li>`;
+    }).join('');
+  }
+
+  function renderOrders(r){
+    document.getElementById('orders').innerHTML = ORDERS[r].map(([t,b,items,amt,st])=>
+      `<tr><td class="time">${t}</td><td class="branch">${b}</td><td class="items">${items}</td><td class="num">${TRY.format(amt)}</td><td class="st"><span class="pill ${st}">${STATUS[st]}</span></td></tr>`).join('');
+  }
+
+  function render(r){
+    document.getElementById('rangeText').textContent = DATA[r].label;
+    renderKPIs(r); renderChart(r); renderBranches(r); renderOrders(r);
+  }
+
+  // Segmented control (radio group with arrow keys)
+  const seg = document.getElementById('seg');
+  const radios = [...seg.querySelectorAll('[role=radio]')];
+  function select(btn, focus){
+    radios.forEach(b=>{const on=b===btn; b.setAttribute('aria-checked',on); b.tabIndex=on?0:-1;});
+    if(focus) btn.focus();
+    render(btn.dataset.r);
+  }
+  radios.forEach((b,i)=>{
+    b.addEventListener('click',()=>select(b,false));
+    b.addEventListener('keydown',e=>{
+      let j=null;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown') j=(i+1)%radios.length;
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp') j=(i-1+radios.length)%radios.length;
+      else if(e.key==='Home') j=0; else if(e.key==='End') j=radios.length-1;
+      if(j!==null){e.preventDefault(); select(radios[j],true);}
+    });
+  });
+
+  // Nav: current state
+  const links = [...document.querySelectorAll('.nav a')];
+  links.forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    links.forEach(l=>l.removeAttribute('aria-current'));
+    a.setAttribute('aria-current','page');
+    if(mq.matches) closeMenu(true);
+  }));
+
+  // Mobile drawer
+  const side = document.getElementById('yanmenu'), btn = document.getElementById('menuBtn'), ov = document.getElementById('overlay');
+  const mq = window.matchMedia('(max-width:760px)');
+  function openMenu(){
+    side.classList.add('open'); ov.classList.add('on');
+    btn.setAttribute('aria-expanded','true'); btn.setAttribute('aria-label','Menüyü kapat');
+    (side.querySelector('[aria-current]')||links[0]).focus();
+  }
+  function closeMenu(ret){
+    side.classList.remove('open'); ov.classList.remove('on');
+    btn.setAttribute('aria-expanded','false'); btn.setAttribute('aria-label','Menüyü aç');
+    if(ret) btn.focus();
+  }
+  btn.addEventListener('click',()=> side.classList.contains('open') ? closeMenu(true) : openMenu());
+  ov.addEventListener('click',()=>closeMenu(true));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && side.classList.contains('open')) closeMenu(true);
+    if(e.key==='Tab' && side.classList.contains('open') && mq.matches){
+      const f=[...side.querySelectorAll('a')], first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){e.preventDefault(); last.focus();}
+      else if(!e.shiftKey && document.activeElement===last){e.preventDefault(); first.focus();}
+    }
+  });
+  mq.addEventListener('change',()=>closeMenu(false));
+
+  window.addEventListener('resize',()=>{const t=document.getElementById('tip'); if(t) t.classList.remove('on');});
+
+  render('bu');
+})();
+</script>
+</body>
+</html>

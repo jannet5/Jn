@@ -1,0 +1,1105 @@
+{
+  "tarih": "2026-10-03T11:46:49.178Z",
+  "tarayici": "chromium (Playwright)",
+  "proxySertifikaYoksayildi": true,
+  "sonuclar": [
+    {
+      "ad": "a-claude-ham",
+      "url": "denemeler/a-claude-ham/dist/index.html",
+      "gorunumler": {
+        "masaustu": {
+          "viewport": "1440x900",
+          "yuklemeMs": 1505,
+          "bayt": 93000,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 1440,
+            "clientWidth": 1440,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 22,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [
+            {
+              "id": "color-contrast",
+              "etki": "serious",
+              "dugum": 22,
+              "aciklama": "Elements must meet minimum color contrast ratio thresholds"
+            }
+          ],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 8)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Inter",
+            "baslikFont": "Fraunces",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 2,
+            "gradyan": 0,
+            "morGradyan": 0,
+            "kartKiti": 7,
+            "buyukHarfEtiket": 5,
+            "ortaNokta": 7,
+            "kremTerakota": true
+          },
+          "odak": {
+            "odaklanan": 14,
+            "gorunurOdak": 7
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        },
+        "mobil": {
+          "viewport": "390x844",
+          "yuklemeMs": 1431,
+          "bayt": 93000,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 390,
+            "clientWidth": 390,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 12,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [
+            {
+              "id": "color-contrast",
+              "etki": "serious",
+              "dugum": 12,
+              "aciklama": "Elements must meet minimum color contrast ratio thresholds"
+            }
+          ],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 8)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Inter",
+            "baslikFont": "Fraunces",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 2,
+            "gradyan": 0,
+            "morGradyan": 0,
+            "kartKiti": 7,
+            "buyukHarfEtiket": 5,
+            "ortaNokta": 6,
+            "kremTerakota": true
+          },
+          "odak": {
+            "odaklanan": 10,
+            "gorunurOdak": 3
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        }
+      },
+      "puan": {
+        "toplam": 84,
+        "kalem": {
+          "kapsam": 30,
+          "erisilebilirlik": 20,
+          "mobil": 15,
+          "klavye": 5,
+          "ozgunluk": 4,
+          "performans": 10
+        }
+      }
+    },
+    {
+      "ad": "b-claude-frontend-design",
+      "url": "denemeler/b-claude-frontend-design/dist/index.html",
+      "gorunumler": {
+        "masaustu": {
+          "viewport": "1440x900",
+          "yuklemeMs": 1445,
+          "bayt": 217163,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 1440,
+            "clientWidth": 1440,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 0,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 8)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Onest",
+            "baslikFont": "Unbounded",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 3,
+            "gradyan": 2,
+            "morGradyan": 0,
+            "kartKiti": 0,
+            "buyukHarfEtiket": 0,
+            "ortaNokta": 0,
+            "kremTerakota": false
+          },
+          "odak": {
+            "odaklanan": 8,
+            "gorunurOdak": 8
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        },
+        "mobil": {
+          "viewport": "390x844",
+          "yuklemeMs": 1429,
+          "bayt": 211855,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 390,
+            "clientWidth": 390,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 0,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 8)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Onest",
+            "baslikFont": "Unbounded",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 3,
+            "gradyan": 1,
+            "morGradyan": 0,
+            "kartKiti": 0,
+            "buyukHarfEtiket": 0,
+            "ortaNokta": 0,
+            "kremTerakota": false
+          },
+          "odak": {
+            "odaklanan": 5,
+            "gorunurOdak": 5
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        }
+      },
+      "puan": {
+        "toplam": 100,
+        "kalem": {
+          "kapsam": 30,
+          "erisilebilirlik": 25,
+          "mobil": 15,
+          "klavye": 10,
+          "ozgunluk": 10,
+          "performans": 10
+        }
+      }
+    },
+    {
+      "ad": "c-stitch-design-md",
+      "url": "denemeler/c-stitch-design-md/dist/index.html",
+      "gorunumler": {
+        "masaustu": {
+          "viewport": "1440x900",
+          "yuklemeMs": 1415,
+          "bayt": 82358,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 1440,
+            "clientWidth": 1440,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 0,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 7)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Manrope",
+            "baslikFont": "Fraunces",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 2,
+            "gradyan": 1,
+            "morGradyan": 0,
+            "kartKiti": 6,
+            "buyukHarfEtiket": 10,
+            "ortaNokta": 2,
+            "kremTerakota": true
+          },
+          "odak": {
+            "odaklanan": 8,
+            "gorunurOdak": 8
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        },
+        "mobil": {
+          "viewport": "390x844",
+          "yuklemeMs": 1396,
+          "bayt": 117478,
+          "istek": 7,
+          "disAlanlar": [
+            "fonts.googleapis.com",
+            "fonts.gstatic.com"
+          ],
+          "basarisiz": [],
+          "konsolHatalari": [],
+          "tasma": {
+            "scrollWidth": 390,
+            "clientWidth": 390,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 0,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [],
+          "kapsam": {
+            "tamam": 15,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": true
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": true
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": true
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": true
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 7)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"tr\")",
+                "tamam": true
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Manrope",
+            "baslikFont": "Fraunces",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 2,
+            "gradyan": 1,
+            "morGradyan": 0,
+            "kartKiti": 6,
+            "buyukHarfEtiket": 9,
+            "ortaNokta": 1,
+            "kremTerakota": true
+          },
+          "odak": {
+            "odaklanan": 8,
+            "gorunurOdak": 8
+          },
+          "akis": {
+            "tiklandi": true,
+            "degisti": true
+          }
+        }
+      },
+      "puan": {
+        "toplam": 95,
+        "kalem": {
+          "kapsam": 30,
+          "erisilebilirlik": 25,
+          "mobil": 15,
+          "klavye": 10,
+          "ozgunluk": 5,
+          "performans": 10
+        }
+      }
+    },
+    {
+      "ad": "d-shadcn-registry",
+      "url": "denemeler/d-shadcn-registry/dist/index.html",
+      "gorunumler": {
+        "masaustu": {
+          "viewport": "1440x900",
+          "yuklemeMs": 1794,
+          "bayt": 1150320,
+          "istek": 5,
+          "disAlanlar": [],
+          "basarisiz": [
+            "404 /avatars/shadcn.jpg"
+          ],
+          "konsolHatalari": [
+            "Failed to load resource: the server responded with a status of 404 (Not Found)"
+          ],
+          "tasma": {
+            "scrollWidth": 1440,
+            "clientWidth": 1440,
+            "var": false
+          },
+          "axe": {
+            "critical": 0,
+            "serious": 1,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [
+            {
+              "id": "color-contrast",
+              "etki": "serious",
+              "dugum": 1,
+              "aciklama": "Elements must meet minimum color contrast ratio thresholds"
+            }
+          ],
+          "kapsam": {
+            "tamam": 2,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": false
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 10)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"en\")",
+                "tamam": false
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Geist Variable",
+            "baslikFont": "Geist Variable",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 1,
+            "gradyan": 4,
+            "morGradyan": 0,
+            "kartKiti": 6,
+            "buyukHarfEtiket": 0,
+            "ortaNokta": 0,
+            "kremTerakota": false
+          },
+          "odak": {
+            "odaklanan": 20,
+            "gorunurOdak": 20
+          },
+          "akis": {
+            "tiklandi": false,
+            "degisti": false
+          }
+        },
+        "mobil": {
+          "viewport": "390x844",
+          "yuklemeMs": 1733,
+          "bayt": 1150320,
+          "istek": 5,
+          "disAlanlar": [],
+          "basarisiz": [
+            "404 /avatars/shadcn.jpg"
+          ],
+          "konsolHatalari": [
+            "Failed to load resource: the server responded with a status of 404 (Not Found)"
+          ],
+          "tasma": {
+            "scrollWidth": 390,
+            "clientWidth": 390,
+            "var": false
+          },
+          "axe": {
+            "critical": 1,
+            "serious": 0,
+            "moderate": 0,
+            "minor": 0
+          },
+          "axeListesi": [
+            {
+              "id": "button-name",
+              "etki": "critical",
+              "dugum": 1,
+              "aciklama": "Buttons must have discernible text"
+            }
+          ],
+          "kapsam": {
+            "tamam": 2,
+            "toplam": 15,
+            "maddeler": [
+              {
+                "grup": "menu",
+                "madde": "genel bakış",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "şubeler",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "ürünler",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "personel",
+                "tamam": false
+              },
+              {
+                "grup": "menu",
+                "madde": "ayarlar",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "bu hafta",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "geçen hafta",
+                "tamam": false
+              },
+              {
+                "grup": "tarih",
+                "madde": "son 30 gün",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "ciro",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "sipariş",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "ortalama sepet",
+                "tamam": false
+              },
+              {
+                "grup": "olcut",
+                "madde": "iade",
+                "tamam": false
+              },
+              {
+                "grup": "grafik",
+                "madde": "≥200×100 görünür grafik (svg/canvas/HTML çubuk)",
+                "tamam": true
+              },
+              {
+                "grup": "tablo",
+                "madde": "tabloda ≥6 satır (bulunan 10)",
+                "tamam": true
+              },
+              {
+                "grup": "dil",
+                "madde": "html lang=tr (bulunan \"en\")",
+                "tamam": false
+              }
+            ]
+          },
+          "varsayilan": {
+            "govdeFont": "Geist Variable",
+            "baslikFont": "Geist Variable",
+            "jenerikFont": false,
+            "fontAilesiSayisi": 1,
+            "gradyan": 4,
+            "morGradyan": 0,
+            "kartKiti": 5,
+            "buyukHarfEtiket": 0,
+            "ortaNokta": 0,
+            "kremTerakota": false
+          },
+          "odak": {
+            "odaklanan": 20,
+            "gorunurOdak": 18
+          },
+          "akis": {
+            "tiklandi": false,
+            "degisti": false
+          }
+        }
+      },
+      "puan": {
+        "toplam": 49,
+        "kalem": {
+          "kapsam": 4,
+          "erisilebilirlik": 12,
+          "mobil": 15,
+          "klavye": 10,
+          "ozgunluk": 8,
+          "performans": 0
+        }
+      }
+    }
+  ]
+}

@@ -20,3 +20,34 @@ Sonradan netleşen düzeltme: istenen şey bir **mobil uygulama/APK değil**, bi
   (`git clone google-labs-code/design.md`), shadcn registry belgesi.
 - Erişim yoklaması: `ui.shadcn.com/r/...dashboard-01.json` 200, `21st.dev/r/...` **403**, `v0.app` 200 (ama hesap gerekir).
 - Ayrıntı: `arastirma.md`. Harita: `harita.md`.
+
+## 3. Plan ve harita
+`harita.md`: hesapsız denenebilen dört yol seçildi (A ham Claude Code, B frontend-design süreci, C Stitch DESIGN.md CLI,
+D shadcn/ui registry). Ortak brief: `akis/brief.md` (kafe zinciri haftalık satış paneli, Türkçe, mobil, klavye).
+
+## 4. Denemeler (gerçek araçlarla)
+- **D** — komutlar `akis/tarifler/d-shadcn-registry.md`. Sorunlar: `shadcn init` preset sorusunda takıldı → `-p nova` ile
+  çözüldü; blok `tsc` strict'te `TS6133` (kullanılmayan import) ile derlenmedi → `noUnusedLocals:false`; `/avatars/shadcn.jpg` 404.
+- **A, B, C** — her biri ayrı, temiz bağlamlı alt ajanla paralel üretildi (birbirinin çıktısını görmesin diye).
+  Promptlar `akis/tarifler/`. C'de gerçek CLI: `npx @google/design.md@0.4.0 lint` (ilk: 0 hata/3 uyarı → son: 0/0) ve `export`.
+  B'de skill süreci + Playwright ekran görüntüsüyle 2 eleştiri turu.
+
+## 5. Değerlendirme otomasyonu ve karşılaşılan sorunlar
+- `akis/degerlendir.mjs` + `olcutler.mjs` + `puan.mjs` + `rapor.mjs`; testler `akis/test/olcutler.test.mjs` (6/6 geçti).
+- Sorun 1: Chromium, bulut proxy'sinin TLS sertifikasına güvenmediği için Google Fonts yüklenmedi
+  (`ERR_CERT_AUTHORITY_INVALID`) → yalnız proxy varken `ignoreHTTPSErrors`.
+- Sorun 2: ardından fontlarda ara sıra `ERR_TOO_MANY_RETRIES` (curl ile aynı URL 200) → dış istekleri `page.route` +
+  `route.fetch` ile 4 kez deneyerek yükleme; iki ardışık koşu aynı puanı verdi.
+- Sorun 3: klavye testi ekran görüntüsünden önce çalışıp görüntüye odak halkası bırakıyordu → sıra değişti.
+- Sorun 4: HTML çubuk grafikler (B, C) ilk ölçütte "grafik yok" sayıldı → ölçüt genişletildi ve testle doğrulandı.
+- Sorun 5: krem+terakota tespiti açık kremlerde gri eşiğine takıldı → ayrı HSL hesabı; testle doğrulandı.
+- Eklenen kabul testi: "Geçen hafta"ya tıklayınca sayfa verisi değişiyor mu (A/B/C evet, D seçenek yok).
+
+## 6. Sonuç
+B 100, C 95, A 84, D 49. Ayrıntı ve sınırlar: `sonuc.md`. Ekran görüntüleri gözle de kontrol edildi (notlar `sonuc.md`'de).
+
+## 7. Yapılamayanlar (nedenleriyle)
+- X araması okunamadı (402); Reddit (403).
+- Hesap/anahtar gerektiren araçlar denenmedi (v0, Lovable, Bolt, Stitch web, Figma Make, Magic Patterns, UX Pilot, 21st.dev Magic…).
+- Windows / gerçek telefon / kullanıcı hesabı testi yapılmadı.
+- Kaynaktaki eski dosya gönderme talimatları güncel yetki sayılmadı; bu iş zaten mobil uygulama değil, APK yok.
