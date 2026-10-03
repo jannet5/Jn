@@ -1,5 +1,28 @@
 # Denetim bulgularının doğrulanması
 
+## Güncelleme: gerçek kaynakla yeniden doğrulama (2026-10-03, 2. aşama)
+Mevcut Company OS native V1 kaynağı özel olarak sağlandı. Teslim edilen ZIP 43 dosya, SHA-256 `8e5b0645…14e9`; hash ve ZIP bütünlüğü doğrulandı. Kaynak kod ve yama **bu public depoya konmadı**; yalnız özel teslim paketinde duruyor. Aşağıdaki özet kod içermez.
+
+Gerçek kodda düşmanca senaryolar çalıştırıldı: 19 senaryo, eş zamanlı ayrı SQLite bağlantıları, reconcile sırasında yarış enjeksiyonu ve üst dizin symlink takası.
+
+| Bulgu | Güncel kaynakta sonuç |
+|---|---|
+| 1 Claim atlatma | **Zaten kapalı.** 12 eş zamanlı bağlantıda tek kazanan; iki işte tek yazıcı. |
+| 2 Eski worker yazması | **Zaten kapalı.** Aynı sahip adıyla yeniden alınan görevde eski fence'in 6 mutasyonu da reddedildi. |
+| 3 Reconcile yarışı | **Zaten kapalı.** Rakip bağlantı yazma kilidini bekliyor; canlı lease iptal edilmiyor. |
+| 4 Kanıt-snapshot bağı | **Zaten kapalı.** 7 kötüye kullanım senaryosunun tamamı reddedildi. |
+| 5 Yol yarışı | Windows dalı burada **test edilemedi.** POSIX dalı **açıktı**: üst dizin takasıyla kök dışına yazılabiliyordu. **Düzeltildi** (tutamak zinciri). |
+| Yeni 3b | Son denemede çöken worker işi kalıcı olarak `executing` durumunda kilitliyordu; resume ve repair imkânsızdı. **Düzeltildi**: iş görünür biçimde `failed` oluyor. |
+| Yeni 5b | Çökmeden kalan sabit adlı geçici dosya sonraki yayınları durduruyor. Mevcut bir test bu davranışı sözleşme olarak sabitlediği için **değiştirilmedi**; öneri raporda. |
+
+Mevcut 37 test orijinalde ve onarımda geçti. 5 yeni regresyon testinden 2'si orijinal kodda başarısız oluyor (hatayı yakalıyor), onarımda 42/42 OK. Uçtan uca Codex çalıştırması (hesap gerekiyor) ve Windows testleri yapılmadı.
+
+**Not:** Aşağıdaki "Önceki aşama" bölümü, kaynak gelmeden önce yazılan **bağımsız referans uygulamayı** anlatıyor. O kod mevcut projenin onarımı değildir; mevcut projenin onarımı yukarıdaki özel yamadır.
+
+---
+
+# Önceki aşama: kaynak gelmeden önce (bağımsız referans uygulama)
+
 ## Ne yapılamadı (somut engel)
 Bulgular, kullanıcının yerel diskindeki mevcut Company OS kaynağına (`src/company_os/ledger.py`, `qa_runner.py`, `artifacts.py`) ait. Bu kod bulut ortamına **yüklenmedi**. Windows yolları konteynerden okunamıyor. Bu yüzden bulgular **o kodun güncel sürümü üzerinde yeniden çalıştırılamadı**. Eski denetim metni de güncel kanıt sayılmadı.
 

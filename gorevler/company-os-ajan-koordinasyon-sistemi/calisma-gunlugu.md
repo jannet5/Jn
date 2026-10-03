@@ -58,3 +58,57 @@ Push, ZIP ve SHA-256 adımları bu günlüğün sonundaki "Teslim kaydı" bölü
 - Özel ZIP: `company-os-teslim.zip`. Kaynak sohbet metnini ve görev dosyasını içermez. İçinde `company-os/` (ürün dosyaları) ve `company-os.bundle` (yalnız bu ürünü içeren, geçmişi temiz, depoya hazır git paketi) var. SHA-256 değeri ZIP üretildikten sonra aşağıya eklenir.
 - ZIP SHA-256: `0b304f1ebb8501a5619ba7af4d51a72200f5a79f734f71a7625a35d91e92dd8e` (`company-os-teslim.zip`, 58 dosya; ürün `803366b` commit'inden üretildi). ZIP depoya konmadı, oturumun özel alanında tutuluyor.
 - ZIP geri okuması yapıldı: `sha256sum -c` OK. ZIP açıldı. Bundle'dan klon alındı (`c628ec6`), klon içeriği ZIP'teki dosyalarla `diff -r` sonucu birebir aynı. Klonda testler OK. Kaynak metin ve özel yol taraması temiz.
+
+---
+
+# 2. aşama: gerçek Company OS kaynağıyla doğrulama ve onarım (2026-10-03)
+
+## İstenen
+Koordinatör, mevcut Company OS native V1 kaynağını Base64 ZIP olarak verdi: 43 dosya, 54028 bayt, SHA-256 `8e5b0645…14e9`. İstenenler:
+- hash ve ZIP bütünlüğünü doğrulamak,
+- bulguları gerçek kodda yeniden doğrulamak,
+- gereken düzeltmeleri izole kopyaya taşımak,
+- mevcut testleri ve anlamlı yeni kabul testlerini çalıştırmak,
+- haritayı güncellemek,
+- özel ZIP/bundle üretip hash'ini alıp geri okumak.
+
+Sıfırdan yazılan 1. aşama kodu onarım sayılmayacak. Kaynak kod ve ham metin public depoya konmayacak.
+
+## Yapılanlar (sırayla)
+1. **Base64'ün çözülmesi:** Metin elle yeniden yazılmadı (hata riski). Oturum kaydındaki kullanıcı mesajından birebir çıkarıldı ve `base64.b64decode(validate=True)` ile çözüldü. Sonuç: 54028 bayt, SHA-256 eşleşti, `testzip()` temiz, 43 dosya. Dosya oturumun özel alanında tutuldu.
+2. **Kaynağın okunması:** AGENTS.md, mimari, işletim belgeleri, ADR'ler, `ledger.py`, `qa_runner.py`, `artifacts.py`, `engine.py`, `policy.safe_path` ve mevcut test paketi okundu. Tespitler:
+   - Ürün **Codex-yerel**: Codex App Server, `.agents/skills`, varsayılan olarak her şeyi reddeden MCP köprüsü, SQLite WAL, Windows/PowerShell.
+   - Denetimdeki satır numaraları bu sürümle örtüşmüyor; düzeltmeler ve ilgili testler zaten var gibi görünüyor.
+3. **Mevcut testler:** İzole kopyada çalıştırıldı (`git init` ile orijinal kayıt altına alındı). 37 test OK (1 Windows testi atlandı). `tools/check.py` exit 0.
+4. **Düşmanca doğrulama:** `dogrulama_probe.py` yazıldı (özel pakette) ve orijinal koda karşı 19 senaryo çalıştırıldı. Sonuçlar:
+   - Bulgu 1–4 zaten kapalı.
+   - POSIX'te bulgu 5 açık.
+   - Yeni 3b (son deneme çöküşünde kalıcı kilit) açık.
+   - Yeni 5b (çökme artığı geçici dosya) açık.
+5. **Onarım:**
+   - `reconcile` içinde deneme hakkı bitmiş ve süresi dolmuş lease aynı işlemde `failed` yapılıyor.
+   - POSIX yayını tutamak zinciriyle yapılıyor; Windows dalına dokunulmadı.
+   - 5 yeni regresyon testi eklendi.
+   - 5b, mevcut bir test bu davranışı sözleşme olarak sabitlediği için değiştirilmedi; öneri yazıldı.
+6. **Doğrulama:**
+   - Onarımda 42/42 test OK.
+   - Yeni testler orijinal kodda 2 FAIL veriyor; yani hatayı yakalıyorlar.
+   - Prob sonucu: orijinalde 3 açık, onarımda 1 açık (bilinçli olarak bırakılan 5b).
+   - Yama temiz kaynağa `git am` ile uygulandı; `diff -r` onarım kopyasıyla aynı.
+   - MCP köprüsü belgedeki komutla çalıştı: izinli araç okundu, izinsiz araç reddedildi.
+7. **Diğer araçlar:** `fault_experiment.py`, ZIP'te olmayan önceki demo çıktısını istiyor; orijinalde de onarımda da aynı `FileNotFoundError`. `verify_configuration.py` ağ politikası yüzünden 403 verdi. `static_check.py` ve `browser_check.cjs` üretilmiş bir site istiyor; site yok, sahte site üretilmedi.
+
+## Sorunlar ve çözümleri
+| Sorun | Çözüm |
+|---|---|
+| Base64'ü elle aktarmak hata riski taşıyordu | Oturum kaydından birebir çıkarıldı, hash ile doğrulandı |
+| `tools/recovery.py` çalıştırılınca `recovery-report.json` oluştu ve ilk onarım commit'ine girdi | Commit'ten çıkarıldı, yama yeniden üretildi; yama yalnız 3 dosya içeriyor |
+
+## Erişim veya eksik girdi gerektiren işler
+- Uçtan uca `intake → run → resume → package` çalıştırılamadı. Gereken: kimliği doğrulanmış Codex CLI 0.154.0 App Server ve Playwright. Bu ortamda Codex yok; hesap gerektiriyor.
+- Windows testleri çalıştırılamadı. Gereken: Windows makinede `python tools/check.py`.
+- ZIP'te olmayan dosyalar:
+  - `examples/demo-kuafor/salon.jpg` (`run` için),
+  - `runs/job-84eb359ac9a46d94/worktrees/implementer/site/` (`fault_experiment` için),
+  - projenin `.git` geçmişi (`intake` için),
+  - varsa önceki `runs/ledger.sqlite` yedeği.

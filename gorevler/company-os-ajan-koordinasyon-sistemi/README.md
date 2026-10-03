@@ -1,5 +1,7 @@
 # Company OS: ajan koordinasyon sistemi
 
+> **Kapsam notu (2. aşama):** Bu klasördeki paket, mevcut Company OS native V1 kaynağı gelmeden önce yazılmış **bağımsız bir referans uygulamadır** (Claude Code + MCP). Mevcut projenin **onarımı değildir**. Mevcut projenin gerçek kaynakla doğrulanması ve onarım yaması özel teslim paketindedir; özeti `denetim/bulgu-dogrulama.md` dosyasının başında.
+
 Claude Code'a verilen bir işi uzman alt ajanlara böler. Ajanlar işi **lease ve fencing token** altında yürütür. Bilgiyi **Agent Skills** (`SKILL.md`) kaynağından çeker. İş yaptırmak için **MCP** kullanır. Sonuçları **çalıştırılmış kanıta bağlı bir kabul kapısından** geçirip tek yerde toplar. Çalışması yerel ve çevrimdışıdır: yalnız Python standart kütüphanesi ve SQLite kullanır, sunucu yoktur.
 
 ## Bileşenler
@@ -72,7 +74,7 @@ python kabul/mutasyon_kontrolu.py             # 5 hatayı geri enjekte eder, tes
 Kayıtlı çıktılar `kabul/` altında, araştırma ve A/B/C kararı `arastirma/harita.md` içinde, adım adım günlük `calisma-gunlugu.md` içinde.
 
 ## Yapılmayanlar ve sınırlar
-- Mevcut Company OS kaynak kodu yüklenmediği için bulgular **o kod üzerinde** yeniden çalıştırılmadı. Gereken girdi `denetim/bulgu-dogrulama.md` içinde yazıyor.
+- Mevcut Company OS kaynağı 2. aşamada sağlandı. Bulgular o kod üzerinde yeniden doğrulandı ve onarım özel olarak teslim edildi (`denetim/bulgu-dogrulama.md`).
 - Windows'ta ve telefonda test yapılmadı. Testler Linux bulut konteynerinde çalıştı.
 - Proje `.mcp.json` onayı Claude Code'da ilk açılışta kullanıcı tarafından verilmelidir.
 - Defter tek makine içindir (SQLite). Çok makineli kullanım için aynı token ve koşullu güncelleme tasarımı Postgres'e taşınmalıdır.
