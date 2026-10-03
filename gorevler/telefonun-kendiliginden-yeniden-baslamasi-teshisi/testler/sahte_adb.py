@@ -9,9 +9,10 @@ if a[:1] == ["-s"]:
     a = a[2:]
 if a == ["devices"]:
     print("List of devices attached\nSENTETIK0001\tdevice\n"); sys.exit(0)
-k = " ".join(a[1:]) if a[:1] == ["shell"] else ""
+k = " ".join(a[1:]).replace("dumpsys -t 60 ", "dumpsys ") if a[:1] == ["shell"] else ""
 def f(ad): print(open(os.path.join(D, ad), encoding="utf-8").read())
-if k == "getprop": f("getprop.txt")
+if k == "service check dropbox": print("Service dropbox: found")
+elif k == "getprop": f("getprop.txt")
 elif k.startswith("dumpsys dropbox --print system_server_crash"): f("ss_crash.txt")
 elif k.startswith("dumpsys dropbox --print"): print("Drop box contents: 0 entries")
 elif k == "dumpsys dropbox": f("dropbox_liste.txt")

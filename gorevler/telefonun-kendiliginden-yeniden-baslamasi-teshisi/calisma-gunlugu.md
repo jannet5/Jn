@@ -52,3 +52,35 @@ alan adları); bunlar kaynak olarak kullanılmadı.
 - `testler/test_reboot_teshis.py` + `testler/sahte_adb.py` + `testler/ornek-veri/`
   (**SENTETİK** veri, gerçek telefon değil). Komut:
   `python3 testler/test_reboot_teshis.py` → 5 test, **OK** (ilk çalıştırma).
+
+## 6. Gerçek Android kabul turu (emülatör)
+Komutlar (özet):
+```
+sdkmanager "platform-tools" "emulator" "system-images;android-30;google_apis;x86_64" "build-tools;34.0.0" "platforms;android-30"
+avdmanager create avd -n teshis -k "system-images;android-30;google_apis;x86_64" -d pixel
+emulator -avd teshis -no-accel -gpu swiftshader_indirect -no-window -no-audio -no-snapshot -memory 3072 -cores 4
+python3 arac/reboot_teshis.py hepsi --cikti emu-kayit1      # tur 1 (3 dk 19 sn)
+aapt2 link / zipalign / apksigner → kodsuz test.apk; adb install -r test.apk
+adb root; adb shell 'kill -9 $(pidof system_server)'        # gerçek çerçeve yeniden başlaması
+python3 arac/reboot_teshis.py hepsi --cikti emu-kayit2      # tur 2
+adb reboot   (430 sn'de açıldı; sys.boot.reason=reboot,shell)
+python3 arac/reboot_teshis.py hepsi --cikti emu-kayit3      # tur 3
+```
+Sorun → çözüm:
+1. Depoda hazır APK yok (`android-app/dist` yalnız SHA256SUMS içeriyor) → yalnız manifestli, kodsuz test APK'sı derlendi (depoya eklenmedi).
+2. `logcat -e` süzgeci events tamponunda boş döndü → cihazda `grep -E` ile süzme.
+3. Yeniden başlama sırasında `Can't find service: dropbox` → `service check dropbox` ile 2 dk'ya kadar bekleme.
+4. `kill -9` ile olan yeniden başlama dropbox'a yazılmadı → `boot_progress_start` zamanları yeniden başlama anı olarak eklendi; eşleşme sonra doğru çıktı.
+5. `*** SERVICE 'dropbox' DUMP TIMEOUT (10000ms) ***` → `dumpsys -t 60` ve raporda zaman aşımı uyarısı.
+6. Kullanıcıya en faydalı bilgi çökme metninin ilk istisnası → "kök neden ipuçları" tablosu eklendi (gerçek örnek: `Lost network stack`).
+Her düzeltmeden sonra `python3 testler/test_reboot_teshis.py` → 6 test OK.
+Ayrıntı: `kabul/README.md` ve üç rapor.
+
+## 7. Kabul durumu
+| Kabul | Durum | Kanıt |
+|---|---|---|
+| K1 uygulama ↔ kapanma zamanı | Araç gerçek Android'de doğruladı; kullanıcının telefonunda **yapılmadı** | `kabul/2-…`, `kabul/3-…` bölüm 6 |
+| K2 log + güvenli testlerle ayrım | Log tarafı gerçek Android'de doğrulandı; Güvenli Mod/donanım testleri **kullanıcıya bağlı** | rapor bölüm 2–5, 9; `teshis-kilavuzu.md` Adım 3 |
+| K3 kanıtsız kesin neden yok | Gerçek veriyle gösterildi + birim test | `kabul/README.md`, `test_kanitsiz_kesin_neden_yok` |
+
+Kullanıcıdan gereken gerçek girdi: telefon bağlıyken `python reboot_teshis.py hepsi --cikti kayit1` → `kayit1/rapor.md` (+ isterse tüm `kayit1` klasörü) ve Güvenli Mod sonucu.

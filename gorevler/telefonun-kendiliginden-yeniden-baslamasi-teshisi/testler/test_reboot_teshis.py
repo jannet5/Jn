@@ -40,6 +40,7 @@ class UctanUca(unittest.TestCase):
             self.assertIn("2026-10-02 22:45:13 | `com.ornek.benimuygulamam`", rapor)  # zaman eşleşmesi
             self.assertNotIn("com.whatsapp`", rapor.split("## 6.")[1].split("## 7.")[0])
             self.assertIn("%90 üstü", rapor)
+            self.assertIn("system_server_crash: java.lang.SecurityException: sentetik örnek", rapor)
             for d in ("getprop.txt", "dropbox_icerik.txt", "paket_zamanlari.txt", "logcat_tum.txt"):
                 self.assertTrue((cikti / d).exists(), d)
 
@@ -49,6 +50,25 @@ class UctanUca(unittest.TestCase):
             (k / "getprop.txt").write_text("[sys.boot.reason]: [reboot]\n")
             rapor = rt.analiz(k)
             self.assertIn("Tek kesin neden ilan edilemez", rapor)
+
+    def test_yumusak_yeniden_baslama_logcattan(self):
+        # Satır biçimi API 30 emülatöründe gözlenen gerçek logcat biçimini taklit eder.
+        with tempfile.TemporaryDirectory() as t:
+            k = Path(t)
+            (k / "getprop.txt").write_text("[sys.boot.reason]: [reboot]\n")
+            (k / "logcat_events_boot.txt").write_text(
+                "2026-10-03 11:44:08.165   308   308 I boot_progress_start: 87131\n"
+                "2026-10-03 11:50:50.460   553   609 I watchdog: Blocked in handler on main thread (main)\n"
+                "2026-10-03 11:51:44.954  1497  1497 I boot_progress_start: 543921\n")
+            (k / "logcat_crash.txt").write_text(
+                "2026-10-03 11:57:53.440  1756  1756 E AndroidRuntime: FATAL EXCEPTION: main\n"
+                "2026-10-03 11:57:53.440  1756  1756 E AndroidRuntime: Process: com.android.systemui, PID: 1756\n"
+                "2026-10-03 11:57:53.440  1756  1756 E AndroidRuntime: DeadSystemException: The system died; earlier logs\n")
+            rapor = rt.analiz(k)
+            self.assertIn("**2 kez**", rapor)
+            self.assertIn("Watchdog uyarısı", rapor)
+            self.assertIn("Yazılım tarafı OLASI", rapor)
+            self.assertIn("| `com.android.systemui` | 1 |", rapor)
 
     def test_adb_yoksa_anlasilir_hata(self):
         env = dict(os.environ, PATH="/nonexistent")

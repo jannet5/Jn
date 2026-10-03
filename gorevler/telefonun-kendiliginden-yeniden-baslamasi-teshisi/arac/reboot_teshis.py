@@ -23,6 +23,7 @@ import os
 import re
 import shutil
 import subprocess
+import time
 import sys
 from pathlib import Path
 
@@ -52,13 +53,13 @@ DROPBOX_ETIKETLER = [
 KOMUTLAR = {
     "getprop.txt": "getprop",
     "uptime.txt": "cat /proc/uptime; date +%s; date",
-    "dropbox_liste.txt": "dumpsys dropbox",
-    "battery.txt": "dumpsys battery",
-    "thermal.txt": "dumpsys thermalservice",
+    "dropbox_liste.txt": "dumpsys -t 60 dropbox",
+    "battery.txt": "dumpsys -t 60 battery",
+    "thermal.txt": "dumpsys -t 60 thermalservice",
     "df.txt": "df /data",
     "paketler_3.txt": "pm list packages -3 -i",
     "logcat_crash.txt": "logcat -b crash -d -v threadtime -v year",
-    "logcat_events_boot.txt": "logcat -b events -d -v threadtime -v year -e 'boot_progress|am_crash|am_anr|power_|battery_|sysui'",
+    "logcat_events_boot.txt": "logcat -b events -d -v threadtime -v year | grep -E 'boot_progress_start|watchdog|am_crash|am_anr|power_|battery_level|sysui_'",
     "logcat_onceki_acilis.txt": "logcat -L -b all -d -v threadtime -v year",
     "logcat_tum.txt": "logcat -b all -d -v threadtime -v year",
 }
@@ -92,6 +93,12 @@ def topla(klasor: Path, seri: str | None) -> Path:
         sys.exit("HATA: Birden fazla cihaz var, --seri ile seçin:\n" + "\n".join(hazir))
 
     klasor.mkdir(parents=True, exist_ok=True)
+    # Telefon az önce yeniden başladıysa sistem servisleri henüz gelmemiş olabilir.
+    for _ in range(24):
+        if ": found" in _adb(["shell", "service check dropbox"], seri):
+            break
+        print("  dropbox servisi bekleniyor (sistem yeni açılıyor olabilir)...")
+        time.sleep(5)
     for dosya, kmt in KOMUTLAR.items():
         print(f"  toplanıyor: {dosya}")
         (klasor / dosya).write_text(_adb(["shell", kmt], seri), encoding="utf-8")
@@ -99,7 +106,7 @@ def topla(klasor: Path, seri: str | None) -> Path:
     # Reboot/çökme etiketlerinin içerikleri (en fazla son birkaç kayıt).
     db = []
     for etiket in DROPBOX_ETIKETLER:
-        icerik = _adb(["shell", f"dumpsys dropbox --print {etiket}"], seri)
+        icerik = _adb(["shell", f"dumpsys -t 60 dropbox --print {etiket}"], seri)
         db.append(f"##### ETIKET {etiket}\n{icerik[-200000:]}\n")
     (klasor / "dropbox_icerik.txt").write_text("".join(db), encoding="utf-8")
 
@@ -110,7 +117,7 @@ def topla(klasor: Path, seri: str | None) -> Path:
         if not m:
             continue
         ad, kurucu = m.group(1), m.group(2) or "null"
-        bilgi = _adb(["shell", f"dumpsys package {ad} | grep -E 'versionName|firstInstallTime|lastUpdateTime' "], seri)
+        bilgi = _adb(["shell", f"dumpsys -t 60 package {ad} | grep -E 'versionName|firstInstallTime|lastUpdateTime' "], seri)
         paket_satirlari.append(f"##### PAKET {ad} installer={kurucu}\n{bilgi}\n")
     (klasor / "paket_zamanlari.txt").write_text("".join(paket_satirlari), encoding="utf-8")
     print(f"Toplama bitti: {klasor}")
@@ -239,6 +246,19 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
     onceki = _oku(klasor, "logcat_onceki_acilis.txt")
     df = _oku(klasor, "df.txt")
 
+    olaylar_log = _oku(klasor, "logcat_events_boot.txt")
+    bps_zamanlar = []
+    for z in re.findall(r"^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\.\d+\s.*\bboot_progress_start\b", olaylar_log, re.M):
+        bps_zamanlar.append(dt.datetime.strptime(z, "%Y-%m-%d %H:%M:%S"))
+    cerceve_baslangic = max(len(bps_zamanlar),
+                            len(re.findall(r"\bboot_progress_start\b", olaylar_log)))
+    watchdog_satir = re.findall(r"\bwatchdog: (.+)", olaylar_log)
+    sistem_oldu = len(re.findall(r"DeadSystemException|The system died|FATAL EXCEPTION IN SYSTEM PROCESS",
+                                 crash_log))
+    cokme_surecleri: dict[str, int] = {}
+    for p_ in re.findall(r"Process: ([\w.:]+), PID", crash_log):
+        cokme_surecleri[p_] = cokme_surecleri.get(p_, 0) + 1
+
     sistem_cokme = [o for o in olaylar if o[1] in (
         "system_server_crash", "system_server_native_crash", "system_server_watchdog", "SYSTEM_RESTART")]
     acilislar = [o for o in olaylar if o[1] == "SYSTEM_BOOT"]
@@ -251,11 +271,21 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
                    "SYSTEM_RESTART"):
         for k, v in suclu_paketler(bloklar.get(etiket, "")).items():
             suclu[k] = suclu.get(k, 0) + v
+    # Çökme metinlerinden ilk istisna / watchdog konusu satırları (kök neden ipucu).
+    ozetler: dict[str, int] = {}
+    for etiket in ("system_server_crash", "system_server_native_crash", "system_server_watchdog"):
+        govde = bloklar.get(etiket, "")
+        for satir in re.findall(r"^(?:Subject: (.+)|((?:[a-z]\w*\.)+\w*(?:Exception|Error)\b.*)|(Abort message: .+)|(signal \d+ \(\w+\).*))$",
+                                govde, re.M):
+            metin = next(x for x in satir if x).strip()[:160]
+            anahtar = f"{etiket}: {metin}"
+            ozetler[anahtar] = ozetler.get(anahtar, 0) + 1
     ucuncu = {p["ad"] for p in paketler}
     suclu_ucuncu = {k: v for k, v in suclu.items() if k in ucuncu}
 
     # Yeniden başlama anları: SYSTEM_BOOT + yumuşak yeniden başlamalar.
-    anlar = sorted({o[0] for o in acilislar + sistem_cokme})
+    # İlk boot_progress_start çekirdek açılışıdır; sonrakiler yumuşak yeniden başlamadır.
+    anlar = sorted({o[0] for o in acilislar + sistem_cokme} | set(sorted(bps_zamanlar)[1:]))
     pencere = dt.timedelta(hours=pencere_saat)
     eslesme = []
     for an in anlar:
@@ -264,16 +294,44 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
                  or (p["son"] and an - pencere <= p["son"] <= an)]
         eslesme.append((an, yakin))
 
+    if not olaylar and "Can't find service" in _oku(klasor, "dropbox_liste.txt"):
+        kanitlar_not = "dumpsys dropbox servisi toplama anında yoktu (sistem yeniden başlıyordu)."
+    else:
+        kanitlar_not = ""
     yan_yuklu = [p for p in paketler if p["kurucu"] in ("null", "com.android.shell", "com.google.android.packageinstaller",
                                                         "com.android.packageinstaller")]
 
     # ---- karar (kanıt düzeyi) ----
     kanitlar, karar = [], ""
+    zaman_asimi = sorted(d.name for d in klasor.glob("*.txt")
+                         if "DUMP TIMEOUT" in d.read_text(encoding="utf-8", errors="replace")[:500])
+    if zaman_asimi:
+        kanitlar.append("Uyarı: şu kayıtlarda dumpsys zaman aşımı oldu (sistem çok meşgul); toplamayı "
+                        "birkaç dakika sonra tekrarlayın: " + ", ".join(zaman_asimi))
+    if kanitlar_not:
+        kanitlar.append(kanitlar_not)
     if suclu_ucuncu:
         kanitlar.append("system_server çökme kaydında üçüncü taraf paket adı geçiyor: "
                         + ", ".join(f"`{k}` ({v} kez)" for k, v in suclu_ucuncu.items()))
     if sistem_cokme:
         kanitlar.append(f"{len(sistem_cokme)} adet system_server çökme/watchdog/SYSTEM_RESTART kaydı var (yazılım tarafı yumuşak yeniden başlama izi).")
+    if cerceve_baslangic > 1:
+        kanitlar.append(f"Bu çekirdek açılışından beri Android çerçevesi **{cerceve_baslangic} kez** başlatılmış "
+                        f"(`boot_progress_start`) → {cerceve_baslangic - 1} yumuşak yeniden başlama (yazılım tarafı).")
+    if watchdog_satir:
+        kanitlar.append(f"{len(watchdog_satir)} adet system_server Watchdog uyarısı: "
+                        + "; ".join(sorted(set(w.strip() for w in watchdog_satir))[:3]))
+    if sistem_oldu:
+        kanitlar.append(f"`logcat -b crash` içinde {sistem_oldu} adet 'sistem öldü' (DeadSystemException/FATAL IN SYSTEM PROCESS) satırı.")
+    yakin_yan: dict[str, list[dt.datetime]] = {}
+    for an, yakin in eslesme:
+        for p_ in yakin:
+            if p_ in yan_yuklu:
+                yakin_yan.setdefault(p_["ad"], []).append(an)
+    for ad, anlar_ in yakin_yan.items():
+        kanitlar.append(f"Yan yüklenen `{ad}`, {len(anlar_)} yeniden başlamadan (ilki {min(anlar_):%Y-%m-%d %H:%M:%S}) "
+                        f"önceki {pencere_saat} saat içinde kurulmuş/güncellenmiş. Zamansal yakınlık "
+                        "nedensellik kanıtı değildir; Güvenli Mod ve kaldırma testiyle doğrulayın.")
     if kmsg:
         kanitlar.append(f"{len(kmsg)} adet SYSTEM_LAST_KMSG/TOMBSTONE kaydı var (çekirdek/yerel çökme izi; içeriği incelenmeli).")
     saglik = SAGLIK.get(pil.get("health", ""), pil.get("health", "?"))
@@ -290,7 +348,8 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
         karar = ("**Yazılım — uygulama tetiklemeli olma olasılığı YÜKSEK.** Çökme kaydı belirli bir üçüncü taraf "
                  "paketi gösteriyor. Kesinleştirmek için o paketi kaldırıp (veya Güvenli Mod'da) aynı kullanım "
                  "süresince yeniden başlama olmadığını gözleyin.")
-    elif sinif == "yazilim" or (sistem_cokme and sinif in ("belirsiz", "kullanici")):
+    elif sinif == "yazilim" or ((sistem_cokme or cerceve_baslangic > 1 or sistem_oldu)
+                                and sinif in ("belirsiz", "kullanici")):
         karar = ("**Yazılım tarafı OLASI** (system_server yeniden başlaması izi var) ama belirli uygulama kaydı yok. "
                  "Güvenli Mod testi ve yeni yüklenen uygulamaları tek tek kaldırma ile daraltın.")
     elif sinif in ("guc", "isi"):
@@ -305,14 +364,14 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
 
     # ---- rapor ----
     r = []
-    r.append("# Yeniden başlama teşhis raporu\n")
+    r.append("# Yeniden başlama teşhis raporu\n\n")
     r.append(f"Kayıt klasörü: `{klasor}`  \nÜretim: {dt.datetime.now():%Y-%m-%d %H:%M}\n")
-    r.append("## 1. Cihaz\n")
+    r.append("\n## 1. Cihaz\n\n")
     r.append(f"- Model: {prop.get('ro.product.manufacturer','?')} {prop.get('ro.product.model','?')}\n"
              f"- Android: {prop.get('ro.build.version.release','?')} (SDK {prop.get('ro.build.version.sdk','?')}), "
              f"güvenlik yaması {prop.get('ro.build.version.security_patch','?')}\n"
              f"- Yapı: `{prop.get('ro.build.fingerprint','?')}`\n")
-    r.append("## 2. Son açılış nedeni (AOSP canonical boot reason)\n")
+    r.append("\n## 2. Son açılış nedeni (AOSP canonical boot reason)\n\n")
     r.append(f"- `sys.boot.reason` = `{neden_simdi or '—'}` → **{SINIF_ACIKLAMA[sinif]}**\n"
              f"- `ro.boot.bootreason` (önyükleyici) = `{neden_bl or '—'}`\n"
              f"- önceki/kalıcı (`sys.boot.reason.last` / `persist.sys.boot.reason`) = `{neden_onceki or '—'}`\n")
@@ -323,9 +382,15 @@ def analiz(klasor: Path, pencere_saat: int = 72) -> str:
     r.append("\n## 4. Ara karar (kanıt düzeyine göre)\n\n" + karar + "\n")
 
     r.append("\n## 5. Olay zaman çizelgesi (dumpsys dropbox)\n\n| Zaman | Etiket |\n|---|---|\n")
-    ilgili = [o for o in olaylar if o[1] in DROPBOX_ETIKETLER]
+    ilgili = [o for o in olaylar if o[1] in DROPBOX_ETIKETLER and not o[1].endswith("_wtf")]
     r.extend(f"| {z:%Y-%m-%d %H:%M:%S} | {e} |\n" for z, e in ilgili[-60:]) if ilgili else r.append("| — | kayıt yok |\n")
 
+    if ozetler:
+        r.append("\n### Sistem çökmesi metinlerinden kök neden ipuçları\n\n| Etiket: ilk istisna / konu | Sayı |\n|---|---|\n")
+        r.extend(f"| `{k.replace('|', '/')}` | {v} |\n" for k, v in sorted(ozetler.items(), key=lambda x: -x[1])[:15])
+    if cokme_surecleri:
+        r.append("\n### logcat -b crash: çöken süreçler\n\n| Süreç | Sayı |\n|---|---|\n")
+        r.extend(f"| `{k}` | {v} |\n" for k, v in sorted(cokme_surecleri.items(), key=lambda x: -x[1]))
     r.append(f"\n## 6. Yeniden başlama anları ↔ son {pencere_saat} saatte kurulan/güncellenen uygulamalar\n\n")
     if eslesme:
         r.append("| Yeniden başlama/çökme anı | Öncesindeki kurulum/güncellemeler |\n|---|---|\n")
