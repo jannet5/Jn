@@ -181,3 +181,47 @@ Sıfırdan yazılan 1. aşama kodu onarım sayılmayacak. Kaynak kod ve ham meti
 ## Açık kalanlar
 - Windows'ta çalıştırılmadı: `_sweep_windows` ve Windows tutamak kilidi.
 - Gerçek Codex uçtan uca akışı çalıştırılmadı: kimliği doğrulanmış Codex CLI ve Playwright gerekiyor.
+
+---
+
+# 4. aşama: Windows sonuçlarına göre test ayrımı (2026-10-03)
+
+## İstenen
+Kullanıcının Windows çalıştırmasında 1 ERROR çıktı: symlink ayrıcalığı yok (WinError 1314). İstenenler:
+- fixture yalnız gerçekten oluşturulamayan symlink alt senaryosunu gerekçeyle atlamalı,
+- diğer senaryolar çalışmaya devam etmeli,
+- Windows dalı için sentetik test, gerçek NTFS testinden ayrı adlandırılmalı,
+- yükseltme veya Developer Mode istenmemeli,
+- Linux ile Windows farkı rapora işlenmeli,
+- yeni temiz özel ZIP ve hash teslim edilmeli.
+
+## Yapılanlar
+1. Hata veren test ikiye ayrıldı: `…removes_only_matching_regular_files` (ayrıcalıksız; kalıba uyan dizin eklendi) ve `…leaves_planted_symlink` (`symlink_unavailable` yardımcısı WinError 1314'te gerekçeyle atlar). POSIX'e özgü iki symlink testi de aynı korumayı aldı.
+2. `test_windows_sweep_decisions_synthetic` eklendi. Sahte `lstat` reparse bayrağı ve sahte paylaşım ihlali ile `_sweep_windows` kararlarını her işletim sisteminde sınıyor. Adında ve belge metninde "sentetik" olduğu açıkça yazıyor.
+3. Prob betiği symlink oluşturamadığında senaryoları **ATLANDI** olarak raporluyor. POSIX yarış senaryosu Windows'ta, tutamak kilidi testine yönlendirilerek atlanıyor.
+4. Negatif kontrole Windows dalı mutasyonları eklendi: M6 (reparse point yok sayılıyor) ve M7 (paylaşım ihlalinde hata fırlatılıyor). İkisi de sentetik testçe yakalandı.
+
+## Doğrulama (Linux)
+| Kontrol | Sonuç |
+|---|---|
+| Tüm testler | 49 OK (1 atlandı) |
+| WinError 1314 taklidi | 49 testte 0 hata, 4 gerekçeli atlama |
+| Yeni testler orijinal kodda | 8/12 başarısız (hatayı yakalıyor) |
+| Negatif kontrol | 8/8 yakalandı |
+| Prob | 0/20 açık |
+| 3 commit'lik yama temiz kaynağa | uygulandı, onarım kopyasıyla birebir aynı |
+
+## Teslim
+- Özel ZIP `company-os-ozel-teslim.zip`: 163471 bayt, 74 dosya. SHA-256 `1e31ecf4faf889ac0ea35b23da222358997feff51c5b59649ccef3b89af3e25b`.
+- Geri okuma: hash ve CRC OK; bundle ağacı aynı; klonda testler, prob ve negatif kontrol OK; ham metin yok.
+
+## Sorunlar ve çözümleri
+| Sorun | Çözüm |
+|---|---|
+| Rapordaki "yeni testler orijinalde" sayısını önce 7/12 yazdım; gerçek çıktı 8/12 | Kanıt dosyası yeniden okunup düzeltildi; ZIP yeniden üretildi |
+| `kanit/03` ve `kanit/07` önceki test kümesinden kalmıştı | 03 yeniden üretildi; 07 güncel prob çıktısı (04) ile aynı olduğu için kaldırıldı |
+
+## Açık
+- Güncel paket Windows'ta yeniden çalıştırılmadı.
+- Gerçek NTFS reparse point ve junction senaryosu çalıştırılmadı.
+- Gerçek Codex uçtan uca akışı çalıştırılmadı (kimlik doğrulama ve Playwright gerekiyor).

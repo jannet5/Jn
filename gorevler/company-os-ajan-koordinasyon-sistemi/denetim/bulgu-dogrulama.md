@@ -46,3 +46,19 @@ Python'da Windows'ta `dir_fd` desteklenmiyor. Taşınabilir yol her bileşeni `l
 Yeni modüllerin genel API'si eski adlarla yakın tutuldu: `Ledger.claim/transition/reconcile`, `qa.acceptance_gate`, `artifacts.write_bundle`. Kaynak yüklendiğinde iki adım var:
 1. `tests/test_bulgular.py` içe aktarma satırları eski modüle yönlendirilip testler eski kodda çalıştırılır. Beklenen sonuç, bulguların **kırmızı** olarak doğrulanması.
 2. İlgili fonksiyonlar bu paketteki karşılıklarıyla değiştirilir ve testler yeşile döner.
+
+## 4. aşama: Linux ve Windows farkı (2026-10-03)
+Kullanıcı önceki özel paketi (SHA-256 `59415e70…`) kendi Windows makinesinde, izole bir kopyada çalıştırdı. Kullanıcının raporu:
+- 47 testten 44'ü geçti, 2 POSIX testi atlandı, 1 ERROR çıktı.
+- Hata veren test `test_guarded_sweep_only_removes_matching_regular_files`. `os.symlink` çağrısı WinError 1314 verdi; hesapta symlink ayrıcalığı yok. Bu ürün hatası değil; test fixture'ı ayrıcalığı varsayıyordu.
+- Windows üst dizin tutamak kilidi, çökme artığı toparlama ve eş zamanlı yazıcı testleri **geçti**.
+
+Düzeltme (yalnız testler ve prob; ürün kodu değişmedi):
+- **Test ayrıldı:** Ayrıcalık gerektirmeyen dosya, dizin ve ad senaryoları her yerde çalışıyor; buna kalıba uyan bir dizin de eklendi. Symlink alt senaryosu WinError 1314'te gerekçeyle atlanıyor. Yükseltme istenmiyor, işletim sistemi koruması kapatılmıyor.
+- **Sentetik Windows testi:** Windows süpürme dalı için gerçek NTFS testinden ayrı adlandırılmış bir test eklendi (`…_synthetic`).
+- **Linux doğrulaması:**
+  - 49/49 test geçti (1 Windows testi atlandı).
+  - WinError 1314 taklidinde 0 hata, 4 gerekçeli atlama.
+  - Negatif kontrolde Windows dalının 2 mutasyonu dahil 8/8 yakalandı.
+- **Windows beklentisi:** 49 testte 46 geçer, 3 atlanır. Bu güncel paket Windows'ta **henüz çalıştırılmadı**.
+- **Gerçek Codex uçtan uca akışı:** Kimlik doğrulama gerektirdiği için **çalıştırılmadı**.
