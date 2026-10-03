@@ -16,8 +16,9 @@ adb shell am start -W -n "$PKG/com.tekpanel.app.MainActivity"
 sleep 5
 
 # Share intake writes a real row through CaptureCoordinator -> Room in the minified build.
+# adb shell re-tokenizes on the device, so the multi-word extra needs its own inner quotes.
 adb shell am start -W -a android.intent.action.SEND -t text/plain \
-  --es android.intent.extra.TEXT "CI smoke paylasim" \
+  --es android.intent.extra.TEXT "'CI smoke paylasim'" \
   -n "$PKG/com.tekpanel.app.capture.ShareIntakeActivity"
 sleep 5
 
@@ -32,7 +33,8 @@ fi
 
 adb shell pidof "$PKG" >/dev/null || { echo "app process is not running"; exit 1; }
 
-adb shell dumpsys notification | grep -A10 "Live notification listeners" | tee /dev/stderr | grep -q "$PKG" \
-  || { echo "notification listener is not bound"; exit 1; }
+LISTENERS=$(adb shell dumpsys notification | grep -A10 "Live notification listeners" || true)
+echo "$LISTENERS"
+echo "$LISTENERS" | grep -q "$PKG" || { echo "notification listener is not bound"; exit 1; }
 
 echo "PREVIEW SMOKE OK"
