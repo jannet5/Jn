@@ -76,8 +76,10 @@ object PostRenderer {
             VerticalPos.CENTER -> (h - layout.height) / 2f // ortada
             VerticalPos.BOTTOM -> h - pad - layout.height // altta
         }
+        val dx = (style.offsetX * w).coerceIn(-w / 2f, w / 2f) // elle sürüklenen yatay kayma (ekran dışına taşmasın)
+        val y = (top + style.offsetY * h).coerceIn(-layout.height / 2f, h - layout.height / 2f) // elle sürüklenen dikey konum (en az yarısı görünür kalsın)
         canvas.save() // tuvalin durumu saklanıyor
-        canvas.translate(pad, top) // yazının başlayacağı noktaya kayılıyor
+        canvas.translate(pad + dx, y) // yazının başlayacağı noktaya kayılıyor
         layout.draw(canvas) // yazı çiziliyor
         canvas.restore() // tuval eski haline dönüyor
     }

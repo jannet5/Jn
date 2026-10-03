@@ -55,6 +55,8 @@ import androidx.compose.ui.unit.sp // yazı ölçü birimi
 import com.jn.yazikart.data.AspectRatio // görsel oranı
 import com.jn.yazikart.data.ExportFormat // kayıt biçimi
 import com.jn.yazikart.data.FontCatalog // yazı tipleri
+import com.jn.yazikart.data.MAX_TEXT_SIZE // en büyük yazı boyu
+import com.jn.yazikart.data.MIN_TEXT_SIZE // en küçük yazı boyu
 import com.jn.yazikart.data.PostStyle // görsel ayarları
 import com.jn.yazikart.data.TextAlign // yatay hiza
 import com.jn.yazikart.data.VerticalPos // dikey konum
@@ -179,7 +181,7 @@ fun TextPanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
         Slider( // boyut kaydırıcısı
             value = style.textSize, // güncel değer
             onValueChange = { v -> onStyle { it.copy(textSize = v) } }, // değişince
-            valueRange = 0.03f..0.2f, // küçükten büyüğe aralık
+            valueRange = MIN_TEXT_SIZE..MAX_TEXT_SIZE, // küçükten büyüğe aralık (parmakla büyütmeyle aynı)
             modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
         )
         Label("Yazı rengi") // başlık
@@ -192,13 +194,13 @@ fun TextPanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
         Segmented( // sol / orta / sağ
             options = listOf(TextAlign.LEFT to "Sol", TextAlign.CENTER to "Orta", TextAlign.RIGHT to "Sağ"), // seçenekler
             selected = style.align, // seçili
-        ) { a -> onStyle { it.copy(align = a) } } // değişince
+        ) { a -> onStyle { it.copy(align = a, offsetX = 0f) } } // değişince (elle kaydırma sıfırlanır)
 
         Label("Konum") // başlık
         Segmented( // üst / orta / alt
             options = listOf(VerticalPos.TOP to "Üst", VerticalPos.CENTER to "Orta", VerticalPos.BOTTOM to "Alt"), // seçenekler
             selected = style.verticalPos, // seçili
-        ) { p -> onStyle { it.copy(verticalPos = p) } } // değişince
+        ) { p -> onStyle { it.copy(verticalPos = p, offsetY = 0f) } } // değişince (elle kaydırma sıfırlanır)
     }
 }
 

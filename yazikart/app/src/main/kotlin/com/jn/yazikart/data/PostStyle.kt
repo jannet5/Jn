@@ -2,6 +2,9 @@ package com.jn.yazikart.data // veri katmanı paketi
 
 import android.content.Context // ayarları kaydetmek için uygulama bağlamı
 
+const val MIN_TEXT_SIZE = 0.03f // en küçük yazı boyu (genişliğin oranı)
+const val MAX_TEXT_SIZE = 0.3f // en büyük yazı boyu (genişliğin oranı)
+
 // Görselin oranı: Instagram gönderi ve hikaye boyutları
 enum class AspectRatio(val label: String, val width: Int, val height: Int) {
     SQUARE("Kare 1:1", 1080, 1080), // kare gönderi
@@ -32,6 +35,8 @@ data class PostStyle(
     val align: TextAlign = TextAlign.CENTER, // yatay hiza
     val verticalPos: VerticalPos = VerticalPos.CENTER, // dikey konum
     val shadow: Boolean = false, // yazı gölgesi (resim üstünde okunurluk için)
+    val offsetX: Float = 0f, // parmakla sürüklenen yatay kayma (genişliğin oranı; 0 = hizadaki yer)
+    val offsetY: Float = 0f, // parmakla sürüklenen dikey kayma (yüksekliğin oranı; 0 = konumdaki yer)
     val dim: Float = 0.35f, // arka plan resmini karartma oranı (0 = hiç)
     val aspect: AspectRatio = AspectRatio.SQUARE, // görsel oranı
     val format: ExportFormat = ExportFormat.PNG, // kayıt biçimi
@@ -53,6 +58,8 @@ class StyleStore(context: Context) {
             align = enumOr(prefs.getString("align", null), d.align), // hiza
             verticalPos = enumOr(prefs.getString("vpos", null), d.verticalPos), // dikey konum
             shadow = prefs.getBoolean("shadow", d.shadow), // gölge
+            offsetX = prefs.getFloat("offX", d.offsetX), // yatay kayma
+            offsetY = prefs.getFloat("offY", d.offsetY), // dikey kayma
             dim = prefs.getFloat("dim", d.dim), // karartma
             aspect = enumOr(prefs.getString("aspect", null), d.aspect), // oran
             format = enumOr(prefs.getString("format", null), d.format), // biçim
@@ -70,6 +77,8 @@ class StyleStore(context: Context) {
             .putString("align", s.align.name) // hiza
             .putString("vpos", s.verticalPos.name) // dikey konum
             .putBoolean("shadow", s.shadow) // gölge
+            .putFloat("offX", s.offsetX) // yatay kayma
+            .putFloat("offY", s.offsetY) // dikey kayma
             .putFloat("dim", s.dim) // karartma
             .putString("aspect", s.aspect.name) // oran
             .putString("format", s.format.name) // biçim

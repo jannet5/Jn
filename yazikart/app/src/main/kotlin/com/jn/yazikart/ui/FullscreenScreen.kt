@@ -46,7 +46,12 @@ import androidx.compose.ui.unit.min // iki ölçünün küçüğü
 import androidx.core.view.WindowCompat // pencere yardımcıları
 import androidx.core.view.WindowInsetsCompat // sistem çubukları türleri
 import androidx.core.view.WindowInsetsControllerCompat // sistem çubuklarını gizleme
+import com.jn.yazikart.data.MAX_TEXT_SIZE // en büyük yazı boyu
+import com.jn.yazikart.data.MIN_TEXT_SIZE // en küçük yazı boyu
 import com.jn.yazikart.data.PostStyle // görsel ayarları
+import androidx.compose.foundation.gestures.detectTapGestures // dokunma algılama
+import androidx.compose.foundation.gestures.detectTransformGestures // sürükleme + iki parmak algılama
+import androidx.compose.ui.input.pointer.pointerInput // parmak olayları
 
 // Tam ekran: görsel Reels/hikâyede nasıl görünecekse ekranı öyle kaplar, yazı burada da yazılır.
 // Görsele dokununca düğmeler ve yazı kutusu gizlenir/görünür (tamamen temiz görünüm için).
@@ -73,7 +78,27 @@ fun FullscreenScreen(
         ) {
             val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
             val w = min(maxWidth, maxHeight * ratio) // ekrana sığan en büyük genişlik
-            PostCanvas(style, image, Modifier.width(w).height(w / ratio)) // görsel ekranı kaplıyor
+            PostCanvas(
+                style, image, // görsel ve ayarları
+                Modifier.width(w).height(w / ratio) // görsel ekranı kaplıyor
+                    .pointerInput(Unit) { // dokunmalar
+                        detectTapGestures( // tek / çift dokunuş
+                            onTap = { focus.clearFocus(); controls = !controls }, // tek dokun: düğmeleri gizle/göster
+                            onDoubleTap = { onStyle { it.copy(offsetX = 0f, offsetY = 0f) } }, // çift dokun: yazıyı yerine geri koy
+                        )
+                    }
+                    .pointerInput(Unit) { // sürükleme ve iki parmakla büyütme
+                        detectTransformGestures { _, pan, zoom, _ -> // her parmak hareketinde
+                            onStyle { // stil güncelleniyor
+                                it.copy(
+                                    offsetX = (it.offsetX + pan.x / size.width).coerceIn(-1f, 1f), // yatay kaydırma (genişliğe oranla)
+                                    offsetY = (it.offsetY + pan.y / size.height).coerceIn(-1f, 1f), // dikey kaydırma (yüksekliğe oranla)
+                                    textSize = (it.textSize * zoom).coerceIn(MIN_TEXT_SIZE, MAX_TEXT_SIZE), // iki parmak açılınca büyür, kapanınca küçülür
+                                )
+                            }
+                        }
+                    },
+            )
 
             if (controls) { // düğmeler görünürse
                 IconButton( // sağ üstte kapat
@@ -104,7 +129,7 @@ fun FullscreenScreen(
                     shape = RoundedCornerShape(12.dp), // yuvarlak köşe
                 )
                 Text( // kullanım ipucu
-                    "Görsele dokun: düğmeleri gizle / göster", // açıklama
+                    "Sürükle: yazıyı taşı · İki parmak: büyüt/küçült · Çift dokun: yerine koy · Tek dokun: düğmeleri gizle", // açıklama
                     style = MaterialTheme.typography.bodySmall, // küçük yazı
                     color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
                     modifier = Modifier.padding(top = 4.dp), // üst boşluk

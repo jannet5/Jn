@@ -13,8 +13,8 @@ android {
         applicationId = "com.jn.yazikart" // telefondaki uygulama kimliği
         minSdk = 26 // Android 8.0 ve üstü telefonlarda çalışır
         targetSdk = 34 // Android 14 hedefleniyor
-        versionCode = 3 // mağaza sürüm numarası
-        versionName = "1.0.2" // kullanıcıya görünen sürüm
+        versionCode = 4 // mağaza sürüm numarası
+        versionName = "1.0.3" // kullanıcıya görünen sürüm
     }
 
     signingConfigs {
