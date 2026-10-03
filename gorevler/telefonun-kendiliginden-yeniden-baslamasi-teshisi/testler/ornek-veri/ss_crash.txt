@@ -1,0 +1,6 @@
+Drop box contents: 1 entries
+========================================
+2026-10-02 22:45:13 system_server_crash (text, 5123 bytes)
+Process: system_server
+Package: com.ornek.benimuygulamam v3 (0.3-debug)
+java.lang.SecurityException: sentetik örnek
