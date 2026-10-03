@@ -141,3 +141,15 @@ Doğrulama:
 - `python3 testler/test_reboot_teshis.py` → **29 test OK** (Python 3.10, 3.11, 3.13).
 - `kabul/emulator-*-paylasim.md` eski emülatör ham kayıtlarından `isle` ile cihaza dokunmadan yeniden üretildi; üçü de `denetle` → "Tanımlı örüntüler bulunmadı".
 - Fiziksel telefon yok (`adb devices -l` boş, §9); reset/root/canlı kişisel veri toplama yapılmadı. Cihaz kabulü ayrı ve bulutta tamamlanmış sayılmaz.
+
+## 12. v3 kalıcı teslim ve geri okuma
+- Push `01ca743`; `git fetch` sonrası uzak HEAD = yerel.
+- `telefon-reboot-teshis-v3.zip` uzak `01ca743`'ten `git archive` ile üretildi (sabit zaman damgası; tek kök
+  `telefonun-kendiliginden-yeniden-baslamasi-teshisi/`; 18 dosya; `__pycache__`, `.git`, yerel/ham çıktı,
+  paylaşım ZIP'i, kaynak sohbeti, `gorev.md` yok).
+  SHA-256 `263d60718b4068dd390e0f2c7c7a7b5d2d44d10656dca4b42c3c5df771f16519` → `sha256sum -c` OK,
+  `unzip -t` hatasız, kaynak metin araması 0, açılan kopya uzak commit içeriğiyle `diff -r` aynı,
+  açılan kopyada 29 test OK, `denetle kabul` → "Tanımlı örüntüler bulunmadı" (garanti değildir).
+  (ZIP bu bölüm eklenmeden önceki `01ca743` içeriğidir.)
+- ZIP depoya eklenmedi; özel bulut çalışma alanından kullanıcıya iletildi.
+- Açık kalan: fiziksel telefonda canlı çalıştırma, Güvenli Mod ve donanım testleri — ayrı cihaz kabulü; bulutta tamamlanmış sayılmaz.
