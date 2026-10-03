@@ -1,15 +1,13 @@
-# Laptop seçimi: HP OMEN ve alternatifleri, gerçek kullanıcı deneyimiyle
+# Laptop seçimi: HP OMEN ve alternatifleri, gerçek kullanıcı deneyimiyle (2. tur, düzeltilmiş)
 
-**Gözlem tarihi:** 3 Ekim 2026
-**Kapsam:** Grafik tasarım, yazılım geliştirme ve oyun için, abartılı olmayan ama donanımı iyi bir laptop. HP OMEN'in kullanıcı deneyimleri (Ekşi Sözlük, Reddit, Şikayetvar, HP forumu) ve editoryal testler alternatiflerle karşılaştırıldı.
-**Kısa liste:** [`liste.md`](liste.md) · **Kaynakların tamamı:** [`kaynaklar.md`](kaynaklar.md) · **Yol haritası:** [`harita.md`](harita.md)
+**Gözlem tarihi:** 3 Ekim 2026 · **Durum:** satın alma yapılmadı, cihaz fiziksel olarak test edilmedi; rapor yalnızca kaynaklara dayanıyor.
+**Kısa liste:** [`liste.md`](liste.md) · **Kaynaklar:** [`kaynaklar.md`](kaynaklar.md) · **Birincil kaynak okuma kaydı:** [`kanit/birincil-kaynak-okuma.md`](kanit/birincil-kaynak-okuma.md) · **Düzeltme kaydı:** §8
 
-> **Kısa cevap:** Hayır. Bu kadar seçenek arasında en mantıklısı **OMEN değil**.
-> - OMEN'in uygun fiyatlı 32 GB sürümü (16-ap0010nt, **84.150 TL**) kâğıt üstünde cazip. Ama ekranı sRGB renk alanının ancak **%58–62'sini** gösteriyor; bu, grafik tasarım için zayıf.
-> - 2023–2025 OMEN 16 ve OMEN MAX'ta **kapak (Hall) sensörü, siyah ekran ve anakart arızası** şikâyetleri Reddit, Şikayetvar ve HP forumunda tekrar tekrar geçiyor. Türkiye'de servis süreciyle ilgili şikâyetler de yoğun.
-> - Bu tablo "her cihaz bozuluyor" demek değil. Ama rakiplerden daha belirgin bir risk kümesi var.
-> - **Önerim:** Lenovo Legion 5 15IRX10, 32 GB / 1 TB, **99.999 TL**.
-> - Biraz daha ucuzu için: **Casper Excalibur G915** 32 GB / 1 TB (**93.599 TL**) ya da **Lenovo LOQ 15** (**73.799 TL**, RAM'i sonradan 32 GB'a çıkarılır).
+> **Kısa cevap: Tek ve kesin bir "kazanan" yok; seçim önceliğe göre değişiyor.** Ama Türkiye'de satılan **OMEN 16-ap0010nt'yi grafik tasarım için önermiyorum.** Sebebi arıza istatistiği değil, **ekranı**. Satıcı ilanında ve HP'nin beyanında bu panel sRGB renk alanının yalnızca **%62,5**'ini gösteriyor. Notebookcheck aynı tip paneli **farklı bir SKU'da (ap0091ng)** ölçtü ve **%58,1** buldu.
+> - **Ekran doğruluğu, kutudan 32 GB RAM ve 2 M.2 yuvası öncelikliyse:** Lenovo Legion 5 15IRX10 **83LY00PYTR**, 99.999 TL. Ekran değeri ilan bilgisi; bu SKU için bağımsız ölçüm yok.
+> - **Servis itibarı ve biraz daha düşük fiyat öncelikliyse:** Casper Excalibur **G915.1362-DF60X-C**, 93.599 TL. Ekran değeri ilan bilgisi; bağımsız ölçüm yok.
+> - **Sıkı bütçe:** Lenovo LOQ 15AHP10 **83JG008UTRv1**, 73.799 TL. 16 GB geliyor; RAM'i sonradan 32 GB'a çıkarmak gerekiyor.
+> - **OMEN'in güvenilirliği:** 2023–2024 OMEN 16 (wf/xf/xd) serisinde Hall sensörü ve siyah ekran **anekdotları** çok. Ama bunlar **2025 ap/am serisi için bir arıza oranı değil**; paydayı (kaç cihaz satıldığını) bilmiyoruz.
 
 ---
 
@@ -17,144 +15,160 @@
 
 | İhtiyaç | Neden | Asgari | Hedef |
 |---|---|---|---|
-| RAM | Photoshop/Illustrator + IDE + tarayıcı + emülatör/Docker aynı anda açık kalıyor | 16 GB, 2 slot (yükseltilebilir) | **32 GB** (2×16, çift kanal) |
-| Depolama | Oyunlar 100 GB'ı aşabiliyor; tasarım arşivi ve SDK'lar yer kaplıyor | 512 GB + boş M.2 yuvası | **1 TB**, ikinci M.2 yuvası olsun |
+| RAM | Photoshop/Illustrator, IDE, tarayıcı, emülatör ya da Docker aynı anda açık | 16 GB, 2 SODIMM yuvası | **32 GB** (2×16, çift kanal) |
+| Depolama | Oyunlar, tasarım arşivi, SDK'lar | 512 GB + boş M.2 yuvası | **1 TB**, ikinci M.2 yuvası |
 | GPU | 1080p/1200p oyun, Adobe GPU hızlandırma, CUDA | RTX 5050 | **RTX 5060, 100–115 W** |
-| CPU | Derleme ve dışa aktarma süreleri | 8 çekirdek H serisi | HX ya da Ryzen 7/9 |
-| Ekran | Grafik tasarımda renklerin doğru görünmesi | **%95+ sRGB**, 300 nit | %100 sRGB, 16:10, 1600p, 350+ nit |
-| Güvenilirlik | Kullanıcının ana şartı: kronik arızası olmasın | Belirgin bir arıza kümesi olmasın | Türkiye'de servisi iyi bilinen marka |
-| Fiyat | "Makul olsun, abartılı olmasın" | — | **65–100 bin TL** bandı (2026-10 TR piyasası) |
+| Ekran | Tasarımda renk doğruluğu | **%95+ sRGB** (ilan veya ölçüm) | %100 sRGB, 16:10 |
+| Güvenilirlik | Kullanıcının ana şartı | Belgelenmiş, yaygın bir arıza kümesi olmaması | Türkiye'de iyi servis |
+| Fiyat | "Makul olsun, abartılı olmasın" | — | 65–100 bin TL (2026-10 TR piyasası) |
 
-**Neden ekran bu kadar önemli?** Notebookcheck'in ölçtüğü ucuz oyun panelleri sRGB'nin yalnızca %58–65'ini gösteriyor. Örnekler: OMEN 16-ap0091ng %58, Nitro V 16 %58,2, Cyborg 15 %64,8. Bu panellerde hazırlanan bir tasarım başka ekranlarda farklı renkte görünür. Bu yüzden ekran, puanlamada en ağır iki ölçütten biri.
+## 2. Teknik doğrulama: ilan mı, ölçüm mü?
 
-## 2. Teknik doğrulama (resmî ve editoryal)
+Her satırda değerin türü yazıyor. **Ölçüm** bağımsız laboratuvar sonucu, **İlan** üretici veya satıcı beyanı demek. Bir SKU'nun ölçümü başka bir SKU'ya aktarılmadı.
 
-| Model | GPU gücü | Ekran (ölçüm veya resmî bilgi) | RAM / M.2 | Kaynak |
-|---|---|---|---|---|
-| HP OMEN 16-ap (2025, RTX 5060) | 115+25 W (ap0091ng) | 1920×1200 144 Hz, ~300 nit, **%58 sRGB** (ölçüm); TR modeli ap0010nt için satıcı bilgisi %62,5 sRGB | 2 SO-DIMM; test cihazında **1 M.2** ve tek kanal 1×16 GB | [Notebookcheck](https://www.notebookcheck.net/The-best-budget-gamer-HP-Omen-16-laptop-review.1135455.0.html), [epey](https://www.epey.com/laptop/hp-omen-gaming-16-ap0010nt-ce2b2ea.html) |
-| HP (HyperX) OMEN 16 2026, RTX 5070 | — | QHD+ 240 Hz, 570 nit, tam sRGB | 2 SO-DIMM, 2 M.2 | [Notebookcheck](https://www.notebookcheck.net/HP-HyperX-Omen-16-review-One-of-the-fastest-AMD-CPUs-for-mainstream-gamers.1348846.0.html) |
-| Lenovo Legion 5 Gen 10 | RTX 5060 115 W | IPS 1920×1200 165 Hz %100 sRGB ya da OLED %100 DCI-P3 | 2 SO-DIMM (64 GB'a kadar), 2 M.2; Notebookcheck puanı **%93,6** (15AHP10 OLED test cihazı) | [Notebookcheck](https://www.notebookcheck.net/The-best-mainstream-gamer-in-2025-Lenovo-Legion-5-15-Laptop-Review.1047975.0.html), [PSREF 15IRX10](https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_5_15IRX10/Legion_5_15IRX10_Spec.pdf) |
-| Lenovo LOQ 15 (2025/26) | RTX 5060 100–105 W | PSREF'teki iki panelin ikisi de %100 sRGB; 15AHP11 ölçümü %99,8 sRGB | 2 SO-DIMM, 2 M.2 | [PSREF LOQ 15IRX10](https://psref.lenovo.com/syspool/Sys/PDF/LOQ/LOQ_15IRX10/LOQ_15IRX10_Spec.pdf), [Notebookcheck](https://www.notebookcheck.net/Eyesore-or-eye-catcher-Lenovo-LOQ-15-gaming-laptop-review.1338691.0.html) |
-| Casper Excalibur G915 | RTX 5060 115 W | 16" 1920×1200 165 Hz 350 nit %100 sRGB (üretici bilgisi, **bağımsız ölçüm yok**) | 2 SO-DIMM, 2 M.2 | [casper.com.tr](https://www.casper.com.tr/excalibur-g915-p-204) |
-| Acer Nitro 16S AI / Nitro V 16S AI | 16S: RTX 5060 115 W | 2560×1600 180 Hz 400 nit %100 sRGB (satıcı bilgisi) | Slot bilgisi doğrulanamadı | [epey 16S](https://www.epey.com/laptop/acer-nitro-16s-ai-an16s-61-nh-qxuey-001-32.html), [epey V16S](https://www.epey.com/laptop/acer-nitro-v-16s-ai-anv16s-41-r481.html) |
-| Acer Nitro V 16 / V 15 (temel panel) | ~75–85 W | **%58–60 sRGB** (ölçüm) | V15'te tek M.2 | [Notebookcheck V16](https://www.notebookcheck.net/Acer-Nitro-V-16-AI-Review-Affordable-gaming-laptop-with-great-battery-life.1156010.0.html) |
-| ASUS TUF A16 (2025) | 115 W'a kadar | %100 sRGB seçenekleri var | 2 SO-DIMM, 2 M.2 | [ASUS spec](https://www.asus.com/laptops/for-gaming/tuf-gaming/asus-tuf-gaming-a16-2025/techspec/) |
-| MSI Cyborg 15 | RTX 5050 **45 W** | %64,8 sRGB | 1 M.2 | [Notebookcheck](https://www.notebookcheck.net/MSI-Cyborg-15-review-The-perfect-budget-gaming-laptop-for-2026.1218188.0.html) |
+| Önerilen TR SKU | Nesil | Panel (değer türü) | GPU gücü (kaynak) | RAM / M.2 (kaynak) | Bu SKU için bağımsız ölçüm |
+|---|---|---|---|---|---|
+| Lenovo Legion 5 **15IRX10 83LY00PYTR** | Gen 10 (2025), Intel i7-13650HX | 15,3" 1920×1200 IPS 165 Hz 300 nit **%100 sRGB (İlan:** PSREF 10.06.2026 + epey ilanı) | RTX 5060 **115 W TGP** (PSREF) | 2 SODIMM çift kanal, PSREF'e göre "32 GB'a kadar"; **2× M.2 2280 PCIe4 x4** (PSREF) | **Yok.** Notebookcheck'in Legion 5 ölçümleri 15AHP10 AMD/OLED ve 15IRX10 RTX 5070/OLED cihazlarında yapıldı; aktarılmadı |
+| Casper Excalibur **G915.1362-DF60X-C** | 2025/26, Intel i7-13620H (H serisi) | 16" 1920×1200 165 Hz 350 nit **%100 sRGB (İlan:** casper.com.tr + epey) | RTX 5060 **115 W** (İlan) | 2 SODIMM, 2 M.2 (İlan: epey/casper) | **Yok** |
+| Lenovo LOQ **15AHP10 83JG008UTRv1** | 2025, Ryzen 7 250 | 15,6" FHD IPS 144 Hz 300 nit **%100 sRGB (İlan:** PSREF 15AHP10, 24.08.2026 + epey) | RTX 5060 **100 W TGP** (PSREF) | 1×16 GB takılı, 2 SODIMM, PSREF'e göre "32 GB'a kadar"; 2× M.2 2280 (**biri x4, biri x2**) (PSREF) | **Yok.** Notebookcheck'in LOQ incelemesi 2026 model **15AHP11** üzerine; aktarılmadı |
+| Acer Nitro 16S AI **AN16S-61 (NH.QXUEY.001-32)** | 2025, Ryzen AI 9 365 | 16" 2560×1600 180 Hz 400 nit **%100 sRGB (İlan:** epey) | RTX 5060 115 W (İlan) | 32 GB; lehimli mi SODIMM mi **bilinmiyor**. Kodun sonundaki "-32", RAM'in satıcı tarafından yükseltildiğini düşündürüyor ama **doğrulanmadı** | **Yok** |
+| HP OMEN 16-**ap0010nt (CE2B2EA)** | 2025, Ryzen AI 7 350 | 16" 1920×1200 144 Hz 300 nit **%62,5 sRGB (İlan:** epey; HP beyanı) | Bu SKU için TGP beyanı bulunamadı | 2×16 GB (İlan: epey) | **Yok.** Notebookcheck, farklı SKU **ap0091ng**'de (Ryzen 9 8940HX) AUODBB2 panelini **%58,1 sRGB** ölçtü; GPU 115 W (25 W Dynamic Boost dahil) |
 
 ## 3. OMEN: Ekşi Sözlük ve Reddit'te ne deniyor?
 
-### 3.1 Erişim durumu
-- **Reddit:** reddit.com bu bulut ortamından 403 hatası veriyor. Bunun yerine Reddit'in herkese açık gönderi arşivi olan **Arctic Shift API** kullanıldı. 8 sorguyla **614 gönderi** çekildi; başlık, tarih ve bağlantılar [`kanit/reddit-arctic-shift-ozet.json`](kanit/reddit-arctic-shift-ozet.json) dosyasında. Aşağıdaki Reddit özetleri bu gönderilerin ve yorumlarının gerçek metninden yapıldı.
-- **Ekşi Sözlük:** Hem doğrudan erişim hem WebFetch 403 verdi (bot koruması); Wayback arşivinde de kopya yok. Ekşi bulguları **yalnızca arama motoru özetlerine** dayanıyor ve öyle işaretlendi. Ekşi'yi tam okumak için bir tarayıcıdan elle bakmak gerekiyor (bkz. §7).
-- **Şikayetvar:** curl ile açıldı. Şikâyetler gerçek sayfadan okundu.
-- **HP Support Community:** 403 verdi. Yalnızca arama özetleri var.
+### 3.1 Erişim ve kapsam (önce okuyun)
+- **Reddit:** reddit.com bu bulut ortamından 403 veriyor. Gönderiler, herkese açık bir Reddit arşivi olan **Arctic Shift API** üzerinden alındı.
+  - **Metadata:** 8 sorguda **614 ham kayıt** geldi; bunlar **585 farklı URL ve 29 tekrar** demek. Depodaki [`kanit/reddit-arctic-shift-ozet.json`](kanit/reddit-arctic-shift-ozet.json) dosyasında **yalnızca metadata** var: başlık, tarih, puan, yorum sayısı ve URL. Gönderi gövdesi ve yorum metni bu dosyada yok.
+  - **Tam metin:** Gövde ve yorum metni yalnızca raporda atıf yapılan **11 gönderi** için okundu (yenileme: 2026-10-03 13:29 UTC). Her gönderi için gövde ve yorum SHA-256 değerleri ile en fazla 180 karakterlik kısa alıntı [`kanit/reddit-alinti-kaniti.json`](kanit/reddit-alinti-kaniti.json) dosyasında. **614 kaydın hepsi tam metin olarak incelenmedi.**
+  - **Yanlılık:** Sorgu terimleri sorun odaklı seçildi ("hall sensor", "hinge" gibi). Bu yüzden örneklem olumsuza yanlı ve **bir arıza oranı vermiyor**.
+- **Ekşi Sözlük:** Her yoldan 403 alındı ve Wayback arşivinde kopya yok. Ekşi maddeleri **yalnızca arama motoru özetine dayanıyor**.
+- **HP Support Community:** 403 verdi; yalnızca arama özeti var. **Şikayetvar** sayfaları curl ile açılıp okundu.
 
-### 3.2 Reddit (gerçek gönderiler, 2025–2026)
+### 3.2 Reddit: atıf yapılan gönderiler (tam metin okundu; 10'u OMEN, 1'i Acer için §4'te)
+Hepsi **anekdot**. Model ve nesil her maddede belirtildi.
+
 **Sorun bildirenler:**
-- **"Indians don't buy HP Omen"** (r/HPOmen, 18.09.2026, 27 puan, 75 yorum): OMEN 16 2023 wf, RTX 4060. Cihaz 3 ayda Hall sensörü nedeniyle ölmüş; şimdiye kadar **4 kez anakart değişmiş**; yetkili servisler hasar vermiş. — https://www.reddit.com/r/HPOmen/comments/1wk5wdn/indians_dont_buy_hp_omen/
-- **OMEN MAX 16 (2025, RTX 5070, Türkiye):** Isınınca siyah ekran oluyor. HP önce "yalnızca panel arızası" demiş, sonra anakart ve paneli değiştirmiş. Servis portalında "KARGO DEPARTMANINA ÇIKIŞ" görünüyor; yani olay Türkiye'de. Kullanıcının sonraki 33 dakikalık stres testinde yeni kart sorunsuz çıkmış. — https://www.reddit.com/r/HPOmen/comments/1w3dcrt/ ve https://www.reddit.com/r/HPOmen/comments/1w6emm6/
-- **Menteşe:** "My frustrating experience with HP Support" (24.08.2026). Garantideki OMEN 16'nın menteşesi kırılmış, panel yerinden çıkmış; servis garantili cihaza bakmayı reddetmiş. — https://www.reddit.com/r/HPOmen/comments/1vwus34/ — Aynı dönemde "Hinges popping out while closing" ve "Is this normal (hinge)" (25 yorum) başlıkları da var.
-- **Siyah ekran ve titreme:** Yalnızca Eylül 2026'da r/HPOmen'de **10'dan fazla** siyah ekran, titreme veya Hall sensörü başlığı açılmış. Örnekler: OMEN 16-xd0001na, 16-wd, 16-wf ve 2023 modelleri. — Liste: [`kanit/reddit-arctic-shift-ozet.json`](kanit/reddit-arctic-shift-ozet.json) (`hall` sorgusu)
-- **2 yıllık uzun kullanım** (OMEN, 6800H + 3070 Ti, 21 puan): "Performans zirve" ama "verdiğinden fazla sorun çıkardı". Fanlar gürültülü. Önerisi: uzatılmış garanti ya da kaza koruması al, 8 ayda bir iç temizlik yap. — https://www.reddit.com/r/HPOmen/comments/1v3bt5v/
+- **OMEN 16 2023 wf, RTX 4060** (Hindistan): 3 ayda Hall sensörü arızası, toplam 4 anakart değişimi, servis hasarı. Aynı başlıkta 50 yorum çekildi; içlerinde "6 yıldır OMEN 2020 sorunsuz" diyen karşı anekdotlar da var. — https://www.reddit.com/r/HPOmen/comments/1wk5wdn/indians_dont_buy_hp_omen/
+- **OMEN MAX 16 (2025, Arrow Lake HX + RTX 50):** Isınınca siyah ekran oluyor; anakart ve panel değiştirilmiş. Servis portalındaki durum metni Türkçe. Değişimden sonra kullanıcının 33 dakikalık stres testinde sorun tekrarlamamış. — https://www.reddit.com/r/HPOmen/comments/1w3dcrt/ · https://www.reddit.com/r/HPOmen/comments/1w6emm6/
+- **OMEN 16 (alt seri belirtilmemiş):** Menteşe kırılmış, panel ayrılmış; servis süreci sorunlu (Hindistan). — https://www.reddit.com/r/HPOmen/comments/1vwus34/
+- **OMEN 16 2023:** Ekran titriyor, siyah ekran oluyor, Hall şüphesi; yorumlarda kullanıcının kendi onarımı anlatılıyor. — https://www.reddit.com/r/HPOmen/comments/1wtdlc6/hall_sensor_or_different_issue_omen_16_2023/
+- **OMEN 6800H + RTX 3070 Ti, 2 yıl:** Performans iyi ama sorun çok yaşamış; uzatılmış garanti tavsiye ediyor. — https://www.reddit.com/r/HPOmen/comments/1v3bt5v/
 
 **Memnun olanlar:**
-- **OMEN 16-xd0020AX, 1 yıl:** "Yapı kalitesi 10/10." Tek eleştirisi: "menteşeler daha iyi olmalı." — https://www.reddit.com/r/HPOmen/comments/1u2brki/
-- **RTX 5050'li OMEN (am0277TX, Kasım 2025'ten beri):** AAA oyunlarda "0 sorun". Başka yorumlar da "yeni modellerde Hall sorunu yok" diyor. — https://www.reddit.com/r/HPOmen/comments/1veovdy/
-- **OMEN 16-am (2025, RTX 5060), 10 aylık sahibi:** F14 BIOS'a güncellemiş, "light bleed dışında sorun yok". Başka bir yorumcu, Hall sorununun 2024 sonrası modellerde düzeldiğini söylüyor; bu doğrulanmamış bir topluluk iddiası. — https://www.reddit.com/r/HPOmen/comments/1wugasl/
-- **OMEN 16 + RTX 5060 mı, LOQ mu?** diye soran kullanıcıya gelen cevap: "Legion'u al, kalan parayla 16 GB RAM ekle." — https://www.reddit.com/r/HPOmen/comments/1vb7crp/
+- **OMEN 16-xd0020AX, 1 yıl:** Yapı kalitesini övüyor, menteşeyi eleştiriyor. — https://www.reddit.com/r/HPOmen/comments/1u2brki/
+- **RTX 5050'li OMEN (am0277TX):** Yorumlarda "sıfır sorun" anekdotları. — https://www.reddit.com/r/HPOmen/comments/1veovdy/
+- **OMEN 16-am0073dx sorusu:** 10 aylık bir sahibi "light bleed dışında sorun yok" diyor. "Hall sorunu 2024 sonrası düzeldi" iddiası da var ama **doğrulanmadı**. — https://www.reddit.com/r/HPOmen/comments/1wugasl/
+- **OMEN 16 (Ryzen AI 7 350/5060) mı, LOQ mu?** Tek yanıt: "Legion al, RAM ekle." Tek bir görüş. — https://www.reddit.com/r/HPOmen/comments/1vb7crp/
 
-### 3.3 Ekşi Sözlük (yalnızca arama özeti; sayfalar 403 verdi)
-- OMEN dizüstüler için "felaket laptop" diyen ve aldığına pişman olan yazar. — https://eksisozluk.com/entry/70654268
-- Metro 2033'te GPU 80 °C, CPU 90 °C'ye çıkıyor; ısınma şikâyeti. — https://eksisozluk.com/entry/99930815
-- OMEN 15-ek1008nt: günlük kullanımda 45–50 °C, sessiz; olumlu. — https://eksisozluk.com/hp-omen-15-ek1008nt--7422951
-- OMEN 15 (2020): ilk haftalar sorunsuz, ısınma ayarla yönetilebiliyor. — https://eksisozluk.com/hp-omen-15-2020--6667691
-- Ana başlık: https://eksisozluk.com/hp-omen--4677836 · HP teknik servis başlığı: https://eksisozluk.com/hp-teknik-servis--449193?p=8
+**Sayım uyarısı:** Metadata'ya göre Eylül 2026'da r/HPOmen'de onlarca siyah ekran, titreme ve Hall başlığı açılmış; bunların çoğu 2023–2024 modelleri. Bu yalnızca **başlık sayısı**, oran değil.
 
-### 3.4 Şikayetvar ve HP forumu (Türkiye ve dünya)
-| Sorun | Model / yıl | Kanıt | Durum |
+### 3.3 Ekşi Sözlük (yalnızca arama özeti)
+- OMEN dizüstüler için "felaket laptop" diyen bir yazar. — https://eksisozluk.com/entry/70654268
+- Isınma şikâyeti (GPU 80 °C, CPU 90 °C). — https://eksisozluk.com/entry/99930815
+- OMEN 15-ek1008nt günlük kullanımda serin ve sessiz (olumlu). — https://eksisozluk.com/hp-omen-15-ek1008nt--7422951
+- OMEN 15 2020, ilk haftalar sorunsuz. — https://eksisozluk.com/hp-omen-15-2020--6667691
+- Ana başlık: https://eksisozluk.com/hp-omen--4677836
+
+Bu maddeler eski OMEN 15 nesline ait; güncel 2025 OMEN 16'ya aktarılamaz.
+
+### 3.4 Şikayetvar (sayfalar okundu) ve HP forumu (arama özeti)
+| Konu | Model / yıl | Kanıt türü | Kaynak |
 |---|---|---|---|
-| **Hall (kapak) sensörü:** ekran ve klavye kapanıyor, cihaz açılmıyor | OMEN 16 wf (2023), xd (2024), xf | [Şikayetvar 1](https://www.sikayetvar.com/hp/hp-omen-dizustu-bilgisayarda-kronik-donanim-arizasi-ve-yetersiz-teknik-destek-sureci), [2](https://www.sikayetvar.com/hp/hp-omen-16-modelinde-hall-sensor-arizasi-icin-ucretsiz-onarim-talebi), [3](https://www.sikayetvar.com/hp/hp-omen-16-hall-sensor-arizasi-garanti-kapsaminda-cozum-bekliyor) + Reddit | Sayfa açıldı |
-| **Siyah ekran / anakart** (3–6 ayda) | OMEN 16 2023–2025, MAX 16 | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-bilgisayarinda-tekrarlanan-anakart-arizasi-ve-degisim-istegi), [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-ana-kart-arizasi-ve-garanti-degisimi-reddi), [HP forum](https://h30434.www3.hp.com/t5/Gaming-Notebooks/HP-Omen-16-Motherboard-issues/td-p/9278296) | Şikayetvar açıldı, HP forum arama özeti |
-| **Menteşe / çerçeve** (servis "kullanıcı hatası" deyip 6.171 TL istemiş) | OMEN 16 wd; OMEN 15'te tarihsel olarak çok yaygın | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-laptop-mentese-kirilmasi-kullanici-hatasi-iddiasi-ve-haksiz-ucret-talebi), [HP forum 2016](https://h30434.www3.hp.com/t5/Gaming-Notebooks/2016-HP-Omen-Hinge-Issues-POST-EM-ALL-HERE/td-p/6189559) | Açıldı / arama özeti |
-| **Isınıp ani kapanma** | OMEN MAX 16 ah0001NT (2 ayda başlamış) | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-max-laptopda-tekrarlayan-asiri-isinma-ve-ani-kapanma-problemi) | Açıldı |
-| **BIOS güncellemesi takılması** | OMEN 16 (Ağustos 2026) | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-bios-guncellemesi-takildi-acil-destek-gerekiyor) | Açıldı |
-| **Servis** (17–24 gün bekleme, 6–11 bin TL "kullanıcı hatası" faturası) | Genel | [Şikayetvar HP OMEN (406 şikâyet)](https://www.sikayetvar.com/hp/omen) | Açıldı |
+| Hall sensörü | OMEN 16 wf (2023), xd (2024) | Şikâyet anekdotu (Şikayetvar) | [1](https://www.sikayetvar.com/hp/hp-omen-dizustu-bilgisayarda-kronik-donanim-arizasi-ve-yetersiz-teknik-destek-sureci), [2](https://www.sikayetvar.com/hp/hp-omen-16-modelinde-hall-sensor-arizasi-icin-ucretsiz-onarim-talebi), [3](https://www.sikayetvar.com/hp/hp-omen-16-hall-sensor-arizasi-garanti-kapsaminda-cozum-bekliyor) |
+| Anakart / siyah ekran | OMEN 16 (alt seri çoğunlukla belirtilmemiş) | Şikâyet anekdotu | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-bilgisayarinda-tekrarlanan-anakart-arizasi-ve-degisim-istegi), [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-ana-kart-arizasi-ve-garanti-degisimi-reddi), [HP forum, arama özeti](https://h30434.www3.hp.com/t5/Gaming-Notebooks/HP-Omen-16-Motherboard-issues/td-p/9278296) |
+| Menteşe; servisin "kullanıcı hatası" deyip ücret istemesi | OMEN 16-wd0006NT | Şikâyet anekdotu | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-laptop-mentese-kirilmasi-kullanici-hatasi-iddiasi-ve-haksiz-ucret-talebi) |
+| Isınma ve ani kapanma | OMEN MAX 16 ah0001NT | Şikâyet anekdotu | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-max-laptopda-tekrarlayan-asiri-isinma-ve-ani-kapanma-problemi) |
+| BIOS güncellemesinde takılma | OMEN 16 | Şikâyet anekdotu | [Şikayetvar](https://www.sikayetvar.com/hp/hp-omen-16-bios-guncellemesi-takildi-acil-destek-gerekiyor) |
+| Toplam | HP OMEN | Sayı (oran değil) | [Şikayetvar HP OMEN](https://www.sikayetvar.com/hp/omen) |
 
-### 3.5 Hüküm: OMEN "kronik arızalı mal" mı?
-- **Kanıtla söylenebilecek:** 2023–2024 OMEN 16 (wf/xf/xd) serisinde Hall sensörü, siyah ekran ve anakart arızalarından oluşan, **birçok ülkede tekrar eden ve belgelenmiş bir küme** var. 2025 OMEN MAX'ta da benzer bir Türkiye vakası görülüyor.
-- **Söylenemeyecek:** Arıza oranını gösteren bir veri yok. Şikâyet siteleri doğası gereği olumsuz deneyime kayar. 2025 OMEN 16 (ap/am) neslinde olumlu raporlar çoğunlukta; bu nesil için henüz belirgin bir küme yok, ama süre de kısa.
-- **Pratik sonuç:** OMEN alınacaksa uzatılmış garanti veya HP Care Pack alınmalı. Ekranın kararması ya da kapak açısına göre gidip gelmesi gibi belirtiler garanti süresi içinde hemen bildirilmeli.
+### 3.5 Hüküm
+- **Kanıtla söylenebilen:** 2023–2024 OMEN 16 (wf/xf/xd) için Hall sensörü, siyah ekran ve anakart anekdotları birden çok ülkede ve platformda tekrarlanıyor. 2025 OMEN MAX 16'da da Türkiye'den en az bir vaka var.
+- **Söylenemeyen:** Arıza **oranı**. 2025 OMEN 16 ap/am serisinin güvenilirliği bu kaynaklardan ölçülemez. Elimizdeki az sayıdaki anekdotun çoğu olumlu ama süre de kısa.
+- **"Kronik arızalı mal" mı?** Bu kaynaklarla **ne kanıtlanabiliyor ne çürütülebiliyor**. Eski nesilde belirgin bir şikâyet kümesi var; yeni nesil için veri yetersiz.
 
 ## 4. Alternatifler: kronik sorunlar ve olumlu deneyimler
 
-| Model | Kronik / tekrarlayan şikâyetler | Olumlu | Türkiye servisi (Şikayetvar) |
+Tablodakiler şikâyet **sayısı** ve **anekdottur**; bir oran değildir. Marka servis notu Şikayetvar'ın kendi ölçütüdür.
+
+| Model (nesil) | Şikâyet / anekdot | Olumlu | Türkiye servisi (Şikayetvar) |
 |---|---|---|---|
-| **Lenovo Legion 5 Gen 10** | dGPU modunda ekran glitch'i raporları ([Lenovo forum](https://gaming.lenovo.com/emea/members/360486-mind12), başlık doğrulandı); oyunda fan sesi yüksek (50 dB) | Notebookcheck: "2025'in en iyi ana akım oyun laptopu", bakımı kolay. Reddit'te sık verilen tavsiye: "Legion al + RAM ekle" | Lenovo 6/100, [Legion sayfası 139 şikâyet](https://www.sikayetvar.com/lenovo/legion): servis gecikmesi, parça bulunamaması |
-| **Lenovo LOQ 15** | 170 W adaptör oyunda yetmiyor, şarjdayken pil düşüyor; ekran hasarına "kullanıcı hatası" denmesi; 9. nesilde anakart iddiaları (arama özeti). Reddit'te "Dead LOQ 15IAX9 (GPU short)" başlığı | Soğutma iyi; klavye ve touchpad övülüyor | [LOQ: 327 şikâyet](https://www.sikayetvar.com/lenovo/loq) |
-| **Casper Excalibur G915 / G870** | G870'te ısınma ve FPS düşüşü (3'ten fazla şikâyet), "sıvı teması" gerekçesiyle 37 bin TL istenmesi. G915 için bağımsız test yok | Casper SSS: RAM veya SSD'yi kendiniz değiştirmek garantiyi bozmuyor | **Casper 76/100**, listedeki en iyi not ([sayfa](https://www.sikayetvar.com/casper)) |
-| **Acer Nitro (V/16S)** | Şarjdayken pil düşmesi, servisin ısınmayı çözememesi, mavi ekran ([Nitro: 286 şikâyet](https://www.sikayetvar.com/acer/nitro)) | Fiyat/performans ve pil ömrü iyi. Reddit'te "Love my Acer Nitro!" | **Acer 2/100**, en zayıf servis notu ([sayfa](https://www.sikayetvar.com/acer)) |
-| **ASUS TUF A16 / F16** | Şarjdayken fanların aniden 6600+ rpm'e çıkması (BIOS sonrası, ROG forum, arama özeti); MUX geçişinde siyah ekran | Pil, dengeli soğutma, sağlam kasa | ASUS 4.775 şikâyet ([sayfa](https://www.sikayetvar.com/asus?k=tuf)). TR fiyatı bu sınıfta pahalı |
-| **MSI Katana / Cyborg** | Donma ve mavi ekran, menteşe ([Katana](https://www.sikayetvar.com/msi-turkiye?k=katana)). Cyborg'da 45 W GPU ve %64,8 sRGB ekran | QHD Katana'nın performansı iyi | Servispoint, deneyimler karışık |
-| **Monster Abra / Tulpar** | Menteşe, şarj soketi, tekrarlayan anakart arızası ([Tulpar T7: 862](https://www.sikayetvar.com/monster-notebook/tulpar-t7), [Abra A5: 1.978](https://www.sikayetvar.com/monster-notebook/abra-a5)) | 4 yıl garanti | Monster 14/100, toplam 8.641 şikâyet |
+| Lenovo Legion 5 Gen 10 | dGPU modunda ekran glitch'i raporları ([Lenovo forum başlığı](https://gaming.lenovo.com/emea/members/360486-mind12), yalnızca başlık görüldü); oyunda fan sesi (Notebookcheck, AMD/OLED test cihazı) | Notebookcheck 15AHP10 incelemesi olumlu (%93,6; farklı SKU) | Lenovo 6/100; [Legion: 139 şikâyet](https://www.sikayetvar.com/lenovo/legion) |
+| Lenovo LOQ (genel) | 170 W adaptör şikâyetleri, ekran hasarına "kullanıcı hatası" denmesi ([LOQ: 327 şikâyet](https://www.sikayetvar.com/lenovo/loq)); Reddit'te 15IAX9 için "GPU short" başlığı (eski nesil) | Soğutma ve klavye övülüyor (anekdot ve inceleme) | Lenovo 6/100 |
+| **Casper Excalibur G915** | [G915 sayfası: 11 şikâyet](https://www.sikayetvar.com/casper/excalibur-g915): GPU artifact, ~1 ayda açılmama. Yeni model, küçük örneklem. **G870'in ısınma şikâyetleri G915'e aktarılmadı** | Bir teşekkür kaydı | **Casper 76/100**, listedeki en yüksek not ([sayfa](https://www.sikayetvar.com/casper)) |
+| Acer Nitro (V/16S) | Şarjdayken pil düşmesi, ısınma, mavi ekran ([Nitro: 286](https://www.sikayetvar.com/acer/nitro)) | Fiyat/performans; Reddit'te Nitro Lite 16 için memnuniyet anekdotu ([gönderi](https://www.reddit.com/r/GamingLaptops/comments/1wusru5/)) | Acer 2/100 ([sayfa](https://www.sikayetvar.com/acer)) |
+| ASUS TUF A16/F16 | Pildeyken fan yükselmesi (ROG forum, arama özeti) | Pil, kasa | ASUS ([TUF arama](https://www.sikayetvar.com/asus?k=tuf)); bu sınıfta TR fiyatı yüksek |
+| MSI Katana/Cyborg | Donma, mavi ekran, menteşe ([Katana](https://www.sikayetvar.com/msi-turkiye?k=katana)); Cyborg 15'te 45 W GPU ve %64,8 sRGB (ölçüm, Notebookcheck) | — | Karışık |
+| Monster Abra/Tulpar | Menteşe, şarj soketi, anakart ([Tulpar T7](https://www.sikayetvar.com/monster-notebook/tulpar-t7), [Abra A5](https://www.sikayetvar.com/monster-notebook/abra-a5)) | 4 yıl garanti | Monster 14/100 |
 
-Not: Şikâyet sayıları satış hacmiyle orantılıdır; bir **oran** değildir. Aynı ölçütle karşılaştırmak için marka notu (yanıt ve çözüm oranı) da birlikte verildi.
+## 5. Güncel fiyatlar (Türkiye, 03.10.2026, epey.com pazaryeri listeleri)
 
-## 5. Güncel fiyatlar (Türkiye, 03.10.2026)
+Kilit sayfalar bu turda **yeniden açıldı**; satıcılar ve fiyatlar epey'in "x dakika/saat önce güncellendi" bilgisiyle birlikte alındı. Ham anlık görüntü: [`kanit/fiyat-anlik-2026-10-03.json`](kanit/fiyat-anlik-2026-10-03.json).
 
-Fiyatlar epey.com'un pazaryeri satıcı listelerinden alındı. Kaynak siteler Hepsiburada, Trendyol, n11, Idefix, PTT AVM ve Amazon.com.tr; sayfada "x dakika önce güncellendi" bilgisi var. Kilit 9 sayfa bu oturumda ikinci kez bağımsız olarak açılıp fiyatlar teyit edildi. akakce, cimri, Hepsiburada, Vatan ve MediaMarkt doğrudan 403 verdi.
-
-| Model | Yapılandırma | En düşük | Satıcı | Bağlantı |
+| Model (tam kod) | Yapılandırma (ilan) | En düşük | Satıcı | Bağlantı |
 |---|---|---|---|---|
-| Lenovo Legion 5 15IRX10 83LY00PYTR | i7-13650HX · RTX 5060 · 32 GB · 1 TB · 15,3" 1200p 165 Hz %100 sRGB | **99.999 TL** | Nethouse (HB/Amazon/Trendyol/n11) | https://www.epey.com/laptop/lenovo-legion-5-15irx10-83ly00pytr.html |
-| Casper Excalibur G915.1362-DF60X-C | i7-13620H · RTX 5060 115 W · 32 GB · 1 TB · 16" 1200p 165 Hz %100 sRGB | **93.599 TL** | Casper (n11) | https://www.epey.com/laptop/casper-excalibur-g915-1362-df60x-c.html |
-| Acer Nitro 16S AI AN16S-61 | Ryzen AI 9 365 · RTX 5060 115 W · 32 GB · 1 TB · 16" 1600p 180 Hz %100 sRGB | **92.999 TL** | Teknorya (HB) | https://www.epey.com/laptop/acer-nitro-16s-ai-an16s-61-nh-qxuey-001-32.html |
-| HP OMEN 16-ap0010nt | Ryzen AI 7 350 · RTX 5060 · 32 GB · 1 TB · 16" 1200p 144 Hz **%62,5 sRGB** | **84.150 TL** | Kapında (Trendyol) | https://www.epey.com/laptop/hp-omen-gaming-16-ap0010nt-ce2b2ea.html |
-| Lenovo LOQ 15AHP10 83JG008UTRv1 | Ryzen 7 250 · RTX 5060 · 16 GB (1 slot boş) · **2 TB** · 15,6" FHD 144 Hz | **73.799 TL** | Betaplus (n11) | https://www.epey.com/laptop/lenovo-loq-15ahp10-83jg008utrv1.html |
-| Acer Nitro V 16S AI ANV16S-41-R481 | Ryzen 7 260 · RTX 5060 · 16 GB · 512 GB · 16" 1600p 180 Hz %100 sRGB | **64.859 TL** | Adlertech (Idefix) | https://www.epey.com/laptop/acer-nitro-v-16s-ai-anv16s-41-r481.html |
-| HP OMEN 16-ap0032nt | Ryzen 9 8940HX · **RTX 5070** · 32 GB · 1 TB · QHD+ 240 Hz 500 nit | 123.048 TL | VPBilişim (HB) | https://www.epey.com/laptop/hp-omen-gaming-16-ap0032nt-ca8e9ea.html |
-| HP Victus 15-fa2019nt | Core 5 210H · RTX 5060 · 16 GB · 1 TB · 15,6" FHD 144 Hz | 59.796 TL | KapındaSepet (Trendyol) | https://www.epey.com/laptop/hp-victus-gaming-15-fa2018nt-c21sgea.html |
-| ASUS TUF A16 FA608UM-RV069W | Ryzen 7 260 · RTX 5060 115 W · 16 GB · 512 GB | 89.999 TL | Nötron (Trendyol) | https://www.epey.com/laptop/asus-tuf-gaming-a16-fa608um-rv069w.html |
+| Lenovo Legion 5 15IRX10 **83LY00PYTR** | i7-13650HX · RTX 5060 · 32 GB · 1 TB · 15,3" 1200p 165 Hz %100 sRGB · FreeDOS | **99.999 TL** | Nethouse (HB/Amazon/Trendyol/n11) | https://www.epey.com/laptop/lenovo-legion-5-15irx10-83ly00pytr.html |
+| Casper Excalibur **G915.1362-DF60X-C** | i7-13620H · RTX 5060 115 W · 32 GB · 1 TB · 16" 1200p 165 Hz %100 sRGB · FreeDOS | **93.599 TL** | Casper Excalibur (n11) | https://www.epey.com/laptop/casper-excalibur-g915-1362-df60x-c.html |
+| Acer Nitro 16S AI AN16S-61 **NH.QXUEY.001-32** | Ryzen AI 9 365 · RTX 5060 115 W · 32 GB · 1 TB · 16" 1600p 180 Hz · FreeDOS | **92.999 TL** | Teknorya (HB) | https://www.epey.com/laptop/acer-nitro-16s-ai-an16s-61-nh-qxuey-001-32.html |
+| HP OMEN 16-**ap0010nt (CE2B2EA)** | Ryzen AI 7 350 · RTX 5060 · 32 GB · 1 TB · 16" 1200p 144 Hz **%62,5 sRGB** · FreeDOS | **84.149,99 TL** | Kapında (Trendyol) | https://www.epey.com/laptop/hp-omen-gaming-16-ap0010nt-ce2b2ea.html |
+| Lenovo LOQ 15AHP10 **83JG008UTRv1** | Ryzen 7 250 · RTX 5060 · 16 GB (1×16) · 2 TB · 15,6" FHD 144 Hz %100 sRGB · FreeDOS | **73.799 TL** | Betaplus (n11) | https://www.epey.com/laptop/lenovo-loq-15ahp10-83jg008utrv1.html |
+| HP Victus 15 **C21SGEA** (epey'de sayfa başlığı "15-fa2019nt", URL ve başlıkta "15-fa2018nt") | Core 5 210H · RTX 5060 · 16 GB · 1 TB · 15,6" FHD 144 Hz %62,5 sRGB | **55.692,55 TL** | KapındaSepet (Trendyol) | https://www.epey.com/laptop/hp-victus-gaming-15-fa2018nt-c21sgea.html |
+| Acer Nitro V 16S AI **ANV16S-41-R481** *(1. tur verisi, bu turda yeniden açılmadı)* | Ryzen 7 260 · RTX 5060 · 16 GB · 512 GB · 16" 1600p 180 Hz %100 sRGB | 64.859 TL | Adlertech (Idefix) | https://www.epey.com/laptop/acer-nitro-v-16s-ai-anv16s-41-r481.html |
+| HP OMEN 16-**ap0032nt (CA8E9EA)** *(1. tur, alt ajan verisi)* | Ryzen 9 8940HX · RTX 5070 · 32 GB · 1 TB · QHD+ 240 Hz 500 nit | 123.048 TL | VPBilişim (HB) | https://www.epey.com/laptop/hp-omen-gaming-16-ap0032nt-ca8e9ea.html |
 
-**Uyarı:** Bunlar pazaryeri satıcılarının fiyatları. Almadan önce faturalı satış ve distribütör garantisi kontrol edilmeli. Arama özetlerindeki eski fiyatlar güncelden %20–40 düşük çıktığı için **kullanılmadı**.
+**Uyarılar:**
+- Bunlar pazaryeri satıcılarının fiyatları. Distribütör garantisini ve faturalı satışı ayrıca kontrol edin.
+- Victus'ta model kodu eşleşmesi epey'in kendi sayfasında bile tutarsız; kesin eşleşme için **C21SGEA** ürün numarası esas alınmalı.
+- Fiyatlar anlık; stok ve kampanyayla değişir.
 
 ## 6. Karar
 
-### 6.1 Puanlama
-Her ölçüt 1–5 arası puanlandı, ağırlıklarla 100 üzerinden toplam hesaplandı. Ağırlıklar: ekran (tasarım) %25, güvenilirlik ve topluluk %25, RAM/depolama ve yükseltme %20, performans %15, fiyat %15.
+### 6.1 Neden sayısal puan yok?
+1. turdaki 100 üzerinden ağırlıklı puanlama **kaldırıldı**. Güvenilirlik sütunu, paydası olmayan anekdotlara dayanıyordu; "2,5/5" gibi bir puan kesinlik izlenimi veriyordu. Ekran puanları da kısmen başka SKU'ların ölçümlerine dayanıyordu. Bunun yerine her ölçütün **kanıt türünü** gösteren bir matris ve **koşullu** öneriler var.
 
-| Sıra | Model | Ekran | Güven | Bellek | Perf. | Fiyat | **Toplam** | Fiyat |
-|---|---|---|---|---|---|---|---|---|
-| 1 | Lenovo Legion 5 15IRX10 | 4 | 4 | 5 | 5 | 3 | **84,0** | 99.999 TL |
-| 2 | Casper Excalibur G915 | 4 | 3,5 | 5 | 4 | 4 | **81,5** | 93.599 TL |
-| 3 | Acer Nitro 16S AI | 5 | 3 | 3 | 5 | 4 | **79,0** | 92.999 TL |
-| 4 | HP OMEN 16-ap0032nt (RTX 5070) | 5 | 2,5 | 4 | 5 | 2 | 74,5 | 123.048 TL |
-| 5 | Lenovo LOQ 15AHP10 | 3 | 3,5 | 4 | 3,5 | 5 | 74,0 | 73.799 TL |
-| 6 | Acer Nitro V 16S AI | 5 | 3 | 2 | 3,5 | 5 | 73,5 | 64.859 TL |
-| 7 | **HP OMEN 16-ap0010nt (RTX 5060)** | **2** | **2,5** | 4 | 4 | 4 | **62,5** | 84.150 TL |
+### 6.2 Kanıt matrisi
+| Ölçüt | Legion 5 83LY00PYTR | Casper G915.1362-DF60X-C | LOQ 15AHP10 83JG008UTRv1 | Nitro 16S NH.QXUEY.001-32 | OMEN 16-ap0010nt |
+|---|---|---|---|---|---|
+| Tasarım için ekran | %100 sRGB · İlan | %100 sRGB · İlan | %100 sRGB · İlan | %100 sRGB · İlan | **%62,5 sRGB · İlan** (aynı tip panel farklı SKU'da %58,1 ölçüldü) |
+| 32 GB kutudan | Evet | Evet | Hayır (16 GB, 1 yuva boş) | Evet (satıcı yükseltmesi olabilir) | Evet |
+| 2. M.2 yuvası | Var (x4) · PSREF | Var · İlan | Var (x2) · PSREF | Bilinmiyor | Doğrulanamadı |
+| GPU gücü | 115 W · PSREF | 115 W · İlan | 100 W · PSREF | 115 W · İlan | Bu SKU için bilinmiyor |
+| Topluluk şikâyeti | Az sayıda glitch raporu (anekdot) | 11 şikâyet, yeni model (anekdot) | LOQ genelinde adaptör/servis (anekdot) | Acer servisi zayıf (not) | Eski nesilde belirgin küme; ap/am için veri yetersiz |
+| TR servis notu | 6/100 | **76/100** | 6/100 | 2/100 | Şikâyet yoğun (HP OMEN sayfası) |
+| Fiyat | 99.999 TL | 93.599 TL | 73.799 TL | 92.999 TL | 84.150 TL |
 
-### 6.2 Neden Legion 5?
-1. **Gereken her şey kutudan çıkıyor:** 32 GB çift kanal RAM, 1 TB SSD ve ikinci M.2 yuvası; ek masraf yok.
-2. Ekranı %100 sRGB. Tasarım için yeterli; OMEN'in %58–62'lik panelinden belirgin şekilde iyi.
-3. Gen 10 kasası editoryal olarak sınıfının en iyi puanlısı (Notebookcheck %93,6, AMD/OLED test cihazı; önerilen SKU Intel/IPS). Reddit'te de "Legion al" tavsiyesi sık geçiyor.
-4. OMEN 16'daki gibi belgelenmiş bir Hall sensörü ya da anakart kümesi yok. Bilinen riskleri: Gen 10 ekran glitch raporları ve Lenovo Türkiye servis notunun düşük olması.
+### 6.3 Koşullu öneriler
+- **Ekran doğruluğu, 32 GB ve genişleme öncelikliyse:** **Legion 5 15IRX10 83LY00PYTR** (99.999 TL). Gerekçe: PSREF'te 115 W GPU, iki x4 M.2 yuvası, çift kanal RAM ve %100 sRGB panel seçeneği var. Belirsizlik: bu SKU'nun paneli bağımsız olarak ölçülmedi. Lenovo'nun Türkiye servis notu düşük.
+- **Servis itibarı öncelikliyse:** **Casper G915.1362-DF60X-C** (93.599 TL). Belirsizlik: hiçbir bağımsız ölçüm yok. İşlemci H serisi. G915'e özgü 11 şikâyet var ama örneklem küçük.
+- **Bütçe öncelikliyse:** **LOQ 15AHP10 83JG008UTRv1** (73.799 TL), artı 16 GB DDR5-5600 SO-DIMM. Modül fiyatı araştırılmadı. Belirsizlikler: GPU 100 W; ikinci M.2 yuvası x2 hızında; panel ölçülmedi.
+- **En geniş ekran isteniyorsa:** **Nitro 16S** (92.999 TL). Belirsizlikler: RAM'in satıcı yükseltmesi olma ihtimali, slot yapısı ve Acer'in düşük servis notu.
+- **OMEN illa isteniyorsa:** ap0010nt yerine %100 sRGB panelli bir OMEN SKU'su aranmalı. Notebookcheck, HP'nin seride 1600p %100 sRGB seçenekler sunduğunu yazıyor; örneğin 1. tur verisindeki **ap0032nt**, 123.048 TL. Bu durumda bütçe aşılır, yanına HP Care Pack düşünülmeli.
 
-### 6.3 Bütçeye göre yollar
-- **A, ana öneri:** Legion 5 15IRX10, 32 GB / 1 TB, **99.999 TL**.
-- **B, biraz daha ucuz ve servisi daha iyi:** Casper Excalibur G915, 32 GB / 1 TB, **93.599 TL**. Türkiye'de servis notu en iyi marka (76/100). Ekranı kâğıt üstünde %100 sRGB ama bağımsız ölçüm yok. İşlemcisi H serisi, HX değil.
-- **C, sıkı bütçe:** Lenovo LOQ 15AHP10, 16 GB / 2 TB, **73.799 TL**. Boş slota 16 GB DDR5-5600 SO-DIMM eklenip 32 GB'a çıkarılır (modül fiyatı bu çalışmada araştırılmadı). Ekran FHD 144 Hz 300 nit; bu SKU'nun sRGB değeri satıcı sayfasında yazmıyor, almadan önce kontrol edilmeli.
-- **Ekran öncelikliyse:** Acer Nitro 16S AI (92.999 TL), 1600p %100 sRGB. Ancak Acer'in Türkiye servis notu en zayıfı (2/100).
-- **OMEN illa istenirse:** 16-ap0010nt değil, **16-ap0032nt** (QHD+ 500 nit, RTX 5070, 123.048 TL) alınmalı, yanına Care Pack eklenmeli. Bu durumda bütçe "abartılı olmasın" sınırını aşar.
-
-### 6.4 Hangi modele kesinlikle dikkat?
-- **Cyborg 15:** 45 W GPU, renk alanı dar panel.
-- **Temel panelli Nitro V 15/16:** %58–60 sRGB.
-- **G870 ve Monster Abra:** 250 nit, renk değeri belirsiz panel.
-- **Herhangi bir FHD OMEN 16-ap/am:** Ekranı tasarım için zayıf.
+### 6.4 Satın almadan önce kullanıcının kendisinin yapması gereken kontroller
+Bu adımların **hiçbiri bu çalışmada yapılmadı**:
+1. Kutu veya etiket üzerinde tam ürün kodunu (83LY00PYTR / G915.1362-DF60X-C / 83JG008UTRv1) ve panel satırında "%100 sRGB" yazdığını görmek.
+2. Faturalı satış ve distribütör garantisi (Türkiye resmî garantisi) olduğunu teyit etmek.
+3. Teslimde ölü piksel, ışık sızması ve menteşe kontrolü yapmak. Garanti süresinde BIOS ve sürücü güncellemelerini takip etmek.
 
 ## 7. Yapılamayanlar ve sınırlar
-- **Ekşi Sözlük doğrudan okunamadı.** Her yoldan 403 alındı, Wayback'te kopya yok. Ekşi maddeleri yalnızca arama motoru özetine dayanıyor.
-- **Reddit doğrudan açılamadı.** Bunun yerine herkese açık Arctic Shift arşivi kullanıldı (614 gönderi ve seçili yorumlar). Bazı geniş sorgular arşivin hız sınırına takıldı.
-- **Fiyatlar** pazaryeri satıcılarına ait ve anlık; stok ve kampanyayla değişir. akakce, cimri ve Hepsiburada doğrudan açılamadı.
-- **Fiziksel test yapılmadı.** Windows üzerinde benchmark, cihaz testi ya da mağaza ziyareti yok; bu bir bulut ortamı. Ekran ve termal değerler Notebookcheck ölçümlerine ya da üretici/satıcı bilgisine dayanıyor; hangisi olduğu tabloda yazıyor.
-- **Arıza oranı verisi** hiçbir marka için kamuya açık değil. Güvenilirlik puanı tekrar eden şikâyet kümelerine, editoryal bulgulara ve servis notuna göre verildi; bu öznel bir değerlendirme.
-- **RAM modülü fiyatı** araştırılmadı; C yolundaki yükseltme maliyeti açık bırakıldı.
+- **Ekşi Sözlük okunamadı** (403, arşivde kopya yok). Ekşi bölümü yalnızca arama özetine dayanıyor.
+- **Reddit:** Tam metin yalnızca 11 gönderi için okundu. 585 benzersiz kaydın geri kalanı yalnızca metadata olarak var. Bazı geniş sorgular arşivin hız sınırına takıldı.
+- **Bağımsız ölçüm:** Önerilen dört SKU'nun hiçbiri için bağımsız ölçüm bulunamadı. Panel ve GPU değerleri üretici ya da satıcı ilanı.
+- **Arıza oranı:** Hiçbir model için kamuya açık bir arıza oranı yok. Şikâyet sayıları satış hacmine bağlı ve olumsuz yönde yanlı.
+- **Bağlantı testi:** `test/dogrula.py` bağlantıların **HTTPS biçiminde** olup olmadığını ve HTTP durum kodlarını kontrol eder.
+  - 403 yanıtı sayfanın canlı olduğunu kanıtlamaz; bot koruması içeriği gizler.
+  - Bağlantı testi **olgusal doğruluk testi değildir**. Olgusal kontrol, kaynakların bu oturumda elle okunmasıyla yapıldı (bkz. `kanit/birincil-kaynak-okuma.md`).
+- **Fiziksel test, Windows benchmark'ı ve satın alma yapılmadı.** Kullanıcı tarafında da yapılmış sayılmadı.
+
+## 8. Düzeltme kaydı (1. tur commit `279251a9ab8b2426881a91ad756427494aaf7090` → 2. tur)
+| 1. turdaki hata | Düzeltme |
+|---|---|
+| "614 gönderi" ve "gerçek metinden özet" | 614 ham kayıt = 585 benzersiz URL + 29 tekrar. JSON dosyası yalnızca metadata; tam metin yalnızca 11 atıflı gönderi için okundu ve SHA-256 ile kayıtlı |
+| Hall anekdotlarından OMEN'e "2,5/5 güvenilirlik" puanı ve kesin sıralama | Sayısal puan ve kesin sıralama kaldırıldı; anekdotların 2025 ap/am için oran olmadığı yazıldı |
+| ap0091ng'nin %58 ölçümü TR ap0010nt'ye mal edilmişti | TR SKU için ilan değeri %62,5; ölçümün farklı SKU'ya ait olduğu her yerde belirtildi |
+| "115+25 W" | 115 W, 25 W Dynamic Boost dahil (Notebookcheck metni) |
+| Legion 15AHP10 AMD/OLED ölçümü önerilen 15IRX10 Intel/IPS'e uygulanmıştı | Aktarım kaldırıldı; önerilen SKU için kaynak PSREF 15IRX10 ve ilan |
+| LOQ için 15IRX10 PSREF ve 15AHP11 ölçümü kullanılmıştı | LOQ 15AHP10 PSREF'i (24.08.2026) okundu; 15AHP11 ölçümü aktarılmadı |
+| Casper'da G870 şikâyetleri G915'e yüklenmişti | G915'in kendi Şikayetvar sayfası okundu (11 şikâyet); G870 ayrıldı |
+| Victus fa2019nt / fa2018nt karışıklığı | Ürün numarası C21SGEA esas alındı, tutarsızlık açıkça yazıldı; fiyat yenilendi |
+| Legion için "64 GB'a kadar" | PSREF: "Up to 32GB offering" |
+| "403 = erişilebilir bağlantı" izlenimi | Bağlantı testi ile olgusal doğrulama ayrıldı |

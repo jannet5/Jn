@@ -1,0 +1,15 @@
+{
+ "kaynak": "epey.com pazaryeri satıcı listeleri (WebFetch ile okundu)",
+ "gozlem_tarihi": "2026-10-03",
+ "not": "Fiyatlar pazaryeri satıcılarına aittir; 'guncelleme' epey sayfasındaki göreli zamandır. 'tur' alanı verinin hangi turda okunduğunu gösterir.",
+ "kayitlar": [
+  {"model":"Lenovo Legion 5 15IRX10 83LY00PYTR","en_dusuk_tl":99999,"satici":"Nethouse (Hepsiburada/Amazon/Trendyol/n11)","guncelleme":"18-20 dk önce","diger":[{"tl":101999,"satici":"NetHouse (PTT AVM, Idefix)"},{"tl":104999,"satici":"Beymen"}],"panel_ilan":"15.3in 1920x1200 165Hz 300nit 100% sRGB","tur":2,"url":"https://www.epey.com/laptop/lenovo-legion-5-15irx10-83ly00pytr.html"},
+  {"model":"Casper Excalibur G915.1362-DF60X-C","en_dusuk_tl":93599,"satici":"Casper Excalibur (n11)","guncelleme":"3 saat önce","diger":[{"tl":94611,"satici":"GÖNÜLSOKAK (Idefix)"},{"tl":95941.02,"satici":"Casper Excalibur (Idefix)"}],"panel_ilan":"16in 1920x1200 165Hz 350nit 100% sRGB","tur":2,"url":"https://www.epey.com/laptop/casper-excalibur-g915-1362-df60x-c.html"},
+  {"model":"Acer Nitro 16S AI AN16S-61 NH.QXUEY.001-32","en_dusuk_tl":92999,"satici":"Teknorya (Hepsiburada)","guncelleme":"18 dk önce","diger":[{"tl":95999,"satici":"TeknoryaBilişim (n11)"}],"panel_ilan":"16in 2560x1600 180Hz 400nit (1. turda 100% sRGB okundu)","tur":2,"url":"https://www.epey.com/laptop/acer-nitro-16s-ai-an16s-61-nh-qxuey-001-32.html"},
+  {"model":"HP OMEN 16-ap0010nt CE2B2EA","en_dusuk_tl":84149.99,"satici":"Kapında (Trendyol)","guncelleme":"1 saat önce","diger":[{"tl":86999,"satici":"Teknorya (Hepsiburada)"}],"panel_ilan":"16in 1920x1200 144Hz 300nit 62.5% sRGB","tur":2,"url":"https://www.epey.com/laptop/hp-omen-gaming-16-ap0010nt-ce2b2ea.html"},
+  {"model":"Lenovo LOQ 15AHP10 83JG008UTRv1","en_dusuk_tl":73799,"satici":"BETAPLUSTEKNOLOJİ (n11)","guncelleme":"2 saat önce","diger":[{"tl":74048.83,"satici":"Betaplus (Idefix)"}],"panel_ilan":"15.6in 1920x1080 144Hz 300nit 100% sRGB","ram":"16GB DDR5-5600 1x16","tur":2,"url":"https://www.epey.com/laptop/lenovo-loq-15ahp10-83jg008utrv1.html"},
+  {"model":"HP Victus 15 C21SGEA (sayfa başlığı 15-fa2019nt, URL/başlık 15-fa2018nt)","en_dusuk_tl":55692.55,"satici":"KapındaSepet (Trendyol)","guncelleme":"1 saat önce","diger":[{"tl":59999,"satici":"Gti Bilişim (Amazon.com.tr)"}],"panel_ilan":"62.5% sRGB","tur":2,"url":"https://www.epey.com/laptop/hp-victus-gaming-15-fa2018nt-c21sgea.html"},
+  {"model":"Acer Nitro V 16S AI ANV16S-41-R481","en_dusuk_tl":64859.06,"satici":"Adlertech (Idefix)","tur":1,"url":"https://www.epey.com/laptop/acer-nitro-v-16s-ai-anv16s-41-r481.html"},
+  {"model":"HP OMEN 16-ap0032nt CA8E9EA","en_dusuk_tl":123047.92,"satici":"VPBilişim (Hepsiburada)","tur":1,"kaynak_turu":"alt ajan okuması, ana oturumda yeniden açılmadı","url":"https://www.epey.com/laptop/hp-omen-gaming-16-ap0032nt-ca8e9ea.html"}
+ ]
+}

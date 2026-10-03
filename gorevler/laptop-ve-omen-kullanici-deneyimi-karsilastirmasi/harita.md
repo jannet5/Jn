@@ -16,9 +16,10 @@ kullanıcının istediği **çok sade "bilgisayar – fiyat" listesini** HTTPS b
 | D3 | Editoryal/resmî doğrulama | Notebookcheck, RTINGS, üretici spec | `rapor.md` §2–§4 | Her teknik iddia en az bir resmî/editoryal URL'ye bağlı |
 | D4 | Alternatiflerin güvenilirliği | Aynı tür kaynaklar | `rapor.md` §4 | En az 4 alternatif model için kronik sorun + olumlu deneyim |
 | D5 | Güncel Türkiye fiyatları | akakce/hepsiburada/üretici mağazaları | `liste.md`, `rapor.md` §5 | Her fiyatın satıcısı, URL'si, tarihi ve doğrulama durumu var; uydurma fiyat yok |
-| D6 | Karar | D1–D5 | `rapor.md` §6 + `liste.md` | Puanlama tablosu + "neden bu" gerekçesi + "ne zaman alma" uyarıları |
-| D7 | Test | Tüm teslim dosyaları | `test/dogrula.py` çıktısı | Tüm bağlantılar HTTPS, zorunlu bölümler mevcut, özel kaynak metni sızmamış, bağlantı erişim raporu üretildi |
-| D8 | Kalıcı teslim | D1–D7 | Uzak dala push + geri okuma; özel ZIP + SHA-256 | Uzak daldaki dosya hash'leri yerel ile aynı; ZIP açılıp hash'ler doğrulandı |
+| D6 | Karar | D1–D5 | `rapor.md` §6 + `liste.md` | Kanıt matrisi (her hücrede ilan/ölçüm/anekdot türü) + koşullu öneriler; paydasız anekdottan sayısal güvenilirlik puanı YOK; her öneride tam SKU, nesil, panel, kaynak tarihi |
+| D7 | Test | Tüm teslim dosyaları | `test/dogrula.py` çıktısı | Biçim (HTTPS), zorunlu bölümler, sızıntı, düzeltme regresyonları, Reddit sayım tutarlılığı. Ağ durum kodu yalnız bilgi: 403 canlılık kanıtı değil; bu test olgusal doğruluk testi değil |
+| D7b | Olgusal doğrulama | Birincil kaynaklar | `kanit/birincil-kaynak-okuma.md` | Her teknik değer test cihazı/SKU ve belge tarihiyle eşleşmiş; başka SKU ölçümü aktarılmamış |
+| D8 | Kalıcı teslim | D1–D7b | Uzak dala push + geri okuma; yalnız görev köklü ZIP + git bundle + tam SHA-256 | Uzak daldaki dosya hash'leri yerel ile aynı; ZIP yalnız görev klasörünü içeriyor; açılıp hash'ler doğrulandı; özel kaynak ZIP'te yok |
 
 ## 3. A / B / C yolları
 - **A (seçilen):** Web araştırması (WebSearch + WebFetch) → Markdown rapor + sade liste + Python doğrulama betiği → git push → özel ZIP.
@@ -42,3 +43,6 @@ Yol kırılırsa: ilgili adım B/C'ye düşer, `calisma-gunlugu.md`'ye neden ve 
 ## 5. Kapsam dışı / yapılmayanlar
 - Fiziksel cihaz testi, Windows üzerinde benchmark, mağazadan satın alma veya hesap işlemi yapılmaz (bulut ortamı).
 - Fiyatlar anlıktır; kampanya ve stok değişir — liste gözlem tarihini taşır.
+
+## 6. 2. tur (bağımsız inceleme sonrası)
+Bağımsız inceleme (1. tur commit `279251a9ab8b2426881a91ad756427494aaf7090`) bulguları `rapor.md` §8'de tek tek düzeltildi; D6, D7, D7b ve D8 kabul ölçütleri buna göre sıkılaştırıldı.

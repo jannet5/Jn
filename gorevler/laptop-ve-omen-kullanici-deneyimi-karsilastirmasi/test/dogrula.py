@@ -6,8 +6,13 @@ Kontroller:
   2. Tüm bağlantılar HTTPS mi (http:// yasak).
   3. liste.md'deki her satırda fiyat + HTTPS bağlantı var mı.
   4. Özel kaynak metni sızmış mı (--ozel ile verilen dosyadan uzun cümle parçaları aranır).
-  5. --ag verilirse her bağlantıya HEAD/GET atılıp durum kodu raporlanır (bilgi amaçlı;
-     bot koruması 403 döndüren siteler hata sayılmaz, ayrı listelenir).
+  5. Düzeltme regresyonları: 2. turda düzeltilen yanlış ifadeler geri gelmesin
+     ("115+25 W", sayısal toplam puan tablosu), Reddit sayımı tutarlı olsun
+     (ham = benzersiz + tekrar), kısaltılmış hash ("abcd1234…") kullanılmasın.
+  6. --ag verilirse her bağlantıya GET atılıp durum kodu raporlanır (yalnız bilgi).
+     UYARI: 403 canlılık kanıtı değildir (bot koruması içeriği gizler) ve bu test
+     OLGUSAL DOĞRULUK testi değildir; olgusal kontrol kanit/birincil-kaynak-okuma.md'de
+     belgelenen elle okuma ile yapılmıştır.
 Çıkış kodu: 0 = kabul, 1 = ret.
 """
 import argparse, json, pathlib, re, sys, urllib.request, urllib.error, ssl, os
@@ -17,7 +22,7 @@ ZORUNLU = {
     "harita.md": ["## 1. Hedef", "## 2. Bağımlılıklar", "## 3. A / B / C yolları"],
     "rapor.md": ["## 1. İhtiyaç profili", "## 3. OMEN: Ekşi Sözlük ve Reddit",
                  "## 4. Alternatifler", "## 5. Güncel fiyatlar", "## 6. Karar",
-                 "## 7. Yapılamayanlar"],
+                 "## 7. Yapılamayanlar", "## 8. Düzeltme kaydı"],
     "liste.md": ["# "],
     "kaynaklar.md": ["# "],
     "calisma-gunlugu.md": ["# "],
@@ -59,6 +64,24 @@ def main():
             hata(hatalar, f"liste.md satırında fiyat/bağlantı eksik: {s[:60]}")
     print(f"OK   : liste.md {len(satirlar)} ürün satırı")
 
+    rapor = (KOK / "rapor.md").read_text(encoding="utf-8")
+    govde = rapor.split("## 8. Düzeltme kaydı")[0]  # düzeltme kaydı eski hatayı alıntılayabilir
+    for yasak in ["115+25", "**Toplam**", "62,5 | 84.150"]:
+        if yasak in govde:
+            hata(hatalar, f"rapor.md: düzeltilmiş ifade geri gelmiş: {yasak}")
+    for p in KOK.rglob("*.md"):
+        if re.search(r"\b[0-9a-f]{6,12}…", p.read_text(encoding="utf-8")):
+            hata(hatalar, f"{p.name}: kısaltılmış hash var; tam SHA kullanın")
+    rj = json.loads((KOK / "kanit/reddit-arctic-shift-ozet.json").read_text(encoding="utf-8"))
+    s = rj["sayim"]
+    if s["ham_kayit"] != s["benzersiz_url"] + s["tekrar"] or len(rj["gonderiler"]) != s["benzersiz_url"]:
+        hata(hatalar, f"Reddit sayımı tutarsız: {s}")
+    ak = json.loads((KOK / "kanit/reddit-alinti-kaniti.json").read_text(encoding="utf-8"))
+    eksik = [g["url"] for g in ak["gonderiler"] if g["url"].split("/comments/")[1].split("/")[0] not in rapor]
+    if eksik:
+        hata(hatalar, f"Tam metin kanıtı olup raporda geçmeyen gönderi: {eksik}")
+    print(f"OK   : regresyon + Reddit sayımı ({s['ham_kayit']} = {s['benzersiz_url']} + {s['tekrar']}), {len(ak['gonderiler'])} tam metin kanıtı")
+
     if a.ozel:
         ozel = pathlib.Path(a.ozel).read_text(encoding="utf-8")
         parcalar = [c.strip() for c in re.split(r"[.?!\n]", ozel) if len(c.strip()) > 40]
@@ -83,7 +106,7 @@ def main():
             except Exception as e:
                 sonuc[u] = f"hata:{type(e).__name__}"
         ok = sum(1 for v in sonuc.values() if v == 200)
-        print(f"BİLGİ: ağ kontrolü {ok}/{len(sonuc)} bağlantı 200 döndü")
+        print(f"BİLGİ: ağ kontrolü {ok}/{len(sonuc)} bağlantı 200 döndü (403 = içerik görülmedi; canlılık/doğruluk kanıtı değil)")
         for u, v in sonuc.items():
             if v != 200:
                 print(f"       {v}  {u}")
