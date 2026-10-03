@@ -5,11 +5,12 @@ Yeni mikrofon almadan, mevcut PC mikrofonuyla daha temiz konuşma kaydı için h
 | Dosya | Ne işe yarar |
 |---|---|
 | [KILAVUZ.md](KILAVUZ.md) | **Buradan başlayın.** Kayıt öncesi, kayıt sırasında ve kayıt sonrası takip tabloları, ayrıca soruların cevapları. |
-| `ses-temizleyici/` | Windows "düğmeleri": `Kurulum.bat`, `Kayit-Kontrol.bat`, `Ses-Temizle.bat`, `Ses-Temizle (dogal).bat`, `Ses-Temizle.ps1`, `Kurulum.ps1` |
+| `ses-temizleyici/` | Windows "düğmeleri": `Kurulum.bat`, `Kayit-Kontrol.bat`, `Ses-Temizle.bat`, `Ses-Temizle-Dogal.bat`, `Ses-Temizle.ps1`, `Kurulum.ps1` |
 | `audacity-makro/Ses-Temizle.txt` | Audacity 3.7.x makrosu. Sırası: 80 Hz kesim → Noise Reduction → 3:1 sıkıştırma → −16 LUFS → sınırlayıcı. |
 | [arastirma.md](arastirma.md) | Audacity dahil alternatiflerin kaynaklı karşılaştırması ve kullanıcı deneyimleri. |
 | [harita.md](harita.md) | Hedef → bağımlılıklar → A/B/C yolları → uygulama → test → teslim zinciri. |
 | [test/TEST-RAPORU.md](test/TEST-RAPORU.md) | Ölçümlü kabul testi (DNSMOS, STOI, LUFS) ve neyin test edilemediği. |
+| `test/arac/guvenlik_testleri.sh`, `test/arac/bat_wine_testi.sh` | Dosya güvenliği, hata yolu ve BAT çıkış kodu testleri (Linux PS7 / Wine; gerçek Windows değil). |
 | [calisma-gunlugu.md](calisma-gunlugu.md) | Yapılan her işin, komutun, kararın ve sorunun sıralı kaydı. |
 
 ## Sonuç
@@ -27,7 +28,7 @@ Yeni mikrofon almadan, mevcut PC mikrofonuyla daha temiz konuşma kaydı için h
 
 - **Sınır:** Prodüksiyon kalitesi sözü verilmez. Oda ve mikrofon mesafesi hâlâ en büyük etken.
 
-`deep-filter.exe` bu depoda yoktur. Özel ZIP'te bulunur, ya da `Kurulum.bat` onu resmî GitHub sürümünden indirip SHA-256 ile doğrular:
+`deep-filter.exe` bu depoda ve ürün ZIP'inde yoktur. `Kurulum.bat` onu resmî GitHub sürümünden indirir ve SHA-256 ile doğrular:
 - Kaynak: https://github.com/Rikorose/DeepFilterNet/releases/tag/v0.5.6
 - SHA-256: `75e11fa16445f560cb6b021521ddb89e89270d13b83089705d98776f58fd7915`
 - Lisans: MIT/Apache-2.0

@@ -23,6 +23,17 @@
 .PARAMETER Kontrol
   Temizleme yapmaz; yalnız kaydı ölçer ve kayıt seviyesinin/odanın uygun olup olmadığını söyler.
 
+.PARAMETER UzerineYaz
+  Varsayılan olarak hiçbir mevcut dosyanın üzerine yazılmaz: <ad>_temiz.wav varsa çıktılar
+  "<ad>_temiz (2).wav" gibi yeni adla yazılır. Yalnız bu anahtar verilirse eski çıktıların üzerine yazılır.
+  Giriş dosyasının kendisine hiçbir durumda dokunulmaz.
+
+.NOTES
+  Çıkış kodları: 0 = tümü başarılı, 1 = dosya verilmedi, 2 = ffmpeg yok, 3 = en az bir dosya başarısız.
+  Tüm ara dosyalar her çalıştırmada yeni oluşturulan GUID adlı geçici klasöre yazılır ve klasör hata
+  olsa bile (finally) silinir. Nihai dosyalar ancak tüm adımlar ve son doğrulama başarılıysa taşınır;
+  yarım kalan iş kullanıcı klasörüne dosya bırakmaz.
+
 .EXAMPLE
   .\Ses-Temizle.ps1 kayit1.wav kayit2.m4a
   .\Ses-Temizle.ps1 -Guc 100 kayit.wav
@@ -35,6 +46,7 @@ param(
     [ValidateRange(-30, -10)][double]$HedefLUFS = -16,
     [ValidateRange(-6, -0.5)][double]$TepeDB = -1.5,
     [switch]$Kontrol,
+    [switch]$UzerineYaz,
     [Parameter(ValueFromRemainingArguments = $true)][string[]]$Dosyalar
 )
 
@@ -48,7 +60,7 @@ function Yaz([string]$m, [string]$renk = 'Gray') { Write-Host $m -ForegroundColo
 function Bul-Arac([string]$ad) {
     $exe = if ($WindowsMu) { "$ad.exe" } else { $ad }
     $adaylar = @((Join-Path $Kok "araclar\$exe"), (Join-Path $Kok "araclar/$exe"))
-    if ($WindowsMu -and $env:LOCALAPPDATA) {
+    if ($env:LOCALAPPDATA) {
         $adaylar += (Join-Path $env:LOCALAPPDATA "Microsoft\WinGet\Links\$exe")
         $paket = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Packages'
         if (Test-Path $paket) {
@@ -104,6 +116,9 @@ function Olc-Loudnorm([string]$giris, [string]$onFiltre) {
 }
 
 function Loudnorm-Filtre($m) {
+    if ("$($m.input_i)" -match 'inf' -or "$($m.input_tp)" -match 'inf') {
+        throw 'Ses bu adımda tamamen sessiz kaldı (ölçülen ses yüksekliği -inf). Kayıt boş olabilir ya da gürültü bastırma sesi de sildi; "-Guc 30" (Ses-Temizle-Dogal.bat) ile deneyin.'
+    }
     return ("loudnorm=I=$(F $HedefLUFS):TP=$(F $TepeDB):LRA=11:measured_I=$($m.input_i):measured_TP=$($m.input_tp)" +
         ":measured_LRA=$($m.input_lra):measured_thresh=$($m.input_thresh):offset=$($m.target_offset):linear=true")
 }
@@ -121,7 +136,8 @@ function Olc([string]$dosya, [string]$gecici) {
         '-f', 'null', '-') $gecici
     $degerler = New-Object System.Collections.Generic.List[double]
     foreach ($satir in [System.IO.File]::ReadAllLines($rmsDosya)) {
-        if ($satir -match 'RMS_level=(-?[\d\.]+)$') { $degerler.Add((Sayi $Matches[1])) }
+        if ($satir -match 'RMS_level=(-?[\d\.]+)\s*$') { $degerler.Add((Sayi $Matches[1])) }
+        elseif ($satir -match 'RMS_level=-inf') { $degerler.Add(-120.0) }   # sayısal sessizlik
     }
     $dizi = $degerler.ToArray(); [Array]::Sort($dizi)
     if ($dizi.Length -lt 10) { throw "Kayıt ölçüm için çok kısa: $dosya" }
@@ -132,6 +148,9 @@ function Olc([string]$dosya, [string]$gecici) {
 
 function Degerlendir($m) {
     $notlar = @()
+    if ($m.Tepe -le -100 -or $m.LUFS -le -69) {
+        return @('Kayıt SESSİZ: hiçbir ses alınmamış. Windows mikrofon iznini ve Audacity''de seçili kayıt aygıtını kontrol edin.')
+    }
     if ($m.Tepe -ge -0.3) { $notlar += 'KIRPILMA riski: tepe 0 dBFS''ye dayanmış. Windows giriş seviyesini düşürüp tekrar kaydedin.' }
     elseif ($m.Tepe -gt -3) { $notlar += 'Tepe çok yüksek (-3 dBFS üstü); biraz düşürmek güvenli olur.' }
     elseif ($m.Tepe -lt -24) { $notlar += 'Kayıt çok kısık (tepe -24 dBFS altı). Giriş seviyesini artırın veya mikrofona yaklaşın.' }
@@ -166,13 +185,37 @@ if (-not $Kontrol -and $Mod -eq 'ai') {
 }
 
 $kompresor = 'acompressor=threshold=0.125:ratio=3:attack=20:release=150:knee=2.5'  # eşik -18 dBFS, 3:1
+
+# Üç çıktı için ortak, çakışmayan ad seçer: <ad>_temiz.wav, <ad>_temiz (2).wav ... (rapor ve önce/sonra aynı numarayı alır)
+function Cikis-Adlari([string]$klasor, [string]$ad) {
+    for ($n = 1; $n -lt 1000; $n++) {
+        $ek = if ($n -eq 1) { '' } else { " ($n)" }
+        $yollar = [pscustomobject]@{
+            Temiz     = [System.IO.Path]::Combine($klasor, "${ad}_temiz$ek.wav")
+            OnceSonra = [System.IO.Path]::Combine($klasor, "${ad}_onceSonra$ek.wav")
+            Rapor     = [System.IO.Path]::Combine($klasor, "${ad}_rapor$ek.txt")
+        }
+        if ($UzerineYaz) { return $yollar }
+        if (-not ((Test-Path -LiteralPath $yollar.Temiz) -or (Test-Path -LiteralPath $yollar.OnceSonra) -or (Test-Path -LiteralPath $yollar.Rapor))) { return $yollar }
+    }
+    throw "Çıktı için boş dosya adı bulunamadı: $klasor"
+}
+
+# Geçici klasördeki bitmiş dosyayı hedefe taşır. Varsayılan: hedef varsa HATA (asla üzerine yazmaz).
+function Tasi([string]$kaynak, [string]$hedef) {
+    if ($UzerineYaz -and (Test-Path -LiteralPath $hedef)) { Remove-Item -LiteralPath $hedef -Force }
+    [System.IO.File]::Move($kaynak, $hedef)
+}
+
 $hata = 0
 foreach ($girisHam in $Dosyalar) {
+    $gecici = $null
     try {
+        if (-not (Test-Path -LiteralPath $girisHam -PathType Leaf)) { throw "Dosya bulunamadı: $girisHam" }
         $giris = (Resolve-Path -LiteralPath $girisHam).Path
         $ad = [System.IO.Path]::GetFileNameWithoutExtension($giris)
         $klasor = Split-Path -Parent $giris
-        $gecici = Join-Path ([System.IO.Path]::GetTempPath()) ('sestemizle_' + [guid]::NewGuid().ToString('N'))
+        $gecici = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), 'sestemizle_' + [guid]::NewGuid().ToString('N'))
         New-Item -ItemType Directory -Path $gecici | Out-Null
         Yaz "`n=== $ad ===" 'Cyan'
 
@@ -180,22 +223,23 @@ foreach ($girisHam in $Dosyalar) {
         if ($Kontrol) {
             Yaz (Satir 'Ölçüm' $ham)
             foreach ($n in (Degerlendir $ham)) { Yaz " - $n" 'White' }
-            Remove-Item -Recurse -Force $gecici
             continue
         }
 
+        # Tüm ffmpeg yazımları geçici klasöre ve -n (asla üzerine yazma) ile yapılır.
         # 1) 48 kHz mono + 80 Hz alt kesim (masa/klima uğultusunu keser)
         $ara = Join-Path $gecici 'giris.wav'
-        $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $giris, '-vn', '-ac', '1', '-ar', '48000', '-af', 'highpass=f=80:poles=2', '-c:a', 'pcm_s16le', $ara) $null
+        $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $giris, '-vn', '-ac', '1', '-ar', '48000', '-af', 'highpass=f=80:poles=2', '-c:a', 'pcm_s16le', $ara) $null
 
         # 2) Seviye ön ayarı (-20 LUFS) + 3:1 sıkıştırma. Gürültü bastırmadan ÖNCE yapılır: sıkıştırmanın
         #    yükselttiği arka plan gürültüsü bir sonraki adımda temizlenir (testlerde gürültü tabanı ~17 dB daha iyi).
         Yaz '  Seviye ayarı ve 3:1 sıkıştırma...'
         $m0 = Olc-Loudnorm $ara $null
+        if ("$($m0.input_i)" -match 'inf') { throw 'Kayıt tamamen sessiz görünüyor (ses yüksekliği ölçülemedi). Mikrofonun seçili ve izinli olduğunu kontrol edip tekrar kaydedin.' }
         $kazanc = -20 - (Sayi $m0.input_i)
         if ($kazanc -gt 40) { $kazanc = 40 }
         $sik = Join-Path $gecici 'sikistirilmis.wav'
-        $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $ara, '-af', "volume=$(F $kazanc '0.00')dB,$kompresor,alimiter=limit=0.89:level=false", '-c:a', 'pcm_s16le', $sik) $null
+        $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $ara, '-af', "volume=$(F $kazanc '0.00')dB,$kompresor,alimiter=limit=0.89:level=false", '-c:a', 'pcm_s16le', $sik) $null
 
         # 3) Gürültü bastırma
         $temizAra = Join-Path $gecici 'temiz_ara.wav'
@@ -203,34 +247,41 @@ foreach ($girisHam in $Dosyalar) {
             Yaz "  DeepFilterNet3 gürültü bastırma (en fazla $Guc dB)..."
             $dfCikis = Join-Path $gecici 'df'
             $null = Calistir $DF @('-D', '-a', "$Guc", '-o', $dfCikis, $sik) $null
-            Move-Item -LiteralPath (Join-Path $dfCikis 'sikistirilmis.wav') -Destination $temizAra
+            $dfDosya = Join-Path $dfCikis 'sikistirilmis.wav'
+            if (-not (Test-Path -LiteralPath $dfDosya)) { throw 'deep-filter çıktı dosyası üretmedi.' }
+            [System.IO.File]::Move($dfDosya, $temizAra)
         }
         else {
             # afftdn'e kaydın ölçülen gürültü tabanı verilir (Audacity'nin "gürültü profili" mantığına yakın)
             $nf = [Math]::Max(-80, [Math]::Min(-20, (Olc $sik $gecici).Taban + 7))
             Yaz "  Klasik spektral gürültü azaltma (ffmpeg afftdn, taban $(F $nf) dB)..."
-            $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $sik, '-af', "afftdn=nr=20:nf=$(F $nf):nt=w", '-c:a', 'pcm_s16le', $temizAra) $null
+            $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $sik, '-af', "afftdn=nr=20:nf=$(F $nf):nt=w", '-c:a', 'pcm_s16le', $temizAra) $null
         }
 
         # 4) İki geçişli EBU R128 ses yüksekliği (hedef LUFS, gerçek tepe sınırı), 48 kHz / 24-bit çıkış
         Yaz "  Ses yüksekliği ($(F $HedefLUFS) LUFS, tepe $(F $TepeDB) dBTP)..."
         $m2 = Olc-Loudnorm $temizAra $null
-        $cikis = Join-Path $klasor "${ad}_temiz.wav"
-        $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $temizAra, '-af', (Loudnorm-Filtre $m2), '-ar', '48000', '-c:a', 'pcm_s24le', $cikis) $null
+        $gTemiz = Join-Path $gecici 'cikis_temiz.wav'
+        $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $temizAra, '-af', (Loudnorm-Filtre $m2), '-ar', '48000', '-c:a', 'pcm_s24le', $gTemiz) $null
 
         # 5) Önce/sonra dosyası: ham kayıt da aynı LUFS'e getirilir ki "daha yüksek = daha iyi" yanılgısı olmasın
         $hamSeviyeli = Join-Path $gecici 'ham_seviyeli.wav'
         $mh = Olc-Loudnorm $ara $null
-        $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $ara, '-af', (Loudnorm-Filtre $mh), '-ar', '48000', '-c:a', 'pcm_s24le', $hamSeviyeli) $null
-        $onceSonra = Join-Path $klasor "${ad}_onceSonra.wav"
+        $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $ara, '-af', (Loudnorm-Filtre $mh), '-ar', '48000', '-c:a', 'pcm_s24le', $hamSeviyeli) $null
+        $gOnceSonra = Join-Path $gecici 'cikis_onceSonra.wav'
         $fc = 'anullsrc=r=48000:cl=mono,atrim=duration=0.6[s1];sine=f=880:r=48000:d=0.25,volume=0.25[bip];anullsrc=r=48000:cl=mono,atrim=duration=0.6[s2];' +
               '[0:a]aformat=sample_rates=48000:channel_layouts=mono[a];[1:a]aformat=sample_rates=48000:channel_layouts=mono[b];' +
               '[a][s1][bip][s2][b]concat=n=5:v=0:a=1[o]'
-        $null = Calistir $script:FFMPEG @('-hide_banner', '-y', '-i', $hamSeviyeli, '-i', $cikis, '-filter_complex', $fc, '-map', '[o]', '-c:a', 'pcm_s24le', $onceSonra) $null
+        $null = Calistir $script:FFMPEG @('-hide_banner', '-n', '-i', $hamSeviyeli, '-i', $gTemiz, '-filter_complex', $fc, '-map', '[o]', '-c:a', 'pcm_s24le', $gOnceSonra) $null
 
-        # 6) Rapor
-        $son = Olc $cikis $gecici
+        # 6) Son doğrulama: temiz çıktı okunabilir ve süresi girişle uyumlu olmalı
+        $son = Olc $gTemiz $gecici
         $hamS = Olc $hamSeviyeli $gecici
+        if ([Math]::Abs($son.Sure - $ham.Sure) -gt 1.0) { throw "Çıktı süresi girişle uyuşmuyor ($(F $son.Sure) sn / $(F $ham.Sure) sn)." }
+        if ($son.LUFS -lt -60) { throw 'Çıktı neredeyse sessiz; temizleme başarısız sayıldı.' }
+
+        # 7) Rapor ve taşıma (yalnız her şey başarılıysa; varsayılan olarak mevcut dosyalara dokunulmaz)
+        $hedef = Cikis-Adlari $klasor $ad
         $rapor = @(
             "Ses-Temizle raporu - $(Get-Date -Format 'yyyy-MM-dd HH:mm')",
             "Giriş : $giris",
@@ -246,22 +297,31 @@ foreach ($girisHam in $Dosyalar) {
             'Kayıt hakkında notlar (ham kayda göre):'
         ) + ((Degerlendir $ham) | ForEach-Object { " - $_" }) + @(
             '',
-            'Bu sayılar kulağın yerini tutmaz: <ad>_onceSonra.wav dosyasını kulaklıkla dinleyin',
+            "Bu sayılar kulağın yerini tutmaz: $([System.IO.Path]::GetFileName($hedef.OnceSonra)) dosyasını kulaklıkla dinleyin",
             '(önce ham, bipten sonra temiz). Ses robotik, boğuk veya kesik kesik geldiyse',
-            '"Ses-Temizle (dogal).bat" ile (-Guc 30) tekrar deneyin.'
+            '"Ses-Temizle-Dogal.bat" ile (-Guc 30) tekrar deneyin.'
         )
-        $raporYolu = Join-Path $klasor "${ad}_rapor.txt"
-        [System.IO.File]::WriteAllLines($raporYolu, [string[]]$rapor, (New-Object System.Text.UTF8Encoding($true)))
+        $gRapor = Join-Path $gecici 'cikis_rapor.txt'
+        [System.IO.File]::WriteAllLines($gRapor, [string[]]$rapor, (New-Object System.Text.UTF8Encoding($true)))
+        Tasi $gTemiz $hedef.Temiz
+        Tasi $gOnceSonra $hedef.OnceSonra
+        Tasi $gRapor $hedef.Rapor
         $rapor | Select-Object -Skip 5 -First 6 | ForEach-Object { Yaz $_ }
-        Yaz "  -> $cikis" 'Green'
-        Yaz "  -> $onceSonra" 'Green'
-        Yaz "  -> $raporYolu" 'Green'
-        Remove-Item -Recurse -Force $gecici
+        Yaz "  -> $($hedef.Temiz)" 'Green'
+        Yaz "  -> $($hedef.OnceSonra)" 'Green'
+        Yaz "  -> $($hedef.Rapor)" 'Green'
     }
     catch {
         $hata++
         Yaz "HATA ($girisHam): $($_.Exception.Message)" 'Red'
     }
+    finally {
+        # Yalnız bu çalıştırmanın oluşturduğu GUID klasörü silinir.
+        if ($gecici -and (Test-Path -LiteralPath $gecici)) { Remove-Item -LiteralPath $gecici -Recurse -Force -ErrorAction SilentlyContinue }
+    }
 }
-if ($hata -gt 0) { exit 3 }
+if ($hata -gt 0) {
+    Yaz "`n$hata dosya başarısız oldu." 'Red'
+    exit 3
+}
 exit 0

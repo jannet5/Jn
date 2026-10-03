@@ -8,7 +8,7 @@
 | Kayıt öncesi ve sonrası ayarları takip akışına çevir | **Yapıldı** | [../KILAVUZ.md](../KILAVUZ.md) §2–4 (☐ tabloları). Kayıt öncesi ölçüm aracı `Kayit-Kontrol.bat` çalıştırıldı (çıktı aşağıda). |
 | Mevcut **iki kullanıcı kaydında** önce/sonra dinleme karşılaştırması | **Yapılamadı: kayıtlar yüklenmedi** | Gerçek kayıt uydurulmadı. Yerine iki **benzetim** kaydıyla aynı akış uçtan uca çalıştırıldı ve ölçüldü. Kullanıcı kendi iki kaydını `Ses-Temizle.bat`'a bıraktığında aynı `_onceSonra.wav` ve `_rapor.txt` üretilir. |
 | "Prodüksiyon kalitesi" ölçmeden vaat etme | **Uyuldu** | Her iddia aşağıdaki sayılara dayanıyor. En iyi sonuç bile stüdyo referansının altında. |
-| Windows'ta gerçek çalıştırma | **Kısmen** | `deep-filter.exe` (Windows sürümü) Wine altında çalıştırıldı, çıktısı Linux sürümüyle **bit-bit aynı** (en büyük fark 0.0). `.ps1` betiği PowerShell 7.4.6'da (Linux) uçtan uca çalıştı, ayrıştırıcı hatası 0. **Windows PowerShell 5.1, `.bat` başlatıcılar, winget kurulumu ve gerçek mikrofon kaydı test EDİLMEDİ** (Windows masaüstü yok). |
+| Windows'ta gerçek çalıştırma | **Yapılmadı** | Gerçek Windows masaüstü yok. **Windows PowerShell 5.1, gerçek cmd.exe ile `.bat`, gerçek winget kurulumu ve gerçek mikrofon kaydı test EDİLMEDİ.** Aşağıdaki Linux PowerShell 7 ve Wine sonuçları bunların yerine geçmez. |
 
 ## Test girdisi (benzetim, açıkça sentetik)
 
@@ -80,7 +80,39 @@ Ham sonuçlar: [sonuclar.csv](sonuclar.csv) ve [sonuclar.jsonl](sonuclar.jsonl).
 - Audacity makrosu gürültüyü kısmen düşürüyor ama konuşmanın arkasında ve aralarda kırmızı/turuncu gürültü kalıyor.
 - AI sonucunda aralar koyu (gürültü yok). Konuşma sırasında ise arkada hafif mor gürültü bulutu kalıyor. Kulakta bu, konuşma ile birlikte gelip giden hafif bir hışırtı olarak duyulabilir.
 
-## Betik uçtan uca testleri (PowerShell 7.4.6, Linux)
+## 2. tur: bağımsız inceleme bulgularının düzeltilmesi ve testleri
+
+Bağımsız statik inceleme 6 ürün hatası buldu. Hepsi düzeltildi ve aşağıdaki testlerle sınandı.
+**Ortam ayrımı:**
+- **[L]** = Linux + PowerShell 7.4.6
+- **[W]** = Wine cmd.exe + sahte powershell.exe
+
+Hiçbiri gerçek Windows değildir.
+
+| # | Bulgu | Düzeltme | Test |
+|---|---|---|---|
+| 1 | BAT, PowerShell çıkış kodunu `pause`/`echo` ile maskeliyordu | `set "SES_KOD=%ERRORLEVEL%"` hemen alınıyor, `exit /b %SES_KOD%` ile aynen dönülüyor, hata varsa Türkçe "[HATA] ... cikis kodu N" yazılıyor | [W] `test/arac/bat_wine_testi.sh`: **11/11**. 4 BAT'ta 0/2/3/4 kodları aynen döndü. Boşluklu ve Türkçe (`boşluklu ad ğüşİ.wav`) argümanlar bozulmadan iletildi. Argümansızda kod 1. |
+| 2 | winget sonucu kontrol edilmeden kurulum başarılı sayılabiliyordu | `$LASTEXITCODE`, winget-cli resmî dönüş kodu listesine göre sınıflanıyor: başarı, zaten kurulu, paket yok, ağ, izin/ilke, sözleşme, iptal, bilinmeyen. **Başarı yalnız ffmpeg bulunup `-version` ile gerçekten çalışınca** sayılıyor. winget yoksa ayrı mesaj veriliyor. Kurulum çıkış kodları: 2 / 3 / 4. | [L] 12 kod sınıflandırması `Winget-Sonuc` fonksiyonunun kendisiyle test edildi (Linux'ta süreç kodu 8 bit olduğu için 32 bitlik kodlar sahte süreçle taşınamıyor). Uçtan uca: winget yok → 3; winget 0 ama ffmpeg yok → 3 ("başarı sayılmadı" mesajı); bilinmeyen kod 5 → 3; çalışmayan ffmpeg + "zaten kurulu" → 3; winget gerçekten kurunca (Links\ffmpeg) → 0. |
+| 3 | Sabit TEMP test WAV'ı ve joker karakterli silme | Her kurulumda `sestemizle_kurulum_<GUID>` klasörü açılıyor, yalnız o klasör `finally` ile siliniyor. Test ayrı süreçte çalışıyor, çıkış kodu kontrol ediliyor. Yeni çıktının süresi (6±0.5 sn) ve ses yüksekliği (> −30 LUFS) doğrulanıyor. | [L] Kurulum 10 kez art arda: **10/10 geçti**, TEMP'te kalan klasör 0. Çalışma testi bozulunca kurulum kodu 4, klasör yine temizlendi. |
+| 4 | Audacity makrosu `-Force` ile habersiz değiştiriliyordu | Aynı içerik varsa "zaten güncel". Farklı içerikli kullanıcı makrosuna dokunulmuyor; yenisi `Ses-Temizle (2).txt` olarak ekleniyor (`File.Copy(..., $false)`). | [L] Kullanıcı makrosunun SHA-256'sı değişmedi, `(2)` kaynakla aynı. İkinci kurulumda `(3)` oluşmadı. |
+| 5 | `ffmpeg -y` kullanıcı klasöründeki WAV'ların üzerine yazabiliyordu | Tüm ffmpeg yazımları geçici GUID klasörüne ve `-n` ile yapılıyor. Nihai dosyalar son doğrulamadan sonra `File.Move` ile taşınıyor (hedef varsa hata verir). Çakışmada üç çıktı ortak numarayla `(2)`, `(3)`... alıyor. Üzerine yazmak yalnız açık `-UzerineYaz` seçimiyle mümkün. | [L] Tekrar çalıştırmada ilk çıktıların SHA-256'sı değişmedi ve `(2)` oluştu. Kullanıcının aynı adlı `kayit_onceSonra.wav` dosyası değişmedi. `-UzerineYaz` yalnız istenince yazdı. Giriş dosyasının SHA-256'sı her senaryoda aynı kaldı. |
+| 6 | Hata yolunda GUID klasörü kalıyordu | `finally` bloğu bu çalıştırmanın klasörünü her durumda siliyor | [L] Bozuk girdi, deep-filter kod 1, deep-filter'ın dosya üretmemesi ve sessiz kayıt senaryolarında: kod 3, kullanıcı klasöründe yarım çıktı yok, TEMP'te kalan klasör 0. |
+
+**Testin yakaladığı ek gerçek hata:**
+- Belirti: Kurulum döngüsünde 10 turdan 1'inde çalışma testi başarısız oldu.
+- Neden: DeepFilterNet tam güçte yapay test tonunu (konuşma olmadığı için) tamamen sildi. Ardından loudnorm `-inf` değeriyle anlaşılmaz bir ffmpeg hatası verdi.
+- Düzeltmeler:
+  - `-inf` ölçümü artık Türkçe hata veriyor ve "-Guc 30" öneriyor.
+  - Tamamen sessiz kayıt baştan yakalanıyor.
+  - `-Kontrol` sessiz kayıtta "Kayıt SESSİZ" diyor; önceden yanlışlıkla "oda çok iyi" diyordu.
+  - Kurulum testi `-Guc 30` ile çalışıyor.
+- Sonuç: düzeltme sonrası 10/10 geçti.
+
+**Güvenlik testlerinin tamamı [L]:** `test/arac/guvenlik_testleri.sh` art arda iki tam çalıştırmada **70/70 geçti**.
+
+**Ses kalitesi gerilemesi yok:** yeni betikle kayit1/kayit2 DNSMOS OVRL 2.955 / 2.464, STOI 0.773 / 0.677 çıktı. Bu, 1. turla aynı.
+
+## Betik uçtan uca testleri (1. tur, PowerShell 7.4.6, Linux)
 
 | Test | Sonuç |
 |---|---|
@@ -112,6 +144,6 @@ Ham sonuçlar: [sonuclar.csv](sonuclar.csv) ve [sonuclar.jsonl](sonuclar.jsonl).
 
 ## Kullanıcının yapması gereken son kabul (Windows'ta)
 
-1. `Kurulum.bat` dosyasını çalıştırın. Sonunda "[TAMAM] Çalışma testi geçti" yazmalı.
+1. `Kurulum.bat` dosyasını çalıştırın. Sonunda "[TAMAM] Çalışma testi geçti" yazmalı ve pencere hata kodu göstermemeli. Bu, Windows PowerShell 5.1, cmd.exe ve winget'in **ilk gerçek testi** olacaktır.
 2. İki gerçek kaydınızı birlikte `Ses-Temizle.bat` üzerine bırakın.
 3. `*_onceSonra.wav` dosyalarını kulaklıkla dinleyin ve `*_rapor.txt` dosyalarındaki "gürültü tabanı düştü" satırına bakın.

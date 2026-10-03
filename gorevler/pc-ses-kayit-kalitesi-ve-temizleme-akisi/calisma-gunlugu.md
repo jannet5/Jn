@@ -116,3 +116,68 @@
   | `parca2-deep-filter.zip` | `caf41870bb9398523341c14852a9d3d1c811e889f17043859d08b2fc21a9441f` |
   | `parca3-ornek-sesler-oncesonra.zip` | `5bb58540c2a556178aefc4679ef6a7a224a2b069c7f4776f67f3e5f99d84e7be` |
   | `parca4-ornek-sesler-diger.zip` | `7125bb1fb0ab22525c52398ebe9b7a5a88b6576440cd48988e26cc9aee439e67` |
+
+---
+
+## 7. 2. tur: bağımsız inceleme düzeltmeleri (2026-10-03)
+
+**Girdi.** HEAD `b6732b2` üzerinde bağımsız statik inceleme yapıldı ve 6 ürün hatası bildirildi:
+1. BAT çıkış kodu maskelemesi
+2. winget sonucunun denetlenmemesi
+3. sabit TEMP test dosyası ve joker silme
+4. makronun `-Force` ile üzerine yazılması
+5. `ffmpeg -y` ile kullanıcı dosyalarının üzerine yazılması
+6. hata yolunda geçici klasörün kalması
+
+**Yapılanlar:**
+- **Ses-Temizle.ps1:**
+  - Tüm ara ve nihai yazımlar GUID geçici klasöre, `-n` ile yapılıyor.
+  - Son doğrulama (süre ve sessizlik) geçince dosyalar `File.Move` ile taşınıyor.
+  - Çakışmada ortak `(2)` numarası veriliyor. Üzerine yazma yalnız `-UzerineYaz` ile.
+  - Geçici klasör `finally` ile siliniyor.
+  - Sessiz kayıt ve `-inf` ölçümü için Türkçe hatalar eklendi. `-Kontrol` sessizliği bildiriyor.
+  - WinGet Links araması işletim sistemi koşulundan ayrıldı.
+- **Kurulum.ps1:**
+  - Yerel programlar `System.Diagnostics.Process` ile çalıştırılıyor (WinPS 5.1'deki stderr tuzağı yok).
+  - winget kodları resmî listeye göre sınıflanıyor ve başarı ffmpeg `-version` ile doğrulanıyor.
+  - Bozuk deep-filter.exe silinmiyor, kenara alınıyor. İndirme önce `.indiriliyor` dosyasına yapılıyor, SHA-256 doğrulanınca taşınıyor.
+  - Makro koruması eklendi.
+  - Çalışma testi GUID klasöründe, ayrı süreçte, `-Guc 30` ile ve içerik doğrulamasıyla yapılıyor.
+  - Çıkış kodları: 0 / 2 / 3 / 4.
+- **BAT'lar:** `SES_KOD` saklanıp `exit /b` ile döndürülüyor. `Ses-Temizle (dogal).bat` → `Ses-Temizle-Dogal.bat` (parantezli ad komut satırında yanlış dosyayı çalıştırıyordu).
+- **Testler:**
+  - `test/arac/guvenlik_testleri.sh`: 70 denetim, Linux PS7.
+  - `test/arac/bat_wine_testi.sh`: 11 denetim; Wine cmd.exe ve mingw ile derlenen sahte powershell.exe (`sahte_powershell.c`).
+
+**Komutlar:**
+- `apt-get install gcc-mingw-w64-x86-64`
+- `DF_LINUX=.../deep-filter test/arac/guvenlik_testleri.sh` (iki kez çalıştırıldı, ikisinde de 70/70)
+- `test/arac/bat_wine_testi.sh` (11/11)
+- Kurulum 10 tur döngüsü (10/10)
+
+**Sorunlar:**
+
+| Sorun | Çözüm |
+|---|---|
+| Linux 8 bitlik çıkış kodu nedeniyle sahte winget negatif kodları taşıyamadı | Sınıflandırma AST'den alınan fonksiyonla test edildi. |
+| `pwsh -c '...' yol` yolu komut olarak çalıştırdı | Yol ortam değişkeniyle verildi. |
+| Sahte winget içinde PATH'te `ln` yoktu | `/bin/ln` kullanıldı. |
+| Kurulum testi 10 turda 1 kez `-inf` ile düştü (gerçek hata) | Düzeltildi; ayrıntı test raporunda. |
+| Python ile düzenleme CRLF'yi kaybetti | `.ps1` (BOM'lu) ve `.bat` dosyaları yeniden CRLF'ye çevrildi ve sayılarak doğrulandı. |
+
+**Ses kalitesi gerilemesi yok:** kayit1/kayit2 OVRL 2.955 / 2.464, 1. turla aynı.
+
+**Yapılmadı (gerçek Windows yok):**
+- Windows PowerShell 5.1
+- gerçek cmd.exe
+- gerçek winget
+- gerçek mikrofon
+- kullanıcının iki gerçek kaydı (yüklenmedi; var sayılmadı)
+
+Linux PS7 ve Wine sonuçları bunların yerine sayılmadı.
+
+**Teslim (2. tur):**
+- Public dalda yalnız ürün klasörü değişti.
+- Ürün ZIP'inin kökü ürün klasörü. ZIP, git ağacının birebir kopyası.
+- ZIP'te özel sohbet, `ozel/`, test sesleri ve başka projelerin geçmişi (git bundle) yok.
+- SHA-256 değerleri ve uzak commit'le karşılaştırma sonucu son mesajda.

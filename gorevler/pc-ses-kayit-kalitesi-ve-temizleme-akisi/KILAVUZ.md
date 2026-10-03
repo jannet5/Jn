@@ -38,7 +38,7 @@ Ayrıntı: [test/TEST-RAPORU.md](test/TEST-RAPORU.md)
 | ☐ | Ne yapılacak | Nasıl | Neden |
 |---|---|---|---|
 | ☐ | Audacity **3.7.x** kurun | https://www.audacityteam.org/download/ (3.7.9 için "older versions" sayfası) | 4.0 çıktı (Eylül 2026) ama makro ve OpenVINO AI eklentilerini henüz desteklemiyor. |
-| ☐ | Ses-Temizle'yi kurun | ZIP'i açın, `ses-temizleyici\Kurulum.bat` dosyasına çift tıklayın. | deep-filter.exe'yi doğrular, ffmpeg'i kurar (winget) ve Audacity makrosunu kopyalar. Sonra kendi kendini test eder. |
+| ☐ | Ses-Temizle'yi kurun | ZIP'i açın, `ses-temizleyici\Kurulum.bat` dosyasına çift tıklayın. | deep-filter.exe'yi doğrular, ffmpeg'i kurar (winget) ve Audacity makrosunu ekler. Sonra kendi kendini test eder. Sonda **"[TAMAM] Çalışma testi geçti"** görmeden kurulumu bitmiş saymayın; hata olursa pencere nedenini (ağ / izin / paket bulunamadı) ve çıkış kodunu yazar. |
 | ☐ | Mikrofon izni | Ayarlar > Gizlilik ve güvenlik > Mikrofon > "Masaüstü uygulamalarının mikrofona erişmesine izin ver" **Açık** | Audacity bir masaüstü uygulamasıdır. İzin kapalıysa sessiz kayıt alırsınız. |
 | ☐ | Giriş seviyesi | Ayarlar > Sistem > Ses > Giriş > mikrofonunuz > "Giriş ses düzeyi". Başlangıç için 70–85 | Bunu "Kayıt-Kontrol" testine göre ince ayarlayacaksınız (aşağıda). |
 | ☐ | Ses iyileştirmelerini kapatın | Aynı sayfada "Ses geliştirmeleri / Audio enhancements" **Kapalı**. Varsa "Voice Clarity / Ses netliği" de kapalı. | Windows'un otomatik seviye ve gürültü işlemesi sesi pompalar ve boğuklaştırır. Temizliği biz kendimiz, kontrollü yapacağız. |
@@ -79,16 +79,16 @@ Ayrıntı: [test/TEST-RAPORU.md](test/TEST-RAPORU.md)
 | ☐ | Adım | Sonuç |
 |---|---|---|
 | ☐ | WAV dosyanızı (birden fazla da olur) **`Ses-Temizle.bat`** üzerine sürükleyip bırakın. | Siyah bir pencere açılır ve adımları yazar (35 sn'lik test kaydı bulut sunucusunda ~20 sn sürdü; sizin bilgisayarınızda farklı olabilir). |
-| ☐ | Kaydın yanında 3 dosya oluşur. | `ad_temiz.wav` (bitmiş ses, −16 LUFS, 48 kHz/24-bit), `ad_onceSonra.wav` ve `ad_rapor.txt`. |
+| ☐ | Kaydın yanında 3 dosya oluşur. | `ad_temiz.wav` (bitmiş ses, −16 LUFS, 48 kHz/24-bit), `ad_onceSonra.wav` ve `ad_rapor.txt`. **Hiçbir dosyanın üzerine yazılmaz:** aynı adlı dosya varsa yeniler `ad_temiz (2).wav` gibi numaralı ad alır. Ham kaydınıza hiç dokunulmaz. İşlem yarıda kalırsa klasörde yarım dosya bırakılmaz. |
 | ☐ | **`ad_onceSonra.wav`** dosyasını **kulaklıkla** dinleyin. Windows'un normal oynatıcısı yeterli, Audacity açmanız gerekmez. | Önce ham kayıt çalar, "bip"ten sonra temiz kayıt. İkisi aynı ses yüksekliğine getirilmiştir, böylece "yüksek olan daha iyi geliyor" yanılgısı olmaz. |
-| ☐ | Ses boğuk, robotik ya da konuşma araları "kesik kesik" geldiyse aynı ham dosyayı **`Ses-Temizle (dogal).bat`** üzerine bırakın. | Gürültüyü en fazla 30 dB azaltır, aralarda hafif oda sesi kalır. Testte ölçüm biraz düşük ama daha doğal. |
+| ☐ | Ses boğuk, robotik ya da konuşma araları "kesik kesik" geldiyse aynı ham dosyayı **`Ses-Temizle-Dogal.bat`** üzerine bırakın. | Gürültüyü en fazla 30 dB azaltır, aralarda hafif oda sesi kalır. Testte ölçüm biraz düşük ama daha doğal. |
 | ☐ | İsterseniz `ad_temiz.wav`'ı Audacity'de açıp kesin ve paylaşın. **Tekrar Noise Reduction uygulamayın.** | Çift temizlik sesi metalikleştirir. |
 
 **Bu "düğme" nedir?** Bkz. **Bölüm 6, soru 3**.
 
 ### Yol 2: Tamamen Audacity içinde (makro)
 
-Audacity 3.7.x gerekir. Kurulum.bat makroyu kopyalar. Elle kurmak için Araçlar > Makro Yöneticisi > İçe Aktar > `audacity-makro\Ses-Temizle.txt`.
+Audacity 3.7.x gerekir. Kurulum.bat makroyu ekler; sizin daha önce değiştirdiğiniz bir `Ses-Temizle.txt` varsa ona dokunmaz, yenisini `Ses-Temizle (2).txt` adıyla koyar. Elle kurmak için Araçlar > Makro Yöneticisi > İçe Aktar > `audacity-makro\Ses-Temizle.txt`.
 
 | ☐ | Adım (her kayıt için) | Not |
 |---|---|---|
@@ -119,10 +119,12 @@ Audacity 3.7.x gerekir. Kurulum.bat makroyu kopyalar. Elle kurmak için Araçlar
 |---|---|
 | Pencere "ffmpeg bulunamadı" diyor | `Kurulum.bat`'ı tekrar çalıştırın. winget yoksa https://www.gyan.dev/ffmpeg/builds/ adresinden "release essentials" indirin ve `bin\ffmpeg.exe`'yi `ses-temizleyici\araclar\` içine koyun. |
 | "deep-filter bulunamadı; klasik moda geçiliyor" | `araclar\deep-filter.exe` silinmiş olabilir. `Kurulum.bat` onu yeniden indirir ve SHA-256 ile doğrular. |
+| Pencerede "[HATA] Islem basarisiz oldu (cikis kodu N)" | 1 = dosya bırakılmadı, 2 = ffmpeg yok (Kurulum.bat), 3 = en az bir dosya işlenemedi (üstteki HATA satırı nedenini söyler: bozuk/sessiz dosya, araç hatası vb.). Kurulum'da 2 = deep-filter, 3 = ffmpeg, 4 = çalışma testi. |
+| Eski çıktının üzerine yazmak istiyorum | PowerShell'den `Ses-Temizle.ps1 -UzerineYaz dosya.wav`. Varsayılan bilerek korumalıdır. |
 | Windows "bilinmeyen yayımcı / SmartScreen" uyarısı | Dosyalar imzasız betiktir. "Daha fazla bilgi > Yine de çalıştır". İsterseniz önce `.ps1` dosyasını Not Defteri'nde okuyun, her satır açıklamalıdır. |
 | Rapor "KIRPILMA riski" diyor | Windows giriş seviyesini 10–15 puan düşürüp **tekrar kaydedin**. Kırpılma temizlenemez. |
 | Rapor "Konuşma–gürültü farkı düşük" diyor | Mikrofona yaklaşın, fanı kapatın, yumuşak yüzeylerin önüne geçin. Bu durumda yazılım tek başına yetmez. |
-| Temiz ses "su altında / kesik kesik" | `Ses-Temizle (dogal).bat` kullanın. Yol 2'deyseniz Noise Reduction'ı 6–9 dB'e indirin. |
+| Temiz ses "su altında / kesik kesik" | `Ses-Temizle-Dogal.bat` kullanın. Yol 2'deyseniz Noise Reduction'ı 6–9 dB'e indirin. |
 
 ---
 
@@ -168,5 +170,5 @@ Var: Yol 2 (makro) ve Yol 3 (OpenVINO eklentisi). Aynı iki test kaydında ölç
 | `Kurulum.bat` | Bir kez, ilk başta |
 | `Kayit-Kontrol.bat` | Kayıttan önce, 10–15 sn deneme kaydını bırakın |
 | `Ses-Temizle.bat` | Kayıttan sonra, normal kullanım |
-| `Ses-Temizle (dogal).bat` | Normal sonuç fazla "işlenmiş" geldiyse |
+| `Ses-Temizle-Dogal.bat` | Normal sonuç fazla "işlenmiş" geldiyse |
 | Audacity > Tools > Apply Macro > **Ses-Temizle** | Audacity içinde kalmak isterseniz |

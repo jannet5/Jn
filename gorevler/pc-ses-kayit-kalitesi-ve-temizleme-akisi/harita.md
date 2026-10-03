@@ -37,8 +37,11 @@ HEDEF: Yeni mikrofon almadan, mevcut PC mikrofonuyla ölçülebilir şekilde dah
   └─ KALICI TESLİM
        D1 Public dal claude/laughing-faraday-jqcz19 → gorevler/pc-ses-kayit-kalitesi-ve-temizleme-akisi/
           (yalnız kod, kılavuz, araştırma, ölçümler; özel sohbet/kaynak YOK)
-       D2 Özel ZIP (indirilebilir): yukarıdakiler + deep-filter.exe + test sesleri (önce/sonra) +
-          ozel/ (kaynak.txt, gorev.md); SHA-256 + açıp geri okuma doğrulaması
+       D2 Ürün ZIP'i (2. tur): YALNIZ ürün klasörü (git'teki gorevler/... ağacının birebir kopyası), kök = ürün
+          klasörü; özel sohbet, ozel/, test sesleri ve başka proje geçmişi (git bundle) YOK; SHA-256 + açıp
+          uzak commit'teki dosyalarla bayt bayt karşılaştırma. deep-filter.exe: Kurulum.bat indirir + SHA-256 doğrular.
+  │
+  └─ 2. TUR (bağımsız inceleme) → bkz. aşağıdaki "2. tur" tablosu ve test/TEST-RAPORU.md
 ```
 
 ## Yol kırılmaları ve çözümleri (çalışma sırasında yaşananlar)
@@ -51,3 +54,23 @@ HEDEF: Yeni mikrofon almadan, mevcut PC mikrofonuyla ölçülebilir şekilde dah
 | Çok kısık girişte DeepFilterNet tam güçte konuşmayı da bastırdı (STOI 0.437) | Ön seviye ayarı (−20 LUFS) ile çözüldü. Tam güç artık en iyi sonuç (STOI 0.677) ve varsayılan yapıldı. |
 | ffmpeg afftdn `tn=1` ile hiç azaltma yapmadı | `nt=w`, `nr=20` ve ölçülen tabana göre `nf` ile düzeltildi. Klasik mod artık Audacity makrosuyla eşit veya daha iyi. |
 | Kullanıcının iki gerçek kaydı yok | Uydurulmadı. Benzetim kayıtlarıyla kabul yapıldı. Gerçek kayıtlar için düğme aynı önce/sonra dosyasını ve raporu üretir (kılavuz §4). |
+
+## 2. tur: bağımsız inceleme bulguları
+
+```
+İNCELEME BULGUSU                       → DÜZELTME                                    → TEST [L]=Linux PS7, [W]=Wine+sahte PS
+1 BAT çıkış kodunu maskeliyor          → SES_KOD sakla, exit /b SES_KOD              → [W] bat_wine_testi.sh 11/11
+2 winget sonucu körlemesine başarı     → kod sınıflama + ffmpeg -version doğrulaması → [L] 12 sınıf + 5 uçtan uca senaryo
+3 sabit TEMP test WAV + joker silme    → GUID klasör, ayrı süreç, içerik doğrulama   → [L] Kurulum 10/10, kalan klasör 0
+4 makro -Force üzerine yazma           → aynıysa "güncel", farklıysa "(2)" yeni dosya → [L] kullanıcı makrosu SHA aynı
+5 ffmpeg -y kullanıcı dosyası üzerine  → GUID klasöre -n, File.Move, (2) adlandırma   → [L] eski çıktı/kullanıcı dosyası SHA aynı
+6 hata yolunda GUID klasörü kalıyor    → finally temizliği                            → [L] 4 hata senaryosunda kalan klasör 0
++ testin bulduğu: tam güç sesi silince -inf → Türkçe hata, sessiz kayıt tespiti, kurulum testi -Guc 30 → [L] 10/10
+YAPILMADI: Windows PowerShell 5.1, gerçek cmd.exe, gerçek winget, gerçek mikrofon, kullanıcının iki gerçek kaydı
+```
+
+| Kırılma | Ne yapıldı |
+|---|---|
+| Linux'ta süreç çıkış kodu 8 bit; winget'in negatif 32 bit kodları sahte süreçle test edilemedi | Sınıflandırma fonksiyonu Kurulum.ps1'in AST'sinden alınıp doğrudan test edildi. Uçtan uca testler 0–255 aralığındaki kodlarla yapıldı. |
+| Parantezli/boşluklu BAT adı ("Ses-Temizle (dogal).bat") komut satırından çağrılınca yanlış dosya çalıştı | Ad `Ses-Temizle-Dogal.bat` oldu. Belgeler güncellendi. |
+| Wine'da Türkçe argümanlar ilk denemede bozuk göründü | Sebep test ortamının yerel ayarıydı (LANG boş). `LC_ALL=C.UTF-8` ile argümanların bozulmadan iletildiği doğrulandı. Gerçek Windows davranışı ayrıca test edilmedi. |
