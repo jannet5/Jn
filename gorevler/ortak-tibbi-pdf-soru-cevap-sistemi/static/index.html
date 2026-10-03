@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MedOrtak</title>
+<meta name="description" content="Tıp öğrencileri için ortak PDF kütüphanesi: her dilde soru sor, kaynaklı yanıt al. Giriş yok.">
+<meta name="theme-color" content="#0f766e">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="/icon-192.png" alt="" width="28" height="28"><b>MedOrtak</b></div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="ask" class="on" data-i18n="tabAsk">Sor</button>
+    <button role="tab" data-tab="lib" data-i18n="tabLib">Kütüphane</button>
+  </nav>
+  <button class="mini-meter" id="miniMeter" aria-label="Kota"><span id="miniText">…</span><i><b id="miniBar"></b></i></button>
+  <select id="lang" aria-label="Dil">
+    <option value="tr">TR</option><option value="en">EN</option><option value="es">ES</option>
+  </select>
+</header>
+
+<div class="layout">
+<main>
+  <section id="tab-ask" class="panel">
+    <form id="askForm" class="card">
+      <label for="q" class="lbl" data-i18n="askLabel">Sorunu istediğin dilde yaz</label>
+      <textarea id="q" rows="3" required minlength="3" maxlength="1000"></textarea>
+      <div class="row">
+        <select id="scope" aria-label="Kapsam"><option value="" data-i18n="allDocs">Tüm ortak kütüphane</option></select>
+        <label class="chk" id="aiWrap" hidden><input type="checkbox" id="useAi"> <span data-i18n="useAi">Yapay zekâ ile kendi dilimde özetle</span></label>
+      </div>
+      <div class="row end">
+        <button type="button" id="newThread" class="ghost" data-i18n="newThread">Yeni konu</button>
+        <button type="submit" id="askBtn" class="primary">…</button>
+      </div>
+      <p class="hint" id="threadHint"></p>
+    </form>
+    <div id="answers"></div>
+    <p class="disclaimer" data-i18n="disclaimer">Eğitim amaçlıdır; klinik karar veya tıbbi tavsiye değildir. Her yanıtı kaynak sayfasından doğrulayın.</p>
+  </section>
+
+  <section id="tab-lib" class="panel" hidden>
+    <form id="upForm" class="card">
+      <h2 data-i18n="upTitle">PDF paylaş — kütüphaneye katkı ücretsiz</h2>
+      <input type="file" id="file" accept="application/pdf" required>
+      <input id="title" maxlength="200" data-i18n-ph="titlePh" placeholder="Başlık (isteğe bağlı)">
+      <input id="subject" maxlength="100" data-i18n-ph="subjectPh" placeholder="Ders / konu (ör. Kardiyoloji)">
+      <label class="chk"><input type="checkbox" id="rights" required> <span data-i18n="rights">Bu PDF'i paylaşma hakkım var (kendi notum, açık lisans ya da izinli).</span></label>
+      <button class="primary" id="upBtn" data-i18n="upload">Yükle</button>
+      <p class="hint" id="upMsg" role="status"></p>
+    </form>
+    <div class="card">
+      <input id="libSearch" type="search" data-i18n-ph="searchPh" placeholder="Kütüphanede ara">
+      <ul id="docs" class="docs"></ul>
+    </div>
+  </section>
+</main>
+
+<aside id="quota" class="quota" aria-live="polite">
+  <h2 data-i18n="quotaTitle">Kullanım hakkın</h2>
+  <div class="big"><span id="qLeft">–</span><small id="qOf"></small></div>
+  <div class="bar"><b id="qBar"></b></div>
+  <p id="qLevel" class="level"></p>
+  <dl class="facts">
+    <dt data-i18n="nextCost">Sıradaki soru</dt><dd id="qCost">–</dd>
+    <dt data-i18n="bonus">Destek kredisi</dt><dd id="qBonus">0</dd>
+    <dt data-i18n="grace">İş bitirme payı</dt><dd id="qGrace">–</dd>
+    <dt data-i18n="reset">Yenilenme</dt><dd id="qReset">–</dd>
+  </dl>
+  <details>
+    <summary data-i18n="howTitle">Bu kota nasıl çalışır?</summary>
+    <p data-i18n="how">Herkese her ay eşit ücretsiz hak verilir; kart veya giriş istenmez. Hakkın bitmek üzereyken önceden uyarırız. Başladığın bir konu hakkın bitse bile "iş bitirme payı" ile tamamlanır — yarıda kesilmezsin. Çok kullanırsan gönüllü destekle ek kredi alabilirsin.</p>
+  </details>
+  <div class="support">
+    <a id="donate" class="primary link" target="_blank" rel="noopener" hidden data-i18n="donate">Projeye destek ol</a>
+    <form id="redeemForm"><input id="code" data-i18n-ph="codePh" placeholder="Destek kodu"><button data-i18n="redeem">Ekle</button></form>
+  </div>
+  <h3 data-i18n="history">Son hareketler</h3>
+  <ul id="qHist" class="hist"></ul>
+</aside>
+</div>
+<div id="toast" role="status"></div>
+<script src="/app.js"></script>
+</body>
+</html>
