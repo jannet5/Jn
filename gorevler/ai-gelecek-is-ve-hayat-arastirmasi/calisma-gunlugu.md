@@ -77,11 +77,27 @@ Araç: `WebSearch` (arama) + `WebFetch` (sayfa okuma).
 - Ham HN yorum dökümleri depoya konmadı (gereksiz büyüklük); bağlantıları kaynak
   listesinde, ham hâlleri özel ZIP'te.
 
-## 7. Doğrulama
+## 7. Doğrulama sonuçları (gerçek çıktılar)
 
-Bu bölüm test, push ve ZIP adımlarından sonra gerçek çıktılarla dolduruldu; bkz. aşağıdaki
-"Doğrulama sonuçları".
+1. **Kabul betiği:** `python3 dogrulama/kontrol.py` → 130 kontrol, `SONUC: TUMU GECTI`.
+2. **Negatif test (betik gerçekten hata yakalıyor mu?):** Paketin bir kopyasına bilerek
+   6 hata eklendi (geçersiz sınıf, olmayan kaynak kodu, `http://` bağlantı, özel metinden
+   bir ifade, `kaynak.txt` dosyası). Betik 6/6'sını yakaladı: `SONUC: 6 KONTROL KALDI`.
+   Kopya sonra silindi.
+3. **Push:** `git push -u origin claude/bold-bohr-so7g6t` → başarılı (commit `da8564b`).
+4. **Geri okuma:** Uzak dal temiz bir klasöre `git clone --depth 1` ile indirildi; 10
+   dosyanın SHA-256 değerleri yereldekilerle `diff` ile karşılaştırıldı → **birebir aynı**.
+   Klonda kabul betiği yeniden çalıştırıldı → `TUMU GECTI`.
+5. **Mevcut projelere dokunulmadı:** `git diff --stat f489a09 HEAD` yalnızca bu klasördeki
+   10 dosyayı gösterdi.
+6. **Özel ZIP:** Özel kaynak, görev dosyası, ham HN yorumları, Medium RSS metni ve
+   deponun git bundle'ı özel çalışma alanında ZIP'lendi; SHA-256 değeri ayrı bir
+   `.sha256` dosyasına yazıldı, ZIP açılıp içerik hash'leri ve bundle (`git bundle verify`)
+   geri okunarak doğrulandı. ZIP public depoya **konmadı**.
 
-## Doğrulama sonuçları
+## 8. Yapılamayanlar (açıkça)
 
-(aşağıda)
+- YouTube transkriptleri (IP engeli; 3 yol denendi).
+- Instagram; X'in doğrudan okunması; Reddit, Ekşi Sözlük, Technopat (403/giriş).
+- Türkiye için yapay zekâ–istihdam ilişkisini ölçen bordro düzeyinde veri bulunamadı.
+- Windows, telefon veya kullanıcı hesabı testi gerekmedi; yapılmadı.
