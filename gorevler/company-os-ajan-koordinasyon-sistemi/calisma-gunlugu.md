@@ -56,3 +56,5 @@ Push, ZIP ve SHA-256 adımları bu günlüğün sonundaki "Teslim kaydı" bölü
 ## Teslim kaydı
 - 1. push: `a7b32ff` → `origin/claude/determined-mendel-dhyjj8`. Geri okuma için uzak daldan temiz klon alındı; orada `unittest` 37 test OK (1 atlama), mutasyon kontrolü GEÇTİ.
 - Özel ZIP: `company-os-teslim.zip`. Kaynak sohbet metnini ve görev dosyasını içermez. İçinde `company-os/` (ürün dosyaları) ve `company-os.bundle` (yalnız bu ürünü içeren, geçmişi temiz, depoya hazır git paketi) var. SHA-256 değeri ZIP üretildikten sonra aşağıya eklenir.
+- ZIP SHA-256: `0b304f1ebb8501a5619ba7af4d51a72200f5a79f734f71a7625a35d91e92dd8e` (`company-os-teslim.zip`, 58 dosya; ürün `803366b` commit'inden üretildi). ZIP depoya konmadı, oturumun özel alanında tutuluyor.
+- ZIP geri okuması yapıldı: `sha256sum -c` OK. ZIP açıldı. Bundle'dan klon alındı (`c628ec6`), klon içeriği ZIP'teki dosyalarla `diff -r` sonucu birebir aynı. Klonda testler OK. Kaynak metin ve özel yol taraması temiz.
