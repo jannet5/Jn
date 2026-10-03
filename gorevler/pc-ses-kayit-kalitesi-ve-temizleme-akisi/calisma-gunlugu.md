@@ -103,4 +103,16 @@
 ## 6. Teslim
 
 - **Public dal:** yalnız kod, kılavuz, araştırma ve ölçümler. Commit ve push sonrası uzak daldan geri okunarak doğrulandı.
-- **Özel ZIP:** public içerik + `deep-filter.exe` + test sesleri (ham / temiz / önce-sonra) + `ozel/` (kaynak.txt, gorev.md). SHA-256 alındı; ZIP açılıp dosya özetleri yeniden karşılaştırıldı. Kullanıcıya indirilebilir dosya olarak gönderildi.
+- **Özel ZIP (tam, 68 MB):**
+  - İçerik: public içerik + `deep-filter.exe` + test sesleri + `ozel/` (kaynak.txt, gorev.md) + `repo-dal.bundle` (`git bundle verify`: okay) + `SHA256SUMS.txt` (39 dosya).
+  - ZIP SHA-256: `7e368807ebf750c71878f807767412429ed3aeed2edd82471f2f377ea9e1cd6e`.
+  - Doğrulama: ZIP açıldı, `sha256sum -c` ile tüm dosyalar ve `unzip -t` ile ZIP doğrulandı.
+  - Dosya gönderme kanalı 502 hatası verdi ve tek dosya sınırı 30 MiB olduğu için kullanıcıya **4 parça** halinde gönderildi.
+  - Her parça açılıp doğrulandı. Sesler FLAC'a (kayıpsız) çevrildi.
+
+  | Parça | SHA-256 |
+  |---|---|
+  | `parca1-cekirdek.zip` (kılavuz, betikler, makro, testler, ozel/) | `b424771c385a7e1300ba26c12c51988fadbc999e4e917183ceafb50d4c2a92df` |
+  | `parca2-deep-filter.zip` | `caf41870bb9398523341c14852a9d3d1c811e889f17043859d08b2fc21a9441f` |
+  | `parca3-ornek-sesler-oncesonra.zip` | `5bb58540c2a556178aefc4679ef6a7a224a2b069c7f4776f67f3e5f99d84e7be` |
+  | `parca4-ornek-sesler-diger.zip` | `7125bb1fb0ab22525c52398ebe9b7a5a88b6576440cd48988e26cc9aee439e67` |
