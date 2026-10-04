@@ -9,7 +9,7 @@ from .config import settings
 from .db import DB
 from .embed import embed
 from .pdfproc import detect_language
-from .translate import strip_accents, supports, translate_verified
+from .translate import CHECKS_DONE, strip_accents, supports, translate_verified
 
 LANG_NAMES = {
     "tr": "Türkçe", "en": "English", "es": "Español", "de": "Deutsch", "fr": "Français",
@@ -64,6 +64,12 @@ def _sentences(text: str) -> list[str]:
     text = re.sub(r"\s*\n\s*", " ", text)  # PDF satır kaydırmaları cümleyi bölmesin
     parts = re.split(r"(?<=[.!?;])\s+(?=[A-ZÇĞİÖŞÜ0-9¿¡\"(])", text)
     return [p.strip() for p in parts if len(p.strip()) > 25]
+
+
+def _units(text: str) -> list[str]:
+    """Çeviri/denetim birimleri: cümleler ayrıca ';' ve ':' sonrasında bölünür (daha az eylem → daha
+    kanıtlanabilir nicelik/olumsuzluk bağı)."""
+    return [u.strip() for s in _sentences(text) for u in re.split(r"(?<=[;:])\s+", s) if len(u.strip()) > 15]
 
 
 def _terms(text: str) -> set[str]:
@@ -149,7 +155,9 @@ def translated_answer(question: str, hits: list[dict], target: str, max_hits: in
     bölümün çevirisinde geçmiyorsa o bölüm cevap sayılmaz. Hiçbiri uymuyorsa "cevap yok" döner.
     """
     base = {"mode": "translated", "question_language": target, "answer_language": target,
-            "confident": False, "answer": None, "sentences": [], "unverified": []}
+            "confident": False, "answer": None, "sentences": [], "unverified": [],
+            # Denetim yüzeyseldir: geçmek tam anlam doğruluğu demek değildir (bkz. app/translate.py)
+            "check_level": "surface", "checks": CHECKS_DONE}
     cands = [h for h in hits[:max_hits] if h["score"] >= 0.25 and supports(h["language"], target)]
     if not cands:
         return {**base, "no_answer": True, "reason": "no_passage"}
@@ -157,7 +165,7 @@ def translated_answer(question: str, hits: list[dict], target: str, max_hits: in
     best_missing = None
     qvec = embed([question])[0]
     for rank, hit in enumerate(cands):
-        sents = _sentences(hit["text"]) or [hit["text"][:400]]
+        sents = _units(hit["text"]) or [hit["text"][:400]]
         tr = translate_verified(sents, hit["language"], target)
         shown = [r["text"] or r["first"] or "" for r in tr]
         chunk = strip_accents(" ".join(shown).lower())
@@ -176,7 +184,8 @@ def translated_answer(question: str, hits: list[dict], target: str, max_hits: in
         base["source_language"] = hit["language"]
         for i in top:
             r = tr[i]
-            item = {"text": r["text"], "source_text": r["source"], "model": r["model"], "issues": r["issues"], **cite}
+            item = {"text": r["text"], "source_text": r["source"], "model": r["model"], "issues": r["issues"],
+                    "check_level": "surface", "checks": CHECKS_DONE if r["verified"] else [], **cite}
             (base["sentences"] if r["verified"] else base["unverified"]).append(item)
         if not base["sentences"]:
             return {**base, "no_answer": False, "reason": "translation_unverified", "source": cite}

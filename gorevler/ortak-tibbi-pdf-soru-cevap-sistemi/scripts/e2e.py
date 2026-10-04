@@ -44,7 +44,8 @@ with sync_playwright() as p:
     expect(ans).to_contain_text("aspirina", timeout=60000)
     expect(ans).to_contain_text("Idioma de la fuente: Türkçe")
     expect(ans).to_contain_text("Idioma de la respuesta: Español")
-    expect(ans).to_contain_text("Traducción local")
+    expect(ans).to_contain_text("controles automáticos superficiales")
+    expect(ans).not_to_contain_text("✓")
     expect(ans.locator("details.orig").first).to_be_attached()  # Türkçe orijinal açılabilir
     expect(mp.locator("#miniText")).to_contain_text("7")
     expect(mp.locator("#threadHint")).to_contain_text("1 pregunta")

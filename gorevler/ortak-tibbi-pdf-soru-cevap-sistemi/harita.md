@@ -90,3 +90,34 @@ Her cevap cümlesi için ayrıca şunlar denetlendi:
 - Olumsuzluk korunmuş.
 - Cevap metni İspanyolca algılanıyor.
 - Cevapta atıf işareti var.
+
+
+---
+## Tur 3 (2026-10-04): anlam bağı açığının kapatılması
+
+**Ebeveyn kabulünde bulunan açık** (`9311085` sürümünde `check()` dört örneği de `[]` ile kabul ediyordu):
+1. Sayı ve birim eşleşmesi kontrol edilmiyordu: "10 mg + 5 mL" → "5 mg + 10 mL" geçiyordu.
+2. Aynı birimli dozların özneleri yer değiştirince fark edilmiyordu.
+3. Olumsuzluğun hangi eyleme ait olduğu kontrol edilmiyordu.
+4. pt/fr/de için karşılaştırma ("altında/üzerinde") denetimi yapılmıyor, bu da başarı gibi geçiyordu.
+
+```
+check() v2 (app/translate.py) — her kural "kanıtlanamıyorsa reddet"
+  1 quantity          (değer, birim) çok-kümesi birebir
+  2 quantity_order    ≥2 nicelikte sıra korunmalı
+  3 quantity_subject  çeviride birebir geçen varlık sözcükleri (A, B, HbA1c) aynı bölümde aynı niceliğe bağlı
+  4 same_unit_multi   aynı birimli ≥2 nicelik → özne bağı kanıtlanamaz → RET
+  5 negation_*        yüklem bazında kutupluluk; karışık olumlu/olumsuz çok eylem → RET; sayı eşitliği
+  6 comparator        altında/üzerinde, es/en/pt/fr/de; yön tersine dönmesi ayrıca belirtilir
+  7 unsupported       sözlüğü olmayan hedef dil → RET (asla "denetlendi" denmez)
+Çeviri birimi: cümle + ';' ':' bölmesi (search._units)
+RET → çeviri gösterilmez; Türkçe orijinal + kullanıcının dilinde gerekçe (arayüz)
+Etiket: "verified" yerine API'de check_level="surface"; arayüzde "yüzeysel denetimden geçti — tam anlam garanti edilmez"
+```
+
+**Sonuçlar:**
+- `pytest`: **49/49** geçti.
+  - Denetimin reddetmesi gereken 20 çeviri reddedildi; bunlara 4 ebeveyn örneği ve "doğru ama kanıtlanamaz" örnekler dahil.
+  - Doğru 10 çeviri kabul edildi.
+  - Gerçek modellerle es/pt/de regresyonunda tekli doğru 5 cümle kabul edildi; 2 karmaşık cümle reddedildi.
+- E2E OK.

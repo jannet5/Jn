@@ -124,38 +124,124 @@ def test_missing_models_are_reported_not_hidden(env, monkeypatch, tmp_path):
     assert a["answer_language"] == "tr"  # çeviri yoksa bunu gizlemeden kaynak dilde gösterir
 
 
-# Gerçek modellerin bu çalışmada ürettiği HATALI çeviriler (bkz. calisma-gunlugu.md) — denetim reddetmeli
+# Denetimin REDDETMESİ gereken çeviriler. İlk 6'sı modellerin bu çalışmada ürettiği gerçek hatalı çıktılar,
+# sonraki 4'ü ebeveyn kabulünde bulunan açıklar, kalanlar yeni bağımsız karşı örnekler.
 BAD = [
     ("Çoğu erişkin için HbA1c hedefi yüzde 7'nin altıdır.",
-     "Para la mayoría de los adultos, el objetivo de HbA1c es de seis por ciento."),
+     "Para la mayoría de los adultos, el objetivo de HbA1c es de seis por ciento.", "es"),
     ("Çoğu erişkin için HbA1c hedefi yüzde 7'nin altıdır.",
-     "Para la mayoría de los adultos, HBA1C es el objetivo del 7%."),
+     "Para la mayoría de los adultos, HBA1C es el objetivo del 7%.", "es"),
     ("Metformin, eGFR 30 mL/dk altında kullanılmamalıdır.",
-     "La metformina no debe usarse bajo un electroencefalograma de 30 ml/dc."),
+     "La metformina no debe usarse bajo un electroencefalograma de 30 ml/dc.", "es"),
     ("Sistolik kan basıncı 180 mmHg üzerinde ise trombolitik tedavi uygulanmaz.",
-     "La presión sistólica es de 180 mm/hg y no se aplica tratamiento trombolítico."),
+     "La presión sistólica es de 180 mm/hg y no se aplica tratamiento trombolítico.", "es"),
     ("Ateş 38,5 °C üzerindeyse parasetamol 15 mg/kg verilebilir.",
-     "Si la temperatura es superior a 38,5oC, el paracetamol se puede administrar 15 miligramos por kilogramo."),
-    ("Bu hastalarda beta bloker verilmez.", "En estos pacientes se administran betabloqueantes."),
+     "Si la temperatura es superior a 38,5oC, el paracetamol se puede administrar 15 miligramos por kilogramo.", "es"),
+    ("Bu hastalarda beta bloker verilmez.", "En estos pacientes se administran betabloqueantes.", "es"),
+    # ebeveyn kabulündeki 4 açık
+    ("İlaç 10 mg ve sıvı 5 mL verilir.", "Se administran 5 mg de medicamento y 10 mL de líquido.", "es"),
+    ("A ilacı 10 mg, B ilacı 5 mg verilir.", "Se administran 5 mg de A y 10 mg de B.", "es"),
+    ("A ilacı verilmez, B ilacı verilir.", "Se administra A, pero no se administra B.", "es"),
+    ("Değer 7 altında tutulur.", "O valor é mantido acima de 7.", "pt"),
+    # yeni bağımsız karşı örnekler
+    ("A ilacı 10 mg, B sıvısı 5 mL verilir.", "Se administran 10 mg de B y 5 mL de A.", "es"),
+    ("A ilacı 10 mg, B ilacı 5 mg verilir.", "Se administran 10 mg de A y 5 mg de B.", "es"),  # doğru olsa bile kanıtlanamaz
+    ("A ilacı verilmez, B ilacı verilir.", "A is not given, B is given.", "en"),            # doğru olsa bile kapsam kanıtlanamaz
+    ("Değer 7 altında tutulur.", "La valeur est maintenue au-dessus de 7.", "fr"),
+    ("Değer 7 altında tutulur.", "Der Wert wird über 7 gehalten.", "de"),
+    ("Değer 7 altında tutulur.", "The value is kept at 7.", "en"),
+    ("Aspirin verilir.", "No se administra aspirina.", "es"),
+    ("Antibiyotik verilmez ve kültür alınmaz.", "No se administran antibióticos y se toman cultivos.", "es"),
+    ("Tanı ölçütleri arasında açlık plazma glukozunun 126 mg/dL ve üzerinde olması ile HbA1c değerinin yüzde 6,5 ve üzerinde olması yer alır.",
+     "Los criterios incluyen un valor de HbA1c de 126 mg/dL y una glucosa del 6,5% y superior.", "es"),
+    ("İlaç 10 mg verilir.", "Se administran 5 mg.", "es"),
 ]
 GOOD = [
     ("Çoğu erişkin için HbA1c hedefi yüzde 7'nin altıdır.",
-     "Para la mayoría de los adultos, el objetivo de HbA1c es inferior al 7%."),
-    ("Bu hastalarda beta bloker verilmez.", "En estos pacientes no se administran betabloqueantes."),
+     "Para la mayoría de los adultos, el objetivo de HbA1c es inferior al 7%.", "es"),
+    ("Bu hastalarda beta bloker verilmez.", "En estos pacientes no se administran betabloqueantes.", "es"),
     ("Erişkinde adrenalin dozu 0,5 mg'dır ve gerekirse 5 dakika sonra tekrarlanır.",
-     "En el adulto, la dosis de adrenalina es de 0,5 mg y, si es necesario, se repite después de 5 minutos."),
+     "En el adulto, la dosis de adrenalina es de 0,5 mg y, si es necesario, se repite después de 5 minutos.", "es"),
+    ("İlaç 10 mg ve sıvı 5 mL verilir.", "Se administran 10 mg de medicamento y 5 mL de líquido.", "es"),
+    ("A ilacı 10 mg, B sıvısı 5 mL verilir.", "Se administran 10 mg de A y 5 mL de B.", "es"),
+    ("Değer 7 altında tutulur.", "O valor é mantido abaixo de 7.", "pt"),
+    ("Değer 7 altında tutulur.", "La valeur est maintenue en dessous de 7.", "fr"),
+    ("Değer 7 altında tutulur.", "Der Wert wird unter 7 gehalten.", "de"),
+    ("Antibiyotikler viral enfeksiyonlarda etkili değildir ve bu hastalarda rutin olarak reçete edilmez.",
+     "Los antibióticos no son efectivos en infecciones virales y no se prescriben rutinariamente en estos pacientes.", "es"),
+    ("Tanı ölçütleri arasında açlık plazma glukozunun 126 mg/dL ve üzerinde olması ile HbA1c değerinin yüzde 6,5 ve üzerinde olması yer alır.",
+     "Los criterios de diagnóstico incluyen una glucosa plasmática de ayuno de 126 mg/dL y un valor de HbA1c del 6,5% y superior.", "es"),
 ]
 
 
-@pytest.mark.parametrize("src,tgt", BAD)
-def test_check_rejects_known_bad_translations(src, tgt):
+@pytest.mark.parametrize("src,tgt,lang", BAD)
+def test_check_rejects_meaning_breaking_or_unprovable(src, tgt, lang):
     from app.translate import check
 
-    assert check(src, tgt, "es"), tgt
+    issues = check(src, tgt, lang)
+    print(f"\n RET {lang}: {tgt}\n   → {issues}")
+    assert issues, tgt
 
 
-@pytest.mark.parametrize("src,tgt", GOOD)
-def test_check_accepts_faithful_translations(src, tgt):
+@pytest.mark.parametrize("src,tgt,lang", GOOD)
+def test_check_accepts_faithful_translations(src, tgt, lang):
     from app.translate import check
 
-    assert check(src, tgt, "es") == []
+    assert check(src, tgt, lang) == []
+
+
+def test_unsupported_language_is_never_reported_as_checked():
+    from app.translate import check
+
+    issues = check("Değer 7 altında tutulur.", "Il valore è mantenuto sotto 7.", "it")
+    assert issues and issues[0].startswith("unsupported")
+
+
+# ---- Gerçek modellerle regresyon (sahte çeviri yok); beklentiler koddan bağımsız yazıldı
+ACCEPT = [  # (kaynak, {dil: çeviride bulunması gereken olgu kalıpları})
+    ("Bu hastalarda aspirin kullanılmaz.",
+     {"es": [r"\bno\b", r"aspirina"], "pt": [r"\bnão\b", r"aspirina"], "de": [r"\bnicht\b", r"aspirin"]}),
+    ("Değer 7 altında tutulur.",
+     {"es": [r"(bajo|debajo|inferior|menos)\D{0,6}7\b"], "pt": [r"abaixo de 7"], "de": [r"unter 7"]}),
+    ("Parasetamol 500 mg ağızdan verilir.", {"es": [r"500 mg"], "pt": [r"500 mg"], "de": [r"500 mg"]}),
+    ("Kan basıncı 140 mmHg üzerinde ise tedavi başlanır.",
+     {"es": [r"encima de 140 mmHg"], "pt": [r"acima de 140 mmHg"], "de": [r"über 140 mmHg"]}),
+    ("Penisilin alerjisi olan hastaya amoksisilin verilmez.",
+     {"es": [r"\bno\b", r"amoxicilina"], "pt": [r"\bnão\b", r"amoxicilina"], "de": [r"\bnicht\b", r"amoxicillin"]}),
+]
+REFUSE = [  # (kaynak, beklenen ret kodu) — politika gereği, model çevirisi doğru olsa bile
+    ("A ilacı 10 mg, B ilacı 5 mg verilir.", "same_unit_multi"),
+    ("A ilacı verilmez, B ilacı verilir.", "negation_scope"),
+]
+
+
+@pytest.mark.parametrize("lang", ["es", "pt", "de"])
+def test_real_model_regression(env, lang):
+    from app.translate import translate_verified
+
+    res = translate_verified([s for s, _ in ACCEPT] + [s for s, _ in REFUSE], "tr", lang)
+    for (src, facts), r in zip(ACCEPT, res[: len(ACCEPT)]):
+        print(f"\n [{lang}] KABUL? {r['verified']} | {r['text'] or r['first']}")
+        assert r["verified"], f"doğru tekli cümle gereksiz reddedildi: {src} → {r['first']} {r['issues']}"
+        for pat in facts[lang]:
+            assert re.search(pat, r["text"], re.I), f"{pat} yok: {r['text']}"
+    for (src, code), r in zip(REFUSE, res[len(ACCEPT):]):
+        print(f"\n [{lang}] RET   {r['issues']} | ilk aday: {r['first']}")
+        assert not r["verified"] and r["text"] is None
+        assert any(i.startswith(code) for i in r["issues"])
+
+
+def test_answer_hides_unprovable_translation_and_shows_original(env):
+    """Cevap düzeyinde: kanıtlanamayan cümle cevap metnine girmez, orijinali gerekçesiyle döner."""
+    from app.search import translated_answer
+
+    text = ("Varfarin kullanan hastada aspirin verilmez, parasetamol verilir. "
+            "Parasetamol 500 mg, ibuprofen 400 mg olarak yazılır.")
+    hit = {"text": text, "page": 9, "doc_id": 99, "title": "SENTETİK TEST", "language": "tr", "score": 0.9}
+    a = translated_answer("¿Paracetamol o aspirina?", [hit], "es")
+    print("\n", a)
+    assert a["answer"] is None and a["reason"] == "translation_unverified" and not a["sentences"]
+    codes = {i.split(" ")[0] for u in a["unverified"] for i in u["issues"]}
+    assert {"negation_scope", "same_unit_multi"} <= codes
+    assert all(u["text"] is None for u in a["unverified"])  # çeviri hiç gösterilmez
+    assert a["check_level"] == "surface"

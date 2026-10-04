@@ -64,3 +64,43 @@ Araştırma web aramasıyla yapıldı. **[A]** işaretli sayfalar açılıp okun
 - Olumsuzluk en çok düşürülerek bozuluyor; yüksek kaynaklı dil çiftlerinde bile doğruluk %91,7–95,7: https://arxiv.org/abs/2107.12203 [A]
 - Türkçenin eklemeli yapısı çeviri kalitesini sınırlıyor: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12453858/ [G]
 - Topluluk tarafında, LibreTranslate bakımcıları kötü çeviri bildirimlerinin çoğunun Argos modellerinden kaynaklandığını söylüyor: https://community.libretranslate.com/t/github-issue-related-to-bad-translations/1101 [A]
+
+## 7. Tur 3 (2026-10-04): nicelik–özne ve olumsuzluk kapsamı bağı
+
+İşaretler: **[A]** = açılıp okundu, **[G]** = yalnız arama sonucunda görüldü.
+
+**Hizalama araçları (özne bağını kanıtlamak için):**
+- SimAlign (MIT, CPU'da çalışır): https://github.com/cisnlp/simalign [A]
+- awesome-align (BSD-3): https://github.com/neulab/awesome-align [A]
+- İkisinde de Türkçe için yayımlanmış doğruluk değeri yok. Türkçede bir sözcük çoğu zaman hedefte birden çok sözcüğe karşılık geliyor; kök ve ek ayrılınca hizalama hatası %40 azalıyor: https://aclanthology.org/L12-1191/ [G]
+- **Sonuç:** Eklenmedi. Türkçe için doğrulanmadılar, torch bağımlılığı getiriyorlar ve tam da olumsuzluk ekinde zayıflar.
+
+**CTranslate2 dikkat (attention) çıktısı:** https://opennmt.net/CTranslate2/python/ctranslate2.Translator.html [A]
+- Forumda, çok başlı dikkatin ancak güdümlü hizalamayla eğitilmiş bir başlıkta hizalama sayılabileceği belirtiliyor: https://forum.opennmt.net/t/extracting-word-alignment-from-translation-models/5418 [A]
+- Dönüştürülmüş modelde bu başlığın korunup korunmadığı doğrulanmadı.
+- **Sonuç:** Eklenmedi. Sonraki adım için aday.
+
+**Referanssız kalite tahmini (QE):**
+- CometKiwi (CC-BY-NC-SA, erişimi kapalı): https://huggingface.co/Unbabel/wmt22-cometkiwi-da [A]
+- xCOMET (CC-BY-NC-SA, ~3,5B parametre): https://huggingface.co/Unbabel/XCOMET-XL [A]
+- ACES, ölçütlerin sayı ve olumsuzluk gibi olgularda tutarsız olduğunu gösteriyor: https://arxiv.org/abs/2210.15615 [A]
+- **Sonuç:** Lisans, CPU maliyeti ve güvenilirlik nedeniyle kapı olarak kullanılmadı.
+
+**Yer tutucu (placeholder) yöntemi:**
+- Model bu yöntemle eğitilmemişse yer tutucular düşebiliyor ya da bozulabiliyor: https://arxiv.org/pdf/1907.01279 [G]
+- **Sonuç:** OPUS-MT'ye uygulanmadı.
+
+**Türkçe biçimbilim:**
+- Zemberek (Apache-2.0, Java, bakım yavaş): https://github.com/ahmetaa/zemberek-nlp [A]
+- TRmorph (MIT): https://github.com/coltekin/TRmorph [G]
+- **Sonuç:** Şimdilik düzenli ifade (regex) ile yüklem kutupluluğu çıkarılıyor. Zemberek ile doğrulama sonraki adım için aday.
+
+**Geri çeviri:** Yalnız ek bir ret gerekçesi olarak işe yarıyor, doğruluğun kanıtı sayılmaz: https://arxiv.org/abs/2209.07351 [G]
+
+**Seçilen temkinli tasarım** (araştırmanın önerisiyle uyumlu):
+- (değer, birim) çiftleri kaynakla birebir ve aynı sırada olmalı.
+- Aynı birimden birden çok nicelik varsa → reddet.
+- Çeviride birebir geçen varlık sözcükleri (A, B, HbA1c…) aynı bölümde aynı niceliğe bağlı olmalı.
+- Olumsuzluk yüklem bazında sayılır; karışık olumlu/olumsuz çok eylem varsa → reddet.
+- Karşılaştırma yönü beş hedef dilin hepsinde denetlenir; desteklenmeyen dil → reddet.
+- Çeviri birimi, cümlenin ";" ve ":" noktalarından bölünmüş hâlidir.

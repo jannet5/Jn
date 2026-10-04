@@ -139,3 +139,48 @@ Kullanıcı `788ddaf` sürümünü kaynakla karşılaştırdı ve şu eksiği te
 - DMCA temsilcisi
 - Kaynaktaki eksik özgün "medical" klasörü
 - İsteğe bağlı Claude kipi için `MEDPDF_ANTHROPIC_API_KEY` (çok dilli cevap artık buna bağlı değil)
+
+---
+# Tur 3 — 2026-10-04: ebeveyn kabulündeki anlam bağı açığı
+
+## İstenen
+Ebeveyn, `9311085` sürümünü uzak blob hash'leriyle doğruladı. Ardından `check()` fonksiyonunu Windows Python 3.11'de çalıştırdı ve dört anlam bozucu çevirinin hepsinin `issues=[]` ile kabul edildiğini gördü:
+1. 10 mg ↔ 5 mL değiş tokuşu
+2. A ve B dozlarının yer değiştirmesi
+3. Olumsuzluğun yanlış eyleme kayması
+4. pt dilinde "abaixo" yerine "acima"
+
+İstenenler:
+- Önce paketleme dilimini kalıcı olarak bitirmek.
+- Sonra bu açığı aynı dalda kapatmak.
+- Bağ kanıtlanamıyorsa çeviriyi göstermemek, Türkçe orijinali gerekçesiyle sunmak.
+- Desteklenmeyen dili başarılı saymamak.
+- "Doğrulandı" izlenimi veren ibareleri düzeltmek.
+
+## Yapılanlar
+1. **Paketleme dilimi kapatıldı.** `TESLIM.md` içine v2 hash'leri yazıldı ve push edildi (`7e4af7a`). Uzak commit ve dosya blob'u yerelle aynı.
+2. **Açık yeniden üretildi.** Dört örneğin dördü de eski `check()` ile `[]` döndü; kontrol örneği (10 mg → 5 mg) ise reddedildi. Ebeveynin bulgusu doğrulandı.
+3. **Araştırma** (`arastirma.md` 7. bölüm): hizalama araçları (SimAlign, awesome-align), CTranslate2 dikkat çıktısı, QE modelleri (CometKiwi/xCOMET, ticari olmayan lisans), yer tutucu yöntemi, Zemberek ve geri çeviri incelendi. Hiçbiri Türkçe için doğrulanmış ve ucuz bir kanıt sunmadığından temkinli kural tabanlı tasarım seçildi.
+4. **`check()` v2** yazıldı. Kurallar `harita.md` Tur 3 bölümünde. Sorunlar artık kodlu (`quantity`, `negation_scope` gibi) ve arayüz gerekçeyi kullanıcının dilinde gösteriyor.
+5. **Ek açık bulundu ve kapatıldı.** Farklı birimli iki nicelikte özneler yer değiştirince ("A 10 mg, B 5 mL" → "10 mg de B y 5 mL de A") çeviri hâlâ geçiyordu. Çeviride birebir geçen varlık sözcükleri üzerinden bölüm-bağı denetimi eklendi.
+6. **Kendi hatalarım:**
+   - Ayırıcı ondalık virgülü bölüyordu ("6,5" → "6" + "5").
+   - "dL" birimi varlık sözcüğü sayılıyordu.
+   - Bu yüzden doğru glukoz/HbA1c çevirisi gereksiz yere reddediliyordu. İkisi de düzeltildi.
+7. **Raporlama tutarsızlığı:** Ret gerekçesi ikincil modelin adayından, gösterilen metin birincil modelden geliyordu. Gerekçe artık gösterilen adayla tutarlı.
+8. **Çeviri birimleri** cümlenin ";" ve ":" noktalarından bölündü (`search._units`). Önce bu bölme `_sentences` içine konmuştu ve arama vurgusu testi bozuldu; bölme yalnız çeviri tarafına taşındı.
+9. **Etiketler düzeltildi.** "✓ doğrulandı" kaldırıldı. API'de `check_level: "surface"` ve uygulanan denetimler listeleniyor. Arayüzde "yüzeysel denetimden geçti; tam anlam garanti edilmez — orijinalle karşılaştırın" yazıyor.
+
+## Doğrulama
+- **`pytest -v tests/`: 49/49 geçti.** Gerçek modeller kullanıldı.
+  - Denetimin reddetmesi gereken 20 çeviriden 20'si reddedildi.
+  - Doğru 10 çeviriden 10'u kabul edildi.
+  - Desteklenmeyen dil (it) "unsupported" olarak reddedildi.
+  - Gerçek modellerle es/pt/de regresyonu: 5 tekli doğru cümle beklenen olgularla kabul edildi ("500 mg", "no … aspirina", "abaixo de 7", "über 140 mmHg" vb.). A/B çoklu doz ve karışık olumsuzluk cümleleri, model doğru çevirse bile reddedildi.
+  - Cevap düzeyinde: kanıtlanamayan iki cümle cevaba girmedi, orijinalleri gerekçe kodlarıyla döndü.
+- **E2E OK.** Mobil ekranda "…uygun değilse trombolitik tedavi verilir" yan cümlesi çevrilmeden, "alcance de la negación dudoso" gerekçesiyle gösteriliyor. "✓" ibaresi yok.
+
+## Kalan sınırlar
+- **Özne/çatı kayması yakalanmıyor.** Örnek: "el infarto con elevación de ST proporciona la reperfusión".
+- **Terim kayması yakalanmıyor.** Örnek: "hambre" (doğrusu "ayuno").
+- **Yüklem tespiti düzenli ifadeyle yapılıyor.** Zemberek ile doğrulama ve dikkat tabanlı hizalama sonraki adaylar.

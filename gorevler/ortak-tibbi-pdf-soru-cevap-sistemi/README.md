@@ -65,7 +65,7 @@ Ayrıntılar için [harita.md](harita.md) (A/B/C yolları), [arastirma.md](arast
 ```bash
 pip install -r requirements-dev.txt
 scripts/fetch_mt_models.sh                         # çeviri modelleri (testler bunlar olmadan başarısız olur)
-pytest -v tests/                                   # gerçek PDF + gerçek arama/çeviri modelleri + HTTP API (23 test)
+pytest -v tests/                                   # gerçek PDF + gerçek arama/çeviri modelleri + HTTP API (49 test)
 python scripts/make_sample_pdfs.py samples
 MEDPDF_MONTHLY_FREE=8 uvicorn app.main:app --port 8765 &
 python scripts/e2e.py http://127.0.0.1:8765 samples out/   # masaüstü + iPhone 13 tarayıcı akışı
@@ -74,6 +74,9 @@ python scripts/e2e.py http://127.0.0.1:8765 samples out/   # masaüstü + iPhone
 ## Sınırlar (dürüst liste)
 
 - **Yerel çeviri yalnız Türkçe kaynak için:** Hedef dil İspanyolca, İngilizce, Portekizce, Fransızca ya da Almanca olabilir. Diğer kaynak dillerinde sistem "unsupported_pair" uyarısı verip alıntıyı kaynak dilinde gösterir.
+- **Denetim yüzeyseldir, "doğrulandı" değildir.** Denetlenenler: sayı ile birimin eşleşmesi ve sırası, birebir geçen varlık sözcükleriyle nicelik-özne bağı, yüklem bazında olumsuzluk, altında/üzerinde yönü (es/en/pt/fr/de).
+  - Aynı birimli birden çok doz ya da karışık olumlu/olumsuz çok eylemli cümlede bağ kanıtlanamadığı için çeviri gösterilmez; Türkçe orijinal gerekçesiyle sunulur.
+  - Özne kayması gibi anlam hataları yakalanmaz. Örnek: "el infarto … proporciona la reperfusión".
 - **Denetim terim hatasını yakalamaz:** Sayı, birim, olumsuzluk ve karşılaştırma korunuyor ama terim kayması kaçabiliyor. Örnek: "açlık plazma glukozu" → "glucosa plasmática de *hambre*" (doğrusu "ayuno"). Bu yüzden her cümlenin Türkçe orijinali açılabilir durumda.
 - **"Cevap yok" tespiti temkinli:** Eşanlamlıda kaçabilir. Örnek: soruda "temperatura", kaynakta "ateş" (çeviride "fiebre") geçiyor; sistem cevap vermek yerine "yok" diyor.
 - **Hız ve boyut:** Bir soru 4 çekirdekte 2–7 saniye sürüyor. Docker imajı 1,92 GB (arama + çeviri modelleri gömülü).
