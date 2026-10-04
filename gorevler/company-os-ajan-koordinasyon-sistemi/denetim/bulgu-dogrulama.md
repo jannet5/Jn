@@ -62,3 +62,11 @@ Düzeltme (yalnız testler ve prob; ürün kodu değişmedi):
   - Negatif kontrolde Windows dalının 2 mutasyonu dahil 8/8 yakalandı.
 - **Windows beklentisi:** 49 testte 46 geçer, 3 atlanır. Bu güncel paket Windows'ta **henüz çalıştırılmadı**.
 - **Gerçek Codex uçtan uca akışı:** Kimlik doğrulama gerektirdiği için **çalıştırılmadı**.
+
+## 5. aşama: Windows kanıtı (2026-10-04)
+- **Windows fixture deltası:** 2026-10-03'te kullanıcının bilgisayarında izole bir kopyada çalıştırıldı.
+  - 49 test: 46 geçti, 3 atlandı, 0 hata; `tools/check.py` exit 0.
+  - Test dosyası SHA `71610148…3143`, sonuç JSON'u SHA `394bd38b…61bb` (kullanıcı beyanı).
+- **Codex'siz güvenli başarısızlık kabulü** bu ortamda çalıştırıldı ve sahte başarı üretilmedi.
+- **NTFS junction testi** eklendi; Windows'ta çalıştırılmadı.
+- **Gerçek Codex intake→run→resume→package kabulü yapılmadı.**

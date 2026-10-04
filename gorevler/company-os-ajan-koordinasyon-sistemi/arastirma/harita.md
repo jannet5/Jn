@@ -150,3 +150,35 @@ Kaynak ZIP (hash ✓) → kod okuma → mevcut testler (37 OK)
    ✗ engelli: Codex hesabıyla uçtan uca çalıştırma · Windows testleri · eksik dosyalar (salon.jpg, önceki run çıktısı, .git)
 ```
 Yol kırılırsa: Windows dalı Windows'ta başarısız olursa, araştırmadaki `FileRenameInfo` ile tutamak tabanlı yeniden adlandırma alternatifine geçilir.
+
+---
+
+# 5. aşama: Windows kanıtı ve kalan kabul yolu (2026-10-04)
+
+## Ayrı kanıt düğümü: Windows fixture deltası (kullanıcının çalıştırması)
+- **Tarih ve yer:** 2026-10-03, kullanıcının bilgisayarında izole bir kopya. Kaynak aslı değişmedi. Yalnız düz metin test deltası uygulandı; tam ZIP indirilmedi.
+- **Test dosyası:** SHA-256 `716101480350538663e5a51bdd08188e52556c7173d7f6ed4c7dc76a74dd3143`.
+- **Sonuç:** `unittest` 49 test: **46 geçti, 3 atlandı, 0 hata, exit 0**. `tools/check.py` exit 0.
+- **Sonuç JSON'u:** SHA-256 `394bd38b7a6486bd67c69f837a6a1833ae28ffe892f21e50b1ce59b5612761bb`. Kullanıcı 2026-10-04'te geri okuduğunu bildirdi; bu ortamda yeniden üretilmedi.
+- **Kapsam dışı:** Bu kanıt gerçek NTFS junction/reparse point testini ve Codex akışını **kapsamaz**.
+
+## Bulut ortamında yapılan bağımsız adımlar
+1. **Codex'siz güvenli başarısızlık kabulü (K1–K9):**
+   - `.git` olmadan intake iş oluşturmuyor.
+   - Sentetik, tek kullanımlık bir git kökünde `run` Codex yokluğunda görünür biçimde başarısız oluyor.
+   - `resume` ve `accept` reddediliyor; `repair` deneme bütçesiyle sınırlı.
+   - `package` dürüst rapor veriyor: native_app_server=False, artifacts=0, başarılı geçiş 0.
+   - Bu **gerçek uçtan uca kabul değil**; yalnız önkoşullar eksikken sahte başarı olmadığını kanıtlar.
+2. **NTFS junction testi eklendi** (yalnız Windows; `mklink /J` ayrıcalık gerektirmez). Windows'ta **çalıştırılmadı**.
+
+## Kalan kabul zinciri (en küçük yol, kullanıcı makinesinde)
+```
+W0 junction test deltası → unittest (token yok)
+W1 Codex kimliği doğrulanmış → probe (handshake, token yok)
+W2 gerçek .git → intake
+W3 → run --stop-after design (1 Codex turn)
+W4 salon.jpg → resume --stop-after implement
+W5 Node + Playwright → resume (QA + review → awaiting_human)
+W6 package → yalnız insan incelemesinden sonra accept --human-accepted
+```
+Her adım, bir önceki adımın kanıtı olmadan başlatılmamalı. Hiçbir önkoşul varmış gibi sayılmadı.

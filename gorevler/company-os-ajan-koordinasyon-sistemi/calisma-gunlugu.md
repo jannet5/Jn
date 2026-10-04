@@ -225,3 +225,40 @@ Kullanıcının Windows çalıştırmasında 1 ERROR çıktı: symlink ayrıcal�
 - Güncel paket Windows'ta yeniden çalıştırılmadı.
 - Gerçek NTFS reparse point ve junction senaryosu çalıştırılmadı.
 - Gerçek Codex uçtan uca akışı çalıştırılmadı (kimlik doğrulama ve Playwright gerekiyor).
+
+---
+
+# 5. aşama: Windows kanıtı ve kalan kabul (2026-10-04)
+
+## İstenen
+- Kullanıcının Windows sonucunu ayrı kanıt olarak işlemek.
+- Kalan kabul için en küçük uygulanabilir yolu çıkarıp mümkün adımları uygulamak.
+- `salon.jpg`, `.git` ve kimlik doğrulamasını varmış gibi saymamak.
+
+## Yapılanlar
+1. **Windows kanıtı işlendi:** Kullanıcı beyanı olarak haritaya, özel rapora (4b) ve bu günlüğe yazıldı.
+   - 46 geçti / 3 atlandı / 0 hata; `check.py` exit 0.
+   - Test SHA `71610148…3143`, sonuç JSON SHA `394bd38b…61bb`.
+2. **Kaynaktan çıkarılan yol:** `cli.py`, `engine.py`, `codex_executor.py` ve `worktrees.py` okundu. Önkoşullar: `probe` için Codex; `intake` için gerçek `.git`; design ve review için Codex; implement için `salon.jpg`; QA için Node ve Playwright.
+3. **Codex'siz kabul betiği** (`kabul_codexsiz.sh`) yazıldı ve çalıştırıldı:
+   - K1 probe → kullanılamaz.
+   - K2 `.git` yokken intake → exit 1, iş yok.
+   - K3 yalnız sentetik git kökünde intake.
+   - K4 run → güvenli başarısız.
+   - K5 resume ret; K6 accept ret.
+   - K7 repair ×3 → bütçe sınırı.
+   - K8 package: dürüst rapor.
+   - K9 olay hash bütünlüğü OK.
+4. **NTFS junction testi** eklendi (yalnız Windows). Linux'ta 50 test geçiyor (2 atlama); Windows'ta çalıştırılmadı.
+5. **Özel ZIP:** 170978 bayt, 77 dosya, SHA-256 `0d2d5864e710e1166a5c96944e400ab0112296c6feea2cd30e07e10dabccdbed`.
+   - Geri okuma: hash ve CRC OK; bundle ağacı aynı; klonda testler OK, prob 0/20 açık; ham metin yok.
+
+## Sorun ve çözüm
+| Sorun | Çözüm |
+|---|---|
+| Kabul betiğinde K2 satırı boş çıktı verdi: traceback'in son satırı boş | Son boş olmayan satır yazdırıldı; kanıt yeniden üretildi |
+
+## Açık
+- NTFS junction testi Windows'ta çalıştırılmadı.
+- Gerçek Codex akışı (W1–W6) yapılmadı. Gerçek `.git`, `salon.jpg`, kimliği doğrulanmış Codex ve Playwright gerekiyor.
+- **Ürün tamamen bitmedi.**
