@@ -27,7 +27,7 @@ export ANDROID_HOME=/path/to/android-sdk
 - Veri: `araclar/veri_uret.py` (Tanzil Uthmani → `assets/quran.tsv`, `assets/surahs.tsv`)
 - Kağıt dokusu: `araclar/doku_uret.py` → `res/drawable-nodpi/paper_texture.png`
 - Tasarım kaynağı: `fabrika/DESIGN.md`. Ürün kararları `fabrika/` klasöründe.
-- İmza anahtarı git'e konmadı. Anahtar ve şifresi kullanıcının Google Drive'ında duruyor (`Uygulama Fabrikası/kuran-oku/imza`). Güncellemeler aynı anahtarla imzalanmalı.
+- İmza anahtarı git'e konmadı; anahtar dosyası ve şifresi kullanıcıya ayrıca gönderildi. Güncellemeler aynı anahtarla imzalanmalı.
 
 ## Kaynaklar ve lisanslar
 - Kur'an metni: Tanzil Projesi, Uthmani metni (tanzil.net), değiştirilmeden kullanıldı.
