@@ -9,6 +9,7 @@ from .config import settings
 from .db import DB
 from .embed import embed
 from .pdfproc import detect_language
+from .translate import strip_accents, supports, translate_verified
 
 LANG_NAMES = {
     "tr": "Türkçe", "en": "English", "es": "Español", "de": "Deutsch", "fr": "Français",
@@ -113,6 +114,75 @@ def extractive_answer(question: str, hits: list[dict]) -> dict:
         "answer_language": top["language"],
         "source": {"doc_id": top["doc_id"], "title": top["title"], "page": top["page"]},
     }
+
+
+# Soru içindeki "genel" sözcükler: cevaplanabilirlik denetiminde konu terimi sayılmaz
+GENERIC = set("""
+cual cuales que quien como cuanto cuanta cuantos donde cuando por para partir desde con sin una uno unos unas los las del
+el la de en se es son esta estan usa usan utiliza utilizan usar emplea debe deben puede pueden hay hace
+valor valores dosis tratamiento tratamientos inicial primer primera primero objetivo meta paciente pacientes
+adulto adultos nino ninos enfermedad indicado indica recomienda administra administran administrar dar da
+dan tipo forma cosa caso casos eficaz eficaces efectivo efectivos sirve manejo terapia medicamento farmaco
+what which how much many when where does do is are the of in for with used use dose treatment initial first
+target goal patient patients adult adults value effective given give
+""".split())
+
+
+FUNCTION = set("cual cuales como cuanto cuanta donde cuando para partir desde hasta esta estan este estos esas "
+                "unos unas what which when where with from does".split())
+
+
+def _bonus_terms(question: str) -> set[str]:
+    words = re.findall(r"\w+", strip_accents(question.lower()))
+    return {w[:5] for w in words if len(w) >= 4 and w not in FUNCTION}
+
+
+def _topic_terms(question: str) -> set[str]:
+    words = re.findall(r"\w+", strip_accents(question.lower()))
+    return {w[:5] for w in words if len(w) >= 4 and w not in GENERIC and not w.isdigit()}
+
+
+def translated_answer(question: str, hits: list[dict], target: str, max_hits: int = 3) -> dict:
+    """Türkçe kaynaktan, soru dilinde, sayfaya dayalı ve doğrulanmış cevap (anahtarsız, yerel).
+
+    İlk birkaç kaynak bölüm sırayla denenir; sorunun konu terimlerinin hepsi (en fazla ¼ eksik)
+    bölümün çevirisinde geçmiyorsa o bölüm cevap sayılmaz. Hiçbiri uymuyorsa "cevap yok" döner.
+    """
+    base = {"mode": "translated", "question_language": target, "answer_language": target,
+            "confident": False, "answer": None, "sentences": [], "unverified": []}
+    cands = [h for h in hits[:max_hits] if h["score"] >= 0.25 and supports(h["language"], target)]
+    if not cands:
+        return {**base, "no_answer": True, "reason": "no_passage"}
+    topic = _topic_terms(question)
+    best_missing = None
+    qvec = embed([question])[0]
+    for rank, hit in enumerate(cands):
+        sents = _sentences(hit["text"]) or [hit["text"][:400]]
+        tr = translate_verified(sents, hit["language"], target)
+        shown = [r["text"] or r["first"] or "" for r in tr]
+        chunk = strip_accents(" ".join(shown).lower())
+        missing = sorted(t for t in topic if t not in chunk)
+        if len(missing) > len(topic) // 4:
+            if best_missing is None or len(missing) < len(best_missing):
+                best_missing = missing
+            continue
+        # Cevap cümleleri: soru diliyle aynı dilde (çeviri) anlam + soru terimi örtüşmesine göre en iyi 3
+        sv = embed(shown)
+        bonus = _bonus_terms(question)
+        score = [float(sv[i] @ qvec) + 0.12 * sum(t in strip_accents(shown[i].lower()) for t in bonus)
+                 for i in range(len(shown))]
+        top = sorted(sorted(range(len(shown)), key=lambda i: -score[i])[:3])
+        cite = {"doc_id": hit["doc_id"], "title": hit["title"], "page": hit["page"], "hit_rank": rank + 1}
+        for i in top:
+            r = tr[i]
+            item = {"text": r["text"], "source_text": r["source"], "model": r["model"], "issues": r["issues"], **cite}
+            (base["sentences"] if r["verified"] else base["unverified"]).append(item)
+        if not base["sentences"]:
+            return {**base, "no_answer": False, "reason": "translation_unverified", "source": cite}
+        n = rank + 1
+        base["answer"] = " ".join(f"{x['text']} [{n}]" for x in base["sentences"])
+        return {**base, "no_answer": False, "confident": hit["score"] >= 0.4, "source": cite}
+    return {**base, "no_answer": True, "reason": "topic_missing", "missing_terms": best_missing or []}
 
 
 def ai_answer(question: str, hits: list[dict]) -> dict:

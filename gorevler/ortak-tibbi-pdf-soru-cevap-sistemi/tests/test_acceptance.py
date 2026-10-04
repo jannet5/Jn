@@ -44,13 +44,14 @@ def upload(client, dev, path, **extra):
         )
 
 
-def test_shared_library_and_cross_lingual(env):
+def test_shared_library_and_cross_lingual_retrieval(env):
+    """Yalnız ARAMA kabulü: İspanyolca soru doğru Türkçe sayfayı bulur (cevap kabulü test_multilingual_answer.py'de)."""
     client, samples = env
     alice = new_device(client, "10.0.0.1")  # Türk öğrenci yükler
     r = upload(client, alice, samples / "acil-dahiliye-ozet-tr.pdf", subject="Acil")
     assert r.status_code == 200, r.text
     body = r.json()
-    assert body["pages"] == 3 and not body["duplicate"]
+    assert body["pages"] == 4 and not body["duplicate"]
     assert upload(client, alice, samples / "haematology-notes-en.pdf").status_code == 200
 
     # Aynı PDF tekrar yüklenirse kopya oluşmaz
@@ -58,8 +59,8 @@ def test_shared_library_and_cross_lingual(env):
 
     # Başka cihaz (giriş yok) ortak kütüphaneyi görür
     docs = client.get("/api/documents").json()
-    tr = next(d for d in docs if d["title"] == "Acil ve Dahiliye Özet Notları")
-    assert tr["language"] == "tr" and tr["pages"] == 3
+    tr = next(d for d in docs if d["title"] == "SENTETİK TEST — Acil ve Dahiliye Özet Notları")
+    assert tr["language"] == "tr" and tr["pages"] == 4
 
     pablo = new_device(client, "10.0.0.2")  # İspanyol öğrenci soru sorar
     cases = [
@@ -72,16 +73,17 @@ def test_shared_library_and_cross_lingual(env):
         assert r.status_code == 200, r.text
         res = r.json()
         top = res["hits"][0]
-        print(f"\n[ES→TR] {q}\n  → {top['title']} s.{top['page']} skor={top['score']}\n  → {res['answer']['answer']}")
+        print(f"\n[ES→TR arama] {q}\n  → {top['title']} s.{top['page']} skor={top['score']}")
         assert top["doc_id"] == tr["id"] and top["page"] == page
         assert res["answer"]["question_language"] == "es"
-        assert res["answer"]["answer_language"] == "tr"
-        assert word.lower() in res["answer"]["answer"].lower()
+        assert word.lower() in " ".join(top["highlights"]).lower()  # Türkçe kaynak cümlesi bulundu
         assert res["cost"] == 1
 
     # Türkçe soru İngilizce PDF'ten de yanıt bulur
     r = client.post("/api/ask", headers=pablo, json={"question": "Demir eksikliği anemisinde ilk tedavi nedir?"})
     assert r.json()["hits"][0]["title"] == "Haematology Notes"
+    # EN→TR yerel çeviri yok: bunu açıkça bildirir, kaynak dilde alıntı verir
+    assert r.json()["answer"]["translation_error"] == "unsupported_pair"
 
 
 def test_transparent_quota_never_cuts_open_thread(env):
@@ -169,7 +171,7 @@ def test_ai_mode_falls_back_to_cited_excerpt(env, monkeypatch):
     dev = new_device(client, "10.0.0.5")
     upload(client, dev, samples / "acil-dahiliye-ozet-tr.pdf")  # tek başına çalışınca da kütüphane dolu olsun
     r = client.post("/api/ask", headers=dev, json={"question": "¿Tratamiento de la anafilaxia?", "use_ai": True})
-    assert r.json()["cost"] == 1 and r.json()["answer"]["mode"] == "extractive"
+    assert r.json()["cost"] == 1 and r.json()["answer"]["mode"] == "translated"
 
     monkeypatch.setattr(settings, "anthropic_key", "dummy-not-real")
 

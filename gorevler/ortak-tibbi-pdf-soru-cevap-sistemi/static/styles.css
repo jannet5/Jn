@@ -74,3 +74,7 @@ details{font-size:13px;color:var(--muted)}summary{cursor:pointer}
 @media (max-width:380px){.mini-meter i{display:none}}
 @media (max-width:430px){.brand{display:none}}
 .hist{max-height:170px;overflow:auto}
+.tr-s{margin:6px 0 2px}.cite{color:var(--muted);font-size:11px}
+.orig{font-size:12.5px;color:var(--muted);margin:0 0 6px}.orig p{margin:4px 0;border-left:2px solid var(--line);padding-left:8px}
+.unv{margin-top:8px;border-top:1px dashed var(--line)}.orig-p{font-size:13px;color:var(--muted)}
+.ans.none{border-left-color:var(--muted)}.warn-t{color:var(--warn)}

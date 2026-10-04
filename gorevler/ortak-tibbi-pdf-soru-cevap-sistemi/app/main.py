@@ -14,7 +14,8 @@ from .config import settings
 from .db import DB
 from .embed import embed
 from .pdfproc import chunk_pages, detect_language, extract_pages
-from .search import LANG_NAMES, Index, ai_answer, extractive_answer, retrieve
+from . import translate
+from .search import LANG_NAMES, Index, ai_answer, extractive_answer, retrieve, translated_answer
 
 STATIC = Path(__file__).resolve().parent.parent / "static"
 
@@ -162,6 +163,7 @@ def create_app() -> FastAPI:
         doc_ids: list[int] | None = None
         thread_id: str | None = None
         use_ai: bool = False
+        ui_language: str | None = Field(default=None, pattern="^[a-z]{2}$")
 
     @app.post("/api/ask")
     def ask(body: AskIn, dev: str = Depends(device)):
@@ -173,6 +175,19 @@ def create_app() -> FastAPI:
         st = quota.charge(db, dev, "ask_ai" if use_ai else "ask", cost, tid)
         hits = retrieve(db, index, body.question, body.doc_ids or None, k=5)
         ans = extractive_answer(body.question, hits)
+        qlang = ans["question_language"]
+        if qlang == "unknown" and body.ui_language:
+            qlang = ans["question_language"] = body.ui_language
+        if hits and hits[0]["language"] != qlang and not use_ai:
+            if translate.supports(hits[0]["language"], qlang):
+                try:
+                    ans = translated_answer(body.question, hits, qlang)
+                except Exception as e:  # model yüklenemezse alıntıya düş ve bunu açıkça söyle
+                    ans["translation_error"] = type(e).__name__
+            elif hits[0]["language"] in translate.SOURCE_LANGS and qlang in translate.TARGET_TAGS:
+                ans["translation_error"] = "mt_unavailable"  # dil çifti destekli ama model dosyası yok
+            else:
+                ans["translation_error"] = "unsupported_pair"
         if use_ai and hits:
             try:
                 ans = ai_answer(body.question, hits)
@@ -204,7 +219,8 @@ def create_app() -> FastAPI:
     @app.get("/api/health")
     def health():
         n = db.one("SELECT COUNT(*) n FROM documents WHERE hidden=0")["n"]
-        return {"ok": True, "documents": n, "ai_enabled": settings.ai_enabled, "model": settings.embed_model}
+        return {"ok": True, "documents": n, "ai_enabled": settings.ai_enabled, "model": settings.embed_model,
+                "local_translation": translate.available()}
 
     @app.get("/")
     def root():

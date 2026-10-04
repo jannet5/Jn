@@ -1,6 +1,6 @@
 "use strict";
 const T = {
-  tr: {tabAsk:"Sor",tabLib:"Kütüphane",askLabel:"Sorunu istediğin dilde yaz",allDocs:"Tüm ortak kütüphane",useAi:"Yapay zekâ ile kendi dilimde özetle",newThread:"Yeni konu",
+  tr: {trVerified:"Yerel çeviri — sayı, birim, olumsuzluk ve karşılaştırma denetlendi",showOrig:"Orijinal (kaynak dil)",noAnswerSrc:"Bu sorunun cevabı ortak kütüphanedeki kaynaklarda bulunamadı. Uydurma cevap vermiyoruz.",missingTerms:"Kaynakta bulunmayan terimler",unverifiedHead:"Çevirisi doğrulanamayan cümle (cevaba eklenmedi) — orijinali:",trUnverifiedAll:"Kaynak bulundu ama çeviri doğrulanamadı; aşağıda orijinal metni görüyorsun.",trError:"Yerel çeviri şu an kullanılamıyor; kaynak dildeki alıntı gösteriliyor.",trUnsupported:"Bu dil çifti için yerel çeviri yok; kaynak dildeki alıntı gösteriliyor.",tabAsk:"Sor",tabLib:"Kütüphane",askLabel:"Sorunu istediğin dilde yaz",allDocs:"Tüm ortak kütüphane",useAi:"Yapay zekâ ile kendi dilimde özetle",newThread:"Yeni konu",
     disclaimer:"Eğitim amaçlıdır; klinik karar veya tıbbi tavsiye değildir. Her yanıtı kaynak sayfasından doğrulayın.",upTitle:"PDF paylaş — kütüphaneye katkı ücretsiz",
     titlePh:"Başlık (isteğe bağlı)",subjectPh:"Ders / konu (ör. Kardiyoloji)",rights:"Bu PDF'i paylaşma hakkım var (kendi notum, açık lisans ya da izinli).",upload:"Yükle",
     searchPh:"Kütüphanede ara",quotaTitle:"Kullanım hakkın",nextCost:"Sıradaki soru",bonus:"Destek kredisi",grace:"İş bitirme payı",reset:"Yenilenme",howTitle:"Bu kota nasıl çalışır?",
@@ -13,7 +13,7 @@ const T = {
     pages:"sayfa",report:"Bildir",reportAsk:"Neden? copyright / wrong / spam / other",reported:"Bildirildi, teşekkürler.",uploading:"Yükleniyor ve dizinleniyor…",
     uploaded:"Eklendi: {t} ({p} sayfa). Herkes artık bu PDF'ten soru sorabilir.",dup:"Bu PDF zaten kütüphanede: {t}",added:"+{n} destek kredisi eklendi.",empty:"Kütüphane boş — ilk PDF'i sen paylaş.",
     hk_ask:"soru",hk_ask_ai:"YZ soru",hk_upload:"yükleme",hk_free:"",hk_bonus:"destek",hk_grace:"pay",cost:"{n} kredi"},
-  en: {tabAsk:"Ask",tabLib:"Library",askLabel:"Ask in any language",allDocs:"Whole shared library",useAi:"Summarise in my language with AI",newThread:"New topic",
+  en: {trVerified:"Local translation — numbers, units, negation and comparisons checked",showOrig:"Original (source language)",noAnswerSrc:"The shared library sources do not contain an answer to this question. We do not make one up.",missingTerms:"Terms not found in sources",unverifiedHead:"Sentence whose translation could not be verified (left out of the answer) — original:",trUnverifiedAll:"A source was found but its translation could not be verified; the original text is shown below.",trError:"Local translation is unavailable right now; showing the source-language excerpt.",trUnsupported:"No local translation for this language pair; showing the source-language excerpt.",tabAsk:"Ask",tabLib:"Library",askLabel:"Ask in any language",allDocs:"Whole shared library",useAi:"Summarise in my language with AI",newThread:"New topic",
     disclaimer:"For education only; not clinical decision support or medical advice. Verify every answer on its source page.",upTitle:"Share a PDF — contributing is free",
     titlePh:"Title (optional)",subjectPh:"Course / subject (e.g. Cardiology)",rights:"I have the right to share this PDF (my own notes, open licence or permission).",upload:"Upload",
     searchPh:"Search library",quotaTitle:"Your allowance",nextCost:"Next question",bonus:"Supporter credit",grace:"Finish-up buffer",reset:"Resets",howTitle:"How does this quota work?",
@@ -26,7 +26,7 @@ const T = {
     pages:"pages",report:"Report",reportAsk:"Why? copyright / wrong / spam / other",reported:"Reported, thank you.",uploading:"Uploading and indexing…",
     uploaded:"Added: {t} ({p} pages). Everyone can now ask questions from it.",dup:"Already in the library: {t}",added:"+{n} supporter credits added.",empty:"Library is empty — share the first PDF.",
     hk_ask:"question",hk_ask_ai:"AI question",hk_upload:"upload",hk_free:"",hk_bonus:"supporter",hk_grace:"buffer",cost:"{n} credit(s)"},
-  es: {tabAsk:"Preguntar",tabLib:"Biblioteca",askLabel:"Pregunta en cualquier idioma",allDocs:"Toda la biblioteca compartida",useAi:"Resumir en mi idioma con IA",newThread:"Nuevo tema",
+  es: {trVerified:"Traducción local — números, unidades, negación y comparaciones verificados",showOrig:"Original (idioma de la fuente)",noAnswerSrc:"Las fuentes de la biblioteca compartida no contienen la respuesta a esta pregunta. No inventamos respuestas.",missingTerms:"Términos que no aparecen en la fuente",unverifiedHead:"Frase cuya traducción no se pudo verificar (no incluida en la respuesta) — original:",trUnverifiedAll:"Se encontró una fuente, pero su traducción no se pudo verificar; abajo ves el texto original.",trError:"La traducción local no está disponible ahora; se muestra el extracto en el idioma de la fuente.",trUnsupported:"No hay traducción local para este par de idiomas; se muestra el extracto en el idioma de la fuente.",tabAsk:"Preguntar",tabLib:"Biblioteca",askLabel:"Pregunta en cualquier idioma",allDocs:"Toda la biblioteca compartida",useAi:"Resumir en mi idioma con IA",newThread:"Nuevo tema",
     disclaimer:"Solo con fines educativos; no es consejo médico. Verifica cada respuesta en su página de origen.",upTitle:"Comparte un PDF — aportar es gratis",
     titlePh:"Título (opcional)",subjectPh:"Asignatura / tema (p. ej. Cardiología)",rights:"Tengo derecho a compartir este PDF (apuntes propios, licencia abierta o permiso).",upload:"Subir",
     searchPh:"Buscar en la biblioteca",quotaTitle:"Tu cuota",nextCost:"Próxima pregunta",bonus:"Crédito de apoyo",grace:"Margen para terminar",reset:"Se renueva",howTitle:"¿Cómo funciona la cuota?",
@@ -106,11 +106,16 @@ function renderThread() { $("#threadHint").textContent = threadId ? t("thread", 
 
 function renderAnswer(question, res) {
   const a = res.answer, box = document.createElement("article");
-  box.className = "ans" + (a.confident ? "" : " low");
+  box.className = "ans" + (a.confident ? "" : " low") + (a.no_answer ? " none" : "");
   let body;
-  if (!a.answer) body = `<p class="a">${esc(t("noAnswer"))}</p>`;
+  if (a.mode === "translated" && a.no_answer) {
+    body = `<p class="a">${esc(t("noAnswerSrc"))}</p>` + (a.missing_terms?.length ? `<p class="hint">${esc(t("missingTerms"))}: ${esc(a.missing_terms.join(", "))}…</p>` : "");
+  } else if (a.mode === "translated") {
+    body = (a.answer ? `<p class="hint">✓ ${esc(t("trVerified"))}</p>` + a.sentences.map((x) => `<p class="a tr-s">${esc(x.text)} <sup class="cite">[${esc(x.title)}, ${t("page")}${x.page}]</sup></p><details class="orig"><summary>${esc(t("showOrig"))}</summary><p>${esc(x.source_text)}</p></details>`).join("") : `<p class="a">${esc(t("trUnverifiedAll"))}</p>`)
+      + (a.unverified?.length ? `<div class="unv"><p class="hint">⚠ ${esc(t("unverifiedHead"))}</p>${a.unverified.map((x) => `<p class="orig-p">${esc(x.source_text)} <sup class="cite">[${t("page")}${x.page}]</sup></p>`).join("")}</div>` : "");
+  } else if (!a.answer) body = `<p class="a">${esc(t("noAnswer"))}</p>`;
   else if (a.mode === "ai") body = `<p class="a">${esc(a.answer)}</p>`;
-  else body = `<p class="hint">${esc(t("excerpt"))} — ${esc(a.source.title)}, ${t("page")}${a.source.page}</p><p class="a">${esc(a.answer)}</p>`;
+  else body = (a.translation_error ? `<p class="hint warn-t">⚠ ${esc(t(a.translation_error === "unsupported_pair" ? "trUnsupported" : "trError"))}</p>` : "") + `<p class="hint">${esc(t("excerpt"))} — ${esc(a.source.title)}, ${t("page")}${a.source.page}</p><p class="a">${esc(a.answer)}</p>`;
   const badges = [`${t("qLang")}: ${LN[a.question_language] || a.question_language}`];
   if (a.answer_language) badges.push(`${t("srcLang")}: ${LN[a.answer_language] || a.answer_language}`);
   if (!a.confident && a.answer) badges.push(t("lowConf"));
@@ -139,7 +144,7 @@ $("#askForm").addEventListener("submit", async (e) => {
   try {
     const scope = $("#scope").value;
     const res = await api("/api/ask", {method: "POST", headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({question, thread_id: threadId, doc_ids: scope ? [Number(scope)] : null, use_ai: $("#useAi").checked})});
+      body: JSON.stringify({question, thread_id: threadId, doc_ids: scope ? [Number(scope)] : null, use_ai: $("#useAi").checked, ui_language: lang})});
     if (res.thread_id !== threadId) { threadId = res.thread_id; threadCount = 0; }
     threadCount++; renderThread(); renderAnswer(question, res); $("#q").value = "";
   } catch (err) {

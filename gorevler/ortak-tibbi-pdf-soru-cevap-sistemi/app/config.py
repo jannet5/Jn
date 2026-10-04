@@ -34,6 +34,10 @@ class Settings:
     donate_url: str = os.environ.get("MEDPDF_DONATE_URL", "")
     admin_token: str = os.environ.get("MEDPDF_ADMIN_TOKEN", "")
 
+    # Yerel çeviri modelleri (CTranslate2); scripts/fetch_mt_models.sh ile hazırlanır
+    mt_dir: str = os.environ.get("MEDPDF_MT_DIR", str(Path(__file__).resolve().parent.parent / "models" / "mt"))
+    mt_threads: int = _int("MEDPDF_MT_THREADS", 4)
+
     # İsteğe bağlı üretken yanıt: yalnız açıkça bu değişken verilirse kullanılır
     anthropic_key: str = os.environ.get("MEDPDF_ANTHROPIC_API_KEY", "")
     anthropic_model: str = os.environ.get("MEDPDF_ANTHROPIC_MODEL", "claude-sonnet-5-5")

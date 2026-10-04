@@ -44,7 +44,23 @@ def extract_pages(data: bytes, max_pages: int) -> tuple[list[tuple[int, str]], s
             pages.append((i, text))
     title = (doc.metadata or {}).get("title") or ""
     doc.close()
-    return pages, title
+    return strip_repeated_lines(pages), title
+
+
+def strip_repeated_lines(pages: list[tuple[int, str]]) -> list[tuple[int, str]]:
+    """Sayfaların yarısından fazlasında aynen tekrarlanan üst/alt bilgi satırlarını ayıklar."""
+    if len(pages) < 3:
+        return pages
+    from collections import Counter
+
+    counts = Counter(line.strip() for _, t in pages for line in set(t.split("\n")) if line.strip())
+    rep = {line for line, c in counts.items() if c > len(pages) / 2 and not re.fullmatch(r"\d+", line)}
+    out = []
+    for no, t in pages:
+        kept = "\n".join(line for line in t.split("\n") if line.strip() not in rep).strip()
+        if kept:
+            out.append((no, kept))
+    return out
 
 
 def chunk_pages(pages, size: int = 900, overlap: int = 150) -> list[tuple[int, str]]:

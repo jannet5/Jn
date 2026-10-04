@@ -17,7 +17,7 @@ TR_PAGES = [
      "Tanıda on iki derivasyonlu EKG ilk on dakika içinde çekilmeli ve troponin düzeyi ölçülmelidir. "
      "Başlangıç tedavisinde aspirin çiğnetilir, ST yükselmeli enfarktüste en kısa sürede reperfüzyon sağlanır: "
      "tercih edilen yöntem perkütan koroner girişimdir, uygun değilse trombolitik tedavi verilir. "
-     "Oksijen yalnızca satürasyon düşükse eklenir."),
+     "Oksijen yalnızca satürasyon yüzde 90'ın altındaysa verilir."),
     ("Tip 2 Diyabet",
      "Tip 2 diyabet, insülin direnci ve göreceli insülin eksikliği ile seyreden kronik bir metabolik hastalıktır. "
      "Tanı ölçütleri arasında açlık plazma glukozunun 126 mg/dL ve üzerinde olması ile HbA1c değerinin yüzde 6,5 ve üzerinde olması yer alır. "
@@ -25,9 +25,14 @@ TR_PAGES = [
      "yaşam tarzı değişikliği, kilo kaybı ve düzenli egzersiz tedavinin temelidir."),
     ("Anafilaksi",
      "Anafilaksi, dakikalar içinde gelişen ve hayatı tehdit eden sistemik bir alerjik reaksiyondur. "
-     "İlk ve en önemli tedavi uyluk dış yüzüne kas içi adrenalin uygulanmasıdır; erişkinde doz 0,5 mg'dır ve gerekirse beş dakika sonra tekrarlanır. "
+     "İlk ve en önemli tedavi uyluk dış yüzüne kas içi adrenalin uygulanmasıdır; erişkinde doz 0,5 mg'dır ve gerekirse 5 dakika sonra tekrarlanır. "
      "Hasta sırtüstü yatırılır, bacakları kaldırılır, damar yolu açılarak sıvı verilir. Antihistaminik ve steroid ikinci basamaktır."),
+    ("Viral Üst Solunum Yolu Enfeksiyonu",
+     "Viral üst solunum yolu enfeksiyonu genellikle kendiliğinden geçer. "
+     "Antibiyotikler viral enfeksiyonlarda etkili değildir ve bu hastalarda rutin olarak reçete edilmez. "
+     "Ateş 38,5 °C üzerindeyse parasetamol 15 mg/kg verilebilir; bol sıvı alımı önerilir."),
 ]
+NOTICE = "SENTETİK TEST BELGESİ — otomatik kabul testi için yazılmıştır; gerçek tıbbi kaynak değildir."
 
 EN_PAGES = [
     ("Iron Deficiency Anaemia",
@@ -42,6 +47,7 @@ def build(pages, path: Path, title: str):
     for head, body in pages:
         page = doc.new_page()
         page.insert_font(fontname="dv", fontfile=FONT)
+        page.insert_textbox(pymupdf.Rect(60, 30, 540, 55), NOTICE, fontname="dv", fontsize=8)
         page.insert_textbox(pymupdf.Rect(60, 60, 540, 110), head, fontname="dv", fontsize=18)
         page.insert_textbox(pymupdf.Rect(60, 120, 540, 780), body, fontname="dv", fontsize=11)
     doc.set_metadata({"title": title})
@@ -52,7 +58,7 @@ def build(pages, path: Path, title: str):
 def main(out: str = "samples"):
     d = Path(out)
     d.mkdir(parents=True, exist_ok=True)
-    build(TR_PAGES, d / "acil-dahiliye-ozet-tr.pdf", "Acil ve Dahiliye Özet Notları")
+    build(TR_PAGES, d / "acil-dahiliye-ozet-tr.pdf", "SENTETİK TEST — Acil ve Dahiliye Özet Notları")
     build(EN_PAGES, d / "haematology-notes-en.pdf", "Haematology Notes")
     print("written to", d.resolve())
 
