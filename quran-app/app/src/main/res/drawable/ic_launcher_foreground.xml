@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uygulama ikonu ön yüzü: altın sekiz köşeli yıldız (rub'ul-hizb) ve ortada daire -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M54.00,24.00 L62.79,32.79 L75.21,32.79 L75.21,45.21 L84.00,54.00 L75.21,62.79 L75.21,75.21 L62.79,75.21 L54.00,84.00 L45.21,75.21 L32.79,75.21 L32.79,62.79 L24.00,54.00 L32.79,45.21 L32.79,32.79 L45.21,32.79 Z" android:strokeColor="#D6B56A" android:strokeWidth="2.6" android:strokeLineJoin="miter" android:fillColor="#00000000"/>
+    <path android:pathData="M54.00,32.00 L60.44,38.44 L69.56,38.44 L69.56,47.56 L76.00,54.00 L69.56,60.44 L69.56,69.56 L60.44,69.56 L54.00,76.00 L47.56,69.56 L38.44,69.56 L38.44,60.44 L32.00,54.00 L38.44,47.56 L38.44,38.44 L47.56,38.44 Z" android:strokeColor="#D6B56A" android:strokeWidth="1.2" android:strokeAlpha="0.75" android:fillColor="#00000000"/>
+    <path android:pathData="M45,54 a9,9 0 1,0 18,0 a9,9 0 1,0 -18,0" android:fillColor="#EFE4CC"/>
+</vector>

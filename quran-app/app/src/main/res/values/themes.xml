@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Açılış ekranı: fildişi zemin ortasında uygulama ikonu -->
+    <style name="Theme.KuranOku.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#EFE4CC</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.KuranOku</item>
+    </style>
+    <!-- Uygulama teması: çizimi Compose yapar, pencere zemini kağıt rengi -->
+    <style name="Theme.KuranOku" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
