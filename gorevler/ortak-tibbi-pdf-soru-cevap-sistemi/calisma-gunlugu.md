@@ -81,3 +81,61 @@ docker run -p 8799:8000 medortak:test   # sağlık, yükleme, İspanyolca soru c
 - **Canlı yayın yapılmadı:** alan adı, HTTPS ve sunucu hesabı yok. PWA kurulumu HTTPS gerektiriyor.
 - **Bağış bağlantısı ve DMCA temsilcisi:** Gerçek hesap ve kişi bilgisi gerektiriyor, uydurulmadı. Bağış bağlantısı `MEDPDF_DONATE_URL` ile girilecek.
 - **Kaynaktaki "medical" klasörü** yüklenmedi; içeriği bilinmiyor.
+
+---
+# Tur 2 — 2026-10-04: Türkçe PDF'ten İspanyolca cevap
+
+## İstenen
+Kullanıcı `788ddaf` sürümünü kaynakla karşılaştırdı ve şu eksiği tespit etti: `extractive_answer` cevabı kaynak dilinde (Türkçe) döndürüyordu. Bu turun hedefleri:
+- Anahtar olmadan çalışan, kaynağa dayalı İspanyolca cevap üretmek.
+- Sayı, birim, olumsuzluk ve atıfların korunduğunu denetlemek.
+- Kaynakta cevap yoksa bunu açıkça söylemek.
+- Başlangıç commit'ini korumak; başka görev klasörlerine dokunmamak.
+
+## Başlangıç durumu
+- `git status` temiz; HEAD ve uzak dal `788ddaf`.
+- Bulut kaynakları: 4 çekirdek, 15 GB RAM. GPU yok.
+
+## Araştırma ve gerçek denemeler
+- Ayrıntılar `arastirma.md` dosyasının 6. bölümünde. Üç model bu bulutta gerçekten indirildi, CTranslate2 int8 biçimine dönüştürüldü ve aynı 10 sentetik cümlede karşılaştırıldı.
+- **tc-bible-big:** En doğal sonucu verdi, ama "yüzde 7'nin altıdır" → "seis por ciento" hatası yaptı.
+- **M2M100:** Aynı sayı hatasını yaptı.
+- **opus-tr-es:** "eGFR" → "electroencefalograma", "°C" → "oC" hataları yaptı ve "altında" anlamını düşürdü.
+- **Sonuç:** Denetimsiz çeviri tıbbi açıdan güvenli değil.
+- **Ölçülen çözüm:** Çeviriden önce "yüzde 7" ifadesi "%7" yapıldı; ardından 6 aday çeviri arasından ilk doğru olan ("inferior al 7%") seçildi.
+- **Elenenler:** NLLB (ticari olmayan lisans, model kartında "tıp için değil" uyarısı), Argos/LibreTranslate (doğrudan tr→es paketi yok, İngilizce pivot zorunlu), yerel küçük LLM (uydurma riski, yavaş).
+
+## Kararlar
+- **Yol A2:** Kaynak cümleler aynen seçilir, metin üretilmez. Çeviri yerel ve doğrulamalıdır. Hiçbir aday denetimi geçmezse cümle cevaba konmaz, "doğrulanamadı" olarak orijinaliyle gösterilir.
+- **"Cevap yok":** Sorunun konu terimleri (genel sözcükler hariç) kaynak bölümün çevirisinde aranır. En fazla ¼'ü eksik olabilir. Aramadaki ilk 3 bölüm sırayla denenir.
+- **Modeller depoya girmez:** Çeviri modelleri 315 MB olduğu için depoya konmadı. `scripts/fetch_mt_models.sh` sabit Hugging Face sürümlerinden üretiyor. Bu sürümlerden Docker içinde ve yerelde üretilen `model.bin` SHA-256 değerleri birebir aynı:
+  - bible-trk: `e210de21d3fc714fa9730973e8c8a1a3eeb0af53dea08533cb4a0a4f599aa11d`
+  - opus-tr-es: `5139fa1dac2078e207fb36c440a9f6e72d83aa9922149d060b592dbecb18371c`
+
+## Sorunlar ve çözümler
+1. **Oksijen sorusu yanlışlıkla "cevap yok" döndü.** Aramada en üstte başka bir sayfa çıkıyordu. Çözüm: ilk 3 bölüm sırayla deneniyor; doğru cevap 3. sıradaki bölümden geldi.
+2. **Yeniden sıralama HbA1c hedef cümlesini dışarıda bıraktı (gerileme).** Çözüm: soru sözcüklerine bonus puan verildi ve en iyi 3 cümle alınıyor.
+3. **Her sayfadaki "SENTETİK TEST" bildirimi cevap cümlesi olarak seçilebiliyordu.** Çözüm: sayfaların yarısından fazlasında tekrarlanan üst ve alt bilgi satırları ayıklanıyor. Bu, gerçek PDF'lerdeki üst/alt bilgiler için de bir iyileştirme.
+4. **Testte iki kendi hatam vardı.**
+   - `\b5 mg\b` kalıbı "0,5 mg" içinde de eşleşiyordu.
+   - Önceki test dosyası aylık kotayı 6'ya indirdiği için sorular 402 aldı.
+   - Testler düzeltildi; ürün kodu değişmedi.
+5. **Eski test cevabın Türkçe olmasını bekliyordu.** Adı "yalnız arama" olarak değiştirildi; cevap kabulü ayrı bir dosyaya taşındı. Böylece yalnız aramanın başarılı olması çok dilli cevap başarısı gibi sayılmıyor.
+
+## Doğrulamalar
+| Kontrol | Sonuç |
+|---|---|
+| `pytest -v tests/` | **23/23 geçti** (78 sn). Gerçek arama ve çeviri modelleri kullanıldı, sahte (mock) çeviri yok. |
+| Çok dilli cevap kabulü | 5 cevaplı İspanyolca soru → doğru sayfaya dayalı İspanyolca cevap. 3 cevapsız soru → `no_answer`. |
+| Bilinen hatalı çeviriler | Modellerin bu çalışmada ürettiği 6 hatalı çevirinin 6'sını da denetim reddetti. 3 doğru çeviriyi kabul etti. |
+| Model yok durumu | `mt_unavailable` hatası döndü ve alıntı kaynak dilinde gösterildi (gizlenmedi). |
+| Tarayıcı E2E | Mobil ES cevap, "cevap yok" kartı, EN koyu tema ("less than 7%"), kota akışı: **E2E OK**. Ekranlar gözle incelendi. |
+| Docker | Çok aşamalı imaj derlendi (1,92 GB). `--network none` ile, yani internetsiz, ES cevap ve "cevap yok" çalıştı. |
+
+## Gerçek dış bağımlılıklar (bu turda değişmedi)
+- Fiziksel telefon testi
+- Canlı alan adı ve HTTPS
+- Bağış hesabı bağlantısı (`MEDPDF_DONATE_URL`)
+- DMCA temsilcisi
+- Kaynaktaki eksik özgün "medical" klasörü
+- İsteğe bağlı Claude kipi için `MEDPDF_ANTHROPIC_API_KEY` (çok dilli cevap artık buna bağlı değil)

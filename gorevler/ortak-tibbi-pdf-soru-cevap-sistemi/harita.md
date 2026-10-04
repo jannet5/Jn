@@ -42,3 +42,51 @@ HEDEF: Tıp öğrencileri için girişsiz, web+mobil, ortak PDF kütüphanesi;
 | "İşin ortasında pat diye kesilmesin" | Uyarı seviyeleri; kredili başlayan konu "iş bitirme payı" ile sürer; kesinti yalnız yeni konuda ve açıklamalı | test_transparent_quota…, ekran 4 |
 | "Herkese eşit ücretsiz hak, çok kullanan ödesin, kart dayatma" | Eşit aylık hak; gönüllü bağış → destek kodu ile kartsız ek kredi; az kullanan ödeme ekranı hiç görmez | test (redeem), ekran 3 |
 | "Kişiye göre" | Ücretsiz / destek / iş bitirme payı ayrı ayrı gösteriliyor; kullanım geçmişi görünür | ekran 3–4 |
+
+
+---
+## Tur 2 (2026-10-04): Türkçe kaynak → İspanyolca cevap (anahtarsız)
+
+Başlangıç commit'i `788ddaf` korundu. Bu turdaki tüm commit'ler onun üzerine eklendi.
+
+```
+EKSİK: alıntı yanıtı kaynak dilinde (TR) kalıyordu → İspanyolca soran kişi Türkçe metin okuyordu
+  │
+  ├─ B7 Cevap dili = soru dili ─── yerel MT (CTranslate2 int8)              → app/translate.py
+  ├─ B8 Anlam koruma ─────────── sayı · birim · olumsuzluk · altında/üzerinde denetimi
+  ├─ B9 "Cevap yok" ─────────── soru konu terimleri kaynak bölüm çevirisinde yoksa cevap verme
+  └─ B10 Atıf ─────────────── her cevap cümlesi = tek kaynak cümle + sayfa + açılabilir orijinal
+        │
+        ▼
+  YOL SEÇİMİ
+   A2) Doğrulamalı yerel MT: OPUS-MT tc-bible-big (birincil) + opus-mt-tr-es (ikincil)   ← SEÇİLDİ
+       • kaynak cümleler aynen seçilir (üretim yok) → çevrilir → denetimden geçmeyen aday reddedilir
+       • "yüzde N" → "%N" normalizasyonu: ölçülen sayı hatasını giderdi
+   B2) Anthropic API ─── en akıcı yol, ama anahtar/ödeme gerekir → isteğe bağlı kip olarak kaldı
+   C2) Yerel LLM / Argos pivot / NLLB ─── uydurma riski, pivot hatası, ticari olmayan lisans → elendi
+        │  A2 kırılırsa (model dosyası yoksa): kaynak dilinde alıntı + "mt_unavailable" uyarısı (test edildi)
+        ▼
+  UYGULAMA → TEST → TESLİM
+   1 tests/test_multilingual_answer.py: gerçek model, bağımsız beklentiler          ✔
+   2 tests/test_acceptance.py (arama, kota, güvenlik; yalnız arama adıyla ayrıldı)   ✔  toplam 23/23
+   3 scripts/e2e.py: mobil ES cevap + "cevap yok" kartı + EN koyu tema                ✔
+   4 Dockerfile: çok aşamalı (dönüştürme aşaması → yalnız ctranslate2 çalışma imajı)  (bkz. günlük)
+   5 push + uzak commit/dosya hash geri okuma; ZIP/bundle + SHA-256
+```
+
+### Kabul: sentetik Türkçe PDF → İspanyolca soru → İspanyolca cevap
+| Soru (ES) | Beklenen (testte, koddan bağımsız) | Sonuç |
+|---|---|---|
+| Infarto agudo: tratamiento inicial | "aspirina", s.1 | ✔ |
+| HbA1c objetivo | "inferior/menos … 7 %", "seis/6 por ciento" OLMAYACAK, s.2 | ✔ "inferior al 7%" |
+| Dosis de adrenalina | "0,5 mg", "5 minutos", "5 mg/0,05" OLMAYACAK, s.3 | ✔ |
+| ¿Antibióticos eficaces en virales? | "no son efectivos/eficaces" (olumsuzluk), s.4 | ✔ |
+| ¿Cuándo oxígeno en infarto? | "oxígeno", "inferior … 90 %", s.1 (aramada 3. sıradaki bölüm) | ✔ |
+| Cetoacidosis / meningitis / crisis asmática | kaynakta yok → `no_answer`, cevap metni yok | ✔ |
+
+Her cevap cümlesi için ayrıca şunlar denetlendi:
+- Kaynak cümle, PDF'ten bağımsız okunan sayfa metninde birebir var.
+- Sayılar korunmuş.
+- Olumsuzluk korunmuş.
+- Cevap metni İspanyolca algılanıyor.
+- Cevapta atıf işareti var.

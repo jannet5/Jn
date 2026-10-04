@@ -42,3 +42,25 @@ Araştırma web aramasıyla yapıldı. **[A]** işaretli sayfalar açılıp okun
 - Önce yumuşak limit (uyarı), sonra kademeli sürtünme; kullanıcı "pusuya düşürülmüş" hissetmemeli: https://zuplo.com/blog/progressive-friction-for-monetized-apis [G], https://dodopayments.com/blogs/openai-usage-limits-customer-quotas [G]
 - **Bağış platformları:** GitHub Sponsors (kişisel hesapta %0 kesinti), Open Collective (harcamalar şeffaf, ev sahibi kuruluş ücreti alabilir), Ko-fi. https://www.codenote.net/en/posts/github-sponsors-vs-open-collective-fees-comparison/ [G]
 - **Stripe kullanım bazlı faturalama (meter events):** müşteri nesnesi şart, yani kart ve hesap bilgisi gerekiyor. Bu yüzden ücretsiz katmana uymuyor; yalnız ileride isteğe bağlı ücretli katman için düşünülebilir. https://docs.stripe.com/billing/subscriptions/usage-based/meters/configure [G]
+
+## 6. Tur 2 (2026-10-04): Türkçe PDF'ten İspanyolca cevap, anahtar olmadan
+
+İşaretler: **[A]** = açılıp okundu, **[G]** = yalnız arama sonucunda görüldü. Bu turda modeller bulutta gerçekten indirilip denendi; denemelerin sonuçları "Bu bulutta ölçülen" başlığı altında.
+
+| Seçenek | Lisans / maliyet | Bu bulutta ölçülen | Karar |
+|---|---|---|---|
+| Anthropic Messages API (Sonnet 5 / 5.5 $2/$10, Haiku 4.5 $1/$5 / MTok) https://platform.claude.com/docs/en/about-claude/pricing [A] | Ücretli anahtar gerekiyor | Anahtar yok, denenmedi | İsteğe bağlı kip olarak kaldı |
+| **opus-mt-tc-bible-big-trk-deu_eng_fra_por_spa** https://huggingface.co/Helsinki-NLP/opus-mt-tc-bible-big-trk-deu_eng_fra_por_spa [A] | Apache-2.0, ~0,2B parametre, int8 hâlinde 237 MB | 10 cümle 1,7 sn (4 çekirdek). En doğal çeviri. Ama "yüzde 7'nin altı" → "seis por ciento" hatası yaptı. | **Birincil**: normalizasyon + n-best + denetimle |
+| opus-mt-tr-es https://huggingface.co/Helsinki-NLP/opus-mt-tr-es [A] | Apache-2.0, int8 hâlinde 76 MB, Tatoeba BLEU 56,3 | 1,0 sn. "eGFR" → "electroencefalograma", "altında" düştü, "°C" → "oC". | İkincil aday |
+| M2M100-418M https://huggingface.co/facebook/m2m100_418M [A] | MIT, int8 hâlinde 473 MB | 3,1 sn. Aynı "seis por ciento" hatası, "çiğnetilir" → "se derrite". | Elendi |
+| NLLB-200-distilled-600M https://huggingface.co/facebook/nllb-200-distilled-600M [A] | **CC-BY-NC**; model kartı "tıp alanı için değil" diyor | Lisans yüzünden denenmedi | Elendi |
+| Argos Translate https://github.com/argosopentech/argos-translate [A], paket listesi https://raw.githubusercontent.com/argosopentech/argospm-index/main/index.json [A] | MIT/CC0 | Listede doğrudan tr→es yok; tr→en→es pivotu zorunlu | Elendi (iki aşamalı hata) |
+| LibreTranslate https://github.com/LibreTranslate/LibreTranslate [A] | AGPL-3.0, Argos tabanlı | — | Elendi (aynı pivot + ek servis) |
+| 1–3B yerel LLM (Qwen2.5-3B, llama.cpp) https://arxiv.org/pdf/2508.16431 [G] | CPU'da ~8–12 token/sn [G] | — | Elendi: tıpta serbest üretim uydurma riski taşıyor |
+| CTranslate2 https://opennmt.net/CTranslate2/guides/transformers.html [A] | MIT; OPUS-MT int8, 4 iş parçacığıyla ~700 token/sn (resmî ölçüm) | Dönüştürme ve çalıştırma başarılı | Çalışma motoru |
+
+**Neden denetim şart (kaynaklar):**
+- Makine çevirisi sistemleri sayıları sık bozuyor ve bu tıbbi yanlış bilgiye yol açabiliyor: https://arxiv.org/abs/2107.08357 [A]
+- Olumsuzluk en çok düşürülerek bozuluyor; yüksek kaynaklı dil çiftlerinde bile doğruluk %91,7–95,7: https://arxiv.org/abs/2107.12203 [A]
+- Türkçenin eklemeli yapısı çeviri kalitesini sınırlıyor: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12453858/ [G]
+- Topluluk tarafında, LibreTranslate bakımcıları kötü çeviri bildirimlerinin çoğunun Argos modellerinden kaynaklandığını söylüyor: https://community.libretranslate.com/t/github-issue-related-to-bad-translations/1101 [A]

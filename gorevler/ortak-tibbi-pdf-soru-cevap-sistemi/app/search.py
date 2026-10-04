@@ -173,6 +173,7 @@ def translated_answer(question: str, hits: list[dict], target: str, max_hits: in
                  for i in range(len(shown))]
         top = sorted(sorted(range(len(shown)), key=lambda i: -score[i])[:3])
         cite = {"doc_id": hit["doc_id"], "title": hit["title"], "page": hit["page"], "hit_rank": rank + 1}
+        base["source_language"] = hit["language"]
         for i in top:
             r = tr[i]
             item = {"text": r["text"], "source_text": r["source"], "model": r["model"], "issues": r["issues"], **cite}

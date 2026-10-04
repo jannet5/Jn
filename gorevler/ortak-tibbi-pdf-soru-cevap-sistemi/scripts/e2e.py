@@ -41,13 +41,21 @@ with sync_playwright() as p:
     mp.fill("#q", "¿Cuál es el tratamiento inicial del infarto agudo de miocardio?")
     mp.click("#askBtn")
     ans = mp.locator(".ans").first
-    expect(ans).to_contain_text("aspirin", timeout=60000)
+    expect(ans).to_contain_text("aspirina", timeout=60000)
     expect(ans).to_contain_text("Idioma de la fuente: Türkçe")
+    expect(ans).to_contain_text("Idioma de la respuesta: Español")
+    expect(ans).to_contain_text("Traducción local")
+    expect(ans.locator("details.orig").first).to_be_attached()  # Türkçe orijinal açılabilir
     expect(mp.locator("#miniText")).to_contain_text("7")
     expect(mp.locator("#threadHint")).to_contain_text("1 pregunta")
     mp.screenshot(path=str(out / "2-mobil-ispanyolca-soru.png"), full_page=True)
+    # Kaynakta olmayan soru → açıkça "cevap yok"
+    mp.fill("#q", "¿Cuál es el tratamiento de la crisis asmática?")
+    mp.click("#askBtn")
+    expect(mp.locator(".ans").first).to_contain_text("No inventamos respuestas", timeout=60000)
+    mp.locator(".ans").first.screenshot(path=str(out / "2b-mobil-cevap-yok.png"))
     # Hakkın çoğunu aynı konuda kullan → uyarı seviyesine geç, panel aç
-    for _ in range(6):
+    for _ in range(5):
         mp.fill("#q", "¿Qué dosis de adrenalina se usa en la anafilaxia?")
         mp.click("#askBtn")
         expect(mp.locator("#askBtn")).to_be_enabled(timeout=60000)
@@ -75,7 +83,8 @@ with sync_playwright() as p:
     dp.goto(base)
     dp.fill("#q", "What is the target HbA1c in type 2 diabetes?")
     dp.click("#askBtn")
-    expect(dp.locator(".ans").first).to_contain_text("7'nin altı", timeout=60000)
+    expect(dp.locator(".ans").first).to_contain_text("7%", timeout=60000)
+    expect(dp.locator(".ans").first).to_contain_text("Answer language: English")
     dp.screenshot(path=str(out / "5-masaustu-ingilizce-karanlik.png"), full_page=True)
     d.close()
     browser.close()
