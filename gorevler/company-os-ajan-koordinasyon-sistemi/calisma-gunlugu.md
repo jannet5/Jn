@@ -294,3 +294,4 @@ Koordinatörün bağımsız Windows kabulünü haritaya, doğrulama belgesine ve
 - **Kapsam notu:** Bu yalnız `initialize` + `model/list` + `skills/list` bağlantı kontrolü. Model turu ya da ürün üretimi kabulü değil.
 - **Gizlilik:** Koordinatörün bildirdiği yerel executable yolu kullanıcı adı içerdiği için public belgelere `%LOCALAPPDATA%` biçiminde genelleştirilerek yazıldı.
 - **Sıradaki gerçek önkoşul:** projenin gerçek Git geçmişi (W2). `salon.jpg` W4 için gerekiyor. İkisi gelmeden W2 başlatılmadı. Ürün tamamen bitmedi.
+- **Özel paket** yeniden üretildi (yalnız rapor 4g eklendi, kod aynı, son commit `77dcd2e`): 171871 bayt, 77 dosya, SHA-256 `965d8c45fe93d7ba5f571a5f0b6d1bc363d0bea93a3e0abf891685f05d6a1337`; hash ve CRC geri okundu.
