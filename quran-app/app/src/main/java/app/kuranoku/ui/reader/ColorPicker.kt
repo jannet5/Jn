@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp // dp
 import app.kuranoku.ui.components.SectionLabel // etiket
 import app.kuranoku.ui.theme.Radius // köşeler
 import app.kuranoku.ui.theme.Space // boşluklar
+import app.kuranoku.ui.theme.onSwatch // kutu üstü renk
 
 /** Özel renk seçici: renk tonu, doygunluk ve parlaklık kaydırıcıları + canlı önizleme. */
 @Composable
@@ -47,7 +48,7 @@ fun ColorPickerDialog(title: String, initial: Int, onPick: (Int) -> Unit, onDism
                 Box( // önizleme
                     Modifier.fillMaxWidth().height(64.dp).clip(RoundedCornerShape(Radius.md)).background(Color(renk)).border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(Radius.md)), // renk kutusu
                     contentAlignment = Alignment.Center, // ortalı
-                ) { Text("بِسْمِ ٱللَّهِ", color = if (Color(renk).luminance() > 0.45f) Color(0xFF1D1B18) else Color(0xFFF5F0E6)) } // örnek yazı
+                ) { Text("بِسْمِ ٱللَّهِ", color = onSwatch(renk)) } // örnek yazı
                 Track("Renk tonu", Brush.horizontalGradient((0..6).map { Color.hsv(it * 60f % 360f, 0.8f, 0.9f) })) // gökkuşağı şeridi
                 Slider(ton, { ton = it }, valueRange = 0f..359f) // ton kaydırıcı
                 Track("Canlılık", Brush.horizontalGradient(listOf(Color.hsv(ton, 0f, parlak), Color.hsv(ton, 1f, parlak)))) // gri → canlı şeridi

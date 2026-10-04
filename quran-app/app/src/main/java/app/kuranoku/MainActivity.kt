@@ -2,6 +2,9 @@ package app.kuranoku // uygulama girişi
 
 import android.os.Bundle // yaşam döngüsü verisi
 import androidx.activity.ComponentActivity // Compose etkinliği
+import androidx.activity.SystemBarStyle // sistem çubuğu stili
+import androidx.compose.runtime.LaunchedEffect // yan etki
+import androidx.compose.ui.platform.LocalContext // bağlam
 import androidx.activity.compose.BackHandler // geri tuşu
 import androidx.activity.compose.setContent // içerik
 import androidx.activity.enableEdgeToEdge // kenardan kenara çizim
@@ -78,7 +81,13 @@ private fun App(vm: AppViewModel) {
     var ekran by rememberSaveable { mutableStateOf(Ekran.OKU) } // açık ekran
     var ipucu by remember { mutableStateOf(!vm.prefs.hintShown) } // ilk açılış ipucu
 
-    KuranTheme(dark = settings.isDarkPage()) { // sayfa koyuysa arayüz de koyu
+    val koyu = settings.isDarkPage() // sayfa koyu mu
+    val activity = LocalContext.current as ComponentActivity // etkinlik
+    LaunchedEffect(koyu) { // sistem çubuğu ikonları sayfaya göre: koyu sayfada açık ikon
+        val stil = if (koyu) SystemBarStyle.dark(android.graphics.Color.TRANSPARENT) else SystemBarStyle.light(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT) // stil
+        activity.enableEdgeToEdge(stil, stil) // durum ve gezinme çubuğu
+    }
+    KuranTheme(dark = koyu) { // sayfa koyuysa arayüz de koyu
         when (val s = state) {
             LoadState.Loading -> LoadingPage(settings) // yükleniyor
             is LoadState.Error -> ErrorState(s.message) { vm.load() } // hata

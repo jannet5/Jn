@@ -61,6 +61,9 @@ import androidx.compose.ui.input.pointer.PointerEventPass // olay geçişi
 import androidx.compose.ui.input.pointer.pointerInput // dokunma girişi
 import androidx.compose.ui.platform.LocalLayoutDirection // yön
 import androidx.compose.ui.platform.LocalView // görünüm
+import androidx.compose.ui.platform.LocalDensity // yoğunluk
+import androidx.compose.ui.layout.onGloballyPositioned // ekrandaki konum
+import androidx.compose.ui.layout.positionInRoot // köke göre konum
 import androidx.compose.ui.text.style.TextOverflow // taşma
 import androidx.compose.ui.unit.LayoutDirection // yön tipi
 import androidx.compose.ui.unit.dp // dp
@@ -120,13 +123,13 @@ fun ReaderScreen(
     LaunchedEffect(highlightKey) { // vurgu animasyonu
         if (highlight == null) return@LaunchedEffect // vurgu yoksa çık
         highlightAlpha.snapTo(1f) // tam görünür
-        delay(1800) // biraz bekle
-        highlightAlpha.animateTo(0f, tween(1400)) // yavaşça sön
+        delay(3000) // 3 saniye görünür kalsın
+        highlightAlpha.animateTo(0f, tween(1500)) // yavaşça sön
     }
     LaunchedEffect(pager) { snapshotFlow { pager.settledPage }.collect { onPageChanged(it + 1) } } // sayfa yerleşince kaydet
     LaunchedEffect(hint) { if (hint) { delay(5000); hint = false; onHintShown() } } // ipucu 5 sn sonra kaybolur
 
-    SystemBars(active && !chrome && !sheet, settings.isDarkPage(), settings.keepScreenOn && active) // tam ekran ve ekran açık
+    SystemBars(active && !chrome && !sheet, settings.keepScreenOn && active) // tam ekran ve ekran açık
 
     Box(
         Modifier.fillMaxSize().paper(settings) // kağıt zemin
@@ -185,16 +188,25 @@ fun ReaderScreen(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun PageScroller(quran: Quran, page: Int, s: ReaderSettings, highlight: AyahRef?, alpha: Float, onTap: () -> Unit) {
+    val scope = rememberCoroutineScope() // kaydırma animasyonu için
     BoxWithConstraints(
         Modifier.fillMaxSize() // tam ekran
             .windowInsetsPadding(WindowInsets.statusBarsIgnoringVisibility.union(WindowInsets.navigationBarsIgnoringVisibility).union(WindowInsets.displayCutout)) // sistem çubukları gizlense de yerleşim kaymaz
             .pointerInput(Unit) { detectTapGestures(onTap = { onTap() }) }, // dokununca çubuklar
     ) {
         val yukseklik = maxHeight // görünür yükseklik
+        val kaydirma = rememberScrollState() // sayfa içi kaydırma
+        var ustY by remember { mutableFloatStateOf(0f) } // görünür alanın ekrandaki üst kenarı
+        val pay = with(LocalDensity.current) { 96.dp.toPx() } // vurgulu ayetin üstünde bırakılacak boşluk
         QuranPage(
             quran, page, s, highlight, alpha, // sayfa verisi
-            Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).heightIn(min = yukseklik) // kısa sayfada sayfa no altta, uzunda kayar
+            Modifier.fillMaxWidth().onGloballyPositioned { ustY = it.positionInRoot().y - kaydirma.value } // kaydırmasız üst kenar
+                .verticalScroll(kaydirma).heightIn(min = yukseklik) // kısa sayfada sayfa no altta, uzunda kayar
                 .padding(horizontal = Space.l, vertical = Space.s), // kenar boşluğu 16
+            onHighlightAt = { y -> // vurgulu ayetin ekrandaki yeri bildirildi
+                val hedef = (kaydirma.value + y - (ustY + kaydirma.value) - pay).toInt().coerceIn(0, kaydirma.maxValue) // ayet üstte görünecek şekilde
+                if (kotlin.math.abs(hedef - kaydirma.value) > 4) scope.launch { kaydirma.animateScrollTo(hedef) } // gerekiyorsa kaydır
+            },
         )
     }
 }
@@ -243,17 +255,15 @@ private fun BottomChrome(quran: Quran, page: Int, onJump: (Int) -> Unit) {
     }
 }
 
-/** Sistem çubuklarını gizler/gösterir, ikon rengini ve ekranın açık kalmasını ayarlar. */
+/** Sistem çubuklarını gizler/gösterir ve ekranın açık kalmasını ayarlar (ikon rengi MainActivity'de). */
 @Composable
-private fun SystemBars(immersive: Boolean, darkPage: Boolean, keepOn: Boolean) {
+private fun SystemBars(immersive: Boolean, keepOn: Boolean) {
     val view = LocalView.current // kök görünüm
     SideEffect {
         val window = (view.context as? Activity)?.window ?: return@SideEffect // pencere
         val c = WindowCompat.getInsetsController(window, view) // denetleyici
         c.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE // kenardan kaydırınca geçici görünür
         if (immersive) c.hide(WindowInsetsCompat.Type.systemBars()) else c.show(WindowInsetsCompat.Type.systemBars()) // gizle/göster
-        c.isAppearanceLightStatusBars = !darkPage // açık sayfada koyu ikon
-        c.isAppearanceLightNavigationBars = !darkPage // gezinme çubuğu da
         view.keepScreenOn = keepOn // ekran açık kalsın
     }
 }

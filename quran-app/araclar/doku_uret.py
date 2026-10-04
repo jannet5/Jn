@@ -1,4 +1,4 @@
-# Kağıt dokusu üreten betik: kenarları birbirine dikişsiz bağlanan, açık zemin üstünde lif ve tane içeren gri tonlu PNG
+# Kağıt dokusu üreten betik: kenarları dikişsiz bağlanan, lif ve tane içeren yarı saydam (siyah + alfa) PNG
 import numpy as np  # sayısal işlemler için
 from PIL import Image, ImageDraw, ImageFilter  # görüntü çizmek ve bulanıklaştırmak için
 import sys  # çıktı yolu için
@@ -18,7 +18,7 @@ def periyodik_gurultu(olcek):  # FFT ile kenarları dikişsiz (periyodik) gürü
 leke = periyodik_gurultu(60)  # geniş, yumuşak lekelenme (kağıdın bulutlu görünümü)
 orta = periyodik_gurultu(14)  # orta ölçek dalgalanma
 tane = rng.standard_normal((N, N))  # ince tane (kağıt pürüzü)
-L = 0.955 + 0.020 * leke + 0.010 * orta + 0.018 * tane  # açıklık değeri (1 = beyaz, çarpma ile renk değişmez)
+L = 0.958 + 0.014 * leke + 0.008 * orta + 0.018 * tane  # açıklık değeri (1 = beyaz, çarpma ile renk değişmez)
 
 lif = Image.new("L", (N, N), 0)  # lifler için boş katman
 d = ImageDraw.Draw(lif)  # çizim aracı
@@ -35,6 +35,8 @@ for _ in range(900):  # 900 kısa lif
 lif = np.asarray(lif.filter(ImageFilter.GaussianBlur(0.6)), dtype=np.float32) / 255.0  # yumuşatılıp 0-1'e çevriliyor
 L = L - 0.10 * lif  # lifler kağıdı hafif koyulaştırıyor
 L = np.clip(L, 0.80, 1.0)  # aşırı koyu nokta kalmasın
-img = Image.fromarray((L * 255).astype(np.uint8), "L")  # gri tonlu görüntü
-img.save(sys.argv[1], optimize=True)  # PNG olarak kaydediliyor
+alfa = np.clip((1.0 - L) * 1.15, 0, 1)  # koyuluk → saydamlık: kağıt rengini her Android sürümünde aynı şekilde koyulaştırır (karışım modu gerekmez)
+rgba = np.zeros((N, N, 4), dtype=np.uint8)  # siyah renk + saydamlık katmanı
+rgba[..., 3] = (alfa * 255).astype(np.uint8)  # sadece alfa kanalı dolu
+Image.fromarray(rgba, "RGBA").save(sys.argv[1], optimize=True)  # PNG olarak kaydediliyor
 print("ortalama", L.mean())  # kontrol için ortalama açıklık

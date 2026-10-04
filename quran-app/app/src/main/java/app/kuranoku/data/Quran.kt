@@ -65,8 +65,11 @@ class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>) {
     /** Sayfadaki ayetler. */
     fun ayahsOnPage(page: Int): List<Ayah> = ayahs.subList(pageStart[page], pageStart[page + 1])
 
-    /** Sayfanın ilk ayetinin suresi (başlıkta gösterilir). */
-    fun surahOfPage(page: Int): Surah = surahs[ayahs[pageStart[page]].sura - 1]
+    /** Sayfanın suresi (başlıkta gösterilir): sayfada yeni bir sure başlıyorsa o, yoksa ilk ayetin suresi. */
+    fun surahOfPage(page: Int): Surah {
+        val baslayan = ayahsOnPage(page).firstOrNull { it.number == 1 } // sayfada başlayan ilk sure
+        return surahs[(baslayan ?: ayahs[pageStart[page]]).sura - 1] // o sure ya da ilk ayetin suresi
+    }
 
     /** Sayfanın cüzü. */
     fun juzOfPage(page: Int): Int = ayahs[pageStart[page]].juz

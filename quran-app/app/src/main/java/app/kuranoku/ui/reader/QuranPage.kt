@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.BlendMode // karışım modu
 import androidx.compose.ui.graphics.Brush // fırça
 import androidx.compose.ui.graphics.Color // renk
 import androidx.compose.ui.graphics.ColorFilter // renk filtresi
-import androidx.compose.ui.graphics.ColorMatrix // renk matrisi
 import androidx.compose.ui.graphics.ImageBitmap // bitmap
 import androidx.compose.ui.graphics.ImageShader // desen gölgelendirici
 import androidx.compose.ui.graphics.Path // yol
@@ -34,7 +33,12 @@ import androidx.compose.ui.graphics.drawscope.Stroke // çizgi stili
 import androidx.compose.ui.graphics.drawscope.rotate // döndürme
 import androidx.compose.ui.res.imageResource // bitmap kaynağı
 import androidx.compose.ui.platform.LocalDensity // yoğunluk
-import androidx.compose.ui.text.AnnotatedString // biçimli metin
+import androidx.compose.ui.text.TextLayoutResult // metin yerleşimi
+import androidx.compose.ui.layout.onGloballyPositioned // ekrandaki konum
+import androidx.compose.ui.layout.positionInRoot // köke göre konum
+import androidx.compose.runtime.getValue // durum okuma
+import androidx.compose.runtime.setValue // durum yazma
+import androidx.compose.runtime.mutableStateOf // durum
 import androidx.compose.ui.text.Placeholder // yer tutucu
 import androidx.compose.ui.text.PlaceholderVerticalAlign // yer tutucu hizası
 import androidx.compose.ui.text.SpanStyle // aralık stili
@@ -79,8 +83,8 @@ fun Modifier.paper(s: ReaderSettings): Modifier {
     return drawBehind {
         drawRect(Color(s.pageColor)) // sayfa rengi
         if (s.texture) { // doku açıksa
-            if (!koyu) drawRect(firca, blendMode = BlendMode.Multiply) // açık sayfada lifler koyulaştırır
-            else drawRect(firca, alpha = 0.85f, colorFilter = InvertFilter, blendMode = BlendMode.Screen) // koyu sayfada lifler açık görünür
+            if (!koyu) drawRect(firca) // açık sayfada lifler ve tane kağıdı hafifçe koyulaştırır
+            else drawRect(firca, alpha = 0.9f, colorFilter = LightFibers) // koyu sayfada aynı desen açık renkte
             drawRect( // kenarlarda hafif kararma (gerçek kağıt ışığı)
                 Brush.radialGradient(
                     0.55f to Color.Transparent, 1f to Color.Black.copy(alpha = if (koyu) 0.28f else 0.10f), // merkez temiz, kenar koyu
@@ -91,7 +95,7 @@ fun Modifier.paper(s: ReaderSettings): Modifier {
     }
 }
 
-private val InvertFilter = ColorFilter.colorMatrix(ColorMatrix(floatArrayOf(-1f, 0f, 0f, 0f, 255f, 0f, -1f, 0f, 0f, 255f, 0f, 0f, -1f, 0f, 255f, 0f, 0f, 0f, 1f, 0f))) // renkleri ters çevirir
+private val LightFibers = ColorFilter.tint(Color(0xFFFFF4DC), BlendMode.SrcIn) // dokuyu açık krem renge boyar (saydamlık korunur)
 
 /** Mushaf çerçevesi: dış kalın + iç ince çizgi ve köşelerde küçük baklava. */
 fun DrawScope.mushafFrame(color: Color) {
@@ -112,7 +116,7 @@ fun DrawScope.mushafFrame(color: Color) {
 private fun AyahMarker(n: Int, ornament: Color, ink: Color, family: FontFamily, fontSize: TextUnit) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { // ortalı kutu
         Canvas(Modifier.fillMaxSize()) { // süs çizimi
-            val r = minOf(size.width, size.height) / 2f - 1.dp.toPx() // dış yarıçap
+            val r = minOf(size.width - 8.dp.toPx(), size.height) / 2f - 1.dp.toPx() // dış yarıçap (yanlarda 4dp pay)
             drawCircle(ornament.copy(alpha = 0.10f), r) // hafif dolgu
             drawCircle(ornament, r, style = Stroke(1.2.dp.toPx())) // dış daire
             drawCircle(ornament.copy(alpha = 0.7f), r * 0.80f, style = Stroke(0.6.dp.toPx())) // iç daire
@@ -137,6 +141,7 @@ fun QuranPage(
     highlight: AyahRef?, // vurgulanacak ayet
     highlightAlpha: Float, // vurgunun görünürlüğü (sönerek kaybolur)
     modifier: Modifier = Modifier, // değiştirici
+    onHighlightAt: (Float) -> Unit = {}, // vurgulu ayetin ekrandaki dikey konumu (otomatik kaydırma için)
 ) {
     val ink = Color(s.inkColor) // yazı rengi
     val ornament = Color(s.ornamentColor) // süs rengi
@@ -176,20 +181,36 @@ fun QuranPage(
                             buildAnnotatedString {
                                 for (a in b.ayahs) { // her ayet
                                     val vurgu = highlight != null && highlight.sura == a.sura && highlight.ayah == a.number && highlightAlpha > 0f // vurgulanacak mı
-                                    if (vurgu) withStyle(SpanStyle(background = ornament.copy(alpha = 0.22f * highlightAlpha))) { append(a.text) } else append(a.text) // ayet metni
-                                    append(' ') // ayet ile gül arasında bölünmeyen boşluk
+                                    if (vurgu) withStyle(SpanStyle(background = ornament.copy(alpha = 0.30f * highlightAlpha))) { append(a.text) } else append(a.text) // ayet metni
+                                    append("  ") // ayet ile gül arasında bölünmeyen boşluk (gül kelimeye değmesin)
                                     appendInlineContent("a${a.number}", "(${a.number})") // ayet gülü
-                                    append(' ') // sonraki ayetten önce boşluk
+                                    append("  ") // gülden sonra boşluk
                                 }
                             }
                         }
                         val gul = remember(b, ornament, ink, family, fontSize) { // ayet gülleri
                             b.ayahs.associate { a ->
-                                val gen = when { a.number >= 100 -> 1.75f; a.number >= 10 -> 1.45f; else -> 1.3f } // basamağa göre genişlik
+                                val gen = when { a.number >= 100 -> 2.1f; a.number >= 10 -> 1.85f; else -> 1.7f } // basamağa göre genişlik (iki yanda kelimeye değmeyecek pay)
                                 "a${a.number}" to InlineTextContent(Placeholder(gen.em, 1.3.em, PlaceholderVerticalAlign.TextCenter)) { AyahMarker(a.number, ornament, ink, family, fontSize) } // gül bileşeni
                             }
                         }
-                        Text(metin, Modifier.fillMaxWidth(), style = ayetStili, inlineContent = gul) // paragraf
+                        val vurguYeri = remember(b, highlight) { // vurgulu ayetin metindeki başlangıcı
+                            if (highlight == null) -1 else {
+                                var i = 0 // karakter sayacı
+                                var bulundu = -1 // sonuç
+                                for (a in b.ayahs) { if (a.sura == highlight.sura && a.number == highlight.ayah) { bulundu = i; break }; i += a.text.length + 2 + "(${a.number})".length + 2 } // ayet + 2 boşluk + gülün yedek metni + 2 boşluk
+                                bulundu
+                            }
+                        }
+                        var duzen by remember { mutableStateOf<TextLayoutResult?>(null) } // metin yerleşimi
+                        Text(
+                            metin, // paragraf
+                            Modifier.fillMaxWidth().onGloballyPositioned { k -> // ekrandaki yer
+                                val d = duzen // yerleşim
+                                if (vurguYeri >= 0 && d != null && highlightAlpha > 0.99f) onHighlightAt(k.positionInRoot().y + d.getBoundingBox(vurguYeri.coerceAtMost(d.layoutInput.text.length - 1)).top) // vurgunun ekrandaki yeri
+                            },
+                            style = ayetStili, inlineContent = gul, onTextLayout = { duzen = it }, // stil ve yerleşim
+                        )
                     }
                 }
             }

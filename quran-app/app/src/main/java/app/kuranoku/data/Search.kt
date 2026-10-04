@@ -134,7 +134,7 @@ class SearchEngine(private val quran: Quran) {
 
     private fun pageSuggestion(n: Int): Suggestion { // sayfa önerisi
         val s = quran.surahOfPage(n) // sayfanın suresi
-        return Suggestion(SuggestionKind.PAGE, "Sayfa $n", "${s.turkishName} · ${quran.juzOfPage(n)}. cüz", n, 0, 0, "", "S")
+        return Suggestion(SuggestionKind.PAGE, "Sayfa $n", "${s.turkishName} · ${quran.juzOfPage(n)}. cüz", n, 0, 0, "", "S$n")
     }
 
     companion object {

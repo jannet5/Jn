@@ -71,6 +71,7 @@ import app.kuranoku.ui.theme.family // yazı tipi ailesi
 import app.kuranoku.ui.theme.withInkColor // yazı rengi uygula
 import app.kuranoku.ui.theme.withPageColor // sayfa rengi uygula
 import app.kuranoku.ui.theme.withPreset // hazır görünüm uygula
+import app.kuranoku.ui.theme.onSwatch // kutu üstü renk
 import kotlinx.coroutines.launch // başlatma
 import kotlin.math.roundToInt // yuvarlama
 
@@ -201,7 +202,7 @@ private fun ColorSection(title: String, colors: List<Pair<Int, String>>, selecte
                         .selectable(secili, role = Role.RadioButton) { onPick(c) }, // seçilebilir
                     contentAlignment = Alignment.Center, // ortalı
                 ) {
-                    if (secili) Ico(Lucide.Check, ad, size = IconSize.m, tint = if (Color(c).luminance() > 0.5f) Color(0xFF1D1B18) else Color(0xFFFFFFFF)) // seçili işareti (zemine göre koyu/açık)
+                    if (secili) Ico(Lucide.Check, ad, size = IconSize.m, tint = onSwatch(c)) // seçili işareti (zemine göre koyu/açık)
                 }
             }
         }

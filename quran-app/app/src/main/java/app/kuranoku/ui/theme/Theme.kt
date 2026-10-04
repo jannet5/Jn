@@ -1,6 +1,7 @@
 package app.kuranoku.ui.theme // tema: DESIGN.md'deki token'ların tek kod karşılığı
 
 import androidx.compose.material3.ColorScheme // Material renk şeması
+import androidx.compose.material3.LocalContentColor // varsayılan içerik rengi
 import androidx.compose.material3.MaterialTheme // tema sağlayıcı
 import androidx.compose.material3.Typography // yazı ölçeği
 import androidx.compose.material3.darkColorScheme // koyu şema oluşturucu
@@ -120,7 +121,10 @@ fun ReaderSettings.isDarkPage(): Boolean = Color(pageColor).luminance() < 0.25f
 @Composable
 fun KuranTheme(dark: Boolean, content: @Composable () -> Unit) {
     CompositionLocalProvider(LocalAppColors provides if (dark) darkAppColors else lightAppColors) { // ek token'lar
-        MaterialTheme(colorScheme = if (dark) darkScheme else lightScheme, typography = typography, content = content) // Material tema
+        val sema = if (dark) darkScheme else lightScheme // renk şeması
+        MaterialTheme(colorScheme = sema, typography = typography) { // Material tema
+            CompositionLocalProvider(LocalContentColor provides sema.onBackground, content = content) // varsayılan yazı rengi temadan (koyu temada siyah yazı kalmasın)
+        }
     }
 }
 

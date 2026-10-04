@@ -61,3 +61,6 @@ fun contrast(a: Int, b: Int): Float {
     val lb = Color(b).luminance() // b'nin parlaklığı
     return (maxOf(la, lb) + 0.05f) / (minOf(la, lb) + 0.05f) // oran
 }
+
+/** Rastgele bir renk kutusunun üstündeki işaret/yazı rengi: açık zeminde koyu, koyu zeminde açık. */
+fun onSwatch(c: Int): Color = if (Color(c).luminance() > 0.45f) Color(0xFF1D1B18) else Color(0xFFF5F0E6)
