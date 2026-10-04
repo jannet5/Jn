@@ -60,3 +60,21 @@ python3 araclar/dogrula.py /çıktı/klasörü
 İlk ZIP 32,3 MiB idi; dosya gönderim sınırı 30 MiB → reddedildi. Çözüm: orijinal JPEG baytları yeniden sıkıştırılmadan saklandı
 (11 MB → 8,6 MB, kaynağa daha sadık), slayt JPEG kalitesi 88→85, video CRF 26→28. Yeni ZIP 29.112.275 bayt (27,8 MiB),
 SHA-256 `9fa22357ca999d2458f71ce96860bb6a2d98af98156d76dfb4e2e94e9ee6948d`; `dogrula.py` yeniden TÜM KABULLER GEÇTİ; kullanıcıya özel dosya olarak iletildi.
+
+## 9. GitHub teslimi (2026-10-04)
+- Sohbetteki dosya kartı kullanıcının cihazında indirmede %100'de takıldı; kullanıcı GitHub linki istedi.
+- Bu oturumun GitHub entegrasyonu yeni depo açamadı (`POST /user/repos` → 403 "Resource not accessible by integration").
+  Fotoğraflar üçüncü kişilere ait olduğu için ZIP public `jannet5/Jn` deposuna **konmadı**.
+- Kullanıcı tarafı (yerel GitHub oturumu `cengizdastan8`) bildirimi: PRIVATE `cengizdastan8/komik-foto-paketleri` deposu açıldı,
+  `teslim-20261004` release'ine ZIP yüklendi, GitHub'dan geri indirilip aynı SHA-256 doğrulandı:
+  - Link: https://github.com/cengizdastan8/komik-foto-paketleri/releases/tag/teslim-20261004
+  - 29.112.275 bayt, SHA-256 `9fa22357ca999d2458f71ce96860bb6a2d98af98156d76dfb4e2e94e9ee6948d`
+  - Kullanıcı tarafı bağımsız kontrol: 177 dosya/CRC, 48 benzersiz foto, 12 paket sıra kuralı, 12 farklı şarkı, 96 slayt ölçüsü, 12 video süresi 10,13 sn.
+  - İndirmek için `cengizdastan8` hesabıyla GitHub'a giriş gerekir.
+- Bu bulut oturumu o özel depoya erişemediği için release'i **kendisi doğrulayamadı**; doğrulama kullanıcının bildirdiği sonuçtur.
+  Yerel ZIP'in hash'i aynı değerle eşleşiyor (`sha256sum -c` → OK).
+
+## 10. Kapsam sınırı (güncel)
+- Hazırlanmış içerik teslimi tamam (48 foto, 12 dörtlü paket, müzik listesi, açıklamalar, özel GitHub release).
+- **Açık kalanlar:** Instagram/TikTok yayını yapılmadı (hesap erişimi/yetki yok); kullanıcının örnek verdiği
+  "bu binayı pisleteni bulacağım" cam fotoğrafı bulunamadı; tam kare video çözümleme ve gerçek telefon/yayın kabulü yapılmadı.
