@@ -70,3 +70,12 @@ Dal push + geri okuma; özel ZIP (kaynak dosyaları dahil) + SHA-256 + geri okum
   yanındaki `.exe/.cmd` tercih edilir (test edildi).
 - Dürüst sınır: native Windows çalıştırılmadı; gerçek 1000 gönderi / 4000 görsel hâlâ yok (ChatGPT Pro girişi ve
   Instagram verisi gerekiyor). Sentetik ölçek testi bunların yerine geçmez.
+
+## 10. Ebeveyn native Windows kabulü (2026-10-04) — yalnız belgelendirme
+- Bildirilen: commit `c5b404e…` 41 dosya Git blob SHA-1 + SHA-256 ile geri okundu; gerçek Windows, Python 3.11,
+  Pillow 11.3, `python -X utf8 -m unittest discover -s tests -v` → 24/24, 19,783 sn, çıkış 0; WinError 193 ve
+  cp1254 hataları kapandı.
+- Bu dilimde kod değişmedi; testler ve ölçek istenmediği için yeniden çalıştırılmadı. Kayıt: `kabul/KABUL.md` (K9),
+  `kabul/windows-regresyon.md`.
+- Açık kalanlar: `kur-windows.ps1` ve `-X utf8`'siz koşu Windows'ta çalıştırılmadı; ChatGPT Pro girişi, 1000 gerçek
+  Instagram kaynağı ve 4000 gerçek görsel yok. Sentetik 4000 sonucu gerçek üretim sayılmaz.

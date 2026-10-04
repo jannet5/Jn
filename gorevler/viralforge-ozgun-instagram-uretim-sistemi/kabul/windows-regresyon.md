@@ -35,13 +35,22 @@ zaman aşımı (124), giriş yok (`AuthMissing`), kota (`LimitReached`) ayrı ve
   akış: mevcut gerçek Codex 0.160 yeniden kurulmadan bulundu → `doctor` → "Not logged in" → çıkış **3**, giriş başlatılmadı.
 - Ölçek (sentetik, test taklidi): `olcek-kabul-cikti.json`.
 
-## YAPILMADI: native Windows çalıştırması
-Bu bulut oturumunda Windows yok. Ebeveynin Windows'ta tekrar çalıştıracağı komutlar (depo kökünde, PowerShell):
+## Bağımsız native Windows sonucu (ebeveyn, 2026-10-04) — bu oturumda yeniden çalıştırılmadı
+Ebeveynin bildirdiği sonuç, olduğu gibi kaydedilmiştir:
+- Commit `c5b404e13e662c0eda6ff6c40a99b3ada8b73a1e`; 41 dosya Git blob SHA-1 ve SHA-256 ile geri okunarak alındı.
+- Gerçek Windows bilgisayarı, Python 3.11, mevcut Pillow 11.3:
+  `python -X utf8 -m unittest discover -s tests -v` → **24 test, 24 geçti, 19,783 sn, çıkış 0**.
+- Önceki WinError 193 ve cp1254 (UnicodeDecodeError) hataları bu regresyonlarda kapandı.
+
+Sınır (ebeveynin açıkça çalıştırmadıkları):
+- `kur-windows.ps1` native Windows'ta çalıştırılmadı (yalnız Linux'ta PowerShell 7.4.6 ile ayrıştırma/akış denendi).
+- `-X utf8` OLMADAN `python -m unittest discover -s tests -v` sonucu bildirilmedi.
+- Gerçek Codex (ChatGPT Pro girişi) ve gerçek Instagram verisiyle üretim yapılmadı.
+
+Kalan Windows komutları (isteğe bağlı, depo kökünde, PowerShell):
 ```powershell
-git fetch origin claude/quirky-cerf-hp56r0; git checkout <YENİ_COMMIT>
 cd gorevler\viralforge-ozgun-instagram-uretim-sistemi
-python -X utf8 -m unittest discover -s tests -v
-python -m unittest discover -s tests -v          # UTF-8 modu OLMADAN da geçmeli
+python -m unittest discover -s tests -v          # UTF-8 modu OLMADAN
 powershell -NoProfile -ExecutionPolicy Bypass -File .\kur-windows.ps1   # çıkış 0 hazır / 3 giriş gerekli / 2 Codex yok
 ```
 `node` yoksa npm-shim testleri "node yok" diye atlanır (skip), hata vermez.
