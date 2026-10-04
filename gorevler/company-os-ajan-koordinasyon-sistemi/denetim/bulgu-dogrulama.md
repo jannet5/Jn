@@ -70,3 +70,13 @@ Düzeltme (yalnız testler ve prob; ürün kodu değişmedi):
 - **Codex'siz güvenli başarısızlık kabulü** bu ortamda çalıştırıldı ve sahte başarı üretilmedi.
 - **NTFS junction testi** eklendi; Windows'ta çalıştırılmadı.
 - **Gerçek Codex intake→run→resume→package kabulü yapılmadı.**
+
+## 6. aşama: Windows junction kabulü (2026-10-04, koordinatörün bağımsız sonucu)
+- **Ortam:** native Windows, Python 3.11, yeni izole kopya.
+- **Sonuç:** 50 test: 48 geçti, 2 atlandı (POSIX), 0 hata; exit 0. Gerçek `mklink /J` junction testi geçti; symlink testi de bu ortamda geçti.
+- **Hash'ler:**
+  - Delta SHA `9ab84ae7…2b72`: bulut ortamındaki yamayla birebir aynı.
+  - Test dosyası `71610148…` → `6b6292b5…`.
+  - Sonuç JSON `a59ae931…c5da`, log `18463c57…b651` (dosyalar koordinatörde).
+- **Tarihsel sonuç:** 2026-10-03, 49/46/3, korunuyor. Beklenen 47/3 yerine gözlenen 48/2; symlink izin farkının nedeni bilinmiyor.
+- **Hâlâ yapılmadı:** gerçek Codex + `salon.jpg` + Playwright ile uçtan uca ürün kabulü ve yeni tam ZIP indirmesi.

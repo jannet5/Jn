@@ -182,3 +182,34 @@ W5 Node + Playwright → resume (QA + review → awaiting_human)
 W6 package → yalnız insan incelemesinden sonra accept --human-accepted
 ```
 Her adım, bir önceki adımın kanıtı olmadan başlatılmamalı. Hiçbir önkoşul varmış gibi sayılmadı.
+
+---
+
+# 6. aşama: NTFS junction Windows kabulü (2026-10-04)
+
+## Kanıt düğümü W0: tamamlandı (koordinatörün bağımsız Windows çalıştırması)
+- **Yer ve tarih:** 2026-10-04, korunmuş başlangıçtan alınmış yeni izole kopya. Native Windows, Python 3.11.
+- **Uygulanan delta:** 1983 bayt. Delta SHA-256 `9ab84ae76680ee42e6e5d1f096ad277caa76f15acabad8b4a014e83b42926b72`.
+  - Bu değer, bulut ortamındaki `windows-ntfs-junction-delta.patch` dosyasının SHA'sıyla **birebir aynı**; bulutta yeniden hesaplanıp karşılaştırıldı.
+- **Değişen tek dosya:** `tests/test_audit_regressions.py`, `71610148…3143` → `6b6292b5…6ada`. Başlangıç kaynak hash'leri değişmedi.
+- **Sonuç:** `unittest discover` exit 0; **50 test: 48 geçti, 2 atlandı (POSIX), 0 hata.**
+  - `test_guarded_sweep_leaves_ntfs_junction` gerçek `mklink /J` ile **geçti**.
+  - `test_guarded_sweep_leaves_planted_symlink` bu ortamda **geçti**.
+- **Yerel dosyalar:** Sonuç JSON SHA `a59ae931f34ab837925c56ff0550fe72c7fb30ee4744d5c41b6c6d38ecc9c5da`, unittest log SHA `18463c576100d04f89b0fb0ffe85fcfd96fd5c2c138918c39aa7a35a588fb651`. Bu dosyalar koordinatörün makinesinde; bulut ortamında **yok** ve yeniden üretilmedi.
+- **Beklenti ile gözlem:** Beklenti 47 geçer / 3 atlanır idi; gözlenen 48 / 2. Fark, symlink alt testinin bu ortamda symlink oluşturabilmesinden kaynaklanıyor. Ortamın neden symlink oluşturabildiği **bilinmiyor**; tahmin yapılmadı.
+- **Tarihsel kayıt (değiştirilmedi):** 2026-10-03 fixture deltası 49 test: 46 geçti, 3 atlandı (symlink ayrıcalığı yoktu).
+
+## Güncel kabul durumu
+| Düğüm | Durum |
+|---|---|
+| Denetim bulguları 1–5, 3b, 5b (Linux) | Kapalı: testler, 20/20 prob, 8/8 negatif kontrol |
+| Windows test paketi (W0) | **Geçti:** 50 / 48 / 2 / 0 |
+| Gerçek NTFS junction | **Geçti** (W0 içinde) |
+| Codex'siz güvenli başarısızlık (K1–K9) | Geçti: sahte başarı yok (bulut ortamı, sentetik git kökü) |
+| W1 Codex `probe` | **Yapılmadı:** kimliği doğrulanmış Codex gerekiyor |
+| W2 gerçek `.git` ile intake | **Yapılmadı:** projenin gerçek `.git` geçmişi gerekiyor |
+| W3–W5 design, implement, QA, review | **Yapılmadı:** Codex, `salon.jpg`, Node ve Playwright gerekiyor |
+| W6 package ve insan kabulü | **Yapılmadı:** W5 olmadan anlamsız; sahte insan kabulü yapılmayacak |
+| Yeni tam ZIP'in indirilmesi | **Yapılmadı:** tarayıcı indirmesi engellendi |
+
+**Uygulanabilir sıradaki adım: W1.** Kimliği doğrulanmış Codex CLI bulunan Windows makinesinde, aynı izole kopyada `$env:PYTHONPATH='src'; python -m company_os.cli probe` çalıştırılır. Beklenen kanıt `runs/capabilities.json` içinde `app_server_handshake_verified`. Bu adım token harcamaz. Sonuç `unavailable_in_current_runtime` olursa W2'ye geçilmez.

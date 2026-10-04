@@ -262,3 +262,26 @@ Kullanıcının Windows çalıştırmasında 1 ERROR çıktı: symlink ayrıcal�
 - NTFS junction testi Windows'ta çalıştırılmadı.
 - Gerçek Codex akışı (W1–W6) yapılmadı. Gerçek `.git`, `salon.jpg`, kimliği doğrulanmış Codex ve Playwright gerekiyor.
 - **Ürün tamamen bitmedi.**
+
+---
+
+# 6. aşama: Windows junction kabulünün kaydı (2026-10-04)
+
+## İstenen
+Koordinatörün bağımsız Windows kabulünü haritaya, doğrulama belgesine ve günlüğe işlemek. Ürün geliştirme yapılmayacak, kod ve yama public depoya çıkmayacak.
+
+## Yapılanlar
+- **Delta SHA çapraz kontrolü:** Bulut ortamındaki `windows-ntfs-junction-delta.patch` yeniden hashlendi: `9ab84ae76680ee42e6e5d1f096ad277caa76f15acabad8b4a014e83b42926b72`, 1983 bayt. Koordinatörün bildirdiği değerle birebir aynı.
+- **Kayıt:** Sonuç (50/48/2/0, junction ve symlink testleri geçti) koordinatör kanıtı olarak işlendi. Sonuç JSON'u ve log hash'leri yalnız kayıt olarak yazıldı; o dosyalar bu ortamda yok.
+- **Tarihsel sonuç korundu:** 2026-10-03 tarihli 49/46/3.
+- **Beklenti farkı kaydedildi:** Beklenen 47/3 yerine gözlenen 48/2. Neden bilinmiyor; tahmin yazılmadı.
+- **Özel rapor ve paket:** Özel rapora 4f bölümü eklendi; özel paket yeniden üretildi (kod değişmedi).
+
+## Güncel eksikler
+1. W1: kimliği doğrulanmış Codex ile `probe`.
+2. W2: gerçek `.git` ile intake.
+3. W3–W5: Codex turları, `salon.jpg`, Node ve Playwright.
+4. W6: package; insan kabulü yalnız gerçek incelemeden sonra.
+5. Yeni tam ZIP'in indirilmesi (tarayıcı engeli).
+
+**Sıradaki uygulanabilir adım: W1 `probe`.** Ürün tamamen bitmedi.
