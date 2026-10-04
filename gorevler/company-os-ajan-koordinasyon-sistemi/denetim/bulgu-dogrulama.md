@@ -80,3 +80,9 @@ Düzeltme (yalnız testler ve prob; ürün kodu değişmedi):
   - Sonuç JSON `a59ae931…c5da`, log `18463c57…b651` (dosyalar koordinatörde).
 - **Tarihsel sonuç:** 2026-10-03, 49/46/3, korunuyor. Beklenen 47/3 yerine gözlenen 48/2; symlink izin farkının nedeni bilinmiyor.
 - **Hâlâ yapılmadı:** gerçek Codex + `salon.jpg` + Playwright ile uçtan uca ürün kabulü ve yeni tam ZIP indirmesi.
+
+## 7. aşama: W1 handshake (2026-10-04, koordinatörün bağımsız sonucu)
+- **Sonuç:** Yerel Codex executable ile `probe` çalıştırıldı: exit 0, `app_server_handshake_verified`.
+- **Hash'ler:** `capabilities.json` `67356d6f…c42e`, `probe-events.json` `27187b30…d10b`. Dosyalar koordinatörde.
+- **Kapsam:** Bu yalnız bağlantı kontrolüdür. Model turu ya da ürün üretimi kabulü değildir.
+- **W2 başlatılmadı:** Gerçek Git geçmişi ve gerçek `salon.jpg` yok.

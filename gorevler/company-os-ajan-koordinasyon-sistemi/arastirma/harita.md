@@ -213,3 +213,29 @@ Her adım, bir önceki adımın kanıtı olmadan başlatılmamalı. Hiçbir önk
 | Yeni tam ZIP'in indirilmesi | **Yapılmadı:** tarayıcı indirmesi engellendi |
 
 **Uygulanabilir sıradaki adım: W1.** Kimliği doğrulanmış Codex CLI bulunan Windows makinesinde, aynı izole kopyada `$env:PYTHONPATH='src'; python -m company_os.cli probe` çalıştırılır. Beklenen kanıt `runs/capabilities.json` içinde `app_server_handshake_verified`. Bu adım token harcamaz. Sonuç `unavailable_in_current_runtime` olursa W2'ye geçilmez.
+
+---
+
+# 7. aşama: W1 Codex handshake kanıtı (2026-10-04)
+
+## Kanıt düğümü W1: bağlantı kontrolü geçti (koordinatörün bağımsız Windows çalıştırması)
+- **Komut:** Ayrı bir kanıt kökünde, yerel olarak kurulu Codex executable ile (`%LOCALAPPDATA%\Programs\OpenAI\Codex\bin\codex.exe`) `python -X utf8 -m company_os.cli --root <native-probe-20261004> probe`.
+- **Sonuç:** exit 0, stderr boş, `status = app_server_handshake_verified`.
+- **Yerel dosyalar:** `capabilities.json` SHA-256 `67356d6f3752e3257cf8e802f0e208addce9b797cd1635f9606ad59abbeec42e`, `probe-events.json` SHA-256 `27187b30dd21f46ed1f3ba7ec1c9ce0353e3d75041e4ebad1c0a5bde18e9d10b`. Bu dosyalar koordinatörün makinesinde; bulut ortamında **yok**.
+- **Kapsam:** Bu kanıt yalnız `initialize` + `model/list` + `skills/list` bağlantı kontrolüdür. Bir model turu, token harcayan üretim ya da kimlik doğrulamalı ürün üretimi kabulü **değildir**.
+
+## Güncel kabul durumu
+| Düğüm | Durum |
+|---|---|
+| W0 Windows test paketi + NTFS junction | Geçti (50 / 48 / 2 / 0) |
+| W1 Codex App Server handshake | **Geçti**: yalnız bağlantı kontrolü |
+| W2 intake | **Başlatılmadı**: projenin gerçek Git geçmişi yok |
+| W3 design (ilk gerçek model turu) | Başlatılmadı: W2 gerekiyor |
+| W4 implement | Başlatılmadı: gerçek `examples/demo-kuafor/salon.jpg` gerekiyor |
+| W5 QA + review | Başlatılmadı: Node + Playwright ve W4 gerekiyor |
+| W6 package + insan kabulü | Başlatılmadı: W5 gerekiyor; sahte insan kabulü yapılmayacak |
+
+**Sıradaki gerçek önkoşul:** projenin gerçek Git geçmişi.
+- `intake`, depo kökünde `git rev-parse HEAD` çalıştırıyor. Bulut ortamındaki K2 kabulü, `.git` olmadan iş oluşturulmadığını gösterdi.
+- `salon.jpg` teknik olarak W4'te gerekiyor. Koordinatörün kararıyla W2'ye ikisi birlikte hazır olmadan geçilmedi.
+- İkisi hazır olduğunda yapılacak adım: `$env:PYTHONPATH='src'; python -m company_os.cli intake examples/demo-kuafor/brief.md`. Bu adım token harcamaz; ardından W3'e geçilir.

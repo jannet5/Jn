@@ -285,3 +285,12 @@ Koordinatörün bağımsız Windows kabulünü haritaya, doğrulama belgesine ve
 5. Yeni tam ZIP'in indirilmesi (tarayıcı engeli).
 
 **Sıradaki uygulanabilir adım: W1 `probe`.** Ürün tamamen bitmedi.
+
+---
+
+# 7. aşama: W1 handshake kaydı (2026-10-04)
+- **İstenen:** Koordinatörün W1 Windows kanıtını geçmiş bağımsız kanıt olarak kaydetmek. Yalnız belgeler güncellenecek; ürün kodu ve testler değişmeyecek.
+- **Kaydedilen:** `probe` exit 0, stderr boş, `app_server_handshake_verified`. `capabilities.json` SHA `67356d6f3752e3257cf8e802f0e208addce9b797cd1635f9606ad59abbeec42e`, `probe-events.json` SHA `27187b30dd21f46ed1f3ba7ec1c9ce0353e3d75041e4ebad1c0a5bde18e9d10b`. Dosyalar bulut ortamında yok.
+- **Kapsam notu:** Bu yalnız `initialize` + `model/list` + `skills/list` bağlantı kontrolü. Model turu ya da ürün üretimi kabulü değil.
+- **Gizlilik:** Koordinatörün bildirdiği yerel executable yolu kullanıcı adı içerdiği için public belgelere `%LOCALAPPDATA%` biçiminde genelleştirilerek yazıldı.
+- **Sıradaki gerçek önkoşul:** projenin gerçek Git geçmişi (W2). `salon.jpg` W4 için gerekiyor. İkisi gelmeden W2 başlatılmadı. Ürün tamamen bitmedi.
