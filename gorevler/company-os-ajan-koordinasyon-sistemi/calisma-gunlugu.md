@@ -275,7 +275,7 @@ Koordinatörün bağımsız Windows kabulünü haritaya, doğrulama belgesine ve
 - **Kayıt:** Sonuç (50/48/2/0, junction ve symlink testleri geçti) koordinatör kanıtı olarak işlendi. Sonuç JSON'u ve log hash'leri yalnız kayıt olarak yazıldı; o dosyalar bu ortamda yok.
 - **Tarihsel sonuç korundu:** 2026-10-03 tarihli 49/46/3.
 - **Beklenti farkı kaydedildi:** Beklenen 47/3 yerine gözlenen 48/2. Neden bilinmiyor; tahmin yazılmadı.
-- **Özel rapor ve paket:** Özel rapora 4f bölümü eklendi; özel paket yeniden üretildi (kod değişmedi).
+- **Özel rapor ve paket:** Özel rapora 4f bölümü eklendi; özel paket yeniden üretildi (kod değişmedi): 171447 bayt, 77 dosya, SHA-256 `303d2858c6dfb3374e068c3648b83e3d4896cf467afa9fc824c7ae4854516a3a`. Hash, CRC ve bundle ağacı geri okundu.
 
 ## Güncel eksikler
 1. W1: kimliği doğrulanmış Codex ile `probe`.
