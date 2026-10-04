@@ -9,13 +9,12 @@ from __future__ import annotations
 import os
 import re
 import shutil
-import subprocess
 import tempfile
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-from . import prompts
+from . import launcher, prompts
 from .store import VARIANT_IDS, Workspace, read_json, write_json
 
 SCHEMA = Path(__file__).parent / "schemas" / "analysis.schema.json"
@@ -32,8 +31,13 @@ class AuthMissing(RuntimeError):
     """Codex ChatGPT girişi yok/geçersiz: 1000 kez denemek yerine hemen dur."""
 
 
-def codex_bin() -> str:
-    return os.environ.get("VF_CODEX_BIN", "codex")
+class CodexUnavailable(RuntimeError):
+    """Codex bulunamadı/başlatılamadı (WinError 193, ENOENT, izin): hemen dur, nedeni göster."""
+
+
+def codex_launcher() -> launcher.Launcher:
+    """Çalışma zamanı ve doctor'ın kullandığı TEK çözümleyici: VF_CODEX_BIN (tam yol, boşluklu olabilir) ya da PATH."""
+    return launcher.resolve("codex", "VF_CODEX_BIN")
 
 
 def child_env(allow_api_billing: bool = False) -> dict:
@@ -44,9 +48,12 @@ def child_env(allow_api_billing: bool = False) -> dict:
     return env
 
 
-def _run(cmd: list[str], stdin: str | None, timeout: int, allow_api_billing: bool, cwd: Path | None = None):
-    proc = subprocess.run(cmd, input=stdin, capture_output=True, text=True, timeout=timeout,
-                          env=child_env(allow_api_billing), cwd=cwd)
+def _run(args: list[str], stdin: str | None, timeout: int, allow_api_billing: bool, cwd: Path | None = None):
+    try:
+        proc = launcher.run(codex_launcher(), args, input_text=stdin, timeout=timeout,
+                            env=child_env(allow_api_billing), cwd=cwd)
+    except launcher.LaunchError as e:
+        raise CodexUnavailable(str(e)) from e
     blob = f"{proc.stdout}\n{proc.stderr}".lower()
     if proc.returncode != 0 and any(m in blob for m in AUTH_MARKERS):
         raise AuthMissing((proc.stderr or proc.stdout).strip()[-300:])
@@ -113,7 +120,7 @@ def analyze_one(ws: Workspace, post: dict, allow_api_billing: bool = False, retr
             prompt += "\nÖnceki denemenin sorunları, düzelt: " + "; ".join(last_errs)
         with tempfile.TemporaryDirectory() as td:
             out = Path(td) / "last.json"
-            cmd = [codex_bin(), "exec", "--skip-git-repo-check", "--ephemeral", "--sandbox", "read-only",
+            cmd = ["exec", "--skip-git-repo-check", "--ephemeral", "--sandbox", "read-only",
                    "--output-schema", str(SCHEMA), "-o", str(out)]
             for img in images:
                 cmd += ["--image", str(img)]
@@ -145,6 +152,11 @@ def _parallel(fn, items, jobs: int, log):
                 f.cancel()
             log(f"DURDU: ChatGPT plan kullanım limiti ({e}). İlerleme kayıtlı; limit sıfırlanınca aynı komutu tekrar çalıştırın.")
             results.append({"status": "limit"})
+        except CodexUnavailable as e:
+            for f in futs:
+                f.cancel()
+            log(f"DURDU: Codex başlatılamadı: {e}. Kontrol: `python -m viralforge doctor`.")
+            results.append({"status": "launch"})
         except AuthMissing as e:
             for f in futs:
                 f.cancel()
@@ -182,7 +194,7 @@ def generate_one(ws: Workspace, code: str, variant: dict, allow_api_billing: boo
         return {"shortcode": code, "variant": variant["id"], "status": "exists"}
     target.parent.mkdir(parents=True, exist_ok=True)
     started = time.time()
-    cmd = [codex_bin(), "exec", "--skip-git-repo-check", "--ephemeral", "--sandbox", "workspace-write",
+    cmd = ["exec", "--skip-git-repo-check", "--ephemeral", "--sandbox", "workspace-write",
            "-C", str(ws.post_dir(code)), "-"]
     proc = _run(cmd, prompts.image_prompt(variant, str(target)), timeout, allow_api_billing)
     if not target.exists():
@@ -215,7 +227,7 @@ def generate_all(ws: Workspace, jobs: int = 1, limit: int | None = None, allow_a
 
 
 def _summ(res: list[dict]) -> dict:
-    out: dict = {"ok": 0, "fail": 0, "skip": 0, "exists": 0, "limit": 0, "auth": 0}
+    out: dict = {"ok": 0, "fail": 0, "skip": 0, "exists": 0, "limit": 0, "auth": 0, "launch": 0}
     for r in res:
         out[r["status"]] = out.get(r["status"], 0) + 1
     out["failures"] = [r for r in res if r["status"] == "fail"][:20]

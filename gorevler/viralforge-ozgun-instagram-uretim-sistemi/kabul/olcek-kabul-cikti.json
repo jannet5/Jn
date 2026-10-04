@@ -11,15 +11,17 @@
     "skip": 0,
     "exists": 0,
     "limit": 0,
-    "auth": 0
+    "auth": 0,
+    "launch": 0
   },
   "generate_1": {
-    "ok": 1488,
+    "ok": 1491,
     "fail": 0,
     "skip": 0,
     "exists": 0,
     "limit": 1,
-    "auth": 0
+    "auth": 0,
+    "launch": 0
   },
   "generate_2_resume": {
     "ok": 2500,
@@ -27,7 +29,8 @@
     "skip": 0,
     "exists": 0,
     "limit": 0,
-    "auth": 0
+    "auth": 0,
+    "launch": 0
   },
   "verify": {
     "verified_images": 4000
@@ -54,5 +57,5 @@
     "answer": "Evet, bitti. 1000 tutmuş gönderi (URL+fotoğraf+ses+açıklama kayıtlı), 1000 geçerli analiz, 4000 doğrulanmış özgün görsel."
   },
   "png_files_on_disk": 4000,
-  "seconds": 104.4
+  "seconds": 116.6
 }

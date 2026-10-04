@@ -1,6 +1,7 @@
 """Çevrimdışı birim + uçtan uca testler. Örnek veriler SENTETİKTİR (gerçek Instagram gönderisi değildir)."""
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -13,10 +14,24 @@ sys.path.insert(0, str(ROOT))
 
 from PIL import Image, ImageDraw  # noqa: E402
 
-from viralforge import brain, importers, report, select, urls, verify  # noqa: E402
+from viralforge import brain, importers, launcher, report, select, urls, verify  # noqa: E402
 from viralforge.store import Workspace  # noqa: E402
 
 FAKE = str(ROOT / "tests" / "fake_codex.py")
+SHIM_DIR = ROOT / "tests" / "fixtures" / "npm global"
+
+
+def non_utf8_env(**extra) -> dict:
+    """Windows'taki cp125x konsol durumunun Linux karşılığı: UTF-8 modu ve locale zorlaması kapalı, C locale."""
+    env = {k: v for k, v in os.environ.items() if not k.startswith(("LC_", "LANG", "PYTHONIOENCODING", "PYTHONUTF8"))}
+    env.update(LC_ALL="C", PYTHONUTF8="0", PYTHONCOERCECLOCALE="0", PYTHONPATH=str(ROOT), **extra)
+    return env
+
+
+def run_cli(ws_root, *a, env=None):
+    """CLI'yi ayrı yorumlayıcıda çalıştırır; çıktıyı her zaman UTF-8 olarak çözer (bozuksa hata verir)."""
+    return subprocess.run([sys.executable, "-m", "viralforge", "-w", str(ws_root), *a], capture_output=True,
+                          text=True, encoding="utf-8", errors="strict", env=env or non_utf8_env())
 
 
 def make_img(path: Path, seed: int, side: int = 600):
@@ -52,7 +67,8 @@ class Base(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.ws = Workspace(Path(self.tmp.name) / "ws").ensure()
         os.environ["VF_CODEX_BIN"] = FAKE
-        for k in ("FAKE_CODEX_LIMIT_AFTER", "FAKE_CODEX_COUNTER", "FAKE_CODEX_LOG", "FAKE_CODEX_NO_AUTH"):
+        for k in ("FAKE_CODEX_LIMIT_AFTER", "FAKE_CODEX_COUNTER", "FAKE_CODEX_LOG", "FAKE_CODEX_NO_AUTH",
+                  "FAKE_CODEX_LOGGED_OUT", "FAKE_CODEX_SLEEP"):
             os.environ.pop(k, None)
 
     def tearDown(self):
@@ -80,7 +96,7 @@ class TestUrls(Base):
         with zipfile.ZipFile(z, "w") as zf:
             # Meta dışa aktarımı eğik çizgileri \/ biçiminde kaçışlar
             zf.writestr("your_instagram_activity/saved/saved_posts.json", json.dumps(saved).replace("/", "\\/"))
-        (d / "list.html").write_text('<a href="https://instagram.com/p/AAAAA111/">x</a> https://www.instagram.com/p/CCCCC333/')
+        (d / "list.html").write_text('<a href="https://instagram.com/p/AAAAA111/">x</a> https://www.instagram.com/p/CCCCC333/', encoding="utf-8")
         r = importers.import_urls(self.ws, [str(z), str(d / "list.html")])
         self.assertEqual(r["total_posts"], 3)
         self.assertEqual(r["found_links"], 4)
@@ -100,12 +116,12 @@ class TestMeta(Base):
         (d / "vf-capture-DDDDD444.json").write_text(json.dumps({
             "url": "https://www.instagram.com/p/DDDDD444/",
             "og_description": '900 likes, 30 comments - a.b on June 2, 2026: "Kahve mi çay mı?"',
-            "audio": {"status": "known", "artist": "Artist X", "title": "Song Y", "original": False}}))
+            "audio": {"status": "known", "artist": "Artist X", "title": "Song Y", "original": False}}, ensure_ascii=False), encoding="utf-8")
         make_img(d / "vf-capture-DDDDD444.jpg", 1)
         (d / "reel.info.json").write_text(json.dumps({
             "webpage_url": "https://www.instagram.com/reel/EEEEE555/", "description": "Reel açıklaması",
             "like_count": 5000, "comment_count": 200, "view_count": 90000, "track": "Original audio",
-            "artist": "creator", "timestamp": 1760000000}))
+            "artist": "creator", "timestamp": 1760000000}, ensure_ascii=False), encoding="utf-8")
         importers.import_meta(self.ws, [str(d)])
         p = self.ws.load_post("DDDDD444")
         self.assertEqual((p["caption"], p["metrics"]["likes"], p["audio"]["title"]), ("Kahve mi çay mı?", 900, "Song Y"))
@@ -120,7 +136,7 @@ class TestGalleryDl(Base):
         d = Path(self.tmp.name) / "gdl"
         make_img(d / "FFFFF666_1.jpg", 3)
         (d / "FFFFF666_1.jpg.json").write_text(json.dumps({
-            "post_shortcode": "FFFFF666", "description": "Karusel", "likes": 777, "username": "gdl.user"}))
+            "post_shortcode": "FFFFF666", "description": "Karusel", "likes": 777, "username": "gdl.user"}, ensure_ascii=False), encoding="utf-8")
         importers.import_meta(self.ws, [str(d)])
         p = self.ws.load_post("FFFFF666")
         self.assertEqual((p["owner"], p["metrics"]["likes"], len(self.ws.media_files("FFFFF666"))), ("gdl.user", 777, 1))
@@ -148,7 +164,7 @@ class TestPipeline(Base):
         c = verify.status(self.ws, target_posts=5)
         self.assertTrue(c["done"])
         self.assertTrue(verify.done_answer(c).startswith("Evet, bitti"))
-        html = report.build_report(self.ws).read_text()
+        html = report.build_report(self.ws).read_text(encoding="utf-8")
         self.assertEqual(html.count("✅"), 20)
 
     def test_not_done_answer_is_specific(self):
@@ -181,7 +197,7 @@ class TestPipeline(Base):
             os.environ.pop("FAKE_CODEX_NO_AUTH")
         self.assertEqual((r["auth"], r["ok"]), (1, 0))
         # Hepsi (4) denenmez: ilk hatada durur; o anda başlamış en fazla 1 çağrı daha olabilir.
-        self.assertLessEqual(len(log.read_text().splitlines()), 2)
+        self.assertLessEqual(len(log.read_text(encoding="utf-8").splitlines()), 2)
 
     def test_api_key_not_passed(self):
         seed_posts(self.ws, 1)
@@ -193,7 +209,7 @@ class TestPipeline(Base):
             brain.analyze_all(self.ws, log=lambda *_: None)
         finally:
             os.environ.pop("OPENAI_API_KEY")
-        calls = [json.loads(line) for line in log.read_text().splitlines()]
+        calls = [json.loads(line) for line in log.read_text(encoding="utf-8").splitlines()]
         self.assertTrue(calls and not any(c["api_key_seen"] for c in calls))
         self.assertIn("--output-schema", calls[0]["args"])
         self.assertIn("--image", calls[0]["args"])
@@ -230,7 +246,7 @@ class TestVerify(Base):
         brain.analyze_all(self.ws, log=lambda *_: None)
         sheet, n = report.build_chatgpt_sheet(self.ws)
         self.assertEqual(n, 4)
-        self.assertNotIn("$imagegen", sheet.read_text())
+        self.assertNotIn("$imagegen", sheet.read_text(encoding="utf-8"))
         dl = Path(self.tmp.name) / "indirilenler"
         for i in range(1, 5):
             make_img(dl / f"SYN00000x_v{i}.jpg", seed=500 + i)
@@ -240,19 +256,157 @@ class TestVerify(Base):
 
 
 class TestCli(Base):
-    def test_cli_bitti_mi_exit_codes(self):
+    def test_cli_bitti_mi_exit_codes_non_utf8_locale(self):
+        # Windows denetiminde görülen UnicodeDecodeError'ın karşılığı: alt yorumlayıcı UTF-8 modunda DEĞİL.
         seed_posts(self.ws, 2)
-        env = {**os.environ, "PYTHONPATH": str(ROOT)}
-        run = lambda *a: subprocess.run([sys.executable, "-m", "viralforge", "-w", str(self.ws.root), *a],
-                                        capture_output=True, text=True, env=env)
-        r = run("run", "--target", "2")
+        r = run_cli(self.ws.root, "run", "--target", "2", env=non_utf8_env(VF_CODEX_BIN=FAKE))
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("Evet, bitti", r.stdout)
-        r = run("bitti-mi", "--target", "1000")
+        r = run_cli(self.ws.root, "bitti-mi", "--target", "1000")
         self.assertEqual(r.returncode, 1)
-        r = run("fetch")
+        self.assertIn("Henüz değil", r.stdout)
+        r = run_cli(self.ws.root, "fetch")
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("Kullanım Koşulları", r.stdout + r.stderr)
+
+    def test_doctor_uses_runtime_launcher_and_reports_login(self):
+        r = run_cli(self.ws.root, "doctor", env=non_utf8_env(VF_CODEX_BIN=FAKE))
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        out = json.loads(r.stdout)
+        self.assertEqual(out["codex_cli"]["tur"], "python")
+        self.assertEqual(out["codex_cli"]["komut"][0], sys.executable)
+        self.assertFalse(out["giris_gerekli"])
+        r = run_cli(self.ws.root, "doctor", env=non_utf8_env(VF_CODEX_BIN=FAKE, FAKE_CODEX_LOGGED_OUT="1"))
+        self.assertEqual(r.returncode, 3)
+        self.assertIn("ETKİLEŞİMLİ", json.loads(r.stdout)["giris_talimati"])
+        r = run_cli(self.ws.root, "doctor", env=non_utf8_env(VF_CODEX_BIN=str(Path(self.tmp.name) / "yok" / "codex.exe")))
+        self.assertEqual(r.returncode, 2)
+        self.assertIn("YOK", json.loads(r.stdout)["codex_cli"])
+
+
+class TestLauncher(Base):
+    def _nonexec_copy(self) -> Path:
+        d = Path(self.tmp.name) / "Program Files (x86)" / "fake codex"
+        d.mkdir(parents=True)
+        dst = d / "fake_codex.py"
+        dst.write_bytes(Path(FAKE).read_bytes())
+        os.chmod(dst, 0o644)  # Windows'ta .py zaten doğrudan çalıştırılamaz (WinError 193)
+        return dst
+
+    def test_py_adapter_runs_with_active_interpreter_from_spaced_path(self):
+        fake = self._nonexec_copy()
+        lc = launcher.from_path(fake, "codex", "test")
+        self.assertEqual((lc.kind, lc.argv), ("python", [sys.executable, str(fake)]))
+        os.environ["VF_CODEX_BIN"] = f'"{fake}"'  # `set VF_CODEX_BIN="C:\...\codex"` gibi tırnaklı değer
+        seed_posts(self.ws, 2)
+        select.select_top(self.ws, top=2)
+        r = brain.analyze_all(self.ws, jobs=2, log=lambda *_: None)
+        self.assertEqual(r["ok"], 2, r)
+
+    def test_utf8_prompt_survives_non_utf8_locale(self):
+        seed_posts(self.ws, 1)
+        select.select_top(self.ws, top=1)
+        saved = dict(os.environ)
+        try:
+            os.environ.clear()
+            os.environ.update(non_utf8_env(VF_CODEX_BIN=FAKE))
+            r = brain.analyze_all(self.ws, log=lambda *_: None)
+        finally:
+            os.environ.clear()
+            os.environ.update(saved)
+        # Taklit, istemdeki 'alanı' (ı) kelimesini regex ile arıyor: kodlama bozulsa analiz başarısız olurdu.
+        self.assertEqual(r["ok"], 1, r)
+
+    def test_real_npm_cmd_shim_resolves_to_node_without_shell(self):
+        shim = SHIM_DIR / "codex.cmd"
+        self.assertIn("%dp0%", shim.read_text(encoding="utf-8"))  # cmd-shim 9.0.2 çıktısı
+        if not shutil.which("node"):
+            self.skipTest("node yok")
+        lc = launcher.from_path(shim, "codex", "test")
+        self.assertEqual(lc.kind, "npm-shim")
+        self.assertEqual(Path(lc.argv[1]), (SHIM_DIR / "node_modules/@openai/codex/bin/codex.js").resolve())
+        tricky = ["exec", "--image", str(Path(self.tmp.name) / "Program Files" / "görsel (1).png"),
+                  'a&b|c<d>e "q" %PATH% !x! ^z', "-"]
+        r = launcher.run(lc, tricky, input_text="Türkçe istem: ğüşıöç ✓")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        echoed = json.loads(r.stdout)
+        self.assertEqual(echoed["argv"], tricky)  # hiçbir karakter shell tarafından yorumlanmadı
+        self.assertEqual(echoed["stdin"], "Türkçe istem: ğüşıöç ✓")
+
+    def test_batch_fallback_quotes_and_rejects_cmd_metachars(self):
+        odd = Path(self.tmp.name) / "Codex Tools (x86)" / "codex.cmd"
+        odd.parent.mkdir(parents=True)
+        odd.write_text("@echo off\r\nC:\\tools\\codex.exe %*\r\n", encoding="utf-8")  # cmd-shim değil
+        lc = launcher.from_path(odd, "codex", "test")
+        self.assertEqual(lc.kind, "batch")
+        os.environ["COMSPEC"] = r"C:\Windows\System32\cmd.exe"
+        try:
+            cmd = lc.command(["exec", "--image", r"C:\Users\A B\x&y (1).png", "-"])
+        finally:
+            os.environ.pop("COMSPEC")
+        self.assertIsInstance(cmd, str)
+        self.assertTrue(cmd.startswith('"C:\\Windows\\System32\\cmd.exe" /d /s /c "'))
+        self.assertIn('"C:\\Users\\A B\\x&y (1).png"', cmd)
+        for bad in ("%USERPROFILE%", 'a"b', "!x!", "a\nb"):
+            with self.assertRaises(launcher.LaunchError):
+                lc.command(["exec", bad])
+
+    def test_windows_prefers_cmd_sibling_over_extensionless_npm_script(self):
+        if not shutil.which("node"):
+            self.skipTest("node yok")
+        d = Path(self.tmp.name) / "AppData Roaming" / "npm"
+        (d / "node_modules/@openai/codex/bin").mkdir(parents=True)
+        (d / "node_modules/@openai/codex/bin/codex.js").write_bytes(
+            (SHIM_DIR / "node_modules/@openai/codex/bin/codex.js").read_bytes())
+        (d / "codex.cmd").write_bytes((SHIM_DIR / "codex.cmd").read_bytes())
+        (d / "codex").write_text('#!/bin/sh\nexec node "$basedir/node_modules/@openai/codex/bin/codex.js" "$@"\n',
+                                 encoding="utf-8")
+        orig = launcher.IS_WINDOWS
+        launcher.IS_WINDOWS = True  # Windows karar yolunu Linux'ta sınar (gerçek Windows çalıştırması değildir)
+        try:
+            lc = launcher.from_path(d / "codex", "codex", "PATH")
+            (d / "codex.ps1").write_text("# npm ps1 shim\n", encoding="utf-8")
+            lc_ps1 = launcher.from_path(d / "codex.ps1", "codex", "Get-Command")
+            lonely = d.parent / "yalniz" / "codex"
+            lonely.parent.mkdir()
+            lonely.write_text("#!/bin/sh\n", encoding="utf-8")
+            with self.assertRaisesRegex(launcher.LaunchError, "çalıştırılabilir değil"):
+                launcher.from_path(lonely, "codex", "PATH")
+        finally:
+            launcher.IS_WINDOWS = orig
+        self.assertEqual((lc.kind, lc_ps1.kind), ("npm-shim", "npm-shim"))
+        self.assertTrue(lc.argv[1].endswith("codex.js"))
+
+    def test_missing_codex_stops_with_clear_error(self):
+        os.environ["VF_CODEX_BIN"] = str(Path(self.tmp.name) / "Yok Klasör" / "codex.exe")
+        seed_posts(self.ws, 3)
+        select.select_top(self.ws, top=3)
+        logs = []
+        r = brain.analyze_all(self.ws, jobs=1, log=logs.append)
+        self.assertEqual((r["launch"], r["ok"]), (1, 0))
+        self.assertTrue(any("doctor" in line for line in logs))
+
+    def test_timeout_is_controlled(self):
+        lc = launcher.from_path(FAKE, "codex", "test")
+        os.environ["FAKE_CODEX_SLEEP"] = "5"
+        r = launcher.run(lc, ["login", "status"], timeout=1)
+        self.assertEqual(r.returncode, 124)
+        self.assertIn("zaman aşımı", r.stderr)
+
+    def test_resolve_from_path_name(self):
+        d = Path(self.tmp.name) / "bin dir"
+        d.mkdir()
+        exe = d / ("codex.cmd" if os.name == "nt" else "codex")
+        exe.write_text("#!/bin/sh\necho ok\n", encoding="utf-8")
+        os.chmod(exe, 0o755)
+        old = os.environ.get("PATH", "")
+        os.environ.pop("VF_CODEX_BIN", None)
+        os.environ["PATH"] = f"{d}{os.pathsep}{old}"
+        try:
+            lc = brain.codex_launcher()
+        finally:
+            os.environ["PATH"] = old
+        self.assertEqual(Path(lc.argv[0]), exe)
 
 
 if __name__ == "__main__":

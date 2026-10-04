@@ -12,6 +12,7 @@ HEDEF: Codex beyin → 1000 tutmuş IG gönderisi (https URL + foto + ses + aç�
    ├─ B2 Beyin (Codex)       ─────── A / B / C yolları ──► brain.py, schemas/, AGENTS.template.md
    ├─ B3 Görsel üretim (ChatGPT Pro) A / B / C yolları ──► brain.generate_*, report.chatgpt_sheet
    ├─ B4 Doğrulama + "bitti mi"  ───────────────────────► verify.py (dHash, boyut, kopya, sayım)
+   ├─ B6 Dış komut başlatma (Windows/POSIX) A / B / C ──► launcher.py (brain, fetch, doctor ortak)
    └─ B5 Kalıcı teslim ─────────────────────────────────► git dalı + özel ZIP + SHA-256 + geri okuma
 ```
 
@@ -60,6 +61,30 @@ Limit: görsel turları plan limitini 3–5× hızlı tüketir. 4000 görsel tek
 (kopya şüphesi). `bitti-mi`: 1000 seçili + 1000 geçerli analiz + 1000×4 doğrulanmış görsel → "Evet, bitti"
 (çıkış 0); değilse kalan adımı sayıyla söyler (çıkış 1). Bahane değil, sonraki komut.
 
+## B6 — Dış komut başlatıcı (2026-10-04 Windows denetimi sonrası)
+
+Bulgu (ebeveynin native Windows / Python 3.11 / Pillow 11.3.0 denetimi, d08360e): 15 testin 6'sı hatalı.
+`VF_CODEX_BIN=tests/fake_codex.py` doğrudan CreateProcess'e verildi → **WinError 193** (Windows shebang okumaz);
+CLI alt süreci UTF-8 modunda değildi → **UnicodeDecodeError**. Linux karşılığı d08360e'de yeniden üretildi
+(çalıştırma izni olmayan .py → PermissionError; C locale → UnicodeEncodeError) ve düzeltmeden sonra geçti.
+
+| Yol | Ne | Karar |
+|---|---|---|
+| **A** Tek çözümleyici `launcher.resolve()`: `.py` → `sys.executable`, `.js` → node, npm `codex.cmd` → cmd-shim dosyası okunur, hedef `codex.js` **node ile shell'siz** çalıştırılır; `.exe` doğrudan; Windows'ta uzantısız npm sh betiği yerine yanındaki `.exe/.cmd` | cmd.exe hiç devreye girmez → BatBadBut tipi argüman enjeksiyonu yok; boşluklu yollar liste argümanıyla güvenli | **Seçildi** |
+| **B** `shell=True` / Node `{shell:true}` | Python ve Node belgeleri `.bat/.cmd` için bunu önerir ama istem/yol içeriğini shell yorumlar | **Reddedildi** (varsayılan asla değil) |
+| **C** cmd-shim çözülemeyen `.cmd`: `"%COMSPEC%" /d /s /c "<her argüman tırnaklı>"` | Tırnak içinde hâlâ yorumlanan `% ! "` ve satır sonu içeren argüman **reddedilir** (LaunchError) | Yalnız yedek |
+
+Ortak kurallar: tüm alt süreç G/Ç'si `encoding="utf-8", errors="replace"`; Python alt süreçlerine `PYTHONUTF8=1`,
+`PYTHONIOENCODING=utf-8`; CLI kendi stdout/stderr'ini UTF-8'e ayarlar; başlatma hatası (`FileNotFoundError`,
+`PermissionError`, `OSError`/WinError 193) → `LaunchError` → analiz/üretim ilk hatada **"launch"** durumuyla durur;
+zaman aşımı → çıkış 124 (kontrollü başarısızlık); giriş yok → `AuthMissing`; kota → `LimitReached` (çıkış 75).
+`doctor` aynı çözümleyiciyi kullanır, `codex login status` okur, girişi **başlatmaz**; çıkış 0 hazır / 2 Codex
+çalışmıyor / 3 etkileşimli giriş gerekli. `kur-windows.ps1` mevcut Codex'i yeniden kurmaz (`-InstallCodex` yoksa),
+her dış komutun çıkış kodunu kontrol eder, `codex login`'i hiç çalıştırmaz.
+
+Kanıt: `tests/test_viralforge.py::TestLauncher` (8 test) + `TestCli` (UTF-8 olmayan locale, doctor 0/2/3),
+`tests/fixtures/npm global/codex.cmd` (gerçek cmd-shim 9.0.2 çıktısı), `kabul/windows-regresyon.md`.
+
 ## B5 — Teslim
 
 Kod/harita/günlük: `jannet5/Jn` dalı `claude/quirky-cerf-hp56r0`, klasör `gorevler/viralforge-ozgun-instagram-uretim-sistemi/`.
@@ -82,6 +107,17 @@ Resmî:
 - Instagram scraping/otomatik toplama yardım sayfası: https://help.instagram.com/740480200552298
 - Instagram dışa aktarım rehberi: https://takeoutday.org/guides/how-to-export-instagram-data
 - Yerelde doğrulandı: `codex-cli 0.160.0` → `exec --image`, `--output-schema`, `-o`, `--ephemeral`, `-C`, `--skip-git-repo-check`; `yt-dlp 2026.08.19` → `-J`, `--ignore-no-formats-error`, `--cookies`.
+
+Windows başlatma / kodlama (B6, erişim 2026-10-04):
+- Python subprocess (Windows argüman kuralları, batch dosyalarının sistem kabuğunda açılabileceği uyarısı, `encoding`): https://docs.python.org/3/library/subprocess.html
+- Python UTF-8 Mode (PEP 540; `PYTHONUTF8`, Windows ANSI kod sayfası): https://peps.python.org/pep-0540/ ; Python 3.15'te varsayılan UTF-8 (PEP 686) özeti: https://pydevtools.com/blog/python-315-utf8-default/
+- BatBadBut / CVE-2024-24576 ve Python'un durumu: https://discuss.python.org/t/is-python-affected-by-cve-2024-24576/50740 , https://github.com/rust-lang/rust/issues/123728
+- Node.js CVE-2024-27980 (`.bat/.cmd` shell'siz spawn → EINVAL): https://nodejs.org/en/blog/vulnerability/april-2024-security-releases-2
+- npm cmd-shim (`%dp0%` biçimi; yerelde cmd-shim 9.0.2 ile üretildi): https://github.com/pnpm/cmd-shim , https://cdn.jsdelivr.net/npm/npm5v@5.6.1/node_modules/cmd-shim/README.md
+- Codex CLI Windows kurulum yolları (npm, winget, install.ps1, WSL): https://itecsonline.com/post/how-to-install-codex-cli-on-windows-2026-guide , https://codex.danielvaughan.com/2026/04/08/installing-codex-cli/
+- Codex npm başlatıcısının Windows'ta sh.exe'ye takılması ve Node tabanlı giriş noktasına geçiş: https://upd.dev/openai/codex/issues/14264
+- WinError 193 topluluk örnekleri (.py doğrudan Popen): https://issues.apache.org/jira/browse/PROTON-595 , https://internals.rust-lang.org/t/x-py-1-is-not-a-valid-win32-application/11371 , https://github.com/Pymol-Scripts/Pymol-script-repo/issues/130
+- PowerShell yerel komut çıktısı kodlaması (`[Console]::OutputEncoding` ≠ `$OutputEncoding`): https://github.com/PowerShell/PowerShell/issues/7233
 
 Topluluk / deneyim:
 - Codex CLI görsel iş akışları (`$imagegen`, generated_images, limit tüketimi): https://codex.danielvaughan.com/2026/06/04/codex-cli-visual-workflows-image-input-gpt-image-2-generation-asset-pipelines-v0137/ , https://codex.danielvaughan.com/2026/04/27/codex-cli-image-generation-gpt-image-2-visual-development-workflows/

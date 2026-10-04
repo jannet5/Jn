@@ -10,10 +10,11 @@ import sys
 from pathlib import Path
 
 args = sys.argv[1:]
-prompt = sys.stdin.read() if "-" in args else ""
+# Konsol/locale kodlamasından bağımsız: stdin baytları UTF-8 olarak çözülür (gerçek Codex de UTF-8 bekler).
+prompt = sys.stdin.buffer.read().decode("utf-8") if "-" in args else ""
 log = os.environ.get("FAKE_CODEX_LOG")
 if log:
-    with open(log, "a") as fh:
+    with open(log, "a", encoding="utf-8") as fh:
         fh.write(json.dumps({"args": args, "api_key_seen": bool(os.environ.get("OPENAI_API_KEY"))}) + "\n")
 
 limit_after = os.environ.get("FAKE_CODEX_LIMIT_AFTER")
@@ -32,7 +33,14 @@ if os.environ.get("FAKE_CODEX_NO_AUTH"):
     print("unexpected status 401 Unauthorized: Missing bearer or basic authentication in header", file=sys.stderr)
     sys.exit(1)
 
-if args[:1] == ["login"]:
+if os.environ.get("FAKE_CODEX_SLEEP"):
+    import time
+    time.sleep(float(os.environ["FAKE_CODEX_SLEEP"]))
+
+if args[:2] == ["login", "status"]:
+    if os.environ.get("FAKE_CODEX_LOGGED_OUT"):
+        print("Not logged in")
+        sys.exit(1)
     print("Logged in using ChatGPT (fake)")
     sys.exit(0)
 
@@ -54,7 +62,7 @@ if "--output-schema" in args:
                       "caption_draft": "Sence hangisi?", "audio_suggestion": "lofi", "aspect_ratio": "1:1"} for i in range(4)],
         "originality_guardrails": ["kişi/logo kopyalanmadı"], "confidence": 0.5,
     }
-    Path(out).write_text(json.dumps(data, ensure_ascii=False))
+    Path(out).write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
     sys.exit(0)
 
 m = re.search(r"copy the final PNG to this exact path: (.+?\.png)", prompt)

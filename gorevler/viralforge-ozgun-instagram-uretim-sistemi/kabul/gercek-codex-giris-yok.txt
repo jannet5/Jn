@@ -1,3 +1,11 @@
-DURDU: Codex ChatGPT girişi yok (url: https://api.openai.com/v1/responses, cf-ray: a44bcbeb7f5fe5ba-IAD, request id: req_e5c8627b78eb4a98af35c2a9850db6f7). Çözüm: `codex login` → Sign in with ChatGPT; sonra aynı komut.
+DURDU: Codex ChatGPT girişi yok (url: https://api.openai.com/v1/responses, cf-ray: a4536283a8c891fc-IAD, request id: req_45fcb6baa2144ef8a4c47d51a64fb927). Çözüm: `codex login` → Sign in with ChatGPT; sonra aynı komut.
 {
   "ok": 0,
+  "fail": 0,
+  "skip": 0,
+  "exists": 0,
+  "limit": 0,
+  "auth": 1,
+  "launch": 0,
+  "failures": []
+}

@@ -13,7 +13,10 @@ Bağlı harita, A/B/C yolları ve kaynaklar: [harita.md](harita.md) · Kabul kan
 - Node 18+ ve `npm i -g @openai/codex`, sonra **`codex login`** → "Sign in with ChatGPT" (Pro hesabınız)
 - Instagram hesabınıza tarayıcıdan giriş
 
-Windows (PowerShell): `powershell -ExecutionPolicy Bypass -File kur-windows.ps1`
+Windows (PowerShell): `powershell -NoProfile -ExecutionPolicy Bypass -File .\kur-windows.ps1`
+— mevcut Codex'i yeniden kurmaz (`-CodexPath <codex.cmd|codex.exe>` ile yol verilebilir, `-InstallCodex` yalnız
+istenirse kurar), `codex login`'i kendisi çalıştırmaz; çıkış 0 hazır / 3 giriş gerekli / 2 Codex çalışmıyor.
+Codex yolu `VF_CODEX_BIN` ile de verilebilir (boşluklu tam yol olabilir; `.exe`, npm `.cmd`, `.js`, `.py` desteklenir).
 
 ## Kullanım (Codex'e de aynısını söyleyebilirsiniz)
 ```bash
@@ -50,6 +53,6 @@ ChatGPT Pro web arayüzüyle üretmek isterseniz (Codex limiti dolduysa vb.): `c
 
 ## Test
 ```bash
-python -m unittest discover -s tests -v       # 14 test, çevrimdışı (tests/fake_codex.py = test taklidi)
+python -m unittest discover -s tests -v       # 24 test, çevrimdışı (tests/fake_codex.py = test taklidi)
 python kabul/olcek_kabul.py /tmp/olcek        # 1000 sentetik gönderi → 4000 görsel, limit + devam
 ```

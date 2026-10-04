@@ -1,5 +1,14 @@
-test_cli_bitti_mi_exit_codes (test_viralforge.TestCli.test_cli_bitti_mi_exit_codes) ... ok
+test_cli_bitti_mi_exit_codes_non_utf8_locale (test_viralforge.TestCli.test_cli_bitti_mi_exit_codes_non_utf8_locale) ... ok
+test_doctor_uses_runtime_launcher_and_reports_login (test_viralforge.TestCli.test_doctor_uses_runtime_launcher_and_reports_login) ... ok
 test_gallery_dl_sidecar (test_viralforge.TestGalleryDl.test_gallery_dl_sidecar) ... ok
+test_batch_fallback_quotes_and_rejects_cmd_metachars (test_viralforge.TestLauncher.test_batch_fallback_quotes_and_rejects_cmd_metachars) ... ok
+test_missing_codex_stops_with_clear_error (test_viralforge.TestLauncher.test_missing_codex_stops_with_clear_error) ... ok
+test_py_adapter_runs_with_active_interpreter_from_spaced_path (test_viralforge.TestLauncher.test_py_adapter_runs_with_active_interpreter_from_spaced_path) ... ok
+test_real_npm_cmd_shim_resolves_to_node_without_shell (test_viralforge.TestLauncher.test_real_npm_cmd_shim_resolves_to_node_without_shell) ... ok
+test_resolve_from_path_name (test_viralforge.TestLauncher.test_resolve_from_path_name) ... ok
+test_timeout_is_controlled (test_viralforge.TestLauncher.test_timeout_is_controlled) ... ok
+test_utf8_prompt_survives_non_utf8_locale (test_viralforge.TestLauncher.test_utf8_prompt_survives_non_utf8_locale) ... ok
+test_windows_prefers_cmd_sibling_over_extensionless_npm_script (test_viralforge.TestLauncher.test_windows_prefers_cmd_sibling_over_extensionless_npm_script) ... ok
 test_import_meta_capture_and_ytdlp (test_viralforge.TestMeta.test_import_meta_capture_and_ytdlp) ... ok
 test_og_description (test_viralforge.TestMeta.test_og_description) ... ok
 test_api_key_not_passed (test_viralforge.TestPipeline.test_api_key_not_passed) ... ok
@@ -15,6 +24,6 @@ test_chatgpt_sheet_and_ingest (test_viralforge.TestVerify.test_chatgpt_sheet_and
 test_duplicate_and_copy_detected (test_viralforge.TestVerify.test_duplicate_and_copy_detected) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 3.340s
+Ran 24 tests in 5.680s
 
 OK

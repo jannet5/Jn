@@ -11,11 +11,11 @@ import datetime as dt
 import json
 import os
 import shutil
-import subprocess
 import time
 import urllib.request
 from pathlib import Path
 
+from . import launcher
 from .importers import merge_meta
 from .store import Workspace
 
@@ -42,13 +42,13 @@ def _best_image(info: dict) -> str | None:
     return info.get("thumbnail") or info.get("display_url")
 
 
-def fetch_one(ws: Workspace, post: dict, cookies: str | None, ytdlp: str = "yt-dlp",
+def fetch_one(ws: Workspace, post: dict, cookies: str | None, ytdlp: launcher.Launcher,
               with_audio: bool = False) -> dict:
-    cmd = [ytdlp, "-J", "--ignore-no-formats-error", "--no-warnings"]
+    cmd = ["-J", "--ignore-no-formats-error", "--no-warnings"]
     if cookies:
         cmd += ["--cookies", cookies]
     cmd.append(post["url"])
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    proc = launcher.run(ytdlp, cmd, timeout=180)
     err = (proc.stderr or "").lower()
     if proc.returncode != 0 or not proc.stdout.strip():
         if any(m in err for m in STOP_MARKERS):
@@ -75,10 +75,10 @@ def fetch_one(ws: Workspace, post: dict, cookies: str | None, ytdlp: str = "yt-d
 
     if with_audio and post["kind"] == "reel":
         out = mdir / "audio.%(ext)s"
-        acmd = [ytdlp, "-x", "--audio-format", "m4a", "-o", str(out), post["url"]]
+        acmd = ["-x", "--audio-format", "m4a", "-o", str(out), post["url"]]
         if cookies:
-            acmd[1:1] = ["--cookies", cookies]
-        subprocess.run(acmd, capture_output=True, text=True, timeout=300)
+            acmd[0:0] = ["--cookies", cookies]
+        launcher.run(ytdlp, acmd, timeout=300)
         audio_file = mdir / "audio.m4a"
         if audio_file.exists():
             post["audio"]["local_file"] = "media/audio.m4a"
@@ -94,30 +94,39 @@ def audio_features(path: Path) -> dict:
     """ffprobe/ffmpeg ile süre ve ortalama ses yüksekliği (Codex sesi doğrudan dinlemez; sayısal özet verilir)."""
     feats = {}
     try:
-        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
-                              "default=nw=1:nk=1", str(path)], capture_output=True, text=True, timeout=60)
+        out = launcher.run(launcher.resolve("ffprobe", "VF_FFPROBE_BIN"),
+                           ["-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(path)],
+                           timeout=60)
         feats["duration_s"] = round(float(out.stdout.strip()), 2)
-        vol = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"],
-                             capture_output=True, text=True, timeout=120).stderr
+        vol = launcher.run(launcher.resolve("ffmpeg", "VF_FFMPEG_BIN"),
+                           ["-hide_banner", "-i", str(path), "-af", "volumedetect", "-f", "null", "-"],
+                           timeout=120).stderr
         for line in vol.splitlines():
             if "mean_volume" in line:
                 feats["mean_volume_db"] = float(line.split(":")[1].split()[0])
             if "max_volume" in line:
                 feats["max_volume_db"] = float(line.split(":")[1].split()[0])
-    except (ValueError, FileNotFoundError, subprocess.SubprocessError):
+    except (ValueError, launcher.LaunchError):  # ffmpeg yoksa ses özellikleri boş kalır
         pass
     return feats
 
 
 def fetch_all(ws: Workspace, cookies: str | None, delay: float = 25.0, limit: int | None = None,
-              with_audio: bool = False, ytdlp: str = "yt-dlp", log=print) -> dict:
+              with_audio: bool = False, log=print) -> dict:
+    try:
+        ytdlp = launcher.resolve("yt-dlp", "VF_YTDLP_BIN")
+    except launcher.LaunchError as e:
+        raise SystemExit(f"{e}\nKurulum: python -m pip install yt-dlp (yalnız isteğe bağlı fetch için).")
     done = failed = 0
     todo = [p for p in ws.iter_posts() if not (p.get("fetch") and not p["fetch"].get("error") and p["media"])]
     if limit:
         todo = todo[:limit]
     for i, post in enumerate(todo):
         try:
-            post = fetch_one(ws, post, cookies, ytdlp=ytdlp, with_audio=with_audio)
+            post = fetch_one(ws, post, cookies, ytdlp, with_audio=with_audio)
+        except launcher.LaunchError as e:
+            log(f"DURDU: yt-dlp başlatılamadı: {e}")
+            return {"fetched": done, "failed": failed, "stopped": True, "remaining": len(todo) - i}
         except FetchStopped as e:
             log(f"DURDU (Instagram sınırı/oturum): {e}\nCheckpoint kaydedildi; birkaç saat sonra aynı komutla devam edin.")
             return {"fetched": done, "failed": failed, "stopped": True, "remaining": len(todo) - i}

@@ -52,3 +52,21 @@ Windows testi, plan limitine bağlı 4000 gerçek görsel süresi. Ayrıntı ve 
 
 ## 8. Teslim
 Dal push + geri okuma; özel ZIP (kaynak dosyaları dahil) + SHA-256 + geri okuma: `kabul/teslim-kaniti.md`.
+
+## 9. Takip — Windows denetim hatası (2026-10-04)
+- İstenen: ebeveynin native Windows denetiminde bulduğu WinError 193 (5 test) ve CLI UnicodeDecodeError'ı (1 test)
+  kök nedeninden gidermek; test taklidini aktif yorumlayıcıyla, gerçek Codex'i `.cmd/.exe` ve boşluklu yollarla
+  desteklemek; shell=True kullanmamak; doctor'ı aynı çözümleyiciye bağlamak; Windows kurulumunu mevcut Codex'i
+  kullanacak, dış komut hatalarını yakalayacak ve girişi zorlamayacak hâle getirmek.
+- Araştırma: Python subprocess belgesi (batch dosyaları sistem kabuğunda açılabilir), BatBadBut/CVE-2024-24576,
+  Node CVE-2024-27980, npm cmd-shim biçimi, PEP 540 UTF-8 modu, Codex Windows kurulum yolları, Codex npm başlatıcı
+  sorunu, WinError 193 topluluk örnekleri, PowerShell çıktı kodlaması. Bağlantılar `harita.md` B6.
+- Komutlar: `git worktree add … d08360e` (eski sürüm), `kabul/windows_regresyon_repro.py` (eski: PermissionError +
+  UnicodeEncodeError; yeni: geçti), `npm i cmd-shim` (9.0.2) ile gerçek `codex.cmd` fikstürü, PowerShell 7.4.6
+  tarball'ı ile `kur-windows.ps1` ayrıştırma ve akış denemesi, `python3 -m unittest discover -s tests -v` (24/24).
+- Kararlar: cmd-shim okunup node ile shell'siz başlatma (A); shell=True reddedildi (B); cmd.exe yalnız katı
+  tırnaklı yedek (C). `.ps1` UTF-8 BOM + CRLF (Windows PowerShell 5.1 BOM'suz dosyayı ANSI okur); `.gitattributes`.
+- Sorun/çözüm: npm'in uzantısız `codex` sh betiği bazı Python sürümlerinde `which` sonucu olabilir → Windows'ta
+  yanındaki `.exe/.cmd` tercih edilir (test edildi).
+- Dürüst sınır: native Windows çalıştırılmadı; gerçek 1000 gönderi / 4000 görsel hâlâ yok (ChatGPT Pro girişi ve
+  Instagram verisi gerekiyor). Sentetik ölçek testi bunların yerine geçmez.

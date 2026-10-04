@@ -1,0 +1,3 @@
+# Windows dosyaları: bayt bayt korunur (BOM/CRLF)
+*.ps1 -text
+*.cmd -text

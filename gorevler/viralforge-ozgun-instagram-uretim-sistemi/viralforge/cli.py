@@ -5,11 +5,10 @@ import argparse
 import json
 import os
 import shutil
-import subprocess
 import sys
 from pathlib import Path
 
-from . import brain, importers, report, select, verify
+from . import brain, importers, launcher, report, select, verify
 from .store import Workspace
 
 
@@ -29,20 +28,53 @@ def cmd_init(args):
     _print({"workspace": str(ws.root), "agents_md": str(agents)})
 
 
+def codex_report() -> tuple[dict, int]:
+    """Çalışma zamanıyla AYNI çözümleyiciyle Codex'i bulur, `codex login status` ile girişi okur.
+    Giriş başlatmaz/zorlamaz. Çıkış kodu: 0 hazır, 2 Codex çalıştırılamıyor, 3 etkileşimli giriş gerekli."""
+    out: dict = {}
+    try:
+        lc = brain.codex_launcher()
+    except launcher.LaunchError as e:
+        out["codex_cli"] = f"YOK: {e}"
+        out["cozum"] = ("Codex kurulu değil veya PATH'te değil. Kuruluysa VF_CODEX_BIN'e codex.cmd/codex.exe tam yolunu "
+                        "verin; değilse kur-windows.ps1 -InstallCodex veya resmî kurulum.")
+        return out, 2
+    out["codex_cli"] = {"tur": lc.kind, "kaynak": lc.source, "komut": lc.argv, "notlar": lc.notes}
+    try:
+        r = launcher.run(lc, ["login", "status"], timeout=60, env=brain.child_env(False))
+    except launcher.LaunchError as e:
+        out["codex_calisma"] = f"BAŞLATILAMADI: {e}"
+        return out, 2
+    text = (r.stdout + r.stderr).strip()
+    out["codex_login_status"] = text or f"exit {r.returncode}"
+    low = text.lower()
+    if r.returncode == 124:
+        out["codex_calisma"] = "zaman aşımı (login status 60 sn içinde dönmedi)"
+        return out, 2
+    if "not logged in" in low or (r.returncode != 0 and "logged in" not in low):
+        out["giris_gerekli"] = True
+        out["giris_talimati"] = ("ETKİLEŞİMLİ ADIM (otomatik yapılmaz): kendi terminalinizde `codex login` çalıştırıp "
+                                 "'Sign in with ChatGPT' seçin; tarayıcıda onaylayın. Sonra tekrar `doctor`.")
+        return out, 3
+    out["giris_gerekli"] = False
+    return out, 0
+
+
 def cmd_doctor(args):
     """Gerçek ön koşulları kontrol eder; eksik olanı açıkça söyler."""
-    out = {}
-    codex = shutil.which(brain.codex_bin())
-    out["codex_cli"] = codex or "YOK → npm i -g @openai/codex"
-    if codex:
-        r = subprocess.run([codex, "login", "status"], capture_output=True, text=True,
-                           env=brain.child_env(False))
-        out["codex_login"] = (r.stdout + r.stderr).strip() or f"exit {r.returncode}"
+    out, code = codex_report()
+    out["python"] = sys.executable
     out["api_key_in_env"] = [k for k in brain.BILLING_VARS if os.environ.get(k)]
     out["api_key_note"] = "Ortamdaki API anahtarları Codex'e aktarılmaz (ücret koruması)."
-    out["yt_dlp"] = shutil.which("yt-dlp") or "yok (yalnız isteğe bağlı fetch için)"
-    out["ffmpeg"] = shutil.which("ffmpeg") or "yok (yalnız ses özellikleri için)"
+    for name, env_var, why in (("yt-dlp", "VF_YTDLP_BIN", "yalnız isteğe bağlı fetch için"),
+                               ("ffmpeg", "VF_FFMPEG_BIN", "yalnız ses özellikleri için")):
+        try:
+            out[name] = launcher.resolve(name, env_var).argv
+        except launcher.LaunchError:
+            out[name] = f"yok ({why})"
+    out["hazir"] = code == 0
     _print(out)
+    sys.exit(code)
 
 
 def cmd_import_urls(args):
@@ -110,7 +142,7 @@ def cmd_run(args):
     _print({"select": select.select_top(ws, top=args.target)})
     a = brain.analyze_all(ws, jobs=args.jobs, allow_api_billing=args.allow_api_billing)
     _print({"analyze": a})
-    if not a.get("limit") and not a.get("auth"):
+    if not (a.get("limit") or a.get("auth") or a.get("launch")):
         g = brain.generate_all(ws, jobs=1, allow_api_billing=args.allow_api_billing)
         _print({"generate": g})
     _print(verify.verify_all(ws, min_side=args.min_side))
@@ -149,12 +181,23 @@ def main(argv=None):
     s.add_argument("--jobs", type=int, default=2); s.add_argument("--min-side", type=int, default=512)
     s.add_argument("--allow-api-billing", action="store_true"); s.set_defaults(fn=cmd_run)
 
+    _utf8_stdio()
     args = p.parse_args(argv)
     try:
         args.fn(args)
     except brain.LimitReached as e:
         print(f"Plan limiti doldu, ilerleme kayıtlı: {e}", file=sys.stderr)
         sys.exit(75)
+
+
+def _utf8_stdio() -> None:
+    """Türkçe çıktı Windows konsol kod sayfasında (cp1254/cp437) veya yönlendirilmiş boruda bozulmasın:
+    stdout/stderr her zaman UTF-8 yazılır. Okuyan taraf UTF-8 ile çözmelidir."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
 
 
 if __name__ == "__main__":

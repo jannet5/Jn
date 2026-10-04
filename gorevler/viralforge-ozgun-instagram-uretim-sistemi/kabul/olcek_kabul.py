@@ -15,7 +15,7 @@ if not any(ws.iter_posts()):
     seed_posts(ws, 1000, side=256)
 env = {**os.environ, "PYTHONPATH": str(ROOT), "VF_CODEX_BIN": str(ROOT / "tests" / "fake_codex.py")}
 def vf(*a):
-    r = subprocess.run([sys.executable, "-m", "viralforge", "-w", str(ws_dir), *a], capture_output=True, text=True, env=env)
+    r = subprocess.run([sys.executable, "-m", "viralforge", "-w", str(ws_dir), *a], capture_output=True, text=True, encoding="utf-8", env=env)
     return r
 steps = {}
 steps["select"] = json.loads(vf("select", "--top", "1000").stdout)
