@@ -56,9 +56,22 @@ def fmt(ms):
     s = ms // 1000
     return f"{s//3600:02d}:{(s%3600)//60:02d}:{s%60:02d}"
 
+def index_meta(vid):
+    """arama_sonuclari.jsonl içinden başlık/kanal/süre tamamla."""
+    p = pathlib.Path("ajans/arastirma/youtube/arama_sonuclari.jsonl")
+    if not p.exists(): return {}
+    for l in p.read_text(encoding="utf-8").splitlines():
+        try: d = json.loads(l)
+        except Exception: continue
+        if d.get("id") == vid:
+            return {"title": d.get("title"), "channel": d.get("channel"), "duration": d.get("duration"), "view_count": d.get("views")}
+    return {}
+
 def write(out_dir, vid, lines, meta, source):
     out_dir.mkdir(parents=True, exist_ok=True)
-    meta = dict(meta or {}); meta["kaynak"] = source; meta["id"] = vid
+    meta = {k: v for k, v in (meta or {}).items() if v}
+    for k, v in index_meta(vid).items(): meta.setdefault(k, v)
+    meta["kaynak"] = source; meta["id"] = vid
     meta["url"] = f"https://www.youtube.com/watch?v={vid}"
     (out_dir / f"{vid}.meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     with open(out_dir / f"{vid}.txt", "w", encoding="utf-8") as f:
