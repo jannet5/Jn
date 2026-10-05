@@ -78,3 +78,11 @@ SHA-256 `9fa22357ca999d2458f71ce96860bb6a2d98af98156d76dfb4e2e94e9ee6948d`; `dog
 - Hazırlanmış içerik teslimi tamam (48 foto, 12 dörtlü paket, müzik listesi, açıklamalar, özel GitHub release).
 - **Açık kalanlar:** Instagram/TikTok yayını yapılmadı (hesap erişimi/yetki yok); kullanıcının örnek verdiği
   "bu binayı pisleteni bulacağım" cam fotoğrafı bulunamadı; tam kare video çözümleme ve gerçek telefon/yayın kabulü yapılmadı.
+
+## 11. GitHub linki "Not found" → claude.ai indirme sayfası (2026-10-05)
+- Kullanıcı özel GitHub release linkinde "Not found" aldı (gizli depo; giriş yapan hesap farklı olabilir). Bu oturum github.com'a proxy 403 nedeniyle bakamadı.
+- Çözüm: özel claude.ai sayfası https://claude.ai/artifact/3efBR3vwnmPyt7yv7Fy7zB (yalnız sahibi açabilir).
+  Sayfa .zip barındıramadığı için 177 içerik dosyası tek tek yüklendi (sunucuda 179 dosya doğrulandı: içerik + manifest + sayfa);
+  düğmeye basınca sayfa ZIP'i cihazda JSZip ile oluşturup `downloads` yetkisiyle kaydettiriyor.
+  Seçenekler: tek ZIP (~29 MB) veya 3 parça (~10 / ~10 / ~8,5 MB), her parça tek başına açılır.
+- Cihaz üzerinde gerçek indirme testi bu oturumdan yapılamadı.
