@@ -23,7 +23,7 @@ melodi-zil/build/
 melodi-zil/app/build/
 melodi-zil/local.properties
 melodi-zil/.gradle-*.log
-melodi-zil/dist/*.apk
-melodi-zil/dist/*.aab
+melodi-zil/dist/*-debug.apk
+# NOT: melodi-zil/dist/melodi-zil-*.apk ve .aab bilerek depoda: kullanıcı telefondan indirip kurabilsin
 # NOT: melodi-zil/keystore/upload.jks ve keystore.properties bilerek depoda: yalnızca Play yükleme anahtarı (bkz. melodi-zil/README.md)
 melodi-zil/.kotlin/
