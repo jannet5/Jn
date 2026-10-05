@@ -1,0 +1,366 @@
+# Build $10,000 Websites using Claude Code (Ultimate Guide)
+# https://www.youtube.com/watch?v=VMvZuhcDdnw
+# kanal: Metics Media | süre: 1569 sn | kaynak: yt-dlp:ios:VMvZuhcDdnw.en.json3
+
+[00:00:00] In this video, I'm going to show you how to build a $10,000 website using Claude
+[00:00:04] code. These sites you're seeing were all built with Claude code, and by the end
+[00:00:08] of this video, yours is going to be one of them. We'll install Claude code,
+[00:00:12] level it up with two design skills, write one prompt, polish the result, and
+[00:00:17] put it on a real domain. The site is going to look like the work of a
+[00:00:20] freelance developer charging $10,000, and nobody who visits it is going to
+[00:00:25] know an AI made it. Stick around for chapter seven especially. That's where
+[00:00:28] the cursor effects and motion design take the build from professional to
+[00:00:32] expensive. And by the very end, I'll show you the cheapest way to put it live
+[00:00:36] on the internet at a custom domain. But first, what exactly is Claude code?
+[00:00:42] Claude code is an AI coding assistant. You describe a website to it in natural
+[00:00:46] language, and it writes the code for you while you watch.
+[00:00:49] We're using the Claude code desktop app today because it gives you everything
+[00:00:52] you need in one window with no extra developer setup. Before we build
+[00:00:56] anything, I want to define what a $10,000 website actually looks like. So,
+[00:01:02] I asked Claude. There are eight things that separate a $10,000 website from a
+[00:01:06] $200 one. Point of view,
+[00:01:10] typography, color,
+[00:01:13] hierarchy, imagery,
+[00:01:16] motion, mobile,
+[00:01:18] and the invisible stuff that makes a site feel fast and finished.
+[00:01:23] Those eight items fall into three groups: taste, substance, and felt
+[00:01:28] quality. We're hitting all eight today. Here's why Claude code can hit a $10,000
+[00:01:33] bar and why most no-code website builders can't. When you use a tool like
+[00:01:38] Wix or Squarespace, you start with a template, and whatever you build ends up
+[00:01:42] looking like every other site that started from that template. Claude code
+[00:01:46] doesn't work that way. It writes the code for your site from scratch based on
+[00:01:50] what you describe. So, you can get a completely custom result without ever
+[00:01:54] having to learn to code yourself. On top of that, Claude can install design
+[00:01:59] skills that level up everything it makes. You can drop in pre-made
+[00:02:03] components from libraries online, the kind of things that used to require a
+[00:02:06] real developer, and you can keep iterating with Claude on every detail
+[00:02:10] until the site actually feels expensive. We're going to do all of that today. The
+[00:02:15] first step is getting Claude code set up on your computer.
+[00:02:19] Go to claude.com using the link in the description below and pick the pro plan.
+[00:02:24] Right now, as I'm recording this, it's only $20 per month, and that's going to
+[00:02:28] cover everything we need for this video. Get yourself signed up and I'll skip
+[00:02:33] past the boring stuff. Once you're logged in, in the bottom
+[00:02:36] left corner of the page, click the download icon.
+[00:02:40] Navigate to the Claude code section. Download the desktop app version, then
+[00:02:46] open the file to run the installer. Once you get it installed, open the
+[00:02:50] desktop app, then sign in. At this point, I need to mention, depending on
+[00:02:55] when you watch this video, the actual software interface might look different
+[00:02:59] for you than it does for me here. Claude gets updated regularly, so if things
+[00:03:03] don't look the exact same, don't panic. Just try to understand the general
+[00:03:07] concepts I'm explaining and apply them to how the software looks when you're
+[00:03:10] using it. When you get signed in, switch from chat mode to code mode.
+[00:03:14] In my app, that tab is available in the upper left. Alternatively, you can also
+[00:03:19] press command three on your keyboard on a Mac or control three on Windows to
+[00:03:25] switch to code mode. Claude code works best when it has its own folder to live
+[00:03:29] in. Create one anywhere on your computer,
+[00:03:32] then click the folder select button near the chat box,
+[00:03:35] and select your new folder to open it inside the app.
+[00:03:39] That folder is going to be your workspace for this project from now on.
+[00:03:43] All right, that's the setup done. Now we're going to level Claude up by
+[00:03:46] installing two skills. Out of the box, Claude is a
+[00:03:50] general-purpose AI. It knows a lot about a lot of things, but its default design
+[00:03:56] output is just okay. It tends to reach for the same fonts,
+[00:04:00] the same colors, and the same predictable layouts you've seen on every
+[00:04:04] other AI-generated website. This is why a lot of AI websites end up
+[00:04:08] looking generic. Skills fix that. A skill is like an instruction manual for
+[00:04:13] Claude, a text file that levels up Claude's knowledge in one specific area.
+[00:04:18] You install it once, and Claude uses it forever. We're installing two skills
+[00:04:23] today, and both of them are free. The first skill we're installing is called
+[00:04:26] front-end design. It's built by Anthropic, the company behind Claude. It
+[00:04:31] runs in the background, and it quietly makes Claude smarter at design.
+[00:04:35] What it actually does is ban the most overused fonts on the internet and push
+[00:04:40] Claude toward bold design direction instead of generic AI output. To install
+[00:04:45] it, grab the front-end design link from the description below and paste it into
+[00:04:49] Claude code with the message install this skill.
+[00:04:54] Then, send the message and let it run. Allow the edits when it asks,
+[00:04:59] and install it globally. The second skill is community-built.
+[00:05:03] It's called UI UX Pro Max. As you can see on screen, it ships with
+[00:05:09] 57 UI styles, 95 color palettes, and 56 font pairings.
+[00:05:15] Unlike the first skill, this one we call directly when we want a big design
+[00:05:19] intervention. And that's exactly how we're going to build our site today. To
+[00:05:23] install it, grab the UI UX Pro Max link from the description below and paste it
+[00:05:28] into Claude code with the message install this plugin using npm.
+[00:05:34] That exact phrasing matters because it's what gets it to install cleanly using
+[00:05:38] the terminal. Allow the edits when it asks,
+[00:05:41] and install it globally. Now, there's one last setup move before
+[00:05:45] we start building. Click the mode selector in the bottom
+[00:05:48] left under your chat and switch it to auto mode. This lets
+[00:05:53] Claude work without stopping to ask for permission at every step. With auto mode
+[00:05:57] on and both skills installed, we're ready to write the prompt that builds
+[00:06:01] the site. But, there's one more thing worth talking about first.
+[00:06:07] The other big thing that separates a great result from a mediocre one is the
+[00:06:10] brief you give Claude. The more specific you are, the better the result. If you
+[00:06:15] already know exactly what you want, just describe it. And that's what I did for
+[00:06:19] this build. But, describing visual taste in words is hard, especially if you're
+[00:06:25] newer to design. You don't speak the design language yet, and that makes it
+[00:06:29] tough to tell Claude what you want. If you're in that spot, references are
+[00:06:34] your shortcut. References are just screenshots of sites you like that you
+[00:06:39] give to Claude so it can match the visual style. It's a lot easier to show
+[00:06:43] Claude what you want than to describe it. References are also useful for
+[00:06:47] refining your own direction before you commit. You scroll, you find things you
+[00:06:51] like, and you start to understand what your taste actually is. I'll share a few
+[00:06:55] of my favorite websites with you that you can draw ideas from. This is
+[00:06:59] Dribbble. It's where designers post their work, and it's full of inspiration
+[00:07:03] for almost any style of website. This is Awwwards. These are sites that
+[00:07:08] have won industry design awards, so it's a great place to browse high-quality
+[00:07:12] designs. And you can always just search Pinterest for the kind of site you want
+[00:07:17] to build. It pulls examples from everywhere. Here, [snorts] I searched
+[00:07:21] for modern website design restaurant. I've included links to all of these in
+[00:07:25] the description below. Find three to five sites you like and save screenshots
+[00:07:30] of them. You're not copying these sites. Instead, you're showing Claude what you
+[00:07:34] like and how you want your own design to end up. For my build, I'm creating a
+[00:07:38] website for a restaurant in Seattle. Here's the prompt I used. This is the
+[00:07:43] whole video in a single sentence. {forward slash} UI-UX-Pro-Max
+[00:07:51] is how we call the design skill we just installed. Then we type out the brief
+[00:07:56] for the AI. The trick to making this work is this last line. Ask me
+[00:08:00] clarifying questions. That's the line that makes Claude stop and to think
+[00:08:05] before it starts building. Here Claude comes back with seven
+[00:08:08] questions. They cover the restaurant name, the style direction, which
+[00:08:13] sections we want, who's writing the content, the tech stack, the animation
+[00:08:17] level, and anything else we want to specify.
+[00:08:20] And here's the part that really matters. Claude offers three style directions to
+[00:08:24] choose from. A Manhattan steakhouse with dark moody energy, a Pacific Northwest
+[00:08:30] modern look, or a classic old-school chop house. It's giving you the menu of
+[00:08:34] style options. I picked dark moody luxury, but with Pacific Northwest
+[00:08:40] grounding, so it doesn't look like a Manhattan steakhouse.
+[00:08:43] Five sections total. No gallery, no booking system, just a single page that
+[00:08:47] scrolls all the way through. This is the most important moment in the
+[00:08:51] entire build. The answers you give here become the entire site. The more
+[00:08:57] specific you are at this stage, the less you'll have to fight Claude later to
+[00:09:01] make revisions. Really take your time to answer the
+[00:09:04] questions thoughtfully. Then send to watch the magic begin.
+[00:09:09] Now Claude reads the brief, and it takes about 3 minutes before it writes a
+[00:09:13] single line of code. Then it spends another four or five minutes or so
+[00:09:17] actually building. So I'll skip ahead to the fun part, the reveal.
+[00:09:23] And there it is. This is already better than most AI
+[00:09:27] website demos I've seen, and we haven't even started polishing yet.
+[00:09:31] So [gasps and snorts] how does it stack up against our $10,000 website
+[00:09:35] checklist? Let's start with point of view. Look at
+[00:09:38] the brief we gave Claude. We had a real direction in mind when we answered its
+[00:09:42] questions, not just a mood board. Then there's typography. Claude picked
+[00:09:46] Francis for the headlines and Inter for the body. Now, we'll swap out Inter
+[00:09:51] later because it's one of the most overused AI fonts on the internet right
+[00:09:54] now. For color, Claude landed on five hex values: near black, warm cream,
+[00:10:00] oxblood, brass, and slate. There are no rainbow palettes here. Restraint with
+[00:10:06] color is what signals quality. Then there's hierarchy. Look at how this
+[00:10:10] section is laid out. The city name is huge, the address is medium-sized, and
+[00:10:14] the room description is small. That's not random sizing. It's telling your eye
+[00:10:19] what to read first, second, and third. Without that, a site feels flat and hard
+[00:10:24] to scan. Take a look at the copy, too. Dry-aged
+[00:10:29] ribeye, 16 oz, 60-day, hearth-fired. That's not generic AI
+[00:10:35] text. That's a restaurant copy that reads like a real chef wrote it. We're
+[00:10:39] going to come back to this in chapter seven. All right, that's four boxes
+[00:10:43] checked. We've still got four to go, and the next ones are going to need a bit
+[00:10:46] more work. Number five on the checklist is imagery. This is one pillar Claude
+[00:10:51] can't fully solve on its own. You're going to have to bring some assets
+[00:10:54] yourself. The best thing you can have on a premium
+[00:10:57] website is custom photography or custom graphics. Work that's been shot or
+[00:11:02] designed specifically for your brand. If you've got that, great. Drop it into
+[00:11:07] your project folder, and you're set. Just tell Claude what and where it is,
+[00:11:11] and what to do with it. But many people don't have a
+[00:11:15] professional photo shoot budget. So, the next best thing is AI image and video
+[00:11:20] generation. The tools are good enough now that used right, nobody can tell the
+[00:11:25] difference. For a single image, ChatGPT is the fastest path if you've got a
+[00:11:29] subscription already. It's latest image model is excellent for photoreal work,
+[00:11:35] but there's a catch. Chat GPT can't make video. So, if your site needs any kind
+[00:11:40] of animation like the hero scroll effect I'm about to build, Chat GPT alone won't
+[00:11:45] get you there. That's where aggregator tools come in. These tools give you
+[00:11:49] access to every major image and video generation model from one tab. The one I
+[00:11:55] use is 11 Labs. 11 Labs is a paid service, but their plans are reasonable.
+[00:12:00] And if you use the 11 Labs link in the description below, you'll get 50% off
+[00:12:04] your first month of the creator plan, which gets you access to everything I'm
+[00:12:07] about to demonstrate. Inside 11 Labs here, I generate an image with Chat
+[00:12:12] GPT's image model. Once that renders, I'll pick one of the
+[00:12:17] four options, and then drop that exact image in as the starting frame for
+[00:12:22] Google's VO3.1 to turn it into a video. Then, once I
+[00:12:27] get the output for that, I'll select one of the options, then upscale the result
+[00:12:31] with Topaz, all without leaving the tab. That's the workflow we're using to
+[00:12:36] create the hero asset for our steakhouse here. Here's the trick that makes this
+[00:12:40] fast. You don't have to write the image prompt yourself. Claude already knows
+[00:12:44] your project, so you can ask Claude to write the image generation prompt for
+[00:12:48] you. You paste that prompt into your image generator, and you get something
+[00:12:52] that matches your brand and your existing design aesthetic on the first
+[00:12:56] try. Once you have your asset, drop it into your project folder, and Claude has
+[00:13:00] everything it needs. Okay, that covers imagery. But, what about when you want
+[00:13:04] to level up visuals on your site that aren't photos or videos?
+[00:13:08] That's where 21st.dev comes in. 21st.dev is a library of pre-made web
+[00:13:14] components, animations, scroll effects, buttons, and more. All built by real
+[00:13:20] developers, and all free to grab. You can use 21st.dev two ways. You can
+[00:13:26] browse around for visual inspiration if you're not sure what you want to add to
+[00:13:30] your site. Or, if you find a specific design or element you like, you can copy
+[00:13:34] a prompt that tells Claude exactly how to recreate it in your project. For our
+[00:13:40] build, I want to build something visually striking for the hero section.
+[00:13:44] A really cool image effect that makes the site feel premium right when someone
+[00:13:48] lands on it. Scrolling through 21st.dev here, I find a smooth scroll image
+[00:13:53] component I like. So, I'll click the copy prompt button on it and back in
+[00:13:58] Claude code, I'll paste that prompt in, add the stake video we just generated,
+[00:14:03] and tell Claude to use the component to build out the hero.
+[00:14:08] Now, watch what Claude does next. It pushes back.
+[00:14:11] The 21st.dev component I picked is for a system called React. React is a more
+[00:14:17] complex setup than what we're using here. Our project is a simple static
+[00:14:21] site, so Claude says no to dropping in the React component as is because it
+[00:14:26] would change how our whole project works. For your project, you might
+[00:14:29] actually want something more complex than what we're doing here, like a
+[00:14:32] dashboard, a checkout flow, or a site with a login. In that case, Claude would
+[00:14:36] say yes to React because it fits your project. The point is that Claude
+[00:14:40] protects the architecture you set up. It doesn't break things just because you
+[00:14:44] asked. For our static site, single file HTML is
+[00:14:47] the right choice and you'll see why when we deploy in chapter eight.
+[00:14:51] So, Claude rebuilds the hero without React and the first attempt doesn't
+[00:14:55] work. The video shows up on the page, but it isn't scrolling. So, I tell
+[00:14:59] Claude what's happening. It finds two bugs and fixes them. The page is still
+[00:15:04] broken though, so I ask Claude to dig deeper.
+[00:15:08] It actually opens the page itself in my browser, inspects what's happening live,
+[00:15:12] and finds the real problem. Three layers in, it works. The lesson
+[00:15:17] here is to keep pushing when something breaks. Just explain what went wrong and
+[00:15:21] what you were expecting instead. Claude can usually solve it if you give it the
+[00:15:25] chance to look closer. And there it is, a cinematic hero
+[00:15:30] scroll-driven, exactly like we asked for.
+[00:15:34] Next, we do one more pass on the hero, making the text readable against the
+[00:15:38] bright background image. And making the hero reveal its content
+[00:15:42] as the user scrolls. The key thing to know is that you can
+[00:15:46] keep iterating like this until your hero feels right. Once your hero section is
+[00:15:51] locked in, it's time to step back and check yourself against the bigger
+[00:15:55] picture. Once you've got the bones of your site
+[00:15:58] in place, you should grade yourself against the original checklist before
+[00:16:02] you keep polishing. This is the move that separates a polished result from a
+[00:16:06] generic one. You can grab a PDF download of that 10K
+[00:16:09] website checklist using the link in the description below.
+[00:16:13] You set the bar high at the start, and now you check yourself against it. To do
+[00:16:17] this, paste that checklist into Claude and ask, "Where does this site land
+[00:16:22] against each of these criteria?" Be honest. In my case, Claude goes through
+[00:16:26] each one, calling out what's strong, what's mixed, and what's missing. For
+[00:16:30] our build, Claude comes back with point of view strong, color strong, hierarchy
+[00:16:35] strong, and typography mixed. Imagery, motion, mobile, and the invisible stuff
+[00:16:41] are all mixed. You'll probably get a similar split on your project, and
+[00:16:45] that's fine. The point is to know exactly what's left to do. For the items
+[00:16:48] that need work, don't ask Claude to fix them one at a time. Ask Claude to
+[00:16:52] propose a batch of fixes instead. And lead your ask with intent, not
+[00:16:57] specifics. Here's the exact prompt I use for our build. I tell Claude,
+[00:17:02] "We need more handcrafted micro-interactions.
+[00:17:05] The lower sections feel a bit generic. We don't need to make them busier, just
+[00:17:10] more expensive." Notice what I'm doing there. I'm not telling Claude what to
+[00:17:15] add, I'm telling Claude how I want it to feel.
+[00:17:18] Claude is better at translating intent into specifics than most people are at
+[00:17:23] writing specifications. Claude comes back with a batch, film grain across the
+[00:17:28] whole site, animated brass hairlines between sections, a glowing ember effect
+[00:17:33] in the reserve a table section, word-by-word reveals to the headlines,
+[00:17:37] and a few other small details on top. Five small changes in one prompt.
+[00:17:43] I approve them, and Claude ships them all at once. There's less back and forth
+[00:17:47] that way. You spend fewer tokens, and the result feels more cohesive than if
+[00:17:52] you drip feed Claude one tweak at a time. Now, here's the move most people
+[00:17:56] skip, and it's the move that does the most work on whether your site feels
+[00:17:59] expensive. Once that batch of edits lands, scroll
+[00:18:04] through your site section by section, and find the ones that still feel flat,
+[00:18:09] a little boring. There's always going to be a couple. Claude won't catch them
+[00:18:13] because Claude can't feel your site the way you can. This pass, you have to
+[00:18:18] drive yourself. For each flat section, you give Claude
+[00:18:22] one specific motion or cursor interaction to add. One per section, all
+[00:18:28] of them restrained and subtle. You can ask for something specific, grab
+[00:18:33] something you like from 21st.dev, or just ask Claude what makes sense to add.
+[00:18:37] In our reserve a table section, the ember glow from the batch is in, but
+[00:18:41] it's still static. There's no movement. So, I tell Claude, "Make the embers move
+[00:18:46] like fire. Have them react to the cursor as it moves around the page." Claude
+[00:18:50] adds a parallax effect on the embers that follows your cursor. Now, the fire
+[00:18:55] effect feels alive. Then, I scroll into the story section, and it's still flat.
+[00:19:00] So, I tell Claude, "Add some elegant micro movements and cursor interactions
+[00:19:05] here. This section is feeling very static." Claude adds a soft candlelit
+[00:19:09] halo that follows the cursor as you read. Its first attempt though is too
+[00:19:14] obvious, so I push back. I say, "Make it more subtle, more refined." Claude adds
+[00:19:19] trailing motion to the halo, so it lags a bit behind the cursor. That's the
+[00:19:24] version we'll ship. Two prompts, two sections. That's all this layer takes,
+[00:19:28] but that layer is the difference between a site that looks expensive and one that
+[00:19:32] feels expensive as visitors navigate the pages. The pattern is to review every
+[00:19:37] section, find the ones that feel flat, ask Claude for one cursor interaction or
+[00:19:43] piece of movement per section. And tell Claude to make it more subtle until the
+[00:19:48] section feels alive without being noisy and obnoxious.
+[00:19:52] Speaking of polish, copy, the written content on your site, is another place
+[00:19:57] where AI tends to fall short by default. AI-generated copy usually over-explains,
+[00:20:03] uses too many adjectives, and tries to sound impressive.
+[00:20:06] Take a look at this line from our site. Six dishes, one fire. That's restraint,
+[00:20:12] not adjectives. That's what separates a $10,000 menu from a $200 one.
+[00:20:17] The front-end design skill we installed at the start of this video is what helps
+[00:20:20] Claude to write copy like this. Restrained sensory writing is one of the
+[00:20:24] things that skill pushes Claude toward, which is another reason it earns its
+[00:20:28] place in every project. Here's another quick win you can apply to any
+[00:20:32] AI-generated site. There's one font called Inter that's so
+[00:20:36] overused on AI-generated sites it instantly screams AI I made this. If you
+[00:20:41] see Inter in your output, ask Claude to swap it out.
+[00:20:45] For our build, Claude swaps Inter for a font called Geist. It's a small change,
+[00:20:49] but it makes a real difference to how the site reads. Item seven on the
+[00:20:52] checklist is mobile that's actually designed, not just shrunk down.
+[00:20:57] By default, Claude makes your site responsive, meaning it'll fit on phones
+[00:21:01] or other small screens, but responsive isn't the same as designed for phones.
+[00:21:07] Phones are going to see your site way more often than desktops will. And if
+[00:21:11] your mobile version is just your desktop version squished smaller, your viewers
+[00:21:15] will feel it. You have to ask Claude for it specifically.
+[00:21:19] So, tell Claude to do a dedicated pass on the mobile version.
+[00:21:22] Tell it to think about what should be hidden on small screens, what should be
+[00:21:26] tighter, and what should resize. For our build, the navigation collapses
+[00:21:30] on phones. The wordmark gets tighter spacing, and the buttons get a smaller
+[00:21:35] variant. With those polished passes done, all eight checklist items are
+[00:21:39] complete. Your site looks $10,000. Now, we have to actually put it online.
+[00:21:46] You can build the most beautiful site in the world, but up to this point, your
+[00:21:49] site only exists on your computer. So, if you copy the URL from your
+[00:21:53] preview right now, the one that starts with localhost, and send it to a friend,
+[00:21:57] they're going to be very disappointed. That URL only works on your machine. To
+[00:22:02] share your site with the world, you have to put it on a real server at a real
+[00:22:06] custom URL. Hosting is the service that runs your website on a server 24/7, so
+[00:22:11] anyone in the world can reach it. It's the boring part of owning a website, but
+[00:22:15] every real site needs one. I use Hostinger because it's the cheapest
+[00:22:18] professional host I know of that gives you a free domain for the first year on
+[00:22:22] top of your plan. And here's the deal. If you grab
+[00:22:25] Hostinger through the link on screen, or the first link in the description below,
+[00:22:28] you'll get 10% off whatever Hostinger's current promotional prices. Prices
+[00:22:33] change throughout the year, but 10% off the best available price is always the
+[00:22:37] cheapest way to get started. Now, before you click anything, let's
+[00:22:41] talk about which plan you actually want. For the kind of site we built in this
+[00:22:44] video, a simple static site with no login, no checkout, and no real
+[00:22:48] database, Hostinger's premium plan covers everything. That's the one we're
+[00:22:52] picking today. But, if your project is more complex than what we did here, like
+[00:22:55] a site with user accounts, a payment flow, or a database in the background,
+[00:22:59] premium won't cut it. For projects like that, you want Hostinger's business plan
+[00:23:03] instead. It supports node.js and more advanced setups Claude tends to use for
+[00:23:08] complex sites. Same link, same 10% off, just one tier up.
+[00:23:14] Remember when Claude said no to react back in chapter six? That's the kind of
+[00:23:17] moment that tells you which plan you need. If Claude kept your site simple,
+[00:23:21] premium is fine. If Claude built you something with a real back end, you want
+[00:23:24] business. For our steakhouse, premium is the right pick. Open the link from the
+[00:23:29] description, then on this page here, click start now, and that'll scroll you
+[00:23:33] down to the pricing panels. Select the plan you want, set the term to 12
+[00:23:38] months. 12 months is the minimum term that gets you a free domain for the
+[00:23:41] first year. Now search for the domain you want. If it's available, claim it.
+[00:23:46] Your cart total is going to depend on whatever promotion Hostinger has running
+[00:23:50] when you sign up. For me, it comes out to about $43 for the year. That's
+[00:23:54] hosting plus a domain plus a free email account all in. The exact number you see
+[00:23:59] might be a few dollars different, but using the link below is always going to
+[00:24:03] get you the best available price. If you add a month of Claude Pro on top of
+[00:24:06] that, which is about 20 bucks, you've built a $10,000 website for roughly $60
+[00:24:11] total. Click continue,
+[00:24:14] then add your email and a password to register an account. On the next page,
+[00:24:19] enter your billing information to complete the transaction.
+[00:24:22] After checkout is complete, the onboarding flow asks what kind of site
+[00:24:26] you have. Since we're uploading our own files, pick migrate existing site,
+[00:24:32] then upload backup files. Then select the domain you just bought.
+[00:24:37] Now return to your project folder on your computer so you can see the files
+[00:24:41] that Claude built. Your index.html
+[00:24:45] plus any images, videos, or sub folders sitting inside.
+[00:24:49] Here's the part that matters. You don't want to zip the project folder
+[00:24:53] itself. You want to zip the files inside the folder.
+[00:24:57] If you zip the whole folder, Hostinger unzips it on their server and your site
+[00:25:01] ends up one directory deeper than it should. Your domain loads a blank page.
+[00:25:06] So, select everything inside your project folder. That's command A on Mac
+[00:25:11] or control A on Windows. Then right click on your selection. On Mac, hit
+[00:25:17] compress. On Windows, pick send to then compressed
+[00:25:22] folder. You get one zip file with your
+[00:25:25] index.html sitting right at the top level. That's exactly what Hostinger
+[00:25:29] wants. You can drag the zip file back out to the same level as your parent
+[00:25:33] folder. And then give it a relevant name.
+[00:25:36] Drag that zip into Hostinger and once the files finish uploading, click next.
+[00:25:41] Then click submit request. Once it loads, click on your domain
+[00:25:46] and there it is. That's your $10,000 website live at your own custom domain
+[00:25:52] built with just a handful of prompts. If you want yours online too, grab
+[00:25:56] Hostinger using the first link in the description below. That's how you lock
+[00:25:59] in your 10% discount on top of whatever promotion they already have running.
+[00:26:03] It's the cheapest way I know of to put a real professional website on the
+[00:26:06] internet. Thanks for watching.

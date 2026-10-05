@@ -374,3 +374,101 @@ Kaynak: `yt_ara.py` ile 20 sorgu (arama_sonuclari.jsonl). Transkript durumu `tra
 | [-awprCfai5A](https://www.youtube.com/watch?v=-awprCfai5A) | Yapay Zekâ Çağında İşletmeler İçin Yeni SEO: GEO Nedir? | 0 | 6 | Al Servis Türkiye | C |
 | [ZCS1fbOr4Xo](https://www.youtube.com/watch?v=ZCS1fbOr4Xo) | Google'da Birinci Sırada Çıkmak: Yalanlar & Gerçekler ve SEO | 8 | 13490 | Menderes Kahraman | C |
 | [WkbGjfBIN7Y](https://www.youtube.com/watch?v=WkbGjfBIN7Y) | Wordpress ile Web Sitesi NASIL Kurulur? (FULL REHBER) | 24 | 31577 | WPMAVI / Burak Oran | C |
+
+# WEB SİTESİ + TASARIM — ek aramalar (5 sorgu, 2026-10-05)
+
+Not: `(listede)` = aynı video yukarıdaki bölümlerde zaten var; transkript tek kez çekilir.
+
+
+## claude design tutorial website
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [IjdkFhpxw7o](https://www.youtube.com/watch?v=IjdkFhpxw7o) | How To Create Stunning Websites With Claude Design | 14 | 33823 | Paul J Lipsky | B (listede) |
+| [COJAZQM1aeQ](https://www.youtube.com/watch?v=COJAZQM1aeQ) | Build an App With Claude Design | 1 | 120090 | Claude | C |
+| [TErjuicvK_c](https://www.youtube.com/watch?v=TErjuicvK_c) | Simple System for Better Websites with Claude Design | 17 | 30071 | Futurepedia | B |
+| [y2n1NMrMNBo](https://www.youtube.com/watch?v=y2n1NMrMNBo) | How to Use Claude Design To Make Sites 10X More Beautiful | 23 | 125696 | Mikey Website | A |
+| [CL2_prlfX9w](https://www.youtube.com/watch?v=CL2_prlfX9w) | Claude Design Tutorial for Beginners (Full Walkthrough) | 19 | 27449 | Griffin Wooldridge | B |
+| [fDTwHIKltpc](https://www.youtube.com/watch?v=fDTwHIKltpc) | The EASY way to build a beautiful website with Claude Code (full workflow) | 26 | 711989 | Create a Pro Website | A |
+| [bBlY5YOsKN8](https://www.youtube.com/watch?v=bBlY5YOsKN8) | How To Use Claude Design To Build Beautiful Sites | 18 | 64962 | AI LABS | B |
+| [BkR7rmB66ug](https://www.youtube.com/watch?v=BkR7rmB66ug) | Claude Design 2.0 = Beautiful $5K Websites in 31 Minutes (full tutorial) | 30 | 51475 | Eliot Prince | B |
+| [VeWf0l4ci6Y](https://www.youtube.com/watch?v=VeWf0l4ci6Y) | Claude Design is Insanely Easy - Become a Pro in 14 Minutes! | 14 | 266432 | Jeff Su | A (listede) |
+| [8GXvgxKPATk](https://www.youtube.com/watch?v=8GXvgxKPATk) | How to Build ACTUALLY Beautiful Websites With Claude Design & Claude Code | 23 | 107286 | Build Great Products | A |
+| [clK5xTUy0XM](https://www.youtube.com/watch?v=clK5xTUy0XM) | The NEW Claude Design - Complete Beginner's Guide | 17 | 32095 | Teacher's Tech | B |
+| [VwGrXe2ricE](https://www.youtube.com/watch?v=VwGrXe2ricE) | Claude Design Now Builds Beautiful $10,000 Websites (NO AI Slop) | 22 | 246770 | Jack Roberts | A (listede) |
+| [PjBfho9Knlw](https://www.youtube.com/watch?v=PjBfho9Knlw) | How Complete Beginners Master 95% of Claude Design in 18 minutes | 18 | 35558 | Mikey Website | B |
+| [3ZBY7oVZpuM](https://www.youtube.com/watch?v=3ZBY7oVZpuM) | How to Actually Use Claude Design Like a Pro | Claude Design Tutorial | 42 | 44675 | Ferdy․com | Ferdy Korpershoek | B |
+| [xYv4_cTOSNM](https://www.youtube.com/watch?v=xYv4_cTOSNM) | How I Built INSANE Claude Design Websites In 10 Minutes | 16 | 221963 | Jono Catliff | A |
+
+## awwwards style website with ai
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [NNv80mMzFDs](https://www.youtube.com/watch?v=NNv80mMzFDs) | Stop Making Ugly Websites with Claude Code | 10 | 208820 | Ed Hill | AI Automation | B (listede) |
+| [cNZvyzObZx8](https://www.youtube.com/watch?v=cNZvyzObZx8) | Build an Awwwards Winning Website with Claude Design (Ultimate Tutorial) | 13 | 7124 | Viktor Oddy | C |
+| [_LLYb_shreA](https://www.youtube.com/watch?v=_LLYb_shreA) | Rebuilding Awwwards Sites With AI: Rebuilding Award-Winning Web Designs Step by Step | 20 | 2086 | Lukas Margerie | C |
+| [zA9r5zTllx4](https://www.youtube.com/watch?v=zA9r5zTllx4) | Build and Deploy an Awwwards Winning Website | React.js, Tailwind CSS, GSAP | 159 | 2570738 | JavaScript Mastery | B |
+| [QUI6Ug4cHnE](https://www.youtube.com/watch?v=QUI6Ug4cHnE) | I Built The Ultimate Claude Website Design Skill (steal this) | 16 | 274426 | Nate Herk | AI Automation | A (listede) |
+| [KIsuIj-Ll3k](https://www.youtube.com/watch?v=KIsuIj-Ll3k) | How To Vibecode An Apple-Style AI Website Fast Using Google’s Gemini Free AI Tools [No-Code] | 14 | 348333 | Andy Lo | B |
+| [qIOvWFXAqko](https://www.youtube.com/watch?v=qIOvWFXAqko) | Recreating Awwwards SOTD Website Truus.co Using AI (Google Antigravity + TRAE AI) 🔥 | 12 | 174 | ARKYADEEP PAL | C |
+| [_BZZkFzuLQs](https://www.youtube.com/watch?v=_BZZkFzuLQs) | I Built an Awwwards-Level Portfolio to Land My Dream Job (Here’s How) | 6 | 225732 | Jason Zubiate | C |
+| [xKOFuo3fb_U](https://www.youtube.com/watch?v=xKOFuo3fb_U) | Recreate Premium Animated Websites Using AI + WordPress | 4 | 23982 | WPDev | C |
+| [pHstb0JGGhE](https://www.youtube.com/watch?v=pHstb0JGGhE) | How To Use Codex To Build Insanely Beautiful Websites Using GPT 5.6 Sol | 25 | 163608 | AI LABS | B |
+| [8QyOJvw1pi4](https://www.youtube.com/watch?v=8QyOJvw1pi4) | 🚀 So How Do You Stop Getting AI Slop When Prompting Websites? | 5 | 127 | Darrel Wilson Clips and Darrel Wilson | C |
+| [PZGH33k4jrs](https://www.youtube.com/watch?v=PZGH33k4jrs) | GPT 5.6 Sol Builds an Awwwards-Level Website (Full Build) | 19 | 845 | CreativeDesignTools | C |
+| [6uwrRGARVlg](https://www.youtube.com/watch?v=6uwrRGARVlg) | I Built an Award-Winning Website in 19 Minutes using Google AI Studio | 19 | 210357 | Viktor Oddy | B |
+| [Nnfm9Tq6i2s](https://www.youtube.com/watch?v=Nnfm9Tq6i2s) | I Cloned an Awwwards Website Using Claude + ChatGPT for Medspa Website | 4 | 335 | AI Website Maker | C |
+
+## claude code website skill steal
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [M5ZN9qjdiuA](https://www.youtube.com/watch?v=M5ZN9qjdiuA) | I Made Claude Code STEAL a Website's Entire Design System | 4 | 315 | The Art of Vibe Coding | C (listede) |
+| [M2KJ5-sFbbg](https://www.youtube.com/watch?v=M2KJ5-sFbbg) | Claude Code SEO Audit: Fix Your Whole Website In 1 Prompt (Steal This) | 19 | 24077 | Jono Catliff | B |
+| [mtN2PdQ2V28](https://www.youtube.com/watch?v=mtN2PdQ2V28) | 4 Claude Code Hacks To Make Any Website Look 10/10 (Steal These) | 26 | 4993 | Jono Catliff | C |
+| [T0CMHwVh0u4](https://www.youtube.com/watch?v=T0CMHwVh0u4) | Claude Code Builds REAL $10k+ websites! (steal this) | 17 | 45839 | Duncan Rogoff | Learn Claude Code | B |
+| [doR2RhsneRA](https://www.youtube.com/watch?v=doR2RhsneRA) | This Is What Opus 5.5 Max Built in 36 Hours for 2,175 USD | 20 | 292898 | Stefan 3D AI | A |
+| [7AIsWDuuKqg](https://www.youtube.com/watch?v=7AIsWDuuKqg) | Copy ANY Website's UI in Minutes with Claude Code 🤯 | 0 | 7325 | creativelyange | C |
+| [GDB6ATIPo4E](https://www.youtube.com/watch?v=GDB6ATIPo4E) | Impeccable: The #1 Claude Code Design Skill (No More AI Slop) | 10 | 10177 | Nuno Tavares | Automated Marketer | C |
+| [cAeQjck1jHs](https://www.youtube.com/watch?v=cAeQjck1jHs) | 9 Claude Skills I Use Every Single Day (Steal Them) | 16 | 45457 | Zinho Automates | B |
+| [TVtor7ZUI70](https://www.youtube.com/watch?v=TVtor7ZUI70) | How to clone any webpage in 4 minutes with Claude AI | 3 | 42099 | Matt Clark | C |
+| [4IyJm1i__ag](https://www.youtube.com/watch?v=4IyJm1i__ag) | Claude Code SEO: How I Got 50,000 Clicks Per Month (Steal This) | 68 | 270410 | Jono Catliff | A |
+| [TZUTe7s11-I](https://www.youtube.com/watch?v=TZUTe7s11-I) | Claude Code + Nano Banana 2 = Insane $10,000 Websites | 22 | 663415 | Jack Roberts | A |
+| [0bRxpRupE5Y](https://www.youtube.com/watch?v=0bRxpRupE5Y) | 15 Claude Cowork Skills I Can’t Live Without (steal them) | 27 | 173152 | Brock Mesarich | AI for Non Techies | A |
+| [Ot582-E61ac](https://www.youtube.com/watch?v=Ot582-E61ac) | Insane Claude Design Skills You Need To Build Beautiful Websites | 14 | 168545 | AI LABS | A |
+| [phuyYL0L7AA](https://www.youtube.com/watch?v=phuyYL0L7AA) | Claude Code + Firecrawl = UNLIMITED Web Scraping | 10 | 40367 | Chase AI | B |
+
+## restaurant website claude code
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [ckJsHn096c0](https://www.youtube.com/watch?v=ckJsHn096c0) | How to Create a Professional Restaurant Website Using Claude AI | 11 | 752 | Unique Web School | C |
+| [v_ZTFKiE438](https://www.youtube.com/watch?v=v_ZTFKiE438) | How to Build a Sleek Restaurant Website Using Claude AI in 2026 | 18 | 2726 | Shah Wali | C |
+| [VMvZuhcDdnw](https://www.youtube.com/watch?v=VMvZuhcDdnw) | Build $10,000 Websites using Claude Code (Ultimate Guide) | 26 | 1156140 | Metics Media | A (listede) |
+| [ljsxeD7jArg](https://www.youtube.com/watch?v=ljsxeD7jArg) | I Built a $10,000 Restaurant Website With Claude Code (No Code) | 23 | 566 | The AI Builder’s Lab | Waqas Munawar | C |
+| [WrCo25JWFJ8](https://www.youtube.com/watch?v=WrCo25JWFJ8) | How to Make a Restaurant Website using HTML and CSS with Claude | Make Website in 5 Minutes Using AI | 6 | 2105 | Tap To Build | C |
+| [TyMEQQtamho](https://www.youtube.com/watch?v=TyMEQQtamho) | Build $10,000 Websites Using Claude Code + Higgsfield AI | 6 | 37609 | Matteo AI | C (listede) |
+| [3JboouAbT_c](https://www.youtube.com/watch?v=3JboouAbT_c) | Build a Modern Restaurant Website in 5 Minutes using Claude AI |Claude AI |Website| Let's Build Tech | 6 | 109 | Lets Build Tech | C |
+| [h2igDsf2hPg](https://www.youtube.com/watch?v=h2igDsf2hPg) | Build $10,000 Websites with Claude Code + NEW Opus 5 (It's Too Easy) | 11 | 46853 | Zinho Automates | B |
+| [x_ufmnnQPoQ](https://www.youtube.com/watch?v=x_ufmnnQPoQ) | I Built a Restaurant Website That Looks Like It Cost $10K (Claude Design) | 8 | 609 | Svante Gustafsson | C |
+| [IqOBCl11ZQQ](https://www.youtube.com/watch?v=IqOBCl11ZQQ) | How I Sold AI Websites with Claude Code (Complete Guide) | 28 | 104149 | Sandy Lee AI | A |
+| [buMq-zhU3OA](https://www.youtube.com/watch?v=buMq-zhU3OA) | Claude Code + QR = Digital Menu for Restaurants (In Under 15 Mins) | 10 | 1697 | Alejandro Boned | IA & Claude Code | C |
+
+## nano banana claude code animated website
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [ZfYvv-0l9NA](https://www.youtube.com/watch?v=ZfYvv-0l9NA) | Claude Code + Nano Banana 2 + Kling =  $15K Animated Sites | 13 | 353490 | Nick Saraev | A (listede) |
+| [S4WTBbbdz5w](https://www.youtube.com/watch?v=S4WTBbbdz5w) | Build Animated Websites Using Claude Code + Nano Banana 2 | 8 | 32733 | WPDev | B |
+| [UJwPlmXk6c0](https://www.youtube.com/watch?v=UJwPlmXk6c0) | How I built $10K Animated Websites with Claude + Nano Banana 2 | 20 | 16004 | Jason Lee | B |
+| [q0TgUtj6vIs](https://www.youtube.com/watch?v=q0TgUtj6vIs) | The NEW Nano Banana 2 + Claude Code = $10k Websites | 20 | 237017 | Nate Herk | AI Automation | A |
+| [zJl1yFYujiw](https://www.youtube.com/watch?v=zJl1yFYujiw) | Claude Code + Nano Banana 2 = INSANE AI Website Animations | 10 | 21688 | Mira AI | B |
+| [t0GWftN6doo](https://www.youtube.com/watch?v=t0GWftN6doo) | Claude Code + Nano Banana 2 + Kling = $15K Animated Websites | 12 | 4727 | Luke Byrne (AI Luke) | C |
+| [jQxHo9PC19Q](https://www.youtube.com/watch?v=jQxHo9PC19Q) | Claude Code + Nano Banana = Beautiful Animated Websites | 11 | 22887 | Chase AI | B |
+| [PGXtvCnTptE](https://www.youtube.com/watch?v=PGXtvCnTptE) | How to Build Animated Websites with Claude Code, Nano Banana 2 & Kling 3.0 | 27 | 449 | Krystian Wojtarowicz AI | C |
+| [4uFRYoOeLFU](https://www.youtube.com/watch?v=4uFRYoOeLFU) | Claude Code + Nano Banana 2 = Crazy | 17 | 135012 | Dan Kieft | A |
+| [3DJOJ7yacyM](https://www.youtube.com/watch?v=3DJOJ7yacyM) | Claude Code + Nano Banana 2 + Kling 3.0 = UNBEATABLE Websites | 13 | 24592 | Zinho Automates | B |
+| [QutvJAP06-A](https://www.youtube.com/watch?v=QutvJAP06-A) | Claude Code + Nano Banana 2 = Insane 3D Websites | 13 | 61431 | Chase AI | B |
+| [ViilNVorlQo](https://www.youtube.com/watch?v=ViilNVorlQo) | Claude Code + Nano Banana 2 = Apple-Level Websites | 7 | 25742 | Ed Hill | AI Automation | C |
+| [SdtAivtwKIg](https://www.youtube.com/watch?v=SdtAivtwKIg) | Claude Code + Nano Banana 2 + Kling = Creating IRRESISTIBLE Animated Websites | 14 | 3009 | Tom Melo | C |
+| [VHJ3yA7aebw](https://www.youtube.com/watch?v=VHJ3yA7aebw) | Claude Code + Nano Banana 2 + Kling = $15K Animated Sites | 20 | 2373 | Kenil Barochia | AI & TECH | C |

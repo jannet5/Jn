@@ -1,0 +1,475 @@
+# Claude Code + Nano Banana 2 + Kling =  $15K Animated Sites
+# https://www.youtube.com/watch?v=ZfYvv-0l9NA
+# kanal: Nick Saraev | süre: 839 sn | kaynak: yt-dlp:web_embedded:ZfYvv-0l9NA.en.json3
+
+[00:00:00] Hey, I just built these four websites in
+[00:00:01] about 15 minutes or so and I wanted to
+[00:00:03] share them with you because they all
+[00:00:04] have really cool 3D sexy scroll effects.
+[00:00:07] So, this is one for headphones. This
+[00:00:09] over here is one for restoring our
+[00:00:12] forest with a cool 3D globe in the
+[00:00:14] background. This one here has sort of
+[00:00:16] like an interior design vibe with a
+[00:00:18] blow-up of a house in the background.
+[00:00:20] These are all assets that I generated
+[00:00:22] with AI. This one over here is sort of
+[00:00:24] like a rotating space station look and
+[00:00:26] hopefully you guys see these are all
+[00:00:27] really really clean. So, the reason I
+[00:00:29] want to make this video is because I
+[00:00:30] want to show you how easy it is to
+[00:00:31] generate websites like this. A few years
+[00:00:33] back, this would probably be 5 to 10,000
+[00:00:35] dollars a pop and I know that because I
+[00:00:36] used to sell websites for a living. Um
+[00:00:38] now you can literally do it in less than
+[00:00:40] 10 minutes for somewhere around two to
+[00:00:42] three dollars in tokens and it's way
+[00:00:44] simpler than everybody else is making it
+[00:00:45] out to be. You don't have to hop around
+[00:00:47] like 30 different platforms. There's
+[00:00:48] really just three steps and I'm going to
+[00:00:50] show them all to you right now, okay?
+[00:00:51] Let's do it. So, in a nutshell, our flow
+[00:00:53] is going to be as follows. We will write
+[00:00:55] a few bullet points into Cloud Code to
+[00:00:57] tell it what we want. Afterwards, we're
+[00:00:59] going to use a skill created by a really
+[00:01:02] cracked 16-year-old and shared on
+[00:01:03] Twitter, which I'll run you guys
+[00:01:04] through.
+[00:01:05] Then we generate an exploded view or
+[00:01:08] some sort of animated asset using a
+[00:01:10] model called Kling 3.0. Then finally,
+[00:01:13] you just integrate onto the site and
+[00:01:14] push live. So, the taste skill is really
+[00:01:17] straightforward. There's just an open
+[00:01:18] repo here that basically instills a
+[00:01:21] bunch of high-end like website design
+[00:01:23] principles and then design schematics.
+[00:01:25] Um this is how you get really easy
+[00:01:27] high-quality one-shot websites from a
+[00:01:29] simple Cloud Code prompt. So, I actually
+[00:01:31] just built a quick example here um for
+[00:01:34] an interior private jet design business.
+[00:01:36] I haven't changed anything on this
+[00:01:38] website. I literally just one-shotted it
+[00:01:39] and then, you know, it built this sort
+[00:01:41] of design. So, this skill just
+[00:01:43] standardizes a few things like spacing,
+[00:01:45] high-end luxury looks and and so on and
+[00:01:47] so forth. And then for the video
+[00:01:48] generation aspect, I use this model here
+[00:01:50] called Kling 3.0. Um I access it using a
+[00:01:53] platform called Higgsfield. It takes me
+[00:01:54] literally just like three minutes to
+[00:01:56] create a bunch of animations and you can
+[00:01:58] see what I've done here is I've created
+[00:01:59] tons for things like rotating globes.
+[00:02:02] Um, you know, this is that little
+[00:02:03] spaceship analogy. I've done a bunch
+[00:02:05] more spaceship stuff as well for other
+[00:02:07] design websites and and so on and so
+[00:02:09] forth. And then basically I just combine
+[00:02:10] it using Cloud Code in 2 seconds. Let me
+[00:02:13] show you how to actually do this. And as
+[00:02:14] mentioned, it's going to be like $5 in
+[00:02:15] tokens. It's not super complicated. What
+[00:02:18] you need first is you need Cloud Code
+[00:02:20] running in some sort of like IDE
+[00:02:22] platform, okay? Now, I have it uh set up
+[00:02:25] on this tool called Antigravity, which
+[00:02:27] is super straightforward. If you don't
+[00:02:29] know what Antigravity is or how to get
+[00:02:30] it, just head to the top right-hand
+[00:02:32] corner of this video. I'm going to link
+[00:02:33] a step-by-step guide on how to set it up
+[00:02:35] as well as what all the freaking icons
+[00:02:36] mean and how to communicate with it. But
+[00:02:38] assuming you have it set up, it's it's
+[00:02:39] very straightforward. All you have to do
+[00:02:41] is first, you tell the model about
+[00:02:44] Leon's skill. So, I'm just going to head
+[00:02:46] back over here, copy this link, and then
+[00:02:48] go straight over to my Antigravity. And
+[00:02:51] I'll say, "Use this skill
+[00:02:54] to design a high-end
+[00:02:57] website about interior design."
+[00:03:01] From here, Cloud Code is going to fetch
+[00:03:03] the skill repository to understand what
+[00:03:06] it provides. And I'm just going to give
+[00:03:07] it a good 2 minutes or so to actually do
+[00:03:10] the full website design. And that's how
+[00:03:12] easy and straightforward it is. Then all
+[00:03:14] I'm going to do is I'm going to head
+[00:03:15] over to Kling. I'm going to say,
+[00:03:17] "Generate me a high-quality 3D render
+[00:03:19] style video of panning through a 3D
+[00:03:21] interior design scene. Make the
+[00:03:22] background white. Make the assets super
+[00:03:25] high-quality. This should read like
+[00:03:26] something you'd see on a website or a
+[00:03:27] landing page." My model's going to be
+[00:03:29] Kling 3.0. I'm going to have it set for
+[00:03:31] 5 seconds. I'll do a 16 by 9, which
+[00:03:34] means it's going to be wider than it is
+[00:03:35] tall, which kind of makes sense cuz it's
+[00:03:36] going to be on my my landing page. Then
+[00:03:38] the uh quality is going to be 1080p,
+[00:03:40] which is sort of like the max that you
+[00:03:41] can get. Now, 7.5 credits, to be clear,
+[00:03:44] is pretty affordable. If I just go to
+[00:03:46] Hexfield pricing over here, in terms of
+[00:03:48] pricing, this is pretty affordable. I
+[00:03:49] mean, if I go down to the pro plan, it's
+[00:03:51] 30 bucks for 600 credits. If I go 7.5,
+[00:03:55] which is how many credits I spent on
+[00:03:56] that divided by 600, then I multiply it
+[00:03:59] by $29, you'll see the actual amount,
+[00:04:02] which ends up being about 36 cents. And
+[00:04:05] so, you know, realistically, I usually
+[00:04:07] recommend doing this two or three times
+[00:04:08] because you can pick the best video
+[00:04:10] output. Also, it also depends on like
+[00:04:12] what you're going to be using. I'm going
+[00:04:13] to insert a few more animations on this
+[00:04:14] website to make it like super clear how
+[00:04:16] sexy it could be. But, yeah, I mean,
+[00:04:17] like that's what, three or four bucks,
+[00:04:19] realistically? After that, you do you
+[00:04:21] are going to have some spend in terms of
+[00:04:23] your cloud code usage. That ends up
+[00:04:25] being like another dollar or so. And
+[00:04:26] then the way that I personally like
+[00:04:27] hosting these is totally free, which
+[00:04:28] I'll show you guys how to do in a sec.
+[00:04:29] Obviously, play around with
+[00:04:31] you know, styles and the prompts and
+[00:04:32] stuff like that. I'll give you guys a
+[00:04:33] good one that works really well for like
+[00:04:35] expanded design and blow up images, but
+[00:04:37] yeah, that's that's honestly enough. For
+[00:04:39] this website over here with the rotating
+[00:04:41] globe, I'll show you guys what I used
+[00:04:42] just while all that loads. Um, it's
+[00:04:43] pretty straightforward and easy.
+[00:04:46] Um, I think I just said
+[00:04:48] globe rotating in the exact same place,
+[00:04:50] center of mass should not move, just
+[00:04:52] rotating perfectly on its axis.
+[00:04:54] What I did is I went on Nano Banana,
+[00:04:56] generated an image of a globe, and then
+[00:04:57] I just fed it in, and then said that.
+[00:04:59] You guys can also just one shot it like
+[00:05:00] I'm going to do over here with this
+[00:05:01] interior design thing.
+[00:05:03] Okay, so what do we have here? We have
+[00:05:04] some cool like panning interior design.
+[00:05:06] I mean, this looks really clean, right?
+[00:05:07] I I I like this quite a bit. Um, from
+[00:05:09] here, I could actually just download
+[00:05:10] this whole thing. Okay, and then I could
+[00:05:12] open this up in another folder. What I'm
+[00:05:15] going to do is just verify that this
+[00:05:17] plays back the way that I want it to.
+[00:05:20] And it does, you know, I like that it's
+[00:05:21] in sort of a white room. It's it's super
+[00:05:22] clean. Uh, what I'll do next is just go
+[00:05:25] over to my finder.
+[00:05:27] And I'm just going to rename this. Let
+[00:05:29] me just sort by date added here to
+[00:05:31] interior design. Then I'm just going to
+[00:05:32] say, "Hey, I want you to take
+[00:05:34] interior_design.mp4,
+[00:05:37] and then make it the background image of
+[00:05:38] our hero header. Then, um, center the
+[00:05:41] hero header so that it like looks really
+[00:05:42] clean. And then apply some sort of like
+[00:05:44] inward masking gradient so that the
+[00:05:46] animation background doesn't interfere
+[00:05:49] with the background of the of the
+[00:05:51] website.
+[00:05:53] Let me just make sure it's interior
+[00:05:54] design MP4. Cool. So now it's going to
+[00:05:56] just look for interior design MP4.
+[00:05:58] It's not going to find that in my main
+[00:05:59] file directory. I think it'll find that
+[00:06:00] in downloads. Let me just say downloads.
+[00:06:03] Once it has that, it will actually go
+[00:06:05] through the whole process of sticking
+[00:06:07] that in my site. Okay, now we obviously
+[00:06:09] have like kind of a clean-looking view
+[00:06:11] here, right? It's it's pretty neat. What
+[00:06:13] they did is they actually I think tied
+[00:06:15] this to my mouse position as well, which
+[00:06:17] is why sometimes it kind of like moves
+[00:06:18] around. And I mean for a lot of people
+[00:06:20] this might be enough. I don't know. Like
+[00:06:21] maybe you guys are cool with this. I
+[00:06:23] think this is pretty sweet, but I
+[00:06:24] actually want to add more to it. What I
+[00:06:26] want is I want as I scroll down there to
+[00:06:27] be some sort of like blow-up interior 3D
+[00:06:30] design animation. So what I'm going to
+[00:06:32] do is first and foremost, I'm going to
+[00:06:33] change this that we could see the text.
+[00:06:35] So I'm just going to take a screenshot
+[00:06:37] of this. Just like as follows. Go back
+[00:06:39] to Cloud Code and I'll say,
+[00:06:41] "Hey, this looks fantastic, but I'm
+[00:06:42] having trouble seeing some of the text.
+[00:06:44] Just make it more prominent so that I
+[00:06:46] could actually see what's going on. The
+[00:06:47] subtext is super small as well."
+[00:06:50] Let's say small and hard to read. Okay,
+[00:06:53] and then while all that's going on, I'm
+[00:06:54] going to head back over to here. I'll
+[00:06:56] say, "Generate me a high-quality
+[00:06:57] exploding view diagram of a home to
+[00:07:00] showcase the interior design component
+[00:07:01] of a service. No text, white background.
+[00:07:06] It should explode in all directions
+[00:07:09] including vertically and horizontally.
+[00:07:12] And none of it should go outside of the
+[00:07:14] bounds of the video itself. I'm then
+[00:07:17] going to maybe diagram isn't maybe I'll
+[00:07:20] say animation of a home. And then I'm
+[00:07:21] going to save this and then I'm just
+[00:07:23] going to wait for this to finish and
+[00:07:23] then I'm going to do the same thing. The
+[00:07:24] one thing you can do if you have a lot
+[00:07:25] of credits like me is you can actually
+[00:07:26] just generate two or three these
+[00:07:28] simultaneously. That just improves the
+[00:07:29] probability that the final result will
+[00:07:31] be what you want. Okay, so we have our
+[00:07:32] video here and as you see things are
+[00:07:35] sort of blowing up and expanding. I
+[00:07:36] think this is really cool. So what I
+[00:07:38] want now is I basically want to download
+[00:07:40] this. Head to the bottom right-hand
+[00:07:42] corner, click download.
+[00:07:44] And then I'm going to go over here to
+[00:07:45] where it says the file. And then I'll
+[00:07:48] actually just go here and then say
+[00:07:50] interior design exploding view.
+[00:07:54] And I'll say,
+[00:07:55] "Great, I have
+[00:07:55] interior_design_exploding_view.mp4
+[00:07:57] in
+[00:08:00] download/ I want you to take that and
+[00:08:02] then create a scroll animation
+[00:08:04] immediately underneath the hero header.
+[00:08:06] As I scroll through, we should write
+[00:08:07] through two or three sections of text
+[00:08:09] that expose our design skills and then
+[00:08:12] it should also um show the exploding
+[00:08:14] view frame by frame as we go."
+[00:08:18] Just going to pump that in and I I think
+[00:08:19] that was the file name. Let me just
+[00:08:20] double-check. Yeah, it is, just with
+[00:08:21] caps. Uh so, what it's going to do is a
+[00:08:23] locomotive scroll sequence. It's going
+[00:08:25] to go and copy the video now. You can
+[00:08:26] see it's now adding some scroll reveal
+[00:08:28] logic, pretty straightforward and easy.
+[00:08:30] And then uh I'm probably going to have
+[00:08:31] to adjust the background color as well.
+[00:08:33] I'm seeing that it's not the exact same
+[00:08:34] as my website, but that's okay. Okay,
+[00:08:35] and you can see the actual website is
+[00:08:37] set up now. There is a a line here,
+[00:08:40] which I will fix, but now as we scroll
+[00:08:41] through,
+[00:08:43] looks like it's a little rough, the
+[00:08:44] actual animation itself. Um but we do
+[00:08:47] have the text that's sort of in the
+[00:08:48] middle. Looks like it applied some sort
+[00:08:49] of a shadow to it.
+[00:08:51] As I scroll through here, we're we're
+[00:08:53] basically like going through one frame
+[00:08:54] at a time.
+[00:08:56] And yeah, this is more or less what I
+[00:08:57] want. I just don't like how choppy it
+[00:08:58] is, so um I'll show you guys how to fix
+[00:09:00] up the choppiness, too. But the other
+[00:09:01] thing that I want is I basically want
+[00:09:03] You see how the background here is kind
+[00:09:04] of like significantly darker? The reason
+[00:09:06] why that happens is because the mask
+[00:09:08] that it's applying, like the little
+[00:09:09] fuzzy gradient, isn't making it all the
+[00:09:11] way to the top. So, I'm going to go back
+[00:09:12] and I'm going to say,
+[00:09:14] "Hey, there are two problems. The first
+[00:09:15] is the fuzzy gradient is uh
+[00:09:18] not strong enough and so we see a bunch
+[00:09:20] of dividing colors between the top and
+[00:09:23] then the bottom. So, make sure to make
+[00:09:25] the gradient a little bit stronger on
+[00:09:26] the top and the bottom. The second thing
+[00:09:28] is it's really laggy, so just fix up the
+[00:09:30] lag. Make it load significantly faster."
+[00:09:32] Isn't it wild how you can literally just
+[00:09:33] say make it load significantly faster in
+[00:09:35] 2020 insert current year here. I was
+[00:09:38] told not to discuss whatever the current
+[00:09:40] year is by YouTube consultant in case
+[00:09:41] people watch my videos in a few years.
+[00:09:43] I think in this case that's not really
+[00:09:44] going to be a problem, but anyway, look
+[00:09:46] at what it's doing. It's going to
+[00:09:46] extract the frames as optimized JPEGs
+[00:09:48] and you know, they're just basically
+[00:09:50] like individual image files and then
+[00:09:51] it's going to tie every individual image
+[00:09:52] file to the scroll position. So, it's
+[00:09:54] going to be way faster and then we'll
+[00:09:55] also get some preloading.
+[00:09:57] As a former web developer, some of the
+[00:09:58] stuff that this thing does blows my
+[00:10:00] mind. It would have taken me like 3 days
+[00:10:01] to do what this just did in 30 seconds.
+[00:10:03] Okay. So, now as I scroll through you
+[00:10:06] see it it occurs significantly faster,
+[00:10:08] which I like. I think if we could still
+[00:10:10] optimize the hell out of it a little
+[00:10:11] more. Still have a little bit of lag.
+[00:10:13] Also, add some sort of overlay to the
+[00:10:16] text because right now it's very
+[00:10:17] difficult to see and just kind of
+[00:10:19] collides with the animation.
+[00:10:22] Okay, and then let's just make sure that
+[00:10:24] the top still works. Okay, perfect. You
+[00:10:26] see how there's like basically no
+[00:10:27] difference between these two. This is
+[00:10:28] exactly what we wanted.
+[00:10:30] So, yeah, I mean like more or less this
+[00:10:31] is it. I think realistically I'm also
+[00:10:33] going to see if maybe we could widen
+[00:10:34] this. Or if we could just phase in the
+[00:10:37] text itself alongside the actual home
+[00:10:39] exploding view and because that sort of
+[00:10:41] thing is pretty cool. And then, you
+[00:10:42] know, after we make it down to the
+[00:10:43] bottom, you could see here that, you
+[00:10:44] know, once we we we have this section
+[00:10:46] that then ties to the actual explo-
+[00:10:47] exploding view, right? Okay, this is a
+[00:10:49] lot better. Yeah, I really like this.
+[00:10:50] This is much much cleaner and then it's
+[00:10:52] also way faster, too. And yeah, I think
+[00:10:54] this is more or less it. I mean like
+[00:10:55] this is what I wanted the whole time,
+[00:10:56] right? So, cool. And then obviously we
+[00:10:58] have the rest of the website underneath
+[00:10:59] and stuff like that. So, listen. I mean
+[00:11:01] like, you know, this is running two
+[00:11:02] videos, right? Not one two videos, but
+[00:11:05] one video up at the top and then we have
+[00:11:06] like the JPEGs down here, which are
+[00:11:08] being preloaded. So, this is not going
+[00:11:09] to be like the least computationally
+[00:11:10] intensive website, but do you guys see
+[00:11:12] how easy it was for me to optimize it? I
+[00:11:13] literally just said, "Hey, make it
+[00:11:15] faster." and then it made it faster. You
+[00:11:16] could do that three or four times and
+[00:11:18] then assess whatever the quality
+[00:11:19] decreases to get it to that fast point
+[00:11:22] and then eventually have like a really
+[00:11:23] really clean look despite it also you
+[00:11:26] know, being pretty heavy
+[00:11:28] asset-wise. I think what I'll next do is
+[00:11:30] I'm just going to tie up the uh the top
+[00:11:33] uh hero header image here to make that a
+[00:11:34] little bit faster and then we'll be good
+[00:11:36] to go.
+[00:11:37] Hey, just make the hero header a little
+[00:11:39] bit faster as well. I think it's pretty
+[00:11:40] big right now. Okay, and it looks like
+[00:11:41] it just compressed it from 5.3 megs down
+[00:11:43] to 252 kilobytes.
+[00:11:45] Cool. So, this is this is a lot faster.
+[00:11:47] This is so much cleaner and you see we
+[00:11:49] don't have like weird jankiness either
+[00:11:51] like we did before.
+[00:11:52] Um and then as we make it just to that
+[00:11:54] point where the first frame starts
+[00:11:56] loading,
+[00:11:57] you know, keep in mind most people are
+[00:11:58] going to scroll through it approximately
+[00:11:59] this space, I would take it. Um yeah,
+[00:12:02] everything just loads really cohesively
+[00:12:03] and is very pretty. I could adjust the
+[00:12:05] design, make it look however the heck I
+[00:12:06] want, but yeah, we just one shotted it.
+[00:12:08] Okay, and then the last thing we need is
+[00:12:10] we obviously need to make it live,
+[00:12:11] right? So, what I'm going to do next is
+[00:12:12] go back to my agent and I'll say, "This
+[00:12:13] looks awesome. I want you to make it
+[00:12:14] live on Netlify."
+[00:12:17] Netlify is a service out there that
+[00:12:18] basically allows you to host your
+[00:12:20] websites completely free on their free
+[00:12:22] plan. So, free forever. You can deploy
+[00:12:25] from AI, Git, or an API, unlimited
+[00:12:28] deploy previews, build with whatever the
+[00:12:30] heck that means. I don't even know. And
+[00:12:31] then 300 credit limit per month with a
+[00:12:33] global CDN. The global CDN, just so you
+[00:12:35] guys know, means that people in all
+[00:12:37] different parts of the world will be
+[00:12:38] able to access your website quickly
+[00:12:39] because they won't have to make a
+[00:12:40] request like,
+[00:12:41] you know, from uh I don't know,
+[00:12:42] somewhere in Indonesia all the way to
+[00:12:44] somewhere in the United States.
+[00:12:45] They cache the websites and its files at
+[00:12:47] these thing called edge nodes, which
+[00:12:49] keep your website there, um which allow
+[00:12:51] it to to load way faster.
+[00:12:53] Okay, and then I'm just going to head
+[00:12:53] back over here, um literally give this
+[00:12:55] button a click, and we now have our
+[00:12:57] website live. I mean, this is actually
+[00:12:59] live on the internet at this link,
+[00:13:00] atelieramerin.netlify.app.
+[00:13:03] So, just for shits and gigs, I'm going
+[00:13:04] to leave this up and you can actually
+[00:13:06] access this at any point um to see sort
+[00:13:08] of what this website looks like and, you
+[00:13:10] know, how it works. Um another thing is
+[00:13:12] I haven't mobile optimized the site, but
+[00:13:13] you guys can mobile optimize this
+[00:13:15] really, really quickly. Obviously, all
+[00:13:16] you really need to do is say, "Hey,
+[00:13:17] mobile optimize the site three or four
+[00:13:19] times." The model will do it. Okay?
+[00:13:21] So, you know, I made this video because
+[00:13:22] everybody and their mom is just like,
+[00:13:23] "Oh my god, these website design
+[00:13:25] frameworks are the reason why we're
+[00:13:26] capable of doing this this these sites
+[00:13:28] so well and then they show you like
+[00:13:30] 35,000 steps and it's a massive pain in
+[00:13:32] the butt.
+[00:13:33] To make a long story short, it is
+[00:13:34] nowhere near that complicated to
+[00:13:35] actually make a nice high-quality
+[00:13:36] sexy-looking site as you guys see here.
+[00:13:38] So, hopefully you appreciated the video.
+[00:13:40] Uh if you like this sort of thing,
+[00:13:40] please subscribe. Something like 73% of
+[00:13:43] viewers are not subscribed for whatever
+[00:13:44] reason despite they watching all of my
+[00:13:46] content on repeat. Um if you are in the
+[00:13:48] 73% you'd be doing me a bit solid. Like
+[00:13:51] uh and you can also get all the prompts
+[00:13:53] and everything like that for this video
+[00:13:54] down below in the description. I'm
+[00:13:56] giving all that stuff away for free.
+[00:13:57] Have a lovely rest of your day.
