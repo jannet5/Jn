@@ -1,0 +1,1009 @@
+# Build a React Native app with Claude AI
+# https://www.youtube.com/watch?v=mMTyFKqrf9U
+# kanal: DesignCode | süre: 2326 sn | kaynak: yt-dlp:web_embedded:mMTyFKqrf9U.en-orig.json3
+
+[00:00:00] the developer's workflow has undergone a
+[00:00:01] significant transformation with the
+[00:00:03] Advent of AI tools like Claude and locy
+[00:00:07] these tools have revolutionize the way
+[00:00:08] developers approach coding allowing for
+[00:00:11] faster iteration and problem solving
+[00:00:13] instead of spending hours on repetitive
+[00:00:15] tasks or debugging developers can now
+[00:00:18] rely on AI to generate code suggest
+[00:00:21] improvements and even anticipate
+[00:00:23] potential issues in this course you will
+[00:00:25] learn how to effectively integrate AI
+[00:00:27] into your workflow we will use locy for
+[00:00:30] designed to code conversion and Claw for
+[00:00:32] animations and interactions you'll build
+[00:00:34] two screen designs in react native with
+[00:00:36] the help of these tools you'll learn how
+[00:00:38] to effectively prompt the AI test and
+[00:00:41] iterate on its outputs and adapt the
+[00:00:44] results to suit your Project's needs
+[00:00:46] although they are very efficient
+[00:00:48] developers still need a solid
+[00:00:50] understanding of the basics of react
+[00:00:51] native to make the most of these
+[00:00:53] Technologies AI helps in jump starting
+[00:00:55] projects and accelerating workflows but
+[00:00:57] a foundational knowledge of coding
+[00:00:58] principles remains Cru crucial these
+[00:01:01] tools will only get better from here
+[00:01:03] making it an exciting time to integrate
+[00:01:05] them into your development
+[00:01:06] process adopting tools like Claude and
+[00:01:09] locy has become essential as those who
+[00:01:11] don't leverage these advancements risk
+[00:01:13] falling behind in productivity and
+[00:01:16] Innovation the integration of AI into
+[00:01:18] the workflow is no longer just an option
+[00:01:21] it's a necessity for staying competitive
+[00:01:23] and efficient we will begin with the
+[00:01:25] responsiveness section where you'll
+[00:01:27] learn the importance of creating
+[00:01:29] responsive design Des that adapt
+[00:01:31] seamlessly across different devices and
+[00:01:33] screen sizes in
+[00:01:34] figma you'll get hands-on experience in
+[00:01:37] testing and adjusting designs to ensure
+[00:01:39] they maintain integrity and provide an
+[00:01:41] optimal user experience regardless of
+[00:01:44] the device the course then progresses to
+[00:01:46] exporting Your Design to code using AI
+[00:01:50] here you will use the powerful locy
+[00:01:52] plug-in to convert your figma designs
+[00:01:54] into functional code this section covers
+[00:01:57] optimizing designs within the plug-in
+[00:01:59] generating reusable components and
+[00:02:01] managing project files we will also
+[00:02:04] explore react native CLI and Expo
+[00:02:07] comparing the two environments and
+[00:02:09] guiding you on setting up and developing
+[00:02:11] apps efficiently with Expo this section
+[00:02:14] will Empower you to choose the best
+[00:02:16] tools for your project needs you will
+[00:02:18] then learn to integrate Version Control
+[00:02:20] with Git ensuring you can manage your
+[00:02:22] Project's history and maintain a clean
+[00:02:25] workflow we'll walk through the basics
+[00:02:27] of git from installation to managing rep
+[00:02:29] repositories committing changes and
+[00:02:32] reverting to previous
+[00:02:34] versions then the course introduces
+[00:02:36] Claude Sonet 3.5 an advanced AI model by
+[00:02:40] anthropic you'll discover how to
+[00:02:42] integrate Claude AI into your workflow
+[00:02:45] to automate coding tasks Implement
+[00:02:47] animations and enhance your development
+[00:02:50] process we'll Begin by familiarizing
+[00:02:52] ourselves with the reanimated library
+[00:02:54] and guide you through creating key
+[00:02:56] animations you'll learn to use functions
+[00:02:59] like with Sprint
+[00:03:00] and with timing to build visually
+[00:03:02] appealing and userfriendly
+[00:03:04] animations as we progress you'll Master
+[00:03:07] more complex animations including
+[00:03:09] Dynamic menu interactions and explore
+[00:03:11] how to seamlessly apply effects like
+[00:03:13] fading scaling and translating
+[00:03:15] components based on user
+[00:03:18] interactions by the end of this course
+[00:03:20] you'll have a deep understanding of how
+[00:03:21] to build test and deploy highquality
+[00:03:24] react native applications using AI as
+[00:03:27] leverage you'll be equipped not only
+[00:03:29] with technical skills but also with best
+[00:03:31] practices and insights that will set you
+[00:03:33] apart in your next mobile development
+[00:03:35] project let's get right into it the
+[00:03:38] first step is to ensure the design is
+[00:03:40] responsive in today's world where users
+[00:03:43] access content across a multitude of
+[00:03:45] devices and screen sizes creating
+[00:03:47] responsive designs is not just a best
+[00:03:49] practice it's a necessity a responsive
+[00:03:52] design ensures that your layout adapts
+[00:03:55] seamlessly to various screen sizes
+[00:03:57] providing an optimal user experience
+[00:03:59] regard less of the device being used the
+[00:04:02] importance of responsiveness cannot be
+[00:04:04] overstated in an era where Mobile
+[00:04:06] Traffic often surpasses desktop a
+[00:04:08] non-responsive design can lead to poor
+[00:04:10] user experiences higher bounce rates and
+[00:04:13] ultimately loss of Engagement or sales a
+[00:04:17] responsive design not only enhances
+[00:04:19] accessibility but also improves SEO
+[00:04:22] rankings as search engines prioritize
+[00:04:24] mobile friendly
+[00:04:26] sites let's start by testing the design
+[00:04:28] by dragging its width as you do this
+[00:04:31] you'll notice that the design remains
+[00:04:33] static and doesn't adapt to different
+[00:04:35] screen sizes this indicates that the
+[00:04:37] design is not responsive so we need to
+[00:04:39] fix it to begin duplicate the current
+[00:04:42] design to create a reference point
+[00:04:44] having a reference design helps us
+[00:04:46] compare changes and ensure we maintain
+[00:04:48] the original layout's Integrity next
+[00:04:51] delete the status bar which is only for
+[00:04:53] showcase purposes and not essential for
+[00:04:55] the actual design upon doing this you'll
+[00:04:58] observe that the navig bar shifts
+[00:05:00] upwards this happens because the
+[00:05:02] navigation bar is in an auto layout
+[00:05:05] which automatically adjusts based on the
+[00:05:06] element's presence and arrangement to
+[00:05:09] maintain proper alignment after removing
+[00:05:11] the status bar we need to manually
+[00:05:14] adjust the navigation bars position use
+[00:05:17] the reference Design's height which is
+[00:05:19] 54 pixels and apply this value as the
+[00:05:22] top padding for the navigation bar this
+[00:05:24] ensures that the navigation bar remains
+[00:05:26] correctly positioned compensating for
+[00:05:29] the removal of the status bar now let's
+[00:05:31] focus on the screen's main content area
+[00:05:33] the central content block is already set
+[00:05:35] in an auto layout with a vertical
+[00:05:37] orientation which is beneficial the auto
+[00:05:40] layout ensures that items within this
+[00:05:42] block are evenly spaced with The Gap set
+[00:05:45] to
+[00:05:46] Auto this Auto setting dynamically
+[00:05:48] adjusts spacing making it easier to
+[00:05:50] maintain uniformity as items are added
+[00:05:52] or removed flanking the main content are
+[00:05:56] two similar menus on the left and right
+[00:05:58] sides to create create a unified
+[00:06:00] structure we'll need to include these
+[00:06:02] menus within the same Auto layout as the
+[00:06:04] central content Begin by holding down
+[00:06:07] the shift key and selecting all three
+[00:06:09] components the left menu the main
+[00:06:11] content and the right menu once selected
+[00:06:15] click on the auto layout icon to group
+[00:06:17] them this action will place all selected
+[00:06:20] items into an auto layout standardizing
+[00:06:22] their spacing and Alignment after
+[00:06:24] setting the auto layout you may notice
+[00:06:27] that the items have a horizontal gap of
+[00:06:29] zero as they were overlapping initially
+[00:06:32] we can reorganize the layout by dragging
+[00:06:34] the Gap handle to apply negative spacing
+[00:06:36] until the design fits perfectly on the
+[00:06:39] screen similar to the status bar the
+[00:06:41] home indicator can be removed since it
+[00:06:43] is also meant only for showcase purposes
+[00:06:46] deleting it will help maintain a cleaner
+[00:06:48] design especially if it's not part of
+[00:06:50] the final interactive
+[00:06:52] elements now when testing the layouts
+[00:06:55] it's clear that the design is still not
+[00:06:57] adaptive this issue arises because the
+[00:07:00] horizontal resizing properties need to
+[00:07:02] be set to fill container by setting
+[00:07:04] elements to fill the container we allow
+[00:07:07] them to take up all available space in
+[00:07:08] their parent container making them
+[00:07:10] flexible and capable of adapting to
+[00:07:12] various screen sizes and
+[00:07:14] dimensions starting with the navigation
+[00:07:17] bar you'll notice an issue where the
+[00:07:18] controls text wraps awkwardly when the
+[00:07:21] design is resized this happens because
+[00:07:24] the items are not correctly spaced to
+[00:07:26] fix this we need to adjust the gap
+[00:07:28] between these items items currently the
+[00:07:31] title and content section are inside a
+[00:07:33] frame which can be restrictive for
+[00:07:35] responsive design to enhance
+[00:07:37] adaptability convert this Frame into an
+[00:07:39] auto layout to automatically manage the
+[00:07:42] spacing and alignment of items however
+[00:07:45] as we do this we might see that some
+[00:07:47] elements shift slightly Auto layout
+[00:07:50] ensures that items are spaced evenly so
+[00:07:52] if the layout appears asymmetrical it's
+[00:07:55] important to check the dimensions of
+[00:07:56] each element for instance we noticed
+[00:07:59] that the back button has a width of 70
+[00:08:01] pixels while the settings icon measures
+[00:08:04] 41 pixels this discrepancy can create an
+[00:08:07] unbalanced appearance to correct this
+[00:08:10] set both the back button and the
+[00:08:12] settings icon to the same width doing so
+[00:08:15] not only enhances the visual Harmony of
+[00:08:17] the navigation bar but also ensures
+[00:08:20] consistency and balance once these
+[00:08:22] elements are uniformly sized set the gap
+[00:08:25] between them to Auto this adjustment
+[00:08:28] ensures that the space between elements
+[00:08:30] is automatically calculated allowing the
+[00:08:32] design to flexibly accommodate different
+[00:08:34] screen widths this Auto gap setting is
+[00:08:37] particularly important for maintaining a
+[00:08:39] polished look on various devices as it
+[00:08:42] adapts the spacing to fit the container
+[00:08:44] perfectly while addressing these layout
+[00:08:47] issues it's also a good time to refine
+[00:08:49] the Project's layer structure go through
+[00:08:52] the layers and identify any that are
+[00:08:53] redundant or
+[00:08:55] unnecessary removing these extraneous
+[00:08:57] layers not only simplifies the the
+[00:08:59] design but also reduces the complexity
+[00:09:02] of the underlying code a cleaner and
+[00:09:05] more organized project structure is
+[00:09:07] easier to manage and makes future
+[00:09:09] updates or adjustments more
+[00:09:11] straightforward this cleanup process
+[00:09:13] helps ensure that the design remains
+[00:09:15] efficient and maintainable over time as
+[00:09:17] with the navigation bar the screen's
+[00:09:20] content is also not yet adaptive to
+[00:09:22] allow for the fill container option the
+[00:09:24] parent container itself must be set to
+[00:09:26] an auto layout let's apply an auto
+[00:09:29] layout out to the entire screen after
+[00:09:31] applying the auto layout you might
+[00:09:33] notice that the layout shifts again this
+[00:09:36] shift is caused by an element that's not
+[00:09:38] visually affecting the design simply
+[00:09:41] delete the unnecessary element to clean
+[00:09:43] up the layout next inspect the reference
+[00:09:46] design to measure the distance between
+[00:09:48] the navigation bar and the screen
+[00:09:50] content apply the 10 pixel gap between
+[00:09:53] these elements this spacing ensures that
+[00:09:55] there is a clear and uniform separation
+[00:09:57] between the navigation bar and the main
+[00:10:00] content area with the auto layout and
+[00:10:02] gaps in place we can now set elements to
+[00:10:05] fill container start by applying this
+[00:10:08] setting to the navigation bar allowing
+[00:10:11] it to expand and contract with the
+[00:10:12] parent container's width this makes the
+[00:10:15] navigation bar responsive to screen size
+[00:10:17] changes taking the full width of the
+[00:10:20] available space then apply the fill
+[00:10:23] container setting to the screen content
+[00:10:25] as well however this will require some
+[00:10:28] additional adjustments to to ensure
+[00:10:29] everything adapts correctly when
+[00:10:31] examining the left menu frame we notice
+[00:10:34] that it contains a side menu and a
+[00:10:35] rectangle shape embedded within it in
+[00:10:38] figma when using a frame as a parent
+[00:10:40] container we can utilize constraints to
+[00:10:43] control how child elements behave when
+[00:10:45] the frame is resized by setting
+[00:10:47] constraints you can specify whether an
+[00:10:49] object should maintain a fixed position
+[00:10:51] stretch or scale in relation to its
+[00:10:53] parent frame it can be set for both
+[00:10:55] horizontal and vertical directions
+[00:10:58] giving you precise control contr over
+[00:10:59] the placement and scaling of UI
+[00:11:01] components similarly the right menu
+[00:11:04] follows the same structure as the left
+[00:11:07] we'll set constraints for both the side
+[00:11:09] menu and the rectangle to ensure they
+[00:11:11] stick to the right side of their
+[00:11:12] respective frames this setup keeps these
+[00:11:15] elements anchored to the right
+[00:11:17] maintaining their relative positions
+[00:11:19] regardless of the frame's
+[00:11:21] width next we test our design and
+[00:11:23] observe that the screen content is still
+[00:11:25] not responding to changes in size this
+[00:11:28] issue arises is because the main Center
+[00:11:30] content also needs to be set to fill
+[00:11:33] container by doing this we ensure that
+[00:11:36] the central content stretches and
+[00:11:37] adjusts to the full width of the parent
+[00:11:39] container making it responsive to screen
+[00:11:41] size variations with the fill container
+[00:11:44] setting applied to all relevant elements
+[00:11:47] the entire design becomes fully
+[00:11:49] responsive now when the outermost frame
+[00:11:51] is resized all contained elements adjust
+[00:11:54] accordingly ensuring a consistent and
+[00:11:56] adaptive layout when resizing the screen
+[00:11:59] to a smaller size we observe that a
+[00:12:01] width of 360 pixels is the minimum width
+[00:12:04] before the elements start to overlap in
+[00:12:07] Auto layout you can set a minimum and
+[00:12:09] maximum width these properties are
+[00:12:11] essential for controlling the responsive
+[00:12:13] behavior of elements within a layout the
+[00:12:15] minimum width setting ensures that an
+[00:12:17] element doesn't shrink below a certain
+[00:12:19] size preserving readability and
+[00:12:21] usability even on smaller screens
+[00:12:24] conversely the maximum width setting
+[00:12:26] prevents an element from expanding
+[00:12:28] Beyond a specific size which can be
+[00:12:30] crucial for maintaining design
+[00:12:32] consistency and preventing elements from
+[00:12:34] becoming excessively large on wider
+[00:12:36] screens by defining both minimum and
+[00:12:39] maximum width designers can create
+[00:12:41] flexible layouts that adapt to different
+[00:12:43] screen sizes while maintaining a
+[00:12:45] visually pleasing and functional design
+[00:12:47] to ensure the design remains clean and
+[00:12:49] functional we will set the minimum width
+[00:12:52] to 360 pixels for this project we'll
+[00:12:55] also set the maximum width to 480 pixels
+[00:13:00] this range ensures that the layout is
+[00:13:02] responsive and maintains a good
+[00:13:03] appearance across the specified width
+[00:13:06] limits renaming layers correctly in
+[00:13:09] figma is crucial for maintaining an
+[00:13:11] organized and efficient workflow both
+[00:13:13] within the design project and when
+[00:13:15] preparing for code export clear and
+[00:13:17] descriptive layer names make it easier
+[00:13:19] to navigate complex designs allowing
+[00:13:22] team members and collaborators to
+[00:13:24] quickly locate and understand different
+[00:13:26] elements this organization is
+[00:13:28] particularly important in large projects
+[00:13:30] where multiple components and layers can
+[00:13:33] become overwhelming additionally
+[00:13:35] properly named layers streamline the
+[00:13:37] handoff process to developers ensuring
+[00:13:39] that exported assets are easy to
+[00:13:41] identify and Implement in code
+[00:13:44] consistent and meaningful naming
+[00:13:46] conventions help avoid confusion reduce
+[00:13:48] errors and save time ultimately
+[00:13:51] contributing to a smoother transition
+[00:13:53] from design to development when working
+[00:13:55] with SF symbols you need to convert them
+[00:13:57] into SVG or PNG format as they are not
+[00:14:00] currently supported by
+[00:14:02] locy the plugin will convert SVG files
+[00:14:05] into PNG files but you can always
+[00:14:07] replace them manually later when
+[00:14:09] customizing your code once your icons
+[00:14:12] are exported import them into figma to
+[00:14:15] replace the original icons to do this
+[00:14:18] copy the new icon and use the paste to
+[00:14:20] replace option to substitute it for the
+[00:14:22] original one you can use the hotkeys
+[00:14:25] command C to copy and command shift R to
+[00:14:28] paste and replace streamlining the
+[00:14:30] process repeat this procedure for all
+[00:14:32] the icons in your design including those
+[00:14:35] in the navigation bar the right menu and
+[00:14:37] the small Chevrons in the drive mode
+[00:14:39] section this ensures all icons are
+[00:14:42] correctly formatted and ready for export
+[00:14:45] now with the icons updated we're ready
+[00:14:47] to proceed to The Next Step which is
+[00:14:49] exporting the design to code using the
+[00:14:50] locy plugin locy is a powerful plug-in
+[00:14:54] that transforms figma designs into
+[00:14:55] functional code Bridging the Gap between
+[00:14:58] design and development
+[00:14:59] it significantly accelerates the process
+[00:15:01] of exporting designs to code by
+[00:15:03] automating many traditionally manual
+[00:15:06] steps you have the ability to optimize
+[00:15:08] your design directly within the plugin
+[00:15:10] ensuring that elements are cleanly
+[00:15:12] structured and ready for export you can
+[00:15:14] also create reusable components in the
+[00:15:16] Builder which saves time and ensures
+[00:15:19] consistency across different parts of
+[00:15:20] the project the plug-in automatically
+[00:15:23] generates folder structures and
+[00:15:25] organizes assets making it easier to
+[00:15:28] customize the code and Implement
+[00:15:29] additional features this includes
+[00:15:32] handling images icons and other assets
+[00:15:35] placing them in the correct directories
+[00:15:37] and linking them appropriately in the
+[00:15:38] generated code we will use this plugin
+[00:15:41] to convert our design into code inigma
+[00:15:44] open the plugin menu and search for
+[00:15:46] looi once you've installed the plugin it
+[00:15:49] will be accessible from the plug-in
+[00:15:52] menu select the frame you want to work
+[00:15:54] with and create a new
+[00:15:57] project name your project project then
+[00:15:59] choose the type of project You're
+[00:16:01] Building select react native from the
+[00:16:03] mobile app menu you'll then configure
+[00:16:06] the code settings where you can choose
+[00:16:07] between using typescript or plain
+[00:16:09] JavaScript depending on your Project's
+[00:16:12] needs next choose the environment react
+[00:16:16] native CLI and Expo are two popular
+[00:16:18] tools for building mobile applications
+[00:16:20] using react native each offering unique
+[00:16:23] features and use cases react native CLI
+[00:16:27] provides complete control over for the
+[00:16:29] Project's configuration allowing
+[00:16:31] developers to access and customize
+[00:16:33] native modules and apis this tool chain
+[00:16:36] is ideal for projects that require
+[00:16:38] specific native functionalities custom
+[00:16:40] configurations or integration with
+[00:16:43] existing native codebases it offers
+[00:16:45] maximum flexibility but requires more
+[00:16:47] setup and maintenance as developers must
+[00:16:50] manage native dependencies and
+[00:16:52] configurations Expo simplifies the
+[00:16:54] development process by providing a
+[00:16:56] managed environment with built-in AP and
+[00:16:59] services it allows developers to quickly
+[00:17:02] set up and develop applications without
+[00:17:04] needing to manage native
+[00:17:06] code Expo is excellent for rapid
+[00:17:09] prototyping simpler apps and developers
+[00:17:11] who prefer a streamlined workflow it
+[00:17:14] includes features like over-the-air
+[00:17:16] updates and the Expo Go app for easy
+[00:17:18] testing in summary react native CLI is
+[00:17:21] suited for projects needing full
+[00:17:23] customization and Native feature access
+[00:17:25] while Expo is ideal for faster
+[00:17:27] development and easier setup when the
+[00:17:29] app's requirements match Expos provided
+[00:17:32] capabilities if you're building a new
+[00:17:34] app with react native we recommend using
+[00:17:36] a framework like Expo in short you'll be
+[00:17:40] able to spend time writing your app
+[00:17:41] instead of writing an entire framework
+[00:17:43] yourself in addition to your app we'll
+[00:17:45] be using Expo for this demonstration
+[00:17:48] once the new project is created you'll
+[00:17:50] see all the steps the plug-in provides
+[00:17:52] to help us jumpstart the project we will
+[00:17:54] use this plugin to generate Pixel
+[00:17:56] Perfect code and lay the foundation for
+[00:17:58] our work while most of these steps will
+[00:18:01] be completed during the coding phase
+[00:18:03] later here is an overview of the process
+[00:18:06] the first step is optimizing Your Design
+[00:18:08] Within the plug-in this process includes
+[00:18:11] cleaning up layers ensuring proper
+[00:18:13] alignment and refining elements to
+[00:18:15] ensure they are export ready
+[00:18:17] optimization helps in reducing
+[00:18:19] unnecessary complexity and ensures that
+[00:18:22] the design is structured correctly
+[00:18:24] tagging involves assigning specific
+[00:18:26] roles or components to different layers
+[00:18:28] such as image buttons or headers this
+[00:18:31] helps the plug-in understand the purpose
+[00:18:33] and functionality of each element which
+[00:18:35] in turn informs how these elements are
+[00:18:37] translated into code after tagging you
+[00:18:40] can edit the styling and layout of your
+[00:18:42] design elements within locy this
+[00:18:45] includes fine-tuning properties such as
+[00:18:47] colors typography spacing and Alignment
+[00:18:51] to match the intended design
+[00:18:52] specifications The Next Step involves
+[00:18:54] adding actions and interactions to your
+[00:18:56] Design Elements it allows you to user
+[00:18:59] interactions such as clicks hovers and
+[00:19:01] transitions directly within the plugin
+[00:19:04] we will manage The Styling and
+[00:19:06] interactions directly in the Project's
+[00:19:08] code all there is left for us to do in
+[00:19:10] the plugin is to sync the design to the
+[00:19:12] locy Builder this action transfers all
+[00:19:16] your design components styling and
+[00:19:18] interactions to the locy Builder
+[00:19:20] platform where the actual code
+[00:19:22] generation takes place the Builder
+[00:19:24] converts the design into clean
+[00:19:26] production ready code this code can then
+[00:19:29] be easily integrated into your
+[00:19:31] development environment significantly
+[00:19:33] accelerating the development process and
+[00:19:35] ensuring a seamless transition from
+[00:19:37] design to implementation once in the
+[00:19:39] Builder you can preview the Prototype on
+[00:19:41] the right side of the screen this
+[00:19:43] feature allows you to visualize and test
+[00:19:45] your design as fully functional
+[00:19:47] prototypes before finalizing and
+[00:19:49] exporting the code it's a valuable tool
+[00:19:51] for real-time feedback showing how the
+[00:19:54] design behaves across different devices
+[00:19:56] and screen sizes helping to catch any
+[00:19:58] issu choose early in the process on the
+[00:20:01] left side you'll find all the framework
+[00:20:03] files this includes the code for the
+[00:20:05] entire app specific screens like the
+[00:20:07] driving performance screen and the
+[00:20:09] global styles for the project this
+[00:20:12] organization helps in easily navigating
+[00:20:14] and managing different parts of the
+[00:20:16] application on the right alongside the
+[00:20:18] Prototype preview you'll see additional
+[00:20:21] steps that can be performed in the
+[00:20:22] Builder beyond what was available in the
+[00:20:24] plugin here you have the option to
+[00:20:26] refine and enhance the design further
+[00:20:29] the next essential task is to create
+[00:20:31] components react native components are
+[00:20:34] the building blocks of mobile
+[00:20:35] applications developed using the react
+[00:20:37] native framework these components are
+[00:20:39] similar to widgets in other mobile
+[00:20:41] Frameworks and act as reusable elements
+[00:20:43] with their own styling and
+[00:20:45] functionality react native provides a
+[00:20:47] rich library of built-in components such
+[00:20:49] as view text image scroll View and text
+[00:20:54] input which handle common UI patterns
+[00:20:56] and interactions we can we can also
+[00:20:58] create our own custom components
+[00:21:00] combining built-in ones and adding logic
+[00:21:03] to suit our needs by creating the
+[00:21:05] components at this stage the Project's
+[00:21:07] code structure and component files will
+[00:21:09] be automatically set up for us as we
+[00:21:12] create components the AI will suggest
+[00:21:15] options for us to consider we can choose
+[00:21:17] to customize reject or accept these
+[00:21:20] suggestions for example it is suggested
+[00:21:23] the navigation bar and drive mode
+[00:21:25] components which we will accept
+[00:21:30] in the Builder you have the ability to
+[00:21:32] directly select an element in the
+[00:21:34] preview display which will then
+[00:21:36] highlight the corresponding code this
+[00:21:38] feature is incredibly useful for rapidly
+[00:21:41] identifying specific elements you want
+[00:21:43] to customize in your code when you click
+[00:21:45] on an element in the preview it shows
+[00:21:47] you exactly where it is defined and
+[00:21:49] styled in the code this streamlines the
+[00:21:52] process of making targeted adjustments
+[00:21:54] as you can quickly navigate to the
+[00:21:56] precise location in the code view the
+[00:21:58] applied Styles and understand their
+[00:22:01] behavior to start let's use the layer
+[00:22:04] panel on the left side to select an
+[00:22:05] entire element the goal here is to
+[00:22:08] convert the design into components
+[00:22:10] making the code cleaner and more
+[00:22:13] manageable Begin by creating a component
+[00:22:16] for the left menu to do this select the
+[00:22:19] left menu in the layer panel and use the
+[00:22:22] option to create a component by turning
+[00:22:24] the left menu into a component you not
+[00:22:26] only organize the code better but also
+[00:22:29] make it reusable across different parts
+[00:22:31] of the project if needed as you create a
+[00:22:33] component for the left menu observe how
+[00:22:35] the code changes the section of the code
+[00:22:38] corresponding to the left menu becomes
+[00:22:40] more concise and easier to read this
+[00:22:42] happens because components encapsulate
+[00:22:44] their structure and styles simplifying
+[00:22:47] the overall code
+[00:22:48] base next repeat the process for the
+[00:22:51] right menu select the right menu in the
+[00:22:54] layer panel and create a component each
+[00:22:57] component you create improves mes the
+[00:22:58] code structure making it increasingly
+[00:23:01] clean and readable the separation of
+[00:23:03] concerns the components provide is
+[00:23:06] crucial for maintaining a scalable and
+[00:23:07] maintainable code base following the
+[00:23:10] menus we will focus on the power button
+[00:23:13] select the power button element and
+[00:23:15] create another
+[00:23:16] component this isolates its code making
+[00:23:19] it straightforward to locate and modify
+[00:23:21] if any changes are needed this isolation
+[00:23:24] is particularly beneficial when dealing
+[00:23:26] with interactive elements that might
+[00:23:28] require specific behavior or
+[00:23:30] styling finally turn the speedometer
+[00:23:33] image into a component by the time all
+[00:23:36] these elements are converted into
+[00:23:37] components the code for the screen will
+[00:23:39] be much more organized each element's
+[00:23:42] code is now encapsulated within its
+[00:23:44] component which significantly simplifies
+[00:23:46] the overall code structure with all
+[00:23:49] these components in place you'll notice
+[00:23:51] a considerable Improvement in the code's
+[00:23:54] readability and
+[00:23:56] manageability the components we've
+[00:23:58] created are what we will apply
+[00:23:59] animations to by turning elements into
+[00:24:02] separate components we not only make the
+[00:24:04] code cleaner but also simplify the
+[00:24:07] process of adding animations and
+[00:24:09] interactions for instance when animating
+[00:24:12] the left menu having it as a component
+[00:24:14] means you can focus on just that part of
+[00:24:16] the code without worrying about other
+[00:24:18] elements the same goes for the right
+[00:24:20] menu power button and
+[00:24:23] speedometer this modular approach allows
+[00:24:26] for targeted adjustments and animations
+[00:24:28] making the design more Dynamic and
+[00:24:30] interactive creating components also
+[00:24:33] makes it easier to update and maintain
+[00:24:35] the project in the future if there are
+[00:24:37] changes to be made to the left menu you
+[00:24:40] only need to update the component and
+[00:24:42] those changes will automatically
+[00:24:44] propagate to every instance where the
+[00:24:45] component is used this efficiency is a
+[00:24:48] significant advantage in both the design
+[00:24:50] and development phases by structuring
+[00:24:53] the project with components in separate
+[00:24:55] files we enhance code readability and
+[00:24:58] lay a solid foundation for applying
+[00:25:00] animations and further customizations
+[00:25:02] the next step is to export our code the
+[00:25:04] plugin offers multiple options for
+[00:25:06] syncing and exporting depending on what
+[00:25:08] you need you can choose to export just
+[00:25:11] specific components or the entire
+[00:25:13] project all the components we've created
+[00:25:15] are listed and you can select which ones
+[00:25:17] you want to export for this task we'll
+[00:25:20] choose to export the whole screen along
+[00:25:22] with all its
+[00:25:23] components once you've confirmed your
+[00:25:25] selection locy will begin preparing all
+[00:25:28] all the necessary files including the
+[00:25:30] assets and will organize the project
+[00:25:32] structure for you this automated process
+[00:25:35] saves a significant amount of time and
+[00:25:37] ensures everything is neatly arranged
+[00:25:39] with the project files now ready we can
+[00:25:41] move on to the next step customizing our
+[00:25:44] code to fine-tune the design and
+[00:25:46] functionality in the zip file you'll
+[00:25:48] find all the exact same files as those
+[00:25:51] in the Builder every necessary file is
+[00:25:54] included making the project fully
+[00:25:56] functional right out of the box this
+[00:25:58] package contains everything needed to
+[00:26:00] run your project seamlessly without any
+[00:26:03] additional setup to edit your code
+[00:26:05] you'll need an IDE and we'll be using
+[00:26:08] visual studio code it's widely popular
+[00:26:11] and well supported making it a reliable
+[00:26:13] choice for this project in the project
+[00:26:16] folder you'll find a readme file created
+[00:26:18] by locy this file provides detailed
+[00:26:21] instructions on how to run your
+[00:26:22] application but before you proceed make
+[00:26:25] sure you have nodejs installed on your
+[00:26:27] system nodejs is essential for running
+[00:26:30] JavaScript on your server once installed
+[00:26:33] open the terminal in vs code you can do
+[00:26:35] this quickly by using the hotkey command
+[00:26:37] plus back tick with the terminal open
+[00:26:41] type npm install and press enter this
+[00:26:44] command installs all the necessary
+[00:26:46] dependencies for your project ensuring
+[00:26:48] everything is set up correctly if a
+[00:26:51] message about vulnerabilities appears
+[00:26:52] after the installation don't worry
+[00:26:55] simply follow the instructions provided
+[00:26:57] in the terminal to fix it by by running
+[00:26:58] the given command now to start the
+[00:27:00] project run the command npx Expo start
+[00:27:03] this command will launch your
+[00:27:05] application once the project is started
+[00:27:08] you have several options to view it you
+[00:27:10] can scan the QR code with your phone to
+[00:27:12] see it live on an actual device for this
+[00:27:15] you'll need to install the Expo Go app
+[00:27:17] you can also view the project on the web
+[00:27:19] Android or an iOS simulator in this case
+[00:27:23] we'll be using the iOS simulator to set
+[00:27:25] up the iOS device Simulator for your
+[00:27:27] react native app you'll need to install
+[00:27:30] xcode which is Apple's integrated
+[00:27:32] development environment IDE for Mac OS
+[00:27:36] xcode provides all the necessary tools
+[00:27:38] to develop test and debug iOS
+[00:27:42] applications Begin by downloading xcode
+[00:27:44] from the Mac App Store ensuring you have
+[00:27:46] the latest version with xcode installed
+[00:27:49] you can use the iOS simulator to run
+[00:27:51] your project making it easier to test
+[00:27:53] and debug your app on different iPhone
+[00:27:55] models without needing physical devices
+[00:27:58] back in our project you can press I to
+[00:28:00] open the iOS simulator once the
+[00:28:03] simulator is open it will automatically
+[00:28:05] launch our app allowing us to see our
+[00:28:07] design on an actual device simulation
+[00:28:10] this brings us one step closer to the
+[00:28:13] final product now let's explore the file
+[00:28:16] structure that locy set up first we have
+[00:28:19] the assets folder which contains all the
+[00:28:21] projects assets such as images and any
+[00:28:24] other media our project needs there's
+[00:28:27] also a convenient comp components folder
+[00:28:29] this folder groups all the components
+[00:28:31] we've created making it easy to manage
+[00:28:33] and reuse them throughout the
+[00:28:35] project another important folder is the
+[00:28:38] one for the project screens right now it
+[00:28:41] only includes the driving performance
+[00:28:42] screen but as the project grows this is
+[00:28:45] where additional screens will be
+[00:28:47] added lastly we have a file dedicated to
+[00:28:51] Global Styles this file is crucial for
+[00:28:54] maintaining design consistency across
+[00:28:56] the entire project and ensuring that
+[00:28:58] colors fonts and spacing remain uniform
+[00:29:01] Version Control is an essential practice
+[00:29:03] in software development and git is one
+[00:29:05] of the most popular tools for managing
+[00:29:07] Version Control we will now focus on
+[00:29:09] exploring the fundamentals of git a
+[00:29:11] distributed version control system that
+[00:29:14] allows multiple developers to work on a
+[00:29:16] project simultaneously without
+[00:29:18] interfering with each other's work by
+[00:29:20] using Git You can track changes
+[00:29:22] collaborate with others and revert to
+[00:29:24] previous versions of your project when
+[00:29:26] necessary for this demonst ation we will
+[00:29:29] focus on the basics of local Version
+[00:29:31] Control allowing you to test and iterate
+[00:29:33] your code with confidence knowing that
+[00:29:35] you can always revert to an earlier
+[00:29:37] version if needed before using Git You
+[00:29:39] need to install it on your system you
+[00:29:41] can download git from their website and
+[00:29:43] follow the installation instructions for
+[00:29:45] your operating
+[00:29:47] system after installation return to VSS
+[00:29:50] code the Expo project should still be
+[00:29:52] running to stop it press control+
+[00:29:56] C you can now use the terminal to verify
+[00:29:59] the installation by typing Git Version
+[00:30:03] this command will display the installed
+[00:30:05] version of git to start tracking a
+[00:30:07] project with Git You need to initialize
+[00:30:09] a git repository a git repository is a
+[00:30:12] version controlled storage space that
+[00:30:14] houses your project files and their
+[00:30:16] entire change history allowing you to
+[00:30:18] track the Project's Evolution navigate
+[00:30:20] to your project directory and run get in
+[00:30:24] it this command creates a new
+[00:30:26] subdirectory named git that contains all
+[00:30:29] of the necessary repository files these
+[00:30:32] files track the history of your project
+[00:30:35] the git status command is crucial for
+[00:30:37] tracking the state of your working
+[00:30:38] directory and staging area it shows you
+[00:30:41] which files have been modified which are
+[00:30:43] staged for the next commit and which are
+[00:30:46] untracked new files that aren't being
+[00:30:48] tracked by git yet this command provides
+[00:30:51] a clear overview of what's happening in
+[00:30:53] your repository helping you decide your
+[00:30:55] next steps in the Version Control
+[00:30:57] process here you can see that there are
+[00:30:59] no commits yet and all untracked files
+[00:31:02] are displayed in red tracking means
+[00:31:05] adding them to the version control
+[00:31:06] system so that their changes can be
+[00:31:08] monitored and recorded over time to
+[00:31:10] track a file or after making changes to
+[00:31:12] your project files you need to add them
+[00:31:14] to the staging area before committing
+[00:31:17] the staging area is where git
+[00:31:19] temporarily holds files that are ready
+[00:31:21] to be committed to add files use the
+[00:31:23] command git add followed by the file
+[00:31:26] name this moves your selected files to
+[00:31:29] the staging area preparing them for the
+[00:31:31] next commit if your terminal gets
+[00:31:33] cluttered you can clear it by simply
+[00:31:35] typing clear after adding files check
+[00:31:39] the status with get status to confirm
+[00:31:42] you'll see that the left menu component
+[00:31:44] or whichever file you added is now in
+[00:31:46] the staging
+[00:31:48] area if you need to unstage a file use
+[00:31:51] the remove or reset command followed by
+[00:31:53] the file name this removes the file from
+[00:31:56] the staging area but the changes you
+[00:31:58] made remain in your working directory if
+[00:32:00] you want to unstage all files at once
+[00:32:03] just run get reset without specifying a
+[00:32:05] file name this will unstage everything
+[00:32:08] without altering the actual
+[00:32:09] modifications in your files if we verify
+[00:32:12] the status again we can confirm that the
+[00:32:14] file has been removed this allows you to
+[00:32:16] select which files are ready to be
+[00:32:18] committed while keeping others in
+[00:32:20] progress in the working directory you
+[00:32:22] can add multiple files by listing them
+[00:32:24] or add all changed files using jit add
+[00:32:26] followed by a DOT
+[00:32:28] this command stages all the modified and
+[00:32:30] new files for the next
+[00:32:32] commit now let's learn how to commit
+[00:32:34] changes to the repository a commit and
+[00:32:36] git is a snapshot of your Project's
+[00:32:38] current state capturing all stage
+[00:32:40] changes and adding them to the Project's
+[00:32:42] history with a unique identifier and a
+[00:32:45] descriptive message to add all files to
+[00:32:47] the staging area and commit at the same
+[00:32:49] time we can use the command git commit
+[00:32:51] am followed by the description of the
+[00:32:54] commit the a stages all tracked files
+[00:32:58] that have been modified or deleted so
+[00:33:00] you don't need to manually use get add
+[00:33:02] for each file the M option allows you to
+[00:33:05] directly add a commit message in line
+[00:33:08] since this is our first commit and we
+[00:33:10] are committing all files we describe it
+[00:33:12] as such in the message and just like
+[00:33:15] that we've made our first commit in the
+[00:33:17] Project's history to see a history of
+[00:33:19] all commits made to the repository you
+[00:33:22] can use git
+[00:33:25] log this command shows a list of commit
+[00:33:27] along with details like commit hash
+[00:33:30] author date and the commit message to
+[00:33:33] see a simplified version you can use git
+[00:33:36] log on
+[00:33:37] line This command displays each commit
+[00:33:40] in a single line showing the commit hash
+[00:33:42] and message now that our first commit is
+[00:33:45] done let's dive into the workflow and
+[00:33:47] Version Control using git as you work on
+[00:33:50] your project git is constantly tracking
+[00:33:52] all changes made to your files for
+[00:33:55] instance let's make a change in the
+[00:33:57] speedometer gug component by adjusting
+[00:33:59] the dimensions of the speedometer image
+[00:34:00] to 100x 100 pixels after making this
+[00:34:04] change restart your Expo project by
+[00:34:06] running the appropriate command save the
+[00:34:09] file and you'll notice that the image
+[00:34:10] has now been resized or shrunk to fit
+[00:34:13] the New
+[00:34:14] Dimensions to understand what changes
+[00:34:16] have been made since your last commit
+[00:34:18] use the git diff command git diff is a
+[00:34:22] powerful tool that allows you to compare
+[00:34:24] your working directory with the last
+[00:34:26] committed version
+[00:34:28] this tool is incredibly useful for
+[00:34:30] reviewing changes before committing them
+[00:34:32] understanding what modifications have
+[00:34:34] been made in your working directory or
+[00:34:36] even comparing different branches or
+[00:34:37] specific commits when you run get diff
+[00:34:40] the command shows line byline changes
+[00:34:42] that have occurred in your files but
+[00:34:44] haven't yet been staged for commit it
+[00:34:47] clearly highlights what's been added
+[00:34:49] modified or deleted helping you keep
+[00:34:51] track of the exact differences between
+[00:34:53] versions for example you'll see the last
+[00:34:55] committed version in red and the recent
+[00:34:57] changes in green it also specifies which
+[00:35:00] files these changes were made
+[00:35:03] in press Q to exit the scroll view when
+[00:35:07] running the git status command it will
+[00:35:09] show you a list of modified files that
+[00:35:11] haven't been staged for
+[00:35:13] Commit This status check is helpful to
+[00:35:16] ensure you don't miss any changes when
+[00:35:17] you're ready to commit once you've
+[00:35:20] reviewed your changes you can proceed to
+[00:35:22] stage and commit the file using the same
+[00:35:24] command as before this command stages
+[00:35:27] the modifi file and commits it with a
+[00:35:29] descriptive message capturing the change
+[00:35:31] in the Project's history and that's it
+[00:35:34] you've successfully made another commit
+[00:35:37] advancing your project with careful
+[00:35:38] Version
+[00:35:39] Control now let's take a look at our log
+[00:35:43] you'll see the two commits we've made so
+[00:35:45] far clearly documented in the Project's
+[00:35:47] history if you need to revert your
+[00:35:49] project to a previous commit you can use
+[00:35:51] the checkout command to temporarily view
+[00:35:53] or work with an older version or the
+[00:35:56] reset command for a more per permanent
+[00:35:57] roll back this allows you to explore an
+[00:36:00] older version without affecting your
+[00:36:02] current Branch however you'll be in a
+[00:36:05] detached head State meaning any changes
+[00:36:08] you make won't be saved to the branch
+[00:36:10] unless you create a new Branch from this
+[00:36:12] commit a branch is a parallel line of
+[00:36:15] development that allows you to work on
+[00:36:17] features fixes or experiments
+[00:36:19] independently from the main project
+[00:36:21] history here we are checking the latest
+[00:36:23] commit let's go ahead and restart the
+[00:36:25] Expo app next we'll adjust the image
+[00:36:27] Dimensions once more setting them to
+[00:36:30] 200x 200 after saving the app displays
+[00:36:34] the image's dimensions as
+[00:36:37] applied to keep changes but unstage them
+[00:36:40] use the command git reset followed by
+[00:36:42] the specific commit hash this
+[00:36:44] effectively keeps your modifications
+[00:36:46] while removing them from the staging
+[00:36:48] area running the git status command
+[00:36:50] reveals that you are in a detached head
+[00:36:52] State indicating that the repository is
+[00:36:55] not tracking the current Branch but is
+[00:36:57] instead following a specific commit
+[00:36:59] directly if you want to discard the
+[00:37:01] changes and reset your working directory
+[00:37:03] use get restore followed by the file
+[00:37:05] name to exit the detached head State and
+[00:37:08] reattach to the main branch use get
+[00:37:11] switch main this command will take you
+[00:37:13] back to the main branch and restore your
+[00:37:15] working directory to the state of the
+[00:37:16] latest commit on Main we can see that
+[00:37:19] the speedometer dimensions are now back
+[00:37:20] to 100x 100 pixels the git status
+[00:37:24] command confirms that you're now back in
+[00:37:25] the main branch to revert to an older
+[00:37:28] version of your project start by using
+[00:37:31] the git log command to locate the
+[00:37:32] desired commit
+[00:37:35] hash once you have the hash execute get
+[00:37:39] reset hard followed by the commit hash
+[00:37:43] this action permanently reverts your
+[00:37:44] project to that specific version after
+[00:37:47] performing the reset you'll notice that
+[00:37:49] the project has returned to its original
+[00:37:51] state where all files were first
+[00:37:53] committed notice that the image is now
+[00:37:55] back to 300X 300 pixels
+[00:37:58] this feature allows you to experiment
+[00:38:00] with different code changes and effects
+[00:38:01] without fear as you can always reset
+[00:38:04] your project to a previous
+[00:38:06] state to make the most of this
+[00:38:08] capability commit your changes
+[00:38:10] frequently creating save points that you
+[00:38:12] can easily return to in conclusion using
+[00:38:16] git locally for Version Control is a
+[00:38:18] powerful way to manage your Project's
+[00:38:20] workflow it allows you to track changes
+[00:38:23] experiment with new features and
+[00:38:24] isolated branches and easily revert to
+[00:38:27] pre previous versions if needed by
+[00:38:29] keeping a complete history of your
+[00:38:31] project on your local machine G ensures
+[00:38:33] that you can work independently and
+[00:38:35] confidently knowing that your progress
+[00:38:37] is safe and
+[00:38:38] recoverable this local Version Control
+[00:38:40] workflow streamlines development and
+[00:38:43] helps maintain the Integrity of your
+[00:38:44] code base

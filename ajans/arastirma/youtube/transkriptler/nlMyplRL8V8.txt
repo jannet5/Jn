@@ -1,0 +1,676 @@
+# Build Apps Faster with Claude Code + React Native
+# https://www.youtube.com/watch?v=nlMyplRL8V8
+# kanal: Code with Beto | süre: 1626 sn | kaynak: yt-dlp:web_embedded:nlMyplRL8V8.en-orig.json3
+
+[00:00:00] About 5 months ago, Antropic released
+[00:00:02] Cloud Code. At first, I was hesitant to
+[00:00:03] try it out. It felt like a new AI tool
+[00:00:05] was dropping every other week. I was
+[00:00:07] already overwhelmed. Plus, I was pretty
+[00:00:09] happy with Cursor. But then I kept
+[00:00:11] seeing post after post on X. People were
+[00:00:13] raving about it. So, I finally gave in
+[00:00:15] and bought some credits and ended up
+[00:00:17] spending $30 in one day. And honestly,
+[00:00:20] it was worth it. Clothe code is in
+[00:00:22] another level. That same week, I signed
+[00:00:24] up for the $100 per month plan. Quick
+[00:00:26] disclaimer, by the way, this video isn't
+[00:00:28] sponsored by Anthropic or anyone else.
+[00:00:30] I'm paying for it myself because I
+[00:00:32] genuinely believe it's a powerful tool
+[00:00:34] if you know how to use it the right way.
+[00:00:36] Hey, welcome back to the channel. If
+[00:00:37] you're new here, I'm Beto, founder of
+[00:00:39] Code with Betto, a platform that offers
+[00:00:40] premium resources for mobile and web
+[00:00:42] developers. I also work at Expo as a
+[00:00:45] developer success engineer. This video
+[00:00:46] is all about coding following best
+[00:00:48] practices using cloud code. But to
+[00:00:50] really get the most out of tools like
+[00:00:52] cloud, you need to understand what's
+[00:00:53] going on under the hood. And that's
+[00:00:55] exactly what I teach in my React Native
+[00:00:57] course. We go deep into how everything
+[00:00:58] works from fundamentals to best
+[00:01:00] practices. So when you're coding with
+[00:01:02] AI, you're not just copy pasting
+[00:01:04] blindly. You are in control. You know
+[00:01:06] what's happening, why it's happening,
+[00:01:08] and how to fix it when things break. And
+[00:01:09] hey, if you buy the course, I might be
+[00:01:11] able to afford keeping my cloud
+[00:01:13] subscription. All right, let's dive in.
+[00:01:14] Here's how I build React Native
+[00:01:15] applications with cloud code step by
+[00:01:17] step. All right, so if you haven't
+[00:01:18] already, go ahead and install cloud code
+[00:01:21] on your computer. Anthropic has really
+[00:01:23] nice documentation and they have this
+[00:01:25] page about setting up cloud code and the
+[00:01:28] minimum requirements that you need. So
+[00:01:30] you just need to install it globally
+[00:01:32] using mpm by running this command in
+[00:01:34] case you haven't already. I go ahead and
+[00:01:36] hit enter. Okay, that's done. Now we can
+[00:01:39] say cloud v to check the version. And
+[00:01:42] this is the current version that I have
+[00:01:44] installed. Once you have cloud
+[00:01:45] installed, the next thing that I like to
+[00:01:46] do is create my project and install
+[00:01:50] dependencies that I know I'm going to be
+[00:01:52] using before even using AI for the first
+[00:01:55] time. So, I'm going to be creating a new
+[00:01:57] React Native application using Expo. I
+[00:01:59] like to use bun for creating my apps.
+[00:02:01] So, I'm going to run bon x create expo
+[00:02:05] app and then the name of my application.
+[00:02:07] I'll call it camera app. Let's hit
+[00:02:09] enter. Project is ready. I'm going to cd
+[00:02:12] and open this in cursor. Once we are
+[00:02:14] inside VS Code or cursor, whatever
+[00:02:17] you're using to edit your code, I would
+[00:02:19] recommend that you install the cloud
+[00:02:21] code extension. Um, this extension
+[00:02:23] allows you to instantiate cloud code
+[00:02:26] right away when you select a file. For
+[00:02:29] example, let's select this layout file.
+[00:02:31] And you notice that I have now this icon
+[00:02:33] here. And if I press it, it's going to
+[00:02:36] initiate a new terminal and run cloud.
+[00:02:39] And then we can uh just say yes in here.
+[00:02:42] So let's hit enter. Now before we we
+[00:02:44] have code doing stuff, um let's go ahead
+[00:02:47] and actually close this. And I want to
+[00:02:49] install some dependencies that I know my
+[00:02:51] application is going to need. We are
+[00:02:53] building a camera app. So I'm going to
+[00:02:55] be using Expo camera package. Let's copy
+[00:02:58] this command. And I'm going to install
+[00:03:00] expo camera. So let's hit enter. Let's
+[00:03:02] add the configuration in our plugins.
+[00:03:05] Open your app.json and then let's paste
+[00:03:08] this plugin in here. We need this
+[00:03:09] plug-in because when you use the camera
+[00:03:12] on a real device, you need to ask
+[00:03:14] permissions to the user to use the
+[00:03:16] camera and as well the microphone and
+[00:03:18] same for Android. You can change the the
+[00:03:20] text of this if you want to. I'm going
+[00:03:22] to install as well expo media library so
+[00:03:26] that we can view the pictures and videos
+[00:03:28] that the application is going to take.
+[00:03:31] So let's go ahead and run this command.
+[00:03:32] Let's add the expo media library plugin
+[00:03:35] as well. After expo camera, I'm going to
+[00:03:38] paste this in here. Now, here's a
+[00:03:39] screenshot that I found on Dribble. It's
+[00:03:42] a concept of a camera app. And this is
+[00:03:45] exactly what I want. Honestly, it looks
+[00:03:47] amazing. By the way, credits to Jess
+[00:03:49] Barrett. He's the creator of this
+[00:03:51] design. If we look at the image, we're
+[00:03:53] going to need access to the library and
+[00:03:55] the camera. I want to have this bottom
+[00:03:58] right stuff that you can swipe and
+[00:04:00] rotate to increase maybe the zoom. So
+[00:04:03] for that we can use react native
+[00:04:05] reanimated to add gestures and React
+[00:04:08] native gesture handler. These two
+[00:04:10] dependencies can be used to add
+[00:04:11] animations and gestures in our
+[00:04:13] application. And when you create a new
+[00:04:15] expo project in case you don't know
+[00:04:18] reanimated comes installed by default
+[00:04:20] and you can confirm that on the package
+[00:04:23] JSON
+[00:04:25] as well as gesture handler. So one more
+[00:04:27] thing that I want to do before handing
+[00:04:29] things off to cloud is to simplify my
+[00:04:32] application. If you notice by default we
+[00:04:34] have tabs and inside the tabs we have an
+[00:04:37] explorer screen and the home screen. If
+[00:04:40] you look at the design that we are
+[00:04:41] trying to achieve we don't have tabs.
+[00:04:43] It's just one simple screen uh contain
+[00:04:46] into a stack. So I'm going to go ahead
+[00:04:49] and just remove the tabs. I'm going to
+[00:04:52] replace this for an index file. And then
+[00:04:55] I'll just take the index file and drop
+[00:04:58] it outside of the tabs folder. And then
+[00:05:00] I can safely remove the tabs folder. Now
+[00:05:04] this index file is going to be the entry
+[00:05:05] point of my application. From here,
+[00:05:07] cloud code can generate more screens.
+[00:05:09] Let's go ahead and simplify the screen
+[00:05:11] by just having a simple view from React
+[00:05:14] Native. Okay, so that's it. My
+[00:05:16] application only has one screen and we
+[00:05:18] can actually go ahead and remove the not
+[00:05:20] found screen to keep things simple.
+[00:05:23] Actually, now that I'm here, I want my
+[00:05:25] application to be dark mode all the
+[00:05:27] time. So, I can pass directly the dark
+[00:05:29] theme here.
+[00:05:31] That way, we don't need to calculate the
+[00:05:33] color scheme. I don't need the font as
+[00:05:35] well. So, we can delete all these
+[00:05:37] things.
+[00:05:41] Let's hit save. And now our application
+[00:05:43] is way simpler and it's perfect to now
+[00:05:46] get in cloud code and start planning.
+[00:05:49] Cloud code has many commands that you
+[00:05:51] can access by pressing slash. If I do
+[00:05:54] slash I can navigate with the arrows.
+[00:05:57] We have a bunch of commands and you can
+[00:05:58] check them out. We're going to learn
+[00:06:00] some of them in here. But the first one
+[00:06:02] that you need to run is init. This is
+[00:06:04] going to initialize a cloud MD file with
+[00:06:08] documentation about the codebase. And
+[00:06:10] for each prompt that we write to claude,
+[00:06:13] it is going to reference this file. All
+[00:06:15] right. After a moment, cloud code
+[00:06:18] inspected my codebase, check the readmi,
+[00:06:21] the package json, the app.json, and all
+[00:06:24] the cool stuff that we have in here.
+[00:06:25] Now, I'm going to say yes. It's asking
+[00:06:27] me to run commands. And most of the
+[00:06:29] time, you just want to say yes or hit
+[00:06:31] enter. But also, you can use the
+[00:06:33] shortcut shift tab. And if I press shift
+[00:06:36] tab, as you notice here, now we have
+[00:06:38] this auto accept
+[00:06:40] edits. This is going to just accept
+[00:06:44] whatever it wants to do without doing
+[00:06:46] anything. If you really want to do that,
+[00:06:48] you can do it. But right now, since we
+[00:06:50] are planning, I'm going to press shift
+[00:06:52] tab again. And now we are in plan mode.
+[00:06:54] And now it's um throwing at me the new
+[00:06:57] cloud. Markdown. I'm going to accept
+[00:07:00] that. And now it is here on the left.
+[00:07:03] Notice as well that we have now plan
+[00:07:05] mode on and we can switch again with
+[00:07:07] shift tap.
+[00:07:09] Okay. So let's keep the plan mode on so
+[00:07:12] that cloud code ask us before it starts
+[00:07:15] doing stuff. All right. So let's see
+[00:07:16] what it came up with. I'm going to open
+[00:07:18] this in here and let's go ahead and
+[00:07:20] close this. When working with cloud code
+[00:07:22] is actually all about planning and
+[00:07:24] preparing before actually going into
+[00:07:27] code. And as you gain seniority in your
+[00:07:29] career that's basically what you do. But
+[00:07:31] if you don't plan anything and just ask
+[00:07:33] cloud to generate stuff, it's going to
+[00:07:35] act like a junior engineer and it's
+[00:07:37] going to do a mess. All right. So it
+[00:07:38] detected that we have camera and library
+[00:07:40] functionality. One thing I noticed is
+[00:07:42] that it is using npm instead of bun. So
+[00:07:45] I'm going to tell him, hey, we are using
+[00:07:49] bun. And by the way, instead of typing
+[00:07:52] like Barbarian, I'm going to use Super
+[00:07:55] Whisper, which is a tool that allows you
+[00:07:57] to convert um speech to text super
+[00:08:00] quickly. So I can just tap in here,
+[00:08:02] press my key, which is function, and I'm
+[00:08:05] going to say, hey, uh we are using bun
+[00:08:08] instead of npm. Press function again.
+[00:08:12] And there we have it. So now I can just
+[00:08:14] press enter. I really like to use Super
+[00:08:16] Whisper. I'm not sponsored by them, but
+[00:08:19] I highly recommend it and I'm actually
+[00:08:21] not paying uh for using the tool. It's
+[00:08:23] free. Okay, now it's realizing that we
+[00:08:26] are using bon and it's going to update
+[00:08:29] the scripts. Now we have bon start
+[00:08:31] bonis. Cool. This is what I want. It's
+[00:08:34] great that it's kind of highlighting the
+[00:08:37] key dependencies. Camera, media,
+[00:08:39] animations, and gestures, the
+[00:08:41] permissions. This is very important for
+[00:08:43] the app that we're trying to build and
+[00:08:44] development nodes. Let me switch back to
+[00:08:46] plan mode on. And the next thing that I
+[00:08:49] like to do is have claude to create a
+[00:08:52] folder for plans of implementation of
+[00:08:55] what we're trying to do with this
+[00:08:56] application. So if you think about it,
+[00:08:58] we need to keep in mind many things like
+[00:09:01] the implementation of the camera. But
+[00:09:03] before that, we need a screen to ask
+[00:09:05] permissions if this is the first time
+[00:09:07] that the user is opening the
+[00:09:09] application. We're also going to need
+[00:09:11] animations, permissions to the library
+[00:09:12] to save images. So if we are not
+[00:09:14] careful, Claude can start doing a bunch
+[00:09:17] of random stuff. So we need to really
+[00:09:20] structure our thoughts and and
+[00:09:23] communicate that to Claude in a nice
+[00:09:25] way. And there is actually a nice tool
+[00:09:27] that I like to use to create that
+[00:09:29] prompt. As you might notice, I barely
+[00:09:31] can speak English. So imagine creating a
+[00:09:33] really nice prompt. So for this, I'm
+[00:09:36] using the console of Antropic. Let me
+[00:09:39] press continue here. Thankfully,
+[00:09:41] Anthropic has a really nice console
+[00:09:44] website that you can check it out. Uh
+[00:09:46] you can sign in using the same account
+[00:09:47] that you're using for your claude
+[00:09:50] account. So, if you press the plus icon,
+[00:09:52] you can come here and generate the
+[00:09:54] prompt by pressing this button right
+[00:09:56] here. So, if I press this button, I can
+[00:09:58] start writing the things that I want.
+[00:10:01] So, for this application, we can say
+[00:10:02] something like um we are building a
+[00:10:05] camera app. We need permissions. We need
+[00:10:08] camera gallery access. We need to open
+[00:10:11] the the gallery, take photos, videos,
+[00:10:14] quick actions, flash, focus, etc.
+[00:10:18] So, I'm going to enter this text and
+[00:10:19] this is just an example for you guys.
+[00:10:22] Um, here you can just press generate
+[00:10:24] once you have your prompt
+[00:10:26] and it's going to give you a nice
+[00:10:28] prompt. If if we take a look, I actually
+[00:10:30] created one before. So, let me cancel
+[00:10:35] this. And here's the prompt that I have.
+[00:10:37] So let's take a look at this really nice
+[00:10:38] prompt. You are tasked with creating a
+[00:10:40] detailed implementation plan for a
+[00:10:42] camera application based on a given
+[00:10:44] requirements and documentation. Your
+[00:10:46] goal is to analyze the requirements,
+[00:10:48] create a comprehensive plan and provide
+[00:10:50] insight on how to implement each
+[00:10:52] feature. All right. Then we have first
+[00:10:54] review the camera app requirements. We
+[00:10:57] need to come up with these requirements.
+[00:10:59] So I wrote some bullet points of the
+[00:11:01] things that I wanted this application to
+[00:11:03] do. I wrote things like quick actions
+[00:11:06] like flash focus, rotate camera, motion
+[00:11:09] blur, low light, light trail. Let's see
+[00:11:12] if we can actually achieve that. Uh in
+[00:11:15] in the bottom right control to swipe and
+[00:11:18] rotate and increase and decrease the
+[00:11:20] zoom. If we look again to the camera
+[00:11:22] that we're trying to do, this is the
+[00:11:24] bottom right thing that I want to do.
+[00:11:26] I'm actually not sure how to explain
+[00:11:27] that, but let's just go ahead and
+[00:11:29] provide that. And then so that claude
+[00:11:32] knows how to use um the media library
+[00:11:36] actually. So let's copy this link.
+[00:11:39] Media library.
+[00:11:42] And we should also provide the camera
+[00:11:44] docs. Let's copy this link. Paste it in
+[00:11:47] here. And I'm going to press generate.
+[00:11:49] Okay. And it generated a bunch of stuff
+[00:11:52] here like core functionality for the
+[00:11:54] application, UI elements. So let's close
+[00:11:57] that. And I'm going to keep scrolling
+[00:11:58] down and see what else we have in here.
+[00:12:00] We can always tweak this before we give
+[00:12:01] this to Claude. So, analyze the
+[00:12:03] requirements and break down that into
+[00:12:05] main categories like permissions, core
+[00:12:07] functionality, UI elements, advanced
+[00:12:10] features, settings. I actually want a
+[00:12:13] settings screen. For each requirement,
+[00:12:14] include specific considerations such as
+[00:12:16] how to handle permissions, camera, and
+[00:12:18] stuff like that. If anything is unclear
+[00:12:21] or seems challenging to implement with
+[00:12:23] XO camera, mention it and suggest
+[00:12:25] alternative approaches. Oh, that's nice.
+[00:12:27] So, I think this is a really cool prompt
+[00:12:30] that I'm going to copy paste. Let's go
+[00:12:32] back to cloud
+[00:12:35] and paste this in here. We can say here
+[00:12:38] are the requirements.
+[00:12:42] All right. And instead of copying the
+[00:12:44] camera dogs, maybe I can just copy the
+[00:12:47] link again
+[00:12:49] and give this to Cloud.
+[00:12:54] I'm going to do that with I'm going to
+[00:12:56] do the same with expo media library.
+[00:12:58] Paste it in here. And another thing that
+[00:13:00] I want to do is just make sure that
+[00:13:02] claude knows the versions for gesture
+[00:13:05] handler and reanimated since these
+[00:13:08] dependencies are very important and I
+[00:13:10] don't want cloud code to generate uh or
+[00:13:13] to use them using previous versions or
+[00:13:15] legacy implementations. So I'm just
+[00:13:17] going to say we are using and paste this
+[00:13:19] in here. So this is a bunch of
+[00:13:21] information. Let's go ahead and hit
+[00:13:23] enter and let's see what happens. After
+[00:13:25] a moment, we are asked the phase of the
+[00:13:29] implementation. Let's check it out. So
+[00:13:30] first of all, we have the core
+[00:13:32] foundation. Set up permissions.
+[00:13:33] Implement basic camera view with photo
+[00:13:36] capture. Create navigation structure
+[00:13:38] using explorer. Add camera switching and
+[00:13:42] basic controls. Sounds good to me.
+[00:13:44] Essential features. Add video recording.
+[00:13:47] Cool. Implement zoom pinch and slider.
+[00:13:51] Okay, that's cool. Up to 5x. Create
+[00:13:54] settings screen with async storage build
+[00:13:57] gallery preview functionality. Sounds
+[00:13:59] good to me. I'm just going to say yes.
+[00:14:01] It is now going to install expo image
+[00:14:03] manipulator and other dependencies that
+[00:14:05] it needs. And actually, I forgot to ask
+[00:14:08] Claude to write these plans down. So
+[00:14:12] before well actually I'm going to say
+[00:14:15] yes here. And now it's about to create a
+[00:14:17] bunch of screens. So we really need to
+[00:14:19] be careful before it actually starts
+[00:14:20] doing a bunch of stuff and things get
+[00:14:22] out of hand. So I'm going to say no and
+[00:14:24] tell Claude what to do. First of all,
+[00:14:27] I'm going to tell him, hey, can you
+[00:14:30] please create a folder for the plans and
+[00:14:35] a file for each phase and after that
+[00:14:38] also I want you to use version control
+[00:14:42] and use git hub CLI. I I have the GitHub
+[00:14:45] CLI so you can use it. It is installed
+[00:14:47] in my machine. Uh commit after every
+[00:14:50] major change. So here we go. We really
+[00:14:52] need to be careful when uh before it
+[00:14:55] starts doing a bunch of stuff. We want
+[00:14:57] to commit the good stuff and save the
+[00:14:59] good stuff. And this is great because if
+[00:15:01] we don't like something, we can always
+[00:15:03] go back to a previous commit. Or you can
+[00:15:05] also ask cursor to revert its previous
+[00:15:08] changes if you really want to do that.
+[00:15:11] Um but yeah, let's have him to write the
+[00:15:13] plans and use GitHub CLI to commit the
+[00:15:16] things that it's doing. All right, so
+[00:15:18] it's about to commit some stuff. Let's
+[00:15:20] hit enter. Okay, now we have a better
+[00:15:23] structure. Now we are saving the
+[00:15:25] progress that we are doing. Um and if
+[00:15:27] you take a look, we have now the readme
+[00:15:29] inside the uh the plans. So far this
+[00:15:32] looks good. But another thing that I
+[00:15:34] really like about Claude is that you can
+[00:15:36] pass images. So what I want to do now to
+[00:15:39] get a better result of the user
+[00:15:42] interface that is going to generate is
+[00:15:44] to provide the image and the design that
+[00:15:47] I want to use. So I'm going to say again
+[00:15:49] no and tell cloud what to do. Let's go
+[00:15:52] back to the website to the inspiration
+[00:15:55] that we are following here. And I'm
+[00:15:57] going to take a screenshot. By the way,
+[00:15:59] you can see the shortcut at the bottom
+[00:16:00] right of the screen, but it's shift
+[00:16:02] control command and then four. All
+[00:16:05] right. And this is going to allow you
+[00:16:07] select on Mac. And once you take the
+[00:16:10] screenshot, it's going to save it in the
+[00:16:14] clipboard. So now we can come back to um
+[00:16:17] here. Let's select the input and press
+[00:16:20] CtrlV.
+[00:16:24] It is Ctrl +V to paste an image, not
+[00:16:27] command V, which is what we are used to.
+[00:16:29] It's Ctrl +V. And now we have the image
+[00:16:31] there. And I'm going to tell cursor this
+[00:16:34] is the UI that we want to achieve.
+[00:16:36] Please develop the UI very similar to
+[00:16:39] this image as much as possible and just
+[00:16:42] hit enter. Okay. And it's telling me
+[00:16:44] that it's seeing the UI that we want to
+[00:16:46] achieve. This is a sophisticated camera
+[00:16:48] interface with advanced modes and
+[00:16:50] controls. Let me create a directory
+[00:16:52] structure and implement this UI design.
+[00:16:55] Now I want to tell more things to cloud
+[00:16:56] before it does that. Please try to
+[00:16:59] abstract as many components as you can
+[00:17:02] like things that you're going to be
+[00:17:04] utilizing icons. Keep them in the
+[00:17:06] components folder and pay close
+[00:17:08] attention to the bottom right of the
+[00:17:12] screenshot that I shared with you.
+[00:17:15] We want to achieve this kind of clock
+[00:17:17] like interface where users can swap with
+[00:17:20] their finger to increase and decrease
+[00:17:22] the zoom. Oh, and I forgot to say one
+[00:17:24] more thing. uh please update the
+[00:17:28] markdown and plans accordingly to the
+[00:17:30] screenshot that I share with you and
+[00:17:32] develop the components as well
+[00:17:34] accordingly so that we can match the UI
+[00:17:36] that we want and keep in mind that we
+[00:17:39] are only using dark mode in this case.
+[00:17:40] So don't worry about compatibility with
+[00:17:43] light mode and stuff like that. Just
+[00:17:45] keep everything dark and stick to the
+[00:17:48] design. If you take a look at the plan
+[00:17:50] um the step three the circular zoom
+[00:17:53] control this is actually what we want.
+[00:17:55] It's a clock-like circular dial at the
+[00:17:58] bottom right. Now, Claude has been
+[00:18:00] coding for a while, and I noticed that
+[00:18:02] we already have a bunch of components on
+[00:18:04] the left or the controls of the camera
+[00:18:07] and the icons that we're going to be
+[00:18:09] using and some UI stuff like the gallery
+[00:18:12] thumbnail. Okay. And Claude said that is
+[00:18:15] done has successfully implemented the
+[00:18:18] camera UI screenshot. So, let's take a
+[00:18:20] look uh before we try to run this.
+[00:18:25] Okay. So, first thing, this is right
+[00:18:27] away redirecting to the camera. I don't
+[00:18:31] really like that, but well, so now the
+[00:18:34] moment of true. I'm actually going to
+[00:18:36] run this on my real device so that we
+[00:18:38] can see the real camera. Let's start the
+[00:18:40] server by saying MPX expo start. Hit
+[00:18:44] enter. And now with my real device, I'm
+[00:18:47] going to scan this QR code.
+[00:18:53] Okay, let's open it in v in expo go.
+[00:18:56] Okay, and we have an issue. It seems
+[00:18:58] that it's not finding this uh React
+[00:19:00] Native SVG. Let's see if we have it in
+[00:19:03] in the package. No, we don't have it. Um
+[00:19:06] let's try to fix this ourselves so that
+[00:19:09] we don't waste tokens from cloud. I'm
+[00:19:12] going to run bun install react native
+[00:19:14] SVG.
+[00:19:15] Let's restart the Dashcript server.
+[00:19:19] There we go. Let's try this again.
+[00:19:22] I restarted the server. Let's try this
+[00:19:24] again. I'm going to um go back to the
+[00:19:26] camera, scan this QR code
+[00:19:31] and let's see what happens.
+[00:19:33] Move this out of the way.
+[00:19:36] All right. Nice. Look at this guys. This
+[00:19:39] looks pretty decent. I'm not able to see
+[00:19:42] anything and this is because we don't
+[00:19:44] have permissions, but we do have the
+[00:19:47] buttons and it's looking good. So now
+[00:19:50] let's iterate and let's provide feedback
+[00:19:52] to cloud. I'm going to close the
+[00:19:54] terminal. It's looking great, but first
+[00:19:57] we need an on boarding screen that shows
+[00:20:01] the features of the application as well
+[00:20:04] as permissions for the library and for
+[00:20:07] the camera because right now we don't
+[00:20:09] have any permissions and we cannot see
+[00:20:11] anything using the camera. And then also
+[00:20:14] get rid of the heather and make sure
+[00:20:17] that the clock animation works nice
+[00:20:21] because right now the numbers are out of
+[00:20:24] place. If that means moving to page two,
+[00:20:28] let's go ahead and do that. Let's hit
+[00:20:29] enter and wait. Okay, it added the on
+[00:20:33] boarding screen. Let's see if that's
+[00:20:35] true. I'm going to start the server
+[00:20:37] again and let's scan the cure code.
+[00:20:47] I'm going to shake and refresh.
+[00:20:51] Awesome. Okay, I really like this. Now,
+[00:20:53] advanced camera modes. Look at these
+[00:20:56] guys. I really like the the design. It's
+[00:21:00] it's perfect. So, let's press continue.
+[00:21:04] Now, we are in the second on boarding
+[00:21:06] screen. Professional controls. Continue.
+[00:21:09] Customizable settings. Grant permissions
+[00:21:11] and start. Cool. All right. Needs
+[00:21:15] permissions. Let's allow it. Needs
+[00:21:18] permissions. Let's allow it. That must
+[00:21:20] be for the mic, right? Awesome. And look
+[00:21:22] at this. Now I'm able to use my camera.
+[00:21:26] So, I'm there. Woo.
+[00:21:28] This looks pretty nice. Let's try to
+[00:21:31] take a picture.
+[00:21:34] Okay. Look at that. Did you see that?
+[00:21:38] Let's press on the image gallery. I
+[00:21:41] think that's not um that's not
+[00:21:43] implemented yet. So, if we go to the
+[00:21:45] camera and take a look at the component,
+[00:21:49] we need to navigate. So, that's a to-do
+[00:21:53] and navigate to settings. That doesn't
+[00:21:55] work yet, but maybe we can flip the
+[00:21:57] camera.
+[00:21:59] Awesome. That's nice.
+[00:22:02] Um let's press the buttons. Let's see
+[00:22:05] what else. Okay. And if you notice as
+[00:22:07] well, it improved the clock wheel thing.
+[00:22:13] Okay, look at this. It's kind of
+[00:22:15] working.
+[00:22:18] It's kind of working, but we need to
+[00:22:20] prevent it from
+[00:22:23] I don't know, breaking.
+[00:22:27] I don't know what this is doing. All
+[00:22:28] right, I'm super excited with this
+[00:22:29] progress, guys. Uh I think we can
+[00:22:32] improve it, of course. Um so let's see
+[00:22:35] what Claude said. So he implemented the
+[00:22:37] requested changes on boarding screen is
+[00:22:40] perfect. Permission system it's great.
+[00:22:43] Fix circular zoom control. The numbers
+[00:22:45] one 35 are now properly positioned. So
+[00:22:49] in this case I know that claude is
+[00:22:52] struggling with this feature. It's a
+[00:22:53] very complex feature I think. Um, so
+[00:22:56] let's try to leave that as it is for now
+[00:23:00] and let's focus on navigating to the
+[00:23:02] library and the settings screen. For
+[00:23:05] phase two, we have video recording, UI
+[00:23:07] enhancement,
+[00:23:09] flash timer, grid, settings, foundation.
+[00:23:12] Okay, cool. I think we're ready to go
+[00:23:14] with phase two.
+[00:23:18] Oh, yeah. It says ready for phase two.
+[00:23:21] All right, let's move on to phase two.
+[00:23:25] Hit enter. By the way, you guys, the
+[00:23:27] source code of this application is going
+[00:23:29] to be available for pro members at
+[00:23:31] codebetto.dev. So, if you are
+[00:23:32] interested, go ahead and check out the
+[00:23:35] premium resources that we offer there.
+[00:23:36] All right, so we have a good chunk of
+[00:23:38] progress and the application quit by the
+[00:23:41] way. I think it's because of some of the
+[00:23:43] updates, but we are going to take a look
+[00:23:45] in a moment. Uh, so it's just upgrading
+[00:23:48] a lot of things and now it's going to
+[00:23:49] add it to GitHub. And I want to
+[00:23:51] highlight here guys that if you take a
+[00:23:53] look at the codebase, it's actually well
+[00:23:56] organized. We have components. We have
+[00:23:59] the basic UI stuff in here in this
+[00:24:02] folder. Well organized as well. We have
+[00:24:05] icons and you can come here and quickly
+[00:24:07] understand what is going on. We also
+[00:24:09] have some really nice custom hooks. Um
+[00:24:12] and yeah, so everything is working fine.
+[00:24:13] And now we are going to save this
+[00:24:14] progress. Here we go guys. Now we
+[00:24:18] implemented I think everything that we
+[00:24:20] needed for phase 2.
+[00:24:23] I'm going to just go ahead and start the
+[00:24:24] server again. MPX4 start. All right,
+[00:24:27] let's scan the cure code.
+[00:24:34] Okay, it's looking good. Let's see what
+[00:24:37] we have now. We have the timer. So, let
+[00:24:39] me take a look. I'm going to press the
+[00:24:41] timer. Three.
+[00:24:43] And it's not moving.
+[00:24:46] Five. Okay. Okay. Okay. I see. I see. I
+[00:24:49] see how it works. Now I have it for
+[00:24:51] three seconds. Let's take a picture.
+[00:24:54] Three, two, one. Boom.
+[00:24:58] All right. And now, oops. Okay. It's
+[00:25:01] taking a bunch of pictures. Okay. I
+[00:25:03] killed the app. Let me go ahead and
+[00:25:04] complain with cursor.
+[00:25:07] When I use a timer for 3 seconds, after
+[00:25:10] it takes a picture, it keeps taking
+[00:25:13] pictures forever and I cannot get it to
+[00:25:15] stop. Please fix that. The other option
+[00:25:18] is to take a look at the code, but uh
+[00:25:20] let's see if cursor can fix it. Okay,
+[00:25:23] let's take a timer for 3 seconds and I'm
+[00:25:27] going to take a picture. Let's see.
+[00:25:30] Okay, it took just one, which is
+[00:25:33] perfect. Now, let's try the timer of 5
+[00:25:36] seconds.
+[00:25:38] Tap to cancel. Okay, it's working. So,
+[00:25:40] there are a couple bugs right now with
+[00:25:42] my app, but I'm pretty happy with the UI
+[00:25:45] and how I was able to quickly get to
+[00:25:47] this point. Of course, cloud code is not
+[00:25:49] very good at some things, especially
+[00:25:51] translating UI, I would say. But for
+[00:25:53] most business logic, it's great. From
+[00:25:55] here, what I would do is just try to
+[00:25:58] improve the the UI and maybe drop some
+[00:26:02] things that are not working, shift the
+[00:26:04] layout a little bit, improve some bugs,
+[00:26:06] u and then just try to ship the first
+[00:26:08] version of this application. All right,
+[00:26:10] so now you've seen how I use cloud code
+[00:26:12] to build react native applications. So,
+[00:26:14] as you can see, it takes you far
+[00:26:16] quickly, but still it's not able to
+[00:26:18] handle everything from scratch. You need
+[00:26:20] to be familiar on how to update the code
+[00:26:22] and continue development. A good thing
+[00:26:24] is that we integrated git and we can
+[00:26:25] always roll back to a specific commit
+[00:26:27] and from there start with a new instance
+[00:26:29] of cloud if you want to. But honestly,
+[00:26:31] this is just scratching the surface. The
+[00:26:33] real power comes when you combine AI
+[00:26:35] workflow with strong fundamentals. If
+[00:26:37] you are serious about learning React
+[00:26:39] Native, consider enrolling into my React
+[00:26:41] Native course. If you are just getting
+[00:26:43] started, it's okay. We cover the basics.
+[00:26:45] And if you are already working in the
+[00:26:47] field, a lot of companies have budgets
+[00:26:49] for developer education. So, if you are
+[00:26:51] working somewhere, there's a good chance
+[00:26:53] that they can cover it for you. And hey,
+[00:26:55] if you find this video helpful, drop a
+[00:26:57] like and comment. It really helps more
+[00:26:58] deps discover the content and keeps me
+[00:27:00] motivated to keep making more. I hope
+[00:27:02] you learned something new. I hope you
+[00:27:03] like this video and I'll see you in the
+[00:27:04] next

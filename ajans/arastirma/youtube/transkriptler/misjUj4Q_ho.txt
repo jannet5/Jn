@@ -1,0 +1,766 @@
+# Building a Real App with Claude Code (Start to Finish)
+# https://www.youtube.com/watch?v=misjUj4Q_ho
+# kanal: Tech With Tim | süre: 1378 sn | kaynak: yt-dlp:web_embedded:misjUj4Q_ho.en-orig.json3
+
+[00:00:00] Today, I'll walk you through a full
+[00:00:02] practical build using Claude Code. I'll
+[00:00:05] show you how to set it up, how to add
+[00:00:06] connectors, and how to use this tool
+[00:00:08] like a professional to build real
+[00:00:10] legitimate sites that you could deploy
+[00:00:12] and actually sell for thousands, if not
+[00:00:14] tens of thousands of dollars. Now, I'm a
+[00:00:16] software engineer. I've been writing
+[00:00:18] code for well over 10 years, and you're
+[00:00:20] going to see in this video how I use a
+[00:00:21] tool like Claude Code, as opposed to all
+[00:00:23] of the people that purely vibe code.
+[00:00:25] That said, you don't need to be an
+[00:00:27] engineer to follow along here. The main
+[00:00:29] goal is to kind of follow the overall
+[00:00:30] process and steps that I go through and
+[00:00:32] apply it to your own projects. You can
+[00:00:34] get better results that are more
+[00:00:36] professional and take you less time.
+[00:00:38] With that said, let's dive in here and
+[00:00:40] let's start the build process. Again,
+[00:00:42] you can build anything you want. Just
+[00:00:44] watch and see how I build this
+[00:00:45] application so you can apply it to your
+[00:00:47] own setup. All right. So, the very first
+[00:00:49] thing we need to do here is come up with
+[00:00:51] a detailed plan of what it is that we
+[00:00:53] actually want to build. Now, when you
+[00:00:55] use AI, it's extremely important that
+[00:00:57] you know in detail what you actually
+[00:00:59] want. So, what is the objective? What is
+[00:01:01] the goal? Why are you building what
+[00:01:03] you're building? And when is it actually
+[00:01:05] going to be finished? Now, the reason
+[00:01:07] for that is that AI typically,
+[00:01:08] especially when you're using models like
+[00:01:10] Claude or Claude models from that
+[00:01:11] family, can kind of go off in all kinds
+[00:01:13] of circles and build all types of
+[00:01:15] features that you never asked for. That
+[00:01:17] can confuse you. it can add unnecessary
+[00:01:19] complexity and you want to be the one
+[00:01:21] who's kind of the captain of the ship
+[00:01:23] here and not let the AI take over. So,
+[00:01:25] it's so important before you dive right
+[00:01:27] into a new project that you spend the
+[00:01:29] time up front to actually think what it
+[00:01:31] is that you want. Now, if you're not
+[00:01:33] good at doing that, you can always use
+[00:01:35] these AI models to help you. So, what I
+[00:01:37] suggest is that you open up Claude.
+[00:01:38] Notice that I'm using the terminalbased
+[00:01:40] version here. I'm not using the desktop
+[00:01:42] app because you can get a lot better
+[00:01:44] features and results from the
+[00:01:45] terminalbased version. And what I've
+[00:01:47] done here, I'll just quickly get out of
+[00:01:48] this, is I've created a new folder. The
+[00:01:50] folder is called YouTube clone. It's
+[00:01:52] just on my desktop. And I'm running
+[00:01:54] Claude inside of here. Now, the first
+[00:01:55] thing I'll do is I'll communicate back
+[00:01:57] and forth with Claude to come up with a
+[00:01:58] plan of what it is that I want to build.
+[00:02:00] And once I have that plan, then I will
+[00:02:02] start the build process. So, what you
+[00:02:04] can do is switch this into plan mode.
+[00:02:06] You can change the mode by hitting shift
+[00:02:08] tab on your keyboard. This will put
+[00:02:10] Claude in a different mode that will
+[00:02:11] allow it to think through the problem in
+[00:02:12] a planning phase rather than a building
+[00:02:14] phase. And what I always suggest is
+[00:02:16] doing the following. Using your voice,
+[00:02:18] communicating with Claude, rambling on
+[00:02:20] what you want, and then ending your
+[00:02:22] prompt with the following phrase, ask me
+[00:02:24] any questions that you need to clarify
+[00:02:26] the build and get all of the
+[00:02:27] requirements. Let me show you what I
+[00:02:29] mean. Hey Claude, I want to build a
+[00:02:31] YouTube clone. Basically, what I want to
+[00:02:33] do is I just want to fully kind of build
+[00:02:35] my own version of YouTube. I want to
+[00:02:36] have a creator studio. I want to have
+[00:02:38] viewers being able to sign in and view
+[00:02:40] videos. I want to have a really advanced
+[00:02:42] video player. I'm going to use something
+[00:02:43] called Image Kit for that. I want to be
+[00:02:45] able to upload videos, have analytics,
+[00:02:47] and build an MVP of YouTube that's fully
+[00:02:50] functional. Can you ask me any questions
+[00:02:52] that you need to clarify the
+[00:02:53] requirements and come up with a detailed
+[00:02:55] plan? So, notice that last line there.
+[00:02:57] I've kind of rambled what I want and
+[00:02:59] then I add that. So, this is going to
+[00:03:00] prompt Claude to actually ask me more
+[00:03:02] in-depth questions. Now, I'm not going
+[00:03:04] to go through this entire process
+[00:03:05] because I actually have a few prompts
+[00:03:06] prepared that I wrote before this video
+[00:03:08] just to make it a little bit faster. But
+[00:03:10] basically what you want to do in this
+[00:03:12] phase is you want to understand what is
+[00:03:14] the minimum viable product that you can
+[00:03:16] build that's going to achieve your goal.
+[00:03:18] So actually serving some user or solving
+[00:03:19] some type of problem. And you also want
+[00:03:21] to decide what technology or tech stack
+[00:03:24] you're going to be using. For example,
+[00:03:25] do you want this to be a web
+[00:03:26] application? Should it be a desktop app?
+[00:03:28] Should it run on a mobile phone? Should
+[00:03:30] it work in, you know, some old legacy
+[00:03:32] device? You get the idea. So these are
+[00:03:34] things that Claude will automatically
+[00:03:36] make decisions for you, but you want to
+[00:03:38] be the one who's guiding that. So, if
+[00:03:40] you want to use Superbase on the back
+[00:03:41] end, for example, tell Claude that. If
+[00:03:43] you want to have this connected to some
+[00:03:45] type of provider or you want to use
+[00:03:46] Higsfield to generate an AI avatar, tell
+[00:03:48] it that. If you have some library that
+[00:03:50] you want to integrate, in this case,
+[00:03:52] we're going to use something called
+[00:03:52] ImageKit, which will handle all of the
+[00:03:54] video playing stuff for us, tell Claude
+[00:03:56] that. These are the decisions up front
+[00:03:58] that will really guide how good your
+[00:03:59] project is later on. So, make sure you
+[00:04:02] spend some time researching. And if
+[00:04:03] you're not familiar with the tech stack,
+[00:04:05] ask Claude to explain it to you and give
+[00:04:07] you the trade-offs between different
+[00:04:08] backends, frontends, frameworks, and
+[00:04:10] languages so you at least kind of know
+[00:04:12] what it is you're building with or the
+[00:04:14] tools you're using before you dive right
+[00:04:16] in. Now, for me, I want to build this
+[00:04:18] with Nex.js. This is a JavaScript
+[00:04:20] framework. I want to use Superbase for
+[00:04:22] handling all of the backend related
+[00:04:23] features, which is a full platform that
+[00:04:25] can do all of the off edge functions,
+[00:04:27] storage, all of that. And then I want to
+[00:04:29] use image kit as my CDN and my video
+[00:04:31] player. So, it can actually handle all
+[00:04:33] of the streaming, the adaptive bit rate,
+[00:04:35] handling thumbnails, captions, and all
+[00:04:37] of that. And a massive shout out to
+[00:04:39] ImageKit for sponsoring this video.
+[00:04:40] You're going to see why we're using
+[00:04:41] them, but they're great for something
+[00:04:42] like YouTube. Anyways, hopefully that
+[00:04:44] makes sense. I'm stressing this a lot
+[00:04:46] because this is the most important part.
+[00:04:48] What I'm going to do now is paste into
+[00:04:49] Claude kind of a plan that I've already
+[00:04:51] come up with. I'll quickly show you what
+[00:04:52] it looks like and then we're going to
+[00:04:54] start the build phase. All right, so
+[00:04:55] I've got a relatively long prompt here.
+[00:04:57] You can see that I say the following. I
+[00:04:59] want to build my own private YouTube, a
+[00:05:00] video platform with two sides, the
+[00:05:02] viewer site, and then as well as the
+[00:05:04] creator studio, which is right here. I
+[00:05:06] want to have a home feed, a watch page,
+[00:05:08] playlist, a dark theme. I want to have
+[00:05:10] drag and drop video uploads. I want to
+[00:05:12] be able to manage videos, one-click
+[00:05:13] publish, a member only flag. And then
+[00:05:15] for the stack, I put non-negotiable. I
+[00:05:17] want to use Nex.js with Tailwind. I want
+[00:05:19] to use superbase for all of the off. I
+[00:05:21] want to use image kit for the entire
+[00:05:23] media layer. And then I kind of explain
+[00:05:24] what I want to do here. So I say, "Give
+[00:05:26] me a plan broken into milestones that I
+[00:05:28] can build and verify one at a time. Keep
+[00:05:30] the scope to exactly what I listed.
+[00:05:32] Don't add comments like search or
+[00:05:34] subscriptions because I want to keep it
+[00:05:35] simple for now." So we're going to run
+[00:05:36] this in plan mode. Let Claude think on
+[00:05:38] this for a second. And again, we want to
+[00:05:40] have kind of a structured markdown file
+[00:05:42] first and then we're going to start
+[00:05:44] setting up Claude, adding our
+[00:05:45] integrations, adding our connectors so
+[00:05:47] that we can build this very quickly. All
+[00:05:49] right, so we can see it's been a minute
+[00:05:50] here and Claude has come up with a
+[00:05:52] pretty detailed plan. Now, of course, I
+[00:05:54] always suggest that you read through the
+[00:05:55] plan before you start building again
+[00:05:57] because you can go in a really wrong
+[00:05:59] direction if you don't do this
+[00:06:00] correctly. So, you can see generally
+[00:06:01] speaking, it says, "Okay, we're going to
+[00:06:02] build YouTube clone. We're going to use
+[00:06:04] XYZ. We're going to use this image kit
+[00:06:07] API. Okay, we have the Superbase schema
+[00:06:09] that we're going to set up. Here's kind
+[00:06:10] of the plan for all of the API routes.
+[00:06:12] And then here are the milestones." So,
+[00:06:13] scaffolding, superbase, schema, upload
+[00:06:15] pipeline, studio manage, watch page,
+[00:06:18] playlist, polish, you get the idea. So
+[00:06:20] before I actually build this out, I'm
+[00:06:22] just going to press escape for right
+[00:06:23] now. So the plan is now built and we
+[00:06:24] have that kind of inside of the context.
+[00:06:27] What I want to do is start setting up
+[00:06:28] Claude so it has all of the tools we
+[00:06:30] need to be able to do everything
+[00:06:31] automatically without us intervening.
+[00:06:34] Now that's going to involve adding a few
+[00:06:35] skills here as well as adding MCP
+[00:06:37] servers related to what we're building.
+[00:06:39] And again, I always suggest you do this
+[00:06:41] at the beginning of the project. So if
+[00:06:43] you go in Claude and you type /sklls,
+[00:06:45] you'll be able to see the skills that
+[00:06:46] you have available. Now notice that I
+[00:06:48] have a lot. I have project skills, I
+[00:06:50] have user skills, I have this front-end
+[00:06:51] design skill, all of this kind of stuff.
+[00:06:54] So, what I want to do is I want to make
+[00:06:55] sure that first of all, we have the
+[00:06:56] front-end design skill. I already have
+[00:06:58] it, but I'm going to show you how to add
+[00:06:59] it. As well as a UI UX Pro Max skill,
+[00:07:02] which is going to allow us to create
+[00:07:03] something that looks a lot better than
+[00:07:05] what is created by AI by default. So,
+[00:07:07] let me quickly show that to you. If we
+[00:07:09] go here, let me just find this. Here are
+[00:07:11] the two skills. So, the first one is
+[00:07:13] this front-end design skill. Now, you
+[00:07:15] can install this pretty easily and
+[00:07:16] clawed by yourself. However, what we can
+[00:07:18] do to install this is just copy the
+[00:07:20] GitHub repo URL, which I'll leave in the
+[00:07:22] description, and just paste it to Claude
+[00:07:24] and tell it to add this skill.
+[00:07:25] Alternatively, we can add this UIUX Pro
+[00:07:28] Max skill. Same thing, we can just paste
+[00:07:30] the GitHub repo and then tell it to
+[00:07:31] install this. So, what I'm going to do
+[00:07:33] is I'm just going to say before we
+[00:07:35] proceed, can you please install the
+[00:07:36] following two skills? I'm going to give
+[00:07:38] you the GitHub repo URLs, look through
+[00:07:40] them, and then install the correct skill
+[00:07:42] file for this project. Okay, so I'm just
+[00:07:44] giving it a prompt and then I'm going to
+[00:07:46] paste the first URL. Okay, and let's
+[00:07:48] grab the second one as well and paste
+[00:07:51] that right inside of here. Again, I'll
+[00:07:52] link both of them in the description.
+[00:07:54] Now, what these two skills will do again
+[00:07:56] is just allow us to build a lot better
+[00:07:58] looking user interfaces and design
+[00:08:00] systems so that we don't have this kind
+[00:08:01] of generic AI slop looking site. All
+[00:08:04] right, so it looks like those skills
+[00:08:05] were added. We can double check that if
+[00:08:07] we run /skills, we can see we have the
+[00:08:09] front-end design skill and we now have
+[00:08:10] the UIUX Pro Max skill. and we can take
+[00:08:12] a look at it and see what's inside.
+[00:08:14] Perfect. Now, the next thing is we want
+[00:08:16] to add some skills related to the
+[00:08:17] integrations we're using as well as MCP
+[00:08:19] servers. So, first we're going to set up
+[00:08:21] the Superbase MCP server. Now, if you
+[00:08:23] want to check the MCP servers you
+[00:08:25] already have, you can type /mcp. You'll
+[00:08:27] see I'm actually already connected to
+[00:08:29] Superbase. However, I will still show
+[00:08:30] you how to do the connection. Uh, of
+[00:08:32] course, because you probably don't have
+[00:08:34] it connected. Now, Superbase again is
+[00:08:35] what I typically recommend for a lot of
+[00:08:37] project backends, especially if it's
+[00:08:39] going to be more MVP, not as many people
+[00:08:41] using it, which mostly we're doing with
+[00:08:43] AI. So, the way that you can add the
+[00:08:44] Superbase MCP server is by using this
+[00:08:47] command right here. Again, I will link
+[00:08:48] it in the description. We just run this
+[00:08:50] in another terminal window and it should
+[00:08:52] automatically add that for us. So, I'm
+[00:08:54] going to show you how to do it. I'm just
+[00:08:55] going to get out of Claude here and I'm
+[00:08:57] going to paste this command. Again, link
+[00:08:59] in the description. What this will do is
+[00:09:00] add the MCP server and then it will
+[00:09:02] allow you to sign into your Superbase
+[00:09:04] account. It's free. You can make a new
+[00:09:06] account and then you'll be able to
+[00:09:07] authenticate a specific project. So
+[00:09:09] Claude can automatically make all of the
+[00:09:11] changes and you don't have to do
+[00:09:12] anything manually. So let's press enter.
+[00:09:14] And you can see that it's added the
+[00:09:16] Superbase MCP server. So now if we type
+[00:09:18] Claude again, it's going to say, do you
+[00:09:20] want to use this MCP server? Uh I'm
+[00:09:22] going to go yes, I would like to use
+[00:09:24] this MCP server. And then I'm going to
+[00:09:26] type /mcp. When I do that, we should see
+[00:09:28] superbase. said it says needs
+[00:09:30] authentication. So what I'm going to do
+[00:09:31] is press on enter and then just simply
+[00:09:33] press on authenticate. From here it's
+[00:09:35] going to open up superbase in my browser
+[00:09:36] where I'll then need to sign in with my
+[00:09:38] account. If you don't have one, make a
+[00:09:39] new one and it should be connected.
+[00:09:41] Okay, so we just connected superbase. It
+[00:09:43] says that it is good to go. If we come
+[00:09:45] back here to claude, let's open it up.
+[00:09:47] It looks like it is connected. Okay,
+[00:09:49] perfect. So we're almost done. Just a
+[00:09:50] few last configs that we want to add and
+[00:09:52] then we'll be finished. So next I want
+[00:09:54] to go to image kit and I want to
+[00:09:56] actually add the image kit skills. So,
+[00:09:58] if you're going to follow along with me
+[00:09:59] here and you're going to build something
+[00:10:00] like YouTube or anything that deals with
+[00:10:02] images or videos, you'll find that it's
+[00:10:05] very difficult to actually manage these
+[00:10:06] assets yourself. Now, ImageKit is a full
+[00:10:09] platform that handles all of this for
+[00:10:11] you. So, it does adaptive bit rate
+[00:10:12] streaming. It stores all of the assets,
+[00:10:14] allows you to upload them, handles all
+[00:10:16] the authentication and access,
+[00:10:17] thumbnails, captions, all of this. It's
+[00:10:20] free to try out. I'll leave a link to it
+[00:10:21] in the description so you can make a
+[00:10:23] free account there. And then when we
+[00:10:24] want to start using it in our project,
+[00:10:26] AI can build with it. itself as long as
+[00:10:29] we add the different plugins. So, what
+[00:10:30] I'll suggest you do is just add the two
+[00:10:32] plugins that are right here um that are
+[00:10:34] from this link. So, I'll link it in the
+[00:10:36] description again if you want to use
+[00:10:38] image kit. So, from within claude, we're
+[00:10:40] just going to run this command /plugin.
+[00:10:42] It's going to find that repo and then
+[00:10:44] just add image kit tools and then we'll
+[00:10:46] run the second command here which is the
+[00:10:48] following and paste that like this.
+[00:10:50] Okay. And we're going to go install for
+[00:10:52] you. Uh or actually let's install for
+[00:10:54] just the project scope like so. Cool. So
+[00:10:56] we've now added those two features. So
+[00:10:58] now it should be able to actually find
+[00:11:00] everything related to image kit. Now
+[00:11:01] generally speaking, a lot of the modern
+[00:11:03] frameworks now are adding AI skills or
+[00:11:05] MCP servers or some kind of connection.
+[00:11:08] So regardless of whatever you're using,
+[00:11:09] I would check those tools, see if they
+[00:11:11] have an agent skill or something and
+[00:11:13] install them before you start building
+[00:11:14] with them. Now also one of the reasons
+[00:11:16] we're using image kit is they just
+[00:11:17] released this new video player feature.
+[00:11:19] It's very cool. It work okay. It's very
+[00:11:22] cool. You'll even notice they have copy
+[00:11:23] for LLM button right here. And
+[00:11:25] effectively, it just handles all of the
+[00:11:26] video streaming for you. So you can have
+[00:11:29] custom branding, playlists, adapted bit
+[00:11:31] rate streaming, like I said, subtitles,
+[00:11:32] chapters, you can even shop, you get
+[00:11:34] analytics, and you can install it with
+[00:11:36] this. So before we proceed, I'm just
+[00:11:37] going to copy all of this cuz I want to
+[00:11:39] make sure that we're going to use this.
+[00:11:40] I'm going to paste this into Claude and
+[00:11:43] I'm just going to tell it to make sure
+[00:11:44] to use this feature when we build it up.
+[00:11:47] Hey, I'm just pasting some reference
+[00:11:49] from the image kit documentation. I want
+[00:11:51] to make sure we're using their new video
+[00:11:52] player in this build. Just take note of
+[00:11:54] that. and then update the plan and we
+[00:11:55] can start the build process. Perfect.
+[00:11:58] Let's hit enter and just make sure that
+[00:12:00] it's aware of that. All right, perfect.
+[00:12:02] So, it's now going to create a plan.md
+[00:12:03] file with everything that we need. So,
+[00:12:05] it's just stored in persistent context
+[00:12:06] here after what I pasted. We're going to
+[00:12:08] wait for that to finish and then we're
+[00:12:10] going to start building. I know there's
+[00:12:11] a lot of steps here, but I just want to
+[00:12:12] show you that if you spend the time up
+[00:12:14] front to actually create a detailed
+[00:12:16] plan, you make the connections, you pick
+[00:12:18] the tech stack, it's going to be very
+[00:12:20] easy for us to actually proceed now and
+[00:12:22] build everything out. Now, I'm also just
+[00:12:24] going to throw this into auto mode,
+[00:12:25] which I can do with shift tab on my
+[00:12:27] keyboard, just so that it can start
+[00:12:28] going through this process. We'll let it
+[00:12:30] do the initial build here, and then what
+[00:12:32] I'm going to want to do is start adding
+[00:12:34] things like a design system. I want to
+[00:12:35] make sure it's connected to Git. There's
+[00:12:37] a few other features, but I'll at least
+[00:12:38] let it get kind of the scaffold of the
+[00:12:40] application done. And then we'll go into
+[00:12:42] all of the kind of best practices when
+[00:12:44] it comes to using cloud code and doing
+[00:12:46] kind of mass AI code generation. And by
+[00:12:48] the way, if you guys are wondering what
+[00:12:49] I'm using to dictate here, because you
+[00:12:51] guys always ask me, I'm using a tool
+[00:12:52] called Whisper Flow. Just quickly bring
+[00:12:54] it up for you here because it's very
+[00:12:56] useful. You can see I have 263,000
+[00:12:59] words. And I use this for literally
+[00:13:00] everything. As you can see, what it does
+[00:13:03] is just lets you speak directly into the
+[00:13:05] computer, uses AI to transcribe your
+[00:13:07] voice, and then automatically formats
+[00:13:08] the text, fixes any typos, and generally
+[00:13:11] just lets you give a lot more context to
+[00:13:13] the AI model. I have a partnership with
+[00:13:14] them as well, so I'll leave a link to it
+[00:13:16] in the description. and you guys can use
+[00:13:17] it for free from that URL. Anyways,
+[00:13:19] let's wait for this to build. Probably
+[00:13:21] going to be a few minutes. I'll get a
+[00:13:22] coffee and be right back. Perfect. Okay,
+[00:13:24] so it looks like we're good so far with
+[00:13:26] the scaffolding. However, we are missing
+[00:13:28] a few things in order for this to work
+[00:13:29] properly. So, notice it says the four
+[00:13:31] image kit values are placeholders. So,
+[00:13:33] add your image kit ID, URL, endpoint,
+[00:13:35] public key, and private key. And then
+[00:13:37] run mpm rundev. So, what I'm going to do
+[00:13:39] is just paste those in the chat. I know
+[00:13:40] it's not best practice, but Claude will
+[00:13:42] be able to view them anyways so that it
+[00:13:43] can just set that up and add them to the
+[00:13:45] project. So, I'm going to show you how
+[00:13:46] to get those values. If you go to your
+[00:13:48] image kit account and you go to
+[00:13:49] developer options, you'll be able to
+[00:13:51] find the image kit ID, URL, endpoint,
+[00:13:53] public key, and private key. You might
+[00:13:55] need to actually sign in or like uh give
+[00:13:57] a password in order to view this. What
+[00:13:59] I'm going to do is just copy these
+[00:14:00] values. I'm going to paste that there.
+[00:14:02] I'm going to copy the public key. Let's
+[00:14:04] put this below. Okay. And then same
+[00:14:08] thing with the private key. So, let's
+[00:14:09] go. Okay. So, I pasted those values.
+[00:14:11] Obviously, I don't want to leak them to
+[00:14:12] you. And then it should update this. And
+[00:14:14] then what we can do is just run the
+[00:14:16] initial um what do you call it like npm
+[00:14:18] rundev whatever just to see what the
+[00:14:20] site looks like. Then I want to start
+[00:14:21] talking a bit about a design system
+[00:14:23] which is going to allow us to build this
+[00:14:25] and just have it look a lot better and
+[00:14:26] consistent especially as we scale it
+[00:14:28] out. Okay, so looks like we're good
+[00:14:30] here. I'm just going to say spin up the
+[00:14:32] server so I can test it and let's see
+[00:14:35] what the app looks like. Okay, so it
+[00:14:36] looks like it is running. This is what
+[00:14:38] the application looks like. My tube.
+[00:14:40] Okay, that's a crazy name. We're
+[00:14:42] probably going to have to change that.
+[00:14:43] Let's see if we can create an account.
+[00:14:45] So, let's go tech with Tim and let me
+[00:14:48] fill these in. Okay, so it looks like
+[00:14:50] there's some problem here with the
+[00:14:51] signin. So, let's just go back and give
+[00:14:53] the information to Claude. So, this is
+[00:14:55] going to happen. If there is issues,
+[00:14:56] obviously, don't freak out. Just try to
+[00:14:57] describe them in detail. So, I'm going
+[00:14:59] to say the following. When I go and sign
+[00:15:01] up, what happens is it says it's
+[00:15:03] successful and that it's going to send
+[00:15:05] me an email. However, it never sends me
+[00:15:07] an email. And then when I try to sign in
+[00:15:09] with the same username and password or
+[00:15:10] email and password that I created the
+[00:15:12] account with, it says invalid
+[00:15:14] credentials. Can you help me fix this,
+[00:15:15] please? Okay, perfect. So, I just went
+[00:15:17] through all of this. Looks like it's
+[00:15:18] working now. We were able to sign in. We
+[00:15:20] can go home, subscriptions, history,
+[00:15:22] whatever. Obviously, nothing's here
+[00:15:23] right now because we haven't upload
+[00:15:25] anything. And then if we press on
+[00:15:26] upload, looks like we can upload a
+[00:15:29] video. So, we will test all of these
+[00:15:31] features. However, for now, what I want
+[00:15:32] to do is move on to the design system
+[00:15:34] before we go too crazy. Okay. So, I'm
+[00:15:36] going to paste in a prompt and then I'm
+[00:15:37] going to explain kind of what my idea is
+[00:15:39] with this. Now, when you build these AI
+[00:15:41] apps, a lot of times it kind of just
+[00:15:43] comes up with designs on the fly.
+[00:15:45] However, typically what you'll do if
+[00:15:46] you're actually going to build this in
+[00:15:47] like a real software engineering manner
+[00:15:49] is you'll create a design system. This
+[00:15:51] is a set of reusable components like
+[00:15:53] butins, cards, typography, headers,
+[00:15:56] whatever like input fields that can just
+[00:15:59] be reused consistently throughout the
+[00:16:00] site. So you usually start by designing
+[00:16:02] all these different individual
+[00:16:03] components and then you kind of just
+[00:16:05] place them on the different pages. So
+[00:16:07] effectively the prompt that I'm giving
+[00:16:08] right here says hey set up a design
+[00:16:10] system using the front end design skill
+[00:16:12] dark theme only think premium video
+[00:16:14] platform near black background one
+[00:16:16] restrained accent color high contrast
+[00:16:19] height typography whatever design the
+[00:16:21] design tokens the thumbnail card all of
+[00:16:23] this type of stuff and show me a style
+[00:16:25] title page at /design so I can judge it
+[00:16:27] before we build the real pages. And this
+[00:16:29] is a good one if you want to see what it
+[00:16:32] actually looks like. Ask it to do like a
+[00:16:34] mockup page so you can see all the
+[00:16:35] different components and then you can
+[00:16:37] refine them individually. So we're going
+[00:16:39] to press enter here. And that's why we
+[00:16:40] added those different skills before like
+[00:16:42] the UIUX skill, the front end design
+[00:16:44] skill. It's going to load that up and
+[00:16:45] then hopefully give us something a lot
+[00:16:47] better than if we just trusted the
+[00:16:48] default kind of AI recommendation. Okay,
+[00:16:50] so I just went to the slashdesign route.
+[00:16:52] It's still working on it, but I believe
+[00:16:53] this part's finished. And we can see
+[00:16:55] this is what the design system looks
+[00:16:56] like. So, we have the accents,
+[00:16:57] foreground, canvas, typography. So,
+[00:17:00] assuming this is good and we don't want
+[00:17:01] any changes, upload, subscribe. That
+[00:17:03] looks cool. I'm going to just tell it to
+[00:17:05] apply this design system to the current
+[00:17:06] build. And then we're going to start
+[00:17:07] building out the rest of the features.
+[00:17:09] Again, very good idea to do this. I even
+[00:17:12] really like asking it to make the site
+[00:17:13] so it's really visual and easy for us to
+[00:17:15] view. And then again, we can scrutinize
+[00:17:17] anything before we actually have these
+[00:17:19] be the components that are going to be
+[00:17:20] used. Okay. So, let's wait for it to
+[00:17:22] finish and then again, we'll tell it
+[00:17:23] apply the design system and move on to
+[00:17:25] the next phase. Okay, so it just
+[00:17:26] finished applying the style guide here
+[00:17:29] or design system. We can see it looks
+[00:17:30] obviously a lot better right now. Let's
+[00:17:32] click into our profile for example.
+[00:17:34] Okay, we can see I have one video
+[00:17:36] uploaded cuz I did actually attempt to
+[00:17:37] upload one. We still are missing
+[00:17:39] obviously a lot of features like I
+[00:17:40] cannot edit my profile or change the
+[00:17:42] name or something. If we go to the
+[00:17:45] homepage, we can see we have the video.
+[00:17:47] And if I click into it, let's give it a
+[00:17:49] second to load here. Only thing is it's
+[00:17:51] a little bit weird in terms of like how
+[00:17:53] it's being uploaded or how it's being
+[00:17:55] sized. So, we need to fix that. I can
+[00:17:57] like, I can down like or dislike. Let's
+[00:18:00] try to add a comment. Like, hello. Okay,
+[00:18:03] that seems to work. And the views aren't
+[00:18:05] updating. So, of course, there's some uh
+[00:18:06] fixes that we're going to need to make.
+[00:18:08] I'll give it a prompt just to adjust
+[00:18:09] some of that. And then we'll move on to
+[00:18:10] things like video chapters, adding
+[00:18:12] custom thumbnails, making sure the video
+[00:18:14] plays properly, although I think it's
+[00:18:16] good here. Nice. Okay, so it's like
+[00:18:18] super smooth. It's right in the video
+[00:18:19] player here. We can adjust the speed.
+[00:18:21] And one thing I wanted to note is that
+[00:18:22] if you go to image kit, you should now
+[00:18:24] be able to see all the videos that
+[00:18:25] you've uploaded. So I have this one.
+[00:18:26] These are just older ones from this
+[00:18:27] project. And you'll see that it's all
+[00:18:29] stored in here. And then you can click
+[00:18:30] into any of the videos. You can see all
+[00:18:32] their information, metadata, comments,
+[00:18:34] you get the idea. And then that's
+[00:18:36] automatically being rendered in this
+[00:18:37] video player component for us. Again,
+[00:18:40] all handled by image kit so that we
+[00:18:42] don't have to deal with any of the video
+[00:18:43] or image assets. So now let's move on as
+[00:18:45] I discussed. All right. So, I asked
+[00:18:47] Claude to add a thumbnail feature cuz
+[00:18:49] that's one of the things I noticed we
+[00:18:50] were missing. So, what you can see here
+[00:18:52] is that I can actually kind of scrub
+[00:18:54] through a video. So, I'm in the upload
+[00:18:56] process right now and press capture
+[00:18:57] current frame and then we'll
+[00:18:59] automatically select that and use that
+[00:19:00] as the thumbnail. Alternatively, we can
+[00:19:02] upload a custom thumbnail just by
+[00:19:04] picking one here. So, for example, let
+[00:19:06] me just pick one of my thumbnails. We
+[00:19:07] can see that we get it gets added here
+[00:19:09] and then we can upload the video and it
+[00:19:11] will attach the thumbnail and also store
+[00:19:13] the thumbnail and image can. So, if we
+[00:19:14] go to the homepage now, I have to say
+[00:19:16] it's looking pretty good, to be honest.
+[00:19:17] Let me click into my channel, for
+[00:19:19] example. We can see it shows the videos.
+[00:19:21] Let's click on one of them and just see
+[00:19:23] the video player and make sure this is
+[00:19:25] working. Okay, so you can see it loads
+[00:19:26] pretty much instantly. We even have the
+[00:19:28] ability to add subtitles. So, this is
+[00:19:30] something I asked it to do as well
+[00:19:31] because this video player can
+[00:19:32] automatically kind of like AI generate
+[00:19:34] the subtitles for you. So, if I press on
+[00:19:36] this, I can go autogenerated subtitles.
+[00:19:38] And of course, there's no audio in this
+[00:19:40] one, so we're not getting anything. But
+[00:19:41] let me upload at least something that's
+[00:19:42] like talking head and see if that works.
+[00:19:44] Okay, so I've got a video with talking
+[00:19:46] head here. Let me just mute it for one
+[00:19:49] second so we can go through. However,
+[00:19:50] for some reason the autogenerated
+[00:19:52] subtitles isn't loading. I think the
+[00:19:53] first time you do it, it does take a few
+[00:19:55] minutes to generate it and then it will
+[00:19:56] show up. So we can come back to that
+[00:19:58] after. But for now, we can see that at
+[00:20:00] least all the main functionality is
+[00:20:01] working, right? Uh let me get back out
+[00:20:03] of this. Didn't mean to zoom in that
+[00:20:05] much. You can see we have video player,
+[00:20:06] comments, channels, and what I want to
+[00:20:08] start working on is analytics and also
+[00:20:10] kind of like a YouTube studio feature.
+[00:20:12] And also the thing with subscribing, it
+[00:20:14] looks like I can't even subscribe to a
+[00:20:16] channel. Or maybe that's because it's my
+[00:20:18] own channel. So, we would have to make a
+[00:20:19] few other ones. But let's have Claude
+[00:20:21] kind of stub a few new uh channels or
+[00:20:24] videos or whatever. And let's make this
+[00:20:26] just look a little bit better. And let's
+[00:20:27] add the analytics. So, to do that, I'm
+[00:20:29] going to do a prompt here. I'm going to
+[00:20:30] say, okay, all is looking good. Now, I
+[00:20:32] now want to implement the analytics from
+[00:20:34] the video player so that whoever posted
+[00:20:37] the video or uploaded it is able to view
+[00:20:38] the analytics for that. So, let's build
+[00:20:40] like a really minimal kind of YouTube
+[00:20:42] studio or like creator version of the
+[00:20:44] site where people can see the analytics
+[00:20:46] of their own videos. And then I also
+[00:20:48] want you to just stub a few random
+[00:20:50] accounts on YouTube so that we can have
+[00:20:52] some kind of like fake data and I can
+[00:20:55] subscribe to accounts and see what
+[00:20:56] happens when it's not my account. We'll
+[00:20:58] see what that's going to do here. But
+[00:21:00] generally speaking, I think that will
+[00:21:01] help us build out the analytics side.
+[00:21:03] And the reason why I'm saying that is
+[00:21:04] that I know in this player here, they
+[00:21:07] have video analytics directly built into
+[00:21:10] the image kit player that we're using,
+[00:21:11] the new video player. So, as long as
+[00:21:13] it's enabled, then we'll be able to
+[00:21:14] track all of the information and we can
+[00:21:16] view it inside of image kit in their own
+[00:21:19] dashboard or I believe we can pull it in
+[00:21:20] from the API and also view it in ours.
+[00:21:23] Okay, so Claude is wrapping up this
+[00:21:25] build here. Here we can see I just got
+[00:21:26] it to fake a bunch of data. So it didn't
+[00:21:28] actually upload the videos but at least
+[00:21:30] just created the entries so we could
+[00:21:31] kind of see them. Here we have different
+[00:21:33] channel channels, sorry. So I can click
+[00:21:34] into Wander Lens or whatever and see
+[00:21:36] like all the fake info about these
+[00:21:38] videos. And then it added a studio
+[00:21:40] feature as well. So for studio, if I
+[00:21:42] click that, it shows me my videos, the
+[00:21:44] views, watchtime, subscribers, likes,
+[00:21:46] comments, whatever. And I can click into
+[00:21:48] an individual video and see exactly how
+[00:21:51] this is tracking. Now we also can search
+[00:21:53] for something. So maybe let's search for
+[00:21:55] tech with or something and see. Boom.
+[00:21:57] Tech with Tim comes comes up short tech
+[00:21:59] with Tim because that's what I uh titled
+[00:22:01] it. And you guys get the idea. We even
+[00:22:03] have a fully functioning history. And of
+[00:22:05] course there's a lot more that we could
+[00:22:06] add. But at this point I'm actually
+[00:22:08] satisfied with this progress. So I am
+[00:22:11] going to wrap up the build here. And
+[00:22:13] again like so much more I could do here
+[00:22:14] to really build this out. But I wanted
+[00:22:16] to show you mostly how you set up the
+[00:22:18] project, the important integrations, the
+[00:22:20] tool that you pick, the skills, the
+[00:22:21] design system, and generally speaking,
+[00:22:24] best practices when it comes to building
+[00:22:26] with these AI tools. And you can see
+[00:22:27] that in a relatively short amount of
+[00:22:29] time, or at least short amount of
+[00:22:30] prompts, I was able to get something
+[00:22:32] fully featured. And the reason why I was
+[00:22:34] able to do that with really no real
+[00:22:36] hiccups is because I made the right
+[00:22:38] decisions up front. I spent the time to
+[00:22:41] map it out, and importantly, I used the
+[00:22:43] correct tools. So, if you guys enjoyed
+[00:22:44] this video, make sure to leave a like,
+[00:22:46] subscribe to the channel, and I will see
+[00:22:48] you in the next one.
+[00:22:50] [music]

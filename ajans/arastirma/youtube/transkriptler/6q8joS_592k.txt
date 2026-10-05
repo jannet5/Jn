@@ -1,0 +1,280 @@
+# Claude Code Tutorial for Beginners: Build App with AI (2026)
+# https://www.youtube.com/watch?v=6q8joS_592k
+# kanal: Mikey No Code | süre: 1312 sn | kaynak: yt-dlp:web_embedded:6q8joS_592k.en-orig.json3
+
+[00:00:00] Cloud Code just built me a clone of a $400,000
+[00:00:04] per month app from the app store without me writing a single line of code. And I
+[00:00:09] know that sounds impossible, but I'm about to prove it to you because most
+[00:00:13] people think that you need years of programming experience to build
+[00:00:16] successful apps, but what if I told you that that is completely wrong? In this
+[00:00:22] screenshot, you can see it's proof that this simple math calculator app is
+[00:00:26] generating massive revenue. We're talking serious money here. Question AI
+[00:00:31] is a smart calculator that helps students solve complex math problems
+[00:00:35] instantly using AI, of course, and it's become one of the top educational apps
+[00:00:40] on the app store. And here's a crazier part. I'm going to show you exactly how
+[00:00:44] to copy this entire app using nothing but cloud code. There's no programming
+[00:00:50] background required, no coding boot camps, no expensive developers, just
+[00:00:55] you, an AI tool, and a simple prompt. So that by the end of this video, you are
+[00:01:00] going to have your own fully functional app. And I'm going to walk you through
+[00:01:04] the entire process step by step, showing you the exact prompts I used and
+[00:01:10] revealing how AI literally built everything for me while I just sat back
+[00:01:14] and watched it happen. So, let's dive in. Just a quick side note here. Later
+[00:01:18] on in the video, I will tell you more about how to submit the app that we're
+[00:01:22] going to build today to the app store in minutes. And if you can't wait, I got
+[00:01:26] you. Just check out the link in the description to my school community for
+[00:01:30] more information. A lot of people get excited about building apps right up
+[00:01:34] until they open up their editor and then they realize they have no idea where to
+[00:01:39] start. Files, folder, setup, configs, it all adds up fast. Cloud code helps
+[00:01:45] remove a lot of that friction by letting you work side by side with an AI coding
+[00:01:50] agent that helps you think through the build, write the code, and then move
+[00:01:54] forward without constantly getting stuck. So, we're going to start by
+[00:01:58] installing Cloud Code, and we'll use it to create our first app. Unlike tools
+[00:02:03] like Cursor Windsor, or anti-gravity that act as full AI powered editors,
+[00:02:08] Cloud Code works more like GitHub Copilot. It's an extension you install
+[00:02:13] into VS Code or any supported IDE that lets you use Claude as an AI coding
+[00:02:18] agent directly inside your existing workflow. To install it, open VS Code
+[00:02:22] and head to the extensions panel. Search for Claude Code and then look for the
+[00:02:27] version with the highest ratings that's officially published and verified by
+[00:02:32] Anthropic, Claude's parent company. Once you found it, click install and then
+[00:02:37] give it a moment to finish setting up. After the installation completes, just
+[00:02:41] open up a new VS Code window so everything loads correctly. And once
+[00:02:46] that's done, we're ready to actually run Claude Code and start building. Running
+[00:02:51] Cloud Code is really straightforward. You'll notice a Claude icon here in the
+[00:02:56] upper right corner of VS Code. And you can click this icon and that will open
+[00:03:00] up Claude Code's chat panel directly inside the editor. If you don't see the
+[00:03:05] icon right away, a quick restart of VS Code or opening a new window usually
+[00:03:09] does fix it. If not, it's always worth double-checking that the extension is in
+[00:03:14] fact installed correctly. When the panel opens up, you'll see Claude Codes chat
+[00:03:19] terminal. Now, this is where everything will happen. You can send prompts, you
+[00:03:23] can give specific instructions, you can ask for explanations, or even attach
+[00:03:28] files for context. Now, this chat will be your main way of communicating with
+[00:03:34] the AI while we build. Now, let's actually put Claude code to work and
+[00:03:38] create our first app. I want to keep things simple. So, we're going to start
+[00:03:42] with a basic project and ask Claude to build a website similar to Wikipedia.
+[00:03:48] Inside the Claude code chat, I'm going to send over this prompt. Please create
+[00:03:52] a simple website using React and Node similar to Wikipedia. And with that, a
+[00:03:58] quick heads up. Inside my school community, I've put together a full list
+[00:04:02] of every single prompt I'm using to build this app broken down by each
+[00:04:06] video. And if you want to follow along exactly or even reuse these prompts for
+[00:04:11] your own projects, you're going to find the link in the description below. And
+[00:04:15] as soon as that prompt is submitted, you'll see Claude start breaking the
+[00:04:18] tasks down and outlining what it needs to do to build out the project. One
+[00:04:23] important thing to notice here is that I specifically told it to use React and
+[00:04:28] Node. Being clear about frameworks and tools is a big deal when working with
+[00:04:33] AI. Those details make a huge difference in getting the exact kind of project
+[00:04:38] that we want. And while Claude is working, you'll also see it's preparing
+[00:04:42] to run commands in the terminal. Now, this is something you should always
+[00:04:48] always pay attention to. Claude will show you what it plans to execute and
+[00:04:52] you get to decide whether to allow it or not. So since this is just a demo, I'm
+[00:04:58] giving it permission to run all commands that it needs. From here, we will just
+[00:05:03] let Claude finish generating the project. After a few minutes, Claude
+[00:05:07] does finish generating the project and it's letting us know that the
+[00:05:12] application is ready to go. You'll also notice that it clearly explains how to
+[00:05:17] run the app and it also provides the exact command we need to get it started.
+[00:05:21] All right, so we have to try it out. Of course, I'm going to copy that command.
+[00:05:25] I'm going to open up the terminal and then I'm going to paste it in to launch
+[00:05:28] the application. And once it starts running, we can see our Wikipedia style
+[00:05:33] website loading locally on my system and functioning as expected. All right, now
+[00:05:38] that the app is running, this is a good point here to make a small change so we
+[00:05:43] can see how Claude handles updates to an existing project. Adding a dark mode is
+[00:05:48] a simple example here that affects the interface without really changing how
+[00:05:52] the app works overall. So, we'll open the project directly inside VS Code,
+[00:05:57] which lets us see all of the project files in the explorer panel on the left.
+[00:06:02] And from there, we'll go back to the cloud code chat and ask it to make the
+[00:06:06] update by setting over a prompt like this. Please add a dark mode theme for
+[00:06:11] the application. That's it. Simple as that. After setting the prompt, we'll
+[00:06:14] give Claude a moment to apply the changes before running the application
+[00:06:19] again to see how everything looks. Now, once the update is finished, we're going
+[00:06:24] to ask Claude to run the application again rather than opening up the
+[00:06:29] terminal ourselves. And cloud code isn't just making changes to the project. It
+[00:06:35] can also execute commands which does keep everything in one place and makes
+[00:06:40] our workflow feel a lot smoother. We'll send a simple prompt like this one.
+[00:06:44] Launch the application. Simple as that. And after the app starts up, we can see
+[00:06:48] our Wikipedia style website running again, but this time with a theme toggle
+[00:06:53] that lets us switch between light and dark mode. And that confirms the change
+[00:06:58] was applied correctly obviously and that the update didn't just affect anything
+[00:07:02] else in the app. Okay, so before we can start building our actual project, the
+[00:07:07] system needs a couple of tools that most modern JavaScript projects rely on. Now,
+[00:07:13] Git handles version control behind the scenes, and Node.js is what allows the
+[00:07:17] app to actually run during development. Making sure both are installed now
+[00:07:22] prevents unnecessary issues later on. And Git can be installed by heading over
+[00:07:27] to git-sem.com/install and downloading the version that matches
+[00:07:32] your operating system, Windows or Mac. Once the file finishes downloading, you
+[00:07:36] can install it like any other application by running the installer and
+[00:07:40] just following the prompts. For Node.js, head to nodejs.org and download the
+[00:07:46] current version for your operating system. After the download completes,
+[00:07:51] install it in the same way. Just run the installer and let it handle the setup.
+[00:07:55] Now, in my case, both Git and Node.js are already installed and configured,
+[00:08:00] which is why you won't see those steps shown here. The process itself is very
+[00:08:05] straightforward anyway, and usually only takes a few minutes to complete. Now
+[00:08:09] that the basic setup is out of the way, we can focus on the part that actually
+[00:08:14] matters, and that's building the app. Having an interface on the screen
+[00:08:18] changes how the rest of the build unfolds. Layout decisions stop being
+[00:08:22] guesses and it becomes clear how users will move through the app and where each
+[00:08:27] feature belongs. And that's why the front end comes first. And the first
+[00:08:32] thing we'll do is build the front end so we do have a visual foundation for the
+[00:08:37] app. For this project, we'll be using React Native with Expo as the base. From
+[00:08:42] the Claude code chat, we're going to ask Claude to generate a simple front-end
+[00:08:46] layout by sending over a prompt like this. Hey Claude, inside this workspace,
+[00:08:52] please create a React Native Plus Expo application that utilizes SDK 54. Create
+[00:08:58] a simple front-end project of a math focused homework helper. Create five
+[00:09:02] main sections that are mobile optimized: dashboard, saved, learn, quiz, and
+[00:09:07] settings. Create only the front end with placeholder data and don't build any
+[00:09:12] actual functionality yet. And after sending over that prompt, Claude will
+[00:09:16] generate the project structure and UI. And what we have here now is a clean
+[00:09:21] dark themed mobile app with all five sections in place. The screens are
+[00:09:25] static for now. Nothing is interactive. Not yet. And that is expected. We'll
+[00:09:31] focus on building the actual functionality in the next steps. So the
+[00:09:35] thing is an app like this only becomes useful once users can actually bring
+[00:09:40] their own problems into it. Typing everything manually is not realistic,
+[00:09:45] especially for math homework. So the ability to take a photo or upload one is
+[00:09:50] a core part of how people will use the app day-to-day. We'll start by building
+[00:09:55] the upload and camera functionality so users can scan their math problems
+[00:10:00] directly from the dashboard. And from the Claude code chat, we'll ask Claude
+[00:10:04] to create the widget. Great job. Please create a widget at the dashboard that
+[00:10:09] allows the user to upload or take photos. Once a photo has been uploaded
+[00:10:14] or taken, show a preview of the photo. And after that, Claude updates the
+[00:10:19] dashboard with our new widget. And if we're going to click it, it opens the
+[00:10:24] option to either upload an existing image or use the camera. And once an
+[00:10:29] image is selected, a preview appears immediately on our screen. And this
+[00:10:33] function is important because it gives our user a chance to doublech checkck
+[00:10:37] that the photo is clear and it's correctly framed and actually shows the
+[00:10:42] problem they want help with. And from a user perspective, this small interaction
+[00:10:46] does matter a lot. Seeing the image preview confirms the app captured the
+[00:10:51] input correctly before any processing happens at all and it makes the
+[00:10:56] experience a lot more deliberate and reliable. So anytime an app relies on
+[00:11:01] AI, there has to be a secure way to let it talk to the model behind the scenes.
+[00:11:06] And that's what the API key is for. It acts like a private access pass, telling
+[00:11:11] Claude which project is making the request and allowing the app to send
+[00:11:16] images and receive responses. To generate one, just follow the
+[00:11:20] instructions and the process here on your screen.
+[00:11:41] So after you generate that claude key, copy it and store it somewhere safe. Now
+[00:11:46] this key is something we're going to use later when we connect Claude to our app.
+[00:11:50] And it's important not to share it publicly or hardcode it directly into
+[00:11:54] the project. So at this point, I have to ask you, are you ready to turn this app
+[00:11:58] built by Claude Code into cold hard cash? Because in this video, you will
+[00:12:03] learn how to build an app with Cloud Code. But here's what separates the
+[00:12:08] builders from the money makers. It's publishing and then monetizing the app.
+[00:12:13] While most people stop at, "Wow, look at here. I built something cool." You are
+[00:12:17] going to be different. You're going to discover how to turn your Claude Code
+[00:12:20] creations into a real income stream. Inside my exclusive school community,
+[00:12:25] you get stepbystep walkthroughs of submitting and publishing your Claude
+[00:12:31] Code app to the app store in minutes, not months. My complete AI app profit
+[00:12:37] system. It's the exact blueprint that I use to build and monetize apps and a
+[00:12:42] whole lot more. This isn't just about building apps. It's about building a
+[00:12:46] business. And if you are genuinely interested in making money online,
+[00:12:51] please do check out the link in the description below and consider joining
+[00:12:55] my exclusive school community to secure your spot. Now, let's get back to
+[00:12:58] building the app. People don't open up a math app just to look at a screen or
+[00:13:03] upload a photo. They open it because they're stuck, they're short on time, or
+[00:13:08] they're trying to understand where they went wrong. So, the ability to turn a
+[00:13:12] photo of a problem into a clear explanation is what determines whether
+[00:13:17] the app is actually useful or gets deleted after one try. And that's what
+[00:13:21] this step focuses on. We'll start by integrating Open AI and building the
+[00:13:26] image scanning feature that powers the app's core functionality. Now, the goal
+[00:13:31] here is simple from the user's perspective. just take a photo of a math
+[00:13:35] problem and then get both the correct answer and a clear explanation of how
+[00:13:40] that answer was reached. So from our cloud code chat, we're going to send
+[00:13:44] over this prompt. Please integrate OpenAI and build the image scanning
+[00:13:49] functionality. Utilize OpenAI to assess the questions from the scanned image.
+[00:13:55] Then show the answers as well as a complete comprehensive breakdown of how
+[00:14:01] the answer was acquired. Tailor the AI to be proficient with math in
+[00:14:06] particular. Here's the open AI API key. Insert your key here and make sure to
+[00:14:12] create av file for storage. Configure it accordingly. Then set a.get ignore file.
+[00:14:18] Do not hard-code any API keys or sensitive information in the app. And
+[00:14:22] once that prompt is submitted, Claude begins wiring everything together,
+[00:14:27] handling the open AI integration, setting up secure environment variables,
+[00:14:32] and also connecting the image input to the AI logic. Now, this part may take a
+[00:14:38] bit longer since it is building actual functionality instead of just interface
+[00:14:42] elements. And after putting everything in place, we can now test it out. And
+[00:14:46] we'll do that by uploading the same math problem image from earlier. The app
+[00:14:51] sends the image to OpenAI, processes it, and then returns a detailed result. And
+[00:14:57] look here, it did not just show us a final answer. The response walks us
+[00:15:02] through the reasoning step by step, explaining how the solution was reached.
+[00:15:06] Now, this is important, especially for learning, because it helps our users
+[00:15:10] understand why the answer is correct, not just what the answer is. And seeing
+[00:15:16] that full breakdown appear on our screen confirms the AI integration is working
+[00:15:21] and that the app is now capable of doing real problem solving. Getting an answer
+[00:15:25] is of course helpful, but most people don't solve everything in one sitting.
+[00:15:30] They come back to problems later, compare solutions, or maybe they want to
+[00:15:34] review how something was solved before a test. And without a way to save past
+[00:15:39] questions and answers, all that value just disappears the moment the app is
+[00:15:43] closed. So here I do want to focus on giving users a way to keep what they've
+[00:15:48] already worked through. So we're going to build out a dedicated saved section
+[00:15:52] that allows users to store any scanned questions along with their answers. From
+[00:15:57] the Claude code chat again, we're going to ask Claw to extend the app. Let's
+[00:16:02] improve the application further by creating the save section. Remove all
+[00:16:07] placeholder data from the app. Then make sure all scanned images and their
+[00:16:11] answers can be saved by the user to the saved section. Once Claude finishes
+[00:16:16] updating the app, we can now test our current flow. So let's upload the same
+[00:16:21] math problem again. And after completing the scan and the answer is returned, a
+[00:16:25] new save button here appears alongside the result. And if we're going to tap
+[00:16:30] that button, it will store both the image and the explanation. So let's
+[00:16:35] check it here in the save section. And there you go. It shows the entry exactly
+[00:16:40] where it should be with the problem and its solution preserved. This makes it
+[00:16:44] easy for users to revisit previous questions to review their work or
+[00:16:49] reference explanations later without having to rescan the same problem again.
+[00:16:54] However, not every math problem starts with a question someone is stuck on. A
+[00:16:59] lot of the time, the real issue is missing fundamentals or needing a quick
+[00:17:04] refresher before tackling something harder. So having a place inside the app
+[00:17:09] where users can review concepts on their own turns it into more than just a
+[00:17:14] problem solver. So at this stage I'm thinking of adding a dedicated learn
+[00:17:20] section that gives users access to a broad range of math topics across
+[00:17:24] different levels. From the cloud code chat again we're going to ask Claude to
+[00:17:28] generate this section. Now please create the learn section for our app here. have
+[00:17:33] a broad range of mathematics courses across various levels that the user can
+[00:17:38] use to review. Make this as comprehensive as possible. And after
+[00:17:43] Claude is done building out the new section, the learn tab is now populated
+[00:17:47] with a wide variety of math topics. The content is organized by level, making it
+[00:17:52] easier to browse and jump into areas that need review. So now instead of
+[00:17:56] having to leave the app to search for explanations elsewhere, our users can
+[00:18:01] stay in one place right here and build understanding alongside the
+[00:18:05] problem-solving features. Practice is where understanding really sticks.
+[00:18:10] Reading explanations do help out, but being able to test yourself and then see
+[00:18:14] where you get things right or wrong is what actually reinforces the material.
+[00:18:19] So, we're going to add quizzes here to give users a way to actively engage with
+[00:18:23] what they've learned instead of just consuming information. So, we're going
+[00:18:28] to build out a dedicated quiz section that lets users work through short
+[00:18:32] interactive quizzes across different difficulty levels. So, just like earlier
+[00:18:37] in our Claude code chat, we're going to ask Claude to create this feature for
+[00:18:41] us. Now, please build the actual quizzes feature of the application. Remove any
+[00:18:46] remaining placeholder data and give the user a wide range of short quizzes
+[00:18:51] across various difficulty levels so they can practice and learn. Show the proper
+[00:18:56] answers at the end with clear explanations. And there you have it. The
+[00:19:00] quiz section here is now ready to use. So, let's open this up. And you can see
+[00:19:05] here that it shows me a mix of short quizzes at different difficulty levels.
+[00:19:09] So, it is easy to just pick one and jump right in. Going through the questions
+[00:19:13] themselves is really straightforward and you can move at your own pace without
+[00:19:18] feeling rushed. When a quiz does end, the app also shows the correct answers,
+[00:19:23] of course, and it explains how each one was solved. So, instead of just telling
+[00:19:27] you whether you got something right or wrong, it helps you understand what went
+[00:19:32] off and how to approach the problem next time. And that makes the quizzes more
+[00:19:37] like a study tool rather than a test. And right now the app itself is
+[00:19:42] complete. All the core features are in place and everything is working the way
+[00:19:46] it should. Apps like this get built every single day. And what actually
+[00:19:50] matters is what happens after. So after putting all the features together, the
+[00:19:55] next thing I want to do is actually use the app the way someone else would.
+[00:20:00] running through everything in just one pass does show me how the experience
+[00:20:05] flows and whether all the pieces work the way they're supposed to be working.
+[00:20:09] So, let's go ahead and start by walking through each section of the app so that
+[00:20:13] we can see that everything that we asked Claude to build out is there and
+[00:20:18] actually functioning. So, we'll move through the dashboard, some saved items,
+[00:20:23] learning materials, quizzes here, and the settings just to get a full picture
+[00:20:27] of the app. Next, I'm going to scan a math problem using the upload feature
+[00:20:31] and let the app process it. Once the answer comes back to me, we can go ahead
+[00:20:36] and save it. Then switch over to the save section here to make sure that both
+[00:20:40] the image and the explanation are stored correctly. After that, let's head into
+[00:20:45] the learn section to browse through some of the available topics and then move
+[00:20:50] over to the quiz section now to skim through a few quizzes. And as we go
+[00:20:55] through them, the app shows the correct answers along with the explanations of
+[00:21:00] how each one was solved. And seeing everything work together like this
+[00:21:05] confirms that the app is ready to use from end to end. And there you go. Now
+[00:21:10] you've seen the full process starting from a blank workspace and then ending
+[00:21:15] with a working app built entirely with cloud code. This is the same kind of
+[00:21:20] workflow that developers use to prototype, test, and ship real products,
+[00:21:26] including the kind of apps that quietly generate hundreds of thousands per month
+[00:21:31] on the app store. And if you also want the exact prompts, the app store
+[00:21:36] publishing walkthrough, and the deeper breakdown of how I take apps like this
+[00:21:41] further, like what I said earlier, all of that lives inside my school
+[00:21:46] community. You'll find the link in the description below. I'll see you at the
+[00:21:50] next one.

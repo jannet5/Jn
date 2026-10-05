@@ -1,0 +1,57 @@
+# 
+# https://www.youtube.com/watch?v=sneNR5KnRJU
+
+Book (From Idea to App Store with Claude Code): https://cwb.sh/book?r=yt-build-app-with-ai
+
+Most AI tutorials promise an app and ship a website, here's how to actually build a real mobile app with Claude Code, Expo, and InstantDB, running on iOS and Android with a real-time database.
+
+Resources mentioned
+InstantDB → https://www.instantdb.com?utm_source=beto
+Claude Skills → https://codewithbeto.dev/blog/my-favorite-claude-skills
+Free Figma designs → https://codewithbeto.dev
+https://youtu.be/i5wd1-QGE1A
+
+My Products
+• Pro Access — get access to everything: https://cwb.sh/pro?r=yt
+• React Native Course: https://cwb.sh/rn?r=yt
+• Platano — AI app template: https://cwb.sh/platano?r=yt
+• Book — From Idea to App Store with Claude Code: https://cwb.sh/book?r=yt
+• Inkigo — AI Tattoo (iOS): https://cwb.sh/inkigo?r=yt
+• Quick Push — test push notifications (macOS): https://apple.co/4tvT4wF
+
+Free Resources
+• Newsletter: https://cwb.sh/newsletter?r=yt
+• Discord: https://cwb.sh/discord?r=yt
+
+Support My Work
+• Channel Membership: https://cwb.sh/join
+• GitHub Sponsors: https://github.com/sponsors/betomoedano
+
+Socials
+Follow Beto on X: https://cwb.sh/x?r=yt
+LinkedIn: https://cwb.sh/in?r=yt
+GitHub: https://cwb.sh/gh?r=yt
+Instagram: https://cwb.sh/insta?r=yt
+TikTok: https://cwb.sh/tiktok?r=yt
+Threads: https://cwb.sh/threads?r=yt
+Bluesky: https://cwb.sh/bsky?r=yt
+Facebook: https://cwb.sh/fb?r=yt
+
+Timestamps
+00:00 Intro
+00:36 What you need (Expo Go, InstantDB, VS Code)
+01:53 Create the project folder in VS Code
+02:32 Install the Claude Code extension
+03:05 Run create-instant-app (Expo + Claude)
+04:32 Name your app and create the InstantDB backend
+05:25 Start the dev server and load on iOS + Android
+06:32 Install Claude skills (build-native-ui + InstantDB)
+09:01 Plan mode — never let AI code before it has a plan
+12:10 Why the shape of your data matters
+13:25 Claude builds the app
+14:05 Test it on real devices with real-time sync
+15:24 Improve the UI with a Figma screenshot
+18:33 Fix bugs and iterate
+19:29 Recap + what to do next
+
+#claudecode #ai #claude

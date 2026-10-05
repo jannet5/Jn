@@ -1,0 +1,441 @@
+# React Native Tutorial for Beginners: Build App with AI (2026)
+# https://www.youtube.com/watch?v=oaYIiJvtJ0g
+# kanal: Mikey No Code | süre: 915 sn | kaynak: yt-dlp:web_embedded:oaYIiJvtJ0g.en-orig.json3
+
+[00:00:00] React Native just changed everything for
+[00:00:02] app development, and I'm about to prove
+[00:00:04] it to you in the most insane way
+[00:00:06] possible. So, have you ever wondered how
+[00:00:08] some people seem to build milliondoll
+[00:00:10] apps overnight? Well, we're still
+[00:00:12] struggling with basic coding tutorials.
+[00:00:14] Well, what if I told you that you do not
+[00:00:16] need to write a single line of code? Not
+[00:00:19] anymore. So, in this screenshot, you can
+[00:00:20] see proof. This grocery list app is
+[00:00:22] pulling in over $10,000 last month from
+[00:00:25] the app store. Listonic is a smart
+[00:00:27] grocery shopping app that helps users
+[00:00:29] organize their shopping lists and
+[00:00:31] discover deals at nearby stores. It's
+[00:00:33] been downloaded millions of times and
+[00:00:35] generate serious revenue every single
+[00:00:37] month. And here's the crazier part. I
+[00:00:39] just recreated this [music] exact same
+[00:00:42] app using nothing but AI props. So, no
+[00:00:44] coding, no debugging, no pulling my hair
+[00:00:47] out over syntax
+[00:00:48] >> [music]
+[00:00:48] >> errors. I literally just described what
+[00:00:50] I wanted and AI built the entire
+[00:00:52] application for me. So, in this video,
+[00:00:54] I'm going to walk you through my exact
+[00:00:56] process of how I use AI to clone a
+[00:00:59] $10,000 per month app step by step.
+[00:01:01] You're going to see how React Native
+[00:01:02] combined with AI tools can turn anyone,
+[00:01:05] even complete beginners, into app
+[00:01:06] developers. So that by the end of this
+[00:01:08] tutorial, you are going to have your own
+[00:01:10] fully functional grocery app ready for
+[00:01:12] the app store. And more importantly
+[00:01:13] here, you're going to understand how to
+[00:01:15] use this same process to build any app
+[00:01:18] idea you have. Let's dive in. So, just a
+[00:01:20] quick note, later in the video, I'm
+[00:01:22] going to be telling you more about how
+[00:01:23] to submit the app that we're going to
+[00:01:25] build here to the App Store and Google
+[00:01:27] Play Store in minutes. If you can't
+[00:01:29] wait, that's totally cool. Just check
+[00:01:30] out the link in the description below to
+[00:01:32] my school community for more
+[00:01:33] information. Every app starts the same
+[00:01:35] way, with a blank slate. And how you set
+[00:01:38] that up matters more than most people
+[00:01:40] think. If the base project is messy or
+[00:01:43] misconfigured, you end up fighting small
+[00:01:46] issues the entire time. So now our
+[00:01:48] initial goal is to get a clean,
+[00:01:50] correctly configured React Native Plus
+[00:01:52] Expo project in place before we touch
+[00:01:54] any real functionality. We'll be using
+[00:01:56] the Windsurf IDE for this along with its
+[00:01:58] built-in AI agent called Cascade. And
+[00:02:00] for the model, we're running Claude
+[00:02:02] Sonnet 4.5. And instead of manually
+[00:02:05] wiring everything up, we're going to let
+[00:02:06] Cascade handle all the heavy lifting for
+[00:02:08] us, but we focus on defining what the
+[00:02:11] app should look like at a high level. We
+[00:02:13] will create a base project here with the
+[00:02:15] right Expo configuration and some
+[00:02:17] placeholder data. This will give us a
+[00:02:19] visual starting point and helps confirm
+[00:02:21] that Expo SDK 54 and EAS are set up
+[00:02:24] correctly from the very beginning. To do
+[00:02:26] that, we'll prompt Windsurf with
+[00:02:28] something like this. Please create a
+[00:02:29] React Native Plus Expo application that
+[00:02:32] utilizes Expo SDK 54 and EAS. [music]
+[00:02:35] Create a mobile app with three sections,
+[00:02:37] a dashboard, cart, and settings. add
+[00:02:39] placeholder data for a grocery list
+[00:02:41] shopping app, but don't build the actual
+[00:02:43] functionality yet. And in my school
+[00:02:45] community, you can also find a list with
+[00:02:47] all of the prompts that I'm about to use
+[00:02:49] in this video to build out this app and
+[00:02:51] also for each video on my channel, by
+[00:02:53] the way. So, link is added below. After
+[00:02:55] sending the prompt, Windservef generates
+[00:02:56] the project for us. And you can see here
+[00:02:58] that the app is already up and running
+[00:03:01] with the correct expo configuration. We
+[00:03:03] have our three main sections in place.
+[00:03:05] The dashboard, the list, and the
+[00:03:07] settings screen. navigation works, the
+[00:03:10] layout is visible, and everything runs
+[00:03:12] cleanly inside Expo. We're going to be
+[00:03:14] adding more sections and real
+[00:03:16] functionality in the next steps, but for
+[00:03:18] now, this is exactly what we want. It's
+[00:03:21] a solid baseline. So, from here on out,
+[00:03:23] we're building on top of something
+[00:03:25] stable instead of fixing setup mistakes
+[00:03:27] along the way. Before adding more logic,
+[00:03:29] we need to check how the app actually
+[00:03:31] looks on our screens. Even when
+[00:03:33] functionality works, a clunky or
+[00:03:35] outdated design can make everything
+[00:03:37] harder to use and harder to improve
+[00:03:39] later. So this is a good point here to
+[00:03:41] tighten out the layout, the spacing and
+[00:03:43] overall look. So the app already feels
+[00:03:45] solid before we move forward. So now we
+[00:03:47] are going to focus purely on design
+[00:03:49] here. What I want to happen is to give
+[00:03:51] the app a more modern look and improve
+[00:03:54] the overall user experience. So future
+[00:03:56] features feel intentional instead of
+[00:03:58] bolted on. Using wind surf again, we'll
+[00:04:00] ask Cascade to update the visual style
+[00:04:03] of the app. Rather than guessing [music]
+[00:04:05] design choices ourself, we'll just let
+[00:04:07] it take inspiration from modern shopping
+[00:04:09] cart and grocery list apps and apply
+[00:04:11] similar UI and UX patterns to our
+[00:04:13] project. So, here's a prop we're going
+[00:04:15] to use as a starting point. Please
+[00:04:16] update the app's design and give it a
+[00:04:18] more modern look. Get inspiration from
+[00:04:21] modern shopping cart apps similar to
+[00:04:23] ours and then apply the same design and
+[00:04:26] UX. And after sending the prompt,
+[00:04:27] Windservef updates the interface while
+[00:04:30] keeping the existing structure intact.
+[00:04:32] And there you have it. As you can see,
+[00:04:34] we now have a solid visual foundation.
+[00:04:37] From here, adding real functionality
+[00:04:39] will be much more natural. Most grocery
+[00:04:41] and shopping apps feel fine at first,
+[00:04:43] but they fall apart once you actually
+[00:04:45] start using them. This get messy. Items
+[00:04:47] pile up, and there's no easy way to
+[00:04:49] organize things by store or price or
+[00:04:51] category. And that's usually the point
+[00:04:53] where people just abandon the app
+[00:04:55] altogether. So in this part, we're going
+[00:04:57] to focus on building the one feature
+[00:05:00] that actually makes this useful in real
+[00:05:02] life, the shopping cart and the list
+[00:05:04] functionality. I'm going to expand the
+[00:05:06] app's core behavior by replacing all of
+[00:05:08] our placeholder data with real
+[00:05:10] interactive lists. I want users to be
+[00:05:12] able to create custom shopping lists,
+[00:05:14] add items to them, and organize
+[00:05:16] everything in a way that makes sense
+[00:05:18] when they're actually planning a trip to
+[00:05:20] the store. I'm also going to connect
+[00:05:21] this directly to the dashboard so the
+[00:05:24] most recent list shows up right away and
+[00:05:26] can be opened with a single tap. So
+[00:05:28] here's the exact prompt I'm using in
+[00:05:30] Windserve to build this part of the app.
+[00:05:32] Build the shopping cart/list
+[00:05:34] functionality. Clear out all placeholder
+[00:05:36] data and create a widget in the
+[00:05:37] dashboard that shows the recent shopping
+[00:05:40] list created. And whenever the user
+[00:05:42] clicks it, it should go to the shopping
+[00:05:44] list and cart section. Then open the
+[00:05:47] modal of that specific list. Users
+[00:05:49] should be able to create custom lists as
+[00:05:51] well and add filters to categorize which
+[00:05:54] stores quantity, the price and other
+[00:05:56] proper filters for the list. And once
+[00:05:58] Windsurf is done building this, we can
+[00:06:00] immediately test it inside the app. I'll
+[00:06:02] create a new shopping list here and I'm
+[00:06:04] going to name it hardware essentials.
+[00:06:07] And then I'm going to set the store as
+[00:06:08] hardware store. After that, I'm going to
+[00:06:11] add a new item called hardwood. [music]
+[00:06:14] Set the price to five and then assign it
+[00:06:16] to the flooring category. Then I'm going
+[00:06:18] to add another item called varnish and
+[00:06:21] categorize it under essentials. So
+[00:06:24] everything saves correctly. As you can
+[00:06:26] see, the list updates in real time and
+[00:06:28] the dashboard widget reflects the most
+[00:06:30] recent shopping list. [music] Right now,
+[00:06:32] the app is already far more practical
+[00:06:35] because it's just no longer static. It
+[00:06:37] responds to real input. It supports
+[00:06:39] organization and behaves like something
+[00:06:41] someone could actually rely on when
+[00:06:43] shopping. Once shopping lists start
+[00:06:45] growing, things can get chaotic fast. A
+[00:06:47] list of two or three items is easy to
+[00:06:49] manage, but once you're dealing with
+[00:06:50] different stores and prices and
+[00:06:52] categories and quantities, scrolling
+[00:06:54] through everything becomes annoying. So,
+[00:06:56] in this part, we're going to focus on
+[00:06:58] making the shopping cart easier to
+[00:07:00] navigate by adding proper filters and
+[00:07:02] search options. So, I'm going to expand
+[00:07:05] the existing shopping list so users can
+[00:07:07] quickly sort and find what they need
+[00:07:09] instead of manually scanning every
+[00:07:11] single item. And the idea here is to let
+[00:07:13] people filter their list by things like
+[00:07:15] category, store, or price. and also give
+[00:07:17] them a search bar so they can instantly
+[00:07:19] locate a specific item. So here's the
+[00:07:21] exact prompt I'm using in Windsurf to
+[00:07:24] add this kind of functionality. Now
+[00:07:25] please expand the list by adding filters
+[00:07:27] and search options. Make it
+[00:07:29] comprehensive yet easy to understand for
+[00:07:32] the user. After Windsurf applies the
+[00:07:34] update, we're going to test it by
+[00:07:36] opening an existing shopping list. And
+[00:07:38] right away I can see new filter options
+[00:07:40] available inside the list view. At this
+[00:07:43] point, the shopping cart is no longer
+[00:07:45] just a basic list and more like a real
+[00:07:47] planning tool. Users can organize,
+[00:07:50] filter, and search without friction,
+[00:07:52] which makes the app far more usable in
+[00:07:54] everyday situations. So, are you ready
+[00:07:56] to turn this app built by AI into cold,
+[00:07:59] hard cash? Because in this video, you
+[00:08:01] will learn how to build an app with AI
+[00:08:02] in React Native. But here's what
+[00:08:04] separates the builders from the actual
+[00:08:06] money makers, publishing and monetizing
+[00:08:08] that app. While most people stop at, oh,
+[00:08:10] look, I built something cool. You are
+[00:08:12] about to discover how to turn your AI
+[00:08:14] creations into a real income stream.
+[00:08:16] Inside my exclusive school community,
+[00:08:18] you get step-by-step walkthroughs of
+[00:08:20] submitting and publishing your AI React
+[00:08:23] Native app to the app store in minutes,
+[00:08:26] not months. My complete AI app profit
+[00:08:28] system. It's the exact blueprint that I
+[00:08:30] use to build and monetize apps and a
+[00:08:32] whole lot more. This isn't just about
+[00:08:34] building apps anymore. It's about
+[00:08:35] building a business. And if you're
+[00:08:37] genuinely interested in making money
+[00:08:39] online, please do go ahead and check out
+[00:08:41] that link in the description below and
+[00:08:42] join my exclusive school community to
+[00:08:45] secure your spot. One thing people do
+[00:08:47] over and over when shopping is buy the
+[00:08:49] same items again and again. So, milk,
+[00:08:52] eggs, cleaning supplies, snacks. It's
+[00:08:54] usually the same pattern every week. So,
+[00:08:56] instead of making users rebuild their
+[00:08:58] lists from scratch every time, I'm going
+[00:09:00] to add a smart suggestion feature that
+[00:09:03] services those repeat items
+[00:09:04] automatically. And what I'm doing here
+[00:09:06] is building a smart suggestion widget
+[00:09:08] directly into the dashboard. And this
+[00:09:10] widget looks at the items users add most
+[00:09:12] often and then suggests them up front so
+[00:09:15] they can add frequently purchased items
+[00:09:17] to their cart with a single tap. Here's
+[00:09:19] the exact prompt that I'm using in
+[00:09:21] Windserve to build out this feature.
+[00:09:23] Please build the smart suggestion
+[00:09:24] feature. Create a widget in the
+[00:09:27] dashboard that shows suggestions of
+[00:09:29] items that you frequently buy so you can
+[00:09:31] easily add them in the cart. And once
+[00:09:34] Wind surf is done, we'll head back to
+[00:09:36] the dashboard to test it out. And I can
+[00:09:38] see a new smart suggestions widget here
+[00:09:41] showing items based on my previous
+[00:09:43] shopping behavior. And when I tap one of
+[00:09:45] these suggested items, it gets added
+[00:09:47] directly to an existing shopping list
+[00:09:49] without any extra steps. So this small
+[00:09:52] addition actively helps users build
+[00:09:54] their list faster, especially for
+[00:09:56] recurring purchases. It's one of those
+[00:09:57] features that doesn't look complex, but
+[00:10:00] really does end up being something
+[00:10:01] people rely on every time they open up
+[00:10:04] the app. And once a few shopping lists
+[00:10:05] are in place, it becomes really easy to
+[00:10:08] lose track of how much money is actually
+[00:10:10] being spent. You add items here and
+[00:10:12] there and prices stack up quietly and
+[00:10:15] before you know it, the total is higher
+[00:10:16] than you expected. So that's the gap
+[00:10:18] that I want to fill in next. So I'm
+[00:10:19] thinking of adding a budgeting widget
+[00:10:21] directly into the dashboard. I also want
+[00:10:24] my dashboard to answer a few simple
+[00:10:26] questions the moment someone opens up
+[00:10:28] the app. Something like, "How much have
+[00:10:30] I spent recently?" Instead of making
+[00:10:32] users calculate totals themselves, the
+[00:10:34] app should just pull that information
+[00:10:36] automatically from their existing list
+[00:10:39] and keep it updated as things change. To
+[00:10:41] do that, I'm going to ask Windinserve to
+[00:10:43] build a dashboard widget that calculates
+[00:10:45] spending based on the user's recent
+[00:10:47] shopping activity. So, here's the exact
+[00:10:49] prompt we're going to use. Now create a
+[00:10:51] widget in the dashboard that shows
+[00:10:54] budgeting stats for the user based on
+[00:10:56] their recent lists. Make sure this
+[00:10:59] updates extensively. And after the
+[00:11:01] widget is generated, we can now head
+[00:11:03] back to our dashboard to see how it
+[00:11:05] behaves. [music] And right away we can
+[00:11:07] see a new budget and spending section
+[00:11:09] here showing me totals derived from my
+[00:11:12] shopping lists. To make sure it's
+[00:11:14] actually wired correctly, I'll try to
+[00:11:16] delete all existing lists. Then I'll
+[00:11:18] just create new ones with different
+[00:11:20] items and prices. [music] And as I add
+[00:11:22] items here, remove them or change
+[00:11:24] quantities, the widget actually updates
+[00:11:26] immediately. And the total spent adjusts
+[00:11:28] in real time based on whatever is
+[00:11:31] currently in the lists. And that tells
+[00:11:32] me the data connection is solid and the
+[00:11:35] widget isn't just displaying static
+[00:11:37] numbers. The dashboard is now actively
+[00:11:40] responding to the user instead of just
+[00:11:42] showing information. And this is
+[00:11:44] definitely something that can help users
+[00:11:46] stay aware of their spending without
+[00:11:49] adding extra steps or complexity. So
+[00:11:51] after using the app for a bit, one
+[00:11:53] pattern becomes obvious. Most shopping
+[00:11:55] lists repeat the same items over and
+[00:11:57] over. Groceries, household essentials,
+[00:11:59] basics that you buy every week, and
+[00:12:01] typing those items manually every time
+[00:12:03] slows things down and adds friction that
+[00:12:05] really just doesn't need to be there. A
+[00:12:06] catalog solves that problem by giving
+[00:12:08] users a readymade starting point. So,
+[00:12:10] I'm going to build a new section called
+[00:12:12] catalog that acts like a shared item
+[00:12:14] library. The idea is to include a wide
+[00:12:17] range of common foods and general
+[00:12:18] household items that users can quickly
+[00:12:20] browse and add to their lists. And this
+[00:12:22] section is not meant to replace custom
+[00:12:25] lists. It's there to make list building
+[00:12:27] faster and more convenient. To build
+[00:12:29] this out, I'm going to prompt Winerf
+[00:12:30] with something like this. Please create
+[00:12:32] a new section containing a wide variety
+[00:12:34] of common foods and general items. Link
+[00:12:37] this to the list builder whereas users
+[00:12:39] should be able to easily add these items
+[00:12:41] to the list. Make this as comprehensive
+[00:12:44] as possible. And after the build is done
+[00:12:47] with that prompt, let's open up the new
+[00:12:48] catalog section here and scroll through
+[00:12:50] it. The catalog is fully populated with
+[00:12:53] common grocery items and everyday
+[00:12:55] essentials all clearly organized. So if
+[00:12:58] you tap an item, it gets added directly
+[00:13:00] to the active shopping list without
+[00:13:01] extra steps or confirmation screens.
+[00:13:04] This feature removes a lot of repetitive
+[00:13:06] work. No need to rebuild the same
+[00:13:08] grocery list every week and users can
+[00:13:11] just rely on the catalog as a shortcut.
+[00:13:13] So now, if you've ever open an app late
+[00:13:15] at night and immediately felt blinded by
+[00:13:17] a bright screen, you already know why
+[00:13:19] this feature matters. It's dark mode.
+[00:13:21] And dark mode isn't a bonus anymore.
+[00:13:23] It's something users actively look for,
+[00:13:26] especially in apps they use regularly.
+[00:13:28] I'm going to add a dark mode toggle so
+[00:13:30] my users can switch between light and
+[00:13:32] dark themes whenever they want. And this
+[00:13:34] keeps the app comfortable to use in
+[00:13:36] different environments and makes it feel
+[00:13:38] more modern overall. And to do that, I'm
+[00:13:40] going to send Windinsurf this prompt.
+[00:13:42] Please create a dark mode theme or
+[00:13:44] button for the application. That's it.
+[00:13:46] And after that, let's try to switch the
+[00:13:48] app to dark mode. And you can see here
+[00:13:50] that everything updates right away. The
+[00:13:52] dashboard, shopping list, the widgets,
+[00:13:55] and all the cataloges all adapt cleanly,
+[00:13:57] and nothing feels broken or out of
+[00:13:58] place. Now, for this part, I'm just
+[00:14:00] going to use the app the way someone
+[00:14:02] normally would. and let's see how it
+[00:14:03] holds up. So, we're going to move
+[00:14:04] through each section here, create a new
+[00:14:07] shopping list, and start adding items to
+[00:14:09] it while watching how everything
+[00:14:10] updates. All right, so let's create a
+[00:14:12] fresh list, add a few items with
+[00:14:14] different categories and prices, [music]
+[00:14:17] and right away you can see our dashboard
+[00:14:19] reacting to those changes. Our totals
+[00:14:22] update, widgets refresh, and nothing is
+[00:14:24] delayed or out of sync. I'm going to
+[00:14:26] keep clicking around just to make sure
+[00:14:28] that nothing breaks. The budget widget,
+[00:14:31] smart suggestions, catalog, and grocery
+[00:14:33] list all respond the way that we would
+[00:14:35] expect them to. And there you have it.
+[00:14:37] We now have a perfectly working real
+[00:14:40] app, and everything works together
+[00:14:42] smoothly, and it's ready to be used. All
+[00:14:44] right, that is the full build, a real
+[00:14:47] grocery app from a blank project to a
+[00:14:49] working product all inside Windsor. And
+[00:14:52] everything you saw here actually runs.
+[00:14:53] So, if you want to keep going, and I'm
+[00:14:55] hoping you do, the next step is shipping
+[00:14:57] this to the App Store and Play Store
+[00:14:59] using EAS. And that's exactly what I'm
+[00:15:01] going to break down inside my school
+[00:15:03] community. If this helped you out,
+[00:15:04] please do hit like, subscribe for more
+[00:15:06] builds like this, and drop a comment if
+[00:15:08] you want me to turn another app idea
+[00:15:10] into a full walkthrough. I'm happy to do
+[00:15:12] that. I'll see you at the next

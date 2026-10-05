@@ -1,0 +1,827 @@
+# Build Your First App with Claude Code (No Experience Needed)
+# https://www.youtube.com/watch?v=XFmYkJJxsr8
+# kanal: Code with Beto | süre: 1713 sn | kaynak: yt-dlp:web_embedded:XFmYkJJxsr8.en-orig.json3
+
+[00:00:00] People with zero coding experience are
+[00:00:02] building and shipping real applications
+[00:00:03] right now. It's a bit scary as a
+[00:00:05] professional developer. I've seen it in
+[00:00:06] my own community, people who have never
+[00:00:08] written a single line of code publishing
+[00:00:10] applications on the App Store. And in
+[00:00:12] this video I'm going to show you exactly
+[00:00:13] how to do it using Claude code. Now,
+[00:00:15] here's what's interesting. This isn't
+[00:00:17] some simplified beginner only workflow.
+[00:00:19] This is the exact same process I use
+[00:00:21] every single time I start a new
+[00:00:22] application from scratch. And I've been
+[00:00:24] building mobile applications
+[00:00:25] professionally for years. And this is
+[00:00:27] how I do it. So, whether you are brand
+[00:00:28] new or you've been coding for a while,
+[00:00:30] you're going to get something out of
+[00:00:31] this video. And once we build
+[00:00:33] application, we're also going to create
+[00:00:34] a landing page for it using today's
+[00:00:36] sponsor, ready. It takes minutes. More
+[00:00:38] on that later. Hey, if you're new here,
+[00:00:40] I'm Beto. I spent years building mobile
+[00:00:42] applications at Walmart, then at Expo as
+[00:00:45] a developer success engineer, where I
+[00:00:46] helped thousands of engineers build
+[00:00:49] production applications. Now, I run
+[00:00:51] CodeWithBeto full-time, where I help
+[00:00:52] developers master mobile development and
+[00:00:55] ship real applications. We have some
+[00:00:56] success stories, students who landed
+[00:00:58] their first mobile dev role earning six
+[00:01:01] figures, and others who are already
+[00:01:02] making money from their applications on
+[00:01:04] the stores. If you want to be part of
+[00:01:05] that, I have a Discord community, a
+[00:01:07] weekly newsletter, and a pro membership.
+[00:01:09] All the links are in the description.
+[00:01:11] Let's get into it.
+[00:01:15] All right. So, if you're watching this
+[00:01:16] video, chances are that you are already
+[00:01:18] familiar with Claude code because you
+[00:01:20] are trying to build an application with
+[00:01:21] it. You've seen it everywhere, and you
+[00:01:24] know that professional developers use it
+[00:01:26] to build real software. But still, I'm
+[00:01:28] going to show you how to set it up, how
+[00:01:30] to install it on your Mac or Windows
+[00:01:32] machine, and create our first mobile
+[00:01:34] app. This is the landing page of Claude
+[00:01:36] code. You can just run this simple
+[00:01:38] command in your terminal. So, let's copy
+[00:01:40] it. And now let's open the terminal. The
+[00:01:42] terminal that I like to use it's called
+[00:01:45] Warp. The only thing that you need to do
+[00:01:46] here is just open your terminal. You can
+[00:01:48] use Warp like me. I'm going to leave a
+[00:01:51] link in the description. Or you can use
+[00:01:54] just a regular terminal that comes with
+[00:01:56] your Mac or PowerShell on Windows. Just
+[00:02:00] open it, paste the curl command here,
+[00:02:03] hit enter, and this is going to install
+[00:02:05] Claude code for you. So, let me run
+[00:02:07] this. And that's it. After a moment, you
+[00:02:09] should see something like this. I'm
+[00:02:10] going to run Claude help. Hit enter, and
+[00:02:13] this is just going to show you all the
+[00:02:15] commands that we can use with Claude,
+[00:02:16] which is a lot. We are not going to be
+[00:02:19] using all these flags at the moment, but
+[00:02:20] this is the way you confirm that you
+[00:02:22] have Claude installed on your computer.
+[00:02:24] You can also run Claude V to check the
+[00:02:27] version. The next thing I recommend
+[00:02:28] doing
+[00:02:29] is just navigate to the folder where you
+[00:02:32] want to create your application. So, in
+[00:02:34] my case, I have this folder called apps
+[00:02:37] in my desktop. Grab the folder that you
+[00:02:40] want to use to create your application,
+[00:02:42] and just drag it in here. This is going
+[00:02:44] to basically add the path of the folder
+[00:02:47] that you want to access [music] in your
+[00:02:49] terminal. And then you can prefix this
+[00:02:51] with CD, with which means [music] change
+[00:02:54] directory to my folder in my desktop
+[00:02:58] called apps.
+[00:02:59] If you hit enter, now we are inside this
+[00:03:02] folder in our terminal. And in here,
+[00:03:04] this is where I want to create my
+[00:03:06] application. I'm going to use React
+[00:03:08] Native to create my application because
+[00:03:09] that means the application is going to
+[00:03:11] work on iOS and Android, and you don't
+[00:03:13] need to install Android Studio or Xcode
+[00:03:16] to test it and run it on your physical
+[00:03:18] device. We're going to be using
+[00:03:19] something called Expo Go, which is an
+[00:03:21] application that you can download right
+[00:03:23] now from the App Store or or Play Store,
+[00:03:25] and we're going to use it to develop our
+[00:03:27] application. To create our application,
+[00:03:28] we can run the following command. NPX
+[00:03:31] create-expo-app.
+[00:03:33] Now, before I actually run this command,
+[00:03:35] I forgot to mention that we need to
+[00:03:37] install Node.js in your computer if you
+[00:03:40] haven't already. Node.js is basically a
+[00:03:42] program that allows your computer to run
+[00:03:44] JavaScript code. React Native and Expo
+[00:03:46] uses JavaScript, so that means we need
+[00:03:48] to install Node in our computer. So,
+[00:03:50] just go to the official webpage, click
+[00:03:53] on get Node. And I would recommend that
+[00:03:55] you install the LTS latest stable
+[00:03:58] version. And there are a couple ways to
+[00:03:59] install it.
+[00:04:01] You can run this command.
+[00:04:03] Copy it and paste it in your terminal.
+[00:04:06] Or if you prefer, you can just download
+[00:04:08] the installer for macOS, double-click
+[00:04:10] it, install it.
+[00:04:11] >> [music]
+[00:04:11] >> And once you do that, you can go back to
+[00:04:14] your terminal. Let's open a new tab.
+[00:04:17] And I'm going to type node
+[00:04:20] -v just to make sure that we have it
+[00:04:22] installed in our computer. And as you
+[00:04:24] can see, I have the version 24.
+[00:04:27] Okay. So, once you confirm that you have
+[00:04:28] Node, let's go ahead and run this
+[00:04:31] command. Let's click enter. All right.
+[00:04:33] This is going to create a new Expo
+[00:04:34] project, which at the end of the day
+[00:04:36] it's a React Native project. Now, I'm
+[00:04:39] not letting Claude code do this itself
+[00:04:42] because it's actually a waste of tokens
+[00:04:45] in my experience. And it's always good
+[00:04:47] to have already a solid foundation where
+[00:04:50] Claude can explore and start building on
+[00:04:52] top of versus letting Claude um initiate
+[00:04:56] the project because it could be using a
+[00:04:58] an older version or it could be doing
+[00:05:00] weird things. So, just initiating the
+[00:05:03] project and setting some boundaries for
+[00:05:04] the
+[00:05:05] agent, it's a huge massive improvement.
+[00:05:08] For this video, we want to build a habit
+[00:05:11] tracker. And of course, I've built a ton
+[00:05:13] of habit trackers, so I'm going to say
+[00:05:14] 2026.
+[00:05:16] And hit enter. After a moment, you
+[00:05:17] should see something like this saying
+[00:05:19] that the project is ready.
+[00:05:21] And now we can change the directory
+[00:05:23] [music] in our terminal to be habit
+[00:05:26] tracker. And it's actually suggesting it
+[00:05:28] here. You can do that by typing CD and
+[00:05:31] then the name of the folder.
+[00:05:33] And then hit enter.
+[00:05:35] And now we [music] are inside the habit
+[00:05:38] tracker project. Now, if you're just
+[00:05:40] getting started with mobile development
+[00:05:42] or just software development in general,
+[00:05:44] I would highly recommend that you use an
+[00:05:46] IDE. Personally, I recommend that you
+[00:05:48] use VS Code or Cursor. I have both
+[00:05:51] installed on my machine, and I prefer to
+[00:05:54] use Cursor. If you have installed
+[00:05:55] Cursor, you can actually run the command
+[00:05:58] cursor. to open the current folder in
+[00:06:01] Cursor. Just by running this command, I
+[00:06:03] can hit enter. So, this is how Cursor
+[00:06:05] looks like. And I really like to use
+[00:06:07] Cursor because it allows me to see the
+[00:06:09] files. So, for example, I'm going to
+[00:06:11] press shift command E,
+[00:06:13] and this is going to actually show me
+[00:06:15] the files on the left. And even if you
+[00:06:17] are not familiar with mobile
+[00:06:18] development, this is helpful just
+[00:06:22] being becoming familiar with how the
+[00:06:24] project looks like. We have a bunch of
+[00:06:26] folders, a bunch of code, and that's
+[00:06:29] okay. You don't have to change it or
+[00:06:31] move things around just yet. Just become
+[00:06:34] familiar with what's going on here. On
+[00:06:36] the right, if you are using Cursor, you
+[00:06:38] can just start prompting here.
+[00:06:40] Um but if you prefer to use Claude, you
+[00:06:43] can just open a terminal by pressing
+[00:06:45] command J.
+[00:06:46] Or if you want, you can also just go to
+[00:06:49] the
+[00:06:50] terminal tab and press new terminal.
+[00:06:53] And this will open a terminal for you.
+[00:06:55] The next thing to do is install Expo Go
+[00:06:58] on your phone. Here I am on the App
+[00:07:00] Store, and I'm just going to press open.
+[00:07:02] And this is how Expo Go looks like. It's
+[00:07:04] just an app that will allow us to see
+[00:07:07] and view the project that we are working
+[00:07:09] on here. This is very useful for
+[00:07:11] development, and it will save you hours
+[00:07:13] because you don't need to install Xcode
+[00:07:15] or VS Code to get started. If you want
+[00:07:17] to go deeper and learn how to set up
+[00:07:19] everything, I would highly recommend
+[00:07:21] that you check out my React Native
+[00:07:22] course. The link is in the description.
+[00:07:24] But for now, let's just use Expo Go.
+[00:07:26] Now, let's just start the project to see
+[00:07:29] if it's working.
+[00:07:30] In the terminal, I'm going to run the
+[00:07:32] command NPX [music] expo start. Now,
+[00:07:36] you might be wondering why I'm not using
+[00:07:38] Claude code. This is very awkward,
+[00:07:39] especially if you're not familiar with
+[00:07:41] coding and running commands on your
+[00:07:42] terminal. The reason for that is because
+[00:07:45] all these things are things that you're
+[00:07:47] going to be doing all the time. So, just
+[00:07:49] running, stopping the server it's
+[00:07:51] something that you should actually learn
+[00:07:53] to do. So, if I run the command, you can
+[00:07:54] see that we have Expo Go here running.
+[00:07:57] This is the server.
+[00:07:59] Um this means that we can scan this QR
+[00:08:02] code
+[00:08:03] and just view the application within
+[00:08:06] Expo Go in my phone. So, I'm going to
+[00:08:08] open the camera on my phone
+[00:08:11] and scan [music] the QR code.
+[00:08:14] There we go. I'm going to open in Expo
+[00:08:16] Go.
+[00:08:18] And this is just loading directly from
+[00:08:21] the project that you can see here.
+[00:08:23] This is how it looks. By default, this
+[00:08:25] is the template that we always start
+[00:08:27] with when we are using Expo
+[00:08:30] and React Native.
+[00:08:31] This is how it looks. I mean, this is an
+[00:08:33] application that I can start working on.
+[00:08:35] Okay, if you made it this far, you're
+[00:08:36] doing great. Now, the next thing that I
+[00:08:38] want to do before I start using Claude
+[00:08:40] is to install some agent skills. If you
+[00:08:43] are not familiar with agent skills, I
+[00:08:44] actually made a video explaining step by
+[00:08:46] step what it is, how it works, and how
+[00:08:48] to use them.
+[00:08:49] So, I would recommend that you check out
+[00:08:51] this video. It's just 14 minutes long.
+[00:08:53] And Expo
+[00:08:55] has skills for agents. At a high level,
+[00:08:58] skills allow the agents to follow best
+[00:09:01] practices. And the best practices are
+[00:09:03] laid down by the Expo team itself. Right
+[00:09:06] now, I'm focusing just on a simple UI,
+[00:09:08] just getting started with the project.
+[00:09:10] So, I'm going to use the build native UI
+[00:09:13] skill, which basically uses native UI
+[00:09:15] patterns,
+[00:09:16] Expo router,
+[00:09:18] Apple symbols, animations, visual
+[00:09:20] effects. You don't need to worry about
+[00:09:22] its implementation. Just know that if
+[00:09:24] you install this skill, Claude is going
+[00:09:27] to work better. It's going to create
+[00:09:28] better UIs. The way we install these
+[00:09:30] skills is by running this command. So,
+[00:09:33] let's copy that. Let's go back to our
+[00:09:35] project. And now I'm going to create a
+[00:09:36] new terminal window because the server
+[00:09:38] needs to be running all the time. This
+[00:09:41] is good because when the agent makes
+[00:09:42] changes in the project, we can also see
+[00:09:45] them live in our phone. So, let me go
+[00:09:47] ahead and create a new terminal by
+[00:09:49] pressing this plus icon, and let's paste
+[00:09:51] the command here.
+[00:09:52] Now, this command is actually using bun,
+[00:09:55] but remember, we are using NPX. If
+[00:09:57] you're using bun, just run it with the
+[00:09:59] bun x command, but right now it's NPX
+[00:10:02] skills add Expo skills. So, let's just
+[00:10:05] run this command. Okay, and now this is
+[00:10:07] going to tell me, "Okay, which skill do
+[00:10:08] you want to use?" We want to use build
+[00:10:11] native UI, so let's press space to
+[00:10:14] select that skill. And then hit enter.
+[00:10:17] Then it's going to ask me, "Which agent
+[00:10:19] do you want to use?" In this case, we're
+[00:10:21] using Claude Code, but notice that you
+[00:10:23] can also select multiple. So, right now
+[00:10:25] Claude Code is selected, so let's just
+[00:10:27] press enter. You can install skills to
+[00:10:29] be used globally on your computer in
+[00:10:32] multiple projects. But, right now, since
+[00:10:34] I don't I just want to use this skill
+[00:10:36] for this specific project, I'm just
+[00:10:38] going to select project, but if you
+[00:10:39] prefer, you can select global like this.
+[00:10:42] Let's just say project. And then, let's
+[00:10:44] select simlink recommended. Hit enter.
+[00:10:47] And proceed. Another thing to notice,
+[00:10:49] because we're using cursor, and this
+[00:10:50] would also happen on VS Code, is that
+[00:10:52] now
+[00:10:53] things that have changed in the project
+[00:10:55] are highlighted. So, right now we have
+[00:10:58] new folders like dot agents and dot
+[00:11:01] Claude. And it's basically the same
+[00:11:02] thing. Claude is going to use this
+[00:11:04] folder, and agents is going to be used
+[00:11:06] by cursor.
+[00:11:07] The the the reason why it's duplicated
+[00:11:09] is because cursor detected that we run
+[00:11:11] this command, and they also want to use
+[00:11:13] the skills not only with Claude, but
+[00:11:15] maybe you want to use a different agent,
+[00:11:16] so that's why it's duplicated, but
+[00:11:18] that's fine. Don't worry too much about
+[00:11:19] it. But, this is the skill. You can
+[00:11:21] click on it. You can see that these
+[00:11:23] folders are new. That's why they are
+[00:11:25] different color, and you can press on
+[00:11:27] the skill.markdown and learn more about
+[00:11:29] the guidelines and all the things here.
+[00:11:32] All right, so now we're ready to start
+[00:11:34] Claude within the project, so let's just
+[00:11:36] say Claude. Hit enter.
+[00:11:39] And let's authenticate. If this is the
+[00:11:40] first time, you can say slash login.
+[00:11:44] Hit enter.
+[00:11:45] And I'm going to log in with my Claude
+[00:11:47] account. You can also use the Anthropic
+[00:11:49] console account. This is going to charge
+[00:11:51] you based on the API usage, or you can
+[00:11:54] even use a third-party platform.
+[00:11:57] I'm just going to use Claude Code with
+[00:11:59] subscription.
+[00:12:00] This is going to open my browser. I need
+[00:12:02] to authorize that. And once it's done,
+[00:12:05] you can see that we have successfully
+[00:12:07] logged in.
+[00:12:08] All right, so now let's press escape.
+[00:12:11] And I'm going to ask Claude, "List my
+[00:12:14] skills [music] in this project."
+[00:12:17] Hit enter. And it's detecting the skill.
+[00:12:19] It means that we installed it correctly.
+[00:12:25] Now, this is very important. I've seen
+[00:12:26] many beginners trying to one-shot an
+[00:12:28] application and literally breaking
+[00:12:31] everything down.
+[00:12:32] >> [music]
+[00:12:32] >> Um and, you know, one-shotting works for
+[00:12:35] simple applications and sometimes for
+[00:12:37] complex ones. But, I would recommend
+[00:12:39] that you don't do that, and you don't
+[00:12:41] prompt it directly. Instead, always use
+[00:12:44] plan mode.
+[00:12:45] >> [music]
+[00:12:45] >> So, with Claude Code, you can do slash
+[00:12:48] plan.
+[00:12:50] This is going to enable plan mode, so
+[00:12:52] let's hit enter. And now we are in plan
+[00:12:54] mode, as you can see here.
+[00:12:55] You can also do shift tab to switch
+[00:12:59] between modes like accept edits on, or
+[00:13:02] plan mode, or just regular agent mode.
+[00:13:05] So, let's turn on plan mode, and let's
+[00:13:08] make a plan for building this
+[00:13:09] application. This is good because the
+[00:13:10] agent is going to ask me
+[00:13:12] things that I might missed explaining
+[00:13:15] the first time in my prompt.
+[00:13:17] And then we can align before the agent
+[00:13:19] starts building. This is actually a good
+[00:13:21] point to pass like the kind of UI that
+[00:13:24] we want to achieve for this application.
+[00:13:26] Cursor, what I'm going to do is just
+[00:13:27] take a screenshot um just of the
+[00:13:29] dashboard. I think this is more than
+[00:13:31] enough for this simple example.
+[00:13:34] Now, this is in my clipboard. I can go
+[00:13:36] back to the terminal and press command V
+[00:13:39] to paste the image. And you can see that
+[00:13:41] the image is now here.
+[00:13:43] And now I'm going to start
+[00:13:45] asking Claude to build the application.
+[00:13:47] But, I don't want to type everything.
+[00:13:49] Instead, I'm going to use AquaVoice,
+[00:13:50] which is a Mac application for
+[00:13:52] speech-to-text.
+[00:13:54] If you're interested about it, I'm going
+[00:13:56] to leave a link in the description, and
+[00:13:57] you can get actually a free month using
+[00:13:59] my link in case you want to try it out.
+[00:14:01] The way you activate it is just by
+[00:14:03] pressing fn twice.
+[00:14:06] And now you start speaking. Once you're
+[00:14:07] done, you press fn again.
+[00:14:10] And boom, all that I said it's here.
+[00:14:14] So, let's use that for the plan. I want
+[00:14:17] to build [music] a minimalistic habit
+[00:14:19] tracker application
+[00:14:21] with light mode enabled.
+[00:14:24] Just light. Don't worry about dark mode.
+[00:14:27] And I want to use just white and black
+[00:14:29] colors. For storing the habits, uh I
+[00:14:33] want everything to be local. Keep it
+[00:14:35] simple for now. No database, no nothing
+[00:14:38] complex. Maybe we can use an SQLite
+[00:14:40] database for saving uh the data locally.
+[00:14:44] Focus on a beautiful UI. Something
+[00:14:46] important for this application is
+[00:14:48] showing a heat map of the consistency
+[00:14:52] of the user following the habits. Okay,
+[00:14:55] so this is my rough idea. Of course,
+[00:14:57] this is pretty short. This is a simple
+[00:14:59] application. I would recommend that you
+[00:15:01] explain as much as possible here, but
+[00:15:03] since we're attaching an image, and this
+[00:15:05] is just a very simple app, I'm just
+[00:15:06] going to hit enter. But, it's also
+[00:15:08] always good that you ask the agent to
+[00:15:10] ask you questions. So, by the way, I'm
+[00:15:12] going to say,
+[00:15:14] "Please ask me questions and any
+[00:15:15] clarification that you need before
+[00:15:17] proceeding."
+[00:15:19] "Make sure that the code is going to be
+[00:15:21] composable.
+[00:15:22] >> [music]
+[00:15:22] >> Um we're able to reutilize components
+[00:15:26] and follow those best practices."
+[00:15:29] It's always good to mention that, I
+[00:15:31] think, because um that way the agent's
+[00:15:33] going to know that we care about good
+[00:15:36] code, and it's not going to make
+[00:15:37] everything in one single file, which is
+[00:15:39] actually very hard to maintain, to
+[00:15:41] understand for us and for the agent, and
+[00:15:43] it's going to spend more tokens when
+[00:15:45] whenever we reference a file that has
+[00:15:47] thousands of lines of code that is going
+[00:15:49] to consume the context of the agent. So,
+[00:15:51] let's hit enter. This is why it's very
+[00:15:52] important to use plan mode. Now, the
+[00:15:55] agent is exploring the code base that we
+[00:15:58] created for the agent so that it doesn't
+[00:16:00] have to do it. We don't waste tokens.
+[00:16:02] It's just a matter of running one
+[00:16:03] command to get started. And now it's
+[00:16:04] becoming familiar with how we are
+[00:16:06] structuring the components, the code on
+[00:16:09] the code base, and it's going to follow
+[00:16:10] the same pattern. Another very important
+[00:16:13] thing of planning is that now the agent
+[00:16:14] is going to ask me how I want my
+[00:16:16] application. So, it's asking, "What
+[00:16:18] screens or navigation structure do you
+[00:16:20] want?"
+[00:16:22] I want tabs. So, this is recommended by
+[00:16:24] the way, but you can move around. Like,
+[00:16:27] if you only want one single screen, you
+[00:16:29] can select single screen. Um but, yeah,
+[00:16:31] let's use tabs. This is actually the
+[00:16:33] recommended one.
+[00:16:34] Hit enter. "What habit frequency do you
+[00:16:36] want to support?" Yeah, daily. Just keep
+[00:16:38] it simple.
+[00:16:40] And by the way, you can ask actually
+[00:16:41] specify something else by
+[00:16:43] uh you know, going to the number four,
+[00:16:45] and then you can start speaking here if
+[00:16:48] you're using Aqua.
+[00:16:50] And you can clarify something. But, in
+[00:16:52] this case,
+[00:16:53] uh let's yeah, just show the last 3
+[00:16:55] months. This is a recommended for now.
+[00:16:57] "Do you want a mood tracking feature?"
+[00:17:00] It's saying in the reference screenshot.
+[00:17:02] Okay, so it saw the screenshot. Uh in
+[00:17:04] this case, I'm going to skip it just to
+[00:17:06] keep it simple. Let's hit submit. Now,
+[00:17:08] let it cook. Okay, and by the way, this
+[00:17:10] is a pretty common mistake, or this is
+[00:17:12] actually pretty annoying, especially if
+[00:17:13] you're, you know, letting the agent do
+[00:17:15] everything. It's going to ask you for
+[00:17:16] permission to create files and stuff, so
+[00:17:18] you can say, "Yes, and don't ask me
+[00:17:20] again."
+[00:17:21] Or you can also press shift tab and turn
+[00:17:24] on accept edits on. That way we don't
+[00:17:26] have to approve this every time. After a
+[00:17:28] couple minutes, we have the plan ready,
+[00:17:30] and we can check it out here. I would
+[00:17:33] highly recommend that you read this in
+[00:17:35] detail, especially if you are building
+[00:17:36] something serious. All right, so let's
+[00:17:38] take a quick look at the plan. Building
+[00:17:39] a minimalistic local-first habit tracker
+[00:17:42] on top of an existing Expo project.
+[00:17:45] Light mode only. This is important to
+[00:17:46] me. It's going to save the data on an
+[00:17:48] SQLite database. It's a database that
+[00:17:50] lives locally on the device in case
+[00:17:52] you're not familiar. And this is good
+[00:17:53] because it's fast. It's showing me the
+[00:17:55] colors that it's going to use. This is
+[00:17:56] perfect. Just the grayscale that I
+[00:17:58] wanted. And it took it from the design,
+[00:18:00] which is good. As a professional
+[00:18:01] developer that, you know, knows what
+[00:18:03] this is about, like all these hooks and
+[00:18:05] all these abstractions, it's actually
+[00:18:07] following best practices. I'm super
+[00:18:09] happy with this plan. In case you're not
+[00:18:11] familiar with all this, and if you want
+[00:18:12] to learn more, I would highly recommend
+[00:18:14] to check out my course. You actually
+[00:18:16] don't have to follow everything
+[00:18:17] step-by-step nowadays. As long as you
+[00:18:19] are aware of what's going on, and how
+[00:18:21] our routing works, how deep linking
+[00:18:23] works, how components, hooks,
+[00:18:25] all the things that you can do within a
+[00:18:26] React Native project, as long as you're
+[00:18:28] familiar with it, this is going to give
+[00:18:30] you a huge edge when developing
+[00:18:31] applications with AI agents like Claude
+[00:18:33] Code. Link in the description. But,
+[00:18:35] honestly, everything looks okay. Now
+[00:18:37] that we know that it's going to produce
+[00:18:38] a good result, I recommend that you
+[00:18:40] clear the context, because right now
+[00:18:42] it's used 21% of the context window.
+[00:18:44] I've seen some developers saying that
+[00:18:46] after you use more than 50% of the
+[00:18:50] context, the agent gets [music] dumb.
+[00:18:52] So, try to keep the context as low as
+[00:18:54] possible, or clean as possible. So,
+[00:18:56] let's clear it, and let's start from
+[00:18:59] zero.
+[00:19:00] All right, now we wait.
+[00:19:05] Okay, so after 10 minutes,
+[00:19:07] uh it says that it's done.
+[00:19:09] Fully habit tracker, but as you can see,
+[00:19:11] I don't see anything. So, on my phone,
+[00:19:13] what I'm going to do is shake it, and
+[00:19:15] this is going to open the developer
+[00:19:17] tools on Expo Go, and I can press
+[00:19:20] reload. And boom, I have the application
+[00:19:22] running. All right, so let's take a look
+[00:19:24] at the application. It looks pretty
+[00:19:25] nice, to be honest, and we have three
+[00:19:27] tabs.
+[00:19:29] Each one of them has haptic feedback.
+[00:19:31] You cannot feel it, but it's good. And
+[00:19:33] this is the result of using skills. It,
+[00:19:36] you know, helps the agent to just create
+[00:19:39] good UI. So, let's press the plus
+[00:19:41] button.
+[00:19:42] And it's open a bottom sheet, so I can
+[00:19:44] start tracking my new habits, and just
+[00:19:46] select an emoji, and
+[00:19:48] let's see. I'm going to add this habit.
+[00:19:52] There we go.
+[00:19:53] So, it looks pretty nice. I'm super
+[00:19:55] happy with the UI overall. This is
+[00:19:58] perfect This is perfect. Let's say,
+[00:20:00] "Hey, let's add a couple of them." We
+[00:20:02] can manage and edit habits. This is
+[00:20:06] amazing.
+[00:20:08] We can toggle them.
+[00:20:09] And this looks great. Let's refresh.
+[00:20:12] Let's go here. Okay. So, it seems like
+[00:20:14] it's not updating the stat screen as we
+[00:20:18] complete them.
+[00:20:20] Also, we needed to refresh by shaking
+[00:20:22] the device, opening the dev tools, and
+[00:20:24] refreshing. But overall, I really like
+[00:20:27] this UI. Quick coffee break. If you're
+[00:20:28] serious about React Native, consider
+[00:20:30] becoming a pro member at codevivet.dev.
+[00:20:33] You get my full React Native course,
+[00:20:35] TypeScript, Git, plus real production
+[00:20:37] projects with source code you can ship.
+[00:20:39] One price, lifetime access, everything I
+[00:20:41] build goes in there. Link in the
+[00:20:42] description. All right, let's get back
+[00:20:44] to the video. So, there are a couple of
+[00:20:45] rough edges, and the first step is never
+[00:20:48] perfect. But at this point, I'm happy
+[00:20:50] with what we have so far. And I want to
+[00:20:52] save this to be a good point in time to
+[00:20:56] always come back at any time. Now, I
+[00:20:58] also want to show you because we're
+[00:21:00] using Cursor, we can see all the things
+[00:21:02] that have changed on the Explorer as
+[00:21:05] highlights. So, if we click here, you
+[00:21:07] can see that the agent created a bunch
+[00:21:09] of components. It created hooks, it
+[00:21:12] created the database and types. If
+[00:21:14] you're not familiar with this, that's
+[00:21:15] okay. But just know that
+[00:21:18] the app this the current state of the
+[00:21:20] application, it's good, and we want to
+[00:21:22] save it. We don't want to lose it
+[00:21:24] because if I ask the agent to make a
+[00:21:25] change, it could break something else.
+[00:21:28] And then we are in trouble because we
+[00:21:30] didn't save it.
+[00:21:31] That's why [music] we use Git. And
+[00:21:33] software engineers have this huge
+[00:21:35] advantage that already know Git, and
+[00:21:37] they know how to save progress.
+[00:21:40] So, I actually have a course in my
+[00:21:42] platform about Git and GitHub. But just
+[00:21:44] to show you how you can save this, it's
+[00:21:46] just like going to the
+[00:21:48] uh Git tab here. This is everything that
+[00:21:50] changed right now. It's a bunch of
+[00:21:52] changes. So,
+[00:21:53] >> [music]
+[00:21:53] >> I don't really want to know what
+[00:21:54] changed. Just want to save everything by
+[00:21:57] pressing this stage all changes button.
+[00:22:00] And then let's create a commit. This is
+[00:22:03] just going to describe what we did. You
+[00:22:05] can type this manually or let AI do it
+[00:22:08] for you. Since this is a very long
+[00:22:10] change, this is actually taking a while
+[00:22:11] to describe the changes. But once you
+[00:22:13] have that, you can press commit.
+[00:22:16] And now it's saved.
+[00:22:18] Uh we haven't published this to GitHub,
+[00:22:21] but it's committed locally in my
+[00:22:23] computer.
+[00:22:24] That means that if I go back to the
+[00:22:26] Explorer tab here,
+[00:22:28] I don't see any highlights anymore
+[00:22:29] because we have changed it.
+[00:22:32] And this is a very important step that
+[00:22:34] many beginners that are not familiar
+[00:22:36] with coding or Git get lost with, and
+[00:22:39] they lose their progress. So, this means
+[00:22:41] that if I now go and change something on
+[00:22:43] the index screen, here we have the today
+[00:22:46] text.
+[00:22:47] Let's change it to be hello, and press
+[00:22:49] command S to save. You can see live
+[00:22:52] reloading here on the right. Now it says
+[00:22:54] hello.
+[00:22:55] And on the left, now it's yellow because
+[00:22:58] we changed something.
+[00:23:00] And if you want to save this right now,
+[00:23:03] you can again do the same.
+[00:23:06] Commit. Give it a name.
+[00:23:08] A message to the commit, and then commit
+[00:23:10] it. And boom, that's saved.
+[00:23:13] And then you can always ask the agent
+[00:23:15] [music]
+[00:23:16] to revert the changes. So, let's say
+[00:23:18] that the agent broke something like
+[00:23:20] hello testing,
+[00:23:22] and we didn't want these changes. You
+[00:23:25] can always go to the Git tab and discard
+[00:23:28] the changes by pressing this icon.
+[00:23:31] And discard the file. Now, be careful
+[00:23:33] because you lose whatever we had before.
+[00:23:36] Uh but we can always go back to the
+[00:23:38] previous state that we wanted, okay?
+[00:23:40] This is very important, and I hope you
+[00:23:43] uh get it.
+[00:23:47] That once the agent has done a bunch of
+[00:23:49] work like it did right now, it took
+[00:23:51] literally 8 minutes, and it created a
+[00:23:53] bunch of files,
+[00:23:54] the context window or the memory of the
+[00:23:57] agent, it's pretty much full. And I
+[00:23:59] recommend that you don't keep messing
+[00:24:01] around with this current session of the
+[00:24:03] agent. So, you can check the context by
+[00:24:05] doing {slash} context. Hit enter. And
+[00:24:09] this will tell you how much context we
+[00:24:11] have used.
+[00:24:13] Right now, 31%, but we're using Claude
+[00:24:15] Sonnet 4.6, which is one of the best
+[00:24:17] models out there.
+[00:24:19] >> [music]
+[00:24:19] >> 31% I would say you can maybe ask a
+[00:24:22] follow-up question or a follow-up fix
+[00:24:25] here.
+[00:24:26] But it's best to just clear this and
+[00:24:29] start clean if you want to do something
+[00:24:32] else in the code base. So, you can use
+[00:24:34] the command {slash} clear.
+[00:24:37] Hit enter. This will clear everything.
+[00:24:39] So, let's say that you want to add a new
+[00:24:40] feature. Let's go ahead and prompt the
+[00:24:42] agent here. I'm not going to do a plan
+[00:24:44] mode this time, just prompt directly.
+[00:24:46] Can you add an option on the settings
+[00:24:49] screen to allow the user
+[00:24:51] to select the primary color to use for
+[00:24:56] the habits. Right now, we are using
+[00:24:57] black for everything.
+[00:24:59] But let's let's let the user to choose.
+[00:25:02] For now, let's hardcode five colors that
+[00:25:05] they can select. So, you saw previously
+[00:25:07] that we can paste images in Claude code,
+[00:25:09] but you can also reference files.
+[00:25:11] So, let's say that you know in which
+[00:25:13] file you want Claude code to change
+[00:25:16] this.
+[00:25:17] Um right now, this is not relevant for
+[00:25:19] this change, but you can also You can
+[00:25:21] always do
+[00:25:22] at and then the name of the file. Like
+[00:25:25] for example,
+[00:25:26] index, right?
+[00:25:28] The tabs the index file. This is going
+[00:25:30] to be like the home screen. You can
+[00:25:32] point the agent to a specific file, and
+[00:25:34] let's hit enter. And this is basically
+[00:25:35] how you iterate. Building with AI is a
+[00:25:38] conversation, okay? And the change is
+[00:25:40] done. As you can see on the top left,
+[00:25:42] now I selected purple, and if I go to
+[00:25:44] the home screen, I can see the color,
+[00:25:46] which is absolutely amazing.
+[00:25:49] This. And then I can always toggle it.
+[00:25:51] Let's change it.
+[00:25:52] Okay, so this is perfect. This is what I
+[00:25:54] wanted. All right, the app is good to
+[00:25:55] ship at this point, and I actually have
+[00:25:57] a video on how to deploy your
+[00:25:58] application. I'm going to leave the link
+[00:25:59] to that video in the description. But
+[00:26:01] building the application is only half of
+[00:26:03] the job. If you want people to find it,
+[00:26:05] you need a landing page. And that's
+[00:26:06] where Ready comes in, the sponsor of
+[00:26:08] today's video. Ready is an AI tool built
+[00:26:10] specifically for creating websites,
+[00:26:12] landing pages, and front-end interfaces
+[00:26:15] that are beautiful. I've been playing
+[00:26:16] around with it, and honestly, I'm pretty
+[00:26:17] surprised with the results. The best
+[00:26:19] part is that it just creates a beautiful
+[00:26:22] website with the first prompt. You can
+[00:26:24] just come here and say something like,
+[00:26:26] "Build a website for my habit tracker
+[00:26:29] application." And just by me typing
+[00:26:31] that, it's now suggesting a better
+[00:26:33] prompt. So, let's press tab. Tab again
+[00:26:35] with intuitive navigation and responsive
+[00:26:37] design for seamless mobile and desktop
+[00:26:39] experiences.
+[00:26:41] So, just like that, let's submit. But if
+[00:26:43] you want, you can also upload an image.
+[00:26:45] But I want to show you that even if you
+[00:26:46] don't provide an image, this is going to
+[00:26:48] generate an amazing results. So, let's
+[00:26:50] submit this. Now, we need to tell it
+[00:26:52] which structure we want for our landing
+[00:26:54] page. All right, and let's press next.
+[00:26:56] This is something that I really like
+[00:26:57] about Ready, is that it generates an
+[00:26:59] icon for your application out of the
+[00:27:01] box. We can always regenerate at any
+[00:27:03] time or upload a custom logo if you
+[00:27:06] already have one. Let's use that one.
+[00:27:07] I'm going to press next. All right, and
+[00:27:09] now it's cooking. Ready handles the
+[00:27:10] front end, so you can actually focus on
+[00:27:12] your application and shipping real
+[00:27:14] features for your users. This definitely
+[00:27:17] allows you to move way faster.
+[00:27:19] And the website is ready, as you can see
+[00:27:21] here. I mean, look at this, guys. First
+[00:27:23] prompt, and it's also responsive. Looks
+[00:27:26] amazing on mobile as well. Let's check
+[00:27:28] it out in full screen. I mean, look at
+[00:27:29] this, guys. You can see the daily
+[00:27:31] progress. The UI is just absolutely
+[00:27:33] crazy. If you want, you can iterate, but
+[00:27:35] also you can just publish directly. I'm
+[00:27:37] just going to deploy it by pressing
+[00:27:39] publish. And just like that, I can copy,
+[00:27:41] paste the link, and navigate [music] to
+[00:27:43] my website. It literally took minutes.
+[00:27:46] Okay, this looks way better. I just
+[00:27:48] added the following prompt, "Add
+[00:27:49] animations to the hero and make it pop.
+[00:27:52] Maybe add a phone with a frame." And it
+[00:27:54] literally did everything. I can now even
+[00:27:56] toggle items here. Let's see it in full
+[00:27:59] screen.
+[00:28:00] Boom. This looks absolutely amazing. If
+[00:28:03] you need to change something, just come
+[00:28:04] here, select it, modify it, and you're
+[00:28:07] good to go. And by the way, I also
+[00:28:08] created a landing page for my AI tattoo
+[00:28:11] application. I provided the link to my
+[00:28:13] application to Ready, and Ready did
+[00:28:15] everything. Highly recommended. It's
+[00:28:17] going to save you a ton of time. Link in
+[00:28:18] the description, and thanks to Ready for
+[00:28:20] sponsoring this video. If you want to
+[00:28:22] keep going with Claude code, I made a
+[00:28:23] video explaining how to use agent
+[00:28:25] skills. I'm also going to link a video
+[00:28:27] explaining how to deploy your
+[00:28:28] application once you're ready. All the
+[00:28:29] links are in the description. Check them
+[00:28:31] out, and I'll see you there.

@@ -1,0 +1,814 @@
+# How to Build an App With Claude Code - Full Tutorial for Beginners
+# https://www.youtube.com/watch?v=GUgxx6fMiR8
+# kanal: Tech With Tim | süre: 1444 sn | kaynak: yt-dlp:web_embedded:GUgxx6fMiR8.en-orig.json3
+
+[00:00:00] Today, I'll show you not only how to
+[00:00:01] build, but also how to deploy a full web
+[00:00:04] application using Claude Code. I'll walk
+[00:00:07] through every step as if you're a
+[00:00:08] complete beginner. By the end of this
+[00:00:10] video, you can have a fully functioning
+[00:00:12] application that's deployed on your own
+[00:00:14] domain that other people can actually
+[00:00:16] access. Let's dive in. So, to get
+[00:00:18] started here, there's a few things that
+[00:00:19] we should download and install. Now,
+[00:00:21] first of course, is Claude Code. Now, in
+[00:00:24] order to use Claude Code, you do need a
+[00:00:25] premium subscription with Claude. You
+[00:00:27] are going to have to pay for this just
+[00:00:29] like really any of these AI tools. You
+[00:00:31] can download it once you have that
+[00:00:33] subscription by going to the website,
+[00:00:34] which I'll leave a link to down below.
+[00:00:36] You can download the desktop application
+[00:00:38] or run this command, which is going to
+[00:00:40] install the terminal application for
+[00:00:42] you. Now, you want the terminal
+[00:00:44] application. This is what we'll be using
+[00:00:46] in this video because it's going to be
+[00:00:47] better for the deployment process. Now,
+[00:00:50] what I mean by that is that Claude has
+[00:00:51] its own desktop application, right? So,
+[00:00:53] you can download Claude and open it. You
+[00:00:55] can see I was brainstorming some video
+[00:00:57] ideas here, and you can switch over to
+[00:00:59] kind of this code tab, where you can
+[00:01:00] start using it from this view. Now, this
+[00:01:03] is fine, but it's a lot easier to use
+[00:01:05] Claude Code directly from the terminal,
+[00:01:07] where what you do is you open up a
+[00:01:09] terminal like so, and you type the
+[00:01:11] command Claude. This will then run
+[00:01:14] Claude Code for you directly inside of
+[00:01:16] the terminal. Now, I know a lot of you
+[00:01:17] already have this downloaded, but if you
+[00:01:19] don't, what you're going to do is open
+[00:01:21] up your terminal, whether you're on Mac,
+[00:01:22] Linux, or Windows, and you're going to
+[00:01:24] paste that command that you found from
+[00:01:26] this website. So, curl fssl, whatever,
+[00:01:29] and then just run it. When you do that,
+[00:01:30] it's going to download and install
+[00:01:32] Claude Code for you. And then once
+[00:01:33] that's finished, you can invoke Claude
+[00:01:35] Code by typing the command Claude. When
+[00:01:38] you do that, it's going to bring you
+[00:01:39] inside of here. You'll likely need to
+[00:01:40] authenticate, so sign into your account,
+[00:01:43] and then you're good to go. Now, once
+[00:01:44] you've got Claude Code installed, the
+[00:01:46] next thing that you're going to want is
+[00:01:47] to download some type of code editor or
+[00:01:49] IDE. Now, I recommend Cursor, but you
+[00:01:51] can really use anything that you want as
+[00:01:53] long as it is a VS Code fork because to
+[00:01:55] deploy the project, we're going to use a
+[00:01:57] cool extension, which we'll have a look
+[00:01:59] at in a second. Anyways, for now, I'm
+[00:02:01] just going to go to the Cursor website.
+[00:02:02] This is a place where you can write code
+[00:02:04] and you can view all of the files. This
+[00:02:06] is free to download. You can simply
+[00:02:08] press the button and download it for
+[00:02:09] Windows, Mac, or Linux. Again, I'll
+[00:02:11] leave a link to it in the description.
+[00:02:13] Free. Just download and install it, and
+[00:02:15] then you are good to go. Now, at this
+[00:02:17] point, I'll assume that you've installed
+[00:02:18] Claude Code and you have some type of
+[00:02:20] code editor or IDE. Now, in case you're
+[00:02:22] wondering, once we build the
+[00:02:23] application, we're going to use a
+[00:02:24] platform called Hostinger to deploy it.
+[00:02:26] They're a long-term partner of mine, but
+[00:02:28] anyways, we'll talk about that later.
+[00:02:30] Okay. So, for now, once we've got that
+[00:02:32] all installed, what we're going to do is
+[00:02:33] just open up Cursor on our computer. So,
+[00:02:35] just find that application. I'm just
+[00:02:38] going to search for it in the spotlight
+[00:02:39] search. And what we're going to do is
+[00:02:41] just make a new folder where we can put
+[00:02:43] our application. So, we're going to go
+[00:02:44] file. We're going to go to open folder
+[00:02:47] from Cursor. We're going to go to our
+[00:02:49] desktop or any location that you can
+[00:02:51] remember. And what I'm going to do is
+[00:02:52] just make a new folder, and I'm going to
+[00:02:53] call this my site. Call it anything that
+[00:02:56] you want if you have an idea of what it
+[00:02:57] is that you want to build. Okay. So, now
+[00:02:59] what we've done is we've opened up a new
+[00:03:01] folder inside of Cursor. You really
+[00:03:03] don't need to know too much about this.
+[00:03:04] This is just a tool that we're going to
+[00:03:05] use to be able to view the different
+[00:03:07] code that we're generating, and it makes
+[00:03:08] it a little bit easier for us to
+[00:03:10] understand what's going on, to add an
+[00:03:12] image, and to eventually deploy the
+[00:03:13] site. Now, we're going to use Claude
+[00:03:15] Code directly inside of Cursor, so
+[00:03:17] there's no need to worry about this kind
+[00:03:18] of agent tab that's going to appear when
+[00:03:20] you get into the editor. So, we can just
+[00:03:22] go ahead and close that. Now, this is
+[00:03:24] what's called a fork of a popular editor
+[00:03:26] known as Visual Studio Code. So, if
+[00:03:28] you've ever used that before, this is
+[00:03:29] effectively the exact same thing. It
+[00:03:31] just has some AI features built in.
+[00:03:33] You're going to see a ton of stuff here.
+[00:03:34] Again, don't confuse yourself.
+[00:03:36] Literally, all you want to do is just
+[00:03:37] look for this little file menu on the
+[00:03:39] left-hand side. You can see that it kind
+[00:03:40] of looks like two files. You should see
+[00:03:42] that my site is open. And now when we
+[00:03:44] start generating code, we're going to
+[00:03:46] see all of it appear on the left-hand
+[00:03:48] side here. You can move the windows
+[00:03:49] around. You can reorganize it if you
+[00:03:51] want. You can collapse the sidebar, but
+[00:03:53] that's really all that you need to know.
+[00:03:55] Okay. So, from here, what we're going to
+[00:03:57] do is we're going to look for this
+[00:03:58] little extensions icon. It might have
+[00:04:00] moved. It might go somewhere else, but
+[00:04:01] we're looking for something called
+[00:04:02] extensions, which looks like these kind
+[00:04:04] of little puzzle pieces. You also might
+[00:04:06] have to find it by expanding this right
+[00:04:08] here to see all of the different
+[00:04:09] options. Now, what we're going to start
+[00:04:11] by doing is installing the Claude Code
+[00:04:13] extension inside of this editor. So,
+[00:04:16] you'll see we have Claude Code. Mine's
+[00:04:18] already installed, but all we're going
+[00:04:19] to do is search for it and then press
+[00:04:20] install. Okay, and that should install
+[00:04:22] Claude Code for us. Now, the next
+[00:04:24] extension we're going to install while
+[00:04:25] we're here is the Hostinger extension,
+[00:04:27] which we're going to use later to
+[00:04:28] actually deploy our site. So, you can go
+[00:04:30] to Hostinger. Just search for it again.
+[00:04:32] Find this Hostinger connector, and then
+[00:04:34] just go ahead and press on install.
+[00:04:36] We're going to trust the publisher and
+[00:04:37] then install that inside of our editor.
+[00:04:39] That's it. We have the extensions, and
+[00:04:41] now we can start building our app. So,
+[00:04:43] what we're going to do now is open up
+[00:04:44] Claude Code inside of this editor.
+[00:04:46] Remember I told you that you could open
+[00:04:48] it in the terminal, but you also can
+[00:04:49] open it directly inside of these
+[00:04:51] editors, so you can view the files. So,
+[00:04:53] to do that, you can press this little
+[00:04:54] down arrow, and you can find this Claude
+[00:04:56] Code icon. You'll see I have some icons
+[00:04:58] here you don't have because I have other
+[00:05:00] extensions. So, I'm just going to press
+[00:05:02] on Claude Code, and you'll notice that
+[00:05:03] it's going to open for us kind of a new
+[00:05:05] session view right here, and we should
+[00:05:07] see we have web, we have local, and we
+[00:05:09] can press this button new session. Then
+[00:05:11] when we press new session, it's going to
+[00:05:13] open a new Claude Code session for us
+[00:05:15] hopefully in the big view. If you want
+[00:05:16] to move it around, you can drag this
+[00:05:18] window and kind of change the size of
+[00:05:19] it. And here we can start prompting
+[00:05:21] Claude to actually generate stuff for
+[00:05:23] us. Now, I'm also just going to go back
+[00:05:25] to the file view, so we have the files
+[00:05:26] on the left-hand side, and Claude Code
+[00:05:28] on the right. Now, you'll notice here
+[00:05:30] that there's an option that says prefer
+[00:05:31] the terminal experience, switch it back
+[00:05:33] in the settings. So, if you've used
+[00:05:34] Claude Code before, you know that you
+[00:05:36] can use it from kind of this really
+[00:05:38] terminally environment, where it's not
+[00:05:39] very pretty. There's not like a
+[00:05:40] graphical user interface. But right now,
+[00:05:43] we're inside of this clean UI that it's
+[00:05:44] created for us. So, if you want to go
+[00:05:46] back to the terminal, you can press this
+[00:05:48] button, right? And we can change it so
+[00:05:49] that we're launching it in the terminal
+[00:05:51] rather than in the native UI. Now, for
+[00:05:53] most of you, especially if you're a
+[00:05:54] beginner, I'd recommend you just keep it
+[00:05:56] in the default view. But if you want to
+[00:05:57] change that, you can directly from the
+[00:05:59] settings here in Cursor. Okay. So, from
+[00:06:01] here, there's a few quick options to go
+[00:06:03] over. You'll notice that there's a
+[00:06:04] button down here that says edit
+[00:06:06] automatically, ask before edits, or plan
+[00:06:08] mode. It also gives you the ability to
+[00:06:10] change the amount of effort that you
+[00:06:11] want to use. The more effort is the
+[00:06:14] longer it's going to take and also more
+[00:06:16] expensive it's going to be in terms of
+[00:06:17] the number of credits that you use. So,
+[00:06:19] what we're going to do is just leave it
+[00:06:20] in edit automatically, and we'll put the
+[00:06:22] effort at medium rather than high. Now,
+[00:06:24] another thing we're going to want to
+[00:06:25] look at is this slash button right here.
+[00:06:27] So, if we go here, there's a bunch of
+[00:06:29] different options for things that we can
+[00:06:30] change. One thing that we'll want to do
+[00:06:32] is just switch the model. So, you'll see
+[00:06:34] where it says model, we can switch the
+[00:06:35] model, and I'll just leave it as the
+[00:06:37] default here of Opus 4.7. But if you
+[00:06:39] want it to be cheaper, if you don't have
+[00:06:41] a Claude Max plan, for example, you can
+[00:06:42] make it Sonnet, which is usually a lot
+[00:06:44] more cost-effective, or even Haiku if
+[00:06:46] you want it to be, you know, the
+[00:06:47] cheapest possible. Anyways, we'll go
+[00:06:49] with this Opus 4.7 and use that for now.
+[00:06:52] All right. So, everything is set up now,
+[00:06:53] and it's time to actually start
+[00:06:55] building. Now, when we're building with
+[00:06:56] Claude Code, it's really important that
+[00:06:58] we know what it is that we want to
+[00:07:00] build, and that we come up with a little
+[00:07:01] bit of a plan or kind of a spec before
+[00:07:04] we actually dive in and start generating
+[00:07:06] any code files. Now, in my case, I'm
+[00:07:08] just going to build a really simple
+[00:07:09] landing page because I think that's what
+[00:07:11] a lot of you guys are building. Just
+[00:07:12] simple websites, maybe something for a
+[00:07:14] business that you're running, whatever,
+[00:07:16] right? But you want to have a clear
+[00:07:18] outline of what are the features that I
+[00:07:19] want to have? What do I want the website
+[00:07:21] generally to look like? Are there logos
+[00:07:23] that I have? Is there a color theme that
+[00:07:25] I want to use? Doing a little bit of
+[00:07:27] planning on your own beforehand is going
+[00:07:29] to be really helpful and give you a
+[00:07:30] significantly better result. So, what I
+[00:07:32] recommend doing is kind of going into
+[00:07:34] Claude Code and just dumping your
+[00:07:36] thoughts to it and telling it, "Hey,
+[00:07:38] help me come up with a plan. Ask me some
+[00:07:40] questions. Let's go through this before
+[00:07:42] we start generating some code." So, I'll
+[00:07:44] just do a bit of a made-up example here,
+[00:07:46] where I make a website about myself. So,
+[00:07:48] I'm going to say, "Hi, I want to make a
+[00:07:50] portfolio website for myself, Tim
+[00:07:52] Mercica, or Tech with Tim. I don't
+[00:07:54] really know exactly what I want to be on
+[00:07:56] the website, but I want to put some of
+[00:07:57] my prior work experience. I want to put
+[00:08:00] some of my skills, characteristics, and
+[00:08:02] maybe reasons why I should get hired,
+[00:08:04] and maybe some different projects from
+[00:08:05] my GitHub I want to showcase on there as
+[00:08:07] well. Now, can you ask me a bunch of
+[00:08:09] questions about the design, what the
+[00:08:11] pages should look like, just any
+[00:08:13] information that you need to help me
+[00:08:14] build this site. Let's get a clean kind
+[00:08:17] of spec and plan going before we start
+[00:08:19] building anything. I'd like you to
+[00:08:20] create a markdown file that's going to
+[00:08:22] have all of the information for the site
+[00:08:24] before we start building. Again, ask me
+[00:08:26] any questions that you need." Okay. So,
+[00:08:28] what I did is I said, "Hey, this is kind
+[00:08:30] of what I want. Ask me some questions.
+[00:08:32] Let's go back and forth." And then
+[00:08:33] notice I told it create a markdown file,
+[00:08:36] which is a specific type of file that AI
+[00:08:38] agents are really good at working with
+[00:08:40] that's going to have all of these
+[00:08:41] details saved, so we have them inside of
+[00:08:43] the project. Okay? Now, what I did to do
+[00:08:46] this, by the way, is something called
+[00:08:47] WhisperFlow. It's the best voice
+[00:08:49] dictation tool out there. You can see
+[00:08:51] that I am an absolute power user with
+[00:08:52] 111,000 words. It's free to use, and I
+[00:08:55] have a long-term partnership with them,
+[00:08:56] so I'll leave a link to it in the
+[00:08:57] description, but it's just really good
+[00:08:59] for for being able to voice your
+[00:09:01] thoughts very quickly as opposed to
+[00:09:03] typing. So, I'm going to go ahead and
+[00:09:04] press on enter here, and we're going to
+[00:09:06] get it to start generating this plan,
+[00:09:08] and I'll go through the questions and
+[00:09:09] kind of walk you through what I'm doing
+[00:09:11] here and all of the prompts that I'm
+[00:09:12] writing. Okay. So, while we're in this
+[00:09:14] process, it may also be asking us to
+[00:09:16] approve some different commands. So, I'm
+[00:09:18] just going to go ahead and press on yes.
+[00:09:19] Of course, you can look at what it wants
+[00:09:21] to do, but sometimes it's not really
+[00:09:22] going to make sense to you. And in that
+[00:09:23] case, you can just approve it. It will
+[00:09:25] go, execute the commands, etc. All
+[00:09:27] right. So, we can see that it's asking
+[00:09:28] me some questions here. It says, "What
+[00:09:30] do you want to attract clients, personal
+[00:09:31] brand?" Let's go with personal brand for
+[00:09:33] this one. "What's the structure?" Let's
+[00:09:35] just go with a single long landing page.
+[00:09:37] "What aesthetic do you want?" Let's go
+[00:09:39] with like, yeah, dark and moderny. And
+[00:09:42] then what tech stack we should use, and
+[00:09:43] this is super important. If you're
+[00:09:45] building a relatively simple website,
+[00:09:47] you're almost always going to want to go
+[00:09:48] with Next.js and then Tailwind. So, the
+[00:09:51] stack that's recommended right here. And
+[00:09:53] if it doesn't recommend a stack, I would
+[00:09:54] suggest telling it to directly use
+[00:09:56] Next.js because it's just going to be
+[00:09:58] one of the most scalable and easiest
+[00:10:00] sites to actually deploy, which we're
+[00:10:01] going to get to later. Okay, so what I'm
+[00:10:03] going to do is go with Next.js, but if
+[00:10:05] you are trying to build like a desktop
+[00:10:07] application, you're building something
+[00:10:08] much larger, you want it to be super
+[00:10:10] performant, you may go with another
+[00:10:12] stack, especially if you're going to
+[00:10:13] have a dedicated back end, if you even
+[00:10:14] know what that means. But in our case,
+[00:10:16] we're just building something visual,
+[00:10:17] right? Where it's just you're
+[00:10:19] interacting with it, it's giving you
+[00:10:21] information. If you want to build
+[00:10:22] something that has a lot of data, users,
+[00:10:25] accounts, like a social media platform,
+[00:10:27] that's when it's going to get a little
+[00:10:28] bit more complex, and you're going to
+[00:10:29] have a back end plus a front end, in
+[00:10:32] which case Next.js is still going to be
+[00:10:33] a good option, but you're also going to
+[00:10:35] have to connect to things like
+[00:10:36] databases, which you'd want to talk to
+[00:10:38] Claude about. So for now, we're going to
+[00:10:39] go with Next.js, but just be aware that
+[00:10:41] if you do want to store data, which I
+[00:10:42] don't really need to do for this site,
+[00:10:44] this will change the decision a little
+[00:10:46] bit, and you should really discuss with
+[00:10:48] the AI beforehand what decisions you
+[00:10:50] need to make so it will support what you
+[00:10:52] want to do with the site, and that's why
+[00:10:53] it's so important that you know what you
+[00:10:55] want to build before you dive into this
+[00:10:57] process. So I'm going to go here with
+[00:10:58] Next.js, and I'm going to submit these
+[00:11:00] answers, and now it should start
+[00:11:02] generating that plan, which we'll then
+[00:11:03] review before we start building. All
+[00:11:05] right, so now it knows the design that
+[00:11:07] we want to use, but it's asking me a ton
+[00:11:09] of questions about what I actually want
+[00:11:10] to put on this site. So I'm just going
+[00:11:11] to fill these in, and then we'll go from
+[00:11:13] there. Again, you'll need to do the same
+[00:11:14] thing. So you actually know the content
+[00:11:16] that's going to go on the site. All
+[00:11:17] right, so what I did here is I just told
+[00:11:18] it to go research myself rather than me
+[00:11:20] giving it all of the details. It was
+[00:11:22] able to do that, and now it's generated
+[00:11:24] the spec. md file, which we should see
+[00:11:26] in this file menu on the left-hand side.
+[00:11:29] So if we want, we can have a look at
+[00:11:30] this, scroll through, make sure that
+[00:11:32] we're happy with obviously everything
+[00:11:33] that it's given us. It's also laid out
+[00:11:35] kind of how it's going to develop this
+[00:11:36] application. And notice that we have a
+[00:11:38] lot of structure now, so when Claude
+[00:11:40] code starts to actually write the code,
+[00:11:41] it can just follow the spec. And let's
+[00:11:43] say we were to stop and come back to it
+[00:11:45] another day, it can always just go back
+[00:11:47] and look at the spec file, which is why
+[00:11:48] I always recommend starting like this.
+[00:11:50] So now that we have that information, we
+[00:11:52] can essentially just tell it to proceed
+[00:11:53] to build our website. And again, a lot
+[00:11:55] of the hard work is kind of done because
+[00:11:58] the spec is already written, which is
+[00:12:00] really where most of the hard work, you
+[00:12:02] know, happens, right? And the reason why
+[00:12:04] you'll get into a lot of issues when
+[00:12:05] you're building with AI is because you
+[00:12:07] don't follow that planning step up
+[00:12:08] front. So now what we're going to do is
+[00:12:10] essentially just tell it to build the
+[00:12:11] site. So I'm going to say, "Okay, the
+[00:12:12] spec looks great. I want you to build
+[00:12:14] out the full website right now. Keep it
+[00:12:16] MVP. Don't make it too complicated, and
+[00:12:18] then run the site so I can view it on my
+[00:12:20] computer." That's it. That's all we're
+[00:12:22] going to tell it. MVP means minimum
+[00:12:24] viable product. I always like to tell it
+[00:12:26] to build a slim version first before we
+[00:12:28] go and add, you know, a million features
+[00:12:30] because AI is better at discrete, small
+[00:12:32] tasks. So the less stuff you get it to
+[00:12:35] do in one run, the better results you're
+[00:12:37] going to get. And then you just have to
+[00:12:38] go kind of back and forth until, "Okay,
+[00:12:40] add this feature. Okay, add this
+[00:12:41] feature." As you're going to see in a
+[00:12:42] second. So let's go ahead and press
+[00:12:43] enter and get the result. All right, now
+[00:12:46] it's asking me permission to run these
+[00:12:47] commands. I'm going to go ahead and
+[00:12:49] press on yes. And just by the way, it
+[00:12:51] may want to run a command for you that
+[00:12:53] you don't yet have or that you haven't
+[00:12:54] installed on your machine. If that's the
+[00:12:56] case and something's going wrong, you
+[00:12:58] can tell it, "Hey, give me the
+[00:12:59] instructions on how to install this or
+[00:13:01] what do I need for this to work?" And
+[00:13:03] Claude code's pretty good at doing that.
+[00:13:04] So it should be able to do it by itself,
+[00:13:05] but if it doesn't, don't freak out. Just
+[00:13:07] ask the AI, and it can tell you exactly
+[00:13:10] what to do if you just read the
+[00:13:11] response. So let's go yes and keep
+[00:13:13] going. Nice. So it says that it's
+[00:13:14] running the application now. Just took
+[00:13:16] maybe 5, 6 minutes to build that. So I'm
+[00:13:17] just going to press on this URL, and
+[00:13:20] you'll notice that we got the app now,
+[00:13:21] right? And it's open it directly inside
+[00:13:23] of Cursor. If you don't want to open it
+[00:13:24] in Cursor for some reason, you could
+[00:13:25] just open up Google Chrome, and you can
+[00:13:27] just paste the URL here. You can see
+[00:13:29] it's localhost 3001, which just means
+[00:13:31] that it's running locally on your
+[00:13:32] computer. Now, I actually think this
+[00:13:34] looks quite nice.
+[00:13:36] Um, you know, I started coding as a kid,
+[00:13:38] okay? All these stats are true.
+[00:13:40] Languages, yeah, that looks pretty good.
+[00:13:43] Where I've worked, yeah, software
+[00:13:45] engineer. I don't know what SAP I don't
+[00:13:47] know what it's saying with that. Um,
+[00:13:49] yeah, not sure what that means.
+[00:13:50] Microsoft is real. Some projects I've
+[00:13:52] worked on. Here's some videos. Um, you
+[00:13:55] know, free code camp where I've been
+[00:13:56] featured. DevLaunch, a program I was
+[00:13:58] running. Let's talk, my email, and then
+[00:14:01] all of the stats. And again, like this
+[00:14:03] was built with just two or three prompts
+[00:14:05] because I spent the time actually
+[00:14:08] creating the spec up front. You can see
+[00:14:10] 2026, we have all this stuff. And of
+[00:14:12] course, if I want to add it, refine it,
+[00:14:14] etc., then I could tell it to do that,
+[00:14:16] and we would get, you know, a better
+[00:14:17] site. But at this point, I mean, I'm
+[00:14:19] kind of done. That's exactly what I
+[00:14:21] wanted to build. And what I want to do
+[00:14:22] now is move on to actually deploy the
+[00:14:24] site. So of course, go back and forth,
+[00:14:26] iterate with it, but what we'll do now
+[00:14:28] is we'll deploy it, but we're also just
+[00:14:29] going to quickly use something called
+[00:14:31] Git and GitHub to kind of store our
+[00:14:33] progress to make sure that if we make a
+[00:14:35] change or if we break something, we can
+[00:14:37] roll back in the future. Now, if you're
+[00:14:38] a beginner, you don't really need to
+[00:14:39] understand what it is that we're about
+[00:14:41] to do, but by setting this up, Claude
+[00:14:43] will be able to automatically go back to
+[00:14:45] previous kind of saves of your website
+[00:14:48] just by you giving it this one prompt.
+[00:14:50] So this is the prompt you're going to
+[00:14:51] say.
+[00:14:52] "This is great. What I would like you to
+[00:14:53] do now is to create a Git repo and just
+[00:14:56] save all of the work as a commit, and I
+[00:14:58] would like you to continually keep
+[00:15:00] creating commits anytime we make a
+[00:15:01] change so I can roll back to something
+[00:15:03] if a mistake happens in the future." You
+[00:15:05] don't need to say it word for word like
+[00:15:07] that, but that's essentially what you're
+[00:15:08] going to say, "Hey, set up Git." It
+[00:15:09] should then install the Git tool if you
+[00:15:11] don't already have it on your computer.
+[00:15:13] And then you can see it's going to tell
+[00:15:14] us to initialize a new Git repo and run
+[00:15:16] these commands that you're probably not
+[00:15:17] familiar with. Essentially, all Git is
+[00:15:20] is a version control software, which
+[00:15:22] like I said, is going to kind of
+[00:15:23] checkpoint or save the work that you've
+[00:15:25] done. So anytime you make another
+[00:15:26] change, if something goes wrong, you can
+[00:15:28] just go back to the previous change, and
+[00:15:30] everything is still stored. This is what
+[00:15:31] software engineers have been using for
+[00:15:33] decades now, and you can also connect
+[00:15:35] this to something called GitHub, which
+[00:15:37] will allow you to share this code with
+[00:15:38] other people on the internet, but we're
+[00:15:40] not going to do that right now. All
+[00:15:41] right, so it says it's set up with Git
+[00:15:43] now, and it's saved everything. So we
+[00:15:44] are all good, and now we're going to
+[00:15:45] move to the deployment. Now, like I
+[00:15:47] mentioned, we're going to be using
+[00:15:48] Hostinger to deploy this application.
+[00:15:51] Now, you can do this for as low as just
+[00:15:52] $4 per month, which is extremely cheap
+[00:15:55] for web hosting, and they're actually
+[00:15:56] going to give you a free domain, and the
+[00:15:58] benefit of this is that you can do it
+[00:16:00] directly from Claude code with really no
+[00:16:02] setup whatsoever. So what we're going to
+[00:16:04] need to do is just create a new account
+[00:16:06] on Hostinger and just purchase our
+[00:16:07] hosting plan. You can use something else
+[00:16:09] obviously if you want, but this is what
+[00:16:10] I recommend and what is very affordable
+[00:16:12] and cheap to do. So I just go to this
+[00:16:14] URL. I'll leave a link to the
+[00:16:15] description. Go to view plans, and then
+[00:16:18] go to choose plan, and you can choose
+[00:16:20] the cloud startup one or the business
+[00:16:21] plan depending on what it is that you're
+[00:16:23] doing, but for most of you, you just
+[00:16:24] need the cheap plan here, which is $3.99
+[00:16:26] per month. So I'm going to go to choose
+[00:16:28] plan, and that's going to bring me to
+[00:16:29] this page. Now, from here, what we need
+[00:16:31] to do is select the duration of our
+[00:16:32] plan. If you select one greater than 12
+[00:16:34] months, then you can use this coupon
+[00:16:36] code techwithtim because of my
+[00:16:37] partnership with Hostinger, and it will
+[00:16:39] give you an additional 10% off as you
+[00:16:41] can see here. We're then going to pick
+[00:16:43] the domain that we want to host this on.
+[00:16:44] So I probably want like, you know,
+[00:16:46] timrasika.com or something. I don't know
+[00:16:48] if that's available, but let's see.
+[00:16:50] Uh, okay, and you can see it's free
+[00:16:52] actually, so that's I probably should
+[00:16:53] have had that before, but anyways, uh,
+[00:16:55] let's get that domain. We just wanted 1
+[00:16:57] year for now. Just select 1 year. If you
+[00:16:59] want two, three, etc., just pick what it
+[00:17:01] is that you want, and then go ahead and
+[00:17:03] press on continue. All right, now as you
+[00:17:04] go through this process, you will need
+[00:17:05] to register your details. This is
+[00:17:07] required whenever you purchase a domain.
+[00:17:09] There might be a few other things to
+[00:17:10] fill in, but it should be very
+[00:17:11] straightforward, and then it will give
+[00:17:12] you access to the web hosting, which
+[00:17:14] we'll then be able to plug directly into
+[00:17:16] Claude code and have it handle all of
+[00:17:17] the deployment for us. All right, now
+[00:17:19] from here, it may ask you to connect
+[00:17:20] with GitHub or to upload your files.
+[00:17:22] Just go with upload files for now
+[00:17:23] because we're going to do this from the
+[00:17:24] connector, but you also could connect
+[00:17:26] this with a GitHub repo if you already
+[00:17:27] have. And now it's going to prepare the
+[00:17:29] server space. Okay, now once you get to
+[00:17:31] this page here, it's going to have
+[00:17:32] prepared the server space, and it's
+[00:17:34] going to ask you to upload a file. Now,
+[00:17:36] you need to upload something just so we
+[00:17:38] can proceed because this step forces you
+[00:17:40] to upload something effectively, but we
+[00:17:42] can manage the deployment from, uh,
+[00:17:44] Claude code in just a second. So what
+[00:17:46] you're going to need to do is you're
+[00:17:47] going to have to go and find your
+[00:17:49] folder. So in my case, it was my site.
+[00:17:51] And what I did just cuz I'm on Mac is I
+[00:17:53] compressed it. Now, if you're on
+[00:17:54] Windows, you can just compress this as
+[00:17:55] well, use 7-Zip, whatever you want to do
+[00:17:58] so that you get a zip folder, okay? Then
+[00:18:00] we're just going to go ahead and press
+[00:18:01] on continue, and what this is going to
+[00:18:03] do now is start deploying the site based
+[00:18:06] on the, uh, you know, files that we
+[00:18:08] attached. So we attached this Next.js
+[00:18:10] kind of zip folder, right? And we'll
+[00:18:12] just go ahead and press on deploy. We
+[00:18:13] don't need to change anything here, and
+[00:18:15] it will start deploying this to our
+[00:18:17] domain. Now, this will give us a base
+[00:18:19] deployment of the site that we currently
+[00:18:20] have, but where this gets more useful is
+[00:18:23] that if we change something now in
+[00:18:24] Claude code, I'm going to show you in a
+[00:18:26] second, we can just tell it to
+[00:18:27] automatically deploy, and it will push
+[00:18:29] to Hostinger for us so that we don't
+[00:18:31] need to go through this process every
+[00:18:33] single time. It's just when we're
+[00:18:34] setting it up, then we can go back to
+[00:18:36] Claude code, and with natural language,
+[00:18:38] when we connect the connector, we can
+[00:18:39] see the domains, push it, etc. And just
+[00:18:42] keep in mind that you can actually host
+[00:18:43] multiple different sites on the
+[00:18:45] Hostinger deployed instance that you
+[00:18:47] have here. There's a lot of other
+[00:18:48] features that it gives you, but I think
+[00:18:50] for the one that we used, you can have
+[00:18:51] like five different sites. All right, so
+[00:18:53] it looks like the site was deployed just
+[00:18:54] took a minute here, and then if we go to
+[00:18:56] our URL, we can see that it appears at
+[00:18:58] timrasika.com
+[00:19:00] or whatever URL obviously you used. Now,
+[00:19:02] this is great, but what I want to do is
+[00:19:04] close this now. So if you've closed
+[00:19:06] that, you should be brought back to the
+[00:19:08] H panel here for Hostinger, and this is
+[00:19:09] how you can manage your site in the
+[00:19:11] future. So if you go to websites, and
+[00:19:13] you go to all websites here, you should
+[00:19:15] see the site that you deployed. You can
+[00:19:17] have a look at it. For example, there's
+[00:19:18] tools like you can see the analytics and
+[00:19:20] the files. You can also go to the
+[00:19:21] dashboard. From here, you can connect a
+[00:19:23] database, manage your files, go to the
+[00:19:25] deployments, right? And manage the
+[00:19:27] domain. Now, from the domain side of
+[00:19:28] things, if you want, you can actually
+[00:19:30] get an email here. If you go to the
+[00:19:32] domains, you go to domain overview,
+[00:19:33] select the one that you have, renew it,
+[00:19:35] whatever, go through all of the
+[00:19:36] different details here, and then you can
+[00:19:38] create different sites and whatnot from
+[00:19:39] here if you wanted to. Okay. Now, this
+[00:19:41] is cool. What we're going to do is go
+[00:19:43] over to this API section here, and we're
+[00:19:46] going to generate an API token because
+[00:19:48] this is now how we'll be able to do the
+[00:19:49] deployment directly from Claude code in
+[00:19:51] the future. So again, on the left-hand
+[00:19:53] side, you're going to go here to
+[00:19:54] generate token. For the token name, I'll
+[00:19:56] just give it a never expires, and I'm
+[00:19:58] just going to call this CloudCode, and
+[00:20:01] then generate. Okay, now I'm going to
+[00:20:02] copy this token. Make sure you don't
+[00:20:04] share it with anyone. And we're going to
+[00:20:05] go back here, and we're going to find
+[00:20:07] the Hostinger extension now that we
+[00:20:09] installed so that we can start managing
+[00:20:12] all of this from our uh kind of AI agent
+[00:20:14] rather than needing to go to the
+[00:20:16] platform. So, what we're going to do is
+[00:20:17] press on this little down arrow, and
+[00:20:19] assuming that we installed that
+[00:20:20] Hostinger extension, we should see it
+[00:20:22] appear right here. From here, we can
+[00:20:24] just paste our API token that we just
+[00:20:26] generated. It also shows you how to get
+[00:20:28] it in case you didn't follow that step,
+[00:20:29] and then just press on connect. Now, it
+[00:20:31] says that it's connected. So, now that
+[00:20:32] it's connected, we can literally just go
+[00:20:34] to CloudCode and say, "Hey, what
+[00:20:35] websites and domains do I have with
+[00:20:37] Hostinger?"
+[00:20:38] Right? And then just press enter, and it
+[00:20:40] should now be able to use this and give
+[00:20:41] us the results. All right, so I asked it
+[00:20:43] this, but for some reason it wasn't able
+[00:20:45] to find the MCP server, and I believe
+[00:20:47] it's due to how CloudCode is kind of
+[00:20:48] working directly inside of Cursor. Now,
+[00:20:51] I'm just going to quickly show you that
+[00:20:52] if we go and we go to the settings here
+[00:20:55] of Cursor, so let me just find settings,
+[00:20:58] and we search for MCP, so you'll see
+[00:21:01] that if we find MCP, which should be
+[00:21:04] over here, tools and MCP, that there is
+[00:21:06] a Hostinger uh tool that's automatically
+[00:21:08] been added, which is known as an MCP
+[00:21:10] server or model context protocol. Don't
+[00:21:13] worry too much about exactly what that
+[00:21:14] means. The thing is, the MCP server is
+[00:21:16] here. The issue is just that the
+[00:21:17] CloudCode session itself, for some
+[00:21:20] reason, isn't able to access that MCP
+[00:21:22] server, but Cursor itself can. So, for
+[00:21:25] example, if we were to open up a new
+[00:21:28] agent window, so if we just go here to
+[00:21:30] this toggle agent, and we said, "Hey,
+[00:21:33] what uh websites and domains do I have
+[00:21:35] with Hostinger?" Then, this will give us
+[00:21:37] the response because it has access to
+[00:21:39] the MCP server here, but just not in
+[00:21:41] CloudCode, which I'm going to show you
+[00:21:43] how to fix in 1 second. And I just had
+[00:21:45] to switch over to agent mode cuz it was
+[00:21:46] telling me, "Hey, I can't call the
+[00:21:47] tools." But you can see we have
+[00:21:48] timrusicka.com. Right, we have all of
+[00:21:50] this stuff available, and then we are
+[00:21:52] good to go. And if I wanted to, I could
+[00:21:54] just tell it, "Hey, redeploy the site,"
+[00:21:56] and it can do that from here. Now,
+[00:21:58] that's great, but of course, the point
+[00:21:59] is we wanted to get this in CloudCode,
+[00:22:01] so I'm going to show you how we can add
+[00:22:02] that. So, if we go back to the API page
+[00:22:05] here that we were on in Hostinger, so
+[00:22:07] you'll notice that there's a
+[00:22:09] configuration here that we can just copy
+[00:22:11] to add this to CloudCode. So, it says,
+[00:22:13] "Hey, add this config file, restart
+[00:22:15] CloudCode, verify the connection, you're
+[00:22:17] all set." So, what I'm going to do is
+[00:22:18] just go here, and I'm just going to
+[00:22:20] paste it in and say,
+[00:22:22] "Add this configuration to my
+[00:22:23] CloudCode."
+[00:22:25] And then for the token, we're just going
+[00:22:26] to replace the token with the token that
+[00:22:28] we had here. So, let's just I'm going to
+[00:22:31] regenerate this one and then copy it.
+[00:22:32] Okay, so I'm just going to paste that
+[00:22:34] token inside of there. Of course, don't
+[00:22:36] share that with anyone. I'll regenerate
+[00:22:37] it after. And then it should be able to
+[00:22:39] add the MCP config for us. Again, the
+[00:22:41] connector should have done this, but I
+[00:22:42] think just how CloudCode is generating,
+[00:22:44] sometimes it doesn't show up. So, if
+[00:22:46] it's not working for you, you can do
+[00:22:47] this to get it in CloudCode. Otherwise,
+[00:22:49] you can use it from the agent inside of
+[00:22:50] Cursor. I know it's a bit weird, but you
+[00:22:52] have CloudCode, you have a Cursor agent.
+[00:22:54] So, there's like a lot of different
+[00:22:55] config that you could do. I'm just
+[00:22:56] showing you all of the options. Okay, so
+[00:22:58] that worked. So, now what I did is I
+[00:22:59] just started a new CloudCode session
+[00:23:02] here, and if you type /mcp,
+[00:23:05] and you go to MCP servers, you can see
+[00:23:07] the Hostinger MCP is now connected, has
+[00:23:09] available all of the different tools,
+[00:23:12] and we can use it to deploy, right? So,
+[00:23:14] I could say,
+[00:23:15] "Deploy my project now. Change the name
+[00:23:18] of the site rather than timrusicka to be
+[00:23:20] timtech." I don't know, something like
+[00:23:22] that just so we can see if it's
+[00:23:23] different. And then it can go now, use
+[00:23:24] these tools, and deploy it. Okay, and we
+[00:23:26] can see that it's now redeployed again,
+[00:23:28] just doing it from natural language this
+[00:23:30] time. I didn't have to do it from the
+[00:23:31] dashboard, so I can just do it all from
+[00:23:33] CloudCode. And if I open it up, you can
+[00:23:35] see it says timtech, right? And it's
+[00:23:37] changed the name up here to timtech
+[00:23:38] rather than timrusicka like we had
+[00:23:40] before. So, there you go, guys. That is
+[00:23:42] how you build and deploy a website using
+[00:23:45] CloudCode, at least as of now, until
+[00:23:47] they change something in the software
+[00:23:49] later. I hope that you guys enjoyed the
+[00:23:50] video. If you did, make sure you leave a
+[00:23:51] like, subscribe to the channel, and I
+[00:23:53] will see you in the next [music] one.
+[00:24:01] >> [music]

@@ -1,0 +1,2330 @@
+# React Native Crash Course 2026 - Build a Complete Mobile App
+# https://www.youtube.com/watch?v=XCifkDC0yXA
+# kanal: Traversy Media | süre: 5916 sn | kaynak: yt-dlp:web_embedded:XCifkDC0yXA.en-orig.json3
+
+[00:00:00] Hey guys. So, it seems like every
+[00:00:01] channel now is filled with videos about
+[00:00:03] AI, including this one. I'm not taking
+[00:00:05] myself out of that. And it seems like
+[00:00:07] everyone has forgotten about the people
+[00:00:09] that actually need to learn how to code.
+[00:00:11] Well, we got you back at Traversy Media.
+[00:00:13] We're going to still be creating crash
+[00:00:15] courses uh on popular technologies so
+[00:00:18] that you can learn the fundamentals
+[00:00:19] before you even touch AI. And in this
+[00:00:21] crash course, we'll be learning how to
+[00:00:23] create mobile applications with React
+[00:00:25] Native. So you'll learn about its
+[00:00:27] features, how to get set up, and we're
+[00:00:29] going to build a real macrotracking app
+[00:00:31] from scratch using Expo, which is a a
+[00:00:34] popular framework for building React
+[00:00:36] Native applications. And I'm going to
+[00:00:38] have all the resources in the
+[00:00:39] description, including the diagrams that
+[00:00:41] we use, the source code for the project,
+[00:00:44] as well as an in-depth guide, all the
+[00:00:46] steps to take to to get to the finished
+[00:00:49] product, including all the code samples.
+[00:00:52] So you'll be able to follow along uh on
+[00:00:54] your own machine. So if you're ready to
+[00:00:56] learn React Native along with the Expo
+[00:00:58] framework, then let's get started.
+[00:01:00] [music]
+[00:01:04] All right, so we're going to start with
+[00:01:06] a quick overview to understand what
+[00:01:07] React Native is and how it works. And if
+[00:01:10] you want to skip this part, you want to
+[00:01:11] jump right into the project, that's
+[00:01:13] fine. You can use the timestamps and and
+[00:01:15] get right into it. So the goal of this
+[00:01:17] crash course is to learn the concepts
+[00:01:19] quickly while building an actual
+[00:01:21] project. And by the end, you should have
+[00:01:22] a solid understanding of how React
+[00:01:24] Native works, how the Expo framework
+[00:01:27] works, and you should be well on your
+[00:01:28] way to creating mobile apps with these
+[00:01:30] modern tools. Now, this sheet here I
+[00:01:33] have I'll have as a download in the
+[00:01:35] description if you want it, but I just
+[00:01:37] want to just cover some some basics. So,
+[00:01:39] what is React Native? How does it work?
+[00:01:42] So, React Native is essentially a
+[00:01:44] framework for building native mobile
+[00:01:46] applications using JavaScript and React.
+[00:01:48] and it allows developers to create apps
+[00:01:51] for iOS and Android using a single
+[00:01:54] codebase. Now there are other uh kind of
+[00:01:57] web technologies that will let you build
+[00:02:00] mobile apps using JavaScript, HTML, CSS.
+[00:02:04] Um but a lot of them are essentially
+[00:02:05] just web apps running in a wrapper. So
+[00:02:08] they don't have that that kind of
+[00:02:10] performance of a real native app where
+[00:02:13] React Native lets you build truly native
+[00:02:15] mobile apps. Um, not to say that there's
+[00:02:17] not a use case for some of these other
+[00:02:19] technologies, but having the ability to
+[00:02:21] to build real native apps, uh, gives you
+[00:02:24] a real advantage. Now, React Native's
+[00:02:27] biggest advantage, and you kind of have
+[00:02:29] a lot of different benefits from this
+[00:02:31] one advantage, is having a single
+[00:02:33] codebase. So, traditionally, if you were
+[00:02:35] to build a mobile app, you have two
+[00:02:38] major platforms to think about. That's
+[00:02:40] Android and iOS. And traditionally if
+[00:02:43] you wanted in it to run on Android you
+[00:02:45] would use a language like Java or
+[00:02:47] Cotlin. And if you wanted iOS you would
+[00:02:50] use a language like Swift or Objective
+[00:02:52] C. Well React Native lets you build for
+[00:02:55] both using one single codebase and
+[00:02:58] that's JavaScript. Okay, which to me is
+[00:03:00] an easier language to learn and use
+[00:03:02] anyway. Um and then of course if you're
+[00:03:04] already a web developer and you know
+[00:03:06] React then it's it's a no-brainer
+[00:03:09] really. So by having a single codebase,
+[00:03:12] you have a lot of other advantages. So
+[00:03:15] of course cost-effective development. If
+[00:03:17] you're paying someone to create a mobile
+[00:03:19] app for you, you're not paying for for
+[00:03:21] two separate platforms, two separate
+[00:03:24] projects. And if you're building it
+[00:03:25] yourself, obviously it's going to be
+[00:03:27] easier to have one code base. Code
+[00:03:29] reusability because much of your
+[00:03:31] application logic and UI can be shared
+[00:03:33] across platforms. you have easy
+[00:03:35] collaboration because one team can
+[00:03:38] manage u you know a shared code base and
+[00:03:42] they have they all have a common skill
+[00:03:43] set which in this case would be
+[00:03:45] JavaScript and and React. You have
+[00:03:47] native like performance because React
+[00:03:49] Native renders with real native
+[00:03:51] components rather than just web views.
+[00:03:54] You have less maintenance um because
+[00:03:56] updates and bug fixes usually only need
+[00:03:59] to be made once. And then complexity
+[00:04:03] obviously um you avoid managing two
+[00:04:05] separate code bases which makes it a lot
+[00:04:08] less complex. So all of this these
+[00:04:10] advantages basically come from this one
+[00:04:12] advantage of having a single codebase.
+[00:04:15] Now I also want to get into how React
+[00:04:17] Native works and it's important to
+[00:04:19] understand that the React framework that
+[00:04:22] we use when we build web apps is no
+[00:04:24] different than the one we use when we
+[00:04:25] build mobile apps with React Native.
+[00:04:28] React is just the the core library,
+[00:04:30] right? Right? So it's responsible for
+[00:04:32] the component model, state, hooks, all
+[00:04:35] of that. It doesn't actually know
+[00:04:36] anything about rendering to a screen on
+[00:04:38] its own. Now with a web app, we use uh
+[00:04:41] an additional library called React DOM.
+[00:04:44] And this will render HTML tags in the
+[00:04:47] browser, right? So divs, paragraphs,
+[00:04:49] etc. Well, when we use React Native, we
+[00:04:51] use that instead of ReactDOM. And that
+[00:04:54] will render UI components, native UI
+[00:04:57] components such as view, text,
+[00:04:59] Pressible, and these will render too
+[00:05:02] real iOS native components if you're if
+[00:05:05] it's being viewed on iOS and real native
+[00:05:08] Android views. All right, so just
+[00:05:10] remember that it's the same exact core
+[00:05:12] library. React is is technically a
+[00:05:15] library even though everyone calls it a
+[00:05:17] framework. Now, I do want to talk about
+[00:05:20] how it works under the hood just a
+[00:05:22] little bit. I mean, this stuff isn't
+[00:05:24] really like super important to know when
+[00:05:26] you're just getting started, but I think
+[00:05:27] that I I think it's a good idea just to
+[00:05:29] have a general overview of of how it
+[00:05:33] works. So, basically, you can kind of
+[00:05:35] think of it as having two sides, right?
+[00:05:37] We have the JavaScript side, which is
+[00:05:39] your code, your source code that you
+[00:05:41] write, your components, your state, your
+[00:05:43] logic. It runs in the Hermes engine.
+[00:05:46] That's the JavaScript engine that um
+[00:05:47] that React Native uses with the new
+[00:05:50] architecture, which I'll talk about in a
+[00:05:51] second. And then you have your native
+[00:05:53] side which is the actual UI elements.
+[00:05:56] These are real native platform
+[00:05:58] components written in other languages
+[00:06:00] like Swift and Cotlin. And it's
+[00:06:02] important to know that you don't write
+[00:06:03] or manage any of that that native code,
+[00:06:06] right? So you don't need to know any of
+[00:06:08] that stuff. Now I'll give you a very
+[00:06:11] highlevel overview of how this works.
+[00:06:14] And this is called the new architecture
+[00:06:17] because prior to I think it was 2025 or
+[00:06:21] or 2020 late 2024
+[00:06:24] um React Native switched it used to use
+[00:06:26] a bridge to communicate with the the
+[00:06:29] native elements and it would use JSON
+[00:06:32] messages with that bridge but now it
+[00:06:34] actually uses something called JSI or
+[00:06:37] the JavaScript interface and that's how
+[00:06:40] React uh interacts with the the native
+[00:06:44] side, right? So on the React Native
+[00:06:46] layer on the native side, we have fabric
+[00:06:49] which is the the rendering engine. So
+[00:06:51] this takes care of the actual rendering.
+[00:06:54] And then for functionality like dealing
+[00:06:56] with the camera and you know storage and
+[00:06:58] things like that, we have something
+[00:07:00] called Turbo Modules. So that's the
+[00:07:02] native API functionality. But yeah, so
+[00:07:05] just just know that JSI the JavaScript
+[00:07:08] interface is how basically we
+[00:07:10] communicate our JavaScript to the native
+[00:07:12] side. And this is actually a a C++
+[00:07:15] interface. Uh now just to give you uh
+[00:07:19] kind of a rundown of how it works, the
+[00:07:22] process React runs in the JavaScript
+[00:07:24] runtime, right? So basically here and
+[00:07:27] then React Native processes and prepares
+[00:07:31] for the native UI. JSI the JavaScript
+[00:07:34] interface is used to cross that boundary
+[00:07:36] right into native and then fabric
+[00:07:39] handles the UI and Turbo modules handles
+[00:07:41] the APIs. So that's just a very you know
+[00:07:44] kind of messy high-level overview and
+[00:07:47] again it's not really that important for
+[00:07:49] you to know right now. I just want to
+[00:07:50] give you kind of a general idea. Now
+[00:07:53] when it comes to building React Native
+[00:07:55] apps there's two main approaches. You
+[00:07:57] can use something called the React CLI,
+[00:08:00] but that can be a bit timeconuming and
+[00:08:02] complex, especially for beginners. So,
+[00:08:04] what I use and what I suggest is Expo,
+[00:08:07] which is a framework built on top of
+[00:08:08] React Native that provides a set of
+[00:08:11] tools and services that makes it much
+[00:08:12] easier to to build and deploy React
+[00:08:15] Native applications. And it abstracts
+[00:08:17] away a lot of the complexity of setting
+[00:08:20] up uh native development environments
+[00:08:23] and and provides a lot of features out
+[00:08:25] of the box. You can almost think of Expo
+[00:08:27] as like a a Nex.js for React Native.
+[00:08:30] Now, as far as features and what it
+[00:08:32] offers, so you have a a complete
+[00:08:34] development environment and it's
+[00:08:36] crossplatform. You can you can run uh or
+[00:08:39] or build for iOS, Android, even the web
+[00:08:43] because it comes bundled with React
+[00:08:45] Native web. Um now, if you want to test
+[00:08:47] on a simulator, an iOS or or Android
+[00:08:50] simulator, there are some other things
+[00:08:52] you need to set up and I'll talk about
+[00:08:53] that in a minute. Then you have a rich
+[00:08:55] set of APIs you can use. So for things
+[00:08:58] like camera access, location services,
+[00:09:00] push notifications, there's all kinds of
+[00:09:03] Expo APIs for that. The Expo router is a
+[00:09:07] file-based navigation system, and this
+[00:09:09] works similar to how Nex.js works where
+[00:09:12] you have a specific folder that you put
+[00:09:14] files in if you want them to pertain to
+[00:09:17] specific routes. And then there's also a
+[00:09:19] client app called Expo Go that you can
+[00:09:22] download on iOS or Android. And
+[00:09:25] basically when you run your application
+[00:09:28] using Expo, it'll show you a QR code
+[00:09:30] that you can scan and it'll it'll come
+[00:09:32] up on your physical device through Expo
+[00:09:35] Go. So it's a good way to test on a
+[00:09:36] physical device. And then there's also a
+[00:09:39] whole suite called Expo application
+[00:09:42] services. And this allows you to
+[00:09:44] basically build for iOS and Android in
+[00:09:47] the cloud. So it makes the the
+[00:09:49] everything just a lot easier. Um it even
+[00:09:52] has cloud-based
+[00:09:54] overtheair updates and also makes it
+[00:09:57] easy to submit to the app stores as
+[00:09:59] well. Now when it comes to developing,
+[00:10:03] testing, and building, there are there
+[00:10:07] are some rules that you need to follow.
+[00:10:08] So, for instance, if you're on Windows
+[00:10:10] or Linux, you can't run an iOS simulator
+[00:10:13] because in order to do that, you need to
+[00:10:15] be on a Mac OS with Xcode. Okay? So, if
+[00:10:18] you want to use a a virtual iPhone, the
+[00:10:21] iOS simulator, you need to be on a Mac
+[00:10:23] with Xcode. Now, for Android, you can
+[00:10:26] run the Android emulator through Android
+[00:10:29] Studio, whether you're on Mac, Windows,
+[00:10:32] or Linux. Okay? So, that's
+[00:10:33] crossplatform.
+[00:10:35] And then um you can obviously you can
+[00:10:38] run your your application in a browser
+[00:10:40] because like I said expo does include
+[00:10:43] react react native web but if it if your
+[00:10:46] application is using native APIs like
+[00:10:48] the camera or uh I don't know storage or
+[00:10:52] GPS or something then a lot of that's
+[00:10:54] not going to not going to work within
+[00:10:56] the browser. All right. So, and again,
+[00:10:59] if you're using Expo, you can use EAS
+[00:11:02] Build, which will build in the cloud for
+[00:11:04] iOS and and Android. You can also use
+[00:11:07] Expo Go, which will allow you to kind of
+[00:11:10] test on your physical device without
+[00:11:12] having to do anything except scan a QR
+[00:11:15] code. All right, so yeah, that's pretty
+[00:11:18] much it. I just wanted to kind of go
+[00:11:19] over some of this stuff to give you an
+[00:11:21] idea of what React Native is and how it
+[00:11:23] works. So, now we're going to jump in
+[00:11:25] and we're going to set up an application
+[00:11:27] and build our macro zone app. All right,
+[00:11:30] guys. So, we're going to jump in and
+[00:11:31] create our project. Now, for those of
+[00:11:33] you that have watched my tutorials, you
+[00:11:35] know that I like to to build start to
+[00:11:37] finish. I don't have highly edited
+[00:11:39] videos where I just throw a bunch of
+[00:11:41] stuff at you. I format them in a way
+[00:11:43] where you can sit down and you can
+[00:11:45] follow along. All right. So in the the
+[00:11:48] description you'll have a link to this
+[00:11:49] repo which is called macrozone and it
+[00:11:52] has the final code but in addition to
+[00:11:54] that it has this steps MD file and this
+[00:11:57] is basically an outline of the entire
+[00:12:00] video the entire project with all the
+[00:12:02] commands we're going to run all the the
+[00:12:04] code samples so you can copy and paste
+[00:12:07] and follow along. You don't have to type
+[00:12:08] everything out. I'll be copying and
+[00:12:10] pasting some of this stuff, but I'll
+[00:12:12] explain exactly what it does so you
+[00:12:14] won't be lost and you'll understand the
+[00:12:17] code. So, this is a screenshot of what
+[00:12:19] we'll be building. It's called Macro
+[00:12:21] Zone, and it's basically a nutrition
+[00:12:23] tracking application. It's made to track
+[00:12:26] basically daily where you add your
+[00:12:28] calories or you add a meal with the
+[00:12:30] calories, the protein, the carbs, and
+[00:12:33] the fat. So, you'll have tabs down here.
+[00:12:35] You have add meal which will be the form
+[00:12:37] and then all meals will list out all the
+[00:12:39] meals. On the dashboard obviously you
+[00:12:42] have your macros and you have your goal
+[00:12:44] and then recent meals at the bottom and
+[00:12:46] then towards the end we're going to use
+[00:12:48] some of the expo APIs like the share
+[00:12:50] API. So this button here will allow you
+[00:12:53] to share through other apps on the
+[00:12:55] device. And then copy summary uses the
+[00:12:58] expo clipboard API where you can co just
+[00:13:00] click that and you'll get a nice you
+[00:13:02] know text formatted if you want to paste
+[00:13:04] it in a text or in a text file or
+[00:13:07] something. And then meal reminders will
+[00:13:09] use push notifications. So it's a good
+[00:13:11] project to to start learning with and
+[00:13:13] and build and it's useful. So let's go
+[00:13:17] to the first one here. And the very
+[00:13:18] first thing you should do is create an
+[00:13:21] account at expo.dev dev because that's
+[00:13:24] going to allow you to use the Expo
+[00:13:25] application services where you can build
+[00:13:28] for iOS and Android in the cloud. It
+[00:13:31] helps you deploy, it helps you submit to
+[00:13:33] app stores. So all around it's just a
+[00:13:35] good way to manage all your React Native
+[00:13:37] projects. It's completely free. So, you
+[00:13:40] know, not trying to sell you anything.
+[00:13:42] So, we're going to go to expo.dev. Log
+[00:13:44] in. I have a couple accounts. I'm going
+[00:13:46] to use this Google account here, which
+[00:13:49] is my demo account. And then up at the
+[00:13:51] top right there's a new project button.
+[00:13:53] We're going to click that and just give
+[00:13:55] it a name. I'm going to call it macro
+[00:13:57] zone. And then what it's going to do is
+[00:14:00] give you these four commands here. So
+[00:14:03] the first one is to install the EAS CLI
+[00:14:06] which is a command line tool basically
+[00:14:08] to manage your your Expo application
+[00:14:10] services account and all all your apps
+[00:14:12] that you create within expo.dev.
+[00:14:15] And you're installing it globally so you
+[00:14:17] can access the EAS command from
+[00:14:19] anywhere. And the next one is to create
+[00:14:22] the project. And we're using create expo
+[00:14:24] app uh npx. And then in the macro zone
+[00:14:29] folder or whatever you call it, we're
+[00:14:31] going to run the EAS init command with
+[00:14:34] this ID. Not this one, but whatever is
+[00:14:36] on your screen obviously. And what that
+[00:14:38] does is it'll connect your project to
+[00:14:41] this project in expo dev. And and then
+[00:14:43] you can use the services. All right. And
+[00:14:46] then in my sheet here or in the steps,
+[00:14:49] that's my first command as well is the
+[00:14:51] to install the EAS CLI globally. So
+[00:14:54] let's do that. I'm going to jump into my
+[00:14:56] terminal and I'm on a Mac, so I'm going
+[00:14:58] to just add pseudo in front of it.
+[00:15:05] All right. And then while that's
+[00:15:06] installing, I just want to take a look
+[00:15:07] at the next command, which is create
+[00:15:10] expo app. That'll generate your React
+[00:15:13] Native and Expo project. Uh however I'm
+[00:15:16] using or I want to use the latest SDK
+[00:15:19] which at this point is 55. So there is a
+[00:15:22] flag that I want to add which is at
+[00:15:25] latest and then-template
+[00:15:28] default at SDK55
+[00:15:30] and SDK55 has some new features. It has
+[00:15:33] uh uses the native tabs API refresh
+[00:15:36] design uh new source folder structure.
+[00:15:39] So that's the command I have here.
+[00:15:41] Right. So, I'm going to copy that.
+[00:15:44] And then let's jump back over here. And
+[00:15:47] of course, you want to navigate to
+[00:15:48] wherever you want to create this. I have
+[00:15:50] a a directory called code that I want to
+[00:15:53] create this in. I'm going to paste that
+[00:15:55] in and run it. And just give it a name.
+[00:15:58] So, macro zone. And that'll generate a
+[00:16:01] brand new React Native project with Expo
+[00:16:04] and and all its dependencies.
+[00:16:07] Okay. So, once that's done, we can cd
+[00:16:09] into macro zone. And then this is where
+[00:16:11] we want to add the init command. So I'm
+[00:16:14] going to just grab that. Make sure you
+[00:16:16] use your ID.
+[00:16:18] And let's see, we're going to jump back
+[00:16:20] over here and paste that in.
+[00:16:24] Okay. So it says project successfully
+[00:16:26] linked. So this project macro zone on
+[00:16:29] this machine is now connected to that
+[00:16:31] expo. project that I just created. So
+[00:16:34] now I'm just going to open up VS Code.
+[00:16:36] Of course, you can use, you know,
+[00:16:38] whatever uh text editor or IDE that you
+[00:16:41] want to use.
+[00:16:43] And let's close the AI chat up. All
+[00:16:45] right. And then we have all of our files
+[00:16:48] and folders for our React Native
+[00:16:50] application. Let's look at package.json
+[00:16:53] real quick. And I just want to show you
+[00:16:54] that we have React 19. Okay, this is the
+[00:16:57] same React whether you're using whether
+[00:16:59] you're building a SPA or uh you're using
+[00:17:02] Nex.js or React Native. Same same
+[00:17:05] library. And then it also includes since
+[00:17:08] we used Expo, it also includes React DOM
+[00:17:10] and React Native web. And what that
+[00:17:12] allows us to do is actually create a web
+[00:17:15] app with React Native. Now, if you're
+[00:17:17] using native APIs like the camera and
+[00:17:20] things like that, that's obviously not
+[00:17:22] going to work in the browser, but just
+[00:17:24] rendering your components and stuff that
+[00:17:26] will work fine in the browser. And then
+[00:17:29] there's just some other Expo uh packages
+[00:17:31] like the router, which is similar to the
+[00:17:33] Nex.js router. If you look in the source
+[00:17:36] folder, there's an app folder just like
+[00:17:38] Nex.js and um there's there's this index
+[00:17:42] and explore. So basically these are two
+[00:17:44] different routes, two different screens
+[00:17:46] which are just React components, but all
+[00:17:48] this dummy data or this dummy content,
+[00:17:51] we we're going to wipe that away.
+[00:17:52] There's actually a command to start
+[00:17:54] fresh. Um and then there's also a layout
+[00:17:56] in that app folder. All right. And then
+[00:18:00] let's see. And then there's just some
+[00:18:02] other things like the splash screen if
+[00:18:04] you want to change that little logo
+[00:18:06] that's displayed, status bar, some
+[00:18:08] navigation uh packages, and then up here
+[00:18:12] under scripts, we have the start script,
+[00:18:14] which runs Expo Start. Okay, that's what
+[00:18:17] you're going to use. And when you run
+[00:18:19] that, you can open in in several
+[00:18:21] different platforms. You can open on the
+[00:18:22] web. You can open your project on an iOS
+[00:18:25] simulator if you have if you're using a
+[00:18:27] Mac with Xcode. You can open in Android
+[00:18:30] if you have Android Studio. Um there'll
+[00:18:32] be a QR code if you want to use Expo Go,
+[00:18:35] which is an app you can download on your
+[00:18:37] physical device. And then you can also
+[00:18:40] run these separately like npm run
+[00:18:42] Android, iOS, those will run the
+[00:18:44] simulators or web. So we're going to go
+[00:18:48] ahead and run the start. So, let's say
+[00:18:51] npm start.
+[00:18:55] All right. And you'll see that it
+[00:18:57] actually shows a QR code and you can
+[00:18:59] scan this if you have Expo Go installed
+[00:19:01] on your on your device. Now, there is uh
+[00:19:04] a caveat. So, if we look at SDK 55, if
+[00:19:08] you're using this, you can use Expo Go,
+[00:19:12] let's see,
+[00:19:14] on an Android device with SDK 55. If
+[00:19:18] you're on iOS, you'll use the Test
+[00:19:20] Flight. Okay? There's an app you can
+[00:19:22] search for in the app store called Test
+[00:19:23] Flight. That's if you want to try it on
+[00:19:26] your physical device before actually,
+[00:19:28] you know, building it out. Uh, however,
+[00:19:30] what I'm going to do is just use my iOS
+[00:19:32] simulator, right? So, uh, actually, let
+[00:19:36] me show you the web version first. You
+[00:19:37] can see it says web localhost 8081. If I
+[00:19:41] open that up, then it gives me the web
+[00:19:43] version. And you can see the homepage
+[00:19:45] which is that index and then the explore
+[00:19:47] page.
+[00:19:49] All right. So, and and I'll just keep
+[00:19:50] this open and we can periodically check
+[00:19:53] the, you know, check what it looks like
+[00:19:54] in the browser. So, like I said, I want
+[00:19:57] to use my iOS simulator. So, if I hit
+[00:19:59] the question mark, it's going to show me
+[00:20:02] a bunch of other things I can press
+[00:20:03] here. Like A will open Android in
+[00:20:06] Android Studio. I will open the iOS
+[00:20:08] simulator. W will open the web. I can
+[00:20:11] reload with R. Debugger toggle menu. So,
+[00:20:15] I'm gonna hit I
+[00:20:18] and I'm gonna hit R just to reload. Make
+[00:20:20] sure that that's fresh.
+[00:20:23] And there we go. So, now it's showing in
+[00:20:25] in my iOS emulator. Again, you have to
+[00:20:28] be on a Mac with Xcode installed. And
+[00:20:31] notice I have tabs down here, home and
+[00:20:33] explore, just like I do on the web
+[00:20:35] version. But the web version looks a
+[00:20:37] little different, right? It has a
+[00:20:38] navigation bar at the top. That's
+[00:20:40] because in your code you can specify I
+[00:20:42] want to show you know this component on
+[00:20:44] web on on the web I want to show this
+[00:20:46] component on mobile devices and you can
+[00:20:49] even choose if you want to show
+[00:20:51] something on Android or iOS and I'll
+[00:20:54] show you that in in uh in a few minutes.
+[00:20:57] Okay. So um you you'll probably see a
+[00:21:00] gear icon here. So I'm just going to hit
+[00:21:03] uh I think it's command D opens the dev
+[00:21:05] tools. Now I have this tools button off.
+[00:21:08] Yours is probably on by default and
+[00:21:10] you're going to see this. So that just
+[00:21:12] opens the dev tools. And again, you can
+[00:21:14] use command D. So I like to just keep
+[00:21:16] that off. And from here, you can reload.
+[00:21:19] You can use the source code explorer.
+[00:21:20] You can actually go and see your code
+[00:21:22] through the the device. Toggle
+[00:21:24] performance monitor. You have an element
+[00:21:26] in inspector like you do in a regular
+[00:21:28] browser. Fast refresh. We're going to
+[00:21:31] keep that on. But yeah, that's the dev
+[00:21:33] tools. And I I don't like to show the
+[00:21:35] the icon. Now, just to show you on
+[00:21:38] Android, if I hit A, you do have and I
+[00:21:41] do have Android Studio installed, but
+[00:21:43] you have to open it up first. Okay, so
+[00:21:46] if you're on Windows, you can use this
+[00:21:48] as well as Mac or Linux. And uh
+[00:21:51] actually, I wanted to show you this
+[00:21:53] screen here. Okay, so if you have
+[00:21:55] Android Studio installed, what you're
+[00:21:56] going to do is go to more actions and
+[00:21:58] then virtual device manager. And you
+[00:22:00] want to create a new device with this
+[00:22:02] plus sign. As you can see, I have a
+[00:22:04] Pixel 9 Pro. So, I'm going to go ahead
+[00:22:06] and press play. It's going to open the
+[00:22:09] they call it an emulator.
+[00:22:11] And I'm just going to reload this as
+[00:22:13] well.
+[00:22:15] And now I'm running it on Android. So, I
+[00:22:18] could use this to test if I wanted to. I
+[00:22:21] prefer to use the iOS simulator. So, I'm
+[00:22:23] going to close it, but I did want to
+[00:22:24] show you guys how to how to set that up.
+[00:22:29] All right, cool. So, let's see. I just
+[00:22:31] want to make this a little smaller so we
+[00:22:34] can see both.
+[00:22:36] Okay. And then
+[00:22:39] um let's see. I think the next thing I
+[00:22:41] want to do is reset the project, right?
+[00:22:43] Because I don't want to have all this
+[00:22:44] this sample stuff here. So in the
+[00:22:47] package.json, you can see there's a
+[00:22:49] reset project script that we can run.
+[00:22:52] So, I'm going to just go ahead and stop
+[00:22:54] this and let's run npm run
+[00:23:00] reset- project.
+[00:23:03] Okay, it's going to ask me if I want to
+[00:23:04] move the existing files to a slash
+[00:23:07] example directory. So, if you want to
+[00:23:09] save it, I'm going to say no because I
+[00:23:10] just want to do away with it. All right,
+[00:23:13] and then you'll see that a bunch of
+[00:23:15] files just got removed. And if I come
+[00:23:17] over to my simulator and refresh,
+[00:23:20] uh let's see. Oh, I didn't We got to run
+[00:23:23] npm start again.
+[00:23:27] Okay. And then I'll just hit I and it
+[00:23:29] should just open up on my simulator. All
+[00:23:32] right. So this is what we'll see once we
+[00:23:34] reset the project. It simply says edit
+[00:23:37] the source app index.tsx file to edit
+[00:23:41] this screen which if we look in source
+[00:23:43] app index tsx and let's see I'll just
+[00:23:46] take this text here and we'll just say
+[00:23:48] my app. Save that. And you can see that
+[00:23:52] it auto refreshes and we just have
+[00:23:54] basically an empty uh an empty project.
+[00:23:58] Now I want to go over some of these
+[00:24:00] components. So as you can see we have
+[00:24:03] this text and view and that's what's
+[00:24:05] being rendered in the JSX. Just like a
+[00:24:08] regular React app, you have just a
+[00:24:10] functional component. you're you have
+[00:24:12] JSX, but instead of H1s and paragraphs
+[00:24:15] and HTML tags, you have these native
+[00:24:18] components coming from React Native. And
+[00:24:20] if you go to reactNative.dev
+[00:24:23] and then development and components, you
+[00:24:26] can read more about these these
+[00:24:27] components and see all the ones that are
+[00:24:29] available. So if we look at view, it
+[00:24:32] says it's the most fundamental component
+[00:24:34] for building a UI. So a view is just a
+[00:24:36] container, right? And in that container
+[00:24:39] you can have flexbox styling um some
+[00:24:42] touch handling accessibility controls.
+[00:24:45] So basically every page you create or
+[00:24:47] every screen will be wrapped in a view
+[00:24:49] and then components within that will be
+[00:24:52] wrapped in a view as well. Now in
+[00:24:54] addition to a regular view you also have
+[00:24:57] scroll view because with a regular view
+[00:25:00] if you go out of the container it
+[00:25:02] basically gets cut off. With scroll
+[00:25:04] view, you can actually scroll, you know,
+[00:25:06] with your finger and and scroll down.
+[00:25:08] Like for instance, if we look at our
+[00:25:10] thumbnail here or a screenshot, um on
+[00:25:14] the all meals page, we'll have a bunch
+[00:25:15] of these meals and you might have, you
+[00:25:17] know, 50 of them and you don't want it
+[00:25:19] to get cut off. You want to be able to
+[00:25:21] to scroll up and down, right? So, in
+[00:25:23] that case, you'd use a scroll view. So,
+[00:25:25] we'll probably use a scroll view on the
+[00:25:27] homepage and on the all meals where the
+[00:25:30] the ad meal will just be a simple form.
+[00:25:32] So, we won't need that. And then, let's
+[00:25:35] see. Text is another one you're going to
+[00:25:36] use a lot. And you can think of that
+[00:25:38] kind of as like a a a div or a paragraph
+[00:25:42] tag. Basically, just just you wrap text,
+[00:25:45] right? So, if you if we look at our
+[00:25:47] project here, we just have my app
+[00:25:49] wrapped in text. We don't want to just
+[00:25:50] have my app with nothing around it. And
+[00:25:54] let's see what else. So, we have like
+[00:25:55] modal, we have image. So, if you want to
+[00:25:58] show an image, there's an image
+[00:25:59] component. There's a button component.
+[00:26:02] Um, there's a few things if you want to
+[00:26:04] have buttons or or pressable items.
+[00:26:06] There's something called pressable where
+[00:26:08] you can actually have these different
+[00:26:10] states like on press in, on press out,
+[00:26:13] on long press. And there's also where is
+[00:26:17] it? Uh, touchable opacity where if you
+[00:26:21] click it, it just has that kind of
+[00:26:23] mobile feel where it it just fades out a
+[00:26:25] little bit. Um, but pressable is is
+[00:26:28] being used more these days.
+[00:26:31] So, let's see what else. Um, yeah,
+[00:26:33] that's pretty much it for like the the
+[00:26:35] base components you're going to use.
+[00:26:38] Now, I want to just go over let's
+[00:26:41] actually look at the the steps real
+[00:26:43] quick. So, we've done all this stuff.
+[00:26:46] Live reloading dev tools icon checking
+[00:26:50] the platform. So, you might have times
+[00:26:52] where you want to show certain things
+[00:26:54] depending on the platform. So, what I'm
+[00:26:56] going to do is actually just copy this
+[00:26:58] number nine and just replace this. Don't
+[00:27:02] worry about the styling and stuff. We'll
+[00:27:04] get to that. But if we go ahead and uh
+[00:27:08] actually, yeah, we also want to bring in
+[00:27:10] text and view.
+[00:27:13] But let's save that. And then let's take
+[00:27:15] a look here. I'm just going to refresh
+[00:27:17] this. So, it says welcome to macro zone
+[00:27:20] and then running on iOS. So this
+[00:27:23] platforms
+[00:27:25] will tell you, you know, what it's
+[00:27:26] running. If I was in the Android
+[00:27:28] emulator, it would say running on
+[00:27:30] Android. So you can always check that.
+[00:27:33] Um, and and I'll update this snippet to
+[00:27:36] have the the imports of text and view. I
+[00:27:39] might have to change a couple of these
+[00:27:41] things. Now, you can also check the
+[00:27:43] device information using the Expo device
+[00:27:46] package. So, if I were to copy this and
+[00:27:49] notice uh the I changed the name of the
+[00:27:51] the function. It was index. What I'll
+[00:27:54] usually do is is call it whatever it is
+[00:27:56] and then screen. If it's like an about
+[00:27:58] page, I'd call it about screen. So,
+[00:28:01] let's paste this in now and take a look.
+[00:28:05] And you can see running on iOS. So,
+[00:28:07] that's the platform OS. And then we have
+[00:28:10] simulator OS is the model name on the
+[00:28:13] device. The device brand is Apple. The
+[00:28:16] OS version is 2631.
+[00:28:18] Okay. So, you can get all kinds of
+[00:28:20] information about the specific device if
+[00:28:22] you need to.
+[00:28:25] Now, styling. Let's talk about that real
+[00:28:28] quick. So, I'm going to jump back in
+[00:28:30] here and uh actually, we'll just grab
+[00:28:32] this.
+[00:28:36] Okay. So,
+[00:28:38] let's refresh this. So, as you can see,
+[00:28:42] this is inline styling, right? And this
+[00:28:44] should look familiar if you're familiar
+[00:28:46] with React. So we have a style attribute
+[00:28:49] here. We have it set to double curly
+[00:28:50] braces since it's inline styling. And we
+[00:28:53] just can add styles like flex justify
+[00:28:56] content align items. If I wanted to do
+[00:28:59] like let's say background
+[00:29:02] uh background color set that to let's
+[00:29:06] say like red
+[00:29:09] then I get a red background. So you can
+[00:29:11] do it this way and basically it's just
+[00:29:13] CSS but instead of like background dash
+[00:29:15] color it's going to be camelc case. So
+[00:29:18] keep that in mind. Now I don't typically
+[00:29:20] use inline styling very much because it
+[00:29:23] just gets messy. I mean if you have you
+[00:29:26] know 20 different components and you're
+[00:29:28] adding this kind of styling to all of
+[00:29:30] them it just gets really messy. So what
+[00:29:32] you can do is you can use the stylesheet
+[00:29:34] API where we bring this in. Let's copy
+[00:29:37] this one.
+[00:29:40] Okay, so basically we bring in
+[00:29:42] stylesheet from React Native and what we
+[00:29:45] can do is create a variable set that to
+[00:29:47] stylesheet.create,
+[00:29:49] right? So this create method and then we
+[00:29:51] can pass in an object with styles such
+[00:29:54] as container and these are just
+[00:29:56] JavaScript objects. So container we have
+[00:29:59] flex a background color the padding
+[00:30:01] padding top padding horizontal um then
+[00:30:04] we have a title style and a date style.
+[00:30:07] And if we look up here, you can see
+[00:30:09] instead of setting it to inline with
+[00:30:11] double brackets, double curly braces, we
+[00:30:13] just have styles, which is the name of
+[00:30:15] the variable container, title, and date.
+[00:30:18] And then that pertains to those styles.
+[00:30:20] So if we save that and then take a look,
+[00:30:23] you can see now we have those styles
+[00:30:25] implemented where we have that
+[00:30:27] background, color, and so on. Now,
+[00:30:29] you're probably going to have styles
+[00:30:30] that are repeated across pages. Like for
+[00:30:32] instance, we'll have this container in
+[00:30:34] other pages. You can have global styles,
+[00:30:36] but I'll show you how to do that in a
+[00:30:38] second. Um, right now what I want to do
+[00:30:40] is show you how to change this header
+[00:30:41] right here because you can see it just
+[00:30:43] says index. So that's going to be in the
+[00:30:46] layout. Now in the layout, we're
+[00:30:47] importing stack and that's part of the
+[00:30:50] expo router. So when you when you're
+[00:30:52] looking at a mobile app, you can think
+[00:30:54] of it as like a stack of cards, but it's
+[00:30:56] a stack of screens. And whatever you
+[00:30:58] want to show, that screen is going to go
+[00:31:00] on top of the stack. And just to display
+[00:31:03] it, all we have to do is return stack.
+[00:31:05] And there's some options we can pass in
+[00:31:07] here. Like if we want to um if we want
+[00:31:10] to change that header, we can say screen
+[00:31:12] options, which is an object. And then we
+[00:31:15] can do header uh header title.
+[00:31:19] Oops. Header title. And set that to
+[00:31:22] whatever we want. I would probably set
+[00:31:24] it to like the name of the app on the
+[00:31:25] homepage.
+[00:31:27] Oops. I do here. There we go. Um, sorry
+[00:31:30] that had to be double double uh curly
+[00:31:33] braces. So, header title macro zone. And
+[00:31:36] now you can see that that shows macro
+[00:31:37] zone at the top. Now, you can also
+[00:31:39] remove the header and that's what I I
+[00:31:41] want to do on the homepage. I do want to
+[00:31:43] have a header on the inner pages because
+[00:31:46] we can have a back button right here.
+[00:31:48] But for the homepage, I don't want to
+[00:31:50] show it. So, what I'm going to do is
+[00:31:51] instead of header title, we can say
+[00:31:54] header shown and we can set that to
+[00:31:56] false. And then that will completely get
+[00:31:58] rid of it.
+[00:32:00] Now, for the global styles that I was
+[00:32:01] talking about, what I'll usually do is
+[00:32:04] in the source folder, I'll create a new
+[00:32:06] folder called styles. And then in that,
+[00:32:09] I'll have a file called global.ts.
+[00:32:13] And that will be my global styling. And
+[00:32:16] if we look at the the guide here, the
+[00:32:18] steps number 15, I'm going to grab that
+[00:32:22] and paste that in. So here we're
+[00:32:26] bringing in the stylesheet API just like
+[00:32:28] we did in within the index page. And
+[00:32:31] then I also just am exporting an object
+[00:32:33] of colors so that we can bring in colors
+[00:32:36] to any any component any page we want
+[00:32:39] and we can do colors.background and we
+[00:32:41] can get you know this color here. That
+[00:32:43] way if we have to change something if we
+[00:32:45] have to change a color we only do it in
+[00:32:47] one place. And then down here we're
+[00:32:49] exporting our global styles which as you
+[00:32:52] can see just uses the stylesheet create
+[00:32:54] just like we did in the in the page. And
+[00:32:56] we have a container title section title
+[00:33:00] empty and header. So these would be my
+[00:33:02] global styles that I want. So I'll save
+[00:33:04] that and then go back to my index page
+[00:33:07] and let's at the top here let's import
+[00:33:11] let's import global styles. And since I
+[00:33:16] have a container and a title in the
+[00:33:18] global styles, I can get rid of it here.
+[00:33:21] Right? So I'll get rid of that. And then
+[00:33:22] here instead of styles, it's going to be
+[00:33:26] uh global styles. And then here as well.
+[00:33:30] Okay. So it's just uh not the date
+[00:33:32] because that that isn't global. That's
+[00:33:34] only in this component or this page. So
+[00:33:37] I don't want it to be global. So I don't
+[00:33:39] want Yeah. So, we got global styles
+[00:33:41] container, global styles title, and then
+[00:33:44] styles date. And if we take a look, it
+[00:33:46] should look the same. I'll go ahead and
+[00:33:47] refresh. And it looks the same. But now,
+[00:33:51] you know, if we want to change um the
+[00:33:53] background color, for instance, since
+[00:33:56] the container uses colors background, we
+[00:33:58] could just change it here to, you know,
+[00:34:00] red. And then that's that. And anywhere
+[00:34:03] that this is used, obviously, it will
+[00:34:06] change. So now we can close up global
+[00:34:09] and layout. And what I want to do next
+[00:34:12] is take this date here which is just
+[00:34:14] hardcoded and I want I want to create a
+[00:34:16] home header component. So what we'll do
+[00:34:19] is in source we'll create a new folder
+[00:34:21] called components just like you would
+[00:34:23] with a regular react app and we'll
+[00:34:26] create a file called home header.
+[00:34:30] TSX
+[00:34:32] and then we can get that code here and
+[00:34:35] what is it? number 16. I'm sorry,
+[00:34:40] that's not it. Uh 17. So, home header
+[00:34:43] with date. So, I'm going to copy this
+[00:34:46] and we'll go ahead and paste that in.
+[00:34:47] We'll go over it. So, very simple. We're
+[00:34:49] just we're bringing in colors, which is
+[00:34:51] that object of colors from our global
+[00:34:53] file. Actually, should probably move
+[00:34:55] this up top. And then also global
+[00:34:57] styles. So, we can do this. I don't know
+[00:35:00] why I put two different lines there.
+[00:35:04] Okay. And I I'll fix that in the in your
+[00:35:07] version. And then we're just getting the
+[00:35:09] current date using two local date
+[00:35:12] string. And then we're inserting it
+[00:35:13] here. And we have some global styles
+[00:35:16] header. And we have styles. Since this
+[00:35:20] date style isn't being used anywhere
+[00:35:22] else, I kept it in the component rather
+[00:35:24] than putting it in the globals. All
+[00:35:27] right. Now, we just need to bring that
+[00:35:29] into the index so that we can use it. So
+[00:35:31] let's import home header. And right here
+[00:35:34] where we have the text and the date,
+[00:35:35] we'll get rid of that and we'll add the
+[00:35:37] home header. And then we can get rid of
+[00:35:40] styles al together because now this date
+[00:35:42] style is within that that home header
+[00:35:45] component. So we don't need to bring in
+[00:35:46] stylesheet in the index page. So let's
+[00:35:50] save that. Oops. Let's uh
+[00:35:53] open up. Okay. So now it says Wednesday,
+[00:35:56] April 8th. So it's no longer hardcoded.
+[00:35:59] It's using that header component with
+[00:36:00] the actual date.
+[00:36:03] Now I want to create start to talk about
+[00:36:05] routing and screens because right now we
+[00:36:07] just have this single uh this single
+[00:36:10] index and I talked about the stack right
+[00:36:13] so we have a stack of screens which
+[00:36:15] right now only has one screen on the
+[00:36:17] stack. So I want to create a new page
+[00:36:21] here. Let's see. I just want to check
+[00:36:24] this real quick. So we're going to
+[00:36:26] create the meal list screen which is
+[00:36:28] going to be just app. So, it's going to
+[00:36:30] be in the app folder since it'll be a
+[00:36:32] route screen and it's going to be called
+[00:36:35] meals tsx. So, in app, let's create a
+[00:36:38] file called meals.tsx.
+[00:36:42] And then we're just going to grab this
+[00:36:44] for now, which is simply a scroll view.
+[00:36:48] Remember, I said we you want to have
+[00:36:50] that a scroll view if you want to be
+[00:36:52] able to scroll. I also want to be able
+[00:36:53] to scroll on the homepage or home
+[00:36:56] screen. So let's actually bring in
+[00:36:58] scroll view here as well.
+[00:37:02] And let's replace this with scroll view.
+[00:37:06] Okay. Now the meals page very simple. We
+[00:37:09] just have a scroll view with using the
+[00:37:11] global container using the global title.
+[00:37:13] It says all meals in the title. And
+[00:37:14] that's all we have for now. So to make
+[00:37:17] this a route, what we want to do is go
+[00:37:20] to our layout and instead of having just
+[00:37:24] a self-closing stack
+[00:37:27] tag here, we're going to
+[00:37:30] uh we're going to have an ending stack.
+[00:37:32] And then in that we're going to have a
+[00:37:34] stack.creen
+[00:37:35] with a name of index and a stack.creen
+[00:37:38] with the name of meals. Okay? So you're
+[00:37:40] going to match this to the name of the
+[00:37:43] file.
+[00:37:44] So, if I save that, it should still
+[00:37:47] work. Now, we don't have a way to
+[00:37:49] actually get to the um the stack screen.
+[00:37:53] So, or I'm sorry, the the meal screen in
+[00:37:56] the stack. So, what we'll do is grab,
+[00:38:00] let's see, so this is what I just showed
+[00:38:02] you.
+[00:38:03] And to navigate, uh ultimately, we're
+[00:38:06] going to have tabs. I'm going to show
+[00:38:08] you how to create tabs at the bottom,
+[00:38:10] but you can also just have you can use
+[00:38:12] this link from Expo Router. So, what I'm
+[00:38:14] going to do is copy this number 21 and
+[00:38:17] in the index page. I'm just going to
+[00:38:20] paste that in.
+[00:38:22] And if we go ahead and save that and we
+[00:38:24] take a look now, there's this link. It
+[00:38:26] says go to meals. If I click it, brings
+[00:38:29] me to the all to the meals page. Right?
+[00:38:31] I have no way to get back unless I
+[00:38:33] refresh. But that's how we can link to
+[00:38:36] pages. We bring in link and then down
+[00:38:38] here pass it in with an href going to
+[00:38:41] slashmeals that should match whatever
+[00:38:44] you have here, right? Which should match
+[00:38:46] the file name. So that's basic routing.
+[00:38:49] Uh and we just have some inline styles.
+[00:38:52] I'm not going to keep this link. Uh we
+[00:38:54] just wanted to show you how to do that.
+[00:38:57] Okay. And then we want to in the mail
+[00:39:00] screen, I want to have a way to get
+[00:39:01] back. So I want to have a header with a
+[00:39:05] back button. So, I'm going to copy this
+[00:39:07] number 22 and we're going to go to
+[00:39:10] layout.
+[00:39:12] Okay. And just check out what's changed,
+[00:39:14] which is right here. We're setting the
+[00:39:17] header style to the setting the
+[00:39:21] background color and header tint color.
+[00:39:24] Right? So, I'm no longer hiding it here.
+[00:39:27] What I'm doing is hiding it on just the
+[00:39:30] index page. Okay? So on individual stack
+[00:39:34] screens you can pass in options and
+[00:39:37] header shown false for index but for for
+[00:39:40] the meals page you can see I have
+[00:39:41] options title meals. So you can do it at
+[00:39:44] this level if you want to you know hide
+[00:39:46] the header for all um all screens but
+[00:39:50] you can also pass in individual options
+[00:39:53] to customize the header on each page. So
+[00:39:56] now just refresh this. You see I have no
+[00:39:59] header on the homepage. But if I go to
+[00:40:01] meals, now I have a header along with a
+[00:40:04] back button. Now notice that the back
+[00:40:06] button says index. You probably don't
+[00:40:08] want it to say that. So what you can do
+[00:40:10] is on the index stack.creen here, we can
+[00:40:14] pass in in addition to header shown in
+[00:40:16] options, we can pass in title. And I
+[00:40:20] don't want macro zone because I don't
+[00:40:22] that that will be kind of weird. So,
+[00:40:24] let's just say home. So, if we go ahead
+[00:40:27] and save that and then refresh, go to
+[00:40:30] meals. Now, the button says home. You
+[00:40:33] could have it say back or or whatever
+[00:40:34] you want.
+[00:40:36] Okay. So, now that we've done that,
+[00:40:39] there's one more page we need to add,
+[00:40:40] and that's the add meal page, right? So,
+[00:40:43] what I want you guys to do if if you
+[00:40:45] want as a little challenge is to create
+[00:40:47] that screen on your own. just ba
+[00:40:49] basically replicate what we just did
+[00:40:51] with the meals tsx and add an add- meals
+[00:40:55] tsx add it to the stack and add the the
+[00:40:59] header navigation and then just you know
+[00:41:01] come back. So for us to do that we're
+[00:41:05] going to first create the file. So in
+[00:41:08] the app folder let's say add-meal.tsx
+[00:41:13] and then what I'll do is just copy
+[00:41:15] actually I'll just grab it from our
+[00:41:17] steps here. So the add meal screen
+[00:41:20] number 23, we're going to grab that and
+[00:41:22] paste that in. Okay. And then to add it
+[00:41:25] to the stack and to our routes, what
+[00:41:29] we're going to do is in the layout,
+[00:41:31] we'll just basically we can just copy
+[00:41:33] this down. And let's set
+[00:41:37] that to the title is going to be add
+[00:41:39] meal and the name is going to be add
+[00:41:42] dash meal. Okay. And then just to test
+[00:41:45] it out, if we go back to our index and
+[00:41:48] change the route here, instead of meals,
+[00:41:50] let's say add meal.
+[00:41:54] And we'll change the text as well. And
+[00:41:56] then we'll try it out. Let's do a
+[00:41:59] refresh here. We don't I don't have to
+[00:42:00] refresh with most of this. I just like
+[00:42:02] to, but it says go to admail. And now
+[00:42:04] you can see we're on the admail page. So
+[00:42:07] that's how we can create routes and we
+[00:42:09] can link to them using link. Although
+[00:42:11] that's really not what we're going to do
+[00:42:13] in this because we want to have tabs.
+[00:42:16] So back in our our steps here,
+[00:42:20] let's come down. Uh we just did that. So
+[00:42:23] now we're going to look at tabs, right?
+[00:42:25] And the way that we can do this is to
+[00:42:27] create a folder, right? We're going to
+[00:42:30] create a basically a group. So in the
+[00:42:32] app folder, we're going to create a
+[00:42:33] parentheses tabs folder because we don't
+[00:42:36] want a an actual route that goes
+[00:42:39] slashtabs. So the parenthesis makes it
+[00:42:42] just a group so we can group these files
+[00:42:44] together, right? And then we're going to
+[00:42:46] move all the the three pages into that
+[00:42:50] tabs folder. So let's do that now. So in
+[00:42:53] app create a new folder. It's going to
+[00:42:56] be parentheses tabs. And then we're
+[00:42:59] going to move all three files, not the
+[00:43:02] layout, but all three files into tabs.
+[00:43:05] I'm just going to close this up for now.
+[00:43:08] And let's see. Um, yeah, we'll just keep
+[00:43:11] that as is for now. So now we have
+[00:43:14] parenthesis tabs with our three pages
+[00:43:16] and then an underscore layout outside of
+[00:43:19] the tabs. Now that's if we check it out
+[00:43:22] and we refresh,
+[00:43:25] we still see the the index page, right?
+[00:43:28] But up here, you can see it's in the
+[00:43:30] tabs folder. So we want to actually
+[00:43:32] create a tab layout. So in the tabs
+[00:43:36] folder, let's copy this. This is number
+[00:43:39] 26. And it's going to have its own
+[00:43:41] layout because we need to basically
+[00:43:43] create these tabs in that layout. So in
+[00:43:47] tabs, we're going to create a new file
+[00:43:49] underscore layout.tsx.
+[00:43:52] Okay. So there's two underscore layouts
+[00:43:54] now. There's one that's sits in the app
+[00:43:56] folder, and there's one that's inside
+[00:43:58] the tabs folder. This is the one that's
+[00:44:00] in the tabs folder. All right. So, I'm
+[00:44:02] going to paste this in and we'll just go
+[00:44:04] over it real quick. So, we're just
+[00:44:06] bringing in our global colors. We're
+[00:44:08] bringing in tabs from Expo router. Okay,
+[00:44:11] that's where we're getting these tabs.
+[00:44:12] And then some uh icons from Expo vector
+[00:44:16] icons. And then I called this function
+[00:44:19] tab layout, right? The other one is our
+[00:44:22] root layout. That's called root layout.
+[00:44:24] So, this is the tabs layout. And what
+[00:44:26] we're returning here is a tabs tag,
+[00:44:29] right? Just like we did with kind of
+[00:44:31] like how the stack works, right? We have
+[00:44:33] stack and then stack.screen. Here we
+[00:44:35] have tabs and tabs.creen.
+[00:44:38] And I'm just adding um a couple options
+[00:44:42] here to the the parent tabs component
+[00:44:45] which which is header shown false tab
+[00:44:48] bar style where you can add certain
+[00:44:50] styles. We add the background and the
+[00:44:52] the the border color as the colors.
+[00:44:56] the active tint color, the inactive tint
+[00:44:59] color, right? So, that'll just be the
+[00:45:01] icon uh color and text secondary.
+[00:45:05] And then for each screen or each tab, we
+[00:45:08] have this tabs.creen with the name. The
+[00:45:11] name is going to pertain to the file
+[00:45:13] name and then a title. And then here we
+[00:45:17] have tabbar icon which takes in a
+[00:45:19] function. And in that function, we can
+[00:45:22] pass in the color and size and just set
+[00:45:24] that to the icons color and size. Okay,
+[00:45:28] so we have our home, we have our add
+[00:45:30] meal, and we have our meals. So that's
+[00:45:32] the the tabs layout. So we'll save that,
+[00:45:36] right? And if I come back over here and
+[00:45:39] I refresh,
+[00:45:41] you can see down here, we now have these
+[00:45:43] tabs. If I click add meal, shows me the
+[00:45:46] add meal page. If I click all meals,
+[00:45:48] shows me the the all meals page. Now,
+[00:45:52] back in the steps here, we want to
+[00:45:54] update the root layout. So, in the root
+[00:45:57] layout, instead of show instead of
+[00:45:59] having multiple stacks screens, we just
+[00:46:02] have a single one that has a name of the
+[00:46:05] name of that folder, which is
+[00:46:07] parenthesis tabs. So, back in the root
+[00:46:10] layout, we can clear all this up and
+[00:46:12] just add that. Right? So we have no
+[00:46:15] header shown on the stack and we have
+[00:46:17] one stack screen that's equal to that
+[00:46:20] tabs folder. All right. So come back
+[00:46:24] over here and now we have same thing. It
+[00:46:28] just shows this but we don't we don't
+[00:46:30] have the header anymore because the
+[00:46:32] stack isn't showing a header.
+[00:46:36] And I I don't want the header because we
+[00:46:38] have we now have these these tabs,
+[00:46:40] right? We don't need a back button.
+[00:46:43] So yeah, let's move on and let's start
+[00:46:47] to create the rest of this app. So you
+[00:46:49] should understand now how to create
+[00:46:51] screens, how to navigate to to different
+[00:46:53] screens. So now we want to create the
+[00:46:56] macro card component which is the you
+[00:46:59] know there's four cards at the top with
+[00:47:01] the calories, the protein and all that.
+[00:47:04] So what we're going to do is copy number
+[00:47:06] 28 and we're going to create a new file
+[00:47:09] in components called macro card. So
+[00:47:13] let's do that. So components, new file,
+[00:47:16] and macrocard.tsx.
+[00:47:20] We'll paste this in and then we'll take
+[00:47:21] a quick look at it. So we're just simply
+[00:47:24] bringing in our stylesheet API text and
+[00:47:26] view. Now this is going to take in some
+[00:47:29] props. We're using TypeScript. So we
+[00:47:31] just have our type uh props type here of
+[00:47:34] macro card props. It's going to take in
+[00:47:36] a label, a value, a goal, and a color,
+[00:47:39] right? So the label would obviously be
+[00:47:41] like protein. Uh value would be however
+[00:47:45] however many grams of protein you have
+[00:47:48] with your meals combined. The goal will
+[00:47:50] be whatever goal is set. So you'll have
+[00:47:52] like you know 1,200 out of 2,000. 2,000
+[00:47:55] would be the goal. And then the color
+[00:47:57] cuz each one has a different border
+[00:47:59] color. And then we're passing those
+[00:48:01] props in here. And then we're simply
+[00:48:03] returning a view with some styles. Okay.
+[00:48:07] And these are all local styles because
+[00:48:09] this is the only place we're using them.
+[00:48:10] So we're not they're not global. And
+[00:48:12] then we're just displaying text
+[00:48:14] components with the label value and the
+[00:48:16] goal. So very simple. Got some styles at
+[00:48:19] the bottom. All right. So that's the
+[00:48:21] macro card. Now we want to have a macro
+[00:48:25] grid component for the cards to go in.
+[00:48:27] Right? So if I go back up and show you
+[00:48:29] the screenshot real quick. So we just
+[00:48:32] created each of these as a macro card.
+[00:48:35] Right? So there's four displayed here.
+[00:48:37] The macro grid component is going to be
+[00:48:40] the whole thing which will contain all
+[00:48:42] the all the cards. So back down to I
+[00:48:46] think it was 28 29. So macro grid. I'm
+[00:48:50] going to grab that. And I know some of
+[00:48:51] you guys don't like copying and pasting,
+[00:48:53] but it would literally make this video
+[00:48:56] like four times as longer if I had to
+[00:48:59] type everything out. And nowadays, I
+[00:49:01] mean, once you learn the the basics
+[00:49:03] here, you're going to be using AI a lot.
+[00:49:05] It's just how it is now. So, it's it's
+[00:49:08] not as important to type things out.
+[00:49:10] It's just important to understand the
+[00:49:11] concepts.
+[00:49:13] So, in components, let's create, let's
+[00:49:15] say, macro grid.tsx
+[00:49:19] and paste that in. I'll go over this
+[00:49:21] real quick. And I'm not pasting it in
+[00:49:24] and just, you know, saying see you
+[00:49:25] later. I'm showing you exactly what's
+[00:49:27] going on. So here we're just bringing in
+[00:49:29] our stylesheet API in the view
+[00:49:31] component. We're bringing in the macro
+[00:49:33] card component we just created. This
+[00:49:36] component is going to render a view with
+[00:49:38] some local styles. And then we have four
+[00:49:41] macro cards where right now we're just
+[00:49:43] passing in hard-coded values, calories,
+[00:49:46] value, goal, and color. Okay. So we're
+[00:49:49] going to save that. And then the next
+[00:49:51] thing we're going to do is add the macro
+[00:49:53] grid to the home screen. So we can
+[00:49:56] actually copy this whole thing here.
+[00:49:58] Although I didn't use scroll view. So
+[00:50:00] we'll just I'll just have to replace
+[00:50:01] that and then go to um index. So now
+[00:50:06] it's in app tabs index.
+[00:50:09] And let's go ahead and just replace
+[00:50:11] this.
+[00:50:13] And let's see why isn't home header
+[00:50:16] being found.
+[00:50:18] Oh, that's another thing that uh needs
+[00:50:21] to be changed. Now we're two levels
+[00:50:23] deep, right? We're in app tabs. So, this
+[00:50:26] is going to be dot dot slash twice.
+[00:50:30] And then I just want to make the view.
+[00:50:33] And I'll change this in your version of
+[00:50:35] the the the steps. So, this is now going
+[00:50:38] to be scroll view.
+[00:50:43] Okay. So, now that we've done that, we
+[00:50:47] take a look. And there we go. So, we
+[00:50:48] have each one of these is a macro card.
+[00:50:51] The macro grid contains all of them. And
+[00:50:53] obviously the macro grid is embedded in
+[00:50:56] the home screen.
+[00:50:58] All right, cool. So now that we've done
+[00:51:00] that, we're going to move on to the mail
+[00:51:02] item component, which is going to be go
+[00:51:05] back up here real quick. This is going
+[00:51:07] to be each of these, right? So one of
+[00:51:09] these is a mail item component.
+[00:51:13] And we're on number
+[00:51:16] Let me know if you guys like this
+[00:51:17] format. So, this allows copying and
+[00:51:20] pasting obviously allows me to do more
+[00:51:22] in a video and instead of you guys being
+[00:51:26] confused on what's being pasted in, let
+[00:51:29] me know if you like this format where I
+[00:51:30] just literally lay out each number for
+[00:51:33] you to to to use for the code. Uh, let's
+[00:51:37] see, where are we? Add macro grid to
+[00:51:39] home screen mail item component. So, now
+[00:51:41] we're going to copy this number 31. And
+[00:51:44] in components, we're going to create a
+[00:51:46] mail item folder. So components, let's
+[00:51:50] say mail item.tsx
+[00:51:54] and we'll paste that in.
+[00:51:56] Go over it real quick. Although right
+[00:51:58] now it's all just UI stuff, very simple.
+[00:52:01] So we got our text view stylesheet. We
+[00:52:03] got our props and we're just rendering a
+[00:52:06] view with some text. Okay. And we're
+[00:52:08] showing each calories, protein, carbs,
+[00:52:11] and we get some local styles. And this
+[00:52:13] uh this container is different than the
+[00:52:15] global one. So that's why uh that's why
+[00:52:18] I'm not bringing the global container
+[00:52:20] in. So we'll go ahead and save that. And
+[00:52:24] then the next thing we want to do is the
+[00:52:26] recent meals component. That's going to
+[00:52:28] contain all the meal items. So let's
+[00:52:30] grab that. And we're going to create
+[00:52:32] components recent meals, right? So
+[00:52:35] components, new file,
+[00:52:38] recent meals.tsx,
+[00:52:40] and then paste that in. So now we're
+[00:52:43] bringing in the meal item that we just
+[00:52:45] created and we're just simply rendering
+[00:52:49] uh a view. We have our section title and
+[00:52:52] then three hard-coded meal items where
+[00:52:55] we're passing in these values.
+[00:52:58] Okay, so let's save that. Now we want to
+[00:53:03] add the recent mails to the home screen.
+[00:53:06] So we'll go ahead and grab that. Go back
+[00:53:08] to our index and we'll just paste this
+[00:53:11] in. So now it's showing not only the
+[00:53:14] macro grid but also recent meals. And if
+[00:53:16] we take a look, there we go.
+[00:53:19] Now, obviously this is all hard-coded
+[00:53:21] data. We're going to use something
+[00:53:22] called async storage, which is like the
+[00:53:25] devices local storage um in a little
+[00:53:28] bit, but right now we're just kind of
+[00:53:30] handling the the UI side. Now, the next
+[00:53:33] thing we should do is the let's do the
+[00:53:36] form, the add mail form. So, I'm going
+[00:53:38] to just close up this stuff for now.
+[00:53:42] And let's go back to the document here
+[00:53:46] and down to 34 where we add the meal
+[00:53:48] form. I'm going to grab that. And then
+[00:53:51] we're going to put that into our add
+[00:53:53] meal page here. So we can go ahead and
+[00:53:55] just just replace that.
+[00:53:59] And let's just check it out before we go
+[00:54:01] over the code. And as you can see, we
+[00:54:03] got a nice looking form here. Meal name,
+[00:54:05] calories, protein, carbs, fat. So, we're
+[00:54:08] just bringing in uh our usual text and
+[00:54:12] view, but we're also bringing in text
+[00:54:14] input, which obviously are these input
+[00:54:17] fields and also touchable opacity. Okay,
+[00:54:21] you can you can there is a button
+[00:54:23] component, but touchable opacity is more
+[00:54:26] native like as you can see when I hit
+[00:54:28] it, it has that uh kind of fades out.
+[00:54:30] So, that's what I use for the most part
+[00:54:33] for like form submissions. And then
+[00:54:35] we're bringing in use state as well
+[00:54:37] because this is going to be a controlled
+[00:54:39] component where you know we have a piece
+[00:54:41] of state for every value every input. So
+[00:54:45] we have our name calories protein carbs
+[00:54:48] and fat and we have of course the the
+[00:54:52] function that's going to update those.
+[00:54:54] So set calories set protein etc. All
+[00:54:57] right. And and this isn't really doing
+[00:54:59] anything yet. There is a function here
+[00:55:02] that's being submitted to. Right. So if
+[00:55:04] we look down here at uh touchable
+[00:55:06] opacity, it has an on press that goes to
+[00:55:10] handle add mail and then handle add mail
+[00:55:13] is just simply console logging the uh
+[00:55:16] excuse me some of my eye is just console
+[00:55:19] logging the values
+[00:55:22] and then we just have a view with the
+[00:55:24] container. We have the the title and
+[00:55:26] then our text inputs. And our text
+[00:55:28] inputs, just like with a regular React
+[00:55:30] app and and I'm I'm trusting that you
+[00:55:33] guys already know React. I mean, there's
+[00:55:36] not too many people I know that just
+[00:55:38] jump to learning React Native without
+[00:55:40] learning React first. So, I'm not going
+[00:55:42] to explain every little thing like what
+[00:55:44] use state is and so on. I do have, you
+[00:55:46] know, a React crash course and plenty of
+[00:55:49] videos and premium courses. So each
+[00:55:52] input has an onchange text because it
+[00:55:55] needs to update that piece of state when
+[00:55:58] we type in here, right? When we put
+[00:56:00] something in here. And then the value is
+[00:56:02] obviously set to that piece of state as
+[00:56:04] well.
+[00:56:06] Um let's see. And we just have an input
+[00:56:08] style. But yeah, that's pretty much it.
+[00:56:10] Very, very simple. So now that we have
+[00:56:14] our our form UI, let's go to number 35.
+[00:56:18] Now, we're going to start to to work
+[00:56:20] with storage because we need to actually
+[00:56:22] store our meals. Right now, everything's
+[00:56:24] hardcoded. So, we're going to use the
+[00:56:26] the async storage, this uh React Native
+[00:56:30] Async storage package. And this works
+[00:56:34] pretty much identically to uh local
+[00:56:36] storage in the browser. So, let's copy
+[00:56:39] that that uh install. Oh, and another
+[00:56:42] thing I want to mention is you can use
+[00:56:44] npm install, but there's also npx expo
+[00:56:48] install, which is what I would recommend
+[00:56:50] because this is always going to give you
+[00:56:52] the latest compatible version of
+[00:56:55] whatever you're you're installing. So,
+[00:56:57] try to use that when you're dealing with
+[00:56:59] uh you know, expo.
+[00:57:02] So, jump in here and I'm just going to
+[00:57:05] stop the server for a second. We'll
+[00:57:07] paste this in
+[00:57:09] and run it. [snorts]
+[00:57:12] Okay. So now that's installed. Let's run
+[00:57:14] our server again.
+[00:57:16] Okay. And we'll just check out our doc
+[00:57:19] here. So basically, um, this says don't
+[00:57:23] add to project. This is just how this
+[00:57:25] works. So, and I guess should probably
+[00:57:28] make this a little bigger. I just want
+[00:57:30] to show you guys exactly how this works.
+[00:57:32] So to save data, it's just like local
+[00:57:34] storage where a lot of times you're
+[00:57:37] going to want to save JSON data, but
+[00:57:39] obviously local storage and async
+[00:57:41] storage can't store actual JSON. So what
+[00:57:45] we do is take the value and run it
+[00:57:47] through JSON.stringify,
+[00:57:49] okay, which will turn it to a string.
+[00:57:51] And then we just call async storage set
+[00:57:54] item just like we would local storage
+[00:57:56] set item. pass in the a key. Okay, so
+[00:58:00] whether that's, you know, items or
+[00:58:02] to-dos or whatever you want to call it
+[00:58:04] and then the value, right? Which would
+[00:58:07] be a stringified JSON object. And then
+[00:58:11] to retrieve it, we simply get it with
+[00:58:14] get item just like with local storage,
+[00:58:17] pass in the key, and then we just want
+[00:58:20] to run it through JSON.parse parse to
+[00:58:22] get it back into uh I shouldn't say JSON
+[00:58:25] but a JavaScript object. Okay, so that's
+[00:58:28] how it works. I just wanted to to show
+[00:58:30] you guys that before we actually do
+[00:58:32] anything. Now the way I would handle
+[00:58:35] this is to create a storage handler
+[00:58:38] where we have this separate file to
+[00:58:41] simply call get meals and add meals or
+[00:58:44] or add meal not call it but create it
+[00:58:47] here and then we can call it elsewhere.
+[00:58:49] So let's copy this. And what we're going
+[00:58:51] to do is create in the source folder a
+[00:58:53] storage folder and a meals ts. Okay. So
+[00:58:57] in source we'll create a folder called
+[00:58:59] storage. And then in storage we'll
+[00:59:02] create meals.
+[00:59:05] TS not tsx. This isn't a component where
+[00:59:08] we're rendering uh jsx. It's just
+[00:59:11] basically a we're storing these
+[00:59:14] functions. So we're bringing in async
+[00:59:17] storage from the package we just
+[00:59:18] installed. We have our meal type. So
+[00:59:21] obviously, you know, we're using
+[00:59:22] TypeScript. And then I'm just putting
+[00:59:25] the key into a variable here, basically
+[00:59:28] a constant. And the key is going to be
+[00:59:30] meals. But if I wanted to change that, I
+[00:59:32] would just change it here. And then our
+[00:59:35] get meals is going to return a promise
+[00:59:39] that will be an array of meals. Right?
+[00:59:43] So basically we're just doing what I
+[00:59:44] just showed you. Call get dot I'm sorry
+[00:59:47] async storage get item pass in the meals
+[00:59:49] key and then we return the data. Uh and
+[00:59:53] if it's not there then we return just an
+[00:59:55] empty array. And then to add the meal
+[00:59:58] we're going to call get meals first and
+[01:00:03] then we're going to create the new meal
+[01:00:04] with with whatever is passed into this
+[01:00:06] function. Right? Because you can see
+[01:00:08] mail is passed in. Um, and then we want
+[01:00:13] to set that to an object where we pass
+[01:00:16] in the meal. We pass in the ID and
+[01:00:19] create it at because that doesn't
+[01:00:21] actually get passed into the, you know,
+[01:00:23] into the function. That'll be created
+[01:00:26] here with date.now
+[01:00:28] to string and then new date to ISO
+[01:00:31] string. Okay. Um, and the ID I'm just
+[01:00:34] using. You could you could use like UU
+[01:00:36] ID or something like that, but I'm just
+[01:00:38] using the date. Uh and then we're going
+[01:00:41] to await on set item. Okay, this is
+[01:00:44] asynchronous. So we need to call await
+[01:00:46] async storage set item just like we call
+[01:00:49] await async storage get item. Pass in
+[01:00:53] the key. Pass in the value which is
+[01:00:55] going to be JSON.stringify
+[01:00:57] and then pass in the meal and return the
+[01:01:00] new meal. Okay, I'm sorry I should say
+[01:01:02] pass in the new meal along with the rest
+[01:01:05] of the meals because this stores all of
+[01:01:07] them. And then we're just returning the
+[01:01:10] new meal. All right. So, we'll save
+[01:01:12] that.
+[01:01:14] And now we want to update the add meal
+[01:01:16] form to use that storage handler because
+[01:01:18] right now it just simply console logs
+[01:01:20] which we didn't even test. So, we can
+[01:01:23] test that. And by the way, you can see
+[01:01:25] that this is rendering in the browser as
+[01:01:27] well. I have the web app open. And it
+[01:01:30] will actually save it when when we when
+[01:01:32] this kicks in the async storage. it'll
+[01:01:35] work in the web app as local storage,
+[01:01:37] which is pretty cool. But, uh, yeah,
+[01:01:40] let's test this out real quick just to
+[01:01:42] make sure that this the form is hooked
+[01:01:43] up. So, I'll just say test calories
+[01:01:47] 100,
+[01:01:49] just add meal. And then if we look down
+[01:01:51] here,
+[01:01:53] uh, let's see.
+[01:01:57] Should see
+[01:02:02] what is going on here. Let me reload
+[01:02:03] this.
+[01:02:06] Add meal.
+[01:02:11] There we go. All right. So, it's you can
+[01:02:12] see it's logging calories, carbs, fat,
+[01:02:14] name, and protein. Good. But now, what
+[01:02:18] we want to do is connect this form to
+[01:02:20] async storage. So, that's what this is,
+[01:02:23] number 38. So, let's grab 38,
+[01:02:26] and let's go ahead and paste it in, and
+[01:02:28] then I'll just go over it. Okay. So, um,
+[01:02:33] what we've done here is we're bringing
+[01:02:35] in right here from React Native. We're
+[01:02:37] also bringing in alert because I want to
+[01:02:39] show an alert once we submit it. Um, I
+[01:02:42] think that's the only new thing we
+[01:02:44] brought in there. And we brought in add
+[01:02:47] meal from our our storage function,
+[01:02:50] right? From storage meals. And what
+[01:02:53] else? Also, we brought in router from
+[01:02:55] expo router because I want to redirect
+[01:02:57] back to the homepage once it's
+[01:02:59] submitted. our state that's the same. Um
+[01:03:03] the only thing that we really changed
+[01:03:04] here is is handle add mail. What it's
+[01:03:07] going to do now is a little bit of
+[01:03:08] validation. It's going to check for name
+[01:03:10] and calories and show an alert, right?
+[01:03:13] Because we brought in alert from React
+[01:03:15] Native. And then um we call that add
+[01:03:19] meal which is in the storage file and
+[01:03:21] just pass in all the values. Okay, the
+[01:03:24] name, the calories, etc. And we're just
+[01:03:27] casting it as number. Then we're just
+[01:03:29] clearing everything out in the state.
+[01:03:31] Then we set an alert, a success alert,
+[01:03:34] and then we redirect using router.push.
+[01:03:37] Okay. Very similar to what you would do
+[01:03:38] in just a regular web app. And that's
+[01:03:41] really it. Nothing. Yeah, nothing else
+[01:03:44] down here has changed.
+[01:03:46] All right. So now let's save that.
+[01:03:50] Uh let's see. All right. So now
+[01:03:55] if we come back over here and I'm just
+[01:03:57] going to refresh the app
+[01:04:01] and let's say add meal. And then we'll
+[01:04:03] add an actual meal. Let's say like um
+[01:04:06] salmon.
+[01:04:08] Salmon salad.
+[01:04:10] Calories we'll say 450. Protein let's
+[01:04:14] say 55. Carbs 10. And fat
+[01:04:19] um 10. All right. So I'm going to click
+[01:04:22] add meal. And you can see we got
+[01:04:24] redirected and it shows a success
+[01:04:26] message. Now it's obviously this is all
+[01:04:29] still hardcoded but now that that value
+[01:04:31] is now in async storage.
+[01:04:35] Let's add another one as well. So we'll
+[01:04:38] say add and then let's say
+[01:04:41] protein shake.
+[01:04:44] Calories I think it's like 120. protein.
+[01:04:48] We'll say 25 carbs,
+[01:04:51] 10 fat, zero,
+[01:04:54] and we'll add that. So now we have two
+[01:04:57] two meals in our async storage. Now,
+[01:04:59] they're not going to show here yet. So
+[01:05:01] that's what we're going to work on next.
+[01:05:03] So let's jump back over here down to
+[01:05:06] let's see 39.
+[01:05:10] Uh let's see, 39. So we're going to get
+[01:05:13] mails from local storage. So, this is
+[01:05:15] going to happen on the home screen. So,
+[01:05:17] I'm going to copy this and then we're
+[01:05:20] going to go back to
+[01:05:23] see our index page. And I'm just going
+[01:05:25] to replace this.
+[01:05:28] Okay. So, to just kind of explain what's
+[01:05:31] going on here, we now have our state,
+[01:05:34] right? Our meal state set in the home
+[01:05:36] screen, which is going to be an array
+[01:05:39] set to an empty array by default. Then
+[01:05:42] we have a function called load meals
+[01:05:44] which is going to call get meals from
+[01:05:47] storage from our storage file. Okay. Um
+[01:05:51] then we're setting the meals. Okay. So
+[01:05:54] we get it from async storage and then we
+[01:05:56] set the meals which is the the local
+[01:05:59] state right? This set meals here passing
+[01:06:02] in the data just doing a console log.
+[01:06:06] Okay. Now,
+[01:06:08] uh, let's see. Down here, we have recent
+[01:06:10] meals, which is now going to take in a
+[01:06:13] prop of meals. And I'm going to get an
+[01:06:16] error right now because this recent
+[01:06:18] meals isn't prepared to take in a prop
+[01:06:20] just yet. Um, I don't think, right,
+[01:06:23] recent meals. Yeah, see, it doesn't take
+[01:06:25] in anything, but we'll we'll fix that in
+[01:06:28] a second. Now this here
+[01:06:31] instead of using a regular use effect,
+[01:06:34] right? Because we need a place to call
+[01:06:36] load meals. And in regular react, you
+[01:06:38] would just have a use effect and you
+[01:06:41] would fire that load meals off. Um here
+[01:06:44] we actually have to pass it into the to
+[01:06:46] use callback, right? So we're also
+[01:06:48] bringing that into or in from React. And
+[01:06:52] if we don't do that, then what's going
+[01:06:54] to happen is when we submit a meal, um,
+[01:06:58] uh, sorry, when we, yeah, when we submit
+[01:07:00] a meal and we go back to the homepage,
+[01:07:02] it won't show up. We'll have to refresh
+[01:07:04] it. But doing it this way, using use
+[01:07:07] callback, passing in the depend empty
+[01:07:09] dependency array, then it should just
+[01:07:11] refresh um, when we go back to the
+[01:07:14] homepage. So, let's save that. And
+[01:07:19] if I refresh that, um, nothing's
+[01:07:21] nothing's going to change just yet
+[01:07:23] because recent meals, we have to now
+[01:07:26] pass that in. So I believe that's the
+[01:07:29] next step. So update recent meals to use
+[01:07:32] storage handler. So we have this right
+[01:07:35] in our index. So now recent meals we
+[01:07:38] want to change to this code.
+[01:07:42] So let's see recent meals. Right now, it
+[01:07:45] doesn't take any any props, but now
+[01:07:46] we're going to paste this in. So, this
+[01:07:49] is going to have it take in a males
+[01:07:51] prop. Obviously, it's going to be a male
+[01:07:53] object. And then we're first going to
+[01:07:56] just test to see if there's if there are
+[01:07:59] any males. If the length is zero, it'll
+[01:08:01] say no meals logged. Then here, else if
+[01:08:04] there are meals, we're going to just get
+[01:08:06] the latest five. So, that's what the
+[01:08:08] dots slice05 is. We want the first five.
+[01:08:12] And then we're going to map through the
+[01:08:13] meals and output a meal item for every
+[01:08:16] meal which will pass in each value.
+[01:08:20] Okay, so let's save that
+[01:08:23] and let's go back here.
+[01:08:27] And now you can see under recent meals
+[01:08:28] we have protein shake and we have salmon
+[01:08:31] salad. So those are those are loaded in
+[01:08:33] local storage.
+[01:08:35] Okay, so hopefully this makes sense. We
+[01:08:37] have our index page, right? where we
+[01:08:39] have our meal state and then we get the
+[01:08:43] meals from async storage and then we put
+[01:08:46] it into this piece of state. Then we
+[01:08:49] pass that state into recent meals as a
+[01:08:52] prop and then recent meals loads it. So
+[01:08:56] the next step is to update the macro
+[01:08:59] grid to calculate the totals. So we also
+[01:09:02] want to pass meals into that. So meals
+[01:09:04] is meals in our index page is our single
+[01:09:07] source of truth, right? We want to just
+[01:09:09] pass that into these other components so
+[01:09:12] that they update at the same time. So
+[01:09:14] macro grid will also take in meals.
+[01:09:18] But of course we need to update macro
+[01:09:20] grid to take that in. So if we go there
+[01:09:22] you can see that it doesn't take in any
+[01:09:24] props currently. So now
+[01:09:28] see is this macro grid?
+[01:09:30] Yeah. So right here this is number 41.
+[01:09:33] We're going to grab that.
+[01:09:36] Hopefully the the pasting, copying,
+[01:09:38] pasting isn't like annoying too many of
+[01:09:40] you. But again, for me to type all this
+[01:09:42] out just takes way too long. Hopefully
+[01:09:45] I'm explaining everything correctly or
+[01:09:47] hopefully it is correct, but hopefully
+[01:09:50] you guys understand it. So now macro
+[01:09:52] grid takes in meals just like recent
+[01:09:55] meals does. And then we're just getting
+[01:09:57] the totals. Okay, we're using the reduce
+[01:10:00] high order array method, passing in the
+[01:10:03] accumulator and the the um you know each
+[01:10:07] meal and then adding the calories,
+[01:10:09] protein, carbs, and fat and then
+[01:10:11] returning that. Okay, and we start off
+[01:10:15] this is where we start at zero.
+[01:10:18] Okay, and then we're just adding that to
+[01:10:20] each value. So totals calories, totals
+[01:10:23] protein, etc. So now let's save that.
+[01:10:27] Let's come back over here. And now you
+[01:10:29] can see it's calculating our values. So
+[01:10:31] if I add a meal now, let's take a look
+[01:10:33] at what we have. 570 calories. So if I
+[01:10:36] add, let's say, steak, dinner, calories,
+[01:10:41] we'll say, I don't know, 670, protein,
+[01:10:46] 60, carbs, 20, fat, 10. Add meal. And
+[01:10:51] now we get a success. And you can see
+[01:10:53] that that got added to all of these. And
+[01:10:55] it's added to state. It's added to
+[01:10:57] recent mails. Now, the next logical step
+[01:11:00] would be to delete be able to delete
+[01:11:02] these mails. So, let's just close this
+[01:11:05] up for now and then jump back over to
+[01:11:08] our steps. And number 42 is the delete
+[01:11:12] mail functionality. So, I actually want
+[01:11:14] to add uh a function to our storage
+[01:11:18] file. So, let's copy this. And this is
+[01:11:20] just the delete mail function to delete
+[01:11:22] it from async storage. So, in app uh
+[01:11:26] sorry, not app, just source storage
+[01:11:29] meals, we're going to just add this at
+[01:11:32] the bottom here. And just like you would
+[01:11:34] with local storage, you're going to
+[01:11:36] basically just get first of all get
+[01:11:38] them, filter the one out that you don't
+[01:11:41] want. We're just using the filter method
+[01:11:44] and then just reset it, right? So, set
+[01:11:46] item, use the key, and then pass in the
+[01:11:49] filtered meals. So, that's that. And
+[01:11:52] then we want to update the the meal item
+[01:11:56] component to allow us to delete. So
+[01:11:58] let's copy this.
+[01:12:00] And then we're going to go into our meal
+[01:12:02] item component.
+[01:12:04] And let's just replace this.
+[01:12:07] Okay. And I'll just go over this.
+[01:12:08] Basically, all we're doing is importing
+[01:12:10] delete meal. And then we're just coming
+[01:12:13] down here. And we have a function called
+[01:12:17] handle long press. So, basically the way
+[01:12:20] it'll work is if you if you just tap it,
+[01:12:23] it's not going to do anything. If you
+[01:12:25] hold on it a long press, then it'll
+[01:12:28] it'll delete or it'll actually alert and
+[01:12:31] ask you if you want to delete. Okay, so
+[01:12:33] we're using that alert component passing
+[01:12:36] in uh just saying are you sure you want
+[01:12:37] to delete? You can specify what you want
+[01:12:40] the buttons to say. So, cancel and then
+[01:12:43] delete style. Um, basically we're just
+[01:12:47] passing in destructive as our style,
+[01:12:49] which will be like an, you know, a red
+[01:12:51] button or red alert. And then on press
+[01:12:54] is where you put the functionality. And
+[01:12:57] of course, we're going to call our
+[01:12:58] delete mail from a storage file. All
+[01:13:01] right. Now, we're just calling on delete
+[01:13:03] here, which is going to get passed up or
+[01:13:06] get, I should say, passed in as a prop.
+[01:13:09] All right. because I want to be able to
+[01:13:12] um
+[01:13:13] to redirect on on delete. So basically
+[01:13:16] what we're going to do next is update
+[01:13:19] the recent mails to pass that delete
+[01:13:21] call back. So let's copy this and this
+[01:13:24] is going to be our recent mails
+[01:13:28] and then we'll just paste that in. So
+[01:13:30] basically all I did here is where we
+[01:13:34] embed the mail item. You can see this
+[01:13:36] was added. So ondee equals a function
+[01:13:39] called ondde
+[01:13:41] and up here you can see that ondde is
+[01:13:45] getting passed into recent mails. All
+[01:13:47] right then we want to pass it up one
+[01:13:50] more time. So right here
+[01:13:53] we want to in the on the index page
+[01:13:56] where recent meals is embedded. We just
+[01:13:59] want to have an ondee and then call load
+[01:14:01] meals. Okay. So basically we're just
+[01:14:03] kind of refreshing when we delete. We're
+[01:14:06] just calling load meals again. Um I know
+[01:14:09] that we're we're kind of prop drilling
+[01:14:10] here a little bit, but
+[01:14:12] uh let's go to index. So app tabs
+[01:14:17] index and then recent meals.
+[01:14:21] We're just going to add that on delete.
+[01:14:24] And when that's called, basically when
+[01:14:26] it's deleted, it'll call load meals,
+[01:14:29] which is this right here, which will get
+[01:14:31] the meals from async storage.
+[01:14:34] Okay. So, we should be able to test this
+[01:14:36] out. Let's come over here. And I should
+[01:14:39] be able to do a long press by just
+[01:14:41] clicking and holding. So, I'm going to
+[01:14:42] do that. And now you can see an alert
+[01:14:45] pops up. Click delete. And there we go.
+[01:14:48] Everything refreshes because we have one
+[01:14:51] single source of truth, which is this
+[01:14:52] meal state. So now the next step is to
+[01:14:55] do the all meals, right? I want to list
+[01:14:57] all meals here because only the latest
+[01:14:59] five will show on the homepage. and it's
+[01:15:01] going to be very similar to the the the
+[01:15:03] index or or home screen functionality.
+[01:15:06] So number 46, all meals data. I'm going
+[01:15:09] to grab that
+[01:15:11] and let's go into our app tabs meals tsx
+[01:15:15] and let's replace this. And if we take a
+[01:15:19] look, we're doing the same exact thing.
+[01:15:20] We're bringing in get meals from our
+[01:15:22] storage and we're setting it here. We're
+[01:15:25] calling load meals when the page loads
+[01:15:28] or when the screen loads and putting it
+[01:15:30] into our piece of state here. And then
+[01:15:32] down here, we're just mapping through
+[01:15:34] that state and outputting a meal item
+[01:15:36] for each one. And uh we're passing in
+[01:15:40] all our values. We're passing in our
+[01:15:41] unddelete because when that when it's
+[01:15:43] deleted from that page, we also want to
+[01:15:45] call load meals. All right, so let's
+[01:15:48] save that. Let's come back over to our
+[01:15:50] simulator. And there we go. And just to
+[01:15:53] add uh a test,
+[01:15:56] I just want to make sure we can delete
+[01:15:57] from here as well. Okay. So, if I go to
+[01:16:00] all meals and I go and I hold this down,
+[01:16:04] delete. And there we go. Now, I also
+[01:16:06] want to have the ability to just wipe
+[01:16:09] them all clean to clear all. So if we go
+[01:16:12] back to our steps and we look at number
+[01:16:14] 47, I just want to add this simple
+[01:16:18] function to our storage, our meal
+[01:16:20] storage, which is to clear all meals. So
+[01:16:24] if we go to storage meals ts, we're
+[01:16:28] going to paste this in. And all it does
+[01:16:29] is it calls await async remove item and
+[01:16:32] passes in the key. So it clears
+[01:16:34] everything. So we'll save that. Now, we
+[01:16:37] need to integrate that into the males
+[01:16:39] tsx that's in the tabs folder. So,
+[01:16:42] that's going to be this block of code
+[01:16:44] here. So, we'll grab that and then
+[01:16:47] replace all of that. And basically, all
+[01:16:50] we're doing here is bringing in clear
+[01:16:52] all meals and then creating this
+[01:16:54] handler, which calls clear all meals and
+[01:16:57] then load meals. And we're just making
+[01:17:00] it so down here,
+[01:17:03] uh, let's see, where is it?
+[01:17:06] We have this touchable opacity, right?
+[01:17:08] So this button with an on press that
+[01:17:10] calls handle clear all.
+[01:17:13] And we just have a little bit of
+[01:17:14] styling. So clear button, color red,
+[01:17:17] font size 16.
+[01:17:19] So let's go ahead and make sure that's
+[01:17:21] saved. And then jump back over here.
+[01:17:23] Let's just refresh. All meals. Now we
+[01:17:27] have a clear all button, right? If I
+[01:17:29] click that, then it just clears it all.
+[01:17:32] Okay, it says no meals logged. If I go
+[01:17:34] home, no meals logged.
+[01:17:36] So now we basically have uh a full It's
+[01:17:39] not full CRUD because we don't have an
+[01:17:41] update. If you want to add that on your
+[01:17:43] own, you can. It's pretty easy. But this
+[01:17:46] video is getting very long. And there's
+[01:17:47] still a couple other things that I want
+[01:17:49] to show you that I want to uh that I
+[01:17:51] want to add to this. So now what I want
+[01:17:53] to do is a a couple things using some of
+[01:17:56] the Expo APIs, some of the Expo
+[01:17:58] packages. And the first one is for
+[01:18:00] haptics, which is when your your mobile
+[01:18:03] device vibrates. So I want it to vibrate
+[01:18:05] when a meal is successfully added and
+[01:18:07] when a meal is deleted. So we're going
+[01:18:09] to use the Expo haptics package for
+[01:18:11] that. So this npx expo install command.
+[01:18:15] We're going to go ahead and run that. So
+[01:18:16] I'll just open up a new terminal, paste
+[01:18:18] that in, and run it. And then once
+[01:18:21] that's installed, we just want to import
+[01:18:23] it into the add meal. And all we have to
+[01:18:26] do is this one line. Okay, this
+[01:18:28] haptics.notification
+[01:18:30] async. So, let's uh let's copy that
+[01:18:34] import and then go into add meal. And we
+[01:18:38] want to just throw this in here at the
+[01:18:41] top. So, import that. And then where I
+[01:18:44] want to actually do this is going to be
+[01:18:47] in the handle add mail function.
+[01:18:50] And I want to do it
+[01:18:53] uh let's see.
+[01:18:56] Yeah, right here. Actually, it's a AI is
+[01:18:58] already is already suggesting it. So,
+[01:19:00] I'll just hit tab. So, I put this
+[01:19:02] notification async right after the
+[01:19:05] alert, the success alert before we
+[01:19:07] redirect. Whoops, it didn't take There
+[01:19:09] we go. All right. And then, like I said,
+[01:19:12] I also want to do it when it deletes.
+[01:19:15] So, that's going to be in the meal item.
+[01:19:18] And that will reflect both on the
+[01:19:20] homepage and
+[01:19:23] um the homepage and the all meals
+[01:19:26] because they both use the mail item. So
+[01:19:29] let's go to components mail item. And
+[01:19:31] then let's import let's say import
+[01:19:36] all as
+[01:19:38] haptics from expo haptics. And then we
+[01:19:41] want to go
+[01:19:43] right here. So after delete mail but
+[01:19:46] also before ondee and we're going to
+[01:19:50] call same same method notification async
+[01:19:54] and haptics notification feedback type
+[01:19:57] dosuccess.
+[01:20:00] Okay. So
+[01:20:02] that should do it. Now you can't
+[01:20:04] actually test this on a simulator but if
+[01:20:07] you're using Expo Go if you're using a
+[01:20:09] physical device you can do that. And
+[01:20:11] then obviously once you build it and um
+[01:20:14] you know you have it on a on your
+[01:20:16] physical Android or iOS device then
+[01:20:18] it'll work. But let's just make sure
+[01:20:20] that we can still add meals and stuff.
+[01:20:21] So I'll say protein shake
+[01:20:25] and say calories 120 protein 30 10
+[01:20:32] add meal. So right then it should do you
+[01:20:35] should feel the the vibrate. Now the
+[01:20:37] next thing we're going to do is use the
+[01:20:39] share API. So basically what this allows
+[01:20:41] us to do is share with other apps,
+[01:20:44] right? So it could be social media, it
+[01:20:46] could be just a notes app or or
+[01:20:48] reminders or something. So this is
+[01:20:50] actually a React Native API. As you can
+[01:20:54] see here, it's shares being brought in
+[01:20:56] from React Native. Um the rest of the
+[01:20:58] stuff that I'm going to show you are are
+[01:21:00] from Expo, but this is from React Native
+[01:21:02] itself. So what we're going to do is
+[01:21:04] create a share button component. We're
+[01:21:06] going to copy this. This is number 50.
+[01:21:08] and I'll go over it after I paste it in.
+[01:21:11] So, let's go to components. Let's create
+[01:21:13] a component called share button.tsx.
+[01:21:17] And we'll paste this in. And it's pretty
+[01:21:19] simple. We just bring in share. Um,
+[01:21:21] we're also bringing in our meal type.
+[01:21:23] We're bringing in colors and icons
+[01:21:26] because we're going to have a share
+[01:21:28] icon. And then it's going to take in
+[01:21:31] meals because that's what we're sharing.
+[01:21:34] And we have a handle share handler which
+[01:21:37] as you can see is being called down here
+[01:21:39] on press for this touchable opacity. And
+[01:21:42] when that's called it's going to
+[01:21:44] basically just total everything together
+[01:21:46] using reduce. So it's going to add all
+[01:21:48] the calories, protein, carbs, and fat.
+[01:21:51] And it's going to um it's going to share
+[01:21:54] that here. Right? So we're calling share
+[01:21:56] with an uppercase s dotshare with a
+[01:21:59] lowercase s. And then whatever you pass
+[01:22:01] in there will be shared to whatever app
+[01:22:03] you choose. And what we're sharing is a
+[01:22:06] message of macro zone daily summary with
+[01:22:09] all the the macros and then also the
+[01:22:11] number of meals logged. Okay. So that's
+[01:22:14] what we're sharing. So let's save that.
+[01:22:16] And then we're going to go to uh let's
+[01:22:19] see. We're going to go to the index tab
+[01:22:22] index page. And I want to put this where
+[01:22:25] we have the just the macro zone title.
+[01:22:28] Actually I think I have Yeah. So, I have
+[01:22:30] that right here. So, basically, I'm
+[01:22:32] going to replace that text with a view
+[01:22:34] that has that text in it, the macro
+[01:22:36] zone, and then the share button
+[01:22:38] underneath it. And the share button gets
+[01:22:40] the meals passed to it. So, let's
+[01:22:42] replace this with that view. And make
+[01:22:45] sure you import view if you don't have
+[01:22:47] it already. And make sure you import uh
+[01:22:50] import share button. All right. So,
+[01:22:52] let's save that. And then we're going to
+[01:22:54] go to our simulator. And there it is.
+[01:22:58] So, I'm going to click that. And then
+[01:23:00] there's there's really nothing uh
+[01:23:02] installed on this simulator. We can test
+[01:23:04] it with reminders.
+[01:23:06] So, now you can see it'll actually add
+[01:23:08] it as a reminder. So, and it's formatted
+[01:23:11] nicely. We have calories, protein,
+[01:23:13] carbs, and fat meals one log today. So,
+[01:23:16] I mean, if you had like let's say
+[01:23:18] Facebook or something like that
+[01:23:20] installed, then you could, you know,
+[01:23:22] share it through that. So, that's the
+[01:23:24] share API. And now I want to use the the
+[01:23:27] clipboard API from Expo. So we need to
+[01:23:30] install this package here, Expo
+[01:23:32] clipboard. So I'm going to copy this.
+[01:23:34] And we're using npx expo install.
+[01:23:39] So let's go ahead and install that. And
+[01:23:41] then what we're going to do is create a
+[01:23:42] copy button component. So we're going to
+[01:23:44] copy this code here under number 51.
+[01:23:48] And then we're going to go to components
+[01:23:50] and create a new copy button.tsx.
+[01:23:56] paste that in. And this is very similar
+[01:23:58] to how the share works. I'm also
+[01:24:00] bringing in uh haptics so that when we
+[01:24:03] copy, it'll make the phone vibrate. Um
+[01:24:06] but yeah, we're bringing in clipboard
+[01:24:08] from Expo clipboard. We're do we have a
+[01:24:11] handler here called handle copy which
+[01:24:14] will run when our touchable opacity is
+[01:24:16] clicked. And that touchable opacity
+[01:24:18] wraps an icon and a copy summary text.
+[01:24:22] All right. And then when that happens,
+[01:24:24] same thing. It's going to use reduce. We
+[01:24:26] could actually we could put that into
+[01:24:28] like a utility if we wanted um because
+[01:24:30] it's the same thing we did in share. And
+[01:24:32] then we create the summary here with all
+[01:24:35] the values, the totals. Then we call the
+[01:24:38] clipboard API. So clipboard setting
+[01:24:41] async and then pass in the summary. So
+[01:24:44] that's what'll be what'll be copied.
+[01:24:46] Then we fire off our haptics and then we
+[01:24:49] fire off the alert. So very simple.
+[01:24:52] Now the copy button, I want to put that
+[01:24:55] in the index.tsx and I'm going to put it
+[01:24:58] right under macro grid. So let's say
+[01:25:01] copy button.
+[01:25:04] Uh actually we want to I don't want to
+[01:25:06] do that. Want to do copy button
+[01:25:11] and yeah we want to make sure we pass in
+[01:25:13] meals and then we want to
+[01:25:16] import that.
+[01:25:18] Okay. So save and then let's check it
+[01:25:21] out. So, we got copy summary. I'll click
+[01:25:23] that. It says macro summary copied to
+[01:25:26] clipboard. And we can test that out.
+[01:25:28] I'll just open up a empty text file here
+[01:25:30] and paste. And you can see it's
+[01:25:32] formatted nicely just like it was in the
+[01:25:34] the share app or share um API.
+[01:25:38] All right. So, that's that. And there's
+[01:25:41] there's a ton of little uh packages like
+[01:25:44] this you can install and use. So, the
+[01:25:47] next one is for notifications.
+[01:25:50] Now, there is uh I think yeah, there's
+[01:25:54] an issue if you're using Expo Go. It
+[01:25:57] says as of SDK 53,
+[01:26:00] um it won't work in Expo Go, but it will
+[01:26:03] work on the SIM simulator. It will work
+[01:26:05] when you build it out for iOS or
+[01:26:07] Android. So, this is going to be the
+[01:26:10] Expo Notifications
+[01:26:12] package. So, let's copy that and install
+[01:26:14] it.
+[01:26:17] And what we're going to do is create a
+[01:26:18] utility that has the the functions to to
+[01:26:22] schedule a reminder, to request
+[01:26:24] permissions, and to cancel the
+[01:26:27] reminders. So, I'm going to copy this
+[01:26:29] right here, this code in number 52. And
+[01:26:32] we're going to create a file in utils
+[01:26:35] notifications ts. So, in source, not in
+[01:26:38] the app folder, just right in source,
+[01:26:40] we're going to create utils as a folder.
+[01:26:43] And then we're going to create a file
+[01:26:45] and call that
+[01:26:47] uh notifications.ts
+[01:26:51] and we'll paste that in. All right. So
+[01:26:54] bringing in notifications here we call
+[01:26:57] set notification handler and that takes
+[01:27:00] in a function where we can set the to
+[01:27:03] show alert to show banner show list play
+[01:27:06] sound and set badge. So these are
+[01:27:08] different values you have. Um now here
+[01:27:12] we have our request permissions. So we
+[01:27:14] have to call this notifications request
+[01:27:16] permissions a uh async. And then here we
+[01:27:20] have our schedule meal reminders. So
+[01:27:22] this is where you you set the time that
+[01:27:24] you want the reminders to fire off. So
+[01:27:27] and we do this with schedule
+[01:27:29] notification async. That's the method
+[01:27:31] name. And that takes in content which is
+[01:27:34] what you want to show in your reminder.
+[01:27:36] A title and a body. Here it says macro
+[01:27:38] zone. And don't forget to log your
+[01:27:40] lunch. And then the trigger, we pass in
+[01:27:42] a type which is going to be daily. Okay,
+[01:27:45] so schedulable trigger input types
+[01:27:48] daily. And then the time. So here I'm
+[01:27:51] just putting hour 12. So this is going
+[01:27:52] to fire off at noon time. And then we
+[01:27:55] have another one set here for hour 18.
+[01:27:59] Okay. So that's going to set off for
+[01:28:01] dinner. And it's going to say time to
+[01:28:03] log your dinner. There's no breakfast,
+[01:28:05] but if you of course if you wanted to
+[01:28:06] add that, you could. And then we just
+[01:28:08] have a cancel mail reminders where it's
+[01:28:11] going to call this notifications.cancall
+[01:28:14] scheduled notifications async. So
+[01:28:16] basically we'll have a a switch a toggle
+[01:28:19] when it's off it'll call this and when
+[01:28:22] we turn it on it'll schedule. Okay. So
+[01:28:25] let's save that. And then we want to use
+[01:28:27] that in a component called reminder
+[01:28:30] toggler. So let's copy this one and
+[01:28:34] let's go
+[01:28:36] see. We're going to go into components
+[01:28:38] and create a new file called reminder.
+[01:28:42] What did I call it? Just want to make
+[01:28:43] sure it's the same. Uh reminder toggle.
+[01:28:49] So, let's rename and reminder
+[01:28:54] toggle.tsx.
+[01:28:56] And then we're going to paste that in.
+[01:29:00] All right. So basically what we're doing
+[01:29:02] here, we're we're actually going to save
+[01:29:04] a key in async storage so that it
+[01:29:07] remembers if we actually um set it or
+[01:29:10] not. And then we're bringing in those
+[01:29:13] three things from the util, which is the
+[01:29:15] cancel meal reminders, request
+[01:29:17] permissions, and schedule meal
+[01:29:18] reminders. We're just setting a a
+[01:29:20] variable of reminders key here, which
+[01:29:22] I'm setting to a string of reminders
+[01:29:24] enabled. Then we have our function with
+[01:29:27] our state, our local state, which is
+[01:29:29] just if it's enabled or not, set to
+[01:29:31] false by default. Okay. And then when we
+[01:29:34] toggle, it's going to check the value.
+[01:29:36] It's going to request permission and
+[01:29:38] it's going to schedule the mail
+[01:29:39] reminder. That's if it's toggled on. If
+[01:29:42] it's toggled off, it's going to call
+[01:29:44] cancel mail reminders. All right? And
+[01:29:46] it's going to load it as soon as it
+[01:29:48] loads, as soon as the screen loads. All
+[01:29:50] right? And then down here, we just have
+[01:29:52] our switch. The value is the local state
+[01:29:54] of enabled. On value change is going to
+[01:29:57] call toggle. Um, and then we also have
+[01:30:00] track color. And we're just have
+[01:30:02] bringing in our colors from our global
+[01:30:04] style. All right. So, let's save that.
+[01:30:07] And then where we're going to put that
+[01:30:08] is going to be in the index. So, tabs
+[01:30:12] index. And let's put this right below
+[01:30:16] right below copy button. So, we want to
+[01:30:18] add reminder toggle.
+[01:30:21] We don't need to pass meals in or
+[01:30:23] anything. Just simply that. Make sure
+[01:30:24] you import it at the top. And then if we
+[01:30:27] check it out, we see mail reminders.
+[01:30:30] And we can shut it off. We can turn it
+[01:30:32] on.
+[01:30:34] Now, the reason mine was on right away
+[01:30:36] is because I had already done this and I
+[01:30:38] had to re-record. So, it was set to true
+[01:30:40] in the storage. Um, yours, I believe
+[01:30:43] yours will be off by default.
+[01:30:46] All right. Now, I can't really test
+[01:30:48] this. I mean, I could, but I don't want
+[01:30:49] to go through that right now. But I'll
+[01:30:52] show you. I actually installed this app
+[01:30:54] on my phone, and I've been getting
+[01:30:57] notifications from it. So, I'll show you
+[01:31:00] what they look like.
+[01:31:02] Let me just make sure I have nothing
+[01:31:03] else here that I don't want you guys to
+[01:31:05] see.
+[01:31:07] All right. So, if you look at the very
+[01:31:09] top, it might be backwards on the
+[01:31:12] screen, but at the very top, there's two
+[01:31:14] reminders. one to log my dinner and one
+[01:31:17] to log my uh my lunch. And I've been
+[01:31:21] getting these been getting these daily
+[01:31:24] since I created this a little while ago.
+[01:31:28] But yeah, so that's all set. So we have
+[01:31:31] notifications, we have copy, we have our
+[01:31:33] clipboard, we have a share, um we have
+[01:31:36] haptics,
+[01:31:38] and we're using async storage. So this
+[01:31:41] should give you some ideas at least. you
+[01:31:44] know, you should have some ideas on some
+[01:31:45] stuff that you want to create.
+[01:31:48] And of course, using AI, I mean, you
+[01:31:50] can, you know, build more, but I would
+[01:31:52] definitely suggest learning at least
+[01:31:54] understanding what we've done here
+[01:31:56] before you get into any AI development.
+[01:32:00] But let's close this stuff up.
+[01:32:03] And yeah, I think that's pretty much it.
+[01:32:05] Now, I do want to go over some of the
+[01:32:08] EAS stuff. Um, so we'll do that next. So
+[01:32:12] when it comes to actually testing on a
+[01:32:14] physical device and publishing and
+[01:32:16] submitting to app stores, there's a few
+[01:32:18] ways to to do this um the easiest way in
+[01:32:22] my opinion is to go through the expo
+[01:32:24] application services or EAS. So
+[01:32:27] basically we already connected our
+[01:32:29] project when we installed the EAS CLI
+[01:32:32] and we ran EAS init and we added that
+[01:32:35] ID. So that's already created. So now
+[01:32:38] what you can do is run EAS. You don't
+[01:32:41] even need npx if you installed it
+[01:32:42] globally and then d-platform and you can
+[01:32:45] do all iOS or Android. Now to publish a
+[01:32:51] um an iOS project you do need an Apple
+[01:32:55] developer account that's enrolled which
+[01:32:56] I believe is $99. I paid that and
+[01:33:00] enrolled many years ago but for some
+[01:33:04] reason it's not coming up as enrolled.
+[01:33:06] So I actually couldn't build for my
+[01:33:08] iPhone. I did get it on my phone through
+[01:33:11] Xcode because you can do that. Um, but
+[01:33:13] if you actually want to publish it, you
+[01:33:15] do need a developer account. And for
+[01:33:17] Android, you don't need to to pay
+[01:33:19] anything. You can build it out for
+[01:33:21] Android. And basically, it'll give you a
+[01:33:24] file. It it should give you aab file,
+[01:33:27] which is the file type to submit to app
+[01:33:30] store to the app store. Um, if you want
+[01:33:32] an APK file, which can be directly
+[01:33:36] installed on your device, you just need
+[01:33:38] to edit your EAS.json
+[01:33:41] and add this here, this build preview
+[01:33:44] um, Android buildt type APK. So, I think
+[01:33:48] that's what I want to do is just get an
+[01:33:50] APK file. So, I'm going to grab that and
+[01:33:54] jump over to You can see I actually
+[01:33:56] tried my Apple developer account, but it
+[01:33:59] wasn't working. So, let me just clear
+[01:34:02] that up. And in EA,
+[01:34:05] EASJSON
+[01:34:08] right here. So, build
+[01:34:11] build and Yeah. So, I'm going to just
+[01:34:14] replace that. Wait, is that right?
+[01:34:18] Oh, get an extra curly brace there.
+[01:34:22] Okay. So I got build and then preview
+[01:34:25] distribution internal Android build type
+[01:34:28] APK production auto increment true. So
+[01:34:31] this will allow me to create an APK
+[01:34:33] file. So what I'm going to do now is run
+[01:34:36] this command here as build platform
+[01:34:39] Android and profile is going to be
+[01:34:41] preview. You have preview, you have
+[01:34:43] development, and you have production.
+[01:34:45] So let's try this out.
+[01:34:54] Okay. So, uploaded to EAS.
+[01:34:58] You can see the logs here if you want.
+[01:35:01] My build's been cued. Now, if I go back
+[01:35:03] to expo.dev, you can actually see my
+[01:35:06] build right here. Recent activity
+[01:35:10] Android. This is the one that's going on
+[01:35:12] now. Android internal distribution
+[01:35:15] build. But before I actually ran I ran
+[01:35:18] it as an AAP file and that's the Android
+[01:35:22] Play Store build. So you can easily just
+[01:35:24] submit to the Play Store and you can use
+[01:35:27] a command you can use EAS submit to do
+[01:35:30] that. So Android makes things much
+[01:35:32] easier than than Apple does in my
+[01:35:35] opinion. But yeah, this can take a while
+[01:35:37] but what I'll end up with is an APK file
+[01:35:40] that I could actually install on a
+[01:35:42] physical device. All right guys, so this
+[01:35:44] has completed. It took quite a while. It
+[01:35:46] took like 10 minutes or so. And it says
+[01:35:48] install and run the Android build on the
+[01:35:52] emulator. So, not only did it create my
+[01:35:54] APK file, but I can actually run it on
+[01:35:56] the emulator. So, I'll say yes to that.
+[01:36:00] Okay. So, it successfully downloaded and
+[01:36:02] now it shows that I have the a Pixel 9
+[01:36:05] emulator. So, we'll go ahead and open
+[01:36:07] that.
+[01:36:09] So, this is no longer running. Uh, yeah,
+[01:36:12] this is going to refresh.
+[01:36:14] This is no longer running, you know, an
+[01:36:17] Expo server, um, development server.
+[01:36:20] It's an actual APK.
+[01:36:26] And that splash screen that we just saw,
+[01:36:28] you can change that easily. Um, so yeah,
+[01:36:31] here's the the application running.
+[01:36:33] Let's go ahead and add a meal. Say test
+[01:36:39] 400
+[01:36:42] 12, whatever. It doesn't really matter.
+[01:36:45] Mail added successfully. There it is.
+[01:36:48] Okay. If I wanted to share it,
+[01:36:50] I could choose. Oh, there's no
+[01:36:52] recommended people to share with.
+[01:36:54] Sharing text.
+[01:36:57] Um I have I haven't used an Android
+[01:36:58] device in a while, so I'm not exactly
+[01:37:00] sure what does what as far as the apps.
+[01:37:04] If I want to copy it. So now it's
+[01:37:06] copied. If I want to enable real mail
+[01:37:10] reminders, allow notifications.
+[01:37:14] all meals. Could clear all.
+[01:37:19] Awesome. So this is our actual
+[01:37:22] app running basically not in production
+[01:37:24] but it's a it's a production file right.
+[01:37:27] So in uh expo.dev we can click on let's
+[01:37:32] see and again this is the this is the
+[01:37:34] distribution build because I used the
+[01:37:36] preview [clears throat] profile earlier.
+[01:37:38] I did I used production so I do also
+[01:37:40] have that ready but you can see the logs
+[01:37:44] that went through. Now if you wanted to
+[01:37:46] you could set up a workflow as well
+[01:37:48] within expo which is basically just um
+[01:37:51] CI/CD. It's you can just push to GitHub
+[01:37:54] and it'll go ahead and it'll update the
+[01:37:57] the the app. It'll update the app in
+[01:38:00] production. It will submit it to the app
+[01:38:02] store or update in the app store. So you
+[01:38:05] could set that up as well. So it expo
+[01:38:08] makes everything pretty easy uh much
+[01:38:11] easier than it was, you know, years ago.
+[01:38:13] But hopefully this gives you some
+[01:38:14] insight on creating mobile apps with
+[01:38:17] React Native. I would suggest taking
+[01:38:19] what you learned here and applying it to
+[01:38:21] your own projects and see what you can
+[01:38:23] come up with. And and in my opinion, if
+[01:38:26] you understand everything in this video,
+[01:38:28] then you can also use AI to assist in
+[01:38:31] development. But that's it guys. As
+[01:38:33] always, thanks for watching and I'll see
+[01:38:35] you

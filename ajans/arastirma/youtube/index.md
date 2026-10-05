@@ -472,3 +472,137 @@ Not: `(listede)` = aynı video yukarıdaki bölümlerde zaten var; transkript te
 | [ViilNVorlQo](https://www.youtube.com/watch?v=ViilNVorlQo) | Claude Code + Nano Banana 2 = Apple-Level Websites | 7 | 25742 | Ed Hill | AI Automation | C |
 | [SdtAivtwKIg](https://www.youtube.com/watch?v=SdtAivtwKIg) | Claude Code + Nano Banana 2 + Kling = Creating IRRESISTIBLE Animated Websites | 14 | 3009 | Tom Melo | C |
 | [VHJ3yA7aebw](https://www.youtube.com/watch?v=VHJ3yA7aebw) | Claude Code + Nano Banana 2 + Kling = $15K Animated Sites | 20 | 2373 | Kenil Barochia | AI & TECH | C |
+
+
+
+# MOBİL UYGULAMA ek sorgular (YouTube-1 oturumu, 2026-10-05)
+
+Aşağıdaki 7 bölüm sonradan `yt-dlp` (web_embedded istemcisi) ile arandı; konu dışı/çok kısa sonuçlar atlandı. Başka bölümde zaten listelenen videolar "(yukarıda)" ile işaretlidir, öncelikleri oradaki gibidir.
+
+## build mobile app with claude code expo full course
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [OcqWu_kasck](https://www.youtube.com/watch?v=OcqWu_kasck) | CLAUDE CODE BOOTCAMP: Build 3 Real Mobile Apps | 720 | 58718 | Codesistency | A (yukarıda) |
+| [BMMcmmnjrM8](https://www.youtube.com/watch?v=BMMcmmnjrM8) | How to Build Mobile Apps with Claude Code: Full Course (2026) | 243 | 298703 | Nick Saraev | A (yukarıda) |
+| [XFmYkJJxsr8](https://www.youtube.com/watch?v=XFmYkJJxsr8) | Build Your First App with Claude Code (No Experience Needed) | 28 | 181122 | Code with Beto | A (yukarıda) |
+| [tpge9xJ0m5U](https://www.youtube.com/watch?v=tpge9xJ0m5U) | How to Build Real Mobile Apps with Claude - FULL COURSE | 191 | 170667 | Codesistency | A (yukarıda) |
+| [6q8joS_592k](https://www.youtube.com/watch?v=6q8joS_592k) | Claude Code Tutorial for Beginners: Build App with AI (2026) | 21 | 394883 | Mikey No Code | A (yukarıda) |
+| [misjUj4Q_ho](https://www.youtube.com/watch?v=misjUj4Q_ho) | Building a Real App with Claude Code (Start to Finish) | 22 | 109048 | Tech With Tim | B (yukarıda) |
+| [p80OV6kjIO8](https://www.youtube.com/watch?v=p80OV6kjIO8) | The Ultimate Claude Code Tutorial for Mobile Apps - FULL COURSE | 213 | 158185 | Codesistency | A |
+| [sneNR5KnRJU](https://www.youtube.com/watch?v=sneNR5KnRJU) | Build Your First App with Claude Code in 20 Minutes (The Right Way) | 20 | 44826 | Code with Beto | B (yukarıda) |
+| [lpeP6BcUlFU](https://www.youtube.com/watch?v=lpeP6BcUlFU) | How to Build Real Mobile Apps with Claude - FULL COURSE | 58 | 11931 | Omatsola Dev | B |
+| [M3dO417o7-U](https://www.youtube.com/watch?v=M3dO417o7-U) | Build and Publish an App with Claude Code (Complete Beginner Guide) | 58 | 21730 | Code with Beto | A (yukarıda) |
+| [qa5jMoJRQL8](https://www.youtube.com/watch?v=qa5jMoJRQL8) | Vibecoding a mobile app: the Claude Code 2026 tutorial (React Native + Expo) | 85 | 19613 | Algomax | A |
+| [GUgxx6fMiR8](https://www.youtube.com/watch?v=GUgxx6fMiR8) | How to Build an App With Claude Code - Full Tutorial for Beginners | 24 | 184051 | Tech With Tim | A (yukarıda) |
+| [UMjeSU6C4qU](https://www.youtube.com/watch?v=UMjeSU6C4qU) | How I built an $80K/Mo mobile app with Claude Code (Full Vibe Code Tutorial) | 26 | 140920 | Jason Lee | A |
+| [i5wd1-QGE1A](https://www.youtube.com/watch?v=i5wd1-QGE1A) | How to Build Your First App with Claude Code (Complete Beginner Guide) | 24 | 16913 | Code with Beto | C (yukarıda) |
+| [lHXtPkhElw4](https://www.youtube.com/watch?v=lHXtPkhElw4) | The FASTEST way to build apps with Claude Code (Opus 4.6) | 11 | 14616 | Ed Hill | AI Automation | C |
+
+## codex mobile app build full tutorial
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [bGALxRWI10A](https://www.youtube.com/watch?v=bGALxRWI10A) | Build your own Mobile App with Codex GPT-6 Astra - Full iOS and Android Course | 155 | 163381 | freeCodeCamp.org | A |
+| [E6Bj5Wxh-50](https://www.youtube.com/watch?v=E6Bj5Wxh-50) | Codex Tutorial for Beginners: Build App with AI (2026) | 18 | 50954 | Mikey No Code | B |
+| [eoEsVQJruow](https://www.youtube.com/watch?v=eoEsVQJruow) | Build a FULL Mobile App with Codex (Full Guide) | 27 | 44897 | Riley Brown | B |
+| [FegYRu-swbA](https://www.youtube.com/watch?v=FegYRu-swbA) | How to Build Real Mobile Apps with Codex - FULL COURSE 2026 | 155 | 46793 | Codesistency | A |
+| [Ji2Lmh1kolA](https://www.youtube.com/watch?v=Ji2Lmh1kolA) | Build Your First App with Codex (No Experience Needed) | 19 | 55283 | Code with Beto | B |
+| [ofwjMmusZJw](https://www.youtube.com/watch?v=ofwjMmusZJw) | I built an app on my phone with Codex Mobile | 20 | 419 | Christian Olivieri | C |
+| [cTiP900ghk0](https://www.youtube.com/watch?v=cTiP900ghk0) | Master These 7 Codex Skills to Build Your First App in Minutes | 31 | 25734 | Mikey No Code | B |
+| [ZXkeWiWB4xg](https://www.youtube.com/watch?v=ZXkeWiWB4xg) | Codex - Full Course for Beginners | 34 | 120117 | Tech With Tim | B |
+| [iMZUp6E3lJ0](https://www.youtube.com/watch?v=iMZUp6E3lJ0) | How To Build Apps with Codex in 2026: Full Tutorial for Beginners | 59 | 5212 | James NoCode | C |
+| [ducCNB2QQ7o](https://www.youtube.com/watch?v=ducCNB2QQ7o) | Can ChatGPT Codex Build a Real App? | 14 | 23811 | ezCommit | C |
+| [6UaflAMTPNE](https://www.youtube.com/watch?v=6UaflAMTPNE) | How I Build Apps with Codex: My Full Workflow | 28 | 1435 | Code With Clinton | C |
+| [o3CX_Y59_74](https://www.youtube.com/watch?v=o3CX_Y59_74) | OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI | 41 | 153923 | freeCodeCamp.org and Skyrocketing Tech | C |
+| [j7d5rs0iMlE](https://www.youtube.com/watch?v=j7d5rs0iMlE) | OpenAI Codex Full Course 4 Hours: Build & Ship | 242 | 70002 | Aniket Panjwani | C |
+| [LdxTrI3bepA](https://www.youtube.com/watch?v=LdxTrI3bepA) | Codex Desktop App Tutorial for iOS App Development | 17 | 6857 | CodeWithChris | C |
+| [4OiLljSo-hw](https://www.youtube.com/watch?v=4OiLljSo-hw) | Codex Mobile App Released (Complete Setup Guide) | 14 | 75497 | Riley Brown | C |
+
+## claude code build ios android app no experience
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [XFmYkJJxsr8](https://www.youtube.com/watch?v=XFmYkJJxsr8) | Build Your First App with Claude Code (No Experience Needed) | 28 | 181122 | Code with Beto | A (yukarıda) |
+| [6q8joS_592k](https://www.youtube.com/watch?v=6q8joS_592k) | Claude Code Tutorial for Beginners: Build App with AI (2026) | 21 | 394883 | Mikey No Code | A (yukarıda) |
+| [uUUQjJm9zRw](https://www.youtube.com/watch?v=uUUQjJm9zRw) | Build Your First iPhone App with Claude & Xcode 27 | 19 | 40124 | Code with Beto | B |
+| [BMMcmmnjrM8](https://www.youtube.com/watch?v=BMMcmmnjrM8) | How to Build Mobile Apps with Claude Code: Full Course (2026) | 243 | 298703 | Nick Saraev | A (yukarıda) |
+| [-ldzZ6D5cwY](https://www.youtube.com/watch?v=-ldzZ6D5cwY) | The EASIEST way to build iOS apps with Claude Code (Opus 4.5) | 18 | 86797 | Alex Finn | B |
+| [J17j1wiisCs](https://www.youtube.com/watch?v=J17j1wiisCs) | Claude Code Built My Entire iOS App Company (Code to App Store) | 30 | 2880 | Omar Farook | Building Beautiful Products | B |
+| [M3dO417o7-U](https://www.youtube.com/watch?v=M3dO417o7-U) | Build and Publish an App with Claude Code (Complete Beginner Guide) | 58 | 21730 | Code with Beto | A (yukarıda) |
+| [REEt7nX6x-0](https://www.youtube.com/watch?v=REEt7nX6x-0) | Can Claude Fable 5 Build a Real iPhone App? | 22 | 25311 | Code with Beto | B |
+| [xfptZcCf484](https://www.youtube.com/watch?v=xfptZcCf484) | How to Build Your First App with Claude Code (FREE) | 20 | 91139 | Mikey No Code | B |
+| [s4E8iQBUrJA](https://www.youtube.com/watch?v=s4E8iQBUrJA) | How to Use Claude Design to Build an App (Step by Step) | 17 | 34870 | Max Max | A |
+| [L_tpLe8pIn8](https://www.youtube.com/watch?v=L_tpLe8pIn8) | Claude Design and Claude Code / Idea to iOS App in 30min | 28 | 6662 | Eamonn Cottrell | B |
+| [uJO_wLMqgTc](https://www.youtube.com/watch?v=uJO_wLMqgTc) | Claude Code for Beginners — Build Your First iPhone App No Coding | 10 | 14903 | The Tech Girl | C |
+| [x6xyV5GqhDE](https://www.youtube.com/watch?v=x6xyV5GqhDE) | Build iOS & Android Apps with Claude (No Mac Required) | 4 | 39 | Agentic Planet | C |
+| [s-Mc26Ytz10](https://www.youtube.com/watch?v=s-Mc26Ytz10) | Claude Code for Beginners — Build Your First App with AI (No Coding Required!) | 13 | 159122 | Teacher's Tech | B |
+| [9V2ZFhLsh9w](https://www.youtube.com/watch?v=9V2ZFhLsh9w) | Can Claude Fable 5.1 Build a Real iPhone App? | 12 | 36228 | Code with Beto | B |
+
+## claude code skills workflow mobile app design
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [G9o8eoHzpxc](https://www.youtube.com/watch?v=G9o8eoHzpxc) | Full Tutorial: From Idea to App with Claude Design and Claude Code in 25 Minutes | 25 | 27820 | Peter Yang | A |
+| [nbk0PMS0tos](https://www.youtube.com/watch?v=nbk0PMS0tos) | Generate Better AI Designs in Claude Code | 11 | 52419 | UI Collective | A |
+| [s4E8iQBUrJA](https://www.youtube.com/watch?v=s4E8iQBUrJA) | How to Use Claude Design to Build an App (Step by Step) | 17 | 34870 | Max Max | A |
+| [AAmdB1bvmYw](https://www.youtube.com/watch?v=AAmdB1bvmYw) | This New MCP Gives Claude a Design Superpower (600,000+ UI Screen References) | 9 | 40956 | Jay E | RoboNuggets | B |
+| [wiQMsQwWJQE](https://www.youtube.com/watch?v=wiQMsQwWJQE) | 3-Step Claude Code System For Pro-Level App Designs | 15 | 26604 | Sean Kochel | A |
+| [tpge9xJ0m5U](https://www.youtube.com/watch?v=tpge9xJ0m5U) | How to Build Real Mobile Apps with Claude - FULL COURSE | 191 | 170667 | Codesistency | A (yukarıda) |
+| [Iup1WlUyj9M](https://www.youtube.com/watch?v=Iup1WlUyj9M) | How to Use Claude Skills as a Designer | 9 | 304858 | Griffin Wooldridge | A (yukarıda) |
+| [76_h94U4ztQ](https://www.youtube.com/watch?v=76_h94U4ztQ) | Watch me Design a Mobile App From Scratch in 32 Minutes (Claude /design & Fable 5) | 32 | 75693 | Build Great Products | A |
+| [ljJuOxTsrtY](https://www.youtube.com/watch?v=ljJuOxTsrtY) | Design with Claude Code: A Crash Course | 17 | 24068 | UI Collective | A |
+| [p80OV6kjIO8](https://www.youtube.com/watch?v=p80OV6kjIO8) | The Ultimate Claude Code Tutorial for Mobile Apps - FULL COURSE | 213 | 158185 | Codesistency | A |
+| [mvfQGjQurAQ](https://www.youtube.com/watch?v=mvfQGjQurAQ) | Claude Code for Mobile Devs: The 5 Skills I Use on Every App | 8 | 21288 | Code with Beto | A |
+| [BMMcmmnjrM8](https://www.youtube.com/watch?v=BMMcmmnjrM8) | How to Build Mobile Apps with Claude Code: Full Course (2026) | 243 | 298703 | Nick Saraev | A (yukarıda) |
+| [u2QqWkMv3Lg](https://www.youtube.com/watch?v=u2QqWkMv3Lg) | Claude Code Full Course 2026 / How Senior Engineers Actually Build with AI | 133 | 171101 | JavaScript Mastery | A (yukarıda) |
+| [Em9EzurouOU](https://www.youtube.com/watch?v=Em9EzurouOU) | Use Claude Code DESIGNER Skill to 10x UI Designs | 7 | 126700 | DesignCourse | B |
+| [6q8joS_592k](https://www.youtube.com/watch?v=6q8joS_592k) | Claude Code Tutorial for Beginners: Build App with AI (2026) | 21 | 394883 | Mikey No Code | A (yukarıda) |
+
+## build beautiful app ui with ai claude react native animations
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [wiQMsQwWJQE](https://www.youtube.com/watch?v=wiQMsQwWJQE) | 3-Step Claude Code System For Pro-Level App Designs | 15 | 26604 | Sean Kochel | A |
+| [tpge9xJ0m5U](https://www.youtube.com/watch?v=tpge9xJ0m5U) | How to Build Real Mobile Apps with Claude - FULL COURSE | 191 | 170667 | Codesistency | A (yukarıda) |
+| [mMTyFKqrf9U](https://www.youtube.com/watch?v=mMTyFKqrf9U) | Build a React Native app with Claude AI | 38 | 17067 | DesignCode | B (yukarıda) |
+| [95_NJ-a-CMQ](https://www.youtube.com/watch?v=95_NJ-a-CMQ) | How to Build ACTUALLY Beautiful UI With This Claude Code Skill | 12 | 187297 | Build Great Products | A |
+| [xno-O4vAx7Q](https://www.youtube.com/watch?v=xno-O4vAx7Q) | I Had Claude Opus 5.5 Build a Mobile App, Website and Motion Graphics Video (Shocking Results!) | 18 | 78825 | Jason Lee | B |
+| [BMMcmmnjrM8](https://www.youtube.com/watch?v=BMMcmmnjrM8) | How to Build Mobile Apps with Claude Code: Full Course (2026) | 243 | 298703 | Nick Saraev | A (yukarıda) |
+| [REEt7nX6x-0](https://www.youtube.com/watch?v=REEt7nX6x-0) | Can Claude Fable 5 Build a Real iPhone App? | 22 | 25311 | Code with Beto | B |
+| [nbk0PMS0tos](https://www.youtube.com/watch?v=nbk0PMS0tos) | Generate Better AI Designs in Claude Code | 11 | 52419 | UI Collective | A |
+| [p80OV6kjIO8](https://www.youtube.com/watch?v=p80OV6kjIO8) | The Ultimate Claude Code Tutorial for Mobile Apps - FULL COURSE | 213 | 158185 | Codesistency | A |
+| [x4SeN3422r4](https://www.youtube.com/watch?v=x4SeN3422r4) | Claude Design 2.0 = Beautiful Animated Websites | 8 | 83085 | Kyle Skelly | C |
+| [Ot582-E61ac](https://www.youtube.com/watch?v=Ot582-E61ac) | Insane Claude Design Skills You Need To Build Beautiful Websites | 14 | 168558 | AI LABS | C |
+| [lxmrK4RCWQQ](https://www.youtube.com/watch?v=lxmrK4RCWQQ) | How To Create Stunning Motion Graphics With Claude Design (Dead Simple Animations) | 15 | 130836 | Paul J Lipsky | C |
+| [VeWf0l4ci6Y](https://www.youtube.com/watch?v=VeWf0l4ci6Y) | Claude Design is Insanely Easy - Become a Pro in 14 Minutes! | 14 | 266531 | Jeff Su | A (yukarıda) |
+| [X7YMMyd2Qnk](https://www.youtube.com/watch?v=X7YMMyd2Qnk) | Claude Design Basics / Master 95% in 10 Minutes | 9 | 284136 | Tristen O'Brien | B |
+| [WTRNddbopGQ](https://www.youtube.com/watch?v=WTRNddbopGQ) | Build Your First iPhone App with Claude & Xcode 27 (No Experience Needed) | 14 | 43540 | Code with Beto | C |
+
+## react native reanimated beautiful ui tutorial 2026
+
+Not: 1-3 dakikalık ve <100 izlenmeli sonuçlar atlandı.
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [oAIqn44Y63c](https://www.youtube.com/watch?v=oAIqn44Y63c) | This New React Native Animation Library Is Insane | 9 | 24883 | Code with Beto | A |
+| [LZFEr9QDIVg](https://www.youtube.com/watch?v=LZFEr9QDIVg) | Choosing the Right React Native Stack in 2026 | 18 | 46782 | Simon Grimm | A |
+| [UXlEV7VMW64](https://www.youtube.com/watch?v=UXlEV7VMW64) | Stop Using Reanimated… Use This Instead 🤯 / React Native Ease | 19 | 330 | CodSod™ | C |
+| [-SjH5yPe_Gs](https://www.youtube.com/watch?v=-SjH5yPe_Gs) | React Native is in big trouble. | 10 | 38148 | HuXn WebDev | C |
+| [4nVoLX2taFg](https://www.youtube.com/watch?v=4nVoLX2taFg) | React Native Full Course 2026 / Build, Publish and Monetize a Full Stack Mobile App to App Store | 223 | 453028 | JavaScript Mastery | A (yukarıda) |
+| [IdMe66TKyp0](https://www.youtube.com/watch?v=IdMe66TKyp0) | Building a Premium Travel Booking UI in React Native (Flight, Bus & Train) | 19 | 67 | Anwer Solangi | React Native Developer | C |
+| [Cpi--ZrpMns](https://www.youtube.com/watch?v=Cpi--ZrpMns) | Let's build iOS 16 in React Native (part 2) | 175 | 18658 | notJust․dev | B |
+| [6QhtLLxgLoo](https://www.youtube.com/watch?v=6QhtLLxgLoo) | How to Create an Reanimated Flip Card Animation in React Native | 2 | 1705 | Technical Rajni | C |
+| [GrLCS5ww030](https://www.youtube.com/watch?v=GrLCS5ww030) | Custom Animated Bottom TabBar in React Native with Expo Router / React Native for Beginners | 27 | 74088 | Pradip Debnath | A |
+| [GChgKhfuzYA](https://www.youtube.com/watch?v=GChgKhfuzYA) | Building High-Performance UI with React Native Skia / React Native Live / Ep 11 | 75 | 656 | React Native Live | C |
+| [g5d3ok5TbiI](https://www.youtube.com/watch?v=g5d3ok5TbiI) | Master React Native Bottom Sheets: Basic Modal vs Advanced Bottom Sheet (Gorhom v5 Tutorial) | 13 | 648 | CoderskiDuniya | B |
+
+## expo app factory mass produce apps ai
+
+Not: bu sorguda 15 sonucun 12'si konu dışı çıktı (YouTube Shorts, AI influencer, haber); yalnızca 3'ü alındı.
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [KKWS0bSiCT4](https://www.youtube.com/watch?v=KKWS0bSiCT4) | How I Build Apps SOLO That ACTUALLY Make Money in 2026 | 8 | 448734 | Erik Cupsa | B |
+| [CwHD6Fg-Mjs](https://www.youtube.com/watch?v=CwHD6Fg-Mjs) | I vibe coded a $20K/month mobile app in 14 days | 13 | 689612 | Starter Story | B |
+| [EsRyyJmO-u8](https://www.youtube.com/watch?v=EsRyyJmO-u8) | How ChatGPT Built My App in Minutes 🤯 | 8 | 4421679 | Website Learners | C |
