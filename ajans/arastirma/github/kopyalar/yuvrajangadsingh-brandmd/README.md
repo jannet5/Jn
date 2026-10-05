@@ -1,0 +1,358 @@
+# brandmd
+
+[![npm version](https://img.shields.io/npm/v/brandmd)](https://www.npmjs.com/package/brandmd) [![DESIGN.md lint: clean](https://img.shields.io/badge/%40google%2Fdesign.md_lint-0_errors_%2F_0_warnings-brightgreen)](https://github.com/google-labs-code/design.md) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Stop Claude Code, Cursor, and Gemini CLI from guessing your UI. brandmd extracts any website's design system into a **spec-valid `DESIGN.md`** that passes the official [`@google/design.md`](https://github.com/google-labs-code/design.md) linter.
+
+AI coding agents generate generic screens when they don't know your colors, fonts, spacing, components, and layout rules. Run one command, drop `DESIGN.md` in your project root, and your agent has brand context before it writes code. Output is the official DESIGN.md format: YAML frontmatter with machine-readable tokens plus canonical prose sections. Default extraction runs locally with no API key.
+
+```bash
+npx brandmd https://stripe.com -o DESIGN.md
+```
+
+Every generated `DESIGN.md` validates clean:
+
+```bash
+npx @google/design.md lint DESIGN.md   # 0 errors, 0 warnings
+```
+
+Pass multiple URLs to merge brand tokens across pages: `npx brandmd https://site.com https://site.com/pricing https://site.com/docs -o DESIGN.md`
+
+Outputs to whatever your stack reads:
+
+- **`DESIGN.md`** (default): for Claude Code, Cursor, Gemini CLI, Codex, Stitch
+- **`--json`**: raw extracted tokens for scripts, MCP servers, and agent toolchains
+- **`--css`**: CSS custom properties, drop into any project
+- **`--tailwind`**: Tailwind v4 `@theme` block
+- **`--html`**: visual, shareable brand guide
+
+Combine with:
+
+- **`--agent`**: also writes `.cursor/rules/brand.mdc` and `SKILL.md` to both `.agents/skills/brand-style/` (the universal Agent Skills path used by [skills.sh](https://skills.sh) across 50+ agents) and `.claude/skills/brand-style/` (backward-compat for direct Claude Code users). No manual wiring. Picked up automatically by Claude Code, Cursor, Codex, Gemini CLI, Kiro CLI, and the rest of the skills.sh ecosystem. Schema-compatible with [Anthropic Claude Code Skills](https://docs.anthropic.com/en/docs/claude-code/skills), [google/skills](https://github.com/google/skills), and [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills).
+- **`--dark`**: also extract dark mode tokens
+- **`--vision`**: adds illustration style, photography mood, copywriting voice, and microcopy patterns from a screenshot. Requires `GEMINI_API_KEY` (free at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)). Uses `gemini-3.8-flash`; set `BRANDMD_VISION_MODEL` to pick another model. If the screenshot or the vision call fails the CSS-only `DESIGN.md` is still written and the run exits 1.
+
+Works as brand context for Claude Code, Cursor rules, Gemini CLI, Codex, Google Stitch, MCP servers, and any coding agent that reads markdown.
+
+Real examples: [Stripe](examples/stripe.md) · [Linear](examples/linear.md) · [GitHub](examples/github.md) · [Vercel](examples/vercel.md) · [Notion](examples/notion.md) · [Cursor](examples/cursor.md) · [Anthropic](examples/anthropic.md) · [Figma](examples/figma.md) · [Supabase](examples/supabase.md) · [Raycast](examples/raycast.md) · [+20 more in the gallery](examples/README.md)
+
+<p align="center">
+  <img src="demo.gif" alt="brandmd extracting Stripe into DESIGN.md for Claude Code, Cursor, and Google Stitch" width="700">
+</p>
+
+```yaml
+---
+version: alpha
+name: Stripe
+colors:
+  primary: "#533afd"
+  background: "#ffffff"
+  on-background: "#0a2540"
+typography:
+  headline-lg:
+    fontFamily: sohne-var
+    fontSize: 48px
+    fontWeight: 600
+components:
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+---
+
+## Colors
+
+- **Indigo** (`#533afd`): Accent background (accent)
+- **White** (`#ffffff`): Page background (dominant)
+
+## Typography
+
+**Primary font:** sohne-var
+```
+
+The YAML frontmatter is the machine-readable token layer; the prose sections carry the evidence-based rationale (tiered palette, confidence tags, observed component styles). brandmd gives Claude Code, Cursor, Gemini CLI, and Codex real design context: it extracts a live website's colors, typography, spacing, shadows, component patterns, and layout rules, so AI coding agents build on-brand UI instead of generic screens.
+
+## Installable example skills repo
+
+If you want ready-made brand skills without running brandmd yourself, install [`yuvrajangadsingh/brand-skills`](https://github.com/yuvrajangadsingh/brand-skills) directly:
+
+```bash
+npx skills add yuvrajangadsingh/brand-skills
+```
+
+That installs 5 brandmd-generated skills (Tailwind CSS, shadcn/ui, Vercel, Mintlify, Anthropic) into your project's agent skills folder. Each skill is self-contained with a bundled `references/DESIGN.md`. Community examples generated from public marketing sites, not affiliated with the named brands.
+
+<details>
+<summary>Release notes</summary>
+
+- **v0.14:** Spec + truth release. Emits the official [DESIGN.md format](https://github.com/google-labs-code/design.md) (YAML frontmatter + canonical sections) that passes `@google/design.md lint` clean. Fail-closed refusals with a distinct exit code (`--allow-blocked` to override), atomic writes, gradient-stop parsing, honest CTA/button selection, shadow values in DESIGN.md, and a fixed generate/parse/diff round trip.
+- **v0.13:** Detects block / access-denied pages (Akamai, PerimeterX, WAF 403s) and warns instead of emitting a garbage design system. Notes when a site uses motion (canvas, WebGL, Lottie, rAF).
+- **v0.12:** Trust-repair: evidence-based visual character, tiered palette, HSL color naming, no more scientific-notation radii, clustered type scale.
+- **v0.11:** `diff` subcommand and the hosted example gallery.
+- **v0.10:** Universal `.agents/` skills path.
+- **v0.9:** `--agent` flag writes Cursor rule + Claude Code skill alongside DESIGN.md. CI switched to npm Trusted Publishing.
+- **v0.8:** More accurate primary font detection across display, heading, body, and global text roles.
+- **v0.7:** Cloudflare-protected sites handled by waiting up to 20s for the JS challenge.
+- **v0.6:** Optional `--vision` adds illustration style, photography mood, copywriting voice, and microcopy notes. Requires a free [Gemini API key](https://aistudio.google.com/apikey).
+
+See [CHANGELOG.md](CHANGELOG.md) for the full history.
+
+</details>
+
+## Examples
+
+**[See all 31 DESIGN.md examples in the gallery →](examples/README.md)**
+
+Flagship deep links (DESIGN.md):
+
+- [Stitch](examples/stitch.md)
+- [Stripe](examples/stripe.md)
+- [Linear](examples/linear.md)
+- [GitHub](examples/github.md)
+- [Vercel](examples/vercel.md)
+- [Notion](examples/notion.md)
+- [Cursor](examples/cursor.md)
+- [Anthropic](examples/anthropic.md)
+- [Figma](examples/figma.md)
+- [Supabase](examples/supabase.md)
+- [Raycast](examples/raycast.md)
+- [OpenAI](examples/openai.md)
+- [Tailwind CSS](examples/tailwindcss.md)
+
+Other output formats:
+
+- [Vercel](examples/vercel.css) (CSS custom properties)
+- [Linear](examples/linear-tailwind.css) (Tailwind v4 `@theme`)
+
+## Why
+
+[DESIGN.md](https://github.com/google-labs-code/design.md) is an open spec (Apache 2.0) for encoding a design system in a format LLMs can read: YAML frontmatter with typed tokens plus canonical prose sections. There's an official `@google/design.md` CLI that lints, diffs, and exports it. Problem is, nobody wants to write one from scratch.
+
+brandmd does it from the terminal. Point it at any URL, get a spec-valid DESIGN.md back that passes `@google/design.md lint` clean. Drop it in your project root and your AI tools start generating on-brand UI.
+
+## Install
+
+```bash
+# Run directly (no install)
+npx brandmd https://linear.app
+
+# Install globally
+npm i -g brandmd
+
+# As an agent skill (Claude Code, Cursor, Gemini CLI, Copilot, Codex, 30+ platforms)
+npx skills add yuvrajangadsingh/brandmd
+```
+
+## Usage
+
+```bash
+# DESIGN.md (default)
+brandmd https://stripe.com
+brandmd https://stripe.com -o DESIGN.md
+
+# Multiple pages (merges tokens)
+brandmd https://stripe.com https://stripe.com/pricing https://stripe.com/docs
+
+# Dark mode extraction
+brandmd https://github.com --dark
+
+# Vision: capture illustration style, photography mood, copywriting voice
+# (CSS can't see these; Gemini reads the screenshot.)
+export GEMINI_API_KEY=your-key-here  # free: https://aistudio.google.com/apikey
+brandmd https://linear.app --vision
+# Cloudflare-protected sites: brandmd waits up to 20s for the JS challenge
+# to auto-resolve. If your site needs longer, pass --cf-wait-ms 30000.
+# If the challenge persists, you'll get a clear error rather than garbage tokens.
+
+# CSS custom properties
+brandmd https://vercel.com --css
+
+# Tailwind v4 @theme
+brandmd https://linear.app --tailwind
+
+# HTML brand guide (visual, shareable)
+brandmd https://github.com --html
+
+# Raw tokens as JSON
+brandmd https://stripe.com --json
+
+# Compare two extractions
+brandmd diff examples/stripe.md examples/vercel.md --out BRAND_DIFF.md
+```
+
+## Refusals and exit codes
+
+brandmd fails closed. If a page is a bot-block / access-denied page, a login / sign-in wall landing, or too thin to describe (no rendered text, empty palette), it refuses in **every** format and writes no artifact, so a bad capture can't silently overwrite a good `DESIGN.md`. A plain cross-origin redirect (say marketing -> app on another domain) doesn't refuse: it warns on stderr and is flagged in the output's provenance block, per page.
+
+| Exit code | Meaning |
+|---|---|
+| `0` | success |
+| `1` | operational or validation error (bad URL, bad flag, browser launch failure) |
+| `2` | refused: block page, insufficient evidence, or a login-wall landing |
+| `3` | `brandmd check` only: the page drifted from the spec |
+
+Pass `--allow-blocked` to force output anyway; the artifact carries a block marker in every format (Markdown callout, CSS/Tailwind comment header, HTML banner, JSON `blockLikely`). Writes are transactional (temp file + rename with rollback), including the `--agent` set and `brandmd diff`, so a partial failure never truncates an existing file. Atomicity is per process: concurrent brandmd runs against the same output directory are not coordinated, though collision-safe temp/backup names mean one run can never eat another's files.
+
+## Gallery
+
+[See 5 real DESIGN.md snapshots in the browser](https://yuvrajangadsingh.github.io/brandmd/) (Stripe, Vercel, Linear, Anthropic, Mintlify), or scan the [`examples/`](./examples) folder for 30+ more. Each snapshot is generated from a single public page visit and is observed, not canonical.
+
+## Check (drift detection in CI)
+
+`brandmd diff` compares two brands. `brandmd check` asks a different question: **has what we shipped drifted from the spec we agreed on?**
+
+```bash
+brandmd check https://staging.acme.com --against DESIGN.md
+```
+
+```
+Design drift: 2 major, 1 minor
+https://staging.acme.com vs DESIGN.md
+
+  major  color      role "secondary" repainted: #29227D -> #7F7DFC
+  major  color      role "on-secondary" repainted: #FFFFFF -> #1A1A1A
+  minor  theme      mood reads as "...vivid blue accents", spec says "...blue accents"
+```
+
+Colours are compared **by role**, not as a set of hexes. One hex legitimately fills several roles (`#FFFFFF` is often background *and* on-primary), so a set comparison silently misses the drift that matters: the hex behind `primary` changing while that hex still appears elsewhere.
+
+**What fails the build.** Losing or repainting a role, and a changed primary or secondary font, are `major`. New roles, extra spacing steps and reworded theme descriptions are `minor` and pass by default, because they are usually a new component landing rather than a regression. Theme wording is brandmd's own interpretation, so it never fails a build on its own.
+
+| Flag | |
+|---|---|
+| `--against <file>` | the committed `DESIGN.md` (required) |
+| `--report <file>` | write the drift as JSON for CI annotations |
+| `--fail-on <level>` | `major` (default), `any`, or `none` |
+| `--allow-blocked` | compare anyway if the page looks blocked |
+| `--viewport <WxH>` | pin the viewport (default `1440x900`) |
+| `--locale <tag>` | pin the browser locale |
+| `--reduced-motion` | request `prefers-reduced-motion: reduce` |
+
+Pin the viewport in CI. It decides which breakpoint renders, so an unpinned run can legitimately extract a different design system on a different machine and report drift that isn't there.
+
+A blocked page, an evidence-thin page, or a login-wall landing **refuses with exit 2 rather than reporting drift**. Diffing a Cloudflare challenge against a real spec would flag every token as changed, and a check that cries wolf is one people turn off. An empty or truncated `DESIGN.md` **exits 1**, because a gate that silently stops gating is worse than no gate.
+
+### What check does not see
+
+Worth knowing before you rely on it:
+
+- **Component drift is reported but never fails a build.** Background, text colour and radius are compared on the machine-token components; height and padding are not, because the representative button is picked by frequency and a transparent nav button can win over the real CTA. Opt in with `--fail-on any` once that improves.
+- **`secondaryFont` is unreliable.** The live side is round-tripped through the same generator and parser as a written `DESIGN.md`, which keeps both sides honestly comparable but drops fields the markdown does not carry cleanly. A secondary-font change can pass unnoticed.
+- **Majors can flip on sites that change between visits.** Colour clustering keeps the first representative it sees, so rotating hero imagery or A/B tests can repaint a role without anything really changing. On static marketing pages runs are byte-identical; on dynamic ones, re-run before believing a surprising major. Order-independent clustering is queued.
+
+### In GitHub Actions
+
+```yaml
+- name: Check design drift
+  run: npx brandmd check "${{ steps.deploy.outputs.preview-url }}" \
+         --against DESIGN.md --report drift.json
+```
+
+Exit `3` fails the job on drift; `1` and `2` still mean the tool errored or refused, so a broken preview never reads as a design change. When drift is intentional, update `DESIGN.md` in the same PR and the check goes green.
+
+## Diff
+
+```bash
+brandmd diff examples/stripe.md examples/vercel.md --out BRAND_DIFF.md
+```
+
+Compares two `DESIGN.md` files and writes a markdown diff: shared and unique colors, typography table, spacing and radii table, per-component property diff, and a "what to copy / what to avoid" synthesis. Local files only in v0.11. See [`examples/diff-stripe-vs-vercel.md`](./examples/diff-stripe-vs-vercel.md) for the output format.
+
+## Output formats
+
+### DESIGN.md (default)
+
+The official [DESIGN.md format](https://github.com/google-labs-code/design.md): YAML frontmatter (machine-readable `colors`, `typography`, `rounded`, `spacing`, `components` tokens) plus canonical sections (Overview, Colors, Typography, Layout, Elevation & Depth, Shapes, Components, Do's and Don'ts). Validates clean under `@google/design.md lint`. Drop it in your project root and AI coding agents use it to generate on-brand UI.
+
+### CSS custom properties (`--css`)
+
+```css
+:root {
+  --color-accents-1: #FAFAFA;
+  --color-blue-600: #0075DE;
+  --font-primary: "Geist";
+  --space-1: 4px;
+  --radius-sm: 4px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+}
+```
+
+### Tailwind v4 (`--tailwind`)
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0075DE;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --spacing-1: 4px;
+  --radius-sm: 4px;
+}
+```
+
+### HTML brand guide (`--html`)
+
+A self-contained dark-themed HTML page with color swatches, font specimens, spacing visualization, and shadow examples. Open it in a browser or share it with stakeholders.
+
+### JSON (`--json`)
+
+Raw extracted tokens for programmatic use.
+
+## Multi-page extraction
+
+Pass multiple URLs to merge tokens from different pages into one DESIGN.md. Each page contributes equally regardless of length: token frequencies are normalized per page, and components carry a per-page weight, so a docs page with fifty buttons can't outvote a homepage with three. What that decides is *on how many pages a pattern appears*, not how many times it appears anywhere, which is the right question to ask of a brand pattern.
+
+```bash
+brandmd https://stripe.com https://stripe.com/pricing https://stripe.com/docs
+```
+
+Failed pages are skipped with a warning. Mixed domains show a warning.
+
+## Dark mode
+
+Extract dark theme tokens as a separate section:
+
+```bash
+brandmd https://github.com --dark
+```
+
+Adds a "Dark Theme Overrides" section to the DESIGN.md with the dark color palette. Uses `prefers-color-scheme: dark` via Playwright, so it captures what users actually see in dark mode. Only affects DESIGN.md output (ignored for `--css`, `--tailwind`, `--html`).
+
+## What it extracts
+
+- **CSS custom properties** from `:root` and `@media` rules (uses actual variable names when available)
+- **Colors** with semantic roles (background, text, accent, border)
+- **Typography** with role-aware Primary detection (display > heading > body), per-role font breakdown, and a full "all detected fonts" frequency list. Skips monospace, default fallbacks, and icon fonts when picking Primary.
+- **Spacing scale** and base grid unit
+- **Border radii** and shadow styles
+- **Component patterns** (buttons, cards, inputs)
+
+## How it works
+
+1. Renders each page in a headless browser (Playwright)
+2. Scrolls through to trigger lazy-loaded content
+3. Dismisses cookie banners and overlays
+4. Extracts CSS custom properties from `:root` (recurses into `@media` rules)
+5. Extracts computed styles from every visible element
+6. Clusters similar colors, identifies the spacing scale
+7. Merges tokens across pages (normalized per page)
+8. Outputs in your chosen format
+
+No LLM calls, no API keys, runs entirely on your machine.
+
+## Agent skill
+
+brandmd ships as an [Agent Skill](https://agentskills.io/) that works across 30+ platforms including Claude Code, Cursor, VS Code/Copilot, Codex, and Gemini CLI.
+
+```bash
+npx skills add yuvrajangadsingh/brandmd
+```
+
+Then tell your agent: "extract the design system from https://linear.app"
+
+If brandmd saved you time, consider [starring the repo](https://github.com/yuvrajangadsingh/brandmd).
+
+Built by [Yuvraj Angad Singh](https://yuvrajangadsingh.com). Also: [vibecheck](https://github.com/yuvrajangadsingh/vibecheck) (catch AI-generated code smells) and [vemb](https://github.com/yuvrajangadsingh/vemb) (embeddings from the command line). [Follow on GitHub](https://github.com/yuvrajangadsingh) for new dev-tool experiments.
+
+## License
+
+[MIT](LICENSE)

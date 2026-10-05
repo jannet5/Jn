@@ -1,0 +1,166 @@
+# Cult UI
+
+> Open-source Shadcn UI components, animated blocks, and full templates you can copy-paste into any TypeScript/Next.js project. Every component is a shadcn/ui registry item: install it with the shadcn CLI and the source is copied into your project.
+
+- Docs: https://www.cult-ui.com/docs
+- Source: https://github.com/nolly-studio/cult-ui
+- Every docs page is available as markdown by appending `.md` to its URL.
+- Full docs in one file: https://www.cult-ui.com/llms-full.txt
+
+## Install
+
+- Add a component: `npx shadcn@latest add @cult-ui/{name}`. The `@cult-ui` namespace is built into the shadcn CLI, so no config is needed.
+- Requires a project set up with `npx shadcn@latest init` (components.json, the `cn` helper, and theme tokens).
+- For the shadcn MCP server or older CLIs, list the registry in `components.json`: `"registries": { "@cult-ui": "https://www.cult-ui.com/r/{name}.json" }`
+- Without the namespace: `npx shadcn@latest add https://www.cult-ui.com/r/{name}.json`
+- Registry index: https://www.cult-ui.com/r/registry.json
+- Components use Tailwind CSS v4, shadcn theme tokens, and usually `motion` for animation. Peer dependencies are listed on each component page.
+
+## Docs
+
+- [Introduction](https://www.cult-ui.com/docs.md): Motion-rich, niche components for shadcn/ui projects. Accessible, customizable, and open source.
+- [Changelog](https://www.cult-ui.com/docs/changelog.md): Release notes for Cult UI, covering new shadcn/ui components, API changes, fixes, and registry updates, newest first.
+- [Installation](https://www.cult-ui.com/docs/installation.md): Install Cult UI components with the shadcn CLI in Next.js, Vite, or any React project using Tailwind CSS and shadcn/ui.
+- [Manual Installation](https://www.cult-ui.com/docs/installation/manual.md): Set up Cult UI without the shadcn CLI by installing the dependencies, cn utility, and Tailwind CSS config yourself.
+- [Next.js](https://www.cult-ui.com/docs/installation/next.md): Set up a Next.js App Router project with shadcn/ui and Tailwind CSS, then add Cult UI components with the shadcn CLI.
+- [Vite](https://www.cult-ui.com/docs/installation/vite.md): Set up a Vite React project with shadcn/ui, Tailwind CSS, and path aliases, then add Cult UI components with the shadcn CLI.
+- [LLMs & Agents](https://www.cult-ui.com/docs/llms.md): Give AI coding agents up-to-date Cult UI docs with llms.txt, markdown pages, the shadcn MCP server, and copy-paste agent rules.
+- [MCP Server](https://www.cult-ui.com/docs/mcp-server.md): Connect the shadcn MCP server to Cursor, Claude Code, or VS Code so AI agents can search and install Cult UI components.
+- [Theming](https://www.cult-ui.com/docs/theming.md): Theme Cult UI components with shadcn/ui CSS variables and Tailwind CSS v4 tokens, including dark mode and custom brand colors.
+
+## Components
+
+- [Agent Suggest Card Stack](https://www.cult-ui.com/docs/components/agent-suggest-card-stack.md): Stacked AI agent suggestion cards for React and shadcn/ui, with progress bars, success and error states, and a commit button.
+- [AI Blob Warp](https://www.cult-ui.com/docs/components/ai-blob-warp.md): Animated AI assistant avatar for React and shadcn/ui, a circle filled with a Paper Design Warp shader that pauses for reduced motion.
+- [AI Instructions](https://www.cult-ui.com/docs/components/ai-instructions.md): Composable React components for shadcn/ui to search, toggle, and create custom AI instructions from a popover command list.
+- [Analytics Chart](https://www.cult-ui.com/docs/components/analytics-chart.md): Vercel-style SVG line chart for React and shadcn/ui with a gradient stroke and floating tooltip cards for analytics dashboards.
+- [Apple iPhone 17 Pro Max](https://www.cult-ui.com/docs/components/apple-iphone-17-pro.md): iPhone 17 Pro device mockup for React and shadcn/ui with Dynamic Island, status bar, and four frame colors for app screenshots.
+- [Apple Keyboard](https://www.cult-ui.com/docs/components/apple-keyboard.md): Apple Magic Keyboard illustration for React and shadcn/ui with labeled, pressable keys and a media row for shortcut guides.
+- [Apple Pro Display XDR](https://www.cult-ui.com/docs/components/apple-pro-display-xdr.md): Apple Pro Display XDR mockup for React and shadcn/ui with an aluminum frame, screen modes, and an animated macOS dock.
+- [Apple Watch Ultra](https://www.cult-ui.com/docs/components/apple-watch-ultra.md): Apple Watch Ultra mockup for React and shadcn/ui with tappable complications, a rotating crown compass, and Motion animation.
+- [Background Animate Button](https://www.cult-ui.com/docs/components/bg-animate-button.md): Animated gradient button for React and shadcn/ui with a rotating conic background, preset gradients, CVA variants, and asChild.
+- [Fractal Dot Grid](https://www.cult-ui.com/docs/components/bg-animated-fractal-grid.md): Interactive canvas dot grid background for React and shadcn/ui with a hover wave, optional noise, and a mouse-following glow.
+- [Background Image Texture](https://www.cult-ui.com/docs/components/bg-image-texture.md): Texture background wrapper for React and shadcn/ui that layers fabric, grid-noise, or paper textures behind content at any opacity.
+- [Background Media](https://www.cult-ui.com/docs/components/bg-media.md): Full screen image or video background for React and shadcn/ui with a light or dark overlay and a play and pause control.
+- [Border Beam Button](https://www.cult-ui.com/docs/components/border-beam-button.md): shadcn/ui Button with an animated border beam, in text and icon variants, for primary calls to action in React apps.
+- [Border Beam Card](https://www.cult-ui.com/docs/components/border-beam-card.md): React card for shadcn/ui with an animated border-beam glow on the compound Card API, for featured plans and active AI tasks.
+- [Border Beam Input](https://www.cult-ui.com/docs/components/border-beam-input.md): React input for shadcn/ui built on Base UI with an animated border-beam glow along the bottom edge or the full border.
+- [Canvas Fractal Grid](https://www.cult-ui.com/docs/components/canvas-fractal-grid.md): Interactive canvas dot grid hero background for React and shadcn/ui with animated gradients, noise, glow, and performance presets.
+- [Choice Poll](https://www.cult-ui.com/docs/components/choice-poll.md): Composable React poll for shadcn/ui with single or multiple choice, result bars with percentages, and keyboard navigation.
+- [Circuit Board](https://www.cult-ui.com/docs/components/circuit-board.md): Animated SVG circuit board illustration for React and shadcn/ui with glowing traces around a central chip, for AI and dev tools.
+- [Code Block](https://www.cult-ui.com/docs/components/code-block.md): Code block for React and shadcn/ui with tabs for npm, pnpm, and yarn snippets, a copy button, and animated tab switching.
+- [Collab Avatar](https://www.cult-ui.com/docs/components/collab-avatar.md): Presence avatar for React and shadcn/ui showing initials on a color-tinted gradient, for collaborative editors and whiteboards.
+- [Collab Toolbar](https://www.cult-ui.com/docs/components/collab-toolbar.md): Collaborative editor toolbar for React and shadcn/ui that groups icon buttons and collaborator avatars into divided sections.
+- [Color Picker](https://www.cult-ui.com/docs/components/color-picker.md): Color picker for React and shadcn/ui with hue, saturation, and lightness sliders, hex or HSL input, and preset swatches.
+- [Copy Button](https://www.cult-ui.com/docs/components/copy-button.md): Copy to clipboard button for React and shadcn/ui with a legacy fallback and an animated check icon, for code and API keys.
+- [Cosmic Button](https://www.cult-ui.com/docs/components/cosmic-button.md): Animated link or button for React and shadcn/ui with a glowing cosmic gradient border that grows on hover, for landing page CTAs.
+- [Cutout Card](https://www.cult-ui.com/docs/components/cutout-card.md): Composable image card for React and shadcn/ui with cutout corner accents, inset labels, pins, and actions revealed on hover.
+- [Direction Aware Tabs](https://www.cult-ui.com/docs/components/direction-aware-tabs.md): Animated tabs for React and shadcn/ui that slide content left or right based on direction and smoothly resize to fit.
+- [Distorted Glass](https://www.cult-ui.com/docs/components/distorted-glass.md): Frosted glass divider for React and shadcn/ui using an SVG fractal noise displacement filter, for section transitions and headers.
+- [Dither Image](https://www.cult-ui.com/docs/components/dither-image.md): next/image wrapper for React and shadcn/ui that applies a CSS-only Bayer dither effect, with full-frame and partial masked reveals.
+- [Dock](https://www.cult-ui.com/docs/components/dock.md): macOS-style dock for React and shadcn/ui where icons magnify under the cursor with Motion springs, for app launchers and nav bars.
+- [Dynamic Island](https://www.cult-ui.com/docs/components/dynamic-island.md): Composable iPhone Dynamic Island for React and shadcn/ui that morphs between sizes with Motion, for notifications and media controls.
+- [Edge Blur](https://www.cult-ui.com/docs/components/edge-blur.md): Progressive edge blur for React and shadcn/ui that stacks masked backdrop-filter layers to fade content under headers and footers.
+- [Expandable](https://www.cult-ui.com/docs/components/expandable.md): Compound expandable card for React and shadcn/ui that animates between condensed and expanded states to reveal extra details.
+- [Expandable Screen](https://www.cult-ui.com/docs/components/expandable-screen.md): React component for shadcn/ui that morphs a card or button into a full-screen view using Motion shared layout animations.
+- [Family Button](https://www.cult-ui.com/docs/components/family-button.md): Family app-inspired floating button for React and shadcn/ui that expands from a plus icon into a panel of custom content.
+- [Family Drawer](https://www.cult-ui.com/docs/components/family-drawer.md): Multi-view bottom sheet drawer for React and shadcn/ui built on Vaul and Motion that resizes smoothly as views change.
+- [Feature Carousel](https://www.cult-ui.com/docs/components/feature-carousel.md): Animated step-by-step feature carousel for React and shadcn/ui with light and dark screenshots, for landing pages and tours.
+- [Feature Poll](https://www.cult-ui.com/docs/components/feature-poll.md): Compound feature voting poll for React and shadcn/ui with single or multiple choice, result bars, and keyboard navigation.
+- [Feature Sticky Section](https://www.cult-ui.com/docs/components/feature-sticky-section.md): Sticky scroll feature section for React and shadcn/ui that pairs triggers with content panels and tracks the panel in view.
+- [Feature Voting](https://www.cult-ui.com/docs/components/feature-voting.md): Feature request voting list for React and shadcn/ui with upvotes, sorting by vote count, and controlled or uncontrolled state.
+- [File Icons](https://www.cult-ui.com/docs/components/file-icons.md): SVG file type and tool icons for React and shadcn/ui, including npm, pnpm, Yarn, React, and Tailwind, with an extension helper.
+- [Floating Panel](https://www.cult-ui.com/docs/components/floating-panel.md): Composable floating panel popover for React and shadcn/ui that morphs from its trigger with Motion, with form and textarea parts.
+- [Fluid AI Workloads](https://www.cult-ui.com/docs/components/fluid-ai-workloads.md): Composable SVG illustration for React and shadcn/ui that connects cards with branching lines to show AI workloads and compute.
+- [Fluted Glass](https://www.cult-ui.com/docs/components/fluted-glass.md): Fluted glass image effect for React and shadcn/ui using the Paper Design WebGL shader, with ribbed distortion and tuned defaults.
+- [Folded Card](https://www.cult-ui.com/docs/components/folded-card.md): Composable folded-corner card for React and shadcn/ui with a linked preview, dashed grid, badge, and footer, for template galleries.
+- [Gateway Endpoint Illustration](https://www.cult-ui.com/docs/components/gateway-endpoint-illustration.md): SVG illustration for React and shadcn/ui showing one API endpoint fanning out to four AI model providers, with color props.
+- [Gateway Route Illustration](https://www.cult-ui.com/docs/components/gateway-route-illustration.md): SVG illustration for React and shadcn/ui showing an AI gateway routing requests across model providers with arcs and a ring.
+- [Gateway SVG Illustration](https://www.cult-ui.com/docs/components/gateway-svg-illustration.md): SVG hub illustration for React and shadcn/ui that joins lines into a central gateway, for request flow and latency visuals.
+- [Globe (COBE)](https://www.cult-ui.com/docs/components/globe.md): Interactive 3D WebGL globe for React and shadcn/ui built on cobe, with drag to rotate, theme colors, markers, and arcs.
+- [Gradient Button Group](https://www.cult-ui.com/docs/components/gradient-button-group.md): Layered icon button group for React and shadcn/ui with an animated active ring and a built-in light and dark theme toggle.
+- [Gradient Heading](https://www.cult-ui.com/docs/components/gradient-heading.md): Gradient text heading for React and shadcn/ui with CVA variants for color, size, and weight, plus asChild, for hero headlines.
+- [Grid Beam](https://www.cult-ui.com/docs/components/grid-beam.md): Animated canvas light beams on a grid for React and shadcn/ui, with palette presets, SVG dividers, and a headless useGridBeam hook.
+- [Halo Badge](https://www.cult-ui.com/docs/components/halo-badge.md): Animated badge for React and shadcn/ui with a gradient rim, pulsing live dot, and tabular figures for counts that never shift.
+- [Halo Button](https://www.cult-ui.com/docs/components/halo-button.md): Primary button for React and shadcn/ui with an animated gradient rim, frosted fill, staggered label, and built-in loading state.
+- [Halo Card](https://www.cult-ui.com/docs/components/halo-card.md): Composable card for React and shadcn/ui with an animated gradient rim, frosted surface, and header, content, and footer slots.
+- [Halo Dropzone](https://www.cult-ui.com/docs/components/halo-dropzone.md): Drag-and-drop file upload dropzone for React and shadcn/ui with an animated dashed rim, keyboard support, and file-type glyphs.
+- [Halo Field](https://www.cult-ui.com/docs/components/halo-field.md): Form field layout for React and shadcn/ui with label, description, and error slots for Halo Input and Halo Textarea.
+- [Halo Input](https://www.cult-ui.com/docs/components/halo-input.md): Text input and textarea for React and shadcn/ui built on Base UI, with a frosted fill, gradient rim, and invalid state.
+- [Halo Notification](https://www.cult-ui.com/docs/components/halo-notification.md): Inline notification card for React and shadcn/ui with rim variants, staggered text animation, and a dismiss button.
+- [Halo Progress](https://www.cult-ui.com/docs/components/halo-progress.md): Progress bar for React and shadcn/ui on Base UI, with a spring-animated determinate fill and a sliding indeterminate strip.
+- [Halo Search](https://www.cult-ui.com/docs/components/halo-search.md): Search input for React and shadcn/ui with an animated gradient border, clear button, loading state, and a Warp shader avatar.
+- [Halo Segmented](https://www.cult-ui.com/docs/components/halo-segmented.md): Segmented control for React and shadcn/ui on Base UI Toggle Group, with a frosted track and a spring-animated sliding thumb.
+- [Halo Select](https://www.cult-ui.com/docs/components/halo-select.md): Composable select dropdown for React and shadcn/ui on Base UI, with a gradient rim, staggered label, and loading indicator.
+- [Halo Switch](https://www.cult-ui.com/docs/components/halo-switch.md): Toggle switch for React and shadcn/ui on Base UI with a spring-animated thumb, gradient rim, and an enlarged touch target.
+- [Halo Tabs](https://www.cult-ui.com/docs/components/halo-tabs.md): Tabs for React and shadcn/ui built on Base UI, with a gradient underline or pill indicator that slides to the active tab.
+- [Halo Toast](https://www.cult-ui.com/docs/components/halo-toast.md): Toast notifications for React and shadcn/ui built on Sonner, with Halo rim variants, actions, and a dismiss button.
+- [Halo Toggle Group](https://www.cult-ui.com/docs/components/halo-toggle-group.md): Single-select toggle group for React and shadcn/ui on Base UI with a spring-animated sliding thumb, for view and alignment switches.
+- [Hero Color Panels](https://www.cult-ui.com/docs/components/hero-color-panels.md): Split-layout hero section for React and shadcn/ui with a ColorPanels WebGL shader, call-to-action buttons, and tech stack badges.
+- [Hero Dithering](https://www.cult-ui.com/docs/components/hero-dithering.md): Split-layout hero section for React and shadcn/ui with a Dithering WebGL shader, call-to-action buttons, and tech stack badges.
+- [Hero Heatmap](https://www.cult-ui.com/docs/components/hero-heatmap.md): Split-layout hero section for React and shadcn/ui with a glowing Heatmap WebGL shader, call-to-action buttons, and badges.
+- [Hero Liquid Metal](https://www.cult-ui.com/docs/components/hero-liquid-metal.md): Split-layout hero section for React and shadcn/ui with a chrome-like LiquidMetal WebGL shader, CTA buttons, and badges.
+- [Hero Static Radial Gradient](https://www.cult-ui.com/docs/components/hero-static-radial-gradient.md): Split-layout hero section for React and shadcn/ui with a static radial gradient shader, CTA buttons, and tech stack badges.
+- [Hover Video Player](https://www.cult-ui.com/docs/components/hover-video-player.md): Hover to play video for React and shadcn/ui with lazy loading, thumbnails, overlays, picture-in-picture, and touch support.
+- [Illustration Card Grid](https://www.cult-ui.com/docs/components/illustration-card-grid.md): Feature card grid for React and shadcn/ui with titles, descriptions, and built-in AI gateway illustrations for landing pages.
+- [Illustration Comment Bubble](https://www.cult-ui.com/docs/components/illustration-comment-bubble.md): Comment bubble illustration for React and shadcn/ui with an avatar, inline code, and cursor, for code review and chat features.
+- [Illustration Cursor](https://www.cult-ui.com/docs/components/illustration-cursor.md): Animated multiplayer cursors for React and shadcn/ui with name tags and colors, to illustrate real-time collaboration.
+- [Illustration Fluid Rendering](https://www.cult-ui.com/docs/components/illustration-fluid-rendering.md): SVG illustration for React and shadcn/ui connecting a browser to commerce and CMS platforms, for headless rendering features.
+- [Illustration Globe Vercel](https://www.cult-ui.com/docs/components/illustration-globe-vercel.md): Animated globe illustration for React and shadcn/ui showing deployments with deploying, deployed, and error states.
+- [Illustration Graph](https://www.cult-ui.com/docs/components/illustration-graph.md): SVG line graph illustration for React and shadcn/ui with data points, axis labels, and a highlighted error region.
+- [Intro Disclosure](https://www.cult-ui.com/docs/components/intro-disclosure.md): Multi-step onboarding for React and shadcn/ui in a Dialog on desktop and Drawer on mobile, with progress and saved dismissal.
+- [Kanban Board](https://www.cult-ui.com/docs/components/kanban-board.md): Kanban board for React and shadcn/ui with drag-and-drop cards between columns, tags, assignee avatars, and layout animations.
+- [Lightboard](https://www.cult-ui.com/docs/components/lightboard.md): Canvas LED lightboard for React and shadcn/ui that scrolls text as a grid of lights, with seven-segment font and drawing.
+- [Loading Carousel](https://www.cult-ui.com/docs/components/loading-carousel.md): Autoplay tips carousel for React and shadcn/ui with images, a progress bar, and navigation, built on Embla, for loading states.
+- [Logo Carousel](https://www.cult-ui.com/docs/components/logo-carousel.md): Animated logo carousel for React and shadcn/ui that cycles brand SVGs through staggered columns, for customer and partner logos.
+- [Mac Screen](https://www.cult-ui.com/docs/components/mac-screen.md): Classic Macintosh computer mockup for React and shadcn/ui that places an image or GIF inside the CRT screen responsively.
+- [Marketing Feature Code](https://www.cult-ui.com/docs/components/marketing-feature-code.md): Marketing section for React and shadcn/ui pairing a feature list with a styled, copyable code snippet, for developer features.
+- [Marketing Hero Analytics](https://www.cult-ui.com/docs/components/marketing-hero-analytics.md): Analytics hero section for React and shadcn/ui with an interactive SVG chart, top sources list, and app logs panel.
+- [Merging Bubbles](https://www.cult-ui.com/docs/components/merging-bubbles.md): SVG merging bubbles for React and shadcn/ui showing two icons joined together, for integrations and partnership sections.
+- [Metal Button](https://www.cult-ui.com/docs/components/metal-button.md): shadcn/ui Button wrapped in an animated liquid metal ring for React, in text and icon variants, for standout calls to action.
+- [Minimal Card](https://www.cult-ui.com/docs/components/minimal-card.md): Composable minimal image card for React and shadcn/ui with image, title, and description parts, for blog and product grids.
+- [Browser Window](https://www.cult-ui.com/docs/components/mock-browser-window.md): Browser window mockup for React and shadcn/ui in Chrome, Safari, or generic styles, with address bar, sidebar, and themes.
+- [Morph Surface](https://www.cult-ui.com/docs/components/morph-surface.md): React component for shadcn/ui that morphs a button into a textarea panel with spring animations, for feedback and quick notes.
+- [Neumorph Button](https://www.cult-ui.com/docs/components/neumorph-button.md): Neumorphic button for React and shadcn/ui with soft shadows, four intents, three sizes, a loading spinner, and press animation.
+- [Neumorph Eyebrow](https://www.cult-ui.com/docs/components/neumorph-eyebrow.md): Neumorphic eyebrow label for React and shadcn/ui, an inset pill with color intents for tagging sections above headings.
+- [Onboarding](https://www.cult-ui.com/docs/components/onboarding.md): Composable multi-step onboarding for React and shadcn/ui with a step indicator, feature carousel, choice group, and tips list.
+- [Organic Button](https://www.cult-ui.com/docs/components/organic-button.md): Link button for React and shadcn/ui with curved SVG end caps, theme-driven colors, three sizes, and asChild support.
+- [Organic Card](https://www.cult-ui.com/docs/components/organic-card.md): Composable marketing card for React and shadcn/ui with image, eyebrow, SVG accent band, and footer CTA, as an optional Next.js Link.
+- [Organic Card Small](https://www.cult-ui.com/docs/components/organic-card-small.md): Compact link card for React and shadcn/ui with an organic SVG cutout, image, category, and date, for blog and news lists.
+- [Pixel Heading](https://www.cult-ui.com/docs/components/pixel-heading-character.md): Pixel font heading for React and shadcn/ui that cycles each character through Geist pixel fonts in four animation modes.
+- [Pixel Heading (Word)](https://www.cult-ui.com/docs/components/pixel-heading-word.md): Pixel font heading for React and shadcn/ui that swaps whole words between Geist pixel fonts on hover, with no animation library.
+- [Pixel Paragraph](https://www.cult-ui.com/docs/components/pixel-paragraph-words.md): Paragraph for React and shadcn/ui that renders chosen words in a Geist pixel font to highlight key terms in hero copy.
+- [Pixel Paragraph Inverse](https://www.cult-ui.com/docs/components/pixel-paragraph-words-inverse.md): Paragraph for React and shadcn/ui set in a Geist pixel font, with chosen words switching to a sans or mono typeface.
+- [Poll Widget](https://www.cult-ui.com/docs/components/poll-widget.md): Composable poll widget for React and shadcn/ui shown inline, in a popover, or in a dialog, with results and keyboard support.
+- [Popover](https://www.cult-ui.com/docs/components/popover.md): Composable animated popover for React and shadcn/ui that morphs a button into a panel, with form, textarea, and footer parts.
+- [Popover Form](https://www.cult-ui.com/docs/components/popover-form.md): Animated popover form for React and shadcn/ui that expands from a button with a success state, for feedback and waitlists.
+- [Prompt Composer](https://www.cult-ui.com/docs/components/prompt-composer.md): AI chat prompt input for React and shadcn/ui with a gradient rim, Warp shader avatar, loading line, and attach and send buttons.
+- [Prompt Library](https://www.cult-ui.com/docs/components/prompt-library.md): Prompt template library for React and shadcn/ui to browse, search, insert, and save AI prompts by category from a popover.
+- [Rolling Number](https://www.cult-ui.com/docs/components/rolling-number.md): Animated number counter for React and shadcn/ui that rolls to new values with a Motion spring and custom formatting.
+- [Security Checkpoint](https://www.cult-ui.com/docs/components/security-checkpoint.md): Security checkpoint illustration for React and shadcn/ui with a verification card and animated line layers, for bot checks.
+- [Shader Lens Blur](https://www.cult-ui.com/docs/components/shader-lens-blur.md): Interactive WebGL lens blur shader for React and shadcn/ui built on Three.js, with pointer-reactive distortion and gradients.
+- [Shadow Card](https://www.cult-ui.com/docs/components/shadow-card.md): Composable marketing card for React and shadcn/ui with an extruded edge, bevel layers, vertical text, and a pixel gradient mesh.
+- [Shift Card](https://www.cult-ui.com/docs/components/shift-card.md): Hover reveal card for React and shadcn/ui that shifts its header to show extra content, for product grids and team pages.
+- [Side Panel](https://www.cult-ui.com/docs/components/side-panel.md): Expanding side panel for React and shadcn/ui that animates open to reveal extra content or a video, with a custom toggle.
+- [Sortable List](https://www.cult-ui.com/docs/components/sortable-list.md): Drag to reorder list for React and shadcn/ui built on Motion Reorder, with checkboxes and item deletion, for task lists.
+- [Speech Bubble](https://www.cult-ui.com/docs/components/speech-bubble.md): Composable chat speech bubble for React and shadcn/ui with an SVG tail and optional cursor, for AI messages and product tours.
+- [Squiggle Arrow](https://www.cult-ui.com/docs/components/squiggle-arrow.md): Hand-drawn squiggly SVG arrow for React and shadcn/ui in wavy, bouncy, or smooth variants, for pointing at calls to action.
+- [Stripe Background Guides](https://www.cult-ui.com/docs/components/stripe-bg-guides.md): Stripe-style animated grid line background for React and shadcn/ui with glowing highlights, column count, and direction options.
+- [SVG Bands](https://www.cult-ui.com/docs/components/svg-bands.md): Wide SVG section dividers for React and shadcn/ui, including battlements, zigzags, hero bands, wavy footers, and notched frames.
+- [SVG Shapes](https://www.cult-ui.com/docs/components/svg-shapes.md): Static SVG shapes for React and shadcn/ui, including polygons, sacred geometry, and Platonic wireframes styled with currentColor.
+- [SVG Shapes Animated](https://www.cult-ui.com/docs/components/svg-shapes-animated.md): Scroll-animated SVG shapes and panels for React and shadcn/ui whose strokes draw in with Motion, with reduced motion support.
+- [Tabs Illustration Vercel](https://www.cult-ui.com/docs/components/tabs-illustration-vercel.md): Auto-advancing feature tabs for React and shadcn/ui with Vercel-style animated illustrations and a progress indicator.
+- [Terminal Animation](https://www.cult-ui.com/docs/components/terminal-animation.md): Composable animated terminal for React and shadcn/ui that plays typed commands and output, with tabbed scenarios for CLI docs.
+- [Text Animate](https://www.cult-ui.com/docs/components/text-animate.md): Text animation for React and shadcn/ui built with Motion, with presets like fadeIn, rollIn, and whipInUp for headlines.
+- [Text GIF](https://www.cult-ui.com/docs/components/text-gif.md): Display text for React and shadcn/ui clipped to an animated GIF background, with size, weight, and font variants.
+- [Texture Button](https://www.cult-ui.com/docs/components/texture-button.md): Tactile neumorphic button for React and shadcn/ui with layered borders and gradients, multiple variants and sizes, and asChild.
+- [Texture Card](https://www.cult-ui.com/docs/components/texture-card.md): Composable neumorphic card for React and shadcn/ui with layered borders and header, content, footer, and separator parts.
+- [Texture Overlay](https://www.cult-ui.com/docs/components/texture-overlay.md): CSS texture overlay for React and shadcn/ui with dots, grid, crosshatch, halftone, and paper grain patterns at any opacity.
+- [3D Carousel](https://www.cult-ui.com/docs/components/three-d-carousel.md): 3D image carousel for React and shadcn/ui that rotates cards around a cylinder with drag momentum and click to expand.
+- [Timer](https://www.cult-ui.com/docs/components/timer.md): Compound timer for React and shadcn/ui with variants, sizes, and time formats, plus a useTimer hook for elapsed time.
+- [Toolbar Expandable](https://www.cult-ui.com/docs/components/toolbar-expandable.md): Expandable toolbar for React and shadcn/ui that opens into a scrollable step-by-step panel, for onboarding and feature tours.
+- [Tweet Grid](https://www.cult-ui.com/docs/components/tweet-grid.md): Masonry grid of embedded tweets for React and shadcn/ui from a list of tweet IDs, for testimonial walls and social proof.
+- [Typewriter](https://www.cult-ui.com/docs/components/typewriter.md): Typewriter text effect for React and shadcn/ui that types a phrase, then loops rotating words with a blinking cursor.
+- [Vote Tally](https://www.cult-ui.com/docs/components/vote-tally.md): Composable upvote list for React and shadcn/ui with accessible vote buttons, sorting by count, and controlled or uncontrolled state.
+- [Wizard Expandable](https://www.cult-ui.com/docs/components/wizard-expandable.md): Expandable multi-step wizard for React and shadcn/ui with Motion transitions, keyboard navigation, and step validation.
+- [YouTube Video Player](https://www.cult-ui.com/docs/components/youtube-video-player.md): YouTube video player for React and shadcn/ui with a custom thumbnail and play button that expands into an animated modal.

@@ -1,0 +1,222 @@
+# LottieFiles
+
+> LottieFiles is an end-to-end motion design platform featuring the world's largest library of free and premium animations, with comprehensive tools for creating, editing, collaborating on, and implementing lightweight Lottie and dotLottie animations across web, iOS, and Android platforms.
+
+LottieFiles streamlines the workflow between motion designers and developers, eliminating manual animation recreation and replacing inefficient formats like GIF and MP4. The platform provides team workspaces for real-time collaboration with version control, commenting, and design handoff features.
+
+**Animation formats:**
+- **Lottie**: JSON-based vector animation format that is 10x smaller and faster than GIFs, with perfect scalability and no pixelation
+- **dotLottie** (preferred): Next-generation compressed format (.lottie) that bundles multiple animations with assets, themes, interactivity, and state machines into a single optimized file
+
+**Key differentiators:**
+- **State Machines**: Create interactive animations with states, transitions, and triggers without code—animations respond to clicks, hovers, data inputs, and custom events
+- **Theming**: Build animations that automatically adapt to light mode, dark mode, or custom brand themes using token-based colors—all embedded in a single file
+
+**Target audience**: UI/UX designers, motion designers, front-end developers, mobile developers (iOS/Android), product teams, and marketers across startups to enterprises.
+
+**Core value**: Lightweight, scalable animations with native rendering performance, no-code interactivity, adaptive theming, and enterprise-grade collaboration tools.
+
+## Getting Started
+
+- [LottieFiles Homepage](https://lottiefiles.com): Main platform hub
+- [What is Lottie?](https://lottiefiles.com/what-is-lottie): Introduction to Lottie animations, how they work, and why they're better than GIFs and other formats
+- [Developer Portal](https://developers.lottiefiles.com): Complete developer documentation, guides, and tools
+- [Lottie Format Documentation](https://lottiefiles.github.io/lottie-docs/): Official Lottie animation format specification (machine-readable and human-readable)
+- [dotLottie Web Getting Started](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-web): Complete guide to implementing dotLottie animations on web
+- [dotLottie iOS Getting Started](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-ios): Complete guide to implementing dotLottie animations on iOS
+- [dotLottie Android Getting Started](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-android): Complete guide to implementing dotLottie animations on Android
+- [dotLottie React Native Getting Started](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-react-native): Complete guide to implementing dotLottie animations in React Native
+
+## Animations & Content
+
+- [Animation Library](https://lottiefiles.com/animations): Search and browse all available animations
+- [Featured Free Animations](https://lottiefiles.com/featured-free-animations): Community-created animations under Lottie Simple License (free for commercial use)
+- [Premium Marketplace](https://lottiefiles.com/marketplace): Professionally curated animations with full commercial license
+- [Hire Animators](https://lottiefiles.com/marketplace/animators): Browse and hire professional Lottie animators (1100+ available) for custom animation projects, with portfolios, certifications, and expertise in After Effects, Figma, Webflow, and Framer
+- [Categories](https://lottiefiles.com/categories): Browse animations by industry and use case (Business, Festive, Health, Finance, Gaming, 404, etc.)
+- [Tags](https://lottiefiles.com/tags): Search by specific attributes (loading, success, ui, circle, arrow, loop, check, search, etc.)
+
+## Creation Tools
+
+- [Lottie Creator](https://lottiefiles.com/lottie-creator): Browser-based animation design tool with layers, shapes, keyframes, and AI-powered Motion Copilot—includes visual State Machine editor for creating interactive animations (clicks, hovers, data inputs) and Theming support for light/dark/custom modes, all without code
+- [Lottie Editor](https://lottiefiles.com/lottie-editor): Online tool to edit, recolor, and optimize existing Lottie animations without coding
+- [Lottie Previewer](https://lottiefiles.com/preview): Preview and test animations before implementation, including state machine interactions and theme switching
+- [AI Animation Tools](https://lottiefiles.com/ai): AI-powered animation generation and editing including Motion Copilot (generates smooth keyframes from text descriptions), AI Prompt to Vector (converts text to vector graphics), and Raster to Vector conversion
+- [LottieFiles for After Effects](https://lottiefiles.com/plugins/after-effects): Export animations from Adobe After Effects as Lottie JSON files
+
+## Tools & Converters
+
+- [SVG to Lottie Converter](https://lottiefiles.com/tools/svg-to-lottie): Convert SVG icons and illustrations to Lottie animations
+- [Lottie to dotLottie Converter](https://lottiefiles.com/tools/lottie-to-dotlottie): Convert JSON Lottie files to optimized .lottie format with compression and asset bundling
+- [Lottie Optimizer](https://lottiefiles.com/tools/lottie-json-to-optimized-lottie-json): Reduce Lottie file size by removing unnecessary data, simplifying shapes, and reducing keyframes
+- [Lottie to GIF Converter](https://lottiefiles.com/tools/lottie-to-gif): Export Lottie animations as GIF files for broader compatibility
+
+## Platform & Collaboration
+
+- [LottieFiles Platform](https://lottiefiles.com/platform): Team collaboration platform with private workspaces, version control, and design handoff tools
+- [Collaborate with Teams](https://lottiefiles.com/features/collaborate-with-team): Real-time collaboration features for motion design workflows
+- [Private Workspaces](https://lottiefiles.com/features): Secure team workspaces for managing animations with commenting, status tracking, and version history
+- [Enterprise Plan](https://lottiefiles.com/enterprise): Enterprise-grade security with SOC 2 compliance, SSO/SAML, SCIM provisioning, role-based access, and audit logs
+- [Workspace Features](https://help.lottiefiles.com/hc/en-us/articles/17692512869913): Advanced search, project organization, animation handoff, and team member management
+
+### Collaboration Features
+
+- **Commenting**: Leave feedback on animations and specific keyframes for team review
+- **Animation Status**: Track work in progress, needs review, or approved status
+- **Version History**: Track all changes, restore previous versions, and maintain design integrity (Team and Enterprise plans)
+- **Real-time Updates**: Automatic sync of animation changes across team members and plugins
+- **Team Roles**: Admin (manages members and content) and Member (manages workspace content) permissions
+
+### Enterprise Features
+
+- **Security & Compliance**: SOC 2 compliance, two-factor authentication, domain verification
+- **Access Control**: SSO/SAML integration, SCIM provisioning, role-based permissions, audit logs
+- **Support**: Dedicated account managers, Slack-based support, team training, workshops, and webinars
+- **Performance**: Animations up to 600% lighter than GIFs with native playback across all platforms
+
+## dotLottie Format
+
+- [dotLottie Official Site](https://dotlottie.io): Complete dotLottie format overview and documentation
+- [dotLottie Specification v2.0](https://dotlottie.io/spec/2.0/): Technical format specification for .lottie compressed archive format
+- [dotLottie Runtimes](https://lottiefiles.com/runtimes): Official players and implementation libraries for web, iOS, and Android
+- [Lottie to dotLottie Converter](https://lottiefiles.com/tools/lottie-to-dotlottie): Convert JSON Lottie files to optimized .lottie format
+
+### State Machines (No-Code Interactivity)
+
+- [State Machines Overview](https://lottiefiles.com/state-machines): Build interactive animations that respond to user inputs without writing code
+- [State Machines in Lottie Creator](https://lottiefiles.com/blog/working-with-lottie-animations/state-machines-are-finally-in-lottie-creator): Visual node-based system for creating interactive animations
+- [dotLottie-js Interactivity Guide](https://developers.lottiefiles.com/docs/tools/dotlottie-js/interactivity/): Developer documentation for implementing interactive animations
+- **States**: Break animations into segments and control different visual states (loading, success, error, idle, active, etc.)
+- **Transitions**: Define smooth movements between states with conditions and rules
+- **Triggers & Inputs**: Support for numeric, string, boolean, and event inputs—respond to clicks, hovers, data changes, and custom events
+- **Cross-Platform**: State machines work on web, iOS, Android, and React Native with dotLottie players handling all interactivity logic
+
+### Theming (Adaptive Color Systems)
+
+- [Lottie Theming](https://lottiefiles.com/theming): Create animations that adapt to light mode, dark mode, and custom brand themes
+- [Theming Documentation](https://help.lottiefiles.com/hc/en-us/articles/40214728966681): How to implement token-based theming in your animations
+- [Theming Tutorial](https://lottiefiles.com/blog/working-with-lottie-animations/switching-between-dark-light-and-custom-themes-introducing-lottie-theming): Step-by-step guide to creating theme-aware animations
+- **Token-Based Colors**: Define color variables that automatically adapt to different themes without duplicating animations
+- **Single File**: Embed multiple themes (light, dark, custom) in one dotLottie file—no separate assets needed
+- **Design System Integration**: Align animations with brand design tokens and automatically match UI theme changes
+- **Dynamic Switching**: Users or apps can switch themes at runtime without reloading animations
+
+## Developer Implementation
+
+### Official Runtimes & Players
+
+- [dotLottie Player Overview](https://developers.lottiefiles.com/docs/dotlottie-player/): Complete guide to all official LottieFiles runtime players
+- [dotLottie-web](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-web/): Isomorphic JavaScript player for Lottie and dotLottie animations on web
+- [dotLottie-react](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-react/): Official React component for rendering Lottie and dotLottie animations
+- [dotLottie-vue](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-vue/): Official Vue component for playing animations
+- [dotLottie-svelte](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-svelte/): Official Svelte component for playing animations
+- [dotLottie-wc](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-wc/): Web Component for platform-agnostic animation playback
+- [dotLottie-ios](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-ios/): Official iOS player for native Swift/Objective-C apps
+- [dotLottie-android](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-android/): Official Android player for native Kotlin/Java apps
+- [dotLottie-react-native](https://developers.lottiefiles.com/docs/dotlottie-player/dotlottie-react-native/): Official React Native component for cross-platform mobile apps
+
+### Implementation Guides
+
+- [Web Implementation Guide](https://lottiefiles.com/blog/working-with-lottie-animations/how-to-add-lottie-animation-in-web-page-html): How to embed and control animations on websites with HTML
+- [React Implementation](https://lottiefiles.com/blog/working-with-lottie-animations/how-to-use-lottie-in-react-app): Using dotLottie in React applications
+- [iOS Implementation Guide](https://lottiefiles.com/blog/working-with-lottie-animations/how-to-add-lottie-animation-ios-app-swift): Integrate animations in native iOS apps with Swift
+- [Android Implementation Guide](https://lottiefiles.com/blog/working-with-lottie-animations/getting-started-with-lottie-animations-in-android-app): Integrate animations in native Android apps
+
+### Technical Resources
+
+- [Lottie Documentation Repository](https://github.com/LottieFiles/lottie-docs): Source for official format documentation
+- [LottieFiles GitHub Organization](https://github.com/LottieFiles): All open-source projects and tools
+- [API Documentation](https://developers.lottiefiles.com/docs): Developer API reference and integration guides
+
+## AI Agents & MCP
+
+- [LottieFiles MCP Server](https://lottiefiles.com/mcp): Official remote Model Context Protocol server at `https://mcp.lottiefiles.com/mcp`. Lets AI assistants (Claude Code, Claude Desktop, Cursor, VS Code, Windsurf, Zed) search workspaces, manage animations, and run the LottieFiles GraphQL API in natural language. Authenticates with OAuth 2.1 and PKCE, scope `mcp:full`. Free on every plan; individual operations respect existing plan entitlements. Exposes four tools: `operations_list`, `schema_search`, `schema_details`, `graphql_execute`.
+- [MCP Documentation](https://docs.lottiefiles.com/en/platform/mcp): Full reference for the remote MCP server, per-client setup, tool signatures, and security notes
+- [Lottie Creator MCP](https://docs.lottiefiles.com/en/creator/13_ai-tools/lottie-creator-mcp): Separate local MCP server for authoring and editing animation content (layers, keyframes, shapes) inside Lottie Creator
+
+## Integrations & Plugins
+
+- [Integrations Directory](https://lottiefiles.com/integrations): Complete list of all available integrations and plugins
+- [Figma Plugin](https://lottiefiles.com/plugins/figma): Import, export, and manage Lottie animations directly in Figma design files
+- [Webflow Plugin](https://lottiefiles.com/plugins/webflow): Add Lottie animations to Webflow sites without code
+- [Canva Plugin](https://lottiefiles.com/plugins/canva): Use Lottie animations in Canva graphic designs
+- [Framer Plugin](https://lottiefiles.com/plugins/framer): Integrate Lottie animations into Framer web design projects
+
+## Licensing & Legal
+
+- [Lottie Simple License](https://lottiefiles.com/page/license): Free animation license allowing commercial use, modification, and distribution without attribution (cannot be used to create competing service)
+- [Pricing & Plans](https://lottiefiles.com/pricing): Free, Individual, Team, and Enterprise plan details with commercial licensing options
+- [Terms of Service](https://lottiefiles.com/page/terms-and-conditions): Platform usage terms and conditions
+- [Community Guidelines](https://lottiefiles.com/page/community-guidelines): Content standards prohibiting harmful, hateful, spam, plagiarism, and misleading content
+
+## Resources & Support
+
+- [Blog](https://lottiefiles.com/blog): Latest news, tutorials, tips, and platform updates
+- [Case Studies](https://lottiefiles.com/case-studies): Real-world implementation examples and success stories
+- [Education Hub](https://lottiefiles.com/education): Comprehensive tutorials and learning resources for Lottie and dotLottie
+- [Help Center](https://help.lottiefiles.com/hc/en-us): Complete support documentation covering getting started, platform features, troubleshooting, and FAQs
+- [Feature Support Checker](https://help.lottiefiles.com/hc/en-us/articles/15171713588761): Tool to check animation feature compatibility across different platforms
+- [Brand Assets](https://lottiefiles.com/brand-assets): Official LottieFiles logos, wordmarks, and brand guidelines
+
+## Community
+
+- [Lottie Community](https://www.lottie.community/): Main community hub for designers, developers, and creators with forums, discussions, and support
+- [LottieFiles Community Page](https://lottiefiles.com/community): Community information and resources
+- [GitHub Organization](https://github.com/lottiefiles): Open-source repositories including players, tools, and documentation
+- [Submit Support Request](https://help.lottiefiles.com/hc/en-us/requests/new): Contact support team for technical assistance
+- [Education Plan](https://help.lottiefiles.com/hc/en-us/articles/43330871491481): Free premium features for students and educators
+
+## FAQ
+
+**Is Lottie better than SVG?**
+Yes. SVGs are static images, while Lottie adds movement, interactivity, and visual engagement without compromising quality or performance.
+
+**Is Lottie better than GIF?**
+Absolutely. Lottie files are 10x smaller and faster to ship than GIFs. Lottie animations don't pixelate and save both file space and load time.
+
+**What's the difference between Lottie JSON and dotLottie?**
+Both are Lottie formats, but dotLottie (.lottie) bundles multiple animations and assets into one compressed file, loading faster and more efficiently than standard JSON format. dotLottie is the preferred next-generation format.
+
+**How can I implement a Lottie animation?**
+For web, use dotLottie-web, dotLottie-react, dotLottie-vue, dotLottie-svelte, or dotLottie-wc (web component) via npm or CDN. For iOS, use the dotLottie-ios player. For Android, use the dotLottie-android player. For React Native, use dotLottie-react-native.
+
+**Do Lottie animations work offline?**
+Yes. Once embedded or downloaded, Lottie animations work seamlessly without an internet connection.
+
+**What are dotLottie State Machines?**
+State Machines enable you to create interactive animations without writing code. Using a visual node-based editor in Lottie Creator, you can define multiple animation states (idle, loading, success, error, etc.), create smooth transitions between them, and set up triggers that respond to user clicks, hovers, data inputs, or custom events. State machines work across web, iOS, Android, and React Native—the dotLottie players automatically handle all interactivity logic. This allows designers to build complex interactive experiences like loading indicators, button states, form validations, and data visualizations entirely without developer involvement.
+
+**What is Lottie Theming?**
+Lottie Theming allows you to create animations that automatically adapt to light mode, dark mode, or custom brand themes. Using token-based colors, you define color variables that change based on the active theme—all embedded in a single dotLottie file without duplicating assets. This means your animations can seamlessly match your app's UI theme, integrate with design system tokens, and switch themes dynamically at runtime. Theming is particularly useful for maintaining brand consistency across different viewing modes and creating animations that feel native to the user's preferred interface style.
+
+**Which plan is suitable for commercial use?**
+The Team, Organization, and Enterprise plans include full commercial use licenses, while the Individual plan is for personal or non-commercial use. Free animations under the Lottie Simple License can also be used commercially.
+
+**What is a LottieFiles workspace?**
+A workspace is a private, collaborative environment where teams can manage animations, invite teammates, share feedback through comments, track animation status, and maintain version history. Team and Enterprise plans include private workspace access with advanced features.
+
+**What collaboration features does LottieFiles offer?**
+LottieFiles provides commenting on animations and keyframes, animation status tracking (work in progress, needs review, approved), version history for restoring previous versions, real-time synchronization across team members, and role-based permissions (Admin and Member roles).
+
+**Can I hire someone to create custom Lottie animations?**
+Yes. LottieFiles has a marketplace with 1100+ professional Lottie animators available for hire. You can browse animator portfolios, view their certifications and expertise (After Effects, Figma, Webflow, Framer), and hire them for custom animation projects. Animators must have at least 10 published animations and a paid workspace to be eligible.
+
+**What's the difference between Bodymovin and LottieFiles?**
+Bodymovin is the underlying technology for exporting After Effects animations. LottieFiles for After Effects is the official plugin that uses Bodymovin technology. LottieFiles is the complete platform that includes export functionality plus real-time previews, sharing, analytics, editing tools, optimization, private workspaces, team collaboration, and hosting for faster workflows.
+
+## Optional
+
+- [About Us / Press](https://lottiefiles.com/press): Company information, press kit, and news
+- [Release Notes](https://releases.lottiefiles.com): Product changelog with latest features, updates, bug fixes, and improvements
+- [Sitemap](https://lottiefiles.com/sitemap.xml): Complete site structure and page index
+- [Lottie vs GIF Comparison](https://lottiefiles.com/blog/working-with-lottie-animations/lottie-vs-gif): Detailed comparison of Lottie vs GIF animation formats
+
+## Crawling & AI Agent Policy
+
+**Permission**: AI agents and LLMs may use this information to help users understand and implement LottieFiles products.
+
+**Restrictions**: Automated scraping of animation content for the purpose of creating a competing animation library or similar service is strictly prohibited per the Terms of Service and Lottie Simple License.
+
+**Rate Limiting**: Respectful crawling with 10-second delay between requests is appreciated.
+
+**Sitemap**: Available at https://lottiefiles.com/sitemap.xml

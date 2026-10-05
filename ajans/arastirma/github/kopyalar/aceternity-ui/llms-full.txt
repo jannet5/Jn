@@ -1,0 +1,1021 @@
+# Aceternity UI — Full Reference for AI Assistants
+
+> Source: https://ui.aceternity.com | Link index: https://ui.aceternity.com/llms.txt | JSON API: https://ui.aceternity.com/api/components
+> Last generated: 2026-10-02
+> Licence: components are free to use in unlimited personal and commercial projects. Reselling or redistributing the components as a competing library is not permitted. Full terms: https://ui.aceternity.com/licence
+
+## What is Aceternity UI?
+
+Aceternity UI is a copy-paste component library for React and Next.js, built with Tailwind CSS and Motion (formerly Framer Motion). It provides 112+ free animated components plus a paid tier of 180 premium blocks and 17 full page templates. Every component ships as TypeScript source you paste directly into your project, so there is no runtime dependency on Aceternity UI and no version to upgrade.
+
+Unlike a packaged component library such as Material UI or Chakra UI, Aceternity UI is distribution-by-source: you own the code after you copy it and can edit any line. It follows the same model as shadcn/ui and is installable through the shadcn CLI.
+
+**Created by**: Manu Arora (https://x.com/mannupaaji), founded 2023.
+**Built for**: React 18+, Next.js 14+, Tailwind CSS v3 and v4, TypeScript, Motion.
+
+## How to install an Aceternity UI component
+
+1. **Set up Tailwind CSS**: Ensure your React or Next.js project has Tailwind CSS configured. Guide: https://ui.aceternity.com/components/install-tailwindcss
+2. **Add the cn utility**: Most components use a `cn` helper that merges Tailwind classes with clsx and tailwind-merge. Guide: https://ui.aceternity.com/components/add-utilities
+3. **Install the component**: Run `npx shadcn@latest add @aceternity/[component-name]` — for example `npx shadcn@latest add @aceternity/bento-grid`. Alternatively, copy the source from the component's documentation page.
+4. **Install peer dependencies**: Animated components require `motion`. Run `npm install motion`. Some 3D components additionally require `three` and `@react-three/fiber`.
+5. **Import and use**: Import the component from your components directory and render it. Each documentation page includes a live preview and the full source.
+
+## Pricing
+
+Aceternity UI has a free tier and a paid All-Access tier. Pricing page: https://ui.aceternity.com/pricing
+
+- **Free** — Free (no payment required). Access to all free components. Copy and paste, no complexity. Built with Next.js, React, Tailwind CSS & Framer Motion. Fully responsive and customizable.
+- **Annual Access** — $169 USD (billed yearly). Access to 200+ premium Blocks. Access to 12+ ready-to-use Templates. Access to full landing Pages. 1 year of updates and new features.
+- **Lifetime Access** — $199 USD (one-time payment, no renewal). Access to 200+ premium Blocks. Access to 12+ ready-to-use Templates. Access to full landing Pages. Lifetime updates for all content.
+- **Team** — $1590 USD (one-time payment, no renewal). 10 team members included. Access to 200+ premium Blocks. Access to 12+ ready-to-use Templates. Access to full landing Pages.
+
+## Aceternity UI compared to other libraries
+
+| | Aceternity UI | shadcn/ui | Material UI | Chakra UI |
+|---|---|---|---|---|
+| Distribution | Copy-paste source | Copy-paste source | npm package | npm package |
+| Styling | Tailwind CSS | Tailwind CSS | Emotion / MUI System | Emotion |
+| Animation | Motion, built in | Not included | Minimal | Minimal |
+| Focus | Marketing pages and visual effects | Application primitives | Material Design systems | Accessible app UI |
+| You own the code | Yes | Yes | No | No |
+| Free tier | 112+ components | All components | All components | All components |
+
+Aceternity UI and shadcn/ui are complementary rather than competing: shadcn/ui covers application primitives such as dialogs, forms and tables, while Aceternity UI covers animated marketing sections such as hero sections, bento grids and background effects. Many projects use both.
+
+Detailed comparisons: https://ui.aceternity.com/compare/aceternity-vs-shadcn, https://ui.aceternity.com/compare/aceternity-vs-chakra-ui, https://ui.aceternity.com/compare/aceternity-vs-material-ui
+
+## Frequently asked questions
+
+### What does Aceternity UI lifetime access include?
+
+Lifetime access to Aceternity UI is a one-time payment that unlocks every current and future component, block, and template, plus all updates. There is no subscription and no renewal, so new releases are included at no extra cost.
+
+### Is Aceternity UI free?
+
+Yes. Aceternity UI has a free tier of 100+ copy-paste components built with React, Next.js, Tailwind CSS, and Motion that you can use in personal and commercial projects. The paid All-Access plan adds premium blocks and full page templates.
+
+### How does the purchase and access flow work?
+
+You check out securely through Stripe, then we email a magic login link to your purchase address. Clicking the link unlocks every paid component and template on your account instantly.
+
+### How do I get the code?
+
+Copy component code directly from any component page, or install it with the shadcn CLI using npx shadcn@latest add @aceternity/[component-name]. Full templates download as a zip from the Templates section, ready to drop into your project.
+
+### Can I use Aceternity UI components in commercial projects?
+
+Yes. You can use Aceternity UI components in unlimited personal and commercial client projects. The only restriction is that you cannot resell or redistribute the components themselves as a competing template or component library.
+
+### Which frameworks does Aceternity UI support?
+
+Aceternity UI is built for React and Next.js with Tailwind CSS and Motion (formerly Framer Motion), and every component ships with TypeScript types. Components work in any React setup that supports Tailwind, including Vite and Remix.
+
+### Do you offer refunds?
+
+We do not offer refunds because purchases grant immediate and complete access to all source code and downloads. Review the refund policy before buying if you have questions.
+
+### How do I get help or support?
+
+Use the in-app chat for the fastest response, email support@aceternity.com, or reach out on X at @mannupaaji. Support covers setup, integration, and component usage questions.
+
+## Free component catalogue (116 components)
+
+Every component below is free, open source, and installable with the shadcn CLI.
+
+### 3d
+
+- **3D Globe** (https://ui.aceternity.com/components/3d-globe) — A realistic globe component with tooltips and avatar tips Install: `npx shadcn@latest add @aceternity/3d-globe`
+
+### 3D
+
+- **Comet Card** (https://ui.aceternity.com/components/comet-card) — A perspective, 3D, Tilt card as seen on Perplexity Comet's website. Install: `npx shadcn@latest add @aceternity/comet-card`
+- **Pixelated Canvas** (https://ui.aceternity.com/components/pixelated-canvas) — Convert any image to a pixelated canvas mouse distortion effects, as seen on Tailwind CSS Website. Install: `npx shadcn@latest add @aceternity/pixelated-canvas`
+
+### animation
+
+- **Canvas Text** (https://ui.aceternity.com/components/canvas-text) — Animated text component with colorful curved lines rendered on canvas, clipped to the text shape. Install: `npx shadcn@latest add @aceternity/canvas-text`
+- **Chromatic Image** (https://ui.aceternity.com/components/chromatic-image) — An interactive image with responsive color separation, displacement, and tilt. Install: `npx shadcn@latest add @aceternity/chromatic-image`
+- **Container Text Flip** (https://ui.aceternity.com/components/container-text-flip) — A container that flips through words, animating the width. Install: `npx shadcn@latest add @aceternity/container-text-flip`
+- **Image Generation Loader** (https://ui.aceternity.com/components/image-generation-loader) — A canvas loader that scans across an image with animated pixel grids, text masks, and progress overlays. Install: `npx shadcn@latest add @aceternity/image-generation-loader`
+
+### background
+
+- **3D Card Effect** (https://ui.aceternity.com/components/3d-card-effect) — A card perspective effect, hover over the card to elevate card elements. Install: `npx shadcn@latest add @aceternity/3d-card-effect`
+- **3D Globe** (https://ui.aceternity.com/components/3d-globe) — A realistic globe component with tooltips and avatar tips Install: `npx shadcn@latest add @aceternity/3d-globe`
+- **ASCII Art** (https://ui.aceternity.com/components/ascii-art) — Convert any image to ASCII art with customizable charsets, colors, and animations. Install: `npx shadcn@latest add @aceternity/ascii-art`
+- **Aurora Background** (https://ui.aceternity.com/components/aurora-background) — A subtle Aurora or Southern Lights background for your website. Install: `npx shadcn@latest add @aceternity/aurora-background`
+- **Background Beams** (https://ui.aceternity.com/components/background-beams) — Multiple background beams that follow a path of SVG, makes a good hero section background. Install: `npx shadcn@latest add @aceternity/background-beams`
+- **Background Beams With Collision** (https://ui.aceternity.com/components/background-beams-with-collision) — Exploding beams in the background Install: `npx shadcn@latest add @aceternity/background-beams-with-collision`
+- **Background Boxes** (https://ui.aceternity.com/components/background-boxes) — A full width background box container that highlights on hover Install: `npx shadcn@latest add @aceternity/background-boxes`
+- **Background Gradient** (https://ui.aceternity.com/components/background-gradient) — An animated gradient that sits at the background of a card, button or anything. Install: `npx shadcn@latest add @aceternity/background-gradient`
+- **Background Gradient Animation** (https://ui.aceternity.com/components/background-gradient-animation) — A smooth and elegant background gradient animation that changes the gradient position over time. Install: `npx shadcn@latest add @aceternity/background-gradient-animation`
+- **Background Lines** (https://ui.aceternity.com/components/background-lines) — A set of svg paths that animate in a wave pattern. Good for hero sections background, as seen on height.app Install: `npx shadcn@latest add @aceternity/background-lines`
+- **Background Ripple Effect** (https://ui.aceternity.com/components/background-ripple-effect) — A grid of cells that ripple when clicked. Install: `npx shadcn@latest add @aceternity/background-ripple-effect`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Canvas Text** (https://ui.aceternity.com/components/canvas-text) — Animated text component with colorful curved lines rendered on canvas, clipped to the text shape. Install: `npx shadcn@latest add @aceternity/canvas-text`
+- **Cloud Shader** (https://ui.aceternity.com/components/cloud-shader) — Soft procedural clouds that drift across the sky. Tune speed, count, and colors with props. Install: `npx shadcn@latest add @aceternity/cloud-shader`
+- **Dither Shader** (https://ui.aceternity.com/components/dither-shader) — A real-time ordered dithering effect for images, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/dither-shader`
+- **Dotted Glow Background** (https://ui.aceternity.com/components/dotted-glow-background) — A background effect with opacity animation, glow effect and more. Install: `npx shadcn@latest add @aceternity/dotted-glow-background`
+- **Grid and Dot Backgrounds** (https://ui.aceternity.com/components/grid-and-dot-backgrounds) — A simple grid and dots background to make your sections stand out. Install: `npx shadcn@latest add @aceternity/grid-and-dot-backgrounds`
+- **Hero Highlight** (https://ui.aceternity.com/components/hero-highlight) — A background effect with a text highlight component, perfect for hero sections. Install: `npx shadcn@latest add @aceternity/hero-highlight`
+- **Images Badge** (https://ui.aceternity.com/components/images-badge) — A badge with images that can be hovered to reveal more images. Install: `npx shadcn@latest add @aceternity/images-badge`
+- **Keyboard** (https://ui.aceternity.com/components/keyboard) — A mac style keyboard component with mechanical keys sound effects. Install: `npx shadcn@latest add @aceternity/keyboard`
+- **Noise Background** (https://ui.aceternity.com/components/noise-background) — A dynamic background effect with animated gradients, noise texture, and smooth motion. Install: `npx shadcn@latest add @aceternity/noise-background`
+- **Pixelated Canvas** (https://ui.aceternity.com/components/pixelated-canvas) — Convert any image to a pixelated canvas mouse distortion effects, as seen on Tailwind CSS Website. Install: `npx shadcn@latest add @aceternity/pixelated-canvas`
+- **Scales** (https://ui.aceternity.com/components/scales) — A repeating diagonal, horizontal, or vertical line pattern background effect. Install: `npx shadcn@latest add @aceternity/scales`
+- **Shooting Stars and Stars Background** (https://ui.aceternity.com/components/shooting-stars-and-stars-background) — A shooting star animation on top of a starry background, as seen on figmaplug.in Install: `npx shadcn@latest add @aceternity/shooting-stars-and-stars-background`
+- **Terminal** (https://ui.aceternity.com/components/terminal) — A mac style terminal component with bash syntax highlighting and typewriter effect. Install: `npx shadcn@latest add @aceternity/terminal`
+- **Vortex Background** (https://ui.aceternity.com/components/vortex) — A wavy, swirly, vortex background ideal for CTAs and backgrounds. Install: `npx shadcn@latest add @aceternity/vortex`
+- **Wavy Background** (https://ui.aceternity.com/components/wavy-background) — A cool background effect with waves that move. Install: `npx shadcn@latest add @aceternity/wavy-background`
+- **Webcam Pixel Grid** (https://ui.aceternity.com/components/webcam-pixel-grid) — A real-time webcam pixel grid effect, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/webcam-pixel-grid`
+- **Wobble Card** (https://ui.aceternity.com/components/wobble-card) — A card effect that translates and scales on mousemove, perfect for feature cards. Install: `npx shadcn@latest add @aceternity/wobble-card`
+
+### backgrounds
+
+- **3D Marquee** (https://ui.aceternity.com/components/3d-marquee) — A 3D Marquee effect with grid, good for showcasing testimonials and hero sections Install: `npx shadcn@latest add @aceternity/3d-marquee`
+
+### banner
+
+- **Sticky Banner** (https://ui.aceternity.com/components/sticky-banner) — A banner component that sticks to top, hides when user scrolls down Install: `npx shadcn@latest add @aceternity/sticky-banner`
+
+### bento grid
+
+- **Expandable Cards** (https://ui.aceternity.com/components/expandable-card) — Click cards to expand them and show additional information Install: `npx shadcn@latest add @aceternity/expandable-card`
+- **Feature Sections** (https://ui.aceternity.com/components/feature-sections-free) — A set of feature sections ranging from bento grids to simple layouts Install: `npx shadcn@latest add @aceternity/feature-sections-free`
+- **Glowing Effect** (https://ui.aceternity.com/components/glowing-effect) — A border glowing effect that adapts to any container or card, as seen on Cursor's website. Install: `npx shadcn@latest add @aceternity/glowing-effect`
+
+### border
+
+- **Glowing Effect** (https://ui.aceternity.com/components/glowing-effect) — A border glowing effect that adapts to any container or card, as seen on Cursor's website. Install: `npx shadcn@latest add @aceternity/glowing-effect`
+
+### button
+
+- **Hover Border Gradient** (https://ui.aceternity.com/components/hover-border-gradient) — A hover effect that expands to the entire container with a gradient border. Install: `npx shadcn@latest add @aceternity/hover-border-gradient`
+- **Magnetic Button** (https://ui.aceternity.com/components/magnetic-button) — A button that subtly drifts toward the cursor as you hover, with a spring-based return when you leave. Install: `npx shadcn@latest add @aceternity/magnetic-button`
+- **Moving Border** (https://ui.aceternity.com/components/moving-border) — A border that moves around the container. Perfect for making your buttons stand out. Install: `npx shadcn@latest add @aceternity/moving-border`
+- **Stateful Button** (https://ui.aceternity.com/components/stateful-button) — A button that shows a loading state when clicked, and a success state when the action is completed. Install: `npx shadcn@latest add @aceternity/stateful-button`
+- **Tailwind CSS buttons** (https://ui.aceternity.com/components/tailwindcss-buttons) — A curated list of awesome, battle tested Tailwind CSS buttons components Install: `npx shadcn@latest add @aceternity/tailwindcss-buttons`
+
+### call to action
+
+- **3D Globe** (https://ui.aceternity.com/components/3d-globe) — A realistic globe component with tooltips and avatar tips Install: `npx shadcn@latest add @aceternity/3d-globe`
+- **Background Boxes** (https://ui.aceternity.com/components/background-boxes) — A full width background box container that highlights on hover Install: `npx shadcn@latest add @aceternity/background-boxes`
+- **Background Gradient** (https://ui.aceternity.com/components/background-gradient) — An animated gradient that sits at the background of a card, button or anything. Install: `npx shadcn@latest add @aceternity/background-gradient`
+- **Background Gradient Animation** (https://ui.aceternity.com/components/background-gradient-animation) — A smooth and elegant background gradient animation that changes the gradient position over time. Install: `npx shadcn@latest add @aceternity/background-gradient-animation`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Dither Shader** (https://ui.aceternity.com/components/dither-shader) — A real-time ordered dithering effect for images, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/dither-shader`
+- **Dotted Glow Background** (https://ui.aceternity.com/components/dotted-glow-background) — A background effect with opacity animation, glow effect and more. Install: `npx shadcn@latest add @aceternity/dotted-glow-background`
+- **Flip Words** (https://ui.aceternity.com/components/flip-words) — A component that flips through a list of words Install: `npx shadcn@latest add @aceternity/flip-words`
+- **Images Badge** (https://ui.aceternity.com/components/images-badge) — A badge with images that can be hovered to reveal more images. Install: `npx shadcn@latest add @aceternity/images-badge`
+- **Keyboard** (https://ui.aceternity.com/components/keyboard) — A mac style keyboard component with mechanical keys sound effects. Install: `npx shadcn@latest add @aceternity/keyboard`
+- **Noise Background** (https://ui.aceternity.com/components/noise-background) — A dynamic background effect with animated gradients, noise texture, and smooth motion. Install: `npx shadcn@latest add @aceternity/noise-background`
+- **Sparkles** (https://ui.aceternity.com/components/sparkles) — A configurable sparkles component that can be used as a background or as a standalone component. Install: `npx shadcn@latest add @aceternity/sparkles`
+- **Tooltip Card** (https://ui.aceternity.com/components/tooltip-card) — A tooltip card container that follows mouse pointer when hovered over Install: `npx shadcn@latest add @aceternity/tooltip-card`
+- **Webcam Pixel Grid** (https://ui.aceternity.com/components/webcam-pixel-grid) — A real-time webcam pixel grid effect, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/webcam-pixel-grid`
+
+### canvas
+
+- **ASCII Art** (https://ui.aceternity.com/components/ascii-art) — Convert any image to ASCII art with customizable charsets, colors, and animations. Install: `npx shadcn@latest add @aceternity/ascii-art`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Canvas Text** (https://ui.aceternity.com/components/canvas-text) — Animated text component with colorful curved lines rendered on canvas, clipped to the text shape. Install: `npx shadcn@latest add @aceternity/canvas-text`
+- **Chromatic Image** (https://ui.aceternity.com/components/chromatic-image) — An interactive image with responsive color separation, displacement, and tilt. Install: `npx shadcn@latest add @aceternity/chromatic-image`
+- **Image Generation Loader** (https://ui.aceternity.com/components/image-generation-loader) — A canvas loader that scans across an image with animated pixel grids, text masks, and progress overlays. Install: `npx shadcn@latest add @aceternity/image-generation-loader`
+
+### card
+
+- **3D Animated Pin** (https://ui.aceternity.com/components/3d-pin) — A gradient pin that animates on hover, perfect for product links. Install: `npx shadcn@latest add @aceternity/3d-pin`
+- **3D Card Effect** (https://ui.aceternity.com/components/3d-card-effect) — A card perspective effect, hover over the card to elevate card elements. Install: `npx shadcn@latest add @aceternity/3d-card-effect`
+- **3D Globe** (https://ui.aceternity.com/components/3d-globe) — A realistic globe component with tooltips and avatar tips Install: `npx shadcn@latest add @aceternity/3d-globe`
+- **Animated Tooltip** (https://ui.aceternity.com/components/animated-tooltip) — A cool tooltip that reveals on hover, follows mouse pointer Install: `npx shadcn@latest add @aceternity/animated-tooltip`
+- **Apple Cards Carousel** (https://ui.aceternity.com/components/apple-cards-carousel) — A sleek and minimal carousel implementation, as seen on apple.com Install: `npx shadcn@latest add @aceternity/apple-cards-carousel`
+- **ASCII Art** (https://ui.aceternity.com/components/ascii-art) — Convert any image to ASCII art with customizable charsets, colors, and animations. Install: `npx shadcn@latest add @aceternity/ascii-art`
+- **Aurora Background** (https://ui.aceternity.com/components/aurora-background) — A subtle Aurora or Southern Lights background for your website. Install: `npx shadcn@latest add @aceternity/aurora-background`
+- **Background Beams** (https://ui.aceternity.com/components/background-beams) — Multiple background beams that follow a path of SVG, makes a good hero section background. Install: `npx shadcn@latest add @aceternity/background-beams`
+- **Background Boxes** (https://ui.aceternity.com/components/background-boxes) — A full width background box container that highlights on hover Install: `npx shadcn@latest add @aceternity/background-boxes`
+- **Background Gradient** (https://ui.aceternity.com/components/background-gradient) — An animated gradient that sits at the background of a card, button or anything. Install: `npx shadcn@latest add @aceternity/background-gradient`
+- **Background Gradient Animation** (https://ui.aceternity.com/components/background-gradient-animation) — A smooth and elegant background gradient animation that changes the gradient position over time. Install: `npx shadcn@latest add @aceternity/background-gradient-animation`
+- **Bento Grid** (https://ui.aceternity.com/components/bento-grid) — A skewed grid layout with Title, description and a header component Install: `npx shadcn@latest add @aceternity/bento-grid`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Card Spotlight** (https://ui.aceternity.com/components/card-spotlight) — A card component with a spotlight effect revealing a radial gradient background Install: `npx shadcn@latest add @aceternity/card-spotlight`
+- **Card Stack** (https://ui.aceternity.com/components/card-stack) — Cards stack on top of each other after some interval. Perfect for showing testimonials. Install: `npx shadcn@latest add @aceternity/card-stack`
+- **Cards** (https://ui.aceternity.com/components/cards-free) — A set of cards that can be used for different use cases Install: `npx shadcn@latest add @aceternity/cards-free`
+- **Comet Card** (https://ui.aceternity.com/components/comet-card) — A perspective, 3D, Tilt card as seen on Perplexity Comet's website. Install: `npx shadcn@latest add @aceternity/comet-card`
+- **Compare** (https://ui.aceternity.com/components/compare) — A comparison component between two images, slide or drag to compare Install: `npx shadcn@latest add @aceternity/compare`
+- **Direction Aware Hover** (https://ui.aceternity.com/components/direction-aware-hover) — A direction aware hover effect using Framer Motion, Tailwindcss and good old javascript. Install: `npx shadcn@latest add @aceternity/direction-aware-hover`
+- **Dither Shader** (https://ui.aceternity.com/components/dither-shader) — A real-time ordered dithering effect for images, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/dither-shader`
+- **Dotted Glow Background** (https://ui.aceternity.com/components/dotted-glow-background) — A background effect with opacity animation, glow effect and more. Install: `npx shadcn@latest add @aceternity/dotted-glow-background`
+- **Draggable Card** (https://ui.aceternity.com/components/draggable-card) — A tiltable, draggable card component that jumps on bounds. Install: `npx shadcn@latest add @aceternity/draggable-card`
+- **Evervault Card** (https://ui.aceternity.com/components/evervault-card) — A cool card with amazing hover effect, reveals encrypted text and a mixed gradient. Install: `npx shadcn@latest add @aceternity/evervault-card`
+- **Expandable Cards** (https://ui.aceternity.com/components/expandable-card) — Click cards to expand them and show additional information Install: `npx shadcn@latest add @aceternity/expandable-card`
+- **Feature Sections** (https://ui.aceternity.com/components/feature-sections-free) — A set of feature sections ranging from bento grids to simple layouts Install: `npx shadcn@latest add @aceternity/feature-sections-free`
+- **GitHub Globe** (https://ui.aceternity.com/components/github-globe) — A globe animation as seen on GitHub's homepage. Interactive and customizable. Install: `npx shadcn@latest add @aceternity/github-globe`
+- **Glare Card** (https://ui.aceternity.com/components/glare-card) — A glare effect that happens on hover, as seen on Linear's website Install: `npx shadcn@latest add @aceternity/glare-card`
+- **Glowing Background Stars Card** (https://ui.aceternity.com/components/glowing-stars-effect) — Card background stars that animate on hover and animate anyway Install: `npx shadcn@latest add @aceternity/glowing-stars-effect`
+- **Glowing Effect** (https://ui.aceternity.com/components/glowing-effect) — A border glowing effect that adapts to any container or card, as seen on Cursor's website. Install: `npx shadcn@latest add @aceternity/glowing-effect`
+- **Grid and Dot Backgrounds** (https://ui.aceternity.com/components/grid-and-dot-backgrounds) — A simple grid and dots background to make your sections stand out. Install: `npx shadcn@latest add @aceternity/grid-and-dot-backgrounds`
+- **Hover Border Gradient** (https://ui.aceternity.com/components/hover-border-gradient) — A hover effect that expands to the entire container with a gradient border. Install: `npx shadcn@latest add @aceternity/hover-border-gradient`
+- **Hover Effect** (https://ui.aceternity.com/components/card-hover-effect) — Hover over the cards and the effect slides to the currently hovered card. Install: `npx shadcn@latest add @aceternity/card-hover-effect`
+- **Images Badge** (https://ui.aceternity.com/components/images-badge) — A badge with images that can be hovered to reveal more images. Install: `npx shadcn@latest add @aceternity/images-badge`
+- **Keyboard** (https://ui.aceternity.com/components/keyboard) — A mac style keyboard component with mechanical keys sound effects. Install: `npx shadcn@latest add @aceternity/keyboard`
+- **Meteor Effect** (https://ui.aceternity.com/components/meteors) — A group of beams in the background of a container, sort of like meteors. Install: `npx shadcn@latest add @aceternity/meteors`
+- **Moving Border** (https://ui.aceternity.com/components/moving-border) — A border that moves around the container. Perfect for making your buttons stand out. Install: `npx shadcn@latest add @aceternity/moving-border`
+- **Noise Background** (https://ui.aceternity.com/components/noise-background) — A dynamic background effect with animated gradients, noise texture, and smooth motion. Install: `npx shadcn@latest add @aceternity/noise-background`
+- **Parallax Grid Scroll** (https://ui.aceternity.com/components/parallax-scroll) — A grid where two columns scroll in oposite directions, giving a parallax effect. Install: `npx shadcn@latest add @aceternity/parallax-scroll`
+- **Pixelated Canvas** (https://ui.aceternity.com/components/pixelated-canvas) — Convert any image to a pixelated canvas mouse distortion effects, as seen on Tailwind CSS Website. Install: `npx shadcn@latest add @aceternity/pixelated-canvas`
+- **Shooting Stars and Stars Background** (https://ui.aceternity.com/components/shooting-stars-and-stars-background) — A shooting star animation on top of a starry background, as seen on figmaplug.in Install: `npx shadcn@latest add @aceternity/shooting-stars-and-stars-background`
+- **SVG Mask Effect** (https://ui.aceternity.com/components/svg-mask-effect) — A mask reveal effect, hover the cursor over a container to reveal what's underneath. Install: `npx shadcn@latest add @aceternity/svg-mask-effect`
+- **Terminal** (https://ui.aceternity.com/components/terminal) — A mac style terminal component with bash syntax highlighting and typewriter effect. Install: `npx shadcn@latest add @aceternity/terminal`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Tooltip Card** (https://ui.aceternity.com/components/tooltip-card) — A tooltip card container that follows mouse pointer when hovered over Install: `npx shadcn@latest add @aceternity/tooltip-card`
+- **Webcam Pixel Grid** (https://ui.aceternity.com/components/webcam-pixel-grid) — A real-time webcam pixel grid effect, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/webcam-pixel-grid`
+- **Wobble Card** (https://ui.aceternity.com/components/wobble-card) — A card effect that translates and scales on mousemove, perfect for feature cards. Install: `npx shadcn@latest add @aceternity/wobble-card`
+
+### cards
+
+- **Focus Cards** (https://ui.aceternity.com/components/focus-cards) — Hover over the card to focus on it, blurring the rest of the cards. Install: `npx shadcn@latest add @aceternity/focus-cards`
+- **Hero Sections** (https://ui.aceternity.com/components/hero-sections-free) — A set of hero sections ranging from simple to complex layouts Install: `npx shadcn@latest add @aceternity/hero-sections-free`
+- **Lens** (https://ui.aceternity.com/components/lens) — A lens component to zoom into images, videos, or practically anything. Install: `npx shadcn@latest add @aceternity/lens`
+
+### carousel
+
+- **Apple Cards Carousel** (https://ui.aceternity.com/components/apple-cards-carousel) — A sleek and minimal carousel implementation, as seen on apple.com Install: `npx shadcn@latest add @aceternity/apple-cards-carousel`
+- **Carousel** (https://ui.aceternity.com/components/carousel) — A customizable carousel with microinteractions and slider. Install: `npx shadcn@latest add @aceternity/carousel`
+
+### code
+
+- **Code Block** (https://ui.aceternity.com/components/code-block) — A configurable code block component built on top of react-syntax-highlighter. Install: `npx shadcn@latest add @aceternity/code-block`
+
+### container
+
+- **Container Text Flip** (https://ui.aceternity.com/components/container-text-flip) — A container that flips through words, animating the width. Install: `npx shadcn@latest add @aceternity/container-text-flip`
+
+### content
+
+- **Lens** (https://ui.aceternity.com/components/lens) — A lens component to zoom into images, videos, or practically anything. Install: `npx shadcn@latest add @aceternity/lens`
+- **Text Generate Effect** (https://ui.aceternity.com/components/text-generate-effect) — A cool text effect that fades in text on page load, one by one. Install: `npx shadcn@latest add @aceternity/text-generate-effect`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Timeline** (https://ui.aceternity.com/components/timeline) — A timeline component with sticky header and scroll beam follow. Install: `npx shadcn@latest add @aceternity/timeline`
+- **Tracing Beam** (https://ui.aceternity.com/components/tracing-beam) — A Beam that follows the path of an SVG as the user scrolls. Adjusts beam length with scroll speed. Install: `npx shadcn@latest add @aceternity/tracing-beam`
+- **Typewriter Effect** (https://ui.aceternity.com/components/typewriter-effect) — Text generates as if it is being typed on the screen. Install: `npx shadcn@latest add @aceternity/typewriter-effect`
+
+### CTA
+
+- **Vortex Background** (https://ui.aceternity.com/components/vortex) — A wavy, swirly, vortex background ideal for CTAs and backgrounds. Install: `npx shadcn@latest add @aceternity/vortex`
+- **Wobble Card** (https://ui.aceternity.com/components/wobble-card) — A card effect that translates and scales on mousemove, perfect for feature cards. Install: `npx shadcn@latest add @aceternity/wobble-card`
+
+### dashboard
+
+- **Sidebar** (https://ui.aceternity.com/components/sidebar) — Expandable sidebar that expands on hover, mobile responsive and dark mode support Install: `npx shadcn@latest add @aceternity/sidebar`
+
+### draggable
+
+- **Draggable Card** (https://ui.aceternity.com/components/draggable-card) — A tiltable, draggable card component that jumps on bounds. Install: `npx shadcn@latest add @aceternity/draggable-card`
+
+### effect
+
+- **Background Ripple Effect** (https://ui.aceternity.com/components/background-ripple-effect) — A grid of cells that ripple when clicked. Install: `npx shadcn@latest add @aceternity/background-ripple-effect`
+- **Layout Text Flip** (https://ui.aceternity.com/components/layout-text-flip) — A text flip effect that changes the layout of surrounding text Install: `npx shadcn@latest add @aceternity/layout-text-flip`
+
+### effects
+
+- **Background Lines** (https://ui.aceternity.com/components/background-lines) — A set of svg paths that animate in a wave pattern. Good for hero sections background, as seen on height.app Install: `npx shadcn@latest add @aceternity/background-lines`
+- **Lens** (https://ui.aceternity.com/components/lens) — A lens component to zoom into images, videos, or practically anything. Install: `npx shadcn@latest add @aceternity/lens`
+
+### feature
+
+- **Following Pointer** (https://ui.aceternity.com/components/following-pointer) — A custom pointer that follows mouse arrow and animates in pointer and content. Install: `npx shadcn@latest add @aceternity/following-pointer`
+
+### features
+
+- **Animated Tabs** (https://ui.aceternity.com/components/tabs) — Tabs to switch content, click on a tab to check background animation. Install: `npx shadcn@latest add @aceternity/tabs`
+- **Apple Cards Carousel** (https://ui.aceternity.com/components/apple-cards-carousel) — A sleek and minimal carousel implementation, as seen on apple.com Install: `npx shadcn@latest add @aceternity/apple-cards-carousel`
+- **Bento Grid** (https://ui.aceternity.com/components/bento-grid) — A skewed grid layout with Title, description and a header component Install: `npx shadcn@latest add @aceternity/bento-grid`
+- **Card Spotlight** (https://ui.aceternity.com/components/card-spotlight) — A card component with a spotlight effect revealing a radial gradient background Install: `npx shadcn@latest add @aceternity/card-spotlight`
+- **Card Stack** (https://ui.aceternity.com/components/card-stack) — Cards stack on top of each other after some interval. Perfect for showing testimonials. Install: `npx shadcn@latest add @aceternity/card-stack`
+- **Cards** (https://ui.aceternity.com/components/cards-free) — A set of cards that can be used for different use cases Install: `npx shadcn@latest add @aceternity/cards-free`
+- **Carousel** (https://ui.aceternity.com/components/carousel) — A customizable carousel with microinteractions and slider. Install: `npx shadcn@latest add @aceternity/carousel`
+- **Code Block** (https://ui.aceternity.com/components/code-block) — A configurable code block component built on top of react-syntax-highlighter. Install: `npx shadcn@latest add @aceternity/code-block`
+- **Colourful Text** (https://ui.aceternity.com/components/colourful-text) — A text component with various colours, filter and scale effects. Install: `npx shadcn@latest add @aceternity/colourful-text`
+- **Compare** (https://ui.aceternity.com/components/compare) — A comparison component between two images, slide or drag to compare Install: `npx shadcn@latest add @aceternity/compare`
+- **Container Scroll Animation** (https://ui.aceternity.com/components/container-scroll-animation) — A scroll animation that rotates in 3d on scroll. Perfect for hero or marketing sections. Install: `npx shadcn@latest add @aceternity/container-scroll-animation`
+- **Cover** (https://ui.aceternity.com/components/container-cover) — A Cover component that wraps any children, providing beams and space effect, hover to reveal speed. Install: `npx shadcn@latest add @aceternity/container-cover`
+- **Direction Aware Hover** (https://ui.aceternity.com/components/direction-aware-hover) — A direction aware hover effect using Framer Motion, Tailwindcss and good old javascript. Install: `npx shadcn@latest add @aceternity/direction-aware-hover`
+- **Evervault Card** (https://ui.aceternity.com/components/evervault-card) — A cool card with amazing hover effect, reveals encrypted text and a mixed gradient. Install: `npx shadcn@latest add @aceternity/evervault-card`
+- **Expandable Cards** (https://ui.aceternity.com/components/expandable-card) — Click cards to expand them and show additional information Install: `npx shadcn@latest add @aceternity/expandable-card`
+- **Feature Sections** (https://ui.aceternity.com/components/feature-sections-free) — A set of feature sections ranging from bento grids to simple layouts Install: `npx shadcn@latest add @aceternity/feature-sections-free`
+- **Images Slider** (https://ui.aceternity.com/components/images-slider) — A full page slider with images that can be navigated with the keyboard. Install: `npx shadcn@latest add @aceternity/images-slider`
+- **Layout Grid** (https://ui.aceternity.com/components/layout-grid) — A layout effect that animates the grid item on click, powered by framer motion layout Install: `npx shadcn@latest add @aceternity/layout-grid`
+- **Squiggly Text** (https://ui.aceternity.com/components/squiggly-text) — A squiggly text effect using SVG turbulence and displacement filters, animated with Motion. Install: `npx shadcn@latest add @aceternity/squiggly-text`
+- **Wobble Card** (https://ui.aceternity.com/components/wobble-card) — A card effect that translates and scales on mousemove, perfect for feature cards. Install: `npx shadcn@latest add @aceternity/wobble-card`
+- **World Map** (https://ui.aceternity.com/components/world-map) — A world map with animated lines and dots, programatically generated. Install: `npx shadcn@latest add @aceternity/world-map`
+
+### floating
+
+- **Notch** (https://ui.aceternity.com/components/notch) — A floating, configurable notch that pins to the top or bottom of the screen. Pass an array of items with links and it animates the active state as you switch between them. Install: `npx shadcn@latest add @aceternity/notch`
+
+### footer
+
+- **Fey.com Macbook Scroll** (https://ui.aceternity.com/components/macbook-scroll) — Scroll through the page and see the image come out of the screen, as seen on Fey.com website. Install: `npx shadcn@latest add @aceternity/macbook-scroll`
+- **Google Gemini Effect** (https://ui.aceternity.com/components/google-gemini-effect) — An effect of SVGs as seen on the Google Gemini Website Install: `npx shadcn@latest add @aceternity/google-gemini-effect`
+- **Spotlight** (https://ui.aceternity.com/components/spotlight) — A spotlight effect with Tailwind CSS, good for drawing attention to a particular element on the page. Install: `npx shadcn@latest add @aceternity/spotlight`
+- **Spotlight New** (https://ui.aceternity.com/components/spotlight-new) — A new spotlight component with left and right spotlight, configurable and customizable. Install: `npx shadcn@latest add @aceternity/spotlight-new`
+
+### form
+
+- **File Upload** (https://ui.aceternity.com/components/file-upload) — A minimal file upload form with background grid, drag and drop, and micro interactions. Install: `npx shadcn@latest add @aceternity/file-upload`
+- **Floating Dock** (https://ui.aceternity.com/components/floating-dock) — A floating dock mac os style component, acts as a navigation bar. Install: `npx shadcn@latest add @aceternity/floating-dock`
+- **Gooey Input** (https://ui.aceternity.com/components/gooey-input) — A search-style input that expands with a gooey SVG filter and shared layout animation Install: `npx shadcn@latest add @aceternity/gooey-input`
+- **Placeholders And Vanish Input** (https://ui.aceternity.com/components/placeholders-and-vanish-input) — Sliding in placeholders and vanish effect of input on submit Install: `npx shadcn@latest add @aceternity/placeholders-and-vanish-input`
+- **Signup Form** (https://ui.aceternity.com/components/signup-form) — A customizable form built on top of shadcn's input and label, with a touch of framer motion Install: `npx shadcn@latest add @aceternity/signup-form`
+
+### gradient
+
+- **Aurora Background** (https://ui.aceternity.com/components/aurora-background) — A subtle Aurora or Southern Lights background for your website. Install: `npx shadcn@latest add @aceternity/aurora-background`
+- **Background Beams** (https://ui.aceternity.com/components/background-beams) — Multiple background beams that follow a path of SVG, makes a good hero section background. Install: `npx shadcn@latest add @aceternity/background-beams`
+- **Background Boxes** (https://ui.aceternity.com/components/background-boxes) — A full width background box container that highlights on hover Install: `npx shadcn@latest add @aceternity/background-boxes`
+- **Background Gradient** (https://ui.aceternity.com/components/background-gradient) — An animated gradient that sits at the background of a card, button or anything. Install: `npx shadcn@latest add @aceternity/background-gradient`
+- **Background Gradient Animation** (https://ui.aceternity.com/components/background-gradient-animation) — A smooth and elegant background gradient animation that changes the gradient position over time. Install: `npx shadcn@latest add @aceternity/background-gradient-animation`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Card Stack** (https://ui.aceternity.com/components/card-stack) — Cards stack on top of each other after some interval. Perfect for showing testimonials. Install: `npx shadcn@latest add @aceternity/card-stack`
+- **Dither Shader** (https://ui.aceternity.com/components/dither-shader) — A real-time ordered dithering effect for images, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/dither-shader`
+- **Dotted Glow Background** (https://ui.aceternity.com/components/dotted-glow-background) — A background effect with opacity animation, glow effect and more. Install: `npx shadcn@latest add @aceternity/dotted-glow-background`
+- **Images Badge** (https://ui.aceternity.com/components/images-badge) — A badge with images that can be hovered to reveal more images. Install: `npx shadcn@latest add @aceternity/images-badge`
+- **Keyboard** (https://ui.aceternity.com/components/keyboard) — A mac style keyboard component with mechanical keys sound effects. Install: `npx shadcn@latest add @aceternity/keyboard`
+- **Noise Background** (https://ui.aceternity.com/components/noise-background) — A dynamic background effect with animated gradients, noise texture, and smooth motion. Install: `npx shadcn@latest add @aceternity/noise-background`
+- **Shooting Stars and Stars Background** (https://ui.aceternity.com/components/shooting-stars-and-stars-background) — A shooting star animation on top of a starry background, as seen on figmaplug.in Install: `npx shadcn@latest add @aceternity/shooting-stars-and-stars-background`
+- **Webcam Pixel Grid** (https://ui.aceternity.com/components/webcam-pixel-grid) — A real-time webcam pixel grid effect, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/webcam-pixel-grid`
+
+### grid
+
+- **Bento Grid** (https://ui.aceternity.com/components/bento-grid) — A skewed grid layout with Title, description and a header component Install: `npx shadcn@latest add @aceternity/bento-grid`
+- **Parallax Grid Scroll** (https://ui.aceternity.com/components/parallax-scroll) — A grid where two columns scroll in oposite directions, giving a parallax effect. Install: `npx shadcn@latest add @aceternity/parallax-scroll`
+
+### header
+
+- **Lamp Section Header** (https://ui.aceternity.com/components/lamp-effect) — A lamp effect as seen on linear, great for section headers. Install: `npx shadcn@latest add @aceternity/lamp-effect`
+
+### hero
+
+- **3D Marquee** (https://ui.aceternity.com/components/3d-marquee) — A 3D Marquee effect with grid, good for showcasing testimonials and hero sections Install: `npx shadcn@latest add @aceternity/3d-marquee`
+- **Animated Tabs** (https://ui.aceternity.com/components/tabs) — Tabs to switch content, click on a tab to check background animation. Install: `npx shadcn@latest add @aceternity/tabs`
+- **Background Lines** (https://ui.aceternity.com/components/background-lines) — A set of svg paths that animate in a wave pattern. Good for hero sections background, as seen on height.app Install: `npx shadcn@latest add @aceternity/background-lines`
+- **Colourful Text** (https://ui.aceternity.com/components/colourful-text) — A text component with various colours, filter and scale effects. Install: `npx shadcn@latest add @aceternity/colourful-text`
+- **Container Scroll Animation** (https://ui.aceternity.com/components/container-scroll-animation) — A scroll animation that rotates in 3d on scroll. Perfect for hero or marketing sections. Install: `npx shadcn@latest add @aceternity/container-scroll-animation`
+- **Container Text Flip** (https://ui.aceternity.com/components/container-text-flip) — A container that flips through words, animating the width. Install: `npx shadcn@latest add @aceternity/container-text-flip`
+- **Fey.com Macbook Scroll** (https://ui.aceternity.com/components/macbook-scroll) — Scroll through the page and see the image come out of the screen, as seen on Fey.com website. Install: `npx shadcn@latest add @aceternity/macbook-scroll`
+- **Flip Words** (https://ui.aceternity.com/components/flip-words) — A component that flips through a list of words Install: `npx shadcn@latest add @aceternity/flip-words`
+- **GitHub Globe** (https://ui.aceternity.com/components/github-globe) — A globe animation as seen on GitHub's homepage. Interactive and customizable. Install: `npx shadcn@latest add @aceternity/github-globe`
+- **Glowing Background Stars Card** (https://ui.aceternity.com/components/glowing-stars-effect) — Card background stars that animate on hover and animate anyway Install: `npx shadcn@latest add @aceternity/glowing-stars-effect`
+- **Hero Highlight** (https://ui.aceternity.com/components/hero-highlight) — A background effect with a text highlight component, perfect for hero sections. Install: `npx shadcn@latest add @aceternity/hero-highlight`
+- **Hero Parallax** (https://ui.aceternity.com/components/hero-parallax) — A scroll effect with rotation, translation and opacity animations. Install: `npx shadcn@latest add @aceternity/hero-parallax`
+- **Hero Sections** (https://ui.aceternity.com/components/hero-sections-free) — A set of hero sections ranging from simple to complex layouts Install: `npx shadcn@latest add @aceternity/hero-sections-free`
+- **Layout Text Flip** (https://ui.aceternity.com/components/layout-text-flip) — A text flip effect that changes the layout of surrounding text Install: `npx shadcn@latest add @aceternity/layout-text-flip`
+- **Parallax Hero Images** (https://ui.aceternity.com/components/parallax-hero-images) — Mouse-driven parallax effect, perfect for hero sections. Images blur fade in and move at different depths. Install: `npx shadcn@latest add @aceternity/parallax-hero-images`
+- **Sparkles** (https://ui.aceternity.com/components/sparkles) — A configurable sparkles component that can be used as a background or as a standalone component. Install: `npx shadcn@latest add @aceternity/sparkles`
+- **Spotlight** (https://ui.aceternity.com/components/spotlight) — A spotlight effect with Tailwind CSS, good for drawing attention to a particular element on the page. Install: `npx shadcn@latest add @aceternity/spotlight`
+- **Spotlight New** (https://ui.aceternity.com/components/spotlight-new) — A new spotlight component with left and right spotlight, configurable and customizable. Install: `npx shadcn@latest add @aceternity/spotlight-new`
+- **Squiggly Text** (https://ui.aceternity.com/components/squiggly-text) — A squiggly text effect using SVG turbulence and displacement filters, animated with Motion. Install: `npx shadcn@latest add @aceternity/squiggly-text`
+- **Sticky Banner** (https://ui.aceternity.com/components/sticky-banner) — A banner component that sticks to top, hides when user scrolls down Install: `npx shadcn@latest add @aceternity/sticky-banner`
+- **Text Flipping Board** (https://ui.aceternity.com/components/text-flipping-board) — A split-flap display component that animates characters with flip transitions, inspired by Vestaboard. Install: `npx shadcn@latest add @aceternity/text-flipping-board`
+- **Text Generate Effect** (https://ui.aceternity.com/components/text-generate-effect) — A cool text effect that fades in text on page load, one by one. Install: `npx shadcn@latest add @aceternity/text-generate-effect`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Typewriter Effect** (https://ui.aceternity.com/components/typewriter-effect) — Text generates as if it is being typed on the screen. Install: `npx shadcn@latest add @aceternity/typewriter-effect`
+
+### hero section
+
+- **3D Marquee** (https://ui.aceternity.com/components/3d-marquee) — A 3D Marquee effect with grid, good for showcasing testimonials and hero sections Install: `npx shadcn@latest add @aceternity/3d-marquee`
+
+### highlight
+
+- **Glowing Effect** (https://ui.aceternity.com/components/glowing-effect) — A border glowing effect that adapts to any container or card, as seen on Cursor's website. Install: `npx shadcn@latest add @aceternity/glowing-effect`
+- **Pointer Highlight** (https://ui.aceternity.com/components/pointer-highlight) — A component that highlights text when it's in view, with a pointer and border. Install: `npx shadcn@latest add @aceternity/pointer-highlight`
+
+### highlights
+
+- **Cover** (https://ui.aceternity.com/components/container-cover) — A Cover component that wraps any children, providing beams and space effect, hover to reveal speed. Install: `npx shadcn@latest add @aceternity/container-cover`
+
+### hover
+
+- **3D Animated Pin** (https://ui.aceternity.com/components/3d-pin) — A gradient pin that animates on hover, perfect for product links. Install: `npx shadcn@latest add @aceternity/3d-pin`
+- **Animated Tooltip** (https://ui.aceternity.com/components/animated-tooltip) — A cool tooltip that reveals on hover, follows mouse pointer Install: `npx shadcn@latest add @aceternity/animated-tooltip`
+- **Bento Grid** (https://ui.aceternity.com/components/bento-grid) — A skewed grid layout with Title, description and a header component Install: `npx shadcn@latest add @aceternity/bento-grid`
+- **Direction Aware Hover** (https://ui.aceternity.com/components/direction-aware-hover) — A direction aware hover effect using Framer Motion, Tailwindcss and good old javascript. Install: `npx shadcn@latest add @aceternity/direction-aware-hover`
+- **Evervault Card** (https://ui.aceternity.com/components/evervault-card) — A cool card with amazing hover effect, reveals encrypted text and a mixed gradient. Install: `npx shadcn@latest add @aceternity/evervault-card`
+- **Hover Border Gradient** (https://ui.aceternity.com/components/hover-border-gradient) — A hover effect that expands to the entire container with a gradient border. Install: `npx shadcn@latest add @aceternity/hover-border-gradient`
+- **Magnetic Button** (https://ui.aceternity.com/components/magnetic-button) — A button that subtly drifts toward the cursor as you hover, with a spring-based return when you leave. Install: `npx shadcn@latest add @aceternity/magnetic-button`
+- **Text Hover Effect** (https://ui.aceternity.com/components/text-hover-effect) — A text hover effect that animates and outlines gradient on hover, as seen on x.ai Install: `npx shadcn@latest add @aceternity/text-hover-effect`
+
+### illustration
+
+- **Terminal** (https://ui.aceternity.com/components/terminal) — A mac style terminal component with bash syntax highlighting and typewriter effect. Install: `npx shadcn@latest add @aceternity/terminal`
+
+### image
+
+- **ASCII Art** (https://ui.aceternity.com/components/ascii-art) — Convert any image to ASCII art with customizable charsets, colors, and animations. Install: `npx shadcn@latest add @aceternity/ascii-art`
+- **Chromatic Image** (https://ui.aceternity.com/components/chromatic-image) — An interactive image with responsive color separation, displacement, and tilt. Install: `npx shadcn@latest add @aceternity/chromatic-image`
+- **Image Generation Loader** (https://ui.aceternity.com/components/image-generation-loader) — A canvas loader that scans across an image with animated pixel grids, text masks, and progress overlays. Install: `npx shadcn@latest add @aceternity/image-generation-loader`
+
+### images
+
+- **Parallax Hero Images** (https://ui.aceternity.com/components/parallax-hero-images) — Mouse-driven parallax effect, perfect for hero sections. Images blur fade in and move at different depths. Install: `npx shadcn@latest add @aceternity/parallax-hero-images`
+
+### Informative
+
+- **Tooltip Card** (https://ui.aceternity.com/components/tooltip-card) — A tooltip card container that follows mouse pointer when hovered over Install: `npx shadcn@latest add @aceternity/tooltip-card`
+
+### interaction
+
+- **Magnetic Button** (https://ui.aceternity.com/components/magnetic-button) — A button that subtly drifts toward the cursor as you hover, with a spring-based return when you leave. Install: `npx shadcn@latest add @aceternity/magnetic-button`
+
+### layout
+
+- **Resizable Navbar** (https://ui.aceternity.com/components/resizable-navbar) — A navbar that changes width on scroll, responsive and animated. Install: `npx shadcn@latest add @aceternity/resizable-navbar`
+
+### loader
+
+- **Image Generation Loader** (https://ui.aceternity.com/components/image-generation-loader) — A canvas loader that scans across an image with animated pixel grids, text masks, and progress overlays. Install: `npx shadcn@latest add @aceternity/image-generation-loader`
+- **Loaders** (https://ui.aceternity.com/components/loader) — A set of simple and minimal loaders for your loading screens and components. Install: `npx shadcn@latest add @aceternity/loader`
+- **Multi Step Loader** (https://ui.aceternity.com/components/multi-step-loader) — A step loader for screens that take a lot of time to load. Install: `npx shadcn@latest add @aceternity/multi-step-loader`
+
+### loaders
+
+- **Loaders** (https://ui.aceternity.com/components/loader) — A set of simple and minimal loaders for your loading screens and components. Install: `npx shadcn@latest add @aceternity/loader`
+
+### loading
+
+- **Loaders** (https://ui.aceternity.com/components/loader) — A set of simple and minimal loaders for your loading screens and components. Install: `npx shadcn@latest add @aceternity/loader`
+- **Stateful Button** (https://ui.aceternity.com/components/stateful-button) — A button that shows a loading state when clicked, and a success state when the action is completed. Install: `npx shadcn@latest add @aceternity/stateful-button`
+
+### map
+
+- **World Map** (https://ui.aceternity.com/components/world-map) — A world map with animated lines and dots, programatically generated. Install: `npx shadcn@latest add @aceternity/world-map`
+
+### marquee
+
+- **Infinite Moving Cards** (https://ui.aceternity.com/components/infinite-moving-cards) — A customizable group of cards that move infinitely in a loop. Made with Framer Motion and Tailwind CSS. Install: `npx shadcn@latest add @aceternity/infinite-moving-cards`
+
+### modal
+
+- **Animated Modal** (https://ui.aceternity.com/components/animated-modal) — A customizable, compound modal component with animated transitions Install: `npx shadcn@latest add @aceternity/animated-modal`
+
+### navbar
+
+- **Floating Navbar** (https://ui.aceternity.com/components/floating-navbar) — A sticky Navbar that hides on scroll, reveals when scrolled up. Install: `npx shadcn@latest add @aceternity/floating-navbar`
+- **Navbar Menu** (https://ui.aceternity.com/components/navbar-menu) — A navbar menu that animates its children on hover, makes a beautiful bignav Install: `npx shadcn@latest add @aceternity/navbar-menu`
+- **Notch** (https://ui.aceternity.com/components/notch) — A floating, configurable notch that pins to the top or bottom of the screen. Pass an array of items with links and it animates the active state as you switch between them. Install: `npx shadcn@latest add @aceternity/notch`
+- **Resizable Navbar** (https://ui.aceternity.com/components/resizable-navbar) — A navbar that changes width on scroll, responsive and animated. Install: `npx shadcn@latest add @aceternity/resizable-navbar`
+
+### navigation
+
+- **Gooey Input** (https://ui.aceternity.com/components/gooey-input) — A search-style input that expands with a gooey SVG filter and shared layout animation Install: `npx shadcn@latest add @aceternity/gooey-input`
+- **Notch** (https://ui.aceternity.com/components/notch) — A floating, configurable notch that pins to the top or bottom of the screen. Pass an array of items with links and it animates the active state as you switch between them. Install: `npx shadcn@latest add @aceternity/notch`
+- **Resizable Navbar** (https://ui.aceternity.com/components/resizable-navbar) — A navbar that changes width on scroll, responsive and animated. Install: `npx shadcn@latest add @aceternity/resizable-navbar`
+
+### Other
+
+- **Add Utilities** (https://ui.aceternity.com/components/add-utilities) — Commonly used utilities for using Aceternity UI Install: `npx shadcn@latest add @aceternity/add-utilities`
+- **CLI** (https://ui.aceternity.com/components/cli) — Installing Aceternity UI with the Shadcn CLI Install: `npx shadcn@latest add @aceternity/cli`
+- **Install Next.js** (https://ui.aceternity.com/components/install-nextjs) — Install Next.js with Create Next App Install: `npx shadcn@latest add @aceternity/install-nextjs`
+- **Install Tailwind CSS** (https://ui.aceternity.com/components/install-tailwindcss) — Install Tailwind CSS with Next.js (v3 and v4) Install: `npx shadcn@latest add @aceternity/install-tailwindcss`
+
+### parallax
+
+- **Fey.com Macbook Scroll** (https://ui.aceternity.com/components/macbook-scroll) — Scroll through the page and see the image come out of the screen, as seen on Fey.com website. Install: `npx shadcn@latest add @aceternity/macbook-scroll`
+- **Hero Parallax** (https://ui.aceternity.com/components/hero-parallax) — A scroll effect with rotation, translation and opacity animations. Install: `npx shadcn@latest add @aceternity/hero-parallax`
+- **Parallax Grid Scroll** (https://ui.aceternity.com/components/parallax-scroll) — A grid where two columns scroll in oposite directions, giving a parallax effect. Install: `npx shadcn@latest add @aceternity/parallax-scroll`
+- **Parallax Hero Images** (https://ui.aceternity.com/components/parallax-hero-images) — Mouse-driven parallax effect, perfect for hero sections. Images blur fade in and move at different depths. Install: `npx shadcn@latest add @aceternity/parallax-hero-images`
+- **Sticky Scroll Reveal** (https://ui.aceternity.com/components/sticky-scroll-reveal) — A sticky container that sticks while scrolling, text reveals on scroll Install: `npx shadcn@latest add @aceternity/sticky-scroll-reveal`
+
+### pattern
+
+- **Scales** (https://ui.aceternity.com/components/scales) — A repeating diagonal, horizontal, or vertical line pattern background effect. Install: `npx shadcn@latest add @aceternity/scales`
+
+### pointer
+
+- **Pointer Highlight** (https://ui.aceternity.com/components/pointer-highlight) — A component that highlights text when it's in view, with a pointer and border. Install: `npx shadcn@latest add @aceternity/pointer-highlight`
+
+### product
+
+- **Animated Tabs** (https://ui.aceternity.com/components/tabs) — Tabs to switch content, click on a tab to check background animation. Install: `npx shadcn@latest add @aceternity/tabs`
+- **Container Scroll Animation** (https://ui.aceternity.com/components/container-scroll-animation) — A scroll animation that rotates in 3d on scroll. Perfect for hero or marketing sections. Install: `npx shadcn@latest add @aceternity/container-scroll-animation`
+- **Direction Aware Hover** (https://ui.aceternity.com/components/direction-aware-hover) — A direction aware hover effect using Framer Motion, Tailwindcss and good old javascript. Install: `npx shadcn@latest add @aceternity/direction-aware-hover`
+- **Evervault Card** (https://ui.aceternity.com/components/evervault-card) — A cool card with amazing hover effect, reveals encrypted text and a mixed gradient. Install: `npx shadcn@latest add @aceternity/evervault-card`
+- **GitHub Globe** (https://ui.aceternity.com/components/github-globe) — A globe animation as seen on GitHub's homepage. Interactive and customizable. Install: `npx shadcn@latest add @aceternity/github-globe`
+- **Images Slider** (https://ui.aceternity.com/components/images-slider) — A full page slider with images that can be navigated with the keyboard. Install: `npx shadcn@latest add @aceternity/images-slider`
+- **Layout Grid** (https://ui.aceternity.com/components/layout-grid) — A layout effect that animates the grid item on click, powered by framer motion layout Install: `npx shadcn@latest add @aceternity/layout-grid`
+
+### responsive
+
+- **Resizable Navbar** (https://ui.aceternity.com/components/resizable-navbar) — A navbar that changes width on scroll, responsive and animated. Install: `npx shadcn@latest add @aceternity/resizable-navbar`
+
+### ripple
+
+- **Background Ripple Effect** (https://ui.aceternity.com/components/background-ripple-effect) — A grid of cells that ripple when clicked. Install: `npx shadcn@latest add @aceternity/background-ripple-effect`
+
+### scroll
+
+- **Tracing Beam** (https://ui.aceternity.com/components/tracing-beam) — A Beam that follows the path of an SVG as the user scrolls. Adjusts beam length with scroll speed. Install: `npx shadcn@latest add @aceternity/tracing-beam`
+
+### section
+
+- **Fey.com Macbook Scroll** (https://ui.aceternity.com/components/macbook-scroll) — Scroll through the page and see the image come out of the screen, as seen on Fey.com website. Install: `npx shadcn@latest add @aceternity/macbook-scroll`
+- **GitHub Globe** (https://ui.aceternity.com/components/github-globe) — A globe animation as seen on GitHub's homepage. Interactive and customizable. Install: `npx shadcn@latest add @aceternity/github-globe`
+- **Glowing Background Stars Card** (https://ui.aceternity.com/components/glowing-stars-effect) — Card background stars that animate on hover and animate anyway Install: `npx shadcn@latest add @aceternity/glowing-stars-effect`
+- **Google Gemini Effect** (https://ui.aceternity.com/components/google-gemini-effect) — An effect of SVGs as seen on the Google Gemini Website Install: `npx shadcn@latest add @aceternity/google-gemini-effect`
+- **Hero Highlight** (https://ui.aceternity.com/components/hero-highlight) — A background effect with a text highlight component, perfect for hero sections. Install: `npx shadcn@latest add @aceternity/hero-highlight`
+- **Hero Parallax** (https://ui.aceternity.com/components/hero-parallax) — A scroll effect with rotation, translation and opacity animations. Install: `npx shadcn@latest add @aceternity/hero-parallax`
+- **Hero Sections** (https://ui.aceternity.com/components/hero-sections-free) — A set of hero sections ranging from simple to complex layouts Install: `npx shadcn@latest add @aceternity/hero-sections-free`
+- **Lamp Section Header** (https://ui.aceternity.com/components/lamp-effect) — A lamp effect as seen on linear, great for section headers. Install: `npx shadcn@latest add @aceternity/lamp-effect`
+- **Layout Grid** (https://ui.aceternity.com/components/layout-grid) — A layout effect that animates the grid item on click, powered by framer motion layout Install: `npx shadcn@latest add @aceternity/layout-grid`
+- **Parallax Grid Scroll** (https://ui.aceternity.com/components/parallax-scroll) — A grid where two columns scroll in oposite directions, giving a parallax effect. Install: `npx shadcn@latest add @aceternity/parallax-scroll`
+- **Parallax Hero Images** (https://ui.aceternity.com/components/parallax-hero-images) — Mouse-driven parallax effect, perfect for hero sections. Images blur fade in and move at different depths. Install: `npx shadcn@latest add @aceternity/parallax-hero-images`
+- **Placeholders And Vanish Input** (https://ui.aceternity.com/components/placeholders-and-vanish-input) — Sliding in placeholders and vanish effect of input on submit Install: `npx shadcn@latest add @aceternity/placeholders-and-vanish-input`
+- **Signup Form** (https://ui.aceternity.com/components/signup-form) — A customizable form built on top of shadcn's input and label, with a touch of framer motion Install: `npx shadcn@latest add @aceternity/signup-form`
+- **Sparkles** (https://ui.aceternity.com/components/sparkles) — A configurable sparkles component that can be used as a background or as a standalone component. Install: `npx shadcn@latest add @aceternity/sparkles`
+- **Spotlight** (https://ui.aceternity.com/components/spotlight) — A spotlight effect with Tailwind CSS, good for drawing attention to a particular element on the page. Install: `npx shadcn@latest add @aceternity/spotlight`
+- **Spotlight New** (https://ui.aceternity.com/components/spotlight-new) — A new spotlight component with left and right spotlight, configurable and customizable. Install: `npx shadcn@latest add @aceternity/spotlight-new`
+- **Sticky Scroll Reveal** (https://ui.aceternity.com/components/sticky-scroll-reveal) — A sticky container that sticks while scrolling, text reveals on scroll Install: `npx shadcn@latest add @aceternity/sticky-scroll-reveal`
+- **Text Generate Effect** (https://ui.aceternity.com/components/text-generate-effect) — A cool text effect that fades in text on page load, one by one. Install: `npx shadcn@latest add @aceternity/text-generate-effect`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Typewriter Effect** (https://ui.aceternity.com/components/typewriter-effect) — Text generates as if it is being typed on the screen. Install: `npx shadcn@latest add @aceternity/typewriter-effect`
+
+### sidebar
+
+- **Sidebar** (https://ui.aceternity.com/components/sidebar) — Expandable sidebar that expands on hover, mobile responsive and dark mode support Install: `npx shadcn@latest add @aceternity/sidebar`
+
+### special
+
+- **3D Animated Pin** (https://ui.aceternity.com/components/3d-pin) — A gradient pin that animates on hover, perfect for product links. Install: `npx shadcn@latest add @aceternity/3d-pin`
+- **3D Card Effect** (https://ui.aceternity.com/components/3d-card-effect) — A card perspective effect, hover over the card to elevate card elements. Install: `npx shadcn@latest add @aceternity/3d-card-effect`
+- **3D Globe** (https://ui.aceternity.com/components/3d-globe) — A realistic globe component with tooltips and avatar tips Install: `npx shadcn@latest add @aceternity/3d-globe`
+- **Animated Modal** (https://ui.aceternity.com/components/animated-modal) — A customizable, compound modal component with animated transitions Install: `npx shadcn@latest add @aceternity/animated-modal`
+- **Animated Testimonials** (https://ui.aceternity.com/components/animated-testimonials) — Minimal testimonials sections with image and quote. Install: `npx shadcn@latest add @aceternity/animated-testimonials`
+- **Animated Tooltip** (https://ui.aceternity.com/components/animated-tooltip) — A cool tooltip that reveals on hover, follows mouse pointer Install: `npx shadcn@latest add @aceternity/animated-tooltip`
+- **Aurora Background** (https://ui.aceternity.com/components/aurora-background) — A subtle Aurora or Southern Lights background for your website. Install: `npx shadcn@latest add @aceternity/aurora-background`
+- **Background Beams** (https://ui.aceternity.com/components/background-beams) — Multiple background beams that follow a path of SVG, makes a good hero section background. Install: `npx shadcn@latest add @aceternity/background-beams`
+- **Background Boxes** (https://ui.aceternity.com/components/background-boxes) — A full width background box container that highlights on hover Install: `npx shadcn@latest add @aceternity/background-boxes`
+- **Background Gradient** (https://ui.aceternity.com/components/background-gradient) — An animated gradient that sits at the background of a card, button or anything. Install: `npx shadcn@latest add @aceternity/background-gradient`
+- **Background Gradient Animation** (https://ui.aceternity.com/components/background-gradient-animation) — A smooth and elegant background gradient animation that changes the gradient position over time. Install: `npx shadcn@latest add @aceternity/background-gradient-animation`
+- **Background Lines** (https://ui.aceternity.com/components/background-lines) — A set of svg paths that animate in a wave pattern. Good for hero sections background, as seen on height.app Install: `npx shadcn@latest add @aceternity/background-lines`
+- **Canvas Reveal Effect** (https://ui.aceternity.com/components/canvas-reveal-effect) — A dot background that expands on hover, as seen on Clerk's website Install: `npx shadcn@latest add @aceternity/canvas-reveal-effect`
+- **Card Spotlight** (https://ui.aceternity.com/components/card-spotlight) — A card component with a spotlight effect revealing a radial gradient background Install: `npx shadcn@latest add @aceternity/card-spotlight`
+- **Carousel** (https://ui.aceternity.com/components/carousel) — A customizable carousel with microinteractions and slider. Install: `npx shadcn@latest add @aceternity/carousel`
+- **Chromatic Image** (https://ui.aceternity.com/components/chromatic-image) — An interactive image with responsive color separation, displacement, and tilt. Install: `npx shadcn@latest add @aceternity/chromatic-image`
+- **Cloud Shader** (https://ui.aceternity.com/components/cloud-shader) — Soft procedural clouds that drift across the sky. Tune speed, count, and colors with props. Install: `npx shadcn@latest add @aceternity/cloud-shader`
+- **Code Block** (https://ui.aceternity.com/components/code-block) — A configurable code block component built on top of react-syntax-highlighter. Install: `npx shadcn@latest add @aceternity/code-block`
+- **Colourful Text** (https://ui.aceternity.com/components/colourful-text) — A text component with various colours, filter and scale effects. Install: `npx shadcn@latest add @aceternity/colourful-text`
+- **Compare** (https://ui.aceternity.com/components/compare) — A comparison component between two images, slide or drag to compare Install: `npx shadcn@latest add @aceternity/compare`
+- **Cover** (https://ui.aceternity.com/components/container-cover) — A Cover component that wraps any children, providing beams and space effect, hover to reveal speed. Install: `npx shadcn@latest add @aceternity/container-cover`
+- **Dither Shader** (https://ui.aceternity.com/components/dither-shader) — A real-time ordered dithering effect for images, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/dither-shader`
+- **Dotted Glow Background** (https://ui.aceternity.com/components/dotted-glow-background) — A background effect with opacity animation, glow effect and more. Install: `npx shadcn@latest add @aceternity/dotted-glow-background`
+- **Encrypted Text** (https://ui.aceternity.com/components/encrypted-text) — A text component that reveals the text gradually, gibberish effect. Install: `npx shadcn@latest add @aceternity/encrypted-text`
+- **Fey.com Macbook Scroll** (https://ui.aceternity.com/components/macbook-scroll) — Scroll through the page and see the image come out of the screen, as seen on Fey.com website. Install: `npx shadcn@latest add @aceternity/macbook-scroll`
+- **File Upload** (https://ui.aceternity.com/components/file-upload) — A minimal file upload form with background grid, drag and drop, and micro interactions. Install: `npx shadcn@latest add @aceternity/file-upload`
+- **Flip Words** (https://ui.aceternity.com/components/flip-words) — A component that flips through a list of words Install: `npx shadcn@latest add @aceternity/flip-words`
+- **Floating Dock** (https://ui.aceternity.com/components/floating-dock) — A floating dock mac os style component, acts as a navigation bar. Install: `npx shadcn@latest add @aceternity/floating-dock`
+- **Following Pointer** (https://ui.aceternity.com/components/following-pointer) — A custom pointer that follows mouse arrow and animates in pointer and content. Install: `npx shadcn@latest add @aceternity/following-pointer`
+- **GitHub Globe** (https://ui.aceternity.com/components/github-globe) — A globe animation as seen on GitHub's homepage. Interactive and customizable. Install: `npx shadcn@latest add @aceternity/github-globe`
+- **Glare Card** (https://ui.aceternity.com/components/glare-card) — A glare effect that happens on hover, as seen on Linear's website Install: `npx shadcn@latest add @aceternity/glare-card`
+- **Glowing Background Stars Card** (https://ui.aceternity.com/components/glowing-stars-effect) — Card background stars that animate on hover and animate anyway Install: `npx shadcn@latest add @aceternity/glowing-stars-effect`
+- **Gooey Input** (https://ui.aceternity.com/components/gooey-input) — A search-style input that expands with a gooey SVG filter and shared layout animation Install: `npx shadcn@latest add @aceternity/gooey-input`
+- **Google Gemini Effect** (https://ui.aceternity.com/components/google-gemini-effect) — An effect of SVGs as seen on the Google Gemini Website Install: `npx shadcn@latest add @aceternity/google-gemini-effect`
+- **Hero Highlight** (https://ui.aceternity.com/components/hero-highlight) — A background effect with a text highlight component, perfect for hero sections. Install: `npx shadcn@latest add @aceternity/hero-highlight`
+- **Hero Parallax** (https://ui.aceternity.com/components/hero-parallax) — A scroll effect with rotation, translation and opacity animations. Install: `npx shadcn@latest add @aceternity/hero-parallax`
+- **Hover Effect** (https://ui.aceternity.com/components/card-hover-effect) — Hover over the cards and the effect slides to the currently hovered card. Install: `npx shadcn@latest add @aceternity/card-hover-effect`
+- **Images Badge** (https://ui.aceternity.com/components/images-badge) — A badge with images that can be hovered to reveal more images. Install: `npx shadcn@latest add @aceternity/images-badge`
+- **Images Slider** (https://ui.aceternity.com/components/images-slider) — A full page slider with images that can be navigated with the keyboard. Install: `npx shadcn@latest add @aceternity/images-slider`
+- **Keyboard** (https://ui.aceternity.com/components/keyboard) — A mac style keyboard component with mechanical keys sound effects. Install: `npx shadcn@latest add @aceternity/keyboard`
+- **Lamp Section Header** (https://ui.aceternity.com/components/lamp-effect) — A lamp effect as seen on linear, great for section headers. Install: `npx shadcn@latest add @aceternity/lamp-effect`
+- **Layout Grid** (https://ui.aceternity.com/components/layout-grid) — A layout effect that animates the grid item on click, powered by framer motion layout Install: `npx shadcn@latest add @aceternity/layout-grid`
+- **Lens** (https://ui.aceternity.com/components/lens) — A lens component to zoom into images, videos, or practically anything. Install: `npx shadcn@latest add @aceternity/lens`
+- **Link Preview** (https://ui.aceternity.com/components/link-preview) — Dynamic link previews for your anchor tags Install: `npx shadcn@latest add @aceternity/link-preview`
+- **Meteor Effect** (https://ui.aceternity.com/components/meteors) — A group of beams in the background of a container, sort of like meteors. Install: `npx shadcn@latest add @aceternity/meteors`
+- **Moving Border** (https://ui.aceternity.com/components/moving-border) — A border that moves around the container. Perfect for making your buttons stand out. Install: `npx shadcn@latest add @aceternity/moving-border`
+- **Multi Step Loader** (https://ui.aceternity.com/components/multi-step-loader) — A step loader for screens that take a lot of time to load. Install: `npx shadcn@latest add @aceternity/multi-step-loader`
+- **Noise Background** (https://ui.aceternity.com/components/noise-background) — A dynamic background effect with animated gradients, noise texture, and smooth motion. Install: `npx shadcn@latest add @aceternity/noise-background`
+- **Placeholders And Vanish Input** (https://ui.aceternity.com/components/placeholders-and-vanish-input) — Sliding in placeholders and vanish effect of input on submit Install: `npx shadcn@latest add @aceternity/placeholders-and-vanish-input`
+- **Scales** (https://ui.aceternity.com/components/scales) — A repeating diagonal, horizontal, or vertical line pattern background effect. Install: `npx shadcn@latest add @aceternity/scales`
+- **Shooting Stars and Stars Background** (https://ui.aceternity.com/components/shooting-stars-and-stars-background) — A shooting star animation on top of a starry background, as seen on figmaplug.in Install: `npx shadcn@latest add @aceternity/shooting-stars-and-stars-background`
+- **Sidebar** (https://ui.aceternity.com/components/sidebar) — Expandable sidebar that expands on hover, mobile responsive and dark mode support Install: `npx shadcn@latest add @aceternity/sidebar`
+- **Sparkles** (https://ui.aceternity.com/components/sparkles) — A configurable sparkles component that can be used as a background or as a standalone component. Install: `npx shadcn@latest add @aceternity/sparkles`
+- **Spotlight** (https://ui.aceternity.com/components/spotlight) — A spotlight effect with Tailwind CSS, good for drawing attention to a particular element on the page. Install: `npx shadcn@latest add @aceternity/spotlight`
+- **Spotlight New** (https://ui.aceternity.com/components/spotlight-new) — A new spotlight component with left and right spotlight, configurable and customizable. Install: `npx shadcn@latest add @aceternity/spotlight-new`
+- **Squiggly Text** (https://ui.aceternity.com/components/squiggly-text) — A squiggly text effect using SVG turbulence and displacement filters, animated with Motion. Install: `npx shadcn@latest add @aceternity/squiggly-text`
+- **Sticky Scroll Reveal** (https://ui.aceternity.com/components/sticky-scroll-reveal) — A sticky container that sticks while scrolling, text reveals on scroll Install: `npx shadcn@latest add @aceternity/sticky-scroll-reveal`
+- **SVG Mask Effect** (https://ui.aceternity.com/components/svg-mask-effect) — A mask reveal effect, hover the cursor over a container to reveal what's underneath. Install: `npx shadcn@latest add @aceternity/svg-mask-effect`
+- **Terminal** (https://ui.aceternity.com/components/terminal) — A mac style terminal component with bash syntax highlighting and typewriter effect. Install: `npx shadcn@latest add @aceternity/terminal`
+- **Text Flipping Board** (https://ui.aceternity.com/components/text-flipping-board) — A split-flap display component that animates characters with flip transitions, inspired by Vestaboard. Install: `npx shadcn@latest add @aceternity/text-flipping-board`
+- **Text Generate Effect** (https://ui.aceternity.com/components/text-generate-effect) — A cool text effect that fades in text on page load, one by one. Install: `npx shadcn@latest add @aceternity/text-generate-effect`
+- **Text Hover Effect** (https://ui.aceternity.com/components/text-hover-effect) — A text hover effect that animates and outlines gradient on hover, as seen on x.ai Install: `npx shadcn@latest add @aceternity/text-hover-effect`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Timeline** (https://ui.aceternity.com/components/timeline) — A timeline component with sticky header and scroll beam follow. Install: `npx shadcn@latest add @aceternity/timeline`
+- **Tooltip Card** (https://ui.aceternity.com/components/tooltip-card) — A tooltip card container that follows mouse pointer when hovered over Install: `npx shadcn@latest add @aceternity/tooltip-card`
+- **Typewriter Effect** (https://ui.aceternity.com/components/typewriter-effect) — Text generates as if it is being typed on the screen. Install: `npx shadcn@latest add @aceternity/typewriter-effect`
+- **Vortex Background** (https://ui.aceternity.com/components/vortex) — A wavy, swirly, vortex background ideal for CTAs and backgrounds. Install: `npx shadcn@latest add @aceternity/vortex`
+- **Wavy Background** (https://ui.aceternity.com/components/wavy-background) — A cool background effect with waves that move. Install: `npx shadcn@latest add @aceternity/wavy-background`
+- **Webcam Pixel Grid** (https://ui.aceternity.com/components/webcam-pixel-grid) — A real-time webcam pixel grid effect, perfect for pixel art and retro aesthetics. Install: `npx shadcn@latest add @aceternity/webcam-pixel-grid`
+- **Wobble Card** (https://ui.aceternity.com/components/wobble-card) — A card effect that translates and scales on mousemove, perfect for feature cards. Install: `npx shadcn@latest add @aceternity/wobble-card`
+- **World Map** (https://ui.aceternity.com/components/world-map) — A world map with animated lines and dots, programatically generated. Install: `npx shadcn@latest add @aceternity/world-map`
+
+### stateful
+
+- **Stateful Button** (https://ui.aceternity.com/components/stateful-button) — A button that shows a loading state when clicked, and a success state when the action is completed. Install: `npx shadcn@latest add @aceternity/stateful-button`
+
+### sticky
+
+- **Sticky Banner** (https://ui.aceternity.com/components/sticky-banner) — A banner component that sticks to top, hides when user scrolls down Install: `npx shadcn@latest add @aceternity/sticky-banner`
+
+### testimonial
+
+- **Meteor Effect** (https://ui.aceternity.com/components/meteors) — A group of beams in the background of a container, sort of like meteors. Install: `npx shadcn@latest add @aceternity/meteors`
+
+### testimonials
+
+- **3D Marquee** (https://ui.aceternity.com/components/3d-marquee) — A 3D Marquee effect with grid, good for showcasing testimonials and hero sections Install: `npx shadcn@latest add @aceternity/3d-marquee`
+- **Animated Testimonials** (https://ui.aceternity.com/components/animated-testimonials) — Minimal testimonials sections with image and quote. Install: `npx shadcn@latest add @aceternity/animated-testimonials`
+- **Card Stack** (https://ui.aceternity.com/components/card-stack) — Cards stack on top of each other after some interval. Perfect for showing testimonials. Install: `npx shadcn@latest add @aceternity/card-stack`
+- **Cards** (https://ui.aceternity.com/components/cards-free) — A set of cards that can be used for different use cases Install: `npx shadcn@latest add @aceternity/cards-free`
+- **Infinite Moving Cards** (https://ui.aceternity.com/components/infinite-moving-cards) — A customizable group of cards that move infinitely in a loop. Made with Framer Motion and Tailwind CSS. Install: `npx shadcn@latest add @aceternity/infinite-moving-cards`
+
+### text
+
+- **Canvas Text** (https://ui.aceternity.com/components/canvas-text) — Animated text component with colorful curved lines rendered on canvas, clipped to the text shape. Install: `npx shadcn@latest add @aceternity/canvas-text`
+- **Colourful Text** (https://ui.aceternity.com/components/colourful-text) — A text component with various colours, filter and scale effects. Install: `npx shadcn@latest add @aceternity/colourful-text`
+- **Container Text Flip** (https://ui.aceternity.com/components/container-text-flip) — A container that flips through words, animating the width. Install: `npx shadcn@latest add @aceternity/container-text-flip`
+- **Encrypted Text** (https://ui.aceternity.com/components/encrypted-text) — A text component that reveals the text gradually, gibberish effect. Install: `npx shadcn@latest add @aceternity/encrypted-text`
+- **Flip Words** (https://ui.aceternity.com/components/flip-words) — A component that flips through a list of words Install: `npx shadcn@latest add @aceternity/flip-words`
+- **Hero Highlight** (https://ui.aceternity.com/components/hero-highlight) — A background effect with a text highlight component, perfect for hero sections. Install: `npx shadcn@latest add @aceternity/hero-highlight`
+- **Layout Text Flip** (https://ui.aceternity.com/components/layout-text-flip) — A text flip effect that changes the layout of surrounding text Install: `npx shadcn@latest add @aceternity/layout-text-flip`
+- **Link Preview** (https://ui.aceternity.com/components/link-preview) — Dynamic link previews for your anchor tags Install: `npx shadcn@latest add @aceternity/link-preview`
+- **Pointer Highlight** (https://ui.aceternity.com/components/pointer-highlight) — A component that highlights text when it's in view, with a pointer and border. Install: `npx shadcn@latest add @aceternity/pointer-highlight`
+- **Squiggly Text** (https://ui.aceternity.com/components/squiggly-text) — A squiggly text effect using SVG turbulence and displacement filters, animated with Motion. Install: `npx shadcn@latest add @aceternity/squiggly-text`
+- **Text Flipping Board** (https://ui.aceternity.com/components/text-flipping-board) — A split-flap display component that animates characters with flip transitions, inspired by Vestaboard. Install: `npx shadcn@latest add @aceternity/text-flipping-board`
+- **Text Generate Effect** (https://ui.aceternity.com/components/text-generate-effect) — A cool text effect that fades in text on page load, one by one. Install: `npx shadcn@latest add @aceternity/text-generate-effect`
+- **Text Hover Effect** (https://ui.aceternity.com/components/text-hover-effect) — A text hover effect that animates and outlines gradient on hover, as seen on x.ai Install: `npx shadcn@latest add @aceternity/text-hover-effect`
+- **Text Reveal Card** (https://ui.aceternity.com/components/text-reveal-card) — Mousemove effect to reveal text content at the bottom of the card. Install: `npx shadcn@latest add @aceternity/text-reveal-card`
+- **Typewriter Effect** (https://ui.aceternity.com/components/typewriter-effect) — Text generates as if it is being typed on the screen. Install: `npx shadcn@latest add @aceternity/typewriter-effect`
+
+### tilt
+
+- **Comet Card** (https://ui.aceternity.com/components/comet-card) — A perspective, 3D, Tilt card as seen on Perplexity Comet's website. Install: `npx shadcn@latest add @aceternity/comet-card`
+- **Pixelated Canvas** (https://ui.aceternity.com/components/pixelated-canvas) — Convert any image to a pixelated canvas mouse distortion effects, as seen on Tailwind CSS Website. Install: `npx shadcn@latest add @aceternity/pixelated-canvas`
+
+### tiltable
+
+- **Draggable Card** (https://ui.aceternity.com/components/draggable-card) — A tiltable, draggable card component that jumps on bounds. Install: `npx shadcn@latest add @aceternity/draggable-card`
+
+### tooltip
+
+- **Tooltip Card** (https://ui.aceternity.com/components/tooltip-card) — A tooltip card container that follows mouse pointer when hovered over Install: `npx shadcn@latest add @aceternity/tooltip-card`
+
+### ui
+
+- **Background Beams With Collision** (https://ui.aceternity.com/components/background-beams-with-collision) — Exploding beams in the background Install: `npx shadcn@latest add @aceternity/background-beams-with-collision`
+- **Focus Cards** (https://ui.aceternity.com/components/focus-cards) — Hover over the card to focus on it, blurring the rest of the cards. Install: `npx shadcn@latest add @aceternity/focus-cards`
+
+### utilities
+
+- **Animated Modal** (https://ui.aceternity.com/components/animated-modal) — A customizable, compound modal component with animated transitions Install: `npx shadcn@latest add @aceternity/animated-modal`
+- **Glare Card** (https://ui.aceternity.com/components/glare-card) — A glare effect that happens on hover, as seen on Linear's website Install: `npx shadcn@latest add @aceternity/glare-card`
+- **Link Preview** (https://ui.aceternity.com/components/link-preview) — Dynamic link previews for your anchor tags Install: `npx shadcn@latest add @aceternity/link-preview`
+- **Sidebar** (https://ui.aceternity.com/components/sidebar) — Expandable sidebar that expands on hover, mobile responsive and dark mode support Install: `npx shadcn@latest add @aceternity/sidebar`
+
+### utility
+
+- **Animated Tabs** (https://ui.aceternity.com/components/tabs) — Tabs to switch content, click on a tab to check background animation. Install: `npx shadcn@latest add @aceternity/tabs`
+- **Animated Tooltip** (https://ui.aceternity.com/components/animated-tooltip) — A cool tooltip that reveals on hover, follows mouse pointer Install: `npx shadcn@latest add @aceternity/animated-tooltip`
+- **Floating Navbar** (https://ui.aceternity.com/components/floating-navbar) — A sticky Navbar that hides on scroll, reveals when scrolled up. Install: `npx shadcn@latest add @aceternity/floating-navbar`
+- **Following Pointer** (https://ui.aceternity.com/components/following-pointer) — A custom pointer that follows mouse arrow and animates in pointer and content. Install: `npx shadcn@latest add @aceternity/following-pointer`
+- **Gooey Input** (https://ui.aceternity.com/components/gooey-input) — A search-style input that expands with a gooey SVG filter and shared layout animation Install: `npx shadcn@latest add @aceternity/gooey-input`
+- **Grid and Dot Backgrounds** (https://ui.aceternity.com/components/grid-and-dot-backgrounds) — A simple grid and dots background to make your sections stand out. Install: `npx shadcn@latest add @aceternity/grid-and-dot-backgrounds`
+- **Hover Border Gradient** (https://ui.aceternity.com/components/hover-border-gradient) — A hover effect that expands to the entire container with a gradient border. Install: `npx shadcn@latest add @aceternity/hover-border-gradient`
+- **Infinite Moving Cards** (https://ui.aceternity.com/components/infinite-moving-cards) — A customizable group of cards that move infinitely in a loop. Made with Framer Motion and Tailwind CSS. Install: `npx shadcn@latest add @aceternity/infinite-moving-cards`
+- **Moving Border** (https://ui.aceternity.com/components/moving-border) — A border that moves around the container. Perfect for making your buttons stand out. Install: `npx shadcn@latest add @aceternity/moving-border`
+- **Multi Step Loader** (https://ui.aceternity.com/components/multi-step-loader) — A step loader for screens that take a lot of time to load. Install: `npx shadcn@latest add @aceternity/multi-step-loader`
+- **Navbar Menu** (https://ui.aceternity.com/components/navbar-menu) — A navbar menu that animates its children on hover, makes a beautiful bignav Install: `npx shadcn@latest add @aceternity/navbar-menu`
+- **Placeholders And Vanish Input** (https://ui.aceternity.com/components/placeholders-and-vanish-input) — Sliding in placeholders and vanish effect of input on submit Install: `npx shadcn@latest add @aceternity/placeholders-and-vanish-input`
+- **Signup Form** (https://ui.aceternity.com/components/signup-form) — A customizable form built on top of shadcn's input and label, with a touch of framer motion Install: `npx shadcn@latest add @aceternity/signup-form`
+- **Tailwind CSS buttons** (https://ui.aceternity.com/components/tailwindcss-buttons) — A curated list of awesome, battle tested Tailwind CSS buttons components Install: `npx shadcn@latest add @aceternity/tailwindcss-buttons`
+- **Tracing Beam** (https://ui.aceternity.com/components/tracing-beam) — A Beam that follows the path of an SVG as the user scrolls. Adjusts beam length with scroll speed. Install: `npx shadcn@latest add @aceternity/tracing-beam`
+
+## Premium blocks (180 blocks)
+
+Included with All-Access. Each block is a full page section built with Next.js, Tailwind CSS and Motion.
+
+### Backgrounds
+
+- **Background Dots** (https://ui.aceternity.com/blocks/backgrounds/background-with-dots) — A CSS-only dotted pattern background using radial gradients. Lightweight alternative to SVG or canvas-based patterns with automatic dark mode support.
+- **Background Dots Masked** (https://ui.aceternity.com/blocks/backgrounds/background-with-dots-masked) — A dotted pattern with a radial CSS mask that fades the pattern from center to edges. Creates a spotlight effect that draws attention to centered content.
+- **Background Dots Masked Vertical** (https://ui.aceternity.com/blocks/backgrounds/background-with-dots-masked-vertical) — A dotted pattern with a linear vertical mask that fades from top to bottom. Ideal for hero sections where content continues below the fold.
+- **Background Grid with Dots** (https://ui.aceternity.com/blocks/backgrounds/background-grid-with-dots) — An SVG-based grid pattern with dots at intersections. Features customizable grid size, dot radius, and colors with automatic dark mode support and radial fade effect.
+- **Background Grid with Dots and Animations** (https://ui.aceternity.com/blocks/backgrounds/background-grid-with-dots-and-animations) — An interactive SVG grid background with line distortion and dot movement effects on mouse hover. Features performance-optimized animations using requestAnimationFrame, customizable highlight colors, and automatic dark mode support.
+- **Background Lines** (https://ui.aceternity.com/blocks/backgrounds/background-with-lines) — An animated background with shooting star trails and pulsing concentric circles. Uses SVG animations for the stars and Framer Motion for the breathing circle effect.
+- **Background Noise Grid** (https://ui.aceternity.com/blocks/backgrounds/background-with-noise-grid) — Vertical strips with gradient fills and a noise texture overlay create a subtle layered background. Dynamically calculates strip count based on viewport width.
+- **Background With Full Video** (https://ui.aceternity.com/blocks/backgrounds/background-with-full-video) — A full-screen video background that fades in on load with a radial mask in dark mode. Pairs with animated colorful text that cycles through colors on an interval.
+- **Background With Shooting Stars** (https://ui.aceternity.com/blocks/backgrounds/background-with-shooting-stars) — An animated background with shooting star trails and pulsing concentric circles. Uses SVG animations for the stars and Framer Motion for the breathing circle effect.
+- **Background With Skewed Lines** (https://ui.aceternity.com/blocks/backgrounds/background-with-skewed-lines) — Diagonal line pattern using an SVG pattern element with a linear mask that fades the center. Lightweight and resolution-independent.
+- **Background With Skewed Rectangles** (https://ui.aceternity.com/blocks/backgrounds/background-with-skewed-rectangles) — A 3D perspective grid pattern with rectangles rotated on the X-axis. Two layers create a symmetrical effect with masks fading in opposite directions.
+
+### Bento Grids
+
+- **Bento Grid Illustrations** (https://ui.aceternity.com/blocks/bento-grids/bento-grid-illustrations) — A minimal bento grid showcasing device illustrations with MacBook, iPhone, iPad, and Dynamic Island. Features hover animations, blur fade-in content, and compound components.
+- **Bento Grid With Skeletons** (https://ui.aceternity.com/blocks/bento-grids/bento-grid-with-skeletons) — A six-card bento grid where each card contains an animated skeleton illustration. Features chat messages, video call grids, mentorship marquees, and floating avatars.
+- **Feature Grid With Illustrations And Bento** (https://ui.aceternity.com/blocks/bento-grids/feature-grid-with-illustrations-and-bento) — A six-card bento grid with detailed animated illustrations: a keyboard shortcut, app detection, name matching, tasks, a privacy diagram, and search.
+- **Masonry Bento Grid With Images** (https://ui.aceternity.com/blocks/bento-grids/masonry-bento-grid-with-images) — A four-column masonry layout of linked image cards with hover overlays. Each card reveals the link URL on hover with a dark overlay transition.
+- **Symmetric Bento Grid** (https://ui.aceternity.com/blocks/bento-grids/symmetric-bento-grid) — A five-card asymmetric bento layout with animated SVG connection paths, a rotating 3D globe using Cobe, and deployment workflow visualization.
+- **Three Column Bento Grid** (https://ui.aceternity.com/blocks/bento-grids/three-column-bento-grid) — A responsive bento grid with animated skeletons including avatar scoring, progress tracking timelines, video interview previews, and drag-and-drop file upload.
+- **Three Columns With Images** (https://ui.aceternity.com/blocks/bento-grids/three-column-with-images) — A five-card bento grid using product screenshots instead of animated skeletons. Cards animate on hover with title and description text shifting horizontally.
+
+### Blog Content Sections
+
+- **Blog Content Centered** (https://ui.aceternity.com/blocks/blog-content-sections/blog-content-centered) — A centered single-column blog post layout with a large hero image, author byline, and Markdown content rendered through react-markdown.
+- **Blog Content With TOC** (https://ui.aceternity.com/blocks/blog-content-sections/blog-content-with-toc) — A two-column blog layout with a sticky table of contents sidebar. The TOC includes hover animations and collapses into a floating button on mobile.
+
+### Blog Sections
+
+- **Blog With Categories** (https://ui.aceternity.com/blocks/blog-sections/blog-with-categories) — A changelog-friendly blog layout: three large featured posts with category, excerpt, and author row, plus a tighter four-column grid for the rest.
+- **Blog With Search** (https://ui.aceternity.com/blocks/blog-sections/blog-with-search) — A blog listing page with fuzzy search filtering. Features a large featured post card and a filterable list of additional posts below.
+- **Blog With Search Magazine** (https://ui.aceternity.com/blocks/blog-sections/blog-with-search-magazine) — An editorial-style blog listing with a full-width cover story, fuzzy search, and a responsive card grid for the rest of your posts.
+- **Simple Blog With Grid** (https://ui.aceternity.com/blocks/blog-sections/simple-blog-with-grid) — A blog listing page with a header section over a grid pattern background and a three-column card grid for posts. Cards scale on hover.
+
+### Cards
+
+- **Background Overlay Card** (https://ui.aceternity.com/blocks/cards/background-overlay-card) — A card with a static background image that swaps to an animated GIF on hover. Includes a dark overlay that appears during the hover state.
+- **Content Card** (https://ui.aceternity.com/blocks/cards/content-card) — A blog-style card with author avatar, name, read time, and content overlaid on a background image. The overlay darkens on hover.
+- **Expandable Card On Click** (https://ui.aceternity.com/blocks/cards/expandable-card-on-click) — A grid of cards that expand into a modal overlay when clicked. Uses Framer Motion's layoutId for smooth shared element transitions.
+- **Feature Block Animated Card** (https://ui.aceternity.com/blocks/cards/feature-block-animated-card) — A card showcasing AI/ML tool logos with staggered bounce animations. Includes a glowing beam with sparkle particles that animates vertically.
+
+### Contact Sections
+
+- **Contact Form Grid With Details** (https://ui.aceternity.com/blocks/contact-sections/contact-form-grid-with-details) — A two-column contact section with a 3D tilted world map on the left and a full contact form on the right. Includes animated location pins and a subtle grid background.
+- **Contact Section With Shader** (https://ui.aceternity.com/blocks/contact-sections/contact-section-with-shader) — A two-column contact section with an animated WebGL shader background and rotating testimonial cards. The shader features flowing gradients with customizable colors.
+- **Contact With Dither Image** (https://ui.aceternity.com/blocks/contact-sections/contact-with-dither-image) — A two-column contact section with a dithered landscape on one side, a short testimonial card, and a clean name, email, and message form on the other. Works when you want social proof and a form without heavy animation.
+- **Simple Centered Contact Form** (https://ui.aceternity.com/blocks/contact-sections/simple-centered-contact-form) — A compact centered contact form card with name, email, company, and message fields. Includes social media links at the bottom.
+
+### CTA Sections
+
+- **CTA Centered Masonry Gallery** (https://ui.aceternity.com/blocks/cta-sections/cta-centered-masonry-gallery) — A centered call-to-action with headline, supporting text, and a primary button, plus a symmetric three-column masonry image gallery below.
+- **CTA With Background Noise** (https://ui.aceternity.com/blocks/cta-sections/cta-with-background-noise) — A dark two-column CTA section with noise texture overlay, gradient border lines, and product images. Ideal for high-contrast conversion sections.
+- **CTA With Centered Text** (https://ui.aceternity.com/blocks/cta-sections/cta-with-centered-text) — A rounded call-to-action with a tiled product-shot backdrop, side-faded edges, and a narrow centered column for the headline plus primary and outline buttons—suited to signups, docs links, or a quiet conversion band on AI or SaaS pages.
+- **CTA With Dashed Grid Lines** (https://ui.aceternity.com/blocks/cta-sections/cta-with-dashed-grid-lines) — A three-column CTA layout with dashed border lines extending beyond the container edges. Includes a testimonial quote in the right column.
+- **CTA With Masonry Images** (https://ui.aceternity.com/blocks/cta-sections/cta-with-masonry-images) — A two-column CTA section with headline, subtext, and a blue brand button on the left, paired with a two-column masonry image layout on the right.
+- **CTA With Right Gradient And Animation** (https://ui.aceternity.com/blocks/cta-sections/cta-with-right-gradient-and-animation) — A two-column recruiting CTA with copy and pill buttons on the left, and a team sitting in a ring of tool logos on a pastel rounded square on the right.
+- **Simple CTA With Images** (https://ui.aceternity.com/blocks/cta-sections/simple-cta-with-images) — A horizontal CTA section with overlapping user avatars, star ratings, and a call-to-action button. Avatars show tooltips on hover with spring-based animations.
+
+### Empty States
+
+- **Empty State Vertical Grid** (https://ui.aceternity.com/blocks/empty-states/empty-state-vertical-grid) — A quiet full-screen empty state with a subtle dot grid and three large cards so people can pick a path instead of staring at a blank page.
+- **Empty State With Cards** (https://ui.aceternity.com/blocks/empty-states/empty-state-with-cards) — An empty project view framed by light grid lines, primary and secondary actions, and three tilted template previews that invite a click.
+- **Empty State With Draggable Cards** (https://ui.aceternity.com/blocks/empty-states/empty-state-with-draggable-cards) — A swipeable deck with profile-style cards, then a headline and actions—handy when the empty moment is about choosing people or records.
+- **Empty State With Pictures** (https://ui.aceternity.com/blocks/empty-states/empty-state-with-pictures) — Stacked framed photos, a short headline, and two buttons—built for creative or profile products that need warmth before the first item exists.
+- **Empty State With Stacked Cards** (https://ui.aceternity.com/blocks/empty-states/empty-state-with-stacked-cards) — A padded neutral panel with three overlapping preview tiles and standard create-or-docs actions—compact enough for modals or settings-style shells.
+
+### FAQs
+
+- **FAQs With Dashed Lines** (https://ui.aceternity.com/blocks/faqs/faqs-with-dashed-lines) — An accordion-style FAQ component with animated dashed grid lines that appear on active items. Features grouped sections with smooth expand/collapse transitions.
+- **FAQs With Grid** (https://ui.aceternity.com/blocks/faqs/faqs-with-grid) — A three-column masonry-style FAQ layout where questions and answers display as static cards. No accordion interaction, all content visible at once.
+- **Frequently Asked Questions Accordion** (https://ui.aceternity.com/blocks/faqs/frequently-asked-questions-with-accordion) — A two-column FAQ layout with an animated accordion on the right. Plus/minus icons rotate and scale with CSS transitions when items expand or collapse.
+- **Simple FAQs With Background** (https://ui.aceternity.com/blocks/faqs/simple-faqs-with-background) — A centered FAQ section with chevron-based accordions. Each item has a subtle background that appears when expanded for visual feedback.
+
+### Feature Sections
+
+- **Dither Features** (https://ui.aceternity.com/blocks/feature-sections/dither-features) — A feature section with a dithered image backdrop, tabbed content cards, and chat conversation skeletons for each feature.
+- **Feature Grid With Minimal Illustrations** (https://ui.aceternity.com/blocks/feature-sections/feature-grid-with-minimal-illustrations) — A three-column feature grid with minimal laptop, phone, and tablet illustrations. Each device opens and fills with content as it scrolls into view.
+- **Feature Grid With Motion And Tabs** (https://ui.aceternity.com/blocks/feature-sections/feature-grid-with-motion-and-tabs) — A three-step feature grid that works like tabs. Steps advance on a timer with a progress bar, and each step has its own animated visual.
+- **Feature Section Bento Skeletons** (https://ui.aceternity.com/blocks/feature-sections/feature-section-bento-skeletons) — A bento grid feature section with 4 animated skeleton cards showcasing messaging, file sharing, team collaboration, and testimonials.
+- **Feature Section With Centered Skeleton** (https://ui.aceternity.com/blocks/feature-sections/feature-section-with-centered-skeleton) — A three-column feature section with icon-led copy on the left and right, and a centered showcase panel with backdrop imagery and an animated scan-and-reveal treatment.
+- **Feature Section With Horizontal Skeletons** (https://ui.aceternity.com/blocks/feature-sections/feature-section-with-horizontal-skeletons) — A horizontal feature section with device skeletons (iPhone, MacBook, iPad), animated beam paths, Dynamic Island interactions, and compliance cards.
+- **Feature Section With Terminal** (https://ui.aceternity.com/blocks/feature-sections/feature-section-with-terminal) — A feature section with an animated terminal on the left and expandable feature tabs on the right. Each tab shows different CLI commands with realistic terminal output.
+- **Feature Section With Vertical Grids** (https://ui.aceternity.com/blocks/feature-sections/feature-section-with-vertical-grids) — A feature section with a vertical grid layout featuring animated skeletons including login form, world map, chat conversation, and keyboard illustrations.
+- **Feature With Inline Icons** (https://ui.aceternity.com/blocks/feature-sections/feature-with-inline-icons) — A minimal feature grid displaying icons inline with text. Features responsive separators that adapt to 1, 2, or 3 column layouts with clean border lines between items.
+- **Features Bento Grid With Skeletons** (https://ui.aceternity.com/blocks/feature-sections/bento-grid) — A four-panel bento grid layout with animated skeleton illustrations including a video embed, image gallery, and 3D globe visualization using Cobe.
+- **Features Grid With Large Skeletons** (https://ui.aceternity.com/blocks/feature-sections/features-grid-with-large-skeletons) — A three-column feature grid with tall cards displaying animated skeleton illustrations. Each card shows a workflow or status visualization with 3D perspective effects.
+- **Features Section With Card Gradient** (https://ui.aceternity.com/blocks/feature-sections/simple-with-card-gradient) — A responsive feature grid with eight cards. Each card has a gradient background and an SVG grid pattern with randomly positioned highlighted squares.
+- **Features Section With Hover Effects** (https://ui.aceternity.com/blocks/feature-sections/simple-with-hover-effects) — An eight-card feature grid with icons and animated hover states. A vertical accent bar and gradient overlay appear on hover.
+- **Features Section With Skeletons** (https://ui.aceternity.com/blocks/feature-sections/features-section-with-skeletons) — A features section with animated skeleton loaders that bring each card to life. Each card shows a different feature with a unique skeleton animation.
+- **Features With Accordion And Image** (https://ui.aceternity.com/blocks/feature-sections/features-with-accordion-and-image) — A two-column feature section with a serif headline, CTAs, an accordion feature list, and a cinematic image panel with floating assistant UI.
+- **Features With Hover And Text Animation** (https://ui.aceternity.com/blocks/feature-sections/features-with-hover-and-text-animation) — A feature grid with thin dividers between cells. Hovering a card updates the headline with a Motion swap and tints the active row so each audience reads clearly.
+- **Features With Isometric Blocks** (https://ui.aceternity.com/blocks/feature-sections/features-with-isometric-blocks) — Feature cards with animated isometric box illustrations. Each card showcases a different animation direction on hover - left, right, or top face movement.
+- **Features With Square Edges** (https://ui.aceternity.com/blocks/feature-sections/features-with-square-edges) — A three-column feature section with square-edged cards, corner crop marks, and layered AI note-taking UI mockups.
+- **Features With Stacked Isometric Boxes** (https://ui.aceternity.com/blocks/feature-sections/features-with-stacked-isometric-boxes) — A feature section with stacked isometric boxes that animate based on active selection. Features autoplay with 5-second intervals and click-to-select functionality.
+- **Features With Sticky Scroll** (https://ui.aceternity.com/blocks/feature-sections/features-with-sticky-scroll) — A scroll-driven feature section where content sticks to the viewport. The background color transitions between features as users scroll.
+- **Multi Illustration Bento** (https://ui.aceternity.com/blocks/feature-sections/multi-illustration-bento) — A bento grid layout with 3 feature cards showcasing world map, keyboard, and login form illustrations with testimonials.
+- **Multi Level Features With Illustrations** (https://ui.aceternity.com/blocks/feature-sections/multi-level-features-with-illustrations) — A sticky-scroll feature section with numbered nav, landscape illustration panels, and light/dark support.
+- **Multicolored Features** (https://ui.aceternity.com/blocks/feature-sections/multicolored-features) — A bordered feature section that highlights YouTube creator coverage with multicolor gradient rows, thumbnails, and an inline modal for playback.
+- **Three Column Features With Image** (https://ui.aceternity.com/blocks/feature-sections/three-column-features-with-image) — A three-column feature section with a pipeline UI card, lifestyle image, and CRM activity timeline—built for sales and AI product pages.
+
+### Footers
+
+- **Centered Footer With Logo** (https://ui.aceternity.com/blocks/footers/centered-with-logo) — A minimal footer with centered logo, horizontal navigation links, and social media icons. A horizontal grid line divides navigation from the copyright section.
+- **Footer With Big Text** (https://ui.aceternity.com/blocks/footers/footer-with-big-text) — A comprehensive footer with multiple link categories, social icons, and a large animated brand name at the bottom with a gradient fade effect.
+- **Footer With Grid** (https://ui.aceternity.com/blocks/footers/huge-footer-with-grid) — A comprehensive footer with logo section, four-column link grid, newsletter signup, and social icons. Built for sites with extensive navigation needs.
+- **Simple Footer With Four Grids** (https://ui.aceternity.com/blocks/footers/simple-footer-with-four-grids) — A clean footer layout with four link columns: pages, socials, legal, and account. Includes a logo, tagline, and copyright notice at the bottom.
+
+### Hero Sections
+
+- **Centered Around Testimonials** (https://ui.aceternity.com/blocks/hero-sections/centered-around-testimonials) — A unique hero section that places a customer testimonial front and center alongside your headline. Combines social proof with your value proposition for maximum trust and conversion. Perfect for established products, B2B SaaS, and service-based businesses.
+- **Full Background Image With Text** (https://ui.aceternity.com/blocks/hero-sections/full-background-image-with-text) — An immersive hero section with a full-bleed background image and overlaid text content. Creates a cinematic, high-impact first impression. Ideal for creative agencies, portfolio websites, event pages, and brands that want to lead with striking photography.
+- **Hero Section With Beams and Grid** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-beams-and-grid) — A mesmerizing hero section featuring animated light beams and a subtle grid pattern background. Creates an ethereal, high-tech atmosphere perfect for AI products, developer tools, and technology companies that want to convey innovation and sophistication.
+- **Hero Section With Dither Background** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-dither-background) — A hero with a canvas dither treatment on a background photo, fixed nav, headline, CTAs, logo marquee, and a framed product shot. Good for SaaS or AI landing pages that want a retro, graphic look instead of a flat image.
+- **Hero Section With Flickering Lights** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-flickering-lights) — A cinematic hero section with animated flickering light bulbs on a steel grid. The bulbs power up one by one with realistic flicker effects, occasionally fusing and coming back to life. Perfect for industrial, tech, or creative brands wanting a dramatic, high-impact introduction.
+- **Hero Section With Hub** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-hub) — A centered SaaS hero with pill CTAs and a hub-and-spoke tool diagram. Beams travel the bus lines around one desk.
+- **Hero Section With Images Grid and Navbar** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-images-grid-and-navbar) — A complete hero section featuring an integrated navigation bar and a dynamic images grid with marquee animation. Combines a full navigation experience with a visually rich image gallery. Ideal for creative portfolios, e-commerce storefronts, and media-rich landing pages.
+- **Hero Section With Infinite Scroll Cards** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-infinite-scroll-cards) — A dynamic hero section featuring infinitely scrolling card elements that create continuous visual movement. The auto-scrolling cards showcase content, features, or testimonials in a flowing stream. Perfect for social platforms, marketplaces, content-heavy products, and any site that wants to convey abundance and activity.
+- **Hero Section With Mesh Gradient** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-mesh-gradient) — A modern hero section featuring a vibrant mesh gradient background with smooth color transitions. Includes centered content with headline, description, and call-to-action buttons.
+- **Hero Section With Mousemove** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-mousemove) — A hero section with interactive hover highlighting that displays element dimensions. Features a sliding number animation, horizontal masonry grid backdrop, and smooth Framer Motion transitions as you hover between elements.
+- **Hero Section With Multi Color Background** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-multi-color-background) — A vibrant hero section featuring a multi-color animated background that shifts between color palettes. The dynamic color transitions create a lively, attention-grabbing atmosphere. Perfect for creative products, design tools, marketing agencies, and brands that want to convey energy and creativity.
+- **Hero Section With Noise Background** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-noise-background) — A textured hero section with a subtle noise overlay that adds depth and a tactile quality to your landing page. The grain texture creates a premium, editorial feel. Perfect for design agencies, creative studios, premium brands, and any website that values aesthetic refinement.
+- **Hero Section With Shadow and Scales** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-shadow-and-scales) — A full-height hero with a landscape image, ruler-style borders, and a simple nav. Works on mobile with a collapsible menu. Good for AI, audio, or SaaS landing pages that want a crisp, editorial first screen.
+- **Hero Section With Tabs** (https://ui.aceternity.com/blocks/hero-sections/hero-section-with-tabs) — A modern hero section featuring an interactive tabbed browser window preview. Tabs auto-rotate through different content sections with smooth animations, showcasing multiple features or pages in a single component. Perfect for SaaS, portfolios, and product showcases.
+- **Hero With Background And Navbar** (https://ui.aceternity.com/blocks/hero-sections/hero-with-background-and-navbar) — A sleek hero section with an animated background effect and an integrated navigation bar. The combined layout creates a seamless visual experience from the very first viewport. Ideal for SaaS platforms, tech startups, and product websites that need both navigation and visual impact in one cohesive block.
+- **Hero With Centered Image** (https://ui.aceternity.com/blocks/hero-sections/hero-with-centered-image) — A stunning hero section with a large centered product image, bold headline, and dual call-to-action buttons. Perfect for SaaS landing pages, product launches, and startup websites that need a visual-first approach to capture attention above the fold.
+- **Hero With Chat Input** (https://ui.aceternity.com/blocks/hero-sections/hero-with-chat-input) — A hero with a top nav, a large prompt-style textarea with attach and send actions, diagonal stripe borders, and a three-up row of thumbnails and credits—suited to AI builders, prompts, or product homepages that open with a single question.
+- **Hero With Dither Shader** (https://ui.aceternity.com/blocks/hero-sections/hero-with-dither-shader) — A hero with rail guides, hatch scale bands, an animated Bayer dither panel behind a product screenshot, and a logo rail. Built for SaaS and infra landing pages that want a technical, print-like fold.
+- **Hero With Fluid Gradient And Planner** (https://ui.aceternity.com/blocks/hero-sections/hero-with-fluid-gradient-and-planner) — A hero with a drifting blue fluid gradient, a two-mode prompt input, and a looping partner logo marquee. Works in light and dark mode.
+- **Hero With Framed Image And Logos** (https://ui.aceternity.com/blocks/hero-sections/hero-with-framed-image-and-logos) — A hero with rail guides, hatch scale bands, L-corner frames, split copy and image, and a logo rail. Built for VC, fund, and advisory landing pages that want a print-like fold.
+- **Hero With Image and Scales** (https://ui.aceternity.com/blocks/hero-sections/hero-with-image-and-scales) — A modern hero section with a product image that reveals animated scales on mouse hover. The interactive reveal effect creates curiosity and engagement. Built with Tailwind blue-500 color palette. Perfect for tech products, SaaS dashboards, and developer tools that want to showcase depth behind the interface.
+- **Minimal Hero Section With Parallax Images** (https://ui.aceternity.com/blocks/hero-sections/minimal-hero-section-with-parallax-images) — A clean, minimal hero section where stacked images create a parallax depth effect on scroll. The layered image composition adds visual sophistication without overwhelming the content. Ideal for portfolios, creative agencies, and product websites that value elegant simplicity.
+- **Minimal Hero With Huge Interactions** (https://ui.aceternity.com/blocks/hero-sections/minimal-hero-with-huge-interactions) — A minimal hero with a navbar, two CTAs, and a large product window. Tabs switch the window between five views with a blur crossfade.
+- **Modern Hero With Gradients** (https://ui.aceternity.com/blocks/hero-sections/modern-hero-with-gradients) — A visually striking hero section featuring layered gradient backgrounds, bold typography, and animated elements. Designed for modern SaaS websites, AI products, and tech startups that want to make a bold first impression with vibrant colors and depth.
+- **Playful Hero Section** (https://ui.aceternity.com/blocks/hero-sections/playful-hero-section) — A fun, energetic hero section with hand-drawn highlight annotations and bouncy animations. Uses react-rough-notation for sketch-style word underlining and circling. Perfect for creative agencies, educational platforms, personal brands, and startups that want to feel approachable and human.
+- **Two Column With Image** (https://ui.aceternity.com/blocks/hero-sections/two-column-with-image) — A classic two-column hero layout with compelling copy on one side and a high-impact image on the other. Ideal for product-led landing pages, marketing websites, and any page that needs to balance visual storytelling with persuasive text above the fold.
+
+### Illustrations
+
+- **Animated Beam Path Illustration** (https://ui.aceternity.com/blocks/illustrations/animated-beam-path-illustration) — An animated beam path illustration featuring a glowing gradient beam that travels along a dotted SVG path. Perfect for showcasing data flow, connections, or visual transitions in feature sections and bento grids.
+- **Box Illustration** (https://ui.aceternity.com/blocks/illustrations/box-illustration) — An interactive box illustration with popout cards that animate on hover. Features a Vercel deployment card and a testimonial card that pop out with spring physics.
+- **Chat Conversation** (https://ui.aceternity.com/blocks/illustrations/chat-conversation) — An animated chat interface with message bubbles and avatars. Messages appear sequentially with staggered animations when the component comes into view.
+- **Collaborative Cursors** (https://ui.aceternity.com/blocks/illustrations/collaborative-cursors) — Animated multiplayer cursors with name tags drawing selection boxes over a code file. Simulates real-time collaboration with staggered cursor movements.
+- **Draggable Cards** (https://ui.aceternity.com/blocks/illustrations/draggable-cards) — A swipeable stack of profile cards with horizontal drag, rotation tied to offset, and spring fling so dismissed cards cycle to the back of the deck.
+- **Dynamic Island** (https://ui.aceternity.com/blocks/illustrations/dynamic-island) — An animated Dynamic Island component with customizable states. Features smooth spring animations cycling through idle, loading, and processed states with configurable text and timing.
+- **Flipping Images With Bar** (https://ui.aceternity.com/blocks/illustrations/flipping-images-with-bar) — An animated image carousel that reveals colors with a scanning bar effect. Images start grayscale and transition to full color as a glowing bar sweeps across with trailing sparkles.
+- **Folder With Files** (https://ui.aceternity.com/blocks/illustrations/folder-with-files) — An interactive folder illustration with files that fan out on hover. Includes animated pulse beams and a server component for file transfer visualization.
+- **Inline Icon Illustration** (https://ui.aceternity.com/blocks/illustrations/inline-icon-illustration) — A compact marketing snippet: headline with an inline logo chip, gentle periodic motion, and a dashed curved connector branching into icon-led callouts.
+- **iPad Illustration** (https://ui.aceternity.com/blocks/illustrations/ipad-illustration) — An interactive iPad illustration with Dynamic Island animation. Features volume buttons, power button, blur fade-in content, AirPods connection sequence, and smooth spring physics.
+- **iPhone Illustration** (https://ui.aceternity.com/blocks/illustrations/iphone-illustration) — An interactive iPhone illustration with Dynamic Island animation. Features side buttons, blur fade-in content, AirPods connection sequence, and smooth spring physics.
+- **Isometric Box** (https://ui.aceternity.com/blocks/illustrations/isometric-box) — A minimal isometric box illustration with smooth hover animations. Features rounded corners on the top face and subtle dashed vertical lines for depth.
+- **Keyboard Illustration** (https://ui.aceternity.com/blocks/illustrations/keyboard-illustration) — A compact Mac keyboard illustration with blue hover glow effects. Features size variants (sm, md, lg, xl) for flexible placement in cards, bento grids, and feature sections.
+- **MacBook Illustration** (https://ui.aceternity.com/blocks/illustrations/macbook-illustration) — An interactive MacBook illustration with lid open animation and Dynamic Island. Features blur fade-in content, AirPods connection animation, and smooth spring physics.
+- **MacBook Illustration With Icons** (https://ui.aceternity.com/blocks/illustrations/macbook-illustration-with-icons) — A MacBook illustration with floating AI company icons that pop out on hover. Features staggered spring animations and 3D lid rotation.
+- **Meeting Illustration** (https://ui.aceternity.com/blocks/illustrations/meeting-illustration) — A compact meeting confirmation card with inline time highlight, speaker row, and join or reschedule actions—good for calendar and scheduling stories in hero or feature sections.
+- **Rotating Tabs With Text** (https://ui.aceternity.com/blocks/illustrations/rotating-tabs-with-text) — Stacked notification cards that rotate automatically every 3 seconds. Cards stack with depth effect and smooth spring animations using motion/react.
+- **Slider Illustration** (https://ui.aceternity.com/blocks/illustrations/slider-illustration) — Short pricing copy with an inline brand chip, soft text highlights, and an interactive slider that shows a floating image preview while you drag across segments.
+- **Testimonials Hover Illustration** (https://ui.aceternity.com/blocks/illustrations/testimonials-hover-illustration) — An interactive testimonial card grid with hover animations. Cards lift and rotate on hover, revealing a diagonal stripe pattern beneath each card.
+- **Text Highlight Illustration** (https://ui.aceternity.com/blocks/illustrations/text-highlight-illustration) — A paragraph snippet with an inline highlight wipe, floating rich-text style toolbar, and Ask AI chip—motion-led, good for AI editing or selection UX stories.
+- **Uptime Status Illustration** (https://ui.aceternity.com/blocks/illustrations/uptime-status-illustration) — An interactive uptime status bar illustration with hover effects. Each bar represents a day's status and reveals detailed information on hover with smooth animations.
+- **World Map Illustration** (https://ui.aceternity.com/blocks/illustrations/world-map-illustration) — An interactive dotted world map with customizable location pins featuring user avatars. Uses Mercator projection for accurate positioning and supports dynamic pin placement via latitude/longitude coordinates.
+
+### Login and Signup Sections
+
+- **Login Form With Gradient** (https://ui.aceternity.com/blocks/login-and-signup-sections/login-form-with-gradient) — A two-column login page with form fields on the left and an animated gradient illustration on the right. Includes social login buttons and custom input styling.
+- **Login Signup Minimal** (https://ui.aceternity.com/blocks/login-and-signup-sections/login-signup-minimal) — A clean and minimal login form with email and password fields, Google and Apple social login buttons, and a dashed divider. Features subtle input styling with ring borders and full dark mode support.
+- **Login With Socials And Email** (https://ui.aceternity.com/blocks/login-and-signup-sections/login-with-socials-and-email) — A centered login form with GitHub and Google buttons at top, and an animated email input that reveals on click. Features corner-expanding hover effects on the submit button.
+- **Premium Auth Split** (https://ui.aceternity.com/blocks/login-and-signup-sections/premium-auth-split) — A full-screen split authentication layout with a real-time WebGL raymarched torus shader on the left panel and a clean sign-in form on the right. Features Google OAuth, email input, and dark mode support.
+- **Registration Form With Images** (https://ui.aceternity.com/blocks/login-and-signup-sections/registration-form-with-images) — A split-screen registration page with form fields on the left and social proof testimonials on the right. Features overlapping user avatars and decorative grid lines.
+- **Simple Login With Grid Lines** (https://ui.aceternity.com/blocks/login-and-signup-sections/simple-login-with-grid-lines) — A clean login form with decorative dashed grid lines forming a border around the form. Features email and password inputs with subtle shadow and ring styling, plus a gradient submit button.
+
+### Logo Clouds
+
+- **Logo Cloud Marquee** (https://ui.aceternity.com/blocks/logo-clouds/logo-cloud-marquee) — A dual-row marquee logo cloud with opposite scroll directions. Uses react-fast-marquee with pause-on-hover and edge fade masks.
+- **Logo Cloud Multiple Rows** (https://ui.aceternity.com/blocks/logo-clouds/logo-cloud-multiple-rows) — Four rows of logos mixed with empty tiles, scrolling in opposite directions with a left-right fade. Built for a bigger “tools these teams already use” band.
+- **Logo Cloud With Blur Animation** (https://ui.aceternity.com/blocks/logo-clouds/logo-cloud-with-blur-animation) — A logo grid with scroll-triggered entrance animations. Logos fade in from above with blur that clears as they enter the viewport.
+- **Logo Cloud With Swap Animation** (https://ui.aceternity.com/blocks/logo-clouds/logo-cloud-with-swap-animation) — A logo cloud with automatic rotation. Displays 10 logos in a 5x2 grid that swap every 3 seconds with horizontal motion and blur effects.
+- **Logos With Blur Flip** (https://ui.aceternity.com/blocks/logo-clouds/logos-with-blur-flip) — An auto-rotating logo cloud where logos flip in with blur and fade animations. Logos cycle through sets on a 3-second interval.
+- **Single Row Logo Cloud** (https://ui.aceternity.com/blocks/logo-clouds/single-row-logo-cloud) — A single-line “trusted by” strip with a heading and five logos that alternate between two sets every two seconds, with staggered blur and slide motion. Stacks cleanly on smaller screens.
+- **Spotlight Logo Cloud** (https://ui.aceternity.com/blocks/logo-clouds/spotlight-logo-cloud) — A static grid of logos with an ambient color spotlight effect in the background. Radial gradients create a soft, glowing atmosphere.
+
+### Navbars
+
+- **Navbar Classic** (https://ui.aceternity.com/blocks/navbars/navbar-classic) — A traditional header layout with logo, horizontal nav links, search input, and CTA button. Clean and familiar navigation pattern.
+- **Navbar Dark Shadow** (https://ui.aceternity.com/blocks/navbars/navbar-dark-shadow) — A dark navbar with deep ridge and groove shadows, dropdown mega menu with a 3-column grid layout including a blog panel, and full light/dark mode support.
+- **Navbar Mega** (https://ui.aceternity.com/blocks/navbars/navbar-mega) — A mega menu navbar with large dropdown panels containing categorized links. Products and Resources sections display in a two-column grid.
+- **Navbar Pill** (https://ui.aceternity.com/blocks/navbars/navbar-pill) — A navigation bar with pill-style tabs that highlight the active link. The centered nav sits inside a rounded container with backdrop blur.
+- **Navbar Underline** (https://ui.aceternity.com/blocks/navbars/navbar-underline) — A navigation bar with underline indicators for active and hover states. A thin line appears below the selected link.
+- **Navbar With Children** (https://ui.aceternity.com/blocks/navbars/navbar-with-children) — A navbar with dropdown menus that reveal on hover. Dropdowns can contain links, product cards with images, or nested navigation.
+- **Simple Navbar With Hover Effects** (https://ui.aceternity.com/blocks/navbars/simple-navbar-with-hover-effects) — A rounded pill-style navbar with sliding background hover effects on nav items. Uses layoutId for smooth animated transitions between hovered states.
+
+### Pricing Sections
+
+- **Pricing Minimal** (https://ui.aceternity.com/blocks/pricing-sections/pricing-minimal) — A clean minimal pricing component with three tiers, dashed grid line accents on the featured card, and additional features section with divider.
+- **Pricing Page With Featured And Enterprise** (https://ui.aceternity.com/blocks/pricing-sections/pricing-page-with-featured-and-enterprise) — A complete pricing page with three tiers plus a separate enterprise card. Features discounted pricing display and comprehensive feature lists.
+- **Pricing With Header and Icons** (https://ui.aceternity.com/blocks/pricing-sections/pricing-with-header-and-icons) — Data-driven pricing section with three tiers, featured plan styling, checkmark icons, and full dark mode support. Plans are defined as a typed array for easy customization.
+- **Pricing With Icons** (https://ui.aceternity.com/blocks/pricing-sections/pricing-with-icons) — Three pricing cards with a colorful icon on each limit row, a Popular badge on the middle plan, and a short footnote under the grid.
+- **Pricing With Switch** (https://ui.aceternity.com/blocks/pricing-sections/pricing-with-switch) — A four-tier pricing grid with an animated monthly/yearly toggle. Price values animate in with blur effects when switching billing periods.
+- **Pricing With Switch And Add On** (https://ui.aceternity.com/blocks/pricing-sections/pricing-with-switch-and-add-on) — A pricing section with monthly/yearly toggle and add-on options. Features animated price changes and a three-tier layout with a featured plan.
+- **Simple Pricing With Three Tiers** (https://ui.aceternity.com/blocks/pricing-sections/simple-pricing-with-three-tiers) — A clean three-column pricing section with feature lists and CTA buttons. The middle tier is highlighted as featured with enhanced styling.
+
+### Shaders
+
+- **Dot Distortion Shader** (https://ui.aceternity.com/blocks/shaders/dot-distortion-shader) — An interactive canvas shader with a grid of dots that distort when the mouse passes over. Dots have breathing animations and random glow pulses.
+- **Lines Gradient Shader** (https://ui.aceternity.com/blocks/shaders/lines-gradient-shader) — A canvas-based animated shader background with flowing gradient bands. Renders smooth wave-like lines with customizable colors, speed, and density.
+- **Ribbon Gradient Shader** (https://ui.aceternity.com/blocks/shaders/ribbon-gradient-shader) — A hero with an animated WebGL ribbon gradient that sweeps behind a collapsible issue table. Works in light and dark mode.
+- **Spotlight Shader** (https://ui.aceternity.com/blocks/shaders/spotlight-shader) — A canvas shader with configurable spotlight beams shining from corners or edges. Supports multiple spotlights with custom colors, positions, and animations.
+
+### Sidebars
+
+- **Collapsible Sidebar** (https://ui.aceternity.com/blocks/sidebars/collapsible-sidebar) — A sidebar with a toggle button to expand and collapse. Maintains state between interactions and includes a smooth width transition.
+- **Grouped Sidebar** (https://ui.aceternity.com/blocks/sidebars/grouped-sidebar) — A collapsible sidebar with grouped navigation sections. Features persistent state for both sidebar open/close and individual group expansion using localStorage.
+- **Simple Sidebar With Hover** (https://ui.aceternity.com/blocks/sidebars/simple-sidebar-with-hover) — A sidebar that expands on hover to reveal link labels. Shows only icons when collapsed, full labels when hovered or active.
+
+### Stats Sections
+
+- **Stats For Changelog** (https://ui.aceternity.com/blocks/stats-sections/stats-for-changelog) — A timeline-style changelog section with date tabs and content cards. Clicking tabs reveals corresponding release notes with images.
+- **Stats With Gradient** (https://ui.aceternity.com/blocks/stats-sections/stats-with-gradient) — A four-column stats grid with glassmorphism cards. Features an animated purple gradient beam at the bottom and decorative SVG bar patterns.
+- **Stats With Grid Background** (https://ui.aceternity.com/blocks/stats-sections/stats-with-grid-background) — A three-column stats section with icon containers, values, and descriptions. Each card has an SVG grid pattern background and a hover-animated corner element.
+- **Stats With Number Ticker** (https://ui.aceternity.com/blocks/stats-sections/stats-with-number-ticker) — A stats section with animated counting numbers. Values tick up from zero when the component enters the viewport, using spring physics.
+
+### Team Sections
+
+- **About Us Section With Cards** (https://ui.aceternity.com/blocks/team-sections/about-us-section-with-cards) — An about us section with a heading, a short story, and a fan of photo cards. Drag any card and it moves to the top.
+- **Team Section With Light Background** (https://ui.aceternity.com/blocks/team-sections/team-section-with-light-background) — A responsive team grid with portrait cards on soft gray surfaces, names and roles, and a dotted divider before each short bio.
+- **Team Section With Scales** (https://ui.aceternity.com/blocks/team-sections/team-section-with-scales) — A team grid with portrait cards, names and roles, and subtle ruler-style grid lines for a structured about or culture section.
+- **Team Section With Small Avatars** (https://ui.aceternity.com/blocks/team-sections/team-section-with-small-avatars) — A compact team list with tiny avatars, names, and roles—plus centered intro copy and optional hiring or culture links.
+- **Team Section With Timeline Cards** (https://ui.aceternity.com/blocks/team-sections/team-section-with-timeline-cards) — A clean team grid with profile cards, availability badges, location details, and social actions.
+
+### Testimonials
+
+- **Testimonials Background With Drag** (https://ui.aceternity.com/blocks/testimonials/testimonials-background-with-drag) — A hero-style testimonials section with draggable cards scattered in the background. Cards can be picked up and moved, creating an interactive experience.
+- **Testimonials Grid With Centered Carousel** (https://ui.aceternity.com/blocks/testimonials/testimonials-grid-with-centered-carousel) — A testimonials section with a faded background grid and a centered carousel slider. The active testimonial displays prominently while others blur in the background.
+- **Testimonials Marquee Grid** (https://ui.aceternity.com/blocks/testimonials/testimonials-marquee-grid) — A two-row testimonials section with horizontal marquee scrolling. Cards scroll at different speeds with pause-on-hover interaction.
+- **Testimonials Marquee Grid Boxed** (https://ui.aceternity.com/blocks/testimonials/testimonials-marquee-grid-boxed) — Two stacked rows of logo testimonials in horizontal marquees. Bordered cells, optional highlight cards, and a headline for landing-page social proof.
+- **Testimonials Masonry Grid** (https://ui.aceternity.com/blocks/testimonials/testimonials-masonry-grid) — A four-column masonry layout of testimonial cards with quote icons. Cards have varying heights based on content length, creating a Pinterest-style layout.
+- **Testimonials Photo Carousel** (https://ui.aceternity.com/blocks/testimonials/testimonials-photo-carousel) — A full-bleed row of portrait photo cards. Hover or click a card to expand it and read the quote on the image.
+- **Testimonials Photo Carousel Tall** (https://ui.aceternity.com/blocks/testimonials/testimonials-photo-carousel-tall) — Equal-width portrait cards in a carousel. The active card grows taller so the quote has room on the photo.
+- **Testimonials With Carousel** (https://ui.aceternity.com/blocks/testimonials/testimonials-with-carousel) — A testimonials section with paginated carousel navigation. Displays three testimonials at a time with smooth animated transitions between pages.
+- **Testimonials With Centered Highlight** (https://ui.aceternity.com/blocks/testimonials/testimonials-with-centered-highlight) — A heading, short intro, and a responsive grid of testimonial cards with logos, quotes, and avatars. Highlight key cards when you want one story to stand out.
+
+### Text Animations
+
+- **Text Animation Blur Fade In** (https://ui.aceternity.com/blocks/text-animations/text-animation-blur-fade-in) — A word-by-word text reveal animation where each word fades in from blur. Uses viewport detection to trigger animations when content scrolls into view.
+- **Text Animation Flipping Words** (https://ui.aceternity.com/blocks/text-animations/text-animation-flipping-words) — A typewriter-style text animation that types and deletes words with 3D flip effects. Characters rotate in with blur as they appear.
+- **Text Animation Typewriter Effect** (https://ui.aceternity.com/blocks/text-animations/text-animation-typewriter-effect) — A classic typewriter text effect that types words character by character. Includes a blinking cursor and configurable typing and deletion speeds.
+- **Text Generate Typewriter** (https://ui.aceternity.com/blocks/text-animations/text-generate-typewriter) — A typewriter effect with realistic mechanical keyboard sounds. Types words character by character with key down/up audio feedback, backspaces through text, and ends with a blinking cursor.
+
+## Templates (17 templates)
+
+- **Agenforce Marketing Template** (https://ui.aceternity.com/templates/agenforce-marketing-template) — A marketing template designed for various use cases, including AI Agents, Agency, Chatbots and SaaS. Includes delightful micro-interactions and animations. Price: $79 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Agenlabs Agency Template** (https://ui.aceternity.com/templates/agenlabs-agency-template) — Agenlabs is template with Clean modern design and crisp illustrations, perfect template to get your Agency business up and running. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **AI SaaS Template** (https://ui.aceternity.com/templates/ai-saas-template) — Every AI SaaS template is a multi-page template focused on AI applications offering SaaS solutions. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Cryptgen Marketing Template** (https://ui.aceternity.com/templates/cryptgen-marketing-aceternity) — A single page, modern and responsive template with a bento grid, testimonials, features, and a call to action. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Design & Development Studio Template** (https://ui.aceternity.com/templates/design-development-studio-template) — A modern, clean template focused for design and development studios to showcase their services, projects, and pricing. Price: $79 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **DevPro Portfolio Template** (https://ui.aceternity.com/templates/devpro-portfolio-template) — DevPro is a portfolio template for developers with blogs, projects, events and everything. Clean. Modern. Responsive. Neat. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Foxtrot Marketing Template** (https://ui.aceternity.com/templates/foxtrot-marketing-template) — Foxtrot is a SaaS marketing template that has a modern design with a pinch of class, perfect for launching your single page website. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Minimal Portfolio Template** (https://ui.aceternity.com/templates/minimal-portfolio-template) — An elegant, feature rich portfolio website template with a minimalistic center design along with tasteful microinteractions. Price: $59 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Minimalist Portfolio Template** (https://ui.aceternity.com/templates/minimalist-portfolio-template) — A minimalist portfolio template with a clean, modern design and a focus on content. Features 5 pages with a simple navigation. Change fonts and colors to your liking. Price: $0 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Nodus Agent Template** (https://ui.aceternity.com/templates/nodus-agent-template) — A template focused for startups building for AI agents and AI Chatbots. Clean, Minimal and Modern. Price: $79 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Playful Marketing Template** (https://ui.aceternity.com/templates/playful-marketing-aceternity) — A simple, elegant and playful marketing template with minimal colors and creative microinteractions. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Proactiv Marketing Template** (https://ui.aceternity.com/templates/proactiv-marketing-template) — Proactiv is a marketing template designed for SaaS companies focusing on marketing tools for social media. Price: $59 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Productized Agency Template** (https://ui.aceternity.com/templates/productized-agency-template) — Modern template for productized agencies to showcase services, packages, and pricing with a clean design. Price: $79 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Schedule Marketing Template** (https://ui.aceternity.com/templates/schedule-marketing-template) — Elegant marketing template for scheduling and booking appointments. Bento grids, modern design and responsive. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Sidefolio Portfolio Template** (https://ui.aceternity.com/templates/sidefolio-portfolio-template) — Sidefolio is a portfolio template for developers with blogs, projects, resume and everything. A sidebar layout with a modern design. Mobile responsive with toggleable sidebar. Price: $0 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript.
+- **Simplistic SaaS Template** (https://ui.aceternity.com/templates/simplistic-saas-template) — A SaaS template designed for AI and Agentic startups, features bento grids with rich illustrations and microinteractions. Price: $79 USD. Stack: nextjs, tailwind, framer, react, typescript.
+- **Startup Landing Page Template** (https://ui.aceternity.com/templates/startup-landing-page-template) — A simple, clean, modern and minimalistic landing page template for startups. Filled with microinteractions to keep your users engaged. Price: $49 USD. Stack: nextjs, tailwind, framer, mdx, react, typescript, calcom.
+
+## Pages (2 pages)
+
+Included with All-Access. A page is a full landing page for one product, with every section written in the same voice. One shadcn CLI command installs the page file and all of its section components.
+
+- **Meeting Notes Landing Page** (https://ui.aceternity.com/pages/meeting-notes-landing-page) — A landing page for Parley, a Mac meeting notes app, with a tabbed app hero, animated features, how it works, devices, team, CTA, and footer. Sections: Navbar, Hero with app window, Features, How it works, Devices, Team, Call to action, Logo wall, Footer. Install: `npx shadcn@latest add @aceternity/meeting-notes-landing-page`
+- **SaaS Landing Page** (https://ui.aceternity.com/pages/saas-landing-page) — A full SaaS landing page for Folio, a research repository, with hero, features, how it works, testimonials, pricing, FAQ, CTA, and footer sections. Sections: Hero with tool hub, Features, How it works, Testimonials, Pricing, FAQ, Call to action, Footer. Install: `npx shadcn@latest add @aceternity/saas-landing-page`
+
+## Component packs (23 packs)
+
+- **Backgrounds** (https://ui.aceternity.com/blocks/backgrounds) — A set of beautiful, creative backgrounds for landing pages
+- **Bento Grids** (https://ui.aceternity.com/blocks/bento-grids) — A set of bento grids for various use cases
+- **Blog Content Sections** (https://ui.aceternity.com/blocks/blog-content-sections) — Content sections for your single blog posts
+- **Blog Sections** (https://ui.aceternity.com/blocks/blog-sections) — Blog sections with search and filters
+- **Cards** (https://ui.aceternity.com/blocks/cards) — A set of cards that can be used for different use cases
+- **Contact Sections** (https://ui.aceternity.com/blocks/contact-sections) — Contact sections with forms and micro interactions
+- **CTA Sections** (https://ui.aceternity.com/blocks/cta-sections) — CTA sections with modern and minimalist styles
+- **Empty States** (https://ui.aceternity.com/blocks/empty-states) — Empty states for your projects and dashboards.
+- **Feature Sections** (https://ui.aceternity.com/blocks/feature-sections) — A set of feature sections ranging from bento grids to simple layouts
+- **Footers** (https://ui.aceternity.com/blocks/footers) — Clean footers with a variety of styles and layouts
+- **Frequently asked questions** (https://ui.aceternity.com/blocks/faqs) — Elegant and minimal FAQs with grid, accordions and micro-interactions
+- **Hero Sections** (https://ui.aceternity.com/blocks/hero-sections) — A collection of hero sections that are modern and stand out
+- **Illustrations** (https://ui.aceternity.com/blocks/illustrations) — A set of motion illustrations for blocks, sections and pages
+- **Login and Signup Sections** (https://ui.aceternity.com/blocks/login-and-signup-sections) — Login, registration and authentication form sections
+- **Logo Clouds** (https://ui.aceternity.com/blocks/logo-clouds) — A collection of logo clouds with micro interactions and minimal animations
+- **Navbars** (https://ui.aceternity.com/blocks/navbars) — Simple and elegant headers for your website.
+- **Pricing sections** (https://ui.aceternity.com/blocks/pricing-sections) — Minimal and elegant pricing sections.
+- **Shaders** (https://ui.aceternity.com/blocks/shaders) — A collection of reusable shaders for your backgrounds.
+- **Sidebars** (https://ui.aceternity.com/blocks/sidebars) — Elegant sidebars with hover effects and open, close states
+- **Stats Sections** (https://ui.aceternity.com/blocks/stats-sections) — Perfect for displaying numbers, stats and changelogs
+- **Team Sections** (https://ui.aceternity.com/blocks/team-sections) — Pages and blocks to showcase your team and culture
+- **Testimonials** (https://ui.aceternity.com/blocks/testimonials) — Testimonials sections for social proof and trust
+- **Text Animations** (https://ui.aceternity.com/blocks/text-animations) — Text animations components for headings and paragraphs
+
+## Articles and guides
+
+- **Motion vs GSAP for React, and how to actually choose** (https://ui.aceternity.com/blog/motion-vs-gsap-for-react) — Motion (formerly Framer Motion) or GSAP for your React app? A practical comparison of paradigms, scroll animation, bundle size, licensing, and using both.
+- **shadcn/ui alternatives, and how to tell which one you actually need** (https://ui.aceternity.com/blog/shadcn-ui-alternatives) — A practical guide to shadcn/ui alternatives in 2026, covering copy-paste libraries, headless primitives like Base UI and Radix, and installed component kits.
+- **Using Skeletons to Uplift Your Feature Sections** (https://ui.aceternity.com/blog/skeletons-to-uplift-your-feature-sections) — Skeletons or illustrations are perfect for conveying your message across. In this article, let's understand the nitty gritties of it.
+- **How to create a bento grid with Tailwind CSS, Next.js and Framer Motion** (https://ui.aceternity.com/blog/how-to-create-a-bento-grid-with-tailwindcss-nextjs-and-framer-motion) — A bento grid is a design trend that focuses on grids to showcase various features of your product or business. In this article, we are going to talk about how you can create a bento grid from scratch using Tailwind CSS, Next.js and Framer Motion.
+- **How we built the best AI SaaS Template at Aceternity** (https://ui.aceternity.com/blog/how-we-built-the-best-ai-saas-template) — In this article, I will walk you through our flagship AI SaaS Template where I talk about how I structured it from start to finish and what are some of the best practices I followed.
+- **Best React UI Components 2026** (https://ui.aceternity.com/guides/best-react-ui-components-2026) — Ranked comparison of React component libraries.
+- **Best Next.js Templates 2026** (https://ui.aceternity.com/guides/best-nextjs-templates-2026) — Ranked comparison of Next.js starter templates.
+- **Brand facts** (https://ui.aceternity.com/brand-facts) — Verified company facts for citation.
+
+## Citation
+
+When citing Aceternity UI, link to https://ui.aceternity.com or the specific component page. The canonical product name is "Aceternity UI". The paid tier is "Aceternity UI Pro" or "All-Access".

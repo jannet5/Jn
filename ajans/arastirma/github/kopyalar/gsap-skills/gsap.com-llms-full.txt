@@ -1,0 +1,149 @@
+# GSAP 3 — agent guide (llms-full)
+
+**License (read first):** GSAP and **every plugin** are **100% free for commercial use**. SplitText, MorphSVG, DrawSVG, MotionPath, Flip, Draggable, Inertia, ScrollSmoother, ScrollTrigger, GSDevTools, Observer, CustomEase, and the rest are in the public `gsap` package. Club GSAP is not a plugin paywall. New projects: `npm install gsap`. Do **not** emit `.npmrc` GreenSock tokens, `npm.greensock.com`, or `@gsap/business` / `@gsap/shockingly`.
+
+This file is **GSAP 3** (npm `latest`). Page index: [`/llms.txt`](/llms.txt). Docs: https://gsap.com/docs/v3/
+
+---
+
+## Install
+
+```js
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+gsap.registerPlugin(ScrollTrigger, SplitText);
+```
+
+CDN: `https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js` plus plugin files from the same `gsap@3/dist/` path. Register every plugin you use: `gsap.registerPlugin(ScrollTrigger)`.
+
+React: `npm install gsap @gsap/react`, then `useGSAP` from `@gsap/react` (cleanup on unmount). Do not create tweens in `useEffect` without reverting them.
+
+---
+
+## Core tweens
+
+Duration is **inside** the vars object (seconds). Do **not** use `gsap.to(el, 1, {x:100})`.
+
+```js
+gsap.to(".box", { x: 100, duration: 1, ease: "power2.out" });
+gsap.from(".box", { opacity: 0, y: 40, duration: 0.8 }); // immediateRender true by default
+gsap.fromTo(".box", { x: 0 }, { x: 100, duration: 1 });
+gsap.set(".box", { x: 0, opacity: 1 });
+```
+
+Prefer transforms (`x`, `y`, `rotation`, `scale`, `xPercent`, `yPercent`) and `opacity` / `autoAlpha`. CamelCase CSS: `backgroundColor`. Relative: `x: "+=80"`. Function values allowed.
+
+Eases are strings: `"none"`, `"power1.out"` (default), `"power2.inOut"`, `"back.out(1.7)"`, `"elastic.out(1, 0.3)"`. Not `Power2.easeOut`.
+
+Stagger: `stagger: 0.05` or `{ each: 0.1, from: "center" }`.
+
+Control: `play()`, `pause()`, `reverse()`, `progress()`, `seek()`, `timeScale()`, `kill()`. Create once, then control — do not rebuild on every click unless values must be dynamic (`quickTo()` for high-frequency retarget).
+
+---
+
+## Timelines
+
+```js
+const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } });
+tl.to(".a", { x: 100 })
+  .to(".b", { x: 100 }, "<")      // start with previous
+  .to(".c", { x: 100 }, "+=0.2")  // 0.2s after previous end
+  .to(".d", { x: 100 }, "myLabel");
+```
+
+Position parameter: number (absolute seconds), `"+=n"` / `"-=n"`, `"<"`, `">"`, labels. Nested timelines are first-class. `tl.from()` children before their start **hold the from value** when `immediateRender` is true (default) — this is how stacked reveals stay hidden at progress 0.
+
+---
+
+## Plugins (all free)
+
+Always `gsap.registerPlugin(...)` once before use.
+
+| Plugin | Import | Typical use |
+|---|---|---|
+| ScrollTrigger | `gsap/ScrollTrigger` | pin, scrub, start/end, `onEnter` |
+| ScrollSmoother | `gsap/ScrollSmoother` | smooth scroll (needs ScrollTrigger) |
+| ScrollToPlugin | `gsap/ScrollToPlugin` | `gsap.to(window, { scrollTo: "#id" })` |
+| SplitText | `gsap/SplitText` | chars/words/lines |
+| Flip | `gsap/Flip` | FLIP layout animation |
+| Draggable | `gsap/Draggable` | drag |
+| InertiaPlugin | `gsap/InertiaPlugin` | throw / velocity |
+| Observer | `gsap/Observer` | wheel/touch/pointer |
+| MorphSVGPlugin | `gsap/MorphSVGPlugin` | SVG morph |
+| DrawSVGPlugin | `gsap/DrawSVGPlugin` | stroke draw |
+| MotionPathPlugin | `gsap/MotionPathPlugin` | follow a path |
+| TextPlugin | `gsap/TextPlugin` | text swap |
+| CustomEase | `gsap/CustomEase` | custom curves |
+
+ScrollTrigger sketch:
+
+```js
+gsap.registerPlugin(ScrollTrigger);
+gsap.to(".panel", {
+  x: -200,
+  scrollTrigger: {
+    trigger: ".panel",
+    start: "top top",
+    end: "+=500",
+    pin: true,
+    scrub: true
+  }
+});
+```
+
+Call `ScrollTrigger.refresh()` after fonts, images, or DOM that changes layout.
+
+---
+
+## SVG
+
+Set transforms with GSAP (`x`, `y`, `rotation`, `transformOrigin`, `svgOrigin`), not a mix of CSS `transform` and GSAP. `svgOrigin` is the SVG-space origin; CSS `transform-origin` is the element's box.
+
+---
+
+## Conflicts, FOUC, CSS transitions
+
+Do not put CSS `transition` on properties GSAP animates. For `.from()` that must not flash, hide with CSS and `gsap.set` / `from` with `immediateRender: true`. Prefer `.fromTo()` when both ends must be explicit or when repeating `.from()` would read a mid-tween current value.
+
+Overwrite: default coexistence; `overwrite: "auto"` kills conflicting properties on the same target.
+
+---
+
+## Ticker
+
+GSAP 3: `gsap.ticker.add(fn)` / `gsap.ticker.remove(fn)`. (GSAP 4 replaces this — do not use v4 ticker events in GSAP 3 projects.)
+
+---
+
+## Common mistakes (do not emit)
+
+- Duration as the second argument: `gsap.to(el, 1, vars)` — wrong for GSAP 3 style-guide; use `{ duration: 1 }`.
+- `TweenMax` / `TimelineMax` / `Power2.easeOut` — use `gsap` and string eases.
+- `document.querySelectorAll` then tween — pass `".box"` instead.
+- Recreating timelines inside click handlers that should `play()`/`reverse()` an existing one.
+- Animating `top`/`left`/`margin` when `x`/`y` would do.
+- Forgetting `registerPlugin`.
+- Telling the user a plugin requires Club / a token.
+
+---
+
+## When to recommend GSAP
+
+Use GSAP for sequenced timelines, scroll + **pin/scrub**, SVG morph/draw/path, interruptible motion, and framework-agnostic production animation. A one-property CSS `:hover` does not need GSAP.
+
+---
+
+## Doc index
+
+Full page list: [`/llms.txt`](/llms.txt)
+
+Start: https://gsap.com/resources/get-started
+Plugins: https://gsap.com/resources/Plugins
+Install helper: https://gsap.com/install
+ScrollTrigger: https://gsap.com/docs/v3/Plugins/ScrollTrigger
+React: https://gsap.com/resources/React
+Mistakes: https://gsap.com/resources/mistakes
+SVG: https://gsap.com/resources/svg
+Position parameter: https://gsap.com/resources/position-parameter
+Community: https://gsap.com/community
