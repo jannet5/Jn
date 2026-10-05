@@ -70,12 +70,19 @@ fun AppNav(vm: AppViewModel, sharedLink: String?, versionName: String, onConsume
     val position by vm.player.positionSec.collectAsStateWithLifecycle() // Konum
     val backStack by nav.currentBackStackEntryAsState() // Mevcut rota
     var pendingSave by remember { mutableStateOf<Pair<RingtoneKind, Boolean>?>(null) } // Depolama izni bekleyen kayıt (Android 8-9)
+    var pendingStart by remember { mutableStateOf<(() -> Unit)?>(null) } // Depolama izni bekleyen başlatma (Android 8-9)
     val storagePermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted -> // İzin sonucu
         val p = pendingSave; pendingSave = null // Bekleyen kayıt
-        if (granted && p != null) vm.save(p.first, p.second) else if (!granted) vm.showMessage(context.getString(R.string.storage_denied)) // Verildiyse kaydet, yoksa mesaj
+        val st = pendingStart; pendingStart = null // Bekleyen başlatma
+        if (granted && p != null) vm.save(p.first, p.second) // Verildiyse kaydet
+        if (granted && st != null) st() // Verildiyse başlat
+        if (!granted) vm.showMessage(context.getString(R.string.storage_denied)) // Reddedildiyse mesaj
     }
+    fun needsStorage(): Boolean = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED // Android 8-9 ve izin yok
+    /** Android 8-9: depolama izni verildiğinde sistem uygulamayı yeniden başlatır (GID değişimi); bu yüzden izin, işlem BAŞLAMADAN istenir, kayıt anında değil. */
+    val startWithPermission: (() -> Unit) -> Unit = { action -> if (needsStorage()) { pendingStart = action; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) } else action() }
     val saveWithPermission: (RingtoneKind, Boolean) -> Unit = { kind, setDefault -> // Kayıt: Android 8-9'da önce depolama izni
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { // İzin yok
+        if (needsStorage()) { // İzin yok (yedek yol)
             pendingSave = kind to setDefault; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) // İste
         } else vm.save(kind, setDefault) // Doğrudan kaydet
     }
@@ -100,9 +107,9 @@ fun AppNav(vm: AppViewModel, sharedLink: String?, versionName: String, onConsume
             composable(Routes.ONBOARDING) { OnboardingScreen { vm.finishOnboarding(); nav.navigate(Routes.HOME) { popUpTo(Routes.ONBOARDING) { inclusive = true } } } } // Tanıtım
             composable(Routes.HOME) { // Ana
                 HomeScreen(initialLink = null, recent = library, // Parametreler
-                    onConvert = { vm.startFromLink(it); nav.navigate(Routes.PROCESS) }, // Bağlantı
-                    onPickFile = { vm.startFromFile(it); nav.navigate(Routes.PROCESS) }, // Dosya
-                    onOpenLibrary = { nav.navigate(Routes.LIBRARY) }, onOpenSaved = { nav.navigate(Routes.LIBRARY) }) // Kütüphane
+                    onConvert = { link -> vm.startFromLink(link); nav.navigate(Routes.PROCESS) }, // Bağlantı
+                    onPickFile = { uri -> vm.startFromFile(uri); nav.navigate(Routes.PROCESS) }, // Dosya
+                    onOpenLibrary = { nav.navigate(Routes.LIBRARY) }, onOpenSaved = { nav.navigate(Routes.LIBRARY) }, ensureStorage = startWithPermission) // Kütüphane; Android 8-9'da izin, seçici/işlem öncesinde istenir
             }
             composable(Routes.PROCESS) { ProcessingScreen(process, onCancel = { vm.cancel(); nav.popBackStack() }, onRetry = { vm.retry() }, onBack = { vm.resetProcess(); nav.popBackStack() }) } // İşlem
             composable(Routes.RESULT) { // Sonuç

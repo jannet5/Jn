@@ -34,3 +34,7 @@
 - Ne oldu: Emülatörde (Android 8.0) "Kaydet" sonrası dosya oluşmadı; MediaProvider `insertFile` NPE (`_data` yolu yok).
 - Kök neden: Android 10 öncesi MediaStore, uygulamanın dosyayı kendisi yazıp `_data` (tam yol) vermesini bekler; `RELATIVE_PATH`/`IS_PENDING` yalnızca Android 10+.
 - Yeni kural: `RingtoneStore.save` iki dal: Q+ → RELATIVE_PATH + openOutputStream; <Q → `getExternalStoragePublicDirectory(DIRECTORY_RINGTONES)/MelodiZil/x.wav` yazılır, `_data` ile insert. Kayıt sonrası `settings get system ringtone` ve `content query --where is_ringtone=1` ile doğrulanır.
+
+### D-011: Android 8-9'da depolama izni verilince uygulama yeniden başlar
+- Ne oldu: Emülatörde izin süreç başladıktan sonra verildi; süreç sdcard_rw grubunu almadığı için klasör oluşturulamadı (FileNotFoundException). Gerçek cihazda sistem, izin verilince uygulamayı öldürüp yeniden başlatır; kayıt anında istenirse çıkarılan melodi kaybolur.
+- Yeni kural: Android 10 altında `WRITE_EXTERNAL_STORAGE` izni "Melodiye çevir"/"Dosya seç" anında, işlem başlamadan istenir (`AppNav.startWithPermission`). Kayıt anındaki kontrol yalnızca yedek.

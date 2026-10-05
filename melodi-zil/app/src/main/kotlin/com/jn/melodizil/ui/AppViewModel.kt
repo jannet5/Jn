@@ -135,6 +135,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 val name = "${track.title.take(40)} - ${instrumentName(s.instrument)}" // Dosya adı
                 val uri = withContext(Dispatchers.IO) { deps.ringtones.save(name, WavWriter.toWav(pcm, RENDER_RATE), kind) } // MediaStore
                 deps.prefs.addToLibrary(SavedRingtone(UUID.randomUUID().toString(), track.title, s.instrument.id, kind.name, uri.toString(), System.currentTimeMillis(), s.lengthSec, track.sourceVideoId, track.thumbnailUrl)) // Kütüphane
+                android.util.Log.i("MelodiZil", "Kaydedildi: $uri") // Teşhis
                 var msg = "Kaydedildi" // Mesaj
                 var needs = false // İzin gerekir mi
                 if (setDefault) { // Varsayılan istenmiş
@@ -142,7 +143,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                     else { pendingDefault = uri to kind; needs = true } // İzin gerekiyor
                 }
                 _result.value = _result.value.copy(saving = false, lastSavedUri = uri, message = msg, needsWriteSettings = needs) // Sonuç
-            } catch (e: Exception) { _result.value = _result.value.copy(saving = false, message = "Kaydedilemedi: ${e.message ?: e.javaClass.simpleName}") } // Hata
+            } catch (e: Exception) { android.util.Log.e("MelodiZil", "Kayıt başarısız", e); _result.value = _result.value.copy(saving = false, message = "Kaydedilemedi: ${e.message ?: e.javaClass.simpleName}") } // Hata (logcat'a da yazılır: teşhis için)
         }
     }
 

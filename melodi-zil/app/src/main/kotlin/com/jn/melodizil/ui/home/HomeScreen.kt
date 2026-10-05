@@ -61,6 +61,7 @@ fun HomeScreen(
     onPickFile: (Uri) -> Unit, // Dosya seçildi
     onOpenLibrary: () -> Unit, // Tümünü gör
     onOpenSaved: (SavedRingtone) -> Unit, // Kayıt aç
+    ensureStorage: (then: () -> Unit) -> Unit = { it() }, // Android 8-9: işlem başlamadan depolama izni iste (D-011)
 ) {
     var link by remember { mutableStateOf(initialLink ?: "") } // Input metni
     var touched by remember { mutableStateOf(false) } // Hata göstermek için
@@ -85,13 +86,13 @@ fun HomeScreen(
             isError = touched && link.isNotBlank() && !valid, // Hata
             supportingText = { Text(if (touched && link.isNotBlank() && !valid) stringResource(R.string.home_link_invalid) else stringResource(R.string.home_link_hint)) }, // Yardım/hata metni
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri, imeAction = ImeAction.Go), // Klavye
-            keyboardActions = KeyboardActions(onGo = { if (valid) onConvert(link) }), // Enter
+            keyboardActions = KeyboardActions(onGo = { if (valid) ensureStorage { onConvert(link) } }), // Enter
             colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = MaterialTheme.colorScheme.primary, unfocusedBorderColor = MaterialTheme.colorScheme.outline), // Renkler
         )
         Spacer(Modifier.height(Space.lg)) // Boşluk
-        PrimaryButton(stringResource(R.string.home_convert), onClick = { onConvert(link) }, enabled = valid) // Tek birincil eylem
+        PrimaryButton(stringResource(R.string.home_convert), onClick = { ensureStorage { onConvert(link) } }, enabled = valid) // Tek birincil eylem
         Spacer(Modifier.height(Space.md)) // Boşluk
-        SecondaryButton(stringResource(R.string.home_pick_file), onClick = { filePicker.launch(arrayOf("audio/*")) }, icon = Icons.Rounded.FolderOpen) // Dosyadan
+        SecondaryButton(stringResource(R.string.home_pick_file), onClick = { ensureStorage { filePicker.launch(arrayOf("audio/*")) } }, icon = Icons.Rounded.FolderOpen) // Dosyadan (önce izin, sonra seçici)
         Spacer(Modifier.height(Space.xxl)) // Bölüm boşluğu
         SectionTitle(stringResource(R.string.home_recent)) // Son ziller
         if (recent.isEmpty()) { // Boş durum (kompakt)
