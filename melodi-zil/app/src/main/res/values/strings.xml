@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Melodi Zil</string>
+    <string name="home_subtitle">Şarkıyı melodiye çevir, zil sesi yap</string>
+    <string name="home_link_label">YouTube bağlantısı</string>
+    <string name="home_link_placeholder" translatable="false">https://youtu.be/…</string>
+    <string name="home_link_hint">10 dakikanın altındaki videolar desteklenir</string>
+    <string name="home_link_invalid">Bu bir YouTube bağlantısı gibi görünmüyor</string>
+    <string name="home_paste">Yapıştır</string>
+    <string name="home_convert">Melodiye çevir</string>
+    <string name="home_pick_file">Telefondan ses dosyası seç</string>
+    <string name="home_recent">Son zillerin</string>
+    <string name="home_recent_empty">Henüz zil yapmadın. Bir bağlantı yapıştır ya da dosya seç.</string>
+    <string name="home_see_all">Tümünü gör</string>
+    <string name="onboarding_title" translatable="false">Melodi Zil</string>
+    <string name="onboarding_subtitle">Sevdiğin şarkının melodisini zil sesine çevir</string>
+    <string name="onboarding_step1_title">Bağlantıyı yapıştır</string>
+    <string name="onboarding_step1_desc">YouTube\'dan 10 dakikanın altında bir video</string>
+    <string name="onboarding_step2_title">Melodiyi seç</string>
+    <string name="onboarding_step2_desc">Piyano, müzik kutusu, 8-bit, çan… 8 farklı form</string>
+    <string name="onboarding_step3_title">Zil sesi yap</string>
+    <string name="onboarding_step3_desc">Zil, bildirim ya da alarm olarak tek dokunuşla ayarla</string>
+    <string name="onboarding_note">Ses işleme tamamen telefonunda yapılır; hiçbir kayıt sunucuya gönderilmez. Lütfen yalnızca hakkına sahip olduğun içerikleri kullan.</string>
+    <string name="onboarding_start">Başla</string>
+    <string name="process_title">Melodi çıkarılıyor</string>
+    <string name="process_subtitle">Birkaç saniye sürer. Uygulamayı kapatma.</string>
+    <string name="step_resolve">Video bilgisi alınıyor</string>
+    <string name="step_open">Dosya açılıyor</string>
+    <string name="step_download">Ses indiriliyor</string>
+    <string name="step_copy">Dosya kopyalanıyor</string>
+    <string name="step_decode">Ses çözülüyor</string>
+    <string name="step_analyze">Melodi bulunuyor</string>
+    <string name="result_title">Melodin hazır</string>
+    <plurals name="result_notes"><item quantity="one">%1$s · %2$d nota</item><item quantity="other">%1$s · %2$d nota</item></plurals>
+    <string name="result_form">Form</string>
+    <string name="result_length">Uzunluk</string>
+    <string name="result_start">Bölüm %1$s – %2$s</string>
+    <string name="result_auto">Otomatik</string>
+    <string name="result_start_hint">Kaydırarak şarkının istediğin yerini seç. Otomatik, en yoğun bölümü (genelde nakarat) bulur.</string>
+    <string name="result_make">Zil sesi yap</string>
+    <string name="preview">Dinle</string>
+    <string name="stop">Durdur</string>
+    <string name="share">Paylaş</string>
+    <string name="save">Kaydet</string>
+    <string name="save_title">Nasıl kaydedilsin?</string>
+    <string name="save_set_default">Varsayılan yap</string>
+    <string name="save_set_default_desc">Kaydettikten sonra telefonun sesini buna ayarla</string>
+    <string name="kind_ringtone">Zil sesi</string>
+    <string name="kind_notification">Bildirim sesi</string>
+    <string name="kind_alarm">Alarm sesi</string>
+    <string name="perm_title">Bir izin gerekiyor</string>
+    <string name="perm_text">Varsayılan zil sesini değiştirmek için Android, \"Sistem ayarlarını değiştirme\" iznini ister. Açılan ekranda Melodi Zil için izni aç ve geri dön.</string>
+    <string name="perm_open">İzin ekranını aç</string>
+    <string name="perm_later">Sonra</string>
+    <string name="library_title">Zillerim</string>
+    <string name="library_empty_title">Henüz zil yok</string>
+    <string name="library_empty_desc">Yaptığın ziller burada listelenir. Buradan tekrar ayarlayabilir, paylaşabilir ya da silebilirsin.</string>
+    <string name="library_empty_action">İlk zilini yap</string>
+    <string name="action_set_ringtone">Zil sesi yap</string>
+    <string name="action_set_notification">Bildirim sesi yap</string>
+    <string name="action_set_alarm">Alarm sesi yap</string>
+    <string name="delete">Sil</string>
+    <string name="delete_title">Zil silinsin mi?</string>
+    <string name="delete_text">\"%1$s\" telefonundan kalıcı olarak silinecek.</string>
+    <string name="cancel">İptal</string>
+    <string name="retry">Tekrar dene</string>
+    <string name="back">Geri</string>
+    <string name="ok">Tamam</string>
+    <string name="tab_home">Ana sayfa</string>
+    <string name="tab_library">Zillerim</string>
+    <string name="tab_settings">Ayarlar</string>
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_theme">Görünüm</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_dark">Koyu</string>
+    <string name="settings_about">Hakkında</string>
+    <string name="settings_how">Nasıl çalışır?</string>
+    <string name="settings_privacy">Gizlilik politikası</string>
+    <string name="settings_licenses">Açık kaynak lisansları</string>
+    <string name="settings_version">Sürüm</string>
+    <string name="how_text">1. Bağlantıdaki videonun yalnızca ses akışı telefonuna indirilir (video indirilmez).\n\n2. Ses, telefonunda çözülür ve spektral analizle baskın melodi (çoğunlukla vokal ya da ana enstrüman) nota nota çıkarılır. Vokal sözleri yok olur; geriye sadece ezgi kalır.\n\n3. Çıkan notalar seçtiğin formla (piyano, müzik kutusu, 8-bit…) telefonunda yeniden sentezlenir. Ses dosyası hiçbir sunucuya gönderilmez.\n\n4. Sonuç WAV olarak Zil Sesleri klasörüne kaydedilir; istersen varsayılan zil, bildirim ya da alarm yapılır.\n\nİndirilen orijinal ses dosyası işlem bitince silinir; cihazda yalnızca ürettiğin melodi kalır.</string>
+    <string name="privacy_text">Melodi Zil hiçbir kişisel veri toplamaz, saklamaz ya da paylaşmaz.\n\n• Hesap yok, kayıt yok, analitik yok, reklam SDK\'sı yok.\n• Yapıştırdığın YouTube bağlantısı yalnızca YouTube sunucularına, ses akışını almak için gönderilir. Bize ya da üçüncü bir tarafa iletilmez.\n• Tüm ses işleme telefonunda yapılır. İndirilen ses dosyası işlem bitince silinir.\n• Ürettiğin zil sesleri telefonunun Zil Sesleri/Bildirimler/Alarmlar klasörlerine kaydedilir ve yalnızca senin kontrolündedir.\n• \"Sistem ayarlarını değiştirme\" izni yalnızca varsayılan zil sesini ayarlamak için kullanılır ve isteğe bağlıdır.\n\nİçerik hakları: İndirdiğin içeriğin kullanım hakkına sahip olduğundan emin ol. Melodi Zil, YouTube ile bağlantılı değildir.\n\nİletişim: jakeworkx@proton.me</string>
+    <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'in kendi kaynak kodu GPL-3.0 lisansıyla yayınlanır (NewPipeExtractor\'ın lisans gereği).</string>
+</resources>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Yedekleme: yalnızca DataStore tercihleri (kütüphane listesi, tema) yedeklenir -->
+<full-backup-content><include domain="file" path="datastore/" /></full-backup-content>
