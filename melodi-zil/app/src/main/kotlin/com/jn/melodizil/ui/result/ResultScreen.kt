@@ -30,6 +30,10 @@ import androidx.compose.material3.Icon // İkon
 import androidx.compose.material3.IconButton // İkon butonu
 import androidx.compose.material3.MaterialTheme // Tema
 import androidx.compose.material3.ModalBottomSheet // Sheet
+import androidx.compose.material3.rememberModalBottomSheetState // Sheet durumu
+import androidx.compose.foundation.rememberScrollState // Kaydırma
+import androidx.compose.foundation.verticalScroll // Kaydırma
+import androidx.compose.foundation.layout.navigationBarsPadding // Gezinme çubuğu payı
 import androidx.compose.material3.SegmentedButton // Bölümlü buton
 import androidx.compose.material3.SegmentedButtonDefaults // Varsayılan
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow // Satır
@@ -168,8 +172,8 @@ fun ResultScreen(
 private fun SaveSheet(onDismiss: () -> Unit, onSave: (RingtoneKind, Boolean) -> Unit) {
     var kind by remember { mutableStateOf(RingtoneKind.RINGTONE) } // Seçili tür
     var setDefault by remember { mutableStateOf(true) } // Varsayılan yap
-    ModalBottomSheet(onDismissRequest = onDismiss, shape = RoundedCornerShape(topStart = Radius.lg, topEnd = Radius.lg)) { // Sheet
-        Column(Modifier.padding(horizontal = Space.lg).padding(bottom = Space.xxl)) { // İçerik
+    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), shape = RoundedCornerShape(topStart = Radius.lg, topEnd = Radius.lg)) { // Sheet: tam açılır (yarım durumda Kaydet butonu ekran dışında kalıyordu, D-009)
+        Column(Modifier.verticalScroll(rememberScrollState()).padding(horizontal = Space.lg).padding(bottom = Space.xxl).navigationBarsPadding()) { // İçerik: kaydırılabilir + gezinme çubuğu payı
             Text(stringResource(R.string.save_title), style = MaterialTheme.typography.titleMedium) // Başlık
             Spacer(Modifier.height(Space.md)) // Boşluk
             KindRow(RingtoneKind.RINGTONE, Icons.Rounded.Call, stringResource(R.string.kind_ringtone), kind) { kind = it } // Zil

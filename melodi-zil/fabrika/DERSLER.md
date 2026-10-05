@@ -24,3 +24,13 @@
 - Kök neden: `desugar_jdk_libs` (standart) bu çağrıyı geri taşımıyor; NewPipe uygulaması `desugar_jdk_libs_nio` kullanıyor.
 - Yeni kural: NewPipeExtractor ile `coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_nio:2.1.5")` zorunlu. Doğrulama: `dexdump -d classes*.dex | grep "URLDecoder;.decode:(Ljava/lang/String;Ljava/nio/charset/Charset;)"` → 0 olmalı. Ayrıca işlem hattı `Error` türlerini de yakalar (çökme yerine hata ekranı).
 - Fabrika dersi: "JVM'de geçen test, Android'de çalışır" demek değil; en az bir kez düşük API'li gerçek Android'de (emülatör) ana akış koşulmalı.
+
+### D-009: Bottom sheet'in birincil butonu ekran dışında kaldı
+- Ne oldu: Emülatörde (1080×1920, 420 dpi) "Zil sesi yap" sheet'i yarım açıldı; "Kaydet" butonu gezinme çubuğunun altında, görünmez. Kullanıcı sürüklemeden kaydedemez.
+- Kök neden: `ModalBottomSheet` varsayılanı yarı açık durum; içerik kaydırılabilir değildi; navigationBars padding yoktu.
+- Yeni kural: Her sheet `rememberModalBottomSheetState(skipPartiallyExpanded = true)`, içerik `verticalScroll` + `navigationBarsPadding()`. Sheet'in birincil butonu açılır açılmaz görünür olmalı (640dp yükseklikte test edilir).
+
+### D-010: Android 8-9'da MediaStore kaydı NPE ile reddedildi
+- Ne oldu: Emülatörde (Android 8.0) "Kaydet" sonrası dosya oluşmadı; MediaProvider `insertFile` NPE (`_data` yolu yok).
+- Kök neden: Android 10 öncesi MediaStore, uygulamanın dosyayı kendisi yazıp `_data` (tam yol) vermesini bekler; `RELATIVE_PATH`/`IS_PENDING` yalnızca Android 10+.
+- Yeni kural: `RingtoneStore.save` iki dal: Q+ → RELATIVE_PATH + openOutputStream; <Q → `getExternalStoragePublicDirectory(DIRECTORY_RINGTONES)/MelodiZil/x.wav` yazılır, `_data` ile insert. Kayıt sonrası `settings get system ringtone` ve `content query --where is_ringtone=1` ile doğrulanır.

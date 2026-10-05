@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Emülatörde yerel dosya akışını baştan sona sürer: kur → aç → dosya seç → sonuç ekranı → dinle → zil sesi yap → Zillerim → koyu mod. Çıktılar $S altına yazılır.
-A="/home/user/Jn/android-sdk/platform-tools/adb -s emulator-5556"; S=${S:-/tmp/claude-0/-home-user-Jn/ab7d1d1d-5d4e-5029-854d-1ba47b6a0560/scratchpad}; U="python3 /home/user/Jn/melodi-zil/araclar/ui.py"
+EMU=${EMU:-emulator-5554}; export EMU; A="/home/user/Jn/android-sdk/platform-tools/adb -s $EMU"; S=${S:-/tmp/claude-0/-home-user-Jn/ab7d1d1d-5d4e-5029-854d-1ba47b6a0560/scratchpad}; U="python3 /home/user/Jn/melodi-zil/araclar/ui.py"
 n=0; until [ "$($A shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && $A shell pm path android >/dev/null 2>&1; do n=$((n+1)); [ $n -gt 90 ] && exit 1; sleep 10; done; echo "BOOT ok ($n)"
 $A shell settings put global hide_error_dialogs 1; $A shell settings put global http_proxy :0
 $A install -r -t /home/user/Jn/melodi-zil/app/build/outputs/apk/release/app-release.apk 2>&1 | tail -1

@@ -16,6 +16,10 @@ import androidx.compose.material3.AlertDialog // Dialog
 import androidx.compose.material3.ExperimentalMaterial3Api // Deneysel
 import androidx.compose.material3.MaterialTheme // Tema
 import androidx.compose.material3.ModalBottomSheet // Sheet
+import androidx.compose.material3.rememberModalBottomSheetState // Sheet durumu
+import androidx.compose.foundation.rememberScrollState // Kaydırma
+import androidx.compose.foundation.verticalScroll // Kaydırma
+import androidx.compose.foundation.layout.navigationBarsPadding // Gezinme çubuğu payı
 import androidx.compose.material3.Text // Metin
 import androidx.compose.material3.TextButton // Metin butonu
 import androidx.compose.runtime.Composable // Composable
@@ -74,8 +78,8 @@ fun LibraryScreen(
     }
 
     selected?.let { item -> // Eylem sheet'i
-        ModalBottomSheet(onDismissRequest = { selected = null }, shape = RoundedCornerShape(topStart = Radius.lg, topEnd = Radius.lg)) { // Sheet
-            Column(Modifier.padding(horizontal = Space.lg).padding(bottom = Space.xxl)) { // İçerik
+        ModalBottomSheet(onDismissRequest = { selected = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true), shape = RoundedCornerShape(topStart = Radius.lg, topEnd = Radius.lg)) { // Sheet: tam açılır (D-009)
+            Column(Modifier.verticalScroll(rememberScrollState()).padding(horizontal = Space.lg).padding(bottom = Space.xxl).navigationBarsPadding()) { // İçerik: kaydırılabilir + gezinme çubuğu payı
                 Text(item.title, style = MaterialTheme.typography.titleMedium) // Başlık
                 Spacer(Modifier.height(Space.md)) // Boşluk
                 ListRow(stringResource(R.string.action_set_ringtone), icon = Icons.Rounded.Call, onClick = { onSetDefault(item, RingtoneKind.RINGTONE); selected = null }, showChevron = false) // Zil

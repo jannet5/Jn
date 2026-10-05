@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Emülatörde arayüzü adb + uiautomator ile süren yardımcı: metin bul, dokun, yaz, ekran görüntüsü al.
 import subprocess, sys, re, time, xml.etree.ElementTree as ET  # alt süreç, argümanlar, regex, XML
-ADB = ["/home/user/Jn/android-sdk/platform-tools/adb", "-s", "emulator-5556"]  # hedef cihaz
+import os  # ortam değişkeni
+ADB = ["/home/user/Jn/android-sdk/platform-tools/adb", "-s", os.environ.get("EMU", "emulator-5554")]  # hedef cihaz (EMU ile değiştirilebilir)
 def sh(*a, **k): return subprocess.run(ADB + ["shell"] + list(a), capture_output=True, text=True, **k).stdout  # adb shell
 def dump():  # ekran ağacını XML olarak al
     for _ in range(5):  # birkaç deneme

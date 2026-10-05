@@ -24,6 +24,7 @@ class RingtoneStore(private val context: Context) {
     fun save(displayName: String, wav: ByteArray, kind: RingtoneKind): Uri {
         val resolver = context.contentResolver // Çözücü
         val safeName = displayName.replace(Regex("[^\\p{L}\\p{N} _-]"), "").trim().ifBlank { "MelodiZil" }.take(60) // Dosya adı temizliği
+        val dir = when (kind) { RingtoneKind.RINGTONE -> Environment.DIRECTORY_RINGTONES; RingtoneKind.NOTIFICATION -> Environment.DIRECTORY_NOTIFICATIONS; RingtoneKind.ALARM -> Environment.DIRECTORY_ALARMS } // Türüne göre klasör
         val values = ContentValues().apply { // Kayıt alanları
             put(MediaStore.MediaColumns.DISPLAY_NAME, "$safeName.wav") // Ad
             put(MediaStore.MediaColumns.TITLE, safeName) // Başlık
@@ -33,18 +34,29 @@ class RingtoneStore(private val context: Context) {
             put(MediaStore.Audio.Media.IS_NOTIFICATION, kind == RingtoneKind.NOTIFICATION) // Bildirim mi
             put(MediaStore.Audio.Media.IS_ALARM, kind == RingtoneKind.ALARM) // Alarm mı
             put(MediaStore.Audio.Media.IS_MUSIC, false) // Müzik kütüphanesinde görünmesin
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) { // Android 10+
-                val dir = when (kind) { RingtoneKind.RINGTONE -> Environment.DIRECTORY_RINGTONES; RingtoneKind.NOTIFICATION -> Environment.DIRECTORY_NOTIFICATIONS; RingtoneKind.ALARM -> Environment.DIRECTORY_ALARMS } // Türüne göre klasör
-                put(MediaStore.MediaColumns.RELATIVE_PATH, "$dir/MelodiZil") // Alt klasör
-                put(MediaStore.MediaColumns.IS_PENDING, 1) // Yazım bitene kadar gizli
-            }
         }
-        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY) else MediaStore.Audio.Media.EXTERNAL_CONTENT_URI // Koleksiyon
-        val uri = resolver.insert(collection, values) ?: throw IllegalStateException("MediaStore kaydı oluşturulamadı") // Kayıt
-        try {
-            resolver.openOutputStream(uri)?.use { it.write(wav) } ?: throw IllegalStateException("Dosya yazılamadı") // Yaz
-        } catch (e: Exception) { resolver.delete(uri, null, null); throw e } // Hata olursa kaydı sil
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) resolver.update(uri, ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }, null, null) // Görünür yap
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) { // Android 10+: kapsamlı depolama, MediaStore dosyayı kendisi yazar
+            values.put(MediaStore.MediaColumns.RELATIVE_PATH, "$dir/MelodiZil") // Alt klasör
+            values.put(MediaStore.MediaColumns.IS_PENDING, 1) // Yazım bitene kadar gizli
+            val collection = MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY) // Koleksiyon
+            val uri = resolver.insert(collection, values) ?: throw IllegalStateException("MediaStore kaydı oluşturulamadı") // Kayıt
+            try {
+                resolver.openOutputStream(uri)?.use { it.write(wav) } ?: throw IllegalStateException("Dosya yazılamadı") // Yaz
+            } catch (e: Exception) { resolver.delete(uri, null, null); throw e } // Hata olursa kaydı sil
+            resolver.update(uri, ContentValues().apply { put(MediaStore.MediaColumns.IS_PENDING, 0) }, null, null) // Görünür yap
+            return uri // Uri
+        }
+        // Android 8-9: dosya önce diske yazılır, MediaStore'a tam yol (_data) ile kaydedilir (yol verilmezse MediaProvider NPE atar, D-010)
+        @Suppress("DEPRECATION") val folder = java.io.File(Environment.getExternalStoragePublicDirectory(dir), "MelodiZil") // Hedef klasör
+        folder.mkdirs() // Klasör oluştur
+        var file = java.io.File(folder, "$safeName.wav") // Hedef dosya
+        var i = 2 // Aynı ad varsa numara ekle
+        while (file.exists()) { file = java.io.File(folder, "$safeName ($i).wav"); i++ } // Benzersiz ad
+        file.writeBytes(wav) // Diske yaz
+        @Suppress("DEPRECATION") values.put(MediaStore.MediaColumns.DATA, file.absolutePath) // Tam yol
+        values.put(MediaStore.MediaColumns.SIZE, file.length()) // Boyut
+        val uri = try { resolver.insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values) } catch (e: Exception) { file.delete(); throw e } // Kayıt
+        if (uri == null) { file.delete(); throw IllegalStateException("MediaStore kaydı oluşturulamadı") } // Başarısız
         return uri // Uri
     }
 
