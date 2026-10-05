@@ -210,3 +210,167 @@ Kaynak: `yt_ara.py` ile 20 sorgu (arama_sonuclari.jsonl). Transkript durumu `tra
 | [jpODSEXAylw](https://www.youtube.com/watch?v=jpODSEXAylw) | Claude Code End-to-End: Building and Deploying a Real Project from Scratch | 53 | 6858 | Uğur Keşkekçi | B |
 | [g_PouK1J7XM](https://www.youtube.com/watch?v=g_PouK1J7XM) | Is Publishing a Mobile App Really This Easy Now? I Tried It With Claude Code | 13 | 3855 | Uğur Keşkekçi | C |
 
+## Ek aramalar (ajans iş modeli / sosyal medya / reklam) — 2026-10-05
+
+8 yeni sorgu (`yt_ara.py` ile, 15'er sonuç). Daha önceki bölümlerde geçen videolar `(tekrar)` ile işaretli.
+
+
+## ai web design agency local business how to start 2026
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [3aeAy3Qs2UA](https://www.youtube.com/watch?v=3aeAy3Qs2UA) | How to Sell AI Websites to Local Businesses in 2026 (No Tech Skills) | 10 | 330141 | The Savvy Couple - Kelan & Brittany  | A |
+| [H4dNdlzVGnw](https://www.youtube.com/watch?v=H4dNdlzVGnw) | Sell AI Websites To Local Businesses In 2026 (Full Course) | 14 | 279018 | Abou Toure | A |
+| [m6HC_o4Cvko](https://www.youtube.com/watch?v=m6HC_o4Cvko) | Watch These 9 Minutes if You Want to Start a Web Design Business (2026) | 10 | 85259 | Self-Made Web Designer | A |
+| [zbt5wZLiLGU](https://www.youtube.com/watch?v=zbt5wZLiLGU) | How To Price Your AI Web Design Services (Complete Guide) | 6 | 13895 | Abou Toure | B |
+| [IIJbt7bxh5w](https://www.youtube.com/watch?v=IIJbt7bxh5w) | Best Local Businesses to Sell AI Websites to in 2026 (Using Claude) | 30 | 16959 | Mikey Website | A |
+| [hA91LtOslDs](https://www.youtube.com/watch?v=hA91LtOslDs) | How To Create and Sell AI Websites To Local Businesses (full tutorial) | 17 | 125047 | Pavlo | A |
+| [Ze-IqS-UoFA](https://www.youtube.com/watch?v=Ze-IqS-UoFA) | How I'd Start an AI Marketing Agency in 2026 (For Complete Beginners) | 10 | 26908 | Adam Erhart | C (tekrar) |
+| [-np6T0ljYwo](https://www.youtube.com/watch?v=-np6T0ljYwo) | The NEW Way To Sign Web Design Clients With AI [2026] | 17 | 34960 | Abou Toure | B |
+| [kdev1F8o5y8](https://www.youtube.com/watch?v=kdev1F8o5y8) | How to Build & Sell AI Websites: START HERE (2026) | 40 | 11287 | Max Max | B |
+| [-Ag5NXbQwlM](https://www.youtube.com/watch?v=-Ag5NXbQwlM) | How to Sell Websites to Local Businesses In 2026 (START HERE) | 37 | 112831 | Mikey No Code | A |
+| [VWnoJ_O92zM](https://www.youtube.com/watch?v=VWnoJ_O92zM) | Google Maps to Website Client / Selling AI Websites | 13 | 20618 | Saddam Kassim | B |
+| [OZ_ZriNypbg](https://www.youtube.com/watch?v=OZ_ZriNypbg) | Build AI Websites For Local Businesses In 2026 [Lovable Guide] | 12 | 23594 | Abou Toure | B |
+| [nn7jO7EUjjM](https://www.youtube.com/watch?v=nn7jO7EUjjM) | Pick The Best Niche For Your AI Web Design Agency (2026) | 5 | 12492 | Abou Toure | B |
+| [CyFL47pxNn8](https://www.youtube.com/watch?v=CyFL47pxNn8) | How to sell Ai websites to local businesses (2026 with Examples) | 8 | 77 | Stellar Media | C |
+| [SdMpuOuZBP4](https://www.youtube.com/watch?v=SdMpuOuZBP4) | How to make $300/day With AI Websites (speedrun full course) | 14 | 9228 | Pavlo | B |
+
+## sell websites to local businesses ai agency
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [3aeAy3Qs2UA](https://www.youtube.com/watch?v=3aeAy3Qs2UA) | How to Sell AI Websites to Local Businesses in 2026 (No Tech Skills) | 10 | 330141 | The Savvy Couple - Kelan & Brittany  | A (tekrar) |
+| [7Tqs83MjBY8](https://www.youtube.com/watch?v=7Tqs83MjBY8) | Build This Once → Sell It to Every Local Business (297/mo Clients) | 11 | 6332 | Pavlo | B |
+| [iUNzRKOC25w](https://www.youtube.com/watch?v=iUNzRKOC25w) | Sell AI Automation to Local Businesses (Beginner Step-by-Step Guide) | 13 | 313091 | Jason Wardrop | A |
+| [rBkvcMJwYbc](https://www.youtube.com/watch?v=rBkvcMJwYbc) | I Cold Called 5,000 Businesses to Sell Websites. Here's What I Learned. | 16 | 35329 | Sam Robinson | A |
+| [TxMAUMUn-is](https://www.youtube.com/watch?v=TxMAUMUn-is) | Why I Don't Sell AI to Local Businesses (Despite What Gurus Claim) | 17 | 103308 | Nick Saraev | A |
+| [H4dNdlzVGnw](https://www.youtube.com/watch?v=H4dNdlzVGnw) | Sell AI Websites To Local Businesses In 2026 (Full Course) | 14 | 279018 | Abou Toure | A (tekrar) |
+| [hA91LtOslDs](https://www.youtube.com/watch?v=hA91LtOslDs) | How To Create and Sell AI Websites To Local Businesses (full tutorial) | 17 | 125047 | Pavlo | A (tekrar) |
+| [ElrC9j2XiMg](https://www.youtube.com/watch?v=ElrC9j2XiMg) | $100,000/month selling ai websites... | 38 | 15314 | Nick Puru / AI Automation | B |
+| [QG_6Yqulus0](https://www.youtube.com/watch?v=QG_6Yqulus0) | How I Make $140,000/Month Selling Websites | 42 | 30513 | Nick Ponte | B |
+| [SdMpuOuZBP4](https://www.youtube.com/watch?v=SdMpuOuZBP4) | How to make $300/day With AI Websites (speedrun full course) | 14 | 9228 | Pavlo | B (tekrar) |
+| [3fIXJyrG50c](https://www.youtube.com/watch?v=3fIXJyrG50c) | I Audited 50 Agencies Selling AI Agents to Local Businesses (90% Are Doing It Wrong) | 11 | 11271 | Vendasta | B |
+| [WWCzZ56VAT4](https://www.youtube.com/watch?v=WWCzZ56VAT4) | Sell AI Websites To Local Businesses (Copy Me) | 17 | 300236 | Pavlo | A |
+| [6yX3U_Q8XrA](https://www.youtube.com/watch?v=6yX3U_Q8XrA) | How To Sell Websites To Local Businesses / With No-Code + AI | 11 | 51800 | Adam Erhart | A |
+| [M7niLhbbPP8](https://www.youtube.com/watch?v=M7niLhbbPP8) | How to Build & Sell $10K Lovable Websites To Local Businesses | 28 | 19263 | Max Max | B |
+| [cJvwRc3iK0w](https://www.youtube.com/watch?v=cJvwRc3iK0w) | How i sell GoHighLevel websites for $6,000 | 11 | 8561 | Pavlo | B |
+
+## how to get clients for web design agency cold outreach local business
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [OrIxvWCdkEc](https://www.youtube.com/watch?v=OrIxvWCdkEc) | Give Me 7 Minutes and Land 3 Web Design Clients [FAST] | 7 | 127775 | Self-Made Web Designer | B |
+| [coq11ZnucH4](https://www.youtube.com/watch?v=coq11ZnucH4) | I Started Getting Web Design Clients When I Did This.. (best cold outreach strategy) | 7 | 57642 | Cameron Jeanes | B |
+| [LxweAVqlFMM](https://www.youtube.com/watch?v=LxweAVqlFMM) | How I Get Easy Web Design Clients From Google Maps | 10 | 16447 | Payton Clark Smith | B |
+| [jZpOI5petho](https://www.youtube.com/watch?v=jZpOI5petho) | How To Get UNLIMITED Website Clients (LIVE Outreach) | 10 | 51906 | Pavlo | A |
+| [jGDrKhaLWyw](https://www.youtube.com/watch?v=jGDrKhaLWyw) | The Last Video You'll Need to Get Web Design Clients | 31 | 89854 | Self-Made Web Designer | A |
+| [rLUhJapDczs](https://www.youtube.com/watch?v=rLUhJapDczs) | I Land High-Paying Web Design Clients in 24 Hours - Here’s How | 5 | 17647 | Ansif – Build Fast with AI | B |
+| [orZpEVklDlI](https://www.youtube.com/watch?v=orZpEVklDlI) | Get 1000s of Web Design Leads Per Day in 2026 (13 minutes of work) | 19 | 83868 | Pavlo | A |
+| [zIC8T3WWjIc](https://www.youtube.com/watch?v=zIC8T3WWjIc) | How To Get Web Design Clients With Cold Email (Fast) | 17 | 10960 | Abou Toure | B |
+| [k6KvIidRsFY](https://www.youtube.com/watch?v=k6KvIidRsFY) | How to Get Clients in 2026: The Complete Outreach Guide | 54 | 110301 | Nafay 3D | A |
+| [dX7-ojw2Tzo](https://www.youtube.com/watch?v=dX7-ojw2Tzo) | How To Get Clients With Instagram (3 Cold Outreach Methods) | 18 | 183116 | Tyson 4D | B |
+| [-POaWp9_UaM](https://www.youtube.com/watch?v=-POaWp9_UaM) | How to Book 3+ Meetings a Day Web Design Cold Calling (Proven Script) | 12 | 81776 | Spencer Reist | A |
+| [XUJA20VhWvE](https://www.youtube.com/watch?v=XUJA20VhWvE) | How to Sell SEO Services to Local Businesses (Step-By-Step) | 11 | 57139 | Payton Clark Smith | C |
+| [W8iGiiUajl8](https://www.youtube.com/watch?v=W8iGiiUajl8) | How to Get Web Design Clients in 2026 (Even With No Experience) | 16 | 19273 | The Savvy Couple - Kelan & Brittany  | B |
+| [hq5dPOun_00](https://www.youtube.com/watch?v=hq5dPOun_00) | Step-By-Step How I Get $15k Web Design Clients! | 23 | 366593 | Dean White | A |
+| [e6fbe8BSdeo](https://www.youtube.com/watch?v=e6fbe8BSdeo) | Cold Calling Strategies (for Selling Websites) | 13 | 88087 | Pavlo | A |
+
+## meta ads for restaurants tutorial 2026
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [WDc29ey9HvY](https://www.youtube.com/watch?v=WDc29ey9HvY) | ULTIMATE Facebook Ads Tutorial For Restaurants - (Step-By-Step Guide) | 8 | 3360 | Daniel Dimsey | B |
+| [cDdNNFd-CHU](https://www.youtube.com/watch?v=cDdNNFd-CHU) | $2K to $129K: The Meta Ads Strategy Every Restaurant Needs to See | 10 | 27493 | Dineline | A |
+| [LdAJWrLP8pY](https://www.youtube.com/watch?v=LdAJWrLP8pY) | ✅ How to Get 100 Orders/Day for Your Restaurant 🔥 Restaurant Growth Formula with Meta Ads 2026 | 18 | 110 | Aayushman Institute | C |
+| [dlngMvxHiec](https://www.youtube.com/watch?v=dlngMvxHiec) | 7 Best Restaurant Marketing Ideas For 2026 That Print Money | 16 | 15642 | mike bausch | B |
+| [bv8AsY0xkIk](https://www.youtube.com/watch?v=bv8AsY0xkIk) | I Found A BETTER Way To Do Meta Ads Targeting in 2026 | 16 | 39485 | Ben Heath | B |
+| [zstQtxlXh-0](https://www.youtube.com/watch?v=zstQtxlXh-0) | Meta Ads for Restaurants: Don’t Make This Mistake | 8 | 275 | Restaurant Marketing University | C |
+| [13s-G9Uj51A](https://www.youtube.com/watch?v=13s-G9Uj51A) | The BEST Facebook Ad Campaign Structure for 2026 | 23 | 123189 | Ben Heath | A |
+| [eqQo2YcS_0c](https://www.youtube.com/watch?v=eqQo2YcS_0c) | Meta ad strategies for restaurants | 8 | 10 | Restaurant Growth | C |
+| [2sXErVv1T2o](https://www.youtube.com/watch?v=2sXErVv1T2o) | How to run Facebook Ads for Restaurant? | 24 | 594 | Digital Bikana | B |
+| [-6okjIwMmmU](https://www.youtube.com/watch?v=-6okjIwMmmU) | The Best Facebook Ad Campaign Objectives in 2026 | 16 | 54452 | Ben Heath | A |
+| [u-NFpHOonV0](https://www.youtube.com/watch?v=u-NFpHOonV0) | 👉 How to Run Ads for Restaurants & Hotels 🍽️ / Digital Marketing Strategy (2026) | 53 | 6293 | Indian Digital Academy | C |
+| [HxQpZ4yb_hk](https://www.youtube.com/watch?v=HxQpZ4yb_hk) | Facebook Ads SECRET Strategy trending in 2026 🔥 (Full Tutorial) | 11 | 38126 | Damini Tripathi | C |
+| [GwveA7jMsLY](https://www.youtube.com/watch?v=GwveA7jMsLY) | The ULTIMATE Google Ads Setup for ANY Restaurant (2026 Guide) | 18 | 3127 | Daniel Dimsey | B |
+| [O2Ilcb2a7mo](https://www.youtube.com/watch?v=O2Ilcb2a7mo) | How to Run Meta Ads on a Small Budget (₹100/Day!) | 18 | 119725 | WsCube Tech | C |
+| [fj7cmY-El-c](https://www.youtube.com/watch?v=fj7cmY-El-c) | Social Media Marketing for Restaurants (Free Course) | 44 | 58123 | Flick - Social Media Marketing Platform | A |
+
+## instagram carousel design with ai automation
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [cPs5bdjoyjg](https://www.youtube.com/watch?v=cPs5bdjoyjg) | Make Instagram Carousels with Claude AI (3 Free Templates) | 9 | 1054 | Ben Salti | C |
+| [QeV04PFPNck](https://www.youtube.com/watch?v=QeV04PFPNck) | How to Create UNLIMITED Viral AI Carousels in Claude | 5 | 161006 | digitalSamaritan | A |
+| [id22R7iBTjo](https://www.youtube.com/watch?v=id22R7iBTjo) | I Built a Viral Instagram Carousel Machine (n8n + Nanobanana + Blotato) | 19 | 10936 | Automate with Marc / AI Automation  | A |
+| [uhbeDrdmCoI](https://www.youtube.com/watch?v=uhbeDrdmCoI) | You're Making Carousels Wrong (Fix in 3 Easy Steps). | 21 | 66651 | Grow with Alex | B |
+| [gak1lXF77D8](https://www.youtube.com/watch?v=gak1lXF77D8) | Claude AI Creates Instagram Carousels For You (No Design Needed) | 6 | 19800 | Sandeep Singh | B |
+| [N9W4fT2hTio](https://www.youtube.com/watch?v=N9W4fT2hTio) | How to Automate INSANE Instagram Carousels with Claude Code (Step-by-Step) | 6 | 644 | Taelo Kim | C |
+| [GU2vGJ3G6hg](https://www.youtube.com/watch?v=GU2vGJ3G6hg) | How to Create Viral Carousels with AI (Claude + OpenArt) | 8 | 23217 | Thomas Creates | B |
+| [Ry-TbTRm-Q4](https://www.youtube.com/watch?v=Ry-TbTRm-Q4) | How I Use Claude Code to Make INSANE Instagram Carousels | 14 | 2340 | Ethan Nelson | C |
+| [OFoNYWIS7IA](https://www.youtube.com/watch?v=OFoNYWIS7IA) | How I'm Creating Unlimited Viral AI Carousel Images with Claude (100% Works) | 12 | 57023 | Sean Standberry | A |
+| [oIt0JvBrqbg](https://www.youtube.com/watch?v=oIt0JvBrqbg) | Create Viral IG Carousels with Claude Code (100% Automated) | 19 | 2383 | Brennan Wells / AI Automation | B |
+| [VUgeWC1ZB-o](https://www.youtube.com/watch?v=VUgeWC1ZB-o) | How to Make Instagram Carousels With AI in 2 Min | 9 | 137 | Alick - AI Automation | C |
+| [82lbNuLLISI](https://www.youtube.com/watch?v=82lbNuLLISI) | I Built a VIRAL Content Factory (AUTOMATIC Instagram Carousels) | 10 | 953 | Brooke Wright - AI Strategist + Educator | C |
+| [jFAH0txMwiI](https://www.youtube.com/watch?v=jFAH0txMwiI) | How I Use Claude Code to Make INSANE Instagram Carousels (for beginners) | 11 | 64998 | Duncan Rogoff / Learn Claude Code | A |
+| [YlrHIqUvBd0](https://www.youtube.com/watch?v=YlrHIqUvBd0) | I Built Sellable Instagram Carousels With Fable 5.1 + Claude Code (100% Automated) | 7 | 274 | Brown Guy AI | C |
+| [IIXupZAGvDk](https://www.youtube.com/watch?v=IIXupZAGvDk) | How to use Nano Banana to Create TRENDING Carousels (Step-by-Step) | 8 | 63464 | Grow with Alex | A |
+
+## n8n instagram auto post workflow
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [9p3levei5Aw](https://www.youtube.com/watch?v=9p3levei5Aw) | n8n Instagram Automation — Full Postiz Workflow Guide 2026 | 11 | 5818 | Automation Stack | B |
+| [m02TeQ9kHVo](https://www.youtube.com/watch?v=m02TeQ9kHVo) | N8N Instagram Automation / Step-by-Step Guide (Free Template) | 17 | 95214 | Rajeevdaz | B (tekrar) |
+| [t63IlcH1GJY](https://www.youtube.com/watch?v=t63IlcH1GJY) | Automate Every Instagram Post Type (Reels, Stories, Carousels) with n8n + Official API | 25 | 36859 | Lakshit Ukani / AI Automation | A |
+| [QovlUE_VlWQ](https://www.youtube.com/watch?v=QovlUE_VlWQ) | This Workflow Auto-Posts to 9 Different Socials (free template) | 10 | 116386 | Nate Herk / AI Automation | B (tekrar) |
+| [lZ-OiJHAdd8](https://www.youtube.com/watch?v=lZ-OiJHAdd8) | Automate Social Media Posts with n8n (Step-by-Step Tutorial) | 3 | 39435 | Hostinger Academy | C |
+| [L3NUp2XP_h0](https://www.youtube.com/watch?v=L3NUp2XP_h0) | Easy n8n Instagram Automation: Post Reels With AI Generated Captions | 34 | 53262 | Kirk Artman | A |
+| [LFO4cP0KMwk](https://www.youtube.com/watch?v=LFO4cP0KMwk) | The ULTIMATE Agent to Auto-Publish Content Daily - 9 Social Platforms in 1 / n8n NO-CODE Tutorial | 20 | 83020 | Ed Hill / AI Automation | B (tekrar) |
+| [rDrcsMC-WbE](https://www.youtube.com/watch?v=rDrcsMC-WbE) | How to Built an AI Agent for Instagram / How to Automates Instagram Posting with AI / n8n Automation | 16 | 28850 | Satyam  AI | B |
+| [R9c_JQrEtu8](https://www.youtube.com/watch?v=R9c_JQrEtu8) | I Built An AI Influencer Automation in N8n that Automatically Posts Videos | 12 | 249318 | Dan Kieft | A (tekrar) |
+| [2jpSvhlouUA](https://www.youtube.com/watch?v=2jpSvhlouUA) | How to Auto Post Instagram Reels Using N8N 2026 (Easy Guide) | 2 | 400 | TUTORIAL CENTRAL | C |
+| [id22R7iBTjo](https://www.youtube.com/watch?v=id22R7iBTjo) | I Built a Viral Instagram Carousel Machine (n8n + Nanobanana + Blotato) | 19 | 10936 | Automate with Marc / AI Automation  | A (tekrar) |
+| [PXcDqmamX2Q](https://www.youtube.com/watch?v=PXcDqmamX2Q) | How To Post To Instagram Via N8N [AI Automation] | 16 | 50984 | WebSensePro | A |
+| [6FdtN0lZvP8](https://www.youtube.com/watch?v=6FdtN0lZvP8) | The ULTIMATE AI Agent That Auto-Posts to 9 Platforms Hourly (n8n) | 27 | 7367 | Koen / AI Content Systems | B |
+| [HjVZ1mPLOz0](https://www.youtube.com/watch?v=HjVZ1mPLOz0) | Post to 9 Social Media Platforms (100% Automated with n8n) | 10 | 2497 | Brennan Wells / AI Automation | C |
+| [g8hITw1bM2U](https://www.youtube.com/watch?v=g8hITw1bM2U) | Automate Instagram Posting with n8n / AI Reels Workflow using Cloudinary and Google Sheets | 22 | 5179 | Olalekan Adeeko | B |
+
+## sosyal medya yönetimi ajansı nasıl kurulur
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [fEc4iFFLHxc](https://www.youtube.com/watch?v=fEc4iFFLHxc) | Reklam Ajansı Yönetimi Nasıl Yapılır? Kendi Tecrübelerim ve Önerilerim / Ajans Dijital | 24 | 5546 | İlter Türkmen / Marka Yönetimi & Pazarlama Rehberi | B |
+| [e3VfvBKKt8w](https://www.youtube.com/watch?v=e3VfvBKKt8w) | Nasıl Sosyal Medya Yöneticisi Olunur?(Sıfır Tecrübe İle) 2020 | 6 | 102548 | Marvey Online | C |
+| [riZv9WKR_ZM](https://www.youtube.com/watch?v=riZv9WKR_ZM) | SOSYAL MEDYADA YÜKSELMENİN 10 YOLU! "Birkaç Adımda Zirveye" | 10 | 60081 | Tasarımcı Dayı | C |
+| [B8_bn11XINQ](https://www.youtube.com/watch?v=B8_bn11XINQ) | Ajans Kurmak / Influencer Olmak / Dijital Algı Mimarlığı (Bölüm 1) | 45 | 1617 | Yavuz Selim Yavuzer | B |
+| [P4bHmDj6QU0](https://www.youtube.com/watch?v=P4bHmDj6QU0) | Sosyal Medya Yönetimi Nasıl Yapılır? / Creaviser Dijital Pazarlama Ajansı | 8 | 40 | Creaviser Dijital Danışmanlık Ajansı | C |
+| [XJXNdbjxy9Q](https://www.youtube.com/watch?v=XJXNdbjxy9Q) | Social Media Management for Companies | 18 | 16051 | Mustafa Can | B |
+| [E0oRtpPIFh0](https://www.youtube.com/watch?v=E0oRtpPIFh0) | FİKRİMİ AKTARIYORUM 1: Dijital pazarlama danışmanı, Ajansı ve Freelancerlar nasıl müşteri bulmalı? | 3 | 4091 | Ozan Durak | C |
+| [lI08Nksa91E](https://www.youtube.com/watch?v=lI08Nksa91E) | How to Find Clients? My Monthly Income from Social Media Management! | 10 | 9008 | Harun Temur  | B |
+| [MQXalNkFBOk](https://www.youtube.com/watch?v=MQXalNkFBOk) | Sosyal Medyada Tutarlı İçerikler Nasıl Oluşturulur? / Canva, Capcut ve Notion İçerik Üretme Sürecim | 37 | 41327 | Seda Gökçe Uluçay  | B |
+| [Kk-47dhrPpg](https://www.youtube.com/watch?v=Kk-47dhrPpg) | Ücretsiz SMMA Eğitimi / Sıfırdan Ajansını Kur | 23 | 34034 | Mert Solmaz | A |
+| [fBqGoRYNGDU](https://www.youtube.com/watch?v=fBqGoRYNGDU) | İşletmeler için #sosyalmedyayönetimi nasıl yapılmalıdır? Sosyal medya ajansı - Creodive | 7 | 428 | Creodive Web Tasarım & Reklam Ajansı | C |
+| [6PYYuY6a41g](https://www.youtube.com/watch?v=6PYYuY6a41g) | 2026 BUSINESS MANAGER NASIL KURULUR? / Facebook & İnstagram İşletme Hesabı Açma | 7 | 39284 | Emre Erdem | B |
+| [mab7LvFPBCw](https://www.youtube.com/watch?v=mab7LvFPBCw) | Reklam Ajansı Kurmak ya da Kurmamak! | 4 | 15230 | Navras Akademi | B |
+| [RUaEVjxquJg](https://www.youtube.com/watch?v=RUaEVjxquJg) | 2026'da Dijital Pazarlama Ajansınızı nasıl kurarsınız?  Adım Adım Dijital Pazarlama Ajansı Kurun | 45 | 125147 | Gürkanzone | A |
+| [K8kRDkrs7M0](https://www.youtube.com/watch?v=K8kRDkrs7M0) | 2025'te Dijital Pazarlama Ajansı Kurmak İsteyenlerin %99'u Başarısız Oluyor // Sen OLMA | 10 | 11042 | Mert AYHAN  | B |
+
+## yerel işletmelere web sitesi satmak
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [qjort8_i6sQ](https://www.youtube.com/watch?v=qjort8_i6sQ) | Küçük İşletmelere Web Sitesi Yapıp Satmak (Adım Adım 2026) | 7 | 100 | The Checklist Review | B |
+| [E4xQl77C6N4](https://www.youtube.com/watch?v=E4xQl77C6N4) | Yerel İşletmelere Yapay Zeka Web Siteleri Nasıl Oluşturulur ve Satılır (Tam Eğitim) | 34 | 36 | Darrel Wilson Türkçe’de | A |
+| [wJEfS-f0hkU](https://www.youtube.com/watch?v=wJEfS-f0hkU) | Selling Websites to Small Businesses: A 6-Step Guide for 2026 | 7 | 4 | Kontrol Listesi | C |
+| [VLBC5DgurA8](https://www.youtube.com/watch?v=VLBC5DgurA8) | Esnafa Web Sitesi Nasıl Satılır? / EsnafKoçu v3 ile Müşteri Bul ve Site Hazırla | 1 | 70 | Satış Kodu | C |
+| [AU4b4DHiVJk](https://www.youtube.com/watch?v=AU4b4DHiVJk) | 5 Dakikada Küçük İşletmeler İçin Profesyonel Web Sitesi Nasıl Yapılır (WordPress) | 9 | 31 | The Checklist Review | C |
+| [5p793fp3pjk](https://www.youtube.com/watch?v=5p793fp3pjk) | Müşteriler İçin Kod Yazmadan WordPress Web Sitesi Nasıl Yapılır | 7 | 27 | The Checklist Review | C |
+| [oZmLLBViswo](https://www.youtube.com/watch?v=oZmLLBViswo) | No-Code WordPress Sites for Clients: Step-by-Step | 7 | 8 | Kontrol Listesi | C |
+| [ZCZgTuAZxLg](https://www.youtube.com/watch?v=ZCZgTuAZxLg) | Web Sitesi Nasıl Kurulur ? EN POPÜLER Web Sitesi Yapma Yöntemi | 19 | 50101 | WPMAVI / Burak Oran | C |
+| [l0fABn38Qq0](https://www.youtube.com/watch?v=l0fABn38Qq0) | 🎯 Küçük İşletmeler İçin En Hızlı Müşteri Getiren Dijital Kanal Hangisi? (Neden!) | 8 | 68 | Alia Rior | C |
+| [at7rogD2lMY](https://www.youtube.com/watch?v=at7rogD2lMY) | Creating a Professional Website in a Single Prompt with Gemini 3.1 | 8 | 10283 | burhan kocabıyık | C (tekrar) |
+| [2RBPLGr6hL0](https://www.youtube.com/watch?v=2RBPLGr6hL0) | TEK SATIR KOD YAZMADAN KENDİ SİTEMİ KURDUM! 😱 (Yapay Zeka ile Site Yapımı) | 9 | 30193 | Onur Naci Öztürkler | C |
+| [DbVPo9t5n60](https://www.youtube.com/watch?v=DbVPo9t5n60) | This Is How Top-Performing Businesses Attract Customers! / 100% Effective / Google Reviews | 4 | 766 | Murtaza Yiğit  | C |
+| [-awprCfai5A](https://www.youtube.com/watch?v=-awprCfai5A) | Yapay Zekâ Çağında İşletmeler İçin Yeni SEO: GEO Nedir? | 0 | 6 | Al Servis Türkiye | C |
+| [ZCS1fbOr4Xo](https://www.youtube.com/watch?v=ZCS1fbOr4Xo) | Google'da Birinci Sırada Çıkmak: Yalanlar & Gerçekler ve SEO | 8 | 13490 | Menderes Kahraman | C |
+| [WkbGjfBIN7Y](https://www.youtube.com/watch?v=WkbGjfBIN7Y) | Wordpress ile Web Sitesi NASIL Kurulur? (FULL REHBER) | 24 | 31577 | WPMAVI / Burak Oran | C |

@@ -1,0 +1,242 @@
+# Create Your AI Social Media Agent in MINUTES! Zapier Agent Tutorial - Build AI Employees w/No Code
+# https://www.youtube.com/watch?v=2r4QNDuzOGQ
+# kanal: Helena Liu | süre: 1191 sn | kaynak: yt-dlp:android:2r4QNDuzOGQ.en.json3
+
+[00:00:00] today I'm going to show you how you can make your very own AI social media
+[00:00:03] manager that's right over the next 10 15 minutes or so you're going to learn how
+[00:00:08] you can build your very first AI employee and you don't need any
+[00:00:12] technical skills at all this employee is going to go out and do research about
+[00:00:17] your Niche look at the latest news and then it's going to write High converting
+[00:00:22] unique Facebook LinkedIn as well as Instagram post for you all on automation
+[00:00:27] it's just so mindblowing how quickly this technology is advancing on
+[00:00:32] basically daily basis also if you're new to my channel hi my name is Helena and
+[00:00:36] on this channel we talk about everything Ai and automation so please make sure
+[00:00:40] you like And subscribe below to keep up with the latest updates and AI all right
+[00:00:45] so without further Ado let's dive into it so to build our AI agent we're going
+[00:00:50] to use zap your agent platform and I really like this platform because it is
+[00:00:54] the easiest one to onboard and you don't need to write any code at all so if you
+[00:00:58] already have an existing zapier account this is actually absolutely free for you
+[00:01:03] zapier is the OG in the automation industry so you know that it is the most
+[00:01:08] stable platform out there so go to agent. zapier.com if you do need a new
+[00:01:13] account I'm also going to include the link in the descriptions below as well
+[00:01:17] and here we can just start a new agent and you can already see that there's a
+[00:01:21] number of pre-built templates here now in our example here we're going to start
+[00:01:26] a new agent we're going to call this social media agent and we're going to
+[00:01:30] start from scratch Now by default after you create your agent you're going to
+[00:01:34] land on the chat tab we're going to go over to the configure tab though because
+[00:01:38] we need to tell this agent what we wanted to do we are going to add in all
+[00:01:42] our data sources and behaviors and that's it so this is a super simple way
+[00:01:46] to get started with agent in the data sources this includes all of the things
+[00:01:51] that you want this agent to know and you can link it to all of these various
+[00:01:55] different data sources from Air table to excel to Google doc to HubSpot no
+[00:02:00] zendesk Etc this is really great because in the past you would have to export all
+[00:02:05] of that information in a text file or a PDF file and upload it into your agent
+[00:02:11] and whenever the information changes you need to then redo the whole process
+[00:02:15] again but with stap your agent you can link it right in with your notion
+[00:02:19] account or your Google doc so when that information changes on those
+[00:02:22] documentations your agent's knowledge base will change as well it is
+[00:02:27] completely optional to link your agent to a data source so you can have agents
+[00:02:32] without the data source but for our example here we're going to link it to a
+[00:02:36] Google doc this is what my Google doc looks like it has several examples of a
+[00:02:42] high converting post so I'm going to teach this agent about how to write
+[00:02:47] these high converting post to link my data source to my Google doc I'm just
+[00:02:51] going to click on google doc if this is your first time connecting your zapier
+[00:02:56] account to uh Google doc then you need to authenticate by putting in your
+[00:03:01] username and password and allowing zapier to access your Google account
+[00:03:05] then after you have done that you just have select the document that you want
+[00:03:10] this agent to learn and then click on add data source and you can see here you
+[00:03:15] have a Green Dot here which means it is all synced and the agent has learned
+[00:03:19] that next we have to configure our behaviors now protip here just add one
+[00:03:25] task inside of each Behavior CU AI can still hallucinate so the more specific
+[00:03:31] the instruction that you can give it the better the result that you are going to
+[00:03:35] have so to build our social media agent we're actually going to put in four
+[00:03:40] different behaviors the first Behavior will be to tell the agent to go ahead
+[00:03:45] and do research about your Niche find the latest pieces of news the second
+[00:03:50] agent is going to go out and write the Facebook post the third agent is going
+[00:03:54] to write LinkedIn post and the fourth agent is going to write Instagram post
+[00:03:59] the reason I don't bundle all these behaviors together is because people
+[00:04:03] write differently on LinkedIn versus Instagram and so I want the agent to
+[00:04:08] really know the nuances of that platform and write specific post that's high
+[00:04:13] converting for those platforms I'm also going to include my prompts as well as
+[00:04:18] the example post in the description below so be sure to check that out all
+[00:04:22] right so to create a new Behavior we're going to click on create Behavior and
+[00:04:27] the trigger here is when we want this specific behavior to be performed the
+[00:04:34] first Behavior we're going to do is the research agent and we're going to use
+[00:04:39] the schedule trigger so basically we want this agent to go out and do
+[00:04:44] research about our Niche on some sort of frequent basis this could be daily this
+[00:04:49] could also be weekly I'm going to do uh daily and I can choose the time of day
+[00:04:55] that I want this agent to go ahead and do this let's say it's 7:00 a.m. every
+[00:05:00] morning and I'm going to save this now in the instructions and this is where
+[00:05:03] you put in your prompt telling the agent what you wanted to do okay so I put in
+[00:05:10] my prompt for the research agent and here's the instructions I have given to
+[00:05:14] the AI I said your goal is to identify and compile a list of AI related Brands
+[00:05:20] and companies that are being covered in the news online so when you're using
+[00:05:24] this prompt which I'll include in the description below uh feel free to just
+[00:05:28] change this to what ever your Niche may be and I told it to conduct the research
+[00:05:34] every day about news that was published yesterday okay and then I told it to
+[00:05:39] extract the following pieces of data the datea of the article the title of the
+[00:05:43] article and the link to the article and I also told it to summarize the article
+[00:05:49] as well now I also want all of these news to be returned into a Google sheet
+[00:05:55] this is what my Google sheet looks like so I told the AI to compile the
+[00:05:59] information of the date title link and the headline and the summary and to link
+[00:06:04] this Google sheet now to this agent I just had to press insert action up here
+[00:06:11] and then I will search for Google sheet and once I click on Google sheet I can
+[00:06:16] see all of the actions that I can perform and I actually want to create a
+[00:06:21] new spreadsheet row so basically This research agent is going to go out to the
+[00:06:25] web search for uh news on the latest AI happenings and then return that article
+[00:06:32] into that spreadsheet that I just created so once you have inserted this
+[00:06:36] action you have to link it to that spreadsheet that we had just created now
+[00:06:40] to configure this action first you need to connect to your Google Sheets account
+[00:06:46] which I have already done so then for the subsequent Fields when we look at
+[00:06:51] the dropdown we can see that there's a few different options we can let the
+[00:06:55] agent select which drive or spreadsheet that we need to post this information in
+[00:07:01] or you can specify the specific value I find that you're going to get more
+[00:07:05] accurate results when you set a specific value in that field instead of letting
+[00:07:11] the agent choose because sometimes if you're like me you have hundreds of
+[00:07:15] files in your Google Drive and it will be very hard for the agent to know which
+[00:07:20] spreadsheet you wanted to post it in um for the spread sheeet select the
+[00:07:24] specific value for the field and I've selected zpp your agent uh test which is
+[00:07:29] is the spreadsheet I have created here and for the worksheet I selected sheet
+[00:07:34] one and then for all of the columns so the date title link this is where I let
+[00:07:41] the agent generate those values okay and I'm going to press save here and I have
+[00:07:46] to save the entire thing then I can go ahead and test this behavior and this
+[00:07:52] agent is now going to go do the work and take a look at the news that happened
+[00:07:57] yesterday in the AI IND indry so let's see what happens okay we can see now
+[00:08:03] it's searching Google and to see what it has performed in each step we can just
+[00:08:09] expand on the task it's doing okay so it's finished web browsing now it's
+[00:08:15] found the article and now it's determining the next
+[00:08:18] step oh okay so now it's creating that spreadsheet
+[00:08:23] rle we can now go back to our spreadsheet and we can see boom yes it's
+[00:08:29] got uh the date of the article the title of the article the link to the article
+[00:08:35] and it's summarized this piece of news for us as well I mean it's mind-blowing
+[00:08:41] I mean social media manager is a job that companies routinely pay 30 to
+[00:08:47] $60,000 a year for for someone to uh perform this job for them and now we can
+[00:08:53] automate this whole thing with AI for like Pennies on the dollar you can have
+[00:08:58] this whole automation set up and it would just be like $10 to $50 a month to
+[00:09:03] run it that's it's crazy um How Far We've gone with tech all right so once
+[00:09:09] this has completed we just have to turn on this action if it's performing the
+[00:09:13] way that we want it to perform and that's it so now we're ready to do our
+[00:09:18] next action we're going to press the plus symbol here and the next action
+[00:09:23] will be to create our Facebook posting behavior and for the trigger here we are
+[00:09:29] going to select um Google sheet the trigger is what starts this specific
+[00:09:35] behavior it could be when a specific action happened in another app where
+[00:09:40] it's on schedule or on demand so we're going to select Google sheet for this
+[00:09:45] trigger basically whenever the research agent has finished doing its research
+[00:09:51] then we want it to take the latest research that the research agent has
+[00:09:55] returned and write a unique hi converting Facebook post from there so
+[00:10:01] we're going to look for new spreadsheet row being added to our spreadsheet and
+[00:10:06] in the instructions this is where we put in our prompt all right I have finished
+[00:10:11] putting in my instructions for the Facebook agent so I told it to write a
+[00:10:15] high engagement Facebook post that is designed to grab attention and Spark
+[00:10:20] conversation I told it not to include any links take a look at the article
+[00:10:25] from the Google sheet and use it to create this engag ing Facebook post then
+[00:10:31] I told it some instructions like provide value provide actionable steps make it
+[00:10:35] feel relevant and current encourage uh discussions and then I told it the tone
+[00:10:41] and the style I wanted to use and then here I can also insert some examples of
+[00:10:46] post so that the AI has more specific instructions of what I want it to do the
+[00:10:52] more specific the instructions that you can give to the AI the better the result
+[00:10:56] that you will give now I can actually insert in the data that we trained it on
+[00:11:01] in the beginning now so that this agent has the examples of the post that we
+[00:11:07] wanted to use so I just have to click on insert data here and sync it to the
+[00:11:12] social media example stock that I have now it's a great way to do it this way
+[00:11:17] because you can just update that Google doc and this agent's knowledge will
+[00:11:23] automatically be updated so it's a dynamic knowledge base versus a static
+[00:11:29] knowledge base after I have given it all the instructions I also have to link
+[00:11:34] this to the action so I want it to automatically post onto my Facebook page
+[00:11:40] once it's done so to do that I'm going to click on insert action search for
+[00:11:46] Facebook pages click on this and look for create new page post as the action
+[00:11:54] once you insert in this action be sure to configure this you need to link this
+[00:11:58] to your Facebook account if you have multiple pages in your account select
+[00:12:03] the page you wanted to uh insert and for the message uh photo and uh link URL I I
+[00:12:10] just let the agent generate those values and I'm going to press save and save
+[00:12:14] this entire action now let's go ahead and test this
+[00:12:19] Behavior okay so our social media agent is going to work now it's taking a look
+[00:12:24] at the spreadsheet that we just created and it's also looking add the
+[00:12:29] examples in the social media post so it has loaded that content and now it's
+[00:12:35] thinking and summarizing the results great now it has retrieved that
+[00:12:40] content and now it is crafting and writing the Facebook post for
+[00:12:46] us this is exciting okay so it's been about a
+[00:12:50] minute and our AI agent has finished writing the post and we can expand on
+[00:12:55] this to see what it has written I also went over to my Facebook page here to
+[00:13:00] read the post it has written so basically it summarized the article
+[00:13:04] picked out the uh most interesting pieces of AI news that happened
+[00:13:09] yesterday and wrote a short summary about it now one thing I do want to show
+[00:13:14] you like let's say you're not happy with this post you can go ahead and change
+[00:13:19] the instructions that you have given it or you can just tell the AI here in the
+[00:13:24] reply box exactly what you don't like once we're happy with this Behavior we
+[00:13:29] can just turn it on and then move on to the next one so similarly we're just
+[00:13:34] going to use the exact same process to create our LinkedIn behavior and our
+[00:13:39] Instagram Behavior now I'm going to call this LinkedIn posting and the trigger
+[00:13:44] will again be the Google sheet when a new spreadsheet row is added to our
+[00:13:51] zappier agent spreadsheet and it'll be the first sheet and in instructions I'm
+[00:13:55] going to tell it exactly how to write a high converting LinkedIn post I have put
+[00:14:00] in my prompt for the LinkedIn Behavior I told it that you are a skilled LinkedIn
+[00:14:05] content strategist your goal is to write a high converting LinkedIn post that
+[00:14:09] grabs attention delivers value and drives action I told it the key elements
+[00:14:13] that I want in the LinkedIn post and then I go on to give it some examples of
+[00:14:18] what I want this post to look like and now I have to link it to my LinkedIn
+[00:14:24] account here so I'm going to insert action search for LinkedIn and and go to
+[00:14:30] LinkedIn then I want to select create a shared update then I have to click on
+[00:14:36] the action to configure it link this to my LinkedIn account and I'm going to let
+[00:14:42] uh the agent choose the value of the comment field so this is basically
+[00:14:48] what's allowing the agent to post what it has just written you can also choose
+[00:14:53] whether you want this to be visible to everyone or just your connections and
+[00:14:58] I'm going to let the agent choose all of the content here so once that is done I
+[00:15:03] just just save this and press on test Behavior again and wait a minute for
+[00:15:09] this to be done okay so it's been about a minute and the AI agent has finished
+[00:15:13] crafting and posting my LinkedIn post here for me if there's anything that you
+[00:15:18] don't like about this post just go back and forth in the reply section tell it
+[00:15:23] what you don't like and then the AI will actually fix things up and now let's say
+[00:15:27] that um I found the previous post here a little short and I want it to be longer
+[00:15:32] I can just in the reply comment here tell uh the AI to make it a bit longer
+[00:15:37] so I toally here to please make the post double length and start a new line for
+[00:15:41] each sentence what I also want you to note
+[00:15:45] here is that it can actually save your feedback so it actually adds to your
+[00:15:51] instructions as your testing things it actually adds to uh the instructions
+[00:15:56] that you give it you can see here that it added this line here by itself um so
+[00:16:03] whatever feedback you're giving it it's constantly taking that feedback and
+[00:16:08] improving upon its results as well which is super cool now it's creating a new
+[00:16:13] LinkedIn post for me all right it's been about a minute or two and you can see
+[00:16:18] the AI has written a new post that is an expanded version of what we had
+[00:16:24] previously so whatever you don't like I mean this is just super cool just type
+[00:16:28] in your feedback here and the agent can actually save the feedback by adding to
+[00:16:34] your promps now let's move on to our fourth and final Behavior which is
+[00:16:37] creating our Instagram posting the trigger is going to be the same one
+[00:16:42] whenever there is a new spread sheet Row in the zapier sheet and now we had to
+[00:16:48] put in our instructions all right so I have put in my instructions for the
+[00:16:53] Instagram posting agent so I have given it uh some instructions here I told it
+[00:16:58] that key elements I want in the captions I gave it a row I told the AI that you
+[00:17:04] are a skilled Instagram content strategist your goal is to write
+[00:17:08] engaging Instagram captions that grab attention feels natural and encourages
+[00:17:13] like shares and comments okay I've given it some examples of captions and lastly
+[00:17:20] here um I told it to also generate an image so let's add in that action now
+[00:17:26] we're going to add in action again and I'm going to use uh dially to generate
+[00:17:31] this image so I'm going to search for open Ai and then I'm going to search for
+[00:17:36] uh generate an image with Sally So currently there are still some
+[00:17:41] limitations with zap your agent so you can't do a custom HTTP request for
+[00:17:47] example that's not an action that can be done so you can't link it to uh flux or
+[00:17:53] stable diffusion at this time I hope it is a change that their team will make
+[00:17:57] soon and after after you have connected this to your open AI account you can um
+[00:18:03] let the agent choose the prompt the model that you wanted to do I'm going to
+[00:18:09] choose stally 3 for my model and I am going to let the uh agent choose the
+[00:18:14] number of images it wants to generate and the rest looks good then lastly once
+[00:18:19] the caption as well as the image has been generated I told it to link it to
+[00:18:25] my Instagram account so to do this insert action same thing same same um
+[00:18:30] I'm going to search for Instagram for business and I'm going to select publish
+[00:18:34] a photo then I'm going to click into it link it to my account if you have
+[00:18:39] multiple accounts um then let the agent know which Instagram account you want to
+[00:18:45] choose and then let the agent choose the photo and the captions and then press
+[00:18:49] save so once all that's done let's test the behavior again and see what we
+[00:18:55] get it's looking at a new piece of news and now it's generating the
+[00:18:59] image okay great it's been about 2 minutes and we can see that the AI has
+[00:19:04] generated an image for my Instagram account that is related to the news
+[00:19:09] article it has found and it has written a pretty good caption here as well so if
+[00:19:15] you don't have any kind of like social media presence like do this set this up
+[00:19:19] and then you have an completely automated system that will post on all
+[00:19:24] the platforms for you this is such a game changer I hope you're starting to
+[00:19:28] see the power of AI and automations I hope you will give this a try if you got
+[00:19:33] anything on this video please like And subscribe I also have a free AI
+[00:19:36] automations course that you can sign up for as well I'll also include the link
+[00:19:41] to the zap your agent and all of the prompts that we used in this video in
+[00:19:45] the description below as well so make sure you check that out thanks so much
+[00:19:48] for joining me today and I'll see you next time
