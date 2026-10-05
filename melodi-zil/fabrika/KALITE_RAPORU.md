@@ -24,7 +24,24 @@
 ## Gerçek Android üzerinde doğrulama (emülatör, KVM'siz yazılım modu)
 Ortam: Android SDK emülatörü, API 26 (Android 8.0) x86, `-no-accel -gpu swiftshader_indirect`. (API 30 imajı bu ortamda `DeviceStorageMonitorService` NPE döngüsüyle sistem sunucusunu çökertti; API 26 kullanıldı.) Ağ: bulut ortamının TLS-araya-giren proxy CA'sı sistem deposuna eklendi, `adb reverse` ile proxy'ye yönlendirildi — yalnızca test ortamı gereği.
 
-EMULATOR_SONUCLARI
+| Adım | Sonuç |
+|---|---|
+| Release APK (R8) kurulumu, açılış, tanıtım → ana sayfa | ✅ (ekran görüntüleri 01, 02) |
+| "Telefondan ses dosyası seç" → sistem seçici → m4a dosyası (3:33) | ✅ |
+| Android 8 depolama izni diyaloğu, işlem öncesi | ✅ (11_permission.png; D-011) |
+| MediaCodec ile çözme → melodi çıkarımı cihazda | ✅ 340 nota (JVM'de 337; fark yeniden örnekleme kaynaklı), ~6 dk (yazılım emülatörü; gerçek telefonda saniyeler) |
+| Sonuç ekranı: piyano rulosu, 8 chip, uzunluk, bölüm kaydırıcısı | ✅ (04_result.png) |
+| Tını değiştirme (Müzik Kutusu) → yeniden sentez | ✅ |
+| "Dinle" → AudioTrack ile önizleme, "Durdur" durumu | ✅ (AudioFlinger karıştırıcıya veri yazdı) |
+| "Zil sesi yap" sheet → Kaydet | ✅ (D-009 sonrası sheet tam açık) |
+| Dosya: `/storage/emulated/0/Ringtones/MelodiZil/Never_Gonna_Give_You_Up - Müzik Kutusu.wav`, 2.6 MB, 44.1 kHz mono 16-bit, 30.0 s, tepe −1 dBFS | ✅ (`ffprobe` ile doğrulandı; MP3 kopyası kullanıcıya gönderildi) |
+| MediaStore satırı `is_ringtone=1` | ✅ (`content query`) |
+| Sistem varsayılan zili → `content://0@media/external/audio/media/36` | ✅ (`settings get system ringtone`, öncesi: dahili 103) |
+| Zillerim listesi, eylem sheet'i (zil/bildirim/alarm yap, paylaş, sil), ana sayfa "Son zillerin" | ✅ (07_library.png, 02b_home_recent.png) |
+| Koyu mod (Ayarlar → Koyu) | ✅ (09, 10) |
+| YouTube bağlantısı akışı cihazda | ⚠️ Doğrulanamadı: bu bulut ortamının çıkış IP'si test sırasında YouTube tarafından bot olarak engellendi ("Sign in to confirm you're not a bot"); aynı hata JVM testinde de alındı. Aynı kod yolu 07:35'te JVM'den gerçek YouTube'a karşı başarıyla çalıştı (çözümleme + indirme). Kullanıcının telefonunda (normal IP) denenmeli. |
+
+Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı çökme), D-009 (sheet butonu ekran dışı), D-010 (Android 8-9 MediaStore `_data`), D-011 (izin zamanlaması). Hepsi düzeltildi ve yeniden doğrulandı.
 
 ## Kullanıcı testi
 ⏳ Kullanıcı `dist/melodi-zil-1.0.0.apk` dosyasını telefonuna kurup 2-3 şarkıyla denemeli ("onay" / "sorun: …").
@@ -38,4 +55,4 @@ EMULATOR_SONUCLARI
 ## Fabrikaya geri bildirim
 - En çok zaman: emülatör (KVM yok) ve YouTube erişimi (proxy CA). Kural önerisi: "Gerçek cihaz doğrulaması için önce API 26 x86 imajı dene; API 30+ yazılım modunda kararsız."
 - Eksik kural: "Kullanıcı tamamını bitir derse kapılar nasıl geçilir" (D-004) ve "native Kotlin istisnası" (D-005) — SKILL.md güncellemesi önerildi.
-- Yakalanan gerçek hata: Android 8-9'da `WRITE_EXTERNAL_STORAGE` çalışma zamanı izni istenmiyordu (manifest'te vardı) → `AppNav.saveWithPermission` eklendi. Ders: "minSdk < 29 ise MediaStore yazımı için çalışma zamanı izni akışı zorunlu."
+- Yakalanan gerçek hatalar (4): bkz. DERSLER D-008…D-011. Ders: "JVM testi yetmez; en düşük desteklenen API'de gerçek Android akışı koşulmadan 'bitti' denmez."

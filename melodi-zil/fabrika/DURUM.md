@@ -18,4 +18,5 @@
 İşaretler: ⬜ başlamadı · ⏳ devam · ✅ onaylandı · ↩️ geri dönüldü
 
 ## Günlük (en yeni en üstte)
+- 2026-10-05 (akşam): Emülatör (Android 8.0) doğrulaması tamamlandı: dosyadan melodi → müzik kutusu → zil sesi olarak kaydedildi ve sistem varsayılanı oldu. 4 gerçek hata bulunup düzeltildi (D-008…D-011). YouTube akışı ortam IP engeli yüzünden cihazda doğrulanamadı; JVM'de daha önce doğrulandı.
 - 2026-10-05: Fabrika başlatıldı ve tüm aşamalar tek oturumda tamamlandı (kullanıcı talimatı: "MVP değil, Google Play'e atacak hale getir, bitir"). Kod: GitHub `jannet5/jn` → `melodi-zil/`. Drive: `Uygulama Fabrikası/melodi-zil/`.
