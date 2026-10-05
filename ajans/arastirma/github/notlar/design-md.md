@@ -1429,3 +1429,473 @@ Divergence matrix (bir müşteri için birden çok sayfa/ekran ya da birden çok
 | D | warm newsprint | quirky display grotesque | duotone | riso/print |
 | E | white | humanist sans | one signal color | data/editorial |
 
+### 3.9 pbakaus/impeccable — 24 komut, PRODUCT.md + DESIGN.md modeli, 61 dedektör
+
+- **Link:** https://github.com/pbakaus/impeccable (76.9k⭐, Apache-2.0) · https://impeccable.style · Kopya: `kopyalar/pbakaus-impeccable/` (SKILL.md, reference/craft-floor, document, new-work, critique, audit, typeset, colorize, init, polish, ios, android, audit.native; PRODUCT.md; DESIGN.md)
+- **Özet:** Anthropic frontend-design'dan türeyip büyümüş. İki kalıcı dosya: `PRODUCT.md` (`/impeccable init`: platform, kullanıcılar, amaç, konum, kısıtlar, marka taahhütleri, kanıt, ilkeler — "ürün gerçeği") ve `DESIGN.md` (`/impeccable document`: Google spec'i; 8-prop'a sığmayan shadow/motion/focus-ring "sidecar"a). Komutlar: `shape, craft, critique, audit, polish, bolder, quieter, distill, harden, onboard, animate, colorize, typeset, layout, delight, overdrive, clarify, adapt, optimize, live, generate`. 4 mod: Persuade / Operate / Read / Experience. CLI + Chrome eklentisi 61 deterministik kuralı LLM'siz çalıştırır; hook ile her UI düzenlemesinden sonra otomatik. Kendi sitesinin DESIGN.md'si oklch token + ramp + enumerated type scale ("86 farklı font-size'ı 13 adıma indirdik") iyi bir "gerçek" örnek.
+- **Nasıl kullanırız:** Zincirde `init` (PRODUCT.md = brief) → `document --seed` (DESIGN.md taslağı) → build → `critique` + `audit` → `polish`. En azından `craft-floor.md`'yi (kalite tabanı + yasaklar) kendi skill'imize alırız.
+- **craft-floor.md (aynen, tamamı):**
+
+```markdown
+# Craft floor
+
+Load this after the direction is settled, and build without announcing the checklist. A pinned brief or the committed visual world overrides anything here; your own habit does not. When the design hook is active it already enforces the mechanical checks below as you edit: act on its findings instead of re-auditing each rule.
+
+## Verify
+
+Each of these is a check on the built result, not an intention. Run them together in the batched inspection rounds, not as separate screenshot trips; the checks share one render.
+
+- **Contrast:** body and placeholder text ≥4.5:1, large text ≥3:1. On colored surfaces tint secondary text from that hue or the foreground; never gray.
+- **Depth:** shadows carry an offset and a soft blur. A zero-offset colored halo is decoration.
+- **Spacing:** tight groups, generous separation, more space above a heading than below it. Read the computed values.
+- **Type:** body measure 65–75ch, display max 6rem, tracking floor -0.04em, balanced headings, obvious scale and weight steps. Run the real copy at every breakpoint and fix what overflows.
+- **Motion:** one authored moment, not scattered effects and not one identical entrance on every section. Exponential ease-out from an already-visible default. Reach past transform and opacity: blur, backdrop-filter, clip-path, mask, and shadow belong to the palette when they stay smooth.
+- **States:** hover, disabled, loading, error, empty. Plus real content, working controls, responsive composition, keyboard focus.
+- **Browser surfaces:** the parts you did not draw still carry the design. Text selection, the caret, custom scrollbars, focus rings, underline offset, and the numerals in tabular data all ship with browser defaults that belong to no design system. Theme them from the palette. This is the cheapest signal that a page was built rather than assembled, and the one models skip most reliably.
+- **Copy:** the product's own language. Controls name their action; errors name the problem and the recovery.
+- **Coverage:** every brief requirement present and findable within seconds.
+
+## Refuse
+
+These are the category's defaults, not bans: the brief's own words can earn any of them. Reaching for one when the axis is free means you were not deciding; recognizing that means rewriting the element, not softening it.
+
+Page scaffolds:
+
+- Same-size cards of icon plus heading plus text as the page structure. Cards are the lazy container; nested cards are always wrong.
+- The hero-metric template: big number, small label, supporting stats, accent.
+- A kicker or eyebrow above a heading. This one is a ban, not a default: no brief earns it back. The heading carries its own weight; delete the label and let the heading speak.
+- Section numbers (01 / 02 / 03) unless the sequence itself carries information the reader needs.
+- A modal for a task that needs neither interruption nor protected focus.
+
+Surface habits:
+
+- Gradient text. Emphasis comes from weight or size.
+- Glass and blur as decoration rather than as a specific effect.
+- A colored `border-left` or `border-right` above 1px on cards, list items, callouts, or alerts.
+- Hard offset shadows (`box-shadow: 4px 4px 0`) outside a world that is actually neobrutalist. The zero-blur block shadow is a costume, not a depth system; a world that did not choose it never earns it as a default.
+- Sparklines, progress rings, and soft-shadowed rounded rectangles standing in for content.
+- Monospace as a costume for "technical" rather than for code, data, or measurement.
+- A system display face (Impact, Arial Black, the platform sans) as the display voice of an own-world page. Source and self-host a face whose character matches the approved lettering; the closest installed font is a failure, not a fallback.
+- Unicode glyphs or emoji standing in for an icon system. Icons are drawn, from a real library or authored SVG, in one consistent stroke and weight.
+- Geometric masks standing in for organic contours. A circle, polygon, or radial-gradient cutout approximating a photographic subject's edge is the cheap version of the effect and reads worse than omitting it. Derive an alpha matte from the actual image, or produce a cut-out asset.
+- Light or dark picked by category. Pick it from the use scene: who, where, under what ambient light.
+
+The floor holds the mechanics; it never picks the direction. With every check green, spend the page on the committed world, and when torn between refined and committed, commit.
+
+```
+
+### 3.10 kwakseongjae/oh-my-design — felsefe→karar→token zinciri, Core v2, slop gates
+
+- **Link:** https://github.com/kwakseongjae/oh-my-design (530⭐, MIT) · https://oh-my-design.kr/docs/en · Kopya: `kopyalar/kwakseongjae-oh-my-design/` (README, spec/design-md-core-v2.md, references/slop-gates.md, derivation-chain.md, component-craft.md, omd-autopilot/omd-slop-audit/omd-designer-review SKILL.md)
+- **Özet:** En disiplinli yaklaşım: *"Her mikro karar (köşe, state, hizalama, yoğunluk, motion) beyan edilmiş bir felsefeden türetilmeli ve DESIGN.md 'neden bu değer?' sorusuna cevap vermeli."* Zincir: PHILOSOPHY (her ilke neyi feda ettiğini söyler; "clean and modern" felsefe değildir) → DERIVE (karar tablosu `D-<ilke>-<n>` + tek satır gerekçe) → TOKENS (`--radius-card: 12px; /* D-P2-1 */`) → COMPONENT SPECS (93 preset'ten seç, state matrisi: uygulanmayan state'ler ve nedeni) → LAYOUT GRAMMAR (grid/bento/carousel/master-detail/magazine/narrative; içerik sayısı geriye hesaplanır: carousel ≥4, bento ≥5) → BUILD → RENDER CRITIQUE (tüm gate'ler, grep ile) → DESIGN.md. `GS7`: karar referansı olmayan token = hata; `GS8`: preset varken sıfırdan bileşen = hata. Core v2 spec'i: YAML yok, üstte araç metadata yok, 7 anchor, 600-1800 kelime, "unknown means absent", Governance zorunlu.
+- **Nasıl kullanırız:** Şablonumuza "karar tablosu + token'da D-id yorumu" fikrini ve Governance bölümünü alırız; `slop-gates.md`'yi grep edilebilir CI kontrolüne çeviririz (`transition: all`, `100vh` hero, token dışı inline hex, `<select`, border-width state değişimi, `opacity`-only disabled).
+- **Core v2 seven anchors (spec, aynen):**
+
+| Order | Stable ID | Default heading | Required purpose |
+|---:|---|---|---|
+| 1 | `experience` | Experience | Product intent, audience/tasks, design direction, principles and explicit avoidances |
+| 2 | `foundations` | Foundations | Semantic color, spacing, shape, elevation and motion rules |
+| 3 | `typography-assets` | Typography & Assets | Type roles/metrics, font availability, imagery/icon/logo authority and licenses |
+| 4 | `components-states` | Components & States | Component anatomy, variants, interaction contract and applicable states |
+| 5 | `layout-platforms` | Layout & Platforms | Layout, density, responsive/reflow behavior and platform-specific adaptation |
+| 6 | `content-locales` | Content & Locales | Voice, terminology, formatting and locale-specific product behavior |
+| 7 | `governance` | Governance | Application priority, provenance classes, unknowns, exceptions and change rules |
+
+Önerilen standalone prompt (spec, aynen):
+
+```text
+Use the attached DESIGN.md as the design contract for this task. Preserve its
+semantic roles, component states, layout priorities, locale behavior, and unknowns.
+Do not infer values that the document does not establish. Explain any unavoidable
+deviation before implementing it.
+```
+
+- **Slop gates (slop-gates.md, aynen; Korece — anahtar terimler İngilizce, TR özet altta):**
+
+```markdown
+# Numbered slop gates (lossless port + OmD additions)
+
+Yes/no questions. Any "yes" = do not ship; fix first. Adapted from the
+measured Hallmark gate set (variety/catalog-rotation gates replaced by
+system-fidelity gates). Sweep EVERY gate in the pre-finish critique and list
+hits by number in critique.md. Summarizing this list loses gates — read it
+in full every time.
+
+기계 확인 가능한 게이트는 눈이 아니라 grep으로 검증하라 — 최소:
+`transition: all`(G10), `opacity` 만의 :disabled(G39), 토큰 밖 inline
+hex(G48), `<select`(G28), `border-width` 상태 변경(G39), `100vh` 히어로
+(G6). grep 결과를 critique.md에 명중/무해 판정과 함께 남긴다. "소스에서
+보이는 위반 없음"은 이 grep 로그 없이는 쓸 수 없다.
+
+## Visual
+- G1 디스플레이 폰트가 Inter/Roboto/Open Sans/Poppins/Lato/시스템 기본(라틴),
+  또는 한글에 세리프 폴백이 발생
+- G2 퍼플→블루/시안→마젠타 그라데이션, `background-clip:text` 그라데이션 헤드라인
+- G3 3열 동일 카드 + 아이콘-위-헤드라인 타일
+- G4 카드 안의 카드
+- G5 카드/패널 한쪽의 두꺼운 컬러 사이드 스트라이프(좌측 보더 강조 포함)
+- G6 `min-height:100vh` 전체 센터 스택 히어로
+- G7 순수 `#000`/`#fff` 베이스
+- G8 장식용 스쿼글/물결/붓터치 언더라인 등 의미 없는 장식 마크가 상태 표시를
+  대체 (활성 표시는 시스템의 정식 마크: 직선 룰, 배경 전환, 웨이트)
+
+## Micro-interaction
+- G10 `transition: all`
+- G11 무관한 여러 요소에 동일 hover-scale
+- G12 UI 상태에 bounce/overshoot easing
+- G13 한 요소에 hover 효과 3개 이상 중첩
+- G14 layout 속성(width/height/top/margin) 애니메이션
+- G15 포커스 링 fade-in (즉시여야 함)
+- G16 결과가 이미 보이는 행동에 축하 토스트
+- G17 자동 회전 콘텐츠에 pause 없음
+- G18 Jane Doe/Acme류 플레이스홀더 이름
+- G19 :focus 스타일이 마우스 클릭에도 노출 — 포커스 링은 `:focus-visible`
+  전용, 마우스 상호작용에는 절대 나타나지 않는다. 라우트 전환 접근성
+  포커스(tabindex=-1 헤딩/메인에 .focus())는 유지하되 그 요소의 시각
+  링은 반드시 억제한다(`#page-title:focus { outline: none }`) — 직접
+  진입/새로고침에서 제목에 박스가 그려지면 실패
+
+## Implementation
+- G22 무채 뉴트럴(틴트 없는 회색 스케일)
+- G23 악센트가 뷰포트 ~5% 초과
+- G24 이름 있는 스케일 밖 패딩/갭 (17px류)
+- G25 prose measure 45–75ch 밖
+- G26 인터랙티브 요소에 :focus-visible/:active/:disabled 누락
+- G27 모션에 prefers-reduced-motion 폴백 없음
+- G28 네이티브 셀렉트 팝업/네이티브 폼 컨트롤 노출 — 셀렉트는 커스텀
+  리스트박스(APG combobox 패턴: 트리거 버튼 + role="listbox" 팝오버 +
+  키보드 탐색 + aria-activedescendant)로, 라디오/체크박스는 토큰 스타일로
+- G30 아이콘 라이브러리 혼용, 이모지 피처 아이콘
+- G31 CSS/SVG로 될 자리에 무거운 외부 리소스
+
+## Typography
+- G37 font-family 4개 이상
+- G38 outlier 페이스 3슬롯 이상
+- G38a 헤딩/디스플레이 italic
+
+## Input geometry
+- G39 상태 간 border-width 변경 / 포커스를 border로 구현 / 인풋 높이≠버튼
+  높이 / helper 슬롯 collapse / disabled를 opacity만으로
+
+## Contrast
+- G40 본문 <4.5:1, 큰 텍스트·아이콘·포커스 링 <3:1
+- G41 다크/유색 섹션이 텍스트 토큰을 반전하지 않음 — L<50% 표면 위의 모든
+  텍스트·보더는 반전 토큰을 명시적으로 사용 (푸터 포함)
+
+## Chrome
+- G42 AI 기본 nav (wordmark-left + 인라인 링크 + button-right + hairline)
+  을 목적 없이 반복
+- G43 AI 기본 4열 푸터
+- G44 히어로 폴드 위반 (1280×800에서 필수 콘텐츠 잘림, 하단 패딩 <1.3×상단)
+- G45 의미 앵커 없는 장식 요소
+- G46 사용자가 주지 않은 수치("10× faster") 
+- G47 가짜 브라우저/폰 크롬
+- G48 토큰 밖 inline hex/폰트
+- G49 320–1920에서 버튼/nav/CTA 텍스트 2줄 랩
+
+## Layout & mobile
+- G34 320–1920 가로 스크롤 (`overflow-x: clip`으로만 수정)
+- G50 이미지 그리드 트랙 맨 `1fr` (minmax(0,1fr) 필수)
+- G51 디스플레이 헤더에 overflow-wrap/min-width 미설정
+- G55 올캡스 디스플레이 + line-height <1.0
+- G56 sticky 충돌 (이중 sticky offset 미처리)
+
+## OmD system-fidelity (variety 게이트 대체)
+- GS1 페이지의 어떤 값이든 잠긴 토큰으로 추적 불가
+- GS2 같은 제품의 두 페이지가 다른 시스템처럼 보임 (h1/nav/CTA computed 불일치)
+- GS3 개발자용 상태 스위처가 제품 UI에 존재 (P0-1)
+- GS4 화면에 구현 어휘(파일명·필드명·프레임워크 용어) 노출
+- GS5 레이아웃 문법 미선언 — 각 페이지는 문법(격자/벤토/캐러셀/마스터-디테일/
+  매거진/내러티브)을 시스템 문서에 선언하고 그 구성 수치를 따라야 하며,
+  와이드 뷰포트에서 정당화되지 않은 빈 공간(뷰포트 40% 이상 무콘텐츠)이
+  남으면 실패 — 콘텐츠가 부족하면 데이터를 더 요청/생성해 채운다
+- GS6 콘텐츠 수 역산 위반 — 캐러셀<4, 벤토<5, 매거진 이미지<4 인데 해당
+  문법을 선택
+- GS7 근거 없는 미시 결정 — 토큰/컴포넌트 값에 결정 표의 D-참조가 없거나,
+  선언된 원칙이 어떤 토큰도 바꾸지 않음(장식 철학)
+- GS8 프리셋 무시 — `references/presets/` 카탈로그에 부합 프리셋이 있는
+  컴포넌트/레이아웃을 0에서 즉흥 제작(명세에 프리셋 ID도 "no-preset"
+  기록도 없음)
+
+```
+
+TR özet (grep ile makine kontrolü yapılabilenler kalın): G1 display fontu Inter/Roboto/Open Sans/Poppins/Lato/sistem · G2 mor→mavi/cyan→magenta gradyan, gradient text · G3 3 kolon eşit kart + ikon-üstte-başlık · G4 kart içinde kart · G5 kalın renkli sol şerit · **G6 `min-height:100vh` ortalanmış hero** · G7 saf #000/#fff taban · G8 anlamsız dekoratif squiggle/underline · **G10 `transition: all`** · G11 her şeye aynı hover-scale · G12 UI state'te bounce easing · G13 bir elemanda 3+ hover efekti · G14 layout property animasyonu · G15 focus ring fade-in · G16 sonucu görünen eyleme kutlama toast'ı · G18 Jane Doe/Acme · G19 `:focus` mouse'ta görünür (yalnız `:focus-visible`) · G22 tintsiz gri nötr · G23 aksan viewport'un %5'ini aşıyor · G24 ölçek dışı padding (17px) · G25 measure 45-75ch dışı · G26 `:focus-visible/:active/:disabled` eksik · G27 reduced-motion yok · **G28 native `<select>`** · G30 ikon kütüphanesi karışık / emoji ikon · G37 4+ font-family · G38a başlıkta italik · **G39 state'ler arası border-width değişimi, disabled yalnız opacity** · G40 kontrast <4.5:1 · G41 koyu section'da token ters çevrilmemiş · G42 AI default nav (wordmark-sol + linkler + buton-sağ + hairline) · G43 4 kolon footer · G44 1280×800'de hero fold ihlali · G46 kullanıcı vermediği "10× faster" · G47 sahte tarayıcı/telefon çerçevesi · **G48 token dışı inline hex/font** · G49 320-1920'de buton/nav metni 2 satır · G34 yatay scroll · G50 görsel grid `1fr` (minmax(0,1fr)) · G55 all-caps + line-height <1.0 · GS1 bir değer token'a izlenemiyor · GS2 aynı ürünün iki sayfası farklı sistem gibi · GS4 ekranda implementation jargonu · GS5 layout grammar beyan edilmemiş · GS7 gerekçesiz mikro karar · GS8 preset varken sıfırdan.
+
+### 3.11 Dammyjay93/interface-design — ürün arayüzü craft'ı + hafıza
+
+- **Link:** https://github.com/Dammyjay93/interface-design (5.8k⭐, MIT) · Kopya: `kopyalar/Dammyjay93-interface-design/` (SKILL.md, reference/system-template.md)
+- **Özet:** Dashboard/admin/app için (landing değil). "Where defaults hide": tipografi konteyner değil tasarımın kendisidir; navigasyon iskele değil üründür; token isimleri dünya kurar (`--ink`/`--parchment` vs `--gray-700`). Süreç: Intent (gerçek insan, fiil, his) → Product Domain Exploration (5+ kavram, 5+ doğal renk, **signature** öğe, 3 default'u adlandır) → her bileşen öncesi zorunlu beyan → "Use what exists" (native → headless primitive → hand-roll; system → component → token → utility) → polish (concentric radius, tabular-nums, 44px hit, 3 katmanlı shadow, text-wrap balance/pretty, <300ms, ease-out, scale(0.97) press). Kararlar `.interface-design/system.md`'ye yazılıp sonraki oturumda yüklenir.
+- **Her bileşen öncesi zorunlu blok (aynen):**
+
+```
+Intent:     [who is this human, what must they do, how should it feel]
+Hierarchy:  [the focal element, and how it wins — size / weight / contrast / space]
+Palette:    [colors from your exploration — and WHY they fit this world]
+Depth:      [borders / subtle shadows / layered — and WHY it fits the intent]
+Surfaces:   [your elevation scale — and WHY this temperature]
+Typography: [typeface + the size/weight/color levers — and WHY]
+Spacing:    [base unit + chosen density]
+```
+
+- **system.md şablonu (reference/system-template.md, aynen):**
+
+```markdown
+# Design System
+
+## Direction
+
+**Personality:** [Precision & Density | Warmth & Approachability | Sophistication & Trust | Boldness & Clarity | Utility & Function | Data & Analysis]
+
+**Foundation:** [warm | cool | neutral | tinted]
+
+**Depth:** [borders-only | subtle-shadows | layered-shadows]
+
+## Tokens
+
+### Spacing
+Base: [4px | 8px]
+Scale: [4, 8, 12, 16, 24, 32, 64]
+
+### Colors
+```
+--foreground: [slate-900]
+--secondary: [slate-600]
+--muted: [slate-400]
+--faint: [slate-200]
+--accent: [blue-600]
+```
+
+### Radius
+Scale: [4px, 6px, 8px] (sharp) | [8px, 12px, 16px] (soft)
+
+### Typography
+Font: [system | Inter | Geist]
+Scale: 12, 13, 14 (base), 16, 18, 24, 32
+Weights: 400, 500, 600
+
+## Patterns
+
+### Button Primary
+- Height: 36px
+- Padding: 12px 16px
+- Radius: 6px
+- Font: 14px, 500 weight
+- Background: accent color
+- Usage: Primary actions
+
+### Card Default
+- Border: 0.5px solid (faint)
+- Padding: 16px
+- Radius: 8px
+- Background: white
+- Usage: Content containers
+
+## Decisions
+
+| Decision | Rationale | Date |
+|----------|-----------|------|
+| Borders-only depth | Dashboard tool, users want density. Shadows add visual weight without information value. | YYYY-MM-DD |
+| 4px spacing base | Tight enough for data tables, divisible by common UI sizes | YYYY-MM-DD |
+
+```
+
+### 3.12 Tasarım inceleme / görsel QA skill'leri
+
+#### OneRedOak/claude-code-workflows — design-review (Playwright MCP ile canlı inceleme)
+- **Link:** https://github.com/OneRedOak/claude-code-workflows/tree/main/design-review (3.9k⭐, MIT) · Kopya: `kopyalar/OneRedOak-claude-code-workflows/`
+- **Özet:** "Live Environment First": subagent Playwright MCP ile sayfayı açar, 1440/768/375 viewport'ta ekran görüntüsü alır, klavye/focus/kontrast/konsol kontrol eder; 7 faz; Blocker/High/Medium/Nit triage; "Problems over prescriptions". `/design-review` slash komutu git diff'ten çalışır. CLAUDE.md snippet'i her UI değişikliğinden hemen sonra "Quick Visual Check" zorunlu kılar.
+- **CLAUDE.md snippet (aynen):**
+
+```markdown
+## Visual Development
+
+### Design Principles
+- Comprehensive design checklist in `/context/design-principles.md`
+- Brand style guide in `/context/style-guide.md`
+- When making visual (front-end, UI/UX) changes, always refer to these files for guidance
+
+### Quick Visual Check
+IMMEDIATELY after implementing any front-end change:
+1. **Identify what changed** - Review the modified components/pages
+2. **Navigate to affected pages** - Use `mcp__playwright__browser_navigate` to visit each changed view
+3. **Verify design compliance** - Compare against `/context/design-principles.md` and `/context/style-guide.md`
+4. **Validate feature implementation** - Ensure the change fulfills the user's specific request
+5. **Check acceptance criteria** - Review any provided context files or requirements
+6. **Capture evidence** - Take full page screenshot at desktop viewport (1440px) of each changed view
+7. **Check for errors** - Run `mcp__playwright__browser_console_messages`
+
+### Comprehensive Design Review
+Invoke the `@agent-design-review` subagent for thorough design validation when:
+- Completing significant UI/UX features
+- Before finalizing PRs with visual changes
+- Needing comprehensive accessibility and responsiveness testing
+```
+
+- **design-review subagent (aynen, tamamı):**
+
+```markdown
+---
+name: design-review
+description: Use this agent when you need to conduct a comprehensive design review on front-end pull requests or general UI changes. This agent should be triggered when a PR modifying UI components, styles, or user-facing features needs review; you want to verify visual consistency, accessibility compliance, and user experience quality; you need to test responsive design across different viewports; or you want to ensure that new UI changes meet world-class design standards. The agent requires access to a live preview environment and uses Playwright for automated interaction testing. Example - "Review the design changes in PR 234"
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__playwright__browser_close, mcp__playwright__browser_resize, mcp__playwright__browser_console_messages, mcp__playwright__browser_handle_dialog, mcp__playwright__browser_evaluate, mcp__playwright__browser_file_upload, mcp__playwright__browser_install, mcp__playwright__browser_press_key, mcp__playwright__browser_type, mcp__playwright__browser_navigate, mcp__playwright__browser_navigate_back, mcp__playwright__browser_navigate_forward, mcp__playwright__browser_network_requests, mcp__playwright__browser_take_screenshot, mcp__playwright__browser_snapshot, mcp__playwright__browser_click, mcp__playwright__browser_drag, mcp__playwright__browser_hover, mcp__playwright__browser_select_option, mcp__playwright__browser_tab_list, mcp__playwright__browser_tab_new, mcp__playwright__browser_tab_select, mcp__playwright__browser_tab_close, mcp__playwright__browser_wait_for, Bash, Glob
+model: sonnet
+color: pink
+---
+
+You are an elite design review specialist with deep expertise in user experience, visual design, accessibility, and front-end implementation. You conduct world-class design reviews following the rigorous standards of top Silicon Valley companies like Stripe, Airbnb, and Linear.
+
+**Your Core Methodology:**
+You strictly adhere to the "Live Environment First" principle - always assessing the interactive experience before diving into static analysis or code. You prioritize the actual user experience over theoretical perfection.
+
+**Your Review Process:**
+
+You will systematically execute a comprehensive design review following these phases:
+
+## Phase 0: Preparation
+- Analyze the PR description to understand motivation, changes, and testing notes (or just the description of the work to review in the user's message if no PR supplied)
+- Review the code diff to understand implementation scope
+- Set up the live preview environment using Playwright
+- Configure initial viewport (1440x900 for desktop)
+
+## Phase 1: Interaction and User Flow
+- Execute the primary user flow following testing notes
+- Test all interactive states (hover, active, disabled)
+- Verify destructive action confirmations
+- Assess perceived performance and responsiveness
+
+## Phase 2: Responsiveness Testing
+- Test desktop viewport (1440px) - capture screenshot
+- Test tablet viewport (768px) - verify layout adaptation
+- Test mobile viewport (375px) - ensure touch optimization
+- Verify no horizontal scrolling or element overlap
+
+## Phase 3: Visual Polish
+- Assess layout alignment and spacing consistency
+- Verify typography hierarchy and legibility
+- Check color palette consistency and image quality
+- Ensure visual hierarchy guides user attention
+
+## Phase 4: Accessibility (WCAG 2.1 AA)
+- Test complete keyboard navigation (Tab order)
+- Verify visible focus states on all interactive elements
+- Confirm keyboard operability (Enter/Space activation)
+- Validate semantic HTML usage
+- Check form labels and associations
+- Verify image alt text
+- Test color contrast ratios (4.5:1 minimum)
+
+## Phase 5: Robustness Testing
+- Test form validation with invalid inputs
+- Stress test with content overflow scenarios
+- Verify loading, empty, and error states
+- Check edge case handling
+
+## Phase 6: Code Health
+- Verify component reuse over duplication
+- Check for design token usage (no magic numbers)
+- Ensure adherence to established patterns
+
+## Phase 7: Content and Console
+- Review grammar and clarity of all text
+- Check browser console for errors/warnings
+
+**Your Communication Principles:**
+
+1. **Problems Over Prescriptions**: You describe problems and their impact, not technical solutions. Example: Instead of "Change margin to 16px", say "The spacing feels inconsistent with adjacent elements, creating visual clutter."
+
+2. **Triage Matrix**: You categorize every issue:
+   - **[Blocker]**: Critical failures requiring immediate fix
+   - **[High-Priority]**: Significant issues to fix before merge
+   - **[Medium-Priority]**: Improvements for follow-up
+   - **[Nitpick]**: Minor aesthetic details (prefix with "Nit:")
+
+3. **Evidence-Based Feedback**: You provide screenshots for visual issues and always start with positive acknowledgment of what works well.
+
+**Your Report Structure:**
+```markdown
+### Design Review Summary
+[Positive opening and overall assessment]
+
+### Findings
+
+#### Blockers
+- [Problem + Screenshot]
+
+#### High-Priority
+- [Problem + Screenshot]
+
+#### Medium-Priority / Suggestions
+- [Problem]
+
+#### Nitpicks
+- Nit: [Problem]
+```
+
+**Technical Requirements:**
+You utilize the Playwright MCP toolset for automated testing:
+- `mcp__playwright__browser_navigate` for navigation
+- `mcp__playwright__browser_click/type/select_option` for interactions
+- `mcp__playwright__browser_take_screenshot` for visual evidence
+- `mcp__playwright__browser_resize` for viewport testing
+- `mcp__playwright__browser_snapshot` for DOM analysis
+- `mcp__playwright__browser_console_messages` for error checking
+
+You maintain objectivity while being constructive, always assuming good intent from the implementer. Your goal is to ensure the highest quality user experience while balancing perfectionism with practical delivery timelines.
+
+```
+
+#### microsoft/skills — frontend-design-review
+- **Link:** https://github.com/microsoft/skills/tree/main/.github/skills/frontend-design-review (3.1k⭐, MIT) · Kopya: `kopyalar/microsoft-skills-frontend-design-review/`
+- **Özet:** Mod 1 inceleme: 3 sütun — *Frictionless Insight to Action* (≤3 etkileşim, tek birincil aksiyon), *Quality is Craft* (design-system uyumu, token kullanımı, Figma eşleşmesi, estetik yön, WCAG 2.1 A/AA), *Trustworthy Building* (AI içeriği etiketi, aksiyon alınabilir hata). Mod 2 yaratıcı: "Avoid Inter, Roboto, Arial, Space Grotesk", baskın renk + keskin aksan, tek orkestre page-load, asimetri/örtüşme/negatif alan. Çıktı: blocking/major/minor + öneri; `references/quick-checklist.md`.
+
+#### Owl-Listener/designer-skills — visual-critique
+- **Link:** https://github.com/Owl-Listener/designer-skills (2.8k⭐, MIT) · Kopya: `kopyalar/Owl-Listener-designer-skills/visual-critique/*.md`, `ui-design/color-system.md`, `typography-scale.md`, `design-systems/design-token.md`
+- **Özet:** Tek ekran kritiği için 7 skill (color, typography, composition, visual hierarchy, information density, affordance, brand consistency); her boyut için Observation → Problem → Fix ve `pass / minor issue / major issue`. `critique-color`: kontrast (4.5:1 / 3:1), palet tutarlılığı (token dışı hex), semantik kullanım (renk tek gösterge olmasın), CVD. Bizim "screenshot critique" promptu için ölçüm dili buradan.
+
+#### shadcn-ui/lint — ajan-öncelikli tasarım sistemi linter'ı
+- **Link:** https://github.com/shadcn-ui/lint (3.1k⭐, MIT) · Kopya: `kopyalar/shadcn-ui-lint/`
+- **Özet:** Tailwind v4 + React/Svelte/Vue; `no-restyle` (Button padding'ini kendi yönetir; "Use a size (sm, lg), or margin here…"), `no-raw-colors`, `no-arbitrary-values` (`p-[13px]` yasak), `no-inline-styles`, `no-unknown-classes`. Hata mesajı ajana *ne yapması gerektiğini* söyler. Kurulum: ajana "Read SETUP.md and set up @shadcn/lint" demek yeterli. DESIGN.md'deki token disiplinini kodda zorlayan parça.
+
+### 3.13 DESIGN.md üretici / çıkarıcı araçlar
+
+| Araç | Girdi | Çıktı | Not |
+|---|---|---|---|
+| [designmd.app](https://designmd.app/) | kütüphaneden seç (759 dosya) | YAML token + 8 bölüm DESIGN.md | Ücretsiz/açık; Google spec formatı; örnek: `name: Productivity App / colors.primary "#2665fd" / surface "#0b1326" / typography.headline Geist 2rem` |
+| [brandmd](https://github.com/yuvrajangadsingh/brandmd) `npx brandmd <url> -o DESIGN.md` | canlı URL (çoklu URL birleşir) | spec-valid DESIGN.md; `--css`, `--tailwind` (v4 @theme), `--json`, `--html` marka rehberi, `--dark`, `--vision` (Gemini: illüstrasyon/foto/ses tonu/mikrokopya), `--agent` (SKILL.md + `.cursor/rules/brand.mdc`) | Cloudflare bekler, bot-korumalı siteyi dürüstçe reddeder; renk rolü heuristik |
+| [anydesign](https://github.com/uxKero/anydesign) | görsel / URL / Figma / tek öğe | `design.md` (7 bölüm, 6 katman: identity, system, components, layout, reconstruction, brand rules) + DTCG `design-tokens.json` + `design-a11y.md`; element mode → `element.md` (rebuild/image prompt) | Her çıkarım ✅⚠️❓; "uydurmak, 'bilgi yok' demekten kötüdür"; token bütçesi kuralları |
+| [design-md-chrome](https://github.com/bergside/design-md-chrome) | açık sekme | typeui formatında DESIGN.md / SKILL.md | 30 sn; motion dahil |
+| [generate-design-md](https://github.com/ShriPunta/generate-design-md) | açıklama / kod tabanı taraması (CSS vars, tailwind.config, tokens.json) | Google spec DESIGN.md + lint döngüsü + export | Minimal, iyi akış: Path A "describe it" / Path B "scan" |
+| [impeccable document](https://github.com/pbakaus/impeccable) | kod tabanı (scan) veya PRODUCT.md (seed) | Google spec DESIGN.md + sidecar (shadow/motion/focus) | Mevcut DESIGN.md'yi sessizce ezmez; "Creative North Star" ismi sorar |
+| [brand-design-md](https://github.com/SpaceZephyr/brand-design-md) | "X markası tarzında" cümlesi | getdesign DESIGN.md çekip UI üretir | Marka mix: ana marka token + yan markadan boyut; "yaklaşık değer kullanma: -2.125px ise -2.125px" |
+| [design-bridge subagent](https://github.com/VoltAgent/awesome-claude-code-subagents/blob/main/categories/01-core-development/design-bridge.md) | DESIGN.md | `.claude/design/instructions-<site>.md` (renk tablosu, bileşen promptları) → ui-designer / frontend-developer | 9 bölümü eksiksiz çıkarır, değer değiştirmez, tahmin etmez |
+| [Google Stitch](https://stitch.withgoogle.com/docs/design-md/overview/) | Stitch projesi | DESIGN.md export/import; DTCG tokens.json; tailwind.config.js | Formatın kaynağı; `stitch-skill` (taste-skill içinde) Stitch uyumlu DESIGN.md yazar |
+| [tweakcn](https://tweakcn.com) · [orchestkit design-system-tokens](https://skills.cat/skills/yonatangross/orchestkit/design-system-tokens) · Style Dictionary | DESIGN.md token'ları | shadcn CSS değişkenleri (light/dark önizleme); DTCG 3 katman (global/alias/component) + OKLCH + Style Dictionary → CSS/Tailwind/iOS/Android | Token boru hattı; `@google/design.md export --format dtcg` çıktısı Style Dictionary'ye girer |
+
+### 3.14 Mobil: iOS HIG / Material 3 kurallarını DESIGN.md'ye taşıyan kaynaklar
+
+- **ehmo/platform-design-skills** (604⭐, MIT; Kopya: `kopyalar/ehmo-platform-design-skills/skills/{ios,android,web}/SKILL.md`): HIG PDF'den damıtılmış, her kural doğru/yanlış SwiftUI (veya Compose) örnekli. iOS'tan temel kurallar: **44×44pt touch target** · safe area (Dynamic Island/home indicator altına etkileşim koyma; `.ignoresSafeArea()` yalnız arka plan) · birincil aksiyon thumb zone'da (alt) · iPhone SE 375pt → Pro Max 430pt esnek layout · 8pt grid · **tab bar 3-5 bölüm; hamburger menü yasak** · büyük başlık (`.large`) üst seviye görünümlerde · geri kaydırma jestini ezme · `NavigationStack` · state'i koru · **semantik text style (`.headline/.body/.caption`) + Dynamic Type %200'e kadar reflow, truncate yok**. Android dosyası Material 3 / Material You / dynamic color / NavigationBar. Mobil DESIGN.md'nin "Platform & Responsive" bölümü bu kurallara referans vermeli.
+- **Meliwat iOS paketleri** (3.4): HIG'i somut token'a çevirmiş örnekler (Dynamic Type tablosu, `.regularMaterial`, spring response/damping, haptik `.impactOccurred(.medium)`, cihaz genişlik tablosu, iPad çok pane).
+- **impeccable `reference/ios.md`, `android.md`, `audit.native.md`, `adapt.native.md`** (kopyada): native platformda inceleme/uyarlama kuralları; `init`'te platform `ios/android/adaptive` kaydedilince otomatik yüklenir.
+- **ui-ux-pro-max `--stack`** (react-native / swiftui / flutter): stack'e özel kurallar + mobil-only kontroller (safe area, haptik, bottom nav, Dynamic Type).
+- **Owl-Listener `ui-design/platform-conventions`** (kopyada): iOS/Android/web konvansiyon farkları.
+
+### 3.15 Diğer kısa notlar
+
+- **nextlevelbuilder/ui-ux-pro-max-skill** (133k⭐): `python3 search.py "restaurant warm" --design-system` → pattern + stil + palet + font çifti + anti-pattern + pre-delivery checklist tek blokta. `typography.csv` 74 Google Fonts çifti (ör. "Classic Elegant: Playfair Display + Inter — luxury, spa, editorial"; "Tech Startup: Space Grotesk + DM Sans"; "Editorial Classic: Cormorant Garamond + Libre Baskerville") CSS import ve Tailwind config ile. `colors.csv` 192 sektör paleti (Restaurant/Food Service: #DC2626 + warm gold; Medical Clinic: #0891B2 teal + #16A34A; Dental: #0EA5E9 + smile yellow; Veterinary: #0D9488 + #EA580C). Uyarı: bunlar *sektör ortalaması*; başlangıç tohumu olarak iyi, olduğu gibi kullanınca tell'e dönüşür (taste-skill'in sektör-palet yasağı).
+- **anthropics theme-factory**: 10 hazır tema (Ocean Depths, Sunset Boulevard, Forest Canopy, Modern Minimalist, Golden Hour, Arctic Frost, Desert Rose, Tech Innovation, Botanical Garden, Midnight Galaxy); her biri hex paleti + başlık/gövde font çifti. `brand-guidelines` skill'i marka skill şablonu (renkler + Poppins/Lora + fallback + uygulama kuralları).
+- **facebook/astryx**: Meta'nın 150+ bileşenli, 7 temalı, "agent ready" sistemi; `AGENTS.md` kurgusu (authority: draft/current/archived; `/vibe-test` ile AGENTS.md'nin ajana doğru kod yazdırma oranını ölçme) ilginç ama bizim web stack'imiz (shadcn/Tailwind) için ikincil.
+- **prg.sh "Why Your AI Keeps Building the Same Purple Gradient Website"**: Tailwind'in `bg-indigo-500` varsayılanı → binlerce tutorial → LLM ortalaması. Önerisi: kısıt listesi + spesifik referans ("1970'ler kayak kulübü: yanmış turuncu, avokado yeşili") + rol tanımı.
+
+---
+
+## 4. Sonuç: bizim zincire hemen alınacak kaynaklar
+
+1. **google-labs-code/design.md (spec + CLI)** — Şablonumuzun YAML katmanı bu şemada olacak; `npx @google/design.md lint` CI kapısı, `export --format css-tailwind` ile Tailwind v4 teması otomatik. Nedeni: tek resmi standart, Stitch/Claude Design/Cursor hepsi okuyor; linter kontrast ve kırık referansı yakalıyor.
+2. **anthropics frontend-design SKILL.md + rohitg00 `break-default-aesthetic` + anti-ai-slop 9 kural** — "Do's and Don'ts / Agent Prompt Guide" bölümlerimizin ve tasarım skill'imizin omurgası. Nedeni: jenerik görünümün nedenini (dağılım ortalaması) ve 5 AI-slop kümesini adlandırıyor; plan→brief testi→kod→screenshot öz-eleştiri döngüsü; 2. derece monokültür (cream+terracotta+Fraunces) uyarısı bizi bir sonraki klişeden korur.
+3. **Meliwat/awesome-ios-design-md + ehmo/platform-design-skills** — Mobil şablonumuz: Things 3/OpenTable formatı (9 bölüm + imza bileşen + motion/haptik + Dynamic Type + cihaz tablosu) ve `DESIGN-expo.md` companion'ı; HIG/M3 kuralları "Platform" bölümüne. Nedeni: web DESIGN.md'leri mobilde yetersiz; bu ikisi 44pt/safe area/tab bar/Dynamic Type'ı somut token'a çeviriyor.
+4. **OneRedOak design-review subagent + CLAUDE.md "Quick Visual Check"** — Her UI değişikliğinden sonra Playwright ile 1440/768/375 ekran görüntüsü + konsol + kontrast; büyük işlerde 7 fazlı inceleme. Nedeni: ajanın kendi çıktısını *görmeden* anti-slop kuralı işe yaramıyor; en hazır ve en az bağımlılıklı görsel QA döngüsü.
+5. **VoltAgent getdesign.md koleksiyonu (+ brandmd / anydesign çıkarıcıları)** — Müşteri "X gibi" dediğinde ilham dosyası; müşterinin mevcut sitesi/referansı varsa `npx brandmd <url>` ile spec-valid ilk taslak. Nedeni: 73 marka + 200 mobil app hazır; brandmd çıktısı Google linter'ından temiz geçiyor, `--agent` ile SKILL.md de yazıyor.
+
+İkinci dalga (değerli ama sonra): **impeccable** (PRODUCT.md→DESIGN.md→critique/audit zinciri ve 61 deterministik dedektör; kendi zincirimiz oturunca komut vokabülerini alırız), **oh-my-design** (karar tablosu `D-id` + Governance + grep'lenebilir slop gate'leri CI'a), **taste-skill** (3 dial ve AI Tells listesi; landing/portfolio işlerinde), **shadcn/lint** (token disiplini kodda), **ui-ux-pro-max** (sektör→palet/font tohumu, dikkatle).
+
+Önerilen akış (restoran/klinik/saatçi için): brief + sektör tohumu (ui-ux-pro-max) + spesifik referans dünyası → `break-default-aesthetic` kısıtlarıyla DESIGN.md taslağı (Google YAML + bizim 13 başlık; her token için 1 satır "neden") → `design.md lint` → `export css-tailwind` → build → Quick Visual Check (Playwright screenshot) → design-review subagent → DESIGN.md'ye "Known gaps / kararlar" yazılır → mobil için DESIGN-expo.md companion.

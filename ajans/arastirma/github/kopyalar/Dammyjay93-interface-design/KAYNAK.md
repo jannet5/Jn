@@ -11,3 +11,4 @@
 
 - `README.md`  ← `Dammyjay93_interface-design/README.md`
 - `SKILL.md`  ← `Dammyjay93_interface-design/.claude/skills/interface-design/SKILL.md`
+- `reference/system-template.md`  ← `Dammyjay93_interface-design/reference/system-template.md`
