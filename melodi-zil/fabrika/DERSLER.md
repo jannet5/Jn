@@ -18,3 +18,9 @@
 
 ### D-007: Yorumlarda #1 şikayet reklam
 - Yeni kural: v1.0'da reklam SDK'sı yok, paywall yok. Para modeli ileride yalnızca Ayarlar'daki "Destek ol" satın alması olabilir; akışa reklam girmez.
+
+### D-008: Emülatör testi gerçek çökme yakaladı — Java 10+ API'si Android 13 altında yok
+- Ne oldu: Release APK Android 8.0 emülatöründe "Melodiye çevir" basınca çöktü: `NoSuchMethodError: URLDecoder.decode(String, Charset)` (NewPipeExtractor içinden). JVM testleri (Java 21) bunu göremez.
+- Kök neden: `desugar_jdk_libs` (standart) bu çağrıyı geri taşımıyor; NewPipe uygulaması `desugar_jdk_libs_nio` kullanıyor.
+- Yeni kural: NewPipeExtractor ile `coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_nio:2.1.5")` zorunlu. Doğrulama: `dexdump -d classes*.dex | grep "URLDecoder;.decode:(Ljava/lang/String;Ljava/nio/charset/Charset;)"` → 0 olmalı. Ayrıca işlem hattı `Error` türlerini de yakalar (çökme yerine hata ekranı).
+- Fabrika dersi: "JVM'de geçen test, Android'de çalışır" demek değil; en az bir kez düşük API'li gerçek Android'de (emülatör) ana akış koşulmalı.

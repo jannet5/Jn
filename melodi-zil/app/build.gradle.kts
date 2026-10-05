@@ -95,7 +95,7 @@ dependencies {
     implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.26.5") // YouTube ses akışı çözücü (açık kaynak, NewPipe)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0") // Eşzamanlılık
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3") // Geçmiş kayıtları JSON
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3") // Java API desugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_nio:2.1.5") // Java API desugaring (NIO sürümü: NewPipeExtractor'ın URLDecoder.decode(String, Charset) gibi Java 10+ çağrıları için; NewPipe uygulamasıyla aynı)
 
     debugImplementation("androidx.compose.ui:ui-tooling") // Önizleme araçları
     testImplementation("junit:junit:4.13.2") // Birim test

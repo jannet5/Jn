@@ -92,6 +92,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             catch (e: SourceException.TooLong) { _process.value = ProcessState.Failed("Bu video ${e.durationSec / 60} dakika. Yalnızca 10 dakikanın altındaki videolar desteklenir.", false) } // Uzun
             catch (e: SourceException) { _process.value = ProcessState.Failed(e.message ?: "Bir sorun oluştu", true) } // Kaynak hatası
             catch (e: Exception) { _process.value = ProcessState.Failed("Beklenmeyen hata: ${e.javaClass.simpleName}", true) } // Diğer
+            catch (e: Error) { _process.value = ProcessState.Failed("Beklenmeyen hata: ${e.javaClass.simpleName} ${e.message?.take(80) ?: ""}", false) } // NoSuchMethodError gibi: uygulama çökmesin, hata ekranı göstersin
         }
     }
 
