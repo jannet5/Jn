@@ -1478,3 +1478,737 @@ Link: https://github.com/itchernetski/threads-carousel-claude-skill · 107★ ·
 
 ````
 
+### 3.10 Maartenlouis/remotion-ads + remotion-dev/skills — Reels, story, 4:5 still (DEĞER 4)
+
+Link: https://github.com/Maartenlouis/remotion-ads · 60★ · MIT. Kopya: `kopyalar/Maartenlouis-remotion-ads/` (SKILL.md, carousels.md, paid-ads.md, ad-copywriting.md, brand-config-template.md, formats.md, social-content.md, captions.md). Resmi skill'ler: https://github.com/remotion-dev/skills (4847★, `npx skills add remotion-dev/skills`; Remotion'ın şirket lisansı ücretli olabilir — kontrol et).
+
+Özet: Reels 1080×1920 güvenli alan (`top 285 / bottom 400 / left 80 / right 120`), 4 sahne Hook→Problem→Solution→CTA, ElevenLabs/Gemini TTS + kelime bazlı altyazı, 4:5 carousel still render (80px padding, 920×1190 güvenli alan), `brand-config.md` tek doğruluk kaynağı. Reels/kapak ve animasyonlu story için hattımızın video kolu.
+
+**`references/paid-ads.md` — Creative Specs + Audience + Testing (aynen, kaynak: https://github.com/Maartenlouis/remotion-ads/blob/main/references/paid-ads.md):**
+
+````markdown
+## Creative Specs for Meta Ads
+
+### Video Ads (Remotion Reels)
+
+| Property | Value |
+|----------|-------|
+| Aspect Ratio | 9:16 (vertical) |
+| Resolution | 1080×1920 |
+| Duration | 15 seconds (recommended) |
+| Format | MP4, H.264, AAC audio |
+| Max File Size | 4GB |
+| Captions | Always (85% watch without sound) |
+
+### Carousel Ads (Remotion Carousels)
+
+| Property | Value |
+|----------|-------|
+| Aspect Ratio | 4:5 or 1:1 |
+| Resolution | 1080×1350 (4:5) or 1080×1080 (1:1) |
+| Slides | 2-10 images |
+| Format | PNG or JPEG |
+| Max File Size | 30MB per image |
+
+### Thumbnail / Cover Image
+
+| Property | Value |
+|----------|-------|
+| Resolution | 1080×1920 |
+| Format | JPEG or PNG |
+| Content | Key frame from video, readable at small size |
+
+---
+
+## Video Ad Script for Paid Placement
+
+### 15-Second Structure
+
+```
+0-3s:   HOOK — Stop the scroll. Question, bold statement, or visual shock.
+3-8s:   PROBLEM — Relatable pain point. "You just bought a house and..."
+8-13s:  SOLUTION — What you offer. Credibility signal.
+13-15s: CTA — "Link in Bio" / "Send us a message" / "Book a free call"
+```
+
+### Creative Best Practices
+
+1. **Hook in first 1-2 seconds** — Viewer decides to watch or scroll
+2. **Captions always** — 85% of Instagram video is watched without sound
+3. **One message per ad** — Don't try to say everything
+4. **Show, don't tell** — Use illustrations and icons, not just text
+5. **Mobile-first** — Test on phone screen, not desktop
+6. **Match landing page** — Visual style and messaging must align
+
+---
+
+## Audience Targeting
+
+### Core Audiences
+
+| Audience Type | Targeting | Use For |
+|---------------|-----------|---------|
+| Interest-based | Interests + demographics | Cold traffic, awareness |
+| Lookalike | Based on best customers (by LTV) | Scaling proven campaigns |
+| Retargeting | Website visitors, engagers | High-intent conversions |
+| Custom | Email list, app users | Upsells, re-engagement |
+
+### Retargeting Segments
+
+| Segment | Window | Message |
+|---------|--------|---------|
+| Hot (video viewers 75%+) | 1-7 days | Direct CTA, book now |
+| Warm (page visitors) | 7-14 days | Social proof, testimonials |
+| Cool (engagers) | 14-30 days | Educational content |
+| Cold (broad retarget) | 30-90 days | Brand awareness refresh |
+
+### Exclusions
+
+Always exclude:
+- Existing customers (unless upsell campaign)
+- People who already converted
+- Irrelevant demographics
+
+---
+
+### Testing Framework
+
+1. **Test one variable at a time**: Hook, audience, or CTA — not all three
+2. **Minimum 1000 impressions** before judging
+3. **Give algorithms 3-5 days** to optimize before changing
+4. **Kill losers fast**: If CPA is 2x target after 1000+ impressions, pause
+5. **Scale winners gradually**: Increase budget 20-30% every 3-5 days
+
+---
+
+````
+
+**`SKILL.md` — Safe Zones + Pre-Upload Checklist (aynen):**
+
+````markdown
+## Safe Zones (Critical)
+
+### Reels (1080×1920)
+
+```
+┌──────────────────────────┐ 0px
+│     TOP DANGER (285px)   │
+├──────────────────────────┤
+│ ←80px  SAFE AREA  120px→ │
+│      880×1235px          │
+├──────────────────────────┤
+│   BOTTOM DANGER (400px)  │
+└──────────────────────────┘ 1920px
+```
+
+```tsx
+const SAFE = { top: 285, bottom: 400, left: 80, right: 120 };
+```
+
+### Website Videos (1920×1080)
+
+```tsx
+const SAFE = { top: 60, bottom: 60, left: 80, right: 80 };
+```
+
+---
+
+## Pre-Upload Checklist
+
+### Reels
+- [ ] 1080×1920, H.264, 30fps
+- [ ] All text within safe zones
+- [ ] No content in top 285px or bottom 400px
+- [ ] Font sizes ≥ 48px
+- [ ] Voiceover synced, captions timed
+- [ ] ~15s total duration
+
+### Website Videos
+- [ ] 1920×1080, H.264, 30fps
+- [ ] Font sizes ≥ 36px
+- [ ] 60-160s duration
+- [ ] 6-scene structure with appropriate voice characters
+
+### Carousels
+- [ ] 1080×1350, PNG
+- [ ] 80px padding from edges
+- [ ] 5-10 slides with swipe indicators
+````
+
+### 3.11 kingbootoshi/nano-banana-2-skill — AI görsel (Gemini) CLI (DEĞER 4)
+
+Link: https://github.com/kingbootoshi/nano-banana-2-skill · 414★ · MIT. Kopya: `kopyalar/kingbootoshi-nano-banana-2-skill/`.
+
+Özet: Bun tabanlı CLI + Claude Code plugin. Bizim için kritik: `-a 4:5` oran, `-r urun.jpg -r marka-ref.png` ile ürün/stil referansı, `-t` yeşil ekran → FFmpeg colorkey ile şeffaf PNG (ürün/ikon kesme), `~/.nano-banana/costs.json` maliyet takibi. Alternatif Gemini skill'leri: feedtailor/ccskill-nanobanana (29★), AntonioCardenas/generate-nanobanana (maliyet kapısı + video), harshkedia177/image-gen-plugin (self-review). Metin içeren görsel gerekiyorsa marketingskills/image tablosu Ideogram'ı önerir; biz metni HTML katmanında basacağımız için AI görsel sadece arka plan/ürün için.
+
+**Seçenek tablosu (aynen, kaynak: https://github.com/kingbootoshi/nano-banana-2-skill/blob/main/plugins/nano-banana/skills/nano-banana/SKILL.md):**
+
+````markdown
+## Core Options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `-o, --output` | `nano-gen-{timestamp}` | Output filename (no extension) |
+| `-s, --size` | `1K` | Image size: `512`, `1K`, `2K`, or `4K` |
+| `-a, --aspect` | model default | Aspect ratio: `1:1`, `16:9`, `9:16`, `4:3`, `3:4`, etc. |
+| `-m, --model` | `flash` | Model: `flash`/`nb2`, `pro`/`nb-pro`, or any model ID |
+| `-d, --dir` | current directory | Output directory |
+| `-r, --ref` | - | Reference image (can use multiple times) |
+| `-t, --transparent` | - | Generate on green screen, remove background (FFmpeg) |
+| `--api-key` | - | Gemini API key (overrides env/file) |
+| `--costs` | - | Show cost summary |
+
+## Models
+
+| Alias | Model | Use When |
+|-------|-------|----------|
+| `flash`, `nb2` | Gemini 3.1 Flash | Default. Fast, cheap (~$0.067/1K image) |
+| `pro`, `nb-pro` | Gemini 3 Pro | Highest quality needed (~$0.134/1K image) |
+
+## Sizes
+
+| Size | Cost (Flash) | Cost (Pro) |
+|------|-------------|------------|
+| `512` | ~$0.045 | Flash only |
+| `1K` | ~$0.067 | ~$0.134 |
+| `2K` | ~$0.101 | ~$0.201 |
+| `4K` | ~$0.151 | ~$0.302 |
+
+## Aspect Ratios
+
+Supported: `1:1`, `16:9`, `9:16`, `4:3`, `3:4`, `3:2`, `2:3`, `4:5`, `5:4`, `21:9`
+
+Use `-a` flag: `nano-banana "cinematic scene" -a 16:9`
+
+### Reference Images (Style Transfer / Editing)
+
+```bash
+# Edit existing image
+nano-banana "change the background to pure white" -r dark-ui.png -o light-ui
+
+# Style transfer - multiple references
+nano-banana "combine these two styles" -r style1.png -r style2.png -o combined
+```
+
+### Transparent Assets
+
+```bash
+nano-banana "robot mascot character" -t -o mascot
+nano-banana "pixel art treasure chest" -t -o chest
+```
+
+The `-t` flag automatically prompts the AI to generate on a green screen, then uses FFmpeg `colorkey` + `despill` to key out the background and remove green spill from edge pixels. Pixel-perfect transparency with no manual prompting needed.
+
+Requires: `brew install ffmpeg imagemagick`
+
+### Exact Dimensions
+
+To get a specific output dimension:
+1. First `-r` flag: your reference/style image
+2. Last `-r` flag: blank image in target dimensions
+3. Include dimensions in prompt
+
+```bash
+nano-banana "pixel art character in style of first image, 256x256" -r style.png -r blank-256x256.png -o sprite
+```
+
+````
+
+Ürün arka planı için ayrıca `rembg` (https://github.com/danielgatis/rembg, 24964★, MIT): `pip install rembg[cli]; rembg i urun.jpg urun-seffaf.png` — CPU'da çalışır, API ücreti yok.
+
+### 3.12 Instagram yayın katmanı: Graph API / oliverames meta-mcp-server / Postiz / Publora (DEĞER 5)
+
+**a) Resmi Instagram Graph API** — https://developers.facebook.com/docs/instagram-platform/content-publishing (WebFetch ile doğrulandı 2026-10-05): Instagram professional hesap + bağlı Sayfa; izinler `instagram_basic` + `instagram_content_publish` + `pages_read_engagement` (Facebook Login) veya `instagram_business_basic` + `instagram_business_content_publish` (Business Login for Instagram); Page Publishing Authorization; **JPEG tek desteklenen görsel formatı**; carousel görselleri ilk görselin oranına kırpılır (varsayılan 1:1 — bu yüzden ilk slaytı 4:5 ver); 100 API-post / 24 saat (carousel = 1 post); `GET /<IG_ID>/content_publishing_limit`. App Review yalnızca app'te rolü olmayan kullanıcılar için — müşteri hesabını kendi Business Manager'ımıza (Business Settings → Instagram accounts) bağlarsak Standard Access yeter.
+
+**oliverames/meta-mcp-server** — https://github.com/oliverames/meta-mcp-server · 47★ · MIT · `npx -y @oliverames/meta-mcp-server`, env `META_ACCESS_TOKEN`. 199 araç; bizim için: `meta_publish_instagram_carousel` (2-10 öğe paralel container), `meta_check_instagram_publishing_limit`, IG/Ads insights, chart üretimi, Threads. Kopya: `kopyalar/oliverames-meta-mcp-server/docs/` (content-publishing, insights-metrics, marketing-api/insights-api, access-tokens).
+
+**`docs/instagram-api/content-publishing.md` — Carousel akışı (aynen, kaynak: https://github.com/oliverames/meta-mcp-server/blob/main/docs/instagram-api/content-publishing.md):**
+
+````markdown
+## Carousel Posts
+
+Carousel posts support up to 10 images or videos (or a mix).
+
+### Step 1: Create Item Containers
+
+Create individual containers for each item. Do **not** include a `caption` on item containers.
+
+```bash
+# Image item
+curl -X POST "https://graph.facebook.com/v22.0/{ig-user-id}/media" \
+  -d "image_url=https://example.com/photo1.jpg" \
+  -d "is_carousel_item=true" \
+  -d "access_token={access-token}"
+
+# Video item
+curl -X POST "https://graph.facebook.com/v22.0/{ig-user-id}/media" \
+  -d "video_url=https://example.com/video1.mp4" \
+  -d "media_type=VIDEO" \
+  -d "is_carousel_item=true" \
+  -d "access_token={access-token}"
+```
+
+### Step 2: Create Carousel Container
+
+```bash
+curl -X POST "https://graph.facebook.com/v22.0/{ig-user-id}/media" \
+  -d "media_type=CAROUSEL" \
+  -d "caption=My carousel" \
+  -d "children={item-container-id-1},{item-container-id-2}" \
+  -d "access_token={access-token}"
+```
+
+### Step 3: Publish
+
+```bash
+curl -X POST "https://graph.facebook.com/v22.0/{ig-user-id}/media_publish" \
+  -d "creation_id={carousel-container-id}" \
+  -d "access_token={access-token}"
+```
+
+**Note**: All carousel images are cropped to the aspect ratio of the first image.
+
+## Content Publishing Limit
+
+Check your remaining publish quota:
+
+```
+GET /{ig-user-id}/content_publishing_limit
+```
+
+Returns the current usage against the 100-post/24-hour limit.
+
+## Endpoints Summary
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/{ig-user-id}/media` | POST | Create a media container |
+| `/{ig-user-id}/media_publish` | POST | Publish a container |
+| `/{ig-container-id}?fields=status_code` | GET | Check container status |
+| `/{ig-user-id}/content_publishing_limit` | GET | Check publishing quota |
+````
+
+Bizim minimal Python yayın fonksiyonu (kendi yazımız, SDK'sız; görseller public HTTPS URL'de olmalı):
+
+```python
+import requests, time
+G = "https://graph.facebook.com/v22.0"
+
+def ig_publish_carousel(ig_user_id, token, image_urls, caption):
+    children = []
+    for url in image_urls:                       # 2-10 JPEG, ilk görsel oranı belirler (4:5 ver)
+        r = requests.post(f"{G}/{ig_user_id}/media", data={
+            "image_url": url, "is_carousel_item": "true", "access_token": token}).json()
+        children.append(r["id"])
+    car = requests.post(f"{G}/{ig_user_id}/media", data={
+        "media_type": "CAROUSEL", "caption": caption,
+        "children": ",".join(children), "access_token": token}).json()["id"]
+    for _ in range(20):                          # container FINISHED olana kadar bekle
+        st = requests.get(f"{G}/{car}", params={"fields": "status_code", "access_token": token}).json()
+        if st.get("status_code") == "FINISHED": break
+        if st.get("status_code") == "ERROR": raise RuntimeError(st)
+        time.sleep(3)
+    return requests.post(f"{G}/{ig_user_id}/media_publish", data={
+        "creation_id": car, "access_token": token}).json()   # {"id": media_id}
+```
+
+**b) Postiz** — https://github.com/gitroomhq/postiz-app · 36714★ · AGPL-3.0 · docs: https://docs.postiz.com/public-api (WebFetch ile doğrulandı). Self-host (Docker, Postgres+Redis). Auth: `Authorization: <api-key>` (Settings → Developers → Public API). Akış: `POST /public/v1/upload` (medya) → `POST /public/v1/posts` (integration id + content + images + `settings.__type: "instagram"`), `GET /public/v1/integrations`. Rate limit 90 req/saat (global). MCP server (8 araç: integrationList, integrationSchema, schedulePostTool, generateImageTool…), `@postiz/node` SDK, `n8n-nodes-postiz`. AGPL: ürünümüze gömmeyiz, ayrı servis olarak çalıştırırız. IG bağlantısı yine kendi Meta app'imizi ister.
+
+**c) Publora** — https://github.com/publora/skills · 49★ · MIT · hosted MCP `https://mcp.publora.com` (`claude mcp add publora --transport http https://mcp.publora.com --header "Authorization: Bearer sk_..."`), REST fallback `https://api.publora.com/api/v1/create-post` (`x-publora-key`). En hızlı prototip yolu; sergebulaev skill'leri doğrudan bunu kullanır. Kopya: `kopyalar/publora-skills/skills/instagram-post/SKILL.md`.
+
+**`skills/instagram-post/SKILL.md` — Platform Limits + create_post (aynen, kaynak: https://github.com/publora/skills/blob/main/skills/instagram-post/SKILL.md):**
+
+````markdown
+## Platform Limits (API vs Native App)
+
+These limits are specific to the Instagram Graph API and differ from native app limits:
+
+### Images
+
+| Feature | API Limit |
+|---------|-----------|
+| **Formats** | JPEG, PNG, WebP (WebP is auto-converted). Animated GIF, BMP and TIFF are rejected. |
+| Max file size | 8 MB |
+| Carousel images | 2-10 (native app allows 20) |
+| Aspect ratios | 4:5 (portrait) to 1.91:1 (landscape) |
+
+### Videos
+
+| Feature | Reels | Stories | Carousel Videos |
+|---------|-------|---------|-----------------|
+| Max duration | **15 minutes** (only 5-90s eligible for Reels tab) | 60 seconds | 60 seconds |
+| Min duration | 3 seconds | 3 seconds | 3 seconds |
+| Max file size | 300 MB | 100 MB | 300 MB |
+| Formats | MP4, MOV | MP4, MOV | MP4, MOV |
+
+### Captions
+
+| Feature | Limit |
+|---------|-------|
+| Caption length | 2,200 characters |
+| Visible before "more" | First 125 characters |
+| Hashtags | 30 per post (included in caption) |
+
+### Rate Limits
+
+- **50 posts per 24 hours** (some accounts report 25)
+
+## Available Tools
+
+### create_post
+Create a new Instagram post.
+
+**Parameters:**
+- `platforms`: Array with your Instagram connection ID (e.g., `["instagram-11223344"]`)
+- `content`: Caption text (up to 2,200 characters)
+- `scheduledTime`: ISO 8601 UTC datetime. **Optional**: omit it and the post is created as a draft. Send a future time to schedule. A time five or more minutes in the past is rejected with `SCHEDULED_TIME_IN_PAST`, so for immediate posting use the current time plus a minute.
+- `mediaUrls`: up to 10 public **https** image or video URLs. Publora downloads them server-side and attaches them *before* validation, so media and scheduling happen in one call. This is the one-shot alternative to the draft then `get_upload_url` then `complete_media` flow. Ingestion is rate-limited to 60 URLs per hour.
+
+````
+
+**d) inovector/mixpost** (3778★, MIT Lite, Laravel) — API/webhook Pro sürümde; ajan entegrasyonu Postiz kadar olgun değil, geçildi.
+
+### 3.13 Meta Ads: SDK + MCP sunucuları (DEĞER 5)
+
+**facebook/facebook-python-business-sdk** — https://github.com/facebook/facebook-python-business-sdk · 1606★ · Facebook Platform License · `pip install facebook_business`. Node: https://github.com/facebook/facebook-nodejs-business-sdk (621★). Kopya: `kopyalar/facebook-python-business-sdk/README.md`. App'e "Marketing API" ürünü eklenir; user token `ads_management` (+ `ads_read`, `business_management`); App Secret Proof açılması önerilir. Bizim minimal kampanya oluşturma (kendi yazımız, ODAX objective, PAUSED):
+
+```python
+from facebook_business.api import FacebookAdsApi
+from facebook_business.adobjects.adaccount import AdAccount
+from facebook_business.adobjects.campaign import Campaign
+from facebook_business.adobjects.adset import AdSet
+from facebook_business.adobjects.adcreative import AdCreative
+from facebook_business.adobjects.ad import Ad
+
+FacebookAdsApi.init(APP_ID, APP_SECRET, ACCESS_TOKEN)
+acc = AdAccount("act_123")
+camp = acc.create_campaign(params={
+    "name": "Restoran_Leads_Kadikoy_Carousel_2026-10",
+    "objective": "OUTCOME_LEADS", "status": "PAUSED",
+    "special_ad_categories": [], "daily_budget": 30000})      # 300,00 TL (kuruş)
+img = acc.create_ad_image(params={"filename": "slide-01.jpg"})   # → hash
+adset = acc.create_ad_set(params={
+    "name": "Kadikoy_5km_25-55", "campaign_id": camp["id"], "status": "PAUSED",
+    "billing_event": "IMPRESSIONS", "optimization_goal": "LEAD_GENERATION",
+    "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+    "targeting": {"geo_locations": {"custom_locations": [{"latitude": 40.99, "longitude": 29.03, "radius": 5, "distance_unit": "kilometer"}]},
+                  "age_min": 25, "age_max": 55},
+    "promoted_object": {"page_id": PAGE_ID}})
+creative = acc.create_ad_creative(params={
+    "name": "carousel-v1",
+    "object_story_spec": {"page_id": PAGE_ID, "instagram_actor_id": IG_ACTOR_ID,
+        "link_data": {"link": "https://ornek.com", "message": PRIMARY_TEXT,
+            "child_attachments": [{"image_hash": img["hash"], "name": "Başlık", "link": "https://ornek.com"}]}}})
+ad = acc.create_ad(params={"name": "carousel-v1", "adset_id": adset["id"],
+                           "creative": {"creative_id": creative["id"]}, "status": "PAUSED"})
+```
+
+**pipeboard-co/meta-ads-mcp** — https://github.com/pipeboard-co/meta-ads-mcp · 1292★ · özel lisans · hosted `https://meta-ads.mcp.pipeboard.co/` (OAuth veya `?token=`), 42 araç (kampanya/adset/ad/creative, görsel upload, insights, interest/geo hedefleme arama, Sayfa yönetimi), her yazmada onay, yeni kampanya PAUSED başlar; `pipeboard` Go CLI (`pipeboard meta-ads get-campaigns --account-id act_123`) ajan için subprocess dostu. Badged Meta Business Partner → kendi app review'umuzu beklemeden başlamak için en pratik yol; self-host için kendi Meta app'i gerekir. Kopya: `kopyalar/pipeboard-co-meta-ads-mcp/README.md`, `META_API_NOTES.md`.
+
+Alternatifler: mikusnuz/meta-ads-mcp (82★, MIT, v25, 135 araç), EfrainTorres/armavita-meta-ads-mcp (75★, AGPL, v26), amekala/ads-mcp (97★, MIT, Google+Meta+LinkedIn+TikTok), Ryze `https://connector.get-ryze.ai/mcp` (hosted, ücretsiz, irina skill'leriyle eşleşir).
+
+### 3.14 Meta Ads skill'leri: audit, kreatif, analiz (DEĞER 4-5)
+
+**irinabuht12-oss/marketing-skills** — https://github.com/irinabuht12-oss/marketing-skills · 3540★ · lisans belirtilmemiş. Kopya: `kopyalar/irinabuht12-oss-marketing-skills/` (meta-ads-audit, ad-copy-variant-generator, creative-fatigue-detection, client-report-narratives, weekly-account-summary, content-repurposer, competitor-creative-analysis, audience-overlap-analysis).
+
+**`skills/meta-ads-audit/SKILL.md` (aynen, kaynak: https://github.com/irinabuht12-oss/marketing-skills/blob/main/skills/meta-ads-audit/SKILL.md):**
+
+````markdown
+---
+name: meta-ads-audit
+description: Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience overlap, scaling opportunities, and iOS tracking verification issues. Use when pasting Meta account data, analyzing Facebook ad performance, reviewing Instagram campaigns, or requesting audit of social advertising spend. Platform: Meta.
+metadata:
+  platform: Meta
+---
+
+# Meta Ads Audit
+
+Analyze Meta advertising accounts for structural issues, creative performance, and tracking health.
+
+## Process
+
+1. **Request account data** - Ads Manager exports (campaign, ad set, ad level with time series)
+2. **Check creative fatigue signals** - Frequency, CTR trends, CPM inflation
+3. **Analyze audience overlap** - Identify cannibalization between ad sets
+4. **Verify tracking setup** - Pixel, Conversions API, Event Match Quality
+5. **Evaluate campaign structure** - Advantage+ vs Manual decisions
+6. **Deliver prioritized recommendations**
+
+## Creative Fatigue Detection
+
+| Signal | Threshold | Action Required |
+|--------|-----------|-----------------|
+| Frequency | >3-4 | Refresh creative or expand audience |
+| CTR declining | >15-20% drop over 7 days | New creative needed |
+| CPM rising | >30-40% over 2 weeks | Creative reset required |
+| Ad Relevance | "Below Average" ranking | Immediate creative swap |
+
+## Audience Overlap Analysis
+
+**Scoring (use Facebook Audience Overlap Tool)**:
+- 0-15% overlap = Safe, continue
+- 15-30% overlap = Monitor, consider consolidation
+- >30% overlap = Consolidate or add exclusions
+
+## Tracking Verification Checklist
+
+- [ ] Meta Pixel installed (use Pixel Helper Chrome extension)
+- [ ] Conversions API (CAPI) configured with server-side events
+- [ ] Event Match Quality score ≥6
+- [ ] Browser events (blue) AND server events (green) firing in Events Manager
+- [ ] iOS 14.5+ ATT prompt implemented
+- [ ] Aggregated Event Measurement configured (8 events prioritized)
+
+## Advantage+ vs Manual Decision Logic
+
+**Use Advantage+ Shopping/App campaigns when**:
+- Scaling established products
+- Prospecting broad audiences
+- Budget >$100/day for algorithm learning
+- Have 50+ conversions/week
+
+**Use Manual campaigns when**:
+- Retargeting specific segments
+- Testing new creatives
+- Budget <$50/day
+- Need precise audience control
+
+## Output Format
+
+```
+## Meta Ads Audit Summary
+
+**Account Health Score**: [X/100]
+**Analysis Period**: [Date Range]
+**Total Spend Analyzed**: $[Amount]
+
+### 🔴 Creative Fatigue Alerts
+| Campaign | Frequency | CTR Trend | Action |
+|----------|-----------|-----------|--------|
+
+### 🟡 Audience Issues
+- Overlap detected: [Ad Set A] ↔ [Ad Set B]: [X]%
+- Recommendation: [Action]
+
+### 📊 Tracking Health
+- Pixel: [✅/❌]
+- CAPI: [✅/❌]
+- EMQ Score: [X/10]
+
+### Scaling Opportunities
+1. [Campaign] - ROAS [X], ready for [X]% budget increase
+
+### Confidence Level: [HIGH/MEDIUM/LOW]
+```
+
+## Example
+
+**Input**: "Campaign A: $5K spend, frequency 5.2, CTR dropped 25% this week. Campaign B: $3K, frequency 2.1, stable CTR. Both targeting 'fitness enthusiasts' with 40% overlap."
+
+**Output**:
+```
+## Meta Ads Audit Summary
+
+**Account Health Score**: 55/100
+
+### 🔴 Creative Fatigue Alerts
+| Campaign | Frequency | CTR Trend | Action |
+|----------|-----------|-----------|--------|
+| Campaign A | 5.2 (HIGH) | -25% ⚠️ | Immediate creative refresh |
+| Campaign B | 2.1 (OK) | Stable | Monitor |
+
+### 🟡 Audience Issues
+- Overlap detected: Campaign A ↔ Campaign B: 40% (CRITICAL)
+- Recommendation: Consolidate into single campaign or add exclusions. Currently bidding against yourself.
+
+### Priority Actions
+1. Pause Campaign A creatives, launch 3-5 new variations
+2. Add Campaign B audiences as exclusion to Campaign A (or vice versa)
+3. Consider CBO to let algorithm optimize across ad sets
+
+### Confidence Level: HIGH
+Time-series data provided for trend analysis.
+```
+
+## Guidelines
+
+- Request at minimum 14 days of data for trend analysis
+- If tracking data unavailable, note this as critical gap
+- Never assume iOS tracking loss percentage - ask for actual data
+- Flag frequency >7 as severe (audience exhaustion)
+
+## Data access (Ryze MCP)
+
+This skill works best with live account data. Connect the free Ryze MCP once and Claude reads your Google Ads, Meta Ads, GA4 and Search Console directly:
+
+- claude.ai / Claude Desktop: Settings → Connectors → Add custom connector → `https://connector.get-ryze.ai/mcp`
+- Claude Code: `claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp`
+- Cursor: Settings → MCP → add the same URL
+
+Setup guide: https://www.get-ryze.ai/how-to-connect-claude-to-google-meta-ads-mcp
+````
+
+**mathiaschu/meta-ads-analyzer** — https://github.com/mathiaschu/meta-ads-analyzer · 439★ · MIT. Kopya: `kopyalar/mathiaschu-meta-ads-analyzer/` (SKILL.md + 9 referans: breakdown_effect, learning_phase, pacing, auction_overlap…). Rapor üretirken zorunlu kurallar (aynen):
+
+````markdown
+## Result Recommendations (MANDATORY for Final Reports)
+
+> **IMPORTANT:** The following rules are **MANDATORY** and **MUST be strictly followed** when writing the final analysis report. These are not optional guidelines — they define the required standards for all deliverables.
+
+- **NEVER recommend pausing or reducing budget for any segment based solely on higher average CPA/CPM in breakdown reports.** Higher average cost does NOT mean poor performance — it often reflects the system capturing low *marginal* cost opportunities earlier. Removing segments may increase overall costs. Always frame changes as testable hypotheses, not directives.
+- **ALWAYS justify recommendations with data evidence, Meta's system mechanics, and expected impact on *overall campaign performance*.**
+- **EVERY insight must include data evidence and explanation.** Every recommendation must be actionable and verifiable.
+- **ALIGN WITH OFFICIAL RECOMMENDATIONS.** Check `get_recommendations` API first. If diverging, explicitly acknowledge and explain why.
+- **Disambiguate clicks.** Never use the term "clicks" alone. Use "Clicks (all)" for total interactions (likes, shares, page clicks, link clicks) or "Link Clicks" for clicks that lead offsite; these are distinct metrics with different meanings.
+- **Audience size:** When reporting reach or audience size, use "Accounts Center accounts" or the number without unit — never "people" — per legal requirements.
+
+## Analysis Workflow
+
+**Reference Documents** (loaded automatically from `references/`):
+- `breakdown_effect.md` - The Breakdown Effect with examples (READ THIS FIRST)
+- `core_concepts.md` - Ad Auction, Pacing, Learning Phase overview
+- `learning_phase.md` - Learning phase mechanics
+- `ad_relevance_diagnostics.md` - Quality, Engagement, Conversion rankings
+- `auction_overlap.md` - Diagnosing auction overlap
+- `pacing.md` - Budget and bid pacing
+- `bid_strategies.md` - Spend-based, goal-based, manual bidding
+- `ad_auctions.md` - How auction winners are determined
+- `performance_fluctuations.md` - Normal vs. concerning fluctuations
+
+### Step 1: Identify the Correct Evaluation Level
+
+This is the most critical step to avoid the Breakdown Effect.
+
+| Campaign Setup | Correct Evaluation Level |
+| :--- | :--- |
+| Advantage+ Campaign Budget (CBO) | **Campaign Level** |
+| Automatic Placements (without CBO) | **Ad Set Level** |
+| Multiple Ads within a single Ad Set | **Ad Set Level** |
+
+### Step 2: Check Learning Phase Status
+
+Before any analysis:
+- Is the ad set still in learning phase? (~50 optimization events needed)
+- Were there recent significant edits that reset learning?
+- If in learning: caveat all findings as preliminary
+
+### Step 3: Analyze with Meta-Specific Lens
+
+Focus on these analytical angles:
+
+1. **Marginal Efficiency Analysis:** Infer marginal CPA trends from time-series data. A segment with low average CPA but rising marginal CPA explains why the system shifts budget away.
+2. **Ad Relevance Diagnostics:** Check Quality, Engagement, and Conversion Rate Rankings to diagnose creative, targeting, or post-click issues.
+3. **Auction Overlap Check:** Are ad sets competing against each other? Look for learning limited status and underdelivery.
+4. **Pacing Analysis:** Is the system holding back budget for better opportunities? Evaluate over full campaign, not daily snapshots.
+5. **Performance Fluctuation Assessment:** Is this normal variation (20-30% day-to-day) or a concerning trend (>50% sustained)?
+
+### Step 4: Synthesize Findings Through Breakdown Effect Lens
+
+Interpret ALL findings through the **Breakdown Effect** framework. Explain *why* the system makes certain decisions.
+
+> **Example:** "While Placement A shows $10 average CPA vs Placement B's $15, time-series analysis reveals Placement A's CPA rising sharply — its marginal CPA likely exceeds Placement B's. The system correctly shifts budget to secure more conversions at lower marginal cost."
+
+### Step 5: Generate Report
+
+Structure every analysis report as:
+
+1. **Executive Summary** - 2-3 key findings
+2. **Evaluation Level** - Which level and why
+3. **Learning Phase Status** - Current state per ad set
+4. **Performance Analysis** - Metrics with proper naming
+5. **Diagnosis** - Root causes with evidence
+6. **Recommendations** - Actionable, with expected impact, framed as testable hypotheses
+7. **Breakdown Effect Notes** - Explicit callouts where this applies
+````
+
+**ivangfalco/ads-skills** — https://github.com/ivangfalco/ads-skills · 278★ · **Commons Clause** (ticari satış kısıtı; sadece referans). Kopya: `kopyalar/ivangfalco-ads-skills/` (meta-ads SKILL.md, api-reference.md, knowledge-base: operating-system, creative-cadence, fatigue, campaign-structure, audience-strategy, setup-and-tracking, optimization-playbook). Marketing API v22 şema referansı (aynen, campaign bölümü):
+
+````markdown
+## Account Hierarchy
+
+```
+Ad Account (act_XXXX)
+  -> Campaign (objective, budget if CBO, bid strategy)
+    -> Ad Set (targeting, budget if ABO, optimization, schedule)
+      -> Ad (creative reference, status)
+        -> Ad Creative (media, copy, CTA, url_tags)
+```
+
+---
+
+## Campaign Schema
+
+**Endpoint:** `POST /{account_id}/campaigns`
+
+### Required Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Campaign name |
+| `objective` | enum | Marketing objective (ODAX framework) |
+| `status` | enum | Campaign status |
+| `special_ad_categories` | array | Special category declarations (pass `[]` if none) |
+
+### Optional Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `daily_budget` | int (cents) | Daily budget for CBO (5000 = $50.00) |
+| `lifetime_budget` | int (cents) | Lifetime budget for CBO |
+| `bid_strategy` | enum | Bidding strategy |
+| `buying_type` | enum | Buying type |
+| `is_adset_budget_sharing_enabled` | string | `"true"` for CBO, `"false"` for ABO |
+| `execution_options` | array | `["validate_only"]` or `["include_recommendations"]` |
+
+### Objective (ODAX Framework)
+
+| Value | Description | Use For |
+|-------|-------------|---------|
+| `OUTCOME_AWARENESS` | Brand awareness, reach | Top of funnel |
+| `OUTCOME_ENGAGEMENT` | Post engagement, video views, page likes | Mid funnel |
+| `OUTCOME_TRAFFIC` | Link clicks, landing page views | Mid funnel |
+| `OUTCOME_LEADS` | Lead gen forms, conversions (lead) | Bottom of funnel |
+| `OUTCOME_SALES` | Conversions (purchase), catalog sales | Bottom of funnel |
+| `OUTCOME_APP_PROMOTION` | App installs, app engagement | App campaigns |
+
+Legacy objectives (deprecated for new campaigns, returned by API for old ones): `CONVERSIONS`, `LEAD_GENERATION`, `LINK_CLICKS`, `BRAND_AWARENESS`, `REACH`, `POST_ENGAGEMENT`, `VIDEO_VIEWS`, `MESSAGES`, `APP_INSTALLS`, `PAGE_LIKES`, `EVENT_RESPONSES`, `STORE_VISITS`, `PRODUCT_CATALOG_SALES`
+
+### Bid Strategy
+
+| Value | Description |
+|-------|-------------|
+| `LOWEST_COST_WITHOUT_CAP` | Lowest cost, no cap (default) |
+| `COST_CAP` | Cost cap - set max cost per result |
+| `LOWEST_COST_WITH_BID_CAP` | Bid cap - set max bid per auction |
+| `LOWEST_COST_WITH_MIN_ROAS` | Min ROAS - target minimum return |
+
+````
+
+**AgriciDaniel/claude-ads** — https://github.com/AgriciDaniel/claude-ads · 9722★ · MIT · `/plugin marketplace add agricidaniel/claude-ads`. 12 platform; `/ads audit meta`, `/ads create`, `/ads launch --draft`, `/ads monitor`, `/ads report` (JSON → Markdown/HTML/PDF). Read-only varsayılan; canlı değişiklik capability manifest + onay + rollback kapılarından geçer — ajans için güvenlik modeli örneği. Meta creative kontratı: her placement için resmi kaynak ID+tarih, oran, güvenli alan kaydedilir; "resize = coverage, not creative diversity". Kopya: `kopyalar/AgriciDaniel-claude-ads/` (README, ads/SKILL.md, meta-audit.md, meta-creative-specs.md, meta-ai-stack.md, agents/audit-meta.md).
+
+**zubair-trabzada/ai-marketing-claude** `market-ads` / `market-social` (2716★, MIT): Meta format/spec tablosu, Google RSA/PMax asset listesi, 30 günlük takvim şablonu (`templates/content-calendar.md`); pillar karışımı %40 eğitim / %20 kulis / %15 sosyal kanıt / %15 etkileşim / %10 promosyon; Instagram tipi karışımı %35 carousel / %30 Reels / %15 tek görsel. Kopya: `kopyalar/zubair-trabzada-ai-marketing-claude/`.
+
+### 3.15 Diğer kaynaklar (kısa)
+
+- **charlie947/social-media-skills** (3780★, MIT): `voice-builder` → `about-me.md` + `voice.md` (her skill önce bunu okur; biz de müşteri başına aynı dosyaları tutmalıyız), `gemini-carousel` (slayt başına Gemini prompt + onay kapısı), `graphic-designer` (HTML/CSS → PNG, yoksa Gemini prompt), `hook-generator` (6 açı), `reels-scripting`, `content-matrix` (3-5 pillar × 8 format = 24-40 fikir). Kopya: `kopyalar/charlie947-social-media-skills/`.
+- **Hao0321/claude-skill-social-post** (725★, MIT, Çince): ses öğrenme, 14 günlük takvim, FB/IG/Threads/X yayın, Chrome MCP ile yorumlara "bounded auto" cevap. Fikir: yorum yönetimi katmanı. Kopya: README + instagram.md/facebook.md/formulas.md.
+- **ecomcirclesocial-ecom/carousel-generator** (2★, MIT, İspanyolca): `/carrusel` — Apify ile referans creator'ın stilini vision ile preset'e çevir + Nano Banana arka plan foto + Playwright 9 slayt (Hook→Dolor→Valor×5→Recap→CTA), ~60 sn, $0-0.07/carousel. "Referans hesaptan stil çıkarma" fikri değerli. Kopya: README.
+- **vercel/satori** (14013★, MPL-2.0) + `@resvg/resvg-js`: tarayıcısız HTML→PNG; `@vercel/og` Edge'de çalışır. Sınır: CSS alt kümesi (grid yok, `<style>` yok, fontlar buffer olarak verilir). Yüksek hacimli, tek şablonlu (ör. fiyat/duyuru kartı) üretim için Playwright'tan hızlı; karmaşık tasarım için Playwright. Kopya: README.
+- **Macawls/ogre** (7★, MIT, Go): satori-benzeri HTML→PNG server; Docker'da ağırlıksız alternatif.
+- **ScrapeCreators/social-media-research-skills** (3203★, MIT): rakip outlier post, Meta Ad Library tarama — ücretli API; "rakip kreatif analizi" adımı için.
+- **kostja94/marketing-skills** (1013★, MIT): `paid-ads-strategy`, `instagram` platform skill'leri; `npx skills add kostja94/marketing-skills --skill paid-ads-strategy`. Kopya: README.
+- **n8n şablonları**: [#3693 GPT-4.1-mini + Imgur + Graph API carousel](https://n8n.io/workflows/3693-create-and-publish-instagram-carousel-posts-with-gpt-41-mini-imgur-and-graph-api/), [#12413 Gemini + Google Slides + Graph API](https://n8n.io/workflows/12413-generate-and-publish-instagram-carousels-with-gemini-and-google-slides/), [#14656 fotoğraf dökümünden recap carousel](https://n8n.io/workflows/14656-create-event-recap-instagram-carousels-from-photo-dumps-using-upload-to-url/). Ortak örüntü: görseli public URL'e koy (Imgur/Drive) → container → publish; Postiz'in n8n node'u da var.
+- **Analitik**: IG Insights metrikleri (`reach, saves, shares, views, total_interactions, follows_and_unfollows`; `impressions` v22+ deprecated) ve Ads Insights alanları `kopyalar/oliverames-meta-mcp-server/docs/` altında; rapor anlatısı için irina `client-report-narratives` + `weekly-account-summary` skill'leri.
+- **Türkiye bağlamı**: Türkçe'ye özel skill yok. Aksiyon: `tr-caption` SKILL.md (rediumvex platform kuralları + sergebulaev voice-rules Türkçe uyarlaması; FB trigger-word Türkçe listesi; yerel hashtag şablonu `#<ilçe><sektör>`), Meta Ads yerel şablon (restoran: 3-8 km yarıçap + `OUTCOME_ENGAGEMENT`/mesaj; klinik: 10-25 km + `OUTCOME_LEADS` Instant Form; sağlıkta önce/sonra görseli ve kişisel özellik iması yasağı).
+
+---
+
+## 4. Sonuç: zincire hemen alınacak kaynaklar
+
+1. **sergebulaev/instagram-skills** (MIT) — caption/carousel/hashtag/humanizer skill seti hazır, Codex+Claude; `lib.publish` imzasını kendi Graph API/Postiz katmanımıza bağlayınca "brief → onaylı metin" adımı biter. Türkçe voice-rules uyarlaması gerekir.
+2. **Carousel render hattı = marcolang/Ash-Harris kuralları + idrsdev design-system.json** — GÜZEL görsel sorununun cevabı: marka başına `design-system.json` (token'lar, base64 font), Ash-Harris'in 16 tipografi/yerleşim kuralı, Playwright `device_scale_factor` export, bearcarousel-tarzı kontrast/taşma audit'i. Üçü de küçük, MIT/lisanssız, kolayca tek `carousel-render` skill'inde birleştirilir.
+3. **oliverames/meta-mcp-server + resmi Graph API akışı** (MIT) — yayın ve insights için tek token, self-host, `meta_publish_instagram_carousel`; `docs/` klasörü Graph API'nin özeti. Prototip için Publora MCP, çoklu müşteri zamanlama için Postiz (AGPL, ayrı servis).
+4. **coreyhaines31/marketingskills** `ad-creative` + `ads` + `social` (MIT, 53k★) — reklam metni "grounded inputs" disiplini (review/winning-ad/yorum korpusu olmadan üretme), Meta karakter limitleri, TCPL tabanlı kill/scale kuralları, carousel çerçeveleri.
+5. **facebook-python-business-sdk + irina meta-ads-audit / mathiaschu meta-ads-analyzer** — kampanya oluşturma (PAUSED, ODAX) ve haftalık audit/rapor skill'leri; canlı veri için başlangıçta Pipeboard veya Ryze hosted MCP (app review beklemeden), sonra kendi app'imizle SDK.
+
+Açık riskler: Graph API sadece JPEG + public URL ister (R2/S3 bucket şart); Remotion şirket lisansı ücretli; ivangfalco Commons Clause; Postiz AGPL; Meta sağlık reklam politikaları klinik müşterileri için ayrı kontrol listesi gerektirir.
