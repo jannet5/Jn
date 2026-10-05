@@ -157,6 +157,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun canWriteSettings(): Boolean = deps.ringtones.canWriteSettings() // İzin var mı
     fun dismissPermission() { pendingDefault = null; _result.value = _result.value.copy(needsWriteSettings = false) } // Vazgeç
     fun consumeMessage() { _result.value = _result.value.copy(message = null) } // Snackbar gösterildi
+    fun showMessage(text: String) { _result.value = _result.value.copy(message = text) } // Dışarıdan mesaj
 
     /** Mevcut sentezi geçici WAV olarak yazar ve paylaşım Intent'i döndürür. */
     suspend fun shareIntent(): Intent? = withContext(Dispatchers.IO) {

@@ -1,6 +1,15 @@
 package com.jn.melodizil.ui.nav // Gezinme
 
+import android.Manifest // İzin adları
 import android.content.Intent // Intent
+import android.content.pm.PackageManager // İzin durumu
+import android.os.Build // Sürüm
+import androidx.activity.compose.rememberLauncherForActivityResult // İzin isteme
+import androidx.activity.result.contract.ActivityResultContracts // Sözleşmeler
+import androidx.compose.runtime.mutableStateOf // Durum
+import androidx.compose.runtime.setValue // Delegasyon
+import androidx.core.content.ContextCompat // İzin kontrolü
+import com.jn.melodizil.data.store.RingtoneKind // Zil türü
 import androidx.compose.foundation.layout.padding // Padding
 import androidx.compose.foundation.layout.size // Boyut
 import androidx.compose.material.icons.Icons // İkonlar
@@ -60,6 +69,16 @@ fun AppNav(vm: AppViewModel, sharedLink: String?, versionName: String, onConsume
     val isPlaying by vm.player.isPlaying.collectAsStateWithLifecycle() // Oynatma
     val position by vm.player.positionSec.collectAsStateWithLifecycle() // Konum
     val backStack by nav.currentBackStackEntryAsState() // Mevcut rota
+    var pendingSave by remember { mutableStateOf<Pair<RingtoneKind, Boolean>?>(null) } // Depolama izni bekleyen kayıt (Android 8-9)
+    val storagePermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted -> // İzin sonucu
+        val p = pendingSave; pendingSave = null // Bekleyen kayıt
+        if (granted && p != null) vm.save(p.first, p.second) else if (!granted) vm.showMessage(context.getString(R.string.storage_denied)) // Verildiyse kaydet, yoksa mesaj
+    }
+    val saveWithPermission: (RingtoneKind, Boolean) -> Unit = { kind, setDefault -> // Kayıt: Android 8-9'da önce depolama izni
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { // İzin yok
+            pendingSave = kind to setDefault; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) // İste
+        } else vm.save(kind, setDefault) // Doğrudan kaydet
+    }
     val route = backStack?.destination?.route // Rota adı
 
     LaunchedEffect(process) { // İşlem bitince sonuç ekranına geç
@@ -88,7 +107,7 @@ fun AppNav(vm: AppViewModel, sharedLink: String?, versionName: String, onConsume
             composable(Routes.PROCESS) { ProcessingScreen(process, onCancel = { vm.cancel(); nav.popBackStack() }, onRetry = { vm.retry() }, onBack = { vm.resetProcess(); nav.popBackStack() }) } // İşlem
             composable(Routes.RESULT) { // Sonuç
                 ResultScreen(result, isPlaying, position, onBack = { vm.player.stop(); nav.popBackStack() }, // Geri
-                    onInstrument = vm::selectInstrument, onLength = vm::setLength, onStartChange = vm::setStart, onStartCommit = vm::commitStart, onAuto = vm::autoStart, onTogglePlay = vm::togglePlay, onSave = vm::save, // Eylemler
+                    onInstrument = vm::selectInstrument, onLength = vm::setLength, onStartChange = vm::setStart, onStartCommit = vm::commitStart, onAuto = vm::autoStart, onTogglePlay = vm::togglePlay, onSave = saveWithPermission, // Eylemler
                     onShare = { scope.launch { vm.shareIntent()?.let { context.startActivity(Intent.createChooser(it, context.getString(R.string.share))) } } }, // Paylaş
                     onOpenWriteSettings = { context.startActivity(vm.writeSettingsIntent()) }, onDismissPermission = vm::dismissPermission) // İzin
             }

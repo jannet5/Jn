@@ -26,3 +26,4 @@ melodi-zil/.gradle-*.log
 melodi-zil/dist/*.apk
 melodi-zil/dist/*.aab
 # NOT: melodi-zil/keystore/upload.jks ve keystore.properties bilerek depoda: yalnızca Play yükleme anahtarı (bkz. melodi-zil/README.md)
+melodi-zil/.kotlin/
