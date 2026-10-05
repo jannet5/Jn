@@ -1,0 +1,623 @@
+# The 7 Levels of Building ELITE Websites with Claude Code
+# https://www.youtube.com/watch?v=1PXFAFMgdns
+# kanal: Chase AI | süre: 2326 sn | kaynak: yt-dlp:android:1PXFAFMgdns.en.json3
+
+[00:00:00] Claude code sucks at front-end design, and it's your fault. But, this is a
+[00:00:05] problem we can solve with a simple roadmap. You just got to know where
+[00:00:08] you're going. And in this video, I'm going to break down the seven levels to
+[00:00:12] Claude code front-end design and explain what you can expect at each level, the
+[00:00:17] traps to avoid, and what you need to do to progress to the next one. And by the
+[00:00:22] end, you will have a simple, repeatable process to create front-end designs with
+[00:00:26] Claude code that aren't yet another generic, boring template. Now, our case
+[00:00:31] study for today's video is going to be our fake SaaS web app known as Argus.
+[00:00:36] Argus is going to be a social media intelligence application. So,
+[00:00:41] essentially, a place that content creators, or really whoever, can go to
+[00:00:45] and find trending topics in their niche. And it is through Argus we're going to
+[00:00:49] go through the entire seven-level process. So, let's begin with level one.
+[00:00:53] And sadly, a lot of people are actually stuck here. This is just you and a
+[00:00:56] prompt. You're going to have Claude code open, and you're just going to say
+[00:00:59] something like, "Hey, let's create a landing page for Argus, my social media
+[00:01:03] web app, that acts as an intelligence app for content creators to find and
+[00:01:06] identify trending topics in their niche." Now, even if I do this and I put
+[00:01:11] it into plan mode, what we are going to get is something very, very generic.
+[00:01:15] Why? Because we've really given it no design direction, and we're kind of
+[00:01:18] relying on Claude code to fill in the gaps of like, "What looks good?" You
+[00:01:23] hear this often, like, "AI has no taste." True, but actually most people
+[00:01:27] have no taste, and because of that problem, they can't articulate it to
+[00:01:32] Claude code, right? If you don't know what right looks like, how is Claude
+[00:01:35] code supposed to figure it out? So, what it is here at the most base level that
+[00:01:38] we need to begin to master a few skills. And those three skills are writing
+[00:01:42] descriptive prompts, specifying frameworks and understanding what these
+[00:01:45] frameworks even are, and then beginning to build a basic design vocabulary. Now,
+[00:01:50] by simply using plan mode in this process, you're going to begin to build
+[00:01:54] some of these skills, because they're going to ask you questions like, "What
+[00:01:56] tech stack do you want to use for this landing page? Next.js, plain HTML,
+[00:01:59] Astro?" You're going to have no clue what any of these mean.
+[00:02:02] But by simply typing something, asking, "What are these frameworks?"
+[00:02:07] right? You're going to begin to build some level of competence in this space
+[00:02:11] when it comes to frameworks and things like this. You just have to ask
+[00:02:13] questions. Plain mode is also going to force you to think about design
+[00:02:16] decisions and the actual goal of your website. Because it's not enough to say,
+[00:02:19] "Hey, I just want a landing page for Argus." What is the point of this,
+[00:02:22] right? What is the actual outcome you are shooting for? In this case, we want
+[00:02:26] both a waitlist sign-up and a product showcase. And then it's going to
+[00:02:30] explicitly ask us questions about style. Now, right away, you know, these sorts
+[00:02:36] of visual styles it's going to give you again are kind of generic. Dark and
+[00:02:39] techy, clean and minimal, right? Like this isn't specific enough to really get
+[00:02:44] the outcomes we want. Yet this is where everyone stays at and this is why
+[00:02:47] everything looks so generic. So for us, we'll go ahead and we'll do clean and
+[00:02:51] minimal. And then we'll just do the hero, the
+[00:02:53] features, and a call to action. Let's submit this guy. Now you're probably
+[00:02:56] thinking, "Hey, if this is all super basic, how am I actually going to write
+[00:03:00] descriptive prompts and build that basic design vocabulary?" Well, frankly it's
+[00:03:03] going to just take some time and it's going to take experience. The more you
+[00:03:07] are exposed to again what right looks like, creative front-end designs, the
+[00:03:12] more you're going to pick up on these things. And we'll talk about that more
+[00:03:14] in future levels. So let's take a look at what it built us.
+[00:03:18] And holy AI slop. This is hideous, right? This is as generic as it gets. We
+[00:03:25] even have the purple gradients, which AI absolutely loves for some reason. So
+[00:03:29] what happened? What went wrong? Even with plain mode, this is what we got.
+[00:03:32] Well, the truth is, like you already know, Claude code and
+[00:03:36] AI in general isn't the best at front-end design. And if you give it
+[00:03:39] sort of non-descriptive, boring prompts, this is the sort of output you're going
+[00:03:43] to get. Right? And yet this is what you tend to see all over the place with
+[00:03:46] maybe a few differences. So what can we do? What can we do to get out of level
+[00:03:49] one and get out of design hell? But before we do that, a quick word from
+[00:03:53] everybody's favorite sponsor, me. So I just released a Claude Code Masterclass
+[00:03:58] not too long ago, and it is the number one place to go from zero to AI dev,
+[00:04:02] especially if you don't come from a technical background. I update this
+[00:04:05] every week, and since its release, we've already added over an hour of new
+[00:04:09] content and updated 20-plus modules. So if you want to get your hands on it, you
+[00:04:13] can find it in Chase AI Plus. There's a link to that in the pinned comment. But
+[00:04:17] if you're brand new to AI, that's just a bridge too far, make sure you check out
+[00:04:20] the free Chase AI community. There's a link to that in the description. Well,
+[00:04:24] to move on to level two, we need to give Claude a design education, and this is
+[00:04:28] where we begin to bring in skills. This is where we start bringing outside
+[00:04:32] specialized prompts that tell Claude Code how to design better. Now, these
+[00:04:36] skills we rely on, like the front-end design skill and the UI/UX Pro Max
+[00:04:40] skill, are going to do a lot of the heavy lifting for us. They are going to
+[00:04:43] inject Claude Code with these prompts that say, "Hey, if you're creating a
+[00:04:47] webpage in this industry, here's the sort of things you could be looking for.
+[00:04:51] Here's a list of all like the AI slop design techniques. Avoid these."
+[00:04:56] So essentially, it's going to supercharge our prompts even if we show
+[00:04:59] up with something that's rather poor. And here's a look at that UI/UX Pro Max
+[00:05:02] skill. This is an open-source repo on GitHub. It's got 52,000 stars. We can go
+[00:05:07] inside of here in the skills folder and actually see how everything is set up if
+[00:05:11] we want to, right? It's all just text prompts. And it's a bunch of text
+[00:05:14] prompts that are acting like a checklist for Claude Code to again get it out of
+[00:05:18] this generic stuff, so we don't get stuck with this. Now, to install this
+[00:05:21] particular skill and all other skills like it, it's very simple. If we go
+[00:05:25] inside the GitHub, we have instructions laid out for us right here. We're just
+[00:05:28] going to do {forward slash} plugin marketplace, add the skill, and then
+[00:05:32] install the skill. So we just run this inside of our Claude Code terminal. And
+[00:05:35] if that is a bit too confusing, understand you can always just
+[00:05:38] copy-paste the URL of this, dump it into Claude Code, and say, "Hey, I would like
+[00:05:41] to install this skill." So let's put this skill to the test. I've loaded the
+[00:05:44] skill with a {forward slash}. You can also use natural language and say
+[00:05:47] something like, "Hey Claude code, use the UI UX Pro Max skill." And we're
+[00:05:50] going to say, "I want you to recreate the landing page using the skill. Ask me
+[00:05:54] any questions you need." Now, similar to standard Claude code plan mode, it's
+[00:05:57] going to ask us some questions about the style. We'll do what it recommends this
+[00:06:01] time. Right, going for some typography. Sure,
+[00:06:05] sounds great. And then a CTA color, let's do orange. We want to get away
+[00:06:08] from the purple at all costs. So, Claude code finished the redesign, so let's
+[00:06:11] take a look. So, here's the landing page using the UI UX Pro Max skill. And right
+[00:06:16] away, this is a huge improvement. Right, we actually have like a proper
+[00:06:19] background and have this little square thing. The buttons in themselves have
+[00:06:23] like a subtle glow, and they even change color when you mouse over them. We have
+[00:06:27] a graphic, and the colors change from section to section. So, this is way, way
+[00:06:31] better, even though it's still It absolutely loves the purple.
+[00:06:35] That being said, this is clearly made by AI, right? This
+[00:06:38] isn't something that you would see and be blown away with what was created.
+[00:06:41] This still looks like an AI template. Looks like a designed AI template, but
+[00:06:46] this is still an AI template. And at its core, it's the same exact website you
+[00:06:49] kind of saw before, which is a little bit of window dressing. So, how can we
+[00:06:52] actually improve this? How can we move out of level two into level three?
+[00:06:55] Because these skills are great. They are bringing some ideas of color theory and
+[00:06:59] typography, spacing, and just general layout design. But at its core, right,
+[00:07:02] this is still generic. And the truth is, when it comes to the skills to master,
+[00:07:06] the biggest one is like, how do we evaluate this output with a designer's
+[00:07:10] eye, and then turn those critiques into prompts. This is still a prompting
+[00:07:15] problem. But the issue with prompting, and this is where we're getting into the
+[00:07:18] trap here, is like there is a ceiling to how descriptive we can be, especially
+[00:07:22] when we first start, right? We lack the knowledge to actually articulate the
+[00:07:26] problems. Right, I'm trying to explain a visual medium and a visual problem with
+[00:07:31] text. Inherently, there's some loss there. So, what can we actually do?
+[00:07:35] Well, we need to start showing Claude code the problems. We need to start
+[00:07:40] showing Claude code actual examples of what we're trying to push for, right?
+[00:07:44] So, to unlock level three, right? That's where we start moving away from just
+[00:07:49] text prompts and we start moving into the visual medium, right? We start
+[00:07:52] showing it, not just telling. And so, level three is where you become the
+[00:07:55] visual director. This is where we begin to give Claude code concrete examples of
+[00:07:59] what we are shooting for, right? That way we aren't just relying on text and
+[00:08:03] skills. We're now going to use text plus skills plus visual examples. Now, this
+[00:08:07] is a huge unlock for two reasons. One, Claude code's obviously going to be able
+[00:08:11] to better mimic an image that you show it versus your description of the image.
+[00:08:15] But secondly, because we are using images, that implies that we're looking
+[00:08:18] at other websites and we are now going to be able to see, again, what right
+[00:08:22] looks like. What are actual pros in the space doing and how can we mimic them?
+[00:08:25] Now, there are a number of places where you can find inspiration for your
+[00:08:28] front-end designs and I'll list four of them. The first one is Awwwards. That's
+[00:08:32] Awwwards with three Ws. This is a place where people submit their front-end work
+[00:08:37] and they get graded on it. So, it very much has a creative element to it.
+[00:08:40] Secondly, is godly.website. It's an infinite scrolling website where you can
+[00:08:44] just, again, see a bunch of different designs. Number three is Pinterest,
+[00:08:48] which surprisingly has some pretty cool stuff. So, here I'm just looking for
+[00:08:51] SaaS landing page. When I find one I want, I can also see a bunch of similar
+[00:08:55] ones as well. And then lastly, we have Dribbble. That's Dribbble with three Bs.
+[00:08:58] Here I just put SaaS landing page and again, I'm seeing a bunch of different
+[00:09:02] stuff that looks pretty cool. Let's say I landed on a website like Open Hands
+[00:09:06] that I like. I like sort of the, you know, scrolling thing they have on
+[00:09:10] the top with the proven workflows. I kind of like the different color scheme.
+[00:09:14] It's something unusual. Right away, they have the social proof and just in
+[00:09:18] general, I'm liking the style, right? For example. So, again, what I'm going
+[00:09:22] to do is very, very simple. I'm just going to take a bunch of screenshots of
+[00:09:25] this webpage, dump it into Claude code and say, "Hey, this is the visual style
+[00:09:29] I want to move towards." So, inside of Claude code, I said, "Actually, I want
+[00:09:32] our website to match the style of Open Hands." I gave it the URL. And then I
+[00:09:35] said, "Here's some screenshots for reference." and I dropped all the
+[00:09:38] screenshots in there. And so now it has actual visual references to go off of.
+[00:09:43] It'd be kind of difficult, for me at least, to describe in words what I was
+[00:09:46] looking for here, even with the help of something like the UI/UX Pro skill. And
+[00:09:51] it's through this process we're going to begin to curate really good visual
+[00:09:54] references. There's so many of them out there, and once you begin to see them
+[00:09:58] more and more and more, stuff like this is just a complete and total turn-off.
+[00:10:02] And it's like, why would I ever do anything like this when all this cool
+[00:10:06] And as you see more of those references, even though we're just giving CloudCode
+[00:10:09] screenshots, this is going to help you communicate what you do specifically
+[00:10:12] like, because you're going to see the same things over and over again as you
+[00:10:15] look through all these references. And what you also are going to want to start
+[00:10:18] doing is combining references from multiple sites, right? Even though we
+[00:10:21] were using Open Hands here, there's probably some cool stuff I found on
+[00:10:24] Pinterest or Godly.Website, and I'm like, "Hmm, let me pull this from here,
+[00:10:28] and let me pull this from there, right?" I want to take the best of all these
+[00:10:30] different sites and combine it. However, it's very easy to get stuck in this
+[00:10:35] particular trap on this level. And I would say most people kind of stop here
+[00:10:39] at level three, where they understand, "Yeah, I got to use skills. CloudCode
+[00:10:41] sucks off the bat, but with skills and with screenshots, I can get pretty far."
+[00:10:45] The truth is, there is a ceiling here, because we're
+[00:10:48] going to we're going to get kind of stuck at the vibe gap, like you're going
+[00:10:51] to see with what it comes out with. It's going to be like kind of close,
+[00:10:55] right? But it's not going to be perfect. Because again, there's still that
+[00:10:59] effect, that like lossy effect of me telling CloudCode, which is very much,
+[00:11:03] right? It does everything in code, showing it a visual image and saying,
+[00:11:06] "Hey, translate the visual to code." And that's kind of the problem with a lot of
+[00:11:10] front-end design. It's like, it's a visual medium, yet I'm trying to type it
+[00:11:13] out to text. Yet at the same time, if I throw it visual screenshots, there's
+[00:11:17] still that translation piece. Like, how does it actually do it properly? Well,
+[00:11:20] the truth is, it has a limit. And we can see that limit in action right here,
+[00:11:24] because this is what it created with all those screenshots.
+[00:11:28] Here's the original. Here's ours.
+[00:11:31] And like I've said in the past, like this is where people get stuck. Cuz if
+[00:11:34] we scroll through this, like you know, if you squint your eyes, you can kind of
+[00:11:38] see what it was going for and then maybe got like 50% of the way there. And
+[00:11:41] there's some things we do like. But what people do now is they're just
+[00:11:45] going to go here, take another screenshot of a hero. Okay, let's work
+[00:11:49] on the hero piece over and over and over again, a bunch of prompting. All right,
+[00:11:52] go back, screenshot, go back. And it just takes forever and you never really
+[00:11:55] nail it, right? Because it's that issue with the translation from screenshots to
+[00:11:59] code. And so to move out of level three and start moving on to level four, we
+[00:12:03] need to not only look at the surface of these websites we like and grab
+[00:12:07] inspiration from them. We need to learn how to actually clone them properly and
+[00:12:11] actually get the underlying code that is powering something like Open Hands. And
+[00:12:17] this goes beyond simply just like oh, we just want to clone it and we're just
+[00:12:19] like copying them. No, the process of cloning it and then figuring out how to
+[00:12:23] actually copy these things comes with some huge benefits for us. Not just do
+[00:12:28] the templating piece, which is great, but you are going to then get exposed to
+[00:12:32] the actual like code that is happening beneath the surface. And so to move from
+[00:12:36] level three to level four, we now have to go beyond simply the surface level of
+[00:12:41] looking at these websites for inspiration with the screenshots, we now
+[00:12:44] need to learn how to go below the surface, look behind the curtain and see
+[00:12:49] how these websites are built in terms of their actual coding components, their
+[00:12:53] HTML, their CSS, and their JavaScript. And so level four is the cloner. This is
+[00:12:59] where we learn by stealing from the pros. Now, let me be very clear.
+[00:13:04] This level is not about oh, we're just going to go plagiarize websites and copy
+[00:13:07] and call it our own. That's not the case here. What is the case is we are going
+[00:13:11] to find websites that we like and we are going to deconstruct them and then use
+[00:13:16] them as a template that we build upon. And in the process of doing so, we are
+[00:13:21] going to learn a ton. Just like any skill in any domain, how do you you
+[00:13:25] better at it? You see what the pros do, you try to copy them, you learn a ton by
+[00:13:29] trying to emulate them, and over time you give it your own spin and you create
+[00:13:33] something original. That's what this level is all about. And so, to really
+[00:13:36] get the most out of this, we kind of need to begin to understand what's going
+[00:13:38] on with front-end design. Front-end design,
+[00:13:41] to make it kind of simplified, has like three parts. It has the HTML, think of
+[00:13:45] that as like the bones of the website, right? How it's actually structured. We
+[00:13:49] have the CSS, that is like the styling, right? Of the website, think of it as
+[00:13:53] the clothes on the website. And then we have
+[00:13:56] JavaScript. Think of JavaScript as like the muscles, right? It's what actually
+[00:13:59] allows things to happen when you click a button or do whatever. And it is by
+[00:14:03] looking at these three parts of a website that we are A going to be able
+[00:14:06] to better clone or template a website, but B understand how they work, right?
+[00:14:10] That whole idea of deconstructing the website and learning how they do things.
+[00:14:14] So, how do we do this? How can we deconstruct, for example, OpenHand.
+[00:14:17] Clearly, screenshots don't work because this is not the same thing. Well, it's
+[00:14:23] relatively simple. So, to grab the HTML, we're just going to go to the website
+[00:14:27] and then do control U. What you see here is the entirety of the HTML.
+[00:14:33] So, what we're going to do is we are going to copy this,
+[00:14:37] right? We're going to copy this whole thing, and then we're going to paste it
+[00:14:41] into Cloud Code. Now, this will usually be rather large. In this case, it is
+[00:14:44] 1,152 lines of HTML. Now, at the very, very bottom of this, you can see that
+[00:14:51] there are also links to the CSS files as well as the JavaScript, and that's what
+[00:14:57] I'm highlighting down here. Now, this is going to be at the bottom of essentially
+[00:15:00] all of these HTML files. And I'll kind of zoom out. It's kind of
+[00:15:04] hard to see, but at the bottom, right? We have the JavaScript as well as the
+[00:15:08] CSS. So, these are actual files that also
+[00:15:11] include a ton of code. So, what we are going to do
+[00:15:15] is, after we give it the HTML, we're also going to tell Cloud Code, "Hey,
+[00:15:19] take a look at the JavaScript and take a look at the CSS to really understand
+[00:15:23] what's happening. So, I wrote, "Take a look at the CSS and JS files as well."
+[00:15:27] Now, you can stop here and it will use Web Fetch on its own to take a look at
+[00:15:31] those. The problem is the way Web Fetch works is Cloud Code does Web Fetch, it
+[00:15:36] calls a smaller model to do it for it, right? So, this instance of Cloud Code
+[00:15:40] doesn't actually go to that webpage. It uses a smaller model, the smaller model
+[00:15:44] takes a look, it summarizes it, and gives it back to Cloud Code. The issue
+[00:15:47] with that is the CSS and JS files are pretty large and they contain, again,
+[00:15:52] like a lot of the very specific ways this website was put together. So, we
+[00:15:54] want all of it, right? I don't want a summary of these files. So, what I have
+[00:15:59] done is I have created a skill that allows Cloud Code to do this better.
+[00:16:03] It's essentially an enhanced prompt, so it grabs as much as the CSS and the
+[00:16:06] JavaScript as it needs. So, I just say, "Use the site teardown skill."
+[00:16:12] Now, I will put this site teardown skill inside the free school community and
+[00:16:16] link to that is in the description. So, you just have to load that up and you'll
+[00:16:20] be able to do this as well. And so, in total, what did I say? I said, "Here's
+[00:16:23] the HTML for Open Hands. Take a look at the CSS and JS files as well. Use the
+[00:16:28] site teardown skill and use this info to better clone the original Open Hands
+[00:16:32] site." Now, how is this going to educate us? Well, first things first, you
+[00:16:36] probably have no idea like how I was able to do things like this background,
+[00:16:39] right? You probably don't really understand or even know what sort of
+[00:16:42] vocabulary you should have used to have it better mimic this, right? When we
+[00:16:46] just gave it screenshots, we got this like, "Mhm, you know, kind of sort of
+[00:16:51] close thing." But by having Cloud Code actually look at what's going on under
+[00:16:55] the hood, we can now rely on Cloud Code to teach us these things. Because now
+[00:17:00] that Cloud Code actually understands at a coding level what's going on, we can
+[00:17:04] now have an intelligent conversation with Cloud Code and say, "Hey, how did
+[00:17:07] they do this? What does that mean? What is a GSA? Like, how did they do the
+[00:17:12] scrolling animations? How did they do this? How did they do that?" And over
+[00:17:14] time, after you clone more and more of these websites and use them as templates
+[00:17:18] for your own thing cuz again, you're always going to put your original spin
+[00:17:21] on it. You're just using this as like a baseline foundation,
+[00:17:24] you will become better at front-end design.
+[00:17:27] Just like you do with any other skill. And this is the process by which you are
+[00:17:30] not only exposed to but begin to bring in pro techniques into your builds. But
+[00:17:35] to move on to the additional levels, like I said, you can't just be, you
+[00:17:38] know, a monkey at the keyboard with Cloud Code. Just like with everything
+[00:17:42] else we talked about, you can't just hit accept, accept, accept, next, next, next
+[00:17:45] because how do you differentiate yourself? So what skills do we need to
+[00:17:47] master in this process? We need to learn to read and understand the source code.
+[00:17:51] Cloud Code helps us there. We need to identify which techniques equal each
+[00:17:56] effect because at a certain point we kind of have to be able to see these
+[00:17:59] websites and kind of recognize right away like, oh, this is what's happening.
+[00:18:04] And lastly, we need to learn how to adapt these clone patterns to our own
+[00:18:08] designs, right? We're not plagiarizing, we're getting inspiration. And if you
+[00:18:12] don't master these skills, you're going to get stuck in this trap, right? The
+[00:18:15] clone ceiling. You're just going to copy but you can't create. You're not going
+[00:18:18] to going to understand the why and so you're going to hit a hard limit and I
+[00:18:22] at the end of the day could replace you with any dude off the street and just
+[00:18:25] tell him to do steps one, two, and three, right? That won't get you as far
+[00:18:28] as you want to go. So let's see what Cloud Code was able to build when we
+[00:18:31] gave it all this additional coding context. And here is the updated
+[00:18:35] version. And this one obviously looks a lot closer to the original, especially
+[00:18:39] now that the background is actually looking. So if we compare these two, now
+[00:18:43] obviously it isn't one-for-one just yet. This was essentially its first pass,
+[00:18:47] but much better, much closer to what we had. And if we want to continue to
+[00:18:51] iterate at this point and bring it closer to whatever we like here, well,
+[00:18:56] that's much easier, right? Because now it's looking essentially at the same
+[00:18:59] cookbook Open Open Hands is looking at and we can say, "Okay, let me change
+[00:19:03] this. Let me change that. I see how they did it. Here's how we can emulate it."
+[00:19:07] Right? And again, this is where we can begin that education process. For
+[00:19:10] example, like this cool background. How is that working? And also, how can we
+[00:19:13] get the same thing Open Hands has where the mouse scrolls through and, you know,
+[00:19:18] sort of eliminate some of it. And all you have to do is ask Cloud Code, how is
+[00:19:21] the background working? How can we match that effect? And every time you do this,
+[00:19:25] you're just adding another tool to your toolbox. And so, Cloud Code explains how
+[00:19:29] this effect works and better yet, it now does the proper thing on our own
+[00:19:33] background, right? Pretty sweet. But, for obvious reasons, we don't want to
+[00:19:37] sit in level four. We don't want to just be a cloner, right? We want to put our
+[00:19:41] own spin on it. We want to begin to make this ours. How do we do that? How do we
+[00:19:45] begin to move on to level five and put our own twist on things? Well, this is
+[00:19:49] where we begin to have fun with components and also our own custom asset
+[00:19:53] designs. This is where we bring in our own stuff and we're no longer just
+[00:19:56] copying exactly what some other website is doing. Now, one of the easiest ways
+[00:19:59] to begin doing this is finding quality components on websites like 21st.dev.
+[00:20:03] So, in many ways, this is similar to how we found inspiration for websites and
+[00:20:07] bringing in those parts, but at like a micro level, on a component level. So,
+[00:20:11] on a place like 21st.dev, for example, I can look at things like buttons over
+[00:20:16] here on the left. And what I'm going to get is like a
+[00:20:19] bunch of different, essentially, button designs. And if I find a button design I
+[00:20:24] like, let's say, you know, something like this, well, then I can just copy
+[00:20:29] this prompt, bring it into Cloud Code and say, "Hey, let's integrate this
+[00:20:32] button design." And this applies to essentially any sort of button, right?
+[00:20:36] We have stuff for carousels, we have stuff for scroll areas, maps, navigation
+[00:20:40] menus, images, hooks, everything. And it isn't just limited to 21st.dev. We have
+[00:20:45] other websites like CodePen, right? CodePen has a lot of cool designs are
+[00:20:49] able to bring in as well. Monet is another really cool one. In fact,
+[00:20:52] there's a bunch of places where you can find these sort of cool components and
+[00:20:56] begin integrating them into your webpage. But, what if we want something
+[00:21:00] that's a bit more custom? I don't want to just copy a bunch of random
+[00:21:03] components I found somewhere else. How do I really make it original? Well, you
+[00:21:07] have two options. The first is you still use these components from 21st.dev, but
+[00:21:11] we just prompt Claude code to change it, right? It's just code. This prompt gives
+[00:21:15] us the exact code, and then we can just tweak it to our hearts' desire. Or, we
+[00:21:19] can literally create it ourselves. I mean, if we head over to Pinterest and
+[00:21:22] we see cool landing pages like this that are very like almost art forward. Well,
+[00:21:28] there's nothing saying we can't use AI to create some sort of image like this
+[00:21:33] and let it be sort of the showstopper for when people go on our page. And
+[00:21:37] these don't just have to be still images. I mean, we totally have the
+[00:21:40] ability to add videos to our background, to have it tied to certain scrolling
+[00:21:43] animations, to again take the ideas that we discovered in step four and make it
+[00:21:48] our own. So, let's actually do that. Let's quickly redesign our webpage, get
+[00:21:53] away from this Open Hands clone, and actually design some like cool piece of
+[00:21:57] AI art, and let that be what you first see when you come onto
+[00:22:00] our site. And so, you know the drill by now. First, we need to find some sort of
+[00:22:04] inspiration. After scrolling through Pinterest for a little bit, I'm seeing a
+[00:22:07] lot of sites like this where you have some sort of almost cartoonish {slash}
+[00:22:11] stylized image in the background for the hero section, and then we'll have some
+[00:22:15] of our text on the left. Now, this is where you can start to bring in some of
+[00:22:18] your visual storytelling, right? What is the app we're creating? The app is
+[00:22:21] Argus, right? And we need to come up with some sort of tagline that ideally
+[00:22:26] also kind of ties into the image itself. Like, what are we trying to get here
+[00:22:29] with Argus? Well, Argus, you know, mythological figure, 10,000 eyes. We're
+[00:22:33] talking about social media. We're talking about finding things before
+[00:22:36] other people do. So, the tagline I came up with was see what's next. Simple,
+[00:22:41] it's tight, and you know who helped me come up with that? Obviously, it was
+[00:22:44] Claude code. And then what I did with Claude code is I pretty much said like,
+[00:22:47] "Hey, you know, we're talking about like
+[00:22:50] visual storytelling here. What are some ideas we could come up with imagery,
+[00:22:54] right? Cuz I don't want to At this stage, we're doing our own thing, right?
+[00:22:57] I can rip the, you know, general concepts of what you see here image-wise
+[00:23:01] in terms of how they set things up, but the image needs to be my own. And again,
+[00:23:04] having some sort of visual storytelling that ties into what your application
+[00:23:07] actually does will go very, very far. So, what I ended up doing is then
+[00:23:12] creating an image based off of some ideas Claude Code gave me. And I
+[00:23:16] actually leaned on Midjourney for this one. Now, you can use any sort of image
+[00:23:20] generator you want, whether that's Nano Banana Pro, SeaDream, doesn't really
+[00:23:23] matter. I really like Midjourney for these kind of like almost concept art
+[00:23:28] type pieces because Midjourney, especially version 7, I really haven't
+[00:23:31] tested out version 8 very much. Like, you can give it kind of a
+[00:23:35] weird prompt. Like, the prompt I gave it was
+[00:23:38] I need a background image that will be the landing page for a website called
+[00:23:41] Argus. The tagline is see what's next. And so, just with like a really poor
+[00:23:46] prompt like that that's very vague, I got a bunch of cool different stuff that
+[00:23:49] I was able to choose from. And I saw this, and I was like, this looks
+[00:23:52] pretty sick, right? And I can only I can already imagine right now like having
+[00:23:57] sort of the information over here on the left. We can have maybe some of the
+[00:24:00] stuff up top. Like, I can play with this. Like, this is I think very cool.
+[00:24:04] Maybe we even do some sort of animation at some point. So, once I have my image,
+[00:24:09] it's pretty easy from there. I'm just going to download this image, give it to
+[00:24:12] Claude Code, and say, "Hey, I want to reimagine the hero page using this image
+[00:24:16] as the background." And so, inside of Claude Code, I said, "I actually want to
+[00:24:20] change the front end entirely. I want to use the following image as the
+[00:24:23] background for the hero. Let's put the info about the app Argus on the
+[00:24:26] left-hand side, leave some negative space on the right to show off the
+[00:24:29] image, and make the tagline see what's next."
+[00:24:32] So, we'll see what it does at this point. And again, this is kind of the
+[00:24:35] level where you need to start letting your creative juices kind of flow
+[00:24:38] because up until this point, you've been exposed to a lot of different front end
+[00:24:42] designs that are different than just the super generic stuff you see in every
+[00:24:45] single SaaS template. Having some cool art, whatever, again,
+[00:24:48] visual storytelling is what we're going for here, is really going to level up
+[00:24:52] your game. And so, here's what our updated hero section looks like with
+[00:24:55] that brand new background image. And I made this a little bit smaller so you
+[00:24:58] can see it in its entirety. And Claude could went ahead and also, you know,
+[00:25:02] updated all of the colors. Now, again, that was just the very first pass. All
+[00:25:07] we've done is added this background, but right away you start to see it feels a
+[00:25:10] little bit I don't know, more original, more
+[00:25:12] creative, stands apart, right? And now we begin to add more and
+[00:25:17] more of our flair to it. And to start that can be as simple as just upscaling
+[00:25:21] this image. You can do that inside of Midjourney because as we see here, the
+[00:25:24] image feels a little stretched out and not as, you know, detailed as you would
+[00:25:27] like. Or we can do something like add motion. We don't have to have a still
+[00:25:32] background. We can actually put a video back there as well. Now, to turn into
+[00:25:35] video is really easy. You're just going to head to somewhere like Kling 3.0 or
+[00:25:39] VEO 3.1, just anywhere where you can do a starting frame. Ideally, you can do
+[00:25:42] the end frame as well, like you see over here on the left. That way it doesn't do
+[00:25:46] some like crazy motion because you have to remember, like ideally, it
+[00:25:50] would be a complete loop. Sometimes it can be hard to get AI images to loop
+[00:25:54] correctly. So, the second best option is just to create a rather long video about
+[00:25:58] 15 seconds, and you want the motion to be subtle. So, kind of what you see
+[00:26:02] here, right? If I had this as a background, even with the birds
+[00:26:06] completely still, which is totally fine, it's almost like a parallax type thing
+[00:26:10] you got to going on. And since it's the hero page and this is lasting 15
+[00:26:14] seconds, the chances are that someone's going to sit there for 30 seconds and
+[00:26:17] see the whole thing through are unlikely. So, if there is a hitch at
+[00:26:21] the very end, you're still going to be okay. But luckily for this one, since we
+[00:26:24] had the motion so subtle, you almost can't even tell when it switches from
+[00:26:27] second 15 to second one. So, we're going to use this one. And you're probably
+[00:26:31] also asking, "What about performance stuff?" Well, in terms of performance on
+[00:26:34] desktop, they'll be just fine with the video, but we will tell Claude Code,
+[00:26:38] "Hey, if it's a mobile, you know, user that comes on your mobile
+[00:26:42] web page, it's not going to load the video for them. It will just load that
+[00:26:45] still image." So, I gave it the new upscaled image and said, "Use that for
+[00:26:49] the mobile." And then I give it a link to the video and said, "Hey, replace
+[00:26:53] that in the hero." And here's a look at the page now with the motion, right?
+[00:26:59] I think it looks pretty good. The other thing is it's subtle, right? You don't
+[00:27:03] want to do crazy motion and have like a full-on video game going on in the
+[00:27:06] background unless you know what you're doing. But something like this with like
+[00:27:09] the subtle sort of cloud movement, you have the water moving at the bottom,
+[00:27:13] right? Again, this gives it This gives your webpage some character. And giving
+[00:27:16] your webpage some level of original character is what level five is all
+[00:27:20] about. Like I keep saying, the first four levels, we're learning the
+[00:27:23] fundamentals, we're seeing what pros do. Here in level five, we're actually
+[00:27:26] customizing it. So, just like you did with the hero, that's how you need to
+[00:27:29] begin to approach every other section, right? Like these cards. These cards are
+[00:27:33] hideous. The background here is kind of boring. It's the same exact thing every
+[00:27:37] time. So, what am I going to do? I'm going to find inspiration. I'll go to
+[00:27:40] 21st.dev. I will go to Awwwards. I'll bring it into Cloud Code, and then I'm
+[00:27:43] going to iterate, iterate, iterate until I get it to a place I actually like.
+[00:27:47] Now, it's at this stage, as you're doing all these visual edits, that you're
+[00:27:50] going to feel a little bit constrained sitting inside of Cloud Code. Again,
+[00:27:54] there's always that sort of like tension between being inside of a terminal and
+[00:27:58] using text and trying to mess with things in a visual medium. So, in step
+[00:28:02] six, we're going to start moving outside of Cloud Code a little bit. Because it's
+[00:28:05] here in level six where we start bringing in some outside tools that let
+[00:28:09] us get even more specific with how these sort of visual things are coming
+[00:28:14] together. And there are a lot of tools at our disposal. We got things like
+[00:28:18] paper.design. We got stitch. We got Figma, right? We got pencil.dev. This is
+[00:28:23] where you now have the building and the skills to bring in these outside
+[00:28:26] programs to just tinker a little bit more. And a great one to try out because
+[00:28:29] it's very AI forward and simple to use is Stitch. It's also free, right? This
+[00:28:33] is from Google and essentially gives us a visual canvas to mess with front-end
+[00:28:37] design type stuff. So, what I did here is we're not starting anything from
+[00:28:41] scratch, we're doing a redesign. So, I gave it screenshots of our website, both
+[00:28:45] the hero page and the rest of it. And I said, here's a look at the current web
+[00:28:49] page setup. I really like the hero. I like sort of the aesthetic there and I
+[00:28:52] like the colors, but I want to update essentially the entire bottom half of
+[00:28:57] our website, right? Just feels very flat, right? I I want to sort of bring
+[00:29:00] in sort of the imagery and colors that we have here up top. Like, let's see
+[00:29:04] what you can come up with. So, let's take a look at what it generated for us
+[00:29:07] for a redesign, and here's what we got. Now, the cool thing about Stitched is I
+[00:29:12] can have it do redesigns of the redesign. So, if I have the selected,
+[00:29:15] you can see it get selected down below and I can just prompt it like any
+[00:29:18] chatbot. I can also right click on it and go to variants and again change the
+[00:29:22] layout, color scheme, images, etc. Now, since this was a redesign in Stitched
+[00:29:26] and I wasn't just building something from the ground up, this is just an
+[00:29:29] image it created, but this is something I can totally right click,
+[00:29:34] copy, and then now bring that back to Claude code and say, "Hey, what do you
+[00:29:37] think about this?" Right? Again, these sort of visual editor tools are just
+[00:29:41] great for sort of the ideation process. And again, there's a whole bunch of
+[00:29:44] them. pencil.dev is another one you're going to see all over the place. This
+[00:29:47] works really well if you're inside of like cursor or VS code because you can
+[00:29:51] actually like have the canvas up and edit things in real time. So, there's a
+[00:29:55] bunch of tools in the space and more coming onto the market like every week.
+[00:29:59] And so, I dropped that image back in the Claude code and pretty much said, "Hey,
+[00:30:02] what do you think about this? What do you think this sort of glass morphism
+[00:30:05] effect we got going on with the image in the background? Let's try that out." And
+[00:30:09] that's pretty much what you're going to do from now until the website is where
+[00:30:11] you want it because this is the stage in front of design where now you're just
+[00:30:14] tinkering. You're going to tinker, tinker, tinker, tinker. By now, you've
+[00:30:17] built the the skills to see like what you're kind of moving for, but this is
+[00:30:21] just an extremely iterative process. There's no real shortcut here, but
+[00:30:25] again, you have all the tools at your disposal now both to find inspiration
+[00:30:29] and to actually play with. So, after about 20 minutes of tinkering on my own,
+[00:30:34] this is what I got with Argus. So, first of all, you will notice a few small
+[00:30:39] changes that give it some weight, give it a more premium feel. First of all is
+[00:30:43] the loading section, right? When I refresh this, what do you see? You
+[00:30:45] notice sort of like a hesitation before all the text loads and it gives it some
+[00:30:49] weight, right? It makes it feel heavier. You also notice I changed the fonts.
+[00:30:55] Fonts are huge, typography is huge. Where can you go to see different fonts
+[00:30:59] and sort of like, you know, get some inspiration? Well, great place is Google
+[00:31:03] Fonts. They have a bajillion fonts, they're all for free, they're broken
+[00:31:06] down by different type and Claude can use all of them. So, definitely check
+[00:31:09] out Google Fonts. If you're like, "Ah, I don't really know which one I should
+[00:31:12] use." We added a scroll section down here. We added this sort of ticker at
+[00:31:17] the bottom that also doubles as sort of a border between, right, our video and
+[00:31:22] then our image background down here. Before we had this border going from a
+[00:31:27] video hero section to the same image as the
+[00:31:31] background was very jarring, but this gives it a nice sort of natural border.
+[00:31:36] You will also notice the changes that we brought in from Stitch. We now sort of
+[00:31:39] have this glass morphism effect that we still need to edit a little bit. You
+[00:31:41] will notice it can get a little cut off when it bounces, but it again kind of
+[00:31:45] shows off that background artwork that gives everything some character.
+[00:31:49] And then you can also see some subtle things, right? If I refresh right here,
+[00:31:54] you will notice the counter just like zooms up from zero to 10 million. I
+[00:31:59] mean, these are these nice little like on the margin things that show you
+[00:32:02] actually cared about the website and at some level of like professional pride.
+[00:32:07] You'll even notice sort of like this lighting zoom go over like AI tools and
+[00:32:10] constant strategy. Again, it's just these little things. It's these little
+[00:32:12] small things that truth be told most people won't even actually notice
+[00:32:17] at all, yet when you combine all of them, what you eventually get is
+[00:32:21] something that looks coherent and something that you cared about and
+[00:32:25] created. Whether or not you used AI as the tool, the point is it was crafted,
+[00:32:30] right? It's got just like all those little things. I mean, like even like
+[00:32:32] the scroll bar up top, right? You see how that progresses. Again, it's just
+[00:32:35] all these little little things. And so, how did I prompt this? Well, I
+[00:32:38] mean, frankly, it was just a combination of everything we talked about up till
+[00:32:42] now. Like I've seen the kind of things I like. I take screenshots of those and I
+[00:32:46] bring them into Claude code. But even more so, like I'm no expert in web
+[00:32:50] design. So what I did on certain things, like I knew right away, like hey, like I
+[00:32:53] I like the glassmorphism cards we saw in Stitch, right? Cuz remember Stitch kind
+[00:32:58] of gave us this idea first. And when Claude code originally made them, they
+[00:33:02] were just kind of flat, right? They didn't have any of this like pop off the
+[00:33:05] page. So I said, hey, like let's give them some weight. Let's have them pop
+[00:33:08] off the page. What I also told Claude, what I also told Claude code was, hey,
+[00:33:13] what I want you to do is I want you to do a web search for the best web design
+[00:33:17] practices when it comes to doing these sorts of things. And on top of figuring
+[00:33:21] out, hey, how do we want to like make these cards sort of pop and give them
+[00:33:24] some weight, come up with some other things that can make our website look a
+[00:33:28] bit more premium yet in a subtle fashion. It came up with a bunch of
+[00:33:31] different ideas. I had it run through all the ideas. Some I discarded, some I
+[00:33:35] kept, but that's sort of the general, you know, cadence of doing this, right?
+[00:33:39] You don't have to rely completely on yourself. Claude code can go out there
+[00:33:42] on the web and again, see best practices. But remember, you are always
+[00:33:46] in control. You are in the driver's seat. And don't be afraid to kind of
+[00:33:49] have fun with this. Like I said, all these little things, this is where you
+[00:33:52] again, give it character and this is where you make it yours, right? The more
+[00:33:57] we can make it yours a reflection of your creative spirit in this space, the
+[00:34:02] better it's going to look. Right? Truthfully, because if it is a
+[00:34:05] reflection of you and what you want on the screen and what you're trying to
+[00:34:08] portray, it's hard to really call that AI slop.
+[00:34:12] It's hard to call that an AI template cuz it's yours. And so while this level
+[00:34:16] is on the surface about, hey, using these outside tools like Stitch, I think
+[00:34:19] really this level six is pretty much everything I just said, like using these
+[00:34:24] outside tools like Stitch to iterate, but ultimately at this level, this is
+[00:34:27] where you're finally able to sort of I think creatively express yourself in the
+[00:34:31] front-end design space and using Cloud Code as the tool. Whereas in the first
+[00:34:34] couple levels, we were just along for the ride. That leaves us with the final
+[00:34:38] layer, layer seven, right? And what is going on there? What is this stuff about
+[00:34:43] 3D? Well, spoiler alert, this is like
+[00:34:48] a place where none of us are probably going to be playing in at all, right?
+[00:34:52] When we talk about the frontier and the architect and 3D stuff, this is where
+[00:34:56] like the big leagues play. This isn't really something we are going to be able
+[00:35:00] to do, I think, as of today, March, you know, late March 2026. I don't know if
+[00:35:05] this is really in our wheelhouse yet, because this is when we start talking
+[00:35:08] about things like custom WebGL and shaders and 3D experiences. This is when
+[00:35:13] we're talking about like websites that pretty much look like a video game. I
+[00:35:16] mean, take for example this website right here.
+[00:35:21] Do you think this is something where we can just do control U, control A, you
+[00:35:25] know, take a look at the HTML and the CSS and see what's going on?
+[00:35:30] No. No. This is all This is like art, right? This is a team of designers that
+[00:35:36] spend a long, long time putting this all together, and it is absolutely gorgeous.
+[00:35:41] Now, in theory, could AI do this? Maybe, but I will be honest, this is like
+[00:35:46] This is so far beyond you or me. And I frankly just put this in here to kind of
+[00:35:49] show you what's possible, cuz when you see some websites like this, and if you
+[00:35:52] want to see more of them, head over to Awwwards, which I talked about earlier,
+[00:35:56] and go to like their sites of the day and sites of the month. They all like
+[00:35:58] have the same kind of thing going on, where it's like
+[00:36:01] this is all custom type stuff. And maybe this is something AI will allow us to
+[00:36:06] play in in a few years' time, but like it's really cool. Like the the whole
+[00:36:10] website design space is just so interesting. This stuff is like
+[00:36:13] straight-up art. And like I said, when you first get started in the space, you
+[00:36:17] just see the same sad stuff over and over and over again, but when you see
+[00:36:20] stuff like that, your mind is just kind of blown. And so, this is very much
+[00:36:23] level seven. If you know how to do stuff like this with AI, like, hey, you should
+[00:36:27] be the one on YouTube making videos cuz I would love to learn how." But just I
+[00:36:31] purely made this level to honestly show off this igloo website cuz it's so cool.
+[00:36:36] So, um
+[00:36:37] definitely check it out and like just kind of have your mind blown and
+[00:36:40] let it kind of think about what you could do in the future. And so this is
+[00:36:44] where I'm going to leave you at the end of our seven levels of front-end design
+[00:36:47] with Claude code. What I hope you got out of this more than anything is sort
+[00:36:52] of the idea of the progression of the skills to
+[00:36:56] get to something like this cuz it's something that's totally doable. And
+[00:36:58] it's the idea that first we need to see stuff we like, then we need to learn how
+[00:37:02] to deconstruct it. That whole idea of cloning websites, I think it's super
+[00:37:05] super important. Right? Because you're going to learn so much by essentially
+[00:37:09] having Claude code walk you through how someone else created a website you
+[00:37:12] loved. And through that process, you're going
+[00:37:15] to get educated on all these different techniques and effects of that you
+[00:37:18] didn't even know were possible. And through that process, you can then go to
+[00:37:22] your own website and begin to apply those in your creative style. Right?
+[00:37:27] That's what it's really all about. What it's not about is like, "Hey, there's
+[00:37:30] this one super special skill and you use a special skill in Claude code and wow,
+[00:37:34] look at the website." Like truth be told, if it was that easy,
+[00:37:37] everyone's website would look good. Everyone's website does not look good.
+[00:37:41] So clearly it's not that easy. Right? There's a little bit more to it. I mean,
+[00:37:45] I think the whole idea of taste and Anne and having taste, I think that's kind of
+[00:37:48] true, but I think more accurately is the idea that we have
+[00:37:53] a very tough time articulating our taste. And we have a tough time
+[00:37:57] articulating our taste because we don't even know the correct words to use.
+[00:38:03] Because we aren't web designers. We don't know the vocabulary. We don't know
+[00:38:06] the nomenclature. And that's actually a really common thing with stuff like all
+[00:38:09] the AI stuff in general, not just web design.
+[00:38:12] Um that goes for like any sort of coding stuff, too. Like if you don't come from
+[00:38:15] the space, you just don't know how to speak the language, literally.
+[00:38:18] And so that creates sort of a translation,
+[00:38:21] you know, disadvantage between you and Claude Codin the end result becomes
+[00:38:25] something sloppy and generic. But hopefully kind of going through this
+[00:38:28] road map, you see a path forward to alleviating some of those things over
+[00:38:32] time. So, hope you got something from it. I had
+[00:38:36] fun doing this. Um let me know in the comments what you thought. As always,
+[00:38:40] make sure to check out Chase AI Plus if you want to get your hands on the Claude
+[00:38:42] Codin masterclass. We'd love to have you there.
+[00:38:45] And I'll see you around.

@@ -49,7 +49,7 @@ Kaynak: `yt_ara.py` ile 20 sorgu (arama_sonuclari.jsonl). Transkript durumu `tra
 | id | başlık | dk | izlenme | kanal | öncelik |
 |---|---|---|---|---|---|
 | [VMvZuhcDdnw](https://www.youtube.com/watch?v=VMvZuhcDdnw) | Build $10,000 Websites using Claude Code (Ultimate Guide) | 26 | 1156124 | Metics Media | A |
-| [VwGrXe2ricE](https://www.youtube.com/watch?v=VwGrXe2ricE) | Claude Design Now Builds Beautiful $10,000 Websites (NO AI Slop) | 22 | 246759 | Jack Roberts | A |
+| [VwGrXe2ricE](https://www.youtube.com/watch?v=VwGrXe2ricE) | Claude Design Now Builds Beautiful $10,000 Websites (NO AI Slop) | 22 | 246759 | Jack Roberts | A — altyazı yok (2 deneme başarısız) |
 | [1PXFAFMgdns](https://www.youtube.com/watch?v=1PXFAFMgdns) | The 7 Levels of Building ELITE Websites with Claude Code | 38 | 211434 | Chase AI | A |
 | [NNv80mMzFDs](https://www.youtube.com/watch?v=NNv80mMzFDs) | Stop Making Ugly Websites with Claude Code | 10 | 208807 | Ed Hill | AI Automation | A |
 | [5ZAsjUoMx1Y](https://www.youtube.com/watch?v=5ZAsjUoMx1Y) | Build $50,000 Websites Using Claude Fable 5 (Full Tutorial) | 25 | 197064 | Viktor Oddy | A |
