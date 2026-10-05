@@ -38,3 +38,8 @@
 ### D-011: Android 8-9'da depolama izni verilince uygulama yeniden başlar
 - Ne oldu: Emülatörde izin süreç başladıktan sonra verildi; süreç sdcard_rw grubunu almadığı için klasör oluşturulamadı (FileNotFoundException). Gerçek cihazda sistem, izin verilince uygulamayı öldürüp yeniden başlatır; kayıt anında istenirse çıkarılan melodi kaybolur.
 - Yeni kural: Android 10 altında `WRITE_EXTERNAL_STORAGE` izni "Melodiye çevir"/"Dosya seç" anında, işlem başlamadan istenir (`AppNav.startWithPermission`). Kayıt anındaki kontrol yalnızca yedek.
+
+### D-012: İndirme çubuğu %100'de takılıyor (kullanıcı telefon testi)
+- Kullanıcı ne dedi: "Yüzde yüze geliyor takılıyor"
+- Kök neden: `YouTubeSource.download` parça parça (Range) indirirken 416 (aralık dosya sonunu aştı) yanıtında yalnızca lambda'dan çıkıyordu; `while(true)` aynı isteği sonsuza kadar yineliyordu. YouTube'un itag'da bildirdiği boyut gerçek dosyadan büyük olunca bu yol tetikleniyordu.
+- Yeni kural: İndirme döngüsü açık `finished` bayrağıyla biter (416, kısa parça, 200 ya da toplam boyuta ulaşma). Content-Range'deki gerçek toplam, tahmine her zaman tercih edilir. Ders: `return@use` döngüyü bitirmez; döngü çıkışları bayrakla ve testle doğrulanır.

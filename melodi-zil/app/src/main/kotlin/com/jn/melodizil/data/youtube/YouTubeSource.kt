@@ -67,31 +67,36 @@ class YouTubeSource(private val client: OkHttpClient = OkHttpDownloader.defaultC
     /** Ses akışını parça parça (Range) indirir; YouTube büyük tek isteklerde hız kısıtlar. */
     fun download(track: ResolvedTrack, target: File, onProgress: (Float) -> Unit) {
         target.parentFile?.mkdirs() // Klasör
-        var total = track.approxBytes // Toplam boyut
+        var total = track.approxBytes // Toplam boyut (itag tahmini; gerçek dosyadan büyük olabilir)
         var offset = 0L // İndirilen bayt
+        var finished = false // Bitti bayrağı (416 ya da kısa parça)
         target.outputStream().use { out -> // Çıkış akışı
-            while (true) { // Parçalar
+            while (!finished) { // Parçalar
                 val end = offset + CHUNK_BYTES - 1 // Parça sonu
                 val req = okhttp3.Request.Builder().url(track.audioUrl).header("Range", "bytes=$offset-$end").header("User-Agent", OkHttpDownloader.USER_AGENT).build() // Range isteği
                 val resp = try { client.newCall(req).execute() } catch (e: IOException) { throw SourceException.Network(e.message ?: "İndirme kesildi") } // İstek
                 resp.use { r -> // Yanıt
-                    if (r.code == 416) return@use // Aralık aşıldı: bitti
+                    if (r.code == 416) { finished = true; return@use } // Aralık dosya sonunu aştı: indirme tamam (D-012: eskiden sonsuz döngüydü)
                     if (!r.isSuccessful) throw SourceException.Network("İndirme başarısız (HTTP ${r.code})") // Hata
-                    if (total <= 0) total = parseTotal(r.header("Content-Range")) // Toplamı başlıktan öğren
+                    val rangeTotal = parseTotal(r.header("Content-Range")) // Sunucunun bildirdiği gerçek toplam
+                    if (rangeTotal > 0) total = rangeTotal // Gerçek boyut her zaman tahmine tercih edilir
                     val body = r.body ?: throw SourceException.Network("Boş yanıt") // Gövde
                     val buf = ByteArray(64 * 1024) // Tampon
+                    var got = 0L // Bu parçada okunan
                     body.byteStream().use { input -> // Giriş akışı
                         while (true) { // Okuma döngüsü
                             val n = input.read(buf) // Oku
                             if (n <= 0) break // Bitti
-                            out.write(buf, 0, n); offset += n // Yaz ve say
+                            out.write(buf, 0, n); offset += n; got += n // Yaz ve say
                             if (total > 0) onProgress((offset.toFloat() / total).coerceIn(0f, 1f)) // İlerleme
                         }
                     }
-                    if (r.code == 200 || (total > 0 && offset >= total) || r.body?.contentLength() ?: 0 < CHUNK_BYTES) return // Tamamı geldi
+                    if (r.code == 200 || got == 0L || got < CHUNK_BYTES || (total > 0 && offset >= total)) finished = true // Tamamı geldi ya da son parça
                 }
             }
         }
+        if (offset == 0L) throw SourceException.Network("İndirilen dosya boş") // Hiç veri gelmedi
+        onProgress(1f) // Tamam
     }
 
     private fun parseTotal(contentRange: String?): Long = contentRange?.substringAfter('/', "")?.toLongOrNull() ?: -1L // "bytes 0-999/12345" → 12345
