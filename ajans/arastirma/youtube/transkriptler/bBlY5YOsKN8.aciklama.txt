@@ -1,0 +1,54 @@
+How to use Claude Design in five stages: a Claude Design tutorial that builds a real app. Start with a design.md, turn it into a Claude Design system, wireframe, prototype, animate, then hand it to Claude Code so your Claude Code design ships as a working product.
+
+Try Supabase Agent Skills at https://supabase.plug.dev/uitxwjz and supercharge your AI coding workflow.
+
+Community with All Resources: https://ailabspro.io/?v=bBlY5YOsKN8
+
+Design.md Planner Skill: https://github.com/ailabs-393/design-md-planner
+
+The Roundup, our daily newsletter covering the AI stories that matter. Join now: https://www.theroundup.so/
+
+Your visuals are the first thing a customer judges, and a good design doesn't come out of one prompt. This is how to use Claude Design to build apps end to end, in five stages.
+
+What Claude Design is
+- It started as a research preview alongside Opus 4.7. It's simple enough for non technical people, and it does sites, slides, documents, wireframes and animations.
+- It's on the website and the app, so how to use Claude Design in Claude Desktop is: install, log in, open the sidebar, click Design.
+- You pick the model and the effort level, which is how hard it thinks before it moves. Fable is the most capable but limited, Opus is best for design and burns the most tokens, Haiku is cheap but needs more refining. We run Opus 4.8 on medium.
+- It takes your MCPs and skills, and imports a project from GitHub or your machine.
+
+Stage 1: the design.md
+- design.md is a format Google started that holds your brand's design. Your coding agent reads it before it writes anything, so every screen comes out on brand instead of guessed at.
+- Claude Design can build a design system on its own, but left alone the models fall back to the same colours and styles, which is why AI built sites look identical. Hand it a design.md and it builds the system from your file instead.
+- We made a Claude Design skill for this, run in Claude Code, Anthropic's AI coding tool in your terminal. It interviews you, plans the visual identity, writes the design.md, validates it against Google's standards, and carries anti slop references so the usual AI tells don't get in.
+- Colours from Coolors. The file is easy for a model to read but hard to picture, so visualise it in something like designmd.space rather than testing inside Claude Design, where every round costs tokens.
+- Don't want to write one? getdesign.md lists popular brands as design.md files to start from.
+
+Stage 2: wireframes
+Pick the design system, choose wireframe, say how many screens and variations. Building the real site first means a long wait and a full redo if it's wrong. Use the comment feature, which sends the exact element with your prompt so Claude knows what you mean, and group comments so it fixes them in one pass.
+
+Stage 3: the prototype
+Pick a variation by its code number and tell it to turn those screens into the full design, keeping the wireframe's layout, spacing and hierarchy. Expect to fix button colours, ask for textures since it comes out sparse, apply small edits on the canvas instead of prompting, and finish with a polish pass.
+
+Stage 4: animations
+Scroll into view, text pop ups, subtle, nothing springy. It's the part people skip, and it's what keeps someone on the site.
+
+Stage 5: handoff, which is how to use Claude Design in Claude Code
+Export straight into Claude Code over the Claude Design MCP, and it works both ways. It reads the metadata, then the design system, then every element, and builds it in your project with the animations intact. Then ask for a deep review against the design.md. Ours caught responsiveness problems, the app not fitting different screen sizes, which is the common one because Claude Design builds for the exact thing it was asked for.
+
+The backend
+Design isn't an app until real data moves through it, so we used Supabase, which handles your users, your data and the logic behind the scenes. Its agent skill bundle installs with one command and adds two skills: Supabase itself, and Best Practices, which optimises the requests your app makes. Connect the CLI or the MCP, authenticate in the browser, and the agent builds the backend against your schema and locks down what shouldn't be public. Deployment is an upcoming video.
+
+0:00 Intro
+0:48 What Claude Design Is
+3:09 Stage 1
+8:40 Stage 2
+9:22 Stage 3
+10:59 Stage 4
+13:03 Stage 5
+14:34 Database
+
+So if you got here searching how to use Claude for UI design, how to use Claude Design for apps, or Claude Design 3.0, there's no version number to chase, only this process. Same answer as how to use Claude for anything real: decide the thing first, then let it build. Claude Design is on the short list of best AI tools right now, and the skill above is part of the bigger design system we use internally, which is in AI Labs Pro with the other resources from our videos.
+
+
+Hashtags:
+#ai #claude #claudeCode #claudeDesign #claudeAi #claudeCowork #vibeCoding #aiTools

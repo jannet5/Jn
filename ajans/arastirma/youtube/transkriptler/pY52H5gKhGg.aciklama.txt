@@ -1,0 +1,29 @@
+AI coding tools like Cursor, Claude Code, v0, and Stitch can build full apps in minutes but most AI-generated UIs still look generic, inconsistent, and slightly broken. 
+
+In this video, we break down DESIGN.md, the new open-source design system format released by Google that helps AI agents generate clean, consistent, on-brand interfaces without endless prompting.
+
+🔗 Relevant Links
+Design MD Awesome Repo - https://github.com/VoltAgent/awesome-...
+Design MD Google Stitch - https://stitch.withgoogle.com/docs/de...
+
+❤️ More about us
+Radically better observability stack: https://betterstack.com/
+Written tutorials: https://betterstack.com/community/
+Example projects: https://github.com/BetterStackHQ
+
+📱 Socials
+Twitter:   / betterstackhq  
+Instagram:   / betterstackhq  
+TikTok:   / betterstack  
+LinkedIn:   / betterstack  
+
+📌 Chapters:
+0:00 Why AI-Generated UIs Still Look Generic
+0:32 What Is DESIGN.md?
+1:10 Live Demo: Same Prompt, Different UI
+2:11 How DESIGN.md Actually Works
+2:35 Why AI Needs Design Context
+3:00 DESIGN.md vs Figma vs JSON Tokens
+3:45 Why Developers Are Switching to DESIGN.md
+4:15 Pros and Cons of DESIGN.md
+5:00 Is DESIGN.md Actually Worth Using?

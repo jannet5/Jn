@@ -29,7 +29,7 @@ Kaynak: `yt_ara.py` ile 20 sorgu (arama_sonuclari.jsonl). Transkript durumu `tra
 | id | başlık | dk | izlenme | kanal | öncelik |
 |---|---|---|---|---|---|
 | [ZfYvv-0l9NA](https://www.youtube.com/watch?v=ZfYvv-0l9NA) | Claude Code + Nano Banana 2 + Kling =  $15K Animated Sites | 13 | 353490 | Nick Saraev | A |
-| [QUI6Ug4cHnE](https://www.youtube.com/watch?v=QUI6Ug4cHnE) | I Built The Ultimate Claude Website Design Skill (steal this) | 16 | 274404 | Nate Herk | AI Automation | A |
+| [QUI6Ug4cHnE](https://www.youtube.com/watch?v=QUI6Ug4cHnE) | I Built The Ultimate Claude Website Design Skill (steal this) | 16 | 274404 | Nate Herk | AI Automation | A — altyazı yok (transkript çekilemedi; plan skill reposundan yazıldı) |
 | [GJxchJkk4Lk](https://www.youtube.com/watch?v=GJxchJkk4Lk) | Claude Design + New Design Skill = $10,000 3D Animated Websites | 18 | 115087 | Jason Lee | B |
 | [UQ9PbbPNvnc](https://www.youtube.com/watch?v=UQ9PbbPNvnc) | Build $10,000 Websites using Claude Code (Ultimate Guide) | 30 | 72081 | Tech With Tim | B |
 | [gXz9FGK9Ivs](https://www.youtube.com/watch?v=gXz9FGK9Ivs) | Claude Design 3.0 Can NOW Build 3D Animated Websites | 10 | 68740 | Zinho Automates | B |

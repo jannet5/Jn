@@ -1,0 +1,41 @@
+Your design system is built for humans. The moment you hand it to an AI agent, it starts inventing buttons, guessing at spacing, and hallucinating variants you never built. That's because it can't answer the most important questions it's silently asking: should I use this component, which variant, what goes inside it, what rules must I obey, and what should I never do.
+
+Get our skills for free (PRD skill, Extract DS, and more) → https://designproject.io/skills-repo/?utm_source=youtube&utm_medium=video&utm_campaign=agentic_design_systems&utm_content=description
+
+Join TDP Community as a Founding Member NOW - Waitlist Open! ⭐ https://designproject.io/community/?utm_source=youtube&utm_medium=description&utm_campaign=community_launch&utm_content=agentic_design_systems
+
+Design to Code Workshop for Companies 🚀 Apply using this link → https://relay.designproject.io/design-systems-for-ai
+
+WATCH MORE LIKE THIS:
+
+▶️ GitHub for Designers: Everything You Need to Know https://www.youtube.com/watch?v=Jcs8LLmQX80   
+▶️ I Built My Entire Design System in 4 Hours With AI. Full Tutorial (Claude + Cursor + Figma): https://youtu.be/nafNPuElCtY   
+▶️ Figma to Component Library in 2 days | Claude Code + Storybook Tutorial: https://youtu.be/AiEATeNyWnk?si=5T6SQR2CGdZUl0a2
+
+In this week’s video, I walk through how to take your Figma design system into Claude Code and make it agentic. First we will learn about encoding your existing components as structured metadata an AI can actually query. Then I build one button end to end using Figma MCP, Claude Code and Storybook so you can see exactly what this looks like in practice.
+
+This is part one of a series on agentic design systems.
+
+WHAT YOU’LL LEARN  
+• Why your design system is invisible to AI agents right now   
+• The three pillars every agentic component needs (props, relationships, tokens)   
+• Why anti-patterns matter as much as patterns   
+• Why semantic naming beats technical naming for AI agents   
+• How to build your first agentic component with Figma MCP + Claude Code + Storybook
+
+RESOURCES:  
+• AI Component Metadata Skill (Chris): https://github.com/cris-achiardi/claude-skills/tree/main/skills/ai-component-metadata   
+• Figma MCP: https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server 
+
+CONNECT WITH ME: 🌐 https://designproject.io/ 💼 LinkedIn: /diannealter  
+—-  
+TIMESTAMPS  
+0:00 Why design systems built for humans break AI agents   
+1:09 The 3 pillars every agent-ready component needs   
+2:00 The 4 metadata decisions that make components AI-readable 4:44 Installing the AI component metadata skill in Claude Code   
+9:21 Good vs bad tokens in Figma (and why descriptions matter) 12:02 Building a button with the Figma MCP   
+16:24 Reviewing the output and fixing what the agent missed   
+20:14 Turning the workflow into a reusable skill  
+—-  
+About The Design Project: We help B2B SaaS product teams ship faster by combining AI tools with strategic design expertise. We've worked with 50+ teams (including companies acquired by Slack, Nvidia, and MrBeast) to cut product cycles in half using battle-tested AI workflows and design systems.  
+---
