@@ -1,0 +1,83 @@
+# 
+# https://www.youtube.com/watch?v=qa5jMoJRQL8
+
+Dans cette vidéo, je te montre tout le workflow : scoper avec ChatGPT, le fichier de contexte qui change tout, les skills.sh de Vercel, le design system itératif, les notifications natives, l'OCR local Apple Vision pour scanner les ordonnances, et le déploiement TestFlight sur un vrai iPhone.
+
+Stack : Claude Code (Opus 4.6), React Native, Expo, EAS Build, Cursor, ChatGPT, Apple Vision, expo-notifications.
+
+Pour qui : développeurs et fondateurs qui veulent vibecoder une app mobile, créer une application mobile avec l'IA, apprendre React Native avec Claude Code, ou tester le vibecoding sur un projet mobile concret de bout en bout.
+
+⏱️ Chapitres
+0:00 Intro & l'idée DoseTrack
+2:56 Scoper le projet avec ChatGPT (40 questions)
+15:56 Setup : Expo, Cursor, Claude Code
+21:58 Le fichier app.md = contexte stable
+29:45 Skills.sh + claude.md (qualité du code)
+33:58 Design system avec Claude
+39:31 Itérer la UI avec des captures d'écran
+1:04:42 Notifications natives (EAS development build)
+1:08:39 IA locale on-device (Apple Vision OCR)
+1:18:03 Déploiement TestFlight sur un vrai iPhone
+1:24:25 Conclusion
+
+🔗 Ressources mentionnées
+• Claude Code → https://www.anthropic.com/claude-code
+• ChatGPT → https://chatgpt.com
+• Codex CLI (OpenAI) → https://github.com/openai/codex
+• Cursor → https://cursor.com
+• Expo → https://expo.dev
+• create-expo-app → https://docs.expo.dev/get-started/create-a-project/
+• React Native → https://reactnative.dev
+• skills.sh (par Vercel) → https://skills.sh
+• Vercel React Native skills → https://github.com/vercel/vercel-react-native-skills
+• EAS Build (development build) → https://docs.expo.dev/develop/development-builds/create-a-build/
+• expo-notifications → https://docs.expo.dev/versions/latest/sdk/notifications/
+• Apple Vision Framework → https://developer.apple.com/documentation/vision
+• Apple Developer Program (99 $/an) → https://developer.apple.com/programs/
+• TestFlight → https://developer.apple.com/testflight/
+• AI Hero (Matt Pocock) → https://www.aihero.dev
+• GitHub CLI → https://cli.github.com
+• Android Studio → https://developer.android.com/studio
+• OpenCode → https://opencode.ai
+
+
+━━━━━━━━━━━━━━━━
+
+Sur cette chaîne :
+→ Coder 10× plus vite avec Claude Code
+→ Des agents IA pour WhatsApp, Telegram ou Slack
+→ Shipper des apps React / React Native jusqu'en prod
+
+━━━━━━━━━━━━━━━━
+
+🎯 Algomax - agence de développements d'apps mobiles
+On développe ton app React Native, on solidifie l'archi et on la publie sur l'App Store + Play Store en 3 semaines. Pas 6 mois.
+👉 https://algomax.fr/services/application-mobile
+
+⚡ Mon SaaS - BlitzReels
+Transforme tes vidéos longues en shorts verticaux avec l'IA.
+👉 https://blitzreels.com
+
+📩 Newsletter - les goodies
+Prompts, templates et outils Claude Code que j'utilise au quotidien.
+→ https://dripl.ink/ih2Ow
+
+━━━━━━━━━━━━━━━━
+
+💸 Deals
+⚡ −10 % Strapi Cloud avec le code ALGOMAX → https://dub.sh/strapi-deal
+🖥️ −10 % Hostinger VPS → https://dripl.ink/MYAq1
+
+🎥 À voir aussi
+• La Stack Remix → https://youtu.be/yv96ar6XNnU
+• BiomeJS → https://youtu.be/Ln3rpyhVpZs
+• Déploiement VPS → https://youtu.be/SfTfRPAR50c
+
+🌍 Ailleurs
+LinkedIn → https://dripl.ink/yD8rz
+Twitter/X → https://dripl.ink/PZco8
+TikTok → https://dripl.ink/LUhON
+Instagram → https://dripl.ink/ZL3yu
+Facebook → https://dripl.ink/Bxwut
+
+#ClaudeCode #Vibecoding #ReactNative #Expo #AppMobile #ClaudeCodeMobile #VibecoderAppMobile #IA #TutorielFR
