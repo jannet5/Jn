@@ -16,6 +16,9 @@ Bağlı harita, A/B/C yolları ve kaynaklar: [harita.md](harita.md) · Kabul kan
 Windows (PowerShell): `powershell -NoProfile -ExecutionPolicy Bypass -File .\kur-windows.ps1`
 — mevcut Codex'i yeniden kurmaz (`-CodexPath <codex.cmd|codex.exe>` ile yol verilebilir, `-InstallCodex` yalnız
 istenirse kurar), `codex login`'i kendisi çalıştırmaz; çıkış 0 hazır / 3 giriş gerekli / 2 Codex çalışmıyor.
+Kurulum ve `codex login` sonrası tek komut: `powershell -NoProfile -ExecutionPolicy Bypass -File .\uret-windows.ps1`
+— İndirilenler'deki `instagram*.zip` / `vf-capture-*.json` dosyalarını alır, üretir, doğrular, `bitti-mi` sonucunu
+verir; limit dolarsa aynı komutla devam (çıkış 0 bitti / 1 devam / 3 giriş gerekli / 75 limit).
 Codex yolu `VF_CODEX_BIN` ile de verilebilir (boşluklu tam yol olabilir; `.exe`, npm `.cmd`, `.js`, `.py` desteklenir).
 
 ## Kullanım (Codex'e de aynısını söyleyebilirsiniz)

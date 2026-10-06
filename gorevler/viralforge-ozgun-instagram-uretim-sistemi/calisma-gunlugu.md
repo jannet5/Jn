@@ -79,3 +79,15 @@ Dal push + geri okuma; özel ZIP (kaynak dosyaları dahil) + SHA-256 + geri okum
   `kabul/windows-regresyon.md`.
 - Açık kalanlar: `kur-windows.ps1` ve `-X utf8`'siz koşu Windows'ta çalıştırılmadı; ChatGPT Pro girişi, 1000 gerçek
   Instagram kaynağı ve 4000 gerçek görsel yok. Sentetik 4000 sonucu gerçek üretim sayılmaz.
+
+## 11. "Yapılacakları yap, eksik kalmasın" (2026-10-06)
+- Bulutta yapılabilecek kalan iş araştırıldı:
+  - `codex login --help` (0.160): yalnız tarayıcı girişi, `--with-api-key` (ücretli) ve `--with-access-token` var.
+    Cihaz kodu girişi yok; buluttan ChatGPT Pro girişi yapılamaz, anahtar/jeton istenmedi.
+  - Google Drive'da (salt okuma) Instagram dışa aktarımı, `saved_posts`/`liked_posts`, ZIP veya gönderi bağlantısı
+    arandı: sonuç yok. Gerçek kaynak veri bulunmadığı için uydurulmadı.
+- Kullanıcı adımlarını azaltmak için `uret-windows.ps1` eklendi (doctor → İndirilenler içe alma → run → bitti-mi).
+  İlk taslakta PowerShell fonksiyonunun Python çıktısını dönüş değerine katması hatası bulundu ve `Out-Host` ile
+  düzeltildi. pwsh 7.4.6 (Linux) ile A/B akışı denendi (K10).
+- Açık kalanlar değişmedi: ChatGPT Pro girişi, 1000 gerçek gönderi, 4000 gerçek görsel, native Windows'ta
+  `kur-windows.ps1`/`uret-windows.ps1` koşusu.

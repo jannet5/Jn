@@ -20,6 +20,11 @@ gerçek Codex çıktısı DEĞİLDİR · **YAPILMADI** = gerekli erişim yok.
   geri okundu; Python 3.11 / Pillow 11.3 ile `python -X utf8 -m unittest discover -s tests -v` → 24/24 geçti,
   19,783 sn, çıkış 0; WinError 193 ve cp1254 hataları kapandı. Sınır: `kur-windows.ps1`, `-X utf8`'siz test
   koşusu ve gerçek Codex/Instagram üretimi Windows'ta çalıştırılmadı. Bu sonuç bu oturumda yeniden üretilmedi.
+- **K10 (2026-10-06)** — `uret-windows.ps1` tek komut zinciri eklendi. PowerShell 7.4.6 (Linux) ayrıştırma 0 hata;
+  Linux'ta pwsh ile iki koşu: (A) gerçek Codex 0.160 girişsiz → "GİRİŞ GEREKLİ", çıkış 3, giriş başlatılmadı;
+  (B) SENTETİK İndirilenler (dışa aktarım ZIP + 2 yakalama) + test taklidi Codex → içe alma → üretim → "Evet, bitti"
+  (2 gönderi, 8 görsel), çıkış 0. Native Windows'ta çalıştırılmadı. Kullanıcının Google Drive'ında Instagram
+  dışa aktarımı/bağlantı listesi arandı: bulunamadı.
 - **K2 GERÇEK** — 24 birim/uçtan uca test geçti (`birim-testler.txt`; ilk teslimde 15): DYI ZIP (`\/` kaçışlı JSON), HTML, yt-dlp
   info.json, gallery-dl yan dosyası, og:description ayrıştırma, seçim, şema doğrulama, kopya/benzer görsel tespiti,
   ChatGPT web sayfası + içe alma, CLI çıkış kodları.
@@ -47,4 +52,5 @@ gerçek Codex çıktısı DEĞİLDİR · **YAPILMADI** = gerekli erişim yok.
 Not: K5'teki 4000/4000 ve "Evet, bitti" SENTETİK veriyle (test taklidi Codex) alınmıştır; gerçek üretim
 sayılmaz. 1000 gerçek kaynak gönderi (madde 2) ve 4000 gerçek görsel (madde 1 + 5) için girdiler hâlâ eksiktir.
 
-Bu adımlar sonrası tek komut: `python -m viralforge -w calisma run --target 1000` → `bitti-mi`.
+Bu adımlar sonrası tek komut (Windows): `powershell -NoProfile -ExecutionPolicy Bypass -File .\uret-windows.ps1`
+(eşdeğeri: `python -m viralforge -w calisma run --target 1000` → `bitti-mi`).
