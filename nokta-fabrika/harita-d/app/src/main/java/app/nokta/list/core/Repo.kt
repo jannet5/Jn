@@ -27,14 +27,28 @@ class Repo(private val store: ItemStore, private val main: Handler = Handler(Loo
     fun addListener(l: () -> Unit) { listeners += l }
     fun removeListener(l: () -> Unit) { listeners -= l }
 
+    private val waiting = ArrayList<() -> Unit>()
+
     fun load() {
         if (loaded) return
         io.execute {
             val items = store.load()
             main.post {
                 if (!loaded) { model = ListModel(items); loaded = true; fire() }
+                val w = waiting.toList(); waiting.clear(); w.forEach { it() }
             }
         }
+    }
+
+    /** Liste diskten yuklendikten sonra [block] ana is parcaciginda calisir (bildirim alicilari icin). */
+    fun whenLoaded(block: () -> Unit) {
+        if (loaded) block() else { waiting += block; load() }
+    }
+
+    /** Ogeyi tamamlandi yapar; [after] kayit diske yazildiktan sonra cagrilir. */
+    fun markDone(id: Long, after: () -> Unit) = whenLoaded {
+        if (model.items.firstOrNull { it.id == id }?.done == false) toggle(id)
+        io.execute { main.post(after) }
     }
 
     private fun fire() { listeners.toList().forEach { it() } }

@@ -26,6 +26,14 @@
         android:textColor="@color/ink"
         android:textSize="17sp" />
 
+    <ImageButton
+        android:id="@+id/bell"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/remind"
+        android:src="@drawable/ic_bell" />
+
     <ImageView
         android:id="@+id/handle"
         android:layout_width="48dp"

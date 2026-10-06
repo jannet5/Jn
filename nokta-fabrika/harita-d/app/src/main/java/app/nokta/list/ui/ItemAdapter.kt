@@ -18,6 +18,8 @@ class ItemAdapter(
     private val onDelete: (Long) -> Unit,
     private val onStartDrag: (RecyclerView.ViewHolder) -> Unit,
     private val onMove: (Int, Int) -> Unit,
+    private val onBell: (Item) -> Unit,
+    private val hasReminder: (Long) -> Boolean,
 ) : RecyclerView.Adapter<ItemAdapter.VH>() {
 
     var items: List<Item> = emptyList()
@@ -33,6 +35,7 @@ class ItemAdapter(
         val text: StrikeText = v.findViewById(R.id.text)
         val handle: ImageView = v.findViewById(R.id.handle)
         val delete: View = v.findViewById(R.id.delete)
+        val bell: ImageView = v.findViewById(R.id.bell)
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -40,6 +43,7 @@ class ItemAdapter(
         val vh = VH(LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false))
         vh.itemView.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onToggle(items[it].id) } }
         vh.delete.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onDelete(items[it].id) } }
+        vh.bell.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onBell(items[it]) } }
         vh.handle.setOnTouchListener { _, e ->
             if (e.actionMasked == MotionEvent.ACTION_DOWN) onStartDrag(vh)
             false
@@ -65,6 +69,9 @@ class ItemAdapter(
             ctx.getString(if (it.done) R.string.act_undone else R.string.act_done), null,
         )
         h.delete.contentDescription = ctx.getString(R.string.delete_item, it.text)
+        val on = hasReminder(it.id)
+        h.bell.setImageResource(if (on) R.drawable.ic_bell_on else R.drawable.ic_bell)
+        h.bell.contentDescription = ctx.getString(if (on) R.string.remind_on_item else R.string.remind_item, it.text)
         h.handle.contentDescription = ctx.getString(R.string.drag_item, it.text)
         h.dot.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         ViewCompat.addAccessibilityAction(h.itemView, ctx.getString(R.string.act_up)) { _, _ ->

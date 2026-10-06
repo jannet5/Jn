@@ -1,5 +1,6 @@
 package app.nokta.list.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
@@ -19,12 +20,21 @@ import app.nokta.list.R
 import app.nokta.list.core.AddFlow
 import app.nokta.list.core.Repo
 import app.nokta.list.core.Undo
+import app.nokta.list.data.Item
+import app.nokta.list.reminder.Reminders
 
 /**
  * list_view.xml'i Repo'ya baglar. Ayni sinif hem Activity'de hem balon panelinde kullanilir,
  * boylece iki yuzeyin davranisi ayrismaz.
  */
-class ListController(private val root: View, private val repo: Repo, onAction: () -> Unit, actionIcon: Int, actionDesc: Int) {
+class ListController(
+    private val root: View,
+    private val repo: Repo,
+    onAction: () -> Unit,
+    actionIcon: Int,
+    actionDesc: Int,
+    onBell: (Item) -> Unit,
+) {
     private val ctx: Context = root.context
     private val handler = Handler(Looper.getMainLooper())
     private val recycler: RecyclerView = root.findViewById(R.id.recycler)
@@ -40,11 +50,19 @@ class ListController(private val root: View, private val repo: Repo, onAction: (
 
     private var helper: ItemTouchHelper
     private val adapter = ItemAdapter(
-        onToggle = { repo.toggle(it) },
+        onToggle = { id ->
+            repo.toggle(id)
+            // Ustu cizilen ogenin hatirlatmasi durur.
+            if (repo.items.firstOrNull { it.id == id }?.done == true && Reminders.has(ctx, id)) Reminders.clear(ctx, id)
+        },
         onDelete = { repo.delete(it) },
         onStartDrag = { helper.startDrag(it) },
         onMove = { from, to -> repo.move(from, to) },
+        onBell = onBell,
+        hasReminder = { Reminders.has(ctx, it) },
     )
+    @SuppressLint("NotifyDataSetChanged") // hatirlatma degisimi seyrek; tum zil ikonlari yenilenir
+    private val reminderListener: () -> Unit = { adapter.notifyDataSetChanged() }
     private val listener: () -> Unit = { render() }
 
     init {
@@ -68,8 +86,11 @@ class ListController(private val root: View, private val repo: Repo, onAction: (
         }
     }
 
-    fun attach() { repo.addListener(listener); render() }
-    fun detach() { repo.removeListener(listener); dismissTask?.let { handler.removeCallbacks(it) } }
+    fun attach() { repo.addListener(listener); Reminders.addListener(reminderListener); render() }
+    fun detach() {
+        repo.removeListener(listener); Reminders.removeListener(reminderListener)
+        dismissTask?.let { handler.removeCallbacks(it) }
+    }
 
     fun focusAdd(showKeyboard: Boolean = true) {
         add.requestFocus()

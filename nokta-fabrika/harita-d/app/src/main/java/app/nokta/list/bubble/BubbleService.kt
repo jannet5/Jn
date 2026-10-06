@@ -260,7 +260,15 @@ class BubbleService : Service() {
             @Suppress("DEPRECATION") // overlay penceresinde klavye payi icin hala gecerli yol
             softInputMode = LP.SOFT_INPUT_ADJUST_RESIZE or LP.SOFT_INPUT_STATE_VISIBLE
         }
-        val ctl = ListController(root.findViewById(R.id.list_root), repo, { closePanel() }, R.drawable.ic_close, R.string.close)
+        val ctl = ListController(root.findViewById(R.id.list_root), repo, { closePanel() }, R.drawable.ic_close, R.string.close) { item ->
+            // Pencere secici ekran (saat secimi) yuzen panelde acilamaz: hatirlatma uygulamada duzenlenir.
+            closePanel()
+            startActivity(
+                Intent(this, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    .putExtra(MainActivity.EXTRA_REMIND, item.id),
+            )
+        }
         root.onBack = { closePanel() }
         root.setOnClickListener { closePanel() }
         wm.addView(root, lp)

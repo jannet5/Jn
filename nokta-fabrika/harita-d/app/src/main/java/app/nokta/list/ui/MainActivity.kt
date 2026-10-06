@@ -20,6 +20,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import app.nokta.list.R
+import app.nokta.list.data.Item
 import app.nokta.list.bubble.BubbleService
 import app.nokta.list.core.Repo
 
@@ -37,11 +38,30 @@ class MainActivity : AppCompatActivity() {
         repo = Repo.get(this)
         banner = findViewById(R.id.perm_banner)
         applyInsets(findViewById(R.id.main_root))
-        controller = ListController(findViewById(R.id.list_root), repo, ::showMenu, R.drawable.ic_menu, R.string.menu)
+        controller = ListController(findViewById(R.id.list_root), repo, ::showMenu, R.drawable.ic_menu, R.string.menu, ::showReminder)
         findViewById<View>(R.id.perm_action).setOnClickListener {
             startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")))
         }
         controller.focusAdd()
+        handleRemindIntent(intent)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleRemindIntent(intent)
+    }
+
+    /** Balon panelindeki zil isareti uygulamayi bu ekstra ile acar. */
+    private fun handleRemindIntent(i: Intent?) {
+        val id = i?.getLongExtra(EXTRA_REMIND, -1L) ?: -1L
+        if (id < 0) return
+        i?.removeExtra(EXTRA_REMIND)
+        repo.whenLoaded { repo.items.firstOrNull { it.id == id }?.let { showReminder(it) } }
+    }
+
+    private fun showReminder(item: Item) {
+        if (isFinishing) return
+        ReminderDialog(this, item) { askNotificationPermission(force = true) }.show()
     }
 
     /**
@@ -85,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
     }
 
-    private fun askNotificationPermission() {
+    private fun askNotificationPermission(force: Boolean = false) {
         if (Build.VERSION.SDK_INT >= 33 &&
             checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
         ) {
@@ -97,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                     .setPositiveButton(R.string.notif_rationale_ok) { _, _ -> notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS) }
                     .setNegativeButton(R.string.close, null)
                     .show()
-            } else if (!notifAsked()) {
+            } else if (force || !notifAsked()) {
                 getSharedPreferences("nokta", Context.MODE_PRIVATE).edit().putBoolean("notif_asked", true).apply()
                 notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
@@ -150,5 +170,9 @@ class MainActivity : AppCompatActivity() {
         val t = cm.primaryClip?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.coerceToText(this)?.toString().orEmpty()
         val n = if (t.isBlank()) 0 else repo.importText(t)
         Toast.makeText(this, if (n == 0) getString(R.string.import_none) else getString(R.string.import_done, n), Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        const val EXTRA_REMIND = "remind_item"
     }
 }
