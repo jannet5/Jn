@@ -43,8 +43,20 @@ object PostRenderer {
             }
         }
 
+        val placed = place(w, h, style, typeface, fakeBold, placeholder) ?: return // yazı yerleştiriliyor (yoksa çizim bitti)
+        canvas.save() // tuvalin durumu saklanıyor
+        canvas.translate(placed.x, placed.y) // yazının başlayacağı noktaya kayılıyor
+        placed.layout.draw(canvas) // yazı çiziliyor
+        canvas.restore() // tuval eski haline dönüyor
+    }
+
+    // Yerleştirilmiş yazı: satırlar + sol üst köşesinin konumu
+    private class Placed(val layout: StaticLayout, val x: Float, val y: Float)
+
+    // Yazının boyunu, satırlarını ve konumunu hesaplar (çizim ve kılavuz çizgileri aynı hesabı kullanır)
+    private fun place(w: Int, h: Int, style: PostStyle, typeface: Typeface, fakeBold: Boolean, placeholder: String?): Placed? {
         val isPlaceholder = style.text.isBlank() // yazı boş mu
-        val text = if (isPlaceholder) placeholder ?: return else style.text // boşsa ipucu, ipucu da yoksa çizim bitti
+        val text = if (isPlaceholder) placeholder ?: return null else style.text // boşsa ipucu, ipucu da yoksa yazı yok
 
         val paint = TextPaint(Paint.ANTI_ALIAS_FLAG) // yumuşak kenarlı yazı ayarı
         paint.typeface = typeface // seçili yazı tipi
@@ -78,10 +90,22 @@ object PostRenderer {
         }
         val dx = (style.offsetX * w).coerceIn(-w / 2f, w / 2f) // elle sürüklenen yatay kayma (ekran dışına taşmasın)
         val y = (top + style.offsetY * h).coerceIn(-layout.height / 2f, h - layout.height / 2f) // elle sürüklenen dikey konum (en az yarısı görünür kalsın)
-        canvas.save() // tuvalin durumu saklanıyor
-        canvas.translate(pad + dx, y) // yazının başlayacağı noktaya kayılıyor
-        layout.draw(canvas) // yazı çiziliyor
-        canvas.restore() // tuval eski haline dönüyor
+        return Placed(layout, pad + dx, y) // yerleşim hazır
+    }
+
+    // Yazının görsel üzerindeki gerçek kutusu (satırların gerçek genişliğiyle); yazı yoksa null
+    fun textBox(w: Int, h: Int, style: PostStyle, typeface: Typeface, fakeBold: Boolean, placeholder: String? = null): CropBox? {
+        val p = place(w, h, style, typeface, fakeBold, placeholder) ?: return null // yerleşim hesaplanıyor
+        var left = Float.MAX_VALUE // en soldaki satırın başı
+        var right = -Float.MAX_VALUE // en sağdaki satırın sonu
+        for (i in 0 until p.layout.lineCount) { // her satır
+            left = minOf(left, p.layout.getLineLeft(i)) // satırın sol kenarı
+            right = maxOf(right, p.layout.getLineRight(i)) // satırın sağ kenarı
+        }
+        return CropBox( // kutu (piksel)
+            (p.x + left).toInt(), p.y.toInt(), // sol üst
+            (p.x + right).toInt(), (p.y + p.layout.height).toInt(), // sağ alt
+        )
     }
 
     // Verilen yazı boyuyla çok satırlı yerleşim oluşturur

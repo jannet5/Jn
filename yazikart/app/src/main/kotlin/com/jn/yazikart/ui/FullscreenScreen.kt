@@ -50,7 +50,18 @@ import com.jn.yazikart.data.MAX_TEXT_SIZE // en büyük yazı boyu
 import com.jn.yazikart.data.MIN_TEXT_SIZE // en küçük yazı boyu
 import com.jn.yazikart.data.PostStyle // görsel ayarları
 import androidx.compose.foundation.gestures.detectTapGestures // dokunma algılama
-import androidx.compose.foundation.gestures.detectTransformGestures // sürükleme + iki parmak algılama
+import androidx.compose.foundation.gestures.awaitEachGesture // her dokunuşu baştan dinleme
+import androidx.compose.foundation.gestures.awaitFirstDown // ilk parmak değişi
+import androidx.compose.foundation.gestures.calculatePan // kayma hesabı
+import androidx.compose.foundation.gestures.calculateZoom // iki parmak büyütme hesabı
+import androidx.compose.ui.input.pointer.positionChanged // parmak kıpırdadı mı
+import androidx.compose.ui.geometry.Offset // nokta
+import androidx.compose.runtime.mutableFloatStateOf // ondalık durum
+import androidx.compose.runtime.rememberUpdatedState // güncel değeri izleme
+import androidx.compose.ui.platform.LocalContext // uygulama bağlamı
+import com.jn.yazikart.data.FontCatalog // yazı tipleri
+import com.jn.yazikart.render.PostRenderer // yazı kutusu hesabı
+import com.jn.yazikart.render.Snap // ortaya yapışma
 import androidx.compose.ui.input.pointer.pointerInput // parmak olayları
 
 // Tam ekran: görsel Reels/hikâyede nasıl görünecekse ekranı öyle kaplar, yazı burada da yazılır.
@@ -66,6 +77,14 @@ fun FullscreenScreen(
     var controls by rememberSaveable { mutableStateOf(true) } // düğmeler görünüyor mu
     val focus = LocalFocusManager.current // klavyeyi kapatmak için
     HideSystemBars(controls) // üst saat çubuğu ve alt gezinme çubuğu gizleniyor (düğmeler değişince yeniden)
+    val currentStyle by rememberUpdatedState(style) // parmak hareketi sırasında en güncel stil
+    var rawX by remember { mutableFloatStateOf(0f) } // parmağın getirdiği ham yatay kayma (yapışmadan önce)
+    var rawY by remember { mutableFloatStateOf(0f) } // ham dikey kayma
+    var guideV by remember { mutableStateOf(false) } // dikey orta çizgi görünüyor mu
+    var guideH by remember { mutableStateOf(false) } // yatay orta çizgi görünüyor mu
+    val context = LocalContext.current // uygulama bağlamı
+    val typeface = remember(style.fontIndex, style.bold) { FontCatalog.typeface(context.assets, style.fontIndex, style.bold) } // yazı tipi (kutu hesabı için)
+    val fakeBold = FontCatalog.needsFakeBold(style.fontIndex, style.bold) // yapay kalınlık
 
     Column(Modifier.fillMaxSize().background(Color.Black).imePadding()) { // siyah zemin; klavye açılınca görsel yukarı sığar
         BoxWithConstraints(
@@ -78,27 +97,52 @@ fun FullscreenScreen(
         ) {
             val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
             val w = min(maxWidth, maxHeight * ratio) // ekrana sığan en büyük genişlik
-            PostCanvas(
-                style, image, // görsel ve ayarları
-                Modifier.width(w).height(w / ratio) // görsel ekranı kaplıyor
-                    .pointerInput(Unit) { // dokunmalar
-                        detectTapGestures( // tek / çift dokunuş
-                            onTap = { focus.clearFocus(); controls = !controls }, // tek dokun: düğmeleri gizle/göster
-                            onDoubleTap = { onStyle { it.copy(offsetX = 0f, offsetY = 0f) } }, // çift dokun: yazıyı yerine geri koy
-                        )
-                    }
-                    .pointerInput(Unit) { // sürükleme ve iki parmakla büyütme
-                        detectTransformGestures { _, pan, zoom, _ -> // her parmak hareketinde
-                            onStyle { // stil güncelleniyor
-                                it.copy(
-                                    offsetX = (it.offsetX + pan.x / size.width).coerceIn(-1f, 1f), // yatay kaydırma (genişliğe oranla)
-                                    offsetY = (it.offsetY + pan.y / size.height).coerceIn(-1f, 1f), // dikey kaydırma (yüksekliğe oranla)
-                                    textSize = (it.textSize * zoom).coerceIn(MIN_TEXT_SIZE, MAX_TEXT_SIZE), // iki parmak açılınca büyür, kapanınca küçülür
-                                )
-                            }
+            Box(Modifier.width(w).height(w / ratio)) { // görsel + kılavuz çizgileri üst üste
+                PostCanvas(
+                    style, image, // görsel ve ayarları
+                    Modifier.fillMaxSize() // görsel ekranı kaplıyor
+                        .pointerInput(Unit) { // dokunmalar
+                            detectTapGestures( // tek / çift dokunuş
+                                onTap = { focus.clearFocus(); controls = !controls }, // tek dokun: düğmeleri gizle/göster
+                                onDoubleTap = { onStyle { it.copy(offsetX = 0f, offsetY = 0f) } }, // çift dokun: yazıyı yerine geri koy
+                            )
                         }
-                    },
-            )
+                        .pointerInput(Unit) { // sürükleme, iki parmakla büyütme ve ortaya yapışma
+                            awaitEachGesture { // her yeni dokunuşta baştan
+                                awaitFirstDown(requireUnconsumed = false) // ilk parmak değdi
+                                rawX = currentStyle.offsetX // parmağın taşıdığı ham kayma, şu anki yerden başlar
+                                rawY = currentStyle.offsetY // dikey ham kayma
+                                do { // parmaklar ekrandayken
+                                    val event = awaitPointerEvent() // parmak hareketi
+                                    val pan = event.calculatePan() // kayma miktarı
+                                    val zoom = event.calculateZoom() // iki parmak açılma oranı
+                                    if (pan != Offset.Zero || zoom != 1f) { // gerçekten hareket varsa
+                                        rawX = (rawX + pan.x / size.width).coerceIn(-1f, 1f) // ham yatay kayma
+                                        rawY = (rawY + pan.y / size.height).coerceIn(-1f, 1f) // ham dikey kayma
+                                        val s0 = currentStyle // güncel stil
+                                        val sized = s0.copy( // yeni boy ve ham konum
+                                            textSize = (s0.textSize * zoom).coerceIn(MIN_TEXT_SIZE, MAX_TEXT_SIZE), // iki parmak: büyüt/küçült
+                                            offsetX = rawX, offsetY = rawY, // parmağın getirdiği yer
+                                        )
+                                        val box = PostRenderer.textBox(size.width, size.height, sized, typeface, fakeBold, PLACEHOLDER) // yazının kutusu
+                                        var snapped = sized // yapıştırılmış hal
+                                        guideV = false; guideH = false // çizgiler önce kapalı
+                                        if (box != null) { // yazı varsa
+                                            val (sx, okX) = Snap.snap(rawX, (box.left + box.right) / 2f, size.width / 2f, size.width.toFloat()) // yatay ortaya yapış
+                                            val (sy, okY) = Snap.snap(rawY, (box.top + box.bottom) / 2f, size.height / 2f, size.height.toFloat()) // dikey ortaya yapış
+                                            snapped = sized.copy(offsetX = sx, offsetY = sy) // yapışmış konum
+                                            guideV = okX; guideH = okY // yapıştıysa çizgi görünür
+                                        }
+                                        onStyle { snapped } // stil güncelleniyor
+                                        event.changes.forEach { if (it.positionChanged()) it.consume() } // hareket tüketildi (tek dokunuş sayılmasın)
+                                    }
+                                } while (event.changes.any { it.pressed }) // parmak kalkana kadar
+                                guideV = false; guideH = false // parmak kalkınca çizgiler kaybolur
+                            }
+                        },
+                )
+                GuideLines(guideV, guideH, Modifier.fillMaxSize()) // ortalama kılavuz çizgileri
+            }
 
             if (controls) { // düğmeler görünürse
                 IconButton( // sağ üstte kapat
@@ -138,6 +182,18 @@ fun FullscreenScreen(
         }
     }
 }
+
+// Canva'daki gibi pembe orta çizgiler: yazı ortaya yapıştığında görünür (kaydedilen görselde yoktur)
+@Composable
+private fun GuideLines(vertical: Boolean, horizontal: Boolean, modifier: Modifier) {
+    androidx.compose.foundation.Canvas(modifier) { // çizim alanı
+        val stroke = 2.dp.toPx() // çizgi kalınlığı
+        if (vertical) drawLine(GUIDE, Offset(size.width / 2, 0f), Offset(size.width / 2, size.height), stroke) // dikey orta çizgi
+        if (horizontal) drawLine(GUIDE, Offset(0f, size.height / 2), Offset(size.width, size.height / 2), stroke) // yatay orta çizgi
+    }
+}
+
+private val GUIDE = Color(0xFFFF3DA6) // kılavuz çizgisi rengi (Canva pembesi)
 
 // Tam ekrandayken saat/pil çubuğunu ve alt gezinme çubuğunu gizler; çıkınca geri getirir
 @Composable

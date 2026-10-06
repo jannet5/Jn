@@ -12,6 +12,8 @@ import com.jn.yazikart.data.FontCatalog // yazı tipleri
 import com.jn.yazikart.data.PostStyle // görsel ayarları
 import com.jn.yazikart.render.PostRenderer // görsel çizici
 
+const val PLACEHOLDER = "Yazın burada görünecek" // yazı boşken görünen ipucu
+
 // Görseli verilen alana çizen ortak bileşen (küçük önizleme ve tam ekran aynı çiziciyi kullanır)
 @Composable
 fun PostCanvas(style: PostStyle, image: Bitmap?, modifier: Modifier = Modifier) {
@@ -25,7 +27,7 @@ fun PostCanvas(style: PostStyle, image: Bitmap?, modifier: Modifier = Modifier) 
             PostRenderer.draw( // kayıtla aynı çizici
                 c.nativeCanvas, size.width.toInt(), size.height.toInt(), // tuval ve boyut
                 style, typeface, fakeBold, image, // ayarlar
-                placeholder = "Yazın burada görünecek", // boşken ipucu
+                placeholder = PLACEHOLDER, // boşken ipucu
             )
         }
     }
