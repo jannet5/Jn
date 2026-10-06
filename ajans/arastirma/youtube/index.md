@@ -4,6 +4,8 @@ Kaynak: `yt_ara.py` ile 20 sorgu (arama_sonuclari.jsonl). Transkript durumu `tra
 
 Öncelik: **A** = mutlaka transkript (uzun/uygulamalı/çok izlenen), **B** = faydalı, **C** = isteğe bağlı.
 
+> **Transkript durumu (2026-10-05, iş akışı + Türkçe grubu):** Bu bulut ortamının IP'si YouTube tarafından engelli ("Sign in to confirm you're not a bot" / Google CAPTCHA). Denenenler: yt-dlp (android, web, ios, mweb, tv, web_safari, web_embedded, tv_embedded, android_vr, mediaconnect; JS runtime bun/node + yt-dlp-ejs ile), youtube-transcript-api (IpBlocked), 7 Invidious örneği (liste geliyor, altyazı gövdesi boş), Piped API'leri (hepsi 5xx), innertube `get_transcript` (400), headless Chromium (Google "sorry" CAPTCHA), ikinci bir bulut oturumu (aynı engel), 6 üçüncü taraf transkript sitesi (hepsi engelli/JS). **Hiçbir video için altyazı alınamadı.** Yedek veri: `transkriptler/<id>.aciklama.txt` (jina okuyucu ile tam açıklama), `kaynaklar/` (açıklamalarda linklenen repo/doküman/web yazıları) ve web'deki yazılı özetler; planlar bu yedek veriye dayanır ve her planın başında kaynak notu vardır. Transkriptler başka IP'li bir makineden `python3 ajans/araclar/yt_transcript.py <id> --dil tr,en` ile sonradan eklenmeli.
+
 ## claude code react native app start to finish
 
 | id | başlık | dk | izlenme | kanal | öncelik |
@@ -606,3 +608,108 @@ Not: bu sorguda 15 sonucun 12'si konu dışı çıktı (YouTube Shorts, AI influ
 | [KKWS0bSiCT4](https://www.youtube.com/watch?v=KKWS0bSiCT4) | How I Build Apps SOLO That ACTUALLY Make Money in 2026 | 8 | 448734 | Erik Cupsa | B |
 | [CwHD6Fg-Mjs](https://www.youtube.com/watch?v=CwHD6Fg-Mjs) | I vibe coded a $20K/month mobile app in 14 days | 13 | 689612 | Starter Story | B |
 | [EsRyyJmO-u8](https://www.youtube.com/watch?v=EsRyyJmO-u8) | How ChatGPT Built My App in Minutes 🤯 | 8 | 4421679 | Website Learners | C |
+
+# Ek aramalar (iş akışı derinleşme, 2026-10-05)
+
+Aynı `yt_ara.py` ile 5 ek sorgu. Zaten yukarıdaki bölümlerde olan videolar `(listede)` ile işaretli, öncelikleri orada.
+
+
+## claude code subagents skills hooks workflow production
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [AbpyqAfxZ8c](https://www.youtube.com/watch?v=AbpyqAfxZ8c) | I Built an Agentic Software Factory with Codex and Claude Code | 20 | 73959 | Owain Lewis | A |
+| [eSP7PLTXNy8](https://www.youtube.com/watch?v=eSP7PLTXNy8) | Build a proactive agent workflow with Claude Code | 22 | 336433 | Claude | (listede) |
+| [S_oN3vlzpMw](https://www.youtube.com/watch?v=S_oN3vlzpMw) | How AI agents & Claude skills work (Clearly Explained) | 35 | 880169 | Greg Isenberg | B |
+| [OZ9NhFwVCtQ](https://www.youtube.com/watch?v=OZ9NhFwVCtQ) | Claude Agents Tutorial: Free 2-Hour Masterclass by Anthropic | 112 | 4237 | Roman Knox | C |
+| [mZzhfPle9QU](https://www.youtube.com/watch?v=mZzhfPle9QU) | How I use Claude Code (Meta L7 Senior Staff Engineer Tips) | 46 | 499004 | John Kim | A |
+| [HR1lI4V0oKE](https://www.youtube.com/watch?v=HR1lI4V0oKE) | Learn Claude Code From Scratch in 3 Hours (Full 2026 Course) | 183 | 19430 | Aniket Panjwani | C |
+| [EQq_qQ_P67c](https://www.youtube.com/watch?v=EQq_qQ_P67c) | Claude Code for Business: Run Your Entire Company With an AI Team | 24 | 47239 | Nick Puru | AI Automation | B |
+| [pUykUYkFVTM](https://www.youtube.com/watch?v=pUykUYkFVTM) | Build Real AI Systems With Claude Code (Step-by-Step) | 157 | 32559 | Simon Scrapes | C |
+| [brLhhkUqcn4](https://www.youtube.com/watch?v=brLhhkUqcn4) | Claude Code Essentials | 740 | 550164 | freeCodeCamp.org | C |
+| [QoQBzR1NIqI](https://www.youtube.com/watch?v=QoQBzR1NIqI) | CLAUDE CODE FULL COURSE 4 HOURS: Build & Sell (2026) | 250 | 2608366 | Nick Saraev | C |
+| [62b5-4MLB_E](https://www.youtube.com/watch?v=62b5-4MLB_E) | Claude Code Deep Dive: Skills, Hooks & Sub-Agents | 65 | 335 | Kowalah | A |
+| [C_1QKZAcJjk](https://www.youtube.com/watch?v=C_1QKZAcJjk) | Claude Certified Developer Foundations (CCDV-F) Certification Course | 417 | 243939 | freeCodeCamp.org | C |
+| [n1je-98lvsQ](https://www.youtube.com/watch?v=n1je-98lvsQ) | Claude Managed Agents is AMAZING. Here's How to Build Any Agent in 16 Minutes | 16 | 92957 | Build Great Products | C |
+| [tmA1FChDslc](https://www.youtube.com/watch?v=tmA1FChDslc) | Claude Code: Build Production-Ready Features with Skills, Agents & Hooks | 39 | 217 | Integrations Ninjas | A |
+| [B_hE-2QxHno](https://www.youtube.com/watch?v=B_hE-2QxHno) | This Claude Code Workflow turned into my Clip Machine. | 37 | 3027 | Enrique Marq | C |
+
+## claude code agent teams parallel sessions
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [Dyj9ShddyMw](https://www.youtube.com/watch?v=Dyj9ShddyMw) | TMUX + Claude Agent Teams = Game Changer | 18 | 67813 | Eric Tech | B |
+| [S-sYlFiGFv8](https://www.youtube.com/watch?v=S-sYlFiGFv8) | How the Claude Code team uses Claude Code | 22 | 319642 | Claude | (listede) |
+| [-1K_ZWDKpU0](https://www.youtube.com/watch?v=-1K_ZWDKpU0) | Claude Code's Agent Teams Are Insane - Multiple AI Agents Coding Together in Real Time | 20 | 172133 | Cole Medin | A |
+| [MlMIkoKz4xw](https://www.youtube.com/watch?v=MlMIkoKz4xw) | How to Set Up Agent Teams in Claude Code using Tmux | 9 | 1161 | Rizwan Saleem | C |
+| [RpUTF_U4kiw](https://www.youtube.com/watch?v=RpUTF_U4kiw) | Claude Code Multi-Agent Orchestration with Opus 4.6, Tmux and Agent Sandboxes | 24 | 64741 | IndyDevDan | A |
+| [kt5a-TXmWew](https://www.youtube.com/watch?v=kt5a-TXmWew) | Claude Code: The Advanced Guide (99% of Devs Skip These Features) | 19 | 105471 | Tech With Tim | (listede) |
+| [vDVSGVpB2vc](https://www.youtube.com/watch?v=vDVSGVpB2vc) | How to Build Claude Agent Teams Better Than 99% of People | 16 | 358173 | Nate Herk | AI Automation | A |
+| [W45XJWZiwPM](https://www.youtube.com/watch?v=W45XJWZiwPM) | Run Multiple Claude Code Agents Without Git Conflicts (Vibe Kanban) | 9 | 17211 | Zen van Riel | B |
+| [VPJCj8J7mB8](https://www.youtube.com/watch?v=VPJCj8J7mB8) | Claude Code Agent Teams: Run Multiple AI Sessions at Once | 9 | 775 | MLTut | C |
+| [vjSdb3-tpkE](https://www.youtube.com/watch?v=vjSdb3-tpkE) | Claude Code Just Got Better | Agent View | 13 | 14497 | John Kim | C |
+| [dDeoblrGRGM](https://www.youtube.com/watch?v=dDeoblrGRGM) | How I Run 6 Coding Agents at Once (My Actual Workflow) | 8 | 53346 | Chris Raroque | A |
+| [tJVUAzLZUyI](https://www.youtube.com/watch?v=tJVUAzLZUyI) | Claude Code Agent View: Parallel Agents Are Here | 12 | 18259 | Leon van Zyl | B |
+| [k_Ty8yiBz98](https://www.youtube.com/watch?v=k_Ty8yiBz98) | Multi Agent Orchestration | Claude Certified Architect Foundations - 02 | 12 | 2818 | TechWhistle | C |
+| [rFGlJ4oIlhw](https://www.youtube.com/watch?v=rFGlJ4oIlhw) | Parallel Claude Code + Git Worktrees: This Setup Will Change How You Ship | 23 | 28682 | Cole Medin | A |
+| [rFVD5JzOgAc](https://www.youtube.com/watch?v=rFVD5JzOgAc) | Build Multi Agent Teams within Claude Code! | 19 | 53483 | Yashica Jain | B |
+
+## spec driven development claude code plan mode
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [e_D9M_MJ9Hs](https://www.youtube.com/watch?v=e_D9M_MJ9Hs) | Spec Driven Workflow with Claude Code #1 - Making a /spec Command | 10 | 82173 | Net Ninja | A |
+| [CmrmmszC_F4](https://www.youtube.com/watch?v=CmrmmszC_F4) | Spec Driven Workflow with Claude Code #3 - Using Plan Mode | 10 | 21300 | Net Ninja | A |
+| [nkDfUobnxH0](https://www.youtube.com/watch?v=nkDfUobnxH0) | Spec-Driven Development with Claude Code | 6 | 9143 | Matt Cline | B |
+| [1QpTm_kaCm4](https://www.youtube.com/watch?v=1QpTm_kaCm4) | Spec-Driven Development in 2026 | BMAD, GSD, Bart Mode, Spec-Kit,  Claude Code & GStack | 17 | 5221 | The AI How | B |
+| [_D-QDJAXMKQ](https://www.youtube.com/watch?v=_D-QDJAXMKQ) | Spec-Driven Development Explained | 6 | 1518 | Program With Erik | C |
+| [altX5elI-1k](https://www.youtube.com/watch?v=altX5elI-1k) | How I Use Claude Code Plan Mode: 3 Examples | 6 | 12710 | AI Coding Daily | B |
+| [nD24henxjT8](https://www.youtube.com/watch?v=nD24henxjT8) | Bart Mode + Claude Code: NEW Spec Toolkit Ends Vibe Coding! 100x Better Than Vibe Coding (Tutorial) | 12 | 24469 | WorldofAI | B |
+| [z6MWGIa-bos](https://www.youtube.com/watch?v=z6MWGIa-bos) | Spec-Driven Development mit Claude Code: Ein praxisorientierter Leitfaden | 8 | 64 | SaM Solutions DACH | C |
+| [2XI-lO7ANYw](https://www.youtube.com/watch?v=2XI-lO7ANYw) | Spec-Driven Development Explained: The Workflow That Keeps AI Agents Aligned | 4 | 16837 | Augment Code | C |
+| [xJQuF02NAK8](https://www.youtube.com/watch?v=xJQuF02NAK8) | The Explore → Plan → Code → Commit workflow in Claude Code | 3 | 495299 | Claude | A |
+| [FoRIj5qcslg](https://www.youtube.com/watch?v=FoRIj5qcslg) | Why You Need Plan Mode in Claude Code (Pro Tips) | 7 | 26377 | GritAI Studio | B |
+| [uoAcpUlO_nw](https://www.youtube.com/watch?v=uoAcpUlO_nw) | Mastering Claude Code: part 4 planning specs tasks using native Claude Code tools. | 18 | 21 | Rick Hightower | C |
+| [RhaF4LVAVng](https://www.youtube.com/watch?v=RhaF4LVAVng) | How I Code With AI Agents (Spec-Driven Development) | 19 | 147915 | Owain Lewis | A |
+| [MO_h4McvCNw](https://www.youtube.com/watch?v=MO_h4McvCNw) | Claude Code: Plan Mode "Trick" for Bigger Feature/Project Spec | 6 | 9566 | AI Coding Daily | B |
+| [3le-v1Pme44](https://www.youtube.com/watch?v=3le-v1Pme44) | Spec-Driven Development in the Real World | 15 | 106599 | Brian Casel | A |
+
+## codex vs claude code app build comparison 2026
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [sbuwHi1Sz6k](https://www.youtube.com/watch?v=sbuwHi1Sz6k) | Codex vs Claude - an Honest Comparison | 22 | 148469 | Tech With Tim | A |
+| [PrF6EYJxTzM](https://www.youtube.com/watch?v=PrF6EYJxTzM) | Codex vs Claude Code 🔥 | 1 | 12462 | ezCommit | C |
+| [9OthNorxp4o](https://www.youtube.com/watch?v=9OthNorxp4o) | Claude Code vs Codex Usage Limits I Ran Both $20 Plans Until They Stopped | 8 | 152 | Skeptical Dev | C |
+| [KVMRSgy25fI](https://www.youtube.com/watch?v=KVMRSgy25fI) | Every Feature Codex Has That Claude Doesn't | 14 | 58717 | Dubibubi | B |
+| [g0hshYnOjH0](https://www.youtube.com/watch?v=g0hshYnOjH0) | I Tested Claude Code vs Codex: The Results Are Shocking | 11 | 6439 | PlivoAI | C |
+| [Q-qUm7QPs2s](https://www.youtube.com/watch?v=Q-qUm7QPs2s) | Grok 4.6 vs Claude Code vs Codex Built The Same App: ONE Clear Winner | 29 | 11813 | ByteGrad | C |
+| [bg0C-2iUUqM](https://www.youtube.com/watch?v=bg0C-2iUUqM) | I Tested Claude Code vs. Codex on Design. It Wasn't Even Close. | 20 | 85227 | Nate Herk | AI Automation | B |
+| [rn5g2F7whAo](https://www.youtube.com/watch?v=rn5g2F7whAo) | I Tested Claude Code vs OpenAI Codex: The Winner Shocked Me | 13 | 820 | RainyTech | C |
+| [G7EUj4d6lkU](https://www.youtube.com/watch?v=G7EUj4d6lkU) | Claude Code vs Codex — I Built the Same App With Both (Raw, No Edits) | 22 | 630 | AI Talks | C |
+| [_GAc6SFoQ9k](https://www.youtube.com/watch?v=_GAc6SFoQ9k) | I Made Claude Code and Codex Build the Same App (RAW RESULTS) | 38 | 111667 | Mansel Scheffel | A |
+| [WCrnS09vpfo](https://www.youtube.com/watch?v=WCrnS09vpfo) | I Made Codex and Claude Code Build the Same App. One Clearly Won. | 21 | 191275 | Nate Herk | AI Automation | A |
+| [OnCep-HlMzI](https://www.youtube.com/watch?v=OnCep-HlMzI) | Cursor vs Claude Code vs Codex (I Built the Same App 3 Times) | 32 | 11355 | Jan Marshal | B |
+| [aHaWFo-kNUk](https://www.youtube.com/watch?v=aHaWFo-kNUk) | Best AI agent for programming: Claude Code vs OpenAI Codex vs OpenClaw | Peter Steinberger | 3 | 13774 | Lex Clips | C |
+| [kFvEReALJL8](https://www.youtube.com/watch?v=kFvEReALJL8) | I Tested DeepSeek Agent Harness Against Codex and Claude Code | 13 | 38245 | Owain Lewis | C |
+| [3_MJCtVQlMU](https://www.youtube.com/watch?v=3_MJCtVQlMU) | Claude Code vs Codex: I Made Them Build the Same App (Fable 5 vs GPT-5.6 Sol) | 15 | 12512 | Selene | Friday AI Club | B |
+
+## claude code türkçe skill agent
+
+| id | başlık | dk | izlenme | kanal | öncelik |
+|---|---|---|---|---|---|
+| [q3Dp4AQYb-I](https://www.youtube.com/watch?v=q3Dp4AQYb-I) | Sıfırdan Claude Code: 45 dakikada ilk projeni yap (Uygulamalı) | 44 | 83330 | Dolunay Özeren | A |
+| [G6Ll-Tz06Nk](https://www.youtube.com/watch?v=G6Ll-Tz06Nk) | Claude Code SKILLS ile 50X Verimli VIBE CODING & Yapay Zekayı Gerçek Bir Yazılımcıya Dönüştür! | 19 | 13468 | AI Mevzuları | Yapay Zeka | A |
+| [oGI1YmC2L00](https://www.youtube.com/watch?v=oGI1YmC2L00) | Claude Code Skills Guide: Build Your Own AI Capabilities from Scratch | 21 | 21487 | burhan kocabıyık | B |
+| [6QQm9bs4rqA](https://www.youtube.com/watch?v=6QQm9bs4rqA) | Kullandığım En İyi 6 Claude Code Skill'i | 14 | 28491 | İsa Nurdoğdu | A |
+| [L3des8g36D0](https://www.youtube.com/watch?v=L3des8g36D0) | Claude Skills Nedir? Nasıl Oluşturulur? | Yapay Zeka Yeteneklerini Kodlama Bilmeden de Geliştir! | 22 | 18463 | Harun Seyhan | B |
+| [l0R78lVQxEo](https://www.youtube.com/watch?v=l0R78lVQxEo) | CLAUDE CODE 0'DAN UZMANLIĞA KURS 5 SAAT: Öğren & Sat (2026) | 297 | 35785 | Mert Durmazer | Digital Academy | (listede) |
+| [NruhNt5cxqg](https://www.youtube.com/watch?v=NruhNt5cxqg) | Claude Code'da Ajan Takımı Kurmanın Sırrı (%99'u Bilmiyor) | 12 | 39559 | İsa Nurdoğdu | (listede) |
+| [d6_zK9JEHqs](https://www.youtube.com/watch?v=d6_zK9JEHqs) | Claude Code Agentic OS… Kendini Geliştiriyor | 15 | 4367 | Mert Durmazer | Digital Academy | B |
+| [qm0ZlYezt1Q](https://www.youtube.com/watch?v=qm0ZlYezt1Q) | CLAUDE CODE FULL KURS 2 SAAT: Kur ve Sat (2026) | 125 | 298348 | burhan kocabıyık | (listede) |
+| [QSo0m9RZqtA](https://www.youtube.com/watch?v=QSo0m9RZqtA) | Kod Yazmayı Bırakın, Yapay Zekayı Yönetin! | Claude Code & Antigravity Uygulamalı Rehber | 11 | 144 | Bilgi Verecek Şeyler | C |
+| [ggvKF8F01VI](https://www.youtube.com/watch?v=ggvKF8F01VI) | Claude Code Agent Teams Nedir? Nasıl Kullanılır? Tam Rehber | 10 | 17513 | Eray Hamurlu | A |
+| [Xu2SIKz8B58](https://www.youtube.com/watch?v=Xu2SIKz8B58) | CLAUDE CODE FULL KURS 3+ SAAT: Kur ve Sat (2026) | 186 | 171487 | burhan kocabıyık | (listede) |
+| [bPUjyJVahH8](https://www.youtube.com/watch?v=bPUjyJVahH8) | Claude Code Skills Artık Çok Daha Güçlü — Sıfırdan Skill İnşa Etmek | 24 | 7679 | Mert Durmazer | Digital Academy | A |
+| [DfqrB-1uqLU](https://www.youtube.com/watch?v=DfqrB-1uqLU) | Claude Code + Superpowers: AI Now Writes Code 10 Times Better! It Manages the Entire Project. | 18 | 13634 | Ömer Göçmen | Yapay Zeka & Otomasyon | B |
+| [iTce_6aHfIs](https://www.youtube.com/watch?v=iTce_6aHfIs) | Bu 43 dakikayı izlemezsen 2026'da çok geç kalacaksın - Claude Code ile Yapay Zeka Ajanlar | 43 | 92419 | Doruk Yalçınsoy | B |
