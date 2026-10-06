@@ -43,3 +43,7 @@
 - Kullanıcı ne dedi: "Yüzde yüze geliyor takılıyor"
 - Kök neden: `YouTubeSource.download` parça parça (Range) indirirken 416 (aralık dosya sonunu aştı) yanıtında yalnızca lambda'dan çıkıyordu; `while(true)` aynı isteği sonsuza kadar yineliyordu. YouTube'un itag'da bildirdiği boyut gerçek dosyadan büyük olunca bu yol tetikleniyordu.
 - Yeni kural: İndirme döngüsü açık `finished` bayrağıyla biter (416, kısa parça, 200 ya da toplam boyuta ulaşma). Content-Range'deki gerçek toplam, tahmine her zaman tercih edilir. Ders: `return@use` döngüyü bitirmez; döngü çıkışları bayrakla ve testle doğrulanır.
+
+### K-001 (genel, HAFIZA.md'de de var): Çözdüğün şeyi yaz
+- Kullanıcı ne dedi: "Bir şeyi çözünce onu nasıl çözdüğünü yaz diğer yapay zekalar da kullansın uğraşmasın"
+- Yeni kural: Her çözüm belirti → kök neden → çözüm → doğrulama biçiminde `docs/COZUMLER.md`'ye (genel) ve DERSLER'e (uygulamaya özel) yazılır. İndirme linkleri jsDelivr ile verilir, başlık + SHA-256 doğrulanır (Ç-001).
