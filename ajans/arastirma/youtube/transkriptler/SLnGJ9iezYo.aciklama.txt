@@ -1,0 +1,32 @@
+In this video, I build a fully animated hero banner with Claude Code — without writing a single line of code myself — in under thirty minutes. The background is a looping video, and as you move your cursor across the room, a soft spotlight follows it and reveals the same scene with the lights on, like a flashlight passing over the interior. Flip the on/off switch and the whole room lights up, the fireplace keeps glowing, and the scene transitions from dark to fully lit.
+
+I walk you through every step and the techniques behind it: sketching the concept in Figma, generating the interior scene and the seamless looping videos in Higgsfield, creating the symmetrical toggle assets, and the exact prompts I used in Claude Code to build the hero, the cursor spotlight, the on/off transition, and the loading animation. I also share why a five-minute Figma sketch saved me about half an hour of back-and-forth, and one small thing Claude added on its own that I didn't even prompt for.
+
+⸻
+
+📥 Free Download
+All the prompts and the actual website files from this video are available as a free download via this link:
+Link: https://rubenstom.gumroad.com/l/Animated-Hero-Banner
+
+🔗 Link Mentioned
+The free style prompts I use to keep a consistent look across AI images come from: https://aiplayfield.com
+
+⸻
+
+📌 Chapters
+0:00 Intro
+0:39 The Concept
+1:03 Generating the Interior Images
+2:26 Generating the Looping Videos
+3:23 Generating the Toggle Images
+3:57 Building the Hero in Claude Code
+5:06 Prompt 02
+5:16 Prompt 03
+5:56 Prompt 04
+6:37 Thank You!
+
+⸻
+
+If you're a designer exploring AI tools, subscribe for two weekly videos on design, workflows, consistency, and creative AI techniques. Let me know your questions in the comments—I'm happy to help!
+
+#claudecode #nanobanana #higgsfield

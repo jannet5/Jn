@@ -1,0 +1,297 @@
+# How to Use Claude Skills as a Designer
+# https://www.youtube.com/watch?v=Iup1WlUyj9M
+# kanal: Griffin Wooldridge | süre: 571 sn | kaynak: yt-dlp:web_embedded:Iup1WlUyj9M.en.json3
+
+[00:00:00] So, there's a built-in feature inside
+[00:00:01] Claude that helps you generate beautiful
+[00:00:03] designs, and most designers don't even
+[00:00:04] know that this exists. They're called
+[00:00:06] skills, and in this video, I'm going to
+[00:00:08] break down every single one that matters
+[00:00:09] for designers, how to build your own
+[00:00:11] skill from scratch, and then I'm going
+[00:00:12] to prove to you that these skills work
+[00:00:14] by generating a beautiful landing page
+[00:00:16] live. So, let's get into it. So, what
+[00:00:18] even is a skill? Think of it as like a
+[00:00:20] simple plugin for Claude. It's a set of
+[00:00:22] instructions and resources that
+[00:00:23] completely changes how Claude approaches
+[00:00:25] specific types of tasks. And the one
+[00:00:27] that you need to know about first is the
+[00:00:28] front-end design skill. This skill is a
+[00:00:30] set of detailed instructions that tells
+[00:00:32] Claude how to think like a designer
+[00:00:34] before it writes a single line of code.
+[00:00:36] Here's how it works. When you ask Claude
+[00:00:38] to build something, a landing page, a
+[00:00:39] dashboard, a component, whatever it is,
+[00:00:41] the skill kicks in and forces Claude
+[00:00:43] through a design thinking process before
+[00:00:45] it touches code. It considers four
+[00:00:47] things: purpose, tone, constraints, and
+[00:00:49] differentiation. And here's the part
+[00:00:51] that's blown me away the most. The skill
+[00:00:53] has a section called front-end
+[00:00:54] aesthetics guidelines that reads like it
+[00:00:56] was written by a senior product
+[00:00:57] designer. It covers typography and not
+[00:01:00] just pick some random font. It tells
+[00:01:02] Claude to avoid generic fonts like Inter
+[00:01:04] and Arial, and instead choose
+[00:01:05] distinctive, characterful type pairings.
+[00:01:07] Then it also covers color, motion,
+[00:01:09] spatial composition, and atmosphere. But
+[00:01:12] here's the most important thing. The
+[00:01:13] skill explicitly tells Claude what not
+[00:01:15] to do. It literally bans what it calls
+[00:01:17] AI slop, those overused purple
+[00:01:19] gradients, the same rounded corner cards
+[00:01:22] on white backgrounds, and Inter font
+[00:01:23] everywhere. And every designer has seen
+[00:01:25] it. The skill is specifically designed
+[00:01:27] to avoid that. So, just by having this
+[00:01:29] one skill installed, you go from
+[00:01:31] obviously AI-generated output to
+[00:01:33] something that actually looks designed.
+[00:01:35] But this is just the beginning. The
+[00:01:36] front-end design skill is the real
+[00:01:38] headliner of this video, but there are a
+[00:01:39] few other lesser-known skills that are
+[00:01:41] incredibly useful for designers. So, let
+[00:01:43] me walk you through these ones worth
+[00:01:45] knowing about.
+[00:01:48] This is an official skill from Figma,
+[00:01:49] and it does exactly what it sounds like.
+[00:01:51] You give it a Figma URL, and it
+[00:01:53] translates your design into
+[00:01:54] production-ready code as close as it can
+[00:01:56] to one-to-one visual fidelity. Here's
+[00:01:58] how it works. You paste a Figma link
+[00:02:00] into Claude. For you, it would most
+[00:02:02] likely be a screen you've designed. The
+[00:02:04] skill parses the URL, pulls the file key
+[00:02:06] and node ID, and then calls the Figma
+[00:02:08] MCP server to fetch the full design
+[00:02:10] context. That means it's reading your
+[00:02:12] actual layout properties, your auto
+[00:02:13] layout settings, your typography specs,
+[00:02:16] your color values, your spacing tokens,
+[00:02:18] and everything else included in your
+[00:02:19] design. Then it takes a screenshot of
+[00:02:21] the design as a visual reference and
+[00:02:23] downloads any assets like icons or
+[00:02:25] images, and then starts building. But
+[00:02:27] it's not just dumping out generic code.
+[00:02:29] The skill has a whole section on
+[00:02:30] translating Figma output into your
+[00:02:32] project's actual conventions. So if your
+[00:02:34] code base uses a specific component
+[00:02:36] library or design system, it maps to
+[00:02:38] that. It reuses your existing buttons,
+[00:02:40] inputs, and typography components
+[00:02:42] instead of recreating them. And at the
+[00:02:44] end, it runs a validation checklist:
+[00:02:46] layout, typography, colors, interactive
+[00:02:48] states, responsive behavior,
+[00:02:49] accessibility, all compared against that
+[00:02:51] one Figma screenshot. Now, one important
+[00:02:53] thing to note, this skill requires the
+[00:02:55] Figma MCP to be connected. So before you
+[00:02:58] use it, you'll need to make sure that's
+[00:02:59] enabled in Claude. It's the bridge that
+[00:03:01] lets Claude actually read your Figma
+[00:03:02] files, and once that connection is set
+[00:03:04] up, you're good to go. For designers
+[00:03:06] who've ever given a screenshot to
+[00:03:07] Claude, told it to turn it into code,
+[00:03:09] and it comes out looking terrible, this
+[00:03:11] skill is going to help close that gap.
+[00:03:13] And you don't need to be a developer to
+[00:03:14] use it. You paste a link, Claude does
+[00:03:16] the rest. Theme Factory.
+[00:03:19] This skill gives you 10 pre-built
+[00:03:21] professional themes. Each one is a
+[00:03:22] complete package with a curated color
+[00:03:24] palette and carefully paired fonts.
+[00:03:26] Think of it like a design system starter
+[00:03:28] kit, except it's not just for UI design.
+[00:03:30] You can apply any of these themes to
+[00:03:32] slides, documents, web pages,
+[00:03:34] dashboards, or reports. Basically, any
+[00:03:36] artifact Claude generates. So if you're
+[00:03:38] building a presentation deck and you
+[00:03:39] don't want to spend 20 minutes picking
+[00:03:41] colors and fonts, you just pick a theme
+[00:03:43] and everything stays consistent. What I
+[00:03:45] like about this one is that each theme
+[00:03:46] has a distinct visual identity. These
+[00:03:49] aren't just random color combos. They're
+[00:03:50] designed for specific contexts and
+[00:03:52] audiences. So, you've got options that
+[00:03:54] work for corporate presentations,
+[00:03:56] creative pitches, editorial layouts, and
+[00:03:58] more. And because the themes include
+[00:04:00] both header and body font pairings, you
+[00:04:02] get great typographic hierarchy along
+[00:04:04] with harmonious color palettes.
+[00:04:09] Brand guidelines.
+[00:04:11] This one is about consistency, and it's
+[00:04:12] a concept that every in-house or agency
+[00:04:14] designer should pay attention to. Out of
+[00:04:16] the box, this skill is set up with
+[00:04:18] Anthropic's brand, their colors,
+[00:04:20] typography, and visual identity rules.
+[00:04:23] But, the real value here isn't
+[00:04:24] Anthropic's brand, of course, because
+[00:04:26] you don't work for Anthropic. You can
+[00:04:27] still just use this skill as a template.
+[00:04:29] So, think about what this skill actually
+[00:04:31] does. It takes a set of brand rules,
+[00:04:33] like hex codes, font stacks, spacing
+[00:04:36] values, logo usage, tone, and enforces
+[00:04:38] them automatically across everything
+[00:04:40] Claude generates. Every artifact, every
+[00:04:42] landing page, every deck comes out on
+[00:04:45] brand without you having to check it.
+[00:04:47] Now, imagine building one of these for
+[00:04:48] your own company. You take this skill as
+[00:04:50] a reference, have Claude swap in your
+[00:04:52] own brand tokens, your primary and
+[00:04:54] secondary colors, your heading and body
+[00:04:56] fonts, your spacing scale, your do's and
+[00:04:58] don'ts, and suddenly Claude knows your
+[00:05:00] brand just as well as you do. And this
+[00:05:02] is especially powerful if you're on a
+[00:05:04] small team where there's no dedicated
+[00:05:05] design system person enforcing
+[00:05:07] consistency. You could even share it
+[00:05:09] with non-designers on your team,
+[00:05:10] marketing, sales, whoever, so that
+[00:05:12] anything they generate in Claude
+[00:05:14] automatically follows your visual
+[00:05:15] standards. Realistically, connecting
+[00:05:17] Claude to Figma via an MCP is going to
+[00:05:19] get you more accurate results. And if
+[00:05:21] you'd like a video on how to do that,
+[00:05:23] let me know in the comments. But, this
+[00:05:24] skill is a quicker way to get UI that
+[00:05:26] follows your desired style guidelines.
+[00:05:28] The skill itself is pretty simple to set
+[00:05:30] up once you understand the format, and
+[00:05:32] I'll show you how to create one from
+[00:05:33] scratch in a minute using the skill
+[00:05:35] creator.
+[00:05:36] Canvas design.
+[00:05:38] This last one is different from
+[00:05:39] everything else I've shown you. It's not
+[00:05:41] for UI, it's for creating actual visual
+[00:05:43] art, like posters, graphics, static
+[00:05:45] design pieces, as real PNG and PDF
+[00:05:48] files. And the way it works is genuinely
+[00:05:50] unique. It's a two-step process. First,
+[00:05:52] Claude creates a written design
+[00:05:53] philosophy, like an actual aesthetic
+[00:05:55] manifesto. It defines a visual movement,
+[00:05:58] describes the principles behind it,
+[00:06:00] forms and colors and composition rules
+[00:06:02] it'll follow. Then in step two, it takes
+[00:06:04] that philosophy and expresses it on a
+[00:06:05] canvas as a real image file. So it's
+[00:06:08] designing from real principles, comes up
+[00:06:10] with a creative direction, and then
+[00:06:11] executes it. For things like event
+[00:06:13] posters, social graphics, abstract art
+[00:06:16] for presentations, or visual concepts
+[00:06:18] you want to explore quickly, this is a
+[00:06:19] really interesting tool. And it won't
+[00:06:21] replace Photoshop or Illustrator because
+[00:06:23] that isn't Claude's main use case, but
+[00:06:25] it does give you a way to explore visual
+[00:06:27] directions in seconds in a way that you
+[00:06:29] wouldn't otherwise be able to with
+[00:06:30] Claude. So between front-end design and
+[00:06:32] these other skills that I've showed you,
+[00:06:34] you've got a complete creative toolkit
+[00:06:36] inside Claude. UI generation, Figma to
+[00:06:38] code, theming, brand enforcement, and
+[00:06:41] visual art. But what happens when you
+[00:06:42] need a skill that doesn't exist yet?
+[00:06:44] This is where the skills feature gets
+[00:06:46] really powerful. Of course, in the realm
+[00:06:48] of AI, you're never limited to what's
+[00:06:50] already been built. You can create your
+[00:06:51] own skills, and Claude will actually
+[00:06:53] help you do it. So now you're not just a
+[00:06:55] user of these skills, you're also a
+[00:06:56] creator. You can build exactly the skill
+[00:06:58] you need for whatever kind of project
+[00:07:00] you're working on. There's a skill
+[00:07:01] called the skill creator. It's a skill
+[00:07:03] for making skills, and the workflow is
+[00:07:05] pretty simple. Here's how it works. You
+[00:07:07] tell Claude what you want the skill to
+[00:07:08] do. Maybe you want a skill that
+[00:07:10] generates mobile app screens in your
+[00:07:11] company's design system, or a skill that
+[00:07:13] writes UX copy in your brand voice.
+[00:07:16] Claude then interviews you. It asks
+[00:07:18] about edge cases, input formats, output
+[00:07:20] expectations, then it writes a draft of
+[00:07:22] the skill.md file. That's the core
+[00:07:24] instruction document, but it doesn't
+[00:07:26] stop there. It creates test prompts,
+[00:07:28] runs them, and shows you the results so
+[00:07:30] you can evaluate whether the skill is
+[00:07:32] actually working. You give feedback, it
+[00:07:33] revises, and you repeat. It's an
+[00:07:35] iterative design process, just like how
+[00:07:37] we design products in real life. The
+[00:07:39] anatomy is simple. Every skill is a
+[00:07:40] folder. It has a skill.md file at the
+[00:07:43] root. That's the brain. And optionally,
+[00:07:45] it can include scripts, reference
+[00:07:47] documents, and any other assets you want
+[00:07:49] Claude to inform its responses with. The
+[00:07:51] skill.md has a name, a description that
+[00:07:53] controls when it triggers, and then the
+[00:07:55] actual instructions. And when you're
+[00:07:56] done, you can package it as a .skill
+[00:07:58] file and share it. Install it on another
+[00:08:00] machine, send it to a teammate, share it
+[00:08:02] with the community. It's like building
+[00:08:04] your own design plugin. So, you're not
+[00:08:05] just a user of these skills, you're a
+[00:08:07] creator. You can build exactly the tool
+[00:08:09] you need. Now, let me prove all of this
+[00:08:11] actually works. So, now let's see what
+[00:08:13] this looks like in practice. Right here
+[00:08:15] in Claude, I'm going to generate a full
+[00:08:16] landing page from a single prompt using
+[00:08:18] the front-end design skill, which like I
+[00:08:20] said is hands-down the most valuable
+[00:08:22] skill for UI design right now.
+[00:08:44] So, that's the power of skills. Claude
+[00:08:46] isn't just guessing. It has a design
+[00:08:48] playbook preloaded, and it executes with
+[00:08:50] intention. So, to recap, skills are
+[00:08:52] Claude's hidden plugin system. The
+[00:08:54] front-end design skill alone transforms
+[00:08:57] how Claude generates UI, and other
+[00:08:59] skills like Theme Factory and Implement
+[00:09:00] Design round out the designer's toolkit.
+[00:09:03] And with the skill creator, you can
+[00:09:04] build the perfect tool for your specific
+[00:09:06] workflow. But here's the thing, skills
+[00:09:08] are just one piece of the puzzle when it
+[00:09:09] comes to building using Claude. And you
+[00:09:11] have a lot more to learn if you want to
+[00:09:13] use Claude for most or even all of your
+[00:09:15] design process. Lucky for you, I have a
+[00:09:17] full video guide on my design workflow
+[00:09:19] using Claude code, so make sure you go
+[00:09:21] check out that video, too. As always, I
+[00:09:23] hope you guys have gotten some good
+[00:09:24] value out of this video, and if you did,
+[00:09:26] subscribe to continue becoming a better
+[00:09:28] designer.

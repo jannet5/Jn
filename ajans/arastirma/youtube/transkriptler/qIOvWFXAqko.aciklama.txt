@@ -1,0 +1,13 @@
+Welcome to the first episode of my new series, Vibe Coding.
+
+In this series, I recreate Awwwards-level websites using AI tools as my coding partner. For Episode 1, I rebuilt the Services Card Section from the award-winning website Truus.co (https://truus.co/), which was featured on Awwwards as Site of the Day.
+
+Instead of manually coding everything from scratch, I collaborated with Google Antigravity and TRAE AI throughout the process. I carefully studied the original layout, animations, hover effects, spacing, and interaction details. After analyzing the design, I broke everything down into structured prompts and guided the AI step by step, refining the generated output until it matched the original experience as closely as possible.
+
+This is not just about cloning a website. It is about reverse engineering premium UI, understanding animation logic, improving prompt engineering skills, and learning how to collaborate effectively with AI to build high-quality frontend experiences.
+
+In this video, you will see how I analyze an Awwwards website, structure prompts for better AI results, and recreate smooth services card interactions while explaining my complete thought process during development.
+
+This marks the beginning of my journey to master high-level frontend development through AI collaboration. More sections from this website will be recreated in upcoming episodes as part of the Vibe Coding series.
+
+If you are interested in creative frontend development, modern UI/UX, and AI-assisted web building, this series is for you.

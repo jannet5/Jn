@@ -1,0 +1,49 @@
+Build a skill once (or grab one someone already made), and your AI reaches for it on its own every time it's relevant, so you never have to think about it again.
+
+Get our skills for free (PRD skill, Extract DS, and more) → https://designproject.io/skills-repo/?utm_source=youtube&utm_medium=video&utm_campaign=design_system_skills_repo&utm_content=description/
+
+Join TDP Community as a Founding Member NOW!⭐  https://designproject.io/community/?utm_source=youtube&utm_medium=video&utm_campaign=design_system_skills_community&utm_content=description
+
+Design to Code Workshop for Companies 🚀 Apply using this link → https://relay.designproject.io/design-system-skills-workshop
+
+Need an AI-native design team to help you build better products faster? →https://designproject.io/get-started/
+
+WATCH MORE LIKE THIS:  
+▶️ Design.md: How to make your design system work with AI https://www.youtube.com/watch?v=5VgnHOiOUyc&t=126s   
+▶️ How to Use the Mobbin MCP with AI (Full Tutorial) https://www.youtube.com/watch?v=N6b3alsePDs&t=10s   
+▶️ Don't Build a Design System from Scratch (Claude Code + Figma + ShadCn): https://youtu.be/CrHKvTWECtY   
+▶️ Design Systems for Beginners (Claude Code + Figma)https://youtu.be/CrHKvTWECtY 
+
+A skill is a reusable set of instructions and context that any AI Agent like Claude Code or Codex loads on its own. Unlike a .md file you have to paste in every time, a skill is already programmed: it reads its own description, sees that your prompt matches, and applies it automatically giving you a standardized output every time.
+
+The problem is that most of us keep re-teaching AI the same patterns over and over, especially the repeatable parts of a design system: component conventions, tokens, handoff. This video is about what a skill actually is, how to use one, and how to wire skills into your design system so your whole team can move faster. 
+
+WHAT YOU’LL LEARN  
+• What a skill actually is, and how it's different from a .md file   
+• How a skill auto-triggers from its description, with no pasting and no calling it manually   
+• What's inside a skill: the skill.md, templates, and company context   
+• Installing our team's full set of skills in one command   
+• The skills we use for design systems: extracting a design system, component metadata, and Figma to code   
+• Running the Extract DS skill on a real product repo to generate design tokens   
+• Building your own custom skill from scratch (a component token audit) Why skills are a big unlock for design systems and design-to-code
+
+RESOURCES:   
+• The Claude skills my team uses to build design systems (free): https://designproject.io/skills-repo/?utm_source=youtube&utm_medium=video&utm_campaign=design_system_skills_repo&utm_content=description/   
+• My walkthrough on building an agentic design system: https://www.youtube.com/watch?v=CrHKvTWECtY&t=704s 
+
+CONNECT WITH ME:  
+🌐 https://designproject.io/ 💼 LinkedIn: /diannealter
+
+—-  
+TIMESTAMPS
+
+0:00 Why we keep teaching AI the same patterns   
+0:44 What a skill actually is (and why it beats a markdown file)   
+2:55 The big unlock for design systems   
+3:38 How to install skills from a repo   
+5:37 A tour of the skills you get   
+8:01 Live demo: extracting a design system   
+11:09 Building your own skill from scratch   
+13:46 Recap and what to try next
+
+About The Design Project: We help B2B SaaS product teams ship faster by combining AI tools with strategic design expertise. We've worked with 50+ teams (including companies acquired by Slack, Nvidia, and MrBeast) to cut product cycles in half using battle-tested AI workflows and design systems.

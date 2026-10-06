@@ -1,0 +1,58 @@
+Give AI tools a single source of truth to generate UI that looks exactly like your product.
+
+Join the TDP Community ⭐ → https://designproject.io/community/?utm_source=youtube&utm_medium=video&utm_campaign=design_md_files_community&utm_content=description
+
+Design to Code Workshop for Companies 🚀 Apply using this link → https://relay.designproject.io/design-md-files-workshop
+
+Need an AI-native design team to help you build better products faster? →https://designproject.io/get-started/ 
+
+Watch more like this:
+
+• Don't Build a Design System from Scratch (Claude Code + Figma + ShadCn) → https://youtu.be/CrHKvTWECtY
+• I Built My Entire Design System in 4 Hours With AI. Full Tutorial (Claude + Cursor + Figma) → https://youtu.be/nafNPuElCtY
+• Figma to Component Library in 2 Days (Claude Code + Storybook Tutorial) → https://youtu.be/AiEATeNyWnk?si=5T6SQR2CGdZUl0a2
+• How to Use the Mobbin MCP with AI (Full Tutorial) → https://www.youtube.com/watch?v=N6b3alsePDs&t=10s
+• I've Been a Claude Code Lover for a Year. Then I Tried Codex → https://www.youtube.com/watch?v=uswUyEnrSwg&t=12s
+• I Used Claude Design on a Real Product Feature. My Honest Review → https://www.youtube.com/watch?v=m0sfGvVzGYs&t=19s
+• Is UI Design Dead? → https://youtu.be/u0E3FIDAjec?si=1wJmifP3E1PBjC4J
+• Stop Using V0 and Lovable to Prototype, Use Claude Code Instead → https://youtu.be/hqIU6hluMZA?si=owf3lb95d4xMWrsm
+• Stop Wasting Dev Time on Frontend: Figma to Code in 8 Minutes → https://youtu.be/BOl05zmQjOg
+
+A design.md file is a markdown document that describes a product's design system: colors, typography, spacing, components, and rules in a format AI agents can read and apply when generating UI that actually looks like your product.
+
+The problem is that most teams only go as deep as building a website, when in reality their product is much more complex. This video is about how to upgrade a typical design.md for a more complex product. The key idea: it should still stay high level and define the design overall, but it should also link out to additional resources so AI can pick up the deeper details that a real product actually has.
+
+In this video I cover:
+• What a design.md actually is, and where the spec comes from
+• Generating one from a real product repo with the Google Labs skill
+• Reading through what it captured: colors, typography, layout, do's and don'ts
+• Keeping it high level while linking out to the deeper details
+• Pointing each component to its metadata so the design.md stays light but AI can still go deep
+• Wiring it into your CLAUDE.md and AGENTS.md so AI references it on every UI change
+• How this lets your whole team (designers, PMs, engineers, founders) build product UI that matches your design system
+
+New to Claude Code? Start with my setup guide first so you can follow along → https://youtu.be/nbnD2h4IP8I?si=z_bTZa7t2yRASlsJ
+
+Resources:
+• Google Labs design.md skill: https://github.com/google-labs-code/design.md
+• My walkthrough on building a component library in Storybook → https://www.youtube.com/watch?v=AiEATeNyWnk&t=4s
+• The tools my team and I use to build agentic design systems (free): https://designproject.io/tdp-labs
+
+🔗 Want to embed a senior design team into your product? → https://designproject.io/ 
+💬 Connect with me on LinkedIn → https://www.linkedin.com/in/diannealter/
+
+Timestamps: 
+0:00 What design.md is and why push it deeper
+0:52 The Google Stitch format explained
+3:06 Installing the Google Labs skill in the CLI
+4:25 Running the spec to build design.md from your repo
+6:11 Walking through the generated design file
+8:50 Going deeper with component metadata
+11:08 Wiring the rule into CLAUDE.md and agents.md
+15:25 Recap and free tools
+
+🔔 Subscribe for weekly insights about AI, design, and product here :) @thedesignproject
+
+CONNECT WITH ME: 🌐 https://designproject.io/ 💼 LinkedIn: /diannealter
+
+About The Design Project: We help B2B SaaS product teams ship faster by combining AI tools with strategic design expertise. We've worked with 50+ teams (including companies acquired by Slack, Nvidia, and MrBeast) to cut product cycles in half using battle-tested AI workflows and design systems.

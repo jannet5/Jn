@@ -1,0 +1,30 @@
+In this video, I show you how I designed and built a fully animated hero section for a website in less than 90 minutes — using Claude Code together with AI-generated visuals from Higgsfield. The hero section uses a video scrubbing effect, where the video only plays as you scroll, transitioning from a smaller framed shot into a full-screen interior scene with a large heading.
+
+I walk you through the full workflow: generating the start and end frames with Nano Banana, creating the video with Seedance 2.0, testing the new Claude Design app and why I eventually switched back to Claude Code, and building the hero section step by step. I also show how I reversed the entire transition using Git branches, and added a polished loading animation as a finishing touch.
+
+⸻
+
+📥 Free Download
+All prompts and the actual website files are available as a free download via this link: https://rubenstom.gumroad.com/l/Animated-Hero-Section-AI
+
+🔗 Link Mentioned
+My free style prompt library on AI Playfield:
+https://aiplayfield.com
+
+⸻
+
+📌 Chapters
+0:00 Intro
+0:38 The Visuals
+2:04 Claude Design
+3:32 Building the Website
+4:03 The Transition
+4:31 Transition Reversal
+5:30 Loading Animations
+6:00 Thank You!
+
+⸻
+
+If you're a designer exploring AI tools, subscribe for two weekly videos on design, workflows, consistency, and creative AI techniques. Let me know your questions in the comments—I'm happy to help!
+
+#claudecode #higgsfield #nanobanana

@@ -1,0 +1,660 @@
+# How to Use Claude Design To Make Sites 10X More Beautiful
+# https://www.youtube.com/watch?v=y2n1NMrMNBo
+# kanal: Mikey Website | süre: 1386 sn | kaynak: yt-dlp:web_embedded:y2n1NMrMNBo.en.json3
+
+[00:00:00] If you've been using cloud design to
+[00:00:01] build websites, then you've probably
+[00:00:03] noticed something that most of them end
+[00:00:06] up looking kind of the same. And it's
+[00:00:08] not your fault either. I gave the same
+[00:00:11] prompt to 100 different people and then
+[00:00:13] asked them to build a website with claw
+[00:00:15] design. And almost every single result
+[00:00:18] looked nearly identical. Same layout,
+[00:00:20] same vibe, same generic feel. But here's
+[00:00:23] what nobody tells you. The first
+[00:00:24] generation is never the product. It's
+[00:00:26] just the starting point. So, the people
+[00:00:28] building sites that actually look
+[00:00:30] polished and intentional, well, they're
+[00:00:32] not better designers. They don't know
+[00:00:34] how to code. They're just doing one
+[00:00:36] thing differently after that first draft
+[00:00:38] appears on the screen. And in this
+[00:00:40] video, I'm going to show you the exact
+[00:00:42] process that I use myself to make sites
+[00:00:45] 10 times more beautiful with claw
+[00:00:47] design. No design background, no code,
+[00:00:49] just a repeatable workflow that
+[00:00:52] completely transforms what the AI gives
+[00:00:54] you. And by the end of this, you'll
+[00:00:55] never look at a first draft the same way
+[00:00:57] ever again. Now, if you do want to
+[00:00:59] master AI tools and you do want to learn
+[00:01:01] how to build profitable SAS apps and
+[00:01:03] websites, AI agents and mobile apps with
+[00:01:05] AI, I've created a complete master class
+[00:01:08] that shows you exactly how to do this
+[00:01:10] step by step. And my master class
+[00:01:12] normally costs $499 to join, but since
+[00:01:15] you are watching this video, thank you
+[00:01:16] so much. You can join completely free.
+[00:01:19] Just check out that link in the
+[00:01:20] description below to get free access to
+[00:01:22] my master class and you too can start
+[00:01:24] building your own AI powered business
+[00:01:25] today. All right, let's get into this. A
+[00:01:28] lot of people hear about claw design and
+[00:01:30] assume it's another AI tool that
+[00:01:32] generates images or spits out code and
+[00:01:35] that's not really what it does. Claude
+[00:01:37] design is built around the idea of
+[00:01:39] creating visual projects through
+[00:01:41] conversation. You describe what you want
+[00:01:43] in plain English and then Claude
+[00:01:44] generates something that you can [music]
+[00:01:46] immediately see, you can interact with
+[00:01:49] and refine. So that's websites,
+[00:01:50] prototypes, presentations, landing
+[00:01:53] pages, mockups, and other visual assets.
+[00:01:55] All of those can be created inside the
+[00:01:57] same workspace. The interface is split
+[00:01:59] into two panels. [music]
+[00:02:01] The chat sits on the left where you
+[00:02:02] communicate with Claude and then the
+[00:02:04] canvas sits on the right where your
+[00:02:06] design appears and updates in [music]
+[00:02:08] real time. So every request that you
+[00:02:10] make shows up visually on the canvas,
+[00:02:13] creating a workflow that feels much more
+[00:02:15] interactive than a traditional AI
+[00:02:17] [music] chat. So rather than reading
+[00:02:19] descriptions or scrolling through blocks
+[00:02:21] of code, well, now you're working
+[00:02:23] directly with a design that you can
+[00:02:25] review [music] and click on and modify
+[00:02:27] as it evolves. Claw design is powered by
+[00:02:30] Anthropic's most capable vision model
+[00:02:33] and it is currently available as a
+[00:02:35] research preview [music] for prom max
+[00:02:37] team and enterprise users. So if you are
+[00:02:39] on one of those plans then you already
+[00:02:41] have access through claw.ai/design.
+[00:02:45] And one reason the tool has become so
+[00:02:47] popular is that design experience isn't
+[00:02:49] a requirement. Professional designers
+[00:02:51] can [music] use it to explore concepts
+[00:02:53] and creative directions much faster. But
+[00:02:56] it is also equally useful for founders
+[00:02:58] and marketers and creators and business
+[00:03:00] owners who have an idea and want to turn
+[00:03:02] it into something polished without
+[00:03:05] having to learn a traditional design
+[00:03:07] workflow. And if that sounds like you,
+[00:03:09] then everything we're about to cover
+[00:03:10] here will make a lot more sense. Now, to
+[00:03:13] see why most people never get great
+[00:03:15] results from cloud design, we do [music]
+[00:03:17] need to start the same way that they do.
+[00:03:19] And usually there's an idea in mind, but
+[00:03:22] not much patience. And the goal is
+[00:03:23] simply to get [music] something on the
+[00:03:25] screen as quickly as possible. So the
+[00:03:28] prompt just ends up being the shortest
+[00:03:30] [music] version of the idea. So for this
+[00:03:32] example, I'm building a landing page for
+[00:03:34] a coffee shop. And the prompt is going
+[00:03:37] to be make me a landing page for a
+[00:03:39] coffee shop. And that's the entire
+[00:03:42] prompt. There's no details about the
+[00:03:43] brand, no layout instructions, [music]
+[00:03:45] there's no target audience, no design
+[00:03:47] direction. It's exactly the kind of
+[00:03:49] prompt that most people will type on
+[00:03:51] their first attempt. And Claude takes
+[00:03:53] that request and starts filling in the
+[00:03:55] missing information all on its own. And
+[00:03:57] it may ask a few follow-up questions.
+[00:03:59] Yes, which we will answer. And within a
+[00:04:01] few seconds, we do have a complete
+[00:04:03] landing [music] page generated on the
+[00:04:05] canvas here. And at first glance, it
+[00:04:07] looks perfectly fine. There's a
+[00:04:08] navigation bar, a hero section, some
+[00:04:11] supporting content, and a call to action
+[00:04:13] button. The structure is organized.
+[00:04:15] Nothing is broken, and everything
+[00:04:16] appears where you would expect it to be.
+[00:04:19] The problem becomes obvious when you
+[00:04:21] spend a little bit more time looking at
+[00:04:23] it. The typography feels generic. The
+[00:04:26] spacing is clean but predictable. The
+[00:04:28] color palette could belong to almost any
+[00:04:30] coffee shop [music] really. Even the
+[00:04:32] headline sounds like something you've
+[00:04:34] seen dozens of times already. Nothing
+[00:04:36] about the page just stands out or
+[00:04:38] communicates [music] a unique
+[00:04:39] personality. And that's why so many
+[00:04:41] people just come away disappointed after
+[00:04:43] their first generation. Bot didn't do
+[00:04:45] anything wrong here. It gave us exactly
+[00:04:47] what we asked for. The prompt contained
+[00:04:49] almost no direction anyway. So Claude
+[00:04:51] had to fill in those gaps with the
+[00:04:53] safest possible choices. [music] And
+[00:04:55] this version is important because it is
+[00:04:57] going to be our baseline for the rest of
+[00:04:59] the video here. So every improvement
+[00:05:01] that we make from this point [music]
+[00:05:02] forward will be compared against this
+[00:05:05] page. So by the end we'll have something
+[00:05:07] that feels intentional, polished, and
+[00:05:10] professionally designed. And we'll get
+[00:05:11] there without starting over or using any
+[00:05:14] design skills. [music] The only
+[00:05:15] difference will be how we use the tool
+[00:05:17] and how specific we are with our
+[00:05:19] instructions. So now let's make a single
+[00:05:21] change that has a bigger impact than
+[00:05:24] almost anything else you'll do inside of
+[00:05:26] clot design. Most people assume better
+[00:05:29] results will come from advanced features
+[00:05:31] or hidden tricks. In reality, the
+[00:05:33] biggest improvement usually just comes
+[00:05:35] before the design is even generated at
+[00:05:37] all. It comes from the prompt itself.
+[00:05:39] And the difference [music] is simple.
+[00:05:40] Generic prompts of course produce
+[00:05:42] generic designs, right? Specific prompts
+[00:05:44] give Claude enough information to make
+[00:05:46] intentional decisions. [music]
+[00:05:48] So, a good prompt should tell Claude
+[00:05:50] four things. The goal, the layout, the
+[00:05:53] content, and the audience. So, here's
+[00:05:55] what that looks like in practice. Create
+[00:05:56] [music] a landing page for a small badge
+[00:05:59] specialty coffee roaster. The goal is to
+[00:06:02] get local people to come in [music] and
+[00:06:03] buy beans. Lay out a full width hero
+[00:06:06] with one strong image and a short
+[00:06:08] tagline. [music] Then a section telling
+[00:06:10] the brand story, a section showing the
+[00:06:12] beans, and a visit us block near the
+[00:06:15] bottom. The brand is warm. It's crafted
+[00:06:18] and slightly premium single origin
+[00:06:20] coffee roasted in small batches. Keep
+[00:06:22] the copy in that voice. This is for
+[00:06:24] local coffee lovers who care about
+[00:06:27] quality and craft, not a big chain. So,
+[00:06:29] notice how much direction that we're
+[00:06:31] actually giving Claude. Now the goal is
+[00:06:32] clear. The layout is defined. The brand
+[00:06:35] personality is described. The audience
+[00:06:37] is identified and Claude no longer has
+[00:06:39] to invent those details on its own
+[00:06:41] because we've already provided them. And
+[00:06:43] Claude may still ask a few follow-up
+[00:06:45] questions which we will answer. And then
+[00:06:47] we can compare the result to our first
+[00:06:50] version. And we're still building a
+[00:06:52] landing page for the same coffee
+[00:06:54] business. Now the only thing that
+[00:06:56] changed is the quality of our
+[00:06:59] instructions. So take a look at the
+[00:07:00] difference here. The page has a much
+[00:07:02] stronger identity. The hero section
+[00:07:04] immediately communicates the type of
+[00:07:06] brand that we're looking at. The
+[00:07:08] typography has actual character. The
+[00:07:10] spacing creates a clearer visual
+[00:07:12] hierarchy. And the copy does actually
+[00:07:14] sound like it belongs to a specialty
+[00:07:16] coffee company rather than another
+[00:07:18] generic template. There's nothing
+[00:07:20] magical happening here behind [music]
+[00:07:21] the scenes. Claude simply just had more
+[00:07:23] information to work with. Earlier, it
+[00:07:26] had to make safe assumptions about
+[00:07:28] everything, but now it knows the mood,
+[00:07:30] the structure, the audience, [music]
+[00:07:31] and the purpose of the page. And it's in
+[00:07:34] those details that influence every
+[00:07:36] decision that it makes, from the visual
+[00:07:38] style to the wording on the screen. And
+[00:07:39] that's why prompt specificity matters so
+[00:07:42] much. The tool didn't suddenly become
+[00:07:44] better between the first version and
+[00:07:47] this one. No, the instructions are what
+[00:07:49] became better. Spending an extra what 30
+[00:07:51] seconds defining the goal, the layout,
+[00:07:53] content, and audience will improve your
+[00:07:55] results more than most people realize.
+[00:07:58] The page is already in a much better
+[00:08:00] place, but we're not finished. Not yet.
+[00:08:02] A good first generation gives us
+[00:08:03] something worth improving, yes, and
+[00:08:06] that's [music] exactly what we're going
+[00:08:07] to do next. The first version gave us a
+[00:08:09] strong starting point, but there is
+[00:08:11] still work to do. And this is where the
+[00:08:13] chat becomes useful. So, think of chat
+[00:08:16] as the tool for larger changes that
+[00:08:18] affect the entire page. Things like
+[00:08:20] layout adjustments, section order,
+[00:08:22] visual direction, and overall
+[00:08:23] presentation all belong here. The
+[00:08:25] smaller tweaks can wait until later, but
+[00:08:27] right now, we're focused on the
+[00:08:29] foundation. Looking at the page, two
+[00:08:31] things do stand out to me immediately.
+[00:08:33] The feature products are buried too far
+[00:08:36] down the page, and the overall
+[00:08:38] presentation could do a better job
+[00:08:39] reflecting a premium small batch coffee
+[00:08:42] brand. So, let's [music] fix those one
+[00:08:43] at a time. The first change is all about
+[00:08:45] structure. I want visitors to see the
+[00:08:47] [music] product much earlier. So, I'm
+[00:08:49] going to move the featured beans section
+[00:08:52] directly below the hero section and
+[00:08:54] display three featured coffees [music]
+[00:08:55] in a simple grid. Let's say move the
+[00:08:58] featured bean section higher up just
+[00:09:00] below the hero. [music]
+[00:09:01] Show three featured coffees in a clean
+[00:09:04] grid, each with a name and a short
+[00:09:06] description. I want the actual product
+[00:09:08] to be one of the first things that
+[00:09:10] people see. And once that one runs,
+[00:09:12] watch what happens here. The page just
+[00:09:15] reorganizes itself almost immediately.
+[00:09:17] The products are now near the top.
+[00:09:19] There's a dedicated featured coffee
+[00:09:21] section with three cards and the journey
+[00:09:24] through the page just makes more sense.
+[00:09:26] Visitors are introduced to the product
+[00:09:28] much earlier, which is exactly what we
+[00:09:31] want for a business that does sell
+[00:09:33] coffee beans. So now let's go ahead and
+[00:09:35] make a broader visual adjustment. The
+[00:09:37] structure is in a much better place, but
+[00:09:40] the overall presentation can still be
+[00:09:42] pushed a little bit further. Specialty
+[00:09:44] coffee brands often lean into richer
+[00:09:46] colors, more breathing room, and a more
+[00:09:48] editorial style. And that's the
+[00:09:50] direction I want Claude to take next.
+[00:09:52] So, let's say now make the whole page
+[00:09:54] feel warmer and more editorial. Use
+[00:09:56] deeper, richer tones and more generous
+[00:09:59] spacing. The kind of polished look you'd
+[00:10:01] expect from a high-end roster. [music]
+[00:10:03] And in just a few seconds, we get an
+[00:10:05] updated version. As you can see, the
+[00:10:08] content hasn't changed, [music] but the
+[00:10:09] presentation certainly has. The color
+[00:10:11] palette has more depth. The spacing
+[00:10:13] creates stronger separation between
+[00:10:15] sections, and the page carries much more
+[00:10:18] of the craftsmanship and the premium
+[00:10:20] positioning we described earlier. Our
+[00:10:22] prompt changed the entire visual
+[00:10:24] direction. There's an important lesson
+[00:10:26] here for that. Large changes should
+[00:10:28] always come before small ones. So, get
+[00:10:30] [music] the structure right, get the
+[00:10:32] visual direction right, and only then
+[00:10:34] start worrying about individual buttons
+[00:10:37] and cards and headlines. Otherwise,
+[00:10:39] you're going to end up redoing small
+[00:10:41] adjustments every time the bigger pieces
+[00:10:43] move around. The overall structure is in
+[00:10:45] place now, which means that we can stop
+[00:10:48] thinking about entire sections and
+[00:10:49] really start focusing on individual
+[00:10:51] elements. And for that, we're going to
+[00:10:53] move away from chat and now work
+[00:10:55] directly on the canvas. And this is
+[00:10:57] where inline comments become useful. So
+[00:11:00] rather than say describing an element in
+[00:11:02] a message and hoping that Claude
+[00:11:04] understands exactly what [music] we're
+[00:11:06] referring to, we can simply just click
+[00:11:08] on the element itself and then leave
+[00:11:10] feedback right there. So if a button
+[00:11:12] needs work, [music] click the button. If
+[00:11:14] a headline needs adjustment, then click
+[00:11:16] the headline. The process is just much
+[00:11:18] faster because there's no guesswork
+[00:11:20] about what you're referring to. So now
+[00:11:22] let's [music] switch into comment mode
+[00:11:24] and make a few targeted improvements.
+[00:11:27] Now the first element that I do want to
+[00:11:29] adjust here is the main call to action
+[00:11:31] button. I'll click directly on it and
+[00:11:33] I'm going to ask Claude to increase the
+[00:11:34] size slightly, add more [music] padding,
+[00:11:37] and use the primary brand color more
+[00:11:39] prominently so that it draws attention
+[00:11:41] [music] immediately. Next up, I'm going
+[00:11:43] to select one of the featured coffee
+[00:11:44] cards. And the content is fine, but the
+[00:11:46] cards could use a little bit more
+[00:11:48] internal spacing and slightly softer
+[00:11:50] corners. Small changes like that can
+[00:11:52] make a layout look much more refined
+[00:11:54] without really changing the structure at
+[00:11:56] all. And the last adjustment is the hero
+[00:11:59] headline. I'm going to click on it and
+[00:12:00] I'm going to ask Claude to increase the
+[00:12:02] size and tighten up the typography so it
+[00:12:05] has a stronger presence at the top of
+[00:12:07] the page. Now take a step back and look
+[00:12:09] at the page as a whole. None of those
+[00:12:12] updates completely transformed the
+[00:12:14] design on their own. We adjusted a
+[00:12:16] button, refined the cards, and we
+[00:12:18] improved a headline. Now, individually,
+[00:12:21] they're minor changes, but together they
+[00:12:23] elevate the entire page. And that's how
+[00:12:26] refinement usually works. Great designs
+[00:12:28] are rarely the result of one dramatic
+[00:12:31] change. They're built through a series
+[00:12:33] of smaller improvements that accumulate
+[00:12:36] over time, and the prompt gave us a
+[00:12:38] strong foundation. Chat helped shape the
+[00:12:41] overall structure. Inline comments allow
+[00:12:43] us to focus on the details that bring
+[00:12:46] everything together. A quick tip now
+[00:12:47] before we move on. Inline comments are
+[00:12:50] still part of a research preview. So
+[00:12:53] sometimes, occasionally, a comment won't
+[00:12:55] register correctly. And if that happens,
+[00:12:57] well, don't waste time fighting the
+[00:12:59] interface. [music] Just copy the same
+[00:13:00] instruction into the chat, and Claude
+[00:13:02] will usually make the change without
+[00:13:04] [music] any issues. The page is looking
+[00:13:06] pretty strong at this point to me, but
+[00:13:08] there is one more step that can make
+[00:13:10] [music] a surprising difference. Before
+[00:13:12] we settle on a final design, it is worth
+[00:13:14] exploring a few [music] alternative
+[00:13:16] directions and then comparing them side
+[00:13:18] by side. The page is looking pretty good
+[00:13:19] to me right now. But there is one more
+[00:13:21] technique worth doing before calling it
+[00:13:23] a day. And a lot of beginners pick a
+[00:13:25] direction and then spend all of their
+[00:13:27] time refining it. Designers often take a
+[00:13:29] different approach. They explore
+[00:13:31] multiple options first and then choose
+[00:13:34] the strongest one. And that's one of the
+[00:13:36] advantages of working inside [music]
+[00:13:38] claw design. Creating alternative
+[00:13:40] concepts only takes a few seconds.
+[00:13:42] There's no need to rebuild an entire
+[00:13:44] section from scratch every single time
+[00:13:46] that you want to try something
+[00:13:47] different. So, the section that I care
+[00:13:49] about most is the hero because it is the
+[00:13:52] first thing visitors see when they land
+[00:13:54] on the page. So, before making any
+[00:13:56] changes though, I do want to preserve
+[00:13:58] the version that we've already built.
+[00:14:00] Before we try anything new, save what we
+[00:14:02] have now so we can come [music] back to
+[00:14:04] it. I want to keep this version safe. So
+[00:14:06] using that prompt gives us a version we
+[00:14:08] can return to at any [music] time if we
+[00:14:10] don't like the new direction. So next
+[00:14:12] I'm going to ask Claw to generate a few
+[00:14:14] alternative hero layouts while keeping
+[00:14:16] the rest of the page unchanged. Now show
+[00:14:19] me three alternative layouts for the
+[00:14:21] hero section only. Keep everything else
+[00:14:23] on [music] the page the same. I just
+[00:14:25] want to compare different directions for
+[00:14:27] the hero. And a few moments later,
+[00:14:29] Claude gives us three different
+[00:14:31] approaches. The first option here uses a
+[00:14:34] split layout. The text sits on the left
+[00:14:36] side while the image occupies the entire
+[00:14:39] right side. And the result has a more
+[00:14:41] editorial magazine inspired look. And
+[00:14:44] the second option here takes a more
+[00:14:46] centered approach. The headline, the
+[00:14:48] supporting text, and the buttons are all
+[00:14:50] positioned in the middle of the screen
+[00:14:52] with a full width image sitting behind
+[00:14:55] them. It's clean, it's minimal, and very
+[00:14:57] balanced. And now finally, the third
+[00:14:59] option goes in a different direction.
+[00:15:01] The hero is placed inside a thin inset
+[00:15:04] frame. The heading moves towards the
+[00:15:06] lower left corner and a featured coffee
+[00:15:09] card is layered directly into the design
+[00:15:11] with product information visible from
+[00:15:14] the moment the page loads. So having all
+[00:15:16] three of these options now side by side
+[00:15:18] makes the decision much easier, at least
+[00:15:20] for me. And for this particular brand, I
+[00:15:22] think the third version works best. The
+[00:15:25] framed layout gives the page a more
+[00:15:27] premium presentation and featuring an
+[00:15:30] actual coffee product inside the hero
+[00:15:32] immediately reinforces what the business
+[00:15:35] sounds so that aligns perfectly with the
+[00:15:37] changes that we've already made
+[00:15:38] throughout the page. So that's the
+[00:15:40] version I'm going to go ahead and
+[00:15:41] [music] pick and apply here to help
+[00:15:43] visualize the final direction. I'll also
+[00:15:45] add a temporary hero image. And that
+[00:15:47] small change makes a noticeable
+[00:15:49] difference. The hero commands more
+[00:15:51] attention. The [music] product becomes
+[00:15:53] part of the story right away and the
+[00:15:55] page has a stronger opening than any of
+[00:15:58] the earlier versions. So looking at a
+[00:16:00] few alternatives now takes the guesswork
+[00:16:02] out of the whole process. A few [music]
+[00:16:04] minutes just spent comparing different
+[00:16:06] directions can really lead to a much
+[00:16:08] stronger result than endlessly tweaking
+[00:16:10] the first idea that appears on the
+[00:16:13] screen. So, whenever a section plays an
+[00:16:15] important role in the design, it's
+[00:16:17] usually worth seeing a few alternatives
+[00:16:20] before making a final decision. Now, a
+[00:16:22] lot of people stop once they have a
+[00:16:23] design that they're happy with. But
+[00:16:25] Claude Design really gives you several
+[00:16:27] ways to take that work beyond the
+[00:16:30] canvas. Whether you want to share it,
+[00:16:32] present it, collaborate on it, or turn
+[00:16:34] it into a real website, then the next
+[00:16:35] step starts with the export button here
+[00:16:38] in the top right corner. Clicking it
+[00:16:40] opens up a list of formats and each one
+[00:16:42] serves a different purpose. You can
+[00:16:44] download the project as a zip file or
+[00:16:47] export it as a PDF. If your goal is
+[00:16:48] simply to [music] just share the design
+[00:16:50] or present it to someone, PowerPoint and
+[00:16:53] Canva exports are useful when you're
+[00:16:55] working on presentations [music]
+[00:16:57] or you want to continue editing inside
+[00:16:59] of those platforms. There's also a
+[00:17:01] standalone HTML option which gives you
+[00:17:04] the web page as a file that can be
+[00:17:06] hosted. Finally, Claude Design can also
+[00:17:09] hand the project off to Claude Code,
+[00:17:11] packaging everything together so that it
+[00:17:13] can be developed into a fully functional
+[00:17:15] website. [music] The easiest way to
+[00:17:17] think about this is if you're sharing,
+[00:17:19] presenting, or collecting feedback, then
+[00:17:22] PDF, PowerPoint, and Canva are usually
+[00:17:24] the right choice. If you're moving
+[00:17:26] towards a live website, standalone HTML,
+[00:17:29] or the Claude Code Handoff are the
+[00:17:31] options that you're going to want to
+[00:17:32] explore. Collaboration is also built
+[00:17:34] directly into the platform. So, if all
+[00:17:36] you need is just feedback from teammates
+[00:17:39] or clients, there's no reason to export
+[00:17:41] anything at all. You can just generate a
+[00:17:43] share link, give people view only
+[00:17:45] access, allow comments, or invite them
+[00:17:48] to edit alongside you. So, let's finish
+[00:17:50] by comparing the two versions side by
+[00:17:52] side. And the first page came from a
+[00:17:54] single vague prompt and gave us
+[00:17:56] something functional but generic. The
+[00:17:59] version that we have now has a very
+[00:18:01] clear identity, a stronger structure,
+[00:18:03] better visual hierarchy, and a much more
+[00:18:05] polished presentation. What's
+[00:18:07] interesting is that none of these
+[00:18:09] improvements came from design expertise.
+[00:18:12] No, we used the same tool. We worked on
+[00:18:14] the same coffee shop website and we
+[00:18:16] followed a simple process. A more
+[00:18:18] specific prompt created a stronger
+[00:18:20] foundation. Chat helped [music] shape
+[00:18:22] the structure. Inline comments refined
+[00:18:25] individual elements. variations helped
+[00:18:27] us compare [music] different directions
+[00:18:29] before making a decision. So looking at
+[00:18:31] the before and after, it's clear here
+[00:18:34] that the first generation was only the
+[00:18:36] starting [music] point. The real
+[00:18:37] improvement happened through the
+[00:18:40] refinements that followed each one,
+[00:18:42] moving the design closer to the result
+[00:18:45] that [music] we actually wanted. So
+[00:18:46] let's put the two versions side by side.
+[00:18:48] On the left is the page we got from the
+[00:18:50] original prompt, and on the right is the
+[00:18:52] final version after a few rounds of
+[00:18:55] refinement. Same coffee shop, same tool,
+[00:18:57] completely different result. The first
+[00:18:59] version does its job. It has all the
+[00:19:02] expected sections. The layout is
+[00:19:04] organized and nothing looks broken. The
+[00:19:07] problem is that it could belong to
+[00:19:09] pretty much almost any other coffee
+[00:19:10] shop. There isn't much personality.
+[00:19:12] There isn't much direction, and there
+[00:19:14] isn't much reason to actually really
+[00:19:16] remember it. Now, the version on the
+[00:19:18] right is much more intentional. The
+[00:19:20] product appears earlier on the page. The
+[00:19:23] typography has a lot more character. The
+[00:19:25] color palette supports [music] the
+[00:19:26] actual brand and the hero section here
+[00:19:28] immediately communicates what makes the
+[00:19:31] business [music] different. So every
+[00:19:32] part of the page is working towards the
+[00:19:35] same goal. What makes this comparison
+[00:19:37] interesting though is that none of those
+[00:19:40] changes actually happened all at once.
+[00:19:43] Each stage solved a different problem
+[00:19:45] than the prompt gave Claude [music]
+[00:19:47] enough context to make better decisions.
+[00:19:50] Chat helped improve the structure and
+[00:19:52] presentation. inline comments just
+[00:19:54] tightened up those details. Exploring
+[00:19:56] variations helped us find a stronger
+[00:19:58] hero layout than the one we started
+[00:20:00] [music] with. And if you're looking for
+[00:20:02] the biggest lesson here from this
+[00:20:04] exercise, then pay attention to how much
+[00:20:06] changed after the first generation. The
+[00:20:09] initial version wasn't the finished
+[00:20:10] design. It was the raw material. The
+[00:20:13] quality came from refining it,
+[00:20:15] questioning it, and giving Claude
+[00:20:17] clearer direction at every step. So most
+[00:20:19] of the gap between these two pages was
+[00:20:21] created before any detailed editing
+[00:20:23] happened. It came from taking a few
+[00:20:25] extra moments to explain the goal, the
+[00:20:27] audience, the content, and the overall
+[00:20:30] direction of the site. And once that
+[00:20:32] foundation was in place, then the rest
+[00:20:34] of the improvements just became much
+[00:20:36] easier to make. And looking at the final
+[00:20:38] result now, the process is actually
+[00:20:40] pretty straightforward. generate a
+[00:20:43] starting point, improve the structure,
+[00:20:45] polish the details, compare a few
+[00:20:47] alternatives, then repeat when
+[00:20:49] necessary. And that is the workflow that
+[00:20:52] produced the page here on the right. And
+[00:20:54] it's the exact same workflow that you
+[00:20:55] can apply to any project that you build
+[00:20:58] inside of Claw Design. The interesting
+[00:21:00] thing about this entire process is that
+[00:21:02] we never changed tools, learned any
+[00:21:05] design principles, or started over from
+[00:21:07] scratch. We just took a single coffee
+[00:21:09] shop landing page and then improved
+[00:21:11] [music] it step by step. The first
+[00:21:13] version came from a vague prompt and
+[00:21:15] gave us something quite generic. The
+[00:21:17] final version had a clear identity,
+[00:21:19] stronger structure, better typography,
+[00:21:21] and much more attention to detail.
+[00:21:23] [music] So, the difference came from how
+[00:21:26] we worked with Claude design, not from
+[00:21:28] having design experience. And the
+[00:21:30] biggest improvement happened right at
+[00:21:32] the beginning, giving Claude a clear
+[00:21:34] goal, a layout, content strategy, and
+[00:21:37] audience immediately change the quality
+[00:21:40] of its output. So that one habit will
+[00:21:43] have a larger impact on your results
+[00:21:45] than almost anything else you do inside
+[00:21:47] of [music] the tool. The rest of the
+[00:21:48] workflow is really about knowing which
+[00:21:50] tool to use at the right time. So chat
+[00:21:52] works best for larger changes involving
+[00:21:55] structure, layout, and overall
+[00:21:56] presentation. Inline comments are much
+[00:21:59] better for targeted refinements on
+[00:22:01] specific elements. And once those pieces
+[00:22:03] are in place, then exploring variations
+[00:22:05] just helps you compare different
+[00:22:07] directions and really choose the
+[00:22:09] strongest option instead of relying on
+[00:22:11] guesswork. So if you're looking for
+[00:22:12] something to build next, don't go
+[00:22:14] searching for the perfect project. Take
+[00:22:17] an idea that you've already been
+[00:22:18] thinking about and then run it through
+[00:22:20] the same process. [music]
+[00:22:22] Build a landing page, a portfolio, a
+[00:22:24] pitch deck, a one-pager, or pretty much
+[00:22:26] anything else that interests you. Focus
+[00:22:28] on being specific. Refine the structure,
+[00:22:30] [music] polish the details, and compare
+[00:22:32] alternatives when a section isn't
+[00:22:34] working. And after a few projects,
+[00:22:36] you'll start to notice that the workflow
+[00:22:38] stays largely the same. Difference
+[00:22:39] [music] is that your prompts will become
+[00:22:41] clearer, your feedback will be more
+[00:22:44] precise, and your decisions will be
+[00:22:46] faster. And that's usually where the
+[00:22:47] biggest improvements come from. So,
+[00:22:49] everything that we've covered in this
+[00:22:51] video is enough to take your designs far
+[00:22:54] beyond the first generation. The only
+[00:22:56] thing left to do is open up Cloud Design
+[00:22:58] and start building. All right, with
+[00:23:00] that, that's it for this one. Thank you
+[00:23:02] for investing your time with me today,
+[00:23:03] and I'll see you at the next build.

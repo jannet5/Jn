@@ -1,0 +1,68 @@
+🎥 In this video, I show you how to use Google's NEW Nano Banana 2 + Claude Code to build **stunning 3D exploding product websites** you could sell to clients for around $10k-$15k... and it only takes **25 minutes total**.
+
+Whether you've never touched Claude Code or never built a website in your life, this complete beginner tutorial walks you through **EVERY SINGLE STEP** so you can start creating professional Apple-level sites immediately.
+
+I built 2 custom Claude Code skills specifically for this workflow (completely **FREE** below 👇). They do all the heavy lifting—GSAP scroll animations, canvas rendering, pinned stats, lead capture modals—even if you're a total beginner.
+
+If you've been looking for a fast way to start offering real web design services using AI, this is fastest path I've found in 2026 so far.
+
+Business Inquiries:
+kenilofficial96@gmail.com 
+
+
+⏰ **TIMESTAMPS** (Follow Along):
+
+0:00 – AI 3D Website Preview
+0:31 – Video Overview (What You’ll Build)
+1:38 – Installing VS Code & Claude Code
+2:26 – Project Setup & Claude Skills
+3:01 – Creating Product Images with Nano Banana 2
+4:01 – Generating the 3D Animation Video
+5:20 – Converting Video to Frames with FFmpeg
+6:25 – Preparing Claude Skills for the Website
+7:30 – Prompting Claude to Build the Website
+9:58 – Running the Site on Localhost
+11:11 – Improving the Website Design with AI
+13:05 – How Website Hosting Works
+14:38 – Uploading the Project to GitHub
+16:40 – Deploying the Site with Vercel
+17:39 – Testing the Website on Mobile
+18:09 – How to Make Money with AI Websites
+19:29 – The Full AI Website Pipeline
+
+
+
+---
+
+💻 **COMPLETE STARTER KIT** (100% Free):
+
+🎨 **NANO BANANA 2 PROMPTS** (Copy-Paste):
+Click on this link for all Prompts : https://docs.google.com/document/d/1Hk41yOCQWGefuhEmiuTCGusVeNPeuwBT/edit?usp=drive_link&ouid=117481948231359148196&rtpof=true&sd=true
+
+🛠 Mac & Windows FFmpeg Setup (For Frame Extraction):
+Click on this link for step by step Instructions:  
+https://docs.google.com/document/d/1DvyQSJ5k18xZvw-owkZlgCq6Z6RXKtu8-sR8DEmNunw/edit?usp=drive_link
+
+⚡ **FFMPEG COMMAND** (30 seconds):
+mkdir frames
+ffmpeg -i espresso.mp4 -vf "fps=15,scale=1920:-1" -c:v libwebp -quality 85 "frames/frame_%04d.webp"
+text
+
+📁 **CUSTOM CLAUDE SKILLS** (.claude folder):
+Click on this link for both skills:  https://drive.google.com/drive/folders/1MI9xgZwL8Z-H8gB6d6VzrTt496_h61Uw?usp=drive_link
+
+--
+
+🎯 **PERFECT FOR**:
+✅ **Freelancers** → Land $3-8k agency gigs
+✅ **YouTubers** → Killer portfolio sites  
+✅ **Total Beginners** → Copy-paste success
+✅ **Web Agencies** → Cut dev costs 90%
+
+💰 **MONETIZATION**:
+Coffee roasters, hardware brands pay **$5k+** for "Apple-level sites w/ lead capture built-in"
+
+❗ **LEGAL DISCLAIMER**:
+Educational tutorial only. Tools provided "AS IS" - **NO WARRANTIES**. Results vary by your Anthropic subscription (**Pro/Max required**, $20+/mo), hardware, internet speed, Claude Code updates. Test locally first. Not responsible for lost profits, API costs, deployment issues, or rate limits. Always use `.gitignore` for API keys. Nano Banana 2 has credit limits on free tier.
+
+#ClaudeCode #NanoBanana2 #3DWebsite #WebDesignTutorial #AIAgency

@@ -1,0 +1,73 @@
+I built this entire streetwear website in a single ChatGPT chat with GPT 5.6 Sol: the
+layout, the code, the scroll animations, and every image on the page, all with one
+consistent character. This is the full walkthrough of exactly how, start to finish. I
+pick the model, pull inspiration from Awwwards without copying it, write the one brief
+that keeps the design original, build a consistent AI image system, cut clean transparent
+subjects with a green-screen trick, and wire up the parallax and scroll engineering that
+ties it all together.
+
+What you'll learn:
+- How to steer GPT 5.6 Sol with a single brief: take principles from Awwwards-level sites
+  without copying them, and keep everything scroll-driven
+- Why building the site and generating every image in the same chat is the real unlock
+  (no tool switching, full control over consistency)
+- The invariants method for a consistent AI character (same model, same outfit, every shot)
+- Generating multiple poses and choosing the hero shot that fits your layout
+- Clean transparent PNG cutouts with the green-screen method (a key color that appears
+  nowhere on the subject, and confirming the four corners are transparent)
+- CSS shadows you can restyle later without touching the image
+- Layered pointer parallax and an entrance animation for the hero
+- A pinned hero scrub tied to scroll progress
+- Turning vertical scroll into a horizontal lookbook
+- Pointer parallax that snaps back with no jump, plus reduced-motion accessibility
+- A focused commerce section, a hover-preview drop index, and a CTA that leads to the footer
+
+The finished template: VOID/03, a neo-futuristic streetwear campaign page, built and
+imaged entirely with GPT 5.6 Sol.
+
+CHAPTERS (derived from the transcript; confirm against the final trim before publishing)
+0:00 Built entirely in one ChatGPT (GPT 5.6 Sol) chat
+0:23 The plan
+0:46 The model: why GPT 5.6 Sol
+1:02 Two superpowers: frontend + native image generation
+2:03 Finding inspiration without copying (Awwwards, Dribbble, aura)
+2:47 The style: neo-futuristic streetwear
+4:15 The brief: one prompt that stays original
+4:50 Approve the topic and plan before it writes code
+6:08 Consistent AI characters: the invariants
+7:35 The invariants prompt, spelled out
+8:50 Generate many poses, pick the hero
+10:30 How transparent images make the parallax
+11:08 Clean cutouts: the green-screen method
+12:25 The cutout prompt (four corners transparent)
+13:56 The entrance animation
+14:19 The pinned hero scrub
+15:06 The horizontal lookbook
+15:57 Pointer parallax that snaps back
+16:58 Reduced-motion accessibility
+17:35 The commerce section
+18:24 The drop index and big typography
+18:49 The CTA and footer
+
+Free template: https://drive.google.com/file/d/1qK6Z4GjdOGO49vgQxshDZNrLHa4Rm9gD/view?usp=sharing
+
+Template: https://void-03-modular-62.aura.build/?via=Vpromotion
+Prompts: https://drive.google.com/file/d/1fXmlw3-svjJLrajYmOQUbeIjNbssdPLZ/view?usp=sharing
+
+Try the tools:
+Aura : https://www.aura.build/?via=Vpromotion
+Neuform : https://neuform.ai?via=Vpromotion
+
+NEWSLETTER: https://www.creativeainews.com/
+
+CONNECT WITH ME
+LinkedIn: https://www.linkedin.com/in/vannarot-roeung-868679341/
+X / Twitter: https://x.com/VanhDesign
+
+## Tags
+gpt 5.6 sol, chatgpt 5.6 sol, gpt 5.6, gpt 5.6 sol vs fable 5, gpt 5.6 web design, gpt
+5.6 web designer, build website with chatgpt, build landing page with chatgpt, chatgpt
+website design, chatgpt image generation tutorial, consistent ai character, transparent
+png ai image, awwwards website tutorial, scroll animation website tutorial, ai website
+design, premium web design, neo futuristic streetwear, css scroll animation, parallax
+website tutorial, chatgpt codex website

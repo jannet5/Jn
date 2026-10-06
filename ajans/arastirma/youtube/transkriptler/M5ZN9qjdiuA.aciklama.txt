@@ -1,0 +1,38 @@
+Point an AI at a website's design and it nails the colors — then rebuilds every component wrong. Soft shadows where there were thick borders. A full-width nav where the original floated as a rounded capsule. Same palette, completely different furniture.
+
+That's the gap between design *tokens* and a design *system*. Tokens are the paint — they tell the AI what shade to use, and nothing about how anything is actually built. So I built a skill that captures both: tokens AND components. Point it at one URL and you get a complete design system a coding agent can actually build from.
+
+It runs a five-phase pipeline — map the site, read the tokens straight from the CSS, capture how each component is built (anatomy, button variants, hover states, and the brand rules worth preserving), package it into one bundle, then validate its own work against the live source. The output isn't just a style guide. It's component blueprints, a working code gallery, and an instruction manual that tells a coding agent what to read first and which elements are non-negotiable. In testing, that manual was the single biggest thing separating "close enough" from "looks native."
+
+To prove it: I opened a fresh, empty project, handed Claude Code the bundle, and asked for a SaaS landing page for a made-up product. It read the entire protocol before writing a line of code, built the page in about five minutes, and self-reported every brand rule it followed. The result looks native to a site that product never existed on — under half an hour, from a URL to a brand-native page.
+
+🔧 Install extract-design-system
+  npx skills add nathanonn/agent-skills --skill extract-design-system --agent claude-code
+(Takes about ten seconds.)
+
+▶️ Run it
+  /extract-design-system PAGE_URL
+Example (Doodler — a Creative Commons public-domain Webflow template, so no gray area about copying):
+  /extract-design-system https://doodler-landing.webflow.io
+
+🔗 Links
+  Skill + source (open source): https://github.com/nathanonn/agent-skills
+  Watch first — extract a site's design tokens into a DESIGN.md: https://youtu.be/IofvC34WI10
+
+⏱️ Chapters
+00:00 The colors were perfect. Everything else was a stranger.
+00:21 Tokens are paint — not furniture
+00:40 One skill that captures both
+00:52 Install it in about ten seconds
+01:02 Point it at a real site (Doodler)
+01:28 Phase 3: how each component is actually built
+02:01 What's in the bundle — the instruction manual
+02:42 Proof: a brand-new product, empty folder
+03:20 The result — looks native
+03:46 Open source · go extract one
+
+If you build with AI coding agents, this channel is about getting real work done with them — practical, no hype. Subscribe if that's your thing.
+
+This video uses an AI-generated voiceover and AI-assisted motion graphics, with human-directed scripting, editing, and publishing.
+
+#ClaudeCode #DesignSystems #AICoding

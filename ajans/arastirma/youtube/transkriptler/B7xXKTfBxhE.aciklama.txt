@@ -1,0 +1,51 @@
+A lot of teams have the same problem with their design system. It's old, components live in 10,000 different places. It's not organized, outdated. It's just a mess. So the question becomes, do you put in the time and effort to rebuild based on what you have, or do you just redo it?
+
+My suggestion is don't redo it from scratch. You can easily redo it with shadcn. It's already built in a way AI understands, it's agentic, and you can completely customize it with your brand.
+
+In this week's video, I walk through the full migration. We start by scaffolding shadcn as a sibling package in an existing codebase so nothing in production breaks. Then we layer in design.md, agents.md, and the meta.ts pattern that stops AI from making up components. And we end on how to actually bring this to your engineering team without getting blocked.
+
+
+What You'll Learn:
+• How to scaffold shadcn as a sibling package in your existing codebase without breaking anything
+• Using design.md and agents.md to teach AI your brand
+• The meta.ts pattern (atom level, relationships, tokens, AI hints) that stops AI from making up components
+• Using context7 to auto-pull shadcn and Storybook docs
+• Building your first component (Button) with a Storybook metadata tab so the library documents itself
+• How to bring this to your engineering team without getting blocked
+
+Resources:
+• shadcn/ui: https://ui.shadcn.com/
+• context7 MCP: https://github.com/upstash/context7
+• Sign up for the community and you get access to tons of resources! https://designproject.io/community/?u...
+
+Timestamps 
+0:00 Intro
+1:15 5 Signs Your Design System Needs an Upgrade
+2:46 Why shadcn Is the Right Starting Point
+4:02 Setting Up a Sibling Package in Your Codebase
+6:50 Aligning Components with Your Brand Design
+10:06 The Meta Schema (4 Pillars AI Needs)
+12:11 Building Your First Button with Storybook
+15:45 How to Get Engineering Aligned
+
+If this is your first time using Claude Code, I'd recommend starting with my setup guide first so you can follow along:    • Claude Code + Cursor + GitHub: The New AI ...  
+
+Design to Code Workshop for Companies 🚀 Apply using this link → https://relay.designproject.io/design...
+
+Join TDP Community as a Founding Member NOW - Waitlist Open! ⭐ https://designproject.io/community/?u...
+
+Watch more like this:
+• Design Systems for Beginners (Claude Code + Figma)Figma    • Design Systems for Beginners (Claude Code ...   
+• I Built My Entire Design System in 4 Hours With AI. Full Tutorial (Claude + Cursor + Figma):    • I Built My Entire Design System in 4 Hours...  
+• Figma to Component Library in 2 days | Claude Code + Storybook Tutorial:    • How I Build a Component Library in 2 days ...  
+• GitHub for Designers: Everything You Need to Know:    • GitHub for Designers: Everything You Need ...  
+• Stop Wasting Dev Time on Frontend: Figma to Code in 8 Minutes:    • Stop Wasting Dev Time on Frontend: Figma t...  
+
+🔔 Subscribe for weekly insights about AI, design, and product here: @thedesignproject
+
+CONNECT WITH ME:
+
+🌐 https://designproject.io/
+💼 LinkedIn: /diannealter
+
+About The Design Project: We help B2B SaaS product teams ship faster by combining AI tools with strategic design expertise. We've worked with 50+ teams (including companies acquired by Slack, Nvidia, and MrBeast) to cut product cycles in half using battle-tested AI workflows and design systems.

@@ -1,0 +1,35 @@
+🎯 I built a professional restaurant website with AI — in Claude's new design tool (Claude Design) — and put it live on the real internet, in an afternoon. No design background, and I can barely code. I take you through every step: brainstorming it in Claude, making a looping video hero, designing the site, and deploying it live — including the part where the deploy broke, and how I fixed it in about a minute. Works for any site, not just restaurants.
+
+📁 What we build:
+- A wood-fired pizzeria site ("Tulikivi") — looping video hero, menu, booking page, mobile-ready
+- Brainstorm in Claude → hero video on kie.ai → build in Claude Design → test in Claude Code → GitHub → live on Vercel (and fixing the deploy error)
+
+🔗 Tools I use:
+- Claude + Claude Design (I'm on Pro): https://claude.com/download
+- kie.ai (hero image with Nano Banana 2, then a seamless loop with Veo 3.1 — same frame on start + end): https://kie.ai
+- Claude Code (AI coding in VS Code): https://claude.com/download
+- Vercel (free hosting & deployment): https://vercel.com/
+- Wispr Flow (AI voice-to-text): https://ref.wisprflow.ai/svante-gustafsson
+- VS Code (free code editor): https://code.visualstudio.com
+
+⏱️ Chapters:
+0:00 A real restaurant website, live on the internet (built with AI)
+0:42 Brainstorm what you're building in Claude
+1:22 The looping video hero (kie.ai — Nano Banana 2 + Veo 3.1)
+2:30 Building the site in Claude Design
+4:11 Export to Claude Code + test on every device
+5:30 Deploy it live with Vercel
+6:07 When it breaks: fixing the deploy error in Claude Code
+7:03 It's live (+ connecting a custom domain)
+7:22 Tools I used + wrap-up
+
+👋 About me:
+I'm Svante Gustafsson — I build websites and apps with AI. You don't need to be a developer to follow along.
+
+🌐 Website: https://gustafssons.io
+📺 Subscribe for more: https://www.youtube.com/@svante.gustafsson
+
+---
+*Some links above are affiliate links — I earn a small commission if you sign up, at no extra cost to you.*
+
+#claudedesign #buildwithai #restaurantwebsite

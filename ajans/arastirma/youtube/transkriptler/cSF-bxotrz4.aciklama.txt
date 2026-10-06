@@ -1,0 +1,17 @@
+In this video, I'll be talking about a GitHub repo called awesome-design-md by VoltAgent and how you can use its DESIGN dot md files with Verdent to build cleaner, more consistent AI-generated frontends instead of pages that feel random and stitched together.
+
+--
+Awesome Design-MD: https://github.com/VoltAgent/awesome-design-md/tree/main
+Verdent: https://www.verdent.ai/?id=700712
+
+--
+Key Takeaways:
+
+🎨 awesome-design-md is a curated collection of DESIGN dot md files inspired by real product and developer-focused websites.  
+🤖 DESIGN dot md gives AI agents a structured design reference for things like spacing, typography, color, layout, and component styling.  
+🧱 This helps solve a major AI UI problem where frontends are technically functional but visually inconsistent.  
+📁 Each design includes preview files, so you can inspect the visual direction before using it in your own project.  
+⚙️ The workflow with Verdent is simple: open your project, place the DESIGN dot md file in the root, and prompt Verdent to use it as the visual source of truth.  
+📝 Using DESIGN dot md together with AGENTS dot md can make your prompts shorter, clearer, and much more repeatable.  
+💡 The repo is free and MIT licensed, but Verdent is a paid tool, so cost is something to keep in mind for larger UI generations.  
+👍 Overall, this is a practical setup for landing pages, dashboards, docs sites, demos, and other polished frontend work.
