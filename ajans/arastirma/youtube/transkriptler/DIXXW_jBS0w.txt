@@ -1,0 +1,710 @@
+# This AI Automation Posts to Instagram and Facebook Using Your Own Images
+# https://www.youtube.com/watch?v=DIXXW_jBS0w
+# kanal:  | süre: 1625 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] Every day, this AI automation takes your
+[00:00:02] photos and turns them into Facebook and
+[00:00:04] Instagram post. No fake AI images, just
+[00:00:08] your real content. It will read your
+[00:00:10] photos, write authentic captions, and
+[00:00:13] post automatically. Imagine for a moment
+[00:00:16] that you run a gym. You have photos of
+[00:00:19] your new gym equipment, the merchandise
+[00:00:20] that you're selling, and you even have
+[00:00:23] photos of fivestar reviews. Now,
+[00:00:25] naturally, you want to post all of that
+[00:00:27] amazing content to social media, but
+[00:00:30] that means that you have to write the
+[00:00:32] captions, the hashtags, and format the
+[00:00:35] posts, and then manually post to
+[00:00:37] Instagram and Facebook. You have to do
+[00:00:39] that every single day, and suddenly it
+[00:00:41] becomes a chore. So, imagine for a
+[00:00:43] moment that the entire content creation
+[00:00:46] process was completely automated. AI
+[00:00:48] took your photos, understood them, and
+[00:00:51] wrote the best possible captions for
+[00:00:53] Instagram and Facebook, and posted for
+[00:00:55] you every single day automatically. Just
+[00:00:57] ask yourself, how much time would you
+[00:00:59] save? So, listen up. This automation
+[00:01:01] isn't just for gym owners. It's for
+[00:01:03] everyday content creators who want to
+[00:01:05] automate their content creation process
+[00:01:07] and do more faster. So, in today's
+[00:01:09] video, I'm going to show you how to
+[00:01:11] create this automation from scratch
+[00:01:13] using Make.com. Just follow along step
+[00:01:15] by step. I'm going to walk you through
+[00:01:16] everything. And if you have a question,
+[00:01:18] drop it in the comments below. So with
+[00:01:20] all of that said, let's jump into step
+[00:01:22] one, setting up Google Drive. In Google
+[00:01:24] Drive, create a folder for the project.
+[00:01:27] I called mine tutorial. Then in that
+[00:01:29] folder, you're going to create a
+[00:01:30] subfolder and call it photo library.
+[00:01:33] This is the folder where we'll upload
+[00:01:35] our photos to. And then we are going to
+[00:01:38] create a Google Sheets database. We're
+[00:01:40] going to name this database social photo
+[00:01:42] database. And we're going to give it the
+[00:01:44] following columns. File ID,
+[00:01:47] file name, upload date and time, posted
+[00:01:53] to Facebook, posted to Instagram,
+[00:01:57] and finally initiated master upload.
+[00:02:02] Each file logged in this database
+[00:02:04] corresponds to a file uploaded to the
+[00:02:06] Google Drive folder photo library. Name
+[00:02:09] this worksheet photo log. add a new
+[00:02:12] worksheet and call it brand identity. In
+[00:02:15] cell A1, call it brand identity. And
+[00:02:18] then in cell A2, you're going to insert
+[00:02:20] two to three sentences about your brand.
+[00:02:23] I'm going to insert ours right here. And
+[00:02:25] that's all that's needed. The setup for
+[00:02:27] Google Drive is now complete. We're
+[00:02:29] ready to move on to step two, building
+[00:02:31] the file sync automation in Make. If
+[00:02:34] you're new to make.com, that's
+[00:02:35] completely fine. Just go to make.com and
+[00:02:38] you get started for free. I have a link.
+[00:02:40] I'll share it in the description below
+[00:02:42] that you can use to sign up and get one
+[00:02:44] month of the Make.com Pro plan for free.
+[00:02:47] Once you sign up, you're going to be
+[00:02:48] brought to this dashboard page right
+[00:02:50] here. And the next step is to create a
+[00:02:52] new scenario. So to do that, just click
+[00:02:54] on this purple button right here in the
+[00:02:56] upper right corner that says create a
+[00:02:58] new scenario. Let's click that. Now we
+[00:03:01] need to give the scenario a name. So
+[00:03:03] it's like naming our automation. We'll
+[00:03:05] give it the name upload new photos to
+[00:03:08] social media database since that's what
+[00:03:10] this automation is going to do. Here
+[00:03:13] we're going to add Google Drive as our
+[00:03:15] trigger module. Then for the trigger
+[00:03:17] event, we're going to click on watch
+[00:03:19] files in a folder. This one right here.
+[00:03:21] If you're doing this for the first time,
+[00:03:23] it's going to look a little bit
+[00:03:24] differently for you. You need to add a
+[00:03:26] connection. There should be a button
+[00:03:27] that says add a connection. And you will
+[00:03:30] click that. And then you will give your
+[00:03:32] connection a name. And then you're going
+[00:03:34] to sign in with Google. Then for watch
+[00:03:36] files, you can just leave this be by
+[00:03:38] created time. I have it selected my
+[00:03:40] drive. And then the next step is to
+[00:03:42] select the folder path. And you can see
+[00:03:44] here that I configured my folder path.
+[00:03:47] And it's watching for the files uploaded
+[00:03:50] to the photo library folder. File types
+[00:03:53] to watch. You can just leave this as
+[00:03:54] all. And then set limit to 10. Then
+[00:03:58] click on the save button. Then click
+[00:03:59] save. Now let's verify that the trigger
+[00:04:02] module is working correctly. Right click
+[00:04:04] on the trigger module for Google Drive.
+[00:04:06] Then click on run this module only.
+[00:04:10] And you'll see that no files were
+[00:04:12] returned. And that's because we don't
+[00:04:14] have any files in our Google Drive
+[00:04:16] folder. Now we'll just take a
+[00:04:17] screenshot, go into photo library, and
+[00:04:20] then drag and drop this file. Now let's
+[00:04:23] rightclick again, click on run this
+[00:04:25] module only. And now you can see that we
+[00:04:28] have the file data. Add a module. Search
+[00:04:31] for text parser. Select replace. For the
+[00:04:34] pattern, enter left square bracket #
+[00:04:37] backslash s close square bracket. For
+[00:04:40] the new value, search for empty string
+[00:04:43] and then select the empty string
+[00:04:44] variable. Select yes for global match
+[00:04:47] and no for case sensitive. And for text,
+[00:04:49] select the name variable from module
+[00:04:51] number one. Click save. The text parser
+[00:04:54] replace action removes hashtags and
+[00:04:56] spaces from our file name so that the
+[00:04:58] automation doesn't error out later on.
+[00:05:00] Add a module. Search for Google Sheets.
+[00:05:03] Select add a row. To add a connection,
+[00:05:05] you could click on this add button and
+[00:05:07] then give your connection a name. Then
+[00:05:09] you could click on sign in with Google.
+[00:05:11] Select your Google account to complete
+[00:05:12] the signin process. And then your
+[00:05:14] connection will be added. For search
+[00:05:16] method, leave it as search by path. For
+[00:05:18] drive, leave it as my drive. For
+[00:05:20] spreadsheet ID, we're going to add the
+[00:05:22] social photo database. And now we need
+[00:05:24] to input the file path. As you can see,
+[00:05:26] this is the folder path, and you just
+[00:05:28] need to select the social photo
+[00:05:29] database, which is the Google sheet. For
+[00:05:31] sheet name, select photo log. Scroll
+[00:05:33] down. For file ID, select the file ID
+[00:05:36] variable from module one. For file name,
+[00:05:38] select the text variable for module 9.
+[00:05:40] For upload date and time, you could
+[00:05:42] search format date and select the format
+[00:05:44] date variable. Then right before the
+[00:05:46] first semicolon, you could search for
+[00:05:48] created time and select the created time
+[00:05:50] variable for module one. Then enter mm/
+[00:05:54] dd/y y space h colon mm space capital a
+[00:06:00] for posted to Facebook. You can hardcode
+[00:06:02] not yet. Then you could copy and paste
+[00:06:04] that over to column E and column F.
+[00:06:06] Click save. This is going to add a row
+[00:06:08] in our social photo database. Add a
+[00:06:10] module. Search for Google Drive. Select
+[00:06:13] update a file. Make sure the correct
+[00:06:15] connection is added. For enter a file
+[00:06:17] ID, you could leave it as enter
+[00:06:19] manually. For file ID, select the file
+[00:06:21] ID variable for module one. For new
+[00:06:23] updated file name, select the text
+[00:06:25] variable for module 9. Click save. Let's
+[00:06:28] go ahead and test this out. We're going
+[00:06:30] to take a screenshot and upload it to
+[00:06:32] the photo library. Then we're going to
+[00:06:34] go back into make and we are going to
+[00:06:36] click on run once.
+[00:06:39] As you can see here, the scenario
+[00:06:40] triggered and returned the file that we
+[00:06:42] uploaded to the Google Drive folder.
+[00:06:44] Then the text parser removed spaces from
+[00:06:46] the file name. And for Google Sheets, we
+[00:06:49] could see that we have a new row added
+[00:06:50] to the social photo database. And
+[00:06:53] finally, the file name was updated. If
+[00:06:55] we go back to the Google Drive folder,
+[00:06:57] we could see here that the spaces were
+[00:06:59] removed from the file name. Then save
+[00:07:01] your scenario and turn it on. This
+[00:07:03] window will pop up for schedule setting.
+[00:07:05] For run scenario, you can leave it at
+[00:07:06] regular intervals. And for minutes, you
+[00:07:08] can leave it at 15. Click save. Let's
+[00:07:11] move on to step three, building the
+[00:07:13] photo social post automation. Go ahead
+[00:07:15] and click on create a new scenario. For
+[00:07:18] the scenario name, you can call it turn
+[00:07:20] my photos into Instagram and Facebook
+[00:07:22] post. Then for the trigger module,
+[00:07:24] select Google Sheets. And for the event,
+[00:07:27] select search rows. Make sure you have
+[00:07:29] the correct connection added. For search
+[00:07:31] method, you could leave it as select
+[00:07:32] from my drive. And then select the
+[00:07:35] spreadsheet ID. In the search bar, you
+[00:07:37] could search for social photo database
+[00:07:38] and then select the file. For sheet
+[00:07:41] name, select photo log and then go down
+[00:07:43] to filter and then select column F which
+[00:07:46] is initiated master upload. For text
+[00:07:48] operators, it should be equals 2 and
+[00:07:51] then you hardcode not yet. Then for the
+[00:07:54] limit input one and then click on save.
+[00:07:57] Then click on this little clock. For
+[00:07:59] schedule settings, run scenario every
+[00:08:01] day. And then for the time, select the
+[00:08:03] time of the day that you want the
+[00:08:05] automation to run. So we'll do something
+[00:08:07] like 8 a.m. every day. Then click on
+[00:08:09] save. Then you'll get this warning here.
+[00:08:12] And you could just select not yet. Now
+[00:08:14] let's test it. Right click, run this
+[00:08:16] module only. And you'll see it returns a
+[00:08:19] row. Every day this automation is going
+[00:08:21] to run and it's going to look for any
+[00:08:23] rows where column F is marked as not
+[00:08:26] yet. Add a new module. Select Google
+[00:08:28] Sheets. Then for the action, select
+[00:08:30] update a row. Make sure the correct
+[00:08:32] connection is added. Search method, you
+[00:08:34] could leave it as search by path. Drive,
+[00:08:36] leave it as my drive. Then select the
+[00:08:38] spreadsheet ID and we're again looking
+[00:08:40] for the social photo database. For sheet
+[00:08:43] name, select photo log. For row number,
+[00:08:46] select this variable right here, row
+[00:08:47] number. And then we're only going to
+[00:08:49] update column F, and we're going to mark
+[00:08:51] it as yes. Click on save. Now, click on
+[00:08:54] this little wrench right here, and click
+[00:08:56] on set up a filter for the label. Make
+[00:08:58] it photo has not been posted. For the
+[00:09:01] condition, select total number of
+[00:09:02] bundles not equal to case insensitive.
+[00:09:05] This one right here. And put in zero.
+[00:09:07] Click on save. Add a new module. Select
+[00:09:10] on Google Drive. Select download a file.
+[00:09:12] Make sure the correct connection is
+[00:09:14] added. For enter a file ID, just leave
+[00:09:17] it as enter manually. Then for file ID,
+[00:09:20] select the variable file ID in
+[00:09:22] parenthesis A. Then click on save. Add
+[00:09:24] another module. Search for OpenAI. And
+[00:09:27] then for the action, select create a
+[00:09:29] completion prompt. If you're doing this
+[00:09:31] for the first time, you'll see a button
+[00:09:32] to add a connection. And for the
+[00:09:34] connection, you need to give it a name.
+[00:09:35] And then you need an API key and an
+[00:09:37] organization ID. I'll show you how to
+[00:09:39] get those. Go to openai.com/appi.
+[00:09:42] Hover over login. Select API platform.
+[00:09:45] Once you click that, you'll have to log
+[00:09:47] in. Click on the profile icon. Select on
+[00:09:50] your profile. Then select billing. Now,
+[00:09:52] to use the OpenAI API, you need to have
+[00:09:56] a credit balance. So, click on add to
+[00:09:58] credit balance. You can put in something
+[00:10:00] like $5 and then add your payment
+[00:10:02] details. Then, select continue. To learn
+[00:10:04] more about API pricing, you can go to
+[00:10:06] openai.com/api/pricing
+[00:10:09] where they will break down how pricing
+[00:10:12] works and how it varies across the
+[00:10:14] various models that they have. Like any
+[00:10:16] API, it just depends on how much you
+[00:10:19] utilize the API and how many requests
+[00:10:21] you're sending. I've been using this for
+[00:10:23] a while now and for the workflows that
+[00:10:25] I'm running, it hasn't been that
+[00:10:26] expensive. So to get the organization
+[00:10:28] ID, just go to general and then your
+[00:10:30] organization ID will be right here. To
+[00:10:32] get the API key, just go to API keys,
+[00:10:36] then click on create new secret key. And
+[00:10:39] I recommend giving your API key a name,
+[00:10:41] and then click on create secret key.
+[00:10:43] Then from here all you need to do is
+[00:10:45] copy the API key. Go back to your
+[00:10:47] scenario and then you'll paste your API
+[00:10:50] key right here and then you will take
+[00:10:52] the organization ID and you will put it
+[00:10:54] here and then click on save. Now it's
+[00:10:56] time to configure the module. We're
+[00:10:58] going to implement a prompt that
+[00:10:59] analyzes the photo downloaded from
+[00:11:02] Google Drive. I have all the prompts in
+[00:11:03] this Google doc. The first prompt is
+[00:11:05] describe image prompt and I have a
+[00:11:07] description of what the prompt does, the
+[00:11:10] model configuration, the prompt itself
+[00:11:12] and the input variables. So for describe
+[00:11:15] image prompt, this prompt is going to
+[00:11:16] analyze the attached image and provides
+[00:11:19] a neutral visual description of what's
+[00:11:21] shown including objects, layout, and
+[00:11:23] activity. For the model, we want GPT 40
+[00:11:26] system. So in model, select GPT 40
+[00:11:30] system. Then for max tokens you put in
+[00:11:33] 500
+[00:11:34] and then click on add message. For roll
+[00:11:37] select user and then for the text
+[00:11:39] content you want to copy this prompt and
+[00:11:42] then paste it into text content. For
+[00:11:45] image input type select on image file
+[00:11:49] and then for file select Google Drive
+[00:11:51] download a file. For image detail you
+[00:11:53] just leave it as auto then click on
+[00:11:55] save. At this point I recommend testing
+[00:11:57] the workflow. So just click on run once
+[00:12:01] and if we go back to the spreadsheet we
+[00:12:03] could see that column F for this row was
+[00:12:06] marked as yes. If we go into the output
+[00:12:09] data for chat GPT you can see the output
+[00:12:12] right here. The image shows a person
+[00:12:13] sitting in a light-filled living room or
+[00:12:15] office space. I am in my office space.
+[00:12:19] The individual is smiling. I was smiling
+[00:12:21] in the photo suggesting relaxed and
+[00:12:23] positive mood. The room includes
+[00:12:25] comfortable seating and a colorful
+[00:12:27] painting on the wall. We have a colorful
+[00:12:30] painting right behind us, creating a
+[00:12:32] cozy and inviting environment. So, this
+[00:12:34] is legit. I've also tested this a number
+[00:12:36] of times with a number of different
+[00:12:38] types of photos and I could confirm that
+[00:12:40] the results are always solid. For the
+[00:12:43] next step, we want to get our brand
+[00:12:45] identity which is cell A2. So to do that
+[00:12:48] just add a new module. Select Google
+[00:12:51] Sheets. Select get a cell. Make sure the
+[00:12:54] correct connection is selected. For
+[00:12:56] search method you can leave it as search
+[00:12:58] by path. For drive you can leave it
+[00:13:00] selected as my drive. For spreadsheet ID
+[00:13:02] select the social photo database. For
+[00:13:05] the sheet name select brand identity.
+[00:13:07] For cell make sure it's hardcoded A2.
+[00:13:10] Then click on save. Now you could
+[00:13:12] rightclick run this module only. and
+[00:13:14] you'll see that it returns the brand
+[00:13:16] identity. Let's move on to step four,
+[00:13:19] building the Facebook post route. Let's
+[00:13:21] add another module. Select flow control.
+[00:13:24] Scroll down and select router. Now we
+[00:13:27] have two routes, one and two. We are
+[00:13:30] going to now select open AI. And we are
+[00:13:33] going to select create a completion
+[00:13:34] prompt. Make sure the correct connection
+[00:13:37] is added. For select method, you could
+[00:13:39] keep it at create a chat completion. And
+[00:13:42] then we are going to select model 40.
+[00:13:45] Then select add message for roll. Select
+[00:13:48] user. Go back into the Google doc. And
+[00:13:51] now we are going to take a look at
+[00:13:54] Facebook caption prompt. Prompt 2A. This
+[00:13:56] prompt is going to generate a short
+[00:13:58] brand aligned Facebook caption based on
+[00:14:01] an image description, file name, and
+[00:14:03] brand identity. Here is the prompt, and
+[00:14:06] you could see that it's taking in three
+[00:14:08] dynamic inputs. It's going to take in
+[00:14:10] the image description, the file name,
+[00:14:12] and the brand identity. So, we're going
+[00:14:14] to copy this and then go back into text
+[00:14:17] content, and paste it. We can just
+[00:14:19] delete this stuff in black, add in some
+[00:14:22] quotation marks, and then add the result
+[00:14:24] of module number four, which was the
+[00:14:27] image analysis. Then, we need to map the
+[00:14:30] file name. Same thing, add some
+[00:14:32] quotation marks. And then go ahead and
+[00:14:35] add the file name, which comes from
+[00:14:37] module number three. Download a file
+[00:14:39] from Google Drive. We need to map the
+[00:14:41] brand identity and that is going to come
+[00:14:44] from module number five. Get a cell and
+[00:14:46] you are going to select value which is
+[00:14:49] the brand identity and then for max
+[00:14:51] tokens set it to 300. Then click save.
+[00:14:55] Add another module. Select open AI.
+[00:14:57] Select create a completion prompt. Make
+[00:15:00] sure the correct connection is added.
+[00:15:01] For select method you could keep it at
+[00:15:03] create a chat completion. For model,
+[00:15:05] select GPT40. For max completion tokens,
+[00:15:09] add 300. Click on add message. For roll,
+[00:15:12] select user. For text content, go back
+[00:15:14] to the Google doc. Then go to Facebook
+[00:15:17] message prompt. Prompt 2B. This prompt
+[00:15:20] is going to give us a firsterson
+[00:15:22] Facebook message that introduces and
+[00:15:24] supports the post caption. This prompt
+[00:15:26] is going to take in four input
+[00:15:28] variables. It's going to take in the
+[00:15:30] Facebook caption, the image description,
+[00:15:32] the video file name, and the brand
+[00:15:35] identity. Go ahead and copy it. We'll go
+[00:15:38] back into make, and we'll paste it into
+[00:15:40] text content.
+[00:15:42] For the Facebook caption, open
+[00:15:44] quotations, and then we'll add the
+[00:15:46] result of module number 14, which
+[00:15:49] produced the caption for us. For image
+[00:15:52] description, we're going to input the
+[00:15:54] result of module number four. For video
+[00:15:57] file name, we're going to input the file
+[00:15:59] name which comes from module number
+[00:16:02] three, Google Drive. And then for brand
+[00:16:04] identity, we're going to input the
+[00:16:05] result of module number five, get a
+[00:16:07] cell, and we're going to use the value.
+[00:16:09] Then go ahead and click on save. Add
+[00:16:11] another module. Search Facebook. Select
+[00:16:14] Facebook pages. Search for create a post
+[00:16:17] with photos. Now you need to add your
+[00:16:18] Facebook business account connection. If
+[00:16:20] you're doing this for the first time,
+[00:16:22] you'll see a button to add the
+[00:16:23] connection. Let's click on add. Give the
+[00:16:25] connection a name. Click on save. And
+[00:16:27] from here, you just go through the
+[00:16:29] process of adding the connection. Then
+[00:16:31] select a page. Then for photos, select
+[00:16:34] add item. Just keep these configurations
+[00:16:36] the same. I want to upload a photo. And
+[00:16:38] then for the file, we're mapping it from
+[00:16:40] Google Drive. Download a file. Then for
+[00:16:42] caption, go to module number 14 and
+[00:16:45] select result. For message, go to module
+[00:16:49] number 17 and map the result. Click on
+[00:16:52] save. Add another module. Select Google
+[00:16:55] Sheets. Select update a row. Make sure
+[00:16:58] the correct connection is added. For
+[00:16:59] search method, leave it as search by
+[00:17:01] path. For drive, leave it as my drive.
+[00:17:04] Add the spreadsheet ID. We're looking
+[00:17:05] for social photo database. For sheet
+[00:17:08] name, select photo log. For row number,
+[00:17:11] scroll all the way down and select row
+[00:17:14] number, which is coming from module
+[00:17:15] number one. Then we're going to update
+[00:17:17] column D, which is posted to Facebook,
+[00:17:19] and we're going to mark it as yes. Then
+[00:17:21] we're going to click on save. So
+[00:17:23] whenever this runs, OpenAI is going to
+[00:17:25] generate a high quality Facebook caption
+[00:17:28] and a message for the post. Then it's
+[00:17:30] going to make the post to Facebook with
+[00:17:32] the photo, the message, and the caption.
+[00:17:34] And then it's going to mark the
+[00:17:36] corresponding file row in the social
+[00:17:39] photo database as posted to Facebook. So
+[00:17:41] we know the photo has been posted
+[00:17:43] successfully. Let's move on to step
+[00:17:45] five, building the Instagram post route.
+[00:17:48] For this second route, click into it and
+[00:17:50] then click on open AI. Then create a
+[00:17:52] completion. Make sure the correct
+[00:17:54] connection is added. Then for select
+[00:17:56] method, leave it as create a chat
+[00:17:57] completion. For model, we're going for
+[00:17:59] model 4. Click on add message. For roll,
+[00:18:02] select user. For the text content, we're
+[00:18:04] going to go back to the Google doc.
+[00:18:06] We're going to be implementing the
+[00:18:07] Instagram caption prompt. What does this
+[00:18:09] prompt do? It crafts a short, punchy
+[00:18:11] Instagram caption using the image
+[00:18:13] description, file name, and brand
+[00:18:15] identity for a service-based business.
+[00:18:17] Here is the prompt right here. And you
+[00:18:19] can see that it takes in three dynamic
+[00:18:21] variables. It takes in the image
+[00:18:22] description, the file name, and the
+[00:18:24] brand identity. Just go ahead and copy
+[00:18:26] that. We'll put that into the text
+[00:18:28] content and scroll up. We can just
+[00:18:29] delete some of these placeholder
+[00:18:31] variables. Open quotation mark. Then
+[00:18:34] select the result of module number four.
+[00:18:37] Open AI. Close quotation mark. File
+[00:18:39] name. Open quotation mark. Select the
+[00:18:41] name variable from module number three,
+[00:18:43] Google Drive. Close quotation mark. For
+[00:18:45] brand identity, open quotation mark.
+[00:18:47] Then select the value variable for
+[00:18:49] module number five. Get a cell. Close
+[00:18:52] quotation mark. Scroll down. For max
+[00:18:54] completion tokens, input 300. Click on
+[00:18:57] save. Click on add a module. Search for
+[00:18:59] Instagram. Click on Instagram for
+[00:19:01] business. Click on create a photo post.
+[00:19:03] If you're doing this for the first time,
+[00:19:04] you'll likely have to add your Instagram
+[00:19:06] for business connection. Click on add.
+[00:19:08] Give your connection a name. Then click
+[00:19:10] on save. It's going to open up this
+[00:19:12] popup window right here. Just follow the
+[00:19:14] prompts. And for this you'll need an
+[00:19:16] Instagram for business account. Select
+[00:19:18] your Instagram page. Then we have the
+[00:19:20] photo URL. So Instagram has some photo
+[00:19:22] requirements and you can read about them
+[00:19:24] here. One important one to note is this
+[00:19:26] one right here. The image itself needs
+[00:19:28] to be hosted via a publicly accessible
+[00:19:31] URL. We cannot simply just use the file
+[00:19:33] in Google Drive. Even if it's publicly
+[00:19:36] available, link it to this field.
+[00:19:38] Instagram's API won't be able to
+[00:19:39] download the file. So, as a workaround,
+[00:19:41] we could upload the file to an AWS S3
+[00:19:45] bucket and then we could add the link to
+[00:19:47] the photo URL field. And that's exactly
+[00:19:49] what we're going to do. Click on add a
+[00:19:50] module. Search for AWS. Click on upload
+[00:19:53] a file. Then drag this module in between
+[00:19:55] the OpenAI and Instagram module. Click
+[00:19:58] on auto alignment. So now we're going to
+[00:20:00] set up our S3 bucket in AWS. To sign up
+[00:20:03] for S3, just go to aws.mazon.com/s3
+[00:20:07] and click on the sign up button. To
+[00:20:09] learn more about pricing and how it
+[00:20:11] works, just click on the pricing tab and
+[00:20:12] you'll be brought to the pricing page
+[00:20:14] where they walk you through how it works
+[00:20:16] and the pricing for cloud storage. Once
+[00:20:18] logged in, you're going to go to Amazon
+[00:20:20] S3. And as you can see, I already have a
+[00:20:22] bucket already created. Just click on
+[00:20:24] create bucket. Give your bucket a name.
+[00:20:26] Make sure that you're using all
+[00:20:27] lowercase and no spaces. Scroll down to
+[00:20:30] block public access settings for this
+[00:20:32] bucket. Uncheck block all public access.
+[00:20:35] Click on I acknowledge. Scroll down. You
+[00:20:38] can leave all these configurations the
+[00:20:40] same and then click on create bucket.
+[00:20:42] Here is the S3 bucket we just created.
+[00:20:44] Click into it. Click on permissions. Go
+[00:20:46] to bucket policy. Click on edit. Paste
+[00:20:49] the following code in. For resource,
+[00:20:51] make sure you replace JNC-I Instagram
+[00:20:53] with the name of your bucket. Click on
+[00:20:55] save changes. Head back to make.com and
+[00:20:58] click on AWS S3. Right next to
+[00:21:01] connection, click on add. Give your
+[00:21:03] connection a name. Now we need an access
+[00:21:05] key and an access secret key. I'll show
+[00:21:07] you how to get those. Jump back into
+[00:21:09] AWS. In the search bar in the top, type
+[00:21:12] in AM. Hover over AM and select users.
+[00:21:16] Click on create user. Give the user a
+[00:21:19] name. Click on next. Select attach
+[00:21:22] policies directly. In the search bar,
+[00:21:25] type in S3 and select Amazon S3 full
+[00:21:28] access. Scroll down. Select next. Click
+[00:21:32] on create user.
+[00:21:34] Click into the user you just created.
+[00:21:36] Click on create access key. Select
+[00:21:39] third-party service. Scroll down. Check
+[00:21:42] the acknowledgement. Click on next.
+[00:21:45] Click on create access key. Copy your
+[00:21:47] access key. Go back into make. Paste
+[00:21:50] your access key. Go back into AWS. Copy
+[00:21:53] your secret access key. Paste your
+[00:21:55] secret access key. Click on save. Now we
+[00:21:58] need to select a region. So to find the
+[00:22:00] region of your S3 bucket, go back into
+[00:22:02] AWS. In the S3, you will see the AWS
+[00:22:06] region right here. Ours is US East Ohio.
+[00:22:10] Then select the bucket that you created.
+[00:22:12] For file, just leave it as Google Drive.
+[00:22:15] Download a file. Click on save. Click on
+[00:22:17] tools. Set a variable. Drop the variable
+[00:22:20] in between AWSS3 and Instagram for
+[00:22:24] business. Click on auto align. Click on
+[00:22:26] the variable. Give the variable a name.
+[00:22:28] Call it encoded slug. Type in replace.
+[00:22:31] Select replace before the first
+[00:22:34] semicolon. Add the file name variable.
+[00:22:38] Put it right before the first semicolon.
+[00:22:40] Type in space. Add the space variable.
+[00:22:42] Put it before the second semicolon.
+[00:22:44] After the second semicolon, add a plus
+[00:22:46] symbol. Click save. Now, let's finish up
+[00:22:49] the Instagram configuration. For the
+[00:22:51] photo URL, we're going to use this
+[00:22:53] syntax. https
+[00:22:55] slash your bucket name period s3 period
+[00:22:58] your AWS region period amazon aws.com/
+[00:23:03] encoded slug variable go into AWS copy
+[00:23:06] the name of your bucket go back into
+[00:23:08] make delete the placeholder variable
+[00:23:10] replace it with the name of your bucket
+[00:23:11] go back into AWS copy your AWS region go
+[00:23:15] back into make delete the AWS region
+[00:23:17] placeholder replace it with your AWS
+[00:23:20] region delete the placeholder variable
+[00:23:22] for slug replace it with the encoded
+[00:23:24] slug variable. For the caption, use the
+[00:23:26] result variable from module number 24.
+[00:23:28] Create a completion. Click save. Add a
+[00:23:31] module. Click Google Sheets. Click
+[00:23:33] update row. Make sure the correct
+[00:23:36] connection is added. For search method,
+[00:23:38] leave it as search by path. For drive,
+[00:23:40] leave it as my drive. Select social
+[00:23:42] photo database for spreadsheet ID. For
+[00:23:45] sheet name, select photo log. For the
+[00:23:47] row number, scroll all the way down.
+[00:23:50] Select the row number variable from
+[00:23:52] module number one. Scroll down to column
+[00:23:55] E for posted to Instagram. Hardcode yes.
+[00:23:57] Click on save. Save your scenario. Make
+[00:24:00] sure to turn the scenario on. And for
+[00:24:02] schedule setting, you can run the
+[00:24:04] scenario every day. That's what we have.
+[00:24:06] But you could also run it on specific
+[00:24:08] days of the week or days of the month.
+[00:24:10] The time is already set. So, let's just
+[00:24:12] click save. So, the moment has finally
+[00:24:14] arrived and we're ready to give this
+[00:24:16] thing a test. We've got our photo
+[00:24:18] library, our social photo database, our
+[00:24:21] file sync automation, and our master
+[00:24:24] scenario that's going to push the post
+[00:24:25] to Facebook and Instagram. For our test
+[00:24:28] photo, we're going to use this iconic
+[00:24:30] painting of Napoleon Bonapart crossing
+[00:24:32] the ops. Let's just drag and drop this
+[00:24:34] photo to the photo library. We're going
+[00:24:37] to run the file sync automation
+[00:24:41] and let's run the master scenario.
+[00:24:52] All right, I just went over to Facebook
+[00:24:55] and look what we're seeing here. We're
+[00:24:57] seeing our painting of Napoleon Bonapart
+[00:25:00] loving automation telling you to
+[00:25:02] automate your life. And let's take a
+[00:25:04] look at the message. We're taking
+[00:25:06] inspiration from history's great leaders
+[00:25:08] to craft automation solutions that shape
+[00:25:10] your business's future. Drive into
+[00:25:12] seamless systems that turn challenges
+[00:25:14] into growth opportunities. #nocodea
+[00:25:17] automation #lewithvision
+[00:25:19] #smartscaling. Let's head on over to
+[00:25:22] Instagram. I could see our post here in
+[00:25:25] Instagram and let's check out the
+[00:25:27] caption. Command your workflow like a
+[00:25:29] legend. Transform chaos into success
+[00:25:32] with Josh noode seamless automations.
+[00:25:34] #automationrevolution
+[00:25:36] # renaissance innovation. What I love
+[00:25:39] about this automation is how simple it
+[00:25:41] is to use. We need two things. We need
+[00:25:43] our Google Drive folder and then we need
+[00:25:45] our photos. And we're constantly taking
+[00:25:47] photos as content creators, as business
+[00:25:50] owners, as operations people, as social
+[00:25:53] media managers. And we take those photos
+[00:25:55] and we upload them to Google Drive and
+[00:25:57] that's it. Uh, and you can see how
+[00:25:59] scalable that process is. And from
+[00:26:01] there, the automation is just going to
+[00:26:03] take care of the rest for us. It's going
+[00:26:04] to run every single day at our preferred
+[00:26:07] times. It's going to take a photo that
+[00:26:08] hasn't been posted to social media yet.
+[00:26:10] It's going to analyze it, come up with
+[00:26:13] the best possible caption message, and
+[00:26:16] then it's going to post automatically to
+[00:26:18] Facebook and Instagram. So, you no
+[00:26:20] longer have to take these photos, go
+[00:26:22] into Instagram and Facebook, upload
+[00:26:23] them, create the captions, create the
+[00:26:25] hashtags, create the message, all of
+[00:26:27] that stuff, and make the post because
+[00:26:29] the process is going to be completely
+[00:26:31] automated. And now you know how to take
+[00:26:33] this automation and implement it in your
+[00:26:35] business. And for those of you out there
+[00:26:37] looking for a done for you solution,
+[00:26:39] this is actually a service that I offer.
+[00:26:41] So I have a link in the description
+[00:26:43] below where you can book a call with me.
+[00:26:44] If you enjoyed this video and you got a
+[00:26:46] lot of value out of it, make sure to
+[00:26:48] smash that like button. And if you want
+[00:26:49] to see more AI automation videos from
+[00:26:52] Josh Note, make sure to subscribe to our
+[00:26:55] channel and turn your notifications on.
+[00:26:56] If you have a question about anything or
+[00:26:58] have an idea for a future video, drop it
+[00:27:00] in the comment section below. Other than
+[00:27:02] that, I hope you guys enjoyed and I'll
+[00:27:04] see you in the next

@@ -1,0 +1,264 @@
+# I Built a VIRAL Content Factory (AUTOMATIC Instagram Carousels)
+# https://www.youtube.com/watch?v=82lbNuLLISI
+# kanal: Brooke Wright - AI Strategist + Educator | süre: 602 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] I discovered how to turn any Tik Tok
+[00:00:02] into a fully branded Instagram carousel
+[00:00:05] in under two minutes. And it's already
+[00:00:08] helped me grow my audience to 15,000
+[00:00:10] followers across channels. I've been
+[00:00:13] using this exact workflow for the last
+[00:00:16] few months, and it's now creating 5 to
+[00:00:18] 10 carousels a week from my Tik Toks
+[00:00:21] while I literally do nothing. In this
+[00:00:24] video, I'm going to give you the full N
+[00:00:26] and Blot workflow so you can do this for
+[00:00:29] your brand. All right, let's get into
+[00:00:31] it. All right, so when you jump into
+[00:00:34] NAN, you're just going to hit import
+[00:00:36] from file, upload this Tik Tok to
+[00:00:39] carousel agent template, hit open, and
+[00:00:41] then it will populate like this. So here
+[00:00:44] you submit a Tik Tok URL. It extracts
+[00:00:48] the information, gets the Tik Tok page,
+[00:00:51] downloads the video, does all this in
+[00:00:53] the code node which you don't need to
+[00:00:55] touch, transcribes the video, and then
+[00:00:57] over here is where the magic happens. So
+[00:01:00] this is our AI agent. And so the prompt
+[00:01:02] is all set up here. It's just using this
+[00:01:05] real transcript that it pulls from the
+[00:01:07] previous node. And then over here, you
+[00:01:09] will just need to update your system
+[00:01:11] prompt. So, we want to keep all of this
+[00:01:13] the same cuz this is just saying like
+[00:01:15] you need to use this real transcript,
+[00:01:17] extract the key insights and memorable
+[00:01:19] moments and create an Instagram
+[00:01:21] carousel. Now, you will want to change
+[00:01:23] the context here cuz this is set up for
+[00:01:25] me. This can all say the same, but you
+[00:01:28] will also need to change this. Do not
+[00:01:30] ask if Brooke created the content
+[00:01:32] because this is aligned to my brand. And
+[00:01:35] what you can do is just grab this whole
+[00:01:37] system prompt, chuck it into Claude or
+[00:01:39] chat GBT and just say, "We need to
+[00:01:42] update this for my brand. Please keep
+[00:01:45] all of the key information for the agent
+[00:01:47] the same, but work on the brand voice,
+[00:01:50] etc." And then you'll just paste that
+[00:01:52] into here. And then I've connected an
+[00:01:54] anthropic chat model here. You could use
+[00:01:56] chat GPT or whatever. And so what you
+[00:01:59] need to do is if you want to use
+[00:02:01] anthropic, you just come down here and
+[00:02:03] you're going to create a new credential.
+[00:02:05] And you will just need to grab your API
+[00:02:07] key. And if we just go API anthropic,
+[00:02:10] you'll sign in here. And then down here,
+[00:02:12] API keys. And you'll just hit create
+[00:02:14] key. And then grab that key and paste it
+[00:02:16] back in here. And then hit save. And
+[00:02:18] then you you can rename this whatever
+[00:02:20] you want. But this is just like
+[00:02:22] anthropic too. I won't save that. Also
+[00:02:24] to note here, you can see how cheap the
+[00:02:27] token costs are. It really doesn't cost
+[00:02:29] that much to the API for Claude. And if
+[00:02:31] you want to change that to something
+[00:02:33] else, you would just delete this and
+[00:02:35] then hit chat model. And then there's
+[00:02:37] all these different AI that you can
+[00:02:39] choose from, but for the purpose of
+[00:02:41] this, and I find that anthropics writing
+[00:02:43] is much better, I'm keeping it with
+[00:02:45] that. And then once you've signed in,
+[00:02:46] you just hit here and then pick what
+[00:02:49] model you want. So let's go Claude
+[00:02:50] Sonnet 4.6. This is actually a more
+[00:02:53] expensive model, so you could do Haiku,
+[00:02:55] which is what it was set on before, or
+[00:02:57] even Sonnet 4.5. Um, Opus is amazing,
+[00:03:01] but it's it costs a lot more and it's
+[00:03:03] unnecessary for this. We've already got
+[00:03:05] the content in the transcript. All
+[00:03:07] right. Now, jumping over here, some of
+[00:03:10] the templates that are in Blot and so
+[00:03:12] these are tutorial cards. So, if we jump
+[00:03:14] back into Blot, the first thing I want
+[00:03:17] you to do is grab your API key. So,
+[00:03:20] you'll need to jump over here. And if
+[00:03:21] you haven't set up an API key before,
+[00:03:24] you will need this will say like grab
+[00:03:26] API key or setup API key. This is only
+[00:03:29] available the paid plans PS. And then
+[00:03:31] you'll just copy that. And then same
+[00:03:33] thing to set up your credentials. You'll
+[00:03:35] just paste your API key in here and hit
+[00:03:38] save. Now you will also, if this is your
+[00:03:40] first time using Blue, you'll also need
+[00:03:42] to set up your socials. And it's super
+[00:03:45] easy to do. You just come down here and
+[00:03:47] pick the ones that you want to connect
+[00:03:48] and log in. And so you can see here,
+[00:03:50] these are all the ones that I have set.
+[00:03:51] And then these copy account IDs. So if
+[00:03:53] we just jump over to the actual
+[00:03:55] workflow. So here's where it makes the
+[00:03:57] carousel. And then here's where it posts
+[00:03:59] out. So if we jump into LinkedIn here.
+[00:04:02] So again, we've got our Blot account
+[00:04:04] selected here. That's our credential.
+[00:04:05] Um, and again, you won't need to change
+[00:04:07] these. These are all set up. So it's
+[00:04:08] post, create, and then platform. So here
+[00:04:12] there's a list of all the platforms you
+[00:04:13] can connect to. And so I will hit
+[00:04:16] LinkedIn here. And so because I have my
+[00:04:19] LinkedIn set up in Blot over here, it
+[00:04:22] will drop down here. So there's my page.
+[00:04:25] And so that will now post out to
+[00:04:27] LinkedIn. Again, you don't need to
+[00:04:29] change any of this. This has all been
+[00:04:30] set up. The one thing I will say is this
+[00:04:33] schedule next free slot. So what that
+[00:04:35] means is if we go into calendar over
+[00:04:37] here, scheduled posts that I have coming
+[00:04:40] up and in blue, you can pick schedules.
+[00:04:43] And so what that is, it's just like
+[00:04:45] slots that you can post stuff out to. So
+[00:04:47] you could have this set up in nan and if
+[00:04:50] that isn't ticked on it will just
+[00:04:52] schedule it out as soon as this carousel
+[00:04:54] is made which is fine but if you are
+[00:04:56] creating a lot of content like I am just
+[00:04:58] hit schedule next free slot and then
+[00:05:00] over in blue you can add slots. So you
+[00:05:03] could pick like Sunday you could pick
+[00:05:05] every day really pick a time and then
+[00:05:07] you can choose which accounts you want
+[00:05:10] this like to hit and then what that will
+[00:05:12] do is populate here. So you can see I've
+[00:05:14] got these slots available for Twitter
+[00:05:16] like 7, 11, 12:23, 12:45, etc., etc. And
+[00:05:20] so when these carousels are made and we
+[00:05:24] hit schedule next free slot, that will
+[00:05:26] just like fit into one of these slots so
+[00:05:28] that like all of that content isn't
+[00:05:30] going out at once. So I've got here
+[00:05:32] LinkedIn, Tik Tok, I've got Facebook
+[00:05:35] deactivated. If you want to reactivate
+[00:05:36] one, just hit the little on button. And
+[00:05:39] then over here I just need to select my
+[00:05:42] Facebook page which is rat mode from the
+[00:05:44] list. And then over here you can see
+[00:05:46] instead of it having next free slot I've
+[00:05:49] actually put plus 4 hours. So I want
+[00:05:51] this pushed out like 4 hours from now.
+[00:05:54] So if you want to change that this is
+[00:05:56] just JSON. So you could change that to
+[00:05:58] whatever hour you know if you want 8
+[00:06:00] hours between your post and this just
+[00:06:03] change that to eight whatever you want.
+[00:06:05] Or to keep it simple you can just have
+[00:06:06] schedule next resot. All right. So,
+[00:06:09] jumping back in here now to the AI
+[00:06:11] agent. So, this is going to create a
+[00:06:14] tutorial carousel with monocol
+[00:06:16] background. But what you will need to do
+[00:06:18] is put in your profile image here and it
+[00:06:21] just needs to be a publicly accessible
+[00:06:23] link. So, for me, what has worked is
+[00:06:25] grabbing one of my images that are
+[00:06:28] available on my website. And then I've
+[00:06:30] picked this type of font. So, there's a
+[00:06:32] whole bunch of fonts that you can choose
+[00:06:34] from. The hashtags are like
+[00:06:37] autogenerated. So just leave that as
+[00:06:40] well. Um, and same with this. This will
+[00:06:42] autogenerate. What I want you to change
+[00:06:44] is your background color. That's my
+[00:06:46] green branding color. The content slides
+[00:06:49] will come directly from the agent. So
+[00:06:50] you don't need to touch this. You will
+[00:06:52] want to put these as your brand colors
+[00:06:54] as well. You want to change the author
+[00:06:56] name, your company name, and then the
+[00:06:57] greeting and the CTA. So I will show you
+[00:07:00] what this looks like now. So let's run
+[00:07:02] the whole thing through. All right,
+[00:07:04] let's do this one. So, I'm just going to
+[00:07:07] hit publish on this now. Um, so whenever
+[00:07:10] you want your workflow to go live, you
+[00:07:11] just jump up here and hit publish. In
+[00:07:14] your open AI account, same thing. You
+[00:07:16] just want to create a new credential.
+[00:07:18] You'll grab the open AI API. And to do
+[00:07:22] that, we go open AI here. Log in. So,
+[00:07:25] this is different to chat GBT, but it is
+[00:07:28] linked to your chat GPT account. And
+[00:07:31] then you'll just jump down here to API
+[00:07:33] keys. create new secret. Just name it
+[00:07:35] something like N8N default project and
+[00:07:37] then create secret key. And then you'll
+[00:07:39] jump back in here, hit credential, and
+[00:07:41] then paste in your API key there. And
+[00:07:44] that's it. Now, if we hit this, this is
+[00:07:47] our form link. So, you can just bookmark
+[00:07:50] this. And then we'll grab this link from
+[00:07:52] my Tik Tok. Run it here. And so, if you
+[00:07:56] want to set this up, you could delete
+[00:07:58] these. Like if it this is just for you
+[00:08:01] with your own Tik Toks, you could delete
+[00:08:03] these fields like your name, your
+[00:08:06] display name for the carousel and just
+[00:08:08] use the template I've got. So let's go
+[00:08:10] Brooke right
+[00:08:14] mode. And then any brand voice notes you
+[00:08:16] want um you can pop in there and then
+[00:08:18] we'll just hit submit. And then if we
+[00:08:19] jump back over into this workflow, we
+[00:08:21] can see now here it's running. And so
+[00:08:24] this will go and do its thing and then
+[00:08:26] make a branded carousel for us. And
+[00:08:28] while that's doing its thing, I will
+[00:08:29] show you in blue potato the other
+[00:08:32] templates. So these are all it's going
+[00:08:34] to render this. Okay, so here is the
+[00:08:37] carousel that it's just made from that
+[00:08:39] cowork video. And if you want to, you
+[00:08:41] can just jump directly into Blot and
+[00:08:44] create your own from these templates.
+[00:08:46] You can also jump in here and set up
+[00:08:49] your brand kit. So brand name, website,
+[00:08:52] all of this. drop your images here and
+[00:08:55] it will pull from your brand kit which
+[00:08:57] is like so powerful. And there's this
+[00:09:00] new feature where you can just create it
+[00:09:02] all with an AI agent. So I use this. I
+[00:09:05] didn't have my brand kit set up so I
+[00:09:06] pasted all of this in here. But if you
+[00:09:08] just set that up, it will pull from it
+[00:09:11] and I just said like write this like
+[00:09:14] short video on how I broke up with chat
+[00:09:16] GPT. And then these are just all images
+[00:09:19] from my website that are publicly
+[00:09:21] available. And then it just did its
+[00:09:24] thing and we can have a look at this
+[00:09:25] here. So this is like awesome and just
+[00:09:28] makes content creation so much easier.
+[00:09:30] So you have two options now. You can use
+[00:09:33] the N8N workflow or you can just go
+[00:09:35] directly in Blotato. If you watch this
+[00:09:37] whole thing, you're clearly serious
+[00:09:39] about implementing AI in your business.
+[00:09:41] So in the right mode membership, you get
+[00:09:44] access to a community of incredible
+[00:09:46] women doing exactly this. Plus, I'm in
+[00:09:49] there every day helping you
+[00:09:51] troubleshoot, giving you ideas, and this
+[00:09:53] template is included in the classroom.
+[00:09:56] The link to the membership is in the
+[00:09:58] description below, and I will see you on
+[00:10:00] the next video.

@@ -1,0 +1,202 @@
+# This Social Media AI Automation Creates Unique Content Daily! (100% Automated!)
+# https://www.youtube.com/watch?v=SV32mn0yy5c
+# kanal: AI Andy | süre: 1024 sn | kaynak: yt-dlp:android:SV32mn0yy5c.en.json3
+
+[00:00:00] take a look at this when I click on run once this automation is writing and
+[00:00:05] posting for me on X LinkedIn Instagram and Facebook so you don't need to write
+[00:00:11] content from scratch you don't need to log into each platform and post yourself
+[00:00:16] all you need to do is set up this AI automation but Andy what if I never set
+[00:00:22] up an AI automation before that's actually an amazing
+[00:00:27] question and that's why I have a free document for you that you can download
+[00:00:32] in the link in the description that allows you to copy and paste my entire
+[00:00:36] Automation and all the prompts that I use to make this possible you don't even
+[00:00:41] need to sign up your email but if you don't have 5 minutes to watch this video
+[00:00:46] you're probably not going to make it because there is one massive prompting
+[00:00:49] mistake so many people do that I want to help you avoid at all cost so make sure
+[00:00:56] you grab that tip now I'm going to show you how to set this up in just four easy
+[00:01:01] steps so let's get started first I want to show off what we're going to make
+[00:01:05] today as you can see on the screen we're going to go from Google Sheets to
+[00:01:09] perplexity route that through multiple different chat gbts that then post on X
+[00:01:16] LinkedIn Instagram and Facebook and all of this is happening inside of make.com
+[00:01:22] an automation platform that is a lot easier than what it might seem like and
+[00:01:26] I'm going to show you all of that right now but because there SP sponsoring this
+[00:01:30] video they're giving me a special link down in the description that gives you
+[00:01:34] the Pro Plan 1 month for free just remember that make.com is a free forever
+[00:01:40] platform but since you're watching this video you might as well get the best
+[00:01:44] plan right now if you want to keep following along and make this automation
+[00:01:48] so now I want to show you exactly step by step how to make this entire
+[00:01:53] automation from scratch one of the most handy things that I will give to you is
+[00:01:58] actually a notion do doent that I made to give to you to make this a lot easier
+[00:02:03] now you don't have to sign up your email or anything it's down in the description
+[00:02:07] down below but make sure you follow this video because there is one mistake that
+[00:02:11] I want you to avoid like the plague that I'll share a little bit later so step
+[00:02:16] number one copy my automation just go to the link in the description and then
+[00:02:21] download this Google sheet to social media blueprint once you have done that
+[00:02:26] all you need to do is make a new automation just just like this in the
+[00:02:31] bottom you will see three dots just click on that and import blueprint just
+[00:02:36] click on choose file get the Google sheet to social media Json file and
+[00:02:41] click on save as you can see it just all popped up for you so you don't have to
+[00:02:46] make it from scratch but if you try to run this it's probably not going to work
+[00:02:50] so I need to show you step number two set up Google Sheets and perplexity the
+[00:02:54] reason we need this is because this is where you'll post your articles into and
+[00:02:59] secondly we're going to use perplexity to rewrite those articles into a summary
+[00:03:04] where I found that perplexity is the best way to do this so to set up Google
+[00:03:08] Sheets all you need to do is go to the document that I've given to you click on
+[00:03:13] this link that will open this news to social media automation then just click
+[00:03:18] on file click on make a copy because then you can actually edit it yourself
+[00:03:24] so let's start by having it completely blank and find a link that we want to
+[00:03:29] put in here to create social media posts for obviously this depends on your Niche
+[00:03:33] I'm in AI so I like to browse AI news and I found this article here on wayo
+[00:03:39] wants to Sher your kids basically a robo taxi which is like a uber but no driver
+[00:03:46] that I think could turn into a pretty funny post so all I'm going to do is
+[00:03:50] copy this link put it into this URL in the top and that's all we need to do
+[00:03:55] here for perplexity to make this work all you need to do click on this
+[00:04:00] settings button then go to the tab that says API in the top and you just need to
+[00:04:05] buy a couple of credits I put $5 in here and the reason for that is that we need
+[00:04:10] an API key so if you don't have one just click on generate copy this and then we
+[00:04:16] need to make sure to set up Google Sheets and perplexity if you've never
+[00:04:20] set this up before all you need to do is basically click on add a new connection
+[00:04:25] here is where you will sign in with your Google account that you just copied the
+[00:04:29] sheets automation then you just go through the steps of search by path
+[00:04:34] Google shared drive because I have a shared drive that I use if you don't
+[00:04:38] have that you can click on my drive go through the different folders where you
+[00:04:42] copied my news to social media automation sheet make sure to have the
+[00:04:47] sheet name ideas table contains headers yes and these rows limit one and click
+[00:04:54] on okay now that is complete with perplexity AI it's pretty much the same
+[00:04:59] thing just click on add a new connection and this is where you're going to add
+[00:05:03] your API key so just paste that directly in here click on Save I already did that
+[00:05:08] so I'm going to close it in the model we're going to use the Llama 3.1 soner
+[00:05:12] small this is because the price is a lot less and it actually works very well in
+[00:05:18] the content you'll use summarize this and start your output with a headline
+[00:05:24] this is because it's a lot easier for the next steps when we'll go into chat
+[00:05:28] GPT prompts the you'll put user and Max tokens will put at 50,000 temperature at
+[00:05:35] 1 and just click on okay to show you that it works I'll just click on run
+[00:05:40] once and now you see Google sheet will start finding the first link perplexity
+[00:05:45] will start summarizing that and you'll actually get the output here if you zoom
+[00:05:50] in on the output we will put usage and choices one message and here you go this
+[00:05:58] is the cont content that we got back that is a summary of the article that we
+[00:06:03] put in pretty cool right now I want to show you how to set up all of these
+[00:06:07] different chat GPT prompts for different social media because different social
+[00:06:12] media act in different ways right but before that don't forget to like this
+[00:06:16] video also comment down below AI automation if you want me to make more
+[00:06:21] videos like this and stay tuned because I'll share a mistake that most people do
+[00:06:27] that I want you to avoid so let's head to step number two prompt chat gbt just
+[00:06:32] go to google.com and search for chat gbt assistant playground then just click on
+[00:06:37] the first link if you don't have an account here this is not your normal
+[00:06:41] chat gbt this is actually the API that we're going to use and test using the
+[00:06:47] assistant feature so if you've never set this up before again we need to go to
+[00:06:52] the settings click on billing and add some credits to your plan once again
+[00:06:58] this is all incredibly cheap but you want to end up on the assistant tabs
+[00:07:02] where here you can see the Instagram Oasis bot Facebook Oasis bot LinkedIn
+[00:07:07] Oasis bot and the Tweet Oasis bot how this works is that you put a name to it
+[00:07:14] then you put an instruction of how you want this assistant to act so we can get
+[00:07:19] the best prompt I played around with this for hours fixing and refining it so
+[00:07:25] I felt like we actually got a good output and the way you test this is to
+[00:07:29] to actually click on the playground and here you have a chat where you can click
+[00:07:33] on the assistants select the assistant that you actually want and then you can
+[00:07:38] write a message to it so say if we go back to the sheet that we did we take
+[00:07:44] the output of perplexity by just triple clicking copy that paste it back into
+[00:07:51] chat gbt and run it you'll see that we actually get a tweet output and I tested
+[00:07:56] this again for hours trying to get an actual good output so if we do this for
+[00:08:01] LinkedIn as well I'll just do the exact same prompt and here you can see that we
+[00:08:06] get a little bit longer output and we try to ask an engagement question at the
+[00:08:11] end as well as being a little bit more formal because different platforms have
+[00:08:16] different audiences it's kind of like this meme like me on LinkedIn me on
+[00:08:20] Facebook me on Instagram and me on Tinder and I probably have to say that
+[00:08:24] this is the hardest part and one prompt secret that I actually found out
+[00:08:29] yesterday was for tweets one of the things that I find is tonally different
+[00:08:36] between Twitter versus other platforms is that it sounds like a thought just
+[00:08:43] something you're thinking and then tweeting out which led me to find this
+[00:08:47] prompting technique that if you change this it will have a drastic impact of
+[00:08:52] your actual output the tone should be like you're having a thought and you're
+[00:08:57] just writing what you're thinking I changed this one probably 10 times to
+[00:09:01] see what the output was and for me this is what cost the most casual but
+[00:09:07] insightful tweet that wasn't too hyperbolic and especially no Emojis or
+[00:09:13] hashtags yeah chat GPD is having a problem with that but either way you
+[00:09:17] don't have to prompt any of this I also added this in the prompts for chaty BT
+[00:09:22] agent down in the description down below that you can just copy and paste into
+[00:09:26] your own assistant but they are definitely not perfect so I encourage
+[00:09:31] you to just copy and paste them to start as a Baseline and then tweak them so the
+[00:09:36] output becomes what you actually want it to be but here is a massive prompting
+[00:09:42] mistake that I hinted at earlier in this video and that is having a too long
+[00:09:47] prompt longer is not better some of these automation coaches online say that
+[00:09:53] you can just copy and paste a ton of examples and a ton of instructions and
+[00:09:58] all of these things but what they don't tell you is that the actual output that
+[00:10:02] you get is really long chbd hallucinates sometimes and takes from this example
+[00:10:08] and puts it into your post that is completely unrelated so I found that
+[00:10:12] shorter is better specifically for these types of posts that usually are pretty
+[00:10:17] short and to illustrate this perfectly let me show you in LinkedIn Oasis this
+[00:10:22] prompt is very short and if I only just change one word saying make it one
+[00:10:27] paragraph as you can see you got about this output here if I said for example
+[00:10:32] put a line break between every second sentence but keep it short and if I
+[00:10:37] paste the exact same summary you can see that the output is starting to get a lot
+[00:10:41] longer one crazy mistake that I did with the Tweet Oasis bot was I put it into an
+[00:10:46] actual prompting engine that is like get 10 times better prompt and you can see
+[00:10:51] that if I run this one you see that we end up with a bunch of emojis and
+[00:10:56] hashtag with future of parenting say hello to wayos autonomous ride for kid
+[00:11:02] that I think is just too hyperbola for Twitter not to mention how this output
+[00:11:07] is going to be really hard to put into an Automation and speaking about
+[00:11:11] automations let's jump back to make automations and start setting this up
+[00:11:16] cuz I really want to show you the rest of this automation so by the end of this
+[00:11:20] video we'll actually be able to just click on run once and you'll see them
+[00:11:25] get posted on all my social media so let's head to the next step set up the
+[00:11:30] chat gbt automations so because you have downloaded and imported this blueprint
+[00:11:35] this gets a lot easier for you all you need to do is open the chat gbt node and
+[00:11:41] then just add your connection here this means that you need to find an API key
+[00:11:46] and an organization idea if you did this in the previous step it's really easy
+[00:11:51] just go to these settings in the top click on your profile and then go to
+[00:11:56] user API Keys oh it's seems like it's moved to view project keys so it's on
+[00:12:02] the bottom of the dashboard just click on create a new secret key and the
+[00:12:07] organization ID is right here as well once you found that just copy and paste
+[00:12:13] it into chat gbt and it should be connected now just select the bot that
+[00:12:19] you want to add like tweet Instagram Facebook LinkedIn the role pick user
+[00:12:25] message you need to head into the choice message and content if you don't see
+[00:12:33] this yet it's probably because you haven't run the automation so if you
+[00:12:38] want to set it up without actually triggering all of this you can just run
+[00:12:42] this once and make sure you get this bubble with an output that gets some
+[00:12:47] content and then you'll be able to choose that for the rest of the options
+[00:12:51] you can just keep them blank and okay you now set up chaty BT and the same
+[00:12:57] goes exactly for link Lin as well just select the LinkedIn Oasis bot but when
+[00:13:03] we come down to Instagram and Facebook we're actually going to create images so
+[00:13:08] for the first node to message an assistant is exactly the same for both
+[00:13:12] of these but when we go to generate an image what we're going to do is select
+[00:13:18] the model Dolly 3 and you should be connected with the last open AI
+[00:13:22] connection and have the prompt make an image based on this text and this is the
+[00:13:29] the actual result that we get from the assistant so that will be the Tweet the
+[00:13:34] Facebook post the Instagram post text that we get back and then just click on
+[00:13:39] okay so that is how to set up all of the chat gbt prompts all automated so they
+[00:13:44] generate posts for you and images but what about the next step publishing to
+[00:13:50] all social media as you can see we have X here LinkedIn Instagram Facebook so
+[00:13:56] literally all you need to do is to click on ADD add a connection and in the text
+[00:14:01] you just pick the result from the message assistant that is in the
+[00:14:06] previous step again you might have to run it to be able to get the actual
+[00:14:11] context right here now there is a step here that you could add media ideas
+[00:14:16] which means that you can actually add a video or a image but it's a little bit
+[00:14:22] too advanced for this video in itself but if you actually want me to do that
+[00:14:27] comment down below social media image automations and I'll make sure to make a
+[00:14:33] more complicated automation that allows you to post images to X but as you can
+[00:14:38] see all you need to do is put the result in here for LinkedIn all you need to do
+[00:14:44] is put the result in here as well for Instagram for business you might have to
+[00:14:49] make a business Suite account for meta and connect that through make.com select
+[00:14:57] the page you want to post on and here you add the photo URL so you actually
+[00:15:02] get a URL from the generate image that is data URL on the caption you get the
+[00:15:09] result which is from this step and that's pretty much all you need to do
+[00:15:13] for Facebook pages again the page is AI Andy the message result and the link is
+[00:15:19] pretty much the same as the last ones and now you might be asking now that all
+[00:15:24] of this is connected Can I just click on run once and I will actually get a post
+[00:15:29] on all these social media platforms and the answer is yes let's find an article
+[00:15:34] about salmon farm AI Vision take that link put it into Google Sheets go back
+[00:15:41] to the make automation click on run once and it will go through the sheets it
+[00:15:46] will then summarize in perplexity go up to the chat gbt Twitter bot and then get
+[00:15:54] posted directly on X then we go to the LinkedIn bot it will start writing and
+[00:15:59] post directly on LinkedIn the same for Instagram as well it's currently writing
+[00:16:05] then it's creating an image and it's now posting on Instagram and lastly the
+[00:16:12] Facebook bot is writing the Facebook post creating an image and posting it on
+[00:16:19] our Facebook page but how do the post actually look like here is the post on X
+[00:16:25] here is the post on Instagram with a crazy salmon farm image here is the post
+[00:16:32] on LinkedIn and the Facebook post as well isn't that absolutely crazy I think
+[00:16:40] so too and it's all possible through make.com so go down there sign up and
+[00:16:45] follow my document and if you want tech support for AI Automation and talk to me
+[00:16:51] directly there is a link down in description to join my wait list for my
+[00:16:55] private Community to help you use AI to get things done faster so head down in
+[00:17:00] the link in the description and I'll see you in next one

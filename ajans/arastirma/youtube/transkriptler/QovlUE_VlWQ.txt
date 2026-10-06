@@ -1,0 +1,346 @@
+# This Workflow Auto-Posts to 9 Different Socials (free template)
+# https://www.youtube.com/watch?v=QovlUE_VlWQ
+# kanal:  | süre: 599 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] Today, I'm going to show you guys
+[00:00:01] exactly how I built this system so that
+[00:00:02] I can auto post content on nine
+[00:00:04] different social channels. I'm also
+[00:00:05] going to give you guys all the resources
+[00:00:07] that you need to set this up for free so
+[00:00:08] that all you'll have to do is connect
+[00:00:10] your own, you know, content and media
+[00:00:12] that you want to upload and then just
+[00:00:14] log into your own social accounts and
+[00:00:15] you'll be all set up with auto posting.
+[00:00:17] So, I don't want to waste any time here.
+[00:00:18] Let's go ahead and break down the
+[00:00:20] system. The first thing I want to show
+[00:00:21] you guys is what are these weird looking
+[00:00:24] pink nodes that you see? There's 10 of
+[00:00:26] them here. Well, this is a platform
+[00:00:27] called Blot. And as you can see here,
+[00:00:29] what potato lets you do is create viral
+[00:00:31] posts and faceless videos, but we're not
+[00:00:33] going to be focusing on the content
+[00:00:34] creation piece today. We're just talking
+[00:00:36] about the actual auto posting piece. I
+[00:00:38] don't know if you guys have had issues
+[00:00:39] before posting on LinkedIn or YouTube
+[00:00:41] and stuff like that through um like the
+[00:00:44] other end native nodes or through an
+[00:00:45] HTTP request or something, but makes it
+[00:00:47] pretty easy. So anyways, when you go to
+[00:00:49] potato and you sign up using the link in
+[00:00:51] the description, make sure to use code
+[00:00:52] Nate30 so you can get 30% off for 6
+[00:00:54] months. I just wanted to say I'm not
+[00:00:56] being paid by Botato to make this video.
+[00:00:58] I've used Botato in different builds
+[00:00:59] which I'll kind of feature at the end of
+[00:01:01] this video. But yeah, it's just a great
+[00:01:02] platform and I wanted to bring you guys
+[00:01:04] this discount. And it's even easier now
+[00:01:06] because in previous videos I've had to
+[00:01:08] use an HTTP request like this and we had
+[00:01:10] to set up all of these different like
+[00:01:12] page IDs and everything in order to pass
+[00:01:13] over the right pages to our, you know,
+[00:01:17] different HTTP requests. But now because
+[00:01:19] of the native node, it's super super
+[00:01:20] easy. And if you don't see this verified
+[00:01:22] Volt community node, you're going to
+[00:01:24] have to go to your admin panel in your
+[00:01:26] NADN instance and make sure that you
+[00:01:28] have verified community nodes enabled
+[00:01:30] and that you're updated to a recent
+[00:01:32] enough version of NAND. Real quick, just
+[00:01:34] to show you guys, I'm in my admin panel
+[00:01:35] right now and you can see I have this
+[00:01:37] turned on, which lets me access verified
+[00:01:39] community nodes on NIAN cloud. Anyways,
+[00:01:41] once you're here, you can see there's
+[00:01:42] two actions. The first one is to upload
+[00:01:44] media and then the second one is to
+[00:01:46] create the post. So, I'll break down the
+[00:01:48] difference here, but right here, this is
+[00:01:49] where we're uploading media. And then
+[00:01:50] over here, we're creating our posts on
+[00:01:52] those nine different socials. So, the
+[00:01:54] first thing we need to do before we can
+[00:01:55] actually post is we need to create a
+[00:01:57] Blot API key. And we need to sign into
+[00:01:59] our social profiles that we actually
+[00:02:01] want to post to. And then once I'm in
+[00:02:02] Bot, I'm going to go to my settings in
+[00:02:04] the bottom left. And all we have to do
+[00:02:05] is start to add our accounts. So, let's
+[00:02:08] say for the first example, we're just
+[00:02:09] going to log in with Tik Tok and
+[00:02:10] Instagram. All you do is click on the
+[00:02:12] button, log in. Super easy. You can see
+[00:02:14] I've connected other accounts down here.
+[00:02:15] And then you're going to scroll up and
+[00:02:17] go to your API and you'll copy your API
+[00:02:19] key right here. And then after you copy
+[00:02:21] that, you can go into potato and then
+[00:02:22] open any of the potato nodes, create a
+[00:02:24] new credential, and just paste your API
+[00:02:26] key right there. And then you just have
+[00:02:28] to make sure that all 10 of these potato
+[00:02:30] nodes have that credential set up. And
+[00:02:32] then because you already signed into
+[00:02:33] like your Instagram and Tik Tok account
+[00:02:35] on potato, all you have to do in this
+[00:02:36] node is choose the right account from
+[00:02:38] the list. So it really should be the
+[00:02:39] only one there, but all you have to do
+[00:02:41] now is choose the right account. And
+[00:02:42] then you can see when you're posting on
+[00:02:44] Tik Tok or Instagram, they're going to
+[00:02:45] have different settings. So you have a
+[00:02:47] privacy level. You can like disable
+[00:02:48] comments. Is it AI generated? And all of
+[00:02:51] these nodes are going to have different
+[00:02:52] little levers and different filters to
+[00:02:54] play with. But it's so much easier as a
+[00:02:57] community node because in the old way we
+[00:02:59] had to do like an HTTP request for all
+[00:03:01] of them and they all had different like
+[00:03:02] JSON body parameters to send over. So
+[00:03:05] this is a lot easier now. Anyways, let
+[00:03:07] me just show you guys an example of this
+[00:03:08] in action. So, what I'm going to do is
+[00:03:10] deactivate all of these nodes by just
+[00:03:12] clicking on them and then clicking D.
+[00:03:14] So, I'm turning these off because we
+[00:03:15] only want to post to Instagram and Tik
+[00:03:17] Tok. And what I'm going to do is hit
+[00:03:19] execute workflow. So, what this is going
+[00:03:20] to do is pull in our video as well as
+[00:03:23] like our title and our caption from our
+[00:03:25] Google sheet. It's going to upload that
+[00:03:27] video to Blotato and then Blot is going
+[00:03:29] to go ahead and create those posts on
+[00:03:31] Instagram and Tik Tok as you can see.
+[00:03:33] And then it goes back into our Google
+[00:03:35] sheet that we're originally pulling from
+[00:03:36] and it says, "Okay, this first row has
+[00:03:38] now been posted." And keep in mind, this
+[00:03:40] template is not the most robust error
+[00:03:42] handling. It has one error set up right
+[00:03:44] here to mark it off as errored. But if
+[00:03:46] these notes error, it won't update. So
+[00:03:47] just keep that in mind. But I just
+[00:03:49] wanted to show you guys maybe a way you
+[00:03:50] could think about error handling for
+[00:03:51] this flow. But anyways, now that that's
+[00:03:53] set up, what I can do is go back into my
+[00:03:55] potato. I can go over here to published
+[00:03:57] posts, and then these will pop through
+[00:03:59] as published. So you can see this one
+[00:04:01] already got posted on Tik Tok. And if we
+[00:04:03] give this another minute, we'll see it
+[00:04:05] on Instagram, too. And there you go. Now
+[00:04:07] you can see we have our Glass Apple ASMR
+[00:04:09] on both Instagram and Tik Tok. And if I
+[00:04:11] click on one of them, it'll take us
+[00:04:12] right to that actual post. So we can see
+[00:04:14] that it is indeed there. Okay, so a lot
+[00:04:17] just happened. Let's break it down one
+[00:04:18] at a time. So the idea is that you could
+[00:04:20] have this be an automation that goes off
+[00:04:22] like every morning or something. And all
+[00:04:24] you have to do is be in charge of
+[00:04:26] filling up your database with posts. You
+[00:04:28] could even pair this workflow with a
+[00:04:30] different one that automatically creates
+[00:04:31] the content and updates the sheet, which
+[00:04:33] would be really powerful. But like I
+[00:04:34] said, right now we're just focused on
+[00:04:35] the posting. So, what happens is we have
+[00:04:37] our title, we have our actual media, we
+[00:04:40] have our caption, and then we have a
+[00:04:41] status. And this can either be posted,
+[00:04:43] ready to post, or aired. And this
+[00:04:45] template you guys will also be able to
+[00:04:46] access for free in my free school
+[00:04:47] community. I'll show you later in the
+[00:04:48] video how to set up all of it. Anyways,
+[00:04:50] it's going to pull in the first row that
+[00:04:52] says ready to post. And we can control
+[00:04:54] that in this Google sheet where we
+[00:04:56] basically say, okay, you're looking at
+[00:04:57] this sheet. The status column has to
+[00:04:59] equal ready to post. And we're only
+[00:05:01] going to pull back the first matching
+[00:05:03] row. And that's what we get over here.
+[00:05:04] Because we don't want to pull back like
+[00:05:06] six and post all six at a time. If you
+[00:05:08] wanted to do six every day, the way I
+[00:05:10] would do it is just have six different
+[00:05:11] scheduled triggers to go off every 5
+[00:05:13] minutes at like 6:00 a.m., 6:05, 6:10,
+[00:05:16] something like that. Now, this next step
+[00:05:18] only applies if you're holding your
+[00:05:20] media files in Google Drive. And I
+[00:05:22] figured a lot of you guys may be doing
+[00:05:24] that and it's a little more complex. So
+[00:05:25] I just wanted to set this up for you.
+[00:05:27] And what we have to do is we have to
+[00:05:28] extract the Google Drive file ID. So I
+[00:05:31] have this already set up. Don't worry
+[00:05:32] about it. If you use the Google sheet
+[00:05:34] template, it'll match. And we get this
+[00:05:35] file ID. And then we upload it to potato
+[00:05:38] with this little different schema. So
+[00:05:40] we're putting like this Google Drive
+[00:05:41] URL. And then we're putting in that file
+[00:05:43] ID that we just extracted. And that's
+[00:05:45] how it works. If you're not using a
+[00:05:47] Google Drive file, you won't have to do
+[00:05:49] this. All you'll have to do is link in
+[00:05:51] your own media URL, whether that's like
+[00:05:52] a public URL or if it's binary data, you
+[00:05:55] can just turn this on and then it will
+[00:05:56] just grab the binary. So, super easy.
+[00:05:59] But if you do use Google Drive, keep
+[00:06:01] this step. And then from there, what
+[00:06:02] happens is Botato basically says, "Okay,
+[00:06:04] I see your video and I turn it into my
+[00:06:06] own video. I don't add like a watermark
+[00:06:08] or anything. I'm literally just copying
+[00:06:10] it over so I can access it and then I'm
+[00:06:13] going to post it on Instagram and Tik
+[00:06:14] Tok for you." So, in these nodes, what
+[00:06:16] you're going to set up is like, you
+[00:06:17] know, text. So here I just basically put
+[00:06:19] the title and the caption and then the
+[00:06:21] actual Blot media URL. And of course we
+[00:06:25] have other options that we could set up
+[00:06:26] and each of these nodes is going to vary
+[00:06:28] based on the platform but super simple.
+[00:06:30] So they're really not too bad. I'm not
+[00:06:32] going to dive into every single one
+[00:06:33] because there's just different
+[00:06:34] parameters. The one that is a little bit
+[00:06:36] strange is when you go to Pinterest,
+[00:06:38] what you have to do is you have to get a
+[00:06:40] Pinterest board ID. And it's kind of
+[00:06:42] weird the way you get it. It's not super
+[00:06:43] intuitive. So here's an example
+[00:06:45] Pinterest board. I would rightclick and
+[00:06:47] go to inspect. And then I'm going to
+[00:06:49] click on network up in the top. And then
+[00:06:52] all I'm going to do is just refresh the
+[00:06:53] page. Once that happens, I'm going to
+[00:06:56] click on filter, type in capital B
+[00:06:58] boards with an S, and then I'm going to
+[00:07:00] click on that first row, and then just
+[00:07:02] scroll up a little bit, and you should
+[00:07:04] see this data object, and you're just
+[00:07:06] looking for right here the ID. So I
+[00:07:08] would basically just copy that, go back
+[00:07:10] into the workflow, and then I would just
+[00:07:12] put that right here in the Pinterest
+[00:07:13] board section. And then that's how it
+[00:07:15] knows which board in Pinterest to
+[00:07:16] actually post on. But that's really the
+[00:07:18] only weird thing. Some of these you may
+[00:07:20] need to like verify your account before
+[00:07:22] it lets you post through the API. So all
+[00:07:24] you have to do is in this setup guide
+[00:07:25] when you download this template, if you
+[00:07:27] click on this little documentation here
+[00:07:29] thing, it'll pull you up to social
+[00:07:30] platform requirements and you can see
+[00:07:32] guidelines for all of these different
+[00:07:34] channels. And they also have a really
+[00:07:35] cool AI search feature. So if you ask
+[00:07:37] anything, it will basically search the
+[00:07:39] documentation and help you out. So, like
+[00:07:41] I said, I've used Botato before, but I
+[00:07:43] used it before they dropped this
+[00:07:45] verified community node. So, now it's a
+[00:07:46] lot easier. Here's the example of the
+[00:07:48] Glass ASMR videos that I did with Google
+[00:07:50] V3. And you can see down here the
+[00:07:52] posting to social section. We upload to
+[00:07:54] Botato. And then from we upload to
+[00:07:56] YouTube, Instagram, and Tik Tok. And
+[00:07:58] here's another example where we
+[00:07:59] automated not only the posting, but the
+[00:08:01] content creation. And down here, you can
+[00:08:03] see we use Blot to post once again on
+[00:08:05] Instagram, Tik Tok, and YouTube. So,
+[00:08:07] that's when this gets really powerful is
+[00:08:08] when you're able to build a system that
+[00:08:10] automates both parts of this so that all
+[00:08:12] you have to do is just kind of like
+[00:08:13] manually review if you're good with it.
+[00:08:15] And then the content creation and the
+[00:08:18] posting will be taken care of for you.
+[00:08:19] So, in order to actually set all of this
+[00:08:21] up for yourself, it's really, really
+[00:08:22] easy. And when you download this
+[00:08:23] template from my free school, you'll get
+[00:08:25] a setup guide to make sure you're doing
+[00:08:26] everything that you need to do. But, if
+[00:08:28] you're not in my free school already,
+[00:08:30] definitely join it because that's where
+[00:08:31] you can get all of my templates that I
+[00:08:32] show on YouTube for completely free. The
+[00:08:34] link for that free school is down in the
+[00:08:36] description. And once you get here, this
+[00:08:37] is what it will look like. All you'll
+[00:08:38] have to do is search for the title of
+[00:08:40] the YouTube video. Or if you go to
+[00:08:42] YouTube resources, you'll see here are
+[00:08:43] all my videos and everyone has all of
+[00:08:45] the resources there. So, for example, if
+[00:08:47] this is the video you're looking for,
+[00:08:48] you'll have a JSON file where you can
+[00:08:50] download that and import that into Naden
+[00:08:52] and then it will just pop up with this
+[00:08:53] exact workflow. And then this Google
+[00:08:55] sheet that I talked about, I made a copy
+[00:08:57] of it. And all you have to do is make a
+[00:08:58] copy of it as well. And you'll find the
+[00:09:00] link to this Google sheet right here in
+[00:09:01] the setup guide as well. So, all you
+[00:09:03] have to do is click on this link right
+[00:09:04] here, and it will prompt you to make a
+[00:09:06] copy of that Google sheet. That way,
+[00:09:08] your database will be set up the same
+[00:09:09] way mine was, so that all the variables
+[00:09:11] throughout this workflow will pass over
+[00:09:12] correctly. And if you're looking to take
+[00:09:14] your skills with Naden a little bit
+[00:09:15] farther, then definitely check out my
+[00:09:16] plus community. The link for that is
+[00:09:18] also down in the description. Great
+[00:09:19] community of members who are building
+[00:09:20] with Naden every single day. And we also
+[00:09:22] just announced monthly hackathons where
+[00:09:24] we're going to be giving away thousands
+[00:09:25] of dollars in prizes. And you don't even
+[00:09:27] have to be an advanced automator. We
+[00:09:29] have a beginner section as well. And
+[00:09:31] we've got a full classroom section with
+[00:09:32] two courses at the moment. We're always
+[00:09:34] trying to build more, but right now we
+[00:09:35] have agent zero, which is the
+[00:09:37] foundations of AI automation, and then
+[00:09:39] 10 hours of 10 seconds where you learn
+[00:09:40] how to identify, design, and build
+[00:09:42] time-saving automations. So, if any of
+[00:09:44] that interests you at all, definitely
+[00:09:45] check out the plus group. And I would
+[00:09:47] love to see you guys in these
+[00:09:48] communities. But that's going to do it
+[00:09:49] for today. If you enjoyed the video or
+[00:09:51] you learned something new, please give
+[00:09:52] it a like. It definitely helps me out a
+[00:09:54] ton. And as always, I appreciate you
+[00:09:55] guys making it to the end of the video.
+[00:09:57] See you on the next one. Thanks, guys.

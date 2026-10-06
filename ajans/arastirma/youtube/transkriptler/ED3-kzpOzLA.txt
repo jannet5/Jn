@@ -1,0 +1,60 @@
+# I Built an AI Media Buyer That Runs My Meta Ads For Me  — Automating the Internet w Gabriel Operator
+# https://www.youtube.com/watch?v=ED3-kzpOzLA
+# kanal: Mason Jongejan | süre: 136 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] All right. So, this is pretty wild. What
+[00:00:03] you're seeing here isn't a person, but
+[00:00:06] it's an AI agent that's running inside
+[00:00:08] my browser. It's logging into Meta Ads
+[00:00:11] Manager, filtering by delivering,
+[00:00:14] setting the date range to the past 7
+[00:00:16] days, and downloading all the data
+[00:00:18] automatically. No code, no Zap, no
+[00:00:21] script. It's just an AI using your
+[00:00:23] browser like a human would. If you've
+[00:00:26] ever run meta ads or worked in a
+[00:00:28] marketing agency like I have, you know
+[00:00:30] this exact process. Every Monday,
+[00:00:33] someone spends 10, 20 minutes filtering,
+[00:00:36] exporting, and renaming CSVs just to get
+[00:00:39] performance data. How do I know this? I
+[00:00:41] did it. It's boring, repetitive, and you
+[00:00:44] can't skip it because every client wants
+[00:00:46] it. This agent can now do it perfectly
+[00:00:49] on its own every single time. I built
+[00:00:52] this using Gabriel Operator. This one
+[00:00:55] took me maybe 10 minutes start to
+[00:00:57] finish. And the more it runs, the faster
+[00:01:00] it actually gets. Eventually, something
+[00:01:02] like this will take 5 seconds or less to
+[00:01:05] complete. In this case, once it has the
+[00:01:07] CSV, you can decide what you want to do
+[00:01:09] with it. You can rank the creatives by
+[00:01:11] click-through rate or rorowass. You can
+[00:01:14] write weekly client emails
+[00:01:16] automatically, or you can create a
+[00:01:19] creative brief to send straight to your
+[00:01:21] graphic designer. Instead of switching
+[00:01:23] between dashboards or delegating to VAS,
+[00:01:27] you just let an AI agent handle the
+[00:01:29] repetitive stuff. Then you can actually
+[00:01:31] focus on strategy and growing your
+[00:01:33] business. This meta ads workflow is just
+[00:01:36] one example. I've already started
+[00:01:38] playing around with agents for like
+[00:01:40] Shopify, Google Ads, Canva, um even
+[00:01:43] guest plan for restaurants. So yeah, I'm
+[00:01:46] stoked to be here. This is day one of
+[00:01:48] automating the world's most popular
+[00:01:50] platforms, Meta Ads. check. If there's a
+[00:01:53] specific task that you particularly hate
+[00:01:55] doing or a platform that you'd love to
+[00:01:57] automate, please drop it down in the
+[00:01:59] comments. I'm going to pick a few of the
+[00:02:01] best ideas and build them next. As I
+[00:02:04] mentioned, all of this was built on
+[00:02:05] Gabriel Operator. There's a link in the
+[00:02:08] description if you want to check it out.
+[00:02:09] You can run my existing agents or you
+[00:02:12] can even create your own agents if you
+[00:02:14] like. I'll see you in the next

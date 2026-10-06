@@ -1,0 +1,10 @@
+{
+ "title": "Automate Instagram Posting with n8n | AI Reels Workflow using Cloudinary and Google Sheets",
+ "channel": "Olalekan Adeeko",
+ "description": "In this session, we build a complete Instagram automation workflow using n8n.\n\nWe use Cloudinary to store videos and generate secure URLs that the Instagram node can publish. A Google Sheet acts as the control centre, holding video file names and metadata. An AI Agent reads the file description, writes the caption for the reel, and prepares the post content automatically.\n\nThe workflow covers\nSetting up the trigger\nReading video details from Google Sheets\nUsing an AI Agent to generate Instagram captions\nFetching the video from Cloudinary via URL\nPublishing the reel on Instagram\nUpdating the Google Sheet to mark the video as posted\n\nThis is a practical end to end automation for content creators, brands, and social media managers who want a repeatable and scalable Instagram posting system using AI and n8n.\n\nIf you are following the 30 Day AI Automation Challenge, replicate the workflow and share your screenshots in the comments.\n\nLinks mentioned\nCloudinary https://cloudinary.com\n\nn8n https://n8n.io\n\nSubscribe for the next lessons where we continue building production ready AI automations.",
+ "upload_date": "20260126",
+ "view_count": 5179,
+ "id": "g8hITw1bM2U",
+ "url": "https://www.youtube.com/watch?v=g8hITw1bM2U",
+ "kaynak": "yt-dlp:android"
+}

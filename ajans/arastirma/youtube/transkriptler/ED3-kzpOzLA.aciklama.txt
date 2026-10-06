@@ -1,0 +1,15 @@
+This is Day 1 of Automating the Internet.
+
+In this episode, I show the AI Agent I built that operates directly inside Meta Ads Manager. 
+It automatically filters to the last 7 days, exports the performance data, and hands it off to AI for:
+• Weekly client summary emails
+• A creative performance leaderboard
+• Creative briefs that can be sent straight to your designer
+
+No scripts. No macros. No Zapier.
+Just a real browser automation agent doing real work in a live account.
+
+Subscribe to follow the journey.
+Day 2 coming soon.
+
+If you want to check out the Media Buyer Digital Twin I made - you can find it here: https://gabrieloperator.com/digital-twin/meta-ads-media-buyer-twin

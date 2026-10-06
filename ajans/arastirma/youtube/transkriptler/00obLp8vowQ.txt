@@ -1,0 +1,255 @@
+# How to Automate Social Media Posts with AI | Save Time & Boost Engagement!
+# https://www.youtube.com/watch?v=00obLp8vowQ
+# kanal: Website Learners | süre: 1155 sn | kaynak: yt-dlp:android:00obLp8vowQ.en.json3
+
+[00:00:00] managing social media can take up a lot of your time but what if I told you you
+[00:00:04] could effortlessly automate all your social media posts with just a single
+[00:00:08] click in today's video I'm going to show you how to automate your social media
+[00:00:12] posts like this when I click on run once this automation is writing and posting
+[00:00:17] for me on LinkedIn Instagram and Facebook so you don't need to write
+[00:00:21] content from stats and you don't need to log into each platform to post manually
+[00:00:26] every single time also this automation not only generates the content for your
+[00:00:30] posts but also creates stunning AI generated images for each post
+[00:00:34] impressive right this will save you a lot of time and help you be consistent
+[00:00:38] with your posts and improve your social media presence I'll guide you through a
+[00:00:42] step-by-step process to automate your social media posts from start to finish
+[00:00:47] so without any delay let's Dive Right In I'm BR from upite Learners and let's get
+[00:00:52] [Music] started now before we start let me show
+[00:00:58] you a quick demo of how we you're going to automate a social media post so
+[00:01:02] here's the Google sheet that we'll be using in this video you can see we have
+[00:01:05] three different types of inputs which are text link and an image URL you can
+[00:01:10] either give it a single input like just a text link to an article or an image or
+[00:01:16] just give different combinations of inputs like an image along with a text
+[00:01:20] text with a link to an article or adding all these three whatever combinations
+[00:01:24] you give it it'll analyze it and generate the content for your post
+[00:01:27] automatically using AI for example I'm going to enter the link to an article
+[00:01:32] then if you click on Create and post AI will automatically analyze that article
+[00:01:36] and generate unique content for all these three different platforms such as
+[00:01:40] Facebook Instagram and Linkedin now just take a look at this content and make
+[00:01:45] sure everything is good so if you want any changes you can easily do that
+[00:01:51] here once you're satisfied with the post just click
+[00:01:57] publish you can see that it has automatically publish the post and we
+[00:02:01] have got the links to the post right here in the Google sheet if you click on
+[00:02:05] it you'll see the post on your page that's amazing right all of this is
+[00:02:10] possible with the automation that we are going to use in this video first we'll
+[00:02:14] get a new Google sheet then we are going to connect it with the automation this
+[00:02:18] modu will read the input that we gave in the Google sheet and then start creating
+[00:02:21] the post once that is done here you can see we have three different group of
+[00:02:26] modules the first group of modules is used to add analyze the input data that
+[00:02:31] we enter in the Google sheet after that the data is analyzed using the second
+[00:02:35] group of modules which will summarize the data and then generate the content
+[00:02:38] for your posts and the last group will publish the post on social media
+[00:02:42] accounts amazing right that's how the automation works but if you're looking
+[00:02:47] for an even faster way to automate your social media posts without setting up an
+[00:02:51] entire automation yourself then there's an exciting tool on the week gra is
+[00:02:55] about to launch a tool called AI social media post creator that does this EX
+[00:02:59] exact automation but makes it much simpler and easier to use all you have
+[00:03:04] to do is enter any content you want be a text a link or an image and then within
+[00:03:09] a single click your post will be ready along with a unique AI generated image
+[00:03:15] now just select the variation you want click continue and it will be added here
+[00:03:20] now you can select the social media account and click post now and it will
+[00:03:24] instantly go live on all your social media Pages you can also schedule your
+[00:03:28] post to be published at later time pretty cool right once the tool is ready
+[00:03:32] you will find it by clicking the link in the description below all right for now
+[00:03:36] let's see how to set up this automation to automated social media posts to do
+[00:03:41] that we're going to do six parts the first part is to create an account on
+[00:03:45] make.com this is the tool that we are going to use to automate our social
+[00:03:48] media posts to create an account just click the link below this video and
+[00:03:52] it'll take you to this page now click get started for
+[00:03:56] free and you'll be taken to this page okay once you have created the account
+[00:04:00] on make.com we can now go to the second part which is to import the pre-built
+[00:04:04] automation now if we build the automation from scatch it'll take a long
+[00:04:08] time because it's going to involve a lot of steps So to avoid this we can
+[00:04:12] directly import the pre-built automation that we showed in the beginning and just
+[00:04:16] set it up to import it just click the link below this
+[00:04:19] video now just click here and download it to your computer
+[00:04:24] once that is downloaded go back to this tab click on create new scenario
+[00:04:31] and you will get this page now to import the blueprint click on these three dots
+[00:04:36] click import blueprint then click on choose
+[00:04:39] file now upload the blueprint which you just
+[00:04:44] downloaded and click save as you can see we have successfully
+[00:04:49] imported the Automation and once you're done we can start setting it up before
+[00:04:53] we start first we need to get the Google Sheets which I showed you in the
+[00:04:56] beginning of this video we are going to use Google Sheets to input the data for
+[00:04:59] the AI to generate the posts and also act as a trigger to publish the posts on
+[00:05:04] our social media accounts so to get the Google sheet just click the link in the
+[00:05:07] description below and you will get this sheet to make a copy of it just go to
+[00:05:13] file then click here and click make a
+[00:05:18] copy once you have your Google sheet you can set up the automation so let's go to
+[00:05:22] the third part of this video which is to set up the Google Sheets module to set
+[00:05:26] up the Google Sheets modules we are going to do five steps the first step is
+[00:05:30] to install the make extension on the Google sheet so to install it click on
+[00:05:35] extensions then go to add-ons and click get
+[00:05:39] add-ons here search for make and you will get this extension
+[00:05:45] just click on it click install and click
+[00:05:50] continue now sign in with your Google account click
+[00:05:54] allow and click done okay we have now successfully
+[00:05:58] installed the make extension once you have done that close
+[00:06:02] this then click on extension go to make for Google Sheets
+[00:06:07] click settings and here you'll find a web
+[00:06:10] hooked field where you need to add a URL to get the URL we need to create a web
+[00:06:14] hook so let's go to the next step which is to create a web hook in
+[00:06:19] make.com so to create a web hook go to this tab click on the
+[00:06:24] module then click create a web hook click save
+[00:06:30] and you will get the URL here once you have the URL let's go to the next step
+[00:06:35] which is to add the URL to the Google sheet so to add the URL to the sheet
+[00:06:40] just copy it then go to the Google
+[00:06:44] sheet and paste the URL
+[00:06:48] here click save click
+[00:06:53] okay and it's done just go back to this tab and click okay
+[00:07:00] and now we have successfully created the web hook and added the URL to the Google
+[00:07:03] sheet once you have done that we can go to the next step which is to connect
+[00:07:07] your Google account to this module so to do that let's click this
+[00:07:12] module click create a connection then sign in with your Google
+[00:07:18] account click allow then click
+[00:07:23] okay and it's done we have now successfully connected our Google
+[00:07:27] account to this module now to complete setting up the Google Sheets module we
+[00:07:31] can now go to the final step which is to select your Google account in all the
+[00:07:35] Google Sheets module to do that click on the
+[00:07:39] module then click here and you can see we have a Google
+[00:07:44] account here just click on it click
+[00:07:48] okay and it's done in the same way you can set up all
+[00:07:53] the remaining Google Sheets module okay we have now successfully completed
+[00:07:56] setting up the Google Sheets module and once you've done that we can now go to
+[00:08:00] the next part which is to get the API keys for these three AI modules these
+[00:08:04] are the three main AI modules that we will be using for the automation which
+[00:08:08] are chat GPT perplexity Ai and finally Le order AI first we have to get the API
+[00:08:13] key for chat GPD so you get the API key just click the link below this video and
+[00:08:18] it'll take you to this page to get the API key first we have to purchase the
+[00:08:22] credits from chat GPD to do that just click add payment
+[00:08:26] details just go here then enter your car details and
+[00:08:31] address once you're done click continue now enter the amount of credits
+[00:08:36] that you want to purchase the minimum amount that you can enter here is $5
+[00:08:40] which will give you 2 million tokens to generate the content so I'm going to
+[00:08:44] change it to $5 then click
+[00:08:48] continue and click confirm payment you can see that we have purchased the
+[00:08:53] credits now to get the API key just go here and click create new secret
+[00:09:00] key you will get this box just enter the name
+[00:09:05] here click on create secret key and once you got the API key just copy
+[00:09:12] it and paste it in the notepad like this so now we've got the API key from
+[00:09:18] chpd similarly we will get the API keys for the other AI modules next let's get
+[00:09:23] the API key from perplexity AI with perplexity AI you can extract
+[00:09:28] information from various sources like articles blogs and websites making
+[00:09:32] it much easier to create the posts based on the content to get the API key from
+[00:09:36] perplexity AI just click the link below this video and it will take you to this
+[00:09:41] page now click sign up and sign up with your Google
+[00:09:47] account to get the API key just go here then go to
+[00:09:52] API click on setup enter your card details
+[00:09:59] and click submit then click buy
+[00:10:03] credits and enter the amount of credits that you want to purchase the minimum
+[00:10:07] amount that you can enter here is $3 I'm going to enter $3 and click buy
+[00:10:13] now then click yes and as you can see that we have
+[00:10:18] purchased the credits once you have done that just click on
+[00:10:21] generate and you can see that we have got the API key now let's copy
+[00:10:26] it and paste it onto the notepad okay we have now got the API key from
+[00:10:32] perplexity AI finally we will get the API key from Leonardo AI as you all know
+[00:10:38] Leon AI is an image generation tool and we are going to use it to create
+[00:10:42] stunning images for our posts just like this to get the API key from Le AI just
+[00:10:47] click the link below this video and you will be taken to this page
+[00:10:51] now click get started and sign up with your Google
+[00:10:56] account once you've done that go to API access click subscribe to API plan and
+[00:11:04] you will get different plans to choose from you can purchase the plan you want
+[00:11:07] and get the API key once you have the API key from RE AI make sure you save it
+[00:11:12] to our notepad Okay so now we have successfully got the API keys for all
+[00:11:16] these three AI modules we can now go to the fifth part which is to add the API
+[00:11:21] keys to the modules first let's add the API key to the chat jpd module to add it
+[00:11:26] just click on the module and click a
+[00:11:30] connection here we need to add the API key that we got from CH GPD just copy
+[00:11:37] it and paste it here then click save click
+[00:11:44] okay and it's done okay we have now added the API key to the chat GPD module
+[00:11:49] and once you have done that next let's connect our open AI account to the other
+[00:11:53] chat GPD module to do that just click on it then click here choose my open AI
+[00:12:01] connection click okay and it's done in the same way you can connect your open
+[00:12:06] AI account to all the other Char APD modules and once you're done next let's
+[00:12:10] add the API key to the purplex city AI module just click on
+[00:12:15] it click create a connection then add the API key
+[00:12:22] here click save click
+[00:12:26] okay and it's done okay we have not added the API key to perplexity AI
+[00:12:31] finally let's add the API key to Leon AI module and to do that just like we did
+[00:12:36] before just click on it click create connection and add the
+[00:12:41] API key that you got from neon
+[00:12:45] AI then click save click
+[00:12:49] okay and it's done okay so now we have added the API keys for all the AI
+[00:12:54] modules and successfully set them up now let's go to the final part of setting up
+[00:12:58] this automation which is to connect our social media accounts to these modules
+[00:13:01] and once we connect them the automation will be able to directly publish the
+[00:13:05] post to our social media accounts okay so first we will connect a Facebook
+[00:13:09] account to this module now before you do that make sure you have a business page
+[00:13:13] for your Facebook account and if you don't have a business page you can
+[00:13:17] create one by watching this video once you have created it you can now connect
+[00:13:21] a Facebook account to this module just click on
+[00:13:25] it then click create a collection click
+[00:13:30] save and here you'll find your Facebook account so just click
+[00:13:34] continue click
+[00:13:38] okay and it's done once you have connected your Facebook account for the
+[00:13:43] next module you just have to select it and then it'll be done to do that just
+[00:13:47] click on the module choose your Facebook
+[00:13:52] account and click okay and that's it we have now
+[00:13:56] successfully CED our Facebook account in this same way let's connect other social
+[00:14:00] media accounts to the remaining modules next we have the Instagram module to
+[00:14:04] connect your Instagram account to this module first make sure you have a
+[00:14:08] business account on Instagram and it is connected to your Facebook business
+[00:14:11] account if you want to know how to connect it you can check out this video
+[00:14:16] and once you've ensure it's connected to gu your Instagram account just click on
+[00:14:19] the module then click
+[00:14:23] here and choose your Facebook connection click
+[00:14:28] continue again click continue now click
+[00:14:33] okay and it's done for the next module just click on
+[00:14:38] it then choose your Facebook connection click
+[00:14:44] okay and it's done so now we have connected our Instagram account finally
+[00:14:48] let's connect a LinkedIn account to this module to do that just click on it then
+[00:14:54] click create a connection and click save now it will
+[00:14:58] ask you to sign in to your LinkedIn account just enter your email ID and
+[00:15:02] password and click sign in you will see your LinkedIn profile to
+[00:15:07] connect it to this module just click allow then click
+[00:15:12] okay with that we have now completed setting up the final LinkedIn module
+[00:15:16] which means we have not successfully caner our social media accounts to all
+[00:15:19] these modules now to save all the settings that we've done click
+[00:15:24] save once you have saved the automation next you need to activate the automation
+[00:15:28] so to activated just click here and enable this
+[00:15:33] button okay so now we successfully completed setting up the automation next
+[00:15:38] Let's test and see how the automation works so to check it let's go to our
+[00:15:41] Google sheet and test the automation for each input type first we will add a link
+[00:15:46] to an article so this is the article for which
+[00:15:50] I want to generate a post it's about what jobs AI will
+[00:15:53] replace so let's copy this URL
+[00:15:59] go back to the Google sheet and paste the URL
+[00:16:04] here then go here and click create and
+[00:16:13] post as you can see it has created the content for our post now you can review
+[00:16:17] it and if you want you can even make changes to the content also you can see
+[00:16:22] that our image has been generated for this post by Leonardo AI once you're
+[00:16:26] ready to publish it click here and click
+[00:16:31] publish you can see that it has been successfully posted on our social media
+[00:16:34] accounts it has given the links to the posts on Facebook LinkedIn and Instagram
+[00:16:40] so if we click on this link you can see the post on
+[00:16:46] Facebook the AI has extracted the information from this article and
+[00:16:49] generated the content on our post along with relevant images amazing right you
+[00:16:54] can also check out the posts on Instagram and Linkedin as well
+[00:16:59] now we have tested the automation by adding a link to the article next Let's
+[00:17:03] test it by adding an image URL this is the image which I'm going to use so
+[00:17:07] let's copy the image
+[00:17:12] URL then go back to the sheet paste the URL
+[00:17:19] here then click here and choose create and
+[00:17:24] post you can see it has analyzed the image and generated the content based on
+[00:17:28] it
+[00:17:31] if we click publish it will automatically publish the post on all
+[00:17:35] our social media accounts and we can check them out by clicking on these
+[00:17:42] links okay so now we have tested the automation for creating the post based
+[00:17:46] on image URL finally Let's test it for a plain text input I pred a Content about
+[00:17:51] a topic so let's copy it then paste it here
+[00:18:00] and click create and post you can see it has generated the
+[00:18:07] content and just like we did before we can just go ahead and publish the
+[00:18:10] content to our social media accounts amazing right so that's it guys this is
+[00:18:15] how you can effortlessly set up automation on make.com to automate your
+[00:18:19] social media posts now as I said earlier if you want an even faster way to
+[00:18:23] automate your posts keep an eye out for Gravity rights AI social media post tool
+[00:18:28] which will be launch ing soon before we move on let me show you a tool that will
+[00:18:31] be a huge time saer if you're looking to write blogs it's called gravity WR just
+[00:18:35] enter your title cck create outline and you've got an outline hit generate all
+[00:18:40] and in seconds you've got a complete blog with stuning images visit b.com and
+[00:18:45] get it for one full year at just $97 now if you're into marketing there
+[00:18:50] are some cool AI tools that will make your work a whole lot easier you can
+[00:18:54] check them out by watching this video and if you're interested in the best AI
+[00:18:58] tools for creating YouTube videos then you can check out this video If you guys
+[00:19:02] like this video then give it a thumbs up and hit the Subscribe button I'll see
+[00:19:06] you in the next video Until then take care bye-bye

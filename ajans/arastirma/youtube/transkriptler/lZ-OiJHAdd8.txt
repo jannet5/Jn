@@ -1,0 +1,75 @@
+# Automate Social Media Posts with n8n (Step-by-Step Tutorial)
+# https://www.youtube.com/watch?v=lZ-OiJHAdd8
+# kanal: Hostinger Academy | süre: 175 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] Hey guys, I'm Valentinas, head of VPS
+[00:00:02] here at Hostinger. Today, we're
+[00:00:04] continuing our n8n workflow series, and
+[00:00:07] this time, I'll show you how to automate
+[00:00:09] your social media posts on X. With this
+[00:00:11] workflow, you'll be able to schedule
+[00:00:13] content, generate posts automatically,
+[00:00:16] and keep your online presence
+[00:00:17] consistent, all without lifting a
+[00:00:20] finger. Managing social media is
+[00:00:22] time-consuming. You need a fresh ideas,
+[00:00:25] a posting schedule, and a way to publish
+[00:00:27] regularly. Instead of doing all this
+[00:00:30] manually, let's use a self-hosted n8n to
+[00:00:33] create a system that generates
+[00:00:35] high-value content ideas, writes posts
+[00:00:38] in your voice, and publishes them on
+[00:00:40] x.com on a schedule. We'll start with a
+[00:00:43] schedule trigger. Here, I set the
+[00:00:45] workflow to run daily at a specific
+[00:00:47] time. This ensures that fresh content is
+[00:00:50] prepared and posted consistently. Next,
+[00:00:53] we connect to an
+[00:00:54] AI agent. Its job is to generate
+[00:00:57] insightful topics aligned with key
+[00:01:00] themes like performance optimization,
+[00:01:02] security, DevOps, and cost-saving
+[00:01:05] strategies. This ensures that every post
+[00:01:08] ties back to what matters the most to
+[00:01:10] our audience. To learn how to construct
+[00:01:12] the best prompt for this AI agent, be
+[00:01:15] sure to check out Muneeb's video on the
+[00:01:17] ultimate prompt engineering. So,
+[00:01:19] anyways, the ideas then pass through a
+[00:01:21] parser, which organizes them into three
+[00:01:24] parts: title, or core idea, rationale,
+[00:01:28] why it matters,
+[00:01:29] suggested hook to grab attention. Now,
+[00:01:33] we feed the structured topic into
+[00:01:35] another AI chain,
+[00:01:37] transforming the idea into a short
+[00:01:40] exposed, which is under 280 characters.
+[00:01:43] This way, the output is ready to
+[00:01:46] publish, engaging, and written in the
+[00:01:48] right format. And finally, the post gets
+[00:01:51] published through the create tweet node
+[00:01:53] using our connected X account
+[00:01:56] credentials. So now, let's test it out.
+[00:01:59] I'll trigger the workflow manually
+[00:02:01] first. You'll see the AI generating a
+[00:02:03] topic, structuring it, writing a post,
+[00:02:07] and then sending it directly to X. And
+[00:02:10] just like that, we got a fresh post live
+[00:02:13] without doing any manual work. This
+[00:02:15] workflow saves you from the blank page
+[00:02:17] problem, keeps your content strategy
+[00:02:19] consistent, and ensures you always show
+[00:02:22] up for your audience even on your
+[00:02:24] busiest days. And remember, this is just
+[00:02:26] the beginning. You could expand this
+[00:02:28] workflow to also post on LinkedIn, log
+[00:02:31] all posts in Google Sheets, or even
+[00:02:33] repurpose them into blog ideas.
+[00:02:36] And that's it for today's AnyTask
+[00:02:38] tutorial. We just built a hands-free
+[00:02:41] social media content engine that posts
+[00:02:44] on X on a schedule. If you found this
+[00:02:46] video helpful, give it a thumbs up, and
+[00:02:48] don't forget to subscribe to Hosting
+[00:02:50] Your Academy for more AnyTask tutorials.
+[00:02:53] And I'll see you in the next one.

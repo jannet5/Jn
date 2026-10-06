@@ -1,0 +1,347 @@
+# How we Automated Meta Ads with 3 AI Systems
+# https://www.youtube.com/watch?v=JDjxeB-UEoc
+# kanal: Ben AI | süre: 709 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] Here are three AI meta ad systems that
+[00:00:02] we've sold to marketing agencies, ecom,
+[00:00:04] and SAS businesses. Meta ad management
+[00:00:06] and optimization tend to be very
+[00:00:08] timeconuming processes. So, these can be
+[00:00:10] great use cases to sell if you're an AI
+[00:00:12] agency or to implement if you're a
+[00:00:13] business running meta ads. And in this
+[00:00:15] video, I'll walk you through the
+[00:00:16] solutions. And if you want all of these
+[00:00:18] templates and many more, you can check
+[00:00:20] out my AI accelerator where we help you
+[00:00:22] learn AI automation, get one-on-one
+[00:00:24] unlimited tech support, and help you
+[00:00:26] build your own AI business. And if you
+[00:00:27] are a company looking to work with my AI
+[00:00:29] agency, you can also book a free call
+[00:00:31] with us in the description below. The
+[00:00:32] first system is an automatic product ad
+[00:00:34] generator. This is a great system
+[00:00:35] because many companies run hundreds of
+[00:00:37] ads. Some agencies run ads for different
+[00:00:39] companies on Meta. Uh it is one of the
+[00:00:42] most common commonly used acquisition
+[00:00:44] channels for for example ecom businesses
+[00:00:46] but for many other businesses. And
+[00:00:48] although many of these ads are similar
+[00:00:49] nature, most of it is still done uh
+[00:00:51] manually and pretty time consuming. So
+[00:00:54] uh this system saves companies a lot of
+[00:00:56] time that do meta ads. Now we've built
+[00:00:58] this system using a combination of air
+[00:01:00] table here and naden. Of course I've
+[00:01:03] shown this one in a previous uh video
+[00:01:05] too. So the way this works here in the
+[00:01:07] workboard we can basically just add a
+[00:01:08] new product. So we can just attach an
+[00:01:11] image of the product. In this case it's
+[00:01:13] an ad already but we can also upate
+[00:01:15] upload just the product image and we can
+[00:01:17] add the product name and the product
+[00:01:18] notes. And then from there we can
+[00:01:20] automatically generate the product
+[00:01:22] details. So we'll basically do some
+[00:01:23] research online on this specific
+[00:01:25] product. We can also add this manually
+[00:01:27] if we want or just change whatever the
+[00:01:29] N&M put out. Now this is important
+[00:01:32] because of course um this is going to be
+[00:01:34] used as context when we're gener
+[00:01:36] generating ad variations and ads in
+[00:01:39] general and also the ad copy right. So
+[00:01:41] we need some context on the product. Now
+[00:01:43] based on that we can also add in a
+[00:01:45] reference image. If we find a competitor
+[00:01:47] ad or something like that that we find
+[00:01:49] interesting we can add that as a
+[00:01:51] reference. and then our new ads will be
+[00:01:53] generated according to that style uh of
+[00:01:55] the reference image. Now in this case we
+[00:01:58] haven't added it and then we can add in
+[00:01:59] the amount of ads we want to generate.
+[00:02:00] In this case five and then we can
+[00:02:02] generate the ad prompt automatically. So
+[00:02:05] it's going to generate now five
+[00:02:06] variations of different ad formats.
+[00:02:09] Again we keep the human in the loop
+[00:02:10] here. So if you want to change the the
+[00:02:13] aspect ratio for example or the angle of
+[00:02:15] the ad a bit here you can do that simply
+[00:02:17] here. But if you think this is good, you
+[00:02:19] can generate the ads and then all the
+[00:02:21] five different ads will be generated
+[00:02:22] here. So you can see here uses the same
+[00:02:27] same uh product image in different
+[00:02:29] formats. Of course again you have some
+[00:02:31] some uh way to guide this a bit more
+[00:02:33] through the system. Right? And then all
+[00:02:35] the ads you've generated will be
+[00:02:36] presented here in the ad gallery. And
+[00:02:38] from the ad gallery you can also
+[00:02:40] generate ad copy. If I click in here and
+[00:02:43] in this case it's already done. But if I
+[00:02:45] click here, the ad copy will also be
+[00:02:47] automatically generated. So that's the
+[00:02:49] system. How does it work in the back
+[00:02:50] end? Pretty simple. We have the web hook
+[00:02:53] here which gets triggered through
+[00:02:54] through air table because of course this
+[00:02:56] is just the front end. On the back end
+[00:02:58] we have a database,
+[00:03:01] right? Can also be managed from here but
+[00:03:03] I prefer to do it through the through
+[00:03:05] the interface, right? And this first one
+[00:03:08] gets triggered as soon as we do the
+[00:03:10] first product research. So this first
+[00:03:12] workflow here basically all it does is
+[00:03:15] it uses a perplexity search to do some
+[00:03:17] more research on the product. But again
+[00:03:18] you can do this yourself too or adjust
+[00:03:20] anything it outputs. Then this second
+[00:03:22] flow will create the prompt right which
+[00:03:25] I showed you before. Now in this case
+[00:03:27] this second workflow will get triggered
+[00:03:28] when there's no reference image
+[00:03:29] uploaded. So in this case it will just
+[00:03:32] take and download the image to get some
+[00:03:34] context that will get fed into the L&M
+[00:03:36] here. will generate uh the prompt for
+[00:03:39] the five uh ad variations in this case
+[00:03:41] and output that back into the air table.
+[00:03:44] Then this third workflow takes those
+[00:03:45] prompts. If we've adjusted it, it will
+[00:03:47] take the adjusted prompts and then um
+[00:03:50] generate the actual images based of
+[00:03:52] course again on the original product
+[00:03:54] image. Uh in this case we use Nano
+[00:03:56] Banana Pro through replicate. Right? If
+[00:03:59] you don't know Replicate, it basically
+[00:04:00] hosts many image and u video models. So
+[00:04:04] it's an easy way to use this. Uh again,
+[00:04:06] you can connect this by just uh
+[00:04:07] connecting your API key. So in this
+[00:04:09] case, it loops over five different ads.
+[00:04:11] You can also do way more of course if
+[00:04:13] you want, but it loops over them and
+[00:04:15] outputs them into the air table and then
+[00:04:17] updates updates the status to complete.
+[00:04:21] Right? So that's it for the second and
+[00:04:23] the third. And then the fourth and the
+[00:04:24] fifth are very similar workflows as
+[00:04:26] these two, but these will get triggered
+[00:04:28] when there's a reference image uploaded.
+[00:04:30] So in this case you can see that we have
+[00:04:31] two times this because it downloads the
+[00:04:33] product image the original product image
+[00:04:35] and uploads it and the same uh for the
+[00:04:38] reference image and we pass that context
+[00:04:40] into uh an L&M here which will take that
+[00:04:43] data and generate ad prompts and
+[00:04:45] variations
+[00:04:47] uh based on both the reference image and
+[00:04:49] the original product image and then
+[00:04:50] outputs it into the art table. And then
+[00:04:52] of course the next flow will actually
+[00:04:54] generate um the ads again right based on
+[00:04:57] the reference image and the original
+[00:04:58] product image. And then lastly uh this
+[00:05:00] last workflow gets triggered as soon as
+[00:05:02] you want to generate the ad copy and
+[00:05:04] again it takes the original product as
+[00:05:06] some context and of course the product
+[00:05:08] uh research data and based on that it
+[00:05:10] will write the ad copy for the ad. So
+[00:05:13] pretty straightforward system I think if
+[00:05:15] you're going to clone this template you
+[00:05:17] just have to import the JSON clone the
+[00:05:19] air table interface and database then
+[00:05:21] you'll need to connect your specific air
+[00:05:24] tableable account to all the air table
+[00:05:25] nodes. You'll have to connect the web
+[00:05:27] hook here URL because you'll get a
+[00:05:30] unique one to your air tableable
+[00:05:31] database which you do here in the
+[00:05:33] automations section. Here we have the
+[00:05:36] third one which is run a script and here
+[00:05:38] you'll see web hook. This you will have
+[00:05:39] to change to your specific web hook for
+[00:05:41] each of these. Then um you of course
+[00:05:45] have to add in your uh perplexity API
+[00:05:47] key here. the specific API key for the
+[00:05:50] language models you use in all the L&M
+[00:05:53] steps and your replicate API key too. Uh
+[00:05:56] it's not going to cost you more than a
+[00:05:57] few cents per generation. So don't worry
+[00:05:59] about the cost too much. And um that's
+[00:06:02] it. Now the second one is a meta ad
+[00:06:04] spying tool. This one scrapes all of a
+[00:06:06] brand's competitor uh image, video, and
+[00:06:08] text ads automatically analyzes them and
+[00:06:11] then writes a weekly report uh on the
+[00:06:13] strategy your competitors use. Now, many
+[00:06:16] brands and agencies spend a lot of time
+[00:06:17] analyzing competitor ads, and this
+[00:06:20] system basically continuously checks on
+[00:06:22] a weekly basis all the new ads
+[00:06:24] competitors might have posted, which can
+[00:06:26] speed up this research process and of
+[00:06:28] course know what your competitors are
+[00:06:29] doing in the market. And of course, if
+[00:06:31] there's an ad that stands out, it can
+[00:06:32] also be used as a reference ad in the
+[00:06:34] previous system I showed to generate
+[00:06:37] some ads for yourself. Now, we use this
+[00:06:38] system, not surprisingly, again, using a
+[00:06:41] combination of Air Table and NAN. Uh so
+[00:06:44] here a little bit of a simpler workflow
+[00:06:46] as you can see. The way it works is
+[00:06:47] quite simple. Um you can just add a
+[00:06:49] competitor here and then you have to add
+[00:06:51] in the URL of the Facebook ad library of
+[00:06:54] the competitor. Now if you don't know
+[00:06:55] where to find that this is basically
+[00:06:57] public information. Let's say we have
+[00:06:58] Jim Shark. You can go to the about page
+[00:07:01] on YouTube. Go to see all and all the
+[00:07:03] way at the bottom you go to ad library
+[00:07:05] and there we can see I have an ad
+[00:07:07] blocker but yeah there you can see
+[00:07:09] basically the ads they're running. So
+[00:07:10] this is the page we're scraping. So this
+[00:07:12] is the page we need the URL to create a
+[00:07:15] new competitor. Then we have all the
+[00:07:17] competitors listed here. And then we can
+[00:07:19] track all of the ads of our competitors
+[00:07:21] here. So here are all the ads from Gym
+[00:07:23] Shark. If I open it up, you get the
+[00:07:25] insights on the ad copy, the headline
+[00:07:27] description, the image. In this case,
+[00:07:28] it's not a video and some improvement
+[00:07:30] suggestions. And then here lastly, we
+[00:07:33] have the weekly reports where we get
+[00:07:34] insights on the strategy our competitors
+[00:07:36] run. Right? So that's it. Quite
+[00:07:39] straightforward. Uh you can either
+[00:07:40] manually trigger it here or on the
+[00:07:42] schedule trigger like I showed you on
+[00:07:43] the weekly report. Um then we get all
+[00:07:46] the competitor Facebook ad library links
+[00:07:48] URLs. We loop over each of them and use
+[00:07:50] an appy scraper to specifically scrape
+[00:07:53] those Facebook ad libraries. So we do
+[00:07:56] that. We format the data. We update the
+[00:07:58] status. If it has ads, we add it into
+[00:08:01] another sub workflow here because we
+[00:08:04] have to loop over each of the um product
+[00:08:06] items one by one. So here we uh go over
+[00:08:10] each of the ads, check if it exists, and
+[00:08:12] if it is a new ad, we um download if
+[00:08:15] it's a video, the video or uh if it's an
+[00:08:18] image, the image. Um and then we pass
+[00:08:20] that in to an LLM to do some analysis of
+[00:08:23] course and to maybe give give us some
+[00:08:25] suggestions on how we can improve this
+[00:08:28] type of ad for ourselves, right? And we
+[00:08:30] output that, we format that again, and
+[00:08:32] we output all of the data back into Air
+[00:08:34] Table. And then this last flow here
+[00:08:36] generates gets all of the um ads from
+[00:08:40] one competitor, analyzes them, gets
+[00:08:42] passed into this L&M, analyzes them, and
+[00:08:44] generates a report on a weekly basis on
+[00:08:47] the strategy your competitors use uh in
+[00:08:50] inside of ads. Again, formats it and
+[00:08:52] sends it into Air Table. So quite
+[00:08:54] straightforward workflow. If you're
+[00:08:56] going to uh clone this, you can uh
+[00:08:58] simply uh import the JSON. Again, of
+[00:09:00] course, again, you have to connect your
+[00:09:02] Air Table account. Uh you have to
+[00:09:04] connect your ampify API key here. All
+[00:09:07] right, this one's already set up for
+[00:09:08] you, but you just have to connect your
+[00:09:10] API key. Uh the rest is mostly done for
+[00:09:12] you. Um and of course you have to add in
+[00:09:16] your specific L&M API keys. And that's
+[00:09:19] basically it. That's how you can set it
+[00:09:21] up. And of course, there's a datab base
+[00:09:22] behind the air table interface. Again,
+[00:09:24] if you need some more help adjusting
+[00:09:25] these templates or setting them up for
+[00:09:27] yourself, we do have the one-on-one uh
+[00:09:30] tech help available with my AI engineers
+[00:09:31] inside of uh my my accelerator. Now, the
+[00:09:34] next one is an automatic meta ad
+[00:09:36] campaign reporting system. Now, I've
+[00:09:37] shown this one in a previous video, but
+[00:09:39] I wanted to include it in this one
+[00:09:40] because it's especially useful for meta
+[00:09:43] ad agencies because they spend a lot of
+[00:09:44] time on campaign reporting to their
+[00:09:46] clients and for theirelves. So, we built
+[00:09:48] this system using in combination of NAN,
+[00:09:50] Google Sheets, and Google Slides. And
+[00:09:52] basically what the system does is it
+[00:09:54] analyzes u the performance of the
+[00:09:56] campaigns over the last months
+[00:09:58] completely automatically and it creates
+[00:09:59] these graphs, visuals and conclusions
+[00:10:02] automatically in the slides. It compares
+[00:10:04] different campaigns you're running uh
+[00:10:06] the platforms, the placements and the
+[00:10:08] demographics. And again this is just a
+[00:10:11] really useful system for really any type
+[00:10:13] of business that runs meta ads because
+[00:10:15] they tend to spend a lot of time on uh
+[00:10:17] reporting and ad optimization. Now, this
+[00:10:20] one is a bit more complicated as you can
+[00:10:22] see has a lot of code nodes, etc. But
+[00:10:24] most of the hard work is already done if
+[00:10:26] you're going to duplicate the template.
+[00:10:28] Uh you you don't have to change that
+[00:10:29] much. The the hard work is really mostly
+[00:10:31] done for you. So really what you have to
+[00:10:33] do is connect the Facebook graph API uh
+[00:10:35] to get the data from your meta ads or
+[00:10:37] your client meta ads. Uh you also have
+[00:10:39] to connect your Google Slide API and
+[00:10:41] Google Sheets API and then uh it should
+[00:10:43] work for you. Of course, you can adjust
+[00:10:45] the template here uh to your specific
+[00:10:48] branding etc. Um, but if you connect
+[00:10:50] those APIs to these nodes here, it
+[00:10:52] should directly work for you. Now, if
+[00:10:54] you want to know uh how to set up these
+[00:10:56] APIs because the Google slides and
+[00:10:58] Google uh sheets API can be a little bit
+[00:11:00] more tricky to set up because you have
+[00:11:01] to set up Google zero off, I'll make
+[00:11:03] sure to put a link also uh with the
+[00:11:05] resources um on how to set up the Google
+[00:11:08] zero off. So, that's it for this video.
+[00:11:09] Thank you so much for watching. Keep in
+[00:11:11] mind that templates are great, but
+[00:11:12] generally need to be customized a bit to
+[00:11:14] each specific use case or client or for
+[00:11:16] yourself. So if you need some more help
+[00:11:18] in customization and learning AI
+[00:11:20] automation and learning how to build
+[00:11:22] systems like this yourself, you can uh
+[00:11:24] check out my AI accelerator where we
+[00:11:26] give you the tech support uh you need
+[00:11:28] and also we try to help you build your
+[00:11:29] own AI business. So if that's
+[00:11:31] interesting, you can check out my
+[00:11:32] accelerator. Also, if you want to see a
+[00:11:34] fourth meta ad system, I've done a
+[00:11:36] previous video on another system we did
+[00:11:38] which automatically generates ad scripts
+[00:11:41] for uh people running video ads on uh
+[00:11:43] meta ads. So, if that's interesting to
+[00:11:45] you, you can check out the video here
+[00:11:47] above.

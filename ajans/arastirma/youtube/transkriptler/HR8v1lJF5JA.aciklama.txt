@@ -1,0 +1,62 @@
+🚀 In this video, I showcase a complete AI-powered Social Media Automation System built with n8n.
+
+This workflow uses multiple AI agents working together to automate the entire content creation and publishing process for Facebook, Instagram, and LinkedIn.
+
+✅ What this system does:
+
+🔹 Accepts a post topic from the user
+🔹 AI generates the post description/caption
+🔹 AI creates an engaging post title
+🔹 AI generates a professional image prompt
+🔹 Pollinations AI automatically creates the post image
+🔹 Uploads the generated image
+🔹 Publishes content automatically to social media platforms
+🔹 Sends Slack notifications after successful publishing
+
+🧠 AI Agents Used:
+• Description Generator Agent
+• Image Prompt Generator Agent
+• Title Generator Agent
+• Image Generation Agent
+
+⚙️ Tech Stack:
+• n8n
+• OpenAI
+• Pollinations AI
+• Slack
+• Facebook Automation
+• Instagram Automation
+• LinkedIn Automation
+
+This project demonstrates how multiple AI agents can work together to create a fully automated content marketing workflow.
+
+If you're interested in AI Automation, n8n, Multi-Agent Systems, Social Media Automation, or No-Code AI Workflows, this video is for you.
+
+💬 Let me know in the comments what automation project you'd like to see next.
+
+👍 Like, Share & Subscribe for more AI Automation content.
+
+━━━━━━━━━━━━━━━
+
+📌 Channel: MS Automation Hub
+
+#n8n
+#AIAutomation
+#n8nAutomation
+#OpenAI
+#AIAgent
+#MultiAgentSystem
+#SocialMediaAutomation
+#FacebookAutomation
+#InstagramAutomation
+#LinkedInAutomation
+#SlackAutomation
+#WorkflowAutomation
+#NoCode
+#Automation
+#ArtificialIntelligence
+#PollinationsAI
+#ContentAutomation
+#DigitalMarketing
+#TechAutomation
+#MSAutomationHub

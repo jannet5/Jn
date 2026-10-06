@@ -1,0 +1,190 @@
+# How I Use Claude Code to Make INSANE Instagram Carousels (for beginners)
+# https://www.youtube.com/watch?v=jFAH0txMwiI
+# kanal:  | süre: 671 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] It has never been easier to generate viral Instagram carousels using Claude
+[00:00:04] code, but the problem is they all look the same. So, in this video, I'm going
+[00:00:08] to show you exactly how to go from carousels that look like this to
+[00:00:12] beautiful custom carousels that look like this all in a couple of minutes.
+[00:00:16] And if we haven't met yet, my name is Duncan Rogoff. I'm a former art director
+[00:00:20] for brands like Apple, PlayStation, and Nissan, and I now run a six-figure AI
+[00:00:24] agency. If you want to get access to anything we build today along with tons
+[00:00:27] of done-for-you prompts and skills for Claude code, just check the link in the
+[00:00:30] description. So, the reason that most carousels all look the same is because
+[00:00:34] people are coming into Claude and they're saying something like make me a
+[00:00:36] cool Instagram carousel. But, Claude works so much better when you have
+[00:00:41] references. But, there is a very specific way to do this, and all it
+[00:00:45] takes is one single prompt. So, in order to get started, like just come over to
+[00:00:49] Pinterest. I typed in graphic design, and you can just start scrolling. You
+[00:00:53] can start to see what you like, and you can see based off my carousels, I really
+[00:00:56] like some of these that came up, and so that's what I used to create my
+[00:01:00] carousels from. What works for me may not work for you. Just go ahead and find
+[00:01:03] something you like. So, since I was going with that cool retro style, I
+[00:01:06] thought for this it'd be cool to go with something a little bit more modern, kind
+[00:01:09] of like this fuzzy gradient world that we got going on here. So, it is really
+[00:01:13] easy to recreate this style now, and all you need is what's known as a design
+[00:01:17] system and a design MD file, and I will break down exactly what those are. So,
+[00:01:22] the first thing that you're going to do is you just need to take a screenshot of
+[00:01:25] this. I'm going to pop over into Claude,
+[00:01:29] and I'm just going to be using basic Claude chat, and I'm going to drop in
+[00:01:32] the screenshot here. I'm using the desktop app, and I'm just in the chat
+[00:01:35] over here, not co-work and not even code, just in the basic chat. And all
+[00:01:39] you need is a single prompt. And this is the prompt. Turn this into a design
+[00:01:44] system in an HTML file and a design MD file. That's it. So, I'm going to copy
+[00:01:48] this. I'm just going to come back over here, and I'm going to paste this in.
+[00:01:52] So, this is going to get to work. Now, what is a design system, and what is a
+[00:01:56] design MD file. A design system is basically everything that makes up your
+[00:02:01] design. It is all of the colors, it is all of the type, it is how things are
+[00:02:04] laid out, what is the spacing between elements, it is what do the components
+[00:02:08] look like? Are they buttons? How do you treat your images and things like that?
+[00:02:11] For the system that I created for my carousels, this is what the design
+[00:02:14] system looks like. It's pretty incredible and Claude did this in a
+[00:02:17] couple of minutes. It breaks out all of the rules of the system. It creates an
+[00:02:20] entire color palette for me. It creates an entire text hierarchy. It creates all
+[00:02:25] of the composition and all of the layout. So, how are these going to look
+[00:02:28] inside of your carousel? And it just goes on and on with all of these
+[00:02:31] references and things like that. It's pretty incredible. And so, this is great
+[00:02:35] as a designer or someone visual to be able to look at this and understand what
+[00:02:39] exactly is going on. But what Claude actually needs is something that is
+[00:02:42] called a design MD file. And before you tune out, like I'm not going to read
+[00:02:46] through all this, but this is essentially this visual system turned
+[00:02:49] into language that Claude understands. And so, a design MD file basically just
+[00:02:54] decodes what are the main decisions that go into making this design and then puts
+[00:02:59] it together in that format that we saw to basically talk about the colors and
+[00:03:03] the type and the spacing again to create consistent outputs in a way that Claude
+[00:03:07] can understand. So, check this out. Literally from this single prompt, I
+[00:03:11] created this entire design system. It creates all of the laws or the rules. It
+[00:03:16] creates all of the color palettes, both the darks and the lights. It goes ahead
+[00:03:19] and actually creates these backgrounds, these beautiful gradient backgrounds for
+[00:03:23] us, all of the typography, and all of the different pieces that we might need
+[00:03:27] for this design system. And then of course, it goes ahead and also creates
+[00:03:30] that MD file, which looks like this here, which again is what you actually
+[00:03:34] give to Claude to teach it what you want to do. So, all you have to do is click
+[00:03:37] download all and we can start building out our carousels. And if you're like me
+[00:03:42] and you start thinking ahead, once you have established this design system, you
+[00:03:45] don't just have to use it for your carousels. Like if you go and you look
+[00:03:48] at this little website that I built for this video today, you can see it follows
+[00:03:52] the same design system. So, if you're building a landing page or you're
+[00:03:55] building emails or newsletter or whatever, you can use that same design
+[00:03:59] system to basically establish your brand. And so, what I'm going to do now
+[00:04:02] is I'm going to come back into the Claude desktop app and I'm just going to
+[00:04:05] switch over to code so we can actually start coding. Give me 2 seconds. If
+[00:04:09] you're just getting started with Claude code and you want to learn how to build
+[00:04:11] real things and turn your skills into income, just check the link in the
+[00:04:14] description. You can get started today for only $9. All you have to do is down
+[00:04:18] here, just make sure that you're inside of a folder somewhere on your computer.
+[00:04:21] Just go ahead, click open folder. You can put a folder on your desktop and we
+[00:04:25] can just go ahead and name this like YouTube carousel. It really doesn't
+[00:04:27] matter, but just so you have everything all in one place and click open and you
+[00:04:31] are ready to start building. And if you've never used Claude code before,
+[00:04:34] this is the time to not be scared. Like it's really just like talking to chat,
+[00:04:38] but instead this can actually do things for you. And so, in order to build out
+[00:04:41] our beautiful carousel graphics, we're going to be using a site called
+[00:04:44] Higgsfield. This generates all of your images, all of your videos. You
+[00:04:47] literally connect to this once and you can pretty much build anything for your
+[00:04:50] brand. You can see everything here is absolutely beautiful. But, what's cool
+[00:04:54] about Claude is we no longer have to do this like manually inside of the website
+[00:04:59] itself. What we're going to be using is something known as the Higgsfield MCP
+[00:05:03] and MCP stands for model context protocol. It's basically just a way for
+[00:05:07] Claude code to talk to Higgsfield to generate all of your images and it's
+[00:05:10] really easy to install. All you have to do is come over to higsfield.ai/mcp
+[00:05:16] and then you're going to open the Claude settings and you're just going to add a
+[00:05:19] custom connector. So, I'm going to copy this and if we come back into Claude,
+[00:05:23] all we have to do is click the plus at the bottom. It's probably behind my
+[00:05:26] head, but just come into connectors and then click the little gear for manage
+[00:05:29] connectors and you can see this is where you integrate with basically all of the
+[00:05:32] other platforms that you use like all the Google platforms or Notion or Slack
+[00:05:36] or whatever. In order to connect to Higgsfield, click the plus up here, come
+[00:05:40] to add custom connector and we can just name this Higgsfield. And then we want
+[00:05:43] to just paste in that code or this link that we got from Higgsfield itself and
+[00:05:47] all we have to do is click add. You can see we are not connected to Higgsfield.
+[00:05:51] All we have to do is sign in with our account. Once we're here, I'm just going
+[00:05:54] to click allow. This takes a couple of seconds, and it says I'm now connected
+[00:05:57] to Higgsfield. Awesome. And we can see now that I have this connector in my
+[00:06:01] list over here. This is everything that it's allowed to do. Generate all of the
+[00:06:04] images, generate all of the videos, and so on and so on. And what we can do if
+[00:06:07] we want, we can just go ahead and say always allow, so we don't need human
+[00:06:10] approval for Higgsfield to go ahead and do things. And so now Claude code can
+[00:06:13] basically do anything that Higgsfield can do. And just to show that this
+[00:06:16] works, you can just click the plus again, come into connectors, and you can
+[00:06:19] see that we have Higgsfield right here, all's toggled on, and we're good to go.
+[00:06:22] And so, what I'm going to do now is I'm just going to open up this YT Carousel
+[00:06:25] folder that we created. I'm going to unzip the gradient design system that we
+[00:06:30] created, and I'm just going to go ahead and rename this design system. And so
+[00:06:34] now, because we are inside of the folder inside of Claude, it can read this
+[00:06:38] design system. And let's just test it out. I want you to use the Higgsfield
+[00:06:42] connector and generate an image about AI and robotics based off of the design
+[00:06:47] system that is inside of the YT Carousel folder.
+[00:06:52] And so, what's cool is we can actually see Claude working here. And so, it
+[00:06:55] basically went ahead and looked at the files inside the folder. It found our
+[00:06:58] design system markdown file, and it's just going to go ahead and read that,
+[00:07:01] and then send everything off to Higgsfield to generate an image for us.
+[00:07:04] Now, we can see that it translated our design system into an image prompt for
+[00:07:08] Higgsfield. We want a cinematic editorial photograph of a humanoid robot
+[00:07:12] torso and face emerging from deep near black void darkness lit by volumetric
+[00:07:17] atmosphere. Again, I couldn't write this prompt if I tried.
+[00:07:20] So, I'm just going to say allow always, and it should generate an image for us.
+[00:07:23] So, it went ahead and said the image is generated and complete, and all you have
+[00:07:26] to do is click show image, and then open this link, and now we can see this image
+[00:07:30] here that it generated with very minimal instruction from me, all in our style.
+[00:07:35] You can see there's no text on this yet, but that's what we're about to fix next.
+[00:07:38] There are a bunch of different schools of thought on what makes a good or a
+[00:07:41] viral Instagram carousel. You can find information all over the place. I have
+[00:07:44] found that this structure tends to work for me, but there's a million ways to do
+[00:07:48] this. One, you want to make sure the cover leads with a hook. You want to
+[00:07:52] two, address the pain. So, what pain is your audience experiencing? Name it
+[00:07:55] directly. You want to list out the steps to solve that problem. So, like a
+[00:07:59] numbered list, like do step one, two, and three. Share the result at the end
+[00:08:04] of like implementing these steps, and then have some sort of CTA. A lot of
+[00:08:07] people will have a CTA to like join this or get this offer or comment this word
+[00:08:11] and I'll send you a thing. You've seen it all the time. Now, what we want to do
+[00:08:14] is not only turn this style into an Instagram carousel, but we want to turn
+[00:08:18] this into what's known as a skill, which is a repeatable set of instructions. So,
+[00:08:22] Claude can run this skill every single time to generate carousels in our style
+[00:08:26] on any topic that we choose. If you are unfamiliar with what a skill is, don't
+[00:08:31] overthink it. All it is is you write down the steps for Claude to follow. It
+[00:08:35] goes ahead and follows them, so you get the same result every single time. So,
+[00:08:38] I've created a prompt that will do this all for you. This is going to create a
+[00:08:42] Claude code skill to generate a Instagram carousel using your design
+[00:08:46] system starting with the hook, the pain points, all the steps to follow, and the
+[00:08:49] CTA. I'll leave a link in the description where you can access it for
+[00:08:52] only nine bucks, along with the exact systems that we use to grow income,
+[00:08:55] build websites, apps, and your content. So, I'm just going to copy this prompt
+[00:08:59] here, and I'm going to come back into Claude, and I'm going to paste this in.
+[00:09:03] So, we can see here that in a couple of minutes our skill is done. It is live,
+[00:09:07] the Aurora carousel skill. So, all we need to do is give it a topic, create
+[00:09:11] the carousel for us. In order to access a new skill, you either need to restart
+[00:09:15] Claude or just be in a new session. So, I'm just going to restart Claude real
+[00:09:18] quick, and then I'll come back. So, now that I've restarted and I'm back in
+[00:09:21] Claude, I can use the same chat. I'm just going to type {slash} and Aurora,
+[00:09:25] and it's probably behind my head, but we can see here that I have the Aurora
+[00:09:28] carousel skill. And so, now all we have to do is give it a topic. So, inside the
+[00:09:32] community, I just have this lesson about how to bring your memory over to Claude
+[00:09:36] if you've been using this somewhere else. So, I'm just going to copy this
+[00:09:39] lesson. I'm just going to give it all as context to Claude code for the carousel.
+[00:09:43] And I'm just going to paste this in and see what we get. And so, you can see
+[00:09:46] here that this is asking me a couple of questions like, who is this carousel
+[00:09:49] targeting? So, who is my audience? What is my actual offer? And kind of like,
+[00:09:53] what is the voice that I want to use? And so, what's cool about this is that
+[00:09:57] it's asking me these questions. I can fill this in now and I can say, "Hey,
+[00:10:00] update our skill with this information." So, now moving forward, anytime we use
+[00:10:05] it's not going to have to ask me these questions again. And so, I just answered
+[00:10:08] these questions pretty basically. I just said it's for non-technical founders who
+[00:10:11] are new to Claude. The CTA is going to lead to the Claude Code Club. And for
+[00:10:14] the tone of voice, I literally just said, "Use your best judgment." So,
+[00:10:17] check this out. In just a couple of minutes, we have generated all of the
+[00:10:20] slides for us, all of the steps, the hook, the CTA at the end, right? So,
+[00:10:25] this is super cool, all in our brand design system. If you want to go ahead
+[00:10:29] and make changes to this, you have all of the structure already set up for you
+[00:10:32] and you can just say, "Hey Claude, update my skill to Maybe we want to move
+[00:10:35] the text a little bit higher up, right?" Like, no big deal. And what's cool with
+[00:10:39] this one ahead and it generated an Instagram caption for you and a LinkedIn
+[00:10:42] post. So, you can just copy and paste this over to LinkedIn or you could use a
+[00:10:46] third-party service like Blotato to schedule this all out for you
+[00:10:49] automatically. So, now all you have to do to create a carousel is come into
+[00:10:53] Claude, type in Aurora Carousel, give it a topic to research or write on and it's
+[00:10:58] going to go ahead and do everything for you. If you want to keep learning how to
+[00:11:01] build your personal brand with Claude Code, just check out this video right
+[00:11:04] here. If you want to learn how to use Claude to grow your income, grab the
+[00:11:07] link in the description. It's only nine bucks to get started. I'll see you
+[00:11:10] inside.

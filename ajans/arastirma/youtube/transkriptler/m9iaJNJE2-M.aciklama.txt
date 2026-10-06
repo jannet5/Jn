@@ -1,0 +1,129 @@
+Join me as chat I with The Boring Marketer as we demonstrate a complete n8n workflow automation that can save content creators 10-15 hours weekly by scraping top-performing content, generating new content ideas, and publishing to social. The system uses N8N to orchestrate multiple AI tools that research, write, and even create images for posts, with an optional human review step before publishing.
+
+Build an AI Content Automation in n8n: https://www.gregisenberg.com/ai-conte...
+
+Get ideas, tools, and tactics to 10x your marketing: https://www.skool.com/the-vibe-marketers
+
+Timestamps:
+
+00:00 - Intro
+01:58 - Why use this Content AI Agent
+03:05 - Demoing the n8n workflow
+03:33 - Explanation workflow stages
+04:52 - Appify for content scraping
+05:57 - Researching Viral Content
+06:59 - Content curation and Idea generation
+11:47 - Overview of OpenRouter for accessing multiple LLMs
+13:23 - Claude 3.7 Sonnet for content creation
+14:23 - Prompting Tips
+18:05 - Demo of the human review/posting process
+22:33 - Get free workflow template
+
+Key Points:
+
+• The workflow uses N8N to automate content creation by scraping top-performing content from YouTube and X (Twitter)
+• The system processes this data through various LLMs (including Claude and OpenAI) to generate original content ideas
+• The workflow can automatically create and publish LinkedIn posts with minimal human intervention
+• Tools mentioned include Appify (for scraping), OpenRouter (for accessing multiple LLMs), and Claude 3.7 Sonnet (for writing)
+
+1) THE PROBLEM:
+
+Creating quality content across multiple platforms is EXHAUSTING.
+
+Most marketers waste hours researching, writing, and publishing—only to get mediocre results.
+
+What if AI could do the heavy lifting while you focus on strategy?
+
+That's exactly what this workflow solves!
+
+2) THE WORKFLOW OVERVIEW:
+
+This N8n automation has 4 key stages:
+• Data collection from YouTube & X
+• Content idea generation
+• Research & validation
+• Content creation & publishing
+
+All with minimal human input! Let's dive deeper...
+
+3) STAGE 1: DATA COLLECTION 
+
+The workflow uses Appify to:
+• Scrape top-performing YouTube videos on your topic
+• Transcribe video content automatically
+• Pull relevant tweets from X
+• Compile everything into one massive data block
+
+This gives your AI REAL context about what's working!
+
+4) STAGE 2: IDEA GENERATION 
+
+Once you have the data, the workflow:
+• Feeds everything to an OpenAI LLM
+• Analyzes patterns in high-performing content
+• Generates fresh angles and hooks
+• Identifies optimal content formats
+
+No more staring at blank screens wondering what to write!
+
+5) STAGE 3: RESEARCH & VALIDATION 
+
+This is where it gets POWERFUL:
+• Uses Perplexity (via OpenRouter) to find facts & stats
+• Validates content ideas with real-world data
+• Prevents AI hallucinations
+• Adds credibility to your content
+
+Your posts will be backed by ACTUAL research!
+
+6) STAGE 4: CONTENT CREATION 
+
+The workflow uses Claude 3.7 Sonnet (the BEST writing AI right now) to:
+• Create a complete LinkedIn post
+• Generate an accompanying image
+• Format everything properly
+• Send to you for approval via Slack
+
+One click and it's published!
+
+7) PRO TIPS FROM @boringmarketer:
+
+• Give AI specific brand voice instructions
+• Tell it to avoid corporate jargon and fluff
+• Ban those AI-looking dashes (---)
+• Mention "conversion copywriting" for better hooks
+• Include a human review step before publishing
+
+8) WHY THIS ACTUALLY WORKS:
+
+Unlike basic ChatGPT prompts, this workflow:
+• Uses VALIDATED content ideas (not guesses)
+• Leverages data from top-performing posts
+• Matches your authentic voice
+• Creates content that passes the "AI detection" test
+
+People can't tell it's AI-generated!
+
+Notable Quotes:
+
+"Instead of starting from scratch, go and find things that are already performing. That's similar to trying to create a startup idea too. You want to find things that are already working so you can shortcut that and take those learnings and make it your own." - Boring Marketer
+
+"The problem is people don't give it [Claude] enough context. And then they're like, this is garbage." - Greg Isenberg
+
+The #1 tool to find startup ideas/trends - https://www.ideabrowser.com
+
+LCA helps Fortune 500s and fast-growing startups build their future - from Warner Music to Fortnite to Dropbox. We turn 'what if' into reality with AI, apps, and next-gen products https://latecheckout.agency/
+
+BoringMarketing — Vibe Marketing for Sale: https://www.thevibemarketer.com
+
+Startup Empire - a membership for builders who want to build cash-flowing businesses https://www.startupempire.co
+
+FIND ME ON SOCIAL
+
+X/Twitter:   / gregisenberg   
+Instagram:   / gregisenberg   
+LinkedIn:   / gisenberg  
+
+FIND THE BORING MARKETER ON SOCIAL
+X/Twitter: https://x.com/boringmarketer 
+LinkedIn:   / jadickerson  

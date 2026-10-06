@@ -1,0 +1,22 @@
+In this session, we build a complete Instagram automation workflow using n8n.
+
+We use Cloudinary to store videos and generate secure URLs that the Instagram node can publish. A Google Sheet acts as the control centre, holding video file names and metadata. An AI Agent reads the file description, writes the caption for the reel, and prepares the post content automatically.
+
+The workflow covers
+Setting up the trigger
+Reading video details from Google Sheets
+Using an AI Agent to generate Instagram captions
+Fetching the video from Cloudinary via URL
+Publishing the reel on Instagram
+Updating the Google Sheet to mark the video as posted
+
+This is a practical end to end automation for content creators, brands, and social media managers who want a repeatable and scalable Instagram posting system using AI and n8n.
+
+If you are following the 30 Day AI Automation Challenge, replicate the workflow and share your screenshots in the comments.
+
+Links mentioned
+Cloudinary https://cloudinary.com
+
+n8n https://n8n.io
+
+Subscribe for the next lessons where we continue building production ready AI automations.

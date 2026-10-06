@@ -1,0 +1,179 @@
+# How to Create UNLIMITED Viral AI Carousels in Claude
+# https://www.youtube.com/watch?v=QeV04PFPNck
+# kanal: digitalSamaritan | süre: 307 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] In March 2026, the question we should be
+[00:00:02] asking is not what things you can do
+[00:00:03] with Claude, but what is something
+[00:00:05] Claude cannot do. Hi, I'm my name is
+[00:00:06] Krish Unk. Welcome back to the channel.
+[00:00:08] I want a mission to teach 1 billion
+[00:00:09] people AI for free because it should be
+[00:00:11] a human right. And we just discovered
+[00:00:13] that even though Claude doesn't even
+[00:00:15] have an image model, but you can
+[00:00:16] actually create these carousels for
+[00:00:18] Instagram right inside Claude. So even
+[00:00:20] though this video is a quick tutorial on
+[00:00:21] how we can actually do the same, but at
+[00:00:23] the same time, I want you to use this
+[00:00:25] video as an inspiration of all the
+[00:00:27] things you can start exploring you could
+[00:00:28] do with Claude. It's probably not the
+[00:00:30] only way, but this is the workflow that
+[00:00:31] we use. So on my Instagram and TikTok
+[00:00:33] page practically I we've been posting a
+[00:00:35] bunch of these quick little infographics
+[00:00:37] on guides that people might need for
+[00:00:39] Claude. Claude is a very hot topic.
+[00:00:41] These guys are in demand and like these
+[00:00:44] guides have performed well. So we wanted
+[00:00:45] to like use this as an inspiration for
+[00:00:47] us to create more assets just so that we
+[00:00:49] know what sort of branding and design
+[00:00:51] we're going to go for. So what we did
+[00:00:52] was we went over to Claude. So we
+[00:00:54] uploaded all these images as reference
+[00:00:56] files and just use this prompt. Extract
+[00:00:58] the style, design, color, fonts, etc.
+[00:01:01] from all these images. Ignore the
+[00:01:02] written content. Send me the description
+[00:01:04] in a JSON format. So basically we're not
+[00:01:06] really training yet on these designs
+[00:01:08] just yet. We're just extracting the
+[00:01:09] vibes all these designs have in common.
+[00:01:11] Now when you run this prompt, you're
+[00:01:13] going to get a result that looks like
+[00:01:14] some code, but it's basically a JSON
+[00:01:16] format which is a way to structure all
+[00:01:17] the data that is easier for a computer
+[00:01:19] to read. So now what we're going to do
+[00:01:21] this is copy this output and then create
+[00:01:23] a new project. So what we're trying to
+[00:01:25] do is we got Claude to understand the
+[00:01:27] vibes from those designs and now we're
+[00:01:29] just going to like create a project
+[00:01:30] inside Claude. So every time we have to
+[00:01:32] create a new carousel for Instagram,
+[00:01:34] Claude will know exactly what vibes that
+[00:01:36] we need for that carousel. So we can
+[00:01:38] always get consistent results with
+[00:01:40] basically no prompting. So if you
+[00:01:42] haven't done this before, on the left
+[00:01:44] side you will see the options for
+[00:01:45] projects. This is very similar to
+[00:01:47] ChatGPT projects for all the people who
+[00:01:48] are migrating over and here just
+[00:01:50] describe what you're working on and what
+[00:01:52] you are trying to achieve. Again, this
+[00:01:54] is optional. You don't have to get into
+[00:01:55] the details here. Now once you're in the
+[00:01:57] project, then go to your instructions
+[00:01:58] and here just copy paste the JSON prompt
+[00:02:00] that we generated. And here we start
+[00:02:02] with simple instructions on what we want
+[00:02:04] this project to do. For example, you're
+[00:02:05] an Instagram carousel design system.
+[00:02:07] When a user asks you to create a
+[00:02:09] carousel, generate a fully
+[00:02:10] self-contained swappable HTML carousel
+[00:02:13] where every slide is designed to be
+[00:02:14] exported as an individual image for
+[00:02:16] Instagram posting. Step one, collect
+[00:02:18] brand details before generating any
+[00:02:20] carousel. Now after this, pretty much
+[00:02:21] add instructions for Claude to just use
+[00:02:23] the design system that we generated in
+[00:02:25] our first step. And now here we have
+[00:02:26] couple of extra steps and this is only
+[00:02:28] because I have multiple accounts and I
+[00:02:29] want to make sure that Claude is asking
+[00:02:31] us which account we're creating it for.
+[00:02:33] So that way it's easy for us to create
+[00:02:34] it for multiple accounts just using the
+[00:02:36] same project. Now this is your mini
+[00:02:37] Claude project that is trained to create
+[00:02:39] those Instagram carousels for you. Now
+[00:02:41] you must be wondering how is Claude able
+[00:02:43] to create these carousels if it doesn't
+[00:02:45] have any image generator. So actually
+[00:02:46] what we're trying to do here is to not
+[00:02:48] create an image at all. We're basically
+[00:02:50] asking Claude which is good at coding to
+[00:02:52] create the code for all those different
+[00:02:53] slides which we can download as
+[00:02:55] individual images. Now here what we can
+[00:02:57] do is I can take over my newsletter
+[00:02:58] content and I can just ask Claude to
+[00:03:00] transform this article into an Instagram
+[00:03:02] carousel. Now based on instructions,
+[00:03:04] it's asking us for the brands that we
+[00:03:05] want to create it for and it's double
+[00:03:07] checking the color palette we want to
+[00:03:08] use for this post and response says to
+[00:03:10] just use Claude's palette. Now it just
+[00:03:12] shares the palette that we have for
+[00:03:13] Claude, gives us a slide breakdown and
+[00:03:16] right here we have the code generated
+[00:03:19] for all those slides. As you can see, we
+[00:03:21] have seven different carousel posts that
+[00:03:24] are now generated. We can toggle
+[00:03:25] through. It even has like a progress bar
+[00:03:27] which is like a good strategy for
+[00:03:29] Instagram carousel posts that you could
+[00:03:31] use and it looks very clean. All the
+[00:03:33] text looks really good. I don't see any
+[00:03:36] errors whatsoever. In fact, I would say
+[00:03:38] it's even better than actually using
+[00:03:40] like image generator just because it's
+[00:03:41] actually using the right fonts inside
+[00:03:43] instead of creating a font. So if you
+[00:03:45] can just look into the code here, you
+[00:03:47] will be able to see all the fonts it's
+[00:03:48] pulling to create this carousel post
+[00:03:51] instead of just generating an image here
+[00:03:53] which is what makes it even more
+[00:03:54] powerful. We have all these images for
+[00:03:56] carousel generated right inside our
+[00:03:57] Claude project from a very simple prompt
+[00:03:59] and now I can just go here and I can
+[00:04:01] download all my slides. By the way, if
+[00:04:03] you run into an error that it's not
+[00:04:04] downloading for you, just ask Claude to
+[00:04:06] turn all that into a PNG file, then you
+[00:04:07] should be able to download each one of
+[00:04:09] the slides just from download over here.
+[00:04:10] Even though it's super cool that you can
+[00:04:12] generate these carousels just within
+[00:04:14] Claude, I do want to say that if you
+[00:04:15] already have a template that you work
+[00:04:17] with inside Canva that you want to use
+[00:04:19] for all your carousel posts, the better
+[00:04:21] strategy would be to connect the Canva
+[00:04:23] connector inside Claude and just do it
+[00:04:24] that way instead of trying to create
+[00:04:26] everything from scratch every single
+[00:04:27] time. Again, the reason I wanted to do
+[00:04:29] this video is because anyone who doesn't
+[00:04:30] have that templates or their design
+[00:04:32] systems set up already, this could be a
+[00:04:34] good way for them to start right away.
+[00:04:35] But like I said, you know, these days
+[00:04:37] like with so much happening in AI
+[00:04:39] everyone likes to over-engineer
+[00:04:40] everything. I would say is that before
+[00:04:42] you start doing everything with AI, just
+[00:04:43] take a step back and just ask yourself,
+[00:04:45] if there is something you could do with
+[00:04:47] AI, does it mean you should? Because
+[00:04:49] right now with the whole hype around AI,
+[00:04:51] we tend to over-engineer things just
+[00:04:52] because it's cool where we shouldn't.
+[00:04:54] And on that note, give a thumbs up if
+[00:04:56] this video was useful, you learned
+[00:04:57] something new, you feel inspired on
+[00:04:59] things you can do with Claude and leave
+[00:05:01] a comment if there's a video topic you
+[00:05:02] want me to cover next. Until then, I'll
+[00:05:04] take your leave. Your chief AI officer
+[00:05:05] signing off.

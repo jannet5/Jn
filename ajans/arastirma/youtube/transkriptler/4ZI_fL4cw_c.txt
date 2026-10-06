@@ -1,0 +1,198 @@
+# AI Social Media Automation: How to Post Daily Content 100% on Autopilot!
+# https://www.youtube.com/watch?v=4ZI_fL4cw_c
+# kanal: Solopreneur | süre: 896 sn | kaynak: yt-dlp:android:timedtext:en:automatic_captions
+
+[00:00:00] imagine growing all your social media accounts without lifting a finger
+[00:00:03] posting unique valuable content multiple times a day automatically across all
+[00:00:10] your platforms sounds to good to be true well let me show you exactly how it's
+[00:00:13] done we all know that posting consistently drives growth but who
+[00:00:17] really has time to post three or four times a day with this AI powered social
+[00:00:21] media automation you can turn the latest news and insights for any topic or Niche
+[00:00:27] into unique posts that go out on x Facebook LinkedIn Instagram and more now
+[00:00:33] you might have run into some clickbait videos before promising 100% automation
+[00:00:38] only to find out that you still need to do all of these manual things but what
+[00:00:42] makes this different is it's fully automated I literally mean we're going
+[00:00:46] to set it up you flip a switch and that's it and to do this we're going to
+[00:00:50] be using make which is a visual automation platform that makes building
+[00:00:55] what would be complicated as easy as playing with Lego first I'll show you
+[00:00:59] how to create a spe special feed that will pull in all the latest information
+[00:01:02] for your topic or Niche then we'll use AI to take that information and
+[00:01:06] transform it into unique posts including images for all your social platforms and
+[00:01:11] then we'll automate all the posting to go out on all your channels I'm going to
+[00:01:15] make this super easy for you to follow walking you through everything step by
+[00:01:19] step in fact I'll be sharing my exact setup file with you so you can just grab
+[00:01:23] that import it in make a few adjustments and start growing your social on
+[00:01:28] autopilot the only thing I ask is that you please hit that like button and
+[00:01:31] subscribe to the channel for more content like this I'm super excited for
+[00:01:35] this so let's Jump Right In the first thing you need to do is to create a free
+[00:01:39] make account just click the link in the description below and you can get set up
+[00:01:42] with that in a few seconds then once you've created your account click on
+[00:01:45] scenarios and hit create new scenario now to make things as easy as possible
+[00:01:50] the next thing you want to do is import the blueprint that I've made for you so
+[00:01:55] just go to more import blueprint choose file and grab my blueprint I've linked
+[00:02:02] it down below if you haven't downloaded it already again it's free and then once
+[00:02:06] you do that you can see everything pop up right here and don't worry I'm going
+[00:02:10] to explain every single module here and how it works and exactly what you need
+[00:02:16] to do so starting from the left the first thing we need to do is get all the
+[00:02:21] information that we'll be using to create the social media post so all of
+[00:02:26] the latest news insights articles or or whatever you want your source to be and
+[00:02:32] the way we're going to grab that is using this module right here and this
+[00:02:36] module uses something called RSS doapp and that's right here click the link
+[00:02:42] below to grab a free trial for that once you've created your account and logged
+[00:02:45] in click on new feed and now you have a number of ways to get this information
+[00:02:51] you could get a website and create a feed from that it could be Instagram you
+[00:02:55] could do Google News you could just type in your topic let's say it was AI tools
+[00:03:01] and then you could just grab this news feed and go in here and just paste it in
+[00:03:06] here and and you would just get this URL right here or you could just simply type
+[00:03:12] it just here without having to use an external site you could say AI tools for
+[00:03:17] entrepreneurs and let's say this is my topic right but obviously you would type
+[00:03:21] your topic and you could see it's populated that right there and again you
+[00:03:25] could create a feed from almost anything a redded thread that you follow t
+[00:03:30] it could be YouTube Instagram really any source that you go to to get the latest
+[00:03:36] information you could take that personalize that content create unique
+[00:03:40] posts and send them out on social and that's what's going to establish you as
+[00:03:44] a thought leader in your space for the sake of Simplicity let's just go with
+[00:03:47] the one where we just typed some keywords and got RSS to do all the
+[00:03:51] searching for us this is great so now just copy this and then go back to
+[00:03:56] make.com click on this right here and then just paste in your XML file and
+[00:04:02] that is it now we always want to test every module so I'm unlinking it here so
+[00:04:07] we can just test this module and then what you want to do is go choose where
+[00:04:12] to start because right now it's going to look for the next article that gets
+[00:04:17] posted and we don't want to wait right so you can actually just go choose where
+[00:04:20] to start and pick from what it can already pull and so you can see it's
+[00:04:24] working cuz it's pulled all this great content and you can just click on this
+[00:04:27] and just go run and you can see that it did pull it and this is kind of the
+[00:04:31] output of what it came up with awesome so we can see right there the title of
+[00:04:36] what it pulled in the output now the next thing we want to do is take that
+[00:04:40] article and summarize it so that we can make social posts out of it so we're
+[00:04:45] going to do that using perplexity AI you could also do this with chat GPT or
+[00:04:51] Claud or whatever your preferred AI large language model is just click on
+[00:04:56] the perplexity module that I've already set up for you and again you can change
+[00:05:00] this to chat GPT if you prefer you could just go here and go
+[00:05:06] add chat GPT create a completion and instead of
+[00:05:14] perplexity you can unlink this and you can do it with chat jpt but I'm actually
+[00:05:19] going to show you chat jpt later so let's stick with perplexity that way you
+[00:05:23] have an example for both and again it'll work the same with Claud or whatever
+[00:05:27] else you like so just simply click on this module and now you will have to add
+[00:05:31] your connection so if you hit add you'll see it's asking for an API key go to
+[00:05:36] perplexity aai click on the configuration settings and then click on
+[00:05:42] API then the next thing you want to do is just load like $5 honestly $5 will
+[00:05:48] last you an eternity you can see I've only used 24 cents so it's super cheap
+[00:05:54] and so just add five bucks and then after you do that you'll be able to
+[00:05:57] generate an API key like you see see here then just copy your API key come
+[00:06:02] back to perplexity you don't have to change any of this just paste in your
+[00:06:07] API key hit save and now it is authenticated you've connected
+[00:06:11] perplexity and you can change the model if you want I would leave this alone and
+[00:06:15] then you can see I've already written The Prompt for you you are an AI tools
+[00:06:19] expert and again change this to whatever your industry is if you are a keto
+[00:06:23] weight loss expert or you are a master accountant whatever it is right so in
+[00:06:28] this case we're doing AI tools and summarize this article and what it's
+[00:06:32] doing is it's dynamically grabbing this URL I said it's like Lego and it really
+[00:06:37] is so you can see here it says URL and this is the one that it's always going
+[00:06:42] to Output so every time this one runs it's going to Output a different URL
+[00:06:46] automatically instead of you having to give perplexity that URL every time it's
+[00:06:50] smart makes automatically entering that variable for you so this variable always
+[00:06:55] changes based on on the output of this module every time it runs so it's
+[00:06:59] already set up for you and you can see that post right there and it's saying to
+[00:07:03] summarize all of the outputs be sure to include the URL for the actual tools
+[00:07:07] mentioned so make sure you edit this post for your exact use case but you
+[00:07:12] have a template here to start from and then you just hit okay now you might
+[00:07:16] want to test this so again because we don't we want to choose where to start
+[00:07:20] so it runs immediately and we don't have to wait till the next article gets
+[00:07:23] posted then you just pick one and you hit run once and so now it's got an
+[00:07:28] article and we can can see what that article is seven content business ideas
+[00:07:32] and now it's sending it to perplexity to complete and to make the summary of
+[00:07:37] let's see if perplexity did it you see output choices plus one message content
+[00:07:44] perfect it's written a whole bunch of insights for itself to use or chat GPT
+[00:07:51] in The Next Step see I told you this was easy right so the next thing you see
+[00:07:54] here is a router and what this is going to do is take that one output and run
+[00:07:59] mult multiple commands at the same time and that's how we're going to be able to
+[00:08:02] create separate posts for Facebook Instagram Twitter and I've given you
+[00:08:06] three examples here but you could add LinkedIn you could add Pinterest you
+[00:08:09] could add another Twitter account or whatever you wanted or another social or
+[00:08:13] Instagram account whatever you want so starting with Facebook if you click on
+[00:08:17] chat GPT here you'll see we have to authenticate our account again just go
+[00:08:23] to platform. open.com and you can create a free
+[00:08:28] account if you haven't already ready and then what you're going to do is you're
+[00:08:31] going to go to billing and you are going to go add some money and again you only
+[00:08:38] need to load five or $10 here and'll last forever and then what you're going
+[00:08:42] to do is you're going to go to General and get your organization ID and then
+[00:08:49] you're going to go to your profile click on user API keys and generate your API
+[00:08:56] and again it's the same as perplexity and once you've done that just paste
+[00:08:59] that information in here and hit save okay next you don't need to change this
+[00:09:04] or the model if you don't want to I've already set it up for you these work
+[00:09:08] fine you want to leave the roll on user and then you can see the prompt you're a
+[00:09:13] social media expert your job is to write an engaging post for Facebook from the
+[00:09:15] following article summary and then again just like Lego we're going back and this
+[00:09:20] time we're grabbing the output dynamically from perplexity so we're
+[00:09:24] going to go and get the content it created for chat GPT to then use and so
+[00:09:30] you can see that I've written a prompt specific for Facebook here and you can
+[00:09:33] see the characters and about emojis you can see I've kept it very similar for
+[00:09:38] Instagram but there are some changes and you can see for x or Twitter that the
+[00:09:42] character limit is actually 280 so I've already done this for you so all you
+[00:09:47] need to do is just authenticate chat GPT three times here for these modules and
+[00:09:53] in fact I think when you authenticate it once it just automatically authenticates
+[00:09:56] the others you might not have to do that three times but if you do no big deal
+[00:10:00] just paste all the information each time now the next step is to Simply log into
+[00:10:05] Facebook it's super easy you don't need any API keys or anything just go up here
+[00:10:09] hit add hit save and just log into your account continue and boom that's it and
+[00:10:16] now you can see I've already set this up and again it's using the same thing this
+[00:10:21] time around it's saying hey grab the content from chat GPT Facebook post
+[00:10:27] completion you can see that right there choices message now one thing I
+[00:10:32] recommend you do is to rename all of these modules cleanly I've already
+[00:10:36] marked them all for you but if you do end up adding like a LinkedIn one make
+[00:10:40] sure you rename it and say LinkedIn post writer or whatnot because that's what's
+[00:10:44] going to make sure that you don't pick the wrong thing whenever you're
+[00:10:47] configuring something and now in the Instagram example I also want to show
+[00:10:50] you how to add an image so you can see there's an additional module here to add
+[00:10:54] an image and you could have added the same thing for Facebook for example you
+[00:10:58] can see here cre appropriate image for this Instagram post again we're grabbing
+[00:11:02] the post we already wrote and here are all the information that the bot needs
+[00:11:08] to adhere to I've already written it for you all the specifications so you don't
+[00:11:12] need to worry about any of this and again you just need to hit okay that's
+[00:11:16] going to come out for you and then Instagram again all you need to do is
+[00:11:21] hit add and log in and again it's going to be selecting the data you get so the
+[00:11:27] photo URL one again we see oh okay data image URL that's what we needed from
+[00:11:34] this one here so it's very simple we're just pointing to the things from the
+[00:11:39] previous output and the caption well no problem we're going to point to the
+[00:11:43] output from this one and you can see I've done it for you already and that's
+[00:11:47] it so right now we've already set up Facebook and Instagram and now that
+[00:11:51] you've finished configuring all of these social platforms now we're ready to test
+[00:11:55] everything just right click here go choose where to start select an item
+[00:11:59] from the RSS feed let's pick this one then just hit run once and you can see
+[00:12:04] it fetched the article correctly now perplexity is going to write the summary
+[00:12:09] so that these modules here can use it to write each of the posts and create the
+[00:12:14] image for Instagram great so that went through great Twitter just got posted
+[00:12:18] Chach T writing this dolly 3 is creating the image for Instagram perfect it just
+[00:12:23] did that now it's posting to Instagram and finally Facebook now we just need to
+[00:12:28] hop over to our social platforms and see what happened so perfect you can see
+[00:12:32] right here it just made this post for us so if we go to make.com elevate your
+[00:12:38] social media game with AI elevate your social media game with AI That's the
+[00:12:42] image it made for us and you'll notice that it listen to our instructions of
+[00:12:47] not including text because generative images in AI right now they don't do
+[00:12:51] text well sometimes it can mess up so a good thing is to keep that out and I've
+[00:12:56] already written that prompt for you so that is pretty Co cool right there now
+[00:13:00] let's check out Facebook Boom 1 minute ago you can see that post right there
+[00:13:04] and lastly let's take a look at X there you go 1 minute ago it just posted so
+[00:13:09] the final step now is to decide how often you want this to run so just go to
+[00:13:13] schedule setting and you can set this in minutes so obviously if you put 60 it'd
+[00:13:18] be every hour here I have 360 so that's every 6 hours but you can choose once
+[00:13:24] daily if you want like you could say every day days of the week one months
+[00:13:29] and so on and so forth so let's just keep it at what I have it now every 6
+[00:13:34] hours and then you just hit on and that is it and then from now on it's going to
+[00:13:41] grab a new asset from whatever Source you gave it summarize it and send it out
+[00:13:47] on all of the platforms now I want to give you one final tip and that is
+[00:13:52] troubleshooting with AI and getting help from AI so let's say you wanted to add
+[00:13:57] LinkedIn you could just just go to this AI beta right here and say add a
+[00:14:03] LinkedIn module as well just like I have for Facebook insta and x and I'm giving
+[00:14:11] you a simple prompt here and then what it's going to do is it's can actually
+[00:14:15] build out the logic for you you sometimes still have to tweak it it's
+[00:14:20] not perfect cuz think about how complicated what you're asking it to do
+[00:14:24] is but it gets you 80 90% of the way there and sometimes even when you run
+[00:14:28] into an error you you can actually just ask it so you can see it's smart it just
+[00:14:33] did it for us and then all we would do then is configure this just like we did
+[00:14:38] this and log in so that's how easy it is to automate your entire social media
+[00:14:42] strategy if you got some value out of this do me a favor and hit that like
+[00:14:45] button if you haven't already and subscribe to the channel for more
+[00:14:48] content just like this in fact here is another awesome automation tutorial you
+[00:14:54] should check out right now

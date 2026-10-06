@@ -1,0 +1,147 @@
+# n8n Instagram Automation — Full Postiz Workflow Guide 2026
+# https://www.youtube.com/watch?v=9p3levei5Aw
+# kanal: Automation Stack | süre: 683 sn | kaynak: yt-dlp:android:timedtext:en:automatic_captions
+
+[00:00:00] In this video, I am going to show you how to use NATN with post is to
+[00:00:04] automatically schedule an Instagram post. So, let's get started. But before
+[00:00:09] we start, you will find the best poss deal in the description below.
+[00:00:15] So, let's begin. Now, as example, you will find yourself on the post homepage
+[00:00:20] once you just logged into your account. The first thing that you want to do is
+[00:00:23] connect your Instagram to post. Click on add channel in this list panel. And from
+[00:00:28] here, make sure to choose your Instagram account.
+[00:00:31] So once you choose Instagram, you'll have to log into it first if you're not
+[00:00:35] logged in. And if you are logged in like me here, you will just have to click on
+[00:00:39] allow to allow it. Keep in mind that if you have a previous post is account and
+[00:00:45] you tried to do that. If the account is logged in with another previous post
+[00:00:49] account, they will not allow you to. So make sure to go and delete it from that
+[00:00:53] account first. So once you are here at NA10 just go to the plus on the top left
+[00:01:00] then click on a new workflow. The first thing that we would like to do is click
+[00:01:04] on the plus and look for processes. Once you do so you will find this one. Make
+[00:01:10] sure to go and click on install the node. Once in is installed right now
+[00:01:14] let's just go and build something with AI. Of course you can go and create your
+[00:01:18] workflow manually if you want to. For me I'm going to use this AI. I'm going to
+[00:01:21] paste a prompt like this. like I want to upload an image and captions to post and
+[00:01:25] uh schedule it to Instagram. And of course, I tell it that I downloaded the
+[00:01:29] post as node so you can use it. Let's just send it. Keep in mind that this AI
+[00:01:33] will uh ask you to allow like searching allow to do some stuff. So, make sure to
+[00:01:38] always keep an eye on it to allow it for me. I'll pause the video until it's done
+[00:01:42] until it's done finishing everything and we'll come back.
+[00:01:46] So as you can see here it created the workflow for me and all I need to do
+[00:01:50] just asking me to do some things like connecting to possesses. So click on
+[00:01:54] connect to possesses. Here you will have to uh paste the API key. Where can you
+[00:01:58] get that from? So go back to post. From there you will have to go to settings
+[00:02:03] then click on developers. Once you click on that you will find yourself on API
+[00:02:08] key right here. Just go and click on copy. And once you copy it, you can go
+[00:02:13] back here, paste it right there and click on save. So you will find it like
+[00:02:20] connected. You'll find like your account right here. Click on continue. And here
+[00:02:25] you will find as example this scheduled Instagram post that you want. So what
+[00:02:30] you'll have to fill here is basically the channel ID. Go back to post is click
+[00:02:34] on calendar, locate your channel, click on the three dots and click on copy
+[00:02:39] channel ID. Come back here. paste that channel ID right here
+[00:02:44] as an example for that post. And normally here you have of course the
+[00:02:50] contents items and other things to fail. But the most
+[00:02:56] important part now is the channel ID. Just go and click on apply and let's
+[00:03:00] just wait and see if the workflow working. So again let's just wait for it
+[00:03:05] until it's done. As you can see it's already done. So work your flow your
+[00:03:08] workflow is built. So you'll find here basically you'll have to upload an image
+[00:03:12] and caption from a form upload the file to post is basically then schedule the
+[00:03:18] Instagram post however you want. So yeah let's just go and click on as example
+[00:03:24] publish. Let's publish it and I'm going to name it uh like post is
+[00:03:30] uh schedule or ski as an example. Let's just go and click on publish. So click
+[00:03:36] on got it. And now let me just go to my workflows. Click on that. We'll test it
+[00:03:41] out if it's working. So let's click on execute the workflow. It uses that
+[00:03:46] option. So the AI uses this form example to choose the content or the image that
+[00:03:51] I want to uh post or schedule in the caption and the schedule date. Keep in
+[00:03:55] mind that's for you. You can do something else like connecting it to a
+[00:04:00] Google Drive to something else. Up to you. You may change the upload workflow.
+[00:04:05] So for me I'm going to choose here an image as example and the caption. So I'm
+[00:04:09] going to name it caption for testing and here for the date we're going to choose
+[00:04:14] an example the date of today. Click on submit and the form is submitted. You
+[00:04:20] can just go and close this and as you can see so this is done. This is done.
+[00:04:24] And the last one is problem with the scheduleulian node. Let's just go and
+[00:04:27] click on that. Keep in mind that you can also uh fix these issues with AI if you
+[00:04:32] don't want to do it yourself as well. As an example, instead of doing this
+[00:04:36] manually, I'm just going here, going to this AI icon, and as you can see, the
+[00:04:42] execution failed. Look into it and see what's wrong to help me fix it. Very
+[00:04:48] easy. So, you don't have to even know how to use N810 a lot. So, let's just
+[00:04:51] wait for it until it's done again, and we'll come back. So, as you can see,
+[00:04:56] since it's done, it did some fixes here. You can see an example what it does and
+[00:05:00] you can try again trying to execute the workflow. So for me let's just do
+[00:05:06] captions and the dates. Let's just choose today. Click on submit. Form
+[00:05:11] submitted. This is good and this is good as well. Now it seems like the workflow
+[00:05:16] is working. You can again if you want to publish it and publish it if it's not
+[00:05:21] published yet as example it's already published I guess. So we don't have to
+[00:05:24] publish it again. Keep in mind once you execute the workflow if you go to poses.
+[00:05:30] So let's check if the post is there. Oh yeah, I'll have to uh refresh as example
+[00:05:34] the page once. And yeah, as you can see it's added at 1:00 a.m. Uh because I
+[00:05:39] chooses the date of today. Uh there is like no option to choose an hour. Of
+[00:05:45] course you can change that after. So I just went as an example and added on
+[00:05:49] 9:00 p.m. If you go example to my Instagram, you will find at the moment
+[00:05:53] there is only one post and will be able to see if it will be posted uh correctly
+[00:05:59] on that specific date. Of course you can always go back to NAN and again you can
+[00:06:06] uh ask it to add also a time instead of just a date. So an example I want to uh
+[00:06:12] choose when >> [snorts]
+[00:06:14] >> uh or an exact time instead of only date and let's just hit enter button and
+[00:06:24] again it will do the work. It will edit the workflow. It will ask you to allow
+[00:06:29] allow to edit the workflow. Once it done we'll come back and check if that
+[00:06:34] changes as well. So as you can see right now it finishes and it tells me like
+[00:06:39] it's added an exact time field. Let's try executing the workflow again. So now
+[00:06:45] let's just choose the file for me. I'm going to choose a different time now. So
+[00:06:48] captions again schedule the dates as example. I'm going to choose this exact
+[00:06:52] date. And here you can schedule the time as well. So since I choose today I am
+[00:06:58] going to choose 10 p.m. as example. Uh, let's just do like 22 since it says
+[00:07:06] here like 24 hours. So, let's just do 22 two dots and 0 0. Click on submit.
+[00:07:14] Now I can close this. Let's see if everything will work correctly. So, it
+[00:07:18] seems like it worked. Let's just go back to post. Now, I'll just give it another
+[00:07:22] refresh and let's see is it created or not. So it is created at 9 because I
+[00:07:29] have like a different timeline here in my uh poses. I have I guess GMT minus
+[00:07:36] one and for N8 GMT + one. So as you can see it's this one that is created not
+[00:07:41] the old one. To check of course we can click on it and we will be able to see
+[00:07:44] the picture. Yeah. So as you can see it is created at that exact time as well
+[00:07:50] that we just created the workflow for. So the error is not coming from N810. If
+[00:07:55] you go actually here to the notification, you will find the error.
+[00:07:58] So the error occurred while posting to Instagram. Why? Because of the aspect
+[00:08:03] ratio is not supported on Instagram. So you'll need to get a picture that
+[00:08:07] basically accept their aspect ratio. So I'm just going to get an image for that
+[00:08:13] and we'll test it out. So as you can see, I just went here to change the
+[00:08:17] picture and I click on post now. And let's see now as an example if it's
+[00:08:23] posted. So yeah, the post has it seems like have been published. Let's just
+[00:08:27] click on the link. And as you can see, here is the post. Let's check as an
+[00:08:31] example the Instagram account. Let's just give it a refresh. And as you can
+[00:08:34] see again, it is posted right here. So we'll test the same workflow again on
+[00:08:39] NA10 and see everything works. So execute the workflow. I'm going to post
+[00:08:43] the same picture again. As you can see for the captions, adding captions here.
+[00:08:48] For the dates, it's going to be today. And for the time is example, I'm going
+[00:08:54] to choose like in 1 minute from now. And let's
+[00:09:00] just go and click on submit. So 1 minute from now. And let's just go
+[00:09:06] and click on submit. The workflow should work correctly as it used to. So
+[00:09:11] everything is working. We don't need this anymore as example. So you can just
+[00:09:14] go and open your workflow. If you need AI always, you can go again and click on
+[00:09:19] it. And let's just check the post is as an example. So let me just go and give
+[00:09:23] it a refresh here and see. I guess it is this one that is
+[00:09:29] added. Let's just go and click on it to check
+[00:09:33] if it's the one. Yeah, as you can see it's right here. Since as I said there
+[00:09:36] is an issue that I have here since I have 1 hour late from here. Uh then post
+[00:09:42] is so if I choose then 10 it will always come here to 11. But as you can see, it
+[00:09:48] will be right there. This one, I guess it will not be accepted since I guess
+[00:09:52] it's the not the right ratio as well. But we can test it always by clicking on
+[00:09:57] it. Click on post now instead of waiting. And you can always check it. Of
+[00:10:02] course, the same will be for this one. So, I'm going to click on post now.
+[00:10:05] Normally, it will be scheduled at that time and it will be posted at that time,
+[00:10:09] but for me, I click on post now to just check if it will be posted correctly on
+[00:10:13] Instagram with no issues. So you can always go and wait for this uh until
+[00:10:20] it's posted because it takes from two to three minutes. Once it's posted, you
+[00:10:23] will get a notification that is posted. They will give you a link. You can just
+[00:10:26] go then and click on link and you will be able to see it. So as you can see
+[00:10:30] this was posted. When I click on post now and this should follow it right away
+[00:10:37] like two seconds, 3 seconds it should follow it as you can see with no issues.
+[00:10:42] So it seems like our workflow is working with no issues here. Now if it's working
+[00:10:47] you can just go and publish this workflow. Give it any name that you
+[00:10:51] want. So as example install schedule or something like that. Name it whatever
+[00:10:55] you want. Click on publish and you can always add a step at start to start the
+[00:11:00] trigger manually or start it on a specific date or as an example using an
+[00:11:05] automation when you get something start the execution and stuff like that. You
+[00:11:09] can play with the workflow however you want. So that was it for me in this
+[00:11:14] video. Keep in mind that you will find the link of post is in the description
+[00:11:19] below. So I hope you like this video and found this helpful. Thank you for
+[00:11:22] watching and goodbye.
