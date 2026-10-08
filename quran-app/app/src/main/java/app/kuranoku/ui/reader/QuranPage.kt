@@ -111,26 +111,15 @@ fun DrawScope.mushafFrame(color: Color) {
     }
 }
 
-/** Ayet sonu gülü: çift daire ve sekiz köşeli yıldız. */
-@Composable
-private fun AyahMarker(n: Int, ornament: Color, ink: Color, family: FontFamily, fontSize: TextUnit) {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { // ortalı kutu
-        Canvas(Modifier.fillMaxSize()) { // süs çizimi
-            val r = minOf(size.width - 8.dp.toPx(), size.height) / 2f - 1.dp.toPx() // dış yarıçap (yanlarda 4dp pay)
-            drawCircle(ornament.copy(alpha = 0.10f), r) // hafif dolgu
-            drawCircle(ornament, r, style = Stroke(1.2.dp.toPx())) // dış daire
-            drawCircle(ornament.copy(alpha = 0.7f), r * 0.80f, style = Stroke(0.6.dp.toPx())) // iç daire
-            for (i in 0 until 8) { // sekiz küçük nokta (yıldız uçları)
-                val a = i * PI / 4 // açı
-                drawCircle(ornament, 0.9.dp.toPx(), Offset(center.x + (r * cos(a)).toFloat(), center.y + (r * sin(a)).toFloat())) // nokta
-            }
-        }
-        Text( // ayet numarası
-            n.toArabicDigits(), // Arapça rakamlarla
-            style = TextStyle(fontFamily = family, fontSize = fontSize * if (n >= 100) 0.36f else 0.42f, color = ink, lineHeight = fontSize * 0.5f, fontWeight = FontWeight.Normal), // küçük ve ortalı
-        )
-    }
+/** Kabartma (mürekkep kağıda basılmış) gölgesi: doku açıkken açık sayfada beyaz, koyu sayfada siyah. */
+fun embossShadow(s: ReaderSettings, density: Float): Shadow? = when {
+    !s.texture -> null // doku kapalıysa kabartma yok
+    s.isDarkPage() -> Shadow(Color.Black.copy(alpha = 0.75f), Offset(0f, 1.1f * density), 1.2f * density) // koyu sayfada içe basılmış
+    else -> Shadow(Color.White.copy(alpha = 0.7f), Offset(0f, 0.9f * density), 0.6f * density) // açık sayfada mürekkep kağıda basılmış gibi
 }
+
+/** KFGQPC yazımıyla besmele (yazı tipiyle birebir uyumlu). */
+const val BASMALA = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"
 
 /** Bir mushaf sayfası: üst bilgi, sure başlıkları, besmele, ayet paragrafları ve sayfa numarası. */
 @Composable
@@ -147,14 +136,10 @@ fun QuranPage(
     val ornament = Color(s.ornamentColor) // süs rengi
     val family = s.font.family() // yazı tipi
     val fontSize = BASE_FONT_SIZE * s.scale // ölçekli boyut
-    val dens = LocalDensity.current.density // yoğunluk
-    val koyu = s.isDarkPage() // koyu sayfa mı
-    val golge = if (!s.texture) null // doku kapalıysa kabartma yok
-    else if (koyu) Shadow(Color.Black.copy(alpha = 0.75f), Offset(0f, 1.1f * dens), 1.2f * dens) // koyu sayfada içe basılmış
-    else Shadow(Color.White.copy(alpha = 0.7f), Offset(0f, 0.9f * dens), 0.6f * dens) // açık sayfada mürekkep kağıda basılmış gibi
+    val golge = embossShadow(s, LocalDensity.current.density) // kabartma
     val ayetStili = TextStyle( // ayet metni stili
         fontFamily = family, fontSize = fontSize, lineHeight = fontSize * s.font.lineHeightFactor(), color = ink, // yazı tipi, boyut, renk
-        textAlign = TextAlign.Justify, textDirection = TextDirection.Rtl, shadow = golge, // iki yana yaslı, sağdan sola
+        textAlign = TextAlign.Start, textDirection = TextDirection.Rtl, shadow = golge, // sağdan başlar; aralar zorla açılmaz
         lineHeightStyle = LineHeightStyle(LineHeightStyle.Alignment.Center, LineHeightStyle.Trim.None), // satır ortası
     )
     val bloklar = remember(quran, page) { quran.blocksOf(page) } // sayfa blokları
@@ -175,30 +160,24 @@ fun QuranPage(
             ) {
                 for (b in bloklar) when (b) { // her blok
                     is PageBlock.SurahHeader -> SurahHeader(b.surah.arabicName, ornament, ink, family, fontSize, golge) // sure başlığı
-                    PageBlock.Basmala -> Text("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ", Modifier.fillMaxWidth(), style = ayetStili.copy(textAlign = TextAlign.Center)) // besmele
+                    PageBlock.Basmala -> Text(BASMALA, Modifier.fillMaxWidth(), style = ayetStili.copy(textAlign = TextAlign.Center)) // besmele
                     is PageBlock.Paragraph -> { // ayet paragrafı
                         val metin = remember(b, highlight, highlightAlpha, ornament) { // biçimli metin
                             buildAnnotatedString {
                                 for (a in b.ayahs) { // her ayet
                                     val vurgu = highlight != null && highlight.sura == a.sura && highlight.ayah == a.number && highlightAlpha > 0f // vurgulanacak mı
                                     if (vurgu) withStyle(SpanStyle(background = ornament.copy(alpha = 0.30f * highlightAlpha))) { append(a.text) } else append(a.text) // ayet metni
-                                    append("  ") // ayet ile gül arasında bölünmeyen boşluk (gül kelimeye değmesin)
-                                    appendInlineContent("a${a.number}", "(${a.number})") // ayet gülü
-                                    append("  ") // gülden sonra boşluk
+                                    append('\u00A0') // ayet ile gülü ayırmayan boşluk
+                                    append(a.number.toArabicDigits()) // ayet gülü: yazı tipi rakamı süslü daire olarak çizer
+                                    append(' ') // sonraki ayetten önce boşluk
                                 }
-                            }
-                        }
-                        val gul = remember(b, ornament, ink, family, fontSize) { // ayet gülleri
-                            b.ayahs.associate { a ->
-                                val gen = when { a.number >= 100 -> 2.1f; a.number >= 10 -> 1.85f; else -> 1.7f } // basamağa göre genişlik (iki yanda kelimeye değmeyecek pay)
-                                "a${a.number}" to InlineTextContent(Placeholder(gen.em, 1.3.em, PlaceholderVerticalAlign.TextCenter)) { AyahMarker(a.number, ornament, ink, family, fontSize) } // gül bileşeni
                             }
                         }
                         val vurguYeri = remember(b, highlight) { // vurgulu ayetin metindeki başlangıcı
                             if (highlight == null) -1 else {
                                 var i = 0 // karakter sayacı
                                 var bulundu = -1 // sonuç
-                                for (a in b.ayahs) { if (a.sura == highlight.sura && a.number == highlight.ayah) { bulundu = i; break }; i += a.text.length + 2 + "(${a.number})".length + 2 } // ayet + 2 boşluk + gülün yedek metni + 2 boşluk
+                                for (a in b.ayahs) { if (a.sura == highlight.sura && a.number == highlight.ayah) { bulundu = i; break }; i += a.text.length + 1 + a.number.toArabicDigits().length + 1 } // ayet + boşluk + gül + boşluk
                                 bulundu
                             }
                         }
@@ -209,7 +188,7 @@ fun QuranPage(
                                 val d = duzen // yerleşim
                                 if (vurguYeri >= 0 && d != null && highlightAlpha > 0.99f) onHighlightAt(k.positionInRoot().y + d.getBoundingBox(vurguYeri.coerceAtMost(d.layoutInput.text.length - 1)).top) // vurgunun ekrandaki yeri
                             },
-                            style = ayetStili, inlineContent = gul, onTextLayout = { duzen = it }, // stil ve yerleşim
+                            style = ayetStili, onTextLayout = { duzen = it }, // stil ve yerleşim
                         )
                     }
                 }
@@ -223,7 +202,7 @@ fun QuranPage(
 
 /** Süslü sure başlığı bandı. */
 @Composable
-private fun SurahHeader(name: String, ornament: Color, ink: Color, family: FontFamily, fontSize: TextUnit, shadow: Shadow?) {
+internal fun SurahHeader(name: String, ornament: Color, ink: Color, family: FontFamily, fontSize: TextUnit, shadow: Shadow?) {
     Box(
         Modifier.fillMaxWidth().padding(vertical = Space.xs).drawBehind { // band çizimi
             val r = CornerRadius(size.height / 2) // hap şekli

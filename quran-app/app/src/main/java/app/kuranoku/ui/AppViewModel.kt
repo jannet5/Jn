@@ -45,7 +45,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             state.value = try {
                 val q = withContext(Dispatchers.IO) { // disk işi arka planda
                     val a = getApplication<Application>().assets // varlıklar
-                    a.open("surahs.tsv").use { s -> a.open("quran.tsv").use { k -> Quran.parse(s, k) } } // ayrıştırma
+                    a.open("surahs.tsv").use { s -> a.open("quran.tsv").use { k -> a.open("mushaf.tsv").use { m -> Quran.parse(s, k, m) } } } // ayrıştırma (metin + mushaf düzeni)
                 }
                 LoadState.Ready(q, SearchEngine(q)) // hazır
             } catch (e: Exception) {

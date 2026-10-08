@@ -92,6 +92,7 @@ fun AppearanceSheet(s: ReaderSettings, onChange: (ReaderSettings) -> Unit, onDis
             Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).navigationBarsPadding().padding(bottom = Space.xl), // kaydırılabilir
             verticalArrangement = Arrangement.spacedBy(Space.xl), // bölümler arası 24
         ) {
+            LayoutSection(s, onChange) // sayfa düzeni (en üstte)
             SizeSection(s, onChange) // yazı boyutu
             PresetSection(s, onChange) // hazır görünümler
             ColorSection("Sayfa rengi", PageColors, s.pageColor, { onChange(s.withPageColor(it)) }, { renkSecici = true }) // sayfa rengi
@@ -102,7 +103,6 @@ fun AppearanceSheet(s: ReaderSettings, onChange: (ReaderSettings) -> Unit, onDis
                 SwitchRow("Süslü çerçeve", "Mushaf gibi altın çizgili kenar", s.frame) { onChange(s.copy(frame = it, presetId = "custom")) } // çerçeve
                 SwitchRow("Ekran açık kalsın", "Okurken ekran kararmaz", s.keepScreenOn) { onChange(s.copy(keepScreenOn = it)) } // ekran açık
             }
-            FontSection(s, onChange) // yazı tipi
             OutlinedButton( // varsayılana dön
                 onClick = { onChange(ReaderSettings(keepScreenOn = s.keepScreenOn)) }, // varsayılan ayarlar
                 modifier = Modifier.padding(horizontal = Space.l).fillMaxWidth().heightIn(min = 48.dp), // tam genişlik
@@ -137,7 +137,7 @@ private fun SizeSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
     }
     Column(Modifier.padding(horizontal = Space.l), verticalArrangement = Arrangement.spacedBy(Space.xs)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) { // başlık satırı
-            SectionLabel("Yazı boyutu") // etiket
+            SectionLabel(if (s.mushafLayout) "Sayfayı büyüt" else "Yazı boyutu") // etiket (mushafta sayfa net büyür)
             Text("%${(s.scale * 100).roundToInt()}", style = MaterialTheme.typography.titleMedium) // yüzde
         }
         Row(verticalAlignment = Alignment.CenterVertically) { // kaydırıcı satırı
@@ -145,7 +145,7 @@ private fun SizeSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
             Slider(
                 value = s.scale, // değer
                 onValueChange = { onChange(s.copy(scale = (it * 100).roundToInt() / 100f)) }, // %1 hassasiyet, anında
-                valueRange = ReaderSettings.MIN_SCALE..ReaderSettings.MAX_SCALE, // %65 – %255
+                valueRange = (if (s.mushafLayout) 1f else ReaderSettings.MIN_SCALE)..ReaderSettings.MAX_SCALE, // mushafta %100 (tam sayfa) – %255, akan yazıda %65 – %255
                 modifier = Modifier.weight(1f).height(48.dp), // dokunma alanı
             )
             IconBtn(Lucide.Plus, "Büyüt", { adim(0.05f) }) // büyüt
@@ -233,26 +233,29 @@ private fun SwitchRow(title: String, subtitle: String, checked: Boolean, onChang
     }
 }
 
-/** Yazı tipi seçimi: her seçenek kendi yazı tipiyle besmele gösterir. */
+/** Sayfa düzeni: Medine mushafı sayfası ya da ekrana akan yazı. */
 @Composable
-private fun FontSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
+private fun LayoutSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
     Column(Modifier.padding(horizontal = Space.l), verticalArrangement = Arrangement.spacedBy(Space.s)) {
-        SectionLabel("Yazı tipi") // etiket
-        QuranFont.entries.forEach { f -> // her yazı tipi
-            val secili = s.font == f // seçili mi
+        SectionLabel("Sayfa düzeni") // etiket
+        listOf(
+            Triple(true, "Mushaf sayfası", "Medine mushafının birebir aynısı: 15 satır, aynı kelimeler aynı yerde"), // mushaf
+            Triple(false, "Akan yazı", "Satırlar ekrana göre akar; çok büyük yazıyla okumak için"), // akan
+        ).forEach { (deger, ad, not) ->
+            val secili = s.mushafLayout == deger // seçili mi
             Row(
                 Modifier.fillMaxWidth().clip(RoundedCornerShape(Radius.md)) // kart
                     .border(if (secili) 2.dp else 1.dp, if (secili) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline, RoundedCornerShape(Radius.md)) // çerçeve
-                    .selectable(secili, role = Role.RadioButton) { onChange(s.copy(font = f)) } // seçilebilir
-                    .padding(horizontal = Space.l, vertical = Space.s), // iç boşluk 16
+                    .selectable(secili, role = Role.RadioButton) { onChange(s.copy(mushafLayout = deger, scale = if (deger) 1f else s.scale)) } // seçilebilir (mushafa dönünce sayfa tam sığar)
+                    .heightIn(min = 56.dp).padding(horizontal = Space.l, vertical = Space.s), // iç boşluk
                 verticalAlignment = Alignment.CenterVertically, // dikey ortalı
                 horizontalArrangement = Arrangement.spacedBy(Space.m), // aralık
             ) {
                 Column(Modifier.weight(1f)) { // ad ve not
-                    Text(f.label, style = MaterialTheme.typography.titleMedium) // ad
-                    Text(f.note, style = MaterialTheme.typography.bodySmall, color = appColors.muted, maxLines = 1, overflow = TextOverflow.Ellipsis) // not
+                    Text(ad, style = MaterialTheme.typography.titleMedium) // ad
+                    Text(not, style = MaterialTheme.typography.bodySmall, color = appColors.muted) // açıklama
                 }
-                Text("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ", style = TextStyle(fontFamily = f.family(), fontSize = 20.sp, textDirection = TextDirection.Rtl, textAlign = TextAlign.End, color = MaterialTheme.colorScheme.onSurface)) // örnek
+                if (secili) Ico(Lucide.Check, null, size = IconSize.m, tint = MaterialTheme.colorScheme.primary) // seçili işareti
             }
         }
     }

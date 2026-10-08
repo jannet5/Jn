@@ -27,8 +27,8 @@ fun AboutScreen(version: String, onBack: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Space.xl), // bölümler arası 24
         ) {
             Block("Kur'an Oku $version", "Sadece Kur'an okumak için. Reklam yok, hesap yok, internet izni yok; hiçbir veri cihazından çıkmaz. Kaldığın sayfa ve yer imlerin yalnızca telefonunda saklanır.") // tanıtım
-            Block("Metin", "Kur'an metni: Tanzil Projesi, Uthmani metni (tanzil.net). Metin değiştirilmeden kullanılmıştır; sadece her surenin başındaki besmele başlık olarak ayrı satırda gösterilir. Sayfa ve cüz düzeni Medine mushafına göredir (604 sayfa).") // kaynak
-            Block("Yazı tipleri", "Amiri Quran ve Amiri (Khaled Hosny), Scheherazade New (SIL International), Noto Naskh Arabic (Google). Hepsi SIL Open Font License 1.1 ile dağıtılır.") // fontlar
+            Block("Metin ve sayfa düzeni", "Kur'an metni ve yazı tipi Medine'deki Kral Fahd Kur'an-ı Kerim Matbaası'nındır (KFGQPC Hafs, Uthmanic Script). Sayfa ve satır düzeni Medine mushafıyla birebir aynıdır: 604 sayfa, her sayfada 15 satır, her kelime basılı mushaftaki satırında. Kelime/satır verisi quran.com (Quran Foundation) üzerinden alınmıştır.") // kaynak
+            Block("Yazı tipi", "KFGQPC HAFS Uthmanic Script, Kral Fahd Kur'an-ı Kerim Matbaası. Lisansı gereği değiştirilmeden, ücretsiz olarak kullanılmaktadır.") // font
             Block("İkonlar", "Lucide ikon seti (ISC lisansı).") // ikonlar
         }
     }

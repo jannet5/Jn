@@ -41,8 +41,20 @@ sealed interface PageBlock {
     data class Paragraph(val ayahs: List<Ayah>) : PageBlock // aynı sureden art arda ayetler
 }
 
+/** Medine mushafındaki tek satır (KFGQPC baskısı, sayfa başına 15 satır). */
+sealed interface MushafLine {
+    val line: Int // satır numarası (1-15)
+    data class Header(override val line: Int, val sura: Int) : MushafLine // sure başlığı
+    data class Basmala(override val line: Int) : MushafLine // besmele
+    /** Kelime satırı: ilk kelimenin suresi/ayeti ve kelimeler (ayet sonu işaretleri Arapça rakam olarak). */
+    data class Words(override val line: Int, val sura: Int, val ayah: Int, val words: List<String>) : MushafLine
+}
+
+/** Kelime bir ayet sonu işareti mi (yalnızca Arapça rakamlardan oluşur; yazı tipi bunu ayet gülü olarak çizer). */
+fun isAyahEnd(word: String): Boolean = word.isNotEmpty() && word.all { it in '٠'..'٩' }
+
 /** Kur'an'ın tamamı ve hızlı erişim tabloları. */
-class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>) {
+class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>, private val mushaf: Array<List<MushafLine>> = emptyArray()) {
     val pageCount: Int = ayahs.last().page // toplam sayfa (604)
     private val pageStart = IntArray(pageCount + 2) // her sayfanın ilk ayetinin dizideki yeri
     private val suraStart = IntArray(surahs.size + 2) // her surenin ilk ayetinin dizideki yeri
@@ -81,6 +93,9 @@ class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>) {
         return ayahs[suraStart[s] + a - 1].page // sayfa döndürülüyor
     }
 
+    /** Mushaf sayfasının satırları (boşsa akan yazı kullanılır). */
+    fun mushafLines(page: Int): List<MushafLine> = mushaf.getOrNull(page) ?: emptyList()
+
     /** Sayfayı görsel bloklara ayırır. */
     fun blocksOf(page: Int): List<PageBlock> {
         val bloklar = mutableListOf<PageBlock>() // sonuç
@@ -98,8 +113,8 @@ class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>) {
     }
 
     companion object {
-        /** assets/quran.tsv ve assets/surahs.tsv dosyalarından okur. */
-        fun parse(surahsTsv: InputStream, quranTsv: InputStream): Quran {
+        /** assets/quran.tsv, assets/surahs.tsv ve (varsa) assets/mushaf.tsv dosyalarından okur. */
+        fun parse(surahsTsv: InputStream, quranTsv: InputStream, mushafTsv: InputStream? = null): Quran {
             val sureler = surahsTsv.bufferedReader(Charsets.UTF_8).useLines { satirlar -> // sure satırları
                 satirlar.filter { it.isNotBlank() }.map { satir -> // boş satırlar atlanıyor
                     val p = satir.split('\t') // sütunlar
@@ -124,7 +139,24 @@ class Quran(val surahs: List<Surah>, val ayahs: List<Ayah>) {
                 }
             }
             require(sureler.size == 114 && ayetler.size == 6236) { "Kur'an verisi eksik" } // veri bütünlüğü kontrolü
-            return Quran(sureler, ayetler) // nesne döndürülüyor
+            val sayfalar = Array<MutableList<MushafLine>>(605) { mutableListOf() } // 1-604 (0 boş)
+            mushafTsv?.let { akis -> // mushaf düzeni
+                BufferedReader(akis.reader(Charsets.UTF_8), 1 shl 16).useLines { satirlar ->
+                    satirlar.forEach { satir -> // sayfa satır tür veri
+                        if (satir.isBlank()) return@forEach // boş satır
+                        val p = satir.split('\t') // sütunlar
+                        val sayfa = p[0].toInt() // sayfa
+                        val no = p[1].toInt() // satır
+                        sayfalar[sayfa] += when (p[2]) {
+                            "H" -> MushafLine.Header(no, p[3].toInt()) // sure başlığı
+                            "B" -> MushafLine.Basmala(no) // besmele
+                            else -> { val (s, a) = p[3].split(':').map { it.toInt() }; MushafLine.Words(no, s, a, p[4].split(' ')) } // kelimeler
+                        }
+                    }
+                }
+                require(sayfalar.drop(1).all { it.isNotEmpty() }) { "Mushaf düzeni eksik" } // her sayfa dolu olmalı
+            }
+            return Quran(sureler, ayetler, if (mushafTsv != null) sayfalar.map { it.toList() }.toTypedArray() else emptyArray()) // nesne döndürülüyor
         }
     }
 }

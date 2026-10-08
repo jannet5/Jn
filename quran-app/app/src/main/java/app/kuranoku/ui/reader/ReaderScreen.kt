@@ -38,6 +38,7 @@ import androidx.compose.foundation.pager.rememberPagerState // çevirici durumu
 import androidx.compose.foundation.rememberScrollState // kaydırma durumu
 import androidx.compose.foundation.shape.RoundedCornerShape // yuvarlak köşe
 import androidx.compose.foundation.verticalScroll // dikey kaydırma
+import androidx.compose.foundation.horizontalScroll // yatay kaydırma
 import androidx.compose.material3.MaterialTheme // tema
 import androidx.compose.material3.Slider // kaydırıcı
 import androidx.compose.material3.Text // metin
@@ -195,6 +196,17 @@ private fun PageScroller(quran: Quran, page: Int, s: ReaderSettings, highlight: 
             .pointerInput(Unit) { detectTapGestures(onTap = { onTap() }) }, // dokununca çubuklar
     ) {
         val yukseklik = maxHeight // görünür yükseklik
+        val genislik = maxWidth // görünür genişlik
+        if (s.mushafLayout && quran.mushafLines(page).isNotEmpty()) { // Medine mushafı sayfa düzeni
+            val zoom = s.scale.coerceAtLeast(1f) // mushafta en küçük hali sayfanın ekrana tam sığması
+            Box(
+                Modifier.fillMaxSize().verticalScroll(rememberScrollState()) // büyütünce aşağı/yukarı gezinme
+                    .horizontalScroll(rememberScrollState(), reverseScrolling = true), // sağdan başlar; sola kaydırınca kenarda sonraki sayfaya geçer
+            ) {
+                MushafPage(quran, page, s, highlight, alpha, genislik * zoom, yukseklik * zoom, zoom) // sayfa
+            }
+            return@BoxWithConstraints // akan yazı çizilmez
+        }
         val kaydirma = rememberScrollState() // sayfa içi kaydırma
         var ustY by remember { mutableFloatStateOf(0f) } // görünür alanın ekrandaki üst kenarı
         val pay = with(LocalDensity.current) { 96.dp.toPx() } // vurgulu ayetin üstünde bırakılacak boşluk

@@ -7,12 +7,9 @@ import kotlinx.coroutines.flow.asStateFlow // dönüştürme
 
 /** Kur'an yazı tipleri. */
 enum class QuranFont(val id: String, val label: String, val note: String) {
-    AMIRI_QURAN("amiri_quran", "Amiri Quran", "Klasik mushaf hattı"), // varsayılan
-    SCHEHERAZADE("scheherazade", "Scheherazade New", "Harekeler büyük, en okunaklı"), // okunaklı
-    NOTO_NASKH("noto_naskh", "Noto Naskh Arabic", "Modern ve net"), // modern
-    AMIRI("amiri", "Amiri", "Sakin kitap nesihi"); // kitap
+    HAFS("hafs", "KFGQPC Hafs", "Medine mushafının kendi hattı"); // Kral Fahd Kur'an Matbaası yazı tipi (tek ve doğru)
 
-    companion object { fun of(id: String?) = entries.firstOrNull { it.id == id } ?: AMIRI_QURAN } // id'den yazı tipi
+    companion object { fun of(@Suppress("UNUSED_PARAMETER") id: String?) = HAFS } // eski ayarlar da Hafs'a döner
 }
 
 /** Okuma görünümü ayarları. Renkler ARGB tamsayıdır. */
@@ -24,7 +21,8 @@ data class ReaderSettings(
     val ornamentColor: Int = 0xFFA88234.toInt(), // süs (ayet gülü, çerçeve) rengi
     val texture: Boolean = true, // kağıt dokusu
     val frame: Boolean = true, // süslü çerçeve
-    val font: QuranFont = QuranFont.AMIRI_QURAN, // yazı tipi
+    val font: QuranFont = QuranFont.HAFS, // yazı tipi
+    val mushafLayout: Boolean = true, // true: Medine mushafı sayfa düzeni, false: akan yazı
     val keepScreenOn: Boolean = true, // okurken ekran kapanmasın
 ) {
     companion object {
@@ -89,6 +87,7 @@ class Prefs(context: Context) {
             texture = sp.getBoolean("texture", d.texture), // doku
             frame = sp.getBoolean("frame", d.frame), // çerçeve
             font = QuranFont.of(sp.getString("font", null)), // yazı tipi
+            mushafLayout = sp.getBoolean("mushaf_layout", d.mushafLayout), // sayfa düzeni
             keepScreenOn = sp.getBoolean("keep_on", d.keepScreenOn), // ekran açık
         )
     }
@@ -103,6 +102,7 @@ class Prefs(context: Context) {
             .putBoolean("texture", s.texture) // doku
             .putBoolean("frame", s.frame) // çerçeve
             .putString("font", s.font.id) // yazı tipi
+            .putBoolean("mushaf_layout", s.mushafLayout) // sayfa düzeni
             .putBoolean("keep_on", s.keepScreenOn) // ekran açık
             .apply() // arka planda yazılıyor
     }

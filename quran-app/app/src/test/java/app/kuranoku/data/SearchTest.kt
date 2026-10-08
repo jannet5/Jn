@@ -13,7 +13,7 @@ class SearchTest {
         lateinit var e: SearchEngine // arama
         @JvmStatic @BeforeClass fun setup() { // dosyalar bir kez okunur
             val d = File("src/main/assets") // varlık klasörü
-            q = File(d, "surahs.tsv").inputStream().use { s -> File(d, "quran.tsv").inputStream().use { k -> Quran.parse(s, k) } } // ayrıştırma
+            q = File(d, "surahs.tsv").inputStream().use { s -> File(d, "quran.tsv").inputStream().use { k -> File(d, "mushaf.tsv").inputStream().use { m -> Quran.parse(s, k, m) } } } // ayrıştırma
             e = SearchEngine(q) // motor
         }
     }
@@ -34,6 +34,18 @@ class SearchTest {
         val ilk = q.ayahs.first { it.sura == 5 && it.number == 1 } // Mâide 1
         assertTrue(ilk.text.startsWith("ي")) // besmelesiz başlıyor ("yâ eyyühâ")
         assertTrue(q.blocksOf(187).none { it == PageBlock.Basmala }) // Tevbe'de besmele yok
+    }
+
+    @Test fun mushafDuzeni() { // Medine mushafı sayfa düzeni
+        for (p in 3..604) assertTrue("sayfa $p", q.mushafLines(p).map { it.line } == (1..15).toList()) // her sayfa tam 15 satır
+        assertEquals((8..15).toList(), q.mushafLines(1).map { it.line }) // Fâtiha sayfası 8 satır
+        val ilk = q.mushafLines(2).filterIsInstance<MushafLine.Words>().first() // Bakara ilk satır
+        assertEquals("الٓمٓ", ilk.words.first()) // iki med işaretli elif-lâm-mîm
+        assertTrue(isAyahEnd(ilk.words[1])) // hemen ardından 1. ayet gülü
+        assertEquals(listOf(112, 113, 114), q.mushafLines(604).filterIsInstance<MushafLine.Header>().map { it.sura }) // son sayfada 3 sure başlığı
+        val gul = q.ayahs.size // ayet sayısı
+        assertEquals(gul, (1..604).sumOf { p -> q.mushafLines(p).filterIsInstance<MushafLine.Words>().sumOf { l -> l.words.count(::isAyahEnd) } }) // her ayetin tek gülü var
+        assertTrue(q.ayahs.none { a -> a.text.isBlank() }) // boş ayet yok
     }
 
     @Test fun maYazincaMaide() { // kullanıcı örneği: "ma"
