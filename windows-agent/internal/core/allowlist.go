@@ -46,7 +46,7 @@ func NewAllowList(apps []AllowedApp) (*AllowList, error) {
 // ParseAllowList parses allowed_apps.json content.
 func ParseAllowList(data []byte) (*AllowList, error) {
 	var apps []AllowedApp
-	if err := json.Unmarshal(data, &apps); err != nil {
+	if err := json.Unmarshal(stripUTF8BOM(data), &apps); err != nil {
 		return nil, fmt.Errorf("parsing allow-list JSON: %w", err)
 	}
 	return NewAllowList(apps)

@@ -1,6 +1,7 @@
 package core
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -96,7 +97,7 @@ func ParseConfig(data []byte) (Config, error) {
 		ProcessesIntervalSec *int             `json:"processes_interval_sec"`
 		SnapshotIntervalSec  *int             `json:"snapshot_interval_sec"`
 	}
-	if err := json.Unmarshal(data, &raw); err != nil {
+	if err := json.Unmarshal(stripUTF8BOM(data), &raw); err != nil {
 		return Config{}, fmt.Errorf("parsing config JSON: %w", err)
 	}
 	if raw.Port != nil {
@@ -127,6 +128,13 @@ func ParseConfig(data []byte) (Config, error) {
 		cfg.SnapshotIntervalSec = *raw.SnapshotIntervalSec
 	}
 	return cfg, nil
+}
+
+// stripUTF8BOM drops the byte-order mark that Notepad's "UTF-8 with BOM"
+// and Windows PowerShell 5.1's Set-Content -Encoding UTF8 write at the start
+// of a file; encoding/json rejects it.
+func stripUTF8BOM(data []byte) []byte {
+	return bytes.TrimPrefix(data, []byte("\xef\xbb\xbf"))
 }
 
 // LoadConfig reads config.json from disk, or returns defaults if path is

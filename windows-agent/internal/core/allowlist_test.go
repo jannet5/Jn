@@ -72,3 +72,13 @@ func TestResolve_NilAllowList(t *testing.T) {
 		t.Errorf("nil allow-list List() = %v, want nil", got)
 	}
 }
+
+func TestParseAllowList_AcceptsUTF8BOM(t *testing.T) {
+	al, err := ParseAllowList([]byte("\xef\xbb\xbf[{\"app_id\":\"notepad\",\"label\":\"Not Defteri\",\"path\":\"C:\\\\Windows\\\\notepad.exe\"}]"))
+	if err != nil {
+		t.Fatalf("allow-list saved with a UTF-8 BOM was rejected: %v", err)
+	}
+	if _, ok := al.Resolve("notepad"); !ok {
+		t.Error("expected notepad to be allowed")
+	}
+}

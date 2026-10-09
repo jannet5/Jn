@@ -124,3 +124,15 @@ func TestLoadConfig_ReadsRealFile(t *testing.T) {
 		t.Errorf("port = %d, want 1234", cfg.Port)
 	}
 }
+
+// Notepad's "UTF-8 with BOM" (and PowerShell 5.1's Set-Content -Encoding
+// UTF8) prefix the file with EF BB BF, which encoding/json rejects.
+func TestParseConfig_AcceptsUTF8BOM(t *testing.T) {
+	cfg, err := ParseConfig([]byte("\xef\xbb\xbf{\"port\": 9999}"))
+	if err != nil {
+		t.Fatalf("config saved with a UTF-8 BOM was rejected: %v", err)
+	}
+	if cfg.Port != 9999 {
+		t.Errorf("port = %d, want 9999", cfg.Port)
+	}
+}

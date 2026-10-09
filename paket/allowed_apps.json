@@ -1,0 +1,12 @@
+[
+  {
+    "app_id": "notepad",
+    "label": "Not Defteri",
+    "path": "C:\\Windows\\System32\\notepad.exe"
+  },
+  {
+    "app_id": "calc",
+    "label": "Hesap Makinesi",
+    "path": "C:\\Windows\\System32\\calc.exe"
+  }
+]

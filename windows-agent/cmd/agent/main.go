@@ -308,6 +308,9 @@ func runDevicesCommand(args []string) {
 		dataDir = dataDirFlagVal
 	}
 
+	if err := os.MkdirAll(dataDir, 0700); err != nil {
+		log.Fatalf("creating data dir %s: %v", dataDir, err)
+	}
 	store, err := agent.OpenStore(agent.DBPath(dataDir))
 	if err != nil {
 		log.Fatalf("opening store: %v", err)
