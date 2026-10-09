@@ -12,7 +12,7 @@ for (const [w, scheme] of runs) {
   page.on('pageerror', e => errors.push(e.message));
   await page.goto(url, { waitUntil: 'networkidle' });
   // Tüm reveal'leri tetiklemek için sayfayı aşağı kaydır
-  await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); } window.scrollTo(0, 0); await new Promise(r => setTimeout(r, 1700)); });
+  await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 400) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise(r => setTimeout(r, 60)); } window.scrollTo({ top: 0, behavior: 'instant' }); await new Promise(r => setTimeout(r, 1700)); });
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   const name = `${prefix}-${scheme === 'dark' ? 'koyu-' : ''}${w}.png`;
   await page.screenshot({ path: out + name, fullPage: true });

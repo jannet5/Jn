@@ -90,7 +90,7 @@ body {
 .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
 .btn-secondary { border: 1px solid var(--foreground); color: var(--foreground); }
 .btn-secondary:hover { background: var(--foreground); color: var(--background); transform: translateY(-2px); }
-.btn-sm { height: 44px; padding-inline: 18px; font-size: 15px; }
+.btn-sm { height: 44px; padding-inline: 16px; }
 a:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent); outline-offset: 3px; border-radius: 8px; }
 
 .card { border: 1px solid var(--border); border-radius: 24px; padding: 24px; background: var(--background); }
@@ -100,7 +100,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, v
 /* Nav */
 .nav { transition: background-color 240ms var(--ease), border-color 240ms var(--ease); border-bottom: 1px solid transparent; }
 .nav.is-scrolled { background: color-mix(in srgb, var(--background) 85%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom-color: var(--border); }
-.nav-link { color: var(--muted-foreground); font-weight: 500; font-size: 15px; transition: color 180ms var(--ease); }
+.nav-link { color: var(--muted-foreground); font-weight: 500; font-size: 16px; transition: color 180ms var(--ease); }
 .nav-link:hover { color: var(--foreground); }
 
 /* Mobil menü (details) */
@@ -174,3 +174,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, v
   .ledger-dot { opacity: 1; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
 }
+
+/* Koyu blok (değer defteri, son CTA): koyu modda zeminden ayrışsın diye 1px çerçeve */
+.ink-block { background: var(--ink); color: var(--ink-foreground); }
+@media (prefers-color-scheme: dark) { .ink-block { border: 1px solid var(--ink-border); } }
