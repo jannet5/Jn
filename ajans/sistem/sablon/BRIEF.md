@@ -1,6 +1,7 @@
 # BRIEF — {{MUSTERI}}
 > Kaynak: `ajans/sistem/02-intake.md`. Boş alan = TODO, uydurma yok.
 
+- **Profil:** yerel | uzaktan-hizmet · **Mod:** otonom | onaylı
 - **İşletme:** ad · sektör · şehir/semt · adres · telefon · WhatsApp · saatler
 - **Tek cümle:** <kime> <ne> <neden biz>
 - **Kitle:** kim · ne zaman · nereden geliyor
@@ -11,6 +12,6 @@
 - **Kanıt:** Google yorum linki · en iyi 5 yorum · yıl · sertifika
 - **Varlıklar:** logo · gerçek fotoğraflar (klasör) · menü/hizmet/fiyat listesi
 - **Mevcut kanallar:** site · Instagram · Facebook · Google İşletme
-- **Teknik:** domain · hosting · e-posta
+- **Teknik:** alan adı (alındı mı?) · hosting · e-posta (alan adı yoksa e-posta yazılmaz)
 - **Kapsam:** web / mobil / sosyal / reklam · teslim tarihi
 - **Uygulama ise 3 özellik:**

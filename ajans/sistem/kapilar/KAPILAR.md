@@ -16,12 +16,25 @@
 - [ ] En fazla 3 düzeltme turu; hâlâ <3 ise insana rapor
 
 ## KAPI-3 · Yayın öncesi 20 kontrol (5 alt ajan, salt okuma; düzeltmeyi tek ajan yapar)
+> Limit modunda: `kullanici-testi.mjs` + Lighthouse aynı işi görür. Her madde için **uygulanabilir / N/A + gerekçe** yazılır (statik landing'de form durumları, NAP vb. N/A olabilir).
+> Büyük metin testi: `html{font-size:200%}` enjekte et, `scrollWidth > innerWidth` olmamalı.
 **Tutarlılık:** her değer DESIGN.md'den · kısıtlı palet, net hiyerarşi · aynı tür buton/kart/input aynı · çok düzse vurgu, kalabaliksa kes · koyu/açık zeminde okunur
 **Mobil:** yatay kaydırma yok · mobil menü var · dokunma alanı ≥44pt · büyütülmüş metinde düzen bozulmuyor
 **Durumlar:** yükleniyor/boş/hata ekranı · her butonda hover/basılı/devre dışı · form hatası yerinde + gönderiliyor/başarılı/başarısız · modal/dropdown/sekme geçişleri animasyonlu
 **Gerçek kullanıcı gibi:** ana akışlar baştan sona tıklandı · ölü buton/kırık link yok · klavyeyle kullanılabilir
 **Yayın:** ana sayfada tek cümlede ne yaptığımız · her sayfada tek ana buton · her sayfada title/description/favicon · placeholder metin yok
-**10K puanlaması ("be honest"):** yön · tipografi · renk · hiyerarşi · görsel · hareket · mobil tasarlanmış · görünmez kalite (hız ≥90 Lighthouse) → mixed/missing kalmaz
+**10K puanlaması ("be honest") — strong şudur:**
+| Alan | strong |
+|---|---|
+| Yön | Sayfa tek bakışta tek bir kişilik söylüyor; başka sektöre kopyalansa sırıtır |
+| Tipografi | ≤6 boyut, net ölçek, başlıklarda karakter (genişlik/ağırlık), satır uzunluğu ~65 karakter |
+| Renk | 1 sinyal rengi ≤3 kullanım yeri, nötrler bilinçli, iki temada da kontrast ≥4.5 |
+| Hiyerarşi | Her bölümde büyük/orta/küçük okuma sırası belli, tek birincil buton |
+| Görsel | Gerçek foto ya da konuya özel çizim; stok/placeholder yok |
+| Hareket | Bölüm başına tek amaçlı etkileşim, 150-600ms, reduced-motion var |
+| Mobil | 375'te ayrıca tasarlanmış (gizlenen, sıkılaşan öğeler), taşma yok |
+| Görünmez | Lighthouse 4 kategori ≥90, title/description/favicon, konsol temiz |
+mixed/missing kalmaz.
 **Yerel işletme:** tıklanabilir telefon/WhatsApp · fold üstü form · yorumlar · H1 hizmet+şehir · NAP = Google İşletme Profili
 
 ## KAPI-4 · Teslim (insan, 15-20 dk)

@@ -4,6 +4,24 @@ Hedef: "$10k görünümlü", yerel SEO'lu, tek aksiyona götüren site. 1 iş g�
 Stack varsayılanı: **Astro + Tailwind** (statik, hızlı) → Cloudflare Pages. Etkileşim yoğunsa Next.js + Motion + GSAP/Lenis → Vercel.
 Skill'ler: frontend-design (Anthropic) · ui-ux-pro-max · web-design-guidelines (Vercel) · emil animate · gsap-skills · impeccable · hallmark · design-review ajanı.
 
+## Profil ve mod (BRIEF'ten)
+- `profil: yerel` (fiziksel dükkân: restoran, berber, klinik) → W3'teki yerel işletme zorunluları ŞART.
+- `profil: uzaktan-hizmet` (ajans, danışman, online) → form/harita/şehir sayfası yok; tek aksiyon (WhatsApp/randevu) yeter.
+- `mod: otonom` (insan kapıda beklemiyor) → W3+W4 tek adım; "Ask me clarifying questions" yerine kararlar `DURUM.md`'ye yazılır.
+
+## Bilinen tuzaklar (ilk üretimden)
+- Playwright npm sürümü `/opt/pw-browsers` Chromium'uyla uyuşmayabilir → `executablePath` ver (şablon `scripts/ss.mjs` yapıyor).
+- `scroll-behavior: smooth` SS'te reveal tetiklemez → `scrollTo({behavior:'instant'})`; çizim/reveal için ≥1.7 sn bekle.
+- Tam sayfa SS'ler Read ile bakılınca 60 px'e küçülür → **1500-1800 px dilimlere kırp, dilimlere bak.**
+- Google Fonts render'ı bloklar (mobil Lighthouse 81) → `preload` + `media="print" onload` kalıbı; KVKK için fontsource ile self-host seçeneği.
+- Tailwind tek sütun grid: `grid-cols-1` ile başla; uzun e-posta/URL'ye `break-all`.
+- Koyu modda koyu bloklar zeminle birleşir → `ink-border` token'ı ile çerçeve.
+
+## Hazır betikler (`sablon/web/scripts/`, yeni-musteri.sh kopyalar)
+- `ss.mjs <önek>` → 375/768/1440 + koyu SS · `kullanici-testi.mjs` → tıklama, kırık link, klavye, 200% metin, taşma
+- `artifact.py dist/index.html cikti.html "Ad"` → müşteriye telefondan gösterilecek önizleme sayfası
+- Lighthouse: `CHROME_PATH=$(ls -d /opt/pw-browsers/chromium-*/chrome-linux/chrome|head -1) npx -y lighthouse@12 <url> --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,accessibility,best-practices,seo`
+
 ## Adımlar
 
 ### W1. Kurulum (proje klasörü)
@@ -39,7 +57,8 @@ Yasak: mor gradyan, emoji ikon, display font olarak Inter, stok foto placeholder
 - Hero/özel bölüm için 21st.dev / Magic UI / Aceternity bileşen prompt'u kopyalanır; mimariye uyarlanır.
 
 ### W5. Görsel QA döngüsü (KAPI-2)
-Playwright ile 375 / 768 / 1440 tam sayfa SS → design-review ajanı (`.claude/agents/design-review-agent.md`) 0-4 puanlar → impeccable dedektörleri + hallmark slop-test → <3/4 ise düzelt, en fazla 3 tur.
+`node scripts/ss.mjs v1` → dilimle → design-review ajanı (`.claude/agents/design-review-agent.md`, yeni-musteri.sh kopyalar) 0-4 puanlar → hallmark slop-test (+ kuruluysa impeccable) → <3/4 ise düzelt, en fazla 3 tur.
+**Yedek (ajan yoksa):** her dilim için sor: hiyerarşi tek bakışta okunuyor mu · boş/ölü alan var mı · aynı kart ritmi tekrar ediyor mu · yer tutucu kutu kaldı mı · primary renk 3'ten fazla yerde mi · mobilde taşma/kırpılma var mı · koyu modda kaybolan blok var mı.
 
 ### W6. Cila (3 AYRI mesaj — tek mesajda istenmez)
 ```
@@ -47,7 +66,7 @@ Playwright ile 375 / 768 / 1440 tam sayfa SS → design-review ajanı (`.claude/
 2) Sadece boşluk: dikey ritmi bölüm bölüm denetle, sıkışık bölümlerde boşluğu iki katına çıkar. Başka hiçbir şeye dokunma.
 3) Sadece hareket: scroll-reveal ve hover durumları ekle, ince, 200-300ms, hiçbir şey zıplamasın. Bölüm başına en fazla bir özel cursor/mikro etkileşim. Aşırıysa "more subtle, more refined".
 4) Mobil turu: 375px'te ne gizlenmeli, ne sıkılaşmalı, ne yeniden boyutlanmalı? Tasarlanmış görünsün, küçültülmüş değil.
-5) Toplu: "Lower sections feel generic. Not busier — more expensive."
+5) "Daha pahalı" turu (ölçülebilir): ölü boşluk yok · boş placeholder kutu yok · art arda aynı kart ritmi yok · her bölümde bir "el yapımı" detay (çizgi, doku, mikro etkileşim) · alt bölümler üst bölümler kadar özenli.
 ```
 
 ### W7. Kontrol (KAPI-3) ve teslim

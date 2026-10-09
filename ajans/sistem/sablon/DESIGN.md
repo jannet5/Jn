@@ -14,6 +14,7 @@
 | primary / primary-foreground | marka, tek birincil aksiyon | | | |
 | accent | (en fazla 1) | | | |
 | border / ring | çerçeve / odak | | | |
+| ink / ink-border | koyu bloklar / koyu modda bloğun çerçevesi | | | |
 | destructive / success / warning | anlamsal | | | |
 
 ## 3. Tipografi
@@ -34,10 +35,10 @@ Skala: 4·8·12·16·24·32·48·64·96 · Kenar: mobil · masaüstü · Bölüm
 radius sm/md/lg: · Kart stili: çerçeve YA DA gölge (biri) · Gölge değeri:
 
 ## 6. Bileşenler
-Birincil buton (yükseklik, padding, radius, basılı/hover/devre dışı) · İkincil buton · Input (label yeri, hata yeri) · Kart · Liste satırı · Nav/Header · Footer
+Birincil buton (yükseklik, padding, radius, basılı/hover/devre dışı) · Küçük buton (≥44) · Nav link boyutu · İkincil buton · Input (label yeri, hata yeri) · Kart · Liste satırı · Nav/Header · Footer
 
 ## 7. Hareket
-Süreler: · Easing: · Nerede (hangi bölüm, hangi etkileşim): · reduced-motion davranışı:
+Süreler (arayüz 150-300ms, giriş 300-600ms, çizim animasyonu ≤1200ms): · Easing: · Nerede (hangi bölüm, hangi etkileşim): · reduced-motion davranışı:
 
 ## 8. Görsel dil
 Fotoğraf tonu (sıcak/soğuk, gren, ışık) · İllüstrasyon var mı · İkon seti (tek) + çizgi kalınlığı · Görsel üretim prompt kalıbı:

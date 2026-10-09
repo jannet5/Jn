@@ -17,13 +17,17 @@ Sen ajansın üretim hattısın. Hat: {{HAT}} (`ajans/sistem/hatlar/{{HAT}}.md`)
 Mor/mavi-mor gradyan · display font olarak Inter/Roboto/Arial · emoji ikon · 3 eşit kartlı ızgara refleksi · her şeyin ortalandığı layout · her bölümde aynı fade-up · stok foto placeholder · uydurma metrik ("10.000+ mutlu müşteri") · ALL-CAPS eyebrow yığını · "→" buton refleksi · kart içinde kart · kenarlık + gölge birlikte.
 Mobil ek: Alert.alert · JS modal · Android elevation gölgesi · elle header · TouchableOpacity · ease-in animasyon.
 
+## Örnek içerik
+Müşterisi olmayan/verisi olmayan yerde örnek kart kullanılabilir: görünür "Örnek" etiketi şart, sayılar yuvarlak ve açıkça temsili; gerçek iddia gibi duran sayı yok.
+
 ## Hareket
 Süre 150-300ms, ease-out / spring. Bölüm başına en fazla bir özel etkileşim. `prefers-reduced-motion` desteklenir.
 
 ## Komutlar
-- Web: `npm run dev` · `npm run build` · SS: `node scripts/ss.mjs` (375/768/1440)
+- Web: `npm run dev` · `npm run build`
 - Mobil: `npx expo start` · `npx expo export -p web` · `npx expo lint` · `npx tsc --noEmit`
-- Tasarım: `npx @google/design.md lint DESIGN.md` · `/impeccable polish` (her sayfa sonrası)
+- SS: `node scripts/ss.mjs <önek>` (dilimleyip bak) · test: `node scripts/kullanici-testi.mjs`
+- Tasarım (kuruluysa): `npx @google/design.md lint DESIGN.md` · `/impeccable polish`
 
 ## İş bitince
 "Bu projede CLAUDE.md'ye ne eklemeliyiz?" sorusunu cevapla ve `DERSLER.md`'ye yaz. Tekrar eden çözüm varsa sektör skill'i öner.
