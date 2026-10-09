@@ -28,7 +28,7 @@ fun AboutScreen(version: String, onBack: () -> Unit) {
         ) {
             Block("Kur'an Oku $version", "Sadece Kur'an okumak için. Reklam yok, hesap yok, internet izni yok; hiçbir veri cihazından çıkmaz. Kaldığın sayfa ve yer imlerin yalnızca telefonunda saklanır.") // tanıtım
             Block("Metin ve sayfa düzeni", "Kur'an metni ve yazı tipi Medine'deki Kral Fahd Kur'an-ı Kerim Matbaası'nındır (KFGQPC Hafs, Uthmanic Script). Sayfa ve satır düzeni Medine mushafıyla birebir aynıdır: 604 sayfa, her sayfada 15 satır, her kelime basılı mushaftaki satırında. Kelime/satır verisi quran.com (Quran Foundation) üzerinden alınmıştır.") // kaynak
-            Block("Yazı tipi", "KFGQPC HAFS Uthmanic Script, Kral Fahd Kur'an-ı Kerim Matbaası. Lisansı gereği değiştirilmeden, ücretsiz olarak kullanılmaktadır.") // font
+            Block("Yazı tipleri", "KFGQPC HAFS Uthmanic Script (Kral Fahd Kur'an-ı Kerim Matbaası, lisansı gereği değiştirilmeden). Seçenek olarak: Scheherazade New (SIL), Noto Naskh Arabic (Google), Amiri (Khaled Hosny) — SIL Open Font License 1.1. Hepsinin Matbaa metnindeki her işareti çizdiği doğrulanmıştır.") // fontlar
             Block("İkonlar", "Lucide ikon seti (ISC lisansı).") // ikonlar
         }
     }

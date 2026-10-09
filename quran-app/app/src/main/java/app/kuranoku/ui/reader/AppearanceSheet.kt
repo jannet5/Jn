@@ -103,6 +103,7 @@ fun AppearanceSheet(s: ReaderSettings, onChange: (ReaderSettings) -> Unit, onDis
                 SwitchRow("Süslü çerçeve", "Mushaf gibi altın çizgili kenar", s.frame) { onChange(s.copy(frame = it, presetId = "custom")) } // çerçeve
                 SwitchRow("Ekran açık kalsın", "Okurken ekran kararmaz", s.keepScreenOn) { onChange(s.copy(keepScreenOn = it)) } // ekran açık
             }
+            FontSection(s, onChange) // yazı tipi
             OutlinedButton( // varsayılana dön
                 onClick = { onChange(ReaderSettings(keepScreenOn = s.keepScreenOn)) }, // varsayılan ayarlar
                 modifier = Modifier.padding(horizontal = Space.l).fillMaxWidth().heightIn(min = 48.dp), // tam genişlik
@@ -256,6 +257,31 @@ private fun LayoutSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit)
                     Text(not, style = MaterialTheme.typography.bodySmall, color = appColors.muted) // açıklama
                 }
                 if (secili) Ico(Lucide.Check, null, size = IconSize.m, tint = MaterialTheme.colorScheme.primary) // seçili işareti
+            }
+        }
+    }
+}
+
+/** Yazı tipi seçimi: her seçenek kendi yazı tipiyle besmele gösterir. */
+@Composable
+private fun FontSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
+    Column(Modifier.padding(horizontal = Space.l), verticalArrangement = Arrangement.spacedBy(Space.s)) {
+        SectionLabel("Yazı tipi") // etiket
+        QuranFont.entries.forEach { f -> // her yazı tipi
+            val secili = s.font == f // seçili mi
+            Row(
+                Modifier.fillMaxWidth().clip(RoundedCornerShape(Radius.md)) // kart
+                    .border(if (secili) 2.dp else 1.dp, if (secili) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline, RoundedCornerShape(Radius.md)) // çerçeve
+                    .selectable(secili, role = Role.RadioButton) { onChange(s.copy(font = f)) } // seçilebilir
+                    .padding(horizontal = Space.l, vertical = Space.s), // iç boşluk 16
+                verticalAlignment = Alignment.CenterVertically, // dikey ortalı
+                horizontalArrangement = Arrangement.spacedBy(Space.m), // aralık
+            ) {
+                Column(Modifier.weight(1f)) { // ad ve not
+                    Text(f.label, style = MaterialTheme.typography.titleMedium) // ad
+                    Text(f.note, style = MaterialTheme.typography.bodySmall, color = appColors.muted, maxLines = 2, overflow = TextOverflow.Ellipsis) // not
+                }
+                Text(BASMALA, style = TextStyle(fontFamily = f.family(), fontSize = 18.sp, textDirection = TextDirection.Rtl, color = MaterialTheme.colorScheme.onSurface), softWrap = false) // örnek
             }
         }
     }

@@ -14,7 +14,7 @@ Kur'an metninin tamamı uygulamanın içinde geliyor. APK yaklaşık **2 MB**.
 - İstersen okurken ekran kapanmaz. Ayarlar ve yer imleri telefon yedeğiyle yeni telefona taşınır.
 
 ## Kurulum (telefona)
-1. `dist/KuranOku-1.1.0.apk` dosyasını telefona indir.
+1. `dist/KuranOku-1.2.0.apk` dosyasını telefona indir.
 2. Dosyaya dokun. "Bilinmeyen kaynaklardan yüklemeye izin ver" uyarısı çıkarsa izin ver ve **Yükle**'ye bas.
 3. Android 8.0 ve üstü telefonlarda çalışır.
 

@@ -6,10 +6,21 @@ import kotlinx.coroutines.flow.StateFlow // dışarıya salt okunur akış
 import kotlinx.coroutines.flow.asStateFlow // dönüştürme
 
 /** Kur'an yazı tipleri. */
-enum class QuranFont(val id: String, val label: String, val note: String) {
-    HAFS("hafs", "KFGQPC Hafs", "Medine mushafının kendi hattı"); // Kral Fahd Kur'an Matbaası yazı tipi (tek ve doğru)
+/**
+ * Kur'an yazı tipleri. Hepsi KFGQPC Hafs metnindeki her işareti çizebildiği doğrulanmış yazı tipleridir
+ * (Amiri Quran U+065E'yi çizemediği için listede yok). [lineEm]: HarfBuzz ile ölçülen tipik mushaf satırı genişliği (em).
+ * [ownAyahMarks]: true ise ayet sonu yalnız rakamla yazılır (yazı tipi gülü kendi çizer), değilse U+06DD + rakam kullanılır.
+ */
+enum class QuranFont(val id: String, val label: String, val note: String, val lineEm: Float, val ownAyahMarks: Boolean) {
+    HAFS("hafs", "KFGQPC Hafs", "Medine mushafının kendi hattı (önerilen)", 15.6f, true), // Kral Fahd Matbaası
+    SCHEHERAZADE("scheherazade", "Scheherazade New", "Harekeler büyük ve ayrık, çok okunaklı", 17.1f, false), // SIL
+    NOTO_NASKH("noto_naskh", "Noto Naskh Arabic", "Modern ve net", 17.4f, false), // Google
+    AMIRI("amiri", "Amiri", "Klasik kitap nesihi", 15.7f, false); // Khaled Hosny
 
-    companion object { fun of(@Suppress("UNUSED_PARAMETER") id: String?) = HAFS } // eski ayarlar da Hafs'a döner
+    /** Mushaf verisindeki ayet sonu (Arapça rakam) bu yazı tipinde nasıl yazılır. */
+    fun ayahMark(digits: String): String = if (ownAyahMarks) digits else "\u06DD$digits"
+
+    companion object { fun of(id: String?) = entries.firstOrNull { it.id == id } ?: HAFS } // eski/bilinmeyen ayar Hafs'a döner
 }
 
 /** Okuma görünümü ayarları. Renkler ARGB tamsayıdır. */

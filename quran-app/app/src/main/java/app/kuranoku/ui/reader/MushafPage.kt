@@ -44,12 +44,6 @@ import app.kuranoku.ui.theme.Space // boşluklar
 import app.kuranoku.ui.theme.family // yazı tipi ailesi
 import kotlin.math.roundToInt // yuvarlama
 
-/**
- * Bir satırın KFGQPC Hafs yazı tipindeki tipik genişliği (em). HarfBuzz ile 8807 satır ölçüldü:
- * ortanca 14,3 em (kelimeler), arada boşluklarla ≈ 15,6 em. Yazı boyutu bu genişlik ekrana sığacak şekilde seçilir.
- */
-private const val MUSHAF_LINE_EM = 15.6f
-
 /** Medine mushafı sayfası: 15 satır, her satırda basılı mushaftaki kelimelerin aynısı. [zoom] ile net büyür. */
 @Composable
 fun MushafPage(
@@ -84,7 +78,7 @@ fun MushafPage(
         ) {
             val icGenislikPx = with(yogunluk) { maxWidth.toPx() } // satır genişliği
             val satirYuksekligiPx = with(yogunluk) { maxHeight.toPx() } / 15f // 15 eşit satır
-            val yaziPx = minOf(icGenislikPx / MUSHAF_LINE_EM, satirYuksekligiPx / 1.45f) // genişliğe ve yüksekliğe sığan yazı boyutu
+            val yaziPx = minOf(icGenislikPx / s.font.lineEm, satirYuksekligiPx / 1.45f) // genişliğe ve yüksekliğe sığan yazı boyutu
             val yazi = with(yogunluk) { yaziPx.toSp() } // sp'ye çevrildi
             val satirDp = with(yogunluk) { satirYuksekligiPx.toDp() } // satır yüksekliği
             val stil = TextStyle( // kelime stili
@@ -101,7 +95,7 @@ fun MushafPage(
                         null -> Box(m) // boş satır
                         is MushafLine.Header -> MushafHeader(quran.surahs[l.sura - 1].arabicName, ornament, ink, s.font.family(), yazi.value, golge, m) // sure başlığı
                         is MushafLine.Basmala -> Box(m, contentAlignment = Alignment.Center) { Text(BASMALA, style = stil, softWrap = false) } // besmele
-                        is MushafLine.Words -> MushafLineView(l, stil, highlight, highlightAlpha, ornament, centerOnly = ilkSayfalar, modifier = m) // kelimeler
+                        is MushafLine.Words -> MushafLineView(l, s.font::ayahMark, stil, highlight, highlightAlpha, ornament, centerOnly = ilkSayfalar, modifier = m) // kelimeler
                     }
                 }
             }
@@ -117,7 +111,7 @@ fun MushafPage(
  * (sure sonu gibi çok kısa satırlar ortalanır); genişse satır yatayda hafifçe sıkıştırılır. Harfler asla birbirine binmez.
  */
 @Composable
-private fun MushafLineView(l: MushafLine.Words, stil: TextStyle, highlight: AyahRef?, alpha: Float, ornament: Color, centerOnly: Boolean, modifier: Modifier) {
+private fun MushafLineView(l: MushafLine.Words, isaret: (String) -> String, stil: TextStyle, highlight: AyahRef?, alpha: Float, ornament: Color, centerOnly: Boolean, modifier: Modifier) {
     val ayetler = remember(l) { // her kelimenin ait olduğu ayet
         var a = l.ayah // satırın ilk ayeti
         l.words.map { w -> val bu = a; if (isAyahEnd(w)) a++; bu } // ayet sonu işaretinden sonra sonraki ayet
@@ -127,7 +121,7 @@ private fun MushafLineView(l: MushafLine.Words, stil: TextStyle, highlight: Ayah
         content = {
             l.words.forEachIndexed { i, w ->
                 val vurgu = highlight != null && alpha > 0f && highlight.sura == l.sura && highlight.ayah == ayetler[i] // vurgulu mu
-                Text(w, style = stil, softWrap = false, maxLines = 1, modifier = if (vurgu) Modifier.background(ornament.copy(alpha = 0.30f * alpha)) else Modifier) // kelime
+                Text(if (isAyahEnd(w)) isaret(w) else w, style = stil, softWrap = false, maxLines = 1, modifier = if (vurgu) Modifier.background(ornament.copy(alpha = 0.30f * alpha)) else Modifier) // kelime
             }
         },
     ) { olcumler, sinir ->
@@ -149,11 +143,13 @@ private fun MushafLineView(l: MushafLine.Words, stil: TextStyle, highlight: Ayah
                 }
             } else {
                 val yay = !centerOnly && n > 1 && dogal >= W * 0.78f // satırı iki yana yay (kısa satırlar ortalanır)
-                val ara = if (yay) (W - toplam).toFloat() / (n - 1) else enAzAra.toFloat() // kelime arası
+                val gerdir = if (yay) minOf(W.toFloat() / dogal, 1.06f) else 1f // önce harfleri en fazla %6 yatay genişlet (aralar fazla açılmasın)
+                val ara = if (yay) (W - toplam * gerdir) / (n - 1) else enAzAra.toFloat() // kalan boşluk kelime aralarına eşit
                 var x = if (yay) W.toFloat() else W - (W - dogal) / 2f // başlangıç (sağ)
                 parcalar.forEach { p ->
-                    x -= p.width // kelimenin sol kenarı
-                    p.place(x.roundToInt(), (H - p.height) / 2) // yerleştir
+                    x -= p.width * gerdir // kelimenin sol kenarı
+                    if (gerdir == 1f) p.place(x.roundToInt(), (H - p.height) / 2) // yerleştir
+                    else p.placeWithLayer(x.roundToInt(), (H - p.height) / 2) { scaleX = gerdir; transformOrigin = TransformOrigin(0f, 0.5f) } // hafif genişletilmiş kelime
                     x -= ara // ara
                 }
             }

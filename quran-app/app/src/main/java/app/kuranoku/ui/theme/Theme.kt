@@ -132,9 +132,17 @@ fun KuranTheme(dark: Boolean, content: @Composable () -> Unit) {
 val appColors: AppColors @Composable get() = LocalAppColors.current
 
 /** Yazı tipi ailesi ve satır yüksekliği çarpanı. */
-fun QuranFont.family(): FontFamily = Hafs // KFGQPC Hafs
+fun QuranFont.family(): FontFamily = when (this) {
+    QuranFont.HAFS -> Hafs // KFGQPC Hafs
+    QuranFont.SCHEHERAZADE -> Scheherazade // Scheherazade New
+    QuranFont.NOTO_NASKH -> NotoNaskh // Noto Naskh Arabic
+    QuranFont.AMIRI -> Amiri // Amiri
+}
 
 /** Her yazı tipinin rahat okunması için satır yüksekliği (yazı boyutunun katı). */
 fun QuranFont.lineHeightFactor(): Float = 2.0f // harekeler ve ayet gülleri için rahat aralık
 
 private val Hafs = FontFamily(Font(R.font.uthmanic_hafs)) // KFGQPC HAFS Uthmanic Script (değiştirilmemiş özgün dosya)
+private val Scheherazade = FontFamily(Font(R.font.scheherazade_new)) // SIL Scheherazade New
+private val NotoNaskh = FontFamily(Font(R.font.noto_naskh_arabic)) // Noto Naskh Arabic
+private val Amiri = FontFamily(Font(R.font.amiri)) // Amiri

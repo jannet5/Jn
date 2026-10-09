@@ -36,6 +36,8 @@ import androidx.compose.foundation.layout.windowInsetsPadding // boşluk uygulam
 import androidx.compose.foundation.pager.HorizontalPager // yatay sayfa çevirici
 import androidx.compose.foundation.pager.rememberPagerState // çevirici durumu
 import androidx.compose.foundation.rememberScrollState // kaydırma durumu
+import androidx.compose.foundation.ScrollState // kaydırma durumu tipi
+import kotlin.math.roundToInt // yuvarlama
 import androidx.compose.foundation.shape.RoundedCornerShape // yuvarlak köşe
 import androidx.compose.foundation.verticalScroll // dikey kaydırma
 import androidx.compose.foundation.horizontalScroll // yatay kaydırma
@@ -143,7 +145,7 @@ fun ReaderScreen(
                         if (olay.changes.count { it.pressed } >= 2) { // iki parmak varsa
                             val oran = olay.calculateZoom() // yakınlaşma oranı
                             if (oran != 1f) { // değiştiyse
-                                val yeni = (ayar.scale * oran).coerceIn(ReaderSettings.MIN_SCALE, ReaderSettings.MAX_SCALE) // sınır içinde
+                                val yeni = (ayar.scale * oran).coerceIn(if (ayar.mushafLayout) 1f else ReaderSettings.MIN_SCALE, ReaderSettings.MAX_SCALE) // sınır içinde (mushafta en küçük hal: sayfa ekrana tam sığar)
                                 ayarDegisti(ayar.copy(scale = yeni)) // anında uygula (her karede azar azar)
                             }
                             olay.changes.forEach { it.consume() } // sayfa çevirme tetiklenmesin
@@ -199,9 +201,13 @@ private fun PageScroller(quran: Quran, page: Int, s: ReaderSettings, highlight: 
         val genislik = maxWidth // görünür genişlik
         if (s.mushafLayout && quran.mushafLines(page).isNotEmpty()) { // Medine mushafı sayfa düzeni
             val zoom = s.scale.coerceAtLeast(1f) // mushafta en küçük hali sayfanın ekrana tam sığması
+            val dikey = rememberScrollState() // dikey kaydırma
+            val yatay = rememberScrollState() // yatay kaydırma
+            KeepReadingSpot(dikey) // büyütüp küçültünce okunan yer kaymasın
+            KeepReadingSpot(yatay) // yatayda da
             Box(
-                Modifier.fillMaxSize().verticalScroll(rememberScrollState()) // büyütünce aşağı/yukarı gezinme
-                    .horizontalScroll(rememberScrollState(), reverseScrolling = true), // sağdan başlar; sola kaydırınca kenarda sonraki sayfaya geçer
+                Modifier.fillMaxSize().verticalScroll(dikey) // büyütünce aşağı/yukarı gezinme
+                    .horizontalScroll(yatay, reverseScrolling = true), // sağdan başlar; sola kaydırınca kenarda sonraki sayfaya geçer
             ) {
                 MushafPage(quran, page, s, highlight, alpha, genislik * zoom, yukseklik * zoom, zoom) // sayfa
             }
@@ -220,6 +226,22 @@ private fun PageScroller(quran: Quran, page: Int, s: ReaderSettings, highlight: 
                 if (kotlin.math.abs(hedef - kaydirma.value) > 4) scope.launch { kaydirma.animateScrollTo(hedef) } // gerekiyorsa kaydır
             },
         )
+    }
+}
+
+/** Sayfa büyüyüp küçülünce kaydırma konumunu aynı oranda tutar (okunan yer ekranda kalır). */
+@Composable
+private fun KeepReadingSpot(k: ScrollState) {
+    LaunchedEffect(k) {
+        var oncekiMax = k.maxValue // önceki kaydırma sınırı
+        var oran = 0f // okunan yerin oranı
+        snapshotFlow { k.maxValue to k.value }.collect { (mx, v) -> // sınır ya da konum değişti
+            if (mx != oncekiMax) { // büyütme/küçültme oldu
+                oncekiMax = mx // yeni sınır
+                val hedef = (oran * mx).roundToInt().coerceIn(0, mx) // aynı oran
+                if (hedef != v) k.scrollTo(hedef) // konumu düzelt
+            } else if (mx > 0) oran = v.toFloat() / mx // kullanıcı kaydırdı: oranı sakla
+        }
     }
 }
 

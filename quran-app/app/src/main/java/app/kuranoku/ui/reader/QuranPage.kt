@@ -168,7 +168,7 @@ fun QuranPage(
                                     val vurgu = highlight != null && highlight.sura == a.sura && highlight.ayah == a.number && highlightAlpha > 0f // vurgulanacak mı
                                     if (vurgu) withStyle(SpanStyle(background = ornament.copy(alpha = 0.30f * highlightAlpha))) { append(a.text) } else append(a.text) // ayet metni
                                     append('\u00A0') // ayet ile gülü ayırmayan boşluk
-                                    append(a.number.toArabicDigits()) // ayet gülü: yazı tipi rakamı süslü daire olarak çizer
+                                    append(s.font.ayahMark(a.number.toArabicDigits())) // ayet gülü: yazı tipinin kendi gülü
                                     append(' ') // sonraki ayetten önce boşluk
                                 }
                             }
@@ -177,7 +177,7 @@ fun QuranPage(
                             if (highlight == null) -1 else {
                                 var i = 0 // karakter sayacı
                                 var bulundu = -1 // sonuç
-                                for (a in b.ayahs) { if (a.sura == highlight.sura && a.number == highlight.ayah) { bulundu = i; break }; i += a.text.length + 1 + a.number.toArabicDigits().length + 1 } // ayet + boşluk + gül + boşluk
+                                for (a in b.ayahs) { if (a.sura == highlight.sura && a.number == highlight.ayah) { bulundu = i; break }; i += a.text.length + 1 + s.font.ayahMark(a.number.toArabicDigits()).length + 1 } // ayet + boşluk + gül + boşluk
                                 bulundu
                             }
                         }
