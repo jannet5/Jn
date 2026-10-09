@@ -145,15 +145,16 @@ a:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, v
 @media (max-width: 1023px) { .steps-bar { transform-origin: top; transform: scaleY(var(--p, 0)); } }
 
 /* Değer defteri — grafik çizimi */
-.ledger-line { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1400ms var(--ease); }
+.ledger-line { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 600ms var(--ease); }
 .ledger.is-in .ledger-line { stroke-dashoffset: 0; }
-.ledger-dot { opacity: 0; transition: opacity 300ms var(--ease) 1200ms; }
+.ledger-dot { opacity: 0; transition: opacity 200ms var(--ease) 500ms; }
 .ledger.is-in .ledger-dot { opacity: 1; }
 
 /* SSS */
 .faq summary { list-style: none; cursor: pointer; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq .plus { transition: transform 240ms var(--ease); }
+.faq summary:hover .plus { color: var(--foreground); }
 .faq details[open] .plus { transform: rotate(45deg); }
 .faq .ans { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 280ms var(--ease); }
 .faq details[open] .ans { grid-template-rows: 1fr; }
