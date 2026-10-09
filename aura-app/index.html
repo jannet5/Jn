@@ -33,17 +33,19 @@ table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:4px;text-
     <label>Ekran ışığı (lux): <b id="sv"></b><input id="scr" type="range" min="0" max="800" value="300"></label>
     <label>Saat: <b id="hv"></b><input id="hour" type="range" min="0" max="23" value="14"></label>
     <label>Ekran titremesi (Hz, 0=yok): <b id="pv"></b><input id="pwm" type="range" min="0" max="2000" step="60" value="0"></label>
+    <div class="row" style="margin-top:12px"><button id="cam">📷 Kamerayı aç</button></div><div class="k" id="camst" style="margin-top:6px">Kamera kapalı. Görüntü telefondan çıkmaz.</div>
     <div class="row" style="margin-top:12px"><button id="skip">20 dk ileri sar</button><button id="reset">Sıfırla</button></div>
   </div>
   <div class="card" style="grid-column:1/3"><div class="k">Günlük rapor</div>
     <table><tr><th>Uyarı</th><th>Kez</th></tr><tbody id="log"></tbody></table></div>
 </div>
-<script src="aura.js"></script>
+<script src="aura.js"></script><script src="vision-core.js"></script><script src="vision.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 let t=0, counts={}, prevWarn=new Set();
-function sensors(){return{t,distance_m:$('dist').value/100,room_lux:+$('room').value,screen_lux:+$('scr').value,
- blinks_last_min:+$('blink').value,hour:+$('hour').value,pwm_hz:+$('pwm').value}}
+let live=null;
+function sensors(){return{t,distance_m:(live&&live.distance_m)||$('dist').value/100,room_lux:+$('room').value,screen_lux:+$('scr').value,
+ blinks_last_min:live?live.blinks_per_min:+$('blink').value,hour:+$('hour').value,pwm_hz:+$('pwm').value}}
 function render(){
  const s=sensors(),a=AURA.step(s);
  $('dv').textContent=$('dist').value;$('bv').textContent=$('blink').value;$('rv').textContent=$('room').value;
@@ -58,6 +60,17 @@ function render(){
  cur.forEach(w=>{if(!prevWarn.has(w))counts[w]=(counts[w]||0)+1});prevWarn=cur;
  $('log').innerHTML=Object.keys(counts).length?Object.entries(counts).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join(''):'<tr><td colspan=2 style="color:var(--mut)">Henüz uyarı yok</td></tr>';
 }
+let camOn=false;
+$('cam').onclick=async()=>{
+ if(camOn){AuraVision.stop();camOn=false;live=null;$('cam').textContent='📷 Kamerayı aç';$('camst').textContent='Kamera kapalı.';render();return}
+ $('camst').textContent='Model yükleniyor…';
+ try{await AuraVision.start(d=>{
+   if(!d.face){live=null;$('camst').textContent='Yüz görünmüyor';return}
+   live=d;$('dist').value=Math.round(Math.min(120,Math.max(15,d.distance_m*100)));
+   $('blink').value=Math.min(25,d.blinks_per_min);
+   $('camst').textContent=`Canlı ✔ göz açıklığı ${d.ear.toFixed(2)} · ${Math.round(d.distance_m*100)} cm`;render()});
+  camOn=true;$('cam').textContent='⏹ Kamerayı kapat'}
+ catch(e){$('camst').textContent='Kamera açılamadı: '+(e.message||e.name)}};
 document.querySelectorAll('input').forEach(i=>i.addEventListener('input',render));
 $('skip').onclick=()=>{t+=1180;render()};
 $('reset').onclick=()=>{t=0;counts={};prevWarn=new Set();render()};
