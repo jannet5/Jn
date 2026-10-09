@@ -1,0 +1,3609 @@
+# Build your own Mobile App with Codex GPT-6 Astra - Full iOS and Android Course
+# https://www.youtube.com/watch?v=bGALxRWI10A
+# kanal: freeCodeCamp.org | süre: 9350 sn | kaynak: yt-dlp:web_embedded:bGALxRWI10A.en-orig.json3
+
+[00:00:00] Learn to build and publish a real
+[00:00:01] Instagramst style mobile app from
+[00:00:04] scratch using codecs and GPT6 Astra.
+[00:00:08] Brock will guide you through the
+[00:00:09] complete development life cycle,
+[00:00:11] covering everything from generating UI
+[00:00:13] designs and setting up a backend to App
+[00:00:17] Store deployment. You'll master not just
+[00:00:20] the code, but the exact AI prompting
+[00:00:22] workflows needed to turn an idea into a
+[00:00:26] finished product. Welcome to the
+[00:00:28] complete Codex tutorial on how to build
+[00:00:30] a real mobile application using AI. In
+[00:00:34] this course, I'm going to show you the
+[00:00:35] exact workflow that I used to go from an
+[00:00:38] idea all the way to a working mobile
+[00:00:41] application. And just for some context,
+[00:00:43] recently I have used this exact same
+[00:00:46] workflow to build my own mobile
+[00:00:48] application and publish it to the app
+[00:00:50] store. So everything I'm going to show
+[00:00:52] you in this video actually works. Just
+[00:00:54] before we jump into coding, let me show
+[00:00:56] you the project that we're going to
+[00:00:58] build in this tutorial. So this is a
+[00:01:00] social media application just like
+[00:01:02] Instagram. If you want to use it, first
+[00:01:04] you need to be authenticated. And here
+[00:01:07] in our case, we have two different
+[00:01:08] options. I'll go ahead and log in with
+[00:01:11] my Google account.
+[00:01:13] So once you're authenticated, you'll be
+[00:01:15] redirected to the home screen. And here
+[00:01:18] we have four different tabs which are
+[00:01:20] home, messages, explore, and profile.
+[00:01:24] And notice how we have the iOS liquid
+[00:01:26] glass effect. And I'm going to show you
+[00:01:28] how to build it without writing too much
+[00:01:31] code. And now in the home screen, you
+[00:01:33] can see the posts of the user that you
+[00:01:36] already follow. And here you can also
+[00:01:38] post stories. So let's go ahead and
+[00:01:40] select something from our library. If
+[00:01:43] you wanted to, you can also get it from
+[00:01:44] your camera. But here I'll just select
+[00:01:47] something from the library. So I'll go
+[00:01:49] ahead and maybe post this image.
+[00:01:53] Let's publish.
+[00:01:55] This is going to upload it in the
+[00:01:56] background. And once it is done, we will
+[00:01:59] be able to view it. So here,
+[00:02:02] here we go. So the stories works just
+[00:02:06] like in Instagram. If you want to pause
+[00:02:08] it, you can tap and hold it. And if you
+[00:02:10] want to go to the next one, you would
+[00:02:12] just press. And you can delete your
+[00:02:14] stories if you are the owner. Now you
+[00:02:16] can also posts,
+[00:02:19] right? So you can create posts. Let's go
+[00:02:21] ahead and publish something. I'll select
+[00:02:24] this image and we can add a caption.
+[00:02:26] Let's just say this weekend trip
+[00:02:31] and let's post it. So here we go. It's
+[00:02:33] posted and we can see it immediately in
+[00:02:35] the home screen. You can like it and you
+[00:02:38] can even add comments. So, let's go
+[00:02:40] ahead and just say something like, I
+[00:02:42] don't know, something test
+[00:02:45] and post it. Now, it's going to be right
+[00:02:47] here. You can like the comments. You can
+[00:02:49] sort them. Here we have couple of
+[00:02:51] different options and you can even
+[00:02:53] bookmark the posts. So, that's it for
+[00:02:55] the home screen. We also have realtime
+[00:02:58] messages. So, here you can tell we have
+[00:03:00] couple of different past chats, but they
+[00:03:02] are all fake data that I created for the
+[00:03:05] sake of this demo. Here I'm going to put
+[00:03:07] the actual footage from the tutorial
+[00:03:10] where I actually test this out from my
+[00:03:12] phone. So I literally sent a message in
+[00:03:15] real time and everything works in both
+[00:03:18] of these accounts. And other than
+[00:03:21] messages, we have the explore screen
+[00:03:23] where you can see random posts from
+[00:03:25] other people with a really good UI
+[00:03:27] design. You can like them and if you
+[00:03:29] press them, that's going to take you to
+[00:03:31] the actual post. And from here you'll be
+[00:03:34] able to see the other accounts and
+[00:03:36] follow them or even unfollow them if you
+[00:03:39] already follow. Here you can search for
+[00:03:42] people, posts or even topics. Then
+[00:03:45] eventually we have the profile screen
+[00:03:48] where you can see your posts, even
+[00:03:50] videos, bookmarks, and the tag posts. So
+[00:03:54] you can also edit your profile here.
+[00:03:56] Let's just say for the bio I'll put
+[00:03:59] something like I don't know let's put
+[00:04:02] YouTuber and then I'll save. As soon as
+[00:04:04] I save here you can tell the profile has
+[00:04:07] been updated. On top of this you can
+[00:04:09] also change the profile image and we
+[00:04:11] have the settings screen. Now here we
+[00:04:14] have bunch of different buttons and
+[00:04:16] links but the most important ones are
+[00:04:18] the privacy policy and terms of
+[00:04:21] services. Here you can tell we actually
+[00:04:23] link it with a real real URL and we link
+[00:04:27] it right here. Now this is something
+[00:04:29] that you must implement. If you don't
+[00:04:31] implement it, Apple will reject your
+[00:04:33] application and I'm going to teach you
+[00:04:35] how to do it later in the course. Then
+[00:04:37] we also have the delete account option.
+[00:04:40] Again, this is one of those things that
+[00:04:42] if you don't implement your application
+[00:04:45] will get rejected. And we even have a
+[00:04:47] feedback button where users can
+[00:04:50] literally send us some feedback like
+[00:04:53] here they can put their name. I already
+[00:04:55] filled this in but you know you can just
+[00:04:57] put John your email and then if you want
+[00:05:00] to have a feature request or I don't
+[00:05:03] know any kind of bugs here you can tell
+[00:05:05] you know please fix the edit profile
+[00:05:09] feature it doesn't work and then you can
+[00:05:11] send the feedback and I'm going to show
+[00:05:13] you how you can collect those feedbacks
+[00:05:16] later in the video. Now on top of the
+[00:05:18] mobile application we're going to build
+[00:05:20] a landing page with a really nice
+[00:05:22] looking UI design. Here you can tell we
+[00:05:24] have some demo images and I'm going to
+[00:05:26] show you how to create them and use them
+[00:05:29] for your future projects. And at the
+[00:05:32] very bottom we have the privacy policy
+[00:05:35] and terms of services links. Again,
+[00:05:37] these are the things that you don't
+[00:05:39] really want to skip. So that's the
+[00:05:41] entire project that we're going to build
+[00:05:43] in this video. Now, this is not one of
+[00:05:45] those random vibe coding tutorials where
+[00:05:47] we just open Codex and say, "Build me an
+[00:05:50] application and hope everything somehow
+[00:05:52] works." Instead, I'm going to show you
+[00:05:54] the entire process step by step. We are
+[00:05:56] going to start with an idea. Then we
+[00:05:58] will plan the application properly,
+[00:06:00] figure out all the features that we
+[00:06:02] would need, generate a complete UI
+[00:06:04] design, and then use Quadex to actually
+[00:06:07] implement everything. By the end of this
+[00:06:09] tutorial, you should have a clear
+[00:06:11] understanding of all the tools that you
+[00:06:13] would need to build a modern application
+[00:06:16] using AI. You will also know what to do
+[00:06:18] when you get stuck. Because one of the
+[00:06:20] biggest problems when you're coding with
+[00:06:22] AI is not necessarily the coding itself.
+[00:06:25] It is knowing what to ask. So throughout
+[00:06:28] this course, I'll show you how I deal
+[00:06:30] with it, how I give Codex more context,
+[00:06:33] and how I get it actually help me solve
+[00:06:35] the problem. I will also share the
+[00:06:37] prompts that I personally use. This
+[00:06:39] includes the prompts that I use for
+[00:06:42] planning an application, generating the
+[00:06:44] UI design, implementing the screens, and
+[00:06:47] even creating things like privacy policy
+[00:06:50] and terms of services. And these things
+[00:06:53] are actually important if you want to
+[00:06:55] publish your app. Depending on what your
+[00:06:57] application does and what kind of user
+[00:06:59] data that you're collecting, Apple can
+[00:07:02] require things like a privacy policy,
+[00:07:04] terms of service, delete account
+[00:07:06] feature, and other information. If you
+[00:07:09] miss something that is required for your
+[00:07:11] application, you can easily get rejected
+[00:07:13] during the app store review. These are
+[00:07:15] usually the things you would learn the
+[00:07:17] hard way after building your first
+[00:07:19] application, but I'll try to cover all
+[00:07:21] of them in this tutorial so you know
+[00:07:23] what to look out for before you submit
+[00:07:25] your application. It is also important
+[00:07:27] to mention that when people submit their
+[00:07:30] application to the app store for the
+[00:07:32] first couple of times they get rejected
+[00:07:34] which is normal but in my case I never
+[00:07:36] got rejected by Apple. My app literally
+[00:07:39] got accepted in the first submission
+[00:07:41] because this workflow covers everything.
+[00:07:44] So you don't really miss any important
+[00:07:45] detail. And just one more thing that all
+[00:07:48] the tools that we're going to use in
+[00:07:50] this course are completely free to get
+[00:07:52] started with. So you don't need a credit
+[00:07:54] card to follow along. and the complete
+[00:07:56] source code for the application will
+[00:07:58] also be available for free. I will leave
+[00:08:01] the link in the description. My goal
+[00:08:03] with this course is helping you to
+[00:08:05] understand the entire workflow so that
+[00:08:07] after finishing this video, you can take
+[00:08:09] your own idea and actually know how to
+[00:08:12] turn it into a real mobile application
+[00:08:15] using Codex. So, we're going to go from
+[00:08:17] idea to planning to UI design and
+[00:08:20] finally getting the app ready to
+[00:08:22] publish. Now with all that being said,
+[00:08:24] let's not waste any time and get started
+[00:08:27] with the course. Now just before we get
+[00:08:30] started, I quickly want to mention that
+[00:08:32] we have a school community and within
+[00:08:34] the school community I have basically
+[00:08:36] documented the entire journey of
+[00:08:39] building my own application and
+[00:08:41] publishing it to app store. Here you can
+[00:08:44] tell everything took exactly 14 days
+[00:08:47] because the day zero is kind of like
+[00:08:49] crash course. So everything took around
+[00:08:52] 14 days to submit it to the app store
+[00:08:55] and then we start with marketing and new
+[00:08:59] classes will be coming every single day.
+[00:09:01] So this is a community for those of you
+[00:09:03] that are interested to see the entire
+[00:09:05] process like having payments, you know,
+[00:09:08] we have monthly, yearly plans, maybe
+[00:09:11] even some weekly plans. Then how do you
+[00:09:14] get through the entire submission
+[00:09:16] process or something like how to
+[00:09:18] implement push notifications? And this
+[00:09:21] is not just a course, but it's a live
+[00:09:23] community. Here you can tell everyone is
+[00:09:25] sharing their own process like
+[00:09:27] motivating each other, so on and so
+[00:09:29] forth. And actually, one of our students
+[00:09:32] has already published their app on the
+[00:09:34] app store. And just for the record, this
+[00:09:36] is his app and he built it with me
+[00:09:39] within our community in exactly 14 days.
+[00:09:42] And just to give you some insights, like
+[00:09:44] when you press one of these classes, we
+[00:09:47] have specific videos for that day. And
+[00:09:50] you can always come back and double
+[00:09:52] check these lessons if you're
+[00:09:53] interested. So, if you want to join, I'm
+[00:09:55] going to leave the link in description.
+[00:09:57] And hopefully I'll see you inside.
+[00:10:00] All right. So, as usual, we are going to
+[00:10:02] start from absolute scratch. First off,
+[00:10:05] in my case, I'm using VS Code as my code
+[00:10:07] editor, but you can really use anything
+[00:10:10] that you want. That could be cursor, I
+[00:10:12] don't know, it could be windsurf, really
+[00:10:15] anything that you wish, but I would
+[00:10:16] recommend you to use VS code so that we
+[00:10:19] have the exact same environment. Now,
+[00:10:22] for this, you can visit
+[00:10:23] codevvisisualstudio.com
+[00:10:25] and then press this button. Now, in my
+[00:10:28] case, I'm using Mac, but if you're on
+[00:10:29] Windows, you're going to see a related
+[00:10:31] button, and you can just install it for
+[00:10:34] Windows as well. And once again, um, in
+[00:10:37] this tutorial, I'm using Mac, but if
+[00:10:39] you're using Windows, everything will be
+[00:10:41] almost exactly the same, so you can
+[00:10:44] follow along without any issues. The
+[00:10:46] other thing that you must have is
+[00:10:48] NodeJS. If you don't have it already,
+[00:10:51] just visit node.js.org, or press the
+[00:10:54] download button. Leave everything as it
+[00:10:56] is. Like by default, it's going to
+[00:10:58] select your environment, you know, your
+[00:11:00] operating system, and then install it.
+[00:11:04] Okay. So, I'll just assume that you have
+[00:11:06] both of them. Then head over to your
+[00:11:09] desktop, create an empty folder. In my
+[00:11:12] case, I call this as Codex Gram, which
+[00:11:15] is like Instagram, but I put Codex. You
+[00:11:18] can call this anything that you wish.
+[00:11:19] And then just open it up in VS Code. So
+[00:11:22] basically just drag and drop it right
+[00:11:24] here. It's going to open this up. Okay.
+[00:11:27] So once you have it now we can start
+[00:11:29] building a mobile application. Now what
+[00:11:32] I'll be doing is first creating a boiler
+[00:11:36] plate. And for this we'll be using Expo.
+[00:11:39] So if you don't know already, let's go
+[00:11:41] ahead and visit expo.dev. This is
+[00:11:44] literally the best way to start a mobile
+[00:11:46] application as of 2026. Literally, they
+[00:11:50] have everything that you would need from
+[00:11:52] building the app to publishing it to App
+[00:11:54] Store and Play Store. This is what I
+[00:11:57] used to build and publish my app to App
+[00:12:00] Store, you know, just to let you know.
+[00:12:02] And this is completely free to get
+[00:12:04] started with. But if you're serious
+[00:12:06] about publishing your app to the App
+[00:12:08] Store, then probably you would like to
+[00:12:10] go with at least $20 per month plan. Uh
+[00:12:14] but yeah, for now, you don't really need
+[00:12:16] to pay anything at all. Now with this um
+[00:12:19] we'll go ahead and visit expo.dev/doccks
+[00:12:24] which is the documentation and we need
+[00:12:26] to copy this command. Now technically we
+[00:12:28] can just ask cloud or codex to run this
+[00:12:32] for us but here I'd like to run it
+[00:12:34] manually to show you what we're going to
+[00:12:36] get and like it's going to be a bit
+[00:12:38] easier to do it by ourselves. So paste
+[00:12:42] this in to your terminal and put dot at
+[00:12:45] the end which means create an expo
+[00:12:48] application under the current folder.
+[00:12:50] Right? This is what that means. So it's
+[00:12:53] going to create everything right here.
+[00:12:56] First we're going to get a question. At
+[00:12:59] the time that I'm recording this video
+[00:13:01] it is seck 57. But if you're watching it
+[00:13:04] in the future this will be incremented.
+[00:13:06] That's not a problem at all. Just go
+[00:13:07] ahead and press enter. And this will get
+[00:13:11] couple of different files and folders
+[00:13:13] which is basically a simple mobile
+[00:13:16] application. And we can run it in a
+[00:13:18] simulator just in a second once this is
+[00:13:22] completed. Now I am on Mac. My simulator
+[00:13:24] is going to be an iOS simulator. But if
+[00:13:27] you're on Windows, you can install an
+[00:13:30] Android um simulator. Right. So here
+[00:13:33] I'll go ahead and run my simulator.
+[00:13:38] And by the way, with the latest
+[00:13:39] features, like as of now that I'm
+[00:13:41] recording the video with Expo, you can
+[00:13:45] be on Windows but still build it for
+[00:13:48] iOS. Like you can literally run an iOS
+[00:13:51] simulator on Windows. Just check their
+[00:13:54] documentation. Um, you'll be able to see
+[00:13:57] it. It is pretty new, so I'm not going
+[00:13:59] to get into it, but just know that
+[00:14:01] something like that existed. Okay, so
+[00:14:03] here I have my simulator. I have some
+[00:14:06] previous projects that I created in the
+[00:14:08] past, but we are going to go ahead and
+[00:14:10] start from scratch. So here it says you
+[00:14:13] can start this app by running these
+[00:14:15] commands for Android, iOS, and even for
+[00:14:18] web.
+[00:14:19] Here I'll go ahead and just say MPX expo
+[00:14:22] or MPXO start. This will give us a QR
+[00:14:25] code as well as a open terminal where if
+[00:14:29] you press I, it is going to open this
+[00:14:32] app in your simulator. So let me
+[00:14:34] actually put them side by side.
+[00:14:42] Okay. So it looks like something has
+[00:14:43] failed. I'll press I once again.
+[00:14:50] It is trying to open this. I don't know
+[00:14:53] why I'm getting an error. Usually it
+[00:14:55] should open it immediately. But now
+[00:14:57] that's not a problem at all. I'll just
+[00:14:59] go ahead and you know ask cloud or codex
+[00:15:03] to explain what is happening here. And
+[00:15:05] speaking of cloud and codex, if you
+[00:15:08] would like to use cloud, you need to
+[00:15:11] install this extension within the VS
+[00:15:13] code. So cloud code for VS code and make
+[00:15:16] sure you get the verified one. And then
+[00:15:19] if you would like to use Codex, this is
+[00:15:21] what I'll be doing in this tutorial even
+[00:15:23] though I have subscription for both of
+[00:15:24] them. Codex has a recent model called
+[00:15:28] GPD6 Astra and I'd like to use it in
+[00:15:32] this tutorial. So go ahead and get Codex
+[00:15:34] if you have subscription or cloud or
+[00:15:37] really anything that you wanted to have.
+[00:15:39] And by the way, one thing that I want to
+[00:15:41] mention is that the goal of this
+[00:15:43] tutorial is not getting the exact same
+[00:15:45] end result. So the goal here is
+[00:15:48] understanding the workflow to build
+[00:15:50] mobile apps by yourself. So, it's fine
+[00:15:53] if at the end of this video you have a
+[00:15:56] different app than what I have. I mean,
+[00:15:58] the functionalities will probably be the
+[00:16:00] same, but UI design could be different.
+[00:16:03] Code could be a bit different, and
+[00:16:05] that's because AI doesn't really give
+[00:16:07] the exact same end result every single
+[00:16:10] time. Okay? So, that's one thing to keep
+[00:16:12] in mind. It's completely fine if you
+[00:16:14] don't have the exact same end result
+[00:16:16] that I have right here. And other than
+[00:16:19] this, like I see a lot of people get
+[00:16:21] kind of like depressed because of AI
+[00:16:23] where it can almost build anything now.
+[00:16:26] But I've been always like I've always
+[00:16:29] been on this side where I'm just trying
+[00:16:31] to find the opportunity where you know
+[00:16:34] it helps me to build an app pretty
+[00:16:36] quickly so that I can focus on marketing
+[00:16:38] and you know focus on different things.
+[00:16:41] Now since AI can build anything which is
+[00:16:44] not really true at the moment um even
+[00:16:47] though I think it's going to be at some
+[00:16:49] point but at the moment it's not really
+[00:16:51] true. It cannot build anything. It can
+[00:16:53] build something to start with but as the
+[00:16:56] projects get larger and larger it kind
+[00:16:58] of sucks. So I think it's still
+[00:17:00] important to know the fundamentals of
+[00:17:03] programming but if you wanted to build a
+[00:17:05] simple project I don't know an MVP I
+[00:17:08] think AI can help. And with this
+[00:17:11] tutorial, hopefully you will learn how
+[00:17:13] to build an MVP.
+[00:17:15] Okay, so with that said, I would
+[00:17:17] definitely recommend you to get a $20 a
+[00:17:21] month plan in one of these, either
+[00:17:23] Cloud, Codex, or Cursor. I think for
+[00:17:27] now, my favorite could be Codex. Even
+[00:17:30] though I've been using Cloud for a very
+[00:17:32] long time with the latest model they
+[00:17:34] have, which is GPT6, I think you can go
+[00:17:37] with Codex just to test this out. And I
+[00:17:40] think Codex is cheaper than cloud or
+[00:17:43] cursor. Okay, so with that said, now
+[00:17:45] let's jump back into VS Code. Go ahead
+[00:17:49] and get this extension. And I think I
+[00:17:51] need to restart the extension.
+[00:17:54] And you'll just press twice to this
+[00:17:58] empty area. From here, you can get Cloud
+[00:18:00] or Codeex. Let's say you're using Cloud.
+[00:18:03] This is the interface that you will
+[00:18:05] have. Now we can talk with cloud and you
+[00:18:08] can you know update the model. Let me
+[00:18:11] actually maximize this like you can
+[00:18:13] update the mode and initially we'll use
+[00:18:15] the plan mode. I'm going to get into
+[00:18:17] that and you can update the model you
+[00:18:19] know you can add the effort etc. And we
+[00:18:23] have similar thing for codex. This is
+[00:18:25] what I'll be using. So just go ahead and
+[00:18:28] press add. Now here you can again change
+[00:18:31] the model. The latest one at the time
+[00:18:33] that I'm recording this video is this
+[00:18:35] one. And you can update the effort as
+[00:18:38] well.
+[00:18:40] So here I'll just give the full axis so
+[00:18:42] that I don't really get um
+[00:18:48] so one thing I want to mention is that
+[00:18:50] here the extra high and even like ultra
+[00:18:55] you go is better but it's going to be
+[00:18:57] taking much more time than it should. So
+[00:19:00] here, usually I would go with medium or
+[00:19:03] high. If I'm building something a
+[00:19:06] feature that is not really that
+[00:19:08] important, but if I'm trying to build
+[00:19:10] something that should work exactly as I
+[00:19:12] want, then I would probably go with
+[00:19:14] extra high or even ultra. But just know
+[00:19:17] that it will take much more time if you
+[00:19:19] go with one of these. So in this
+[00:19:21] tutorial, I think to start with, I'll go
+[00:19:23] with medium. And here for the
+[00:19:26] permissions, I'll just give the full
+[00:19:27] access so that it doesn't really ask me
+[00:19:29] questions all the time. So here I
+[00:19:32] basically say, hey Codex, whatever you
+[00:19:34] would like to do, just do it. Don't ask
+[00:19:36] me.
+[00:19:38] U just be careful with it. But usually
+[00:19:41] you'll just give the full access
+[00:19:42] anyways. Okay. Now to start with, first
+[00:19:46] thing I'll be doing is opening up my
+[00:19:49] terminal with Ctrl J. And I think now
+[00:19:52] application is running. We had an error,
+[00:19:55] but it just fixed by itself. Here you
+[00:19:58] can tell if you press R, it's going to
+[00:20:01] reload the app. And we have this default
+[00:20:04] project coming from Expo. Now, of
+[00:20:06] course, we're going to delete
+[00:20:08] everything. And let's actually do it.
+[00:20:10] You would like to open up your terminal.
+[00:20:12] So, kill this with Ctrl C. Clear this
+[00:20:15] up. And there's a command that we can
+[00:20:17] run. So, it's going to be mpm run reset-
+[00:20:21] project. This is going to basically take
+[00:20:23] all these folders and files that we
+[00:20:26] don't really need and it's going to
+[00:20:27] delete them. So now we have some
+[00:20:29] components that we don't really need,
+[00:20:31] some constants, hooks, so on and so
+[00:20:34] forth. So just go ahead and run this.
+[00:20:36] Then press enter once again. Here you
+[00:20:38] can tell everything has been deleted and
+[00:20:41] it has put it under an example folder
+[00:20:43] which I don't really need. So I'm going
+[00:20:45] to delete that one as well. Now let's
+[00:20:47] run this app with MPX Expo.
+[00:20:51] This is what we had initially. Right?
+[00:20:53] Now, if you press R, it's going to
+[00:20:55] reload it. And notice how we have much
+[00:20:58] more simpler application. Right? This is
+[00:21:01] literally just one screen with a simple
+[00:21:04] text. Okay. Now, with this in mind,
+[00:21:07] let's go ahead and plan a project. And
+[00:21:10] in this tutorial, I'd like to use sorry,
+[00:21:13] I'd like to build a social media
+[00:21:15] application kind of like Instagram, but
+[00:21:18] of course much more simpler than that.
+[00:21:21] All right, so I have accidentally paused
+[00:21:22] the video, but I was just saying that we
+[00:21:24] would like to build an Instagram clone
+[00:21:27] that is much more simpler, right? So
+[00:21:30] we'll have maybe things like posting
+[00:21:32] photos, commenting, having a profile
+[00:21:35] screen, things like that. Um, and here's
+[00:21:38] the workflow that we're going to be
+[00:21:40] using. This is what I used to build my
+[00:21:42] own mobile application as well. And I'll
+[00:21:45] try to break it down as we go through
+[00:21:47] this course. So, the very first thing
+[00:21:49] that you need to do is planning your
+[00:21:52] project. This is a step that a lot of
+[00:21:54] beginners just skip. They immediately
+[00:21:56] jump into coding because they're like
+[00:21:59] really excited. But it almost always
+[00:22:02] fails because if you don't plan
+[00:22:04] everything then at some point AI will
+[00:22:07] start guessing even like at the start.
+[00:22:10] So what you'd like to do is kind of like
+[00:22:12] giving the AI the context what kind of
+[00:22:15] project that you would like to have you
+[00:22:17] know like define your idea goals
+[00:22:19] features pages user flow and text tag so
+[00:22:23] that it doesn't really guess all these
+[00:22:25] tools and features and for this I have a
+[00:22:29] really really good prompt that is
+[00:22:31] working every single time so I'm going
+[00:22:33] to leave this in the description just go
+[00:22:36] ahead and copy this entire thing and you
+[00:22:38] can pause the video and read it.
+[00:22:40] Basically, I'll try to simplify it. We
+[00:22:43] ask AI to interview us about every
+[00:22:46] single thing about this project so that
+[00:22:49] it doesn't really guess anything and we
+[00:22:51] are on the same page.
+[00:22:53] Okay. So, once again, you can read this
+[00:22:55] entire thing if you're interested, but
+[00:22:58] I'm just going to copy this and go into
+[00:23:00] cloud, sorry, into VS Code and into
+[00:23:03] Codex. Here, you would like to select
+[00:23:05] the mode. Let me find it. It should be
+[00:23:09] plan mode. And to select plan mode, you
+[00:23:12] need to press this plus. And then go
+[00:23:14] ahead press the plan mode. Now paste the
+[00:23:17] prompt first. And then here we say we
+[00:23:20] are about to describe you the project.
+[00:23:23] And here now I'll just go ahead and
+[00:23:25] explain everything. Once I have it, I'll
+[00:23:27] just be right back. So here I have
+[00:23:29] paused the video and try to explain it
+[00:23:31] to Codex. And here is my entire prompt.
+[00:23:34] So here I said I want to build a simple
+[00:23:37] Instagram style social media application
+[00:23:40] using clerk for authentication and
+[00:23:42] convex for the backend and database. I'm
+[00:23:45] going to get into both of these
+[00:23:46] technologies but basically this is the
+[00:23:48] text tag to get started with. And then
+[00:23:51] here I said users should be able to sign
+[00:23:54] up and log in with Google or Apple. They
+[00:23:57] should be able to create images or
+[00:24:00] videos as posts, follow and unfollow,
+[00:24:03] you know, like and comment. You can read
+[00:24:05] the rest. And there's also sending
+[00:24:08] direct messages, right? And they can
+[00:24:10] also view and edit their profile. And
+[00:24:13] here I say the app should have four main
+[00:24:16] tabs which are going to be home,
+[00:24:18] messages, explore, and profile. Now
+[00:24:21] talking about tabs, let's go ahead and
+[00:24:24] take a look at the native tabs in Expo.
+[00:24:27] I'll just say native tabs and visit it
+[00:24:30] in the expo documentation. Just scroll
+[00:24:32] to the bottom. So these are the tabs.
+[00:24:34] This is what I mean by tabs. And native
+[00:24:37] tabs are giving this iOS liquid glass
+[00:24:41] effect. Okay? So you don't really need
+[00:24:43] to restyle it or generate it from
+[00:24:46] scratch. There is a component called
+[00:24:48] native tabs and it's going to give you
+[00:24:51] all these features out of the box. If
+[00:24:55] you're interested, you can take a look
+[00:24:56] at the entire documentation. But this is
+[00:24:59] something that we would like to use in
+[00:25:02] here. Let's actually also say
+[00:25:06] something like we will use native tabs
+[00:25:11] and also for styling let's say
+[00:25:16] we want to use something like native
+[00:25:19] wind. So native wind is basically
+[00:25:21] tailwind CSS but for react native okay
+[00:25:25] for mobile application. Okay so you got
+[00:25:28] the point. First off, you're going to
+[00:25:30] get the plan prompt from right here,
+[00:25:33] right? And then you would like to
+[00:25:35] describe your project.
+[00:25:38] Um, this is exactly what I have done. Of
+[00:25:40] course, this should be a lot more
+[00:25:42] detailed if you can, but for this demo
+[00:25:44] purposes, I think that's fine. And here
+[00:25:47] we'll go ahead and run this. This will
+[00:25:50] ask a couple of different questions in
+[00:25:53] like couple of different batches. First,
+[00:25:55] we're going to get maybe like four
+[00:25:57] questions. We'll answer all of them and
+[00:25:59] then we're going to get another batch of
+[00:26:01] four and then another one until AI has
+[00:26:05] every single thing the entire context
+[00:26:08] once we have it plan will be ready then
+[00:26:10] we can actually start building the
+[00:26:13] project
+[00:26:15] and instead of building immediately what
+[00:26:18] I'd like to do is generating the UI
+[00:26:20] design depending on that plan that we
+[00:26:23] generated and I'm going to get into that
+[00:26:26] again I'll give you some prompts to
+[00:26:28] generate the UI design. Okay, so I am
+[00:26:31] back in VS Code. Here we got the very
+[00:26:34] first batch of questions. We have three
+[00:26:36] different questions. Here it says, who
+[00:26:38] is V14 and what counts as a successful
+[00:26:42] first release. Now, most of the time you
+[00:26:45] would like to go with the recommended
+[00:26:47] answer, but there will be some places
+[00:26:49] where you'd like to actually choose a
+[00:26:52] different like different answers than
+[00:26:54] recommended and even sometimes add your
+[00:26:57] own description. But in this case, I'll
+[00:27:00] just say this should be just a working
+[00:27:02] demo and I'll go with the recommended
+[00:27:04] option. Then here it says like should we
+[00:27:08] build it for both iOS and Android? Here
+[00:27:10] I only want to have it for iOS first.
+[00:27:13] So, I'm going to say, you know, like
+[00:27:15] just go ahead and select this option. If
+[00:27:17] you wanted to, you can select this one
+[00:27:19] as well, but this is the one that I'll
+[00:27:21] have. And then let's say public to
+[00:27:25] members. Yes, everyone should be able to
+[00:27:27] use it as long as they are signed in.
+[00:27:31] Okay, so now AI will keep these answers
+[00:27:34] in memory and then it's going to ask us
+[00:27:36] another batch of questions. So, I think
+[00:27:39] I'll just go through and answer every
+[00:27:41] single one of them. Once it is done,
+[00:27:43] I'll just be right back. And instead of
+[00:27:45] answering them off camera here, I'll
+[00:27:47] just do it right here so that you can
+[00:27:49] see the type of questions that I'm
+[00:27:51] getting. For image creations, let's just
+[00:27:54] say single upload only so that we can
+[00:27:57] keep it simple. So, here it says what
+[00:28:00] users should see once they sign up. will
+[00:28:02] say they have to choose a username and
+[00:28:05] then here I'll just say home header
+[00:28:07] button
+[00:28:11] what comment and deletion behavior do
+[00:28:13] you want for the demo let's just have
+[00:28:16] flat comments and own deletion you can
+[00:28:18] go a lot more complex but for the
+[00:28:21] initial version that's not really what
+[00:28:23] you would like to do so here again you
+[00:28:26] can read the question this will be my
+[00:28:28] answer
+[00:28:30] and then it says what media limits are
+[00:28:32] accept acceptable for this demo. Let's
+[00:28:33] just say images up to 10 megabytes and
+[00:28:36] video up to 30 seconds and 50 mgabytes.
+[00:28:41] We don't really want to allow too large
+[00:28:43] images and videos at the start.
+[00:28:50] Um here it says can v1 exclude push
+[00:28:53] notifications. Yeah, absolutely. We
+[00:28:55] don't really want to have payments push
+[00:28:56] notifications for initial version. I'll
+[00:29:00] just say yes. trusted demo. We don't
+[00:29:02] really want to build something really
+[00:29:04] complex from the start. And this is what
+[00:29:06] I have done with my own mobile app as
+[00:29:09] well. Like instead of building every
+[00:29:11] single feature from the start, I
+[00:29:14] basically um started with the simple
+[00:29:17] version which is V1 right. Just an MVP.
+[00:29:20] So I said at least users should be able
+[00:29:23] to take a photo and calculate their
+[00:29:26] calories with AI. Once I had it, then I
+[00:29:30] added bunch of more features, right? You
+[00:29:33] don't really want to build everything
+[00:29:34] from the start. From my experience, this
+[00:29:36] has been working really nice. And this
+[00:29:39] is what I would recommend. I would say
+[00:29:42] um here we'll just say we'd like to
+[00:29:44] build our own custom native screen
+[00:29:47] instead of using the cleric UI because
+[00:29:49] I'd like to show you how to generate
+[00:29:51] something from the UI design that we're
+[00:29:54] going to get from AI. Okay. So I'll go
+[00:29:57] with this option
+[00:29:59] and we would like to use convex
+[00:30:01] throughout the project. Let's say online
+[00:30:04] first and there should be retries as
+[00:30:06] well. So here I have another question
+[00:30:09] about the theme. Instead of answering
+[00:30:11] any of these like I'll just put my own
+[00:30:13] kind of like description or I'll just
+[00:30:15] try to explain something like for now
+[00:30:19] only light mode and I'm going to say for
+[00:30:22] colors I'll provide a design reference
+[00:30:28] later at some point
+[00:30:31] because we don't really want it to use
+[00:30:33] some you know like a color palette like
+[00:30:36] blue it says but I don't really want to
+[00:30:38] have it later at some point. I'll
+[00:30:40] provide a pre-made design. So, I'll just
+[00:30:43] say use that one.
+[00:30:49] So, let's say it should be tap to play I
+[00:30:53] think. Yeah, it is recommended. I'll
+[00:30:54] just go with this one.
+[00:30:57] Now, there is something called
+[00:30:58] development build. And let me try to
+[00:31:00] explain pretty quickly before I answer
+[00:31:03] this. So, here you can tell we are
+[00:31:05] running our application, right? But it
+[00:31:08] is within the expo go. So this is the
+[00:31:11] tool that expo provides you but this is
+[00:31:14] for testing purposes right. This is for
+[00:31:17] learning purposes. When you're building
+[00:31:19] an actual application then you would
+[00:31:22] like to create a development build
+[00:31:24] because within this you cannot really
+[00:31:26] have every single feature or some native
+[00:31:29] modules doesn't really run within the
+[00:31:32] expo. Okay. So once again in simple
+[00:31:35] terms this is for testing purposes for
+[00:31:38] learning demos. If you want to build a
+[00:31:40] real project then you'd like to use
+[00:31:42] something called development build. And
+[00:31:45] basically what this does in simple terms
+[00:31:47] is that it's going to take your
+[00:31:49] application right and instead of running
+[00:31:51] it within the expo go it will create
+[00:31:54] this kind of a standalone application.
+[00:31:56] Okay. And we're going to see it. I know
+[00:31:59] that this sounds confusing for the first
+[00:32:01] time for beginners, but I think that's
+[00:32:04] completely fine. We'll see how that
+[00:32:06] work. So, you would like to use a
+[00:32:07] development build if you are building a
+[00:32:10] real project.
+[00:32:12] So, that's how I can explain it in
+[00:32:14] simple terms. So, we have more
+[00:32:16] questions. I'll just go ahead and choose
+[00:32:18] the recommended ones
+[00:32:22] so that we don't really waste too much
+[00:32:23] time. But I think you're able to see the
+[00:32:26] workflow. You will have all these
+[00:32:28] questions so that AI doesn't really
+[00:32:31] guess any feature but instead you are
+[00:32:33] the one that deciding all of these. Now
+[00:32:36] here it says what should a brand new
+[00:32:38] user see when they follow no one. So
+[00:32:41] basically when you sign up for the first
+[00:32:43] time you know you are not following
+[00:32:45] anyone and what you what should you see
+[00:32:47] on the screen. So here you can go with
+[00:32:50] the empty state. I'll just say seated
+[00:32:53] demo content which means basically add
+[00:32:56] some you know fake content or you know
+[00:32:58] test accounts so that they can see some
+[00:33:01] posts. I think this is going to be
+[00:33:03] better especially for this tutorial. If
+[00:33:05] I was building this as a real project I
+[00:33:08] would probably go with the honest empty
+[00:33:10] states. But here I'm going to select
+[00:33:12] this one. And here it says should
+[00:33:15] messages include unread indicators?
+[00:33:18] Um, I think for now we'll just leave it
+[00:33:20] as bare chat list. Maybe at some point
+[00:33:24] we can add these features but for now
+[00:33:26] we'll just leave it simple and choose
+[00:33:28] this option. And here it says will you
+[00:33:31] able to so this is the other question
+[00:33:34] that I just got and this will be my
+[00:33:36] answer here. I'll say for now we will
+[00:33:39] just use clerk authentication with
+[00:33:41] public key and this is something that
+[00:33:44] we're going to get into. Basically,
+[00:33:45] clerk will give you an environment
+[00:33:47] variable and it's going to be our public
+[00:33:50] key that we can use in development. I'll
+[00:33:53] go ahead and submit this as well. Off
+[00:33:55] camera, I have answered some more
+[00:33:57] questions. And here's the entire thing.
+[00:33:59] You can pause the video and read it. If
+[00:34:02] you're building a real project, this is
+[00:34:04] exactly what I would do. And here now it
+[00:34:07] says, "Ready for me to turn this into an
+[00:34:09] implementation plan." Here I'll just say
+[00:34:12] for now go ahead and create this under a
+[00:34:15] file a markdown file called plan.md
+[00:34:19] kind of like readme.md. But here I
+[00:34:22] should be able to at least see it.
+[00:34:25] So here I'll just say for now create a
+[00:34:30] plan MD file with all the details
+[00:34:36] so that later we can you know implement
+[00:34:40] this step by step. So I'm going to run
+[00:34:44] this. It will create that plan MD file
+[00:34:46] and after this I'm going to leave this
+[00:34:48] lesson right here. In the next lesson
+[00:34:50] we're going to get started with the UI
+[00:34:52] design. And for this once again I'll
+[00:34:55] provide a prompt that will help us to
+[00:34:58] generate really nice looking UI designs.
+[00:35:01] And once we have the design then we'll
+[00:35:03] go into codex and we're going to break
+[00:35:05] it into features like first we're going
+[00:35:07] to build the authentication and then you
+[00:35:10] know let's say the database connection
+[00:35:12] so on and so forth and I'm going to get
+[00:35:14] into that in the next lesson. For now
+[00:35:17] let's just wait for this to create the
+[00:35:19] plan.
+[00:35:24] So here it says this is the entire plan.
+[00:35:26] It is trying to still write it. Once it
+[00:35:28] is done, I believe we're going to get
+[00:35:30] the plan MD file. All right. So here we
+[00:35:34] have the entire plan. You can take a
+[00:35:36] look at it. You will also have your own
+[00:35:37] plan. Here it says, do you want me to
+[00:35:40] implement this? And I say for now only
+[00:35:42] create the file later. I'll ask for
+[00:35:46] implementation.
+[00:35:48] So here turns out it can't create the
+[00:35:50] plan. MD while we are in the plan mode.
+[00:35:53] So here it says just deactivate it. If
+[00:35:55] you press this plan mode is gone. And
+[00:35:58] here I'll just say I or I'll just say do
+[00:36:02] it now.
+[00:36:04] So within the next 2 minutes it has
+[00:36:06] created the plan.md with the entire
+[00:36:09] details.
+[00:36:11] You will have the exact same thing
+[00:36:13] depending on the context that you given
+[00:36:15] to AI. Okay. So I think we can end this
+[00:36:19] section right here. But just before we
+[00:36:21] do so, what I'd like to do is committing
+[00:36:23] everything and publishing it to GitHub.
+[00:36:26] Now, I'm going to go ahead and close
+[00:36:28] this. If you wanted to, you can ask AI
+[00:36:30] to do it for you, but for the first
+[00:36:32] time, I'll just do it manually here. Uh,
+[00:36:35] first off, let's go into GitHub. If you
+[00:36:38] don't have an account, go ahead and
+[00:36:40] create one. It's completely free to get
+[00:36:42] started with. And then just press new,
+[00:36:45] create a new repository. Then you will
+[00:36:47] be on this screen. You need to give it a
+[00:36:50] name here. In my case, I think I'll go
+[00:36:52] with something like so. I think I'll go
+[00:36:55] with this name. And for now, I'm going
+[00:36:57] to make it private, but at the time that
+[00:36:59] you are watching this video, it's going
+[00:37:01] to be public and free. But for now,
+[00:37:03] we'll go with private. Yeah. Other than
+[00:37:05] this, you can leave everything as it is
+[00:37:07] and create the repository.
+[00:37:10] Now, it's going to give us a command,
+[00:37:12] which is this part. We're going to copy
+[00:37:14] it and paste it into our terminal. So
+[00:37:16] I'm going to first copy this and go into
+[00:37:19] VS code. First I'm going to stage
+[00:37:22] everything. So under this tab,
+[00:37:25] press this button where it says stage
+[00:37:27] all the changes and then let's create a
+[00:37:30] commit message by pre by pressing this
+[00:37:33] button. So AI will create the message.
+[00:37:37] Technically you can type anything but it
+[00:37:40] is just better to use this feature of
+[00:37:42] AI. And now we're going to commit this.
+[00:37:45] And let's try to publish the branch, I
+[00:37:47] would say. But first, we need to, I
+[00:37:49] think, go into our terminal, kill this,
+[00:37:54] clear this up, and then paste this in
+[00:37:56] that we just copied. Now, what this does
+[00:37:59] is basically taking all these local
+[00:38:02] changes that we have in our laptop, in
+[00:38:04] our machine, and push it to the
+[00:38:08] to the repo that we just created. So
+[00:38:11] notice how once this is done
+[00:38:13] successfully, you'll be able to reload
+[00:38:15] this and see everything
+[00:38:18] like they are literally right here.
+[00:38:21] Okay, so we had all these local changes.
+[00:38:23] They are now live on GitHub.
+[00:38:27] Okay, so I think I'm going to leave this
+[00:38:29] lesson right here. Remember this is one
+[00:38:32] of the most important steps when you're
+[00:38:34] building an application. So I think you
+[00:38:37] should spend a lot of time while
+[00:38:39] planning your application. So instead of
+[00:38:41] just jumping into coding immediately,
+[00:38:44] you should you should spend a lot of
+[00:38:45] time and talk with AI just like what we
+[00:38:49] have done in this lesson. Okay. So with
+[00:38:51] this I'm going to see you in the next
+[00:38:53] lesson where we will generate the UI
+[00:38:55] design. All right. So this is where we
+[00:38:57] left in the previous lesson. We have
+[00:38:59] planned our project. Now it is time to
+[00:39:01] get started with the UI design. Now for
+[00:39:04] this I already have bunch of different
+[00:39:06] prompts that I used that give me really
+[00:39:08] really nice looking designs and now
+[00:39:10] we're going to use a similar thing. So
+[00:39:12] here we have one design for AI trip
+[00:39:15] planner application. We have another one
+[00:39:18] for recipe app and this is the prompt
+[00:39:20] that I used to get that design. Same
+[00:39:22] thing for a dating app. Then the actual
+[00:39:25] UI design for my mobile application and
+[00:39:28] then at the end for the dental
+[00:39:30] application UI design. You can find this
+[00:39:33] link in the description. I'm going to
+[00:39:35] leave it. Um, let's scroll to the top
+[00:39:38] and basically I'm going to copy this
+[00:39:40] entire prompt. But now remember this is
+[00:39:43] for the trip planner application but we
+[00:39:46] are building for something like a social
+[00:39:48] media application. So what we'll be
+[00:39:50] doing is first copying this prompt going
+[00:39:53] into chat GPT or Gemini whatever you're
+[00:39:56] using paste the prompt and then we'll
+[00:39:59] say depending on our plan which is right
+[00:40:02] here. So copy it we'll say depending on
+[00:40:05] our plan give us a prompt like this one
+[00:40:09] and once we have the prompt we will
+[00:40:10] paste it into a new chat that will
+[00:40:13] generate the image for us. So, I'm going
+[00:40:15] to go ahead paste this in, which is my
+[00:40:18] plan.
+[00:40:20] And then here, I can say something like,
+[00:40:23] depending on the plan that I have, I
+[00:40:26] want you to generate me a prompt like
+[00:40:28] this that will generate a UI design.
+[00:40:34] Okay.
+[00:40:36] Once again, basically it's going to read
+[00:40:38] our plan and depending on the plan, it
+[00:40:40] will give us a prompt like this so that
+[00:40:43] we can go into a new chat and generate
+[00:40:46] an image. And there is a new model that
+[00:40:49] GPT just released which is image
+[00:40:53] 2.5. It looks really really nice. I
+[00:40:56] already tried this out. Um let's just
+[00:40:58] say create image. And then once we have
+[00:41:02] the prompt, I'm going to copy it and
+[00:41:04] paste it. But looks like this is trying
+[00:41:06] to generate the image. Well, not really.
+[00:41:09] It wasn't an image. So, it was a prompt
+[00:41:12] just like what we asked. So, I'm going
+[00:41:14] to go ahead copy this entire thing
+[00:41:19] like up until here. And I'm going to
+[00:41:21] paste it right here.
+[00:41:26] All right. So, after some time, this is
+[00:41:28] the end result that I got from GPT. I
+[00:41:30] think the UI itself is looking pretty
+[00:41:32] clean and crisp. But there are a couple
+[00:41:34] of different things that I didn't really
+[00:41:36] like, which is the icon. So here
+[00:41:39] instead, I'd like to have a camera icon.
+[00:41:42] And I will also say that, you know, this
+[00:41:44] is the design system. I wanted to
+[00:41:46] upscale it. Here is my prompt. You can
+[00:41:49] do a similar thing. So I said, "This is
+[00:41:51] a good start, but I want you to update
+[00:41:53] the logo from the sea letter to a camera
+[00:41:57] icon. similar to Instagram but a little
+[00:41:59] bit different. So do not copy it
+[00:42:01] exactly. Also upscale the design system
+[00:42:04] as a separate image. So I'm going to go
+[00:42:06] ahead and run this. Now once we have the
+[00:42:10] design system, we'll go into VS Code.
+[00:42:13] Let's create a folder called design. And
+[00:42:16] within this, we're going to have the
+[00:42:18] design system. We'll attach it. And we
+[00:42:21] will also have each of these screens
+[00:42:24] upscaled one by one. So this is my
+[00:42:27] workflow. Let me show you that. So we
+[00:42:29] will generate the full UI design which
+[00:42:32] is kind of like what we have done right
+[00:42:34] here. Right? And then we're going to
+[00:42:36] upscale each screen like one screen at a
+[00:42:39] time. Let's say first we will upscale
+[00:42:41] the authentication and then I don't know
+[00:42:44] like the onboarding profile so on and so
+[00:42:46] forth. And we are going to build them
+[00:42:49] one by one. I think we can start with
+[00:42:51] the authentication screen. And I believe
+[00:42:55] right here we should have the oath
+[00:42:58] screen. Let me try to zoom in. Yeah, but
+[00:43:01] like this doesn't really good. Uh this
+[00:43:04] doesn't really look that good. I think
+[00:43:06] this text is unnecessary.
+[00:43:08] But yeah, like we'll just try to follow
+[00:43:12] up with the GPT couple of more times
+[00:43:14] until we get something that we actually
+[00:43:16] like. Now, this is the thing about AI.
+[00:43:19] Most people just try to get the best
+[00:43:21] result in the first shot and if they
+[00:43:23] don't get it, they kind of like give up.
+[00:43:25] They're like AI sucks. It's not really
+[00:43:28] good. But dude, like it's just AI at the
+[00:43:31] end of the day. You need to follow up
+[00:43:32] couple of more times, give it a
+[00:43:34] reference, you know, so you can get
+[00:43:37] something that you actually like. In
+[00:43:39] this case, I didn't really like the
+[00:43:40] authentication screen design. So I'm
+[00:43:43] going to follow up in a second. All
+[00:43:45] right. So after some time this is the
+[00:43:47] image that I got here. You can tell the
+[00:43:50] logo has been updated and then I think
+[00:43:53] we also have the design system which is
+[00:43:55] kind of like upscaled. So we can copy
+[00:43:57] this and paste it into VS code in a
+[00:44:00] second. But here I think you know as I
+[00:44:03] already told you I didn't like the
+[00:44:05] authentication UI screen. So here you
+[00:44:08] can tell this is my prompt. I just said
+[00:44:10] give me a different variation and
+[00:44:12] upscale that image. also upscale the
+[00:44:15] design system. So, for some reason,
+[00:44:17] initially I didn't see this one. Um, but
+[00:44:20] yeah, I'm going to go ahead and copy
+[00:44:22] this image
+[00:44:24] and I'll paste it right here and let's
+[00:44:27] just say design system reference.
+[00:44:32] Now, the reason that we generated this
+[00:44:34] and also the entire design is because
+[00:44:38] like our AI agent can take a look at it
+[00:44:41] and see all the components, all the
+[00:44:43] colors like fonts, literally everything
+[00:44:46] that it needs because here it's going to
+[00:44:48] be harder to find it and it doesn't
+[00:44:50] really include everything. And now I'm
+[00:44:53] going to copy this image as well. Let's
+[00:44:55] go into VS Code. I'm going to paste it
+[00:44:57] right here. And let's say this is the
+[00:45:00] oath screen design or you can just say
+[00:45:05] reference as well. This is what I
+[00:45:06] usually like to call it. Now with this
+[00:45:09] we can literally go ahead and ask AI to
+[00:45:12] build this design. And for this again I
+[00:45:15] have a kind of like a special loop that
+[00:45:17] I'm going to show you in the incoming
+[00:45:19] minutes. But for now that's the
+[00:45:21] authentication screen. After
+[00:45:23] authentication what we can create. Let's
+[00:45:25] take a look at it.
+[00:45:29] um we can create the profile screen or
+[00:45:32] the home screen, but for now I'm just
+[00:45:34] going to copy this entire image. So I
+[00:45:37] was just saying that I'm going to copy
+[00:45:38] this image and I'll go into VS Code
+[00:45:41] right here. I'm going to paste this and
+[00:45:43] I'll say the design reference or let's
+[00:45:46] just say app design reference. Okay,
+[00:45:51] now this is the entire design, right?
+[00:45:53] This is the design system and this is
+[00:45:56] the authentication screen. Anytime that
+[00:45:58] we want to build one screen at a time,
+[00:46:01] we'll be using you know this kind of
+[00:46:04] images. We are going to upscale every
+[00:46:06] single screen. Now you might be asking
+[00:46:08] how can we get this demo image so that
+[00:46:10] we can use it in the authentication
+[00:46:12] screen. Well that's a nice question.
+[00:46:14] What I'll be doing is going into GPT and
+[00:46:19] I'll say
+[00:46:22] I want you to generate me the demo image
+[00:46:24] that you're using in the authentication
+[00:46:27] screen.
+[00:46:31] Okay. So it's going to generate that
+[00:46:32] image so we can use it later in the
+[00:46:36] authentication screen. So I don't know
+[00:46:39] why but initially it has generated this
+[00:46:41] image which is something that I don't
+[00:46:43] really like because this is what we'd
+[00:46:45] like to use in the authentication
+[00:46:47] screen. So I took this screenshot. If
+[00:46:49] you're on Mac it's going to be command
+[00:46:51] shift control and 4. Okay. So command
+[00:46:55] control shift and 4 is going to allow
+[00:46:58] you to take the screenshot and then just
+[00:47:01] paste it right here. So I said I I meant
+[00:47:04] this one and then I also said you know
+[00:47:07] make the background to be transparent so
+[00:47:10] that it matches the white background of
+[00:47:12] the application.
+[00:47:14] Okay. So basically we don't really want
+[00:47:16] to have this background on the image.
+[00:47:19] So this is the end result that I got.
+[00:47:22] I'm just going to copy it and paste it
+[00:47:25] right here. Let's actually put it under
+[00:47:27] the assets images. Ctrl +V and let's say
+[00:47:33] oath demo image. Later in the video,
+[00:47:37] we'll be using it and I'll show you how
+[00:47:38] to attach it to the Codex chat. Okay, so
+[00:47:43] that's my design workflow in simple
+[00:47:46] terms. Now, I could have made this a lot
+[00:47:49] longer than this. I can explain every
+[00:47:51] single detail like how we can create
+[00:47:54] every single screen, how we can upscale
+[00:47:56] them, but that's really the basic gist
+[00:47:59] of it. Now, you need to do the same
+[00:48:01] thing over and over again to generate
+[00:48:04] all these images. And actually, like
+[00:48:07] later in the video, you're going to see
+[00:48:08] that we don't really need to create all
+[00:48:10] of them at some point because we're
+[00:48:13] going to have enough design references
+[00:48:15] and Cloud will be able to build the
+[00:48:17] other screens just by looking at this
+[00:48:20] image. Okay. So, with this in mind, I
+[00:48:23] think I'm going to end this section
+[00:48:24] right here. This has been like 10 minute
+[00:48:27] lesson, I believe, or something like
+[00:48:29] that. 10 to 15 minutes. I'm going to go
+[00:48:32] ahead and stage everything. We only have
+[00:48:35] some images and we're going to say get a
+[00:48:38] commit message.
+[00:48:41] Once we have the commit message, we're
+[00:48:43] going to go ahead and commit and we're
+[00:48:45] going to say sync this up. Basically,
+[00:48:47] it's going to take these local changes
+[00:48:49] and push it to our GitHub account. Let
+[00:48:52] me actually show you that.
+[00:48:56] So, it was called as Codex Graham. So,
+[00:48:59] I'm going to visit that repo. And here
+[00:49:01] you can tell we just got those changes
+[00:49:03] just now.
+[00:49:05] Okay. So with this I believe I'm going
+[00:49:08] to see you in the next lesson. All
+[00:49:10] right. So in the previous lesson we have
+[00:49:12] generated the design for authentication
+[00:49:15] screen. Now let's go ahead and see how
+[00:49:17] we can take this and convert it into
+[00:49:19] reality. So there is a loop that I
+[00:49:22] always use which is basically we ask
+[00:49:25] cloud to take a screenshot from the
+[00:49:28] simulator. Right? So let's say this is
+[00:49:30] our authentication screen. We say take a
+[00:49:33] screenshot and compare it to the end
+[00:49:35] result until they're identical. Go ahead
+[00:49:38] and do it, right? So this is like a
+[00:49:41] loop. First we say go ahead and build
+[00:49:44] the authentication screen. And here is
+[00:49:46] the workflow. Take a screenshot from the
+[00:49:49] simulator and compare it to the actual
+[00:49:51] design. And if it is identical, just
+[00:49:54] stop. If it is not, then keep going.
+[00:49:57] Right? So this is like a loop. It is
+[00:49:59] going to run a couple of times and once
+[00:50:01] it is done once it is identical we'll
+[00:50:04] just say okay um I was saying once it is
+[00:50:07] identical just move on with the next
+[00:50:09] feature or the next screen whatever that
+[00:50:11] is okay so with this in mind let's go
+[00:50:14] ahead and talk with claude
+[00:50:16] sorry with codex in this case I'm not
+[00:50:19] using claude but you got the point here
+[00:50:22] I think I'll just open up a new chat
+[00:50:27] and here I'll just try to explain it.
+[00:50:29] All right, so I just paused the video
+[00:50:31] and explained it. You can pause the
+[00:50:33] video and read it. Basically, this is
+[00:50:35] exactly what I just explained. And I'm
+[00:50:36] going to go ahead and run this. And let
+[00:50:39] me just double check if I'm running the
+[00:50:41] application. I think I don't. So, I'm
+[00:50:44] just going to say MPX Expo.
+[00:50:49] And I'll press R or you should press I
+[00:50:52] if it is not running in the simulator.
+[00:50:55] Now, it is right here as you can tell.
+[00:50:57] Now while this is trying to build it, we
+[00:50:59] can create the we can create the clerk
+[00:51:02] application. So clerk is going to be the
+[00:51:05] authentication service that we'll be
+[00:51:07] using. It is completely free to get
+[00:51:09] started with and you don't really need
+[00:51:10] to pay anything like you don't even need
+[00:51:13] to put in your credit card information.
+[00:51:16] So just go ahead and create an account
+[00:51:18] and then right here you can create a new
+[00:51:20] application. In my case I have bunch of
+[00:51:23] different apps but let's let's start
+[00:51:25] from scratch. Let's give it a name. I'll
+[00:51:27] just say Codex Creme. You can call this
+[00:51:30] anything. And then just add the sign-in
+[00:51:32] options that you would like to have. In
+[00:51:34] my case, I'm going to disable the email,
+[00:51:37] but I'll just have Google as well as
+[00:51:39] Apple. Now, one thing that I want to
+[00:51:41] mention, if you include like if you
+[00:51:44] include something like Google
+[00:51:46] authentication, then you have to have
+[00:51:48] Apple authentication as well, right? So
+[00:51:51] basically Apple tells you that if you
+[00:51:54] include any other social integrations
+[00:51:57] for the authentication then you have to
+[00:51:59] have Apple as well otherwise your
+[00:52:02] application will be rejected and we'll
+[00:52:04] go ahead and activate both of them in
+[00:52:06] clerk dashboard and we'll say create the
+[00:52:09] application.
+[00:52:12] Okay, so here they have bunch of
+[00:52:14] different SDKs lit literally for
+[00:52:16] everything. But in our case, we're going
+[00:52:18] to get the expo SDK. Now you can copy
+[00:52:22] the prompt and just let AI to set this
+[00:52:25] up. And this is actually what I'll be
+[00:52:27] doing. But if you would like to see the
+[00:52:29] entire manual setup, then just press
+[00:52:31] here. Then you can go through it. What
+[00:52:34] I'll be doing is just getting the
+[00:52:36] environment variable. So I'm going to
+[00:52:37] copy it and I'm going to go right here.
+[00:52:41] create the env file
+[00:52:46] and I'll just paste this in. So we have
+[00:52:48] a publishable key. Basically with this
+[00:52:51] key we can connect to this application
+[00:52:55] that we just created. You can think of
+[00:52:57] it in that way. And I think I'm going to
+[00:53:00] copy this prompt. But I'd like to
+[00:53:02] implement authentication a bit later in
+[00:53:04] the video. For now let's just set up the
+[00:53:07] UI design. and I'll just be right back
+[00:53:09] once this is completed. All right, so
+[00:53:11] after around 4 minutes, we got the end
+[00:53:14] result. I think this is looking pretty
+[00:53:16] similar to the design that we attached.
+[00:53:19] Let me just actually find it.
+[00:53:23] Okay, so it is almost identical. Like we
+[00:53:26] have the three dots which is right here,
+[00:53:28] icon, logo, um literally everything.
+[00:53:33] What I'd like to get rid of is maybe
+[00:53:35] this text. I think it is just
+[00:53:38] unnecessary. So I can search for it and
+[00:53:40] delete it myself.
+[00:53:43] A social app trusted testers. So let's
+[00:53:47] find it.
+[00:53:52] And I'll just delete this text. I think
+[00:53:54] it is unnecessary.
+[00:53:56] But other than this, I think this looks
+[00:53:58] pretty clean, especially for the version
+[00:54:01] one. Maybe later at some point we can
+[00:54:04] update it. Um, but yeah, for now I'll
+[00:54:07] just leave it as it is. Now, let's go
+[00:54:09] ahead and get this prompt. I'm going to
+[00:54:12] copy it and then I'll paste it right
+[00:54:14] here. And I'll say implement. So, I just
+[00:54:19] said implement authentication with
+[00:54:21] clerk. And here's the entire
+[00:54:22] documentation.
+[00:54:25] And again, I'll just be right back once
+[00:54:27] this is done because currently if you
+[00:54:29] press, nothing happens.
+[00:54:31] But now Codex will implement it and it
+[00:54:35] should work out. All right. So here you
+[00:54:37] can tell it has built it and now it's
+[00:54:39] even using my computer and testing out
+[00:54:42] by itself. Like this is Codex. It has
+[00:54:45] clicked to it and now I think it's going
+[00:54:47] to go ahead and say continue or cancel.
+[00:54:51] Like it's literally testing this out.
+[00:54:54] Now, what I'll be doing is basically
+[00:54:56] just stopping this process because I
+[00:54:58] believe it is already implemented
+[00:55:00] successfully. I'll just go ahead and
+[00:55:02] test this out. So, I'm going to press
+[00:55:04] this button and let's say continue. I
+[00:55:06] already have an account that I signed in
+[00:55:08] in the past. Um, like what is going on?
+[00:55:11] Let's just say cancel. And
+[00:55:15] wait, I think I'm just going to close
+[00:55:17] this first. And okay, so I believe like
+[00:55:21] here you can tell we got the Codex
+[00:55:23] Graham and this is the development
+[00:55:26] build. This is something that I have
+[00:55:28] briefly mentioned in the past but I
+[00:55:30] never told you how we can get this. So I
+[00:55:33] think you know as you can tell Codex has
+[00:55:35] already got the development build but
+[00:55:38] let's say you don't really know how to
+[00:55:40] do it. I'll try to explain pretty
+[00:55:42] quickly. So first off there is something
+[00:55:44] called expo dev client. This is a
+[00:55:46] package that you can take a look at it
+[00:55:48] or a module.
+[00:55:50] You would copy this, okay, and paste it
+[00:55:53] into your terminal. MPX expo install
+[00:55:57] expo client. Once you have this, you
+[00:55:59] would go into your terminal and let's
+[00:56:01] say you would just open up a new
+[00:56:05] terminal. Okay? And then you would say
+[00:56:06] mpx expo run iOS or Android if you're
+[00:56:11] building it for Android. So in my case,
+[00:56:14] it's going to be iOS. And looks like
+[00:56:16] Codex has already run it. If you take a
+[00:56:18] look at it right here, I have an iOS
+[00:56:22] folder, right? If you run it with
+[00:56:24] Android,
+[00:56:26] then you would have the Android folder
+[00:56:28] as well.
+[00:56:30] And what this is basically this is the
+[00:56:33] entire application, right? But it is
+[00:56:36] built under the iOS folder. So this is a
+[00:56:39] development build. Now we can see it is
+[00:56:41] right here. Okay? So it is much more
+[00:56:43] than this but we can keep it like this
+[00:56:45] to explain it simply.
+[00:56:48] Okay. So from here on out whenever I
+[00:56:51] want to run my application I'll just run
+[00:56:53] it from here. I'm not going to go ahead
+[00:56:55] and open up the XOGO application because
+[00:56:58] as I said that's that was for testing
+[00:57:00] purposes for small applications.
+[00:57:04] Okay. I hope that this makes sense. Now,
+[00:57:06] we'll go ahead and just say continue
+[00:57:10] with Google.
+[00:57:12] And before I say continue, if you press
+[00:57:15] Ctrl D, you're going to get the
+[00:57:17] developer developer tools. And here you
+[00:57:20] can toggle the tools button, which is
+[00:57:23] this one. This is just for development
+[00:57:26] purposes. You will not see this if you
+[00:57:28] publish your app to the app store. Okay.
+[00:57:31] So, here you can toggle the state. You
+[00:57:33] can have the fast refresh, reload, go
+[00:57:36] home, basically everything.
+[00:57:39] And now we'll just say continue with
+[00:57:40] Google and we'll test out if the
+[00:57:42] authentication will work.
+[00:57:47] So this takes some time, but
+[00:57:50] I don't know why. I'll try to control D
+[00:57:53] and reload.
+[00:58:02] Okay,
+[00:58:03] now we'll try to sign up
+[00:58:06] because if you currently take a look at
+[00:58:08] it under the users, we don't really have
+[00:58:10] any account. Oh, I think we have and I
+[00:58:13] believe that's because Codex has test
+[00:58:16] this out in the background. Um, but
+[00:58:19] yeah, right here now we just logged in.
+[00:58:22] We can sign out as well and we'll be
+[00:58:25] right here. Okay, so that's the
+[00:58:28] authentication. It is implemented in
+[00:58:30] simple terms. You can also test out with
+[00:58:32] Apple, but since Google is working like
+[00:58:35] this is also working 100%, but I'm just
+[00:58:38] not going to test this out. Um, with
+[00:58:40] this, what I have done off camera is
+[00:58:43] that I went into GPT into the same chat
+[00:58:46] history. This is where we left. I said
+[00:58:49] upscale the home screen, profile, and
+[00:58:51] chat screens. generate each of them as a
+[00:58:55] separate image. So, we have the chat
+[00:58:57] screen, we have the home, and we have
+[00:59:00] the profile screen. So, I'm going to
+[00:59:02] copy every single one of these images
+[00:59:05] and go into VS Code. Let's maximize the
+[00:59:08] screen
+[00:59:10] under the design. I'm going to paste.
+[00:59:13] Oops. I'm going to paste this one.
+[00:59:17] Let's call this as home screen
+[00:59:20] reference.
+[00:59:21] And let's go into GPT. Basically, I'll
+[00:59:24] do the same thing for the other screens.
+[00:59:30] This is going to be chat screen
+[00:59:33] reference. And then finally, I believe
+[00:59:36] the profile screen.
+[00:59:47] Okay. Now the other thing that I have
+[00:59:50] done is basically generating more
+[00:59:52] screen. I said upscale the explore
+[00:59:55] screen which is this one. Um it is this
+[00:59:58] one. Then I said the edit profile sheet
+[01:00:01] comment sheet and I said generate every
+[01:00:04] single one of them as a separate image.
+[01:00:08] So here you can tell we have the
+[01:00:09] comments. So these are needed for GPT or
+[01:00:14] CEX to copy it. So, what you would like
+[01:00:17] to do is copying them and pasting it
+[01:00:19] right here.
+[01:00:21] I'll say explore screen
+[01:00:26] reference. Now, I'm going to get the
+[01:00:28] other images as well, but here I think
+[01:00:31] I'd like to go into Codex and I'll say
+[01:00:34] just like in the authentication screen,
+[01:00:37] I want you to build the home screen
+[01:00:39] where we have that loop. Right? So, I'll
+[01:00:41] try to explain it.
+[01:00:44] Let me show you that pretty quickly.
+[01:00:46] Okay. So, I'll just say put yourself
+[01:00:48] into this loop once again and build the
+[01:00:51] home screen. For now, we don't have a
+[01:00:53] database. We don't have any data. So,
+[01:00:55] I'll just say create some test or some
+[01:00:58] fake data just like one of these and
+[01:01:01] build the UI. So, I just pause the video
+[01:01:04] and get my prompt. And here, if you
+[01:01:06] wanted to reference an image, which is
+[01:01:09] home screen, you can just say add and
+[01:01:11] then add the file name. So that's going
+[01:01:14] to be home screen rev.png.
+[01:01:17] I'll go ahead and run this. Once this is
+[01:01:19] done, I'll just be right back. So
+[01:01:21] currently it has built and it is still
+[01:01:24] within that loop. Like it's literally
+[01:01:26] trying to compare it to the end result
+[01:01:28] and trying to fix the issues. And
+[01:01:31] currently I can see like there is one
+[01:01:33] issue right here. Um, it should fix that
+[01:01:36] kind of like overflow. It should look
+[01:01:38] like this. Um, so yeah, I'll just wait
+[01:01:41] for this to be completed. Once it is
+[01:01:43] done, I'll just be right back. But this
+[01:01:46] looks identical. Like literally the
+[01:01:48] exact same end result. All right, so GPT
+[01:01:51] is done with it, but still there are
+[01:01:53] some issues that it didn't really fix,
+[01:01:55] which is something that you shouldn't
+[01:01:57] really get mad at because it is AI at
+[01:01:59] the end of the day. You should take the
+[01:02:01] screenshots and follow up. This is what
+[01:02:03] I do. Like I would literally take a
+[01:02:05] screenshot and then paste it right here.
+[01:02:08] And instead of um adding couple of
+[01:02:11] updates or a couple of fixes in one
+[01:02:14] prompt, what I do is asking for one fix
+[01:02:17] at a time. So here I just took the
+[01:02:20] screenshot and I'll say fix this
+[01:02:22] overflow.
+[01:02:27] Okay. So once this is done and then I'll
+[01:02:29] follow up. I'll say um use the native
+[01:02:33] tabs for these tabs, right? Once again,
+[01:02:36] native tabs are something that we have
+[01:02:39] in expo. You can double check this will
+[01:02:41] give us the iOS liquid glass effect.
+[01:02:46] If you wanted to, you can copy the
+[01:02:47] entire page as markdown. This will get,
+[01:02:50] you know, the entire page as a
+[01:02:52] documentation
+[01:02:55] and you can paste it right here.
+[01:02:56] Actually, this is what I'll be doing.
+[01:02:58] I'll say
+[01:03:00] let's say something like convert tabs to
+[01:03:04] native tabs. And here is the
+[01:03:09] entire documentation and then you would
+[01:03:12] paste this. Now I'm going to run this
+[01:03:14] but let's first wait for this to be
+[01:03:16] completed and I think it is already
+[01:03:18] done.
+[01:03:20] Now you know GPD is trying to use my
+[01:03:23] simulator and test this out. Okay. So
+[01:03:27] here you can tell I think here we don't
+[01:03:30] really have an overflow but the image is
+[01:03:32] not really
+[01:03:34] like can you see the image has the black
+[01:03:37] background which is something that we
+[01:03:39] can fix. This is some hardcoded test
+[01:03:42] data anyways. Okay. So I'll go ahead and
+[01:03:45] run this now. In a couple of minutes the
+[01:03:48] tabs should be converted to native tabs.
+[01:03:51] All right. So after 5 minutes it was
+[01:03:53] able to build the native tabs. As you
+[01:03:55] can tell, it is looking really really
+[01:03:57] clean compared to the previous version.
+[01:04:00] Now, there was kind of like an issue
+[01:04:02] here. You can tell the background was
+[01:04:04] kind of like gray, but now it is
+[01:04:06] transparent. That's because I asked it.
+[01:04:09] So, here I took the screenshot and I
+[01:04:11] said native tabs looks as I wanted, but
+[01:04:15] remove the gray background. So, the rest
+[01:04:17] of the application is visible. Right?
+[01:04:20] Previously, here I had some gray
+[01:04:22] background here. you can tell. Um, but
+[01:04:26] now we don't really have it. As you can
+[01:04:28] tell, it just fixed it under 1 minute.
+[01:04:31] So, with this, I hope you are able to
+[01:04:33] see my workflow. Now, in the exact same
+[01:04:35] way, I'll go ahead and build the profile
+[01:04:37] screen, you know, explore screen and
+[01:04:39] even the messages screen. Here, I think
+[01:04:42] I added couple of more images of camera.
+[01:04:45] So, we had the profile home. I have
+[01:04:49] added the edit profile reference, right?
+[01:04:52] this screen. I have added the comment
+[01:04:55] screen as well and I believe the chat
+[01:04:57] screen. Okay, so these are some of the
+[01:05:00] screens that I I have added off camera.
+[01:05:03] Other than this, I haven't updated
+[01:05:04] anything in the codebase. Now I'll go
+[01:05:07] ahead and just say now do the exact same
+[01:05:10] thing for the profile screen. Once it is
+[01:05:12] done, I'll just be right back. So just
+[01:05:14] for the record, here is my prompt. I
+[01:05:17] said now build the profile screen. use
+[01:05:19] that loop and here is the reference
+[01:05:21] image that I just attached.
+[01:05:24] All right, so in 6 minutes it was able
+[01:05:27] to build and test that out. This is the
+[01:05:29] profile screen. Now I just said build
+[01:05:32] the edit profile and here is the
+[01:05:34] reference image. So I'm going to run
+[01:05:35] this once it is done. I'll be right
+[01:05:37] back. Now you might be asking why don't
+[01:05:40] we implement anything now. Well, that's
+[01:05:42] because I think it's always better to
+[01:05:44] have the entire the entire UI design and
+[01:05:48] then it's going to be really easy to
+[01:05:50] replace everything with the actual data.
+[01:05:53] For now, like this is my workflow. I'm
+[01:05:55] trying to get the UI design as much as
+[01:05:58] possible. And once I wanted to implement
+[01:06:01] the actual back end, all I need to do is
+[01:06:04] just replacing this data with the actual
+[01:06:07] data. Okay, so we're going to set up
+[01:06:09] convex in the incoming sections. But for
+[01:06:12] now, let's just go ahead and build most
+[01:06:14] of the UI design. All right, so after
+[01:06:17] some time, here we go. It's also been
+[01:06:18] built. But I think having the sign out
+[01:06:21] here doesn't make any sense. That's what
+[01:06:23] we have in our UI design. So I cannot
+[01:06:25] really blame Codex. But I'll just say
+[01:06:28] delete the sign up button from here.
+[01:06:30] Maybe we should have it under the
+[01:06:32] settings. So basically when we press
+[01:06:34] this button there should be some kind of
+[01:06:37] setting screen and I'm going to get into
+[01:06:39] that and I'm going to get into that a
+[01:06:41] little bit later in the video. So for
+[01:06:43] now I'll just say delete the sign up
+[01:06:46] button from edit profile screen.
+[01:06:52] And also what I'll be doing is taking a
+[01:06:55] screenshot from right here. I'll just
+[01:06:58] say replace the three dots with a
+[01:07:02] settings icon. Later we will build that
+[01:07:06] page.
+[01:07:11] Okay. Now it says I have removed the
+[01:07:13] sign up button. Yes, it is not here. And
+[01:07:16] now we should update this part as well.
+[01:07:19] Now while it is trying to update it,
+[01:07:21] let's go ahead and say build the explore
+[01:07:24] page. We already have something here but
+[01:07:27] it is not the design like this is
+[01:07:30] something Codex generated for fun in the
+[01:07:33] past. Um basically I would like to get
+[01:07:36] this one.
+[01:07:39] So I'm just going to reference this.
+[01:07:41] Let's say explore screen reference.
+[01:07:45] Let's say build the explore screen.
+[01:07:51] And here you can tell this has been
+[01:07:52] updated to settings and we will
+[01:07:55] implement it a bit later in the video.
+[01:07:57] All right. So after some time the
+[01:07:59] explore screen is ready. Here you can
+[01:08:01] tell we're going to replace them with
+[01:08:03] the actual data a bit later in the
+[01:08:05] video. And after explore screen I just
+[01:08:08] added the chat screen reference. And
+[01:08:10] when I said build the screen as well. So
+[01:08:13] we have a fake account or a chat. If we
+[01:08:16] press that, we have the actual details
+[01:08:19] where we can send the message. This is
+[01:08:21] something again we're going to get into
+[01:08:23] the details and the implementation a bit
+[01:08:26] later in the video. But with this, I
+[01:08:28] think we can leave this section right
+[01:08:31] here where we built the entire UI design
+[01:08:34] from the authentication screen to the
+[01:08:36] profile and basically everything that we
+[01:08:39] we would need for the version one.
+[01:08:43] Now just before I commit my changes and
+[01:08:45] end this section there is one thing that
+[01:08:47] I want to talk about. Let's go into the
+[01:08:49] workflow that we had so far. So we have
+[01:08:51] built our plan. We have generated the UI
+[01:08:54] design. We break it into features like
+[01:08:57] authentication and UI design. So far we
+[01:08:59] have only built these right. So you're
+[01:09:02] going to build one feature at a time.
+[01:09:04] That's what we have done. We built the
+[01:09:06] authentication screen and then we have
+[01:09:09] built the rest of the page. um sorry
+[01:09:11] rest of the design we did like a selfch
+[01:09:14] check we manually tested most of the
+[01:09:16] things if they're working or not and it
+[01:09:19] turns out everything has passed but now
+[01:09:21] we need to run an AI code review this is
+[01:09:24] at least what I do as a part of my
+[01:09:26] workflow because it looks like
+[01:09:29] everything is working but in my codebase
+[01:09:31] there could be a lot of different
+[01:09:32] security issues that I cannot really
+[01:09:34] see. So for that reason I want to have
+[01:09:37] an AI that can you know like scan my
+[01:09:41] entire codebase and see if I have any
+[01:09:44] issues or if I'm not following any
+[01:09:46] conventions so on and so forth. Now for
+[01:09:49] this there are bunch of different tools
+[01:09:51] and one of the free tools that you can
+[01:09:52] get started with is going to be code
+[01:09:55] rabbit. It's completely free to sign up
+[01:09:57] and you'll get like 2 weeks of free
+[01:09:59] trial and I already have an account. So
+[01:10:02] just go ahead and log in with your
+[01:10:04] GitHub account. Then you would like to
+[01:10:06] visit u this section where you have
+[01:10:09] repositories. So once you're here, you
+[01:10:11] can go ahead and add your repositories
+[01:10:13] manually or you can sync all of them at
+[01:10:16] once. This is what I have done. I
+[01:10:18] basically have all my repositories in
+[01:10:20] the code rabbit dashboard. Now anytime
+[01:10:23] you would like to use code rabbit for
+[01:10:25] the AI code review, you need to send a
+[01:10:27] pull request or you can do like on the
+[01:10:30] main branch as well. But I'd like to
+[01:10:32] create separate branches. And if you
+[01:10:34] don't know what that means, let me try
+[01:10:36] to explain pretty quickly.
+[01:10:39] So just imagine this is the timeline,
+[01:10:41] right? And you're building features
+[01:10:43] every single next day. Okay? So today
+[01:10:46] you started with the authentication.
+[01:10:48] Next you added the UI design. Next you
+[01:10:51] add the you know messaging feature. And
+[01:10:54] now you would like to add the video
+[01:10:56] calling feature, right? But you don't
+[01:10:58] really know if it is going to break or
+[01:11:00] if your teammates will accept it or not.
+[01:11:03] So you say instead of me updating the
+[01:11:05] code directly, right? Instead of me
+[01:11:07] updating the actual branch, let me go
+[01:11:10] ahead and create a testing branch,
+[01:11:12] right? And then here I'll add some
+[01:11:14] changes like I'm going to add the audio
+[01:11:15] calling and then video calling and then
+[01:11:18] you're going to commit them. Now let's
+[01:11:20] say you like the actual end result then
+[01:11:23] you can send a pull request and you can
+[01:11:25] say if you're working with your
+[01:11:26] teammates you can say something like
+[01:11:28] here I have built the video calling
+[01:11:31] feature can you please accept my request
+[01:11:34] and if they accept it now your changes
+[01:11:36] will be added into the actual actual
+[01:11:39] branch which is what we call either main
+[01:11:42] or master.
+[01:11:46] Now, let's say your team actually like
+[01:11:48] this feature, they can accept it and
+[01:11:50] then later at some point you can delete
+[01:11:52] this branch and like you don't really
+[01:11:54] need it anymore and your changes are
+[01:11:57] right here. Or let's say they didn't
+[01:11:59] really like it. They say this is
+[01:12:01] breaking our code or I don't know we
+[01:12:03] don't want to have video calling feature
+[01:12:05] something like that. They're going to
+[01:12:06] reject your pull request and then you
+[01:12:08] can basically go ahead and you know
+[01:12:10] delete this branch as if nothing has
+[01:12:12] happened. All right, so that's the
+[01:12:14] general idea behind it. If you're a
+[01:12:16] beginner, like if you have never seen
+[01:12:18] this before, it might feel a little bit
+[01:12:20] abstract, but like that's the general
+[01:12:22] idea behind it. You create separate
+[01:12:25] branches, right? And you can add more
+[01:12:27] features, then at some point just take
+[01:12:29] it back or push it to the main branch.
+[01:12:33] So just imagine like you are 10
+[01:12:35] different people in a project. Everyone
+[01:12:38] can create their own branches and work
+[01:12:40] on different features, right? eventually
+[01:12:43] everything will be merged to the main
+[01:12:46] branch. Okay, so I hope that's not
+[01:12:48] really confusing. Now let's go into VS
+[01:12:51] Code and see how we can create a
+[01:12:53] separate branch and commit our changes.
+[01:12:56] So first off, I'll maximize the screen
+[01:12:58] and I'm going to press command shiftp or
+[01:13:01] if you're on Windows that's going to be
+[01:13:03] control shiftp. Then here you can say
+[01:13:06] toggle status bar visibility
+[01:13:08] from right here. I think excuse
+[01:13:11] [clears throat] me I'm going to select
+[01:13:14] create new branch by default I'm on
+[01:13:16] master as you can tell in your case this
+[01:13:18] might be main which is fine it is the
+[01:13:20] same thing um just go ahead and say
+[01:13:23] create a new branch and then let's give
+[01:13:25] it a name I'll just say oath and let's
+[01:13:28] say UI design
+[01:13:31] all right so currently we created this
+[01:13:33] branch right now let's try to commit our
+[01:13:35] changes
+[01:13:37] so you'll go right here scroll to the
+[01:13:40] top
+[01:13:41] stage everything by pressing this
+[01:13:44] button.
+[01:13:45] Let's get a commit message.
+[01:13:48] So that's the message AI generated for
+[01:13:50] me. I'll go ahead and commit this. Okay.
+[01:13:53] And then we'll say publish this branch.
+[01:13:55] Now if you go and take a look at your
+[01:13:57] source code
+[01:14:00] like just go ahead and reload.
+[01:14:06] So this is still taking some time. Uh
+[01:14:08] now we should have this new branch right
+[01:14:12] it is right here for 4 4 seconds ago.
+[01:14:14] I'll go ahead and say create a pull
+[01:14:16] request. Now if you scroll to the bottom
+[01:14:19] you'll be able to see how many lines of
+[01:14:22] changes you have. You know like this is
+[01:14:24] the amount of new additions and these
+[01:14:26] are the deletions. And then you can
+[01:14:28] scroll and see every single change that
+[01:14:30] you have. Now instead of so instead of
+[01:14:32] reviewing them manually, we'll just let
+[01:14:34] AI to scan every single line and tell us
+[01:14:37] what are the things that we can fix.
+[01:14:39] I'll just say create the pull request.
+[01:14:42] If you have set it up this correctly,
+[01:14:45] right, you should be able to get a code
+[01:14:48] review in a couple of minutes. All
+[01:14:50] right, so initially this is what you're
+[01:14:51] going to see and it's going to take
+[01:14:53] couple of minutes. Once it is done, um
+[01:14:55] you'll get the feedback from code
+[01:14:58] rebbit. And once it is done, I'll just
+[01:15:00] be right back. All right. So after 10
+[01:15:02] minutes, the code review is ready. Now
+[01:15:05] we can scroll to the bottom and see
+[01:15:07] every single suggestions that we have.
+[01:15:09] So since we didn't really implemented
+[01:15:11] anything important in our code other
+[01:15:13] than UI design, we don't really have
+[01:15:16] that big of issues. But here you can
+[01:15:19] tell we have a minor suggestion and then
+[01:15:23] another one. Yeah, I think currently we
+[01:15:25] only have two. And if you want to fix
+[01:15:27] them, you can obviously copy the prompt
+[01:15:30] and paste it to AI. And you can also
+[01:15:32] like see the problem why this is a
+[01:15:35] suggestion like what code rabbit thinks
+[01:15:38] and how can you fix them. Right now just
+[01:15:41] imagine you have a 10 different
+[01:15:43] suggestions. you don't really want to
+[01:15:45] copy every single one of them one by
+[01:15:47] one. So you can scroll to the top and
+[01:15:50] you can just get the prompt for all
+[01:15:52] review comments for AI agents. Right? So
+[01:15:55] I'm going to copy this and let's go back
+[01:15:57] into VS Code
+[01:16:01] and like right here I'll paste my
+[01:16:04] prompt.
+[01:16:07] So this will go ahead and fix those
+[01:16:09] issues. And once it is done, we can add
+[01:16:13] another commit and then you know send it
+[01:16:16] as a pull request once again. So
+[01:16:19] currently we are right here. So we
+[01:16:21] created our commit, we sent the pull
+[01:16:23] request, right? And before we say merge
+[01:16:26] the pull request.
+[01:16:29] Um we would like to run these fixes.
+[01:16:33] So here you can tell within the next 1
+[01:16:35] minute everything has been fixed. Let's
+[01:16:37] go ahead and stage these and we're going
+[01:16:40] to create a new commit. You don't really
+[01:16:42] need to create a new pull request. So
+[01:16:45] I'll just say sync the changes.
+[01:16:48] If you scroll to the top now you're
+[01:16:50] going to have that we'll have the two
+[01:16:52] commits. Initially we had one. It just
+[01:16:55] reloaded by itself. Now we can scroll to
+[01:16:58] the bottom and just say you know merge
+[01:17:00] this pull request. Now, code rabbit will
+[01:17:03] try to give you another review because
+[01:17:05] you just had a new commit, but we don't
+[01:17:08] really need to wait for it because these
+[01:17:11] were the suggestions that came from code
+[01:17:13] rabbit.
+[01:17:16] Okay. So, I'll go ahead and confirm the
+[01:17:18] merge. Basically, we say yes, we are
+[01:17:20] accepting this. Now, your changes will
+[01:17:22] be on the master branch. Okay. I'll try
+[01:17:26] to visualize it and show you every
+[01:17:28] single step. creating the branch, adding
+[01:17:31] the commit, sending the pull request,
+[01:17:33] and merging it. Now, with this,
+[01:17:36] everything is done. You can go back to
+[01:17:38] your master branch. Just select this one
+[01:17:42] and then press this button. Right, we're
+[01:17:44] just going to sync this up. Oh, wait. We
+[01:17:48] have a MV change. How come?
+[01:17:53] Wait, what's the change here?
+[01:18:00] I think we have the secret key. This is
+[01:18:03] something that Codex added behind the
+[01:18:06] scenes. It's not really that important
+[01:18:08] for now. Just go ahead and press this
+[01:18:09] button. You probably don't have this. I
+[01:18:13] don't know. Uh just go ahead press this
+[01:18:14] button and this is going to sync it up.
+[01:18:17] Basically, it'll get the latest changes
+[01:18:19] and update your codebase with it. All
+[01:18:22] right. So, this is where we left. Now
+[01:18:24] that we have most of the UI design
+[01:18:26] ready, it is time to get started with
+[01:18:28] the actual functionalities. So we should
+[01:18:30] be able to create posts, you know, like
+[01:18:33] them, comment, send messages, so on and
+[01:18:36] so forth. For this, we're going to need
+[01:18:38] a back end and basically a database. And
+[01:18:41] for this, we can use Convex, which is
+[01:18:43] completely free to get started with. You
+[01:18:46] don't really need to pay anything. Here
+[01:18:47] you can tell they have a really really
+[01:18:50] generous free plan and I already have an
+[01:18:53] account. If you don't go ahead and sign
+[01:18:56] up then log in with your GitHub account
+[01:18:58] and then you will go into VS code. Now
+[01:19:01] you can ask AI to implement it for you.
+[01:19:04] But what I'll be doing is just setting
+[01:19:06] it up setting it up by myself so that
+[01:19:09] you can see the process instead of just
+[01:19:11] you know blindly vibe coding. Okay. So
+[01:19:15] here I don't know what is happening with
+[01:19:17] the terminal UI. Okay, now it's fixed.
+[01:19:20] Now from here on out you almost always
+[01:19:23] want to have two different terminals. In
+[01:19:26] one of them you're going to run the expo
+[01:19:28] application with MPX expo and with the
+[01:19:32] other terminal you would like to run
+[01:19:35] convex. Okay, which is our back end. So
+[01:19:38] here go ahead and just type mpm install
+[01:19:41] convex first. This is going to install
+[01:19:43] the package and then we are going to run
+[01:19:46] mpx convex def. So just wait for it.
+[01:19:54] This will install the package.
+[01:20:00] Okay. So this is taking a bit longer
+[01:20:02] than it should. While this is
+[01:20:04] installing, I have done something in the
+[01:20:06] background which is basically generating
+[01:20:09] a different logo. And because I didn't
+[01:20:12] really like this one, so I went into GPT
+[01:20:15] here. I'll show you the steps. So this
+[01:20:18] is where we left, right? I I just said
+[01:20:21] generate a grid of nine of icons for
+[01:20:23] this app that I can choose from. And I
+[01:20:26] didn't really like any of them. Let's
+[01:20:28] say if I like this one, I would say
+[01:20:30] upscale the option five. But clearly I
+[01:20:34] didn't like any of them. So I just said
+[01:20:35] give me a completely different style and
+[01:20:38] vibe. again a grid of nine. From here, I
+[01:20:41] like the option six. I just said upscale
+[01:20:43] this and make it in the blue theme. This
+[01:20:46] is what it gave me. Even though it's not
+[01:20:48] the same thing, I still really like this
+[01:20:51] one. And then I just said, you know,
+[01:20:52] remove the background. So, this is one
+[01:20:55] of the other processes that I just
+[01:20:56] wanted to show you. If you want to get a
+[01:20:59] different variation of something, just
+[01:21:01] ask for a grid of nine instead of asking
+[01:21:04] nine different times. So from here,
+[01:21:06] let's say you like this one. You'll just
+[01:21:08] say upscale this for me. [snorts] So
+[01:21:10] with that in mind, you'd like to copy
+[01:21:11] this image or the logo, right?
+[01:21:15] I'll just go into my assets and I'll
+[01:21:18] just paste it. Actually, under the
+[01:21:20] images, I'll say Ctrl +V and I'll be
+[01:21:23] using it in a second. So for now, we
+[01:21:25] have the convex installed. Let's clear
+[01:21:27] this up. You'll say MPX convex
+[01:21:32] def. So initially it might ask you to
+[01:21:36] log in if you're running it for the
+[01:21:37] first time. But I have already logged in
+[01:21:40] right and um this is going to be the
+[01:21:43] next question that you're going to get
+[01:21:44] if you are logged in. Um we would like
+[01:21:47] to create a new project. So I'll just
+[01:21:49] select this one. Let's give it a name.
+[01:21:51] I'll just say codex gram. It is taking
+[01:21:54] from the folder name. So I'll just press
+[01:21:56] tab and I'll press enter. If you wanted
+[01:21:59] to you can type something else to update
+[01:22:01] this name. Uh, but I'll leave it as it
+[01:22:03] is. And we would like to deploy it on
+[01:22:05] the cloud. Just go ahead and press
+[01:22:07] enter.
+[01:22:09] And we would like to set up convex AI
+[01:22:12] files such as agents.md
+[01:22:14] and some skills. Basically, this will
+[01:22:17] teach AI how to work with convex in the
+[01:22:20] best way possible.
+[01:22:24] Okay. So this will create couple of
+[01:22:26] different files and actually most of
+[01:22:29] them will be under a folder called
+[01:22:31] convex. Okay. So our entire backend code
+[01:22:35] will be under right here right and like
+[01:22:38] we'll have schema we'll have different
+[01:22:41] mutations queries and if you don't know
+[01:22:44] what that means is basically you have
+[01:22:46] queries to fetch data like getting the
+[01:22:49] posts and to create something you would
+[01:22:52] have mutations like creating a comment
+[01:22:55] creating a post or deleting a post
+[01:22:59] deleting a comment updating things like
+[01:23:01] that. So for this AI will create some
+[01:23:05] mutations for us. Okay, I'm only
+[01:23:08] explaining this if you're just a vibe
+[01:23:10] coder and watching it up up until now.
+[01:23:13] Um I think these
+[01:23:16] these would be helpful just to know.
+[01:23:19] Okay. So with this from here on out
+[01:23:21] always have this terminal open and you
+[01:23:23] can rename it just by pressing enter or
+[01:23:26] press right say rename. I'll just say
+[01:23:29] convex. And you can rename this one as
+[01:23:31] well. You can say expo mobile, whatever
+[01:23:33] you'd like to call.
+[01:23:36] Okay. Now, with this, what I'll be doing
+[01:23:38] is going into
+[01:23:40] a new chat. First off, I'll just say use
+[01:23:43] the logo that I have right here.
+[01:23:47] So, I'm going to call this as logo.png.
+[01:23:52] And I'll just say use this logo.png png
+[01:23:56] as my brand logo in this app. We can say
+[01:24:00] something like replace the current one
+[01:24:03] with this one.
+[01:24:06] All right. So, within 50 seconds, as you
+[01:24:09] can tell, icons have been updated within
+[01:24:11] this application. Now, here I'm going to
+[01:24:14] maximize the screen and here is my
+[01:24:16] prompt. You can pause the video and read
+[01:24:19] it, but I basically say now that we have
+[01:24:21] authentication and most of the UI design
+[01:24:24] ready, just go ahead and read my plan.md
+[01:24:27] so that you know what kind of features
+[01:24:29] we want to build. And then I say just go
+[01:24:32] ahead and start implementing the post
+[01:24:34] creation, likes, comments, and follows.
+[01:24:38] And then I say, let me know if I need to
+[01:24:40] set up anything from the clerk or convex
+[01:24:43] dashboard. Okay, so this is what you
+[01:24:46] wouldd like to do at the end. Just say,
+[01:24:49] you know, like let me know if there is
+[01:24:50] anything that I need to do manually from
+[01:24:53] any of these dashboards.
+[01:24:56] And I'll run this. Let's see what we're
+[01:24:58] going to get back. So, while it is
+[01:25:01] building, I just got asked a question.
+[01:25:03] It says, is the Convex integration
+[01:25:06] enabled in your clerk dashboard? If not,
+[01:25:08] it says go under the integrations and
+[01:25:11] find the convex. So here I'll go ahead
+[01:25:14] and find my project. Go under the
+[01:25:17] configure and then you can just search
+[01:25:19] for integration. So go ahead and press
+[01:25:22] this. It is under the developers. And
+[01:25:24] then right here go ahead and turn this
+[01:25:26] on for convex.
+[01:25:29] And then go back into VS code here.
+[01:25:31] Let's say it is enabled. All right. So
+[01:25:34] after 20 minutes, looks like everything
+[01:25:36] has been implemented just like as we
+[01:25:39] requested. And it says you don't really
+[01:25:41] need to add anything, you know, like
+[01:25:44] nothing you need to do from the
+[01:25:45] dashboard. And here you can tell if you
+[01:25:48] remember, we said that user has to first
+[01:25:52] set up a username to be able to use this
+[01:25:54] application. So here it says first off,
+[01:25:57] go ahead and add a username. Here I'll
+[01:25:59] just try to put my name
+[01:26:02] and let's put the last name. I'll say
+[01:26:04] continue. It's going to create the
+[01:26:06] profile. For now, we don't really have
+[01:26:08] any data. That's why everything is
+[01:26:11] empty, right? The UI is
+[01:26:14] UI is filled in with empty state. Okay,
+[01:26:17] let's go ahead and create a post here.
+[01:26:19] I'll just try to select something from
+[01:26:21] my gallery. Um, let's go ahead and
+[01:26:24] select this one. And here I'll say
+[01:26:26] something like this weekend trip.
+[01:26:33] And let's put a three dots. I was going
+[01:26:35] to say and I'll say publish.
+[01:26:39] So here we had the indicator and looks
+[01:26:42] like this has been uploaded. We can
+[01:26:43] double check by going into our Convex
+[01:26:46] dashboard. I'll try to log in now. Once
+[01:26:49] you log in, go ahead and select the
+[01:26:51] current application and make sure you're
+[01:26:53] under the development. From here, I'll
+[01:26:55] just say files. Here you can tell we
+[01:26:57] have a file that has just been uploaded.
+[01:27:01] Now, usually you can hover over this and
+[01:27:03] see the end result.
+[01:27:05] I'll try to install it. Let's see.
+[01:27:10] Okay, here you can tell that's the image
+[01:27:12] that's been uploaded to Convex. Now,
+[01:27:15] with this I think we can also take a
+[01:27:17] look at the data. Here you can tell we
+[01:27:20] have bunch of different tables like
+[01:27:22] uploads, profiles.
+[01:27:25] This is the only user profile that we
+[01:27:27] have. Now, you might be wondering how do
+[01:27:29] we get this user right here. Right? And
+[01:27:32] I think that's because we have
+[01:27:34] configured the convex integration in
+[01:27:37] clerk. So it is like set it up already
+[01:27:40] automatically. Now let's try to test out
+[01:27:43] some more features I'm going to like.
+[01:27:46] Here we go. I'll try to add a comment.
+[01:27:49] Maybe we have a UI glitch here that we
+[01:27:52] can fix. I'll just say test comment. And
+[01:27:56] actually at the same time I'll just take
+[01:27:58] a screenshot.
+[01:28:01] go into codeex
+[01:28:05] and I'll say you fix the comment
+[01:28:08] section.
+[01:28:10] It should be
+[01:28:13] a bit more spaced out from the bottom
+[01:28:20] and then I'll try to post. Here we go.
+[01:28:23] It is right here. Now UI is not really
+[01:28:26] that great. Um, I'll try to kind of like
+[01:28:28] format it. And what I'll be doing is
+[01:28:30] actually taking a screenshot and I'll go
+[01:28:33] under GPT right here. I'll paste in and
+[01:28:38] then I'll say something like
+[01:28:41] this is the current UI that I have for
+[01:28:43] the post detail screen. I want you to
+[01:28:46] give me three different variations of
+[01:28:49] this UI. Um try to keep it simple and
+[01:28:53] make sure it is matching with the blue
+[01:28:55] color palette that we have already. Um
+[01:28:58] yeah just give me three different
+[01:29:00] variations.
+[01:29:06] So this will give me that three
+[01:29:08] variations and from from those three
+[01:29:11] images I'll try to choose one and we'll
+[01:29:14] ask Codex to implement it for us.
+[01:29:18] Okay. So in the background it's going to
+[01:29:19] go ahead and implement it. And let's
+[01:29:22] see. Okay, that has been fixed as you
+[01:29:25] can tell. In 30 seconds it is done. Now
+[01:29:28] I can tell something like delete. If you
+[01:29:32] say cancel, nothing happens obviously.
+[01:29:34] But if you delete comment should be
+[01:29:36] gone. Here you can tell everything
+[01:29:37] updates automatically. Now one thing to
+[01:29:40] mention about convex is that everything
+[01:29:43] is real time out of the box. So here
+[01:29:46] just imagine you write a comment and you
+[01:29:48] have another simulator running right
+[01:29:50] here. If they are looking right here on
+[01:29:53] this post as soon as you post like they
+[01:29:56] will see this comment on that other
+[01:29:58] simulator in real time. They don't need
+[01:30:00] to reload the application. Now one of
+[01:30:03] the other things that I'll ask Codex is
+[01:30:06] to add some seated data. If you don't
+[01:30:09] know what that means, it's basically
+[01:30:10] some hard-coded test data so that we can
+[01:30:13] see how the rest of the application look
+[01:30:16] like. So currently under the explorer,
+[01:30:18] we only have one post. But how would it
+[01:30:21] look like if we had like 20 different
+[01:30:24] posts, right? So I'm going to say add
+[01:30:26] some seated data. That would be helpful
+[01:30:30] for me to see
+[01:30:32] the rest of the app with a lot of data.
+[01:30:36] So probably this part is not really that
+[01:30:39] important but I'll just add it anyways
+[01:30:41] and let's run it. All right. So it took
+[01:30:44] around 10 minutes and here we go. We
+[01:30:46] have now 24 fictional profiles. This
+[01:30:49] amount of photos, you know, likes and
+[01:30:52] comments. If you visit the explorer,
+[01:30:53] you'll be able to see all these posts,
+[01:30:56] different accounts. And if you press
+[01:30:58] them, you're going to get the details
+[01:31:00] with likes, comments, and you can also
+[01:31:03] like or comment.
+[01:31:06] So we have the home screen. This is how
+[01:31:07] that look like. We have the profile.
+[01:31:10] We're following
+[01:31:12] this amount of accounts and sorry all
+[01:31:16] the accounts are actually following us
+[01:31:18] because this is the amount of profiles
+[01:31:20] that have been created and we are
+[01:31:22] following 12 of them. So I think that's
+[01:31:25] a really nice start and we can go ahead
+[01:31:27] and try to visit some accounts and
+[01:31:30] actually try to follow them. Notice how,
+[01:31:33] you know, UI is not the best, but we can
+[01:31:35] always follow up and put CEX into a
+[01:31:40] loop, which is something that I'll get
+[01:31:41] into in the incoming sections, but for
+[01:31:44] now, I think we can follow and unfollow.
+[01:31:49] Um, here I'll just say unfollow. I don't
+[01:31:51] know why, but it takes some time
+[01:31:55] because I think it is running on the
+[01:31:57] background. This is something that we
+[01:31:58] can make a bit faster as well.
+[01:32:02] Okay. So, with this I think with this I
+[01:32:04] think I'll just take a quick break and
+[01:32:06] then I'll just be right back.
+[01:32:09] All right. So now let's go ahead and
+[01:32:11] implement the chat messaging. Currently
+[01:32:14] everything that you see on the screen is
+[01:32:16] completely fake. Like this data is
+[01:32:18] hardcoded. So here I'll just say
+[01:32:20] implement the chat messaging and let's
+[01:32:22] go ahead and reference this screen. So
+[01:32:26] I'm going to say chat screen
+[01:32:29] ref.png.
+[01:32:30] Now when it comes to the this screen, it
+[01:32:34] doesn't really look that good. So for
+[01:32:35] this, I'll also provide some references.
+[01:32:38] Now to generate a different reference
+[01:32:40] for this screen, I took a screenshot. I
+[01:32:43] went into GPT and then I just said give
+[01:32:46] me a grid of three for this UI and then
+[01:32:49] I just said make sure that it is
+[01:32:50] matching with the rest of the design
+[01:32:52] system. So it gave me three different
+[01:32:55] variations. This is the one that I
+[01:32:57] actually like. So here I just said, you
+[01:32:59] know, upscale the variegation third.
+[01:33:03] And here we go. We have it. Now I'm
+[01:33:05] going to copy this image. Let's go ahead
+[01:33:08] and paste it right here under the
+[01:33:10] design. [sighs]
+[01:33:11] I'm going to say something like messages
+[01:33:14] tab reference.
+[01:33:19] And let's try to shrink the left hand
+[01:33:21] side. And here I'll also add the
+[01:33:25] messages tab reference. And then let's
+[01:33:29] say put yourself into a loop. So you can
+[01:33:34] pause the video and read my prompt. But
+[01:33:37] this is something that we have done
+[01:33:38] multiple times at this point. I'll go
+[01:33:40] ahead and run this and I'll just be
+[01:33:42] right back once this is done.
+[01:33:45] All right. So in my case, this took
+[01:33:47] around 17 minutes. It has actually built
+[01:33:50] it pretty quickly, but then it takes
+[01:33:51] some time to test out every single thing
+[01:33:54] just to make sure that this feature is
+[01:33:57] working as expected. Now, what you see
+[01:33:59] here is still fake data. And I asked
+[01:34:02] because when I checked the database, let
+[01:34:05] me actually display it. I didn't really
+[01:34:07] see any messages and I'm like, what is
+[01:34:09] going on? Right?
+[01:34:11] So, I just went into VS Code. I said
+[01:34:13] when we send a message does it get saved
+[01:34:16] to the database or all of this data are
+[01:34:19] still hardcoded and it says both of them
+[01:34:22] exists basically since they are like
+[01:34:25] demo accounts. What you see here is fake
+[01:34:28] data but it says if you want to actually
+[01:34:30] test this out go ahead and sign up with
+[01:34:33] a different account and everything
+[01:34:35] should be working out as expected which
+[01:34:37] is something that I'm going to test out
+[01:34:39] a bit later in the video. But for now,
+[01:34:41] there is one thing that I have done off
+[01:34:43] camera that I'd like to show you pretty
+[01:34:45] quickly.
+[01:34:47] Um, so first off, let me show you the
+[01:34:50] post detail screen. This is currently
+[01:34:52] what we have. And I didn't really like
+[01:34:55] this that much. So I went into GPT.
+[01:35:00] Let me show you that exact part. So here
+[01:35:03] I took this screenshot and I said this
+[01:35:05] is the current UI, which I don't really
+[01:35:07] like. So I said give me three different
+[01:35:09] variations and it almost gave me the
+[01:35:11] exact same thing. So what I have done is
+[01:35:14] attaching the design system and I said
+[01:35:16] give me those three different variations
+[01:35:19] depending on our UI sorry our design
+[01:35:22] system. And from here I try to upscale
+[01:35:26] the second variation which is this one.
+[01:35:30] Like this is the one that I liked most.
+[01:35:32] So here at the very end you'll see that
+[01:35:34] I said upscale this second version. So
+[01:35:38] I'm going to copy it. Go into VS code
+[01:35:40] under the design.
+[01:35:43] Paste this in. And let's call this as
+[01:35:47] post detail
+[01:35:49] ref.
+[01:35:53] And then I'll put my simulator right on
+[01:35:56] the side. And I'll just say, you know,
+[01:35:58] go ahead update the post screen just
+[01:36:01] like this one. And one thing I realized
+[01:36:03] is that I don't really want to copy
+[01:36:05] everything exactly as is because I think
+[01:36:08] this header part is looking better than
+[01:36:10] what what we have right here. So what
+[01:36:12] I'd like to do is actually copy this um
+[01:36:16] bottom part and paste it right here.
+[01:36:19] I'll say only update this part. Right.
+[01:36:22] So here I'll take the screenshot.
+[01:36:28] So here's my prompt. You can pause the
+[01:36:30] video and read it. I tried to basically
+[01:36:33] explain what I just said. And I'm going
+[01:36:35] to run this. Once this is done, I'll
+[01:36:37] just be right back. All right. So within
+[01:36:39] the next 10 minutes, it was ready here.
+[01:36:41] You can tell the actions, the comments,
+[01:36:43] almost everything is identical to what
+[01:36:46] we have right here. I'm pretty happy
+[01:36:48] with how that ended up. So I'll just not
+[01:36:51] follow up with any other improvements
+[01:36:54] when it comes to this screen if you
+[01:36:56] wanted to. You can of course do it
+[01:36:57] anytime you want. Now we can add more
+[01:37:00] features and I think I'm going to get
+[01:37:03] into that in the next sections. But for
+[01:37:06] now what I'd like to do is running this
+[01:37:09] application in my actual phone. Right?
+[01:37:11] So instead of running it only in
+[01:37:13] simulator, I'll go ahead and install
+[01:37:15] this development build in my actual
+[01:37:18] phone.
+[01:37:19] >> [snorts]
+[01:37:19] >> Now, there are two different ways of
+[01:37:21] doing it. The first one is connecting
+[01:37:24] your phone with a USB cable to your Mac,
+[01:37:27] right? And then you would run this
+[01:37:29] command. Now, I'll just open up my
+[01:37:32] terminal and let's go under the Expo
+[01:37:34] terminal. Let's clear this up. Let me
+[01:37:37] maximize the screen. You would say MPX
+[01:37:40] expo run iOS just like previously. This
+[01:37:43] is what we have done. But at the end,
+[01:37:45] you would say d- device. Now, if you
+[01:37:49] have your phone connected with USB
+[01:37:51] cable, you're going to see it right here
+[01:37:54] in one of the options. So, mine is not
+[01:37:57] connected, but since I have done it in
+[01:37:59] the past, it shows me this. And the
+[01:38:02] other way of running this is that you
+[01:38:05] would use Expo EAS. If you don't know
+[01:38:08] what that is, let's go ahead and double
+[01:38:10] check. So, I'll just say Expo EAS.
+[01:38:14] So, Expo application services. This is a
+[01:38:17] service that allows you to run a
+[01:38:20] development build in your phone. This
+[01:38:22] allows you to, you know, publish your
+[01:38:25] app to the App Store, Play Store,
+[01:38:27] literally every single service that you
+[01:38:29] can ever imagine. Now, you don't really
+[01:38:32] need to learn everything from absolute
+[01:38:34] scratch. Just go ahead and explain it to
+[01:38:37] Codex or Cloud for this current use
+[01:38:40] case, and it's going to give you all the
+[01:38:42] steps. Now, of course, I would say if
+[01:38:44] you're interested or if you are serious
+[01:38:46] about mobile development, just pause the
+[01:38:49] video and go ahead read this entire
+[01:38:51] page, take a look at the documentation,
+[01:38:54] and then come back. But if you're just
+[01:38:56] here to test things out, then you can
+[01:38:58] just go into Codex or cloud and ask for
+[01:39:02] the,
+[01:39:03] you know, the instructions. And by the
+[01:39:06] way, what you see here on the screen is
+[01:39:08] for Apple developer program. Basically,
+[01:39:11] this is something that you need to apply
+[01:39:13] if you want to publish your app to the
+[01:39:15] app store. Apple wants you to pay $99
+[01:39:18] per year for this program. And you know,
+[01:39:21] if you live outside of US with, you
+[01:39:24] know, in a country with lower local
+[01:39:27] purchase, then this price will be
+[01:39:29] discounted for you. So, I think you'll
+[01:39:31] get something in between 20 to $25
+[01:39:36] [snorts] or really, you know, it's going
+[01:39:38] to depend on the country that you live
+[01:39:40] in. So, I'm from Turkey. When I applied,
+[01:39:42] I paid something between between this
+[01:39:45] amount, but you know, if you're in a
+[01:39:47] different country, it could be even
+[01:39:49] lower than this or a bit higher than
+[01:39:52] this. So, I don't know, maybe it could
+[01:39:53] be $50 or maybe even like $10. I don't
+[01:39:57] know. Uh but this is something to keep
+[01:39:59] in mind if you actually want to publish
+[01:40:03] your app. This is something that you
+[01:40:05] have to apply and unfortunately this is
+[01:40:07] not something that I came up with. Uh
+[01:40:09] this is something that Apple wants you
+[01:40:12] to apply and pay for. Okay, just keep
+[01:40:15] this in mind. This is something that I
+[01:40:17] wanted to mention. You can always double
+[01:40:19] check just before publishing your app.
+[01:40:22] Okay, so with that said, now I'll go
+[01:40:23] into Codex. I'm going to kill this
+[01:40:25] terminal by the way. Here I'll say I'd
+[01:40:28] like to get a development build and
+[01:40:30] install it in my phone and I'll say I
+[01:40:33] want to use EAS right expo application
+[01:40:36] services. So I'll say what I need to do
+[01:40:39] give me everything step by step.
+[01:40:41] Basically you need to run a command in
+[01:40:43] your terminal. I already know what that
+[01:40:45] is but here I'll just act as if I don't
+[01:40:47] know it and I'll try to show you what
+[01:40:50] what you should do in these type of
+[01:40:52] scenarios. Okay. So here you can tell
+[01:40:55] this is my prompt. You can read it if
+[01:40:57] you're interested. I'm going to run this
+[01:40:59] and we're going to get a prompt or a
+[01:41:02] command that we can run in our terminal.
+[01:41:05] And this will create also a file called
+[01:41:08] EAS.json.
+[01:41:10] Currently, we don't really have it, but
+[01:41:12] we're going to get that. And it is like
+[01:41:14] the configuration file that EAS need.
+[01:41:19] Okay. So, I'll just wait for this to be
+[01:41:22] completed. And once again, remember
+[01:41:24] there are two different ways that we
+[01:41:25] talked about. The first one is running
+[01:41:28] this command with the device flag and
+[01:41:31] plug in your iOS to your Mac, right? And
+[01:41:36] I mean iPhone, not iOS. But you got the
+[01:41:38] point. That was the first way. The
+[01:41:40] second way is using EAS. This is what
+[01:41:42] I'll be using. And in this way, you'll
+[01:41:44] be able to see the entire process. All
+[01:41:47] right. So, here we go. We have all the
+[01:41:49] instructions. This is the things that
+[01:41:51] you would run for the very first time.
+[01:41:53] But since I have already built different
+[01:41:55] mobile applications, I already have the
+[01:41:58] device connections and you know I
+[01:42:00] already logged into EAS initialized it
+[01:42:03] etc. So what I would do is scrolling to
+[01:42:06] the bottom and then I just said give me
+[01:42:08] the command to get a development build
+[01:42:11] on the cloud. So I'm going to run this.
+[01:42:13] But once again, if you're doing it for
+[01:42:15] the very first time, you need to log in
+[01:42:17] in it and create that connection to your
+[01:42:20] device. So everything that it gives you
+[01:42:23] here will be correct. And you can always
+[01:42:25] follow up and say, you know, like I am a
+[01:42:28] complete beginner. I have never done
+[01:42:30] this before. So tell me all the steps
+[01:42:32] that I need to do. Okay?
+[01:42:36] So this is just something to keep in
+[01:42:37] mind. In my case, I want to get it for
+[01:42:40] iOS. But if you want to get it for
+[01:42:42] Android, leave everything as it is, but
+[01:42:44] update this part as Android.
+[01:42:47] Now I'll go into my terminal. I'll paste
+[01:42:50] this in.
+[01:42:52] And it'll ask me a couple of different
+[01:42:53] questions. Um, looks like this has
+[01:42:56] failed. Says invalid version. I'll just
+[01:43:00] copy this and paste it right here.
+[01:43:04] So after I just paste this to CEX, it
+[01:43:07] has given me the solution. Basically, it
+[01:43:09] has fixed the cache and then it says
+[01:43:11] rerun this. This is exactly what I have
+[01:43:14] done. I basically rerun this command.
+[01:43:17] Now, I'm going to get bunch of different
+[01:43:18] questions. You're going to get the same
+[01:43:21] questions. Just go ahead and press enter
+[01:43:23] a couple of different times until it
+[01:43:25] starts to build.
+[01:43:28] All right. So, as you can tell now, it
+[01:43:29] is uploading to the EAS. You can always
+[01:43:33] go into your actual dashboard. Let's
+[01:43:35] actually see it. I'll visit expo.dev.
+[01:43:38] dev
+[01:43:40] and here I have already logged into my
+[01:43:43] account here. You can tell these are the
+[01:43:45] previous projects that I created. Now we
+[01:43:47] just got the latest one just now and if
+[01:43:51] you press this you can see that we have
+[01:43:54] a development build that is getting
+[01:43:57] created right we are getting this build.
+[01:44:00] So once it is done we should be able to
+[01:44:02] install it to our actual phone. So in my
+[01:44:05] case it has failed which is completely
+[01:44:07] normal and here is the fix. You would go
+[01:44:10] right here and let's find the step that
+[01:44:13] it has failed for the first time. Like
+[01:44:16] it was going successfully right here. It
+[01:44:18] has failed. So I'll just press this
+[01:44:19] button which will get me the logs which
+[01:44:22] is basically the details. If you don't
+[01:44:24] know what that means, I'm going to paste
+[01:44:26] this in and I'll say like you don't need
+[01:44:29] to even say anything, but I'll just say
+[01:44:31] my dev build failed and
+[01:44:36] here are the logs. Hopefully, this
+[01:44:40] should give us a fix. Once it is fixed,
+[01:44:42] we are going to rerun this. All right,
+[01:44:45] so here we can tell that this has been
+[01:44:46] fixed. It says go ahead and rerun this
+[01:44:49] command. But I also realized that we
+[01:44:51] have a lot of different changes. Now, as
+[01:44:53] far as I know that we have to commit
+[01:44:56] these to get a EAS build, but I'll just
+[01:44:59] double check. I'll say I have
+[01:45:02] uncommitted changes. Do I have to commit
+[01:45:07] them beforehand?
+[01:45:11] Like I believe we have to commit them
+[01:45:13] because EAS would get a snapshot. Um,
+[01:45:16] but looks like it says no. Okay, so
+[01:45:20] that's fine. Maybe I'm just wrong. I'm
+[01:45:23] going I'm going to go ahead and clear
+[01:45:25] this up. I'll paste this and again I'll
+[01:45:27] press enter a couple of different times.
+[01:45:29] We're going to get a new development
+[01:45:32] build.
+[01:45:35] Like you should be able to see the new
+[01:45:37] build right here. So here you can tell
+[01:45:39] we have the build again. It is getting
+[01:45:42] built. Let's just wait if it is going to
+[01:45:44] fail or not. I'll just be right back.
+[01:45:48] All right. So after a couple of minutes,
+[01:45:50] the process will be ended successfully
+[01:45:52] and you're going to get a QR code. Now I
+[01:45:55] just scanned this in my phone and this
+[01:45:57] is what I got. Basically it has
+[01:45:59] installed the application and if you
+[01:46:01] press that you're going to get this UI.
+[01:46:03] So here you can tell we have the logo,
+[01:46:05] the name and it is trying to find the
+[01:46:08] development server. Now let's say you
+[01:46:10] are confused and you don't know how to
+[01:46:12] run the app because it doesn't run it by
+[01:46:15] default. You can just say now in my
+[01:46:17] terminal I have a QR code. How do I run
+[01:46:21] this? Like what do I do? So here are the
+[01:46:24] steps that you will do. First off scan
+[01:46:26] the QR code. It's going to install the
+[01:46:28] build and then under the settings
+[01:46:31] privacy and security you need to have
+[01:46:34] the developer mode if this is prompted.
+[01:46:36] If not it's okay. Then you need to just
+[01:46:39] go ahead and run this on your Mac. So
+[01:46:42] basically scroll right here and run this
+[01:46:44] command. Now even after running this
+[01:46:47] command if you see the exact same end
+[01:46:49] result then go ahead run the same
+[01:46:52] command with the tunnel flag. So this is
+[01:46:56] what I'll be doing.
+[01:46:59] I will run this and then at the same
+[01:47:02] time I'm just checking my phone.
+[01:47:07] So I'll open up the application.
+[01:47:11] So currently you don't see but I have my
+[01:47:13] phone. is right here. I'll try to
+[01:47:16] actually visit this app. Okay. So here
+[01:47:20] again I have the same UI but this time I
+[01:47:24] will fill this in with a value. So here
+[01:47:27] you can tell it says it should start
+[01:47:28] with HTTP and you can find it right
+[01:47:32] here. So after the URL just copy this
+[01:47:34] part okay up until the direct included.
+[01:47:39] So copy this and then go into your phone
+[01:47:42] then just paste it.
+[01:47:47] So I just pasted it. As you can tell it
+[01:47:49] is trying to build and let me open up my
+[01:47:52] camera and actually show you that.
+[01:47:59] Okay. So here you can tell I am in the
+[01:48:01] loading screen. Currently it is loading
+[01:48:03] and our application is live.
+[01:48:07] So here you can tell that's the
+[01:48:09] authentication screen. Like literally
+[01:48:12] everything is right here. I'll go ahead
+[01:48:14] and try to log in with my Google
+[01:48:16] account. Here it says continue.
+[01:48:19] And then let me just log in with one of
+[01:48:22] my accounts.
+[01:48:30] Okay. So here it says you need to put in
+[01:48:32] a username.
+[01:48:35] Let me just put something like my phone.
+[01:48:40] I'll continue. And
+[01:48:43] let's see what we're going to get. Okay,
+[01:48:46] so our feed is empty because we don't
+[01:48:48] really follow anyone. But if we go under
+[01:48:50] the explore screen here, you can tell we
+[01:48:53] have literally everything. So it is
+[01:48:55] working just like as our simulator.
+[01:48:59] I'll try to go ahead and send messages.
+[01:49:03] But first, let me try to add these
+[01:49:06] accounts.
+[01:49:08] All right. So, here in my phone, I went
+[01:49:11] under the explorer and right here, I
+[01:49:13] search for this account, which is this
+[01:49:16] one. Right. So, I'll try to follow him
+[01:49:18] now. And as soon as I press the follow,
+[01:49:21] notice how this updates automatically,
+[01:49:25] right? So, everything is working in real
+[01:49:26] time. I'll try to unfollow.
+[01:49:29] Um, I can't press. I just pressed and
+[01:49:33] notice how it's been updated. I'll try
+[01:49:35] to press again and just watch here.
+[01:49:40] It is updating in real time. Now let's
+[01:49:42] go ahead and send a message. I'll go
+[01:49:45] under the messages
+[01:49:47] in my phone. Let me just send a message
+[01:49:50] to this user. I'll say hey.
+[01:49:53] And as you can tell in real time, we
+[01:49:56] just got the message. And here I'll say
+[01:49:59] like I'm texting again. I'll say how are
+[01:50:03] you doing?
+[01:50:05] Like as soon as I send
+[01:50:08] it is right here and let's send a
+[01:50:10] message from here as well. If I send it
+[01:50:14] in real time so everything is working as
+[01:50:16] expected.
+[01:50:19] Now other than the messages everything
+[01:50:21] else is also working in real time. So
+[01:50:23] here notice how we have only one like
+[01:50:26] from my phone. and I'll try to like it
+[01:50:28] and as soon as I like notice how it is
+[01:50:30] getting updated. I'll try to add a
+[01:50:32] comment. So I'll just say hey as soon as
+[01:50:35] I post it is right here. So that's the
+[01:50:38] beauty of convex. All right. So with
+[01:50:40] this I think I'm going to leave this
+[01:50:42] lesson right here. Now we can improve
+[01:50:45] the UI a lot and this is something that
+[01:50:47] we can do in the incoming lessons and
+[01:50:50] also we can add things like privacy
+[01:50:52] policy, terms of services, a settings
+[01:50:55] screen, so on and so forth. So these are
+[01:50:57] the things that I'll leave for the
+[01:50:58] incoming sections. But for now, let's
+[01:51:00] just go ahead and commit our changes and
+[01:51:04] basically end this lesson. Now, I think
+[01:51:07] the beauty of this lesson or the key
+[01:51:09] takeaway here is that you have learned
+[01:51:12] how to get a development build and how
+[01:51:15] to install it in your actual phone.
+[01:51:18] Okay, so we'll go ahead and
+[01:51:21] even like kill everything.
+[01:51:25] I'm going to stage every single change
+[01:51:28] and I'll get a commit message. Now, if I
+[01:51:31] was building it as my real project, what
+[01:51:33] I would do is again running a code
+[01:51:36] review
+[01:51:38] just like here in our workflow by
+[01:51:40] creating a pull request. But in this
+[01:51:42] case, I'll just go ahead and commit this
+[01:51:44] on the master branch so that we don't
+[01:51:46] really waste any time.
+[01:51:50] So, I'll sync this up. And here you can
+[01:51:53] tell I have a popup from the Code Rebbit
+[01:51:55] extension, which is something that you
+[01:51:57] can get for free in VS Code. Just go
+[01:52:00] ahead and search for it which will be
+[01:52:02] code rabbit.
+[01:52:05] So you can install this and it will work
+[01:52:07] out of the box. Okay. So with this
+[01:52:11] hopefully Okay. So with this hopefully
+[01:52:13] I'll see you in the next lesson. All
+[01:52:15] right. So this is where we left off
+[01:52:17] camera. I have done some small things
+[01:52:19] and I'd like to walk you through it like
+[01:52:21] what I have implemented in the
+[01:52:23] background. So first off in the explore
+[01:52:25] screen we didn't really had this UI
+[01:52:27] previously. It was just the images only.
+[01:52:30] Now what I said is basically I give the
+[01:52:33] reference image and I said put yourself
+[01:52:35] into that loop until you know we have
+[01:52:38] the exact same end result. And we have
+[01:52:40] used this loop multiple times. So I'm
+[01:52:42] not going to explain what is going on
+[01:52:43] here. So it took around 13 minutes and
+[01:52:46] it was ready. This was oneshotted
+[01:52:49] without any issues. Now there are a
+[01:52:51] couple of different things that we need
+[01:52:52] to update such as the icon. it should
+[01:52:55] match with the, you know, the updated
+[01:52:57] icon that we have right here. And also,
+[01:52:59] when you press this, the icon changes.
+[01:53:02] This is something that we can fix a bit
+[01:53:04] later in the video.
+[01:53:06] Okay. So, other than this, I said do the
+[01:53:08] exact same thing for the home screen,
+[01:53:11] but do not change the icon here. You can
+[01:53:13] read my prompt. And I also said
+[01:53:16] implement the stories feature. And
+[01:53:18] actually it is working like I have
+[01:53:20] already test this out and I have posted
+[01:53:22] something on my story and let's actually
+[01:53:25] test it once again. Here you can press
+[01:53:27] the button and select something from
+[01:53:29] your library or you can choose it from
+[01:53:32] sorry you can take it from your camera.
+[01:53:34] So here I'll go ahead and maybe post
+[01:53:37] this one.
+[01:53:39] Now one thing I'd like to say before I
+[01:53:41] publish this in the very first version
+[01:53:44] we were able to write a caption in this
+[01:53:47] story. So I said go ahead and delete
+[01:53:49] that feature from the stories. And I
+[01:53:52] also said you know allow us to take the
+[01:53:56] photo from camera not only from library
+[01:53:59] and then I think I said in the post
+[01:54:01] creation keep the caption but also add
+[01:54:04] the camera option. Okay. So I'll go
+[01:54:06] ahead and publish this. This will take
+[01:54:09] some time but here we go. If you press
+[01:54:12] here now we have two different stories
+[01:54:15] just like in Instagram. You can go back
+[01:54:17] forward and if you press again if there
+[01:54:20] there are more stories it's going to go
+[01:54:22] to the next one. Okay. So that was the
+[01:54:25] very first thing that I have done and I
+[01:54:27] think I run one more thing which is the
+[01:54:30] profile screen. So again I just said you
+[01:54:32] know put yourself into that loop and
+[01:54:35] build the profile screen. Now here
+[01:54:38] notice I didn't say put yourself into
+[01:54:41] that loop and and the reason for that is
+[01:54:44] like every single time I don't want to
+[01:54:47] explain this entire thing. Let me show
+[01:54:49] you. So every single time I don't really
+[01:54:52] want to say put yourself into a loop
+[01:54:54] where you take a screenshot from
+[01:54:56] simulator and compare it to the
+[01:54:58] reference image and keep building until
+[01:54:59] it's identical. So like you need to
+[01:55:02] create some kind of reusable component
+[01:55:05] or a skill in this case and I'll show
+[01:55:08] you how I have generated it. So you
+[01:55:11] don't really need to type this every
+[01:55:12] single time. Okay. Now for this I'll
+[01:55:15] just go into
+[01:55:17] my like how do we call it the file
+[01:55:20] explorer and under the cloud we have
+[01:55:23] skills right under the agents we also
+[01:55:25] have skills. Now the difference between
+[01:55:27] them this one is only for cloud but this
+[01:55:30] is for literally any other thing like
+[01:55:33] codex cursor you name it for everything
+[01:55:36] but this is for only cloud now I have
+[01:55:38] added it in both of them just in case if
+[01:55:40] you're using cloud or codex uh but yeah
+[01:55:43] basically under the agents we have
+[01:55:46] skills if you scroll to the bottom I
+[01:55:49] created this file
+[01:55:51] sorry folder and then the file called
+[01:55:53] skill.md
+[01:55:56] And let me show you the file content. So
+[01:55:59] this is something that I have generated
+[01:56:01] with codeex. Basically I said every
+[01:56:04] single time I don't really want to type
+[01:56:06] this, right? So I said create me a skill
+[01:56:09] and put it under the agents folder as
+[01:56:12] well as the cloud folder. So this is
+[01:56:14] literally what I have said like I went
+[01:56:16] here and then I said I don't want to
+[01:56:19] type this every single time. Can you
+[01:56:21] please create me a skill? And this is
+[01:56:24] exactly what is happening in the
+[01:56:26] background. So you're going to take this
+[01:56:29] entire file and put it in your codebase
+[01:56:31] if you really wanted to or I would say
+[01:56:34] just take this as a challenge and go
+[01:56:36] ahead and ask for Codex to generate the
+[01:56:39] same thing for you.
+[01:56:42] Okay. Um, so once you have this, you can
+[01:56:46] create a new chat and just say something
+[01:56:48] like, you know, make sure profile screen
+[01:56:50] looks like this image and just send the
+[01:56:54] prompt. You don't need to say, you know,
+[01:56:56] put yourself into that loop because
+[01:56:58] since this is a skill, it'll be already
+[01:57:02] attached to the, you know, at the
+[01:57:04] beginning of the conversation. Let me
+[01:57:06] try to kind of like visualize it. So,
+[01:57:09] let's say this is your first chat. You
+[01:57:11] say go ahead and build me a profile
+[01:57:13] screen and then it says okay I'll build
+[01:57:15] it and then you say something else and
+[01:57:17] and then it'll do something else right
+[01:57:19] now here at the beginning of the chat
+[01:57:22] the session that skill will be loaded
+[01:57:24] automatically so that's the beauty of
+[01:57:26] creating a skill and here I just left a
+[01:57:29] comment kind of like how can we make
+[01:57:32] this loop reusable well you would create
+[01:57:34] a skill explaining everything and the
+[01:57:37] beauty of this is that you don't really
+[01:57:39] need to type everything by and you will
+[01:57:41] just explain it to Codex or Claude or
+[01:57:43] whatever and then you'll just say create
+[01:57:45] me this skill. Okay, so I hope that
+[01:57:48] helps. Now with this I have the profile
+[01:57:50] screen. It is also looking pretty
+[01:57:53] similar to the end result.
+[01:57:56] Now here I said go ahead and delete the
+[01:57:58] search icon as you can tell and I also
+[01:58:01] said replace this with the settings icon
+[01:58:04] and we are going to build a settings
+[01:58:06] screen right here. Now here we can edit
+[01:58:09] our profile, share the profile and sign
+[01:58:13] out. Now I think I'll just say delete
+[01:58:16] the edit profile button from here. Also
+[01:58:19] the share profile, we don't really need
+[01:58:20] them, but what we need is delete account
+[01:58:24] and sign up buttons. Now you might be
+[01:58:26] asking why do we need the delete account
+[01:58:28] button? Well, it is mandatory and if you
+[01:58:31] don't have it, Apple will reject your
+[01:58:33] application because you have
+[01:58:35] authentication. You're storing user
+[01:58:36] data. When this user wants to delete
+[01:58:39] their account, you need to give them the
+[01:58:42] access that permission. So here, I'll go
+[01:58:45] ahead and type my prompt. I'll explain
+[01:58:47] everything and then I'll just be right
+[01:58:49] back. Now, actually, instead of going
+[01:58:50] into Codex and putting a prompt blindly,
+[01:58:53] what I have done is something even
+[01:58:56] better. So I went into this chat that we
+[01:58:58] already had with a GPT that is about
+[01:59:01] design. So I said I want you to give me
+[01:59:04] a grid of three for setting screen. You
+[01:59:07] can read my prompt but basically I say
+[01:59:09] give me things like we have privacy
+[01:59:12] policy link, terms of services, delete
+[01:59:15] account, sign out and some of the other
+[01:59:18] things that you would need in a social
+[01:59:20] media application. Okay. So if you're
+[01:59:23] wondering why do we need privacy policy
+[01:59:26] and terms of services? Well once again
+[01:59:28] this is something that you must have. If
+[01:59:31] you don't link them then your
+[01:59:33] application will be rejected. Also when
+[01:59:36] you publish your app to the app store
+[01:59:38] Apple will ask you to provide these
+[01:59:40] links. So basically you need to you need
+[01:59:42] to build a privacy policy terms of
+[01:59:45] service and deploy them on a live URL.
+[01:59:48] I'll try to show you how to generate
+[01:59:50] them and publish them on the internet so
+[01:59:52] that you can actually use those links.
+[01:59:56] Okay. So between these three options, I
+[01:59:59] like the very first one. So I just had
+[02:00:01] upscale the variation one. This is what
+[02:00:04] I got. I'll go ahead and copy
+[02:00:07] and paste it under the design. You
+[02:00:09] already know what I'm going to do next.
+[02:00:12] So I'll just say go ahead and build the
+[02:00:14] settings screen.
+[02:00:19] Let's actually say settings screen
+[02:00:21] reference just to be consistent with the
+[02:00:24] rest of the names
+[02:00:26] here. I'll just say settings screen ref.
+[02:00:31] And let's say build me this exact UI.
+[02:00:37] Yeah, I think for now I'll just say
+[02:00:39] build me this exact UI. I'm going to
+[02:00:41] send my prompt and I'll just be right
+[02:00:43] back once this is done. So after around
+[02:00:46] 4 minutes, this is what I got. And here
+[02:00:49] I just said go ahead and delete this
+[02:00:51] header part. We don't really need it.
+[02:00:53] Now this should be done in couple of
+[02:00:55] seconds. And I think overall I'm happy
+[02:00:58] with the end result. Like you can always
+[02:01:01] improve the UI, but that's not the goal
+[02:01:04] of this tutorial as you already know.
+[02:01:06] And one of the other things that it kind
+[02:01:08] of failed like we don't have native tabs
+[02:01:11] anymore. So I think for this we need to
+[02:01:13] just simply tell
+[02:01:16] also bring back the native tabs. Let's
+[02:01:21] say remember we always
+[02:01:25] want to use native tabs.
+[02:01:28] Now while this is building I just want
+[02:01:30] to mention that currently we are using
+[02:01:32] AI in the very bad way. Like this is not
+[02:01:35] this is not optimal. It shouldn't really
+[02:01:37] go from native tabs to the JavaScript
+[02:01:39] tabs. For this, I should have already
+[02:01:43] set up a file called cloud.md
+[02:01:46] or agents.md. So here you can tell we
+[02:01:49] already have these files. Now let's talk
+[02:01:52] about these files pretty quickly. In
+[02:01:55] simple terms, they are just a readme
+[02:01:57] file for AI agents. So here we have
+[02:02:00] readme.md. This is for humans, right?
+[02:02:03] This is for developers. But these are
+[02:02:06] readme files for AI agents. There's a
+[02:02:09] difference between them which is
+[02:02:10] something that I'll get into in a
+[02:02:12] second. But first, let's just read what
+[02:02:15] they are in the first place. So, both
+[02:02:17] are plain markdown instruction files
+[02:02:20] that get autoloaded into the AI's
+[02:02:23] context at the start of a session. They
+[02:02:26] are, let me just clear this. They are
+[02:02:28] where you put project conventions,
+[02:02:31] architecture notes, something like
+[02:02:33] always do this, never do that, these
+[02:02:35] type of rules. So in our case, we could
+[02:02:38] have just said always use native tabs,
+[02:02:41] right? Never use anything else for the
+[02:02:43] tabs. This is where you would put the
+[02:02:45] instruction. Now the difference between
+[02:02:47] them is that cloud.md is for cloud and
+[02:02:51] agents.md for literally anything else.
+[02:02:55] Okay, but I think cloud would still
+[02:02:58] support this. All you need to do is
+[02:03:00] adding all your
+[02:03:02] instructions right here under the
+[02:03:04] agents.m MD and under the cloud MD just
+[02:03:08] go ahead and import it. Okay, so that's
+[02:03:10] all you need to do.
+[02:03:12] And this is a convention by the way here
+[02:03:14] I have explained it as well. Put your
+[02:03:16] actual instructions in agents.md
+[02:03:20] and make cloud to import that file.
+[02:03:23] Okay, now I think we we know the
+[02:03:26] difference. And here when I ask AI to
+[02:03:30] implement the native tabs, I said we
+[02:03:33] always want to use native tabs, right?
+[02:03:35] And here it says I have updated it under
+[02:03:38] the agents. MD. So if I go under the
+[02:03:40] agents.md and search for native tabs,
+[02:03:44] here it says always use export router
+[02:03:46] native tabs. Okay. So once again, I'll
+[02:03:50] try to visualize it pretty quickly. When
+[02:03:52] you start a new session with AI, you're
+[02:03:55] asking a question, right? and then you
+[02:03:57] are getting a result. Let's say you just
+[02:03:59] say build me authentication and then it
+[02:04:02] builds it. You say build me profile page
+[02:04:04] and then you get the end result. But at
+[02:04:06] the beginning there is agents.md that is
+[02:04:10] automatically loaded to the context.
+[02:04:13] This is what we explained. Okay. So I
+[02:04:16] hope now we understand the agents.md
+[02:04:18] file and what's the difference between
+[02:04:20] them. Now what I have done off camera is
+[02:04:23] going into VS code and then I just said
+[02:04:25] now go ahead and implement the account
+[02:04:27] deletion. When we press this delete
+[02:04:30] account button here it says you need to
+[02:04:33] add the clerk secret sorry clerk secret
+[02:04:36] key to the dashboard. This is what I
+[02:04:38] have done. I just went into my project
+[02:04:40] settings environment variables and then
+[02:04:43] just get the clerk secret key and paste
+[02:04:45] it right here. Now how do you get this
+[02:04:47] value? Well, you can go into clerk expo
+[02:04:50] documentation.
+[02:04:55] So from here, let's just find
+[02:04:58] the environment variables. Just select
+[02:05:01] your project and then you can also press
+[02:05:03] the API keys by the way. So here you
+[02:05:06] have the publishable key, but we need
+[02:05:08] the secret key as well. So it is right
+[02:05:10] here. Just go ahead and copy this value
+[02:05:14] and paste it right here. So you can just
+[02:05:17] say add and paste this value. It should
+[02:05:19] be right here. Then save. This is
+[02:05:22] exactly what I have done. I said I have
+[02:05:25] added it. So I said that's done. Go
+[02:05:27] ahead and implement it. Now looks like
+[02:05:30] this has been implemented. I'll say
+[02:05:31] delete the account. If I say cancel,
+[02:05:34] nothing happens. But if I say delete, it
+[02:05:36] should actually delete the account and
+[02:05:39] sign me out. Let's go ahead take a look
+[02:05:41] at the dashboard.
+[02:05:45] Okay. So previously we had two different
+[02:05:48] users but now we have only one. All
+[02:05:51] right. So I think with this I'm going to
+[02:05:53] leave this section right here. In the
+[02:05:55] next section we can build that privacy
+[02:05:57] policy in terms of services. And again
+[02:06:00] for this I have some pre-made prompts
+[02:06:03] that I'll share with you. But for now I
+[02:06:05] think if you wanted to you can pause the
+[02:06:07] video and improve the UI as much as you
+[02:06:10] want. But I don't want to waste any
+[02:06:12] time. Um I'll just go ahead and let's
+[02:06:14] close everything.
+[02:06:17] and I'll just commit my changes.
+[02:06:21] So, let's stage and get a commit message
+[02:06:27] and I'll sync this up.
+[02:06:30] Okay. So, with this, I'll see you in the
+[02:06:32] next lesson. All right. Now, let's say
+[02:06:34] you build your application and it is
+[02:06:36] time to get started with the legal
+[02:06:38] pages. Like what you need to do is
+[02:06:40] pretty simple and here I'll just try to
+[02:06:42] walk you through it. So, first off,
+[02:06:44] let's talk about some of the must-h have
+[02:06:46] features that you should have. One of
+[02:06:48] them was the delete account button,
+[02:06:51] which is something that we have
+[02:06:52] implemented. The other one is the Apple
+[02:06:55] sign in option. Again, it is right here.
+[02:06:58] This is basically something that you
+[02:07:00] have to have if you included any other
+[02:07:03] different social login options. So, in
+[02:07:05] our case, we have Google. Then, Apple
+[02:07:07] says you must have sign in with Apple
+[02:07:10] option as well. Now, on top of privacy
+[02:07:12] policy and terms of services, we also
+[02:07:15] need to add a support URL. This is
+[02:07:18] something that Apple will ask you when
+[02:07:20] you go into the Apple dashboard. Okay.
+[02:07:23] So, I'll try to explain it in a little
+[02:07:27] bit. Okay. So, with that in mind, now
+[02:07:29] let's go ahead and create the privacy
+[02:07:31] policy, terms of services, and a support
+[02:07:33] URL. And in the past for one of my past
+[02:07:36] tutorials, I have built a landing page
+[02:07:39] like this where we have some demo images
+[02:07:43] that is looking pretty cool and we have
+[02:07:45] like more details. And now I'll just
+[02:07:48] show you how you can generate these type
+[02:07:50] of mockups in like less than 5 minutes.
+[02:07:54] Okay, so with this in mind, on top of
+[02:07:57] this, I'll provide you a terms of
+[02:07:59] services prompt. You can find this. just
+[02:08:02] go ahead and copy it and we'll go into
+[02:08:04] Codex. Let me just create a new session
+[02:08:09] now. Okay. So, this is something I'll
+[02:08:12] just delete. I don't know why, but in
+[02:08:14] the past, looks like I have it. So, I
+[02:08:16] just deleted that. And here, I'll paste
+[02:08:18] this in. What this does is basically it
+[02:08:21] says go ahead and read my entire
+[02:08:24] codebase and depending on my project,
+[02:08:27] create me a terms of services page.
+[02:08:30] Right? And here I'll say
+[02:08:34] um like put everything under a folder
+[02:08:37] called legal. Let's actually create
+[02:08:39] that. So I'll say put it all under the
+[02:08:43] legal folder and actually build me a
+[02:08:49] landing page as well. Let's say make
+[02:08:53] sure it looks pretty good.
+[02:08:56] Now, of course, this is not the best
+[02:08:58] prompt, but I just want to see what it
+[02:09:00] can give us in the first try, and then
+[02:09:02] we can always follow up and add some
+[02:09:05] references. Now, before I run this
+[02:09:07] prompt, what I'd like to do is actually
+[02:09:10] preparing these demo images. So, for
+[02:09:13] this, there is a website called
+[02:09:15] shots.so,
+[02:09:17] which is completely free to get started
+[02:09:19] with. They [snorts] have paid plan as
+[02:09:21] well, but you don't really need to pay
+[02:09:23] just to create these images. Okay. So,
+[02:09:26] head over to this site here. I'll just
+[02:09:28] say start over. This is what you're
+[02:09:30] going to see initially. From here, go
+[02:09:32] ahead and select a mockup. In this case,
+[02:09:35] I'll just get iPhone 17, I believe. You
+[02:09:39] can select anything really. I'll just
+[02:09:41] get this one.
+[02:09:43] And then I'll say,
+[02:09:46] let me go under the frame. I'll say
+[02:09:48] there should be no background because
+[02:09:50] here we would like to have a transparent
+[02:09:52] background, right? like this doesn't
+[02:09:55] have any white background, red
+[02:09:56] background, nothing. It should be
+[02:09:59] transparent. And then for the images,
+[02:10:02] for the images, you would like to open
+[02:10:04] up your simulator and take a screenshot.
+[02:10:07] Then I'll just copy this. Let's say copy
+[02:10:10] to clipboard here. I'll press Ctrl +V.
+[02:10:13] Okay. So, I just pasted that. Now you
+[02:10:16] can get this type of variation. But then
+[02:10:18] you need the second image or even like
+[02:10:21] three different images. Let me just try
+[02:10:24] to kind of like log in
+[02:10:28] because I'm going to get more
+[02:10:30] screenshots
+[02:10:32] here. I'll say continue. And okay, so I
+[02:10:35] just logged in. Let's go under the
+[02:10:36] explore screen and I'm going to take
+[02:10:38] another screenshot. Again, I'll copy
+[02:10:40] this to clipboard. Let's go and maybe
+[02:10:44] create this one initially. So I'm going
+[02:10:47] to paste this in. And what you would
+[02:10:50] like to do is zooming in as much as
+[02:10:53] possible. So you are basically deleting
+[02:10:55] this extra space from the top and from
+[02:10:57] the bottom. So go ahead and zoom in.
+[02:10:59] Don't make it this much, but just make
+[02:11:02] sure that you know you get rid of these
+[02:11:05] extra spaces as much as possible. So I'm
+[02:11:08] going to go ahead zoom in. I think this
+[02:11:10] is fine. And you also want to make sure
+[02:11:13] that under the mockup you say there is
+[02:11:15] no shadow. Okay, because if you have
+[02:11:18] shadow like let me select one of them
+[02:11:23] like I think it is not really that
+[02:11:25] visible but there is some shadow right
+[02:11:27] here and it's not going to make it look
+[02:11:29] like this if you have shadow like just
+[02:11:32] trust me go ahead and he would like to
+[02:11:33] select no shadow and then we can export
+[02:11:36] this. So that's the first variation.
+[02:11:38] Let's go and get one of these. I'll just
+[02:11:42] keep it simple and get the first one.
+[02:11:44] Again, I'm zooming in as much as
+[02:11:45] possible.
+[02:11:47] I'm going to export this as well. And
+[02:11:50] let's go ahead get one of these.
+[02:11:54] Yeah, I think I'll just go with this
+[02:11:55] one. Let me take a screenshot
+[02:11:58] maybe from the messages.
+[02:12:05] I'll copy it to clipboard again. and
+[02:12:07] I'll paste this in. Let's zoom in as
+[02:12:10] much as possible.
+[02:12:15] Okay. So, what we have just done here is
+[02:12:18] something that you can implement in all
+[02:12:20] of your future projects.
+[02:12:23] Just visit this site and do the same
+[02:12:25] thing that I've done. Now, I'm going to
+[02:12:27] get these three images and I'll just
+[02:12:29] paste it into VS Code. Let's actually go
+[02:12:31] under the legal folder. I'm going to
+[02:12:33] drag and drop and let's just say
+[02:12:39] like I'll rename it. I'll say demo one.
+[02:12:42] Um I think this should be
+[02:12:46] demo 3. Sorry, demo two and three.
+[02:12:52] Now I will go into codex. So I had this
+[02:12:55] prompt and I'll just say in landing page
+[02:12:59] use these images
+[02:13:03] which are demo one,
+[02:13:06] two, and three.
+[02:13:11] Okay, so I'll just run this and let's
+[02:13:13] see what we're going to get back. All
+[02:13:14] right, so this took around 17 minutes.
+[02:13:17] GPT not only build it but also test it
+[02:13:19] out on the browser. So here you can tell
+[02:13:22] I have bunch of different files but the
+[02:13:24] important one is the index.html.
+[02:13:27] Just go ahead rightclick and then open
+[02:13:29] this with the live server. If you cannot
+[02:13:32] see this option then just head over to
+[02:13:34] the extensions and just get the live
+[02:13:37] server extension. Let me show you that
+[02:13:40] pretty quickly. It's going to be this
+[02:13:41] one. Install it and then you should be
+[02:13:44] able to see it. So right click, press
+[02:13:46] this and here we go. This is the end
+[02:13:49] result. And I think UI is way better
+[02:13:52] than what I expected. And like we didn't
+[02:13:55] give any kind of reference at all. It
+[02:13:57] has built it by itself. And notice how
+[02:13:59] it is following the system design that
+[02:14:03] we currently have. So it didn't build
+[02:14:05] something like in the red color or
+[02:14:07] purple or really anything. But instead
+[02:14:10] it like it is following the blue color
+[02:14:12] theme that we have in the mobile
+[02:14:14] application. Now if you wanted to you
+[02:14:16] can of course as usual you can follow up
+[02:14:19] and improve the design. I don't want to
+[02:14:21] waste any time but here you can tell we
+[02:14:23] have the terms of services under the
+[02:14:27] terms endpoint or URL I would say.
+[02:14:32] Now here you can tell there are a bunch
+[02:14:33] of different uh placeholder fields.
+[02:14:36] That's because AI cannot really guess
+[02:14:39] what is the legal name of your business,
+[02:14:42] you know, privacy policy URL and things
+[02:14:44] like that because this is still not
+[02:14:46] deployed. So these are some um
+[02:14:49] placeholders that you would like to
+[02:14:50] actually read and fix. But other than
+[02:14:52] these, you don't really need to change
+[02:14:54] anything else. This is exactly what I
+[02:14:56] have done when I was building my own
+[02:14:58] mobile application. And I think like
+[02:15:01] this is the old name. Um sorry, this is
+[02:15:03] the old name. Previously it was called
+[02:15:05] bulky AI but recently I have update the
+[02:15:08] name but it is still under the old
+[02:15:10] domain which is fine. So here I have a
+[02:15:12] terms of services if you if you scroll
+[02:15:16] to the bottom here you can tell like I
+[02:15:19] just put the details about my business
+[02:15:21] you know where I'm from things like
+[02:15:22] that. And now it's time to build the
+[02:15:25] privacy policy. And for this again I
+[02:15:28] have the prompt. You'll just go ahead
+[02:15:30] get this entire thing. Let's paste this
+[02:15:33] in. And now it should also build the
+[02:15:37] privacy policy. Once this is done, I'll
+[02:15:40] just be right back. All right. So after
+[02:15:43] some time, this has also been
+[02:15:44] implemented. Here you can tell in the
+[02:15:46] footer we have this link. Again, there
+[02:15:48] are a bunch of different placeholders
+[02:15:50] that you would like to read and update
+[02:15:52] just before you publish your app to the
+[02:15:54] app store. And then you would like to
+[02:15:57] kind of like deploy this because
+[02:15:59] currently this is running on your local
+[02:16:01] machine. Now I'll show you how to deploy
+[02:16:03] it in a second. But first let's go back
+[02:16:05] to our list. Now we have built the
+[02:16:08] privacy policy and terms of services. On
+[02:16:10] top of this you also want to have a
+[02:16:12] support URL because this is a field that
+[02:16:15] Apple will ask you in the Apple
+[02:16:18] dashboard when you want to deploy it.
+[02:16:20] And this is going to be by the way under
+[02:16:22] the Apple store connect. So we can
+[02:16:25] actually visit that like app store
+[02:16:28] connect. Sorry not Apple store. It
+[02:16:30] should be app store connect.
+[02:16:34] So this is something that I go into in
+[02:16:36] detail in my school community but
+[02:16:39] basically [snorts] in simple terms this
+[02:16:41] is going to be the place where you will
+[02:16:43] publish your app and they ask for a
+[02:16:46] support URL. Now let's go ahead and
+[02:16:47] build it as well. I'll just say also add
+[02:16:50] a support page. Please keep it simple
+[02:16:55] and super quick to build. like I don't
+[02:16:59] want to wait 10 minutes. So I'll just
+[02:17:02] say don't test only build.
+[02:17:06] Now usually I wouldn't say this but this
+[02:17:09] uh this is just because this is a
+[02:17:11] tutorial I'll say don't test it just
+[02:17:13] build so that we don't waste any time.
+[02:17:16] And now while this is building let's go
+[02:17:18] ahead and see cloudflare. This is where
+[02:17:20] we will deploy our application. Sorry.
+[02:17:23] This is where we will deploy our privacy
+[02:17:25] policy and in general the landing page.
+[02:17:29] So this is completely free to get
+[02:17:31] started with. Just go ahead and sign up
+[02:17:33] with your GitHub account. This is what I
+[02:17:36] have done. And you will just go into VS
+[02:17:38] Code under Codex cloud whatever you're
+[02:17:41] using. You will just say go ahead and
+[02:17:44] deploy this to Cloudflare pages. Okay.
+[02:17:47] And looks like support page has been
+[02:17:49] completed. Let me double check. We have
+[02:17:52] the support page here. The only thing
+[02:17:54] that you need to update is the support
+[02:17:56] email, which is something pretty easy to
+[02:17:58] do. If you don't know how to do it, just
+[02:18:00] talk with Codex.
+[02:18:02] It'll um basically it'll walk you
+[02:18:05] through the entire process. Okay. So,
+[02:18:07] with that said, what you would like to
+[02:18:09] do for deployment, just going here and
+[02:18:11] saying something like deploy the
+[02:18:17] legal folder. Right? So, we have the
+[02:18:19] legal folder. I'll just say deploy this
+[02:18:21] to Cloudflare
+[02:18:24] pages. And Cloudflare has a tool called
+[02:18:28] Wrangler, which is a CLI tool that
+[02:18:30] allows you to publish your app without
+[02:18:33] touching the browser. So from the
+[02:18:35] terminal, it can use this tool and
+[02:18:38] deploy your app. So I'll just say use
+[02:18:41] Wrangler and I already
+[02:18:44] have the setup and login. If you don't
+[02:18:48] have, you can say go ahead and set this
+[02:18:51] up for me or just tell me the process
+[02:18:53] how I can set this up. Okay, so I'm
+[02:18:56] going to run this and after I believe
+[02:18:59] couple of minutes, this should be
+[02:19:01] deployed. All right, so it was super
+[02:19:03] quick. Here you can tell it took 1
+[02:19:05] minute and 20 seconds. And if you press
+[02:19:07] the link here, you can tell our landing
+[02:19:10] page is live. Now we can use this URL in
+[02:19:13] the App Store Connect dashboard. So you
+[02:19:16] can add this link as your privacy
+[02:19:18] policy.
+[02:19:20] This link for the terms of services and
+[02:19:22] then
+[02:19:24] /sup support. Let me just find it.
+[02:19:29] This for the support URL. All right. So
+[02:19:32] this is how you build the legal pages
+[02:19:34] and deploy it to internet. The only
+[02:19:37] thing left for you to do is filling
+[02:19:39] filling in these placeholders. And
+[02:19:43] literally that's it. Now, with that, I
+[02:19:45] think I'm going to leave this lesson
+[02:19:46] right here. Let's go ahead and visit VS
+[02:19:50] Code.
+[02:19:51] And as usual, we're going to stage
+[02:19:53] everything and commit our changes.
+[02:20:02] All right, so this is where we left.
+[02:20:04] Now, in this section, I'd like to talk
+[02:20:06] about something called error tracking
+[02:20:08] and monitoring, which sounds pretty
+[02:20:10] complex, but it's actually pretty easy
+[02:20:12] to implement. And it's really, really
+[02:20:14] important to understand, especially if
+[02:20:16] you're building apps. Um, for us to be
+[02:20:20] able to understand it, first we need to
+[02:20:22] see the problem and then the solution.
+[02:20:24] Then I'll show you how to integrate it.
+[02:20:26] So, let's just see the problem first.
+[02:20:28] Now, let's say you built your own
+[02:20:30] application, right? You deployed to App
+[02:20:32] Store. everything is working in your own
+[02:20:35] device and even in the simulator. But
+[02:20:37] you cannot really just assume that this
+[02:20:39] is going to work for every single one of
+[02:20:41] your users. Now like it or don't like it
+[02:20:44] in real applications, there are always
+[02:20:47] some kind of edge cases and like there
+[02:20:50] will always be some problems that you
+[02:20:52] need to fix. And now you need to be
+[02:20:54] notified anytime your users are getting
+[02:20:56] some errors. Now let's take a look at
+[02:20:58] the diagrams that I have prepared. So
+[02:21:01] here you know like what happens when
+[02:21:04] your users face some errors. Do you
+[02:21:06] think they will send you an email or do
+[02:21:09] you think they will delete the
+[02:21:10] application and leave a one-star review
+[02:21:13] with a really bad comment? Well 99% of
+[02:21:16] the time this is what's going to happen
+[02:21:18] because they don't even know who you
+[02:21:20] are, right? So how would they know your
+[02:21:22] email? So they'll never try to send you
+[02:21:25] an email explaining the issue. they'll
+[02:21:27] just delete the app, leave a one-star
+[02:21:29] review, and they'll say something like,
+[02:21:32] I don't know, like profile screen
+[02:21:33] doesn't work. I'm trying to see my
+[02:21:35] profile image, but it is not even
+[02:21:37] visible. I am deleting this app.
+[02:21:39] Something like that. Right? So, that's
+[02:21:41] the problem that you need to kind of
+[02:21:44] fix. Anytime there is an error, you need
+[02:21:46] to get an email automatically seeing the
+[02:21:50] error, the user, and how to fix it. So,
+[02:21:54] that's the beauty of Sentry. This is
+[02:21:56] where Sentry comes in. We're going to
+[02:21:58] fix it by using Sentry, which is
+[02:22:00] completely free to get started with. So,
+[02:22:03] think of it like the watch tower of your
+[02:22:06] application. Now, it is much more than
+[02:22:08] just error tracking and monitoring, but
+[02:22:11] here are some of the things that I can
+[02:22:13] highlight. So, it's going to catch the
+[02:22:15] errors. It's going to show us the
+[02:22:17] structured logs, which is like
+[02:22:18] console.log, but it is structured. That
+[02:22:22] means you know it is searchable and it
+[02:22:24] is persisted in the cloud. Then there
+[02:22:26] are session replace which means that
+[02:22:28] it's going to take video recording
+[02:22:30] anytime there is an error. So let's say
+[02:22:33] your user presses button and it has
+[02:22:35] failed. So you will have the video
+[02:22:38] recording of that in your sentry
+[02:22:40] dashboard then it helps with performance
+[02:22:43] such as traces and bottlenecks and as I
+[02:22:46] have already mentioned you're going to
+[02:22:48] get realtime alerts. Now, by default,
+[02:22:50] it's going to work with your email, but
+[02:22:52] if you wanted to, you can set this up
+[02:22:54] with Slack, I believe, Discord, and even
+[02:22:57] Microsoft Teams.
+[02:23:00] Okay, so this is completely free to get
+[02:23:02] started with. If you use the link in the
+[02:23:04] description, you're going to get $80
+[02:23:06] extra free credits, which is pretty
+[02:23:09] generous. So, go ahead and sign up with
+[02:23:11] that link, and then you'll be in the
+[02:23:13] Sentry dashboard. So, initially probably
+[02:23:16] you will not have any projects. So just
+[02:23:19] go ahead and say create a project. From
+[02:23:21] here you can select your repository.
+[02:23:24] Let's say you don't have a repository on
+[02:23:26] GitHub which is completely fine. So this
+[02:23:28] is optional right. Um then you would
+[02:23:31] select your platform. In this case it's
+[02:23:33] going to be react native and then give
+[02:23:35] it a project name like anything codex
+[02:23:38] gram. This is what I'm going to leave.
+[02:23:40] And then we'll say create the project.
+[02:23:42] Now I'm going to select my repository.
+[02:23:44] And as soon as I select it, it is going
+[02:23:46] to automatically detect that it is a
+[02:23:49] React Native project. So here I just
+[02:23:51] search for my repository. I can select
+[02:23:53] it. And now it's going to auto detect
+[02:23:56] that this is a React Native project.
+[02:23:59] I'll leave everything as it is, but I'll
+[02:24:01] update the project name. I'll say Codex
+[02:24:03] Gramm even though you can call it
+[02:24:05] anything really. Then you can also
+[02:24:08] update the alert frequency. I'll just
+[02:24:10] leave everything as default. And here
+[02:24:12] you can tell you can connect it to
+[02:24:14] Slack, Discord, and Microsoft Teams. But
+[02:24:17] for now, we'll just leave it as email,
+[02:24:20] which is pretty comfortable, especially
+[02:24:23] if you're just building it by yourself,
+[02:24:25] like if you don't have a team. Okay. So,
+[02:24:28] with that said, now this is what you're
+[02:24:29] going to get, which is called Sentry
+[02:24:31] Wizard. Now, you can run this
+[02:24:33] automatically, sorry, by default, or you
+[02:24:36] can just copy the instructions and paste
+[02:24:39] it to AI. Now, if you wanted to again,
+[02:24:43] you can just open up a new terminal,
+[02:24:45] copy this entire thing, and run it. But
+[02:24:47] I'll just get the instructions. And I
+[02:24:51] will paste it right here in my Codex
+[02:24:54] session.
+[02:24:56] So, let me go ahead and open up a new
+[02:24:59] chat
+[02:25:02] and maybe I'll try to zoom in.
+[02:25:06] I'll paste this in. It explains
+[02:25:08] everything and it even provides the DSN
+[02:25:11] which is a connection string. Basically,
+[02:25:15] it'll allow us to connect to this
+[02:25:17] specific project.
+[02:25:19] Anytime you create a new project, by the
+[02:25:21] way, you'll get a different DSN. Okay.
+[02:25:24] So, with this, I'll go ahead and run it.
+[02:25:27] This will set up Sentry and then
+[02:25:29] hopefully we should be able to test this
+[02:25:31] out. Now, while this is building it,
+[02:25:33] there are a couple of different features
+[02:25:35] of Sentry that I would recommend you to
+[02:25:38] set up. Like the first one is going to
+[02:25:42] be sentry logs. So, let's just go ahead
+[02:25:44] and say Sentry Logs React Native.
+[02:25:48] I would visit the documentation and then
+[02:25:50] I would just copy the entire page and
+[02:25:53] ask, you know, Codex or Cloud, whatever
+[02:25:56] you're using. I'll just say setup sentry
+[02:25:59] logs for my project and it is actually
+[02:26:02] pretty simple. It is just a one line
+[02:26:04] change and like if you're interested you
+[02:26:07] can pause the video and read this
+[02:26:10] documentation which they explain
+[02:26:12] everything in detail but let me try to
+[02:26:14] pretty quickly go over it. So to be able
+[02:26:16] to understand what sentry logs is here I
+[02:26:20] have prepared this comparison between
+[02:26:22] console.log versus sentry logs. So here
+[02:26:26] as you already know console.log lives on
+[02:26:29] user's device only right so it's going
+[02:26:32] to disappear when the application
+[02:26:33] closes. It is plain text and it has no
+[02:26:36] connection to errors like it is super
+[02:26:39] simple for simple projects for
+[02:26:42] debugging. But on the other side logs
+[02:26:45] are sent to sentry servers which means
+[02:26:48] it is saved on the cloud. It is
+[02:26:51] persisted and searchable. That means you
+[02:26:54] can you can literally query anything and
+[02:26:57] to be able to query them there are some
+[02:26:59] texts. So it is structured and it is
+[02:27:02] linked to the traces errors and replays.
+[02:27:06] Now here is how to use it. Like you can
+[02:27:08] have different logs for debugging
+[02:27:11] purposes you know just for information
+[02:27:13] logs, warnings, errors and even
+[02:27:16] something like fatal which is you know
+[02:27:20] really really important and that is like
+[02:27:22] kind of like a problem that needs to be
+[02:27:24] fixed immediately. So to give you an
+[02:27:27] example database connection failing is
+[02:27:30] something fatal that you need to fix.
+[02:27:34] Okay. So you can just pause the video
+[02:27:36] and read this if you're interested,
+[02:27:38] which I would highly highly recommend.
+[02:27:40] This is one of those things that people
+[02:27:42] don't really care, but as a app owner, I
+[02:27:46] think this is one of the most important
+[02:27:48] topics so that like you can get the
+[02:27:52] email and immediately solve it before
+[02:27:55] your application has really bad
+[02:27:57] reviewing.
+[02:27:59] Okay, so with this, let's take a look at
+[02:28:01] the VS code. I think this is still
+[02:28:06] setting this up. Once it is done, I'll
+[02:28:08] just be right back. All right. So,
+[02:28:09] within the 6 minutes, this has been
+[02:28:11] installed and set it up correctly. Now,
+[02:28:14] one thing that I want to mention is that
+[02:28:16] Sentry is a native module. So, once you
+[02:28:19] install it or once you set this up, you
+[02:28:21] need to rebuild your application. So, as
+[02:28:25] you already know, rebuilding means you
+[02:28:27] need to just say MPX expo run iOS in
+[02:28:31] your terminal, right? So just copy this,
+[02:28:33] kill your application from your terminal
+[02:28:36] which is this one and then rerun it and
+[02:28:39] then your application will be live once
+[02:28:42] again. Now with this I'm going to go
+[02:28:44] ahead and paste this into actually not
+[02:28:47] this one sorry I'm going to get this
+[02:28:50] copy page
+[02:28:52] um for sentry logs and I'll just say go
+[02:28:56] ahead and set up sentry logs. Let's say
+[02:28:58] this is dogs for sentry logs
+[02:29:02] set up for me. All right. So, as you can
+[02:29:06] tell, this has been set it up pretty
+[02:29:07] quickly in less than 1 minute. Now, on
+[02:29:10] top of this, what I have asked is this.
+[02:29:13] I said, go ahead and create me a sentry
+[02:29:15] test page under the settings and create
+[02:29:18] some errors and logs when we press those
+[02:29:20] buttons. So this is going to simulate
+[02:29:23] real world issues so that I can see them
+[02:29:25] in my sentry dashboard and explore. So
+[02:29:28] after two minutes it was able to build
+[02:29:30] this screen called Sentry test. And now
+[02:29:33] we can press these buttons which is
+[02:29:36] going to create bunch of different
+[02:29:37] errors that kind of like simulate a real
+[02:29:40] world implementation right or a real
+[02:29:43] real world use case I would say. Now
+[02:29:45] let's go ahead and run some of them.
+[02:29:48] like anytime you press them, they're
+[02:29:50] going to catch the errors, right? It's
+[02:29:52] going to throw an error and we're going
+[02:29:54] to catch it with this sentry. So here,
+[02:29:56] I'll just press couple of times. And now
+[02:29:58] let's go ahead select our project. In
+[02:30:01] this case, it's going to be this one.
+[02:30:03] And go under the issues. Like here, you
+[02:30:06] can tell 10 seconds ago, we got all
+[02:30:09] these errors.
+[02:30:11] And at the same time you're going to get
+[02:30:12] the email in real time so that you can
+[02:30:15] see what is going on, what is broken and
+[02:30:17] then you can jump into your codebase and
+[02:30:19] fix them. Now if you press any of them
+[02:30:21] you're going to get the whole details
+[02:30:23] about the error about the user like
+[02:30:26] what's the
+[02:30:28] um you know what's the operating system
+[02:30:30] they're using? What is the device that
+[02:30:32] they have? So on and so forth. I'll just
+[02:30:34] leave you to explore it. You can scroll
+[02:30:36] to the bottom and basically check almost
+[02:30:39] every single detail. Then you can go
+[02:30:41] under the explore and take a look at the
+[02:30:43] logs as well. Here you can tell there
+[02:30:45] are bunch of different logs that are
+[02:30:47] generated. And now since in our project
+[02:30:51] we only have one user currently you
+[02:30:54] might not be able to see the importance
+[02:30:56] of logs but just imagine you have like
+[02:30:59] 1,000 users or like even 10,000 users
+[02:31:02] then logs will be really really handy
+[02:31:05] where you can basically debug everything
+[02:31:07] about your project. So overall that's
+[02:31:10] the basics of Sentry. This is how we can
+[02:31:12] set this up. And there's also Sentry
+[02:31:15] tracing. Let's double check. I'll just
+[02:31:17] say Sentry Tracing React Native in the
+[02:31:21] exact same way. You can go ahead and
+[02:31:22] copy this page, paste it into Codex or
+[02:31:25] Cloud, whatever, whatever you are using.
+[02:31:27] And then it's going to set this up. You
+[02:31:30] can read what this is for mostly for
+[02:31:32] performance. And like this is something
+[02:31:35] that I have set it up in my actual
+[02:31:37] application. Okay. So, I'll just leave
+[02:31:39] it as a challenge if you wanted to
+[02:31:41] implement. And with this, I think we can
+[02:31:43] commit our changes and leave this
+[02:31:45] section right here. Well, actually, I
+[02:31:48] just realized there is one more
+[02:31:49] component that I'd like to show you,
+[02:31:52] which is going to be a feedback element.
+[02:31:54] So, let's go ahead and search for Sentry
+[02:31:58] React Native feedback.
+[02:32:01] So, with this component, you can
+[02:32:03] basically you can basically get feedback
+[02:32:06] from your users. So I'm just going to go
+[02:32:08] ahead press this one. So like this is
+[02:32:12] what you will see what your users will
+[02:32:14] get where they can add their full name,
+[02:32:16] email, and you know the feature that
+[02:32:19] they would request. So I'm going to go
+[02:32:21] ahead copy this entire page and I'll
+[02:32:24] just say
+[02:32:25] under the settings screen,
+[02:32:29] add a nice feedback button
+[02:32:34] with sentry.
+[02:32:37] Once this is done, I'll just be right
+[02:32:38] back. So, it took around 2 minutes and
+[02:32:41] here we go. Now, if you press this
+[02:32:43] button, we got the component. Let's go
+[02:32:45] ahead and add a, you know, a suggestion
+[02:32:48] or a feedback. I'll just give it my
+[02:32:50] name. Let's say this is my email. I
+[02:32:54] think I need to copy it like this.
+[02:33:05] Let's just say, "Hey, please fix the
+[02:33:08] profile screen."
+[02:33:16] Now, in your sentry dashboard, if you
+[02:33:18] visit issues and user feedback, you're
+[02:33:20] going to see that we got that feedback,
+[02:33:22] right? So, we have the username, the
+[02:33:25] detail, and if you press that, you'll be
+[02:33:27] able to see everything else. And if you
+[02:33:30] cannot really find it at the time that
+[02:33:32] you're watching this video, you can just
+[02:33:34] go to the search bar and search for the
+[02:33:37] user feedback. Just press it and it's
+[02:33:39] going to take you to this screen. All
+[02:33:42] right. So overall, that's it for the
+[02:33:44] Sentry integration. There is one more
+[02:33:46] thing that I want to do. When we press
+[02:33:49] these buttons, let's actually go ahead
+[02:33:51] and link them to the actual URL. Right?
+[02:33:54] So I'm going to say when we press
+[02:33:57] privacy policy in terms of services link
+[02:34:02] it to the actual deployed
+[02:34:06] let's say URLs.
+[02:34:08] All right. So within the next 1 minute
+[02:34:10] this has been all right. So in 1 minute
+[02:34:13] it's been implemented. Let's go ahead
+[02:34:14] and press this. As you can tell it is
+[02:34:17] taking us to the actual URL. Now,
+[02:34:19] instead of opening opening this up in
+[02:34:22] Safari, I'll just say, can you open this
+[02:34:24] up within the app? Like a sheet would
+[02:34:27] come from the bottom and we would see
+[02:34:29] the website. So, I'll just say So, that
+[02:34:31] was a super simple fix. As you can tell,
+[02:34:34] when you press now, it just opens up
+[02:34:36] within the app. Same for the terms of
+[02:34:39] services. Okay, so I think that's it for
+[02:34:43] the entire project or at least for this
+[02:34:45] section. Let's go ahead and commit
+[02:34:48] everything.
+[02:34:53] I'll stage everything. Let's get a
+[02:34:54] commit message and then we're going to
+[02:34:56] commit this. So this is my commit
+[02:34:58] message. I'll commit and let's say sync
+[02:35:01] this up. All right. So that's pretty
+[02:35:03] much the entire application that we have
+[02:35:05] built. So from here on out, all you need
+[02:35:08] to do is just going and talking with
+[02:35:10] your AI agents so that they can improve
+[02:35:13] the UI design. I'm not going to try to
+[02:35:15] do it even though I have tried to like
+[02:35:18] off camera just make the homepage look a
+[02:35:21] little bit more cleaner. Here's my
+[02:35:23] prompt. But yeah, as I said, at this
+[02:35:25] point you would like to just have a
+[02:35:28] couple of different follow-ups. I don't
+[02:35:29] know, maybe generate more design
+[02:35:32] references and then ask them to kind of
+[02:35:34] like implement it until you like the end
+[02:35:38] result. So, with all that said, I think
+[02:35:40] I'm going to leave this tutorial right
+[02:35:42] here. I hope you enjoyed it and learned
+[02:35:43] something new from it. If so, don't
+[02:35:45] forget to like and subscribe.

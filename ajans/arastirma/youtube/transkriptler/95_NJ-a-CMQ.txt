@@ -1,0 +1,340 @@
+# How to Build ACTUALLY Beautiful UI With This Claude Code Skill
+# https://www.youtube.com/watch?v=95_NJ-a-CMQ
+# kanal: Build Great Products | süre: 756 sn | kaynak: yt-dlp:web_embedded:95_NJ-a-CMQ.en-orig.json3
+
+[00:00:00] This might be the best Claude code skill
+[00:00:02] I've ever used. And it all came from
+[00:00:04] this viral post on X which teaches you
+[00:00:07] how to install it in just a few minutes.
+[00:00:09] And in this video, I'm going to show you
+[00:00:10] how to set up this skill and use it with
+[00:00:12] Claude Code to create incredible UI
+[00:00:14] designs in minutes. If you don't know
+[00:00:16] me, my name is Chris and for the last 15
+[00:00:17] years, I've been designing apps and
+[00:00:19] advising startups on product and design.
+[00:00:21] With that said, let's jump straight into
+[00:00:23] this Claude code skill and show you
+[00:00:24] exactly how to use it.
+[00:00:28] >> [music]
+[00:00:29] >> build.
+[00:00:33] >> So before we get started here, I just
+[00:00:35] want to show you the tweets that I found
+[00:00:36] this skill from. And this is a tweet
+[00:00:38] that has got over 235,000
+[00:00:40] views so far on X. This is from a few
+[00:00:43] days ago. So this is a little bit old
+[00:00:44] now if you're following stuff on X, but
+[00:00:46] I wanted to show for everyone else who
+[00:00:48] hasn't seen this how to use this Claude
+[00:00:50] code skill to basically build
+[00:00:52] incredible, beautiful UIs for your
+[00:00:55] application. And you can see here's
+[00:00:57] basically the output for like for use
+[00:00:59] this front-end design skill in claude
+[00:01:01] code. Create a music player app and it's
+[00:01:03] designed it like this which kind of
+[00:01:04] looks like something similar to maybe
+[00:01:06] teenage engineering but it's a pretty
+[00:01:08] high quality like level of design just
+[00:01:11] from that one prompt. And underneath
+[00:01:13] here is basically the instructions to
+[00:01:14] get started with this. And I'll put them
+[00:01:16] in the description of the video down
+[00:01:17] below so that you can get started with
+[00:01:19] these front-end skills in Claude Code.
+[00:01:21] What I'm going to do is I'm going to set
+[00:01:23] up a very basic website that we can kind
+[00:01:25] of see the standard AI design style in.
+[00:01:29] And then we're going to use the Claude
+[00:01:31] Code front-end skill to redesign that
+[00:01:33] page. Maybe based on a reference or
+[00:01:35] maybe just to kind of redesign it based
+[00:01:37] on a bit of information that it would
+[00:01:39] know about our website. And so let's go
+[00:01:41] over to cursor and start building this
+[00:01:44] website. So what I'm going to do is
+[00:01:46] we've just got a new terminal open in
+[00:01:48] cursor inside this Claude design skill
+[00:01:50] project which I've created just to kind
+[00:01:52] of demo this. Let's run Claude in this
+[00:01:54] project and let's just ask it to create
+[00:01:57] a landing page for us. So we're going to
+[00:01:59] say let's create a simple landing page
+[00:02:01] for an AI agency that builds and sells
+[00:02:03] custom AI apps to businesses to save
+[00:02:05] them time, automate processes and make
+[00:02:07] them more money. Research other AI
+[00:02:09] agencies to create highquality copy that
+[00:02:11] converts potential clients to book a
+[00:02:13] call. follows best practice for agency
+[00:02:15] landing pages to maximize the number of
+[00:02:17] call bookings that we would get. Let's
+[00:02:19] send that prompt to Claude Code so that
+[00:02:21] it can get started building this inside
+[00:02:23] of this project folder. So, Claude Code
+[00:02:26] has now built us this learning page
+[00:02:28] here. And what we're going to do is
+[00:02:29] we're going to open this in the browser
+[00:02:30] to see what this looks like. This is
+[00:02:32] what it looks like here. So, um we're
+[00:02:34] probably we've got a bunch of kind of
+[00:02:36] like AI kind of style design. We didn't
+[00:02:39] give it any design prompt. It actually
+[00:02:41] isn't too bad overall. Like it's not the
+[00:02:44] purple gradients that you would usually
+[00:02:46] see on like most AI design, but it is
+[00:02:49] using purple. It's kind of defaulted to
+[00:02:51] that kind of bluey purple. Um, as it
+[00:02:53] kind of always does. It looks fairly
+[00:02:55] basic. Like it's not too bad from a
+[00:02:58] design point of view, but let's use this
+[00:03:00] front-end skill to see if we can improve
+[00:03:02] this design even further. And what I'm
+[00:03:05] going to do here first is just use the
+[00:03:06] front-end skill and don't give it any
+[00:03:08] context and just see what it comes back
+[00:03:10] with. So, first let's go back to the
+[00:03:12] post and copy these commands over to
+[00:03:14] claude code so that we can install this
+[00:03:16] skill in claude code. We're just going
+[00:03:18] to paste this into our Claude code chat
+[00:03:20] here basically to add this marketplace.
+[00:03:23] Um, so that's successfully added that
+[00:03:25] marketplace. And then we're going to go
+[00:03:27] back again to this and then install this
+[00:03:30] plugin. This front-end design skill
+[00:03:33] plugin basically. Uh, so let's paste
+[00:03:35] that in there. So install now. Create
+[00:03:37] distinctive production grade front-end
+[00:03:39] interfaces with high design quality
+[00:03:41] generates creative polish code that
+[00:03:43] avoids generic AI aesthetics. Let's
+[00:03:46] install that now. So, we've now
+[00:03:48] installed the front-end design skill and
+[00:03:50] then all we have to do as per the kind
+[00:03:52] of instructions in this post. So, we
+[00:03:54] just have to say as simple as use the
+[00:03:56] front-end design skill to improve the
+[00:03:59] design for this landing page. So, let's
+[00:04:00] go back to claw code and say that let's
+[00:04:03] say use the front end
+[00:04:07] design skill to improve the design of
+[00:04:11] this landing page.
+[00:04:14] and let's see how well this front-end
+[00:04:16] design skill kind of improves the design
+[00:04:19] of the landing page without any
+[00:04:20] guidance. And then maybe after this
+[00:04:22] we'll do another step just to see how
+[00:04:24] well this front-end design skill
+[00:04:26] actually uses a design reference to
+[00:04:29] improve the design for this landing page
+[00:04:31] as well. Okay, so Claude Code has
+[00:04:33] finished using the front-end design
+[00:04:34] skill to redesign our entire landing
+[00:04:37] page. Let's actually see if it's done a
+[00:04:40] good job. So, here is our redesigned
+[00:04:43] website and it looks pretty it looks
+[00:04:47] pretty good. It's pretty good here.
+[00:04:49] There are some things that I would
+[00:04:50] change, but like this is way better than
+[00:04:52] what it was before. It's used like some
+[00:04:54] really nice typography here. It's added
+[00:04:57] this kind of glow as you scroll down. I
+[00:04:59] think there was like animations. These
+[00:05:01] kind of fade in. They have hover
+[00:05:03] effects. The padding is decent. You have
+[00:05:06] the glow on these kind of menu buttons.
+[00:05:08] The styling is consistent. It's using
+[00:05:10] black, white, and one color, which I
+[00:05:13] love because that is a great place to
+[00:05:15] start for any good design. Black, white,
+[00:05:18] and one color, and then add in another
+[00:05:20] color palette on top of that if you want
+[00:05:21] to. This also aligns pretty well with
+[00:05:24] this kind of target market of like AI
+[00:05:28] kind of agencies and businesses who want
+[00:05:31] to use AI to like build apps that can
+[00:05:34] save them time and make them more money.
+[00:05:36] It's pretty I would say like there is
+[00:05:38] some things that I would improve like to
+[00:05:41] add a call to the the call to action.
+[00:05:44] This button here is not standing out on
+[00:05:45] this black background. So we need to
+[00:05:47] make that into like this blue style on
+[00:05:49] this background so that this is like a
+[00:05:51] primary call to action above the fold.
+[00:05:53] We've got a great subheading here. We
+[00:05:55] also might want to add in like some
+[00:05:57] social proof. It's added this here. But
+[00:05:59] none of that is kind of like apart from
+[00:06:01] the button styling is design styling.
+[00:06:03] We've got these called out. I don't know
+[00:06:04] what this kind of animation is in the
+[00:06:06] bottom right here with this square. That
+[00:06:08] might be a little error. It's done
+[00:06:10] something there. I really like this kind
+[00:06:12] of You might not be able to see it on
+[00:06:14] the video, but there's like a subtle
+[00:06:15] grid kind of pattern behind these cards.
+[00:06:18] But this is giving, you can see it a bit
+[00:06:19] more here. There's like a subtle gray
+[00:06:21] kind of grid in the background of this
+[00:06:23] section, which is super nice. This I am
+[00:06:26] loving this design. And this section is
+[00:06:28] not so good. Okay, so we've got some
+[00:06:31] text laid out here. not particularly
+[00:06:33] great. These need to be cards. This kind
+[00:06:35] of uh title and kind of alignment is off
+[00:06:38] completely. So, it hasn't done a perfect
+[00:06:40] job in these sections. But for this
+[00:06:43] section here, for this contact form for
+[00:06:45] the footer and for these top sections
+[00:06:47] here with these kind of cards um in this
+[00:06:50] grid layout, this is super nice. We have
+[00:06:53] some hover effects here. We had the the
+[00:06:56] fade in animations as well. This is and
+[00:07:00] this is just basically from using this
+[00:07:02] claw code front-end skill asking it to
+[00:07:04] use that to improve the design of your
+[00:07:06] website. And what you can do with this
+[00:07:08] is then you can then use it to follow a
+[00:07:11] screenshot. Um so let's do that as well.
+[00:07:13] I'm going to go over to dribble um which
+[00:07:16] is one of the kind of main places I go
+[00:07:18] to for kind of UI design inspiration.
+[00:07:21] and let's say like AI website design and
+[00:07:25] just find something like pretty nice
+[00:07:27] that we can like take and copy here into
+[00:07:29] our app. So I don't want to go for
+[00:07:31] anything that's like too um kind of
+[00:07:34] AIish
+[00:07:35] like we don't want these kind of purple
+[00:07:37] gradients or like any of this stuff. I
+[00:07:40] want to do maybe something like this.
+[00:07:42] Let's use this um let's use this because
+[00:07:45] this is kind of like quite a clean
+[00:07:47] design style. It's got a couple of
+[00:07:49] colors in here. uh slightly different
+[00:07:51] typography. I think it might be able to
+[00:07:53] match this pretty well. Let's go back to
+[00:07:55] Claude Code and let's say let's use the
+[00:07:58] front end design skill
+[00:08:02] to improve the design of this landing
+[00:08:06] page following the attached screenshot.
+[00:08:11] And then let's paste in the file here
+[00:08:13] that we copied to our clipboard. And
+[00:08:15] then let's send that off to Claude Code
+[00:08:17] to redesign this app based on that
+[00:08:19] screenshot using the front-end design
+[00:08:22] skill and see how well it does. So now
+[00:08:25] Claude Code has finished redesigning
+[00:08:26] this website based on the screenshot
+[00:08:28] that I gave it. It said that it's gone
+[00:08:30] from this brutalist version to a soft
+[00:08:33] modern version. And here are the
+[00:08:34] differences. So black, white, and cyan
+[00:08:36] has gone to soft gradients and pastels.
+[00:08:38] Soft shadows with blur instead of harsh
+[00:08:40] shadows, sharp edges to rounded
+[00:08:42] everything. uh monospace fonts to modern
+[00:08:45] sand serif which has chosen outfit which
+[00:08:48] is interesting. Geometric icons to emoji
+[00:08:50] icons which it kind of seems to fall
+[00:08:52] back to. I think it was still using
+[00:08:54] emojis in this brutalist version.
+[00:08:56] Terminal aesthetic to a premium SAS feel
+[00:08:58] data streams and grids to a floating
+[00:09:00] gradient blobs and hard transitions to
+[00:09:03] smooth animations. So let's see what
+[00:09:06] this actually looks like. We go back to
+[00:09:09] our reference here. This is the
+[00:09:11] reference that we gave Claude code to
+[00:09:13] work from. This is the previous version
+[00:09:16] of the website. So let's refresh this
+[00:09:18] website now and see how the design has
+[00:09:21] improved or changed.
+[00:09:23] So this is now the current website which
+[00:09:26] is pretty it's got like it's even got
+[00:09:29] this kind of like soft scroll. This is
+[00:09:32] looking really good. Like again, there's
+[00:09:35] still some things I would change here,
+[00:09:37] but there's some great hovers with soft
+[00:09:40] that really soft shadow on there. The
+[00:09:42] underline animation on these is so good.
+[00:09:46] Um, but strategy call get started for
+[00:09:48] free. I actually still don't really I
+[00:09:51] don't really like the emojis on here,
+[00:09:52] but this is looking pretty good. Um,
+[00:09:55] these are kind of breaking. Um, so that
+[00:09:58] formatting is not quite right and maybe
+[00:10:00] the icons aren't showing there
+[00:10:02] correctly. This is pretty good. This
+[00:10:05] this this section is pretty good.
+[00:10:08] And this section styling is still kind
+[00:10:10] of messed up, but this really soft kind
+[00:10:11] of pastel gradient background is super
+[00:10:14] nice. I really really like that. There's
+[00:10:16] some issues here with the text over
+[00:10:18] this, but to be honest, like this this
+[00:10:21] version of the website, this is better
+[00:10:24] than 99% of or this is better than a
+[00:10:27] very large percentage of designs that
+[00:10:29] you're going to get from other AI tools
+[00:10:31] without using this front-end skill. And
+[00:10:34] so, you can see just in this short video
+[00:10:36] kind of me demoing this front-end skill
+[00:10:38] here, even just by providing a simple
+[00:10:40] screenshot. If you wanted to do this a
+[00:10:42] little bit further, you could create a
+[00:10:44] design system similar to what I've kind
+[00:10:45] of gone through that process in another
+[00:10:47] video with cursor of how you can create
+[00:10:48] a design system in your codebase and
+[00:10:50] then use that in your designs. You could
+[00:10:52] create a design system kind of framework
+[00:10:54] and then use claude code using the
+[00:10:56] front-end skill to design your website
+[00:10:58] following that framework and that would
+[00:10:59] probably yield even better results than
+[00:11:02] this. But for now, this is incredible
+[00:11:04] and this is already so much better than
+[00:11:06] the generic kind of AI design. It's
+[00:11:09] still gone back to purple a little bit.
+[00:11:11] I won't lie there though. But that is
+[00:11:13] how you can get up and running with this
+[00:11:15] Claude code skill in just a few minutes
+[00:11:18] just installing that plugin and then use
+[00:11:20] the skill to actually create beautiful
+[00:11:23] incredible design for your app and
+[00:11:25] website user interfaces. So, I think
+[00:11:27] this not only shows the power of this
+[00:11:30] specific skill in Claude Code, but also
+[00:11:32] it shows the power of Claude skills just
+[00:11:35] in general. The ability to create your
+[00:11:37] own custom skills that do a specific
+[00:11:39] task incredibly well would just allow
+[00:11:42] you to unlock even more potential from
+[00:11:45] Claude Code as you're building your app.
+[00:11:47] And this means that you can take your
+[00:11:48] app designs to a level of quality that
+[00:11:51] is nearly professional and just looks
+[00:11:53] incredible and so much better than all
+[00:11:55] of the purple gradients that you get
+[00:11:56] everywhere else. So if you are using
+[00:11:58] claw code, I would highly recommend
+[00:12:00] installing this front-end skill and then
+[00:12:03] using it to design your app as you
+[00:12:05] build. And if you are building an app
+[00:12:06] with AI and you want to join a community
+[00:12:08] of other people building apps too, then
+[00:12:10] you can head over to school.com/iapps.
+[00:12:13] There's courses there on how to build
+[00:12:14] and launch your app, scale it to real
+[00:12:16] paying customers, build AI agents,
+[00:12:18] mobile apps. So, I'd love for you to
+[00:12:19] check it out. If you enjoyed the video,
+[00:12:21] don't forget to like and subscribe. Is a
+[00:12:23] massive help to the channel and I hugely
+[00:12:25] appreciate it. Thank you for watching
+[00:12:26] and see you next time. [music]

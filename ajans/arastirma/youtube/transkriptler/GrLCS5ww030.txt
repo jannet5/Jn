@@ -1,0 +1,547 @@
+# Custom Animated Bottom TabBar in React Native with Expo Router | React Native for Beginners
+# https://www.youtube.com/watch?v=GrLCS5ww030
+# kanal: Pradip Debnath | süre: 1660 sn | kaynak: yt-dlp:web_embedded:GrLCS5ww030.en-orig.json3
+
+[00:00:00] [Music]
+[00:00:10] [Music]
+[00:00:13] hey guys welcome back to my YouTube
+[00:00:14] channel today in this tutorial I'm going
+[00:00:16] to show you how we can create this
+[00:00:18] custom animated buttom tab bar Navigator
+[00:00:21] in react native by using export outer so
+[00:00:24] here you can see we have this custom
+[00:00:26] buttom tabbard and this one is having a
+[00:00:29] floating Loop it looks like it is
+[00:00:31] floating on the screen and it has a
+[00:00:33] three tabs and this one is currently
+[00:00:35] active and the active one has a circular
+[00:00:38] background and it has an icon and the
+[00:00:41] others have the icon and the label text
+[00:00:44] now let's go to another tab so this is
+[00:00:46] the tab animation which you can see when
+[00:00:50] we are switching to another tab that
+[00:00:52] time the circular background is moving
+[00:00:54] right and the icon is also having some
+[00:00:58] animation and the label text is gone for
+[00:01:01] the active tab so this is what we are
+[00:01:03] going to create today in this tutorial
+[00:01:05] and we are going to use react native
+[00:01:07] reanimated package to create this
+[00:01:09] animation so if you are interested in
+[00:01:11] these kinds of tutorial then hit the
+[00:01:13] like button subscribe to my channel for
+[00:01:15] more tutorials like this and don't
+[00:01:17] forget to hit the notification Bell icon
+[00:01:19] so that you get notified whenever I post
+[00:01:21] a new tutorial on this channel so
+[00:01:23] without wasting any more time let's get
+[00:01:25] started so here I have created a new
+[00:01:28] project in Expo and here our app is
+[00:01:30] running so now with this we have so many
+[00:01:34] files and folders which I do not need so
+[00:01:37] I'm just deleting
+[00:01:47] those and for the stack we don't have
+[00:01:50] the not found and we will have the tabs
+[00:01:54] right now it doesn't have but now I'm
+[00:01:56] going to create that so let's create
+[00:01:59] tabs and within it I need to create
+[00:02:02] layout. TSX
+[00:02:05] file and I will name it as tab layout
+[00:02:08] and here let's import tabs from export
+[00:02:12] outer and I'm just going to use that
+[00:02:15] here with the tabs I need to create the
+[00:02:18] Tab screen so I'm just quickly creating
+[00:02:21] a tab called index and let's name it as
+[00:02:26] page and it will be home screen and let
+[00:02:29] me provide a style for it Flex one
+[00:02:33] justify content Center and align items
+[00:02:36] Center so that the page content will be
+[00:02:40] in Center so let me provide the style
+[00:02:44] here and now let's save it and with that
+[00:02:48] it got crashed now let me stop the
+[00:02:51] server and run it once again so with
+[00:02:54] that here we can see our home screen and
+[00:02:57] we can see our tab so now I'm going
+[00:02:59] going to create two more tab another one
+[00:03:02] will be explore. TSX and it will be same
+[00:03:07] as this
+[00:03:11] one and then the profile it is the
+[00:03:15] profile screen and with that we can see
+[00:03:18] we have three tabs present here so we
+[00:03:20] have done our basic setup now for these
+[00:03:23] tabs I can customize these labels so let
+[00:03:27] me do that first So within this tabs I
+[00:03:30] can specify Tab screen and for the Tab
+[00:03:33] screen options I can specify the title
+[00:03:36] and for the first I need to provide home
+[00:03:39] and it would be for the index so the
+[00:03:42] file name I have provided here so let's
+[00:03:45] save it and with that here we can see
+[00:03:47] the label have been updated so let's
+[00:03:50] copy that for the explore I will provide
+[00:03:54] it explore and for the profile I will
+[00:03:57] name it as profile with capital P and
+[00:04:00] now I want to customize this tab bar and
+[00:04:03] to customize that we have mainly two
+[00:04:05] options one option is that from tabs
+[00:04:08] screen options we can provide different
+[00:04:11] kind of options to this prop and
+[00:04:13] customize it based on our requirement
+[00:04:16] which I have done previously many more
+[00:04:18] times in my previous tutorials but for
+[00:04:20] this one I will take another option and
+[00:04:23] that is fully customizable by using the
+[00:04:25] screen options it has some limitations
+[00:04:28] but this current approach which I will
+[00:04:30] take this doesn't have any kind of
+[00:04:32] limitation you can do whatever you want
+[00:04:35] with this approach and for this let's go
+[00:04:37] to react navigation documentation and in
+[00:04:40] Expo outer also they are using react
+[00:04:43] navigation so the documentation of react
+[00:04:46] navigation will help us understand the
+[00:04:49] export outer at its code and to
+[00:04:51] implement all the options available to
+[00:04:54] it in a better way so let's see here
+[00:04:56] here we have different kind of props and
+[00:04:58] all for the bottom Tab and here we can
+[00:05:01] see we have a tab bar prop so here it is
+[00:05:04] a function that returns a react element
+[00:05:06] to display as the tab bar so that is
+[00:05:08] what I'm going to create today and here
+[00:05:11] is an example and let me copy this
+[00:05:13] example here we can see this is the tab
+[00:05:16] Navigator tab bar prop so I'm not going
+[00:05:18] to copy this one I'm just going to copy
+[00:05:21] this custom react element which they
+[00:05:23] have provided the example so let me copy
+[00:05:27] and let's create
+[00:05:29] a components directory and within
+[00:05:32] this let's create this tab bar TSX and
+[00:05:36] here I'm going to paste this and here
+[00:05:39] let me name it as tab bar and let's
+[00:05:43] export it and as I'm using typescript so
+[00:05:46] I need to provide a type for these props
+[00:05:49] which we are accepting here and let me
+[00:05:52] import the
+[00:05:55] prop from react navigation bottom tabs
+[00:05:59] and that prop will be btom tab bar props
+[00:06:02] so here let me provide that so this is
+[00:06:05] the type now let's save this one and for
+[00:06:09] this let's use the tab bar and this is
+[00:06:13] how we can provide that here we are
+[00:06:16] passing the prop to our tab bar so here
+[00:06:19] it is called tab bar and let's import
+[00:06:22] that now let's save it okay so here we
+[00:06:25] are having an warning currently let's
+[00:06:27] get rid of that now we can see we have
+[00:06:31] this custom component here right the
+[00:06:33] profile explore and here we have the
+[00:06:36] home which is not completely visible but
+[00:06:39] it is there and it is completely coming
+[00:06:41] from this tab bar and that we can see by
+[00:06:44] looking at this color so this is the
+[00:06:47] active color which is in profile tab if
+[00:06:50] I change it to Red then we can see it is
+[00:06:53] red so now we can understand that this
+[00:06:56] is the component which is being rendered
+[00:06:58] here right so so now let's first reload
+[00:07:01] this app and with this we can see we
+[00:07:04] have this warning we have this warning
+[00:07:07] for Unique key so we need to provide
+[00:07:09] unique key for this map function which
+[00:07:12] is being rendered here so that means
+[00:07:14] this touchable opacity is being rendered
+[00:07:17] under this map function and for this one
+[00:07:20] we need to provide unique key and that I
+[00:07:22] can provide by Route name which is also
+[00:07:25] providing unique value so now after
+[00:07:28] saving it the warning has has been gone
+[00:07:30] now we can style it so let's see what we
+[00:07:33] have got so here first we have this
+[00:07:36] wrapper View and within this rapper view
+[00:07:39] we have this touchable opacity so this
+[00:07:41] touchable opacity are the buttons and
+[00:07:44] this view is the actual tab bar so we
+[00:07:47] need to provide some style for it let me
+[00:07:50] create the stylesheet here and we need
+[00:07:53] to import stylesheet from react native
+[00:07:56] now I can create that and I will name it
+[00:08:00] as tab bar so here first I will provide
+[00:08:03] position as absolute btom 50 and
+[00:08:07] obviously the flex direction will be row
+[00:08:10] and here let me change it to tab bar so
+[00:08:14] here I can see that for justify content
+[00:08:18] space between and align items I will
+[00:08:21] provide Center let's provide a
+[00:08:24] background color white for margin
+[00:08:26] horizontal I will provide 80 so this is
+[00:08:29] our tab bar now with this I want to
+[00:08:32] provide an icon for each of the tabs so
+[00:08:36] here let me import feather icon and for
+[00:08:39] the name I will use home for the size of
+[00:08:42] it I will use 24 and for the color of it
+[00:08:45] I will use this color okay so this is
+[00:08:48] how it's looking right now so let me
+[00:08:51] give style for this also so
+[00:08:54] here I will create a tab bar item and
+[00:08:58] let's provide Flex one for justify
+[00:09:00] content I will provide Center for Align
+[00:09:04] items I will provide Center as well so
+[00:09:07] now it has been positioned at the center
+[00:09:09] and let's provide a gap of five so now
+[00:09:12] it is looking good now let's provide a
+[00:09:15] padding here and let's provide a border
+[00:09:18] radius 35 and now let's provide a shadow
+[00:09:22] for the shadow color I will provide
+[00:09:25] black color shadow offset height I will
+[00:09:28] use 10 and for the width I have used
+[00:09:31] zero for shadow radius I will use 10 and
+[00:09:35] for shadow opacity I will use 0.1 so now
+[00:09:38] it is having a good Shadow which is
+[00:09:41] making it prominent and gives a floating
+[00:09:44] look so the design is looking pretty
+[00:09:46] good now for each of the items we need
+[00:09:50] to provide different icon and to do that
+[00:09:53] I need to create a variable and in that
+[00:09:56] variable I can check the route name and
+[00:09:58] based on the route name I can provide
+[00:10:00] the icon so let me cut it from here and
+[00:10:03] let's create a constant called icon and
+[00:10:06] here for the
+[00:10:08] index we can return it and here we can
+[00:10:12] pass the props and let's provide type of
+[00:10:16] any and I can pass the props here
+[00:10:20] similarly let's copy it two more time
+[00:10:22] and here first it will be explore and
+[00:10:26] then it will be for profile so for the
+[00:10:28] explore floor I will use Compass icon
+[00:10:32] and for the profile I will use user so
+[00:10:35] now let's use the icon here so here pass
+[00:10:40] the route name and I can pass
+[00:10:43] color so these are the color now save it
+[00:10:47] so now with the save I can see icon have
+[00:10:50] been changed and with the icon we have
+[00:10:52] changed the color as well right so as we
+[00:10:55] are passing the color so we don't need
+[00:10:58] the color
+[00:11:00] here it is now looking good so this is
+[00:11:03] how we can customize the tab bar as we
+[00:11:05] want and this is completely customizable
+[00:11:08] right so we have complete control over
+[00:11:11] it and with this control now we are
+[00:11:13] going to move ahead and implement the
+[00:11:15] animation to this tab bar so now I need
+[00:11:18] to move this tab bar button to another
+[00:11:22] component so here let's create another
+[00:11:25] file called tabar button. TSX
+[00:11:29] and here I'm going to copy all these
+[00:11:32] things and paste here and instead of
+[00:11:35] touchable opacity I will use press here
+[00:11:38] and I don't actually need these things
+[00:11:41] also the key is not applicable here and
+[00:11:44] here let me just comment these things
+[00:11:47] out and let me import tab bar button and
+[00:11:51] for the tab bar button I need to provide
+[00:11:54] this key and after that we will require
+[00:11:58] this things also on press on long press
+[00:12:02] and I will pass few more props to this
+[00:12:05] step bar button component and the first
+[00:12:07] one will be is focused then I will pass
+[00:12:11] route name so it will be route. name
+[00:12:14] then I will pass color so here color
+[00:12:18] could be this and for the label I will
+[00:12:21] provide label which will be this text
+[00:12:24] right for this text we have the label
+[00:12:27] and for the icon I need to Prov the
+[00:12:29] route name here which we are going to
+[00:12:32] accept here so this is the list of the
+[00:12:34] prop which we are going to take so here
+[00:12:38] let's copy these things one by
+[00:12:46] one and then we have the
+[00:12:50] lbel here for the on press it is a
+[00:12:53] function for long press also this
+[00:12:56] focused is a Boolean route name is a
+[00:13:00] string color is a string also and this
+[00:13:04] level also could be a string so here
+[00:13:07] instead of Route it would be route name
+[00:13:10] and for the icon also let me create a
+[00:13:14] constant called icons so here
+[00:13:20] constants I will provide the
+[00:13:23] icon so from here I can cut
+[00:13:26] it and paste here and I need to export
+[00:13:30] the icon and let's import this feather
+[00:13:33] icon and with that
+[00:13:36] here let's import icon from icon
+[00:13:40] constant and now I think we are
+[00:13:46] good yes so I need to provide this tab
+[00:13:50] bar
+[00:13:54] item so now we have completely moved
+[00:13:58] this to a new component and here I'm
+[00:14:01] going to add animation to this icon and
+[00:14:04] the label so for that first I'm going to
+[00:14:07] create a variable called scale and it
+[00:14:11] will be used shared value and the value
+[00:14:13] will be zero and this use shared value
+[00:14:16] is coming from react native reanimated
+[00:14:19] and this react native reanimated package
+[00:14:22] is already installed by default with
+[00:14:25] every export project so here we can see
+[00:14:27] it is installed so that's why we can use
+[00:14:30] this hook now for the use effect hook
+[00:14:35] and this use effect needs to be imported
+[00:14:38] from react and
+[00:14:39] then here we can do some functionality
+[00:14:43] and this will happen if the scale value
+[00:14:46] changes or each focused value changes
+[00:14:49] and we will change the scale value so
+[00:14:51] initially it is zero and later we will
+[00:14:54] change it to one and that is also with
+[00:14:58] some effect and that effect I will
+[00:15:02] provide with spring which is a animation
+[00:15:04] function from react native reanimated
+[00:15:07] and here we will check if type of is
+[00:15:11] focused is equal to
+[00:15:14] Boolean then it will be this is focused
+[00:15:17] value and here also we are providing a
+[00:15:20] check and otherwise it will be is
+[00:15:23] focused so we are checking if is focused
+[00:15:26] is Boolean then we will have either one
+[00:15:29] or zero otherwise we will have is
+[00:15:32] focused whatever it is it will be there
+[00:15:35] and with that I will provide a
+[00:15:37] configuration which is a duration and
+[00:15:40] for the duration I will provide 350
+[00:15:44] millisecond so with this duration I will
+[00:15:47] change the value of this scale constant
+[00:15:50] so now I can provide a animation and I
+[00:15:54] can create
+[00:15:56] animated text stle and provide use
+[00:16:00] animated style
+[00:16:02] hook and I will change the opacity so
+[00:16:05] let's create the opacity constant and
+[00:16:08] here in interpolate function let's check
+[00:16:12] the scale value and for the input range
+[00:16:15] we will provide 0 to 1 and for the
+[00:16:18] output range it will be 1 to 0 so that
+[00:16:22] mean when we have the scale value zero
+[00:16:25] that time by default the opacity value
+[00:16:28] for the text for this text is one and
+[00:16:31] when the scale value will be one that
+[00:16:33] time it will be zero so that mean we
+[00:16:36] will make it hidden the opacity will be
+[00:16:39] zero so it will be hidden so here let's
+[00:16:42] return the opacity and we can provide
+[00:16:45] that here so let's provide animated.
+[00:16:49] text and this animated needs to be
+[00:16:51] imported from reactnative reanimated and
+[00:16:54] now with that I can provide the
+[00:16:59] animated text style here and here I need
+[00:17:02] to close the animated text so here we
+[00:17:06] can see we don't have the label
+[00:17:08] text
+[00:17:12] right so that's how it's working we are
+[00:17:15] hiding the text now along with that I
+[00:17:18] want to reposition the icon so that's
+[00:17:21] why I need to wrap it with an animated
+[00:17:24] view so that I can provide an animation
+[00:17:26] to it so here let's create animated icon
+[00:17:30] style it will be use animated style and
+[00:17:34] here let's create scale value and for
+[00:17:37] the interpolate of it let's provide the
+[00:17:40] value and let's check for the input
+[00:17:43] range and for the output range here I
+[00:17:45] will scale it I will make it little bit
+[00:17:48] bigger initially it will be one and when
+[00:17:51] the value will be one when the animation
+[00:17:53] will be completed that time it will be
+[00:17:56] 1.2 it will scale to 1 .2 value now
+[00:18:00] let's return so provide transform scale
+[00:18:04] I need to provide scale value and for
+[00:18:07] this view let's provide animated icon
+[00:18:10] style okay here we need to wrap it with
+[00:18:14] a bracket so now we can see it is
+[00:18:17] changing its size so it is changing the
+[00:18:20] scale of it which we have provided 1.2
+[00:18:24] so it is getting bigger by 1.2 times of
+[00:18:27] its actual size and with the size I want
+[00:18:30] to position it little bit down so from
+[00:18:33] the top I want to provide some margin
+[00:18:35] and for that let's create another
+[00:18:38] constant called top and here let's
+[00:18:41] provide scale do value and let's provide
+[00:18:45] input range for the output range I will
+[00:18:48] provide 0a 9 so initially we don't have
+[00:18:51] anything at the top but when this
+[00:18:54] animation will be completed that means
+[00:18:56] it will scale to 1.2 times that time I
+[00:18:59] will provide 9 pixel at the top so here
+[00:19:02] after the transform I can provide top so
+[00:19:06] it will be top for top property I can
+[00:19:09] provide this Top Value so as these are
+[00:19:13] the same so I can provide it as like
+[00:19:16] this so now after saving we can see it
+[00:19:20] is now positioned at the
+[00:19:22] middle right so now it is
+[00:19:25] looking pretty good and now I want to
+[00:19:30] change the size of this text so here
+[00:19:34] let's change the font size 12 so now it
+[00:19:37] is looking much more better in my
+[00:19:39] opinion so now with this we are done
+[00:19:42] with the 50% of the animation now we
+[00:19:45] need to work on the rest of the 50%
+[00:19:48] which will be the circular background of
+[00:19:50] the active tab bar button and for that
+[00:19:54] we need to go to this tab bar and after
+[00:19:57] this wrapper view I need to provide
+[00:19:59] another view which will be responsible
+[00:20:01] for the circular background which will
+[00:20:03] animate but for that we need to do some
+[00:20:06] setup so let me do that first and then I
+[00:20:09] will create that view so first I will
+[00:20:12] create a state called
+[00:20:16] dimensions and for the dimensions we
+[00:20:19] need to provide height and width and by
+[00:20:22] default I will provide these values and
+[00:20:25] these values doesn't mean anything or do
+[00:20:28] anything rather it's just some initial
+[00:20:31] value and later on we will change the
+[00:20:34] dimensions by using the set Dimension
+[00:20:36] when our layout will be created now
+[00:20:39] after this Dimension State let's create
+[00:20:42] button width and this width will be
+[00:20:46] Dimensions WID
+[00:20:49] by by state routes. length so in this
+[00:20:54] state do route. length we will have the
+[00:20:57] number of tab which is present in our
+[00:21:00] tab so right now it will be three if we
+[00:21:03] will have any other number for the tabs
+[00:21:06] such as like we will have four or five
+[00:21:09] or two then it will return that value
+[00:21:12] here and based on that the button withd
+[00:21:14] will be created so these are the
+[00:21:16] complete Dynamic values and it can be
+[00:21:18] used to implement animations for any
+[00:21:21] number of tabs now after the button
+[00:21:23] width we need to create on tab bar
+[00:21:27] layout constant and it will be an event
+[00:21:31] which will be layout change event type
+[00:21:34] and this needs to be imported from react
+[00:21:36] native and here we can set the
+[00:21:40] dimension so the height will be e do
+[00:21:43] Native event layout do height and
+[00:21:46] similarly we can get the width also and
+[00:21:50] this on tab bar layout will be for this
+[00:21:53] view on layout so for this on layout we
+[00:21:57] can call this on tabar layout and by
+[00:22:00] this we can set the dimension so as I
+[00:22:03] have mentioned here so these are the
+[00:22:05] initial value but these values will be
+[00:22:08] set by this on Tab layout and by this we
+[00:22:11] will get this button width and this
+[00:22:14] button width will determine the width of
+[00:22:16] the background which will be animated
+[00:22:19] now let me create an animated variable
+[00:22:22] called T position X and it will be use
+[00:22:26] shared value and by default default the
+[00:22:29] value will be zero now let's create the
+[00:22:31] animation style so it will be animated
+[00:22:36] style use animated
+[00:22:40] style and here we can return
+[00:22:45] transform translate X tab position X do
+[00:22:49] value we will provide the value of it so
+[00:22:52] whatever value it is we will provide the
+[00:22:55] translate X property that value and we
+[00:22:58] can and change the value of this step
+[00:23:00] position X by this on press so this on
+[00:23:04] press is passing here so whenever we are
+[00:23:07] pressing any button any tab bar button
+[00:23:10] that time this unpress function is
+[00:23:12] getting triggered and this is the
+[00:23:14] perfect place to change the value of
+[00:23:16] this tab position X so that is the time
+[00:23:19] when the circular background of the tab
+[00:23:21] will be changed so by changing this
+[00:23:24] value we will change the position of
+[00:23:27] that background so this onpress function
+[00:23:30] is the perfect place to change the value
+[00:23:33] so here let's update the value with some
+[00:23:36] effect and that effect will be with
+[00:23:39] spring and I will provide the button
+[00:23:42] with index and will provide a duration
+[00:23:46] for the animation which will be500
+[00:23:49] millisecond so whatever the button with
+[00:23:52] this it will multiply with the index so
+[00:23:55] for the first one it will have the
+[00:23:57] button with for the second one the
+[00:23:59] button width will be multiplied by two
+[00:24:02] and so on right so for the first one it
+[00:24:05] will be zero then one then two so it
+[00:24:08] will multiply by this and that's how the
+[00:24:11] X position value of this background will
+[00:24:15] be changed so now let me just create the
+[00:24:18] background the animated View and then it
+[00:24:21] will be clear to you so it will be
+[00:24:24] animated View and this animated is from
+[00:24:28] react native
+[00:24:30] reanimated now first let's provide some
+[00:24:33] style here first it will be position
+[00:24:36] absolute then let's provide a background
+[00:24:39] color of this color a border radius of
+[00:24:43] 30 for margin horizontal I will use 12
+[00:24:47] for the height of it I will use
+[00:24:50] Dimensions height minus 15 for the width
+[00:24:54] I will use Dimensions width minus 20
+[00:24:59] 5 so this is the background and now here
+[00:25:04] let me provide the animated
+[00:25:12] style okay so here it is having the
+[00:25:16] animation but background is not only for
+[00:25:19] the active tab let me check it okay it
+[00:25:23] is spreading across the tab bar because
+[00:25:26] I have used dimensions WID here but it
+[00:25:29] would be the button width let me change
+[00:25:32] that to button width so now it is
+[00:25:36] looking good right now I need to change
+[00:25:40] the color here so if it is focused then
+[00:25:44] it will be white color here also it will
+[00:25:48] be
+[00:25:55] this okay so now it is
+[00:25:58] working perfectly well so this is how we
+[00:26:01] have implemented the animation and here
+[00:26:04] let me describe once again this is how
+[00:26:07] we are changing the value of this tab
+[00:26:09] position and by this tab position X we
+[00:26:13] are changing the position of this
+[00:26:16] background right so as the button width
+[00:26:19] so this button width means the width of
+[00:26:22] this background okay and if the index is
+[00:26:25] changing so whenever we are clicking on
+[00:26:28] any tab that time that is the current
+[00:26:31] index and that is being multiplied with
+[00:26:34] the button width and by that this step
+[00:26:37] position value is being changed so
+[00:26:39] that's why it is moving and we are
+[00:26:41] providing this duration for the
+[00:26:43] animation so that's why it is taking
+[00:26:46] little bit of time and we have provided
+[00:26:48] this with spring property so that's why
+[00:26:51] it is having some spring effect some
+[00:26:53] bouncy effect to this animation right
+[00:26:56] and this value we we have provided in
+[00:26:59] this transform translate X so that's how
+[00:27:02] we are moving this background
+[00:27:06] right so this is the animation guys I
+[00:27:09] hope it is clear to you now and it is
+[00:27:11] also quite simple to implement if you
+[00:27:14] understand it properly so this is the
+[00:27:16] tutorial guys I hope you have learned
+[00:27:18] something new from this tutorial if you
+[00:27:20] do so then hit the like button subscribe
+[00:27:22] to my channel for more tutorials like
+[00:27:24] this and let me know by commenting down
+[00:27:26] below if you have any kind of
+[00:27:28] suggestions for me then also let me know
+[00:27:30] and don't forget to share this tutorial
+[00:27:32] with your friends and colleagues and I
+[00:27:34] will see you guys in my next tutorial in
+[00:27:37] the meantime have a great day goodbye

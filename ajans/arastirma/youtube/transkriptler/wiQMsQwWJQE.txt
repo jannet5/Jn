@@ -1,0 +1,413 @@
+# 3-Step Claude Code System For Pro-Level App Designs
+# https://www.youtube.com/watch?v=wiQMsQwWJQE
+# kanal: Sean Kochel | süre: 924 sn | kaynak: yt-dlp:web_embedded:wiQMsQwWJQE.en-orig.json3
+
+[00:00:00] Building an app without a design system
+[00:00:02] is kind of like trying to cook a
+[00:00:04] five-star meal by just throwing random
+[00:00:06] ingredients together and hoping
+[00:00:08] something pops out the other side.
+[00:00:10] Unfortunately, hoping for the best is
+[00:00:12] not a great way to live life or build
+[00:00:14] cool stuff that people actually want.
+[00:00:17] Luckily, this three-step cloud code
+[00:00:19] system that I'm about to show you helps
+[00:00:22] turn that frown upside down by building
+[00:00:25] fresh UIs every single time. This
+[00:00:28] process has three phases. I'm going to
+[00:00:30] demo each phase and show how it builds
+[00:00:34] onto the next piece. And so, we'll
+[00:00:36] finish it all off by actually using the
+[00:00:38] system to build a real design. This
+[00:00:40] video is going to be great for you if
+[00:00:42] number one, you're already getting
+[00:00:43] pretty good with the coding element of
+[00:00:46] vibe coding, but the UIs that you make
+[00:00:48] are still kind of lame. And number two,
+[00:00:50] if you're new to the world of vibe
+[00:00:52] coding and you want to have systems to
+[00:00:54] set you off in the right direction.
+[00:00:56] Because one unavoidable fact is this.
+[00:01:00] Professional designs will be a make or
+[00:01:03] break point for the success of what
+[00:01:05] you're building. So don't brush it to
+[00:01:07] the side. And by the way, all of the
+[00:01:09] stuff that I'm about to go through in
+[00:01:11] the video is available for free in the
+[00:01:14] description below the video, as well as
+[00:01:16] countless other detailed guides and
+[00:01:18] tutorials. So let's get into it. Now,
+[00:01:20] most vibe coders are pretty bad at
+[00:01:22] design, which makes sense because it is
+[00:01:24] a entire skill set unto its own, but
+[00:01:27] it's still critical that we get it right
+[00:01:29] because professional designs are what
+[00:01:31] make users stick. So, the first step of
+[00:01:34] our process is mining inspiration for
+[00:01:37] our overall aesthetic. And I like to use
+[00:01:40] a tool called Mobin. Now, Mobin is a
+[00:01:43] company that basically compiles every
+[00:01:45] screen imaginable from some of the most
+[00:01:48] professionally designed apps that we all
+[00:01:50] know and love. Now, if you were to ask
+[00:01:53] most designers, how do you actually get
+[00:01:55] good at design? What they'll tell you is
+[00:01:58] look at other good design, right? Look
+[00:02:01] at the world around you. Look at other
+[00:02:03] apps that you like and try to draw
+[00:02:05] inspiration from those things. Try to
+[00:02:07] build them. Try to replicate them. So
+[00:02:09] that is exactly what we are doing. Now
+[00:02:12] for this app we're building, I'm going
+[00:02:13] to use Nano Banana to generate interior
+[00:02:17] designs for homeowners and renters. Now
+[00:02:21] this idea for the app, it's kind of in
+[00:02:23] the beginning stages, but I want to get
+[00:02:24] inspired about the type of features and
+[00:02:27] things that I might want to see in this
+[00:02:28] and what it might feel like for the
+[00:02:30] user. So I wouldn't want to just copy
+[00:02:33] another interior design app. I'd want to
+[00:02:36] maybe hop into a different vertical and
+[00:02:38] find inspiration and then bring that
+[00:02:41] inspiration over into my app. So, I came
+[00:02:44] across two apps that I I really just
+[00:02:46] like the overall feeling of, right, for
+[00:02:48] this specific app that I am looking to
+[00:02:51] build. The first one is Airbnb. The
+[00:02:53] reason I like it, I think it feels very
+[00:02:56] warm. It feels welcoming. And in
+[00:02:59] general, I think it has a very clear
+[00:03:02] feeling aesthetic despite the fact that
+[00:03:04] it's delivering a lot of information to
+[00:03:06] people. I also like this app that I
+[00:03:08] found called Blackbird, which is for
+[00:03:11] earning rewards at like high tier
+[00:03:13] restaurants and things like that. Now,
+[00:03:14] the reason I like this is similarly, it
+[00:03:16] is very simple. There's not a ton of
+[00:03:19] stuff going on. The navigation, for
+[00:03:22] example, is very simple, very
+[00:03:24] uncluttered. And that's ultimately what
+[00:03:26] I'm going for with this app. I want it
+[00:03:27] to feel very warm, very welcoming, but
+[00:03:30] also very clear, professional, and to
+[00:03:33] the point. I'm trying to merge those two
+[00:03:34] worlds together. So, that's why I chose
+[00:03:37] these two apps. And so, what you want to
+[00:03:39] do is go through and download out maybe
+[00:03:44] 10 screens that you think represent the
+[00:03:47] core aesthetic or the piece of that app
+[00:03:50] that you want to take forward. So, I'm
+[00:03:52] going to go download a few of these
+[00:03:54] screens and then we will move on to the
+[00:03:55] next stage. So, this systematic approach
+[00:03:57] that we're taking to mining that
+[00:03:59] inspiration first is what's going to
+[00:04:01] help separate amateur level designs from
+[00:04:04] professionallook designs, which we're
+[00:04:06] going to see at the very end when we go
+[00:04:08] to actually build this thing. Because
+[00:04:09] instead of randomly copying designs or
+[00:04:12] building super generic interfaces, we're
+[00:04:15] going to be borrowing patterns and ways
+[00:04:18] of working and ways of doing things from
+[00:04:20] apps that are already very successful.
+[00:04:22] So now that we have this like visual
+[00:04:24] direction locked in, we need to have the
+[00:04:27] language model explore the psychology
+[00:04:30] behind why it works the way it works.
+[00:04:33] Now a lot of people that try this method
+[00:04:35] of like using idea mining or inspiration
+[00:04:38] tools, they kind of stop there. They
+[00:04:40] take the image that they downloaded and
+[00:04:42] then they just send it into the language
+[00:04:43] model and start trying to design based
+[00:04:45] on that image. But the problem is that
+[00:04:47] there's not really a meta level
+[00:04:49] understanding of the UX and the UI of
+[00:04:52] those images and what they really mean
+[00:04:55] because a great user experience makes
+[00:04:58] the user feel a certain way about your
+[00:05:01] app and what they're doing. And so we
+[00:05:03] want to be able to prompt that how to do
+[00:05:05] this, right? This how to use this into
+[00:05:08] our application. Okay. So here we are
+[00:05:10] inside of a basic Nex.js project where
+[00:05:13] we're going to actually design this
+[00:05:14] thing. So the first thing that we're
+[00:05:16] going to do is we're going to take this
+[00:05:17] group of screens that we downloaded out
+[00:05:19] of Mobin and we're going to tell the
+[00:05:21] system what we actually liked about it
+[00:05:23] because we want it to extract design
+[00:05:26] principles out of each of these images.
+[00:05:29] So the way that we're going to do that
+[00:05:30] is with a custom command inside of
+[00:05:32] Claude Code. So we're going to type
+[00:05:34] slash extract it and then what we're
+[00:05:36] going to do is we're going to tell the
+[00:05:38] system what we actually liked about each
+[00:05:41] group of images. So after we tell it
+[00:05:44] what we like, we're going to hit enter.
+[00:05:46] And that is going to basically call this
+[00:05:49] prompt that we have called the extract
+[00:05:51] it prompt. Now what that's going to do
+[00:05:54] is it's going to go through, it's going
+[00:05:56] to read all of these images. It's going
+[00:05:58] to understand what's in there and it's
+[00:06:00] going to turn each of them into a style
+[00:06:04] guide. So, it's going to break down the
+[00:06:06] actual color palette, the typography,
+[00:06:09] the different text styles, the component
+[00:06:12] styling. It's going to build a design
+[00:06:14] system from these two groups, and then
+[00:06:18] it's going to place its analysis inside
+[00:06:20] of this competitor analysis markdown
+[00:06:23] file. Now, the thing that makes this
+[00:06:25] system really unique is that we're
+[00:06:27] having the language model act as if it
+[00:06:30] was a UX designer, but it's breaking
+[00:06:33] down a chain of thought and wrapping it
+[00:06:35] in these pondering tags. So, we're
+[00:06:38] saying, "Hey, you are this very like
+[00:06:40] heady artistic type and you really like
+[00:06:42] to think about the app, its aesthetics,
+[00:06:44] the principles it conforms to, how it
+[00:06:47] makes a user feel a specific way." And
+[00:06:49] then we're going to have it wrap its
+[00:06:50] thought process, right? So, it's going
+[00:06:52] to look at all of those image and have a
+[00:06:54] meta discussion about why those images
+[00:06:57] work the way they work. And then what
+[00:07:00] we're going to do is we're going to take
+[00:07:00] all of that stuff and we're going to
+[00:07:02] merge it with our app idea. So once this
+[00:07:05] system completes, we now have this full
+[00:07:08] design system outlined for each of those
+[00:07:12] two companies, right? Both of those
+[00:07:14] apps. So, we have the full color
+[00:07:15] palette, the typography that they're
+[00:07:17] using, their component styling, and like
+[00:07:21] a really basic understanding of the
+[00:07:23] design philosophy. But this really to me
+[00:07:26] is not enough yet. Like I need concrete
+[00:07:29] guidance on how to actually implement
+[00:07:31] this thing. And that's why the next
+[00:07:33] command that we are going to run is our
+[00:07:35] expand it prompt. And so what this is
+[00:07:37] going to do is it's going to go a level
+[00:07:39] deeper. It's going to take that
+[00:07:41] competitor analysis that we just made
+[00:07:44] and it's going to really think through
+[00:07:46] how do we actually leverage this thing
+[00:07:48] in order to pull off that feeling that
+[00:07:51] we want to have. And let's dive deeper
+[00:07:54] on what the philosophy of this design
+[00:07:56] system actually is. Then once you are
+[00:07:59] done with that, I want you to put it all
+[00:08:01] the how-to, the philosophy of it, the
+[00:08:04] raw style guide. I want you to put all
+[00:08:06] of that into a styles.mmarkdown
+[00:08:09] file. And so this meta understanding
+[00:08:12] layer that we're running through is what
+[00:08:13] helps transform you from someone that
+[00:08:15] just copies designs to someone that
+[00:08:19] understands the underlying user
+[00:08:21] psychology and can prompt that into the
+[00:08:24] language model. So when you can really
+[00:08:25] articulate why a different app worked
+[00:08:28] the way it did to make a user feel a
+[00:08:31] certain way, well then you can recreate
+[00:08:33] those feelings at will by prompting the
+[00:08:36] system to do it. But that understanding
+[00:08:38] is not enough. We need to be able to
+[00:08:40] take this thing now and turn it into
+[00:08:42] something that we can implement UI with.
+[00:08:45] So let's get into that piece next. So
+[00:08:48] the only problem now is that this needs
+[00:08:49] to be codified into something that works
+[00:08:50] for us, right? Like we need to take this
+[00:08:53] echo output of what our competitors do
+[00:08:57] and we need to construct it into a
+[00:08:59] repeatable system that works for us.
+[00:09:01] Because what you don't want to do is
+[00:09:03] just take this and say, "Hey, here's
+[00:09:04] what makes some other apps work. Make it
+[00:09:06] work for my app now." and just let the
+[00:09:09] system run wild. We need to turn this
+[00:09:12] into our own tokenbased
+[00:09:15] design system. And so what we're going
+[00:09:17] to do is we're going to run this final
+[00:09:19] command that we have called merge it.
+[00:09:21] And so what this is going to do is it is
+[00:09:24] going to take the style system that we
+[00:09:27] just got from both of those other apps
+[00:09:30] and it's going to fuse our app idea into
+[00:09:33] it. So, we're going to say, "Hey, we're
+[00:09:35] trying to build an app that does XYZ. I
+[00:09:38] need you to build me a style guide and a
+[00:09:40] system of philosophy and an
+[00:09:42] implementation guide just like we got in
+[00:09:45] detail for these other two apps, but for
+[00:09:48] my specific idea based on what I am
+[00:09:50] building and who I'm building it for."
+[00:09:53] All right. So, after that stage is
+[00:09:54] finished running, we've now merged
+[00:09:56] together everything into one
+[00:09:58] comprehensive style guide that we are
+[00:10:01] going to use. So the last thing that we
+[00:10:03] need to do is build with this and get an
+[00:10:07] actual result from it. And so down here
+[00:10:10] we're going to run this lash command
+[00:10:12] design it. And what we pass in is an
+[00:10:15] example of the screen that we want
+[00:10:19] generated. Now when I'm doing
+[00:10:20] designspecific
+[00:10:22] exercises,
+[00:10:23] I love to generate multiple looks of a
+[00:10:28] specific screen. Meaning in this case,
+[00:10:30] if I'm going to be building a screen
+[00:10:33] that might show to a user when they've
+[00:10:35] run out of credits, I want to see like
+[00:10:37] what three different variations of that
+[00:10:40] might actually look like and get the AI
+[00:10:42] actually brainstorming how we might
+[00:10:44] present that to the user based on the
+[00:10:46] app that we have. And so this is great
+[00:10:48] to really brainstorm the different
+[00:10:50] states that a screen could be in, right?
+[00:10:52] What if it has no data? What if it has
+[00:10:54] tons of data? What if it is erroring
+[00:10:56] out? what if it needs the user to take a
+[00:10:58] specific action, right? There are like a
+[00:11:00] lot of different states that a screen
+[00:11:01] could exist in. And then there are a lot
+[00:11:03] of different screens that you might want
+[00:11:04] to have in your app. So, we're going to
+[00:11:06] let this thing run and then we're going
+[00:11:07] to look at what the final output looks
+[00:11:10] like. And again, if you want any of
+[00:11:11] these prompts, the design it, the expand
+[00:11:13] it, the extract it, the merge it, any of
+[00:11:15] this stuff, all going to be for free in
+[00:11:18] the school group below the video so you
+[00:11:20] can actually look at this thing and read
+[00:11:22] it and see how it works. Okay, so we
+[00:11:23] just ran this for three different
+[00:11:25] screens that we wanted to get like some
+[00:11:27] brainstorming on. The first one was like
+[00:11:29] an empty state of the home screen of
+[00:11:32] this app. And so we have three different
+[00:11:34] inspirations
+[00:11:36] that we could consider maybe dialing in.
+[00:11:38] The first one has a really nice like
+[00:11:40] minimalist getting started screen where
+[00:11:42] we can click here to upload a photograph
+[00:11:45] or we could look at other spaces that
+[00:11:47] people have done and kind of get
+[00:11:48] inspiration for it. Right? So very
+[00:11:50] clean, breathable, kind of like subtle.
+[00:11:52] Then in the middle we have this like
+[00:11:54] carousel version where again we have
+[00:11:56] this option to upload our own photo to
+[00:11:59] kick off this process. But then we have
+[00:12:01] also these before and afters that we can
+[00:12:03] look at which is pretty cool. Now
+[00:12:04] there's obviously some issues with the
+[00:12:06] transparency on some of these. But I do
+[00:12:08] kind of like this concept too of this
+[00:12:11] slider where you can see work maybe that
+[00:12:13] other people have done. Right? So it's
+[00:12:15] actually a good place to put social
+[00:12:16] proof into the app and show like before
+[00:12:19] after transformations. So that's kind of
+[00:12:21] cool. And then we have this like story
+[00:12:23] driven one which um I don't really like
+[00:12:25] this one that much. So one of these two
+[00:12:26] I think is pretty nice. Then we get down
+[00:12:28] to what happens when it's processing
+[00:12:31] images. So I like all of these to be
+[00:12:34] honest. I think this is actually the one
+[00:12:36] of the screens that I was most impressed
+[00:12:38] with where it's showing like if I was a
+[00:12:40] user right and I clicked you know get
+[00:12:42] started transforming my space and it's
+[00:12:43] processing like what I want and saying
+[00:12:45] what I want this thing to look like.
+[00:12:47] These are some different screens right?
+[00:12:48] So it could have this little gradient
+[00:12:50] kind of processing in the background.
+[00:12:52] And again, this is like a little janky.
+[00:12:53] It's not optimized. This would be for a
+[00:12:55] mobile phone, by the way. And so it's
+[00:12:57] not really super optimized, but we can
+[00:12:59] see like kind of what that would look
+[00:13:00] like where it's like this loading AI
+[00:13:02] state and it's maybe parsing out
+[00:13:04] information and streaming tokens back
+[00:13:06] telling us like, hey, cozy, natural,
+[00:13:08] bold statement, modern minimal, right?
+[00:13:11] So that's pretty cool. This one I also
+[00:13:14] like where it's like doing this actual
+[00:13:16] analysis and it makes it look really
+[00:13:17] clear like it's analyzing it. And then I
+[00:13:20] I do also like this one where it's like,
+[00:13:21] hey, we're discovering your style,
+[00:13:23] right? It's timeless. It's contemporary.
+[00:13:25] It's eclectic. So I think number one and
+[00:13:28] three, I really like both of those. And
+[00:13:29] then what happens when the AI limit gets
+[00:13:32] reached? What are some different options
+[00:13:33] that we have there? This dark one, I
+[00:13:35] think, is way not not really what we
+[00:13:37] need for this app. So version one, warm
+[00:13:39] and encouraging. Um, I kind of like
+[00:13:41] that. like you've already done enough
+[00:13:42] transformation today. Do you want to
+[00:13:43] just wait till tomorrow or do you want
+[00:13:45] to unlock the unlimited plan? So like
+[00:13:46] nice little like pay wall and then we
+[00:13:48] have this u this middle one here as
+[00:13:51] well. So this complete process where we
+[00:13:53] go through from mining inspiration,
+[00:13:55] gaining a meta understanding of what
+[00:13:58] makes those apps work and then applying
+[00:14:00] that understanding to our own app. That
+[00:14:03] process is what will help you compete
+[00:14:05] with other companies that actually have
+[00:14:08] professional design resources. So, by
+[00:14:10] thinking through the multiple states and
+[00:14:12] the edge cases and different screens,
+[00:14:14] you're building with the same level of
+[00:14:16] polish that you would expect to see in
+[00:14:18] an actual professional company, again,
+[00:14:21] with design resources. And so, this is
+[00:14:23] the type of stuff that's going to help
+[00:14:25] you have significantly higher purchase
+[00:14:27] rates, conversion rates, and stick
+[00:14:30] rates, and retention rates for your
+[00:14:32] customers because the app feels smooth,
+[00:14:35] it works, and it looks professional. So
+[00:14:38] remember guys, three steps to build this
+[00:14:40] thing out every time. And even if you
+[00:14:42] don't have cloud code and you maybe use
+[00:14:44] a tool like cursor or some other IDE,
+[00:14:46] you can take those cloud code/comand
+[00:14:49] definitions that I have and just use
+[00:14:50] them as regular prompts. So my challenge
+[00:14:53] to you, use this in an app that you have
+[00:14:55] been working on where you're not super
+[00:14:57] thrilled with how professional or
+[00:14:59] polished your UIs feel. And if this
+[00:15:01] process actually clicked for you, make
+[00:15:03] sure to subscribe to the channel because
+[00:15:05] I love doing practical in-depth
+[00:15:07] tutorials like this. And if there's
+[00:15:10] anything that you do differently that
+[00:15:11] you think gets better results or
+[00:15:13] different results, let me know in the
+[00:15:15] comments below because I love to evolve
+[00:15:17] my processes over time. So that's it. Go
+[00:15:20] build something people want to use.
+[00:15:22] Peace out.

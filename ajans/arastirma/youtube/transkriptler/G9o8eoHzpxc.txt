@@ -1,0 +1,758 @@
+# Full Tutorial: From Idea to App with Claude Design and Claude Code in 25 Minutes
+# https://www.youtube.com/watch?v=G9o8eoHzpxc
+# kanal: Peter Yang | süre: 1527 sn | kaynak: yt-dlp:web_embedded:G9o8eoHzpxc.en-orig.json3
+
+[00:00:00] Hey everyone, today I want to show you
+[00:00:02] how to design a beautiful app with AI in
+[00:00:05] six steps.
+[00:00:07] This is the app that we're going to
+[00:00:08] design.
+[00:00:09] It's called Tastemaker and it's a
+[00:00:10] website to curate everything you love
+[00:00:12] from movies to TV shows to video games
+[00:00:15] and more.
+[00:00:16] Here's the landing page.
+[00:00:18] And here is the profile that we're going
+[00:00:21] to design together as well with my
+[00:00:23] actual favorite movies, reviews, and
+[00:00:25] lists.
+[00:00:26] So the way that we're going to design
+[00:00:27] this app is instead of using Figma,
+[00:00:30] we're going to follow my AI native
+[00:00:32] design process in six steps.
+[00:00:35] Define the user problem, create a
+[00:00:37] design.md,
+[00:00:39] explore prototypes in Cloud Design,
+[00:00:42] create an HTML spec with product design
+[00:00:44] and tech requirements,
+[00:00:46] design all the core screens, and finally
+[00:00:49] build the app. I'm going to show you
+[00:00:50] this process end to end.
+[00:00:52] Let's get into it.
+[00:00:54] Okay, so step one is to define the user
+[00:00:56] problem. Like any good product manager,
+[00:00:59] you have to start by defining what the
+[00:01:00] problem is that you're trying to solve.
+[00:01:02] And I always like to build products that
+[00:01:04] solve my own problems. Especially with
+[00:01:06] AI, you can build so many great personal
+[00:01:07] apps.
+[00:01:08] So personally, I've watched thousands of
+[00:01:10] movies and TV shows and played hundreds
+[00:01:13] of games. And I've been using IMDb to
+[00:01:15] track everything, but this interface
+[00:01:17] leaves a lot to be desired, right? It's
+[00:01:19] just like a straight up list.
+[00:01:21] So that's why I want to build my own
+[00:01:23] taste page that showcases all the
+[00:01:25] different types of media that I love.
+[00:01:28] Okay, so let's come to Cloud Goal here
+[00:01:30] and my initial prompt to start this
+[00:01:32] whole project is, I'm a huge fan of
+[00:01:34] movies, TV shows, and games and I want
+[00:01:37] one page that shows what I love across
+[00:01:39] all three. Can you help me define the
+[00:01:40] customer problem, who this is for, and
+[00:01:43] any evidence online that the problem
+[00:01:44] exists? Start with the customer problem,
+[00:01:47] write up to two short paragraphs on this
+[00:01:49] topic.
+[00:01:50] Now notice that I used the spec skill
+[00:01:51] here and I'll cover more what that is in
+[00:01:54] step four, but right now let's just take
+[00:01:56] a look at AI's output. So, basically, it
+[00:01:59] found a bunch of research online and and
+[00:02:00] it found that there's three different
+[00:02:01] websites for curating your taste for
+[00:02:04] film, TV, and games. And that's why
+[00:02:07] we're trying to build this product here.
+[00:02:08] We want to showcase our taste across all
+[00:02:10] three mediums on a single page.
+[00:02:13] So, if I were building this app as a
+[00:02:15] business, I would spend a lot more time
+[00:02:17] just trying to research and understand
+[00:02:19] the problem and trying to figure out if
+[00:02:20] this thing can actually make money or
+[00:02:22] get users or not. But, right now, I'm
+[00:02:23] just building it for myself. So, let's
+[00:02:25] move on to the next step.
+[00:02:28] Okay, step two is to get inspired and
+[00:02:31] create a design.md.
+[00:02:33] Now, we all know that AI, by default,
+[00:02:36] creates either generic-looking purple
+[00:02:38] slop or designs that really have that
+[00:02:40] recognizable Claude look. To make
+[00:02:43] something unique, we need to find
+[00:02:45] inspiration.
+[00:02:46] And, you know, you can check out
+[00:02:48] websites like Mobbin, which has UI
+[00:02:51] screenshots of everything,
+[00:02:53] and Dribbble, which has designer
+[00:02:55] portfolios, to find inspiration. But,
+[00:02:58] recently, I came across this app called
+[00:03:00] Monogram. Now, Monogram is a
+[00:03:02] visual-first way to work with AI, and
+[00:03:05] the app is pretty fun, but what I really
+[00:03:07] like is the design aesthetic here. It
+[00:03:09] looks extremely clean, and I love how
+[00:03:11] they use color to focus people on the
+[00:03:14] content instead of the UI.
+[00:03:16] All right, so let's go back to Claude
+[00:03:18] now.
+[00:03:19] And what I did is I basically copy and
+[00:03:21] pasted a few screenshots from Monogram
+[00:03:23] into Claude Code, and I gave it this
+[00:03:25] prompt: Here are a few screenshots from
+[00:03:27] Monogram. Can you create a design.md for
+[00:03:30] Tastemaker based on this visual
+[00:03:32] direction? The product helps people
+[00:03:35] share their favorite movies, TV shows,
+[00:03:36] and games on one page. Keep the
+[00:03:38] interface quiet and let the cover art
+[00:03:40] carry the color.
+[00:03:42] And, basically, Claude went to work.
+[00:03:45] And let me kind of show you exactly what
+[00:03:47] a design.md is, right? So, let's open
+[00:03:50] this.
+[00:03:50] All right, so design.md
+[00:03:53] is basically a markdown file with simple
+[00:03:57] design principles for the app that we're
+[00:03:58] going to build. And also, just like very
+[00:04:01] simple recommendations for color,
+[00:04:05] typography,
+[00:04:07] and spacing, and more.
+[00:04:09] Because we gave Claude a few screenshots
+[00:04:11] of this app that we like,
+[00:04:14] it's able to hopefully produce color and
+[00:04:16] style guidelines that actually reflect
+[00:04:18] the design that we want.
+[00:04:20] Now, real quick, another great resource
+[00:04:22] for design.md, if you don't want to
+[00:04:24] generate one, is the z.sh, and I'll link
+[00:04:28] this in the description.
+[00:04:29] So, basically what it has is design.mds
+[00:04:32] for popular websites like Nike, SpaceX,
+[00:04:36] Apple, Vercel, Notion, and more, right?
+[00:04:39] If you click into one of these, it
+[00:04:40] basically has all the colors and
+[00:04:42] typography that these popular websites
+[00:04:44] uses.
+[00:04:46] Now, I do want to caveat and say that
+[00:04:48] there's a difference between inspiration
+[00:04:50] and just straight-up copying another
+[00:04:52] app. In this case, we're building an app
+[00:04:54] in a completely different category from
+[00:04:56] Monogram, so I feel okay borrowing a
+[00:04:58] little bit from their design.
+[00:05:00] All right. Now that we have our
+[00:05:02] design.md,
+[00:05:03] let's move to Claude design to prototype
+[00:05:06] our product.
+[00:05:08] So, going back to our six steps, we're
+[00:05:10] now at step three, which is explore
+[00:05:12] prototypes in Claude design. Now, before
+[00:05:14] I talk about Claude design, there are
+[00:05:16] actually a lot of really great AI-native
+[00:05:18] design tools that I've tried. A few of
+[00:05:19] them are Paper,
+[00:05:21] which basically looks like Figma, but
+[00:05:23] has AI-native features, and pen.dev,
+[00:05:27] which lets a bunch of agents work on
+[00:05:29] your design at once. I have an interview
+[00:05:31] with the founder that I'll link in the
+[00:05:32] description as well.
+[00:05:34] And Figma itself, by the way, also has a
+[00:05:36] lot of really great AI features now.
+[00:05:38] But, for this project, we're going to
+[00:05:40] use Claude design because I already have
+[00:05:42] a Claude subscription, and Claude design
+[00:05:44] has a bunch of stuff that I really like
+[00:05:46] that I'll show you guys.
+[00:05:47] All right, so this is my initial prompt
+[00:05:49] for Claude design.
+[00:05:51] I'm building TasteMaker, a shareable
+[00:05:52] profile for movies, TV shows, and games.
+[00:05:55] Use the attached design.md. Notice how I
+[00:05:57] attached the file here. And by the way,
+[00:05:59] you can just find the file by just
+[00:06:01] telling it to export the file, or you
+[00:06:02] can right-click this and say open in
+[00:06:04] finder to find the file.
+[00:06:07] Going back to Claude design,
+[00:06:08] I gave it some basic requirements,
+[00:06:10] right? So, I want to use design.md as
+[00:06:12] the visual system, and I want to create
+[00:06:15] our two main screens. One is the public
+[00:06:17] taste profile with favorites, recent
+[00:06:19] reviews, and lists.
+[00:06:22] And the other one is just a logged-out
+[00:06:23] landing page that hopefully showcases a
+[00:06:25] real taste profile as an example.
+[00:06:28] And I want two variations of this
+[00:06:30] because with AI, it can create multiple
+[00:06:32] variations, and we can pick our favorite
+[00:06:33] one.
+[00:06:35] All right, and then we asked it to lay
+[00:06:36] on a single page so we can compare and
+[00:06:38] refine them. And for this product, I
+[00:06:40] want to build it on the website first,
+[00:06:42] so I'm going to say,
+[00:06:43] let's build the web version first.
+[00:06:47] Just to make it clear that it's not
+[00:06:48] making mobile designs.
+[00:06:50] And
+[00:06:51] by the way, as much as I love Fable, I
+[00:06:53] think for these tasks, Opus is totally
+[00:06:56] capable of making great designs. So, if
+[00:06:58] you want to save on tokens, you can use
+[00:06:59] Opus.
+[00:07:00] And let's go ahead and submit.
+[00:07:03] So, one thing that I really love about
+[00:07:05] Claude design that I don't know why
+[00:07:07] other AI design tools don't copy is that
+[00:07:09] it always asks clarifying questions that
+[00:07:12] really help me flesh out what the design
+[00:07:14] requirements actually are. So, let's go
+[00:07:16] through this and answer the questions
+[00:07:17] now.
+[00:07:19] So, whose taste profile should the
+[00:07:20] example show? Why don't we do a balanced
+[00:07:22] movie, TV, and games generalist?
+[00:07:25] What should the two variations of each
+[00:07:26] screen explore?
+[00:07:28] I think layout is the most important,
+[00:07:30] right? Row-heavy versus grid editorial.
+[00:07:32] Let's keep going down. What sections go
+[00:07:34] on the public profile? Yeah, we
+[00:07:35] definitely want favorites, recent
+[00:07:36] reviews, and custom lists. I think this
+[00:07:39] other stuff is maybe unnecessary.
+[00:07:42] And I don't really what a media detail
+[00:07:44] sheet is, so let's say two screens for
+[00:07:46] now. And let's say we want both light
+[00:07:50] and dark mock-ups.
+[00:07:51] And how real should the copy be? I mean,
+[00:07:54] we want real copy, right? So,
+[00:07:56] fully fresh out real copy.
+[00:07:58] All right. So, now that we answer these
+[00:08:00] questions, we can hit continue.
+[00:08:02] And Claude design is going to go ahead
+[00:08:04] and start working on
+[00:08:07] the mock-ups that we want.
+[00:08:08] So, we'll skip ahead and see what it
+[00:08:10] comes up with.
+[00:08:11] All right, we're back and Claude has
+[00:08:13] created two variations. Let's take a
+[00:08:15] look.
+[00:08:16] So, this is the real heavy version of
+[00:08:18] the taste profile page.
+[00:08:21] Right? We got favorites up top. We got
+[00:08:23] recent reviews. We got lists.
+[00:08:25] And here is the grid dark version that's
+[00:08:28] more information dense.
+[00:08:31] And the lists are shown as these kind of
+[00:08:33] like three pills instead.
+[00:08:35] And down here we have the landing page,
+[00:08:36] too. So, we have
+[00:08:38] uh profile as a demo landing page.
+[00:08:41] And then we have a more editorial poster
+[00:08:44] wall landing page.
+[00:08:47] Okay?
+[00:08:48] So, now is where we need to apply our
+[00:08:50] taste to actually make this design
+[00:08:52] better, right? And there's different
+[00:08:54] ways to actually give Claude design
+[00:08:56] feedback to make it better. So, the most
+[00:08:58] direct way is to just edit the file
+[00:08:59] directly. So, click edit here.
+[00:09:02] And for example, I really don't like
+[00:09:04] these pithy statements that Claude likes
+[00:09:06] to make, like the ones that define the
+[00:09:07] argument. So, let's go ahead and click
+[00:09:09] this and delete this.
+[00:09:11] I also don't really like all these like
+[00:09:13] little pills here.
+[00:09:14] So, let's go ahead delete that. Make it
+[00:09:16] simple.
+[00:09:17] I think the follow button, we haven't
+[00:09:19] really built that feature yet, so I
+[00:09:20] don't think we need that.
+[00:09:21] Delete.
+[00:09:23] And let's keep going down here.
+[00:09:25] Yeah, the reviews. I don't like how
+[00:09:26] they're all in a grid. I prefer just a
+[00:09:29] single row per review for more space.
+[00:09:32] So, this one we're going to give it some
+[00:09:33] feedback later. And similarly for the
+[00:09:35] lists, I prefer to see all six movie and
+[00:09:38] TV show cards instead of it just
+[00:09:40] condensed format.
+[00:09:41] And I think this stuff is also
+[00:09:43] unnecessary, so let's leave this, too.
+[00:09:45] All right. So, this is all misaligned,
+[00:09:47] so I I think I definitely prefer the
+[00:09:49] first one.
+[00:09:50] And let's go down to the landing page.
+[00:09:52] For the landing page, I think I prefer
+[00:09:54] to have the preview of the product
+[00:09:56] actually like below the hero section,
+[00:10:00] so that people can see the full taste
+[00:10:01] profile as an example.
+[00:10:03] And yeah, I think the dark one here is
+[00:10:05] pretty good, but I think just for
+[00:10:07] consistency, I like the light one, too.
+[00:10:10] All right, so we finished editing here,
+[00:10:11] so let's hit save.
+[00:10:13] And now, let's edit the other way,
+[00:10:15] which is we're going to give AI some
+[00:10:17] feedback.
+[00:10:18] All right, so let's open a side panel
+[00:10:20] here, and this is the feedback that I'm
+[00:10:21] going to give it, okay?
+[00:10:23] So, basically, I'm going to tell it that
+[00:10:24] I prefer 1A and 2A, the light version,
+[00:10:27] with a few changes.
+[00:10:29] So, favorites, I think should be six
+[00:10:31] across with arrows like Netflix for
+[00:10:33] navigation.
+[00:10:34] Recent reviews should be full width with
+[00:10:36] a cover art, a five-star rating, and a
+[00:10:39] review.
+[00:10:40] And lists should also be five across
+[00:10:42] like the favorites.
+[00:10:44] Let's also add a left nav on this page
+[00:10:46] for quick links to favorites, recent
+[00:10:47] reviews, and lists.
+[00:10:50] Right? So, that's my feedback, and let's
+[00:10:51] go ahead and submit this.
+[00:10:53] And now, let's see what Cloud Design
+[00:10:56] comes back with.
+[00:10:57] All right, we're back, and if I'm
+[00:10:59] honest, this took a few more iterations
+[00:11:01] to get this state, but now we have a
+[00:11:03] taste profile that I think looks pretty
+[00:11:04] good. We have the user profile up top.
+[00:11:08] We can pick where we want to show
+[00:11:09] movies, TV shows, or video games. The
+[00:11:11] favorites are six
+[00:11:13] cards across, and then the recent
+[00:11:14] reviews have more space.
+[00:11:17] We even added some additional details
+[00:11:19] like spoiler tags and a review.
+[00:11:22] And scrolling down here, the lists also
+[00:11:24] look like they have a lot of space. They
+[00:11:25] look like the favorites,
+[00:11:27] and so on and so forth.
+[00:11:29] So, that was the taste profile page.
+[00:11:31] Now, let's take a look at the landing
+[00:11:32] page. Overall, it looks a lot better,
+[00:11:34] too. We have enough space for the title
+[00:11:37] and the subtitle and a clear CTA. We
+[00:11:39] have a very clear card preview here.
+[00:11:42] And we have a bunch of sections here
+[00:11:44] that showcase the value prop.
+[00:11:46] And once again, we can continue to
+[00:11:48] iterate. So, for example, show who you
+[00:11:51] are through what you love. I think
+[00:11:52] that's interesting, but I don't think
+[00:11:53] it's as good as just saying
+[00:11:56] one taste profile for everything you
+[00:11:57] love. I feel like it's more
+[00:11:58] straightforward.
+[00:12:00] And let's say let's put the show who you
+[00:12:02] are over here. So, show who you are
+[00:12:05] through
+[00:12:07] the movies, TV shows, and games
+[00:12:10] that you love.
+[00:12:12] All right. And let's hit save here
+[00:12:14] to save our changes.
+[00:12:16] And yeah, like I think the difference
+[00:12:17] between Slap and something that's
+[00:12:19] actually good is just having attention
+[00:12:21] to detail. Claude isn't going to
+[00:12:23] generate the perfect design in one shot.
+[00:12:26] So, you really have to apply your taste
+[00:12:28] to make these two core screens, the
+[00:12:29] landing page and the taste profile page.
+[00:12:31] Great.
+[00:12:33] All right. So, now we are pretty happy
+[00:12:34] with these designs, and we just need to
+[00:12:36] hit share here.
+[00:12:38] And there's a way to get it directly to
+[00:12:40] Claude code, but what I like to do is I
+[00:12:42] just like to put it into a .zip file or
+[00:12:45] HTML file. So, just hit this option
+[00:12:47] here.
+[00:12:48] And we just say
+[00:12:50] export.
+[00:12:51] And it should export a zip file with all
+[00:12:54] the designs that we can import into
+[00:12:56] Claude code or Code X or any other
+[00:12:59] harness that we want to use. Now, let's
+[00:13:01] move on to the next step, which is
+[00:13:02] creating a spec in HTML with the product
+[00:13:05] design and tech requirements. So, we
+[00:13:08] made a design.md in step two. We made
+[00:13:10] our two key screens in step three
+[00:13:14] for the taste profile and the landing
+[00:13:15] page.
+[00:13:17] And now, we're ready to make the full
+[00:13:18] spec.
+[00:13:19] So, this is a little bit different from
+[00:13:21] a traditional development process,
+[00:13:23] right? I like to generate the key
+[00:13:25] screens
+[00:13:26] before actually writing the spec because
+[00:13:29] I find it much easier to understand what
+[00:13:30] the product is from a few key visuals
+[00:13:33] before producing a document to iron out
+[00:13:36] all the default states and edge cases.
+[00:13:40] And this is quite the opposite of the
+[00:13:41] traditional product development process
+[00:13:43] if you think about it where a PM like me
+[00:13:45] would first write the spec,
+[00:13:47] hand it off to designer to make the
+[00:13:48] Figma,
+[00:13:49] and then we'll hand both off to the
+[00:13:51] engineer to write a text spec.
+[00:13:54] And personally I don't like having
+[00:13:56] separate files for everything so I
+[00:13:57] prefer to have the product requirements
+[00:13:59] design and text spec all in one file.
+[00:14:03] And that is what my spec skill does.
+[00:14:05] So let's go ahead and go back to Cloud
+[00:14:07] Code.
+[00:14:09] And what I've done is I've uploaded the
+[00:14:11] zip file with two key screens that we
+[00:14:13] just mocked up in Cloud Design.
+[00:14:15] And now I'm going to say
+[00:14:17] turn these requirements and designs into
+[00:14:19] a concise spec with product design and
+[00:14:21] tech tabs, okay?
+[00:14:24] And let's see what is the spec that it
+[00:14:26] comes up with.
+[00:14:27] Okay, so this is the actual spec that
+[00:14:30] I'm using for the TasteMaker app.
+[00:14:32] And I want to show you all three tabs.
+[00:14:34] So the first tab is PRD which covers the
+[00:14:37] user problem that we came up with
+[00:14:38] before,
+[00:14:39] some high-level goals for the product,
+[00:14:41] and a list of requirements.
+[00:14:44] And I asked AI to write the requirements
+[00:14:46] in a very concise way that's easy
+[00:14:48] scannable,
+[00:14:50] and also split into different surfaces
+[00:14:52] of the app.
+[00:14:54] Now let's move on to the design.
+[00:14:56] So in this case it's basically a HTML
+[00:14:58] version of the design.md that we came up
+[00:15:00] with before that's just easier to read.
+[00:15:03] So there's a few principles here and of
+[00:15:05] course we have our style guide for color
+[00:15:07] and typography here.
+[00:15:08] But most importantly my spec skill
+[00:15:11] actually asks it to also make a
+[00:15:13] component library that you see here.
+[00:15:16] I built apps before without using this
+[00:15:18] component library and what usually
+[00:15:19] happens is AI starts making all kinds of
+[00:15:22] crazy components and the app starts
+[00:15:24] looking like a mess. So, it's very
+[00:15:26] important to get it to generate a
+[00:15:28] component library and also keep this
+[00:15:30] component library updated as we create
+[00:15:32] more screens.
+[00:15:34] All right, and let's go to the tech tab
+[00:15:36] and here we have the tech stack that
+[00:15:38] we're going to use.
+[00:15:39] And I also asked AI to generate a data
+[00:15:41] schema
+[00:15:42] because databases are very difficult to
+[00:15:44] change once in production.
+[00:15:46] So, exactly how it's organized
+[00:15:48] and the trade-offs that it makes and
+[00:15:50] most hilariously it thinks that it's
+[00:15:52] going to take 3 weeks to build this
+[00:15:53] whole app when in reality it's probably
+[00:15:55] going to take maybe 30 minutes.
+[00:15:58] So,
+[00:15:58] again, I designed this whole /spec scale
+[00:16:02] to make all this really easy for a human
+[00:16:04] to actually read because it's very
+[00:16:06] important to actually read through this
+[00:16:08] and give it feedback and make it good.
+[00:16:11] All right, so a quick plug. If you want
+[00:16:13] my /spec scale,
+[00:16:15] check out behindthecraft.com
+[00:16:17] where I have it right here along with a
+[00:16:19] bunch of other skills that I've curated
+[00:16:21] and made for myself that are extremely
+[00:16:23] useful.
+[00:16:24] Full disclosure, these skills are
+[00:16:26] available to members of my paid Substack
+[00:16:30] and you also get free AI tool coupons,
+[00:16:33] courses, and more.
+[00:16:35] So, personally I think it's a really
+[00:16:36] great deal. Check out
+[00:16:37] behindthecraft.com.
+[00:16:40] Of course, you can also just get AI to
+[00:16:42] create a spec scale for you for free
+[00:16:45] and just give it direction to generate
+[00:16:46] these three tabs the way I just walk you
+[00:16:49] through. Okay, so now we have a
+[00:16:51] spec.html that is the source of truth
+[00:16:54] for what we're trying to build here and
+[00:16:55] it has a bunch of requirements down here
+[00:16:57] for screens that we haven't actually
+[00:16:58] designed.
+[00:17:00] So now, let's actually save the spec.
+[00:17:02] It's an HTML. Let's upload it to Cloud
+[00:17:05] Design and let's get Cloud Design to
+[00:17:08] make all the core screens.
+[00:17:11] All right, we're back in Cloud Design
+[00:17:12] and the prompt that I gave it is create
+[00:17:15] all the core screens in the
+[00:17:16] requirements, and here is the spec that
+[00:17:19] HTML that we have here, and just submit
+[00:17:21] that prompt.
+[00:17:22] Now, I want to emphasize again that it's
+[00:17:24] really important to actually read
+[00:17:25] through the spec that AI generates, give
+[00:17:28] it feedback to improve it, and make sure
+[00:17:30] all these requirements actually make
+[00:17:32] sense, like all these services,
+[00:17:34] before getting it to generate designs,
+[00:17:36] right? Otherwise, you're just burning
+[00:17:37] through a lot of tokens.
+[00:17:40] But anyway, let's go ahead and submit
+[00:17:41] this and see what Cloud Design comes up
+[00:17:43] with.
+[00:17:45] Okay, Cloud Design is done,
+[00:17:46] and we have our landing page that we saw
+[00:17:48] before,
+[00:17:50] and let's keep scrolling down.
+[00:17:52] We have our taste profile page, and
+[00:17:54] hopefully there's going to be some more
+[00:17:55] screens now. And here we go. So, we have
+[00:17:57] a creator version, your own taste
+[00:17:59] profile page, and it has this edit
+[00:18:02] functionality here. It has add buttons
+[00:18:05] and the ability to edit my reviews.
+[00:18:07] Let's keep scrolling down.
+[00:18:09] It's also important to actually get
+[00:18:11] Cloud to design the default states, the
+[00:18:14] empty states, and also any edge cases,
+[00:18:16] right? So, for example, when I make a
+[00:18:18] fresh taste profile page, everything's
+[00:18:20] empty. There needs to be a clear call to
+[00:18:22] action to actually add something that
+[00:18:25] Cloud Design has added here.
+[00:18:27] There's also pages to see the full list
+[00:18:30] of games that may be cry here, right?
+[00:18:33] And let's keep going down. There's a
+[00:18:34] item sheet that appears. We can save it.
+[00:18:37] We can rate to try.
+[00:18:38] The onboarding flow is also really
+[00:18:40] important. You know, if you're building
+[00:18:41] a product trying to get users, you have
+[00:18:43] to give them a really great onboarding
+[00:18:45] experience. So, here we have claim our
+[00:18:47] handle, pick six things that you love,
+[00:18:50] and also it designed a share your page
+[00:18:54] thing, too.
+[00:18:55] So, basically, you have to carefully
+[00:18:57] review all these screens and go back and
+[00:19:00] forth with Cloud Design to fix stuff.
+[00:19:02] You can add comments here
+[00:19:04] for it to fix stuff, change this, or you
+[00:19:07] can give feedback directly in the chat,
+[00:19:09] or you can also edit directly like we
+[00:19:11] showed before.
+[00:19:13] But for now, let's assume that the thing
+[00:19:14] is perfect the way we exactly want it to
+[00:19:16] be.
+[00:19:17] And let's again hit share and export and
+[00:19:20] download it as a zip file.
+[00:19:22] And then we're going to upload it into
+[00:19:24] Cloud Code to get it to build the app.
+[00:19:28] Okay, so now we have two artifacts that
+[00:19:31] are hopefully in sync. We have the spec.
+[00:19:33] HTML with the product design and tech
+[00:19:36] requirements. And we also have a
+[00:19:39] design.html that we exported from Cloud
+[00:19:42] Design with the actual mockups for all
+[00:19:45] the core screens here.
+[00:19:47] And we haven't even started building the
+[00:19:49] app yet, right?
+[00:19:51] So this is a point that I really want to
+[00:19:52] reinforce.
+[00:19:54] When you're building with AI, you have
+[00:19:56] to spend at least 50% of your time on
+[00:19:59] planning up front. The build part has
+[00:20:01] become easy, but you need to have a
+[00:20:03] robust plan for AI to get to what you
+[00:20:06] want to build
+[00:20:08] in the right way.
+[00:20:09] And I think this is so important. You
+[00:20:10] have to spend up front time planning. So
+[00:20:13] in some ways it actually kind of is like
+[00:20:15] waterfall development, but just sped up
+[00:20:17] with AI.
+[00:20:18] You know, if I just tell AI, "Hey, go
+[00:20:20] ahead and build me an app to curate my
+[00:20:22] movies, TV shows, and games."
+[00:20:25] It's not going to do it in the way that
+[00:20:27] I want, right? And once it actually
+[00:20:29] builds things like databases and other
+[00:20:31] parts of the stack, it's going to become
+[00:20:33] much more complicated and costly to
+[00:20:35] change things than right now when we can
+[00:20:37] just update these two HTML files that we
+[00:20:41] prototyped.
+[00:20:42] All right, so now that we have our spec
+[00:20:43] and design, we can start building with a
+[00:20:45] prompt like this. We attach both the
+[00:20:47] spec
+[00:20:48] and design.html. Then we say, "Review
+[00:20:50] the spec and design and let me know if
+[00:20:52] any questions before you start building
+[00:20:54] or any ambiguities that I should
+[00:20:56] clarify." Always assume that there's
+[00:20:58] going to be ambiguities that you haven't
+[00:20:59] quite figured out yet. And get AI to ask
+[00:21:02] you questions to try to resolve as much
+[00:21:04] of this as possible before it starts
+[00:21:06] writing code. And here's the actual
+[00:21:08] thread that I'm using to build with AI.
+[00:21:11] So, I asked it to build everything it
+[00:21:13] claims it did. I told it to run
+[00:21:15] localhost so I can take a look at the
+[00:21:16] app. It has localhost running. And you
+[00:21:19] can see here that I gave it a ton more
+[00:21:20] feedback. I pasted some screenshots in
+[00:21:22] of the stuff
+[00:21:24] that I don't like.
+[00:21:25] And I basically just listed all the
+[00:21:26] feedback here.
+[00:21:28] Favorites and hearts should only show up
+[00:21:29] when I hover over the card.
+[00:21:31] On profile page, you're not quite
+[00:21:32] matching design. Where's the review
+[00:21:34] section?
+[00:21:36] And so on and so forth. Right? So, it's
+[00:21:38] not like just magically you upload the
+[00:21:40] design to HTML and the spec to HTML and
+[00:21:43] it's going to one shot everything that
+[00:21:44] you want. You still have to give it a
+[00:21:46] ton of feedback. There's more back and
+[00:21:47] forth here.
+[00:21:49] And then I told it to add the
+[00:21:50] Netflix-style left and right arrows that
+[00:21:52] I forgot.
+[00:21:53] And more feedback and even more
+[00:21:55] feedback.
+[00:21:57] And so on and so forth.
+[00:21:59] And and also, uh this is important, when
+[00:22:01] it starts making a product updates
+[00:22:02] directly in code, it's very important to
+[00:22:04] ask it to keep the the plan and design
+[00:22:06] file updated so that everything is in
+[00:22:09] sync.
+[00:22:10] Okay? So, yeah, there's still a long
+[00:22:13] thread to actually build this thing.
+[00:22:14] It's not like you can just one shot
+[00:22:15] build it. But now let's take a look at
+[00:22:18] the finished product. So, here it is.
+[00:22:20] It's actually live and I'll include a
+[00:22:22] link to the finished product in the
+[00:22:23] description as well.
+[00:22:25] And here we have our landing page. We
+[00:22:27] can see an example
+[00:22:30] of a taste profile.
+[00:22:32] And we can also log in, as you see here,
+[00:22:35] and start setting up our own taste
+[00:22:37] profile.
+[00:22:38] I got some reviews here. I can add some
+[00:22:40] movies. I can sort.
+[00:22:42] And so on and so forth.
+[00:22:44] So,
+[00:22:46] it probably took uh a few hours to get
+[00:22:48] to this state. And I'm sure there's
+[00:22:49] still bugs. But basically, it involved
+[00:22:52] setting up a Superbase database. It
+[00:22:54] involved asking AI to add
+[00:22:56] authentication. But
+[00:22:59] it would have taken more back and forth
+[00:23:01] if I didn't cover some of the key
+[00:23:03] requirements in the spec and the design.
+[00:23:07] All right, let's recap the AI native
+[00:23:09] design process that I follow.
+[00:23:11] So, first it's very important to just
+[00:23:13] define the user problem. Get clear on
+[00:23:15] who the product is for and what problem
+[00:23:17] you want to solve. And if you're trying
+[00:23:18] to build a product that you actually
+[00:23:20] want to get real users and maybe make
+[00:23:22] money from, you also have to get clear
+[00:23:24] on is there's a revenue opportunity
+[00:23:26] here, right? Because I think it's
+[00:23:27] actually harder than ever to make money
+[00:23:28] from software now with everyone being
+[00:23:31] able to write code their own thing.
+[00:23:32] Step two is to get inspired, check out
+[00:23:35] Mobbin, check out other apps, and ask it
+[00:23:38] to create a design.md with the visual
+[00:23:39] direction that you want.
+[00:23:42] Step three is to prototype some key
+[00:23:43] screens for your product using Claude
+[00:23:45] design or another AI native product. It
+[00:23:48] can be Figma, paper, or pen, or
+[00:23:50] products, right?
+[00:23:51] And also, you can ask for variations
+[00:23:55] to get AI to explore and iterate on the
+[00:23:58] strongest one that you like. Like, I'm
+[00:24:00] not a designer, but I think great
+[00:24:01] designers like to diverge and explore
+[00:24:03] before converging on one direction.
+[00:24:06] All right, so once you have the key
+[00:24:07] screens, then you have enough to create
+[00:24:10] an interactive HTML spec. And
+[00:24:13] personally, I use my Spec Scale to
+[00:24:15] create a spec with product design and
+[00:24:17] tech requirements all in one place so
+[00:24:19] that I can easily review them.
+[00:24:21] Once you have the spec
+[00:24:23] go back to Claude design, tell her to
+[00:24:25] actually design all the core screens.
+[00:24:27] It's just much easier to change stuff at
+[00:24:29] this stage than later on where you have
+[00:24:31] a database and everything else.
+[00:24:33] And finally, after you have everything,
+[00:24:35] then you can tell Claude or whatever
+[00:24:38] harness you're using to build the app.
+[00:24:40] And even then, this is not a one-shot
+[00:24:42] build, right? There's a lot of back and
+[00:24:43] forth to make sure that Claude actually
+[00:24:44] follows your directions.
+[00:24:46] Again, I think the big takeaway from all
+[00:24:48] this is to do the planning up front. You
+[00:24:51] may be eager to be like, "Hey, let's get
+[00:24:53] AI to start building something and let's
+[00:24:54] play with it." But I think the more
+[00:24:55] planning that you do, the more high
+[00:24:58] taste and the more high craft, and the
+[00:24:59] more likely you're able to build
+[00:25:01] something that's actually useful that
+[00:25:02] you actually like.
+[00:25:04] All right, so that's it. If you enjoyed
+[00:25:06] this practical tutorial, please like and
+[00:25:09] subscribe for more videos about building
+[00:25:12] useful products with AI.
+[00:25:14] And let me know in the comments, by the
+[00:25:15] way, if you want me to make more videos
+[00:25:18] that show my real process of building
+[00:25:19] with AI instead of just a bunch of hype
+[00:25:21] videos about the latest model.
+[00:25:23] Anyway, thank you so much, and I'll see
+[00:25:25] you next time.

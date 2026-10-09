@@ -1,0 +1,334 @@
+# Generate Better AI Designs in Claude Code
+# https://www.youtube.com/watch?v=nbk0PMS0tos
+# kanal: UI Collective | süre: 660 sn | kaynak: yt-dlp:web_embedded:nbk0PMS0tos.en-orig.json3
+
+[00:00:00] Someone asked why I'm always like with a
+[00:00:01] ball in my intro, cuz it's like if I'm
+[00:00:03] just talking to a camera, it's weird.
+[00:00:05] Today we're going to look at how we can
+[00:00:06] build better designs leveraging Claude
+[00:00:08] Code by using Claude skills and proper
+[00:00:10] competitor research. It's a real easy
+[00:00:12] workflow that you can set up in 10
+[00:00:13] minutes and just drastically improve the
+[00:00:15] quality of your designs. Before we
+[00:00:16] begin, a couple quick things. If you're
+[00:00:18] a big fan of myself and what we're doing
+[00:00:19] here at UI Collective, consider
+[00:00:20] supporting UI Collective Academy. It's
+[00:00:21] just on our website, I'll put a link in
+[00:00:23] the description. Where members get
+[00:00:24] access to a bunch of great courses,
+[00:00:26] micro lessons, perks, private Slack
+[00:00:27] channel access to me and the team and a
+[00:00:28] whole lot more. Or if you just want to
+[00:00:30] support for free, it's free to join our
+[00:00:32] community where you can ask any question
+[00:00:33] for free on our community forum and get
+[00:00:35] access to some great savings and
+[00:00:36] resources, too. So, whether you want to
+[00:00:37] join the community or support the
+[00:00:38] academy, I hope to see you online.
+[00:00:40] Thanks for being here. I made it a goal
+[00:00:41] for the year to start posting more on X.
+[00:00:43] Slowly getting there,
+[00:00:45] but I'll put a link for my X in the
+[00:00:46] description. Come follow me, interact
+[00:00:48] with me
+[00:00:49] whenever.
+[00:00:50] >> [laughter]
+[00:00:50] >> Yeah, let's talk. We also again teamed
+[00:00:52] up with Mobbin on this one. If you're
+[00:00:53] not too sure what Mobbin is, it's
+[00:00:54] basically a repository of
+[00:00:56] all possible screens, UI elements, flows
+[00:00:59] across basically every company that you
+[00:01:00] can imagine, and it really helps me
+[00:01:02] inform my AI designs. We're going to
+[00:01:03] look at a little bit later on in this
+[00:01:04] video, and you can take 20% off the
+[00:01:06] annual plan using UI Collective link for
+[00:01:09] Mobbin that is in the video description.
+[00:01:10] We're going to start off here in Claude
+[00:01:12] Code's desktop app. If you're new to
+[00:01:14] working with Claude and Claude Code,
+[00:01:16] I'll put a link in the video description
+[00:01:18] to the the Claude getting started
+[00:01:20] documentation. It's relatively
+[00:01:22] straightforward, super easy, just follow
+[00:01:24] the steps and you'll be on your way. One
+[00:01:25] thing I want to do here is show you the
+[00:01:27] before and after. So, the output just
+[00:01:29] with a generic prompt, then an output
+[00:01:31] with the same prompt plus everything
+[00:01:34] that we're going to do in the video. So,
+[00:01:36] let's just run a real simple prompt
+[00:01:38] here. Please build me
+[00:01:42] You can tell I'm Canadian, cuz I
+[00:01:44] say please and thank you to my AI. We're
+[00:01:46] nice, all right? Please build me a
+[00:01:48] landing page for a What's a good idea?
+[00:01:53] Crypto back. Something simple like that.
+[00:01:55] Again, so we can get the before and then
+[00:01:57] we're going to get the after. Of course,
+[00:01:58] this is what it came back with, which is
+[00:02:00] ever basically what every standard
+[00:02:02] AI design
+[00:02:04] looks like. An aggressive use of
+[00:02:06] gradients, you know, basic metrics. You
+[00:02:09] know, the cards aren't that bad, but
+[00:02:10] they just look a little AI-generated.
+[00:02:12] Anyways, there's nothing really like
+[00:02:13] special about it. Although, this is kind
+[00:02:15] of cool.
+[00:02:16] Basic CTA, nothing special about it.
+[00:02:19] Now, we don't want to have to prompt a
+[00:02:21] million times, "Hey, change this, change
+[00:02:22] this, change this, change this."
+[00:02:25] But, in order to get a better result
+[00:02:26] first time, we can do some things
+[00:02:29] working with Claude's skills in order to
+[00:02:31] better prep the AI with even just a
+[00:02:35] simple the same prompt that we ran get a
+[00:02:37] way better results. What we're going to
+[00:02:39] do now is actually start to build out a
+[00:02:41] Claude's skill
+[00:02:43] that's going to
+[00:02:45] help Claude understand the look and feel
+[00:02:48] that we're going for. So, we'll be able
+[00:02:50] to add inspiration to this skill.
+[00:02:53] And every time a new feature,
+[00:02:55] functionality, or you design is built,
+[00:02:58] Claude's going to be able to reference
+[00:03:00] that. So, not just give us a generic AI
+[00:03:02] result, but actually start to build
+[00:03:04] something that looks and feels like an
+[00:03:06] actual platform, and something a little
+[00:03:08] bit more professional. What I have here
+[00:03:10] on this my other screen is just a prompt
+[00:03:12] that we're going to run through
+[00:03:12] together. I'm going to write it out with
+[00:03:14] you, so it's you can copy it if you want
+[00:03:16] to.
+[00:03:17] Anyways, let's get started. Uh please
+[00:03:19] build Again, there's that please again.
+[00:03:21] >> [laughter]
+[00:03:21] >> A Claude skill uh called uh let's go
+[00:03:26] design
+[00:03:28] design inspiration.
+[00:03:31] And this can be design inspiration, this
+[00:03:32] can be can be competitor research, this
+[00:03:33] can be whatever you really want.
+[00:03:35] Here every uh time a design is created
+[00:03:41] or modified
+[00:03:43] Claude will look at the files inside uh
+[00:03:48] of this skill.
+[00:03:51] Oops, if I can type.
+[00:03:52] Uh which will include uh visual
+[00:03:56] references
+[00:03:58] of designs I want to
+[00:04:02] mimic. Not copy, but mimic, I guess.
+[00:04:04] >> [laughter]
+[00:04:05] >> Uh
+[00:04:07] this will help create designs more
+[00:04:11] closely
+[00:04:14] aligns with
+[00:04:16] the look and
+[00:04:18] feel we are
+[00:04:21] going for. Again, if we had more time,
+[00:04:23] we could spruce this up, make it a
+[00:04:24] better instruction, but whatever. And if
+[00:04:27] I can type, there we go. So, please
+[00:04:29] build a call Claude skill called design
+[00:04:31] inspiration.
+[00:04:32] Here, every time a design is created and
+[00:04:34] modified, Claude will look at the files
+[00:04:35] inside of this skill, which will include
+[00:04:38] visual references of designs I want to
+[00:04:40] mimic. This will help create designs
+[00:04:41] more closely aligned with the look and
+[00:04:42] feel we're going for. Sure, whatever,
+[00:04:44] that works. Let's run that. What it came
+[00:04:46] back with here is this skill, where it
+[00:04:49] sort of talks about, you know, for
+[00:04:50] Claude to reference how to use this
+[00:04:52] skill, visual references, how to
+[00:04:54] interpret the references. Again, I
+[00:04:56] didn't write any of this. Claude just
+[00:04:57] did it on its own. In an ideal world,
+[00:04:59] you might want to spend some time
+[00:05:00] polishing this skill, making sure it
+[00:05:02] makes sense, but I think for the
+[00:05:03] purposes of the demo and getting the
+[00:05:04] point across, that's fine. What you can
+[00:05:07] see it also did here is it also created
+[00:05:09] this folder inside of this skill
+[00:05:12] for images, where we can
+[00:05:15] put examples of designs that we really
+[00:05:17] like and have Claude actually upload it
+[00:05:20] there. And this skill is going to
+[00:05:22] reference that images folder whenever we
+[00:05:26] produce a new design or for a webpage or
+[00:05:29] a widget or make tweaks to things or
+[00:05:31] whatever. Hopefully, you get the
+[00:05:32] picture.
+[00:05:33] So, let's go ahead and choose to copy
+[00:05:34] this to our skills, and now let's start
+[00:05:37] populating that images folder. Before I
+[00:05:40] feed any designs to AIs, I always come
+[00:05:43] to Mobbin first to see what, you know,
+[00:05:45] competitors are doing in the space. Find
+[00:05:48] other designs, other treatments that I
+[00:05:49] like that I might not be aware of. And
+[00:05:51] if you're not too sure what Mobbin is,
+[00:05:52] it's basically a repository of
+[00:05:54] essentially almost every screen app
+[00:05:56] flow, UI element that's out there. Where
+[00:05:59] if I'm looking for something specific,
+[00:06:00] like maybe some dashboard designs, I can
+[00:06:02] hit dashboard, come in here, and really
+[00:06:04] get a lot of that inspiration that I can
+[00:06:06] then feed the AI as well. I can also
+[00:06:08] filter by category or also for specific
+[00:06:10] companies as well, whether it's like
+[00:06:12] Airbnb, I can come in here, see all of
+[00:06:14] their specific screens and also all of
+[00:06:17] their individual flows, whether it's
+[00:06:18] onboarding, so on, so forth. And they
+[00:06:21] also do have this great site section as
+[00:06:22] well,
+[00:06:23] where if I'm looking for, you know,
+[00:06:25] inspiration on sites and not mobile
+[00:06:27] apps, I can come in here and get lots of
+[00:06:28] good inspiration that's going to help us
+[00:06:30] inform the AI. And you can also take 20%
+[00:06:32] off the annual Mobbin plan using the
+[00:06:34] link that's in the description. Anyways,
+[00:06:35] let's continue. So, because we're
+[00:06:37] building a like a like a landing page,
+[00:06:39] I'm going to stick to the sites part.
+[00:06:41] Now, as you scroll through, if we think
+[00:06:43] like crypto landing page, I kind of like
+[00:06:47] dark mode, and as just a couple that I
+[00:06:48] see here right away is um this Rock
+[00:06:52] site. I think this looks really slick,
+[00:06:53] and you can see sort of the interactions
+[00:06:55] of things. And there's the other one
+[00:06:57] also uh that I really saw like here,
+[00:06:59] which was Linear. And of course,
+[00:07:00] everyone's familiar with Linear. They've
+[00:07:01] got a wicked design. So, what I'm going
+[00:07:03] to do is I'm going to take screenshots
+[00:07:05] of the inspiration here on Mobbin and
+[00:07:08] then go ahead and upload that to Claude.
+[00:07:11] Let's just flip over to sections here,
+[00:07:13] come in here and just pause the video
+[00:07:15] here. Let's just take a screenshot or
+[00:07:16] two. Um so, I'm just going to pause the
+[00:07:18] video so you don't have to watch me do
+[00:07:19] that for all of them, and then we'll
+[00:07:20] flip back uh to Claude in just a sec. I
+[00:07:22] went ahead, just took, you know, six
+[00:07:24] screenshots, three from Linear and three
+[00:07:25] from Rocks. And I'm just going to add
+[00:07:27] them uh here to the Claude shot and say,
+[00:07:31] "Please add these to the images uh to
+[00:07:35] the images uh folder
+[00:07:38] for a reference." Sorry, my mic cut out
+[00:07:41] there. So, you can see just added those
+[00:07:43] screenshots to the images folder. I I
+[00:07:44] could have named these screenshots way
+[00:07:46] better, but anyways, it doesn't matter.
+[00:07:48] One thing that we might also want to do
+[00:07:49] here real quick is, can you put uh put
+[00:07:53] the linear screenshots
+[00:07:55] screenshots inside a linear folder
+[00:07:59] and the same with uh rocks as well
+[00:08:03] just for better organization, especially
+[00:08:06] as the skill might grow. Also, name the
+[00:08:09] images better.
+[00:08:10] >> [laughter]
+[00:08:11] >> Now, let's run that, too. Now, we're
+[00:08:13] cooking. Look at this. All right. So, we
+[00:08:14] are on our images folder, we have the
+[00:08:16] different competitors inside of here.
+[00:08:18] So, linear and rocks, and we also have
+[00:08:19] like the PNGs, like the screenshots that
+[00:08:21] I uploaded, named something actually
+[00:08:23] useful.
+[00:08:25] All right. So, now I think we're in some
+[00:08:27] good shape. Let's copy this to our
+[00:08:29] skills. It was uploaded and replace uh
+[00:08:31] the old one that was already there. Do
+[00:08:34] do do do do. Beautiful. Now, let's go
+[00:08:36] ahead and build out a new landing page
+[00:08:39] that leverages the skill and this
+[00:08:41] research that we took from Mobbin. Back
+[00:08:43] now within Claude Code
+[00:08:45] let's just run the same prompts that we
+[00:08:46] ran earlier on. Please build me a
+[00:08:48] landing page for a crypto bank. Let's
+[00:08:51] run that now. And you can see here,
+[00:08:53] while it's going, that it studied the
+[00:08:54] references that were inside of that
+[00:08:56] skill that we just created, which is
+[00:08:58] exactly what we want to see with that
+[00:09:00] minimal amount of research that we gave
+[00:09:02] it, with that one-line prompt, without
+[00:09:04] giving it any additional content,
+[00:09:07] context, sections that we want to see.
+[00:09:09] This is what it came back with here. And
+[00:09:11] again, this is just with that one-line
+[00:09:12] prompt and those six sample screenshots
+[00:09:15] and no other instructions.
+[00:09:17] This came back with a landing page that
+[00:09:19] looks a little bit more like something
+[00:09:21] that we might actually want to build.
+[00:09:24] Now again, this here is a first draft.
+[00:09:26] But what I'm trying to get at here is
+[00:09:28] not to build something where it's wow,
+[00:09:30] oh my goodness, you did that in 10
+[00:09:32] minutes, but to show you the powerful of
+[00:09:34] that workflow. Building a Claude skill,
+[00:09:37] adding competitive research from Mobbin.
+[00:09:40] And if we spent more time building out
+[00:09:42] an actual prompt and refining that
+[00:09:44] Claude skill, adding additional
+[00:09:46] research, you can imagine how powerful
+[00:09:49] this is and how good of a result that
+[00:09:51] this would have given us. So, it's the
+[00:09:53] power of the workflow that I'm really
+[00:09:54] trying to get across here is instead of
+[00:09:56] getting an AI simple AI generated design
+[00:09:58] with that gradient first try, by adding
+[00:10:01] some of that research inside of that
+[00:10:03] Claude skill, we're able to get closer
+[00:10:05] to a draft that we're going to want to
+[00:10:07] work with earlier on in our Claude code
+[00:10:10] iteration. Moving back to this Claude
+[00:10:11] skill, too. The more you populate your
+[00:10:13] Claude skill, the better the output is
+[00:10:15] going to get. The more competitors you
+[00:10:17] add, you can break out your competitor
+[00:10:19] screenshots into different folders based
+[00:10:21] on different features or functionality
+[00:10:23] or layouts. Things like a hero, you can
+[00:10:25] have folder for your hero inspiration,
+[00:10:27] for your footer, for different content
+[00:10:28] blocks, different layouts. So, the more
+[00:10:30] you make this skill your own, the better
+[00:10:33] your end result is going to be when
+[00:10:35] building designs within Claude code.
+[00:10:37] Hey, thanks for watching this video.
+[00:10:39] Lots more content's on the way. Remember
+[00:10:40] to check out our academy or just join
+[00:10:42] the community. I'll put a link for this
+[00:10:43] in the description. It's just on our
+[00:10:44] website. And remember to come connect
+[00:10:46] with me on X. Try to be more active on
+[00:10:48] there. I'll also put a link for this in
+[00:10:50] the description. If you want to build an
+[00:10:52] entire design system, click in the top
+[00:10:54] left. And if you want to watch another
+[00:10:56] video, I highly recommend click in the
+[00:10:57] top right. See you at the next one.

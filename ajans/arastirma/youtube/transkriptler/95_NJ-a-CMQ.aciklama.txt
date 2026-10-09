@@ -1,0 +1,52 @@
+# 
+# https://www.youtube.com/watch?v=95_NJ-a-CMQ
+
+Get my free AI playbooks → https://skool.com/claudebuilders/about
+Get my full system to design AI products → https://skool.com/aiapps/about
+Work with me 1-1 → https://www.buildgreatproducts.com/product-studio
+
+👉 Watch my 6-hour full course on how to build, launch and get customers with Claude code: https://youtu.be/_0E-dzhjCoY?si=P8wW_byqWR1ykTP-
+
+Most people building apps with AI still find user interface and design incredibly difficult. This Claude Code skill changes that forever. Now, you can just install this skill and get professional level design in just a few minutes.
+
+Not only does this show the power of using the right instructions for your AI coding tool when building great user interface design, but it also shows the power of Claude skills in general to create incredible outcomes that you wouldn't get just from a simple prompt.
+
+In this video I walk through exactly how to set this up and create professional, beautiful design in just minutes.
+
+How to setup this skill:
+
+/plugin marketplace add anthropics/claude-code
+/plugin install frontend-design@claude-code-plugins
+
+Chapters:
+
+0:00 — Why this Claude Code skill matters and the viral X post
+0:33 — Examples and install overview
+1:21 — Plan: baseline site → skill redesign → reference-based redesign
+1:41 — Build: prompting Claude Code to create a simple agency landing page
+2:30 — First result: review of the generic AI design
+3:00 — Install: add marketplace and install Front-End Design skill
+4:00 — Apply skill: “use front-end design skill” to improve the page
+4:34 — Redesign result: typography, animations, glow, and critique
+6:23 — Section review: what worked and what didn’t
+7:11 — Design reference: grab a screenshot from Dribbble
+8:06 — Rebuild: use skill with attached screenshot
+8:30 — Style shift: brutalist → soft modern, key changes listed
+9:23 — Final result: smooth scroll, soft shadows, hovers, remaining issues
+10:42 — Next level: use a design system with Claude Code
+11:15 — Takeaways: skill power vs generic AI design
+12:00 — Recommended: install the skill and design as you build
+
+Key points:
+
+- I break down how to set up this Claude Code skill
+
+- I build a basic landing page to show the generic AI output
+
+- I redesign it using the Claude Code skill to show the improved output
+
+- I redesign it using the skill again but with a design reference image to see how it performs
+
+Follow me on social:
+https://www.linkedin.com/in/ashbychris/
+https://x.com/chris_telescope

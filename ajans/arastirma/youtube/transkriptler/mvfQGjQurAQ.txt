@@ -1,0 +1,251 @@
+# Claude Code for Mobile Devs: The 5 Skills I Use on Every App
+# https://www.youtube.com/watch?v=mvfQGjQurAQ
+# kanal: Code with Beto | süre: 524 sn | kaynak: yt-dlp:web_embedded:mvfQGjQurAQ.en-orig.json3
+
+[00:00:00] One App Store rejection cost me 9 days.
+[00:00:02] A missed keyword probably cost me months
+[00:00:04] of revenue. I've been shipping mobile
+[00:00:05] applications with Cloud Code for the
+[00:00:07] last year. In Kigo, for example, my AI
+[00:00:09] Tattoo application is live doing about
+[00:00:11] $650 in monthly recurring revenue. And
+[00:00:14] in this video, I'm going to show you the
+[00:00:16] five Cloud skills that I used to skip
+[00:00:18] the mistakes that actually cost you
+[00:00:20] time. These are the same ones that I run
+[00:00:21] on my application before and after
+[00:00:24] launch, and they still find things worth
+[00:00:26] fixing. And before we jump in,
+[00:00:27] everything that I'm going to show you
+[00:00:28] today and more, it's available in my new
+[00:00:30] book, From Idea to App Store with Cloud
+[00:00:32] Code. No coding required, so if you are
+[00:00:34] new to mobile development with AI, check
+[00:00:36] it out. Link in the description. And
+[00:00:38] now, let's get into it.
+[00:00:42] All right, number one is going to be ASO
+[00:00:44] audit. This skill runs a full health
+[00:00:47] check on your App Store listing. Your
+[00:00:49] application needs to be published
+[00:00:50] already because you need to pass the app
+[00:00:52] ID, and you can just call it like this,
+[00:00:54] {slash} ASO audit, pass the app ID, and
+[00:00:57] then Cloud is going to do the rest. In
+[00:00:59] case you don't know how to get your
+[00:01:01] app ID,
+[00:01:02] just go to the App Store, and you can
+[00:01:04] actually get it from the URL. It says
+[00:01:05] ID, then just copy the next numbers. So,
+[00:01:08] what I really like about this skill is
+[00:01:10] that it's going to give you the overall
+[00:01:12] score. And as you can see, my score is
+[00:01:14] 49, which is pretty low, but that's good
+[00:01:16] because there are some things that I can
+[00:01:18] improve. And also, it gave me that
+[00:01:20] rating because it's assuming a couple
+[00:01:22] things. It couldn't see the icon, it
+[00:01:24] couldn't see the video of my
+[00:01:25] application, so it's assuming that I
+[00:01:28] don't have, for example, an app video,
+[00:01:30] which in fact, I do have. You notice
+[00:01:32] here, this is actually a video demo of
+[00:01:34] the application. That's actually a huge
+[00:01:36] deal. In case you don't have a video on
+[00:01:38] your application, add it. Should be the
+[00:01:40] first thing that users see. It really
+[00:01:42] helps. It's going to tell you as well
+[00:01:43] the biggest problem. Right now, for
+[00:01:45] example, in my case, my subtitle is
+[00:01:47] wasting high-value slot because I'm
+[00:01:50] repeating AI Tattoos. This is the
+[00:01:52] subtitle. It says create preview AI
+[00:01:54] Tattoos, and the name of my app it's AI
+[00:01:56] Tattoo Try On, right? So, it's basically
+[00:01:58] the same thing. And it's actually giving
+[00:02:00] me some suggestions on how to replace it
+[00:02:02] based on research on my competitors. And
+[00:02:05] this is why I really like this skill
+[00:02:07] because it's going to research your
+[00:02:09] competitors, and it's going to come to
+[00:02:11] you and tell you how you can improve
+[00:02:13] based on their stats and based on how
+[00:02:16] others are doing it. It's going to give
+[00:02:17] you as well a competitor comparison
+[00:02:19] table. So, based on the analysis, it's
+[00:02:21] going to give you the highest impact
+[00:02:23] things that you can do. For example,
+[00:02:25] it's telling me, you know, just add a
+[00:02:26] video. It didn't catch that I already
+[00:02:28] have one, so we can discard that one.
+[00:02:31] It's also telling me, this is actually
+[00:02:33] really good. It's telling me to ask my
+[00:02:35] users for ratings, and I'm actually
+[00:02:36] doing this. After a user saves an image,
+[00:02:39] I'm asking, "Hey, do you want to leave a
+[00:02:40] review?" So, that's the skill. It's
+[00:02:42] going to research your competitors, and
+[00:02:44] it's going to tell you how to stand out.
+[00:02:47] And this one is [music] from App Annie,
+[00:02:49] which it's the creator of the previous
+[00:02:51] skill as well. They are shipping a bunch
+[00:02:53] of ASO related skills. These two are
+[00:02:56] [music] actually my favorite ones, and
+[00:02:57] right now, I'm exploring paid ads on
+[00:03:00] Apple Search. So, this is a massive
+[00:03:02] skill right now because it's going to
+[00:03:04] output the keywords that you should bid
+[00:03:08] high on ads. So, it's going to give you
+[00:03:09] something like this. You have to bid
+[00:03:11] high on your brand keywords like your
+[00:03:14] app name. This is actually an strategy.
+[00:03:16] Your competitors can bid on your app
+[00:03:20] name. So, if they search your app, they
+[00:03:22] are going to find your competitor on the
+[00:03:24] first result in the search. So, it's
+[00:03:26] kind of annoying, but that's the game. I
+[00:03:28] really like this as well. It's telling
+[00:03:30] me the category, the core highest
+[00:03:33] priority keywords that I need to target.
+[00:03:36] And then, it's going to give you another
+[00:03:37] table, which is category long tail,
+[00:03:40] lower bids, higher conversion rate. So,
+[00:03:42] it's telling me how much I should bid
+[00:03:44] for these keywords, and we have another
+[00:03:46] one for competitor. So, it's going to
+[00:03:49] again search my competitors. You can see
+[00:03:52] some of the names that we saw
+[00:03:53] previously. These are applications that
+[00:03:55] are basically doing the same as my app.
+[00:03:58] This is a good strategy. I can just
+[00:03:59] target these keywords. [music]
+[00:04:00] I know that they have a bunch of users,
+[00:04:02] so maybe I can steal some of them. Then,
+[00:04:04] it's going to give you more suggestions,
+[00:04:05] the priority validation list. These
+[00:04:08] keywords are really good, and some
+[00:04:09] recommendations.
+[00:04:12] Next one is going to be App Store
+[00:04:14] Preflight. This skill actually takes
+[00:04:16] again your app ID, so just give it to
+[00:04:18] Cloud. And this skill is going to run a
+[00:04:20] comprehensive pre-submission testing for
+[00:04:23] your iOS app or macOS application. Now,
+[00:04:26] this is actually a pretty heavy-duty
+[00:04:28] skill because it actually uses the App
+[00:04:30] Store Connect CLI [music] to pull data
+[00:04:32] from the App Store like metadata and run
+[00:04:35] full comprehensive checks. But if you
+[00:04:38] don't want to install it because my
+[00:04:39] application right now, it's already in
+[00:04:41] the App Store, it's already approved, I
+[00:04:43] didn't really want to install the App
+[00:04:46] Store Connect CLI,
+[00:04:47] >> [music]
+[00:04:47] >> you can skip that and run the check
+[00:04:49] locally. And just to show you some of
+[00:04:51] the output here, it's going to give me a
+[00:04:52] couple of warnings. Some of the things
+[00:04:54] that it highlighted, it's true because
+[00:04:57] it's actually kind of like a work in
+[00:04:58] progress. I was playing around with
+[00:05:00] Facebook Ads and TikTok SDK, but I
+[00:05:03] stopped that, so I'm not using it
+[00:05:05] anymore. And then, some things that I'm
+[00:05:07] actually doing right, like entitlements,
+[00:05:09] the API declarations. Guys, I mean, when
+[00:05:11] I was starting, I wasted [music] so much
+[00:05:13] time because I didn't know anything
+[00:05:15] about these things like the API
+[00:05:17] declarations, like the signing with
+[00:05:19] Apple because I wanted to have signing
+[00:05:21] with Google. Apple requires you to have
+[00:05:24] signing with Apple. And by the way, all
+[00:05:26] these rejections are basically the
+[00:05:28] inspiration why I wrote my book, From
+[00:05:30] Idea to App Store with Cloud Code,
+[00:05:32] because right now, we are seeing a wave
+[00:05:34] of new people that want to ship an
+[00:05:36] application, and we know it's possible,
+[00:05:38] but we actually need to know these kind
+[00:05:40] of details, right? We need a guide that
+[00:05:42] explains how [music] to iterate, how to
+[00:05:45] avoid these mistakes, and how to
+[00:05:47] actually get the app to the App Store,
+[00:05:49] and then being able to update it,
+[00:05:52] maintain it. So, the book basically
+[00:05:53] [music] teaches you the mental model.
+[00:05:57] All right, the next one, it's actually a
+[00:05:59] skill that I created myself. It's called
+[00:06:01] App Icon, and you can run it like this.
+[00:06:03] Just install it, and then ask Cloud,
+[00:06:05] "Let's create an icon, minimalistic
+[00:06:08] format, Tattoo Try On application." So,
+[00:06:10] I just run this just to create an icon
+[00:06:12] to show you guys. And by the way, it
+[00:06:13] uses OpenAI API key, so you need one.
+[00:06:16] It's stored locally on your computer, so
+[00:06:19] it's safe to add it. It uses Snap AI.
+[00:06:22] Let me show you. Snap AI is a CLI tool.
+[00:06:25] It basically uses um the CLI to create
+[00:06:28] the request to OpenAI models. So, if you
+[00:06:30] want to use the CLI directly, you can
+[00:06:31] run commands like this. You can pass the
+[00:06:33] [music] model and configuration, but if
+[00:06:35] you don't want to do that, that's what
+[00:06:37] this skill does. Um you can see this
+[00:06:39] little error because I needed to add
+[00:06:41] some credits to my API. But after that,
+[00:06:43] it's going to generate the icon. It's
+[00:06:45] compatible with Android, iOS 18, iOS 26.
+[00:06:49] It generates the new .icon format that
+[00:06:51] you can open in Icon Composer. It
+[00:06:54] generated this one right now, so let me
+[00:06:56] show you. This is it. This is the icon
+[00:06:58] that it created just with that prompt.
+[00:07:00] It took like a minute. And you can, you
+[00:07:02] know, customize it even further
+[00:07:05] like adding the liquid glass effect, and
+[00:07:07] just save it.
+[00:07:10] Okay, so most of these skills are about
+[00:07:12] improving or getting your application in
+[00:07:14] the App Store, but most of the work as a
+[00:07:16] mobile developers is to actually create
+[00:07:18] a beautiful UI. So, I use React Native
+[00:07:20] for my applications, and since I worked
+[00:07:23] at Expo, I trust the skills from the
+[00:07:26] Expo team. They have this one
+[00:07:28] specifically. This is my favorite one,
+[00:07:31] Building Native UI for React Native and
+[00:07:33] Expo. It comes with native UI patterns,
+[00:07:35] you know, Expo router navigation, San
+[00:07:37] Francisco symbols, nice animations,
+[00:07:39] liquid glass. I also went ahead and did
+[00:07:42] some research about Swift. So, in case
+[00:07:45] you're developing natively for iOS or
+[00:07:47] Android nowadays, you know, you don't
+[00:07:49] have to worry about the syntax. You can
+[00:07:51] use Cloud for any framework that you're
+[00:07:53] using, right? Like Swift or SwiftUI.
+[00:07:55] This repo is going to help you a lot.
+[00:07:57] Even if you are doing something crazy
+[00:07:59] with React Native like creating a native
+[00:08:01] implementation, using these skills will
+[00:08:03] help you and Cloud actually implement
+[00:08:05] pretty advanced features. And then, for
+[00:08:07] Android, I found the official Android
+[00:08:10] skills from the Google team directly.
+[00:08:14] They can help you with things like set
+[00:08:15] up navigation tree or migrate from XML
+[00:08:18] to compose, enabling edge to edge, and
+[00:08:20] things like that. If you want to go
+[00:08:22] deeper, two things. Number one, if you
+[00:08:24] are new to mobile development, and you
+[00:08:26] are developing your application with
+[00:08:27] Cloud Code, check out my book. It covers
+[00:08:30] the full life cycle from idea to App
+[00:08:32] Store, link in the description. And I
+[00:08:33] also wrote a blog post with the install
+[00:08:36] commands for these skills in my notes.
+[00:08:38] Link is also down there. If you want to
+[00:08:40] learn more about skills, check out this
+[00:08:41] video, and I'll see you in the next one.

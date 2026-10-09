@@ -1,0 +1,285 @@
+# This New React Native Animation Library Is Insane
+# https://www.youtube.com/watch?v=oAIqn44Y63c
+# kanal: Code with Beto | süre: 577 sn | kaynak: yt-dlp:web_embedded:oAIqn44Y63c.en-orig.json3
+
+[00:00:00] Yesterday, the App 'n' Flow team
+[00:00:01] released a new React Native animation
+[00:00:04] library that is going to blow your mind.
+[00:00:05] But Beto, we already have React Native
+[00:00:07] Reanimated. Why do we need a new
+[00:00:09] animation library? I'm glad you ask, and
+[00:00:11] the answer is performance. Hey, if
+[00:00:13] you're new here, I'm Beto. I spent years
+[00:00:15] building mobile applications at Walmart,
+[00:00:17] then at Expo as a developer success
+[00:00:19] engineer, where I helped thousands of
+[00:00:21] engineers build production applications.
+[00:00:23] Now, I run Code Beto full-time, where I
+[00:00:26] help developers master mobile
+[00:00:27] development and ship real applications.
+[00:00:30] We have some success stories, students
+[00:00:31] who landed their first mobile dev role
+[00:00:33] earning six figures, and others who are
+[00:00:35] already making money from their
+[00:00:37] applications on the stores. If you want
+[00:00:38] to be part of that, I have a Discord
+[00:00:40] community, a weekly newsletter, and a
+[00:00:42] pro membership. All the links are in the
+[00:00:44] description. Let's get into it. In
+[00:00:45] today's video, we're taking a look at
+[00:00:47] React Native Ease, a new animation
+[00:00:49] library by the App 'n' Flow team. It's
+[00:00:51] designed for simple animations, and it
+[00:00:53] comes with a nice and clean API inspired
+[00:00:56] by CSS transitions. And the best part,
+[00:00:58] this library has zero JavaScript
+[00:01:00] overhead. Your animations run entirely
+[00:01:02] [music] on native platform APIs. There's
+[00:01:05] no JavaScript animation loop, no
+[00:01:06] worklets, no shared values. You just
+[00:01:09] declare what you want to animate, and
+[00:01:10] the operating system handles the rest.
+[00:01:13] Let's dive in. Okay, before I show you
+[00:01:14] some examples and use cases, let's go
+[00:01:17] through the announcement blog post from
+[00:01:19] yesterday. By the way, this library was
+[00:01:21] created by Yannick. He works at App 'n'
+[00:01:24] Flow, and in case you're not familiar
+[00:01:26] with App 'n' Flow, they're actually the
+[00:01:28] creators of many React Native libraries
+[00:01:31] that you might use, like React Native
+[00:01:33] Safe Area Context. That's one of the
+[00:01:34] most popular ones, but they also have so
+[00:01:36] many, and the new one, React Native
+[00:01:38] Ease. App 'n' Flow has always been
+[00:01:40] contributing to the React Native
+[00:01:42] ecosystem. In my opinion, App 'n' Flow
+[00:01:44] is one of the best, if not the best
+[00:01:46] React Native and Expo agency. And if you
+[00:01:48] don't believe me, just take a look at
+[00:01:50] their landing page. They have these
+[00:01:52] beautiful 3D
+[00:01:53] elements, and you can see some pretty
+[00:01:56] cool details in here like the Expo SDK
+[00:01:59] logo and then the React Native logo
+[00:02:01] here. It's just amazing. In my opinion,
+[00:02:03] they are one of the best engineers out
+[00:02:05] there. So, if you need help with your
+[00:02:06] application or if you know anyone that
+[00:02:08] needs an application, they can help you
+[00:02:10] with that. So, make sure to check them
+[00:02:12] out. So, let's understand the basics of
+[00:02:13] how this library works. If we take a
+[00:02:15] look at the Core Animation documentation
+[00:02:17] here, it's it basically provides a
+[00:02:19] general purpose system for animating
+[00:02:21] views and other visual elements in your
+[00:02:23] application.
+[00:02:24] >> [music]
+[00:02:24] >> And the same goes for Android and the
+[00:02:26] equivalent API would be Animator. So, if
+[00:02:28] you are curious about the native
+[00:02:30] implementation of this, you can take a
+[00:02:32] look at the documentation. But,
+[00:02:34] basically, React Native is uses these
+[00:02:37] primitives to implement native
+[00:02:39] animations. And by doing that, you get
+[00:02:41] smooth animations even when the UI
+[00:02:43] thread is lagging. And here we have an
+[00:02:45] example using React Native Easing versus
+[00:02:47] React Native Reanimated. You can see
+[00:02:49] that when the UI thread is lagging, the
+[00:02:52] animation is going to start glitching.
+[00:02:55] But, because React Native Easing is
+[00:02:56] using Core Animation and Animator from
+[00:02:58] Android, it's going to keep working
+[00:03:00] smoothly. I feel like Yanni did a great
+[00:03:02] job explaining some of the most
+[00:03:04] frequently asked questions, I think. So,
+[00:03:06] why do we need a new React Native
+[00:03:08] library for animations if we already
+[00:03:10] have Reanimated, right? And the answer
+[00:03:13] is that React Native Easing is not a
+[00:03:15] replacement for Reanimated. Reanimated
+[00:03:18] works by running JavaScript on every
+[00:03:20] frame on the UI thread. For simple
+[00:03:23] animations, that's overkill. This is why
+[00:03:25] on iOS we can use Core Animation which
+[00:03:27] runs animations completely off the UI
+[00:03:29] thread.
+[00:03:30] On Android, we can use Animator and
+[00:03:32] avoid worklets and shared values
+[00:03:34] entirely. And he talks about this idea
+[00:03:36] and how it is started years ago when
+[00:03:39] Yanni was working on the Animated
+[00:03:41] implementation in React Native itself.
+[00:03:43] So, Animated and Reanimated are
+[00:03:45] incredibly flexible, but they still
+[00:03:47] don't leverage the platform animation
+[00:03:50] APIs. They update views every frame on
+[00:03:52] the UI thread. It's flexible, but not
+[00:03:55] maximum performance. And this is where
+[00:03:57] React Native is comes in. It provides
+[00:03:59] simple animations that you would use CSS
+[00:04:01] transitions for on the web. [music] So,
+[00:04:04] for example, opacity, transforms,
+[00:04:06] background color, border radius,
+[00:04:08] non-layout props. And we also have, of
+[00:04:10] course, some non-goals of this library,
+[00:04:12] which is complex gesture-driven
+[00:04:14] animations. In this case, you still need
+[00:04:16] to use Reanimated. Layout animations,
+[00:04:19] things that require to change the width,
+[00:04:22] the height, the layout. That is not
+[00:04:24] supported with this library. Shared
+[00:04:26] element transitions and all
+[00:04:28] architecture. Now that we know that,
+[00:04:29] let's actually go ahead and install it.
+[00:04:31] It's actually pretty easy. You can just
+[00:04:32] copy the name, React Native Easing, go
+[00:04:34] to your project and just run bun install
+[00:04:37] React Native Easing, or you can just say
+[00:04:39] NPX Expo install React Native Easing.
+[00:04:41] Once you have installed it, you need to
+[00:04:43] pre-build your application for iOS and
+[00:04:45] Android, and then recompile it.
+[00:04:47] Once you've done that, you can start the
+[00:04:49] server. And by the way, this is the code
+[00:04:50] base of Platano. Platano is a template
+[00:04:53] that we're working on, me and my team.
+[00:04:55] And the goal is to provide a
+[00:04:57] ready-to-monetize AI [music] image
+[00:04:59] wrapper. We're seeing a lot of nano
+[00:05:00] banana wrappers, and me, personally,
+[00:05:02] shipping my AI tattoo application, I
+[00:05:04] learned a lot. And definitely, I see a
+[00:05:07] lot of potential targeting a different
+[00:05:08] niche. So, the goal of this template is
+[00:05:11] to give you the opportunity to ship
+[00:05:13] super quickly. Basically, just change
+[00:05:15] the app name, give it your primary
+[00:05:17] color, [music] and then you can ship
+[00:05:19] your own version of this application,
+[00:05:21] and hopefully, make some money. If
+[00:05:22] you're interested, I'm going to leave
+[00:05:23] the link in the description. And this is
+[00:05:24] how it looks. I mean, it works on
+[00:05:26] Android out of the box. It uses native
+[00:05:28] colors. And you know, here we have some
+[00:05:30] ideas of what you can do, like changing
+[00:05:32] your photo to be a cartoon, or changing
+[00:05:35] your hairstyle. And I'm working right
+[00:05:36] now on the onboarding screen. All right,
+[00:05:38] so this is the current implementation of
+[00:05:40] the crossfade of the check icon between
+[00:05:43] the check icon and the circle icon.
+[00:05:45] Every time that the user presses, we
+[00:05:47] have this smooth transition. And so far,
+[00:05:49] I'm using animated view and I'm passing
+[00:05:52] a animated style. And this, of course,
+[00:05:55] requires me to
+[00:05:57] use this hook, use animated style, and
+[00:05:59] then declare this progress, which is a
+[00:06:02] shared value. And we are doing this
+[00:06:04] shared value or creating this shared
+[00:06:06] value for each item on the list. So, in
+[00:06:09] this screen alone is four times, but I
+[00:06:11] have other screens with more options. We
+[00:06:13] could actually just use ease view.
+[00:06:15] So, I'm just going to go ahead and
+[00:06:16] delete this and I'm going to show you
+[00:06:18] how this would look like if we use ease
+[00:06:21] view.
+[00:06:22] By the way,
+[00:06:23] ease view needs to come from
+[00:06:27] React Native ease. So, let's import that
+[00:06:30] and hit save.
+[00:06:31] So, this is how it looks. You just pass
+[00:06:34] the animate and then transition
+[00:06:37] type. And check the types here. I'm
+[00:06:38] using timing. So, just by doing that, we
+[00:06:41] can actually come here and delete this
+[00:06:44] because I don't need it anymore. I'm
+[00:06:45] also, by the way, animating the border
+[00:06:47] color. And in this specific case, I
+[00:06:49] actually need reanimated because React
+[00:06:52] Native ease does not support border
+[00:06:54] animation at the moment. I'm going to
+[00:06:56] increase this to be 1 [music] second
+[00:06:58] just so that it's easy to see.
+[00:07:01] You can see the cross fade beautifully
+[00:07:03] and [music] that is running completely
+[00:07:06] on the operating system. Let's take a
+[00:07:08] look at iOS.
+[00:07:10] It's just super nice.
+[00:07:12] So, here's another example. I have this
+[00:07:14] congratulations step. Once a user
+[00:07:17] answers all the questions in the
+[00:07:18] onboarding,
+[00:07:19] we present this beautiful uh screen. And
+[00:07:23] as you saw, we are presenting each item
+[00:07:26] with a delay and with a nice animation.
+[00:07:29] And in this case, I'm going to show you
+[00:07:30] the diff. So, right now, I'm using ease
+[00:07:32] view and these are the values that we
+[00:07:34] are providing. We have an array of
+[00:07:36] delays so that we present everything
+[00:07:38] nicely. And basically, I just ask cloth
+[00:07:41] to do this for me. So, basically, it's
+[00:07:42] iterating over the delays and then
+[00:07:45] setting their reveal step. Based on
+[00:07:46] that, we are animating each view.
+[00:07:49] And before that, we were using the fade
+[00:07:52] down, importing this from uh reanimated.
+[00:07:55] And I think this is one of the most
+[00:07:56] useful cases. You can just replace the
+[00:07:59] simple animations like fading, fade out.
+[00:08:01] So, this is how it looked before. I was
+[00:08:04] using the animated view.
+[00:08:06] And I was passing the entering and the
+[00:08:07] style. And now, it's basically the same
+[00:08:10] thing, just passing the animate and the
+[00:08:12] transition. And this is how it looks on
+[00:08:14] iOS. By the way, the UI is going to
+[00:08:16] improve. Don't worry. I'm actually
+[00:08:17] working on this. Looks super clean. I
+[00:08:19] mean, super smooth. In the readme, we
+[00:08:20] have this table saying when we should
+[00:08:22] use ease versus reanimated. And this is
+[00:08:24] basically what I'm doing in Platano.
+[00:08:27] Enter and exit animations. Fade, slide,
+[00:08:29] scale, on state change, use ease. And
+[00:08:32] then, reanimated when you need gestures
+[00:08:34] like pan, pinch,
+[00:08:37] layout animations, and complex
+[00:08:38] interpolation. So, for example, in the
+[00:08:40] application,
+[00:08:42] uh we support
+[00:08:43] inching to zoom.
+[00:08:46] And this I could not do this with ease,
+[00:08:48] of course, right? And we also have the
+[00:08:50] playground. You can select multiple
+[00:08:52] images. And right now, I haven't done
+[00:08:54] this yet, but I'm going to implement
+[00:08:56] ease in and ease out.
+[00:08:58] Uh and basically, replace all the
+[00:09:00] animations. Like in this case, you can
+[00:09:02] just find this in your code base,
+[00:09:04] if you want to, and just use ease view.
+[00:09:07] I'm going to wrap this in here and just
+[00:09:08] remove the animated view.
+[00:09:10] But before I do that, you can actually
+[00:09:12] use the same style. Yep, just like that.
+[00:09:14] And remove this.
+[00:09:16] Hit save.
+[00:09:17] And now, we are using ease view, which
+[00:09:18] is more performant for this kind of
+[00:09:20] stuff. And you don't need to import the
+[00:09:23] animation, which is great. If you want
+[00:09:25] to learn more about gestures [music] and
+[00:09:27] animations with React Native Reanimated
+[00:09:29] and Gesture Handler, I have a whole
+[00:09:30] section in my React Native course. Link
+[00:09:32] in the description. Check out React
+[00:09:33] Native ease, and let me know what you
+[00:09:35] think. I'll see you in the next one.

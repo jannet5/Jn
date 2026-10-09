@@ -1,0 +1,44 @@
+# 
+# https://www.youtube.com/watch?v=oAIqn44Y63c
+
+App and Flow just dropped React Native Ease, a new animation library with zero JavaScript overhead that runs entirely on native platform APIs.
+
+Master React Native with me → https://cwb.sh/rn
+
+React Native Ease: https://github.com/appandflow/react-native-ease
+App&Flow: https://appandflow.com?utm_source=beto&utm_medium=youtube
+Platano (ready-to-ship AI app template): https://cwb.sh/platano?r=yt
+Newsletter: https://cwb.sh/newsletter?r=yt
+Join the Discord community: https://cwb.sh/discord
+
+My apps:
+Quick Push: Test Push Notifications (MacOS) → https://apple.co/4tvT4wF
+Inkigo: AI Tattoo Try On (iOS) → https://cwb.sh/inkigo
+
+For other ways to support my work, please consider:
+- Become a Code with Beto channel member: https://cwb.sh/join
+- GitHub Sponsors: https://github.com/sponsors/betomoedano
+
+Follow Beto on X: https://cwb.sh/x?r=yt
+LinkedIn: https://cwb.sh/in?r=yt
+GitHub: https://cwb.sh/gh?r=yt
+Instagram: https://cwb.sh/insta?r=yt
+TikTok: https://cwb.sh/tiktok?r=yt
+Threads: https://cwb.sh/threads?r=yt
+Bluesky: https://cwb.sh/bsky?r=yt
+
+⌚️ Timestamps ⌚️
+00:00 Intro
+00:45 What is React Native Ease?
+01:17 Blog post walkthrough
+02:13 How the library works
+03:08 Why not just use Reanimated?
+03:59 What Ease is good for
+04:31 Installation
+05:42 Example: Cross-fade animation
+07:14 Example: Staggered reveal
+08:21 When to use Ease vs Reanimated
+09:04 Replacing Animated View with EaseView
+09:24 Outro
+
+#reactnative #coding #mobiledevelopment

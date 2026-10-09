@@ -1,0 +1,901 @@
+# Watch me Design a Mobile App From Scratch in 32 Minutes (Claude /design & Fable 5)
+# https://www.youtube.com/watch?v=76_h94U4ztQ
+# kanal: Build Great Products | süre: 1921 sn | kaynak: yt-dlp:web:76_h94U4ztQ.en-orig.json3
+
+[00:00:00] In 2026, if your app doesn't have good
+[00:00:02] design, then it might be dead in the
+[00:00:03] water before you even launch. But, if
+[00:00:06] you've tried to design using AI coding
+[00:00:07] tools, you've probably got a lot of AI
+[00:00:09] slop. So, how do you go from AI slop to
+[00:00:12] professional design? What are the key
+[00:00:14] things to get right when it comes to app
+[00:00:16] design specifically? And where in the
+[00:00:18] process should you even start thinking
+[00:00:20] about design if you're building apps
+[00:00:22] with AI? Well, that's what I want to
+[00:00:23] break down in this video, as well as
+[00:00:24] showing you the new Claude Code /design
+[00:00:27] feature, which brings Claude design
+[00:00:29] directly into Claude Code, so that you
+[00:00:31] can work with it inside of your Claude
+[00:00:33] Code projects. We're going to be
+[00:00:34] covering the three keys to great AI
+[00:00:37] design, how to design a mobile app from
+[00:00:40] scratch using Claude Code, and how to
+[00:00:42] actually start using the new /design
+[00:00:44] feature inside of Claude Code, as well,
+[00:00:46] so that you know exactly where to start.
+[00:00:48] And I also want to help you understand
+[00:00:50] exactly where in the process you should
+[00:00:52] be doing design for your app. If you
+[00:00:53] don't know me, my name is Chris, and for
+[00:00:55] the last 15 years I've been designing
+[00:00:56] apps and advising startups on product
+[00:00:57] and design, and I've helped hundreds of
+[00:00:59] people to build and launch real apps and
+[00:01:01] to make real money and get real
+[00:01:03] customers inside of my community. And
+[00:01:05] so, if you're interested in that, you
+[00:01:06] can click the link down below to find
+[00:01:07] out more. And with that said, let's jump
+[00:01:09] straight into the video and show you
+[00:01:10] exactly how to design your apps with AI.
+[00:01:13] So, when it comes to app design, there
+[00:01:14] are some things that people get wrong,
+[00:01:15] especially when you're doing app design
+[00:01:17] with AI. And because AI makes it so much
+[00:01:19] easier to build any app from scratch,
+[00:01:22] even just from an idea, so many people
+[00:01:24] are just following this process, and the
+[00:01:26] whole narrative around building software
+[00:01:28] with AI coding agents is a lot about how
+[00:01:30] fast you can move. How quickly can you
+[00:01:32] build something? How quickly can you get
+[00:01:34] it out there, so that you can start
+[00:01:36] getting it in front of people and start
+[00:01:37] actually getting customers for it. But,
+[00:01:39] this actually jumps the gun a lot. This
+[00:01:41] is about This is moving too fast. And
+[00:01:44] sure, you can absolutely build apps in
+[00:01:46] 24 hours, and that's what I teach inside
+[00:01:48] of my community, as well. How to build
+[00:01:49] any application within within 24 hours.
+[00:01:52] But, there are some key things that we
+[00:01:54] need to do before we start this build
+[00:01:56] process. So, if you've got an idea for
+[00:01:58] an app, or even if you've got something
+[00:02:00] already, you might want to go back to
+[00:02:02] these steps in order to start to figure
+[00:02:04] out exactly what you actually want to be
+[00:02:06] building before you just start building
+[00:02:08] something that's going to end up looking
+[00:02:09] like AI slop and be exactly the same as
+[00:02:11] all of the other apps out there that
+[00:02:12] people are creating. So, we want to go
+[00:02:14] from this idea straight to build in and
+[00:02:17] take and instead of doing that, we want
+[00:02:19] to jump into this process instead. So,
+[00:02:22] this is a bit of a mindset shift where
+[00:02:24] we actually think about how do we define
+[00:02:26] what we're building before we start
+[00:02:28] building it. And this is something that
+[00:02:29] a lot of people are doing anyway. You
+[00:02:30] think about how do you spec your app?
+[00:02:32] How do you create a PRD or roadmap? But
+[00:02:34] what I also mean from this is how do we
+[00:02:36] think about our app more from a business
+[00:02:39] point of view? So, who is the target
+[00:02:41] customer? What is the pain that we're
+[00:02:43] helping them overcome? What is the
+[00:02:44] outcome what that we're helping them to
+[00:02:46] achieve? What is the mechanism that
+[00:02:48] we're using to get them that outcome?
+[00:02:50] What is the pricing strategy that we're
+[00:02:52] using so that they feel comfortable
+[00:02:53] paying for our app? And what is the
+[00:02:55] proof that we have that this mechanism
+[00:02:57] actually works to get this customer this
+[00:02:59] outcome? These are the things that you
+[00:03:01] should absolutely be considering before
+[00:03:04] you start building anything. And just
+[00:03:06] going through these six things is going
+[00:03:08] to have a massive impact on the quality
+[00:03:11] of the app and the software that you end
+[00:03:13] up building with AI coding tools. And
+[00:03:15] so, just spend a little bit of time
+[00:03:17] thinking about these. Now, I have a
+[00:03:18] process called Product OS which I teach
+[00:03:20] inside of my community and I also take
+[00:03:22] people through on a one-to-one basis in
+[00:03:23] my coaching program as well. So, we go
+[00:03:25] into a lot of detail about how to define
+[00:03:27] this thing here which is called a
+[00:03:28] product offer. I'm not going to go into
+[00:03:30] it too much in this video because this
+[00:03:31] is about how do we design our app. The
+[00:03:33] next step after after define is about
+[00:03:36] how do you design your application
+[00:03:38] before you start building it. And the
+[00:03:40] reason that I like to do design before
+[00:03:42] you start building is for two reasons.
+[00:03:44] First, because design is more about
+[00:03:46] visuals. Design is also about the user
+[00:03:48] experience, the onboarding flow, the
+[00:03:51] landing page. And there are some really
+[00:03:53] critical points to get right if you want
+[00:03:55] people to actually sign up and pay for
+[00:03:56] your application.
+[00:03:58] And these three points are the magic
+[00:03:59] moment, the landing page or the App
+[00:04:01] Store listing, and the onboarding flow
+[00:04:03] for your application. And then the
+[00:04:05] second reason why I like to do design up
+[00:04:07] front before actually building anything
+[00:04:09] is because it's really good to have a
+[00:04:11] very solid professional level design
+[00:04:13] system already documented from a set of
+[00:04:17] references or an image or a visual
+[00:04:18] direction that you like before you
+[00:04:20] actually build anything so that AI has a
+[00:04:23] strong reference and foundation for the
+[00:04:25] design that it should be working towards
+[00:04:27] when it actually builds. And this is so
+[00:04:29] much easier to start off from this point
+[00:04:32] of professional level design rather than
+[00:04:35] building something and then trying to
+[00:04:36] fix the design later. Now, you can do
+[00:04:38] that. It's still possible to do that. I
+[00:04:40] always like to start from design and
+[00:04:42] define before I actually build anything.
+[00:04:44] And so, what are the three keys to great
+[00:04:47] design? And this is very much
+[00:04:49] simplified. I'm actually going to do a
+[00:04:51] full course video on software and app
+[00:04:53] design. And if you're interested in that
+[00:04:55] video, just leave me a comment down
+[00:04:56] below so that I know that it's something
+[00:04:58] I should film sooner rather than later.
+[00:05:00] But basically, good design for apps and
+[00:05:02] software, it really just depends on
+[00:05:04] three key things. If you haven't done
+[00:05:07] any sort sort of design work at all, you
+[00:05:08] can still have these three key things.
+[00:05:10] It depends on having great references,
+[00:05:12] so a great starting point and great
+[00:05:14] inspiration. Even the best designers
+[00:05:16] work from inspiration and they copy
+[00:05:18] other people's design work. You need to
+[00:05:20] have idea clarity, so you know exactly
+[00:05:23] what you're building, exactly what the
+[00:05:24] key screens are, exactly what that magic
+[00:05:27] moment, that aha moment is going to be
+[00:05:28] inside of your app, and exactly what
+[00:05:31] you're going to be building so that you
+[00:05:33] can actually take those key screens and
+[00:05:35] do some rough designs on them first
+[00:05:36] before you start building. And the last
+[00:05:38] thing here is you need to have learned
+[00:05:40] taste. And taste is not something that
+[00:05:41] you have or you don't have. Taste is
+[00:05:43] something that you can actually learn.
+[00:05:45] And the easiest way to learn what is
+[00:05:47] good and what is bad when it comes to
+[00:05:48] design is just to surround yourself with
+[00:05:51] high-quality design. And a great place
+[00:05:54] to start if you're thinking about this
+[00:05:55] is just to curate your social feeds or
+[00:05:57] your algorithm so that a lot of
+[00:05:58] high-quality design content actually
+[00:06:00] starts to come up. And because you'll be
+[00:06:02] seeing this every single day when you're
+[00:06:04] on social media, it starts to retrain
+[00:06:06] your brain to to understand what exactly
+[00:06:08] good taste is when it comes to design so
+[00:06:10] that you know what to look for, what
+[00:06:12] good and bad looks like from a design
+[00:06:14] point of view. So, what are we going to
+[00:06:15] be designing today? Well, I want to
+[00:06:18] basically design this mobile app here.
+[00:06:20] It's called Ride It, Share Your
+[00:06:22] Adventure. Now, this is going to be a
+[00:06:24] consumer app and the reason that I'm
+[00:06:25] going to be building this is because I'm
+[00:06:26] going to be putting together another
+[00:06:28] video
+[00:06:29] um where I go to LA and I visit one of
+[00:06:32] the theme parks I've basically had on my
+[00:06:34] bucket list since I was about 12 years
+[00:06:36] old. Now, I'm not massively into theme
+[00:06:38] parks anymore, but I was when I was a
+[00:06:40] kid and I wanted to design and build
+[00:06:43] this app for me to be able to share my
+[00:06:46] day at this park that I'm going to I've
+[00:06:49] always wanted to visit since I was a kid
+[00:06:51] basically and I'm going to call it Ride
+[00:06:53] It, Share Your Adventure. So, this is an
+[00:06:54] app to help theme park goers share their
+[00:06:57] day with friends and family and I'm
+[00:06:59] doing it in a Spotify Wrapped style. And
+[00:07:01] the reason I'm doing this is because
+[00:07:03] I've gone through this process
+[00:07:04] basically. So, we go through this
+[00:07:06] process of first you have an idea, then
+[00:07:09] we want to research the market,
+[00:07:11] understand what exists in the market
+[00:07:12] already, what other tools exist, and how
+[00:07:15] we can find something in that market
+[00:07:18] that is going to be successful. Then we
+[00:07:20] want to find these winning ideas. So,
+[00:07:22] what is already working in the market,
+[00:07:24] what are people actually paying for?
+[00:07:26] Take inspiration from what people are
+[00:07:28] paying for already, not original ideas.
+[00:07:31] So, you want to start from something
+[00:07:32] that there is already proof that people
+[00:07:34] are paying for this. And then number
+[00:07:35] three is to differentiate your version
+[00:07:38] and make it resonate, make it something
+[00:07:40] that's unique to you. So, what I found
+[00:07:43] was that there is already existing apps
+[00:07:45] to do things like tracking your theme
+[00:07:47] park visits or like tracking your
+[00:07:49] attraction visits, but nobody was taking
+[00:07:52] this kind of Spotify wrapped style
+[00:07:54] sharing angle with that kind of tracking
+[00:07:57] element on top. So, I'm just taking what
+[00:07:59] already works in the market and I'm
+[00:08:01] differentiating my own version here. And
+[00:08:04] there is bonus points here if the idea
+[00:08:07] that you're taking is something that
+[00:08:10] looks outdated or is
+[00:08:12] basically looks like something where you
+[00:08:13] can really easily update it and make it
+[00:08:16] look like a modern application or
+[00:08:18] incorporate any sort of AI elements
+[00:08:20] where the original versions don't have
+[00:08:22] AI in them. Fourth, we're going to
+[00:08:23] identify the magic moment here, which is
+[00:08:25] the Spotify wrapped style and day recap,
+[00:08:30] basically. Then, we're going to design
+[00:08:32] the key screens here and then we're
+[00:08:33] going to spec and build it. So, we've
+[00:08:35] gone through the define process and then
+[00:08:37] we're going to go into the design
+[00:08:39] process. Let's design our key screens,
+[00:08:41] create our design system, and then after
+[00:08:43] that, we'll do spec and build. I'm going
+[00:08:45] to do that in a separate video where I
+[00:08:46] take you through my journey of going and
+[00:08:49] visiting this theme park and also my
+[00:08:51] story of when I was a kid and why I
+[00:08:54] decided that this would be a good idea
+[00:08:56] to build and trying to build it
+[00:08:58] basically over the course of a few days
+[00:08:59] whilst I go on this trip. So, this is
+[00:09:02] some inspiration because I talked about
+[00:09:04] starting from good inspiration, starting
+[00:09:06] from great references. This is the
+[00:09:08] inspiration from Spotify wrapped
+[00:09:10] basically designs from over the years
+[00:09:12] and I'm actually going to find some
+[00:09:14] other inspiration that we can drop into
+[00:09:15] Claude code using the slash design
+[00:09:17] feature here as well. So, there are some
+[00:09:19] criteria for this shareable wrapped
+[00:09:22] style recap. One is going to be this
+[00:09:24] needs to be shareable because this is
+[00:09:25] the growth engine for the entire app. If
+[00:09:27] people don't want to share this, then
+[00:09:29] the app is dead in the water, basically.
+[00:09:31] It must include the personality
+[00:09:33] archetype, which Claude actually pulled
+[00:09:35] out in the research step as being
+[00:09:37] really, really critically important to
+[00:09:38] this wrapped style kind of mechanism.
+[00:09:42] And this is the mechanism that we're
+[00:09:43] using going back to the define section
+[00:09:46] here. So, our mechanism is the Spotify
+[00:09:48] wrapped sharing mechanic. That's how
+[00:09:50] people are going to recap their day at a
+[00:09:53] theme park or at an attraction. And the
+[00:09:55] data from Spotify wrapped shows that the
+[00:09:57] personality archetype is the most shared
+[00:10:00] screen. So, we want to make sure that we
+[00:10:01] include this personality archetype
+[00:10:04] screen here that you can see where you
+[00:10:06] have like their listening personality is
+[00:10:08] like the specialist, the adventurer, the
+[00:10:09] fan clubber, basically. So, we want to
+[00:10:12] make sure we include a screen that's
+[00:10:13] like that and it needs to also be
+[00:10:14] colorful, playful, and have exciting
+[00:10:16] energy that people will want to share.
+[00:10:18] That it's going to stop people when
+[00:10:20] they're scrolling and be visually kind
+[00:10:22] of very, very engaging. So, that's why I
+[00:10:24] think it's also important to design a
+[00:10:25] screen before I actually start building
+[00:10:28] this. So, now I've gone through that,
+[00:10:30] let's jump into Claude Code and I'll
+[00:10:32] show you how to start using
+[00:10:33] Claude/design
+[00:10:35] inside of a project when you're starting
+[00:10:37] from scratch. So, now I jumped into
+[00:10:39] Claude Code here inside of the desktop
+[00:10:41] app. I created a new session here and
+[00:10:43] I've also just selected the folder that
+[00:10:45] I'm going to be building this in
+[00:10:46] locally. So, this is where I'm going to
+[00:10:48] be building this mobile app, basically.
+[00:10:50] I've pasted in a design reference that I
+[00:10:52] really like here for the direction for
+[00:10:54] this app, which is basically which is
+[00:10:56] basically this image here cuz I really
+[00:10:58] like these kind of flat vector kind of
+[00:11:01] style illustrations, which are really
+[00:11:03] colorful. I like the color palette
+[00:11:05] that's being used here and the overall
+[00:11:07] style of this app design. And I think
+[00:11:09] with illustrated like rides at a theme
+[00:11:11] park on like each of these screens with
+[00:11:13] like solid background colors like this
+[00:11:16] first screen here, this is actually
+[00:11:18] going to work really, really well in a
+[00:11:19] Spotify wrapped kind of style design
+[00:11:22] that people would actually want to
+[00:11:23] share. So, let's actually get started
+[00:11:25] designing this and all you need to do to
+[00:11:27] get started using Claude design inside
+[00:11:29] of Claude Code is type /design here and
+[00:11:32] then you just ask it what you want to
+[00:11:34] design. And we've got this reference in
+[00:11:35] here that we're going to be using, and
+[00:11:37] then Claude Code is going to be able to
+[00:11:38] open up the design on a canvas inside of
+[00:11:40] the desktop app here, so that we can see
+[00:11:42] our designs, iterate on them. And I'm
+[00:11:44] actually just going to ask Claude Code
+[00:11:45] to give me an outline of what these
+[00:11:47] screens could be before it actually
+[00:11:48] starts designing. So, let's get Claude
+[00:11:51] Code to create this design here. I'd
+[00:11:54] like to create three or four designs for
+[00:11:57] a mobile app following the design style
+[00:12:00] of the attached image reference, but
+[00:12:03] with full color backgrounds on each
+[00:12:05] screen. The app that I'm designing here
+[00:12:08] is an app for creating shareable Spotify
+[00:12:12] Wrapped style recaps of your visits to a
+[00:12:15] theme park that would show you things
+[00:12:18] like the number of times you've been
+[00:12:20] upside down, the top speed that you've
+[00:12:22] been up to that day, and also a
+[00:12:25] personality archetype for your day at
+[00:12:29] that theme park. Can you give me an
+[00:12:31] outline of what we can actually include
+[00:12:33] on these screens before you design them?
+[00:12:37] And I also want to make them really
+[00:12:38] visually interesting and engaging with
+[00:12:40] these kind of flat, colorful vector
+[00:12:42] illustrations of things like theme park
+[00:12:45] rides, and visuals that are related to
+[00:12:48] visiting a theme park. I've also got
+[00:12:51] this set to Fable 5 on high, just so
+[00:12:53] that we're using the best model here to
+[00:12:55] do this with, but we don't have it set
+[00:12:57] to a reasoning level any higher than
+[00:12:58] this, because you don't really need
+[00:13:00] anything more than high for most tasks
+[00:13:02] with Fable 5 to get incredibly good
+[00:13:04] output. So, let's send this off to
+[00:13:06] Claude Code here. All right, so here's
+[00:13:08] what Claude Code is going to do. It says
+[00:13:09] the folder is empty, so there's no
+[00:13:10] existing design system. I shall build
+[00:13:12] through your reference image instead.
+[00:13:13] Here's the outline before I draw
+[00:13:14] anything. Now, I think {slash} design is
+[00:13:17] designed to work from an existing design
+[00:13:19] system. So, if you have a design.md or a
+[00:13:21] design system inside of your project, or
+[00:13:23] you're using a tool like
+[00:13:24] eyedropper.design, which is my tool for
+[00:13:26] storing design systems in the cloud and
+[00:13:28] giving your any agent access to your
+[00:13:30] design system via MCP, then Claude code
+[00:13:33] is going to go from that design system
+[00:13:34] reference. But, because we don't have a
+[00:13:36] design system here inside of this
+[00:13:38] project, it's just a new folder, it's
+[00:13:39] going to create it just from this image
+[00:13:41] reference. So, what the reference
+[00:13:42] reference image gives us is flat chunky
+[00:13:45] vector illustration, bold rounded
+[00:13:46] geometric type, saturated candy palette,
+[00:13:49] big radius cards, and playful asymmetry.
+[00:13:52] So, illustrations bleeding off card
+[00:13:54] edges, title objects, small confetti,
+[00:13:56] etc. What the amount route can actually
+[00:13:58] contain from the phone's sensors,
+[00:14:00] accelerometer, gyro, GPS, barometer,
+[00:14:03] times upside down, top speed reached
+[00:14:05] today, highest point reached, biggest
+[00:14:06] drop, total airtime, distance walked,
+[00:14:09] and total time spent on rides versus in
+[00:14:11] queues. From check-ins, ride login,
+[00:14:14] rides ridden today, most ridden, first
+[00:14:16] ride of the day, ride streak, longest
+[00:14:18] queue,
+[00:14:19] and derived or fun sharing mechanics
+[00:14:23] here is a park personality archetype,
+[00:14:26] ride DNA, so a percentage splits of ride
+[00:14:28] types, percentile flexes, badges or
+[00:14:31] milestones. So, I really like the badges
+[00:14:33] or milestones here. Your crew, who you
+[00:14:35] rode with if social, a shareable summary
+[00:14:38] card, stacking four to five headline
+[00:14:40] stats with the archetype. So, proposed
+[00:14:42] screens here is your day at park, thrill
+[00:14:45] stats, your ride day, and then your
+[00:14:48] archetype plus share card. So, these
+[00:14:51] have actually like a lot of numbers on
+[00:14:53] them, ride count, most ridden, ride type
+[00:14:55] split, queue versus ride time. But, I
+[00:14:57] like the suggestions here. Three quick
+[00:14:59] questions before I draw. So, static
+[00:15:01] mock-ups or clickable prototype? Static
+[00:15:03] is right for an exploration like this,
+[00:15:05] so let's do static for number one. Real
+[00:15:07] park names? Real park names or
+[00:15:09] fictional? I defaulted to an invented
+[00:15:11] park and invented ride names to avoid
+[00:15:13] trademark issues. Let's just go with
+[00:15:14] invented for now. And any cuts or
+[00:15:17] additions to the list above? In
+[00:15:18] particular, do you want the archetype as
+[00:15:20] its own screen or merge with
+[00:15:49] the share card. this a little bit
+[00:15:51] better. We've got our four designs here,
+[00:15:53] which is pretty close to the original
+[00:15:56] reference image that we provided with a
+[00:15:58] full color backgrounds and with the four
+[00:15:59] screens as referenced as outlined by
+[00:16:03] Claude here.
+[00:16:04] Now, what you can do now is to click on
+[00:16:07] these and make any changes to them from
+[00:16:10] the properties panel here, which is
+[00:16:12] again something that's similar to what
+[00:16:14] you would have in Claude Design.
+[00:16:17] You can expand this view by toggling
+[00:16:18] this up here. We can also change the
+[00:16:20] individual styles on this as well by
+[00:16:23] switching this here. So, we could change
+[00:16:25] it to Lexend, which I actually think is
+[00:16:27] a little bit nicer as a font for this.
+[00:16:30] And we can do some broader changes if we
+[00:16:33] want to as well just by clicking on edit
+[00:16:35] here.
+[00:16:36] You're able to change the actual text
+[00:16:38] here. So, we can change this from bold
+[00:16:40] to regular, which again I think regular
+[00:16:43] just looks a little bit better here
+[00:16:45] rather than bold. So, we can change that
+[00:16:46] across everything. Turn off bold for
+[00:16:49] this. And this means that we now have
+[00:16:51] this design view that we can take into
+[00:16:54] our project and use as a reference. Now,
+[00:16:57] I think there are definitely some
+[00:16:58] changes that we can make like this these
+[00:17:01] illustrations here are looking kind of
+[00:17:03] funky. AI vector illustrations always
+[00:17:05] tend to do this sort of thing. Some of
+[00:17:07] them look all right like this little
+[00:17:10] this little ride down here. This little
+[00:17:12] roller coaster here is pretty
+[00:17:14] interesting. We've You got like your
+[00:17:16] ride DNA, which I think it's pretty
+[00:17:17] good. 2 hours 10 minutes in queues,
+[00:17:20] longest was 55 minutes, 38 minutes
+[00:17:23] actually on rides, worth it.
+[00:17:26] And then we have here your park
+[00:17:28] personality. You were a thrill chaser.
+[00:17:31] You skipped the teacups, rode the big
+[00:17:32] three before lunch, and came back Silver
+[00:17:35] back at dusk. And then a button to share
+[00:17:38] the recap here as well.
+[00:17:40] I think this is a pretty great starting
+[00:17:42] place. Now, what we can do here is I'm
+[00:17:45] actually going to try and create some
+[00:17:49] more interesting illustrations for
+[00:17:51] these, but I'm also going to get Claude
+[00:17:54] design here to explore some other visual
+[00:17:56] directions for us as well. And what you
+[00:17:58] can even do from this after you've got
+[00:18:00] your chosen design style is turn this
+[00:18:02] into a design system, and you can use
+[00:18:04] one of the skills from my system, which
+[00:18:06] is called Product OS, which you can get
+[00:18:07] inside of my community. Just use the
+[00:18:10] design system skill to create a design
+[00:18:12] system from any designs that you're
+[00:18:13] doing using AI tools here. That will
+[00:18:15] document it so that your AI can use that
+[00:18:18] design style throughout the rest of your
+[00:18:19] project. I'm actually going to go back
+[00:18:21] to Dribbble and find some other visual
+[00:18:23] directions that we could use here that
+[00:18:25] are slightly indifferent. So, I'm
+[00:18:27] actually going to try and go with
+[00:18:29] something like this where we have this
+[00:18:31] kind of isometric 3D line illustration
+[00:18:34] kind of style with these flat colors as
+[00:18:36] well. Very slightly different to what we
+[00:18:38] already have in the designs. I'm just
+[00:18:41] going to take a screenshot of this and
+[00:18:43] then go back to Claude. And I'm also
+[00:18:45] going to do {forward slash} design again
+[00:18:48] and then say, "Can you add an alternate
+[00:18:51] set of designs which use a more
+[00:18:54] isometric line art style illustration
+[00:18:58] and apply this style to the cards and
+[00:19:00] the buttons as well, similar to the
+[00:19:03] attached image reference so that I can
+[00:19:05] compare between the two design
+[00:19:07] directions." And I'm going to drop this
+[00:19:09] image in here as well and then send that
+[00:19:11] to Claude Code. And Claude Code is going
+[00:19:14] to add those variants to the canvas here
+[00:19:16] so that we can compare between these two
+[00:19:18] directions. So, now we have our second
+[00:19:21] visual direction here, which is starting
+[00:19:22] to look pretty good. I actually like
+[00:19:24] this kind of outlined illustration and
+[00:19:27] outlined button style a little bit
+[00:19:29] better here as well. And I prefer this
+[00:19:31] font here is also looking better for
+[00:19:34] this design. I'm not actually sure there
+[00:19:37] are some things I might want to keep
+[00:19:39] between both of these. So, maybe we use
+[00:19:42] the same font for this. The main thing
+[00:19:45] that we need to do now is to make sure
+[00:19:47] that these illustrations and and
+[00:19:49] animations that we want to create are
+[00:19:51] actually going to look good on these
+[00:19:52] individual screens. Because these
+[00:19:55] classic kind of AI style vector
+[00:19:57] illustrations here just aren't working
+[00:19:59] that great right now. And so, what I'm
+[00:20:02] going to do is I'm going to get Claude
+[00:20:04] Code here to give me a prompt with the
+[00:20:06] color palette and the visual style to
+[00:20:08] create an image of each of these to
+[00:20:11] create a prompt that I can use to
+[00:20:13] generate illustrations for each of these
+[00:20:15] images using an image generation tool.
+[00:20:18] Can you give me a prompt that includes
+[00:20:20] the illustration style and the subject
+[00:20:23] matter for each of the main
+[00:20:25] illustrations on each of the four
+[00:20:27] screens that I can drop into a tool like
+[00:20:30] ChatGPT image two to create a vector
+[00:20:33] style illustration image for each of the
+[00:20:36] illustrations that we have inside of
+[00:20:37] this app. And the great thing about
+[00:20:39] having the design canvas alongside your
+[00:20:42] session in Claude Code here is that we
+[00:20:44] can easily switch between the app that
+[00:20:45] you're working on and the design canvas,
+[00:20:47] and we can easily switch context with
+[00:20:49] Claude Code in our session between
+[00:20:51] asking for things or asking for it to
+[00:20:53] write code, and then getting it to do
+[00:20:55] designs on the canvas as well. So, the
+[00:20:56] design work is really happening in the
+[00:20:58] same place in the exact same place
+[00:21:01] that our building is happening as well.
+[00:21:03] And this is already the workflow that I
+[00:21:05] was recommending using other tools like
+[00:21:07] magic path and paper.design, but now you
+[00:21:10] can do it directly inside of the Claude
+[00:21:12] desktop app just by using Claude design.
+[00:21:15] I'm going to get Claude code to save
+[00:21:16] these prompts into a markdown file that
+[00:21:18] I can use to copy and paste into ChatGPT
+[00:21:21] image. So, now that we've got our
+[00:21:22] illustration prompts here in Claude in
+[00:21:25] the desktop app, what I'm going to do
+[00:21:26] now actually is set up the
+[00:21:30] Uh and this means that we'll be able to
+[00:21:31] use Higgsfield to generate images and
+[00:21:33] videos inside of the Claude desktop app
+[00:21:36] here without needing to go to a separate
+[00:21:38] tool. So, all you need to do to be able
+[00:21:40] to do this is to go to Higgsfield and go
+[00:21:43] to /mcp
+[00:21:45] and then I'm going to click on Claude
+[00:21:46] Claude code here. I'm going to copy this
+[00:21:48] command here and I'm going to go back to
+[00:21:49] Claude code and paste it into Claude
+[00:21:52] code here. And just do this in the same
+[00:21:54] session here as well so that I can
+[00:21:55] continue working from where we're at.
+[00:21:57] And then what I'm going to do after this
+[00:21:59] is just a prompt Claude code to generate
+[00:22:02] images for each of these based on the
+[00:22:05] illustration prompts that it has created
+[00:22:07] for us. And looking back at this now, I
+[00:22:09] actually prefer the first color
+[00:22:12] direction but with the illustration
+[00:22:14] style of the second. Now, we're going to
+[00:22:16] be asked to connect Higgsfield to Claude
+[00:22:19] code here and now Higgsfield is set up
+[00:22:21] inside of Claude code so we can ask it
+[00:22:23] to generate images and videos using
+[00:22:25] Higgsfield inside of Claude code.
+[00:22:28] So, let's ask it to generate the
+[00:22:29] direction A cover illustration with
+[00:22:31] Higgsfield and see what it comes back
+[00:22:33] with. I'm also going to follow up here
+[00:22:36] as well and just to say use ChatGPT
+[00:22:39] image 2 to do this.
+[00:22:42] as the model.
+[00:22:44] And I'm going to click interrupt here as
+[00:22:45] well so that this interrupts the current
+[00:22:47] stream that Claude code is doing. All
+[00:22:49] right, so we've got the first image back
+[00:22:51] here from Higgsfield which has been
+[00:22:54] generated inside of the Claude code chat
+[00:22:56] which is perfect. We're going to drop
+[00:22:57] these images into our app design here as
+[00:23:01] well so that we can update these as we
+[00:23:03] go with much higher quality
+[00:23:05] professional-looking designed images
+[00:23:08] rather than these AI-generated kind of
+[00:23:10] AI slop factor designs here. So, let's
+[00:23:13] just ask and Claude code has actually
+[00:23:15] given me some options here to like rerun
+[00:23:18] this with minimal, so like only the
+[00:23:20] coaster loop, the Ferris wheel, and the
+[00:23:21] drop tower. I actually like the fact
+[00:23:23] that it's got a lot more stuff. So,
+[00:23:25] let's just ask Claude code to re to run
+[00:23:27] the prompts for all of the other images
+[00:23:30] for direction A. Generate all the other
+[00:23:33] images for direction A. And that is
+[00:23:35] going to use Higgs Field again to
+[00:23:37] generate images for all of the other
+[00:23:38] screens that we've got here. And once
+[00:23:40] we've done that, we're going to drop
+[00:23:41] those onto the screens, make a couple of
+[00:23:43] tweaks here, and then that is the visual
+[00:23:45] direction for our app that we're going
+[00:23:46] to go with here.
+[00:23:48] And it's worth spending the time doing
+[00:23:50] this to actually make your app
+[00:23:53] professional, give it a
+[00:23:54] professional-looking design, because
+[00:23:55] this is going to be the design style
+[00:23:57] that the rest of your app is built on
+[00:23:59] top of. And I know for a lot of people
+[00:24:01] who want to jump straight into building
+[00:24:02] something and seeing it work, this can
+[00:24:04] feel like putting the brakes on a little
+[00:24:07] bit and spending time doing almost
+[00:24:09] something that feels kind of a little
+[00:24:10] bit tedious and time-consuming, but it
+[00:24:13] is genuinely worth it to do this first
+[00:24:17] before you go into build your final app.
+[00:24:20] All right, so the other images are back
+[00:24:23] in here from Higgs Field. So, let's have
+[00:24:26] a look at these. So, this is looking
+[00:24:28] pretty good. The track kind of gets a
+[00:24:30] little bit weird, but um that's okay.
+[00:24:32] I'm not too fussed about that. And then
+[00:24:34] this last one is actually so much better
+[00:24:36] as well. Now, these are way, way better
+[00:24:39] than the images that we've got in the
+[00:24:41] designs to start off with. So, let's say
+[00:24:43] drop them into the direction A
+[00:24:45] artboards, which is already come up here
+[00:24:47] as a suggested response from Claude
+[00:24:49] code. So, it's getting the direction
+[00:24:51] that we're going, it's understanding
+[00:24:52] what we want to do with the what we want
+[00:24:54] to do with these. And then after that,
+[00:24:56] we can generate direction B in the same
+[00:24:58] way as well if we want to go down that
+[00:25:00] path. So now we've got the images
+[00:25:02] dropped in here on the canvas for these
+[00:25:04] screens. We can make some more design
+[00:25:06] tweaks for this. You can see here this
+[00:25:09] first screen is looking especially good
+[00:25:12] at the moment. Like this is actually
+[00:25:13] looking really good. I'm going to remove
+[00:25:16] this text here at the end. Now we can't
+[00:25:19] actually use the word wrapped. I know
+[00:25:21] that's copyright or trademarked by
+[00:25:22] Spotify. Um they will have a go at you
+[00:25:26] if you used wrapped basically. But I do
+[00:25:28] want to change this button here um into
+[00:25:31] a full button. And this last screen is
+[00:25:34] looking pretty good here as well. So I'm
+[00:25:36] just going to make a few changes here to
+[00:25:37] these screens and then I think I want to
+[00:25:39] use this first screen and this last
+[00:25:41] screen as basically a reference for the
+[00:25:42] design system that we're going to create
+[00:25:44] for this app here. So one thing that I
+[00:25:46] want to do in this first design is just
+[00:25:48] to make that button full width as I
+[00:25:49] mentioned. Let's make the button on the
+[00:25:52] bottom of the first screen full width
+[00:25:54] for tap to start.
+[00:25:56] And can you also make the image on the
+[00:25:59] last screen
+[00:26:00] uh bigger as well?
+[00:26:02] Now one thing that I would love Claude
+[00:26:04] to do here is to allow me to um edit
+[00:26:07] basically on the canvas here using the
+[00:26:10] Claude session. It doesn't seem like
+[00:26:12] there's a way to kind of like select
+[00:26:14] something and then add it to the chat
+[00:26:16] here with Claude code so that I can edit
+[00:26:18] it. And so I'm not sure exactly how this
+[00:26:21] design canvas is working. It's slightly
+[00:26:22] different to Claude design. But overall
+[00:26:25] the experience from using /design here
+[00:26:27] inside of Claude code really just makes
+[00:26:29] it so much more easy to do design
+[00:26:32] alongside your coding sessions on top of
+[00:26:34] existing projects that you might be
+[00:26:36] working on. Or if you're just starting
+[00:26:38] from scratch and you're going through
+[00:26:39] this process of define and design first
+[00:26:41] before you actually start building your
+[00:26:43] app. All right, so we've made these
+[00:26:45] tweaks to these screens, the cover um
+[00:26:48] here that we're going with, and then the
+[00:26:50] last screen here. I'm actually going to
+[00:26:52] move these over here on the canvas just
+[00:26:54] so that we have them in one place.
+[00:26:56] Because these are the ones that we're
+[00:26:58] going to be basically using as our
+[00:27:00] reference for our design. And what I'm
+[00:27:03] going to do now is I'm going to use the
+[00:27:05] design system skill inside of Product
+[00:27:07] OS, which is my system for basically
+[00:27:09] building, launching any application, and
+[00:27:12] [snorts] getting customers. And there's
+[00:27:13] a full video breaking down how to use
+[00:27:15] the Product OS system and in the
+[00:27:17] description below if you want to check
+[00:27:18] that out as well. We're going to use the
+[00:27:20] design system skill to turn these um
+[00:27:25] these designs into a design system that
+[00:27:27] we can reuse throughout our entire app.
+[00:27:29] Basically following these styles and
+[00:27:31] colors and button styles and all of the
+[00:27:33] all of the styles and visual direction
+[00:27:35] that we have here from these designs
+[00:27:37] that we've created so that when we build
+[00:27:39] our app now, we not only have some great
+[00:27:41] visual references of our key screens
+[00:27:43] that kind of we're going to be working
+[00:27:44] on, but we also have a documented design
+[00:27:46] system that is going to work for our
+[00:27:48] product. It's going to be applied
+[00:27:50] consistently across every single screen
+[00:27:52] inside of our app because we have this
+[00:27:54] design system guide. There's also a
+[00:27:56] bunch of skills inside of Product OS as
+[00:27:59] well that basically help your help your
+[00:28:02] agent to follow your design system once
+[00:28:03] you've got it documented as well. So,
+[00:28:05] let's use this skill here. Use this
+[00:28:08] skill to create a design system from the
+[00:28:11] screens A1 and A4 so that we have a
+[00:28:14] documented design system that we can use
+[00:28:16] when we start building this app. Let's
+[00:28:18] send that to Claude Code. And Claude
+[00:28:21] Code is going to look at these designs,
+[00:28:22] it's going to extract all of those
+[00:28:24] visual styles, and it's going to turn
+[00:28:25] that into a documented design.md file,
+[00:28:27] which is our markdown file for the agent
+[00:28:29] to reference for our design styles, and
+[00:28:31] a design.html file, which is basically a
+[00:28:33] visual guide for us of all of the
+[00:28:35] components in the design system so that
+[00:28:37] we can see exactly how our design system
+[00:28:40] works and all of the components and what
+[00:28:42] it does. And so now what we have from
+[00:28:44] Claude Code here is I design
+[00:28:46] file here, which basically is all of the
+[00:28:49] tokens and styles mapped out in a
+[00:28:51] design.md file that our agents can read
+[00:28:54] in order to follow this style direction.
+[00:28:58] And we have a design.html file here,
+[00:29:01] which is basically let's close these so
+[00:29:03] these are out of the way. And this is
+[00:29:05] our design system with all of our colors
+[00:29:07] mapped out here, all of the typographic
+[00:29:09] styles, all of the spacing, the radius,
+[00:29:12] elevation, components here. We've got
+[00:29:14] all of our components listed out, do's
+[00:29:16] and don'ts, basically everything
+[00:29:17] visualized
+[00:29:19] on this HTML page here so that our agent
+[00:29:23] knows exactly how to design our app when
+[00:29:25] it comes to designing our app across all
+[00:29:27] other pages as well. And what is great
+[00:29:29] about the product OS system that I use
+[00:29:31] for every single project I build, that I
+[00:29:33] build myself, that's helped others go on
+[00:29:35] to build apps that have launched and
+[00:29:38] made thousands in revenue is that it
+[00:29:41] that it adds the rules in here for your
+[00:29:43] agent to your agent.md and your code.md
+[00:29:46] files so that your agent is always going
+[00:29:48] to follow your design styles
+[00:29:51] consistently using these design.md and
+[00:29:53] design.html assets here. And that is how
+[00:29:56] to do design using this new
+[00:29:59] Claude/design feature. But not only
+[00:30:02] that, it's how to do design in a way
+[00:30:04] that basically elevates your app to a
+[00:30:06] professional level of design rather than
+[00:30:08] AI slop. It all is based on using these
+[00:30:11] three things: great references, having
+[00:30:13] idea clarity about what you're building,
+[00:30:15] and also learning the tastes to know
+[00:30:17] what is good and what is bad, and then
+[00:30:19] turning that in to a design system that
+[00:30:22] you can use before you actually build
+[00:30:25] your app here so that you can build an
+[00:30:27] app that actually looks like a
+[00:30:29] professional product before you've even
+[00:30:32] launched anything or before you've even
+[00:30:34] written any code with your AI coding
+[00:30:36] agent. And that is the way that I would
+[00:30:38] go about using Claude/design to design
+[00:30:41] your app before you start building it.
+[00:30:43] So, hopefully there you can get a sense
+[00:30:44] of my process for designing apps before
+[00:30:47] I actually go into the build process.
+[00:30:49] And doing this alongside with defining
+[00:30:52] your actual product in more detail up
+[00:30:54] front from a product point of view,
+[00:30:56] thinking about customer, pain, outcome,
+[00:30:58] mechanism, pricing, and proof is going
+[00:31:01] to give you so much more clarity not
+[00:31:03] only on what you're building, but also
+[00:31:04] what you should be designing and what
+[00:31:06] the magic moment of your app actually is
+[00:31:09] and how it can work that are actually
+[00:31:11] paying users when you actually go to
+[00:31:13] launch your app. Now, Claude / design is
+[00:31:16] actually a great evolution of Claude
+[00:31:17] design inside of Claude code in their
+[00:31:19] desktop app. But, what I think is more
+[00:31:21] important is learning this process to
+[00:31:23] actually designing much, much higher
+[00:31:25] quality designs for your software that
+[00:31:28] you're building regardless of whether
+[00:31:29] you're building from scratch or you're
+[00:31:31] using AI coding agents inside of an
+[00:31:32] existing product. And taking this
+[00:31:34] approach of making sure that you define
+[00:31:36] your app idea first and then you design
+[00:31:38] some key screens and document a design
+[00:31:41] system before you start building
+[00:31:43] anything. And if you want the full
+[00:31:44] system to build your apps and actually
+[00:31:47] launch them and get paying customers,
+[00:31:48] that is called Product OS and you can
+[00:31:50] get access to that inside of my
+[00:31:51] community over at school.com/aiapps.
+[00:31:54] The link is in the description down
+[00:31:55] below. If you enjoyed the video, don't
+[00:31:57] forget to like and subscribe. Thank you
+[00:31:58] for watching and I'll see you next time.

@@ -1,0 +1,494 @@
+# Choosing the Right React Native Stack in 2026
+# https://www.youtube.com/watch?v=LZFEr9QDIVg
+# kanal: Simon Grimm | süre: 1103 sn | kaynak: yt-dlp:web_embedded:LZFEr9QDIVg.en-orig.json3
+
+[00:00:00] Starting a new React Native project in
+[00:00:02] 2026, you've probably noticed something.
+[00:00:04] There are even more libraries than last
+[00:00:06] year. And somehow picking the right ST
+[00:00:08] got even harder. So, in this video, I'm
+[00:00:11] giving you one opinionated modern tech
+[00:00:14] stack that you can use to confidently
+[00:00:16] build a great app without wasting days
+[00:00:18] comparing five state libraries or
+[00:00:20] watching infinite GitHub issues. What's
+[00:00:22] up, React Native friends? Simon from
+[00:00:24] galaxies.dev here. React Native in 2026
+[00:00:27] is in the best place it's ever been.
+[00:00:29] Faster builds, better performance. Expo
+[00:00:31] Router is now the default for most
+[00:00:33] teams, and the tooling ecosystem is
+[00:00:35] finally reaching maturity. We might even
+[00:00:37] witness React Native 1.0 this year, but
+[00:00:40] picking your text stack still
+[00:00:42] overwhelming. So today, I'll walk you
+[00:00:44] through the exact setup I recommend for
+[00:00:46] your developer environment, local data
+[00:00:49] and state, navigation and UI
+[00:00:50] foundations, must-h have packages,
+[00:00:53] preferred backend options, and the
+[00:00:55] services that make shipping dramatically
+[00:00:57] easier. This is the stack I would give
+[00:00:59] to my students, my clients, and honestly
+[00:01:01] to myself if I would start a blank new
+[00:01:04] app this week. And if you want to go
+[00:01:06] deeper and build a real app from
+[00:01:07] scratch, check out the zero to her
+[00:01:09] mission on galaxies.dev. It's the most
+[00:01:11] practical way to learn React Native in
+[00:01:13] 2026 and actually ship your own app. All
+[00:01:16] right, now let's start with the core for
+[00:01:18] new projects.
+[00:01:23] >> [music]
+[00:01:25] >> Let's start with the basics because they
+[00:01:27] are actually very very clear for most
+[00:01:29] applications. If you're starting a new
+[00:01:31] React Native application in 2026, you
+[00:01:33] want to use Expo as your framework and
+[00:01:35] your command would be something like
+[00:01:37] this. npx create expo app latest. That
+[00:01:40] will give you a React Native application
+[00:01:42] that's using Expo. If you have any
+[00:01:43] questions about Expo, about ejecting
+[00:01:46] from Expo or anything related to that,
+[00:01:48] it's just not true anymore. It hasn't
+[00:01:50] been true over the last 2 years and
+[00:01:52] usually what you find on Reddit and
+[00:01:54] other internet places is outdated. So
+[00:01:57] Expo is the recommended framework for
+[00:01:59] React Native. It's not limiting you to
+[00:02:01] anything at any time. You can just drop
+[00:02:04] down into a native project and there are
+[00:02:06] only benefits to using Expo. There may
+[00:02:08] be like 2% of applications that have
+[00:02:11] very specific requirements that might
+[00:02:13] for whatever reason not fit Expo, but in
+[00:02:15] every other case just start with Expo.
+[00:02:18] Of course, you want to use TypeScript.
+[00:02:20] No question about that anymore. And you
+[00:02:22] also want to use the Expo router usually
+[00:02:24] because that gives you URLbased routing,
+[00:02:27] file-based routing like you probably
+[00:02:29] used if you're coming from the web. It
+[00:02:31] has gotten to a very great maturity
+[00:02:33] level and Expo router just gives you
+[00:02:35] really great uh functionalities in terms
+[00:02:37] of displaying pages, API routes, RSC, so
+[00:02:40] many things. You can watch a couple of
+[00:02:42] other videos on this channel about it.
+[00:02:43] On top of that, just to cover the
+[00:02:45] basics, I highly recommend an IDE that
+[00:02:49] has AI capabilities. I personally use
+[00:02:52] cursor as my editor of choice. You can
+[00:02:54] use VS Code with Copilot enabled. You
+[00:02:57] can use Windsurf, anti-gravity, I don't
+[00:02:59] care as long as you use AI functionality
+[00:03:02] because it's 2026 and you really want to
+[00:03:05] get this chat. You want to get fixing
+[00:03:08] for bucks quickly. You want to ask
+[00:03:09] questions about your repositories and
+[00:03:11] you need to get finally if you haven't
+[00:03:13] done it in the flow of using AI for your
+[00:03:16] React Native apps as well. In most
+[00:03:17] applications, you want to store some
+[00:03:19] local data and honestly there are just
+[00:03:21] like two or three options that you
+[00:03:23] should consider if you want to store
+[00:03:25] data in your application locally without
+[00:03:27] a server. So the first one that I always
+[00:03:29] rely on is Expo SQLite. Every
+[00:03:32] application has a SQLite database and
+[00:03:34] with Expos SQLite you have a plug-in
+[00:03:36] that allows you to easily work with a
+[00:03:39] SQLite database. Now with Expos SQLite
+[00:03:42] alone, what you would have to do is
+[00:03:44] actually write a bunch of SQL statements
+[00:03:46] to directly insert data into your
+[00:03:48] database. Maybe that is you or maybe
+[00:03:51] that's not your cup of tea. And if
+[00:03:53] you're like me, you probably prefer an
+[00:03:55] OM that makes things a lot easier. In my
+[00:03:57] case, what I always recommend and use is
+[00:04:00] Drizzle. Drizzle is really amazing. You
+[00:04:03] can also use something like Prisma, but
+[00:04:04] I usually work more with Drizzle in the
+[00:04:06] past. Drizzle basically gives you the uh
+[00:04:10] ability to write your schema in a
+[00:04:12] TypeScript file and from that TypeScript
+[00:04:14] file, you can then later generate SQL.
+[00:04:17] All of this with the Drizzle CLI. It has
+[00:04:20] a great integration with Exposqlite.
+[00:04:22] They actually have a complete
+[00:04:23] documentation about this. And they also
+[00:04:25] have something called Drizzle Studio
+[00:04:27] which makes it really easy to debug the
+[00:04:29] SQLite database of your application in
+[00:04:33] React Native apps. On top of those two
+[00:04:35] things, you sometimes want to store just
+[00:04:37] like the user has seen the intro or the
+[00:04:39] user has selected a specific theme. For
+[00:04:42] those cases, I always rely on React
+[00:04:44] Native MMKV. React Native MMKV by
+[00:04:47] Micros.
+[00:04:50] Uh it's 30x faster than async storage.
+[00:04:53] So, you really shouldn't use async
+[00:04:55] storage anymore. Just use this. Yes,
+[00:04:58] this library will not work with Expo Go.
+[00:05:00] In case you have questions, but it's
+[00:05:02] definitely worth the tradeoff. It comes
+[00:05:04] with great performance. The ease of use
+[00:05:06] is amazing. It has hooks and it has also
+[00:05:09] integrations to other state libraries
+[00:05:11] that I will recommend later. Besides
+[00:05:13] handling structured data in your
+[00:05:14] application, you sometimes also want to
+[00:05:17] have some state in your app. And there
+[00:05:19] are actually three things that I would
+[00:05:21] recommend when you start a new React
+[00:05:23] Native app. The first thing might
+[00:05:25] surprise you because you can actually
+[00:05:27] just use the context API from React and
+[00:05:30] get away with it. I mean, honestly, it's
+[00:05:32] good. I'm using it all the time as well.
+[00:05:34] It's not like this horrible thing that
+[00:05:36] will automatically kill your
+[00:05:37] performance. So, for example, the theme
+[00:05:39] context or anything like that which
+[00:05:41] requires your app to rerender a bunch of
+[00:05:43] components, it's okay to use the context
+[00:05:46] API. So, I would just give it a shot and
+[00:05:48] see how far you can get with this in
+[00:05:50] your application. That's in general a
+[00:05:51] good rule of thumb. Just use the basics
+[00:05:55] and then once you notice that something
+[00:05:57] isn't behaving good, you might be good
+[00:05:59] for an upgrade. Now, in terms of an
+[00:06:01] update that's more reliable, I would
+[00:06:03] always recommend sushand as your
+[00:06:04] library. Now, we could have a huge video
+[00:06:07] about state libraries in React in
+[00:06:09] general, the atomic ones like Tusha and
+[00:06:12] Yai or the bigger ones. Honestly, this
+[00:06:14] is an opinionated video, so I will just
+[00:06:16] say use S Tushand and I'm pretty sure
+[00:06:18] you're going to be happy with what you
+[00:06:20] get because it's really that easy to use
+[00:06:23] and it also nicely integrates with MMKV
+[00:06:25] that we've seen before which helps you
+[00:06:27] to persist your store locally. If we're
+[00:06:30] talking about state, there's also a
+[00:06:32] second thing we need to take care of.
+[00:06:34] So, tsun and context is like our local
+[00:06:37] app state, but then we're also talking
+[00:06:38] about the state of our HTTP calls of
+[00:06:41] server state. For that, I would 100% of
+[00:06:44] the time recommend tenstack query. With
+[00:06:46] 10stack query, you've wrapped your app
+[00:06:48] in this query client provider. You have
+[00:06:50] your queries mapped out by a query key
+[00:06:53] with a query function. Everything is
+[00:06:55] just so I just I can't describe it. It
+[00:06:58] just feels so good. It looks so good. It
+[00:07:00] is structured. It is reliable. It is
+[00:07:03] safe. You got tons of features from
+[00:07:05] Tstate Query. So in pretty much every
+[00:07:07] serious application that I start where I
+[00:07:09] know I'm going to make HTTP calls, I
+[00:07:11] instantly install 10st query as one of
+[00:07:14] the first actions. In my last text
+[00:07:16] recommendation, I actually had a very
+[00:07:18] long list of must-h have packages. This
+[00:07:20] year, I'm boiling it down to four things
+[00:07:22] that I recommend you install in your
+[00:07:23] application. First of all, you want a
+[00:07:26] better list. The best one out there is
+[00:07:28] usually Flesh List, although you might
+[00:07:29] also some people argue legend list, but
+[00:07:32] you can't go wrong with Flesh list. It
+[00:07:34] is such an improvement over the built-in
+[00:07:36] scroll view in general and as well
+[00:07:38] flatless that you just want to rely on
+[00:07:40] this if you want better performance in
+[00:07:42] your application. It has been rewritten
+[00:07:44] completely in 2025 for even better
+[00:07:46] performance. So you should opt into this
+[00:07:49] very quickly. pretty much all
+[00:07:50] applications that I know now also need
+[00:07:52] to handle some form data whether it is
+[00:07:54] just like your login form or anything
+[00:07:56] else inside the application to capture
+[00:07:58] data and you want to use react hook form
+[00:08:01] in combination with zot that gives you
+[00:08:04] type safety as well as cool
+[00:08:06] functionalities for your form like error
+[00:08:08] handling and easy state management for
+[00:08:10] your form so you don't need to do all of
+[00:08:11] that with your state the other two
+[00:08:14] must-h have packages are for expo users
+[00:08:16] always installed in your initial
+[00:08:18] application and they React Native
+[00:08:20] Reanimated as well as the React Native
+[00:08:23] gesture handler. These two are essential
+[00:08:25] for building React Native applications.
+[00:08:27] With the gesture handler, you can
+[00:08:29] control for different events, double
+[00:08:32] taps, long press, anything you can do
+[00:08:34] with your finger on the screen. And with
+[00:08:36] Reanimated, you can animate your app in
+[00:08:39] a safe way. Actually, now also using CSS
+[00:08:41] animations to still get the native
+[00:08:43] benefits of running your animations on
+[00:08:46] the UI thread. And they kind of go hand
+[00:08:48] inand So whenever you do something with
+[00:08:50] a gesture handler, you also usually want
+[00:08:52] to update your A UI with reanimated.
+[00:08:55] They have nice synergies with the
+[00:08:57] worklets and everything that's going on.
+[00:08:59] So these are the absolute must-have
+[00:09:01] packages. There are a few services that
+[00:09:03] you can use that make building your app
+[00:09:05] a whole lot easier. One of them is
+[00:09:08] definitely Expo application services or
+[00:09:10] short EAS. I use this hands down for all
+[00:09:13] my projects. So as a beginner it can be
+[00:09:16] sometimes a bit hard to distinguish what
+[00:09:17] is expo, what is EAS. EAS is sort of
+[00:09:19] like the paid services of Expo. You can
+[00:09:22] build your application in the cloud with
+[00:09:24] EAS build. Um you have EAS submit which
+[00:09:27] can automatically submit the build you
+[00:09:29] have made in the cloud. There's EAS
+[00:09:31] updates so you can push out live updates
+[00:09:33] to your application. Uh and there's so
+[00:09:35] much more. EAS hosting and a bunch of
+[00:09:37] other things that just make your life as
+[00:09:39] a app developer so much easier. So if
+[00:09:42] you're building an app, go with EAS. It
+[00:09:44] just makes building and getting your app
+[00:09:46] to the Play Store or to the App Store so
+[00:09:48] much easier. In terms of other services
+[00:09:50] that I rely on, I absolutely love Clerk
+[00:09:52] for user authentication in my
+[00:09:54] application. And last year, they've been
+[00:09:56] working on new components for React
+[00:09:58] Native. So then integration with React
+[00:10:00] Native is in 2026 even better. So if you
+[00:10:03] need anything regarding to user
+[00:10:05] management and authentication, Clerk is
+[00:10:08] your best friend. Now on top of that if
+[00:10:10] you're building any kind of serious
+[00:10:12] application you want to install Sentry
+[00:10:14] right in the beginning with Sentry you
+[00:10:16] have application monitoring but by now
+[00:10:20] this goes far beyond just error tracking
+[00:10:22] and reporting. There's so much more to
+[00:10:24] Sentry at this point. You can see it in
+[00:10:26] most of the clone videos. Uh they got
+[00:10:28] like PR reviews. There are uh the
+[00:10:31] session replays which capture your
+[00:10:32] screen automatically. They have a local
+[00:10:34] tool. There's so much more that we can't
+[00:10:36] just wrap it up all. But I promise you,
+[00:10:38] if you're building a real application
+[00:10:40] for real users, you want to install
+[00:10:42] Sentry. If you also want to monetize
+[00:10:44] your app, which most likely happens in
+[00:10:46] many applications, I always rely on
+[00:10:48] Revenue Cat. Revenue Cat has the best
+[00:10:51] implementation for crossplatform, inapp
+[00:10:54] purchases, subscriptions, whatever you
+[00:10:55] can find. They have a nice editor so you
+[00:10:57] can easily build pay walls in your
+[00:10:59] application. They now also have virtual
+[00:11:01] currency support. And every time I check
+[00:11:03] revenue kit, there's a new feature that
+[00:11:04] makes creating these products so much
+[00:11:07] easier, like automatically adding the
+[00:11:09] products in App Store Connect or helping
+[00:11:11] you to set up the JSON service account
+[00:11:14] in your Google Play console. Two other
+[00:11:16] things I would also recommend. The first
+[00:11:18] one is Code Rabbit. You can see me using
+[00:11:20] Code Rabbit in the previous Vault clone
+[00:11:22] that I did where I did this at the end
+[00:11:24] of every chapter. With Code Rabbit, you
+[00:11:26] can have AI reviews and you're going to
+[00:11:28] have really epic code reviews. This is
+[00:11:31] especially interesting if you're in uh
+[00:11:33] if you're working alone. I do this many
+[00:11:35] times. So I work in a branch. I do a PR
+[00:11:37] and Code Revit will go through
+[00:11:39] everything that I did in there. It will
+[00:11:41] summarize it and then it will also point
+[00:11:42] out areas that are a bit weak and that
+[00:11:45] could be improved. It is such an
+[00:11:46] improvement for the quality of your
+[00:11:49] code. Finally, if you want to track your
+[00:11:51] users, if you want to have some uh
+[00:11:53] insights, I usually rely on Post Hook.
+[00:11:55] Now, this doesn't really look like a
+[00:11:57] website, but they're kind of very
+[00:11:58] creative with with their styling. Uh,
+[00:12:01] Postto has like a suite of tools from
+[00:12:03] also session replay to web analytics,
+[00:12:05] product analytics, feature flex surveys,
+[00:12:08] uh, drill down into all the different
+[00:12:09] functionalities. And the cool thing is
+[00:12:11] this also works pretty nicely with React
+[00:12:14] Native and makes your life a lot easier.
+[00:12:16] Touching the topic of backends is in
+[00:12:18] general a problem because everyone's
+[00:12:20] using something else. Everyone has a
+[00:12:22] server or a legacy back end and it's
+[00:12:23] really hard to make any recommendation.
+[00:12:25] However, this is an opinionated video.
+[00:12:27] So, I will give you my opinion. I
+[00:12:29] absolutely love working with Superbase.
+[00:12:31] I use Superbase for galaxies.dev as the
+[00:12:33] back end. I've been using Superbase
+[00:12:34] since the first day and just every year
+[00:12:36] it keeps getting better. Superbase is a
+[00:12:39] Postgress development platform by now.
+[00:12:42] you really get everything that you need
+[00:12:43] out of Superbase that you in the past
+[00:12:45] probably also got from Firebase, but
+[00:12:47] Superbase uses a relational database
+[00:12:50] instead. If I want something different
+[00:12:53] that's not a SQL database, I would
+[00:12:56] currently go for Instant. They actually
+[00:12:58] also have a dark mode. I just can't see
+[00:12:59] it here. Um, so Instant is pretty much
+[00:13:02] Firebase in a better way in 2026. I did
+[00:13:06] one video with them earlier this year,
+[00:13:08] uh, or maybe it's coming. Actually, it
+[00:13:09] was last year already and it blew me
+[00:13:11] away how well it works. Since then, I've
+[00:13:14] used Instant for my own application and
+[00:13:16] you just get to give it a try. It is so
+[00:13:19] easy and what you get just works so
+[00:13:21] great both on the client side as well as
+[00:13:23] on the server and in terms of the
+[00:13:25] tooling. So, if you want to be early
+[00:13:27] with a tool that's going to be big over
+[00:13:29] the next couple of years, you should
+[00:13:31] probably check out Instant DB. And
+[00:13:33] finally, if you don't need a full
+[00:13:35] superbase SQL back end and you also
+[00:13:37] think instant is maybe too much, you
+[00:13:39] could probably also just get away with
+[00:13:41] Expo API routes. API routes help you to
+[00:13:44] put uh secret information on the server
+[00:13:47] side. So you can deploy your API routes
+[00:13:49] on a server. You can use EIS hosting for
+[00:13:51] that if you want to. And these routes
+[00:13:53] live inside of your React Native
+[00:13:55] project. For example, you want to talk
+[00:13:58] to OpenAI, but you don't want to expose
+[00:14:00] the secret key in your front end. You
+[00:14:02] can keep this in an environment file.
+[00:14:04] You can use it safely in an API route
+[00:14:07] and therefore you probably don't even
+[00:14:09] need a server or back end at all in the
+[00:14:11] end. Last but not least, let's talk
+[00:14:13] about UI and components. You of course
+[00:14:16] want to style your application in the
+[00:14:18] best and easiest possible way and there
+[00:14:20] are tons of great libraries out there.
+[00:14:21] However, let's take a very simple
+[00:14:24] approach and you will quickly find the
+[00:14:27] right uh tool or library for your
+[00:14:29] application. I promise. So actually if I
+[00:14:32] would get started I would just use
+[00:14:34] stylesheet for my application. The
+[00:14:36] basics of React Native still a great
+[00:14:39] choice. Uh all AI tools know about this
+[00:14:41] and they will spit out really great
+[00:14:43] styling. This is for all applications
+[00:14:46] that are just focused on iOS and Android
+[00:14:49] that don't need anything fancy and
+[00:14:51] you're fine with what stylesheet has to
+[00:14:53] offer. Now if your application requires
+[00:14:56] a bit more then I would go for uni
+[00:14:59] styles. Uni styles is like stylesheet on
+[00:15:02] steroids. Um, you can pretty much
+[00:15:04] replace the stylesheet create with uni
+[00:15:07] styles and just have additional
+[00:15:10] functionality on top. Uh, we can't go
+[00:15:12] through everything that uni styles has
+[00:15:14] to offer here, but you got break points,
+[00:15:17] you got varants, you got really great
+[00:15:20] performance that is very very a very
+[00:15:22] tiny overhead over stylesheet API. So
+[00:15:25] you get a lot and you don't lose much by
+[00:15:28] using it. So if stylesheet is not enough
+[00:15:30] for your application, then the next step
+[00:15:32] would be uni styles. Now if you're
+[00:15:34] coming from the web, you probably used
+[00:15:36] Tailwind and you might like it or not.
+[00:15:39] If you come from the web and you like
+[00:15:41] Tailwind, then you wouldn't use Uniwind
+[00:15:44] in your project instead of one of the
+[00:15:46] previous ones. With Uniwind, you have
+[00:15:48] the fa fastest Tailwind bindings for
+[00:15:50] React Native. I gave this a try last
+[00:15:52] year. The setup is easy. It works
+[00:15:54] reliable. You can use CSS variables and
+[00:15:57] themes. their hooks and the API is cool
+[00:15:59] and it just gets the job done again with
+[00:16:03] just a tiny overhead now over uni
+[00:16:06] styles. So Uniwind is actually from the
+[00:16:08] same creator as Uni Styles. So we have
+[00:16:11] basic stylesheet a bit more uni styles.
+[00:16:14] If you want web-like styling use and
+[00:16:17] finally if you want something that is a
+[00:16:20] bit more native you want to look into
+[00:16:23] Expo UI. with Expo UI. What Expo is
+[00:16:26] doing here is they're pretty much
+[00:16:28] wrapping the native Swift UI and Jetpack
+[00:16:31] components and allowing you to use them
+[00:16:33] through the Expo UI package. There's not
+[00:16:37] everything in here yet, but there are
+[00:16:39] already a variety of components from
+[00:16:41] both Swift UI and Jetpack Compose that
+[00:16:44] you can use directly in your React
+[00:16:46] Native application, and that will give
+[00:16:48] your app absolutely native feeling. Not
+[00:16:51] that React Native isn't already native,
+[00:16:53] but by directly using these Swift UI
+[00:16:56] components, you get sometimes even a
+[00:16:58] great performance improvement in your
+[00:17:00] application. So, this is this year my
+[00:17:02] style recommendation. Just take a
+[00:17:04] rational approach to this. Don't always
+[00:17:07] try the latest and shiniest new package
+[00:17:09] out there. You can just start with
+[00:17:11] stylesheet. You can upgrade to something
+[00:17:13] more if you need more. You can opt into
+[00:17:16] something that allows you to use
+[00:17:17] Tailwind and you can also get native
+[00:17:19] performance or native components in your
+[00:17:22] React Native applications through Expo
+[00:17:24] UI. And I think that should cover every
+[00:17:27] need for a great React Native app. All
+[00:17:29] right, that was a lot of tools, but
+[00:17:32] hopefully this gave you a clear and
+[00:17:34] opinionated road map for building great
+[00:17:36] React Native apps in 2026. The ecosystem
+[00:17:38] is more stable than ever, and honestly,
+[00:17:41] that's a very good sign. We finally have
+[00:17:43] a set of packages and services that you
+[00:17:46] can rely on without constantly switching
+[00:17:48] to the next new thing. If you have a
+[00:17:49] favorite library I missed, drop it in
+[00:17:51] the comments. I love discovering new
+[00:17:53] tools from you all. And if you want to
+[00:17:55] go beyond watching videos and actually
+[00:17:57] build and ship your own React Native
+[00:17:58] apps in 2026, check out the zero to her
+[00:18:01] mission on galaxies. It's part of the
+[00:18:03] lifetime access to Galaxies and it walks
+[00:18:05] you through all the steps from setting
+[00:18:06] up your expert project to finally going
+[00:18:08] to the app stores. Thanks for watching
+[00:18:10] and I'll see you in the next one. So
+[00:18:11] until then, happy coding, Simon.

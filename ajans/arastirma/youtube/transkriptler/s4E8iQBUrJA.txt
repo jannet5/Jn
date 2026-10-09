@@ -1,0 +1,461 @@
+# How to Use Claude Design to Build an App (Step by Step)
+# https://www.youtube.com/watch?v=s4E8iQBUrJA
+# kanal: Max Max | süre: 1033 sn | kaynak: yt-dlp:web_embedded:s4E8iQBUrJA.en-orig.json3
+
+[00:00:00] Most people [music] trying to build an
+[00:00:01] app with cloud design end up stuck in
+[00:00:03] the same loop. The design looks great,
+[00:00:06] but breaks the moment you actually try
+[00:00:09] real functionality. Or the app [music]
+[00:00:11] works, but looks like it was built in
+[00:00:14] 2009. This video is going to show you
+[00:00:17] exactly [music] how to use cloud design
+[00:00:19] to build an app the right way,
+[00:00:21] step-by-step, so you're never [music]
+[00:00:23] choose between the two. The reason most
+[00:00:25] AI apps feel unfinished is that people
+[00:00:28] [music] are trying to solve design and
+[00:00:31] functionality at the same time, inside
+[00:00:33] the same tool. That's the wrong order.
+[00:00:36] When you separate those two problems
+[00:00:37] [music] and give each one the right
+[00:00:39] tools, something clicks.
+[00:00:42] Here's what we're actually [music]
+[00:00:43] building, a full web portfolio app,
+[00:00:46] starting as a prototype in cloud design,
+[00:00:49] ending as [music] a live product with
+[00:00:51] authentication, saved data, a dashboard,
+[00:00:54] [music] native AI, and a real URL people
+[00:00:57] can actually sign into and use. And the
+[00:01:01] design never gets rebuilt from scratch.
+[00:01:03] Every feature we add [music] later
+[00:01:05] builds on top of the same visual system.
+[00:01:08] Once you see the workflow, you'll be
+[00:01:11] able [music] to use it for SaaS
+[00:01:13] products, dashboards, client portals,
+[00:01:15] marketplaces, anything where the design
+[00:01:18] matters just as much as what's under
+[00:01:20] [music] the hood. Design first,
+[00:01:22] functionality second, launch last. Now,
+[00:01:26] if you want to master AI tools and learn
+[00:01:28] how to build profitable SaaS apps,
+[00:01:30] [music]
+[00:01:31] websites, AI agents, and mobile apps
+[00:01:33] with AI, I've created a complete
+[00:01:35] masterclass that shows you exactly how
+[00:01:38] to do it step-by-step. [music]
+[00:01:39] This masterclass normally costs $499 to
+[00:01:42] join, but since you're watching this
+[00:01:44] video, [music] you can join completely
+[00:01:46] free. Check the link in the description
+[00:01:48] to get free access [music] to the
+[00:01:49] masterclass and start building your
+[00:01:51] AI-powered business today.
+[00:01:54] Let's get into it. A lot [music] of
+[00:01:55] people run into the same problem when
+[00:01:57] building an app. They either get the
+[00:01:59] design looking right and end up with
+[00:02:01] something that does not actually work or
+[00:02:04] they focus on the feature first and
+[00:02:07] spend the rest of the project trying to
+[00:02:08] fix the visuals. Cloud design makes the
+[00:02:11] process easier by letting you handle the
+[00:02:13] design first before moving into the
+[00:02:16] functional build. [music]
+[00:02:17] Cloud design is a tool built directly
+[00:02:20] into Cloud that lets you create polished
+[00:02:22] visual prototypes [music]
+[00:02:24] using natural language prompts. You
+[00:02:26] describe the kind of app or website you
+[00:02:28] want and it turns that description
+[00:02:30] [music] into a complete visual concept
+[00:02:33] without requiring you to design [music]
+[00:02:35] every section manually. It often gives
+[00:02:38] you a stronger [music] starting point
+[00:02:41] than building from a blank prompt in
+[00:02:44] Lovable because [music] it is focused
+[00:02:46] entirely on the visual side. Lovable has
+[00:02:49] to think about both how the app looks
+[00:02:52] and how it actually works during the
+[00:02:54] first [music] generation, which can
+[00:02:56] sometimes leave the design feeling well,
+[00:03:00] less [music] refined. Cloud design only
+[00:03:03] has to focus on the layout, styling,
+[00:03:06] typography, and the overall direction.
+[00:03:09] So, the result usually feels more
+[00:03:11] intentional [music] from start. The
+[00:03:13] limitation used to be that those designs
+[00:03:15] stayed as prototypes. [music] They could
+[00:03:18] look polished, but they had no
+[00:03:20] back-ends, authentication, database, or
+[00:03:23] [music] live URL. Turning them into
+[00:03:26] working products still required a
+[00:03:28] separate development process. [music]
+[00:03:30] The Lovable integration removes that
+[00:03:32] extra step. Once the design is ready,
+[00:03:35] you [music] can export it and bring it
+[00:03:37] directly into Lovable, where it becomes,
+[00:03:40] well, the foundation of the full build.
+[00:03:43] >> [music]
+[00:03:43] >> From there, you can add authentication,
+[00:03:46] connect a database, introduce [music] AI
+[00:03:49] features, and, you know, publish the app
+[00:03:51] without rebuilding the visual layer from
+[00:03:54] scratch.
+[00:03:55] >> [music]
+[00:03:55] >> This workflow keeps the process much
+[00:03:58] cleaner. You can focus on getting the
+[00:04:00] design right inside [music] Cloud
+[00:04:02] Design, then moving to Lavavel and
+[00:04:05] concentrate
+[00:04:07] on functionality. Each tool handles the
+[00:04:10] part [music] it is best at. So, you are
+[00:04:12] not trying to solve the design and
+[00:04:14] technical side at the same [music] time.
+[00:04:16] The first step is building the visual
+[00:04:18] foundation inside Cloud Design. This
+[00:04:20] part does not need to take long because
+[00:04:22] the [music] goal is not to perfect every
+[00:04:25] small detail. We [music] just need a
+[00:04:28] strong design direction that Lavavel can
+[00:04:31] build on later. I'll open Cloud Design
+[00:04:34] and describe the project in [music] one
+[00:04:37] focused prompt. Create a modern Web3
+[00:04:40] >> [music]
+[00:04:41] >> portfolio website for a new
+[00:04:43] cryptocurrency called Novacoin. Use a
+[00:04:47] dark background with deep blue-purple to
+[00:04:49] electric blue gradient colors, [music]
+[00:04:52] neon accent, and glassmorphism
+[00:04:55] card effects. Include a bold hero
+[00:04:58] section with a tagline [music]
+[00:05:00] and CTA, a tokenomic section, a
+[00:05:03] four-phase roadmap timeline, a team
+[00:05:06] section, and a community section.
+[00:05:09] >> [music]
+[00:05:09] >> The aesthetic should view premium and
+[00:05:11] futuristic. Once Cloud Design finishes
+[00:05:14] generating the prototype, [music] I'll
+[00:05:16] go through the full page and check how
+[00:05:19] everything came together.
+[00:05:21] The dark background,
+[00:05:22] >> [music]
+[00:05:23] >> gradient colors, neon details, and
+[00:05:26] glassmorphism cards already give the
+[00:05:28] site a clear [music] Web3 look. While
+[00:05:31] the hero section, tokenomics, roadmap,
+[00:05:34] team, and community areas create the
+[00:05:36] structure the project needs. At this
+[00:05:39] stage, I'm mainly checking whether the
+[00:05:41] design feels consistent [music]
+[00:05:44] and ready to build on. I'll make a small
+[00:05:46] visual
+[00:05:47] where needed, then review the layout,
+[00:05:50] typography, and color [music] choices
+[00:05:52] one more time before moving to the
+[00:05:54] export. It is worth fixing those details
+[00:05:57] here because visual changes are easier
+[00:06:00] to make [music] inside Cloud Design.
+[00:06:02] Once the project moves into Lovable,
+[00:06:05] every adjustment takes more [music] time
+[00:06:08] and can use additional credits. Starting
+[00:06:11] with a polished prototype means that the
+[00:06:14] prompts [music]
+[00:06:15] we send later can focus entirely on
+[00:06:18] authentication, the database, AI
+[00:06:21] features, and publishing instead of
+[00:06:24] trying to repair the design at the same
+[00:06:26] time. [music]
+[00:06:27] The prototype does not have to be
+[00:06:30] flawless, but it should look polished
+[00:06:32] enough to [music] serve as a
+[00:06:33] production-ready starting point. Once
+[00:06:36] that is confirmed, [music] we can export
+[00:06:38] it and move into Lovable for the
+[00:06:40] functional build. Moving a design from
+[00:06:42] one tool to another is usually the point
+[00:06:45] [music] where the workflow starts to
+[00:06:47] feel, well, frustrating. You get the
+[00:06:49] prototype looking right, [music] then
+[00:06:51] suddenly you have to recreate parts of
+[00:06:54] it somewhere else before you can even
+[00:06:57] begin adding the features. [music]
+[00:06:59] The Cloud Design and Lovable workflow
+[00:07:02] makes the handoff much more direct. Once
+[00:07:04] the prototype looks ready, the next step
+[00:07:07] is moving it from Cloud Design into
+[00:07:09] Lovable. [music]
+[00:07:10] Inside Cloud Design, I'll find the
+[00:07:12] export option and download the Novacoin
+[00:07:14] project as a zip file. That [music] file
+[00:07:18] contains a full visual build, including
+[00:07:21] the layout, components, styling, [music]
+[00:07:23] and page structure we just created.
+[00:07:25] Then, I'll open the Lovable and upload
+[00:07:28] the zip file directly through the main
+[00:07:30] chat interface. There is no separate
+[00:07:32] import menu [music] or complicated setup
+[00:07:34] process. The file goes into the same
+[00:07:37] place where you would [music] normally
+[00:07:39] type a prompt, which keeps a handoff
+[00:07:41] simple even if you have no technical
+[00:07:43] background. [music] After the file is
+[00:07:46] uploaded, I'll send this prompt. Please
+[00:07:48] import this claw design website and make
+[00:07:50] it [music] functional. Lovable will read
+[00:07:53] the project and rebuild the visual layer
+[00:07:55] inside the [music] editor. Once the
+[00:07:57] import is complete, we can go through
+[00:07:59] the page and confirm that everything
+[00:08:02] transferred properly. [music]
+[00:08:04] The dark background, neon accent colors,
+[00:08:08] glass morphism effect, typography, and
+[00:08:11] overall layout should all remain intact.
+[00:08:14] [music] The tokenomics section, roadmap
+[00:08:17] timeline, team cards, and community
+[00:08:19] section should also appear [music] just
+[00:08:22] as they did in claw design. At this
+[00:08:24] point, the project still does not
+[00:08:26] include
+[00:08:26] >> [music]
+[00:08:27] >> authentication, a database, AI features,
+[00:08:30] or a live URL. That is intentional.
+[00:08:32] [music] The export is only responsible
+[00:08:35] for moving the visual design into
+[00:08:37] Lovable. The functional layers come
+[00:08:40] next, [music] which keeps the process
+[00:08:42] organized and prevents the design work
+[00:08:44] from getting mixed into the technical
+[00:08:45] [music]
+[00:08:46] setup. We now have the full Novacoin
+[00:08:49] design inside Lovable, [music]
+[00:08:51] ready to become a working product
+[00:08:52] without rebuilding the front end from
+[00:08:55] [music] scratch.
+[00:08:56] The next step is adding authentication
+[00:08:59] and database together. These two parts
+[00:09:01] are closely [music] connected because
+[00:09:03] the database needs to know who the user
+[00:09:05] is before it can keep each person's data
+[00:09:08] separate. Inside Lovable, I'll send this
+[00:09:10] exact [music] prompt. Add user
+[00:09:13] authentication with sign up and log in
+[00:09:15] and a database that lets each
+[00:09:17] authenticated user save cryptocurrency
+[00:09:19] [music]
+[00:09:20] tokens to a personal watch list and log
+[00:09:22] their holdings with their name,
+[00:09:24] quantity, and purchase [music] price.
+[00:09:26] Display the watch list and holdings in a
+[00:09:29] new dashboard section that appears only
+[00:09:32] after login. All data should be private
+[00:09:34] per [music] user. Do not change the
+[00:09:36] existing visual design and re-implement
+[00:09:39] its style to the dashboard.
+[00:09:42] Combining both in one prompt [music] is
+[00:09:44] the most efficient approach because the
+[00:09:46] data isolation rules are built into the
+[00:09:49] database from the beginning. [music]
+[00:09:51] Each authenticator user can save tokens
+[00:09:53] to a personal watchlist and lock their
+[00:09:55] holdings
+[00:09:56] >> [music]
+[00:09:56] >> using the token name, quantity, and
+[00:09:59] purchase price while keeping [music]
+[00:10:01] that information private to their own
+[00:10:03] account. Once Lavavel finishes the
+[00:10:06] update, we're [music] going to create an
+[00:10:07] account, log in, and open the new
+[00:10:09] dashboard section. From here, each user
+[00:10:12] can save cryptocurrency tokens to a
+[00:10:14] personal watchlist and record their
+[00:10:16] holdings using [music] the token name,
+[00:10:18] quantity, and purchase price.
+[00:10:21] I'll also check that the data [music]
+[00:10:24] is being stored properly and remains
+[00:10:26] private to the account that created
+[00:10:28] [music] it. When another user logs in,
+[00:10:31] they should only see their own watchlist
+[00:10:33] [music] and holdings, not anything saved
+[00:10:35] by someone else. Those details will
+[00:10:38] matter even more in the next step
+[00:10:40] because [music] the AI chatbot will use
+[00:10:42] the saved watchlist and holdings to give
+[00:10:45] response
+[00:10:45] >> [music]
+[00:10:45] >> based on
+[00:10:47] the user's actual portfolio. If the data
+[00:10:50] is not connected [music] to the correct
+[00:10:51] account, the AI feature would only be
+[00:10:54] able to give generic answers. [music]
+[00:10:57] The last thing I'll check is the design.
+[00:10:59] Adding authentication [music] and the
+[00:11:01] database changes a lot behind the scene,
+[00:11:04] but the dark background, neon accent,
+[00:11:07] glass morphism effect, and the rest of
+[00:11:09] the Web3 style should still look the
+[00:11:11] same. The new dashboard should follow
+[00:11:13] the same visual direction, so it feels
+[00:11:15] [music] like part of the original site
+[00:11:18] rather than a separated page added
+[00:11:19] later. A watchlist can be useful,
+[00:11:21] [music] but after a while, it still
+[00:11:23] leaves the user doing all the thinking
+[00:11:26] on their own.
+[00:11:27] They can see what they own and what
+[00:11:29] they're following, but [music] they
+[00:11:31] still need to interpret that information
+[00:11:34] themselves. Adding an AI chatbot [music]
+[00:11:37] gives the dashboard a more useful and
+[00:11:40] interactive role. Inside Lovable, I'll
+[00:11:42] send this exact prompt: [music]
+[00:11:44] "Add a native AI chatbot to the
+[00:11:47] dashboard that users can open to ask
+[00:11:49] questions about their cryptocurrency
+[00:11:51] [music] portfolio. The chatbot should be
+[00:11:53] able to reference the user's saved
+[00:11:56] watchlist
+[00:11:57] and holdings to provide relevant
+[00:11:59] responses. [music]
+[00:12:00] Display it as a chat widget inside the
+[00:12:04] dashboard that matches [music] the
+[00:12:06] existing dark web 3 design." Lovable
+[00:12:09] will add the chatbot directly to the
+[00:12:11] dashboard and [music] style it to match
+[00:12:13] the dark web 3 design already in place.
+[00:12:16] Users can open the chat widget
+[00:12:19] and ask questions about their saved
+[00:12:21] holdings or watchlist [music] without
+[00:12:24] leaving the dashboard.
+[00:12:25] I'll test it with a few
+[00:12:26] portfolio-related questions [music] to
+[00:12:29] make sure it responds with relevant and
+[00:12:31] useful answers. Users can ask for simple
+[00:12:33] explanations [music] of cryptocurrency
+[00:12:35] concepts, questions about their
+[00:12:37] holdings, or quick observations about
+[00:12:40] [music] how their portfolio is
+[00:12:42] structured. This turns Novacoin [music]
+[00:12:45] from a basic watchlist and holdings
+[00:12:48] tracker into a more interactive
+[00:12:50] portfolio assistant. Since the visual
+[00:12:53] foundation was already polished and
+[00:12:55] cloud design, [music]
+[00:12:56] the chatbot fits naturally into the
+[00:12:59] dashboard and feels like part of the
+[00:13:01] original product rather than a feature
+[00:13:04] added at the last minute. [music]
+[00:13:05] Once we confirm that the responses are
+[00:13:07] working properly, we can move on to
+[00:13:09] publishing the app. Now, we can finally
+[00:13:11] put the app online.
+[00:13:13] >> [music]
+[00:13:13] >> I'll click publish inside Lovable, and
+[00:13:15] the live URL appears right away. Once
+[00:13:18] the link is ready, I'll open it in a
+[00:13:21] browser so we can see how the [music]
+[00:13:23] finished Novacoin site looks outside the
+[00:13:26] editor. As we go through the live
+[00:13:28] version, you can see that the design we
+[00:13:30] created [music] in Cloud Design carried
+[00:13:32] over properly. The dark background, neon
+[00:13:36] accent, glassmorphism cards, typography,
+[00:13:39] and layout are still
+[00:13:41] >> [music]
+[00:13:41] >> there. The difference is that the site
+[00:13:44] now works like a real product. [music]
+[00:13:46] Users can create an account, log in,
+[00:13:49] save tokens to their watch [music] list,
+[00:13:51] track their holdings, and use the AI
+[00:13:54] chatbot from the dashboard. So, the
+[00:13:56] project [music] started as a visual
+[00:13:58] prototype in Cloud Design, then we
+[00:14:01] brought it into Lovable, [music] added
+[00:14:03] the features, and published on a real
+[00:14:06] URL. We did not have to rebuild the
+[00:14:08] design along the way, and the result
+[00:14:10] [music]
+[00:14:11] is now a live app that people can
+[00:14:13] actually open and use.
+[00:14:15] What makes this [music] workflow useful
+[00:14:17] is that we never have to force one tool
+[00:14:20] to do everything. Cloud Design handled
+[00:14:22] the look of the site first,
+[00:14:23] >> [music]
+[00:14:24] >> then Lovable handled the parts that make
+[00:14:25] it work. Because of that, the web 3
+[00:14:28] style we [music] started with was still
+[00:14:30] there after we added the accounts, saved
+[00:14:33] the data, the dashboard, and the AI
+[00:14:36] chatbot. Starting from Cloud Design also
+[00:14:39] gave Lovable a much better place to
+[00:14:41] begin with than a blank prompt. [music]
+[00:14:44] The layout, colors, typography, and
+[00:14:46] overall direction were already decided,
+[00:14:49] so we did [music] not have to keep
+[00:14:50] adjusting the design while still trying
+[00:14:52] to add the features. We could focus on
+[00:14:55] one part of the build at a time, which
+[00:14:58] made [music] the entire process easier
+[00:15:00] to follow. The order is also easy to
+[00:15:03] repeat. Build the design in Cloud
+[00:15:05] Design,
+[00:15:05] >> [music]
+[00:15:05] >> export it into Lovable, add
+[00:15:08] authentication and database, add the AI
+[00:15:11] feature, then publish it into a [music]
+[00:15:13] live URL. Each step has one job. You're
+[00:15:16] not trying to fix the design while also
+[00:15:18] [music] building the backend. Everything
+[00:15:21] added in Lovable builds on the design
+[00:15:23] >> [music]
+[00:15:23] >> that is already there rather than
+[00:15:25] replacing it or forcing it to start
+[00:15:27] again. You can use the same process for
+[00:15:30] other projects, too. [music] It could be
+[00:15:32] a SaaS tool, a client portal, a
+[00:15:35] dashboard, a marketplace, or any idea
+[00:15:38] where the design [music] has been
+[00:15:40] slowing you down before you even start
+[00:15:42] building the features. It is also useful
+[00:15:44] for projects you have been [music]
+[00:15:46] putting off because you knew how you
+[00:15:49] wanted them to look, but well, [music]
+[00:15:51] you weren't sure how to turn that idea
+[00:15:54] into something that actually works.
+[00:15:55] [music] The next thing you need to do is
+[00:15:57] to take one of those ideas and follow
+[00:15:59] the same order we used here. [music]
+[00:16:02] Start by getting the visual direction in
+[00:16:04] place, move the project into Lovable,
+[00:16:07] then add the features one by one.
+[00:16:09] [music]
+[00:16:10] You do not need to figure out the whole
+[00:16:12] product in a single prompt or solve the
+[00:16:15] design and functionality at the same
+[00:16:17] time. Cloud Design [music]
+[00:16:18] helps you get the visual direction in
+[00:16:21] place, and Lovable takes it from there.
+[00:16:23] [music] Once the two are connected, you
+[00:16:25] can move from an idea to a real app
+[00:16:28] without starting over halfway through
+[00:16:30] the process. [music] The Nova Coin site
+[00:16:32] is a good example of how far that
+[00:16:35] workflow can go, especially for a
+[00:16:37] project where designs matter just as
+[00:16:40] much as what the app [music] can
+[00:16:42] actually do.
+[00:16:44] The point of this workflow is simple.
+[00:16:47] You no longer have to choose between an
+[00:16:49] app that looks good and the one that
+[00:16:51] actually works. Cloud Design handles the
+[00:16:54] visual side. Lovable adds the
+[00:16:56] functionality. [music]
+[00:16:57] And the same concept can go all the way
+[00:17:00] from prototype to live product without
+[00:17:03] starting [music] over. All right.
+[00:17:05] That's it for this one. Thank you so
+[00:17:07] much for watching it.
+[00:17:09] >> [music]
+[00:17:09] >> I hope to see you in the next one. Bye
+[00:17:11] for now.
