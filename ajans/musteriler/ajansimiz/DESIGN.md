@@ -10,10 +10,10 @@ Yön (seçilen): **"Atölye Mürekkebi"** — kâğıt beyazı zemin, koyu müre
 |---|---|---|---|---|
 | background | zemin | #FFFFFF | #0E1512 | — |
 | surface | ikincil bölüm zemini | #F3F5F2 | #151E1A | — |
-| foreground | ana metin | #0E1512 | #EEF2EF | 18.9:1 / 16.4:1 |
-| muted-foreground | ikincil metin | #4F5B55 | #A3AFA9 | 7.2:1 / 8.1:1 |
+| foreground | ana metin | #0E1512 | #EEF2EF | 18.5:1 / 16.4:1 |
+| muted-foreground | ikincil metin | #4F5B55 | #A3AFA9 | 7.1:1 (surface üstünde 6.5:1) / 8.2:1 |
 | border | çizgi | #DCE2DE | #26322C | — |
-| primary | tek sinyal rengi (CTA, vurgu) | #D7381E | #FF5A3C | buton metni beyaz 4.8:1 / koyu metin 5.6:1 |
+| primary | tek sinyal rengi (CTA, vurgu) | #D7381E | #FF5A3C | beyaz metin 4.7:1 / koyu metin 6.0:1 (hesaplandı) |
 | primary-foreground | CTA metni | #FFFFFF | #0E1512 | |
 | ink | koyu bloklar (değer defteri, son CTA) | #0E1512 | #000000 değil → #0A100D | |
 | success | rapor artışı | #1F7A4D | #3DBE7E | |
