@@ -1,0 +1,843 @@
+# Easy n8n Instagram Automation: Post Reels With AI Generated Captions
+# https://www.youtube.com/watch?v=L3NUp2XP_h0
+# kanal: Kirk Artman | süre: 2015 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] with this workflow you can drop short
+[00:00:02] form videos into a Google drive folder
+[00:00:05] that you want to automate you can set a
+[00:00:08] schedule when you want this automation
+[00:00:10] to run and forget about it the workflow
+[00:00:12] will post all of your short form content
+[00:00:15] based on that schedule to Instagram I'll
+[00:00:18] click here to test the workflow and we
+[00:00:20] can watch it run through downloading
+[00:00:22] that file open AI will write the caption
+[00:00:25] we'll host it in air table and send that
+[00:00:27] on to the Facebook Graph API where where
+[00:00:30] it will then post to Instagram there we
+[00:00:33] go workflow has executed successfully
+[00:00:35] let's take a look at my Instagram so
+[00:00:37] this is actually my testing account
+[00:00:39] where I could dump a bunch of
+[00:00:40] automations you can see my previous post
+[00:00:43] right here I refresh my page and there
+[00:00:46] is my newest post the one that was just
+[00:00:49] posted via the N automation we can open
+[00:00:52] it up see that it was posted 40 seconds
+[00:00:54] ago with an AI generated caption and we
+[00:00:58] have these hashtags relevant to my niche
+[00:01:00] in there just like that this is actually
+[00:01:02] a very simple workflow and the focus of
+[00:01:04] this video will be to show you how to
+[00:01:05] set up your meta app to get the Facebook
+[00:01:08] Graph API credential and be able to post
+[00:01:11] to Instagram with n8n I will be showing
+[00:01:14] you step by step how to set up your meta
+[00:01:16] developer app and get your permanent
+[00:01:19] Instagram API credential that'll be the
+[00:01:22] focus of this video but I will put a
+[00:01:23] link to all of my other supplementary
+[00:01:25] tutorials you'll see that link pop up
+[00:01:27] and that's when you can take a look at
+[00:01:28] those other tutorials for setting up
+[00:01:30] credentials like Google Drive open Ai
+[00:01:33] and stuff like that if you like my
+[00:01:34] YouTube videos and want to support what
+[00:01:35] I'm doing I have the link to my school
+[00:01:37] community in the description of this
+[00:01:38] video once you join the community you'll
+[00:01:40] have access to all of my n workflows all
+[00:01:42] of my automation templates and documents
+[00:01:45] AI prompts all kinds of resources over
+[00:01:47] there if you want to check that out that
+[00:01:48] helps me out a lot but in the meantime
+[00:01:50] let's jump straight into
+[00:01:51] [Music]
+[00:01:55] this all right let's jump right into it
+[00:01:58] here I am in my saved digital automation
+[00:02:00] diagram workflows project I'm going to
+[00:02:02] come up to create a new workflow just
+[00:02:04] click the plus to create the first
+[00:02:06] trigger node anytime you want to find a
+[00:02:08] node in any n you can type in the search
+[00:02:10] bar let's search for Google Drive type
+[00:02:13] in Google find the Google Drive node
+[00:02:16] click on that and we want this trigger
+[00:02:17] node on changes involving a specific
+[00:02:20] folder now you're going to need to set
+[00:02:21] up your credential with Google Drive I
+[00:02:23] have the link to my school community in
+[00:02:25] the description of this video if you
+[00:02:27] want to hop over there join my school
+[00:02:28] Community you'll have access ACC to all
+[00:02:30] of my supplementary tutorials like that
+[00:02:32] showing you how to set up your
+[00:02:33] credentials with all of these different
+[00:02:35] Services got a bunch of tools and
+[00:02:36] resources over there go ahead set up
+[00:02:38] your Google Drive credential if you want
+[00:02:40] to figure it out on your own you can
+[00:02:42] click into this drop down click on
+[00:02:44] create new credential then open the docs
+[00:02:47] here this will open the n8n
+[00:02:49] documentation where they'll show you how
+[00:02:51] to create all of the connections to all
+[00:02:54] of these Services here as I mentioned in
+[00:02:57] this video we're going to be focusing on
+[00:02:59] how to create create your meta
+[00:03:00] credentials to use the Facebook Graph
+[00:03:03] API so that we can post to Instagram
+[00:03:05] we're going to get through all of the
+[00:03:07] meta developer stuff in this video I'll
+[00:03:09] walk you step by step how to do
+[00:03:11] everything with meta but for the Google
+[00:03:13] Drive credential I'll leave that up to
+[00:03:16] you so I'm going to choose my Google
+[00:03:18] Drive credential here and we're going to
+[00:03:19] come down to choose the folder that we
+[00:03:22] want to automate let's take a look at my
+[00:03:24] actual Google drive folder structure
+[00:03:26] here I am in my drive I'm in the act ual
+[00:03:30] folder in my Google Drive that I created
+[00:03:33] that I want to automate and I've went
+[00:03:34] ahead and dropped in some short form
+[00:03:36] media here that we can post to Instagram
+[00:03:39] now one very important step here I'm
+[00:03:40] going to back out of this folder and we
+[00:03:43] can see these two folders that I have
+[00:03:45] for posting to Instagram any folder that
+[00:03:48] you want to automate we're going to be
+[00:03:50] automating this video folder just as an
+[00:03:52] example you can right click create a new
+[00:03:54] folder name it whatever you want and
+[00:03:56] automate any folder you want I'll go
+[00:03:59] ahead and just delete that one anytime
+[00:04:01] you automate a folder that folder has to
+[00:04:04] be shared publicly for n8n to utilize
+[00:04:07] the way you share your folder you can
+[00:04:09] click on that folder come over here
+[00:04:10] click on share under General access you
+[00:04:13] can drop this down change it from
+[00:04:15] restricted to anyone with the link now
+[00:04:17] that's a public viewed folder that NN
+[00:04:20] can access I'm going to click done now I
+[00:04:22] want to get the link to this folder so
+[00:04:24] I'm going to come back into the folder
+[00:04:26] double click on it you can see my two
+[00:04:27] files here I'm just going to copy this
+[00:04:29] URL let's jump back into any n now to
+[00:04:32] select the folder we can say from the
+[00:04:34] list and search for it or if we drop
+[00:04:36] this down we can say buy URL then I'll
+[00:04:39] paste in my folder URL right there under
+[00:04:42] watch for drop this down choose file
+[00:04:44] created any time a file is created
+[00:04:47] inside of this folder this Google Drive
+[00:04:49] trigger will run so we can go ahead and
+[00:04:53] fetch test event it's important to make
+[00:04:55] sure you actually have some files in
+[00:04:57] your folders before you test it
+[00:04:59] otherwise nothing's going to happen
+[00:05:00] you'll get an error saying there's
+[00:05:01] nothing in this folder so I do have
+[00:05:03] those two files in my Google Drive
+[00:05:05] folder so I'll hit fetch test event that
+[00:05:07] will test this node run this node and
+[00:05:09] you can see we've got this file coming
+[00:05:12] through so I'm going to switch from the
+[00:05:13] table view in the output here switch to
+[00:05:16] the schema View and we can see all of
+[00:05:18] these elements coming from my actual
+[00:05:21] Google drive folder now to get out of
+[00:05:23] this node we can click anywhere outside
+[00:05:24] the node or come up here click back to
+[00:05:27] Canvas that'll take us back to our
+[00:05:28] canvas space you can see the Google
+[00:05:30] Drive trigger has turned green with a
+[00:05:32] check mark saying we've got one item
+[00:05:34] coming through so you can click and drag
+[00:05:36] around your workspace I'm just going to
+[00:05:38] slide over click the plus to create the
+[00:05:40] next node going to be Google Drive I'll
+[00:05:42] type in Google Drive find the Google
+[00:05:44] Drive node and we want to download a
+[00:05:47] file click on that and in the input view
+[00:05:49] we can see we have the Google Drive
+[00:05:51] trigger bringing us through the
+[00:05:53] information from that file that it went
+[00:05:55] and grabbed I'm going to switch this
+[00:05:56] view to the schema View and all of those
+[00:05:59] ele elements listed out just like that
+[00:06:02] in our Google Drive download node we can
+[00:06:04] select the same credential you created
+[00:06:07] in the last step I'll choose my same
+[00:06:09] credential we want to check the
+[00:06:10] operation download a file and we can
+[00:06:13] select the file here I'm going to click
+[00:06:15] into here and change this to by ID let's
+[00:06:18] scroll down in the input and find the
+[00:06:21] information about our file we want to
+[00:06:23] find the spaces array here it is spaces
+[00:06:27] we can see that file name coming through
+[00:06:30] you can double check your file right
+[00:06:32] here with that file name we want to get
+[00:06:34] the file ID right here drag and drop
+[00:06:38] that into this section link that up and
+[00:06:41] test the step and now we can actually
+[00:06:43] download that file to our computer just
+[00:06:45] like that hitting that button right here
+[00:06:47] I'm going to switch this view again to
+[00:06:48] the schema View and we've got all of
+[00:06:51] those same elements coming from the
+[00:06:53] Google Drive trigger node being
+[00:06:55] downloaded into n8n so I'm going to
+[00:06:58] click outside of of this node I'm going
+[00:07:00] to come up to save the workflow click
+[00:07:02] the plus to create the next node type in
+[00:07:05] open AI find the open AI node you can
+[00:07:08] use any llm you want I use open AI so
+[00:07:11] I'm going to continue with open AI going
+[00:07:14] to message a model the way that I
+[00:07:16] actually run this automation the very
+[00:07:19] simple automation to post your videos to
+[00:07:21] Instagram right and this AI is going to
+[00:07:24] generate the captions for you the way
+[00:07:26] that these captions are getting
+[00:07:27] generated is with this open AI node this
+[00:07:29] open AI node is taking the name of our
+[00:07:32] file and turning it into a nice caption
+[00:07:35] taking the context of that file name and
+[00:07:38] rewriting it as a nice caption to post
+[00:07:40] to Instagram so an important point to
+[00:07:41] make here is you should name your files
+[00:07:44] for this workflow to run and work nicely
+[00:07:46] you should name your files what you want
+[00:07:49] your caption to be so in this case my
+[00:07:52] file name is exciting expansions
+[00:07:55] discovering more with file. so this is a
+[00:07:58] short clip about using using file AI API
+[00:08:01] and this open AI node is going to write
+[00:08:03] a caption based on this prompt right
+[00:08:06] here essentially your prompt being the
+[00:08:08] name of your file name your short form
+[00:08:11] video files what you want your caption
+[00:08:13] to be for Instagram okay so that is what
+[00:08:16] this node is going to do let's set it up
+[00:08:18] here we got to get your credential same
+[00:08:20] thing as Google Drive you need to set
+[00:08:22] your credential with open aai I have the
+[00:08:24] tutorial in my school Community if you
+[00:08:26] want to jump over there again you can
+[00:08:28] check out the link in the description of
+[00:08:29] this video so I'm going to set my
+[00:08:31] credential here come down to model and
+[00:08:34] choose a model click this drop down and
+[00:08:36] for chat GPT we're going to use GPT 40
+[00:08:40] mini for the text let's change the input
+[00:08:43] view to the schema view we'll scroll
+[00:08:46] down to the spaces array find the file
+[00:08:49] name and drag that file name into the
+[00:08:52] text that's going to be our prompt to
+[00:08:54] create this caption right we're going to
+[00:08:56] add an assistant prompt down here so for
+[00:08:58] the text we have the role of the user
+[00:09:01] click add message we're going to add
+[00:09:03] another role click into there we'll take
+[00:09:05] on the role of the assistant and for
+[00:09:07] this text paste The Prompt that I have
+[00:09:10] in here now I'm going to go grab that
+[00:09:12] prompt from my school community so here
+[00:09:14] I am in my digital automation diagram
+[00:09:16] School community in the classroom
+[00:09:18] section I'm just going to scroll down a
+[00:09:19] little bit let's find the docs and refs
+[00:09:22] and AI prompts course module and in my
+[00:09:25] AI assistant prompts section here we can
+[00:09:28] scroll down and find the file name
+[00:09:31] caption writer so this very simple
+[00:09:33] prompt I'm just going to copy this one
+[00:09:35] paste it right in here now I'll expand
+[00:09:37] this out for you so you can see it and
+[00:09:39] copy it I'm going to turn this field
+[00:09:41] into an expression field click on
+[00:09:43] expression then expand that field click
+[00:09:46] on the expansion button and we get that
+[00:09:48] nice blow out of that field so go ahead
+[00:09:50] copy that prompt you can tailor this
+[00:09:52] prompt to your needs get it to write a
+[00:09:54] caption that you want for your Instagram
+[00:09:56] page but it's very basic you are skilled
+[00:09:58] at writing detailed captions based on a
+[00:10:00] file name write a clear and engaging
+[00:10:02] caption right so I'm going to click
+[00:10:04] outside of this expression field click
+[00:10:06] on test step and there's our new caption
+[00:10:09] explore the new features of the file. a
+[00:10:12] API in this video discover how these
+[00:10:14] updates can enhance your project and
+[00:10:16] streamline your workflow we'd love to
+[00:10:18] hear your thoughts how do you see these
+[00:10:20] tools fitting into your work share your
+[00:10:21] insights in the comments pretty great
+[00:10:23] caption for a simple post I'm going to
+[00:10:25] click outside of this node right click
+[00:10:26] the plus to create the next node the
+[00:10:28] next node is going to be air table I'm
+[00:10:30] going to search for air table in the
+[00:10:31] search bar find the air table node and
+[00:10:34] what we need to do here is create a
+[00:10:36] record click on that now you're going to
+[00:10:38] need to create an air table account I
+[00:10:40] have the link to air table in the
+[00:10:42] description of this video you can click
+[00:10:43] on that link set up a free profile and
+[00:10:46] get working with air table right away
+[00:10:48] now the reason we're using air table
+[00:10:50] here is because the meta API needs a
+[00:10:54] publicly accessible URL to be able to
+[00:10:57] post to Instagram just a meta thing
+[00:10:59] there's no way of working around it we
+[00:11:01] need to host our files host our URLs
+[00:11:04] somewhere online in a publicly
+[00:11:06] accessible place so that we can actually
+[00:11:08] use the API to post to Instagram and
+[00:11:11] according to meta those public URLs
+[00:11:13] can't be from Dropbox or Google Drive so
+[00:11:15] we have to send our Google Drive folders
+[00:11:17] somewhere else host those files there
+[00:11:19] and get that public URL and pass it on
+[00:11:22] to post to Instagram so I'm going to
+[00:11:25] jump over to air table here I am in my
+[00:11:27] dashboard I'm going to create a new air
+[00:11:30] table base click on create click on
+[00:11:32] start from scratch this is going to be a
+[00:11:34] very simple base but what we can do is
+[00:11:36] close down all the getting started stuff
+[00:11:39] I'll close that out I'll rename this
+[00:11:41] base to ig res pass through something
+[00:11:45] like that we're just passing on URLs
+[00:11:47] same thing for the table here I'll just
+[00:11:49] call this Media or something like that
+[00:11:52] anytime you want to rename anything in
+[00:11:54] air table you just double click on it
+[00:11:56] and that lets you rename something so
+[00:11:58] what we need to do here we have a name
+[00:11:59] field and we have a notes field let's
+[00:12:01] double click on the notes field and
+[00:12:04] rename it to caption we can store our
+[00:12:07] captions coming from the open AI node
+[00:12:10] into air table here click save now these
+[00:12:13] other two Fields I'm going to delete
+[00:12:14] them I'll click on these fields holding
+[00:12:17] shift on the keyboard right click on one
+[00:12:19] of them and say delete two Fields let's
+[00:12:21] add a new field in here scroll down and
+[00:12:24] find the url field click create and now
+[00:12:27] we have a URL so we'll get the file name
+[00:12:30] the caption and the URL stored in air
+[00:12:33] table now last thing I'll do here is
+[00:12:35] click the check boxes on all of these
+[00:12:37] records right click on one of the
+[00:12:39] records and say delete all records now
+[00:12:42] our air table base is set up and ready
+[00:12:44] to go let's create our access token for
+[00:12:46] air table so we can drop that into na
+[00:12:49] I'm going to come up here to my account
+[00:12:51] settings click on Builder Hub you're
+[00:12:53] going to want to find your personal
+[00:12:55] access token section under developers
+[00:12:58] click on personal access tokens you can
+[00:13:00] see a list of my access tokens here come
+[00:13:03] up to create new token let's name your
+[00:13:05] token IG res demo you can name yours
+[00:13:08] whatever you want now we need to add
+[00:13:09] some scopes for n8n so click add a scope
+[00:13:13] choose data records read click add a
+[00:13:15] scope data records right click add a
+[00:13:18] scope choose schema bases read click add
+[00:13:22] a base now we can scroll down and find
+[00:13:24] that new air table base you just created
+[00:13:26] there's mine IG res pass through click
+[00:13:29] create token that is your access token
+[00:13:32] you're going to want to copy this keep
+[00:13:33] this safe you're only going to be shown
+[00:13:35] this token one time so make sure you
+[00:13:36] copy it and write it down I'm going to
+[00:13:38] copy that token click done and you'll
+[00:13:40] see that new token appear in your list
+[00:13:43] here I'm going to jump back into n8n and
+[00:13:46] we can create a new credential with that
+[00:13:48] token click into this drop down click
+[00:13:50] create new credential make sure you're
+[00:13:52] on access token paste that access token
+[00:13:55] right there and now we can name this
+[00:13:57] token I'll name mine IG re demo you can
+[00:14:00] name your credential whatever you want
+[00:14:02] then click save connected we've got our
+[00:14:04] new credential set up so let's go ahead
+[00:14:07] and choose the base from the list drop
+[00:14:09] this down choose your new base choose
+[00:14:12] the table we named our table media now
+[00:14:15] we have the columns coming from Air
+[00:14:17] table the name field caption field and
+[00:14:20] URL so let's go ahead and drop in these
+[00:14:23] schema for the name let's find the file
+[00:14:26] name I'm going to scroll down find the
+[00:14:28] spaces array and drag and drop the file
+[00:14:31] name right there the URL you can scroll
+[00:14:35] up and find the web content link from
+[00:14:38] Google Drive drop that into the URL and
+[00:14:41] for the caption we can scroll up and
+[00:14:43] find our open AI node we're going to
+[00:14:46] take the content from our open AI node
+[00:14:48] and drop that into the caption right
+[00:14:50] there click test step and just like that
+[00:14:52] we've got all of our information in air
+[00:14:55] table I'm going to jump back over to my
+[00:14:57] air table base we can see that media has
+[00:15:00] come through the file name I'll just
+[00:15:02] expand this out so we can see it caption
+[00:15:05] and the URL so once again we are using
+[00:15:08] air table as a hosting service to host
+[00:15:11] your URLs so that meta can use the
+[00:15:15] public URL to post via the API we need
+[00:15:19] to host our files publicly and they
+[00:15:21] cannot be from Dropbox or Google drive
+[00:15:24] again that's just a meta thing we have
+[00:15:26] to follow that rule great I'm going to
+[00:15:28] jump back back to n8n Let's click
+[00:15:30] outside of this node I'll slide my
+[00:15:32] workflow down a little bit save it and
+[00:15:34] we can start the hard part let's click
+[00:15:37] the plus to create the next node type in
+[00:15:40] Facebook and we want the Facebook Graph
+[00:15:43] API all right now we need to create our
+[00:15:46] credential for this Facebook Graph API
+[00:15:48] this is going to be quite tedious stick
+[00:15:51] with me on this we'll make it through it
+[00:15:53] and get our credential for Instagram so
+[00:15:56] a couple things we need to do first I'm
+[00:15:57] going to open up my meta business Suite
+[00:16:00] if you've never gotten into your metab
+[00:16:02] business Suite you can search business.
+[00:16:05] face.com that'll bring you to the meta
+[00:16:07] business Suite now you're going to need
+[00:16:08] a couple things in here we need to
+[00:16:10] create a business profile if you haven't
+[00:16:12] done any of this I can walk you through
+[00:16:14] it really quickly however you'll find
+[00:16:17] the tutorials on setting up a Facebook
+[00:16:19] page and connecting it to an Instagram
+[00:16:22] page in my school Community you can
+[00:16:24] watch those tutorials if you haven't set
+[00:16:26] up a meta business Suite but basically
+[00:16:28] up here we're going to have our business
+[00:16:30] portfolios and inside of your business
+[00:16:33] portfolios this is my digital automation
+[00:16:35] diagram business portfolio you have your
+[00:16:38] assets we can see my business assets
+[00:16:40] right here and those are Facebook pages
+[00:16:43] and Instagram accounts so I have my
+[00:16:45] digital automation diagram Facebook page
+[00:16:48] connected to my digital automation
+[00:16:51] diagram Instagram account it's all run
+[00:16:53] through the meta business Suite this is
+[00:16:55] the platform where you can schedule your
+[00:16:57] content see your Insight ites access
+[00:16:59] your inbox monetization ads stuff like
+[00:17:03] that what we're going to focus on is
+[00:17:04] actually creating your meta app and
+[00:17:06] getting that credential hooked up to n8n
+[00:17:10] let's go do that what you want to come
+[00:17:13] to next is the
+[00:17:15] developers.
+[00:17:17] facebook.com you're going to register as
+[00:17:20] a metad developer once you come to this
+[00:17:22] website here you'll be able to register
+[00:17:25] as a developer now by the way everything
+[00:17:27] you do with meta you have to have a
+[00:17:30] personal Facebook account you can't do
+[00:17:32] anything with meta for your business
+[00:17:35] without a personal Facebook account your
+[00:17:37] Facebook account is basically your
+[00:17:39] identity it's your key to access all of
+[00:17:41] the business tools inside of meta so you
+[00:17:44] need a personal Facebook account but
+[00:17:46] when you connect everything up you'll
+[00:17:48] only be connecting up the relative
+[00:17:50] business accounts you want to connect
+[00:17:52] right so go ahead and register as a meta
+[00:17:55] developer by logging in with your
+[00:17:57] personal Facebook then you'll be be able
+[00:17:59] to come up here and click on my apps and
+[00:18:02] this is a list here of the apps I've
+[00:18:04] created got a couple testing apps here
+[00:18:06] for recording these YouTube demos you're
+[00:18:08] going to want to click on create app
+[00:18:10] I'll go ahead and name this app let's
+[00:18:12] name it any N Video testing posting Auto
+[00:18:17] something like that just something to
+[00:18:18] distinguish it from my other app names
+[00:18:20] you can name your app whatever you want
+[00:18:22] I'm going to click next come down click
+[00:18:24] on other click next choose business
+[00:18:27] click next and and click create app
+[00:18:30] you'll be prompted again to log in with
+[00:18:32] your personal Facebook account and just
+[00:18:35] like that congratulations you are a meta
+[00:18:38] developer let's get some products into
+[00:18:42] your new app so this is your app up here
+[00:18:45] your new app ID and we have the app mode
+[00:18:47] up here we're going to set that to live
+[00:18:49] in just a minute let's go ahead and add
+[00:18:50] the Instagram product click on setup now
+[00:18:53] we can see in the left side under
+[00:18:54] products we have Instagram in our app
+[00:18:57] let's jump back up to app settings click
+[00:19:00] on that choose basic and we need to
+[00:19:02] enter in this information here now this
+[00:19:04] is going to be a pitfall for some people
+[00:19:06] we actually need a privacy policy for
+[00:19:08] this app we need a terms of service for
+[00:19:11] this app and we need user data deletion
+[00:19:14] instructions basically where users can
+[00:19:17] go to delete their information from your
+[00:19:20] app if they choose to do so we need
+[00:19:22] instructions for that this is all things
+[00:19:24] we need if we're developing a real app
+[00:19:26] to use as a metad develop developer so
+[00:19:29] since we only need this to automate with
+[00:19:31] n8n we don't really need all of this
+[00:19:33] stuff but we're going to have to put it
+[00:19:35] in here anyway so I'm going to put a
+[00:19:37] link to the tool that I use to generate
+[00:19:39] my privacy policies and terms of service
+[00:19:41] I'll drop that in the description of
+[00:19:43] this video so I'm going to jump over to
+[00:19:44] that tool so this is the tool right here
+[00:19:46] you'll be able to generate your privacy
+[00:19:48] policy terms and conditions and we
+[00:19:50] actually use the privacy policy
+[00:19:52] generator to create those user data
+[00:19:54] deletion instructions so you can click
+[00:19:56] on one of these start generating your
+[00:19:58] private policy it's going to prompt you
+[00:20:00] basic information walk you through the
+[00:20:02] whole thing on generating those policies
+[00:20:04] I'm going to go ahead and jump into my
+[00:20:06] agreements and policies up here find my
+[00:20:08] privacy policy I already generated click
+[00:20:11] on download and I'll copy my privacy
+[00:20:14] policy let's jump back into the metad
+[00:20:16] developer app I'll paste my privacy
+[00:20:19] policy right here jump into terms feed
+[00:20:21] I'll go back find my terms and
+[00:20:23] conditions copy that come back into the
+[00:20:27] app paste my terms of service one more
+[00:20:30] time back to terms feed and I have this
+[00:20:33] second privacy policy for my user data
+[00:20:36] deletion instructions I'll just download
+[00:20:38] that and copy it jump back into the app
+[00:20:42] and paste those deletion instructions
+[00:20:44] right there come down save changes now
+[00:20:46] that we have those three items we can
+[00:20:48] flip our app to live you now have a live
+[00:20:52] app in meta cool so that's all we need
+[00:20:55] I'm going to jump back into the meta
+[00:20:57] business sweet again this is where we
+[00:20:59] can manage all of our profiles so I'm
+[00:21:02] going to come down to settings and in
+[00:21:04] the sidebar over here I'll come to
+[00:21:07] system users I'll find me the system
+[00:21:10] user I'll click the little key icon
+[00:21:12] right here and see what I have access to
+[00:21:15] so this is everything that I have access
+[00:21:17] to as a system user my two Facebook
+[00:21:20] pages my main page my testing page and
+[00:21:23] the connected Instagram accounts my main
+[00:21:26] Instagram account and my testing in
+[00:21:28] stagram account so we need to get access
+[00:21:31] to our new app that we just created
+[00:21:34] let's come down to apps and this is a
+[00:21:37] list of all your apps now we need to get
+[00:21:39] our new app into this list let's click
+[00:21:42] add connect an app ID and we can paste
+[00:21:45] in our app ID right here let's jump back
+[00:21:48] over to the meta app and we can paste
+[00:21:50] our app ID it is here at the top is also
+[00:21:54] here in the basic app settings I'm going
+[00:21:57] to go ahead and click on this app ID to
+[00:22:00] copy it jump back into meta business
+[00:22:02] Suite paste that app ID right there and
+[00:22:05] click add app there it is my new app NN
+[00:22:09] video testing posting Auto these names
+[00:22:11] are just getting longer each time close
+[00:22:13] that window I'll refresh this page and
+[00:22:17] there is my new app I'm going to click
+[00:22:18] on that new app now we can see one
+[00:22:20] person is already assigned to that
+[00:22:22] that's you let's go ahead and click on
+[00:22:24] assign people now we can see you are
+[00:22:26] already assigned but we want to assign
+[00:22:28] you as the system user so my name here K
+[00:22:31] gartman already assigned we want the
+[00:22:33] system user assigned check that box
+[00:22:36] there click on full control manage app
+[00:22:39] and click assign click done and now we
+[00:22:41] have your name listed here twice under
+[00:22:43] people with full control so let's jump
+[00:22:45] back into system users let's click on
+[00:22:48] this little key and under app we see the
+[00:22:51] new app connected right there now let's
+[00:22:53] go ahead and generate a token choose
+[00:22:56] your app I'm going to choose my new app
+[00:22:58] right right there click next this is it
+[00:23:01] guys right here this is what we've doing
+[00:23:03] all this work for to get a token that
+[00:23:06] never expires that's the goal when you
+[00:23:08] generate tokens to use the Instagram API
+[00:23:11] they usually only last 60 days so you
+[00:23:14] have to come create a new token do this
+[00:23:17] entire process again and again unless we
+[00:23:20] take all the steps that we did to get
+[00:23:22] this never expiring permanent token that
+[00:23:25] is the goal let's click on that choose
+[00:23:27] never click next we need to assign
+[00:23:30] permissions to access Instagram
+[00:23:32] basically we can assign everything just
+[00:23:34] add everything in this list but to
+[00:23:36] streamline it let's choose business
+[00:23:38] management Instagram basic Instagram
+[00:23:41] content publish manage comments manage
+[00:23:44] insights manage messages and Pages show
+[00:23:48] list let's go ahead and add publish
+[00:23:50] video and that should be good I'm just
+[00:23:53] scrolling back up to double check should
+[00:23:55] have eight options selected and click
+[00:23:58] generate token there is your meta
+[00:24:01] Instagram access token let's copy that
+[00:24:04] token write it down keep it safe click
+[00:24:07] done finally jump back into NN click
+[00:24:10] this drop down here click on create new
+[00:24:13] credential and paste that access token
+[00:24:16] right there let's go ahead and name this
+[00:24:18] credential IG reals demo you can name
+[00:24:20] your credential whatever you want and
+[00:24:22] click save connection tested
+[00:24:25] successfully congratulations that was
+[00:24:27] the hard part let's finish off this
+[00:24:29] automation okay the way we need to set
+[00:24:31] up this Facebook Graph API node is just
+[00:24:34] based on the meta specifications I don't
+[00:24:37] know any of this stuff it's just what
+[00:24:39] meta requires to get this thing to work
+[00:24:42] so you can follow along and enter in
+[00:24:44] what I have here so for the host URL we
+[00:24:46] can leave as default for HTTP request
+[00:24:50] method drop that down choose post for
+[00:24:52] the graph API version choose whatever
+[00:24:55] latest version is available to you the
+[00:24:58] no this is you this is going to be your
+[00:25:01] Instagram account ID so let's jump back
+[00:25:04] into the meta business Suite let's come
+[00:25:06] down to Instagram accounts find your
+[00:25:09] connected Instagram account this is my
+[00:25:11] testing account right here this is what
+[00:25:12] I want to post to so I'm going to select
+[00:25:15] this account ID copy that jump back into
+[00:25:17] n8n and paste that account ID right
+[00:25:20] there for Edge we need to type in media
+[00:25:24] come down under options choose add
+[00:25:26] option select query PR parameters click
+[00:25:29] add parameter for the name can type in
+[00:25:32] video uncore URL and for the value let's
+[00:25:36] get that actual URL from Air table this
+[00:25:39] is why we need to use air table is for
+[00:25:41] that publicly accessible URL and for
+[00:25:44] whatever reason meta does not allow that
+[00:25:47] URL to come from Dropbox or Google Drive
+[00:25:50] let's click on ADD parameter and type in
+[00:25:53] media type for the value in all capital
+[00:25:56] letters type in reals click on ADD
+[00:25:59] parameter for the name type in caption
+[00:26:01] and for the value we can add the caption
+[00:26:04] either from Air table where we stored it
+[00:26:06] or we can get the caption from the open
+[00:26:08] AI node I'm going to grab the caption
+[00:26:10] from the open AI node drag the content
+[00:26:13] into the value just like that let's go
+[00:26:15] ahead and test the step there it is guys
+[00:26:18] that's what we needed all of that work
+[00:26:21] for this number right here now I don't
+[00:26:24] really know how the Facebook Graph API
+[00:26:26] works I don't know how meta does things
+[00:26:29] but we are using this graph API node to
+[00:26:31] set up a container this container is
+[00:26:33] going to have a sort of package ready to
+[00:26:37] go to send over to Instagram so that
+[00:26:40] Instagram can post so this first graph
+[00:26:42] API node is creating a container for our
+[00:26:46] media and that is our container number
+[00:26:48] right there so what we can do with this
+[00:26:50] node is click up here and rename this
+[00:26:52] node create container click rename I'll
+[00:26:55] click outside of the node and this is
+[00:26:57] our last node this is it here click the
+[00:27:00] plus to create the last Facebook node we
+[00:27:03] can type in Facebook find the Facebook
+[00:27:05] Graph API one more time and right away
+[00:27:08] I'll just name this node post to ig
+[00:27:12] click rename can use the same credential
+[00:27:15] from the previous node and you can enter
+[00:27:17] in all the same details I have in here
+[00:27:20] so it's going to be similar to the node
+[00:27:21] before for the HTTP request method drop
+[00:27:25] that down choose post we'll choose the
+[00:27:27] latest version of the graph API for the
+[00:27:29] node you can paste in your Instagram
+[00:27:32] account ID I'll jump back over to the
+[00:27:34] meta business Suite copy my account ID
+[00:27:37] come back into n8n paste that account ID
+[00:27:40] right there for Edge type in media
+[00:27:43] publish under options click add option
+[00:27:46] choose query parameters click add
+[00:27:48] parameter and type in creation uncore ID
+[00:27:53] exactly like that for the value we're
+[00:27:55] going to drop in our container number
+[00:27:57] our container ID click and drag this ID
+[00:28:00] and drop it down right there that is it
+[00:28:03] if we click test step this will actually
+[00:28:06] make that video post to Instagram make
+[00:28:08] sure you have the right credentials
+[00:28:10] everything set up once we test that step
+[00:28:12] it's actually going to make that post
+[00:28:14] for us so I'm going to jump over to
+[00:28:16] Instagram just to see what I got going
+[00:28:18] on here here I am in my testing account
+[00:28:21] this is my place to make things you can
+[00:28:23] see I've been testing a lot of posting
+[00:28:25] images and stuff using Isa as the image
+[00:28:28] that I'm posting so let's check out this
+[00:28:31] last video here this is from my previous
+[00:28:33] testing so let's go back into n8n and
+[00:28:36] test that node click on test step and
+[00:28:39] I'll get a new video pop up in my
+[00:28:42] Instagram let's jump back into Instagram
+[00:28:44] I'll refresh my feed and there it is my
+[00:28:48] new video it's a duplicate of my last
+[00:28:50] video just cuz I was testing building
+[00:28:53] out this automation but there is my new
+[00:28:55] post just like that we can click into it
+[00:28:57] and see the caption that was written by
+[00:29:00] the AI congratulations you are posting
+[00:29:03] to Instagram via Automation in any in
+[00:29:06] there's a couple tweaks and settings we
+[00:29:08] can make real quick before we end this
+[00:29:10] one let's go ahead and add some hashtags
+[00:29:13] remember this is very simple automation
+[00:29:15] to post to Instagram just sending quick
+[00:29:17] short form videos straight over with a
+[00:29:20] simple caption and simple hashtags so we
+[00:29:22] can hardcode our hashtags in here I'm
+[00:29:25] going to jump back into NN click outside
+[00:29:27] of this node I'll save the workflow and
+[00:29:30] let's come back into the create
+[00:29:32] container node we double click on it to
+[00:29:34] open it back up scroll down to the
+[00:29:37] caption section now this is where we're
+[00:29:38] inputting the caption from the open AI
+[00:29:42] node I'm just going to add two line
+[00:29:44] breaks and type in my hashtags there we
+[00:29:47] go hardcoded my hashtags in the caption
+[00:29:51] right there cool I'm going to click
+[00:29:53] outside of this node and we can come
+[00:29:55] down to the Google Drive trigger we can
+[00:29:59] set up a schedule inside of this Google
+[00:30:01] Drive trigger this trigger is going to
+[00:30:03] run every time a new file is created
+[00:30:06] inside of that Google drive folder but
+[00:30:08] we can set the schedule on when it
+[00:30:11] actually checks when that new file is
+[00:30:14] created so I'm going to double click on
+[00:30:15] the Google Drive trigger node and we can
+[00:30:17] see right here we can change the poll
+[00:30:19] time let's set the mode to every day for
+[00:30:23] example and we can choose a time here
+[00:30:25] let's set the time to 9 in the morning
+[00:30:29] every day this Google Drive trigger node
+[00:30:31] will run and look for newly created
+[00:30:35] files and grab one of them and pass it
+[00:30:38] through that means you can load up this
+[00:30:39] Google drive folder with hundreds of
+[00:30:42] short form videos and every day on this
+[00:30:44] schedule it will run find one video in
+[00:30:47] that folder and make one post so you can
+[00:30:50] set this on autopilot load your folder
+[00:30:53] up with whatever media you want set your
+[00:30:55] schedule and forget about it it'll post
+[00:30:58] one video on that scheduled time so I'm
+[00:31:00] going to set my schedule to every day at
+[00:31:02] 9:00 and click outside of the node just
+[00:31:05] to test out that functionality we can
+[00:31:07] still manually run it by hitting test
+[00:31:10] workflow as we've been doing so I'm
+[00:31:12] going to get into my Google Drive folder
+[00:31:14] so I went ahead and deleted out all the
+[00:31:16] files in my Google Drive folder I'm
+[00:31:18] going to drag and drop a new short form
+[00:31:20] video in my video folder all right
+[00:31:23] there's my new video in my Google Drive
+[00:31:25] folder I'm going to jump back into n and
+[00:31:28] click on test workflow and we can watch
+[00:31:30] this one run through now sometimes you
+[00:31:32] might run into this error and that is
+[00:31:35] fine let's just add another node right
+[00:31:38] here click the Plus on this route type
+[00:31:40] in weit let's add the weight node let's
+[00:31:43] set the wait time to 60 seconds we'll
+[00:31:46] just wait 1 minute for that meta
+[00:31:49] container to be generated before we try
+[00:31:51] and post the video to Instagram so I'm
+[00:31:53] going to click outside of the node I'm
+[00:31:55] going to come up and save my workflow
+[00:31:57] click C on test workflow you can see
+[00:31:59] that file is being downloaded open AI
+[00:32:02] writing the caption creating that
+[00:32:04] container now this note is going to wait
+[00:32:06] 60 seconds just to make sure that
+[00:32:08] container has been created by meta
+[00:32:10] before we try and post to Instagram and
+[00:32:14] there we go after that 60c wait time we
+[00:32:17] have posted to Instagram let's jump back
+[00:32:19] over to Instagram got these two videos
+[00:32:22] here let's wait for that third one to
+[00:32:23] come through I'll refresh my page and
+[00:32:26] there's my new real nice and fresh let's
+[00:32:28] check the caption and hashtag
+[00:32:30] information there we go air written
+[00:32:33] caption discover how to navigate and
+[00:32:35] make the most of our school Community
+[00:32:37] that's what this video is talking about
+[00:32:39] and we've got the hashtags popping up in
+[00:32:41] there just like that you can see this
+[00:32:43] video was the one posted 58 seconds ago
+[00:32:46] the most recent automated video going
+[00:32:49] jump back over to n8n make sure my
+[00:32:51] workflow is saved and we have done it
+[00:32:53] there you have it pretty straightforward
+[00:32:54] build the tricky part is of course
+[00:32:57] setting up your meta developer app
+[00:32:59] getting that access token so you can use
+[00:33:02] the meta API for posting to Instagram as
+[00:33:05] I mentioned I have the link to my school
+[00:33:06] community in the description of this
+[00:33:08] video once you join the community you'll
+[00:33:09] have access to all of my end workflows
+[00:33:11] for free and all the other good stuff
+[00:33:13] I've got over there feel free to check
+[00:33:15] that out I look forward to seeing you in
+[00:33:16] the group and I'll see you in the next
+[00:33:18] video
+[00:33:23] [Music]
+[00:33:31] [Applause]
+[00:33:31] [Music]

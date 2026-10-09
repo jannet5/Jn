@@ -3,8 +3,9 @@
  "channel": "Abou Toure",
  "description": "Get mentored by me: https://go.aboutoure.com/3c7d0851\n\nInstagram: https://go.aboutoure.com/c4d517ac",
  "upload_date": "20250830",
- "view_count": 12492,
+ "view_count": 12499,
  "id": "nn7jO7EUjjM",
  "url": "https://www.youtube.com/watch?v=nn7jO7EUjjM",
- "kaynak": "yt-dlp:android"
+ "kaynak": "yt-dlp:web_embedded:timedtext:en",
+ "duration": 294
 }

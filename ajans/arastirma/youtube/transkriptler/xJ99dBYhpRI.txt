@@ -1,0 +1,347 @@
+# How I Automated Alex Hormozi's Entire Ad Strategy With AI
+# https://www.youtube.com/watch?v=xJ99dBYhpRI
+# kanal: Ryan Mathews | süre: 632 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] If you just start doing it immediately,
+[00:00:01] you'll be ahead by So, I ran 77 ads the
+[00:00:04] traditional way and eight using Alex
+[00:00:06] Hormozi's new strategy. His approach
+[00:00:08] produced one of our best-performing ads
+[00:00:10] at a 12.43x return on ad spend, and cut
+[00:00:13] our cost per sale by 2/3. But, more than
+[00:00:16] half the ads following his strategy
+[00:00:18] flopped. But, seeing the potential of
+[00:00:20] this, I built an entire AI agent that
+[00:00:22] learns from the data and optimizes
+[00:00:24] itself. So, in this video, I'm going to
+[00:00:25] show you what his strategy is, how I
+[00:00:27] automated it, and how you can copy both.
+[00:00:30] So, why did Hormozi change his strategy?
+[00:00:32] He recently said that ads have changed
+[00:00:35] forever. So, if you look at his ad
+[00:00:36] library right now, you're going to see
+[00:00:38] some different types of ads than he's
+[00:00:40] ran before. So, what is this new way to
+[00:00:42] run ads? Well, to start, let's go over
+[00:00:43] the old way to run ads, and then we're
+[00:00:45] going to look at what Hormozi himself
+[00:00:46] says that it's changed. So, guys like
+[00:00:48] David Ogilvy taught direct response
+[00:00:50] principles, you know, rigid formulas and
+[00:00:52] frameworks that sound like ads. They
+[00:00:54] smell like ads, they sound like ads,
+[00:00:56] they look like ads. And the problem is,
+[00:00:57] most importantly, viewers know they're
+[00:00:59] ads. don't want to watch them. So, what
+[00:01:01] happens? They scroll right past them.
+[00:01:02] And we've been running 77 ads following
+[00:01:05] this traditional framework, but Hormozi
+[00:01:07] has something better. Let's hear what he
+[00:01:09] said. I believe that the future of media
+[00:01:11] between paid and content has completely
+[00:01:13] merged. Like, we have reached the
+[00:01:15] singularity of that now. It's done.
+[00:01:17] Like, that's not like going to happen,
+[00:01:18] it's already happened, it's here. We
+[00:01:20] pump out 450 pieces or whatever it is of
+[00:01:22] content per week. And you know what's
+[00:01:24] really cool, is the algorithm will just
+[00:01:25] tell you which of these are the are the
+[00:01:26] best and most interesting. And so, then
+[00:01:28] what we do is we take those things and
+[00:01:30] then just run them as ads. And I used to
+[00:01:32] think, cuz we did this earlier, probably
+[00:01:34] a year ago, we were adding CTAs on the
+[00:01:36] end, so it'd be like I'd take a piece of
+[00:01:37] content and then I'd be like, "Hey, by
+[00:01:38] the way, get the blah blah blah."
+[00:01:40] We don't even do that anymore.
+[00:01:42] Just take the ad or take the content and
+[00:01:44] then just just literally put an overlay.
+[00:01:46] Just put a banner that says like, "Click
+[00:01:48] to to grab a thing like it People get
+[00:01:51] it. They're like, "If the thing was
+[00:01:53] good, they're like, "That was good. I'll
+[00:01:55] I'll take the action that the bad
+[00:01:57] platform, you know, allows me to take
+[00:01:58] right now." Whatever the whatever the
+[00:01:59] thing is. But like, if I'm talking about
+[00:02:00] like more in-depth work stuff, like that
+[00:02:02] middle of funnel, bottom of funnel
+[00:02:03] stuff, the stuff that has lots of saves,
+[00:02:05] crush.
+[00:02:06] Crush. And the reason I think that saves
+[00:02:08] thing is important for you guys is look
+[00:02:09] at the content that you have that gives
+[00:02:11] you the most follows, not the most
+[00:02:12] views. Look at the content that has the
+[00:02:14] most saves. Try running those as your
+[00:02:16] ad. At the very least, some of you guys
+[00:02:18] aren't putting out 450 pieces of content
+[00:02:19] a week anyways, right? And so like, if
+[00:02:21] you're putting out 20, just put all 20
+[00:02:23] up. And you'll you'll be amazed at how
+[00:02:26] much better they're performing. And I
+[00:02:27] think I mean, this sounds obvious now,
+[00:02:29] but like, it's 100% 100% aligned with
+[00:02:30] the platform objectives.
+[00:02:32] Like, a perfect platform would have no
+[00:02:34] ads. And so, if you can make all of your
+[00:02:36] ads look like content, the platform
+[00:02:38] loves you. And you guys, if you just
+[00:02:40] start doing it immediately, you'll be
+[00:02:42] ahead by a year. So, you heard it from
+[00:02:43] him that now ads that don't look like
+[00:02:46] ads are typically converting better. And
+[00:02:48] the algorithm is telling you what will
+[00:02:50] convert. And again, we ran seven ads
+[00:02:52] this way, and this is actually was
+[00:02:53] outdated when I made this. It was 11.4x
+[00:02:55] return. Now, the same ad is 12.43, and
+[00:02:59] it's also crushing for Hormozi. Okay.
+[00:03:01] Now, what's interesting again is we ran
+[00:03:02] eight ads this way, and actually we we
+[00:03:04] launched another six or so earlier this
+[00:03:06] week, and most of them flopped. Like, I
+[00:03:08] would say about half of them flopped in
+[00:03:10] that first batch. And this got me
+[00:03:12] thinking because ultimately like I I
+[00:03:13] agree with the strategy, right? Like,
+[00:03:15] these things have merged. Organic
+[00:03:17] content that's working is likely to work
+[00:03:18] on ads, but there's obviously patterns
+[00:03:21] in between what crosses over and what
+[00:03:23] doesn't. And I wanted to create a
+[00:03:24] feedback loop to where I could train an
+[00:03:27] AI system on what not only is working on
+[00:03:30] Instagram, but also what's producing the
+[00:03:32] return, right? If I can show AI, "Hey,
+[00:03:34] this one's producing a 12.43x return.
+[00:03:37] This one, you know, hasn't gotten any
+[00:03:38] sales." It can learn from those patterns
+[00:03:40] and start to optimize itself. So, that's
+[00:03:42] what I want to show you right now, how I
+[00:03:43] optimized this entire process. All
+[00:03:45] right, so the first part of this process
+[00:03:47] is pulling over what Hormozi's talking
+[00:03:48] about, right? The organic content from
+[00:03:50] Instagram and Facebook, right? We pull
+[00:03:52] this over via an API, and I'm not going
+[00:03:54] to get super technical in this video. I
+[00:03:56] just want to show you what's possible,
+[00:03:57] but this pulls over the data, right? So,
+[00:03:59] how many saves it got, views, comments,
+[00:04:01] followers, etc. It pulls over all of
+[00:04:03] that. And then it pulls over the actual
+[00:04:05] content, right? And I'll show you why
+[00:04:06] that's important in just a second. But
+[00:04:07] we get all of that data from Instagram
+[00:04:09] and Facebook. And again, we're taking
+[00:04:10] some of those pieces of content, the
+[00:04:11] best-performing ones, and we're putting
+[00:04:13] them straight into Meta ads. But where
+[00:04:14] this gets interesting is its ability to
+[00:04:16] actually create new content for you
+[00:04:19] based on what's working, okay? So, it
+[00:04:20] takes all of this, it feeds that into
+[00:04:22] Gemini, and Gemini transcribes those
+[00:04:24] videos and annotates the videos, you
+[00:04:27] know, content and on-screen text. So, if
+[00:04:29] you imagine like a reel, it's not just
+[00:04:31] what's spoken, there's things going on
+[00:04:33] the screen. It might be like a pattern
+[00:04:34] interrupt in the beginning of the reel.
+[00:04:35] There might be like a caption in the
+[00:04:37] beginning of a reel. If you just use
+[00:04:38] something that can only transcribe,
+[00:04:39] you're not going to get all of that
+[00:04:41] data. And and arguably, sometimes what's
+[00:04:42] on the screen as the hook is more
+[00:04:45] important than the words. Sometimes the
+[00:04:47] words don't even start for 5 seconds,
+[00:04:48] right? So, that on-screen hook is super
+[00:04:50] super important, and Gemini is amazing
+[00:04:52] at doing that, right? So, we feed all of
+[00:04:54] this data from the API into a Gemini
+[00:04:56] API, and Gemini spits out the
+[00:04:59] transcripts as well as matched with all
+[00:05:00] of the data matched from Instagram and
+[00:05:02] Facebook. And it feeds this into Claude
+[00:05:04] code. But the other piece of this that
+[00:05:05] is just as important, if not more
+[00:05:07] important, is again, we're taking some
+[00:05:08] of this content and we're running it as
+[00:05:10] ads. And we're also running 77 ads the
+[00:05:12] way most people run them. And some of
+[00:05:14] these ads are working quite well. So, we
+[00:05:16] also feed in all of the data from Meta,
+[00:05:18] Meta ads, okay? So, this gives all of
+[00:05:20] the the metrics on what's the CPMs,
+[00:05:23] what's the CPC, what's all these, you
+[00:05:24] know, different ad metrics down to
+[00:05:26] really granular details. And it also is
+[00:05:30] feeding that same content into Gemini,
+[00:05:32] so it does the exact same thing. So
+[00:05:33] again, that feeds into Claude code. And
+[00:05:35] now Claude knows, okay, what's working
+[00:05:37] on organic, but also what's working on
+[00:05:40] ads, right? And what organic content
+[00:05:43] that's being ran as ads is working on
+[00:05:44] ads. And what organic content that's
+[00:05:46] being ran as ads isn't working as ads.
+[00:05:48] But there's another piece of this that
+[00:05:49] is so important, and that's connecting
+[00:05:51] with something that has really, really
+[00:05:52] good attribution, right? So, we connect
+[00:05:54] with Hyros, H Y R O S. And the reason we
+[00:05:57] do this is historically, Meta and Google
+[00:05:59] on these for ad platforms, their
+[00:06:01] attribution is really bad. Which what
+[00:06:02] that means is that if you feed in this
+[00:06:04] data into Claude code, Claude isn't
+[00:06:06] going to have great data. It might be
+[00:06:07] attributing sales to an ad that the ad
+[00:06:10] didn't actually produce. Whereas Hyros
+[00:06:11] has really bulletproof tracking, so we
+[00:06:13] get really, really good data on, you
+[00:06:15] know, what is that return. So, when you
+[00:06:17] see a 12.43x return, we could be
+[00:06:19] confident that that actually is the
+[00:06:21] return. Whereas with Meta, you always
+[00:06:23] have to take it with a grain of salt.
+[00:06:24] Now, Claude has the metrics from
+[00:06:26] everything, it has the content, and it
+[00:06:27] finds patterns between the winners and
+[00:06:30] the losers and the ones in the middle,
+[00:06:31] right? What's the difference? What's
+[00:06:33] creating these outliers? And the more
+[00:06:35] data you feed in here, right, it just
+[00:06:36] continues to get better and better and
+[00:06:39] better. And then, Claude can create a
+[00:06:41] scoring rubric, right? So, Claude can
+[00:06:43] start to score content that we generate
+[00:06:45] in the future based on what's worked in
+[00:06:47] the past, right? So, it has now a real
+[00:06:49] data. Like, if you just gave an ad to
+[00:06:51] Claude to score, it could do it, right?
+[00:06:54] But now it's based on real data, so its
+[00:06:56] rubric is actually really, really
+[00:06:58] refined. And what it does is it takes
+[00:07:00] all of these patterns between winners
+[00:07:02] and losers, and it starts learning and
+[00:07:04] creating what's called a skill that has
+[00:07:06] an understanding of what creates
+[00:07:08] outliers, right? So, it's learning
+[00:07:10] things with very, very specific details
+[00:07:12] on things like how to write hooks that
+[00:07:13] convert, which ad formats produce the
+[00:07:15] highest return on ad spend, right? For
+[00:07:16] this particular client, they have some
+[00:07:18] skits, they have some, you know, one
+[00:07:19] person on the screen, they have some raw
+[00:07:21] videos, they have some more
+[00:07:22] high-production videos. It's learning
+[00:07:24] all of that, right? And it's not just
+[00:07:25] which ones get the most views or the
+[00:07:27] cheapest CPC, no, which ones produce the
+[00:07:28] highest return. That's all ultimately we
+[00:07:31] care about. And how to structure the
+[00:07:32] body of the script, how to use social
+[00:07:33] proof effectively, right? Because
+[00:07:34] sometimes we use too much, sometimes we
+[00:07:36] use too little, sometimes certain social
+[00:07:37] proof doesn't work quite well. And then
+[00:07:39] also, what kills conversions and what to
+[00:07:42] avoid. So, it's learning all of that
+[00:07:44] stuff. And then, what we can do is when
+[00:07:46] we come in and we want to generate new
+[00:07:48] ads, for one, we can just say, "Hey,
+[00:07:50] make me 30 more variations based on our
+[00:07:53] winners," right? And it's going to make
+[00:07:55] us variations based on our winners. We
+[00:07:57] can also come in and we can say, "Hey,
+[00:07:58] we wrote this script, right? We wrote
+[00:08:00] this script here. Can you please revise
+[00:08:02] it?" And we feed that into our system,
+[00:08:04] which has this entire skill set built
+[00:08:06] into it, as well as it has what is
+[00:08:08] called synthetic audiences trained on
+[00:08:11] how real customers are responding to
+[00:08:13] predict ad performance, okay? So, Claude
+[00:08:15] can build these synthetic audiences
+[00:08:17] based on the real data,
+[00:08:19] data on our ICP, based on real data of
+[00:08:22] not just prospects, but real good
+[00:08:25] customers. So, we can feed these ads
+[00:08:27] into it, and it's it can taking all of
+[00:08:28] this information, and then it's getting
+[00:08:30] feedback from the avatars, where they're
+[00:08:32] talking about their deal breakers, their
+[00:08:33] buying triggers, their scam detector,
+[00:08:35] and and another 10 questions that it
+[00:08:36] asks them. It's taking all of that for
+[00:08:38] 10 different avatars that are based on
+[00:08:40] the ICP, and then it's feeding that back
+[00:08:42] into Claude, and we're getting a new
+[00:08:44] script written with that. And then we
+[00:08:46] get our ad variations, which typically
+[00:08:48] we start with something like nine
+[00:08:49] variations, which is three bodies and
+[00:08:50] three hooks each. Or, recently, we
+[00:08:52] started doing 10 hooks because Claude
+[00:08:55] pointed out there's just such a massive
+[00:08:56] outlier with how good the hooks are. So,
+[00:08:58] now it gives us 10 hooks and three
+[00:08:59] bodies each. So, you have like 30 ad
+[00:09:01] variations from one batch of filming.
+[00:09:03] And then, of course, this is where it
+[00:09:04] gets super super interesting. This now
+[00:09:06] gets ran as we can run this as content.
+[00:09:09] We've done that, yeah, but we can run
+[00:09:10] this as content, and it gets fed into
+[00:09:12] Meta ads. And then what happens is this
+[00:09:13] gets fed all the way back to it. So, it
+[00:09:15] goes back into Gemini, it gets
+[00:09:17] transcribed, we get the data from Hyros,
+[00:09:19] right, Claude code gets all of that, and
+[00:09:21] it starts learning, and it knows, "I
+[00:09:23] wrote this ad, right? I thought it was
+[00:09:25] going to going to convert because of X.
+[00:09:26] How did it actually convert? Okay, maybe
+[00:09:28] it didn't convert as well as I wanted it
+[00:09:29] to." Or maybe it absolutely crushed. Why
+[00:09:31] did it crush? So, this system is just
+[00:09:33] super super exciting. Where this also
+[00:09:34] gets even more exciting is one thing
+[00:09:36] we're going to add is feeding in
+[00:09:37] competitor ads and content. So, we can
+[00:09:40] go out and we can find content, you
+[00:09:42] can't get save data, but you can get
+[00:09:43] view data and comment data from
+[00:09:45] competitors per client that is
+[00:09:47] absolutely crushing. And we can feed
+[00:09:48] that data in, right, both from
+[00:09:50] competitor ads and competitor content,
+[00:09:51] and feed that into Gemini, so that it
+[00:09:54] can also learn from other people. And it
+[00:09:55] might not weight this as heavy, because
+[00:09:57] obviously, if you have your own data
+[00:09:58] that could typically better, but where
+[00:09:59] this could be really good is finding
+[00:10:01] unique angles. Going out you could do
+[00:10:03] the exact same thing for YouTube, find
+[00:10:05] unique angles, find outliers, and you
+[00:10:07] know, recommend them to me. So, I think
+[00:10:09] if you're running ads and you want to
+[00:10:10] increase your return on ad spend this
+[00:10:12] year, I think this is the best way to do
+[00:10:13] it. For this particular client, I'm
+[00:10:15] super excited to see where this gets us
+[00:10:17] in 6 months when it has that much
+[00:10:19] training inside of it. So, if you're
+[00:10:20] interested in just seeing if we can do
+[00:10:22] this for you, I'll put my Calendly down
+[00:10:24] below, but also So, if you want to know
+[00:10:25] where to actually send your ad traffic
+[00:10:27] to, check out this video on Alex
+[00:10:29] Hormozi's advice for sales funnels.

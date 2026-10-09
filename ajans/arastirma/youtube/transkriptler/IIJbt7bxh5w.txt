@@ -1,0 +1,792 @@
+# Best Local Businesses to Sell AI Websites to in 2026 (Using Claude)
+# https://www.youtube.com/watch?v=IIJbt7bxh5w
+# kanal: Mikey Website | süre: 1788 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] The best local businesses to sell AI
+[00:00:02] websites to in 2026 aren't the ones that
+[00:00:05] most people are chasing. And if you are
+[00:00:07] targeting, well, the wrong ones, you're
+[00:00:09] going to spend hours building something
+[00:00:11] that nobody's willing to pay for. Well,
+[00:00:14] here's the mistake almost everyone else
+[00:00:16] makes. They build a nice-looking webpage
+[00:00:19] that lists a business's services. They
+[00:00:21] hand it over, and then they wonder why
+[00:00:24] nobody wants to pay any real money for
+[00:00:26] it. A local business doesn't need
+[00:00:28] another website just sitting there doing
+[00:00:31] nothing. It needs something that brings
+[00:00:34] in customers and then helps run what
+[00:00:36] happens after they book, they call, or
+[00:00:39] they sign up. So, in this video, we're
+[00:00:41] going to build a complete website system
+[00:00:43] for five local business niches: [music]
+[00:00:46] dental clinics, restaurants, gyms, real
+[00:00:48] estate agents, and auto repair [music]
+[00:00:50] shops. Now, for each one of these five,
+[00:00:52] we're going to be building a
+[00:00:53] customer-facing side that, of course,
+[00:00:55] gets us appointments, and reservations,
+[00:00:57] and trials, and inquiries, and then the
+[00:01:00] internal dashboard behind it all that
+[00:01:02] actually manages all of that. So,
+[00:01:05] appointment trackers, floor boards,
+[00:01:07] attendance dashboards, CRMs, job boards,
+[00:01:10] all built with Claude inside of Basecamp
+[00:01:12] 44. No manual coding required. So, by
+[00:01:15] the end, you'll have five practical,
+[00:01:16] ready-to-pitch systems worth at least
+[00:01:18] around $1,500 each. And you'll know
+[00:01:20] exactly how to pick the right niche
+[00:01:23] based on the [music] businesses and the
+[00:01:25] contacts already around you. Now, if you
+[00:01:28] do want to master AI tools, and you
+[00:01:30] really do want to learn how to build
+[00:01:32] profitable SaaS apps and websites and AI
+[00:01:34] agents and mobile apps with AI, of
+[00:01:36] course, I've created a complete
+[00:01:38] masterclass that shows you exactly how
+[00:01:40] to do all of this step-by-step. Now, the
+[00:01:42] masterclass normally costs $499 to join,
+[00:01:45] but since you are watching this video
+[00:01:47] and taking the time to do so, thank you,
+[00:01:49] you can join completely free. Just check
+[00:01:50] out that link in the description below
+[00:01:52] to get free access to my masterclass,
+[00:01:54] and you too can start building your own
+[00:01:55] AI-powered business today. All righty,
+[00:01:57] with all of that said, let's get into
+[00:01:59] this. Now, before we start building out
+[00:02:01] the first website, I do want to make
+[00:02:03] sure that the right model is selected
+[00:02:05] inside of Base 44. At the top of the
+[00:02:07] chat window here, I'm going to open up
+[00:02:09] the model selector. I'm going to choose
+[00:02:11] Claude from this list, and then confirm
+[00:02:13] that it's active before sending our
+[00:02:15] first prompt. Now, Base 44 gives us the
+[00:02:17] option to choose which AI model handles
+[00:02:20] the build, and for client-facing
+[00:02:22] websites, Claude is the one that I would
+[00:02:24] recommend. It tends to make stronger
+[00:02:26] design decisions, follow
+[00:02:28] business-specific instructions more
+[00:02:30] accurately, and keeps the overall layout
+[00:02:33] consistent across multiple sections. So,
+[00:02:36] that consistency here matters more than
+[00:02:38] it might seem, because a website can
+[00:02:40] have a very strong hero section at top,
+[00:02:43] but if the services, the team profiles,
+[00:02:45] and the contact form all just kind of
+[00:02:47] look disconnected as we scroll down,
+[00:02:49] well, the final result will still feel
+[00:02:50] unfinished. Claude usually does a better
+[00:02:53] job of keeping the design coherent from
+[00:02:55] the top of the page all the way down to
+[00:02:57] the final call to action, which then
+[00:03:00] makes it a more reliable choice for the
+[00:03:02] five builds that we're building and
+[00:03:03] creating in this video. So, now that
+[00:03:05] Claude is selected, we can go ahead and
+[00:03:07] move into the first website, and I
+[00:03:09] wanted to start with a dental clinic
+[00:03:11] here, because it is the kind of business
+[00:03:13] that almost everyone can find in their
+[00:03:15] local area, and the website has to do
+[00:03:18] more than just simply list services, of
+[00:03:20] course. Most patients are deciding
+[00:03:22] whether they trust the clinic before
+[00:03:24] they ever make a call or a step through
+[00:03:26] that door. So, the first impression here
+[00:03:29] matters immediately, and for this build,
+[00:03:31] we're creating a professional,
+[00:03:32] client-facing dental clinic website that
+[00:03:35] looks clean and clinical and reassuring
+[00:03:38] from the moment that someone lands on
+[00:03:39] the page. It needs to explain what the
+[00:03:42] clinic offers, it needs to introduce the
+[00:03:44] dentist, of course, to show the location
+[00:03:46] and their opening hours, and to give
+[00:03:48] patients a clear way to request an
+[00:03:51] appointment without having to call. Now,
+[00:03:53] inside of Base 44, I'm going to keep
+[00:03:54] Claude selected here and send this first
+[00:03:56] prompt over. Create a professional
+[00:03:59] website for a dental clinic, include a
+[00:04:01] hero section with a bold headline and a
+[00:04:04] book appointment button along with a
+[00:04:06] services section listing our core dental
+[00:04:08] services with brief descriptions, a team
+[00:04:11] section showing our dentists with their
+[00:04:13] name, their title, and a short bio, and
+[00:04:15] a contact section with our location,
+[00:04:18] opening hours, and an appointment
+[00:04:20] request form. So, once I send over that
+[00:04:23] prompt, as you can see, Base 44 begins
+[00:04:25] generating the full website here. The
+[00:04:27] hero section comes first here with a
+[00:04:29] bold headline and a clear book
+[00:04:30] appointment button, giving our visitors
+[00:04:32] an obvious next step as soon as they
+[00:04:35] arrive. And below that, the services
+[00:04:37] section lists the clinic's main dental
+[00:04:39] services with short descriptions, so
+[00:04:41] that patients can quickly see whether
+[00:04:44] the treatment they need is actually
+[00:04:46] available. And then further down the
+[00:04:48] page, the team section here introduces
+[00:04:50] the dentists by their name, their title,
+[00:04:52] and their short bio. And that helps make
+[00:04:54] the clinic more personal because
+[00:04:56] patients can see who they may be meeting
+[00:04:58] before they even do book. Now, the
+[00:05:01] contact section here then brings pretty
+[00:05:03] much everything together by showing the
+[00:05:05] clinic's location, their opening hours,
+[00:05:08] and the appointment request form. Now,
+[00:05:11] looking through the finished page here,
+[00:05:13] every section has a clear purpose. The
+[00:05:15] hero builds confidence, the services
+[00:05:18] remove uncertainty, the dentist profiles
+[00:05:21] make the practice more familiar, and the
+[00:05:23] form gives patients a direct way to
+[00:05:25] request an appointment. Now, the final
+[00:05:28] result here looks professional, easy to
+[00:05:29] use, and ready to present to a real
+[00:05:32] dental clinic client. A professional
+[00:05:34] website is only really half of what the
+[00:05:37] client actually needs because once
+[00:05:39] appointment requests do start coming in,
+[00:05:42] then someone has to, of course, keep
+[00:05:43] track of all of them. And if every
+[00:05:45] booking just ends up buried in an email
+[00:05:47] inbox, well then the process just
+[00:05:49] quickly becomes difficult to manage,
+[00:05:51] especially as the clinic gets busier.
+[00:05:53] [music] So, that is why the second
+[00:05:55] prompt here focuses on the internal side
+[00:05:58] of the business. We're going to stay
+[00:06:00] inside the same Base44 project here and
+[00:06:02] then build an admin dashboard that will
+[00:06:05] manage everything submitted through the
+[00:06:07] appointment form. So, here's the prompt
+[00:06:10] that I'm going to use. Create an
+[00:06:11] internal admin dashboard for our dental
+[00:06:14] clinic that shows every single
+[00:06:16] appointment request submitted through
+[00:06:18] our website in a sortable table with
+[00:06:21] patient name, phone number, preferred
+[00:06:23] date, requested service, and status. Let
+[00:06:26] me update each appointment status
+[00:06:28] between pending, confirmed, and
+[00:06:31] completed, and add a patient records
+[00:06:33] view showing the full appointment
+[00:06:35] history per patient. So, after sending
+[00:06:38] over that prompt, Base44 builds the
+[00:06:39] dashboard inside of the same project.
+[00:06:42] And the main view here displays every
+[00:06:44] appointment request in a sortable table
+[00:06:47] with, again, their patient's name, the
+[00:06:49] phone number, preferred date, the
+[00:06:51] requested service, and their current
+[00:06:53] status. Now, since the website here and
+[00:06:55] the dashboard are already connected,
+[00:06:57] then the test appointments that we've
+[00:06:59] submitted through the front-end form
+[00:07:01] will appear here automatically. So now,
+[00:07:03] I'm going to open up a few appointments
+[00:07:05] and then I'm going to go ahead and
+[00:07:07] update their status from pending to
+[00:07:09] confirmed and then completed to show you
+[00:07:11] how the full workflow functions. We also
+[00:07:14] do have a patient records view that
+[00:07:16] pulls together the complete appointment
+[00:07:19] history for each of those patients,
+[00:07:21] making it easy for the clinic to look
+[00:07:23] back at previous visits from one place.
+[00:07:26] And this is what turns the project now
+[00:07:28] into something much more valuable than
+[00:07:30] just a standard business website.
+[00:07:33] Because now the front end helps patients
+[00:07:35] book appointments while the back end
+[00:07:37] gives the clinic a practical way to
+[00:07:40] organize and manage every single request
+[00:07:43] without relying on a crowded inbox. So
+[00:07:46] now let's build something for a
+[00:07:48] completely different type of business
+[00:07:50] because restaurants now have a different
+[00:07:52] challenge because people usually decide
+[00:07:55] where to eat before they ever leave
+[00:07:57] their house. And the website is often
+[00:07:59] their first impression. So it does need
+[00:08:01] to make the food look appealing to
+[00:08:04] communicate that vibe, that atmosphere,
+[00:08:07] and make reserving a table as simple as
+[00:08:09] possible. So for this build we're
+[00:08:11] creating a restaurant website that
+[00:08:13] combines all of those elements into one
+[00:08:15] place, of course, and we'll have a
+[00:08:17] welcoming hero section top, a digital
+[00:08:20] menu that's easy to browse, an about
+[00:08:22] section that tells the restaurant's
+[00:08:24] story, and a reservation form, of
+[00:08:26] course, so that our customers can book a
+[00:08:27] table without ever having to call during
+[00:08:30] business hours. So here's the prompt I'm
+[00:08:32] going to use for that. Create a website
+[00:08:34] for a restaurant. Include a hero section
+[00:08:37] with the restaurant name, a tagline, and
+[00:08:40] a reserve a table button, a full menu
+[00:08:43] organized by category including
+[00:08:45] starters, mains, desserts, and drinks
+[00:08:47] with item names and prices, an about
+[00:08:50] section telling our story and describing
+[00:08:52] the atmosphere, and a reservation form
+[00:08:55] with fields for name, phone, date, time,
+[00:08:57] and party size. So now once I do send
+[00:09:00] over that prompt, Base 44 will start
+[00:09:02] generating the website. And the hero
+[00:09:04] section here appears first, of course,
+[00:09:06] with the restaurant name, its tagline,
+[00:09:08] and a prominent reserve a table button.
+[00:09:10] Now scrolling down the page, the menu is
+[00:09:12] organized into starters, and mains,
+[00:09:14] desserts, and drinks, making it much
+[00:09:16] easier to really browse than just say a
+[00:09:18] traditional PDF menu. Next is the about
+[00:09:21] section which tells the restaurant's
+[00:09:23] story and gives our visitors a sense of
+[00:09:26] the atmosphere before they even arrive.
+[00:09:28] So here now at the bottom, the
+[00:09:30] reservation form lets customers enter
+[00:09:32] their name, their phone number, their
+[00:09:34] preferred date and time of the
+[00:09:35] reservation, and the party size to
+[00:09:37] request a table directly through the
+[00:09:39] website. So, looking through the
+[00:09:41] finished result here, everything works
+[00:09:43] together pretty naturally. The design
+[00:09:46] presents the restaurant very
+[00:09:47] professionally. The menu here is easy to
+[00:09:50] explore, and the reservation form just
+[00:09:52] removes one more step between someone
+[00:09:55] deciding to visit and then actually
+[00:09:57] booking a table. Getting the reservation
+[00:09:59] is only really the first part of the
+[00:10:01] process here because on a busy night,
+[00:10:03] the bigger challenge is keeping track of
+[00:10:05] which tables reserved, which guests have
+[00:10:08] arrived, and which tables are ready for
+[00:10:10] the next party. And then, if that
+[00:10:13] information is just kind of like
+[00:10:14] scattered between notes and messages or
+[00:10:16] different staff members even, then
+[00:10:18] things can become confusing very
+[00:10:20] quickly. And that is why the second
+[00:10:22] prompt here focuses on the restaurant's
+[00:10:25] internal floor and kitchen management.
+[00:10:28] Now, we're going to stay inside the same
+[00:10:30] Base 44 project again and then build a
+[00:10:32] live view that organizes every
+[00:10:34] reservation by table, time slot, and
+[00:10:36] party size. So, let's send over this
+[00:10:38] prompt. Create an internal floor and
+[00:10:40] kitchen management view for our
+[00:10:42] restaurant showing all active
+[00:10:45] reservations organized by table, time
+[00:10:48] slot, and party size. Let staff update
+[00:10:50] each table status between empty,
+[00:10:52] reserved, seated, and completed, and add
+[00:10:55] a timeline view showing the full day's
+[00:10:57] reservation schedule. All right, so,
+[00:10:59] after sending over that prompt, Base 44
+[00:11:01] will now create the reservation board
+[00:11:03] using the task booking submitted through
+[00:11:06] the front end form. Now, each booking is
+[00:11:08] organized by time slot and shows the
+[00:11:11] party name, party size, table number,
+[00:11:13] and current status, giving the staff one
+[00:11:16] clear view of what is happening across
+[00:11:18] the restaurant. Now, I'm going to click
+[00:11:20] through a few tables here and then
+[00:11:22] update their status from reserved to
+[00:11:24] seated and then completed to show you
+[00:11:27] how the board works as the night just
+[00:11:29] continues moving forward. Staff can also
+[00:11:31] mark tables as empty when they are ready
+[00:11:34] for the next booking. The timeline view
+[00:11:36] here shows the restaurant's full
+[00:11:38] reservation schedule for the day, making
+[00:11:41] it easier to really spot upcoming
+[00:11:43] parties and open gaps between bookings.
+[00:11:46] So, rather than say having reservation
+[00:11:48] requests sit in just one inbox, the
+[00:11:50] front of house team can now see and
+[00:11:52] manage everything from just one shared
+[00:11:54] place. And that makes the project much
+[00:11:57] more useful to the restaurant owner.
+[00:11:59] Because now the website brings in
+[00:12:01] reservations, yes, while the internal
+[00:12:03] view also helps the team manage those
+[00:12:06] very same bookings once customers
+[00:12:08] arrive. Now, here's the thing though. As
+[00:12:10] you've seen, Baseplate 44 is incredibly
+[00:12:11] powerful. But most people, they still
+[00:12:14] don't know how to use it properly
+[00:12:15] because they end up building basic apps
+[00:12:18] that don't make any money or websites
+[00:12:20] that just can't even convert. And that's
+[00:12:22] exactly why I created my own complete
+[00:12:24] Baseplate 44 masterclass. Inside of my
+[00:12:26] course, I'm going to show you
+[00:12:27] step-by-step how to build profitable
+[00:12:30] SaaS businesses, high-converting
+[00:12:32] websites, and mobile apps, all using AI
+[00:12:35] of course with zero coding required.
+[00:12:37] What you're going to learn is how to
+[00:12:38] build AI agents that solve real problems
+[00:12:41] and generate recurring revenue. The
+[00:12:43] exact prompts and the strategies that I
+[00:12:45] use to create professional websites in
+[00:12:48] minutes, along with how to clone
+[00:12:50] successful apps and then add your own
+[00:12:53] profitable twist, and my proven system
+[00:12:55] for turning Baseplate 44 projects into
+[00:12:58] actual income streams. Now, this is not
+[00:13:00] just theory because I'm going to walk
+[00:13:02] you through real builds. I'm going to
+[00:13:04] show you my exact process, and of
+[00:13:06] course, I'm going to give you the
+[00:13:06] templates and the frameworks that have
+[00:13:09] already helped my students launch their
+[00:13:11] own successful AI-powered businesses.
+[00:13:14] And again, I got to say it, this my
+[00:13:15] masterclass normally costs $499 to join,
+[00:13:18] but since you are taking the time to
+[00:13:20] actually watch and sit here through this
+[00:13:22] video, thank you so much. You can join
+[00:13:24] completely free. So, if you are serious,
+[00:13:26] and I hope you are, about building
+[00:13:28] something profitable with AI in 2026,
+[00:13:30] you got to click that link in the
+[00:13:31] description below to join my Base 44
+[00:13:33] Masterclass. Because I'm telling you,
+[00:13:35] your future self will thank you for
+[00:13:37] taking action today instead of just
+[00:13:38] watching another tutorial. All right, so
+[00:13:40] our next business has a completely
+[00:13:43] different goal. Yes, a restaurant wants
+[00:13:44] reservations, but a gym wants people to
+[00:13:48] take that first step and actually walk
+[00:13:50] through the door. Most new members will
+[00:13:52] not commit to a long-term membership
+[00:13:55] right away. So, the website needs to
+[00:13:57] make signing up for a free trial as easy
+[00:14:00] and as appealing as possible. So, for
+[00:14:02] this build, we're creating a gym website
+[00:14:05] that's designed to generate trial
+[00:14:07] sign-ups. And we'll include a strong
+[00:14:09] hero section, a weekly class schedule,
+[00:14:12] trainer profiles, membership options,
+[00:14:15] and a sign-up form that captures
+[00:14:17] everything that the gym needs to follow
+[00:14:19] up with potential members. So, here's
+[00:14:21] the prompt that we're going to use.
+[00:14:23] Create a website for a gym. Include a
+[00:14:26] hero section with a bold motivational
+[00:14:28] headline and a start your free trial
+[00:14:30] button. A class schedule showing the
+[00:14:33] weekly timetable with class name,
+[00:14:35] trainer, time, and available spots. A
+[00:14:38] trainer section with three trainers,
+[00:14:40] each showing their name, specialty, and
+[00:14:43] a short bio. A membership section with
+[00:14:45] three pricing tiers and their features.
+[00:14:47] And a trial sign-up form with name,
+[00:14:50] email, phone, and preferred class. Okay,
+[00:14:52] so once I send over that prompt, Base 44
+[00:14:55] will then start generating the website.
+[00:14:56] As you can see, the hero section up top
+[00:14:58] appears first, of course, with a bold
+[00:15:00] motivational headline and a prominent
+[00:15:03] start your free trial button here that
+[00:15:05] immediately encourages visitors to take
+[00:15:07] an action. Now, scrolling down, the
+[00:15:10] weekly class schedule displays each
+[00:15:12] class with its own trainer, and time,
+[00:15:14] and available spots so that visitors can
+[00:15:16] quickly see what fits their schedule.
+[00:15:19] And next up, we have the trainer
+[00:15:21] profiles, where each trainer is
+[00:15:23] introduced with their name, their
+[00:15:24] specialty, and a short bio. The
+[00:15:27] membership section follows with three
+[00:15:29] pricing tiers, making it easy for
+[00:15:31] visitors to compare what's included
+[00:15:34] before making a decision. And then at
+[00:15:36] the bottom of the page here is the trial
+[00:15:38] sign-up form. Now, I'm going to fill it
+[00:15:40] out with sample details to confirm that
+[00:15:43] it does capture the visitor's name,
+[00:15:44] email, phone number, and their preferred
+[00:15:46] class correctly. Now, looking through
+[00:15:49] the finished website here, every single
+[00:15:51] section supports the same objective.
+[00:15:54] Class schedule shows what's available,
+[00:15:56] the trainer profiles help build
+[00:15:58] confidence, the membership options set
+[00:16:01] clear expectations, and the sign-up form
+[00:16:04] gives our visitors a simple way to book
+[00:16:07] their free trial. The final result has
+[00:16:09] an energetic look while still feeling
+[00:16:11] very polished enough to present to a
+[00:16:13] real gym owner. The website helps bring
+[00:16:16] in new members through the door, but
+[00:16:18] running the gym also takes a lot more
+[00:16:21] than just collecting trial sign-ups.
+[00:16:23] Trainers need to know which classes are
+[00:16:25] filling up, who is actually showing up,
+[00:16:28] and which sessions are performing well
+[00:16:30] over time. And without that information,
+[00:16:33] it's just much harder to plan schedules
+[00:16:35] and manage capacity. So, for the second
+[00:16:38] prompt, we're going to stay inside the
+[00:16:40] same Base 44 project and build an
+[00:16:42] internal trainer dashboard that pulls
+[00:16:44] together all of that information in one
+[00:16:47] place. So, let's say something like,
+[00:16:48] "Create an internal trainer dashboard
+[00:16:50] showing every class with its current
+[00:16:52] sign-up count against total capacity,
+[00:16:55] with a visual indicator for classes that
+[00:16:57] are nearly full or fully booked. Add a
+[00:17:00] member attendance view showing who
+[00:17:02] signed up for each class, and whether
+[00:17:04] they attended or were a no-show, and a
+[00:17:07] class performance summary showing
+[00:17:10] average attendance rate and total
+[00:17:12] sign-ups per class over the past 30
+[00:17:14] days."
+[00:17:15] So, after sending over that prompt, as
+[00:17:17] you can see, Base 44 then generates the
+[00:17:19] dashboard here using the test sign-ups
+[00:17:21] submitted through the website. And then
+[00:17:23] every single class is displayed with its
+[00:17:26] own current sign-up count alongside its
+[00:17:29] total capacity and the visual indicators
+[00:17:31] change as classes get closer to being
+[00:17:34] fully booked, making it really easy to
+[00:17:36] see which sessions are filling up. So,
+[00:17:38] I'm also going to open up the attendance
+[00:17:40] view here, where we can see who signed
+[00:17:42] up for each class and whether or not
+[00:17:44] they at- tended or were just a no-show.
+[00:17:47] And finally, the class performance
+[00:17:49] summary just breaks everything down by
+[00:17:51] showing the average attendance rate and
+[00:17:53] total sign-ups for each class over the
+[00:17:55] past 30 days. Now, together, these
+[00:17:58] features give our gym owners much more
+[00:18:01] than just a website that collects leads
+[00:18:04] because the front end does help attract
+[00:18:06] new members while the trainer dashboard
+[00:18:08] provides useful information the staff
+[00:18:10] can actually use to manage classes,
+[00:18:13] monitor attendance, and really
+[00:18:15] understand which sessions are performing
+[00:18:18] best. Real estate is a little different
+[00:18:20] from the businesses that we've covered
+[00:18:22] so far because the website has to sell
+[00:18:25] two things at once. It needs to make the
+[00:18:27] properties easy to explore, but it also
+[00:18:30] has to build trust in the agent behind
+[00:18:32] them. Buyers want useful information
+[00:18:35] before reaching out and sellers want to
+[00:18:38] know that they are dealing with someone
+[00:18:40] credible. So, for this build, we're
+[00:18:42] creating a personal real estate website
+[00:18:44] that brings both of these sides
+[00:18:46] together. Now, the full prompt is shown
+[00:18:48] right here on your screen, but the main
+[00:18:50] idea, as you can read, is to build a
+[00:18:51] strong hero section with a property
+[00:18:54] search bar and a get in touch button,
+[00:18:56] followed by six featured listings, an
+[00:18:58] agent profile, a mortgage calculator,
+[00:19:01] and a contact form for buyer and seller
+[00:19:03] inquiries. Now, once I do send over that
+[00:19:06] prompt, as you can see, Base 44 starts
+[00:19:07] building out our website. The hero
+[00:19:09] section up top appears first, of course,
+[00:19:11] with a bold headline, the property
+[00:19:13] search bar, and a clear get in touch
+[00:19:15] call to action button. Scrolling down
+[00:19:17] now, the property listings are arranged
+[00:19:19] in a grid, and each one does include a
+[00:19:22] photo placeholder, address, price,
+[00:19:24] number of bedrooms and bathrooms, and a
+[00:19:27] view property button. Next up, I'm going
+[00:19:29] to open up the mortgage calculator here,
+[00:19:32] and then enter a few sample numbers.
+[00:19:34] Now, visitors can use the property
+[00:19:35] price, deposit, and interest rate to
+[00:19:38] estimate their monthly repayments before
+[00:19:40] they even decide to contact the agent.
+[00:19:43] And then further down now here, the
+[00:19:45] agent profile includes their name, their
+[00:19:47] bio, years of service, and total
+[00:19:49] properties sold. And that section gives
+[00:19:51] the website a more personal side and
+[00:19:54] helps establish credibility beyond just
+[00:19:57] the listings themselves. The contact
+[00:19:59] form then gives now both buyers and
+[00:20:02] sellers a direct way to send an inquiry.
+[00:20:05] And the finished website here gives
+[00:20:07] visitors enough information to explore
+[00:20:10] the properties on their own while still
+[00:20:12] keeping the agent at the center of the
+[00:20:15] whole experience. It looks credible,
+[00:20:18] it's professional, and it's ready to use
+[00:20:20] as a live client demo. A contact form
+[00:20:23] can bring in leads, but it does not help
+[00:20:25] much if the agent still has to sort
+[00:20:27] through all the messages and then
+[00:20:29] remember who needs a follow-up. So, once
+[00:20:31] several properties and buyers are
+[00:20:33] involved, then those conversations can
+[00:20:36] become difficult to track very quickly.
+[00:20:38] So, we'll stay inside the same Base 44
+[00:20:40] project again, and then build out an
+[00:20:42] internal CRM that manages every inquiry
+[00:20:45] submitted through the website. Now, the
+[00:20:47] full prompt again is here on your
+[00:20:49] screen, but in short, what we're doing
+[00:20:51] is creating a lead management system
+[00:20:53] that records each inquiry, tracks its
+[00:20:55] follow-up status, shows which property
+[00:20:58] the person is actually interested in,
+[00:21:00] and summarizes the entire pipeline. So
+[00:21:03] now, after sending over that prompt,
+[00:21:04] Base 44 generates the CRM, and then
+[00:21:07] fills it with the test inquiries
+[00:21:09] submitted through the contact form. Now,
+[00:21:12] the leads dashboard here displays each
+[00:21:14] person's name, their email, their phone
+[00:21:16] number, their inquiry type, and the
+[00:21:18] submission date giving the agent one
+[00:21:21] central place to manage all incoming
+[00:21:24] leads. So, I'm going to open up one of
+[00:21:25] the leads here and move its follow-up
+[00:21:27] status through the different stages from
+[00:21:29] new to contacted, viewing schedule,
+[00:21:32] offer made, and closed. There is also a
+[00:21:35] property interest view that shows which
+[00:21:37] leads have inquired about each listing
+[00:21:40] making it really just much easier to see
+[00:21:42] which properties are getting the most
+[00:21:44] attention. And the pipeline summary here
+[00:21:47] gives a quick overview of how many leads
+[00:21:50] are currently sitting at each stage of
+[00:21:53] the sales process. So, at that point,
+[00:21:56] the website then becomes more than just
+[00:21:58] a place to collect inquiries. It gives
+[00:22:00] the agent a practical system for staying
+[00:22:03] organized and tracking demand and really
+[00:22:05] following up with every potential
+[00:22:07] client. Here's the full section with a
+[00:22:10] more natural lead in and the exact
+[00:22:12] prompt preserved. For the final
+[00:22:15] business, we're looking at an industry
+[00:22:17] where trust can decide whether someone
+[00:22:20] books or leaves the page. Most people
+[00:22:23] already feel uncertain when they need
+[00:22:26] car repairs, especially when they do not
+[00:22:28] even know what the problem is or how
+[00:22:31] much it might cost. So, a strong website
+[00:22:33] can reduce some of that hesitation
+[00:22:35] before the customer ever speaks to the
+[00:22:37] shop. So, for this build, we're creating
+[00:22:40] a practical auto repair website that
+[00:22:43] clearly explains the services offered,
+[00:22:45] it shows starting prices, includes
+[00:22:47] customer reviews, and gives people a
+[00:22:49] simple way to book a service
+[00:22:51] appointment. It also needs to collect
+[00:22:53] the vehicle details up front so that the
+[00:22:56] shop has a better idea of what the
+[00:22:58] customer needs before the car arrives.
+[00:23:01] So, for that, we're going to use this
+[00:23:03] prompt. Create a website for an auto
+[00:23:05] repair shop include a hero section with
+[00:23:08] a bold headline, a testimonial section,
+[00:23:10] a booking form, and a location and
+[00:23:13] opening hours section. Okay, so once I
+[00:23:15] do send over that specific prompt, as
+[00:23:17] you can see again, Base44 begins
+[00:23:19] generating our website. Now, the hero
+[00:23:20] section loads first, of course, with a
+[00:23:22] bold headline and a clear book a service
+[00:23:25] button, giving customers an obvious next
+[00:23:27] step as soon as they arrive. A scrolling
+[00:23:30] down, the services section lists six
+[00:23:32] different repair services, each with a
+[00:23:34] name, a short description, and starting
+[00:23:37] price. Showing that information clearly
+[00:23:40] helps set expectations and gives
+[00:23:43] customers a better idea of what the shop
+[00:23:46] offers before they make contact. Now,
+[00:23:49] the testimonial section here follows
+[00:23:51] with three customer reviews, including
+[00:23:53] each person's name, their star rating,
+[00:23:55] and their review. For an auto repair
+[00:23:58] shop, these reviews actually really do
+[00:24:00] matter because they give new customers
+[00:24:02] reassurance from people who have already
+[00:24:05] used the service. So, next up, I'll fill
+[00:24:07] out the booking form here using sample
+[00:24:09] details. It captures the customer's
+[00:24:11] name, their phone number, their vehicle
+[00:24:13] make and model and year and service
+[00:24:15] needed and their preferred date of
+[00:24:17] service. Now, collecting those details
+[00:24:19] ahead of time gives the shop useful
+[00:24:22] context before the vehicle is brought
+[00:24:24] in. The location and the opening hours
+[00:24:27] are also shown clearly here at the
+[00:24:29] bottom of the page so that customers
+[00:24:31] really know where to go and when the
+[00:24:33] shop is available. So, looking through
+[00:24:36] the finished result again, the website
+[00:24:38] is straightforward, it's professional,
+[00:24:40] and it's built around the questions a
+[00:24:43] customer is most likely to have before
+[00:24:45] booking a repair. Once the booking comes
+[00:24:48] in, then the shop still needs a clear
+[00:24:49] way to manage the vehicle from arrival
+[00:24:52] to completion. And on a busy day, it is
+[00:24:55] easy for jobs to get mixed up when the
+[00:24:56] team is relying on paper notes and
+[00:24:58] messages or memory even. A shared job
+[00:25:01] board gives everyone the same view of
+[00:25:03] what is waiting, what is being worked
+[00:25:06] on, and what is ready for pickup. Now,
+[00:25:09] we'll stay inside the same base 44
+[00:25:11] project here and build that internal
+[00:25:13] system next. The full prompt again is
+[00:25:15] shown right there on your screen, but
+[00:25:17] the main idea is to organize every
+[00:25:19] active booking as a job card across four
+[00:25:22] status columns: received, in progress,
+[00:25:25] awaiting parts, and completed. Now, each
+[00:25:27] card here will include the customer's
+[00:25:29] details, their vehicle information,
+[00:25:31] their requested service, and assigned
+[00:25:33] mechanic. After sending over that
+[00:25:35] prompt, base 44 will then create the
+[00:25:37] workshop board here and then fills the
+[00:25:39] received column with the test bookings
+[00:25:41] submitted through the website. So, every
+[00:25:43] card shows the customer's name and phone
+[00:25:45] number and the vehicle make along with
+[00:25:48] the model and year and the service
+[00:25:49] requested and the mechanic assigned to
+[00:25:52] do the job. So, I'm going to drag one of
+[00:25:54] the cards here from received into
+[00:25:56] progress and then assign a mechanic to
+[00:25:58] it. Jobs can be moved between columns as
+[00:26:01] the work does move forward and the
+[00:26:03] assigned mechanic can also be changed
+[00:26:06] whenever needed. So, here at the top of
+[00:26:08] the board, the daily summary shows how
+[00:26:10] many jobs have been received, how many
+[00:26:13] are still currently in progress, how
+[00:26:15] many have been completed, and which ones
+[00:26:18] are still waiting for parts. Now, as the
+[00:26:21] cards move across these columns, these
+[00:26:23] totals update as well. The customer-
+[00:26:25] facing website handles the booking while
+[00:26:27] the workshop board gives the team a more
+[00:26:30] practical way to manage the work once
+[00:26:33] the vehicle arrives. It keeps the shop
+[00:26:36] really organized and gives the owner a
+[00:26:37] quick view of the day's workload. So,
+[00:26:40] now, what makes these five builds
+[00:26:43] valuable is not the number of pages or
+[00:26:45] how quickly base 44 generated them. It's
+[00:26:48] the fact that each one solves a real
+[00:26:50] problem for a business owner. The dental
+[00:26:53] clinic can manage appointments, the
+[00:26:56] restaurant can go ahead and organize
+[00:26:58] reservations, the gym can track
+[00:27:01] attendance, the agent can follow leads,
+[00:27:04] and the repair shop can manage active
+[00:27:06] jobs. Now, local businesses are still
+[00:27:09] one of the strongest markets in 2026
+[00:27:11] because many of them either have no
+[00:27:13] proper website or are relying on one
+[00:27:16] that really no longer supports how the
+[00:27:18] business actually runs. And so, for a
+[00:27:21] solo freelancer or a vibe coder, the
+[00:27:24] barrier to getting started is often just
+[00:27:26] reaching out and showing the owner
+[00:27:28] something useful. The same two prompt
+[00:27:31] structure carries over every single
+[00:27:33] project. The first prompt creates the
+[00:27:36] customer-facing website, while the
+[00:27:38] second builds out the internal tool the
+[00:27:40] owner or the staff would actually use.
+[00:27:43] And that separation makes the final
+[00:27:45] product then much more complete. The
+[00:27:48] front end brings in bookings and
+[00:27:50] inquiries or sign-ups, and then the back
+[00:27:52] end gives the business a clear way to
+[00:27:55] manage what comes in. Now, that back end
+[00:27:57] is also what changes how the project can
+[00:27:59] be priced because, yeah, a simple
+[00:28:01] website might go for around 300 bucks,
+[00:28:04] but a complete system that includes an
+[00:28:07] appointment dashboard, reservation
+[00:28:09] board, attendance tracker, CRM, or
+[00:28:12] workshop job board, that can be
+[00:28:13] presented as a $1,500 product. Now, the
+[00:28:17] important part is to sell both sides as
+[00:28:19] one package from the beginning, rather
+[00:28:21] than, say, treating the back end as an
+[00:28:23] optional add-on later. So, choosing
+[00:28:26] which niche to approach first should be
+[00:28:28] based on what is already familiar to
+[00:28:31] you. If you know a dentist, a restaurant
+[00:28:33] owner, gym coach, a real estate agent,
+[00:28:36] or even a mechanic, then start there.
+[00:28:38] Existing connections make the first
+[00:28:40] conversation a lot easier, and being
+[00:28:42] comfortable with the business helps you
+[00:28:44] explain the value more clearly. Every
+[00:28:47] project from this video can also be used
+[00:28:50] as a portfolio piece or a live demo. You
+[00:28:53] can show a potential client the public
+[00:28:55] website and then open up the internal
+[00:28:57] dashboard and then explain how the two
+[00:29:00] sides actually work together. And then
+[00:29:02] that gives them something real to react
+[00:29:04] to. It makes the offer much easier to
+[00:29:06] understand than just simply describing
+[00:29:08] what you could build. So, those five
+[00:29:11] builds are more than just website ideas.
+[00:29:14] They're complete systems that you can
+[00:29:16] use to solve real problems for local
+[00:29:19] businesses. So, pick out that niche that
+[00:29:21] makes the most sense for you, build out
+[00:29:23] your first demo, and then start showing
+[00:29:25] business owners what their website could
+[00:29:28] actually do instead of just telling
+[00:29:30] them. And if you found this walk-through
+[00:29:32] super helpful, then please do let me
+[00:29:33] know in the comments below which of
+[00:29:35] these five businesses you would actually
+[00:29:37] build for first. And if there are any
+[00:29:40] other local business niches that you
+[00:29:41] would like me to cover in a future
+[00:29:44] video. Thank you for watching and
+[00:29:45] investing your time with me today. I'll
+[00:29:46] see you at the next one.

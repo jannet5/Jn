@@ -1,0 +1,375 @@
+# Claude Code Runs My Social Media Now (Full Setup)
+# https://www.youtube.com/watch?v=Fnw1_YAYEAc
+# kanal: Zubair Trabzada | AI Workshop | süre: 1447 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] In this video, I'm going to show you how to fully automate your social media
+[00:00:03] posting using Cloud Code. No complicated setup, no coding experience needed.
+[00:00:07] [music] We'll build this together step-by-step from installation of Cloud
+[00:00:11] to creating high-quality content to posting automatically on social media
+[00:00:15] platforms like LinkedIn, Twitter, [music] and Instagram. By the end,
+[00:00:18] you'll have a real system running on autopilot. All right, let's get started.
+[00:00:22] So, just quickly before we get started on installation and step-by-step
+[00:00:25] process, we're going to actually focus on posting this whiteboard infographic
+[00:00:31] post on LinkedIn, and we can post this on on other social media platforms as
+[00:00:34] well. Like I'm going to show you how to do that. But, these posts are really
+[00:00:37] cool. They get a lot of views. They get a lot of engagement. So, we're going to
+[00:00:41] focus on this. But then again, like I said, I'll show you exactly how to
+[00:00:44] create other posts or other formats if you wish. All right, so the first thing
+[00:00:48] you need to do is you need to make sure you have Cloud signed up for a Cloud
+[00:00:52] account, of course. So, head over to cloud.ai. If you don't have an account,
+[00:00:55] go ahead and create a quick account there. You want to make sure you're on
+[00:00:57] the paid plan because it's honestly worth the investment there. You can
+[00:01:02] start with a $20 a month or the max plan if you choose to. So, once you install
+[00:01:06] that, the next thing you need to do is you need to head over to Visual Studio
+[00:01:09] Code. Again, we're not going to be using any code at all, but this is
+[00:01:13] an IDE, which stands for integrated development environment, which is a
+[00:01:17] fancy word for saying that you can see all of the files and the the code the
+[00:01:21] Cloud Code and everything else in one cohesive place. So, once you install, I
+[00:01:25] have a Mac, so you go ahead and download for your whatever computer you're using.
+[00:01:29] So, I have already have it installed. So, once you have it installed,
+[00:01:34] basically it's going to look something like this. Let me get rid of it. So,
+[00:01:36] this is you know, once you open Visual Studio Code, you will have this welcome
+[00:01:40] sign. In order to add Cloud Code, what we need to do is you need to head over
+[00:01:44] to the extensions here. So, this is extensions, and you can just search for
+[00:01:47] Cloud Code. And you're going to click on the first
+[00:01:51] one here. Make sure this is by Anthropic, and as you can see it has 4.9
+[00:01:54] million downloads. So, you want to download this one. So, once
+[00:01:58] you install this, it's going to look something like this. Now, once you're
+[00:02:01] done, go ahead and click outside there, go back to these files right here, and
+[00:02:05] in order for us to now access Claude Code, all you need to is just double
+[00:02:09] click in the middle right here, and on the top right-hand corner, once you have
+[00:02:12] installed that extension, you'll see that Claude Code sign shows up here. So,
+[00:02:17] I'm going to click on that, and now you have Claude Code installed in this
+[00:02:22] Visual Studio Code. So, I'm going to get rid of this file here. Another thing we
+[00:02:25] need to do is we need to create, if this is your first time, you want to create a
+[00:02:29] folder. So, you can do that by going over to the
+[00:02:33] file here and click on open folder and just create a folder on your desktop.
+[00:02:38] I've just put social media. So, I'm just going to click on open and it's going to
+[00:02:41] open the folder right here. As you can see on the left-hand side right now, I
+[00:02:44] don't have any files. Okay? So, we're not going to create any files or
+[00:02:48] folders inside of this, but we're going to have Claude basically create
+[00:02:52] everything for us. All right, so for those of you who are new to using Claude
+[00:02:56] Code inside, you know, an IDE like Visual Studio Code or Google's
+[00:03:00] Anti-Gravity, essentially, you have in the bottom right here,
+[00:03:05] the ability to kind of have Claude Code either plan something, ask you for
+[00:03:11] everything before edits, and that becomes a little annoying, or just um
+[00:03:16] edit automatically. I'm going to leave it in edit automatically, and then we
+[00:03:19] can we can change it to others if we choose to later on. Okay, so the first
+[00:03:23] thing we need to do is we need to have Claude Code create some kind of a
+[00:03:27] viral post for us some related to a particular topic, right? And like I
+[00:03:32] said, we can schedule this and I'm going to show you how to do that later on, but
+[00:03:35] I'm going to go ahead and type something like research SEO versus GEO and write a
+[00:03:40] thought-provoking LinkedIn post about the future of search. For those of you
+[00:03:43] who are not familiar with SEO versus GEO, so SEO stands for search engine
+[00:03:48] optimization and GEO, which is the new hot topic, which stands for um
+[00:03:53] generative engine optimization, which essentially means that instead of
+[00:03:56] optimizing for Google searches of the world, you're not now optimizing your
+[00:04:00] posts for, you know, ChatGPT and Claude and Gemini and everything. And by the
+[00:04:06] way, you can search or you can create a post about anything, right? Like you can
+[00:04:09] just say, "Hey, if you want to create a LinkedIn post about Claude Code or AI
+[00:04:16] agents, whatever it may be." You can just type it in here. So, I'm just going
+[00:04:18] to press enter. So, this is going to go ahead and research and create a LinkedIn
+[00:04:23] post for me. So, what it's going to do is it's asking us to allow searching for
+[00:04:27] this query, right? So, you can press the one or you can just click on yes here.
+[00:04:32] So, it's just going to ask you a bunch of questions so that way you allow it to
+[00:04:35] do web research. So, go ahead and let it do that. All right, there you go. So, it
+[00:04:39] did a bunch of web research and then [music] now created this post for
+[00:04:44] LinkedIn. Says, "The game changed. Most marketers didn't notice for 25 years SEO
+[00:04:48] was simple, blah blah blah." Right? So, you have this post that it created. So,
+[00:04:52] now if you want to have this be created as a file, right? Because we
+[00:04:57] want to have a post for LinkedIn, a post for Twitter, Instagram, and everything
+[00:05:02] else. I'm just going to basically ask Claude Code to do that for me. So, I'm
+[00:05:05] going to go ahead and say, "Create a file in this project for this LinkedIn
+[00:05:09] post and also create a file for Instagram and another one for Twitter."
+[00:05:12] And again, you can keep adding more. Let's say if you want to add it for
+[00:05:15] TikTok and everything else, right? So, I'm going to press enter here and now
+[00:05:18] it's going to as you can see on the left hand side right now, it's blank. This
+[00:05:20] folder is blank. You'll see now new files will be created inside this
+[00:05:25] particular directly directory with LinkedIn, [music]
+[00:05:30] Instagram, and Twitter. So, there you go. It created
+[00:05:34] the LinkedIn post. If I click on this, as you can
+[00:05:37] see, let me actually move this on this side. There you go. So, now you can see
+[00:05:41] we have this LinkedIn post created in this particular file for LinkedIn. We
+[00:05:47] got one for Instagram, right? There you go. It actually even has a carousel
+[00:05:52] slide suggestion that it does for you, right? And then another one for Twitter
+[00:05:56] there. Okay? So, that's how we can create
+[00:06:00] um these different files. Let's go back to our Claude there.
+[00:06:03] So, there you go. It said all three files
+[00:06:06] uh are created in your social media project. Okay? So, now what we could do
+[00:06:11] is again, we can click on these to check out if you want to make any changes. You
+[00:06:14] can uh know, you can basically add any changes or uh manually add any kind of
+[00:06:19] particular text if you want. Okay, so as you can see, I mean, these are pretty
+[00:06:23] long. Like uh I'm going to focus on LinkedIn for now and we can take a look
+[00:06:27] at the other ones. Obviously, you don't want to for it to be this long, right?
+[00:06:31] Cuz longer posts with a bunch of text doesn't get a lot of
+[00:06:35] attention and um engagement. So, what we could do is now
+[00:06:39] tell Claude, "Hey, you know what? Like some of these are longer or whatever
+[00:06:44] other formatting you want to present." That's where we can actually tell Claude
+[00:06:48] code to incorporate our own brand voice, right? So, and it's very easy to do
+[00:06:53] that. You can just say, "Can you incorporate my brand voice for these
+[00:06:56] posts and for posts moving forward?" So, now I'm going to press enter. And what
+[00:07:00] this means is that we want to create this
+[00:07:03] um formatting [snorts]
+[00:07:05] or this brand voice that we have for whatever, you know, whether it's like
+[00:07:09] your your own personal brand or a company or a business or whatever it may
+[00:07:12] be. Then you can basically have Claude tell you or you tell Claude to create me
+[00:07:17] a brand voice based on some of these selections. As you can see right here,
+[00:07:21] it's now going to ask you these questions and based on these answers,
+[00:07:24] it's going to um make sure that moving forward, it
+[00:07:27] creates the post exactly based on your selection or your own branding. So, now
+[00:07:32] it's asking as, "How would you like to describe your brand's tone and
+[00:07:34] personality, right?" So, bold, direct, casual, and conversation, professional
+[00:07:38] and authoritative, witty and provocative, right? So, I'm just going
+[00:07:42] to say uh let's just do casual and
+[00:07:44] conversational, right? There you go. So, audience, who's your primary audience
+[00:07:49] across these platforms? Founders, CEOs, marketing professionals, general
+[00:07:52] business audience, entrepreneurs, and creators. I'm going to say entrepreneurs
+[00:07:55] and creators. And let's see perspective it says oh,
+[00:08:00] did I enter that? [music] Yep. The next one is perspective. What
+[00:08:05] perspective do you typically write from? Industry insider, educator, teacher,
+[00:08:09] contrarian thinker. I'm just going to say educator and teacher because I have
+[00:08:11] a YouTube video YouTube channel of course.
+[00:08:14] Are there any phrases, sign-offs, or styles you choose? Always, no emojis,
+[00:08:18] minimal emojis, emojis welcome, I have specific rules. I'm just going to say
+[00:08:21] emojis welcome. Whatever, that's fine. So, I'm going to click on submit answers
+[00:08:25] and now this is going to take all of that all of those choices and
+[00:08:29] incorporate it to my own brand voice here. And as you can
+[00:08:33] see right here, it's going to have memory.md. So, it's going to create this
+[00:08:36] file and moving forward and this this memory.md is going to be kind of like a
+[00:08:42] file that it's going to remember and reference in the future. So, let's go
+[00:08:45] ahead and let this complete. So, it says now let's rewrite all three posts. So,
+[00:08:49] it's going to rewrite these the LinkedIn, the Twitter, the Instagram
+[00:08:53] post based on these brand voices and like I said moving forward it will
+[00:08:57] remember your choices and your brand voice and so when you create
+[00:09:02] moving forward it will be able to do that. All right, so it went ahead and
+[00:09:06] updated all the tools. So, basically all these different files this is all three
+[00:09:10] posts are rewritten with your brand voice. Here's what's changed. So, it'll
+[00:09:13] show you what's changed and it says your brand voice is now saved to memory. So,
+[00:09:16] all future posts will automatically use the same style. So, now if I click on
+[00:09:20] this LinkedIn one, as you can see right here, now everything is
+[00:09:25] written in the same brand voice that we just had
+[00:09:28] made those choices, right? So, another thing is let's say if these are too
+[00:09:31] long, that was another thing that I forgot to mention. I'm just going to say
+[00:09:35] also it looks like these posts are too long. So, I'm just going to press enter.
+[00:09:38] I said, "Oh, these two posts are too long. Make sure they're short and to the
+[00:09:41] point and then also make sure that they abide by all the platforms character
+[00:09:45] limits." Because obviously Twitter, Instagram, and LinkedIn, they have they
+[00:09:48] might have separate character limits. You want to make sure that you're you're
+[00:09:52] incorporating that. So, now I'm just going to That's a great thing about
+[00:09:55] ClaudeCode. You can always just go back and forth and just tell it what to do
+[00:09:58] and it will do the research itself and it will actually do the changes or make
+[00:10:03] the changes by on on its own. So, let's go ahead and let it finish and there you
+[00:10:06] go. As you can see, now it changed the LinkedIn from that long post to this
+[00:10:12] really nice, short, and punchy post there.
+[00:10:15] So, let's go ahead and let it finish the other other posts as well. So, it
+[00:10:19] finished all of it. As you can see right here, it redid all of the tools and it
+[00:10:23] also gave me the character limits here. And
+[00:10:27] so, now if we click on Twitter, now as you can see, this is for Twitter. Now,
+[00:10:31] the one is for Instagram and there you go. Perfect. By the way, the bottom
+[00:10:34] right here, these slide one, slide two, this is not like the post. This is just
+[00:10:38] basically suggesting if you want to post that carousel. All right, awesome. So,
+[00:10:41] it looks like now we got our social media posts already created. And by the
+[00:10:46] way, like I mentioned before, if you want to add for TikTok and other social
+[00:10:50] media as well, you just basically follow the same exact process. So, now that we
+[00:10:54] have our posts ready to go, now we also want to obviously create some visuals,
+[00:10:59] right? Because without visuals, a lot of times these
+[00:11:02] posts don't look that good. And and also, if we want to post all of these
+[00:11:08] our posts create our posts and post them in all of the social media platform
+[00:11:11] without leaving ClaudeCode, what we need to do is connect it to one MCP. Now, an
+[00:11:17] MCP, for those of you who are not familiar, stands for model contacts
+[00:11:20] protocol. This was by Entropic that was introduced, I think, a year ago. But
+[00:11:24] MCP, to put it in simple words, essentially is a connector, right? That
+[00:11:28] allows ClaudeCode to connect to multiple apps, to other apps so that way it's
+[00:11:34] basically like a USB or like a universal connector, right? For for AI assistants
+[00:11:40] or for AI in general to be connected to apps that you're using on a daily basis.
+[00:11:43] So, in order for us to now post this in all of these different social media
+[00:11:48] platforms automatically directly from Cloud Code and actually schedule
+[00:11:52] posting, we need to use an MCP called Blotato MCP. So, for those of you who
+[00:11:56] are not familiar, go ahead and click on the link in the description. you can
+[00:12:00] create a free account there. They have a free trial for a week. This is a really
+[00:12:04] great platform where you can basically connect to all social media platform
+[00:12:08] directly from Blotato here. So, Blotato has its own MCP. So, once you create
+[00:12:13] your account or you log in, you're going to come here to the left I'm going to
+[00:12:16] click on skip this resource. You're going to come here on the left-hand
+[00:12:19] side, click on settings here, and you're going to click on APIs here.
+[00:12:24] >> [clears throat] >> All right, so here's where we need to
+[00:12:27] connect our uh Blotato and Cloud Code work, as you
+[00:12:31] can see right here. All you have to do is click on copy setup command. Now, one
+[00:12:35] thing to notice, so if I copy this and if I go back to my Visual Studio Code
+[00:12:40] and if I paste this, this is going to just say Cloud MCP add transport. Again,
+[00:12:44] it's going to say a bunch of little things and most importantly, it's going
+[00:12:47] to have your API key, as you can see right here. It will automatically copy
+[00:12:52] your API key. So, it says header Blotato API uh key and it's this. So, if you
+[00:12:57] just follow the step that I just showed you, if you just click on settings and
+[00:13:01] um uh click on copy setup command, it will
+[00:13:04] show you exactly um or you can just paste that exact same
+[00:13:08] thing inside your Visual Studio Code and it'll just show up. One thing is because
+[00:13:12] we're using um Cloud Code inside our >> [clears throat]
+[00:13:17] >> Visual Studio Code, this command right here is for terminal. So, we need to add
+[00:13:22] something extra to this to make sure that Cloud Code doesn't uh run into any
+[00:13:26] issues. So, I'm just going to press shift enter so that way I get some space
+[00:13:29] here. Uh On top here, what we need to do is I'm just going to go ahead and
+[00:13:33] um copy and paste this. So, you can just
+[00:13:37] copy this right here. By the way, once I type this,
+[00:13:42] you can just pause the screen and type it yourself. And for those of you who
+[00:13:45] are part of my community, you can just come to that classroom section, click on
+[00:13:48] this Claude code uh classroom to build and sell with Claude code. Under the
+[00:13:52] projects in the bottom, it says automate with social media, and you can just
+[00:13:56] basically get access to this and all of the other resources as well. All right.
+[00:13:59] So, and for those of you who are not, that's fine. Don't worry. All you have
+[00:14:01] to do is just copy this portion, and you're going to come right here, and I'm
+[00:14:05] just going to paste this. And by the way, just you can see it's very simple.
+[00:14:09] I'm saying add the following MCP server as if you were running Claude MCP add
+[00:14:13] command and add it to user scope.claude.json.
+[00:14:17] Create the file if it doesn't exist. Okay? So, something very simple, and
+[00:14:21] you'll just basically [music] uh paste that one that you this
+[00:14:25] particular thing from uh that bloatato MCP that you copied. So, now I'm going
+[00:14:29] to press enter. So, now it should be able to go and ask me allow reading from
+[00:14:35] dot.claude.json. I'm going to say yes, allow. So, now this is going to go
+[00:14:39] through the permissions because obviously it needs to ask me for a
+[00:14:41] certain permissions in order to make changes. And then also if it has it if
+[00:14:45] it's accessing MCP, it's going to add it to this file right here, which is
+[00:14:49] settings.claude.json or settings.local.json.
+[00:14:52] Again, don't worry about that if you're not familiar with code. Just know that
+[00:14:56] this is going to add everything we need in order for us to get connected to our
+[00:15:00] bloatato MCP so that way we can uh go ahead and start adding our uh social
+[00:15:07] media to um or
+[00:15:10] connecting [clears throat] our social media accounts.
+[00:15:12] All right. So, let's go ahead and see what's going on. I'm going to press yes,
+[00:15:15] allow. There you go. All right. So, it says done. The
+[00:15:18] bloatato MCP server has been added to Claude.json transfer blah blah blah. So,
+[00:15:22] you'll need to restart Cloud Code for the new MCP server to be picked up.
+[00:15:26] Okay. So, in order to start Cloud Code is very simple. Inside your Visual
+[00:15:30] Studio Code, all you have to do is click on the top right here on the Cloud Code
+[00:15:34] open little
+[00:15:37] icon here. So, I'm going to click on this and as you can see now I have a new
+[00:15:41] Cloud Code terminal. So, I'm going to get rid of this so that way we can work
+[00:15:44] on this. All right. So, now that's done. Now, let's go ahead and actually ask it
+[00:15:48] to use this MCP by creating that infographic that I that we looked at
+[00:15:52] earlier. So, one thing to note in the bottom as you can see right here it says
+[00:15:55] ask before edit. So, I'm just going to click on this so that way it goes to
+[00:15:58] edit automatically. And then as you can see right here, um this LinkedIn post.md
+[00:16:03] is automatically like selected, but if it's not you can just click on it and
+[00:16:07] it'll automatically select that. Um >> [clears throat]
+[00:16:10] >> Now, I'm going to just go ahead and tell it to create that infographic
+[00:16:15] um post for based on my LinkedIn file here. Okay.
+[00:16:20] So, I said basically So, I said make a whiteboard infographic from the LinkedIn
+[00:16:24] post, right? So, all I have to do is click press enter. And now it's going to
+[00:16:27] go ahead and take a look at that LinkedIn post file, right? It says, "Let
+[00:16:31] me read the LinkedIn post first, then we'll then find a suitable whiteboard
+[00:16:35] template." So, I'm just going to say, uh as you can see right here it says, "Do
+[00:16:38] you want to proceed with the MCP Bloctato visual templates?" And I'm
+[00:16:42] going to say yes, allow MCP templates. So, what this means is basically it's
+[00:16:45] going through Bloctato and it's going to go and check the different templates
+[00:16:49] that are available inside and it's going to select that infographic template,
+[00:16:52] right? So, that's why it's asking you for permission here. So, uh we're going
+[00:16:56] to go ahead and let this finish processing and then I'm going to show
+[00:17:00] you exactly what that looks like and how you can access other templates as well.
+[00:17:04] All right. So, it says that the whiteboard infographic is done. Here it
+[00:17:07] is, right? If I click on this, now it should take me directly to that uh
+[00:17:12] whiteboard infographic. As you can see, it's really well done. It's SEO versus
+[00:17:15] GEO, get found versus get cited. SEO gets you found, GEO gets you cited. And
+[00:17:20] it's really this very beautiful whiteboard infographic that it created.
+[00:17:25] And by the way, to access this, you know, from Blotato, you're going to go
+[00:17:29] ahead and go to the left-hand side, click on videos, and you'll see your
+[00:17:34] generations right here. So, you can see this was created 3 minutes ago. So, if I
+[00:17:38] click on this, this is going to pull up this um
+[00:17:42] post right here, or this [clears throat] generation. Now,
+[00:17:45] obviously, you can you can have other whoops
+[00:17:51] you can have other templates in there as well that you can use. So, that was just
+[00:17:54] the whiteboard templates. If I go back to my videos here, click on create new
+[00:17:58] video. So, here you have a bunch of different templates that you can choose,
+[00:18:01] and you can just tell Claude Code basically, "Hey, create instead of the
+[00:18:05] that white paper white paper whiteboard infographic, create a newspaper
+[00:18:09] infographic." It's going to look something like this, or create this TV
+[00:18:12] wall infographic, or this trail marker infographic, right? Or
+[00:18:17] whatever else you want, or like a t-shirt one.
+[00:18:20] And so, there's a bunch of templates there, so just tell Claude Code to
+[00:18:23] create whatever template you want to create for that post, and it will
+[00:18:26] automatically do that. So, if I go to my videos again, you can see all of your
+[00:18:29] generations will be right here. Okay. So, the next step is now we need to
+[00:18:34] actually post this to our social media accounts. So, first thing you need to
+[00:18:37] do, you need to connect your social medias
+[00:18:40] in Blotato. The great thing is you can do it from the same exact spot. You want
+[00:18:43] to click on settings here, and this is going to bring you to your accounts. And
+[00:18:46] here's where you can actually log in. All you have to do is just log in to
+[00:18:49] your social media. You don't have to do anything else. So, I've already
+[00:18:52] connected my Instagram and LinkedIn and Twitter, but let's say I want to
+[00:18:56] connect my login with connect my Facebook. All I have to do is click on
+[00:18:59] login with Facebook. It's going to bring up my account. Obviously, make sure you
+[00:19:03] are in the same >> [music]
+[00:19:05] >> um browser that you're logged into that
+[00:19:07] account, and I'm just going to click on continue, and it will connect me. And
+[00:19:10] same thing on let's say you want to add to your LinkedIn, just going to click on
+[00:19:14] login with LinkedIn, you're going to add your email and password and just sign in
+[00:19:18] and it will automatically get you logged in. And at the bottom as you can see, it
+[00:19:22] says connected accounts. I have my Instagram and LinkedIn and Twitter, but
+[00:19:26] you can connect others in there as well. All right, so
+[00:19:29] >> [clears throat and cough] >> let's go ahead and post this. I'm going
+[00:19:31] to post this on LinkedIn now and maybe schedule it for my Instagram tomorrow
+[00:19:37] and then for my X maybe in 3 days or something
+[00:19:42] like that, right? Because so that way you can see how you can actually
+[00:19:45] schedule posts automatically. So now I'm going to go ahead and tell CloudCode,
+[00:19:49] all right, go ahead and post the LinkedIn post now and schedule the
+[00:19:52] Instagram post for tomorrow and the Twitter or X post for Thursday, February
+[00:19:56] 26th, okay? So I'm just going to enter. Again, I don't know if this is going to
+[00:19:58] work or not, but we can iterate. And like I mentioned before, the great thing
+[00:20:02] about CloudCode is you can always just go back and forth there. All right, so
+[00:20:06] it says, "Do you want to proceed with MCP?" Yep. "Allow MCP for all the
+[00:20:09] projects here?" So now if I go to my Instagram and my
+[00:20:15] LinkedIn here, so
+[00:20:18] go to my profile.
+[00:20:23] As you can see, my last post was about Zapier, that this video that I created.
+[00:20:28] And now if it's when it's done, it should be able to post that on my
+[00:20:31] LinkedIn right now. So if I go back here, yeah, it's still working. All
+[00:20:35] right, so it says, "Your LinkedIn account connection expired,
+[00:20:39] which caused all three posts to fail. You need to reconnect your accounts to
+[00:20:42] Buffer. That's because I think my account connection must have been
+[00:20:46] expired, so let's go ahead and reconnect, but it's very simple to do.
+[00:20:49] So all I have to do is click on reconnect here. Let's say I want to do
+[00:20:51] it for my LinkedIn there. There you go, I'm just going to sign in.
+[00:20:54] Oops.
+[00:21:01] I'm going to sign in here.
+[00:21:05] Okay, perfect. Oops, there's a lot going on here. So my looks like my LinkedIn
+[00:21:09] got connected. I'm also going to reconnect my Instagram.
+[00:21:15] Allow.
+[00:21:18] Perfect. That got connected. And then same thing for my Twitter.
+[00:21:23] Authorize app. Done. It's literally that simple. Okay.
+[00:21:29] So now let's go ahead and do this again. So I'm just going to say,
+[00:21:33] "All right, I reconnected everything. Try again." So I'm going to
+[00:21:36] press this. And if I go back to my LinkedIn,
+[00:21:41] refresh the page, let's see if if it's going to
+[00:21:45] put this already. Nope, not yet.
+[00:21:50] Cuz it's not done yet. Okay, this is Potato SEO get found.
+[00:21:54] There you go. All three posts are live scheduled.
+[00:21:59] Here's the recap. LinkedIn publish now with the whiteboard infographic. I can
+[00:22:02] click on view post from here. So and says Instagram schedule for tomorrow,
+[00:22:07] Twitter schedule for Thursday. All right, so let's go back to my LinkedIn
+[00:22:10] here. And if I refresh the page, hopefully now it posted.
+[00:22:14] Hey, perfect. There you go, right? It says click on more. If I click on more
+[00:22:19] here, there you go. So I got this nice SEO versus GEO get found versus get
+[00:22:24] cited. I've got this nice little text accompanying it with emojis and
+[00:22:29] everything based on that brand voice, right? And also I've got the post all
+[00:22:33] live and good to go. So now and if I want to know when this is going to get
+[00:22:37] posted on my on my
+[00:22:41] >> [clears throat] >> Instagram and Twitter, I can check this
+[00:22:44] by going to Potato. On the left-hand side I can click on calendar and you'll
+[00:22:49] see that upcoming posts. There you go. Let me move myself out of the way. So it
+[00:22:53] says the the Instagram post is scheduled for
+[00:22:57] tomorrow, I believe, right? Wednesday. Yep, today is Tuesday, February 24th. So
+[00:23:01] for tomorrow and then my Twitter this is for Thursday February 26th. That's it.
+[00:23:07] That's how simple it is. And you can keep like scheduling like let's say for
+[00:23:12] Tik Tok if you want to add this to Tik Tok and other social media as well. You
+[00:23:16] can either schedule all of them in different like days or you can put all
+[00:23:19] of them at the same time or immediately or however you want to schedule it. So
+[00:23:24] there you go. That's basically your entire social media on complete
+[00:23:27] autopilot. Check this out and make sure if you have any questions, please post
+[00:23:32] them in the comments. I'll try to get to all of them as soon
+[00:23:36] as possible. And for those of you who are interested in learning how to
+[00:23:39] monetize Cloud Code and learn how to start your AI agency, check out the
+[00:23:43] community link is going to be in the description. There's lots of great
+[00:23:46] courses there about Cloud Code and then Voice AI and most importantly how to
+[00:23:50] start your AI agency. Everything's there. A bunch of people from all over
+[00:23:54] the world and also technical support when you need it. Make sure you like and
+[00:23:58] subscribe because I've got a lot more content coming up that you don't want to
+[00:24:00] miss. Thanks for watching and I'll see you on the next one.

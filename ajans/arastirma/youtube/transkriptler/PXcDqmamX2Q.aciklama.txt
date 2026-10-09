@@ -1,0 +1,38 @@
+Post To Instagram Via N8N [AI Automation]
+
+Struggling to connect your Instagram account to N8N? Getting stuck on the credentials setup for the Instagram node? You've come to the right place.
+
+This is a step-by-step, no-fluff guide on how to properly authenticate and connect N8N with Instagram using the official Graph API method through a Facebook Developer account. This is the foundational step you MUST get right before you can automate posting, moderate comments, or build any other Instagram workflow.
+
+We will walk through the entire process inside the Facebook for Developers portal to create an app, set the correct permissions, and generate the necessary credentials to get your N8N workflow up and running.
+
+✅ WHAT YOU'LL LEARN IN THIS VIDEO:
+
+Why you need a Facebook Developer account for Instagram automation.
+How to create a new Facebook App from scratch.
+How to add the "Instagram Graph API" product to your app.
+Configuring the correct permissions (like instagram_basic, pages_show_list, etc.).
+How to generate a User Access Token.
+Where to find your App ID, App Secret, and Access Token.
+How to correctly input these credentials into the N8N Instagram node and test the connection.
+
+Once you have this connection set up, you'll be ready to build powerful workflows! This tutorial makes the most confusing part of Instagram automation simple.
+
+Code & Blog: https://websensepro.com/blog/how-to-post-to-instagram-via-n8n-ai-automation/
+
+Video Timestamps:
+00:00 - Intro
+02:43 - Setting up Facebook Developer App
+04:18 - Generating Access Token
+10:05 - Extending Token Expiry
+11:15 - Configuring N8N Workflow
+14:50 - Testing & Posting to Instagram
+15:25 - Conclusion
+
+Related Videos:
+Build N8N Whatsapp Chatbot!: https://youtu.be/srWFAArynRQ
+Post To Linkedin Via N8N : https://youtu.be/BpHw_U_UJkY
+Post to Facebook via N8N: https://www.youtube.com/watch?v=TECNpzbuSF4
+Connect Google Credentials in N8N: https://www.youtube.com/watch?v=VfHN57xMcEg
+
+If you are looking to get help related to AI Automation, feel free to reach us out at https://websensepro.com/contact-us

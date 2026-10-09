@@ -1,0 +1,593 @@
+# I Built an AI Content Agent With N8N and Claude (Step-by-Step)
+# https://www.youtube.com/watch?v=m9iaJNJE2-M
+# kanal: Greg Isenberg | süre: 1411 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] What if you can automate your marketing
+[00:00:02] team with AI agents and just have
+[00:00:06] content on autopilot? I know it sounds
+[00:00:09] like it's out of the future, and I was
+[00:00:10] skeptical, too. But I had Mr. Vibe
+[00:00:14] Marketing on the pot again to break down
+[00:00:16] and share his entire NAND workflow with
+[00:00:20] how to create content on autopilot that
+[00:00:23] actually gets likes and comments. So,
+[00:00:26] uh, you know, in this episode, he gives
+[00:00:29] away all the sauce. Um, then at the end,
+[00:00:31] he actually gives away, uh, all his
+[00:00:34] prompts and his template for doing it.
+[00:00:36] God bless him. Uh, like this video right
+[00:00:39] now on YouTube. Comment because this is,
+[00:00:42] uh, an incredible episode where you'll
+[00:00:44] learn how to become a vibe marketer and
+[00:00:48] start automating and running your
+[00:00:50] business on autopilot. Enjoy the
+[00:00:53] episode.
+[00:00:58] It'spping time, baby.
+[00:01:02] We got the boring marketer, Mr. Vibe
+[00:01:05] Marketing, back on the podcast. He's
+[00:01:07] going to teach us a workflow today. What
+[00:01:10] are we going to learn? Uh, today we're
+[00:01:12] going to learn some basics of how to use
+[00:01:14] inadin. We're going to find some data
+[00:01:17] around a niche or a topic. We're going
+[00:01:20] to feed that into some really smart LLMs
+[00:01:23] and then we're going to produce some
+[00:01:24] content and even automatically publish
+[00:01:26] it on a platform. So, you're going to
+[00:01:28] see an endto-end automation that
+[00:01:30] hopefully is going to save you somewhere
+[00:01:32] around 10 to 15 hours a week. And is it
+[00:01:34] really going to save me 10 to 15 hours a
+[00:01:36] week or you just saying that it's saving
+[00:01:38] me time? So, in this use case, I'm going
+[00:01:40] to show you a LinkedIn workflow. I spend
+[00:01:43] most of my time on X and I actually hate
+[00:01:46] creating content for LinkedIn. So, uh,
+[00:01:49] you know, as much as I can use AI to
+[00:01:51] help me with that process, I I try to do
+[00:01:53] that. And, uh, we'll see. We'll see how
+[00:01:55] it works. Okay. And if I actually use
+[00:02:01] this workflow, what is the potential
+[00:02:03] outcome of that? Like, why why do why
+[00:02:05] should I I even care about this? Yeah,
+[00:02:08] the outcome is that you're going to be
+[00:02:09] able to test content angles, hooks, and
+[00:02:12] topics way faster. So instead of like
+[00:02:15] going getting a subpar result just from
+[00:02:17] opening up Claude or Chat GPT, this is
+[00:02:20] going to get a lot of context, a lot of
+[00:02:22] information, and it's going to create
+[00:02:24] top performing content based off of
+[00:02:26] that. It's even going to create an image
+[00:02:28] for you, and it's going to post
+[00:02:29] automatically. Now, often times AI isn't
+[00:02:33] quite there to just push a button and go
+[00:02:35] end to end and post for you. Uh, I
+[00:02:38] recommend doing that to test things out.
+[00:02:39] I've heard you talk about this a little
+[00:02:41] bit, too. Sometimes you'll throw out a
+[00:02:42] tweet, you'll see if it catches or
+[00:02:44] you'll even use like maybe a secret
+[00:02:47] account and then you'll delete it. So
+[00:02:48] I'll do the same thing. I've been doing
+[00:02:50] that actually for the past couple hours
+[00:02:52] on LinkedIn. So you'll be able to test,
+[00:02:54] you'll be able to refine, but I threw in
+[00:02:57] a step here so that if you want, you can
+[00:02:59] uh actually edit the content before you
+[00:03:02] before you put it live as well. All
+[00:03:04] right, let's rock. All right, so I have
+[00:03:06] this colorcoded here so that we can
+[00:03:09] separate this out in stages. And again,
+[00:03:11] I want to try to give people some
+[00:03:13] actionable tips so that they can go and
+[00:03:15] build a workflow. And I'm also going to
+[00:03:18] give away the code for this workflow so
+[00:03:21] that people can go and download it after
+[00:03:23] they watch the show. They can upload it
+[00:03:25] into inate and have a really nice
+[00:03:27] starting template to go and make their
+[00:03:29] own. So, uh, let's dig right in.
+[00:03:33] So basically what I have here is a whole
+[00:03:37] area that's going to analyze YouTube and
+[00:03:40] X for different topics. So what I will
+[00:03:43] do is open up a chat down at the bottom
+[00:03:48] of the screen here if you see that. And
+[00:03:51] all I need to do actually is I just need
+[00:03:53] to enter in a topic. So we're talking
+[00:03:56] about inadin today. I post some content
+[00:03:58] on that as well. So let's just put in.
+[00:04:02] So, it takes that keyword essentially
+[00:04:05] and now what it's doing is it's going
+[00:04:07] over to YouTube and it's scraping the
+[00:04:10] top videos on YouTube for my topic. So,
+[00:04:14] it's going out there and finding, you
+[00:04:16] know, 20 to 30 videos that have a high
+[00:04:18] degree of engagement. It's also doing
+[00:04:21] the same thing on X. It's actually going
+[00:04:23] to my account. It's looking for posts
+[00:04:26] around workflow automation and AI. So
+[00:04:29] right now it's uh it's processing this
+[00:04:32] and what it's going to do after it finds
+[00:04:35] YouTube videos and posts on X about NADN
+[00:04:39] is it's going to actually watch all the
+[00:04:42] videos and transcribe those for me. So
+[00:04:45] I'm going to have all the content from
+[00:04:46] the top YouTube videos around NAN and
+[00:04:49] then I'm going to have a number of
+[00:04:51] topics from X as well. And you're using
+[00:04:53] Appify, right? I'm using Appify. Yeah.
+[00:04:56] So Appify uh is an awesome platform.
+[00:04:59] Basically, if you want to go and scrape
+[00:05:01] anything on the internet, you want to
+[00:05:03] scrape Instagram, you want to scrape
+[00:05:04] Amazon, you want to scrape Tik Tok, you
+[00:05:07] want to scrape YouTube or X, uh they
+[00:05:10] have like open sort of APIs that you can
+[00:05:13] access within Appify and plug them into
+[00:05:15] your workflow to go and process that
+[00:05:18] data. So that's what these HTTP requests
+[00:05:21] are. Basically, they're just calling
+[00:05:23] that ampify API. Uh, and in this one, I
+[00:05:27] picked a YouTube one and have a couple
+[00:05:29] instructions in there. And then this
+[00:05:31] one, I have one for X as well. Okay, so
+[00:05:34] it's scraping right now. And then what
+[00:05:36] it's going to do is it's going to put
+[00:05:38] all this data together in essentially
+[00:05:41] one big text block. So, it's going to
+[00:05:43] have a bunch of transcribed YouTube
+[00:05:45] videos with the hooks, the titles, the
+[00:05:47] content, and it's going to have some
+[00:05:49] exposts as well. So, it's going to bring
+[00:05:51] all those together and merge them into
+[00:05:54] basically one big block of
+[00:05:56] text. So, this is kind of my research
+[00:05:59] phase here. I'm just kind of going out
+[00:06:01] and I'm making sure I have enough
+[00:06:03] context to go and feed my LLMs in the
+[00:06:06] next step. So, whatever niche go ahead,
+[00:06:09] which by the way, this is the step that
+[00:06:11] any savvy content creator is going to
+[00:06:14] take when they're creating content,
+[00:06:16] right? They're they're going to see what
+[00:06:18] else is out there. uh how are people
+[00:06:20] positioning it and where's my
+[00:06:23] opportunity?
+[00:06:25] Yeah, that's right. And you know to do
+[00:06:27] this research manually like you would
+[00:06:28] have to spend like 24/7 online uh if you
+[00:06:32] want to unplug and actually have a life
+[00:06:34] it makes sense to have like robots and
+[00:06:35] AI doing this stuff for you. So yeah, I
+[00:06:38] mean like instead of you know starting
+[00:06:40] from scratch or or whatever, go and find
+[00:06:43] things that are already performing and
+[00:06:45] you know doing that for content that's
+[00:06:47] similar to doing things like trying to
+[00:06:48] create a startup idea or something like
+[00:06:50] that too. You know you want to find
+[00:06:52] things that are already working so you
+[00:06:54] can sort of sort of shortcut that and
+[00:06:57] take those learnings and make it your
+[00:06:58] own. Okay. So after we get uh all of
+[00:07:02] this data from YouTube and X, we're
+[00:07:05] going to do another step here. So, we've
+[00:07:08] got this big block of text that includes
+[00:07:11] all that video information and stuff.
+[00:07:13] And now I have an agent, and this is a
+[00:07:15] content idea generator, and it plugs
+[00:07:19] into an open AI LLM. And what it's going
+[00:07:22] to do is it's going to go and look at
+[00:07:24] that big block of text. It's doing it
+[00:07:26] right now, and it's going to scan
+[00:07:28] through there, and it's going to find
+[00:07:29] fresh angles and content ideas for us,
+[00:07:33] uh, that aren't just replicating what we
+[00:07:35] researched. So, I don't want to go and
+[00:07:37] just like copy people's content. I just
+[00:07:39] want to use that as inspiration and then
+[00:07:41] come up with my own ideas. So, that's
+[00:07:43] what this step right here is doing. And
+[00:07:46] when you say come up with your own
+[00:07:47] ideas, you mean AI coming up with the
+[00:07:49] ideas for you. Yeah, that's right. So,
+[00:07:52] in here, that's right. To be clear, you
+[00:07:55] don't want to do anything. You want to
+[00:07:57] set up the workflow. Yes. And hang out
+[00:08:00] on the beach. In true Vibe Marketer
+[00:08:02] fashion, that's exactly what I'm doing.
+[00:08:04] Yeah. So, I have a prompt in here. I'm
+[00:08:06] just saying like using all of this
+[00:08:08] content that I'm giving you, create a
+[00:08:11] list of actionable content ideas that
+[00:08:13] are strictly related to marketing. So,
+[00:08:16] if you remember my my keyword that I
+[00:08:18] entered in the chat was inate. Now, that
+[00:08:20] could include a lot of stuff. It could
+[00:08:21] include things on like automating email
+[00:08:24] replies or sales tasks or whatever. So,
+[00:08:26] I want to look at those, but then I want
+[00:08:28] to extract ideas for marketing for how I
+[00:08:31] can kind of repurpose that and come up
+[00:08:33] with some fresh
+[00:08:34] angles. So, here um you know, for a
+[00:08:38] title, I want it to be short and clear
+[00:08:40] when it comes up with a content idea. I
+[00:08:42] want to have a scroll stopping idea for
+[00:08:44] my hook to pull people in. And then, um
+[00:08:47] I want it to suggest like the optimal
+[00:08:49] format for this content. And then it
+[00:08:52] needs to come up with an angle as well.
+[00:08:53] So it needs to have like a unique point
+[00:08:55] of view around how marketers can scale
+[00:08:58] their efforts using AI and leveraging
+[00:09:00] NAD uh for their
+[00:09:03] workflows. Um few other instructions. So
+[00:09:06] avoid like too much technical jargon and
+[00:09:09] technical topics. I'm kind of framing
+[00:09:11] like who this content is for uh for the
+[00:09:14] AI to come up with some ideas for my
+[00:09:16] audience specifically. and uh you know
+[00:09:19] it's kind of going through and it's also
+[00:09:21] looking at sort of my top performing
+[00:09:23] exposts so that it can identify how I'm
+[00:09:25] talking uh what sort of themes I'm using
+[00:09:28] and stuff like that. So combining all
+[00:09:30] this is going to give us a really
+[00:09:32] powerful data set to go and create the
+[00:09:34] right type of content for my audience.
+[00:09:37] And did you come up with this yourself?
+[00:09:39] Yeah, like all these prompts and stuff.
+[00:09:42] Yeah. Yeah. So, I'll come up with like,
+[00:09:44] you know, an initial prompt and then
+[00:09:46] I'll take it and I'll go over to like
+[00:09:48] chat GPT or Manis or Claude and I'll
+[00:09:51] say, "Hey, improve this prompt. Here's
+[00:09:53] what I want to achieve." And then I'll
+[00:09:55] place in like some examples of content
+[00:09:57] that I want this entire workflow to kind
+[00:10:00] of create. So, this goes back to like,
+[00:10:02] you know, two two things that I always
+[00:10:04] talk about with AI. It's like know what
+[00:10:06] questions to ask and know what good
+[00:10:08] looks like. So if you have sort of a
+[00:10:10] baseline prompt, you can go and use AI
+[00:10:12] to improve your prompt, which is a step
+[00:10:14] that I often use for all of these
+[00:10:16] different types of agent nodes. Here it
+[00:10:19] did that. Looks like it uh came up with
+[00:10:20] the ideas in the background. And then
+[00:10:23] once I have the ideas, you know,
+[00:10:25] something that often resonates on social
+[00:10:27] is having some specific like facts,
+[00:10:30] trends, and sources to back up the
+[00:10:33] claims. I also don't want the model to
+[00:10:36] completely like hallucinate and just
+[00:10:38] come up with like random stuff that
+[00:10:40] doesn't make any sense. So in this step,
+[00:10:43] I have a research agent and I'm using
+[00:10:46] perplexity here to go out and find some
+[00:10:49] use cases that people have actually
+[00:10:51] talked about with some real stats. I'm
+[00:10:54] identifying some trends and insights,
+[00:10:56] marketing use cases, ideas that are
+[00:10:59] happening in the industry, stats,
+[00:11:01] frameworks or case studies that we can
+[00:11:03] reference, popular opinions. So, I'm
+[00:11:06] just getting as much data as I can
+[00:11:08] around these marketing angles with
+[00:11:10] workflow automation and AI so that I can
+[00:11:12] feed them into my content agent. Makes
+[00:11:15] sense. I mean, I I I'm
+[00:11:17] just so excited to see what the output
+[00:11:20] is going to be. Like if this actually
+[00:11:22] could do what it says it could do, then
+[00:11:25] this is like a billiondoll workflow.
+[00:11:28] Yeah. And there's also some startup like
+[00:11:31] concepts we can talk around about this
+[00:11:33] for how to like leverage it to create
+[00:11:34] businesses. I think that this is like an
+[00:11:37] interesting backbone to like you know
+[00:11:39] power a consulting business or a
+[00:11:41] freelancing business or really optimize
+[00:11:44] you know agency operations or something
+[00:11:46] like that as well. All right. So uh one
+[00:11:49] note here on the research agent another
+[00:11:51] helpful tool to call out is open router.
+[00:11:54] So often times in a workflow I try to
+[00:11:58] use the best LLM or the best model for
+[00:12:01] each specific task. So for research I've
+[00:12:04] got like you know uh perplexity right
+[00:12:06] here. I've got open AI over here. I've
+[00:12:09] got Claude over here later in the
+[00:12:11] workflow that we'll look at. But open
+[00:12:13] router allows me to access all of these
+[00:12:15] models with one node. So if you open it
+[00:12:19] up, you can see that I've got perplexity
+[00:12:21] sonar uh selected here. But if I wanted
+[00:12:24] to use any other model, you can just
+[00:12:27] select them from this interface rather
+[00:12:29] than going to like clawed and getting an
+[00:12:32] API key or perplexity and getting an
+[00:12:34] open or and getting a an API key. This
+[00:12:37] makes it a lot easier to integrate these
+[00:12:39] models when you actually build these
+[00:12:40] things out. And it's one price, right?
+[00:12:43] Yeah, one price. Uh here it is. It's
+[00:12:46] just, you know, one thing that you
+[00:12:47] subscribe to and then you can access all
+[00:12:49] the different models in a really easy to
+[00:12:51] use way. And and just to be clear, we're
+[00:12:53] not involved in Appify, Open Router,
+[00:12:56] NADN. We're just showing you how to use
+[00:12:58] the tools. Yep. Yep. So after it sort of
+[00:13:03] identifies the ideas and it does the
+[00:13:05] research, it's going to sort of like
+[00:13:07] merge those together again and then it's
+[00:13:10] going to feed it into a LinkedIn content
+[00:13:13] agent. Now you can replicate this for
+[00:13:16] basically any channel, but since I
+[00:13:18] struggle with LinkedIn and I've been
+[00:13:20] trying to figure it out, uh we're going
+[00:13:21] to talk about LinkedIn today. So I have
+[00:13:24] this agent node here again and uh when I
+[00:13:27] create content I like to use Claude 3.7
+[00:13:30] Sonnet. You probably have used that as
+[00:13:32] well. It's the best writing right now as
+[00:13:35] of recording this is the best writing
+[00:13:38] LLM that exists. Exactly. Exactly. And
+[00:13:41] Claude when you give it the context and
+[00:13:43] the data it's so powerful. Like if if
+[00:13:46] you arm it with enough context it can
+[00:13:49] come up with some pretty incredible
+[00:13:50] things. Yeah. I think the, you know, the
+[00:13:52] problem is people don't give it enough
+[00:13:55] context and then they're like, "This is
+[00:13:56] garbage." Exactly. Exactly. Yeah. Most
+[00:13:59] people, you know, they're opening up
+[00:14:01] Claude or something like that, they're
+[00:14:03] entering in a prompt, and then it spits
+[00:14:05] something out, and they're like, "Ah, I
+[00:14:06] don't like this." Well, you know, you're
+[00:14:07] not going and scraping like all the top
+[00:14:09] performing YouTube videos, tweets,
+[00:14:12] analyzing your own account for brand
+[00:14:14] voice and stuff like that, and then
+[00:14:16] feeding it into the model. So, you
+[00:14:18] really need to, you know, power it with
+[00:14:20] tons of data and tons of context to get
+[00:14:22] the most out of it. So, a few little
+[00:14:24] prompting tips that I have in the in the
+[00:14:26] LinkedIn post agent here. Um, I'm
+[00:14:29] including a brand voice. So, you know,
+[00:14:31] AI uses a lot of fluff. It might still
+[00:14:34] use a little bit of fluff at the end
+[00:14:35] here, but I'm trying my best to give it
+[00:14:37] some guard rails. Uh, write with
+[00:14:39] authentic expertise and direct
+[00:14:41] communication. Uh, be confident and
+[00:14:43] straightforward. Don't be overly formal
+[00:14:45] or academic. speak directly to the
+[00:14:48] reader, avoid like corporate jargon and
+[00:14:51] marketing speak, you know, a bunch of
+[00:14:53] stuff like that. And I've just sort of
+[00:14:54] like through trial and error, you know,
+[00:14:56] listed these different sort of brand
+[00:14:58] guidelines out. Um, and then a few other
+[00:15:02] things. Um, it's taking the research
+[00:15:04] here. This is that JSON output which is
+[00:15:06] basically just a big block of of text
+[00:15:09] all the context that I have created and
+[00:15:11] create a narrative- driven post that
+[00:15:13] gives readers actionable insights and
+[00:15:15] takeaways that will impact their
+[00:15:17] business in positive ways. And then only
+[00:15:20] use data if it's relevant and don't pick
+[00:15:23] topics around like AI marketing tools
+[00:15:25] blindly like make sure it's tied to the
+[00:15:27] context of what we're talking about. All
+[00:15:29] right. So, another thing that AI always
+[00:15:32] does, it always wants to add hashtags
+[00:15:34] and emojis. So, I make sure to like
+[00:15:37] include the instructions like don't use
+[00:15:38] hashtags, um, you know, things like that
+[00:15:41] in here. And then I give it a format for
+[00:15:43] how I want the output to be. So, title,
+[00:15:46] uh, content, uh, things of that nature.
+[00:15:48] And then if you look down at the bottom,
+[00:15:50] I've got more instructions where I'm
+[00:15:52] kind of framing the LLM here. So, you're
+[00:15:55] a LinkedIn content strategist and
+[00:15:57] conversion copywriter. I always include
+[00:16:00] something around like direct response or
+[00:16:02] conversion uh copywriting when I'm using
+[00:16:05] AI to create content. Otherwise, it
+[00:16:08] creates sort of like kind of brand fluff
+[00:16:10] type stuff. And I really want it to like
+[00:16:13] lead people through a journey. I wanted
+[00:16:14] to have a strong hook. I want it to
+[00:16:16] build interest, desire, give some
+[00:16:18] actionable value, and then maybe a clear
+[00:16:21] call to action at the end. Good tip.
+[00:16:24] Yep. I would also say you didn't include
+[00:16:26] it, but what are those dashes that uh AI
+[00:16:30] always puts? M dashes. M dashes. I would
+[00:16:34] say like don't have any M dashes. Yes. M
+[00:16:39] dash overload on the internet right now.
+[00:16:41] And like when people see that, they know
+[00:16:42] it's AI, too. Exactly. And that's a
+[00:16:45] turnoff, right? Big time. Yeah. Yeah.
+[00:16:48] Yeah. Big- time turnoff. Um you know,
+[00:16:50] you want to make it feel as authentic as
+[00:16:52] possible. And sometimes AI does a pretty
+[00:16:55] good job. Other times you need to get in
+[00:16:57] there and edit a little bit. Uh which
+[00:16:58] we'll we'll get to as well. So yeah,
+[00:17:01] just some more instructions like some
+[00:17:03] writing guidelines and things like that.
+[00:17:05] Um you know, often when I'm trying to
+[00:17:08] create prompts for content, I'll like
+[00:17:10] look at some of your content, how you
+[00:17:12] write. I'll I'll feed in some stuff that
+[00:17:14] I've created and some other creators
+[00:17:15] that I really like. And uh you know,
+[00:17:18] especially when it comes to like B2B
+[00:17:19] content, um you know, you need to be
+[00:17:21] more like a creator. That's really kind
+[00:17:23] of the future there. All right, so let's
+[00:17:26] get out of that. And um so it's created
+[00:17:28] our LinkedIn post and it's put it into a
+[00:17:32] Google doc here that you can see. Okay.
+[00:17:35] And then we're working on creating an
+[00:17:37] image uh for our post as well. So this
+[00:17:41] uses the OpenAI image gen model uh that
+[00:17:44] I'm sure everyone has tested. And you
+[00:17:47] can do crazy things like dynamic prompts
+[00:17:50] depending on, you know, the topic of the
+[00:17:53] post and stuff like that. But for our
+[00:17:55] purposes purposes today, I'm just
+[00:17:58] prompting it to create a 3D image
+[00:18:00] communicating an AI system or, you know,
+[00:18:03] something like that to keep it simple.
+[00:18:05] Okay. So, uh, right now we're in the
+[00:18:08] human in the loop step. So, you know, a
+[00:18:11] lot of people don't want to just
+[00:18:13] straight up publish content directly
+[00:18:15] from a model. Um, you know, sometimes
+[00:18:17] like we talked about, we're not quite
+[00:18:18] there yet. So, you know, I work in Slack
+[00:18:21] all the time. Um, most people that are
+[00:18:23] in, you know, startups and marketing
+[00:18:25] probably do. So, what's going to happen
+[00:18:27] at this stage is it's actually going to
+[00:18:29] send me a link to the Google doc in
+[00:18:32] Slack. And I will just show you my Slack
+[00:18:35] because I think this is a pretty cool
+[00:18:36] step. All right. Yep. And there it is. I
+[00:18:41] have a Slack channel set up here where
+[00:18:43] I'm getting these triggers or these
+[00:18:45] Google Docs from Inaden. So, if you open
+[00:18:48] one up, uh, it sent me a draft and I'm
+[00:18:51] able to open up this completed post in a
+[00:18:54] Google doc. So, let's just go through it
+[00:18:55] a little bit. So, it says, "Three ways
+[00:18:58] to scale your marketing without hiring
+[00:19:00] another team." Pretty decent. Uh, sounds
+[00:19:03] actionable. And it's got kind of a
+[00:19:05] personal narrative here. So, I've spent
+[00:19:07] years juggling marketing tasks. that
+[00:19:09] could have been automated. Uh the
+[00:19:11] breaking point when my team missed
+[00:19:12] campaign deadlines because we're buried
+[00:19:14] in repetitive work that machines could
+[00:19:16] handle. Then I discovered inade and it
+[00:19:19] kind of goes through some different ways
+[00:19:20] that you can use it uh for your
+[00:19:22] marketing efforts. So here it's got
+[00:19:24] automate your content distribution
+[00:19:26] pipelines which funny enough that's what
+[00:19:28] we're talking about right now. Uh sort
+[00:19:30] of taking a topic and coming up with a
+[00:19:33] completed final post that is ready to
+[00:19:35] publish. You know, you know what really
+[00:19:38] works well on LinkedIn is photos of
+[00:19:41] yourself. So, I think that if I were to
+[00:19:45] do this workflow, what I would do, and
+[00:19:47] tell me if I can do this, create a
+[00:19:49] Google Drive folder with call it 50
+[00:19:53] pictures of myself in different poses.
+[00:19:55] You can even use AI to create some of
+[00:19:57] those. Um, and then just say pick a
+[00:20:01] random photo and attach it to the
+[00:20:03] content. Is that possible? Yeah, I think
+[00:20:06] it is. You know, when I was when I was
+[00:20:08] experimenting with this earlier, um I
+[00:20:11] was opening up my LinkedIn and this is
+[00:20:13] one that I actually published. Um if you
+[00:20:16] look at Slack, you can see this approve
+[00:20:18] button. And if I click that, this is
+[00:20:21] going to post right over to uh to my
+[00:20:23] link LinkedIn. So, um you know, this is
+[00:20:27] what happened when I did it earlier. It
+[00:20:28] created this post and then the image
+[00:20:31] generation created this image. Now, to
+[00:20:33] your point, um I think like a personal
+[00:20:36] photo would resonate a lot more. It
+[00:20:39] would feel more natural. It would feel
+[00:20:40] less AI. Um so, yeah, you could store
+[00:20:43] those in a Google Drive and you could
+[00:20:45] probably just have it randomly select uh
+[00:20:48] from that folder and pair it up with the
+[00:20:50] posts here. So, point is though, you
+[00:20:53] know, you can do all of this research.
+[00:20:55] You can get a highly relevant post. You
+[00:20:57] can even create the image. You can have
+[00:20:59] this fully formatted and in one button
+[00:21:02] uh you can you can publish directly to
+[00:21:04] whatever social platform you want. And
+[00:21:07] the most important point
+[00:21:08] is these are validated social posts.
+[00:21:12] These are not social posts that you have
+[00:21:16] no idea if they're going to get a like
+[00:21:18] or a comment because it's scraped
+[00:21:20] YouTube because it's scraped X and it's
+[00:21:23] got all that data. the chances of you
+[00:21:25] creating content that's going to
+[00:21:27] resonate with people is probably 10 or
+[00:21:29] 50x. Yeah, absolutely. So, remove the
+[00:21:32] guess work, the guesswork and yeah, use
+[00:21:35] like real validation uh from things that
+[00:21:38] have already performed and then just
+[00:21:39] make it your own, you know, like you
+[00:21:41] don't have to guess and you can test
+[00:21:42] multiple of these to see which ones work
+[00:21:44] if you want. The ones that you don't
+[00:21:46] like, you can delete them. You can
+[00:21:47] double down on the ones to get some good
+[00:21:49] early data and then you can even, you
+[00:21:51] know, go and use it for other channels
+[00:21:52] as well. Anything else you wanted to
+[00:21:54] tell folks? Um, I thought this was kind
+[00:21:57] of funny. So, someone actually commented
+[00:22:00] like such a solid example and uh, you
+[00:22:03] know, they like the post and I was like,
+[00:22:04] now the question is, did a did AI write
+[00:22:07] it? So, I think that this passed the
+[00:22:09] touring test. So, pretty valuable uh,
+[00:22:11] little workflow here. Very cool. Um,
+[00:22:16] dude, always a pleasure having you on
+[00:22:17] the pod spilling the sauce. You could
+[00:22:19] have kept this to yourself, but you
+[00:22:21] didn't. uh you came on here and shared
+[00:22:23] it for free. So I appreciate that. I am
+[00:22:26] going to include where uh where to find
+[00:22:30] the boring marketer on X and YouTube for
+[00:22:32] more content like that. Um anything else
+[00:22:34] you want to plug? Yeah, one quick note.
+[00:22:37] Um so a lot of people need like a solid
+[00:22:40] starter workflow that they can upload
+[00:22:42] into NAD without having to go through
+[00:22:44] the logic and trying to build all this
+[00:22:46] out. So I'm going to share a JSON file
+[00:22:49] that has this complete workflow. You can
+[00:22:52] download the file, you can upload it
+[00:22:53] into N in N8, you can make it your own
+[00:22:55] and start learning. Like the best way to
+[00:22:57] just get a handle on all this workflow
+[00:22:59] stuff is playing around with it,
+[00:23:01] tinkering, you know, seeing what kind of
+[00:23:03] output you get and then trying to
+[00:23:05] optimize it uh based on the data that
+[00:23:07] you're getting. So, uh we'll share the
+[00:23:09] link, but it's
+[00:23:10] templates.viarketer.comgreg
+[00:23:13] thevibemarketer.comgreg and people just
+[00:23:15] enter their email. We'll send that over
+[00:23:17] to you and you can get started like
+[00:23:19] right away and it's free. It's totally
+[00:23:21] free. We're just gonna give it away.
+[00:23:23] We're gonna give the sauce. All right. I
+[00:23:25] appreciate I appreciate you. Of course.
+[00:23:27] Thanks for having me, Greg. All right.
+[00:23:29] Later. See you.

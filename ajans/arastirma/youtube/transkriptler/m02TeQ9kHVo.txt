@@ -1,0 +1,161 @@
+# N8N Instagram Automation | Step-by-Step Guide (Free Template)
+# https://www.youtube.com/watch?v=m02TeQ9kHVo
+# kanal: Rajeevdaz | süre: 1017 sn | kaynak: yt-dlp:web_embedded:timedtext:en:subtitles
+
+[00:00:00] This is the exact workflow I used to completely  automate my Instagram posting without any
+[00:00:05] third-party tools and the results. I went from  0 to 43,000 followers in just 6 months. Let me
+[00:00:12] show you a quick demo. Watch this. I'm executing  the workflow now. It automatically pulls data
+[00:00:18] from Google Sheets, generates an SEO optimized  caption using AI, and uploads the video all on
+[00:00:25] autopilot. Now, let's check Instagram. And there  we go. It's uploaded successfully. In this video,
+[00:00:32] I'll walk you through the entire process step by  step so you can build this workflow from scratch.
+[00:00:38] Even if you're a complete beginner, you'll be able  to follow along and set it up yourself. So, let's
+[00:00:43] dive in. First, let me show you the resources  I have here. I have four videos ready. I also
+[00:00:49] have a Google sheet which has three columns. The  first one is file name. Here, I've added the names
+[00:00:56] exactly the same as the video file names. You  can see WhatsApp AI agent, Google Gemini API, and
+[00:01:02] so on. The only thing you need to remember when  naming your video files is don't add any spaces
+[00:01:08] in between. For example, if you check here, you'll  see website AI agent, which has spaces between the
+[00:01:15] words. That makes it a little difficult for us to  implement in our N8N workflow. To avoid that, when
+[00:01:21] naming your video files, just add an underscore or  a hyphen instead, like this to remove spaces. And
+[00:01:28] make sure you add the exact same video file name  in the Google sheet as well. The next column is
+[00:01:33] outline, which is a single line description of the  video topic. We'll use this outline to create an
+[00:01:39] SEO optimized Instagram caption using AI. The next  column is status. Whenever a new video is posted,
+[00:01:48] it will automatically update the status to posted.  So during the next execution, it picks the next
+[00:01:54] row. All right. Now, let's start building our N8N  workflow. Open your N8N dashboard and create a new
+[00:02:02] workflow. First, we're adding a schedule trigger  to set up when we want to execute our workflow and
+[00:02:08] publish the video. Here, select schedule trigger.  I'm planning to execute this workflow every day.
+[00:02:14] So set the trigger interval as days and set days  between triggers to one. Next, we have to select
+[00:02:20] trigger at hour, meaning the time you want it to  run. So let me select 9:00 a.m. Then we can choose
+[00:02:26] trigger at minute. For example, if you want to  execute it at 9:30, just set the minute to 30.
+[00:02:32] You can add multiple triggers by tapping on add  rule. Let's select 6:10 p.m. You can add more if
+[00:02:39] needed. Now back to the canvas. Next, let's add  a Google Sheets node to pull the video details.
+[00:02:45] Click on the plus icon and search for sheet.  Select Google Sheets and set the action as get
+[00:02:50] rows in sheet. First, we need to connect our  Google account. If you don't know how to connect
+[00:02:56] it, we've created a detailed video on that. You  can find the link in the video description. Next,
+[00:03:02] choose the document. In my case, it's named reals  automation. And select the sheet as sheet one.
+[00:03:09] Now we need to add a filter. Whenever a new  video is uploaded, we'll update its status as
+[00:03:15] posted. So for the next execution, we want to  take only the next row that isn't posted yet.
+[00:03:21] We can achieve this by adding a filter. Tap on  add filter and select the column status. Keep
+[00:03:27] the value empty. This way it'll take only the row  where the status column is empty. Now tap on add
+[00:03:33] option and enable return only first matching  row. Currently, it would take all the matching
+[00:03:39] rows where status is empty. But we only need one  matching row per execution. By enabling this,
+[00:03:46] it will take just one at a time. Let's execute  this step. And it's done. Here we got one matching
+[00:03:52] row. WhatsApp AI agent.mpp4. Next, we're adding  an AI agent to create an SEO optimized Instagram
+[00:04:01] caption. This step is optional. If you already  have a readymade caption available in your Google
+[00:04:06] sheet, you can use that directly. Otherwise,  just follow along with these steps. Just tap on
+[00:04:12] the plus icon and search AI agent. Simply select  it and change the source for the prompt to define
+[00:04:18] below. Here, just add video topic. Then drag and  drop the outline string like this. Now, click on
+[00:04:24] add option and select system message. Here we  can add some instructions for our AI agent.
+[00:04:30] Let's add you are a social media expert who writes  engaging and SEO optimized Instagram captions.
+[00:04:36] Create a short and catchy caption for the given  video topic. Make sure the tone sounds natural and
+[00:04:41] appealing to the audience. Add two highly relevant  hashtags at the end that fit the topic. Perfect.
+[00:04:48] Let's close this. Next, we have to add a chat  model. This is literally like a brain for our
+[00:04:53] AI agent. We have multiple options available like  Google Gemini, Open AI etc. Let me choose Google
+[00:05:03] Gemini which is free. We've already created a  video on that and you can find the link in the
+[00:05:09] video description. Choose the model as Gemini 2.5  flash. Back to Canvas. And now let's execute the
+[00:05:16] step. It's running. Done. Let's open it. And here  we can see the Instagram caption with two hashtags
+[00:05:23] made by AI. Next, we can add the Facebook graph  API node to upload the videos. But before that,
+[00:05:31] we have to upload our videos on an online cloud  platform. Facebook's API doesn't allow direct
+[00:05:37] uploads from platforms like Google Drive or One  Drive. It requires a public video link. For that,
+[00:05:43] let's use Cloudinary, which is a free platform  where we can upload up to 25 GB of files. Just
+[00:05:49] click on sign up for free and create an account.  I already have one, so let me sign in. Once done,
+[00:05:56] just go to the asset section. Here you may see  some default files. Don't mind that. Just go
+[00:06:01] to the folder section and let's create a new  folder. Name it as reals and click save. Open
+[00:06:07] the folder. And now we are ready to upload our  videos. But if we upload them right now, it will
+[00:06:13] change the video file names and they won't match  with the file names we have in our Google sheet.
+[00:06:18] To avoid that just go to settings, upload and here  we can see an upload preset. Click on the three
+[00:06:24] dots and tap edit. Here we have to select the  option. Use the file name of the uploaded file as
+[00:06:30] the public ID and turn append a unique suffix off.  Turn use the initial asset folder path on. Click
+[00:06:39] on save. And now the file renaming issue must be  fixed. Now go back to assets folders. Open the
+[00:06:46] real folder and upload your videos. It's done. Let  me open one video. Click on the three dots. Copy
+[00:06:53] the URL. Choose copy original URL and open it. The  first part of the link will be the same for every
+[00:07:00] video. The only change will be the file name  which we can dynamically fetch from our Google
+[00:07:05] sheet. Now go back to the N8N dashboard and let's  add the Facebook graph API node. Just tap on the
+[00:07:12] plus icon, search Facebook, and select Facebook  graph API. First, we have to connect our Facebook
+[00:07:20] business account. It's a 5-minut process, and it's  easy. Just follow the steps. This is the Instagram
+[00:07:26] account I'm using for this tutorial. Just keep  in mind that we can't connect a normal private or
+[00:07:31] personal account. We need to convert our Instagram  account to a professional account. To do that,
+[00:07:37] just click on the three dots. Then go to settings.  Here, scroll down and select account type and
+[00:07:44] tools. Now, tap on switch to professional account.  Here you can select creator or business depending
+[00:07:50] on your preference. Click next. Choose the page  category. Click done and tap on continue. It's
+[00:07:57] done. Next, we have to connect our Instagram with  a Facebook page. For that, just go to facebook.com
+[00:08:05] and log in with your Facebook account. Then go to  facebook.com/pages. You can connect an existing
+[00:08:12] page or even create a new one. Just enter a  Facebook page name, choose the category, and add a
+[00:08:18] bio if needed. Then click on create page. It will  ask you to finish setting up the page. You can add
+[00:08:24] the details or skip for now. The Facebook page is  ready. Now just tap on professional dashboard. Tap
+[00:08:31] on linked accounts and select Instagram connect  account. Connect your account by simply logging
+[00:08:37] into your Instagram page. While connecting, it  will automatically create a Facebook business
+[00:08:43] portfolio, meaning a business account. Just tap on  continue. Enter the verification code you receive.
+[00:08:50] And here we go. Our Instagram account has been  successfully connected with our Facebook page.
+[00:08:56] Next, we have to get the access token. For that,  go to business facebook.com and loging in with
+[00:09:03] your Facebook account. Once done, you'll see the  business portfolio we recently created. Now, on
+[00:09:09] the left side, just tap on settings. When we check  the pages section, we can see the Facebook page
+[00:09:15] and under the Instagram account section, we can  see our Instagram account as well. Now go to apps
+[00:09:22] and here we have to create an app in order to get  the access token. Click on create a new app ID.
+[00:09:28] This will redirect us to developer.fas.com. Tap  on create app. Here we have to enter an app name
+[00:09:35] and email address. Let's say realflow. You can  put any name here. Click next. Here we have to
+[00:09:41] choose the use cases. Just tap on others. Select  other again and click next. Choose the app type
+[00:09:48] as business. Then click next. Now choose the same  business portfolio and click on create app. You
+[00:09:55] may have to log in again with Facebook to verify  this. Now our app is created. We don't have to do
+[00:10:01] anything extra here. Go back to business.fas.com  and refresh the page. And here the newly created
+[00:10:09] app is listed. Now go to system users and  click on add. Simply accept this. Enter a
+[00:10:16] system username and choose the system user role as  admin. Tap on create system user. Oh, there's an
+[00:10:23] error. Let's change this to employee. It's done.  Now tap on assign assets. Select the Facebook
+[00:10:30] page and set the permission as full control. Go  to apps, select the app and again choose full
+[00:10:36] control. Now select the Instagram account. Set the  permission as full control and hit assign assets.
+[00:10:44] It's done. Let's refresh the page. And here are  the assets details. Now click on generate token.
+[00:10:50] Select the app and set the expiration as 60 days  or never. Here we have to choose six permissions.
+[00:10:56] Business management, Instagram basic, Instagram  content, publish, pages, show list, pages,
+[00:11:03] manage posts, and pages read engagement. Now click  on generate token. And here we go. We've got the
+[00:11:10] access token. Just copy this and go back to the  N8N dashboard. Paste it here. Click save and our
+[00:11:16] Facebook business account has been connected  successfully. Close this here. Select the post
+[00:11:22] URL as default and change the HTTP request method  to post because we are uploading something. Next,
+[00:11:29] choose the graph API version as default or latest.  In this column, we have to add a unique ID which
+[00:11:37] every Facebook or Instagram page has. To get that,  just go back to business.fas.com. Go to Instagram
+[00:11:45] accounts and here you can see the ID. Just copy  this. Go back to N8N and paste it here. Next,
+[00:11:53] in the edge column, add media. Now, click on add  option and select query parameters. Then tap on
+[00:12:00] add parameter. In the name column, add video URL.  In the value column, we have to add the public
+[00:12:07] video link which we got from Cloudinary. So, just  go back to Cloudinary. And this is how our video
+[00:12:13] link looks like. Let's open it in a new tab. As I  mentioned earlier, we just have to copy the first
+[00:12:19] part of the link without the file name which will  be the same for all the videos we upload. Now go
+[00:12:25] back to the dashboard. Make this as expression  and paste the link here. Next, we have to add
+[00:12:31] the file name at the end. For that, just click on  the Google sheet node here and drag and drop the
+[00:12:38] file name string like this. When we check here,  it will be exactly like the video link. And I hope
+[00:12:44] now you got the logic. We have to add two more  parameters. In the name column, add caption. In
+[00:12:50] the value column, just drag and drop the AI agent  output string like this. Add one more parameter.
+[00:12:57] Set the name as media type. Add the value as real  in capital letters. And here instead of default,
+[00:13:05] we have to choose the latest version 23.0.  Perfect. Now let's execute the step. It's done.
+[00:13:13] And we got an ID here. The video isn't uploaded  yet. This step only creates the post container.
+[00:13:19] We're just one step away now. Let's add one more  Facebook node to actually publish the video. Here,
+[00:13:25] select the HTTP request method as post. Set the  graph API version as 23. In the node column,
+[00:13:32] we have to add our Instagram unique ID. Just like  before. So, go to the previous node, copy the ID
+[00:13:39] and paste it here. In the edge column, add media  publish. Scroll down and click on add option. Then
+[00:13:46] select query parameters. Tap on add parameter. In  the name field, add creation ID. And in the value
+[00:13:54] field, just drag and drop the ID string like this.  Now let's execute the step. It's done. Let's check
+[00:14:01] our Instagram. Simply refresh the page. And here  we go. Our reel is uploaded with the caption and
+[00:14:08] hashtags. It's working perfectly. Back to the  dashboard. Now, we have to add two more steps.
+[00:14:14] When you test this in production, you'll notice  the second Facebook node runs immediately after
+[00:14:20] the first one. But sometimes that causes  an error because Facebook server takes a
+[00:14:25] few seconds to update the container ID after it's  created. To fix that, we'll add a small wait node
+[00:14:32] between the two steps just to give the API a few  seconds to process before we upload the video.
+[00:14:37] Set the wait amount as 60 seconds. Back to the  canvas. Open this node. Go to settings and enable
+[00:14:44] retry on fail. Set the wait between tries as 5  seconds. So even after 60 seconds, if it fails,
+[00:14:51] it will retry three more times with a 5-second  delay. That makes it perfect for this workflow.
+[00:14:57] Now we have to add a Google sheet node to update  the video status. That way it will take the next
+[00:15:04] row for the next execution. Tap on the plus  icon, search sheet and select it. Set the action
+[00:15:10] as update row in sheet. Select the same document  and the same sheet. Set the column to match on as
+[00:15:17] row number. And here just drag and drop the row  number string like this. Delete the file name
+[00:15:24] and outline fields. In the status field, just  add posted. Let's execute the step. It's done.
+[00:15:31] And in the Google sheet, it updated the status.  Now for the next execution, it will take the next
+[00:15:38] row which is the next empty one. Now it's  time to do the final test. Let's execute the
+[00:15:44] workflow. It takes the data from Google Sheets,  creates an SEO optimized Instagram caption,
+[00:15:51] creates a Facebook container with our video,  waits for 60 seconds, and now it uploads the
+[00:15:57] video and updates the status on Google Sheets.  Let's check Instagram. And here we go again.
+[00:16:03] It's uploaded successfully and yes, it also  updated the status on Google Sheets. Now,
+[00:16:09] let's activate the workflow. So, it will trigger  automatically at the time we set in the schedule
+[00:16:16] trigger. One more thing, just go to settings and  make sure you've selected the correct time zone.
+[00:16:21] Otherwise, it might trigger at a different  time. Okay, that's it. I've tried my best
+[00:16:26] to explain everything as clearly as I can. You  can download the flow JSON file from the link in
+[00:16:32] the video description. Try it out and let me  know in the comments if you have any doubts.
+[00:16:37] I'll be happy to answer and make sure it's truly  helpful for you. So, that's all for today. I hope
+[00:16:43] you enjoyed this video. We'll be uploading more AI  and automation tutorials in the coming days. So,
+[00:16:49] don't forget to like and subscribe. It's totally  free. Until next time, it's me Rajeev signing off.

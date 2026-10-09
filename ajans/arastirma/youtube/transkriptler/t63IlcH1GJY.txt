@@ -1,0 +1,798 @@
+# Automate Every Instagram Post Type (Reels, Stories, Carousels) with n8n + Official API
+# https://www.youtube.com/watch?v=t63IlcH1GJY
+# kanal: Lakshit Ukani | AI Automation | süre: 1528 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] So this video is not a clickbait. We are
+[00:00:02] not going to use any third party
+[00:00:03] applications over here. We'll be using
+[00:00:05] official meta APIs to do our image
+[00:00:07] posting, story image posting, story
+[00:00:09] video posting, real posting as well as
+[00:00:12] carousel posting. This video is not just
+[00:00:14] for nit people. People who don't know
+[00:00:17] any but want to do the posting via API.
+[00:00:19] This video is for you as well. So in
+[00:00:21] this you can see I have used both the
+[00:00:23] node by nit and the HTTP node over here.
+[00:00:26] HTTP node is nothing but just a normal
+[00:00:27] API call. So I will be walking you
+[00:00:30] through everything over here. It took me
+[00:00:32] around 40 to 50 hours to figure out this
+[00:00:34] video and gazillions of video I have
+[00:00:36] watched to figure out all the content
+[00:00:37] over here and I have gone each and every
+[00:00:40] documentation of meta Instagram API over
+[00:00:42] here so that I can make this video
+[00:00:43] possible for you. So here's what we are
+[00:00:45] going to cover over here. First I'll be
+[00:00:46] showing you the API setup end to end.
+[00:00:48] Then we'll be understanding the flow of
+[00:00:50] Instagram how it works. Then first we'll
+[00:00:52] be doing the image posting. Then we'll
+[00:00:54] be going to story image posting, story
+[00:00:56] video posting, real posting and then at
+[00:00:58] the end
+[00:00:59] cousing. So stay till the end because
+[00:01:01] I'm going to share so much of knowledge
+[00:01:03] over here. And if you want to download
+[00:01:04] this template, there is my school
+[00:01:06] community. I have just recently launched
+[00:01:08] this school community over here from
+[00:01:09] where you can download everything. So
+[00:01:11] over here you can see I have written
+[00:01:12] each and every steps which we are going
+[00:01:14] to follow for the API setup over here.
+[00:01:16] So there are multiple setups over here
+[00:01:17] and at the end you can see you can
+[00:01:19] download the template as well. So
+[00:01:20] without wasting time, let's get started.
+[00:01:22] So to set up the API first go to
+[00:01:24] developer.fas.com over here. Then do the
+[00:01:26] login. After doing the login you will
+[00:01:28] see the my apps over here. Click on
+[00:01:29] that. I have already created app over
+[00:01:31] here but I'll create new one. Now give
+[00:01:32] any app name over here. Please remember
+[00:01:34] don't give any name related to
+[00:01:36] Instagram, Facebook or anything. Right?
+[00:01:38] Okay. If I show you I'll write IG and it
+[00:01:42] integration. If I do next I'll get an
+[00:01:44] error. So you can see certain terms like
+[00:01:46] IG are not allowed. So we don't have to
+[00:01:47] use such terms. So I'll just remove this
+[00:01:49] IG part. I'll do enter integration
+[00:01:54] tutorial. Okay. Enter a email id over
+[00:01:56] here where they can contact you. Okay.
+[00:01:58] Do the next. Then over here in the use
+[00:02:00] case just click on the other part and
+[00:02:02] the next. Then we have to select the
+[00:02:04] business. The business selecting is very
+[00:02:05] important because consumer won't give
+[00:02:07] you all API access which we want. So
+[00:02:08] we'll be selecting business. Then next.
+[00:02:10] Confirm everything over here. We don't
+[00:02:12] require business portfolio over here.
+[00:02:13] That's a good thing. So we'll go and
+[00:02:15] click on create app. Confirm with the
+[00:02:17] password.
+[00:02:18] So as you can see now we are in the
+[00:02:20] dashboard. So we have completed all the
+[00:02:21] steps from this section over here. So
+[00:02:23] now it's time to configure app
+[00:02:24] permission. So for that you can see from
+[00:02:26] dashboard click setup under Instagram.
+[00:02:28] So we are in the dashboard. Now under
+[00:02:29] Instagram we can see we have setup.
+[00:02:31] We'll click over here and you might get
+[00:02:32] this message. So don't panic if you see
+[00:02:34] in my school community. If it is showing
+[00:02:36] the content is no longer available.
+[00:02:38] Don't worry. Try the below thing.
+[00:02:39] Refresh page and check again. Click on
+[00:02:42] app roll. Come back to dashboard. Uh
+[00:02:44] click setup and under Instagram. If
+[00:02:46] nothing works try out sometime because
+[00:02:48] it is happening with me. I don't know it
+[00:02:49] might happen with you it might not
+[00:02:50] happen with you but don't worry take it
+[00:02:53] takes some time sometime it take 15
+[00:02:55] minutes 30 minute if sometime it happens
+[00:02:57] immediately sometime it takes 1 to two
+[00:02:58] days so I'll close right now I'll keep
+[00:03:01] on checking once it is done I'll be back
+[00:03:03] tomorrow for sure so yeah it is working
+[00:03:06] now so I didn't do it took me around
+[00:03:08] like 5 minutes for me to work it
+[00:03:09] properly so I just what I did uh just I
+[00:03:12] was playing it around I didn't do much
+[00:03:13] kind of a thing I just went in the
+[00:03:15] dashboard then in the dashboard there
+[00:03:16] was a WhatsApp button over here I just
+[00:03:18] click on setup once that's it then I
+[00:03:20] come came back again to dashboard and
+[00:03:21] click on the setup for Instagram it's
+[00:03:23] working perfectly fine so the left hand
+[00:03:24] side you can see after one clicking on
+[00:03:26] this uh WhatsApp the WhatsApp is over
+[00:03:28] here but now my Instagram is working
+[00:03:29] properly so that's the good news I think
+[00:03:30] this might also work for you then don't
+[00:03:32] worry this will happen but it will go if
+[00:03:34] you know why it is happening just let me
+[00:03:36] know in the comment so now once this is
+[00:03:37] done so now it's time to go to the
+[00:03:38] sidebar app ro then roles in the sidebar
+[00:03:41] app roles then roles now inside this we
+[00:03:43] need to add people now this Instagram
+[00:03:45] tester will come if you don't set up the
+[00:03:47] Instagram app then this won't be there.
+[00:03:49] So now we have this. Now you select the
+[00:03:51] Instagram ID in which you want to make
+[00:03:53] the posting. So it is coming over here.
+[00:03:54] I'll do the ad. So now it is P. So now
+[00:03:56] we can see we are completed with the
+[00:03:58] second section over here. So now it's
+[00:03:59] time to go to the third section. So for
+[00:04:01] this thing we have to go to Instagram.
+[00:04:02] Then in the Instagram we have to go to /
+[00:04:04] account/ management. I'll copy this link
+[00:04:06] and I'll paste it over here. So as you
+[00:04:08] can see this is my Instagram account and
+[00:04:10] I already have two app which is
+[00:04:11] authorized but in the dash invite you
+[00:04:13] can see we might have got another one.
+[00:04:15] So you can see we have got this
+[00:04:17] application which we created. I'll do
+[00:04:18] the accept. It is saying that I'm
+[00:04:20] allowing from this application to use my
+[00:04:22] API to do the posting. Okay. So this is
+[00:04:24] done. Now if you want to confirm this go
+[00:04:25] back to developer page then in the
+[00:04:28] Instagram API setup with Instagram
+[00:04:30] login. Now over here if I click in this
+[00:04:32] I can see my account over here. Earlier
+[00:04:34] this won't be there but now it is
+[00:04:36] coming. That means it is working
+[00:04:37] properly fine. Okay. Now if you see we
+[00:04:40] have done everything over here. Section
+[00:04:41] four is complete. Now it's time to go to
+[00:04:43] section five. So in section five we can
+[00:04:45] get the access key via two method. There
+[00:04:47] is a one method I think which hardly
+[00:04:49] works and there is a second method which
+[00:04:50] all time works. Okay. So for the hardly
+[00:04:53] method I'll just show you but I won't be
+[00:04:54] implementing it but because I know it
+[00:04:56] most of the time it doesn't work. So if
+[00:04:58] I go over here so now you can see we
+[00:04:59] have the under access token it is
+[00:05:01] written generate token. So I click over
+[00:05:02] here. So now what is happening there are
+[00:05:04] two methods which we are doing over
+[00:05:05] here. This method is that we are
+[00:05:07] generating access token via Instagram
+[00:05:09] login. Okay. And second method is the
+[00:05:11] method via Facebook login. So in the
+[00:05:13] left hand side you can see API setup
+[00:05:14] with Instagram login API setup with
+[00:05:16] Facebook login. So API setup with
+[00:05:18] Facebook login all time works. So if I
+[00:05:20] go and for the Instagram login if I do
+[00:05:22] the login and it is asking me for all
+[00:05:23] the permissions so I'll do allow it. So
+[00:05:25] now I have got the key over here. Okay.
+[00:05:28] And if I take this key to N. So I'm just
+[00:05:31] showing it showing you I know it won't
+[00:05:33] work but let me do one thing. I click
+[00:05:36] another node over here. So let's me take
+[00:05:39] Facebook node and I'll create new
+[00:05:41] credentials. Paste the access token.
+[00:05:43] Save it. As you can see, it's not
+[00:05:45] working. So, as I mentioned, this won't
+[00:05:47] work. So, we'll move on to the second
+[00:05:49] method over here, which is API setup
+[00:05:50] with Facebook login. So, for that, we'll
+[00:05:52] come over here. We'll click on the API
+[00:05:54] setup with Facebook login. Then, we'll
+[00:05:55] go to the tool part over here inside the
+[00:05:57] graph API explorer. Now, this is the
+[00:05:59] earlier app which I had. Select the new
+[00:06:00] app which we generated which is kind of
+[00:06:02] N10 integration tutorial. Now, we need
+[00:06:04] to give all the permission which are
+[00:06:05] required. So, I have mentioned all the
+[00:06:06] permission which we need to give over
+[00:06:08] here. Okay. So we'll come over here in
+[00:06:10] add permission we'll search for
+[00:06:12] Instagram. So we'll select everything
+[00:06:13] with the Instagram Instagram basic
+[00:06:15] Instagram branded content branded this.
+[00:06:17] So as you can see we have selected nine.
+[00:06:19] So if you come over here we have 1 2 3 4
+[00:06:21] 5 6 7 8 9 and 10 which is page show
+[00:06:24] list. Okay. So we'll come over here and
+[00:06:28] we'll search for this page show list.
+[00:06:31] Okay. And we have all the permissions as
+[00:06:32] you can see 10 options selected. Now
+[00:06:34] once this is done we'll click on the
+[00:06:36] generate access token. Now we are doing
+[00:06:37] login with Facebook. So for that we'll
+[00:06:39] do the Facebook login. Now over here
+[00:06:42] when you are selecting the application,
+[00:06:43] this is the page which you might have in
+[00:06:45] the Facebook. So select the page which
+[00:06:47] which is connected with the Instagram.
+[00:06:49] So your Instagram and the Facebook page
+[00:06:51] should be connected for this to work. To
+[00:06:53] see how we can have the access you go to
+[00:06:55] the uh Facebook. Now in right hand side
+[00:06:57] click on the page if you which you want
+[00:06:58] to see. I can come over here click on
+[00:07:00] this. On the left hand side you can see
+[00:07:01] we have a setting icon. In left hand
+[00:07:02] side if you scroll down we have linked
+[00:07:04] account. Now in the linked account you
+[00:07:06] can see I am connected with my Instagram
+[00:07:08] account which I'm giving access to. So
+[00:07:10] for this if whatever page you have just
+[00:07:12] check this is your f Facebook page is
+[00:07:14] connected to your Instagram or not. Go
+[00:07:15] back over there and over here I'll be
+[00:07:18] selecting my taxonomy account over here
+[00:07:19] because this is connected to my
+[00:07:20] Instagram page. I'll do connect and my
+[00:07:23] Instagram account for which I want to do
+[00:07:24] it. So I'll continue it and and it is
+[00:07:27] asking me for all the permission which
+[00:07:28] we have mentioned over here. Okay. I'll
+[00:07:30] do the same. Got it. And now we have got
+[00:07:32] our access key over here. If I copy this
+[00:07:34] now and go to any and if I paste this
+[00:07:37] access token now if I do the save you
+[00:07:39] can see now it is connected
+[00:07:40] successfully. So if it is green yay so
+[00:07:43] but now there's one more way. So this
+[00:07:44] access token is currently valid for only
+[00:07:46] 1 hour. I don't know why but if we can
+[00:07:48] increase this. So for that we can go to
+[00:07:50] the tool and access token debugger. Now
+[00:07:53] paste this ID over here and debug. And
+[00:07:54] now over here we can see that this this
+[00:07:56] is expiring in about 1 hour. So to
+[00:07:58] increase this if you scroll down we have
+[00:08:00] extend access token. We'll get this new
+[00:08:02] access token. We'll copy it and we'll
+[00:08:04] paste it over here again into the
+[00:08:07] debug. And now we can see it is val for
+[00:08:09] 2 months. So we are now good to go. So
+[00:08:12] now we have got the API key. So now it's
+[00:08:14] time to understand how does the API API
+[00:08:16] for Instagram works. How does the
+[00:08:17] Instagram API work? So it's a two-step
+[00:08:19] process. So first process is called
+[00:08:21] containerization. Second is to publish.
+[00:08:23] So in the first process we have a media
+[00:08:25] of image or it could be video. So first
+[00:08:28] we take this media and upload to
+[00:08:29] Facebook container and we get the
+[00:08:31] container ID. It says this now our media
+[00:08:34] is stored to this container with this
+[00:08:35] ID. So now with this ID we'll we'll do
+[00:08:38] the second API call of publishing. So
+[00:08:40] now Facebook has the idea we are
+[00:08:41] publishing this container ID to our page
+[00:08:43] over there. So two-step process. First
+[00:08:45] sending to Facebook server. Then using
+[00:08:47] the container ID then we are publishing
+[00:08:49] to the Facebook. Okay. This sounds very
+[00:08:51] simple. So now that you have understand
+[00:08:53] how does the flow work. Let's get
+[00:08:54] started with the enter workflow over
+[00:08:56] here. So I have made this enter workflow
+[00:08:57] in a very detailed way. I have written
+[00:08:59] each and every steps what is happening
+[00:09:01] in the steps and everything. Okay. So
+[00:09:03] first let's start with the manual
+[00:09:04] trigger means starting on its own and
+[00:09:06] then we are set uping all the necessary
+[00:09:07] details which is required. Okay. So
+[00:09:09] there is one thing called as node. Node
+[00:09:10] means our account ID. So how we'll get
+[00:09:12] this account ID. For that let's go to
+[00:09:14] the developer page. So inside the
+[00:09:15] developer page go to the dashboard. So
+[00:09:17] now after going to the dashboard over
+[00:09:18] here click on this Instagram IP setup
+[00:09:20] with Instagram login. Then click on this
+[00:09:22] generate access token part. Inside this
+[00:09:24] we can see this we have our account ID
+[00:09:26] over here. Just click on the account ID.
+[00:09:27] I'll copy it. I'll come over here inside
+[00:09:30] the node. I'll paste this account ID.
+[00:09:32] Okay. Now we need post type. So since
+[00:09:34] since we doing the switch over here, we
+[00:09:35] need to mention for which post we want
+[00:09:37] to make it. Okay. So we'll mention the
+[00:09:39] post type. So I have drawn the pattern
+[00:09:40] over here. So as we can see for each and
+[00:09:42] every type we have the HTTP request as
+[00:09:44] well as Facebook node. So for the HTTP
+[00:09:46] request the name is starting with
+[00:09:48] the HTTP what is the post? image story
+[00:09:52] image story video then story real and
+[00:09:54] for the Facebook it is kind of FB image
+[00:09:57] FB story image FB real in such a way
+[00:10:00] okay and this all thing is for the
+[00:10:02] learning purpose so in real life
+[00:10:03] scenario you might not be needing all
+[00:10:05] the things over here you might be
+[00:10:06] needing only some of the things but for
+[00:10:08] the demonstration purpose to demonstrate
+[00:10:09] all the things over here we have made
+[00:10:11] this flow hope you're liking the video
+[00:10:12] please subscribe to the channel and like
+[00:10:13] the video in upcoming part of the video
+[00:10:15] we are going to see such an amazing
+[00:10:16] things okay so let's go over here so now
+[00:10:19] for start we'll do HTTP the image. Now
+[00:10:22] we have the image URL. This could be any
+[00:10:24] image which is hosted live. Okay. So for
+[00:10:27] our case, this is my image which I'm
+[00:10:28] going to post. Okay. Then we have the
+[00:10:31] caption. What caption we want to post.
+[00:10:32] Then you have the video URL. This is the
+[00:10:34] video URL of whatever live video which
+[00:10:37] we have. So this is getting downloaded.
+[00:10:38] If I show you the video just a normal
+[00:10:40] driving video over here. Okay. Then we
+[00:10:42] have the cover image. For the real we
+[00:10:43] require the cover image. So we have the
+[00:10:45] cover image over here. If I copy this
+[00:10:46] and show you this is the image. None of
+[00:10:49] the image match with each other. Just
+[00:10:50] for the demonstration purpose I'm
+[00:10:51] showing you can use any image in the
+[00:10:53] live version. Okay. So let's go. Now we
+[00:10:57] understood all the information which we
+[00:10:58] are requiring. Then we have the normal
+[00:10:59] switch for each and every we have the
+[00:11:01] routing. If it is equal to HTTP image
+[00:11:03] then go for this route. If you have the
+[00:11:05] HTTP FB image go for this route. That's
+[00:11:07] the routing purpose over here. Okay.
+[00:11:09] Let's start with the image and what does
+[00:11:10] we require. So let's cover first with
+[00:11:13] the node part over here. So for the node
+[00:11:15] I'll paste that key over here and give
+[00:11:17] it a proper name. Naming condition is
+[00:11:18] very very important. I'll give it my
+[00:11:21] name Instagram name first. Lakshit
+[00:11:22] Ukani. Let's give our app name which is
+[00:11:24] an integration tutorial. Okay. So let's
+[00:11:27] save it. And you can see it turn green.
+[00:11:29] It's working properly. So now once once
+[00:11:31] this is done. So now the default host
+[00:11:34] URL will be default. We are sending the
+[00:11:36] post URL. Currently version which we
+[00:11:38] using is 22.0. Okay. So we'll be using
+[00:11:40] that node we'll be getting from the
+[00:11:42] earlier part over here. Let me execute
+[00:11:44] it. Let me do one thing. Let's come over
+[00:11:46] here. So first we'll be doing the HTTP
+[00:11:49] image post. So we'll do the execute
+[00:11:50] this. Once this is done, let's do the
+[00:11:52] routing part. As you can see, we are
+[00:11:53] having the HTTP image route. We'll go to
+[00:11:55] the HTTP uh request over here. Now it
+[00:11:58] will be kind of post method. Okay. Now
+[00:11:59] first it's time to create the container
+[00:12:01] image over here. So it will be post
+[00:12:02] image. This is the URL which we are
+[00:12:04] having. As you can see it is the HTTP
+[00:12:06] graph URL version is 22.0. Then the node
+[00:12:09] which we are having and as you can see
+[00:12:10] in the node is kind of account ID over
+[00:12:12] here. And then / media. Okay. If you're
+[00:12:15] not seeing properly, if I make it big,
+[00:12:17] it's kind of / media over here. Okay.
+[00:12:18] Then we need to create our account over
+[00:12:20] here. So for that, let's do the generic
+[00:12:23] credential type then header O over here.
+[00:12:25] Okay. Then let's create the uh actually
+[00:12:28] IG account over here. If you don't want
+[00:12:30] to do this all thing, what we can do? We
+[00:12:32] can just send the header over here. So
+[00:12:33] for that we'll come over here and do the
+[00:12:38] authorization. Then inside this we'll
+[00:12:40] have bearer and the and paste the access
+[00:12:43] key which we had. Let's paste it. So
+[00:12:45] this is the same thing which we are
+[00:12:47] doing. I'm not sending it which we are
+[00:12:49] doing by this method over here. So now
+[00:12:50] let's create the account. Let's do the
+[00:12:52] same thing. As you can see bearer and
+[00:12:54] the API key over here. Let's save it. It
+[00:12:56] is save. I have not given the name
+[00:12:58] that's not a good thing. Let's come over
+[00:13:00] here. Let's save it. It is done. So now
+[00:13:02] we need to pass the query parameters
+[00:13:03] over here. So for our image part we need
+[00:13:06] to pass the image URL. Okay. And for
+[00:13:08] caption we need to pass the caption over
+[00:13:10] here. So now once this is done we'll do
+[00:13:11] the execute step. So now as you can see
+[00:13:13] we are getting the container ID over
+[00:13:14] here. So using this container ID we'll
+[00:13:16] be doing the posting. So once we got the
+[00:13:18] container ID. So now what we need to do
+[00:13:20] we need to check is a container ready or
+[00:13:22] not. So if you upload manually also in
+[00:13:24] Instagram. So first you upload the video
+[00:13:27] or image it takes some time then it get
+[00:13:28] published over there. Right. Same is the
+[00:13:30] case over here. Once the image is gone
+[00:13:32] to the container we getting the
+[00:13:33] container ID. Now we need to in the loop
+[00:13:35] check is our container ready to publish
+[00:13:37] or not. So for that we have this uh
+[00:13:39] method over here. So for first we are
+[00:13:41] mapping it because we have multiple
+[00:13:43] nodes over here. So now we are mapping
+[00:13:44] the container ID. We are just getting
+[00:13:46] the content ID which we got over here
+[00:13:47] and giving it a variable name is
+[00:13:49] container ID. We'll do the execute step.
+[00:13:51] Then we waiting for some time because
+[00:13:53] that it takes some time. So I'm waiting
+[00:13:54] by default for 5 seconds over here. So
+[00:13:56] now we need to check the process. So for
+[00:13:58] that it's a normal uh get URL. It's the
+[00:14:00] same URL which we had earlier. So now we
+[00:14:02] are getting the container. So now we
+[00:14:03] need to create the query O over here. So
+[00:14:04] for that we'll go to create a credential
+[00:14:06] over here. Access token. It is a get
+[00:14:09] post over here. I don't know why
+[00:14:11] Facebook complicates it so much. So
+[00:14:13] we'll be posting the access ID which we
+[00:14:15] had earlier. The access ID would remain
+[00:14:16] the same. Just the name over here will
+[00:14:18] change. We'll do the save. Now we have
+[00:14:20] got that. Uh I didn't change the name.
+[00:14:22] So let me change the name. Let's save
+[00:14:24] it. Once it is done, now we have
+[00:14:25] everything. We only require a status
+[00:14:27] code field. You can have multiple fields
+[00:14:28] over here. But I'm I just require status
+[00:14:30] code field over here. I'll do the
+[00:14:31] execute step. Now you can see it is
+[00:14:32] finished. So it's finished means it is
+[00:14:34] ready to be published. Now if it is what
+[00:14:36] not finished it would be false and it
+[00:14:38] would wait for some again 10 5 seconds
+[00:14:41] over here. Again do the same thing it
+[00:14:43] would go around and round. So in the if
+[00:14:44] part you can see if it is finished then
+[00:14:46] it's true. So now we'll execute step it
+[00:14:48] is finished. We'll go ahead. Now over
+[00:14:50] here as I told you earlier I'm writing
+[00:14:52] this name such that http media type http
+[00:14:56] image story image story post real for
+[00:14:58] same thing for the Facebook fp image
+[00:15:00] fb_real fbc story image something. So
+[00:15:03] I'm splitting it. So if you see over
+[00:15:05] here I'm getting the item from there I'm
+[00:15:07] splitting by underscore and I'm getting
+[00:15:09] the first part. Zero means first part.
+[00:15:11] So I'm getting http over here. It means
+[00:15:12] that I will be doing the posting via
+[00:15:15] http call not a Facebook node which we
+[00:15:17] are having in the n. Okay. So I'll do
+[00:15:19] execute this. It is true. It is going
+[00:15:21] over here. Publish by HTTP. And
+[00:15:22] publishing is a post method over here.
+[00:15:25] Again the same part over here. Then the
+[00:15:28] node ID which we had the node ID which
+[00:15:30] means account ID and there is a media
+[00:15:32] publish over here. So you can see this
+[00:15:34] is the URL. Then we need to have the
+[00:15:36] same account ID. So let me select the
+[00:15:38] same account ID which we had this one
+[00:15:40] send query parameter. We only require
+[00:15:42] one parameter over here which is
+[00:15:43] creation ID which is our container ID
+[00:15:46] which we got. Okay. Okay, this is the
+[00:15:48] container ID. I don't know why they
+[00:15:49] select different different names over
+[00:15:50] here. But yeah, creation ID which you're
+[00:15:52] passing over here. If I do the execute
+[00:15:54] step, as you can see, I'm getting some
+[00:15:55] ID. It means it is published. So let's
+[00:15:56] go to the Instagram. So now in the
+[00:15:58] profile, you can see this post has been
+[00:15:59] published just 32 seconds now. So you
+[00:16:01] can see what caption we have written. It
+[00:16:03] is coming over here. So I will be
+[00:16:04] deleting the post. Let me delete. So now
+[00:16:06] I'll be going a little faster because
+[00:16:08] this is the first node. That's the
+[00:16:09] reason I went in depth. So I won't be
+[00:16:10] explaining this again and again. Okay.
+[00:16:12] I'll be going through the node over
+[00:16:13] here. Okay. So now for the Facebook
+[00:16:14] node. Now once you want to show the HTTP
+[00:16:16] node this node will be very simple over
+[00:16:18] here. So now again come over here create
+[00:16:21] the credential ID. So as you can see I
+[00:16:22] have already created this part. If you
+[00:16:24] want to see what we have written is the
+[00:16:25] normal thing over here. We don't need to
+[00:16:26] pass any any access token authorization
+[00:16:28] nothing. Uh just past the access key
+[00:16:30] you're good to go. Host will remain
+[00:16:33] default host method version is 22.0.
+[00:16:36] Then the node will be getting. So let me
+[00:16:37] execute it. So let me come over here.
+[00:16:41] Instead of HTTP now it's time for
+[00:16:43] Facebook
+[00:16:45] execute. So in the node part you can see
+[00:16:47] we're getting this node over here. Edge
+[00:16:49] is media which means we are doing the
+[00:16:51] container part. For the publish part it
+[00:16:52] will be for the publishing at the end it
+[00:16:54] is med publish over here. Okay. Caption
+[00:16:56] again same image URL execute step. As
+[00:16:58] you can see we got the container ID. So
+[00:17:00] let me execute everything at once now.
+[00:17:02] So let's me go over here and let me
+[00:17:04] execute till here. So as you can see
+[00:17:06] we're checking the process. Initial
+[00:17:08] weight time is started. Now everything
+[00:17:10] is perfectly gone. It is finished. Now
+[00:17:12] it has gone to this Facebook node
+[00:17:14] branch. Inside this let's use the same
+[00:17:16] ID. So let's create use the this uh app
+[00:17:19] over here. Uh then host URL default post
+[00:17:22] 22.0 in the node part the same note part
+[00:17:25] which we have in in the note part we'll
+[00:17:27] have the account ID. Now instead of
+[00:17:29] media edge we'll be having media publish
+[00:17:31] edge over here. Creation ID means
+[00:17:33] container ID. Let's execute step. Now as
+[00:17:35] you can see it is executed. Let's go to
+[00:17:36] the Instagram. Let me refresh it. As you
+[00:17:38] can see the this has been successfully
+[00:17:40] done. Automated post 11 second ago.
+[00:17:43] Voila. So if you're liking the video
+[00:17:44] till now, please press the like button,
+[00:17:46] subscribe to it and write the comment
+[00:17:48] because it takes a lot of time to dig so
+[00:17:50] much and takes a lot of documentation to
+[00:17:52] be read. It would be a good support for
+[00:17:54] me and boost for Instagram to boost my
+[00:17:56] video and to reach such people like you.
+[00:17:59] Okay. So now once it is done, it's time
+[00:18:01] for the story image. So now I won't be
+[00:18:03] going over here and won't be going over
+[00:18:05] here because all the things remain same.
+[00:18:08] just we'll be changing uh the post type
+[00:18:11] and everything will remain same over
+[00:18:12] here. Okay, I'll be just explaining this
+[00:18:14] node so that we can wrap it up faster.
+[00:18:15] So let's come over here. So now it's
+[00:18:17] time for the story image. So for that
+[00:18:19] we'll come over here. We'll write
+[00:18:22] http story. Okay, we'll execute it. And
+[00:18:25] now we'll come and execute this part for
+[00:18:28] the story part. Everything will remain
+[00:18:30] same. Just now thing will get start
+[00:18:32] changing over here. So over here in the
+[00:18:34] query parameter, we need to pass media
+[00:18:36] type equal to stories. Okay. And we need
+[00:18:38] to pass image URL to pass the image
+[00:18:40] video URL to pass the video. That's the
+[00:18:43] that's the only difference. I'll be
+[00:18:44] showing you. Let me execute step. So we
+[00:18:46] got the container ID. Let me go and
+[00:18:47] execute till here. So as you can see it
+[00:18:49] is happening. So as you can see
+[00:18:50] everything worked properly. So now let's
+[00:18:52] publish it. This will also remain same.
+[00:18:54] Nothing will change. So it we got some
+[00:18:55] ID. Let's go. And you can see there is
+[00:18:58] nothing over here. If I do the refresh.
+[00:18:59] As you can see it has turned colorful.
+[00:19:00] Let me click on it. Now you can see this
+[00:19:02] image has been published to story. Let
+[00:19:04] me delete it. So this is done. It's time
+[00:19:06] for the Facebook
+[00:19:07] node. So for the Facebook node, let me
+[00:19:10] come over here and change from HTTP
+[00:19:13] story to Facebook story image. Let me go
+[00:19:15] to the As you can see everything remains
+[00:19:17] same. Everything is same. Now caption
+[00:19:19] then image URL media type equal to
+[00:19:21] story. Now we only play with the car
+[00:19:23] query parameter. Rest everything will
+[00:19:25] remain same. So the same thing which we
+[00:19:27] passed in the HTTP node we passing over
+[00:19:29] here. image URL in mush media type and
+[00:19:31] we got the ID. Let's come over here.
+[00:19:34] Execute this step directly. It ran
+[00:19:35] successfully. Let me go inside this
+[00:19:37] execute this step and we got the ID. Let
+[00:19:39] me do the refresh. As you can see, we
+[00:19:41] getting the image over here. Voila. Let
+[00:19:43] me go back. It's time for the video
+[00:19:45] part. So, let me come over here. We'll
+[00:19:47] first do the video with HTTP story
+[00:19:50] video. Execute it. Then we'll execute
+[00:19:51] this as well. Then we have story video
+[00:19:54] upload over here. Let's click on this.
+[00:19:56] Everything remains same. I'm repeating
+[00:19:57] again and again. I know med remain
+[00:20:00] stories only. Instead of image URL, it
+[00:20:01] is video URL. Execute it. We got the
+[00:20:04] container ID over here. Let me run till
+[00:20:06] here. So as you can see it run properly.
+[00:20:08] Let me come over here and uh execute it.
+[00:20:11] So now we got the ID. Let me go refresh.
+[00:20:13] Let me play it. So as you can see the
+[00:20:15] video is playing properly. So good. So
+[00:20:17] good. Let me delete it. So stick to the
+[00:20:19] end because I'm going to show the
+[00:20:20] official documentation of all this part
+[00:20:22] and I'm also going to share it with you.
+[00:20:24] Don't worry about that thing. But let's
+[00:20:26] proceed ahead. Let's proceed with
+[00:20:27] Facebook node over here. Let me click
+[00:20:29] over here. Now instead of http it's time
+[00:20:31] for Facebook. I think you might have got
+[00:20:33] the drill over here. Everything is
+[00:20:34] working same way. It's time for the
+[00:20:36] Facebook node execute step. Same thing.
+[00:20:39] Video URL media type story. Let me run
+[00:20:41] till here. It is going now. It end
+[00:20:43] successfully. Let me come over here.
+[00:20:45] Execute step. Give me the ID. Let me
+[00:20:47] refresh it. Something pop up. And you
+[00:20:49] can see video has been published. Let me
+[00:20:51] delete it. Let's go to the entered part
+[00:20:52] again. It's time for the real part. I
+[00:20:54] think most of the people are excited for
+[00:20:55] the real part over here. Let me come
+[00:20:57] over here and instead of Facebook, let
+[00:21:00] me go for HTTP. Then at the end, it's
+[00:21:02] time for the real
+[00:21:04] http_re. Execute step then run it. Now
+[00:21:08] for the http real part everything
+[00:21:11] remains same just metab will become
+[00:21:13] reals over here. Video URL over here
+[00:21:15] then we'll be requ caption over here.
+[00:21:17] Then the cover URL what cover URL which
+[00:21:19] we want over there. Then the audio name
+[00:21:21] whichever audio what audio name you want
+[00:21:23] to give. Okay. So let me execute step.
+[00:21:25] It is done. Let me run till here. It is
+[00:21:27] done. Let me go execute step. We have
+[00:21:30] got this thing. Let me refresh it. So
+[00:21:32] now as you can see we have got a cover
+[00:21:33] picture over here. And then we have got
+[00:21:35] a real over here as well and automated
+[00:21:36] post. Everything is working properly
+[00:21:38] fine. Let me delete this part. So now
+[00:21:39] it's time for the Facebook node for the
+[00:21:41] real part. Let me come over here.
+[00:21:43] Instead of http it's time for Facebook
+[00:21:46] execute step. And let's go over here.
+[00:21:49] Execute this. Inside this everything
+[00:21:51] remains same. Caption, video URL, video
+[00:21:52] URL, media type, cover image. Execute
+[00:21:55] step. Let me come and do the execute
+[00:21:57] this. As you can see, it got gone in the
+[00:21:59] wait node over here because video
+[00:22:01] sometime takes time instead of image.
+[00:22:03] So, it's going it is waiting now. It
+[00:22:04] will come for the checking process. Now,
+[00:22:06] so as you can see, we have the status
+[00:22:07] code as equal to in progress. It means
+[00:22:09] it is uploading to the container part
+[00:22:10] over there. By the way, this term is
+[00:22:12] called as pooling. It means that we are
+[00:22:13] in a certain interval of time we
+[00:22:15] checking it again and again. Is this
+[00:22:16] status successful or not? Okay. So as
+[00:22:18] you can see it passed successfully. Now
+[00:22:20] if you come over here you can see we
+[00:22:21] have finished part over here. Let me go
+[00:22:23] to the Facebook and do the execute step
+[00:22:25] and we got the ID. Voila. Let me go and
+[00:22:27] refresh it. We got a real over here. We
+[00:22:30] have got an automated post and
+[00:22:31] everything is working perfectly fine
+[00:22:33] over here. Let me delete this. It's time
+[00:22:35] for the carousel. So the carousel is
+[00:22:36] little different from the other because
+[00:22:38] in carousel we have multiple images. So
+[00:22:40] as I told you how normal flow works. We
+[00:22:42] have the image we upload then using the
+[00:22:44] image ID we publish it over there. So it
+[00:22:46] this is al something work in the same
+[00:22:48] sense if you see we have multiple image.
+[00:22:50] So it could be multiple images over
+[00:22:52] here. So for all the image we are
+[00:22:53] uploading to the server over there or
+[00:22:54] Facebook server and from there we'll be
+[00:22:57] getting the ID. Using that ID we'll be
+[00:22:59] operation all together. Let me show you.
+[00:23:01] Let me come over here and do the HTTP.
+[00:23:03] By the way we don't have the Facebook
+[00:23:05] node for the Facebook crows. So we'll be
+[00:23:07] using HTTP crows only. So execute step.
+[00:23:10] So we have got this ID over here. So
+[00:23:12] first for the first image we'll be
+[00:23:13] executing it. Now in this we have the
+[00:23:15] image URL and the caption over here.
+[00:23:17] Just a normal image URL. Nothing nothing
+[00:23:19] media type or anything. We just have the
+[00:23:21] image URL. We got the content ID. Then
+[00:23:23] we'll be doing for the second image over
+[00:23:24] here. So second image is some of the
+[00:23:26] image which I got from the internet. If
+[00:23:27] you see this is the image which I got.
+[00:23:29] Okay. I am executing it. So I got the
+[00:23:31] content ID. So I have both the content
+[00:23:33] ID over here. So now for the cousal part
+[00:23:35] in this thing we have everything same
+[00:23:37] over there. But now we have the another
+[00:23:40] um query parameter over here which is
+[00:23:41] children. Inside children what we doing?
+[00:23:43] We are comma separating both the content
+[00:23:45] ID which we got last. So this is the
+[00:23:47] first container ID. This is the second
+[00:23:48] container ID over here. Okay. Inside the
+[00:23:50] children parameter. Then we have the
+[00:23:51] caption. Then we in the media type we
+[00:23:53] have the crowser. If you execute step
+[00:23:55] now we'll get again the container ID.
+[00:23:58] One container ID which is pointing for
+[00:23:59] the both image over there. Okay. Once we
+[00:24:01] have got this thing then rest all thing
+[00:24:03] remain the same. Same drill. Let me
+[00:24:05] execute it. Now once we got we'll
+[00:24:07] publish it. We have got the ID. If I go
+[00:24:09] to the refresh we can see we have the
+[00:24:11] mark over here. It means two image over
+[00:24:14] here. We can see if I scroll it. Voila.
+[00:24:16] Acura is working perfectly fine over
+[00:24:18] here. So there are too much of
+[00:24:21] information to gain from here. So now
+[00:24:23] now let me show you the official
+[00:24:25] documentation from where I'm getting all
+[00:24:26] these source information. So inside this
+[00:24:28] school community if you go we have the
+[00:24:29] helpful documentation page over here
+[00:24:31] where I have Instagram graph API docs.
+[00:24:33] If I click on it, we can go over there
+[00:24:35] and now we have all the informations. So
+[00:24:37] we can see we have media and media
+[00:24:39] publish um URL. So inside this we can
+[00:24:41] see we have the all the information for
+[00:24:44] the this is all the information for the
+[00:24:47] image container that we can pass image
+[00:24:48] URL we can pass it is a carousel item or
+[00:24:51] not alt text caption location ID user
+[00:24:54] tag product tag access token okay for
+[00:24:56] the real all this information we can
+[00:24:58] pass we have the carousel image image
+[00:25:00] story then a video story all the
+[00:25:02] information I'm getting from here if you
+[00:25:04] get time you can read this documentation
+[00:25:05] otherwise my information will give you
+[00:25:06] lots of lots of information over there I
+[00:25:08] hope you like the video if you like the
+[00:25:10] video, please press the like button,
+[00:25:12] share it with your friend and let me
+[00:25:13] know your thought in the comment.
+[00:25:14] Subscribe to the channel. We'll meet in
+[00:25:16] the next video. Till then, take care.

@@ -1,0 +1,339 @@
+# I Built An AI Influencer Automation in N8n that Automatically Posts Videos
+# https://www.youtube.com/watch?v=R9c_JQrEtu8
+# kanal: Dan Kieft | süre: 700 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] AI influencers are going completely
+[00:00:02] viral. Like everyone seems to be talking
+[00:00:04] about them, but no one actually
+[00:00:06] understands how much time and effort
+[00:00:08] goes into making one. Take this
+[00:00:11] influence for example. She has been run
+[00:00:13] by the German government of tourism and
+[00:00:16] they are trying so hard to make her look
+[00:00:18] realistic in all of these scenes. And
+[00:00:20] apparently it is working. Or what about
+[00:00:22] this influencer? He's completely made
+[00:00:24] with AI but he looks real and he's
+[00:00:26] making content about fitness. That is
+[00:00:29] actually one of my own AI influencers.
+[00:00:30] And in this video, I will teach you how
+[00:00:32] to make them. Now, I've been working on
+[00:00:34] this AI automation stuff for quite a bit
+[00:00:36] of time now. It's not perfect yet, but
+[00:00:39] we're close to it. By clicking execute
+[00:00:41] workflow, all of my AI influencer videos
+[00:00:44] will be uploaded to my Instagram
+[00:00:45] automatically. And honestly, these AI
+[00:00:48] avatars are some of the most realistic
+[00:00:50] ones that are out there yet. Have a look
+[00:00:52] at these two influencers. They sound and
+[00:00:54] look completely real. If you're serious
+[00:00:56] about fitness, sleep is just as
+[00:00:58] important as training. Aim for 7 to n
+[00:01:00] hours a night. Your body builds muscle
+[00:01:02] and burns fat while you rest.
+[00:01:03] >> As much as I love New York, there are
+[00:01:05] definitely a few things I don't love
+[00:01:07] about it. The first is the noise. It
+[00:01:10] never really stops.
+[00:01:11] >> There are actually three steps and three
+[00:01:12] tools that you need in order to make
+[00:01:14] your own AI influencer automation.
+[00:01:18] The first step is making the influencer.
+[00:01:21] For this, we will be using a tool called
+[00:01:22] Arat. I will leave the link to that in
+[00:01:25] the description down below. Once you're
+[00:01:26] at Arcad, you want to create your
+[00:01:28] account and then after you logged in,
+[00:01:30] then you will be brought to the AI
+[00:01:32] influencer page. Here you want to create
+[00:01:34] a new folder. So you want to click on
+[00:01:36] the plus and now you want to give your
+[00:01:38] folder a name. So I'm going to name this
+[00:01:40] travel influencer 2. And then you want
+[00:01:43] to start a new project. Now it's time to
+[00:01:46] make your actor. And you can choose all
+[00:01:48] of their actors that they've already
+[00:01:49] built for you. These are all based on
+[00:01:52] real people or you can make your own
+[00:01:54] actor. And I would suggest doing this as
+[00:01:56] this gives you complete control over the
+[00:01:58] outcome of your influencer. So click on
+[00:02:00] create. You have the option to either
+[00:02:02] upload your own image or to generate one
+[00:02:05] from a prompt. And now you want to give
+[00:02:07] it the prompt. For the prompt, you can
+[00:02:09] actually keep it super simple. I'm doing
+[00:02:11] 26 years old female that is sitting in a
+[00:02:13] cafe wearing a green shirt. Now you
+[00:02:15] click on generate. Now it gave us three
+[00:02:17] different versions. So we have this one,
+[00:02:19] this one and this one. All of them look
+[00:02:22] super realistic and that is the power of
+[00:02:25] Ards. Like they have something in the
+[00:02:27] back end there and they make them look
+[00:02:29] super real. So let's actually go for
+[00:02:31] this one. Now if you don't like it, you
+[00:02:33] can just add in your prompt and say like
+[00:02:35] change this or change your outfit or if
+[00:02:37] you want to have a completely different
+[00:02:39] background, you can do so. Now you
+[00:02:40] select your actor. Then you say what
+[00:02:42] should the actor do? And we want to
+[00:02:44] basically make her talk with excitement.
+[00:02:46] Then we turn this into a talking actor.
+[00:02:48] And now you click on confirm. And this
+[00:02:50] will cost you two credits. And then you
+[00:02:52] will create your actor. I've already
+[00:02:54] done this process with multiple
+[00:02:55] different versions. But basically that's
+[00:02:57] how you make your actor. Now that you
+[00:02:59] got your actor ready, you can select it
+[00:03:01] and you can click on add actor. And now
+[00:03:03] over here, if you click on this
+[00:03:04] wheel right there, then you can change
+[00:03:06] the voice over. For example, if you want
+[00:03:08] to do a different voice, you can choose
+[00:03:10] one right here. And you can also change
+[00:03:11] the speed, stability, similarity, and
+[00:03:13] also the style exaggeration. Now you
+[00:03:16] then want to add in your script. I
+[00:03:18] actually want to make a travel
+[00:03:19] influencer that is exploring different
+[00:03:22] parts of the world and that is talking
+[00:03:24] about them. So what I can do is I can
+[00:03:26] just enter in my prompt of what I want
+[00:03:28] her to say and then I hit send. This
+[00:03:30] will make a video like this.
+[00:03:32] >> As much as I love New York, there are
+[00:03:34] definitely a few things I don't love
+[00:03:36] about it. The first is the noise. It
+[00:03:39] never really stops no matter what time
+[00:03:41] of day or night. Now that is already
+[00:03:43] super good for our travel actor. We
+[00:03:45] actually want to create different
+[00:03:47] versions and that's exactly what I did.
+[00:03:48] If you want to make a different version
+[00:03:50] of your actor then you click on add
+[00:03:51] actor my actors and then you select the
+[00:03:54] person that you want to have a different
+[00:03:56] version of. So for example from her we
+[00:03:58] want to say click new version. Then here
+[00:04:01] we can literally give it a new prompt
+[00:04:03] and then we can for example say she is
+[00:04:05] standing in the park. Now we click on
+[00:04:07] generate and now the same girl the same
+[00:04:09] influencer that we already have made
+[00:04:11] will have a different version and we can
+[00:04:13] use that as a different actor that we
+[00:04:16] have multiple different versions of the
+[00:04:18] same person. As you can see we now have
+[00:04:20] like three different images to choose
+[00:04:21] from. It's the same girl and we can just
+[00:04:24] continue make the actor like this like I
+[00:04:26] shown before. I actually did this like
+[00:04:28] five different times. Like I have her on
+[00:04:30] the beach. I have her in the Dubai Mall.
+[00:04:32] I have her in Rome at the Ty Fountain.
+[00:04:34] And I also have her at the Tower of
+[00:04:36] Pisa. Now, you can do the same for me
+[00:04:38] influencers, too. I actually made this
+[00:04:40] guy right here, and I made an entire
+[00:04:42] fitness page about him. So, for example,
+[00:04:44] if I go over to this folder, then I have
+[00:04:46] all these different versions. And this
+[00:04:48] is very important. You want to batch
+[00:04:50] make all of these different versions.
+[00:04:52] And this was actually super easy to do.
+[00:04:54] All I did is I went to Chachi and I
+[00:04:57] asked it to make a few different
+[00:04:59] scripts. Like, this was done in less
+[00:05:01] than 5 minutes. I I added in all of
+[00:05:03] these different scripts and I put them
+[00:05:05] into Arats. And then it gave me videos
+[00:05:06] like this.
+[00:05:07] >> You're serious about fitness? Sleep is
+[00:05:09] just as important as training. Aim for 7
+[00:05:11] to N hours a night. Your body builds
+[00:05:13] muscle and burns fat while you rest. Not
+[00:05:15] while you're scrolling at 2 a.m.
+[00:05:17] >> So now we have our influencers ready. We
+[00:05:19] can now move over to the next step,
+[00:05:21] which is putting them in an automation.
+[00:05:23] So we don't have to worry about it. Now
+[00:05:26] I already made this animation for you.
+[00:05:28] All you literally have to do is you have
+[00:05:30] to go over to Naden. You create your
+[00:05:32] account. Then you create a new workflow.
+[00:05:34] Here you click on the three dots and
+[00:05:36] then you click on import from file. Here
+[00:05:38] you upload the file that I gave you. And
+[00:05:40] now you will have my entire workflow all
+[00:05:43] pre-built in your NAN dashboard. So the
+[00:05:46] first thing you want to do is you want
+[00:05:47] to set up the workflow parameters. Now
+[00:05:49] the way you do this is you need to add
+[00:05:51] in your Arcad ID in here. This is
+[00:05:54] basically the folder ID that we have
+[00:05:56] from Arcads. The way to get this is you
+[00:05:59] go over to the folder that you want to
+[00:06:01] use. So in my case, it's this fitness
+[00:06:03] influencer folder. Then on the top of
+[00:06:05] the URL, you will see the ID right here.
+[00:06:08] You want to copy that ID and now you
+[00:06:10] bring that over to NAN. You change it to
+[00:06:13] your own ID. Now that you have your
+[00:06:14] folder ID linked, you want to go back
+[00:06:17] and now you want to do the same for all
+[00:06:19] these different steps. Now you have set
+[00:06:20] up the folder ID so it knows where to
+[00:06:23] take the videos from. Now you need to
+[00:06:24] link the ARAT API key inside of NAM. To
+[00:06:28] do that, you want to click on this and
+[00:06:29] you want to go over to basic
+[00:06:31] authorization. Then you want to scroll
+[00:06:33] down, create a new credential, and here
+[00:06:35] you want to find your user API key
+[00:06:38] inside of ARAT. To find your API key,
+[00:06:40] click on the top left right here. Go
+[00:06:42] over to settings and members and then
+[00:06:44] click on public API key. Here you can
+[00:06:46] find the client ID, which is what you
+[00:06:48] need. So you copy that, you bring it
+[00:06:50] over, you add it in there, then you go
+[00:06:52] back to Arcad and here you copy the
+[00:06:55] client secret. You can just copy this
+[00:06:57] key. Then you paste the key inside of
+[00:06:58] the password and then you hit save. You
+[00:07:00] now have set up the Arcad API key inside
+[00:07:04] of this Naden workflow. So we're going
+[00:07:06] to go to the next thing which is get the
+[00:07:09] video from Ard. So make sure over here
+[00:07:11] you select the credential that you just
+[00:07:14] made. So for me it's already like Dan
+[00:07:16] travel influencers. Once that is set up,
+[00:07:18] you can ignore transform video and then
+[00:07:20] you need to link your API key from CHPT.
+[00:07:24] This is very important because otherwise
+[00:07:26] it won't create a caption for you
+[00:07:28] because if you check out this account
+[00:07:29] for example, then we can see that it
+[00:07:32] also has made this entire like caption
+[00:07:35] based on our transcript. So she already
+[00:07:37] like adds in the hashtags and we have
+[00:07:40] the caption. All of that is done
+[00:07:41] automatically through Chachip T. The
+[00:07:43] only thing you need to do is add in your
+[00:07:45] API key. So the way to do that is over
+[00:07:48] here you want to click on OpenAI account
+[00:07:50] create new credential and then you want
+[00:07:52] to go over to this website. This is the
+[00:07:55] OpenAI API key platform. I will share
+[00:07:58] this website with you and you click on
+[00:07:59] create new secret key and then you
+[00:08:02] create the key and that will basically
+[00:08:04] give you the key and the password. Now
+[00:08:06] you add in your API key and optional
+[00:08:08] your organization ID and then you hit
+[00:08:10] save. Now your chat GPT has been set up
+[00:08:13] and it can write the caption for you.
+[00:08:15] Basically what you've done, you've set
+[00:08:16] up the entire automation. The only thing
+[00:08:18] we need to do is we need to link it to
+[00:08:21] Blot because that is step number three
+[00:08:23] and that is posting our videos
+[00:08:25] automatically. So that is possible
+[00:08:27] through a tool called Blot. Once you're
+[00:08:29] brought into Blotato, you will be
+[00:08:30] brought over to this website right here.
+[00:08:32] You want to go over to settings and here
+[00:08:34] you want to link your Instagram account.
+[00:08:36] In order to do that, you need to go to
+[00:08:38] login with Instagram and then you will
+[00:08:40] be logged into your Instagram. You hit
+[00:08:41] accept on everything and basically your
+[00:08:44] Instagram account is now connected.
+[00:08:45] After you've added in your Instagram
+[00:08:47] account, you want to copy your account
+[00:08:49] ID. So basically you see your account
+[00:08:52] right here and you want to click on copy
+[00:08:54] account ID. Now we want to go over to
+[00:08:56] the workflow and we want to go back to
+[00:08:58] the workflow parameters and here we want
+[00:09:01] to add in our ID. I already have mine
+[00:09:03] added in there but basically you just
+[00:09:05] want to replace this one with your own
+[00:09:07] one. After that you need to enter in
+[00:09:09] your API key of Plot in this upload on
+[00:09:12] Blot note right here. So double click
+[00:09:14] it. Then you want to add in your Blot
+[00:09:17] API key. So you want to click on create
+[00:09:18] a new credential. Here you give it a
+[00:09:20] name which is Blotato API key. Then you
+[00:09:22] go into Blot and over here at the
+[00:09:25] settings if you click on API you can
+[00:09:27] find your key right here. So you click
+[00:09:29] on copy API key and now you can copy
+[00:09:32] that into your value right here and then
+[00:09:35] you hit save. Now you have your Blot
+[00:09:38] account set up inside of this Naden
+[00:09:40] workflow. You want to make sure you have
+[00:09:42] the exact same account selected that you
+[00:09:44] have right here as the one where you
+[00:09:46] have post on Instagram. So this potato
+[00:09:48] account Dan, that's the one I'm using
+[00:09:50] for this. If you're using a different
+[00:09:52] Instagram account, whatever obviously
+[00:09:54] you are, then you want to enter in your
+[00:09:56] new credential that you've just made.
+[00:09:58] And after that, you're basically ready
+[00:10:00] to start executing your workflow because
+[00:10:03] everything is connected. And what this
+[00:10:04] will do is it will start fetching the
+[00:10:07] videos from our folder. Then it will get
+[00:10:10] the videos in the file. It will
+[00:10:11] transform the video. It will add in a
+[00:10:14] caption that can be used inside your
+[00:10:16] Instagram post. And then it will start
+[00:10:18] uploading it on potato and potato
+[00:10:21] schedules it out on Instagram.
+[00:10:23] Basically, if you go over to the API
+[00:10:25] dashboard, then you can see what is
+[00:10:27] happening. So for example, right now
+[00:10:28] these are already completed. A few of
+[00:10:31] them are cute and that means that they
+[00:10:33] have been scheduled like once a day.
+[00:10:35] Now, depending on how many videos you've
+[00:10:37] made in this folder, for example, right
+[00:10:39] here, I got about nine of them. These
+[00:10:41] are all scheduled for the next 9 days.
+[00:10:44] If you batch this out for at least a
+[00:10:46] month, then you will have fully
+[00:10:47] automated your account for at least a
+[00:10:49] month. It's all scheduled for you. And
+[00:10:51] maybe once a month, you just have to
+[00:10:53] create this type of content. The cool
+[00:10:55] thing is this will keep looping. So
+[00:10:57] every time it sees a new video, it will
+[00:10:59] start doing this thing over and over
+[00:11:01] again. So you see it's now at number
+[00:11:03] five and now it's doing this again and
+[00:11:05] again. It's very important that for all
+[00:11:07] of these tools, you need to have the
+[00:11:08] premium account because without one, you
+[00:11:11] cannot get the API keys and you cannot
+[00:11:13] get this automation to work. Now I'll
+[00:11:15] leave the link for all of the tools that
+[00:11:17] I mentioned in the description down
+[00:11:18] below and now you basically understand
+[00:11:20] how to automate your own AI influencer.
+[00:11:22] Now this is just the service level of
+[00:11:24] this automation. There's so much more
+[00:11:26] possible and in the next months I will
+[00:11:28] cover some more topics on this
+[00:11:30] automation. If you want to check out
+[00:11:32] more AI influencer videos, then click
+[00:11:34] the one that's on the screen right now
+[00:11:35] and I will explain to you how you can
+[00:11:37] start making money with your AI
+[00:11:39] influencer.

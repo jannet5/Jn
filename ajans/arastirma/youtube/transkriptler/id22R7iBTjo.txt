@@ -1,0 +1,576 @@
+# I Built a Viral Instagram Carousel Machine (n8n + Nanobanana + Blotato)
+# https://www.youtube.com/watch?v=id22R7iBTjo
+# kanal: Automate with Marc | AI Automation  | süre: 1166 sn | kaynak: yt-dlp:web_embedded:timedtext:en:automatic_captions
+
+[00:00:00] In this video, I'm going to show you how
+[00:00:01] to create viral worthy Instagram
+[00:00:03] carousels on autopilot using Google's
+[00:00:05] Nano Banana and Nin. Here's the thing.
+[00:00:08] The real trick to going viral on
+[00:00:09] Instagram right now isn't reals, it's
+[00:00:11] carousels. They get people to stop,
+[00:00:14] swipe, and save, which gives you some
+[00:00:16] crazy reach. By the end of this video,
+[00:00:18] you'll have a complete workflow that
+[00:00:20] takes any idea, turns it into a scroll
+[00:00:22] stopping five slide carousel, and even
+[00:00:24] generates the most effective image
+[00:00:25] prompts for you, all on autopilot. No
+[00:00:28] design skills, no code, just pure
+[00:00:31] automation magic. Whether you're a
+[00:00:32] thought leader, an influencer, or a
+[00:00:34] business trying to create consistent,
+[00:00:36] high impact content, this workflow is
+[00:00:38] for you. I'll also share the free
+[00:00:40] workflow template in the link below, so
+[00:00:41] you can load it up and hit the ground
+[00:00:43] running. So, let's dive right in. So,
+[00:00:45] this is the workflow that we're going to
+[00:00:46] build today. The workflow is going to be
+[00:00:47] triggered with a simple chat trigger.
+[00:00:49] And of course, you can replace this with
+[00:00:50] an onschedule trigger. For example, if
+[00:00:52] you wanted to generate a specific type
+[00:00:55] of Instagram carousels on a specific
+[00:00:57] time of the day or of the week, you can
+[00:00:59] always do that. And you can change this
+[00:01:01] to any other communication platform to
+[00:01:03] Telegram, Slack, whatnot. So, I just
+[00:01:05] want to make it simple here by placing a
+[00:01:06] chat message cuz it's easy to do a test
+[00:01:08] run and to instruct the agent on the
+[00:01:10] types of Instagram carousel that you
+[00:01:11] want to create. And the second node that
+[00:01:13] takes care of the chat input is
+[00:01:15] essentially the carousel image prom
+[00:01:16] agent which crafts a prom for the image
+[00:01:18] and prepares them based on the language
+[00:01:20] brand and type and style and that you
+[00:01:22] want and pass it into a node that splits
+[00:01:24] out the arrays because remember a
+[00:01:26] carousel is a collection of images in
+[00:01:28] this case is five images and you want to
+[00:01:30] send it one by one to the nano banana
+[00:01:33] API which I'm using waist speed because
+[00:01:35] you can't send a whole array into the
+[00:01:38] nano banana API and as usual you're
+[00:01:40] going to wait for a specific amount of
+[00:01:42] time for Nano Banana API to finish
+[00:01:44] generating the images based on the
+[00:01:46] prompts and again you'll get those
+[00:01:48] images back and then you upload that to
+[00:01:50] a tool called potato that I've covered
+[00:01:52] in my previous videos and if you want to
+[00:01:53] check it out I'll link it up here and
+[00:01:54] down in the description below and
+[00:01:56] converting that back into an array using
+[00:01:58] a code node which I'll also share the
+[00:02:01] custom code but I'm going to share the
+[00:02:02] entire workflow template for you to
+[00:02:04] download and use anyway and that will go
+[00:02:06] into a simple log sheet before it goes
+[00:02:08] into a caption agent to create the
+[00:02:10] caption and again the capt Caption is a
+[00:02:12] text that goes below the post and every
+[00:02:14] single post there's only one set of
+[00:02:16] caption. Meanwhile, the text overlay has
+[00:02:18] been taken care of previously by the
+[00:02:19] image prompt agent right here. And once
+[00:02:21] you have the caption and the series of
+[00:02:23] images, we're going to post it to
+[00:02:24] Instagram via Blue. So cool. The very
+[00:02:27] first note that you want to hit here is
+[00:02:28] a chat trigger note. And what we want to
+[00:02:30] do here is we're going to populate it
+[00:02:32] with a simple create an IG carousel of
+[00:02:35] five images around the topic of best
+[00:02:36] practices for podcast. So in this case I
+[00:02:39] am pretending that I'm a podcaster a
+[00:02:42] thought leader in podcast actually and
+[00:02:44] basically the Instagram channel that I'm
+[00:02:46] running is posting reels on the best
+[00:02:48] practices around podcast how you would
+[00:02:50] make a great podcast. So the next note
+[00:02:52] you want to hit here is the AI agent
+[00:02:54] note and we're going to just quickly
+[00:02:56] rename this to emate prompt generator.
+[00:02:59] Okay. And then I'm going to attach a
+[00:03:01] chat model. I'm not going to change
+[00:03:02] anything here in the connected chat
+[00:03:04] trigger node. But of course, if you are
+[00:03:06] connecting it with any other trigger
+[00:03:08] node, you might want to choose the find
+[00:03:09] below and drag and drop, you know,
+[00:03:11] whatever input that you have. But I'm
+[00:03:12] just going to keep this as connected by
+[00:03:14] the chat trigger. And I'm going to make
+[00:03:17] sure that there's a system message
+[00:03:18] because right now it's just saying
+[00:03:19] you're a helpful assistant. I want to be
+[00:03:21] more specific than that. And so what
+[00:03:22] I've done is I've pasted in a system
+[00:03:25] prompt that I have generated on toggling
+[00:03:27] this to expression and blowing it up so
+[00:03:29] you can see. So I'm being super specific
+[00:03:32] with my system prompt. In this case, I
+[00:03:33] use chat GPT to generate the system
+[00:03:35] prompt and make it an efficient
+[00:03:37] effective prompt. But essentially, these
+[00:03:39] are the styles of Instagram carousels
+[00:03:41] that I want to create. But one thing
+[00:03:43] that is kind of unique here is I want to
+[00:03:45] make sure that the output is in the
+[00:03:46] format of five different prompts because
+[00:03:49] there are five images that I want to
+[00:03:50] create with nanobanana. So hence I need
+[00:03:52] the five different prompts in the
+[00:03:53] output. I want it to be outputed as an
+[00:03:56] array. And in order to enforce that, I
+[00:03:59] actually will toggle on the require
+[00:04:02] specific output format. And there you
+[00:04:03] go. Once I do that, you'll see that an
+[00:04:05] output parser option pops up here. So
+[00:04:07] let's attach a chat model first with the
+[00:04:10] open AI chat model, right? Going to pick
+[00:04:12] the right account there. And choose GPT5
+[00:04:15] in this case. Just want to make sure I'm
+[00:04:18] using the most sophisticated model. And
+[00:04:20] I'm going to attach an output parser. in
+[00:04:22] this case a structured output processor.
+[00:04:24] And what it is is basically telling the
+[00:04:26] AI to return the response in a specific
+[00:04:29] format. And here we're just giving it an
+[00:04:31] example of what the format looks like.
+[00:04:33] So you don't need to be intimidated with
+[00:04:35] the code that we're working on right
+[00:04:36] now. It's very simple. So we're just
+[00:04:38] going to select everything and delete
+[00:04:39] it. And what we'll do is we're going to
+[00:04:42] paste in these JSON prompt format. Just
+[00:04:44] specifying this is an array called
+[00:04:46] prompts. And within the array there are
+[00:04:48] individual prompts that's going to go
+[00:04:50] towards nano banana later on. Okay,
+[00:04:53] cool. So going to toggle out and we're
+[00:04:56] going to hit the play button right on
+[00:04:57] top of AI agent so that it runs a test
+[00:05:00] run. All right, so that's executed
+[00:05:01] successfully. So let me just take a look
+[00:05:03] at the output here. As you can see the
+[00:05:05] prompts for the image minimalist bold
+[00:05:08] Instagram carousel cover for podcast
+[00:05:09] best practices. Da da da the background.
+[00:05:12] All right, cool. So the next note we
+[00:05:15] want to hit here is the split out node.
+[00:05:17] Again, the reason why we want a split
+[00:05:19] out node is because this is being
+[00:05:20] outputed as an array. So we want to make
+[00:05:22] sure that right now it's going to be
+[00:05:24] split out into individual items so that
+[00:05:27] it runs five times whenever the workflow
+[00:05:29] is executed because nano banana can only
+[00:05:31] take one item at a go. So that's the
+[00:05:34] reason why you want to use the split out
+[00:05:36] node. So here we just want to put
+[00:05:38] output.prompt prompts because this is
+[00:05:40] basically the field that's coming from
+[00:05:42] the image prompt generator which is
+[00:05:44] output prompts which is the array and
+[00:05:47] basically this is all you need to fill
+[00:05:49] and I'm going to hit execute step and
+[00:05:50] you'll see that it says there are five
+[00:05:52] items it's showing me the first item
+[00:05:54] that went through but there actually
+[00:05:56] five different items you can think of it
+[00:05:58] like five different runs that's going
+[00:06:00] through the next node right so as you
+[00:06:01] can see this is one item going in here
+[00:06:03] and five items going out right so the
+[00:06:05] next node that we want to hit here is
+[00:06:07] the HTTP P request node and this is the
+[00:06:10] nano banana HTTP request and I've
+[00:06:14] covered this in my previous video. We're
+[00:06:15] going to go into waistbee with a post
+[00:06:18] request. And for those of you who
+[00:06:19] haven't watched the video, basically
+[00:06:20] just go over to waistpe.ai and under
+[00:06:23] models you just select nano banana text
+[00:06:25] to image and you'll be led to this page.
+[00:06:27] And what you want to do is just toggle
+[00:06:29] over to API. So there's this curl
+[00:06:31] command here that we can copy. go back
+[00:06:33] to our workflow and what you want to do
+[00:06:34] is just to import curl and paste the
+[00:06:37] entire curl command and hit import. As
+[00:06:39] you can see, the fields are now autopop
+[00:06:41] populated. And what you want to do is
+[00:06:43] under authentication, we're going to
+[00:06:45] choose generic credential type header O.
+[00:06:47] And I already have a API key set up. And
+[00:06:50] if you don't know how to do that, do
+[00:06:51] check out my other video. I'll link it
+[00:06:53] up here and down here as well. But since
+[00:06:55] we already have the header off selected
+[00:06:57] here, we can toggle off the send
+[00:06:58] headers. And under the body content,
+[00:07:01] what we want to do is to just leave
+[00:07:03] everything as is and scroll all the way
+[00:07:05] down to the prompt. As you can see, this
+[00:07:07] is basically the prompt for the image,
+[00:07:09] the kind of image that we want
+[00:07:10] generated. So, we're going to replace
+[00:07:11] this with the dynamic value by dragging
+[00:07:14] the output.prompts variable over here.
+[00:07:17] And again, this although is showing only
+[00:07:19] the first item, it actually has five
+[00:07:21] items within it. So, it's just going to
+[00:07:23] go over five times, right? So, it's
+[00:07:24] going to make five API calls. So, I'm
+[00:07:26] going to hit execute step right now. And
+[00:07:28] there we go. As you can see, is calling
+[00:07:31] it five times. And it's also outputting
+[00:07:34] five items. Now, as usual, we want to
+[00:07:36] wait as soon as we make the call because
+[00:07:40] Nano Banana needs some time to create
+[00:07:42] the images that we've asked it to
+[00:07:44] create. So, in this case, we're going to
+[00:07:46] wait 30 seconds. And of course, you can
+[00:07:47] set it to, you know, 45, 60, whatever
+[00:07:50] the case may be. And in my previous
+[00:07:52] videos, I also covered how we should
+[00:07:54] create a loop where it goes back to nano
+[00:07:57] banana if it fails because we want to
+[00:07:59] make sure that the workflow keeps going
+[00:08:00] even if the images weren't ready. But in
+[00:08:03] this case, just to keep it simple, I'm
+[00:08:05] going to skip that part. But remember,
+[00:08:06] if you want to create a production ready
+[00:08:08] workflow, you need to create a loop just
+[00:08:10] to make sure that it keeps going. All
+[00:08:12] right. So, as that is loading, what I
+[00:08:15] want to do is I want to hit another HTTP
+[00:08:18] request node and I want to get nano
+[00:08:21] banana image result. And again the for
+[00:08:25] the URL I want to go back to the nanob
+[00:08:28] banana curl command and under query
+[00:08:30] result this is the curl command that I
+[00:08:32] could copy and I'm going to hit import
+[00:08:34] curl paste the entire curl chunk here
+[00:08:36] under authentication I'm going to hit
+[00:08:39] header off again the same key toggle off
+[00:08:42] the send headers and that's it I'm going
+[00:08:44] to hit execute step whoops I think made
+[00:08:47] a mistake here ah okay so I actually
+[00:08:49] forgot to paste the request ID right
+[00:08:51] here so as you can see this is a request
+[00:08:53] ID that is specific to the image. So you
+[00:08:56] need to replace this with the image ID
+[00:08:59] that you got from the weight node or
+[00:09:02] even the previous node is going to be
+[00:09:03] the same ids. Right? So this is
+[00:09:05] essentially fetching the image result
+[00:09:07] with that specific ID. So I'm going to
+[00:09:09] hit execute step again. And there we go.
+[00:09:12] This time it works. And again there are
+[00:09:14] five items. They're being fetched and
+[00:09:16] we've got the output URLs right here. So
+[00:09:18] let's check out in the output URL what
+[00:09:20] the actual image looks like or at least
+[00:09:22] one of it. So, here's the image that
+[00:09:24] Nana Banana has generated. It says,
+[00:09:25] "Stop losing listeners in the first 60
+[00:09:27] seconds. Five podcast best practices to
+[00:09:29] grow your show fast." So, and then it
+[00:09:30] has a little arrow button here for
+[00:09:32] people to scroll. Well, for the first
+[00:09:34] image, it looks okay. So, let's get back
+[00:09:36] to the workflow. And the next note we
+[00:09:38] want to hit here is basically the potato
+[00:09:41] node. For those of you who have not used
+[00:09:43] potato before, this is a community node
+[00:09:44] and this is also a paid tool, but it
+[00:09:46] does make your life a lot easier by
+[00:09:48] automating all the social media posting
+[00:09:50] not only to Instagram but to other
+[00:09:52] social medias like Tik Tok, LinkedIn,
+[00:09:54] Facebook, YouTube, and any other
+[00:09:56] platforms. Right? So, what we're doing
+[00:09:58] here, we're uploading that to
+[00:10:01] which in this case, we're going to pick
+[00:10:03] the upload media. And this is not the
+[00:10:05] same as uploading to Instagram because
+[00:10:07] we're just uploading it to potato
+[00:10:09] database which has been whitelisted by
+[00:10:11] all the social media platforms because
+[00:10:13] if you try to directly upload a random
+[00:10:15] URL let's say from waistpeed or from
+[00:10:17] Google drive directly to Instagram
+[00:10:19] sometimes they're not going to allow you
+[00:10:21] to do that because they have some pretty
+[00:10:22] strict policy. So by uploading it to
+[00:10:24] Blotato you make sure that everything is
+[00:10:26] just kind of seamless right. So, in this
+[00:10:27] case, I already have my Blot account
+[00:10:29] connected, but for those of you who
+[00:10:30] haven't, just go to blot.com and once
+[00:10:33] you get signed up, you want to go into
+[00:10:34] settings and you can just connect your
+[00:10:36] social accounts. In this case, I've got
+[00:10:38] my Instagram connected here. So, that's
+[00:10:40] how everything is set up. And if you
+[00:10:42] haven't had your account created, what
+[00:10:43] you can do is just create new
+[00:10:44] credential. And for your API key, you
+[00:10:46] can actually go to potato and under API,
+[00:10:48] if you have actually generated an API
+[00:10:51] key. But again, in order to do that,
+[00:10:52] you're going to need a paid account.
+[00:10:54] Once you generate the API key, you
+[00:10:55] essentially just need to go back and
+[00:10:56] paste the API key. And that's all you
+[00:10:58] need to do, right? And this case, we're
+[00:11:01] going to pick resources media operation
+[00:11:03] as upload. And for the media URL, I'm
+[00:11:05] just going to drag the output variable
+[00:11:07] over here. Again, remember there are
+[00:11:09] five items. So this is going to run five
+[00:11:11] times. So I'm going to execute step.
+[00:11:12] Then there your five items went through
+[00:11:14] and our five items were uploaded to
+[00:11:16] potato. So the next node that we want to
+[00:11:18] hit here is a custom code node. The
+[00:11:21] reason for this is because we want to
+[00:11:22] make sure that right now there are five
+[00:11:24] different items. We want to now combine
+[00:11:26] it back to an array because that's how
+[00:11:28] the upload to Instagram function is
+[00:11:30] going to work from the potato node at
+[00:11:32] the very end of the workflow. Now, this
+[00:11:34] may seem a little bit intimidating for
+[00:11:36] those of you who don't have coding
+[00:11:37] background, but don't worry about it.
+[00:11:38] I'm going to paste the exact chunk down
+[00:11:40] in the description below. In this case,
+[00:11:42] I'm just going to paste in the combine
+[00:11:45] all URL fields to incoming items into a
+[00:11:47] single array code right here. And of
+[00:11:50] course, you can always come up with your
+[00:11:51] custom code by coding it with any LLM of
+[00:11:54] your choice. And even there's AI
+[00:11:55] assistant over here which you can ask it
+[00:11:57] to generate the code. So I'm going to
+[00:11:59] hit execute step. And there you go. It's
+[00:12:01] now combined into one array called URLs
+[00:12:04] with five different items in it. And
+[00:12:07] okay, we're going to go to the next
+[00:12:08] node. And over here I'm just going to
+[00:12:10] log it somewhere. So in this case, I'm
+[00:12:12] going to pick a Google sheet node
+[00:12:14] because I want a log of the image URL.
+[00:12:16] So I'm going to do it append row in
+[00:12:18] sheet. And from the list I'm going to
+[00:12:20] pick IG carousel generated image log.
+[00:12:23] And this is a log that I've created for
+[00:12:24] it. It's very simple. It's just one
+[00:12:26] column. It's really just to get the logs
+[00:12:28] of the image that has been generated.
+[00:12:30] Maybe I'll add a time stamp here
+[00:12:32] actually just to make sure that you know
+[00:12:33] we know when that's generated and head
+[00:12:35] back here. This is under sheet. There's
+[00:12:38] only one sheet. I'm going to pick sheet
+[00:12:39] one. So under image URL, what we want to
+[00:12:42] do, we're going to drag the arrays over
+[00:12:43] here into the image URL. And then under
+[00:12:47] time stamp, we're just going to drag the
+[00:12:49] now variable from the workflow. And
+[00:12:52] there we go. We're going to hit execute
+[00:12:53] step. All right. So that's been
+[00:12:55] populated. And so this is what it looks
+[00:12:57] like back at a Google sheet. And this is
+[00:12:59] probably not the best way to store or
+[00:13:01] log your image URLs. It should ideally
+[00:13:03] be separated. But this case because I
+[00:13:05] literally just want to have a reference
+[00:13:07] point. And again, this will go away
+[00:13:08] after a little bit, right? The URL isn't
+[00:13:10] going to be permanent. But it does have
+[00:13:12] the URL links here. So in any case that
+[00:13:16] we want to refer to it, you can actually
+[00:13:17] come back here. And so that's done. What
+[00:13:19] we want to do next is just to have open
+[00:13:21] AAI agent note and in this case it's
+[00:13:24] just a messenger model because the only
+[00:13:26] thing I want it to do is just caption
+[00:13:28] generate. So it's a caption generator.
+[00:13:30] Again caption are the text that comes
+[00:13:32] below the post for the Instagram
+[00:13:34] carousel. In this case we're going to
+[00:13:36] leave the resources text message and
+[00:13:38] model and the model that we're going to
+[00:13:39] choose here five. Okay. And as for the
+[00:13:43] user prompt, because the caption, if you
+[00:13:45] think about it, it's going to be based
+[00:13:46] on the images or the idea or the topics
+[00:13:49] that's been generated. What we want to
+[00:13:50] do is to drag in the image prompts that
+[00:13:54] has been input by the image prompt
+[00:13:57] generator before. So, what we're going
+[00:13:58] to do, we're going to drag the user prom
+[00:14:00] items right here. Uh, as you can see, it
+[00:14:03] says it can't determine which item to
+[00:14:04] use to execute from our info. Now
+[00:14:06] sometimes this happens especially when
+[00:14:09] you actually have a workflow where you
+[00:14:11] have one item turning into five and then
+[00:14:13] coming back to one where it changes the
+[00:14:15] number of items in the previous part of
+[00:14:17] the workflow. So the workflow can't
+[00:14:20] actually determine which particular item
+[00:14:21] within the array that you want to use.
+[00:14:24] So in those cases we're actually
+[00:14:25] handling two different components. one
+[00:14:27] coming from the arrays which are the
+[00:14:29] image URLs arrays that we want to pass
+[00:14:31] on to the potato node later on as well
+[00:14:34] as the image prompts that's coming from
+[00:14:37] the image prompt generator which we want
+[00:14:39] to feed into the caption generator to
+[00:14:42] provide context for the captions to be
+[00:14:44] generated. So actually what we want to
+[00:14:46] do here is to just disconnect this note
+[00:14:48] here. And we're changing the workflow
+[00:14:50] architecture a little bit. And I'm glad
+[00:14:52] that I'm doing this live because
+[00:14:53] sometimes this happens and you know you
+[00:14:55] got to rework the architecture a little
+[00:14:57] bit to fit the format. And it's
+[00:14:59] practical builds like this that actually
+[00:15:01] lets you learn a lot more about the
+[00:15:02] format and how it affects the
+[00:15:04] architecture of the workflow as you need
+[00:15:06] to accommodate these different type of
+[00:15:08] files, number of items etc. So what we
+[00:15:11] want to do is we actually want to pass
+[00:15:13] all the prompts all the five prompts
+[00:15:15] into the prompt for the caption
+[00:15:17] generator so that the caption generator
+[00:15:20] is generating the text based on the
+[00:15:22] images that are going into the IG
+[00:15:25] carousel. So in order to do that we're
+[00:15:27] going to do prompt one is this prompt
+[00:15:31] two prompt three prompt four prompt
+[00:15:33] five. So each of these prompts are the
+[00:15:35] image prompts that are being just passed
+[00:15:37] on from the values here. So that is the
+[00:15:40] user prompt that's going in there.
+[00:15:42] Meanwhile, the system prompt, which is
+[00:15:44] you're an expert Instagram caption
+[00:15:46] agent, you'll receive a set of prompts
+[00:15:47] that we use to generate Instagram
+[00:15:49] carousel images. All right, so it knows
+[00:15:52] what to do with all these image prompts.
+[00:15:54] Okay, so we're going to just hit execute
+[00:15:55] step so it populates the output right
+[00:15:58] there. All right, so that's been
+[00:15:59] generated and as you can see, it's
+[00:16:01] coming up with the content right here.
+[00:16:03] Just before we go, we're going to just
+[00:16:04] pin this so that the text output
+[00:16:07] actually stays in there. and we're going
+[00:16:09] to go to executions and repopulate this
+[00:16:11] part of the workflow right here. All
+[00:16:12] right, cool. That's repopulated. What we
+[00:16:14] want to do now is to introduce a node
+[00:16:17] called the merge node. And essentially
+[00:16:20] what this node does is it combines the
+[00:16:22] input of two nodes because remember we
+[00:16:25] have one set of input values which are
+[00:16:27] arrays image URLs coming through this
+[00:16:29] part of the workflow. And now we've
+[00:16:31] branched out the caption workflow which
+[00:16:33] contains a string value for the text
+[00:16:36] going into the caption generator. So
+[00:16:38] we're just going to connect the two into
+[00:16:39] the merge note. Do here is to just
+[00:16:42] select combine. And at this point we're
+[00:16:44] just going to select all possible
+[00:16:45] combinations. There are a couple
+[00:16:47] different things you can do with the
+[00:16:48] merge node. But in this case because we
+[00:16:50] just want to merge all the values into
+[00:16:52] one right now so that we can pass it on
+[00:16:53] to the next node. So we're going to
+[00:16:55] choose all possible combinations and hit
+[00:16:57] execute step. All right. Cool. So as you
+[00:16:59] can see now it becomes one item instead
+[00:17:01] of two items that's going through the
+[00:17:03] merge node and out of the item we have
+[00:17:05] the image URL arrays which we want and
+[00:17:08] we also have a content being merged into
+[00:17:10] it. All right. So okay cool. So the next
+[00:17:12] and final node that we want to hit right
+[00:17:15] here is the potato post to Instagram
+[00:17:17] node. So we're going to select create
+[00:17:20] post right there. Now here what we're
+[00:17:22] trying to do is basically we're trying
+[00:17:24] to create a post on Instagram and under
+[00:17:26] account since we're already connected we
+[00:17:28] just choose the connected account which
+[00:17:29] in this case is automate with mark and
+[00:17:31] the two fields here text basically is
+[00:17:33] the caption or the text that goes under
+[00:17:36] the post. So for every post there's only
+[00:17:38] one set of text meanwhile for image URLs
+[00:17:40] remember we have five images that's
+[00:17:42] coming through. So this is the array
+[00:17:43] they want to drag into the media URLs
+[00:17:46] and for the text we want to drag the
+[00:17:48] content of the message into the text
+[00:17:50] right here. So now we have two of these
+[00:17:52] values going into one node which is a
+[00:17:54] create post or post to Instagram node.
+[00:17:58] And here we're going to hit execute
+[00:17:59] step. All right, that's successfully
+[00:18:01] submitted. So let's go to my Instagram
+[00:18:03] and see what kind of post has been
+[00:18:04] created on my Instagram. All right, so
+[00:18:06] there you go. That's the post right
+[00:18:07] there. I had to run the workflow earlier
+[00:18:09] just so that it populates it again. So
+[00:18:11] the image might look a little different
+[00:18:13] with the one that we've downloaded
+[00:18:14] earlier, but there you go. You know,
+[00:18:16] stop losing listeners in the physics
+[00:18:18] actually looks better now. Five podcast
+[00:18:19] best practices to grow your show fast
+[00:18:21] and it's got a little arrow button here
+[00:18:23] which is great. The post comes out
+[00:18:25] pretty good as well. So the problem
+[00:18:27] rambling intros inconsistent schedule
+[00:18:29] the aha moment that's okay. Five points.
+[00:18:32] Uh some text not exactly what I wanted
+[00:18:35] to say but yeah it's 80% there.
+[00:18:37] Generally what I want to do is to show
+[00:18:39] you guys how the workflow all comes
+[00:18:41] together in a simple way to autogenerate
+[00:18:44] images with nanoben and then passing it
+[00:18:46] through rot to auto posted to your
+[00:18:49] Instagram. And of course you can always
+[00:18:50] replace a chat note with scheduled
+[00:18:52] trigger note. Therefore you know you can
+[00:18:54] have the whole workflow triggered at a
+[00:18:57] specific time at a specific day and
+[00:18:59] automating all your scheduling etc. And
+[00:19:02] if you want, of course, one of the best
+[00:19:04] practices is to add a human in the loop
+[00:19:06] right here before it posts to Instagram.
+[00:19:09] Get your approval before it kicks it to
+[00:19:11] your social. So that's it for today's
+[00:19:12] video. I hope it shows you a clear and
+[00:19:14] simple way on how to put a basic
+[00:19:16] workflow together using tools like
+[00:19:18] Rotato, which can automate your posting
+[00:19:20] to Instagram. But as always, if you
+[00:19:22] found the video useful, please consider
+[00:19:23] subscribing and I'll see you in the next

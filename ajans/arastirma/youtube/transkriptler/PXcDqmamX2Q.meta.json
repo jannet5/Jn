@@ -1,6 +1,11 @@
 {
- "title": "youtube video #PXcDqmamX2Q",
+ "title": "How To Post To Instagram Via N8N [AI Automation]",
  "id": "PXcDqmamX2Q",
  "url": "https://www.youtube.com/watch?v=PXcDqmamX2Q",
- "kaynak": "yt-dlp:android"
+ "kaynak": "yt-dlp:web_embedded:timedtext:en",
+ "channel": "WebSensePro",
+ "duration": 947,
+ "description": "Post To Instagram Via N8N [AI Automation]\n\nStruggling to connect your Instagram account to N8N? Getting stuck on the credentials setup for the Instagram node? You've come to the right place.\n\nThis is a step-by-step, no-fluff guide on how to properly authenticate and connect N8N with Instagram using the official Graph API method through a Facebook Developer account. This is the foundational step you MUST get right before you can automate posting, moderate comments, or build any other Instagram workflow.\n\nWe will walk through the entire process inside the Facebook for Developers portal to create an app, set the correct permissions, and generate the necessary credentials to get your N8N workflow up and running.\n\n✅ WHAT YOU'LL LEARN IN THIS VIDEO:\n\nWhy you need a Facebook Developer account for Instagram automation.\nHow to create a new Facebook App from scratch.\nHow to add the \"Instagram Graph API\" product to your app.\nConfiguring the correct permissions (like instagram_basic, pages_show_list, etc.).\nHow to generate a User Access Token.\nWhere to find your App ID, App Secret, and Access Token.\nHow to correctly input these credentials into the N8N Instagram node and test the connection.\n\nOnce you have this connection set up, you'll be ready to build powerful workflows! This tutorial makes the most confusing part of Instagram automation simple.\n\nCode & Blog: https://websensepro.com/blog/how-to-post-to-instagram-via-n8n-ai-automation/\n\nVideo Timestamps:\n00:00 - Intro\n02:43 - Setting up Facebook Developer App\n04:18 - Generating Access Token\n10:05 - Extending Token Expiry\n11:15 - Configuring N8N Workflow\n14:50 - Testing & Posting to Instagram\n15:25 - Conclusion\n\nRelated Videos:\nBuild N8N Whatsapp Chatbot!: https://youtu.be/srWFAArynRQ\nPost To Linkedin Via N8N : https://youtu.be/BpHw_U_UJkY\nPost to Facebook via N8N: https://www.youtube.com/watch?v=TECNpzbuSF4\nConnect Google Credentials in N8N: https://www.youtube.com/watch?v=VfHN57xMcEg\n\nIf you are looking to get help related to AI Automation, feel free to reach us out at https://websensepro.com/contact-us",
+ "upload_date": "20250616",
+ "view_count": 50998
 }
