@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WinRemoteMonitor</title>
+<meta name="description" content="Securely monitor and manage your Windows PC live from your Android phone.">
+<style>
+  :root {
+    --bg: #fbfaf8; --fg: #1d1d1f; --muted: #5f6368; --card: #ffffff;
+    --line: #e6e3de; --accent: #2563eb; --accent-fg: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1115; --fg: #ececf1; --muted: #9aa0a6; --card: #171a21;
+            --line: #262b35; --accent: #60a5fa; --accent-fg: #0f1115; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; padding: 20px 0; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -.01em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 15px; }
+  @media (max-width: 480px) { nav a { margin-left: 12px; font-size: 14px; } .logo { font-size: 16px; } }
+  .hero { padding: 64px 0 48px; }
+  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 16px; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-fg);
+         padding: 12px 22px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding: 24px 0 56px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  h2 { font-size: 26px; letter-spacing: -.01em; margin: 0 0 12px; }
+  section { padding: 8px 0 48px; }
+  section p { color: var(--muted); max-width: 720px; }
+  section a { color: var(--accent); }
+  footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">WinRemote<span>Monitor</span></div>
+    <nav><a href="#features">Features</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="hero">
+    <h1>Your Windows PC,<br>live in your pocket.</h1>
+    <p class="lead">WinRemoteMonitor lets you securely watch and manage a Windows computer
+      from your Android phone — live CPU, RAM and disk, running processes, file activity
+      and alerts, over an end-to-end protected connection.</p>
+    <a class="btn" id="cta" href="#contact">Get in touch</a>
+  </div>
+
+  <div class="grid" id="features">
+    <div class="card"><h3>Live dashboard</h3><p>Real-time CPU, memory and disk charts with configurable alert thresholds.</p></div>
+    <div class="card"><h3>Process control</h3><p>Search and end processes, with built-in protection for critical system processes.</p></div>
+    <div class="card"><h3>File activity</h3><p>Timeline of changes in watched folders and a “what is filling my disk” view.</p></div>
+    <div class="card"><h3>Secure by design</h3><p>TLS with certificate pinning, HMAC challenge-response pairing via QR, and no remote shell.</p></div>
+    <div class="card"><h3>Allow-listed apps</h3><p>Launch only the applications you approved on the PC itself — nothing else.</p></div>
+    <div class="card"><h3>Device management</h3><p>Pair, list and revoke phones at any time from the Windows agent.</p></div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>We are an early-stage software startup building privacy-first remote monitoring tools.
+      The product consists of a lightweight Go agent for Windows and a native Kotlin /
+      Jetpack Compose Android app that talk over a documented, security-reviewed protocol.
+      We use AI throughout development and are working on AI-powered insights that explain
+      unusual system behavior in plain language.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Questions, partnerships or early access: <a id="mail" href="mailto:hello@example.com">hello@example.com</a></p>
+  </section>
+
+  <footer>© <span id="y">2026</span> WinRemoteMonitor. All rights reserved.</footer>
+</div>
+<script>
+  // Contact address follows whatever domain the site is served from: hello@<domain>.
+  (function () {
+    var h = location.hostname.replace(/^www\./, '');
+    if (h && h.indexOf('.') > 0 && !/^\d+(\.\d+){3}$/.test(h) && !/(pages\.dev|github\.io)$/.test(h)) {
+      var m = document.getElementById('mail');
+      m.href = 'mailto:hello@' + h; m.textContent = 'hello@' + h;
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
