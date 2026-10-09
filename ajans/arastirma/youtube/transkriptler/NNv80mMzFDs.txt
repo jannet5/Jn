@@ -1,0 +1,156 @@
+# Stop Making Ugly Websites with Claude Code
+# https://www.youtube.com/watch?v=NNv80mMzFDs
+# kanal: Ed Hill | AI Automation | süre: 648 sn | kaynak: yt-dlp:web_embedded:NNv80mMzFDs.en.json3
+
+[00:00:00] Websites built with Claude Code are easy to spot. They look the same and are
+[00:00:04] clearly AI. But what if I told you this beautiful website was built entirely with
+[00:00:08] Claude Code in just a couple of minutes? The difference isn't the tool, it's the
+[00:00:12] way you set it up. So I'm going to show you the three levels of building with
+[00:00:16] Claude Code from the most basic all the way to the exact framework I used so you
+[00:00:21] can copy it. So by the end of the video, you also will be able to create this exact
+[00:00:24] website I built with Claude Code. Level number one, simple prompting. But before
+[00:00:30] we can start building websites with Claude Code, we first need an AI code editor.
+[00:00:35] The best one is Microsoft Visual Studio Code. It's free and it has everything what
+[00:00:40] we need. So we first download it and install it. Once installed, you should see
+[00:00:44] something like this. The first thing you want to do is to click here on this icon
+[00:00:48] and type in here Claude Code and select the Claude Code plugin and click Install.
+[00:00:53] Then we go here to our file system and click Open Folder. Let's call it Demo one
+[00:00:57] and open it. Now, you should see here on the top this little icon. It's for Claude
+[00:01:01] Code. But before we can start, you need first a Claude Code Pro account because
+[00:01:05] then Claude Code is included. And once you're a heavy user, you can switch easily
+[00:01:09] to Max account to have higher rate limits. All right, let's get started. We
+[00:01:14] prompt now Claude Code to build the website. Build me a landing page for Qovo
+[00:01:17] Robotics. We sell a personal home robot called Qovo that follows voice commands,
+[00:01:21] carries things, and learns your daily routines. By the way, I highly recommend
+[00:01:25] to also get Whisper Flow so you don't have to type everything. It gives you
+[00:01:29] incredible speed to text since you can talk faster than you can type. Let's see
+[00:01:32] what results we get with simple prompting with Claude Code. By the way, I added do
+[00:01:36] not use any skill since Claude Code is actually using skills automatically. I
+[00:01:40] will explain skills in detail in level two. If you don't have any skills
+[00:01:44] installed, you don't need to mention this. All right, Claude Code just finished.
+[00:01:48] Let's see the results.
+[00:01:50] So this is the result. If you want to see the website, you click here on this file,
+[00:01:55] click Reveal in Finder, and simply drag and drop this file into Chrome. And that's
+[00:02:00] what we got so far. Too much text, generic layout, and everywhere purple. And
+[00:02:06] there's a reason for that. The most famous website framework, Tailwind, used
+[00:02:10] this exact color as its default color five years ago, and that's why it's all over
+[00:02:15] the internet. So AI learned that purple is the default. Even the founder of Tailwind
+[00:02:19] said, "I would like to formally apologize for making every button in Tailwind UI
+[00:02:23] Indigo five hundred five years ago, leading every AI-generated UI on Earth
+[00:02:28] also being Indigo," like you can see here also. But let's see the rest of the
+[00:02:32] website. We have here some boring animation. Here's the typical free grid
+[00:02:37] layout we see everywhere on AI-generated websites. Here again, purple. Here's some
+[00:02:43] inconsistency in color. Too much text again here. But in general, it looks
+[00:02:47] pretty good compared to somebody who would do it by hand everything. But comparing
+[00:02:52] to what we want to build today, what Claude Code generated on the first try,
+[00:02:56] it's not really good. I mean, sure, we could prompt it now to fix the purple
+[00:02:59] color and so on, but the problem is the AI does not understand what you actually
+[00:03:04] want. It does not has human taste. Another problem is it's hard to explain what you
+[00:03:09] exactly want if you're not an expert in building websites. But the good part is,
+[00:03:13] with the approach I show you in level three, you don't have to be. Even an
+[00:03:17] absolute beginner will then be able to create beautiful websites like this one.
+[00:03:22] Level number two, using Claude Code skills. To show you the second approach,
+[00:03:26] we will open up a new project. So we click here New Window, click here Open, and we
+[00:03:30] create a second folder Demo two
+[00:03:34] and open it.
+[00:03:35] Then we start Claude Code by clicking on it here. And this time we will be using a
+[00:03:39] skill. To install it, type in /plugins and select here Manage Plugins. Then type
+[00:03:45] here frontend and select here the frontend design plugin. And here you can decide if
+[00:03:50] you want to install it globally, only for the project, or locally. In this case, we
+[00:03:54] choose Install for you and make sure also that it's activated. By the way, if you
+[00:03:58] want to know exactly what the plugin does, you can click here on the source, and
+[00:04:02] here you can see exactly what it does, how to use it, and even see what's inside.
+[00:04:05] For example, this plugin only has at the end of the day, only a skill there. A
+[00:04:11] skill are basically instruction files that tell Claude Code how to do something,
+[00:04:15] like giving it the playbook for a specific task. For example, it says, "Never use
+[00:04:19] generic AI-generated aesthetics like overused font families," and then it gives
+[00:04:23] examples, and so on. So once we install our skill, we want to copy and paste the
+[00:04:27] whole prompt here, but this time we don't include do not use any skill. Now we're
+[00:04:31] pasting it here and see what Claude Code generates now. Based on this prompt,
+[00:04:35] Claude Code decided that the frontend design skill will be useful for this task.
+[00:04:39] So he basically added the instructions that are in this skill. All right, Claude
+[00:04:43] Code is finishing up and we see here our results. Let's open up this in the
+[00:04:47] browser. Let's open this in the browser. First of all, good that we don't have the
+[00:04:52] purple colors anymore here. But I'm still not really impressed by this illustration.
+[00:04:55] Text looks much better now. Oh, this looks nice. In general, we can see the
+[00:05:00] website looks already much better. But again, has this free grid layout style
+[00:05:04] that we see on all AI-generated websites. But I still don't have the same premium
+[00:05:08] feeling like on this website that we built in level three. Here all elements look
+[00:05:14] like they're designed by a professional designer and everything is coherent and
+[00:05:18] matches. And now finally, we will build exactly this website. Now we have level
+[00:05:23] three. I call it the ANF framework. It stands for assemble, normalize,
+[00:05:30] fill. So the idea is simple.
+[00:05:33] Instead of describing what you want, you give Claude Code actual components built
+[00:05:37] by real designers. Every shadow, every animation, every detail already done. You
+[00:05:44] just pick the ones you like. This is exactly how I built the website from the
+[00:05:47] intro, from scratch. And honestly, it's not much harder than what we just did. Let
+[00:05:52] me show you everything step by step. First, let's open up a new Claude Code
+[00:05:55] project. Let's call it Demo three. Next, we go to a website called twentyfirst.dev.
+[00:06:01] Here you have a lot of components that you can choose from, like for example,
+[00:06:05] this one. This one I used in the hero section, for example. And the great part
+[00:06:09] about twentyfirst.dev is here's a feature called Copy Prompt. And if I click on
+[00:06:15] this, you can select here Prompt Type, Claude Code.And click copy prompt. Create
+[00:06:20] me a simple website with the following component on it. And now I paste what we
+[00:06:25] copied from twentyfirstdev and send this off. Claude Code received now detailed
+[00:06:29] instruction how to recreate the exact same component. Great. Claude Code just
+[00:06:34] finished. And it says here, "Run the following command
+[00:06:39] to see the website." So I click here Terminal, click New Terminal,
+[00:06:43] and paste this command there
+[00:06:46] and click Enter. Now we can copy this URL here and paste it into this browser. And
+[00:06:50] like you can see, we got the exact same component here now. But let me show you
+[00:06:54] even much faster approach. First, we delete everything inside this folder.
+[00:06:59] Then we start a new Claude Code session. But instead of pasting the components one
+[00:07:03] by one, we first create here folder called components. Then I click this icon to
+[00:07:08] create the text file, and I call it one.txt. Now I go back to twentyfirstdev
+[00:07:14] and click here Copy Prompt. And then I paste this prompt here. Then I create a
+[00:07:17] second file, I call it two.txt, and copy the next prompt from the component I would
+[00:07:23] like to have.
+[00:07:26] And paste it here. And I continue this approach with the following components.
+[00:07:31] By the way, in the description box below, I also link all components so you can try
+[00:07:34] it yourself.
+[00:07:36] So once you did this, after you've done that, you tell Claude Code to create a
+[00:07:40] website with all the components inside the components folder in order, and send this
+[00:07:45] off. Now, Claude Code first reads all these files and then creates the website.
+[00:07:50] Let's type in npm run
+[00:07:53] dev and open this website. Like you can see, it looks already pretty good, but
+[00:07:57] it's still, like, I like, don't like the fonts and so on. That's why we will first
+[00:08:02] normalize the whole webpage. We got these components from many different websites,
+[00:08:06] but we want them to look like one single website. That's why we instruct now Claude
+[00:08:10] Code to normalize the whole page. For this, we use this simple prompt here. By
+[00:08:14] the way, you can find this also in the description box below and paste it here.
+[00:08:18] All right. Claude Code just finished. Let's see the results. This here is
+[00:08:21] working. Looks nice. Boom. Yes, this looks also really nice. But the only thing that
+[00:08:26] is not, not nice yet is it's still generic information here. For example, the
+[00:08:31] reviews here are generic. The pricing here is not for robotics. And the
+[00:08:35] questions here are not for robotics and so on. That's why we come now to the last
+[00:08:40] part of the framework, fill. But before I show you how, I want to mention that this
+[00:08:44] website has a light mode
+[00:08:46] and a dark mode. And by the way, if you don't like anything here from the website
+[00:08:50] and so on... By the way, like you can see, the website is still not perfect. For
+[00:08:53] example, here's some side scroll, or I don't like the font and so on. But these
+[00:08:58] are simple things to fix since we can just tell Claude Code. But once you are
+[00:09:02] satisfied with the structure of the website and how it looks like, we can fill
+[00:09:06] it with the right information. For that, we're using this research prompt here.
+[00:09:11] This one instructs Claude Code to do some research on robotics. For this, we open up
+[00:09:15] a new Claude,
+[00:09:17] paste in this prompt,
+[00:09:19] and send this off. So basically, what Claude Code does now is he checks the
+[00:09:22] whole website and checks what he needs to fill out. Based on this information, he
+[00:09:27] does the research on the topics of robots, and then we instruct him to fill out the
+[00:09:32] site. All right. Claude Code now finished his research, and now we instruct it to
+[00:09:37] fill out the whole page with this prompt here. And we paste it and send this off.
+[00:09:43] So this prompt basically instructs Claude Code to fill out the whole website based
+[00:09:48] on our research. Perfect. Claude Code just finished. Let's see the results. Now he
+[00:09:52] named our robot Apex. It's a general-purpose humanoid robot engineered
+[00:09:56] to work alongside you. It can perceive, think, and act. Now all reviews are based
+[00:10:02] on robotics. For example, here, safety was our biggest concern. After ten thousand
+[00:10:06] hours of operating alongside team, we've had zero accidents. It's flexible. It has
+[00:10:10] here some pricing
+[00:10:12] and frequently asked questions for the robot here. This foundation you can now
+[00:10:17] use to polish your site for your exact product. And the best part is it won't
+[00:10:22] look AI-generated since we're using components created by humans, and we just
+[00:10:26] let the AI implement everything for us. And if you like this tutorial, make sure
+[00:10:31] to join my school community, where we take you from a beginner to a pro. We will
+[00:10:35] show you exactly how to use Claude Code and when to use Claude Code, and when it
+[00:10:40] makes sense to use other tools, all without the hype. Just things that work. I
+[00:10:45] hope you like this video and see you in the next one.
