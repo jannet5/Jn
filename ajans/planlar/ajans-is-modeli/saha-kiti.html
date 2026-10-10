@@ -1,0 +1,310 @@
+<title>Ajans Saha Kiti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: tek sütun saha kiti; üstte yapışkan bölüm çipleri, altta konu başına kart ızgaraları. Kartlar kopyalanabilir. */
+:root{
+  --bg:#EEF2F1; --surface:#FFFFFF; --ink:#13231F; --muted:#56655F; --line:#D3DCD8;
+  --accent:#0B6E5B; --accent-ink:#FFFFFF; --mark:#F2B23A; --mark-ink:#2A1D00; --soft:#E1ECE8;
+  --warn:#9A3B12;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1714; --surface:#16221E; --ink:#E6EFEB; --muted:#9DB0A8; --line:#2A3A34;
+  --accent:#3FC1A2; --accent-ink:#06231C; --mark:#F2B23A; --mark-ink:#2A1D00; --soft:#1C2D27; --warn:#F08A5D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1714; --surface:#16221E; --ink:#E6EFEB; --muted:#9DB0A8; --line:#2A3A34;
+  --accent:#3FC1A2; --accent-ink:#06231C; --mark:#F2B23A; --mark-ink:#2A1D00; --soft:#1C2D27; --warn:#F08A5D; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1040px;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header.top{padding-block:40px 20px;display:grid;gap:14px}
+.lede{font-size:1.12rem;max-width:62ch;color:var(--ink)}
+.lede b{background:var(--mark);color:var(--mark-ink);padding:0 .25em;border-radius:4px}
+nav.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.chips a{flex:0 0 auto;font-family:var(--f-mono);font-size:.78rem;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:999px}
+nav.chips a:hover,nav.chips a:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
+section{padding-block:40px 8px;display:grid;gap:18px;scroll-margin-top:60px}
+.sec-head{display:grid;gap:6px}
+.sec-head p{color:var(--muted);max-width:65ch}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
+.card.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.price{font-family:var(--f-display);font-weight:800;font-size:1.7rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--f-body);font-weight:400;font-size:.9rem;color:var(--muted)}
+.sub{color:var(--muted);font-size:.92rem}
+ul.clean{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.tag{justify-self:start;font-family:var(--f-mono);font-size:.7rem;padding:3px 8px;border-radius:999px;background:var(--soft);color:var(--accent);letter-spacing:.04em}
+.tag.hot{background:var(--mark);color:var(--mark-ink)}
+.msg{background:var(--soft);border-radius:8px;padding:12px 14px;white-space:pre-wrap;font-size:.98rem}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+button.copy{font-family:var(--f-mono);font-size:.75rem;border:1px solid var(--accent);background:transparent;color:var(--accent);padding:6px 12px;border-radius:999px;cursor:pointer}
+button.copy:hover{background:var(--accent);color:var(--accent-ink)}
+button.copy:focus-visible{outline:2px solid var(--mark);outline-offset:2px}
+button.copy.done{background:var(--accent);color:var(--accent-ink)}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:2.2rem 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+ol.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:800;font-size:1.3rem;color:var(--accent);line-height:1}
+ol.steps li > div{min-width:0}
+.qa{display:grid;gap:10px}
+.qa .card{grid-template-columns:1fr;gap:6px}
+.q{font-weight:700}
+.week{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr))}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:4px;min-width:0}
+.day .n{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.day .t{font-size:.92rem}
+.day.k{border-left:4px solid var(--mark)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--mark)}
+.pillars{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr))}
+.pillar{background:var(--soft);border-radius:10px;padding:12px}
+.pillar b{display:block;font-family:var(--f-mono);font-size:.74rem;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+.warn{border-left:4px solid var(--warn)}
+.foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;display:grid;gap:6px}
+code{font-family:var(--f-mono);font-size:.85em}
+@media (prefers-reduced-motion:no-preference){button.copy{transition:background .15s,color .15s}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <span class="label">YouTube araştırmasından · 17+ video planı</span>
+  <h1>Ajans Saha Kiti</h1>
+  <p class="lede">Bu kit, yerel işletmelere <b>site + sosyal medya + reklam</b> satarken ne fiyat vereceğini, işletmeye ne yazacağını ve hangi işi otomatiğe bağlayacağını tek yerde toplar.</p>
+</header>
+
+<nav class="chips" aria-label="Bölümler">
+  <a href="#paketler">Paketler</a>
+  <a href="#mesajlar">Mesajlar</a>
+  <a href="#gorusme">Görüşme</a>
+  <a href="#rutin">Günlük rutin</a>
+  <a href="#otomasyon">Otomasyonlar</a>
+  <a href="#icerik">30 gün içerik</a>
+  <a href="#dikkat">Dikkat</a>
+</nav>
+
+<section id="paketler">
+  <div class="sec-head">
+    <span class="label">Ne satıyoruz, kaça</span>
+    <h2>Paketler</h2>
+    <p>Site ücretsiz ya da ucuz, sistem aylık. Tek seferlik satıp gitmek videolarda en sık söylenen hata. Fiyatlar öneri; ilk 5 müşteride test et.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <span class="tag">Giriş</span>
+      <h3>Vitrin</h3>
+      <div class="price">2.500–3.500 ₺ <small>/ay</small></div>
+      <p class="sub">Kurulum 0–5.000 ₺</p>
+      <ul class="clean"><li>Mobil uyumlu site, hosting, bakım</li><li>Google İşletme Profili kurulumu</li><li>WhatsApp butonu, yorum vitrini</li></ul>
+      <p class="sub">Videodaki karşılığı 150–200 $/ay.</p>
+    </article>
+    <article class="card lead">
+      <span class="tag hot">En çok satılacak</span>
+      <h3>Müşteri Makinesi</h3>
+      <div class="price">5.000–7.500 ₺ <small>/ay</small></div>
+      <p class="sub">Kurulum 5.000–10.000 ₺</p>
+      <ul class="clean"><li>Vitrin'deki her şey</li><li>Form ve WhatsApp'tan gelen müşteriye otomatik cevap ve 3 adım takip</li><li>Cevapsız aramaya otomatik WhatsApp</li><li>Google yorumu isteme ve yanıtlama</li><li>Ayda 12 sosyal medya paylaşımı</li></ul>
+      <p class="sub">Videodaki karşılığı 300–500 $/ay.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Büyüme</span>
+      <h3>Büyüme</h3>
+      <div class="price">10.000–15.000 ₺ <small>/ay</small></div>
+      <p class="sub">Kurulum 15.000–30.000 ₺, reklam bütçesi hariç</p>
+      <ul class="clean"><li>Müşteri Makinesi'ndeki her şey</li><li>Online randevu veya sipariş, mobil uygulama</li><li>Sitede yapay zekâ sohbet asistanı</li><li>Meta ve Google reklam yönetimi</li></ul>
+      <p class="sub">Videodaki karşılığı 1.000–2.000 $/ay.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Tek seferlik</span>
+      <h3>Özel tasarım site</h3>
+      <div class="price">20.000–50.000 ₺</div>
+      <p class="sub">Üstüne Vitrin aboneliği</p>
+      <ul class="clean"><li>Markaya özel tasarım, çok sayfa</li><li>Revizyon tek canlı görüşmede</li></ul>
+      <p class="sub">Videodaki karşılığı 1.000–6.000 $ peşin.</p>
+    </article>
+  </div>
+  <p class="sub">WhatsApp API, SMS ve reklam bütçesi gibi kullanım ücretleri müşterinin kartından çekilir; aylık ücret sabit kalır.</p>
+</section>
+
+<section id="mesajlar">
+  <div class="sec-head">
+    <span class="label">Önce yap, sonra sor</span>
+    <h2>Mesaj kartları</h2>
+    <p>Kural: işletmeye "site ister misiniz?" diye sorma. Önce 15 dakikada örnek sayfa hazırla, sonra "sizin için yaptım, bakar mısınız?" de. Linki cevap gelince gönder.</p>
+  </div>
+  <div class="grid" id="msgGrid"></div>
+</section>
+
+<section id="gorusme">
+  <div class="sec-head">
+    <span class="label">Satma, teşhis et</span>
+    <h2>Görüşme soruları ve itirazlar</h2>
+    <p>Özellik anlatma, sonucu anlat. "Gece 2'de telefondan randevu alır, sabah dolu takvimle uyanırsınız" gibi.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3>Keşif soruları</h3>
+      <ul class="clean">
+        <li>Siteyi en son ne zaman güncellediniz?</li>
+        <li>İşler nereden geliyor, kulaktan kulağa mı?</li>
+        <li>Daha fazla iş alabilir misiniz?</li>
+        <li>Siteden form dolduran birine ne oluyor?</li>
+        <li>Bir müşteri size ortalama kaç para kazandırıyor?</li>
+      </ul>
+    </article>
+    <article class="card lead">
+      <h3>Kapanış hesabı</h3>
+      <p>"Bir müşteri size 2.000 ₺ kazandırıyorsa ve sistem ayda sadece 1 ekstra müşteri getirirse, aylık ücreti kendi ödüyor."</p>
+      <p class="sub">Rakamı müşteriye söylet, hesabı onun rakamıyla yap.</p>
+    </article>
+  </div>
+  <div class="grid qa">
+    <article class="card"><p class="q">"Pahalı."</p><p>Bir müşteri size kaç para kazandırıyor?</p></article>
+    <article class="card"><p class="q">"Siteye ihtiyacım yok."</p><p>Sizi ilk kez duyan biri, güvenilir olduğunuzu nereden kontrol ediyor?</p></article>
+    <article class="card"><p class="q">"Kendim yaparım."</p><p>Ne zamandır planlıyorsunuz? Haftaya hazır olsa nasıl olur?</p></article>
+    <article class="card"><p class="q">"Google'da ilk sıraya çıkar mıyım?"</p><p>Sıralama sözü vermiyoruz; profil ve yorum stratejisiyle 1–2 ayda ciddi fark hedefliyoruz. Sahte yorum yok.</p></article>
+  </div>
+</section>
+
+<section id="rutin">
+  <div class="sec-head">
+    <span class="label">Her gün aynı sıra</span>
+    <h2>Günlük müşteri bulma rutini</h2>
+    <p>20–30 müşteriye kadar soğuk temas şart. Sonrasında referans ve küçük reklam bütçesi devreye girer.</p>
+  </div>
+  <ol class="steps">
+    <li><div><h3>Ara</h3><p>Google Haritalar veya Instagram'da "sektör + ilçe" ara. Örnek: "tesisatçı Kadıköy", "diş kliniği Çankaya".</p></div></li>
+    <li><div><h3>Listele</h3><p>50 işletmeyi tabloya yaz: ad, telefon, Instagram, site var mı, yorum sayısı.</p></div></li>
+    <li><div><h3>Ele</h3><p>20–100 yorumu olan, sitesi olmayan ya da eski siteli olanları tut. Çok iyi siteli ve hiç önemsemeyenleri atla.</p></div></li>
+    <li><div><h3>Örnek yap</h3><p>Her biri için 15 dakikada örnek ana sayfa hazırla; işletmenin kendi fotoğraflarını ve bilgisini kullan.</p></div></li>
+    <li><div><h3>Yaz veya ara</h3><p>Mesaj kartlarından uygun olanı gönder. Instagram'da önce 3 gönderi beğen, takip et, müşteri gibi soru sor.</p></div></li>
+    <li><div><h3>Görüşmeyi kilitle</h3><p>Saat, WhatsApp numarası ve 30 dakika önce hatırlatma. Fiyatı telefonda değil görüşmede konuş.</p></div></li>
+  </ol>
+</section>
+
+<section id="otomasyon">
+  <div class="sec-head">
+    <span class="label">Öncelik sırasıyla kurulacak</span>
+    <h2>Otomasyonlar</h2>
+    <p>Hepsinde ortak kural: müşteri hesabında onay olmadan hiçbir şey yayınlanmaz.</p>
+  </div>
+  <ol class="steps">
+    <li><div><h3>Müşteri adayı toplayıcı</h3><p>"Sektör + ilçe" yazınca Haritalar verisini, site hızını ve yorum sayısını tabloya döker; her sabah süzülmüş liste Telegram'a gelir.</p></div></li>
+    <li><div><h3>Örnek site fabrikası</h3><p>Sektör şablonu + işletme bilgisi + Instagram fotoğrafları → 15 dakikada canlı önizleme linki.</p></div></li>
+    <li><div><h3>Hızlı takip akışı</h3><p>Form veya WhatsApp gelir → anında cevap → 10 dakikada dönülmezse arama görevi → 1., 3. ve 7. gün takip. Cevapsız aramaya otomatik WhatsApp.</p></div></li>
+    <li><div><h3>Google yorum motoru</h3><p>İş bitince QR veya WhatsApp ile yorum isteği; gelen yoruma yapay zekâ taslak cevap yazar, onaylanınca yayınlanır.</p></div></li>
+    <li><div><h3>İçerik hattı</h3><p>Kaynak (haber, müşteri fotoğrafı, yorum) → fikir → doğrulama → platform başına ayrı metin → marka şablonunda görsel → Telegram'da "Onayla" → Instagram'a resmi API ile yayın.</p></div></li>
+    <li><div><h3>Carousel üretici</h3><p>6–8 slaytlık metin → marka şablonu → görseller → Instagram carousel.</p></div></li>
+    <li><div><h3>Tanışma kaydı</h3><p>İlk görüşme kaydedilir, yazıya dökülür; site metni ve marka sesi taslağı buradan çıkar.</p></div></li>
+    <li><div><h3>Reklam standardı</h3><p>Hizmet başına 1 kampanya, 1 reklam seti, sadece konum hedefi, 20+ farklı görsel; aylık raporda yeni ve eski müşteri ayrımı.</p></div></li>
+  </ol>
+</section>
+
+<section id="icerik">
+  <div class="sec-head">
+    <span class="label">Kendi Instagram ve Facebook hesabımız</span>
+    <h2>İlk 30 gün içerik planı</h2>
+    <p>Haftada 5 gönderi, her gün 2–3 hikâye. Her gönderide tek çağrı: "Ücretsiz örnek ana sayfa için DM'den ÖRNEK yaz." Hashtag yok, emoji en fazla bir.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar"><b>Pazartesi</b>Önce / Sonra carousel</div>
+    <div class="pillar"><b>Salı</b>İşletme sahibine ipucu</div>
+    <div class="pillar"><b>Çarşamba</b>Kulis reel'i</div>
+    <div class="pillar"><b>Perşembe</b>Müşteri yorumu, sonuç</div>
+    <div class="pillar"><b>Cuma</b>Teklif, paket, SSS</div>
+  </div>
+  <div class="legend"><span>Satış çağrısı güçlü olan günler</span></div>
+  <div class="week" id="days"></div>
+</section>
+
+<section id="dikkat">
+  <div class="sec-head">
+    <span class="label">Videolardaki karşı görüşler</span>
+    <h2>Dikkat edilecekler</h2>
+  </div>
+  <div class="grid">
+    <article class="card warn"><h3>Gerçekçi gelir</h3><p>Tek kişilik ajansın tavanı ayda 10–15 bin $ civarı. "Ayda 300 bin $" videoları yanıltıcı. 30 müşteri ≈ ayda 4.000 $ tekrarlayan gelir.</p></article>
+    <article class="card warn"><h3>Sponsorlu araç övgüsü</h3><p>Base44, GoHighLevel, Make, Relume videolarının çoğu ortaklık linkli. Aracı değil süreci kopyala.</p></article>
+    <article class="card warn"><h3>İzinsiz toplu mesaj</h3><p>Toplu SMS ve e-posta KVKK ve İYS riski taşır. Bire bir WhatsApp, Instagram DM ve yüz yüze öncelikli.</p></article>
+    <article class="card warn"><h3>Onaysız yayın</h3><p>Otomatik paylaşım henüz güvenilir değil. Her müşteri hesabında insan onayı şart.</p></article>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Kaynak dosya: <code>ajans/planlar/ajans-is-modeli/OZET.md</code> ve aynı klasördeki video planları.</p>
+  <p>Fiyatlar videolardaki dolar rakamlarından türetilmiş önerilerdir; Türkiye pazarında test edilmemiştir.</p>
+</footer>
+</div>
+
+<script>
+const MSGS = [
+  {tag:"WhatsApp", hot:true, title:"Sitesi olmayan işletme",
+   text:"Merhaba, [İşletme] mi? Google'da yorumlarınız çok iyi ama web sitenizi bulamadım. Ben [Ad], yerel işletmelere Google'da öne çıkaran, müşteri toplayan siteler yapıyorum. Sizin için ücretsiz bir örnek ana sayfa hazırladım; göndermemi ister misiniz?"},
+  {tag:"WhatsApp", title:"Sitesi eski olan işletme",
+   text:"Merhaba [İşletme], sitenizde kolay düzelecek birkaç şey fark ettim: telefonda geç açılıyor, WhatsApp butonu yok, yorumlarınız görünmüyor. Daha fazla müşteri getiren yeni bir versiyon hazırladım, bakmak ister misiniz?"},
+  {tag:"Restoran", title:"Sipariş ve rezervasyon",
+   text:"Merhaba [Restoran], menünüz Instagram'da ama telefondan sipariş veya rezervasyon alınamıyor. Müşterilerin 30 saniyede sipariş verdiği bir sayfa hazırladım, göstereyim mi?"},
+  {tag:"Klinik / kuaför", title:"Online randevu",
+   text:"Merhaba [İşletme], randevu için herkes aramak zorunda kalıyor. Gece 2'de bile randevu alan bir sayfa hazırladım; 10 dakikada göstereyim mi?"},
+  {tag:"Instagram 1. adım", title:"Müşteri gibi soru",
+   text:"Merhaba, profilinizi yeni gördüm, işleriniz çok güzel. [İlçe]'nin tamamında hizmet veriyor musunuz?"},
+  {tag:"Instagram 2. adım", hot:true, title:"Cevap gelince sesli mesaj",
+   text:"Bio'daki linke tıkladım ama site bulamadım. Merak etmeyin, sizin için zaten bir taslak hazırladım. 10-15 dakikalık bir görüşmede göstereyim mi? Numaram: [numara]"},
+  {tag:"Telefon", title:"Arama açılışı",
+   text:"Merhaba, [Ad] Bey/Hanım ile mi görüşüyorum? Ben [Ad]. Şu an Google'da işletmenize bakıyorum; yorumlarınız çok iyi ama siteniz yok. Sizin için Google'dan daha çok iş getirecek bir site hazırladım. Yarın 10-15 dakikalık bir görüntülü görüşmede göstersem olur mu?"},
+  {tag:"Telefon", title:"Görüşmeyi kilitleme",
+   text:"Size hangi saat uyar? WhatsApp numaranız bu mu? Görüşmeden 30 dakika önce hatırlatma atacağım."},
+  {tag:"Tanıdıklara", title:"İlk 100 kişi listesi",
+   text:"Yerel işletmelere web sitesi, sosyal medya ve reklam işi kuruyorum. Sitesi olmayan ya da işini büyütmek isteyen bir işletme sahibi tanıyorsan beni ona iletir misin? Karşılığında ilk ayı bizden."},
+  {tag:"Video mesaj", title:"2 dakikalık site incelemesi",
+   text:"Sitenizde 3 şey fark ettim: ana sayfa telefonda 6 saniyede açılıyor, WhatsApp butonu yok, yorumlarınız sitede görünmüyor. Düzeltilmiş hâlini bu videoda gösteriyorum. İsterseniz konuşuruz, istemezseniz de kolay gelsin."},
+  {tag:"Örnek gönderirken", title:"Link mesajı",
+   text:"[İşletme] için 15 dakikada hazırladım, linki burada: [link]. Nasıl buldunuz?"},
+  {tag:"Ortaklık", title:"Referans ortağına",
+   text:"Benzer müşterilerle çalışıyoruz gibi görünüyor. Sizin müşterilerinize web ve sosyal medya, benimkilere sizin hizmetinizi önerelim; getirdiğiniz işin ilk ayının %20'si sizin. Kısa bir görüşme yapalım mı?"}
+];
+const grid = document.getElementById("msgGrid");
+MSGS.forEach((m,i)=>{
+  const el = document.createElement("article");
+  el.className = "card";
+  el.innerHTML = `<div class="row"><span class="tag${m.hot?' hot':''}"></span><button class="copy" type="button" id="copy-${i}">Kopyala</button></div><h3></h3><div class="msg" id="msg-${i}"></div>`;
+  el.querySelector(".tag").textContent = m.tag;
+  el.querySelector("h3").textContent = m.title;
+  el.querySelector(".msg").textContent = m.text;
+  const btn = el.querySelector("button");
+  btn.addEventListener("click", ()=>{
+    const done = ()=>{btn.textContent="Kopyalandı";btn.classList.add("done");setTimeout(()=>{btn.textContent="Kopyala";btn.classList.remove("done")},1600)};
+    const fallback = ()=>{const r=document.createRange();r.selectNodeContents(el.querySelector(".msg"));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="Seçildi, kopyala";};
+    try{ navigator.clipboard.writeText(m.text).then(done, fallback); }catch(e){ fallback(); }
+  });
+  grid.appendChild(el);
+});
+
+const DAYS = [
+  "Profil kurulumu: bio, öne çıkanlar, Facebook sayfası","Google İşletme Profili, 5 sektör için örnek site","Tanıtım reel'i: 15 dakikada ne yapıyoruz","Carousel: sitede olması gereken 7 şey","Önce/Sonra 1: tesisatçı",
+  "Hikâye anketi ve SSS: aylık mı, tek seferlik mi?","Reel: Haritalar'da sitesi olmayan işletme bulmak","Carousel: WhatsApp'tan sipariş alan restoran sayfası","Önce/Sonra 2: kafe","İlk müşteri yorumu",
+  "Teklif kartı: 3 paket, ilk 5 işletmeye kurulum ücretsiz","Reel: 60 saniyede örnek site üretimi","Carousel: Google yorumuna cevap vermemenin bedeli","Hikâye: haftanın özeti, gelen mesaj sayısı","Önce/Sonra 3: klinik veya kuaför",
+  "Reel: cevapsız aramaya otomatik WhatsApp","Carousel: Instagram'da satan işletmenin 5 alışkanlığı","Sonuç ekranı: gelen müşteri mesajları (izinli)","Teklif: bu hafta 3 ücretsiz site incelemesi","Reel: kurucu hikâyesi, neden yerel işletme",
+  "Hikâye: soru-cevap","Önce/Sonra 4: emlak veya peyzaj","Carousel: Meta reklamında yerel işletmenin 5 hatası","Reel: sitedeki asistan randevu alıyor","Müşteriyle 30 saniyelik video yorum",
+  "Teklif: referans programı, ilk ayın %20'si","Reel: 1 haftada yayına alma takvimi","Carousel: sitenizi telefondan 10 saniyede test edin","Önce/Sonra 5 ve ay sonu kolajı","Reel: 30 günün rakamları ve gelecek ay teklifi"
+];
+const KEY = new Set([11,19,26,30]);
+const daysEl = document.getElementById("days");
+DAYS.forEach((t,i)=>{
+  const d = document.createElement("div");
+  d.className = "day" + (KEY.has(i+1) ? " k" : "");
+  d.innerHTML = `<span class="n">Gün ${String(i+1).padStart(2,"0")}</span><span class="t"></span>`;
+  d.querySelector(".t").textContent = t;
+  daysEl.appendChild(d);
+});
+</script>
