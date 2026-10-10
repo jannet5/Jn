@@ -4,9 +4,9 @@
 **Kısa liste:** [`liste.md`](liste.md) · **Kaynaklar:** [`kaynaklar.md`](kaynaklar.md) · **Birincil kaynak okuma kaydı:** [`kanit/birincil-kaynak-okuma.md`](kanit/birincil-kaynak-okuma.md) · **Düzeltme kaydı:** §8
 
 > **Kısa cevap: Tek ve kesin bir "kazanan" yok; seçim önceliğe göre değişiyor.** Ama Türkiye'de satılan **OMEN 16-ap0010nt'yi grafik tasarım için önermiyorum.** Sebebi arıza istatistiği değil, **ekranı**. Satıcı ilanında ve HP'nin beyanında bu panel sRGB renk alanının yalnızca **%62,5**'ini gösteriyor. Notebookcheck aynı tip paneli **farklı bir SKU'da (ap0091ng)** ölçtü ve **%58,1** buldu.
-> - **Ekran doğruluğu, kutudan 32 GB RAM ve 2 M.2 yuvası öncelikliyse:** Lenovo Legion 5 15IRX10 **83LY00PYTR**, 99.999 TL. Ekran değeri ilan bilgisi; bu SKU için bağımsız ölçüm yok.
-> - **Servis itibarı ve biraz daha düşük fiyat öncelikliyse:** Casper Excalibur **G915.1362-DF60X-C**, 93.599 TL. Ekran değeri ilan bilgisi; bağımsız ölçüm yok.
-> - **Sıkı bütçe:** Lenovo LOQ 15AHP10 **83JG008UTRv1**, 73.799 TL. 16 GB geliyor; RAM'i sonradan 32 GB'a çıkarmak gerekiyor.
+> - **Ekran doğruluğu, kutudan 32 GB RAM ve 2 M.2 yuvası öncelikliyse:** Lenovo Legion 5 15IRX10 **83LY00PYTR**, **109.999 TL** (10.10; 03.10'da 99.999). Ekran değeri ilan bilgisi; bu SKU için bağımsız ölçüm yok.
+> - **Servis itibarı ve biraz daha düşük fiyat öncelikliyse:** Casper Excalibur **G915.1362-DF60X-C**, **92.599 TL** (10.10). Ekran değeri ilan bilgisi; bağımsız ölçüm yok.
+> - **Sıkı bütçe:** Lenovo LOQ 15AHP10 **83JG008UTRv1**, **84.994 TL** (10.10; 03.10'da 73.799). 16 GB geliyor; RAM'i sonradan 32 GB'a çıkarmak gerekiyor. Fiyat artışıyla 32 GB'lı Casper'a farkı ~7.600 TL'ye indi.
 > - **OMEN'in güvenilirliği:** 2023–2024 OMEN 16 (wf/xf/xd) serisinde Hall sensörü ve siyah ekran **anekdotları** çok. Ama bunlar **2025 ap/am serisi için bir arıza oranı değil**; paydayı (kaç cihaz satıldığını) bilmiyoruz.
 
 ---
@@ -120,6 +120,19 @@ Kilit sayfalar bu turda **yeniden açıldı**; satıcılar ve fiyatlar epey'in "
 - Victus'ta model kodu eşleşmesi epey'in kendi sayfasında bile tutarsız; kesin eşleşme için **C21SGEA** ürün numarası esas alınmalı.
 - Fiyatlar anlık; stok ve kampanyayla değişir.
 
+### 5.1 Fiyat yenilemesi (10.10.2026)
+Aynı epey sayfaları bir hafta sonra yeniden açıldı ([`kanit/fiyat-anlik-2026-10-10.json`](kanit/fiyat-anlik-2026-10-10.json)):
+
+| Model | 03.10 | **10.10** | Değişim |
+|---|---|---|---|
+| Legion 5 83LY00PYTR | 99.999 | **109.999 TL** (Nethouse) | +10.000 |
+| Casper G915.1362-DF60X-C | 93.599 | **92.599 TL** (Casper, n11) | −1.000 |
+| LOQ 15AHP10 83JG008UTRv1 | 73.799 | **84.994,10 TL** (Cimete, PTT AVM) | +11.195 |
+| OMEN 16-ap0010nt | 84.149,99 | **91.999 TL** (Teknorya, HB; tek satıcı) | +7.849 |
+| Nitro 16S NH.QXUEY.001-32 | 92.999 | **fiyat yok** ("Fiyat bilgisi bulunamadı") | — |
+
+Sonuç: Bir haftada fiyatlar %10–15 oynadı. Satın alma günü fiyat mutlaka yeniden kontrol edilmeli. Bu tarihte 32 GB'ı kutudan veren en ucuz seçenek Casper G915.
+
 ## 6. Karar
 
 ### 6.1 Neden sayısal puan yok?
@@ -134,13 +147,13 @@ Kilit sayfalar bu turda **yeniden açıldı**; satıcılar ve fiyatlar epey'in "
 | GPU gücü | 115 W · PSREF | 115 W · İlan | 100 W · PSREF | 115 W · İlan | Bu SKU için bilinmiyor |
 | Topluluk şikâyeti | Az sayıda glitch raporu (anekdot) | 11 şikâyet, yeni model (anekdot) | LOQ genelinde adaptör/servis (anekdot) | Acer servisi zayıf (not) | Eski nesilde belirgin küme; ap/am için veri yetersiz |
 | TR servis notu | 6/100 | **76/100** | 6/100 | 2/100 | Şikâyet yoğun (HP OMEN sayfası) |
-| Fiyat | 99.999 TL | 93.599 TL | 73.799 TL | 92.999 TL | 84.150 TL |
+| Fiyat (10.10) | 109.999 TL | 92.599 TL | 84.994 TL | fiyat yok | 91.999 TL |
 
 ### 6.3 Koşullu öneriler
-- **Ekran doğruluğu, 32 GB ve genişleme öncelikliyse:** **Legion 5 15IRX10 83LY00PYTR** (99.999 TL). Gerekçe: PSREF'te 115 W GPU, iki x4 M.2 yuvası, çift kanal RAM ve %100 sRGB panel seçeneği var. Belirsizlik: bu SKU'nun paneli bağımsız olarak ölçülmedi. Lenovo'nun Türkiye servis notu düşük.
-- **Servis itibarı öncelikliyse:** **Casper G915.1362-DF60X-C** (93.599 TL). Belirsizlik: hiçbir bağımsız ölçüm yok. İşlemci H serisi. G915'e özgü 11 şikâyet var ama örneklem küçük.
-- **Bütçe öncelikliyse:** **LOQ 15AHP10 83JG008UTRv1** (73.799 TL), artı 16 GB DDR5-5600 SO-DIMM. Modül fiyatı araştırılmadı. Belirsizlikler: GPU 100 W; ikinci M.2 yuvası x2 hızında; panel ölçülmedi.
-- **En geniş ekran isteniyorsa:** **Nitro 16S** (92.999 TL). Belirsizlikler: RAM'in satıcı yükseltmesi olma ihtimali, slot yapısı ve Acer'in düşük servis notu.
+- **Ekran doğruluğu, 32 GB ve genişleme öncelikliyse:** **Legion 5 15IRX10 83LY00PYTR** (109.999 TL, 10.10). Gerekçe: PSREF'te 115 W GPU, iki x4 M.2 yuvası, çift kanal RAM ve %100 sRGB panel seçeneği var. Belirsizlik: bu SKU'nun paneli bağımsız olarak ölçülmedi. Lenovo'nun Türkiye servis notu düşük.
+- **Servis itibarı öncelikliyse:** **Casper G915.1362-DF60X-C** (92.599 TL, 10.10). Belirsizlik: hiçbir bağımsız ölçüm yok. İşlemci H serisi. G915'e özgü 11 şikâyet var ama örneklem küçük.
+- **Bütçe öncelikliyse:** **LOQ 15AHP10 83JG008UTRv1** (84.994 TL, 10.10; 32 GB'lı Casper'a fark artık küçük), artı 16 GB DDR5-5600 SO-DIMM. Modül fiyatı araştırılmadı. Belirsizlikler: GPU 100 W; ikinci M.2 yuvası x2 hızında; panel ölçülmedi.
+- **En geniş ekran isteniyorsa:** **Nitro 16S** (10.10'da epey'de satıcı fiyatı yok; 03.10'da 92.999 TL). Belirsizlikler: RAM'in satıcı yükseltmesi olma ihtimali, slot yapısı ve Acer'in düşük servis notu.
 - **OMEN illa isteniyorsa:** ap0010nt yerine %100 sRGB panelli bir OMEN SKU'su aranmalı. Notebookcheck, HP'nin seride 1600p %100 sRGB seçenekler sunduğunu yazıyor; örneğin 1. tur verisindeki **ap0032nt**, 123.048 TL. Bu durumda bütçe aşılır, yanına HP Care Pack düşünülmeli.
 
 ### 6.4 Satın almadan önce kullanıcının kendisinin yapması gereken kontroller

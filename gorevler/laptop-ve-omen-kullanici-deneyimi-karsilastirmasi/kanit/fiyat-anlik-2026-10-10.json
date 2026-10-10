@@ -1,0 +1,11 @@
+{
+ "kaynak": "epey.com pazaryeri satıcı listeleri (WebFetch ile okundu)",
+ "gozlem_tarihi": "2026-10-10",
+ "kayitlar": [
+  {"model":"Lenovo Legion 5 15IRX10 83LY00PYTR","en_dusuk_tl":109999,"satici":"Nethouse (Hepsiburada/Trendyol/n11/Pazarama)","url":"https://www.epey.com/laptop/lenovo-legion-5-15irx10-83ly00pytr.html"},
+  {"model":"Casper Excalibur G915.1362-DF60X-C","en_dusuk_tl":92599,"satici":"Casper Excalibur (n11)","url":"https://www.epey.com/laptop/casper-excalibur-g915-1362-df60x-c.html"},
+  {"model":"Lenovo LOQ 15AHP10 83JG008UTRv1","en_dusuk_tl":84994.10,"satici":"Cimete-Teknoloji (PTT AVM)","url":"https://www.epey.com/laptop/lenovo-loq-15ahp10-83jg008utrv1.html"},
+  {"model":"HP OMEN 16-ap0010nt CE2B2EA","en_dusuk_tl":91999,"satici":"Teknorya (Hepsiburada), tek satıcı","url":"https://www.epey.com/laptop/hp-omen-gaming-16-ap0010nt-ce2b2ea.html"},
+  {"model":"Acer Nitro 16S AI AN16S-61 NH.QXUEY.001-32","en_dusuk_tl":null,"satici":null,"not":"Sayfada 'Fiyat bilgisi bulunamadı', teklif sayısı 0","url":"https://www.epey.com/laptop/acer-nitro-16s-ai-an16s-61-nh-qxuey-001-32.html"}
+ ]
+}
