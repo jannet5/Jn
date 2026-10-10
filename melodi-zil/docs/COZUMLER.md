@@ -37,3 +37,10 @@
 
 ## Ç-009: Görsel varyasyon üretip seçtirme (görsel model yokken)
 - Yöntem: Varyasyonları SVG olarak kodla çiz (aynı tuval, aynı renk, tek değişken: şekil), Playwright/Chromium ile tek sayfaya render et (büyük + 48px), ayrı bir ajana yalnızca görsel + ölçütlerle seçtir, önerilerini uygula. SVG path verisi doğrudan Android `vector` `pathData`'sına geçer. Araç: `docs/store/ikon_secimi/ikonlar.py`, `son.py`.
+
+## Ç-010: APK telefonda %100'e geliyor ama inmiyor (Ç-001'in devamı, 2026-10-10)
+- Belirti: Link doğru, ama telefonda indirme çubuğu %100'de kalıyor, dosya açılmıyor.
+- Teşhis: Sunucu tarafı Android Chrome kimliğiyle kontrol edildi: HTTP 200, `application/vnd.android.package-archive`, doğru `Content-Length`, `accept-ranges: bytes`. Yani sorun sunucuda değil, telefonda.
+- Kök neden (olası iki yol): (1) Chrome APK dosyaları için "Bu dosya türü cihazınıza zarar verebilir" onayı ister. Onay verilmezse indirme %100'de "bekliyor" kalır; uyarı ekranın altında kolayca gözden kaçar. (2) Link sohbet uygulamasının kendi iç tarayıcısında açılırsa, iç tarayıcı dosyayı sisteme teslim edemez ve %100'de takılır.
+- Çözüm: Kullanıcıya üç yol verilir: (a) APK'yı sohbet eki olarak gönder (tarayıcıya hiç girmez); (b) linki uzun basıp kopyala, Chrome'da aç, alttaki uyarıda "Yine de indir"e bas, sonra Dosyalar > İndirilenler'den aç; (c) kurulumda "Bu kaynaktan izin ver" anahtarını Chrome (ya da Dosyalar) için aç.
+- Kural: "İndirme takılıyor" denince önce NEREDE takıldığını ayır: uygulama içi adım mı (ekrandaki adım adı), tarayıcı indirmesi mi. Sunucuyu `curl -sSI -A "<Android Chrome UA>"` ile kontrol et; sorun yoksa telefon tarafı yönergesi ver, kodu değiştirme.
