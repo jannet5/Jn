@@ -83,6 +83,7 @@ export default function BerberEkrani() {
               value={randevu.hatirlat}
               trackColor={{ true: t.accent, false: t.border }}
               thumbColor={t.bg}
+              {...{ activeThumbColor: t.bg }}
               onValueChange={(v) => {
                 setRandevu({ ...randevu, hatirlat: v });
                 toast(v ? 'Hatırlatma açık: 1 saat önce bildirim gelir.' : 'Hatırlatma kapatıldı.');

@@ -27,7 +27,7 @@ type Props = {
   altKisim?: ReactNode;
 };
 
-const KAPALI = 700;
+const KAPALI = 1200;
 
 /** Kendi BottomSheet'imiz: tutamaç, aşağı sürükleyince kapanır, arka plana dokununca kapanır. */
 export function AltSayfa({ acik, kapat, tema, baslik, children, altKisim }: Props) {
@@ -37,7 +37,7 @@ export function AltSayfa({ acik, kapat, tema, baslik, children, altKisim }: Prop
 
   useEffect(() => {
     if (azHareket) y.set(acik ? 0 : KAPALI);
-    else y.set(acik ? withSpring(0, { damping: 20, stiffness: 220 }) : withTiming(KAPALI, { duration: 220, easing: Easing.out(Easing.cubic) }));
+    else y.set(withTiming(acik ? 0 : KAPALI, { duration: acik ? 260 : 220, easing: Easing.out(Easing.cubic) }));
   }, [acik, azHareket, y]);
 
   const surukle = Gesture.Pan()

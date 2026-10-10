@@ -79,7 +79,7 @@ export default function KafeEkrani() {
           ) : null}
         </View>
 
-        <View className="flex-row flex-wrap gap-3" accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: KAFE.hedef, now: durum.damga }}>
+        <View className="flex-row flex-wrap justify-between gap-y-3" accessibilityRole="progressbar" accessibilityValue={{ min: 0, max: KAFE.hedef, now: durum.damga }}>
           {Array.from({ length: KAFE.hedef }, (_, i) => (
             <Damga key={i} sira={i} dolu={i < durum.damga} son={i === KAFE.hedef - 1} tema={t} dalga={dalga} />
           ))}
@@ -153,7 +153,7 @@ function Damga({ sira, dolu, son, tema, dalga }: { sira: number; dolu: boolean; 
   const stil = useAnimatedStyle(() => ({ transform: [{ scale: olcek.get() }, { translateY: y.get() }] }));
   return (
     <Animated.View
-      style={[stil, { width: '17%', aspectRatio: 1, backgroundColor: dolu ? tema.accent : 'transparent', borderColor: dolu ? tema.accent : tema.border, borderWidth: 2, borderStyle: dolu ? 'solid' : 'dashed' }]}
+      style={[stil, { width: '18%', aspectRatio: 1, backgroundColor: dolu ? tema.accent : 'transparent', borderColor: dolu ? tema.accent : tema.border, borderWidth: 2, borderStyle: dolu ? 'solid' : 'dashed' }]}
       className="items-center justify-center rounded-full"
     >
       {son ? <Gift size={20} strokeWidth={1.75} color={dolu ? tema.accentFg : tema.muted} /> : dolu ? <Coffee size={20} strokeWidth={1.75} color={tema.accentFg} /> : null}

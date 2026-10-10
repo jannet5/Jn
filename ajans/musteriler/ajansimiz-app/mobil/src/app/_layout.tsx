@@ -1,4 +1,5 @@
 import '../global.css';
+import '@/lib/nativewind-kurulum';
 
 import { Archivo_400Regular, Archivo_500Medium, Archivo_800ExtraBold, useFonts } from '@expo-google-fonts/archivo';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';

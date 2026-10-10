@@ -40,7 +40,7 @@ export default function IletisimEkrani() {
           ikon={<MessageCircle size={18} strokeWidth={1.75} color={t.accentFg} />}
           onPress={async () => {
             const acildi = await whatsappAc(siteConfig.whatsapp, siteConfig.checkupMesaji);
-            if (!acildi) toast(siteConfig.whatsapp ? 'WhatsApp açılamadı. Uygulama yüklü mü?' : 'WhatsApp numarası henüz eklenmedi (site.config).', 'uyari');
+            if (!acildi) toast(siteConfig.whatsapp ? 'WhatsApp açılamadı. Uygulama yüklü mü?' : 'WhatsApp numarası henüz eklenmedi.', 'uyari');
           }}
         />
         <Buton
@@ -49,7 +49,7 @@ export default function IletisimEkrani() {
           baslik="E-posta gönder"
           ikon={<Mail size={18} strokeWidth={1.75} color={t.fg} />}
           onPress={() => {
-            if (!siteConfig.eposta) return toast('E-posta adresi henüz eklenmedi (site.config).', 'uyari');
+            if (!siteConfig.eposta) return toast('E-posta adresi henüz eklenmedi.', 'uyari');
             Linking.openURL(`mailto:${siteConfig.eposta}`).catch(() => toast('E-posta uygulaması açılamadı.', 'uyari'));
           }}
         />
