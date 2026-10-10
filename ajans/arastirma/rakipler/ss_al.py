@@ -2,7 +2,9 @@
 """Rakip ajans ekran görüntüsü aracı.
 
 Kullanım:
-  python3 ss_al.py <ajans-adi> <site-url> [instagram-kullanici]
+  python3 ss_al.py [--reduced-motion] [--bekle SN] <ajans-adi> <site-url> [instagram-kullanici]
+  --reduced-motion: prefers-reduced-motion=reduce + animasyon/transition kapatma CSS'i (siyah/boş ekran için)
+  --bekle SN: networkidle sonrası ek bekleme (8-10 sn önerilir) + ikinci lazy-load kaydırması
 Çıktı: ss/<ajans-adi>-web.png, ss/<ajans-adi>-mobil.png, ss/<ajans-adi>-instagram.png
 PNG'ler 1600px genişliği geçmez ve 400KB altına sıkıştırılır (PIL).
 """
@@ -23,7 +25,7 @@ MOB_UA = ("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/60
           "(KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1")
 MAX_W = 1600
 MAX_BYTES = 400 * 1024
-MAX_H = 20000  # çok uzun sayfaları kırp
+MAX_H = 6000  # çok uzun sayfaları kırp
 
 
 def sikistir(png_bytes: bytes, out_path: str) -> int:
@@ -84,22 +86,46 @@ def lazy_kaydir(page, adim=900, maks=16000):
         pass
 
 
+AYAR = {"reduced": False, "bekle": 0.0}
+
+
 def site_ss(browser, url, out_base):
     sonuc = {}
     for ad, vp, ua, mobil in (("web", (1440, 900), UA, False), ("mobil", (390, 844), MOB_UA, True)):
         ctx = browser.new_context(viewport={"width": vp[0], "height": vp[1]}, user_agent=ua,
                                   is_mobile=mobil, has_touch=mobil, device_scale_factor=1,
-                                  locale="tr-TR", ignore_https_errors=True)
+                                  locale="tr-TR", ignore_https_errors=True,
+                                  reduced_motion="reduce" if AYAR["reduced"] else "no-preference")
         page = ctx.new_page()
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=45000)
             try:
-                page.wait_for_load_state("networkidle", timeout=8000)
+                page.wait_for_load_state("networkidle", timeout=15000 if AYAR["bekle"] else 8000)
             except Exception:
                 pass
+            if AYAR["reduced"]:
+                try:
+                    page.emulate_media(reduced_motion="reduce")
+                    page.add_style_tag(content="*,*::before,*::after{animation-duration:0s!important;"
+                                       "animation-delay:0s!important;transition:none!important;}"
+                                       "[data-aos],.elementor-invisible,.wow,.reveal{opacity:1!important;"
+                                       "visibility:visible!important;transform:none!important;}")
+                except Exception:
+                    pass
+            if AYAR["bekle"]:
+                time.sleep(AYAR["bekle"])
             kapat_cerezler(page)
             lazy_kaydir(page)
-            png = page.screenshot(full_page=True, timeout=60000)
+            if AYAR["bekle"]:
+                lazy_kaydir(page, adim=600)
+                time.sleep(2)
+            if mobil:
+                # Taşan (yatay overflow) sayfalarda mobil SS'i viewport genişliğine kırp
+                yuk = min(page.evaluate("document.documentElement.scrollHeight"), MAX_H)
+                png = page.screenshot(full_page=True, timeout=60000,
+                                      clip={"x": 0, "y": 0, "width": vp[0], "height": yuk})
+            else:
+                png = page.screenshot(full_page=True, timeout=60000)
             out = f"{out_base}-{ad}.png"
             n = sikistir(png, out)
             sonuc[ad] = (out, n)
@@ -160,11 +186,20 @@ def instagram_ss(browser, kullanici, out_base):
 
 
 def main():
-    if len(sys.argv) < 3:
+    argv = []
+    it = iter(sys.argv[1:])
+    for a in it:
+        if a == "--reduced-motion":
+            AYAR["reduced"] = True
+        elif a == "--bekle":
+            AYAR["bekle"] = float(next(it))
+        else:
+            argv.append(a)
+    if len(argv) < 2:
         print(__doc__)
         sys.exit(1)
-    ad, url = sys.argv[1], sys.argv[2]
-    ig = sys.argv[3] if len(sys.argv) > 3 else None
+    ad, url = argv[0], argv[1]
+    ig = argv[2] if len(argv) > 2 else None
     os.makedirs(SS_DIR, exist_ok=True)
     out_base = os.path.join(SS_DIR, ad)
     with sync_playwright() as p:
