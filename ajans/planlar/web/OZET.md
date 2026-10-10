@@ -76,3 +76,13 @@ Onur: Ed Hill ANF (bileşen montajı + normalize + fill), Jeff Su (DESIGN.md →
 - `kaynaklar/VeWf0l4ci6Y-awesome-design-md.md` — README + Apple ve Nike DESIGN.md örnekleri (73 marka repoda)
 - `kaynaklar/Iup1WlUyj9M-anthropic-tasarim-skilleri.md` — theme-factory, brand-guidelines, canvas-design SKILL.md
 - Kapalı/erişilemeyen: Ed Hill normalize/fill prompt'ları (e-posta kapısı), Chase AI site-teardown skill'i (Skool), Jack Roberts design-loop skill'i (Skool), Figma implement-design (403).
+
+## Ek (2026-10-10): yeni planlar
+- `kdev1F8o5y8-ai-web-sitesi-yap-ve-sat-baslangic.md` — Max Max: pazar → Base44 ile restoran sitesi (Bella Noce) → yayın → fiyat/retainer/satış. Üretim adımları Claude Code'a çevrilerek kullanılır.
+- (Süreç için ayrıca: `../mobil/G9o8eoHzpxc-...` design.md → Claude Design → spec.html akışı web projelerine de uyar.)
+- Zincire eklenecekler:
+  - Restoran brief'i: HTML menü (PDF yasak), Rezervasyon + Sipariş CTA, gömülü harita, tıklanabilir tel/adres, LocalBusiness + Restaurant schema.
+  - Teslim checklist'i: sticky mobil alt bar (Ara / Yol tarifi / Rezervasyon), Google Rich Results testi, işlevsiz CTA yok, slider ≤1, font ≤2.
+  - Galeri/görsel üretiminde sayı sabitle (örn. 6); AI placeholder'ları teslimden önce değişir.
+  - Fiyat: saat değil sonuç; KOBİ tatlı nokta $2–8K; ilk işlerde düşük, her projede artır; bakım retainer'ı 3 kademe ($50–500/ay), 50 × $99 ≈ $5K MRR.
+  - Satış kiti: domainli e-posta, sözleşme, Loom, booking linki; yüz yüze ziyaret açılış metni + önce/sonra tek sayfa; "ücretsiz denetim günü" paylaşımı.

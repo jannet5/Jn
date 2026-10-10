@@ -76,3 +76,15 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
 - Codesistency ek: https://dub.sh/extra-prompts (verify loop + webhook görevi) · https://dub.sh/diagrams8 · kaynak kod https://dub.sh/code6
 - Beto: Expo skills https://expo.dev/exposkills · 5 favori skill https://codewithbeto.dev/blog/my-favorite-claude-skills · Platano şablonu + ücretsiz Figma mağaza SS şablonu https://cwb.sh/platano?r=yt
 - Diğer açıklama linkleri her videonun `transkriptler/<id>.aciklama.txt` dosyasında.
+
+## Ek (2026-10-10): yeni planlar
+- `OcqWu_kasck-claude-code-bootcamp-3-uygulama-dentify.md` — 12 sa bootcamp; uygulama 1-2 = p80OV6kjIO8 + tpge9xJ0m5U, yeni olan Dentify (klinik: mobil + Next.js panel, Stream chat/video).
+- `G9o8eoHzpxc-claude-design-spec-html-6-adim.md` — Peter Yang: design.md → Claude Design prototip → tek `spec.html` (PRD/Design/Tech) → tüm ekranlar → build.
+- Zincire eklenecekler:
+  - Plan aşamasında yan talimat "DO NOT SET UP ANYTHING YET, JUST CREATE PLAN.MD"; build başlangıcı "spec + design'ı incele, önce belirsizlikleri sor".
+  - Spec'te **component library + veri şeması** zorunlu; kod değişince spec/design güncellenir (CLAUDE.md kuralı); plan+tasarım ≥ süre %50.
+  - Ekran tasarımında boş/edge durumlar + onboarding baştan; eksik ekranı aynı GPT sohbetinde ilk prompt'a referansla ürettir.
+  - Hizmet işletmesi şablonu: `apps/mobile` + `apps/web` monorepo, Next.js API routes backend, personel Clerk dashboard'dan; AI asistan = eğitim + triyaj → randevu.
+  - Skill'leri CLI ile kur (Clerk skills, Stream agent skills `getstream init` + `stream-react-native`), sonra Reload Window.
+  - Gerçek cihaz: EAS dev build + QR; build öncesi commit şart; OTA yalnız JS değişikliğinde.
+  - AGENTS.md'ye görsel üretim maliyet kuralı (1K, 9:16, model); Delete account'ta cascade doğrulaması; Support URL sayfası.
