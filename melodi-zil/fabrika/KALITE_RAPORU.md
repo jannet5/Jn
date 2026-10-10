@@ -39,9 +39,14 @@ Ortam: Android SDK emülatörü, API 26 (Android 8.0) x86, `-no-accel -gpu swift
 | Sistem varsayılan zili → `content://0@media/external/audio/media/36` | ✅ (`settings get system ringtone`, öncesi: dahili 103) |
 | Zillerim listesi, eylem sheet'i (zil/bildirim/alarm yap, paylaş, sil), ana sayfa "Son zillerin" | ✅ (07_library.png, 02b_home_recent.png) |
 | Koyu mod (Ayarlar → Koyu) | ✅ (09, 10) |
-| YouTube bağlantısı akışı cihazda | ⚠️ Doğrulanamadı: bu bulut ortamının çıkış IP'si test sırasında YouTube tarafından bot olarak engellendi ("Sign in to confirm you're not a bot"); aynı hata JVM testinde de alındı. Aynı kod yolu 07:35'te JVM'den gerçek YouTube'a karşı başarıyla çalıştı (çözümleme + indirme). Kullanıcının telefonunda (normal IP) denenmeli. |
+| YouTube bağlantısı akışı cihazda | ✅ (2026-10-10) YouTube "Paylaş" intent'i → video bilgisi → ses indirme (D-012 düzeltmesiyle sonuna kadar) → 340 nota → 8-Bit → kaydet → `settings get system ringtone` = YouTube'dan üretilen zil (media/37). İlk denemede ortam IP'si bot engeline takılmıştı (Ç-006). |
 
 Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı çökme), D-009 (sheet butonu ekran dışı), D-010 (Android 8-9 MediaStore `_data`), D-011 (izin zamanlaması). Hepsi düzeltildi ve yeniden doğrulandı.
+
+## Bu turda eklenenler (2026-10-10)
+- Yeni ikon: 6 varyasyon → bağımsız değerlendirici → C seçildi (IKON_SECIMI.md); çekmecede doğrulandı (`docs/store/ikon_cekmece.png`).
+- Gradle Play Publisher 3.12.1: `publishApps` görevi; mağaza metinleri Play sınırlarında (başlık ≤30, kısa açıklama ≤80 karakter, kontrol edildi).
+- Testler + lint + imzalı AAB/APK yeniden geçti.
 
 ## Kullanıcı testi
 ⏳ Kullanıcı `dist/melodi-zil-1.0.0.apk` dosyasını telefonuna kurup 2-3 şarkıyla denemeli ("onay" / "sorun: …").

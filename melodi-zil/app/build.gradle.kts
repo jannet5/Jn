@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android") // Kotlin desteği
     id("org.jetbrains.kotlin.plugin.compose") // Jetpack Compose derleyicisi
     id("org.jetbrains.kotlin.plugin.serialization") // JSON serileştirme
+    id("com.github.triplet.play") // Google Play'e komutla yükleme (src/main/play/ altındaki metin ve görseller)
 }
 
 android {
@@ -104,3 +105,15 @@ dependencies {
 
 // Lint: adaptive ikon klasörü -v26 niteleyicisi AAPT için zorunlu; bağımlılık sürüm uyarıları yayın öncesi kasıtlı sabitlendi
 android.lint { disable += setOf("ObsoleteSdkInt", "GradleDependency"); warningsAsErrors = false; abortOnError = true }
+
+// Gradle Play Publisher: Play Console servis hesabı JSON'u varsa `./gradlew publishBundle` ile AAB + mağaza kaydı yüklenir.
+// Anahtar dosyası depoya konmaz; PLAY_CREDENTIALS ortam değişkeni ya da kök klasörde play-credentials.json (gitignore'da) kullanılır.
+play {
+    val credPath = System.getenv("PLAY_CREDENTIALS") ?: rootProject.file("play-credentials.json").path // Anahtar yolu
+    val credFile = file(credPath) // Anahtar dosyası
+    enabled.set(credFile.exists()) // Anahtar yoksa yayın görevleri kapalı; normal derleme etkilenmez
+    if (credFile.exists()) serviceAccountCredentials.set(credFile) // Anahtar varsa bağla
+    track.set("internal") // İlk yükleme dahili test kanalına (güvenli)
+    defaultToAppBundles.set(true) // APK değil AAB yüklenir
+    releaseStatus.set(com.github.triplet.gradle.androidpublisher.ReleaseStatus.DRAFT) // Taslak: son onay Play Console'da kullanıcıda
+}

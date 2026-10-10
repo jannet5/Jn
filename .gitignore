@@ -27,3 +27,6 @@ melodi-zil/dist/*-debug.apk
 # NOT: melodi-zil/dist/melodi-zil-*.apk ve .aab bilerek depoda: kullanıcı telefondan indirip kurabilsin
 # NOT: melodi-zil/keystore/upload.jks ve keystore.properties bilerek depoda: yalnızca Play yükleme anahtarı (bkz. melodi-zil/README.md)
 melodi-zil/.kotlin/
+
+# Gradle Play Publisher servis hesabı anahtarı (asla depoya konmaz)
+melodi-zil/play-credentials.json

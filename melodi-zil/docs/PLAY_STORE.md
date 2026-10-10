@@ -45,9 +45,16 @@ Google Play, YouTube içeriğini indiren uygulamaları YouTube Hizmet Şartları
 2. Reddedilirse: `HomeScreen` içindeki bağlantı alanını kaldırıp yalnızca dosya seçimiyle yayınla (kod bunu destekler; `YouTubeSource` kullanılmaz).
 3. Alternatif dağıtım: APK'yı doğrudan (GitHub Releases / F-Droid) yayınlamak YouTube özelliğini korur.
 
+## Komutla yükleme (Gradle Play Publisher, 4.3k★, MIT)
+Mağaza metinleri, görseller ve sürüm notları `app/src/main/play/` altında, Gradle Play Publisher'ın (ve fastlane supply'ın) kullandığı standart klasör yapısında duruyor.
+1. Play Console → Kurulum → API erişimi → bir servis hesabı oluştur, "Sürüm yöneticisi" yetkisi ver, JSON anahtarını indir.
+2. Anahtarı `melodi-zil/play-credentials.json` olarak koy (gitignore'da, depoya girmez) ya da `PLAY_CREDENTIALS=/yol/anahtar.json` ortam değişkeni ver.
+3. `./gradlew publishApps` → AAB + mağaza metinleri + ekran görüntüleri **dahili test** kanalına **taslak** olarak yüklenir. Son "yayınla" onayı Play Console'da sende kalır.
+Not: Google, ilk sürümün Play Console'a bir kez elle yüklenmesini isteyebilir; sonraki sürümler komutla gider.
+
 ## Yükleme adımları
 1. `keystore/upload.jks` bu oturumda üretilen **yükleme anahtarı**dır. Play Console'da "Play App Signing"i etkinleştir; Google uygulama imzasını kendisi yönetir, bu anahtar yalnızca yükleme için kullanılır. Anahtarı ve `keystore.properties` şifrelerini güvenli bir yerde sakla (kaybolursa Play Console'dan yükleme anahtarı sıfırlama istenir).
 2. Play Console → Uygulama oluştur → Üretim → Yeni sürüm → `app/build/outputs/bundle/release/app-release.aab` yükle.
-3. Mağaza kaydı: yukarıdaki metinler, 512×512 ikon (`docs/store/ikon_512.png`), 1024×500 öne çıkan görsel, en az 2 telefon ekran görüntüsü (`docs/store/ekran_*.png`).
+3. Mağaza kaydı: yukarıdaki metinler, 512×512 ikon (`docs/store/ikon_512.png`), 1024×500 öne çıkan görsel (`docs/store/one_cikan_1024x500.png`), 5 telefon ekran görüntüsü (`docs/store/ekran_1..5.png`, gerçek Android'den).
 4. Veri güvenliği formunu "veri toplanmıyor" olarak doldur, gizlilik URL'sini gir, içerik derecelendirme anketini doldur.
 5. Sonraki sürümlerde `versionCode` artır.

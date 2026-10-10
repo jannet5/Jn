@@ -30,3 +30,10 @@
 
 ## Ç-007: Emülatör (KVM yok) ile gerçek Android doğrulaması
 - API 30 imajı yazılım modunda sistem sunucusunu çökertti; API 26 x86 `-no-accel -gpu swiftshader_indirect` 3 dk'da açıldı. TLS-araya-giren proxy için CA'lar `araclar/emulator_proxy_ca.sh` ile sistem deposuna eklendi; arayüz `araclar/ui.py` (uiautomator) ile sürüldü. Metin yazarken `input text` parça parça (4 parça, 4 sn bekleme), aksi halde karakter düşüyor.
+
+## Ç-008: Gradle Play Publisher 4.x "minimum Gradle 9.1.0" hatası
+- Belirti: `id("com.github.triplet.play") version "4.1.1"` ile derleme yapılandırma aşamasında düşüyor.
+- Çözüm: Gradle 8.x + AGP 8.7 projede GPP 3.12.1 kullan (aynı görevler: publishApps, publishBundle, publishListing). Anahtar yoksa `enabled.set(false)` ile normal derleme etkilenmez.
+
+## Ç-009: Görsel varyasyon üretip seçtirme (görsel model yokken)
+- Yöntem: Varyasyonları SVG olarak kodla çiz (aynı tuval, aynı renk, tek değişken: şekil), Playwright/Chromium ile tek sayfaya render et (büyük + 48px), ayrı bir ajana yalnızca görsel + ölçütlerle seçtir, önerilerini uygula. SVG path verisi doğrudan Android `vector` `pathData`'sına geçer. Araç: `docs/store/ikon_secimi/ikonlar.py`, `son.py`.
