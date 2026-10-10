@@ -22,3 +22,18 @@
 | 18 | Artifact'ten indir, mümkünse indirince direkt aç/kur | ⏳ Artifact sayfası hazır; Android otomatik kurmaya izin vermez, "Aç" düğmesi kalır | — |
 | 19 | Drive'a at (rclone kullanmadan) | ❌ Bağlayıcı APK gibi ikili dosyayı yükleyemiyor; belgeler Drive'da | — |
 | 20 | Çalışan teslim yöntemini belleğe al | ⏳ Kullanıcı "işe yaradı" deyince DERSLER'e ve kalıcı kurala yazılacak | — |
+
+## Uygulamada doğrulama (2026-10-10, sürüm 1.2.0, Android 8 emülatörü)
+| İstek | Nasıl denendi | Sonuç |
+|---|---|---|
+| 3 | Arama kutusuna "ma" → ilk öneri Mâide → dokununca sayfa 106 | ✅ |
+| 4 | "20" + Enter → 20. Cüz, sayfa 382 | ✅ |
+| 5, 14–16 | Fâtiha, Bakara, Mâide sayfaları; ayet gülleri binmiyor, الٓمٓ doğru | ✅ |
+| 6 | 4 yazı tipi listede, Scheherazade seçilince sayfa değişti | ✅ |
+| 7 | "Büyüt" ×6 → sayfa net büyüdü, satır başı (sağ) görünür | ✅ (iki parmak emülatörde denenemedi) |
+| 8–12 | Mushaf (dokulu), Sade (beyaz/siyah), Lacivert, Gece, Mavi; serbest renk seçici (ton/canlılık/açıklık) | ✅ |
+| — | Akan yazı düzeni | ✅ |
+| — | Yer imi ekle → İçindekiler > Yer imleri'nde görünüyor | ✅ |
+| — | Uygulamayı kapatıp açınca kaldığı sayfa (105) | ✅ |
+| 1–2 | APK 2,6 MB; tek izin Android'in kendi iç izni, internet izni yok | ✅ |
+| 17 | jsDelivr linki: HTTP 200, tür application/vnd.android.package-archive, içerik birebir | ✅ sunucu tarafı; telefonda kullanıcı onayı bekleniyor |
