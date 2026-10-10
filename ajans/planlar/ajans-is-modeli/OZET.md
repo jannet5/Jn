@@ -125,3 +125,12 @@ Kaynak: `ajans/arastirma/youtube/index.md` içindeki 13 bölüm (5 mevcut + 8 ye
 ## 7. Durum ve eksikler
 - Plan yazılan 17 video: bkz. bu klasör. Plan bekleyen A/B transkriptleri (öncelikli): QeV04PFPNck, jFAH0txMwiI, id22R7iBTjo, OFoNYWIS7IA (carousel); L3NUp2XP_h0, PXcDqmamX2Q, m02TeQ9kHVo, 9p3levei5Aw (n8n IG); IIJbt7bxh5w, kdev1F8o5y8, zbt5wZLiLGU, -np6T0ljYwo, OZ_ZriNypbg, nn7jO7EUjjM, M7niLhbbPP8, iUNzRKOC25w, TxMAUMUn-is, 3fIXJyrG50c, ZT4LqD2_GwM, Dgs1tQngbec (satış); m6HC_o4Cvko, OrIxvWCdkEc, coq11ZnucH4, jZpOI5petho, orZpEVklDlI, hq5dPOun_00, XJXNdbjxy9Q (outreach); fj7cmY-El-c, GwveA7jMsLY, xJ99dBYhpRI, Rm3ObJXsuOI, eRiu97HAtxE (reklam); R9c_JQrEtu8, 4ZI_fL4cw_c, QovlUE_VlWQ, CvQ3ARulOKE, Jsx-rImkdQk, DIXXW_jBS0w, Fnw1_YAYEAc, 00obLp8vowQ, uhbeDrdmCoI, IIXupZAGvDk (içerik).
 - Transkripti alınamayan (altyazısız): xDSPmIO1_jk, eea_h19WF00, LFO4cP0KMwk, QG_6Yqulus0. YouTube IP engeli (timedtext 429) nedeniyle ~45 video (çoğu C) çekilmedi; `index.md` ve `arastirma/youtube/transkriptler/` güncel durumu gösterir.
+
+## Ek (2026-10-10): carousel/n8n + reklam planları
+Yeni planlar: `QeV04PFPNck-claude-proje-html-carousel.md`, `jFAH0txMwiI-claude-code-design-md-carousel-skill.md`, `L3NUp2XP_h0-n8n-drive-reels-kalici-meta-token.md`, `fj7cmY-El-c-restoran-sosyal-medya-kursu.md`, `GwveA7jMsLY-restoran-google-ads-kurulumu.md`.
+- **Carousel = HTML→PNG, görsel model değil**: referanslardan stil JSON'u / `design.md` çıkar ("Turn this into a design system in an HTML file and a design MD file."), müşteri klasöründe sakla; aynı dosya site + sosyal + reklam kreatifinde kullanılır. Türkçe karakter ve gerçek font garantisi.
+- **Carousel skill'i**: Hook → Acı → Adımlar → Sonuç → CTA; ilk çalıştırmada kitle/teklif/ton sorulup profile yazılır; çıktı slaytlar + IG caption + LinkedIn metni.
+- **Meta kalıcı token**: Business Suite System User → app'e full control → token "Never" + 8 izin (`instagram_content_publish`, `publish_video` dahil); Reels için container → Wait 60 sn → `media_publish`; video URL'si public olmalı.
+- **Restoran sosyal medya kuralları**: her post'ta konum, kampanya/ilan story'de, feed evergreen; sadece organikte kanıtlanmış içeriğe reklam; videoda 20-30 başarılı örneği tersine mühendislik; menü kalemi = karakter.
+- **Google Ads yerel kurulum**: Search-only, Clicks + max CPC (Keyword Planner üst sıra ortalaması), Presence (interest değil), ilçe bazlı konum, exact match, başlık 1'e pinli keyword insertion, günlük bütçe = max CPC × 10, PMax/Display/lead form yok.
+- Plan bekleyenler listesinden bu 5 id düşüldü.
