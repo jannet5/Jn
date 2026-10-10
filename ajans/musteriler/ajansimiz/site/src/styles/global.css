@@ -179,3 +179,19 @@ a:focus-visible, summary:focus-visible { outline: 3px solid color-mix(in srgb, v
 /* Koyu blok (değer defteri, son CTA): koyu modda zeminden ayrışsın diye 1px çerçeve */
 .ink-block { background: var(--ink); color: var(--ink-foreground); }
 @media (prefers-color-scheme: dark) { .ink-block { border: 1px solid var(--ink-border); } }
+
+/* v2 — sektör çipleri (hero altı, ikincil gezinme) */
+.chip { display: inline-flex; align-items: center; height: 44px; padding-inline: 16px; border-radius: 999px; border: 1px solid var(--border); font-weight: 500; font-size: 16px; white-space: nowrap; transition: border-color 180ms var(--ease), background-color 180ms var(--ease); }
+.chip:hover { border-color: var(--foreground); background: var(--surface); }
+
+/* v2 — fiyat */
+.price { font-stretch: 112%; font-weight: 800; font-size: clamp(32px, 4.6vw, 56px); line-height: 1; letter-spacing: -.03em; }
+
+/* v2 — karşılaştırma tablosu: bizim sütun 1px foreground çerçeveli tek blok */
+.kars { border-collapse: separate; border-spacing: 0; }
+.kars th, .kars td { padding: 16px 24px; vertical-align: top; border-bottom: 1px solid var(--border); }
+.kars thead th { padding-top: 24px; padding-bottom: 24px; }
+.kars tbody th { padding-left: 0; font-weight: 500; }
+.kars .us { border-left: 1px solid var(--foreground); border-right: 1px solid var(--foreground); background: var(--background); }
+.kars .us-top { border-top: 1px solid var(--foreground); border-radius: 24px 24px 0 0; }
+.kars .us-bot { border-bottom: 1px solid var(--foreground); border-radius: 0 0 24px 24px; }

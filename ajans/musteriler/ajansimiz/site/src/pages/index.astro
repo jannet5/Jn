@@ -1,9 +1,9 @@
 ---
 import '../styles/global.css';
-import { site, waLink, telLink, mailLink, igLink } from '../site.config';
+import { site, waLink, telLink, mailLink, igLink, tl, teklif, paketler, enDusukAylik } from '../site.config';
 
 const title = `${site.brand} — Yerel işletmeler için web sitesi, uygulama, sosyal medya ve reklam`;
-const description = 'Restoran, kafe, berber, klinik ve butikler için web sitesi, mobil uygulama, sosyal medya ve reklam tek yerden, günler içinde. WhatsApp\'tan ücretsiz dijital check-up isteyin.';
+const description = `Restoran, kafe, berber, klinik ve butikler için web sitesi, mobil uygulama, sosyal medya ve reklam tek yerden. ${teklif.teslimGun} günde yayında, aylık ${tl(enDusukAylik)}'den. WhatsApp'tan ücretsiz dijital check-up isteyin.`;
 
 // Lucide ikon yolları (inline SVG, stroke 1.75)
 const ic = {
@@ -22,12 +22,28 @@ const ic = {
   phoneMissed: '<line x1="22" x2="16" y1="2" y2="8"/><line x1="16" x2="22" y1="2" y2="8"/><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
   fileQ: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 13a2 2 0 1 1 2 2v1"/><path d="M12 19h.01"/>',
   check: '<path d="M20 6 9 17l-5-5"/>',
+  minus: '<path d="M5 12h14"/>',
+  box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
   trend: '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>',
 };
 const I = (n: keyof typeof ic, cls = 'icon') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ic[n]}</svg>`;
 
 const fontUrl = 'https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400;100..125,500;100..125,800&display=swap';
-const words = ['İşletmenizin', 'dijital', 'vitrini,', 'günler', 'içinde', 'hazır.'];
+const words = ['İşletmenizin', 'dijital', 'vitrini,', `${teklif.teslimGun} günde`, 'yayında.'];
+const hl = `${teklif.teslimGun} günde`;
+const kurulumMin = Math.min(...paketler.map(p => p.kurulum));
+const heroSektor = [['Kafe-Restoran', 'kafe'], ['Berber-Kuaför', 'berber'], ['Klinik', 'klinik'], ['Butik', 'butik']];
+
+// Karşılaştırma: [satır, kendin yap, klasik ajans, biz]
+const kars = [
+  ['Yayına çıkış', 'Vaktinizi bulduğunuzda', teklif.ajansHafta, `${teklif.teslimGun} gün`],
+  ['Başta ödeme', 'Platform aboneliği + sizin emeğiniz', teklif.ajansPesin, `Peşinat yok. Kurulum ${tl(kurulumMin)}'den, ilk ${teklif.lansmanAdet} işletmeye 0 ₺`],
+  ['Tasarım ve metin', 'Şablonla siz uğraşırsınız', 'Ajans yapar, revizyon uzar', 'Biz yaparız, siz onaylarsınız'],
+  ['Google, Instagram, reklam', 'Ayrıca sizin işiniz', 'Çoğu zaman ayrı ekip, ayrı ücret', 'Aynı ekip, aynı tasarım dili'],
+  ['Mobil uygulama', 'Yok', 'Ayrı proje, ayrı teklif', 'Büyüme paketinde dahil'],
+  ['Sahiplik', 'Site platformda kalır', 'Teslimde size geçer', `${teklif.sahiplikAy} ay sonra site ve uygulama sizin`],
+];
+const karsBas = ['Kendin yap (Wix, Canva)', 'Klasik ajans', site.brand];
 const sectors = ['Restoran', 'Kafe', 'Berber', 'Kuaför', 'Güzellik salonu', 'Klinik', 'Butik', 'Usta ve servis', 'Pastane', 'Diş hekimi', 'Fırın', 'Spor salonu'];
 
 const pains = [
@@ -39,23 +55,18 @@ const pains = [
 const steps = [
   { t: '10 dakikalık görüşme', d: 'WhatsApp\'tan yazın ya da arayın. İşletmenizi, müşterinizi ve derdinizi dinliyoruz.' },
   { t: '3 tasarım yönü', d: 'Size özel üç farklı görünüm hazırlıyoruz. Birini seçiyorsunuz, gerisi ona göre ilerliyor.' },
-  { t: 'Günler içinde yayında', d: 'Haftalar değil, günler. Her aşamanın önce ve sonrasını size açıkça gösteriyoruz.' },
+  { t: `${teklif.teslimGun}. gün yayında`, d: 'Haftalar değil, günler. Her aşamanın önce ve sonrasını size açıkça gösteriyoruz.' },
   { t: 'Her ay değer defteri', d: 'Kaç kişi baktı, kaç kişi aradı, kaç mesaj geldi: her ay tek sayfada, sayılarla.' },
-];
-
-const packages = [
-  { n: 'Vitrin Site', who: 'Sitesi olmayan ya da eskiyen işletme', items: ['Telefonda hızlı açılan tek sayfa site', 'Menü, hizmet, saat ve konum', 'Google İşletme Profili düzenlemesi', 'WhatsApp ve arama butonu'] },
-  { n: 'Vitrin + Sosyal', who: 'Instagram\'ı dağınık olan işletme', items: ['Vitrin Site\'deki her şey', 'Aylık içerik planı ve paylaşımlar', 'Sitenizle aynı görsel dil', 'Aylık değer defteri'], hl: true },
-  { n: 'Büyüme', who: 'Daha çok müşteri isteyen işletme', items: ['Vitrin + Sosyal\'deki her şey', 'Instagram ve Google reklam yönetimi', 'Mesajlara otomatik ilk cevap', 'Reklamın getirdiğini gösteren rapor'] },
 ];
 
 const faqs = [
   { q: 'Ücretsiz dijital check-up tam olarak ne?', a: 'Sitenize, Google İşletme Profilinize, Instagram hesabınıza ve varsa reklam hesabınıza bakıyoruz. Neyin çalıştığını, neyin müşteri kaçırdığını tek sayfalık bir raporla WhatsApp\'tan gönderiyoruz. Ücret yok, bağlayıcılığı yok.' },
-  { q: '"Günler içinde" ne kadar sürüyor?', a: 'Tek sayfa vitrin sitesi, içerikleriniz (menü, fotoğraf, saatler) hazırsa genellikle birkaç iş günü içinde yayında olur. Kesin süreyi görüşmeden sonra yazılı olarak veriyoruz.' },
-  { q: 'Fiyatlar neden sitede yok?', a: 'Bir kafeyle çok şubeli bir kliniğin ihtiyacı aynı değil. Görüşmeden sonra 24 saat içinde işletmenize göre net, kalem kalem teklif gönderiyoruz. Sürpriz ücret yok.' },
+  { q: `${teklif.teslimGun} günde nasıl yayına çıkıyor?`, a: `Menü, fotoğraf ve logo elimize ulaştığı günden itibaren ${teklif.teslimGun} gün içinde siteniz yayında olur. Mobil uygulamada Apple ve Google'ın mağaza onayı birkaç gün ekleyebilir; bu süreyi baştan yazılı olarak söylüyoruz.` },
+  { q: `${teklif.sahiplikAy} ay sonra ne olur?`, a: `${teklif.sahiplikAy}. ayın sonunda site ve uygulama sizin olur: alan adı, dosyalar ve içerik size devredilir. Bakım, içerik ve reklamla devam etmek isterseniz paketiniz aynen sürer; istemezseniz her şeyi alıp kendi yolunuza gidersiniz.` },
+  { q: 'İptal edebilir miyim?', a: `Evet, uzun taahhüt istemiyoruz. Bıraktığınız ay hizmet durur. Alan adı, Google ve sosyal medya hesapları zaten sizin adınızadır, sizde kalır. Site ve uygulamanın kendisi ${teklif.sahiplikAy}. ayda devredilir.` },
+  { q: 'Reklam bütçesi kimin?', a: 'Sizin. Bütçeyi kendi kartınızla doğrudan Meta\'ya ve Google\'a ödersiniz; reklam hesabı da sizin adınıza açılır. Biz yalnızca reklamı kurar, yönetir ve sonucunu raporlarız. Yönetim Büyüme paketinde dahildir; bütçe paket fiyatına dahil değildir.' },
   { q: 'Yapay zekâ kullanıyorsunuz, site "hazır şablon" gibi mi olacak?', a: 'Hayır. Yapay zekâyı üretimi hızlandırmak için kullanıyoruz; tasarım yönünü, metinleri ve son kontrolü biz yapıyoruz. Her işletme kendi renkleri ve kendi diliyle çıkar.' },
   { q: 'Fotoğrafım, logom yok. Yine de olur mu?', a: 'Olur. Telefonla nasıl çekeceğinizi anlatan kısa bir rehber veriyoruz, logo ve renk seçimini birlikte netleştiriyoruz. Stok fotoğrafla sizi başkasına benzetmiyoruz.' },
-  { q: 'Site ve hesaplar kimin üzerine olacak?', a: 'Alan adı, site ve sosyal medya hesapları sizin adınıza kalır. Bizimle çalışmayı bıraksanız da her şey sizde kalır.' },
 ];
 ---
 <!doctype html>
@@ -77,7 +88,7 @@ const faqs = [
   <link rel="preload" as="style" href={fontUrl} />
   <link rel="stylesheet" href={fontUrl} media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href={fontUrl} /></noscript>
-  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.brand, description, areaServed: 'TR', email: site.email })} />
+  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'ProfessionalService', name: site.brand, description, areaServed: 'TR', email: site.email, priceRange: `${tl(enDusukAylik)}/ay'dan` })} />
 </head>
 <body>
   <a href="#icerik" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-bg focus:px-4 focus:py-2 focus:rounded-[8px]">İçeriğe geç</a>
@@ -92,7 +103,8 @@ const faqs = [
       <nav class="hidden lg:flex items-center gap-8" aria-label="Ana menü">
         <a class="nav-link" href="#hizmetler">Hizmetler</a>
         <a class="nav-link" href="#nasil">Nasıl çalışır</a>
-        <a class="nav-link" href="#paketler">Paketler</a>
+        <a class="nav-link" href="#karsilastirma">Karşılaştır</a>
+        <a class="nav-link" href="#paketler">Fiyatlar</a>
         <a class="nav-link" href="#sss">SSS</a>
       </nav>
       <div class="flex items-center gap-2 shrink-0">
@@ -104,7 +116,8 @@ const faqs = [
           <div class="mnav-panel absolute right-0 top-14 w-60 rounded-[14px] border border-line bg-bg p-2">
             <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#hizmetler">Hizmetler</a>
             <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#nasil">Nasıl çalışır</a>
-            <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#paketler">Paketler</a>
+            <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#karsilastirma">Karşılaştır</a>
+            <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#paketler">Fiyatlar</a>
             <a class="block rounded-[8px] px-4 py-3 font-medium hover:bg-surface" href="#sss">SSS</a>
           </div>
         </details>
@@ -120,14 +133,24 @@ const faqs = [
           <p class="eyebrow hero-fade mb-6">Restoran, kafe, berber, klinik ve butikler için</p>
           <h1 class="t-display max-w-[11ch]">
             {words.map((w, i) => (
-              <><span class="hw"><span style={`--i:${i}`} class={w === 'günler' ? 'text-primary' : ''}>{w}</span></span>{' '}</>
+              <><span class="hw"><span style={`--i:${i}`} class={w === hl ? 'text-primary whitespace-nowrap' : ''}>{w}</span></span>{' '}</>
             ))}
           </h1>
           <p class="t-lead text-muted mt-8 max-w-[34rem] hero-fade">Web sitesi, mobil uygulama, sosyal medya ve reklam tek yerden. Yapay zekâ destekli üretim hattımızla ajans kalitesinde işi haftalar değil, günler içinde teslim ediyoruz.</p>
-          <div class="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 hero-fade">
+          <div class="mt-8 hero-fade">
+            <p class="t-h3">{teklif.teslimGun} günde yayında, aylık {tl(enDusukAylik)}'den.</p>
+            <p class="mt-3 inline-flex flex-wrap items-center gap-x-2 t-small"><span class="w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>İlk {teklif.lansmanAdet} işletmeye kurulum <s class="text-muted">{tl(kurulumMin)}</s> 0 ₺<span class="text-muted font-normal">· vaka çalışması izni karşılığında</span></p>
+          </div>
+          <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 hero-fade">
             <a href={waLink} target="_blank" rel="noopener" class="btn btn-primary"><Fragment set:html={I('wa', 'icon !w-4 !h-4')} />Ücretsiz dijital check-up iste</a>
             <span class="t-small text-muted max-w-[22rem]">Sitenize, Google profilinize ve Instagram'ınıza bakıp 1 sayfalık rapor gönderiyoruz.</span>
           </div>
+          <nav class="mt-10 hero-fade" aria-label="Sektörünüze göre örnekler">
+            <p class="t-small text-muted mb-3">Sektörünüze uygun örneği görün:</p>
+            <ul class="flex flex-wrap gap-2">
+              {heroSektor.map(([ad, id]) => <li><a class="chip" href={`#ornek-${id}`}>{ad}</a></li>)}
+            </ul>
+          </nav>
         </div>
 
         <!-- Cihazlar: tarayıcı + telefon, örnek kafe sitesi -->
@@ -302,7 +325,7 @@ const faqs = [
     <!-- 7. ÖRNEK KONSEPTLER -->
     <section class="section bg-surface" aria-labelledby="konsept-h">
       <div class="wrap">
-        <div class="grid lg:grid-cols-12 gap-6 items-end">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div class="lg:col-span-7">
             <p class="eyebrow mb-6">Örnek konseptler</p>
             <h2 id="konsept-h" class="t-h2">Her işletme kendi rengiyle.</h2>
@@ -311,7 +334,7 @@ const faqs = [
         </div>
         <div class="mt-12 lg:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-12">
           <!-- Kafe -->
-          <figure class="concept lg:col-span-5 lg:row-span-2">
+          <figure id="ornek-kafe" class="concept lg:col-span-5 lg:row-span-2">
             <div class="mini rounded-[24px] p-6 lg:p-8 h-full min-h-[340px] flex flex-col" style="background:#F6EFE6;color:#3B2618">
               <span class="t-small opacity-70">Kafe</span>
               <ul class="mt-6 text-[14px] divide-y" style="border-color:#E2D3BF">
@@ -323,7 +346,7 @@ const faqs = [
             <figcaption class="mt-3 t-small text-muted">Örnek konsept · Köşe Kahve</figcaption>
           </figure>
           <!-- Berber -->
-          <figure class="concept lg:col-span-7">
+          <figure id="ornek-berber" class="concept lg:col-span-7">
             <div class="mini rounded-[24px] p-6 lg:p-8 min-h-[200px] grid grid-cols-[1fr_auto] gap-6 items-end" style="background:#141414;color:#E9DFC6">
               <div>
                 <span class="t-small" style="color:#C9A45C">Berber</span>
@@ -336,8 +359,8 @@ const faqs = [
             <figcaption class="mt-3 t-small text-muted">Örnek konsept · Usta Makas</figcaption>
           </figure>
           <!-- Klinik -->
-          <figure class="concept lg:col-span-7">
-            <div class="mini rounded-[24px] p-6 lg:p-8 min-h-[200px] grid sm:grid-cols-[1fr_auto] gap-6 items-end" style="background:#E8F1F6;color:#0F2A3A">
+          <figure id="ornek-klinik" class="concept lg:col-span-7">
+            <div class="mini rounded-[24px] p-6 lg:p-8 min-h-[200px] grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-6 items-end" style="background:#E8F1F6;color:#0F2A3A">
               <div>
                 <span class="t-small opacity-70">Klinik</span>
                 <div class="mt-6 font-extrabold text-[30px] lg:text-[38px] leading-[1] tracking-[-0.03em]" style="font-stretch:100%">Diş tedavisinde<br/>önce net bilgi.</div>
@@ -349,6 +372,19 @@ const faqs = [
               </div>
             </div>
             <figcaption class="mt-3 t-small text-muted">Örnek konsept · Nefes Diş</figcaption>
+          </figure>
+          <!-- Butik -->
+          <figure id="ornek-butik" class="concept lg:col-span-12">
+            <div class="mini rounded-[24px] p-6 lg:p-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end" style="background:#F4E6E3;color:#3A1F24">
+              <div>
+                <span class="t-small opacity-70">Butik</span>
+                <div class="mt-6 font-extrabold text-[30px] lg:text-[38px] leading-[1] tracking-[-0.03em]" style="font-stretch:100%">Yeni sezon vitrinde,<br/>beden sorusu WhatsApp'ta.</div>
+              </div>
+              <ul class="grid grid-cols-3 gap-2 text-[12px] sm:min-w-[360px]">
+                {[['Keten gömlek','S · M · L'],['Midi etek','36-42'],['Örgü hırka','Tek beden']].map(([a,b]) => <li class="rounded-[14px] p-3" style="background:#EAD3CE"><svg viewBox="0 0 24 24" class="w-full h-auto aspect-[4/5] rounded-[8px] mb-2 p-3" style="background:#F4E6E3" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" fill="#8C3B4A"/></svg><div class="font-medium">{a}</div><div class="opacity-70">{b}</div></li>)}
+              </ul>
+            </div>
+            <figcaption class="mt-3 t-small text-muted">Örnek konsept · Kumaş Butik</figcaption>
           </figure>
         </div>
       </div>
@@ -388,42 +424,92 @@ const faqs = [
       </div>
     </section>
 
-    <!-- 9. PAKETLER -->
-    <section id="paketler" class="section bg-surface" aria-labelledby="paket-h">
+    <!-- 9. KARŞILAŞTIRMA -->
+    <section id="karsilastirma" class="section" aria-labelledby="kars-h">
       <div class="wrap">
-        <div class="grid lg:grid-cols-12 gap-6 items-end">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
           <div class="lg:col-span-7">
-            <p class="eyebrow mb-6">Paketler</p>
-            <h2 id="paket-h" class="t-h2">İşletmenize göre fiyat, 24 saatte net teklif.</h2>
+            <p class="eyebrow mb-6">Karşılaştırma</p>
+            <h2 id="kars-h" class="t-h2">Üç yol var. Farkı süre ve peşinde.</h2>
           </div>
-          <p class="lg:col-span-5 text-muted">Liste fiyatı yok, çünkü her işletmenin ihtiyacı farklı. Check-up'tan sonra kalem kalem yazılı teklif gönderiyoruz.</p>
+          <p class="lg:col-span-5 text-muted">Kendiniz yapabilir, klasik bir ajansla çalışabilir ya da bizimle aylık ilerleyebilirsiniz. Ajans fiyatları Türkiye'deki ajansların 2026 fiyat listelerinden.</p>
         </div>
-        <div class="mt-12 lg:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.15fr_1fr]">
-          {packages.map(p => (
-            <article class={`card flex flex-col ${p.hl ? 'lg:-my-4 !border-fg' : ''}`}>
-              {p.hl && <span class="t-small text-primary mb-3">Önerdiğimiz başlangıç</span>}
-              <h3 class="t-h3">{p.n}</h3>
-              <p class="text-muted mt-2">{p.who}</p>
-              <ul class="mt-6 space-y-3 border-t border-line pt-6">
-                {p.items.map(it => <li class="flex gap-3"><span class="text-success mt-0.5" set:html={I('check')} />{it}</li>)}
-              </ul>
+        <!-- masaüstü: tablo -->
+        <div class="hidden md:block mt-12 lg:mt-16">
+          <table class="kars w-full text-left">
+            <caption class="sr-only">Kendin yap, klasik ajans ve {site.brand} karşılaştırması</caption>
+            <thead>
+              <tr>
+                <td class="w-[22%]"></td>
+                {karsBas.map((h, k) => <th scope="col" class={k === 2 ? 'us us-top' : ''}><span class="t-h3 block">{h}</span></th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {kars.map(([r, ...c], i) => (
+                <tr>
+                  <th scope="row" class="t-small text-muted">{r}</th>
+                  {c.map((v, k) => <td class={k === 2 ? `us font-medium${i === kars.length - 1 ? ' us-bot' : ''}` : 'text-muted'}>{v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <!-- mobil: kartlar -->
+        <div class="md:hidden mt-12 grid grid-cols-1 gap-4">
+          {karsBas.map((h, k) => (
+            <article class={`card ${k === 2 ? '!border-fg' : ''}`}>
+              <h3 class="t-h3">{h}</h3>
+              <dl class="mt-4 divide-y divide-[var(--border)]">
+                {kars.map(([r, ...c]) => <div class="py-3 grid grid-cols-1 gap-1"><dt class="t-small text-muted">{r}</dt><dd class={k === 2 ? 'font-medium' : ''}>{c[k]}</dd></div>)}
+              </dl>
             </article>
           ))}
-        </div>
-        <div class="mt-6 card !bg-transparent flex flex-col lg:flex-row lg:items-center gap-6 justify-between">
-          <div class="flex gap-4 items-start">
-            <span class="text-muted mt-1" set:html={I('smartphone', 'icon !w-6 !h-6')} />
-            <div>
-              <h3 class="t-h3">Markaya özel uygulama</h3>
-              <p class="text-muted mt-2 max-w-[40rem]">Sadakat kartı, randevu ya da sipariş isteyen işletmeler için. Paketlerin üzerine eklenir.</p>
-            </div>
-          </div>
-          <a href={waLink} target="_blank" rel="noopener" class="btn btn-secondary shrink-0">Uygulama için teklif al</a>
         </div>
       </div>
     </section>
 
-    <!-- 10. SSS -->
+    <!-- 10. PAKETLER -->
+    <section id="paketler" class="section bg-surface" aria-labelledby="paket-h">
+      <div class="wrap">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow mb-6">Paketler</p>
+            <h2 id="paket-h" class="t-h2">Net fiyat, aylık ödeme, sürpriz yok.</h2>
+          </div>
+          <p class="lg:col-span-5 text-muted">Her pakette neyin dahil olduğunu, neyin olmadığını ve sizden ne istediğimizi baştan yazıyoruz. İlk {teklif.lansmanAdet} işletmeye kurulum 0 ₺.</p>
+        </div>
+        <div class="mt-12 lg:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.15fr_1fr] items-start">
+          {paketler.map(p => (
+            <article class={`card flex flex-col ${p.one ? 'lg:-mt-4 !border-fg' : ''}`} id={`paket-${p.id}`}>
+              {p.one && <span class="t-small text-primary mb-3">En çok önerdiğimiz</span>}
+              <h3 class="t-h3">{p.ad}</h3>
+              <p class="text-muted mt-2">{p.kim}</p>
+              <p class="mt-6"><span class="price">{tl(p.aylik)}</span><span class="text-muted"> / ay</span></p>
+              <p class="t-small text-muted mt-2">Kurulum <s>{tl(p.kurulum)}</s> <span class="text-fg">ilk {teklif.lansmanAdet} işletmeye 0 ₺</span></p>
+              <h4 class="t-small mt-8 pt-6 border-t border-line">Dahil</h4>
+              <ul class="mt-3 space-y-3">
+                {p.dahil.map(it => <li class="flex gap-3"><span class="text-success mt-0.5" set:html={I('check')} />{it}</li>)}
+              </ul>
+              <h4 class="t-small mt-8">Hariç</h4>
+              <ul class="mt-3 space-y-3 text-muted">
+                {p.haric.map(it => <li class="flex gap-3"><span class="mt-0.5" set:html={I('minus')} />{it}</li>)}
+              </ul>
+              <h4 class="t-small mt-8">Sizden istenen</h4>
+              <ul class="mt-3 space-y-3">
+                {p.istenen.map(it => <li class="flex gap-3"><span class="text-muted mt-0.5" set:html={I('box')} />{it}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <p class="mt-8 t-small text-muted">Fiyatlar {teklif.kdv} · {teklif.sahiplikAy} ay sonra site ve uygulama sizin · reklam bütçesi hariç</p>
+        <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+          <a href={waLink} target="_blank" rel="noopener" class="btn btn-secondary">Hangi paket uygun? WhatsApp'tan sorun</a>
+          <span class="t-small text-muted max-w-[26rem]">Önce ücretsiz check-up, sonra işletmenize uyan paketi birlikte seçeriz.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SSS -->
     <section id="sss" class="section" aria-labelledby="sss-h">
       <div class="wrap grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-6">
         <div class="lg:col-span-4">
@@ -445,7 +531,7 @@ const faqs = [
       </div>
     </section>
 
-    <!-- 11. SON CTA -->
+    <!-- 12. SON CTA -->
     <section class="px-3 sm:px-5 pb-3 sm:pb-5" aria-labelledby="cta-h">
       <div class="ink-block rounded-[24px] text-center py-24 lg:py-32 px-5">
         <h2 id="cta-h" class="t-h2 max-w-[16ch] mx-auto">Önce bakalım, sonra konuşalım.</h2>
