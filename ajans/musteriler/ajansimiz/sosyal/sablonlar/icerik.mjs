@@ -72,7 +72,7 @@ ekle('profil-gorseli', 'profil', '11', [s('r11', '', `<div style="width:360px;he
   <svg width="170" height="170" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 9l8 15 8-15" stroke="${T.dPrimary}" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`)], 'profil');
 const oneCikan = (ikon, ad) => s('r916', 'ink', `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px">
   <div style="width:200px;height:200px;border-radius:50%;background:${T.dSurface};border:2px solid ${T.dPrimary};display:flex;align-items:center;justify-content:center;color:${T.dFg}">${I(ikon, 84, 'style="stroke-width:1.6"')}</div>
-  <div class="h3" style="color:${T.dFg}">${ad}</div></div>`);
+  </div><!-- ${ad}: adı Instagram yazar --> `);
 ekle('one-cikan-ornekler', 'profil', '916', [oneCikan('layout', 'Örnekler')], 'profil');
 ekle('one-cikan-fiyat', 'profil', '916', [oneCikan('tag', 'Fiyat')], 'profil');
 ekle('one-cikan-surec', 'profil', '916', [oneCikan('route', 'Süreç')], 'profil');
@@ -211,7 +211,7 @@ ekle('12-reel-hizlandirilmis', 'gonderiler/12-reel-hizlandirilmis', '916', [reel
       yanit('Örnek cevap', 'Yaşadığınız gecikme için özür dileriz. Bize [telefon] üzerinden ulaşırsanız hemen ilgilenelim.')),
     madde(4, n, '03', 'İyi yoruma kısa teşekkür', 'İsmiyle ve yorumdaki bir detayla. Her yoruma aynı kopyala-yapıştır cevap verilmiyor.'),
     madde(5, n, '04', 'Haftada bir, 10 dakika', 'Pazartesi sabahı yeni yorumlara bakın. Düzenli olmak, uzun cevaptan daha önemli.'),
-    ozet(6, n, 'Kaydedin', ['Her yoruma cevap, iyi ya da kötü', 'Kötüye özür ve çözüm, tartışma yok', 'İyiye isimle kısa teşekkür', 'Haftada bir sabit gün']),
+    ozet(6, n, 'Dört kural', ['Her yoruma cevap, iyi ya da kötü', 'Kötüye özür ve çözüm, tartışma yok', 'İyiye isimle kısa teşekkür', 'Haftada bir sabit gün']),
     cta(7, n, 'Profilinize birlikte bakalım', 'Google profilinizdeki eksikleri ve cevapsız yorumları ücretsiz çıkaralım.'),
   ], 'carousel');
 }
@@ -230,7 +230,7 @@ const reklamIc = (r, dikey) => {
   const g = r.ek === 'oncesonra' ? `<div class="ciftel mt16 kapak"><div><div class="tl"><i style="background:#A3AFA9"></i>Önce</div>${telEski('USTA TESİSAT HİZMETLERİ', '#2B4C9B')}</div><div><div class="tl"><i style="background:${T.dPrimary}"></i>Sonra</div>${telYeni(tesisatYeni)}</div></div>`
     : r.ek === 'adimlar' ? adimlar : '';
   return `${top(r.tema, r.ek === 'oncesonra' ? etiket() : '<span class="sayac">Sponsorlu</span>')}
-  <div class="main"${dikey ? ' style="justify-content:center"' : ''}>${r.eb ? `<div class="eb">${r.eb}</div>` : ''}<div class="${r.ek === 'oncesonra' ? 'h2 mt12' : 'd'}"${dikey && r.ek !== 'oncesonra' ? ' style="font-size:46px"' : ''}>${r.baslik}</div>
+  <div class="main"${dikey ? ' style="justify-content:center"' : ''}>${r.eb ? `<div class="eb">${r.eb}</div>` : ''}<div class="${r.ek === 'oncesonra' ? (dikey ? 'h2' : 'h2 mt12') : 'd'}"${dikey && r.ek !== 'oncesonra' ? ' style="font-size:46px"' : ''}>${r.baslik}</div>
   ${r.alt ? `<p class="lead mut mt16">${r.alt}</p>` : ''}${g}
   <span class="btn ${r.ek === 'oncesonra' ? 'mt16' : 'mt24'}">${I('msg', 18)}${r.buton}</span></div>
   <div class="alt"><span>Vitrin Atölyesi</span><span>Site · Sosyal · Reklam</span></div>`;

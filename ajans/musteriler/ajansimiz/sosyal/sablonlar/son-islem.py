@@ -23,7 +23,7 @@ for p in pngler:
 gonderiler = sorted(glob.glob(f'{KOK}/gonderiler/*/'), reverse=True)
 kapaklar = []
 for g in gonderiler:
-    aday = [f'{g}gorsel.png', f'{g}01.png']
+    aday = [f'{g}gorsel.png', f'{g}01.png', f'{g}kapak.png']
     kapaklar.append(next(a for a in aday if os.path.exists(a)))
 W, H, B = 360, 480, 4
 satir = (len(kapaklar) + 2) // 3

@@ -58,7 +58,7 @@ for (const o of ICERIK) {
     fs.writeFileSync(hp, sayfa(html, ad));
     await pg.goto('file://' + hp); await pg.evaluate(() => document.fonts.ready);
     const hatalar = await pg.evaluate(KONTROL);
-    const dosya = o.klasor === 'reklam' || o.klasor === 'profil' ? `${o.id}.png` : (o.slaytlar.length > 1 ? `${String(i + 1).padStart(2, '0')}.png` : 'gorsel.png');
+    const dosya = o.klasor === 'reklam' || o.klasor === 'profil' ? `${o.id}.png` : (o.slaytlar.length > 1 ? `${String(i + 1).padStart(2, '0')}.png` : o.tur === 'reel' ? 'kapak.png' : 'gorsel.png');
     await pg.screenshot({ path: path.join(cikti, dosya), clip: { x: 0, y: 0, width: w, height: h } });
     toplam++; if (hatalar.length) { hataToplam += hatalar.length; console.log(`✗ ${ad}\n   ` + hatalar.join('\n   ')); }
   }
