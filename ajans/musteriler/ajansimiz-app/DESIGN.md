@@ -8,12 +8,12 @@ Uygulama kabuğu (ana ekran, iletişim) markanın renginde; konsept ekranları *
 ## 2. Renk — marka (açık / koyu)
 background #FFFFFF / #0E1512 · surface #F3F5F2 / #151E1A · foreground #0E1512 / #EEF2EF · muted-foreground #4F5B55 / #A3AFA9 · border #DCE2DE / #26322C · primary #D7381E / #FF5A3C · primary-foreground #FFFFFF / #0E1512 · success #1F7A4D / #3DBE7E
 ## 2b. Konsept mini temaları (yalnızca kendi ekranında)
-| Konsept | zemin (açık/koyu) | yüzey | metin | vurgu | vurgu-metin | kontrast vurgu/metin |
+| Konsept | zemin (açık/koyu) | yüzey | metin | vurgu | vurgu-metin | kontrast buton · metin · ikincil/yüzey (açık / koyu) |
 |---|---|---|---|---|---|---|
-| Kafe | #FBF7F2 / #17110C | #F1E8DD / #241A13 | #2A1A10 / #F3E9DF | #8A4B24 / #D99560 | #FFFFFF / #17110C | 6.6:1 / 7.4:1 |
-| Berber | #F6F5F1 / #0D0D0D | #EBE8E0 / #1A1A1A | #111111 / #F2EFE8 | #111111 / #C9A24A | #C9A24A(tahmin: altın, metin rengi değil) → buton metni #FFFFFF / #0D0D0D | 18:1 / 9.6:1 |
-| Restoran | #FFFDF8 / #121410 | #F3F0E6 / #1C1F19 | #1B1E17 / #EEEDE6 | #2F6B3A / #7CC489 | #FFFFFF / #121410 | 6.3:1 / 9.1:1 |
-(kontrastlar sRGB formülüyle hesaplandı, (tahmin) işaretli olan hariç)
+| Kafe | #FBF7F2 / #17110C | #F1E8DD / #241A13 | #2A1A10 / #F3E9DF | #8A4B24 / #D99560 | #FFFFFF / #17110C | 6.7·15.7·5.8 / 7.5·15.6·7.6 |
+| Berber | #F6F5F1 / #0D0D0D | #EBE8E0 / #1A1A1A | #111111 / #F2EFE8 | #111111 / #C9A24A | #FFFFFF / #0D0D0D | 18.9·17.3·6.4 / 8.1·16.9·7.0 |
+| Restoran | #FFFDF8 / #121410 | #F3F0E6 / #1C1F19 | #1B1E17 / #EEEDE6 | #2F6B3A / #7CC489 | #FFFFFF / #121410 | 6.4·16.6·6.2 / 8.9·15.8·7.1 |
+(WCAG sRGB formülüyle hesaplandı; hepsi ≥4.5:1. İkincil metin + kenar renkleri `mobil/src/theme/tokens.ts`'te.)
 
 ## 3. Tipografi
 Archivo (@expo-google-fonts/archivo) 400 · 500 · 800. Mobilde font-stretch yok (RN desteklemiyor) → başlıkta 800 + negatif harf aralığı.
