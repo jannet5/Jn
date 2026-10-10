@@ -138,7 +138,7 @@ const faqs = [
           </h1>
           <p class="t-lead text-muted mt-8 max-w-[34rem] hero-fade">Web sitesi, mobil uygulama, sosyal medya ve reklam tek yerden. Yapay zekâ destekli üretim hattımızla ajans kalitesinde işi haftalar değil, günler içinde teslim ediyoruz.</p>
           <div class="mt-8 hero-fade">
-            <p class="t-h3">{teklif.teslimGun} günde yayında, aylık {tl(enDusukAylik)}'den.</p>
+            <p class="t-h3">Aylık {tl(enDusukAylik)}'den. Büyük peşinat yok.</p>
             <p class="mt-3 inline-flex flex-wrap items-center gap-x-2 t-small"><span class="w-2 h-2 rounded-full bg-primary" aria-hidden="true"></span>İlk {teklif.lansmanAdet} işletmeye kurulum <s class="text-muted">{tl(kurulumMin)}</s> 0 ₺<span class="text-muted font-normal">· vaka çalışması izni karşılığında</span></p>
           </div>
           <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 hero-fade">
@@ -375,13 +375,13 @@ const faqs = [
           </figure>
           <!-- Butik -->
           <figure id="ornek-butik" class="concept lg:col-span-12">
-            <div class="mini rounded-[24px] p-6 lg:p-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end" style="background:#F4E6E3;color:#3A1F24">
+            <div class="mini rounded-[24px] p-6 lg:p-8 grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 md:gap-12 items-end" style="background:#F4E6E3;color:#3A1F24">
               <div>
                 <span class="t-small opacity-70">Butik</span>
                 <div class="mt-6 font-extrabold text-[30px] lg:text-[38px] leading-[1] tracking-[-0.03em]" style="font-stretch:100%">Yeni sezon vitrinde,<br/>beden sorusu WhatsApp'ta.</div>
               </div>
-              <ul class="grid grid-cols-3 gap-2 text-[12px] sm:min-w-[360px]">
-                {[['Keten gömlek','S · M · L'],['Midi etek','36-42'],['Örgü hırka','Tek beden']].map(([a,b]) => <li class="rounded-[14px] p-3" style="background:#EAD3CE"><svg viewBox="0 0 24 24" class="w-full h-auto aspect-[4/5] rounded-[8px] mb-2 p-3" style="background:#F4E6E3" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" fill="#8C3B4A"/></svg><div class="font-medium">{a}</div><div class="opacity-70">{b}</div></li>)}
+              <ul class="text-[14px] md:min-w-[320px] divide-y" style="border-color:#E2C6C0">
+                {[['Keten gömlek','S · M · L',['#E9E2D6','#8C3B4A','#3A1F24']],['Midi etek','36-42',['#C9A27E','#3A1F24']],['Örgü hırka','Tek beden',['#8C3B4A','#E9E2D6']]].map(([a,b,c]) => <li class="flex items-center justify-between gap-4 py-2.5" style="border-color:#E2C6C0"><span><span class="font-medium">{a}</span> <span class="opacity-70">· {b}</span></span><span class="flex gap-1.5">{(c as string[]).map(x => <span class="w-3.5 h-3.5 rounded-full border" style={`background:${x};border-color:#3A1F2433`}></span>)}</span></li>)}
               </ul>
             </div>
             <figcaption class="mt-3 t-small text-muted">Örnek konsept · Kumaş Butik</figcaption>
@@ -457,7 +457,7 @@ const faqs = [
         <!-- mobil: kartlar -->
         <div class="md:hidden mt-12 grid grid-cols-1 gap-4">
           {karsBas.map((h, k) => (
-            <article class={`card ${k === 2 ? '!border-fg' : ''}`}>
+            <article class={`card ${k === 2 ? '!border-fg order-first' : ''}`}>
               <h3 class="t-h3">{h}</h3>
               <dl class="mt-4 divide-y divide-[var(--border)]">
                 {kars.map(([r, ...c]) => <div class="py-3 grid grid-cols-1 gap-1"><dt class="t-small text-muted">{r}</dt><dd class={k === 2 ? 'font-medium' : ''}>{c[k]}</dd></div>)}

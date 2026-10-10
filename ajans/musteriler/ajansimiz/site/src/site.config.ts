@@ -42,14 +42,14 @@ export const paketler = [
     kim: 'Mesajı ve aramayı kaçırmak istemeyen işletme',
     dahil: ['Vitrin\'deki her şey', 'WhatsApp ve siteden gelen talepler tek yerde', 'Cevapsız aramaya otomatik mesaj', '3 adımlı otomatik takip mesajı', 'Google yorumu isteme ve yanıtlama', 'Ayda 12 paylaşım, sitenizle aynı görsel dil'],
     haric: ['Reklam yönetimi', 'Mobil uygulama', 'WhatsApp ve SMS gönderim ücretleri (kullandığınız kadar)'],
-    istenen: [...ortakIstenen, 'Paylaşımlar için ayda bir kısa onay'],
+    istenen: ['Vitrin\'de istenenler', 'Paylaşımlar için ayda bir kısa onay'],
   },
   {
     id: 'buyume', ad: 'Büyüme', aylik: 11990, kurulum: 24990,
     kim: 'Randevuyu ya da siparişi büyütmek isteyen işletme',
     dahil: ['Müşteri Makinesi\'ndeki her şey', 'Markanıza özel mobil uygulama (iOS ve Android)', 'Online randevu ya da sipariş', 'Instagram ve Google reklam yönetimi', 'Reklamın getirdiğini gösteren aylık rapor'],
     haric: ['Reklam bütçesi (Meta\'ya ve Google\'a siz ödersiniz)', 'App Store ve Google Play geliştirici hesabı ücreti', 'WhatsApp ve SMS gönderim ücretleri (kullandığınız kadar)'],
-    istenen: [...ortakIstenen, 'Reklam bütçesi ve ödeme yöntemi'],
+    istenen: ['Vitrin\'de istenenler', 'Reklam bütçesi ve ödeme yöntemi'],
   },
 ];
 
