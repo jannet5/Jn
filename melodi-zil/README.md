@@ -24,12 +24,17 @@ app/src/main/kotlin/com/jn/melodizil/
 ```
 
 ## Melodi çıkarma nasıl çalışır (özet)
-1. 22.05 kHz mono; Hann 2048, atlama 512.
-2. Her çerçevede spektral tepeler (parabolik hassaslaştırma); her tepe 1..10 alt harmoniği olan f0 adaylarını 0.8^(h-1) ağırlıkla oylar (Salamon & Gómez "Melodia" sadeleştirmesi). İnsan sesi/baskın melodi aralığı (E4 merkezli çan) hafif öncelikli.
-3. 49 yarım ton + "sessiz" durumunda Viterbi: sıçrama cezası 0.35/yarım ton (üst sınır 4.5), sesli↔sessiz 2.2.
-4. Aynı perdedeki ardışık çerçeveler nota olur; <90 ms notalar birleştirilir/atılır.
+1. **Vokal ayırma (cihazda):** Spleeter 2stems vokal U-Net'i (Deezer Research, MIT) TFLite fp16 olarak `assets/vokal.tflite` (19.7 MB). 22050 Hz STFT (2048/512) → maske → iSTFT (`core/VocalSeparator.kt`, `data/audio/TfliteMaskModel.kt`). Vokal yoksa (enstrümantal) karışımdan devam edilir.
+2. **Melodi (Melodia, Salamon & Gómez 2012):** 10 cent perde haritası (10 harmonik), perde konturları (kare başına ≤50 cent), sessizlik ayıklama, oktav kopyası ve aykırı kontur eleme, ayrılmış vokalde enerji kapısı (`core/MelodyExtractor.kt`).
+3. **Notalar:** medyan filtre, histerezis (0.5 yarım ton), kayma/vibrato parçası birleştirme, en kısa nota 45 ms.
 
-Gerçek bir pop şarkısında (3:33) JVM'de 1.0 s sürdü, 337 nota, tümü şarkının tonalitesinde (A♭ majör). Sentetik çok sesli testte %92 çerçeve doğruluğu (`CoreTest`).
+## Ölçülen doğruluk (`araclar/degerlendirme/`)
+| Set | Eski | Yeni |
+|---|---|---|
+| Vocadito + pop eşlik (40 parça), doğru perde | %31 | %67 |
+| Aynı set, nota F (±50 ms, ±50 cent) | 0.27 | 0.52 |
+| Gerçek pop şarkısı, bağımsız referansa göre doğru perde | %41 | %68 |
+Essentia'nın Melodia uygulaması aynı karışımlarda %52 doğru perde veriyor.
 
 ## Derleme
 Gerekenler: JDK 17+, Android SDK (platform 35, build-tools 35). `local.properties` içine `sdk.dir=/yol/android-sdk`.
@@ -46,4 +51,4 @@ Gerekenler: JDK 17+, Android SDK (platform 35, build-tools 35). `local.propertie
 `keystore/upload.jks` + `keystore.properties` bu oturumda üretilen **yükleme anahtarı**dır (Play App Signing ile kullanılır). Üretim için kendi anahtarınla değiştirmek istersen `keystore.properties` değerlerini güncelle. Şifreler dosyada; depo özel kalmalı ya da anahtar değiştirilmeli.
 
 ## Lisans
-Uygulama kodu GPL-3.0 (NewPipeExtractor GPL-3.0 bağımlılığı gereği). Üçüncü taraf lisansları Ayarlar → Açık kaynak lisansları.
+Uygulama kodu GPL-3.0 (NewPipeExtractor GPL-3.0 bağımlılığı gereği). Vokal modeli: Spleeter (Deezer Research, MIT). TensorFlow Lite: Apache-2.0. Üçüncü taraf lisansları Ayarlar → Açık kaynak lisansları.

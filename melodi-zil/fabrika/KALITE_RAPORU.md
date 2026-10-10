@@ -1,4 +1,4 @@
-# KALİTE RAPORU: Melodi Zil v1.0.0 (2026-10-05)
+# KALİTE RAPORU: Melodi Zil v1.1.0 (2026-10-10; ilk sürüm v1.0.0 2026-10-05)
 
 ## Makine kontrolü
 | Kontrol | Sonuç |
@@ -48,11 +48,22 @@ Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı �
 - Gradle Play Publisher 3.12.1: `publishApps` görevi; mağaza metinleri Play sınırlarında (başlık ≤30, kısa açıklama ≤80 karakter, kontrol edildi).
 - Testler + lint + imzalı AAB/APK yeniden geçti.
 
+## v1.1.0: Melodi doğruluğu (kullanıcı: "müziğe hiç benzemiyor")
+| Ölçüm (araclar/degerlendirme) | v1.0.0 | v1.1.0 |
+|---|---|---|
+| Vocadito + pop eşlik (40), doğru perde (RPA) | 0.31 | 0.67 |
+| Aynı set, nota F (±50 ms, ±50 cent) | 0.27 | 0.52 (P 0.61) |
+| Gerçek pop şarkısı, bağımsız referans RPA | 0.41 | 0.68 |
+| Karşılaştırma: Essentia Melodia (karışım) | — | 0.52 |
+- Yöntem: cihazda Spleeter vokal ayırma (TFLite fp16, 19.7 MB) + tam Melodia. Ayrıntı: DERSLER D-013, COZUMLER Ç-011.
+- Süre: sunucuda 213 sn şarkı için ayırma 8.3 sn; telefonda tahmini 25-40 sn.
+- APK 37.9 MB (4 mimari), AAB 30.6 MB (Play cihaza göre böler, indirme ~22 MB).
+
 ## Kullanıcı testi
-⏳ Kullanıcı `dist/melodi-zil-1.0.0.apk` dosyasını telefonuna kurup 2-3 şarkıyla denemeli ("onay" / "sorun: …").
+⏳ Kullanıcı `dist/melodi-zil-1.1.0.apk` dosyasını telefonuna kurup 2-3 şarkıyla denemeli ("onay" / "sorun: …").
 
 ## Yayın
-- Paket: `dist/melodi-zil-1.0.0.aab` (Play), `dist/melodi-zil-1.0.0.apk` (doğrudan kurulum), SHA-256 `dist/SHA256SUMS.txt`.
+- Paket: `dist/melodi-zil-1.1.0.aab` (Play), `dist/melodi-zil-1.1.0.apk` (doğrudan kurulum), SHA-256 `dist/SHA256SUMS.txt`.
 - Mağaza metni, ikon 512, öne çıkan görsel, veri güvenliği formu cevapları: `docs/PLAY_STORE.md`, `docs/store/`.
 - Gizlilik politikası: `docs/gizlilik.html` (GitHub Pages'te yayınlanmalı) + uygulama içi.
 - ⚠️ Politika riski: YouTube indirme özelliği Play incelemesinde reddedilebilir; B planı `docs/PLAY_STORE.md`'de.

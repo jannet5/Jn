@@ -4,7 +4,7 @@
 ## Ç-001: APK linki telefonda indirilirken %100'de takılıyor
 - Belirti: Kullanıcı sohbetteki GitHub `raw` linkine basıyor; indirme %100'e gelip bekliyor, dosya açılmıyor.
 - Kök neden: `github.com/.../raw/...` 302 ile `raw.githubusercontent.com`'a yönlendirir ve dosyayı `application/octet-stream` olarak verir; uygulama içi tarayıcılar (sohbet uygulamasının WebView'ı) bu akışı tamamlayamıyor. GitHub Releases bu oturum türünde oluşturulamıyor (REST 403 "not permitted").
-- Çözüm: jsDelivr CDN linki kullanıldı: `https://cdn.jsdelivr.net/gh/jannet5/Jn@ccr-2465bb14-nqlbmk/melodi-zil/dist/melodi-zil-1.0.0.apk` — doğru içerik türü (`application/vnd.android.package-archive`) ve `Content-Length` döner, 20 MB'a kadar GitHub dosyalarını sunar. Ek olarak kullanıcıya "linki Chrome'da aç" dendi ve APK sohbet eki olarak da gönderildi.
+- Çözüm: jsDelivr CDN linki kullanıldı: `https://cdn.jsdelivr.net/gh/jannet5/Jn@ccr-2465bb14-nqlbmk/melodi-zil/dist/melodi-zil-1.0.0.apk` (v1.0.0; v1.1.0 APK 37.9 MB olduğu için jsDelivr 20 MB sınırını aşar → GitHub raw linki: `https://github.com/jannet5/Jn/raw/ccr-2465bb14-nqlbmk/melodi-zil/dist/melodi-zil-1.1.0.apk`) — doğru içerik türü (`application/vnd.android.package-archive`) ve `Content-Length` döner, 20 MB'a kadar GitHub dosyalarını sunar. Ek olarak kullanıcıya "linki Chrome'da aç" dendi ve APK sohbet eki olarak da gönderildi.
 - Doğrulama: `curl -sI` başlıkları + `curl -o` ile indirilen dosyanın SHA-256'sı depodaki `dist/SHA256SUMS.txt` ile aynı (163ccd60…).
 - Not: jsDelivr dal adıyla önbellekler; yeni APK yüklenince link 24 saate kadar eski dosyayı verebilir. Kesin tazelik için commit SHA'sı ile link ver: `@<commit>` ya da `https://purge.jsdelivr.net/gh/...` ile önbelleği temizle.
 
@@ -44,3 +44,9 @@
 - Kök neden (olası iki yol): (1) Chrome APK dosyaları için "Bu dosya türü cihazınıza zarar verebilir" onayı ister. Onay verilmezse indirme %100'de "bekliyor" kalır; uyarı ekranın altında kolayca gözden kaçar. (2) Link sohbet uygulamasının kendi iç tarayıcısında açılırsa, iç tarayıcı dosyayı sisteme teslim edemez ve %100'de takılır.
 - Çözüm: Kullanıcıya üç yol verilir: (a) APK'yı sohbet eki olarak gönder (tarayıcıya hiç girmez); (b) linki uzun basıp kopyala, Chrome'da aç, alttaki uyarıda "Yine de indir"e bas, sonra Dosyalar > İndirilenler'den aç; (c) kurulumda "Bu kaynaktan izin ver" anahtarını Chrome (ya da Dosyalar) için aç.
 - Kural: "İndirme takılıyor" denince önce NEREDE takıldığını ayır: uygulama içi adım mı (ekrandaki adım adı), tarayıcı indirmesi mi. Sunucuyu `curl -sSI -A "<Android Chrome UA>"` ile kontrol et; sorun yoksa telefon tarafı yönergesi ver, kodu değiştirme.
+
+## Ç-011: Çıkan melodi şarkıya benzemiyor
+- Teşhis aracı: `araclar/degerlendirme/` (hazirla.py → veri seti, EvalHarnessTest → notalar, puanla.py → mir_eval puanları, tara.sh → ayar taraması). Kurulum: `pip install "numpy<2" essentia mir_eval mirdata soundfile scipy` (ayrı venv), `mirdata` ile vocadito + orchset indir.
+- Bulgular ve çözümler: Melodia'nın eksik adımları eklendi; Spleeter vokal U-Net'i TFLite'a aktarıldı (`araclar/model/spleeter_vokal_tflite.py`), telefonda 22050 Hz STFT (2048/512, genlik ×2) ile birebir aynı sonuç (`vokal_ayir22.py` ile doğrulandı).
+- İki tuzak: (1) Essentia'nın `pitchContinuity` değeri cent/ms'dir ve 2.9 ms kare için yazılmıştır; büyük karede ms ile ölçeklemek notaları birbirine yapıştırır → kare başına sabit 50-80 cent kullan. (2) Kontur güçleri birbirine çok yakınsa "ortalama − v·σ" sessizlik eşiği melodiyi keser → σ'ya ortalamanın %15'i kadar taban koy.
+- Ölçüt: perde doğruluğu tek başına yanıltıcıdır (kırık notalar perdeyi tutar ama kulağa kötü gelir); nota düzeyi F (±50 ms başlangıç, ±50 cent) ile birlikte bak.

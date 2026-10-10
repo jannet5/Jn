@@ -47,3 +47,10 @@
 ### K-001 (genel, HAFIZA.md'de de var): Çözdüğün şeyi yaz
 - Kullanıcı ne dedi: "Bir şeyi çözünce onu nasıl çözdüğünü yaz diğer yapay zekalar da kullansın uğraşmasın"
 - Yeni kural: Her çözüm belirti → kök neden → çözüm → doğrulama biçiminde `docs/COZUMLER.md`'ye (genel) ve DERSLER'e (uygulamaya özel) yazılır. İndirme linkleri jsDelivr ile verilir, başlık + SHA-256 doğrulanır (Ç-001).
+
+### D-013: "Hiç alakası yok, müziğe hiç benzemiyor" — melodi çıkarma ölçülmeden yazılmıştı
+- Kullanıcı ne dedi: "Kanka hiç alakası yok müziğe hiç benzemiyor çıkan şey"
+- Kök neden: İlk algoritma tek bir sentetik testle "çalışıyor" sayıldı; gerçek vokal + müzik karışımında ölçülmedi. Ölçünce: doğru perde %31, melodi olmayan yerlerde %39 uydurma nota.
+- Ne yapıldı (ölçerek): (1) Değerlendirme seti: Vocadito (40 gerçek şarkı söyleme, f0 + insan işaretli nota) + sentetik pop eşlik, Orchset; mir_eval ile perde ve nota düzeyi puan; Essentia Melodia karşılaştırma. (2) Melodia yönteminin tamamı (10 cent harita, konturlar, sessizlik/oktav/aykırı eleme). (3) Spleeter (Deezer, MIT) vokal U-Net'i TFLite fp16 olarak cihazda: önce vokal ayrılır, sonra melodi çıkarılır. (4) Ayarlar ölçülerek seçildi; iki gerçek hata bulundu: kontur sürekliliği süreye göre yanlış ölçeklenmişti (80 → 320 cent/kare), sessizlik eşiği küçük sapmada melodiyi kesiyordu (sapma tabanı).
+- Sonuç: Vokal setinde doğru perde %31 → %67, nota F 0.27 → 0.52; gerçek şarkıda (bağımsız referans) %41 → %68.
+- Yeni kural (tüm uygulamalar): Bir yapay zeka/sinyal işleme özelliği, gerçek veriye karşı sayısal bir ölçüt olmadan "bitti" sayılmaz. Önce ölçüm altyapısı, sonra iyileştirme; her değişiklik önce/sonra sayısıyla.
