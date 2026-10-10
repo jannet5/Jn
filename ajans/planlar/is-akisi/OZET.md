@@ -84,6 +84,16 @@ ROUTINES (bulut, gözetimsiz)
 Eşlik eden dosyalar: `.claude/settings.json` (Stop hook → `pnpm check`; PostToolUse Edit → lint; migrations/brand yazma engeli), `.claude/skills/` (`teslim-hazirla`, `design-review`, `brief-to-spec`, `ads-variants`, `social-calendar`), `.claude/agents/` (`design-reviewer`, `security-reviewer`, `web-hatti`, `app-hatti`, `reklam-hatti`, `sosyal-hatti`), `.mcp.json` (GitHub, Drive/Notion, Slack).
 
 ## D. Sonraki adımlar
-1. Transkriptleri başka IP'li makineden çek (`yt_transcript.py`), 6 planı "(tahmin)" yerlerinden arındır, kalan 25 A/B planını yaz.
+1. ~~Transkriptleri çek, 6 planı "(tahmin)"den arındır~~ → **kısmen tamam (2026-10-10)**: 5/6 plan transkriptle düzeltildi; **qm0ZlYezt1Q** transkripti hâlâ yok (2 deneme, tüm yöntemler) → Gumroad paketi veya elle izleme gerekli. Xu2SIKz8B58'in teknik ilk 50 dk'sı ve son ~15 dk'sı henüz taranmadı. Kalan 25 A/B planı hâlâ yazılacak.
 2. Burhan'ın Gumroad dosya paketindeki CLAUDE.md/skill örneklerini `kaynaklar/`a al, C bölümüyle karşılaştır.
 3. `ajans/sistem/` içinde B1 yapısını dosyalara dök: `CLAUDE.md` (şablon C), `settings.json`, skill ve agent iskeletleri, `routines/*.md`.
+
+## Ek: transkript düzeltmesi (2026-10-10)
+- Düzelenler: `gv0WHhKelSE`, `S-sYlFiGFv8`, `eSP7PLTXNy8`, `MzhIr7BfpI0` (yt-dlp), `Xu2SIKz8B58` (youtube-transcript-api; iş bölümleri okundu). `qm0ZlYezt1Q`: transkript yok, yalnız kaynak notu güncellendi.
+- **gv0 düzeltmesi**: konuşma (Cal, Mayıs 2025) dokümandan çok daha dar; spec mülakatı, `/goal`, Stop hook, Writer/Reviewer, fan-out konuşmada yok → "(doküman)" işaretlendi. Yeni: "2-3 seçenek getir, dosya yazma" keşif kalıbı; **CLI > MCP**; ajanlar arası devir = `ticket.md`; model değişince CLAUDE.md'yi yeniden test et.
+- **Ekip (S-sY)**: işin %70-80'i Slack'teki Claude Tag'de; görev değil hedef; AskUserQuestion yerini **soru soran HTML artifact**'e bırakıyor; review = fan-out + her bulguya **3 bakış açısıyla "gerçek mi?" adversarial doğrulama**; routine örneği "geri bildirimi önem kovalarına ayır, yüksek güvenle düzeltilebilenleri düzelt"; PR'da ekran görüntüsü/kayıt kanıtı.
+- **Routines (eSP7)**: örnek = haftalık docs senkronu; context "başarının tavanı"; **generator→critiquer routine çifti** (PR açılınca ikinci routine review eder); deploy doğrulayıcı önce go/no-go, güven arttıkça otomatik rollback.
+- **Maddy (Mzh)**: "haftada >1 yapılan iş = slash komut"; hook'lu build+test+typecheck, hata = blocker; CLAUDE.md 100-200 satır üst sınır (bizim 60 kuralımız daha sıkı, korunur).
+- **Burhan 3s (Xu2S)**: önce ajans (ilk ~3.000$), sonra abonelikli ürün; B2B=e-posta (%6-6,6 dönüş), B2C=içerik+reklam; lead hattı Apify Maps **≤50/koşu** → site incele → özel çözümlü e-posta **taslağı**; müşteri kabulü = veri/uygulamalar/hedefler; ürün görseli "liste gönder-sonuç al" kademeli fiyat; ücretsiz plan yerine kartlı 7 gün deneme.
+- Zincire/fabrikaya önerilen: (1) generator→critiquer + adversarial doğrulama kalite kapısı, (2) taslak-onaylı lead routine'i, (3) 3 soruluk müşteri kabul formu + "hedef dışına çıkma" talimatı.
+
