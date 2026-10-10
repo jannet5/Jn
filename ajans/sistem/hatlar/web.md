@@ -10,6 +10,9 @@ Skill'ler: frontend-design (Anthropic) · ui-ux-pro-max · web-design-guidelines
 - `mod: otonom` (insan kapıda beklemiyor) → W3+W4 tek adım; "Ask me clarifying questions" yerine kararlar `DURUM.md`'ye yazılır.
 
 ## Bilinen tuzaklar (ilk üretimden)
+- Fiyat, süre, lansman adedi `src/site.config.ts`'te; metin şablonda. Kullanıcı testi fiyatları sayfada arar.
+- Karşılaştırma tablosu mobilde yatay kaydırma yapar → aynı veriden `md:hidden` kartlar, bizim kart `order-first`.
+- Grid'de `row-span-2` kartın figcaption'ı komşu satıra taşar → figure `flex flex-col`, iç kart `flex-1`.
 - Playwright npm sürümü `/opt/pw-browsers` Chromium'uyla uyuşmayabilir → `executablePath` ver (şablon `scripts/ss.mjs` yapıyor).
 - `scroll-behavior: smooth` SS'te reveal tetiklemez → `scrollTo({behavior:'instant'})`; çizim/reveal için ≥1.7 sn bekle.
 - Tam sayfa SS'ler Read ile bakılınca 60 px'e küçülür → **1500-1800 px dilimlere kırp, dilimlere bak.**

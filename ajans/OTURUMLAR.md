@@ -30,3 +30,5 @@ Açık kalan: YouTube IP engeli yüzünden planı yazılmamış transkriptler (l
 | 11 | session_01Ui24fvqPAkkPkK4Mcz7f49 | Instagram profil kiti + ilk 14 gün içerik + 5 reklam kreatifi + kampanya planı | musteriler/ajansimiz/sosyal/ |
 | 12 | session_01LTRsbBm6Edmjb3jqRfY5go | Araştırma eksikleri: transkript, 8 plan, rakip SS/notlar | arastirma/, planlar/ |
 Kararlar: `KARARLAR.md`.
+
+**2026-10-10 19:00:** Faz 3'ün 4 sohbeti bitti. Site v2 aynı linke yayınlandı (sürüm 2). Uygulama: 5 ekran + 2 sheet, 36 SS, KAPI-2 3.4/4; KAPI-4 gerçek telefon testi insanda. Sosyal: profil kiti + 14 gün içerik + 5 reklam kreatifi + PAUSED kampanya planı. Araştırma: 5 plan transkriptle düzeltildi, 8 yeni plan, 15 SS, 6 tam rakip notu. Tüm DERSLER geri bildirimleri sistem/'e işlendi.

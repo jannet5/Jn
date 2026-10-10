@@ -26,3 +26,12 @@ S7 Rapor           IG Insights (reach, saves, shares, views) → aylık değer d
 ## Kendi hesabımızın ilk 30 günü
 Hazır gün gün plan: `planlar/ajans-is-modeli/OZET.md` §5. Haftalık ritim: Pzt önce/sonra · Sal işletme sahibine ipucu carousel'i · Çar kulis reel'i (ekran kaydı) · Per sosyal kanıt · Cum teklif. Her gönderide tek CTA: "Ücretsiz örnek ana sayfa için DM'den ÖRNEK yaz." Rakiplerde neredeyse hiç olmayan iki format bizim imzamız: **önce/sonra** ve **"kaç saatte teslim ettik"**.
 Otomasyon: n8n içerik hattı (kaynak → platform başına prompt → marka şablonunda görsel → Telegram'da onay → Graph API). Tam otomatik yayın yok, her zaman onay kapısı.
+
+## İlk üretimden kurallar (ajansimiz/sosyal DERSLER)
+- **CTA:** sosyal hesapta platform aksiyonu ("DM'den ÖRNEK yaz") + bio'da WhatsApp; karar KARARLAR.md'de.
+- **Hashtag:** ilk 2 hafta A/B (tek gün etiketli, çift gün etiketsiz), sonra karar.
+- **Kanıt yoksa** sosyal kanıt günü = dürüstlük gönderisi ("henüz yorum yok, bunun yerine şunu yapıyoruz"). Sahte yorum/sayı asla.
+- **Önce/sonra müşterisizken:** temsili eski site çizimi + "Temsili, gerçek bir işletme değil" alt yazısı + "Sizin Kafe" gibi yer tutucu ad. Gerçek işletmenin sitesi izinsiz kullanılmaz.
+- **Izgara:** profil 3:4 kırpar; kapakta önemli yazı ortadaki 3:4 alanda. S4'te `izgara.png` önizlemesi zorunlu.
+- **Otomatik kontrol** (`sablonlar/uret.mjs`: kontrast, taşma, çakışma, yetim satır; `.main>*{flex-shrink:0}` şart) + yine de her görsele gözle bakılır.
+- Şablon: `musteriler/ajansimiz/sosyal/sablonlar/` (HTML + uret.mjs + son-islem.py, 57 görsel ~10 sn). Yeni müşteride kopyala, token'ları değiştir.

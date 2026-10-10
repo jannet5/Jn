@@ -13,6 +13,9 @@ Tarih: 2026-10-10. Değiştirmek için bu dosyayı ve belirtilen tek yeri günce
 | Teslim vaadi | 7 gün | Rakipler 2-16 hafta; ilk üretim 1 günde bitti | aynı |
 | İlk sektörler | Kafe/restoran, berber/kuaför, klinik | Uygulama demosu bu üçünü gösteriyor | `hatlar/musteri-bulma.md` |
 | Fiyatlar KDV | Hariç | TR ajans pratiği | — |
+| İptal | Uzun taahhüt yok; bırakılan ay hizmet durur. Alan adı, Google ve sosyal hesaplar zaten müşterinin adına. Site/uygulama 12. ayda devredilir | Sitedeki SSS ile aynı; basit ve dürüst | `site/src/pages/index.astro` SSS + config |
+| Sosyal CTA | Gönderide "DM'den ÖRNEK yaz", bio'da WhatsApp | Instagram'da DM sürtünmesiz | `hatlar/sosyal-medya.md` |
+| Orta paket etiketi | "Önerilen" (müşteri verisi gelince "En popüler") | Dürüstlük kuralı | site + sosyal |
 
 ## Kullanıcıda kalanlar (ben yapamam)
 - WhatsApp numarası, telefon, e-posta → config'de yer tutucu

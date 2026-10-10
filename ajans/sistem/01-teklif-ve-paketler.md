@@ -34,7 +34,7 @@ Teslim süresi: TR rakipler 2-16 hafta.
 | **2. Müşteri Makinesi** | + WhatsApp/form lead yakalama, 3 adımlı otomatik takip, cevapsız arama → otomatik mesaj, Google yorum isteme+yanıtlama, ayda 12 post | 5.000-10.000 ₺ | **5.000-7.500 ₺** | web + sosyal + otomasyon |
 | **3. Büyüme** | + randevu/online sipariş, **markaya özel mobil uygulama**, Meta/Google reklam yönetimi (bütçe hariç) | 15.000-30.000 ₺ | **10.000-15.000 ₺** | + mobil + reklam |
 | Özel tasarım (tek seferlik) | Premium site | 20.000-50.000 ₺ | + Vitrin aboneliği | web |
-Kurallar: 3 kademe, ortadaki "En popüler" · her pakette "dahil / hariç / sen ne sağlarsın (menü, foto, logo)" · kullanım bazlı maliyetler (WhatsApp API, SMS, reklam bütçesi) müşteri kartına · ilk 5 işletmeye kurulum ücretsiz ↔ vaka çalışması izni.
+Kurallar: 3 kademe, ortadaki "Önerilen" (gerçek satış verisi yokken "En popüler" uydurma istatistiktir) · her pakette "dahil / hariç / sen ne sağlarsın (menü, foto, logo)" · kullanım bazlı maliyetler (WhatsApp API, SMS, reklam bütçesi) müşteri kartına · ilk 5 işletmeye kurulum ücretsiz ↔ vaka çalışması izni.
 Çapa cümlesi: "Klasik ajans 4-16 hafta ve 25-75 bin ₺ peşin; biz 7 gün, peşinatsız, aylık."
 
 ## Değer defteri (her ay müşteriye)
