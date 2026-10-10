@@ -5,6 +5,19 @@
 - **Alt sohbetler (Claude Code cloud oturumları):** her biri tek iş, tek klasör. Görev metninde: ne, nereye yazacak, ne zaman commit, bitince ne raporlayacak.
 - **Ortak hafıza = git dalı.** Sohbette kalan bilgi yok sayılır. Her alt sohbet 20-30 dk'da bir `pull --rebase` + push.
 
+## Görev kartı (her alt sohbet ve rutin aynı 5 alan)
+1. **Görev:** tek iş, tek cümle
+2. **Girdi:** SPEC/BRIEF bölümü, dosyalar, referanslar
+3. **Başarı koşulu:** ölçülebilir (Lighthouse ≥90, KAPI-2 ≥3/4, 8 plan + OZET)
+4. **Çıktı yeri:** klasör, dal, commit sıklığı
+5. **Yapma listesi:** dokunulmayacak dosyalar, yasak işler, sayı sınırı
+
+## Seviye seçimi
+Tek hat sıralı iş → tek oturum + alt ajan · 2-4 bağımsız hat → ayrı cloud oturumları (her biri kendi klasörü) · 10+ aynı tip iş (10 restoran örneği) → toplu fan-out · zaman tetikli bakım → rutin (gece site sağlığı, haftalık içerik, aylık reklam raporu).
+
+## Doğrulama kancası
+Müşteri projesinde `.claude/settings.json` Stop kancası `scripts/kontrol.sh`'yi çalıştırır (build + SS + test). Kanıtsız "bitti" geçersiz. Şablon: `sablon/web/settings.json`.
+
 ## Görev metni şablonu
 ```
 Önce <README> oku. GÖREV: <tek iş>. NASIL: <hızlı yöntem: API/CLI/script, tıklama değil>.

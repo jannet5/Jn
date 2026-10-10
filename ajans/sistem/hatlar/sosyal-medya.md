@@ -22,3 +22,7 @@ S7 Rapor           IG Insights (reach, saves, shares, views) → aylık değer d
 - AI kokan kelimeler ve em-dash yığını yasak (humanizer). Spesifik bilgi uydurulmaz ("Never invent the specifics").
 - Sağlık müşterisinde öncesi/sonrası görsel yasak (Meta politikası).
 - Kendi ajans hesabımız: haftada 3-5 **before/after** (eski site → yeni site, eski feed → yeni feed), süreç videosu (ekran kaydı hızlandırılmış), müşteri sonucu.
+
+## Kendi hesabımızın ilk 30 günü
+Hazır gün gün plan: `planlar/ajans-is-modeli/OZET.md` §5. Haftalık ritim: Pzt önce/sonra · Sal işletme sahibine ipucu carousel'i · Çar kulis reel'i (ekran kaydı) · Per sosyal kanıt · Cum teklif. Her gönderide tek CTA: "Ücretsiz örnek ana sayfa için DM'den ÖRNEK yaz." Rakiplerde neredeyse hiç olmayan iki format bizim imzamız: **önce/sonra** ve **"kaç saatte teslim ettik"**.
+Otomasyon: n8n içerik hattı (kaynak → platform başına prompt → marka şablonunda görsel → Telegram'da onay → Graph API). Tam otomatik yayın yok, her zaman onay kapısı.

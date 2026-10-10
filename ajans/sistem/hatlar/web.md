@@ -22,6 +22,16 @@ Skill'ler: frontend-design (Anthropic) · ui-ux-pro-max · web-design-guidelines
 - `artifact.py dist/index.html cikti.html "Ad"` → müşteriye telefondan gösterilecek önizleme sayfası
 - Lighthouse: `CHROME_PATH=$(ls -d /opt/pw-browsers/chromium-*/chrome-linux/chrome|head -1) npx -y lighthouse@12 <url> --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,accessibility,best-practices,seo`
 
+## Ek kurallar (YouTube web özeti, `planlar/web/OZET.md` §4 tam anti-slop listesi)
+- **Marka skill'i:** her müşteri için `.claude/skills/marka-<musteri>/SKILL.md` (hex, font, boşluk, yap/yapma). Web, mobil ve sosyal hat aynı dosyayı okur.
+- **Kadranlar:** brief'ten tek satır "tasarım okuması" + değişkenlik/hareket/yoğunluk (restoran-premium 7/6/3, klinik-güven 3-4/2-3/4-5).
+- **Düzen çeşitliliği:** 8 bölümde ≥4 farklı düzen ailesi; aynı aile sayfada bir kez. Tek "zirve anı" (en büyük görsel bütçesi orada).
+- **Parmak izi kapısı:** yeni site, önceki müşteri sitelerinden 6 boyutun (palet, font, hero tipi, düzen ritmi, imza etkileşimi, görsel dil) en az 4'ünde farklı olmalı → `musteriler/PARMAK-IZI.md`'ye satır ekle.
+- **Hazır bileşen > ekran görüntüsü:** 21st.dev "Copy Prompt" / Magic UI / Aceternity; SS'ten kopya kayıplıdır.
+- **Görsel zinciri:** Nano Banana (2K, referanslı) → Kling/Veo 3-5 sn döngü → hero ≤300 KB; mobilde statik görsel.
+- **Metin:** em dash (—) ve en dash (–) yasak; "John Doe/Acme", "Elevate/Seamless" yasak; aynı eylem her yerde aynı kelime.
+- Ek skill'ler: taste-skill (`npx skills add Leonxlnx/taste-skill`), scroll-craft (`/plugin marketplace add nateherkai/scroll-craft`). Aynı anda en fazla bir "taste" skill'i (çakışıyorlar).
+
 ## Adımlar
 
 ### W1. Kurulum (proje klasörü)

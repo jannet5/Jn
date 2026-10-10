@@ -6,6 +6,7 @@
 ## Bant (her müşteri işi bu sırayla akar)
 
 ```
+ S SATIŞ (her gün)           hatlar/musteri-bulma.md → örnek site → mesaj → görüşme
  0 KURULUM (tek sefer)      kurulum.sh → skill'ler + MCP'ler + şablonlar
  1 INTAKE (10 dk, insan)    02-intake.md formu → BRIEF.md
  2 REFERANS + DESIGN.md     3-5 referans SS → DESIGN.md (sayılarla) → KAPI-1
@@ -29,6 +30,7 @@
 | `hatlar/mobil.md` | Mobil uygulama hattı (Expo) |
 | `hatlar/sosyal-medya.md` | Instagram/Facebook içerik hattı |
 | `hatlar/reklam.md` | Meta/Google reklam hattı |
+| `hatlar/musteri-bulma.md` | Satış: önce örnek yap sonra göster, günlük rutin, Türkçe mesaj şablonları |
 | `kapilar/KAPILAR.md` | 4 kalite kapısı, geçme koşulları |
 | `sablon/` | Her müşteri projesine kopyalanan CLAUDE.md, BRIEF.md, DESIGN.md |
 | `skills/tr-caption/` | Türkçe Instagram caption skill'i (piyasada yok, biz yazdık) |
