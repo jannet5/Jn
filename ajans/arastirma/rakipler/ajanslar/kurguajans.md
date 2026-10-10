@@ -79,8 +79,8 @@ Ayrıca tanıtım videosu ve animasyon videosu için ayrı fiyat sayfaları var 
 5. Portföy/vaka sayfası yok; sonuç metrikleri ("%62 trafik artışı") kaynağı belirsiz.
 
 ## Ekran görüntüleri
-- Web: `ss/kurguajans-web.png` | Mobil: `ss/kurguajans-mobil.png` (bkz. not) | Instagram: `ss/kurguajans-instagram.png`
-- Not: Mobil SS 2 denemede de "Page.goto: Timeout 45000ms" ile başarısız oldu (site ağır); web SS durumu son çalıştırmada belirtiliyor — bkz. dosya listesi. Yoksa "SS alınamadı: zaman aşımı (Elementor sayfası 45 sn'de yüklenmedi)".
+- Web: `ss/kurguajans-web.png` | Mobil: `ss/kurguajans-mobil.png` | Instagram: `ss/kurguajans-instagram.png`
+- Not: 2026-10-10 turunda `ss_al.py --reduced-motion --bekle 8` ile web + mobil SS alındı (önceki 45 sn zaman aşımı sorunu giderildi).
 
 ## Bizim için notlar
 - Çalınacak fikir: Hizmet başına ayrı "/fiyatlar" sayfası (SEO + şeffaflık); reklam yönetiminde "yönetilen bütçe tavanı" ile kademeleme; paketleri işletme büyüklüğüyle etiketleme.

@@ -103,7 +103,15 @@ Kademeleme mantığı: platform sayısı × aylık içerik adedi × reel sayıs�
 13. **Kapanış CTA:** "WhatsApp'tan yaz" (sabit buton, "Online" rozeti) + telefon + takvim + çalışma saatleri; footer'da sektör ve şehir sayfaları
 
 ## 8. Sonraki tur (eksikler)
-- 21 ajansın tam not dosyası (`SABLON.md`), özellikle Owner, B12, Hibu, Primi, Kiwi, AdresGezgini, Webtasarimji.
-- Eksik web/mobil SS'ler (19 ajans) — Elementor/animasyonlu siteler için `ss_al.py`'de animasyonları kapatma (`prefers-reduced-motion`, `page.add_style_tag`) ve daha uzun bekleme.
-- Instagram bio/link-in-bio (embed vermiyor) — arama snippet'i ya da farklı ayna.
-- Armut/Bionluk fiyat aralıkları tablosu.
+- ~~21 ajansın tam not dosyası~~ → 2026-10-10: Owner, B12, Primi, Kiwi, AdresGezgini, Webtasarimji yazıldı (toplam 13). Kalan 15: Hibu, Webtures, MediaClick, E-Pazarla, Collified, Bravery, Webolizma, Ajans360, Proji, 1062 Studio, Oğuz Yatağan, Creamaxi, Arty Digital, Hike Your Market, SwiftCase.
+- ~~Eksik web/mobil SS'ler~~ → 2026-10-10: `ss_al.py`'ye `--reduced-motion` (prefers-reduced-motion + animasyon kapatma CSS'i) ve `--bekle SN` bayrakları, mobil yatay taşmaya kırpma, 6000px üst sınır eklendi; 9 ajansın web+mobil SS'i alındı. Kalan: E-Pazarla, Collified, Bravery, Webolizma, Ajans360, Proji, Hibu, Hike Your Market (web+mobil), 1062 Studio/TrueFuture/LocalSite (eksik tek tür), Creamaxi/Arty/SwiftCase siyah SS'lerin yeni bayraklarla tekrarı.
+- Instagram bio/link-in-bio (embed vermiyor) — hâlâ açık.
+- Armut/Bionluk fiyat aralıkları tablosu — hâlâ açık.
+
+## Ek (2026-10-10)
+- Sonuca bağlı paket adı: Primi programları gelir kalemine göre (covers/catering/events), Kiwi "site + SEO + Ads = tek sistem, üç motor"; Owner "traffic / sales / repeat orders".
+- "Ücretsiz AI/GEO raporu" yeni standart lead magnet: Owner "Get my AI report", Primi "free AI audit", Kiwi "Free Growth Plan"; ChatGPT'de önerilme (GEO) satış argümanı (Primi, Kiwi, AdresGezgini "ChatGPT Ads" + AI SEO 11.5K ₺).
+- Fiyat çerçeveleme: Primi haftalık ($160-750/hf), Owner 2 plan aynı özellik, Kiwi $59/ay bakım + eklenti modülleri; TR'de AdresGezgini 3K ₺'den taksitli + "hediye bütçe", Webtasarimji tek seferlik + üstü çizili fiyat.
+- Kanıt formatı: isimli işletme sahibi + tek büyük rakam (Owner), kaynağı yazılı rakam ("POS VERIFIED", Primi), tek CPL vakası ($28, Kiwi).
+- Global restoran oyuncuları (Owner, Primi) komisyonlu platformlara karşı "doğrudan sipariş" satıyor — TR'de restoran için yerel muadil boşluğu var.
+- Sosyal medya satan küçük ajansların kendi IG'si ölü (Primi 66, Kiwi 9 takipçi; Webtasarimji yok) — bizim için kolay fark.

@@ -91,7 +91,7 @@ Kampanya şeridi: "2026 İÇİN İLK 5 PROJEYE %20 İNDİRİM". "Ücretsiz site 
 
 ## Ekran görüntüleri
 - Web: `ss/dijipal-web.png` | Mobil: `ss/dijipal-mobil.png` | Instagram: `ss/dijipal-instagram.png`
-- Not: ilk denemede mobil "Page.goto: Timeout 45000ms"; ikinci denemenin sonucu dosya listesine bakılarak teyit edilmeli.
+- Not: 2026-10-10 turunda web + mobil SS `--reduced-motion --bekle 8` ile yeniden alındı (koyu tema; önceki web zaman aşımı giderildi).
 
 ## Bizim için notlar
 - Çalınacak fikir: Hero'da "Sitem var / Site istiyorum / Logo istiyorum" segmentli analiz aracı; duyuru şeridinde fiyat + kıtlık + dönüş süresi; "tek kişi = aracısız, hesap verebilir" konumlaması.
