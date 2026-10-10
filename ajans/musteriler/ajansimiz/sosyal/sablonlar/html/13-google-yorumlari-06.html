@@ -1,0 +1,70 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>13-google-yorumlari-06</title><style>
+@font-face{font-family:Archivo;font-style:normal;font-display:block;font-weight:100 900;font-stretch:62% 125%;
+  src:url(../font/archivo-latin-ext-wdth-normal.woff2) format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Archivo;font-style:normal;font-display:block;font-weight:100 900;font-stretch:62% 125%;
+  src:url(../font/archivo-latin-wdth-normal.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#fff}
+body{font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;color:#0E1512}
+.s{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:28px;background:#FFFFFF;color:#0E1512}
+.s.r45{width:420px;height:525px}
+.s.r916{width:360px;height:640px;padding:28px 28px}
+.s.r11{width:360px;height:360px;padding:0}
+.s.surface{background:#F3F5F2}
+.s.ink{background:#0E1512;color:#EEF2EF}
+.s.prim{background:#D7381E;color:#fff}
+.top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.01em;min-height:24px}
+.top .ad{flex:1}
+.mark{width:22px;height:22px;flex:none}
+.etiket{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;border:1px solid #DCE2DE;color:#4F5B55;background:#FFFFFF}
+.ink .etiket{border-color:#26322C;color:#A3AFA9;background:#0E1512}
+.prim .etiket{border-color:rgba(255,255,255,.55);color:#fff;background:#D7381E}
+.sayac{font-size:13px;font-weight:500;color:#4F5B55}
+.ink .sayac{color:#A3AFA9}
+.main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.main>*{flex-shrink:0}
+.eb{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;letter-spacing:.01em;color:#4F5B55;margin-bottom:14px}
+.eb::before{content:"";width:8px;height:8px;border-radius:50%;background:#D7381E;flex:none}
+.ink .eb{color:#A3AFA9} .ink .eb::before{background:#FF5A3C}
+.prim .eb{color:#fff} .prim .eb::before{background:#fff}
+.d{font-weight:800;font-stretch:112%;font-size:44px;line-height:.95;letter-spacing:-.035em;text-wrap:balance}
+.h2{font-weight:800;font-stretch:112%;font-size:32px;line-height:1.0;letter-spacing:-.03em;text-wrap:balance}
+.h3{font-weight:800;font-stretch:112%;font-size:22px;line-height:1.15;letter-spacing:-.015em;text-wrap:balance}
+.lead{font-size:18px;line-height:1.45;text-wrap:pretty}
+.body{font-size:16px;line-height:1.5;text-wrap:pretty}
+.sm{font-size:14px;line-height:1.45;font-weight:500;letter-spacing:.01em;text-wrap:pretty}
+.mut{color:#4F5B55} .ink .mut{color:#A3AFA9} .prim .mut{color:#fff}
+em{font-style:normal;color:#D7381E} .ink em{color:#FF5A3C} .surface em{color:#B92E17} .prim em{color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:4px}
+.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mt24{margin-top:24px}
+.alt{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid #DCE2DE;font-size:14px;font-weight:500}
+.ink .alt{border-color:#26322C} .prim .alt{border-color:rgba(255,255,255,.45)}
+.alt b{font-weight:800}
+.btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 24px;border-radius:999px;background:#D7381E;color:#fff;font-size:16px;font-weight:500;align-self:flex-start}
+.ink .btn{background:#FF5A3C;color:#0E1512}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.no{font-weight:800;font-stretch:112%;font-size:72px;line-height:.9;letter-spacing:-.04em;color:#D7381E}
+.ink .no{color:#FF5A3C}
+.liste{list-style:none;display:flex;flex-direction:column;gap:10px}
+.liste li{display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.4}
+.liste li svg{flex:none;width:20px;height:20px;margin-top:1px;stroke:#D7381E;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ink .liste li svg{stroke:#FF5A3C}
+.kart{border:1px solid #DCE2DE;border-radius:14px;padding:14px 16px;background:#FFFFFF}
+.ink .kart{border-color:#26322C;background:#151E1A}
+.chip{display:inline-flex;font-size:14px;font-weight:500;padding:6px 12px;border:1px solid #DCE2DE;border-radius:999px;background:#FFFFFF}
+.ink .chip{border-color:#26322C;background:#0E1512}
+.ikon{stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+/* cihaz çerçeveleri */
+.tel{width:150px;height:300px;border-radius:26px;background:#0A100D;padding:7px;box-shadow:0 30px 60px -20px rgba(14,21,18,.25);flex:none}
+.tel .ek{width:100%;height:100%;border-radius:20px;overflow:hidden;background:#fff;position:relative;display:flex;flex-direction:column}
+.tel.k{width:126px;height:252px;border-radius:22px;padding:6px}.tel.k .ek{border-radius:17px}
+.kapak .tel.k{width:112px;height:224px}
+.ink .tel{background:#000;box-shadow:0 0 0 1px #26322C}
+.ciftel{display:flex;gap:16px;justify-content:center;align-items:flex-end}
+.tl{font-size:13px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tl i{width:8px;height:8px;border-radius:50%;display:inline-block}
+</style></head><body><div class="s r45 surface"><div class="top"><svg class="mark" style="width:22px;height:22px" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0E1512"/><path d="M8 9l8 15 8-15" stroke="#D7381E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ad">Vitrin Atölyesi</span><span class="sayac">6/7</span></div>
+  <div class="main"><div class="eb">Kaydedin</div><div class="h2">Kaydedin</div>
+  <ul class="liste mt24"><li><svg class="ikon" width="20" height="20" viewBox="0 0 24 24"  aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Her yoruma cevap, iyi ya da kötü</span></li><li><svg class="ikon" width="20" height="20" viewBox="0 0 24 24"  aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Kötüye özür ve çözüm, tartışma yok</span></li><li><svg class="ikon" width="20" height="20" viewBox="0 0 24 24"  aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>İyiye isimle kısa teşekkür</span></li><li><svg class="ikon" width="20" height="20" viewBox="0 0 24 24"  aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Haftada bir sabit gün</span></li></ul></div>
+  <div class="alt"><span>Ücretsiz örnek ana sayfa</span><span>DM'den <b>ÖRNEK</b> yaz</span></div></div></body></html>
