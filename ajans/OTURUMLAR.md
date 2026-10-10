@@ -21,3 +21,12 @@ Sonraki faz (araştırma bitince): `sistem/` zinciri (web + app + reklam + sosya
 
 **2026-10-10 07:15:** 5 sohbetin hepsi kapanış talimatını tamamladı ve OZET.md'lerini push etti (rakip: 28 ajans; mobil: 8 plan; web: 9 plan; ajans iş modeli: 17 plan; iş akışı: 6 plan). Özetler `sistem/`e işlendi: TR fiyat merdiveni, müşteri bulma hattı, web/mobil ek kurallar, görev kartı, Stop doğrulama kancası. Araştırma fazı kapandı.
 Açık kalan: YouTube IP engeli yüzünden planı yazılmamış transkriptler (liste: her OZET'in "eksikler" bölümü) ve iş akışı grubunun transkriptsiz planları.
+
+## Faz 3 — "Hallet" (2026-10-10 18:00)
+| # | Sohbet | Görev | Yazdığı yer |
+|---|---|---|---|
+| 9 | session_01QP9BnmR6zzziriV8oyQFxf | Kendi mobil uygulamamız (satış demosu, mobil hattın ilk testi) | musteriler/ajansimiz-app/ |
+| 10 | session_01F3H2AruiVZGaE9srciNzFY | Vitrin sitesi v2: fiyat, karşılaştırma, sektör butonları | musteriler/ajansimiz/ |
+| 11 | session_01Ui24fvqPAkkPkK4Mcz7f49 | Instagram profil kiti + ilk 14 gün içerik + 5 reklam kreatifi + kampanya planı | musteriler/ajansimiz/sosyal/ |
+| 12 | session_01LTRsbBm6Edmjb3jqRfY5go | Araştırma eksikleri: transkript, 8 plan, rakip SS/notlar | arastirma/, planlar/ |
+Kararlar: `KARARLAR.md`.
