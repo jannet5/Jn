@@ -37,7 +37,7 @@ const heroSektor = [['Kafe-Restoran', 'kafe'], ['Berber-Kuaför', 'berber'], ['K
 // Karşılaştırma: [satır, kendin yap, klasik ajans, biz]
 const kars = [
   ['Yayına çıkış', 'Vaktinizi bulduğunuzda', teklif.ajansHafta, `${teklif.teslimGun} gün`],
-  ['Başta ödeme', 'Platform aboneliği + sizin emeğiniz', teklif.ajansPesin, `Peşinat yok. Kurulum ${tl(kurulumMin)}'den, ilk ${teklif.lansmanAdet} işletmeye 0 ₺`],
+  ['Başta ödeme', 'Platform aboneliği + sizin emeğiniz', teklif.ajansPesin, `Büyük peşinat yok. Kurulum ${tl(kurulumMin)}'den, ilk ${teklif.lansmanAdet} işletmeye 0 ₺`],
   ['Tasarım ve metin', 'Şablonla siz uğraşırsınız', 'Ajans yapar, revizyon uzar', 'Biz yaparız, siz onaylarsınız'],
   ['Google, Instagram, reklam', 'Ayrıca sizin işiniz', 'Çoğu zaman ayrı ekip, ayrı ücret', 'Aynı ekip, aynı tasarım dili'],
   ['Mobil uygulama', 'Yok', 'Ayrı proje, ayrı teklif', 'Büyüme paketinde dahil'],
@@ -334,8 +334,8 @@ const faqs = [
         </div>
         <div class="mt-12 lg:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-12">
           <!-- Kafe -->
-          <figure id="ornek-kafe" class="concept lg:col-span-5 lg:row-span-2">
-            <div class="mini rounded-[24px] p-6 lg:p-8 h-full min-h-[340px] flex flex-col" style="background:#F6EFE6;color:#3B2618">
+          <figure id="ornek-kafe" class="concept lg:col-span-5 lg:row-span-2 flex flex-col">
+            <div class="mini rounded-[24px] p-6 lg:p-8 flex-1 min-h-[340px] flex flex-col" style="background:#F6EFE6;color:#3B2618">
               <span class="t-small opacity-70">Kafe</span>
               <ul class="mt-6 text-[14px] divide-y" style="border-color:#E2D3BF">
                 {[['Filtre kahve','Günün çekirdeği'],['Türk kahvesi','Közde'],['Cheesecake','Ev yapımı']].map(([a,b]) => <li class="flex justify-between py-2.5" style="border-color:#E2D3BF"><span class="font-medium">{a}</span><span class="opacity-70">{b}</span></li>)}

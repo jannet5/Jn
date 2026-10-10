@@ -34,3 +34,9 @@
 
 ## Sektör skill önerisi
 `landing-otonom` skill'i: şablon Astro projesi (config, global.css token iskeleti, ss.mjs, kullanici-testi.mjs, Lighthouse komutu) + KAPI-2 dilim-bakış prosedürü. Bu projede ~%40 süre altyapıya gitti.
+
+## v2 (fiyatlı sürüm) dersleri
+20. **Fiyat config'de, metin şablonda**: `teklif` + `paketler` + `tl()` ile 6 fiyat, lansman adedi, 12 ay, 7 gün tek dosyadan; kullanıcı testi fiyatları sayfada arıyor → config değişince test de doğrular. Şablona `site.config.ts` iskeleti olarak konmalı.
+21. **row-span-2 + h-full tuzağı**: grid'de satır kaplayan kartın altındaki figcaption komşu satıra taşar. Çözüm: figure `flex flex-col`, iç kart `flex-1`.
+22. **Karar dosyası ile dürüstlük kuralı çatışınca** ("En popüler", "peşinatsız") dürüst ifadeyi seç, DURUM.md'ye "bilinçli sapma" yaz. KARARLAR şablonuna "iptal koşulu" satırı eklenmeli.
+23. **Karşılaştırma tablosu mobilde**: aynı veriden ikinci render (md:hidden kartlar), bizim kart `order-first`; tablo 375'te yatay kaydırma demek.

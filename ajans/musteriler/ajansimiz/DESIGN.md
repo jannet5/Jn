@@ -17,6 +17,7 @@ Yön (seçilen): **"Atölye Mürekkebi"** — kâğıt beyazı zemin, koyu müre
 | primary-foreground | CTA metni | #FFFFFF | #0E1512 | |
 | ink | koyu bloklar (değer defteri, son CTA) | #0E1512 | #000000 değil → #0A100D | |
 | success | rapor artışı | #1F7A4D | #3DBE7E | |
+| ink-border | koyu blok çerçevesi (yalnız koyu modda) | — | #26322C | v2 eki: koyu modda ink (#0A100D) zeminden (#0E1512) ayrışmıyordu (DERSLER 15) |
 Gradyan yok. Primary yalnızca: CTA butonları, hero'daki tek vurgulu kelime, aktif durumlar, rapor grafiği çizgisi.
 
 ## 3. Tipografi
@@ -43,6 +44,10 @@ radius sm 8 · md 14 · lg 24 · pill 999 · Kart stili: **1px çerçeve (border
 - Kart: padding 24 (masaüstü 32), radius lg, border.
 - Nav: 64 yükseklik, scroll'da arka plan %85 opak + blur 12, alt çizgi border.
 - SSS: details/summary, + işareti 45° döner.
+- **v2 ekleri** (gerekçe: fiyatlı sayfa + sektör gezintisi; yeni renk/boyut yok, mevcut token'lardan türetildi):
+  - Küçük buton / sektör çipi: yükseklik 44 (dokunma alt sınırı), yatay padding 16, radius pill, 1px border token, 16px 500; hover: çerçeve foreground + zemin surface. Nav linki: 16px 500 muted → hover foreground.
+  - Fiyat rakamı: h2 ölçüsü (32 → 56, 800, 112%) — paket kartında tek büyük öğe.
+  - Karşılaştırma tablosu: satır çizgisi border, bizim sütun 1px foreground çerçeveli tek blok (radius lg üst/alt), gölge yok; mobilde (<768) aynı veri kartlara döner, bizim kart önde.
 - İkonlar: tek set (Lucide, inline SVG), stroke 1.75, boyut 16/20/24.
 
 ## 7. Hareket
@@ -56,7 +61,7 @@ Süreler 180-600ms, easing `cubic-bezier(.2,.7,.2,1)` (ease-out). Bölüm başı
 `prefers-reduced-motion: reduce` → tüm hareketler kapalı, içerik direkt görünür.
 
 ## 8. Görsel dil
-Fotoğraf yok (henüz gerçek iş yok, stok yasak). Görseller CSS/SVG ile çizilmiş cihaz çerçeveleri ve mini site önizlemeleri; her konsept kendi mini paletiyle (kafe: kahve tonları, berber: siyah-altın, klinik: buz mavisi) ama ana sayfanın paletini bozmayacak kadar küçük.
+Fotoğraf yok (henüz gerçek iş yok, stok yasak). Görseller CSS/SVG ile çizilmiş cihaz çerçeveleri ve mini site önizlemeleri; her konsept kendi mini paletiyle (kafe: kahve tonları, berber: siyah-altın, klinik: buz mavisi, butik: gül kurusu #F4E6E3 / #3A1F24 / #8C3B4A — v2'de sektör çipi "Butik" için eklendi) ama ana sayfanın paletini bozmayacak kadar küçük.
 
 ## 9. Yapılmayacaklar
 Sahte yorum/logo/istatistik · "Dijital dönüşüm yolculuğu" · emoji ikon · eşit 3/4 kart ızgarası · ALL-CAPS eyebrow · "→" her butonda · ortalanmış her bölüm · krem+terracotta · Inter.
