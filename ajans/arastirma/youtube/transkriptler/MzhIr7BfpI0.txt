@@ -1,0 +1,161 @@
+# How I use Claude Code (Senior Software Engineer Tips)
+# https://www.youtube.com/watch?v=MzhIr7BfpI0
+# kanal: Maddy Zhang | süre: 586 sn | kaynak: yt-dlp:android:MzhIr7BfpI0.en.json3
+
+[00:00:00] Most developers are using AI like a slightly better Google search, but as a
+[00:00:04] senior engineer, that's not how you should be using it. Instead of asking
+[00:00:08] random questions, I use tools like Claude Code to think through problems,
+[00:00:12] explore solutions, and speed up parts of the development process that normally
+[00:00:15] [music] take hours. Hi friends, I'm Maddy. I'm a senior software engineer
+[00:00:19] who previously worked at Google and internet and other big tech companies
+[00:00:22] like Amazon, IBM, and Microsoft. I've been using Claude Code almost every
+[00:00:26] single day for the past couple months, and trust me, there's a huge difference
+[00:00:30] between using Claude Code just as a fancy chatbot that writes code for you
+[00:00:33] and using it as a true force multiplier. In this video, I'll break down exactly
+[00:00:37] how I use Claude Code, the setup, the patterns, and the habits that actually
+[00:00:41] make it [music] useful. From breaking down complex problems to writing code to
+[00:00:45] catching edge cases. And by the end of this video, you'll have a concrete
+[00:00:49] workflow you can start using immediately. Let's get into it. Before
+[00:00:52] we talk about how to use it well, let me first clarify what Claude Code truly is
+[00:00:56] at its core. Claude Code is a command-line AI agent built by
+[00:01:00] Anthropic. Unlike a chat interface where you're copying code back and forth,
+[00:01:04] Claude Code can read your files, run commands, edit code, and work through
+[00:01:08] problems autonomously, [music] all while staying in the context of your
+[00:01:11] real codebase. Let's talk about the setup. So, if you're using an IDE like
+[00:01:16] VS Code or Cursor, you can install the Claude [music] Code extension. It lets
+[00:01:20] you open Claude Code directly inside your IDE. So, if you have a file open in
+[00:01:23] your editor, Claude automatically pulls it into context. You don't have to
+[00:01:27] manually tag it. You can also open Claude Code directly in your terminal.
+[00:01:31] When most people install Claude Code, they immediately start throwing prompts
+[00:01:34] [music] at it. Don't do this. The first thing I do in any new codebase is to run
+[00:01:38] backslash init. This command makes Claude scan your project and
+[00:01:41] auto-generate a file called Claude.md. Think of it as the onboarding document
+[00:01:46] you'd write for a new engineer on your team, [music] except this one's for your
+[00:01:49] AI. A good Claude.md file covers three things: what the project does, where
+[00:01:54] things live, and how work gets done. This means your tech stack, your rules
+[00:01:58] and conventions, your key file paths, and your actual [music] dev commands.
+[00:02:01] Things like how to run tests, how to build, how to lint. Without a Claude.md
+[00:02:05] file, every time you start a new Claude session, it has to re-explore the
+[00:02:09] codebase [music] from scratch. That burns tokens and leads to mistakes. With
+[00:02:13] a solid Claude.md, for example, Claude already knows your build command is npm
+[00:02:17] run dev and not yarn, which folders hold your API roots, already knows you use
+[00:02:22] functional components with hooks, and you can include a description of who you
+[00:02:25] are as well to help it code like you. One tip is to keep your Claude.md file
+[00:02:29] [music] lean. I've seen people write enormous documents thinking more context
+[00:02:33] is better, but it's not. Stick to the essentials, maybe 100 to 200 [music]
+[00:02:37] lines max. Anything more and you're actually diluting the signal. Your model
+[00:02:41] selection criteria can be quite simple. By default, I run Opus. It's the highest
+[00:02:46] quality model, and for complex engineering tasks, [music] that matters.
+[00:02:49] However, if you start hitting usage limits, Claude will automatically switch
+[00:02:52] you to Sonnet, which is still very capable. You can also use Haiku for
+[00:02:56] super lightweight tasks. [music] Now, let's talk about Claude Code's plan
+[00:03:00] mode. plan mode, before it touches a single file, Claude reads your codebase
+[00:03:03] and lays out a full implementation plan. So, for example, which files will
+[00:03:07] change, what the logic flow looks like, where the risks are. You can review that
+[00:03:11] plan, push back on it, and even edit it directly before a single line of code
+[00:03:15] [music] gets written. When you skip planning, you often get code that
+[00:03:18] technically works, but solves the wrong problem or makes the right change in the
+[00:03:22] wrong place. Then, you're going to spend the next hour or more debugging it. I
+[00:03:26] recommend you always go use plan mode before writing a single line of code.
+[00:03:30] Next, let's talk about the backslash clear habit. Use it constantly. So,
+[00:03:34] every time you're done with a task and starting something new, type backslash
+[00:03:37] [music] clear. Claude's context window is finite, and when it fills up, the
+[00:03:41] performance degrades immensely. Claude starts making weird decisions, loses
+[00:03:45] track of constraints [music] you set earlier, and wastes compute trying to
+[00:03:48] summarize all that stale history. A lot of people treat a Claude Code session
+[00:03:51] like a running conversation they never want to interrupt. The opposite is
+[00:03:55] actually true. Each task should be a clean session with a fresh context. The
+[00:03:59] up arrow key pulls up past sessions if you need to revisit something, but for
+[00:04:03] new work, clear is your friend. Once your basic setup is solid, you can then
+[00:04:07] start creating custom slash [music] commands. Basically, saved prompts that
+[00:04:10] you can then trigger with a single keyword. These live in a .claude
+[00:04:13] commands folder in your project, written in plain markdown. So, [music] for
+[00:04:17] example, I have a PR summary command that writes me a rear-facing PR
+[00:04:20] description, what changed, why, [music] any risks, and how to test it. The way
+[00:04:24] to think about it is that anything you do more than once a week in your
+[00:04:28] engineering workflow, there should be a slash command for. You should not be
+[00:04:31] rewriting the same prompt every single time. Now, let's talk about how to
+[00:04:35] create a self-validation loop. This is about designing a validation [music]
+[00:04:38] harness, a set of automated checks that run after every change Claude makes so
+[00:04:43] it can catch and fix its own mistakes without you baby-sitting it. Here's the
+[00:04:46] idea. Claude Code supports hooks, scripts that fire automatically at
+[00:04:50] specific points in its workflow. What you want to do is wire up three things:
+[00:04:54] your build step, your tests, and your type checker. So, they run every time
+[00:04:58] Claude saves a change. So, why does this matter so much? Because Claude, like any
+[00:05:02] engineer, makes mistakes. For example, it'll move a function and miss an edge
+[00:05:06] [music] case in the tests. While you can carefully catch that in a review
+[00:05:09] yourself, if you have a validation loop, Claude sees that failure [music] output
+[00:05:12] immediately, understands what broke, and fixes it, usually without you having to
+[00:05:17] intervene at all. Setting this up maybe takes 20 minutes. [music] In your
+[00:05:20] Claude.md or your hooks config, you tell Claude, "After every edit, run the
+[00:05:25] build, run the test, run [music] the type check. If anything fails, treat it
+[00:05:29] as a blocker and save it before moving on." Once that's in place, you can walk
+[00:05:32] away from a session and come back to green CI instead of a pile of errors to
+[00:05:36] debug. The difference in output quality is dramatic. [music]
+[00:05:39] Now, let's talk about what I wish I'd set up sooner, parallel Claude Code
+[00:05:42] execution. There are two ways to do [music] this. The first is really
+[00:05:45] simple. Just open Claude Code in multiple panels in your IDE and point
+[00:05:49] each one at [music] a different problem. For example, one handling a bug fix,
+[00:05:53] another one drafting new components. As long as they're working in separate
+[00:05:56] [music] files, they're not going to conflict. The second approach for more
+[00:05:59] serious parallel work is Git [music] worktrees. A worktree lets you check out
+[00:06:03] multiple branches of the same repo simultaneously in different directories,
+[00:06:06] so each Claude session has its own clean working tree, and they can never step
+[00:06:10] over [music] each other. The workflow looks like this. I create a worktree for
+[00:06:14] each feature or fix branch, open a separate Claude Code session each one,
+[00:06:18] and let them run while I do other things, [music] answer Slack, do a code
+[00:06:21] review, have lunch. Then, I come back, review what each session produced, and
+[00:06:25] merge. Related to parallel agents, but distinct enough to be worth its own
+[00:06:28] mention, [music] is subagents. While parallel worktrees are separate Claude
+[00:06:32] sessions running independently, subagents are agents that your main
+[00:06:35] Claude session spins up and delegates to, all within a single workflow. You
+[00:06:39] define them in a .claude.agents folder. Each one gets its own name, its own set
+[00:06:43] of allowed rules, and its own focus instruction set. So, instead of your
+[00:06:47] main Claude session trying to do everything, it can hand off a security
+[00:06:51] review to a dedicated security reviewer agent or a database query to a DB
+[00:06:55] specialist agent. [music] Each subagent runs in its own isolated context, does
+[00:06:59] its job, and returns a result, keeping [music] your main session clean and
+[00:07:02] focused. Subagents are great to use when you have parallel [music] tasks where
+[00:07:06] each piece is self-contained and isolated work where you don't want one
+[00:07:10] agent's reasoning bleeding into another's. Now, let's talk about a
+[00:07:12] concept that ties a lot of this together, skills. [music]
+[00:07:15] A skill is a markdown file that encodes a specific workflow. For example, how to
+[00:07:19] do a code review, how to handle refactor, how to run a release, [music]
+[00:07:23] and makes it reusable across sessions, projects, and teammates. The difference
+[00:07:27] between the slash commands we talked about earlier and a skill is skill. A
+[00:07:30] slash command is a quick trigger, one prompt, one action. [music] A skill is a
+[00:07:34] full playbook. It can define multi-step logic, reference other files, and be
+[00:07:38] invoked by subagents as part of a larger workflow. You can think of a skill as
+[00:07:43] institutional knowledge that travels with your codebase. One more feature
+[00:07:46] that's worth knowing about, especially as you get deeper into this workflow, is
+[00:07:50] MCP servers, [music] which stands for Model Context Protocol. MCP lets Claude
+[00:07:54] Code reach outside your local terminal and talk to external services. So, for
+[00:07:58] example, GitHub, Slack, like databases, Perplexity. You configure them once, and
+[00:08:02] now, when you tell Claude to pull comments from a GitHub PR and address
+[00:08:05] them, it can actually do that. When you tell it to check Slack for the latest
+[00:08:08] [music] design feedback on a feature before writing code, it goes and gets
+[00:08:11] that. With MCPs, Claude stops becoming just a code writer and becomes something
+[00:08:16] closer to an autonomous [music] engineer that actually operates in your full work
+[00:08:19] environment. Before I wrap up, I want to talk about three tips that you should
+[00:08:23] apply no matter which of these features you're using. First, be specific in your
+[00:08:27] prompts. Vague prompts produce vague code. The more precisely you describe
+[00:08:30] what [music] you want, which files to touch, what the constraints are, what
+[00:08:33] the expected behavior is, the better Claude's output. Second, break work into
+[00:08:38] small steps. It's tempting to hand Claude a massive task and hope it
+[00:08:41] figures everything [music] out. This will go poorly. Instead, create smaller
+[00:08:45] scope prompts that produce tighter, more reviewable diffs. If a change spans
+[00:08:49] [music] 15 files and breaks three things, it's hard to know where to start
+[00:08:52] fixing it. If it spans two files and breaks one thing, you're back on track
+[00:08:56] in 5 minutes. Third, always follow this sequence: [music] plan, execute, and
+[00:09:00] review. So, plan before you touch code, execute in small steps, and review
+[00:09:04] before you merge. Every feature in this video, plan mode, validation loop,
+[00:09:08] subagents, skills, is [music] really just a tool that enforces one of those
+[00:09:12] three phases. Build the habit, and the tools start making a lot more [music]
+[00:09:16] sense. So, to recap, set up your Claude.md file, use plan mode before
+[00:09:20] writing any lines of code, slash [music] clear between tasks, build slash
+[00:09:24] commands for your repeat workflows, wire up a validation loop, use parallel
+[00:09:28] agents and subagents for isolated work, encode repeated workflows as skills, and
+[00:09:32] always [music] follow plan, execute, review. If you want to go even further,
+[00:09:36] MCP servers are your [music] friend. And that's all I have for you in this video.
+[00:09:40] If this was helpful, hit that like button, like this video, and subscribe.
+[00:09:43] [music] Thanks for watching, and I'll see you in the next one.

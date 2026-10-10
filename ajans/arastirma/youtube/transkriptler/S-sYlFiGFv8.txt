@@ -1,0 +1,661 @@
+# 
+# https://www.youtube.com/watch?v=S-sYlFiGFv8
+# kanal:  | süre:  sn | kaynak: yt-dlp:android:S-sYlFiGFv8.en.json3
+
+[00:00:00] Do you guys have any thoughts
+[00:00:01] about your next year?
+[00:00:02] I feel like it's hard for me
+[00:00:03] to think about the next two months.
+[00:00:06] Let alone the next year.
+[00:00:20] I don't know if you guys know it.
+[00:00:21] It's been almost a year since I joined
+[00:00:23] Claude Code.
+[00:00:24] It’s crazy to think about how far we’ve come
+[00:00:26] from a year ago when we were like
+[00:00:28] prompting Claude Code, giving it feedback,
+[00:00:30] accepting permission prompts, to now.
+[00:00:32] So, like,
+[00:00:32] tell me about how you work with Claude Code right now?
+[00:00:35] Yeah.
+[00:00:35] Now I'm doing so much of my work
+[00:00:37] Through Claude Tag, actually.
+[00:00:39] And the kinds of problems that I'm giving to
+[00:00:42] Claude Tag are just worlds more complicated
+[00:00:45] and challenging than, you know, implement this class
+[00:00:49] or write this function,
+[00:00:51] which is kind of where things started at
+[00:00:53] with Claude Code.
+[00:00:54] I think that's really complementary
+[00:00:55] to the sort of the shape of like Claude
+[00:00:57] Tag living in Slack as like a Slack native agent,
+[00:01:00] because it means they can go and look up
+[00:01:03] all this additional context around like,
+[00:01:05] hey, what's the product context?
+[00:01:06] Like, what are the decisions that we as a team
+[00:01:08] have made about what this product should be?
+[00:01:10] And that just makes its decision making a lot better.
+[00:01:14] Having access to all that information and understanding
+[00:01:17] how to incorporate that into the choices
+[00:01:20] that the agent is making.
+[00:01:21] Yeah.
+[00:01:22] My work feels pretty similar too.
+[00:01:23] I think, 70 to 80% of my work happens on Claude Tag now,
+[00:01:26] and for 20% of the work, I will maybe
+[00:01:28] open up the TUI
+[00:01:29] or the desktop app to like, refine something.
+[00:01:31] Or if I want to be micromanaging
+[00:01:33] my Claudes, I will do that.
+[00:01:35] I think we've gone from just,
+[00:01:37] you know, caring about the transcripts
+[00:01:39] so much and like, caring about each individual
+[00:01:41] tool call
+[00:01:42] and each individual decision that the model makes
+[00:01:45] to just a zoomed out view of, like,
+[00:01:47] I have a goal and I'd like to achieve this goal.
+[00:01:50] And you just kind of give that goal to the model
+[00:01:53] to achieve for you.
+[00:01:54] You know, what I've been reflecting on
+[00:01:55] is just how much.
+[00:01:56] the software development, life cycle has changed
+[00:01:59] and how we've sort of like,
+[00:02:00] learned all these lessons along the way,
+[00:02:03] you know, like building Claude Code, building
+[00:02:05] all these primitives that tie together.
+[00:02:08] Eventually into Claude Tag, which is like,
+[00:02:10] how we're doing everything from like verification to code
+[00:02:13] review, like brainstorming,  monitoring.
+[00:02:17] Tell me about how working on Claude Code
+[00:02:18] compares to working on, previous software products?
+[00:02:22] I mean, there's always a shelf life on any product,
+[00:02:25] or the technology underneath the products rather.
+[00:02:27] I think the shelf life for the technology
+[00:02:29] used to be in the order of years.
+[00:02:31] So it used to be like,
+[00:02:32] I'm going to make this product
+[00:02:33] and I have high confidence that this is going to
+[00:02:36] be a thing for, you know, a few years or more.
+[00:02:39] With models and AI models, it's like the technology
+[00:02:42] fundamentally shifts underneath you
+[00:02:43] every two months and it's like,
+[00:02:45] maybe it's getting compressed
+[00:02:47] as time moves forward too.
+[00:02:48] And so it's kind of hard because you have to stay
+[00:02:52] at the frontier and you have to kind of
+[00:02:54] go past the frontier really to like, feel that edge.
+[00:02:58] But at the same time, you have to provide value
+[00:03:00] to people using the models today.
+[00:03:02] And in the now.
+[00:03:04] And so it's this like balancing act,
+[00:03:06] which is part art, part science stuff, like how do I,
+[00:03:09] how do I build for this technology
+[00:03:11] that's moving so fast underneath me?
+[00:03:14] Is there like, a moment where you felt like
+[00:03:16] you just caught the wave in the right part?
+[00:03:19] I think the first time I felt,
+[00:03:21] the “ride the wave” feeling was maybe to do lists.
+[00:03:24] Oh, okay. Yeah.
+[00:03:25] Like, that was, this was like, maybe Sonnet 3.5.
+[00:03:27] And the models just
+[00:03:29] were not able to do any kind of long horizon work.
+[00:03:32] And you would give it like five things to do,
+[00:03:34] and it would do three things and just give up.
+[00:03:37] And so that's when we were like, oh,
+[00:03:38] maybe you give it a to do list and it'll do really well.
+[00:03:41] And it did really well.
+[00:03:42] It was just like,  whoa, this is
+[00:03:44] exactly the thing we need for this moment in time.
+[00:03:46] But you know, a year from then, like, it's disappeared,
+[00:03:49] like you don't really need the to do list anymore.
+[00:03:51] Like, there's, like,
+[00:03:52] you know, more complex memory states
+[00:03:54] and things that you can rely on.
+[00:03:56] And I think this is
+[00:03:56] the perfect example of how,
+[00:03:58] you got to be very unattached
+[00:04:00] to the things you're building.
+[00:04:01] Because they're going to go away fairly quickly.
+[00:04:04] I think that it's like, the fact that
+[00:04:08] we build these things into the Claude Code harness,
+[00:04:11] and a lot of that
+[00:04:12] is just to cover for some of the failure modes
+[00:04:16] that the current state of the model has.
+[00:04:19] And as the models get better,
+[00:04:22] we have the freedom now to say like, oh, actually
+[00:04:24] all these like features that we built, like
+[00:04:26] it's not relevant anymore. We don't need those.
+[00:04:27] We can get rid of them.
+[00:04:29] And the thing that
+[00:04:31] balances that out is, okay,
+[00:04:32] well now we're doing even bigger, more challenging
+[00:04:35] tasks in Claude Code.
+[00:04:36] And what are the tools that the model
+[00:04:38] needs to be able to stay coherent
+[00:04:40] and do a good job on those even bigger tasks.
+[00:04:43] And the tools that we need to give it
+[00:04:45] start to look different
+[00:04:46] as the scope of the task changes.
+[00:04:48] A lot of people ask me,
+[00:04:49] how does the Claude Code team work?
+[00:04:51] And I think one thing that's unique
+[00:04:53] about the Claude Code team is like,
+[00:04:55] we have to keep up with the models really closely.
+[00:04:57] So we need to, like,
+[00:04:58] you know, sometimes make big changes
+[00:05:00] very quickly where we're like, oh, the model is so good,
+[00:05:02] now we need to make
+[00:05:03] a whole new proactive agent, and it needs to be like
+[00:05:06] a small team that does it while it's also,
+[00:05:08] while we're also like,
+[00:05:09] rewriting the permission system
+[00:05:11] and creating artifacts and things.
+[00:05:12] So I think in some ways we're this
+[00:05:14] like hyperbolic time chamber of like,
+[00:05:17] where software development is going.
+[00:05:18] I don't think most products
+[00:05:19] hav as short a shelf life.
+[00:05:22] You know, and have to keep up on the edge much.
+[00:05:24] But definitely as an engineer,
+[00:05:26] you kind of have to do some of this, right?
+[00:05:28] You have to sort of like,
+[00:05:29] you know, understand where the capabilities are going.
+[00:05:31] And obviously we try and help with that
+[00:05:33] as much as possible through the product.
+[00:05:35] But, yeah, it's also good to like keep
+[00:05:37] like your mental model of Claude as well.
+[00:05:39] I mean, I think when you added the ask user question tool,
+[00:05:42] that was another kind of example of
+[00:05:44] like riding through the wave,
+[00:05:46] what were you thinking
+[00:05:47] when you created that tool and
+[00:05:49] what was going on through your head?
+[00:05:50] I wanted Claude to be interactive.
+[00:05:52] And initially I had it after planning basically.
+[00:05:56] And then I was like, oh, wait, what
+[00:05:57] if it's just a tool that it can call?
+[00:05:59] And it took me so long to design the tool.
+[00:06:01] Like it was really hard to get Claude to call the tool well,
+[00:06:06] and then eventually, I designed it.
+[00:06:08] And then it just started
+[00:06:09] getting really good at calling the tool.
+[00:06:10] And then recently I'm just like,
+[00:06:13] I don’t even use the tool as much.
+[00:06:14] I just create an artifact.
+[00:06:15] And the artifact
+[00:06:16] asks me questions, you know,
+[00:06:18] and it's like in HTML,
+[00:06:19] it has diagrams and mockups and things like that.
+[00:06:22] I'm like, it happened so quickly, right?
+[00:06:24] Where it was like,
+[00:06:25] the tool could barely do it and now it can.
+[00:06:27] But yeah, I think this happens a lot in Claude Code.
+[00:06:29] I think that
+[00:06:30] the way I think we go about is like,
+[00:06:32] we create these primitives
+[00:06:34] where it's like, okay,
+[00:06:35] how do permissions work?
+[00:06:37] How do visualizations work?
+[00:06:39] All of these things.
+[00:06:40] And then they sort of layer together.
+[00:06:41] Tell me about loops, like, how do you use them?
+[00:06:44] I mean,
+[00:06:44] I think it's interesting
+[00:06:45] to track the journey of
+[00:06:46] how we arrived at loops in some ways. Right?
+[00:06:48] It's like, we like, I used to run everything
+[00:06:51] locally on my laptop,
+[00:06:52] and at some point I had to go back home,
+[00:06:55] you know, from the office.
+[00:06:57] And so I would have to shut down my laptop
+[00:06:59] and I'd be like, that sucks.
+[00:07:00] Like, my agent’s not running anymore.
+[00:07:02] You didn’t leave it open?
+[00:07:04] Yeah, you could do that but then I’d have to go
+[00:07:06] to the parking lot and like, people would look at me funny.
+[00:07:08] Yeah, yeah.
+[00:07:10] But what I started doing then,
+[00:07:12] was I started using like,
+[00:07:13] our remote hosted developer boxes.
+[00:07:16] Yeah.
+[00:07:16] And so, like, those were my way of,
+[00:07:19] okay, I don't need my laptop on at all times.
+[00:07:21] It's just,
+[00:07:22] it's running and it's running
+[00:07:23] in a hosted environment, so I can just do my thing.
+[00:07:25] Yeah.
+[00:07:25] But that's also unsatisfying in some ways,
+[00:07:28] because then, like, you got to, like,
+[00:07:29] you know, ssh into your environments
+[00:07:31] and kind of get back to your hosted surface.
+[00:07:35] And so that's when, I guess,
+[00:07:37] Claude Code on the web was created. Right?
+[00:07:39] So it's like hosted containers that you have,
+[00:07:42] that can just keep running in the background.
+[00:07:44] But even then, like it was,
+[00:07:47] it was a little tricky to get started
+[00:07:49] because if you want to use a container to host your,
+[00:07:52] host your dev environment,
+[00:07:53] you need to give it access to your dev environment.
+[00:07:56] And setting that up is a bit of a pain.
+[00:07:58] Yeah. It's totally worth it, in my opinion.
+[00:08:00] I think it's like, you know,
+[00:08:01] 10x my productivity ever since we did that.
+[00:08:03] But that was kind of the challenge there.
+[00:08:05] And so I think
+[00:08:06] that's the origin story of like how
+[00:08:08] we kind of came across this,
+[00:08:10] Claude running locally, to Claude needs to run on the cloud.
+[00:08:12] And now if it’s running on the cloud,
+[00:08:14] you can do really interesting things,
+[00:08:15] like you can have routines and you can be like,
+[00:08:18] you know, every day go and  look at all the feedback
+[00:08:22] that we're getting
+[00:08:23] and look at, you know, bucket them into
+[00:08:26] buckets of importance
+[00:08:27] and fix the ones that it actually has
+[00:08:30] high confidence in fixing.
+[00:08:31] This is the whole like, loop journey
+[00:08:33] that Boris talks about a lot too.
+[00:08:34] It's like, you go from, you know, prompting a model
+[00:08:38] in a session, and you do,
+[00:08:41] like breaking that boundary of like a session
+[00:08:43] and instead
+[00:08:44] prompting something that's one level above that.
+[00:08:47] Yeah.
+[00:08:48] That's then going and fixing
+[00:08:50] bugs or, like, doing your bidding for you.
+[00:08:52] Yeah.
+[00:08:52] I actually wanted to talk more about code review
+[00:08:55] you know, and security,
+[00:08:56] because I think this is one of those things
+[00:08:57] where, okay, you're writing a lot more code.
+[00:08:59] More code is being generated, and
+[00:09:02] you don't want your job to be, like, reviewing code, right?
+[00:09:05] So, yeah, obviously we have like,
+[00:09:07] our code review bot right now.
+[00:09:09] But generally I wanted to ask you guys
+[00:09:10] about like how, you know, code review has changed
+[00:09:12] inside of the team and like, how we do it right now?
+[00:09:16] I think one big thing actually has been, Claude
+[00:09:20] really helps human reviewers
+[00:09:22] choose where to focus their time and energy.
+[00:09:25] I think like a common thing that I saw happen
+[00:09:29] in traditional human code review is
+[00:09:33] you would have someone go and review the code
+[00:09:35] and they would like, pick out, like,
+[00:09:37] you know, three little nit picks to post.
+[00:09:39] And it was kind of just like,
+[00:09:40] I'm signaling to you that I read this code.
+[00:09:44] It’s like, here's my like three little things
+[00:09:45] that I want to point out to prove that I actually
+[00:09:47] was like reading through this carefully.
+[00:09:49] Now you can have Claude figure out those little things
+[00:09:53] and address them autonomously.
+[00:09:54] So I was like, that's not really
+[00:09:55] the important part of human code review anymore.
+[00:09:58] Yeah.
+[00:09:58] What is important
+[00:10:00] is understanding maybe the bigger picture.
+[00:10:02] It's like,
+[00:10:02] maybe Claude doesn't have a full understanding of
+[00:10:05] why is this API structured the way it is?
+[00:10:08] Or, you know,
+[00:10:08] the service boundaries are drawn in a particular spot
+[00:10:11] for a reason that maybe Claude,
+[00:10:13] hasn't fully internalized when I was writing the PR.
+[00:10:17] So being able to pull
+[00:10:18] information like that into code review,
+[00:10:22] and then hand that information off to a human,
+[00:10:25] I think is a really valuable thing that Claude can do
+[00:10:29] that keeps you from getting pulled into that little, like,
+[00:10:32] oh, I'm just going to, like,
+[00:10:34] nit pick something because I'm, like,
+[00:10:35] reading through the code line by line and,
+[00:10:38] just level up the
+[00:10:40] abstractions that you're thinking
+[00:10:41] about as a human code reviewer.
+[00:10:42] I think code review was the first time
+[00:10:44] where we did this big fan out
+[00:10:46] where we're like, okay, like,
+[00:10:47] how do you find, you know, every bug, right?
+[00:10:50] Or how do you like search across potential bugs?
+[00:10:53] And we do this big fan out and then,
+[00:10:55] you know, coalesce it, which is like,
+[00:10:57] you know, what we call test time compute, right?
+[00:10:58] Like how we use a lot of inference time
+[00:11:02] to put a lot of thought and compute into a problem.
+[00:11:06] And this led to workflows, right?
+[00:11:08] So could you tell me about that Sid,
+[00:11:10] and how you built workflows?
+[00:11:11] Code review was a big part of how workflows came about
+[00:11:16] in the first place.
+[00:11:16] Yeah.
+[00:11:17] Like we
+[00:11:18] we have this, as you were saying,
+[00:11:19] like massive, fan out thing where it was
+[00:11:22] kind of like a,
+[00:11:23] almost like, a custom harness
+[00:11:25] where you tell Claude to go out and fan out and find bugs.
+[00:11:28] And then for each bug, you might
+[00:11:30] do an adversarial review where you ask it to
+[00:11:32] look at the bug from three different,
+[00:11:35] you know,
+[00:11:35] opinions or perspectives and
+[00:11:38] see if the bug is actually real.
+[00:11:39] What that does is like it filters out
+[00:11:41] all these bugs for you and gives
+[00:11:42] you just the most important ones
+[00:11:44] that require or need your attention.
+[00:11:48] And it's not just code review.
+[00:11:49] Like you could do the same thing for many,
+[00:11:51] many different types or classes of problems.
+[00:11:53] Yeah.
+[00:11:54] You could do the same thing
+[00:11:55] for performance bugs or performance issues.
+[00:11:58] You could do the same thing
+[00:11:59] for just general purpose deep research. Right?
+[00:12:01] Like I want to figure out, like, you know,
+[00:12:03] I'm taking my parents to Tahoe
+[00:12:04] next week and, like, okay, where do I, where do I stay?
+[00:12:08] And you could do, like, a fan out there and
+[00:12:10] that's helpful too.
+[00:12:11] Claude is actually really good at making its own harnesses.
+[00:12:14] Yeah.
+[00:12:14] Like Claude
+[00:12:15] can figure out
+[00:12:16] what this fan out should look like,
+[00:12:18] what the topology should look like,
+[00:12:20] how it should kind of wire in the output of one agent
+[00:12:23] into the next level, and then, like,
+[00:12:25] finally summarize it and give it back to me.
+[00:12:28] And so that was kind of the origin story of that as.
+[00:12:30] And an example is,
+[00:12:31] okay, you're planning a trip.
+[00:12:32] So you have it like
+[00:12:34] do like ten different search requests across like Tahoe,
+[00:12:37] like bathhouse Tahoe, Hotel Tahoe, Airbnb or something.
+[00:12:41] Right? Places to go.
+[00:12:43] Yeah.
+[00:12:43] It gives you a bunch of results.
+[00:12:45] And then you have some agents
+[00:12:46] that sort them or
+[00:12:48] figure out the most interesting results
+[00:12:51] and then maybe some agents who
+[00:12:52] verify them. Is that right?
+[00:12:54] And then it gives you an end result.
+[00:12:55] Exactly.
+[00:12:56] Like the problem is really it's,
+[00:12:58] it's like you're fanning out and once you fan out,
+[00:13:01] you just have so much information,
+[00:13:03] that you need to then filter back.
+[00:13:05] It's like a MapReduce problem.
+[00:13:06] Yeah.
+[00:13:07] And you need
+[00:13:07] to filter back for human consumption,
+[00:13:09] because if I read the fan out output I'm going to go crazy.
+[00:13:12] Right?
+[00:13:13] So you need something to help build confidence
+[00:13:16] and the way to build confidence in this case
+[00:13:19] is just to throw test time compute at the problem.
+[00:13:22] And so you kind of build more confidence that way.
+[00:13:25] I think the other thing
+[00:13:25] that's really interesting about workflows is because
+[00:13:28] the agent is writing code to  orchestrate the sub agents,
+[00:13:33] it's this cool mix of
+[00:13:35] deterministic code defined behavior,
+[00:13:38] as well as the, you know, agentic LLM behavior.
+[00:13:42] And I think that that helps give me confidence
+[00:13:45] when like Claude writes
+[00:13:46] a workflow to iterate, you know, it's like,
+[00:13:48] here's a for loop that's going to run over these items.
+[00:13:50] I'm like, oh yeah, the for loop, it's
+[00:13:52] not going to skip one of the items like it's
+[00:13:54] going to apply the same technique
+[00:13:56] to all of these things equally.
+[00:13:58] I find that that's really, that really improves my,
+[00:14:01] my trust.
+[00:14:01] Like, oh, I know that Claude is doing
+[00:14:03] what I want it to do here.
+[00:14:04] Want to talk about Claude Tag.
+[00:14:06] Like, I know Robert, you're
+[00:14:07] building Claude Tag right now.
+[00:14:09] But. Yeah.
+[00:14:09] How are you using it? Like, Tell us about it.
+[00:14:11] Yeah, yeah, I think,
+[00:14:12] so I mentioned earlier, but we're using Claude
+[00:14:15] Tag to build Claude Tag really aggressively.
+[00:14:17] Yeah.
+[00:14:18] And that's actually been a lot of
+[00:14:19] my focus is making sure
+[00:14:20] that, like, Claude Tag is unblocked
+[00:14:22] on being able to develop Claude Tag itself.
+[00:14:24] Making sure that the development environment
+[00:14:27] and dev loop are really,  really easy for Claude to use.
+[00:14:32] It can just, like, do everything that
+[00:14:33] I, as a human need to do to build the software and test
+[00:14:37] that it's working end to end.
+[00:14:38] As we build more and more,  complex, heavily
+[00:14:42] integrated pieces of software, that job gets harder, right?
+[00:14:45] So that making sure that Claude is able to do that
+[00:14:48] sort of thing has been a big focus for me.
+[00:14:51] This is the first time we've had the user interface
+[00:14:56] more fully decoupled from the transcripts.
+[00:15:00] Okay.
+[00:15:00] So it's like, we're actually like,
+[00:15:01] we are working now at a level,
+[00:15:03] one level of abstraction away from, like the actual tokens
+[00:15:06] that are being output from Claude.
+[00:15:08] So when you see a message from Claude Tag in Slack,
+[00:15:11] it's calling a tool to send that message to you.
+[00:15:14] Yeah.
+[00:15:14] But its internal monologue essentially
+[00:15:16] is not visible to you in Slack.
+[00:15:18] Like there is a link to view the full transcripts
+[00:15:20] from Claude,
+[00:15:21] but the primary user interface is through a messaging tool.
+[00:15:27] And that abstraction was, like, a little scary
+[00:15:30] to get through at first.
+[00:15:30] We're like, oh, like, I can't see everything
+[00:15:32] that Claude is thinking as it's like thinking it.
+[00:15:34] Yeah.
+[00:15:34] But it's also been,
+[00:15:36] I think, really freeing in terms of just like, oh,
+[00:15:40] Claude is choosing what to say to me and when.
+[00:15:43] And I'm not thinking about the details of like,
+[00:15:46] which tools is it calling, what parameters is it
+[00:15:48] sending to the tools as it's using them?
+[00:15:50] And like being forced even to let Claude cook.
+[00:15:56] And seeing that the models now are good enough.
+[00:16:00] Yeah.
+[00:16:01] That I'm getting back good results without needing
+[00:16:04] to supervise the transcripts in detail.
+[00:16:07] Right.
+[00:16:07] Is like, it has been a forcing function of like,
+[00:16:10] Oh, yeah,
+[00:16:10] these models are actually getting really good now.
+[00:16:13] Claude Tag really clicked
+[00:16:13] for me recently
+[00:16:14] because I've been developing
+[00:16:15] a new tool.
+[00:16:16] I actually need a lot of buy in from people.
+[00:16:17] So the first thing I tried was like,
+[00:16:19] hey, like, I'm thinking of this idea,
+[00:16:21] who should I talk to
+[00:16:22] who might be interested in it? Right?
+[00:16:27] And then so I get these stakeholders
+[00:16:29] and then I do some mock ups and it's all in Slack.
+[00:16:31] So I can, like, view it on my phone even,
+[00:16:33] it makes mocks  up for me.
+[00:16:35] It does the implementation, you know, and then,
+[00:16:38] but the implementation is like, you know,
+[00:16:40] I don't know if this
+[00:16:41] tool really works or not.
+[00:16:42] So I add a lot of like events to it. Right?
+[00:16:45] And then I, you know, deploy it internally
+[00:16:47] and see like kind of how people are using it.
+[00:16:49] Then Claude Tag is like monitoring it for me.
+[00:16:51] And I'm like, oh, hey, like,
+[00:16:53] how are people using it?
+[00:16:54] Is anyone giving me feedback?
+[00:16:55] And then I can just like
+[00:16:56] drop in instantly and be like, yes.
+[00:16:57] Like, you know, like Claude tags me
+[00:16:59] when someone else gives me feedback about it.
+[00:17:01] And so I can be like more responsive,
+[00:17:03] I can have a higher confidence that it works.
+[00:17:04] Right.
+[00:17:05] And then sometimes I was looking at the events
+[00:17:07] and I wanted to improve some of the funnel.
+[00:17:08] Like I felt like users weren't going all the way.
+[00:17:11] And initially I was like, I have an idea.
+[00:17:13] I'm going to like, ask it to do this idea.
+[00:17:15] But then I was like, wait,
+[00:17:16] let me ask Claude to improve the funnel.
+[00:17:18] You know,
+[00:17:18] like come up with some ideas here.
+[00:17:20] And maybe I can give my idea as an example,
+[00:17:22] but I want to sort of,
+[00:17:23] like, work with it at that higher level,
+[00:17:25] and that, like, really clicked for me.
+[00:17:26] I think you're touching on some great points here, right?
+[00:17:28] Because effectively there's verification,
+[00:17:32] there's code review,
+[00:17:34] and there's getting feedback.
+[00:17:37] So it's like connecting
+[00:17:38] to your data store or your event store
+[00:17:40] where you get feedback in some ways, like maybe metrics
+[00:17:43] or maybe it's a Slack, maybe it's a GitHub issues,
+[00:17:45] whatever else it is.
+[00:17:46] And all three of these are primitives in Claude Code.
+[00:17:49] Yes.
+[00:17:49] Like verification is so important
+[00:17:51] because like I think we,
+[00:17:52] for our team especially, we have, you know,
+[00:17:55] really paid a lot of attention to verification.
+[00:17:58] And so when Claude creates a PR for me for Claude Code.
+[00:18:01] It tests it, it sends me screenshots
+[00:18:05] from what it would look like.
+[00:18:07] And then you kind of get confidence.
+[00:18:09] So in your case too, like when you were,
+[00:18:11] you know, asking you to verify, like you didn't,
+[00:18:13] did you have to open up,
+[00:18:15] did you open up the TUI?
+[00:18:17] Only to like,
+[00:18:18] so first I asked if to record itself
+[00:18:20] using the TUI, you know, and then after I did that,
+[00:18:23] I was like, I’ll like clone it myself.
+[00:18:25] And then try it out.
+[00:18:26] Just for sanity’s sake
+[00:18:27] I wanted to make sure that I at least check.
+[00:18:29] Yeah, just to like, you know, use it myself.
+[00:18:32] I feel like eventually, you know,
+[00:18:33] I’ll just let Claude, not even clone it.
+[00:18:36] I think looking back at the evolution over the past
+[00:18:39] over the part year, to me it’s
+[00:18:40] sort of like
+[00:18:40] we started with  Claude Code and then we
+[00:18:43] started adding these primitives
+[00:18:45] that would work
+[00:18:45] like auto mode and memory and workflows.
+[00:18:48] There was a lot to keep track of as a developer, right?
+[00:18:51] To just be like, oh,
+[00:18:52] what's all this stuff happening?
+[00:18:54] But you kind of have to do that.
+[00:18:56] I do think that's like
+[00:18:57] the hard part about
+[00:18:59] being a software engineer these days is like,
+[00:19:00] it's like
+[00:19:01] freeing your mind
+[00:19:02] kind of like,
+[00:19:03] there's so much. I think you always
+[00:19:05] had to do is, you always have to be like,
+[00:19:07] okay, what is possible now? How do we like, automate more?
+[00:19:09] But I think, like, how do we, you know,
+[00:19:13] step back and think bigger, right?
+[00:19:15] I think is a really important part,
+[00:19:18] but I am curious if there's, like, anything
+[00:19:20] you guys miss about
+[00:19:22] the old part of software engineering?
+[00:19:24] And how things used to work.
+[00:19:26] For me, I used to get a lot of joy
+[00:19:27] from performance engineering.
+[00:19:30] And so that means, like,
+[00:19:31] really digging into a system
+[00:19:33] and increasing its performance.
+[00:19:34] I think Claude is much better at that than I am now.
+[00:19:38] But I still get to reap the benefits
+[00:19:40] of the actual performance improvements, which is nice.
+[00:19:43] The other thing that I think I've been focusing a lot on
+[00:19:45] is just creating new ideas quicker.
+[00:19:48] So if I have an idea, going from idea
+[00:19:50] to prototype to production is much faster.
+[00:19:52] Yeah.
+[00:19:52] And so I think more of my attention is now going
+[00:19:54] on, like new ideas
+[00:19:56] and how quickly I can bring them to life.
+[00:19:58] And so it's like
+[00:19:58] I've had to shift my kind of like paradigm from,
+[00:20:02] you know, getting really deep into the weeds to like,
+[00:20:05] more zoomed out over time.
+[00:20:06] Yeah. Yeah.
+[00:20:06] Like less mastery in that specific thing,
+[00:20:09] of performance that you’re spending a ton of time on.
+[00:20:11] Exactly.
+[00:20:12] I think kind of a similar thing for me.
+[00:20:14] I'm a very, like detail oriented.
+[00:20:19] I love to get into the weeds of UI design
+[00:20:23] for my personal website, like, I made this,
+[00:20:26] like super detailed CSS recreation of the Mac
+[00:20:30] OS 10.4 aqua like buttons.
+[00:20:33] And I probably spent like a day
+[00:20:35] like getting the exact layer of, like, radial gradients,
+[00:20:39] like stacked up to make this perfect recreation of it.
+[00:20:41] And like,
+[00:20:42] that's the type of thing where I'm like,
+[00:20:43] oh, Claude can just do that for me now.
+[00:20:46] And like, I wouldn't ever go and do that manually now.
+[00:20:49] It kind of brought me
+[00:20:50] back to thinking about when I was probably 7 or 8.
+[00:20:54] I really wanted to make a video game.
+[00:20:55] Yeah.
+[00:20:56] And, like, I didn't know how to code yet,
+[00:20:58] but I was just like, you know what?
+[00:20:59] I have, like, PowerPoint
+[00:21:02] and I can use, like, PowerPoint to like,
+[00:21:04] make, like,
+[00:21:04] clickable things and like, draw these shapes and stuff.
+[00:21:07] Yeah.
+[00:21:07] It was like
+[00:21:08] that was a tool that I was able to use at that age.
+[00:21:11] Thinking now about how Claude kind of makes
+[00:21:15] the entirety of software engineering accessible to me,
+[00:21:19] it's like whatever idea I have
+[00:21:21] I can, I don't have to be like, oh,
+[00:21:23] I don't have the technical skills.
+[00:21:25] Like I'm not able to solve this problem.
+[00:21:28] Like, I can say, here's what I want to accomplish.
+[00:21:30] Let's like break it down and figure out
+[00:21:32] how to work with Claude to make it happen.
+[00:21:35] Yeah.
+[00:21:36] Just everything kind of inside of that,
+[00:21:38] realm of software engineering feels like
+[00:21:41] it's within my grasp now, which is really exciting.
+[00:21:44] I feel like software engineering
+[00:21:45] is like the profession of change.
+[00:21:47] You know, like,
+[00:21:48] I think you look back like 10 or 20 years
+[00:21:50] and you're like, oh, like, you know.
+[00:21:52] You're like handwriting JavaScript without like,
+[00:21:54] any sort of frameworks.
+[00:21:56] And then you invent frameworks and,
+[00:21:57] you know, compilers and all of these things.
+[00:21:59] And, it's happening faster now, but it's still like
+[00:22:03] fundamentally software is about
+[00:22:05] how do you use these things to create something
+[00:22:07] incredible and make more
+[00:22:09] and more great software, right?
+[00:22:11] It's like problem solving.
+[00:22:12] Like you say.
+[00:22:13] Exactly.
+[00:22:13] You're solving different problems,
+[00:22:14] but you're still problem solving.
+[00:22:16] Totally.
