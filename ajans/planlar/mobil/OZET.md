@@ -1,7 +1,7 @@
 # MOBİL UYGULAMA — YouTube planlarının özeti (YouTube-1 oturumu)
 
-Kaynak: `ajans/planlar/mobil/*.md` (9 plan) + `ajans/arastirma/youtube/transkriptler/` (mobil grubundan 29 transkript, 0 başarısız).
-Index'teki 8 mobil bölümden 7'si bu oturumda arandı ve eklendi (`index.md` → "MOBİL UYGULAMA ek sorgular"). Hesap limiti nedeniyle plan yazımı en değerli 9 videoyla sınırlandı; kalan transkriptler (B/C) diskte duruyor, sonraki oturum plan çıkarabilir.
+Kaynak: `ajans/planlar/mobil/*.md` (8 plan) + `ajans/arastirma/youtube/transkriptler/` (mobil grubundan 29 transkript, 0 başarısız).
+Index'teki 8 mobil bölümden 7'si bu oturumda arandı ve eklendi (`index.md` → "MOBİL UYGULAMA ek sorgular"). Hesap limiti nedeniyle (ana oturumun kapanış talimatı) plan yazımı en değerli 8 videoyla sınırlandı. **Planı yazılmayan ama transkripti diskte duran değerli videolar:** OcqWu_kasck (Codesistency 12 saatlik bootcamp, 3 uygulama; 16k satır), bGALxRWI10A ve FegYRu-swbA (Codex ile mobil, 155 dk), UMjeSU6C4qU (Jason Lee $80K/ay app), G9o8eoHzpxc / 76_h94U4ztQ / wiQMsQwWJQE / 95_NJ-a-CMQ (Claude Design + tasarım skill'leri), oAIqn44Y63c / LZFEr9QDIVg / GrLCS5ww030 (RN animasyon/stack). Sonraki oturum bunlardan plan çıkarabilir; sıkıştırılmış okuma için transkriptteki satır başı zaman damgalarını paragraf başına indirmek token'ı ~%40 azaltıyor.
 
 ## 1. Herkesin kullandığı ortak stack
 
@@ -30,7 +30,8 @@ Index'teki 8 mobil bölümden 7'si bu oturumda arandı ve eklendi (`index.md` �
 7. **Ham pop-up yasağı.** Traversy ve Nick'in videolarında bile RN `Alert.alert` kullanılıyor; kullanıcının şikâyet ettiği "Android ham pop-up" tam da bu. Çözüm: inline hata metni + özel toast + kendi `ConfirmSheet` bileşeni (JS Mastery'nin `Modal animationType="slide" transparent` şablonu).
 8. **Dev Tools ekranı.** Sahte 30 günlük geçmiş, animasyon durumlarını tetikleme, onboarding reset, push'u toast olarak simüle etme: tasarımı dolu veriyle görmek için (Nick).
 9. **Görsel asset pipeline.** GPT Image ile mockup + tek tek arka plansız sprite (grid'den kestirme bozuk çıkar), PNG'lere gradient maske, ImageKit URL transform ile küçük görseller, yayın öncesi sıkıştırma; mockup için shots.so (transparent, shadow none).
-10. **Boş durum ve metin kuralları.** Her listede empty state (ikon + metin + CTA); AI metinlerinde em dash yok, emoji sadece başlıkta, kısa başlıklar ("AI gibi" durmasın).
+10. **Expo'nun resmî skill'leri.** Beto'nun iki videosunda da ilk üretimin "güzel" çıkmasının tek nedeni `npx skills add expo/skills` ile kurulan **build-native-ui** skill'i (haptics, bottom sheet, native his hazır geliyor); yayında **expo-deployment** skill'i. Codesistency'de Clerk AI Skills aynı rolü oynuyor. Skill yoksa çıktı Traversy videosundaki gibi ham `Alert.alert`'li çıkıyor.
+11. **Boş durum ve metin kuralları.** Her listede empty state (ikon + metin + CTA); AI metinlerinde em dash yok, emoji sadece başlıkta, kısa başlıklar ("AI gibi" durmasın).
 
 ## 3. En iyi 5 video (fabrika için değer sırasıyla)
 
@@ -39,16 +40,16 @@ Index'teki 8 mobil bölümden 7'si bu oturumda arandı ve eklendi (`index.md` �
 | 1 | **BMMcmmnjrM8** Nick Saraev 243 dk → `BMMcmmnjrM8-expo-supabase-full-course.md` | 5 adımlı app design framework + uçtan uca üretim zinciri (ideation → build → design → test → Supabase → security audit ×2 → EAS). Chrome DevTools MCP görsel QA döngüsü, yayın Google Doc'u, security audit prompt'u. |
 | 2 | **tpge9xJ0m5U** Codesistency 191 dk → `tpge9xJ0m5U-calai-clone-full-course.md` | Tasarım-önce pipeline (plan → UI prompt → görsel → `design/` → verify loop), Plan Mode interview prompt'u, AGENTS.md düzeni, Clerk/Trigger.dev/Sentry skill'leri, mağaza-uyum checklist'i (Privacy, Delete account, Apple Sign-In), legal sayfa prompt'ları. Kaynak kod ücretsiz. |
 | 3 | **4nVoLX2taFg** JS Mastery 223 dk → `4nVoLX2taFg-react-native-expo-recurrly-app-store.md` | Figma → `global.css` design system token'ları, floating tab bar, font pipeline, FlatList mimarisi, Clerk custom auth, PostHog, CodeRabbit çift kontrol, EAS production build + submit adımları en ayrıntılı burada. |
-| 4 | **OcqWu_kasck** Codesistency 720 dk → `OcqWu_kasck-*.md` | 3 gerçek uygulama uçtan uca; en geniş hata/çözüm kataloğu (bkz. plan). |
-| 5 | **M3dO417o7-U** Code with Beto 58 dk → `M3dO417o7-U-*.md` | Expo ekibinden biri; App Store/Play yayın akışı ve Claude Code'u mobil geliştirici gibi kullanma kuralları. |
+| 4 | **p80OV6kjIO8** Codesistency 213 dk → `p80OV6kjIO8-triply-ai-trip-planner-full-course.md` | Aynı iş akışının en güncel ve en "prompt'u aynen verilmiş" sürümü: 30+ prompt, AGENTS.md kuralları (Native Tabs, "never run the app", verify loop), "grid of nine" tasarım varyasyonu, Inngest webhook/experiments, Sentry AI agent monitoring, legal + landing + Cloudflare. |
+| 5 | **M3dO417o7-U** Code with Beto 58 dk → `M3dO417o7-U-expo-testflight-yayin-rehberi.md` | Eski Expo mühendisi; Expo'nun resmî `building native UI` + `Expo deployment` skill'leri, `/plan` + `/effort high`, `npx testflight` → `eas submit` → TestFlight'a kadar gerçek yayın akışı, ücretsiz Figma mağaza SS şablonu. |
 
-Onur listesi: p80OV6kjIO8 (Codesistency 213 dk, güncel Claude Code + Expo akışı), XFmYkJJxsr8 (Beto, 28 dk, en kısa "doğru başlangıç"), XCifkDC0yXA (Traversy, saf RN temelleri: `useFocusEffect`, haptics, storage), mMTyFKqrf9U (DesignCode, Figma auto-layout → responsive kod kuralları).
+Onur listesi: XFmYkJJxsr8 (Beto, 28 dk, `build-native-ui` skill ile tek seferde haptic'li, bottom sheet'li, heat map'li habit tracker: "çirkin çıktı" sorununun en kısa cevabı), XCifkDC0yXA (Traversy, saf RN temelleri: `useFocusEffect`, haptics, storage), mMTyFKqrf9U (DesignCode, Figma auto-layout → responsive kod kuralları). OcqWu_kasck (12 saat) transkripti var, planı sonraki oturuma kaldı.
 
 ## 4. Bizim zincir için önerilen mobil üretim adımları
 
 Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her maddede kaynağı parantezde.
 
-**0. Kurulum skill'i (bir kez):** `npm i -g eas-cli`, `npx create-expo-app@latest`, `npx expo install` (asla `npm install`), NativeWind v5 kurulum adımları + `postcss.config.mjs` + `metro.config.js`, `react-native-safe-area-context`, `expo-haptics`, `expo-av`, `react-native-reanimated`, `expo-font`, `expo-dev-client`; Context7 MCP + Chrome DevTools MCP; Clerk/Supabase/Expo skill'leri `.claude/skills` altına. (JS Mastery, Codesistency, Nick)
+**0. Kurulum skill'i (bir kez):** `npx skills add expo/skills` (build-native-ui + expo-deployment, proje kapsamı), `npm i -g eas-cli`, `npx create-expo-app@latest`, `npx expo install` (asla `npm install`), NativeWind v5 kurulum adımları + `postcss.config.mjs` + `metro.config.js`, `react-native-safe-area-context`, `expo-haptics`, `expo-av`, `react-native-reanimated`, `expo-font`, `expo-dev-client`; Context7 MCP + Chrome DevTools MCP; Clerk/Supabase/Expo skill'leri `.claude/skills` altına. (JS Mastery, Codesistency, Nick)
 
 **1. Fikir → Brief (kapı 1):** Plan Mode "interview prompt" (3-6 soruluk gruplar, "V1 done ne demek?") → `PLAN.md`. Nick'in 5 alanı zorunlu: core function, core loop (ödül: haptik+ses+animasyon), accessory, 5-7 ekran, retention hook. Müşteri brifingi + stack bu prompt'un altında. (Codesistency, Nick)
 
@@ -64,7 +65,7 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
 
 **7. Gözlem + mağaza uyumu:** Sentry (replay, logs, Seer) + PostHog; Privacy + Terms canlı URL (profilde link), Delete account (tam silme), Apple Sign-In, izin metinleri; `legal/` HTML + Cloudflare Pages. (Codesistency, JS Mastery)
 
-**8. Yayın:** Claude'a yayın rehberi Google Doc'unu verip `app.json` (bundle id, 1024 ikon, splash, adaptive icon, izin metinleri) + `eas.json` ürettir → `eas build` → `eas submit` → TestFlight → App Store Connect (6.5" + iPad SS tarayıcıdan Claude'a aldır, inceleme hesabı) → Play Console. (Nick, JS Mastery, Beto)
+**8. Yayın:** Expo deployment skill'i + Claude'a yayın rehberi Google Doc'unu verip `app.json` (bundle id, 1024 ikon, splash, adaptive icon, izin metinleri) + `eas.json` ürettir → `eas init` → `npx testflight` / `eas build` → `eas submit` → TestFlight (iç test grubuna kendini ekle) → App Store Connect (6.5" + iPad SS tarayıcıdan Claude'a aldır, inceleme hesabı) → Play Console. (Nick, JS Mastery, Beto)
 
 ## 5. Prompt / şablon kaynakları (indirilecekler)
 
@@ -72,4 +73,6 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
 - Security audit prompt'u (Nick): https://docs.google.com/document/d/1m1v59_NLWi_M_9o6pSuayUpz_IRIw1-TjWwbI8qFKzU/edit?tab=t.0
 - Plan Mode prompt'u (Codesistency): https://dub.sh/plan-mode · Design prompts: https://dub.sh/design-prompts · Legal prompts: https://dub.sh/legal-prompts · Kaynak kod: https://dub.sh/code8
 - JS Mastery kaynakları: https://jsm.dev/nativesub-expo · https://jsm.dev/nativesub-eas · https://jsm.dev/nativesub-clerk · https://jsm.dev/nativesub-posthog · https://jsm.dev/nativesub-coderabbit
+- Codesistency ek: https://dub.sh/extra-prompts (verify loop + webhook görevi) · https://dub.sh/diagrams8 · kaynak kod https://dub.sh/code6
+- Beto: Expo skills https://expo.dev/exposkills · 5 favori skill https://codewithbeto.dev/blog/my-favorite-claude-skills · Platano şablonu + ücretsiz Figma mağaza SS şablonu https://cwb.sh/platano?r=yt
 - Diğer açıklama linkleri her videonun `transkriptler/<id>.aciklama.txt` dosyasında.
