@@ -26,7 +26,7 @@ Teslim süresi: TR rakipler 2-16 hafta.
 5. **Sonuç dili:** takipçi değil rezervasyon/randevu/sipariş.
 6. **Kendi Instagram'ımız vitrin:** rakiplerin kendi hesapları zayıf (ZBT 1 yıl sessiz, Bravery 16 takipçi).
 
-## Paket merdiveni (TR — ÖNERİ, ilk 5 müşteride test edilecek)
+## Paket merdiveni (TR) — KARAR: Vitrin 2.990 ₺/ay · Müşteri Makinesi 5.990 ₺/ay · Büyüme 11.990 ₺/ay (bkz. `ajans/KARARLAR.md`); aşağıdaki aralıklar pazarlık bandı
 | Paket | İçerik | Kurulum | Aylık | Hat |
 |---|---|---|---|---|
 | **0. Dijital görünürlük raporu** | Site + Google İşletme + Instagram + reklam hesabı taraması, 1 sayfa rapor; sonraki pakete mahsup | 0 ₺ | — | giriş |
