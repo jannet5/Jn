@@ -36,7 +36,7 @@ for i, k in enumerate(kapaklar):
         ww = h * 3 // 4; im = im.crop(((w - ww) // 2, 0, (w - ww) // 2 + ww, h))
     im = im.resize((W, H), Image.LANCZOS)
     izg.paste(im, ((i % 3) * (W + B), (i // 3) * (H + B)))
-izg.save(f'{KOK}/izgara.png', optimize=True)
+izg.quantize(256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(f'{KOK}/izgara.png', optimize=True)
 
 # Gözle kontrol için temas sayfaları (repo dışı klasöre yazılabilir)
 if '--onizleme' in sys.argv:
