@@ -18,3 +18,7 @@
 # OkHttp
 -dontwarn okhttp3.**
 -dontwarn okio.**
+
+# TensorFlow Lite (JNI ile çağrılan sınıflar korunur)
+-keep class org.tensorflow.lite.** { *; }
+-dontwarn org.tensorflow.lite.**

@@ -19,7 +19,8 @@ class RealSongHarnessTest {
         val pcm = FloatArray(bytes.size / 4) // Float dizisi
         ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asFloatBuffer().get(pcm) // Çözülüyor
         val t0 = System.currentTimeMillis() // Süre ölçümü
-        val melody = MelodyExtractor().extract(pcm) // Melodi çıkarımı
+        val params = if (System.getenv("MELODI_VOCAL") == "1") MelodyExtractor.Params.VOCAL else MelodyExtractor.Params() // Ayrılmış vokal mi karışım mı
+        val melody = MelodyExtractor(p = params).extract(pcm) // Melodi çıkarımı
         val t1 = System.currentTimeMillis() // Bitiş
         val voiced = melody.notes.sumOf { it.durationSec.toDouble() } / melody.durationSec // Sesli oran
         println("SÜRE: ${melody.durationSec}s, NOTA: ${melody.notes.size}, ÇIKARIM ${t1 - t0} ms, sesli oran %.2f".format(voiced)) // Özet

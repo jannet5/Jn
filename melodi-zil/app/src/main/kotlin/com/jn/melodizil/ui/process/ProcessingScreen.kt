@@ -67,6 +67,7 @@ private fun StepRow(step: Step, current: Step, fraction: Float, localFile: Boole
         Step.RESOLVE -> stringResource(if (localFile) R.string.step_open else R.string.step_resolve)
         Step.DOWNLOAD -> stringResource(if (localFile) R.string.step_copy else R.string.step_download)
         Step.DECODE -> stringResource(R.string.step_decode)
+        Step.SEPARATE -> stringResource(R.string.step_separate)
         Step.ANALYZE -> stringResource(R.string.step_analyze)
     }
     val done = step.ordinal < current.ordinal // Tamamlandı mı

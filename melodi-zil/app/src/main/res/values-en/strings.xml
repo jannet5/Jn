@@ -26,6 +26,7 @@
     <string name="step_download">Downloading audio</string>
     <string name="step_copy">Copying file</string>
     <string name="step_decode">Decoding audio</string>
+    <string name="step_separate">Separating vocals</string>
     <string name="step_analyze">Finding the melody</string>
     <string name="result_title">Your melody is ready</string>
     <plurals name="result_notes"><item quantity="one">%1$s · %2$d note</item><item quantity="other">%1$s · %2$d notes</item></plurals>
@@ -78,6 +79,6 @@
     <string name="settings_version">Version</string>
     <string name="how_text">1. Only the audio stream of the video is downloaded to your phone (no video).\n\n2. The audio is decoded on-device and the predominant melody (usually the vocal or lead instrument) is extracted note by note with spectral analysis. Lyrics disappear; only the tune remains.\n\n3. The notes are re-synthesized on your phone with the form you choose (piano, music box, 8-bit…). Nothing is sent to any server.\n\n4. The result is saved as WAV in the Ringtones folder and can be set as default ringtone, notification or alarm.\n\nThe downloaded original audio is deleted when processing ends; only your melody stays on the device.</string>
     <string name="privacy_text">Melodi Zil does not collect, store or share any personal data.\n\n• No accounts, no sign-up, no analytics, no ad SDKs.\n• The YouTube link you paste is sent only to YouTube\'s servers to fetch the audio stream. It is never sent to us or to any third party.\n• All audio processing happens on your phone. The downloaded audio file is deleted after processing.\n• Ringtones you create are saved to your phone\'s Ringtones/Notifications/Alarms folders and stay fully under your control.\n• The \"Modify system settings\" permission is used only to set the default ringtone and is optional.\n\nContent rights: make sure you have the right to use the content you download. Melodi Zil is not affiliated with YouTube.\n\nContact: jakeworkx@proton.me</string>
-    <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'s own source code is released under GPL-3.0 (required by NewPipeExtractor\'s license).</string>
+    <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nSpleeter vocal model — MIT (Deezer Research)\nTensorFlow Lite — Apache-2.0 (Google)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'s own source code is released under GPL-3.0 (required by NewPipeExtractor\'s license).</string>
     <string name="storage_denied">Storage permission was denied, so the ringtone could not be saved.</string>
 </resources>

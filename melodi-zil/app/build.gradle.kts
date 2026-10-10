@@ -70,6 +70,8 @@ android {
     testOptions { unitTests { isReturnDefaultValues = true } } // Android sınıfları JVM testinde varsayılan değer döndürür
 
     bundle { language { enableSplit = false } } // Tüm diller tek pakette (sadece Türkçe/İngilizce var)
+
+    androidResources { noCompress += "tflite" } // Model sıkıştırılmadan paketlenir: belleğe doğrudan eşlenir
 }
 
 dependencies {
@@ -91,6 +93,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.8.5") // Ekranlar arası gezinme
     implementation("androidx.datastore:datastore-preferences:1.1.1") // Ayarlar (tema, geçmiş)
     implementation("io.coil-kt:coil-compose:2.7.0") // Kapak görseli yükleme
+    implementation("org.tensorflow:tensorflow-lite:2.17.0") // Cihaz üstü vokal ayırma modeli (Spleeter vokal U-Net)
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0") // HTTP istemcisi (indirme)
     implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.26.5") // YouTube ses akışı çözücü (açık kaynak, NewPipe)

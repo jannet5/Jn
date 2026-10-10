@@ -29,6 +29,7 @@
     <string name="step_download">Ses indiriliyor</string>
     <string name="step_copy">Dosya kopyalanıyor</string>
     <string name="step_decode">Ses çözülüyor</string>
+    <string name="step_separate">Vokal ayrıştırılıyor</string>
     <string name="step_analyze">Melodi bulunuyor</string>
     <string name="result_title">Melodin hazır</string>
     <plurals name="result_notes"><item quantity="one">%1$s · %2$d nota</item><item quantity="other">%1$s · %2$d nota</item></plurals>
@@ -81,6 +82,6 @@
     <string name="settings_version">Sürüm</string>
     <string name="how_text">1. Bağlantıdaki videonun yalnızca ses akışı telefonuna indirilir (video indirilmez).\n\n2. Ses, telefonunda çözülür ve spektral analizle baskın melodi (çoğunlukla vokal ya da ana enstrüman) nota nota çıkarılır. Vokal sözleri yok olur; geriye sadece ezgi kalır.\n\n3. Çıkan notalar seçtiğin formla (piyano, müzik kutusu, 8-bit…) telefonunda yeniden sentezlenir. Ses dosyası hiçbir sunucuya gönderilmez.\n\n4. Sonuç WAV olarak Zil Sesleri klasörüne kaydedilir; istersen varsayılan zil, bildirim ya da alarm yapılır.\n\nİndirilen orijinal ses dosyası işlem bitince silinir; cihazda yalnızca ürettiğin melodi kalır.</string>
     <string name="privacy_text">Melodi Zil hiçbir kişisel veri toplamaz, saklamaz ya da paylaşmaz.\n\n• Hesap yok, kayıt yok, analitik yok, reklam SDK\'sı yok.\n• Yapıştırdığın YouTube bağlantısı yalnızca YouTube sunucularına, ses akışını almak için gönderilir. Bize ya da üçüncü bir tarafa iletilmez.\n• Tüm ses işleme telefonunda yapılır. İndirilen ses dosyası işlem bitince silinir.\n• Ürettiğin zil sesleri telefonunun Zil Sesleri/Bildirimler/Alarmlar klasörlerine kaydedilir ve yalnızca senin kontrolündedir.\n• \"Sistem ayarlarını değiştirme\" izni yalnızca varsayılan zil sesini ayarlamak için kullanılır ve isteğe bağlıdır.\n\nİçerik hakları: İndirdiğin içeriğin kullanım hakkına sahip olduğundan emin ol. Melodi Zil, YouTube ile bağlantılı değildir.\n\nİletişim: jakeworkx@proton.me</string>
-    <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'in kendi kaynak kodu GPL-3.0 lisansıyla yayınlanır (NewPipeExtractor\'ın lisans gereği).</string>
+    <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nSpleeter vokal modeli — MIT (Deezer Research)\nTensorFlow Lite — Apache-2.0 (Google)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'in kendi kaynak kodu GPL-3.0 lisansıyla yayınlanır (NewPipeExtractor\'ın lisans gereği).</string>
     <string name="storage_denied">Depolama izni verilmediği için zil kaydedilemedi.</string>
 </resources>

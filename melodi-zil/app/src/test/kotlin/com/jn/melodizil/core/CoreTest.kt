@@ -52,7 +52,7 @@ class CoreTest {
             seed = seed * 1103515245 + 12345; s += 0.02f * (((seed ushr 8) and 0xFFFF) / 32768f - 1f) // Gürültü
             pcm[i] = s * 0.5f // Yaz
         }
-        val result = MelodyExtractor(sr).extract(pcm) // Çıkarım
+        val result = MelodyExtractor(sr, p = MelodyExtractor.Params.parse(System.getenv("MELODI_PARAMS"))).extract(pcm) // Çıkarım (varsayılan ya da test ayarı)
         assertTrue("Nota yok", result.notes.isNotEmpty()) // Boş olmasın
         var correct = 0f // Doğru süre
         for (n in result.notes) { // Her çıkan nota

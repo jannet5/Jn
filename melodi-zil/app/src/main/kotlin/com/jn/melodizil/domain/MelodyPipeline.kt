@@ -5,6 +5,8 @@ import android.net.Uri // Yerel dosya Uri
 import android.provider.OpenableColumns // Dosya adı sorgusu
 import com.jn.melodizil.core.Melody // Melodi
 import com.jn.melodizil.core.MelodyExtractor // Çıkarıcı
+import com.jn.melodizil.core.VocalSeparator // Vokal ayırıcı
+import com.jn.melodizil.data.audio.TfliteMaskModel // TFLite modeli
 import com.jn.melodizil.data.audio.AudioDecoder // Çözücü
 import com.jn.melodizil.data.youtube.SourceException // Hatalar
 import com.jn.melodizil.data.youtube.YouTubeSource // YouTube
@@ -15,7 +17,7 @@ import java.io.File // Dosya
 import kotlin.coroutines.coroutineContext // Mevcut bağlam
 
 /** İşlem adımları: ekranda adım adım gösterilir. */
-enum class Step { RESOLVE, DOWNLOAD, DECODE, ANALYZE }
+enum class Step { RESOLVE, DOWNLOAD, DECODE, SEPARATE, ANALYZE }
 
 /** İlerleme bildirimi: hangi adım, o adımda yüzde kaç. */
 data class PipelineProgress(val step: Step, val fraction: Float)
@@ -31,7 +33,8 @@ data class AnalyzedTrack(
 
 /** YouTube bağlantısı ya da yerel dosyadan melodi üretir. Her adımda ilerleme yayar; coroutine iptaline saygı duyar. */
 class MelodyPipeline(private val context: Context, private val youTube: YouTubeSource) {
-    private val extractor = MelodyExtractor(ANALYSIS_RATE) // Çıkarıcı (sabit hız)
+    private val mixExtractor = MelodyExtractor(ANALYSIS_RATE) // Karışımdan çıkarım (enstrümantal ya da ayırma başarısızsa)
+    private val vocalExtractor = MelodyExtractor(ANALYSIS_RATE, p = MelodyExtractor.Params.VOCAL) // Ayrılmış vokalden çıkarım
 
     suspend fun fromYouTube(link: String, onProgress: (PipelineProgress) -> Unit): AnalyzedTrack = withContext(Dispatchers.IO) {
         onProgress(PipelineProgress(Step.RESOLVE, 0f)) // Çözümleme başlıyor
@@ -65,15 +68,28 @@ class MelodyPipeline(private val context: Context, private val youTube: YouTubeS
         onProgress(PipelineProgress(Step.DECODE, 0f)) // Çözme
         val pcm = AudioDecoder.decodeToMono(file, ANALYSIS_RATE) { onProgress(PipelineProgress(Step.DECODE, it)) } // PCM
         coroutineContext.ensureActive() // İptal
+        onProgress(PipelineProgress(Step.SEPARATE, 0f)) // Vokal ayırma
+        val ctx = coroutineContext // Geri çağrı içinden iptal kontrolü için bağlam
+        val vocal = try { // Model yoksa ya da bellek yetmezse karışımla devam edilir
+            TfliteMaskModel(context).use { m -> VocalSeparator(m).separate(pcm) { ctx.ensureActive(); onProgress(PipelineProgress(Step.SEPARATE, it)) } }
+        } catch (e: kotlinx.coroutines.CancellationException) { throw e } catch (e: Throwable) { android.util.Log.w("MelodiZil", "Vokal ayırma atlandı", e); null }
+        coroutineContext.ensureActive() // İptal
+        val useVocal = vocal != null && rms(vocal) >= VOCAL_PRESENCE * rms(pcm) // Vokal yoksa (enstrümantal) karışımdan çıkar
         onProgress(PipelineProgress(Step.ANALYZE, 0f)) // Analiz
-        val melody = extractor.extract(pcm) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Melodi
+        val melody = if (useVocal) vocalExtractor.extract(vocal!!) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Vokalden
+        else mixExtractor.extract(pcm) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Karışımdan
         if (melody.isEmpty) throw SourceException.Unavailable("Bu kayıtta belirgin bir melodi bulunamadı") // Boş
         return melody // Sonuç
     }
+
+    private fun rms(x: FloatArray): Double { var e = 0.0; for (v in x) e += v * v; return kotlin.math.sqrt(e / x.size.coerceAtLeast(1)) } // RMS
 
     private fun queryName(uri: Uri): String? = try { // Dosya adını sorgula
         context.contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } // İlk satır
     } catch (e: Exception) { null } // Sorgu başarısız
 
-    companion object { const val ANALYSIS_RATE = 22050 } // Analiz örnekleme hızı
+    companion object {
+        const val ANALYSIS_RATE = 22050 // Analiz örnekleme hızı
+        const val VOCAL_PRESENCE = 0.1 // Vokal kanalı karışımın %10'undan sessizse şarkı enstrümantal sayılır
+    }
 }
