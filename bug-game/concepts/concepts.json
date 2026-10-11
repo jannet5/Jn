@@ -1,0 +1,630 @@
+{
+  "concepts": [
+    {
+      "title": "Mantar Vadisi",
+      "mascot": {
+        "name": "Fındık",
+        "who": "tilki izci",
+        "ears": "fox",
+        "fur": "#e07a2f",
+        "belly": "#fff2df",
+        "hat": "scout",
+        "hatC": "#3f6b35"
+      },
+      "rival": {
+        "name": "Gırtlak Usta",
+        "who": "yaşlı kurbağa",
+        "ears": "none",
+        "fur": "#6aa84f",
+        "belly": "#d9ead3",
+        "hat": "top",
+        "hatC": "#4a2b5c"
+      },
+      "place": "Dev mantarların altında, ateşböceği ışıklı bir alacakaranlık vadisi",
+      "sky": [
+        "#2b1d4f",
+        "#d86d6d"
+      ],
+      "ground": "#4b3a2a",
+      "motif": "mushrooms",
+      "hook": "Kayıp pusulasının peşindeki Fındık, mantar ışıkları altında böcek ringi kuran Gırtlak Usta ile karşılaşır.",
+      "line": "Yaprağın altında ne kaldı, hatırlıyor musun evlat?"
+    },
+    {
+      "title": "Gece Vahası",
+      "mascot": {
+        "name": "Kumru",
+        "who": "gözlüklü çöl kaşifi kız",
+        "ears": "human",
+        "fur": "#c98b5a",
+        "belly": "#f3d2b3",
+        "hat": "goggles",
+        "hatC": "#7a4a1e"
+      },
+      "rival": {
+        "name": "Bukalemun Tüccar",
+        "who": "renk değiştiren tüccar",
+        "ears": "none",
+        "fur": "#3fae9a",
+        "belly": "#bdeee2",
+        "hat": "fez",
+        "hatC": "#b8322c"
+      },
+      "place": "Hurma ağaçlı bir vaha, dolunay ve kum tepeleri",
+      "sky": [
+        "#0d1b3d",
+        "#3c5a8a"
+      ],
+      "ground": "#c9a46a",
+      "motif": "palms",
+      "hook": "Su arayan Kumru, vahada böcek pazarı kuran Bukalemun Tüccar'a takılır: \"Kazanırsan su senin.\"",
+      "line": "Kum kadar böcek, ama hangisi hangisini yener?"
+    },
+    {
+      "title": "Fener Bahçesi",
+      "mascot": {
+        "name": "Tofu",
+        "who": "panda çırak",
+        "ears": "round",
+        "fur": "#f4f4f4",
+        "belly": "#ffffff",
+        "patch": "#222",
+        "hat": "band",
+        "hatC": "#d23b3b"
+      },
+      "rival": {
+        "name": "Usta Kerpeten",
+        "who": "kılıçlı kurbağa ustası",
+        "ears": "none",
+        "fur": "#7fb069",
+        "belly": "#e6f2d8",
+        "hat": "straw",
+        "hatC": "#d9b45a"
+      },
+      "place": "Kağıt fenerli, köprülü ve sazanlı gece bahçesi",
+      "sky": [
+        "#1a1030",
+        "#5a2f5f"
+      ],
+      "ground": "#3d4f3a",
+      "motif": "lanterns",
+      "hook": "Fener festivalinde Tofu, ustasının efsane böcek turnuvasına çırak olarak katılır.",
+      "line": "Sabır, Tofu. Önce gör, sonra unutma."
+    },
+    {
+      "title": "Karlı Zirve",
+      "mascot": {
+        "name": "Pofuduk",
+        "who": "yavru yeti",
+        "ears": "round",
+        "fur": "#e9f1f7",
+        "belly": "#ffffff",
+        "hat": "beanie",
+        "hatC": "#e0533a"
+      },
+      "rival": {
+        "name": "Komodor Pengu",
+        "who": "madalyalı penguen",
+        "ears": "none",
+        "fur": "#1f2a36",
+        "belly": "#f2f2f2",
+        "hat": "captain",
+        "hatC": "#1d3557"
+      },
+      "place": "Kar fırtınası sonrası buzdan bir arena, kuzey ışıkları",
+      "sky": [
+        "#0b2239",
+        "#1f8a85"
+      ],
+      "ground": "#dfeaf2",
+      "motif": "mountains",
+      "hook": "Kışın uyanan buz böcekleri için Pofuduk, Komodor Pengu'nun buz ringine meydan okur.",
+      "line": "Buz böceği soğuğa dayanır ama ateş böceğine asla!"
+    },
+    {
+      "title": "Kristal Mağara",
+      "mascot": {
+        "name": "Burgu",
+        "who": "madenci köstebek",
+        "ears": "round",
+        "fur": "#6b4f3a",
+        "belly": "#c9a98a",
+        "hat": "miner",
+        "hatC": "#f2c230"
+      },
+      "rival": {
+        "name": "DJ Yarasa",
+        "who": "kulaklıklı yarasa",
+        "ears": "bat",
+        "fur": "#3b2f4a",
+        "belly": "#7d6b94",
+        "hat": "headphones",
+        "hatC": "#ff3d9a"
+      },
+      "place": "Parlayan kristallerle dolu yeraltı mağarası, yankılı tezahürat",
+      "sky": [
+        "#120a24",
+        "#2a1a4a"
+      ],
+      "ground": "#2c2238",
+      "motif": "crystals",
+      "hook": "Tünel kazarken bir mağaraya düşen Burgu, DJ Yarasa'nın yeraltı böcek ligini keşfeder.",
+      "line": "Bu mağarada ses yankılanır, hafızan yankılanmaz!"
+    },
+    {
+      "title": "Sisli Bataklık",
+      "mascot": {
+        "name": "Nil",
+        "who": "sandalcı kız",
+        "ears": "human",
+        "fur": "#8d5a3b",
+        "belly": "#e8b98f",
+        "hat": "bandana",
+        "hatC": "#2f7d6d"
+      },
+      "rival": {
+        "name": "Dişlek",
+        "who": "kurnaz timsah",
+        "ears": "none",
+        "fur": "#4f7d3a",
+        "belly": "#c7d99a",
+        "hat": "top",
+        "hatC": "#222"
+      },
+      "place": "Sazlıklar, ağaç kökleri ve yeşil sis arasında bir iskele",
+      "sky": [
+        "#1d2b24",
+        "#6d8f6a"
+      ],
+      "ground": "#3a4a33",
+      "motif": "reeds",
+      "hook": "Nil'in sandalı Dişlek'in iskelesine sürüklenir. Geri almak için böcek düellosu şart.",
+      "line": "Sis yaprağı da yutar, aklını da evlat..."
+    },
+    {
+      "title": "Yörünge Arenası",
+      "mascot": {
+        "name": "Miyu",
+        "who": "astronot kedi",
+        "ears": "cat",
+        "fur": "#f0a04b",
+        "belly": "#ffe0b8",
+        "hat": "helmet",
+        "hatC": "#cfe8ff"
+      },
+      "rival": {
+        "name": "BZZ-9",
+        "who": "böcek toplayan robot",
+        "ears": "antenna",
+        "fur": "#9aa7b4",
+        "belly": "#dfe6ec",
+        "hat": "none",
+        "hatC": "#000"
+      },
+      "place": "Uzay istasyonunda cam kubbeli böcek serası, dışarıda gezegen",
+      "sky": [
+        "#05051a",
+        "#1d1f4a"
+      ],
+      "ground": "#3a3f55",
+      "motif": "space",
+      "hook": "Uzay serasından kaçan böcekleri toplayan Miyu, BZZ-9'un turnuva protokolüne girer.",
+      "line": "HAFIZA TESTİ BAŞLIYOR. YAPRAK KAPANIYOR. BİP."
+    },
+    {
+      "title": "Volkan Adası",
+      "mascot": {
+        "name": "Çakıl",
+        "who": "kertenkele kaşif",
+        "ears": "none",
+        "fur": "#58b368",
+        "belly": "#d8f0c2",
+        "hat": "safari",
+        "hatC": "#c7a26b"
+      },
+      "rival": {
+        "name": "Magma Dede",
+        "who": "taş golem",
+        "ears": "none",
+        "fur": "#5a5050",
+        "belly": "#ff7a2a",
+        "hat": "none",
+        "hatC": "#000"
+      },
+      "place": "Dumanı tüten volkanın eteğinde siyah kumlu sahil",
+      "sky": [
+        "#2a0e0e",
+        "#c4471b"
+      ],
+      "ground": "#2b2424",
+      "motif": "volcano",
+      "hook": "Gemisi karaya oturan Çakıl, adanın bekçisi Magma Dede'nin lav ringinde sınanır.",
+      "line": "Ada sıcaktır, böcekler daha da sıcak!"
+    },
+    {
+      "title": "Korsan Güvertesi",
+      "mascot": {
+        "name": "Çaça",
+        "who": "miço maymun",
+        "ears": "monkey",
+        "fur": "#8b5a2b",
+        "belly": "#e8c39e",
+        "hat": "bandana",
+        "hatC": "#c0392b"
+      },
+      "rival": {
+        "name": "Kaptan Tekbacak",
+        "who": "tahta bacaklı papağan kaptan",
+        "ears": "none",
+        "fur": "#2ea84a",
+        "belly": "#f5d33b",
+        "hat": "pirate",
+        "hatC": "#1b1b1b"
+      },
+      "place": "Fırtınalı denizde sallanan korsan gemisinin güvertesi",
+      "sky": [
+        "#14213d",
+        "#4f6d8f"
+      ],
+      "ground": "#7a5230",
+      "motif": "ship",
+      "hook": "Gemide hazine haritası yerine böcek kavanozları çıkar. Kaptan: \"Haritayı kazanırsın!\"",
+      "line": "Yo-ho! Yaprak kapandı, şimdi hafızanı göster miço!"
+    },
+    {
+      "title": "Şekerleme Pazarı",
+      "mascot": {
+        "name": "Lokum",
+        "who": "fırıncı tavşan",
+        "ears": "bunny",
+        "fur": "#f7d7e3",
+        "belly": "#ffffff",
+        "hat": "chef",
+        "hatC": "#ffffff"
+      },
+      "rival": {
+        "name": "Madam Bal",
+        "who": "arıcı ayı",
+        "ears": "round",
+        "fur": "#b5763c",
+        "belly": "#f2cf8f",
+        "hat": "beekeeper",
+        "hatC": "#f5f0dc"
+      },
+      "place": "Şeker tezgahlı, bayraklı rengarenk bir sokak pazarı",
+      "sky": [
+        "#ffb4a2",
+        "#ffe5b4"
+      ],
+      "ground": "#d9a066",
+      "motif": "candy",
+      "hook": "Pastasına üşüşen böcekleri kovalayan Lokum, Madam Bal'ın tatlı böcek yarışmasına düşer.",
+      "line": "Tatlı mı acı mı kazanır? Bak ve unutma tatlım!"
+    },
+    {
+      "title": "Ağaç Ev Köyü",
+      "mascot": {
+        "name": "Fıstık",
+        "who": "sincap çocuk",
+        "ears": "round",
+        "fur": "#c46a2b",
+        "belly": "#f3d1a8",
+        "hat": "cap",
+        "hatC": "#2d6cdf"
+      },
+      "rival": {
+        "name": "Hakem Bilge",
+        "who": "gözlüklü baykuş",
+        "ears": "owl",
+        "fur": "#7a6650",
+        "belly": "#e0d2bd",
+        "hat": "graduate",
+        "hatC": "#222"
+      },
+      "place": "Halat köprülü ağaç evler, ip ışıkları, akşam serinliği",
+      "sky": [
+        "#29335c",
+        "#f3a712"
+      ],
+      "ground": "#4c6b3c",
+      "motif": "treehouses",
+      "hook": "Köyün yıllık böcek şampiyonası! Fıstık ilk kez çağrılır, hakem Bilge kuralları anlatır.",
+      "line": "Hu-huu! Kural basit: gördüğünü unutan kaybeder."
+    },
+    {
+      "title": "Mercan Resifi",
+      "mascot": {
+        "name": "Dalgıç Deniz",
+        "who": "dalgıç su samuru",
+        "ears": "round",
+        "fur": "#7b5a44",
+        "belly": "#d9c0a5",
+        "hat": "diving",
+        "hatC": "#ffd166"
+      },
+      "rival": {
+        "name": "Sekizkol",
+        "who": "gösterişçi ahtapot",
+        "ears": "none",
+        "fur": "#c2457a",
+        "belly": "#f2a7c5",
+        "hat": "top",
+        "hatC": "#222"
+      },
+      "place": "Batık bir hava kubbesi içinde mercanlarla çevrili arena",
+      "sky": [
+        "#023047",
+        "#219ebc"
+      ],
+      "ground": "#e9c46a",
+      "motif": "coral",
+      "hook": "Batık gemiyi keşfeden Deniz, hava kubbesinde böcek gösterisi yapan Sekizkol'u bulur.",
+      "line": "Sekiz kolum var ama hafızam tek. Ya seninki?"
+    },
+    {
+      "title": "Gece Sirki",
+      "mascot": {
+        "name": "Pıtırcık",
+        "who": "palyaço kız",
+        "ears": "human",
+        "fur": "#f1c27d",
+        "belly": "#ffe1bd",
+        "hat": "jester",
+        "hatC": "#e63946"
+      },
+      "rival": {
+        "name": "Büyücü Zıpzıp",
+        "who": "sihirbaz tavşan",
+        "ears": "bunny",
+        "fur": "#dcdcdc",
+        "belly": "#ffffff",
+        "hat": "top",
+        "hatC": "#3a0ca3"
+      },
+      "place": "Çizgili sirk çadırı, spot ışıkları ve konfeti",
+      "sky": [
+        "#240046",
+        "#7b2cbf"
+      ],
+      "ground": "#9d0208",
+      "motif": "circus",
+      "hook": "Sirkin yeni yıldızı aranıyor: Zıpzıp şapkadan böcek çıkarır, Pıtırcık hafızasıyla yarışır.",
+      "line": "Abra-kadabra! Yaprak kapandı... böcekler nerede?"
+    },
+    {
+      "title": "Savan Kampı",
+      "mascot": {
+        "name": "Zürafa Zeki",
+        "who": "fotoğrafçı zürafa",
+        "ears": "giraffe",
+        "fur": "#f4c25b",
+        "belly": "#fff0c9",
+        "hat": "safari",
+        "hatC": "#a68a5b"
+      },
+      "rival": {
+        "name": "Aslan Paşa",
+        "who": "emekli aslan",
+        "ears": "round",
+        "fur": "#d9a441",
+        "belly": "#f6dfa8",
+        "mane": "#8c4a1c",
+        "hat": "none",
+        "hatC": "#000"
+      },
+      "place": "Akasya ağaçlı savan, gün batımında kamp ateşi",
+      "sky": [
+        "#4a1942",
+        "#f28f3b"
+      ],
+      "ground": "#b5874a",
+      "motif": "acacia",
+      "hook": "Nadir böcek fotoğrafı arayan Zeki, Aslan Paşa'nın kamp ateşi turnuvasına davet edilir.",
+      "line": "Savanda en güçlü değil, en iyi hatırlayan kazanır."
+    },
+    {
+      "title": "Neon Çatı",
+      "mascot": {
+        "name": "Kaykay Kaan",
+        "who": "kaykaycı çocuk",
+        "ears": "human",
+        "fur": "#a0673f",
+        "belly": "#e0aa7f",
+        "hat": "cap",
+        "hatC": "#00f5d4"
+      },
+      "rival": {
+        "name": "Rakun Ringo",
+        "who": "çatı rakunu",
+        "ears": "round",
+        "fur": "#7a7a7a",
+        "belly": "#d0d0d0",
+        "patch": "#333",
+        "hat": "hoodie",
+        "hatC": "#f15bb5"
+      },
+      "place": "Neon tabelalı şehir çatısı, yağmur sonrası parıltı",
+      "sky": [
+        "#0f0c29",
+        "#302b63"
+      ],
+      "ground": "#24243e",
+      "motif": "neon",
+      "hook": "Kaybolan kaykayını arayan Kaan, gizli çatı böcek ligine kafayı uydurur.",
+      "line": "Çatıda kural yok, sadece hafıza var kanka!"
+    },
+    {
+      "title": "Ahır Fuarı",
+      "mascot": {
+        "name": "Papatya",
+        "who": "çiftçi kız",
+        "ears": "human",
+        "fur": "#f0c8a0",
+        "belly": "#ffe3c7",
+        "hat": "straw",
+        "hatC": "#e9c46a"
+      },
+      "rival": {
+        "name": "Horoz Ağa",
+        "who": "gururlu horoz",
+        "ears": "comb",
+        "fur": "#f5f0e6",
+        "belly": "#ffffff",
+        "hat": "none",
+        "hatC": "#000"
+      },
+      "place": "Kırmızı ahır, saman balyaları ve köy fuarı bayrakları",
+      "sky": [
+        "#8ecae6",
+        "#ffe8a3"
+      ],
+      "ground": "#a7c957",
+      "motif": "barn",
+      "hook": "Köy fuarında Horoz Ağa her yıl kazanır. Bu yıl Papatya bahçe böcekleriyle sahnede.",
+      "line": "Ü-ürü-üü! Yaprak kapanınca herkes tavuk gibi şaşırır!"
+    },
+    {
+      "title": "Bambu Sisi",
+      "mascot": {
+        "name": "Kızıl",
+        "who": "kırmızı panda",
+        "ears": "round",
+        "fur": "#c1440e",
+        "belly": "#2b1a12",
+        "hat": "band",
+        "hatC": "#f2e8cf"
+      },
+      "rival": {
+        "name": "Bilge Maymun",
+        "who": "yaşlı kar maymunu",
+        "ears": "monkey",
+        "fur": "#b9a68f",
+        "belly": "#f2a08b",
+        "hat": "straw",
+        "hatC": "#c9a227"
+      },
+      "place": "Sisli bambu ormanında taş basamaklı bir tapınak avlusu",
+      "sky": [
+        "#d8e2dc",
+        "#9cc5a1"
+      ],
+      "ground": "#5b6b4f",
+      "motif": "bamboo",
+      "hook": "Bilge Maymun öğrenci kabul eder: sınav, sisin içindeki böcekleri hatırlamaktır.",
+      "line": "Göz görür, yaprak örter, akıl hatırlar."
+    },
+    {
+      "title": "Kütüphane Tavanı",
+      "mascot": {
+        "name": "Profesör Kurt",
+        "who": "kitap kurdu",
+        "ears": "none",
+        "fur": "#d98f9b",
+        "belly": "#f7d1d7",
+        "hat": "graduate",
+        "hatC": "#2b2d42"
+      },
+      "rival": {
+        "name": "Bayan Ağ",
+        "who": "kütüphaneci örümcek",
+        "ears": "none",
+        "fur": "#3d405b",
+        "belly": "#81b29a",
+        "hat": "glasses",
+        "hatC": "#e07a5f"
+      },
+      "place": "Tozlu çatı katı, kitap yığınları ve mum ışığı",
+      "sky": [
+        "#3b2c25",
+        "#7f5539"
+      ],
+      "ground": "#5e4232",
+      "motif": "books",
+      "hook": "Ansiklopedideki böcek sayfaları canlanır! Profesör sayfaları geri toplamak için düello eder.",
+      "line": "Bu sayfayı okudun mu? Yaprak kapandı, sınav başlasın!"
+    },
+    {
+      "title": "Bulut Adası",
+      "mascot": {
+        "name": "Pilot Pervane",
+        "who": "balon pilotu ördek",
+        "ears": "none",
+        "fur": "#ffd23f",
+        "belly": "#fff3b0",
+        "hat": "aviator",
+        "hatC": "#8b5e34"
+      },
+      "rival": {
+        "name": "Kara Karga",
+        "who": "parlak şeyler toplayan karga",
+        "ears": "none",
+        "fur": "#1c1c2b",
+        "belly": "#3a3a55",
+        "hat": "monocle",
+        "hatC": "#f1c40f"
+      },
+      "place": "Gökyüzünde süzülen bulut adası, sıcak hava balonları",
+      "sky": [
+        "#5fa8d3",
+        "#cae9ff"
+      ],
+      "ground": "#f7f7ff",
+      "motif": "clouds",
+      "hook": "Balonu karga tarafından delinen Pervane, onarım için Kara Karga'yla böcek bahsine girer.",
+      "line": "Gak! Parlak şeyleri severim, ama hafızası parlak olanları daha çok!"
+    },
+    {
+      "title": "Dev Bahçe",
+      "mascot": {
+        "name": "Mini",
+        "who": "küçülmüş kaşif çocuk",
+        "ears": "human",
+        "fur": "#e0ac69",
+        "belly": "#ffd8a8",
+        "hat": "helmet",
+        "hatC": "#ffb703"
+      },
+      "rival": {
+        "name": "Cüce Gnomo",
+        "who": "bahçe cücesi heykeli",
+        "ears": "human",
+        "fur": "#f4c7a1",
+        "belly": "#ffe3cc",
+        "beard": "#ffffff",
+        "hat": "gnome",
+        "hatC": "#d62828"
+      },
+      "place": "Böcek boyuna küçülmüş bir çocuğun gözünden dev çimen ve çiçekler",
+      "sky": [
+        "#a2d2ff",
+        "#fefae0"
+      ],
+      "ground": "#6a994e",
+      "motif": "giantgarden",
+      "hook": "İcadıyla küçülen Mini, eski boyuna dönmek için bahçe cücesinin böcek turnuvasını kazanmalı.",
+      "line": "Ufak boyla büyük hafıza gerek, ufaklık!"
+    }
+  ],
+  "bugs": [
+    "Gergedan Böceği",
+    "Uğur Böceği",
+    "Peygamber Devesi",
+    "Ateş Böceği",
+    "Akrep",
+    "Karınca Askeri",
+    "Eşek Arısı",
+    "Yusufçuk",
+    "Hamam Böceği",
+    "Çekirge",
+    "Kırkayak",
+    "Bokböceği",
+    "Geyik Böceği",
+    "Su Örümceği",
+    "Tarantula",
+    "Ağustos Böceği",
+    "Kelebek",
+    "Sivrisinek",
+    "Tespih Böceği",
+    "Kınkanatlı Dev"
+  ]
+}
