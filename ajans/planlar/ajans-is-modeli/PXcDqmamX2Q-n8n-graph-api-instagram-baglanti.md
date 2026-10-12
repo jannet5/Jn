@@ -36,7 +36,11 @@ Araçlar: n8n, Meta for Developers (App, App Roles, Graph API Explorer, Access T
 Tam JSON: `ajans/arastirma/youtube/kaynaklar/PXcDqmamX2Q-websensepro-n8n-instagram-blog.md`.
 
 ## Sosyal medya / reklam: içerik türleri, post sıklığı, reklam kurgusu, bütçe
-- İçerik türü: tek görsel + açıklama (carousel/reels yok). Sıklık: rakam vermiyor ("set a time" ile zamanlama öneriliyor). Reklam/bütçe: Videoda yok.
+- İçerik türü: tek görsel + açıklama (carousel/reels yok).
+- Görsel kaynağı önerisi: "you can generate these images via any AI model and then post it to Instagram".
+- Sıklık: rakam vermiyor ("set a time" ile zamanlanmış tetik öneriliyor).
+- Reklam/bütçe: Videoda yok.
+- Genişletme notu (bizim çıkarımımız, videoda yok): aynı iki aşamalı `media` → `media_publish` kalıbı Reels için `media_type=REELS` + `video_url`, carousel için her görsele `is_carousel_item=true` alt container + `media_type=CAROUSEL` + `children` ile çalışır (bkz. `t63IlcH1GJY-n8n-instagram-resmi-api-tum-post-tipleri.md`).
 
 ## Hatalar / uyarılar
 - Meta'nın "API setup with Instagram login → Generate token" butonu videoda çalışmadı; Graph API Explorer yolu kullanıldı.
