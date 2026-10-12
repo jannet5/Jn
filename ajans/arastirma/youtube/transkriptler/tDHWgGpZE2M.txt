@@ -1,0 +1,251 @@
+# 
+# https://www.youtube.com/watch?v=tDHWgGpZE2M
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:tDHWgGpZE2M.tr.json3
+
+[00:00:00] Çok profesyonel bir web sitesi yapmak istediğinizde artık 2 dakikaya
+[00:00:03] ihtiyacınız var. Bu web sitesi örneğin çok hızlı bir şekilde oluşturuldu ve tek
+[00:00:07] yapmam gereken şeyse çok basit bir prompt yazmak aslında ve sonrasında
+[00:00:10] bütün içeriklerini kendisi oluşturup çok kaliteli bir şey ortaya
+[00:00:13] çıkartabiliyorum. Burada da cloud kodu kullanıyorum ve şimdi göstereceğim bir
+[00:00:17] skill setini kullanıyorum. Bu da aynı zamanda cloud kodu içerisinde
+[00:00:19] kullanabileceğiniz bir şey. Ve sonrasında da aslında siz bir Fay'yi
+[00:00:23] kullanarak nano bananaı ve Cling'i kullanıyorsunuz. Ve bu sayede çok güzel
+[00:00:26] animasyonlu, videolu ve içerikler oluşturmuş oluyorsunuz. Ve bunları web
+[00:00:30] sitesine eklemiş oluyorsunuz. Hedefse şu aslında. Çok hızlı bir şekilde normalde
+[00:00:34] belki eskiden 5.000 10.000 dolar masrafı olacak şeyleri, haftalarca sürecek
+[00:00:38] şeyleri siz çok daha hızlı bir şekilde 2 dolara belki ve 10-15 dakikada hiçbir
+[00:00:43] şekilde kodlama bilmeden yapabiliyorsunuz. Artık eee bunun içinse
+[00:00:47] şu dört şeyi kullanacağız. Cloud code, cling aı, nodanana bir de versel
+[00:00:52] kullanacağım ki burada netify kullanabilirsiniz kendiniz. Şimdi
+[00:00:55] grafftin içerisinde öncelikle dosyamı açıyorum. Open folder diyorum. Burada
+[00:00:59] örneğin yeni bir dosya oluşturalım. Website profesyonel diyorum mesela
+[00:01:05] ki bunu müşterilere satmak için de kullanabilirsiniz. Sonrasında an gravity
+[00:01:09] içerisinde şurada extensionlardan cloud kodu açıyorum. Şurada hemen cloud kodumu
+[00:01:14] açıyorum. Sonrasında agent'ı kapatıyorum. İhtiyacım yok buraya.
+[00:01:18] sonrasında diyorum ki bu kitap reposu kullanarak
+[00:01:23] profesyonel kaliteli bir web sitesi oluştur.
+[00:01:31] Önce repo'yu yükle.
+[00:01:36] Sonrasında şunu alıyorum. Hemen kod diyorum. Kopyalıyorum ki bunu zaten
+[00:01:40] açıklamaya koyacağım. Oradan alabilirsiniz. Sonrası bunu yapıştır
+[00:01:43] diyorum ve bypass modunda çalıştırıyorum. Şimdi benim için
+[00:01:47] buradaki e gitub projesinden her şeyi çekecek. Sonrasında profesyonel web
+[00:01:51] sitesi yapmaya başlayacak. Ben bu süre zarfında şunu söylüyorum ona özellikle.
+[00:01:55] Şimdi benim bir prompt oluşturmam lazım. Çok harika bir animasyon oluşturmak
+[00:02:00] için. Bunun için size şunu yapıyorum. Şimdi hemen göstereyim ne yaptığımı.
+[00:02:04] Şuradaki falaya API'ını kullan diyorum her zaman için. Fayı ve prompt olaraksa
+[00:02:10] şunu istiyorum. Diyorum ki bana bir otomasyon ajansı için web sitesi yapmak
+[00:02:14] istiyorum. eee, web sitesini çok güzel bir animasyon eklemek istiyorum ilk
+[00:02:19] açıldığında. Bunu nasıl bir animasyon yapabilirim? Bununla alakalı bana prompt
+[00:02:22] ver. Bir nanomanana promptunu ver. Bir de sonrasında clean promptunu ver
+[00:02:26] diyorum. Sonrasında bana nadomanana promptunu veriyor ki ben bunların
+[00:02:29] hepsini şimdi yazacağım. Fin apinii kullanacağız. Nado banana e prompt
+[00:02:34] diyorum. Sonrasında şunu kopyalıyorum. Noban
+[00:02:38] promtunu buraya yapıştırıyorum. Aynı zamanda bir de e ben clink promptuna
+[00:02:42] ihtiyacım var. Clank prompt diyorum ve clank içinse şunu kopyalamış oluyorum.
+[00:02:48] Aslında bana chattinin verdiği güzel bir web sitesi için gereken şeyleri
+[00:02:52] kopyaladım ve bu sayede ben aslında F'yi kullanarak çok güzel animasyonlar
+[00:02:56] oluşturacağım. Bu animasyonları da web sitesinin açılışına koyacağım. Hatta
+[00:03:00] böyle aşağı doğru kaydırıyorken aslında oradaki hani videoyla açılıyormuş gibi
+[00:03:03] olmasını istiyorum. Normalde bunu çok popüler böyle eee harika para ödenmiş
+[00:03:08] web sitelerinde görüyorsunuz. E örneğin Apple'ın kendi web sitesi gibi ve bu bu
+[00:03:13] tarz kaliteli web sitelerini yapabilirsiniz bu sayede. Şimdi ben bunu
+[00:03:16] bir yandan buraya yapıştırıyorum. Fay AP'larını kullanacak. Nano Banan 2'yi
+[00:03:19] çalıştıracak. Cling'i çalıştıracak ve güzel romasyonlar oluşturacak. Aynı
+[00:03:23] zamanda şunu ekliyorum. Web sitesi. Web sitesi
+[00:03:28] bir otomasyon ajansı web sitesi olmalı diyorum.
+[00:03:35] Yani business ile alakalı olmalı. Şimdi bunu bir yandan yapsın. Ben de bir
+[00:03:42] yandan mesajlarıma bakmam lazım. Okey. Şimdi web sitesi çalışıyor demiş. E
+[00:03:45] mesela çıkartığı web siteye bakalım öncelikle. A mükemmel web sitesi yapmış
+[00:03:50] bu arada. Eee ama hiçbir şekilde konuyu söylemedim tabii ki. Sadece bu kendi
+[00:03:54] tasarımlarına göre yapmış. Şurada mesela gayet güzel. Her tarafı gayet güzel
+[00:03:59] yapmış. Skills demiş. Okey. Şimdi ben tabii ki bunun daha güzel açılmasını
+[00:04:04] istiyorum. Bu sadece böyle bir web sitesi. Şimdi FI'ni kullan diyorum. F
+[00:04:09] key diyorum burada aynı zamanda. Şimdi benim F'ya girip bir AP anahtarı almam
+[00:04:13] lazım. O yüzden AP anahtarlarına basıyorum. Ekliyorum. Diyorum ki cloud
+[00:04:18] video için sil diyorum buna. Unutmayalım diye. Anahtarı aldım. Sonrasında buraya
+[00:04:24] yapıştırıyorum ve sonrasında basıyorum. Şimdi kendisi
+[00:04:28] Nada Banana'dan görse oluşturacak. sonrası videoyu oluşturacak ve bunun da
+[00:04:31] web sitesine koyuyor olacak sonrasında. Aslında ekstra bir de eee şunu söylesem
+[00:04:35] güzel olur. Eee oluşturacağın videoyu dosyasını alıp Hero Header'ın arka planı
+[00:04:40] görseli yapmanı istiyorum. Ardından da Hero Header'ı ortalayarak daha temiz
+[00:04:44] görünmesini sağlayacaksın. Son olarak animasyon arka planın sitenin genel arka
+[00:04:48] planı ile çalış çatışmaması için doğru bir maskeleme uygulamanı istiyorum.
+[00:04:53] Bakalım.
+[00:04:57] Herer'ın arka planışmaması için çakışmaması diyelim buna. Ok.
+[00:05:04] Ekstra bir de bunu verebiliriz. Şimdiden
+[00:05:10] şöyle yapalım. Hepsini Q'ye koysun, bitirsin ve sonrasında görselleri
+[00:05:15] oluşturacak ilk olarak. Sonrasında web siteyi düzeltecek. web site ekleyecek
+[00:05:19] aslında bu videoyu ve sonrasında sadece bu kadar sonrasında biz her şeyi canlıya
+[00:05:23] alacağız. Bunu da verselle yapacağız. İşimiz bitecek aslında. Okey. Şimdi
+[00:05:27] şunları yaptı. 3 tane görsel başarıyla oluşturuldu. Şimdi clanle video
+[00:05:30] animasyonları oluşturuyorum demiş. Şimdi oluşturmuş mu gerçekten? Bir bakalım.
+[00:05:34] Fay'ya giriyorum. Fay da şurada generate recent'tan bakıyorum. Bakalım neler
+[00:05:38] yapmış. Ok. Cling'i kullanmış bu arada. Bir bakalım neler oluşturduğuna.
+[00:05:43] Ok. Buna bakalım.
+[00:05:48] Bunu beğenmedim.
+[00:05:52] Flux devi kullanmaması lazım aslında. Bu güzel bir model değil bence. O yüzden
+[00:05:57] hangi modeli kullanması gerektiğini hemen ben buradan alıyorum. Nan bana
+[00:06:01] dokümantasyona basıyorum ve diyorum ki bunu kullanman lazım.
+[00:06:07] Bunu kullanarak görselleri oluşturman lazım diyorum.
+[00:06:14] Sonrasında da şunu yapıyorum. Cloud'da e benim burada az önce chpt'ye vermiş
+[00:06:19] olduğum promptları alıp aslında hemen şurada yukarıda onları paylaşmıştım.
+[00:06:25] Şunu biraz daha göster diyorum. Sonrasında bunu kopyalıyorum. Sonra
+[00:06:28] cloud kod gidiyorum ki bunu chp de yaptırabilirsiniz. Her ikisi de uygun.
+[00:06:32] Bunu benim için daha güzel yaz ve web sitesi çok daha kaliteli olsun. Web
+[00:06:36] sitesinin içerisinde kullanacağın prompt da oldukça güzel olsun. Görsel ve video
+[00:06:41] bayağı kaliteli olsun ve otomasyon içerisinde neler yapılabileceğini düşün.
+[00:06:45] Otomasyon web sitesi için kendin opsiyonları çıkart benim için. Şimdi
+[00:06:49] bunları çıkartsın bizim için. Ok. Biraz daha düzgün yazsın bunu. Belki uzay
+[00:06:55] gemisi olabilir bu arada. Belki uzay gemisi,
+[00:07:06] uzay gemisini oluştur ve videoda da uzay gemisi
+[00:07:17] tamam. eee bölümlere ayrılıyor.
+[00:07:27] Sadece front ver bana diyorum. Bakalım şimdi bunu yapsın. İkra burada ne
+[00:07:34] yapıyor? Web sitesini güncellemiş bu arada. Vow bayağı güzel olmuş aslında.
+[00:07:38] Web sitesi fena değil. Şöyle bir web sitesi oluşturmuş. [homurdanır]
+[00:07:44] Ya çok güzel değil. çok da kötü değil ama bu görselleri ve videoları biraz
+[00:07:48] daha güzelleştirse sanki daha da güzel bir açılış olur. Bir de şunu da
+[00:07:52] yapabilirim. Aynı zamanda aşağı doğru gittikçe videonun devam etmesini
+[00:07:55] sağlayabilirim. Onu da diyelim. Hatta web sitesi aşağı doğru gittikçe video da
+[00:08:01] birlikte gitsin. Yani aşağı doğru ben kaydırdıkça video aşama aşama ilerlesin.
+[00:08:05] Yani videoyu farklı frame'ler gibi düşün. Sürekli video devam etmiyor. Ben
+[00:08:09] sayfayı aşağı indirirsem video devam etmeye eee çalışıyor. Bu şekilde yap.
+[00:08:14] Okey. Şimdi bunu da böyle söyleyelim. A üst üste şimdi şu tamamdır.
+[00:08:21] Cling promplarımı da alayım ben. E clingana banana promplarımı. Ok. Çok
+[00:08:26] güzel. Bir de bunu deneyelim.
+[00:08:31] Bir de yeniden görsel ve video oluştur. Cling'in hangi modelini
+[00:08:38] kullanıyor ona bir bakalım. Hemen buradan Explor'a bakıyorum. Hım.
+[00:08:43] Cling'in de bunu kullanmasını isteyeyim. En yeni modellerinden bir tanesi olsun.
+[00:08:48] Cling 3.0 olsun direkt. Ok. Bunu da söyleyelim.
+[00:08:53] Bazen hangi modeli kullanması gerektiğini kull söylemezseniz en kolay
+[00:08:57] kullanabileceğini alır kendisi. O yüzden söylemek lazım aslında. Okey. Her şeyi
+[00:09:03] hazırladı. Şimdi ana bananaı kullanarak yapsın. Bu arada kendisi o sayfaya girip
+[00:09:07] nasıl bir sistem kurması gerektiğini de biliyor aslında. Onları her şeyi yapıp
+[00:09:12] son versiyonunu almış olur. Tabii ki şuna dikkat edin. Bunun içerisinde her
+[00:09:16] zaman için environment dosyası içerisinde koyması lazım fayı API keyni
+[00:09:21] anahtarını. Yani şu anda envirment dosyası yok. Bunu normalde söylemek
+[00:09:25] lazım her zaman için. Ok. Şimdi videoyu bekliyormuş. Bakalım bu arada videoyu
+[00:09:28] gerçekten oluşturuyor mu? Bakalım. Generated recent story diyelim.
+[00:09:34] Henüz ben bir şey görmüyorum. Şunu da diyeyim. Aynı zamanda videoyu oluşturman
+[00:09:39] için önce nano banana
+[00:09:44] ile görsel oluşturmak zorundasın.
+[00:09:48] Muhtemelen öyle yapıyor ama. Ok. Aynen bunu yapmış ama nanobanla görseniz hazır
+[00:09:53] diyor ama ben bunu burada görmüyorum. Belki panel geç geliyor olabilir. Şöyle
+[00:09:57] diyelim. Görmüyorum diyelim.
+[00:10:11] Tabii belki geç geliyordur açıkçası. O yüzden eee şu anda yapıyorum diyor.
+[00:10:15] Hiçbir şey ellemeyeyim. Belki gerçekten de yapıyordur. Bitmediği için burada
+[00:10:19] görünmüyordur. O da olabilir. Şimdi bu işlemi yapsın, bitirsin. Okey. Şimdi
+[00:10:23] gelmiş Nabanadayla bakalım ne yapmış. Oke. Nabanayı böyle bir şey yapmış.
+[00:10:29] Tamam fark etmez. biraz daha güzel bir şey oluşturabilirdi
+[00:10:33] bu arada. Okey, şimdi videoyu da bekliyor. Okey, videoyu bitirdi. Her şey
+[00:10:37] çalışıyor. Şimdi videoyu indiriyor. Sonrasında kendisi web sitesini ekliyor
+[00:10:41] olacak. Baştan sona her şeyi yaptı. Bence web sitesi başlangıçta da iyiydi,
+[00:10:45] okeydi ama burada istediğiniz şeyi koydurabilirsiniz. İstediğiniz gibi
+[00:10:48] çalıştırabilirsiniz. Ama burada profesyonel web siteleri yapmanın olayı
+[00:10:52] aslında bu. Falı'da istediğiniz modeli kullanıyorsunuz. kendisi sonrasıda
+[00:10:56] videoyu yapmış oluyor, görselini yapmış oluyor. Hatta ve hatta bunun bir limiti
+[00:11:00] yok bu arada. İstersen ben 10 tane blog sayfası yapıp hepsinin içerisinde video
+[00:11:04] ve görsel de ekletebilirim. İstersen ben hani 50 tane belki resim de
+[00:11:07] oluşturabilirim. Bunların hepsi mümkün ve yapılabilecek şeyler açıkçası. Okey.
+[00:11:12] Şimdi bakalım tekrardan. Zaten şurada aynı zamanda şöyle yapmış
+[00:11:16] aşağı doğru kaydırıyorken ama çok da beğenmedim açıkçası bunu beğenmedim.
+[00:11:21] Başka bir konsept için aynısını deneyelim. Ve eee aynı zamanda videoda
+[00:11:25] tam olarak smooth olmamış, rahat olmamış. Bir de yazılar görünmüyor.
+[00:11:29] Çünkü videonun renginden dolayı yazıları göremiyorum hiçbir şekilde. O yüzden
+[00:11:33] biraz daha belki videoyu arka tarafa doğru koy ve biraz daha güzel bir sayfa
+[00:11:37] şeklinde açılsın. Ok. Şimdi bunu bir yandan
+[00:11:41] şöyle hemen yapıştıralım. Hatta şunu bile diyebiliriz. bana bir eee
+[00:11:50] hatta bana bir eee iç tasarım şirketinin web sitesini yap.
+[00:12:00] Şöyle olsun. İş tasarım şirketinin web sitesini yapsın. Hatta farklı bir şey
+[00:12:03] oluştursun.
+[00:12:10] Aynı zamanda görselleri oluşturacak. Cl de kullanacak. Yani aslında siz cloud
+[00:12:14] kod'a bu tarz sistemleri vererek daha da iyi çalışmasını sağlıyorsunuz. Ve
+[00:12:18] başlangıçta aslında yüklediğim şey burada benim bir e gitub reposuydu.
+[00:12:22] Sadece bunu bile kullanarak devam edebilirsiniz. Bu arada bu bile çok
+[00:12:25] profesyonel şeyler oluşturacaktır. Ve bu şekilde aslında siz eee burada ne tarz
+[00:12:29] dizaynlar oluşturması gerektiğini, bir eee mantığını oluşturmuş oluyorsunuz ve
+[00:12:34] bu şekilde ilerleniyor her şey açıkçası. Okey. Her şeyi bitirmiş. Şimdi bakıyorum
+[00:12:39] bayağı bir genelde 5 dakika falan sürüyor. Eee, o bayağı güzel olmuş bu
+[00:12:43] arada. Şimdi buna bakalım. Okey.
+[00:12:48] Aşağı doğru. Okey. Bak bunu video olarak koymuş. Şuradakini eee içerisini de
+[00:12:53] koymuş. Gayet güzel. Gayet gayet güzel. Oluşturduğu videoya bakmak istiyorum çok
+[00:12:58] hızlı bir şekilde. Okey. Şöyle bir görsel oluşturmuş. Şimdi bunu aslında
+[00:13:03] videoya da çevirmesi çok güzel olur. Yani bununla başlaması çok güzel olur
+[00:13:07] web sitesinin. Onu da ekletelim en son. Sonrasında aslında finalize ettik. Şimdi
+[00:13:10] Nanabanalada oluşturduğun görsel çok güzel. O görseli clinge veriyorsun ve
+[00:13:14] kameranın çok yavaş bir şekilde sağdan sola hareket etmesini istiyorsun.
+[00:13:18] Sonrasında bu video bittikten sonra bu videoyu web sitesine koyuyorsun ve video
+[00:13:23] aşağı doğru gittikçe daha da böyle açılacak şekilde olmuş olsun ve yazıyile
+[00:13:27] çakışmasın. Bunu kendin ayarla. Aslında yaklaşık 15 dakikada bir harika bir web
+[00:13:33] sitesi hazırladık sayılır. Bir de yani görseller, seçimler, aradaki bu şey
+[00:13:39] gayet gayet güzel açıkçası. Çok güzel. Ekstra bu sayfaları da ekleyebilir eğer
+[00:13:44] istersem ama şu anda önemli değil. Şu anda 55 farklı işi bir yandan yapmaya
+[00:13:48] çalışıyorum ama aslında cllan kodu bu açıdan birazcık seviyorum. Çünkü bir
+[00:13:51] yandan ekibinizin mesajlarına bakabiliyorsunuz, topluğa
+[00:13:54] bakabiliyorsunuz, diğer işleri takip edebiliyorsunuz. Bir azından da clav kod
+[00:13:57] sizin için işinizi hallediyor. Yani sadece prompt yazıp ya şurası olmamış
+[00:14:00] demek çok kolay. Aslında birçok işi ben böyle eee daha da verimleştirebiliyorum.
+[00:14:05] Ne kadar fazla sistem bağlarsanız aslında ki her hafta yeni bir şeyimi
+[00:14:08] otomatize etmeye çalışıyorum. Çok daha verimli, çok daha fazla iş
+[00:14:12] yapabildiğiniz bir eee senaryo ortaya çıkmış oluyor aslında. Yani biz eee bir
+[00:14:16] yandan video çekip bir yandan 22 kişilik bir ekip yönetip bir yandan Protes Bal
+[00:14:20] gibi, Cor Magnet gibi şirketleri devam ettirebiliyoruz. Bununsa tamamı
+[00:14:24] kesinlikle yapay zekayla diye düşünüyorum. Okey. Bir yandan videoyu
+[00:14:28] bekliyor. Videoyu bitirdikten sonra bütün işlem bitecek. Sonrasında da
+[00:14:31] canlıyı alıyor olacağız. Burada da Versel'i kullanacağız. Okey. Bitirmiş
+[00:14:34] bunu. Şimdi bakalım tekrardan web sitesine. Hemen buraya alıyorum web
+[00:14:38] sitesini. A ok. Tamam. İstediğim gibi işte yani şu
+[00:14:44] görüntüyü istiyordum şöyle açılsın diye. Hatta bunu büyütelim bir de. Gayet
+[00:14:48] güzel. Çok çok güzel. Yani şu web sitesine çok
+[00:14:53] rahat eee birisi açıkçası belki 1000 dolar veriyordu. Eee şimdi bunu tabii ki
+[00:14:59] artık çok daha güzel bir şekilde ayarlayabilirsiniz. Hatta ekstra bir
+[00:15:01] şeyler bile ekleyebilirsiniz ama tam olarak istediğimi yapmış benim için.
+[00:15:05] Şimdi burada size bir püf nokta söyleyeyim. Cloud COD'da çalışıyorken
+[00:15:08] her zaman için Gitab'ı kullanın. Gitab'a sürekli olarak yeni bir branch açsın.
+[00:15:12] Şimdi bunun nasıl yapılabileceğini gösteriyorum ben size. Gitab'a
+[00:15:14] giriyorum. Gitab'ın içerisinde sonrasında ben buraya yeni bir
+[00:15:17] repozitörü açıyorum. sonrasında diyorum ki mesela video sil sonrasında fark
+[00:15:21] etmez oluştur diyorum. Sonrasında buraya ben şuradaki pool requestlere
+[00:15:27] issues'lara her şeyi buradan görebilirim. Sonrasında da şuna
+[00:15:30] basıyorum şöyle ve diyorum ki buraya yükle projeyi.
+[00:15:37] Sonrasında da versele pushla diyorum. Şimdi bunu
+[00:15:42] dedikten sonra şunu yapacak. Burada örneğin eee bir main branch diye bir
+[00:15:47] yeni bir branch açacak. Kodu buraya yükleyecek. Kodu buraya yükledikten
+[00:15:50] sonra siz onu aslında istediğiniz yerde canlıyı alabilirsiniz. Biz bunu
+[00:15:53] kullanıyorken eee kullanacağız. Ve şimdi burada benim için her şeyini yapacak ve
+[00:15:59] görüyor olacaksınız aslında birazdan. Şimdi her şeyi deploy etmiş. Ben burada
+[00:16:02] şimdi sayfayı yenilediğimde burada kodu görebilirim. Şimdi bu kodu ben her türlü
+[00:16:07] artık Versale'e de koyabilirim. Versel'e koymanızın iki yolu var. Direkt
+[00:16:10] Versel'de burada örneğin ben bu linki vermiş bana. Bu linki hemen açıyorum. şu
+[00:16:13] şekilde verselde kuruyor. Şimdi bunu bir kere kurduktan sonra zaten gerisi çok
+[00:16:17] basit ve bu şekilde siz bunu canlıya alıyorsunuz. Kendi domaininize nasıl
+[00:16:20] koyacaksınız? Burada örneğin Versel'i açıyorsunuz. Verselin içerisindeki
+[00:16:24] projelerde ki zaten e bu kendi projelerinde bunu ekstra olarak koyar.
+[00:16:29] Şimdi burada aslında verelde bunu şöyle yapıyorsunuz. Mesela projeyi ekle
+[00:16:32] diyorsunuz. Zaten burada gitabı yükledikten sonra siz bunu direkt
+[00:16:36] şuradan kopyalayıp eee yanlış yerde https olarak alacaktık. Bunu kopyalayıp
+[00:16:40] buraya da yapıştırabilirsiniz. Ve bu sayede sonrasında siz bunu projeye
+[00:16:44] çevirebilirsiniz. Örneğin ben burada şimdi bunu proje olarak oluşturuyorum.
+[00:16:47] Versel'de bu benim projem ve kod her zaman için burada cloud kodda herhangi
+[00:16:52] bir şeyi değiştirdiğinde tekrardan deploy et dediğinizde son versiyonunu
+[00:16:56] yükler. Versel de son versiyonu otomatik olarak çeker gitap. Yani aslında siz
+[00:17:01] tekrar sürekli bunu yapmanıza gerek yok. Bunu tek sefer yapmanız yeterli oluyor.
+[00:17:05] Burada projeyi yüklediğinde aslında siz bunu artık e kendi verelinden de
+[00:17:09] görebilirsiniz. buraya basarak aynı zamanda burada siz bunu kendi
+[00:17:13] domaininize koyabilirsiniz. Burada farklı farklı bir sürü opsiyonu
+[00:17:16] görebilirsiniz. Aynı zamanda analitiklerini görebilirsiniz. Kaç kişi
+[00:17:19] web sitenize girmiş, kaç kişi bunu görmüş. Ben de kendim Versel
+[00:17:22] kullanıyorum ve eğer çok fazla trafiğiniz artarsa pahalı olmaya başlar
+[00:17:25] bu arada söyleyeyim ama yine güzel bir opsiyondur. Siz burada kendi domainizi
+[00:17:28] buraya koyabilirsiniz. E ve bu projeyi artık e kullanılır hale
+[00:17:32] getirebilirsiniz. Şimdi şuraya basabilirsiniz aşağıdan custom domain
+[00:17:35] olarak mesela buraya istersem ben protpal.com'a bunu ekleyebilirim. çok
+[00:17:40] basit bir şekilde eklenebilir ve sonrasında bunu canlıya almış olursunuz.
+[00:17:44] Baştan sona aslında çok profesyonel web sitesini kurmak bu kadar basit ve
+[00:17:49] bununla alakalı bütün detayları paylaşıyor olurum. Aynı zamanda bunun
+[00:17:52] detaylarını görmek istiyorsanız, bu tarz sistemleri sürekli görmek, öğrenmek
+[00:17:55] istiyorsanız topluğa göz atın derim. Topluluk içerisinde hem birçok kişi
+[00:17:59] kendi başarılarını paylaşıyor hem de kendi içerisinde hem bulabileceğiniz
+[00:18:03] eğitimler var, canlı yayınlar var ve teknik desteği alabilirsiniz. Bununla
+[00:18:06] alakalı yine detaylar var. Bir sonraki videolarda görüşmek üzere. Açıklamaya
+[00:18:11] mutlaka birçok detayı koyuyor olurum. Kendinizi de deneyebileceğiniz şekilde
+[00:18:14] olmuş olur. Çokça selamlar. Bir sonraki videolarda görüşmek üzere.
