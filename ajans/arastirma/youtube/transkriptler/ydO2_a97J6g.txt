@@ -1,0 +1,353 @@
+# 
+# https://www.youtube.com/watch?v=ydO2_a97J6g
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:ydO2_a97J6g.tr.json3
+
+[00:00:00] Birçok şirketin web siteye ihtiyacı var ve çok profesyonel web sitelerini sadece
+[00:00:03] cllou kodu kullanarak oluşturabilirsiniz. Bu videonun
+[00:00:06] içerisinde kendim için bir web sitesi oluşturuyor olacağım ve burada da sadece
+[00:00:10] cloud kodu kullanacağım. İçerisinde bloglar olacak, görselleri oluşturacak,
+[00:00:13] videoları oluşturacak bütün aşamaların hepsi aslında içerisinde olacak ve işin
+[00:00:18] en güzel yanı ise birçok işin sadece prompt yazarak benzerini oluşturabiliyor
+[00:00:21] olması. Şimdi videoya direkt geçmiş olalım. Cloud kod'la aslında e cloud
+[00:00:26] kodu daha öncesinde kurmadıysanız hemen çok kısa bir giriş yapmış olayım. Cloud
+[00:00:29] kodu şu şekilde kuruyorsunuz. İlk olarak Visual Studio'yu indiriyorsunuz. Şu mavi
+[00:00:33] olan versiyon veya handy gravity'yi indiriyorsunuz. Handigravity'nin
+[00:00:37] içerisinde cloud kodu çalıştırıyorsunuz. Burada da aslında yaptığınız işlem tam
+[00:00:41] olarak şu. Şimdi bu şekilde açıldığında bir ekran geliyor. End gravity
+[00:00:45] içerisindeyiz. Buradan e siz extensionlardan clock koda bastığınızda
+[00:00:49] bunu yüklediğinizde bu şekilde aslında bir panel görüyor olacaksınız ve burada
+[00:00:53] normal prompt yazarak sürecinizi ilerletebilirsiniz. Normalde geleneksel
+[00:00:56] bir kodlama modeli var değil mi? Öncelikle işte tasarımını yapıyorsun,
+[00:00:59] içeriklerini hazırlıyorsun, sonrasında işte bloklarını hazırlıyorsun. Bunların
+[00:01:02] hepsini teker teker koyuyorsun. Bunun için belki işte Framer gibi veya Webflow
+[00:01:08] gibi sistemleri kullanacaksın ki ben mesela Webflow'a euro para veriyordum.
+[00:01:13] Artık vermiyorum çünkü ihtiyacım yok. aynısını hatta daha güzelini ben cloud
+[00:01:17] kodla yapabiliyorum ve o yüzden aslında sıfırdan istediğim gibi web sitesini
+[00:01:22] benim için kurabiliyor ve çok da güzel görünüyor. O yüzden artık zaman kaybına,
+[00:01:25] maliyete veya farklı birçok sistemi kullanmaya hiçbir şekilde gerek yok.
+[00:01:29] Cloud aslında benim için ben bir örnek web sitesini verdikten sonra birebir
+[00:01:33] aynısını yapabiliyor. Burada da benim açıkçası örnek aldığım web sitesi vardı
+[00:01:37] ve bunu baştan sona oluşturmasını istedim. Web sitesinin iki farklı
+[00:01:40] versiyonunu göstereceğim size bugün. birinci versiyonunda ki şu anda
+[00:01:44] göreceksiniz baştan sona izleyeceğiz nasıl yaptığımı. Sıfır'dan başlıyor
+[00:01:47] olacağım. Sonrasında ikinci versiyonunda örnek bir web sitesi vereceğim. Örnek
+[00:01:51] web sitesinin birebir aynısını kopyalamasını isteyeceğim. Şimdi kendim
+[00:01:54] direkt web sitemle başlamış oluyorum. Şimdi bunu aslında biraz daha
+[00:01:57] hızlandırmak için bir videoya aldım. Video şeklinde direkt hızlı bir şekilde
+[00:02:01] göstereyim istediğim için. Şimdi yaptığım şey şu. Leflow web sitemi
+[00:02:05] öncesinde sayfayı analiz ettiriyorum. sayfayı analiz ettirdikten sonra da
+[00:02:09] aslında burada ben PDF olarak indiriyorum bunu. Her sayfayı
+[00:02:12] indirmesini istiyorum. İçerisindeki bütün sayfaların olmasına dikkat edin bu
+[00:02:15] arada. Ve e sonrasında da bunu neden yapıyorum? Birebir aynısını oluşturmak
+[00:02:20] için. Hem içindeki içerikleri okusun diye, yazıları okusun diye, hem de
+[00:02:24] benzer bir sistemin aynısını oluştursun diye. Sonrasında ben bunu indiriyorum ve
+[00:02:28] bu şekilde kaydediyorum aslında direkt eee PDF olarak. Sonrasında bir sonraki
+[00:02:33] aşamada eee bunu ben cloud kodun içerisinde açıyorum. Boş bir clav kod
+[00:02:37] tamamen. Sonra da bir promptum var. Promptumu yazıyorum burada ekstra. Yine
+[00:02:40] chat tarafında şimdi göreceksiniz zaten promptu. Öncelikle bir MD dosyası
+[00:02:45] oluşturmasını istiyorum. Yani diyorum ki ben işte Nano Banana'yı kullanmanı
+[00:02:48] istiyorum. Falay'ı kullanmanı istiyorum ve sonrasında da benim için çok kaliteli
+[00:02:52] bir web sitesi oluşturmanı istiyorum diyorum. Sonrasında bunu bir MD dosyası
+[00:02:56] haline getirmesini istiyorum. Bu MD dosyasını da aslında ben sonrasında
+[00:02:59] clloud koda vereceğim. Bütün diğer görsellerimle birlikte yani hem web
+[00:03:03] sitesinin görselini alıyorsunuz hem de MD dosyanızı almış oluyorsunuz.
+[00:03:07] Sonrasında burada örneğin benim için direkt cloud kode bir görsel oluşturmuş
+[00:03:11] oluyor ve bu görseli oluşturduktan sonra da ben ekstra artık bunu istediğim
+[00:03:14] şekilde kullanabilirim. Ondan sonrasında burada bir püf nokta var. Bunu hemen
+[00:03:17] göstermiş olayım size. Şimdi arayüzün kaliteli olmasını istiyorsanız, wipe
+[00:03:22] coded gibi durmasını istemiyorsanız UI kitlerini kullanmanız lazım. Bunlar
+[00:03:26] arayüzler aslında. O yüzden diyorum ki arayüzün iyi olmasını sağlamak için
+[00:03:29] front end design skillsını kullanman gerekiyor diyorum. Bunu da eee şimdi ben
+[00:03:33] ona veriyorum ekstra. Clock skills yazdığınızda zaten şurada AI tmpl diye
+[00:03:38] yazan bunun içerisinde bir sürü yetenek var. Bunların hepsi cloud code skilleri.
+[00:03:42] Bunu burada örneğin frontend design'ı kopyalıyorum. Bunu da yapıştırıyorum. Ve
+[00:03:45] sonrasında eee ekstra farklı bir şey de ekleyebilirsiniz. Bu arada ben burada
+[00:03:48] genelde hep test sistemlerini kullanıyorum, test yeteneklerini
+[00:03:52] kullanıyorum ama bu yeteneklerin herhangi birisini alabilirsiniz.
+[00:03:55] Sonrasında da bunu da ekstra verdim. Diğer bir versiyonunu. Bu kadarı yeterli
+[00:03:59] aslında. Sonrasında da bunu MD dosyasına eklemesini istiyorum. Bunların hepsini
+[00:04:02] verdikten sonra bunları MD dosyasına ekliyor benim için. MD dosyasını
+[00:04:05] ekledikten sonra da aslında cloud kod verebiliyorsunuz. Bunu mutlaka yapmanız
+[00:04:10] lazım. Projeye başlıyorken Cloud COD'un neler yapabilmesi gerektiğini mutlaka
+[00:04:14] yazmanız lazım. Burada cllar Code dosya yönetimi yapabilir, kod üretebilir.
+[00:04:18] Kendisi arayüz oluşturabilir. Hatta sizin için canlıya da alabilir. Bütün
+[00:04:22] özelliklerini hepsini yapar. Eğer ona yetkili erişimleri verirseniz. Bunu da
+[00:04:25] zaten şimdi kuruyor olacağız. Şimdi MD dosyasını aldıktan sonra da aynı zamanda
+[00:04:29] ben Fayı'ya giriyorum. Fayı'da da bir AP anahtarı alıyor olacağım. Neden? Çünkü
+[00:04:34] görselleri oluşturmasını istiyorum. Bir de video oluşturmasını istiyorum. Bunu
+[00:04:37] Cloud Code kendisi yapabilir ama AP'ye ihtiyacı var. O yüzden ben burada bir AP
+[00:04:41] anahtarımı alıyorum. AP anahtarımın sonrasında da direkt ben cloud koda
+[00:04:44] veriyor olacağım. Aynı zamanda bunu da söylüyorum ki işte cloud koda bunu da
+[00:04:47] ekleyelim. E ve hani sürekli çalışabilecek hale getirelim diye. Zaten
+[00:04:51] ekstra bir prompt bile vermeme gerek yok. Çünkü zaten MD dosyasını okuyup
+[00:04:55] kendisi başlayabilir. Ve sonrasında promptum da iyileştir diyorum. Direkt
+[00:04:59] ben bunu cloud koda vereceğim. Aslında vermenize gerek yok. Çünkü MD dosyasının
+[00:05:02] içerisine yazdığınızda yeterli olur genelde ama ekstra verebilirsiniz. Bir
+[00:05:06] de sonrasında diyorum ki yine en önemli konulardan bir tanesi bittiğinde işlem
+[00:05:09] direkt verselde canlıya alacağız diyorum. Yani sen aslında otomatik
+[00:05:13] olarak verelde kendin bağlan ve uygulamayı canlıya alabil demiş
+[00:05:17] oluyorum. Bunu da sonrasında eee aslında cllarcod kendisi yapabiliyor. Şimdi
+[00:05:21] artık promptunuz var ve eee bu promtlarla birlikte siz direkt aslında
+[00:05:26] notlarınızı ve promptunuzu yapıştırabilirsiniz. Fayı API
+[00:05:30] anahtarınız zaten içerisinde yine ve sonrasında kendisi aslında Versale' de
+[00:05:33] bağlanabilecek. Bunların hepsini zaten görüyor olacaksınız. Şimdi burada farklı
+[00:05:37] modlar var bu arada. Otomatik olarak editleme modu var, bypass modu var,
+[00:05:40] planlama modu var. E şu anda otomatik olarak editleme modunda ilerliyor.
+[00:05:44] Sonrasında bütün dosyalarla birlikte başlıyor. Ben bunu bypass moduna
+[00:05:47] alıyorum. Bypass moduna aldıktan sonra da hiç durmadan aslında devam
+[00:05:50] edebiliyor. Sonrasında ben Fay'a anahtarımı da vermiş oluyorum ve
+[00:05:54] sonrasında sürekli kontrol ediyorum. Eğer gerçekten hani eee bir etkileşim
+[00:05:58] yapmış mı, istek atmış mı diye. Sıra diyorum ki
+[00:06:03] F A'yi çok fazla kullanma. Maksimum işte 30 tane görsel kullan veya 10 tane video
+[00:06:08] kullan. Daha fazlasını oluşturma. Bu şekilde bir limit vermeniz önemli. Çünkü
+[00:06:11] limit olmazsa hani 100 tane istek atarsa 100 dolarlık bir işlem aslında başlatmış
+[00:06:16] olur. Onu yapmasını istemiyorum. Sonrasında benim için bütün bu aşamaları
+[00:06:19] ilerletiyor. Burası bayağı uzun sürüyor açıkçası. O yüzden bu kısımları
+[00:06:22] geçeceğim. Zaten bilerek bunu ekran videosu aldım. Yoksa videoyu çekiyorken
+[00:06:26] çok vaktiniz gidiyor. Cloud Code burada örneğin yaklaşık 25 dakika web sitesini
+[00:06:30] yaptı ve bir 25 dakika aslında kamera başında durmanız gerekiyor. O yüzden ben
+[00:06:33] bunu farklı bir iş yapıyorken bir yandan çalıştırdım. Şu anda örneğin hala
+[00:06:37] işlemleri yapmaya devam ediyor. Hiç gösterilecek bir şey bile yok.
+[00:06:40] Sonrasında bakıyorum en sonuna kadar
+[00:06:45] tamamen bu aslında. Sonrasında benim için web sitesini bitirdi. Çıkan web
+[00:06:50] sitesi şu şekilde görünüyordu. Direkt böyle bir web sitesi yapmış. Hem Türkçe
+[00:06:54] hem İngilizce hem de Hollandasını yaptı ve bütün hepsi de doğru. Sayfa inanılmaz
+[00:06:59] hızlı. Görsellerini kendisi oluşturmuş. Sonrasında buraya bir sürü yapılabilecek
+[00:07:04] işleri koymuş. Ve görsel olarak da ben zaten Left Flow'un aynısı olsun
+[00:07:08] demiştim. zaten görsel olarak da bayağı benziyor. Ve eee sonrasında exrasis
+[00:07:14] birçok farklı sektör içerisine koymuş. Form mantığını içerisine koymuş.
+[00:07:21] Endüstrileri koymuş. Yine sağlık sektörü vesaire ve benim en beğendiğim blogların
+[00:07:27] hepsini yazıp koymuş buraya. Bu blogların hepsine siz bakabiliyorsunuz,
+[00:07:30] kontrol edebiliyorsunuz. İsterseniz düzeltebilirsiniz. Bu arada hepsini
+[00:07:33] kendisi yine yazmış ve aslında baştan sona bir web sitesinin içerisinde
+[00:07:37] olabilecek her şeyi kendisi yapmış. Çok profesyonel mi? Benim için yeterli
+[00:07:41] değil. O yüzden ben şunu yaptım. Dedim ki benim başka bir örneğim daha var ve
+[00:07:46] bu örneği vereceğim sana. Bu örneğe göre şu andaki yaptığın işlemin üzerine bir
+[00:07:51] şeyler koyacaksın. Sonrasında da şimdi videonun ikinci tarafına geçiyoruz. İki
+[00:07:55] tane webs yapacağım demiştim. İlk aslında bu gördüğünüz ve sürecini de
+[00:08:00] gördünüz tamamen. Şimdi ise şu şekilde başladım. Şimdi ben bunu promtunu
+[00:08:05] söyleyeceğim. Şimdi bir önceki projeyi tekrardan açtım. Bir sonraki gündeyim.
+[00:08:10] Aynı dosyayı açtığınızda zaten bütün dosyaları görebiliyor. Yani o yüzden
+[00:08:13] bilgisayarınızda ona bir dosya açın. O dosyayı bilsin. İdeal senaryoda da her
+[00:08:17] şeyi gitab'a yüklesin. Otomatik olarak bütün yaptığı değişikliklerde Gitab'a
+[00:08:20] yüklesin. Git projesini çünkü siz istediğiniz cihazda çekebilirsiniz geri.
+[00:08:24] İlla dosya olarak oturmasına gerek yok. Çünkü dosya olarak kaldığında bile aynı
+[00:08:28] zamanda birçok şeyi siz buluta koyduğunuzda patlayabilir. Şimdi dedim
+[00:08:32] ki bütün her şey aynı kalsın ve sonrasında bütün mantığı, içeriği, her
+[00:08:37] şeyi tutabilirsin ama ben ekstra daha detaylı bir şey istiyorum. Bunun için
+[00:08:41] nana bananaı kullan, VO3'ü kullan video oluşturmak için ve sonrasında Leftlow
+[00:08:45] animasyonunu yap. Leftlow logosunu animasyonlu bir hale çevir. Aynı zamanda
+[00:08:49] dedim şöyle bir web sitesi var. Ben çok beğendim. Bu web sitesine bak benim
+[00:08:52] için. Bir de form otomasyonunu bağla dedim arka tarafa. Şimdi çok güzel bir
+[00:08:56] web sitesi bu. Bu bir ajans. Bütün sayfaları oldukça güzel ve eee birçok
+[00:09:01] farklı sayfayı da koymuş ve ben istedim ki hani bunun gibi bir şey olsun. Hatta
+[00:09:05] şuradaki açılış bile eee animasyonda bir açılış olsun bu şekilde. Şimdi bu web
+[00:09:10] sitesini verdikten sonra da şuraya örneğin çok güzel yine eee takvim de
+[00:09:14] koymuşlar. Takvimden direkt ben toplantı da alabiliyorum. Ve benim için aslında
+[00:09:18] sonrasında başladı. İlk yaptığı şey şu oldu. Bütün her şeyi bir bütün
+[00:09:22] sayfalarını inceledi. Bütün web sitesindeki sayfaları okuduktan sonra da
+[00:09:27] burada örneğin tekrardan ben ona bir API verdim. Sonrasında strain e adresi de
+[00:09:32] verdim. Kendi toplantı adresimi de verdim Cendly için. Çünkü online
+[00:09:36] toplantıları otomatik bir şekilde yapmasını istiyorum. Sonrasında bütün
+[00:09:39] sayfaları benim için analiz etti. Bazen hata oluyor. Hata aldığında da tekrardan
+[00:09:43] deniyor [homurdanır] ve sonrasında bütün sayfaları bitirdi ve her şeyi yaptı.
+[00:09:47] Şimdi sonrasında da sayfa sayfa hepsini inceledi. Ben size hiçbir şey yapmadım.
+[00:09:52] Bunların hepsini tamamen kendisi yaptı. Aşağıya doğru ben hiçbir şekilde etki
+[00:09:57] etmedim. Şimdi bunu normalde eğer byaypass modunda çalıştırırsanız daha
+[00:10:01] hızlı ilerler. Bunu şöyle açıyorsunuz. Sağ üstte editöre' basıyorsunuz.
+[00:10:04] Sonrasında extensioner basıyorsunuz. Clar kod'a basıyorsunuz. Aşağıda bir
+[00:10:09] terminal olarak açabilirsiniz. Bence çok değerli. Açtığınızda terminalde açılsın
+[00:10:12] diyebilirsiniz. Öyle kullanabilirsiniz. Bir de yukarıda bypass permissions var.
+[00:10:16] Bunu açtığınızda artık aslında hiç durmadan ya şunu yapayım mı bunu yapayım
+[00:10:20] mı diye sormadan kendisi bütün aşamaları alıyor. Alternatif yöntemleri arıyor.
+[00:10:24] Aslında tam bir ajan mantığında çalışıyor. Şimdi sonrasında işi tamamen
+[00:10:28] bitirdi. 99 tane web sitesini oluşturmuş. 99 tane sayfa oluşturmuş web
+[00:10:33] sitesi için. Şimdi ben diyorum ki bunu Versele'e
+[00:10:38] deployed ben burada görmek istiyorum. Şimdi bir
+[00:10:43] önceki web sitesi neydi? aslında şuydu. Şu şekilde böyle bir versel. Yapmış.
+[00:10:49] Bunu aynı zamanda diyorum ki bu web sitesinde
+[00:10:55] görmek istiyorum bütün değişiklikleri. Sonrasında bu otomatik olarak deploy
+[00:11:02] edecek. Yani deploy eşittir aslında canlıya almak. Sizin bir web siteniz
+[00:11:05] var. Bu web sitesini canlıya alıyor olacak. Burada versel bağlanıyor
+[00:11:09] kendisi. Bu arada orada size bir authentication popup'ı açıyor. Tek
+[00:11:12] seferlik. Orada bir kod gösteriyor. O kodu alıp buraya yapıştırıyorsunuz.
+[00:11:15] İşiniz bitiyor. Yani sadece cloud kodun sizin ekranınıza çıkartan şeyleri takip
+[00:11:19] etmesini yapıyorsunuz ve yeterli oluyor. Normalde adım adım şunları yaptık
+[00:11:23] aslında. Bir ne istediğimizi prompt olarak yazdık. Bir MD dosyası çıkarttık.
+[00:11:28] Dedik ki benim cloud'a verebileceğim bir proje altyapısı çıkart. İşte içerisinde
+[00:11:32] canlıyı almak için sistemleri kullan, falı kullan, görsel ve video istiyorum
+[00:11:35] dedik. Sonrasında kodlama tarafını benim için cloud kod yaptı. canlıyı alma
+[00:11:40] tarafında benim için cloud kode yaptı ve versel kullanarak burada da git'ı
+[00:11:43] kullanıyor, Versel'i kullanıyor. Bunun da aşamalarını şöyle ilerletmeniz lazım.
+[00:11:47] Öncelikle bir gitub içerisine giriyorsunuz. Gitup'ta burada
+[00:11:51] organizasyonların içerisinde siz bir repo açıyorsunuz. Bu yeni repoya
+[00:11:55] diyorsunuz ki mesela websitem. Sonrasında bunu oluşturduktan sonra
+[00:11:59] şöyle oluşturuyorsunuz örneğin. Sonrasında burada siz artık issue'lara
+[00:12:05] basabilirsiniz. pull requestlere basabilirsiniz ve burada görünür bu
+[00:12:08] detayların hepsi. Kod tarafında siz sadece şu URL'yi almanız yeterli. URL'yi
+[00:12:13] aldıktan sonra eee buraya otomatik bir şekilde yükler. Versel'de de şöyle bir
+[00:12:17] sistem var. Versel'de iki opsiyonunuz var. Normalde kendiniz de deploy
+[00:12:20] edebilirsiniz ama mesela geri gittiğimizde burada yeni proje
+[00:12:24] oluşturabiliriz veya siz bu projenin detaylarını verdiğinizde o gitub
+[00:12:28] kullanarak kendisi verale deploy edebiliyor ve bütün aşamalarını yapıyor.
+[00:12:32] Ve aynı zamanda clav code verdiğiniz örnek web sitesini alıp görsellerini
+[00:12:36] alıp birebir aynısını oluşturabilir. Hatta siz sayfanın tamamını
+[00:12:39] kopyalayabilirsiniz. Layout'unu kopyalayabilirsiniz. Oradan çekebilir
+[00:12:42] veya kendisi web siteye gidip çekebilir. Bunların hepsi mümkün. prompt
+[00:12:46] yazıyorsunuz, analiz ediyor, kodu üretiyor ve canlı bir çıktı veriyor
+[00:12:49] size. Şimdi şurada mesela yüklemiş bunu tekrardan bunu bir açalım. Bir
+[00:12:55] değişiklik var mı diye bakacağım. Şimdi baktığınızda değişiklik daha yok.
+[00:12:58] Yaptığı değişiklikleri görmüyorsunuz diyelim. Ne yapacaksınız? Aslında şunu
+[00:13:01] yapıyorsunuz ki tabii ki kesin emin olun bir şeyleri güncellediğine.
+[00:13:05] Güncellememiş diye düşünüyorum. Zaten bu sayfaya da kalend eklememiş. Ne
+[00:13:08] yapıyorsunuz? Versale'e geri gidiyorsunuz. Hangi web sitesiydi o?
+[00:13:12] Hemen ben bakıyorum. Şimdi bu normalde eee biliyorsunuz iki gün öncesinde
+[00:13:17] oluşturulmuş. Bunu görebiliyorsunuz. Sonrasında mesela deploymentlara şurada
+[00:13:20] deployment'lara basıyorsunuz. Deployment'lardan burada bası
+[00:13:23] bakıyorsunuz iki gün öncesinde en son yapılmış. Yani bugün aslında az önce
+[00:13:27] canlıya aldım dedi ama canlıya almadı. O yüzden burada bir problem var. Diyorum
+[00:13:31] ki eee canlıya aldım dedin. Ancak Gitub'ı GTAaki left flow projesini
+[00:13:42] önce güncelle. Sonrasında da Verseli'i güncelle.
+[00:13:50] Son deployment iki gün önce yapılmış
+[00:13:55] diyorum. Sonrasına bir de burada bakıyorum. kopyalayabileceğim bir örnek
+[00:13:58] var mı diye. Şu left flow projesi şuna bakalım. Mesela en son deployment buymuş
+[00:14:03] zaten. Başka bir şey yok. Bakıyorum sayfaya gittiğimde de burada bir şey
+[00:14:06] görmüyorum. Aynısı zaten. O yüzden bunu tekrardan yapmasını istiyorum. Bunu da
+[00:14:11] hemen arsp dev içerisinde örneğin ben bunu size gösterebilirim. Hangisi
+[00:14:14] içerisinde? Şurada left flow'un içerisinde. Şu proje aslında
+[00:14:18] bakıyorsunuz en son iki gün öncesinde güncellenmiş. O yüzden ben bunu
+[00:14:22] kopyalıyorum. Diyorum ki şunu da verdiğimde artık bu projeyi güncellemesi
+[00:14:29] lazım. Belki gidip başka bir projeyi güncelledi. Artık bilemiyorum hangi
+[00:14:31] projeyi güncellediğini ki bakabiliriz aslında. Hemen şuradan
+[00:14:37] benim burada kişisel web sitemi de aynı şekilde yaptırdım. Ona bakalım. Belki
+[00:14:40] onu güncellemiş olabilir. İki gün önce. 2 gün önce.
+[00:14:45] Herhangi bir yeni bir şey yok. Şunları zaten güncellese burada görürsünüz.
+[00:14:50] Deploymentların içerisinde hepsini zaten görebilirsiniz. Şu mesela en son
+[00:14:53] versiyonu deployment'lara basıyorsunuz. Sonrasında bakıyorsunuz iki gün
+[00:14:56] öncesinde yapılmış. Yani buradan takip edebilirsiniz çalışıp çalışmadığını.
+[00:15:00] Şimdi bunları kapatıyorum. Burada da eğer burayı güncellersse zaten
+[00:15:05] burası şimdi çalışıyor olacak. Şu an örneğin bakıyor hepsine. Şu an geldi. Az
+[00:15:11] önce bunu canlıya aldı. Kitaba push edildi. Şimdi otomatik olarak Versel
+[00:15:15] başlayacak. Normalde otomatik olarak çeker oradan. E versele tekrardan
+[00:15:19] giriyorum. Projeye basıyorum. Burada deploymentları görebilirsiniz
+[00:15:23] veya ne zaman değiştiğini de görebilirsiniz. Son versiyonun. Şu anda
+[00:15:27] bence bir değişiklik yok hala. Bunu manuel bir şekilde ben
+[00:15:30] deploylayabilirim. Bu da mümkün
+[00:15:35] ama bakacağım şimdi burada ne yapıyor. Tamamını onun yapmasını isteyeceğim. Ok.
+[00:15:38] Şimdi her şey güncellemiş. Tekrardan aynı linkten bakabiliriz. Şurada örneğin
+[00:15:43] ben bunu şimdi yenilediğimde buradaki sayfaların hepsinin değişmesi lazım.
+[00:15:46] Bakıyorum buna left flow v2 diyelim tekrardan. Bunu bir kurmuş olalım.
+[00:15:53] Kendisi yapamadı bunu az önce. Eee, bunu o yüzden tekrardan bir denememiz lazım.
+[00:15:58] Normalde comiti push etti ya. Burada her şeyi görebiliyorum 4 dakika öncesinde
+[00:16:03] ama projeyi tam olarak buraya çevirmedi. Bazen Versel'de açıkçası bazı paketlerde
+[00:16:09] patlayabiliyor. Yeni eğer bir paket kullandıysa o yüzden tekrardan bir
+[00:16:12] deploy etmek mantıklı olabilir. Şu anda onu yapıyoruz. Tekrardan projeyi deploy
+[00:16:16] ediyorum manuel bir şekilde ve e çünkü kendisi deploy ettim dedi.
+[00:16:21] Baktım canlıya tam olarak almamış. Doğru versiyonu almamış daha doğrusu böyle
+[00:16:25] paket versiyonlarında bazen problemler olabiliyor. Şimdi bakalım her şeyi
+[00:16:29] çözecek mi? Ok. Animasyonu ve her şeyi kendisi yapmıştı bu arada bakıyorum.
+[00:16:34] Ok. Buralara video koymuş. Tamam çok kötü değil.
+[00:16:39] Buraları değiştirmiş. Gayet güzel. Bunu da Türkçe yapalım. yapılabiliyor
+[00:16:44] mu? Gayet güzel.
+[00:16:49] Kaybuların da detaylarını yazmış. Daha da detaylı yapmasını isteyebilirim bu
+[00:16:53] arada. Bakalım endüstriler tarafı. Acaba form tarafını nasıl yaptı? Aa okey.
+[00:16:58] Tamam formu da koymuş. İyi. Gayet güzel. Tamam formu da koymuş buraya.
+[00:17:04] Gayet güzel. Biraz daha sayfaları iyileştirebilir bu arada bence. Çünkü şu
+[00:17:08] görüntünün aynısını istiyorum diyebilirim. Hemen şunun örneğin bu
+[00:17:12] görüntünün aynısını vermesi benim için daha değerli. Onu da şöyle yapıyorum
+[00:17:16] tekrardan. Eee, yine sayfanın PDF'ini alabilirim veya sayfanın buradaki
+[00:17:20] kodlarını alabilirim. Her ikisi de mümkün. Aynı zamanda bunu eee, birebir
+[00:17:25] kopyalamasını sağlayabilirim. Bunu da yine sayfadan e şurada aşağı indiğinizde
+[00:17:30] aslında şuradaki layout tarafı vardır. Şurayı kopyaladirsiniz. Aynı zamanda
+[00:17:35] bunlar yine eee stiller. Bu stillerin hepsini kopyalayabilir. Hangi sayfa
+[00:17:40] olduğunu biliyor zaten. Görüntü olarak da alalım. Şimdi ben bunu eee print
+[00:17:43] diyorum. Sonrasında PDF olarak kaydetmesini istiyorum. Sayfa birazcık
+[00:17:47] bozulabilir zaten. Bu normal. Eee veya direkt burada layout'unu
+[00:17:52] değiştirdiğinizde gördüğünüz gibi bozuk ama sadece nasıl
+[00:17:56] göründüğünü görmesini istediğim için bu şekilde ben bunu kaydedip ekstra
+[00:18:00] verebilirim. Bence gerek yok bu arada. Çünkü stili verdiğim için şunu
+[00:18:03] diyebilirim sonrasında. Bu web sitesinin birebir
+[00:18:09] aynısını yapmasını istiyorum.
+[00:18:16] Yapmanı istiyorum diyelim. Bunların hepsini kopyalasın. Bu şekilde
+[00:18:21] son versiyonuna çevirsin. Aynı zamanda bu arada eee görüntüyü tam olarak
+[00:18:26] beğenmediğinizde şunu da diyebilirim ekstra.
+[00:18:29] Kendin birebir Horizons'ı
+[00:18:36] oluştur.
+[00:18:39] Öncekiyle alakası olmasına
+[00:18:45] gerek yok. Bir de AI generated e görseller
+[00:18:52] birazcık aslında biraz kalitesiz duruyor.
+[00:18:58] Onları da düzelt. Yerine daha profesyonel
+[00:19:06] gerçek insan resimleri koy. E nado banana
+[00:19:13] 2'yi kullan.
+[00:19:23] görseller olsun. Hatta birebir aynılarını
+[00:19:30] nanı banana image edit
+[00:19:35] ile oluş. Bunun için de
+[00:19:40] fay kullan. Aslında şunu yaptım. eee baştan kendisi birebir aynısını oluştur.
+[00:19:46] Yapay zeka görselleri de birazcık kalitesi duruyordu. Bunları da yap
+[00:19:48] dedim. Ve bunların aslında hepsini kendisi yapabilir artık. Ve yapmanız
+[00:19:52] gereken şey ise sadece prompt yazmak. Ve bunun artık eee hani profesyonelliğini
+[00:19:57] ulaştırması için de tek yapılması gereken şey bu. Şu resimleri beğenmedim.
+[00:20:01] Şunları tekrardan oluştur. Şunları tekrardan yap dediğinizde kendisi bütün
+[00:20:04] aşamalarını yapabilir. Şimdi bunu beklediğimizde yaklaşık bir 30 dakika
+[00:20:07] daha sürecek. Ancak mantığı anladığınızı düşünüyorum. Ben aynı zamanda
+[00:20:11] açıklamalara detaylı prompt koyuyor olacağım. Onlara da bakarsınız. Bir
+[00:20:15] hazır MD dosyası da koyuyor olacağım. O dosyayı alıp yüklediğinizde neyi nasıl
+[00:20:19] yapması gerektiğini de çok iyi bir şekilde biliyor olacak. Ve bu videonun
+[00:20:23] içerisinde siz baştan sona aslında şunları gördünüz. Bir ben nasıl çok
+[00:20:26] hızlı bir şekilde web sitesi yapabilirim ve çok profesyonel bir web sitesi
+[00:20:29] yapabilirim ve bunu da hizmet olarak müşterilere satabilirim. Sonrasında bu
+[00:20:33] şirketlerin aslında maillerini çıkartabilirsiniz ve bu kişilere bunu
+[00:20:36] satabilirsiniz. Mailleri nasıl çıkartacağım diye sorabilirsiniz. Bunu
+[00:20:39] da ben size hemen göstereyim. Şimdi Epify platformuna giriyorsunuz. Epify
+[00:20:43] platformunun içerisinde hemen hatta şuradan uygulamaya girelim. Örneğin
+[00:20:47] kimin web site ihtiyacı olabilir diye bakabilirsiniz. Bunu iki yöntemi var.
+[00:20:52] Ben örneğin şuradan bir de e Google Maps'ime gireyim. Mesela Appifice
+[00:20:56] Store'a basıyorsunuz. Sonrasında Google Mapsra'a basıyorsunuz ve bunu
+[00:20:59] çalıştırdığınızda örneğin restorantları ben çalıştırdığımda bütün restorantları
+[00:21:04] benim için o mahalle içerisinde çekecek ve bunu seçebilirsiniz. Örneğin İstanbul
+[00:21:08] Kadıköy diyebilirsiniz. Hem maillerini çıkartıyor ki maillerini de yine zaten
+[00:21:12] burada web sitelerini vererek bulabiliyorsunuz. Hem de sonrasında bu
+[00:21:16] kişilerin hangilerinin web sitesi olduğunu, hangilerinin olmadığını da
+[00:21:19] çıkartabilirsiniz. Örneğin bu kişilerin web sitesi yok. Bu web sitesi olmayan
+[00:21:23] kişilere web site hizmeti satabilirsiniz veya web sitesi olan kişilere web
+[00:21:27] sitenizi güncellemek ister misiniz diye hizmet satabilirsiniz. Ve burada da
+[00:21:31] müşterilerin bulabilirsiniz. kişilere email göndermek en mantıklısı olur ve
+[00:21:36] kişilere email gönderdiğinizde şu tarz bir dönüş oranı alırsınız. Yaklaşık %7
+[00:21:40] ile %12 arasında bir dönüş oranı alırsınız. Örneğin son 7 güne bakalım.
+[00:21:43] Yine benzer bir şey görürsünüz. Burada da aslında dönüş oranlarınız yarı olumlu
+[00:21:47] yarı olumsuz olur. Yani %7 %8 dönüş oranınız olduğunda her 100 müşteride 4
+[00:21:53] tane müşteri toplantısı alırsınız. 10 müşteri toplantısında bir tane bile
+[00:21:56] satsanız bir haftalık bir işle aslında ilk projenizi bağlayabilirsiniz. Ve
+[00:22:01] cloud kodu kullanarak da çok profesyonel insanların normalde 2.000 dolar, 3.000
+[00:22:06] dolar para istedikleri web sitelerini siz basit bir şekilde yapabilirsiniz.
+[00:22:10] Bunun yanı sıra ben inanılmaz yüksek, inanılmaz mükemmel web siteleri yapmak
+[00:22:14] istiyorum. Hatta yarışmaya katılabilecek kadar güzel web siteleri yapmak
+[00:22:18] istiyorum diyorsanız da o zaman şuna bakabilirsiniz. 21'in içerisinde bir
+[00:22:23] sürü hazır eee burada uygulama var. Bu uygulamaları kullanabilirsiniz. Bunların
+[00:22:28] içerisinde bir sürü web site var. Örneğin bu web sitelerin arka
+[00:22:31] planlarını, profesyonel yerlerini kullanabilirsiniz. Bunu birazcık
+[00:22:34] isterseniz toparlayabilirsiniz. Yapay zeka hangilerini kullanmam lazım diye
+[00:22:37] çok düşünmez. Yapay zeka her zaman için kısa yolu düşünür. Ben nasıl web
+[00:22:41] sitesini daha hızlı halledebilirim mi düşünür. Ama siz burada örneğin ya ben
+[00:22:45] şunu çok beğendim. Şöyle bir açılma istiyorum. Şöyle bir animasyon istiyorum
+[00:22:48] dediğinizde şöyle bir animasyon örneğin bunu kopyalıyorsunuz promtunu ve bunu
+[00:22:53] direkt verebiliyorsunuz. veya bunu aç dediğinizde sonrasında burada siz bunu
+[00:22:58] kopyaladığınızda cloud code için direkt bunu aldırabiliyorsunuz ve cloud code
+[00:23:02] bunu artık direkt kendi profilinizin içerisine kendi web sitenizin içerisine
+[00:23:06] entegre edebilir ve bu sayede hem çok profesyonel web siteleri
+[00:23:09] oluşturabilirsiniz hem de müşterileri bulup satış yapabilirsiniz. Kısa mailler
+[00:23:13] yazmanız her zaman için mantıklı olur. Bizim zaten eee doğa programı ve doğa
+[00:23:17] sistemindeki kastımız da bu baştan sona. Ben bunu sürekli olarak gösteriyorum.
+[00:23:21] Çünkü sürekli de insanlar bunun faydasını görüyorlar. Ve bizim zaten
+[00:23:25] hedefimiz insanlar girişimciliği öğrensin. Nasıl yapılacağını öğrensin.
+[00:23:29] Bu işe girsinler. Kendi uygulamalarını geliştirsinler. Sonrasında biz bunlara
+[00:23:33] yatırım yapabilelim. Örneğin buradan çok güzel başarılar çıkıyor. Çok güzel
+[00:23:36] şirketler çıkıyor. Bizim hedefimiz bu şirketlere yatırımcı olabilmek aslında.
+[00:23:39] Biraz daha bunları büyütebilmek. Ve bir yandan Cloud COD hala devam ediyorken
+[00:23:43] videonun sonuna gelmiş olduk. Umarım bu videoyu beğenmişsinizdir. Web sitesi
+[00:23:47] nasıl yapılır ve web sitesi nasıl satılırla alakalı detaylı bir video
+[00:23:50] olmuş oldu. Sorularınızı yazabilirsiniz. Abone olmayı, takip etmeyi unutmayın. CL
+[00:23:54] COD'la alakalı, N8N ile alakalı ve bence daha da önemlisi bu yapay zeka
+[00:23:59] araçlarıyla nasıl para kazanılabilirle alakalı içerikleri sürekli olarak
+[00:24:02] yapmaya devam ediyor olacağım. Bunları takip edebilirsiniz. Bir sonraki
+[00:24:05] videolarda görüşmek üzere. Çok selamlar. Yeah.
