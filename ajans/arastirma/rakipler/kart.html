@@ -1,0 +1,159 @@
+<title>Rakip Ajans Kartı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Düzen: tek sütunlu "dosya kartı"; üstte tek cümle + sayılar, altında fiyat bandı, kalıplar, fikirler, fark, bölüm sırası */
+:root{
+  --bg:#F3F6F7; --surface:#FFFFFF; --ink:#13222B; --muted:#53656F; --line:#D5DEE2;
+  --accent:#0A7A73; --accent-ink:#FFFFFF; --accent-soft:#DDF1EF; --warn:#B4400E; --warn-soft:#FBE9DF;
+  --display:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E171C; --surface:#152229; --ink:#E6EEF1; --muted:#9BB0BA; --line:#27393F;
+  --accent:#3CC4B9; --accent-ink:#06211F; --accent-soft:#12332F; --warn:#F09A6A; --warn-soft:#3A2418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E171C; --surface:#152229; --ink:#E6EEF1; --muted:#9BB0BA; --line:#27393F;
+  --accent:#3CC4B9; --accent-ink:#06211F; --accent-soft:#12332F; --warn:#F09A6A; --warn-soft:#3A2418; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--display);font-size:16px;line-height:1.55;padding-inline:max(16px,4vw);padding-block:28px 56px;margin:0}
+main{max-width:920px;margin-inline:auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,6vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:13px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
+p{margin:0}
+.lead{font-size:clamp(18px,2.6vw,22px);max-width:44ch;font-weight:500}
+.kicker{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+header{display:flex;flex-direction:column;gap:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--mono);font-weight:500;font-size:30px;font-variant-numeric:tabular-nums;color:var(--accent)}
+.stat span{font-size:13px;color:var(--muted)}
+section{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px clamp(16px,3vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+ol,ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:9px}
+li::marker{color:var(--accent);font-family:var(--mono)}
+li b{font-weight:700}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.pill{background:var(--accent-soft);border-radius:6px;padding:12px 14px;font-size:15px}
+.pill b{display:block;margin-bottom:2px}
+.warn{background:var(--warn-soft);border-left:3px solid var(--warn);border-radius:0 6px 6px 0;padding:12px 14px;font-size:14.5px}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.steps li{counter-increment:s;border:1px solid var(--line);border-radius:6px;padding:11px 14px 11px 46px;position:relative;font-size:14.5px}
+.steps li::before{content:counter(s);position:absolute;left:12px;top:10px;font-family:var(--mono);font-size:13px;background:var(--accent);color:var(--accent-ink);width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+code{font-family:var(--mono);font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 6px;word-break:break-all}
+.files{display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+footer{font-size:13px;color:var(--muted)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<main>
+<header>
+  <span class="kicker">Ajans · rakip analizi · 12 Ekim 2026</span>
+  <h1>Rakip Ajans Kartı</h1>
+  <p class="lead">Site, mobil uygulama, sosyal medya ve reklam satan 28 ajansı inceledik; hangi paketi kaç liraya sattıklarını ve bizim neyi farklı yapabileceğimizi çıkardık.</p>
+  <div class="stats">
+    <div class="stat"><b>28</b><span>ajans (18 Türkiye, 10 global)</span></div>
+    <div class="stat"><b>28</b><span>ajans notu, her biri 3 iyi + 3 kötü yan</span></div>
+    <div class="stat"><b>67</b><span>ekran görüntüsü (web, mobil, Instagram)</span></div>
+    <div class="stat"><b>0</b><span>Türk ajansı mobil uygulama fiyatı yazıyor</span></div>
+  </div>
+</header>
+
+<section>
+  <h2>Türkiye fiyat bandı (2026, KDV hariç)</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Hizmet</th><th>Butik ajans</th><th>Orta ajans</th></tr></thead>
+    <tbody>
+      <tr><td>Kurumsal web sitesi, tek seferlik</td><td class="n">10.000 – 20.000 ₺</td><td class="n">25.000 – 75.000 ₺</td></tr>
+      <tr><td>E-ticaret sitesi, tek seferlik</td><td class="n">25.000 – 35.000 ₺</td><td class="n">40.000 – 100.000 ₺</td></tr>
+      <tr><td>Sosyal medya yönetimi, aylık</td><td class="n">8.000 – 16.000 ₺</td><td class="n">16.000 – 35.000 ₺</td></tr>
+      <tr><td>Reklam yönetimi, aylık, bütçe hariç</td><td class="n">5.000 – 10.000 ₺</td><td class="n">15.000 – 28.000 ₺</td></tr>
+      <tr><td>Logo</td><td class="n">3.500 – 7.500 ₺</td><td class="n">7.500 – 15.000 ₺</td></tr>
+      <tr><td>Bakım, aylık</td><td class="n">2.000 – 8.000 ₺</td><td class="n">2.500 – 10.000 ₺</td></tr>
+      <tr><td>Mobil uygulama</td><td class="n" colspan="2">Hiçbiri fiyat yazmıyor; yalnız portföyde var</td></tr>
+    </tbody>
+  </table></div>
+  <p class="kicker">Pazar yeri tabanı: Armut ve Bionluk'ta sosyal medya yönetimi ortanca 5.000 – 5.500 ₺/ay.</p>
+</section>
+
+<section>
+  <h2>En önemli 5 kalıp</h2>
+  <ol>
+    <li><b>Herkesin sitesi aynı iskelet:</b> şerit, hero, sayaçlar, logolar, hizmetler, süreç, portföy, paket, yorum, SSS, CTA. Fark fiyatı gösterip göstermemede.</li>
+    <li><b>Paketler 3 kademe, ortadaki "en popüler".</b> Kademe ölçüsü içerik adedi, reklam bütçe tavanı ya da sayfa sayısı.</li>
+    <li><b>Global küçük oyuncular aylık abonelik satıyor:</b> kurulum ücreti yok, "12 ay sonra site senin" (LocalSite $99–399, B12 $24–78, Owner $249–499).</li>
+    <li><b>Kapı ürünü "ücretsiz analiz / denetim / demo".</b> En iyileri bunu araca çevirmiş: DijiPal skor aracı, Owner Restaurant Grader.</li>
+    <li><b>Sosyal medya satanların kendi Instagram'ı zayıf.</b> Büyüyen üç hesap (Owner, Webtures, DijiPal) tek format kullanıyor: eğitim serisi ya da "yeni projemiz yayında".</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Çalacağımız 15 fikir</h2>
+  <ol>
+    <li>Hero'da fiyat + süre + CTA tek cümlede: "7 günde yayında, aylık X ₺'den".</li>
+    <li>Üstü çizili kurulum ücreti, $0 peşin, "12 ay sonra site ve uygulama senin".</li>
+    <li>Kendin yap (Wix/Canva) · klasik ajans · biz karşılaştırma tablosu.</li>
+    <li>Portföy kartında "kaç saatte bitti" etiketi.</li>
+    <li>Hero'da ücretsiz analiz aracı: işletme adı ya da Instagram gir, görünürlük raporu al.</li>
+    <li>Hizmet başına ayrı "/fiyatlar" sayfası ve "ayda X içerik, Y ₺" formülü.</li>
+    <li>Reklam yönetimini bütçe tavanıyla kademelemek, "önerilen minimum bütçe" uyarısı.</li>
+    <li>Paket tablosunda dahil, hariç, müşteri ne sağlar, ödeme planı.</li>
+    <li>Sektör sayfaları ve sektöre özel yan ürün: restoran için QR menü, klinik için randevu.</li>
+    <li>Vaka kartında tek iş sonucu: doluluk, randevu, sipariş. Takipçi değil.</li>
+    <li>Hizmet kartlarında "hangi pakette" rozeti, formda tercih edilen kanal, "2 saatte dönüş".</li>
+    <li>Ucuz teşhis raporu, sonraki pakete mahsup.</li>
+    <li>Instagram'da tek format: her teslimat için mockup + 15 sn ekran kaydı reel'i; ayda bir fiyat carousel'i.</li>
+    <li>"Küçük ekip, aracısız, hesap verebilir" konumlaması.</li>
+    <li>Dürüst dil: "garanti vermiyoruz ama şunu ölçüyoruz" ve aylık 8 adımlık döngü görseli.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Farkımız ne olabilir</h2>
+  <div class="grid2">
+    <div class="pill"><b>Tek pakette 4 hizmet</b>Site, mobil uygulama, sosyal medya, reklam. Türkiye'de kimse uygulamayı pakete koymuyor.</div>
+    <div class="pill"><b>Hız kanıtı</b>"7 günde yayında" ve portföyde süre etiketi. Rakipler 2–16 hafta.</div>
+    <div class="pill"><b>Peşinatsız aylık fiyat</b>Kurulum 0 ₺, aylık sabit, 12 ay sonra senin. Türkiye'de ilk olur.</div>
+    <div class="pill"><b>Kendi Instagram'ımız vitrin</b>Rakiplerin en büyük açığı. Her teslimat bir içerik.</div>
+    <div class="pill"><b>Sonuç dili</b>Rezervasyon, randevu, sipariş. Sektör: restoran, kafe, berber, klinik, butik.</div>
+    <div class="pill"><b>WhatsApp önce</b>Sabit buton, takvim linki, 2 saatte dönüş. AI'ı nasıl kullandığımızı açıkça anlatmak.</div>
+  </div>
+  <p class="warn">Dikkat: rakiplerin birçok sayısı doğrulanamıyor ("4.200+ marka", "150+ site"). Biz sadece gösterebildiğimiz sayıyı yazalım.</p>
+</section>
+
+<section>
+  <h2>Bizim sitemiz için bölüm sırası</h2>
+  <ol class="steps">
+    <li>Duyuru şeridi: kampanya, WhatsApp, süre.</li>
+    <li>Hero: vaat + fiyat + sektör butonları + ücretsiz rapor aracı.</li>
+    <li>Canlı örnek şeridi: son 6 teslimat, süre etiketli.</li>
+    <li>Ne alıyorsun: site, uygulama, içerik, reklam, Haritalar, WhatsApp.</li>
+    <li>Karşılaştırma tablosu: kendin yap, klasik ajans, biz.</li>
+    <li>Nasıl çalışıyoruz: anket, taslak, onay, yayın, aylık döngü.</li>
+    <li>Fiyatlar: 3 kademe, aylık, ortada "en popüler", dahil/hariç.</li>
+    <li>Vaka kartları: sonuç dili.</li>
+    <li>Sektör kartları: ayrı iniş sayfalarına.</li>
+    <li>Yorumlar, Google puanı, ekip yüzleri, "AI üretir, insan onaylar".</li>
+    <li>SSS: süre, sahiplik, iptal, reklam bütçesi, mağaza süreci.</li>
+    <li>Blog ve ipuçları, kapanış CTA: WhatsApp, telefon, takvim.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Dosyalar</h2>
+  <div class="files">
+    <span><code>ajans/arastirma/rakipler/OZET.md</code> kalıplar, fiyatlar, fikirler, bölüm sırası</span>
+    <span><code>ajans/arastirma/rakipler/index.md</code> 28 ajans tablosu ve Instagram verisi</span>
+    <span><code>ajans/arastirma/rakipler/ajanslar/</code> ajans başına detay notu</span>
+    <span><code>ajans/arastirma/rakipler/ss/</code> web, mobil ve Instagram görüntüleri</span>
+  </div>
+  <p class="warn">Alınamayanlar: E-Pazarla, Webolizma, Ajans360 web görüntüleri, Creamaxi (siyah çıktı) site ya da proxy engeli yüzünden yok. Instagram bio metinleri embed ucundan gelmiyor.</p>
+</section>
+<footer>Kaynak: rakip siteleri ve herkese açık Instagram verisi, 5–12 Ekim 2026.</footer>
+</main>
