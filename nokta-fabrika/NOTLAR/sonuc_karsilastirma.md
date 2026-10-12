@@ -32,3 +32,12 @@ API 26 emülatörü: soğuk açılış 6198 ms (A/B ~8,5 sn, C ~5,6 sn; tek örn
 Geri al şeridi: 6 sn pencerede emülatörün yavaşlığı yüzünden dokunuşlar zamanında ulaşmadı; geçici 30 sn'lik bir derlemede silinen madde geri geldi (kod doğru, 6 sn değeri gerçek cihazda denenmeli).
 API 35 emülatörü: kurulum, açılış, art arda ekleme, ön plan servisi (specialUse) çalıştı, çökme yok. Bu emülatörde sistem çubuğu inset'i sıfır bildirildi ve ekran görüntüleri bozuk/siyah geldi: kenardan kenara düzeni ve panelin Android 15 görünümü doğrulanamadı.
 Lint: 0 hata, 24 uyarı. Birim test: 32/32.
+
+## 1.1.0 — zil ile hatırlatma (cihaz sonuçları, Android 8.0 emülatörü)
+Teslim APK SHA-256 1d1b79ad…3d67840. Birim test 40/40 (ReminderPlan 8 yeni), lint 0 hata.
+- Her satırda zil; dokununca "Tekrarla · N dakikada bir" ve "Alarm · saat" penceresi açıldı. Dakika yazınca Tekrarla kendiliğinden açıldı.
+- 1 dakikalık tekrar: sistemde tam zamanlı alarm kuruldu, bildirim "Eggs — Hatırlatma · her 1 dakikada bir" ALDIM/DURDUR ile geldi, sonraki alarm kendiliğinden kuruldu. Önem düzeyi 4 (yüksek; gerçek telefonda ekran üstü açılır pencere). Emülatör ekran görüntüsünde açılır pencere yakalanamadı.
+- DURDUR: tekrar ve saatli alarm silindi, bildirim kalktı. ALDIM: madde üstü çizildi, hatırlatma durdu.
+- Saatli alarm 21:00'de "Eggs — Alarm" bildirimi verdi, tek seferlik kaydı silindi.
+- APK yeniden kurulunca (MY_PACKAGE_REPLACED) alarmlar yeniden kuruldu. Telefon açılışı (BOOT_COMPLETED) emülatörde denenmedi.
+- Testte bulunan ve düzeltilen iki hata: uygulama açıkken balon diyalog düğmelerini örtüyordu (artık uygulama ön plandayken gizleniyor); bildirimden "Durdur"/"Aldım" sonrası uygulamaya dönünce zil simgesi eski kalıyordu (geri dönüşte yenileniyor).

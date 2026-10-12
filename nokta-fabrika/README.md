@@ -10,7 +10,7 @@ TXT'deki istek: sağ kenarda yuvarlak yüzen balonlu, üstü çizilen / silinen 
 | `harita-b/` | Views + Room + panel balon |
 | `harita-c/` | Sıfır bağımlılık, 33 KB APK |
 | `harita-d/` | Nihai sürüm (B tabanı + A/C dersleri) |
-| `RELEASE/` | **Teslim edilen** `nokta-1.0.0-release.apk` / `.aab` ve `SHA256SUMS.txt` |
+| `RELEASE/` | **Teslim edilen** `nokta-1.1.0-release.apk` / `.aab` (zil ile hatırlatma), önceki 1.0.0 ve `SHA256SUMS.txt` |
 | `PLAY_STORE/` | Gizlilik politikası (TR/EN), mağaza metni, Play Console beyan taslakları |
 
 Not: `../nokta-app/` ilk, tek başına yapılmış v1'dir (araştırmasız); nihai sürüm bu klasördeki D'dir.
