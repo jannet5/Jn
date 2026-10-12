@@ -1,0 +1,3688 @@
+# 
+# https://www.youtube.com/watch?v=qm0ZlYezt1Q
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:qm0ZlYezt1Q.tr.json3
+
+[00:00:00] Merhabalar. Bu video sıfırdan cloud kodu
+[00:00:02] öğrenme videosu ve baştan sona bütün
+[00:00:04] detaylarını görüyor olacaksınız. Ben
+[00:00:06] cloud kodu hayatımın her tarafında
+[00:00:07] kullanıyorum ve sadece hayatımda da
+[00:00:09] değil aslında kendi şirketlerimde de
+[00:00:11] kullanıyorum. Ki bu şirketlere
+[00:00:12] baktığınızda aslında yılda yarım
+[00:00:14] milyondan fazla kar yapan şirketler
+[00:00:16] bunlar ve cloud kodu hepsini de çok
+[00:00:18] aktif bir şekilde kullanıyoruz. planlama
+[00:00:20] yapıyorken, otomasyonları yapıyorken ve
+[00:00:23] aslında takımı yönetiyorken birçok yerde
+[00:00:24] cloud code karşınıza çıkıyor ve cloud
+[00:00:26] Cod'a çok fazla uygulama
+[00:00:28] bağlayabildiğiniz için aslında tek
+[00:00:30] başına çok güçlü bir platform haline
+[00:00:31] gelmiş oluyor. Örneğin isterseniz
+[00:00:33] N8N'yi, isterseniz Gmail'inizi,
+[00:00:35] isterseniz YouTube'unuzu
+[00:00:36] bağlayabilirsiniz. Örneğin YouTube
+[00:00:38] otomasyon yapabilirsiniz. Gmail'erinizi
+[00:00:40] kontrol ettirebilirsiniz veya otomasyon
+[00:00:42] yapabilirsiniz D8N için. Ve aslında bu
+[00:00:44] videonun içerisinde cloud kodla alakalı
+[00:00:46] her şeyi öğreniyor olacaksın ve baştan
+[00:00:48] sona bütün aşamalarını görebileceksin.
+[00:00:50] Ve ben de bunların hepsini aslında bölüm
+[00:00:52] bölüm ayırmış oldum. Kağıdınızı,
+[00:00:53] kaleminizi alın çünkü başlamış oluyoruz.
+[00:00:55] Şimdi neden bu kurs aslında bir
+[00:00:57] fikirlerinizi artık günler içerisinde
+[00:00:59] değil saatler içerisinde gerçek bir
+[00:01:02] uygulamaya çevirebilirsiniz veya bir
+[00:01:03] otomasyona çevirebilirsiniz. Hiçbir
+[00:01:05] bariyeriniz yok. Teknik bilginiz
+[00:01:06] olmasına gerek yok. Sadece ve sadece
+[00:01:08] prompt yazıyorsunuz. Aynı zamanda kendi
+[00:01:10] yapay zeka ürününüzü ki bu bir uygulama
+[00:01:13] olabilir veya ajansınızı bu şekilde
+[00:01:15] kurup buradan kazanç elde edebilirsiniz.
+[00:01:17] Ve artık aslında kodlama mühendislerin
+[00:01:19] tekelinde değil cloud kodla herkesin
+[00:01:21] yapabildiği bir yere dönmüş oluyor.
+[00:01:23] Örneğin belki daha öncesindeki
+[00:01:24] videolarımda Boltu'u, kursoru veya
+[00:01:26] farklı uygulamaları görmüş
+[00:01:27] olabilirsiniz. Ancak Cloud Code bence
+[00:01:29] bunların içerisinde sürekli olarak devam
+[00:01:31] edebilen ve bence ilerleyen zamanlarda
+[00:01:34] da sadece tek başına kullanacağımız bir
+[00:01:35] platform haline gelebilecek bir
+[00:01:37] uygulama. O yüzden cloud kodu öğrenmek
+[00:01:40] aslında geleceğe bir yatırım aynı
+[00:01:42] zamanda. Çünkü birçok şeyi aslında bunun
+[00:01:45] içerisinde yapabiliyor olacaksınız.
+[00:01:46] Benim amacım aslında ki 4 yıllık bir
+[00:01:48] girişimcilik hayatımda çok fazla
+[00:01:50] uygulama, çok fazla müşteri görmüş oldum
+[00:01:53] ve kendi uygulamamı büyüttüm, sattım.
+[00:01:55] Birçok müşteriyle çalıştım. Ve benimse
+[00:01:56] amacım aslında teknik engelleri kaldırıp
+[00:01:59] artık herhangi bir fikrinizi aksiyona
+[00:02:01] çevirmeyi sağlamak. Çünkü artık para hız
+[00:02:03] ve aksiyondan geliyor. Eskiden bilgiden
+[00:02:05] geliyordu. Artık bilgi aksiyon ve hıza
+[00:02:08] döndü. Ve artık yapay zekayla siz
+[00:02:11] herhangi bir bilgiye ulaşabilirsiniz. Ve
+[00:02:13] bu da aslında yeni bir vizyon olması
+[00:02:14] lazım birçok kişi için. Şimdi aslında
+[00:02:17] cloud kodunun içerisinde şunlar var. Bir
+[00:02:18] arayüzünüz var, terminaliniz var.
+[00:02:20] Projeyi anlayan bir kontekstiniz var.
+[00:02:23] Yani burada bir beyin var aslında.
+[00:02:25] Sonrasında ajan yetenekleri var ki
+[00:02:27] aksiyon alabiliyor kendi başına. Örneğin
+[00:02:29] bilgisayarınızda olmayan bir yapay zeka
+[00:02:31] modelini veya bir modülü kendisi indirip
+[00:02:34] kurabilir gibi. Aynı zamanda da hızlı
+[00:02:36] bir şekilde kodlama yapabiliyor, kodunu
+[00:02:38] kontrol edebiliyor ve kendisi sürekli
+[00:02:40] olarak herhangi bir güvenlik açığı var
+[00:02:42] mı? İşlemi doğru bir şekilde bitirdin
+[00:02:44] mi? Gereken aksiyonları aldın mı?
+[00:02:45] Sürekli kendi kontrollerini yapabiliyor.
+[00:02:47] Yani kendi içerisinde bırakın çalışsın
+[00:02:50] diyebileceğiniz bir ajan modeli aslında.
+[00:02:52] Cloud code. Çok farklı farklı şeyler
+[00:02:54] göreceksiniz bu videonun içerisinde.
+[00:02:56] Bunu birazcık aslında açıklamış olayım.
+[00:02:58] Biz burada 15 farklı bölüm göreceğiz bu
+[00:03:00] video içerisinde ve bunları da aslında
+[00:03:03] farklı şeylere ayırmış oldum. Burada ilk
+[00:03:05] tarafta aslında temelleri göreceksiniz.
+[00:03:07] Kurulum ve abonelik mantığını nasıl
+[00:03:09] kurulacağını, nasıl abonelik alınacağını
+[00:03:11] göreceksiniz. Sonrasında Visual Studio
+[00:03:13] dediğimiz uygulamanın ne olduğunu,
+[00:03:15] integravity'nin ne olduğunu
+[00:03:16] göreceksiniz. Sonrasında bir proje beyni
+[00:03:19] oluşturacağız. MD dosyası oluşturacağız.
+[00:03:21] Bu MD dosyası örneğin bir web sitesi
+[00:03:23] yapmak için olabilir, uygulama yapmak
+[00:03:25] için olabilir. Sizin aslında başlangıç
+[00:03:27] kılavuzunuz. Bu nasıl kurulur bunu
+[00:03:29] gösteriyor olacağım. Yani bu video
+[00:03:31] aslında sıfırdan başlayıp en sonuna
+[00:03:33] kadar görebileceğiniz belki bazı yerl
+[00:03:36] ilerletebileceğiniz bir video. O yüzden
+[00:03:38] sıfırdan başlıyorsanız bu ilk taraftan
+[00:03:40] başlıyorsunuz. Orta düzeydeyseniz en
+[00:03:42] azından cloud'un ne olduğunu
+[00:03:43] biliyorsanız belki daha öncesinde bir
+[00:03:45] şeyler yaptıysanız ileri tekniklere
+[00:03:47] bakacaksınız. Kendinizi artık bir yere
+[00:03:49] kadar getirdiniz. Belki bir ik proje
+[00:03:50] yaptınız. daha da iyisini istiyorsunuz.
+[00:03:52] Artık siz bir sürü ajanın aynı zamanda
+[00:03:54] çalışmasını belki 20 kişilik bir çalışan
+[00:03:58] ekibini oluşturmayı veya kendi
+[00:04:00] şirketinizdeki herkesi klonlayıp cloud
+[00:04:02] kodu geçirmeyi hedefliyorsanız o zaman
+[00:04:04] da 3üncü tarafa geçmeniz lazım. Burada
+[00:04:06] aslında baştan sona kendinize göre
+[00:04:08] istediğiniz yerden başlayabilirsiniz ama
+[00:04:10] bence sıfırdan başlamalısınız. İkinci
+[00:04:12] bölümde de şimdi ilk taraf bittikten
+[00:04:14] sonra ilk web uygulamasını yaptıktan
+[00:04:16] sonra gelişmiş özellikler tarafına
+[00:04:18] bakacağız. Cloud'un içerisinde neler
+[00:04:19] var? ne tarz özellikler var. Sonrasında
+[00:04:22] özel scriptleri vereceğim ben size. Ve
+[00:04:23] aslında bu tarz şeylerle çok daha az
+[00:04:25] token harcaması yapabilirsiniz. Örneğin
+[00:04:27] daha az tokende yani daha az parayla
+[00:04:29] daha fazla kazanç elde edebilirsiniz.
+[00:04:31] Daha ciddi güzel bir uygulama
+[00:04:33] kurabilirsiniz. Sonrasında eee cloud
+[00:04:35] code skills tarafı var. Bu da çok
+[00:04:37] değerli aslında. Cloud Code'un aslında
+[00:04:39] öğrenebilmesini sağlayan bir sistem ve
+[00:04:42] burada da özelleşmiş ajanlar var
+[00:04:43] içerisinde. Eee aslında ajanlar ve
+[00:04:45] otomasyonun ne olduğunu da biliyorsunuz
+[00:04:47] anlatmıştım daha öncesinde. Oradaki o
+[00:04:49] yüzden eee araya dikkat etmek lazım.
+[00:04:51] Sonrasında MCP mantığını gösteriyor
+[00:04:53] olacağım. MCP de aslında sizi yapay
+[00:04:56] zekanızla başka uygulamaları bağlamanızı
+[00:04:58] sağlayan bir sistem. Ve örneğin bir
+[00:05:00] tarafta Gmail'iniz var. Bir tarafta
+[00:05:01] cloud code var. Diyorsunuz ki cloud koda
+[00:05:03] benim Gmail'ime eriş. Aradaki kurduğu
+[00:05:06] köprünün ismi MCP oluyor. Sonrasında
+[00:05:08] Chrome Dev Tools'u gösteriyor olacağım.
+[00:05:09] Bu da yine çok değerli bence. Çünkü
+[00:05:11] kimse bilmiyor ama cloud Code sizin
+[00:05:13] kendi tarayıcınızda sürekli hareket
+[00:05:15] edebiliyor, aksiyon alabiliyor. Buraya
+[00:05:17] kadar geldikten sonra artık 3üncü büyük
+[00:05:21] bölümde ki totalde 15 tabii ki bölüm var
+[00:05:23] ama 3üncü kategorimizde subagent
+[00:05:26] dediğimiz ajan takımları var. Örneğin 20
+[00:05:28] tane ajanı aynı anda çalıştırıyorsunuz.
+[00:05:30] Hepsinin farklı farklı görevleri var.
+[00:05:32] Örneğin bir tanesi sizin finansörünüz,
+[00:05:34] bir tanesi pazarlamacınız, bir tanesi
+[00:05:36] satışçınız gibi ve bunlar sürekli olarak
+[00:05:39] çalışabiliyorlar. Aynı zamanda burada
+[00:05:41] eee GitHub'taki git eee kısmını
+[00:05:43] bahsediyor olacağım. Bazı terimleri
+[00:05:45] İngilizce yazıyorum çünkü Türkçesini
+[00:05:46] gerçekten bulamıyorum ve Türkçesinde
+[00:05:48] zaten bununla alakalı bir şey
+[00:05:50] çıkmadığında da kullanmamanız lazım. O
+[00:05:52] yüzden birazcık İngilizce terimleri de
+[00:05:54] buraya yazmış oldum. Örneğin pluginin ne
+[00:05:56] olduğu Türkçesi çok fazla yok. Eklenti
+[00:05:58] ama eklenti yazarak ben bunu
+[00:05:59] bulamıyorum. Bu tarz uygulamalar genelde
+[00:06:01] İngilizce çalışıyorlar. O yüzden
+[00:06:02] pluginin ne olduğunu bilmeniz lazım.
+[00:06:04] Bunlar aslında eklenti demek. Pazar
+[00:06:06] yerlerini gösteriyor olacağım. Yine bazı
+[00:06:08] ekstra neler ekleyebilirsiniz? Nasıl
+[00:06:10] cloud kodunuzu daha güçlü hale
+[00:06:11] getirebilirsiniz? Sonrasında büyütme ve
+[00:06:14] nasıl bunu mantıklı bir şekilde
+[00:06:16] kurarsanız bunu gösteriyor olacağım.
+[00:06:18] Örneğin bunu bir cloud'da
+[00:06:19] kurabilirsiniz, VPS'te kurabilirsiniz ve
+[00:06:21] sonraki adımlar ve kaynakları paylaşıyor
+[00:06:23] olacağım son olarak. Burada da sizin
+[00:06:25] kendiniz aslında başlayıp devam
+[00:06:26] edebileceğiniz birçok detay oluyor
+[00:06:29] olacak. birçok kaynak oluyor olacak.
+[00:06:30] Şimdi bir sonraki aşamamda peki kimler
+[00:06:32] için bu? Girişimciler, yazılımcılar ve
+[00:06:35] meraklılar için. Girişimci kategorisin
+[00:06:37] içerisinde de teknik bir bilginiz
+[00:06:39] olmayabilir. Olmak zorunda da değil.
+[00:06:41] Hızlı bir şekilde prototip oluşturmak
+[00:06:43] istiyorsanız, düşük maliyetli test etmek
+[00:06:45] istiyorsanız, kontrolümü olsun
+[00:06:46] diyorsanız yazılımcılar için tabii ki
+[00:06:49] yazılımcılar da cloud kodu zaten
+[00:06:51] kullanıyorlar. Kullanmamaları zaten
+[00:06:52] mantıksız. kendilerini daha üretken hale
+[00:06:55] getirmek için, otomatik test yazımı
+[00:06:57] yapmak için ve hızlı refactoring
+[00:06:59] dediğimiz şey yapmak için yani aslında
+[00:07:00] kontrolleri, testleri ve hızlı bir
+[00:07:02] şekilde kontrolleri yapmak için aslında
+[00:07:04] sürekli angar iş dediğimiz şeyleri
+[00:07:06] yapmaları için meraklılar ki bence bu
+[00:07:08] kategori çok daha büyük. Mutlaka cloud
+[00:07:10] kod'un neler yapabildiğini en azından
+[00:07:12] bilmeniz lazım. Çünkü hayatınızda
+[00:07:14] kesinlikle ilerleyen zamanlarda farklı
+[00:07:16] yerlerde göreceksiniz. Buna %100 eminim
+[00:07:18] ben. Bunun içerisinde de aslında eee
+[00:07:20] herhangi bir şekilde teknik bilgi
+[00:07:21] gerektirmeden sadece öğrenerek, sadece
+[00:07:23] prompt yazarak ilerleyebilmeniz ve aynı
+[00:07:26] zamanda da ciddi kariyer fırsatları
+[00:07:27] olduğunu düşünüyorum bu konularda. Çünkü
+[00:07:30] cloud kod'la siz birçok işi
+[00:07:31] yapabilirsiniz. Birçok kişi daha hızlı
+[00:07:33] yapabilirsiniz. Daha hızlı
+[00:07:34] yapabildiğinizde daha verimli
+[00:07:35] çalışabilirsiniz veya daha iyi bir fiyat
+[00:07:37] verebilirsiniz. Yani günün sonunda
+[00:07:39] aslında hangi işi yapıyorsanız yapın
+[00:07:41] cloud code kesinlikle işinizin bir
+[00:07:43] yerinde size fayda sağlayacak. En kötü
+[00:07:45] ihtimalle belki hayatınızı daha da
+[00:07:47] kolaylaştıracak. Belki normalde size 3
+[00:07:49] saat alan işinizi belki bir saat
+[00:07:51] indirecek. Ve tabii ki ne öğreneceksiniz
+[00:07:53] tarafını da birazcık daha detaylandırmış
+[00:07:55] olayım. Bir, teknik beceriler tarafında
+[00:07:57] cloud kod'un kurulumunu, cloud kod'da
+[00:08:00] neler yapılabileceğini, context
+[00:08:01] management'ın ne olduğunu yani beyin
+[00:08:03] tarafının ne olduğunu, gitub
+[00:08:05] entegrasyonunu, MCP'leri nasıl optimize
+[00:08:07] edebileceğinizi öğreneceksiniz. Ama bu
+[00:08:10] teknik tarafı tabii ki. Bunun haricinde
+[00:08:12] asıl olay gerçek projeler tarafındaki
+[00:08:14] web uygulamaları yapabileceksiniz. Web
+[00:08:16] siteleri yapabileceksiniz. Web'den bilgi
+[00:08:18] toplayabilecek ajanları
+[00:08:19] yapabileceksiniz. Otomatik raporlama
+[00:08:21] araçlarını yapabileceksiniz ve Chrome'un
+[00:08:24] içerisinde cloud kodu kullanarak
+[00:08:26] kesinlikle işinizi en az iki kat
+[00:08:28] iyileştireceksiniz.
+[00:08:30] Aynı zamanda eee para kazanma
+[00:08:31] tarafındaysa SAS fikirlerinizi yani
+[00:08:34] abonelik mantındaki fikirlerinizi hayata
+[00:08:36] geçirebileceksiniz. Freelancer olarak iş
+[00:08:38] bulabileceksiniz belki. Otomasyon
+[00:08:40] ajansınızı kurabileceksiniz.
+[00:08:41] Maliyetlerinizi ve geri dönüşlerinizi
+[00:08:44] verimleştireceksiniz ve müşteri bulma
+[00:08:46] stratejilerini görmüş olacaksınız. Yani
+[00:08:48] tek bir uygulama diyeceksiniz nasıl
+[00:08:50] bunların hepsini yapabiliyor ama hepsini
+[00:08:52] yapabilen çok güçlü bir uygulamadan
+[00:08:53] bahsediyoruz. Öncesinde biliyorsunuz
+[00:08:55] Microsoft Excel ilk çıktığında ne kadar
+[00:08:57] değerli değil mi? Excel'i bilmek. Eee ve
+[00:08:59] burada aslında birçok şirket bu tarz
+[00:09:02] teknolojileri, bu tarz uygulamaları
+[00:09:03] bilen kişileri arıyordu. Yakında
+[00:09:05] şirketler cloud kodu herkesin
+[00:09:07] kullanabilmesini isteyecekler. Ben buna
+[00:09:10] eminim. Çünkü her şeyi buna bağlayarak
+[00:09:12] verimliliği inanılmaz artırabildiklerini
+[00:09:14] görecekler ve herkese bunu öğretiyor
+[00:09:16] olacaklar. O yüzden şimdiden bunu
+[00:09:18] öğrenmeniz sizin için her zaman için
+[00:09:19] değerli olur. Evet, şimdi hazırsanız
+[00:09:21] başlıyoruz. Artık zihniyet hazır.
+[00:09:23] Hedefler belirlendi. Motivasyon
+[00:09:25] yüklendi. Şimdi bir sonraki bölüme
+[00:09:27] geçebiliriz. Bir sonraki bölümde de
+[00:09:29] kurulum ve abonelik tarafı var. Şimdi
+[00:09:31] bölüm 2 kurulum ve abonelikle alakalı
+[00:09:33] başlangıç kısmı aslında. Başlangıç
+[00:09:35] ayarları diyebiliriz. Şimdi burada
+[00:09:36] konsol.antanopicik'e gidiyorsunuz veya
+[00:09:38] direkt aslında konsol antropic
+[00:09:40] yazabilirsiniz. Buradan API'ınızı
+[00:09:42] almanız gerekiyor ki apısız da sadece
+[00:09:45] kullanabilirsiniz aboneliğinizle. Şimdi
+[00:09:48] burada aslında ilk kısım şuradaki API
+[00:09:50] anahtarlarınızı kullanabilirsiniz. Bu
+[00:09:52] birincisi. İkincisi de zaten kendi
+[00:09:54] kullanmış olduğunuz cloud'unuzun
+[00:09:56] içerisine girersiniz ve burada da bir
+[00:09:58] abonelik almış olursunuz. Bunu sadece
+[00:10:00] abonelik aldıktan sonra zaten şurada
+[00:10:03] cloud kod çıkıyor olur. Yani aslında
+[00:10:05] şurada direkt siz kendi cloud projenizin
+[00:10:08] içerisinde şurada kodu da
+[00:10:09] görebilirsiniz. Sonrasında kendi Google
+[00:10:12] veya email'inizle hesap
+[00:10:13] oluşturuyorsunuz. Yani sıfırdan burada
+[00:10:15] bir hesap oluşturmuş oluyorsunuz aslında
+[00:10:17] cloud kodda ve sonrasında API kullanımı
+[00:10:19] için ödeme yöntemi ekliyorsunuz. Burada
+[00:10:21] da az önce gösterdiğim dashboarda
+[00:10:23] giriyorsunuz. API anahtarlarının olduğu
+[00:10:25] dashboard burası. Yani platform.cloud.
+[00:10:28] Buradan da aslında kullanım tarafında
+[00:10:30] siz buraya aslında kendi anahtarlarınızı
+[00:10:33] ve ödemenizi eklemeniz gerekiyor. Ve
+[00:10:35] burada ödeme sisteminizi ekledikten
+[00:10:36] sonra burada kullanabileceğiniz bir sürü
+[00:10:38] model olmuş oluyor. Buradaki modellerin
+[00:10:41] içerisinde şimdi ben size plan
+[00:10:42] karşılaştırmasını da söylemiş olayım.
+[00:10:44] Aboneliğini aldığınızda ayda 20 dolar
+[00:10:46] ödüyorsunuz. Burada eğer API'dan
+[00:10:48] ödeyeyim, kullandığım kadarı ödeyeyim
+[00:10:50] derseniz de aslında burada benim belki
+[00:10:53] önerebileceğim modeller Cloud'un 3,5
+[00:10:55] veya 4 modelleri olur. Aslında burada
+[00:10:57] 4.5 ve 4.6 birazcık pahalı kalabilir ama
+[00:11:00] yine kodlama yapıyorken 4.6'yı kullanmak
+[00:11:03] değerli olur. Aylık maliyet tarafına
+[00:11:05] bakalım. Aslında maliyetiniz yaklaşık 25
+[00:11:07] dolar diyebiliriz. Çünkü 20 dolar
+[00:11:09] aboneliğiniz var. 5 dolar da ekstra
+[00:11:11] API'dan kullandınız diyelim. Ve burada
+[00:11:13] 25 dolarlık aylık maliyetiniz var. Ama
+[00:11:15] bence bu harcama değil. İnanılmaz güzel
+[00:11:18] bir yatırım. Bu bir araç ve aslında
+[00:11:21] yapılabilecek şeyleri düşündüğünüzde çok
+[00:11:23] da düşük bir miktar aslında. Ve burada
+[00:11:25] örneğin üretilen değer olarak da bir
+[00:11:28] junior yazılımcının belki burada alacağı
+[00:11:31] maaştan çok daha düşük bir miktara
+[00:11:34] aslında siz cloud kodu kullanıyorsunuz
+[00:11:36] ve çok daha değerli bir şey ortaya
+[00:11:38] çıkartıyorsunuz ve sizin için 724
+[00:11:40] çalışabiliyor. Şimdi geldik teknik
+[00:11:42] kurulum tarafına ve burada da aslında
+[00:11:44] terminalden kurabilirsiniz veya direkt
+[00:11:46] cloud kodu antigravity'in içerisinde
+[00:11:48] açabilirsiniz veya Visual Studio'nun
+[00:11:50] içerisinde açabilirsiniz. Bunları zaten
+[00:11:52] hepsini gösteriyor olacağım. Ancak
+[00:11:53] terminalde kurmak istiyorsanız yapmanız
+[00:11:55] gereken şey şu ki bu tabii ki
+[00:11:58] Windows'larda değişir ama Mac'te örneğin
+[00:12:00] boşluk içerisinde şuraya direkt terminal
+[00:12:03] yazdığınızda burada terminali
+[00:12:05] açabilirsiniz. Terminali direkt
+[00:12:07] görebilirsiniz. Ve sonrasında da aslında
+[00:12:09] buraya birçok şey yazmanız gerekecek
+[00:12:11] burada örneğin. Ve sonrasında da şunları
+[00:12:13] yazmanız gerekecek. Eee, örneğin burada
+[00:12:15] note yazacaksınız. Sonrasında e,
+[00:12:17] buradaki kodu kopyalayacaksınız.
+[00:12:18] Sonrasında cloud login diyeceksiniz.
+[00:12:20] Mantıklı mı? Bence değil. Bunun daha
+[00:12:22] güzel bir yolu var. O yüzden ben size
+[00:12:23] şimdi bunu gösteriyor olacağım. Şimdi
+[00:12:25] buraya Google'a Visual Studio
+[00:12:28] yazıyorsunuz. Sonrasında Visual
+[00:12:30] Studio'yu indiriyorsunuz. Bunu direkt
+[00:12:32] indiriyorsunuz. Buradan örneğin Mac için
+[00:12:33] indirebilirsiniz, Windows için
+[00:12:35] indirebilirsiniz. indirip kurduktan
+[00:12:37] sonra şu şekilde bir şey açılıyor size.
+[00:12:40] Şimdi hemen Visual Studio'yu açıyorum.
+[00:12:42] Bu şekilde boş bir her şeyi kapatıyorum.
+[00:12:44] Hiçbir şey, hiçbir şey görmeyeceksiniz.
+[00:12:45] Normalde böyle bir şey açılıyor
+[00:12:47] normalde. Şimdi burada yapmanız gereken
+[00:12:50] şey ilk olarak cloud kodu burada
+[00:12:52] eklemek. Extension olarak eklemek. Şimdi
+[00:12:55] burada zaten dosyaları açabiliyorsunuz.
+[00:12:57] Herhangi bir gitub projesini
+[00:12:59] klonlayabiliyorsunuz. Yani örneğin bir
+[00:13:01] uygulama beğendiniz. Birebir aynısını
+[00:13:03] klonlayabiliyorsunuz ama oluyor değil.
+[00:13:04] Şurada solda extensionlara basıyorsunuz.
+[00:13:07] Burada cloud'u aratıyorsunuz
+[00:13:09] ve sonrasında şu çıkanı eklemiş
+[00:13:11] oluyorsunuz. Bunu siz ekledikten sonra
+[00:13:14] zaten şu şekilde görülmüş oluyor. Şu
+[00:13:16] şekilde boş bir direkt sizin
+[00:13:18] terminalinizde görünmüş oluyor. Şuradan
+[00:13:20] mesela dosyaca bastığınızda burada ben
+[00:13:22] mesela bir tane eee web sitesi diye bir
+[00:13:24] klasör seçmiş olayım. Şimdi bu klasörü
+[00:13:25] siz seçtikten sonra bunun içerisinde
+[00:13:27] artık aslında birçok değişiklik
+[00:13:29] yapabilirsiniz. Aynı zamanda burada
+[00:13:31] örneğin hemen buradan Open Editors deyip
+[00:13:33] içerisinde cloud kodu ekleyebilirsiniz.
+[00:13:35] Yine zaten burada da çalışır ve sürekli
+[00:13:38] olarak buradaki dosyaları görebilir.
+[00:13:39] Sizin bilgisayarınıza da zaten erişimi
+[00:13:42] olduğu için bu şekilde çalışır. Şimdi bu
+[00:13:45] bir yöntemi bunun. Yani aslında şuradaki
+[00:13:47] şu anda kurulum tarafındasınız. Ne
+[00:13:48] yaptınız? Visual Studio'yu indirerek
+[00:13:50] kurdunuz. Şimdi ben size bir kurulum
+[00:13:51] daha göstereceğim ki ben bu şekilde
+[00:13:53] kullanıyorum. Şimdi şurada Google'a anti
+[00:13:57] Gravity yazdınız. Sonrasında
+[00:13:59] gravity.google'a geldiniz ve bunu
+[00:14:01] indiriyorsunuz. Bu zaten ücretsiz.
+[00:14:03] Windows kullanıyorsanız Windows, Mac
+[00:14:05] kullanıyorsanız Mac indirdikten sonra şu
+[00:14:08] şekilde bir boş panel açılacak size.
+[00:14:11] Şimdi yine tekrar her şeyi kapatayım.
+[00:14:12] Hiçbir şey görünmüyor olsun. Visual
+[00:14:14] Studio'yu kapattım. Hiç sıfırdan bunu
+[00:14:15] kurduğunuzu düşünün. Şimdi bunun
+[00:14:17] içerisinde farklı şeyler var. Burada
+[00:14:18] yine zaten arayüz gördüğünüz gibi çok
+[00:14:20] birbirine çok benzer. Ve burada yine
+[00:14:23] extension tarafından cloud kodu
+[00:14:25] ekliyorsunuz. Direkt aynısı Visual
+[00:14:27] Studio'da yaptığınızda birebir aynısı.
+[00:14:29] Bunu yaptıktan sonra siz aslında yine
+[00:14:32] kendi agent managerızı ve kod içerisinde
+[00:14:35] cloud kodu çalıştırabilirsiniz. Yani
+[00:14:37] buradan yine dosyalarınızı açıp yine
+[00:14:39] aynı şekilde buradan mesela yeni bir
+[00:14:40] dosya açacaksınız. Sonrasında burada
+[00:14:43] mesela hemen şöyle bir web site açalım.
+[00:14:45] Sonrasında bu web sitenin içerisindeki
+[00:14:46] her şeyi görebiliyor ve editleyebiliyor
+[00:14:49] oluyorsunuz. Sonrasında da aslında sağ
+[00:14:51] tarafta sizin ajanınız var. Burada
+[00:14:53] ajanın için birçok şey seçebilirsiniz.
+[00:14:55] Burada cloud'u da seçebilirsiniz. Direkt
+[00:14:57] Cemina'yı da seçebilirsiniz. Aynı
+[00:14:59] zamanda burada agent managerınızı
+[00:15:01] açarsanız Andy Gravity'nin içerisindeki
+[00:15:03] az önce burada editördeydik. Şu anda
+[00:15:06] agent managerdesiniz. Burada bir sonraki
+[00:15:08] projelerinizin hepsini de
+[00:15:09] görebilirsiniz. Yine istediğiniz modeli
+[00:15:11] kullanabilirsiniz. Editörün içerisinde
+[00:15:13] ise isterseniz cloud kodu da
+[00:15:15] kullanabilirsiniz. Burada örneğin eee
+[00:15:17] yine editörleri ekleyip burada ekstra
+[00:15:19] cloud kodu çalıştırabilirsiniz. Yine
+[00:15:21] extension'lara girersiniz. Cloud koda
+[00:15:23] basarsınız. Sonrasında şuna basarsınız
+[00:15:26] ve cloud kodu tekrardan burada
+[00:15:28] çalıştırabilirsiniz. Yani bir dosya
+[00:15:30] içerisinde isterseniz cloud kodu
+[00:15:31] isterseniz Anti Gravity'nin ajanını
+[00:15:33] çalıştırabilirsiniz. Bu Anti Gravity'nin
+[00:15:35] ajanı bu ise bildiğiniz orijinal cloud
+[00:15:38] kod. Her ikisi de uygundur. Çünkü zaten
+[00:15:40] arka tarafta kullandığınız model yine
+[00:15:42] cloud'un modelleri olduğu için aslında
+[00:15:45] çıkan sonuç çok da fark etmeyecektir.
+[00:15:47] Ama benim tavsiyem Agent Manager'ın
+[00:15:50] içerisinde yani antigravity'nin
+[00:15:52] içerisinde cloud opus'u kullanmanız. Bu
+[00:15:54] çok daha iyi çalışır. Yani en iyi çözümü
+[00:15:56] istiyorsanız burada anti Gravity'yi
+[00:15:58] indirin. Cloud kodu ekleyin içerisine.
+[00:16:00] Aynı zamanda cloud'u agent'ın modeli
+[00:16:02] olarak kullanın. Yani burada az önce ben
+[00:16:04] birçok model seçebiliyorum.
+[00:16:06] Burada cloud opusu'u kullanın. Yani
+[00:16:09] aslında terminal komutuna hiç
+[00:16:10] ihtiyacınız olmadan enter gravity
+[00:16:12] içerisinde çok hızlı bir şekilde
+[00:16:13] çalıştırabiliyorsunuz. Şimdi burada
+[00:16:15] aslında ekstra bu bölümü bitirmeden bir
+[00:16:17] şey söylemiş olayım. Yapay zekanın
+[00:16:19] belleği. Şimdi bellek dediğimiz şey
+[00:16:21] aslında ne kadar fazla elinde
+[00:16:22] tutabildiği bilgi aslında bir proje
+[00:16:25] için. Ve burada da sınırlı bir miktar
+[00:16:27] olduğu için genelde tüm projeyi değil
+[00:16:30] teker teker ilerlemeniz gerekecek. Zaten
+[00:16:32] bir sonraki bölümlerde bunu göreceksiniz
+[00:16:34] ama bana bir web sitesi yap demek yerine
+[00:16:36] bana bir web sitesi yapacaksın ama bunu
+[00:16:39] beş aşamada yapacağız. Aşama 1 bittikten
+[00:16:42] sonra aşama 2'ye geçeceksin ve bunları
+[00:16:44] da ayrı ayrı klasörleyeceksin
+[00:16:45] dediğinizde aslında belleği çok daha iyi
+[00:16:48] kullanabilirsiniz. Bu sayede ya tabii ki
+[00:16:50] belleğini doldurmak kolay değil. Ancak
+[00:16:52] proje büyüdüğünde her zaman için aklında
+[00:16:55] tutabileceği bilgi miktarlı hale gelmeye
+[00:16:57] başlıyor. Bir web site projesinde
+[00:16:58] örneğin her şeyi aklında tutabilir. Çok
+[00:17:00] büyük bir web sitesi değilse ama
+[00:17:01] içerisinde mesela bloglar var. Bir sürü
+[00:17:03] sayfa var. Aynı zamanda siz ona bir de
+[00:17:05] uygulama eklemek istiyorsunuz. O zaman
+[00:17:07] işte işler biraz daha karışıklaşır ve
+[00:17:09] burada da aslında siz artık belleğinizi
+[00:17:11] doldurmaya başlarsınız. Bunun olmaması
+[00:17:13] için aslında ben bir sonraki bölümlerde
+[00:17:15] bunun detaylarını size gösteriyor
+[00:17:17] olacağım ama sadece şu anda bilmeniz
+[00:17:18] gereken şey yapay zekanın belleğinin
+[00:17:21] sınırlı olduğu. Bir sonraki bölüme
+[00:17:22] geçmeden önce şunları yapmanız lazım.
+[00:17:24] Bir antropik hesabınız olması lazım.
+[00:17:26] Yani cloud hesabınız. Terminal yerine
+[00:17:29] cloud kodun kendisini Visual Studio
+[00:17:32] içerisinde çalıştırmanız lazım veya an
+[00:17:34] gravityin içerisinde çalıştırmanız lazım
+[00:17:35] ve ilk komutun çalışmasını sağlamanız
+[00:17:38] lazım. Burada herhangi bir şey
+[00:17:39] sorabilirsin. Eee, normal bir prompt
+[00:17:41] yazman ve çalıştığını görmen yeterli.
+[00:17:44] Bunların hepsini yaptıysan artık ID
+[00:17:46] kurulumu dediğimiz kod yazacağımız
+[00:17:48] profesyonel ortamı hazırlayacağız ve
+[00:17:50] burada Anti Gravity veya Visual
+[00:17:52] Studio'nun içerisinde neler yapılabilir
+[00:17:54] bunları gösteriyor olacağız. Ki zaten
+[00:17:56] cloud'u kullandığınız için sonuçta fark
+[00:17:58] etmiyor. Sistem tamamen aynı çalışıyor.
+[00:18:00] Bir sonraki bölümde görüşmek üzere.
+[00:18:01] Şimdi geldik bölüm 3'e. Bölüm 3'ün
+[00:18:03] içerisinde aslında bir önceki bölümde
+[00:18:06] gösterdiğim Visual Studio'nun birazcık
+[00:18:07] daha üzerinden geçiyor olacağız. Ve
+[00:18:09] burada VS Code dediğimiz yani Visual
+[00:18:11] Studio'nun indirme, kurulum ve kritik
+[00:18:14] ayarlarını gösteriyor olacağım ki zaten
+[00:18:16] aslında birazcık göstermiş oldum. Bunun
+[00:18:18] detaylarını gösteriyor olacağım. Burada
+[00:18:20] bazı eklentileri ekleyebilirsiniz.
+[00:18:21] Bunlardan birisi zaten cloud kodu. Bunun
+[00:18:24] haricinde eee bu tarz ekstra
+[00:18:26] extensionları eklerseniz örneğin eee
+[00:18:29] burada kodunuzu otomatik olarak
+[00:18:31] düzenleyip formatlayabilecek
+[00:18:32] extension'lar var. Kodunuzdaki hataları
+[00:18:34] bulabilecek şeyler var. Bunların hepsi
+[00:18:36] aslında eee sizin uygulamanızı daha iyi
+[00:18:38] hale getirmiş olur. Şimdi burada bir de
+[00:18:40] terminal olayı var. Şimdi terminal
+[00:18:41] olayının içerisinde de şöyle bir şey var
+[00:18:43] diyebilirim aslında. Bunun kısa yolu da
+[00:18:46] ctrol veya Mac kullanıyorsanız Command
+[00:18:48] eee ve sonrasında soldaki tab olmuş
+[00:18:51] oluyor aslında. Ona basabilirsiniz ve o
+[00:18:53] şekilde eee terminali sürekli olarak
+[00:18:55] açabilirsiniz. Terminal ekstra kod
+[00:18:57] yazmanız için gerekli ama zaten cloud'a
+[00:19:00] siz izin verirseniz sizin için
+[00:19:01] terminaldeki aksiyonların hepsini
+[00:19:03] yapıyor olacak aslında ve eee kodun ve
+[00:19:06] çıktısını aynı ekranda görebileceğiniz
+[00:19:07] cloud kodun da erişebileceği bir
+[00:19:09] terminal var aslında. Böyle bir şey arka
+[00:19:11] tarafta sürekli olarak çalıştırıyor.
+[00:19:12] Bunu terminoloji olarak bilmeniz
+[00:19:14] yeterli. Şimdi VS kodun eee aslında
+[00:19:17] içerisinde ki zaten kursor da örneğin
+[00:19:19] yine VS kodu içerisinde çalışır.
+[00:19:21] Yaptığınız şey şu aslında. Siz bir
+[00:19:23] prompt yazıyorsunuz. Sol tarafta kodunuz
+[00:19:25] var. sağ tarafta prompt yazıyorsunuz ve
+[00:19:26] bu şekilde ilerliyorsunuz. Ve aslında
+[00:19:28] bütün bu eee sistemlerin hepsi aynı
+[00:19:30] şekilde çalışıyor. Terminalde aksiyon
+[00:19:32] alabilen, prompt yazdığınızda kod
+[00:19:34] yazabilen ve sürekli olarak kodu
+[00:19:36] sonrasında sizin bilgisayarınızı kontrol
+[00:19:38] ederek çalıştırabilen sistemler bunlar
+[00:19:40] aslında. Ve eee burada da kursor yine
+[00:19:42] bunlardan bir tanesi. İkincisi zaten
+[00:19:44] anti gravity gösterdiğim kursoru da
+[00:19:46] kullanabilirsiniz, anti gravity de
+[00:19:47] kullanabilirsiniz. Hangisi en iyi diye
+[00:19:48] sorarsanız hiç fark etmiyor. Çünkü arka
+[00:19:51] tarafta zaten en yeni modelleri
+[00:19:52] kullanıyor hepsi. Anti Gravity de
+[00:19:54] kullansanız siz yine aslında cloud'u
+[00:19:56] kullanmış olacaksınız. Cloud Code da
+[00:19:58] kullansanız yine cloud'u kullanmış
+[00:19:59] olacaksınız. O yüzden çok da fark
+[00:20:01] etmeyecek. Ancak benim kendi şu andaki
+[00:20:04] tercihim Ment Gravity üzerine. Çünkü
+[00:20:06] agent managerı gerçekten güzel çalışıyor
+[00:20:08] ve hafıza limiti de e oldukça yüksek.
+[00:20:11] Burada aslında yine az önce gösterdiğim
+[00:20:12] yerde indirebilirsiniz. Burada da bir
+[00:20:14] karşılaştırma yaptığımızda aslında e ki
+[00:20:17] birbirine çok benziyor olsa da şimdi VS
+[00:20:19] COD'da e içerisinde yapay zeka yok
+[00:20:22] aslında. Terminali çok daha güzel bir
+[00:20:23] şekilde kullanmanızı sağlayan bir eee
+[00:20:25] herkesin bütün yazılımcıların kullandığı
+[00:20:27] bir sistem. Kursor eee aslında VS kodun
+[00:20:30] üzerinde çalışan ve eee aslında tabii ki
+[00:20:33] burada yine chpt veya cloud'u
+[00:20:35] kullanabildiğiniz bir elm diyebilirim. O
+[00:20:37] şekilde de hani e çalışıyor olur yine
+[00:20:39] kursorla yine siz kodlama
+[00:20:41] yapabilirsiniz. Anti Gravity ise en
+[00:20:43] sistemlerden bir tanesi. Yine aslında
+[00:20:45] birebir kursor gibi aynı çalışıyor ama
+[00:20:47] internette de çok hızlı bir şekilde
+[00:20:49] araştırma yapabiliyor. İnternette
+[00:20:51] yerlere tıklayabiliyor ve aynı zamanda
+[00:20:54] size sürekli olarak ücretsiz Gemini
+[00:20:56] kredisi verebiliyor. O açıdan aslında
+[00:20:58] oldukça kullanışlı. Cemini da güzel bir
+[00:21:00] model. Yine kodlama yazmak için fena bir
+[00:21:02] model değil. Cloud kadar iyi olmasa da
+[00:21:04] yine kullanılabilecek bir model. Şimdi e
+[00:21:07] burada aslında iki farklı yöntem var.
+[00:21:09] Yani aslında sizin standart VS kodu
+[00:21:11] kurmanız ve sonrasında da yapay zekayı
+[00:21:13] entegre etmeniz için kursor, anti
+[00:21:15] gravity, cloud code bunlardan olabilir.
+[00:21:17] Bu da aslında eee buradaki terimlerden
+[00:21:19] yine hızlı bir şekilde öğrendiğiniz
+[00:21:20] terimlerden bir tanesi. ID diye yazılan
+[00:21:23] eee ı anlamı aslında eee yine
+[00:21:26] kullanılabilecek bir şey. Burada da
+[00:21:27] yapmanız gereken şey şu. Eee bunların
+[00:21:29] kurulu olması lazım. Terminaliniz açık
+[00:21:31] olması lazım. Cloud'un çalışıyor olması
+[00:21:33] lazım. Aslında bir önceki şeyin
+[00:21:35] neredeyse birebir aynısı. Bir önceki
+[00:21:36] bölümün aynısını yapıyorsunuz. Sadece bu
+[00:21:39] kısım biraz daha terminoloji kısmı.
+[00:21:40] Okey. Şimdi bölüm 4'e geçiyoruz. Aslında
+[00:21:43] projenin beyni ve kurallarını oluşturma
+[00:21:45] bölümü bu ki bence en önemli konulardan
+[00:21:46] bir tanesi. Biliyorsunuz zaten özellikle
+[00:21:49] projeye yeni başlıyorken mutlaka
+[00:21:51] projenin içerisinde başlangıçta ufak
+[00:21:54] ufak başlanması, bölüm bölüm gidilmesi
+[00:21:56] gerektiğinden bahsetmiştim. Şimdi burada
+[00:21:58] aslında bir proje beyni oluşturduğunuzda
+[00:22:00] bu kısmı aslında çözüyorsunuz. Eee
+[00:22:02] burada şöyle bir şey var. Şimdi standart
+[00:22:04] bir elmde yani chat GPT'de örneğin
+[00:22:06] sürekli olarak her oturumda hafıza kaybı
+[00:22:08] yaşayabilir ve projenizi, kurallarınızı,
+[00:22:11] tercihlerinizi bilmez ve sürekli aynı
+[00:22:13] şeyleri tekrar etmeniz gerekebilir.
+[00:22:15] Şimdi böyle bir şey olduğunda eee
+[00:22:17] aslında eee biz bir dosya oluşturmuş
+[00:22:20] oluyoruz. Bu dosyada aslında projenin
+[00:22:22] sürekli olarak bakabileceği bir MD
+[00:22:24] dosyası dediğimiz aslında context olmuş
+[00:22:26] oluyor. Bu projenin kuralı olabilir.
+[00:22:28] Projede hangi teknolojilerin kullanıcı
+[00:22:30] olabilir. Projenin planlaması olabilir.
+[00:22:32] Ve bunların hepsi aslında bunun
+[00:22:33] içerisinde. Yani ben bir MD dosyası
+[00:22:35] oluşturduğumda aslında kendi bir sürü
+[00:22:38] bilgimi ona vermiş oluyorum. Öncelikle
+[00:22:40] diyorum ki tamam sen bunu kullanarak
+[00:22:42] devam et. Bunu kullanarak bir sonraki
+[00:22:44] bölüme geçebilirsin. Demiş oluyorum
+[00:22:46] aslında. Bunun içerisinde de genelde
+[00:22:48] yapı olarak şunlar olması lazım. en
+[00:22:50] iyilerinde en azından ki ben bunların
+[00:22:52] örneklerini açıklamaya koyuyor olacağım.
+[00:22:53] Burada eee içerisinde projenin ne
+[00:22:55] olduğu, projede kullanılacak
+[00:22:57] teknolojiler, buradaki ne tarz bir
+[00:23:00] kodlama kuralları olduğu işte
+[00:23:02] fonksiyonel komponentleri kullan gibi.
+[00:23:04] Ve memory yani hafıza tarzı çok önemli
+[00:23:07] ve bunların hepsi aslında şu şekilde
+[00:23:09] olmalı. Genel bakış dediğim gibi
+[00:23:10] teknoloji, kurallar, hafıza bunlar
+[00:23:14] olması lazım içerisinde ve bunları da
+[00:23:15] aslında siz cloud oluşturabiliyorsunuz
+[00:23:18] ki bunu da zaten interaktif bir şekilde
+[00:23:19] göstereceğim hemen sunumun sonunda.
+[00:23:21] Şimdi burada eee her zaman için bazı
+[00:23:24] hani yapmaması bir de yapması gereken
+[00:23:26] şeyler var. Eee bunlar illa şu anda
+[00:23:29] bilinmesi, öğrenilmesi gereken şeyler
+[00:23:31] değil ama bunu örnek olarak koydum
+[00:23:33] özellikle. Çünkü örneğin burada yanlış
+[00:23:36] bir teknoloji kullandığında ekstra sizin
+[00:23:38] projeyi sonradan değiştirmeniz
+[00:23:39] gerekebilir. O yüzden başlangıçta
+[00:23:41] birazcık projeye başlamadan evet ben
+[00:23:43] nasıl bir sistem yapmalıyım? Nasıl bir
+[00:23:45] proje olmalı bu? Bunu birlikte aslında
+[00:23:47] bir planlamış oluyoruz ve burada da
+[00:23:49] doğru bir mantığı seçtikten sonra
+[00:23:51] ilerlenmesi lazım. Burada da örneğin
+[00:23:53] yine teknoloji yığını olarak
+[00:23:54] kullanabileceğiniz neler var? Bunları
+[00:23:56] birazcık göstermiş olayım. Birkaç terimi
+[00:23:57] de öğrenmiş olun. Frontend dediğimiz
+[00:23:59] aslında uygulamanın arayüzü,
+[00:24:02] kullanılabilir arayüzü var. ve
+[00:24:04] kullanılabilir arayüzün içerisinde
+[00:24:05] sürekli backend'ten bilgi gelmiş oluyor.
+[00:24:08] Backend ise sizin aslında
+[00:24:09] database'inizin olduğu yani bütün
+[00:24:10] bilgilerin olduğu ve arka tarafta
+[00:24:12] işlemlerin yürütüldüğü yer biraz daha
+[00:24:14] güvenli olması gereken yer diyebilirim.
+[00:24:16] Örneğin sizin kullanıcılarınız backend
+[00:24:18] tutulur. Bilgiler backendte tutulur.
+[00:24:21] Bütün yapılacak işlerin hepsi backendte
+[00:24:23] tutulur. Frontend ise sadece backende
+[00:24:26] istek gönderip oradaki bilgiyi ön planda
+[00:24:28] göstermiş olur. Yani örneğin siz bir CRM
+[00:24:31] uygulaması yapıyorsunuz diyelim. Ön
+[00:24:32] tarafta bir sürü bilginiz var. Arka
+[00:24:34] tarafta da backend'te e çalışan sizin
+[00:24:36] database'iniz var. Authentication tarafı
+[00:24:38] aslında örneğin Gmail bir hesabı
+[00:24:40] authenticate etmek için yani evet bu
+[00:24:42] hesap bilindik bir hesap. Bizim
+[00:24:43] sistemimizde olan bir hesap demek için
+[00:24:45] kullanılan şeyler ve ödeme tarafında da
+[00:24:47] yine aslında bir e teknoloji kendine
+[00:24:50] özel bir teknoloji olmuş oluyor. Bunun
+[00:24:51] içerisinde de yapay zeka ve uygulamaları
+[00:24:53] kullanıyoruz. Ben size bunları örneğin
+[00:24:54] birazcık söylemiş olayım. Frontend'in
+[00:24:56] içerisinde NextJS, React, CSS, Framer
+[00:24:59] gibi şeyler var. Örneğin framer mobil
+[00:25:01] uygulamalar için kullanılır. Backend'te
+[00:25:02] Note GS, Supase, Postgress var.
+[00:25:05] Authentication tarafında örneğin eee ve
+[00:25:08] ödeme tarafında Stripe'ı söyleyebilirim
+[00:25:10] veya EIC olabilir, Paytr olabilir, yapay
+[00:25:13] zeka uygulamalarında open API olabilir,
+[00:25:15] LC chain olabilir, Versel olabilir gibi.
+[00:25:17] Bunlar aslında en azından bilmeniz
+[00:25:19] gereken bazı uygulamalar hayatınızı çok
+[00:25:21] kolaylaştırır. Bunların hepsini kendiniz
+[00:25:23] bilmenize gerek yok. Sadece terim olarak
+[00:25:25] ne olduğunu öğrenmeniz yeterli. Şimdi
+[00:25:27] aslında hafıza yönetiminden birazcık
+[00:25:29] bahsetmiş olayım. Şimdi hafıza yönetimi
+[00:25:30] dediğimiz şey şu. Şimdi yeşil, pembe ve
+[00:25:33] mavi kısma bakın. Ve eee kısım aslında
+[00:25:36] sizin eee geçici belleğiniz. Pembe kısım
+[00:25:39] context dediğimiz aslında bizim sürekli
+[00:25:41] büyüyen projemiz ki bu sürekli olarak
+[00:25:44] büyüyecektir aslında. O yüzden baştan
+[00:25:46] zaten güzel böyle bir sistem promptu
+[00:25:47] güzel bir dosyayla başlamak lazım. Ben
+[00:25:49] bunun nasıl kurulacağını da gösteriyor
+[00:25:51] olacağım size bu arada. Eee ve şu olması
+[00:25:53] lazım aslında. Tüm kod dosyalarını
+[00:25:56] bağlama eklememek lazım. Çünkü proje
+[00:25:58] büyüdükçe artık çoğu zaman çok verimli
+[00:26:00] çalışmamaya başlar. Veya örneğin 50
+[00:26:03] sayfanız vardır 20 tanesini yapar, 30
+[00:26:05] tanesini bırakır. Neden? Çünkü artık
+[00:26:07] onun hafızasının dışına çıkmış bir durum
+[00:26:09] olduğu için. O yüzden sürekli
+[00:26:11] temizlikler güzel olur. Burada da
+[00:26:13] temizlikleri şöyle yapıyorsunuz aslında.
+[00:26:14] Ben yine cloud kodu içerisinde bunları
+[00:26:16] göstermiş olayım. Şimdi burada benim
+[00:26:17] cloud kodum açık. Cloud kodu içerisinde
+[00:26:19] şu olması lazım. Mesela ben buraya şimdi
+[00:26:21] slash'e bastığımda burada aşağıya doğru
+[00:26:22] bir sürü şey görüyorum ama burada memory
+[00:26:24] kısmı var. Örneğin memoryde eee eğer
+[00:26:27] herhangi bir şeyi değiştirmek
+[00:26:28] istiyorsanız buradan yine devam
+[00:26:29] edebiliyorsunuz. Bu bir. İki eğer eee
+[00:26:32] burada siz mesela dosya çok büyüdü
+[00:26:33] diyelim. Dosyayı küçültmek istiyorsanız
+[00:26:35] burada compact yapmış oluyorsunuz. Yani
+[00:26:38] aslında siz projenin tokenini, token
+[00:26:40] kullanımını küçültmeye çalışıyorsunuz bu
+[00:26:42] sayede ve burada compact'i
+[00:26:45] kullanıyorsunuz. eee ve hani proje biraz
+[00:26:47] daha aslında hafıza olarak temizlenmiş
+[00:26:48] oluyor. Yani şuradaki aslında tamamlanan
+[00:26:50] görevleri ve eee aslında biten işleri
+[00:26:53] dosyadan işte şimdilik çıkartmak gibi.
+[00:26:55] Yine orada tabii ki ama belli almıyor.
+[00:26:56] En azından gereksiz dosyaların okumasını
+[00:26:58] engelleyerek aynı zamanda token
+[00:27:00] tasarrufu yapabilirsiniz. Burada manuel
+[00:27:01] olarak kapatabilirsiniz bazı dosyaları
+[00:27:03] yine. Eee ve bu sayede aslında bu
+[00:27:06] dosyaların içerisini görmemiş olur.
+[00:27:08] Bunları da yine ekstra yapabilirsiniz.
+[00:27:09] Bunları kapataç yapabilirsiniz ki mesela
+[00:27:11] sadece tek bir dosyanın içerisinde
+[00:27:12] çalışması için. Bunu da yapmak
+[00:27:14] istiyorsanız yine şurada mention
+[00:27:16] modülünden dosyayı da seçebilirsiniz.
+[00:27:18] Örneğin şu dosyanın içerisinden devam et
+[00:27:21] demek gibi. Bunların hepsi aslında biraz
+[00:27:23] daha sizi verimli çalıştıracak. Projeniz
+[00:27:25] büyüdükçe aslında sizin hafızanızı
+[00:27:27] yönlendirebileceğiniz, yönetebileceğiniz
+[00:27:28] hale gelmiş olur. Ama bir web sitesi
+[00:27:30] yapıyorsunuzdur örneğin. O zaman hiçbir
+[00:27:32] şekilde problem yok. Ama biraz daha
+[00:27:33] böyle büyük bir uygulama yapıyorsanız bu
+[00:27:35] tarz problemleri yaşayabilirsiniz. Şimdi
+[00:27:37] örnek bir dosya düşünelim. Eee, ben
+[00:27:39] mesela burada önce başlangıçta şurada
+[00:27:41] yapay zekanın ne yapması gerektiğini
+[00:27:43] söylüyorum. Örneğin diyorum ki bana işte
+[00:27:45] LinkedIn üzerindeki dataları
+[00:27:47] gösterebileceğim bir dashboard oluştur,
+[00:27:49] bir panel oluştur. Sonrasında kullanman
+[00:27:51] gereken yapay zeka modellerini
+[00:27:53] söylüyorum. Örneğin işte front end'te
+[00:27:55] bunu kullanacaksın, backend'te bunu
+[00:27:56] kullanacaksın. Eee sonrasında işte eee
+[00:27:59] kendin arayüzde de işte şunu
+[00:28:01] kullanacaksın gibi. Sonrasında da
+[00:28:03] yapmaması gereken şeyleri söylüyorum.
+[00:28:04] Burada kodun içerisinde neler yapması
+[00:28:06] lazım, neler yapmaması lazım gibi.
+[00:28:08] Sonrasında da hafıza tarafını koymuş
+[00:28:09] oluyorum. Örneğin her şeyi bir anda
+[00:28:11] yapma istiyorum. Önce planıyoruz. Mesela
+[00:28:14] önce authentication yapacağız.
+[00:28:16] Sonrasında ödeme sistemini entegre
+[00:28:17] edeceğiz gibi. Bunların hepsi olması
+[00:28:19] lazım. Şimdi ben burada size nasıl
+[00:28:21] yapıldığını göstereceğim ve bu bölüm
+[00:28:23] bittikten sonra aslında elinizde bir
+[00:28:24] dosya olacak. İçeriğini doldurmuş
+[00:28:26] olacaksınız. Test edebiliyor
+[00:28:28] olacaksınız. Şimdi dosyayı nasıl
+[00:28:29] oluşturabileceğinizi gösteriyorum. Şimdi
+[00:28:30] yapmanız gereken şansa Cloud'a girmek
+[00:28:33] veya CHGPT'ye veya Cemine'ye girmek.
+[00:28:34] Artık hangisini istiyorsanız ve burada
+[00:28:36] bir yapay zekayı aslında birazcık
+[00:28:38] projenin planlamasını göstermeniz lazım.
+[00:28:40] Ben bunu aşama aşama sizin için
+[00:28:41] gösteriyorum. Şimdi şöyle bir prompt
+[00:28:42] veriyorum ilk olarak. Örneğin bir proje
+[00:28:44] oluşturmanı istiyorum. Bu projeyi
+[00:28:46] oluşturuyorken de bana bir doküman
+[00:28:47] yapacaksın. Bu projenin içerisinde
+[00:28:50] olması gereken içerikleri barındırıyor
+[00:28:51] olacak. Önce uygulamanın içerisindeki
+[00:28:53] özellikleri birlikte planlayalım.
+[00:28:55] Sonrasında bu dosyayı oluşturalım
+[00:28:56] diyorum. Ve bu dosya bir MD dosyası
+[00:28:58] olacak. sonrası ben burravity'ye
+[00:29:00] vereceğim. Uygulama yaptıracağım. Şimdi
+[00:29:01] başlayalım diyorum. Ondan sonrasında
+[00:29:04] zaten bana soruları sormaya başlıyor.
+[00:29:06] Örneğin ne tür bir uygulama
+[00:29:07] geliştiriyorsun? Uygulamanın temel amacı
+[00:29:09] nedir? Hangi temel özellikleri
+[00:29:10] içermesini istiyorsun? Teknik
+[00:29:12] tercihlerin var mı? İşte veri tabanında
+[00:29:14] şunu kullanalım gibisinden. Sonrasında
+[00:29:15] ben biraz daha açıklamasını yazıyorum.
+[00:29:17] Burada sürekli olarak aslında ya şunu
+[00:29:19] değiştirelim, bunu şöyle yapalım da
+[00:29:20] diyebilirsiniz. Burası size kalmış.
+[00:29:22] Diyorum ki bu bir web uygulaması olacak.
+[00:29:24] Sektör fark etmez. Ücretsiz bir uygulama
+[00:29:26] olacak. sonrası yıllık fiyata geçecek ve
+[00:29:28] burada aslında tavsiyem varsa onu da
+[00:29:30] dinlemiş olayım diyorum. Uygulamanın
+[00:29:32] temel amacı insanların CV'lerini
+[00:29:34] oluşturmak ve motivasyon mektuplarını
+[00:29:35] oluşturmak. Aynı zamanda otomatik olarak
+[00:29:37] işe başvurmam lazım sorusunu soran
+[00:29:39] kişilere yönelik hedef kullanıcıları
+[00:29:42] bulacak. Yani hedef işleri çıkartacak.
+[00:29:44] Kullanıcı girişi olacak. Veri yönetimi
+[00:29:46] çok fazla olmayacak. Teknik tercihim yok
+[00:29:48] dedim. Eee ve sonrasında gerisini kendin
+[00:29:51] yap dedim. Ve sonrası biraz daha
+[00:29:52] planlamaya geçti. Burada başlangıçta
+[00:29:55] medya dosyasını oluşturmadan burada
+[00:29:56] aslında kendi planlarından birazcık
+[00:29:58] bahsediyor. Burayı okuyup gerçekten
+[00:30:00] burada bir yorum yapmanız değerli. Ve
+[00:30:01] hani mesela iki tane CV oluşturalım, bir
+[00:30:04] tane mektup oluşturalım, 5 tane de iş
+[00:30:06] verelim. Sonrasında yıllığa geçirelim
+[00:30:08] demiş mesela. Çok mantıklı.
+[00:30:09] Fiyatlandırma örneklerini vermiş. Mesela
+[00:30:11] yıllığa geçtiğinde indirim alacağı ile
+[00:30:13] alakalı işte ana özelliklerini buraya
+[00:30:15] koymuş. eee ve uygulamayı kendisi
+[00:30:17] tamamen aslında sizin
+[00:30:19] düşünebileceğinizden çok daha iyi bir
+[00:30:20] şekilde düşünüp planlayabilir,
+[00:30:22] tasarlayabilir buradaki bütün süreçleri.
+[00:30:24] Hatta biraz daha detaylı çalışmasını
+[00:30:26] isterseniz çok daha büyük işler bile
+[00:30:27] yapabilir. Sonrasında detayların hepsini
+[00:30:29] bana söylüyor. Kullanılması gereken
+[00:30:31] teknolojileri de söylüyor. Sonrasında
+[00:30:33] eee ben bir soru daha soruyorum ona.
+[00:30:35] Mesela diyorum ki LinkedIn içerisindeki
+[00:30:37] iş ilanlarını nasıl çıkartabilirim?
+[00:30:39] Burada da sonrası mesela gidip bunları
+[00:30:41] buluyor benim için. Mesela LinkedIn'de
+[00:30:42] işte şu şekilde e işte işleri
+[00:30:44] çekebilirsin şeklinde bunları getirmiş
+[00:30:47] oluyor. Sonrasında bunların
+[00:30:48] özelliklerini de yazıyor ve eee
+[00:30:51] sonrasında aslında ben birçok farklı
+[00:30:53] opsiyonu da görebiliyorum. Buradan
+[00:30:54] mesela ücretsiz olanı seçebiliyorum ve
+[00:30:56] sonrasında diyorum ki tamam her şey
+[00:30:58] okey. Şimdi bana MD dosyasını ver. Eee
+[00:31:01] buradaki bilgileri yapabiliyor olsun.
+[00:31:02] Ben bunu anti Gravity'ye vereceğim. E ve
+[00:31:04] sonrasında benim için bir MD dosyası
+[00:31:07] oluşturmuş oluyor. Eee şu anda gerisi
+[00:31:09] görünmese de aslında burada MD dosyasını
+[00:31:12] aslında tam detaylı bir şekilde
+[00:31:14] oluşturmuş oluyor. Bu nasıl görünüyor?
+[00:31:15] Buna bakalım hemen. Aslında ortaya şöyle
+[00:31:17] bir şey çıkmış oluyor. Bu bitmiş hali.
+[00:31:19] Bu büyük bir dosya ve burada bütün
+[00:31:21] detaylarını zaten kullanmış. Ama ilk
+[00:31:23] kısmı şu zaten. Projeye genel bakış.
+[00:31:25] İçerisinde neler olduğu, ana
+[00:31:27] özelliklerini yazmış kendisi.
+[00:31:28] Kullanılacak teknikleri yazmış. Yapay
+[00:31:30] zeka tarafını yazmış. Ödeme sistemini
+[00:31:32] yazmış. işte deploymentı yazmış ve
+[00:31:34] sonrasında kendi hatta superabase
+[00:31:37] tarafındaki dataların nasıl olması
+[00:31:38] gerektiğini bile çıkartmış ve sonrasında
+[00:31:40] aslında son haline getiriyor ve
+[00:31:42] sonrasında bir plan yapıyor aynı
+[00:31:43] zamanda. Örneğin diyor ki projeyi test
+[00:31:45] etmek için şunları kullan. Eee bak her
+[00:31:46] şey çalışıyor mu? Email'ile giriş yap,
+[00:31:48] magic link gönder vesaire. Son notları
+[00:31:50] verdik. Başlangıç adımlarını verdik. Ve
+[00:31:52] bu dokümanı vererek başladığınızda
+[00:31:54] aslında yapay zeka artık ne yapması
+[00:31:55] gerektiğini çok iyi biliyor. Aslında
+[00:31:57] projeye başlamadan siz bunu çok iyi bir
+[00:31:58] şekilde planlamış oluyorsunuz. Ve ben
+[00:32:00] bunu genelde bir chat modelinin
+[00:32:01] içerisinde yapmayı tercih ediyorum.
+[00:32:03] Çünkü prompt yazarak sürekli değiştirdim
+[00:32:05] ve isteyebilirim. Chatchpit olabilir,
+[00:32:06] cloud olabilir. Ve bu dosyayı aslında
+[00:32:08] kendinizle oluşturabilirsiniz. Bir
+[00:32:10] sonraki bölüme geçmeden önce bu dosyayı
+[00:32:12] oluşturmanız lazım. Bunun içeriği dolu
+[00:32:14] bir şekilde olması lazım. Sonrasında
+[00:32:16] bunu cloud code'da veya hand gravity'de
+[00:32:18] dosyayı yükleyip dosya üzerinden bu
+[00:32:21] talimatları okuyabiliyor musun diye
+[00:32:23] sormak lazım. Bu da şu şekilde
+[00:32:24] yapabilirsiniz. Bu dosyayı aslında siz
+[00:32:27] direkt cloud'a da verebilirsiniz.
+[00:32:29] Buradan hemen şöyle kopyalayalım.
+[00:32:31] Cloud'a verip bu dosyayı
+[00:32:35] okuyabiliyor musun deyip aslında burada
+[00:32:38] direkt zaten bu projenin içerisinde
+[00:32:39] çalışıyor bu ve hani burada siz bunu
+[00:32:43] görüntüleyebilirsiniz. Bu şekilde
+[00:32:45] sonrasında kendisi dosyanın içerisine
+[00:32:47] bakıp evet ben her şeyi okuyabiliyorum
+[00:32:49] diyebilecek. Şimdi buradaki dataları
+[00:32:51] mesela kendisi okuyabilecek ve eee
+[00:32:53] buradaki projenin talimatlarını çıkartıp
+[00:32:56] şimdi evet başlayalım dediğimde ben
+[00:32:58] bütün her şeyini yapabiliyor olacak.
+[00:33:00] Mantık aslında bu şekilde ve eee bu
+[00:33:02] dosyayı oluşturduğunuzda aslında bir
+[00:33:04] sonraki bölüme geçebiliyor oluyorsunuz.
+[00:33:06] Yani az önce aslında gösterdiğim süreci
+[00:33:07] biraz daha interaktif bir şekilde
+[00:33:09] görüyor olacaksınız. Cloud'un içerisinde
+[00:33:11] görüyor olacaksınız. Şimdi burada şunlar
+[00:33:13] var. Proje içerisinde bu arada eee
+[00:33:15] analitik tarafı, güvenli bir giriş, veri
+[00:33:18] tabanı bir de user interface dediğimiz
+[00:33:20] arayüz var aslında. Ve bunları da
+[00:33:22] istiyorsanız tabii ki kurulumu tamamen
+[00:33:24] terminalden yapabilirsiniz ama bence
+[00:33:26] yapmamalısınız. Sadece prompt yazarak
+[00:33:28] ilerlemelisiniz. Burada şu tarz promlar
+[00:33:30] yazabilirsin. Eğer direkt zaten cloud
+[00:33:32] dosyan hazır olduğu için MD dosyan eee
+[00:33:35] ve hani şöyle bir uygulama yapmak
+[00:33:36] istiyorum. şu tarz bir sistemi başlat
+[00:33:39] veya şu projedeki proje kurallarına ve
+[00:33:41] renk panellerine her şeye sadık bir
+[00:33:43] şekilde ilerle demiş olmanız yeterli
+[00:33:45] aslında. Gerisini zaten kendisi yapıyor
+[00:33:47] olur. Şimdi burada cloud'a ilk bir
+[00:33:49] promtu veriyoruz ve burada ilk olarak
+[00:33:51] bir taslak oluşturmasını istiyoruz.
+[00:33:53] Sonrasında bu kodu tekrardan
+[00:33:55] çalıştırıyoruz. Hatalar var mı diye
+[00:33:57] kontrol ettiriyoruz. sonrasında da
+[00:33:59] düzeltilecek yerler varsa oraları
+[00:34:01] düzeltmiş oluyoruz ve bu sürekli olarak
+[00:34:02] bu şekilde devam etmiş oluyor. Ve
+[00:34:04] aslında bir hata bulduğunda da aslında
+[00:34:07] bunun analizini yine cloud ve
+[00:34:08] integravity kendisi yapabilir. Yani
+[00:34:10] zaten şurada bir hata almışım ben bunu
+[00:34:12] hemen düzeltiyorum diyebilir. Sürekli
+[00:34:15] olarak aslında zaten hata tespitini
+[00:34:16] yapıyor, analizini yapıyor ve sonrasında
+[00:34:18] düzeltmesini yapmış oluyor ve bu şekilde
+[00:34:20] sürekli olarak bunu ilerletiyor. Burada
+[00:34:22] şöyle düşünebilirsiniz. Şimdi cloud'un
+[00:34:24] içerisinde farklı farklı sistemleri var.
+[00:34:27] 1 kodu yazıyor. 2. kodu analiz ediyor.
+[00:34:30] 3. kodu test ediyor. Sonrasında kodda
+[00:34:33] değişiklikler yapıyor. Sonrasında
+[00:34:35] tekrardan bir planlama yapıyor ve bütün
+[00:34:37] süreci baştan başlatıyor ve bunu sürekli
+[00:34:39] olarak yapıyor aslında. Ve bu sayede hem
+[00:34:41] hata yaparsa düzeltmiş oluyor hem de
+[00:34:43] sürekli olarak değişiklikleri
+[00:34:44] ilerletebiliyor. Ve burada önemli olan
+[00:34:46] şey aslında şu. Proje büyüdükçe hata
+[00:34:49] artabilir. Hata artmasını engellemek
+[00:34:51] içinse bölüm bölüm ilerlemek lazım.
+[00:34:54] Bence bu işin en önemli noktası bu. Yani
+[00:34:56] yavaş yavaş promtlayarak örneğin bana
+[00:34:58] uygulamayı yap değil uygulamayı 10
+[00:35:01] bölüme böleceğiz. 10 aşamada yapacağız
+[00:35:04] bu uygulamayı. Kendin bir planlama yap.
+[00:35:07] 10 bölüme çıkart. 1ci bölümle başla. Bu
+[00:35:10] şekilde ilerlediğinizde aslında ilk
+[00:35:12] bölüm bitip onun testini yaptığınızda
+[00:35:14] artık tamam ilk bölüm bitti. O kısma
+[00:35:16] odaklanmayı bırakabilirsin. İkinci
+[00:35:18] bölüme geçebilirsin dersiniz. Bunu
+[00:35:20] yaptığınızda şu hatayı yapmamış olur.
+[00:35:23] Sürekli olarak yine bölüm 1 2 3'ü takip
+[00:35:25] etmez 5'e geçtiğinde. Tabii ki takip
+[00:35:27] etmesi gereken yerleri yine görecektir.
+[00:35:29] Ancak orada bir değişiklik çok fazla
+[00:35:31] yapmasına gerek kalmaz. Bu da sizin
+[00:35:32] projenizi hem daha az token yakarak
+[00:35:35] ilerletmenizi hem de hata yapmasını
+[00:35:37] engeller. Genelde zaten hafızası
+[00:35:40] dolduğunda bunu fark edersiniz. Artık
+[00:35:42] problemleri çözmemeye başlar. Çözdüm der
+[00:35:44] ama çözemez. Bunlar genelde hep havza
+[00:35:46] problemlerinde ortaya çıkar. Şimdi
+[00:35:48] örneğin burada bir biz eee baştan sona
+[00:35:50] bir aslında panel oluşturacağız ve e bu
+[00:35:54] panel için aslında aklımda hiçbir fikir
+[00:35:55] bile yok. Fikri de baştan bulacağız ve
+[00:35:58] bir fikir üzerinden sadece prompt
+[00:36:01] yazarak bir panel oluşturacağız. Panel
+[00:36:03] genelde şirketlerin çok sevdiği bir şey
+[00:36:05] ve herhangi bir ajansın mutlaka yapması
+[00:36:07] gereken bir şey bence. Ajans veya
+[00:36:09] uygulamanın. Örneğin bir otomasyon
+[00:36:10] kurdunuz. Otomasyon müşterinin takip
+[00:36:13] edebileceği hale getirmeniz lazım.
+[00:36:14] Örneğin otomasyon bir WhatsApp chatbot
+[00:36:16] diyelim. WhatsApp chatbot sürekli gelen
+[00:36:18] mesajlara otomatik olarak cevap yazıyor.
+[00:36:20] Şimdi müşteriye çok basit bir arayüz
+[00:36:22] yapıp bak müşteri işte bugün 100 tane
+[00:36:25] mesaj gelmiş, şu kadarına dönüş
+[00:36:27] yapılmış, bu kadarı işte toplantı almış
+[00:36:28] veya bu kadarını işte olumlu bir
+[00:36:30] müşteriye çevrilmiş, bu kadarı satış
+[00:36:32] ekibine gönderilmiş demek aslında çok
+[00:36:35] verimli bir eee iş modeli olmuş oluyor.
+[00:36:37] Siz sonrasında müşterinizden aylık
+[00:36:39] sürekli olarak ödeme almaya da devam
+[00:36:40] edersiniz. Müşteriniz size kullanmayı da
+[00:36:42] bırakmaz. Çünkü sürekli zaten bir
+[00:36:45] sistemin içerisine girmiş durumda.
+[00:36:47] Sistemi görebiliyor, takip edebiliyor ve
+[00:36:49] eee kendi kontrolünde hissedebiliyor.
+[00:36:52] Aslında bunlar çok önemli. Şimdi biz
+[00:36:54] böyle bir şey aslında oluşturuyor
+[00:36:55] olacağız. Peki bunu nasıl yapıyoruz?
+[00:36:58] Aslında hedef süren mesela burada eee
+[00:37:00] bir finans dashboardu diyelim. Finansla
+[00:37:02] alakalı bir arayüz yapacağız. Kişisel
+[00:37:04] finans takibi uygulaması yapacağız.
+[00:37:06] senaryomuzda kullanıcı gelir ve
+[00:37:07] giderlerine girmeli. Bunları da bir
+[00:37:09] pasta grafikte görmeli ve son
+[00:37:11] harcamalarını işte listeleyebilmeli
+[00:37:14] diyoruz mesela. Şimdi burada da aşama
+[00:37:16] aşama ben bunu sıfırdan yapıyor olacağım
+[00:37:18] ve bu videonun sonunda da size aslında
+[00:37:20] bu işlemlerin hepsini kendinizde
+[00:37:22] deneyebiliyor olacaksınız. En azından
+[00:37:24] kendi uygulamanızı yine bu şekilde
+[00:37:26] ilerletebiliyor olacaksınız. Basit
+[00:37:28] başlayın her zaman için. Sonrasında
+[00:37:30] üzerine ekleyin. Şimdi baştan
+[00:37:31] başlayalım. Ben burada bir yandan
+[00:37:33] projeyi söyleyeceğim. Sonrunda bunu
+[00:37:34] cloud koda yazdıracağım. Başlıyorum.
+[00:37:37] Sıfırız şu an bu arada. Hiçbir şey yok.
+[00:37:39] Hatta cloud kodu da sıfır'dan
+[00:37:41] başlatacağız. Şimdi kullanıcı gelir ve
+[00:37:43] giderlerini girdiği ve bunları bir pasta
+[00:37:45] grafikle gördüğü bir kişisel finans
+[00:37:47] takip uygulaması yapacağız. Bunun
+[00:37:49] detaylarını çıkartıyor olacaksın.
+[00:37:51] İstediğim şey sadece şu anda içerisinde
+[00:37:53] dami datanın olduğu bir panelin
+[00:37:56] oluşturulması ve bunu da aslında başka
+[00:37:59] bir şeye şu an bağlamak zorunda
+[00:38:00] değilsin. Lokalde nasıl yazıldığını,
+[00:38:02] nasıl yapıldığını görüyor olacağız. Ve
+[00:38:04] burada da basit aslında girişimler veya
+[00:38:07] işte harcamalar girildiğinde bunları
+[00:38:09] pasta grafik içerisinde ben
+[00:38:11] listeleyebiliyor olacağım, görebiliyor
+[00:38:12] olacağım. Aynı zamanda kaliteli bir
+[00:38:14] arayüz kullan. Bununla alakalı da MCP
+[00:38:17] vereceğim sana. Bu MCP'yi de aşağıdaki
+[00:38:19] bilgileri kullanarak oluşturacaksın ve
+[00:38:22] sonrasında arayüzü de çok kaliteli bir
+[00:38:24] şekilde yapacaksın. Arayüzün renklerine
+[00:38:26] ve bütün platformu kendin karar
+[00:38:29] verebilirsin. Bunu sadece prom'ta
+[00:38:30] çeviriyorum. Bu ilk aşama. MCP'nin ne
+[00:38:33] olduğunu zaten görüyor olacaksınız.
+[00:38:34] Şimdi cloud'da şunu hemen kopyalıyorum.
+[00:38:36] Yeni bir buraya proje oluşturuyorum ve
+[00:38:39] sonrasında da diyorum ki aynı zamanda
+[00:38:43] bana bir MD dosyası oluştur.
+[00:38:47] Bunu
+[00:38:49] anti gravity'ye
+[00:38:51] bunu cloud koda diyelim.
+[00:38:56] Gerçi zaten anti gravity veya cloud code
+[00:38:57] hiç fark etmiyor. Neden? Çünkü zaten
+[00:38:59] aynı sistemi kullanıyoruz. Yani Andy
+[00:39:01] Gravity'nin içerisinde cloud kodu
+[00:39:02] çalıştırıyorum ben genelde. Neden bunu
+[00:39:04] yapıyorum? Çünkü bir yandan da agent
+[00:39:06] manager'de Jemina'yi çalıştırıyorum.
+[00:39:08] Cemina'yı test etmesi için kullanıyorum.
+[00:39:09] Cloud kodu kodu yazması için
+[00:39:11] kullanıyorum. Genelde bu da güzel
+[00:39:12] çalışıyor. İkinci bir aşamada eee orada
+[00:39:14] direkt web sitesi içerisinde takiplerini
+[00:39:17] yaptırabiliyorum. Problemlerini
+[00:39:18] çözdürebiliyorum. O şekilde Cemina'ya
+[00:39:20] problemleri analiz ettiriyorum ama
+[00:39:21] çözdürmüyorum. Cloud'a veriyorum o
+[00:39:23] problemleri. O şekilde bir bakış
+[00:39:25] açısıyla çok daha iyi çözebiliyor
+[00:39:27] problemi. Bazen şurada hata aldın
+[00:39:28] dediğimde kodu çok fazla değiştiriyor.
+[00:39:31] Orada öyle bir hata yapabiliyor. O
+[00:39:32] şekilde bir mantıkı kurmuş oluyoruz.
+[00:39:35] Şimdi cloud benim için bir MD dosyası
+[00:39:37] oluşturacak. Bu MD dosyasını da ben
+[00:39:39] cloud'a veriyor olacağım. Şimdi bu bir
+[00:39:40] yandan bunu devam ettiriyorken ben şunu
+[00:39:42] yapıyorum. Burada Gravity'yi sıfırdan
+[00:39:44] çalıştıracağım. Şimdi şurada gravity'ye
+[00:39:46] basıyorum.
+[00:39:47] Burada zaten boş bir panel açılıyor.
+[00:39:49] Sonrasında da ben burada şuradaki hatta
+[00:39:51] dosyayı da kapatalım. Sıfırdan bir dosya
+[00:39:54] oluşturmam lazım ilk olarak. Burada e
+[00:39:56] Agent Manager'ı açıp yeni sıfırdan bir
+[00:39:58] proje başlatabilirsiniz. Aynı zamanda
+[00:40:00] yine şu anda editörün içerisindesiniz.
+[00:40:02] Burada siz aynı zamanda şurada
+[00:40:04] extension'lara basıp cloud kodu
+[00:40:06] çalıştırabilirsiniz. Şurada zaten
+[00:40:08] görünür. Cloud kodu buradan
+[00:40:09] çalıştırabilir. Sonrasında dosyayı
+[00:40:11] aslında şuradan hemen seçmiş oluyorsunuz
+[00:40:13] ve bunun içerisini zaten direkt boş bir
+[00:40:15] şekilde açıyorsunuz. Burada güveniyorum
+[00:40:17] diyorsunuz. Gravity tarafı bu şekilde
+[00:40:18] açılıyor. Sonrasında siz aslında bunun
+[00:40:20] içerisinde istediğiniz dokümanları
+[00:40:22] ekleyebilirsiniz. Yani ben aslında
+[00:40:24] şurada aldığım MD dosyasını birazdan ki
+[00:40:26] burada tamamını örneğin oluşturmuş. Ben
+[00:40:28] bunu örneği kopyalıyorum. Sonrasında da
+[00:40:31] bunu burada eee gerçi bunu önce
+[00:40:33] indirmemiz lazım. Kopyalamayalım. Direkt
+[00:40:35] önce indirelim. Her zaman için burada
+[00:40:37] dosya olarak kalsın. Sonrasında bu
+[00:40:39] dosyayı bunun içerisinde sürekli bırak
+[00:40:41] yapıyorum. Ve artık ben aslında cloud
+[00:40:43] kodumu bu dosyanın içerisinde görecek
+[00:40:45] şekilde çalıştırabilirim ve eee burada
+[00:40:48] aslında bu dosyayı görmesini istiyorum.
+[00:40:50] O yüzden hatta şunu da diyorum. Burada
+[00:40:52] dosyayı görüp görmediğini bulmanız için
+[00:40:54] her zaman için şunu diyebilirsiniz.
+[00:40:55] YouTube videosu için proje
+[00:40:59] klasörünü
+[00:41:01] görebiliyor musun? Şimdi bunu
+[00:41:03] dediğinizde eğer burada göremiyorsa
+[00:41:05] tekrardan istek atacak eee o dosyayı
+[00:41:07] görmek için. Şu an mesela bunu
+[00:41:09] görebiliyor. Eee ve sonrasında ben şunu
+[00:41:11] diyeceğim. Şunun da aslında işim yok.
+[00:41:13] Tamam. Şimdi bu projeyi başla. MD
+[00:41:18] dosyasına
+[00:41:20] bakarak diyorum. Burada sağ tarafınızda
+[00:41:21] da aslında an gravity'nin kendi agent'ı
+[00:41:24] var. Mesela şurada da ben yine model
+[00:41:26] olarak seçebilirim. Cloud modellerini
+[00:41:28] burada yine seçebilirim ama burada
+[00:41:29] ekstra limitiniz var. Cemini tarafında
+[00:41:31] limitiniz çok daha fazlayken Opus
+[00:41:34] tarafında, Sonet tarafında yani cloud
+[00:41:36] modellerinde çok daha az olmuş oluyor.
+[00:41:38] Şimdi burada sürekli olarak projeyi
+[00:41:40] artık oluşturabilir. Otomatik olarak
+[00:41:42] editletebilirsiniz. Eee isterseniz
+[00:41:44] planlama da yaptırabilirsiniz. Burada
+[00:41:46] farklı farklı bir sürü modeli var.
+[00:41:47] Örneğin plan moduna geçirebilirsiniz.
+[00:41:49] Eee hızlı bir şekilde devam
+[00:41:51] ettirebilirsiniz. Ve bunların hepsi
+[00:41:52] aslında sizin cloud'un ne kadar hızlı
+[00:41:54] ilerlemesini beklediğiniz, istediğinizle
+[00:41:57] alakalı. Şimdi bunun içerisinde ekstra
+[00:41:59] şunlar var. Önemli olan şimdi cloud'un
+[00:42:02] bu arada bir yandan bir ajan devam
+[00:42:04] ediyorken ikincisini başlatabilirsiniz.
+[00:42:06] Böyle bir şey mümkün. Ve burada proje
+[00:42:09] aslında baştan sona kendisi bunu
+[00:42:10] yapabilir eş zamanlı olarak hatta siz
+[00:42:13] bir yandan anti Gravity tarafındaki
+[00:42:16] kendi agentıyla da devam edebilirsiniz.
+[00:42:18] Burada agent manager' de basabilirsiniz.
+[00:42:20] Ekstra agent manager'a bastığınızda
+[00:42:22] örneğin şöyle bir arayüzde açar sizin
+[00:42:23] için ve burada projelerinizi yine
+[00:42:25] görebilirsiniz. Burada örneğin yine bu
+[00:42:27] klasörü seçebilirsiniz. bu klasörün
+[00:42:29] içerisinde çalışmasını
+[00:42:30] sağlayabilirsiniz. Ancak aynı proje
+[00:42:32] içerisinde iki tane ajanın çalışması
+[00:42:34] mantıklı değil. Birisi durup sonrasında
+[00:42:36] diğeri çalışabilir ama ikisi aynı anda
+[00:42:38] bence çalışmamalı. Çünkü dosyaları
+[00:42:40] karıştırabilirler. Birbirlerini
+[00:42:41] ekleyebilirler. Bakın şimdi bir yandan
+[00:42:43] devam ediyor. Bunu ilk seferde yapması
+[00:42:45] birazcık uzun sürebilir tabii ki. Eee
+[00:42:47] yaklaşık sanırım 10 dakikadır
+[00:42:48] bekliyoruz. Bu kadar bir süre olmuş
+[00:42:50] olabilir. Burayı zaten kırptık ama
+[00:42:52] hiçbir şey yapmadık aslında. Sadece ben
+[00:42:53] onu bekliyorum. Burada aşama aşama
+[00:42:55] aslında her şeyi yapmış oluyor. Eee,
+[00:42:56] şimdi birazdan da, eee, hepsi bittiğinde
+[00:42:58] ki son şu anda projeyi teslim tarafında
+[00:43:01] şu anda projeyi çalıştırıyor lokalde
+[00:43:03] tabii ki ama mesela siz bunun sonrasında
+[00:43:05] eee, projeyi de alabilirsiniz. Bunların
+[00:43:07] hepsini gösteriyor olacağım. Bölüm bölüm
+[00:43:09] gidiyor olacağız. O yüzden eee, hiçbir
+[00:43:11] şekilde bir sonraki bölümü ya şunu nasıl
+[00:43:13] yapacağız, bunu nasıl yapacağız gibi
+[00:43:14] sorularınız olabilir. Bir sonraki
+[00:43:15] bölümlerde muhtemelen zaten bunun
+[00:43:17] cevabını görüyor olursunuz. Çünkü şu
+[00:43:19] anda yeni başlıyoruz sıfırdan. Sadece
+[00:43:21] benim yaptığım şeyleri yaparak onları
+[00:43:22] takip etmeniz lazım. Şu anda da örneğin
+[00:43:24] projeyi çalıştırdı. Ben bunu şu anda
+[00:43:26] link olarak açabilirim.
+[00:43:29] Bu linki kopyalayalım.
+[00:43:31] Projeyi şuraya alıyorum. Az önceki link
+[00:43:33] bu. Şöyle bir proje açmış zaten. Ve
+[00:43:36] şimdi bu projenin içeriğine bir bakalım.
+[00:43:38] Şimdi eee arayüz olarak MCP'yi vermeyi
+[00:43:40] unuttuk. Şimdi bakın o kısmı da
+[00:43:42] göstereceğim. Nasıl? Aslında bayağı
+[00:43:44] güzel ya. Şu anki görüntüye bakın.
+[00:43:46] Bayağı böyle vipe cod gibi görünüyor
+[00:43:47] değil mi? Bayağı kötü. Hiçbir şekilde
+[00:43:49] eee güzel şey görünmeyen. Çalışıyor mu?
+[00:43:52] çalışıyor ve ben buraya sürekli olarak
+[00:43:54] hani ekstra bilgileri de ekleyebilirim.
+[00:43:56] Eee ve burada hani sürekli bunu çalışır
+[00:43:58] bir hale getirebilirim. Bu aslında ilk
+[00:44:00] bir basit arayüzü diyelim. Burada
+[00:44:02] kategorilerini seçebiliyor. Örneğin
+[00:44:03] kaydedebiliyor. Mesela buraya diyelim ki
+[00:44:05] 500 euro diyelim ve sonrası buraya
+[00:44:07] sürekli olarak gelirini giderini
+[00:44:09] ekleyebiliyor olduğu bir şey. Sonra da
+[00:44:11] buraya böyle bir grafik koymuş mesela.
+[00:44:13] Buraya ekstra bir tane daha eee
+[00:44:15] alışveriş diyelim. Belki 100 diyelim.
+[00:44:17] Bunu da ekliyor mesela sürekli olarak
+[00:44:19] bir başka şey ekleyelim. Mesela eğlence
+[00:44:21] diyelim. 50 diyelim. Buna da bu şekilde
+[00:44:24] bir sistem. Şimdi görüntü güzel değil.
+[00:44:26] Görüntü VIP code. Görüntüyü nasıl
+[00:44:28] çözeceksiniz? Bence en önemli konulardan
+[00:44:30] bir tanesi bu. Şunu yazıyorsunuz. 21
+[00:44:33] first dev'e giriyorsunuz ve MCP modülüne
+[00:44:36] giriyorsunuz. Sonrasında da burada giriş
+[00:44:38] yapıyorsunuz önce. Şimdi giriş yaptıktan
+[00:44:40] sonra bunun içerisinde inanılmaz güzel
+[00:44:42] bir sürü komponent var. Yani arayüz var
+[00:44:44] aslında. Ve burada e siz bunların
+[00:44:46] hepsini kullanabiliyorsunuz. Yani şurada
+[00:44:47] gördüğünüz animasyonları, bunların
+[00:44:49] geçişlerini, bunların hepsi açık kaynak.
+[00:44:52] Hepsini de kendisi kullanabiliyor. Eee
+[00:44:54] ve bu sayede aslında çok kaliteli, eee,
+[00:44:57] web sitelerini oluşturabiliyorsunuz.
+[00:44:58] İnanılmaz profesyonel görünür web
+[00:45:00] siteleri. Bu çok önemli. Çünkü ne olursa
+[00:45:03] olsun şirketinizin veya uygulamasının
+[00:45:04] veya başka bir şeyin kaliteli görünmesi
+[00:45:06] lazım. Çünkü müşterileriniz ilk her
+[00:45:08] zaman için web sitenize bakıyor. Ben çok
+[00:45:10] büyük şirketlerde bile bu arada çok
+[00:45:12] amatör web siteleri görüyorum. Eee, o
+[00:45:13] yüzden bunu mutlaka eklemek lazım. Şimdi
+[00:45:16] şu şekilde kötü bir görüntü var. Ben
+[00:45:18] şunu yapmış oluyorum. Şimdi buraya şu
+[00:45:20] linke gidiyorum zaten. MCP linkine kabul
+[00:45:22] ettim diyorum. Sonrasında buradan farklı
+[00:45:24] şeyleri seçebilirsiniz. Cloud kode var.
+[00:45:26] Örneğin direkt VS cod. Burada cloud kodu
+[00:45:29] seçebilirsiniz. Ve sonrasında şuradaki
+[00:45:32] şeyi kopyalıyorsunuz. Burada farklı
+[00:45:33] şeyleri de seçebilirsiniz bu arada.
+[00:45:35] Örneğin client da seçebilirsiniz veya
+[00:45:37] burada eee bir geri gidelim. Şöyle hemen
+[00:45:39] göstereyim tekrardan size. Orayı zaten
+[00:45:41] kopyaladık. Şurada VS kodu da
+[00:45:43] seçebilirsiniz. VS COD' da aslında
+[00:45:44] benzer çalışır. Burada da yine bunu e
+[00:45:47] client üzerinden kurabilirsiniz. Her
+[00:45:49] ikisi de çalışıyor olur. Clan kodda
+[00:45:51] çalışır burada. Sonrasında mesela devam
+[00:45:53] et diyoruz. Farklı aşamaları
+[00:45:55] görebiliyoruz. Ve bunun daha kolayını
+[00:45:57] size göstereyim aslında. Şurada zaten
+[00:45:59] bunun eee ücretsiz paketini
+[00:46:00] kullanabiliyorsunuz. Herhangi bir şey
+[00:46:02] almanıza gerek kalmıyor. Şuraya
+[00:46:03] tekrardan gideceğim. Bunu da kabul
+[00:46:05] ediyorum diyeceğim. VS kodu seçeceğim.
+[00:46:07] Çünkü VS kod Gravity'de de otomatik
+[00:46:09] olarak çalışıyor. Bunu kopyalıyorum.
+[00:46:12] Sonrasında buraya gidiyorum. Diyorum ki
+[00:46:14] MCP'yi ekle ve arayüzü çok profesyonel
+[00:46:19] hale getir.
+[00:46:22] Tiber F dev'deki
+[00:46:25] komponent
+[00:46:27] leri MCP'den
+[00:46:30] kullan diyorum. Şimdi bunu kendisi
+[00:46:32] tekrardan kuruyor olacak ve aslında çok
+[00:46:34] daha kaliteli hale getirecek bu sayede
+[00:46:36] buradaki uygulamayı ve arayüzleri
+[00:46:38] değiştiriyor olacak. Sistem yine arka
+[00:46:39] tarafta aynı tabii ki ama buradaki
+[00:46:41] arayüzü kullanıyor olacak. O yüzden çok
+[00:46:43] daha kaliteli şeyler ortaya çıkacak.
+[00:46:44] Burada örneğin şu anda terminal için
+[00:46:47] istek istiyor. Terminalde isteğe oke
+[00:46:49] diyorum. MCP'yi kurduğunu söylüyor.
+[00:46:51] Bakalım şu anda her şey çalışacak mı ve
+[00:46:54] şu sonrasında değişiklikleri yapacak mı?
+[00:46:56] Okey. Neredeyse bitirdi. Yaklaşık 10
+[00:46:58] dakika sürdü gibi ve eee şimdi
+[00:47:00] bakacağım. Her şeyi güncellediğini
+[00:47:02] söylüyor. Bakalım neler yapmış. Oke.
+[00:47:04] Tamam. Tekrardan eee Ok. Renk
+[00:47:06] paletlerini de değiştirmiş.
+[00:47:09] Bu şekilde son versiyonunu getirmiş. Çok
+[00:47:11] daha güzel görünüyor bence. Vipe cod
+[00:47:13] görünmüyor. Daha temiz, net görünüyor.
+[00:47:16] Buraya bakalım mesela. Ş test edelim
+[00:47:17] bir. Alışveriş diyelim. 100 diyelim.
+[00:47:20] Eee, okey. Ha buraya bunu koymuş. Bence
+[00:47:22] mantıklı çünkü sol taraf daha da dolacak
+[00:47:24] zaten. Şuna mesela 20 diyelim. Okey.
+[00:47:26] Tamam. Sürekli olarak burada
+[00:47:27] görebiliyorum her şeyi. Gayet güzel.
+[00:47:30] Yani aslında buna göre buradaki
+[00:47:32] komponentleri kullanarak çok daha
+[00:47:33] kaliteli bir web sitesi oluşturmuş oldu.
+[00:47:36] Arayüzlerini çok daha güzel yaptı ve bu
+[00:47:38] şekilde hem web sitesini yapabilirsiniz
+[00:47:40] hem de ekstra uygulama tarafını
+[00:47:41] yapabilirsiniz. Ve aslında kullandığımız
+[00:47:44] şeylerse çok net. Burada aslında TB One
+[00:47:47] first Dev'i kullandık sadece ve sadece
+[00:47:49] ve sadece prompt yazdık. Şimdi bir
+[00:47:51] sonraki bölüme geçebilmeniz için
+[00:47:52] kendinizde böyle bir aslında uygulama
+[00:47:54] yapmanız gerekiyor. Çok basit olsun.
+[00:47:56] Sadece panel olsun bu. Arka tarafta bir
+[00:47:58] data olmasın. basit başlayın ve arayüzü
+[00:48:01] ki bu web sitesi de olabilir. Bir web
+[00:48:03] sitesi de yapabilirsiniz. Basit bir
+[00:48:04] şekilde bunu oluşturmuş olun. Webesi
+[00:48:06] yapmak istiyorsanız da zaten tek
+[00:48:08] yapmanız gereken şey şu. Bu uygulamanın
+[00:48:13] kaliteli web sitesini yap
+[00:48:16] dediğinizde aslında gerisini kendisi
+[00:48:18] yapıyor olur. Baştan sona aslında
+[00:48:20] buradaki bölümü bitirmiş olduk. Bir
+[00:48:22] sonraki bölümde görüşmek üzere. Şimdi
+[00:48:24] bölüm 6'ya geçmiş olduk. Bölüm 6'da bazı
+[00:48:26] aslında cloud kodu içerisindeki
+[00:48:28] özellikleri gösteriyor olacağım ve
+[00:48:30] burada örneğin planlama, kodlama,
+[00:48:32] güvenlik gibi özelliklerinin komutlarını
+[00:48:34] gösteriyor olacağım. Biraz aslında
+[00:48:35] teorisini gösterecek olursak proje
+[00:48:37] başlangıcında aslında ben bir MD dosyası
+[00:48:39] oluşturmuştum ve sonrasında da eee bu
+[00:48:42] projeyi anlayarak bir analiz yapmasını
+[00:48:44] istiyorum ve sonrasında güvenli bir
+[00:48:45] şekilde çalıştırmasını istiyorum. Yani
+[00:48:47] burada aslında sürekli olarak e cloud'un
+[00:48:50] ve anti Gravity'nin Cemin'ın baştan sona
+[00:48:52] aslında buradaki sistemi kontrol
+[00:48:54] etmesini istiyorum. Eee burada da
+[00:48:56] aslında sonrasında dosyalara zaten eee
+[00:48:58] sürekli olarak değişiklikler
+[00:49:00] yapabilmesini, komut tarafını
+[00:49:01] çalışmasını, hata düzeltme tarafının da
+[00:49:03] olmasını istiyorum. Ve izin ve güvenlik
+[00:49:06] tarafındaysa biliyorsunuz burada farklı
+[00:49:08] farklı şeyleriniz var. Planlama
+[00:49:10] yapabilirsiniz. Sadece planlama yapar,
+[00:49:12] aksiyon almaz. Kendin aksiyon al
+[00:49:14] diyebilirsiniz. ya da aksiyon almadan
+[00:49:16] önce bana sor her seferinde
+[00:49:17] diyebilirsiniz. Bunları seçebilirsiniz
+[00:49:19] ve burada sürekli olarak aslında sizin
+[00:49:21] kontrolünüzde ilerlemiş olur ve aynı
+[00:49:23] zamanda şeffaf bir şekilde çalışabilir.
+[00:49:25] Ancak burada ekstra kullanmanız gereken
+[00:49:27] bence şunlar var. Buradaki komutlar
+[00:49:30] mesela şimdi buradaki komutlar olarak
+[00:49:32] şurada slash'e bastığınızda aşağı doğru
+[00:49:34] bir sürü komut görüyorsunuz. Şunlar
+[00:49:35] örneğin buradaki komutlar. Şimdi
+[00:49:38] bunların ne olduğunu birazcık anlatmış
+[00:49:39] olayım. Compact kısmı aslında projeyi
+[00:49:41] biraz daha küçültmek, token kullanımını
+[00:49:43] azaltmak için. Kontext tarafında şu
+[00:49:45] andaki hangi hafızayı kullanıyorsun
+[00:49:48] sorusunu sormak için şu andaki
+[00:49:51] kullandığın senin hafızanı göster bana
+[00:49:53] demek. Masraf şu andaki masrafınızı
+[00:49:56] göstermek ki kendi aboneliğinizi de
+[00:49:57] kullanıyorsanız zaten bunu kendi
+[00:49:59] abonelizden kullandınız diyecektir.
+[00:50:02] API'dan kullanıyorsanız da aslında bu
+[00:50:04] cloud kodu içerisindeki kendi sizin
+[00:50:07] oturumunuzda ne kadar harcadığınızı
+[00:50:08] gösterir. Debug modu aslında şu andaki
+[00:50:11] projenin, çalışan projenin bir
+[00:50:13] kontrolden geçirilmesi. Her şey
+[00:50:15] çalışıyor mu, kodda problem var mı
+[00:50:17] gibisinden ve sonrasında eee ekstra
+[00:50:20] şeyleri de ekleyebilirsiniz. Eee,
+[00:50:21] örneğin Init tarafında yeni bir cloud MD
+[00:50:24] dosyası oluşturabilirsiniz. Yeni
+[00:50:25] sıfırdan ekstra bir hafıza eklemek için.
+[00:50:28] Örneğin mesela uygulamanız büyümeye
+[00:50:30] başladı. Uygulamayı yeni bir kanal daha
+[00:50:31] eklemek istiyorsunuz. Yeni bir MD
+[00:50:33] dosyası açıp onun üzerinden eklemek her
+[00:50:35] zaman için daha iyi olur. Projeyi
+[00:50:37] sürekli olarak büyütmenizi daha
+[00:50:39] kontrollü ilerlemenizi sağlar. Insight
+[00:50:41] tarafı raporlama aslında. Buradaki yine
+[00:50:43] cloud Coder oturumu ile alakalı
+[00:50:44] raporlaması ve en önemlisi de bence ki
+[00:50:47] burada ekstra yine şeyler var ama en
+[00:50:49] önemlisi bence buradaki eee güvenlik
+[00:50:53] kontrolü. Güvenlik kontrolü aslında şu
+[00:50:56] anda sizin bu projenin içerisindeki
+[00:50:58] herhangi bir problem var mı diye bakıyor
+[00:51:00] ve kendisi aslında bir kontrolden
+[00:51:02] geçiriyor. Örneğin APİ'lar herhangi bir
+[00:51:04] yerde görünüyor mu? Proje patlatabilir
+[00:51:07] durumda mı? Bağlantılar düzgün mü?
+[00:51:10] database'e bağlantı gönderilebiliyor mu
+[00:51:12] gibi aslında birçok kontrolü yapmış
+[00:51:14] oluyorsunuz. Ve e bence projeyi
+[00:51:18] cloud'a koymadan önce, gitab'a koymadan
+[00:51:19] önce mutlaka güvenlik tarafından
+[00:51:21] geçirilmesi lazım. Uygulamada yapıyor
+[00:51:23] olsanız, web sitede yapıyor olsanız en
+[00:51:25] azından hızlı bir şekilde üzerinden
+[00:51:26] geçmeniz iyi olur. Şimdi bunun haricinde
+[00:51:29] az önce örneğin cloud'da şunları
+[00:51:30] gördünüz ki buradaki eee şeyleri
+[00:51:32] gösteriyor olacağım. Üç farklı
+[00:51:34] versiyonumuz var. Şimdi bunlar aslında
+[00:51:36] plan modu. Ben söylemeden değiştirme
+[00:51:39] modu. Bir de kendin hızlı bir şekilde
+[00:51:41] ilerleyebilirsin. Bana sormana gerek yok
+[00:51:43] modu. Yine de her seferinde şuradaki
+[00:51:46] aşağıdaki şeylerde şunu yapacak şurada.
+[00:51:48] Örneğin siz hız avantajında sürekli
+[00:51:50] olarak sizden onay istiyor. Ya onaylıyor
+[00:51:52] musun? Evet veya hayır diyorsun veya
+[00:51:54] başka bir şey yap diyorsun. Burada
+[00:51:56] aslında aslında siz otomatik bir şekilde
+[00:51:59] onaylarsanız daha hızlı ilerler. Proje.
+[00:52:01] Her şeyi sormaz. Birazcık risk
+[00:52:03] faktörünüz var. Çünkü kendisi değişiklik
+[00:52:05] yapıyorken belki silmemesi gereken bir
+[00:52:07] dosyayı da silebilir. Güvenli kullanım
+[00:52:09] tarafında eee eğer proje lokaldeyse
+[00:52:12] güvenli ama sürekli cloud'da ve güncel
+[00:52:14] projede güncelleme yapıyorsa dosyaları
+[00:52:17] kaybedebilirsiniz. Öyle problemleri var
+[00:52:19] burada. O yüzden aslında belki en
+[00:52:21] azından bir ilerlemeyi devam ettirip
+[00:52:23] bazı yerlerde planlama yapmak iyi
+[00:52:25] olabilir. Önce bir planlama yapmasını
+[00:52:27] zaten söyleyebilirsiniz. Önce projeyi
+[00:52:29] başlatıyorken planlama modunda tamam biz
+[00:52:31] bir duracağız önce planı çıkartacağız.
+[00:52:33] Plan net olduktan sonra ilk
+[00:52:35] değişikliklerde bana sorduktan sonra
+[00:52:38] ilerlet diyebilirsiniz. Sonrasında proje
+[00:52:40] biraz daha artık ilerlemeye başladığında
+[00:52:41] tamam kendine artık çalış
+[00:52:43] diyebilirsiniz. Çünkü bazen 10 dakika
+[00:52:45] bazen 15 dakika sürekli kendisi arka
+[00:52:47] tarafta çalışıyor olacak. E siz bunu
+[00:52:48] sürekli olarak takip edemeyeceğiniz için
+[00:52:50] kendiliğinden devam etmesini istemiş
+[00:52:52] oluyorsunuz. Bu şekilde sürekli olarak
+[00:52:54] ilerletebiliyorsunuz sistemi. Yani
+[00:52:56] aslında sizin cloud'un içerisinde farklı
+[00:52:58] farklı notlarınız var. Örneğin planlama
+[00:53:00] modu var. bana sorduktan sonra devam et
+[00:53:02] var veya kendin tamamen devam
+[00:53:04] edebilirsin. Kontrol sende kısmı var.
+[00:53:07] Burada tabii ki eee bu şekilde ilerlemek
+[00:53:09] lazım ve bazen planlayıp aksiyon
+[00:53:11] aldırmamak lazım. Örneğin bir hata
+[00:53:13] karşılaştınız diyelim. Hata hiçbir
+[00:53:14] şekilde çözemiyor. İki kere denedi, üç
+[00:53:16] kere denedi, çözemiyor. O zaman bir
+[00:53:18] planlama yapıp başka neler yapabiliriz,
+[00:53:20] nasıl problemi çözebiliriz demek
+[00:53:22] mantıklı olur. Bu sayede bir 15 dakika
+[00:53:24] daha beklemezsiniz. Önce hızlı bir
+[00:53:26] planlama modunda sadece konuşarak
+[00:53:28] ilerletirsiniz. sonrasında aksiyon
+[00:53:30] almasını sağlarsınız. Bu size bir sürü
+[00:53:31] token kazandırır. Aynı zamanda zaman
+[00:53:34] kazandırmış olur. Ve e bu bölüm aslında
+[00:53:36] birazcık sizin de cloud kodu
+[00:53:38] içerisindeki şu opsiyonları kendiniz
+[00:53:41] denemeniz, neyin ne olduğunu anlamanızla
+[00:53:42] alakalı. Cloud Code bu arada en azından
+[00:53:45] bunun içerisinde çalışan sistem uygulama
+[00:53:47] olarak, platform olarak oldukça basit.
+[00:53:49] Bunu bir sonraki bölümlerde
+[00:53:51] güçlendiriyor olacağız. Ancak buradaki
+[00:53:53] bilgilere göre aslında siz birçok şeyi,
+[00:53:55] birçok butonu öğrenmiş oldunuz ve bir
+[00:53:57] sonraki bölüme hazır hale geldiniz.
+[00:53:59] Şimdi geldik bölüm 7'ye. Bölüm 7
+[00:54:01] içerisinde aslında siz cloud içerisinde
+[00:54:03] bazı terimleri öğrenmiş olacaksınız.
+[00:54:06] Şimdi burada hem iş akışları var hem de
+[00:54:08] bazı özel script yazılması var ve
+[00:54:11] aslında işin temellerini birazcık
+[00:54:13] öğrenmeniz çok önemli. Çünkü bu detaylı
+[00:54:14] bir aslında eğitim. Şimdi bir yandan
+[00:54:17] şunu da düşünüyor olabilirsiniz. Ya ne
+[00:54:18] zaman bu uygulamayı biz canlıya
+[00:54:19] alacağız? O aslında bir sonraki
+[00:54:21] bölümlerde geliyor olacak. İsterseniz
+[00:54:23] zaten ona da bölümlerden bakabilirsiniz.
+[00:54:25] Ama önemli olan şey buradaki işin
+[00:54:27] mantığını tek seferlik kavramak. Çünkü
+[00:54:29] sonrasında aslında sen çok daha büyük
+[00:54:31] uygulamalar yapabilirsin. Neyi de
+[00:54:33] aslında öğrenebilirsin ve çok daha
+[00:54:35] aslında basit olduğunu göreceksin. Şimdi
+[00:54:37] burada eee farklı farklı şeyler var.
+[00:54:40] Hook dediğimiz şey aslında bir scriptin
+[00:54:42] sürekli olarak kontrol etmesi. Yani
+[00:54:45] sürekli mesela sizin içerisinde cloud
+[00:54:48] kodunuz bir sürü dosyayı kaydediyor. Bir
+[00:54:50] sürü komut çalıştırıyor. Sonrasında
+[00:54:52] hooklarsa burada sizin aslında işlemin
+[00:54:54] onaylanmasıyla arasına koyduğunuz
+[00:54:56] scriptler oluyor. Şimdi bunu
+[00:54:57] görselleştirmiş olayım. Mesela ben
+[00:54:58] burada az önce bir proje oluşturdum
+[00:55:00] değil mi? Bu projenin içerisindeki bütün
+[00:55:02] dosyaların hepsini Cloud Code benim için
+[00:55:04] oluşturmuş oldu. Ve burada bir sürü
+[00:55:06] detaylı doküman var. Bu dokümanların
+[00:55:07] hepsine bakın burada kaç tane şey ekstra
+[00:55:10] indirmiş buraya ve yüklemiş. Bu
+[00:55:12] dosyaların hepsini aslında kontrol
+[00:55:14] edebilmenizi sağlayan scriptler
+[00:55:16] yazılması. Proje büyüdükçe gerçekten
+[00:55:18] sizin gününüzü çok rahatlatır. Burada da
+[00:55:20] şunları isteyebilirsiniz ki bunlar
+[00:55:22] direkt hazır hazır scriptler olabilir
+[00:55:24] ama kendinize göre ayarladığınız
+[00:55:25] checkpoint'ler de olabilir. Yani bir
+[00:55:27] bakış açısı kazandırmaya çalışıyorum
+[00:55:28] aslında. Çünkü mesela projede ekstra
+[00:55:31] test etmek istediğiniz bazı şeyler var
+[00:55:33] ve sürekli test edilmesi gerekiyor her
+[00:55:35] seferinde. Bunun örneğin şunu
+[00:55:37] yapabilirsiniz. Her seferinde test
+[00:55:39] ediyorken işte şu giriş bilgilerini
+[00:55:41] kullanacaksın. şuna göre test edeceksin
+[00:55:43] dediğinizde örneğin sürekli artık o
+[00:55:45] bilgiyi kullanarak siz sürekli örneğin
+[00:55:47] bir panel veya bir form doldurmadan her
+[00:55:49] şey çalışıyor mu diye kendisi kontrol
+[00:55:51] edebilmesi. Örneğin bu bir script yine
+[00:55:53] ve eee burada da aslında sürekli olarak
+[00:55:55] kendisi kodun daha iyi çalışabilmesini
+[00:55:57] sağlayan sistemler oluyor. Şimdi burada
+[00:55:59] farklı farklı şeyler var. Bunlar
+[00:56:00] terimler ve bunları bilmeniz lazım. Eee,
+[00:56:03] burada aslında git dediğimiz şey, e,
+[00:56:05] buradaki gitub oluyor ve gitub'a sürekli
+[00:56:07] olarak dosyayı yüklemeniz gerekiyor.
+[00:56:09] Gitub'a dosyayı yüklemeden projeyi
+[00:56:11] canlıya alamazsınız. Projeyi cloud'a
+[00:56:13] yükledikten sonra da eğer proje doğru
+[00:56:15] yüklenmezse onu canlıya alıyorken hata
+[00:56:18] alırsınız. Yani deployment yapıyorken
+[00:56:20] canlıya alıyorken hata alırsınız. O
+[00:56:21] hatayı da çözemezsiniz. O yüzden onların
+[00:56:24] olmasını istemiyorsanız bazen hızlı
+[00:56:26] gitmeyip neyin ne olduğunu öğrenmek
+[00:56:28] lazım. Çünkü uygulamayı yaparsınız, her
+[00:56:30] şeyi bitirirsiniz ama canlıya
+[00:56:31] alamazsınız. Veya canlıya aldığınızda
+[00:56:33] bir şey çalışmaz. Bütün saatleriniz
+[00:56:35] gider, kaybolursunuz ve oldukça hani
+[00:56:38] böyle bir kaybolmuşluk ben bunu
+[00:56:39] yapamadım mı acaba durumu ortaya çıkmış
+[00:56:42] olur. Aslında çok basit şeyler. Şimdi
+[00:56:43] burada bunun içerisinde örneğin eee
+[00:56:46] farklı farklı komitler oluşturuyorsunuz.
+[00:56:48] Bunların zaten detaylarını gösteriyor
+[00:56:49] olacağım. Bu birazcık teknik bir konu.
+[00:56:51] Eee burada ise ekstra eee kullanım
+[00:56:54] alanlarını göstereyim ben daha çok. NM,
+[00:56:57] npm, install dediğimiz şey aslında paket
+[00:56:59] yüklemesi oluyor. Burada bir sürü paketi
+[00:57:01] yüklüyor. Örneğin burada gördüğünüz
+[00:57:02] şeylerin hepsi paketler. Bunları ekstra
+[00:57:04] yükleyebiliyor. Bunlar örneğin
+[00:57:05] arayüzlerin paketleri ve bunları sürekli
+[00:57:08] kendisi indirip kontrol ediyor. Burada
+[00:57:10] da örneğin eee veri tabanı ile uygun mu?
+[00:57:13] Ben bunu canlıya aldığımda çalışır mı?
+[00:57:15] Bunların kontrolleri için aslında
+[00:57:17] sürekli olarak böyle scriptler olmuş
+[00:57:18] oluyor ve bunlar sürekli çalışıyor.
+[00:57:21] Prepush dediğimiz gitabı aslında
+[00:57:23] göndermedenki son kontrolü yapabilecek
+[00:57:25] scriptler. Burada da eee işte bütün apı
+[00:57:28] anahtarları düzgün mü? AP anahtarları
+[00:57:30] görünüyor mu, görünmüyor mu? Yani
+[00:57:31] güvenli şekilde mi? Ve burada da bütün
+[00:57:33] aslında sizin farklı GitHub'taki
+[00:57:35] branch'lerinizi koruyan şeylerin olması
+[00:57:38] lazım. İlk okunuzu nasıl oluşturursunuz?
+[00:57:41] Bunu oldukça basitleştireceğim. Kod
+[00:57:43] yazmanıza gerek yok. Sadece şunları
+[00:57:45] yazmanız lazım. Bir burada yine bir e
+[00:57:48] klasör yapınızı kontrol etmeniz lazım.
+[00:57:51] Projenin e içerisindeki yeni bir cloud
+[00:57:54] klasörünü oluşturmanız lazım. Yani
+[00:57:56] şurada aslında yeni bir klasör
+[00:57:57] oluşturuyorsunuz. Şimdi şöyle yapalım.
+[00:57:59] Şunu biraz daha kapatalım. Şurayı da
+[00:58:01] kapatalım. Bunun içerisine bir klasör
+[00:58:02] açıyorsunuz. Bunun adı mesela hooks
+[00:58:05] oluyor. Ve bu klasörün içerisine artık
+[00:58:06] siz bir sürü şey ekleyebilirsiniz.
+[00:58:08] İçerisi boş şu an. Sonrasında bunun
+[00:58:09] içerisinde bir dosya oluşturuyorsunuz.
+[00:58:11] Bu dosyayı ama kendiniz oluşturmak
+[00:58:13] zorunda değilsiniz. Bunu her zaman için
+[00:58:16] şöyle yazabilirsiniz. Şimdi Hooks
+[00:58:17] dosyasının içerisinde ki bunu zaten
+[00:58:20] şuradan siz mention yapabilirsiniz.
+[00:58:22] Örneğin buraya hooks yazdığınızda
+[00:58:25] buradaki datayı görmesi lazım. Bu
+[00:58:27] dosyanın içerisine de şunu
+[00:58:28] yapabilirsiniz. Hemen bunu şöyle
+[00:58:30] kopyalarsınız. Sonrasında şunu
+[00:58:31] diyebilirsiniz.
+[00:58:33] Şimdi benim için bazı hook scriptlerini
+[00:58:35] oluşturmak istiyorum. Bu scriptler şunu
+[00:58:37] yapacak. Sürekli olarak gitub
+[00:58:38] pushlamadan önce kontrolleri yapacak.
+[00:58:41] Aynı zamanda projeyi kontrol edecek
+[00:58:42] sürekli her seferden sonra ve bununla
+[00:58:44] alakalı kurallar dosyası oluşturmanı
+[00:58:46] istiyorum. Hem GITAB'a yüklemek için
+[00:58:48] kurallar hem de projenin içerisindeki
+[00:58:51] uyumluluk problemleri ile alakalı ortaya
+[00:58:53] çıkabilecek problemleri çözmek için.
+[00:58:55] Şimdi buna oke dedikten sonra bunu
+[00:58:57] aslında siz dosyanın içerisinde artık
+[00:58:59] kullanabilir hale getireceksiniz. Bunu
+[00:59:01] kendiniz değiştirebilirsiniz. Burada
+[00:59:03] farklı kurallar da olabilir. Örneğin şu
+[00:59:06] da şunu da diyebilirim ben. Kullanıcı
+[00:59:08] giriş bilgilerini sana vereceğim. her
+[00:59:10] seferinde test ediyorken bu kullanıcı
+[00:59:12] giriş bilgilerine göre test edeceksin.
+[00:59:14] Bu sayede aslında sürekli ben yeni yeni
+[00:59:17] doldurmama gerek kalmayacak. Sen
+[00:59:18] halihazırdaki datayı kullanacaksın da
+[00:59:21] diyebilirim. Bunların hepsini kendisi
+[00:59:23] oluşturabilir. Eee ve bunları kontrol
+[00:59:25] için kullanabilir. Ve sonrasında da şu
+[00:59:27] dosyanın içerisindeki aslında siz ekstra
+[00:59:30] şunu şu dosyanın şeyini kopyalıyorsunuz
+[00:59:33] ve bu klasörün altına çalışmasını
+[00:59:35] istiyorsunuz. Bu şekilde aslında
+[00:59:36] dosyaları ve yetkilendirmeleri
+[00:59:38] yapıyorsunuz. Yani aslında birazcık
+[00:59:40] teknik bir konu ama şunu anlamamız
+[00:59:41] lazım. Şimdi hız, odak ve geri bildirim
+[00:59:44] için aslında şunu yapmamız lazım.
+[00:59:46] Örneğiyle birlikte gösteriyorum. Mesela
+[00:59:48] tüm projeyi test etmek genelde çok
+[00:59:50] yavaş. Öyle değil mi? Bütün projenin her
+[00:59:52] tarafını çalıştırıp test etmesi lazım.
+[00:59:54] Bunun yerine örneğin sadece değişen
+[00:59:55] dosyaları kontrol et kuralı
+[00:59:57] ekliyorsunuz. Böyle düşünün. Bunlar
+[00:59:59] sadece kural ve bu kuralları ekledikten
+[01:00:01] sonra sürekli olarak bunun üzerinden
+[01:00:03] ilerlemiş oluyor. Yani kod yazmanıza
+[01:00:05] gerek yok. Sadece mantık olarak şunu
+[01:00:08] düşünmeniz lazım. Ben şuradaki cloud
+[01:00:11] kodumu çok daha iyi çalışır hale
+[01:00:12] getirmem lazım. Çünkü sadece prompt
+[01:00:14] yazdığınızda evet çalışır. Her şey de
+[01:00:17] genelde çözebilir. Ancak bu işte iyi
+[01:00:19] olmak istiyorsanız yani sürekli mesela
+[01:00:21] işte çok iyi bir web sitesi yapayım, çok
+[01:00:22] iyi bir uygulama yapayım istiyorsanız ki
+[01:00:24] burada aşama aşama bunu öğrenmek
+[01:00:26] istiyorsanız bu video zaten bunun için.
+[01:00:28] Yani bu videonun içerisinde bütün
+[01:00:29] temellerini öğreniyorsunuz. Çünkü bu
+[01:00:31] video şey videosu da değil ya. Ben
+[01:00:32] sıfırdan bir uygulama yapıyorum videosu
+[01:00:34] değil. Öyle olsa birçok detayı
+[01:00:36] göstermezdim ama sıfırdan cloud kodu
+[01:00:38] öğreniyorsunuz. Cloud kod'un detaylarını
+[01:00:40] öğreniyorsunuz. Aynı zamanda an gravity
+[01:00:41] öğreniyorsunuz. O da o yüzden burada
+[01:00:44] yine bir bakış açısı kazandırması
+[01:00:45] açısından önemli. O yüzden aslında bir
+[01:00:47] sonraki bölüme geçmeden önce şunu
+[01:00:49] yapmanız yeterli. Cloud'un içerisinde
+[01:00:51] çok basit bir kural listesi
+[01:00:52] oluşturmasını isteyin. Kural listesinde
+[01:00:54] de projenin en iyi çalışması
+[01:00:55] gerektiğini, olabildiğince az token
+[01:00:58] yakması gerektiğini ve eee bununla
+[01:01:00] alakalı bir doküman oluşturup her
+[01:01:02] seferinde yazdığın kodtan sonra o
+[01:01:05] dokümanın kurallarına uygun mu diye
+[01:01:07] sordurmanız. Bu kadar aslında. Ve
+[01:01:09] sonrasında da test etmeniz. Yani aslında
+[01:01:11] test etmeyi direkt kodla yapmak zorunda
+[01:01:13] değilsiniz. Promt'la yazarak aslında her
+[01:01:16] şey doğru düzgün çalışıyor mu? Benim
+[01:01:18] verdiğim kuralları okuyabiliyor musun?
+[01:01:20] Kurallara göre kod yazıyor musun? Bunu
+[01:01:22] söylemeniz, sormanız yeterli. Bu
+[01:01:24] başlangıçtaki MD dosyasının içerisinde
+[01:01:26] de olabilir ama bu kurallar listesini
+[01:01:28] hep ayrı ayrı tutmak iyi olabilir. Çünkü
+[01:01:31] hep yaptığı bir hatayı tekrardan
+[01:01:32] yapmamasını sağlayabilirsiniz. Oraya
+[01:01:34] shortcutlar oluşturabilirsiniz. O
+[01:01:35] dosyanın içerisine kendiniz de ekleme
+[01:01:37] yapabilirsiniz. Örneğin işte kullanıcı
+[01:01:39] giriş bilgileri olarak hep bunu kullan
+[01:01:41] demek gibi. Okey. Bir sonraki bölüme
+[01:01:43] hazırsınız. Artık şu anda siz projeye
+[01:01:46] kural eklemeyi de öğrenmiş oldunuz. Bir
+[01:01:47] sonraki bölümde görüşmek üzere. Şimdi
+[01:01:49] bölüm 8'e hoş geldiniz. Yavaş yavaş
+[01:01:51] aslında uzmanlık modüllerine geçmiş
+[01:01:53] oluyoruz. Artık biraz daha cloud kodun
+[01:01:55] nasıl daha iyi kullanılabileceğini
+[01:01:56] görüyor olacaksınız. Cloud kodu nasıl
+[01:01:58] daha iyi çalışır hale getirebilirsiniz
+[01:02:00] bunu görüyor olacaksınız. Sonrasında
+[01:02:02] zaten biz yine uygulamayı nasıl
+[01:02:03] yapıyoruz, nasıl canlı alıyoruz bunlar
+[01:02:05] da bir sonraki bölümlerde geliyor
+[01:02:06] olacak. Şimdi skills dediğimiz şey
+[01:02:09] aslında cloud'un biraz daha kendi
+[01:02:11] şeylerini iyileştirmek için,
+[01:02:13] yeteneklerini iyileştirmek için
+[01:02:14] kullanılmış oluyor. Ve burada da e cloud
+[01:02:17] skills'ı aslında siz eee normal gitub
+[01:02:19] reposundan clonlayabiliyorsunuz ve
+[01:02:21] ekstra aslında yeni şeyler öğrenmesini
+[01:02:23] sağlıyorsunuz onun. Yani daha güçlü hale
+[01:02:25] getiriyorsunuz onu ve normal cloud'un
+[01:02:27] base modelinin üzerine ekstra uzmanlık
+[01:02:29] eklemiş oluyorsunuz. Bunlar bu arada
+[01:02:31] farklı versiyonlarını da bulabilirsiniz.
+[01:02:33] Örneğin veri tabanı veya stok analizi
+[01:02:36] eee yetenekleri var. Bunlar örneğin çok
+[01:02:38] ilgi çekici. Hem data hem de en iyi
+[01:02:40] çalışabileceği şekilde getirilmiş şeyler
+[01:02:42] dosyalar ve bunlar çok iyi çalışır.
+[01:02:44] Açıkçası bunların örneklerini gösteriyor
+[01:02:45] olacağım. Burada kendisi aslında
+[01:02:47] skill.md diye bir şey eklemiş oluyor. Bu
+[01:02:49] da aslında cloud'un kendi yeteneklerinin
+[01:02:51] ne zaman kullanılması gerektiğini, ne
+[01:02:53] olduğunu açıklayan bir şey. Onun
+[01:02:55] haricinde zaten ekstra scriptler
+[01:02:56] yazabilirsiniz. Bunlar da yine kendisi
+[01:02:58] yapabilir. Eee, burada sen skills
+[01:03:01] tarafını kendin yükle diyorsun. Zaten
+[01:03:02] ekstra bir şey yapmıyorsun ama kendi
+[01:03:04] içerisinde neler yüklüyor? Aslında
+[01:03:05] ekstra scriptler var. Hazır kod
+[01:03:07] şablonları var. Bunların hepsini kendisi
+[01:03:09] yüklemiş oluyor. Örneğin burada script
+[01:03:10] tarafında hazır bunlar promptlar gibi
+[01:03:12] düşünün. Aynı zamanda template tarafında
+[01:03:14] da hazır şablonlar var. Yani direkt
+[01:03:16] belki işte e stok analizi yapabilecek
+[01:03:18] bir yetenek olabilir bu. Ekstra çok iyi
+[01:03:21] web site yazıp yapabilecek bir yetenek
+[01:03:22] olabilir. Bu yetenekleri eklemiş
+[01:03:24] oluyorsunuz. Yani cloud'a sıfırdan bir
+[01:03:25] şey öğretmenize gerek kalmıyor. İnsanlar
+[01:03:28] zaten çok iyi çalışabilecek bu tarz
+[01:03:31] böyle paketler oluşturmuşlar. Bu
+[01:03:32] paketlere erişim sağlıyorsunuz aslında.
+[01:03:34] Tekerleği tekrardan icat etmiyorsunuz.
+[01:03:36] Şimdi bunun bir örneğini ben göstermiş
+[01:03:38] olayım. Örneğin burada cloud code eee
+[01:03:42] gitub dediğinizde bir sürü şey zaten
+[01:03:43] çıkacaktır. Eee ancak burada sizin
+[01:03:46] girmeniz gereken şey ki ekstra örneğin
+[01:03:48] şunları da göstermiş olayım. Normalde
+[01:03:50] bunu almanız lazım direkt. Eee, bu zaten
+[01:03:52] public, eee, direkt antropikin kendi
+[01:03:55] şeyi ve direkt cloud kod için
+[01:03:57] hazırlanmış bir sistem. Bunun içerisinde
+[01:04:00] örneğin bir sürü ekstra öğrenebileceği
+[01:04:01] şeyler var. Örneğin sunum hazırlaması,
+[01:04:04] işte canvas tarafını eklemesi, web
+[01:04:06] testingi yapması, web site tarafındaki
+[01:04:09] ekstra şeyleri oluşturması gibi bir sürü
+[01:04:11] şey var. Frontend design örneği yine
+[01:04:13] bunlardan bir tanesi. Şimdi bunlara
+[01:04:15] erişim sağlayabilirsiniz. Nasıl
+[01:04:16] sağlıyorsunuz? Bunu da eklemek çok kolay
+[01:04:18] zaten. Bun da hemen kod tarafına
+[01:04:20] basıyorsunuz. Bunu kopyalıyorsunuz.
+[01:04:22] Sonrasında bunu cloud kodunuza şu
+[01:04:24] şekilde
+[01:04:27] bunu ekle projeyi diyorsunuz. Ve
+[01:04:30] sonrasında aslında kendisi buradaki
+[01:04:32] projeyi klonlamış oluyor. Ve bu
+[01:04:34] klonladıktan sonra da buradaki
+[01:04:36] yeteneklerin hepsine aslında ulaşabilir
+[01:04:37] hale geliyor. Bunun haricinde ekstra bir
+[01:04:40] sürü ekleyebileceğiniz şeyler var.
+[01:04:42] Örneğin burada yine insanlar kendileri
+[01:04:44] ekstra şeyler ekliyorlar. Örneğin burada
+[01:04:46] medya ile alakalı mesela neler
+[01:04:47] eklemişler? YouTube transkripti yapan
+[01:04:49] bir şey. Örneğin YouTube'dan video
+[01:04:51] indiren, YouTube'daki görselleri daha
+[01:04:53] iyi hale getiren, görsel oluşturabilen,
+[01:04:57] ses oluşturabilen, yazıdan ses, video
+[01:05:00] promtlama ile alakalı şeyleri
+[01:05:01] ekleyebilen bir yetenek dosyası
+[01:05:03] oluşturmuş. Örneğin buraya mesela
+[01:05:04] içerisine eee 40'tan fazla yetenek
+[01:05:07] koymuş ve bunların içerisinde bu da var.
+[01:05:08] Şimdi aynı şekilde ben bunu
+[01:05:10] artırabilirim. Örneğin blogla alakalı,
+[01:05:12] blog yazma ile alakalı ekstra şeyler
+[01:05:14] eklemiş ve bunlar aslında cloud'u hep
+[01:05:16] çok daha iyi çalıştırabilecek şeyler. Ve
+[01:05:18] bunları direkt siz çok basit bir şekilde
+[01:05:20] de kendi projenizi klonlayabiliyorsunuz.
+[01:05:22] Bunu cloud kendisi klonlayıp
+[01:05:24] kullanabilir hale geliyor. Bu şekilde
+[01:05:25] çok farklı şeyleri ekleyebilirsiniz. Eee
+[01:05:28] ve bunun herhangi bir limiti yok. Yine
+[01:05:29] gitub içerisinde 1000 tane proje vardır
+[01:05:32] bununla alakalı zaten. Ama mantık olarak
+[01:05:35] aslında sizin kendi cloud'unuzu daha iyi
+[01:05:38] bir şekilde daha fazla yetenek öğretmek
+[01:05:40] için yapıyorsunuz. Mantık bu. Ve
+[01:05:42] sonrasında kendisi yeni bir klasör
+[01:05:43] oluşturuyor. Bu klasörün içerisinde de
+[01:05:46] kendisi yine aslında her şeyi
+[01:05:47] talimatlarıyla birlikte klonlamış,
+[01:05:49] kopyalamış oluyor. Ve eee sonrasında da
+[01:05:52] eee burada aslında şöyle bir şey ekstra
+[01:05:54] ekleyebilirsiniz. Şimdi çok fazla
+[01:05:56] yetenek eklerseniz artık hafızasını
+[01:05:58] doldurmaya başlayacaksınız. O yüzden
+[01:06:01] çalışma biçimini şunu yapabilirsiniz.
+[01:06:03] Cloud kodu açtığınızda aslında hangi
+[01:06:06] yeteneği kullanması gerektiğini ona
+[01:06:07] söyleyebilirsiniz.
+[01:06:09] Bu her zaman için hafızayı daha iyi
+[01:06:11] kullanmanıza yol açar. Daha az token
+[01:06:12] harcar. Böyle bir şey yapabilirsiniz.
+[01:06:14] Ekstra tabii ki size kalmış. Orada da
+[01:06:16] hani yeteneklerden ya işte ben
+[01:06:18] YouTube'ile alakalı yetenekleri getir
+[01:06:20] bana diye söylediğinizde YouTube'ile
+[01:06:22] alakalı onda halihazırda olan
+[01:06:24] yetenekleri sıralar. Oradan bir tanesini
+[01:06:26] seçebilirsiniz. Örneğin. Burada da
+[01:06:28] aslında yine ekstra bir şey daha
+[01:06:30] göstermiş olayım. Eee kendisi cloud
+[01:06:32] aslında internette araştırma
+[01:06:34] yapabiliyor. Burada da eee ekstra şeyler
+[01:06:36] ekleyebilirsiniz. Özellikle scrape
+[01:06:38] yapabilmesi için burada örneğin
+[01:06:39] Playwrght ekleyebilirsiniz, epify
+[01:06:41] ekleyebilirsiniz ve herhangi bir konuyla
+[01:06:43] alakalı Google'da AP araması yapabilir.
+[01:06:46] Bu da yine yeteneklerinden bir tanesi. O
+[01:06:47] yüzden buraya koydum. Ve sonrasında
+[01:06:50] örneğin işte en alakalı 5 10 tane web
+[01:06:52] sitesini ziyaret et. Bütün içeriklerini
+[01:06:54] temizle. Benim için kullanılabilecek bir
+[01:06:57] rapora çevir ve sonrasında ben bunu
+[01:06:59] istersem eee blog yazmak için
+[01:07:00] kullanabilirim. İstersem raporlama
+[01:07:02] yapmak için istersem sunum yazmak için
+[01:07:04] oluşturabilirim. Yani aslında sunum da
+[01:07:06] oluşturabildiği için kendisi hani şöyle
+[01:07:08] bir konu var. Bu konuyla alakalı
+[01:07:09] araştırma yap. İşte belki rakip analizi
+[01:07:12] yap benim için. İşte mesela Almanya'daki
+[01:07:14] metal üreten şirketleri çıkart benim
+[01:07:15] için. Sonrasında sırala. Sonrasında işte
+[01:07:17] bununla alakalı bir sunum yap
+[01:07:19] dediğinizde aslında kullandığı
+[01:07:21] yetenekler bir internette araştırma
+[01:07:23] yeteneği, iki sunum yazma yeteneği olmuş
+[01:07:26] oluyor. O yüzden burada aslında
+[01:07:28] yapabileceğiniz ekstra şunlar var. Az
+[01:07:30] önce dediğim gibi modülerlik yani her
+[01:07:32] yetenek tek bir işi yapmalı ve hepsini
+[01:07:35] aynı anda çalıştırmamalısınız. Hangi
+[01:07:36] yeteneği kullanması gerektiğini ona
+[01:07:38] söyleyebilirsiniz veya kendisi karar
+[01:07:40] verebilir hangi yeteneği kullanması
+[01:07:41] gerektiğini. Aynı zamanda eee burada
+[01:07:44] cloud'a dediğim gibi ne istediğimizi
+[01:07:45] göstermek ve söylemek ve kritik
+[01:07:48] işlemlerde aslında eğer çok böyle önemli
+[01:07:50] büyük bir hepsini sileyim mi hepsini
+[01:07:52] şöyle yapayım mı diye bir şey sorduğunda
+[01:07:54] da onaylı bir şekilde ilerlenmesi lazım.
+[01:07:57] Aslında burada yapmanız gereken bir
+[01:07:58] sonraki bölüme geçmeniz için yapmanız
+[01:08:00] gereken şey şu. Bu şekilde en azından
+[01:08:04] kendi direkt Cloud'un oluşturmuş olduğu
+[01:08:06] yetenek listesini projenize ekleyin.
+[01:08:09] Bunu da eee yine zaten Google'a cloud
+[01:08:12] code skills yazabilirsiniz. Sonrasında
+[01:08:14] girdiğiniz gitub reposundan kod tarafına
+[01:08:16] basıyorsunuz. Sonrasında bunu lokalinize
+[01:08:18] klonlamış oluyorsunuz. Şunu
+[01:08:20] kopyaladığınızda kendisi artık
+[01:08:22] lokalinize kullanılmış olur ve
+[01:08:24] sonrasında buradaki bütün dosyaların
+[01:08:26] hepsine ulaşabilirsiniz. Buradaki ekstra
+[01:08:28] kullanabilecek şeylere ulaşabilirsiniz.
+[01:08:30] Aynı zamanda cloud pluginleri de
+[01:08:31] içerisinde yine vardır. Burada da yine
+[01:08:33] ekstra şeyleri çıkartabilir. Bu skilleri
+[01:08:36] buradan alabilir içerisinden. Yani
+[01:08:38] bunları yaptığınızda aslında kendi
+[01:08:39] cloud'unuza ekstra yetenekler eklemiş
+[01:08:41] oluyorsunuz. Yani her bir yetenek
+[01:08:43] aslında ekstra bir uygulama gibi
+[01:08:45] düşünün. O yüzden hepsini de çok daha
+[01:08:47] güçlendirmiş oluyorsunuz. Bunu
+[01:08:49] yaptıysanız bir sonraki bölüme
+[01:08:50] geçebilirsiniz. Bölüm 9. Benim en
+[01:08:52] sevdiğim konulardan bir tanesi. MCP
+[01:08:54] konusu aslında. Model KTX protokol
+[01:08:56] dediğimiz yapay zekayla başka bir
+[01:08:59] uygulamanın bağlanması olayı. Aslında
+[01:09:02] normalde biliyorsunuz API'lar vardır.
+[01:09:04] Burada da MCP'ler var. Fark ne aslında?
+[01:09:07] Bir yine aslında bir API'ınız var. Yine
+[01:09:09] yani alışveriş yapıyorsunuz yine. İki
+[01:09:12] aslında burada ekstra bir de kontiniz
+[01:09:14] var. Yani aslında sizin burada
+[01:09:16] yaptığınız şey cloud'la farklı bir
+[01:09:18] uygulamayı bağlamak. Örneğin bu
+[01:09:20] inanılmaz iyi çalışıyor ve mükemmel
+[01:09:22] açıkçası önemli bir şey ve herkesin de
+[01:09:24] kullanması gereken bir şey. Örneğin ben
+[01:09:27] mesela az önce ne yaptım? Web sitesini
+[01:09:29] oluşturuyorken MCP'yi eklettim. Değil
+[01:09:31] mi? Burada yaptığımız şey ise aslında bu
+[01:09:33] web sitesinin yani bunun içerisinde bir
+[01:09:35] sürü örneğin tema var, bir sürü şey var.
+[01:09:37] Bunları aslında kullanılabilmesi için
+[01:09:40] MCP'yi entegre ettim. Yani kendisi
+[01:09:42] Elelem şu anda yapay zeka cloud doğru
+[01:09:45] soruları ona sorabiliyor, bilgileri geri
+[01:09:48] alabiliyor ve aslında bu şekilde sürekli
+[01:09:50] olarak e sizi çok hızlandırabilen, tek
+[01:09:52] sefer bağladığınızda direkt sürekli
+[01:09:54] alışveriş yapabilen yapay zeka bir
+[01:09:56] sistem ve aslında mantık olarak da şöyle
+[01:09:58] çalışıyor. MCP client dediğimiz cloud
+[01:10:01] CHGPT isteği başlatan sunucu tarafı var.
+[01:10:04] Bu sizin bilgisayarınızda çalışan cloud
+[01:10:06] örneği. Sonrasında MCP hostu var. Burada
+[01:10:08] da e yine aslında bir uygulama arayüzü
+[01:10:11] ile aslında siz MCP serverına bir istek
+[01:10:14] atmış oluyorsunuz. Burada da aslında
+[01:10:15] işte SQL için olabilir, Slack için
+[01:10:17] olabilir, GITAB için olabilir fark
+[01:10:19] etmez. Bu neden önemli? Ben size hemen
+[01:10:21] şimdi göstermiş olayım. Bir sonraki
+[01:10:22] şeyleri de göstereceğim. Buradaki
+[01:10:23] detayların hepsine bakacağız. Ama önemli
+[01:10:25] olan şey şu. Örneğin ben burada şu anda
+[01:10:28] ROP.ap'e gidiyorum. ROP. Buna
+[01:10:30] ulaşabilirsiniz veya herhangi bir MCP
+[01:10:33] server yazabilirsiniz. Ve buradan bir
+[01:10:35] sürü MCP'nin aslında e kullanılmasına da
+[01:10:38] bakabilirsiniz. Ve aslında siz şunu
+[01:10:39] yapabilirsiniz. Burada da örneğin Model
+[01:10:41] Contox protokolünüz var ve bunu yine
+[01:10:43] kopyalatabilirsiniz. Bunu
+[01:10:44] kullanabilirsiniz. Bunun içerisinde eee
+[01:10:47] benim bildiğim 3.000'den fazla uygulama
+[01:10:49] bağlayabiliyorsunuz. 3.000'den fazla
+[01:10:51] uygulamayı bağlayabiliyorsunuz. Bu
+[01:10:52] inanılmaz bir şey. Bunu örneğin farklı
+[01:10:55] farklı bir sürü şeyler yapmak için
+[01:10:56] kullanabilirsiniz. Mesela bir tane slayt
+[01:10:58] oluşturma otomasyonu gibi bir şeyi var
+[01:11:00] aslında. Bunu bağladığınızda slaytları
+[01:11:02] çok daha kolay oluşturabiliyor. Aynı
+[01:11:04] zamanda eee bunlar hepsi uygulamalar. Bu
+[01:11:05] arada ayrı ayrı uygulamalar. Siz aslında
+[01:11:07] birçok uygulamayı cloud kodunuzun
+[01:11:10] içerisinde otomatik olarak kullanmış
+[01:11:11] oluyorsunuz. Aslında bir otomasyon
+[01:11:13] kurmuş oluyorsunuz. Burada aşağı doğru
+[01:11:14] kaydırıyorum. Hiç sayfa bile bitmiyor.
+[01:11:16] Bu kadar fazla aslında burada direkt
+[01:11:18] kullanabileceğiniz sistem var. Şöyle
+[01:11:20] görüntülenmesini de ekstra
+[01:11:21] gösterebilirim. MCP markete'e
+[01:11:23] bakabilirsiniz. Burada bir sürü MCP
+[01:11:24] serverı bulabilirsiniz. Eee, bu aslında
+[01:11:26] bir pazar yeri. Burada bir sürü şeyi
+[01:11:28] bulabilirsiniz. Eğer neyin ne yaptığını
+[01:11:30] biliyorsanız bu aslında çok değerli bir
+[01:11:32] şey. Çünkü burada örneğin fast MCP diye
+[01:11:35] bir şey var, playr diye bir şey var.
+[01:11:37] Şimdi bunlar nedir? Bunları bilmiyor
+[01:11:38] olabilirsiniz ama hiç önemli değil.
+[01:11:40] Örneğin Playride sizin internetten bir
+[01:11:42] sürü data çekebilmenizi sağlayan bir
+[01:11:45] model. Fast MCP dediğimiz yine aslında
+[01:11:47] birçok MCP serverın içerisinde
+[01:11:49] barındıran, doğru şeyleri kendisi
+[01:11:51] kullanabilen bir sistem. Biraz daha bunu
+[01:11:54] e özetleyecek olursak aslında şöyle
+[01:11:56] düşünebilirsiniz. Bir yerde 10.000 tane
+[01:11:58] uygulama var. Ayrı ayrı bunları normalde
+[01:12:01] teker teker giriş yapmanız lazım.
+[01:12:02] Hepsinin AP anahtarı farklı değil mi?
+[01:12:04] Hepsine teker teker giriş yapıp evet bak
+[01:12:06] buradan AP anahtarını aldım böyle
+[01:12:07] kullanabilirsin demeniz lazım. Şimdi
+[01:12:09] burada örneğin uygulamalara bastığınızda
+[01:12:10] burada ben birçok uygulamaya tek sefer
+[01:12:12] aslında entegre olabilirim. Örneğin
+[01:12:14] mesela YouTube'umu tek sefer
+[01:12:15] bağlayabilirim. Discord'umu tek sefer
+[01:12:16] bağlayabilirim. Gmail'imi tek sefer
+[01:12:18] bağlayabilirim. Sonrasında aslında
+[01:12:20] Gmail'in içerisindeki bütün bilgilere
+[01:12:22] artık cloud erişebiliyor ve bunu
+[01:12:24] kurmanız inanılmaz kolay. Ve siz tek
+[01:12:26] platformdan aslında burada tek seferlik
+[01:12:27] giriş yapıyorsunuz ve bu girişler de çok
+[01:12:30] basit oluyor açıkçası. Normal
+[01:12:31] Gmail'inize giriş yapıyorsunuz ve burada
+[01:12:33] aşağı doğru herhangi bir uygulamaya
+[01:12:34] giriş yapabilirsiniz. Sonrasında da bu
+[01:12:37] uygulamaları teker teker bağlamak yerine
+[01:12:39] diyorsunuz ki şuradan Rub'u kullana
+[01:12:41] basıyorsunuz. Buradan istediğinizi
+[01:12:43] seçiyorsunuz ki biz mesela e cloud kod
+[01:12:45] kullandığımız için cloud kodu seçmemiz
+[01:12:47] lazım. Sonrasında bunu çok basit bir
+[01:12:48] şekilde kopyalıyorsunuz ve aslında cloud
+[01:12:52] kendisi buraya erişimi ayarlıyor ve
+[01:12:54] sonrasında istediğiniz kadar bunu
+[01:12:55] kullanabiliyorsunuz. Yani burada örneğin
+[01:12:57] ben bütün Gmail'imi bağladım, gitab'ımı
+[01:12:59] bağladım, işte YouTube'u mı bağladım
+[01:13:01] diyelim. Şunu diyebiliyorum sonrasında
+[01:13:02] işte bana gelen mailleri özetle.
+[01:13:05] Sonrasında da git YouTube'a bir tane
+[01:13:07] video oluştur. Videoyu kendin paylaş.
+[01:13:10] Bunu dediğinizde yapabiliyor. Çünkü
+[01:13:11] erişimi var. erişimi cloud kendisi
+[01:13:14] aksiyon alarak yapabiliyor. O yüzden MCP
+[01:13:16] dediğimiz şey aslında bu tarz modellerin
+[01:13:18] çok güçlendiği, oldukça kullanışlı bir
+[01:13:21] sistem olmuş oluyor. Ve bunda aslında
+[01:13:23] neredeyse bütün uygulamaların MCP'si
+[01:13:25] var. Yani aklınıza gelen her şeyi
+[01:13:26] aslında direkt cloud'un içerisinden
+[01:13:29] basit bir şekilde kullanabilirsiniz.
+[01:13:31] Sadece prompt yazmaya devam ederek.
+[01:13:32] Kullanım alanlarını biraz daha
+[01:13:33] detaylandıracak olursak veri tabanı
+[01:13:35] içerisinde kullanılabiliyor. Eee örneğin
+[01:13:37] hani veri tabanınızı bağladınız diyelim.
+[01:13:39] Sonrasında şu soruyu soruyorsunuz. işte
+[01:13:41] kullanıcılar tablosundaki son bir ayda
+[01:13:43] kayıt olan aktif kullanıcıların
+[01:13:45] listesini çıkart bana veya kaç kişi
+[01:13:47] olduğunu çıkart gibi. Oradaki dataya
+[01:13:49] bakıp raporlayıp size sonucunu
+[01:13:52] verebiliyor. API entegrasyonu zaten az
+[01:13:54] önce gösterdiğim şey. Örneğin eee slack
+[01:13:56] dedik, gitub dedik, YouTube dedik. Dosya
+[01:13:58] sistemi ise aslında sizin yerel
+[01:14:00] dosyalarınıza erişimi sağlayabilecek
+[01:14:02] şeyler. Biliyorsunuz zaten, eee o da bir
+[01:14:04] nevi cloud eee içerisinde MCP gibi
+[01:14:06] çalışıyor ve kendi lokalinizdeki
+[01:14:08] bilgileri de dosyaları alabiliyor
+[01:14:09] hepsini. Burada hazır bir sürü şey var
+[01:14:11] az önce gösterdiğim gibi ve direkt bu
+[01:14:13] hazır serverları kullanarak siz aslında
+[01:14:15] oradan bilgi alışverişi yapabilirsiniz.
+[01:14:18] Kendiniz bunu oluşturmanıza gerek yok.
+[01:14:19] Örneğin az önce verdiğim veri tabanı
+[01:14:21] örneği ile alakalı mesela şöyle bir şey
+[01:14:23] yaptığınızı düşünün. Buraya siz Supabase
+[01:14:25] yazıyorsunuz.
+[01:14:27] Supase'inizi buraya bağlıyorsunuz veya
+[01:14:29] super Base'in kendi MCP'sini
+[01:14:31] kullanıyorsunuz. Bu da olabilir. Örneğin
+[01:14:32] burada yine super Base yazabilirsiniz.
+[01:14:34] mutlaka zaten vardır. Burada direkt
+[01:14:36] Supase'in kendi direkt MCP'sini
+[01:14:39] kullanıyorsunuz. Direkt Supase'in
+[01:14:40] kendisinden ve eee zaten hani
+[01:14:43] likel'anmış proje olduğu için eee ve bu
+[01:14:45] projeyi de siz direkt şu şekilde
+[01:14:48] kodluyorsunuz, klonluyorsunuz veya
+[01:14:50] direkt bunun normalde ben genelde ROP
+[01:14:52] tarafından ilerletilmesini tercih
+[01:14:54] ediyorum açıkçası. Bağlantı tarafında
+[01:14:55] daha iyi çalışıyor. Bağlantı kopmuyor bu
+[01:14:57] sayede. Bu şekilde entegre olduktan
+[01:14:59] sonra supa base'inizi siz örneğin
+[01:15:02] Cloud'dan artık şunu sorabiliyorsunuz.
+[01:15:04] Eee, işte git database'e bir bak. E en
+[01:15:07] son kayıt olan üç kullanıcının listesini
+[01:15:08] bana emailillerini getir. Hatta
+[01:15:11] sonrasında da bunların emailini çıkart.
+[01:15:12] Bana email gönder veya işte bizim
+[01:15:14] takımımızda Mehmet Bey var. Ona emailini
+[01:15:16] gönder diyebiliyorsunuz. Sadece prompt
+[01:15:18] yazarak. Sadece yani bilgisayarınızda
+[01:15:21] aslında prompt yazarak, cloud'la
+[01:15:23] konuşarak birçok aksiyonu
+[01:15:24] aldırabiliyorsunuz. Uygulamalar arasında
+[01:15:26] hepsi birbirine bağlı olduğu için bu
+[01:15:28] tarz işlemleri yapabiliyorsunuz. Bu
+[01:15:29] bölümü kapatmanız için kendiniz cloud
+[01:15:32] içerisinde en azından Gmail'inizi
+[01:15:34] bağlayıp çalıştırabiliyor olmanız lazım.
+[01:15:36] En azından bir sisteminizi bağlayıp
+[01:15:38] belki YouTube'unuzu bağlayıp videoları
+[01:15:40] görebiliyor musun? Benim paylaşımlarımı
+[01:15:42] görebiliyor musun? Video paylaşabiliyor
+[01:15:44] musun gibi sorup çalıştığına emin
+[01:15:46] olmanız lazım. Bunu yaptıktan sonra bu
+[01:15:48] bölümde aslında bitirmiş oluyorsunuz.
+[01:15:50] Bir sonraki bölüme hazırsınız. Şimdi
+[01:15:52] geldik bölüm 10'a. Bölüm 10'un
+[01:15:53] içerisinde de Chrome'da cloud kodu
+[01:15:55] çalıştırma bölümü aslında. Ve Chrome'un
+[01:15:58] içerisinde yani normal Safari'ninizde
+[01:16:00] siz aslında tarayıcıda cloud kodu
+[01:16:03] çalıştırabilirsiniz. Cloud Code
+[01:16:05] aksiyonlar alabilir. Sayfanızdaki
+[01:16:07] bilgileri görebilir. Orayı doldurabilir.
+[01:16:09] Örneğin bu form olabilir veya bir bilgi
+[01:16:10] araştırması olabilir. Bunların hepsini
+[01:16:12] aslında tek başına yapabilecek bir
+[01:16:13] sistem. Şimdi burada aslında ekstra
+[01:16:15] sistemleri ekleyerek cloud'unuzu
+[01:16:17] güçlendirmiş oluyorsunuz aslında ki
+[01:16:19] Chrome extensionlarından bir tanesi de
+[01:16:20] bunu yapıyor. Şimdi burada normalde
+[01:16:22] yapay zeka modelleri biliyorsunuz
+[01:16:23] verdiğiniz herhangi bir sayfayı
+[01:16:24] okuyamaz. Genelde videolara bile bakamaz
+[01:16:27] ve bunun olabilmesini sağlamak için
+[01:16:29] aslında ekstra e biraz daha konsollar
+[01:16:31] eklemiş oluyoruz. Bunun ismi aynı
+[01:16:33] zamanda dediğimiz bir altyapı da var.
+[01:16:35] Burada direkt ajanın kendisi internet
+[01:16:37] web sitesinde hareket etmesini sağlayan
+[01:16:39] bir sistem. Özellikle antigravity'de çok
+[01:16:41] iyi çalışan bir sistem açıkçası. Burada
+[01:16:43] zaten nasıl çalıştığını gösteriyor
+[01:16:44] olacağım. Ve cloud aynı zamanda Chrome
+[01:16:47] extension üzerinden de kullanılabilir.
+[01:16:49] Bunu da gösteriyor olacağım. Yine eş
+[01:16:51] zamanlı olarak kendi yaptığınız işi
+[01:16:53] aslında hızlandırabilirsiniz. Zaten
+[01:16:54] cloud code kendi içerisinde hand gravity
+[01:16:56] de öyle bir dome sistemine sahip. Yani
+[01:16:59] tarayıcı gibi açılıp test edebiliyor
+[01:17:01] kendisi. Bunu gösteriyor olacağım.
+[01:17:03] Ekstra burada ekleyebileceğiniz pupiter
+[01:17:05] var. Bu da web sitesinin aslında
+[01:17:07] otomasyonunu sağlamış oluyor. Örneğin
+[01:17:09] bir web sayfası içerisinde otomatize
+[01:17:11] etmek istediğiniz şeyleri bu sayede
+[01:17:12] otomatize edebiliyorsunuz. Burada
+[01:17:14] hedefimiz ise aslında Google tarafından
+[01:17:16] geliştirilen bir sistem bu. Eee ve bunu
+[01:17:20] kullanarak web sitelerinden bilgi çekmek
+[01:17:22] veya internette eee aslında sürekli
+[01:17:24] hareket edebilmek. Bunu ekstra
+[01:17:25] yükleyebilirsiniz. Bu arada Popier'ı MCP
+[01:17:28] serverından yükleyebilirsiniz. Eee,
+[01:17:30] burada ekstra bu arada cloud sayfayı
+[01:17:32] ziyaret ettiğinde herhangi bir yeri
+[01:17:35] göremiyorsa, butonlara tıklayamıyorsa
+[01:17:37] kendisi hatalarını tespit edebiliyor. Bu
+[01:17:39] hataları tespit ettiğinde de kendisi
+[01:17:41] bunun çözümünü çıkartabiliyor. Buna göre
+[01:17:43] bazen çözümünü önerebilir veya kendisi
+[01:17:45] direkt çözmeye başlayabilir. Bunların
+[01:17:46] hepsi mümkün genelde mesela burada
+[01:17:48] sistemleri şöyle çalışıyor. Normalde bir
+[01:17:50] sayfanın kodunu alıyor. Bir de sayfanın
+[01:17:52] ekran resmini alıyor sürekli olarak. Bu
+[01:17:54] sayede aslında kod içerisinde belli
+[01:17:57] olmayan ama normalde hata olan şeyleri
+[01:17:59] de görebiliyor. Örneğin bazen mesela
+[01:18:00] buton başka bir şeyin üzerinde
+[01:18:02] çıkabilir. Bunu kod üzerinde belki
+[01:18:04] göremeyebilir ama görüntü olarak
+[01:18:05] baktığında a evet burası tam olarak
+[01:18:08] çözülmemiş ben bunu da çözeyim
+[01:18:09] diyebiliyor. Yani hem kodu hem de
+[01:18:12] ekranın görselini alarak çalışan
+[01:18:13] sistemler bunlar. Sonrasında da aslında
+[01:18:15] sürekli olarak eee kendisi HTML yapısına
+[01:18:18] bakıyor. Yani web site sayfasının
+[01:18:19] yapısına bakıyor ve sonrasında kendisi
+[01:18:22] sürekli olarak düzenlemeleri
+[01:18:23] yapabiliyor. Bu sayede aslında
+[01:18:25] uygulamayı veya web sitesini yaptı.
+[01:18:27] Sonrasında kendisi kontrol etti. Sonrası
+[01:18:29] kendisi problemi çözdü diyebildiğimiz
+[01:18:31] aslında bir sürece girmiş oluyor. Ve
+[01:18:33] bunu aslında baştan sona ben şimdi size
+[01:18:35] gösteriyor olacağım. Şimdi yine biz
+[01:18:37] cloud içerisinde Agent Manager'a
+[01:18:39] basıyorum. Örneğin kendimi nasıl
+[01:18:41] yapıyorsam böyle gösteriyorum. Bunu tam
+[01:18:42] ekran yapıyorum. Doğru olan dosyayı
+[01:18:44] seçiyorum. Sonrasında diyorum ki bu
+[01:18:46] projeyi
+[01:18:48] önce kur. Sonrasında
+[01:18:51] DOM sisteminde test et. Projeyi önce
+[01:18:55] build et diyelim.
+[01:18:57] Yani çalıştırmasını istiyorum. Projeyi
+[01:18:59] çalıştırdıktan sonra çünkü az önceki
+[01:19:01] proje kapanmış olabilir. Tekrardan
+[01:19:03] çalıştırsın. Sonrasında zaten kendisi
+[01:19:05] sayfayı açacak. Testleri yapmaya
+[01:19:07] başlayacak ve testleri de problemleri
+[01:19:09] kendisi çözebileceği şekilde bunu
+[01:19:11] ilerletiyor olacak. Bir yandan da biz
+[01:19:13] bunu takip ediyor olacağız. Örneğin
+[01:19:15] ekranı tamamen kendisi kontrol ediyor.
+[01:19:17] Burada da zaten bir yandan ben şimdi
+[01:19:18] bunu e şu anda kabul etmem lazım. Şimdi
+[01:19:21] kendisi burada örneğin bütün sayfaları
+[01:19:23] doldurabilir, test edebilir ve eee
+[01:19:26] testleri de sonrası sonuçlandırabilir ve
+[01:19:29] burada da sürekli olarak bana bazen
+[01:19:31] sorular sorabilir ekstra. Eee bunları
+[01:19:32] benim onaylamam lazım sadece. Hani
+[01:19:34] hareketleri yapabilir miyim? Şuraya
+[01:19:36] tıklayabilir miyim diye ona isteyebilir.
+[01:19:37] Onları direkt hani kendin devam
+[01:19:38] edebilirsin şeklinde de
+[01:19:39] söyleyebilirsiniz. Ama burada aslında
+[01:19:41] sürekli olarak kendisi butonlara basmış
+[01:19:43] oluyor ve eee buradaki sistemleri
+[01:19:46] doldurabiliyor, form doldurabiliyor.
+[01:19:48] Örneğin kendisi sayfalarda gezinebiliyor
+[01:19:51] ve eee aynı normal bir insan gibi,
+[01:19:53] kullanıcı gibi bunları yapmış oluyor.
+[01:19:55] Şunu örneğin planlamadan f'e alalım.
+[01:20:01] Şu şekilde diyelim.
+[01:20:04] Şimdi bunu da geçsin.
+[01:20:08] Şuradaki sistemi de zaten görmüş olalım.
+[01:20:11] Tekrardan gördüğünüz şey şu. Şu anda
+[01:20:13] örneğin etrafa kendisi buradaki
+[01:20:15] bilgileri eklemesi ve sonrasında nasıl
+[01:20:17] çalıştığını görmesinin nedeni şu
+[01:20:18] aslında. Evet. Ben hani bunun çalışıp
+[01:20:21] çalışmadığını takip edebiliyorum.
+[01:20:22] Kendimi kontrol edebiliyorum demiş
+[01:20:24] oluyor aslında. Ve kendisi bunu sürekli
+[01:20:26] olarak testlerini yapıyor ve eğer
+[01:20:29] herhangi bir problemde alırsa sonrasında
+[01:20:31] kendisi evet şöyle bir hata varmış. Ben
+[01:20:33] bunu düzelteceğim demiş oluyor ve
+[01:20:35] aslında baştan sona sistem birazcık bu
+[01:20:37] diyebilirim. Tamam. Şimdi bunu da
+[01:20:38] gösterdik ve kendiniz aslında bunu şöyle
+[01:20:41] test edebilirsiniz. Projeyi zaten bir
+[01:20:43] önceki bölümde başlatıp yapmış olmanız
+[01:20:45] gerekiyor. Proje hazırken sayfayı test
+[01:20:48] et demiş olursunuz ve bu sayede bunun
+[01:20:50] testini yapabilirsiniz. Aynı zamanda
+[01:20:53] Chrome extension tarafında gösteriyorum.
+[01:20:55] Bunu da eklemeniz yine ekstra bonus
+[01:20:57] güzel olur. Burada da Google'a Cloud
+[01:20:59] Chrome Extension yazmış oluyorsunuz.
+[01:21:00] Sonrasında antropik olana basıyorsunuz.
+[01:21:02] Ve bunu sonrasında kendi Chrome'unuza
+[01:21:04] eklemiş oluyorsunuz. Ve bu sayede
+[01:21:05] aslında sürekli aktif bir şekilde o
+[01:21:08] sayfalarda da cloud'un sayfanın
+[01:21:10] içerisinde görmesini sağlıyorsunuz.
+[01:21:12] Hatta sayfada aksiyon almasını
+[01:21:13] sağlıyorsunuz. Bu şekilde bunu
+[01:21:15] ilerletebiliyorsunuz. Bu da yine ekstra
+[01:21:17] ekleyebileceğiniz bilgilerden,
+[01:21:18] dokümanlardan bir tanesi aslında. Ve
+[01:21:21] bunu da ekleyerek hani e kendi
+[01:21:22] çalışmanızı biraz daha
+[01:21:23] iyileştirebilirsiniz. Cloud'u daha iyi
+[01:21:25] kullanabilirsiniz. Bunları yaptıysanız
+[01:21:27] bir sonraki bölüme geçebilirsiniz. Şimdi
+[01:21:29] geldik sub agent ve agent takımlarına.
+[01:21:31] Burada da aslında çoklu ajan mimarisi
+[01:21:33] kurmuş oluyorsunuz. Yani ajanları
+[01:21:35] birbirine bağlıyorsunuz. Her bir ajanın
+[01:21:37] yaptığı farklı bir iş var. Biliyorsunuz
+[01:21:38] ben bununla alakalı 22 tane ajanı aynı
+[01:21:41] anda çalıştırdığım bir mantıktan
+[01:21:43] bahsetmiştim ve bunun videosunu
+[01:21:44] çekmiştim. Bu videonun içerisinde de
+[01:21:46] aslında biraz daha bunun detayını,
+[01:21:47] terminolojisini görüyor olacaksınız.
+[01:21:49] Bence çok önemli bir şey. Çünkü arka
+[01:21:51] tarafta sürekli olarak ajan takımlarının
+[01:21:53] çalıştırılması ve bunların verimli bir
+[01:21:55] şekilde tekrar eden işleri yapması sizi
+[01:21:58] 10 kişilik bir ekibe çıkartır bir anda
+[01:22:00] ve bunları tek sefer kurarsınız ve
+[01:22:02] sürekli olarak çalışır. Örneğin eskiden
+[01:22:05] bir web sitesi yaptığınızda blogu
+[01:22:06] yapmanız lazımdı. Pazarlamasını yapmanız
+[01:22:08] lazımdı. İçerikleri üretmeniz,
+[01:22:09] birilerini paylaşmanız lazımdı. Ama şu
+[01:22:11] an tek başınıza aslında normalde 40
+[01:22:13] kişilik bir ekibin yapacağı bütün işleri
+[01:22:16] yapmanız mümkün. Ve bunları da aslında
+[01:22:18] sub agent ve ajant takımlarıyla yapmış
+[01:22:19] oluyoruz. Her bir ajanın ayrı işi olmuş
+[01:22:22] oluyor. Örneğin burada mesela benim bir
+[01:22:24] planlayıcı ajanım var. Bu orkestranın
+[01:22:26] şefi. Bunun altında bilgi toplayan ve
+[01:22:30] dokümantasyon okuyup özetleyen bir ajan
+[01:22:32] koyabilirim. Kod yazan, test eden ve
+[01:22:34] hata ekleyen bir ajan koyabilirim.
+[01:22:36] Sonrasında kodu denetleyen, güvenlik
+[01:22:38] hatası var mı diye kontrol eden bir ajan
+[01:22:40] koyabilirim. Ve bunların hepsi aslında
+[01:22:41] sürekli bir takım şeklinde çalışabilir.
+[01:22:43] Hepsini tek sefer kurup sistem haline
+[01:22:45] getirmeniz oldukça iyi çalışır.
+[01:22:47] Biliyorsunuz Open Cloud mantığı da bu
+[01:22:49] aslında. Open Cloud'ın içerisinde de siz
+[01:22:51] bu şekilde sistemleri çalıştırıyorsunuz
+[01:22:53] ve sürekli olarak aslında birbirine
+[01:22:54] bağlı bir şekilde aksiyon almasını
+[01:22:56] sağlıyorsunuz. Şimdi burada da aslında
+[01:22:58] farklı çalışma biçimleri var. şuna göre
+[01:23:00] yapılmış oluyor. Bir analiz aslında
+[01:23:03] orkestra yapan en baştaki ajan şunu
+[01:23:06] yapıyor. Kullanıcının karmaşık isteğini
+[01:23:08] anlayıp hangi ajanı kullanması
+[01:23:10] gerektiğini seçiyor. Burada da işi
+[01:23:11] yönetilebilir hale getiriyor aynı
+[01:23:13] zamanda ve planlama çıkartıyor.
+[01:23:15] Sonrasında görevi en uygun uzmana sub
+[01:23:17] agent'a göndermiş oluyor. Bunları da
+[01:23:19] şöyle kurmanız lazım aslında. Bunun bir
+[01:23:21] detayını da gösterebilirim. Eee ama şu
+[01:23:23] şekilde yapılması lazım. Şimdi baştan
+[01:23:25] sona aslında siz cloud'un içerisinde
+[01:23:27] şurada cloud'umuza geri dönelim. Şimdi
+[01:23:29] şunla işimiz bitti. Cloud'un içerisinde
+[01:23:32] aslında farklı dosyalar oluşturmasını
+[01:23:33] isteyebilirsiniz. Burada da örneğin
+[01:23:35] şöyle bir ekstra iş başlatabilirsiniz.
+[01:23:38] Örneğin biz bu projeyi aslında
+[01:23:40] değiştirmek istemiyorum. Yeni bir proje
+[01:23:41] açayım buraya.
+[01:23:44] Şimdi bu projenin içerisinde ekstra
+[01:23:46] çalışabilecek ajanlar oluştur benim
+[01:23:47] için. Bunları da yeni bir klasörün
+[01:23:49] içerisine koy. Ajanlar klasörü olmuş
+[01:23:51] olsun ve her bir ajanın farklı bir işi
+[01:23:53] olsun. 5 tane ajanı istiyorum. Bu
+[01:23:55] şekilde ajan 1 2 3 4 5 şeklinde benim
+[01:23:57] için ayır. Hepsini ayrı ayrı
+[01:23:58] çalıştıracağım. Çünkü şimdi cloud kodu
+[01:24:01] içerisinde istediğiniz kadar aslında
+[01:24:03] ajan oluşturabiliyorsunuz,
+[01:24:05] açabiliyorsunuz. Yani hepsi aslında
+[01:24:06] sürekli eş zamanlı olarak çalışabilir.
+[01:24:08] Örneğin ben buraya ikincisini açıp şu
+[01:24:10] şekilde ekranı bölebilirim. Burada
+[01:24:11] aslında sürekli çalışır hale
+[01:24:13] getirebilirim bunları. Eee, ve mantık
+[01:24:15] aslında burada sürekli ekstra çalışan
+[01:24:17] sistemlerin birbirine bağlanması zaten.
+[01:24:19] Burada örneğin bir yandan bir tane
+[01:24:20] farklı bir şey yapıyorken yan taraftaki
+[01:24:22] başka bir şey yapabilir. Hatta direkt o
+[01:24:24] dosyanın içerisinde ben bunun
+[01:24:25] çalışmasını da söyleyebilirim veya o
+[01:24:27] dosya üzerinden çalışmasını
+[01:24:28] söyleyebilirim. Aslında buradaki mantık
+[01:24:31] bölüp onlara göre her bir ajanın çok
+[01:24:33] daha iyi çalışmasını ve sürekli
+[01:24:35] çalışmasını sağlamak ve bağımsız
+[01:24:37] görevleri de dediğim gibi aynı anda
+[01:24:38] çalıştırabiliyorsunuz. Örneğin bir
+[01:24:40] tanesi diyelim ki web sitesine
+[01:24:42] diyorsunuz ki ben web sitesine 30 farklı
+[01:24:44] sayfa eklemek istiyorum. 30 farklı
+[01:24:46] sayfayı önce ana orkestrayı yapan ajana
+[01:24:49] diyorsunuz ki bunu 30'a böl. 30 ajan
+[01:24:52] için ben bunu ayrı ayrı task olarak
+[01:24:53] vereceğim. Sonrasında her bir ajana evet
+[01:24:56] sen 1i yapıyorsun, sen 2'yi yapıyorsun,
+[01:24:57] sen 3'ü yapıyorsun diye başlattığınızda
+[01:24:59] bunlar devam ederler. Bunun aslında bir
+[01:25:01] mantığı var. Şimdi aslında şu şekilde
+[01:25:03] çalışıyor. Bir ajana net bir kimlik
+[01:25:05] vermek. işte sen benim veri tabanına
+[01:25:07] uzmanımsın demek gibi. Ve sonrasında da
+[01:25:10] ajanın hangi araçlara erişebileceğini
+[01:25:11] sınırlamak lazım. Örneğin sen sadece
+[01:25:13] şunları kullanabilirsin. Geri kalanla
+[01:25:15] uğraşma gibi. Ki bunu yapmak lazım.
+[01:25:18] Çünkü her ajanı takip edemeyebilirsiniz
+[01:25:20] ve bir anda hepsi birbirini eğer
+[01:25:21] dosyalarında değişiklik yaparlarsa
+[01:25:23] karışıklık ortaya çıkar. O yüzden onu
+[01:25:25] engellemeniz lazım. Yani beş ajan tek
+[01:25:28] bir dosyada aynı anda çalışmaması lazım.
+[01:25:30] Dosyanın içerisindeki farklı dokümanları
+[01:25:32] çalışmaları lazım. ve kritik işlemlerde
+[01:25:34] kesin kurallar koymanız bence çok
+[01:25:36] önemli. Hiçbir zaman silme, her zaman
+[01:25:37] için planla, her zaman için bana sor
+[01:25:40] gibi. Burada aslında sürekli olarak
+[01:25:41] şeyleri eklemek lazım. Şimdi aslında
+[01:25:44] mantık olarak şunu söylemiştik. Orkestra
+[01:25:46] ajanım var mesela. Araştırma ajanım var.
+[01:25:48] Kodlayıcı ajanım var. Bunların hepsi de
+[01:25:50] aslında belli bir hafzayı ulaşıyorlar.
+[01:25:52] Belli bir ortak hafıza içerisinden
+[01:25:54] çalışıyorlar. O yüzden aslında bir
+[01:25:56] ajanın yazdığı kodu ve raporu diğeri
+[01:25:59] aynı anda okuyabiliyor. Zaten bazen
+[01:26:01] karışıklık da oradan ortaya çıkabiliyor.
+[01:26:02] Yani sürekli dosyada çok fazla
+[01:26:04] değişiklik yapılması bazı şeylerin doğru
+[01:26:06] çalışmaması neden oluyor. Çünkü kod
+[01:26:08] kendisi yazıyorken kodu bir şeyleri
+[01:26:10] silip ekleyebiliyor. Ve burada o yüzden
+[01:26:13] her bir sub agent'a yani ufak ajana biz
+[01:26:16] spesifik bir prompt vermemiz gerekiyor.
+[01:26:19] Bu çok kısa olabilir bu arada. Çok basit
+[01:26:21] olabilir. Örneğin senin görevin hata
+[01:26:23] kontrolü yapmak. Senin görevin güvenlik
+[01:26:25] kontrolü yapmak, senin görevin blog
+[01:26:27] yazmak demek gibi. Sonrası kendi
+[01:26:29] içerisinde onlar zaten süreçlerini
+[01:26:30] yönetiyor olacaklar. Ve sonrasında da
+[01:26:32] geri bildirim döngüsü yapmak lazım.
+[01:26:34] Subagent'ın işi bittiğinde ana ajanın
+[01:26:37] tekrardan sistem devam ediyor mu,
+[01:26:38] çalışıyor mu sürekli kontrol etmesi iyi
+[01:26:40] olur. Bunu da hepsini ayrı ayrı düşünün.
+[01:26:43] 10 tane, 12 tane açabilirsiniz
+[01:26:44] isterseniz. Bir tane en tepede ajanınız
+[01:26:46] var. Geri kalanıysa diğer ufak ufak
+[01:26:49] işleri yapmış oluyor. Kendi kafanızda
+[01:26:50] basit bir şekilde kurabilirsiniz.
+[01:26:51] Örneğin burada mesela bir yandan ajanlar
+[01:26:54] için bir klasör ekliyor. Şuraya mesela
+[01:26:56] ekliyor bir yandan. Bunun altını
+[01:26:57] doldurmaya başlayacak. Sonrasında ben
+[01:26:59] buraya eklediği ajanlardan bir tanesini
+[01:27:01] artık burada direkt çalıştırabileceğim.
+[01:27:03] Çünkü burada ben mesela eee bu dosyanın
+[01:27:05] içerisinde direkt bu bilgiyi
+[01:27:07] bulabileceğim. Hemen şunu kapatabiliriz,
+[01:27:10] silebiliriz. Buradaki bilgiyi aslında
+[01:27:12] ben eee direkt buradaki dosyayı
+[01:27:13] bulabilirim. Eee ve onun çalışmasını
+[01:27:15] isteyebilirim. Şimdi ortak hafıza
+[01:27:17] mantığı da şöyle çalışıyor. O kısmı da
+[01:27:18] göstermiş olayım. eee bütün bilgiler
+[01:27:20] zaten tek bir ajan toplanmış oluyor ve
+[01:27:22] burada da aslında hepsi ortak bir
+[01:27:24] hafızayı kullanıyor. Örneğin sizin
+[01:27:25] kodlamacız da, tasarımcınız da,
+[01:27:27] testerınızda hepsi aslında tek bir ana
+[01:27:31] şeyden beslenmiş oluyor. Bu hafıza ve
+[01:27:34] yine aslında sizin ana ajanınız hepsi
+[01:27:35] birbirine bağlı bir şekilde çalışmış
+[01:27:37] oluyor ve bu şekilde takımın
+[01:27:38] koordinasyonu yapılıyor. Mesela burada
+[01:27:40] birkaç kullanım senaryosuna bakmış
+[01:27:41] olalım. İlkinde diyorsunuz ki bana
+[01:27:43] sıfırdan bir panel kur. Şimdi burada
+[01:27:45] ciddi karmaşık bir durum var tabii ki.
+[01:27:47] Çünkü neden? Ajan takımına baktığınızda
+[01:27:49] aslında dör tane ajanınız var bizim. Bir
+[01:27:51] tane büyük ajan, her şeyi kontrol eden
+[01:27:53] front endiniz var, backend var. Bir de
+[01:27:55] sürekli test eden bir ajanınız var. Ve
+[01:27:58] eee buradaki ajanların hepsini sürekli
+[01:28:00] olarak çalıştırabilirsiniz. Bu sizin
+[01:28:02] hatta tek sefer yaptıktan sonra örneğin
+[01:28:04] web site hizmeti veriyorsunuzdur
+[01:28:05] insanlara veya uygulama yapma hizmeti
+[01:28:07] veriyorsunuzdur. İnanılmaz kullanışlı
+[01:28:08] olur. İkincisi örneğin içerik fabrikası.
+[01:28:10] Ben bunu çok kullanıyorum. Eee burada da
+[01:28:12] sürekli örneğin trendleri toplayan bir
+[01:28:15] ajanım var. sonrasında e buna göre benim
+[01:28:17] için çıktılarını bullet point yapıyor.
+[01:28:20] Yani basit bir şekilde sunuma çeviriyor
+[01:28:22] ve sonrasında sosyal medyadan tekrardan
+[01:28:24] paylaşabiliyor. Paylaşma kısmını genelde
+[01:28:26] direkt manuel yapıyorum ama bazı
+[01:28:28] otomatize ettiğimde oluyor. Burada
+[01:28:29] örneğin bu gördüğünüz sunumların hepsi
+[01:28:32] yine cloud tarafında oluşturuldu. Bu
+[01:28:34] bölümlerin hepsi, bu videonun da tamamen
+[01:28:36] aslında kurgusu yine cloud tarafından
+[01:28:38] yapıldı ve sürekli olarak aslında
+[01:28:40] trendleri takip ediyor. Çalışmayı da
+[01:28:42] yapıyor. Benim işi hazır hale getiriyor.
+[01:28:44] Ve ben bu sayede hem haftada örneğin 125
+[01:28:46] tane Reals'ı 2 saat içerisinde
+[01:28:47] çekebiliyorum. Hem de oturduğumda direkt
+[01:28:49] kameramı açıp herhangi bir YouTube
+[01:28:51] videosuna başlayabiliyorum. Normalde
+[01:28:52] böyle sunumları hazırlamanız haftanızı
+[01:28:55] alır. Böyle bir videoyu çekmeniz
+[01:28:56] normalde 2 yıl öncesinde ben bu videoyu
+[01:28:58] yapmaya çalışsaydım bu videoyu yapmam
+[01:29:00] muhtemelen bir hafta mı alırdı? Şu
+[01:29:02] andaya 4 saatimi alıyor ve totalde 4
+[01:29:04] saatimi alacak. Diğer bir şey de ki bunu
+[01:29:07] kendiniz de kullanabilirsiniz. Finansal
+[01:29:09] analiz. Burada da örneğin kendi
+[01:29:11] şirketiniz için veya başka bir stok için
+[01:29:13] sürekli olarak veri toplatabilirsiniz,
+[01:29:15] hesaplayabilirsiniz. Sürekli kendinize
+[01:29:16] PDF gönderebilirsiniz ki bunu
+[01:29:18] WhatsApp'tan da gönderebilir.
+[01:29:19] İstiyorsanız email olarak da
+[01:29:21] gönderebilir ve sürekli arka tarafta
+[01:29:22] çalışır. Ve bunlar aslında sizin artık
+[01:29:25] bir bakış açısı kazanmanızı
+[01:29:26] sağlayabilecek şeyler. Ben ekstra
+[01:29:29] takımımı büyütmem gerekiyor mu? örneğin
+[01:29:30] bir şirket sahibiysem yoksa ekstra bir
+[01:29:32] tane daha takımın verimli çalışabileceği
+[01:29:35] bir cloud kod mu kurmam gerekiyor? Size
+[01:29:38] bunu sorabilirsiniz açıkçası. Bu bölümün
+[01:29:40] sonuna geldiğinizde şunu yapmanız lazım.
+[01:29:42] Bir örneğin bir içerik üretim ekibi
+[01:29:44] kurun kendiniz için. Bir MD dosyası
+[01:29:47] oluşturun. Burada da cloud'la konuşun
+[01:29:49] çok basit bir şekilde. Örneğin yine
+[01:29:51] tekrardan cloud'a girin
+[01:29:53] ve eee burada örneğin ya da chat GPT'ye
+[01:29:56] eee bana bir MD dosyası oluştur. işte
+[01:29:59] içerik takvimi yapmak istiyorum.
+[01:30:00] İçerikleri de oluşturman lazım. Bununla
+[01:30:02] alakalı detayları çıkart demiş
+[01:30:04] oluyorsunuz. Ve e sonrasında bunu
+[01:30:07] kopyaladıktan sonra, yapıştırdıktan
+[01:30:08] sonra sizin için bir MD dosyası
+[01:30:10] oluşturacak. Bunu sonrasında
+[01:30:12] alıyorsunuz. Cloud kodu da açıyorsunuz
+[01:30:14] ve sonrasında diyorsunuz ki bunu
+[01:30:16] rollerini tanımla. Ajanları oluştur.
+[01:30:18] Ajan 1 2 3 4 diye ayır. Sonrasında da
+[01:30:22] son olarak şunu yapıyorsunuz. Bu taraf
+[01:30:23] eğer bittiyse hemen bakıyorum. Mesela
+[01:30:25] birinci benim veri üreticim ajan 1'i
+[01:30:28] eklemiş. Şimdi ajan 1'in burada örneğin
+[01:30:30] ben artık eee şurada cloud kodu
+[01:30:33] içerisinde ben ajan 1'i açabilirim.
+[01:30:36] Şurada örneğin ajan 1 içerisinde bunu
+[01:30:38] çalıştırabilirim. Şu an ajan 2'yi de
+[01:30:40] getirdi. Şuna bakıyorum bir yandan. Ajan
+[01:30:42] 1 üzerinden ben artık
+[01:30:45] bunu çalıştır aksiyonlarına
+[01:30:49] başla dediğimde örneğin bu sürekli
+[01:30:52] olarak artık arka tarafta çalışır ve ne
+[01:30:54] yapması gerektiğini çok iyi bir şekilde
+[01:30:56] biliyor. Neden? Çünkü ben bunların
+[01:30:57] hepsini detaylı bir şekilde oluşturdum
+[01:30:59] onlar için. Örneğin burada detaylı bir
+[01:31:01] şekilde neler yapması gerektiği. Örneğin
+[01:31:03] mesela son 3 aya ait toplam 30 tane işte
+[01:31:06] Türkçe işlem verisi içeren bir doküman
+[01:31:08] oluştur demiş. İkincisi mesela eee kod
+[01:31:12] denetleyicisi. Kod denetleyicisinin de
+[01:31:14] kendi görevleri var. İşte performans
+[01:31:16] sorunlarını, kritik hataları, güvenlik
+[01:31:18] açıklarını, bunların hepsini test
+[01:31:19] etmesini söylüyorum. Bunu nasıl
+[01:31:21] yapıyorum? Mesela tekrardan cloud
+[01:31:22] açıyorum. Yeni bir sonrasında bu cloud'u
+[01:31:24] da hemen şuradan
+[01:31:28] şu şekilde yine aşağı doğru koyuyorum.
+[01:31:31] Ve sonrasında ajan 4 değil, ajan 3
+[01:31:33] olacak bu. Sen ajan 2'sin.
+[01:31:39] Görevine başla diyorum örneğin. Ve
+[01:31:41] sonrası bu ajan 2'nin ne yapması
+[01:31:43] gerektiğini biliyor. Ve ona göre aslında
+[01:31:45] burada ajan kütüphanesinden
+[01:31:47] ilerleyebiliyor. Ki burada örneğin ajan
+[01:31:49] 2'yi aldı. şu an kod denetleyicisini
+[01:31:51] olduğunu bildi. Kod denetleyicisi olarak
+[01:31:54] şimdi çalışmaya başladı. Bütün kodu şu
+[01:31:55] anda benim için test ediyor. İlk
+[01:31:57] ajanımsa burada örneğin benim için
+[01:31:59] projeyi devam ettiriyor. Bir yandan da
+[01:32:00] buna çalışıyor ve bu şekilde aslında siz
+[01:32:03] bir ordu kurmuş oluyorsunuz. Hedef
+[01:32:05] aslında bu. Bunu tek sefer kurduktan
+[01:32:07] sonra bir sonraki bölüme geçebilirsiniz.
+[01:32:09] Bölüm 12 teknik bir bölüm açıkçası ve
+[01:32:11] aslında git mantığındaki sistemleri
+[01:32:15] konuşuyor olacağız ve bunun ne olduğunu
+[01:32:17] bahsediyor olacağım. Aslında bu çoklu
+[01:32:18] görev yönetimi içerisinde. Şimdi örneğin
+[01:32:22] eee klasik bir senaryo üzerinde
+[01:32:23] çalışalım. Örneğin yeni bir eklenti
+[01:32:26] eklemek istediniz. Dediniz ki yeni bir
+[01:32:27] özellik ekleyeceğiz biz. Bu yeni
+[01:32:29] özelliği de sonrasında siz söyledikten
+[01:32:31] sonra bir sürü şey yapıyor sizin için.
+[01:32:33] Ekstra tekrardan eee projeyi e
+[01:32:36] değiştiriyor. Projeyi tekrardan kuruyor.
+[01:32:38] Projeyi tekrardan aslında eee
+[01:32:40] değişikliklerin hepsini yapmaya
+[01:32:41] çalışıyor bir anda. Sonrasında da
+[01:32:44] yaptığı bir hata daha var. Projeyi ikiye
+[01:32:46] ayırmıyor. Projeyi her zaman için tek
+[01:32:49] bir yerde tutuyor ve onun üzerinde
+[01:32:50] değişiklikler yapıyor. Yani geri
+[01:32:52] gidemezsiniz kolay kolay. Ve orada da
+[01:32:54] aslında ne oluyor? Zaman kaybı
+[01:32:55] yaşıyorsunuz. Bazı şeyler çakışabiliyor.
+[01:32:58] Bazı dosyalar sistemin odağı dağılıyor.
+[01:33:01] Çok inanılmaz fazla token yakıyorsunuz
+[01:33:04] ve bir yere varamıyorsunuz. Şimdi bunun
+[01:33:06] olayı şu aslında. Bu gitub'da da vardır.
+[01:33:08] Eş zamanlı olarak kodun aslında farklı
+[01:33:10] brançlerini oluşturuyorsunuz. Farklı
+[01:33:11] kanallarını oluşturuyorsunuz. kodu
+[01:33:14] örneğin ilk bir development olarak
+[01:33:16] hazırlıyorsunuz. Sonrasında işte belki
+[01:33:18] ana diyorsunuz doğru olan kaynak. Bir de
+[01:33:22] mesela canlı diyebilirsiniz. Ve bunların
+[01:33:24] hepsi aslında ayrı ayrı şeylere
+[01:33:26] ayrılması lazım ki proje çok daha kolay
+[01:33:28] bir şekilde ilerletilebilsin. Örneğin
+[01:33:30] siz yeni bir şey eklediniz proje
+[01:33:32] patladı. Geri de gidebilin bu sayede.
+[01:33:34] Bunun oluşturulması içinse ben gitub
+[01:33:36] kullanıyorum. Gitub'ta her zaman için
+[01:33:37] farklı notlarınız oluyor ve örneğin
+[01:33:39] orada main branch her zaman için düzenli
+[01:33:42] çalıştıktan sonra yüklenip yeni üzerine
+[01:33:45] eklenecek olan düzenlemelerde de yeni
+[01:33:47] bir aslında yazılım development
+[01:33:49] modelinde çalışmış oluyorsunuz. Ki bu
+[01:33:51] sayede aslında bir problem olduğunda
+[01:33:52] geri gidebiliyorsunuz veya dosyadaki
+[01:33:55] temizlikleri veya değişiklikleri çok
+[01:33:56] daha kolay bir şekilde görebiliyorsunuz.
+[01:33:58] Ve burada da siz bunu kendiniz
+[01:34:00] yaptırabilirsiniz. Bu arada hani projeyi
+[01:34:02] işte üç farklı şeye ayır, ona göre
+[01:34:04] kontrolünü yap diyebilirsiniz. O da
+[01:34:06] kendisi sürekli olarak farklı branchler
+[01:34:08] ekleyebilir. Bunların sonrası listeler,
+[01:34:10] sonrası işi bittiğinde e isterse
+[01:34:12] temizleyebilir. Şu önemli bir konu. Eee
+[01:34:14] bunlar birazcık teknik şeyler ama teknik
+[01:34:16] kısmı da her zaman için göstermek
+[01:34:18] istiyorum ki arka tarafta ne olduğunu,
+[01:34:20] nasıl çalıştığını görün. Aslında
+[01:34:22] cloud'un hafızası ve konuşma geçmişi eee
+[01:34:24] ve buradaki her şey aslında cloud'un
+[01:34:26] klasöründe saklanıyor. Bu klasörü
+[01:34:28] kopyalayarak aslında siz eee bir
+[01:34:31] diğerinin beynini de oluşturabilirsiniz.
+[01:34:33] Yani zaten dosya oluştuktan sonra bir
+[01:34:35] yere geldikten sonra onu klonlayıp onun
+[01:34:37] üzerine yeni bir şey eklemeniz sizin
+[01:34:39] için ekstra vakit almıyor. Bu tamamen bu
+[01:34:41] demek aslında. Yani sizin oradaki bütün
+[01:34:43] geçmişinizi bir anda alıyorsunuz ki
+[01:34:46] tekrardan sıfırdan başlamasın. Sistem
+[01:34:48] aslında şu şekilde çalışıyor. Burada
+[01:34:49] örneğin ana projeden bağımsız yeni bir
+[01:34:51] temiz çalışma klasörü oluşturuyorsunuz.
+[01:34:53] Bunun içerisinde tekrardan cloud'un
+[01:34:55] hafızasını çalıştırıyorsunuz. Cloud'un
+[01:34:57] kodunun. Bu arada şimdi örneğin
+[01:34:59] buradakilerin hepsi kendi bunlar ayrı
+[01:35:01] ayrı eee session dediğimiz aslında eee
+[01:35:04] sürümler ve bunlar tabii ki sürekli
+[01:35:07] olarak çalışıyor. Arka tarafta bunları
+[01:35:09] da kaydedebiliyor. Eee ama aslında
+[01:35:11] bunlar projenin geçmişiyle çok alakalı
+[01:35:14] değil. Çünkü bu sizin promptlarınızı da
+[01:35:15] içeriyor. O yüzden aslında burada ekstra
+[01:35:18] bir kontekstete sıfırdan
+[01:35:19] çalıştırabilirsiniz. Sonrasında testler
+[01:35:22] yapılıyor. Sonrasında da iş bittiğinde
+[01:35:23] klasörü silebiliyorsunuz. Neden? Çünkü
+[01:35:26] artık özelliği eklediniz. Mesela web
+[01:35:28] sitesine yeni bir şey ekleyeceksiniz.
+[01:35:30] Yeni bir 5 tane sayfa ekleyeceksiniz
+[01:35:32] diyelim. Web sitesi şu an çalışıyor. O
+[01:35:35] çalışanı bozmak istemiyorsunuz. Onun
+[01:35:37] üzerine o yüzden 5 tane daha sayfa
+[01:35:38] eklemek için yeni bir klasör
+[01:35:40] oluşturuyorsunuz. Her şey doğru
+[01:35:42] çalıştığında artık o yeni dosyanızı 5
+[01:35:45] tane sayfa eklediğiniz dosya artık sizin
+[01:35:47] yeni dosyanız haline gelmiş oluyor. Bu
+[01:35:49] şekilde sürekli ilerlediğinizde bir
+[01:35:51] proje hata yapmadığı
+[01:35:52] ilerleyebiliyorsunuz. 2 her zaman için
+[01:35:54] geri dönebileceğiniz bir yer olmuş
+[01:35:55] oluyor ve burada düzenli bir klasör
+[01:35:57] yapısı kurmak lazım. Burada her zaman
+[01:35:59] için bir ana dosyanız olması lazım. Bir
+[01:36:01] de sürekli yeni özellikleri eklediğiniz
+[01:36:03] dosyalar olması lazım. Yapabilirsiniz,
+[01:36:05] yapmazsınız size kalmış. Ama burada
+[01:36:07] uzmanlaşmak istiyorsanız, gerçekten bunu
+[01:36:09] çok iyi bir şekilde kullanmak
+[01:36:10] istiyorsanız bunlar gur bilgileridir.
+[01:36:12] Disk alanı tasarrufu yapabilirsiniz. Bu
+[01:36:14] arada her seferinde sıfırdan projeyi
+[01:36:16] kurmak zorunda değilsiniz. Terminalde
+[01:36:18] açmak zorunda değilsiniz. Temizlik
+[01:36:19] yaptırabilirsiniz. Eee ve işiniz
+[01:36:21] bittiğinde aslında klasörü elle
+[01:36:23] silmeyin. Her zaman için cloud'a
+[01:36:25] silmesini söyleyin veya cloud'a tamam
+[01:36:27] artık bu eee bizim yeni dosyamız olacak
+[01:36:30] deyin. Yani koda hiçbir zaman çok fazla
+[01:36:31] dokunmayın veya hiç dokunmayın. Zaten
+[01:36:33] dokunmak zorunda değilsiniz. O yüzden
+[01:36:35] cloud'a söyleyin. O sizin için yapmış
+[01:36:37] olsun. Ve sonrasında da aslında her
+[01:36:39] klasöre ayrı bir cloud oturumu başlatın.
+[01:36:41] Yani şunların hepsi örneğin 1 2 3 tane
+[01:36:44] oturum. Şu anda her birisi için ayrı
+[01:36:46] doküman ve ayrı oturum oluşturmak. sizin
+[01:36:49] kontrolünüzü daha kolaylaştırır. Çünkü
+[01:36:51] burada prompt yazarak bunu
+[01:36:52] ilerletiyorsunuz. O yüzden bir sürü şeyi
+[01:36:55] bir anda yaptırmamak lazım. Aşama aşama
+[01:36:57] gitmesi lazım. Eğer aşama aşama
+[01:36:59] çalışmayı çözebilirseniz kendiniz yani
+[01:37:01] projeyi sadece ona ayırıp teker teker
+[01:37:05] ilerlediğinizde istediğiniz uygulamayı
+[01:37:07] istediğiniz komplekslikte
+[01:37:08] oluşturabilirsiniz. Ama çok kompleks bir
+[01:37:11] şey yapmak istiyorsunuz. Bir yandan
+[01:37:12] başladınız. Ne hani promptunuz da çok
+[01:37:15] net değil. Yapacağınız şey de çok net
+[01:37:17] değil. Yine proje ortaya çıkar ama daha
+[01:37:20] fazla prompt yazdırırsınız. Daha fazla
+[01:37:22] ya şurası da olmamış burayı tekrar yap
+[01:37:24] dersiniz ve daha fazla günün sonunda
+[01:37:27] para harcarsınız. Çünkü ne kadar fazla
+[01:37:29] çalıştırırsanız sistemi o kadar para
+[01:37:31] yakıyor. Ve aslında bunu verimli bir
+[01:37:33] şekilde çalıştırmak özellikle büyük
+[01:37:35] projelerde sizi 100 dolar, 200 dolar
+[01:37:38] harcamaktan koruyabilir açıkçası. Tabii
+[01:37:40] web site yaptırdığınızda örneğin eee web
+[01:37:42] site veya basit bir uygulama için 20
+[01:37:44] dolardan daha az tutacaktır. Birçok şeyi
+[01:37:46] yapabilirsiniz. Ama ekstra otomasyonlar
+[01:37:49] yapmak istiyorsunuz diyelim. Bir sürü
+[01:37:50] blog yazmak istiyorsunuz. İşte eee
+[01:37:53] internette bir sürü bilgiyi toplasın
+[01:37:55] istiyorsunuz. O zaman verimli
+[01:37:56] çalışmasını sağlamanız lazım. Yoksa çok
+[01:37:58] fazla token harcar. Şimdi bu bölümü
+[01:38:00] aslında bitirmeniz için şunu
+[01:38:01] yapabilirsiniz. Kendi gitabınızda bir
+[01:38:04] ana bölüm sonrasında bir de development
+[01:38:06] bölümü açabilirsiniz ve sonrasında
+[01:38:08] mevcut bir proje içerisinde git work
+[01:38:11] tree yazabilirsiniz. Bu da yine
+[01:38:13] komutlardan bir tanesi. Ayrı ayrı
+[01:38:14] klasörler oluştursun ve ana klasörden
+[01:38:17] bağımsız çalışmasına dikkat edin. Aynı
+[01:38:19] ben burada ne yaptım? Örneğin şimdi
+[01:38:20] benim burada projem var. Finans takip
+[01:38:22] projem var. Bu benim uygulamam. Bir de
+[01:38:25] dedim ki ben ajanlar diye yeni bir
+[01:38:26] klasör açtırdım ve bu ajanların
+[01:38:28] içerisine ayrı ayrı ajanların
+[01:38:29] bilgilerini buraya koydurdum ve
+[01:38:31] sonrasında ben her bir cloud oturumunda
+[01:38:33] artık ajanlar üzerinden ilerleyebilirim.
+[01:38:36] Ve koda hiçbir şekilde zaten dokunmama
+[01:38:37] da gerek kalmaz. Çünkü buraya örneğin
+[01:38:39] ajanlardan bir tanesini daha ekleyip
+[01:38:41] şunu diyebilirim. Şu benim tabii ki her
+[01:38:44] birisi için ayrı ayrı şeyler
+[01:38:45] oluşturabilirim. Ayrı ayrı ajanlar
+[01:38:47] oluşturabilirim. Finans takip benim
+[01:38:49] uygulamam. Sen şimdi benim kodlayıcı
+[01:38:51] ajanımsın diyebilirim. Yani bu mantıkta
+[01:38:53] ilerletebilirsiniz her zaman. Şart
+[01:38:55] değil. İlla ajanları oluşturmak zorunda
+[01:38:57] değilsiniz. Ancak ajanlar çokça
+[01:39:00] kullanılan ve verimli olabilecek değerli
+[01:39:02] bir şey. Bunları başlattığınızda bu
+[01:39:04] şekilde bir sistem kurduğunuzda bir
+[01:39:05] sonraki bölüme geçebilirsiniz. Bölüm
+[01:39:07] 13'te aslında pluginler var,
+[01:39:09] marketplace'ler var. Yani burada aslında
+[01:39:11] biliyorsunuz MCP tarafını göstermiştim.
+[01:39:13] MCP'yi bilerek başlangıçta gösterdim ki
+[01:39:16] o çünkü çok inanılmaz güzel bir şey ve
+[01:39:18] çok hızlı bir şekilde istediğiniz
+[01:39:19] uygulamayı kurabilmenizi sağlar. Buysa
+[01:39:22] aslında direkt anti gravity veya cloud
+[01:39:24] code içerisindeki extensionlar bölümü
+[01:39:26] şuradan açabilirsiniz. Extensionların
+[01:39:28] içerisinde de bir sürü şey
+[01:39:29] ekleyebilirsiniz. Örneğin mesela 21
+[01:39:31] first devi ben manuel bir şekilde
+[01:39:33] ekletmiştim ama isterseniz buradan da
+[01:39:35] ekleyebilirsiniz bunu. Burada da sürekli
+[01:39:37] olarak görüyor olur ve aynı zamanda
+[01:39:39] burada farklı şeyleri de
+[01:39:40] ekleyebilirsiniz. Mesela Playrght'tan
+[01:39:41] bahsetmiştim ben. Yine burada Play WR'ı
+[01:39:44] yükleyebilirim. Bunları burada
+[01:39:46] çalıştırabilirim. Bunların hepsi aslında
+[01:39:48] eee ara ara bir sürü uygulamalar
+[01:39:50] diyebilirim. Buraya hepsini ben
+[01:39:52] koyabilirim. Örneğin olamayı buraya
+[01:39:54] çalıştırabilirim. Hatta örneğin bir
+[01:39:56] uygulamayı translate ettirmek istiyorsam
+[01:39:57] direkt mesela DPEL'in burada şeyini bile
+[01:40:00] çalıştırabilirim. Ve bunların hepsi yine
+[01:40:02] cloud kodu içerisine bir kere
+[01:40:03] eklendikten sonra otomatik bir şekilde
+[01:40:05] hepsi çalışıyor olur ve cloud code
+[01:40:07] bunları zaten kendisi ihtiyacı olduğunda
+[01:40:10] kullanabilir ya da siz sonra
+[01:40:11] söylediğinizde kullanabilir. Aslında
+[01:40:12] olay bu. Şimdi burada farklı şeyler var.
+[01:40:15] Bir orijinal pluginler var. Direkt o
+[01:40:17] kişiden ki benim genelde tavsiyem her
+[01:40:20] zaman bu olur. Çünkü eee bunlar direkt
+[01:40:23] örneğin Antropic'in veya Open A'in kendi
+[01:40:26] pluginleridir. Eee aynı burada mesela
+[01:40:28] ben cloud'u kullandığımda Cloud'un
+[01:40:30] direkt antropik hesabından kullanmış
+[01:40:32] oluyorum. Yani direkt burada sahibi
+[01:40:34] antropik oluyor. Yani oldukça güvenli
+[01:40:36] aslında. Ve kendim direkt eee git
+[01:40:39] üzerinden de bunu yapabilirim. Ama
+[01:40:40] burada tabii ki her zaman için
+[01:40:42] partnerler var. Açık kaynak topluluklar
+[01:40:44] var. Mesela Open Club çok yine eee
+[01:40:47] bilinen bir şey. O örneğin yine
+[01:40:49] community içerisinde. Burada da popüler
+[01:40:51] olanları indirebilirsiniz. Hiçbir
+[01:40:52] şekilde problem yok. Ama diyelim ki hiç
+[01:40:54] popüler olmayan belki 100 kişinin 200
+[01:40:56] kişinin indirdiği bir dosyayı
+[01:40:57] klonladınız ve onu çalıştırdınız. Eğer
+[01:41:00] bunu yaparsanız ve o o dosyanın
+[01:41:03] içerisinde bir virüs varsa aslında
+[01:41:05] bilgisayarınızı ele geçirebilir.
+[01:41:06] Bilgisayarınızdaki dokümanları
+[01:41:07] görebilir. O yüzden her zaman için ya
+[01:41:10] popüler olan şeylere ulaşmak lazım ya.
+[01:41:12] Popülerden kastım örneğin birisi 5.000
+[01:41:13] like attıysa, 10.000 like attıysa artık
+[01:41:16] o biraz daha popüler olmaya başlıyor. O
+[01:41:18] tarz şeylerde genelde problem olmuyor ve
+[01:41:21] sonrasında aynı zamanda tabii ki kendi
+[01:41:22] şeylerinden kullanabilirsiniz. Onun
+[01:41:24] haricinde kendi sistemlerinizi, kendi
+[01:41:26] şirketiniz ve projeleriniz için
+[01:41:27] geliştirdiğiniz sadece size özel olan
+[01:41:30] araçları da ekleyebilirsiniz. Bunu
+[01:41:31] kendiniz ekleyebilirsiniz. Burada
+[01:41:33] olmazsa olmazları gösteriyorum. Bir
+[01:41:35] Google Search. Yine bunu
+[01:41:36] ekleyebilirsiniz. Bence bu eee
+[01:41:38] kesinlikle çok değerli bir şey. Çünkü
+[01:41:40] internete bağlanabiliyor olması lazım.
+[01:41:42] Eee burada yine Cemine'yi
+[01:41:43] yükleyebilirsiniz. E aslında direkt
+[01:41:45] Google'ın Chromium'unu da
+[01:41:47] ekleyebilirsiniz. Bu da yine çok
+[01:41:48] değerlidir. Bunlar aslında direkt sizin
+[01:41:50] projenizi çok hızlandırır. Cloud'un
+[01:41:52] internette erişmesini ve güncel bilgiler
+[01:41:54] almasını sağlamış olursunuz. Dosya
+[01:41:56] sistemi. Eee burada herhangi bir şey
+[01:41:58] ekleyebilirsiniz. Dosya okuma, yazma ve
+[01:42:00] düzenleme yeteneği. Bunu yapmanız yerine
+[01:42:02] aslında sadece eee bir önceki bölümlerde
+[01:42:06] gösterdiğim cloud skillsı yüklemeniz
+[01:42:08] yeterli olur. Gitap zaten mutlaka gitabı
+[01:42:10] buraya yüklemeniz lazım. Kesinlikle
+[01:42:13] olması gereken şeylerden bir tanesi.
+[01:42:14] Çünkü direkt gitabınızı buraya
+[01:42:16] yüklediğinizde sürekli gitub'la
+[01:42:17] alışveriş yapabilir. Tekrardan internet
+[01:42:20] üzerinden bir authenticate etmesine
+[01:42:22] gerek kalmaz. Direkt buradan çok daha
+[01:42:23] iyi olur. Onun haricinde eee Python'ı
+[01:42:26] yüklemeniz lazım ki zaten kendisi
+[01:42:28] genelde yükler. Eee bu projenin
+[01:42:30] içerisinde burada direkt Python'a
+[01:42:32] yükleyebilirsiniz ki zaten şurada
+[01:42:33] çıkmıştı örneğin. Bunları kendisi
+[01:42:35] yükleyebilir. Eee ve bunlar olmazsa
+[01:42:37] olmaz araçlardır. Şimdi plugin
+[01:42:40] kurulumunda sıfırdan nasıl
+[01:42:41] keşfedebileceğiniz bence değerli.
+[01:42:43] Kurulum tarafını ve yapılandırma
+[01:42:44] tarafını da gösteriyor olacağım. Şimdi
+[01:42:46] inanılmaz basit zaten. Örneğin burada
+[01:42:48] ilk gireceğiniz şey gitub olabilir. E
+[01:42:50] gitab'ın içerisinde eee burada örneğin
+[01:42:53] explor onon gitub var. Burada siz birçok
+[01:42:56] şeyi araştırabilirsiniz. Burada popüler
+[01:42:58] olan şeyleri görebilirsiniz. Bu da
+[01:42:59] aslında en popüler, haftanın popülerini
+[01:43:01] görebilirsiniz. Diyelim ki hugging face
+[01:43:04] içerisinde skills veya başka bir şey
+[01:43:06] olabilir. Mesela şuna bakalım. Şöyle bir
+[01:43:07] test ajanı oluşturmuşlar. Örneğin
+[01:43:09] bakıyorum 6500 kişi bunu starlamış. Fena
+[01:43:12] değil. Bunu klonlamanız için veya
+[01:43:14] kullanabilmeniz için aslında e şunu
+[01:43:17] yapabilirsiniz. İki yöntem var. Bir bu
+[01:43:19] bakın extension olarak var mı? Pentag
+[01:43:21] diye bir şey mesela. Var mı bunun
+[01:43:22] extension'ı?
+[01:43:25] Extension'ı yok. O zaman ne yapıyorum
+[01:43:27] ben? Aslında şuradaki kodu şuradan
+[01:43:29] direkt klonlayabilirim. Bunu
+[01:43:31] kopyaladığınızda bunu cloud'u verip bunu
+[01:43:33] klonla dediğinizde bu dosyanın her
+[01:43:35] şeyini alıp kendisi çalıştırmış olur.
+[01:43:37] Kendisi bu dosyayı çalıştırabilmesi
+[01:43:39] içinse her şeyi de kurar bu arada. Yani
+[01:43:41] şu dokümanlara ihtiyacım var. bunları
+[01:43:43] kurayım mı diye sorar. Okey derseniz
+[01:43:45] çalıştırmış olur. Burası altın madene.
+[01:43:48] İnanılmaz değerli şeyler var burada. E
+[01:43:50] mutlaka buraya bakmanız, kullanmanız
+[01:43:52] lazım. Ve çoğu şeyde açıkçası o kadar
+[01:43:54] altın değerinde şeyler var ki hepsinde
+[01:43:56] de kullanabiliyorsunuz şu anda. O yüzden
+[01:43:58] ben herkese söylüyorum. Hani artık bilgi
+[01:44:00] veya eee nasıl yapacağım sorusu zor
+[01:44:03] değil. Artık nasıl yapacağımı checkp
+[01:44:05] diye sorsan da söyler.
+[01:44:07] Bilgiyi de internette bulabilirsin. Her
+[01:44:09] zaman için ücretsiz veya yapay zeka
+[01:44:10] kullanabilirsin. Tek yapman gereken şey
+[01:44:12] fırsata çevirmek. Yani sadece aksiyon
+[01:44:15] almak. O kadar fazla fırsat her tarafta
+[01:44:17] var ki. Yani doğru yerden beslenip
+[01:44:19] şuraya mesela birazcık dolansanız öyle
+[01:44:21] şeyler görürsünüz ki ya böyle şeyler var
+[01:44:22] mıymış dersiniz aslında kendiniz.
+[01:44:25] Örneğin burada web package'ler var.
+[01:44:26] Bunlar çok değerli. Örneğin çok kaliteli
+[01:44:29] web sitelerini sadece kodlayarak
+[01:44:30] yapabilmenizi sağlar. Eee ve inanılmaz
+[01:44:33] kaliteli web siteler ortaya çıkar. Onun
+[01:44:36] haricinde inanılmaz fazla şey
+[01:44:37] bulabilirsiniz. YouTube otomasyonla
+[01:44:39] alakalı şeyler bulabilirsiniz. Örneğin
+[01:44:40] video yapmayla alakalı şeyler
+[01:44:42] bulabilirsiniz vesaire. Kendi pluginizi
+[01:44:44] oluşturmak istiyorsanız bunu da
+[01:44:45] yapabilirsiniz. Bu arada yine cloud'a
+[01:44:48] biz şöyle bir şey yapacağız diyerek
+[01:44:49] başlayabilirsiniz. Burada pluginin ne
+[01:44:51] olacağını, ne işe yarayacağını,
+[01:44:53] detaylandırmasını, AP anahtarlarını,
+[01:44:56] bütün her şeyini ayarlamanız gerekecek.
+[01:44:57] Ama sıfırdan kendi aracınızı oluşturup
+[01:45:00] sonrasında bunu bir gitub projesi haline
+[01:45:02] getirebilirsiniz. Aynı buradaki örnekte
+[01:45:04] olduğu gibi bunların hepsini yapmanız
+[01:45:06] mümkün ve sadece bunu cloud'a da
+[01:45:08] yaptırabilirsiniz. O şekilde
+[01:45:09] ilerleyebilirsiniz. Ve aynı zamanda
+[01:45:11] dediğim gibi hani pluginleri ben nasıl
+[01:45:13] buluyorum? Bir gitub'tan buluyorum. 2 e
+[01:45:15] sosyal medyada bazen görebiliyorum. 3
+[01:45:17] Twitter'dan görebiliyorum ki örneğin çok
+[01:45:19] popüler olanlardan bir tanesini ben size
+[01:45:21] göstereyim. Remotion eee remotion'ı
+[01:45:23] buradan bulabilirsiniz. Eee, ekstra
+[01:45:26] burada remotion örneğin inanılmaz
+[01:45:27] popüler oldu. Eee, ve remotion'ı örneğin
+[01:45:30] indirdiğinizde ve clock kodla
+[01:45:32] çalıştırdığınızda sizin için edit
+[01:45:34] yapıyor. Video editleri ve çıkan
+[01:45:36] sonuçlar da inanılmaz güzel. Ben bunu
+[01:45:38] bir başka videoda aslında göstermiştim
+[01:45:39] ve hani çıkan sonuçlara inanamazsınız.
+[01:45:42] Yani böyle bir şeyi sadece prompt
+[01:45:43] oluşturamaz dersiniz ama oluşturuyor.
+[01:45:46] Çünkü oradaki paketleri kullanabiliyor
+[01:45:48] ve siz aslında onları hem Twitter'dan
+[01:45:50] bulabilirsiniz hem Gitup'tan
+[01:45:52] bulabilirsiniz. Ben genelde popülerlere
+[01:45:54] bakıyorum. Haftanın veya ayın
+[01:45:55] popülerliğinde zaten genelde projeler
+[01:45:57] oldukça popüler oluyor. İnsanlar
+[01:45:59] yıldızlıyor o projeleri. Oradan
+[01:46:00] bulabiliyorsunuz. Çok basit bir şekilde
+[01:46:02] yükleyebiliyorsunuz ve kendi cloud
+[01:46:04] kodunuzun içerisinde
+[01:46:05] çalıştırabiliyorsunuz.
+[01:46:06] Mükemmel bir şey. Muazzam bir şey.
+[01:46:08] Burada tabii ki dediğim gibi güvenlik
+[01:46:09] önlemlerine dikkat edin. Her zaman için
+[01:46:11] kaynağı doğru yerlere bakmak lazım. Ya
+[01:46:13] topluluk tarafından onaylanan yerler
+[01:46:15] olması lazım. Eee sponsorlu olabilir
+[01:46:18] aynı zamanda bunlar veya çok kişinin de
+[01:46:19] likelaması lazım. Bunlar da genelde iyi
+[01:46:21] olur veya kendi resmi kaynağın
+[01:46:24] sistemleri olur. Ve sonrasında da dosya
+[01:46:27] izinlerine çok dikkat edin. Gereğinden
+[01:46:29] fazla yetki vermeyin. Örneğin
+[01:46:30] bilgisayarınızın tamamına erişim
+[01:46:32] sağlamayın. Kod incelemesi tarafına
+[01:46:34] ekstra dikkat ettirebilirsiniz. Örneğin
+[01:46:35] projeyi başlatmadan önce buna bir bak
+[01:46:37] bakalım güvenli mi diye sorabilirsiniz
+[01:46:39] ve sonrasında AP anahtarlarınızın her
+[01:46:42] zaman için environment dosyasının
+[01:46:43] içerisinde olduğuna dikkat edin.
+[01:46:45] Environment dosyasının içerisinde
+[01:46:46] olduğunda o kodla birlikte paylaşılmaz,
+[01:46:49] güvenli olur. Bir sonraki bölüme
+[01:46:50] geçmeden önce kendiniz bir tane plugin
+[01:46:52] kurun. Çalıştığına emin olun ve
+[01:46:54] isterseniz hatta video olayları ilginizi
+[01:46:56] çekiyorsa direkt remotioninkini kurun ve
+[01:46:58] bunu da zaten kod tarafına basıyorsunuz,
+[01:47:00] kopyalıyorsunuz. Bunu cloud koda
+[01:47:02] veriyorsunuz. Bu kadar basit. Bazen bazı
+[01:47:04] şeyler ya ben nasıl kuracağım çok
+[01:47:06] kompleks değil mi diye geliyor aslında
+[01:47:08] insana ama cloud koda sorun deyin ki ben
+[01:47:11] böyle bir şey var bunu kurmak istiyorum
+[01:47:12] nasıl yapacağım o zaten sizin için yapar
+[01:47:15] yani artık çekinmeyip aksiyon almak
+[01:47:17] lazım her şekilde. Eee en kötü ihtimalle
+[01:47:19] interneti araştırır yine bulur yapar.
+[01:47:21] Sonrasında da çalıştığına emin
+[01:47:23] oluyorsunuz ve gitub üzerinde birazcık
+[01:47:25] aslında neler varmış diye bakmış
+[01:47:26] oluyorsunuz ve bundan sonrası da bir
+[01:47:28] sonraki bölüme geçebilirsiniz. Bir
+[01:47:30] yandan pluginlerle alakalı çok harika
+[01:47:32] bir şey gördüm. Onu şimdi size
+[01:47:33] gösteriyorum. Topluluktan birisi
+[01:47:35] paylaşmış bizim e daha az önce paylaşmış
+[01:47:37] 6 dakika öncesinde ve e cloud kodun
+[01:47:40] arkasındaki ekipten aslında gerçek
+[01:47:42] kullanım alışkanlıkları bir araya
+[01:47:43] getirilip bir dosya oluşturulmuş.
+[01:47:45] Örneğin yine aslında bir Gitub projesi
+[01:47:48] ve bu Gitub projesinin içerisinde de
+[01:47:50] yine siz bunu indirip aslında
+[01:47:51] kullanabileceğiniz hale gelmiş oluyor.
+[01:47:53] Bunu direkt indirebilirsiniz. Direkt
+[01:47:55] bunu kullanabilirsiniz. Orası artık size
+[01:47:57] kalmış ve bunu istediğiniz gibi
+[01:47:58] kullanabilirsiniz. Yani aslında mantık
+[01:48:00] tamamen şu olmuş oluyor. Baştan sona siz
+[01:48:03] kendi cloudunuzda çalıştırabileceğiniz
+[01:48:06] ajanları bildiğiniz internetten
+[01:48:07] topluyorsunuz ve onlar sizin çalışanınız
+[01:48:09] haline geliyor. Son bölümlerden bir
+[01:48:11] tanesine geldik. Uygulamayı canlıya
+[01:48:13] alma. Burada da aslında bir uygulamamız
+[01:48:15] var. Lokalimizde çalıştırdık. Gayet
+[01:48:17] güzel görünüyor. Ama biz bunu bir domain
+[01:48:19] üzerine yani mesela arspar.com,
+[01:48:21] cormagnet.com, magnet.com gibi bir web
+[01:48:25] sitesine nasıl koyacağız? çokça gelen
+[01:48:27] sorulardan bir tanesi ve bunu baştan
+[01:48:29] sona gösteriyorum. Sıfırdan herkesin
+[01:48:31] görebileceği şekilde. Burada eee canlıya
+[01:48:33] geçmeden önce aslında şunlara bakmak
+[01:48:35] lazım. Bir güvenlik hızlı bir şekilde
+[01:48:37] her şey okey mi diye sormak. Burada da
+[01:48:39] özellikle AP anahtarlarınızın görünür
+[01:48:42] olmaması lazım. Genelde en büyük hata bu
+[01:48:44] olur. Bu yoksa zaten sıkıntı olmaz.
+[01:48:46] Performans problemi var mı diye
+[01:48:47] sorulması ki zaten genel olarak bir test
+[01:48:49] yaptırdığınızda bunu yapar. Yani sadece
+[01:48:52] demeniz gereken şey bir test et. Her şey
+[01:48:54] çalışıyor mu kontrol et. güvenlik hatası
+[01:48:56] var mı? Kontrol et demeniz sonrasında
+[01:48:58] ona bir rutin checkup yaptırmanız.
+[01:49:00] Sonrasında da eee herhangi bir problem
+[01:49:02] yoksa her şey uygunsa burada data
+[01:49:05] tarafına da bakın tabii ki her zaman hiç
+[01:49:06] database tarafında da bir problem
+[01:49:09] olmasın. Onu da kontrol etsin. Aslında
+[01:49:10] siz artık projeyi paketlemeye
+[01:49:12] hazırsınız. Burada farklı şeyler
+[01:49:14] kullanabilirsiniz. Bunlardan bir tanesi
+[01:49:15] Docker. Docker da aslında yeni bir proje
+[01:49:17] açarak eee aslında eee kendiniz
+[01:49:20] uygulamanızı Docker üzerinden bir web
+[01:49:23] sitesine koyabilirsiniz. Projeyi aslında
+[01:49:25] buluta yerleştirebilirsiniz. Herkesin
+[01:49:27] ulaşabileceği şekilde. Çünkü lokalinizde
+[01:49:29] olan bir dosya başkası tarafından
+[01:49:32] görüntülenemez. Çünkü o dosya ve o proje
+[01:49:34] sizin lokal bilgisayarınızda çalışıyor.
+[01:49:37] O yüzden zaten bunu buluta alıyorken
+[01:49:39] hata almanız da normal olacak. Bunları
+[01:49:41] nasıl çözebilirsiniz, nasıl
+[01:49:42] başlatabilirsiniz? Bunları gösteriyor
+[01:49:43] olacağım. Zaten bunun tabii ki direkt
+[01:49:45] eee Docker'ın desktop versiyonunu
+[01:49:47] indirebilirsiniz.
+[01:49:49] Bir diğer şey de buraya yine tekrardan
+[01:49:51] siz extension olarak dokura
+[01:49:52] ekleyebilirsiniz. Burada da tabii ki
+[01:49:54] direkt orijinal olan web sitesinden
+[01:49:56] yüklemeniz lazım. Ona dikkat edin. Çünk
+[01:49:58] Docker'la alakalı bir sürü şey
+[01:49:59] görürsünüz. Ancak Docker'ın kendisi
+[01:50:01] olması lazım. Ona dikkat edin. Burada
+[01:50:03] zaten Azure Tools ve eee sonrasında
+[01:50:06] aslında siz taşınabilir tutarlı bir
+[01:50:08] sistem oluşturmuş oluyorsunuz. Docker'la
+[01:50:10] kurulumu yapıyorsunuz. Şimdi aynı
+[01:50:12] zamanda bunu da ben bir yandan göstermiş
+[01:50:14] olayım. Şimdi ekstra şu ajanlarımızı
+[01:50:16] kapatabiliriz. Çünkü şu an ajanlarımızla
+[01:50:18] bir işimiz kalmadı. Sadece ve sadece şu
+[01:50:21] an tek projeyi üzerinden gidebiliriz.
+[01:50:23] Şimdi şunu diyoruz aslında. Bu
+[01:50:25] uygulamayı şurada aşağıda bir şey
+[01:50:27] göreceksiniz bu arada ekstra onu da
+[01:50:28] söyleyeyim. Şurası %73 sürekli olarak
+[01:50:30] dolduğunu göreceksiniz. Bu aslında sizin
+[01:50:33] hafızanız ve burada ne kadar artarsa
+[01:50:35] artık bu dosyanın içerisindeki konuşma o
+[01:50:37] kadar aslında verimsiz hale gelecek ve
+[01:50:39] bir yerden sonra da aslında çok değerli
+[01:50:41] olmamaya başlayacak burada yazdığınız
+[01:50:43] şeyler. Şimdi bu uygulamayı canlıya
+[01:50:45] alacağız diyorum.
+[01:50:49] Şunu gerçi şöyle gönderebiliriz. Eee ve
+[01:50:52] sonrasında da burada siz bulutta bunu
+[01:50:55] çalıştırmış oluyorsunuz. Dediğim gibi
+[01:50:56] burada doku kullanabilirsiniz veya
+[01:50:59] render'ı kullanabilirsiniz. render.com
+[01:51:02] veya
+[01:51:03] kullanabilirsiniz. Ki ben açıkçası
+[01:51:05] Versel'i kullanıyorum. Genelde en alışık
+[01:51:07] olduğum için Vercell'i kullanıyorum.
+[01:51:08] Yoksa herhangi bir şey kullanabilirsiniz
+[01:51:10] bu arada fark etmeyecektir. Verseli' de
+[01:51:12] aslında proje ile bağlamış oluyoruz ama
+[01:51:14] bunu şöyle yapıyoruz. Önce her şeyi
+[01:51:16] Gitab'a yüklüyoruz.
+[01:51:17] sonrasında verselden aslında çekmiş
+[01:51:20] oluyoruz. Yani burada aslında şunu
+[01:51:22] yapacağım. Şimdi ben bu uygulamayı e ilk
+[01:51:24] olarak Gitab'a yüklemiş olacağım ve eee
+[01:51:26] burada zaten sürekli benim için her şeyi
+[01:51:29] bir kontrol etsin. Bakıyorum ne yapmak
+[01:51:31] istiyor. Okey. Şimdi gitabıma gireceğim.
+[01:51:33] Gitabımda
+[01:51:36] burada şimdi repolara basacağım.
+[01:51:38] yeni bir repo oluşturacağım
+[01:51:41] ve sonrasında buraya
+[01:51:44] örneğin finans uygulaması diyorum.
+[01:51:48] Sonrasında bunu oluştur diyorum
+[01:51:52] ve bunu artık zaten kendisi görebiliyor
+[01:51:55] olacak ve buraya artık bilgiyi
+[01:51:56] yükleyebiliyor olacak. Burada zaten
+[01:51:58] birazdan pull request'lerde
+[01:51:59] görebileceksiniz ve buraya kendisi zaten
+[01:52:02] bağlanabilir ve bunu kullanabilir ve eee
+[01:52:06] şuradan yine aslında bu sistemi
+[01:52:08] çalıştırabilir. O yüzden ben şunu
+[01:52:10] söylüyorum ona. Şuradaki repo'yu eee
+[01:52:14] nereye deploy edelim diye de sormuş
+[01:52:15] zaten. Çok harika. Eee burada örneğin
+[01:52:18] Versel, Nettify, Gitub, Render birçok
+[01:52:20] şeyi söylüyor ve Versel seçeceğiz burada
+[01:52:23] zaten. Versel özelinde şimdi şunu
+[01:52:25] yapacak. Benden bazı bilgiler isteyecek.
+[01:52:27] diyecek ki hem Gitab'a bağlayacağız hem
+[01:52:29] de Versel'in CLI'ını kuracağız diyecek.
+[01:52:31] O yüzden de eee şuradan örneğin benim
+[01:52:34] için ekstra her şeyi zaten oluşturmuş
+[01:52:37] olacak. Burada sadece onu takip etmeniz
+[01:52:39] yeterli. Onun söylediği şeyleri sadece
+[01:52:41] takip edin. Sonrası zaten canlıya alıyor
+[01:52:43] olur sizin için. Burada tabii ki
+[01:52:44] bakıyorum verseliniz e otantike olması
+[01:52:47] lazım. Versel ve eee git burada zaten
+[01:52:50] buraya proje olarak ekstra yeni
+[01:52:52] ekleyebilir. Normalde bunu eee kendisi
+[01:52:55] de yükleyebilir buraya. Eğer şey
+[01:52:56] verirseniz tabii ki access verirseniz
+[01:52:59] kendisi de bunu yapabilir ki şu anda
+[01:53:00] mesela bunu yapıyor. Versel'in CLI'ını
+[01:53:02] kuruyor. Yani cloud kod içerisinden
+[01:53:04] Versel'e bilgi gönderebilecek hale
+[01:53:06] geliyor. Sonrasında da Versel'de
+[01:53:08] Versele'e bütün bilgileri yüklüyor
+[01:53:09] olacak ve buradaki aşamaların hepsini
+[01:53:11] yapıyor olacak. Şimdi bu böyle devam
+[01:53:13] ediyorken bir yandan şunu yapıyoruz.
+[01:53:14] Aynı zamanda buradaki projeyi
+[01:53:20] başarılı bir şekilde
+[01:53:24] Gitub'a
+[01:53:26] pushl diyorum. Şimdi sonrasında da
+[01:53:29] şuradan tabii artık şunu çok fazla
+[01:53:31] yapmamıza gerek yok. Direkt projeyi
+[01:53:33] görmesi daha iyi olur.
+[01:53:38] Projenin hangi proje olduğunu da bilmesi
+[01:53:40] için. Çünkü finans takibi olmasını
+[01:53:42] istiyorum. Şurada da sonrasında ben
+[01:53:44] tekrardan kitabıma geri giriyorum
+[01:53:48] ve şuradaki sadece o rel'yi vermem bile
+[01:53:50] yeterli olur. Bu repoya
+[01:53:56] yükle.
+[01:53:58] Şurada projem. Şimdi proje zaten
+[01:54:01] içerisindeydi. Sadece ben bunun e şeyini
+[01:54:04] kopyaladım ve sonrasında e projeyi
+[01:54:07] aslında gitub benim için yükleyebiliyor
+[01:54:09] hale gelecek. Şimdi burada mesela push
+[01:54:11] başarılı dedi. 26 tane dosyayı yükledi.
+[01:54:14] Nerede göreceğiz bunu? Aslında şurada
+[01:54:16] pull requestlere geldiğinizde hemen
+[01:54:18] burada görmemiz lazım. Şu an kod
+[01:54:20] tarafında örneğin main de şu an bütün
+[01:54:22] dosyaları yüklemiş oldu ve her şey 2
+[01:54:25] dakika öncesi de pushladı. Ve aslında
+[01:54:27] ben bir sonraki aşamada şunu yapıyorum.
+[01:54:29] Şimdi Versel'e giriyorum. Versel'den
+[01:54:31] yeni diyorum. Sonrasında proje diyorum.
+[01:54:34] Ve bunu da aslında ben Gitub'tan çekmiş
+[01:54:36] oluyorum. Yani şuradaki benim Gitub
+[01:54:38] projemden bunu alıyorum. Ve sonrasında
+[01:54:40] da bunu eee aslında proje olarak
+[01:54:43] buraya ekstra koymuş oluyorum. Şurada
+[01:54:45] hemen URL'sini alalım biz bunun.
+[01:54:51] Ve direkt bu proje üzerinden aslında
+[01:54:54] yeni bir proje açıyorum Versel üzerinde
+[01:54:57] ve Gitup'taki kodu otomatik olarak
+[01:54:59] Versel çekip aslında kurabiliyor ve bu
+[01:55:02] şekilde yapmanız lazım her zaman için.
+[01:55:03] Yani önce dosyaları zaten sürekli ne
+[01:55:05] olursa olsun gitaba yüklemeniz lazım.
+[01:55:07] Sonrasında da buradan eee aslında versel
+[01:55:09] de çektirmeniz lazım. Burada da projeyi
+[01:55:12] aslında bulut üzerinde tekrardan
+[01:55:14] çalıştırıyor. Burada bazı hatalar
+[01:55:15] alabilir. Aldığı hataları cloud'la
+[01:55:17] çözmek gerekebilir. Hata aldığında zaten
+[01:55:20] gösteriyor olacağım. Eee, muhtemelen
+[01:55:21] hata alacak genelde her zaman için hata
+[01:55:23] alır burada. Bir orada bazı uyuşmayan
+[01:55:26] dosya tipleri olabiliyor. Onların ekran
+[01:55:28] ismini alıyorsunuz. Verdiği hatayı
+[01:55:29] alıyorsunuz. Diyorsunuz ki cloud'da
+[01:55:31] böyle bir problem oldu. Bunu nasıl
+[01:55:32] çözebiliriz diye. Şimdi bu şekilde
+[01:55:35] örneğin bir proje olmuş oldu ve bu
+[01:55:38] projeyi de artık siz bir link üzerinden
+[01:55:42] sürekli olarak bakabilirsiniz. Aynı
+[01:55:44] zamanda bunu kendi domaininize de
+[01:55:46] koyabilirsiniz. Buraya kendi domainizi
+[01:55:48] koyup buradan çok basit bir şekilde
+[01:55:50] bağlayabilirsiniz. Ve her zaman için
+[01:55:52] aslında siz bu şekilde uygulamayı direkt
+[01:55:54] canlıya alabiliyorsunuz. Hem de çok
+[01:55:56] hızlı bir şekilde ve buradan da sürekli
+[01:55:58] kontrollerini yapabiliyorsunuz. Yani
+[01:55:59] uygulama çalışıyor mu çalışmıyor mu her
+[01:56:01] şeyi yapabiliyorsunuz. Hatta buradan kaç
+[01:56:03] kişi web sitenize girmiş, kaç kişi
+[01:56:05] görüntülemiş, hangi sayfalara basmışlar,
+[01:56:07] bunların hepsini analitikler tarafından
+[01:56:08] bile görebiliyorsunuz ve eee farklı
+[01:56:11] deploymentları da görebiliyorsunuz. İşin
+[01:56:13] güzel yanı siz mesela artık eee burada
+[01:56:16] değişiklikler yaptığınızda, projeye yeni
+[01:56:18] şeyler eklediğinizde tek yapmanız
+[01:56:19] gereken şey şu. Yeni projeyi gitub'a
+[01:56:23] push'la bu kadar. Ve sonrasında da
+[01:56:26] buradan tekrardan siz aslında
+[01:56:28] ettirdiğinizde bunu sürekli bunu
+[01:56:30] yapmanıza gerek yok bu arada sürekli.
+[01:56:32] Çünkü değişiklikler otomatik olarak
+[01:56:34] burada da değişir. Burada da eee
+[01:56:35] tekrardan bir eee sistemi güncellemiş
+[01:56:38] olursunuz ve değişiklikler eş zamanlı
+[01:56:40] olarak görüntülenebilir
+[01:56:42] ve eee bu şekilde aslında siz eee birçok
+[01:56:45] uygulamayı canlıya alabilirsiniz. Burada
+[01:56:47] tabii ki farklı farklı şeyler
+[01:56:49] kullanabilirsiniz. Yine eee isterseniz
+[01:56:51] render kullanabilirsiniz, isterseniz
+[01:56:53] herhangi bir VPS kullanabilirsiniz ki
+[01:56:55] bunun için örneğin pass dediğimiz şey
+[01:56:57] platform a service. Burada Railway var,
+[01:56:59] Versel var, render var, VPS serverları
+[01:57:02] var. Burada da aslında bir makineyi siz
+[01:57:04] kiralamış oluyorsunuz. O makinenin
+[01:57:06] üzerine istediğinizi koruyorsunuz.
+[01:57:08] Burada da Docker'ı kullanabilirsiniz.
+[01:57:09] Onun üzerinde Heads Digital Ocean gibi
+[01:57:12] sistemleri kullanabilirsiniz. Burada
+[01:57:14] Docker aracılığıyla bunu yapıyorsunuz.
+[01:57:16] Yani orada gitub yerine aslında siz
+[01:57:18] dokora kurmuş oluyorsunuz gibi. Y o yeni
+[01:57:21] makinenin üzerinde dokora kuruyorsunuz.
+[01:57:23] Şimdi burada kafa karışıklığı olabilir
+[01:57:24] birçok kişi için. O yüzden basit
+[01:57:26] yöntemle devam edebilirsiniz. Asıl en
+[01:57:28] iyi çalışan yöntemi ise ki yine bence
+[01:57:30] verselle çalışan, gitapla çalışan
+[01:57:32] yöntemi biraz daha pahalı olabilir ama
+[01:57:34] çok daha iyi çalışır. Burada aynı
+[01:57:35] zamanda hataları görebilirsiniz. Ne
+[01:57:37] kadar hata aldığını ve aynı zamanda
+[01:57:39] logları görebilirsiniz ki az önce
+[01:57:41] aslında verselde gösterdiğimiz şeyler
+[01:57:42] bunlardı. Yine burada deployment'larda
+[01:57:44] falan birçok şeyi görebilirsiniz. Bu
+[01:57:45] dataları sürekli olarak
+[01:57:47] izleyebilirsiniz. Şimdi maliyet
+[01:57:49] optimizasyonunu sağlamak için burada
+[01:57:51] ekstra bir şeyleri söylemiş olayım.
+[01:57:52] Şimdi cloud bence en iyi çalışan kodlama
+[01:57:54] aracı şu anda. Cloud'un kendi modelleri
+[01:57:57] ve opus oldukça pahalı ama çok iyi
+[01:57:59] çalışır. O yüzden hangi iş için hangi
+[01:58:02] modeli kullandığınız çok önemli. Eğer
+[01:58:03] çok fazla kodlama tarzında bir şey
+[01:58:05] yapmak istemiyorsanız HQU'yu veya
+[01:58:07] Sonyet'i kullanabilirsiniz. Ama kod
+[01:58:08] yazmak istiyorsanız Opus'u kullanmanız
+[01:58:10] mantıklı. Tabii ki bu 15 dolar örneğin
+[01:58:13] bu bayağı fazla bir token için yani 1
+[01:58:15] milyon token yine oldukça fazla bir
+[01:58:16] token ve e kullanılması da hani örneğin
+[01:58:20] bir tane web sitesi, bir tane uygulama
+[01:58:22] yapmanız için yeterli olacaktır çok
+[01:58:24] büyük ihtimalle ve burada token limiti
+[01:58:25] koyabilirsiniz aynı zamanda bir de
+[01:58:27] dediğim gibi sohbet geçmişini düzenli
+[01:58:29] olarak silip gereksiz mesajları
+[01:58:31] kontekstinden çıkartırsanız
+[01:58:33] orada aslında çok daha hızlı
+[01:58:34] ilerleyebilirsiniz. Ama bu işi en çok
+[01:58:36] ilerleten, en hızlı ilerleten şey iyi
+[01:58:38] başlamak. İyi bir dosyayla
+[01:58:40] başladığınızda işinizin aslında %80'ini
+[01:58:42] halletmiş oluyorsunuz ve sonrasında geri
+[01:58:45] dönmesine gerek kalmıyor. Ne kadar
+[01:58:46] baştan bilgi verirseniz o kadar az token
+[01:58:48] harcar. Burada aynı zamanda büyüme
+[01:58:50] stratejisinden bahsedelim. Şimdi eee
+[01:58:52] burada gördüğünüz iki farklı şey var ama
+[01:58:53] ben bunu özetliyor olacağım. En önemli
+[01:58:55] şey şu. Sürekli olarak genelde bulutta
+[01:58:58] çalışan sistemlerde çok hızlı bir
+[01:59:00] şekilde otomatik ölçeklendirebilirsiniz.
+[01:59:02] Bu sistemler genelde kendisi zaten
+[01:59:04] trafiğe göre, kullanıma göre artan
+[01:59:06] sistemlerdir. O yüzden kendisi sürekli
+[01:59:09] olarak büyüyebilir, makineyi
+[01:59:11] değiştirebilir ve eee sürekli olarak
+[01:59:13] bunu devam ettirebilir. Ancak eğer bir
+[01:59:15] VPS'te çalıştırıyorsanız o VPS'in limiti
+[01:59:18] dolduğunda VPS'iniz time out olur,
+[01:59:20] kapanır. Yani makineniz kapanır. Eğer
+[01:59:23] bunun olmasını istemiyorsanız otomatik
+[01:59:25] bir şekilde yükseltmeyi açabilirsiniz.
+[01:59:27] Orada ise üst limit koymanızı öneririm.
+[01:59:29] Çünkü bir anda çok fazla harcama
+[01:59:30] yapmaması için. Ancak bu çok fazla
+[01:59:32] kullanıcı geldiğinde söz konusu
+[01:59:34] olabilecek konulardır. Yoksa değil
+[01:59:35] tabii. Aksiyon olarak şunları yapmanız
+[01:59:37] lazım. Kendiniz Docker'ı test
+[01:59:39] edebilirsiniz ama benim tavsiyem buluta
+[01:59:42] koyabileceğiniz şekilde önce gitab'a
+[01:59:44] bağlamak sonrasında da gitub'taki
+[01:59:46] projeyi versele verip verselde
+[01:59:47] çalıştırmak. Yani bir hasta projeyi
+[01:59:50] çalıştırmak. Hata alıyorsa hataları
+[01:59:52] çözdürmek. Bunu yaptığınızda aslında bir
+[01:59:54] uygulamayı canlıya alabiliyorsunuz. Bir
+[01:59:56] git 2 Verseli kullanarak istediğiniz
+[01:59:59] uygulamaları yine kullanabilirsiniz.
+[02:00:00] isimler fark etmez ama sistem olarak
+[02:00:02] bunu devam ettirmeniz lazım. Bunları
+[02:00:04] yaptıysanız aslında bir sonraki bölüm
+[02:00:07] için hazırsınız ve neredeyse de
+[02:00:08] bitirdiniz demektir. Ve şu anda tek
+[02:00:10] yapmanız gereken şey aslında bir sonraki
+[02:00:12] kaynakları ve adımları işaretlemek
+[02:00:14] aslında. O yüzden de şu an temellerin
+[02:00:15] hepsini öğrendiniz. bölüm 1 ve 4
+[02:00:17] arasında burada cloud kodun kurulumunu,
+[02:00:19] terminalin ne olduğunu, cloud MD'nin ne
+[02:00:22] olduğunu sonrasında geliştirme tarafında
+[02:00:24] bölüm 5 ve 9da web uygulaması
+[02:00:26] geliştirmeyi, MCP'yi ve e aslında cloud
+[02:00:30] skills tarafını görmüş oldunuz. Bölüm
+[02:00:32] 1014 arasındaya Chrome tarafını, sub
+[02:00:35] agentları yani ajan mantığını ve nasıl
+[02:00:37] büyütebileceğinizi ve canlıya
+[02:00:39] alabileceğinizi gördünüz. Ve artık siz
+[02:00:40] baştan sona cloud codda bir sertifikat
+[02:00:42] adında bir şey almış oldunuz. Şimdi tek
+[02:00:44] yapmanız gereken şey aksiyon almaya
+[02:00:46] devam etmek ve bu şekilde bunu
+[02:00:48] sürdürmek. Burada aynı zamanda
+[02:00:50] gösterebileceğim bazı şeyler var. Yine
+[02:00:51] açıklamaya cloud'la alakalı dosyaları
+[02:00:53] koyuyor olacağım. Orada dokümanlara
+[02:00:55] ulaşabilirsiniz. MCP sunucuları ile
+[02:00:57] alakalı detayları yine içerisinde
+[02:00:59] bulabilirsiniz. Promptlama ile alakalı
+[02:01:01] içerikleri içerisinde bulacaksınız.
+[02:01:03] Hepsi tek bir dosya içerisinde olacak.
+[02:01:05] Onu indirip onun içerisinde hepsini
+[02:01:06] bulabilirsiniz. Ekstra hangi araçları
+[02:01:08] kullanmanız lazım bunları
+[02:01:09] görebilirsiniz. Ve aynı zamanda
+[02:01:11] toplulukla alakalı şeyleri de yine
+[02:01:14] koydum. Topluluk bizim biliyorsunuz
+[02:01:15] zaten sürekli olarak belki daha önce
+[02:01:17] sizinde de gördüğünüz bir yer. Sadece
+[02:01:19] topluluk değil aslında burası. Bunun
+[02:01:20] içerisinde bizim eee bir sürü
+[02:01:22] classroom'umuz var. Ay ilerlettiğimiz
+[02:01:25] sistemlerimiz var. Bir sürü bunun
+[02:01:26] içerisinde videomuz var ve bu videoların
+[02:01:29] içerisinde de sürekli açıklamaları var.
+[02:01:31] Birebir destek var, network var, canlı
+[02:01:33] yayınlar var. Eee ve bunlar sürekli
+[02:01:36] olarak devam ediyor ve burada da bir
+[02:01:37] sürü aslında başarılı şirket ortaya
+[02:01:39] çıkıyor. Kendi uygulamasını yapanlar,
+[02:01:41] kendi ajansını başlatanlar ve müşteri
+[02:01:42] bulanlarla dolu bir aslında topluluğuz.
+[02:01:45] Sadece topluluk değil, bir sistemiz
+[02:01:47] aslında. Ve bu sistemin de eee
+[02:01:49] Türkiye'de birincisiyiz. Ve bununla
+[02:01:51] alakalı da yine bir sürü dokümanı ben e
+[02:01:53] toplum içerisine de koydum. Burada tabii
+[02:01:55] ki yine açıklamada bir sürü kaynak
+[02:01:56] bulacaksınız ama burada inanılmaz fazla
+[02:01:59] kaynak var. Bunların hepsini buraya
+[02:02:00] koyduk. eee 2.000'den fazla otomasyon
+[02:02:02] var. Örneğin eee içerisinde bir sürü
+[02:02:05] uygulama şablonları var. Direkt hızlıca
+[02:02:06] uygulama yapabilmeniz için aynı zamanda
+[02:02:08] bir sürü otomasyon yine var. Cloud
+[02:02:10] kod'la alakalı bir sürü otomasyon da
+[02:02:12] var. Bir sürü dosya da var aynı zamanda.
+[02:02:14] Ve bunların hepsini kendinizde
+[02:02:16] kullanabilirsiniz. Bakabilirsiniz yine
+[02:02:18] kendiniz için. Bunlar sizi
+[02:02:19] hızlandırabilecek şeylerdir. Aynı
+[02:02:22] zamanda yine topluğun bir özelliği. Biz
+[02:02:23] aslında neden böyle bir şey oluşturduk?
+[02:02:25] Bizim içeride partnerlerimiz var ve bu
+[02:02:28] partnerlerle aslında biz zaten
+[02:02:31] otomasyonla katılanların aylık
+[02:02:33] harcamaların kadar kredi vermiş
+[02:02:35] oluyoruz. Örneğin Fay'yi kullanmanız
+[02:02:37] lazım. Gidip Epifa'yı kullanmanız lazım.
+[02:02:40] Belki işte emaililleri bulmanız lazım.
+[02:02:42] Email göndermeniz lazım. Bunların
+[02:02:43] hepsiyle alakalı bir sürü harcamanız
+[02:02:45] var. Zaten bir sürü yapay zeka
+[02:02:46] uygulamasını kullanıyorsunuz. Belki
+[02:02:48] aylık 50 dolar, 100 dolar sadece yapay
+[02:02:49] zeka uygulamalarını veriyorsunuz. Bizim
+[02:02:51] içerideki kredilerimizle zaten bunları
+[02:02:53] yapmanıza gerek kalmıyor ve biz aslında
+[02:02:55] doğaya özel bunların hepsini sunmuş
+[02:02:57] oluyoruz. Ve bunun içerisinde de kişiler
+[02:03:00] zaten harcayacakları miktarı buraya
+[02:03:03] harcamak yerine içeriden kredi
+[02:03:04] alıyorlar. Bir de topluluğa girmiş
+[02:03:06] oluyorlar. Onun üzerine ekstra o
+[02:03:08] uygulamalara da para vermelerine gerek
+[02:03:10] kalmıyor ve bu şekilde aslında
+[02:03:12] ilerleyebiliyorlar. Eee bizim hedefimiz
+[02:03:14] de zaten çok kaliteli girişimlerin
+[02:03:15] ortaya çıkmasını sağlamak. Sonrasında
+[02:03:17] bunu bir ekosistem haline getirmek.
+[02:03:19] sonrasında da burada bir yatırımcı ve
+[02:03:20] hızlandırıcı olmak aslında. Ve aynı
+[02:03:23] zamanda bu videoyu mutlaka belki para
+[02:03:25] kazanmak için izliyor olabilirsiniz.
+[02:03:26] Kendi işinizde iyi olmak için izliyor
+[02:03:27] olabilirsiniz. Yapabileceğiniz işler
+[02:03:29] şunlar aslında benim gördüğüm. Bir
+[02:03:32] freelancer olarak çalışabilirsiniz.
+[02:03:34] Upwork üzerinden veya işte farklı
+[02:03:36] platformlardan yapay zeka otomasyon
+[02:03:38] hizmeti, web site oluşturma hizmeti.
+[02:03:40] Bunların hepsini verebilirsiniz. Çünkü
+[02:03:42] cloud kodu biliyorsunuz. Saatlik ücret
+[02:03:44] alabilirsiniz. Kendi yapay zeka
+[02:03:45] aracınızı geliştirebilirsiniz. Cloud
+[02:03:47] kod'la bir haftada uygulamanızı hazır
+[02:03:49] edebilirsiniz ve sonrasında aylık
+[02:03:51] abonelik mantığında satabilirsiniz veya
+[02:03:53] kendi yapay zeka otomasyon ajansınızı
+[02:03:55] kurabilirsiniz ki bunun ismi Doa modeli
+[02:03:58] aslında. Burada da şirketlere özel
+[02:03:59] otomasyon çözümleri kurabilirsiniz.
+[02:04:01] Aylık miktarlarda bunu alabilirsiniz.
+[02:04:03] Örneğin müşterinize bir chatbot
+[02:04:05] otomasyonunu yine Cloud One E8Nyi
+[02:04:07] kullanarak oluşturursunuz. Cloud'u
+[02:04:09] kullanarak güzel bir arayüz yaparsınız.
+[02:04:11] Müşterinizden aylık 300 dolar 500 dolar
+[02:04:13] ödemeler almış olursunuz. Burada ekstra
+[02:04:15] tabii ki miktarları her zaman için ben
+[02:04:17] yurt dışına göre yazmış oldum.
+[02:04:19] Türkiye'de bu miktarların 1örte birini
+[02:04:21] düşünmeniz gerekir. 1te birini 5şte
+[02:04:23] birini düşünmeniz gerekir. Yani 1şte bir
+[02:04:25] biraz daha düşük olur burası. Buradaki
+[02:04:27] kısım aslında baştan sona birçok kişinin
+[02:04:31] önüne geçtiğiniz bir yetenek öğrendiniz.
+[02:04:34] Cloud kodu kullanmak bir yetenek. Çünkü
+[02:04:37] cloud kodda birçok şeyi
+[02:04:38] yapabiliyorsunuz. Aynı zamanda bir bakış
+[02:04:40] açısı kazandınız. Bakış açısı da şu oldu
+[02:04:42] aslında. Cloud code'la birçok şeyin
+[02:04:44] yapılabileceğini, isterseniz web site,
+[02:04:46] isterseniz uygulama, isterseniz video
+[02:04:48] editleme yapabileceğinizi öğrenmiş
+[02:04:50] oldunuz. Kaynaklara bakabilirsiniz.
+[02:04:52] Aşağıda bir sürü detayı paylaşıyor
+[02:04:53] olacağım. Topluğa bakabilirsiniz. Onunla
+[02:04:55] alakalı detayları bulabilirsiniz ve
+[02:04:57] sorularınızı yazabilirsiniz. Kendi
+[02:04:59] projelerinizi de yazabilirsiniz. Ben
+[02:05:00] sürekli olarak bakıyor olacağım.
+[02:05:02] Yorumlarda görüşüyor oluruz. Bir sonraki
+[02:05:03] videolarda görüşmek üzere. Çokça
+[02:05:05] selamlar. Yeah.
