@@ -1,0 +1,502 @@
+# 
+# https://www.youtube.com/watch?v=RywmhLTFeFk
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:RywmhLTFeFk.en.json3
+
+[00:00:00] In this video, we're going to build four
+[00:00:02] real projects together, and you won't
+[00:00:04] write a single line of code yourself.
+[00:00:06] And I'm about to show you why after
+[00:00:08] Claude Code, every other AI tool feels
+[00:00:11] old. First of all, we need three
+[00:00:13] installs. Node.js, the engine, Claude
+[00:00:17] Code itself, and Cursor, a free editor
+[00:00:20] that shows every file Claude touches in
+[00:00:22] real time, about five minutes total. Run
+[00:00:24] the install command, type Claude, log in
+[00:00:27] through the browser, trust the folder,
+[00:00:30] same three steps on Mac, Windows, Linux,
+[00:00:33] then open your project in Cursor,
+[00:00:35] install the Claude Code extension, so
+[00:00:37] you get a chat panel on the right and a
+[00:00:39] live file view on the left, run init.
+[00:00:42] Claude writes a Claude MD memory file,
+[00:00:44] so it never forgets your project
+[00:00:46] context. Done? Let's build. New folder
+[00:00:49] in Cursor, open the Claude Code panel on
+[00:00:51] the right. First thing, type arch model
+[00:00:55] Opus. It is the senior architect. It
+[00:00:58] thinks [music] deeper, catches edge
+[00:01:00] cases, and lays out a solid plan before
+[00:01:03] touching anything. For a landing page,
+[00:01:05] this might feel like overkill, but I
+[00:01:07] want you to see the Opus to Sonnet
+[00:01:09] handoff in action, because you'll use it
+[00:01:11] constantly. Tell Claude exactly this.
+[00:01:14] Copy it word for word if you want. Good
+[00:01:17] plan. Now switch models, type model
+[00:01:19] Sonnet, and say, "Follow the plan
+[00:01:22] exactly and build it." Sonnet is the
+[00:01:24] builder. Same quality, much faster,
+[00:01:27] cheaper on tokens. Use Opus to think,
+[00:01:30] Sonnet to execute. That's the pattern.
+[00:01:33] Each model trades depth for speed
+[00:01:35] differently, and that's exactly why you
+[00:01:37] switch between them. Opus spends more
+[00:01:39] time reasoning, and it costs more per
+[00:01:41] token as a result, but at the planning
+[00:01:44] stage, it catches things that Sonnet
+[00:01:46] will simply miss. Sonnet writes code
+[00:01:49] fast and accurately, and for that job,
+[00:01:52] it's genuinely the better fit. Think of
+[00:01:54] it like asking a senior consultant to
+[00:01:57] design the blueprint and then handing it
+[00:01:59] to a contractor to build. When it's
+[00:02:01] done, right-click index.html
+[00:02:04] in the sidebar arrow, open with live
+[00:02:06] server, or just drag the file into your
+[00:02:09] browser. Your landing page is live,
+[00:02:11] built in under 2 minutes, zero code
+[00:02:14] written by you. Now, here's the moment I
+[00:02:16] love showing people. The page exists,
+[00:02:18] but let's say the button color is wrong
+[00:02:20] or you don't like the font. In the old
+[00:02:22] world, you'd spend an hour in Stack
+[00:02:25] Overflow. Here's what you do instead.
+[00:02:27] Just make a screenshot of something you
+[00:02:29] want to be changed. Claude sees the
+[00:02:30] screenshot and has the full project on
+[00:02:33] desk at the same time. It looks at the
+[00:02:35] image, finds the right file, edits it,
+[00:02:37] done. And the best part is you don't
+[00:02:39] have to spell out which exact button or
+[00:02:41] which text element you mean. Claude just
+[00:02:44] looks at the screenshot and figures out
+[00:02:46] what you're pointing at on its own. This
+[00:02:48] is how I debug the AI master interface.
+[00:02:50] I literally don't write CSS anymore.
+[00:02:52] Something looks off, I screenshot it,
+[00:02:54] drop it in, say fix this, that's the
+[00:02:57] workflow. And watch what just happened
+[00:02:59] on the page here. I only pointed at one
+[00:03:01] button in the screenshot, but Claude
+[00:03:03] went ahead and updated every other
+[00:03:05] button on the page, so they all match
+[00:03:07] the same style. Without that, I might
+[00:03:09] not have even noticed the other buttons
+[00:03:11] were still in the old look. My whole
+[00:03:13] page would have ended up looking sloppy
+[00:03:15] and unprofessional. Pro tip, paste a
+[00:03:17] Figma export and say, "Build me this
+[00:03:20] page." One of the fastest ways to go
+[00:03:22] from a static design to working site.
+[00:03:25] The personal landing page is the
+[00:03:26] simplest way to exist on the internet as
+[00:03:29] a professional. If you freelance, you
+[00:03:31] need a place to send potential clients.
+[00:03:33] If you're launching a newsletter or a
+[00:03:34] course, you need somewhere to collect
+[00:03:36] emails. If you're switching careers and
+[00:03:39] just learned a new skill, you need proof
+[00:03:41] that you're the real deal. In the old
+[00:03:43] world, this would cost you a few hundred
+[00:03:45] dollars or take a whole week [music] to
+[00:03:46] build. Here, you're going to build one
+[00:03:48] in the next 10 minutes. Everything you
+[00:03:50] just saw, generating a site, working
+[00:03:53] with files, an AI workflow driven by
+[00:03:55] plain language, isn't just a trick for
+[00:03:57] the video. It's the same approach we use
+[00:04:00] to build AI Master. We originally built
+[00:04:02] it as an internal AI content factory for
+[00:04:04] our own team. An AI producer runs
+[00:04:06] strategy, the script writer writes
+[00:04:08] ready-to-shoot scripts, the designer
+[00:04:10] puts together thumbnails, and the whole
+[00:04:11] thing runs as a single workflow, no
+[00:04:13] constantly re-explaining context. Now,
+[00:04:16] we [music] use this system not only
+[00:04:17] inside our team, we also offer our AI
+[00:04:20] workflow to clients, YouTube channels,
+[00:04:22] content teams, brands, and solo
+[00:04:24] creators. If you need AI production or a
+[00:04:26] full turnkey content pipeline, link is
+[00:04:29] in the description. AI Master is also a
+[00:04:31] full platform with training and hands-on
+[00:04:33] practice. You don't need to buy five
+[00:04:35] separate subscriptions to different AI
+[00:04:37] tools. In one window, you get the
+[00:04:39] learning and direct access to the top AI
+[00:04:42] models for real work. These aren't
+[00:04:45] watch-and-forget courses. You test,
+[00:04:47] build real projects, and lock the
+[00:04:49] knowledge in as you go. Annual access is
+[00:04:51] currently 30% off, link also in the
+[00:04:53] description. Now, back to the next
+[00:04:56] project. This one is a little more
+[00:04:58] impressive at dinner parties. We're
+[00:05:00] building a Chrome extension that lets
+[00:05:02] you highlight any text on any webpage
+[00:05:04] right quick and get an instant AI
+[00:05:07] summary. Think about how useful this is
+[00:05:09] for research, for reading long reports,
+[00:05:12] for any time you're drowning in text.
+[00:05:14] New folder in Cursor. Open Claude code
+[00:05:16] panel. This time, let's just go to
+[00:05:18] Sonnet [music] directly. This project is
+[00:05:20] well-scoped and doesn't need deep
+[00:05:21] architecture planning. Type {slash}
+[00:05:23] model Sonnet and say, "Build a Chrome
+[00:05:25] extension. When I highlight text on any
+[00:05:27] webpage and right-click, I want a
+[00:05:30] context menu option called summarize.
+[00:05:33] Clicking it opens a small pop-up with a
+[00:05:35] three-sentence AI summary of the
+[00:05:37] selected text using the OpenAI API. Show
+[00:05:40] me every file I need." A Chrome
+[00:05:42] extension is really just four files.
+[00:05:44] Claude writes all of them. When it's
+[00:05:46] done, here's how you install it. Open
+[00:05:48] Chrome, go to extensions, toggle on
+[00:05:50] developer mode in the top right. Click
+[00:05:53] load unpacked, select your project
+[00:05:55] folder. Your extension is live. Go to
+[00:05:58] any article, highlight a paragraph,
+[00:06:00] right click, summarize is right there.
+[00:06:03] Let me show you a real example. I pulled
+[00:06:05] up a long TechCrunch piece, Anthropic
+[00:06:08] buying stainless startup, about 2,000
+[00:06:10] words, dense. I highlight the middle
+[00:06:12] paragraphs, right click, hit summarize.
+[00:06:14] [music]
+[00:06:15] 2 seconds, three sentences. That's the
+[00:06:17] whole article's core point extracted in
+[00:06:20] 2 seconds from a tool I built in 15
+[00:06:23] minutes. That's the extension. It's
+[00:06:25] yours now. Modify it anytime, change
+[00:06:27] [music] the prompt to get bullet points
+[00:06:28] instead of sentences, add a translate to
+[00:06:31] Spanish option, wire it to a different
+[00:06:33] model. The code is sitting right there
+[00:06:35] in Cursor. Claude wrote it. Claude can
+[00:06:37] change it. You're the one calling the
+[00:06:39] shots. Take a second [music]
+[00:06:41] and notice what just happened here. You
+[00:06:43] didn't write a single line of code,
+[00:06:45] >> [music]
+[00:06:45] >> and yet a working Chrome extension is
+[00:06:47] installed in your browser right now.
+[00:06:49] That's the [music] shift Claude code
+[00:06:51] actually creates. It gives you the
+[00:06:53] ability to solve a very specific problem
+[00:06:55] that no existing app addresses. Say you
+[00:06:58] run a recruiting agency. You want a tool
+[00:07:00] that pulls job titles from LinkedIn and
+[00:07:02] formats them into a spreadsheet
+[00:07:04] automatically. There's no off-the-shelf
+[00:07:06] app for that exact workflow, but Claude
+[00:07:09] code can build it for you in about 15
+[00:07:11] minutes. Whatever task keeps slowing you
+[00:07:13] down, this is exactly how you fill that
+[00:07:15] gap. Claude code is incredible for
+[00:07:17] building agents fast, but every new
+[00:07:20] workflow still requires setup, prompts,
+[00:07:22] and rebuilding logic for the next task.
+[00:07:24] Meanwhile, most business work isn't
+[00:07:26] coding at all. Here's what a normal
+[00:07:28] Tuesday usually looks like for me. 20
+[00:07:31] client threads are sitting unanswered in
+[00:07:33] Gmail. That's 2 hours of clicking gone
+[00:07:36] before lunch even starts. Do My Work is
+[00:07:39] an AI that actually does the work across
+[00:07:41] 1,500 apps you already use. You describe
+[00:07:44] the outcome in plain English and it
+[00:07:46] handles every step on its own. My first
+[00:07:49] task this morning was simple competitor
+[00:07:51] research. I told DoMyWork to pull this
+[00:07:54] week's videos from three competitor
+[00:07:55] channels with view counts and titles
+[00:07:57] into a Google Sheet. I went to make
+[00:07:59] coffee and the sheet was filled in when
+[00:08:01] I came back. The second task runs on
+[00:08:03] autopilot. Every evening, DoMyWork scans
+[00:08:06] my inbox, finds unanswered client emails
+[00:08:09] and drafts replies automatically so I
+[00:08:11] can clear my inbox in minutes the next
+[00:08:14] morning. Once a workflow works, you save
+[00:08:16] it as a playbook. One click reruns it on
+[00:08:19] fresh data anytime. The link to DoMyWork
+[00:08:21] is in the description below. Back to
+[00:08:24] Claude code. We're going to build a
+[00:08:25] Python script that watches a folded on
+[00:08:28] your computer. Every time you drop a new
+[00:08:30] image into that folder, it automatically
+[00:08:32] uses AI vision to read the image,
+[00:08:34] generate a caption optimized for
+[00:08:36] Instagram or LinkedIn and save it to a
+[00:08:38] text file named after the image. Fully
+[00:08:40] automated. Drop image in, caption
+[00:08:43] appears. Type model Opus and say, "Plan
+[00:08:45] [music] a Python script that watches a
+[00:08:48] folder for new images. When a new image
+[00:08:50] appears, it sends it to the OpenAI
+[00:08:52] Vision API and gets back a social media
+[00:08:55] caption. One version for Instagram, one
+[00:08:58] for LinkedIn. Save both captions to a
+[00:09:01] .txt file with the same name as the
+[00:09:03] image. List every dependency and every
+[00:09:06] step before writing any code." Good
+[00:09:08] plan. Now switch to side and build it.
+[00:09:10] When it's done, Claude will tell you to
+[00:09:12] run this and then this. That's what we
+[00:09:14] will do. Now drop an image into the
+[00:09:16] watched folder. That is a real
+[00:09:18] automation running on your machine, not
+[00:09:20] a tool someone else built, not a Zapier
+[00:09:22] workflow with a monthly subscription.
+[00:09:24] Your code, your machine doing exactly
+[00:09:27] what you told it to do. Here's what we
+[00:09:29] actually end up with. I take a real
+[00:09:31] photo of desk and drop it into the
+[00:09:34] watched folder. A few seconds later, a
+[00:09:36] text file with the same name appears
+[00:09:39] right next to it. I open it and both
+[00:09:41] captions are already in there. The
+[00:09:43] Instagram version has hashtags and
+[00:09:45] emojis built right in, written in a
+[00:09:47] casual punchy tone that actually
+[00:09:49] performs on the platform.
+[00:09:50] >> [music]
+[00:09:50] >> The LinkedIn version is shorter and
+[00:09:53] cleaner with no hashtags and a more
+[00:09:55] professional register. You dropped in
+[00:09:57] one image and got two platform-ready
+[00:09:59] captions back. Each one is formatted
+[00:10:01] exactly [music] for its platform without
+[00:10:04] any extra editing from you. And here's
+[00:10:06] the part that still gets me. If it
+[00:10:09] breaks, and at some point it will, you
+[00:10:11] don't Google the error. You paste the
+[00:10:13] error message directly into Claude Code
+[00:10:15] and say, "Fix this." Claude reads the
+[00:10:17] error, finds the line, fixes it. I've
+[00:10:19] been using this exact workflow inside
+[00:10:22] the AI Master production pipeline. When
+[00:10:24] an agent throws an error, we paste it
+[00:10:27] in, fix it in 60 seconds, and move on.
+[00:10:30] Notice the role you're playing right
+[00:10:31] now. You are not the coder anymore. You
+[00:10:34] are the person with taste, the one who
+[00:10:36] decides what gets built and what gets
+[00:10:38] thrown away. Claude is the builder and a
+[00:10:41] fast one, but it has no opinion about
+[00:10:44] whether the result is actually good.
+[00:10:45] That part is still on you. The
+[00:10:47] non-developers who win with this tool
+[00:10:49] are the ones who lean into that. They
+[00:10:51] stop trying to learn syntax
+[00:10:53] >> [music]
+[00:10:53] >> and they start sharpening their judgment
+[00:10:55] about what good actually looks like. And
+[00:10:57] the fourth project we're about to build
+[00:11:00] is the perfect place to feel that shift
+[00:11:02] in real time. It's small, it's personal,
+[00:11:05] and you're going to make a hundred tiny
+[00:11:07] taste calls along the way. What to keep,
+[00:11:09] what to cut, what to polish. Claude will
+[00:11:12] handle every line of code. You'll handle
+[00:11:15] every decision that actually matters.
+[00:11:17] For the fourth project, let's build
+[00:11:19] something I actually use every single
+[00:11:21] day myself. This one is a small personal
+[00:11:23] tool, but it's the kind of thing you
+[00:11:26] keep coming back to. We're building a
+[00:11:28] personal habit tracker that runs
+[00:11:29] entirely in your browser. You add the
+[00:11:32] habits you want to build, you check them
+[00:11:34] off every day, and the app remembers
+[00:11:36] everything locally on your machine. No
+[00:11:38] account, no cloud, no monthly fee for a
+[00:11:41] productivity app you'll forget about in
+[00:11:43] 2 weeks. In Cursor, let's go straight to
+[00:11:46] Sonnet on this one. The scope is small
+[00:11:48] enough that we don't need Opus to plan
+[00:11:50] it out first. Type {slash} model Sonnet
+[00:11:53] and tell Claude exactly that. When it's
+[00:11:56] done, you just double-click the file.
+[00:11:58] Your browser opens it, and the tracker
+[00:12:00] is live. No server, no build step, no
+[00:12:03] terminal commands to start it up. It's a
+[00:12:05] real working app that lives on your
+[00:12:07] computer as one file you can email to
+[00:12:09] yourself or drop into Dropbox. Now,
+[00:12:12] here's where it gets fun. The tracker
+[00:12:14] works, but I want a small upgrade. I
+[00:12:16] tell Claude, "Add a streak counter that
+[00:12:19] shows my longest streak ever for each
+[00:12:21] habit, and celebrate with a small
+[00:12:23] confetti animation whenever I hit a new
+[00:12:25] personal best." 20 seconds later, it's
+[00:12:27] in there. That's the loop you fall into
+[00:12:30] with Claude code. You ship a working
+[00:12:32] version fast, then keep refining it one
+[00:12:35] small request at a time until it feels
+[00:12:37] exactly like yours. And look, this is
+[00:12:40] just one tiny app. Once you've built
+[00:12:42] one, the ceiling basically disappears.
+[00:12:45] Anything you wish exists on your machine
+[00:12:47] is now a weekend project. Let me throw
+[00:12:49] five ideas at you super fast. Daily
+[00:12:52] journal with mood tracking. One text box
+[00:12:55] a day, and the app charts your mood over
+[00:12:57] the month. Workout logger. Log sets and
+[00:13:00] reps in two taps, and the app shows your
+[00:13:02] progress curve for every exercise.
+[00:13:05] Reading tracker. Add books, log pages
+[00:13:07] per day, [music] and watch your streak
+[00:13:09] grow like Duolingo. Expense splitter for
+[00:13:12] trips. Type who paid for what, and the
+[00:13:15] app tells everyone who owes whom at the
+[00:13:18] end. Focus timer with stats. A Pomodoro
+[00:13:21] that quietly logs every session so you
+[00:13:24] can see how many deep work hours you
+[00:13:26] actually got this week. Pick whichever
+[00:13:28] one you'd actually open every day, and
+[00:13:30] that's your next project. And those four
+[00:13:32] projects couldn't be more different from
+[00:13:34] each other. One is a public-facing
+[00:13:36] [music] website you can share with
+[00:13:37] anyone. Another is a tool that lives
+[00:13:39] inside your browser as an extension. The
+[00:13:42] third runs silently on your machine in
+[00:13:44] the background while you work. And the
+[00:13:46] fourth is a small personal app that
+[00:13:48] opens with a double click. But the
+[00:13:50] workflow was identical every time. You
+[00:13:52] describe the goal and Opus lays out the
+[00:13:54] plan. Then Solid builds it and a
+[00:13:56] screenshot fixes anything that breaks.
+[00:13:59] That's the real takeaway from all of
+[00:14:01] this. Once you have that pattern down,
+[00:14:03] the actual project type almost doesn't
+[00:14:05] matter. You can apply the same approach
+[00:14:07] to pretty much any specific problem your
+[00:14:10] work has. Claude Code doesn't make you a
+[00:14:12] software engineer. It gives you the
+[00:14:14] ability to build exactly what you need
+[00:14:16] [music] in plain English. Now, I want to
+[00:14:19] be straight about where the ceiling
+[00:14:21] actually is. Claude Code will not
+[00:14:23] replace a software engineer for a
+[00:14:25] complex fintech back end or a healthcare
+[00:14:28] platform with serious security
+[00:14:30] requirements. That kind of work needs
+[00:14:32] deep architectural expertise and years
+[00:14:34] of domain knowledge. No AI tool fully
+[00:14:37] closes that gap today. But that's
+[00:14:38] honestly not who this is for. If you
+[00:14:41] have a specific problem in your workflow
+[00:14:43] that no existing app solves, Claude Code
+[00:14:46] is exactly where you start. You don't
+[00:14:47] need to be a programmer, you just need
+[00:14:49] to know what you want built, and Claude
+[00:14:51] handles the rest. And if you have an
+[00:14:53] idea you're not sure is worth the
+[00:14:55] developer investment, this is the
+[00:14:57] fastest way to test it. Build a working
+[00:14:59] version in an afternoon, show it to real
+[00:15:01] users, and decide from there. Let me
+[00:15:03] save you a few weeks of frustration
+[00:15:05] right now. These are the five mistakes I
+[00:15:07] made when I first started using Claude
+[00:15:10] Code, and I see almost every beginner
+[00:15:13] repeat them. First mistake, launching a
+[00:15:15] session without a Claude.md file, and
+[00:15:18] then wondering why Claude seems to have
+[00:15:20] forgotten everything about your project.
+[00:15:23] It has because there is no memory
+[00:15:26] between sessions unless you set one up.
+[00:15:28] Run /innate once and Claude auto reads
+[00:15:31] your project and generates that file for
+[00:15:34] you. From that point on, every new
+[00:15:36] session picks up where the last one left
+[00:15:38] off. Second mistake, writing prompts
+[00:15:41] that are way too vague. Something like
+[00:15:43] "Make it look better" gives Claude
+[00:15:45] nothing to work with. Instead, say
+[00:15:48] exactly what you want changed. The hero
+[00:15:51] section font feels too heavy. Switch it
+[00:15:53] to something lighter and increase the
+[00:15:55] line spacing. The more specific you are,
+[00:15:58] the less back and forth you need. Third
+[00:16:00] mistake, skipping plan mode on anything
+[00:16:02] [music] that touches more than two or
+[00:16:04] three files. Without a plan, Claude will
+[00:16:06] start writing and halfway through
+[00:16:08] realize it needs to restructure
+[00:16:10] something it already built. You end up
+[00:16:12] with twice the work. Hit shift plus tab
+[00:16:15] to switch into plan mode before any task
+[00:16:17] that feels even slightly complex. Fourth
+[00:16:20] mistake, never using /compact and then
+[00:16:23] hitting a wall where Claude starts
+[00:16:25] looping or given inconsistent answers.
+[00:16:28] That happens because the context window
+[00:16:30] is full and Claude is trying to work
+[00:16:32] with a compressed, noisy version of your
+[00:16:35] conversation. Run /compact mid-session
+[00:16:38] and it summarizes the key decisions
+[00:16:40] while dropping the noise. Think of it as
+[00:16:42] clearing the whiteboard while keeping
+[00:16:44] the important notes. Fifth mistake,
+[00:16:46] trying to fix the same broken thing
+[00:16:48] three times in a row in the same
+[00:16:50] session. If Claude made an error and two
+[00:16:52] correction attempts didn't stick, the
+[00:16:54] session context is probably working
+[00:16:56] against you. Start a fresh session,
+[00:16:58] describe the problem cleanly, and paste
+[00:17:00] only the relevant code. A clean context
+[00:17:03] beats a long one almost every time.
+[00:17:05] Here's the cost picture because most
+[00:17:07] tutorials skip this part entirely. The
+[00:17:10] two options work very differently. The
+[00:17:12] first option is Claude Pro [music] at
+[00:17:14] $20 a month. That plan includes Claude
+[00:17:16] code access and gives you a predictable
+[00:17:18] monthly bill with no usage surprises. If
+[00:17:21] you're just getting started and running
+[00:17:22] a few sessions a week, Pro is the right
+[00:17:25] call. Start there and switch to API once
+[00:17:28] you understand your actual usage. The
+[00:17:30] API route charges per token, so you pay
+[00:17:32] for exactly what you use. That sounds
+[00:17:35] like the smarter deal, but Opus on a
+[00:17:37] complex plan and session can cost you
+[00:17:39] [music] a few dollars in one go. The API
+[00:17:41] starts making sense once you know your
+[00:17:43] patterns and you're running Claude code
+[00:17:45] daily. Until you get there, Pro is just
+[00:17:48] simpler. There's also a max plan at $100
+[00:17:52] a month for people who are constantly
+[00:17:54] hitting limits on Pro, but most
+[00:17:56] beginners won't [music] need that level
+[00:17:57] for the first few months. Either way,
+[00:17:59] one automation you actually ship will
+[00:18:02] pay for several months of the
+[00:18:03] subscription by itself. Install Claude
+[00:18:06] code and build at least one real project
+[00:18:08] yourself. Because the moment you get
+[00:18:10] used to this workflow [music] where AI
+[00:18:12] isn't just answering in a chat, but
+[00:18:14] actually helping you build projects, you
+[00:18:16] won't want to go back to the old way.
+[00:18:18] And if you want to go deeper into all of
+[00:18:20] this, the link to AI Master is in the
+[00:18:22] description. Inside, you get both the
+[00:18:25] training and hands-on practice with top
+[00:18:28] AI models in one window. And if you need
+[00:18:30] a full AI workflow or turnkey content
+[00:18:33] production, we also work with clients
+[00:18:36] directly. Drop a comment and tell me
+[00:18:38] what you'd build with Claude code. See
+[00:18:40] you in the next one.
