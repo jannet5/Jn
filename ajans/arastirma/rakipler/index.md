@@ -4,7 +4,7 @@ Kapsam: işletmelere web sitesi + mobil uygulama + sosyal medya yönetimi + rekl
 Detay notları `ajanslar/<slug>.md` içinde (13 ajans tam şablonla; diğerleri için bu tablo + `ss/<slug>-instagram.json` verisi), ekran görüntüleri `ss/` altında (web 1440px tam sayfa, mobil 390px, Instagram kartı `instagram.com/<kullanici>/embed/` verisinden üretildi — profil sayfası giriş duvarı/proxy nedeniyle açılamıyor).
 Ortak kalıplar ve çıkarımlar: `OZET.md`. Araçlar: `ss_al.py` (site SS), `ig_al.py` (Instagram verisi + kart).
 
-Durum (2026-10-10): 28 ajans (18 TR, 10 global), 13 tam not (★), 56 PNG (17 web, 17 mobil, 22 Instagram — hepsi <400KB). 2026-10-10 turunda `ss_al.py --reduced-motion --bekle 8` ile 9 ajansın web+mobil SS'i alındı (15 yeni PNG + B12 web/mobil ve DijiPal mobil yenilendi) (Owner, Primi, Webtasarimji, AdresGezgini, B12 yeniden, DijiPal web, Kurgu, MediaClick, Webtures); 6 yeni tam not (Owner, B12, Primi, Kiwi, Webtasarimji, AdresGezgini). Önceki durum (2026-10-09): 7 tam not, 41 PNG.
+Durum (2026-10-12): 28 ajans (18 TR, 10 global), 28 ajans notu (her biri 3+ iyi, 3+ kötü yan), 63 PNG. Alınamayan web/mobil görüntüler: E-Pazarla, Webolizma, Ajans360 (zaman aşımı/proxy), Creamaxi, Arty Digital mobil (proxy engeli); Creamaxi, Proji ve Bravery web görüntüleri boş/hata/CAPTCHA çıktığı için silindi. Instagram bio metinleri embed ucundan alınamadı. Not: tablodaki ★ işareti artık anlamsız, hepsinin notu var.
 
 ## Türkiye
 
