@@ -1,0 +1,1737 @@
+# 
+# https://www.youtube.com/watch?v=jpODSEXAylw
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:jpODSEXAylw.tr.json3
+
+[00:00:00] Land kodu başlangıç seviyesinden ileri
+[00:00:01] seviyeye kadar nasıl kullanabiliriz?
+[00:00:03] Örnek bir proje nasıl yapılıyor?
+[00:00:04] Frontend nasıl? Backend nasıl çalışıyor
+[00:00:06] ve bunları daha iyi bir mimaride ve uzun
+[00:00:08] vadede nasıl daha kullanışlı bir
+[00:00:10] altyapıda hazırlayabiliriz sizlere bu
+[00:00:12] seride göstermek istiyorum. Uzun bir
+[00:00:13] video olacak ve adım adım her detaya
+[00:00:15] gösterdiğim bir video olacak. O yüzden
+[00:00:16] de eğer bazı kısımlar zaten biliyorsanız
+[00:00:18] veya onlara hakimseniz lütfen alttaki
+[00:00:21] sectionlar kısmından ilerletebilirsiniz
+[00:00:23] videoyu. Bu sayede sıkılmazsınız veya
+[00:00:24] vakit kaybetmezsiniz. O zaman hadi
+[00:00:26] videoya geçelim. İlk olarak cloud.
+[00:00:29] girdiğimiz zaman karşımıza bu şekilde
+[00:00:30] bir arayüz çıkıyor arkadaşlar. Buradan
+[00:00:32] download to desktop app diyerekten hem
+[00:00:34] Windows tarafında hem Mac tarafında
+[00:00:36] kullanabileceğiniz bir masaüstü
+[00:00:37] uygulamasını indirebilirsiniz. Ben
+[00:00:38] genelde bunu kullanıyorum. Web sürümünü
+[00:00:40] cloud'un çok fazla kullanmıyorum. E TC
+[00:00:42] GPT'i mesela sık sık kullanırken web
+[00:00:44] sürümünden e cloud tarafın daha çok
+[00:00:46] uygulamasından kullanıyorum. Buradan
+[00:00:48] giriş yaptıktan sonra karşınıza böyle
+[00:00:50] bir arayüz geliyor. Şimdi cloud
+[00:00:51] tarafında gördüğünüz gibi chat cork e
+[00:00:54] masaüst uygulamasında göreceğiniz bir
+[00:00:56] kod kısmı var. Onun da detaylı bir
+[00:00:57] şekilde biraz sonra uygulama üzerinden
+[00:00:59] sizlere göstereceğim. Bu araca gelecek
+[00:01:01] olursak burada gördüğünüz gibi bir Opus
+[00:01:03] 5 High diye arkadaşlar bir kısım var
+[00:01:04] görüyorsunuz. Bunlar bizim modellerimiz.
+[00:01:06] Burada Fable 5.1, Opus 5, Sonet 5, HQ
+[00:01:09] 4.5 var ve bir de effor kısmınız var.
+[00:01:12] Şimdi burada eğer paketiniz e max plana
+[00:01:15] yani 100 dolarlık veya 200 dolarlık
+[00:01:17] planlarsa Opus 5 ve Fable 5.1
+[00:01:19] kullanmanızı tavsiye ederim. Ama
+[00:01:21] paketiniz 20 dolarlık paket veya
+[00:01:23] ücretsiz bir sürümse o zaman arkadaşlar
+[00:01:25] son 5 veya Hayqu 4.5 kullanmanızı
+[00:01:27] tavsiye ederim. Çünkü e düşük paketlerde
+[00:01:30] maalesef ki bu iki model size yeterli
+[00:01:32] gelmeyecektir. 1 2 prom verdikten sonra
+[00:01:35] yüksek ihtimalle limitler tükenecektir.
+[00:01:37] Hatta zaten Fable 5.1 bildiğim kadarıyla
+[00:01:39] eee 20 dolarlık pakette bulunmuyor diye
+[00:01:41] biliyorum. Yani sadece max paketlerinde
+[00:01:43] var diye biliyorum. O yüzden hani benim
+[00:01:45] max paketim olmasına rağmen bile zaten
+[00:01:46] Fable Pla bir aktif kullanırsam
+[00:01:48] limitlerim o hafta yetmiyor. Yarısında
+[00:01:50] bitiyor zaten. O yüzden ben de genelde
+[00:01:52] sık sık opus kullanıyorum. Efor kısma
+[00:01:54] geldiğimiz zaman da eğer ekstra veya max
+[00:01:56] yaparsanız daha uzun işlemler sürer ve
+[00:01:58] daha fazla token harcar. Bu da size daha
+[00:02:00] çok maliyetli olur. Limitleriniz hızlı
+[00:02:02] tükenir. Benim tavsiyem high veya medium
+[00:02:04] kullanmanızı öneririm. Ben genelde
+[00:02:05] medium zaman zaman high kullanıyorum.
+[00:02:07] Çok nadiren ekstra kullanıyorum. Eğer
+[00:02:09] bir fikir varsa bunu geliştirmem
+[00:02:10] gerekiyorsa, işin içinden çıkamıyorsam
+[00:02:12] farklı şeylere ihtiyacım varsa ekstra
+[00:02:13] alıyorum ama normal standart iş akışına
+[00:02:15] devam ediyorsam o zaman arkadaşlar high
+[00:02:17] yeterli oluyor. Sol tarafta project
+[00:02:20] artifactu ve customize diye kısımlar
+[00:02:22] var. Bunlara çok değinmeyeceğim çünkü bu
+[00:02:24] artifax kısmı evet ya şöyle iyi böyle
+[00:02:25] iyi işte bunu görüyorsunuz falan demeye
+[00:02:27] çok gerek yok. Ben size bu videoda
+[00:02:29] baştan sona bitloud kullanmak isteyen,
+[00:02:31] yeni başlayan veya orta seviyede
+[00:02:33] kullanan, kullanmış, bunu öğrenmiş bir
+[00:02:35] kişi de olsanız ben nasıl kullanıyorum
+[00:02:37] ve bunu nasıl kullanmanız gerektiğini
+[00:02:40] benim gözümde size anlatmak istiyorum. O
+[00:02:41] yüzden de ben kullanmadığım şeylere çok
+[00:02:43] fazla değinmeyeceğim çünkü yalandan bir
+[00:02:45] video olur. Onu da çok istemiyorum
+[00:02:46] arkadaşlar. Ve burada bir kod kısmı var
+[00:02:49] görüyorsunuz. Bu kod kısmına masaüstünde
+[00:02:51] zaten değineceğim. O yüzden burada şimdi
+[00:02:53] bir şey söylemeyeceğim burayla alakalı.
+[00:02:55] Sol alttan indirdiğiniz zaman arkadaşlar
+[00:02:57] zaten uygulama uygulamanız inecek ve
+[00:03:01] kurduktan sonra karşınıza gene web'deki
+[00:03:03] arayü benzer bir arayüz gelecek. Burası
+[00:03:05] da masaüstü uygulamamız. Burada aynı
+[00:03:07] şekilde chat cowork ve üst tarafta kod
+[00:03:09] kısımlarımız var. Şimdi bizim için
+[00:03:10] önemli olan kısım şu. Buradaki opus 5'i
+[00:03:12] ekstradan gene haya alalım. Herhangi bir
+[00:03:14] prom verirsek karışık olmasın. Ek olarak
+[00:03:16] da sol alt tarz arkadaşlar promtlarınızı
+[00:03:18] sesli bir şekilde verebilirsiniz. Ben
+[00:03:20] buna çok alışamadım. Hala yazı yazarak
+[00:03:21] yapıyorum. Neyse bir türlü bu
+[00:03:23] alışkanlığımı gideremedim ama siz bunu
+[00:03:26] sesli bir şekilde de kullanabilirsiniz.
+[00:03:27] Bazı skillerimiz işte konnektörlerimiz
+[00:03:30] vesaire bir sürü aslında şeylerimiz var.
+[00:03:31] Şimdi bunları ben size yavaş yavaş
+[00:03:32] anlatacağım ve bunları örneklerle zaten
+[00:03:34] videonun ilerleyen dakikalarında sizlere
+[00:03:36] göstermiş olım. Hem bir web sitesi
+[00:03:37] yapacağız. Bu web sitesini kendimizi
+[00:03:39] bağlayacağız. Canlıyı alacağız.
+[00:03:40] üzerinden bir sürü aslında işlem
+[00:03:42] yapacağız zaten. İlk olarak skiller
+[00:03:44] arkadaşlar şu işe yarıyor. Sizin
+[00:03:46] yaptığınız işleri ve bu belli başlı
+[00:03:48] sürekli tekrar eden şeylerinizi daha
+[00:03:51] optimal bir şekilde yani daha verimli
+[00:03:52] bir şekilde yapmanızı sağlayan şeyler.
+[00:03:54] Örneğin çok basit bir örnek vereyim
+[00:03:56] size. Bir fatura kestiğinizi düşünelim
+[00:03:58] veya bir sürekli şirketlere, ajanslara
+[00:04:00] veya iş yaptığınız kişilere bir prof,
+[00:04:02] bir fiyat teklifi gönderdiğinizi
+[00:04:03] varsayalım. Bunları nasıl yapıyorsunuz?
+[00:04:05] Ya kanva üzerinden PDF ayarlıyorsunuz
+[00:04:07] veya bir tasak var. Onun üzerinden
+[00:04:09] iltiyorsunuz. veya AI'a gelip ya bana
+[00:04:11] şunu yap diyorsunuz size AI her
+[00:04:12] seferinde chat CBT olsun, cloud olsun
+[00:04:14] farklı farklı tasarımlarda farklı
+[00:04:16] ölçeklerde bir sonuç ortaya çıkartıyor
+[00:04:18] ve bu bunu müşteriye atıyorsunuz. Bu da
+[00:04:20] ne oluyor? Amatör bir şekilde oluyor.
+[00:04:21] Şimdi ben mesela bunun için ne yaptım?
+[00:04:23] Gittim dedim ki ya bana dedim bir tane
+[00:04:25] invoice generator diye bir tane skill
+[00:04:26] yap dedim ve bu skill yani bu bir
+[00:04:28] yetenek ve burada bunu tanımladım. E
+[00:04:30] Türkçe karakterleri şu fontu kullanan,
+[00:04:32] bunları böyle yap, işte adresi, ibanı
+[00:04:34] şöyle olsun. Eee, logosu varsa logoyu
+[00:04:36] buraya koy. Yoksa işte logo yerine ismi
+[00:04:38] şöyle yazdır diye bunları anlattım. Ve
+[00:04:40] bana benim istediğim şekilde tam
+[00:04:41] istediğim formatta bir tasarımla
+[00:04:43] arkadaşlar her seferinde aynı sonuncu
+[00:04:45] çıkartabiliyor. Bu da benim işimi çok
+[00:04:46] rahatlatıyor. Çünkü ben şunu geliyorum
+[00:04:48] diyorum ki bana bir hatta bunu dememe
+[00:04:50] bile gerek yok. İşte 20 KPL bir web
+[00:04:53] sitesi ücreti bir yıl bakım 10K işte
+[00:04:57] hosting artı domain 100 dolar. diyorum
+[00:05:00] mesela. Buna TL verelim. 5500 T diyorum
+[00:05:03] mesela. Ve bunu işte teması mavi tema
+[00:05:06] olsun. Logo yok. Yapan firma Ugur
+[00:05:09] tespekçi alıcı firma Dami bir şey yaz.
+[00:05:13] Bir şey yaz ve bunu gönderdim. Yani
+[00:05:15] sadece şu kadar arkadaşlar 3 be tane
+[00:05:17] şeyle biri bana proflama yapacak. Ben
+[00:05:19] buna gidip chatt'ye versem veya clala
+[00:05:21] gelip kala versem bana rastgele o an
+[00:05:23] aklına geldiği gibi bir tasarım yapacak
+[00:05:26] ve bir sonuç verecek. Ama ben bunu skill
+[00:05:28] içerdiğim için tam olarak benim
+[00:05:29] istediğim şekilde verecek ve de bundan
+[00:05:31] sonrakiler de bunun aynısı olacak. Bu
+[00:05:32] çok basit bir örnek aslında bu skilleri
+[00:05:34] kullanmak için. Siz bunu codinizde bir
+[00:05:36] projenin kurulumu için, bir mobil
+[00:05:38] uygulamanın yayına hazırlanması için,
+[00:05:39] bir projeyi build alırken testlerinin
+[00:05:41] yapılması için, bir projeyi proda
+[00:05:43] çıkartırken prod öncesi yapma denen her
+[00:05:45] şeyi burada tanımlayabilirsiniz. E veya
+[00:05:47] diyelim birden fazla kişinde
+[00:05:49] çalışıyorsunuz, kitap kullanıyorsunuz ve
+[00:05:50] 4 be farklı branch üzerinden işte main'e
+[00:05:53] veya proda e bunları merchlemeniz
+[00:05:54] gerekiyor. Bunları aslında baştan
+[00:05:57] tanımlayarak sadece skil çağırarak
+[00:05:58] arkadaşlar bunları yaptırtabilirsiniz.
+[00:06:00] Biz mesela oyun üzerinde bu şekilde
+[00:06:02] çalışıyoruz. Ben şunu çağırıyorum
+[00:06:03] arkadaşlar. Hatta burada yok mesela
+[00:06:05] şurada var. Birazdan kodla göstereyim. E
+[00:06:07] bir branch syn diye bir tane komutum
+[00:06:09] var. Onu çağırdığım zaman bütün
+[00:06:10] branşları araştırıyor, analiz ediyor.
+[00:06:12] Kim ne yapmış, ne etmiş bana hepsini
+[00:06:13] özetliyor ve bunları merch diyor
+[00:06:14] arkadaşlar. hatalar çıkarsa da bir
+[00:06:16] kısmını kendisi, bir kısmını bana
+[00:06:17] sorarak düzeltmelerini yapıyor mesela.
+[00:06:19] Ve gördüğünüz gibi haturan geldi. Burada
+[00:06:22] her şey yazıyor. Bakın herhangi bir
+[00:06:23] hata, herhangi bir problem, bir font
+[00:06:26] hatası gördüğünüz gibi şu anda mevcut
+[00:06:28] değil. Niye mevcut değil? Çünkü
+[00:06:30] verdiğimiz eee skilde bunların hepsi
+[00:06:32] arkadaşlar ne oluyordu? Yazıyordu. Bu
+[00:06:33] şekilde görüyorsunuz. Her şeyi buraya
+[00:06:35] yazdık. Şimdi ben gitsem bunları
+[00:06:36] değişsem, bir daha yapsam genel sına
+[00:06:37] yapacak. Ya bu çok basit bir örnek
+[00:06:39] aslında. Siz diyelim öğrencisiniz ve
+[00:06:41] sunum yapıyorsunuz. Sunumlarınızı böyle
+[00:06:42] yaptırtabilirsiniz. işte bir sosyal
+[00:06:44] medya management yapıyorsunuz. İşte
+[00:06:47] promptlarınızı ona göre
+[00:06:47] yazdırtabilirsiniz ki herhangi bir
+[00:06:49] görsel öğretmen aracı size her seferinde
+[00:06:51] aynı formatlarda ya da benzer
+[00:06:53] formatlarda sonuçlar verebilir. Tamam
+[00:06:54] burayı çok uzatmayalım. Hızlıca geçelim.
+[00:06:56] Skillerin temel mantığı budur ama
+[00:06:58] skilleri her türlü amaç için
+[00:06:59] kullanabilirsin özetle. Diğer tarafta
+[00:07:01] connectörsel var arkadaşlar.
+[00:07:01] Connectörsler çok önemli aslında. Buna
+[00:07:03] gelin şöyle basalım. Manage connector
+[00:07:05] diyorum. Gördüğünüz gibi burada kanva,
+[00:07:07] cloud dox, clouding chrome. Bu çok
+[00:07:09] önemli. Gitap, email, Google Drive gibi
+[00:07:11] her şeyi aslında buraya
+[00:07:12] bağlayabiliyorsunuz. notion bile ben
+[00:07:13] bağladım mesela işte bunu Google Drive
+[00:07:15] Slack Clion Slack bağlayabiliyorsunuz ve
+[00:07:17] bayağı da verimli bir şey
+[00:07:18] çalışabiliyorsunuz. Bunlar ne işe
+[00:07:20] yarıyor? Eğer bunları bağlarsanız
+[00:07:21] arkadaşlar mesela cloud sizin
+[00:07:23] Chrome'unuzu kullanarak herhangi bir
+[00:07:25] işlem yapabiliyor. Örneğin bir mobil
+[00:07:26] uygulama yaptığınız yayınlamanız
+[00:07:28] gerekiyor. Diyorsunuz ki cloud benim
+[00:07:30] Chrome'a bağlan developer hesabıma gel.
+[00:07:32] Ben giriş yaptım zaten diyorsunuz. Çünkü
+[00:07:33] kendi giriş yapmıyor güvenlik açısından
+[00:07:35] dolayı. Ben diyorsun giriş yaptım zaten.
+[00:07:37] Buraya gir ve bana şunu şunu şunu
+[00:07:39] bilgileri doldur. Gidiyor kendisi tek
+[00:07:41] tek hepsini dolduruyor. Örneğin biz şu
+[00:07:43] an bir oyun yapıyoruz. Diyorum ki
+[00:07:44] Steam'de bir haber yayınlayacağım. Blog
+[00:07:45] sayfası. Bunu diyorum 12 tane dilde
+[00:07:48] yayınla diyorum ve tık tık tık tık 12
+[00:07:50] dilde arkadaşlar bunu bana benim için
+[00:07:51] yayınlıyor. En son ben on basıyorum ve
+[00:07:53] bunları yapıyor. Gitap tarafındaki bütün
+[00:07:55] gitap işlemlerinizi
+[00:07:56] yaptırtabiliyorsunuz. Gmail'inize
+[00:07:57] bağlanıp bütün Gmail'deki her şeyi
+[00:07:59] baştan sona analiz edip Ocup size bir
+[00:08:01] rapor çıkartabiliyor. Son 2 senelik
+[00:08:02] maillerine kadar her şeyi görebiliyor
+[00:08:04] özetle ve burada her şeyi böyle
+[00:08:06] bağlayabiliyorsunuz ve discover kısmında
+[00:08:07] daha çok şey arkadaşlar görebilirsiniz
+[00:08:09] gördüğünüz gibi. Onun dışında dizign
+[00:08:10] tarafı var. Ben burayı çok kullanmadığım
+[00:08:12] için buraya değinmeyeceğim. Add
+[00:08:13] plugins'e de yeni bir şeyler
+[00:08:14] ekleyebiliyorsunuz. Şimdi eee kod
+[00:08:16] tarafına geçmeden önce bir de cowork
+[00:08:18] tarafında konuşmak istiyorum. Ben dürüst
+[00:08:20] olmak gerekirse cover geldiği zaman ben
+[00:08:23] bunu kullandım. Bayağı bir kullandım ama
+[00:08:25] bence verimli ve mantıklı bir sistem
+[00:08:27] değil. O yüzden de bu tarafa arkadaşlar
+[00:08:29] atlayacağım. Eğer yorumlarda bu sistemi
+[00:08:31] kullanan ve bunun gerçekten çok iyi
+[00:08:32] olduğunu düşünen arkadaşlar varsa lütfen
+[00:08:33] yorumlarda belirsin. İzle
+[00:08:35] aydınlatsınlar. Ben çok kullandım. Çok
+[00:08:37] verimli olduğunu düşünmüyorum. Bir de
+[00:08:38] cloud'un şöyle bir problemi var. Chat'te
+[00:08:40] konuştuğunuz şeyle, forward'te
+[00:08:42] konuştuğunuz şeyle ve de arkadaşlar kod
+[00:08:44] kısmında konuştuğunuz şeyler maalesef
+[00:08:45] senkron değil. Yani chat GPT gibi yeni
+[00:08:47] sekme açtığınız zaman, yeni bir sokut
+[00:08:49] açtığınız zaman onları hatırlamıyor.
+[00:08:51] Tabii kendi içerisinde bir memorisi var.
+[00:08:52] Bunu bir şekilde sağlayabiliyorsunuz ama
+[00:08:54] çok da verimli olmuyor. Bir şeyde
+[00:08:55] atlıyor, halüsinasyon görüyor, unutuyor,
+[00:08:57] eskide kalıyor, değiştiriyor ve verimsiz
+[00:08:59] bir asın akışı var. O yüzden de sürekli
+[00:09:01] chat, cover, cold diye yaparsanız işler
+[00:09:04] çorba olur. Sizi hatırlamaz. Memory
+[00:09:06] kaydedersiniz ayarlardan ama çok da iyi
+[00:09:09] olduğunu düşünmüyorum ben. O yüzden
+[00:09:10] cover kısmını hiç kullanmıyorum. Pad
+[00:09:12] kısmını alışveri verişleri günlük
+[00:09:14] işlemler için kullanıyorum. Onu da nadir
+[00:09:15] kullanıyorum. Genelde ben her şeyimi
+[00:09:17] arkadaşlar kod kısmında yapıyorum. Artık
+[00:09:19] günlük sohbetlerimi bile buradan
+[00:09:21] yapıyorum. Çünkü bence burası çok iyi
+[00:09:22] çalışıyor ve tam istediğim sistemi bana
+[00:09:24] veriyor. Şimdi burada görüyorsunuz bir
+[00:09:25] sürü aslında dosya var. Bunlar benim bu
+[00:09:27] bilgisayar üzerinde yaptığım işte
+[00:09:28] videolarda yaptığımız projeler. Kendi
+[00:09:30] şimdi oyun projem işte big sayfası osu
+[00:09:32] busu. Kendi bilgisayarım için bir health
+[00:09:34] test yaptırmıştım. İşte boş dosyaları
+[00:09:35] falan buldurup silip temizletiyorum. E
+[00:09:37] bazen RAM'le alakalı sorunlar falan
+[00:09:39] onları falan çözdürtüyorum mesela.
+[00:09:40] Onların hepsini buradan yapıyorum. Bir
+[00:09:42] de benim Mac var. Mac tarafına
+[00:09:43] arkadaşlar bütün işlerimi yani bu
+[00:09:45] yazılım şirketi tarafında komple Mac
+[00:09:47] üzerinden hallediyorum. O yüzden bunları
+[00:09:48] ben ikiye böldüm. Bu kısım oyun
+[00:09:50] geliştirme, YouTube tarafı, sosyal
+[00:09:52] medyayken diğer bilgisayarımda ise daha
+[00:09:54] çok iş tarafı, bu sa projemiz,
+[00:09:56] müşteriler falan orada hallediyorum.
+[00:09:57] Yani buraya geldiğiniz zaman new
+[00:09:59] diyorsunuz ya burada böyle bir ekran
+[00:10:01] geliyor. Buradan dosyayı seçiyorsunuz
+[00:10:02] arkadaşlar. Herhangi bir dosyaya mesela
+[00:10:04] gelin open folder diyelim. Cloud for
+[00:10:06] beginers arkadaşlar bir tane dosyayı
+[00:10:07] açtım ve trust workspaced. İlk olarak
+[00:10:09] yapmanız gereken tek bir şey var. O da
+[00:10:11] şu arkadaşlar sol alttaki manuel kısmını
+[00:10:13] bypass permission demek. Burada diyor ki
+[00:10:15] emin misin diyor. Her şeye erişmek
+[00:10:16] istiyor. Elişmemi istiyor musun diyor.
+[00:10:17] Evet diyorum. Niye bunu söylüyorum?
+[00:10:19] Çünkü arkadaşlar cloud sizin her şeye
+[00:10:21] işirse ve bütün izinleri verirseniz
+[00:10:23] kendi kendine daha hızlı çalışır, az
+[00:10:25] sorusu olar çok iş yapar. Daha verimli
+[00:10:26] olur. Sizi silelden çıkartmaz. Derseniz
+[00:10:28] ki ya ben ona güvenmem. Derseniz o zaman
+[00:10:30] auto veya manuel seçebilirsiniz ama
+[00:10:32] bence bypass permission ben son 4 aydır
+[00:10:35] falan bu şekilde kullanıyorum. Herhangi
+[00:10:36] bir problem yaşamadım. Hem Codex'te hem
+[00:10:38] Cloud'da bu şekilde çalışıyorum. Hatta
+[00:10:39] Cursor'da da ben böyle çalışıyordum.
+[00:10:41] Tavsiye eder miyim? Kesinlikle tavsiye
+[00:10:42] ederim. Ama gene de hani bunun risk size
+[00:10:45] kalmış. Yani bir şey silinir, projeyi
+[00:10:47] sıfırlar, bir şeyler yok olur,
+[00:10:48] bilgisayardan çöker olsa ben karışamam.
+[00:10:50] Ve de ve de gene sağ taraf modern seçme
+[00:10:52] kısmımız var. Table, obus vesaire
+[00:10:54] seçebiliyorsunuz. Ardından effort
+[00:10:55] seçiyorsunuz. Burada arkadaşlar kullanım
+[00:10:58] limitleriniz var. Bugün zaten limitler
+[00:10:59] sıfırlanmış sabah. Şu anda benim mevcut
+[00:11:01] limitlerim mesela bu şekilde. Yani daha
+[00:11:03] bugün bile eee iyi ki sıfırlanır,
+[00:11:05] sıfırlanır sıfırlanmaz. %8'ini
+[00:11:07] kullanmışım mesela. Görüyorsunuz. Yani
+[00:11:09] bu 2 gün kullansam yüksek ihtimalle 6070
+[00:11:10] falan gelecek. Yani bir haftayı bana ucu
+[00:11:13] ucuna falan çıkartıyor. İdareli
+[00:11:14] kullanırsam bazen yetmedi de biliyor.
+[00:11:16] İlk olarak bu şeyde şunu yapalım. Bir
+[00:11:18] web sitesi yapalım. Zaten herkes
+[00:11:20] yapabiliyor değil mi? Bu çok basit. Bir
+[00:11:21] tane statik bir web sitesi yapalım.
+[00:11:23] Ardından bunu bakalım nasıl yapmışız.
+[00:11:25] Sonrasında eee bunu bir bekende
+[00:11:27] bağlayalım. Statik halinden dinamik
+[00:11:28] halini alalım. Dinamik hali geldikten
+[00:11:30] sonra bazı testler yapalım. Sitedeki
+[00:11:32] sorunları bulalım. Onları çözelim. Onu
+[00:11:34] da yaptıktan sonra biraz daha be kendini
+[00:11:36] falan anlattıktan sonra arkadaşlar yavaş
+[00:11:37] yavaş ilerleyelim ve bu şekilde bu
+[00:11:39] serimizi uygulamalı bir şekilde
+[00:11:41] bitirelim. E bu arada buraya kadar
+[00:11:42] izliyorsanız da lütfen arkadaşlar
+[00:11:44] beğenmeyi ve yorum atmayı unutmayın. Bu
+[00:11:45] tarzlar çok uzun sürdü ve benim vaktimi
+[00:11:47] aldığı için eğer sizden talep varsa
+[00:11:50] bunların devamı getirmeye çalışırım.
+[00:11:52] Mobil tarafında da yapabiliriz bunu. E
+[00:11:54] Codex tarafında da gelebilir ama tabii
+[00:11:55] talep gelmezse de yüksek ihtimalle bir
+[00:11:57] daha gelmez. O yüzden her şey sizin
+[00:11:59] elinizde. Lütfen yorumlarda bunu
+[00:12:00] belirtin ki video ilerleyişleri de ona
+[00:12:02] göre ilerlesin. Şimdi ilk olarak ben
+[00:12:04] size aslında şunu göstermek istiyorum.
+[00:12:06] Bir skill nasıl yapılır? Projeye başlam
+[00:12:08] onu yapalım. Şimdi diyeceğim ki ben bir
+[00:12:10] web sitesi yapacağım. Bu web sitesinde
+[00:12:13] eee bakın teknik bir şekilde yok işte bu
+[00:12:15] web sitesinde V projesi, NextJS olsun,
+[00:12:17] şu olsun, bu olsun, bekentte şunları
+[00:12:19] kullan falan demeyeceğim. Normal bir
+[00:12:21] vibe coder gibi yazılımdan anlamaya bu
+[00:12:23] işe yeni başlamış birisi gibi bir
+[00:12:25] vereceğim ve ona rağmen alacağımız
+[00:12:27] sonuçlar bayağı iyi olacak. Onu da nasıl
+[00:12:29] yapacağımızı şimdi göreceksiniz. Bu web
+[00:12:31] sitesinde kullanacağımız teknolojiler
+[00:12:34] model ve günümüze uygun olsun. Bakın
+[00:12:37] bunu niye böyle söyledim arkadaşlar?
+[00:12:38] Çünkü ben bilmiyorum. Teknolojileri
+[00:12:40] anlamıyorum. Yazılım nedir? Dil nedir?
+[00:12:42] Viten nedir? NextJCS nedir? React neymiş
+[00:12:44] hiç duymamışım. JavaScript bile
+[00:12:46] bilmiyorum. HDML CSS kalmışım o kadar
+[00:12:48] ama bu prom sayesinde zaten bana bunları
+[00:12:51] biliyormuşum gibi yapacaklar. Onu
+[00:12:52] göreceksiniz. Eee, şuraya bir tane promt
+[00:12:54] ekleyeceğim. Note ekleyeceğim. Önce
+[00:12:57] skill dosyası yapmak istiyorum diyorum.
+[00:13:00] Sonra projeyi yapacağız. Önce skill
+[00:13:03] yazacağız. Unutma diyorum. Çünkü bazen
+[00:13:05] kendisi önce skill yazıyor. Sonra site
+[00:13:07] siteyi de kurmaya başlıyor. Ben bunu
+[00:13:09] istemiyorum. Önce bana skill e yapsın.
+[00:13:11] Bu sistemi nasıl yapacağımızı görsün.
+[00:13:13] Sonrasında bana site eunu istiyor. Dosya
+[00:13:15] yapısı diyorum. Modern güncel
+[00:13:17] teknolojiyi bakın gene hep kelimeleri
+[00:13:20] böyle seçiyorum yani rastgele yazıyorum
+[00:13:22] kelimeleri öyle yazıyorum yani
+[00:13:23] görüyorsunuz hep amacım iyiye onu teşvik
+[00:13:26] etmeye çalışıyorum model ve geldik uygun
+[00:13:28] olsun ileride yeni bir ekleyeceğimizde
+[00:13:31] veya backendi vesaire olunca uygun bir
+[00:13:35] altyapıda, dosya yapısında olacak bir
+[00:13:38] şekilde olmalı. Skill dosyasında bunları
+[00:13:42] tanımla. Sonra bu skil çağırdığımda bu
+[00:13:45] tarz projeleri öyle kurmalı diyorum.
+[00:13:48] Şimdi ne yapıyorum? Bu skill sayesinde
+[00:13:50] ben her seferinde yeni proje açacağım
+[00:13:51] zaman bu skil çağıracağım ve bana direkt
+[00:13:53] olarak istediğim formatta, istediğim
+[00:13:55] mimaride zaten proje yapacak. Arkadaşlar
+[00:13:57] diyorum ki bu skilde bu skilde site ile
+[00:14:00] alakalı detaylara vesaire girme sadece P
+[00:14:05] statik halini kuracak ve de promutu
+[00:14:08] gönderdi. Şimdi gördüğünüz gibi benim
+[00:14:10] skillim arkadaşlar işlemleri tamamladı
+[00:14:11] ve gördüğünüz gibi site e site diyorum
+[00:14:14] pardon skillimiz hazır oldu. Diyor ki
+[00:14:16] skill ne yapıyor? Moderne front end
+[00:14:17] starter yazdığınızda yeni FCS yapacağım
+[00:14:19] iskeleti kur dediğinizde diyor bu
+[00:14:20] stackte diyor bu projeyi artık kuruyor
+[00:14:22] diyor arkadaşlar görüyorsunuz gayet
+[00:14:23] modern bir şekilde kuruyor tabii şu an
+[00:14:24] detayları gidip tek tek okumayalım
+[00:14:26] gittim diyor bu skili test ettim geçici
+[00:14:28] bu körde ve diyor her şeyi kontrol ettim
+[00:14:29] ve gayet iyi çalışıyor diyor. Şimdi
+[00:14:31] geldim bu projede zaten şu anda proje
+[00:14:33] dosyasını görüyorsunuz. Cloud for begin
+[00:14:34] şu anda boş arkadaşlar. Burada herhangi
+[00:14:36] bir şey yok şu anda. Geliyorum buradan
+[00:14:38] slash diyorum. Front yazdım. En üstten
+[00:14:40] çıktığı görünüyor. Front front and
+[00:14:42] starter diyor. Şimdi ben projemi
+[00:14:43] anlatacağım. Peki bu nasıl proje
+[00:14:45] yapacağız? Mesela basit bir arkadaşlar
+[00:14:46] gizi sitesi yapalım. Yani böyle nereye
+[00:14:48] geçsem işte Karadeniz turu, Ege turu
+[00:14:50] işte şu adası, bu adası falan böyle bir
+[00:14:53] eee eğlenceli bir site yapalım.
+[00:14:54] Sonrasında bunu sanki bir işte bu tatil
+[00:14:57] planlama sitesi değil de otel
+[00:14:59] rezervasyon siteleri var ya ona
+[00:15:00] çevirelim. Mesela diyelim ki bana bir
+[00:15:03] otel tatil rezervasyon pasesi gibi bir
+[00:15:07] site al. Üstte skil yazdım altta bunu
+[00:15:09] yazıyorum. Ha nereye yazdığım çok fark
+[00:15:11] il giderim en sona yazabilirim bunu. Hiç
+[00:15:12] fark etmez. Bu sitede bana ilk olarak e
+[00:15:16] tek sayfada bazı turları göstersin ama
+[00:15:19] backend yeter olmayacak. Sadece bir gezi
+[00:15:23] öneri sitesi gibi olacak. Onunla bunu
+[00:15:26] çevireceğiz diyorum. Ardından skillimi
+[00:15:28] yazıyorum. Tabii böyle yazamadım.
+[00:15:30] Ardından buraya arkadaşlar ardından
+[00:15:32] skill'i şöyle çağırdım. Şimdi siz
+[00:15:34] normalde gidip sadece promt yazsaydınız
+[00:15:36] bu skil çağırmasaydınız size bir tane
+[00:15:38] site kuracaktı. Ama dosya yapısı böyle
+[00:15:40] mi olurdu? HDMOS dosim yapardı. Ne yaptı
+[00:15:43] hiçbir şey belli olmaz arkadaşlar. Bir
+[00:15:45] ortaya bir şey çıkardı günün sonunda ama
+[00:15:47] şu anda bunu çağırdığınız için şundan
+[00:15:48] eminsiniz ki ya bundan bir ay sonra yeni
+[00:15:50] gelecek bir ekleme yaparken ben de rahat
+[00:15:51] bir şekilde bunu ekleyebilirim. Ben emin
+[00:15:53] olacaksınız daha iyi proje altyapısına
+[00:15:55] sahip olduğunu en azından bileceksiniz
+[00:15:56] ve de bunu gönderdim. Tabii şu an fable
+[00:15:59] kullanıyoruz. Çok gerek var mı?
+[00:16:00] Kullanmaya gerek yok. Bunu promto
+[00:16:01] yapsın. Biz sonrasında bunu arkadaşlar e
+[00:16:03] opus 5'e çekelim. Çünkü fable 5.1 için
+[00:16:05] çok bunlar basit şeyler. O yüzden bir
+[00:16:07] gerek yok buna. Zaten görüyorsunuz daha
+[00:16:09] bir tane iki tane prom girdik. %1 daha
+[00:16:11] kullanım gördüğünüz gibi. Şimdi
+[00:16:12] gördüğünüz gibi site arkadaşlar
+[00:16:14] tamamladı ama diyor ki bana kuralın
+[00:16:17] diyor geri ama diyor kuralın diyor
+[00:16:19] gereği olarak diyor arkadaşlar ben diyor
+[00:16:20] siteyi diyor kurmadım diyor sadece diyor
+[00:16:22] iskeletini kurdum bunun yani proje
+[00:16:23] yapısını kurdum gerisi diyor hadi
+[00:16:25] yapalım mı diyor bana mesela burada
+[00:16:26] arkadaşlar bir öneri sun sadece
+[00:16:28] metinleri tek yerden değiştirmek yeterli
+[00:16:30] tursile başla diyor iste adı ne olsun
+[00:16:32] demiş çeviri planı ne demiş yani dil
+[00:16:34] paketi istiyor musun diyor aslında eee
+[00:16:36] biliyorsunuz ki siteler ingilizce türkçe
+[00:16:38] oluyor biz isteyelim bunu da yapsın
+[00:16:40] şimdiden.
+[00:16:41] paketi olsun diyor. Sitenin adı gezdir
+[00:16:44] beni olsun. Gayet yaratıcı bir isim.
+[00:16:47] Site statik olacağı için her şeyi eee
+[00:16:52] kodla yaz. Sonra dinamik yapacağız
+[00:16:54] diyorum. Ben bu adım adımı göstereceğim
+[00:16:56] için size şu an her şey statik dam data
+[00:16:58] olsun. Zaten sonrasında bekent taraflar
+[00:17:00] iş girince orada bunları göstereceğim.
+[00:17:02] ve enter'a bastım. Ve de son verdiğimiz
+[00:17:04] promtun arkadaşlar sonucu gördüğünüz
+[00:17:06] gibi geldi. Artık tabii sitemiz
+[00:17:08] çalışıyor diyor ama burada bir local
+[00:17:09] host erişemiyoruz diyor. Umarım erişir.
+[00:17:11] Şimdi arkadaşlar sağ üstte gördüğünüz
+[00:17:13] gibi bir terminal kısmı var veya burana
+[00:17:15] browser diyerek de buraya şurada verdiği
+[00:17:18] promtu şöyle yazıyorum. Tabii bende hata
+[00:17:20] verecek çünkü bunu öyle yazmam
+[00:17:21] gerekiyor. Ve de sunucum şu anda
+[00:17:24] gördüğünüz gibi çalışı 3000'de. Loculos
+[00:17:26] 3000'e bu local 3000'e girdim. E
+[00:17:28] gördüğünüz gibi sitemiz şu anda
+[00:17:30] arkadaşlar hazır oldu. Tabii buralarda
+[00:17:32] fotoğrafları kendisi eklemiş. Sadece bir
+[00:17:34] renk vermişte fiyatları yani çok basit
+[00:17:35] bir şekilde bize bir site oluşturmuş. Şu
+[00:17:37] anda Türkçe ve İngilizcede gördüğünüz
+[00:17:39] gibi aktif bir şekilde çalışıyor. Tabii
+[00:17:41] amacınız burada çok harika bir site
+[00:17:42] yapmaktan ziyade bir eee site nasıl
+[00:17:45] yapılıyor aslında baştan sona? Bunu
+[00:17:47] görmek, buna bekent nasıl bağlanıyor
+[00:17:48] bunları yapmak birazcık. Bunu birazdan
+[00:17:50] geliştireceğiz. Tekrar geldim cloud'a.
+[00:17:52] Şimdi tr detay sayfasını falan yapalım
+[00:17:54] diyor. Ben şunu söyleyeceğim. Hem detay
+[00:17:56] sayfalarını yap hem de bu turlara,
+[00:18:00] sayfaya vesaire dami fotolar ekle.
+[00:18:04] İnternetten URL kullanarak fotoğrafları
+[00:18:07] koya belirtsin. Site daha canlı durur.
+[00:18:10] Lokalde çalışacağımız için bir problem
+[00:18:13] olmaz. Başkaların başka sitelerden
+[00:18:17] görseller alabilirsin diyorum. Şimdi bu
+[00:18:19] Fable Opus biraz şey çalışıyor. Yok
+[00:18:21] telif yeriz. Yok işte bunun izni yok.
+[00:18:23] Yok güven derken boş bş şeyleri
+[00:18:24] engelleyebiliyors bazen. O yüzden
+[00:18:26] arkadaşlar ya bunu yapamam telif bir yer
+[00:18:28] falan diye söylerse deyin ki ya ben bunu
+[00:18:30] lokalle kendim için kullanıyorum sıkıntı
+[00:18:32] olmaz deyin. Onu yapacaktır yani onu
+[00:18:34] koyacaktır siteniz haberiniz olsun. Ve
+[00:18:35] promtu gönderdim. Yani en başta siteyi
+[00:18:37] yaptırdım. Sonra düzenlemek için bir
+[00:18:39] prompt gönderdim. Tabii tasarım hoşunuza
+[00:18:41] gitmeyebilir. Bir şeyler olabilir.
+[00:18:42] Bunlar tamamen kişisel. Kendiniz bunları
+[00:18:44] güncelleyebilirsiniz. Şimdilik biz bu
+[00:18:45] şekilde bir şey yaptırdık ama tabii bunu
+[00:18:47] daha güzel bir hale getireceğiz. Şu anda
+[00:18:48] bu çok basit. Yani 2010'larda kalma bir
+[00:18:50] site gibi oldu. En son yazdığımız promta
+[00:18:53] tamamlandı. Gelin o zaman sitede neler
+[00:18:54] değişmiş bir inceleyelim. Sayfayı şöyle
+[00:18:56] yeniledim ve de sayfamız arkadaşlar
+[00:18:58] gördüğünüz gibi arka planlara bazı
+[00:19:00] fotoğraflar gelmiş. Sitemiz biraz daha
+[00:19:01] canlanmış. Şimdi şöyle tabii ki size çok
+[00:19:03] amatör duruyor değil mi? Böyle ne bir
+[00:19:05] efekt var ne bir animasyon var hiçbir
+[00:19:06] şey yok. Dümdüz aslında bir çok basit
+[00:19:08] bir site olarak gözüküyor. Peki bunu
+[00:19:10] nasıl geliştirebiliriz? Şimdi cloud'a
+[00:19:11] gelip burada ya bana şunu yap, bunu yap,
+[00:19:13] bunu böyle geliştir, şunu şöyle geliştir
+[00:19:14] diye promplar verebiliriz ama bu biraz
+[00:19:16] bizi yorar. Onun yerine şunu yapmak daha
+[00:19:18] sağlıklı olabilir bence. Buradan chat
+[00:19:20] kısmına gelin. Hatta bunu sadece cloud
+[00:19:22] olarak değil de chat GPT'ye girerek de
+[00:19:24] arkadaşlar bunu yaptırtabilirsiniz. Bu
+[00:19:27] arada şöyle bir şey söyleyeceğim. Az
+[00:19:28] önceki videomuzun yani 5 dakika
+[00:19:30] öncesinde burada eee chat ve power kısım
+[00:19:33] vardı hatırlarsınız. Şu anda yok. Nereye
+[00:19:34] gitti? Güncelleme gelmiş cloud'a. Ben
+[00:19:36] dün gece videoyu tamamlayıp sonrasında
+[00:19:38] yapmıştım ve şu an geldiğimizde
+[00:19:40] baktığımız zaman arkadaşlar Cloud tekrar
+[00:19:41] bunu güncellemiş. Çünkü bu cowork'ün ne
+[00:19:43] kadar kullanışsız olduğunu herhalde
+[00:19:45] onlar da fark etti ve feedback'lere göre
+[00:19:46] bunun yerini değiştirmiş de olabilirler.
+[00:19:48] Evet, gördüğün gibi bazı ufak tefek e
+[00:19:50] değişiklere gitmişler. Şimdi geldim
+[00:19:52] diyeceğim ki ya benim böyle bir sitem
+[00:19:54] var. Direkt bu sitemin ekran görüntüsünü
+[00:19:55] alacağım arkadaşlar ve size aslında daha
+[00:19:58] detaylı büyük bir promptun nasıl bir şey
+[00:20:00] yaratacağını, fark yaratacağını
+[00:20:01] göstereceğim. Şimdi buraya promptumu
+[00:20:03] giriyorum.
+[00:20:04] E model olarak da Fable seçmek istiyorum
+[00:20:06] ki daha iyi bir sonuç versin bize. Daha
+[00:20:08] güzel pront versin. Şimdi geldim gene
+[00:20:10] hiç düşünmeden aklıma gelen her şeyi
+[00:20:12] buraya yazdım. Dedim ki daha hareketli,
+[00:20:14] daha modern harek eee efektlerle işte
+[00:20:16] hover efektleriyle, geç efektleriyle
+[00:20:18] geliştirilmiş bir site istiyorum dedim
+[00:20:20] ve dedim bu dedim bir otel tatil
+[00:20:21] rezervasyon sitesi gibi olacak dedim.
+[00:20:23] Yani bir tur gezi rehberi ve buna bağlı
+[00:20:25] şeyin satışı gibi olacak dedim. Ama önce
+[00:20:26] dedim arayüzü geliştireceğiz. Yani gidip
+[00:20:28] de bana şimdi be kendine şöyle olsun,
+[00:20:29] şunun böyle olsun diye prom vermesini
+[00:20:30] istedim. İlk başta dedim bana bir promt
+[00:20:32] ver dedim. Bunu cloud'a vereceğim. Bunu
+[00:20:33] açık açık söyledim ve site dedim
+[00:20:35] geliştirecek diye de belirttim. Ve
+[00:20:36] arkadaşlar promptu gönderiyorum. Ben
+[00:20:38] genelde prompllarımı chat cpt ile
+[00:20:40] yapıyorum. Çünkü chept daha güzel
+[00:20:42] prompllar verdiğini düşünüyorum ve daha
+[00:20:43] insancıl bir şekilde düşündüğümü
+[00:20:44] düşünüyorum. Cloud biraz daha teknik
+[00:20:46] eleman robot gibi çalışıyor ama bu
+[00:20:48] serimiz komple e cloud üzerinden
+[00:20:50] gittiğimiz için chat chip geçiş yapmadan
+[00:20:52] direkt her şeyi buradan halledeceğim.
+[00:20:53] Gördüğünüz gibi bana bir şu anda promtu
+[00:20:55] veriyor. Detaylı bir şekilde tek bunları
+[00:20:57] yazıyor. Promtuu aldım. Şöyle cod
+[00:20:59] section geri geldim ve de buraya aynı
+[00:21:01] promtu yapıştırdım. Modeli mesela aynı
+[00:21:03] duruyor burada ve gönderdim. Bakalım
+[00:21:06] sitemiz bu halden nasıl bir hale
+[00:21:08] gelecek. Beraber izleyelim. Evet 3
+[00:21:10] dakika önce son verdiğimiz işlemlerle
+[00:21:12] tamamlandı ve bayağı aslında uzun bir
+[00:21:14] işlem oldu arkadaşlar. Gelin size kaç
+[00:21:15] dakika sürünü göstereyim. En sonki
+[00:21:17] promtumuzu 44 dakika önce vermişiz ve 3
+[00:21:19] dakika önce de bitirdiği için totalde 40
+[00:21:21] dakika süren bir iş olmuş. Bunun sebebi
+[00:21:23] de ne? En başta bir skill tanımladık ve
+[00:21:25] projemizin altyapısı çok iyi bir şekilde
+[00:21:27] kuruldu. Ardından çok detaylı bir prom
+[00:21:30] verdik ve günün sonunda her şeyi tek
+[00:21:32] yaptı ve de promptlarımız ve buradaki
+[00:21:34] akış kendine gittiği için de kendi
+[00:21:36] içerin testlerini yaptı. Bunları kontrol
+[00:21:38] etti. İçeriden kendisi SSL alarak
+[00:21:40] bunları arkadaşlar doğrulayıp
+[00:21:42] düzeltmelerini yaptı. Hatta mobilde yani
+[00:21:44] telefonda görünümünü bile kendisi
+[00:21:46] inceleyip ona göre düzeltmeler yaptı
+[00:21:48] gördüğünüz gibi ve de en son bize
+[00:21:50] raporumuzu sundu. İşte hataları buldum,
+[00:21:52] bunları çözdüm vesaire diye belirtti.
+[00:21:54] Tabii bakalım sonuç daha önemli burada.
+[00:21:56] Hani boş boş konuşmuş da olabilir
+[00:21:58] burada. Eee günün sonunda bize ne vermiş
+[00:22:00] gelin bakalım. Sayfayı yeniledim ve
+[00:22:01] zaten gördüğünüz gibi eskiye göre çok
+[00:22:04] daha iyi bir site karşımıza geldi
+[00:22:05] arkadaşlar. Görüyorsunuz her özellikle
+[00:22:08] bayağı bir değiştirmiş. Buraya işte bir
+[00:22:10] örnek bir tur vermiş. Buraya bir yorum
+[00:22:12] koymuş. İşte alt tarafta bakın şu uçak
+[00:22:14] beyti otel sayfalarındaki e arama yerini
+[00:22:16] koymuş. Aşağı kaydır diye bir buton
+[00:22:18] vermiş. Buna bir hover effect eklemiş.
+[00:22:20] Buton hareket ediyor ve bu şekilde
+[00:22:22] aslında eklemeleri yapmış. Gördüğünüz
+[00:22:24] gibi sitemiz biraz daha iyi bir hale
+[00:22:25] gelmiş. Ama tabii ki dediğim gibi bu bir
+[00:22:27] test sitesi olduğu için sitenin çok iyi
+[00:22:29] olması, kötü olması, basit olması çok
+[00:22:30] önemli değil bizim için. Burada önemli
+[00:22:31] olan şey bu mantık ve akış nasıl
+[00:22:33] ilerliyor? Yoksa siz kendi hayalinize
+[00:22:35] göre, kendi düşünce yapınıza göre,
+[00:22:37] tarzınıza göre bir site yapabilirsiniz
+[00:22:39] veya başka hisselerden örnek alıp onları
+[00:22:41] kağıda verdiğiniz zaman da size onların
+[00:22:42] benzerlerin hatta aynısını yapacaktır
+[00:22:44] zaten. O yüzden bunun bir sınırı yok.
+[00:22:46] Ben şu an si sizin için bir örnek proje
+[00:22:48] yapıyorum. Mesela örnek olarak bunun
+[00:22:49] böyle e bir scrollla yapılması çok kötü
+[00:22:51] bir tasarım. Bunun kendi otomatik olarak
+[00:22:53] burada kaydırıldığı bir karozel e
+[00:22:55] yapısıyla buraya koyduğumuz zaman daha
+[00:22:57] iyi olacaktır. Bunlar aslında
+[00:22:58] düzeltilmesi gereken şeyler. Şimdi
+[00:23:00] arkadaşlar projemiz oldu gayet tamam mı?
+[00:23:02] Ve bunları artık bir yerde tutmak
+[00:23:03] istiyoruz. Yani sah bilgisayarımızda bu
+[00:23:05] proje durmasın da bir yerde dursun. İşte
+[00:23:07] ben bunun linkini birilerine atabileyim,
+[00:23:08] birileri beraber çalışabileyim veya
+[00:23:10] bilgisayar değiştirdiğim zaman işte
+[00:23:11] laptopa geçiyorum, masaüstüne geçiyorum
+[00:23:12] diyelim ya dışarı çıkıyorum ve başka bir
+[00:23:14] yerde çalışmam gerekiyor. Buna
+[00:23:15] erişebileyim diyorsanız bu sefer de ne
+[00:23:17] yapıyorsunuz? Git kullanmanız gerekiyor.
+[00:23:19] Şimdi git ve gitab'ı duymuşsunuzdur.
+[00:23:21] Duymamışsanız da kısaca bahsedeyim ben
+[00:23:22] size. Şimdi git dediğimiz şey arkadaşlar
+[00:23:24] projelerinizin depolandığı bir yer yani
+[00:23:25] siz Google Drive gibi düşünebilirsiniz
+[00:23:27] ama tabii burası daha geniş çaplı.
+[00:23:28] Burada beraber projelerde
+[00:23:29] çalışabiliyorsunuz, işler
+[00:23:30] yapabiliyorsunuz. birden fazla kişinin
+[00:23:32] veya takımların beraber çalıştığı
+[00:23:34] projeleri buraya aslında atıyor
+[00:23:35] atıyorsunuz ve o şekilde çalışıyorsunuz.
+[00:23:37] Eee, şimdi Gitin detaylarından
+[00:23:38] girmeyeceğim çünkü burası hani
+[00:23:39] derinlemesine bir git şeyi olması doğru
+[00:23:42] olmaz bu seride. Evet, zaten burada
+[00:23:43] görüyorsunuz benim ta üniversite
+[00:23:44] zamanında yaptığım bazı projeler falan
+[00:23:46] var gördüğünüz gibi. İşte burada staj
+[00:23:48] zamanında yaptığım şeyler var. Her neyse
+[00:23:50] bunlar çok önemli değil. İlk olarak
+[00:23:51] Repositors'e geliyorum arkadaşlar ve
+[00:23:53] sağen new diyorum ve projemizin ismi
+[00:23:55] neydi? Gezdir beni cloud dedim. Böyle
+[00:23:58] bir proje açtım görüyorsunuz.
+[00:23:59] Description'ı yazmama gerek yok. Buradan
+[00:24:01] da visibility public veya trebilirsiniz.
+[00:24:03] Gelin bunu public seçelim çünk yayın
+[00:24:04] alacağız bu siteyi. Create diyorum ve
+[00:24:06] bunu artık oluşturuyorum arkadaşlar. Bir
+[00:24:07] de gördüğünüz gibi bana birkaç tane
+[00:24:09] burada bir şeyler söyledi. Şuradaki push
+[00:24:11] and existing repository diyor ya
+[00:24:12] arkadaşlar. Şuna şöyle alıyorum. Clana
+[00:24:14] da vereceğim. Şimdi diyeceğim ki tamam
+[00:24:16] bunu artık e git atalım diyorum ve bunu
+[00:24:19] yapıştırıyorum. Ardından da enter'a
+[00:24:21] basıyorum ve gönderiyorum. Şimdi tabii
+[00:24:22] burada işte push var, branch var, remote
+[00:24:24] add origin falan bir şey yazıyor. Bunlar
+[00:24:26] ne? Burada arkadaşlar e bunları çok
+[00:24:28] artık öğrenmeniz gerekti mi? Tabii ki
+[00:24:30] gerekli. Çünkü biri size şeyi push'la,
+[00:24:32] pulla, merch'le şunu yap, bunu yap
+[00:24:34] dediği zaman comit'le comitledim dediği
+[00:24:37] zaman bunları bilmeniz gerekiyor. O
+[00:24:38] yüzden de bir git videosu izlemenizi
+[00:24:39] tavsiye ederim ki gitub nedir, git
+[00:24:41] nedir, nasıl çalışır birazcık aklınıza
+[00:24:42] fikirler olsun. Ama onun dışında sizin
+[00:24:45] gidip e buradaki chat'e gelip işte bunu
+[00:24:47] git at, gitden al, bunu bununla
+[00:24:50] birleştir dediğiniz zaman zaten cloud
+[00:24:51] size sizi anlayacaktır ve bunları
+[00:24:52] yapacaktır. O yüzden de hani
+[00:24:54] derinlemesini öğrenip ezberlemenize çok
+[00:24:56] ihtiyaç şu anda olduğunu düşünmüyorum.
+[00:24:57] Ama tabii ki çalıştığınız bir yer varsa
+[00:24:59] veya bir yerde çalışmak istiyorsanız
+[00:25:01] bunu kesinlikle öğrenmeniz gerekiyor. E
+[00:25:03] bu ara sadece gitup değil bitka
+[00:25:06] platform. Yani git bir sistem. Bu
+[00:25:08] bitcket gitub da bunlar bunların servisi
+[00:25:11] gibi düşünebilirsiniz ve de bunların en
+[00:25:13] az bir tanesini kullanmanız ve aşina
+[00:25:15] olmanız çok önemli. Özellikle iş
+[00:25:16] hayatında ve beraber bir projede
+[00:25:18] çalışıyorsanız örneğin iki kişinin
+[00:25:20] çalıştığı bir projede olması zorunlu
+[00:25:22] arkadaşlar. Öyle zipleyerek,
+[00:25:23] WhatsApp'tan göndererek, mail atarak
+[00:25:25] kodlar paylaşılmaz. Haberiniz olsun.
+[00:25:27] Gördüğünüz gibi push tamam dedi. Giriş
+[00:25:29] yapılmamış diyor benim bilgisayarda
+[00:25:31] diyor ama sıkıntı yok diyor. Ben diyor
+[00:25:32] bunu buraya aldım diyor. O zaman bakalım
+[00:25:33] almış mı? Geldim sayfayı yeniledim.
+[00:25:35] Gördüğünüz gibi projem artık arkadaşlar
+[00:25:37] burada. Yani şuraya geldiğiniz zaman
+[00:25:38] benim profilim bu projeye artık siz
+[00:25:40] erişebilirsiniz gördüğünüz gibi. Veya bu
+[00:25:42] projeye mesela giderim contribut
+[00:25:44] contributör kısmından başkasına
+[00:25:45] ekleyebilirim. Ayarlardan gelebilirim.
+[00:25:46] İşte bunu gizliye alıp o şekilde
+[00:25:48] çalışabilirim. Burada bazı işte teknik
+[00:25:50] bilgileri buraya nasıl çalıştığını
+[00:25:52] anlatabilirim gibi birçok durum var.
+[00:25:54] İşte bakın buradan brançım işte Uğur
+[00:25:55] branchi işte Ali branchi şu branchi diye
+[00:25:58] birçok brançabilirim development pro
+[00:26:00] diye bunlara ayırabilirim gibi birçok
+[00:26:02] şey yapabilirsiniz. Tamam. Şimdi ne
+[00:26:04] oldu? Web sitemizi yaptık,
+[00:26:05] güzelleştirdik ve de GTAB'a pushladık.
+[00:26:08] Artık projemiz güvendi ve hem
+[00:26:10] bilgisayarımızda hem de bulutta duruyor
+[00:26:12] arkadaşlar. Peki şimdi ne yapacağız? Ne
+[00:26:14] yapmamız gerekiyor? Şimdi aslında
+[00:26:15] projenin bir bekende olması gerekiyor.
+[00:26:17] Neden bir beende? Neden bir beende
+[00:26:18] olması gerekiyor? Çünkü arkadaşlar
+[00:26:20] buradaki herhangi bir tarih, bir
+[00:26:22] rezervasyon, bir liste, bir blog yazısı,
+[00:26:24] bir detay sayfası, bunların hiçbiri şu
+[00:26:27] anda e elle değiştiremeyiz. Yani pardon
+[00:26:29] elle diyorum, uzaktan bir panelden
+[00:26:31] değiştiremeyiz. Bunlara gidip tek kod
+[00:26:33] üzerinden değiştirmemiz gerekiyor. Böyle
+[00:26:34] bir şey artık günümüze çok mantıklı ve
+[00:26:36] yapılabilecek bir şey değil. Yani bu
+[00:26:38] sadece statik sitelerdi. Hani bir kere
+[00:26:40] yaptım, bir daha değiştirmeyeceğim
+[00:26:41] dediğimiz tarz sayer yapabilirsiniz
+[00:26:42] böyle ama bu çok artık hani mantıklı bir
+[00:26:44] olay değil zaten. Eee, şimdi buna bir
+[00:26:46] bekent yapacağız. Bu sayede işte
+[00:26:48] fiyatları güncellediğimiz, turlara stok
+[00:26:50] atadığımız, eee, bazı sistemleri kontrol
+[00:26:53] ettiğimiz, blokları, yazıları, detay
+[00:26:55] safasını güncellediğimiz bir sistem
+[00:26:56] yapacağız. Bu sayede ne yapacağız? Admin
+[00:26:58] paneli bu sayfayı birbirine
+[00:26:59] bağlayacağız. Aslında buradaki temel
+[00:27:01] sistem de bundan oluşacak. Yani siz bu
+[00:27:03] sayede herhangi bir müşteriyi, bir diş
+[00:27:06] kliniğine bir sistem yazabilirsiniz. Bu
+[00:27:07] mantıkta işte bizim yaptığımız gibi
+[00:27:09] veterinerlere bir e klinik takip sistemi
+[00:27:11] yapabilirsiniz. Bizim şu anda bir SAS
+[00:27:12] projemiz var. Mesela aktif bir şekilde 2
+[00:27:14] yıldır eee sürdürdüğümüz. O zaman gelin
+[00:27:17] bir de bu sisteme bir beendent yapalım.
+[00:27:19] Apileri yapalım ve de admin panelile
+[00:27:21] beraber bu sistemi birleştirelim. Günün
+[00:27:23] sonunda gelelim buradan bir tur
+[00:27:25] kiralayabilir hale gelelim. Tabii ki de
+[00:27:27] gerçek bir veriyle değil yani dami
+[00:27:29] verileriyle ve sahte böyle hani
+[00:27:31] verilerle bir şey yapalım. Chat'
+[00:27:32] tekrardan geldim. Aynı chatte isterseniz
+[00:27:35] artıya basabilirsiniz. Yeni bir chat'te
+[00:27:37] devam edebilirsiniz ama ben genelde aynı
+[00:27:39] chatte devam etmeyi seviyorum. Ama tabii
+[00:27:41] şöyle bir problem var. Buradaki
+[00:27:42] konteksti görüyorsunuz arkadaşlar. Bu
+[00:27:44] kontekstiniz eğer çok fazla dolarsa yani
+[00:27:47] 1 milyona veya belki size 200.000 lira
+[00:27:49] hani düşük paketlerde belki context daha
+[00:27:50] azdır. Modeller düşük olacağı için
+[00:27:52] context limit yaklaştığınız zaman buna
+[00:27:54] arkadaşlar compact deyin. Yani bu chat'i
+[00:27:56] bir özetlesin kendi içerisinde ve onu
+[00:27:58] küçültsün. Bu sayede daha az token
+[00:27:59] harcarsınız. İşlemler daha hızlı biter
+[00:28:01] ve daha verimli sonuçlar alırsınız. O
+[00:28:03] yüzden de bunu unutmayın. Codex bunu
+[00:28:05] kendisi otomatikman yapıyor. E cloudda
+[00:28:07] %97'ye gelince kendisi yapıyormuş bunu
+[00:28:10] gördüğünüz gibi. Ama buraya kadar
+[00:28:11] beklemenize çok gerek yok. Şu an
+[00:28:12] %60'tayız. Sıkıntı yok. Buradan devam
+[00:28:14] edebiliriz. Şimdi tekrar bir Fable'a
+[00:28:15] alacağım ben bunu. İsterseniz bunu
+[00:28:17] opus'tan da devam edebilirsiniz. Hatta
+[00:28:19] opus'tan devam edelim. Boş yere
+[00:28:20] limitlerimizi harcamayalım. Diyeceğim ki
+[00:28:22] gene çok basit bir şekilde anlatacağım.
+[00:28:24] Gidip bir yerden prompt almayacağım
+[00:28:26] arkadaşlar. Bu siteyi dinamik bir hale
+[00:28:28] getirmek istiyorum. Hemen promptı
+[00:28:30] yazayım sonra ben size anlatayım. Şimdi
+[00:28:32] geldim dedim ki bu siteye bir backend ve
+[00:28:34] ad panel gerekiyor. Ve burada dedim Node
+[00:28:36] JS ve Python kullanabiliriz. Lokalde
+[00:28:38] çalıştıracağız. Database sunucu vesaire
+[00:28:40] her şey bilgisayarımızda çalışacak
+[00:28:41] dedim. Yani gidip de SWAB gibi
+[00:28:43] servisleri işte Mongo gibi database'i
+[00:28:45] kullanmasın istedim. Burada tabii siz
+[00:28:47] bunu söylemenize gerek var mı? Şunu
+[00:28:48] silebilirsiniz. Zaten kendisi yüksek
+[00:28:50] ihtimal Node JS seçecektir. Çünkü eee
+[00:28:52] JavaScript kullandığımız için web
+[00:28:54] tarafında ona oyunlu olarak da en uygun
+[00:28:56] bunu bulacaktır. Kendi içerisine onu
+[00:28:57] yazacaktır veya gidip Python da
+[00:28:59] kullanabilir duruma göre. Ben ikisini de
+[00:29:01] hani seviyorum zaten. Genelde bizim
+[00:29:02] bütün sistemlerin beendi şu anda
+[00:29:04] Python'la çalışıyor arkadaşlar. Sunucuda
+[00:29:06] genelde Amazon'da biz e canlı yay
+[00:29:08] alıyoruz. Bu da ufak bir bilgi eee
+[00:29:10] şurada sonrasında dedim ki işte önce
+[00:29:12] dedim hani kullanıcı gelsin siteye bir
+[00:29:14] tur rezervasyon yapabilsin dedim ama
+[00:29:16] dedim kullanıcı üyelik açmasın dedim
+[00:29:17] çünkü işler uzamasın yoksa 10 saat uzar
+[00:29:19] video boş yere sizin de hakinizi alıp
+[00:29:21] sıkmayalım ufaktan ben size bu olayı
+[00:29:22] göstermek ve anlatmak istiyorum
+[00:29:24] mantığını eee dedim mailini falan girsin
+[00:29:26] bir ufak bir ödeme ekranı gelsin.
+[00:29:27] Adresini girsin ve bu aldığı rezervasyon
+[00:29:30] bizim admin panelimize düşsün dedim. İlk
+[00:29:31] olarak dedim beendini yapalım apileri
+[00:29:33] yapalım. Sonra frontendini yani web
+[00:29:36] sayfasını düzenleyelim. En sonunda da
+[00:29:37] admin paneli yapalım dedim. Bir de
+[00:29:39] arkadaşlar promtu gönderdim. Şimdi
+[00:29:41] aslında ben promptu gönderdim ve note
+[00:29:44] veya python olabilir dememe rağmen bana
+[00:29:45] yine de bir soru sordu. Backendi nerede
+[00:29:47] çalışsın? Next JS içerisinde ayrı Node
+[00:29:50] js sunucusu ve ayrı Python sunucusu 3
+[00:29:52] tane sinek sunu arkadaşlar bana. Hızlı
+[00:29:53] bir okuyorum. Şöyle bizim sistemimize
+[00:29:55] göre bunu daha hızlı ve daha iyi
+[00:29:57] çalışacağını söylüyor ve next CSS olarak
+[00:29:58] diyor bunu yapabiliriz diyor. Ama tabii
+[00:30:00] burada backend aynı Python veya note
+[00:30:03] gibi ayrı bir şekilde çalışmayacak. Ama
+[00:30:04] biz bu video için arkadaşlar bunun next
+[00:30:06] session'ın çalışmasını sağlayalım ve
+[00:30:08] hızlı bir şekilde işlemlerimizi yapsak
+[00:30:09] hani günün sonunda bunu da yapsak bunu
+[00:30:10] da yapsak aslında mantığı hemen hemen
+[00:30:12] aynı olacak. Sadece bunları canlı
+[00:30:14] alırken vesaire oralarda işler
+[00:30:16] değişecek. Ya da isterseniz biz normal
+[00:30:17] gerçekten bir backend yapalım. İşte
+[00:30:19] NextJS. Ben zaten NextJC JS günün
+[00:30:20] sonunda hiç sevmediğim bir sistemdir
+[00:30:22] NextJS. E onu da söyleyeyim. Ben genelde
+[00:30:24] Python'da Node JS çalışırım her zaman. E
+[00:30:26] hatta web'de de NextJS yerine sık sık
+[00:30:29] React eee yaparım. Next JS olmaya
+[00:30:31] kaçınırım. Niye olduğunu bilmiyorum. E
+[00:30:33] eski tecrübelerim bana bunu
+[00:30:35] yönlendiriyor. Ayrı bir Note J sunucu
+[00:30:37] salon yapsın arkadaşlar bize. Ve de bunu
+[00:30:39] seçtim. Veri tabanı ne olsun diyor? SQL
+[00:30:41] Lite olsun. Postc SQL plus Docker olsun
+[00:30:44] diyor veya postc SQL olsun diyor. Ben
+[00:30:46] elle manuel doku falan hiçbirini
+[00:30:47] istemiyorum. Direkt SQL dosyasıyla her
+[00:30:49] şeyi kendisinin yaptığı bir şey olsun.
+[00:30:50] Ben Docker'dan nefret ederim. Docker'ı
+[00:30:52] belki duyanlarınız olmuştur. İş hayatı
+[00:30:55] zamanında da çok eskilerden de Docker'ı
+[00:30:57] hiç sevmezdim bir front endçi olarak.
+[00:30:59] Admin panel nasıl girilsin diyor. Tek
+[00:31:01] şifre artı oturum içece önerilen diyor.
+[00:31:03] Aynı şekilde bunu da basit bir şekilde
+[00:31:04] seçelim ve sistemimizi kursun. Şimdi
+[00:31:06] beendimiz hazır oldu. Gene uzun süren
+[00:31:08] bir promun ardından sonuçlar geldi.
+[00:31:11] Tabii backentle kontrol etmek çok zor.
+[00:31:12] Niye çok zor? Bunlar tek tek istek atıp
+[00:31:14] onları termen kontrol etmek gerekiyor.
+[00:31:16] Veya bir serger dokümantasyonu yapıp
+[00:31:17] oradan bakmak gerekiyor. Biz burada her
+[00:31:19] şeyi e'ye bıraktığımız ve eee çok
+[00:31:20] güvendiğimiz için bunları kontrol
+[00:31:22] etmemize şu an için gerek yok. Biz
+[00:31:23] bunları gidip web sayfası üzerinden
+[00:31:25] arkadaşlar kontrol edeceğiz. web
+[00:31:26] sayfasına şimdi zaten bunları
+[00:31:27] bağlayacağız ama gene de bize ne
+[00:31:29] yaptığını işte test yazmış bir sürü
+[00:31:31] onları kontrol etmiş neler yaptığını
+[00:31:32] yapmadığını her şeyi burada zaten bize
+[00:31:34] anlatmış. Ek olarak da çalıştırmak için
+[00:31:35] diyor bu komutu girebilirsin. Eğer diyor
+[00:31:37] verilere bakmak istersen de diyor prim
+[00:31:40] çalıştırtabilirsin diyor. Backend'in
+[00:31:42] hazır olduğunu düşünüyoruz ve bu
+[00:31:44] apillerin de bizim için yeterli
+[00:31:45] olacağını düşünüyoruz. Şu aşamada bunu
+[00:31:47] web'i yaptıktan sonra hem web tarafında
+[00:31:49] hem de admin panel tarafındaki
+[00:31:51] eksikliklere göre bunları
+[00:31:53] yönlendireceğiz. Dedik ki ya şurada
+[00:31:54] şöyle bir şey gelmesi gerekiyor. Bu
+[00:31:55] gelmemiş. Bu hatalı gelmiş, bu
+[00:31:56] çalışmamış gibisine arkadaşlar bir
+[00:31:58] yönlendirme yapacağız. Yani burada artık
+[00:32:00] her şeyi E'ya bırakıyoruz ve E'ın bu
+[00:32:02] işin ustasıymış gibi biz sadece onun bir
+[00:32:04] müdürü, bir yöneticisiymiş gibi aslında
+[00:32:06] davranıyoruz günün sonunda. Ve artık
+[00:32:08] bence sistem buna evrildi. Yani tek tek
+[00:32:10] böyle her şeyi öğrenmenin, detaylarını
+[00:32:12] bilmenin inanılmaz derecede etkisi
+[00:32:14] olduğunu düşünmüyorum. Sadece şöyle bir
+[00:32:16] önemli bir nokta var arkadaşlar. Bunu
+[00:32:17] asla unutmayın. Eğer bir projeyi baştan
+[00:32:19] sona yaparsanız zaten günün sonunda
+[00:32:22] bunlarla hep haşır neşır olacağınız için
+[00:32:24] istemeseniz bile öğrenmek zorunda
+[00:32:26] kalıyorsunuz. Çünkü hata alıyorsunuz,
+[00:32:28] eksik bir şey oluyor. Yerlerde
+[00:32:29] çalışmıyor veya istediğiniz mantığa
+[00:32:31] uymuyor ve bunları yavaş yavaş
+[00:32:32] düzeltiyorsunuz kend kendinize. Ve bu
+[00:32:34] sayede zaten bunların hepsini
+[00:32:35] öğreniyorsunuz. O yüzden gidip de burada
+[00:32:37] şu nedir, bu nedir tek okumanın
+[00:32:38] araştırmanın çok manası bence yok. Proje
+[00:32:41] yaparken takıldığınız noktalarda bunları
+[00:32:43] araştırıp öğrenmek bence daha önemli. Bu
+[00:32:45] şekilde de bir e not bırakmak istedim
+[00:32:47] araya. Şimdi gelin e bizim devamını
+[00:32:50] yapalım. Şimdi diyor ki ayrıca diyor
+[00:32:51] rezervasyon akışı için diyor yeni
+[00:32:52] sayfalar gerekecek diyor. Tarih seçimi,
+[00:32:54] misafir bilgisi, dami ödeme ekranı, onay
+[00:32:56] ekranı vesairesi olacak diyor. Kaç adama
+[00:32:58] diyor bu akışı bölelim diyor. Yoksa
+[00:33:00] diyor tek sayfalık bir checkout da
+[00:33:01] kuralım mı diyor. Şimdi diyorum ki ben
+[00:33:03] tek sayfalık bir checkout yapsın
+[00:33:04] diyorum. Şimdi şunu söyledim. Dedim ki
+[00:33:06] sitede dedim bütün dedim gerekli
+[00:33:07] kısımları API'ye dedim bağla ve bunların
+[00:33:09] eksik olan kısımlarını da API'de yaz.
+[00:33:11] Yani eksik bir şey varsa bir endp varsa
+[00:33:14] bunları oluştur. Bunları da dedim
+[00:33:15] belirt. Ek olarak dedim kullanıcı
+[00:33:17] rezerasyon yaptıktan sonra ona verilen
+[00:33:19] numarayı tekrar bizim siteye gelerek
+[00:33:21] kontrol edebilsin. Öyle bir rezerasyon
+[00:33:22] var mı yok mu diye. Yani bu sitelerde
+[00:33:24] piyan numarasıyla veya TC ile vesaire
+[00:33:26] bir kontrol sağlıyoruz ya. Aynı mantık
+[00:33:28] aslında. Çünkü bizim sitemizde şu anda
+[00:33:30] bir kullanıcının girip de e üye
+[00:33:31] karşıtığı bir durum olmayacak. direkt
+[00:33:33] rezervasyona gelecek, rezervasyon
+[00:33:34] yapacaktı kendisi. O yüzden de eee kendi
+[00:33:37] en azından şuraya bir yere gelip buradan
+[00:33:38] numarasına girdiği zaman o rezervasyonu
+[00:33:40] yapmış mı yapmamış mı diye bir kontrol
+[00:33:41] etmesi şu an için bizim için yeterli
+[00:33:43] olacaktır. Ve bunu tekrardan gönderdik.
+[00:33:45] Bu arada gördüğünüz gibi burada
+[00:33:46] arkadaşlar kontekstimiz uzamaya devam
+[00:33:49] ediyor. Yakında bunu zaten compact deyip
+[00:33:51] eee sıfırlayacağız. Artık sayfamız bir
+[00:33:53] tur sitesi için, bir satın alma sayfası
+[00:33:55] için hazır olduğu gibi gözüküyor. Henüz
+[00:33:57] sunucuları ben başlattım ve açık
+[00:33:59] bırakıyorum diyor. Kapatmak istersen
+[00:34:00] port 4.000 ve 3.000'deki süreçte durman
+[00:34:02] yeterli diyor. Sırada admin panel var
+[00:34:04] diyor. Be kendimiz hazır diyor
+[00:34:05] arkadaşlar. Şimdi admin panel önce gelin
+[00:34:07] şu siteye bakalım. Sitede neler var,
+[00:34:08] neler yok, neler olmuş bir görelim.
+[00:34:10] Direkt olarak bir hata aldık. Sayfayı
+[00:34:11] bir yenileyelim. Evet, sayfamız geri
+[00:34:13] geldi. Burada ufak bir hata var
+[00:34:14] görüyorsun ama çok önemli şu anda değil.
+[00:34:16] Söylerini zaten biraz sonra düzeltir.
+[00:34:18] Şimdi merak ettiğimiz birkaç şey var.
+[00:34:19] Nedir arkadaşlar? O da şu. Heh. Evet.
+[00:34:21] Bunu merak ediyordum. Bunu nasıl
+[00:34:23] sorgulayacağım diye düşünmüştüm ve
+[00:34:24] buradan sorgulayabiliyoruz. Şu an
+[00:34:25] deerasyon numarasını ve e-postamı
+[00:34:27] yazdığım buradan sorgulayabiliyorum. Boş
+[00:34:28] bastığımdan bir şey çıkmıyor mesela. Bu
+[00:34:30] da bir problem aslında. Hatta bu güzel
+[00:34:32] denk geldi. Şimdi bunda bir teslim
+[00:34:33] yapacağız. Size neler onu da
+[00:34:34] göstereceğim. Mesela geliyorum
+[00:34:35] arkadaşlar buraya yazıyorum. Mesela
+[00:34:37] Ankara diyelim. Niye Ankara? Çünkü
+[00:34:39] Ankaralı mesela tarih seç diyorum
+[00:34:40] mesela. Bak bunlar çok kötü şu an
+[00:34:42] görüyorsunuz. Bunların düzeltilmesi
+[00:34:43] gerekiyor. Dur araya basıyorum. Böyle
+[00:34:44] bir yer geldi. Rayları gör diyorum. Bana
+[00:34:46] burada arkadaşlar fiyatları söyleşti. 1
+[00:34:48] Ekim'de iki tane yer kaldı. Bu tarihi
+[00:34:49] seç diyelim. Mesela bunları şöyle
+[00:34:51] doldurayım ben. Şu eee test@ test şu
+[00:34:54] mesela test@test.com olsun. Bunu da
+[00:34:57] şöyle random dolduralım. Bunu da şöyle
+[00:34:58] random dolduralım. Bunlara girelim.
+[00:35:00] Böyle şimdilik yer. Hayır. Kartta öde
+[00:35:03] diyor. Bu bir ödemedir ödür. Bu bir
+[00:35:05] demodur. Gerçek ödeme alınmaz falan diye
+[00:35:07] de bize böyle bir olay söyledi
+[00:35:09] arkadaşlar. Tamam. Tamamla diyorum.
+[00:35:11] Eksik veya hatalı bilgi var diyor. Neyi
+[00:35:13] eksik bıraktık mesela? Şunu soyadımızı
+[00:35:15] da yazalım. Bu da bir hata. Neden bir
+[00:35:17] hata? Çünkü neye eksik, neye eksik
+[00:35:19] verdiğimizi bize arkadaşlar söylemiyor.
+[00:35:21] Tekrar tamamımla diyorum. Hala eksik var
+[00:35:23] diyor. Neyi kontrol edceiz? Bak bunlar
+[00:35:24] çok kötü hatalar arkadaşlar. Bunların
+[00:35:26] böyle olmaması gerekiyor işte. Evet.
+[00:35:27] Mesela eee şeyimizin eee 5 harf olması
+[00:35:31] gerekiyor posta kodumuzun. Onu fark
+[00:35:33] ettik. Örneğin gördüğünüz gibi turumuzu
+[00:35:35] aldık. Şimdi şu kodu kopyalıyorum. Tüm
+[00:35:37] turlara dön. Ana sayfaya dön. Tekrar
+[00:35:39] geldim. Şu alttaki yerden arkadaşlar
+[00:35:41] girişi yaptım. Ve gördüğünüz gibi benim
+[00:35:43] şu anda tur burada mevcut. şu şekilde
+[00:35:45] duruyor. Burada ufak bir araya
+[00:35:47] gireceğim. Burada aklıma şu geldi. Şimdi
+[00:35:49] bizim sayfamızda bazı hatalar ve bazı
+[00:35:51] sorunlar. İşte mesela buna basıyorsun,
+[00:35:53] buraya gönderiyor seni. Tarih falan
+[00:35:54] seçemiyorsun. Yani bunlar seçilen olması
+[00:35:57] gerekiyor ama seçemiyorsun. İşte formu
+[00:35:59] dolduruyorsun ama formu neyi
+[00:36:00] doldurmadığını mesela söylemiyor
+[00:36:02] arkadaşlar. Burada da işte ne yapmak
+[00:36:03] gerekiyor? Bunları test edip sonra
+[00:36:05] düzeltmek gerekiyor. Ben burada ufak bir
+[00:36:07] entegrasyon yapmak istiyorum bu videoya.
+[00:36:09] E o da ne olacak arkadaşlar? Test
+[00:36:11] sprite. Test sprite'ı zaten çoğunuz
+[00:36:12] biliyorsunuz. bizim için testleri
+[00:36:14] yapıyor. Burada da o zaman zaten
+[00:36:16] kanalımızın kendileri sponsoru. Ben
+[00:36:17] orada bunu da göstermek istiyorum size.
+[00:36:19] Şimdi eğer denemek isterseniz ücretsiz
+[00:36:21] bir şekilde deneyebiliyorsunuz. Gayede
+[00:36:23] 150 kredi veriyor ve bu kredi bayağı bir
+[00:36:24] yeterli olur sizin için. Gizen test
+[00:36:26] sprite'ı bir deneyelim. Geldim dedim ki
+[00:36:28] bana dedim projey test sprite'ile test
+[00:36:29] et dedim ve dedim bunu dedim bu şekilde
+[00:36:31] bir MD yap. Bunları bana anlat dedim.
+[00:36:33] Formları web sitesindeki sıkıntıları
+[00:36:34] problemleri dedim bana bulsun ve
+[00:36:36] raporlasın dedim arkadaşlar bana
+[00:36:38] testlite'ı şimdi çalıştırsın. Eğer dedim
+[00:36:40] apik vesaire gerekiyorsa onu dedim süre
+[00:36:42] dedim. Çünkü normalde benden şu an test
+[00:36:44] bağlı ama olur da hani bağlantı
+[00:36:45] kopmuştur bir şey gerekiyordur. Onu da
+[00:36:47] söylesin ki API'yi de hemen verelim.
+[00:36:48] Şimdi cloud vermiş ayarları yaparken ben
+[00:36:50] size test sprite'ın ne olduğunu ve ne
+[00:36:52] işe yaradığını göstereyim arkadaşlar.
+[00:36:53] Burada gördüğünüz gibi test sprite sizin
+[00:36:55] için testlerinizi yapıyor ve arkadaşlar
+[00:36:56] günün sonunda sizlere bu şekilde bir
+[00:36:58] rapor sunuyor. Bunun arkadaşlar sunduğu
+[00:37:00] raporda da siz de gidip bu hataları,
+[00:37:03] eksikleri gidip buralardan videolar
+[00:37:05] izleyebiliyorsunuz. Örneğin formları
+[00:37:06] kendisi dolduruyor. Görüyorsunuz. Bu
+[00:37:07] benim diğer başka projede yaptığımız
+[00:37:08] testti. Gördüğünüz gibi bunları kendisi
+[00:37:10] tek tıklıyor her yere ve bütün size her
+[00:37:12] şeyi arkadaşlar raporluyor. Nerede ne
+[00:37:13] hata var yani URL'ın kopyalanı bile size
+[00:37:15] burada raporluyor ve günün sonunda da
+[00:37:17] testleri görüp onları
+[00:37:18] düzeltebiliyorsunuz. Testight'ın güzel
+[00:37:20] tarafı da şu bana. Test plet'ın güzel
+[00:37:22] tarafı da şu arkadaşlar. Size ilk ay
+[00:37:24] bedava 150 kredi veriyorlar. Ek olarak
+[00:37:26] dediğiniz ki beğendiğiniz kullanmak
+[00:37:27] istiyorsunuz. İlk ay 0 dolar
+[00:37:29] veriyorsunuz ve 400 kredi
+[00:37:30] kullanıyorsunuz. Eğer hala
+[00:37:32] beğendiğinizde devam etmek istiyorsanız
+[00:37:33] bu sene arkadaşlar 2 aydan itibaren 19
+[00:37:35] dolara bunu kullanabiliyorsunuz.
+[00:37:37] Haberiniz olsun. İsterseniz 70 dolar
+[00:37:38] ekranında geçebiliyorsunuz. Daha fazla
+[00:37:40] veriyor. E bunu denemek isterseniz de
+[00:37:42] açıklama kısmında bir link bırakıyorum.
+[00:37:44] Oradan Test Pride'ı deneyebilirsiniz.
+[00:37:45] Hem de bana destek olmuş olursunuz.
+[00:37:47] Kendinize teşekkür ediyorum. Kanalın
+[00:37:49] uzun zamandır ayakta kalmasını sağlayan
+[00:37:50] da bir eee servis olduğunu
+[00:37:52] söyleyebiliriz. Buradan ufak da teşekkür
+[00:37:54] etmiş olalım. Şimdi gördüğünüz gibi test
+[00:37:55] Python'ın testleri bitmiş ve Cloud diyor
+[00:37:57] ki bazı diyor hatalar geldi. 13 tane
+[00:37:59] geçti. İki tanesi başarısı oldu. 6
+[00:38:01] tanesi bloke oldu diyor. Ve burada evet
+[00:38:02] diyor gerçekten diyor böyle bir hatamız
+[00:38:04] vardı. Gördüğünüz gibi test spike bizim
+[00:38:05] demin görmediğimiz bir hatayı bulmuş
+[00:38:07] arkadaşlar. ve de bunu raporlamış. Hemen
+[00:38:09] gelin testın sitesine girelim.
+[00:38:11] Gördüğünüz gibi arkadaşlar aynı bu
+[00:38:12] panelde de bize testlerimizi gösteriyor.
+[00:38:14] Tek tek hepsine buradan
+[00:38:15] bakabiliyorsunuz. Hangisinden geçtik,
+[00:38:16] hangisinden kaldık diye
+[00:38:17] bakabiliyorsunuz. İşte burada recover
+[00:38:18] analizler var. Diğerinde de open the
+[00:38:20] contact link from a tour page demiş.
+[00:38:22] Mesela buna bakalım mı? Ne yapmış ne
+[00:38:23] etmiş arkadaşlar? 58 sen tanelik bir
+[00:38:25] test aslında. Burada tek tek bunları
+[00:38:26] deniyor görüyorsunuz. Burada bizim o
+[00:38:28] checkout kısmında sürekli olarak evet
+[00:38:30] mesela some field missing. Some field
+[00:38:32] missing diyebiliyor ama hangisi missing?
+[00:38:33] Tek tek kontrol ediyor mesela burada.
+[00:38:35] Bunlar da aslında sorunlar arkadaşlar.
+[00:38:37] Cloud ne yapmış burada? O hataları
+[00:38:38] düzeltmeye şu an devam ediyor.
+[00:38:40] Hatalarını düzeltsin. Sonrasında da
+[00:38:41] admin panelle beraber eee devam edelim.
+[00:38:44] Bir de arkadaşlar bu işlemler bittikten
+[00:38:46] sonra siteyi aslında tamamlayacağız. Eee
+[00:38:48] tamamlandıktan sonra isa size bu eee
+[00:38:51] cloud'un Chrome'u nasıl kullandığını,
+[00:38:53] bilgisayar nasıl kullandığını yani
+[00:38:54] Chrome Us ve computer özelliklerini de
+[00:38:56] size göstereceğim. Bir de artık her
+[00:38:58] şeyimizin sonucu hazır arkadaşlar.
+[00:39:01] Testler yaptık. Sonuçları geldi.
+[00:39:03] Hatalarını düzeltti. Artık diyor iki
+[00:39:05] tane şey kaldı diyor. Ne gelmiş bakalım?
+[00:39:07] Admin panelinin arayüzünü hiç yapmadık
+[00:39:08] diyor. Sadece var diyor. Testin de
+[00:39:10] yapıldı zaten diyor. Biz de yaptık
+[00:39:12] çoktan diyor. Ekranı yoktu. Yani arayüz
+[00:39:13] yapmamız gerekiyor. Ben bir de test
+[00:39:15] lightın bir apik keini vermiştim. E
+[00:39:17] bende bu chat'te olmadığı için o da
+[00:39:19] diyor duruyor diyor. Zaten önemli diyor.
+[00:39:21] Ben şimdi biraz sonra APIK'yi sileceğim
+[00:39:23] panel üzerinden. Şimdi admin paneli
+[00:39:26] yapalım. Gerekli sayfaları ve ekranları
+[00:39:29] oluştur diyorum. Yani hiç uzatmaya promu
+[00:39:31] devam ettirmeye gerek yok. zaten kendise
+[00:39:33] ne yapacağını artık çok iyi bir şekilde
+[00:39:35] biliyor. Şimdi şunu eee aslında
+[00:39:38] anlatmaya çalışmak istediğim şey şöyle
+[00:39:40] eee arkadaşlar burada biz en başından
+[00:39:42] beri bir plan dahilinde gidiyoruz. Yani
+[00:39:44] en başında bir skill tanımladık. Dedik
+[00:39:46] ki bu bir proje kurulumu olacak. Bunun
+[00:39:48] şunlar olacak. Ona göre bir altyapısı
+[00:39:49] her şey hazır olmalı dedik. Sonrasında
+[00:39:51] projeyi kurduk ve adım adım geliştirme
+[00:39:53] yaptık. Ve adım adım geliştirme
+[00:39:54] yaptığımız için şu anda herhangi bir
+[00:39:56] sürpriz bir durum yok. Tabii ki ufak
+[00:39:57] tefek hatalar, eee, ufak tefek
+[00:39:59] eksiklikler illaki var. Zaten bunları da
+[00:40:01] adım adım bulup yazıp geliştirmek
+[00:40:04] gerekiyor. Biz şimdi burada siz bu
+[00:40:05] videoyu belki siz bu videoları toplamda
+[00:40:07] belki 23 saatte izliyorsunuz ama burada
+[00:40:10] 10 saatlik örneğin bir iş var diyelim.
+[00:40:12] Siz zaten gerçek proje yaparken 10
+[00:40:13] saatte bunu yapmayacaksınız. Belki 10
+[00:40:15] gün belki 10 ayda yapacaksınız. O yüzden
+[00:40:17] her şeyi tek aslında zaten düzelte
+[00:40:19] düzelte deneye deneye ilerleteceksiniz.
+[00:40:21] Admin panelimiz de artık hazır oldu.
+[00:40:24] Burada herhangi bir şey söylüyor mu
+[00:40:25] bize? En önce giriş yapmış halini
+[00:40:27] göremiyorum diyor. Peki bize giriş için
+[00:40:29] nasıl bir kullanıcı deş tanımlamış? Onu
+[00:40:30] bir görelim. Şöyle hızlıca
+[00:40:33] [boğazını temizler][öksürme]
+[00:40:34] ben geldim ve slash admin diye.
+[00:40:36] Arkadaşlar giriş yapıyorum. Şifreyi
+[00:40:37] göster giz diye buraya buton koymuş.
+[00:40:39] Tabii şifremizi göremiyoruz. Bir gidelim
+[00:40:41] tekrar şifren diyor. AP.V dosyasının
+[00:40:43] içerisindeki diyor. Oradan gelin bakalım
+[00:40:45] neredeymiş o dosyamız. Bu arada şunu
+[00:40:47] söylememiştim yüksek ihtimalle. Sağ üste
+[00:40:49] geldiğimiz zaman files dediğimiz
+[00:40:50] arkadaşlar o projenin dosyalarını
+[00:40:52] görebilirsiniz. Burada gördüğünüz gibi
+[00:40:53] burada burada geldim. E, API'in
+[00:40:55] içerisinde SBC pardon direkt AP'in
+[00:40:57] içerisinde nokta emv dosyamız var
+[00:40:59] görüyorsunuz arkadaşlar. Bu bizim
+[00:41:01] aslında gizli dosyamız. Yani bunu
+[00:41:02] kimsenin görmemesi gerekiyor. Sizin de
+[00:41:04] görmemeniz gerekiyor. Tabii şu an burada
+[00:41:05] görüyorsunuz ama buradaki kişilerin
+[00:41:06] meselesinin bir önemi yok. Bunların
+[00:41:07] hepsi zaten videolardan sonra arkadaşlar
+[00:41:09] siliniyor, temizleniyor. Burada
+[00:41:10] şifremizi ne yapmış? Admin passwordü
+[00:41:12] gezdir beni tre admin yapmış. Bunu
+[00:41:14] alalım. Buradan kapatalım. Sayfaya
+[00:41:16] geldim. Yapıştırdım ve giriş yapıyorum.
+[00:41:18] Ve de gördüğünüz gibi admin panelimiz de
+[00:41:20] hazır. Toplamda 3 kişasyon yapmış.
+[00:41:22] paramızı, aldığımız parayı bekleyen
+[00:41:24] iptal de buradan hepsini arkadaşlar
+[00:41:26] görebiliyoruz. Bastığımız detaylarını
+[00:41:27] görüyor beklemeyen onaylar iptal et diye
+[00:41:29] de bunları yönetebiliyoruz. Aslında
+[00:41:31] temelde frontend ve backend bu yapıda
+[00:41:33] çalışıyor arkadaşlar. Bir frontend
+[00:41:35] tarafında ön yüzde böyle ekranlar
+[00:41:37] karşımıza geliyor. Arka tarafta
+[00:41:38] sunucular çalışıyor ve API endpint'leri
+[00:41:41] ve database ile beraber verilerimizi
+[00:41:43] tutuyor. Ve API'ler de arkadaşlar bizim
+[00:41:45] sunucuyla ön yüzdeki yani frontend
+[00:41:47] tarafındaki iletişimi sağlayan aslında
+[00:41:49] URL'ler diyebiliriz. İşte bu sayede
+[00:41:51] verileri bu şekilde oradan oraya aktarıp
+[00:41:52] taşıyabiliyoruz ve günün sonunda da
+[00:41:54] karşımıza böyle bir yapı çıkıyor. Şimdi
+[00:41:57] daha fazla detay inip de bunları
+[00:41:58] uzatmayalım. Çünkü dediğim gibi bunlar
+[00:42:00] tamamen sizin hayal gücünüze ve
+[00:42:02] aklınızdaki projeye kalmış şeyler. Ama
+[00:42:04] temelde yapı bu şekilde çalışıyor. Bu
+[00:42:05] şekilde şu anda aklınıza gelecek her
+[00:42:07] türlü siteyi, her türlü projeyi
+[00:42:08] yapabilirsiniz. Şimdi şunu göstermek
+[00:42:10] istiyorum. Biliyorsunuz ki cloud'un
+[00:42:12] Chrome use ve computer useara
+[00:42:15] geliyorum. Settings'e basıyorum buradan.
+[00:42:17] Burada arkadaşlar general kısmından
+[00:42:19] gördüğünüz gibi computer use diyor
+[00:42:21] arkadaşlar. Bunları açıyorum. Ardından
+[00:42:23] cloud in Chrome diyor. Görüyorsunuz
+[00:42:24] buraya geliyorum. Burada arkadaşlar bunu
+[00:42:27] aktif ediyorum ve de Chrome'da şurada
+[00:42:29] gördüğünüz gibi Cloud'u ekliyorum. Bunu
+[00:42:31] da Chrome'un kendi mağazasından gelip
+[00:42:33] ekleyebilirsiniz. Bu sayede artık Cloud
+[00:42:35] bizim için bu web browserı istediği gibi
+[00:42:37] kullanabiliyor. Chat'e geliyorum. Şimdi
+[00:42:39] geldim dedim ki benim dedim sisteme
+[00:42:41] dedim girdim Chrome use kullanarak yani
+[00:42:43] Chrome'umu kullanarak Uğur Keşk çal bir
+[00:42:45] rezervasyon yaptım ve diğer biler dami
+[00:42:47] olsun dedim. Sadece açıklama kısmına
+[00:42:48] hello world yaz dedim ve arkadaşlar bunu
+[00:42:50] gönderiyorum. Şimdi benim Chrome'a
+[00:42:51] bağlanacak ve bu sayede Chrome'u
+[00:42:53] kullanarak benim için işlemlerimi tek
+[00:42:55] tek yapacak. Peki bunu nasıl daha iyi
+[00:42:57] amaçlarla kullanabilirsiniz? Onu da
+[00:42:58] biraz sonra ben size göstereceğim yani
+[00:43:00] anlatacağım daha doğrusu. Şimdi
+[00:43:01] gördüğünüz gibi burada bir şey açıldı
+[00:43:03] arkadaşlar. Web siteme geldi. Bakın şu
+[00:43:04] anda Chrome eee Cloud benim web sitemi
+[00:43:07] kullanıyor. Şu an bakın mouse
+[00:43:08] oynatmıyorum. Sadece izliyorum. Bakalım
+[00:43:09] ne yapacak. Gördüğünüz gibi etraf
+[00:43:11] turuncu oldu ekranda. Kendi bir mouse
+[00:43:13] var. Hatta ben mouse oynasam bir şey
+[00:43:14] fark etmiyor. Çünkü kendi içinde bir
+[00:43:15] zaten e cursı var. Görüyorsunuz. Burada
+[00:43:17] bazı bilgileri doldurdum. Bakın geldi
+[00:43:19] yukarı kaydırdım mesela. Görüyorsunuz
+[00:43:20] kendisi arkadaşlar bunları girdi tab ve
+[00:43:22] ezalasyonu yaptığı gördüğünüz
+[00:43:24] [boğazını temizler] gibi bu sayede
+[00:43:25] aslında arkadaşlar her şeyi
+[00:43:27] yaptırtabiliyorsunuz. Peki bunu ne
+[00:43:29] amaçla kullanabilirsiniz? Onlardan da
+[00:43:31] bahsedeyim kısaca. diyelim bir mobil
+[00:43:32] uygulama yaptığınız ve bunu markette
+[00:43:34] yayınlamanız gerekiyor. Apple Store'e
+[00:43:35] veya Play Store'a atacaksınız ve tam
+[00:43:37] olarak marketteki ayarları
+[00:43:38] bilmiyorsunuz. Bunda şunu yapıyorsunuz.
+[00:43:40] Proje yaptıktan sonra diyorsunuz ki ya
+[00:43:42] benim Chrome'dan ben e Apple developer
+[00:43:44] siteme girişi yaptım. Chrome'u
+[00:43:46] kullanarak buraya gir ve bu uygulama
+[00:43:48] için gerekli tüm ayarları yap diyorsunuz
+[00:43:50] arkadaşlar. Ve bu sayede ne yapıyor?
+[00:43:51] siteye giriyor. Tek sizin bütün
+[00:43:53] ayarlarınızı yapıyor. Yaklaşık 1 1,5
+[00:43:55] saatte arkadaşlar birkaç promt'la
+[00:43:56] beraber tabii ki de sizin bütün
+[00:43:58] ayarlarınızı yaparak siteye yani
+[00:44:00] projenizin eee Apple developer
+[00:44:02] hesabınızda veya Google Play konsol'da
+[00:44:04] hazır olmasına olanak sağlıyor ve bu
+[00:44:06] sayede tek bir yere sizin girmenize
+[00:44:07] gerek kalmıyor. Ve bunun için biraz
+[00:44:09] uğraşmanız gerekiyor. Öyle hemen haydi
+[00:44:10] bakalım bunu girdiğini yapmıyor. Yani
+[00:44:11] projenizin de iyi olması gerekiyor ki
+[00:44:13] doğru bilgileri oraya yazabilsin. Veya
+[00:44:15] biz şu an Steam'e bir oyun yapıyoruz.
+[00:44:16] Örneğin Steam'i yaptığımız oyunun Steam
+[00:44:18] sayfası ayarlarını yani gördüğünüz
+[00:44:20] sayfadan ziyade arka plandaki bütün
+[00:44:22] kayıt sistemini her şeyini aslında
+[00:44:24] arkadaşlar Cloud Chrome'u kullanarak
+[00:44:25] yaptım ve bu bu birçok şey de
+[00:44:27] kullanabilirsiniz. YouTube
+[00:44:28] istatistiklerinizi yapabilirsiniz. İşte
+[00:44:29] reklamları yönetebilirsiniz. Google Ads
+[00:44:31] yönetebilirsiniz. Her türlü şeyi aslında
+[00:44:33] arkadaşlar buradan yönetebiliyorsunuz.
+[00:44:34] Bu da tamamen gene sizin ihtiyacınıza
+[00:44:36] kalmış bir şey. Ben size şu anda çok
+[00:44:37] basic bir şekilde nasıl kullanıldığını
+[00:44:39] göstermek istedim. Biraz yavaş
+[00:44:41] çalışabilir zaman zaman bu Chrome
+[00:44:42] kullanımı ama işinizi görecektir. Şimdi
+[00:44:44] bir de computer use kullanalım. Ben
+[00:44:46] computerü çok sevmiyorum açıkçası
+[00:44:47] söylemek gerezüz bayağı yavaş çalışıyor
+[00:44:50] ama ben size ne yaptığımı e neler
+[00:44:52] değiştirdiğimi son zamanlarda göstereyim
+[00:44:54] onlara. Sonrasında nasıl kullanacağınızı
+[00:44:55] da göstereyim. Burada bir OBS ekranı
+[00:44:57] görüyorsunuz. Tabii şu an iç içe
+[00:44:58] gördüğünüz için kafanız karışabilir.
+[00:45:00] Normalde benim arkadaşlar sahnelerim
+[00:45:02] şöyleydi. Örneğin sahne bir böyleydi
+[00:45:04] arkadaşlar. Burada bir kamera kısmım.
+[00:45:05] Burada bir e ekran panelim vardı. Dedim
+[00:45:08] ki cloud'a benim bilgisayardan bağlan.
+[00:45:09] bana daha güzel estetik duracak bir
+[00:45:11] şekilde bu panelleri ayarla dedim ve
+[00:45:12] geldi bana gördüğünüz gibi bu şekilde
+[00:45:15] etrafına gölge eklediği daha o keskin
+[00:45:17] düz görünümden gördüğünüz gibi dümdüz
+[00:45:19] böyle sayfa yapışmış gibi görünümden
+[00:45:21] daha göze hoş gelen bir yapı ayarladı.
+[00:45:23] Bence bu hal daha güzel oldu. Burada
+[00:45:24] kameram şu an kapalı çünkü onun için
+[00:45:26] makyajımı yapmadım. Bir de arkadaşlar
+[00:45:28] dedim ki ya bir de ben bazen kamerasız
+[00:45:30] çekiyorum onun için ayarla. Geldi bir de
+[00:45:32] bunu yaptı. Peki bunu nasıl yapıyor?
+[00:45:33] geliyor arkadaşlar. Sizin OBS'inizi
+[00:45:35] bilgisayarda kullanıyor ve bu sayede her
+[00:45:37] türlü ayarınızı yapabiliyor. Mikrofon
+[00:45:38] ayarlarımdan kameraman kadar her şeyi
+[00:45:41] dün arkadaşlar yaklaşık 2 saat boyunca
+[00:45:43] klav yaptırdım. Hatta onu da göstereyim
+[00:45:45] size. Benim bir tane arkadaşlar video
+[00:45:47] edit diye hatta burada görüyorsunuz beni
+[00:45:49] de. Bakın bu şekilde promptlar vererek
+[00:45:50] arkadaşlar her şeyi yaptırdım. Yani bir
+[00:45:52] ik saatte bütün ayarlarımı tek tek
+[00:45:54] geldi. Hem mikrofon kalitesini arttırdı
+[00:45:57] hem kameramın görüntü kalitesini
+[00:45:58] arttırdı. Birçok şey yaptı. Burada yine
+[00:46:00] update'te ifşa olduk ama videoyu burada
+[00:46:02] izlemişseniz de sorun değil. Peki bunu
+[00:46:04] nasıl yapıyoruz? Gene aynı şe devam
+[00:46:06] edeceğim. Diyeceğim ki şimdi computer
+[00:46:08] use kullanarak dedim ki computer use
+[00:46:10] kullanarak yani bilgisayarımı kullanarak
+[00:46:12] bana dedim bir yeni metin belgesi aç
+[00:46:14] dedi. Orada dedim son yaptığım
+[00:46:15] rezervasyonu dedim buraya kaydet benim
+[00:46:17] için dedim. Bunu dedim Samsung
+[00:46:18] ekranından komputer 100 yap dedim. Niye
+[00:46:20] böyle dedim? Ben şu an iki tane monitör
+[00:46:21] olduğu için bazen kafası karışıyor
+[00:46:22] diyor. Yok bunu göremedim falan diyip
+[00:46:24] uğraşıp duruyor. O da biraz bozuluyor
+[00:46:25] zaman zaman. O yüzden de bunu söyledim
+[00:46:28] ki arkadaşlar bana gitsin sadece
+[00:46:30] computer yüz kullansın ve bu olayı
+[00:46:31] yapsın dedim. Hadi bakalım yapsın. Tabii
+[00:46:33] şimdi ekranın belli bir kısmını siz şu
+[00:46:35] an OBS'te gördüğünüz için tam olarak e
+[00:46:37] gözükmeyebilir ama ben size onu
+[00:46:38] göstereceğim. Burada benden bazı izinler
+[00:46:40] istiyor. Kopyala yapıştır izni istiyor.
+[00:46:41] Yani Clipbarda kopyalamak istiyor. Dosya
+[00:46:43] gezginliğini istiyor ve not defterini
+[00:46:45] kullanmak istiyor. Evet kullanabilirsin.
+[00:46:47] Ekranda not defteri açtı. Ben şöyle
+[00:46:48] büyüteceğim. Ona bir müdahale ettim. Not
+[00:46:50] defteri açık dedi. Ona dokunmayacağım.
+[00:46:52] Yeni belge açıyorum dedi. Tabi ben
+[00:46:53] müdahale ettiğim için yüksek ihtimal şu
+[00:46:54] anda ben not defterini göremedim. odak
+[00:46:56] bozuldu falan bir şeyler saçmacek
+[00:46:58] ihtimalle. Çünkü müdahale ettiğiniz
+[00:46:59] zaman bazen takılabiliyor ama bakalım
+[00:47:01] belki devam eder. Tamam şimdi doğru
+[00:47:03] sekme aktif içeri yazıyorum. Bak
+[00:47:04] gördüğünüz gibi son yaptı arkadaşlar
+[00:47:06] bizim o rezervasyonu buraya kopyaladık.
+[00:47:08] Bu da gene basit bir örnek. Yani siz
+[00:47:10] gidip buna blender kullanabilirsiniz.
+[00:47:12] Başka bir şey kullandirsiniz. Her şeyi
+[00:47:13] yaptırız. Şu anda gidiyor mesela bu
+[00:47:15] dosyayı da kaydediyor arkadaşlar. Dosya
+[00:47:17] adını düzenledi ve de kaydetti. Ve de
+[00:47:19] işlemler tamamlandı. Ekranım geri eski
+[00:47:20] haline geldi arkadaşlar. Burada
+[00:47:22] gördüğünüz gibi her şeyi hello world
+[00:47:24] notuna kadar yazmış bulunuz. Bunu
+[00:47:26] kapatalım. Şimdi sitemizi mesela biraz
+[00:47:27] daha güzelleştirelim. Şimdi ETS Tour
+[00:47:29] diye bir tane siteye giriş yaptım. Bu
+[00:47:30] internet direkt bulup girdiğim bir site
+[00:47:32] herhangi bir şekilde reklam vesaire
+[00:47:33] içermez. O yüzden yanlış anlamayın. E bu
+[00:47:34] sitede aşırı iyi değil ama en azından
+[00:47:36] daha açık renklerde içini açan bir durum
+[00:47:39] var. Bizimki çok karanlık bir tema oldu
+[00:47:40] ve bu tarzda bir site yapmasını
+[00:47:42] isteyeceğim. Diyeceğim ki bak cloud'a
+[00:47:43] geleceğim arkadaşlar. Buranın ekran
+[00:47:45] görüntüsünü alacağım. Ardından cloud'a
+[00:47:46] geldim. Yeni bir e chat açtım. Bu siteyi
+[00:47:49] buraya kopyaladım. Ardından mesaj daha
+[00:47:51] aldım. Bir de burayı alalım. Şöyle şimdi
+[00:47:52] diyeceğim ki tam olarak bu listenin
+[00:47:55] temasını, tonunu ve kartlarını alalım
+[00:47:57] diye bir prom girdim. Ardından fable var
+[00:47:59] burada. Biz gene bunu opus seçelim ve
+[00:48:01] gönderelim arkadaşlar. Ve biraz daha
+[00:48:02] böyle açık daha güzel bir ton haline
+[00:48:04] getirsin. İşlemler hızlı bir şekilde
+[00:48:06] tamamlandı ve de gördüğünüz gibi
+[00:48:08] arkadaşlar daha artık açık tonlarda daha
+[00:48:10] bir tatilli gezi havası veren bir site
+[00:48:12] haline geldi aslında. Ya bu çok basit
+[00:48:14] bir örnek. herhangi bir siteye
+[00:48:15] girdiğiniz zaman onun ekran
+[00:48:16] görüntülerini, fotoğraflarını alıp işte
+[00:48:18] şu kart tasarımını yap, bu sitenin eee
+[00:48:20] fontlarını uygula, o fontlardaki işte
+[00:48:22] efektleri al gibi gibi birçok şey
+[00:48:23] aslında yaptırtabilirsiniz. Eee
+[00:48:25] özellikle bunu mesela çift tiat dediniz
+[00:48:27] ki işte şu sitenin aynısını yapmak
+[00:48:28] istiyorum. Bana çok detaylı bir prompt
+[00:48:30] ver dediğiniz zaman da sizlere bu siteyi
+[00:48:32] yapmanız için çok uzun bir prompt
+[00:48:34] verecektir ve bütün sayfaları, bütün
+[00:48:35] kartları tek tek azan tanımlayacaktır
+[00:48:37] promtun içerisinde ve sonrasında bunu
+[00:48:38] cloud'a verdiğiniz zaman daha uzun sürer
+[00:48:40] ama çok daha detaylı bir şekilde
+[00:48:41] çalışacağı için arkadaşlar her şeyi tek
+[00:48:44] yapar ve daha iyi bir sonuç elde
+[00:48:45] edersiniz. Bu da ufak böyle bir örnek
+[00:48:47] olmasını istedim sizin için. Bu da
+[00:48:48] aklınızda bulunsun. Hoşunuza giden bir
+[00:48:50] tasarımı böyle kopyalayabilirsiniz.
+[00:48:52] Şimdi de sitemizi yayına almanın zamanı
+[00:48:54] geldi. Siteyi yayın almanın aslında
+[00:48:55] birden fazla yolu var. Ancak şu anki
+[00:48:57] yaptığımız site bir backend sistemi
+[00:48:58] olduğu için ve de statik bir site
+[00:48:59] olmadığı için arkadaşlar normal bir
+[00:49:01] hostingde bunu yayına alamazsınız.
+[00:49:02] Alsanız bile ve kendiniz çalışmayacak ve
+[00:49:04] size birçok şey hatalı çalıştır. Hatta
+[00:49:06] çalışmayacaktır yüksek ihtimalle. Bundan
+[00:49:07] dolayı size bir VPS sunucusu gerekiyor.
+[00:49:09] Bu da normal sunucu göre biraz daha
+[00:49:11] maliyetli. Şimdi dedim ki bu siteyi ve
+[00:49:13] beğen almak istiyorum. Kısaca bana
+[00:49:15] yolları söyle dedim. Ben burada ücretsiz
+[00:49:17] yolları tercih edeceğim. Çünkü herhangi
+[00:49:18] bir yer hosting veya BPS almaya şu an
+[00:49:20] için gerek yok. Eğer ihtiyacınız olursa
+[00:49:22] zaten alırsınız ve aynı yolları yaparak
+[00:49:24] hatta cloud direkt olarak siteyi vererek
+[00:49:26] bütün işlemleri ona yaptırtabilirsiniz.
+[00:49:27] Gördüğünüz gibi zaten burada diyor
+[00:49:29] anlatıyor. Diyor ki bana Versel'den
+[00:49:30] diyor site yayını alırsın diyor. API de
+[00:49:32] diyor railwayde veya işte render fly io
+[00:49:35] gibi yerlerde diyor alabilirsin diyor.
+[00:49:38] Versel tarafı ücretsiz yaparsın bunu
+[00:49:39] diyor. APU tarafında ise aylık maliyetin
+[00:49:41] 5 ila 7 dolar arası olur diyor mesela.
+[00:49:43] veya VPS tarafında her şeyi ortal.
+[00:49:45] Örneğin Hostingerin işte goedein bilmem
+[00:49:47] bir şey hostun vesairesinin biliyorsunuz
+[00:49:49] ki bir sürü host ve VPS planları var.
+[00:49:51] Onlardan bir tanesi yeterli olur size.
+[00:49:52] Örnek olarak biz mesela beendent
+[00:49:54] tarafını kendimiz arkadaşlar böyle bir
+[00:49:55] lokalde yapmasaydık hani kendi içimizde
+[00:49:57] yapmasaydık eğer stop gibi bir servis
+[00:49:59] kullanabilirdik veya Firebase gibi bir
+[00:50:00] servis kullanabilirdik ve kendimizle
+[00:50:02] databaseimiz orada çalışırken web
+[00:50:04] sitemizi arkadaşlar verselde ücretsiz
+[00:50:05] bir şekilde yayına alabilirdik ve sorun
+[00:50:06] yaşamazdık. Ama biz tabii ki de kendi ve
+[00:50:08] kendimiz kendimiz yaptık. Şimdi şunu
+[00:50:09] söyleyeceğim. Ben ücretsiz bir şekilde
+[00:50:13] tamamen denemek amaçlı en kolay yini
+[00:50:15] nasıl yaparız? Ücretsiz bir şekilde
+[00:50:17] backendle frontend yayın almak istiyorum
+[00:50:19] dedim. Diyelim site yaptığını ve bunu
+[00:50:20] birlerini atmak ve onlara göstermek
+[00:50:22] istiyorsunuz. Bakın bana burada yolları
+[00:50:23] söyledi. Şimdi de şunu söyleyeceğim.
+[00:50:25] Chrome use kullanarak gerekli işlemleri
+[00:50:28] gerekli işlemleri yap. Bana ihtiyacın
+[00:50:30] olduğu zaman bunu bana söyle dedin. Ve
+[00:50:31] arkadaşlar şimdi cloud her şeyi kendisi
+[00:50:33] yapacak. Önce git bu bütün e codi
+[00:50:36] commitle sonrasında pushlayacak.
+[00:50:38] ardından gerekli yerlerde yayına
+[00:50:40] sitemizi alacak ve her şeyi şu anda
+[00:50:42] tamamen cloud yapacak. Gerekli
+[00:50:43] durumlarda bana söyleyecek ve ben de ona
+[00:50:44] gerekli işte apiki, herhangi bir DNS,
+[00:50:46] herhangi bir şeyi ona vereceğim. Evet
+[00:50:48] gördüğünüz gibi siteye girdi arkadaşlar.
+[00:50:50] render.com üzerinden bütün ayarları
+[00:50:52] yapacak. Vers de giriş yaptı. Verselim
+[00:50:54] ayarları yapacak. Gördüğünüz gibi
+[00:50:55] Chrome'dan diyor render'a giriş yap,
+[00:50:57] gitla diyor. Ardından diyor izin isterse
+[00:50:59] ver diyor ve tamam yaz diyor. Tamam
+[00:51:01] diyorum geldim arkadaşlar. Buradan giriş
+[00:51:03] yapıyorum. Hesabım hazır. Geldim. Tamam
+[00:51:05] yaptım diyorum.
+[00:51:11] Ardından işlemleri kendiniz arkadaşlar
+[00:51:12] tek tek yapıyor. Hiçbir şey yapmanıza
+[00:51:14] sizin gerek yok. Gördüğünüz gibi eskiden
+[00:51:16] olsaydı bunları yapmak için saatlerce
+[00:51:18] uğraşmanız gerekiyordu. Bunları
+[00:51:19] öğrenmeniz gerekiyordu. Tabii şu anda
+[00:51:21] öğrenirseniz iyi mi olur? Tabii çok daha
+[00:51:22] iyi olur. Herhangi bir program
+[00:51:23] yaşadığınız zaman anlık bir şekilde
+[00:51:24] müdahale edeceğiniz durumlarda sizin
+[00:51:26] arkadaşlar anlık müdahale etmeniz
+[00:51:27] gerekiyor ve de bunları bilmeniz
+[00:51:29] gerekiyor. Kısa vadeli çözümler de hızlı
+[00:51:31] çözümler için bunları böyle
+[00:51:32] kullanabilirsiniz. Ama arka planda neler
+[00:51:34] olduğunu, neler bittiğini, neler
+[00:51:35] yapıldığını öneririm. bunları öğrenin ve
+[00:51:38] günün sonunda ayağa daha yeri basan bir
+[00:51:40] proje haline gelsin. Uzun vadede olur da
+[00:51:42] bir müşteri veya son kullanıcı bunu
+[00:51:44] kullanırsa bir soru yaşadığınız zaman
+[00:51:46] anlık olarak çözümler üretebilin. Siz de
+[00:51:48] eee duruma el atabilin. Yani işlemler
+[00:51:50] tamamlandı arkadaşlar ve de sitemiz
+[00:51:52] yayında. Şu anda diyor gezir beni cloud.
+[00:51:54] Veral.
+[00:51:56] Hepimizde gördüğünüz gibi buy herhalde
+[00:51:58] şu anda aktif. Gelin bakalım siteye bir
+[00:51:59] girelim. Ben kendisi açmış aslında
+[00:52:01] burada bu sitemizi gördüğünüz gibi şu
+[00:52:02] anda bu hereldi sitemiz aktif. Buradan
+[00:52:05] daimizde gördüğünüz gibi statüs oke
+[00:52:07] şeklinde döndü. Bu saatten sonra aslında
+[00:52:10] yapacaklarımız bu kadardı. Aynı mantığı
+[00:52:12] herhangi bir hosting firmasından bir web
+[00:52:14] VPS veya hosting aldığınız zaman
+[00:52:16] arkadaşlar ya da Amazon EC2'yu
+[00:52:18] biliyorsunuzdur belki duymuşsunuzdur.
+[00:52:20] Orada ve kendinizi canlı almak
+[00:52:21] istediğiniz durumlarda da gene Cloud'a
+[00:52:23] söylediğinizde sizin için hem
+[00:52:24] yönlendirme yapacaktır tek hem de
+[00:52:26] arkadaşlar sizin için işlemleri gidip
+[00:52:28] Chrome use kullanarak yapacaktır. Genel
+[00:52:30] olarak Cloud Cod'un temellerini ve örnek
+[00:52:33] proje üzerinden yapılabilecek işlemleri
+[00:52:34] size anlatmaya çalıştım. skill
+[00:52:36] oluşturmasından konnektörüne,
+[00:52:37] konnektöründen MCP'sine, oradan API
+[00:52:39] bağlamasına, bir proje yapmasına kadar
+[00:52:41] her şeyi açıkçası gösterdim sizlere.
+[00:52:43] Umarım faydalı bir seri olmuştur. Umarım
+[00:52:45] faydalı bir video olmuştur. Eğer bu tarz
+[00:52:47] bir videonun gelmesini istiyorsanız
+[00:52:49] cloud kode burada yaptık. Belki de Chat
+[00:52:51] GPT tarafında da yani Codex için de
+[00:52:52] böyle bir şey yapabiliriz. Biliyorsunuz
+[00:52:54] ki GPT aslanın gelmesiyle beraber de
+[00:52:56] Codex tarafı yani chat GPT tarafı bayağı
+[00:52:58] bir güçlendi ve de artık Cloud'a rakip
+[00:53:01] oldu. O yüzden de o taraftan da bir seri
+[00:53:03] yapabiliriz. O zaman görüşmek üzere.
+[00:53:05] Herkese iyi çalışmalar.
