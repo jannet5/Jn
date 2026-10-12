@@ -1,0 +1,994 @@
+# 
+# https://www.youtube.com/watch?v=KJoiphc5x2E
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:KJoiphc5x2E.tr.json3
+
+[00:00:00] Bugün sizlerle beraber bir mobil
+[00:00:01] uygulama geliştireceğiz ve bunu markette
+[00:00:03] yayınlayacağız. Daha sonrasında bu
+[00:00:05] uygulama üzerinden gelir elde edeceğiz.
+[00:00:06] Peki nasıl yapacağız? Biliyorsunuz ki
+[00:00:08] Cloud Code serisine başladık ve bu seri
+[00:00:10] boyunca bir proje yapacağımı söylemiştim
+[00:00:12] ve de sizlerle beraber bugün bu projeyi
+[00:00:13] yapacağız ve de bölüm bölüm projeyi
+[00:00:15] geliştirip markette yayınlayacağız.
+[00:00:17] Ödeme yöntemleri, abonelik sistemi ve de
+[00:00:20] reklam geri elde edeceğiz. Peki ne
+[00:00:21] projesi yapacağız? Gelin size
+[00:00:23] göstereyim. Şimdi arkadaşlar burada
+[00:00:25] gördüğünüz gibi bir tane web projesi
+[00:00:27] var. Bu projede şunu yapıyoruz aslında.
+[00:00:30] Bu bir gezi rehberi projesi. Yani AI
+[00:00:32] destekte size belli başlı lokasyonlar
+[00:00:35] öneriyor ve diyor ki buraya git, buraya
+[00:00:36] git, şuraya git, bunu yap. Aslında
+[00:00:37] tatilinizi planlıyor sizin için. Peki
+[00:00:39] ben bunu niye yaptım veya bunu kim
+[00:00:40] yapmış? Bundan ik ay öncesinde
+[00:00:42] arkadaşlar Gürcistan'a tatile gitmiştik
+[00:00:43] eşimle beraber ve orada böyle bir şey
+[00:00:46] aklıma geldi. Çünkü gezerken sürekli
+[00:00:48] chat GPT'yi açıyordum ve sürekli
+[00:00:49] Google'a falan giriyordum. kafa
+[00:00:51] karıştırıyordu ve insanı yoruyordu.
+[00:00:52] Dedim ki böyle bir proje olsa aslında
+[00:00:54] güzel olur ve aslında varmış bunların
+[00:00:55] benzerleri. Ben de yeniden yapmak
+[00:00:57] istedim. Hemen otel odasında arkadaşlar
+[00:00:58] böyle mola verirken, dinlenirken,
+[00:01:00] otururken vesaire bir yandan da bunu
+[00:01:02] geliştirdim ve bu AI sayesinde işte günü
+[00:01:05] seçiyorsunuz, gideceğiniz yeri
+[00:01:06] seçiyorsunuz, yapmak istediğiniz tatilin
+[00:01:08] tünü seçiyorsunuz ve size arkadaşlar
+[00:01:09] öneriler sunuyor. Diyor ki işte şuraya
+[00:01:11] git burada biraz yürü diyor mesela.
+[00:01:12] Şimdi bunun webi hazır. Ben de gittim
+[00:01:14] sizlerle arkadaşlar bu video serisinde
+[00:01:17] bu şekilde bir mobil versiyonunu
+[00:01:18] geliştirdim. Sizlerle beraber bu videoda
+[00:01:21] ve bu videonun devamında da arkadaşlar
+[00:01:22] bu projeyi geliştirip bundan gelir elde
+[00:01:25] etmeye başlayacağız ve de adım adım
+[00:01:27] nasıl yapılıyor bir proje onu size
+[00:01:29] göstermeye çalışacağım bütün
+[00:01:30] detaylarıyla. Yani bir vibe coder baştan
+[00:01:32] sona proje yapıp bitirip markete nasıl
+[00:01:34] koyar onu göstereceğim. Lafı çok
+[00:01:36] uzatmayalım. Hızlı bir şekilde seriye
+[00:01:37] başlayalım. güzel ve faydalı seri
+[00:01:39] olacağını düşünüyorum ben. Burada sizin
+[00:01:41] yorumlarınız ve tavsiyeleriniz çok
+[00:01:42] önemli şundan dolayı. Çünkü bu
+[00:01:44] uygulamayı hep sonra yayınlayacağız
+[00:01:46] sonuçta ve de orada son kullanıcının
+[00:01:48] arkadaşlar işine yarayacak her şeyi
+[00:01:50] yorumlarda sizden bekliyorum. Özellikle
+[00:01:52] de bu projeye bir isim arıyorum. İsim
+[00:01:54] önerilerinizi de sizlerden arkadaşlar
+[00:01:56] bekliyorum. Hadi çok uzatmayalım. Hemen
+[00:01:58] videoya geçelim. Siz de arkadaşlar bir
+[00:02:00] beğeni, yorum atarsınız artık. Hadi
+[00:02:02] başlayalım. Şimdi hemen cloud kod'a
+[00:02:03] girdim arkadaşlar ve ardından dedim ki
+[00:02:05] benim böyle böyle bir tane projem var.
+[00:02:07] web'de bunları bunları yapıyordu. Proje
+[00:02:08] dedim bir analiz et. Ne yaptığımızı bir
+[00:02:10] öğren. Ardından dedim bana bir tane
+[00:02:11] dokümantasyon yap ki ben bu web
+[00:02:14] projesinin aynısının hatta daha da
+[00:02:16] iyisini mobilde yapabileyim dedim. Ve de
+[00:02:18] ardından bana böyle çok detaylı bir tane
+[00:02:20] dokümantasyon yaptı. Burada bekenden,
+[00:02:22] tablolarından, işte superbase'inden,
+[00:02:24] ekranlarından ne olacak kadar her şeyi
+[00:02:26] bana burada gördüğünüz gibi özetledi ve
+[00:02:27] anlattı arkadaşlar. 6 tane ekran olsun
+[00:02:29] demiş, bir şeyler olsun demiş. Bana
+[00:02:30] bayağı bayağı böyle detaylarını vermiş.
+[00:02:32] Şimdi ne yapacağız? Yeni bir tane proje
+[00:02:34] açacağız. Projenin mobil kurulumunu
+[00:02:35] yapacağız. Önce mobil uygamamızın
+[00:02:37] çalışmasını sağız. Yani başta böyle bir
+[00:02:39] expoyu başlatacağız. Projemiz açılacak.
+[00:02:41] Ardından da işlemleri yapmaya, projeyi
+[00:02:43] yavaş yavaş ayağa kaldırmaya
+[00:02:45] başlayacağız. O zaman gelin şurayı
+[00:02:46] kapatalım. Yeni bir tane session açalım
+[00:02:48] ve mobil projemize yavaştan başlayalım.
+[00:02:51] Şimdi burada Ver to Go adında arkadaşlar
+[00:02:53] bir proje açtım. E mobildeki projemin
+[00:02:54] isminin Ver to go olmasını istiyorum. E
+[00:02:57] bu arada bu uygulamayı biliyorsunuz ki
+[00:02:58] App Store'da yayınlayacağımız için e
+[00:03:00] isimde çok önemli. O yüzden de isim
+[00:03:01] önerilerinizi bekliyorum arkadaşlar.
+[00:03:03] Belki de ismini daha farklı bir şey,
+[00:03:05] daha güzel bir şey yapabiliriz. Benim
+[00:03:06] aklıma bu geldiği için şu anda Ver to go
+[00:03:08] koydum. E bakalım. Şimdi ardından da
+[00:03:10] geliyorum. Bana cloud kodun hazırladığı
+[00:03:12] dokümantasyonu buraya koyuyorum
+[00:03:14] arkadaşlar. Şimdi biraz e manuel
+[00:03:16] promptlar gceğim. Yani manuel promptlar
+[00:03:17] derken şundan bahsediyorum. Elle
+[00:03:19] yazacağım. Gidip tane şu an chat çip
+[00:03:20] diye mesela prompt yazdırmayacağım. E şu
+[00:03:22] aşamada ihtiyacımız yok. Çünkü çok
+[00:03:24] detaylı bir tane dosyamız zaten burada
+[00:03:25] gördüğünüz gibi hazırda bekliyor bizi.
+[00:03:27] Şimdi diyeceğim ki bu dokümana göre bir
+[00:03:30] mobil map yapacağız. Önce bana bir React
+[00:03:33] Native Expo projesi kurulduğumu yap.
+[00:03:36] Dumy bir welcome ve enter'a bastım.
+[00:03:41] Şimdi peki niye böyle bir şey yaptım
+[00:03:42] arkadaşlar? Çünkü mobil'de benim e
+[00:03:44] gözlemlediğim kadarıyla hatta bu web'de
+[00:03:46] de bu şekilde direkt olarak bir
+[00:03:48] dokümantasyon atarsanız ve her şeyi
+[00:03:49] yapmasını isterseniz bütün proje
+[00:03:51] birbirine giriyor. Hem dosya yapısı
+[00:03:52] karışıyor hem proje düzgün
+[00:03:54] başlatılmıyor. Bir sürü paket tam
+[00:03:55] yüklenmemiş oluyor veya versiyonlar
+[00:03:56] doğru olmuyor. E bundan dolayı da
+[00:03:59] özellikle bu mobile çok büyük bir
+[00:04:00] sıkıntı. Eee özellikle de bunun buildünü
+[00:04:02] alacağınız zaman hem Android'den iOS'te
+[00:04:05] göreceksiniz. Çok fazla sıkıntı
+[00:04:06] yaşayacağız. O yüzden de başta bu
+[00:04:08] şekilde adım adım paketleri kurarak,
+[00:04:10] adım adım projeyi ayağa kaldırarak
+[00:04:12] ilerlemek her zaman daha güvenli ve uzun
+[00:04:14] vadede baş ağrıtmaz. O yüzden de şu anda
+[00:04:16] öncesinde projeyi başlatacağız.
+[00:04:17] Bakacağız projemiz çalışıyor mu?
+[00:04:18] Uygulamamız çalışıyor mu? Ardından işte
+[00:04:21] renk, renk tonları, genel yapısı,
+[00:04:23] alttaki navigasyon barı nasıl olsun,
+[00:04:25] genel mimari nasıl olsun onları
+[00:04:26] yapacağız. Ve yavaş yavaş artık bu
+[00:04:28] projenin ekranlarına geçiş yapıp projeyi
+[00:04:31] daha da güzel bir hale getirmeye
+[00:04:32] çalışacağız. Bu şu anda projeyi kursun,
+[00:04:34] her şeyi ayarlasın. Ben de internetten
+[00:04:36] böyle birkaç tasarım örneği bakayım.
+[00:04:37] Örnek alaraktan ilerleyelim. Sonrasında
+[00:04:39] projeyi arkadaşlar girdiğini
+[00:04:41] başlatabileceğimizi artık söylüyor. Sağ
+[00:04:43] üste geldim. Şurada görüyorsunuz preview
+[00:04:45] differences yani yaptığı kodtaki
+[00:04:46] değişiklikler, terminal, files,
+[00:04:49] background, testk ve plan adında
+[00:04:50] arkadaşlar sekmelerimiz var. Buradan
+[00:04:52] terminale basıyorum ve terminalimi
+[00:04:54] açtım. Şu anda vertical dosyasının
+[00:04:55] içerisindeyiz. Ardından mpxo
+[00:04:58] start diyerek projeyi başlatıyorum.
+[00:05:00] Ve gördüğünüz gibi başlatamadık çünkü
+[00:05:02] gerekli package jon ayarını yapamamış.
+[00:05:04] yüksek ihtimalle veya dosya konumumuz
+[00:05:06] farklı herhalde. Bir daha bakalım. LS
+[00:05:08] diyelim. Evet, şu anda gördüğünüz gibi
+[00:05:10] arkadaşlar, eee, biz aslında şu an
+[00:05:11] Vert'dayız. Ancak o gitmiş Vert
+[00:05:14] dosyasının içerisine dosyalıştırmış.
+[00:05:17] Onun ismini de mobil yapmış. O yüzden
+[00:05:18] bizim buraya CD mobil yazmamız gerekiyor
+[00:05:20] ki oraya gidelim. Şu anda projemiz
+[00:05:22] gördüğünüz gibi burada hazır. MPX Expo
+[00:05:24] start diyorum tekrardan ve enter'e
+[00:05:26] basıyorum. Evet, şimdi projemiz çalıştı.
+[00:05:28] Burada iki tane seçeneğimiz var. Bir
+[00:05:30] tanesi gerçek bir telefon kullanarak
+[00:05:32] arkadaşlar expo indirerek buradan bu QR
+[00:05:34] taratıp telefondan bunu kontrol
+[00:05:36] edebiliyorsunuz. Bu yöntem genelde güzel
+[00:05:37] oluyor çünkü daha rahat bir şekilde
+[00:05:38] bakabiliyorsunuz çoğu şeye. Hem user
+[00:05:40] experiencei daha iyi anlıyorsunuz ama
+[00:05:42] tabii daha rahat olmasından, daha pratik
+[00:05:43] olmasından dolayı da Android veya iOS
+[00:05:46] emulatör kullanabiliyorsunuz. Şimdi biz
+[00:05:48] arkadaşlar bunu iOS'te çalıştıracağız.
+[00:05:51] Press i open iOS simulator yazıyor.
+[00:05:52] Gördüğünüz gibi buradan i'ye basıyorum
+[00:05:54] klavyede. Şimdi bana bir e emülatör
+[00:05:57] açacak. iPhone telefon açacak ve oradan
+[00:05:59] görebileceğiz. Ve projemiz bu şekilde
+[00:06:02] başarılı bir şekilde çalıştı arkadaşlar.
+[00:06:03] Gördüğünüz gibi my planner where to go e
+[00:06:06] destekli can diye bir şey açtı. Buraya
+[00:06:09] başla diyoruz mesela şey olmuyor. Şu an
+[00:06:11] dam bir şekilde bize bunu başlatmış
+[00:06:12] oldu. Şimdi bu arada şu sağ taraftaki
+[00:06:14] expofını ben size bir kısaca anlatmak
+[00:06:16] istiyorum arkadaşlar. Burada
+[00:06:17] görüyorsunuz bir QR'ımız var. Bu QR
+[00:06:19] sayesinde telefonda bunu tarattığınız
+[00:06:21] zaten bunu söylemiştim size. Telefondan
+[00:06:23] bunu çalıştırabiliyorsunuz. Şimdi diğer
+[00:06:24] bir tarafta benim ilk mobil uygulama
+[00:06:26] yaptığım dönemde şöyle bir sorun
+[00:06:27] olmuştu. Yanlışlıkla ben burada S tuşuna
+[00:06:29] basmışım. Şimdi S tuşuna bastığınız
+[00:06:31] zaman arkadaşlar gördüğünüz gibi
+[00:06:32] development build'a geçiyor. Yani bu
+[00:06:34] sayede e mobilden QR okuttuğunuz zaman e
+[00:06:37] local host bilmem bir şey hatası
+[00:06:39] veriyor. Çünkü e telefonda development
+[00:06:41] build yükte olmuyor genelde ve onu
+[00:06:42] çalıştıramıyorsunuz. E doğal olarak da
+[00:06:44] AI da onu anlamazsa size demiyor ki hani
+[00:06:46] bunun development buildını değiştir
+[00:06:48] Xbox'a geçiş yap demiyor. O yüzden de
+[00:06:49] sıkıntı yaşayabiliyorsunuz. O yüzden
+[00:06:51] haberiniz olsun. Burada e eğer
+[00:06:54] development build yazıyorsa S'ye
+[00:06:56] bastığınız zaman yani S tuşuna
+[00:06:57] bastığınız zaman buradan tekrardan
+[00:06:59] Xbox'ya geçiş yapabilirsiniz. Haberiniz
+[00:07:01] olsun. Ben diğer tarafta ihterde zaten
+[00:07:03] işte R'ye basınca hepinizi böyle
+[00:07:05] yeniler. CTLC'ye basınca da sunucuyu
+[00:07:07] durdurursunuz. Bu sayede işlemler durmuş
+[00:07:10] olur. Artık e uygulamanız çalışmaz.
+[00:07:12] Tekrar npm start diyorum ben mesela.
+[00:07:16] Tekrar R'ye veya I'ye bastığınız zaman
+[00:07:18] projeye tekrardan emülatörünüz
+[00:07:20] bağlanacaktır. Şimdi projemizi kurduk.
+[00:07:22] Projemiz artık çalışıyor arkadaşlar.
+[00:07:24] Ancak tabii ki de böyle koyu tamamalı
+[00:07:26] bir uygulama yapmayacağız. Çünkü
+[00:07:27] yapacağımız uygulama ne? Bizim bir gezi
+[00:07:29] uygulaması. Biraz insanın girdiği zaman
+[00:07:31] içini açması lazım. Yani ikini böyle
+[00:07:32] ferah bir şey olması gerekiyor ki insan
+[00:07:34] bunu kullansın. Kullanırken sıkılmasın.
+[00:07:36] O yüzden daha çok böyle açık temalar
+[00:07:37] işte turuncu belki açık mavi arka planın
+[00:07:40] beyaz ya da bej renklerinde olan bir ton
+[00:07:43] seçmemiz gerekiyor. O şekilde bir
+[00:07:45] uygulamamızı tasarlamamız gerekiyor.
+[00:07:46] Zaten bizim bir dosyamız vardı
+[00:07:48] hatırlarsınız. Bir en dosyamız vardı ve
+[00:07:50] şunu söyleyeceğim. Diyeceğim ki
+[00:07:52] uygulamamız açık bir temed olsun.
+[00:07:55] Butonlar bazı başlıklar turuncu olsun.
+[00:07:57] Arka plan beyaz bej arası bir renk olsun
+[00:08:00] ve de modern bir navigasyon barı olsun
+[00:08:03] aşağı diyeceğim ve bunun da bir örneğini
+[00:08:04] açacağım. O zaman gelin promptumuzu
+[00:08:06] yazalım. Şimdi arkadaşlar Google'a gelip
+[00:08:08] mobil now barn yazdığınız zaman size bir
+[00:08:10] sürü bu şekilde navigasyon barları
+[00:08:12] çıkıyor. Şimdi bunu yaparken benim hani
+[00:08:15] tecrübem şu şekilde. Gidip böyle hani
+[00:08:18] şekilli şu kull yapmak user experience'i
+[00:08:20] biraz düşürüyor. Niye düşürüyor? Çünkü
+[00:08:22] insanlar bunun ne olduğunu anlamıyor. Ya
+[00:08:24] diyor ki burada bir ikon var ama bu ne
+[00:08:26] işe yarıyor? Bu ne işe yarıyor? Bu ne
+[00:08:27] işe yarıyor? Şimdi biz bir proje
+[00:08:29] yaparken günün sonunda son kullanıcıyı
+[00:08:31] düşünmemiz gerekiyor. Yani son kullanıcı
+[00:08:33] çok akıllı da olabilir ya da teknoloji
+[00:08:34] çok hakim olabilir veya biraz daha orta
+[00:08:37] yaş üstü veya yaşlı insanlar olabilir ve
+[00:08:39] bizim tam uygulamamızı kullanmakta
+[00:08:41] zorlanabilirler. O yüzden de günün
+[00:08:43] sonunda herkesin kullanabileceği tarzda
+[00:08:45] bir tasarım yapmamız gerekiyor. En
+[00:08:47] azından ben 34 senedir bunu gördüm
+[00:08:49] yaptığımız projelerde. Bu yüzden de
+[00:08:51] gidip böyle şekilli mekilli şeyler
+[00:08:52] yapmak yerine daha basit hem Android'de
+[00:08:55] hem iOS'te uygun olacak şekilde
+[00:08:57] tasarımlar yapmak bence çok önemli.
+[00:08:59] Tabii bu biraz kişiden kişiye
+[00:09:00] değişebilir. Gördüğünüz gibi burada en
+[00:09:02] basit tema nedir? Üstte bir ikon, altta
+[00:09:04] bir yazı. Hem bu tasarım iOS'te hem de
+[00:09:07] Android'de çok güzel bir şekilde durur,
+[00:09:09] sırıtmaz. veya şu şekilde bir tasarım
+[00:09:11] yapabilirsiniz. Gördüğünüz gibi ortada
+[00:09:13] biten ana bir taratma butonu, QR butonu
+[00:09:15] veya günümüzün modern şeyde günümüzde şu
+[00:09:18] an moda ne? AI buraya bir AI butonu
+[00:09:20] koyarsınız ve bastığın zaman AI chat
+[00:09:22] açılır mesela. O yüzden biz bunu
+[00:09:23] kullanabiliriz. Şu anda geldim şöyle
+[00:09:26] bunun ekran görüntüsünü alıyorum.
+[00:09:28] Ardından da cloud'a bunu atıyorum. Ben
+[00:09:30] buraya bir prompt girmiştim. Onu
+[00:09:32] anlatayım size. Dedim ki yavaş yavaş
+[00:09:33] ekranlar yapmaya başlayacağız. Superbase
+[00:09:34] bağlantısını yap. connectors olarak
+[00:09:35] zaten vardı dedim. Super base ardından
+[00:09:37] dedim beyaz 5 tonlarında butonların
+[00:09:40] turuncu olduğu ferah modern tasarım
+[00:09:42] yapmamız gerekiyor diye belirttim. Narda
+[00:09:44] bu tarz bir tasarım kullan. Ortada AI
+[00:09:47] çağıracağımız ardından bu e projenin ana
+[00:09:51] ekranını yavaş yavaş butonlarını yapmaya
+[00:09:53] başlayacağız. Bir diyorum login ekranı.
+[00:09:55] Login ve register ekranlarını. Şimdi
+[00:09:58] normalde şu promptu chat GPT'ye
+[00:10:00] atarsanız size çok güzel bir prompt
+[00:10:01] verir ve prompuTu yazdığınız zaman dosya
+[00:10:03] yapınız daha güzel olur. İşte aperi ayrı
+[00:10:05] yerden çağırır. Navigation dosyalarını
+[00:10:07] ayrı yere koyar. Ekranların
+[00:10:09] komponentlerini ayrı yere koyar ve
+[00:10:10] sürekli sürekli hani aynı komponentleri
+[00:10:12] farklı yerelerde kullanabilirsiniz. Ama
+[00:10:14] bunu yaptırmazsanız ne olur? Her ekranda
+[00:10:16] yeni bir dosya açar. Her ekranda yeni
+[00:10:18] bir şey tanımlar. Her ekranda aynı
+[00:10:19] fonksiyonları tekrar tekrar tekrar
+[00:10:21] tanımlar. Ve bu sayede ne olur
+[00:10:22] arkadaşlar? Günün sonunda ekranın bir
+[00:10:24] tanesini güncellemeniz gerekir.
+[00:10:26] Sonrasında aynı işi yapan başka bir
+[00:10:28] ekranınız olabilir. Gidip onu da
+[00:10:29] güncellemeniz gerekir. Ama siz bunları
+[00:10:31] ana bir toplarsanız bir dosyayı
+[00:10:32] güncellediğiniz zaman onun bağlı olduğu
+[00:10:35] hepsi güncellenir. Bu sayede ne olur?
+[00:10:36] Uzun vadede rahat rahat işlem
+[00:10:38] yapabilirsiniz. Tek tek onu ayrı
+[00:10:39] değiştir, bunu ayrı değiştir, şunu ayrı
+[00:10:40] değiştir yapmazsınız. Aklınızda
+[00:10:42] bulunsun. E bu projede hani çok detaya
+[00:10:44] tekneye girmiyorum. Günlük hayatta
+[00:10:46] konuşma dili nasıl anlatılıyorsa bunlar
+[00:10:48] öyle anlatıyorum. O yüzden de çok hani
+[00:10:50] ya bu şu anlama geliyordu, bu şu demekti
+[00:10:52] falan takılmayın. Burada biraz vibe
+[00:10:53] coding yapıyoruz aslında. Formları
+[00:10:55] vesaire reusable yap diyorum. Reusable
+[00:10:59] yap. Her ekranda, her komponentte benzer
+[00:11:02] aynı fonksiyonları tek tek yeniden
+[00:11:05] yazma. Mevcutta varsa onları kullan.
+[00:11:09] Eee, basalım mı? Şöyle bir okuyalım.
+[00:11:12] Şimdi işlemler tamamlandı ama bir hata
+[00:11:14] almıştı arkadaşlar. Error, error deyip
+[00:11:15] deyip duruyor gördüğünüz gibi proje.
+[00:11:17] Şimdi ne yapıyorum? Şurada bir sayfayı
+[00:11:20] yeniliyorum. Şöyle R'ye basıyorum. Tamam
+[00:11:22] mı?
+[00:11:23] Hata geldi gördüğünüz gibi. Bunu şöyle
+[00:11:25] kopyaladım ve chat'e attım. Varsa onları
+[00:11:29] da düzelt diyorum. Enter'e bastım. Şimdi
+[00:11:31] terminal diyor. Expo'yu yeniden başlat
+[00:11:32] dedi. Şöyle önce bir reload yapalım.
+[00:11:34] Belki de proje direkt çalışır. Hani
+[00:11:35] hatası. Evet gördüğünüz gibi hatasız bir
+[00:11:37] şekilde çalıştı arkadaşlar. Biraz böyle
+[00:11:39] amatör bir login ekran olmuş ama fena
+[00:11:41] değil. Uçak koymuş. Buraya bir tane de
+[00:11:42] login başla diyor. Başla deyince üyelik
+[00:11:44] açıyor bizim için. Çok garip bir sorun
+[00:11:46] var. Bastığınız zaman görüyorsunuz.
+[00:11:48] Buradaki odak kayboluyor. Devam
+[00:11:50] edemiyorum. İşlemlere böyle yapalım.
+[00:11:52] Evet. Göremiyorum. Ha buraya şey koymuş.
+[00:11:53] Bak bu güzel olmuş. Göz koymuş. Ya da
+[00:11:55] maymun koymuş. Bu güzel olmuş mesela
+[00:11:57] şöyle. Ama maalesef yazamıyorum şu an
+[00:11:59] görüyorsunuz. Basıyor yazılmıyor. Tamam
+[00:12:00] bunu düzeltelim arkadaşlar. Bu arada
+[00:12:03] sorun çok komik bir sorun. Eee benim de
+[00:12:05] hayatımda ilk defa aslında karşılaştığım
+[00:12:06] bir sorun diyebiliriz. Emülatör kaynaklı
+[00:12:08] bir sıkıntıymış. Şurada anlatıyor
+[00:12:10] gördüğünüz gibi. Eee command K tuşuna
+[00:12:12] bastım. MacBook'ta şu şekilde açıldı bir
+[00:12:15] kere ve ardından aslında hata düzeldi.
+[00:12:17] Gittim emülatörü kapattım, açtım,
+[00:12:18] yeniledim vesairesinde herhangi bir
+[00:12:19] sıkıntı kalmadı. Gördüğünüz gibi şu an
+[00:12:21] düzeldi aslında. Ben de ilk daha böyle
+[00:12:22] bir hata yaşamıştım. Bunları yaşaya
+[00:12:23] yaşaya görüyoruz aslında. Neyse sıkıntı
+[00:12:25] yok. Garip bir hataydı. Birkaç program
+[00:12:27] hatta Opus 4.7'ye geçtim. 4.6 çözmedi
+[00:12:29] diye. İyi ki geçmişim çünkü 4.7 mesela
+[00:12:32] bana bu sugestion yaptı dedi ki böyle
+[00:12:34] bir şey vardı haberin olsun dedi ve
+[00:12:36] denedik harbiden öyle bir şey varmış
+[00:12:37] yani. Neyse sıkıntı yok. Şimdi tekrardan
+[00:12:39] eee Sonet'e geçmeyeceğim. Opus'tan biraz
+[00:12:41] devam edelim arkadaşlar. Amacımız şey
+[00:12:42] olsun. Biraz büyük ilk başta kurulumda
+[00:12:45] iyi yapalım her şeyi ki uzun vadede
+[00:12:46] sıkıntı yaşamayalım. Şifremi de girdim.
+[00:12:48] Giriş yapa bastım. Bakalım açılacak mı
+[00:12:50] proje. Evet projemiz açıldı.
+[00:12:52] Seyahatleriniz burada görünecek yakında
+[00:12:54] diyor. Aslında bizim seyahatlerimiz
+[00:12:55] vardı. Onları göstermemiş. Şimdi diyelim
+[00:12:58] ki tamam süper. Şimdi çalıştı diyorum.
+[00:13:01] Admayım 1 2 3. Bu hesabın datasına
+[00:13:05] bakabilirsin diyorum. Enter'a bastım.
+[00:13:07] Evet ve arkadaşlar beklediğimiz an
+[00:13:10] geldi. Uygulamamızın ana ekranı hazır.
+[00:13:12] Gördüğünüz gibi şu anda devam eden
+[00:13:15] seyahatlerde iki tane oluşturuluyor
+[00:13:16] şeklinde. Genel olarak güzel bir arayüz
+[00:13:18] olduğunu söyleyebiliriz. AI bakalım
+[00:13:19] çalışıyor mu? Çalışmıyor. Keşfet var.
+[00:13:21] Geçmiş var. Profil kış çap ve yakında
+[00:13:24] diyor. Tamamdır. Zaten profilimiz
+[00:13:26] normalde de yok aslında bizim. Burayı da
+[00:13:28] geliştiririz. Şimdi geçmiş kısmında eski
+[00:13:30] aradığımız eee geziler var. Görüyorsunuz
+[00:13:33] burada zaten belli. Şurada ufak bir
+[00:13:35] bug'ımız olmuş gördüğünüz gibi. Heh.
+[00:13:37] Mesela büyüdü, küçüldü. Bunu
+[00:13:39] düzelttiririz şimdi. Tamam. Şimdi ben
+[00:13:41] eee birkaç tane prom gireceğim. Ne
+[00:13:43] yapacağım? İşte şu hatayı
+[00:13:44] düzelttireceğim. Tamam mı? Ardından bu
+[00:13:46] ekranların detaylarını yapmasını
+[00:13:47] isteyeceğim. İşte projenin şu kısımdaki
+[00:13:49] şu kısmı kaldırtacağım. Buraya daha
+[00:13:50] düzgün bir şey atatacağım. Çünkü bu
+[00:13:52] oluşturuluyor aslında. Bir hani eve AI
+[00:13:55] tarafına bir bakmaya çalışacağım.
+[00:13:56] Bunları ben bir halledeyim. Yani şu
+[00:13:58] sıkıcı kısmını halledeyim. Ardından da
+[00:13:59] tekrar geleyim arkadaşlar. Boş ver.
+[00:14:01] Şimdi 20 dakika bunları şunu yap, bunu
+[00:14:03] yap düzeltmeyelim. Hemen ben bunları
+[00:14:05] yapıyorum ve geliyorum. Bu arada
+[00:14:06] arkadaşlar siz eee ben bunları yaparken
+[00:14:08] bir beğeni yorum atarsanız çok
+[00:14:10] sevinirim. Çünkü biliyorsunuz bu tarz
+[00:14:11] bir proje videosu yapmak hem yapması çok
+[00:14:13] zor bir de bunu eklemesi de ayrı bir zor
+[00:14:15] zaten. O yüzden de desteklerinizi
+[00:14:17] bekliyorum. Eee bu projeyi umarım baştan
+[00:14:20] sona geliştirip ardından da her hafta
+[00:14:22] yeni bir güncellemeyle App Store'da
+[00:14:24] bunları yayınla yayınlaya gideriz diye
+[00:14:26] düşünüyorum. Neyse hadi ben bunları
+[00:14:27] hemen halledeyim. Geliyorum hemen size
+[00:14:29] göstermek istedim. Böyle bir prompt
+[00:14:31] girdim. Nerede promptim arkadaşlar?
+[00:14:33] Burada bir yerde. Burada böyle prompt
+[00:14:35] girdim. Web'deki örnek fotoğrafı koydum
+[00:14:36] hızlı bir şekilde. Eee sonuç güzel oldu.
+[00:14:39] O yüzden göstermek istedim ben de size.
+[00:14:40] Hemen TIFT'e basıyorum arkadaşlar.
+[00:14:42] Buradan bize böyle bir yer açılıyor.
+[00:14:44] Görüyorsunuz burada haritayı açıyor bize
+[00:14:45] çok güzel bir şekilde. Otelimiz burada
+[00:14:48] root buradan başlıyor falan. Tabii root
+[00:14:49] yanlış şu an burada. Bunlar ayarlatırız.
+[00:14:51] Sıkıntı yok. Burada mesela R park diyor.
+[00:14:53] Birinci rotamız. İkinci Bridge of Peace
+[00:14:55] My değişik isimler var bu arada
+[00:14:57] Gürcistan'da. Kendimiz gittiğimiz zaman
+[00:14:59] orada şey yapmıştık biz bunları.
+[00:15:00] Denemiştik. Narikala cable car diyor
+[00:15:02] mesela 7. Not'a basıyorum. Hop ona
+[00:15:05] yaklaştırıyor. Buna tıklıyorum. Burada
+[00:15:07] açılıyor. Tamam. Şu an için bence gayet
+[00:15:09] ilerliyoruz. Ben biraz da toparlayıp
+[00:15:10] hemen geliyorum. Evet arkadaşlar son
+[00:15:12] durumda şu şekildeyiz. Bastığımız zaman
+[00:15:15] bize ufak bir de böyle öneri yani
+[00:15:16] burayla alakalı bir ufak bir yazı
+[00:15:19] soruyor. İşte yazı soruyor ve buranın ne
+[00:15:22] olduğunu falan anlatıyor. Bu arada bu
+[00:15:23] uygulamaya dil eee şeyi ekleyeceğiz. dil
+[00:15:26] desteği işte İngilizce, Türkçe ve
+[00:15:27] vesaire ekle hepsinde onlarda olacak
+[00:15:29] zaten. Bu arada şu hatayı da
+[00:15:31] düzelttirdim. Hatamız düzeldi gördüğünüz
+[00:15:34] gibi. Şimdi dedim ne yapabiliriz dedim.
+[00:15:36] Bana dedi ki biz dedi o zaman bir AI
+[00:15:37] plan wizard yapalım dedi. Yani şuradaki
+[00:15:39] AI plan var ya bunu aktive edelim dedi.
+[00:15:41] Ben de o zan yap dedim. Şu anda
+[00:15:43] gördüğünüz gibi 7 tane adımla biz nasıl
+[00:15:45] bir şey yapacağımızı burada planladı
+[00:15:47] yapıyor. Bu sırada arkadaşlar bu bunu
+[00:15:49] yaparken gelin biz de web sürümümüze bir
+[00:15:51] bakalım. Şimdi web sürümümüz tamamen
+[00:15:53] wipe codingle yapıldı. İşte ben
+[00:15:55] Gürcistan'dayken Cloud kullanarak
+[00:15:56] arkadaşlar 3 günde bunu yaptım. 10
+[00:15:58] dakikayı 15 dakika otele gelip hani
+[00:16:00] dinlendiğimiz vakitlerde bunu
+[00:16:01] geliştirdim. Testimi de şöyle yaptım.
+[00:16:04] Trip oluşturdum. Sonra Gürcistan'daki o
+[00:16:05] bulduğunuz kısımlara baktım. Gittiğimiz
+[00:16:07] yerlere baktım. Evet doğru yapmış hani
+[00:16:09] oradaki planı. O şekilde de çalıştığını
+[00:16:11] doğruladım. Ama tabii arka planda bir
+[00:16:13] sürü hata olabiliyor. Gelin o zaman bu
+[00:16:16] projeyi bir test edelim. Nasıl
+[00:16:17] yapıyoruz? Gelin size göstereyim. Şimdi
+[00:16:19] arkadaşlar viipe coding'in en büyük
+[00:16:20] problemi günümüzde ne? güvenlik açığı ya
+[00:16:23] da hatalar ya da user experience'ın yani
+[00:16:26] kullanıcı deneyimin hatalardan dolayı
+[00:16:27] düşmesi. Bunu da nasıl yapıyoruz?
+[00:16:29] Gidiyoruz tek tek kendimiz bunları
+[00:16:30] kontrol ediyoruz. Ama bu kadar çok hızlı
+[00:16:32] bir şey ekleyebilirken bu kadar da
+[00:16:34] detaylı bir şey test yapamıyoruz. Çünkü
+[00:16:36] üşeniyoruz. Ekibimizde yeterli eleman
+[00:16:39] olmuyor. Çünkü artık şirketlerde
+[00:16:40] özellikle startup'larda 2i tane çalışan
+[00:16:42] var mesela. Daha çoğu zaten founderlar
+[00:16:44] oluyor ve herkes bir şey yapıyor.
+[00:16:46] Ekliyor, ekliyor, ekliyor. Kimse bunu
+[00:16:47] test edip denemiyor. Çünkü herkes
+[00:16:48] birbirine güveniyor. Diyor ki o yapmışsa
+[00:16:50] olmuştur." diyor ve testi yapmıyor. Ve
+[00:16:52] işte production'da yani ürünü canlıy
+[00:16:54] aldığınız zaman arkadaşlar ne oluyor?
+[00:16:55] Hatalar gelmeye başlıyor. Müşteri
+[00:16:57] yazıyor bu ne? Bu çalışmıyor. Bu hata,
+[00:16:58] bu hata, bu hata. Gün sonunda üründen
+[00:17:01] maalesef ki kullanıcı deneyimini bayağı
+[00:17:03] düşürmüş oluyorsunuz ve bu da size
+[00:17:05] müşteri tarafında, satış tarafında
+[00:17:06] yansıyor. Uzun zamandır kullandığımız
+[00:17:08] bir tane tool var biliyorsunuz. bizim
+[00:17:09] için testlerimizi yapıyor ve yeni çok
+[00:17:11] büyük bir güncelleme gelmiş arkadaşlar
+[00:17:13] Test Sprite'a. Test sprite bizler için
+[00:17:15] artık sadece MCP konularak değil de web
+[00:17:17] üzerinden testlerini gerçekleştiriyor.
+[00:17:19] Bu test sadece gidip kodlarınızı veya
+[00:17:21] kod base'inizi incelemiyor. Tek tek
+[00:17:23] UI'daki veya backend'teki hataları
+[00:17:25] kendiniz deneyerek bunun sonucunda size
+[00:17:27] sonuçlarını gösteriyor. O zaman gelin
+[00:17:29] hızlı bir şekilde sizinle beraber bir
+[00:17:30] test yapalım. Test pl sitesine
+[00:17:32] geldiğimiz zaman gördüğünüz gibi sol
+[00:17:34] tarafta create test adında yeni bir
+[00:17:35] buton geldi arkadaşlar. Buna basıyoruz
+[00:17:37] ve bize diyor ki local IDE via MCP diyor
+[00:17:40] veya leave web app diyor. Zaten bu bizim
+[00:17:42] eskiden denediğimiz kısımdı. Yani MCP
+[00:17:44] yardımıyla yaptığımız testleri buradan
+[00:17:45] yapıyorduk eskiden. Artık arkadaşlar
+[00:17:47] live web yani canlıdaki herhangi bir
+[00:17:49] siteyi, bir uygulamayı test
+[00:17:50] edebiliyoruz. Buraya tıklıyorum ve
+[00:17:52] continue diyorum. Ardından benden bir
+[00:17:53] test ismi. Uygulamamızın adı neydi?
+[00:17:55] Where to go demiştik. Where to go dedim.
+[00:17:57] Ardından da next diyorum. Gördüğünüz
+[00:17:59] gibi arkadaşlar bize burada use case
+[00:18:02] flow'umuzu aslında gösteriyor. Diyor ki
+[00:18:04] örneğin public landing page kısmından
+[00:18:06] open landing page. Oradan işte signine
+[00:18:08] bas, start planning'e bas gibi bizim
+[00:18:09] butonlarımız aslında gösteriyor burada.
+[00:18:11] Bu eğer bu sizin için okey ise next
+[00:18:13] diyerekten devam edebiliriz. Biz bu
+[00:18:15] videoda sizlerle frontend testi
+[00:18:17] yapacağız. Frontend'e basıyorum.
+[00:18:19] Ardından eğer giriş bilgisi asitenizde
+[00:18:21] yani bir login register sistemi varsa
+[00:18:23] buradan onu verebiliyorsunuz. Ardından
+[00:18:25] da next diyorum. Şimdi arkadaşlar
+[00:18:27] eskiden test supply direkt olarak bizim
+[00:18:29] testlerimize başlıyordu. Ancak bu sefer
+[00:18:31] bizler için ajanları çalıştırıyor.
+[00:18:33] Bunlar bizim için sayfalarımızı tarıyor
+[00:18:35] arkadaşlar. Yaklaşık 3-4 dakika boyunca
+[00:18:37] bütün sayfalarımızda bu fonksiyonlara
+[00:18:39] genel olarak bakıyorlar. Nerede ne var?
+[00:18:41] Nerede ne var? UI elementleri nasıl
+[00:18:42] çalışıyor? Bunları analiz ediyor.
+[00:18:44] Ardından da bizim için testleri yapıp
+[00:18:47] testleri planlıyor. Kendisi login
+[00:18:48] ekranına gitti. Password'ümüzü yazdı ve
+[00:18:51] de giriş yaptı. Gördüğünüz gibi bütün
+[00:18:54] buradaki exploration kısmı yani UI'ımızı
+[00:18:56] tanıması bitti arkadaşlar. Bize bu
+[00:18:58] şekilde bir detaylı yazdı. Nerede ne
+[00:19:00] varsa keyui element işte burada sign
+[00:19:02] buton var, şu var, bu var diye bize
+[00:19:04] bunları yazıyor. O zaman gelin continue
+[00:19:06] to test plan diyerekten artık
+[00:19:08] testlerimizi planlayalım ve bakalım
+[00:19:09] nasıl şeyler yapacağız. Bize bu şekilde
+[00:19:12] testlerimizi hazırladı. Şu anda sign in
+[00:19:13] with ved credentials dedi ve burada ne
+[00:19:16] yapacağını anlattı. Generate test
+[00:19:18] diyorum ve de bana testlerimi şu anda
+[00:19:20] oluşturdu. Toplamda 16 tane testim
+[00:19:22] yaptı. Hepsi in progress. Yaklaşık 5 ile
+[00:19:25] 10 dakika arasında testlerim
+[00:19:26] tamamlanacaktır. O zaman testlerimiz
+[00:19:28] tamamlansın. Ardından da testlerimizi
+[00:19:29] inceleyelim. Bir tanesinden kalmışız.
+[00:19:31] Gelin bakalım niye kalmışız. Dashboard
+[00:19:33] without broken loading shells diyor.
+[00:19:35] Yani dashboard açıldığı zaman bazı hata
+[00:19:37] mesajları etiketleri oluyor ya aslında.
+[00:19:38] Onların gözükmemesi gerekiyor userd veya
+[00:19:40] o hata mesajlarının daha çok user
+[00:19:42] friendli bir halde gözükmesi gerekiyor.
+[00:19:44] Bakalım burada bize nasıl göstermiş onu
+[00:19:46] bir izleyelim.
+[00:19:51] kendi giriş yapıyor bu şekilde
+[00:19:53] dashboardumuza ve de burada arkadaşlar
+[00:19:55] test bitiyor. Burada olayımız ne?
+[00:19:57] Görüyorsunuz burada bir error yazıyor.
+[00:19:59] Yani şimdi burada error yazmaması
+[00:20:00] gerekiyor. Eğer bu hatalı bir kartsa
+[00:20:02] bunun hiç olmaması gerekiyor veya niye
+[00:20:04] hata verdiğini orada yazması gerekiyor.
+[00:20:06] Bunu burada böyle bir hata olduğunu bize
+[00:20:08] anlatıyor orada. Ve nasıl bunu
+[00:20:10] fixleyeceğimiz de burada bize
+[00:20:12] tavsiyesini veriyor. Gördüğünüz gibi sol
+[00:20:14] tarafta da bütün stepleri tek tek
+[00:20:16] arkadaşlar görebiliyorsunuz ve bize bir
+[00:20:18] test raporu oluşturuyor arkadaşlar.
+[00:20:19] Burada da test sumarisini, ne yaptığını
+[00:20:22] vesairesini anlatıyor. Neler daha iyi
+[00:20:24] olabilirdi ve de tavsiyelerini de burada
+[00:20:26] bize sunuyor. Test bu şekildeydi
+[00:20:29] arkadaşlar. Yeni güncellemesi bence
+[00:20:30] bayağı güzel olmuş. Eğer denemek
+[00:20:32] isterseniz ve bir ay boyunca ücretsiz
+[00:20:33] kullanmak isterseniz açıklamalar
+[00:20:35] kısmındaki linkten bir üge olarak
+[00:20:36] arkadaşlar bir ay boyunca ücretsiz
+[00:20:38] deneyebilirsiniz. Eğer memnun kalırsanız
+[00:20:40] da sonrasında devam edebilirsiniz. Evet
+[00:20:43] arkadaşlar bazılar yaptım. E kısmını
+[00:20:45] artık aktif ettik. Biraz yavaş
+[00:20:47] çalışıyordu. Yavaş çalıştığı için de
+[00:20:48] birkaç tane prompt girdim buraya. Dedim
+[00:20:50] ki işte bunları düzelt falan dedim.
+[00:20:51] Hatta şunu söyledim arkadaşlar. E bizim
+[00:20:53] web'deki projemizin dosyalarını alın
+[00:20:54] buna atın. Dedim ki bak bunu bir incele.
+[00:20:56] Burada var. Biraz daha hızlı çalışıyor
+[00:20:57] dedim. O da bana şunu söyledi. Neredeydi
+[00:21:00] o?
+[00:21:02] Web'deki daha iyi değil daha kötü. Biz
+[00:21:04] ondan daha iyisini yaparız diye bir plan
+[00:21:06] oluşturdu ve yaptığını söyledi. Birkaç T
+[00:21:09] düzelttirdi. Daha da güzel bir hale
+[00:21:11] getirdiğini söyledi. Bakalım ne yapmış o
+[00:21:12] zaman? Şöyle bir gelelim arkadaşlar. A
+[00:21:14] iplerine bastım. Türkiye'yi seçtim.
+[00:21:16] Buradan nereye gideceğimi İstanbul
+[00:21:18] diyorum. Oradan da varış tarihi diyor.
+[00:21:19] 16'ya 17 Mayıs 3 günlük diyor. Burada
+[00:21:21] bir sıkıntı var. Tam 16 May
+[00:21:25] direkt kapatmıyor. 18 May diyelim. 4
+[00:21:28] günlük de halbuki 2 günlük bir 2 gece 3
+[00:21:30] günlük olsa gene olmuyor. Her türlü şu
+[00:21:32] bir hatalı. Bunun eklen görünsünü
+[00:21:33] alalım. Şuraya koyalım. Bu dursun. İleri
+[00:21:36] diyorum. Örneğin diyor Hilton otel seç
+[00:21:39] diyor. Otelim yok diyorum. Şehir
+[00:21:40] merkezini kullansın. İleri diyorum.
+[00:21:42] Tarihi fotoğraf doğal yerel yemek
+[00:21:45] dengeli oluştura bastım. Evet burada
+[00:21:48] bana bunları yap. Demin bu arkadaşlar
+[00:21:50] totalde 2 dakika sürmüştü bunu
+[00:21:52] bitirmesi. Bakalım şimdi kaç saniyede
+[00:21:53] yapacak.
+[00:21:57] Evet şimdi biraz daha hızlı yaptı. 18
+[00:21:58] saniye. Aynen. Tamam. 19 saniyede yaptı
+[00:22:00] arkadaşlar. Bayağı hızlandırmış. E ha
+[00:22:02] ilk günü hazırlıyor, sonra diğer günden
+[00:22:04] hazırlanıyor diye bekliyor. Ha mantıklı
+[00:22:05] olmuş aslında. Şimdi 4 günün de orada
+[00:22:07] hazırlanmasını beklemekten ziyade işte
+[00:22:09] bir gün hazırlamış. Biz buna bakarken
+[00:22:11] diğer günleri de yapmış. Aynen.
+[00:22:13] Tamamdır. Bunu da böyle aşağı doğru
+[00:22:15] kaydırabiliyoruz artık.
+[00:22:19] Hatta genişletebiliyoruz. Güzel. Bunu da
+[00:22:20] eklemiş. Bunu söylemiştim eklemesini. Bu
+[00:22:22] da bayağı iyi çalışıyor şu anda. Tam
+[00:22:24] ortada kalsın derken uygulamayı kapattık
+[00:22:26] direkt. Tamam. Burada arkadaşlar bize
+[00:22:29] şuradan diyor başla diyor. Oradan
+[00:22:31] birinci noktaya git diyor. 2 3 diyor.
+[00:22:32] Şurada biraz yürü diyor. Aynen. Sultan
+[00:22:34] Ahmet meydanıda diyor 20 dakika yürü
+[00:22:36] diyor. Oradan Arasta pazara git diyor.
+[00:22:38] Orada yürü diyor. Bunlara git diyor. Tek
+[00:22:40] tek gösteriyor. Fena değil. Şimdi kaç
+[00:22:43] gün yaptı? İkinci günü yaptı. 3ün günü
+[00:22:46] yapacak. Böyle
+[00:22:48] geçen 3ün günü hazırlıyor sanırım. Daha
+[00:22:50] hazırlamış ama aradaki root'lar
+[00:22:52] gözükmüyor. Mesela şöyle bir sıkıntı
+[00:22:54] var. Şimdi burada bir e rota var. Mesela
+[00:22:56] şurada denizin ortasındayız. E bunun
+[00:22:58] sebebi şu. Bu web'de de çok fazla
+[00:22:59] oluyordu arkadaşlar. Şimdi yollardaki
+[00:23:01] bazı eee şey var ya koordinatlar var ya
+[00:23:05] koordinatları yanlış alıyor. Yanlış
+[00:23:06] aldığı için de map'te yanlış yerleri
+[00:23:08] seçiyor ve bu yüzden de böyle sorunlar
+[00:23:09] oluyor. Bu web'de de aynı sorun
+[00:23:11] mevcuttu. Şimdi bununla alakalı bir tane
+[00:23:13] prompt gireceğim. Şunun da fotoğrafını
+[00:23:14] çekelim. Şöyle bunları düzelttirtelim.
+[00:23:17] Bir diyorum. Önce şu e tarih seçince
+[00:23:19] alttaki tarih söyleyen 2 diyorum. Eee,
+[00:23:23] takvimde gün seçtikten tekrar üstteki
+[00:23:26] takvim e denizin ortasında yürüme yeri
+[00:23:30] çıkmış. Bu eskiden webte de oluyordu.
+[00:23:33] Eee, koordinat ile alakalı bir sorun
+[00:23:36] diyorum. Bunu web kodlarını sen de
+[00:23:38] detaylı bir şimdi arkadaşlar bir de ben
+[00:23:41] buna aslında bir chat eklemek istiyorum.
+[00:23:42] Mesela böyle bir seçim yerimiz var ya.
+[00:23:45] Şimdi AI Len ile hızlıca burada web'de
+[00:23:48] olmayan bir özellik eklemesini istedim.
+[00:23:49] Yani şu an mesela en sonuçtuğumuz trip
+[00:23:51] neydi? İstanbul trip burada İstanbul
+[00:23:53] gezisi buradayken mesela arkadaşlar
+[00:23:55] şuraya sağ üste bir e işareti eklesin
+[00:23:57] mesela
+[00:23:59] bu çalış çalıştırmak için bir AI ibaresi
+[00:24:03] ile hızlı cat açma olayı yapabiliriz
+[00:24:06] diğer yani bence güzel olur. Enter'a
+[00:24:08] bastım. O zaman gelin son bir kez ne
+[00:24:11] yapmış ne etmiş bir görelim arkadaşlar.
+[00:24:14] Hızlıca bunları seçiyorum. Aynı şekilde
+[00:24:16] bu sefer düzeltmiş mi? Yani 16 Mayıs 18
+[00:24:18] Mayıs 3 günlük diyor ama hani 16 18 16
+[00:24:22] 17 18 3 gün oluyor. Doğru.
+[00:24:25] İleri diyorum otel seçmiyorum. Bunu da
+[00:24:28] hızı seçiyorum. İleri diyorum geliyor.
+[00:24:31] Şimdi ilk aşamada bu hani akışlar doğru
+[00:24:33] olsun zaten günün sonunda yapacağı root
+[00:24:35] var ya onu zaten düzeltiyoruz. Çünkü
+[00:24:36] webde de bunu aynı zam yaşadığım için
+[00:24:38] ilk başta bu eee genel yapının işte
+[00:24:40] çalışmasının hataların buglarını
+[00:24:42] düzelttikten sonra zaten oluşturduğu
+[00:24:44] rotayı eee düzelttirtebiliriz. Diyoruz
+[00:24:45] ki örneğin işte ilk gün otelin
+[00:24:47] çevresindeki yürüme mesafesi olan
+[00:24:49] kısımları söyle. İşte ikinci gün daha
+[00:24:50] uzak mesafeleri söyle. 3üncü gün biraz
+[00:24:52] daha etrafı işte arabayla gitmesi
+[00:24:53] gereken yerleri söyle gibi bunu
+[00:24:55] çevirebiliyorsunuz arkadaşlar. O yüzden
+[00:24:56] şu an hani ya işte öyle rotam olur falan
+[00:24:58] diye düşünmeyin onu çok fazla. Mesela
+[00:24:59] bir hata aldık şu anda. Ne diyor?
+[00:25:02] Infinite loop var demiş. Evet bunu
+[00:25:04] mesela düzeltsin. Bu ve buna benzer
+[00:25:07] hataları düzelt dedim. Şöyle yani. O
+[00:25:09] yüzden de amacımız eee uygulama biraz
+[00:25:12] çalışsın. Hataları giderelim. En sonunda
+[00:25:14] da böyle mantık hatalarını gidireceğiz.
+[00:25:15] Yani onun için şu anda berde rotanın
+[00:25:18] yanlış olması falan çok önemli değil.
+[00:25:19] Zaten web'deki sürüm biraz daha doğru
+[00:25:21] olduğu için aynı rotayı hem burada girip
+[00:25:23] hem orada girip aradaki farkı
+[00:25:24] karşılaştırabiliriz. Şimdi tabii bunun
+[00:25:26] asıl mantıklı olan kısmı şuydu. Şimdi
+[00:25:28] web'deki aynı yapıyı direkt mobile'e
+[00:25:30] koyması gerekiyor aslında ama biz onu
+[00:25:32] yapmadık. Direkt sıfırdan bir şey
+[00:25:33] yaptık. Sadece aynı database'i, aynı eee
+[00:25:35] ve kendini kullanıyoruz aslında burada
+[00:25:36] biraz. Çok bir önemli mi? Değil. Çünkü
+[00:25:39] burada biraz daha hani mobil tarafında
+[00:25:41] baştan bir yeni sistem yapıyormuşuz gibi
+[00:25:43] aslında. Hemen zaten düzeltti. Başka var
+[00:25:45] mı kontrol edeyim diyor. Biz o ara şöyle
+[00:25:47] uygulamay bir yenileyelim. Mesela
+[00:25:49] gördüğünüz gibi üç yerde diyor aynı
+[00:25:50] şekilde bug var diyor. Yani bunu bunu
+[00:25:53] çözmeseydim biraz sonra tekrar
+[00:25:54] açıacaktık. Tekrar tekrar açacaktık. O
+[00:25:57] yüzden bu tarz bir hata aldığınız zaman
+[00:25:58] deyin ki bu hatayı çöz. Buna benzer
+[00:26:00] değerlerini de kontrol et. Onları çöz
+[00:26:02] diye söyleyin ki tek promda onları
+[00:26:04] yapsın. Tek tek uğraşmayın bunlarla.
+[00:26:06] Tamamdır. Hatalar çözüldü. Bir daha
+[00:26:08] yeniliyorum uygulama. Hızlıca bunları
+[00:26:11] seçiyorum. Hızlı hızlı.
+[00:26:20] Ve rotamız hazır arkadaşlar. Eee zaten
+[00:26:23] gördüğünüz gibi gene benzer bir rotayı
+[00:26:24] çizdi buraya bize. Burada da bir AI
+[00:26:26] butonu koydu. Şimdi istediğimiz şey
+[00:26:28] aslında buraya koyması ama biraz
+[00:26:29] görsellik bozuldu. Çok önemli mi? Değil.
+[00:26:31] Onu düzeltiriz. Çok merak ediyorum ne
+[00:26:33] yaptığını. E'ye bastım. Evet. Bana bir
+[00:26:35] sohbet asistanı açıldı. Mesela yemek
+[00:26:37] önerileri isteyelim mesela. Evet bu
+[00:26:39] şekilde bir hızlı cevap verdi. Şimdi
+[00:26:41] burada aslında tekrarlaştırmadan
+[00:26:43] geçmişimiz kalıyor. Güzel. Buradan
+[00:26:44] aslında biz şunu istiyoruz arkadaşlar.
+[00:26:46] Bu yayı niye ekleyelim? Örneğin işte
+[00:26:48] burada böyle bir plan var ve diyelim ki
+[00:26:49] işte şu an günün diyelim hani öğlen
+[00:26:52] 3'tesiniz ve bir kısmına gittiniz.
+[00:26:54] Bunların yanına tik koyacağız. Bunlar
+[00:26:55] işte gittim gittim gittim diye
+[00:26:57] işaretleyeceksiniz bunları. Ve eee
+[00:26:59] geldiğimiz zaman sağ tuşa 3 diyeceğiz
+[00:27:02] işte eee bir yemek yemek istiyorum
+[00:27:04] diyeceğiz ve de AI burada şunu bakacak.
+[00:27:06] bizim mevcuttaki gittiğimiz yerlere
+[00:27:08] bakacak ve tahmini olarak olduğumuz
+[00:27:10] location'ı görecek. Hatta ve hatta konum
+[00:27:12] iznine verdiğimiz için direkt olarak
+[00:27:14] bulunduğumuz mekanı görecek. Ve bu
+[00:27:16] sayede bize diyecek ki sen işte şuralara
+[00:27:18] gitmişsin zaten. Sıradaki eee lokasyonun
+[00:27:21] Topkapı Palası. O zaman sana işte
+[00:27:23] Topkapı Sarayı'nın nerede mesela?
+[00:27:26] Topkapı Sarayı'nın etrafında bir yemek
+[00:27:28] yerler önereyim diyecek. Mesela diyecek
+[00:27:30] ki işte Topkapıya işte 20 dakika veya 10
+[00:27:31] dakika yürüme mesafesinde böyle şöyle
+[00:27:34] şöyle kafeler var. buraya gidip yemek
+[00:27:35] yiyebilirsin diyecek. Veya örneğin
+[00:27:37] diyeceğim ki işte Topkapı Sarayı var
+[00:27:39] mesela burada. Bunun yanına şöyle bir AI
+[00:27:41] butonu daha gideceğim. Basacağım
+[00:27:42] arkadaşlar bana Topkapı Sarayıla alakalı
+[00:27:44] bir hikaye anlatacak. Yani Topkapı
+[00:27:46] Sarayının hikayesi nedir? Ne olmuş, ne
+[00:27:48] bitmiş, geçmişi nedir diye bana böyle
+[00:27:50] bir hikaye anlatacak. Mesela buraya
+[00:27:51] butonları koyuyor işte hikayesini anlat,
+[00:27:53] şununu söyle, bunun söyle falan filan.
+[00:27:55] Onları aslında anlatacak. Yani EI'yı
+[00:27:57] burada böyle kullanacağız. Ve de
+[00:27:59] arkadaşlar şimdi biz burada hep EI
+[00:28:00] kullanıyoruz. Biliyorsunuz ki EI'da bir
+[00:28:02] maliyeti var sonuçta burada GPT'nin APIS
+[00:28:04] var. Haberiniz olsun. Yani bunlar bedava
+[00:28:06] değil. Şu anda her attığımız bir istek
+[00:28:08] bize bir maliyet var. E burada da e
+[00:28:11] burada da arkadaşlar tabii ki de
+[00:28:12] durumlar şöyle. Eee biz bu
+[00:28:15] araştırdığımız her rotayı, her planı
+[00:28:18] aslında kendi databaseimize
+[00:28:19] kaydedeceğiz. Diyelim ki bugün ben bu
+[00:28:22] rotayı oluşturdum ya işte aynı şeyleri
+[00:28:23] seçtim. Siz de üyelik açıp benzer rotayı
+[00:28:27] oluşturmak istediğiniz zaman otomatik
+[00:28:29] olarak size database'den bunları
+[00:28:30] verecek. Yani her seferinde eğer yeni
+[00:28:32] bir nota oluşturmayacak size. Çünkü
+[00:28:34] zaten bir şehre gittiğiniz zaman
+[00:28:36] konumlarınız yakınsa zaten yapacağınız
+[00:28:38] şeyler biraz bellidir. Çok fazla
+[00:28:39] değişmez. Ha user ne yapar? Bunu
+[00:28:41] beğenmez. Der ki tekrar üret. O zaman AI
+[00:28:43] tekrar çalışır mesela. Bu sayede de ne
+[00:28:45] olacak? Biz aslında belli bir süre sonra
+[00:28:47] AI maliyetini düşürmüş olacağız.
+[00:28:49] Özellikle mesela şu dediğim olay vardı
+[00:28:51] ise hikaye olayı. Buraya mesela
+[00:28:53] topkopasını bir kişi bir gün araştırdığı
+[00:28:55] zaman onun hikayesi kayıtlı kalacak. Ve
+[00:28:57] bu sayede ne olacak arkadaşlar? İnsanlar
+[00:28:59] Topkapı Sarayının hikayesini dinlemek
+[00:29:01] istediği zaman bastığı zaman e
+[00:29:03] çalışmayacak. Direkt olarak bizim
+[00:29:04] database'deki hazır hikaye oraya gelecek
+[00:29:06] aslında. Ve bu sayede uzun v dediğim
+[00:29:08] gibi e maliyeti düşecek. Tabi bu benim
+[00:29:10] aklımdaki plan. Bu şekilde. Kim bildir
+[00:29:12] böyle çalışır mı çalışmaz mı bilmiyoruz.
+[00:29:13] Onu göreceğiz beraber. Şimdi diğer
+[00:29:16] tarafta arkadaşlar bu eee projede neler
+[00:29:19] yapacağız size biraz ondan bahsedeyim.
+[00:29:21] Şunu yapacağız. Bu projenin dediğim gibi
+[00:29:23] genel yapısını düzeltmeye devam edeceğiz
+[00:29:25] arkadaşlar. Bu ekranlarını düzelteceğiz.
+[00:29:27] Ben bunların hatta bir kısmını video
+[00:29:28] dışında düzeltirim ki videoda boş yere
+[00:29:30] vakit kaybetmeyelim. Hatta biraz böyle
+[00:29:32] sağın solunu düzeltirim. Daha modern bir
+[00:29:33] hale getiririm bunları. Ama günün
+[00:29:35] sonunda bir ne yapmamız gerekiyor? Para
+[00:29:38] kazanmak gerekiyor. Yani gelir modeli.
+[00:29:39] Peki gelir modeli ne arkadaşlar? Bu
+[00:29:41] uygulamanın reklam ekleyeceğiz.
+[00:29:42] Öncelikle reklamlarımız olacak. Admob
+[00:29:44] reklamları. Diğer tarafta da aboneling
+[00:29:46] özelliği ekleyeceğiz. Yani Reven
+[00:29:48] Cadet'le veya işte direkt App Store'un
+[00:29:50] kendi özelliğiyle bir eee premium viıp
+[00:29:53] işte her ne derseniz Pro eee abonelik
+[00:29:55] ekleyeceğiz ve bu sayede insanlar işte
+[00:29:56] aylık 1 dolara dolara bunu alacaklar ve
+[00:30:00] erişim elde edecekler veya belli bir
+[00:30:01] sayıda tokenleri olacak mesela bu
+[00:30:03] şekilde yapacağız veya reklam
+[00:30:04] izleyecekler. Reklam karşısında onlara
+[00:30:06] kredi vereceğiz ve bu şekilde arama
+[00:30:07] yapacaklar. Ya bunu zaten sizinle
+[00:30:09] beraber karar veririz. Eee şimdilik bu
+[00:30:12] videoyu burada bitirelim. Çok fazla
+[00:30:13] uzatmayalım. zaten saat 12'ye doğru
+[00:30:15] geliyor. Zaten ben bunun editlemesini
+[00:30:17] falan bitirene kadar zaten sabah olur.
+[00:30:18] Hızlı bir şekilde siz de bu videoyu bir
+[00:30:20] iki güne izlersiniz zaten. Eee, aklınıza
+[00:30:22] gelen fikirleri yorumlarda bekliyorum.
+[00:30:24] Eee, bu projeden çok eminim. Yani
+[00:30:25] yayınlayacağım. E, hemen şunu
+[00:30:27] söyleyeyim. Dürüst bir yorum yapayım
+[00:30:28] kendime. Bu fikir baktığımız zaman güzel
+[00:30:30] gözüküyor arkadaşlar ama şunu
+[00:30:32] unutuyoruz. Fikirin güzel olması önemli
+[00:30:34] değil. Önemli olan şey arkadaşlar bunu
+[00:30:36] kimin kullanacağı. Şimdi bunu kullanacak
+[00:30:38] insanlar her gün buna girip e
+[00:30:40] kullanmazsa, vakit ayırmazsa bu projenin
+[00:30:42] bir anlamı, bir değeri yok. Çünkü para
+[00:30:45] kazandırmaz. Yılda bir kere açacağınız
+[00:30:47] bir proje doğal olarak da arkadaşlar
+[00:30:49] günün sonunda bir değer elde etmiyor
+[00:30:50] aslında. Çünkü bir insan yani yılda kaç
+[00:30:53] kere gezebilir. O yüzden de yılda kaç
+[00:30:55] kere sizin uygulamanızı açabilir onu
+[00:30:57] düşünmek gerekiyor. Neyse ama güzel bir
+[00:30:59] proje. Fikir güzel en azından. Hem de
+[00:31:01] görmüş olacağız yayınladıktan sonra ne
+[00:31:02] kadar gelir elde edecek, kim indirecek,
+[00:31:04] eee, Admop'tan ne gelecek, kimler
+[00:31:06] abonelik alacağız. görmüş olacağız. Bu
+[00:31:08] yüzden de bence güzel bir proje. E bir
+[00:31:09] sonraki videoda dediğim gibi reklam
+[00:31:11] gelirlerini ayarlayalım. Abonelik
+[00:31:13] sistemi ekleyelim. Genel yapıyı
+[00:31:14] düzeltelim ve de yavaş yavaş App
+[00:31:16] Store'da ve Play Store'da yayınlamanın
+[00:31:18] altyapısını hazırlayalım. Bu şekilde de
+[00:31:20] hem cloud kodu arkadaşlar görmüş oluruz
+[00:31:22] neler yaptığını hem de projeyi
+[00:31:24] ilerletiyoruz. Bu arada e videonun
+[00:31:26] yarısında Sonic kullandık yarısında Opus
+[00:31:28] kullandık. Sağ tarafa bastığımız zaman
+[00:31:30] şu anda gördüğünüz gibi arkadaşlar 5
+[00:31:32] saatlik limitten %28 %28 kullanmışız.
+[00:31:35] Ancak bu zaten limit bir kere
+[00:31:37] sıfırlandı. Çünkü ben bu videoyu ta
+[00:31:38] öğlen başladım. Şu an saat 11 oldu. Yani
+[00:31:40] zaten aslında iki kere session geçti.
+[00:31:42] Ama ona rağmen çok az kullanmışız. E
+[00:31:45] bunun sebebi de şu. Geçenlerde bir haber
+[00:31:47] çıktı. Dün mü çıkmıştı? İk önce mi ne
+[00:31:49] çıkmıştı? Eee sonet aman sonet diyorum.
+[00:31:51] Codex benim kafa gitti iyice. Cl
+[00:31:54] arkadaşlar antropik daha doğrusu
+[00:31:56] kullanım limitlerini arttırır tekrardan.
+[00:31:58] Çünkü bu hatırlarsanız Space X'te bir
+[00:32:00] anlaşma yaptılar. O yüzden limitler
+[00:32:02] arttırıldı. Şu anda biraz daha fazla
+[00:32:04] tokeniniz yani fazla kullanım hakkınız
+[00:32:06] var aslında. E durumlar böyle diyelim
+[00:32:09] ama gene de az harcadığını
+[00:32:10] söyleyebiliriz şu anda. Eee yani cloud
+[00:32:13] kodla şu anda ilişkimiz iyi gidiyor.
+[00:32:15] Bakalım. Tamamdır. Umarım video hoşunuza
+[00:32:17] gitmiştir. Umarım faydalı olmuştur. O
+[00:32:19] zaman bir sonraki videoda görüşmek
+[00:32:21] üzere. Yeah.
