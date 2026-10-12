@@ -1,0 +1,264 @@
+<title>Vitrin Sosyal Kiti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400;100..125,500;100..125,800&display=swap">
+<style>
+/* Düzen: tek sütun iş akışı; her gün bir satır kartı (görseller solda kayar, metin sağda kopyalanır). Token'lar Vitrin DESIGN.md'den. */
+:root{
+  --bg:#FFFFFF; --surface:#F3F5F2; --fg:#0E1512; --muted:#4F5B55; --border:#DCE2DE;
+  --primary:#D7381E; --primary-fg:#FFFFFF; --primary-text:#B92E17; --ok:#1F7A4D; --warn:#8A5A00;
+  --f:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1512; --surface:#151E1A; --fg:#EEF2EF; --muted:#A3AFA9; --border:#26322C;
+  --primary:#FF5A3C; --primary-fg:#0E1512; --primary-text:#FF5A3C; --ok:#3DBE7E; --warn:#E3B04B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1512; --surface:#151E1A; --fg:#EEF2EF; --muted:#A3AFA9; --border:#26322C;
+  --primary:#FF5A3C; --primary-fg:#0E1512; --primary-text:#FF5A3C; --ok:#3DBE7E; --warn:#E3B04B; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:20px 64px}
+h1,h2,h3{font-stretch:112%;font-weight:800;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,5vw,44px);line-height:1}
+h2{font-size:clamp(22px,3.4vw,30px);line-height:1.05}
+h3{font-size:19px;line-height:1.15}
+.mut{color:var(--muted)}
+.ust{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.ust p{margin:8px 0 0;max-width:60ch}
+.say{display:flex;gap:18px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.say b{display:block;font-size:22px;font-stretch:112%;font-weight:800}
+.say span{font-size:13px;color:var(--muted)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:8px;overflow-x:auto;padding-block:10px;border-bottom:1px solid var(--border)}
+nav a{flex:none;text-decoration:none;color:var(--fg);font-weight:500;font-size:14px;height:36px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid var(--border);border-radius:999px}
+nav a:hover,nav a:focus-visible{border-color:var(--fg);outline:none}
+section{padding-top:36px;scroll-margin-top:64px}
+.bas{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:14px}
+.eb{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--muted)}
+.eb::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.btn{font:inherit;font-weight:500;font-size:14px;height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--bg);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--fg)}
+.btn:focus-visible{outline:3px solid color-mix(in srgb,var(--primary) 40%,transparent);outline-offset:1px}
+.btn.ana{background:var(--primary);color:var(--primary-fg);border-color:var(--primary)}
+.btn.tamam{border-color:var(--ok);color:var(--ok)}
+.kart{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--bg)}
+.ikili{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.ikili{grid-template-columns:minmax(0,1fr)}}
+pre.metin{white-space:pre-wrap;font:inherit;margin:0;background:var(--surface);border-radius:8px;padding:12px 14px;max-height:340px;overflow:auto}
+.cip{display:inline-flex;align-items:center;font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
+.cip.ornek{border-color:var(--primary-text);color:var(--primary-text)}
+/* gün kartları */
+.gun{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--border)}
+@media (max-width:860px){.gun{grid-template-columns:minmax(0,1fr)}}
+.gun-no{font-stretch:112%;font-weight:800;font-size:13px;color:var(--primary-text);font-variant-numeric:tabular-nums}
+.serit{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.serit button{flex:none;scroll-snap-align:start;padding:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.serit img{display:block;height:300px;width:auto;max-width:none}
+.serit.dar img{height:260px}
+.sekme{display:flex;gap:6px;margin:10px 0 8px;flex-wrap:wrap;align-items:center}
+.sekme [aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.alt-satir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.hs{font-size:14px;color:var(--muted);flex:1;min-width:0}
+.not{font-size:13px;color:var(--muted);margin-top:8px}
+details{margin-top:10px}
+summary{cursor:pointer;font-weight:500}
+.tablo{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-weight:500;color:var(--muted);white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+/* profil */
+.profil{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:760px){.profil{grid-template-columns:minmax(0,1fr)}}
+.kapaklar{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.kapaklar figure{margin:0;text-align:center;font-size:13px}
+.kapaklar img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid var(--border);display:block;margin:0 auto 6px}
+.pp{width:96px;height:96px;border-radius:50%;border:1px solid var(--border)}
+.izgara img{width:100%;max-width:520px;border-radius:8px;border:1px solid var(--border);display:block}
+/* reklam */
+.reklam{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--border)}
+@media (max-width:760px){.reklam{grid-template-columns:minmax(0,1fr)}}
+.reklam .gorsel{display:flex;gap:8px;align-items:flex-start;overflow-x:auto}
+.reklam .gorsel button{padding:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.reklam .gorsel img{height:240px;width:auto;max-width:none;display:block}
+.puan{display:flex;align-items:baseline;gap:10px}
+.puan b{font-size:34px;font-stretch:112%;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.cubuklar{display:grid;grid-template-columns:auto minmax(0,1fr) 32px;gap:4px 10px;align-items:center;font-size:13px;margin-top:10px;max-width:420px}
+.cubuk{height:6px;background:var(--surface);border-radius:999px;overflow:hidden}
+.cubuk i{display:block;height:100%;background:var(--fg)}
+.cubuk i.dusuk{background:var(--warn)}
+.karar{font-size:13px;font-weight:500}
+.karar.yay{color:var(--ok)} .karar.yedek{color:var(--warn)}
+.kampanya ul{margin:8px 0 0;padding-left:18px}
+.kampanya li{margin:4px 0}
+.uyari{border-left:3px solid var(--warn);padding:8px 12px;background:var(--surface);border-radius:0 8px 8px 0;font-size:14px}
+/* büyük görsel */
+#buyuk{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#buyuk[hidden]{display:none}
+#buyuk img{max-height:calc(100% - 60px);max-width:100%;border-radius:8px;border:1px solid var(--border)}
+#buyuk p{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <header class="ust">
+    <div>
+      <span class="eb">Vitrin Atölyesi · Instagram + Facebook</span>
+      <h1 style="margin-top:8px">Sosyal kit: ilk 14 gün</h1>
+      <p class="mut">Hesap açılınca sırayla paylaş. Her gün: görseller, iki caption seçeneği, hashtag. Kopyala butonuna bas, Instagram'a yapıştır. Görseli kaydetmek için büyüt, basılı tut.</p>
+    </div>
+    <div class="say" id="sayilar"></div>
+  </header>
+  <nav aria-label="Bölümler">
+    <a href="#profil">Profil</a><a href="#izgara">Izgara</a><a href="#gunler">14 gün</a><a href="#reklam">Reklam</a><a href="#kampanya">Kampanya</a>
+  </nav>
+
+  <section id="profil">
+    <div class="bas"><h2>Profil kiti</h2><span class="mut">1. gün kur</span></div>
+    <div class="profil">
+      <div class="kart">
+        <div style="display:flex;gap:14px;align-items:center">
+          <img class="pp" id="pp" alt="Profil görseli: koyu zemin üstünde kırmızı V işareti">
+          <div><h3 id="adAlan"></h3><div class="mut" style="font-size:13px">Ad alanı (aramada çıkar)</div></div>
+        </div>
+        <div class="sekme"><strong style="font-weight:500">Bio</strong><span class="mut" id="bioSay" style="font-size:13px"></span></div>
+        <pre class="metin" id="bio"></pre>
+        <div class="alt-satir"><button class="btn ana" data-kopya="bio">Bio'yu kopyala</button><button class="btn" data-kopya="ad">Ad alanını kopyala</button></div>
+      </div>
+      <div class="kart">
+        <h3>Öne çıkan kapakları</h3>
+        <p class="mut" style="margin:6px 0 0;font-size:14px">Adı Instagram'a sen yazarsın; kapakta yazı yok.</p>
+        <div class="kapaklar" id="kapaklar"></div>
+        <div class="not">Kullanıcı adı önerisi: @vitrinatolyesi (doluysa @vitrin.atolyesi). Link, WhatsApp, e-posta: hesap açılınca eklenecek.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="izgara">
+    <div class="bas"><h2>Profil ızgarası önizlemesi</h2><span class="mut">14. gün sonunda böyle görünür (en yeni sol üstte)</span></div>
+    <div class="izgara"><button class="btn" style="all:unset;cursor:zoom-in;display:block" data-buyut="img/izgara.jpg"><img src="img/izgara.jpg" alt="12 gönderinin 3 sütunlu profil ızgarası önizlemesi"></button></div>
+  </section>
+
+  <section id="gunler">
+    <div class="bas"><h2>14 günlük akış</h2><span class="mut">Gün 2 ve 14 sadece story (görsel yok)</span></div>
+    <div id="gunListe"></div>
+  </section>
+
+  <section id="reklam">
+    <div class="bas"><h2>Reklam kreatifleri</h2><span class="mut">Her biri feed 4:5 + story 9:16 · eşik 70</span></div>
+    <div id="reklamListe"></div>
+  </section>
+
+  <section id="kampanya" class="kampanya">
+    <div class="bas"><h2>Meta kampanya kurulumu</h2><span class="mut">Sadece plan · hepsi PAUSED başlar</span></div>
+    <div class="ikili">
+      <div class="kart">
+        <h3>Ayarlar</h3>
+        <ul>
+          <li><b>Amaç:</b> Etkileşim → Mesaj (Instagram DM, WhatsApp numarası bağlanınca o da)</li>
+          <li><b>Konum:</b> 3 ayrı reklam seti, her biri 5 km: Kadıköy, Mecidiyeköy (Şişli-Beşiktaş), Bakırköy. Setler çakışmasın.</li>
+          <li><b>Yaş:</b> 28-60 · dil Türkçe · ilk hafta ilgi alanı yok</li>
+          <li><b>Yerleşim:</b> otomatik; feed'e 4:5, story/reels'e 9:16 kreatif</li>
+          <li><b>Reklamlar:</b> r1, r3, r5 ile başla; r2 ikinci dalga</li>
+          <li><b>Karşılama mesajı:</b> "Merhaba, işletmem için örnek ana sayfa istiyorum."</li>
+        </ul>
+      </div>
+      <div class="kart">
+        <h3>Günlük bütçe</h3>
+        <div class="tablo"><table>
+          <thead><tr><th>Kademe</th><th class="n">Günlük</th><th class="n">7 gün</th><th>Ne zaman</th></tr></thead>
+          <tbody>
+            <tr><td>Deneme</td><td class="n">150 ₺</td><td class="n">~1.050 ₺</td><td>İlk hafta</td></tr>
+            <tr><td>Standart</td><td class="n">300 ₺</td><td class="n">~2.100 ₺</td><td>Mesaj maliyeti iyiyse</td></tr>
+            <tr><td>Hızlandırma</td><td class="n">600 ₺</td><td class="n">~4.200 ₺</td><td>Kapanış görülünce, haftada en çok %20-30 artır</td></tr>
+          </tbody></table></div>
+        <p class="uyari" style="margin-top:12px">Rakamlar öneri. Asgari bütçe ve gerçek maliyet reklam hesabı açılınca kontrol edilecek. Yayına almadan önce insan onayı şart.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="buyuk" hidden role="dialog" aria-label="Büyük görsel"><img alt=""><p>Kaydetmek için basılı tut ya da sağ tıkla · kapatmak için dokun</p></div>
+
+<script>
+const V = /*VERI*/;
+const $ = s => document.querySelector(s);
+const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'text') e.textContent = v; else if (k === 'class') e.className = v; else e.setAttribute(k, v); } kids.forEach(k => k && e.append(k)); return e; };
+const kopyalar = {};
+async function kopyala(btn, metin) {
+  const eski = btn.textContent;
+  try { await navigator.clipboard.writeText(metin); btn.textContent = 'Kopyalandı'; }
+  catch { const pre = btn.closest('.kart,.gun,.reklam')?.querySelector('pre'); if (pre) { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } btn.textContent = 'Seçildi, kopyala'; }
+  btn.classList.add('tamam'); setTimeout(() => { btn.textContent = eski; btn.classList.remove('tamam'); }, 1600);
+}
+document.addEventListener('click', e => {
+  const k = e.target.closest('[data-kopya]'); if (k) { const v = kopyalar[k.dataset.kopya]; kopyala(k, typeof v === 'function' ? v() : v); return; }
+  const b = e.target.closest('[data-buyut]'); if (b) { const d = $('#buyuk'); d.querySelector('img').src = b.dataset.buyut; d.querySelector('img').alt = b.querySelector('img')?.alt || ''; d.hidden = false; return; }
+  if (e.target.closest('#buyuk')) $('#buyuk').hidden = true;
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') $('#buyuk').hidden = true; });
+
+// sayılar
+const gorselSay = V.gunler.reduce((a, g) => a + g.gorseller.length, 0) + V.reklamlar.length * 2 + 5;
+[['12', 'gönderi'], [String(gorselSay), 'görsel'], ['24', 'caption'], ['5', 'reklam']].forEach(([b, s]) => $('#sayilar').append(el('div', {}, el('b', { text: b }), el('span', { text: s }))));
+
+// profil
+const P = V.profil;
+$('#pp').src = P.gorsel; $('#bio').textContent = P.bio; $('#adAlan').textContent = 'Vitrin Atölyesi';
+$('#bioSay').textContent = `${[...P.bio].length}/150 karakter`;
+kopyalar.bio = P.bio; kopyalar.ad = P.ad;
+P.kapaklar.forEach(([ad, src]) => { const f = el('figure', {}, el('button', { class: 'btn', style: 'all:unset;cursor:zoom-in', 'data-buyut': src }, el('img', { src, alt: `${ad} öne çıkan kapağı` })), el('figcaption', { text: ad })); $('#kapaklar').append(f); });
+
+// günler
+V.gunler.forEach(g => {
+  const id = 'g' + g.gun;
+  const sol = el('div');
+  const serit = el('div', { class: 'serit' + (g.tur === 'Reel' ? '' : ''), role: 'list', 'aria-label': `Gün ${g.gun} görselleri` });
+  g.gorseller.forEach((src, i) => serit.append(el('button', { 'data-buyut': src, role: 'listitem' }, el('img', { src, loading: 'lazy', alt: `Gün ${g.gun}, ${g.tur === 'Reel' ? 'reel kapağı' : (g.gorseller.length > 1 ? `slayt ${i + 1}` : 'görsel')}` }))));
+  sol.append(serit);
+  if (g.gorseller.length > 1) sol.append(el('div', { class: 'not', text: `${g.gorseller.length} slayt · sırayla yükle · kaydırarak gör` }));
+  if (g.senaryo) {
+    const d = el('details', {}, el('summary', { text: 'Çekim senaryosu (video çekilecek)' }));
+    const t = el('table'); t.append(el('thead', {}, el('tr', {}, ...['Sn', 'Görüntü', 'Ekran yazısı', 'Ses'].map(h => el('th', { text: h })))));
+    const tb = el('tbody'); g.senaryo.satirlar.forEach(r => tb.append(el('tr', {}, ...r.map(c => el('td', { text: c }))))); t.append(tb);
+    d.append(el('div', { class: 'tablo' }, t)); g.senaryo.notlar.forEach(n => d.append(el('div', { class: 'not', text: n })));
+    sol.append(d);
+  }
+  const sag = el('div', { style: 'min-width:0' });
+  const ust = el('div', { style: 'display:flex;gap:8px;align-items:center;flex-wrap:wrap' }, el('span', { class: 'gun-no', text: `GÜN ${g.gun}` }), el('span', { class: 'cip', text: g.tur }));
+  if (g.ornek) ust.append(el('span', { class: 'cip ornek', text: 'Örnek konsept' }));
+  sag.append(ust, el('h3', { style: 'margin-top:6px', text: g.baslik }));
+  if (g.not) sag.append(el('div', { class: 'not', text: g.not }));
+  let secili = 'A';
+  const pre = el('pre', { class: 'metin', id: id + 'm' });
+  const sekme = el('div', { class: 'sekme', role: 'tablist' });
+  const ciz = () => { pre.textContent = g[secili].metin; sekme.querySelectorAll('[role=tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.s === secili)); };
+  ['A', 'B'].forEach(s => { const b = el('button', { class: 'btn', role: 'tab', 'data-s': s, text: `Caption ${s} · ${g[s].tip}` }); b.onclick = () => { secili = s; ciz(); }; sekme.append(b); });
+  sag.append(sekme, pre); ciz();
+  kopyalar[id + 'c'] = () => g[secili].metin; kopyalar[id + 'h'] = g.hashtag; kopyalar[id + 'ch'] = () => g[secili].metin + '\n\n' + g.hashtag;
+  sag.append(el('div', { class: 'alt-satir' },
+    el('button', { class: 'btn ana', 'data-kopya': id + 'ch', text: 'Caption + hashtag kopyala' }),
+    el('button', { class: 'btn', 'data-kopya': id + 'c', text: 'Sadece caption' })));
+  sag.append(el('div', { class: 'alt-satir' }, el('span', { class: 'hs', text: g.hashtag }), el('button', { class: 'btn', 'data-kopya': id + 'h', text: 'Hashtag' })));
+  if (g.fb) sag.append(el('div', { class: 'not', text: 'Facebook: ' + g.fb }));
+  $('#gunListe').append(el('article', { class: 'gun', id }, sol, sag));
+});
+
+// reklamlar
+const boyut = ['Hook', 'Netlik', 'Teklif', 'Kanıt', 'CTA', 'Marka'];
+V.reklamlar.forEach((r, i) => {
+  const gorsel = el('div', { class: 'gorsel' },
+    el('button', { 'data-buyut': r.feed }, el('img', { src: r.feed, loading: 'lazy', alt: `${r.id} feed 4:5` })),
+    el('button', { 'data-buyut': r.story }, el('img', { src: r.story, loading: 'lazy', alt: `${r.id} story 9:16` })));
+  const sag = el('div', { style: 'min-width:0' });
+  const karar = r.karar.startsWith('Yayına') ? 'yay' : 'yedek';
+  sag.append(el('div', { style: 'display:flex;gap:8px;align-items:center;flex-wrap:wrap' }, el('span', { class: 'gun-no', text: r.id.split('-')[0].toUpperCase() }), el('span', { class: 'karar ' + karar, text: r.karar })));
+  sag.append(el('h3', { style: 'margin-top:6px', text: r.fikir }));
+  sag.append(el('div', { class: 'puan', style: 'margin-top:8px' }, el('b', { text: r.toplam }), el('span', { class: 'mut', text: '/100 ad-score' })));
+  const c = el('div', { class: 'cubuklar' });
+  r.puan.forEach((p, k) => c.append(el('span', { text: boyut[k] }), el('span', { class: 'cubuk' }, el('i', { class: p < 60 ? 'dusuk' : '', style: `width:${p}%` })), el('span', { class: 'n', style: 'text-align:right;font-variant-numeric:tabular-nums', text: p })));
+  sag.append(c);
+  const k = 'r' + i;
+  kopyalar[k + 'b'] = r.birincil; kopyalar[k + 't'] = r.baslik;
+  sag.append(el('div', { class: 'not', style: 'margin-top:12px', text: 'Birincil metin' }), el('pre', { class: 'metin', text: r.birincil }));
+  sag.append(el('div', { class: 'alt-satir' }, el('button', { class: 'btn ana', 'data-kopya': k + 'b', text: 'Birincil metni kopyala' }), el('button', { class: 'btn', 'data-kopya': k + 't', text: 'Başlık: ' + r.baslik })));
+  $('#reklamListe').append(el('article', { class: 'reklam' }, gorsel, sag));
+});
+</script>
