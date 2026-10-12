@@ -1,0 +1,928 @@
+# 
+# https://www.youtube.com/watch?v=pGro_uKt-_M
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:pGro_uKt-_M.tr.json3
+
+[00:00:00] Boris Cherny, yaratıcı
+[00:00:02] Claude Code bir röportaj verdi.
+[00:00:03] Onun bu şekilde davranması ilginç.
+[00:00:04] not edildi: Her ne kadar biz zaten
+[00:00:05] Güçlü modellerimiz var,
+[00:00:07] Fable 5 gibi, insanlar hala
+[00:00:08] onları kullanın
+[00:00:09] Tıpkı Sonnet 3.5 gibi.
+[00:00:11] Bu yüzden, onun için
+[00:00:12] kelimelerle, sen çekiyorsun
+[00:00:13] arkanızdaki "balast"
+[00:00:14] Claude bile değil.
+[00:00:15] Bunu fark etmek.
+[00:00:16] Yani, eğer sizde yoksa
+[00:00:17] Özelleştirilmiş olduğu ortaya çıktı.
+[00:00:18] en son çalışmalar
+[00:00:19] Modellerle ilgili değil.
+[00:00:20] modeller, ama nasıl
+[00:00:21] Siz onu kullanıyorsunuz. BT
+[00:00:22] Bir şeye benzeyebilir,
+[00:00:23] Bir kere yaptıktan sonra ne yaparsınız?
+[00:00:24] Unutuyorsun ama bu
+[00:00:25] uygulamaya değer
+[00:00:26] her çıktığında
+[00:00:28] yeni model—den
+[00:00:29] Antropik, OpenAI veya her neyse
+[00:00:30] Başka biri. İÇİNDE
+[00:00:30] Boris ile röportaj
+[00:00:31] ayrıntılı olarak anlatıyor
+[00:00:32] nasıl çalıştığı hakkında
+[00:00:33] Bugünkü takım. VE,
+[00:00:35] dürüst olmak gerekirse, kim
+[00:00:36] bunları anlayabiliyorum
+[00:00:37] daha iyi iş akışları,
+[00:00:38] onlara sahip olandan daha fazla
+[00:00:39] oluşturuldu mu? Başladık
+[00:00:40] böyle bir şeyi uygulamak
+[00:00:41] aynı yaklaşım ve
+[00:00:42] çok beğendim
+[00:00:43] kullanışlı. Eğer buradaysanız
+[00:00:44] İlk defa: Biz yazılımız
+[00:00:45] Şirket ve burası yapay zeka laboratuvarları, burada
+[00:00:46] nasıl olduğunu gösteriyoruz
+[00:00:47] işletmeyi optimize etmek
+[00:00:48] Yapay zekânın yardımıyla,
+[00:00:49] kullanarak
+[00:00:50] kanıtlanmış yöntemler
+[00:00:51] Ekibimiz. İÇİNDE
+[00:00:52] Bu videoda biz
+[00:00:53] Onun hangi özelliklerinin olduğunu analiz edelim.
+[00:00:54] Tavsiyeler işe yarar.
+[00:00:54] kullanım ve nasıl
+[00:00:55] Bunları tam olarak nasıl uygulayacağınız.
+[00:00:57] Boris'in ilk yaptığı şey
+[00:00:58] kendi dilinde konuşuyor
+[00:00:58] konuşma, işte bu
+[00:00:59] silmem gerekiyor
+[00:01:00] ayarlarınız
+[00:01:01] her çıktığında
+[00:01:02] Yeni model. Ne zaman
+[00:01:03] Opus 5, Antropik, yayınlandı
+[00:01:04] Claude ile tam olarak bunu yaptım.
+[00:01:06] kod, silme hakkında
+[00:01:07] Sistem isteminin %80'i.
+[00:01:09] Bu, pervasızca bir davranış gibi görünüyor.
+[00:01:10] ancak o ana kadar,
+[00:01:11] bakana kadar
+[00:01:11] Gerçek fiyatı ne kadar?
+[00:01:12] Bunların size maliyeti ne kadar?
+[00:01:13] ayarlar. Sizinkiler
+[00:01:14] Ayarlar—hepsi bu kadar.
+[00:01:15] Ne eklediniz?
+[00:01:16] Claude'un yönetimi,
+[00:01:17] Claude.md dosyanız da dahil olmak üzere,
+[00:01:18] oluşturulan tüm beceriler,
+[00:01:19] kanca ayarları
+[00:01:20] vb. Bütün bunlar
+[00:01:21] pencereye girilir
+[00:01:22] bağlam ne zaman
+[00:01:23] Claude'un lansmanı ve
+[00:01:24] orada kalıyor
+[00:01:24] Her zaman. Biz zaten
+[00:01:26] bizim "
+[00:01:26] "ikinci beyin"—bu
+[00:01:27] tümünün toplandığı klasör
+[00:01:29] araştırmamız,
+[00:01:30] stratejiler ve daha fazlası
+[00:01:31] bir diğeri ve tüm ekip
+[00:01:32] Onunla birlikte çalışıyor.
+[00:01:33] Bir kullanım komutu var.
+[00:01:34] Ne kadar olduğunu gösteriyor.
+[00:01:35] 5 saatlik sürenizden itibaren
+[00:01:36] Zaten limite ulaştınız.
+[00:01:37] harcandı ve ayrıntılı olarak
+[00:01:38] Bunların nereden geldiğini açıklıyor.
+[00:01:39] Masraflar ortaya çıkmaktadır. Hangi
+[00:01:40] becerilerinizden
+[00:01:40] en çok tüketmek
+[00:01:42] Peki bunun için alışkanlıklar nelerdir?
+[00:01:42] etkilemek. Bizim
+[00:01:43] bu durumda öyleydi
+[00:01:44] iş akışları
+[00:01:45] lansman yapıyorlar
+[00:01:45] alt acenteler,
+[00:01:46] birkaçını açın
+[00:01:47] oturumları eş zamanlı olarak ve
+[00:01:48] onları bırakın
+[00:01:48] aktif olmadan
+[00:01:49] tamamlanma. Sebep,
+[00:01:50] neden silinir
+[00:01:50] eserler, şunlardan oluşur:
+[00:01:51] çünkü çoğu
+[00:01:52] ayarlarınız
+[00:01:52] Asla
+[00:01:53] kendisiyle ilgiliydi.
+[00:01:54] proje. Onlar
+[00:01:54] sadece şu amaçla gerekli:
+[00:01:55] düzeltmenin
+[00:01:56] modelin daha önce yaptığı
+[00:01:57] yanlış. Biz
+[00:01:58] bu konuda düşünüldü
+[00:01:59] Kanal dolu.
+[00:01:59] çerçeveler
+[00:02:00] eğik çizgi kullanın -
+[00:02:01] komutlar için
+[00:02:02] Claude kontrolü, B gibi
+[00:02:03] Mad, GSD ve diğerleri
+[00:02:04] otomatik olarak
+[00:02:04] komutları çalıştır
+[00:02:05] Verilen puanlar. Tüm
+[00:02:06] Modeller sağladılar.
+[00:02:07] net adımlar böylece o
+[00:02:08] sapmadı
+[00:02:09] Elbette, çünkü modeller
+[00:02:10] Buna ihtiyacım vardı.
+[00:02:11] Destek. Bunun için
+[00:02:12] bu güçlü model
+[00:02:13] refakatçi artık değil
+[00:02:14] yardımcı olur. Tersine,
+[00:02:15] O sadece engel oluyor.
+[00:02:16] modeller. Dolayısıyla, bunun için
+[00:02:17] öğrenmek için
+[00:02:18] kendini haklı çıkarıyor
+[00:02:19] ayarlarınız,
+[00:02:20] her şeyi kaldır ve
+[00:02:21] modele bakın
+[00:02:22] Onsuz da idare edebiliriz.
+[00:02:23] Komutu çalıştırın
+[00:02:24] Boş bir oturumdaki bağlam,
+[00:02:25] Henüz hiçbir şey girilmedi
+[00:02:26] Sözler bunlar, göreceksiniz.
+[00:02:28] milyon başına %3 pencere
+[00:02:29] tokenlar zaten
+[00:02:29] kullanılmış. BT
+[00:02:30] sistem uyarısı ve
+[00:02:31] yerleşik
+[00:02:32] araçlar
+[00:02:32] tarafından yüklenir
+[00:02:33] varsayılan ve
+[00:02:34] şekil davranışı
+[00:02:35] Claude senden önce
+[00:02:36] Bir şey isteyin.
+[00:02:37] Bu %3 Claude'a ait, sen de...
+[00:02:38] Onları değiştiremezsiniz.
+[00:02:40] Bunun üzerindeki her şey—
+[00:02:41] senin. Ama en iyisi
+[00:02:42] seçenek—bu
+[00:02:43] güvenli mod, ki
+[00:02:44] tüm "gürültüyü" kapatır
+[00:02:46] »: Claude.md dosyaları,
+[00:02:46] beceriler, eklentiler, her şey,
+[00:02:48] yüklediğiniz şey,
+[00:02:49] sadece bırakarak
+[00:02:50] temel sistem
+[00:02:51] çabuk. Oraya koş
+[00:02:52] bağlam komutu ve
+[00:02:53] seninkilerden hiçbiri
+[00:02:53] Ayarlar olmayacak.
+[00:02:54] Yüklendi. Daha sonra
+[00:02:55] lansmanı
+[00:02:56] genellikle
+[00:02:56] kullanım ve
+[00:02:57] dikkat edin
+[00:02:58] Model çalışması. Eğer
+[00:02:59] Her şey yolunda gidiyor ve
+[00:02:59] sensiz
+[00:03:00] ayarlar—bu
+[00:03:00] zamanın geldiğini işaret et
+[00:03:01] azaltmak. Ve bu değil
+[00:03:02] yalnız başına yapılan şey
+[00:03:03] zaman. Her biri
+[00:03:04] laboratuvar üretiyor
+[00:03:05] her yeni model
+[00:03:06] birkaç ay. Bu yüzden
+[00:03:07] projeniz değilse
+[00:03:07] yepyeni, onun
+[00:03:08] ayarlar
+[00:03:09] optimize edilmiş
+[00:03:10] geride kalan bir model
+[00:03:10] İki nesildir.
+[00:03:11] Kural şudur ki
+[00:03:12] kalıntılar,
+[00:03:13] Özetle, tek bir noktaya indirgeniyor.
+[00:03:14] soru. Veya
+[00:03:14] Claude muhtemelen tahmin yürütmüştür.
+[00:03:15] Yalnız mısınız? Eğer
+[00:03:16] Evet, bunu silin.
+[00:03:17] astar. En iyi yanı şu:
+[00:03:18] örnekte görüldüğü gibi
+[00:03:19] başlatma komutları
+[00:03:20] Projeniz.
+[00:03:21] Ne zaman
+[00:03:22] yeni bir tane oluşturdu
+[00:03:22] açılış sayfası ve
+[00:03:23] init komutunu çalıştır
+[00:03:24] o klasörde, dosyada
+[00:03:25] Claude.md satırı göründü
+[00:03:27] bir teklifle
+[00:03:27] npm run dev komutunu kullanın.
+[00:03:28] başlatmak için. Sen
+[00:03:29] Bunu yazmamın sebebi şu:
+[00:03:30] önceki modeller değildir
+[00:03:31] nasıl olduğunu biliyordu
+[00:03:31] Seninki başlıyor
+[00:03:32] sayfa, değil
+[00:03:33] onsuz yapardım
+[00:03:34] İsteğiniz. Bu zaten
+[00:03:35] geçmişte, çünkü şimdi
+[00:03:36] O her şeyi kendi başına anlıyor.
+[00:03:38] ve başlamadan
+[00:03:39] Claude.md. yok. Ama her şey
+[00:03:40] senin
+[00:03:41] ayar
+[00:03:42] farklı
+[00:03:43] Claude'un zaten bildiği şey,
+[00:03:44] Claude.md'de kalır.
+[00:03:45] Örneğin, siz istediniz
+[00:03:46] test yapmak
+[00:03:47] aracının tarayıcısı aracılığıyla
+[00:03:48] Vercel yerine
+[00:03:49] hangi model seçiliyor?
+[00:03:50] varsayılan. O
+[00:03:51] Bunu tahmin edemiyorum.
+[00:03:52] tıpkı seninki gibi
+[00:03:52] test ayarları
+[00:03:53] veya sahip olan hizmetler
+[00:03:54] piyasaya sürülecek
+[00:03:55] daha önce, yani bu
+[00:03:56] eklemem gerekiyor. Sen
+[00:03:57] mutlaka değil
+[00:03:57] Bunu manuel olarak yapın.
+[00:03:58] Antropik yayınlandı
+[00:03:59] doktor ekibi,
+[00:04:00] temizlik işlemlerini gerçekleştirir
+[00:04:01] Tam olarak bu kurala göre.
+[00:04:02] Bu, Claude'un yaptıklarını kesiyor.
+[00:04:03] hakkında bilgi edinebildi
+[00:04:04] projenize ve ayrılır
+[00:04:05] sadece bu bölgelerde
+[00:04:06] Hatalar yaptı,
+[00:04:07] gerekçelendirme mantığı
+[00:04:08] ve her şey
+[00:04:08] farklı
+[00:04:09] standart iş
+[00:04:10] alet. Biz
+[00:04:11] Bunu " üzerinde çalıştıralım"
+[00:04:11] "İkinci beyin" zamanı
+[00:04:12] zaman zaman, özellikle
+[00:04:13] yenisinin yayınlanmasından sonra
+[00:04:14] modeller. Kontrol ediyor.
+[00:04:15] her şey
+[00:04:16] yapılandırılmış ve veriyor
+[00:04:17] durum raporundan
+[00:04:18] karar
+[00:04:18] her bir unsur ve
+[00:04:19] bir liste
+[00:04:20] Değiştirmeye değer. Hiç bir şey
+[00:04:21] olmadan gerçekleşmez
+[00:04:22] izniniz için, bu nedenle
+[00:04:23] yapabilirsiniz
+[00:04:24] her şeyi halletmek için çalışın
+[00:04:24] adım adım. Bir
+[00:04:25] faktörlerden
+[00:04:26] kolaylaştırmak
+[00:04:27] yeniden yapılanma, işte bu
+[00:04:28] kurulum
+[00:04:28] yabancı beceriler
+[00:04:29] Şimdi durum öyle değil.
+[00:04:30] riskli, gibi
+[00:04:30] daha önce. Bunun sebebi şudur:
+[00:04:31] Boris, modellerin
+[00:04:33] artık daha az olası
+[00:04:34] çabuk-
+[00:04:35] Enjeksiyonlar. Bariz
+[00:04:36] endişe
+[00:04:37] herhangi
+[00:04:37] yüklü beceri
+[00:04:38] —bu gizli olan şeydir
+[00:04:39] içinde. Biz
+[00:04:40] bir beceri geliştirdi
+[00:04:41] GitHub ve içinde şunlar vardı
+[00:04:42] talimatlar
+[00:04:43] sipariş verdi
+[00:04:44] projeyi göndermek
+[00:04:45] Verileri üçüncü taraf bir URL'ye yönlendirmek
+[00:04:46] adres. Claude değil
+[00:04:46] onları yerine getirdi ve yapmadı
+[00:04:47] onları görmezden geldi
+[00:04:48] sessizce. O, rapor verdi.
+[00:04:49] Bizimle sohbette, ne büyük bir yetenek!
+[00:04:50] Bir talep gönderdim, ancak
+[00:04:51] O kaçırdı.
+[00:04:52] çünkü beceri
+[00:04:53] bakmadı
+[00:04:54] güvenilir. Boris
+[00:04:55] bu tür iddialar
+[00:04:55] gizli talimatlar
+[00:04:56] Artık yapamıyorum
+[00:04:57] Fark edilmeden geçmek.
+[00:04:58] Yani yapabilirsiniz
+[00:04:59] herhangi birini yüklemek için
+[00:05:00] bunu kabul etmeden
+[00:05:01] bir risk olarak. Ama önce
+[00:05:02] Bir sonraki konuya geçeceğiz.
+[00:05:03] Aşağıdaki tavsiyeler,
+[00:05:03] Bunu yaparsanız harika olurdu.
+[00:05:04] kanala abone oldum
+[00:05:05] ve düğmeye bastı
+[00:05:06] beğeniler. Bu
+[00:05:07] küçük bir jest
+[00:05:08] çok destekleyici
+[00:05:09] bizim için çok şey ifade ediyor
+[00:05:10] . Bütün bunları yaptığınızda
+[00:05:10] kaldırıldı, başka bir şey
+[00:05:12] teşvik etmelidir
+[00:05:12] ajan iş sırasında
+[00:05:13] fiilen tamamlandı. VE
+[00:05:15] Boris bunun böyle olduğunu söylüyor.
+[00:05:16] en önemli an
+[00:05:17] insanların
+[00:05:17] yanılıyorlar. BT
+[00:05:18] değerlendirme (eval) - esasen,
+[00:05:19] sabit kontrol,
+[00:05:20] bu da belirler
+[00:05:21] İş tamamlandı ve
+[00:05:22] O olmalı
+[00:05:23] yeterince katı,
+[00:05:24] böylece olabilsin
+[00:05:25] geçmek. Koş ve
+[00:05:26] görmek için
+[00:05:26] Bu daha iyi görünüyor.
+[00:05:27] sadece tahmin ediyorum
+[00:05:28] Ek adımlar.
+[00:05:29] Çek
+[00:05:30] başarısız olmak imkansız
+[00:05:31] —bu bir test değil. Bu
+[00:05:32] Bu fikir yeni değil. Sen
+[00:05:33] Kriterleri yazın.
+[00:05:34] kontroller öncesinde
+[00:05:35] bir şey yaratırsınız
+[00:05:36] daha sonra ortaya çıkmadı
+[00:05:37] anlaşmazlıklar veya iş
+[00:05:38] tamamlanmış. Ve bu değil
+[00:05:39] olmalıdır
+[00:05:40] test, bir şey olmalı
+[00:05:41] verebilen
+[00:05:42] Cevap "hayır."
+[00:05:43] Örnekler şunlar olabilir:
+[00:05:44] kontrol edilmeli, eğer
+[00:05:45] sayfaya uyuyor
+[00:05:46] telefon ekranında,
+[00:05:47] kaçırmaz
+[00:05:48] sistem ile
+[00:05:48] yanlış şifre
+[00:05:49] Yoksa hiç yok mu?
+[00:05:50] Metindeki tire işareti. Dış görünüş
+[00:05:51] tam kontroller
+[00:05:52] bağlı
+[00:05:53] teslim edilmiş
+[00:05:53] görev. Antropik
+[00:05:54] kendi aralarından ikisini tanımladılar.
+[00:05:55] büyük
+[00:05:56] yeniden yazma ve içinde
+[00:05:57] onları kullandılar
+[00:05:58] üç farklı test türü
+[00:05:59] . Boris
+[00:06:00] altyapı üzerinde
+[00:06:01] Claude'un inşa edildiği yer.
+[00:06:02] Yeniden yazıldı
+[00:06:03] sürümün tamamı vardı.
+[00:06:04] tüm
+[00:06:05] geçilecekti ve sekiz
+[00:06:06] değerlendirici temsilciler,
+[00:06:07] her biri arıyordu
+[00:06:08] belirli bir tür problem,
+[00:06:09] Ama hepsi birden değil.
+[00:06:10] Sonuncusu şuydu:
+[00:06:11] kontrol et
+[00:06:12] uyumluluk, ki
+[00:06:13] her birini kovdu
+[00:06:14] eski aracılığıyla komuta
+[00:06:15] ve yeni sürüm,
+[00:06:15] doğrulamak
+[00:06:16] çakışmak
+[00:06:17] sonuçlar. Örnek,
+[00:06:18] taklit edilmeye değer
+[00:06:19] —bu, şu deneyimdir:
+[00:06:20] Boris. Claude'a verdi.
+[00:06:21] boş bir kod tabanı ve
+[00:06:22] yeniden yazılması emredildi
+[00:06:23] masaüstü uygulaması
+[00:06:24] Claude, Swift'te koşuyor.
+[00:06:25] eski
+[00:06:26] sanal Mac,
+[00:06:27] Ekran görüntüleri alın,
+[00:06:28] onları şunlarla karşılaştırın
+[00:06:29] kendi versiyonunda
+[00:06:29] piksel piksel ve
+[00:06:30] durma ta ki
+[00:06:32] Her şey hazır olmayacak. BT
+[00:06:33] iki yıldan fazla sürdü
+[00:06:34] haftalar ve sadece sayesinde
+[00:06:35] böyle bir karşılaştırma
+[00:06:36] Bu şekilde çalışabilirdi.
+[00:06:37] uzun. Bir mekanizma olmadan,
+[00:06:38] bu da sinyaller hakkında
+[00:06:39] eksiklik,
+[00:06:40] ajan uğrar
+[00:06:41] saat ve yine sen
+[00:06:41] takip etmek zorunda
+[00:06:42] arkasında. Kontrol eder ki
+[00:06:43] daha önce eklediğiniz
+[00:06:44] şahsen zamanında,
+[00:06:45] şimdi o yapıyor
+[00:06:46] bağımsız olarak. Şimdi,
+[00:06:47] yarattığımızda
+[00:06:48] başvuru, biz veriyoruz
+[00:06:49] ona basit bir ricada bulundu
+[00:06:50] İstenenlerin açıklaması
+[00:06:51] sonuç ve Claude
+[00:06:51] tüm süreçler
+[00:06:52] gerekli
+[00:06:53] Gelişim aşamaları.
+[00:06:54] daha önce
+[00:06:55] bir satır ekle
+[00:06:55] ona hemen
+[00:06:56] kontrol etti
+[00:06:57] Sayfa şöyle görünüyor:
+[00:06:58] tarayıcı. Şimdi o
+[00:06:59] varsayılan olarak
+[00:07:00] başsız oturumları başlatır
+[00:07:01] Chrome, tarayıcı özelliği olmayan bir tarayıcıdır.
+[00:07:02] ekrandaki pencere
+[00:07:03] ekran görüntüleri alıyor
+[00:07:04] farklı alanlara
+[00:07:06] olup olmadığını görmek için
+[00:07:07] örtüşen unsurlar
+[00:07:08] . O da
+[00:07:08] kodu inceliyor ve
+[00:07:09] her şeyi ifade eder
+[00:07:10] kuralları çiğniyor,
+[00:07:11] hataları tespit etmek,
+[00:07:12] Bu da uygulamayı bozardı.
+[00:07:13] tam o sırada
+[00:07:14] okuma. Ancak, mevcut
+[00:07:15] belirli sınırlar. Bütün bunlar
+[00:07:16] sadece ortaya çıkarır
+[00:07:17] bariz başarısızlıklar, ama değil
+[00:07:18] diğer sorunlar
+[00:07:19] zorunlu olarak
+[00:07:19] tamamlanmasına yol açar
+[00:07:20] Uygulama durduruldu.
+[00:07:21] Sadece sen yapabilirsin
+[00:07:22] ne anlama geldiğini belirlemek
+[00:07:22] "hazır" ve "
+[00:07:23] "düzeltmek" için
+[00:07:24] Göreviniz. VE
+[00:07:25] çekleriniz de
+[00:07:26] eskimiş hale gelmek. Boris
+[00:07:27] Yeterli olduklarını söylüyorlar.
+[00:07:28] iki veya üç nesil boyunca
+[00:07:28] modeller, sonra testler
+[00:07:29] geçmeye başlıyorlar
+[00:07:30] kendi başlarına ve
+[00:07:31] oluşturmak gerekiyor
+[00:07:32] yeni set,
+[00:07:32] odaklanarak,
+[00:07:33] Şu anda nerede meydana geliyorlar?
+[00:07:34] zorluk. Ama önce
+[00:07:35] Devam ederken,
+[00:07:36] kelimemiz
+[00:07:37] Sponsora. Eğer en azından
+[00:07:38] bir zamanlar yapay zeka yaratılmıştı.
+[00:07:39] video, ne olduğunu biliyorsun
+[00:07:40] baş ağrısı değil
+[00:07:41] nesil ve
+[00:07:41] arasında geçiş yapma
+[00:07:42] araçlar: bir
+[00:07:43] senaryo için, bir diğeri
+[00:07:44] karakterler için, sahneler
+[00:07:45] , storyboardlar,
+[00:07:46] kurulum ve ardından da
+[00:07:47] nasıl gözlemlemek için
+[00:07:48] karakter değişiklikleri
+[00:07:49] herkesin yüzünde
+[00:07:50] çerçeve. Bu nedenle biz
+[00:07:51] Buzzy Canvas'ta her şeyi topladım.
+[00:07:52] —tek olan
+[00:07:53] görsel işçi
+[00:07:54] alanlar
+[00:07:54] yoğunlaşmış tüm
+[00:07:56] işlem. Başlıyorsunuz
+[00:07:57] Basit bir fikirden yola çıkarak, Buzzy
+[00:07:58] Canvas yardımcı olur.
+[00:07:59] onu şuna dönüştür
+[00:08:00] yapılandırılmış
+[00:08:00] video süreci: -den
+[00:08:01] senaryo ve konsept
+[00:08:02] karakter çizimi
+[00:08:03] sahne planlaması,
+[00:08:04] storyboardlar,
+[00:08:05] yerel
+[00:08:06] düzenleme ve
+[00:08:06] Son görüntü—
+[00:08:08] ve tüm bunlar bir arada
+[00:08:08] görsel işçi
+[00:08:10] geniş, olmadan
+[00:08:10] arasında geçiş yapma
+[00:08:11] farklı yapay zeka-
+[00:08:12] aletler.
+[00:08:13] Çünkü her adımda
+[00:08:14] görselleştirdiğinizde, siz
+[00:08:15] Tamamen kontrol sizde.
+[00:08:16] işlem: ayarlamak
+[00:08:17] aydınlatma, açılar
+[00:08:18] kameralar ve ayrı
+[00:08:19] çerçeveler ve referanslar
+[00:08:20] karakterler ve türleri
+[00:08:21] üç parti
+[00:08:21] sağlamak
+[00:08:22] dizide
+[00:08:23] Videonun tamamı. Sayesinde
+[00:08:24] First Look modellerine, örneğin
+[00:08:26] SeeDance 2.5, Buzzy Canvas—bu değil
+[00:08:27] sadece bir diğeri
+[00:08:28] video oluşturucu. BT
+[00:08:30] tamamlamak
+[00:08:30] üretim hattı
+[00:08:31] filmler, reklamlar için,
+[00:08:33] müzik videoları ve
+[00:08:34] bir diğer. Buzzy'i deneyin
+[00:08:35] Canvas üzerinden bağlantı
+[00:08:36] Tanım. Anlamak ki
+[00:08:38] nasıl görünmesi gerektiği
+[00:08:39] sonuç, ayrıca
+[00:08:39] hacmini değiştirir
+[00:08:41] yazmanız gerekiyor
+[00:08:42] Birinci. Eskiden biz
+[00:08:43] uzun verdi
+[00:08:43] bir sürü ipucuyla
+[00:08:44] ayrıntılar, çünkü onlarsız
+[00:08:46] Model işe yaradı.
+[00:08:46] beceriksizce. Hiç kimse
+[00:08:47] modele güvendi
+[00:08:48] daha fazlası ve talepler şunlardı:
+[00:08:49] uygun. Şimdi
+[00:08:50] İstediğini söylersin,
+[00:08:51] ve o kendini seçiyor
+[00:08:52] yol. Eğer derseniz
+[00:08:53] modeller, bir şeye benzer
+[00:08:54] yerine yapmak
+[00:08:55] isteneni açıklamak
+[00:08:55] sonuç olarak, asla
+[00:08:56] hiçbir şey elde edemeyeceksin
+[00:08:57] seninkinden daha iyi
+[00:08:57] kendi yaklaşımı. Boris
+[00:08:58] deneyimli olduğunu söylüyor.
+[00:08:59] mühendisler
+[00:09:00] bununla ilgileniyoruz.
+[00:09:00] en kötüsü, çünkü
+[00:09:01] zorlamaya çalışıyor
+[00:09:02] yürütülecek model
+[00:09:03] Görev tam olarak böyle.
+[00:09:04] Bunu nasıl yapacaklardı?
+[00:09:04] kendileri. Şimdi
+[00:09:05] daha etkili yaklaşımlar
+[00:09:06] daha yüksek seviye: basit
+[00:09:07] Görevi tanımlayın,
+[00:09:08] sınırları belirlemek
+[00:09:09] izlenmelidir ve
+[00:09:10] nasıl olması gerektiğini belirtin
+[00:09:11] Son haline benziyor. VE
+[00:09:12] Claude bunu daha sonra anlayacaktır.
+[00:09:13] geri kalanlarla birlikte. Diğer
+[00:09:14] aynı alışkanlığın bir parçası
+[00:09:15] —daha yüksek hedefler belirleyin.
+[00:09:16] Modele biraz şans verelim.
+[00:09:17] daha zor görevler,
+[00:09:18] birlikte oldukları kişilerden daha fazla, üzerinde
+[00:09:19] Sence o yapabilir.
+[00:09:20] başa çık, çünkü sen
+[00:09:21] Çok fazla yazıyorsun
+[00:09:21] Ancak o zaman detayları paylaşacağım.
+[00:09:22] varsaydığınızda
+[00:09:23] her şeyi çekip çıkarmayacak.
+[00:09:24] yalnız, hepsi bu.
+[00:09:25] Eski moda yaklaşım.
+[00:09:25] Bir de diğer tarafı var.
+[00:09:26] bu sorun, ki
+[00:09:27] kendini şu şekilde gösterir
+[00:09:28] sadece sen
+[00:09:29] almaya çalışıyorum
+[00:09:30] tasarım. Siz alıyorsunuz
+[00:09:30] resim için
+[00:09:31] ilham ver, ona
+[00:09:32] menajerine ve
+[00:09:33] "Yaratmak" diyorsunuz.
+[00:09:33] arayüz,
+[00:09:34] bundan ilham aldı
+[00:09:35] tasarım. İÇİNDE
+[00:09:35] sonuç olarak siz
+[00:09:36] neredeyse elde edersiniz
+[00:09:37] Tam bir kopya. Bu yüzden
+[00:09:37] yerine
+[00:09:38] bir görüntü vermek
+[00:09:39] onu tanımla
+[00:09:40] kelimeler. Belirtin
+[00:09:40] istenen stil ve
+[00:09:41] dış görünüş,
+[00:09:42] yerine
+[00:09:43] hazır vermek
+[00:09:43] cevap ve model
+[00:09:44] Kendisi bir çözüm yolu bulacaktır.
+[00:09:45] Bu durum sadece şunlar için geçerli değil:
+[00:09:46] tasarım, aynı
+[00:09:47] sen
+[00:09:48] kullanmak
+[00:09:48] arama modeli
+[00:09:49] fikirler. Siz veriyorsunuz
+[00:09:50] örneğin,
+[00:09:51] İşlem başarılı oldu, lütfen daha fazlasını isteyin.
+[00:09:52] benzer ve her şey
+[00:09:53] Anladığınız şey, şöyle görünüyor:
+[00:09:54] Tıpkı o örnekteki gibi.
+[00:09:55] Belirli bir şey var mı?
+[00:09:56] Sen ona veriyorsun, model
+[00:09:57] bir model olarak algılıyor
+[00:09:58] kopyalamak için değil
+[00:09:59] bir kaynak olarak
+[00:10:00] Öğretim. Bu nedenle daha iyidir.
+[00:10:01] Fikri tanımlayın ve
+[00:10:02] model zorlanacak
+[00:10:03] ona ulaşmak için
+[00:10:03] bağımsız olarak. Öyleyse,
+[00:10:04] başlangıçtaki kural
+[00:10:05] Aslında
+[00:10:06] Boris şu öneride bulundu:
+[00:10:07] Claude her şeyi sil
+[00:10:08] anlayabilir
+[00:10:09] bağımsız olarak. Ama bu
+[00:10:10] Bu, hikâyenin sadece yarısı.
+[00:10:11] çünkü o da şunu söylüyor:
+[00:10:12] her takımın
+[00:10:13] Claude.md dosyalarını yazın ve
+[00:10:15] beceriler
+[00:10:15] ajana izin ver
+[00:10:16] üzerinde çalışmak
+[00:10:17] proje olmadan
+[00:10:18] Ek talimatlar.
+[00:10:19] Yani değerli olan şeyler var.
+[00:10:20] ekle ve model
+[00:10:21] sürekli
+[00:10:22] varsayılıyor
+[00:10:22] hatalar, sorular
+[00:10:23] çünkü hangisiyle
+[00:10:24] Bir boşluğunuz var.
+[00:10:25] konu. Dört tane var.
+[00:10:26] cevaplardan,
+[00:10:27] en ucuz
+[00:10:28] En pahalısı.
+[00:10:29] En ucuzu şu zaman
+[00:10:30] basit talimatlar
+[00:10:31] anlaşılmaz ve bu
+[00:10:32] düzeltmek için gerekli
+[00:10:33] komut değişikliği
+[00:10:34] Çoğu durumda
+[00:10:35] Tıpkı bunlar gibi, ve bu da senin için.
+[00:10:36] Hiçbir ücreti yok.
+[00:10:37] Bir sonraki dava—
+[00:10:38] Modelin özellikleri şunlardır.
+[00:10:39] her seferinde ve tam olarak bilmek için
+[00:10:40] Bu bilgi Claude.md dosyasına giriliyor.
+[00:10:42] Bu şöyle olmalı
+[00:10:42] Az konuşkan. Bu olabilir
+[00:10:43] özlü olun
+[00:10:44] randevu hakkında
+[00:10:45] proje ve sonra işler,
+[00:10:46] acentenin aracılığıyla
+[00:10:47] hata yapmak
+[00:10:48] . Yapabileceği her şey
+[00:10:49] Kendiniz görmek için,
+[00:10:50] Sadece fazladan ağırlık.
+[00:10:51] Sonra bir de sizin durumunuz var.
+[00:10:52] Beşinci kez açıklama yapıyorsun.
+[00:10:53] İşte o zaman değer kazanıyor.
+[00:10:54] Bir beceri oluşturun.
+[00:10:55] Beceriler en iyisidir.
+[00:10:55] ışık olarak çalışmak
+[00:10:56] kılavuzlar
+[00:10:57] Claude'a izin ver
+[00:10:57] bilgi bul
+[00:10:58] İhtiyaç duyulduğunda.
+[00:10:59] Yani buna değmez.
+[00:11:00] onları sınırlandırın
+[00:11:01] kurallar, eğer kapsam
+[00:11:02] Bu aslında değil
+[00:11:03] gereklilikler. Onlar buna değer.
+[00:11:04] yazdıklarında
+[00:11:05] bir şey içeriyor
+[00:11:05] size özel veya
+[00:11:06] takımınız,
+[00:11:07] çünkü genel
+[00:11:08] en iyi uygulamalar
+[00:11:09] Claude zaten biliyor. Evvel
+[00:11:10] onları yazmak
+[00:11:11] sadece bir israf
+[00:11:12] zaman. Ve eğer beceri
+[00:11:13] uzun hale gelir, sen
+[00:11:14] Dosyalara ayırın,
+[00:11:15] yüklemek
+[00:11:16] sadece o kısım
+[00:11:16] Gerekli. Aradaki fark
+[00:11:18] Claude.md ve beceriler
+[00:11:19] işte o zaman
+[00:11:20] Yükleniyorlar.
+[00:11:21] Sizin Claude.md'niz
+[00:11:21] yüklendi
+[00:11:22] her birinin başlangıcı
+[00:11:23] oturum sırasında
+[00:11:24] Beceri okunabilir
+[00:11:25] ancak Claude
+[00:11:26] o gerçekten öyle
+[00:11:26] Gerekli. Çok kısa
+[00:11:28] her zaman geçerli
+[00:11:29] Bilgiler Claude'a iletilecek.
+[00:11:30] MD, her şey uzun mu yoksa uzun mu?
+[00:11:31] epizodik—içinde
+[00:11:32] Claude.md'nin sahip olduğu bir beceri.
+[00:11:33] okunacağını belirtir. İÇİNDE
+[00:11:35] Bu, kısaca Claude.md'dir.
+[00:11:36] başlangıçta ve
+[00:11:37] ayrıntıların çoğu—içinde
+[00:11:38] yakındaki beceriler,
+[00:11:39] Örneğin,
+[00:11:39] nasıl yapılacağına dair talimatlar
+[00:11:40] kontrol edin
+[00:11:41] iş, çünkü Claude onlar
+[00:11:42] yalnızca şu durumlarda gereklidir
+[00:11:43] bir şey yaptığında
+[00:11:44] kontroller.
+[00:11:44] Talimatlar aynı.
+[00:11:45] yalnız, ama önce
+[00:11:46] her birinde size maliyet çıkar
+[00:11:47] adım ve ikincisi hiçbir şey
+[00:11:48] Gitmeden değmez
+[00:11:49] kullanılacak. VE
+[00:11:50] en pahalı kasa
+[00:11:51] —işte bu, bilginin ortaya çıktığı zamandır.
+[00:11:52] bulunduğu yer
+[00:11:53] Claude'un hiç yok.
+[00:11:53] erişim. Bu, tek olanıdır.
+[00:11:54] sen
+[00:11:55] ona giden bir yol oluşturun
+[00:11:56] Ve işte buradasınız.
+[00:11:57] MCP kullanarak-
+[00:11:58] esasen sunucu olan
+[00:11:59] onu bağlar
+[00:12:00] bunun kaynakları
+[00:12:01] bilgi. Bu, bunun için değil.
+[00:12:02] o
+[00:12:03] Seni anlamadım ve anlamıyorum da.
+[00:12:04] böylece sen
+[00:12:04] Tekrarlandı. Bu, şunun için:
+[00:12:06] durumlar
+[00:12:06] O aslında yok.
+[00:12:07] Bunu öğrenmenin yolu. BT
+[00:12:09] yapabileceğiniz her şey
+[00:12:09] yardımıyla yapmak
+[00:12:10] tek bir komut. Ne zaman
+[00:12:11] Görev çok fazla.
+[00:12:12] bir kişi için büyük, sen
+[00:12:13] dağıtın
+[00:12:14] birkaç arasında
+[00:12:14] acenteler ve bunun için
+[00:12:15] Birden fazla yol var. Sen
+[00:12:16] Bunu kendin yapabilirsin
+[00:12:17] parçaları dağıtmak
+[00:12:18] alt acenteler arasında ve
+[00:12:19] ne alacağıma karar ver
+[00:12:20] her biri. Yol,
+[00:12:21] Boris'in sunduğu,
+[00:12:22] —dinamiktir
+[00:12:23] iş akışı,
+[00:12:23] amaçlanmıştır
+[00:12:24] görevler
+[00:12:25] yüzlerceye ihtiyaç var
+[00:12:25] Ajanlar, birden fazla değil.
+[00:12:27] Sen diyorsun ki
+[00:12:27] kullanmak
+[00:12:28] iş akışı ve Claude
+[00:12:29] her şeyi planlıyor
+[00:12:30] bağımsız olarak: kırar
+[00:12:31] görev, yayınlar
+[00:12:32] bekleyen bir ajan dalgası,
+[00:12:33] onlar
+[00:12:33] rapor ve sonra
+[00:12:34] Aşağıdakileri gönderiyor
+[00:12:35] dalga şu gerçeğe dayanarak
+[00:12:36] Buldukları şey. Sen
+[00:12:37] bunların hiçbiri
+[00:12:38] planlama. Biz ise,
+[00:12:40] Bunu pek tavsiye etmiyoruz.
+[00:12:41] Onları kullanın.
+[00:12:42] En büyük örnek—
+[00:12:43] Bu, Bun'un yeniden yazılmış halidir.
+[00:12:44] bir milyon satır kod
+[00:12:45] yeniden düzenlendi
+[00:12:46] 2 haftadan kısa sürede
+[00:12:47] tek bir ricayla,
+[00:12:48] onların yönetiminde
+[00:12:49] işlem. Ama kimse
+[00:12:51] bundan bahsediyor
+[00:12:52] yaklaşık 165'e mal oldu
+[00:12:53] 000 dolar fiyatlarla
+[00:12:55] API'ler. Ve her şey bittiğinde
+[00:12:56] Ek olarak, 19 olduğu ortaya çıktı.
+[00:12:57] hatalar olmayan
+[00:12:58] Onlardan hiçbiri fark etmedi.
+[00:12:59] mevcut
+[00:13:00] denetimler. Ve para—
+[00:13:01] Bu, şu durumlarda daha az sorun teşkil eder:
+[00:13:02] bu durum. Ne zaman
+[00:13:03] bir ajan
+[00:13:03] Hatalısınız
+[00:13:04] Bir saatinizi boşa harcıyorsunuz. VE
+[00:13:05] yüzlercesi
+[00:13:06] 2 yıldır çalışıyor
+[00:13:07] haftalar, kaybedersiniz
+[00:13:08] Bu iki haftanın tamamı boyunca. Sen değilsin
+[00:13:09] Hiçbirini alamazsınız
+[00:13:10] Sonuç olarak,
+[00:13:10] söyleyemezsin
+[00:13:11] Bunu tam olarak kim önerdi?
+[00:13:12] hatalar. Bu çok fazla.
+[00:13:13] büyük risk
+[00:13:14] herhangi bir şey
+[00:13:14] Aslında
+[00:13:15] denemek
+[00:13:15] serbest bırakmak için. karşılığında
+[00:13:16] biz kullanıyoruz
+[00:13:17] rutinler ve işte onlar sizin
+[00:13:18] olacak
+[00:13:18] kullanmak
+[00:13:19] günlük. Bunlar tekrarlayıcıdır.
+[00:13:20] görevler
+[00:13:21] bulutta çalışmak,
+[00:13:21] bu nedenle onlar
+[00:13:22] devam et
+[00:13:23] Önden buyurun
+[00:13:24] Dizüstü bilgisayarınızı kapatın.
+[00:13:24] Anthropic 20-30 yıl içinde piyasaya çıkıyor.
+[00:13:25] bu tür rutinler günde
+[00:13:27] başvurularında ve
+[00:13:28] her biri bir
+[00:13:29] Örneğin şu cümleler:
+[00:13:30] olmayan her şeyi temizlemek
+[00:13:31] gerekli, dahil
+[00:13:33] kalıntıları
+[00:13:33] zaten sahip olduğunuz işlevler
+[00:13:34] ajan yüzünden kaldırıldı
+[00:13:36] Bunu hâlâ tekrar tekrar okuyorum.
+[00:13:37] her arama yaptığında
+[00:13:38] projenizde bir şey
+[00:13:39] . Testler yazın
+[00:13:41] Bulunmadıkları kısımlar,
+[00:13:42] böylece sen
+[00:13:42] hakkında bilgi edindi
+[00:13:43] arızalar, değil
+[00:13:44] kullanıcılar.
+[00:13:45] Bulunabileceği yerler
+[00:13:46] aynıydı
+[00:13:47] iki kez oluşturuldu ve
+[00:13:48] onları birleştirin, böylece
+[00:13:49] üzerinde çalışırken
+[00:13:50] büyük bir proje veya
+[00:13:51] "İkinci" sistem
+[00:13:52] beyin" modeli
+[00:13:53] unutmaya meyilliyiz
+[00:13:54] Şeyler zaten mevcut.
+[00:13:55] Yani, tüm beceriler,
+[00:13:56] iş akışları ve her şey
+[00:13:57] yarattığımız diğer şeyler
+[00:13:59] ve bunu kendimizde gösteriyoruz.
+[00:14:00] Videoya şu adresten ulaşabilirsiniz:
+[00:14:01] AI Labs Pro—bizim
+[00:14:02] toplum. Yani, eğer
+[00:14:03] Siz bundan fayda gördünüz.
+[00:14:04] çalışmalarımız ve
+[00:14:05] desteklemek istiyorum
+[00:14:06] kanal, bu en iyisi
+[00:14:07] Bunu yapmanın yolu.
+[00:14:08] Açıklamada link mevcut. Açık
+[00:14:09] Tartışmamız burada sona eriyor.
+[00:14:10] Bu bir video. Eğer siz
+[00:14:11] desteklemek istiyorum
+[00:14:12] kanalımıza katılın ve bize yardımcı olun.
+[00:14:13] böyle bir şey yaratmak
+[00:14:14] video, yapabilirsiniz
+[00:14:15] bunu şu amaçla yap
+[00:14:16] « düğmesini kullanarak
+[00:14:16] "Çok teşekkürler" yazın. Gibi
+[00:14:18] Her zaman, teşekkür ederim.
+[00:14:19] İyi seyirler, görüşmek üzere!
+[00:14:20] Bir sonraki videoda.

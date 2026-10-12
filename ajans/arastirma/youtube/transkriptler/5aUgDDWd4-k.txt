@@ -1,0 +1,457 @@
+# 
+# https://www.youtube.com/watch?v=5aUgDDWd4-k
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:5aUgDDWd4-k.en-orig.json3
+
+[00:00:00] Claude doesn't come with an instruction
+[00:00:01] manual, so most people are only
+[00:00:03] utilizing a fraction of what it's
+[00:00:05] capable of and are probably doing some
+[00:00:07] of that wrong. I have spent hundreds of
+[00:00:10] hours using Claude, read through all the
+[00:00:12] documentation, and tested every recent
+[00:00:14] update, which is a lot. So, I'll cover
+[00:00:17] everything to go from a beginner asking
+[00:00:19] one-off questions to a pro sending it
+[00:00:21] off to accomplish real work.
+[00:00:26] First, just a quick trick if you've been
+[00:00:28] in another LLM for a while and are
+[00:00:30] switching to Claude, but you don't want
+[00:00:32] to lose all the memory and context
+[00:00:34] you've built up in there over time. They
+[00:00:36] really do start to learn and to
+[00:00:38] understand a lot about you. Some people
+[00:00:40] never switch at all because of that, but
+[00:00:42] Claude has a feature to make that switch
+[00:00:44] really easy. All you do is go to
+[00:00:46] settings, then capabilities, then next
+[00:00:49] to import memory from other AI
+[00:00:51] providers, hit start import. Then follow
+[00:00:54] the two steps listed, which is to copy
+[00:00:56] the prompt and paste that into ChatGPT
+[00:00:58] or Gemini or whatever you're using, then
+[00:01:01] copy that response and paste it into
+[00:01:03] Claude. Hit add to memory and that's all
+[00:01:05] there is to it. And back under that same
+[00:01:07] area of your settings, make sure the
+[00:01:10] search and reference chats and generate
+[00:01:12] memory from chat history settings are
+[00:01:14] toggled on. That allows Claude to build
+[00:01:16] up memory and context about you and it
+[00:01:18] becomes more personalized over time.
+[00:01:23] Now, I will open up a new chat and I do
+[00:01:26] need to point out that if you're on a
+[00:01:27] free plan, this screen will look
+[00:01:29] different. On my paid plan, I have this
+[00:01:32] option to switch over to co-work where I
+[00:01:33] can assign Claude long work tasks to do
+[00:01:36] on its own. Up top, I also have a code
+[00:01:39] tab I can switch to. So, I'll jump over
+[00:01:41] to a free plan and now those options
+[00:01:43] aren't here. Claude does have a generous
+[00:01:45] free plan. That's a good way to test and
+[00:01:47] see what you can get out of it, but for
+[00:01:49] most people, I recommend having a paid
+[00:01:52] plan of whichever your AI of choice is.
+[00:01:54] In this case, we're talking about
+[00:01:55] Claude. The paid plan gets you a lot
+[00:01:58] more usage and reasoning models and also
+[00:02:00] access to code work and code, which are
+[00:02:02] amazing. That's where you can start
+[00:02:04] using agents. I'll talk more about those
+[00:02:06] later.
+[00:02:10] Another one of the more confusing things
+[00:02:12] in here when you're starting out is the
+[00:02:14] model drop down. And if you get this
+[00:02:16] wrong, you can waste a lot of tokens.
+[00:02:18] And if you go through all of your usage,
+[00:02:20] you have to wait for it to reset. I know
+[00:02:22] this is kind of a boring place to start,
+[00:02:23] but getting it right can save you time
+[00:02:25] and money. There's two choices you need
+[00:02:27] to be aware of, the model and the effort
+[00:02:30] level. Now, to start off, I basically
+[00:02:32] never use Haiku for anything. It is the
+[00:02:34] fastest, but the step up you get in
+[00:02:36] responses from Sonnet, while still being
+[00:02:39] pretty fast, make it always worth it to
+[00:02:41] me. So, Sonnet is a great model as a
+[00:02:43] daily driver when you want fairly quick
+[00:02:45] responses with good reasoning. Opus can
+[00:02:48] tackle the bigger work. It's great at
+[00:02:50] long, multi-step tasks and checks it to
+[00:02:52] work as it goes. And these model numbers
+[00:02:54] change over time, but Opus 5 is such a
+[00:02:57] strong model that I hardly ever use
+[00:02:59] Fable anymore. It's way more token
+[00:03:01] intensive for not that much extra. So,
+[00:03:03] really I'm almost exclusively between
+[00:03:06] Sonnet and Opus, which makes everything
+[00:03:07] a lot simpler. I just switch to Fable if
+[00:03:09] I'm stuck on something with Opus. So,
+[00:03:12] put simply, if you're on Pro, use Sonnet
+[00:03:14] as a daily driver, then switch to Opus
+[00:03:16] for harder problems that need more
+[00:03:18] reasoning. Now, if you're on the Max
+[00:03:20] plan, which is what I'm on, I stick with
+[00:03:22] Opus most of the time, especially when
+[00:03:24] I'm in code or code work. But for
+[00:03:26] certain creative tasks, I like Sonnet
+[00:03:28] more. Now, the other factor you control
+[00:03:30] is effort level. Effort level is how
+[00:03:32] much thinking time it spends, basically
+[00:03:35] how many tokens it throws at it. More
+[00:03:36] thinking doesn't always mean better
+[00:03:38] responses. You don't need to crank this
+[00:03:40] up all the time to get good results.
+[00:03:42] Medium is great for most daily tasks.
+[00:03:45] High is usually where you go for coding
+[00:03:47] and analysis, then extra high for
+[00:03:50] agentic sessions or multi-step coding
+[00:03:52] tasks. If you use extra high for
+[00:03:54] something that doesn't require it, it
+[00:03:56] will not only take way longer, but it
+[00:03:58] doesn't improve the result. It might
+[00:04:00] even be worse sometimes, and it will
+[00:04:02] just overcomplicate things. Mostly,
+[00:04:04] you'll just want to bump it up when that
+[00:04:06] extra reasoning is important, or you
+[00:04:08] feel like you're not getting a good
+[00:04:09] enough response at medium.
+[00:04:14] Once you've got that figured out, prompt
+[00:04:15] away. AI has gotten much better at
+[00:04:18] understanding what you're asking for,
+[00:04:19] and most of what everyone used to talk
+[00:04:21] about with prompt engineering just isn't
+[00:04:23] necessary. Really, just a couple easy
+[00:04:25] habits is all you need to get the best
+[00:04:26] results. First, a big thing it can't
+[00:04:29] understand if you don't tell it is
+[00:04:30] context. Say you're a marketer running
+[00:04:32] an ad campaign, it doesn't know anything
+[00:04:35] about your business or product or
+[00:04:36] audience unless you tell it. So, just
+[00:04:38] add in all the context you think might
+[00:04:40] be relevant. It doesn't have to be
+[00:04:42] organized or perfect, just dump it in.
+[00:04:44] Claude can figure it out as long as it's
+[00:04:46] there. And if you're not sure what
+[00:04:48] context might help, which happens a lot,
+[00:04:51] just ask Claude to ask you questions to
+[00:04:53] gather any context it needs to best
+[00:04:55] assist you. I call that a context
+[00:04:57] interview, and it's a really simple hack
+[00:04:59] to getting much better results. The
+[00:05:01] other big tip I have is to realize that
+[00:05:03] although AI kind of always sounds really
+[00:05:06] good at first, you have to get good at
+[00:05:08] knowing when it's not, which is a lot of
+[00:05:10] the time. Usually, the first response
+[00:05:12] isn't good. Default to always pushing
+[00:05:15] back and iterating. Treat Claude like a
+[00:05:17] collaborator. Push back, ask to identify
+[00:05:20] the gaps, the flaws in your thinking,
+[00:05:22] the flaws in its thinking. Ask what
+[00:05:24] could be improved, just think critically
+[00:05:26] about what it's telling you. It's better
+[00:05:28] to assume it's not right and is giving
+[00:05:30] you bad answers all the time, rather
+[00:05:32] than to assume it's right all the time.
+[00:05:34] If you want to go deeper into using
+[00:05:36] Claude for work, I have a free resource
+[00:05:38] linked in the description. It has a lot
+[00:05:39] of what I'm covering, but in written
+[00:05:41] form. And also a lot more example use
+[00:05:43] cases. Plus, there's a full prompt
+[00:05:45] library with over 100 prompts. There's
+[00:05:47] 12 ready to install skills you can use
+[00:05:49] right away, even full guides on co-work
+[00:05:51] and code. There is a ton in there with
+[00:05:54] way more specifics than I can cover in a
+[00:05:56] video like this. Make sure to grab that.
+[00:05:58] It's a free resource in the description.
+[00:06:03] Another way to bring context in is
+[00:06:04] through connectors. You'll find them
+[00:06:07] under customize, then connectors. Then
+[00:06:10] you can hit add and browse connectors.
+[00:06:12] Then there's a huge list that lets you
+[00:06:14] connect Claude to all the tools you
+[00:06:16] already use. When you find one you want
+[00:06:18] to add, just click the plus button. Then
+[00:06:20] it will have you sign in to that
+[00:06:21] account. Just like that, it's connected.
+[00:06:24] A good way to use connectors is to give
+[00:06:26] it context quickly through things like
+[00:06:28] Gmail. It can learn how you respond to
+[00:06:30] things, what clients you're currently
+[00:06:32] working with, or projects you have. You
+[00:06:34] can connect your calendar, then it will
+[00:06:35] have up-to-date information on what's
+[00:06:37] going on in your life or business, or
+[00:06:39] Granola for meeting notes. It can
+[00:06:41] quickly analyze those and extract useful
+[00:06:43] information, or Google Drive to give it
+[00:06:45] access to your files. Connectors can be
+[00:06:48] a super easy way to bring context in,
+[00:06:50] but they can be used for a lot more than
+[00:06:52] that. Like Claude doesn't have an image
+[00:06:54] generator like ChatGPT or Gemini do, but
+[00:06:57] I can bring one in through a connector.
+[00:06:59] And I have this set up with Higgsfield.
+[00:07:01] You can do the same with Magnific or
+[00:07:03] Runway or a bunch of others. But this
+[00:07:05] one is a custom connector, which is also
+[00:07:07] simple to set up. Just add, then add
+[00:07:10] custom connector. Then give it a name
+[00:07:12] and paste in the URL. Most of these
+[00:07:14] sites will have it listed out. With
+[00:07:15] Higgsfield, that's this one.
+[00:07:17] Then I just log in when it prompts for
+[00:07:19] it. And now when I ask for images or
+[00:07:22] videos, Claude can generate them through
+[00:07:24] that connector.
+[00:07:33] So far, I've sent each of these prompts
+[00:07:35] in just a default new chat, but I rarely
+[00:07:38] start chats this way. Probably 90% of my
+[00:07:41] chats are in projects, which you can
+[00:07:43] find over on the side panel. Projects
+[00:07:46] are self-contained workspaces with their
+[00:07:48] own memory, chat histories, knowledge
+[00:07:50] bases, and custom instructions.
+[00:07:53] Dedicated environments for specific work
+[00:07:55] streams, and just a general way to
+[00:07:57] organize your chats. I use projects for
+[00:08:00] everything, but one thing to understand
+[00:08:02] is projects are walled off. A project
+[00:08:04] has memory of everything that happens
+[00:08:06] inside of it, but if you're in a
+[00:08:08] separate project or a default chat,
+[00:08:10] those won't know. I like that I have a
+[00:08:13] lot of projects because I have a lot of
+[00:08:15] different uses for Claude, and I don't
+[00:08:17] like when it references between them.
+[00:08:18] Some people may just want to have one
+[00:08:20] for personal, one for work, and one for
+[00:08:22] creative, or something like that. But
+[00:08:24] when I'm working on something related to
+[00:08:26] Futuropedia, I don't want it to
+[00:08:27] reference the app I'm building, or my
+[00:08:29] health, or my family, or anything like
+[00:08:31] that. So I have a dedicated project for
+[00:08:33] each thing. And then all the just random
+[00:08:35] one-off questions I have, I do outside
+[00:08:37] of projects. So I'll set one up really
+[00:08:39] quick. I'll create a new project, give
+[00:08:42] it a name, then create. Then over on the
+[00:08:45] right is how we'll customize this to
+[00:08:47] have permanent context and customized
+[00:08:49] instructions. Now under your settings,
+[00:08:51] there are also account-level custom
+[00:08:53] instructions. I never use these because
+[00:08:55] I don't want my instructions to apply to
+[00:08:57] everything. I want separate instructions
+[00:08:59] for business, different ones for
+[00:09:01] YouTube, for health, etc. I only use
+[00:09:03] them in projects. And these custom
+[00:09:05] instructions will guide how Claude
+[00:09:07] behaves. Context about what you're
+[00:09:09] working on, process instructions, tone
+[00:09:11] and style preferences, or specific
+[00:09:13] requirements. And below that, you also
+[00:09:15] have project files, where you can upload
+[00:09:18] any sort of document you'd like Claude
+[00:09:20] to have persistent knowledge of in this
+[00:09:21] project. Reference documents, brand
+[00:09:24] guidelines, background materials,
+[00:09:26] examples of work you want Claude to
+[00:09:28] emulate, technical documentation.
+[00:09:31] Projects also have built-in memory that
+[00:09:33] refreshes automatically once per day.
+[00:09:36] That way Claude remembers across every
+[00:09:37] conversation within that project and it
+[00:09:40] learns more over time. And that's one of
+[00:09:42] those settings we made sure was on in
+[00:09:43] the beginning. So, I created a project
+[00:09:46] for this business, uploaded brand docs,
+[00:09:48] tone guide, SOPs, sales history, and I
+[00:09:51] wrote custom instructions. And now every
+[00:09:54] conversation inside this project
+[00:09:56] inherits that context automatically.
+[00:09:58] It's like hiring an employee who already
+[00:10:00] has read your entire company handbook
+[00:10:02] before their first day. Now you don't
+[00:10:04] have to re-explain things across chats,
+[00:10:07] rewrite context, or upload the same
+[00:10:09] files repeatedly. It's all there every
+[00:10:11] time. That is a huge improvement in the
+[00:10:13] experience, but you may still find
+[00:10:15] yourself repeating processes and prompts
+[00:10:18] across chats. That's where skills come
+[00:10:20] in.
+[00:10:24] I think of skills like recipe cards for
+[00:10:26] workflows. A repeatable process Claude
+[00:10:28] will follow to get the same type of
+[00:10:30] result every time. The way I usually
+[00:10:32] create these is I will iterate back and
+[00:10:34] forth in a chat to get to a final result
+[00:10:36] like I covered earlier where you're
+[00:10:38] pushing back, fine-tuning the response.
+[00:10:40] And then once I've already gone through
+[00:10:42] that whole process of refining and
+[00:10:44] getting it all the way how I want it,
+[00:10:46] I'll tell Claude to package that entire
+[00:10:48] process up as a skill. Then it will do
+[00:10:50] it all on the first try the next time I
+[00:10:52] ask for it. For example, say I need
+[00:10:55] Claude to look through the sales sheets
+[00:10:56] for the week and analyze all that
+[00:10:58] information, then come up with a special
+[00:11:00] weekend run. Once it comes up with that,
+[00:11:02] I want it to write the copy and then use
+[00:11:04] the Higgs field connector to create an
+[00:11:06] image for that special, then give me the
+[00:11:08] special, the caption, and the image in
+[00:11:10] one response so I can easily upload to
+[00:11:12] social. I went back and forth over
+[00:11:14] multiple prompts to get there. Now when
+[00:11:16] I say package that process up as a skill
+[00:11:19] called weekly special, it analyzes that
+[00:11:21] whole conversation and bundles it up for
+[00:11:23] me. Now anytime I call that skill, it
+[00:11:26] will know how to do that entire process
+[00:11:28] without me having to go back and forth
+[00:11:30] and type it all out again.
+[00:11:33] And you can build up skills for all
+[00:11:34] sorts of tasks, and Claude will use them
+[00:11:36] based on the context of your prompt. You
+[00:11:38] don't need to explicitly ask for it to
+[00:11:41] run a skill. Although, you can call them
+[00:11:42] by name using forward slash if you want
+[00:11:44] to be sure.
+[00:11:45] Just from what I've covered so far,
+[00:11:47] you'll already be using more of Claude
+[00:11:49] than probably 90% of people. But, that's
+[00:11:51] still only a fraction of what it can do.
+[00:11:54] To unlock the next level of
+[00:11:55] capabilities, we'll move into co-work.
+[00:12:01] Chat is your thinking partner. Co-work
+[00:12:03] is more like your assistant. It's an
+[00:12:05] agent you can delegate real work tasks
+[00:12:07] to. There's a difference in thinking
+[00:12:09] with it. Instead of a back-and-forth
+[00:12:11] conversation, you give it a goal, define
+[00:12:13] the end point. Then it will think it
+[00:12:15] through, come up with a plan, and make a
+[00:12:17] checklist. It'll work through that
+[00:12:19] checklist step-by-step, checking things
+[00:12:21] off as it goes for however long it
+[00:12:23] takes. Oftentimes, it will multitask and
+[00:12:25] delegate multiple sub-agents to do
+[00:12:28] separate tasks on the checklist. Then it
+[00:12:30] comes back with the finished result.
+[00:12:32] Part of how it does all this is it gets
+[00:12:33] its own computer in the cloud where it
+[00:12:36] can build things up throughout the
+[00:12:37] entire session. With this, it's able to
+[00:12:39] do much more intensive, long-horizon
+[00:12:41] work. Things like multi-step research,
+[00:12:44] analyzing and cleaning up a large amount
+[00:12:46] of files, drafting reports, creating
+[00:12:48] dashboards, project planning, content
+[00:12:51] pipelines, the types of things you would
+[00:12:53] normally assign to an assistant. The
+[00:12:55] other really unique feature with co-work
+[00:12:57] is scheduled tasks. You can set it up to
+[00:12:59] run on a schedule, so it will work
+[00:13:01] without you even prompting it at all in
+[00:13:03] the future. With that weekend special
+[00:13:05] skill I created earlier, I can ask it to
+[00:13:07] run that every Friday morning, and then
+[00:13:09] I'll wake up with the special and posts
+[00:13:11] for socials all ready to go.
+[00:13:13] And a quick note here, there are two
+[00:13:15] versions of co-work. If you're using it
+[00:13:17] on the web, it works exactly as I just
+[00:13:20] described. But, if you use it in the
+[00:13:21] Claude desktop app, there is a
+[00:13:23] difference. The computer it gets for
+[00:13:25] your session is your actual local
+[00:13:27] computer. You assign it a folder to work
+[00:13:29] in and then it's able to open, edit,
+[00:13:32] create, and organize files directly on
+[00:13:34] your computer. Everything else is the
+[00:13:35] same, but it's running locally instead
+[00:13:37] of in the cloud. Personally, I usually
+[00:13:39] run it in the cloud and assign it to a
+[00:13:41] drive folder using that Google Drive
+[00:13:43] connector, and I add any files I want it
+[00:13:45] to work with and let it save anything it
+[00:13:47] creates there.
+[00:13:51] If Co-work is your assistant, Claude
+[00:13:53] Code is your engineer. Apps, websites,
+[00:13:56] automations, Chrome extensions,
+[00:13:58] productivity tools, it writes all the
+[00:14:00] actual code for whatever you describe,
+[00:14:03] and you do not have to be a developer to
+[00:14:04] use it. You describe what you want in
+[00:14:06] plain English, and it writes all the
+[00:14:08] code to make it exist. If you haven't
+[00:14:11] tried it yet, you definitely should.
+[00:14:12] With the recent models, it's insane what
+[00:14:15] you can build just through prompting. I
+[00:14:17] am not a developer, and I don't know how
+[00:14:19] to code, but I build things all the
+[00:14:21] time. In a recent video, I showed off a
+[00:14:23] Premiere Pro plugin I vibe coded that I
+[00:14:25] use for every one of my edits now, and
+[00:14:27] it saves me a ton of time. I actually
+[00:14:29] had so many comments ask to use it, so I
+[00:14:31] am working on making it available for
+[00:14:33] other people to use. I'll probably make
+[00:14:34] a video about that whole process at some
+[00:14:36] point. But for that plugin, I did use
+[00:14:38] Codex, but it works the same. Claude
+[00:14:40] Code is what I've been using for a
+[00:14:42] pretty complex mobile app I'm working
+[00:14:44] on, and there's just a bunch of other
+[00:14:45] tools I've built with it that I use all
+[00:14:47] the time. And my point isn't to show off
+[00:14:49] any of these tools, it's to say that you
+[00:14:51] absolutely can and should use it even if
+[00:14:54] you're not a developer, because I'm not
+[00:14:56] either. Now, with Code, I do recommend
+[00:14:58] using it on the desktop app, even though
+[00:15:00] you will see the ability to use it in
+[00:15:02] the cloud if you're on the web. But
+[00:15:04] there, you'll need to assign it to a
+[00:15:06] GitHub repo. If you're on the desktop
+[00:15:08] app, you just assign it to a folder on
+[00:15:10] your computer, then send off a prompt.
+[00:15:12] And if you're just starting out, I
+[00:15:13] definitely recommend switching it to
+[00:15:15] plan mode before you tell it what to
+[00:15:16] build. Then it will think through and
+[00:15:18] develop a thorough plan for you to
+[00:15:21] review before it gets started. I do have
+[00:15:23] a full video on Claude Code if you want
+[00:15:25] to master it, but really just try
+[00:15:27] opening it up, assign it a folder,
+[00:15:29] switch to plan mode, then ask it to
+[00:15:31] build something you wish existed and see
+[00:15:33] what happens. You'll be blown away at
+[00:15:35] what comes back.
+[00:15:40] That is how to master Claude. Start with
+[00:15:43] everything inside chat, use the right
+[00:15:45] model and effort, then connect your
+[00:15:47] tools, set up projects, and create
+[00:15:49] skills. Then move into co-work to start
+[00:15:52] working with an agent you can assign
+[00:15:54] real work to. Then jump into code to let
+[00:15:56] that agent build things for you. This
+[00:15:58] stuff has gotten so much more powerful
+[00:16:00] and easy to use for a non-technical
+[00:16:03] person over the past year. I really
+[00:16:04] think everyone should move into the
+[00:16:06] agentic tools you have access to. And
+[00:16:08] hopefully that helps. I have full
+[00:16:10] tutorials on co-work or code if you want
+[00:16:13] to dive deeper into those next.
