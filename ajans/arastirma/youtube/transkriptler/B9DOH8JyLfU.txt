@@ -1,0 +1,520 @@
+# 
+# https://www.youtube.com/watch?v=B9DOH8JyLfU
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:B9DOH8JyLfU.tr.json3
+
+[00:00:00] Yapay zeka çok hızlı bir biçimde
+[00:00:01] gelişiyor. Bazı insanlar yapay zekayı
+[00:00:03] kullanarak web siteleri, uygulamalar
+[00:00:05] hatta oyunlar üretiyor. Bunları kendi
+[00:00:07] oynuyor, kendi kullanıyor ve hatta ve
+[00:00:09] hatta bununla kalmayıp Apple Store ya da
+[00:00:11] Google Play Store'da yayınlayarak çok
+[00:00:14] deli paralar kazanıyorlar. Mesela
+[00:00:15] geçenlerde gördüm. Eminim ki siz de
+[00:00:17] görmüşsünüzdür. 19 yaşındaki bir kişi
+[00:00:19] bir basit bir uygulama yaptı ve bunu 120
+[00:00:22] milyon dolara sattı. Yani exit yaptı.
+[00:00:24] Günümüzde yapay zeka o kadar gelişiyor
+[00:00:25] ki şimdi bunu kullanarak kod bilmeyen
+[00:00:27] bir insan bile uygulamalar, oyunlar
+[00:00:29] vesaire çıkarabiliyor. Ve siz de sosyal
+[00:00:32] medyada görmüşsünüzdür. Herkes Cloud
+[00:00:34] COD'dan bahsediyor. Cloud Code peki
+[00:00:36] nedir ve nasıl kurulur? İşte arkadaşlar
+[00:00:38] bu videoda en basit biçimde Cloud Codu'u
+[00:00:40] nasıl kurabilirsiniz, nasıl
+[00:00:41] kullanabilirsiniz ve başkalarının
+[00:00:43] yaptığı gibi siz de kendi
+[00:00:44] uygulamalarınızı çıkarabilirsiniz.
+[00:00:46] Onları adım adım göstereceğim. Ve
+[00:00:47] piyasadaki videolara baktım. Kolayca
+[00:00:49] anlatan bulamadım açıkçası. Kod bilmeniz
+[00:00:51] lazım. Terminal işin içine giriyor
+[00:00:53] vesaire vesaire. Ben bu videoda
+[00:00:54] arkadaşlar hepsine bir çözüm buldum. Çok
+[00:00:56] basit bir biçimde bunu
+[00:00:57] kullanabileceksiniz. Videoya başlamadan
+[00:00:59] önce bir like verip aşağı yorum
+[00:01:00] bırakırsanız sevinirim.
+[00:01:07] Şimdi ilk başta şundan bahsedelim.
+[00:01:09] Clouy'yi biliyorsunuz herkes kullanıyor
+[00:01:11] burada. Bu nedir arkadaşlar? Chat GPT ya
+[00:01:13] da Cemin gibi bir yapay zekadır. Bize
+[00:01:15] sorularımıza cevap verir ya da
+[00:01:16] arkadaşlar bizim yerimize
+[00:01:18] araştırmalarımızı yapar. bizim
+[00:01:19] yaşamımızı bizim için kolaylaştırır.
+[00:01:21] Ancak Cloud Code bu web versiyonun biraz
+[00:01:23] daha fazlası. Bu bir ajandır açıkçası.
+[00:01:25] Size yardım eder yani arkadaşlar sizin
+[00:01:27] mesela dosyalarınızı organize edebilir.
+[00:01:29] Sizin için web sitesi oluşturabilir.
+[00:01:31] Sizin proje dosyanıza girebilir ve
+[00:01:33] istediklerinizi yapabilir. Yani
+[00:01:35] arkadaşlar kod bilmeyen kişiler bile
+[00:01:36] bunu kullanabilir ve ortaya gayet güzel
+[00:01:38] şeyler çıkarabilir. Şimdi cloud kodu
+[00:01:40] kurmak için bazı yollar vardır. Size
+[00:01:42] terminalden kurmayı öğretti herkes.
+[00:01:44] Terminalden nasıl kurulur? İşte VSL
+[00:01:46] kurma, Ubuntu kurma vesaire terminal
+[00:01:48] komutları. Bunlar kafa karıştırıcı
+[00:01:50] açıkçası. Ben gene de size hepsini
+[00:01:52] göstereceğim. Üç tane yol göstereceğim.
+[00:01:54] Bence hangisi en güzel yol? Onu da
+[00:01:55] söyleyeceğim. Hemen cloud.e'ya
+[00:01:57] geldiğimde burası açıldığında tabii
+[00:01:59] giriş yapmanız gerekiyor. Google'la
+[00:02:01] vesaire giriş yapabilirsiniz. Daha sonra
+[00:02:03] arkadaşlar bakın burada bir kod sekmesi
+[00:02:04] var. Hemen buna bastığımda burada zaten
+[00:02:06] bana söylüyor. Cloud kodu ben nasıl
+[00:02:08] kullanabilirim? Üç şekilde
+[00:02:10] kullanabiliyorum. Terminalden ya
+[00:02:12] extension'dan ya da isterseniz web'den
+[00:02:14] kullanabilirsiniz. Ancak arkadaşlar ben
+[00:02:16] bunu fazla tavsiye etmem. Benim
+[00:02:17] önerdiğim yöntem çok güzel bir yöntem
+[00:02:19] olacak. O yüzden arkadaşlar beklemede
+[00:02:20] kalın. İlk başta arkadaşlar terminalden
+[00:02:22] nasıl kurulur ve nasıl kullanılır onu
+[00:02:24] size açıklayacağım. Burada bazı termin
+[00:02:27] cloud kode yükleme komutları var. Zaten
+[00:02:29] arkadaşlar videonun aşağı atısında
+[00:02:30] bunları da sizlerle paylaşıyor olacağım.
+[00:02:32] Ancak Windows kullanıyorsanız ve Mac
+[00:02:34] kullanıyorsanız terminal farklı
+[00:02:35] şekillerde çalışıyor. İsterseniz vakit
+[00:02:37] kaybetmeden hemen geleyim buraya. Burada
+[00:02:39] arkadaşlar benim yapacağım şey Power
+[00:02:41] Shell yazdım. Zaten hemen burada çıktı.
+[00:02:43] Öyle değil mi? Buraya geldim. Terminalim
+[00:02:44] benim önüme açıldı. İlk başta arkadaşlar
+[00:02:47] ben bir tane test dosyası açtım. Sizin
+[00:02:49] de böyle yapmanızı tavsiye edebilirim.
+[00:02:51] Dosyaya gelmek için benim şu komutu
+[00:02:53] yazmam gerekiyor. CD boşluk dosya yolu
+[00:02:56] yani arkadaşlar. Hemen buraya geldim. CD
+[00:02:58] yazdım. Boşluk bıraktım. C test dedim.
+[00:03:01] Ben böyle bir dosya oluşturdum. Çünkü şu
+[00:03:03] anda dosyamın içine girdi. Öyle değil
+[00:03:04] mi? Şu anda arkadaşlar ben terminalde
+[00:03:06] cloud kodu kurabilirim. Kurmak için ne
+[00:03:08] yapacağım? Şu komutu alıp
+[00:03:10] yapıştıracağım. Bunu dediğim gibi
+[00:03:11] arkadaşlar videonun açıklamalar kısmında
+[00:03:12] sizlerle paylaşacağım zaten. Bunu buraya
+[00:03:14] yapıştırdığımda ve enter dediğimde
+[00:03:16] görüyorsunuz düşünüyor birazcık. Şimdi
+[00:03:18] cloudy kodu benim terminalime
+[00:03:20] yükleyecek. Tabii arkadaşlar bunlar
+[00:03:21] hepsi benim terminalimde hemen çok kısa
+[00:03:23] sürede oldu. Çünkü niye? Ben daha
+[00:03:25] önceden yüklemiştim. Sizde bir kurulum
+[00:03:27] aşaması gerekecek. Ayrıca dediğim gibi
+[00:03:29] arkadaşlar bazı Windows terminallerinde
+[00:03:30] VSL de yüklemeniz gerekiyor. VSL, Ubuntu
+[00:03:33] vesaire hani onlara da hatalar verirse
+[00:03:35] vesaire burada gelirsiniz Cloud'ye
+[00:03:36] sorarsınız zaten. O sizi yönlendirir.
+[00:03:38] Hemen burada benim yapmam gereken şey
+[00:03:40] Cloud'yi çalıştırmak için Cloud'yi
+[00:03:41] yazdım. Buraya enter butonuna bastım.
+[00:03:43] Benim şu anda yüklü olduğu için
+[00:03:44] arkadaşlar dediğim gibi siz ilk komutla
+[00:03:46] yükleyeceksiniz. Daha sonra Cloud yazıp
+[00:03:48] Cloud'nun içerisine gireceksiniz. Daha
+[00:03:49] sonra burada bazı şeyler söylüyor bize.
+[00:03:51] İsterseniz arkadaşlar şu ekranı alayım
+[00:03:53] birazcık büyüteyim. Bakın şimdi
+[00:03:54] başlayacağız diyor. İşte dark mod'da mı
+[00:03:56] olsun, light modda mı olsun? Hemen aşağı
+[00:03:57] doğru inerek bunları değiştirebiliyorum.
+[00:04:00] Hemen dark modda olsun dedim. Enter
+[00:04:01] dedim. Daha sonra cloudy nasıl
+[00:04:03] bağlanacaksın diyor. Burada diyor ki
+[00:04:04] mesela subscription'la mı bağlanacaksın?
+[00:04:06] Yani ödeme yöntemiyle. Burada arkadaşlar
+[00:04:08] biliyorsunuz Cloud'nin prosu var, max'i
+[00:04:10] var vesaire. Bunlar ücretli. Öyle değil
+[00:04:12] mi? İşte bize soruyor. Hangisini
+[00:04:14] kullanacaksın diyor. Ya da konsol
+[00:04:15] hesabınız mı var diyor ya da third party
+[00:04:17] bir platform mu kullanacaksınız diyor.
+[00:04:19] Hemen diyelim ki subscription'la
+[00:04:21] kullanacağız. Burada bana direkt
+[00:04:22] autorize yani otorite et butonu geldi.
+[00:04:25] Sizde bu olmayacak. Sizde ne çıkacak
+[00:04:26] arkadaşlar? Basit paket, bedava paket.
+[00:04:28] Bunda cloud code kullanamıyorsunuz. Daha
+[00:04:30] sonra 17 dolarlık olan var. Yanlış
+[00:04:31] hatırlamıyorsam 720 dolar da olabilir.
+[00:04:33] Pro modeli en az pro modeline sahip
+[00:04:35] olmak gerekiyor. Hani orada kredi kart
+[00:04:37] bilgilerinizi yapıp ödemeyi yaptıktan
+[00:04:39] sonra tekrar bu ekrana geliyorsunuz.
+[00:04:41] Zaten autorize dediğinizde hemen
+[00:04:43] otoriteyi vermiş oluyorsunuz. Yani
+[00:04:45] arkadaşlar bakın burada da eee şu an
+[00:04:48] diyor ki press enter to continue. Hemen
+[00:04:50] enter'a bastım. Diyor ki şu anda bu
+[00:04:51] dosyanın içerisindeyiz diyor. Burada
+[00:04:53] işlem yapacağız. bu dosyaya
+[00:04:54] güvenemiyorsun diyor. Evet güveniyorum
+[00:04:55] dedim. Enter dedim. Şimdi benim clou
+[00:04:57] kodum kuruldu arkadaşlar. Burada
+[00:04:58] işlemler yapabiliyorum. Bakın burada
+[00:05:00] Sonnet 4.6 kullanıldığı söyleniyor
+[00:05:02] default olarak. Yani arkadaşlar
+[00:05:03] isterseniz modellerini
+[00:05:05] değiştirebiliyorsunuz. Şöyle slashmel
+[00:05:07] yazıp zaten burada diyor set AI model
+[00:05:10] for cloudy code diyor. Hani şu an sonet
+[00:05:12] 4.6. Bu güzel bir model. Ancak detaylı
+[00:05:15] kod yazımında vesaire opus 4.6'yı
+[00:05:17] kullanmak daha mantıklı olabiliyor.
+[00:05:19] Hemen burada selam yazdım. Bakın selam.
+[00:05:20] Nasıl yardımcı olabilirim vesaire. Hani
+[00:05:22] burada ben mesela bir şeyler yazarım.
+[00:05:23] Web sitesi tasarla bana ya da bir oyun
+[00:05:25] tasarla, bir uygulama tasarla. Burada
+[00:05:27] bana yardımcı olabilirim. Terminalde
+[00:05:28] bunu kullanmak hiç de göze güzel
+[00:05:30] gelmiyor. Onun için arkadaşlar ben böyle
+[00:05:32] kullanmanızı kesinlikle tavsiye etmem.
+[00:05:33] Zaten YouTube'da gördüğünüz bütün
+[00:05:35] videolarda size terminalden kullanmayı
+[00:05:37] öğretiyorlar. Öyle değil mi? Ancak benim
+[00:05:38] size göstereceğim yol çok daha güzel.
+[00:05:40] Bakın burada vs kod diye bir uygulama
+[00:05:43] var. Bu nedir arkadaşlar? Kod editörü.
+[00:05:45] Yapay zeka kod editörü diye
+[00:05:46] düşünebilirsiniz. Visual Studio Code. Ya
+[00:05:49] bunu indirebilirsiniz ya da antigravity.
+[00:05:51] Google'un da aynısı var. Antigravity ya
+[00:05:53] da arkadaşlar Cser'ı indirebilirsiniz.
+[00:05:55] Benim favorim zaten bu Cser. Hatta
+[00:05:57] arkadaşlar Cloud Cod'dan ziyade
+[00:05:59] Cursor'ın bazı özellikleri var. Daha iyi
+[00:06:01] olduğunu düşünüyorum ben. Onları da
+[00:06:02] videonun sonunda göstereceğim. Hemen
+[00:06:04] bende mesela Visual Studio Code yok.
+[00:06:06] Antigravity var. Ancak mesela bunu
+[00:06:08] indireceğiz ilk başta. Hemen üstüne
+[00:06:10] tıkladım. Daha sonra Windows'a indirmek
+[00:06:11] istiyor musun diyor. Tamam Windows'a
+[00:06:13] indirmek istiyorum dedim. Hemen burada
+[00:06:14] ind üstüne bastım. Burada anlaşma
+[00:06:16] vesaire kabul ediyor musun? Tamam kabul
+[00:06:18] ediyorum. Sonraki sonraki sonraki dedim.
+[00:06:21] Öyle kurdum hemen. Öyle değil mi? Bu
+[00:06:22] kurulumlar vesaire birazcık sürüyor.
+[00:06:24] Bunları bekleyeceğiz. Dediğim gibi
+[00:06:25] arkadaşlar bir kod editörüyle Claudio
+[00:06:27] kodu kullanırsanız sizin için çok daha
+[00:06:29] iyi olur. Bunların arasında Visual
+[00:06:30] Studio kodu var ya da antigravity ya da
+[00:06:33] curser kullanabiliyorsunuz. Hemen
+[00:06:34] çalıştırılsın mı dedi. Çalıştırılsın.
+[00:06:36] Bitti. Şimdi vs kodu açtık böyle. Öyle
+[00:06:38] değil mi arkadaşlar? Bu çok güzel bir
+[00:06:40] kod editörü. Aynı zamanda antigravity ve
+[00:06:43] cursor da buna benziyor zaten
+[00:06:44] arayüzleri. Daha sonra hiçbir şey
+[00:06:46] yapmadan bakın burada isterseniz zaten
+[00:06:48] yapay zeka ajanınız var. Burada da
+[00:06:50] değişiklikler bir şeyler yapabilirsiniz.
+[00:06:52] Ancak cloud kodu kurmak istediğimiz için
+[00:06:55] şurada eklentiler bölümü var. Extensions
+[00:06:57] bölümü. Hemen buraya tıkladım. Daha
+[00:06:59] sonra burada bazı eklentilerin olduğunu
+[00:07:00] görüyoruz. Biz ne yapacaktık? Cloudy
+[00:07:02] kodu yükleyecektik. Onu kullanmak
+[00:07:04] istiyoruz. Öyle değil mi? Clouudi yazdım
+[00:07:06] hemen buraya ve bekledim. Daha sonra ilk
+[00:07:08] çıkan bakın cloud code for vs diyor. VS
+[00:07:10] kod diyor. Hemen install dedim. Buna
+[00:07:12] güveniyor musun? Gerçekten yükleyelim mi
+[00:07:14] dedi. Tamam yükle. Install dedim. İzin
+[00:07:15] verilsin mi diyor? Visual Studio Coda.
+[00:07:18] İzin ver dedim. Ve daha sonra
+[00:07:19] extension'ı indirdik. Hemen buraya
+[00:07:20] tekrar tıkladım ve bunu kapattım. Ve
+[00:07:22] daha sonra gördüğünüz gibi arkadaşlar
+[00:07:23] şurada bir simge belirdi. Cloud'nin
+[00:07:26] simgesi belirdi. Bu nedir arkadaşlar?
+[00:07:27] Cloudy kodur. Hemen bunun üstüne
+[00:07:29] tıkladım. Şurayı artık daraltayım.
+[00:07:31] Burayla çok fazla işim kalmadı. İşte
+[00:07:32] arkadaşlar terminalden kullanmak yerine
+[00:07:34] ben buradan kullanabiliyorum. Buradan
+[00:07:36] güzel bir arayüzle kullanıp modellerimi
+[00:07:38] değiştirebiliyorum. İşlemlerimi
+[00:07:39] yapabiliyorum. Mesela burada atıyorum
+[00:07:41] istediğinizi yazabilirsiniz. İsterseniz
+[00:07:43] arkadaşlar burada plan yapabilirsiniz.
+[00:07:45] Yani bir şeyler planlayabilirsiniz.
+[00:07:47] Mimarii oluşturabilirsiniz. Ya da daha
+[00:07:49] sonra uygulama oluşturabilirsiniz, oyun
+[00:07:50] oluşturabilirsiniz ya da dosyalarınızı
+[00:07:52] düzenleyebilirsiniz. Artık hayalinizden
+[00:07:54] ne geçiyorsa onları yapabilirsiniz.
+[00:07:56] Bakın örnek olması açısından hemen dedim
+[00:07:58] bana bir tane landing page üret yani web
+[00:08:00] sitesi. Ben buna bakmak istiyorum.
+[00:08:02] Bakalım nasıl yapabilecek. Öyle değil
+[00:08:03] mi? Bak diyor ki landing page'i
+[00:08:05] oluşturuyorum. Buraya kaydedeceğim
+[00:08:06] diyor. Tamam mı? Tamam. Yes dedim. Bakın
+[00:08:08] browserla açacağım diyor. Tamam mı?
+[00:08:09] Tamam. Hemen Google Chrome yalnızca bir
+[00:08:11] kez dedim. Bakın arkadaşlar gördüğünüz
+[00:08:13] gibi bir tane landing page oluşturdu
+[00:08:15] bile. Burada ücretsiz dene nasıl
+[00:08:16] çalışır? işte Yıldırım Hızı Güvenli hani
+[00:08:18] birçok sayfa kurmuş ve arkadaşlar bir
+[00:08:20] detay vermediğim halde bu kadar güzel
+[00:08:22] yapabildi. Detay verdiğim durumlarda ne
+[00:08:24] kadar güzel yapabildiğini siz düşünün.
+[00:08:26] Ve ayrıca şunu söylemeyi unuttum. Visual
+[00:08:28] Studio kodda Cloud eklentisini kurdum ve
+[00:08:30] direkt kullanmaya başladım. Ancak siz
+[00:08:32] ilk kurduğunuzda sizi Cloud'nin paralı
+[00:08:34] üyelik sayfasına yönlendirir. Orada
+[00:08:36] dediğim gibi en az 17 dolarlık pro
+[00:08:37] paketine sahip olmanız gerekiyor.
+[00:08:39] İkincisi de Antigravity Google'ım. Bu da
+[00:08:41] arkadaşlar vs kod gibi yani Visual
+[00:08:43] Studio kod gibi benzer bir kod asistanı.
+[00:08:46] Bu zaten bende var. Hemen üstüne
+[00:08:47] tıkladım, açtım. Burada nasıl yapacağız?
+[00:08:49] Cloud kodu nasıl kullanacağız peki?
+[00:08:51] Dediğinizi duyar gibi. Burada da aynı
+[00:08:52] şekilde arkadaşlar bunların zaten
+[00:08:53] arayüzleri birbirinin tıpa tıp aynısı.
+[00:08:55] Hemen şuraya bastım. Extensions bölümüne
+[00:08:57] geldim. Buraya ne yapıyorum? Cloudy
+[00:08:59] yazdım. Ve daha sonra en başta çıktı
+[00:09:01] zaten. Öyle değil mi? Hemen bunun üstüne
+[00:09:03] tıkladım. Bu VS kod için üretilmiş.
+[00:09:05] Ancak antigravity'de de çalışıyor. İşte
+[00:09:07] mesela Cursor'da da bildiğim kadarıyla
+[00:09:08] çalışıyor. Hemen buraya install dedim.
+[00:09:10] Bakın zaten yüklendi dedim. Yüklendikten
+[00:09:12] sonra şurayı kapatayım hemen kafamız
+[00:09:14] karışmasın. Yüklendikten sonra aynı
+[00:09:16] şekilde vs kodda olduğu gibi burada bir
+[00:09:18] tane ikon çıktı. Hemen buna tıkladım.
+[00:09:20] İşte bizim cloud'umuz zaten burada. Ve
+[00:09:23] cloud kod ya da buna benzer bir şeyi
+[00:09:25] kullanmak için yapabileceğiniz bir şey
+[00:09:27] ise ki ben bunu tavsiye ederim. Ben
+[00:09:29] kendim bunu kullanıyorum. O da curs
+[00:09:31] kullanmak. Burası biraz daha gelişmiş
+[00:09:33] versiyonudur bana göre. Zaten arkadaşlar
+[00:09:35] benim tanıdığım çoğu bu işle uğraşan
+[00:09:37] kişi cursıyor. Hemen curser'a geldiğimde
+[00:09:40] burada bunu da indirmem gerekiyor.
+[00:09:41] Üstüne tıkladım burada. Hemen burada
+[00:09:43] cursurda işte download bölümünü
+[00:09:45] görüyorsunuz zaten. Hemen download'a
+[00:09:46] bastığımda buradan indirebiliyorsunuz.
+[00:09:48] Ancak arkadaşlar benim şu anda inik
+[00:09:50] durumda olduğu için indirmeme gerek yok.
+[00:09:52] Hemen bunu küçülttüm. Burada bana üç
+[00:09:54] tane seçenek girdi. İşte o proje aç ya
+[00:09:56] da repoyu klonla bir reponuz varsa ya da
+[00:09:58] arkadaşlar ssh ile işte bir sunucuda
+[00:10:00] projeniz varsa sunucuya da
+[00:10:01] bağlanabiliyorsunuz. Yani arkadaşlar
+[00:10:03] Cloud Codeun yaptığı şeyin aynısı. Tek
+[00:10:05] bir fark var arkadaşlar. Bunun ücretsiz
+[00:10:07] versiyonları da var. Yani basit
+[00:10:08] modellerle ücretsiz işlemler de
+[00:10:10] yapabiliyorsunuz. Bunun yanında sadece
+[00:10:11] Cloud kod kullanırsanız mesela Cloud'nun
+[00:10:13] modellerine erişmeniz oluyor. Ancak
+[00:10:15] arkadaşlar burada çok farklı modellerde
+[00:10:17] erişmeniz oluyor. Aynı şekilde VC kodda
+[00:10:19] ve antigravity'de de var. Hemen open
+[00:10:21] project bölümüne bastım ve daha sonra
+[00:10:23] burada test için oluşturduğum test
+[00:10:24] klasörüne geldim. Şimdi diyeceksiniz ki
+[00:10:26] bana ya Tarık burada cloud kod yok. İşte
+[00:10:29] bu ne işe yarıyor? Arkadaşlar cloud Code
+[00:10:31] bildiğiniz gibi bir yapay zeka ajanı.
+[00:10:33] Yani sizin yerinize işlemlerinizi
+[00:10:34] yapabiliyor. Kod yazıyor, web site,
+[00:10:36] oyun, işte uygulama her şeyi
+[00:10:38] oluşturabiliyor. İsterseniz arkadaşlar
+[00:10:39] bilgisayarınızı düzenliyor ya da
+[00:10:41] arkadaşlar lokalde ya da sunucuda belli
+[00:10:43] değişiklikleri yapabilirsiniz. Ancak ben
+[00:10:45] clou koddan ziyade curser'un ajan modunu
+[00:10:48] kullanmayı daha çok tercih ediyorum.
+[00:10:49] Zaten burada mesela sizde oto seçili
+[00:10:51] olur ilk başta yüklediğinizde. Bakın ilk
+[00:10:54] başta ne yaptık? Yükledik. Dosya seçtik.
+[00:10:56] Test dosyası oluşturdum ben. Öyle değil
+[00:10:58] mi? Ondan sonra burada oto seçili olur.
+[00:11:00] Oto ne demektir biliyor musunuz? Burada
+[00:11:02] mesela selam ne haber? Bir şey
+[00:11:04] yazdığınızda size cevap verir. Ancak
+[00:11:06] arkadaşlar otomatik olarak işte o işin
+[00:11:08] zorluğuna, o işin karmaşasına ve sizin
+[00:11:11] işte mesela Cser'ın paralı modellerini
+[00:11:13] mi kullanıyorsunuz ya da bedava
+[00:11:14] modellerini mi kullanıyorsunuz? Ona göre
+[00:11:16] güzel bir yolla size cevabını hazırlar.
+[00:11:18] Ancak bunun oto versiyonunu kullanmak
+[00:11:20] çok da arkadaşlar insanlara yardım
+[00:11:22] etmiyor. Onun için paralı versiyonunu
+[00:11:23] kullanmak biraz daha mantıklı
+[00:11:25] olabiliyor. Buradan Oto'yu ben
+[00:11:27] kapatıyorum. İstediğim modelleri
+[00:11:29] seçebiliyorum. Mesela Opus 4.6 zaten
+[00:11:31] arkadaşlar cloud Cod'un mesela cloud COD
+[00:11:33] Sonnet 46 ile gelir. Upgrade ederseniz
+[00:11:36] Opus 4.6'yı kullanırsınız. Bu da en
+[00:11:38] gelişmiş versiyonlarından birisidir. Ve
+[00:11:40] ayrıca arkadaşlar GPT 5.3 Codex kod
+[00:11:43] yazma da bayağı bir başarılı. Ancak GPT
+[00:11:46] 5.4 çıktı geçenlerde. Bu arkadaşlar
+[00:11:48] başka bir dünya öyle diyeyim size. Ancak
+[00:11:50] token harcama bakımından GPG 5.4 bayağı
+[00:11:53] bir pahalı olduğunu söyleyebilirim.
+[00:11:55] Burada en mantıklı basit işler için, web
+[00:11:57] sitesi için vesaire son 4.6'nın olduğunu
+[00:12:00] söyleyebilirim. Biraz daha karmaşık
+[00:12:01] işler ve planlamada da işte Opus 4.6
+[00:12:04] kullanılabilir. Çok karmaşık bir iş
+[00:12:06] varsa önünüzde GPT 5.4'te kullanılabilir
+[00:12:10] ki ben bunu deneymenin gayet başarılı
+[00:12:12] olduğunu düşünüyorum. Yani onun için ben
+[00:12:13] açıkçası cloud kod kullanmak yerine
+[00:12:15] Cursor'ın bu kendi ajan modunu
+[00:12:17] kullanıyorum. Plan modunu seçebilirim
+[00:12:18] planlama açısından, mimari oluşturma
+[00:12:20] açısından. Öyle değil mi? Ya da debug
+[00:12:22] modunu seçebilirim. Yani bir sorun çözme
+[00:12:25] modunu seçebilirim. Ve ayrıca dediğim
+[00:12:26] gibi SSH ile sunucuya da bağlanabiliyor.
+[00:12:29] Aynı Cloud Codeun yaptığı gibi. Yani
+[00:12:30] sunucudaki projelerde de değişiklikler
+[00:12:32] yapabiliyor. Mesela plan diyelim.
+[00:12:34] Planlama yapacağız. Nasıl bir planlama
+[00:12:36] yapacağız? Bakın modumu istersem ben
+[00:12:38] opus istersem sonnet ya da GPT 5.4
+[00:12:41] yapabilirim. Hani GPT seçili olsun şu
+[00:12:43] anda zaten cloud kodu anlattık biraz
+[00:12:45] önce denedik. Öyle değil mi? Ya ben
+[00:12:47] böyle yazdım şu anda. Ancak arkadaşlar
+[00:12:49] bunu daha detaylı yazmak gerekiyor
+[00:12:50] tabii. Hani yapay zekaya söylemek
+[00:12:52] gerekiyor. Ya ben şöyle şöyle bir şeyler
+[00:12:53] istiyorum. Ancak bunların detayları
+[00:12:55] olması gerekiyor. Zaten arkadaşlar
+[00:12:57] burada da bakın size sorular soruyor.
+[00:12:59] Planlamayı tamam yapıyoruz diyor da
+[00:13:01] nasıl bir şey istiyorsun? Bakın web
+[00:13:02] uygulaması mı, mobil uygulama mı,
+[00:13:04] masaüstü uygulama mı fark etmez. En
+[00:13:06] hızlı ve basit olan. En hızlı ve basit
+[00:13:08] olan dedim. Öyle değil mi? Bakın ilk
+[00:13:09] sürümde nasıl olsun diyor. Burada ne
+[00:13:11] yapalım? Mesela A'yı seçtim. Öyle değil
+[00:13:13] mi? Continue dedim. Hemen bize ne yaptı
+[00:13:15] arkadaşlar? planlamayı çıkardı. Yani
+[00:13:17] hedefimiz ne? İlk sürüm kapsamında ne
+[00:13:20] olacak? Öyle değil mi? Önerilen teknik
+[00:13:22] yaklaşım yani teknik bu hangi dilde
+[00:13:23] yazılacak vesaire. Ekranlar ve
+[00:13:25] bileşenler hesaplama mantığı burada
+[00:13:28] hatta grafiğini de size çizdi. Detaylı
+[00:13:30] bir burada plan hazırladı. Biliyorsunuz
+[00:13:32] arkadaşlar bir proje yapmadan önce ilk
+[00:13:34] yapmak gereken şey planlamadır. Hemen
+[00:13:35] burada build dediğimde de zaten
+[00:13:37] arkadaşlar bu uygulamayı hayata
+[00:13:39] geçirmeye başlayacak. Yani arkadaşlar
+[00:13:40] böyle uygulamalar yapmak eskiden çok
+[00:13:42] zordu. Eskiden kodlama bilmek
+[00:13:44] gerekiyordu. Ancak şimdi işte mesela bu
+[00:13:47] yardımcı araçlarla terminale dokunmadan
+[00:13:50] bile bir uygulamalar çıkarılabiliyor.
+[00:13:51] Web siteler çıkarılabiliyor. Öyle değil
+[00:13:53] mi? Zaten arkadaşlar bundan sonraki
+[00:13:55] videolarda da yapay zekayı kullanarak bu
+[00:13:57] programları, bu güzel arayüzleri
+[00:13:59] kullanarak nasıl iş inşa edebilirsiniz,
+[00:14:02] nasıl para kazanabilirsiniz? Onları
+[00:14:05] sizlerle paylaşıyor olacağım.
+[00:14:06] Biliyorsunuz arkadaşlar şu anda bir çağı
+[00:14:08] değişiyor. Şu anda arkadaşlar ofis
+[00:14:09] işleri, mühendislik, mimarlık işte
+[00:14:11] mesela beyaz yakalıların işleri
+[00:14:13] tehlikeye giriyor. Video editörler, işte
+[00:14:15] kapak tasarımcıları vesaire bunların
+[00:14:17] hepsini yapay zeka yapabiliyor. Yani biz
+[00:14:19] bir çağ değişim aşamasındayız. Bu çağa
+[00:14:22] ayak uyduran bazı problemleri önceden
+[00:14:24] gören ve bunları çözmeye çalışan kişiler
+[00:14:26] benim görüşümce ileride çok iyi
+[00:14:28] noktalara gelecek. Yani 19 yaşındaki
+[00:14:31] İngiliz bir çocuk ne yaptı biliyor
+[00:14:33] musunuz arkadaşlar? fotoğraf çekiyor.
+[00:14:35] İşte bardaktaki kolan kalorisini
+[00:14:37] söylüyor. Böyle basit bir uygulama yaptı
+[00:14:39] ve bunu arkadaşlar tamına 120 milyon
+[00:14:41] dolara sattı. Ve bunun yanında birçok
+[00:14:43] kişiyi görüyoruz. Güzel uygulamalar
+[00:14:45] üretiyor. Basit ancak insanların
+[00:14:46] problemini çözen ve daha sonra
+[00:14:48] arkadaşlar bunlar aylık olarak mesela
+[00:14:50] gelir sağlayabiliyor. Öyle değil mi?
+[00:14:52] Bakın diyor ki, "Basit web uygulamasını
+[00:14:53] plana göre tamamladım" diyor. "çinde şu
+[00:14:55] var, bu var diyor. Yaşını, cinsiyetini
+[00:14:57] vesaire soruyor" diyor. Şimdi bunu
+[00:14:59] çalıştırmak için diyor şurayı aç diyor.
+[00:15:01] Hemen bunu ctrlc yaptım. Hemen web
+[00:15:04] sitesine gir. Bunu çalıştır diyor. Web
+[00:15:05] sitesine girdim, çalıştırdım. Bakın
+[00:15:07] arkadaşlar, basit bir program yapmış.
+[00:15:09] Ancak arkadaşlar, tabii bunun görseli
+[00:15:11] düzenlenebilir. Öyle değil mi? İlk başta
+[00:15:12] cinsiyet, yaş, boy işte vesaire bunları
+[00:15:15] soruyor. Mesela burada yaşımı 45 yaptım.
+[00:15:18] Boyumu 1.85 yaptım. Kilomu da 150
+[00:15:21] yaptım. Öyle değil mi? Burada mesela
+[00:15:23] hareketsiz dedim. kalori ihtiyacını
+[00:15:24] hesapla dediğimde bakın günlük hedef
+[00:15:26] kalorin vesaire hepsi burada yazıyor
+[00:15:29] yani arkadaşlar işlevini yerine
+[00:15:30] getiriyor. Ha mobil uygulama yapmak için
+[00:15:32] de mesela şurada mobil görünümüne
+[00:15:34] bakarım. Mobil görünümü böyleymiş. Öyle
+[00:15:35] mi? Çok iyi değil şu anda. Ancak bunlar
+[00:15:37] düzenlenebilir. Dediğim gibi şu anda
+[00:15:39] sadece 5 dakikada yaptığı bir şeye bakın
+[00:15:41] arkadaşlar. Umarım yardımcı olmuştur
+[00:15:42] size. Cloud kodu terminalde kullanmayın.
+[00:15:45] Gelin arkadaşlar antigravity'de
+[00:15:47] kullanın. Bunu size çok yardımcı eder.
+[00:15:49] Ya da vs studioda kullanın. Yani
+[00:15:50] arkadaşlar bunu bir kod editör
+[00:15:52] programında kullanmak çok daha
+[00:15:53] mantıklıdır. Bana soracak olursanız
+[00:15:55] arkadaşlar ben curserun içerisindeki
+[00:15:57] agentları kullanıyorum. Burada bir
+[00:15:58] noktalara gelmek diğerlerinden biraz
+[00:16:00] daha kolay olabiliyor. Umarım videoyu
+[00:16:02] beğenmişsinizdir. Beğendiyseniz like
+[00:16:03] butonuna basıp aşağı yorum bırakmayı
+[00:16:05] unutmayın. Ve arkadaşlar gelecek
+[00:16:06] videolarda yapay zekayla para kazanmak
+[00:16:08] ya da bir şey inşa etmek konularında
+[00:16:09] neler görmek istiyorsanız aşağı
+[00:16:11] yorumlara bırakabilirsiniz. Hepiniz
+[00:16:13] kendinize iyi bakın. Bir dahaki videoda
+[00:16:14] görüşürüz. Bay bay. Yeah.
