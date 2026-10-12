@@ -1,6 +1,6 @@
 # AJANS İŞ MODELİ — ÖZET (YouTube araştırması: iş modeli + sosyal medya + reklam)
 
-Kaynak: `ajans/arastirma/youtube/index.md` içindeki 13 bölüm (5 mevcut + 8 yeni arama), 152 video sıralandı (41 A, 56 B, 55 C); 105 transkript + 309 açıklama çekildi; bu klasörde 17 video planı var. Rakamlar videolardaki gibi (USD); TR karşılıkları önerimizdir.
+Kaynak: `ajans/arastirma/youtube/index.md` içindeki 13 bölüm (5 mevcut + 8 yeni arama), 152 video sıralandı (41 A, 56 B, 55 C); 105 transkript + 309 açıklama çekildi; bu klasörde 59 video planı var (transkripti olan tüm A ve B videolar). Rakamlar videolardaki gibi (USD); TR karşılıkları önerimizdir.
 
 ---
 
@@ -122,15 +122,23 @@ Kaynak: `ajans/arastirma/youtube/index.md` içindeki 13 bölüm (5 mevcut + 8 ye
 - Tam otomatik yayın yok; her müşteri hesabında onay kapısı.
 - Sahte Google yorumu asla; yorum stratejisi vaadi, sıralama garantisi değil.
 
-## 7. Durum ve eksikler
-- Plan yazılan 17 video: bkz. bu klasör. Plan bekleyen A/B transkriptleri (öncelikli): QeV04PFPNck, jFAH0txMwiI, id22R7iBTjo, OFoNYWIS7IA (carousel); L3NUp2XP_h0, PXcDqmamX2Q, m02TeQ9kHVo, 9p3levei5Aw (n8n IG); IIJbt7bxh5w, kdev1F8o5y8, zbt5wZLiLGU, -np6T0ljYwo, OZ_ZriNypbg, nn7jO7EUjjM, M7niLhbbPP8, iUNzRKOC25w, TxMAUMUn-is, 3fIXJyrG50c, ZT4LqD2_GwM, Dgs1tQngbec (satış); m6HC_o4Cvko, OrIxvWCdkEc, coq11ZnucH4, jZpOI5petho, orZpEVklDlI, hq5dPOun_00, XJXNdbjxy9Q (outreach); fj7cmY-El-c, GwveA7jMsLY, xJ99dBYhpRI, Rm3ObJXsuOI, eRiu97HAtxE (reklam); R9c_JQrEtu8, 4ZI_fL4cw_c, QovlUE_VlWQ, CvQ3ARulOKE, Jsx-rImkdQk, DIXXW_jBS0w, Fnw1_YAYEAc, 00obLp8vowQ, uhbeDrdmCoI, IIXupZAGvDk (içerik).
-- Transkripti alınamayan (altyazısız): xDSPmIO1_jk, eea_h19WF00, LFO4cP0KMwk, QG_6Yqulus0. YouTube IP engeli (timedtext 429) nedeniyle ~45 video (çoğu C) çekilmedi; `index.md` ve `arastirma/youtube/transkriptler/` güncel durumu gösterir.
+## 7. Sonradan eklenen planlardan öne çıkanlar
 
-## Ek (2026-10-10): carousel/n8n + reklam planları
-Yeni planlar: `QeV04PFPNck-claude-proje-html-carousel.md`, `jFAH0txMwiI-claude-code-design-md-carousel-skill.md`, `L3NUp2XP_h0-n8n-drive-reels-kalici-meta-token.md`, `fj7cmY-El-c-restoran-sosyal-medya-kursu.md`, `GwveA7jMsLY-restoran-google-ads-kurulumu.md`.
-- **Carousel = HTML→PNG, görsel model değil**: referanslardan stil JSON'u / `design.md` çıkar ("Turn this into a design system in an HTML file and a design MD file."), müşteri klasöründe sakla; aynı dosya site + sosyal + reklam kreatifinde kullanılır. Türkçe karakter ve gerçek font garantisi.
-- **Carousel skill'i**: Hook → Acı → Adımlar → Sonuç → CTA; ilk çalıştırmada kitle/teklif/ton sorulup profile yazılır; çıktı slaytlar + IG caption + LinkedIn metni.
-- **Meta kalıcı token**: Business Suite System User → app'e full control → token "Never" + 8 izin (`instagram_content_publish`, `publish_video` dahil); Reels için container → Wait 60 sn → `media_publish`; video URL'si public olmalı.
-- **Restoran sosyal medya kuralları**: her post'ta konum, kampanya/ilan story'de, feed evergreen; sadece organikte kanıtlanmış içeriğe reklam; videoda 20-30 başarılı örneği tersine mühendislik; menü kalemi = karakter.
-- **Google Ads yerel kurulum**: Search-only, Clicks + max CPC (Keyword Planner üst sıra ortalaması), Presence (interest değil), ilçe bazlı konum, exact match, başlık 1'e pinli keyword insertion, günlük bütçe = max CPC × 10, PMax/Display/lead form yok.
-- Plan bekleyenler listesinden bu 5 id düşüldü.
+- **Pavlo, SMS tek satır (jZpOI5petho):** sadece patronun cep numarasına, satış yapmadan: "Hey man, this is Pavel, looking you guys up on Google." Günde 50-100 gönderim, %2-4 olumlu dönüş; cevap gelince yazışma yok, hemen arama. TR'de izinsiz toplu SMS İYS/6563 riskine takılır; bire bir WhatsApp ile uygula.
+- **Pavlo, "hâlâ açık mısınız?" + bilerek dağınık sesli mesaj (orZpEVklDlI):** Google puanı ve yorum sayısıyla kişiselleştirme. "Ücretsiz site + aylık 100-500 $" reklamı: yaklaşık 4.000 $ harcamayla ilk ay 3.500 $ aylık tekrarlayan gelir.
+- **Dean White (hq5dPOun_00):** tek niş, nişe özel biyografi, "önden ücretsiz yaparım, beğenirsen ödersin" DM'i; fiyat telefonda verilmez, görüşmede önce site taslağı, sonra 15.000 $ ve sessizlik. Kendi nişinde Facebook grubu kurup otorite olmak.
+- **Vendasta (3fIXJyrG50c):** aynı AI resepsiyonist kimine 97 $/ay'a satılamıyor, kimine 3.500 $'a satılıyor (toptan maliyeti 165 $). Farkı yaratan: isimli "AI çalışan" konumlandırması, müşterinin kendi rakamıyla ROI hesabı, 2-3 saatlik onboarding, satıştan önce canlı demo hattı.
+- **Adam Erhart (ZT4LqD2_GwM):** başta 2.000 $/ay paketler hızla iptal edildi (geliri 8.000'den 2.000 $'a düştü). Öneri: 300 $/ay giriş paketi (cevapsız çağrıya AI + sohbet), sonra 500 $ upsell. Kapanış: "Would you like some help with that?"
+- **Nick Saraev, karşı görüş (TxMAUMUn-is):** yerel işletmeye AI satmanın 3 sorunu: küçük havuz ve pahalı lead, satış görüşmesinin eğitime dönmesi, dar marj. İstisna: diş klinikleri. Ders: soyut otomasyon değil somut sonuç sat, satış döngüsünü kısalt.
+- **Niş seçimi (nn7jO7EUjjM):** restoranda 10 $ kârla 2.000 $'lık hizmeti geri kazanmak için 200 müşteri gerekir; tadilatta tek müşteri yeter. Yüksek biletli nişler önce.
+- **Carousel kuralları (uhbeDrdmCoI, IIXupZAGvDk):** sabit rollü 3 renk (ana, zemin, vurgu), 2 font ("başlık bağırır, gövde görünmez"), hiç değişmeyen yerleşim (başlık, içerik, kullanıcı adı, sayfa no, ok); iskelet 5 vuruş: hook, vaat, merak, sonuç, çağrı. Üç tür: haber/trend, alıntı, hikâye. Profilin ilk 3 satırı bilinçli kurulmalı.
+- **n8n Instagram akışı (m02TeQ9kHVo, en eksiksiz):** Schedule (09:00 + 18:10) → Sheets'te durumu boş ilk satır → caption (Gemini) → REELS container → 60 sn bekle → publish (5 sn arayla tekrar) → satırı "Posted" yap. Token: System User ile süresiz. Medya Cloudinary'de. Şablon JSON'u kaynaklar/ altında.
+- **Gerçek fotoğrafla paylaşım (DIXXW_jBS0w):** müşteri fotoğrafı Drive'a atar → GPT-4o görseli tarif eder → marka kimliği hücresiyle FB ve IG metni → her gün 08:00 yayın. Instagram için public URL şart. Yerel işletmeye en uygun içerik modeli.
+- **Claude Code + Blotato MCP (Fnw1_YAYEAc):** 4 soruluk marka sesi anketi `memory.md`'ye; tek prompt'la infografik + çok platforma zamanlama. Bağlantı süresi dolunca tüm gönderiler düşüyor, takip et.
+- **Dan Kieft Make blueprint'i (CvQ3ARulOKE):** caption promptu "a problem, a fact, a benefit", Reels scripti 80-120 kelime; tam metin kaynaklar/ altında. Blueprint'te X kolunda yanlışlıkla LinkedIn promptu var.
+- **Kaçınılacak:** ünlü deepfake'i ve çoklu sahte hesap modeli (Jsx-rImkdQk) hukuki risk.
+
+## 8. Durum ve eksikler
+- 59 plan yazıldı; transkripti olan A ve B videoların hepsi kapsandı.
+- YouTube bu sunucunun IP'sini engellediği için 83 videonun transkripti çekilemedi (9 A, 29 B, 45 C). Altyazısı hiç olmayanlar: xDSPmIO1_jk, eea_h19WF00, LFO4cP0KMwk, QG_6Yqulus0. Engel kalkınca başka bir oturumdan tamamlanmalı; eksik liste `arastirma/youtube/index.md` ile transkriptler klasörünün farkıdır.
+- Kart sayfası: `saha-kiti.html` (fiyatlar, kopyalanabilir mesajlar, görüşme soruları, günlük rutin, otomasyonlar, 30 günlük içerik planı).

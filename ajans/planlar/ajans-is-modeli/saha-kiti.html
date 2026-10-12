@@ -78,7 +78,7 @@ code{font-family:var(--f-mono);font-size:.85em}
 
 <div class="wrap">
 <header class="top">
-  <span class="label">YouTube araştırmasından · 17+ video planı</span>
+  <span class="label">YouTube araştırmasından · 59 video planı</span>
   <h1>Ajans Saha Kiti</h1>
   <p class="lede">Bu kit, yerel işletmelere <b>site + sosyal medya + reklam</b> satarken ne fiyat vereceğini, işletmeye ne yazacağını ve hangi işi otomatiğe bağlayacağını tek yerde toplar.</p>
 </header>
@@ -133,7 +133,7 @@ code{font-family:var(--f-mono);font-size:.85em}
       <p class="sub">Videodaki karşılığı 1.000–6.000 $ peşin.</p>
     </article>
   </div>
-  <p class="sub">WhatsApp API, SMS ve reklam bütçesi gibi kullanım ücretleri müşterinin kartından çekilir; aylık ücret sabit kalır.</p>
+  <p class="sub">WhatsApp API, SMS ve reklam bütçesi gibi kullanım ücretleri müşterinin kartından çekilir; aylık ücret sabit kalır. Yeni müşteriyi küçük paketle başlat: videolarda baştan büyük aylık paket satanların müşterileri hızla iptal ediyor.</p>
 </section>
 
 <section id="mesajlar">
@@ -166,6 +166,11 @@ code{font-family:var(--f-mono);font-size:.85em}
       <h3>Kapanış hesabı</h3>
       <p>"Bir müşteri size 2.000 ₺ kazandırıyorsa ve sistem ayda sadece 1 ekstra müşteri getirirse, aylık ücreti kendi ödüyor."</p>
       <p class="sub">Rakamı müşteriye söylet, hesabı onun rakamıyla yap.</p>
+    </article>
+    <article class="card">
+      <h3>Konumlandırma</h3>
+      <p>Aynı ürünü "yazılım" diye satarsan ucuzlar, isimli bir çalışan gibi satarsan değerlenir: "Ayşe, 7/24 telefonlarınızı açan ve randevu yazan asistanınız."</p>
+      <p class="sub">Satıştan önce canlı demo hattı göster; onboarding 2-3 saat.</p>
     </article>
   </div>
   <div class="grid qa">
@@ -223,6 +228,23 @@ code{font-family:var(--f-mono);font-size:.85em}
     <div class="pillar"><b>Perşembe</b>Müşteri yorumu, sonuç</div>
     <div class="pillar"><b>Cuma</b>Teklif, paket, SSS</div>
   </div>
+  <div class="grid">
+    <article class="card">
+      <h3>Carousel kuralları</h3>
+      <ul class="clean">
+        <li>3 sabit renk: ana, zemin, vurgu</li>
+        <li>2 font: başlık bağırır, gövde görünmez</li>
+        <li>Hiç değişmeyen yerleşim: başlık, içerik, kullanıcı adı, sayfa no, ok</li>
+        <li>5 vuruş: hook, vaat, merak, sonuç, çağrı</li>
+        <li>Profilin ilk 3 satırı bilinçli dizilsin</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Gerçek fotoğraf akışı</h3>
+      <p>İşletme sahibi fotoğrafı klasöre atar, yapay zekâ tarif edip marka diliyle metin yazar, onaydan sonra her gün 08:00'de Instagram ve Facebook'a çıkar.</p>
+      <p class="sub">Yerel işletmeye en uygun model; yapay zekâ görseli değil gerçek ürün ve mekân.</p>
+    </article>
+  </div>
   <div class="legend"><span>Satış çağrısı güçlü olan günler</span></div>
   <div class="week" id="days"></div>
 </section>
@@ -236,13 +258,14 @@ code{font-family:var(--f-mono);font-size:.85em}
     <article class="card warn"><h3>Gerçekçi gelir</h3><p>Tek kişilik ajansın tavanı ayda 10–15 bin $ civarı. "Ayda 300 bin $" videoları yanıltıcı. 30 müşteri ≈ ayda 4.000 $ tekrarlayan gelir.</p></article>
     <article class="card warn"><h3>Sponsorlu araç övgüsü</h3><p>Base44, GoHighLevel, Make, Relume videolarının çoğu ortaklık linkli. Aracı değil süreci kopyala.</p></article>
     <article class="card warn"><h3>İzinsiz toplu mesaj</h3><p>Toplu SMS ve e-posta KVKK ve İYS riski taşır. Bire bir WhatsApp, Instagram DM ve yüz yüze öncelikli.</p></article>
+    <article class="card warn"><h3>Düşük biletli niş</h3><p>Restoran 10 ₺ kârla aylık ücreti geri kazanmak için çok müşteri ister; tadilat veya klinikte tek müşteri yeter. Önce yüksek biletli nişler.</p></article>
     <article class="card warn"><h3>Onaysız yayın</h3><p>Otomatik paylaşım henüz güvenilir değil. Her müşteri hesabında insan onayı şart.</p></article>
   </div>
 </section>
 
 <footer class="foot">
   <p>Kaynak dosya: <code>ajans/planlar/ajans-is-modeli/OZET.md</code> ve aynı klasördeki video planları.</p>
-  <p>Fiyatlar videolardaki dolar rakamlarından türetilmiş önerilerdir; Türkiye pazarında test edilmemiştir.</p>
+  <p>Fiyatlar videolardaki dolar rakamlarından türetilmiş önerilerdir; Türkiye pazarında test edilmemiştir. Toplu SMS ve e-posta yerine bire bir mesaj kullan.</p>
 </footer>
 </div>
 
@@ -268,6 +291,10 @@ const MSGS = [
    text:"Yerel işletmelere web sitesi, sosyal medya ve reklam işi kuruyorum. Sitesi olmayan ya da işini büyütmek isteyen bir işletme sahibi tanıyorsan beni ona iletir misin? Karşılığında ilk ayı bizden."},
   {tag:"Video mesaj", title:"2 dakikalık site incelemesi",
    text:"Sitenizde 3 şey fark ettim: ana sayfa telefonda 6 saniyede açılıyor, WhatsApp butonu yok, yorumlarınız sitede görünmüyor. Düzeltilmiş hâlini bu videoda gösteriyorum. İsterseniz konuşuruz, istemezseniz de kolay gelsin."},
+  {tag:"WhatsApp, tek satır", hot:true, title:"Satışsız ilk temas",
+   text:"Merhaba [Ad] Bey/Hanım, [İşletme]'yi Google'da inceliyordum, size kısa bir şey soracaktım."},
+  {tag:"DM", title:"Önce yaparım, beğenirsen ödersin",
+   text:"Merhaba, [sektör] işletmelerine site yapıyorum. Size önden ücretsiz bir taslak hazırlayayım; beğenirseniz devam ederiz, beğenmezseniz hiçbir borcunuz yok. Numaranızı alabilir miyim?"},
   {tag:"Örnek gönderirken", title:"Link mesajı",
    text:"[İşletme] için 15 dakikada hazırladım, linki burada: [link]. Nasıl buldunuz?"},
   {tag:"Ortaklık", title:"Referans ortağına",
