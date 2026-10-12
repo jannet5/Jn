@@ -1,4 +1,5 @@
 <title>Vitrin Sosyal Kiti</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400;100..125,500;100..125,800&display=swap">
 <style>
@@ -98,9 +99,10 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 .uyari{border-left:3px solid var(--warn);padding:8px 12px;background:var(--surface);border-radius:0 8px 8px 0;font-size:14px}
 /* büyük görsel */
 #buyuk{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
-#buyuk[hidden]{display:none}
+[hidden]{display:none!important}
 #buyuk img{max-height:calc(100% - 60px);max-width:100%;border-radius:8px;border:1px solid var(--border)}
-#buyuk p{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted);margin:0}
+#buyuk p{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted);margin:0;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;padding-inline:16px}
+#bildirim{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;max-width:calc(100% - 32px)}
 @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important}}
 </style>
 
@@ -109,9 +111,9 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <div>
       <span class="eb">Vitrin Atölyesi · Instagram + Facebook</span>
       <h1 style="margin-top:8px">Sosyal kit: ilk 14 gün</h1>
-      <p class="mut">Hesap açılınca sırayla paylaş. Her gün: görseli kaydet, kırmızı butona bas, Instagram'a yapıştır. Hangi metnin kullanılacağını ben seçtim. Görseli kaydetmek için büyüt, basılı tut.</p>
+      <p class="mut">Hesap açılınca sırayla paylaş. Her gün: "Bu günü indir" ile görselleri al, kırmızı butona bas, Instagram'a yapıştır. Hangi metnin kullanılacağını ben seçtim. Görseli kaydetmek için büyüt, basılı tut.</p>
     </div>
-    <div class="say" id="sayilar"></div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><div class="say" id="sayilar"></div><button class="btn ana buyuk indir-btn" data-indir="hepsi" hidden>Hepsini indir (.zip, ~6 MB)</button></div>
   </header>
   <nav aria-label="Bölümler">
     <a href="#kararlar">Seçimler</a><a href="#profil">Profil</a><a href="#izgara">Izgara</a><a href="#gunler">14 gün</a><a href="#reklam">Reklam</a><a href="#kampanya">Kampanya</a>
@@ -193,10 +195,52 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     </div>
   </section>
 </div>
-<div id="buyuk" hidden role="dialog" aria-label="Büyük görsel"><img alt=""><p>Kaydetmek için basılı tut ya da sağ tıkla · kapatmak için dokun</p></div>
+<div id="buyuk" hidden role="dialog" aria-label="Büyük görsel"><img alt=""><p><button class="btn ana" id="tekIndir" data-indir-tek>Bu görseli indir</button> <span>· kapatmak için boşluğa dokun</span></p></div>
+<div id="bildirim" role="status" aria-live="polite" hidden></div>
 
 <script>
 const V = /*VERI*/;
+let dl = null; // claude.use("downloads"); null ise indirme butonları gizli kalır
+const bildir = t => { const b = $('#bildirim'); b.textContent = t; b.hidden = false; clearTimeout(bildir.z); bildir.z = setTimeout(() => b.hidden = true, 3500); };
+const dosyaAdi = src => src.replace(/^img\//, '').replace(/\//g, '_');
+async function kaydet(filename, data) {
+  try { await dl.save({ filename, data }); bildir('İndirildi: ' + filename); }
+  catch (e) {
+    const k = e?.code;
+    if (k === 'declined') return;
+    if (k === 'rate_limited') return bildir('Bir indirme penceresi zaten açık.');
+    if (k === 'extension_not_enabled' || k === 'rejected_extension') return bildir('ZIP bu görünümde açık değil. Görselleri tek tek indir (görsele dokun, "Bu görseli indir").');
+    bildir('İndirme olmadı: ' + (e?.message || k || 'bilinmeyen hata'));
+  }
+}
+async function zipYap(liste, adi, btn) {
+  const eski = btn.textContent; btn.disabled = true; btn.textContent = 'Hazırlanıyor...';
+  try {
+    const z = new JSZip();
+    for (const [yol, src] of liste.gorseller) z.file(yol, await (await fetch(src)).blob());
+    for (const [yol, metin] of liste.metinler) z.file(yol, metin);
+    await kaydet(adi, await z.generateAsync({ type: 'blob' }));
+  } catch (e) { bildir('Paket hazırlanamadı: ' + (e?.message || e)); }
+  finally { btn.disabled = false; btn.textContent = eski; }
+}
+const gunMetni = g => { const sec = SECIM[g.gun]; const et = g.gun % 2 === 1; return `GÜN ${g.gun} · ${g.baslik}\nPaylaşım saati: 20.30\n\n--- KOPYALA (Caption ${sec.c}${et ? ' + hashtag' : ''}) ---\n${g[sec.c].metin}${et ? '\n\n' + g.hashtag : ''}\n\n--- Diğer seçenek (Caption ${sec.c === 'A' ? 'B' : 'A'}) ---\n${g[sec.c === 'A' ? 'B' : 'A'].metin}\n` + (g.senaryo ? '\n--- Reel çekim senaryosu ---\n' + g.senaryo.satirlar.map(r => r.join(' | ')).join('\n') + '\n' : ''); };
+const gunKlasor = g => `gun-${String(g.gun).padStart(2, '0')}`;
+const gunPaketi = g => ({ gorseller: g.gorseller.map(src => [`${gunKlasor(g)}/${src.split('/').pop()}`, src]), metinler: [[`${gunKlasor(g)}/caption.txt`, gunMetni(g)]] });
+function hepsi() {
+  const p = { gorseller: [], metinler: [] };
+  V.gunler.forEach(g => { const x = gunPaketi(g); p.gorseller.push(...x.gorseller); p.metinler.push(...x.metinler); });
+  p.gorseller.push(['profil/profil-gorseli.jpg', V.profil.gorsel], ...V.profil.kapaklar.map(([ad, src]) => ['profil/' + src.split('/').pop(), src]));
+  p.metinler.push(['profil/bio.txt', V.profil.bio + '\n\nAd alanı: ' + V.profil.ad + '\nKullanıcı adı: @vitrinatolyesi (doluysa @vitrin.atolyesi)\n']);
+  V.reklamlar.forEach(r => { p.gorseller.push(['reklam/' + r.feed.split('/').pop(), r.feed], ['reklam/' + r.story.split('/').pop(), r.story]); });
+  p.metinler.push(['reklam/reklam-metinleri.txt', V.reklamlar.map(r => `${r.id} (puan ${r.toplam}, ${r.karar})\nBirincil metin: ${r.birincil}\nBaşlık: ${r.baslik}\n`).join('\n')]);
+  p.gorseller.push(['izgara-onizleme.jpg', 'img/izgara.jpg']);
+  return p;
+}
+(async () => {
+  dl = await window.claude?.use?.('downloads') ?? null;
+  if (!dl) return;
+  document.querySelectorAll('.indir-btn').forEach(b => b.hidden = false);
+})();
 // Caption seçimleri: daha güçlü hook'u olan seçildi. Tek günler hashtag'li, çift günler hashtag'siz (2 haftalık test).
 const SECIM = {
   1: { c: 'B', neden: 'Soru ile açılıyor, okuyanı kendi işletmesini düşündürüyor.' },
@@ -223,6 +267,9 @@ async function kopyala(btn, metin) {
 }
 document.addEventListener('click', e => {
   const k = e.target.closest('[data-kopya]'); if (k) { const v = kopyalar[k.dataset.kopya]; kopyala(k, typeof v === 'function' ? v() : v); return; }
+  const ind = e.target.closest('[data-indir]');
+  if (ind && dl) { const v = ind.dataset.indir; if (v === 'hepsi') zipYap(hepsi(), 'vitrin-sosyal-kit.zip', ind); else { const g = V.gunler.find(x => x.gun == v); zipYap(gunPaketi(g), `vitrin-${gunKlasor(g)}.zip`, ind); } return; }
+  if (e.target.closest('[data-indir-tek]')) { const src = $('#buyuk img').getAttribute('src'); if (dl) fetch(src).then(r => r.blob()).then(b => kaydet(dosyaAdi(src), b)); return; }
   const b = e.target.closest('[data-buyut]'); if (b) { const d = $('#buyuk'); d.querySelector('img').src = b.dataset.buyut; d.querySelector('img').alt = b.querySelector('img')?.alt || ''; d.hidden = false; return; }
   if (e.target.closest('#buyuk')) $('#buyuk').hidden = true;
 });
@@ -269,7 +316,8 @@ V.gunler.forEach(g => {
   kopyalar[id + 'k'] = () => g[secili].metin + (etiketli ? '\n\n' + g.hashtag : '');
   kopyalar[id + 'h'] = g.hashtag;
   sag.append(el('div', { class: 'alt-satir' },
-    el('button', { class: 'btn ana buyuk', 'data-kopya': id + 'k', text: 'Kopyala, Instagram\'a yapıştır' })));
+    el('button', { class: 'btn ana buyuk', 'data-kopya': id + 'k', text: 'Kopyala, Instagram\'a yapıştır' }),
+    el('button', { class: 'btn indir-btn', 'data-indir': g.gun, hidden: '', text: 'Bu günü indir (.zip)' })));
   sag.append(el('div', { class: 'alt-satir' }, el('span', { class: 'hs', text: etiketli ? 'Hashtag metnin sonunda: ' + g.hashtag : 'Bugün hashtag yok (test: hashtag erişimi artırıyor mu?)' })));
   if (g.fb) sag.append(el('div', { class: 'not', text: 'Facebook: ' + g.fb }));
   $('#gunListe').append(el('article', { class: 'gun', id }, sol, sag));
