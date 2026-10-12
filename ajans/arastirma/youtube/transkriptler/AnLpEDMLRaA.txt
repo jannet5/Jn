@@ -1,0 +1,934 @@
+# 
+# https://www.youtube.com/watch?v=AnLpEDMLRaA
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:AnLpEDMLRaA.tr.json3
+
+[00:00:00] Yapay zekayı kullanarak soru sorup cevap
+[00:00:02] aldığımız günlerden bugün sadece prompt
+[00:00:04] girerek mobil uygulama
+[00:00:05] yaptırabileceğimiz günlere geldik. Bu
+[00:00:07] videoda sıfırdan bir mobil uygulama
+[00:00:08] yapacağız. Hem App Store'da hem Google
+[00:00:10] Play'de yayınlanabilecek kullanıcı kayıt
+[00:00:12] sistemi olan, yapay zeka kullanan ve
+[00:00:14] hatta yine purchase altyapısı hazır
+[00:00:16] gerçek bir uygulama. Ve bunu yaparken
+[00:00:18] sadece promp kullanacağız. Tek satır kod
+[00:00:21] yazmayacağız. Biliyorsunuz istesem de
+[00:00:22] yazamam zaten. Kullanacağımız platform
+[00:00:24] bu videonun da sizlere ulaşmasını
+[00:00:26] sağlayan videonun sponsoru Onspace AI.
+[00:00:28] Onspace yapay zekayla çalışan bir kodsuz
+[00:00:31] uygulama geliştirme platformu. Siz
+[00:00:33] uygulamanızı text olarak tarif
+[00:00:35] ediyorsunuz. Ons sizin için hem arayüzü
+[00:00:37] hem bekenti hem de veri tabanını
+[00:00:39] otomatik olarak oluşturuyor. Yapmak
+[00:00:41] istediğim uygulamanın adı tahminci.
+[00:00:43] Adından da tahmin edebileceğiniz gibi
+[00:00:44] bir tahmin oyunu. Uygulama bize absürt
+[00:00:47] ama hesaplanabilir sorular soracak.
+[00:00:48] Mesela İstanbul'da şu an kaç kişi
+[00:00:51] asansörde gibi. Biz tahminimizi
+[00:00:52] gireceğiz. Yapay zeka mantıksal
+[00:00:54] adımlarla gerçek rakamı hesaplamaya
+[00:00:56] çalışacak ve verdiğimiz cevabın
+[00:00:58] yakınlığına göre bizi puanlayacak. Bu
+[00:01:00] skorları kullanıcıların adları ile
+[00:01:01] birlikte günlük, haftalık, tüm zamanlar
+[00:01:04] olarak skor tablosunda sıralayacak.
+[00:01:05] Tahmin yeteneğinize göre özetler olacak
+[00:01:07] ve premium özellikleri açmak için de in
+[00:01:09] purchase altyapısı hazır olacak.
+[00:01:11] Uygulamayı tamamladıktan sonra da Apple
+[00:01:12] developer hesabınızı nasıl açacağınızı
+[00:01:14] ve uygulamayı nasıl yükleyeceğinizi
+[00:01:16] anlatacağım. Yani videoyu dikkatlice
+[00:01:18] izlerseniz siz de kendi uygulamanızı
+[00:01:20] yapıp yayınlayabilirsiniz. Sonra yorum
+[00:01:21] olarak paylaşırsanız biz de onu oynarız.
+[00:01:23] Bu arada ben bu videoyu tamamlayana
+[00:01:25] kadar Apple uygulamayı onaylatı. Yayında
+[00:01:27] videonun açıklamasına linkini
+[00:01:29] bırakıyorum. Siz de hemen
+[00:01:30] oynayabilirsiniz. Başlayalım. Onspace.e
+[00:01:32] uygulamasına web sitesine geldim. Sağ
+[00:01:34] üst köşeden get started butonuna
+[00:01:36] tıkladım. Açılan sayfadan mail
+[00:01:37] bilgilerinize kayıt olabilirsiniz. Ben
+[00:01:39] Google hesabına giriş yapıyorum. Bizi
+[00:01:41] iOS ve Android app sayfası karşılıyor.
+[00:01:43] Hemen buradaki prompt kutucuğuna yapmak
+[00:01:45] istediğim uygulamamın promptunu girip
+[00:01:47] uygulamayı yaptırmaya başlayabilirim.
+[00:01:48] Öncelikle backend için hazırladığımız
+[00:01:50] altyapıyı seçelim. Backend neydi?
+[00:01:51] Uygulamalarda kullanıcı kayıt giriş,
+[00:01:54] e-posta doğrulama, kullanıcı bilgilerini
+[00:01:56] saklama, oyun verilerini saklama,
+[00:01:58] puanlar, rozetler, skor tablosu,
+[00:02:00] kullanıcı istatistikleri, günlük
+[00:02:01] challenge, push notification, sosyal
+[00:02:03] paylaşım, admin paneli gibi özetle adı
+[00:02:06] üzerinde backend, önde olmayan, arkada
+[00:02:08] çalışan her şey diyebiliriz. Buradaki
+[00:02:09] cloud'a tıkladım. Burada cloud ve
+[00:02:11] superbase seçenekleri var. Cloud
+[00:02:13] Onspace'in kendi dahili veri tabanı.
+[00:02:15] Superbase gibi 3üncü parti backend
+[00:02:16] servisine ihtiyaç duymadan çözebiliriz.
+[00:02:18] Böylece kolayca her şey tek platform
+[00:02:20] içinde çözülmüş olur. Superbase de
+[00:02:22] biliyorsunuz harici bir backend servisi.
+[00:02:24] İsterseniz bunu da kullanabilirsiniz.
+[00:02:25] Açıkçası ikisini de denediğim için
+[00:02:27] söylüyorum. Cloud daha iyi çalışıyor.
+[00:02:28] Örneğin Superbase'de Magic Link yani
+[00:02:30] mail doğrulama için saatlik 3 hakkınız
+[00:02:32] var. Ons'in cloud'unda böyle bir durum
+[00:02:34] yok. Cloud yanında public seçili.
+[00:02:35] Uygulamayı yayınlayacağım için public
+[00:02:37] seçili. Private'ı seçerek sadece
+[00:02:39] kendiniz için de uygulama
+[00:02:40] yapabilirsiniz. Kimse de görünmez. Sol
+[00:02:42] köşedeki artı ikonuna tıkladığımda
+[00:02:44] açılan menüden attach ile bir dosya
+[00:02:45] yükleyebilirim. Bu yazı da olabilir, bir
+[00:02:47] referans tasarım da olabilir veya
+[00:02:49] uygulama içerisinde kullanılacak bir
+[00:02:50] görsel de olabilir. Yüklersiniz ve bunu
+[00:02:52] kullan diyebilirsiniz. Örneğin splash
+[00:02:54] screen ekranı yani uygulama açılırken
+[00:02:56] ilk karşımıza gelen ekran. Diğer bir
+[00:02:57] seçenek Figma. Figma'da çalıştığım bir
+[00:02:59] mobil tasarımın linkini buraya eklersem
+[00:03:01] tasarımı buraya çekebilir. Bu da güzel
+[00:03:03] bir özellik. Şimdi uygulamam için bir
+[00:03:04] prompt gireceğim. Bu prompt için önceden
+[00:03:06] çalıştım. Yani videonun girişinde size
+[00:03:08] anlattığım oyunun tüm özelliklerini
+[00:03:10] prompt ekledim. Bunun yanında daha önce
+[00:03:11] de App Store'da uygulama gönderme
+[00:03:12] tecrübem olmuştu. Oradan Apple'ın Red
+[00:03:14] verdiği şeyleri yapmaması için
+[00:03:16] tecrübelerimi de aktardığım bir prompt
+[00:03:17] oldu. Başka mesela çok mor renkli
+[00:03:19] tasarımlar oldu. Bunu yapmaması için de
+[00:03:21] bir talimat girdim. Bu promptu videonun
+[00:03:23] açıklamasında sizinle paylaşacağım.
+[00:03:24] İsterseniz aynı uygulamayı
+[00:03:25] yapabilirsiniz. İsterseniz yapay zeka
+[00:03:27] modelinize referans olarak bu promptı
+[00:03:29] verip ben de şu uygulamayı yapacağım. Bu
+[00:03:31] prompt kalıbını kullanarak bana yeni bir
+[00:03:32] prompt yazar mısın derseniz yazacaktır.
+[00:03:34] Atıyorum ben in a purchase ekledim. Siz
+[00:03:36] kullanmayacaksanız yine purchase'ı
+[00:03:38] kaldır diyebilirsiniz. Tüm promptumu
+[00:03:40] kopyaladım. Onpace'e geldim ve prompt
+[00:03:42] kutucuna yapıştırdım. Gönderdim. Hemen
+[00:03:44] çalışmaya başladım. Hem arayüzü hem de
+[00:03:45] arka planı aynı anda düşünüyor. Harika
+[00:03:47] bir özelliği var. Tabii app yapmak kolay
+[00:03:49] değil. Uğraşacak ve kodlayacak. Bu arada
+[00:03:51] siz başka işlerinize bakabilirsiniz.
+[00:03:53] Bana çok oluyor. Başka bir işe
+[00:03:54] dalıyorum. Bakıyorum çoktan bitmiş. Bu
+[00:03:56] da hızlı ilerlememe engel oluyor. Ons'in
+[00:03:58] özelliği sesli bildirim eklemişler.
+[00:04:00] Bittiğinde veya bir talebi olduğunda
+[00:04:02] sesli bildirim gönderiyor.
+[00:04:03] Bakabiliyoruz. Burada da beklerken
+[00:04:05] canımız sıkılmasın diye Ons'in
+[00:04:07] yapabildiği diğer özellikleri görüyoruz.
+[00:04:08] Bakın çok kolay bir şekilde Stripe ödeme
+[00:04:10] kapısını uygulamamıza ekleyebiliyoruz.
+[00:04:12] Şu an ülkemizde açık değil ama açılırsa
+[00:04:13] kolayca ödeme kapısını ekleyebiliriz.
+[00:04:15] Ons cloud söylediğim gibi kendi backend
+[00:04:17] altyapısı. Bu da aslında super base
+[00:04:19] temelli ama kendileri üzerine bir şeyler
+[00:04:21] çalışmışlar. Web sitesi geliştirme
+[00:04:22] özelliği de var. Birazdan ihtiyacımız
+[00:04:24] olacak. Runtime Scanner isimli bir
+[00:04:25] özelliği de var. Açtığınız anda
+[00:04:27] uygulamada hata ve bugları bulup
+[00:04:28] düzeltiyor. Çok başarılı. Tasarım
+[00:04:30] notlarını çıkardı ve önce arayüz
+[00:04:32] tasarımını yapmaya başladı. Uygulama
+[00:04:33] içerisinde kullanacağı görselleri,
+[00:04:35] ikonları kendi oluşturuyor. Yaklaşık 5
+[00:04:37] dakikada ilk bölümü yani arayüz
+[00:04:39] tasarımını tamamladı. Arayüz çok güzel
+[00:04:40] olmuş bence. Ben beğendim yani. Soru
+[00:04:42] kartı güzel. Morlardan sıkılmıştık.
+[00:04:44] Yukarıda günlük seri var. Her gün
+[00:04:46] oynarsa bir ödül verebiliriz. Altta
+[00:04:48] kategoriler ikonu güzel olmuş. Skor
+[00:04:50] tablosu ve profil var. Sonra
+[00:04:51] yapacaklarını da sıralamış. Onspace
+[00:04:53] cloud backhend onspace E entegrasyonu
+[00:04:55] haliyle soruları soracak ve tahminlerin
+[00:04:57] mantığını kuracak. Kullanıcının vereceği
+[00:04:59] cevaba göre kıyaslayıp bir puan verecek.
+[00:05:01] Bunları ben yapamam yani. İlk testimi
+[00:05:03] yapayım. Şu an İstanbul'da yaklaşık kaç
+[00:05:05] kişi asansördü sorusunu sormuş.
+[00:05:06] Tahminimi giriyorum. Ne diyeyim? 500.000
+[00:05:08] dedim. Gönderdim. Çok sallamışım.
+[00:05:10] 15.000'miş. Hesaplama mantığını da
+[00:05:12] tertemiz yazmış. Çok güzel ya. Şurada
+[00:05:15] bir de QR kod var. Bunu kullanarak
+[00:05:16] yaptığım uygulamamı direkt telefonumda
+[00:05:18] test edebilirim. QR kodu üstünde
+[00:05:19] checkbox var. Gördüğünüz gibi. Apple'da
+[00:05:21] deneyecekseniz Apple, Android'de
+[00:05:23] deneyecekseniz Android tarafına
+[00:05:24] çekersiniz sürgüyü. Ben iPhone'da
+[00:05:26] deneyeceğim. O sebeple değiştirmedim.
+[00:05:27] Telefonuma geçtim. Telefonumun
+[00:05:29] kamerasından QR kodu tarattım. beni
+[00:05:31] Onpace'in uygulamasına gönderdi. Install
+[00:05:33] onspace app butonuna dokundum.
+[00:05:35] Yönlendirme için izin verdim. App
+[00:05:36] Store'a yönlendirdi ve Onpace
+[00:05:38] uygulamasını indir. Android tarafında da
+[00:05:40] aynı mantıkla ilerliyor. İndirdim ve
+[00:05:42] Onpace uygulamamı açtım. Onspace'e giriş
+[00:05:44] yaptıım. Aynı hesabımla giriş yaptım
+[00:05:45] buraya da. Şimdi tekrar kameraya QR kodu
+[00:05:47] gösterdim. Uygulama hızlıca telefonuma
+[00:05:49] geldi. İnanılmaz ya. Yani bilmiyorum.
+[00:05:51] Ben çok etkileniyorum böyle şeylerden.
+[00:05:53] Hiç kod yazmadan tam istediğim gibi bir
+[00:05:54] uygulama telefonumda. Aynı soru
+[00:05:56] tahminime gireyim. Düşünüyorum bence
+[00:05:58] 15.000'dir. Tak. Doğru. Tahmin işini
+[00:06:00] bana soracaksınız ya tekte. Tam doğru
+[00:06:02] cevap. Diğer sayfalara da bakalım.
+[00:06:04] Kategoriler böyle görünüyor. Skor
+[00:06:05] tablosu böyle. Günlük, haftalık ve tüm
+[00:06:08] zamanlar. Son olarak profil sayfası
+[00:06:10] gayet temiz ve güzel. Hızlıca bu noktaya
+[00:06:12] getirdik. Şimdi backend bağlantısını
+[00:06:14] yaptırarak devam edelim. Harika. Devam
+[00:06:15] edelim. Yazdım, gönderdim. Düşündü,
+[00:06:17] cevabını verdi. Onspace Cloud Backend'i
+[00:06:19] aktif edecek ve tahmin sorularını
+[00:06:21] hazırlayacak. E entegrasyonunu yapacak.
+[00:06:23] Önce yapay zeka entegrasyonunu aktif
+[00:06:24] etti. Yani kullanıcıların sorduğu
+[00:06:26] sorular bu AI tarafından cevaplanacak.
+[00:06:28] Eğer görsel üreten bir AI talep etseydik
+[00:06:30] onu da yine bu şekilde kullanacak. Topup
+[00:06:32] yani kredi yükleme linkine tıkladım.
+[00:06:34] Gördüğünüz gibi başta 300 kredi ücretsiz
+[00:06:36] veriyor. Sonra siz isterseniz ekleme
+[00:06:38] yapabiliyorsunuz. 3.000 kredi 10 dolar.
+[00:06:40] Normal AI token kullanım ücretleriyle
+[00:06:42] orantılı. Text üretirse uygun, görsel ve
+[00:06:44] video üretirse daha yüksek kredi
+[00:06:46] tüketir. Yani E ile sınırsızca video
+[00:06:48] üreten bir uygulama yaparsanız bu token
+[00:06:50] konusunu iyi planlamanız lazım. E
+[00:06:52] entegrasyonu ve cloud backend
+[00:06:53] bağlantısı. Tamam. Hemen kullanıcı
+[00:06:55] girişi yapmayı deneyelim. Uygulamada en
+[00:06:56] sağdaki profile geldim. Kayıt ol, giriş
+[00:06:58] yap butonuna tıkladım. Kayıt olmuş
+[00:07:00] olsaydım buradan e-posta ve şifre ile
+[00:07:02] giriş yapardım. Kayıt olmadığım için
+[00:07:03] kayıt ol butonuna tıkladım ve kayıt ol
+[00:07:05] sayfasına geldim. Mail adresimi, şifremi
+[00:07:07] girdim. Doğrulama kodu gönder butonuna
+[00:07:09] tıkladım. Başarılı doğrulama kodu
+[00:07:10] e-postanıza gönderildi bildirimi çıktı.
+[00:07:12] Mail'ime geldim. Ons out'tan
+[00:07:14] verification kodu geldi. Okey butonuna
+[00:07:16] tıkladım ve açılan kutucuğa 0894
+[00:07:19] doğrulama kodunu girdi. Doğrulama ve
+[00:07:20] giriş yap butonuna tıkladım. Hoş
+[00:07:22] geldiniz. Başarıyla giriş yaptınız
+[00:07:23] bildirimi çıktı. Harika. Backend tarafı
+[00:07:25] da tamamlanmış oldu. Bakın burada
+[00:07:27] gizlilik politikası, kullanım koşulları
+[00:07:28] yazıları var. Bunlar işte edindiğim
+[00:07:30] Apple tecrübesi. Bunlar mutlaka olmalı.
+[00:07:32] Ben de bunları prom'ta eklemiştim. Bu
+[00:07:34] nedenle bunları da eklemiş. İçeriğini
+[00:07:36] dolduracağız. Bir de hesabı sil butonu
+[00:07:38] var. Bu da hesabı silmek için gerekli.
+[00:07:40] Bu da yine Apple'ın bir talebi. Şimdi
+[00:07:41] bana otomatik bir isim ve Dami bir mail
+[00:07:43] adresi atladı. Bunu değiştirebilmeliyim
+[00:07:45] ve başta hesap oluştururken de kullanıcı
+[00:07:47] ismi girebilmeliyim. Score tablosunda
+[00:07:49] benim belirlemediğim bir isim yazmasın.
+[00:07:51] Hemen bu taleplerim için prompt
+[00:07:52] giriyorum. Giriş yapabildim. bana kendi
+[00:07:54] bir isim tanımladı. Bu ismi ben
+[00:07:55] değiştirebilmeliyim ve başta kullanıcı
+[00:07:57] oluştururken bana isim sormalı dedim ve
+[00:07:59] gönderdim. Düşündü ve hemen anladı
+[00:08:01] konuyu. Kullanıcıya adı ve username
+[00:08:03] özelliğiyle ekleyeceğim dedi. Çalışmaya
+[00:08:05] başladı. Tamamladı. Profile geldim.
+[00:08:07] Kayıt ol giriş yap butonuna tıkladım.
+[00:08:08] Açılan sayfadan kayıt ol linkine
+[00:08:10] tıkladım. Bakın kullanıcı adı textbox'ı
+[00:08:12] gelmiş. Harika. Hızlıca kayıt oldum.
+[00:08:14] Buraları hızlandırıyorum. Giriş yaptım.
+[00:08:16] Bakın burada kullanıcı adımın yanında
+[00:08:18] düzenli ikonu var. Tıkladım ve kullanıcı
+[00:08:20] adımı düzenleyebileceğim popup menü
+[00:08:21] açıldı. Erhan yaptım. Hemen kayıt
+[00:08:24] butonuna tıkladım ve sisteme kaydetmiş
+[00:08:25] oldum. Harika. Şimdi E entegrasyonunu
+[00:08:27] sağladık ama refresh ettiğimde yeni soru
+[00:08:29] gelmiyor. Bunu da düzeltelim. Promptu'u
+[00:08:31] giriyorum. Harika. Kullanıcı adı tamam.
+[00:08:33] Soru hep aynı geliyor. Yeniliyorum ama
+[00:08:35] değişmiyor dedim ve gönderdim. Düşündü.
+[00:08:37] Sorunu görüyorum dedi. Beni çok
+[00:08:39] rahatlatıcı bir cevap çünkü ben sorunu
+[00:08:40] görmüyorum. Çalışıyor. Bu arada burada
+[00:08:43] runtime özelliği var. Bunu açarsanız
+[00:08:44] sürekli aktif olacak. Bir sorun olduğunu
+[00:08:46] da tespit eder ve çözümü için onay
+[00:08:48] ister. Onay verirseniz sorunu çözer. Şu
+[00:08:50] an aktif ama bir sorun görünmedi. Bu
+[00:08:51] arada sorunumu da çözdü ve yeni soru
+[00:08:53] geldi. Türkiye'deki tüm sokak
+[00:08:55] tabelalarının toplam yüzey alanı kaç
+[00:08:57] futbol sahası eder? demiş. 200 dedim
+[00:08:59] tahminen. Tahmini gönder butonuna
+[00:09:01] tıkladım. E'in tahmini 140'mış. Fena
+[00:09:03] yaklaşmadım yani. Yine hesaplama
+[00:09:05] mantığını da dökmüş. Harika yani. Çok
+[00:09:06] güzel oldu. Sonraki soru butonuna
+[00:09:08] tıkladım. Yeni sorum geldi. Türkiye'deki
+[00:09:10] tüm binaların dış cephelerindeki toplam
+[00:09:11] pencere alanı kaç adet futbol sahasını
+[00:09:14] kaplayabilir? demiş. Tamam yeter bu
+[00:09:16] kadar. Oyuna dalmayalım. İşimizi
+[00:09:17] yapalım. Güzel ilerliyoruz. Ons'ın
+[00:09:19] sevdiğim güzel yanı işleri tamamladıktan
+[00:09:21] sonra chatbotunda keep building
+[00:09:24] başlığında geliştirmeye devam etmek için
+[00:09:26] önerilerde bulunur. Yani bizlerin aklına
+[00:09:28] gelmeyen bir şey varsa o önerebilir.
+[00:09:30] Harika bir çalışma arkadaşı açıkçası.
+[00:09:32] Skor tablosunu da backend'e bağlayalım
+[00:09:33] ve çalışır hale getirelim. Skor
+[00:09:35] tablosunu da çalışır hale getirelim
+[00:09:37] dedim ve gönderdi. Çalışmaya başladı.
+[00:09:39] Bunu da tamamladı. Test edelim. Türkiye
+[00:09:41] genelinde bir yıl boyunca tüketilen tüm
+[00:09:43] lahmacunlar ucuca eklenseydi bu lahmacun
+[00:09:46] köprüsü ile İstanbul'dan aya kaç kez
+[00:09:47] gidirip gelinebilirdi demiş. Dikkat
+[00:09:49] ettiyseniz sorularda hep otantik yerel
+[00:09:51] sorular yani. Prompta talebim böyle
+[00:09:53] olmuştu çünkü. Siz de bakabilirsiniz
+[00:09:55] zaten. Tahminimi giriyorum. 500 dedim.
+[00:09:57] %35.000 sapma ile berbat bir tahmin
+[00:09:59] yapmışım. 1.4'müş. 10 puanımı aldım.
+[00:10:02] Güzel. Bakalım tabloları işlenmiş mi?
+[00:10:04] Günlük, haftalık ve tüm zamanlar hepsine
+[00:10:06] işlenmiş. Harika. Şu ana kadar
+[00:10:08] yaptığımız her şey tamam görünüyor ön
+[00:10:09] tarafta. Şimdi biraz arka tarafa yani
+[00:10:11] backend'e bakalım neler olmuş. Buradan
+[00:10:13] onspace Cloud'a tıkladım. Bakın
+[00:10:15] konuştuğumuz tüm veri tabanlarını
+[00:10:16] hazırlamış. İlk sırada users yani
+[00:10:18] uygulamaya kayıt olan kullanıcıların
+[00:10:19] listesi. Ben varım bir tek. Henüz kimse
+[00:10:21] gelmedi. Data sekmesine tıkladım. Game
+[00:10:23] result. Oyunlarda alınan sonuçlar. Skor
+[00:10:26] tablosu için bunlar tutulmalı.
+[00:10:27] Leaderboard all time yani tüm zamanlar.
+[00:10:30] Leaderboard daily yani günlük. Leaderb
+[00:10:32] weekly yani haftalık. Quest için A'den
+[00:10:34] gelen sorular her seferinde yeni bir
+[00:10:36] tane üretiyor. Mesela elinizde böyle
+[00:10:38] datalar olduğunu bilmek gerçekten çok
+[00:10:39] güzel. İnsanın aklına bir sürü fikir
+[00:10:41] veriyor. Örneğin süreli açabiliriz. Tüm
+[00:10:43] katılımcılara aynı soru sorulur. Bakalım
+[00:10:45] en çok kim yaklaşacak? Bunu ölçebiliriz.
+[00:10:47] Bunlar önemli. Böyle fikirlerin akıllara
+[00:10:49] girilmesi için bu işlerin içerisine
+[00:10:51] girmek, biraz uğraşmak gerekiyor. User
+[00:10:53] stats'ta kullanıcıların aldığı sonuçlar,
+[00:10:55] verdiği cevaplar ile bilgiler var. Story
+[00:10:57] sekmesinde eğer görsel üreten bir AI
+[00:10:59] modeli seçseydik burada saklanacaktı
+[00:11:01] veya kullanıcılardan görsel veya video
+[00:11:03] upload etmelerini isteseydik yine burada
+[00:11:05] saklanacaktı. Edge function için
+[00:11:06] sunucuda çalışan mini programlar
+[00:11:08] diyebiliriz. Mesela bakın uygulamanın
+[00:11:09] arka planında neler olduğunu
+[00:11:11] görebiliyoruz. E'ye yapılan soru
+[00:11:12] isteklerinin başarı oranları hepsi
+[00:11:14] burada takip ediliyor. AI sekmesinde
+[00:11:16] arka planda çalışan AI modelini
+[00:11:17] görebilirim. Cemini 3 flashı seçmiş.
+[00:11:19] Bunu isterseniz prompt girerek
+[00:11:21] değiştirebilirsiniz. Cemine 3 Pro olur,
+[00:11:23] chat GPT olur ama en uygun bütçeli ve en
+[00:11:25] hızlı modeline 3 flash. Bunu da
+[00:11:27] belirtmeliyim. Secret sekmesinde de
+[00:11:29] uygulamanızın kullandığı API anahtarını
+[00:11:31] görebilirsiniz. Yeni bir tane eklemek
+[00:11:33] isterseniz prompt arayüzünden ve
+[00:11:34] buradaki artı ikonuna tıklayarak
+[00:11:36] ekleyebilirsiniz. Log sekmesinde de
+[00:11:38] uygulama içerisinde gerçekleşen
+[00:11:39] işlemleri takip edebilirsiniz. Bir
+[00:11:41] sonraki bölüm kod bölümü. Buna
+[00:11:42] tıkladığınızda Onpace'in uygulamanız
+[00:11:44] için yazdığı tüm kodları görebilirsiniz.
+[00:11:46] Sağ üst köşedeki download ikonu ile
+[00:11:48] uygulamanızın tüm kodlarını
+[00:11:49] indirebilirsiniz. İsterseniz Gitub
+[00:11:51] entegrasyonu sayesinde kodlarınızı
+[00:11:53] Gitub'a push edebilirsiniz. Sol alt
+[00:11:54] köşeden ihtiyaç duymanız halinde New
+[00:11:56] terminal ile yeni bir terminal penceresi
+[00:11:58] açıp yeni komut verebilirsiniz. Son
+[00:12:00] sekmeden de uygulamanızın kullanım
+[00:12:02] istatistiklerini görebilirsiniz. Az önce
+[00:12:04] dediğim gibi buradaki download ikonunu
+[00:12:05] kullanarak uygulamanın tüm kodlarını
+[00:12:07] indirebilirsiniz. Aynı zamanda uygulama
+[00:12:09] sizin için tamamsa Android cihazınızı
+[00:12:11] test etmek için APK formatını da
+[00:12:13] indirebilir, Google Play'e göndermek
+[00:12:14] için ABB dosyasını indirebilirsiniz.
+[00:12:16] Sonrasında Google Play'e yükleyip
+[00:12:18] yayınlayabilirsiniz. Daha önce Google
+[00:12:19] Play Store'a app gönderme konusunu
+[00:12:21] anlatmıştım. Bugün Apple Store'a
+[00:12:22] odaklanacağız. Yine isterseniz başka
+[00:12:24] videoda da tekrar Google Play'i
+[00:12:25] anlatırım. Anlattıkça
+[00:12:27] profesyonelleşiyorum. Şurada share ikonu
+[00:12:28] ile uygulamamı istediğim kişiyle
+[00:12:30] paylaşabilirim. Publish butonuna
+[00:12:31] tıkladığımda publish to App Store ve
+[00:12:33] Publish to Google Play butonlarıyla
+[00:12:35] mağazalara gönderebilirim. Dediğim gibi
+[00:12:37] bu videoda Apple'a odaklanacağız. Bu
+[00:12:39] nedenle publish to App Store butonuna
+[00:12:41] tıkladım. Açılan popup'tan new
+[00:12:42] submission butonuna tıkladım. Hemen
+[00:12:44] appin ikonunu seçtim. Daha önceden
+[00:12:45] hazırlamıştım. App name tahminci olacak.
+[00:12:48] App version 1.0.0 olacak. İlk kez
+[00:12:51] gönderiyorum. iOS Bundle Identifier. Her
+[00:12:53] iOS uygulamasının benzersiz kimlik
+[00:12:55] numarası. Uygulamamı diğer tüm
+[00:12:56] uygulamalardan ayıran tekil adres gibi
+[00:12:58] düşünebilirsiniz. Formatı genellikle
+[00:13:00] ters domain şeklinde com.erhammeydan.
+[00:13:03] Bu formatta istediğim bir şeye
+[00:13:05] girebilirim. Sadece bu sonradan
+[00:13:06] değiştirilemez. Bunu bilmeniz yeterli
+[00:13:08] olur. Ben app.pace.
+[00:13:10] Tahminci olarak bıraktım. Continue
+[00:13:12] butonuna tıkladım. Evet, şimdi Apple
+[00:13:13] developer bilgilerimizi gireceğimiz yere
+[00:13:15] geldik. Bir Apple developer hesabınız
+[00:13:17] olmalı. Yoksa hemen bir tane alalım. Her
+[00:13:19] yerde yıllık 99 dolar olarak gözüküyor
+[00:13:21] ama bizde değil ülkeden ülkeye fark
+[00:13:23] ediyor. Bizdeki fiyatı yıllık sadece
+[00:13:25] 650. Bakalım. Onspace'in yönlendirdiği
+[00:13:28] Enroll Now butonuna tıkladım.
+[00:13:30] Developer.aple.com sayfası açıldı. İki
+[00:13:32] alternatifle Apple developer'a kayıt
+[00:13:34] olabilirsiniz. Birincisi individual yani
+[00:13:36] bireysel geliştirici Gmail, Hotmail
+[00:13:39] benzeri anonim maillerinize kayıt
+[00:13:40] olabilirsiniz. Avantajı ödemenizi ve
+[00:13:42] kimliğinizi paylaştıktan sonra genelde
+[00:13:44] bir ik saat içerisinde aktif olur. Bazen
+[00:13:46] 48 saati de bulabiliyor. Bu süreye
+[00:13:47] geçerse Apple kontağı yazarsınız hemen
+[00:13:49] ilgilenirler. Dezavantajı Avrupa Birliği
+[00:13:51] ülkelerinde uygulamanız yayınlanmıyor.
+[00:13:53] AB yasaları nedeniyle uygulamanız
+[00:13:55] Türkiye'ye yönelikse bence sıkıntı yok.
+[00:13:57] Alınabilir. En büyük pazarlardan biri de
+[00:13:59] Amerika. Orada da yayınlanıyor. Appinizi
+[00:14:01] yayınlatmayan AB kaybeder yani. Diğeri
+[00:14:03] organization yani şirket, kurum, devlet
+[00:14:05] dairesi. Öncelikle Doomus numarası
+[00:14:07] almalısınız. Çok kolay, ücretsiz bir
+[00:14:09] başvuru ama birkaç gün sürüyor. Kurum,
+[00:14:11] şirket mail adresinizi kullanmalısınız
+[00:14:13] ama bu şekilde AB dahil tüm ülkelerde
+[00:14:15] yayınlanır. Become a member başlığının
+[00:14:17] altındaki start your enrollment butonuna
+[00:14:19] tıkladım ve yeni bir hesap
+[00:14:20] oluşturuyorum. Siz varsa halihazırdaki
+[00:14:22] hesabınıza girebilirsiniz. Ben en baştan
+[00:14:25] anlatıyorum ya. O nedenle sıfırdan hesap
+[00:14:26] alıyorum. Bilgilerimi hızlıca girdim.
+[00:14:28] Buraya bilgilerinizi doğru girin. Kimlik
+[00:14:30] bilgilerinizde çelişki olmasın. Var olan
+[00:14:32] bir hesabınız varsa oradaki bilgileri de
+[00:14:34] güncelleyin. Bilgilerimi doğru olarak
+[00:14:35] girdim. Sözleşmeler sayfasına geldim.
+[00:14:37] Sözleşmeyi ve update'leri kabul ettim.
+[00:14:39] Agree butonuna tıkladım. Kendimle ilgili
+[00:14:41] bilgileri gireceğim sayfa geldi. Get
+[00:14:43] started butonuna tıkladım. Nefret
+[00:14:45] ediyorum böyle anketlerden ya. Skip
+[00:14:47] şansım varsa her zaman önce onu tercih
+[00:14:49] ediyorum. Yapabildiklerimin hepsini
+[00:14:51] skipledim. Ben soru cevaplamak
+[00:14:52] istemiyorum. Uygulama yayınlamak
+[00:14:54] istiyorum. Dil tercihimi İngilizce
+[00:14:55] yaptım. Tüm duyuru bildirimlerini
+[00:14:57] istemediğimi ifade ettim. Finish
+[00:14:58] butonuna tıkladım. Çok teşekkür etti
+[00:15:00] doldurduğum için. Hadi abi ya. Down
+[00:15:02] butonuna tıkladım. Yani millet kapı baca
+[00:15:04] kırıyor. App app app diye. Bunlar hala
+[00:15:06] anket derdinde ya. Milletin niye bu
+[00:15:08] kadar app yayınlama derdi var onu da
+[00:15:10] bilmiyorum ama var yani. İnsanımız app
+[00:15:12] yayınlamak istiyor. Acelesi var
+[00:15:13] insanların yani. Şimdi kayıt bölümüne
+[00:15:15] geldik. Burada kayıt olurken elinizde
+[00:15:17] bir Apple cihazınız olursa sadece bir
+[00:15:19] kereline işler çok daha kolay olur. Mac
+[00:15:22] olur, iPhone olur, iPad olur, Apple
+[00:15:23] Watch olur mu emin değilim ama olmaz
+[00:15:25] herhalde. Zorunlu değil. Apple developer
+[00:15:27] hesabınızı web üzerinden de onay
+[00:15:28] atabilirsiniz ama süreç manuel
+[00:15:30] işleyeceği için daha fazla vakit
+[00:15:32] alabilir. Özetle bu doğrulama işleri
+[00:15:33] için bir Apple cihaza ihtiyacımız var ki
+[00:15:35] zaten Apple developer olma gibi bir
+[00:15:37] hayaliniz varsa bir iPhone olması fena
+[00:15:40] olmaz diye düşünüyorum. Ben download App
+[00:15:42] Store butonuna tıkladım ve yeni sayfa da
+[00:15:43] açıldı. Buradan da view in Mac App Store
+[00:15:46] butonuna tıkladım. Mac bilgisayarımın
+[00:15:47] mağazasında açıldı. Get butonuna
+[00:15:49] tıkladım ve indirdim. Beni direkt
+[00:15:51] account sayfasına getirdi. Apple
+[00:15:53] Developer program başlığındaki enroll
+[00:15:55] now butonuna tıkladım. Bakın faturamız
+[00:15:56] geldi. Üye olursak kazanacaklarımız
+[00:15:58] sıralanmış. Sağ alt köşede de 650'lik
+[00:16:01] yıllık ücreti görünüyor. Harika. Hemen
+[00:16:03] yapıştırıyorum fırsatı kaçırmamak için.
+[00:16:05] Continue butonuna tıkladım. Özet geldi.
+[00:16:07] Kimliğinizi onaylayacağız dedi. Continue
+[00:16:09] dedim. Gizlilik ayarlarını onayladım.
+[00:16:12] Onay sayfasına geldik. Buradan
+[00:16:13] pasaportunuz, ehliyetiniz veya
+[00:16:15] kimliğinizle onay alabilirsiniz.
+[00:16:17] Kimliğimi seçtim. Burada uygulamanın
+[00:16:19] kamerası bağlandı. Kameraya belgenizin
+[00:16:21] ön ve arka yüzünü göstererek
+[00:16:22] ilerleyebiliyorsunuz. Tabii ki ben video
+[00:16:25] aşkına kimliğimi kullanmayacağım. Bundan
+[00:16:26] sonra ödeme sayfası ve işlem tamam. Bir
+[00:16:29] ik saatte genellikle onay. Apple
+[00:16:31] developer hesabınız tamam diye
+[00:16:32] varsayıyorum. Bir problem veya hata
+[00:16:33] olursa Apple contact'a yazabilirsiniz.
+[00:16:35] Şimdi onspace'te kaldığımız yerden devam
+[00:16:37] edelim. Step 2'deyim. Hatırladığınız
+[00:16:39] gibi Apple developer hesap bilgilerime
+[00:16:41] giriş yaptım. Şimdi uygulamam Apple
+[00:16:42] Developer hesabıma gönderilecek.
+[00:16:44] Uygulama ile ilgili bilgileri App
+[00:16:45] develop Developer tarafına gireceğim.
+[00:16:47] Start submission'a tıkladım ve bu işlem
+[00:16:49] için benden 1000 kredi kesecek. Kredi
+[00:16:51] konusuna videonun sonunda gireceğim.
+[00:16:52] göndermeye başladı. Hemen terk etmeyin
+[00:16:54] bu sayfayı. Sizden bir de SMS onayı
+[00:16:56] talep edecek. Telefonuma Apple'dan gelen
+[00:16:58] 6 haneli şifreyi girdim. Submit butonuna
+[00:17:00] tıkladım. Paketleme ve gönderim başladı.
+[00:17:03] View statüs butonuna tıkladım. Versiyon
+[00:17:04] listesini ve yükleme sürecini
+[00:17:06] görebilirim. Şu an building olarak
+[00:17:07] görünüyor. Statüs submitted olana kadar
+[00:17:09] bekleyeceğiz. Appstoreconnect.apple.com
+[00:17:12] adresine geldim. Sayfayı yeniledim.
+[00:17:14] Bakın uygulama göründü. Şimdi
+[00:17:15] yüklemesini bekliyoruz. Bu süreçte ben
+[00:17:17] uygulama ile ilgili bilgileri
+[00:17:19] girebilirim. Üzerine tıkladım. Uygulama
+[00:17:21] detayları açıldı. Buradaki tüm bilgileri
+[00:17:22] detaylıca girmem gerekiyor. Birazdan
+[00:17:24] gireceğim bu bilgileri. Uygulamamızı
+[00:17:26] Apple'a göndermeden önce telefonumuzda
+[00:17:28] bir test etmek iyi olur. Bunun için Test
+[00:17:30] Flight'ı kullanabiliriz. Söylediğim gibi
+[00:17:32] ortalama 10-15 dakikada submitted oldu.
+[00:17:34] Test flight sekmesine geldim. Bakın
+[00:17:36] gördüğünüz gibi build uploads bölümünde
+[00:17:38] yüklediğim versiyon görünüyor. Üzerine
+[00:17:39] tıkladım. Açılan sayfada 10.000 kişiye
+[00:17:42] kadar istediğim kişiye test için
+[00:17:43] uygulamamı gönderebilirim. Individual
+[00:17:45] testers bölümünden artı ikonuna
+[00:17:46] tıkladım. Açılan menüden add new tester
+[00:17:49] linkine tıkladım. Test olarak
+[00:17:50] kullanmasını istediğim kişilerin
+[00:17:51] bilgilerini girebilirim. Burada test
+[00:17:53] eden ben olacağım için hızlıca kendi
+[00:17:54] bilgilerimi girdim. Submit for review
+[00:17:56] butonuna tıkladım. Test edebilmem için
+[00:17:58] kendime gönderdim. Mailime geldim. App
+[00:18:00] Store Connect'ten gelen mail burada.
+[00:18:01] Viewin test flight butonuna tıkladım.
+[00:18:03] Davetiye kodu açıldı. Bu kodu
+[00:18:05] kopyaladım. Telefonuma geçtim. App
+[00:18:07] Store'dan indirdim. Test Flight
+[00:18:08] uygulamasını açtım. Ayarlarına geldim.
+[00:18:10] Davet kodunu kullan butonuna dokundum.
+[00:18:12] Kopyaladığım davet kodunu yapıştırdım.
+[00:18:14] Kodu kullan butonuna dokundum. Tüm
+[00:18:16] detaylarıyla geldi uygulamam. Aç
+[00:18:18] butonuna dokundum. Sürdür butonuna
+[00:18:19] dokundum. Tahminci uygulamam telefonumda
+[00:18:22] açıldı. Son testlerimi buradan
+[00:18:23] yapabilirim. Aynı zamanda uygulamamın
+[00:18:25] ekran görüntülerini de almam gerekecek.
+[00:18:27] Başvuru için bunları da bu şekilde
+[00:18:28] alabilirim. Videonun başında yine
+[00:18:30] purchase altyapısı da kuracağız demişti.
+[00:18:31] Bu iş için hem iOS tarafında hem de
+[00:18:33] Google Play tarafında ayrı ayrı yine
+[00:18:35] purchase kodları yazdırmamız lazım.
+[00:18:37] Çalışmaya başladığında kim hangi
+[00:18:38] mağazadan abone olduğu, kim ayrıldı tek
+[00:18:40] kontrol etmek gerekiyor. Bunları tek bir
+[00:18:42] yerden, tek bir panelden yönetebilmek
+[00:18:44] için revenue cat kullanmanızı tavsiye
+[00:18:46] ederim. Tüm abonelikleri tek bir
+[00:18:47] dashboarddan görebilirsiniz. Revenue
+[00:18:49] Cat'e bakalım. Revenue Cat
+[00:18:50] sayfasındayım. Signup butonuna tıkladım.
+[00:18:52] Buraya bilginizi girerek kayıt
+[00:18:53] olabilirsiniz. Signin yok. İlginç ya.
+[00:18:56] Olmayan siteler bana garip geliyor.
+[00:18:57] Burada kredi kartı bilgileriniz de talep
+[00:18:59] ediyor ama add in later ile sonradan da
+[00:19:01] ekleyebilirsiniz. Şunu belirtmeliyim.
+[00:19:03] Revenue cat aylık 2.500 dolara kadar
+[00:19:05] ücretsiz. 2.500 dolar sonrasında aylık
+[00:19:08] %1 ücret kesiyor kredi kartınızdan. Bu
+[00:19:10] bilgiyi de paylaşmış olayım. Yani
+[00:19:12] kazancınız 2.500 dolara kadarsa para
+[00:19:15] ödemiyorsunuz. 2.500 doları geçerse
+[00:19:17] aylık %1 ödeme yapıyorsunuz. Yine
+[00:19:19] purchase uygulamanız içerisindeki
+[00:19:21] özellikleri satıyorsunuz ya oradan gelen
+[00:19:23] gelirlerden bahsediyorum. Reving
+[00:19:24] Dashboard'a giriş yaptım. Sol üst
+[00:19:26] köşeden new project'i tıkladım. Açılan
+[00:19:28] sayfadan uygulamamın bilgilerini girdim.
+[00:19:30] Beni in purchase fiyattan ayarlayacağım
+[00:19:32] sayfaya getirdi. Buradan aylık, yıllık
+[00:19:34] veya ömür boyu için ne kadar fiyat
+[00:19:35] belirleyeceğimi girebilirim. Ben sadece
+[00:19:37] aylık seçtim. Lifetime yani ömür boyunu
+[00:19:39] ve yıllık üyeliği sildim. Burası tamam.
+[00:19:41] Şimdi onpace'e geldim. Burada keep
+[00:19:43] building sekmesinde revenue cat ödeme
+[00:19:45] sistemi var zaten. Ona tıkladım ve
+[00:19:47] otomatik olarak promptumu ekledi. Ben ek
+[00:19:49] olarak sadece aylık üyelik olacak dedim
+[00:19:51] ve gönderdim. Kodlamaya başladı. Bu
+[00:19:53] videonun süresini daha fazla uzatmamak
+[00:19:55] adına yine purchased versiyonu şimdilik
+[00:19:57] göndermeyeceğim. Revenue cat
+[00:19:59] entegrasyonun detaylarını ve App Store'a
+[00:20:01] ina purchasedı versiyonunun gönderimini
+[00:20:04] olursa ayrı bir videoda anlatabilirim.
+[00:20:05] Bakalım yorumlara göre artık. Bu arada
+[00:20:07] kodlama tamamlandı. Benden Revenue Cat
+[00:20:09] API anahtarımı talep ediyor. Revenue Cat
+[00:20:11] dashboard'a geldim. Soldaki menüden API
+[00:20:13] keys'e tıkladım ve açılan sayfadan New
+[00:20:16] Secret API key butonuna tıkladım. İsmine
+[00:20:18] tahminci dedim. API version V2'yi seçtim
+[00:20:20] ve tüm read iznini verdim. Generate
+[00:20:23] butonuna tıkladım. API anahtarını
+[00:20:24] kopyaladım. On'e geldim. Add API
+[00:20:27] butonuna tıkladım ve açılan POV'a
+[00:20:29] yapıştırdım. Submit butonuna tıkladım.
+[00:20:31] uygulamaya API anahtarım eklendi. Şimdi
+[00:20:33] bu revenue cat App Store bağlantısını
+[00:20:35] yapmam gerekiyor. Basit bir işlem ama
+[00:20:37] çok basamaklı bir işlem. Ons ekibi çok
+[00:20:39] açıklayıcı bir yönerge hazırlamış. Onun
+[00:20:41] üzerinden giderek siz de eksiksiz
+[00:20:43] yapabilirsiniz. Onspace.aiayı
+[00:20:45] sayfasındayken sayfanın altındaki learn
+[00:20:47] linkine tıkladım. Açılan sayfada onspace
+[00:20:49] ile ilgili her şeyi bulabilirsin.
+[00:20:51] Üstteki menüden integration'a geldim.
+[00:20:53] Revenue CAT Integration linkine
+[00:20:54] tıkladım. Bakın bahsettiğim gibi adım
+[00:20:56] adım App Store Connect üzerinden revenue
+[00:20:58] cat'i nasıl bağlayabileceğiniz
+[00:21:00] anlatılmış. API bağlantısını yaptık
+[00:21:01] zaten. Bunu da tamamlayıp paketleyip
+[00:21:03] build edince tamamdır. Dediğim gibi
+[00:21:05] videonun süresini daha fazla uzatmamak
+[00:21:07] adına şimdi bunu yapmayacağım. Her şey
+[00:21:09] tamam. Şimdi App Store Connect'e dönüp
+[00:21:11] tahminci uygulamamızın bilgilerini
+[00:21:12] girelim ve Apple'a ona için gönderelim.
+[00:21:15] Tahminci uygulamam içerisindeyim.
+[00:21:16] Sırayla bilgileri dolduralım. Önce test
+[00:21:18] flight'tan aldığım uygulama ekran
+[00:21:19] görüntülerini yükleyeceğim. Choose file
+[00:21:21] linkine tıkladım ve görselleri yükledim.
+[00:21:23] Bunları burada kaydırabilirim.
+[00:21:24] Uygulamanın açılma sırasına göre dizdim.
+[00:21:26] Promotional text tanıtım metni gibi
+[00:21:28] düşünebilirsiniz. 170 karakteri geçemez
+[00:21:30] ve emoji kullanamazsınız. Google Play'de
+[00:21:32] kullanabilirsiniz. İşte bunlar hep App
+[00:21:34] Store tecrübesi. Yapay zekaya
+[00:21:35] hazırlattığım metni girdim. Description
+[00:21:37] ve keyword'leri de girdim. Şimdi support
+[00:21:39] URL'e ihtiyacım var. Aslında destek
+[00:21:41] sayfası. Bunu bir yapay zekaya da
+[00:21:43] hazırlatabilirim. Direkt onspace
+[00:21:44] içerisinde de hazırlatabilirim.
+[00:21:46] Onpace'te göstereyim. Geldim chatbotu ve
+[00:21:48] promt'umu girdim. Support URL sayfası
+[00:21:50] oluşturacağım. Onpace içerisinde
+[00:21:52] oluşturabilir misin dedim. Gönder.
+[00:21:53] Düşünmeye başladı. Cevap geldi.
+[00:21:55] Alternatiflere cevap verdi. Mobile app
+[00:21:57] içerisinde mi? web sayfasında mı başka
+[00:21:59] yerde mi demiş. Güzel. Web sayfasını
+[00:22:01] seçip ilerleyebilirim ama yeri gelmişken
+[00:22:03] sizlere Onespace'in bir özelliğini daha
+[00:22:05] göstereyim. Onspace sadece mobil
+[00:22:06] uygulama değil web uygulaması da
+[00:22:08] yapabiliyor. Onpace ana sayfasına geldim
+[00:22:10] ve üstteki menüden website'ı seçtim.
+[00:22:12] Prompt'umu giriyorum. Mobile app için
+[00:22:13] support sayfası oluşturacağım. İçerik
+[00:22:15] aşağıdaki gibi bir sayfa oluşturabilir
+[00:22:17] misin dedim. Ve harici bir yapay zekayla
+[00:22:19] oluşturduğum support sayfasının HTML
+[00:22:22] kodlarını girdim gönderdim. Tamamladı
+[00:22:23] support sayfamı. Gördüğünüz gibi
+[00:22:25] tertemiz support sayfası olmuş. Sağ üst
+[00:22:27] köşeden publish butonuna tıkladım.
+[00:22:29] Açılan menüden tekrar publish butonuna
+[00:22:31] tıkladım. Bu arada kendi domaininiz ve
+[00:22:33] uygulamanızın domaini varsa buradan
+[00:22:34] ekleyebilirsiniz. Ben eklemedim zaten.
+[00:22:37] Apple'ın da böyle bir talebi yok.
+[00:22:38] Biliyorsunuz bende fazlası yok. Minimum
+[00:22:40] talep neyse o amacımız app yayınlamak.
+[00:22:42] Ons üzerinden yayınladım. Preview
+[00:22:44] butonuna tıkladım. Harika. Support
+[00:22:45] sayfam hazır. Linkini kopyaladım. Geldim
+[00:22:48] app connect'te. Support URL kutucuğuna
+[00:22:50] linki yapıştırdım. Versiyon 1.0.0
+[00:22:53] yaptım. Ons'ten öyle paketledik çünkü.
+[00:22:55] Copyright'a 2026 tahminci yazdım. App
+[00:22:58] Clip I message app olmayacak. Build
+[00:23:00] bölümünden add'a tıkladım ve açılan
+[00:23:02] menüden onspace'ten yüklediğim
+[00:23:04] uygulamamı seçtim. App review
+[00:23:05] information'da uygulamamızı inceleyen
+[00:23:07] kişinin girip kullanabilmesi için
+[00:23:09] kullanıcı adını ve şifresini giriyorum.
+[00:23:10] Uygulamamız giriş yapmadan da
+[00:23:12] kullanılabiliyor ama login olunacak
+[00:23:14] alanlar da var. Bu sebeple girdim.
+[00:23:15] Database'den bir kullanıcı adı ve
+[00:23:17] şifresi girdim. Şu ana kadar
+[00:23:18] yaptıklarımızı kaydedelim. Yukarıdan
+[00:23:20] save butonuna tıkladım. App
+[00:23:21] information'a geldim. Subtitle
+[00:23:23] uygulamanın alt başlığını gireceğim. AI
+[00:23:25] destekli tahmin oyunu dedim. Kategori
+[00:23:27] olarak game'i seçtim. Aşağı doğru
+[00:23:29] iniyorum. Age rating'i belirleyelim.
+[00:23:31] Setup age ratingse'e tıkladım. Yine hiç
+[00:23:33] sevmediğim anket sayfası. Bunları okuyup
+[00:23:35] uygulamanıza göre doğru seçenekleri
+[00:23:37] işaretlersiniz. Dürüst olmanızı tavsiye
+[00:23:39] ederim. Bu angarya işler genelde
+[00:23:40] şirketlerde kime yaptırılır? Tabii ki
+[00:23:42] asistanlara. Ben de asistanımı çağırayım
+[00:23:44] ona doldurtayım. Chrome extension'dayken
+[00:23:46] Cloud'un ikonuna tıkladım. Sidebardda
+[00:23:48] cloud paneli açıldı. Bunları
+[00:23:50] doldurabilir misin dedim. Peki neye göre
+[00:23:52] dolduracak? uygulamayı bilmiyor ama
+[00:23:53] uygulamayı yapmak için verdiğim promtu
+[00:23:55] girebilirim. Uygulamanın promptunu
+[00:23:57] paylaşıyorum. Oradan anlarsın. Dürüst
+[00:23:59] olalım dedim. Uygulamayı yapmak için
+[00:24:01] kullandığım promtumu girdim.
+[00:24:02] Söylemiştim. İlk aşamada in fertise
+[00:24:04] olmayacak. Buna göre doldurmasın. Bu
+[00:24:06] nedenle ilk aşamada in fertise olmayacak
+[00:24:08] dedim ve gönderdim. Cloud'un desteğiyle
+[00:24:10] bu anketi de doldurdu. Cloud durmuyor.
+[00:24:12] Content rights'ı da doldurması lazım.
+[00:24:14] Cloud yine hızlıca onlara da tıklayarak
+[00:24:16] doldurdu. Tamam olduğunu düşünüyorsanız
+[00:24:18] sağ üst köşeden add view butonuna
+[00:24:19] tıklayıp gönderebilirsiniz. Şu an olduğu
+[00:24:21] gibi tamam değilse sistem zaten eksik
+[00:24:23] bölümlere sıralıyor. Tıkladım. Bakın
+[00:24:25] dediğim gibi uyarılar geldi. Birincisi
+[00:24:27] iPad ekran görüntülerini de bekliyor.
+[00:24:29] Ben iPad'de olmasını istemiyorum ama
+[00:24:31] bunu buradan seçemiyorum. Uygulamadan
+[00:24:33] engellemeliyim. Yani prompt olarak
+[00:24:34] girmeliyim. Güzel app privacy ayarlarını
+[00:24:37] yapacağım. Uygulamanın kullanıcıların
+[00:24:38] hangi bilgilerini kullandığını ve
+[00:24:40] bunlarla ne yaptığını söylediğiniz
+[00:24:41] bölüm. Son olarak da fiyatını
+[00:24:42] ayarlayacağım. Zaten ücretsiz olacak.
+[00:24:44] Onpace'e geldim. IAP yani yine purchase
+[00:24:48] olmayacak. Şimdilik onu kaldıralım.
+[00:24:50] Uygulama dilini Türkçe yapalım ve iPad
+[00:24:52] versiyonu olmasın. Sadece iPhone
+[00:24:53] versiyonu olsun dedim. Gönderdim. Güzel
+[00:24:55] onspace yeni bir versiyon çalışsın. Ben
+[00:24:57] fiyat ayarını yapayım. App Store'a
+[00:24:59] geldim. Soldaki menüden pricing ve
+[00:25:00] availability'ye tıkladım. Açılan sayfada
+[00:25:03] add price'a tıkladım. Ücretsiz olacağı
+[00:25:05] için para birimi önemli değil ama yine
+[00:25:06] de TL seçtim. Price bölümünden 0'ı
+[00:25:09] seçtim. Next butonuna tıkladım. Diğer
+[00:25:10] ülkelere de next diyerek geçtim.
+[00:25:12] İstersem farklı ülkelerde farklı
+[00:25:14] fiyatlar verebilirim. Hemen altındaki
+[00:25:15] appability bölümünden uygulama
+[00:25:17] onaylandıktan sonra hangi ülkelerde
+[00:25:19] yayınlanacağını seçip
+[00:25:21] ilerleyebilirsiniz. Şimdiden de
+[00:25:22] seçebilirsiniz. Soldaki menüden app
+[00:25:24] Privacy'ye geldim. Aynen support UR'de
+[00:25:27] olduğu gibi bir de privacy policy yani
+[00:25:29] gizlilik politikası sayfasına ihtiyacım
+[00:25:31] vardı. Onu da yine aynı şekilde
+[00:25:33] supportde olduğu gibi hazırlattım. Edit
+[00:25:35] linkine tıkladım. Açılan menüden privacy
+[00:25:37] URL bölümünde sayfanın linkini
+[00:25:38] yapıştırdım. User privacy policy de var
+[00:25:41] ama optional. Optional'da olan tavrımı
+[00:25:43] biliyorsunuz artık. Hastasıyım.
+[00:25:44] Optionals'a doldurmama hakkımı kullanmak
+[00:25:46] istiyorum. Son olarak buradaki ayarlar
+[00:25:48] kaldı. Bunları da cloud'a
+[00:25:49] yaptırabilirim. Hemen çağırdım
+[00:25:51] kendisini. Promptumu girdim. Uygulamam
+[00:25:53] için apparını yapabilir misin? Sadece
+[00:25:55] liderlik tablosu için mail girişi ile
+[00:25:57] giriş yapmalarını istiyorum. Kullanıcı
+[00:25:59] adını da alıyorum ama isimlerini
+[00:26:01] vermeleri zorunlu değil dedim ve
+[00:26:02] gönderdim. Çalışmaya başladı. Hepsini
+[00:26:04] doldurdu. Bu kadar hızlı değil tabii ki.
+[00:26:06] Ben hızlandırdım. Ons'e geri geldim.
+[00:26:08] Hemen sağ üstteki publish butonuna
+[00:26:10] tıkladım. Açılan menüden publish to app
+[00:26:11] store linkine tıkladım. Store submission
+[00:26:13] popup menüm açıldı. New submission'a
+[00:26:15] tıkladım. Bir şey değiştirmiyorum.
+[00:26:17] Sadece app version'ı 1.0.1 yaptım.
+[00:26:20] Continue butonuna tıkladım. Bilgilerimi
+[00:26:22] girdim ve gönderdim. Paketleme
+[00:26:23] tamamlandı. App Store'a geldim. Add
+[00:26:26] Build'a tıkladım. Gördüğünüz gibi 1.0.1
+[00:26:29] versiyonu da geldi. Ons'te submitted
+[00:26:31] olmuşsa ve burada görünmüyorsa sayfayı
+[00:26:33] refresh yapabilirsiniz. 1.0.1 nolu
+[00:26:36] versiyonunu seçtim ve down butonuna
+[00:26:38] tıkladım. Şu an her şey hazır görünüyor.
+[00:26:39] Sağ üst köşedeki add for review butonuna
+[00:26:41] tıkladım. Sağ tarafta drop submission
+[00:26:43] bölümü açıldı. Sağ alt köşeden submit
+[00:26:46] for review butonu geldi. Tıkladım ve
+[00:26:48] Apple'a gönderdim. One item submitted
+[00:26:50] mesajı çıktı. Artık bundan sonra
+[00:26:52] Apple'ın onayını bekleyeceğiz. Evet,
+[00:26:54] uygulamamızı Apple'a göndermiş olduk.
+[00:26:55] Başta dediğim gibi ben videoyu bitirene
+[00:26:57] kadar Apple'dan onay geldi. Videonun
+[00:26:59] açıklamasına da linkini bırakıyorum.
+[00:27:01] İndirip oynayabilirsiniz. Belki size bu
+[00:27:03] kadar hızlı onay gelmez ama çok sorun
+[00:27:04] değil. Reddedildiğinde hatanın ne
+[00:27:06] olduğuna dair çok detaylı cevap
+[00:27:08] yazıyorlar. Gelen cevabı anlamazsanız
+[00:27:10] kopyalayıp onspace veya başka bir yapay
+[00:27:12] zeka modeline yapıştırdığınızda size
+[00:27:14] tane tane sorunun ne olduğunu
+[00:27:16] açıklayacaktır. Son olarak Ons'in
+[00:27:18] fiyatlandırmasına ve bazı ekstra
+[00:27:20] özelliklerine bakıp videoyu
+[00:27:21] sonlandıralım. Onspace sayfasından
+[00:27:23] pricing menüsüne tıkladım. Aylık 7.500
+[00:27:25] kredi 25 dolar, 15.000 kredi 50 dolar,
+[00:27:28] 30.000 kredi 100 dolar. Bütün
+[00:27:29] paketlerdeki özellikler aynı. Sadece
+[00:27:31] kredi sayısı değişiyor. Benim yaptığım
+[00:27:33] bu uygulamayı 3.000 krediye rahat
+[00:27:35] yaparsınız. Paketlede 1000 olsa 4.000
+[00:27:37] krediye biter uygulama. 500 kredide
+[00:27:39] Android paketleme. Ekstra kredi almak
+[00:27:41] isterseniz de 9.000 kredi 30 dolardan
+[00:27:43] başlıyor. Yıllık alımlarda %192'ye kadar
+[00:27:46] indirimler alabilirsiniz. Bunun dışında
+[00:27:48] sizin uygulamanız için de kullanıcıların
+[00:27:50] E kullanımı için de kredi ihtiyacınız
+[00:27:52] var. Hani Flash'ı kurdu ya EA
+[00:27:53] entegrasyonuyla insanlar flash'a soru
+[00:27:55] sorduğunda da token tüketecek. Onu da AI
+[00:27:58] token içerisinden alabilirsiniz. Bunun
+[00:27:59] dışında Onspace'in tüm özelliklerini
+[00:28:01] anlattıkları, yeni özelliklerini de
+[00:28:03] güncel olarak ekledikleri bir YouTube
+[00:28:05] kanalları da var. Buna da bakabilirsin.
+[00:28:06] Ben de onpace'in mantığını anlamak için
+[00:28:08] tüm videoları izlemiştim. Gördüğünüz
+[00:28:09] gibi siz de izleyin. Son olarak müşteri
+[00:28:11] desteği konusunda 724 çalışan AI müşteri
+[00:28:14] desteği var. Ayrıca bir iş günü içinde
+[00:28:17] gerçek kişilerden de yanıt
+[00:28:18] alabiliyorsunuz. Ons böyle. Denemek
+[00:28:20] isterseniz videonun açıklamasına linkini
+[00:28:22] bırakıyorum. Hemen deneyebilirsiniz. Bu
+[00:28:24] uygulamayı yaparken tek satır kod
+[00:28:26] yazmadı. Bunu hemen hemen her videoda
+[00:28:28] söylüyorum farkındayım ama her seferinde
+[00:28:30] kapsamı da biraz daha büyüyor. Dün
+[00:28:32] chatbot, bugün App Store uygulama. Yarın
+[00:28:34] ne olacağını tahmin edebilir miyiz? Ben
+[00:28:36] yeni tahmin oyunu yapmış birisi olarak
+[00:28:37] söylüyorum. Ben edemiyorum. Her
+[00:28:39] seferinde yaşadığımız gerçeklik
+[00:28:41] tahminlerimin ötesine geçiyor. O yüzden
+[00:28:43] tahmin etmeyi bıraktım. Denemeye
+[00:28:45] başladım. Siz de deneyin.
