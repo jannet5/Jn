@@ -1,0 +1,558 @@
+# 
+# https://www.youtube.com/watch?v=jZgcWCzxh1I
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:jZgcWCzxh1I.en.json3
+
+[00:00:00] So, I just ran this Claude Code dynamic
+[00:00:01] workflow that analyzed all of my skills.
+[00:00:03] You can see here that it spun up 41
+[00:00:05] Haiku scoring agents because I have 41
+[00:00:07] skills here, and then it's feeding all
+[00:00:08] of that analysis into an Opus synthesis
+[00:00:11] agent. Now, because all of those agents
+[00:00:12] were working in parallel, which is
+[00:00:14] pretty cool, it didn't take that long,
+[00:00:16] but it did take a ton of input tokens.
+[00:00:18] It ate up basically 5 million input
+[00:00:20] tokens, but there wasn't that much to
+[00:00:21] output, so it wasn't super expensive.
+[00:00:23] And I ended up with this HTML file where
+[00:00:25] I could now look at all of my skills.
+[00:00:27] It's ranked them worst to best, and it's
+[00:00:29] also given me feedback on how I could
+[00:00:31] actually go and fix all of these skills
+[00:00:34] if I wanted it to. It gave me patterns,
+[00:00:36] and it gave me other things to be
+[00:00:37] careful of as I'm building more skills
+[00:00:39] in the future. So, what I want to talk
+[00:00:40] about today is what this feature is and
+[00:00:42] how it works. I want to compare it to
+[00:00:43] other things like skills and sub-agents
+[00:00:45] and agent teams because there's so many
+[00:00:47] features in here that feel very similar.
+[00:00:49] And also kind of talking about the money
+[00:00:51] aspect. Like, did Claude Code make this
+[00:00:53] feature just to incentivize people to
+[00:00:55] burn more tokens? And I also want to
+[00:00:57] talk about some of the little hidden
+[00:00:58] features and things that you really want
+[00:00:59] to be careful about when you try out
+[00:01:01] this new workflows feature. So, don't
+[00:01:03] want to waste any time, let's just jump
+[00:01:04] straight into today's video. So, with
+[00:01:06] the release of Claude Opus 4.8, we got
+[00:01:09] dynamic workflows. And when I first
+[00:01:10] started reading about this stuff,
+[00:01:12] immediately I was a bit confused cuz I
+[00:01:13] was like, "Well, we already have
+[00:01:15] sub-agents, and we have agent teams, and
+[00:01:16] we have like this whole {slash} goal
+[00:01:18] feature. So, what really is the
+[00:01:20] difference between a workflow, and when
+[00:01:21] do I want to actually use it, especially
+[00:01:23] after I've been seeing all the stuff
+[00:01:25] about how much money it costs?" And with
+[00:01:26] my testing, I in one workflow prompt
+[00:01:29] burned through half of my $200 a month
+[00:01:31] subscription with just one prompt, and
+[00:01:34] it took a little over 30 minutes. So, if
+[00:01:36] you're not being careful, you will
+[00:01:37] obviously eat up your session limit
+[00:01:39] very, very quick. So, the first thing
+[00:01:40] that I wanted to start off this video by
+[00:01:42] is talking about skills, sub-agents,
+[00:01:44] agent teams, and workflows because
+[00:01:46] they're very different for different use
+[00:01:48] cases, but they all sort of feel
+[00:01:49] similar. So, a skill is a reusable
+[00:01:53] recipe. And this is just when you're
+[00:01:54] talking to your own Claude, you can run
+[00:01:56] these skills, you can have these skills
+[00:01:58] be in automation, and you can also have
+[00:01:59] a sub agent execute a skill, or a sub
+[00:02:02] agent within an agent team execute a
+[00:02:03] skill, and of course, you can have
+[00:02:05] workflows execute these skills as well.
+[00:02:07] So, really what's changing here is how
+[00:02:09] many agents are in the loop, and if they
+[00:02:11] can talk to each other or not. So, with
+[00:02:12] a sub agent, sometimes these get
+[00:02:14] executed or, you know, spun up
+[00:02:15] automatically. Sometimes you ask one to,
+[00:02:17] you know, get spun up, and sometimes you
+[00:02:19] build your own agent files that you
+[00:02:21] invoke manually. And these are basically
+[00:02:23] just parallel agents that don't have the
+[00:02:25] same context window as the main session,
+[00:02:27] so keeps it clean. There's one of them
+[00:02:29] unless you spin up multiple, but they
+[00:02:30] cannot talk to each other. They only
+[00:02:32] talk back to the main working session
+[00:02:34] that you are talking to. Agent teams are
+[00:02:36] kind of like a small crew, and these are
+[00:02:38] also pretty expensive because they do
+[00:02:39] talk to each other, and they can share
+[00:02:40] like a task list. They have their own
+[00:02:42] context window, but they talk to each
+[00:02:44] other. And that's really cool to have
+[00:02:45] things like war rooms and councils and,
+[00:02:47] you know, opportunities for agents to
+[00:02:49] debate and work on an end goal together.
+[00:02:52] And they have individual roles and
+[00:02:53] individual tools and individual like
+[00:02:55] specializations. And then workflows are
+[00:02:57] basically Claude code writing a script
+[00:03:00] that runs these many agents, and it can
+[00:03:01] be hundreds, it can be tons of different
+[00:03:03] agents. But these are kind of more of a
+[00:03:05] sub agent. They work alone, and then all
+[00:03:07] of the results at the end get merged and
+[00:03:09] sent back to the main Claude workflow.
+[00:03:12] Now, one separation here is who actually
+[00:03:14] holds the plan because typically in
+[00:03:16] Claude, if you're doing sub agents and
+[00:03:17] stuff, the whole plan is right there
+[00:03:19] with Claude. But what happens with a
+[00:03:20] workflow is Claude basically creates a
+[00:03:23] JavaScript file, and that's what gets
+[00:03:25] executed, and that is the actual
+[00:03:27] workflow that's, you know, spins up and
+[00:03:29] delegates all these different sort of
+[00:03:30] agents. So, it's very much still you
+[00:03:32] describe the end goal, and then Claude
+[00:03:34] just invokes this whole workflow idea to
+[00:03:36] dynamically create the way that it's
+[00:03:38] going to run. And what's cool about this
+[00:03:39] is these workflows can be obviously
+[00:03:41] saved and re-ran whenever you want to
+[00:03:44] use them again. And so, what I wanted to
+[00:03:45] talk about here is the ladder of these
+[00:03:47] different things because as you move up
+[00:03:49] the ladder, you You more complexity and
+[00:03:50] more functionality, but of course, you
+[00:03:52] start to bring on more risk and more
+[00:03:53] money. So, I love this little ladder
+[00:03:55] diagram. And speaking of love, let's
+[00:03:58] pause real quick for a message from
+[00:03:59] today's sponsor. I wanted to take a
+[00:04:01] quick moment to thank the sponsor of
+[00:04:02] today's video, Lovable.
+[00:04:04] Now, I know that we can build websites
+[00:04:06] and deploy those in a tool like Cloud
+[00:04:07] Code, which I've shown on this channel,
+[00:04:09] but hear me out. If you're just getting
+[00:04:11] started in this AI world, a tool like
+[00:04:12] Cloud Code has a lot of different things
+[00:04:14] that are pretty confusing. And what
+[00:04:16] Lovable does really well is makes
+[00:04:17] everything super easy and minimizes the
+[00:04:20] setup time.
+[00:04:21] You can come in here with completely
+[00:04:22] natural language and build an app or
+[00:04:24] website or whatever you want. You can
+[00:04:26] even power your app with a bunch of
+[00:04:28] connectors that you already know and
+[00:04:29] love, and you don't have to worry about
+[00:04:30] handling API keys or a .env file. You
+[00:04:33] literally just connect with a one click
+[00:04:35] of a button. And as you can see, it has
+[00:04:37] so many different tools that you already
+[00:04:38] know and love, like I just covered.
+[00:04:41] I actually had all of my websites built
+[00:04:43] out in Lovable, and then we ended up
+[00:04:44] moving them over to Cloud Code later
+[00:04:46] once we were ready to scale and once we
+[00:04:47] got a little bit more advanced, but I
+[00:04:48] started out in Lovable and I iterated in
+[00:04:51] Lovable because, like I said, you
+[00:04:52] basically just come in here, you have a
+[00:04:54] chat with your AI agent, and you get
+[00:04:55] exactly what you want on this right-hand
+[00:04:57] side, and then, thanks to Lovable Cloud,
+[00:04:59] you just publish it right here. You
+[00:05:01] don't have to sync it to GitHub, you
+[00:05:02] don't have to sync it to something like
+[00:05:03] Vercel, you literally just click
+[00:05:04] publish, and then it's a live URL.
+[00:05:07] And that's a massive advantage over
+[00:05:08] something like Cloud Code, for example.
+[00:05:10] I was also able to drop in a bunch of
+[00:05:12] different Loom links, and it actually
+[00:05:14] just displayed them right here in my
+[00:05:15] website for people to be able to click
+[00:05:16] on, which I thought was pretty cool.
+[00:05:18] And this site has obviously been
+[00:05:19] deactivated because it was a very
+[00:05:21] specific offer, but you also can get
+[00:05:22] analytics about your site right in
+[00:05:24] Lovable, as well. And what else is
+[00:05:26] really cool is you can connect Lovable
+[00:05:28] to a bunch of different tools because it
+[00:05:30] has an MCP server. So, N and N, you can
+[00:05:32] connect it to there. You could also
+[00:05:33] connect it to Claude, ChatGPT, Cursor,
+[00:05:35] Cloud Code, Codex, Open Claw, Hermes
+[00:05:38] Agent. Literally anything you can now
+[00:05:39] connect it to because Lovable has an MCP
+[00:05:42] server. So, if you want to play around
+[00:05:43] with Lovable, you can get started for
+[00:05:44] free, just use the link in the
+[00:05:45] description, and let's get back to the
+[00:05:46] video. So, anyways, you kind of start
+[00:05:49] here at the bottom where you're just
+[00:05:50] talking to your main CloudCode session,
+[00:05:51] and you're just asking, and it's
+[00:05:52] reasoning, and maybe it's doing things
+[00:05:54] like web fetch or an API call. And then,
+[00:05:57] when you start to have these reusable,
+[00:05:59] you know, workflows essentially,
+[00:06:00] reusable processes, that's where you
+[00:06:02] create these skills, and they get better
+[00:06:04] and better over time. Now, sometimes you
+[00:06:06] need to do things parallel to your main
+[00:06:07] session, and that's when you delegate
+[00:06:09] stuff to sub agents. But then, when you
+[00:06:11] want to delegate stuff to sub agents,
+[00:06:12] but you want them to talk to each other,
+[00:06:14] then you have your agent teams. And then
+[00:06:16] from there, I would say the last and
+[00:06:17] final result, cuz it's going to be
+[00:06:20] I can't confidently say like more
+[00:06:21] expensive than agent teams, but it's
+[00:06:23] definitely up there with just like the
+[00:06:24] way it could go rogue, having a
+[00:06:26] workflow. And the good news is, you're
+[00:06:28] not going to ever like accidentally
+[00:06:29] invoke a workflow. It is going to
+[00:06:31] confirm with you, and it takes a lot to
+[00:06:32] get them to actually run. So,
+[00:06:35] that's kind of the way that I think
+[00:06:36] about moving up based on your use case.
+[00:06:39] And honestly, one thing I want to say is
+[00:06:41] for me, because most of my CloudCode
+[00:06:43] usage is building automations and
+[00:06:45] knowledge work, rather than building
+[00:06:46] like software and building apps, I don't
+[00:06:50] think I'm going to use workflow that
+[00:06:51] much. Like I just truly don't. I think
+[00:06:53] there are some features in CloudCode
+[00:06:55] that are purely built for heavy code
+[00:06:58] usage. When you need tons and tons of
+[00:07:00] things to be brought into the context,
+[00:07:02] doing a full sweep of a, you know, a PR
+[00:07:05] or doing a full sweep of code base and
+[00:07:07] things like that. And so, for example,
+[00:07:08] the the example that I alluded to
+[00:07:10] earlier, which was me eating up like
+[00:07:12] half of my $200 a month plan, was I
+[00:07:15] asked it to search through basically my
+[00:07:17] whole desktop. It crawled all my local
+[00:07:19] files, all of my repos, everything, and
+[00:07:21] I was looking for an analysis, and I
+[00:07:22] just wanted to see what it looked like
+[00:07:24] to have a bunch of sub agents go
+[00:07:25] crawling and looking and searching
+[00:07:26] through the stuff, and that's where it
+[00:07:28] ate up all my tokens. So, anyways, just
+[00:07:30] because you see a feature like this,
+[00:07:31] like workflows, it's good to understand
+[00:07:33] the what, which is okay, what does it
+[00:07:35] do, and when would I use it in relation
+[00:07:37] to something like an agent team or a
+[00:07:39] skill, but it that doesn't always mean
+[00:07:41] you need the how, and that doesn't
+[00:07:42] always mean that you need to use this
+[00:07:44] thing every day or you're falling
+[00:07:45] behind, right? It's just good to know
+[00:07:47] what it does. And more specifically, if
+[00:07:49] it solves a problem or a pain point that
+[00:07:51] you actually have right now. And that's
+[00:07:53] usually how I think about using stuff or
+[00:07:55] not. So,
+[00:07:56] do the agents talk to each other? No,
+[00:07:58] right? They have got sub-lanes and they
+[00:08:00] talk back to one result. Whereas an
+[00:08:01] agent team is kind of like more of a
+[00:08:03] group chat. It's it's legitimately a
+[00:08:04] team, which is super super cool. If you
+[00:08:06] guys do want to see a full video where I
+[00:08:07] broke down Claude agent teams, then I'll
+[00:08:08] tag that one right up here. So, can a
+[00:08:11] skill go inside of workflow? Yes, of
+[00:08:14] course it can nest inside because the
+[00:08:16] workflow is just basically spinning up a
+[00:08:18] bunch of these different little
+[00:08:18] sub-agents. And sub-agents have access
+[00:08:20] to read your skills and to use your
+[00:08:22] skills. So, you can do that. Of course,
+[00:08:24] they can also use things like your MCP
+[00:08:25] server connections or your API keys or
+[00:08:27] whatever you've got stored in there that
+[00:08:29] they, you know, that you want those
+[00:08:30] sub-agents to to use. The skill is kind
+[00:08:33] of like the how, the workflow is like
+[00:08:35] the how many. And, you know, the width
+[00:08:37] or the depth of execution. And now, the
+[00:08:40] one that I started to get confused about
+[00:08:41] because I have been using slash goal a
+[00:08:43] lot, which I I I plan to make a new
+[00:08:45] video on slash goal
+[00:08:47] just on that topic. But I've been using
+[00:08:48] it a lot and so I started to think,
+[00:08:51] okay, well, when would I use slash goal
+[00:08:52] rather than workflow? And so the thing
+[00:08:54] that I started to think about there was
+[00:08:56] depth versus width. So, here's two
+[00:08:58] visualizations that I thought explained
+[00:08:59] it well.
+[00:09:00] Goal
+[00:09:02] is a loop where you're looking for kind
+[00:09:04] of explicitly like
+[00:09:06] does done equal true? And so the agent
+[00:09:09] where, you know, in goal, you can have
+[00:09:11] sub-agents get spun up, don't get me
+[00:09:12] wrong. But let's just say we have one
+[00:09:14] agent in a slash goal, it's going to
+[00:09:16] take multiple turns and multiple passes
+[00:09:18] until that end criteria has been met.
+[00:09:21] So, that's kind of like that loop where
+[00:09:23] you could really have this thing run for
+[00:09:24] 24 hours plus if you wanted. I've never
+[00:09:26] done that, but you could. And then
+[00:09:28] workflow is more of a width play where
+[00:09:31] you're getting a bunch of different
+[00:09:32] sub-agents doing different things or
+[00:09:34] researching different things. And then
+[00:09:35] everything gets sort of synthesized
+[00:09:36] together at the end, which means you
+[00:09:39] could have 50 plus agents horizontally
+[00:09:41] working on stuff. But they're not all
+[00:09:43] checking against some sort of criteria
+[00:09:45] of is done equal true. They're more so
+[00:09:48] executing on on a plan that was
+[00:09:50] established from the beginning and say,
+[00:09:52] "Hey, this is what you do, you do it,
+[00:09:54] and then you shoot that result off." So,
+[00:09:55] there's not like that endless loop of
+[00:09:58] checking against a criteria. Now, what
+[00:10:00] would be interesting is if you combine
+[00:10:02] these two together and you had like
+[00:10:04] maybe a workflow within a slash goal or
+[00:10:06] something like that. But obviously you'd
+[00:10:07] want to be very, very careful about that
+[00:10:09] level of autonomy because it's very
+[00:10:10] powerful,
+[00:10:11] but obviously a great way to burn money.
+[00:10:13] So, some people out there are saying,
+[00:10:14] "Hey, you know, they're just wanting you
+[00:10:15] guys to use this workflow feature so you
+[00:10:17] eat more tokens, which
+[00:10:19] I don't think that's true, but that
+[00:10:20] would be pretty funny. Because there is
+[00:10:22] value here, right? It's just a matter of
+[00:10:24] like,
+[00:10:25] do you actually need this in your
+[00:10:26] workflow or would that just be
+[00:10:28] overkill?"
+[00:10:29] A lot of the times it probably would be
+[00:10:31] overkill. So,
+[00:10:32] the bill that you're going to get for
+[00:10:33] your workflow is depending on how big of
+[00:10:35] a job you point this thing at. And each
+[00:10:37] agent is a full Claude call, right? Each
+[00:10:39] agent has their its own window and has
+[00:10:41] to read through its own context, and
+[00:10:42] many of them get spun up. So, it can get
+[00:10:44] very expensive. Now, most of your tokens
+[00:10:46] here will probably be on the input, like
+[00:10:48] you saw with my example, which means
+[00:10:50] that um it's not as expensive as the
+[00:10:51] output tokens, but still it can get
+[00:10:53] expensive. So, when you are shooting off
+[00:10:56] a workflow, you want to be very careful
+[00:10:58] about like, you know,
+[00:10:59] how explicit you're being and how
+[00:11:01] specific you're being with what you're
+[00:11:03] actually looking for. Similar mindset
+[00:11:05] when you're running a slash goal. Like
+[00:11:06] if you give it a very vague request, it
+[00:11:08] might just loop for a long time cuz it
+[00:11:09] doesn't actually know when done equals
+[00:11:11] true. So, bound the scope, name the
+[00:11:13] deliverable, and then
+[00:11:15] all your sub agents can be put on Haiku.
+[00:11:17] Now, there is a cool feature within the
+[00:11:19] workflow thing, which is a slash deep
+[00:11:22] research
+[00:11:23] function, which automatically invokes a
+[00:11:25] workflow. It spins up a bunch of
+[00:11:27] different agents to do parallel
+[00:11:28] research. They vote on each claim, and
+[00:11:30] then you get a cited deep research
+[00:11:31] report at the end. So, that is a pretty
+[00:11:33] cool feature if you are doing a lot of
+[00:11:35] research and maybe you're building your
+[00:11:36] own deep research skills or whatever it
+[00:11:38] is, definitely test out this one to see
+[00:11:40] how that works as a workflow. And when
+[00:11:41] you start to think about, do you
+[00:11:42] actually need it? Some stuff like this,
+[00:11:45] right? If you're reviewing every file in
+[00:11:46] a code base or you've got a 400 file
+[00:11:48] migration and you've got things where
+[00:11:51] the risk is high and you want as much
+[00:11:53] compute and reasoning dedicated towards
+[00:11:55] individual pieces as possible, that's
+[00:11:57] when you maybe want to go for something
+[00:11:58] like an agent team or workflow. But if
+[00:12:00] you're doing single edits or quick
+[00:12:02] questions or you're just working towards
+[00:12:03] a deliverable or you're doing general
+[00:12:04] knowledge work, you probably don't need
+[00:12:06] the workflow. So, the question that I
+[00:12:08] would ask is, does this break into many
+[00:12:10] pieces that can run individually of each
+[00:12:12] other at the same time? If that's true,
+[00:12:15] then go ahead and try out a workflow.
+[00:12:16] So, when I actually ran this in my cloud
+[00:12:18] code, let me just real quick switch over
+[00:12:20] to show you what the prompt looked like.
+[00:12:22] Here I'm on the ultra code thing. This
+[00:12:24] was the prompt that I ran for this
+[00:12:26] workflow. I said, run a workflow that
+[00:12:27] audits all of my cloud code skills in
+[00:12:29] two places, my user-level global skills
+[00:12:31] and this project skills and I said, I
+[00:12:34] need you to grade it on clarity, front
+[00:12:36] matter pass-fail, trigger quality and
+[00:12:38] give me the single highest value fix.
+[00:12:41] And I said, one final agent ranks every
+[00:12:42] skill worst to best, labels blah blah
+[00:12:44] blah, blah blah blah. And so, after it
+[00:12:46] did that, that's how I was able to get
+[00:12:48] the output that I was looking for and I
+[00:12:49] also have was able to have it have all
+[00:12:51] of those workers being on Haiku. Now,
+[00:12:53] when I invoked that, what it did is it
+[00:12:54] said, okay,
+[00:12:55] can you let me run a dynamic workflow to
+[00:12:57] do this? And I had to explicitly say,
+[00:13:00] yes, run it. Or you can see here that I
+[00:13:02] could also view the raw script because
+[00:13:03] as we know, this is basically writing a
+[00:13:05] script and then we just execute that
+[00:13:07] script rather than having it be like all
+[00:13:09] this, you know, sort of dynamic back and
+[00:13:10] forth. And then while this is running,
+[00:13:12] you can do {slash} workflows to actually
+[00:13:14] view all of your open workflows if you
+[00:13:15] wanted to stop them or view them. As you
+[00:13:17] can see here, I can see all 41 of these
+[00:13:19] agents running and looking at different
+[00:13:22] skills. I can see that they were all on
+[00:13:23] Haiku. I can see how many tokens they
+[00:13:25] had used, what tools and how long they
+[00:13:26] had been running. And so, what happens
+[00:13:28] is this creates a JavaScript file, you
+[00:13:30] know, you're able to keep it, it's in a
+[00:13:32] workflows folder, you're able to run
+[00:13:34] them again later, which is pretty cool.
+[00:13:35] But, what you may notice is that they
+[00:13:37] might not go into your project
+[00:13:39] immediately. They might sit somewhere
+[00:13:41] else. So, you can see here, I basically
+[00:13:43] had to tell it to save it inside of this
+[00:13:45] project in my dot Claude {slash}
+[00:13:46] workflows. If I open this up, I have dot
+[00:13:48] Claude, I have workflows, and I have
+[00:13:50] these two right here. Because by
+[00:13:51] default, it was storing them somewhere
+[00:13:53] else more global in my Claude code
+[00:13:55] working directory, and I didn't want
+[00:13:57] that. I wanted to see those right here
+[00:13:58] inside of my Herc 2 operating system.
+[00:14:00] So, now if I ever wanted to maybe do
+[00:14:02] another skill audit, or a different one
+[00:14:03] I did was a Claude code feature ranking,
+[00:14:05] I would just have to point it at that
+[00:14:08] workflow and say, "Hey, run this again."
+[00:14:09] And then the last thing I wanted to
+[00:14:10] bring up here was the ultra code, which
+[00:14:12] I just showed you guys, cuz I thought
+[00:14:13] it's it's very funny that they did this.
+[00:14:15] When you go run {slash} effort to look
+[00:14:17] at your Claude code
+[00:14:20] um Opus model effort level, you've
+[00:14:22] obviously got low, medium, high, extra
+[00:14:23] high, or max. But, then you have ultra
+[00:14:25] code, which is going to be smartest, but
+[00:14:27] the most expensive, because what this
+[00:14:28] does is it uses X high as the effort
+[00:14:31] reasoning level, but every prompt, I'm
+[00:14:33] pretty sure, is just going to be a
+[00:14:34] workflow. That's kind of, you know, X
+[00:14:36] high plus workflows, it's going to
+[00:14:37] default here to using those workflows.
+[00:14:40] So, if you're on this mode, it's going
+[00:14:42] to bypass a lot of those permissions,
+[00:14:43] and it's just going to start
+[00:14:44] orchestrating, so it's going to be very
+[00:14:46] expensive. Now, besides that, when
+[00:14:47] you're in here, if you do {slash}
+[00:14:49] workflows, that is how you can browse
+[00:14:51] your history, right? I can see what is
+[00:14:54] running right now as far as what's the
+[00:14:56] dynamic workflow that's running. Or, if
+[00:14:58] you just go ahead and type workflow, you
+[00:15:00] see that it highlights in rainbow. If I
+[00:15:02] do an asset, still there. And this is
+[00:15:03] typically how you can request to do one
+[00:15:05] on a turn. Now, you still want to be
+[00:15:07] explicit. The best way that I found to
+[00:15:09] invoke them is say, "Hey, I want you to
+[00:15:10] set me up a dynamic workflow to do
+[00:15:12] this." Because sometimes the word
+[00:15:14] workflow just lives naturally in your
+[00:15:16] speaking. So, not every single time that
+[00:15:18] you have this word, does it mean it's
+[00:15:20] going to automatically invoke a
+[00:15:21] workflow. It'll just highlight up in
+[00:15:23] rainbow colors, which is pretty fun. So
+[00:15:25] anyways, the whole thing in one slide.
+[00:15:27] If you just have a quick thing, just ask
+[00:15:29] Claude code. If it's a thing you repeat,
+[00:15:31] use a skill. If you've got a messy side
+[00:15:33] task, use a sub-agent. If you need a
+[00:15:35] small crew that talks together, use
+[00:15:36] agent team. If you want something to
+[00:15:38] keep going until an objective criteria
+[00:15:40] has been met, use {slash} goal. And if
+[00:15:41] you want a giant parallel job, use the
+[00:15:43] new dynamic workflows. Just be careful.
+[00:15:45] And obviously, MCPs, CLIs, API
+[00:15:48] endpoints, all of that can be plugged
+[00:15:50] into any of these here in order to
+[00:15:52] actually connect data to, you know, your
+[00:15:54] own systems. And I know that we just
+[00:15:55] covered a ton of information, so I put
+[00:15:57] all of this into a free resource guide
+[00:15:59] that you guys can access for completely
+[00:16:00] free. The link for that is down in the
+[00:16:01] description. All you have to do is join
+[00:16:03] the free group, like I said, and then in
+[00:16:05] here you'll click on classroom, you'll
+[00:16:06] click on all YouTube resources, and you
+[00:16:08] can get everything I've ever shared.
+[00:16:09] GitHub repo skills, guides, all that
+[00:16:11] kind of stuff. You can also come in here
+[00:16:12] and take our free 7-day challenge or the
+[00:16:14] free build your AI operating system
+[00:16:16] course. So I'd love to see you guys in
+[00:16:18] this community, but that is going to do
+[00:16:20] it for today's video. So I hope that you
+[00:16:21] guys enjoyed and you learned something
+[00:16:22] new. If you did, please give it a like.
+[00:16:24] It helps me out a ton. And as always, I
+[00:16:25] appreciate you guys making it to the end
+[00:16:26] of the video, and I will see you all in
+[00:16:28] the next one.
+[00:16:30] Thanks, guys.
