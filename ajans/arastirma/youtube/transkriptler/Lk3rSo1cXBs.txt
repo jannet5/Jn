@@ -1,0 +1,318 @@
+# 
+# https://www.youtube.com/watch?v=Lk3rSo1cXBs
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:Lk3rSo1cXBs.tr.json3
+
+[00:00:00] hoş geldiniz. Bu videoda ister kendimiz
+[00:00:02] için ister müşterilerimiz için basit ve
+[00:00:04] modern web siteleri Codex üzerinde nasıl
+[00:00:07] tasarlayabiliriz ve dakikalar içerisinde
+[00:00:09] nasıl yayını alabiliriz? Bundan
+[00:00:11] bahsediyor olacağım. Daha fazla
+[00:00:12] uzatmadan videoya geçelim ve detaylardan
+[00:00:14] bahsetmeye başlayayım. Google'a Codex
+[00:00:16] yazarak Codex'i indirebilirsiniz. İlk
+[00:00:19] çıkan siteye giriş yapıyorum. Gördüğünüz
+[00:00:21] gibi Windows için indir butonu var. Bu
+[00:00:23] butona tıklıyorum. Kurulum aşaması
+[00:00:25] oldukça basit zaten. Daha sonra chat GPT
+[00:00:28] hesabınızla giriş yapmanızı isteyecek.
+[00:00:30] Chat GPT hesabınızı tarayıcıda
+[00:00:32] gireceksiniz ve Codex'e bağlanmış
+[00:00:34] olacaksınız. Codex'i ücretsiz olarak da
+[00:00:36] kullanabiliyorsunuz chat GPT
+[00:00:38] üyeliğinizle ama en azından 20 dolarlık
+[00:00:41] chat GPT üyeliğiniz varsa çok daha iyi
+[00:00:43] olacaktır. Ekstra bir şey satın almadan
+[00:00:46] bu şekilde kullanabilirsiniz. 200
+[00:00:48] dolarlık paketine falan sahipseniz zaten
+[00:00:50] istediğiniz gibi kullanabilirsiniz. Ama
+[00:00:52] normal 20 dolarlık pakette de bayağı bir
+[00:00:54] şeyler yapılabiliyor. Şimdi Codex'e
+[00:00:56] geçelim. Böyle bir arayüzümüz var.
+[00:00:58] Codex'i çok farklı görevler için
+[00:01:00] kullanabilirsiniz. Otomasyonlar
+[00:01:02] yapabilirsiniz, kodlama yapabilirsiniz,
+[00:01:04] görevler verebilirsiniz. Bunları
+[00:01:05] otomatikleştirebilirsiniz.
+[00:01:07] Biz bugün web siteler yapmak için
+[00:01:09] kullanacağız. Codex'i kendimize
+[00:01:10] yapabiliriz, müşterilerimize
+[00:01:12] yapabiliriz. Kurumsal, bireysel, landing
+[00:01:14] page olabilir, fark etmez. Bu tarz web
+[00:01:16] siteleri nasıl oluşturabiliriz? Buna
+[00:01:18] bakıyor olacağız. Sol kısımda projeler
+[00:01:20] bölümümüz var. Şu simgeye tıkladığımızda
+[00:01:22] sıfırdan başla. Mevcut bir klasörü
+[00:01:24] kullan diyor. Mevcut bir klasörü kullan
+[00:01:27] diyeceğiz. Yeni bir klasör oluşturdum.
+[00:01:29] Bu klasörü seçiyorum. Yeni web site
+[00:01:31] olarak buraya gelmiş oldu. Şimdi buraya
+[00:01:33] bazı dosyalar yükleyeceğim. Siz de web
+[00:01:35] site yaparken web site ile ilgili tüm
+[00:01:37] bilgileri araca vermeniz gerekiyor ki
+[00:01:40] ortaya çıkan sonuç güzel bir sonuç
+[00:01:42] olsun. İki tane farklı dosya hazırladım.
+[00:01:44] Biri web site yapısı dosyası. Burada web
+[00:01:46] sitemizin sayfa yapısı işte bilgileri,
+[00:01:48] müşteri yorumları var. Yapay zeka
+[00:01:50] oluşturdum bu arada size örnek olması
+[00:01:52] için. İşletme bilgileri dosyamız var.
+[00:01:54] İşletmemizin bilgisi, adresi, ana
+[00:01:57] hizmetleri, öne çıkanları, paketleri
+[00:01:59] gibi gerekli olan bilgiler var. Bir web
+[00:02:01] tasarım ajansı yapacağımız için ona
+[00:02:04] yönelik bilgiler hazırladım. Bir de
+[00:02:05] fotoğraf vereceğim. Birden fazla
+[00:02:07] istediğiniz kadar fotoğraf da
+[00:02:08] verebilirsiniz tabii ki. Bunları şu
+[00:02:10] şekilde verirseniz daha sağlıklı olur.
+[00:02:12] Dosya bölümüne geliyorum. İndirden
+[00:02:15] markdown MD formatında indiriyorum.
+[00:02:17] Yapay zeka modelleri bu şekilde daha iyi
+[00:02:20] anlayacaktır verdiğiniz bilgileri.
+[00:02:21] Codex'te seçtiğim çalışacağım klasörün
+[00:02:24] içerisine bu indirdiğim dosyaları bu
+[00:02:26] şekilde ekliyorum. Tekrar Codex'e geri
+[00:02:29] dönüyorum. Şimdi bir prompt
+[00:02:30] hazırlayacağım. Promtu hazırlarken add
+[00:02:33] işareti yapabilirim. Mesela web site
+[00:02:35] sayfa yapısı dediğimde dosyam bakın
+[00:02:37] buraya geldi. Bunu buraya
+[00:02:39] etiketleyebilirim. Görselleri veya
+[00:02:41] istediğim herhangi bir dosyayı da bu
+[00:02:43] şekilde etiketleyebilirim. Mesela
+[00:02:45] görselim bu şekilde. Dosyalarımı
+[00:02:47] etiketledim. Özgür ve yapay zeka web
+[00:02:49] tasarım ajansı için modern, mobil
+[00:02:52] uyumlu, estetik ve koyu temalı buzlu cam
+[00:02:54] ve gradyan efektler olan HTML, CSS,
+[00:02:57] JavaScript yapısında bir web site
+[00:02:59] hazırla dedim. Farklı yapılarda da web
+[00:03:01] siteler hazırlayabiliriz. Node, JS gibi
+[00:03:03] yapılarda yaparsanız build almanız
+[00:03:05] gerekebilir. Yükleyeceğiniz hosting
+[00:03:07] bununla uyumlu mu değil mi? Bunu iyi
+[00:03:09] bilmeniz gerekiyor. Biraz daha maliyetli
+[00:03:11] bir hosting olabilir. Eğer bu tarz
+[00:03:13] statik web siteler tasarlayacaksak hiç
+[00:03:15] gerek yok. HTML, CSS, JavaScript bizim
+[00:03:18] için yeterli olacaktır. Sonradan
+[00:03:20] uğraşmamak için ücretsiz bir form
+[00:03:22] uygulaması da eklemek istiyorum buraya.
+[00:03:24] Size de göstereyim hemen. Örnek olarak
+[00:03:26] teli.O web sitesine geliyorum. Buraya
+[00:03:28] giriş yapacağım. Burada ücretsiz formlar
+[00:03:31] hazırlayabiliyoruz. Web sitelerimize
+[00:03:32] ekleyebiliyoruz kod olarak. Daha sonra
+[00:03:35] da buradan takip edebiliyoruz. Yeni form
+[00:03:37] oluştur diyorum.
+[00:03:39] Form başlığımız şöyle bir soru
+[00:03:41] ekleyelim. Adınız, soyadınız diyelim.
+[00:03:45] Tamamen örnek.
+[00:03:47] Alt kısma hemen bir email alanı
+[00:03:49] ekleyelim. Buraya da e-posta diyelim.
+[00:03:52] Buna da telefon diyelim. Tamamen örnek
+[00:03:54] olsun diye yapıyorum. Bu arada şu ayar
+[00:03:56] simgesine tıklayalım. Bunu da Türkçeye
+[00:03:59] çevirelim. Gönder diyelim. Publish
+[00:04:01] diyelim. Bunu yayınlayalım. Publish
+[00:04:02] dedikten sonra alt kısma geliyorum.
+[00:04:05] Burada gömme ayarları var. kod olarak
+[00:04:07] gömebileceğimiz standardı seçiyorum. Bu
+[00:04:09] şekilde hiç değiştirmeden kodu al
+[00:04:11] diyorum ve buradaki kodu kopyalıyorum.
+[00:04:14] Codex'e geri dönüyorum. Formu buradaki
+[00:04:16] kodtan göm diyorum ve kodumu veriyorum.
+[00:04:19] Şimdi alt kısımdaki bölümlerden
+[00:04:21] bahsedeyim. Varsayılan izinler olarak da
+[00:04:23] kalabilir. Tam erişim de verebilirsiniz.
+[00:04:25] Fark etmez. Zaten bir şey yapacağında
+[00:04:27] sizden izin ister. Burada modelimiz var.
+[00:04:30] Modelimizi seçebiliyoruz. Zeka
+[00:04:31] seviyesini belirleyebiliyoruz. ortada da
+[00:04:33] iyi çalışacaktır. Yüksek ve ekstra
+[00:04:35] yüksekte tabii ki kullanım haklarınız
+[00:04:38] daha çabuk tükenecektir. Ama yüksek
+[00:04:40] seçebiliriz. Daha güzel bir tasarım
+[00:04:42] yapsın. Bir de hız bölümümüz var.
+[00:04:43] Standart ve hızlı seçebiliyorsunuz.
+[00:04:45] Hızlı seçerseniz de yine haklarınız daha
+[00:04:48] çabuk tükenecektir. Seçmenize gerek yok.
+[00:04:50] Bu şekilde promptumu gönderiyorum. Şimdi
+[00:04:53] web tasarımımızı yapmış. Hemen
+[00:04:55] klasörümüzden kontrol edelim. Klasörümü
+[00:04:57] açıyorum. Index. HTML'e tıklıyorum.
+[00:05:02] Web sitemiz hazırlanmış ama bazı
+[00:05:05] kaymalar var. Şimdi hemen bunları
+[00:05:07] düzeltmesini isteyelim. Tasarımı da
+[00:05:09] biraz daha iyi hale getirsin. Çok büyük
+[00:05:11] bir güncelleme yapmasını isteyelim.
+[00:05:13] Turuncu koyu temada olmasını istiyorum.
+[00:05:15] Çok daha fütüristik bir tasarıma
+[00:05:17] dönüştür. Tasarım kaymalarını düzelt.
+[00:05:19] Çok sayfalı yapıya geç diyorum. Tek
+[00:05:21] sayfalı yapıda değil, çok sayfalı yapıda
+[00:05:23] yapsın. Bakalım neler yapacak.
+[00:05:25] Gönderiyorum. Bu sefer içeriden kontrol
+[00:05:27] edeceğim. Şöyle tam ekran yapıyorum.
+[00:05:32] Evet, gayet güzel kaymalar gitmiş.
+[00:05:35] Turuncu tasarıma dönmüş. Hizmetler
+[00:05:37] sayfamız gayet güzel. Rezervasyon. Blog
+[00:05:41] sayfası olmasa da olurdu. Gerekirse
+[00:05:43] kaldırırız bunu. Çünkü onun için farklı
+[00:05:45] özellikler eklemek lazım. Yönetim paneli
+[00:05:47] eklemek lazım. İletişim bölümüne
+[00:05:49] geliyorum. Ek olarak bir de hero
+[00:05:51] tasarımı yaptırıyorum. Yani siz de bu
+[00:05:53] şekilde istediğiniz tasarımları
+[00:05:54] yaptırabilirsiniz. Şimdi bazı
+[00:05:56] değişiklikler yaptım. çok daha iyi hale
+[00:05:58] geldi. Bu halinden memnunum. Ana
+[00:06:00] sayfamızın girişi böyle oldu. Çok daha
+[00:06:02] güzel animasyonlu bir giriş yaptık.
+[00:06:04] Hizmetlerimiz dediğimizde yine sayfamıza
+[00:06:06] gidiyor. Rezervasyonlar, projeler, diğer
+[00:06:08] kalan sayfalarımız aynı. İstediğiniz
+[00:06:11] yerde istediğiniz değişikliği prompt
+[00:06:12] vererek yapabilirsiniz zaten. Şimdi
+[00:06:14] gelin web sitemizi nasıl
+[00:06:16] yayınlayabiliriz? Buna bakalım.
+[00:06:17] Yayınlamak için tabii ki bir domaine ve
+[00:06:19] hosting'e ihtiyacımız var. Sizler de
+[00:06:22] açıklamaya bıraktığım linkten
+[00:06:23] Hostingerin bu sayfasına
+[00:06:25] ulaşabilirsiniz. indirimli fiyatlardan
+[00:06:27] domainizi ve hostinginizi alabilirsiniz.
+[00:06:30] Burada paketlerden bahsedeyim kısaca
+[00:06:32] hemen. Web sitemiz HTML yapısında olduğu
+[00:06:34] için en küçük pakette bile
+[00:06:36] yayınlayabilirsiniz ama en küçük paketi
+[00:06:38] alırsanız alan adınızı ayrıca almanız
+[00:06:40] gerekecek. Bunun yerine premium paketi
+[00:06:42] alarak 3 adete kadar web site
+[00:06:44] barındırabilirsiniz. Bunun yanında bir
+[00:06:46] yıl boyunca ücretsiz alan adına da sahip
+[00:06:48] olabilirsiniz. Ayrıca bir yıl boyunca
+[00:06:50] profesyonel e-postaya da ücretsiz
+[00:06:53] erişebiliyorsunuz. bilgi@özgürv.com
+[00:06:55] gibi kendi aldığınız alan adında
+[00:06:57] profesyonel bir e-postaya bir yıl
+[00:06:59] boyunca ücretsiz sahip olabiliyorsunuz.
+[00:07:02] Bu paketi aldığınızda zaten içerisinde
+[00:07:04] SSL sertifikası vesaire bütün paketlerde
+[00:07:07] var. O yüzden bu planı seçebilirsiniz.
+[00:07:09] Plan seçin diyorum. Buradan dönemi 12 ay
+[00:07:12] olarak seçiyorum. Ne kadar uzun süreli
+[00:07:14] alırsanız o kadar avantajlı oluyor tabii
+[00:07:16] ki aylık fiyatı. Mesela 48 ay seçtiğimde
+[00:07:19] aylık fiyatı 69 liraya düşüyor. 12 ay
+[00:07:22] seçtiğimde aylık fiyatı 99'a geliyor.
+[00:07:24] Alt kısımda alan adı bölümümüz var.
+[00:07:26] Mesela domain'i de ekliyorum. Bir yıl
+[00:07:29] olarak seçiyorum. Zaten ücretsiz diye
+[00:07:31] yazıyor. Burada hostingimiz, domain'imiz
+[00:07:33] ve e-postamız için toplamda 1439 liraya
+[00:07:37] alabiliyoruz bu paketi. Devam et diyerek
+[00:07:39] ödeme aşamasına geçebiliriz. Benim daha
+[00:07:42] önceden bir hostingim vardı. Buradan
+[00:07:43] site ekle diyorum. özel PHP HTML web
+[00:07:46] sitesi diyor. Bunu seçiyorum. Kullanmak
+[00:07:48] istediğim alan adını seçiyorum.
+[00:07:50] Ozgurwayi. Bir alan adım var. Bunu
+[00:07:53] kullanacağım şimdi. Sonraki diyorum.
+[00:07:55] Lokasyon seçiminde en verimli lokasyonu
+[00:07:57] kendisi seçiyor zaten. Almanya seçili
+[00:07:59] kalabilir. Sonraki diyorum karşımıza
+[00:08:01] böyle bir sayfa açılacak. Artık web
+[00:08:03] sitemizi yükleyebiliriz. Dosya
+[00:08:05] yöneticisine tıklıyorum. Açılan sayfada
+[00:08:07] public html dosyasına çift tıklıyorum.
+[00:08:10] Buranın içerisine yükleme yapacağız.
+[00:08:12] Default.php da PHP dosyasını silme
+[00:08:14] butonuna tıklıyorum ve sil diyorum.
+[00:08:16] Artık buraya kendi dosyalarımı
+[00:08:18] yükleyeceğim. Codex'te açmış olduğum
+[00:08:20] klasör burada ve bütün web site
+[00:08:21] dosyalarım buranın içerisinde. Şu
+[00:08:23] işletme bilgileri vesaire bunları
+[00:08:25] yüklememize gerek yok. Şu sayfaları
+[00:08:27] yükleyeceğiz ve tabii ki görselimizi de
+[00:08:30] yüklememiz gerekiyor. Script dosyamızı
+[00:08:32] ve style dosyamızı da seçiyorum. Bu
+[00:08:34] şekilde sürükleyip bırakıyorum ve direkt
+[00:08:36] olarak yüklenmiş oldu. Yansıması biraz
+[00:08:39] zaman alabilir çünkü henüz yeni bir
+[00:08:41] kurulum yaptık ve dosyaları yeni attık.
+[00:08:43] Web sitemiz buraya yansıdıktan sonra
+[00:08:45] sizlere de gösteriyor olurum. Zaten
+[00:08:47] direkt olarak gelmiş bu arada herhangi
+[00:08:49] bir bekleme olmadı. Ozgurway.
+[00:08:51] Gittiğimde artık web siteme
+[00:08:53] ulaşabiliyorum. Gördüğünüz gibi
+[00:08:55] hizmetler bölümüne tıklıyorum. Her şey
+[00:08:57] yolunda. Rezervasyon bölümü. Dakikalar
+[00:08:59] içerisinde web sitemizi yayına almış
+[00:09:01] olduk. Bir güncelleme yapacağınızda da
+[00:09:04] şu şekilde yapıyorsunuz. Örneğin
+[00:09:05] dosyalarda güncelleme yaptınız. Tekrar
+[00:09:08] tüm dosyaları seçiyorum. Buraya
+[00:09:10] sürükleyip bırakıyorum ve karşıma
+[00:09:12] seçenekler çıkarıyor. Hedef klasördeki
+[00:09:14] tüm dosyaları değiştirin diyorum ve
+[00:09:16] hepsini değiştiriyorum. Bu şekilde web
+[00:09:18] sitemi güncellemiş oluyorum. Güncel hali
+[00:09:20] artık domainimde yayınlanmış oluyor.
+[00:09:23] Panelimizden e-postalar kısmına gelerek
+[00:09:25] profesyonel e-posta hakkımızı
+[00:09:27] kullanabiliriz. Ücretsiz e-posta talep
+[00:09:29] edin diyor. Buna tıklıyorum. Ozgurway.
+[00:09:32] Siteyi seçtim. Onay diyorum. Gördüğünüz
+[00:09:34] gibi burada ücretsiz bir paket var.
+[00:09:36] Başla diyorum. Ücretsiz denemeye başla
+[00:09:38] diyorum ve hello yazdım. Mesela
+[00:09:39] hello@özgürv.
+[00:09:42] Bir e-postaya sahip olabilirim.
+[00:09:44] Profesyonel e-postaya. Şifremi de
+[00:09:46] oluşturup posta kutusunu oluşturun
+[00:09:48] dediğimde e-postam kurulmuş olacak.
+[00:09:50] Şimdi Google Analytics veya Meta gibi
+[00:09:52] araçları nasıl bağlayabilirsiniz? Bunu
+[00:09:54] göstereyim basitçe. Yeni bir mülk
+[00:09:56] oluşturdum. Analytics içerisinde web'i
+[00:09:58] seçiyorum. URL girdim. oluştur ve devam
+[00:10:01] et diyorum. Karşıma Google etiket kodu
+[00:10:03] geldi. Bunu kopyalıyorum. Codex'e geri
+[00:10:05] dönüyorum. Google etiketini web siteme
+[00:10:08] ekle diyorum. Gönderiyorum. Codex
+[00:10:10] gerekli tüm değişiklikleri yapacak.
+[00:10:12] Google etiketimi ekleyecek. Daha demin
+[00:10:14] göstermiş olduğum şekilde Hostinger
+[00:10:16] dosya panelimden dosyalarımı sürükleyip
+[00:10:19] bırakarak güncelleyeceğim ve Google
+[00:10:20] kodum çalışır hale gelecek. Aslında bu
+[00:10:23] kadar basit. Sol alt kısımdaki ayarlar
+[00:10:25] bölümünden kalan kullanım haklarımızı
+[00:10:27] görebiliyoruz. Buna ek olarak sağ
+[00:10:29] tarafta buradaki artı butonuna
+[00:10:31] tıklayarak dosyaları açabiliyoruz. Yan
+[00:10:33] sohbet başlatabiliyoruz. Bir web siteyi
+[00:10:35] Codex içerisinde açabiliyoruz ve
+[00:10:37] terminal çalıştırabiliyoruz. Örneğin
+[00:10:39] dosyalara tıkladığımızda dosyalarımız
+[00:10:41] içerisinde gezebiliyoruz. Buradaki artı
+[00:10:43] butonuna tıklayarak kodlara yorum
+[00:10:46] ekleyebiliyoruz. Yorum dediğimizde de bu
+[00:10:48] yorumla beraber yeni bir prompt
+[00:10:50] gönderebiliyoruz. Sizler de ister
+[00:10:52] kendiniz için ister müşterileriniz için
+[00:10:54] bu şekilde basit web siteler
+[00:10:56] tasarlayabilirsiniz ve bunları dakikalar
+[00:10:58] içerisinde yayına alabilirsiniz.
+[00:11:00] Açıklamaya bıraktığım linkten giderek
+[00:11:02] Hostingerden hosting paketinizi
+[00:11:04] alabilirsiniz. Videoyu beğendiyseniz
+[00:11:06] beğen butonuna basmayı unutmayın.
+[00:11:08] Sorularınızı ve görüşlerinizi yorumlar
+[00:11:10] kısmında belirtebilirsiniz. Bunun gibi
+[00:11:12] videoların devam etmesi için kanalıma
+[00:11:14] abone olabilirsiniz. görüşmek üzere.
