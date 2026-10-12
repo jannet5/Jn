@@ -1,0 +1,443 @@
+# 
+# https://www.youtube.com/watch?v=ZKrjxhsVZGQ
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:ZKrjxhsVZGQ.tr.json3
+
+[00:00:00] Bugün cloud Cod'la birlikte masaüstü
+[00:00:02] uygulama yapacağız. Öyle web sitesi
+[00:00:03] falan yapmayacağız. Sürekli görüyorum
+[00:00:05] işte web sitesi. Web sitesi artık çoktan
+[00:00:06] çözüldü. Bir video dosyasındaki gereksiz
+[00:00:09] konuşma parçalarını kullanıcının kendi
+[00:00:11] belirlediği filler kelimeler
+[00:00:14] şimdi yani e gibi uzun duraksamalar ve
+[00:00:16] sessizlikler otomatik tespit edip
+[00:00:20] kesen ve videoyu yeniden birleştiren
+[00:00:21] tamamen yerel bir Macos masaüstü
+[00:00:23] uygulaması. Bu videoda amacım size şunu
+[00:00:26] göstermek. Hiç korkmayın. Terminal
+[00:00:28] bilmiyor olabilirsiniz. kod bilmiyor
+[00:00:29] olabilirsiniz. Teknik bir insan
+[00:00:31] olmayabilirsiniz ama hiç terminale
+[00:00:33] ulaşmadan, hiç kod yazmadan sadece
+[00:00:35] Cloud'un masaüstü uygulamasını
+[00:00:37] kullanarak sıfırdan bir masaüstü
+[00:00:39] uygulama geliştirdim. Bu uygulamayı ben
+[00:00:41] kendi ihtiyacım için geliştirdim ve
+[00:00:43] aslında bir video işleme uygulaması
+[00:00:45] benzerini göremedim. Mutlaka vardır ama
+[00:00:47] bu kadar basit ve bu kadar hızlı
+[00:00:48] masaüstünde çalışan bir versiyonu yoktu.
+[00:00:51] Ve bakın uygulama ne yapıyor? Hemen
+[00:00:52] kısaca onu göstereyim.
+[00:00:55] Şimdi bu demoyu dinleyin arkadaşlar.
+[00:00:58] Eee, yani işte işte bakalım
+[00:01:04] şimdi uygulamayı filler word dediğimiz
+[00:01:07] yani dolgu kelimeleri e, ı, u, u falan.
+[00:01:09] Ben mesela meseleyi çok kullanıyorum.
+[00:01:11] Şimdi onu siliyoruz ve onunla birlikte
+[00:01:13] tekrar bakıyoruz. Az önce izlediğiniz
+[00:01:15] videoyu buradan seçtim.
+[00:01:19] Hangi kelimeleri videonun içinden
+[00:01:20] çıkartmasını istediğimi seçtim. Şimdi
+[00:01:23] yani işte hani aslında arka falan filan
+[00:01:27] mesela buna başka şeyler de
+[00:01:28] ekleyebilirim. Virgül yapıp şu şekilde
+[00:01:30] virgülden sonra işte arkadaşlar
+[00:01:33] sonra iki tane seçeneğim var. Bir bama
+[00:01:36] güme buradaki kelimeleri çıkartmasını
+[00:01:39] isteyebilirim. Process and save
+[00:01:40] diyebilirim. Bu arada türkçesi de var
+[00:01:42] isterseniz.
+[00:01:44] Veya preview dry run derim. Preview
+[00:01:46] diyorum çünkü önce bir görmek istiyorum.
+[00:01:49] bana bu videoda neleri keseceğini
+[00:01:51] gösterdi.
+[00:01:55] Şimdi bakın şimdi zaten orada vardı
+[00:01:58] arkadaşlar. İşte
+[00:02:01] bakalım
+[00:02:03] şimdi uygul
+[00:02:05] yani dolgu yani pa'lar yani boşluklar
+[00:02:08] mesela falan falan
+[00:02:11] mesela veya işte şimdi hesitation
+[00:02:15] bunları istersem buradan seçimi kaldırıp
+[00:02:18] silmesini
+[00:02:20] vazgeçirebilirim. Mesela da çıkartmasın
+[00:02:23] burada geri kalanları çıkartsın. Şimdi
+[00:02:25] her şeyim okeyse burada artık eee proses
+[00:02:28] diyebilirim. Burada da bu arada birkaç
+[00:02:30] tane seçenek var. Aggressive save. TR
+[00:02:32] daha detaylı ayar yapmak isteyenler için
+[00:02:34] işte card gu card şey cut guard silence,
+[00:02:37] threshold, minimum silence, keep
+[00:02:38] silence, crossfate, filler confidence
+[00:02:41] falan gibi bölümler var. Ben şimdi bunu
+[00:02:43] bir çalıştırayım. Process and save
+[00:02:45] diyeyim. Buna ne diyeyim? Deneme
+[00:02:48] 30 diyeyim. Bir sürü deneme yaptım
+[00:02:50] çünkü. Şimdi bunu buradan
+[00:02:53] ayarlayacak birazdan. Bittiği anda bana
+[00:02:56] haber verecek. Evet, bitti. Revealing
+[00:02:59] finder diyorum. Şimdi bakın şu orijinal
+[00:03:01] versiyonuydu.
+[00:03:04] Şimdi bu demoyu dinleyin arkadaşlar. Eee
+[00:03:08] yani işte işte [boğazını temizler]
+[00:03:11] bakalım.
+[00:03:13] Şimdi 20'si 28 saniye videonun orijinal
+[00:03:15] boyutu. Şimdi bakın bir sürü buradaki
+[00:03:17] şeyi sildi. Şimdi bu demoyu dinleyin
+[00:03:19] bakalım. Şimdi uygulamayı filler word
+[00:03:21] dediğimiz hani dolgu kelimeleri e u ben
+[00:03:24] mesela meseleyı çok kullanıyorum. Bunun
+[00:03:26] ben eğer ayarını beğenmezsem girip
+[00:03:28] buradaki
+[00:03:30] detayları değiştirebilirim. Presetler de
+[00:03:32] var aynı zamanda. Mesela bunu Türkçe
+[00:03:34] İngilizce yaptım ama aslında 90 dil
+[00:03:35] destekliyor bu arada. Yani şimdilik
+[00:03:36] Türkçe İngilizce yaptım. Hemen size
+[00:03:39] şimdi az sonra bunu nasıl yaptığımı
+[00:03:40] göstereceğim. Bu arada bu tarz videoları
+[00:03:42] kaçırmak istemiyorsan abone olmayı ve
+[00:03:44] bildirimleri açmayı unutma. Bunu yapması
+[00:03:46] öyle çok zor değil aslında. Artık olay
+[00:03:48] derdimizi doğru anlatabilmek. Yani
+[00:03:50] kafada böyle bir kurgulayıp ben ne
+[00:03:51] istiyorumu anlatmak. Sen ne istiyorumu
+[00:03:52] iyi anlattığında artık modeller çok
+[00:03:54] zeki. Özellikle Cloud Fable 5 çok iyiydi
+[00:03:57] de işte geldi gitti bir anda girdi
+[00:03:59] hayatımıza çıktı. Ama Opus 48 benim
+[00:04:01] işimi görüyor hala daha. Ara ara Opus
+[00:04:03] yerine hani Fable olsaydı acaba nasıl
+[00:04:06] bir çıktı olur diye diye düşünmüyor
+[00:04:07] değilim ama yeterince kontrol
+[00:04:09] ettirdiğinde bu da işi görüyor. Şimdi
+[00:04:11] ben hemen nereden bunu yapmanız
+[00:04:12] gerektiğini göstereceğim. Tamam mı?
+[00:04:13] Bundan sonra aklınızdaki her şeyi hemen
+[00:04:15] her şeyi her şeyi demeyeyim de hemen her
+[00:04:17] şeyi bir uygulamaya çevirebilirsiniz.
+[00:04:19] belki 2-ü gününüzü alır. Belki bazen 1
+[00:04:21] saatinizi alır. Bazen 1 ik haftanızı
+[00:04:22] alır. Uygulamanın ne kadar komplike
+[00:04:25] olduğuna ve ne kadar çok kod
+[00:04:27] gerektirdiğine bağlı olarak arka tarafta
+[00:04:29] süreç test süreçleri özellikle. Çünkü
+[00:04:31] bize düşen daha çok test etmek. Yani
+[00:04:32] tamam cloud bir şey yapıyor, test
+[00:04:34] ediyorsun, feedback veriyorsun, abiciğim
+[00:04:35] bu olmamış diyorsun, bunu düzelt
+[00:04:36] diyorsun. Gidiyor düzeltiyor ama
+[00:04:38] herhangi bir kod falan yazmıyorsun bu
+[00:04:40] tarafta. Şimdi hemen nasıl yapmanız
+[00:04:42] gerektiğini göstereceğim. İlk yapmanız
+[00:04:44] gereken buradan bu cloud uygulamasını
+[00:04:46] masaüstünüze indirmek. Ben Mac
+[00:04:48] kullanıcısı olduğum için bana Mac
+[00:04:49] çıkıyor. Eğer siz Windows
+[00:04:50] kullanıcısıysanız Windows'u
+[00:04:51] indirebilirsiniz. Bunu indirdikten sonra
+[00:04:53] size zaten işte gereksizliği yetkileri
+[00:04:55] falan soruyor. Artık masaüstü
+[00:04:57] uygulamanız var. Masaüstü uygulaması şu
+[00:04:59] demek. Yani ister siz onunla sohbet
+[00:05:00] etmeye devam edin, ister kod yazdırın,
+[00:05:03] ister bilgisayarınızı kontrol ettirin.
+[00:05:04] Şimdi oradaki her bir aşamayı tek tek
+[00:05:05] göstereceğim.
+[00:05:07] Şimdi arkadaşlar sol tarafta gördüğünüz
+[00:05:09] alan chat alanı. Yani bildiğimiz cloud'u
+[00:05:11] web sitesinden veya mobilden
+[00:05:12] kullandığınız gibi buradan da
+[00:05:13] kullanabilirsiniz. Soru sorabilirsiniz.
+[00:05:15] Üst tarafta şurada chat alanı sol üstte
+[00:05:17] bir yanında cowork var. Cowwork
+[00:05:19] bilgisayarınızı yönetmenizi sağlıyor.
+[00:05:21] Mesela bir yazılım, bir uygulamayı
+[00:05:23] kullanmayı bilmiyorsunuz. Yeni bir
+[00:05:24] program geldi bilgisayarınıza veya işte
+[00:05:26] şirket yeni bir yazılıma geçti.
+[00:05:28] Diyebilirsiniz ki, "Ey Cowork, git işte
+[00:05:30] şu programı kurcala. İşte buradan nasıl
+[00:05:33] fatura kesmem gerektiğini bana öğret."
+[00:05:34] Dispatch diye solda bir özelliği var. Bu
+[00:05:36] da bu işleri bilgisayarınız açıkken cep
+[00:05:39] telefonunuzdan da yönetmenizi sağlıyor.
+[00:05:41] Ben Cowork tarafını çok kullandığımı
+[00:05:42] söyleyemem. Daha çok kod kısmını
+[00:05:43] kullanıyorum ve bakın burada da kod
+[00:05:45] kısmını kullanıyorsanız daha detaylı bir
+[00:05:48] sub agentik yani alt agent yapılarıyla
+[00:05:50] çalışıyor. Yani aynı iş aslında eee
+[00:05:52] cowork'de yaptıracağınız her şeyi kodtan
+[00:05:53] da yaptırabilirsiniz. Koda
+[00:05:55] tıkladığımızda da işte bizim olayımız.
+[00:05:57] Şimdi benim burada yaptırdığım şey ben
+[00:05:58] burada detaylı bir talimat verdim. Bu
+[00:06:00] talimatın hepsini okumayacağım ama amacı
+[00:06:02] okuyacağım. Geri kalan kısımları da
+[00:06:03] önemli. Bunu da açıklama kısmına
+[00:06:05] bırakacağım. Bir video dosyasındaki
+[00:06:08] gereksiz konuşma parçalarını
+[00:06:09] kullanıcının kendi belirlediği filler
+[00:06:11] kelimeler
+[00:06:13] şimdi yani e gibi uzun duraksamalar ve
+[00:06:15] sessizlikler otomatik tespit edip
+[00:06:18] kesen ve videoyu yeniden birleştiren
+[00:06:20] tamamen yerel cloud yok, API keyos
+[00:06:23] masaüstü uygulaması. Hedef donanım. Yani
+[00:06:26] şunu da yazdım. Bunları da yazdım ki
+[00:06:27] şimdi çok böyle yoğun çalışan bir şey
+[00:06:29] yapar. Bundan sonra millet kullanamaz
+[00:06:31] yani herkesi sonuçta ne bileyim 10
+[00:06:33] senelik bilgisayar kullanan da var.
+[00:06:35] stack işte burada kullanması gereken e
+[00:06:37] şeyleri belirledim. Stack'leri
+[00:06:39] belirledim. Pipeline'ı belirdim tabii.
+[00:06:40] Aynı zamanda video dosyasını seç.
+[00:06:43] Sessizliği, sessizlik eşiği, DB falan.
+[00:06:46] Bunu da bu arada yapay zekada
+[00:06:47] yazdırabilirsiniz. Yani yazıp tabii
+[00:06:49] sizin üzerinden bakmanız lazım. Bunu
+[00:06:50] şunun için ekleyeceğim. Hani mesela
+[00:06:52] bakın burada ilk başa amacı koyuyorum.
+[00:06:53] Bu önemli. Çünkü amaç merkezli çalışmak
+[00:06:56] gerekiyor agentlarla. Çünkü normalde sen
+[00:06:58] bir soru soruyorsun, cevap alıyorsun. O
+[00:06:59] yüzden orada hani soru sorduğun zaman
+[00:07:01] çıktı merkezli bir şey istiyorsun değil
+[00:07:05] mi yani? Çünkü sonuçtan bir cevap
+[00:07:06] istiyorsun, çıktı istiyorsun ve bir
+[00:07:07] persona veriyorsun. Diyorsun ki işte
+[00:07:08] şöyle davran, böyle düşün, growticker
+[00:07:10] gibi düşün falan. Çünkü soru sordun,
+[00:07:11] cevap istiyorsun. Ama burada bir amaç
+[00:07:13] yüklüyorsun. O yüzden önce amacı yazman
+[00:07:15] lazım. Ondan sonra işte detaylarını
+[00:07:17] yazabilirsin. MVP yapıyoruz bu arada.
+[00:07:19] MVP ne demek? Minimum viable product.
+[00:07:20] Yani bir işi gören minimum özelliklere
+[00:07:23] sahip test etmemizi, sağ test etmemizi
+[00:07:25] kolaylaştıran, minimum ihtiyaçları
+[00:07:26] karşılayan bir ürün.
+[00:07:28] Ve bakın bu burada yazdı, yazdı, yazdı,
+[00:07:30] yaptı, yaptı, yaptı. Bir sürü bayağı bir
+[00:07:31] sürdü bu. Sonra ben aldım bunu, test
+[00:07:33] ettim. Bir sürü feedback verdim. Tabi bu
+[00:07:34] 2 gün sür, 2 gün sürdü aslında tam
+[00:07:36] olarak söylemek gerekirse. Ve bakın ben
+[00:07:38] burada hiç öyle cloud kod'a veya işte
+[00:07:40] terminale, şuraya buraya hiçbir yere
+[00:07:42] gitmedim arkadaşlar. Sadece söyledikleri
+[00:07:44] şeylerin üzerinden mesela çalıştı ama
+[00:07:46] şöyle feedbacklerim var demişim. Ek'teki
+[00:07:48] imajdaki gibi alttaki bölüm görünmüyor.
+[00:07:50] UI ve UX açısından değerlendirmelisin.
+[00:07:52] Farklı mupitli olabilir. İşte
+[00:07:53] ingilizcesi, bilmem nesi, arayüzü falan.
+[00:07:55] Ya beğenmediğim asıl uğraştırıcı taraf
+[00:07:57] bu ya. Uğraştırıcıım zor değil. Sadece
+[00:07:59] zaman harcamak. Yani bir meşakat orada
+[00:08:00] gerekiyor arkadaşlar. Hani test etmeden
+[00:08:02] çünkü test etmeden ortaya bir şey
+[00:08:04] çıkamaz. Sonra bunu mikrobiste de
+[00:08:06] yaptım. Şimdi az sonra onu da
+[00:08:06] göstereceğim. Şimdi dolayısıyla tek
+[00:08:08] olayınız ya başta bir düşünün. Mümkün
+[00:08:10] olduğunu çok da iyi düşünmenize gerek
+[00:08:11] yok ya. O kadar da hani ya işte o ben
+[00:08:13] nasıl böyle bir promp yazayım falan
+[00:08:15] derdine girmeyin. Yazmayın zaten
+[00:08:16] anlıyor. Anlamazsa soruyor. Yani onu da
+[00:08:18] çok kafaya takmayın. Bu kod yazma işini
+[00:08:21] vibe coding tarafını böyle çok komplike
+[00:08:23] gösterenler sizin gözünüzü korkutmasın.
+[00:08:25] Bildiğiniz kadarıyla yazın. Eğer bu
+[00:08:27] kadar detaylı bir prompt vermek
+[00:08:28] istemiyorsanız. Ama bir ben neden bu
+[00:08:29] kadar detaylı bir prompt veriyorum?
+[00:08:31] Sonra da uğraşacağıma başta uğraşayım.
+[00:08:32] Çünkü sonra daha çok uğraşacağım
+[00:08:34] toparlamakla. Anlamayacak, yanlış bir
+[00:08:35] şey yapacak falan. O yüzden baştan
+[00:08:36] düşünüyorum. Bir kere yani orada bir
+[00:08:38] saat gerekirse harcıyorum ama ne
+[00:08:39] istediğimi tam kafamda şekillendiriyorum
+[00:08:41] ve ona istediğim şeyi mümkün olduğunca
+[00:08:43] net bir şekilde veriyorum. Ondan sonra
+[00:08:46] yine eksik oluyor ama daha az eksik
+[00:08:48] oluyor ve sonrasında benim onu
+[00:08:49] toparlamam gereken bir zaman azalıyor.
+[00:08:52] İki daha az token harcıyorum sürekli.
+[00:08:54] Çünkü yap boz yap boz tokenlar gidiyor.
+[00:08:56] Eğer token derdiniz varsa yani
+[00:08:58] kredinizin bir an önce tükenmesini
+[00:08:59] istemiyorsanız da baştaki prom'ta biraz
+[00:09:01] daha özen gösterin. Ama çok şart değil.
+[00:09:03] Yani önemli olan bir şeyler yaptırmak.
+[00:09:05] Yani ihtiyacınız olan bir şeyi düşünüp
+[00:09:06] yaptırmak. Şimdi ben bunu neden yaptım?
+[00:09:09] Bazı kelimeleri çok sık kullanıyorum.
+[00:09:10] Mesela az önce kullandığım şimdi
+[00:09:11] kelimesi gibi. Ve onu bazen videolarda
+[00:09:14] çıkartmak istiyorum. Tek tek izlemem
+[00:09:15] gerekiyor. E ben sonuçta bir YouTuber
+[00:09:17] değilim biliyorsunuz. Ben bir
+[00:09:18] girişimciyim. Bunu tamamen bir hobi
+[00:09:20] olarak yapıyorum. Öğrendiklerimi
+[00:09:21] sizlerle paylaşmayı seviyorum. ve şimdi
+[00:09:25] kelimesini çıkartacak veya şu anda
+[00:09:27] kelimesini çıkartacak arkadaşlar
+[00:09:28] kelimesini çıkartacak bir programa
+[00:09:30] ihtiyacım vardı. Bunu yapan programlar
+[00:09:31] gördüm ama masaüstünde bu kadar hızlı ve
+[00:09:33] çok kolay yapan bir program görmedim. O
+[00:09:35] yüzden bunu da yaptım. Yani ihtiyacım
+[00:09:36] vardı ve yaptım. E sonra şunu düşündüm.
+[00:09:38] Aslında bu birçok kişinin ihtiyacı.
+[00:09:39] Buradan bir ürün çıkar mı? Önce dedim ki
+[00:09:41] bir hani buna bir landing page yapayım.
+[00:09:43] Talep toplayayım. Bu arada geliştirmeye
+[00:09:45] devam edeyim. Arka tarafta testlerimi
+[00:09:46] yapmaya devam edeyim ve eğer gerçekten
+[00:09:48] talep varsa çıkartayım. Hatta eğer bu
+[00:09:50] bekleme listesine girerseniz az sonra
+[00:09:52] paylaşacağım web sitesinden bunu
+[00:09:54] ücretsiz olarak size eee kullanımını
+[00:09:56] göndereceğim. Yani bir hafta 10 gün
+[00:09:57] maksimum işte 2 hafta süreceğini
+[00:09:59] düşünüyorum son haline getirmenin. Ve
+[00:10:01] hani test edebilirsiniz. Bu ilk
+[00:10:03] kullananlara da ya ücretsiz vermeyi
+[00:10:04] düşünüyorum. Hatta hala da aradayım.
+[00:10:06] Yani sizin de fikirlerinizi merak
+[00:10:07] ediyorum. Yani bunu komple ücretsiz mi
+[00:10:09] yapsam hani yoksa ufak bir ücret
+[00:10:11] belirlesem? Çünkü tüm dünyadan bir sürü
+[00:10:13] içerik üreticisi bu içer bu bunu çok
+[00:10:15] rahat kullanabilir. Sonuçta hani bir
+[00:10:17] test süreci, bir maliyet oluşacak veya
+[00:10:19] nasıl lisanslasam, open source mı yapsam
+[00:10:21] ona tam karar veremedim ama ücretli bile
+[00:10:23] yapsam buradan bekleme listesine
+[00:10:25] katılanlara ücretsiz olarak denemeleri
+[00:10:27] için yollayacağım. O yüzden istiyorsanız
+[00:10:29] kill the feel yani dolguyu yok et.
+[00:10:32] killthefel.com
+[00:10:34] web sitesinden e buradan
+[00:10:36] başvurabilirsiniz. Şimdi o web sitesinde
+[00:10:37] birlikte inceleyeceğiz. Onu da clot
+[00:10:38] yaptık tabii ki ama web sitesi bugünkü
+[00:10:40] konumuz değil. Sadece ona da ihtiyacımız
+[00:10:42] vardı derdimizi anlatmak için. Ve
+[00:10:43] yaptık. Şöyle Türkçe ve İngilizce
+[00:10:45] yaptım. Doldurmaları kes, akışı koru.
+[00:10:47] Buradan e-posta adresinizi girerseniz
+[00:10:50] wait liste yani bekleme listesine
+[00:10:51] katılıyorsunuz. Ve hani şu anda şeye
+[00:10:53] karar vermedim hani ücret mi ücretsiz mi
+[00:10:55] yapacağım ama ilk o bekleme listesine
+[00:10:56] girenlere bunu ücretsiz olarak
+[00:10:58] yollayacağım. Hatta şu haliyle bile çok
+[00:10:59] isteyen varsa bana ulaşsın.
+[00:11:02] Adım@adim@sonadim.com'dan.
+[00:11:05] Sertifikasyonlarını yapmadım ama şu
+[00:11:06] halle bile test ediyorum. Ben buna
+[00:11:08] ihtiyaç duyuyorum. Umut gönder bir
+[00:11:09] kullanayım falan diyorsanız
+[00:11:11] gönderebilirim. Sadece bana ulaşmanız
+[00:11:13] yeter. Buradan detaylara bakabilirsiniz.
+[00:11:15] Türkçe ve İngilizce yapıldı. Bu sayfa
+[00:11:17] sıkça sorulan sorular var. E işin güzel
+[00:11:20] tarafı herkesin filler wordü yani dolgu
+[00:11:22] kelimeleri farklı. O yüzden bu dolgu
+[00:11:23] kelimelerini özelleştirebiliyor olmak
+[00:11:26] aslında çok güzel. Bazı sıkıntılar var.
+[00:11:28] Mesela AI falan eklediğinde EA'yı da
+[00:11:31] alabiliyor. Hani öyle bir sıkıntılar
+[00:11:33] var. Onları da işte yeni update'lerle
+[00:11:35] falan çözmek istiyorum. Özetle
+[00:11:37] arkadaşlar hayal ettiğiniz her şeyi
+[00:11:38] artık üretebilirsiniz. Asıl zor olan
+[00:11:41] veya asıl önemli olan artık günümüzde
+[00:11:43] distribution dediğimiz yani onun
+[00:11:44] dağıtımı, satışı. Nerelerde nasıl
+[00:11:47] insanları duyuracağınız, nasıl müşteri
+[00:11:49] çekeceğiniz. Eğer bir şeyin pazarı
+[00:11:50] olduğunu düşünüyorsanız önce bence kendi
+[00:11:52] küçük ihtiyaçlarınızla başlayın. Yani
+[00:11:54] muhasebeciyseniz ne bileyim logoda belki
+[00:11:56] de herkes aynı şeylerle uğraşıyor. Ona
+[00:11:57] bir eklenti yazdığında herkesin hayatını
+[00:11:59] kolaylaştıracaksınız. Ve bunu aslında
+[00:12:02] eskiden kodlamak çok zorken bugün
+[00:12:06] düşünmek ve dağıtmak, satmak daha zor.
+[00:12:08] Zorluk terazisi biraz değişti. Ya çok
+[00:12:10] iyi fikirleri olan bir kişinin mutlaka
+[00:12:12] bir developer ekibi gerekiyordu. Şu anda
+[00:12:14] tabii hala gerekiyor. Developerlar daha
+[00:12:15] da şanslı. Yani developerlar,
+[00:12:17] yazılımcılar ölmedi arkadaşlar.
+[00:12:18] Yazılımcılar şahlandı bence. Çünkü
+[00:12:20] onların yapabildikleri emin olun bizim
+[00:12:23] yapabildiklerimizden çok daha fazlası
+[00:12:25] AI'la, White Poding'le. Çünkü onlar
+[00:12:27] nasıl çalıştığını biliyorlar. Eee, o
+[00:12:29] yüzden çok daha etkili, çok daha hızlı,
+[00:12:30] çok daha verimli çözümler ortaya
+[00:12:33] çıkartabiliyorlar. Sadece biz de artık
+[00:12:35] yapabiliyoruz bir şeyler. Biz de artık
+[00:12:36] hayallerimizi ortaya, hayallerimizi bir
+[00:12:39] programa, bir app'e çevirebiliyoruz. Ve
+[00:12:41] bu çok basit. Yani cloud'a giriyorsun,
+[00:12:42] cloud'a üye oluyorsun. 20 dolarlık
+[00:12:44] propana giriyorsun. Masaüstü
+[00:12:46] uygulamasını indiriyorsun, cloud kod'a
+[00:12:47] giriyorsun, başlıyorsun kurcalamaya.
+[00:12:49] Ufak tefek şeyler yaptırıyorsun. Yapa
+[00:12:51] yapa yapa yapa öğreniyorsun. Her şey
+[00:12:52] değil mi? Hatta bisiklet istediğimiz
+[00:12:54] kadar bisiklet kullanmakla ilgili
+[00:12:55] YouTube videosu izleyelim. gidip
+[00:12:56] kullanmadıkça, düşüp kalkmadıkça
+[00:12:58] kullanmayı öğrenemeyiz. O yüzden çok da
+[00:13:00] böyle komplike olmadığına emin olun.
+[00:13:01] Bama güme başlayın. Göreceksiniz ki hiç
+[00:13:05] tahmin ettiğiniz kadar komplike değil.
+[00:13:07] Artık çoğu kişi denemediği için sadece
+[00:13:09] yapamıyor. Çoğu kişi cloud'un cowork'ünü
+[00:13:11] kullanıyor. Halbuki kod tarafında çok
+[00:13:13] daha fazla sub agent'a bölünme imkanları
+[00:13:16] var. Slashworkflow yazdığınız zaman
+[00:13:18] workflow agentlarına bölebiliyorsunuz.
+[00:13:20] İnanılmaz güzel. Çok hızlı çalışıyor.
+[00:13:21] Alt agentlar birbirine görevler veriyor.
+[00:13:23] Üstteki bir agent bunu orkestre ediyor
+[00:13:25] falan. E bu dünyaya girin arkadaşlar.
+[00:13:27] Ben şu arka tarafta gördüğünüz mesela
+[00:13:29] bir tane bilgisayarım var. Şu an bir
+[00:13:30] tanesini video çekerken kendimi izlemek
+[00:13:33] için kullanıyorum. OBS'nin açık olduğu
+[00:13:35] bilgisayar MacBook Pro. Bir tane MacBook
+[00:13:36] Air var şu tarafta. Şu tam arkamda
+[00:13:38] gözükmeyen bir tane de PC var. Yani daha
+[00:13:41] doğrusu laptop var. Windows altyapılı.
+[00:13:43] Windows çok sevmiyorum ama yani o
+[00:13:45] bilgisayar eski bilgisayardı ya. Şöyle
+[00:13:47] çalışıyorum ben burada genelde Cloud'u
+[00:13:49] çalıştırıyorum Agent'ını. Chrome
+[00:13:50] extension'ı ile beraber MacBook Air'da e
+[00:13:53] orada genelde Codex'i çalıştırıyorum.
+[00:13:55] Şeyde de e PC'de de zavallı ant gravity
+[00:13:59] e antigravity'yi çalıştırıyorum şeyde de
+[00:14:01] Windows'da da. Yani orada işte Anti
+[00:14:03] Gravity'de bir agentlar çalışırken e
+[00:14:05] MacBook'ta cloud agent'ları çalışıyor.
+[00:14:07] Umarım bu video faydalı olmuştur
+[00:14:08] arkadaşlar. Sonraki videolarda görüşmek
+[00:14:09] üzere. Eyvallah. [müzik]
+[00:14:17] Don't build it up inside [müzik]
+[00:14:19] your head. Today there's only one thing.
+[00:14:25] The next
+[00:14:27] the [müzik] next
+[00:14:29] the next
