@@ -1,0 +1,793 @@
+# 
+# https://www.youtube.com/watch?v=ABdwSofKI04
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:ABdwSofKI04.tr.json3
+
+[00:00:00] Son 6 ayda cloud kodla öğrendiğim her
+[00:00:02] şeyi size 20 dakika anlatacağım.
+[00:00:03] Kurulumundan kod yazmasına, kod
+[00:00:05] yazmasından günlük kullanımına, skills
+[00:00:07] kullanımdan connectörüne ve birçok aracı
+[00:00:09] nasıl kullanacağımıza ve de tüm
+[00:00:11] taktikleri öğrendiğim bütün trikleri
+[00:00:13] sizlere göstereceğim. Bu videonun
+[00:00:14] sonunda cloud kodun %80'ini öğrenmiş
+[00:00:17] olacaksınız ve artık siz de rahat bir
+[00:00:19] şekilde kullanmaya başlayabileceksiniz.
+[00:00:21] Videoyu genel olarak ü seviyeye böldüm.
+[00:00:22] Birinci seviye temel seviye. Daha çok
+[00:00:24] cloud kod nedir, nasıl kullanılır,
+[00:00:25] modeller ne işe yarar, kim ne yapar,
+[00:00:27] arayüzde neler var ve bizi neler
+[00:00:28] bekliyor? İkinci kısımdaya günlük
+[00:00:30] kullanımda nasıl kullanıyorum? Neler
+[00:00:31] yaptırtıyorum? Kod yazma kısmı nasıl
+[00:00:33] çalışıyor? Kod nasıl yazdırıyorsunuz?
+[00:00:34] Test nasıl yapıyorsunuz? Projeyi nasıl
+[00:00:36] analiz ettirip daha iyi bir hale
+[00:00:37] getirebiliyorsunuz? Üçüncü ve son
+[00:00:38] kısımda ise daha ileri seviyede normal
+[00:00:40] bir cloud kod kullanıcısından veya cloud
+[00:00:42] kullanıcısından nasıl daha çok öne
+[00:00:44] geçebilirsiniz? Hangi araçları
+[00:00:45] kullanabilirsiniz ve neler
+[00:00:46] yapabilirsiniz? Bunlardan bahsettim. O
+[00:00:48] zaman hadi birinci seeden başlayarak
+[00:00:50] anlatalım. Bu arada arkadaşlar videoyu
+[00:00:51] beğenmeyi, abone olmayı ve de yorum
+[00:00:53] atmayı unutmayın. Biliyorsunuz ki
+[00:00:54] yorumlarınız ve beğenileriniz çok
+[00:00:56] önemli. O yüzden onları şöyle tıklayıp
+[00:00:58] hemen videoya geçelim. Şimdi ilk olarak
+[00:00:59] bu cloud ne? Antropik kim? Sonet ne?
+[00:01:02] Opus ne işe yarar? Arkadaşlar cloud
+[00:01:04] aslında bu yapay zeka modelinin genel
+[00:01:06] adı. Antropikin bir ürünü. Burada cloud
+[00:01:09] dediğimiz zaman arkadaşlar web sitesine
+[00:01:10] girdiğimizde bizi böyle bir arayüz
+[00:01:12] karşılıyor. Bu browszerdan aynı chatpt
+[00:01:14] gibi cemin gibi kullandığımız versiyonu.
+[00:01:16] Ancak biz burada cloud kod adındaki bir
+[00:01:18] masaüstü uygulamasını kullanacağız.
+[00:01:19] Bunda ne işe yarıyor? Gene aynı şekilde
+[00:01:21] sohbet edebiliyorsunuz. Bazı
+[00:01:22] bilgisayarla yapacağınız işleri
+[00:01:23] yaptırtıyorsunuz. Yani örneğin masa
+[00:01:25] üstünü, indirmeler dosyanınızı, bilmem
+[00:01:27] şeyinizi. Ben geçen günlerde mesela
+[00:01:28] Windows bilgisayarak sıkıntıları
+[00:01:30] çözdürdüm. Bütün bilgisayara böyle bir
+[00:01:31] health check yaptırdım. Her şeyi çözdüm
+[00:01:33] mesela. Veya kod sekmesinden de kod
+[00:01:34] yazma işini yapacağız. Şimdi buradan kod
+[00:01:36] yazdırabilir misiniz? Evet
+[00:01:37] yazdırabilirsiniz ama bunları kopyala,
+[00:01:39] yapıştır, geri al, yapıştır falan böyle
+[00:01:41] uğraşırsınız. Eski usuyla gider yani
+[00:01:43] biraz. Ama cloud kodu indirdiğiniz zaman
+[00:01:45] onu da şu sol alttan indiriyorsunuz. Her
+[00:01:47] şeyi arkadaşlar direkt olarak
+[00:01:48] bilgisayarınıza yapabiliyorsunuz ve o
+[00:01:50] dosya üzerinde çalışıyor. Bunu
+[00:01:51] indirdikten sonra buraya gelip download
+[00:01:54] for Windows diyorsunuz veya Mac'de de
+[00:01:55] aynı şekilde kullanabiliyorsunuz.
+[00:01:56] Ardından karşınıza böyle bir arayüz
+[00:01:59] geliyor arkadaşlar. Bir de bunun
+[00:02:00] terminal versiyonu var. Terminalden de
+[00:02:02] çok fazla kullanan kişi var. İşte bunu
+[00:02:03] VS COD'a bağlıyorlar, başka IDere
+[00:02:04] bağlıyorlar ve o şekilde kullanıyorlar.
+[00:02:06] Ama ben bu videoda tamamen cloud kodun
+[00:02:08] masaüstü uygulamasına eee değinmek
+[00:02:10] istiyorum ve bence yeni başlayanlar için
+[00:02:12] e bu işi yeni yeni yapanlar için de çok
+[00:02:14] daha uygun olduğunu düşünüyorum. Ben
+[00:02:15] terminali ben de çok kullanmayı
+[00:02:16] sevmiyorum açıkçası. Bir arayüz görmek
+[00:02:18] benim hoşuma gidiyor. Uygulamayı
+[00:02:19] açtığımız zaman üstte iki tane sekme
+[00:02:21] Home ve kod adında. Altta da arkadaşlar
+[00:02:23] yani chat kısmında iki tane sekme var.
+[00:02:25] Chat ve cowork adında. Peki bunlar ne
+[00:02:27] işe yarıyor? Chat aslında bizim en çok
+[00:02:29] tanıdığımız kısım. Burada soru sorarsın,
+[00:02:31] cevap alırsın, bir içerik planlarsın,
+[00:02:33] PDF yazdırırsın, ese yazdırırsın, ese
+[00:02:35] okutursun, banka hesap detaylarını
+[00:02:37] yaptırırsın, her şeyi yapabilirsin.
+[00:02:38] Bildiğiniz sohbet etme mekanizması. Ama
+[00:02:40] buraya büyük dosyalar atamazsın. Yani
+[00:02:42] kod yazdıramazsın. Çok iyi çalışmaz.
+[00:02:44] Burası biraz daha günlük işleri yapmak
+[00:02:46] için gerekli olan bir kısım. Cover
+[00:02:47] tarafı ise biraz daha farklı. Gene aynı
+[00:02:49] arayüz, aynı şekil. Ama burada
+[00:02:51] arkadaşlar şöyle bir fark var. Bir dosya
+[00:02:53] konumu seçtiğiniz zaman orada her şeyi
+[00:02:55] yaptırtabilirsiniz. Büyük dosyaları
+[00:02:56] okutabilirsiniz. Dosyalar
+[00:02:58] düzenirebilirsiniz. Bilgisayarınızı
+[00:03:00] kontrol ettirtebilirsiniz. Örneğin
+[00:03:02] bilgisayarınıza bir program kurmak
+[00:03:03] istiyorsunuz ama kuramıyorsunuz. Onu
+[00:03:04] kurdurtabilirsiniz. İndirmeler dosyanız
+[00:03:06] çok karışmış durumda. Yıllardır
+[00:03:08] silmiyorsunuz. Orayı
+[00:03:08] düzenlettirtebilirsiniz. Veya bazı
+[00:03:10] otomasyonlar ayarlayabilirsiniz. işte
+[00:03:12] mailleri otomatik okur, size haftalık
+[00:03:14] rapor sunar, haftalık haber gönderir,
+[00:03:15] videolarınızı editler. Bir sürü şeyi
+[00:03:17] buna yapabiliyorsunuz. Benim en çok
+[00:03:19] kullandığım kısım ise kod kısmı. O da şu
+[00:03:21] işe yarıyor arkadaşlar.
+[00:03:22] Bilgisayarınızdaki dosyalarda aynı VS
+[00:03:25] COD gibi, curser gibi, Codex gibi
+[00:03:27] çalışmasını sağlıyor. Bir dosya
+[00:03:29] seçiyorsunuz. Örneğin burada bir idd
+[00:03:30] seçmişim ben. Bu bizim yaptığımız oyunun
+[00:03:32] şu anda dosyası. Bir bilgisayar oyunu
+[00:03:33] yapıyoruz biliyorsunuz. Eee buradaki
+[00:03:35] arkadaşlar bütün dosya konumunuzdaki her
+[00:03:37] türlü kod işlemlerini buraya
+[00:03:38] yaptırtabiliyorsunuz. Bunu kitaba
+[00:03:39] bağlıyorsunuz. Push, pull, merch gibi
+[00:03:42] bütün git komutlarınızı
+[00:03:43] çalıştırabiliyor. Spase'e bağlanıp
+[00:03:45] bekendinizi yönetebiliyor. Chrome'a
+[00:03:47] bağlanıp Chrome'da her şeyi yapabiliyor.
+[00:03:49] Bayağı kapsam bir şekilde
+[00:03:50] kullanabiliyorsunuz. Zaten bunların
+[00:03:52] detaylarına videonun ilerleyen
+[00:03:53] kısımlarında değineceğiz. Peki buradaki
+[00:03:55] Fable Bash diyor. Bu ne işe yarıyor?
+[00:03:57] Burada arkadaşlar gördüğünüz gibi 4 tane
+[00:03:59] model var. Eskiden 3 taneydi. Yeni bir
+[00:04:01] model çıkardılar Fable 5 adında ve
+[00:04:03] devasa model olduğunu söylediler. Ancak
+[00:04:05] şu anda e 19 Temmuz'a kadar bunu
+[00:04:07] kullanabiliyoruz. 19 Temmuz'dan sonra
+[00:04:09] arkadaşlar bu ekstra ücretli olacak.
+[00:04:10] Ardından Opus, Sonet ve Hayiku var.
+[00:04:13] Haiku buradaki en hızlı ve en pratik
+[00:04:15] modellerden bir tanesi ve de en ekonomik
+[00:04:17] olanı. Yani eğer limitleriniz
+[00:04:19] dayanmıyorsa, çok hızlı bitiyorsa
+[00:04:20] Hayiku'ya şans verebilirsiniz. Ama eğer
+[00:04:23] 5x paketiniz varsa yani max paketiniz
+[00:04:25] varsa 100 dolarlık olan paket orada
+[00:04:27] Huku'ya çok kullanmaya gerek kalmıyor
+[00:04:29] açıkçası. Sonet aynı şekilde daha hızlı,
+[00:04:32] daha ekonomik ve güçlü bir model ama
+[00:04:35] Opus kadar iyi değil, Hiku kadar kötü
+[00:04:37] değil. Öyle söyleyeyim. Sonet ortalama
+[00:04:39] bir model. Ancak şu anki piyasadaki
+[00:04:41] diğer modellere göre bayağı bayağı üstte
+[00:04:43] bir model olduğunu söyleyebiliriz. Yani
+[00:04:44] Son'i içiniz a şekilde
+[00:04:46] kullanabilirsiniz. Opus ise arkadaşlar
+[00:04:48] bizim amiral gemilerimizden bir tanesi.
+[00:04:50] Fable'dan sonra gelen bir model. Fable
+[00:04:52] en iyisi. Ancak Fable'ı kullanmıyorum
+[00:04:54] ben. Genelde Opus kullanıyorum. Opus
+[00:04:55] bizim için çok devasa büyük kod
+[00:04:58] base'leri, büyük işleri, kapsamlı
+[00:05:00] testleri, her şeyi arkadaşlar yapması
+[00:05:01] için kullandığımız bir model. Ama burada
+[00:05:03] daha fazla token harcar. daha uzun sürer
+[00:05:06] işlemleri ve de yaptığınız işler genelde
+[00:05:09] sizi yarı yolla bırakmaz. Benim de uzun
+[00:05:12] zamandır kullandığım modeldir kendisi.
+[00:05:14] Genelde işin çok büyük kısmını opusla
+[00:05:16] yaparım. Daha basit işleri ise sonetle
+[00:05:18] yaparım arkadaşlar. Buradaki effort
+[00:05:20] kısmıysa genelde benim ya medium ya high
+[00:05:22] olur. Ekstra ve maxa çok nadiren
+[00:05:25] yaparım. Eğer arkadaşlar düşünmesi
+[00:05:27] gereken bir şey varsa örneğin oyunun
+[00:05:29] level tasarımlarını yapıyorsak yani
+[00:05:30] bölümlerin zorluğu, düşman karakter gücü
+[00:05:33] vesaire ayarlıyorsak o zaman Thinking'i
+[00:05:34] açıyorum. Eğer daha basit işler
+[00:05:36] yapıyorsam Thinking açmıyorum. Çünkü
+[00:05:38] işlemler daha uzun sürüyor ve daha fazla
+[00:05:40] token harcıyorsunuz. Bu yüzden de
+[00:05:42] ekonomik olsun, ideal olsun, çok tokenim
+[00:05:44] bitmesin diyorsanız sonet kullanın.
+[00:05:46] Tokenlerin bol bol var. Her şeye yetiyor
+[00:05:48] diyorsanız da Opus kullanarak devam
+[00:05:49] edebilirsiniz. Ama paketiniz düşük
+[00:05:52] paketse o zaman da Hayok'yu kullan
+[00:05:54] daabilirsiniz arkadaşlar. E bu arada
+[00:05:56] kanalda bu modellerin detaylı test
+[00:05:57] videoları zaten var. Onları
+[00:05:59] izleyebilirsiniz. O yüzden de abone
+[00:06:01] olmayı unutmayın arkadaşlar. Peki ikinci
+[00:06:03] seviyeye geldik. Şimdi arkadaşlar günlük
+[00:06:04] kullanım. Nasıl yani? Şimdi günlük
+[00:06:06] derken chat kısmından bahsetmiyorum. Kod
+[00:06:08] tarafına geçiyoruz arkadaşlar. Daha
+[00:06:09] öncesinde yaptığımız bir web projesi
+[00:06:11] vardı Fable'la. Buna girdim. Şimdi
+[00:06:13] direkt olarak bu projeyi seçip bana şunu
+[00:06:16] yap, bunu yap demek yerine öncesinde
+[00:06:19] şunu söylüyorum. Bana projeyi analiz et.
+[00:06:22] Şu an proje ne durumda? eksikleri ne?
+[00:06:26] Neleri planlamışız? Bunları analiz et.
+[00:06:30] Base'i öğren diyorum. Çok basit bir
+[00:06:31] şekilde promt'umu yazdım. Ya prompt
+[00:06:33] girerken çok düşünmenize gerek yok.
+[00:06:34] Önemli olan anlatmak istediğiniz şeyi
+[00:06:36] anlatın. Eğer bunu anlasın. Buradan opus
+[00:06:38] seçiyorum ve high seçiyorum. Gördüğünüz
+[00:06:40] gibi. Ardından promptumu gönderiyorum.
+[00:06:42] Genelde direkt açıp da hadi bakalım şunu
+[00:06:44] yap derseniz kafası karışabiliyor. Tam
+[00:06:46] olarak nerede ne yapacağını
+[00:06:47] anlamayabiliyor. Bu sayede ne oluyor?
+[00:06:49] İşte halüsünasyon görüyor diyor herkes.
+[00:06:51] Bunlar yaşanıyor. Doğru yere
+[00:06:52] yönlenemiyor ve size sıkıntı yaşatıyor.
+[00:06:54] Vakit kaybediyorsunuz boş yere ve
+[00:06:55] tokenlerinizi harcıyorsunuz. Ama ön
+[00:06:57] projeyi bir anlattıktan sonra,
+[00:06:58] öğrendikten sonra arkadaşlar yaptığın
+[00:07:00] işler daha iyi olacaktır. Bu arada
+[00:07:02] projeyi de şimdi açıp ben size
+[00:07:03] göstereceğim. Bir önceki videomuzda
+[00:07:04] yaptığımız bir site aslında bu. Şimdi
+[00:07:06] burada bu işlemleri yaparken çok önemli
+[00:07:08] bir şey söyleyeceğim. Sol altta
+[00:07:09] gördüğünüz bypass permission yazıyor.
+[00:07:11] Şimdi buraya geldiğiniz zaman arkadaşlar
+[00:07:12] manuel accept edit plan auto ve bypass
+[00:07:16] permission var. Şimdi normalde bu mod bu
+[00:07:18] şekilde gelmiyor. Ben bunu seçiyorum.
+[00:07:19] Niye? Çünkü ben Cloud'un yaptığı şeye
+[00:07:21] güveniyorum ve bana sürekli sormasını
+[00:07:22] istemiyorum. Bu çok vakit kaybettiriyor
+[00:07:24] benim için. Ve de ben bunu hem aktif
+[00:07:26] müşterisi olan production'da olan bir
+[00:07:28] uygulamada denedim. Hem yaptığımız
+[00:07:29] oyunda denedim ve aylarda bunun üzerine
+[00:07:31] çalışıyorum ve bir sıkıntı henüz
+[00:07:32] yaşamadım. Zaten yaptığı işlemleri de
+[00:07:34] okuduğum için de bir hata varsa da onu
+[00:07:36] zaten düzelttirtiyorum. Ama siz
+[00:07:38] diyorsunuz ki ya ben buna güvenmiyorum.
+[00:07:39] Bana nezin alsın diyorsanız da bunu
+[00:07:41] manuel yapabilirsiniz arkadaşlar. Auto
+[00:07:44] da aynı şekilde çalışır. Ancak ben
+[00:07:46] bypass permon'ı tavsiye ediyorum ve
+[00:07:48] kendimi böyle kullanıyorum. Diğer
+[00:07:50] tarafta ise burada bir plan modu var.
+[00:07:51] Görüyorsunuz. Yapmak istediğiniz işler
+[00:07:53] biraz daha kapsamlı, büyük işlerse daha
+[00:07:56] projenin başındaysanız arkadaşlar bu
+[00:07:58] şekilde plan moduyla projenizin
+[00:08:00] planlanması çok daha iyi olur. Çünkü
+[00:08:02] size işin başını, ortasını ve sonunu
+[00:08:04] planlar. ne yapacağınız belli olur ve
+[00:08:06] bunu dokümant eder. Bu sayede de
+[00:08:08] projenizi yaparken arkadaşlar dosya
+[00:08:10] konumunda dosyaları bulacağın için de e
+[00:08:11] cloud hem yolundan şaşırmaz, doğru bir
+[00:08:13] şekilde ilerler hem de siz sağa sola
+[00:08:15] dağılmak yerine o plana sadık bir
+[00:08:17] şekilde ilerlersiniz. O yüzden de plan
+[00:08:19] modunda kullanmayı unutmayın. Şimdi
+[00:08:21] buradan tekrardan ben bypass permion
+[00:08:23] dedim ve geldim bakalım bana ne demiş.
+[00:08:25] Şimdi biz yaptığımız chest chesten
+[00:08:27] oyunun arkadaşlar bir ben landing page
+[00:08:29] yapmasını istemiştim ve o landing page'i
+[00:08:31] bana şimdi araştırdı ve öğrendi. Diyor
+[00:08:33] ki 190 diyor tamamlanmış çalışır durumda
+[00:08:35] diyor. Eksik kısımlar diyor bunlar diyor
+[00:08:37] ve bana şimdi bir soru soruyor.
+[00:08:39] Analizimiz tamamlandı. Sırada ne yapmamı
+[00:08:41] istersin diyor. Analiz yeterli değil.
+[00:08:42] Devam edebilirim. Eksikleri
+[00:08:44] tamamlamasını isteyebilirim. Diploya
+[00:08:45] hazırla diyebilirim. Yani canlıya
+[00:08:47] aldırtabilirim siteyi veya tasarımı
+[00:08:49] içeriği geliştirmesini isteyebilirim.
+[00:08:51] Gördüğünüz gibi çok gayet iyi bir
+[00:08:52] şekilde çalışıyor Cloud COD bizim için.
+[00:08:54] Şimdi eksiklerde ne varmış? Sosyal medya
+[00:08:56] deninglerim boşmuş. Paceholderlarda işte
+[00:08:58] bilmem bir şey sıkıntı varmış. Gerçek
+[00:08:59] domain değilmiş. Anketler sahteymiş. Git
+[00:09:02] deposu yokmuş. Deploy edilmemiş. Bir
+[00:09:04] sürü aslında basit eksikler varmış.
+[00:09:06] Şimdi ben mesela şunu diyeceğim. Sadece
+[00:09:08] analiz yeterli diyelim ve bunu aslında
+[00:09:09] durduralım. Çünkü şu an web siti
+[00:09:11] güncellemek istemiyoruz. Gelin bakalım
+[00:09:12] bu site nasıl gözüküyormuş. Size onu da
+[00:09:13] göstereyim. Sağ üstte gördüğünüz gibi
+[00:09:15] bir terminal butonu var. Buradan
+[00:09:17] terminal açabilirsiniz. Terminalle
+[00:09:18] kendiniz komutlarla projeyi
+[00:09:19] çalıştırabilirsiniz. Veya arkadaşlar
+[00:09:22] buradaki div kısımlar. Burası çok
+[00:09:23] önemli. projede yaptığınız değişiklikler
+[00:09:25] buraya gelir. Aynı gitab'ın, Gitub'ta
+[00:09:27] gördüğünüz bir arayüz var ya, git git
+[00:09:29] değişikliklerini görüyorsunuz. Oradaki
+[00:09:30] cod'deki burada gösterir. Şunları
+[00:09:32] sildim, bunları eklediğini gösterir. Bu
+[00:09:34] önemli bir kısımdır. Bunları da
+[00:09:36] incelemeniz gerekiyor. Tabii biz şu an
+[00:09:38] bir kod değişikliği yapmadığımız için
+[00:09:39] burası şu anda boş geliyor. Diğer bir
+[00:09:40] etta ise arkadaşlar browser var.
+[00:09:42] Browsera'a bastığınız zaman gördüğünüz
+[00:09:44] gibi burada arkadaşlar bir site açılır.
+[00:09:46] Bir browser açılır ve burada chest and
+[00:09:48] blade diyor. 3001'i çalıştır diyor.
+[00:09:49] Basıyorum ve şu anda projemi aslında
+[00:09:51] çalıştırıyorum. Yani bildiğiniz npm
+[00:09:53] randev, vites start, npm start gibi
+[00:09:56] komutlar giriyoruz ya terminalde. Onu
+[00:09:58] kendisi burada yapıyor. Şimdi projemizi
+[00:09:59] başlatacak. Evet, projemiz başladı.
+[00:10:01] Gördüğünüz gibi geçen videomuzda Fable 5
+[00:10:04] ve GPT 5.6 sol denerken böyle bir site
+[00:10:07] yapmıştık. Hatırlarsınız belki. Sitemiz
+[00:10:09] de şu anda böyle aktif oldu arkadaşlar.
+[00:10:12] Oyunumuz hakkında görsellerimiz ve
+[00:10:14] birçok şeyimiz var. Bu arada arkadaşlar
+[00:10:15] kendi reklamımı yapayım ufak bir
+[00:10:17] şekilde. E oyunumuz şu anda Steam'de
+[00:10:19] arkadaşlar yayında ama tabii demosa
+[00:10:20] henüz çıkmadı. demosu yakında çıkacak.
+[00:10:22] Eğer istek listenize eklemek isterseniz
+[00:10:24] oyunu buradaki arkadaşlar şu linkten eee
+[00:10:27] veya Steam'e Chest and Blade yazarak
+[00:10:29] arkadaşlar gidebilirsiniz ve eee istek
+[00:10:31] listenize ekleyebilirsiniz. Bu bizim
+[00:10:33] için çok önemli. Zaten oyunla alakalı
+[00:10:34] detaylar gelecek. Bu arayüz ve
+[00:10:36] fotoğraflar eski fotoğraflar. Bunların
+[00:10:38] hepsi değişti. Arayüzümüz değişti.
+[00:10:39] Bayağı bildiğiniz bir MMA RPG oyunu gibi
+[00:10:41] oldu. Eee o yüzden de istek listenize
+[00:10:43] ekleyebilirsiniz oyunu. Steam sayfamızda
+[00:10:46] bizi desteklemiş olursunuz. Neyse
+[00:10:48] kapatalım burayı. Şimdi şimdi mesela
+[00:10:50] gelin burada plan modunu çalıştıralım.
+[00:10:53] Projeyi geliştirmek için bana bir plan
+[00:10:56] yap ve örneğin sitede de bir şey
+[00:10:59] değiştirsin. Bu div kısmında size
+[00:11:00] göstereyim ne değiştiğini aslında.
+[00:11:02] Örneğin şuradaki yazıyı değiştirsin
+[00:11:04] bize. Çünkü çok basit bir şey. Ve
+[00:11:05] enter'a bastım. Şimdi gördüğünüz gibi
+[00:11:08] bana dedi ki cloud propose a plan dedi.
+[00:11:10] Yani cloud size diyor plan veriyor
+[00:11:11] diyor. Open plan dediğiniz zaman size
+[00:11:13] burada planı açacak arkadaşlar.
+[00:11:14] Görüyorsunuz burada ne yapacağını ne
+[00:11:16] edeceğini yazmışlar. Çok basit proje
+[00:11:17] olduğu için çok kısa bir plan yaptı.
+[00:11:19] Bölüm 1'de işte demin az önce istediğim
+[00:11:21] şeyi yapacak ve hatta nereyi
+[00:11:22] değiştireceğine kadar kendiniz buraya
+[00:11:23] yazmış görüyorsunuz. Sadece bir yazı
+[00:11:25] değiştirmek için bile bunu anlatmış.
+[00:11:26] Bölüm 2'de de bunları yapması gerekiyor
+[00:11:28] demiş. Acet ano mod dedim arkadaşlar.
+[00:11:31] Ardından modu auto'ya aldı ve planı şu
+[00:11:33] anda uygulamaya başlayacak. Bir de bu
+[00:11:35] token mevzusu dönüyor işte şu kadar
+[00:11:36] token harcadım. Bu kadar token harcadım.
+[00:11:38] Gördüğünüz gibi ne kadar token
+[00:11:39] harcadığını burada size gösteriyor. 2000
+[00:11:40] token harcamış mesela şu anda.
+[00:11:42] Gördüğünüz gibi buradaki arkadaşlar
+[00:11:43] Windows'a Mac kısmını ekledi. Çok basit
+[00:11:45] bir değişikli zaten hızlı bir şekilde
+[00:11:46] yaptı bunu. Ve burada da Hero TSX'i
+[00:11:49] değiştirdim dedi. Bastığın zaman da
+[00:11:50] nerede neyi değiştirdiğini burada
+[00:11:51] görebiliyorsunuz. Tamam bu şimdi böyle
+[00:11:54] devam etsin. Şimdi bir de siz
+[00:11:56] hatırlarsınız ki bir kurallar diye bir
+[00:11:58] şey vardı. Belki eee curser zamanlarını
+[00:12:00] hatırlarsınız. Eee bu kural
+[00:12:01] belirlediğiniz zaman eee bu ideler veya
+[00:12:03] bu eer arkadaşlar ne yapıyor? kuralların
+[00:12:05] dışına çıkmıyor ve bazı kuralları da
+[00:12:07] sürekli sürekli yazmaya gerek kalmıyor.
+[00:12:09] Siz diyelim bu chat'te arkadaşlar bir
+[00:12:10] şey konuştunuz dediniz ki işte bana uzun
+[00:12:12] cevaplar verme işte projeyi şunları yap,
+[00:12:13] bunları yap, bunları değiştirme. İşte
+[00:12:15] projenin teması mora, asla olmasın
+[00:12:17] dediniz diyelim. Çünkü AI gözükmesin
+[00:12:19] diye ya da mor mavi olmasın, gradyent
+[00:12:21] olmasın dediniz. Bunları chat'te
+[00:12:22] konuştunuz. Ardından da arkadaşlar gelip
+[00:12:24] chat' slash init yazdığınız zaman size
+[00:12:27] arkadaşlar bu kuralları, bu konuştuğunuz
+[00:12:29] şeyleri ne yapıyor? Bir cloud.init da
+[00:12:32] dosyası açıyor. Burada bunları
+[00:12:33] kaydediyor ve her seferinde bunları
+[00:12:35] kendisi otomatik okuduğu için bu cloud
+[00:12:37] emni dosyasını arkadaşlar ne oluyor?
+[00:12:39] Defalarca aynı şeyleri yazmanıza,
+[00:12:42] defalarca aynı şeyleri söylemenize gerek
+[00:12:43] kalmıyor. Hem token tasarrufu hem de
+[00:12:45] vakit tasarrufu yapıyorsunuz. Bunu böyle
+[00:12:47] gönderiyorum mesela. Şimdi bu arada plan
+[00:12:49] bitti. Bütün işlemler bitti. bana dedi
+[00:12:50] ki sırada ne var diye de burada
+[00:12:52] gördüğünüz gibi gösterdi. Yayına
+[00:12:53] hazırlık, sosyal linkler, içerik
+[00:12:55] bloglama, P4 falan diye işte kaliteyi
+[00:12:58] vesairesini gösterdi. Ama tabii biz bunu
+[00:13:00] devam etmeyeceğiz. Zaten diyor codini
+[00:13:03] inceledim diyor. Mevcut diyor cloud MD
+[00:13:05] var mı? Ona diyor bakayım diyor. Mevcut
+[00:13:07] bir cloud MD yok diyor. O zaman
+[00:13:09] yazıyorum diyor gördüğünüz gibi. Ve
+[00:13:11] cloud MD dosyasını gördüğünüz gibi
+[00:13:13] oluşturdu. Burada ne yaptı? Projeyi
+[00:13:15] anlattı. Ne olup ne bittiğini anlattı
+[00:13:17] arkadaşlar. Ve de bu sayede artık her
+[00:13:19] seferinde gelip hadi projemi oku,
+[00:13:21] projemi oku dememize gerek kalmadı.
+[00:13:23] Cloud kendisi bu evin dosyasını okuyacak
+[00:13:25] ve bu sayede bunu öğrenmiş olacak. Bunu
+[00:13:27] projeniz geliştir zaman slash init
+[00:13:30] yazdığınız zaman kendisi revize
+[00:13:31] edecektir ve bunları güncelleyecektir.
+[00:13:33] Evet geldik arkadaşlar seviye 3 yani
+[00:13:36] 3üncü aşamaya geldik. Bu da nedir? Sizi
+[00:13:38] ayıran noktalar. Burada artık biraz daha
+[00:13:40] normal kullanımdan ziyade birkaç daha
+[00:13:42] cloud kodun özelliklerini kullandığımız,
+[00:13:44] az eforla çok şey yaptırdığımız, bazı
+[00:13:46] otomasyonlar hazırladığımız bir kısma
+[00:13:47] geldik aslında. Şimdi slash dediğimiz
+[00:13:49] zaman size bazı arkadaşlar gördüğünüz
+[00:13:51] gibi skiller çağırıyor chat kısmında.
+[00:13:53] Bunlar ne işe yarıyor? Mesela burada
+[00:13:55] invoice generator, res cover designer,
+[00:13:57] skill builder, skill creator, YouTube
+[00:13:58] thumbnail designer vex out a diye
+[00:14:00] arkadaşlar benim kendi skillerim var.
+[00:14:02] Peki bunlar ne işe yarıyor? Skill
+[00:14:03] dediğimiz şey aslında sizin aynı demin
+[00:14:05] yaptığımız Cloud MD dosyası gibi
+[00:14:07] arkadaşlar bir kurallar dosyası
+[00:14:09] diyebiliriz. Bunu çağırdığımız zaman
+[00:14:11] tamamen o kurallara göre size
+[00:14:13] istediğiniz şeyi yapıyor. Mesela bu bir
+[00:14:15] fatura kesimi olabilir. Bu bir kod
+[00:14:17] analizi olabilir. Bu bir işte proje
+[00:14:19] yayınlama olabilir. Örneğin bir mobil
+[00:14:20] uygamanız var. Bunu App Store'a
+[00:14:22] yayınlamak istiyorsunuz ve bir skill
+[00:14:24] yaptınız. Bu skil çağırdığınız zaman o
+[00:14:26] projede direkt olarak gidip onu App
+[00:14:28] Store'a yayınlayabilir mesela. Ve bunun
+[00:14:30] güzel tarafı şu. Bir kere bunu
+[00:14:31] yaparsınız. ömür boyu kullanabilirsiniz.
+[00:14:33] Zaman zaman güncellemesini yaparsınız ve
+[00:14:35] bunlar paylaşılabilir şeyler. E bu arada
+[00:14:37] ben arkadaşlar bu skilleri şurada
+[00:14:39] gördüğünüz skillerimi ve de e yakın
+[00:14:41] zamanda yapacağım yeni skilleri de
+[00:14:43] YouTube'daki topluluk kısmında
+[00:14:44] arkadaşlar paylaşmaya başlayacağım. E
+[00:14:45] biliyorsunuz bir topluluk sekmesi var
+[00:14:47] ama çok aktif kullanamıyordum maalesef
+[00:14:48] ve destekleyen arkadaşlar çok sağ
+[00:14:50] olsunlar. Bayağıdır da orada üyelerimiz
+[00:14:52] mevcut. E buradaki bu skillerimi
+[00:14:54] arkadaşlar orada yavaş yavaş paylaşmaya
+[00:14:56] başlayacağım. Haberiniz olsun. Topluluk
+[00:14:57] sekmesine gidip oradan bunları
+[00:14:59] indirebileceksiniz. Şimdi bu artıya
+[00:15:01] bastığım zaman tamam mı? Skills diyorum
+[00:15:03] ve manage skill diyor. Mesela arkadaşlar
+[00:15:05] burada bir YouTube thumbnail designer
+[00:15:06] yapmışım. Basalım bu neymiş? Burada
+[00:15:09] gördüğünüz gibi YouTube'da bir kapak
+[00:15:10] fotoğrafı yapmak için arkadaşlar kendime
+[00:15:12] bir skill oluşturdurdum. Bunu dedim ki
+[00:15:14] bana dedim videoyu anla. Sana işte video
+[00:15:16] dosyası atabilirim. E videonun
+[00:15:17] altyazısını atabilirim. Bazı anahtar
+[00:15:19] şeyler atabilirim ve buna göre bu kapağı
+[00:15:21] düşünürsün. Hem de videoya bir başlık
+[00:15:23] yaparsın. Yani kapak kartı başlı beraber
+[00:15:25] yaparsın diye bana söyledim. Ardından
+[00:15:26] dedim ki bana dedim işte bununla alakalı
+[00:15:28] title th oluştuktan sonra sorarsın.
+[00:15:30] Leyoutu bana önerirsin ve bunun
+[00:15:32] sonucunda bana bir prompt verirsin diye
+[00:15:34] anlattım mesela. Ve de bu skili şuraya
+[00:15:37] gelip slash YouTube yazdığım zaman
+[00:15:40] yanına da işte cloud cod bu videoda
+[00:15:45] öğren diye bir video yapıyorum.
+[00:15:48] Yapıyorum dedim ve bak hiçbir şey
+[00:15:49] yazmıyorum hani uzatmıyorum prontma ve
+[00:15:50] gönderiyorum. Şimdi bu skill çağacak
+[00:15:52] arkadaşlar. Ardından sadece şu yazdığın
+[00:15:55] 4 be tane kelimeyle bana bir içerik
+[00:15:58] başlığı ve kabağı yapacak. Normalde bunu
+[00:15:59] yapmak için bayağı uzaklaşm işte şunu
+[00:16:01] yaptım, bunu yaptım, şöyle olsun, böyle
+[00:16:03] olsun diye anlatmanız gerekiyor. Ama
+[00:16:04] burada skill sayesinde tık diye mesela
+[00:16:05] kendisi yapabiliyor. Bunu sadece buradan
+[00:16:08] eee demeyin ki ya kapak fotoğraf ben
+[00:16:09] yapmıyorum. Ben çelik üetsiz değilim
+[00:16:11] diyorsanız da demeyin. Çünkü bunu herde
+[00:16:12] yapabiliyorsunuz. Bu sadece basit bir
+[00:16:14] örnek olduğu için bunu göstermek
+[00:16:15] istedim. Geldi bana burada arkadaşlar
+[00:16:17] buna göre anlattı. Bu arada ben bu video
+[00:16:19] yazısı yerine mesela bu videoyu diyelim
+[00:16:20] yapmış olsaydım ben editlemiş olsaydım
+[00:16:22] direkt olarak videonun altyazısını
+[00:16:24] buraya attığım zaman videonun içeriğiyle
+[00:16:26] alakalı kendisi de bunu üretebiliyordu
+[00:16:28] hiçbir şey söylemeden. Ama biz tabii
+[00:16:29] videoyu henüz bitirmediğimiz için onu
+[00:16:31] yapmadım. Mesela bana ilk başta şunu
+[00:16:33] önerdi. Parlak cloud code yazsın diyor.
+[00:16:35] Senin de yüzün olsun diyor. Başlıkta da
+[00:16:37] cloud kodu sıfırdan öğren. Tek videoda
+[00:16:39] her şey diyor. Mesela altta kod yazmadan
+[00:16:42] olsun diyor. İşte öyle 30 dakikada diyor
+[00:16:44] mesela cloud kodu 30 dakikada öğren ve
+[00:16:46] ilk projeni yap diyor mesela. Böyle
+[00:16:47] öneriyor arkadaşlar. Sonrasında
+[00:16:48] diyorsunuz ki ya şu iyi olmuş
+[00:16:50] diyorsunuz. Size bunun promtunu veriyor
+[00:16:51] ve gidip bunu chat GPT'nin ana banana
+[00:16:53] yaptırtabiliyorsunuz veya API
+[00:16:54] bağlarsanız kendisi de bunu yapar. Peki
+[00:16:57] skilleri nasıl yapıyorsunuz? Şöyle
+[00:16:59] yapıyorsunuz. Örneğin diyorsunuz ki bana
+[00:17:02] bir skill yap. Çok basit. Bakın hiç
+[00:17:05] temel seviyede anlatıyorum bunu. Bu
+[00:17:07] skill benim cod base'imi analiz etsin ve
+[00:17:12] codased'deki
+[00:17:14] eee daha kaliteli hale getirmek için
+[00:17:17] öneriler versin diyorum. Çok basit bir
+[00:17:19] şekilde yazdım bunu. Şimdi bana gitti
+[00:17:22] diğer benim skillerimi okudu. Benim bu
+[00:17:23] arada skill oluşturma skillim de var.
+[00:17:25] kendisi onu okudu mesela ve dedi ki sana
+[00:17:28] birkaç soru soracağım ve bunu dedi
+[00:17:29] netleştireceğim dedi. Proje dedi nasıl
+[00:17:31] bir proje olacak dedi. Yani neyi analiz
+[00:17:33] edelim dedi. React native notjs genelde
+[00:17:35] javascript typescript dil bağımsız
+[00:17:36] sadece frontend diyor. Ben diyorum ki
+[00:17:38] dil bağımsız her cod base'i araştır
+[00:17:39] diyorum. Çıktısı ne olsun diyor.
+[00:17:41] İndirile bir MD chat içinde yaz diyor ve
+[00:17:43] rapor artı önerilen yeni klasör yapısı
+[00:17:45] açı diyor. Direkt indirile bir MD
+[00:17:47] dosyası versin. Mesela YouTube'u skill
+[00:17:49] diyor dağıtacak mısın yoksa diyor
+[00:17:50] kişisel mi diyor. Bunu niye soruyor
+[00:17:52] biliyor musunuz arkadaşlar? Çünkü ben
+[00:17:52] bir tane skill oluşturdum ve bu skilde
+[00:17:54] şunu söyledim. Dedim ki zaman zaman bana
+[00:17:56] bunun Re'sini yani nasıl kullanılacağını
+[00:17:58] anlattığın bir Reedmi dosyası oluştur
+[00:18:01] diye söylemiştim. Oradan da bana bunu
+[00:18:02] tekrardan sordu. Mesela ben söylememe
+[00:18:04] rağmen diyorum ki bunu kişisel
+[00:18:06] kullanacağım diyorum veya dağıtacağım
+[00:18:07] diyorum. Hadi dağıtacağım diyelim. Belki
+[00:18:09] iyi olursa bunu da topluluk kısmına
+[00:18:10] koyarız. Ve şimdi bana skil kuracak
+[00:18:12] arkadaşlar.
+[00:18:14] Şimdi gördüğünüz gibi gitti.
+[00:18:17] Eee dedi ki ben dedi bunu canlı test
+[00:18:20] yapacağım. Niye peki bunu yapıyor
+[00:18:21] arkadaşlar? Gene benim yaptığım skillen
+[00:18:23] yola çıkarak. Burada gördüğünüz gibi eee
+[00:18:25] bir skill builder skillim var
+[00:18:27] arkadaşlar. Burada şunu söylüyor. Bunu
+[00:18:29] diyor dene diyor. Örneğin hani o sadece
+[00:18:31] diyor skill yapma diyor. Skill yaparken
+[00:18:33] de hani bunu doğrula diyor. Denemeleri
+[00:18:35] yap diyor ve denemeler sonucunda skill
+[00:18:36] revize et diyor. Bu şekilde de bize son
+[00:18:38] halini getir diyor. Ben bunu niye böyle
+[00:18:40] yaptım? E fatura kesme skillinde şöyle
+[00:18:42] bir şey vardı. Fatura 2 kesiyordu ama
+[00:18:43] Türkçe karakter hatalı çıkıyordu. İşte
+[00:18:45] arayüz doğru tasarlamıyordu. En son test
+[00:18:47] yapa yapa yapa bu hale getirdim ve skill
+[00:18:49] builder e skillini de bu şekilde yapması
+[00:18:51] için zorladım ve artık skill
+[00:18:53] oluştururken gördüğünüz gibi her şeyi
+[00:18:55] kendisi test ediyor ve günün sonunda
+[00:18:57] bize daha iyi bir skill ortaya
+[00:18:58] çıkartıyor. Örneğin mesela gitti kendi
+[00:19:00] kötü bir tane repo oluşturdu lokalde ve
+[00:19:03] onu skili çağırdı ve de diyor ki 34 tane
+[00:19:06] diyor dosy şeyi analiz ettim diyor.
+[00:19:09] raporu diyor. Oluşturuyorum şimdi diyor
+[00:19:10] mesela. Test başarılı. Skill her kasıtlı
+[00:19:13] sorunu doğru severity ile yakaladı ve
+[00:19:14] gerçek olarla somut fix üretti. Şimdi
+[00:19:16] Redmi'yi yazıp paketleyeyim diyor. Yani
+[00:19:18] skill artık hazır bir hale geldi diyor.
+[00:19:20] Evet arkadaşlar gördüğünüz gibi bizim
+[00:19:23] buradaki a geldiği ve bize her şeyi
+[00:19:25] böyle anlattı. Şunları yap bunları yap
+[00:19:27] böyle olması daha iyi olur diye
+[00:19:28] belirtti. Ve de burada cod based
+[00:19:30] structure editor diye bir skill
+[00:19:32] oluşturdu. Bu skilli indirebiliyorsunuz
+[00:19:34] bilgisayarınıza veya save skill
+[00:19:35] dediğiniz zaman da cloudda bunu
+[00:19:37] kaydediyor. Şöyle göstereyim size. Artık
+[00:19:39] codase structure dediğim zaman bunu
+[00:19:42] çağıracak. Evet. Tamam. Şimdi bir de
+[00:19:44] arkadaşlar biliyorsunuz ki bir projeyi
+[00:19:46] test etmeniz gerektiği zaman bunu size
+[00:19:48] test ettikten sonra böyle bir yazıyla
+[00:19:50] bunları raporluyor. Yani bunları
+[00:19:52] okumanız gerekiyor tek. Ve de codas'de
+[00:19:55] orada burada bu işi yapıyor ama bir
+[00:19:56] arayüz testine geldiği zaman bu zayıf
+[00:19:57] kalıyor. Burada da ne yapıyoruz
+[00:19:59] arkadaşlar? Chat'e geliyoruz. Hey, test
+[00:20:02] this project with test sprite dediğiniz
+[00:20:05] zaman arkadaşlar sizi test sprite'ile
+[00:20:07] beraber proje test ediyor. Peki test
+[00:20:08] sprite nedir? Hem projelerimizin testini
+[00:20:10] yapan ve bize bunları videoyla beraber
+[00:20:12] gösteren hem de videomuzun sponsoru olan
+[00:20:15] bir araç arkadaşlar. Gelin size bunu
+[00:20:16] göstereyim kısaca. Şimdi test spat'a
+[00:20:18] geldiğiniz zaman arkadaşlar bu şekilde
+[00:20:20] bir arayüzük karşılıyor gördüğünüz gibi.
+[00:20:22] Şimdi burada peki bu ne işe yarıyor
+[00:20:24] arkadaşlar? Geliyorsunuz diyorsunuz ki
+[00:20:26] ya ben böyle böyle projem var bunu test
+[00:20:28] etmek istiyorum. size bütün use
+[00:20:30] case'leri böyle çıkartıyor. Gördüğünüz
+[00:20:32] gibi bu şekilde çıkartıyor. Bunları
+[00:20:34] kendiniz güncelleyebiliyorsunuz. Bütün
+[00:20:36] test caslerini çıkartıyor onlara göre.
+[00:20:38] Aynı şekilde bunları
+[00:20:39] değiştirebiliyorsunuz. Tekrar tekrar
+[00:20:40] çalıştırtabiliyorsunuz. Test bytte'ın
+[00:20:42] benim en sevdiğim yönü şu arkadaşlar.
+[00:20:44] Yaptığı testleri size videola
+[00:20:45] gösteriyor. Mesela çok basit bir test
+[00:20:47] var burada. Use landing page navigation
+[00:20:49] to open the loading login page diyor.
+[00:20:51] Yani landing page'deki butona basınca
+[00:20:53] login'e gitsin diyor basitçe. Burada
+[00:20:55] size aşamaları gösteriyor. Ne yaptığını
+[00:20:57] tek tek. Sağ tarafta ise arkadaşlar
+[00:20:59] bunun videosunu gösteriyor ve de test
+[00:21:01] successful diyor. Bakalım videoda ne
+[00:21:02] yapmış? Geliyor butona basıyor ve sizi
+[00:21:04] login gönderiyor. Gayet basit bir
+[00:21:06] şekilde bunu gösterdi. Şimdi tabii siz
+[00:21:07] burada bazı formların doldurmamasını
+[00:21:10] işte bazı ekran yönlendirme hatalarını
+[00:21:12] gibi gibi aslında birçok birçok şeyi hem
+[00:21:14] lokaldeki projenizde hem camdaki projede
+[00:21:16] test edebiliyorsunuz. Ve arkadaşlar
+[00:21:18] bunların sonucunda size bu şekilde
+[00:21:20] raporluyor. Zaten arkadaşlar testite
+[00:21:23] güzel tarafı da şu. Size 150 kredi
+[00:21:25] ücretsiz veriyor ve de eğer denemek
+[00:21:28] istiyorsanız sonrasında size 0 dolara
+[00:21:30] bedavaya 400 kredi veriyor ve de
+[00:21:32] sonrasında da 19 dolardan bunu
+[00:21:34] kullanmaya devam ediyorsunuz. Eee test
+[00:21:36] casleri yani yazdığı testler ücretsiz
+[00:21:38] yapıyor bunları. Sadece testleri
+[00:21:39] çalıştırmak isterseniz yani bir video
+[00:21:41] ürettirmek isterseniz, rapor yaptırmak
+[00:21:42] isterseniz o zaman krediniz düşüyor
+[00:21:44] arkadaşlar. Eğer bunu denemek
+[00:21:46] isterseniz, test denemek isterseniz ve
+[00:21:48] de bana destek olmak isterseniz alttaki
+[00:21:50] linkten üye olup deneyebilirsiniz. Evet,
+[00:21:53] cloud kod tarafında da bir de ne var
+[00:21:55] arkadaşlar? Connectors var. Yani buraya
+[00:21:57] geldiğiniz zaman görüyorsunuz orada bir
+[00:21:58] connectors kısmı var. Şimdi ben burada
+[00:21:59] Canva'ı bağlamışım, Gmail bağlamışım,
+[00:22:01] Notion'u bağlamışım, Sovase'i
+[00:22:03] bağlamışım, cloud in Chrome bağlamışım.
+[00:22:05] Bu çok önemli bir şey. Buna şimdi
+[00:22:06] göstereceğim ne olduğunu. Buraya
+[00:22:08] geliyorum arkadaşlar. Connectors'e
+[00:22:09] basıyorum. Manage connectors diyorum.
+[00:22:11] Şimdi bu şu işe yarıyor aslında. Direkt
+[00:22:13] olarak cloud code kendi içerisinde bu
+[00:22:16] arkadaşlar araçlara erişiyor ve eriştiği
+[00:22:19] zaman direkt olarak onları
+[00:22:20] kullanabiliyor. İşte Gmail'e erişip
+[00:22:21] bütün maillerinizi okuyor. Size mail
+[00:22:23] yazıyor, mail cevaplıyor. Gelen mailleri
+[00:22:25] size gösteriyor. Bütün maillerinizi
+[00:22:26] analiz edip size rapor çıkartabiliyor.
+[00:22:28] Kanvada giriyor siteden size tasarım
+[00:22:30] yapabiliyor. Notion'da aynı şekilde
+[00:22:32] bütün sayfalarınızı düzenleyebiliyor.
+[00:22:34] Sabase'de bütün database backend
+[00:22:35] işlemleriniz hepsini yapabiliyor. Ve de
+[00:22:38] benim en sevdiğim şey cloudin Chrome. Bu
+[00:22:40] da şu işe yarıyor arkadaşlar. Gelip
+[00:22:42] burada bir eklenti var. Bu eklentiyi
+[00:22:44] indirdiğiniz zaman cloud eklentisini
+[00:22:45] Chrome'a sizin bilgisayarınız da
+[00:22:48] arkadaşlar Chrome'u kullanıyor ve bu
+[00:22:49] sayede Chrome üzerinden internete
+[00:22:51] giriyor, araştırma yapıyor, bir şey
+[00:22:53] alabiliyor. Herhangi bir app'i submit
+[00:22:55] edebiliyor. App Store, Play Store, Steam
+[00:22:57] hepsini kontrol edip uygulamanız
+[00:22:59] arkadaşlar buraya ayarlarını yük
+[00:23:01] yapabilmenizi sağlıyor. Herhangi bir
+[00:23:02] araştırma yapacağı zaman, bir şey
+[00:23:04] bulacağı zaman buraya bağlanıp bunları
+[00:23:05] yapabiliyor. Yani bayağı kapsamlı bir
+[00:23:07] şekilde bu Chrome use çok iyi çalışıyor.
+[00:23:10] Haberiniz olsun. O yüzden de kesinlikle
+[00:23:12] bu Cloud Chrome'u aktif etmenizi ve
+[00:23:14] kullanmanızı tavsiye ederim arkadaşlar.
+[00:23:17] Evet, genel olarak cloud tarafı
+[00:23:19] arkadaşlar bu şekildeydi. Şimdi genel
+[00:23:21] olarak bu videoda göstermediğim şeyler
+[00:23:23] gereksiz ya da kullanışsız tabii ki
+[00:23:25] değil. Kullanabilirsiniz,
+[00:23:26] bakabilirsiniz. Hatta şurada bir dizayn
+[00:23:28] var görüyorsunuz. Bunu da bir sonraki
+[00:23:29] videoda değiniriz dizayn kısmını. Ama
+[00:23:31] arkadaşlar bunlar temel işlemler ve
+[00:23:32] bunları yaparsanız zaten cloud kodun
+[00:23:34] 180'ini kullanmış oluyorsunuz. Otomasyon
+[00:23:36] yapabiliyorsunuz. Bilgisayarınızı
+[00:23:37] kullandırtabiliyorsunuz. Kod
+[00:23:38] yazabiliyorsunuz. Fikir açılış
+[00:23:40] yapabiliyorsunuz. herhangi bir
+[00:23:41] işleminizi yaptırtabiliyorsunuz otomatik
+[00:23:42] bir şekilde. Yani birçok şey aslında
+[00:23:44] buranın halledebiliyorsunuz. O yüzden de
+[00:23:46] bu videoda gördüğünüz kısımları sizin de
+[00:23:47] deneyip tecrübe etmenizi tavsiye ederim.
+[00:23:49] Eğer kendiniz de bunları denerseniz daha
+[00:23:51] iyi bir şekilde oturacaktır ve daha iyi
+[00:23:52] sonuçlar alacaksınızdır. Buradaki
+[00:23:54] gösterdiğim bu skillsleri vesairesinde
+[00:23:56] dediğim gibi topluluk kanalında
+[00:23:57] arkadaşlar paylaşımını yapacağım. Oradan
+[00:23:58] da erişebilirsiniz linklere. Eee bu
+[00:24:01] saatten sonra artık bütün projelerimizi
+[00:24:03] de yaptığım örnek projeleri kitapta
+[00:24:05] paylaşacağım ve onları da arkadaşlar
+[00:24:06] topluluk sekmesinde e sizlerle paylaşmış
+[00:24:08] olacağım. En azından destekleyen
+[00:24:10] kişilere de böyle bir faydam olur diye
+[00:24:12] düşünüyorum. Özellikle bu skills
+[00:24:13] kısmında ve bunları daha sayısını
+[00:24:14] arttırmaya çalışacağım. Son olarak da
+[00:24:16] oyunumuzla Steam'de istek listeninizi
+[00:24:18] eklemeyi unutmayın lütfen. Bizi
+[00:24:19] desteklemiş olursunuz. Onları da
+[00:24:20] açıklamalar kısmındaki linki bırakırım.
+[00:24:22] O zaman umarım faydalı video olmuştur.
+[00:24:23] Abone olmayı, beğenmeyi ve de arkadaşlar
+[00:24:25] yorum atmayı unutmayın. Bir sonraki
+[00:24:27] videoda görüşmek üzere. Yeah.
