@@ -1,0 +1,436 @@
+# 
+# https://www.youtube.com/watch?v=g_PouK1J7XM
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:g_PouK1J7XM.tr.json3
+
+[00:00:00] Yapay zeka kullanarak sıfırdan bir mobil
+[00:00:02] gama geliştirdim ve de markette
+[00:00:04] yayınladım. Arkadaşlar merhaba. Ben
+[00:00:05] Uğur. Bugün sizlerle beraber sıfırdan
+[00:00:08] Mobil gama geliştirme serisinin 3.
+[00:00:09] videosunu çekeceğiz. Bu serinin ilk
+[00:00:11] videosunda projenin altyapısını
+[00:00:13] hazırlamıştık ve genel olarak bütün
+[00:00:14] yapıyı aslında kurmuştuk. Ardından
+[00:00:16] ikinci videoda abonelik sistemleri yani
+[00:00:18] para kazanma yöntemleri ve de reklam
+[00:00:20] entegrasyonundan sizlere bahsetmiştim.
+[00:00:22] Ve de arkadaşlar bu 3ün videoda da
+[00:00:23] sizlere yayınlama süreci, yayınladıktan
+[00:00:26] sonraki süreçte neler yapacağımız ve
+[00:00:27] neleri beklediğimizi aslında sizlere
+[00:00:29] anlatmak istiyorum. Tabii burada şöyle
+[00:00:31] bir konu var ki benim de çok şaşırdığım
+[00:00:33] bir durum arkadaşlar. Eee bu projeyi
+[00:00:34] yayınlarken ben hiçbir şey yapmadım.
+[00:00:36] Evet böyle garip bir olay oldu. İlk defa
+[00:00:37] bunu yaşadım. Eee bu arada uygulamamız
+[00:00:39] tek seferde arkadaşlar yayınlandı. Yani
+[00:00:41] hiçbir şekilde red almadık haberiniz
+[00:00:42] olsun. Zaten eee projeyi de şu an
+[00:00:44] açıklamalar kısmındaki linkten indirip
+[00:00:46] size deneyebilirsiniz. Hatta ve hatta
+[00:00:47] feedbacklerinizi de yorumlarda
+[00:00:49] yazabilirsiniz. Çünkü çok önemli bu
+[00:00:51] projeyi bir süre ben geliştirmeye devam
+[00:00:52] edeceğim. Ama tabii buna vakit ayırmadan
+[00:00:54] önce öncesinde bakacağız. Ne kadar
+[00:00:56] indirime alıyor? Bir gelir elde ediyor
+[00:00:58] muyuz? Bir hani mut vaad ediyor mu? Bunu
+[00:01:00] göreceğiz. Ardından da duruma göre karar
+[00:01:01] vereceğiz. Şimdi peki neye şaşırdım? Eee
+[00:01:04] ve nasıl tekrarde yayınladık? Biraz
+[00:01:06] bundan bahsetmek istiyorum. Şimdi video
+[00:01:07] biraz e sohbet tadında geçecek ve
+[00:01:10] ekranda onunla alakalı bazı resimler,
+[00:01:12] videolar sizlere arkadaşlar göstermeye
+[00:01:13] çalışacağım. Yani süreci anlattığım
+[00:01:15] şeyleri öyle bu şekilde size
+[00:01:16] göstereceğim. Uygulama şöyle yayınlandı.
+[00:01:18] Normalde ben bilgisayarın başında
+[00:01:19] oturdum arkadaşlar. Projeyi tek build
+[00:01:22] alıp yayınlama sürecini size
+[00:01:23] anlatacaktım ama çok sıkılmıştım ve
+[00:01:25] yorulmuştum. Akşamdı gene saatlerden. E
+[00:01:27] ve dedim ki ben bir oyun oynayayım.
+[00:01:29] Şuradaki bilgisayara geçtim ve Counter'ı
+[00:01:31] açtım. CS:GO işte arkadaşlarla oynuyoruz
+[00:01:32] ama bir yandan da bunu yayınlamam
+[00:01:33] gerekiyor. Neyse dedim ki cloud kod'a şu
+[00:01:36] an dedim her şey hazır. Projeyi dedim
+[00:01:38] sen dedim yayınla App Store Connect'te
+[00:01:40] yayınla dedim ve arkadaşlar şunu yaptı
+[00:01:42] Cloud Code. Bunu gerçekten de
+[00:01:43] beklemiyordum ve böyle bir şey yaptığımı
+[00:01:45] bilmiyordum tam olarak. Gittik Chrome'a
+[00:01:46] bağlandı arkadaşlar eklentisiyle beraber
+[00:01:48] ve ardından App Store Connect diye bir
+[00:01:50] developer portalı var ya Apple tarafında
+[00:01:53] orayı açtı zaten benim hesabım falan her
+[00:01:54] şey zaten var orada zaten hani
+[00:01:56] uygulamamızda oraya ikinci videoda
+[00:01:58] tanıtmıştık zaten biliyorsunuz. Eee
+[00:01:59] kendisi girdi. Bütün ayarları, detayları
+[00:02:03] beş farklı dilde arkadaşlar bütün
+[00:02:05] başlığı, alt başlığı, etiketleri bütün
+[00:02:08] bilgileri işte bu subscription'la
+[00:02:10] alakalı olan bütün formları her şeyi
+[00:02:13] kendisini doldurur tek. Arkadaşlar ben
+[00:02:14] hiçbir şey yapmadım. izledim. 2 CS
+[00:02:17] attım. Bir baktım her şey bitmiş ve
+[00:02:20] ardından ben sadece şunu yaptım. Save
+[00:02:22] dedim ve send to review dedim. Bu kadar
+[00:02:25] zaten. Ardından arkadaşlar uygulama tek
+[00:02:27] seferde onay aldı ve henüz uygulama
+[00:02:29] yayınlamamıştım ben. Tam şu anda siz bu
+[00:02:30] videoyu izlerken yayınlamış olacağım. E
+[00:02:33] oradan indirebilirsiniz. Ya da ben böyle
+[00:02:34] bir şey beklemiyordum. Niye
+[00:02:36] beklemiyordum? Çünkü ben en son
+[00:02:38] arkadaşlar yayınladığım zamanlarda
+[00:02:39] hepsini tek tek kendim giriyordum ve
+[00:02:41] bayağı bir aslında zor bu süreç. Çünkü
+[00:02:42] oraya gir, oraya bas, oraya doldur, onu
+[00:02:44] doldur. Bazı yeri anlamıyorsunuz.
+[00:02:46] Çevirmeniz gerekiyor. Çeviriyorsunuz,
+[00:02:48] devam ediyorsunuz, hata yapıyorsunuz
+[00:02:49] falan. Bir sürü sıkıntılı durum var
+[00:02:51] aslında. Ama bunların hepsini tek
+[00:02:52] seferde yaptı ve ben eee Android'de bunu
+[00:02:54] yayınlamayı düşünmüyordum. Ama bu
+[00:02:56] olaydan sonra arkadaşlar eee Android'da
+[00:02:58] yayınlamaya karar verdim. Yüksek
+[00:03:00] ihtimalle yarın sabah bunun ayarlarını
+[00:03:01] da yapacağım ve yayınlayacağım
+[00:03:02] Android'de. Eee şu an bugün bu arada
+[00:03:04] bayramın 4 günü. E 3üncü günü ama size 4
+[00:03:07] gün olacak.
+[00:03:09] O yüzden bayramınızdan mübarek olsun
+[00:03:10] hepinizin. Umarım iyi bir bayram
+[00:03:12] geçirmişsinizdir. Bol bol et
+[00:03:13] yemişsinizdir. Bu arada uygulama için
+[00:03:15] arkadaşlar yorumlarınız çok önemli. Hem
+[00:03:17] App Store üzerindeki bu yıldız
+[00:03:18] veriyorsunuz ya oradan umarım güzel
+[00:03:20] yıldız verirsiniz. Hem de güzel bir
+[00:03:21] yorum yaparsınız. Hem de e bana bu
+[00:03:23] yorumların altında da arkadaşlar lütfen
+[00:03:25] eee geri dönüşlerinizi yazın. Uygulamayı
+[00:03:27] biraz toparlayalım. Hatası olabilir
+[00:03:29] çünkü çok da hissedemedim. Hani son 4
+[00:03:31] gündür aslında buna uğraşıyorum. E
+[00:03:32] sürekli özellikle bu AI tarafında bayağı
+[00:03:34] bir kısım düzelttim ama tabii
+[00:03:36] bilemiyorsunuz. Bazen farklı
+[00:03:37] kullanımlarda farklı sıkıntılar
+[00:03:38] çıkabiliyor. Bunları da siz bana hani
+[00:03:40] yorumlarda yazarsınız. İşte böyle bir
+[00:03:41] hata var. Şunu düzelt bunu ekleyelim
+[00:03:43] böyle yapalım dersiniz. Onları da
+[00:03:45] yaparız. E ben bu arada app'i bayağı
+[00:03:47] geliştirdim. Neler ekledim? İşte bir
+[00:03:49] gezi oluşturuyorsunuz ama arkadaşlar
+[00:03:51] böyle şey kalmıyor. Oraya işte bir bütçe
+[00:03:53] ayarlayabiliyorsunuz. Market
+[00:03:54] alışverişlerinizin fişine
+[00:03:55] girebiliyorsunuz. Örneğin bir restorana
+[00:03:57] kafaya gittiniz bir şey yediniz. Markete
+[00:03:58] gittiniz bir şey yediniz. fişin
+[00:03:59] fotoğrafını çekiyorsunuz ve size tık
+[00:04:01] diye arkadaşlar oraya gider olarak
+[00:04:03] yazıyor. Örneğin oraya ait fotoğraflar
+[00:04:04] ekleyebiliyorsunuz. Yani bir memories
+[00:04:06] kısmı, anlar kısmı oluşturabiliyorsunuz
+[00:04:08] gibi. Bayağı bir özellik ekledim.
+[00:04:09] Uygulamayı çok geliştirdim aslında. Siz
+[00:04:11] de deneyebilirsiniz. Her neyse. Peki eee
+[00:04:13] bu uygulama nasıl tek seferde
+[00:04:15] yayınlandı? Şöyle oldu arkadaşlar. Zaten
+[00:04:17] ben hani son yayınladığım üç tane
+[00:04:19] uygulamayı da bir tanesi başka bir dış
+[00:04:21] şirkete yayınlamıştık. E dışarıdan bir
+[00:04:23] iş yapmıştık. Bir tanesi iki tanesini
+[00:04:24] kendi uygulamamız yayınlamıştık. Burada
+[00:04:26] arkadaşlar gene tek seferde ben onay
+[00:04:27] almıştım. E nasıl yapıyoruz peki bunu?
+[00:04:29] Aslında bunlar zor değil. Bir kere bir
+[00:04:31] şey yayınladıysanız zaten süreci
+[00:04:32] öğreniyorsunuz ve yapmanız gereken her
+[00:04:34] şeyi arkadaşlar artık biliyorsunuz.
+[00:04:35] Bundan dolayı da aslında eee bir aradan
+[00:04:38] sonra çok rahatça bunları yayınlayıp e
+[00:04:40] onay alabiliyorsunuz. Ne yapmanız
+[00:04:41] gerekiyor? En basitinden uygulamanızın
+[00:04:44] içerisinde arkadaşlar hesabını sil diye
+[00:04:45] buton olması gerekiyor. Ardından privacy
+[00:04:48] policy, user terms yani kullanı
+[00:04:50] sözleşmesi, işte gizlilik politikası
+[00:04:52] gibi kısımlar olması gerekiyor ve eee
+[00:04:55] aldığınız, kullandığınız bütün telefonla
+[00:04:57] alakalı şeyleri oraya arkadaşlar
+[00:04:58] belirtmeniz gerekiyor. Örneğin galeri
+[00:05:00] izni, kamera izni, rehber izni, şu bu
+[00:05:03] izni derken hepsini e bu App Store
+[00:05:05] Connect'e arkadaşlar düzgünce girmeniz
+[00:05:07] ve bunu niye kullandığınızı yazmanız
+[00:05:09] gerekiyor ki inceleme sırasında bunlar e
+[00:05:11] soru işareti bırakmasın. Ardından
+[00:05:12] aslında bütün süreçleri düzgün
+[00:05:14] doldurursanız eee kolay kolay
+[00:05:15] redleyemiyorsunuz ve uygulamanızda başka
+[00:05:17] bir şeyin tamamen kopyası değilse veya
+[00:05:19] bu işte etik değerlerin dışında bir şey
+[00:05:21] yapmıyorsanız veya çok basit bir app
+[00:05:23] değilse arkadaşlar kolay kolay
+[00:05:25] redemiyorsunuz. Hani onu söyleyebilirim.
+[00:05:27] Ama gene de red almışsanız ya bunu bir
+[00:05:28] türlü çözemiyorsanız, anlamadıysanız
+[00:05:29] arkadaşlar bana mail atabilirsiniz.
+[00:05:31] Yardımcı olmaya çalışırım. Bu konuda da
+[00:05:32] gene videoyu gece 1'de çekiyorum. O
+[00:05:35] yüzden de enerjim biraz düşük. Kusura
+[00:05:36] bakmayın arkadaşlar. Videoları geçe
+[00:05:38] bırakınca böyle oluyor maalesef. Eee,
+[00:05:40] şimdi peki şimdi süreç ne olacak? Yani
+[00:05:43] tamam uygulamayı yayınladık. Ee, yani
+[00:05:45] şimdi ne yapacağız? Aslında olay şimdi
+[00:05:46] başlıyor arkadaşlar. Çünkü bu uygulama
+[00:05:48] yapmak ve yayınlamak artık biraz
+[00:05:49] kolaylaştı. Çünkü ben eskiden bu tarz
+[00:05:52] bir app'i en az 3-4 ayda yapabilirdim.
+[00:05:54] Şu an yani bir haftada mı yaptık? Kaç
+[00:05:56] kere kaç haftada yaptık siz söyleyin.
+[00:05:58] Yani iki tane videosunu çektik bunun.
+[00:05:59] Ben video dışında 2ü gün uğraştım. Yani
+[00:06:01] toplamda aslında bir hafta falan sürdü
+[00:06:03] bunu yapmamız. Eee ve tek başıma yaptım
+[00:06:05] tamamen hiçbir yardım almadan. Ama
+[00:06:06] dediğim gibi artık olay e yayından
+[00:06:08] sonraki sürece kalıyor. Çünkü
+[00:06:10] yayınladınız ama bunu kim kullanacak?
+[00:06:12] Birileri kullandı. E bunun bir şekilde
+[00:06:15] para eee getirmesi lazım. Gel elde
+[00:06:17] etmeniz lazım. Bu nasıl olacak? Bu da
+[00:06:18] şöyle olacak arkadaşlar. E insanlar bunu
+[00:06:21] indirdikten sonra onlara uygulamayı çok
+[00:06:23] kısa bir şekilde sevdirip ardından da
+[00:06:25] onlara bunun abonelini aldırmanız
+[00:06:27] gerekiyor ve bu da en zor kısımlardan
+[00:06:29] bir tanesi. Ben birkaç yolla bunu
+[00:06:30] ekledim. Zaten siz de görürsünüz
+[00:06:32] indirdiğiniz zaman. Eee ama tabii bunun
+[00:06:34] da bir garantisi yok. Ve de yeni user
+[00:06:36] almak biraz zor. Nasıl zor? Şöyle zor
+[00:06:38] arkadaşlar. Size App Store başlara biraz
+[00:06:40] destek oluyor. Yani uygulamanızı
+[00:06:41] çıkarttığınız zaman size belli boost
+[00:06:43] sağlıyor ve boost sayesinde de
+[00:06:45] aramalarda çıkıyorsunuz, listelerde
+[00:06:47] çıkıyorsunuz ve bu sayede biraz doğal
+[00:06:48] indirme alabiliyorsunuz. organik
+[00:06:49] indiriliyor ama bunun sonucunda gelen
+[00:06:52] sonuçlar kötü olursa yani insanlar
+[00:06:53] uygulamayı indirir, kullanmazsa, silerse
+[00:06:56] bunlar sizi kötü etkiliyor ve bir daha
+[00:06:57] gösterilmiyorsunuz. Bu yüzden de ilk
+[00:06:59] yayın süreci çok önemli. Bu kısımda
+[00:07:00] hatasız ve user kaçmayacağı şekilde
+[00:07:03] tasarlamanız çok önemli arkadaşlar. Bir
+[00:07:04] de yayınladıktan sonra bunu sosyal
+[00:07:07] medyaya desteklemeniz gerekiyor.
+[00:07:08] LinkedIn, Twitter, Instagram, TikTok,
+[00:07:11] işte YouTube bir kitleniz varsa oraya
+[00:07:13] bunu yaymanız ve insanları indirtmeniz
+[00:07:15] gerekiyor. Özellikle de kendi arkadaşlar
+[00:07:17] projeniz için bir hesap açın. Özellikle
+[00:07:19] TikTok'ta e TikTok'ta içerik üretim.
+[00:07:21] Yani yatay içerikler, dikey içerikler
+[00:07:23] sadece postlar böyle karaözel oluyor ya.
+[00:07:25] Kaydırmalı postlar oluyor ya hani
+[00:07:26] videosu sadece görsel bunlar. E bu
+[00:07:29] şekilde bunu desteklemeye çalışın. Bunun
+[00:07:30] bir faydası olacaktır. Ama tabii bunun
+[00:07:32] da bir garantisi yok. En azından sizin
+[00:07:33] nasıl yaptığınız biraz da bu işi yani
+[00:07:34] bunun artık sonrası buna kalıyor
+[00:07:36] arkadaşlar. Bu da en zor kısımlardan bir
+[00:07:38] tanesi. Zaten arkadaşlar 5 videoda yani
+[00:07:41] bundan sonra gelecek videoda yüksek
+[00:07:42] ihtimal bir ik haftaya gelir. E orada
+[00:07:43] şunu anlatacağım sizlere. Bu yayından
+[00:07:45] sonraki süreçte ben neler yaptım?
+[00:07:47] uygulama ne kadar indirildi? Kaç para
+[00:07:49] kazandık ve maliyeti ne oldu? Sonuçta
+[00:07:51] burada bir AI kullanıyoruz. AI'ın bir
+[00:07:53] maliyeti var. Bakacağız burada
+[00:07:54] göreceğiz. Yani AI ne kadar maliyetli
+[00:07:56] olmuş, ne kadar işe yaramış ve de kaç
+[00:07:58] para kazanmışız. Bunları ben size
+[00:07:59] göstereceğim ve de sosyal medya
+[00:08:01] hesaplarını göstereceğim. Yani bakın ben
+[00:08:02] böyle yaptım. Instagram'da, Twitter'da,
+[00:08:04] işte LinkedIn'de, e, TikTok'da bunları
+[00:08:06] yaptım ve sonuç bu oldu değil size
+[00:08:07] bunları göstereceğim. Kendinize aslında
+[00:08:09] bunu görebileceksiniz bir yerden sonra.
+[00:08:10] Ve aslında da günün sonunda şuna karar
+[00:08:12] vereceğiz. Bu uygulamayı yapmaya değer
+[00:08:14] mi? Yani bunu devam ettirmeye değer mi?
+[00:08:16] Yoksa böyle kalsın, kendi kendine devam
+[00:08:18] etsin ya da tamamen kapatalım mı ya
+[00:08:21] aslında beraber arkadaşlar
+[00:08:22] değerlendirmiş olacağız burada. Çünkü
+[00:08:23] [homurdanır] şu çok önemli. Uygulamayı
+[00:08:25] siz yapıyorsunuz ve bunun bir maliyeti
+[00:08:27] oluyor. Hem size karşı bir iş yükü
+[00:08:28] oluyor. Güncelleme yapmanız gerekiyor.
+[00:08:30] Feedback'leri değerlendirmeniz
+[00:08:32] gerekiyor. Hem de kullandığınız
+[00:08:33] servislerin bir maliyeti oluyor. İşte
+[00:08:35] AI'ın maliyeti var. Supase'in bir
+[00:08:37] maliyeti var. Hatta ve hatta bu
+[00:08:38] developer portalın bile bir maliyeti
+[00:08:40] var. Günün sonunda yıllık ödeme
+[00:08:41] yapıyorsunuz mesela. bunları
+[00:08:42] değerlendirmeniz gerekiyor ve bunun
+[00:08:44] sonucunda işte bir aylık bir süreçte
+[00:08:45] açısında buna karar vereceğiz. Eğer
+[00:08:47] sonuçlar olumlu olursa e ben seri bir
+[00:08:50] şekilde hep yapmayı planlıyorum. Yani
+[00:08:51] bunu yaptım. Ardından başka hep başka
+[00:08:53] hep başka hep arkadaşlar bunları yapıp
+[00:08:54] yapıp yayınlamayı düşünüyorum ve
+[00:08:55] bunların hepsini sizlerle paylaşacağım
+[00:08:57] zaten devamlı bir şekilde. E bu arada
+[00:08:59] Instagram'a da aktif bir şekilde dönmeye
+[00:09:00] başladım. Haberiniz olsun. E
+[00:09:02] Instagram'dan ugur. ulaşabilirsiniz
+[00:09:05] arkadaşlar. E altta linkleri olacak.
+[00:09:07] Orada da bu süreç boyunca hem storylerle
+[00:09:09] hem reals'larla evet desteklemeye
+[00:09:11] çalışacağım içerikleri ve orada size
+[00:09:13] biraz daha böyle tecrübelerimi
+[00:09:14] aktardığım işte bir gün daha
+[00:09:15] yaptıklarımı gösterdiğim e kısımlar
+[00:09:17] biraz olmaya başlayacak diye
+[00:09:18] düşünüyorum. İnşallah yaparım.
+[00:09:19] Üşenmezsem veya vakit bulursam diyelim.
+[00:09:21] E orada da bunları size göstereceğim.
+[00:09:23] Hani genel olarak eee şöyle söyleyeyim
+[00:09:25] arkadaşlar zaten parça videonun arasına
+[00:09:28] bunları koydum. İşte Cloud Cod'un
+[00:09:29] yaptıklarını, benim söylediklerimi
+[00:09:31] vesaire koydum ki hani onları görebilin
+[00:09:33] diye. Gerçekten de yapabiliyor Cloud
+[00:09:34] Code çoğu şeyi. Onları zaten
+[00:09:35] görmüşsünüzdür. Onun dışında da hani
+[00:09:37] şunlara değinmek istiyorum. Son olarak
+[00:09:39] da arkadaşlar bir proje yapmak bazen çok
+[00:09:41] kolay olabiliyor, bazen zor olabiliyor.
+[00:09:43] Yaptığınız projeyi hazır sanıyorsunuz.
+[00:09:44] Ben öyle sanmıştım başta. Dedim ki bu
+[00:09:46] projeyi ben yayınlayayım diye düşündüm.
+[00:09:48] Ardından test flight'a bunu indirdim ve
+[00:09:50] test etmeye başladım. Bir sürü hata, bir
+[00:09:52] sürü bug, bir sürü sıkıntı. E
+[00:09:54] kullanıcılar arası bir sürü bug olmuş.
+[00:09:56] Bazı veriler birbirleriyle karışmış.
+[00:09:57] İşte güvenlik tarafındaki keyler açığa
+[00:09:59] çıkmış. Bir sürü sıkıntı var aslında COD
+[00:10:01] Base'de. Çünkü hepsini e ne yaptık?
+[00:10:03] Cloud Cola'a yazdırdık. Hiçbir şekilde
+[00:10:04] kendimiz bunu kontrol etmedik. Tamamen
+[00:10:05] full vibe coding yaptık yani. Ve günün
+[00:10:07] sonunda ne oldu? Bir sürü sıkıntı çıktı
+[00:10:09] ama ben ne yaptım? Yayınlamadım hemen
+[00:10:11] bunu. Git hepsini tek tek çözdüm
+[00:10:13] arkadaşlar. Bu yüzden de şu anda hani
+[00:10:15] umut ediyorum ki herhangi bir güvenlik
+[00:10:17] açığı app'te yoktur. Yani yüksek
+[00:10:18] ihtimalle bir sıkıntı yaşamayız.
+[00:10:20] Yaşayabilir miyiz? Yaşayabiliriz. Hiçbir
+[00:10:21] garantisi yok. Çünkü bir yolunu illaki
+[00:10:24] birileri buluyor bazen. E ama şunu asla
+[00:10:26] ve asla unutmayın. Günümüzde bir app
+[00:10:28] yapması zor. Zor değil pardon. Kolay.
+[00:10:31] Önemli olan bu appi arkadaşlar
+[00:10:33] birilerine kullandırtabilmek. bir
+[00:10:34] müşteri bulabilmek çok önemli. O yüzden
+[00:10:36] de eğer bir fikir önem eğer bir fikirden
+[00:10:39] arkadaşlar emin değilseniz ve de müşteri
+[00:10:41] potansiyelisi çok iyi değilse sırf
+[00:10:43] yapmak için yapmayın. Çünkü vakitte
+[00:10:44] kaybediyorsunuz. O yüzden de daha böyle
+[00:10:47] eee iyi fikirler bulun. Yani mesela bu
+[00:10:49] travel app iyi fikir mi? Bence iyi fikir
+[00:10:52] ama müşteri potansiyeli yüksek mi? Bence
+[00:10:54] değil. Çünkü bir insan yılda kaç kere
+[00:10:56] tahle çıkıyor öyle düşünmek gerekiyor.
+[00:10:58] Ben niye yaptım? Fikir hoşuma gitti. E
+[00:11:01] hem de bu marketteki potansiyeli merak
+[00:11:03] ettim hem de YouTube'a içerik olsun diye
+[00:11:05] yaptım bu projeyi. Daha iyi bir fikir
+[00:11:06] olabilir miydi? Olabilirdi. Şimdi mesela
+[00:11:08] ben yarın diyet yapmaya başlayacağım.
+[00:11:09] Spor yapıyorum ben aktif bir şekilde.
+[00:11:10] Belki biliyorsunuzdur. Yarın diyete
+[00:11:12] başlayacağım. Böyle bir ik ay diyet
+[00:11:13] yapacağım. Bayağı ciddi bir diyet. Orada
+[00:11:15] mesela şunu dedim. Acaba dedim kendi e
+[00:11:17] kalori sayma uygulamamı yapsam diye
+[00:11:19] düşündüm tekrar. Yani mesela bunu yapsam
+[00:11:21] bunun potansiyeli daha yüksek. Niye daha
+[00:11:23] yüksek? Çünkü daha çok kişi bunu
+[00:11:24] kullanır. İnsanlar bol bol diyet
+[00:11:26] yapıyor. Herkes diyet yapıyor günün
+[00:11:27] sonunda ve bunu kullanıyor. Ama rakip
+[00:11:30] çok fazla rakip var. İnanılmaz fazla.
+[00:11:33] Eee o yüzden de bunu görmek gerekiyor.
+[00:11:34] Yani bunu yaptığın zamanı değecek mi
+[00:11:37] yapmak? Bir de bunu yaptıktan sonra
+[00:11:38] bunun reklamını, satışının,
+[00:11:40] pazarlamasını yapabilecek misin? Bunlar
+[00:11:41] da çok önemli. Sen sadece yapabiliyorsan
+[00:11:44] ama bunun sosyal medyasını yapamıyorsan
+[00:11:46] zaten burada büyük bir sıkıntı var
+[00:11:47] demektir ki ve yanına birini bulman
+[00:11:49] gerekiyordur. En azından senin yerine bu
+[00:11:51] sosyal medyayı halledecek. Bu satış
+[00:11:53] pazalamayı yapacak, müşteriyle
+[00:11:55] ilgilenecek birisi gerekiyor arkadaşlar.
+[00:11:57] Orada da zaten e onu bir şekilde
+[00:11:59] ayarlamanız gerekiyor. Her şeyi kendiniz
+[00:12:00] yapamazsınız çoğu zaman. E bunu
+[00:12:02] görüyorum Twitter'da falan yapıyor işte.
+[00:12:03] Ben işte bir app yaptım. Aylık gelirim
+[00:12:05] 300.000. Doğru mu yalan mı bilmiyoruz.
+[00:12:07] Belki doğrudur, belki yalandır. Ama
+[00:12:09] günümüzde hani bulunmamış bir fikir yok
+[00:12:12] arkadaşlar. Mevcut bir fikri
+[00:12:14] kopyalayacaksınız. Kendinize göre onu
+[00:12:15] uyarlayacaksınız. Belki daha iyi bir
+[00:12:17] hale getireceksiniz. Öyle piyasaya
+[00:12:19] sunacaksınız ve bir e sonuç elde etmeye
+[00:12:21] başlayacaksınız. Bu sonuç bazen iyi
+[00:12:23] olur, bazen kötü olur. E maalesef bunu
+[00:12:25] denemeden bilemezsiniz. Hiç
+[00:12:27] düşünmediğiniz fikirler, hiç
+[00:12:28] düşünmediğiniz şeyler bir anda
+[00:12:30] tutabiliyor, bir anda gerçekleşebiliyor
+[00:12:31] ve beklenmedik sonuçlar ortaya
+[00:12:33] çıkartabiliyor. Bunu da görüyoruz zaten
+[00:12:35] zaman. Durumlar böyle. E biraz daha
+[00:12:37] sohbet olsun istedim bu videoda. Hani
+[00:12:38] size genel süreci anlattığım bir şey
+[00:12:40] olsun istedim. Çok da uzatmayalım. Hani
+[00:12:42] 20 dakika civarında bir video olmuş.
+[00:12:44] Hani yarım saat, bir saat konuşmaya da
+[00:12:45] arkadaşlar. Gerek yok bu konu hakkında.
+[00:12:47] E dediğim gibi app süreçleri bu şekilde
+[00:12:50] ilerliyor. Bence hani güzel bir seri
+[00:12:52] oldu. Umarım siz de faydalı
+[00:12:54] bulmuşsunuzdur, faydası olmuştur diye
+[00:12:56] düşünüyorum inşallah. O yüzden de
+[00:12:57] arkadaşlar abone olmayı unutmayın. Bir
+[00:12:59] de beğenirseniz, yorum atarsanız çok
+[00:13:00] sevinirim. O zaman bir sonraki videoda
+[00:13:02] görüşmek üzere.
