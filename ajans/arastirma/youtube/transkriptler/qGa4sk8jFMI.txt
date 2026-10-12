@@ -1,0 +1,377 @@
+# 
+# https://www.youtube.com/watch?v=qGa4sk8jFMI
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:qGa4sk8jFMI.tr.json3
+
+[00:00:00] Tek bir satır kod bilmenize gerek yok.
+[00:00:02] Sadece bir komut verin ve sıfırdan koca
+[00:00:03] bir web sitenin veya mobil uygulamanın
+[00:00:05] gözünüzün önünde dakikalar içerisinde
+[00:00:07] kodlanmasını izleyin. Bugün sınırları
+[00:00:09] kaldıran o araca, cloud koda yakından
+[00:00:11] bakıyoruz. Peki nedir bu cloud kod? En
+[00:00:14] basit haliyle açıklayayım. Normalde bir
+[00:00:15] yapay zekaya kod yazdırırken tarayıcıyı
+[00:00:18] açarız, kodu yazdırırız. Sonra kendi
+[00:00:20] projemize kopyala yapıştır yaparız,
+[00:00:21] değil mi? İşte cloud kod bu git gelleri
+[00:00:23] tamamen bitiriyor. Antropik'in
+[00:00:25] geliştirdiği bu araç doğrudan
+[00:00:26] bilgisayarınızın terminalinde çalışıyor.
+[00:00:28] Yani dışarıdan bir web siteye girmenize
+[00:00:30] gerek yok. Bütün proje dosyalarınızı
+[00:00:32] görüyor. Klasörlerinizde geziniyor.
+[00:00:34] Sıfırdan kod yazıyor ve hatta hataları
+[00:00:36] kendi kendine test edip düzeltiyor.
+[00:00:38] Kısacası bilgisayarınızın içine yerleşen
+[00:00:40] ve sadece sohbet ederek tüm projeyi
+[00:00:42] yönetebildiğiniz size özel yazılımcı bir
+[00:00:44] asistanınız var artık. Şimdi hiç vakit
+[00:00:46] kaybetmeden cloud kodu bilgisayarımıza
+[00:00:48] nasıl kurarız ve en etkili şekilde nasıl
+[00:00:50] kullanabiliriz? adım adım gösteriyorum.
+[00:00:52] Cloud Cod'un resmi sayfası şu anda
+[00:00:54] karşımda. Burada get cloud kod yazıyor
+[00:00:56] zaten. Yanında da kurulum için bize
+[00:00:58] terminal kodunu vermiş. Hemen altında
+[00:01:00] desktop yazıyor. Bilgisayarınıza
+[00:01:01] uygulama olarak da cloud kodu
+[00:01:02] yükleyebiliyorsunuz. Ben de yüklü
+[00:01:04] burada. Onun altında da VS kode var. Bu
+[00:01:07] üçü bizim için önemli. VS COD içerisinde
+[00:01:09] de eklenti olarak cloud kodu
+[00:01:10] çalıştırabiliyorsunuz. Bunlara ek olarak
+[00:01:12] da aşağıda bende yüklü olan antigravity
+[00:01:14] içerisinden de cloud'u
+[00:01:15] kullanabiliyorsunuz. Opus son
+[00:01:17] modellerini. Kurulum için tek yapmanız
+[00:01:19] gereken şey buradaki kodu kopyalayıp
+[00:01:22] terminalinizi açıp buraya yapıştırmak.
+[00:01:25] Enterladığınızda cloud kod
+[00:01:26] bilgisayarınıza yüklenmiş olacak. Bende
+[00:01:28] yüklü olduğu için tekrardan
+[00:01:29] yüklemeyeceğim ama sizin yükleyebilmeniz
+[00:01:30] için bu sayfanın linkini de açıklama
+[00:01:32] kısmına koyuyor olacağım. Oradan bu
+[00:01:34] sayfaya ulaşabilirsiniz. Şimdi gelelim
+[00:01:35] cloud kodu terminal içerisinde nasıl
+[00:01:37] çalıştırabileceğimizi. Terminalimiz şu
+[00:01:39] an karşımda ve buraya gelip sadece cloud
+[00:01:41] yazdım ve enterladım.
+[00:01:44] dosyalara erişim için izin istiyor. Yes
+[00:01:47] dedim ve cloud kodumuz artık karşımıza.
+[00:01:49] Mobil uygulama, web site ve çok daha
+[00:01:51] fazlasını artık cloud kode içerisinden
+[00:01:53] yapabileceğimiz arayüze geldik. Çok daha
+[00:01:55] gelişmiş özelliklerini göstereceğim ama
+[00:01:57] öncesinde çalışma mantığını görebilmeniz
+[00:01:59] adına ufak bir web sitesi yaptıralım
+[00:02:01] sizinle. Masaüstüne Sinan adında bir
+[00:02:02] klasör oluştur. Sinan Kara Balta için
+[00:02:04] bir web site oluştur. Web'de Sinan
+[00:02:06] Karabalta'yı araştır. Premium bir web
+[00:02:08] site olacak dedim ve gönderdim.
+[00:02:10] Araştırmayı da kendisi yapacak. Benim
+[00:02:12] adıma bir web site oluşturacak.
+[00:02:14] Masaüstünde de onu göreceğim zaten.
+[00:02:16] İzinler istiyor şu anda benden. Web'de
+[00:02:18] Sinan Kara'yı arıyor şu an. Bu izinleri
+[00:02:20] atlayabilmek adına da Shift Tab'ı
+[00:02:22] kullanabilirsiniz. Shift ve tab
+[00:02:24] tuşlarına aynı anda bastığınızda artık
+[00:02:26] sizden izin istemeyecek. Tamamen kendisi
+[00:02:28] web siteyi s0fır'dan yapacak. Klasör
+[00:02:30] içerisinde her oluşturduğu kod parçası
+[00:02:32] için sizden izin istiyor. Diğer türlü
+[00:02:34] klasörü oluşturdu. Hemen bakalım klasöre
+[00:02:36] de.
+[00:02:38] Masaüstüne geldim. Burada Sinan adında
+[00:02:39] bir klasörüm var. Yavaş yavaş klasörü
+[00:02:41] doldurmaya başlayacak Sinan Kara Baltayı
+[00:02:43] web'de aradıktan sonra kullandığı token
+[00:02:45] miktarını da burada görebiliyorsunuz.
+[00:02:47] Bende şu an pro üyelik var. 20 dolarlık
+[00:02:49] olan çok fazla uygulama ve web site
+[00:02:51] geliştirecekseniz eğer 20 dolarlık paket
+[00:02:53] size yetmeyecektir. 200 dolarlığa
+[00:02:55] geçmenizi öneririm. Benden şu anda izin
+[00:02:57] istedi. İzin ver dedim. İlk kod parçamız
+[00:02:59] buraya geldi. Index HTML. Sadece index
+[00:03:01] html içerisinde de bunu tamamlayabilir.
+[00:03:03] Bu arada hani CSS dosyası, JavaScript
+[00:03:05] dosyası olmadan sadece HTML içerisinde
+[00:03:08] komple web siteyi bizim için hazır
+[00:03:09] edebilir. Sinan Karabalta VFX artist
+[00:03:12] videografer muhtemelen LinkedIn'den
+[00:03:13] çekti bu veriyi. Meslek olarak VFX ve
+[00:03:16] görsel tarafta çok fazla yer aldım ama
+[00:03:18] aslen yazılım mezunuyum. Bunun da benim
+[00:03:20] için artıları var. Hataları gördüğüm
+[00:03:21] noktalarda o hataları nasıl düzeltmesi
+[00:03:23] gerektiğini de prompt olarak yazmayı iyi
+[00:03:25] biliyorum. O da çok büyük bir artı. Bu
+[00:03:27] arada CSS ve JavaScript dosyalarını da
+[00:03:29] oluşturdu. Şu anda izin istiyor. Hatır
+[00:03:30] dedim. Websteyi bizim için hazırladı.
+[00:03:32] Sinan Karabalta yazıyor en üstte. VFX
+[00:03:34] artist videografer. Gayet güzel.
+[00:03:36] LinkedIn'den çekmiş muhtemelen bu
+[00:03:37] verileri. Ve mouse'umuza hareket
+[00:03:39] ettirdiğimizde de arkasından gelen bir
+[00:03:41] animasyon var. O da gayet tatlı olmuş.
+[00:03:43] Acun Medya VFX sanatçısı. En son
+[00:03:44] çalıştığım yer Acun Medya olduğu için
+[00:03:46] Acun Media'yı yazmış buraya.
+[00:03:47] Çalışmalarımı gör dediğimde burada
+[00:03:50] seçili çalışmalar var. Survivor Türkiye,
+[00:03:52] MasterChef Türkiye, OS, YouTubei. Gayet
+[00:03:55] güzel. Uzmanlık alanları kısmı eklemiş
+[00:03:57] benim için. Aşağı inelim birlikte.
+[00:03:59] çalışalım. Burada da mesaj
+[00:04:00] gönderebileceğiniz bir alan var. Mail
+[00:04:02] gönderebileceğiniz. Az soyat, e-posta,
+[00:04:04] proje türü. Proje türü içerisinde de
+[00:04:06] eğitim, danışmanlık, belgesel, reklam
+[00:04:08] filmi, müzik videosu, VFX ve diğer
+[00:04:11] olarak seçenekler mevcut. Altta da
+[00:04:12] mesajlarınızı yazabiliyorsunuz. Hemen
+[00:04:14] sol tarafa da benim sosyal medya
+[00:04:16] hesaplarımı koymuş. Buradan bir H'e
+[00:04:18] tıkladığımda BH'e de yönleniyor. Bu da
+[00:04:19] gayet güzel. LinkedIn, Instagram tamamen
+[00:04:23] bana özgü bir web siteyi gerçekten
+[00:04:25] sıfırdan yapmış. 2026 Sinan Karabalta
+[00:04:27] tüm hakları sakladır kısmını da benim
+[00:04:29] için yazmış. Çalışalım dediğimde de
+[00:04:31] sayfanın en altına yönleniyor. İletişim
+[00:04:33] yetenekler gayet güzel bir web sitesini
+[00:04:35] bizim için yaptı. Şimdi az önce size
+[00:04:37] söylediğim profesyonel tarafa geçelim.
+[00:04:39] Bu web sitenin en üst kısmına şu arka
+[00:04:40] tarafa bir animasyon yaptıralım. O
+[00:04:42] animasyonu da nasıl yaptıracağız? Nazar
+[00:04:44] ettiğiniz zaman aşağı inelim. Burada bir
+[00:04:46] sürü animasyon var. Bu animasyonlardan
+[00:04:48] istediğinizi kullanabilirsiniz. Sadece
+[00:04:50] promptü kopyalamanız yeterli. Buradan
+[00:04:53] şunu seçeceğim. Copy prompt diyorum.
+[00:04:55] Terminale' geldim ve yapıştırdım. Yanına
+[00:04:57] da bunu hazırladığım web siteya uygun
+[00:04:59] bir şekilde uygula dedim ve gönderdim.
+[00:05:01] Şimdi de az önce hazırladığı webayı
+[00:05:03] revize edecek animasyonlu bir şekilde en
+[00:05:04] üst kısmını. Yes diyelim. Enterladım. Az
+[00:05:07] önceki web site hazırlanması 2-3 dakika
+[00:05:08] sürdü. Şimdi bu revize ile birlikte de
+[00:05:10] bir 10 dakikaya web sitemizi tamamen
+[00:05:12] hazır etmiş olacağız. Bunu bir
+[00:05:13] hazırlasın. Birazdan da sizinle birlikte
+[00:05:15] Figma'yı kullanarak mobil uygulama
+[00:05:17] arayüzü hazırlayacağız. Ya siz
+[00:05:18] isterseniz orada web sitesi de
+[00:05:20] yapabilirsiniz. Tabii farklılık olması
+[00:05:22] için mobil uygulama arzu yapalım. Az
+[00:05:24] önce de söylediğim gibi shift tab kısa
+[00:05:26] yolunu kullanarak accept edit 10
+[00:05:28] bölümünü açtığım için bana herhangi bir
+[00:05:30] şekilde izin sormuyor. Sürekli enter'a
+[00:05:32] basmak zorunda değilim. Yani tamamen
+[00:05:34] kendisi hazırlıyor şu anda. Ordulu
+[00:05:36] olduğumu da buldu. [kahkaha]
+[00:05:38] Survivor Türkiye'nin altına da
+[00:05:39] Türkiye'nin en çok izlenen reality showu
+[00:05:41] için VFX sahneleri ve post prodüksiyon
+[00:05:43] çalışmaları.
+[00:05:44] >> Vay koyayım ben nasıl ustaymışım.
+[00:05:46] [kahkaha]
+[00:05:47] >> Son adımlara geldik. Enter dedim. Build
+[00:05:50] başarılı dedi. Birazdan açılacak ki
+[00:05:52] açıldı. Son hali bu şekilde. Bizim
+[00:05:54] istediğimiz animasyon da buydu zaten.
+[00:05:56] Birebir aynısını copy paste yaparak
+[00:05:58] neredeyse web sitemize uyguladı.
+[00:05:59] Buradaki prompu kopyalayıp cloud kod
+[00:06:01] içerisine yapıştırmamız bizim için
+[00:06:03] yeterliydi. Gayet de tatlı bir web site
+[00:06:05] oldu bu arada. Önceki hali de buydu.
+[00:06:06] Sonraki hali bu. Ben önceki halini de
+[00:06:09] beğenmiştim bu arada. Önceki hali de
+[00:06:10] kötü değil. Sadece şov olsun diye arkaya
+[00:06:12] bir animasyon eklemiş olduk. Şimdi
+[00:06:14] sıfırdan bir terminal açtım. Burada da
+[00:06:16] Figma uygulamasını kullanarak bize bir
+[00:06:18] mobil uygulama arayüzü yapmasını
+[00:06:19] isteyeceğim. Tabii Figma'yı burada
+[00:06:21] kullanabilmek için de cloud'un resmi web
+[00:06:23] sitesi içerisinde Figma adında bir sayfa
+[00:06:25] var. Bunun yanında da şurada cloud kode
+[00:06:27] yazıyor. Kopyalanabilir bir metin var
+[00:06:29] burada. Terminal içerisine
+[00:06:30] yapıştırdığınızda Figma'yı cloud kode
+[00:06:32] içerisine kurmuş oluyorsunuz. Metin de
+[00:06:34] şu şekilde bu arada kurulum metni. Ben
+[00:06:36] de kurul olduğu için bu kısmı da
+[00:06:37] atlıyorum. Şimdi tekrardan bir cloud'u
+[00:06:39] açalım. Sıfırdan yes deyip dosyalara
+[00:06:42] erişimine izin verdim. Cloud'umuz
+[00:06:44] karşımıza geldi. Bunun için promtu da
+[00:06:45] cloud'a yazdıralım. Cloud kod
+[00:06:47] kullanırken cloud'u da kullanalım. Nefes
+[00:06:49] egzersiz uygulaması yapacağım. Bana üç
+[00:06:51] sayfası olan bir uygulama için prompt
+[00:06:53] yaz. Figma ile tasarlamasını istiyorum.
+[00:06:55] Cloud kodu ile yapacağım dedim ve
+[00:06:57] gönderdim. Buradan da sonet 4.6 modeli
+[00:07:00] seçili. Benim için nokta atışı bir
+[00:07:02] prompt yazıyor. Ben o promptü cloud koda
+[00:07:04] vereceğim ve benim için uygulamamı
+[00:07:05] hazırlayacak. Ekran ekran promtları
+[00:07:07] benim için yazdı. Cloud'un bizim için
+[00:07:09] hazırladığı promptü kopyalıyorum.
+[00:07:11] Terminalimizi açalım. Buraya cloud
+[00:07:13] yazdım. Enterlayalım. Ve buraya
+[00:07:16] promptumu yapıştırdım. Hemen peşine de
+[00:07:18] Figma ile tasarlamanı istiyorum dedim.
+[00:07:22] Bu kısımda direkt yes diyorum. Figma
+[00:07:24] dokümantasyonu oluşturuyor şu an. Figma
+[00:07:26] ile entegre bir şekilde çalışabiliyor
+[00:07:28] olması da inanılmaz güzel bir şey. Bu
+[00:07:29] arada profesyonel bir şekilde UIUX
+[00:07:31] tasarımı yapıyorsanız eğer burayı
+[00:07:33] kullanarak sıfırdan tasarımlar da
+[00:07:35] oluşturabilirsiniz. Oluşturduğunuz
+[00:07:37] tasarımlardan ilham alarak kendiniz
+[00:07:38] tasarım da yapabilirsiniz. Her türlü
+[00:07:40] işinizi kolaylaştırabilecek bir yöntem.
+[00:07:42] Yeni bir Figma dosyası oluşturacağım.
+[00:07:44] Önce ekranı HTML olarak tasarlayıp sonra
+[00:07:46] capture edeceğim diyor. HTML'e
+[00:07:48] hazırlayıp sonrasında Figma'ya entegre
+[00:07:50] edecek. Benim için index html dosyası
+[00:07:53] için izin istiyor. Yes dedim. Buradan da
+[00:07:55] izin verelim. Tekrardan onaylıyorum.
+[00:07:58] Enterladım. Locolos da benim için
+[00:08:00] çalıştıracak. Browser da açıyorum dedi.
+[00:08:02] Tamamdır. Yes diyelim. Açabilirsin. Ben
+[00:08:04] direkt nefes alma, nefes verme kontrol
+[00:08:07] uygulaması yapmasını istemiştim. Burada
+[00:08:09] nefes al, nefes ver kısımları var
+[00:08:10] muhtemelen. Burada nefes al. Altında da
+[00:08:13] süre sayıyor. 4 tur ikinci turdasın.
+[00:08:16] Hemen yanında da günlük serii. 3 dakika
+[00:08:19] 12 saniye boyunca yapmışsın. Tekrar yap
+[00:08:22] dediğinde tekrar yapabiliyorsun. Ve
+[00:08:23] günlük olarak burada sayaçlar da var.
+[00:08:25] Üst sayfayı çok iyi bir şekilde bizim
+[00:08:27] için hazırlamış. Hemen üst kısımda da
+[00:08:29] tüm ekran öeyi seç ve dosyayı aç diye
+[00:08:31] bölümler var. Ben dosyayı aç diyorum ve
+[00:08:33] direkt Figma'ya yönlendirdi beni.
+[00:08:35] Bakalım. Hop. Figma da bizim dosyamızı
+[00:08:37] açtı. Buranın artısı her şey kontrol
+[00:08:40] edilebilir artık Figma içerisinde iki
+[00:08:41] kere tıkladım. Bir iki kere daha
+[00:08:43] tıkladım. Artık klasör klasör içe
+[00:08:45] geçiyorum. Şuradaki butonları ayrı ayrı
+[00:08:47] görebiliyorum. Artık her biri burada yer
+[00:08:49] alıyor. Nefes al bölümüne gidelim
+[00:08:50] mesela. Nefes al bölümü buradaymış.
+[00:08:52] Buradaki textlere kadar gidebiliriz
+[00:08:54] muhtemelen. Şöyle içe içe geçiyorum.
+[00:08:57] Buradaki nefes al kısmını mesela nefes
+[00:08:59] ver olarak değiştirdim. Buradan da hafif
+[00:09:01] yanı alalım. Şöyle ortalamış olalım.
+[00:09:03] Nefes al yerine nefes ver yazdık buraya.
+[00:09:05] Ve bunu sadece içe doğru girerek
+[00:09:07] yapabildik. Şimdi de bir sonraki adıma
+[00:09:09] geçelim. O da burada yer alıyor. Buradan
+[00:09:11] da aynı şekilde bunu kopyalayıp
+[00:09:13] terminale yapıştırdığınızda rahatlıkla
+[00:09:15] kurabiliyorsunuz. Tekrar geldim. Şimdi
+[00:09:16] buna devam ediyorum. Artık remotion'ı
+[00:09:18] kullanacağım. Remotion kullanarak bu
+[00:09:20] uygulama için bana dört sahneden oluşan
+[00:09:22] dikey bir reklam videosu hazırla dedim
+[00:09:24] ve gönderdim. Website
+[00:09:26] hazırlayabiliyoruz. Uygulamamızın
+[00:09:28] arayüzünü hazırlatabiliyoruz. Bu
+[00:09:29] uygulamayı gerçekte canlıya
+[00:09:31] daldırabiliriz bu arada. Şimdi de bunun
+[00:09:33] animasyonunu yaptırıyoruz. Yes diyorum.
+[00:09:35] Yine shift t diyerek her şeyi
+[00:09:38] okeyeceğim. Remotion'ın da ayrı bir
+[00:09:40] arayüzünün olması vesaire çok hoşuma
+[00:09:42] gidiyor. Bu arada benim bildiğiniz ayrı
+[00:09:43] bir timeline'ı var ve web'de çalışıyor.
+[00:09:45] Google fontlarını şu anda yüklüyor kendi
+[00:09:48] içerisinden. Ootion. Tekrardan yes
+[00:09:51] diyorum. Videomuz hazır. Hiçbir şekilde
+[00:09:53] After Effects'e, Premiere'e, Davinci'ye,
+[00:09:55] Final Cut'a hiçbir programa girmeden
+[00:09:57] sadece cloud kod'la reklam videosu
+[00:09:59] hazırladık. Bakalım nasıl olmuş. İlk
+[00:10:01] sahnemiz böyle. Hazır olduğunda nefes
+[00:10:03] al. Güzel.
+[00:10:06] Uyurken bile dinlenemiyorsun. Çözüm
+[00:10:08] basit. Sadece nefes al. Üç kanıtlanmış
+[00:10:12] teknik. Nefes al, bırak.
+[00:10:15] Ücretsiz indir. Nefesin n'sini koymuş
+[00:10:17] bir de ikon olarak.
+[00:10:20] 12.000 değerlendirme 4.9. Kredi kartı
+[00:10:23] gerekmez. iOS ve Android. Sağlık
+[00:10:25] kategorisinde birinci. Günlük seri 5
+[00:10:28] milyon kullanıcı. Gayet güzel bir reklam
+[00:10:30] filmi hazırlamış bizim için. arkasına
+[00:10:32] belki Premier'den ufak bir ses müzik
+[00:10:34] veya CapCut'tan bile olur müzik
+[00:10:36] koyduğumuzda bir reklam filmi çıkartmış
+[00:10:38] bizim için. Direkt yayınlanabilir bir
+[00:10:39] halde değil belki ekstra sahneler
+[00:10:41] eklenebilir, çıkartılabilir ama temel
+[00:10:44] olarak sadece Cloud COD'da bu şekilde
+[00:10:45] bir animasyon yapmış olmamız gerçekten
+[00:10:47] büyük bir nimet. Ha şimdi böyleyse
+[00:10:49] birkaç seneye çok daha iyisini
+[00:10:51] yapabileceğini düşünüyorum. Az önce size
+[00:10:52] söylediğim ekstra bir arayüzde açılıyor
+[00:10:54] kısmını yapmadan direkt tak diye videoyu
+[00:10:57] açtı bizim için. Ama burada npm Smart
+[00:10:59] ile remotion studio'yu açabilirsin
+[00:11:01] diyor. Direkt remotion studi aç dedim ve
+[00:11:03] gönderdim. Yes dedim. Şimdi tak diye
+[00:11:06] orada açacak. Videolarımız burada yer
+[00:11:08] alıyor. Sahne sahne. Dört sahneden
+[00:11:10] oluşsun demiştim. Dör sahne de burada
+[00:11:12] yer alıyor. Bize MP4 olarak tak diye bir
+[00:11:14] çıktı verdi ama o çıktının dışında
+[00:11:16] kendimiz de burada render alabiliyoruz.
+[00:11:18] Buradan render butonuna bastım. Buradan
+[00:11:20] stilleri seçebiliyoruz. H264, H265,
+[00:11:24] ProES vesaire. Hatta gift bile çıktı.
+[00:11:26] Alabiliyoruz buradan. 600 kareden
+[00:11:27] oluşuyormuş. Premier'de render alıyormuş
+[00:11:29] gibi. Buradan da render alabiliyoruz.
+[00:11:31] Render video dedim ve burada render
+[00:11:32] almaya başladı. 600 kareyi çok hızlı bir
+[00:11:34] şekilde de tamamlayacak. Tamamlandı.
+[00:11:36] Hemen şuradaki dosya ikonuna tıklıyorum
+[00:11:38] ve videomuz burada. Daha önce de zaten
+[00:11:40] kendisi renderlamıştı bizim için ama
+[00:11:42] bizim renderladığımız hali de burada.
+[00:11:44] Eğer bu dosyayı size vermezse siz
+[00:11:47] kendiniz o dosyayı alabiliyorsunuz. Bu
+[00:11:49] videoda aslında bu uygulamayı hayata
+[00:11:50] geçirip telefonda kullanılabilir bir
+[00:11:52] halde size gösterecektim ama çok daha
+[00:11:54] uzun bir video olsun istemiyorum. Onun
+[00:11:55] için bir sonraki videoda bu uygulamayı
+[00:11:57] sizinle birlikte hazırlıyor olacağız.
+[00:11:59] Telefonda birlikte kullanacağız. Onun
+[00:12:01] için abone olup bu videoyu beğenmeyi
+[00:12:02] unutmayın. Daha fazla karşınıza çıkalım.
+[00:12:05] Bu video bu kadardı. Umarım sizin için
+[00:12:06] yararlı olmuştur. Kanalımıza abone olup
+[00:12:08] bu videoyu beğenirseniz çok sevinirim.
+[00:12:10] Instagram ve TikTok hesabımızdan dikey
+[00:12:12] eğitimler için bizi takip edebilirsiniz.
+[00:12:14] Bir sonraki videoda görüşmek üzere.
+[00:12:15] Hoşça kalın.
