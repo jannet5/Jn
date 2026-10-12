@@ -1,0 +1,160 @@
+# 
+# https://www.youtube.com/watch?v=hwIZHSiCNmk
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:hwIZHSiCNmk.tr.json3
+
+[00:00:00] Cloud kodu düzgün kullanmaya
+[00:00:01] başladığımız an 100.000 liradan fazla
+[00:00:03] maliyetten bizi kurtardı. Üstüne
+[00:00:04] kurduğumuz yapay zeka şirketinin
+[00:00:06] cirolarının artmasında inanılmaz bir rol
+[00:00:08] oynadı. Peki sıfırdan başlayan kodlama
+[00:00:10] falan bilmeyen birisi nasıl
+[00:00:11] faydalanmalı? O zaman hadi başlayalım.
+[00:00:14] Şimdi Cloud kodu kod yazan, dosya
+[00:00:16] düzenleyen, bilgisayarda iş yapabilen
+[00:00:18] bayağı ajantik bir yapı olarak
+[00:00:20] görebiliriz. Hatta dijital çalışanlar
+[00:00:22] yapabiliyoruz onunla birlikte. Tavsiye
+[00:00:24] edebileceğimiz üç tane yöntem var.
+[00:00:26] Bunlardan bir tanesi kendi arayüzünde
+[00:00:28] sol üstte bakın kod diye bir alan var.
+[00:00:30] Bir diğeri terminal, yani Windows'ta da
+[00:00:32] PowerShell. Oraya Cloud yazdığınız zaman
+[00:00:35] bunu yükleyip oradan erişebiliyorsunuz.
+[00:00:37] Ama bizim tavsiyemiz, en güçlü
+[00:00:39] bulduğumuz, en esnek bulduğumuz VS Code
+[00:00:42] içinden onu kullanmak. Şimdi nasıl
+[00:00:44] çalışıyor detaylara gelmeden önce
+[00:00:46] hızlıca şuna bir bakalım. Bunun bir
+[00:00:48] yakıtı var aslında. Nasıl bir benzin
+[00:00:50] kullanırsa araç, Cloud Code gibi yapay
+[00:00:52] zeka modelleri de token kullanıyor. Bunu
+[00:00:54] bilmemiz çok önemli. Çünkü yaptığımız
+[00:00:56] işler bu token'a bağlı. Peki o zaman
+[00:00:58] nasıl kullanırım? Ücretsiz VS Code'u
+[00:00:59] buradan kurup hemen kullanabiliyoruz.
+[00:01:01] İndirdikten sonra sol tarafta bu
+[00:01:02] eklentiler, uzantılar olan yerde aramaya
+[00:01:05] Cloud yazdıktan sonra burada Cloud'u
+[00:01:07] buluyorsunuz. İndirdikten sonra
+[00:01:09] aboneliğinize girmenizi isteyecek. En
+[00:01:10] üstteki butondan girin ve kendi
+[00:01:13] üyeliğinize giriş yapın. Burada bir 20
+[00:01:14] dolarlık üyelik edinmekte fayda var.
+[00:01:17] Kendinize bir yatırım gibi
+[00:01:18] görebilirsiniz bunu. Sonra gidin
+[00:01:19] bilgisayarınızda nerede istiyorsanız
+[00:01:21] orada bir klasör oluşturun. Yeni klasör
+[00:01:24] diyelim ismine. Ondan sonra bu klasörü
+[00:01:26] sağ altta open dediğinde aslında o
+[00:01:27] klasörün içindeki artık projeyi açmış
+[00:01:30] oluyoruz. Bu bizim projemizi
+[00:01:32] çalıştırabildiğimiz yer. Sağ üstten
+[00:01:34] Cloud Code eklentisine bastığımda artık
+[00:01:36] bu projenin içinde ben ne istersem yapay
+[00:01:38] zekayla, Cloud'la, en iyi modellerle
+[00:01:40] yaptırabilirim. Sağ altta gördüğünüz bir
+[00:01:43] efor barı var. Bu barı ne kadar
+[00:01:45] artırırsanız o kadar fazla efor sarf
+[00:01:47] edecek demektir. Ne kadar azaltırsanız
+[00:01:49] da daha az çalışacak o konuyla ilgili
+[00:01:51] demektir. Önemli işlerimde ben en
+[00:01:53] maksimuma taşıyorum bunu. Verdiğiniz
+[00:01:55] görevleri burada plan moduna alıp ya da
+[00:01:58] otomatik olarak ya da her şeyde size
+[00:02:00] soracak şekilde düzenleyebiliyorsunuz.
+[00:02:02] Ben bypass permissions yapıyorum. Yani
+[00:02:04] bana hiçbir şey sormana gerek yok. Ne
+[00:02:06] istiyorsan yapabilirsin. Sadece
+[00:02:08] yönlendirmemi istiyorsan
+[00:02:09] yönlendirebilirim ama izin isteme
+[00:02:11] diyorum aslında. Aktive etmek isterseniz
+[00:02:13] eklentinin ayarlar kısmına geldikten
+[00:02:15] sonra en üstteki bu izin ver tıklamamız
+[00:02:18] gerekiyor ki çek edilmiş olsun yani izin
+[00:02:20] veriyor olalım. Şimdi projemiz sol
+[00:02:22] tarafta ama içi bomboş. Artık bir kod
+[00:02:25] bir şey yapmasını isteyebiliriz ondan.
+[00:02:27] Bu arada burada biz çok güzel detaylı
+[00:02:29] agentic işler kurabiliyoruz. Onunla
+[00:02:31] ilgili videomu yukarıda bırakalım.
+[00:02:32] Oradan erişebilirsiniz. Ne yapmak
+[00:02:34] istiyorsan artık söyleyebilirsin. Senin
+[00:02:36] için projeler, kodlar, proje yönetim
+[00:02:38] platformu ne istiyorsan artık buradan
+[00:02:39] yaptırabilirsin ona. Ben diyeyim ki test
+[00:02:41] test için çok hızlı bir web sitesi
+[00:02:43] yapalım.
+[00:02:44] Okey, web sitesini yaptı. Bana tıkla.
+[00:02:47] Tıklamayan bir web sitesi yaptı. Hani
+[00:02:49] hiç amaçsız da olmasın dedi. Aferin
+[00:02:51] gerçekten kendince bir amaç üretti.
+[00:02:53] >> [kahkaha]
+[00:02:55] >> Ama şimdi şöyle bir sıkıntı var.
+[00:02:56] Projelerimizin içinde her zaman cloud md
+[00:02:59] olması gerekir. Bunu sağlayabileceğimiz
+[00:03:01] şeyi init komutuyla birlikte projeye bir
+[00:03:03] baktırtıp o cloud md dosyasını
+[00:03:05] oluşturtabiliyoruz. Peki Doruk niye buna
+[00:03:08] ihtiyacımız var? Cloud md dediğimiz şey
+[00:03:10] cloud'un en iyi hızlı yönlendirilmesi
+[00:03:12] için projeye özel hafıza nasıl kullanmak
+[00:03:15] istediğime dair her şeyi
+[00:03:16] barındırabildiğim bir dosya. Yani cloud
+[00:03:19] her seferinde yeni oturumlar da açsam
+[00:03:21] sıfırdan konuşmaya da başlasam bu dosya
+[00:03:24] sayesinde hızlı bir şekilde bu projenin
+[00:03:26] ne olduğunu, neyle alakalı olduğunu
+[00:03:28] anlayabiliyor. Init komutuyla da
+[00:03:30] birlikte aslında bunu hızlı bir şekilde
+[00:03:31] yazdırmış olduk. Bak mesela burada yazdı
+[00:03:34] içeriğinde ne var projenin detaylarını.
+[00:03:36] Küçük bir proje olduğu için az detay
+[00:03:37] var. Şimdi her şey kuruldu ve hazır. Ama
+[00:03:39] bundan sonra nasıl kullanacağım ben
+[00:03:41] bunu? Karşımızda şunu unutmayalım master
+[00:03:44] seviyesinde bir zeka var. Benim ona
+[00:03:46] istediğim çıktıyı söyleyerek zaten
+[00:03:48] alabileceğim bir dünya şey var. Dediğim
+[00:03:50] gibi elimizin altında bir yazılımcı var
+[00:03:52] gibi davranacağız ve onu yönlendireceğiz
+[00:03:54] aslında. Ama gel gelelim bunu yaparken
+[00:03:56] şöyle bir şey var. Token demiştik, değil
+[00:03:58] mi? İşte benzinimizi etkili kullanmamız,
+[00:04:00] etkili harcamamız gerekiyor. O zaman ne
+[00:04:02] yapmalıyım? Yanlış bir şey yaptığını
+[00:04:03] görürsem onu yönlendirmeli ve token
+[00:04:06] harcamasına engel olmalıyım. Şimdi bu
+[00:04:08] web sitesinin tasarımını tam anlamıyla
+[00:04:10] güncelle ve renkleri tersine çevir.
+[00:04:12] Herhangi bir görev verdikten sonra ona,
+[00:04:14] şu anda yeni bir session açtım. Sıfırdan
+[00:04:16] başlamış oldu. Normalde aynı oturum
+[00:04:18] içinden devam ettiriyor olmam gerekirdi.
+[00:04:20] Ama biz burada ne yaptık? Sıfırdan
+[00:04:22] hiçbir bilmiyorken hop yeniden ona görev
+[00:04:25] verdik. Şu an ne yapıyoruz? Daha fazla
+[00:04:26] token harcıyoruz aslında. Ne
+[00:04:28] yapabilirim? Hemen buradan
+[00:04:29] durdurabilirim ve eski bu zaten bildiği
+[00:04:31] yer, aynı şeyi burada yaptırabilirim ona
+[00:04:34] ve böylece ne yapmış olduk? Daha hızlı
+[00:04:36] bir şekilde zaten bildiği oturum
+[00:04:38] içindeki oturumları sağ üstte buradan
+[00:04:40] takip edebiliyorsunuz, saat ikonundan.
+[00:04:42] Ne yaptım? Amacım minimum benzin token
+[00:04:45] harcayarak maksimum çıktıyı almak. Bu
+[00:04:47] tarz şeylere gerçekten ilgiliyseniz
+[00:04:48] kanalıma abone olmayı unutmayın. Sürekli
+[00:04:50] bu tarz şeyler paylaşıyorum burada.
+[00:04:52] Ayrıca bu konularla gerçekten
+[00:04:53] ilgiliyseniz ve kendinizi ciddi bir
+[00:04:54] şekilde geliştirmek istiyorsanız sizi
+[00:04:56] eğitim topluluğumuza beklerim. Burada
+[00:04:57] sıfırdan ileriye doğru benimle birlikte
+[00:04:59] canlı yayınlarla da konuşabildiğimiz,
+[00:05:01] geliştirebildiğimiz, hatta gelir üreten
+[00:05:03] arkadaşların olduğu bir alan burası. Sen
+[00:05:04] de aşağıdaki linkten aramıza katılabilir
+[00:05:06] ve yüksek gelirli etkinlikler
+[00:05:07] edinebilirsin.
