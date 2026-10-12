@@ -1,0 +1,270 @@
+# 
+# https://www.youtube.com/watch?v=gZZotpgWhio
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:gZZotpgWhio.tr.json3
+
+[00:00:00] Hayatında hiç kod yazmamış insanlar şu anda sadece yapay zekayı kullanarak
+[00:00:03] mobil uygulamalar yapıp bunları canlıya alıyorlar. Ve bu videoda da tam olarak
+[00:00:06] size bunu göstereceğim. Cloud kodu kullanarak sıfırdan bir uygulama
+[00:00:08] geliştiriyoruz. Sonrasında bunu nasıl canlıya almaya hazır hale getiriyoruz
+[00:00:11] onların hepsini görüyor olacaksınız. Videoda biraz daha basit olması adına
+[00:00:13] bir alışkanlık takip uygulaması yapacağız. Yani günlük spora gittim, şu
+[00:00:16] yemeği yedim, bunu yaptım vesaire gibi alışkanlıkları girebilecek insanlar.
+[00:00:19] Telefonumdan gireceğim, uygulamayı indireceğim, alışkanlıklarıma gireceğim
+[00:00:22] veya işte girmediğimde bana bildirim gönderecek vesaire bir sistem de
+[00:00:25] kurabilirim. Tamamen bir mobil uygulama olacak alışkanlık takibi için. İkinci
+[00:00:28] aşamalarda da bunu mesela işte Apple'daki sağlık uygulamasına bağlayıp
+[00:00:31] mesela adımlarımı da saysın, onları da oraya girsin gibi şeyler istiyorsam
+[00:00:34] onları da yapma konusuna değineceğiz. Çünkü aslında artık modern çağda
+[00:00:37] aklınıza gelen herhangi bir fikri hayata getirebiliyorsunuz. Bunu ben kanalımda
+[00:00:39] çok fazla farklı örnekte gösteriyorum. Ve bu uygulamalar yapıyoruz. Cloud kodu
+[00:00:42] kullanıyoruz. Farklı araçlar kullanıyoruz. Ama mobil uygulama tarafı
+[00:00:44] uzun zamandır karanlık kalan bir nokta. Çünkü her zaman birazcık ekstra
+[00:00:47] gereksinimleri vardı. Sadece bana bunu yap olmuyordu. Ama şu anda yeni çıkan
+[00:00:50] araçlarla artık tamamen cloud kod içinde bir iki tane farklı entegrasyonu kurarak
+[00:00:54] mobil uygulamalar geliştirebiliyoruz. Öncelikle bu alana yeniyseniz ve
+[00:00:57] sıfır'dan başlıyorsanız hiç sorun değil. Bu video sizin için de uygun olacak. O
+[00:00:59] yüzden sıfır'dan önce bizim cloud kurmamız lazım. Google'ı açtım. Buraya
+[00:01:02] VS kodu yazıyorsunuz. Bizim VS kodu indirmemiz lazım. Çünkü evet kod
+[00:01:05] yazmayacağız ama bizim bir kod arayüzüne ihtiyacımız var. Çünkü cloud'un kodu
+[00:01:08] yazacağı bir ortama ihtiyacı var. Bunun için VS kodu kullanacağız. Tamamen
+[00:01:11] ücretsiz bir araç. Geliyorsunuz buraya indire basıyorsunuz ve indiriyorsunuz.
+[00:01:14] Bu birinci yapacağınız şey. Sonrasında indirdiğiniz uygulamayı açıyorsunuz ve
+[00:01:17] sizi böyle bir ekran karşılayacak. Boş bir ekran. Burada hiçbir şey anlamanıza
+[00:01:20] gerek yok. Şu aşamada yukarı geldim ve terminale basıyorum ve yeni terminal
+[00:01:23] diyor. Terminalim açıldı. Aslında cloud'umuz burada yaşayacak. Belli
+[00:01:25] farklı yöntemleri de var. Eklenti vesaire kullanabiliyorsunuz ama ben
+[00:01:28] terminalde kurmayı göstereceğim. Ben ettiği yöntem o. Ama zaten tamamen chat
+[00:01:31] temelli olacak. Yapacağımız şey. Hiçbir kod bilgisine ihtiyacınız yok.
+[00:01:33] Geliyorum. Sonrasında şu siteye gidiyorsunuz. Bu arada aşağıya linkini
+[00:01:36] koyuyorum. Bunun oradan da alabilirsiniz. Burada sadece
+[00:01:38] geliyorsunuz. Bu satırı kopyalıyorsunuz ve bunu getiriyorsunuz. Terminalinize
+[00:01:42] yapıştırıyorsunuz ve enter'a basıyorsunuz. Bunu yaptığınızda sizin
+[00:01:44] bilgisayarınıza cloudu indiriyor. Yani artık terminalinizden cloud kodu ve onun
+[00:01:48] içindeki antropik modellerini kullanabiliyorsunuz. Şimdi bende zaten
+[00:01:51] indirildiği için burada indirmeme gerek yok. Ekstra sadece artıya basıyorum ve
+[00:01:54] cloud yazıyorum. İndirdikten sonra cloud yazıyorsunuz. Yes diyorsunuz ve artık
+[00:01:57] geldi. Ben buraya mesela merhaba diyebiliyorum ve artık cloud'um
+[00:02:00] çalışıyor. Bana cevap veren bir sistemim var. Bu normal bir chat arayüzü gibi
+[00:02:03] görünüyor zaten. Kullanımı kolay. Merhaba hesap nasıl yardımcı olabilirim
+[00:02:05] diye cevap verdim. Şimdi cloud'umuzu kurduk DS kodun içinde. Bu konuda da bu
+[00:02:09] arada detaylı bir video var kanalımda. Cloud kod nedir, nasıl kullanılır? İki
+[00:02:11] tane uzun masterclass var. Onları da inceleyebilirsiniz. Üstüne bir de bir
+[00:02:14] şeye daha ihtiyacımız var. Çünkü uygulamayı React Native'de kurmamız
+[00:02:16] lazım. Yani mobile uyumlu bir dilde kurmamız lazım gibi düşünebilirsiniz en
+[00:02:19] basit anlatımıyla. O yüzden internete geliyorum. Yine buradan geldim. Bunun
+[00:02:22] için bizim önce N'u indirmemiz lazım ki hem Android'de hem Apple'da çalışsın ve
+[00:02:25] bilgisayardan rahatça test edebilelim. Yani XCod veya Android Studio gibi
+[00:02:28] araçlara bile ihtiyacımız olmadan tamamen tek bir bilgisayardan test etmek
+[00:02:31] için Node'a ihtiyacımız var. Geliyorum buraya. Node download yazarsanız zaten
+[00:02:35] göreceksiniz. Ben indirdiğim için bir daha indirmeyeceğim. Geliyorsunuz bunu
+[00:02:37] direkt kopyalayıp cloud yapıştırıyorsunuz. Bunu alıyorsunuz
+[00:02:40] şuraya. Sonrasında burada yeni bir terminal açıp buraya yapıştırdığınızda
+[00:02:43] sizin için indiriyor onu. Bu birinci yapacağımız şey. Sonrasında da boş bir
+[00:02:46] expo projesi oluşturmamız lazım. Şimdi geliyorum buraya bir de Expo Mobile
+[00:02:49] yazıyorum. Göreceksiniz zaten Expo diye bir şey var. Bu da sizin React Native
+[00:02:52] ile beraber uygulamalar geliştirmenizi sağlayan bir yapı. Bizim bunu da cloud
+[00:02:55] kurmamız lazım. Ama burada artık bizim terminalimizde çalışan bir yapay zeka
+[00:02:58] sistemimiz olduğu için şunu diyebiliriz. Benim için Expo'yu kur ve boş bir proje
+[00:03:02] oluştur. Mobil bir uygulama yapacağız. Ve artık ben bunu dediğim andan itibaren
+[00:03:06] Cloud benim için bunu yapabiliyor. Benim burada Expo'nun kurulumuyile alakalı
+[00:03:09] bile çok bir şey yapmama gerek yok. Çünkü doğru kurulumu yaptığınızda
+[00:03:11] tamamen cloud'la konuşarak her aşamayı halletmesini sağlayabiliyorsunuz.
+[00:03:14] Tamamdır. Diyor ki önce node ve MPN sürümlerini kontrol ediyorum diyor.
+[00:03:16] Nodu'u zaten indirmeyi göstermiştik. Onları da indirdik. Şimdi onlara baktın.
+[00:03:19] Note 25 kurulu. Sorun yok. Şimdi boş bir Expo projesi oluşturuyorum diyor. Süper.
+[00:03:22] Projeyi tamamen Cloud'da yapmıyoruz. Çünkü Expo bizim bunu Google Play
+[00:03:25] Store'a veya Apple'daki App Store'a yayınlamamızı sağlayan aracı. Direkt
+[00:03:28] tamamen sadece Cloud'un içinde lokal de kod yazarsak bunu web tabanlı bir
+[00:03:32] uygulama olarak yayınlayabiliriz ama pazar yerlerine yayınlayamayız. Bizim
+[00:03:35] pazar yerlerine yayınlayabileceğimiz gerçek bir uygulamaya ihtiyacımız var. O
+[00:03:38] yüzden Expo'yu kuruyoruz. İçinde şimdilik boş bir proje oluşturmasını
+[00:03:41] istiyoruz. Şimdi bir de bizim bir sonraki aşamada bilgisayarda yapacağımız
+[00:03:43] uygulamayı mobilde test edebilmemiz için Expo'yu telefonumuza da kurmamız lazım.
+[00:03:46] Geldim sadece App Store'a girdim. Aramaya Expo yazıyorum. Zaten en üste
+[00:03:50] çıkacak. Expo Go. Buna basıyorsunuz. İndire basıyorsunuz ve bu kadar. Şimdi
+[00:03:54] indirecek sizin için. O bizim için şimdi Expo Go'yu indirecek. Sonrasında sadece
+[00:03:58] bir QR kodla ben telefonda test edebileceğim Cloud'un yaptığı uygulamayı
+[00:04:02] canlıya almadan önce. Şimdi bilgisayar tarafında diyor ki hazır diyor boş bir
+[00:04:05] Expo projesi oluşturuldu diyor. Çalıştırmak için bunları yap diyor.
+[00:04:07] Tamamdır. Sonra telefonda Xboga uygulamasını kurup terminaldeki QR
+[00:04:10] kodunu canlı görebilirsin diyor. Tamamdır. Ben sadece diyorum ki şunu
+[00:04:13] kopyalıyorum. Geldim. Yeni bir terminal açıyorsunuz arkadaşlar. Buna
+[00:04:16] basıyorsunuz ve şimdi bizim için bir QR kod geldi. Ne yapıyorum? Telefondan Expo
+[00:04:19] Go'yu açtım. Buraya geldim. Burada hemen bir hesap açıyorum.
+[00:04:28] Tamamdır. Şimdi bana verdiği QR' okutacağım. Bunu zaten buradan da
+[00:04:30] alabilirsiniz. Diğer az önce ben terminalde yaptığım yerden de
+[00:04:33] alabilirsiniz. Şuradan alıyorum. Çok fark etmez zaten. Yap dediğinizde
+[00:04:36] çıkarıyor. Okutuyorum. Telefonumda expo'yu açıyor ve burada mobil
+[00:04:39] uygulamamı açıyor. Gördüğünüz gibi şu anda yükleniyor zaten. Adına mobil app
+[00:04:42] demiş ama boş bir uygulama açacak şu anda. Şu anda zaten boş bir şey açtı.
+[00:04:44] Tamamdır. Süper. Şimdi geliştireceğiz ama uygulamamızı tek yapmam gereken şey
+[00:04:47] şimdilik telefonumu yana bırakıyorum ve uygulamamızı bilgisayarımızda
+[00:04:50] geliştirmeye devam edeceğiz. Şimdi ben burada projemi de görmek istiyorum. O
+[00:04:53] yüzden diyorum ki bu projeyi VS COD içinde aç. Bu projeyi VS Codinde aç
+[00:04:57] dedim. Bu projeyi VSOD içinde aç dedikten sonra başka bir sayfa açtı
+[00:05:00] bana. Ama bu sefer uygulamamız var. Uygulamayı geliştireceği ortamı kurdu.
+[00:05:03] Ne dedik? Boş bir Expo projesi aç dedik. Benim için kur dedik. Bu kadar. Şimdilik
+[00:05:06] daha bir şey yapmadık. Kapatıyorum buraları. Yine aynı ortamımız. Terminali
+[00:05:10] getirdim. Yeni terminalimi cloud dedim ve cloud'umuz geldi. O zaman
+[00:05:13] uygulamamızı geliştirmeye başlayacağız. Tabii başlamadan önce uygulamaları daha
+[00:05:16] iyi yapması için ekleyebileceğimiz yetenekler var. Onları eklememiz lazım.
+[00:05:19] Şimdi geliyorum yeniden buraya. Diyorum ki Expo Skills yazarsanız internette bir
+[00:05:24] repo bulacaksınız. Bu repo sizin orada aslında uygulamaları daha etkili
+[00:05:27] yapmasını sağlayan yeteneklerden oluşuyor. Bu arada başka internette
+[00:05:30] gördüğünüz yetenekleri de kılavadan ekleyeceğinizle alakalı küçük bir not
+[00:05:33] olmuş olur bu. Koda geliyorsunuz. Bunu kopyalıyorsunuz. Diyorsunuz ki öncelikle
+[00:05:37] bu mobil uygulama projesi için bu yetenekleri ekle. Ve vias dışında zaten
+[00:05:41] burada yaptığı değişiklikleri görebileceğim. Şu anda ben bu
+[00:05:44] yetenekleri eklemesini istedim. Bunun içinde çok fazla farklı yetenek var.
+[00:05:46] Uygulamaları nasıl yapması gerektiğiyle alakalı, tasarımları nasıl yapması
+[00:05:49] gerektiğiyle alakalı vesaire bir sürü farklı detay var. Bunlar aslında bana
+[00:05:52] bir uygulama yap dediğinizde arka planda çalışacak bir detaylı sistem promptı
+[00:05:55] gibi düşünebilirsiniz. Daha iyi çıkılar vermesini sağlayacak. Hangi yetenekleri
+[00:05:58] eklemek istediğini belirtmemiş yönü tamam linki kopyalamamışım. Linki şimdi
+[00:06:01] yapıştırdım. Tamamdır. Bir de Expo ST254'e göre yap diyorum. O da zaten
+[00:06:05] telefonunuzda göreceğiniz uygulama versiyonuyla alakalı. Bakalım.
+[00:06:08] Sonrasında aslında kemiği hazır olmuş olacak. Uygulamanın çalışabileceği
+[00:06:11] ortamı hazırlamış olacağız. Burası bir yandan olurken, bu yetenekleri eklerken
+[00:06:14] biz de gidelim aslında uygulamamızın tasarımını yapalım. Bunun için ben cloud
+[00:06:17] dizign'ı kullanacağım. Cloud dizign gerçekten çok güzel bir araç ve
+[00:06:20] yeterince kişinin kullanmadığını düşünüyorum. Cloud'ın içindeki çok
+[00:06:22] kaliteli bir tasarım sistemi burası. Design diye bir şey göreceksiniz burada.
+[00:06:25] Ona basıyorsunuz. Sonrasında buraya biz promptimize veriyoruz ve burada
+[00:06:28] seçebiliyorsunuz. 3D model mi istiyorsunuz, slide mı istiyorsunuz? Ne
+[00:06:30] istiyorsanız sizin için çok güzel tasarımlar çıkarıyor. Diyorum ki mobile
+[00:06:32] app design olacak. Minimalist alışkanlık takip uygulamasına ihtiyacım var. Farklı
+[00:06:37] modelleri de kullanabilirsiniz. Fable 5 kullanalım. Çok fark etmez ama opus da
+[00:06:40] kullanabilirsiniz. Burada tam olarak ne istediğimi anlatıyorum. Diyorum ki alt
+[00:06:43] sayfaları olan, tıklanabilir ve güzel görünen bir tasarım istiyorum. Bunu
+[00:06:47] kullanıcı deneyimini optimize et diyorum. Bir de birkaç tane özellikten
+[00:06:52] bahsedelim. Bir ana ekran, istatistikler kısmı veya işte analitikler diyelim.
+[00:06:56] Analitikler kısmı ve başka mantıklı olacağını düşündüğün özellik. Neden
+[00:07:02] tasarımı direkt terminalde yaptırmıyorum da burada yaptırıyorum? Çünkü burası
+[00:07:05] tamamen tasarım özelinde uzmanlaşmış bir sistem. Arka planda kurdukları sistem
+[00:07:08] kaliteli tasarımlar kurmak üzerine. O yüzden terminalde bana bir tasarım yap
+[00:07:11] dememin üstüne bir tık daha iyi tasarımlar yapacaktır. Burada buna
+[00:07:14] bastım. Mobil uygulama tasarımı dedim. Burada zaten onun ön izlemesini de
+[00:07:17] görüyor olacağım. Yani aslında cloud'a bir kere bir şey yaptırıp daha güzel
+[00:07:20] yap, daha güzel yap, daha güzel yap demek yerine önce tasarımı yapıp sonra o
+[00:07:23] tasarımı verip onu kopyalamasını isteyip sonra üzerine değişiklik istemek çok
+[00:07:26] daha verimli bir iş akışı oluyor aslında. Geldi diyor ki hangi cihaz için
+[00:07:29] tasarımlayayım diyor. Mobil olacak. Alışkanlıklar nasıl takip edirsin diyor.
+[00:07:33] Decide for me diyorum. Decide for me dediğinizde benim için karar ver
+[00:07:35] diyoruz. Analik ekranında ne görmek istersin? Onu da decide for diğer her
+[00:07:39] şeye decide for me diyelim. Onu da decide for veya geçiş olsun içinde
+[00:07:42] olsun. Arayüz Türkçe olsun. Tek derinlemesine çalışılmış prototip dedim.
+[00:07:46] Şimdi onlara da cevap verdim. Benim için şimdi oluşturmaya başlayacak uygulamayı.
+[00:07:48] Sonrasında ben buradan uygulamanın tasarımını alıp onu cloud'a
+[00:07:51] verebiliyorum ve bunu benim için yap diyebiliyorum. Bir yandan bakalım o
+[00:07:53] tarafta da ne oluyor. Aynen şu anda diyor ki iki işte bitti diyor.
+[00:07:57] Yetenekleri ekledim diyor. SK45'e göre projeni yaptım diyor. Yani aslında
+[00:07:59] telefonumla uyumlu şekilde projeni de yaptım diyor. Süper. Önce tasarımımızı
+[00:08:03] yaptıralım. Sonra buraya getirelim. Sonrasında telefonumuzdan uygulamamıza
+[00:08:06] bir bakalım. Şu an tasarımımızı yapıyor. Bu arada yan tarafta yapılacaklar diye
+[00:08:09] de çıkarıyor. Diyor ki tamam ben bunları yapacağım diyor. Sonrasında yaptıkça da
+[00:08:12] tikliyor tek. Bunu yaptım, bunu yaptım, bunu yaptım diye. Şu anda başlangıçtaki
+[00:08:15] ilk alışkanlık takip kısmını yapıyor. Bakalım. Tamamdır. Şimdi ilk versiyonunu
+[00:08:18] getirdi uygulamanın. Bu arada başka değişiklikler de getirecek. Burada şunu
+[00:08:21] da görüyorsunuz. kendisi bir sekmede bunu açıp düğmelere basarak test ediyor.
+[00:08:24] Sonrasında diyor ki tamam bu çalışmıyormuş, bu çalışıyormuş diye.
+[00:08:26] Gerçek testlerde de bulunmasını sağlayabiliyorsunuz bu [müzik] şekilde.
+[00:08:28] Bakalım güzel görünüyor bence. Analitik kısmı koymuş, ayarlar kısmı koymuş. Bir
+[00:08:32] de yeni alışkanlık ekleme sistemi koymuş. Çok güzel. Şu yukarıda biraz
+[00:08:35] çakışıyor tarihli ama onları zaten cloud'da da yaparız. Şimdi genel tasarım
+[00:08:38] gerekiyor sadece. Prototip hazır diyor. Farklı renk alternatifleri de koymuş.
+[00:08:42] [müzik] İlk versiyon için güzel. Şimdi bunu mobil bir uygulamaya çevirmek,
+[00:08:44] telefonumda bunu çalıştırabilmek. Bakalım. Şimdi ne yapıyoruz? Bunu
+[00:08:47] alıyoruz. Proje dosyalarına gidiyoruz. Sonrasında tek yapmam gereken şey buraya
+[00:08:50] gidiyorum. Proje dosyalarına gidiyorum. Bunları indiriyorum. Üçünü de
+[00:08:53] indirebilirsiniz. [müzik] Birinciyi indirdim. İkinciyi indirdim ve üçüncüyü
+[00:08:58] indirdim. Sonrasında diyorum ki buraya geldim. Cloud [müzik] design kullanarak
+[00:09:02] tasarımı indirdim. Dosyalarını onunla ilgili diyorum ve bu şekilde kurmasını
+[00:09:06] sağlayabiliyorum aslında. Bu arada bu şekilde de kullanabilirsiniz. Yani
+[00:09:09] indirdiğiniz bir şeyi direkt göndermenize gerek yok. İndirlendirme
+[00:09:11] git bak derseniz bilgisayarınızda çalıştığı için cloud COD sizin için onu
+[00:09:14] da yapabilecek. Gidecek oradan alacak yazacak. Şimdi paketleri kurdum.
+[00:09:17] uygulamaya yazıyorum diyor. Uygulamayı hazırlayacak. Bize QR kodumuzu verecek.
+[00:09:20] Telefondan okutacağız ve mobilde kullanmaya başlayacağız uygulamayı. Bu
+[00:09:22] arada evet cloud arka planda Expo'yu tamamen kullanıyor ama kendiniz de
+[00:09:25] incelemeniz yararlı olacaktır. Özellikle mobil uygulamaları geliştirecekseniz
+[00:09:28] büyük oranda zaten Expo'yu kullanacaksınız. O yüzden Expo nasıl
+[00:09:31] çalışır, nedir, nasıl kullanılır onları öğrenmeniz sizin için güzel olur.
+[00:09:34] Tamamen mobil uygulamalar geliştireyim ben. Bunları direkt canlıya alayım
+[00:09:37] istiyorsanız Android'de veya iOS'ta ikisini de buradan yapabiliyorsunuz. Her
+[00:09:40] şeyi buradan yapabiliyorsunuz. Ama kendi arzını kullanmanıza gerek yok. Dediğim
+[00:09:42] gibi cloud'la burası arasında bir bağlantı kurabiliyorsunuz ve
+[00:09:45] fiyatlandırması da çok güzel. Çünkü direkt pricing'e bastığınızda
+[00:09:47] göreceksiniz zaten. Ama başlangıçta ilk uygulamalarınızı tamamen ücretsiz
+[00:09:50] geliştirebiliyorsunuz. Hiçbir para ödemeden yapabiliyorsunuz. Sonrasında
+[00:09:53] bazı özellikler için tabii ki para ödemeniz gerekiyor. Ama büyük oranda
+[00:09:56] kendiniz bir şeyler deneyeyim, ben bir uygamalar geliştireyim diyorsanız bunu
+[00:09:59] tamamen ücretsiz yapabiliyorsunuz. Burada ben ekstra bir hesap vesaire bile
+[00:10:01] açmadım. Benim için Expo'yu indir dedim cloud'a ve o şekilde bir ilişki kurdum
+[00:10:04] aralarında. Bakalım şimdi paketleri kuruyor. Sonrasında uygulamamızı hazır
+[00:10:07] hale getirecek. Tamamdır. Şimdi diyor ki uygulamanı geliştirdim diyor. Tabii
+[00:10:10] mobil test edeceğiz ama test etmeden önce ben bunu bir kaydetmesini
+[00:10:13] istiyorum. Kalıcı bir şekilde kaydetmesi için de bunu ben Gitab'a göndereceğim.
+[00:10:16] Diyorum ki benim için bunu Gitab'a kaydet. Satma yön [müzik] hesabını
+[00:10:20] kullan. Hesabını kullan. Bu benim kendi kitap kullanıcı adım. Oraya kaydet
+[00:10:23] diyorum uygulamayı. Böylece daha rahat rahat test edebilirim. O kaydederken biz
+[00:10:26] bir yandan test edebiliriz. Şuraya geliyorum. Şunu kopyalıyorum. Artıya
+[00:10:29] basıyorum ve terminalime bunu yapıştırıyorum. Şimdi geldi. Tamamdır.
+[00:10:32] Şimdi gördüğünüz gibi bir QR kod verdi bana. Telefonumdan geliyorum. Yine
+[00:10:36] kameramı açtım. QR'ımı okuttum. Basıyorum ve yine bizim için expo'yu
+[00:10:40] açtı. Uygulamaya yönlendirdi. Bakalım. Ve uygulamayı telefonum da şu anda
+[00:10:43] kuruyor. Bakalım. Zaten ekranda da görüyorsunuz. Bundle diyor, kurudu
+[00:10:47] diyor. Şu anda yükleniyor uygulamam ve gördüğünüz gibi telefonda çalışan bir
+[00:10:50] uygulama var şu anda. Ben buradan alışkanlıklarımı seçebiliyorum. Yaptım
+[00:10:53] bunu. Diyorum meditasyon mesela bunu şöyle yapmış. 10 dakika 10 dakika
+[00:10:56] okudukça ekliyor. Tamam. Süper. Sonrasında burada ben bunların grafiğini
+[00:11:00] görebiliyorum. Genel alışkanlıklar görebiliyorum. Yeni alışkanlık
+[00:11:03] ekleyebiliyorum. Ve koyu tema da var. O da güzel. Bu arada gördüğünüz gibi
+[00:11:05] mobilde şu an çakışmıyor bugün kısmı. Sadece yukarı kayıyor ama geri geliyor.
+[00:11:09] Renk özelliği eklemiş. haftalık özet diye bir şey eklemiş. Bildirimler de
+[00:11:13] var. Bildirimleri açtığınızda telefona gerçekten bildirim gelecek. Şimdi burada
+[00:11:16] ben bir değişiklik yaptığımda nasıl görünüyor peki? Onu da deneyelim. Şuraya
+[00:11:19] geldim. Tamamdır. Bundan sonra ben burada bir değişiklik yapmak istediğimde
+[00:11:22] sadece buraya promp vererek değiştirebiliyorum ve telefonumdaki
+[00:11:24] mobil uygulamamda değişik oluyor. Her zaman test edeceğim zaman da kutuyorum,
+[00:11:27] test ediyorum. Jokuyorum, test ediyorum. Şimdi artık benim uygulamalarımı iOS ve
+[00:11:31] Android'e uygun şekilde dosyalara çevirebiliyor. Sonrasında ben gidiyorum
+[00:11:34] Google Play Store hesabını açıyorum. Bu dosyayı yürükle bırak yapıyorum ve oraya
+[00:11:36] yüklemiş oluyorum. Diyorum ki tamamdır. Şimdi benim için bu uygulama onaylanırsa
+[00:11:39] canlıya çıkacak. Aynı şekilde App Store için de geçerli. App Store'da bir
+[00:11:42] developer lisansına ihtiyacınız var. Onun bir ödemesi var. Ama onun dışında
+[00:11:45] ekstra bir ödeme olmadan uygulama geliştirebiliyorsunuz. Şahsi kullanım
+[00:11:48] içinse de bu şekilde kullanabiliyorsunuz. Veya bir prototip
+[00:11:50] içinse böyle mobil uygulama geliştirebiliyorsunuz. Şimdi onu da
+[00:11:53] sorabilirim. Diyebilirim ki ben şimdi bunu Google Play Store ve App Store'a
+[00:11:57] nasıl submit edebilirim? Veri tabanı vesaire içinde yine superase
+[00:12:00] kullanılabilir. Bu konuda da daha detaylı bir video çekebilirim. Eğer
+[00:12:02] isterseniz sıfırdan canlıya alma sürecini de gösterebilirim başka bir
+[00:12:05] videoda. Şimdilik böyle diyorum. Böyle dediğimizde App Stores diye bir yeteneği
+[00:12:08] kullanıyor. Bunlar bizim video başında eklediğimiz yetenekler. O yetenekleri
+[00:12:11] kullanarak App Store'lara uygun şekilde dosyalayacak bunları. Tamamdır. Şimdi
+[00:12:14] diyor ki ne yapmamız gerekiyor? Uygulamayı hazırlayacağız diyor. Apple
+[00:12:17] Developer dediğim gibi 99 dolarlık bir ödeme gerektiriyor. Google Play Store 25
+[00:12:20] dolarlık tek seferlik. Expo hesabı tamamen ücretsiz. Bunları açıyorsunuz.
+[00:12:23] Sonrasında buradaki aşamaları takip ederek de uygulamanızı canlıya almış
+[00:12:26] oluyorsunuz. Şu anda ben farklı bir uygulama üzerine çalışıyorum. Onunla
+[00:12:28] alakalı süreç de daha detaylı bir master class oluyor olacak. O yüzden abone
+[00:12:31] olmayı unutmayın. Onu da kaçırmamış olursunuz. Bu basit bir uygulama olduğu
+[00:12:34] için bunu canlıya almanın çok bir anlamı yok ama sıfırdan şu anda bizim
+[00:12:36] geliştirdiğimiz Gold sistemi içinde mobil bir uygulama geliştiriyoruz.
+[00:12:39] Sıfır'dan sizin tüm uygulama kurma süreciniz de size destek olacak. Onun da
+[00:12:42] mobil uygulamasını tüm geliştirme sürecini şu anda videoya çekiyorum. O da
+[00:12:45] detaylı bir master class olmuş olacak. Aslında bu aşamaları takip ederek sadece
+[00:12:48] cloud kodu kullanarak mobil uygulamalar geliştirebiliyorsunuz. Orada
+[00:12:50] değişiklikleri yapabiliyorsunuz. Tasarımını yaptırabiliyorsunuz ve bu
+[00:12:52] şekilde uygulamayı canlıya alabiliyorsunuz. Umarım bu video sizin
+[00:12:55] için yararlı olmuştur. Bu biraz daha aslında cloud kodla mobil uygulama
+[00:12:57] geliştirmeye giriş gibi oldu. Önümüzdeki videolarda da bunları daha detaylı
+[00:13:00] çekmeyi düşünüyorum ama siz o videolarda tam olarak neyi görmek istersiniz onları
+[00:13:03] da aşağıya yazın. Onların da üzerinden geçip ona göre bir hazırlık yapmış
+[00:13:05] olurum. Bu arada sıfırdan uygulamaları geliştirip müşterilere satmakla alakalı
+[00:13:08] da bizim bir topluluğumuz var. Şu anda Türkiye'nin en büyük yapay zeka
+[00:13:10] topluluğu ve 1400'den fazla kişi orada sistemlerini kuruyorlar, müşterilere
+[00:13:14] ulaşıyorlar ve satışlarını yapıyorlar. O yüzden sizin için onun da yararlı
+[00:13:16] olabileceğini düşünüyorum. Onun da linkini aşağıya koyuyorum. Sonraki
+[00:13:18] videolarda görüşmek üzere. [müzik]
+[00:13:26] [müzik]
