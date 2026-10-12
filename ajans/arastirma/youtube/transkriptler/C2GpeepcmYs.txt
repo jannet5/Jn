@@ -1,0 +1,1638 @@
+# 
+# https://www.youtube.com/watch?v=C2GpeepcmYs
+# kanal:  | süre:  sn | kaynak: yt-dlp:web_safari+pot:C2GpeepcmYs.en.json3
+
+[00:00:00] Hey, what's going on, guys? Welcome to
+[00:00:01] my Claude Code Crash Course for
+[00:00:02] developers. Now, I want to explain what
+[00:00:04] this video is and what it's not. So, it
+[00:00:06] is an overall introduction to the Claude
+[00:00:08] Code agentic coding tool, and when it
+[00:00:11] comes to coding with AI in general, the
+[00:00:13] process is very subjective and
+[00:00:15] individualized. And it's kind of like
+[00:00:17] the wild west right now. Everybody does
+[00:00:19] things their own way, and I will share
+[00:00:21] my way, my process, but that'll be in a
+[00:00:23] separate coding with AI crash course
+[00:00:25] dedicated to showing you how to build
+[00:00:28] decent-sized project using things like
+[00:00:30] feature specs and testing and context
+[00:00:33] management and so on. Now, before I do
+[00:00:35] that, I want to create this overview of
+[00:00:37] Claude Code, and I know that there's a
+[00:00:38] lot of guides out there on YouTube.
+[00:00:40] However, a lot of them are focused on
+[00:00:42] vibe coding and just prompting from, you
+[00:00:44] know, from the terminal. I want to show
+[00:00:46] you the basics, but also get you set up
+[00:00:48] in VS Code, and not only prompt, but do
+[00:00:50] a little bit of refactoring, look at the
+[00:00:52] diffs and exactly what Claude's doing,
+[00:00:54] some of the internal tools that it runs,
+[00:00:56] and so on. And we'll create a very
+[00:00:58] simple terminal interface, as well as
+[00:01:01] use Claude with Git to clone an existing
+[00:01:03] repo and add some features to it. Now,
+[00:01:06] along the way, I'll walk you through the
+[00:01:07] features that you're going to use
+[00:01:09] day-to-day. We'll talk about setup,
+[00:01:11] prompting, models. I'll explain how
+[00:01:13] context and tokens work, skills, MCP,
+[00:01:17] sub-agents, and so on. And I'm going to
+[00:01:19] try to keep it short, but I always have
+[00:01:20] a hard time doing that and and getting
+[00:01:22] out all I want to say. But, after this,
+[00:01:25] you should have a pretty good handle on
+[00:01:27] using Claude Code, and in the next crash
+[00:01:29] course I release, we'll be creating,
+[00:01:32] basically creating a a project start to
+[00:01:34] finish and my entire process.
+[00:01:37] >> [music]
+[00:01:41] >> Hey guys, real quick, since you're
+[00:01:42] learning about Claude Code, I wanted to
+[00:01:44] mention my latest course, Coding with
+[00:01:46] AI. It's a 16-hour course where I show
+[00:01:48] you how to build an app from start to
+[00:01:49] finish using context management, spec
+[00:01:52] files, skills, agents, and more. And I
+[00:01:54] know some people are skeptical about AI
+[00:01:57] in software development and and trust
+[00:01:58] me, I get it. I have a lot of the same
+[00:02:00] opinions, but the fact is it's here to
+[00:02:02] stay and all the top companies are
+[00:02:04] requiring AI skills. So, I wanted to
+[00:02:06] give you a a process and a workflow that
+[00:02:08] you can easily follow. And I also want
+[00:02:11] to thank Neon for making this course
+[00:02:12] possible. We use Neon Postgres database
+[00:02:16] in the main project and I constantly use
+[00:02:18] them in my own projects. They even gave
+[00:02:20] us a link for a $100 credit and I'll put
+[00:02:22] that in the description. Okay, so I'm
+[00:02:24] sure that a lot of you have an idea of
+[00:02:26] what Claude Code is. It's Anthropic's
+[00:02:28] agentic coding tool and it runs in your
+[00:02:30] terminal, although there's also a
+[00:02:31] desktop app. There's also extensions for
+[00:02:34] editors and I'll get to that, but for
+[00:02:36] the most part, if you're a developer,
+[00:02:38] you're going to be running it in your
+[00:02:39] integrated terminal within your editor
+[00:02:42] or with an editor extension. Now, unlike
+[00:02:44] something like ChatGPT or the Claude AI
+[00:02:47] website, it actually runs on your
+[00:02:49] machine and works in your code base. It
+[00:02:51] reads files, writes files, it runs
+[00:02:54] commands and tooling and so on. And
+[00:02:56] there's other tools like it such as Code
+[00:02:58] X, Cursor, although Cursor is an editor,
+[00:03:00] it has the same agentic capabilities.
+[00:03:03] But if you have any experience with
+[00:03:04] these other tools, then you already have
+[00:03:06] a leg up. Now, I I do want to quickly
+[00:03:08] talk about pricing. I feel like not
+[00:03:10] enough guides actually mention pricing
+[00:03:13] because it's not free for the most part.
+[00:03:15] There is a free tier, but it's basically
+[00:03:18] just to try it out and that's definitely
+[00:03:19] what I would suggest starting with. But
+[00:03:22] if you start to use it with a real
+[00:03:23] project, you're going to hit caps really
+[00:03:25] quickly. The next step up is Pro, which
+[00:03:27] is $20 a month or 17 if you pay
+[00:03:30] annually, and then there's a Max plan,
+[00:03:32] which is $100 and that's five times the
+[00:03:34] usage of the Pro plan, and a $200 Max
+[00:03:37] plan plan that's 20 times the usage of
+[00:03:40] the Pro plan. I personally use the the
+[00:03:42] $200 Max, but I use it all day, every
+[00:03:45] day, not just for coding, but I use the
+[00:03:47] desktop co-work tool for planning and
+[00:03:51] and specking out projects and all types
+[00:03:53] of stuff. And I'll I'll talk about that
+[00:03:55] as well. Now, when it comes to
+[00:03:57] installing Claude,
+[00:03:59] there's a couple like I said, there's a
+[00:04:00] few environments. You have the desktop
+[00:04:02] app, which is what you see here, and it
+[00:04:04] seems like they're really pushing the
+[00:04:05] desktop app because they used to have
+[00:04:07] the curl command to ins- you know, to
+[00:04:09] set up the terminal here as the main
+[00:04:11] call to action, but now it's a download
+[00:04:13] button for the desktop app. However, for
+[00:04:15] the terminal, you simply click here,
+[00:04:17] terminal, and then you have your your
+[00:04:19] curl command. Now, I do want to just
+[00:04:21] cover the desktop app real quick. So,
+[00:04:24] basically, there's three parts to it.
+[00:04:26] You have the chat tab, the co-work tab,
+[00:04:28] and the code tab. So, the chat tab is
+[00:04:31] basically the Claude AI website. It's
+[00:04:33] it's a chatbot. It doesn't It doesn't um
+[00:04:36] you know, it doesn't run on your file
+[00:04:37] system, or I shouldn't say that, it
+[00:04:39] doesn't have access to your file system.
+[00:04:41] It does have some integrations with like
+[00:04:43] Google Drive and calendar and so on.
+[00:04:45] But, for the most part, it's just chat
+[00:04:46] GPT. Now, this the second tab is what I
+[00:04:49] use this for, and that's co-work. So,
+[00:04:51] co-work is basically like a virtual
+[00:04:54] assistant, and it could does connect to
+[00:04:57] your file system. You can see I have it
+[00:04:58] connected to my Traversi Labs folder,
+[00:05:01] which is actually my Obsidian vault.
+[00:05:02] Obsidian is like a markdown database,
+[00:05:05] and I literally track my entire life in
+[00:05:08] Obsidian. So, from business to my
+[00:05:10] calendar to personal stuff, YouTube
+[00:05:13] courses, just everything. And co-work,
+[00:05:16] basically, I'll run a skill, a good
+[00:05:18] morning skill, every morning, and it
+[00:05:20] tells me what's on my schedule, my
+[00:05:22] to-do's, what I should be working on,
+[00:05:24] and so on. And then I'll use it to to
+[00:05:26] plan out and speck out projects and
+[00:05:29] stuff. So, I really like co-work. And
+[00:05:32] then you can choose the model here. Now,
+[00:05:34] Fable 5 was just released 2 days ago,
+[00:05:37] and I've used it a little bit, and I do
+[00:05:39] like it, but I don't really I haven't
+[00:05:41] used it enough to have a real opinion on
+[00:05:42] it. I was using for Opus 4.8 for
+[00:05:45] whatever a month or however long it was
+[00:05:47] released, and I really like Opus, but uh
+[00:05:51] I'm giving Fable a a chance. Now, the
+[00:05:54] third tab here is code. It's Claude
+[00:05:56] Code, and I don't use this because it's
+[00:05:58] more like vibe coding. I mean, you can
+[00:06:00] prompt here, and I can say build me
+[00:06:02] whatever,
+[00:06:03] but I don't have act direct access to
+[00:06:05] the code. So, you're going to if unless
+[00:06:08] you're vibe coding, you're going to want
+[00:06:09] it in your editor where you can see your
+[00:06:11] entire project structure, and you can
+[00:06:14] watch what it does. You can edit code
+[00:06:16] yourself. So, I personally don't use
+[00:06:18] this, but if you want to, that's that's
+[00:06:21] absolutely fine. To install it in your
+[00:06:23] terminal, you're going to copy this curl
+[00:06:25] command, and you're going to open up
+[00:06:27] your terminal, you're going to paste
+[00:06:28] that in, and run it, and then just go
+[00:06:30] through the process. I already have it
+[00:06:32] installed, so I'm not going to run that,
+[00:06:34] but that's what you would do to get set
+[00:06:36] up. And then, you can just do Claude
+[00:06:39] Claude {dash} {dash} version, and it'll
+[00:06:40] show you if it's installed. It'll show
+[00:06:42] you the current version. Now, the
+[00:06:44] working directory is really important
+[00:06:45] because that's where it's going to run.
+[00:06:47] That's where it's going to have access.
+[00:06:48] So, I'm in my code folder. What I'm
+[00:06:50] going to do is make a directory called
+[00:06:52] coin CLI, and this will be the simple
+[00:06:55] project that we work with in this
+[00:06:57] tutorial. So,
+[00:06:58] um what I'll do is open up Actually,
+[00:07:01] let's CD into coin CLI, and then that's
+[00:07:04] where I'm going to run Claude. Now, if
+[00:07:06] it's your first time log um running
+[00:07:08] Claude, you're probably going to have to
+[00:07:09] authenticate, so you do need an account
+[00:07:11] at claude.ai. You don't need a paid
+[00:07:14] subscription. You can use the free tier,
+[00:07:16] but you do need an account, and it will
+[00:07:17] ask you to to validate. And at any time,
+[00:07:20] you can do {slash} login to
+[00:07:22] authenticate, and you can also do
+[00:07:24] {slash} logout.
+[00:07:26] All right. Now, let's just look at the
+[00:07:28] the kind of welcome interface here. So,
+[00:07:30] first off, it gives you the version,
+[00:07:33] right? Claude Code version. It gives you
+[00:07:34] the working directory, the model that
+[00:07:37] you're using, which I have this set to
+[00:07:38] Opus 4.8. Um this isn't my main working
+[00:07:41] machine. The one behind me is, which is
+[00:07:43] using Fable, but it also shows you the
+[00:07:46] context window, which for me is a a
+[00:07:48] million token context window. I'll talk
+[00:07:51] more about that in in a few minutes. And
+[00:07:53] I'm using extra high effort, which is
+[00:07:55] kind of a new feature. I'll talk about
+[00:07:57] that, too. And shows you your plan,
+[00:07:59] which for me is Claude Max. Now, I want
+[00:08:02] to talk about models. So, these are
+[00:08:04] slash commands. If I just do slash, you
+[00:08:06] can see there's a a big directory of
+[00:08:08] these commands, and it shows you on the
+[00:08:09] right what they do. So, I want to run
+[00:08:12] model.
+[00:08:13] And from here is where you can actually
+[00:08:16] see and choose your models. In fact, I'm
+[00:08:18] going to change mine to Fable.
+[00:08:21] So, you as you can see, there's four
+[00:08:24] available for me. There's Opus, Fable,
+[00:08:26] Sonnet, and Haiku. Now, you can't use
+[00:08:28] other LLMs. You can't use GPT or Gemini
+[00:08:31] or anything like that. It has to be an
+[00:08:32] Anthropic model. And basically, you have
+[00:08:36] um these models, they they cost uh
+[00:08:39] different amounts of tokens. So, Opus is
+[00:08:42] a lot more expensive in tokens than
+[00:08:44] Sonnet or Haiku, right? Sonnet is is an
+[00:08:47] older model. It's It's decent for
+[00:08:49] coding, but I would definitely prefer
+[00:08:51] Opus over Sonnet. And then Haiku is the
+[00:08:53] cheapest model, which is good for like
+[00:08:55] really really easy, quick tasks. All
+[00:08:58] right. So, you're going to select your
+[00:08:59] model here. And
+[00:09:02] you might be saying, well, why does it
+[00:09:04] matter how many tokens? I have a
+[00:09:06] subscription. I'm not paying, you know,
+[00:09:07] I'm not using an API key where I pay per
+[00:09:09] token. Well, there's limits to to your
+[00:09:13] subscription. So, if you do slash usage,
+[00:09:17] you can see the usage and what you're
+[00:09:19] allocated. So, for me, I'm my my current
+[00:09:22] session, a session is about 5 hours, I
+[00:09:24] have 26% used. And it tells you when it
+[00:09:27] resets. Resets at 12:29. Right now, it's
+[00:09:31] 11:47. So, I'm definitely not going to
+[00:09:34] use the rest of this within that
+[00:09:35] allocation. And for the current week,
+[00:09:38] this pertains to all models, I have 29%
+[00:09:41] used. This resets June 13th. Today is
+[00:09:45] June 12th, so it resets tomorrow. So, no
+[00:09:47] way am I using, you know, 70%. And then
+[00:09:50] even if you max this out, you still have
+[00:09:53] uh an allocation of of the Sonnet model,
+[00:09:56] right? So, if I use Opus, I max this
+[00:09:58] out, I'll still be able to use Sonnet
+[00:10:00] for an amount of time. Now, this this
+[00:10:04] obviously pertains to your plan, right?
+[00:10:06] If you're on the pro plan, you're going
+[00:10:07] to have to be more conservative in terms
+[00:10:10] of of your usage, you know, your model
+[00:10:12] usage. You might even use Sonnet for
+[00:10:15] lighter tasks and so on. But, this will
+[00:10:17] show you, you know, show you your
+[00:10:19] allocations. And then up here, you can
+[00:10:21] see we have uh
+[00:10:23] these we have stats and config.
+[00:10:25] Actually, they used to be yeah, this is
+[00:10:27] what I want. So, this will show you your
+[00:10:29] usage by by day, by time, um favorite
+[00:10:33] model, total tokens, your longest
+[00:10:35] session, and so on.
+[00:10:37] All right. So, just know that even if
+[00:10:39] you have a subscription, you still want
+[00:10:41] to you want to be wary of your token
+[00:10:43] usage. Now, another thing that can can
+[00:10:46] raise your token usage is the effort.
+[00:10:49] So, I'm using extra high. So, if you do
+[00:10:51] {slash} effort, and this is a new
+[00:10:54] feature, but if you do this, you can
+[00:10:55] select anywhere from low to ultra code.
+[00:10:59] And obviously, the higher, the more
+[00:11:01] tokens you use. I tend to keep mine on
+[00:11:03] extra high, but again, if you're using
+[00:11:05] like the pro plan, you might want to be
+[00:11:07] a little more conservative and go to
+[00:11:09] high or even medium.
+[00:11:11] So, I keep mine at extra high.
+[00:11:14] All right. Now, before I I do anything
+[00:11:16] and I prompt, I don't want to do it from
+[00:11:18] here. Very rarely do will I use a
+[00:11:20] standalone terminal. I'll use it within
+[00:11:22] VS Code, so I'm going to do {slash} exit
+[00:11:25] to get out of this. And then let's go
+[00:11:28] ahead and open up
+[00:11:30] VS Code within the Coin CLI directory.
+[00:11:34] Okay, so from here, let's close this
+[00:11:36] stuff up. From here, there's really two
+[00:11:38] ways to use Claude. I can just open up
+[00:11:41] my integrated terminal or I can use the
+[00:11:43] extension. I prefer the extension
+[00:11:45] because it shows things in a much neater
+[00:11:47] way. There are a couple limitations, but
+[00:11:50] nothing really that I do daily, but I
+[00:11:53] want to show you both. So, I'm going to
+[00:11:54] start off with the regular terminal,
+[00:11:56] which you can go to new terminal or
+[00:11:57] just, you know, control tilde, and then
+[00:12:01] we'll run Claude just like we did in the
+[00:12:03] standalone terminal. And I'm just going
+[00:12:05] to put this on the right.
+[00:12:08] Okay, so typically I'll have my, you
+[00:12:10] know, Claude open here. I'll have my
+[00:12:12] code, and then of course my explorer,
+[00:12:14] and I have access to everything. Now, I
+[00:12:16] want to run my first prompt, which I
+[00:12:18] actually have in a gist, if you guys
+[00:12:20] want to kind of follow along. So, and
+[00:12:23] I'll have the link in the description.
+[00:12:25] So, it says, "Create a node script in
+[00:12:27] Next.js that fetches the top five crypto
+[00:12:29] prices from the the CoinGecko API and
+[00:12:32] prints them in a clean table with the
+[00:12:34] name, the current price, 24-hour change.
+[00:12:37] Keep the code clean and simple." So, I'm
+[00:12:39] going to copy that. And CoinGecko is
+[00:12:42] just uh it's a free API that gives you
+[00:12:44] crypto prices. So, no key or anything.
+[00:12:47] So, we're going to run that, and let's
+[00:12:49] see what it does. So, we want to pay
+[00:12:51] attention to what what's going on over
+[00:12:52] here.
+[00:12:54] So, it's thinking. Now, the first thing
+[00:12:57] it it did is it ran an internal tool
+[00:12:59] called bash, right? So, basically,
+[00:13:01] there's uh a set of internal tools that
+[00:13:05] Claude code uses. There's bash, if you
+[00:13:07] want if it wants to run a command,
+[00:13:09] there's write to write to files, read,
+[00:13:12] edit, grep to search file contents,
+[00:13:15] um web fetch to to fetch from URLs, and
+[00:13:19] there's a bunch of other ones as well,
+[00:13:21] but those are kind of the main ones
+[00:13:22] you're going to see. So, it ran the bash
+[00:13:24] tool to look at the contents. It ran the
+[00:13:26] LS command, saw the directory empty, and
+[00:13:30] it saw I'm using node 24, so it can use
+[00:13:33] dependency-free fetch, and then it used
+[00:13:35] the right tool, right? So, it used bash,
+[00:13:37] then it used right. Now, it didn't
+[00:13:40] actually create this file yet. As you
+[00:13:41] can see, it's not over here in the in
+[00:13:43] the explorer, but it's proposing this
+[00:13:46] index.js. This is the diff. So, anything
+[00:13:49] in green is what it's going to add, and
+[00:13:52] obviously it's all green because I just
+[00:13:53] created the file. So, we have an API
+[00:13:56] URL, which is the CoinGecko endpoint. We
+[00:13:59] have an object of colors, so green and
+[00:14:02] red. So, basically it it looks like it's
+[00:14:04] going to have the 24-hour change in
+[00:14:06] green if it's up and red if it's down.
+[00:14:09] Then there's a function to actually make
+[00:14:11] the fetch, right? So, fetch top coins,
+[00:14:14] making the fetch request here.
+[00:14:17] And let's see, we got a format price, a
+[00:14:20] format change helper, a print table.
+[00:14:24] And then this this all has to do with
+[00:14:26] just formatting the table.
+[00:14:28] And then a main function where it runs
+[00:14:30] fetch top coins and print table, and
+[00:14:32] main runs down here at the bottom. So,
+[00:14:34] that's fine for a single file, I think
+[00:14:36] that's fine. Now, you have a couple
+[00:14:38] options. You can say yes to approve it,
+[00:14:40] and it will create the file. You can say
+[00:14:42] yes, allow all edits during this
+[00:14:44] session, and what that means is that
+[00:14:46] from now on, it won't ask you this when
+[00:14:49] it creates something. It'll just It'll
+[00:14:51] just do it automatically. Now, I would
+[00:14:53] suggest if you're just starting to get
+[00:14:55] into Cloud Code or a tool like this and
+[00:14:58] just using AI in general, that you stick
+[00:15:00] with the the default permission mode and
+[00:15:03] just say yes. But once you kind of know
+[00:15:05] what you're doing, you can, you know,
+[00:15:07] you you can make it so it doesn't ask
+[00:15:09] you every time. I can also say no and
+[00:15:11] just cancel, but I'm going to say yes.
+[00:15:13] And then it's going to create that file.
+[00:15:15] You can see we have index.js over here.
+[00:15:18] And then it's going to ask me if I want
+[00:15:20] to run it. Okay, so run the script to
+[00:15:22] verify the output and it's asking me.
+[00:15:24] It's not just running it and I can
+[00:15:26] choose this as well. Don't ask again for
+[00:15:28] node scripts, but I'm just going to say
+[00:15:30] yes.
+[00:15:32] And it's going to run it. Not only is it
+[00:15:34] going to run it and and you know, give
+[00:15:36] the normal output of the table, but it's
+[00:15:38] going to kind of give me a summary of of
+[00:15:40] what happens. So as you can see the
+[00:15:43] script works. Index.js is created and
+[00:15:46] verified.
+[00:15:47] Gives me the output. Shows me just uh
+[00:15:50] some more some summarized points.
+[00:15:53] Now, I could run this on my own
+[00:15:55] obviously. If I open another terminal, I
+[00:15:57] can run node index. That's how you run
+[00:15:59] node scripts. And there it is. So it
+[00:16:02] looks like everything's up today. Looks
+[00:16:04] like a good day. But yeah, I can run it
+[00:16:06] like that or let's close that terminal.
+[00:16:09] I can use something called shell mode
+[00:16:12] here. I can just say run the file, but
+[00:16:14] it'll it'll kind of do this and give me
+[00:16:16] all this summary crap. So if I want, I
+[00:16:18] can just do exclamation and then node
+[00:16:21] index and it should run it just like
+[00:16:24] just like it does in the the terminal.
+[00:16:27] All right, so just know that you can use
+[00:16:28] exclamation if you want to just use
+[00:16:30] shell mode. Now I can hit question mark
+[00:16:32] and it shows me a bunch of these
+[00:16:34] shortcuts. So shell mode exclamation
+[00:16:37] {slash} for {slash} commands. So you
+[00:16:39] already know that. {at} So if you want
+[00:16:41] to mention a certain file specifically,
+[00:16:43] you can do like {at} index.js or or
+[00:16:46] whatever.
+[00:16:47] Uh let's see what else we have. {slash}
+[00:16:49] btw. So this is fairly new by the way.
+[00:16:52] That's what it stands for I believe and
+[00:16:54] it's for side questions. So basically if
+[00:16:57] if Claude's working and doing something,
+[00:16:59] but you think of something you else you
+[00:17:00] want to say, which happens all the time,
+[00:17:03] instead of just escaping out and then
+[00:17:05] asking and then having it continue where
+[00:17:07] it left off, you can do {slash} btw and
+[00:17:09] ask a side question, which I think is
+[00:17:11] pretty cool.
+[00:17:13] And then let's see. We got shift tab
+[00:17:15] will change the modes and I'll show you
+[00:17:17] that in a second. Control O will show
+[00:17:20] you verbose output. You can toggle tasks
+[00:17:23] with control T.
+[00:17:25] So, yeah, those are the main ones.
+[00:17:27] Obviously, you know, you can paste and
+[00:17:29] and cut and stuff like that. But, let's
+[00:17:31] go ahead and go over the modes. So,
+[00:17:34] shift tab, if I hit it, you'll see this
+[00:17:36] changes to accept edits on. What that
+[00:17:39] means is that
+[00:17:41] it's go it's not going to ask me. It's
+[00:17:43] just going to accept edits. If I ask it
+[00:17:45] to change something in this index.js and
+[00:17:48] I have this mode enabled, it's just
+[00:17:50] going to do it, right? It's not going to
+[00:17:51] ask me. If I hit shift tab again, I can
+[00:17:54] go into plan mode. Now, plan mode, it
+[00:17:57] won't actually edit your code. It's it's
+[00:18:00] for planning, right? So, it's If you
+[00:18:02] want to add a feature and you want to
+[00:18:04] kind of query it and and ask its opinion
+[00:18:07] or or maybe ask what you can do to make
+[00:18:09] the app better, it'll go through plans,
+[00:18:11] it'll ask you questions, and it'll
+[00:18:13] ultimately create a markdown file, which
+[00:18:15] I believe goes in your home directory in
+[00:18:18] your dot cloud folder.
+[00:18:20] So, that's plan mode, and then auto mode
+[00:18:22] is is fairly new, and this is like super
+[00:18:27] accept edits mode, where not only does
+[00:18:29] it not ask you, but it'll make
+[00:18:31] decisions. You can give it an overall
+[00:18:33] goal of like creating some kind of SAS
+[00:18:36] or something, and it'll basically just
+[00:18:38] run for hours and make its own
+[00:18:40] decisions. So, it's a little risky. It's
+[00:18:43] not something I would suggest if you're
+[00:18:44] building like an important user-facing
+[00:18:47] app, an enterprise-level app, but if
+[00:18:49] you're building your own stuff and just
+[00:18:50] messing around, then it's it's cool.
+[00:18:53] So, let's hit it again, shift tab, and
+[00:18:55] that brings me back to just normal mode,
+[00:18:57] where it'll ask my permission. And you
+[00:18:59] can see it just added a recap here, and
+[00:19:01] I showed I think I showed you that
+[00:19:02] earlier. There's a a recap setting in
+[00:19:05] the config that you can set. You can
+[00:19:07] enable or disable. Mine's enabled, so it
+[00:19:09] just gives me this node CLI that shows
+[00:19:12] the top crypto prices, etc. The next
+[00:19:14] thing I want to talk about is settings
+[00:19:16] and permissions. So basically, you have
+[00:19:18] custom settings that that will go in a
+[00:19:20] file, and they can be either
+[00:19:22] project-scoped or user-scoped. So, a
+[00:19:25] project-scoped means that
+[00:19:27] it'll be a settings file in a .cloud
+[00:19:30] folder in your project. So, it would
+[00:19:32] show right in here, and it only pertains
+[00:19:35] to that project. And this scoping goes
+[00:19:37] for not only settings, but also MCPs and
+[00:19:42] skills and a lot of other things. So,
+[00:19:44] you want to understand that.
+[00:19:45] Project-scoped is just that, your
+[00:19:47] project. And then you have user-scoped
+[00:19:50] where it goes in your .cloud folder in
+[00:19:52] your home directory, and whatever's in
+[00:19:54] there will carry across all your
+[00:19:56] projects. Whether it's a settings file
+[00:19:59] with permissions or a skill or whatever.
+[00:20:03] So, what I want to do is show you how to
+[00:20:05] set a permission, and we do that with
+[00:20:07] {slash}
+[00:20:08] {slash} permissions. Now, this is this
+[00:20:11] is
+[00:20:12] kind of a crowded interface, so I'm
+[00:20:14] going to make this a little bigger. So,
+[00:20:16] basically, you have allow, ask, and deny
+[00:20:20] permissions, and you might want to set
+[00:20:24] like, let's say a get push. You want it
+[00:20:26] to always ask you before it makes a a
+[00:20:29] get push command. So, what I'll do is
+[00:20:32] use my arrow key and go down to the add
+[00:20:34] new rule while it's set on Actually, I'm
+[00:20:37] going to hit the right arrow cuz I want
+[00:20:38] it to ask, and then go to add new rule,
+[00:20:42] and then you're going to put the tool
+[00:20:43] that Cloud Code uses. Remember I talked
+[00:20:46] about the tools like bash and write and
+[00:20:48] web fetch and all that. So, I'm going to
+[00:20:50] say for the bash tool, when it runs get
+[00:20:55] push anything, I want that to to ask me.
+[00:20:59] Okay? So, I'm going to go ahead and hit
+[00:21:01] enter. Now, it's going to ask about the
+[00:21:03] scope. So, again, we have project and
+[00:21:06] user scopes. Project is going to put it
+[00:21:09] into a settings.json
+[00:21:11] in a .cloud folder in my project. Now,
+[00:21:14] you also have this option of local. So,
+[00:21:18] what that does is it puts it in your
+[00:21:19] .cloud folder in the difference is the
+[00:21:22] local one you wouldn't commit and share
+[00:21:24] with your team. You'd put You'd put this
+[00:21:26] in a .gitignore because it's just for
+[00:21:29] you. If you choose this option, then
+[00:21:34] settings.json is not get ignored and
+[00:21:37] your team your whole team anyone that
+[00:21:39] uses the the repo can use it. And then
+[00:21:42] you also have user settings where this
+[00:21:44] this get push permission would be across
+[00:21:47] all projects regardless. So, I'm going
+[00:21:49] to choose project settings number two
+[00:21:52] and it should create a .cloud folder and
+[00:21:56] it has a settings.json. And if we look
+[00:21:58] at that real quick, you can see this is
+[00:22:00] just obviously a JSON object with
+[00:22:02] permissions, ask, and have an array of
+[00:22:06] of anything it needs to ask for and have
+[00:22:08] get push.
+[00:22:09] All right. So, another thing that I'll
+[00:22:11] set sometimes is a deny for for removing
+[00:22:14] any files or folders. So, if I go over
+[00:22:17] to deny
+[00:22:18] and add new rule
+[00:22:20] and then for the actual rule, let's say
+[00:22:23] bash. So, that's the tool and then the
+[00:22:26] command, let's do RM. Let's say we don't
+[00:22:29] want it to remove folders. So, we'll say
+[00:22:31] RM RF star, right? So, if I hit do that
+[00:22:35] and set that to project settings, then
+[00:22:37] that should have been added to uh
+[00:22:41] to this file here. Okay, so now I have
+[00:22:43] deny any removing of any folders.
+[00:22:47] So, that's how settings works. That's
+[00:22:49] how scope works. And that's how
+[00:22:51] permissions work. So, let's escape out
+[00:22:54] of this.
+[00:22:55] All right. So, now what I want to do is
+[00:22:57] actually um
+[00:22:59] use the the extension the VS Code
+[00:23:02] extension. So, I'm going to exit out of
+[00:23:04] this.
+[00:23:06] And
+[00:23:08] just clear this up.
+[00:23:10] And yeah, we'll just close that. And
+[00:23:12] now, if you want to use the extension,
+[00:23:13] obviously, you have to install it. Let's
+[00:23:15] see, does it need an update?
+[00:23:17] I'm just going to restart this. So, this
+[00:23:19] is the extension here. Just go ahead and
+[00:23:21] install it. And then once you do that,
+[00:23:23] you can just do command shift P,
+[00:23:25] open up your command palette, and Claude
+[00:23:27] Code open new tab.
+[00:23:31] And there we go. So, this is the ex- the
+[00:23:34] extension, which makes things
+[00:23:36] a lot prettier, in my opinion. So,
+[00:23:38] that's why I like to use it. It's
+[00:23:40] things just look nicer, and it's easier
+[00:23:42] to know what's what. So, this is our
+[00:23:44] prompt area. We can also upload images
+[00:23:48] or uh files, whatever we want. We can
+[00:23:50] add contacts, meaning whatever files and
+[00:23:52] folders. We can have it browse the web.
+[00:23:55] Uh we still have the same permit um same
+[00:23:57] modes right here. So, I can do shift
+[00:23:59] tab, and it still changes to edit
+[00:24:02] automatically, plan mode, auto mode, and
+[00:24:04] regular mode. Now, what I'd like to do
+[00:24:06] is refactor what we have here, right?
+[00:24:09] So, this code here, it's all in one
+[00:24:11] file. I would personally like to see
+[00:24:13] this in separate modules. So, I have
+[00:24:18] in the gist here,
+[00:24:20] I have this prompt that I want to run.
+[00:24:21] It says, "Refactor this for readability
+[00:24:23] and maintainability. Split it into
+[00:24:26] focused ES modules, an API module for
+[00:24:29] the CoinGecko fetch, a format module for
+[00:24:32] the price and change helpers, and a
+[00:24:34] table module for the printing. Keep the
+[00:24:36] output identical and don't add any
+[00:24:38] dependencies."
+[00:24:39] So, I'm going to grab that. And since
+[00:24:42] I'm going to use ES modules, I want to
+[00:24:44] create a package.json.
+[00:24:46] So, obviously, you know, I could go
+[00:24:47] ahead and run in the terminal npm
+[00:24:49] install, but let's just tell it to I'll
+[00:24:52] just say init a package.json
+[00:24:55] JSON
+[00:24:56] So, stuff like this, it's up to you if
+[00:24:58] you just want to run the command. I
+[00:24:59] mean, that's all it's going to do is is
+[00:25:01] use its bash tool to run npm init. All
+[00:25:03] right, so now that we have that, let's
+[00:25:05] go ahead and paste in this refactor
+[00:25:08] prompt. And it should use ES modules, so
+[00:25:11] it should break it up, create maybe an
+[00:25:13] API.js.
+[00:25:15] Just know that if you're following
+[00:25:16] along, you're probably going to get
+[00:25:17] something a little different. So, it's
+[00:25:20] going to look at the current code first,
+[00:25:21] it used the read tool.
+[00:25:26] And let's see. So, this is what it what
+[00:25:27] it's going to give us, an API.js file.
+[00:25:30] It's going to go through one by one
+[00:25:32] every file. So, this will have the API
+[00:25:35] URL, it has the fetch top coins
+[00:25:37] function.
+[00:25:40] And oh, it even takes in a limit
+[00:25:42] argument. That was going to be something
+[00:25:43] I added, but looks like it already did
+[00:25:45] that.
+[00:25:48] Okay, so we'll accept that. And then,
+[00:25:49] let's see, this is format.js,
+[00:25:52] which has the colors object, the format
+[00:25:54] prices format change.
+[00:25:57] And then, this is table.js.
+[00:26:00] So, this brings in those formatters, and
+[00:26:04] looks like it outputs the table, right?
+[00:26:06] So, it's exporting print table.
+[00:26:09] And then, it should go to the index.js.
+[00:26:12] This is the entry point, so this is the
+[00:26:14] diff. Everything in red, obviously, is
+[00:26:16] going to get deleted. Green is going to
+[00:26:18] get added, which is the two imports, and
+[00:26:20] then the rest stays the same. We'll say
+[00:26:22] yes to that. And notice it did create a
+[00:26:25] source folder, too. So, it's it's
+[00:26:27] unpredictable, so that's why it's good
+[00:26:29] to just
+[00:26:30] um pay attention to what's going on,
+[00:26:32] rather than vibe coding.
+[00:26:34] And it's going to also add type module,
+[00:26:37] because in order to use ES modules in
+[00:26:40] Node, you have to um
+[00:26:42] add this.
+[00:26:43] So, we'll say yes to that. Okay, it's
+[00:26:45] going to run it.
+[00:26:48] And looks like we get the same output.
+[00:26:50] If I click on that, it shows me the full
+[00:26:52] table here.
+[00:26:54] So, the refactor works, and the output
+[00:26:56] is identical.
+[00:26:58] The code is now split. Yep, so did
+[00:27:00] exactly what what I asked it to do. Now,
+[00:27:02] before I go any further, I just want to
+[00:27:04] talk a little bit about context. If you
+[00:27:05] remember when I first ran Claude, it
+[00:27:07] showed I had a 1 million token context
+[00:27:10] window. And basically, that's Claude's
+[00:27:12] ongoing memory. It's like temporary
+[00:27:14] memory. And we can check it at any time
+[00:27:17] with {slash} context. This is one of the
+[00:27:19] commands you're going to use the most
+[00:27:20] of. And this will show me what's been
+[00:27:23] used. So, 28,000 tokens out of 1
+[00:27:26] million. So, nothing, 3%. And of that
+[00:27:29] 28,000, 9.7 thousand is actually from
+[00:27:33] our messages, our prompting. Where the
+[00:27:35] rest comes from system tools and skills.
+[00:27:38] If you use MCPs, that will blow out your
+[00:27:40] context. So, you just want to be aware
+[00:27:42] of this at all times. You don't In my
+[00:27:45] opinion, you don't want to let it get
+[00:27:46] near this because it'll start just
+[00:27:49] forgetting things and and just not
+[00:27:51] making good decisions. It is better now,
+[00:27:54] I admit, with the newer models than
+[00:27:56] before Sonnet. I would say if you let it
+[00:27:58] get to, which was then the 200,000
+[00:28:01] max, uh it would really just turn into
+[00:28:04] an idiot. It would forget things you
+[00:28:05] just told it 2 minutes ago. So, what I
+[00:28:08] do is I build feature by feature,
+[00:28:11] usually. And every feature
+[00:28:14] it will usually take like 200,000, maybe
+[00:28:17] 300,000 tokens. And then once that
+[00:28:20] feature is completely implemented, you
+[00:28:22] know, I I I commit, I push it, it's done
+[00:28:24] with, then I clear my context. Now,
+[00:28:28] you do still want some stuff to be
+[00:28:30] global and to always be there. And the
+[00:28:33] way you do that is you create a
+[00:28:34] claude.md file. And whatever is in that
+[00:28:37] file, Claude loads when it's when it
+[00:28:40] when the instance is is run, whether you
+[00:28:42] clear it, it'll still be there, whether
+[00:28:44] you open a new tab, it'll still be
+[00:28:46] there, anything you put in that file.
+[00:28:49] So, what I usually put is like co-
+[00:28:50] coding conventions, information about
+[00:28:53] the project, anything that I need Claude
+[00:28:55] to always know. Now, I'm not going to
+[00:28:57] create the Claude MD right now because
+[00:28:59] I'm going to actually scrap this and and
+[00:29:01] clone
+[00:29:02] uh another project of mine and I'm going
+[00:29:05] to create it there, but just know that
+[00:29:07] that's one way to kind of
+[00:29:09] keep your your global memory. And Claude
+[00:29:12] also has a memory.md file that it it
+[00:29:15] adds important things to as well. So, it
+[00:29:17] doesn't just go totally blank when you
+[00:29:19] clear. Now, another thing you can do is
+[00:29:21] have some kind of global con- context
+[00:29:24] vault and that's what I do here. I
+[00:29:26] created this memcreate.dev
+[00:29:28] where you can install this and it's not
+[00:29:30] just Claude code, well, right now it is,
+[00:29:32] but I'm going to add compatibility for
+[00:29:34] Codex and other stuff, but basically it
+[00:29:37] will give you these skills, these
+[00:29:39] commands like /save, which will compress
+[00:29:42] the current session into a structured
+[00:29:45] log and it'll save it in a vault
+[00:29:47] somewhere. I use my Obsidian vault, but
+[00:29:48] it could be any file. And then when you
+[00:29:51] want to load whatever it saves, you just
+[00:29:53] simply run /load. So, and this is across
+[00:29:56] all projects. If I go and open one of my
+[00:29:58] projects right now and I say /load and
+[00:30:01] then the name of the project, it brings
+[00:30:03] in like everything that's been that's
+[00:30:05] been put in that session. So, that's
+[00:30:07] just another way. There's There's a ton
+[00:30:09] of different things you can do. Like I
+[00:30:11] said, the AI using AI is like the the
+[00:30:13] wild west right now. There's no standard
+[00:30:16] conventions or anything. Everybody just
+[00:30:18] is inventing their own way of doing
+[00:30:20] things and that's just mine. You might
+[00:30:22] use do something totally different. And
+[00:30:24] you don't need to use something like mem
+[00:30:26] create or special skills or anything. If
+[00:30:29] If you want, you can just say like
+[00:30:30] summarize
+[00:30:33] the
+[00:30:34] summarize what we've done
+[00:30:38] and put it
+[00:30:40] into a let's say context. So, we'll have
+[00:30:43] a context folder / sessions. dot uh md.
+[00:30:49] All right, so now it's going to create
+[00:30:51] the sessions log, right? So, it has
+[00:30:54] the date, what was done. So, initialize
+[00:30:56] project, refactored. That's really all
+[00:30:58] we did.
+[00:31:00] Um verification, the current structure.
+[00:31:02] So, I'll accept that.
+[00:31:04] And now we have a folder with that
+[00:31:06] session md. Now, I can go ahead and
+[00:31:09] clear my context,
+[00:31:10] right? If I clear it and then I run
+[00:31:13] context again,
+[00:31:15] now I still have 19,000 tokens used
+[00:31:18] because of the system tools and other
+[00:31:20] things. But messages, you can see is is
+[00:31:23] basically nothing, 137. So, that's
+[00:31:27] that's a workflow that you can have is
+[00:31:29] just to manually have it record the
+[00:31:31] session. And then when I clear it, I can
+[00:31:34] say, "Hey, you know, read read the
+[00:31:36] session and and whatever." So, that it
+[00:31:38] has an ongoing memory along with the
+[00:31:40] cloud md.
+[00:31:42] So, let's uh
+[00:31:44] let's add one more feature to this. So,
+[00:31:46] I'm actually going to copy this right
+[00:31:48] here. So, this says make the number of
+[00:31:50] coins configurable via a command line
+[00:31:53] argument, default to five if no argument
+[00:31:55] is given. And we should be able to do
+[00:31:57] like node index.js 10 or or however many
+[00:32:01] crypto coins we want to get. So, let's
+[00:32:04] go ahead and paste that in. Okay, so it
+[00:32:07] looks like it's going to open the
+[00:32:08] index.js and it's adding this parse
+[00:32:10] limit function.
+[00:32:12] And in main,
+[00:32:15] it's going to get the limit here and
+[00:32:17] it's going to pass it into fetch top
+[00:32:19] coins, which already has a limit. It
+[00:32:21] already had a limit, remember? So, it
+[00:32:23] shouldn't have to change anything there.
+[00:32:25] So, let's say yes. And let's see, test
+[00:32:28] the CLI with the argument. So, it's kind
+[00:32:30] of it's giving us 10.
+[00:32:32] So, now that works. So, it's as easy as
+[00:32:34] that. And I mean, we saw every bit of
+[00:32:37] code it wrote. I mean, I didn't go dive
+[00:32:39] deep into it. It's something very
+[00:32:41] simple, but that's how you should use AI
+[00:32:44] just overall is is
+[00:32:47] not writing the code yourself, right? I
+[00:32:49] didn't write a line of code, but I know
+[00:32:50] exactly what's happening. And that's
+[00:32:52] that's what what's important, and you
+[00:32:54] want to understand concepts. You want to
+[00:32:56] understand overall architecture. You
+[00:33:00] don't have to know the exact syntax
+[00:33:03] anymore of certain things, but you need
+[00:33:04] to know what is happening. What does it
+[00:33:06] do?
+[00:33:07] So, yeah, let's go ahead and clear this
+[00:33:10] up. And I think what I'm actually, you
+[00:33:12] know what? I'm just going to close this
+[00:33:13] up because I want to clone another
+[00:33:15] project.
+[00:33:17] And I have this crypto dash project.
+[00:33:19] This is actually, I believe this is from
+[00:33:20] my React course.
+[00:33:22] It's just a very simple
+[00:33:24] UI that uses, I believe, yeah, the
+[00:33:27] CoinGecko API. So, it's kind of like a
+[00:33:29] just a web UI of what we just did. A
+[00:33:31] little more advanced. It has like
+[00:33:33] sorting and searching and stuff.
+[00:33:35] But, I want to clone this. So, let's go
+[00:33:38] ahead and grab that.
+[00:33:40] And then I'm going to go to my terminal.
+[00:33:43] And let's actually, I'll CD. dot dot out
+[00:33:47] of that. And let's
+[00:33:49] let's make a directory for this. And you
+[00:33:51] guys can follow along if you want. Let's
+[00:33:53] say crypto dash.
+[00:33:56] And then I'm going to CD into crypto
+[00:33:58] dash.
+[00:33:59] And then I'll just run Claude. Oh,
+[00:34:02] actually,
+[00:34:04] yeah, cuz I want to I want to
+[00:34:06] show you that Claude can just use Git.
+[00:34:08] So, I'll run Claude here. And then I'm
+[00:34:10] going to say, I want
+[00:34:12] to clone this repo
+[00:34:15] into this
+[00:34:17] root folder.
+[00:34:21] And then I'll paste it. Okay, so it's
+[00:34:22] going to check the folder, sees that
+[00:34:24] it's empty. Now, it's going to run this
+[00:34:26] command here, Git clone.
+[00:34:29] Say yes.
+[00:34:31] Okay, so now we have that. And I'm going
+[00:34:33] to just exit out of this
+[00:34:35] because I want to go into VS Code. So,
+[00:34:37] I'm going to open up code
+[00:34:40] in this folder. All right, so now I have
+[00:34:43] the project open here and I'm going to
+[00:34:45] open up Claude. So, command shift P and
+[00:34:48] new tab. So, I'm going to go ahead and
+[00:34:50] run npm install. I'll just tell Claude
+[00:34:52] to do it. I'll say oh, I can just say
+[00:34:54] install
+[00:34:56] deps.
+[00:34:59] And you don't need any key or anything.
+[00:35:00] If you guys want to clone this, you can.
+[00:35:04] npm install. I'll say yes.
+[00:35:13] Okay, dependencies are installed. Now, I
+[00:35:15] could tell Claude to run the server, but
+[00:35:17] what I'll usually do is just open a
+[00:35:18] terminal myself and let's run npm run
+[00:35:22] dev.
+[00:35:24] Okay, and this is not like a Next.js
+[00:35:27] project. It just uses V.
+[00:35:29] So, let's open up 551 Oh, it opens up
+[00:35:33] here.
+[00:35:34] No, I want to open it up in the browser.
+[00:35:39] Actually, we'll just close that. So,
+[00:35:40] it's still running. I'm just going to
+[00:35:42] close the terminal.
+[00:35:43] And then let's go here.
+[00:35:47] All right, so very simple project. I can
+[00:35:50] filter like if I say bit, obviously, I
+[00:35:52] just gives me my Bitcoin. And I can
+[00:35:54] click on one of these. It takes me to a
+[00:35:56] page like this.
+[00:35:59] And I can sort and all that.
+[00:36:02] So, I actually want to create a Claude
+[00:36:04] MD file and I already explained what
+[00:36:05] that is. It loads every time you you
+[00:36:08] create a Claude instance.
+[00:36:10] Right? So,
+[00:36:12] let's see. If I go back to VS Code and
+[00:36:15] no matter what, if I run {slash} clear,
+[00:36:18] whatever is in that file will stay. Now,
+[00:36:20] I can create the file manually or what I
+[00:36:23] would suggest is running {slash} init.
+[00:36:26] So, {slash} init, what it does is it
+[00:36:27] looks at your current project and it
+[00:36:30] creates a Claude MD based on what it
+[00:36:32] thinks it should as far as your project
+[00:36:35] files.
+[00:36:36] So, you can see it's going to read my
+[00:36:37] package.json.
+[00:36:40] It's listing the components.
+[00:36:43] Reading the read me. It's looking at
+[00:36:44] app.jsx. So, it's basically going
+[00:36:47] through my entire project to see what it
+[00:36:49] should put in there. And this is a very,
+[00:36:50] very tiny project. So, it probably won't
+[00:36:53] put much. Probably just like the scripts
+[00:36:56] to run or something like that.
+[00:37:01] Okay, so this file provides guidance.
+[00:37:04] Yeah, so it's just showing the commands
+[00:37:06] to npm run dev so that Claude never
+[00:37:08] forgets that.
+[00:37:10] Um requires a .env file with two coin
+[00:37:13] So, this actually does use CoinGecko
+[00:37:15] APIs. It works without it, but you'll
+[00:37:18] get rate limited quick. So, you can add
+[00:37:20] API keys. That's right. Forgot about
+[00:37:23] that. Shows the architecture. So, Vite
+[00:37:26] and React 19. It's a single-page
+[00:37:28] application.
+[00:37:30] Okay, so this is showing quite a bit.
+[00:37:33] Showing all the files and and what's in
+[00:37:35] them.
+[00:37:37] Styling is in a single global style
+[00:37:39] sheet. All right, so I'll say yes to
+[00:37:41] that. And it created that Claude MD. And
+[00:37:43] I can put whatever I want in there and
+[00:37:45] it will always remember what I put in
+[00:37:47] there. Now, just to kind of give you an
+[00:37:49] example, I have the project from my AI
+[00:37:51] course.
+[00:37:53] And let's take a look at the Claude file
+[00:37:55] here. So, this is what I'll what I'll
+[00:37:57] commonly do is have a very small Claude
+[00:38:01] MD file, but point to other files. So,
+[00:38:04] here I have four main files I'm pointing
+[00:38:06] to, which are in my context folder. I
+[00:38:09] have project overview, which ob- just
+[00:38:12] what it sounds like. Coding standards,
+[00:38:15] so like standards with TypeScript and
+[00:38:18] Next.js cuz that's what what the the
+[00:38:20] project is.
+[00:38:21] AI interaction, So, things like, you
+[00:38:24] know, be concise, get to the point, um
+[00:38:28] don't lie, you know, stuff like that.
+[00:38:30] And then a current feature file, because
+[00:38:32] like I said, I develop feature by
+[00:38:34] feature. So, I fill this file with
+[00:38:36] whatever I'm doing, I implement the
+[00:38:38] feature, and then I I, you know, commit
+[00:38:41] it, and then wipe it, and put the next
+[00:38:45] feature in. That's kind of my process.
+[00:38:46] And again, I'll show you that in the
+[00:38:48] next AI course.
+[00:38:50] Um and just to show you kind of what
+[00:38:52] those files look like. So, if we go into
+[00:38:54] context,
+[00:38:56] there's a lot of stuff in here, but only
+[00:38:57] those four being loaded with the Claude
+[00:38:59] MD. So, like coding standards, strict
+[00:39:02] strict mode enabled, no any types,
+[00:39:05] functional components,
+[00:39:07] server components by default. This is
+[00:39:09] all stuff I want Claude to know,
+[00:39:12] regardless of of, you know, if I clear
+[00:39:14] my context or not.
+[00:39:17] Um and I put this in here because with
+[00:39:20] the older models, it would always
+[00:39:21] install and try to configure Tailwind 3.
+[00:39:25] So, I had to specifically say this here.
+[00:39:27] So, I briefly talked about plan mode,
+[00:39:29] where it doesn't actually edit your
+[00:39:31] code, but you use it to just plan out
+[00:39:33] stuff. So, I want to give you an example
+[00:39:35] of that. So, to change it, I can click
+[00:39:37] here and choose plan mode, or I can just
+[00:39:39] do shift tab and just cycle through
+[00:39:42] until it says plan mode, and then I have
+[00:39:45] a prompt
+[00:39:47] in the gist here.
+[00:39:49] All right. Now, this this project that I
+[00:39:52] have cloned is part of a course, and
+[00:39:56] when you make projects for courses, you
+[00:39:58] want to teach certain concepts, and
+[00:40:00] sometimes the result isn't exactly what
+[00:40:02] you would do if you weren't teaching a
+[00:40:05] course. So, there is actually a lot of
+[00:40:07] prop drilling in this project, and I
+[00:40:09] want to fix that. So, I want to use plan
+[00:40:11] mode to to kind of
+[00:40:13] to figure out how we can fix it. So,
+[00:40:15] this says, "Look at the app.jsx." and
+[00:40:18] notice I'm using the at symbol so that's
+[00:40:20] a mention. I'm mentioning that file and
+[00:40:22] let me know how we could refactor this
+[00:40:25] project to not prop drill the home page.
+[00:40:27] What are your suggestions? Okay, so I'll
+[00:40:30] grab that and if we take a look at the
+[00:40:33] file that I'm talking about
+[00:40:36] and we come down
+[00:40:39] to yeah, right here. So you can see all
+[00:40:42] these props I'm passing in the home
+[00:40:43] page. So there's
+[00:40:45] many other ways that we can do this. So
+[00:40:48] let's figure it out with plan mode. So
+[00:40:50] I'm going to go ahead and paste this in
+[00:40:53] and make sure I'm in plan mode.
+[00:40:55] And while it's in plan mode, it won't
+[00:40:57] change anything. It's not going to you
+[00:40:59] know, edit any files or create any new
+[00:41:01] files or anything like that.
+[00:41:04] So it says I already have good context
+[00:41:06] on app jsx and home jsx from earlier.
+[00:41:10] Okay, so that goes to what we were
+[00:41:12] talking about earlier. Let me quickly
+[00:41:14] look at the remaining control components
+[00:41:16] and understand the full prop chain.
+[00:41:19] So it's looking at my filter input file,
+[00:41:21] limit selector, sort selector and this
+[00:41:24] is what it'll do. It'll actually ask us
+[00:41:26] questions. So which refactoring approach
+[00:41:29] would you like to plan for? Move the
+[00:41:31] state down and have a custom hook and it
+[00:41:34] says it's that's what's recommended. So
+[00:41:36] it'll collocate all state in home page
+[00:41:38] and extract a use coin custom hook for
+[00:41:42] fetching. No new dependencies app jsx
+[00:41:44] becomes pure routing. So that's one
+[00:41:46] option. Another is to use the context
+[00:41:49] API which is built into react. A little
+[00:41:52] you know, a little bit more code.
+[00:41:54] Zeus stand store. So that's using an all
+[00:41:56] out, you know, context store which I
+[00:41:59] don't want and tan stack query. So I
+[00:42:02] could replace the fetch in use effect
+[00:42:05] with use query. Server state lives in
+[00:42:08] query cache. So these are some real
+[00:42:10] options. I'm going to go with the
+[00:42:11] simplest which is to move the state down
+[00:42:14] and have a custom hook. So, let's submit
+[00:42:16] that.
+[00:42:17] So, now what it's going to do is write a
+[00:42:19] plan up for the recommended approach.
+[00:42:23] And it's putting this into a markdown
+[00:42:24] file, as you can see right here.
+[00:42:27] And this is going to go in your home
+[00:42:29] folder, I believe. It doesn't get put
+[00:42:31] into your project folder.
+[00:42:34] Let's see. Remove homepage prop
+[00:42:36] drilling.
+[00:42:38] So, it just kind of gives us an overview
+[00:42:40] of the changes. It's going to create a
+[00:42:42] new hook called use coins, and that's
+[00:42:44] where it's going to do the fetching
+[00:42:46] from.
+[00:42:48] And let's see. Remove all nine props.
+[00:42:56] Shows us what is going to be untouched.
+[00:42:58] So, all the components like filter
+[00:43:00] input, limit selector, that's all going
+[00:43:02] to be un- un- touched. Verification.
+[00:43:05] It'll run npm run lint.
+[00:43:08] npm run dev. Okay. So,
+[00:43:12] we can say yes and auto accept, yes and
+[00:43:16] manually approve edits, and no keep
+[00:43:18] planning. Or, we can tell it to do
+[00:43:20] something else. So, I'm going to say
+[00:43:22] auto accept, and that should bring us
+[00:43:24] out of plan mode.
+[00:43:26] So, see now it doesn't say plan mode,
+[00:43:28] because now it's going to implement that
+[00:43:30] that plan. So, now as you can see
+[00:43:32] there's a hooks folder with that use
+[00:43:34] coins.
+[00:43:35] And then it's bringing that hook into
+[00:43:37] the homepage, which you can see right
+[00:43:39] here.
+[00:43:42] And it's going to get rid of all the
+[00:43:43] props for the homepage, cuz we're no
+[00:43:45] longer going to be passing those in.
+[00:43:48] And it's going to run lint and build.
+[00:43:51] So, start the server, curl homepage, and
+[00:43:54] try. So, I'm going to say no to this,
+[00:43:55] cuz I already have the server going.
+[00:43:58] In fact, I'll just say I have
+[00:44:01] the server
+[00:44:03] running, and I will test.
+[00:44:07] Okay, it says the refactor is complete.
+[00:44:10] Lint and production both pass, so let's
+[00:44:12] open up
+[00:44:14] I'm just going to restart the server
+[00:44:16] here.
+[00:44:22] Okay, and
+[00:44:25] go back to the project.
+[00:44:29] And there we go. So, we have all of our
+[00:44:31] coins. If I click on one, so everything
+[00:44:35] still works. I mean, there's there's not
+[00:44:36] too much to test. It's very simple.
+[00:44:39] But now our project is a little cleaner,
+[00:44:41] right? If we look at the app.jsx
+[00:44:46] and we look at these routes here, we no
+[00:44:48] longer have that home page where we're
+[00:44:50] passing in all that stuff. Okay? So,
+[00:44:52] that's just an example
+[00:44:54] of kind of using plan mode and and using
+[00:44:57] that to refactor. Now, let's see what
+[00:44:59] else I have here in the gist. So, I
+[00:45:02] wanted to add a favorites feature.
+[00:45:06] So, just to add just to add something. I
+[00:45:08] mean, I know we just did a refactor, but
+[00:45:10] let's let's add a new feature to the to
+[00:45:12] the project. So, once again, I'll go
+[00:45:15] into plan mode.
+[00:45:18] And it says I want a features a
+[00:45:20] favorites feature that lets us star
+[00:45:22] coins from the list, filter to only show
+[00:45:25] favorites, and persist with local
+[00:45:27] storage. How would you implement this?
+[00:45:30] So, it says this is a new task, so I'll
+[00:45:32] overwrite the old plan. I already know
+[00:45:34] most of the code base. Let me check coin
+[00:45:36] card and the style sheet since this is a
+[00:45:39] star since the star button will live
+[00:45:41] there.
+[00:45:43] And by the way, if this were a real if
+[00:45:44] this were a real you know, I was going
+[00:45:46] to keep this, I would have made a commit
+[00:45:48] with the refactor.
+[00:45:51] Okay, so let's see.
+[00:45:54] User wants to mark coins as favorite
+[00:45:56] changes, so there'll be a new file. So,
+[00:45:58] it's going to create a new hook called
+[00:46:00] use favorites.
+[00:46:02] And it'll have a storage key with some
+[00:46:04] state.
+[00:46:05] So, favorites and set favorites. Use
+[00:46:08] effect, it's going to set the storage
+[00:46:11] key in local storage.
+[00:46:14] And we'll have a toggle
+[00:46:16] to toggle that value, bring it into the
+[00:46:19] home page.
+[00:46:22] And then in the coin card, it's going to
+[00:46:24] add the star.
+[00:46:27] Yeah, so and then CSS will add a star
+[00:46:29] button class.
+[00:46:33] And then all this stuff is all
+[00:46:34] untouched. All right, so I'm going to
+[00:46:36] auto accept. And that means that I'm
+[00:46:39] letting it do it. It gets out of plan
+[00:46:41] mode. So, it's showing me the diff of
+[00:46:43] the home page. You can see it's bringing
+[00:46:45] in use favorites, the new hook. It's
+[00:46:47] adding the piece of state.
+[00:46:49] And we have the toggle here.
+[00:46:52] And we're adding it to the filter.
+[00:46:55] So, show favorites only.
+[00:46:58] And then adding the coin card.
+[00:47:03] So, coin card is now going to get an is
+[00:47:05] favorite and it's also going to have an
+[00:47:07] on toggle favorite prop passed in.
+[00:47:11] And then the CSS.
+[00:47:13] So, I mean I'm seeing everything that's
+[00:47:15] being done, right? Some people are just
+[00:47:18] so against AI cuz just cuz I'm not
+[00:47:20] typing this out. I know exactly what's
+[00:47:22] happening.
+[00:47:24] So, we're going to run lint. And this is
+[00:47:26] a tiny project. I realize that. It's
+[00:47:28] It's when you get into really large
+[00:47:30] enterprise projects where AI can really
+[00:47:33] be a problem.
+[00:47:35] So, let's see. It's been implemented.
+[00:47:37] Let's check it out.
+[00:47:40] There we go. So, we got our our stars
+[00:47:42] here. Let's say we want Bitcoin
+[00:47:45] and I don't know, Solana.
+[00:47:47] So, those are favorited and
+[00:47:50] if I filter, if I click this, it shows
+[00:47:53] my favorite only the favorites.
+[00:47:57] So, that easy to to create that feature.
+[00:47:59] I know it's simple, but it would have
+[00:48:01] taken taken me a hell of a lot longer to
+[00:48:03] actually type all that out. So, the next
+[00:48:05] thing I want to look at are skills. A
+[00:48:07] skill is basically a reusable workflow
+[00:48:09] that you teach Claude once and it
+[00:48:12] remembers forever. And skills are used
+[00:48:14] in in tons of AI tools. It's not just a
+[00:48:17] Claude code thing.
+[00:48:18] So, and it's not just Claude code, you
+[00:48:21] can also use it in Coda. In fact, you
+[00:48:23] can see right here, if I go to skills, I
+[00:48:26] have all these skills, my morning
+[00:48:27] briefing, which says generate Brad's
+[00:48:30] morning briefing, a one-page snapshot of
+[00:48:33] today's calendar, last session's outcome
+[00:48:35] and pending actions, what's active in
+[00:48:37] projects and current state, any email
+[00:48:40] items needing attention. So, I just type
+[00:48:42] good morning and it runs the skill for
+[00:48:44] me. And these are just markdown files,
+[00:48:46] right? If I go to manage skill, you can
+[00:48:48] see
+[00:48:49] um this is just a markdown file right
+[00:48:52] here.
+[00:48:53] And I mean, you can manually write these
+[00:48:56] if you want, but you can just tell
+[00:48:57] Claude to write it. So, what I'm going
+[00:48:59] to do is go back to the gist here, and I
+[00:49:03] have a um skill here to handle get
+[00:49:06] commit messages. So, it says create a
+[00:49:08] project scope skill called skills as
+[00:49:11] slash
+[00:49:14] commands.
+[00:49:15] So, the workflow is check that there are
+[00:49:17] stage changes within get diff staged. If
+[00:49:21] nothing is staged, stop and tell me to
+[00:49:22] stage first. Read the staged diff.
+[00:49:26] Generate a commit message in this
+[00:49:27] format. So, it'll be the type, scope,
+[00:49:30] the short a short subject, bullet of
+[00:49:33] what what changed, and a bullet of why,
+[00:49:36] and then run get commit with that
+[00:49:38] message. And the different types will be
+[00:49:40] feature, fix, refactor, chore, and so
+[00:49:43] on. Um trigger when I say write a commit
+[00:49:46] message, generate a commit. So, I don't
+[00:49:48] have to run that slash command. I can,
+[00:49:51] but I can also just say write a commit
+[00:49:53] message or generate a commit and it'll
+[00:49:55] it'll automatically know to load that
+[00:49:57] skill. So, let's grab this.
+[00:50:00] And we're simply going to run this as a
+[00:50:02] prompt. So, we'll go ahead and paste
+[00:50:04] that in. I also want to point out I said
+[00:50:06] project scope skill. That's important
+[00:50:09] because skills have they pay attention
+[00:50:12] to scope just like settings and
+[00:50:14] permissions, just like MCPs, and project
+[00:50:17] scope means it's going to install it
+[00:50:19] it's going to work for this project
+[00:50:21] only. I could have said user scope and
+[00:50:23] it and this would then work across all
+[00:50:25] my projects.
+[00:50:27] Okay, so this is the markdown file it's
+[00:50:29] going to create. So, basically just
+[00:50:31] everything I told it.
+[00:50:34] So, let's say yes to that.
+[00:50:37] And then it where it's going to put it
+[00:50:39] is going to be my dot Claude folder
+[00:50:41] under skills, you can now see commit
+[00:50:44] message.
+[00:50:45] And every skill is always going to the
+[00:50:47] file is always going to be called
+[00:50:48] skill.md.
+[00:50:50] Okay, the folder is is what identifies
+[00:50:53] it, but the the specific file will
+[00:50:54] always be be skill.md. Let's see, two
+[00:50:57] details worth noting, the description
+[00:50:59] front matter includes your trigger
+[00:51:00] phrases, so the skill activates on those
+[00:51:03] naturally, and the slash command works.
+[00:51:07] I already mentioned that.
+[00:51:09] So, what I want to do now is actually
+[00:51:11] clear my context just to to know when I
+[00:51:14] make this commit, it goes off of the
+[00:51:16] skill.
+[00:51:17] So, let's run slash actually, I'll just
+[00:51:19] say Yeah, I'll just say write a commit
+[00:51:23] message.
+[00:51:24] And that should run the skill. Yep, so
+[00:51:26] right here, commit message skill. So, it
+[00:51:28] knows to run it. So, it's not rigid like
+[00:51:30] standard commands. You don't have to do
+[00:51:32] slash something exactly, you just
+[00:51:35] basically say what you want and it it
+[00:51:37] picks it up. It knows if it should use
+[00:51:39] the skill. Now, remember in the skill I
+[00:51:41] said tell me if nothing is staged, and I
+[00:51:43] haven't run get add anything, so it says
+[00:51:46] nothing is staged, stage your changes.
+[00:51:48] So I'll go ahead and just
+[00:51:51] and just to show you I can run it
+[00:51:53] just open a terminal.
+[00:51:55] I mean I don't have to use, you know,
+[00:51:57] Claude for for freaking everything. I'll
+[00:51:59] just say get add
+[00:52:02] get add all.
+[00:52:04] Okay, so now I have my changes staged
+[00:52:06] and I'm going to say once again, this
+[00:52:08] time I'll use the actual command. I'll
+[00:52:11] say commit {dash} msg. Now it doesn't
+[00:52:13] show up because you
+[00:52:16] one one when you create it you have to
+[00:52:17] open up a new Claude instance for it to
+[00:52:19] show up here. Okay, so it's it's not
+[00:52:22] recognizing it because I didn't run a
+[00:52:23] new Claude tab, but I'll just say write
+[00:52:27] a commit message. Okay, so this looks
+[00:52:29] like the format that I specified. So
+[00:52:32] feature, that's the type the scope home
+[00:52:36] add favorites with local storage
+[00:52:38] persistent and then our points add use
+[00:52:41] favorite hook, extract coin fetching
+[00:52:44] into use coins. All right, so we'll say
+[00:52:46] yes to that and there we go. So now it's
+[00:52:48] been committed. So that's just a very
+[00:52:50] simple example, but you can create
+[00:52:52] anything into skill. If you have a
+[00:52:53] certain way you want to create
+[00:52:54] components or or absolutely anything
+[00:52:57] that you do repetitively. If you find
+[00:52:59] yourself doing the same thing over and
+[00:53:01] over then create a skill for it. For my
+[00:53:03] devsheets.io website where I have a
+[00:53:06] whole bunch of different types of sheets
+[00:53:08] for different frameworks and stuff, I
+[00:53:10] have a validate sheet skill that will
+[00:53:13] reach out to
+[00:53:15] um to the documentation and actually
+[00:53:16] uses an MCP called context seven and it
+[00:53:19] will make sure that everything is right
+[00:53:21] and it'll look for for updates. If
+[00:53:23] something in the framework is updated,
+[00:53:25] it'll add it to the sheet, things like
+[00:53:27] that. So the next thing I want to talk
+[00:53:28] about are MCPs which stands for model
+[00:53:31] context protocol and there's all kinds
+[00:53:33] of MCP servers and it allows Claude and
+[00:53:36] not just Claude, but pretty much any AI
+[00:53:38] tool to reach out to other services. And
+[00:53:42] some of the the ones that I use are
+[00:53:45] Contact 7, which gives the most
+[00:53:47] up-to-date documentation on frameworks
+[00:53:50] and all kinds of stuff. And the reason
+[00:53:53] that that's very helpful is because
+[00:53:55] obviously models are behind a little
+[00:53:57] bit, and you want to get the most
+[00:54:00] up-to-date information, so using that
+[00:54:02] MCP allows them to do that. Another one
+[00:54:04] I use a lot is Neon's MCP, which will
+[00:54:07] allow my AI to directly interact with my
+[00:54:10] Neon databases and make queries.
+[00:54:13] And then Playwright, which is what I
+[00:54:14] actually want to work with now, allows
+[00:54:18] basically allows Claude to open the
+[00:54:20] project up in a browser and run
+[00:54:22] end-to-end tests or even just look at it
+[00:54:25] and give you an opinion on the UI or
+[00:54:27] something like that. It's just a way for
+[00:54:28] it to actually see your project. And I
+[00:54:31] use Playwright all the time on on my
+[00:54:33] main machine.
+[00:54:34] But there's MCPs for like Google
+[00:54:36] services, for Slack, for just about any
+[00:54:39] popular service you can think of.
+[00:54:42] So, to install an MCP with Claude, let
+[00:54:45] me go back to my gist here, you can run
+[00:54:48] a command like this: Claude MCP add, and
+[00:54:52] then you can specify the scope, so dash
+[00:54:54] S user, meaning the user scope, so it's
+[00:54:57] available on all projects, the name of
+[00:55:00] it, and in this case we we're going to
+[00:55:01] add NPX in the Playwright package. So,
+[00:55:05] let's grab that, and that's going to be
+[00:55:07] run in a terminal, not not in um
+[00:55:11] not in Claude's interface. So, I'll open
+[00:55:13] up my terminal, and let's go ahead and
+[00:55:16] paste that in.
+[00:55:18] And let's run that.
+[00:55:20] Okay, so my it already exists, I already
+[00:55:22] have it installed, so I should be able
+[00:55:24] to use it. Let's just straight up ask.
+[00:55:27] I'll say, "Do you
+[00:55:28] have access to the Playwright
+[00:55:35] Playwright MCP?"
+[00:55:38] Let's close that up.
+[00:55:42] Okay, so it says no, it isn't connected
+[00:55:43] to this session. You know what? I might
+[00:55:45] have to restart this. I might have to
+[00:55:48] open up a new tab. So, let's actually do
+[00:55:50] that. Do you have access to the
+[00:55:53] Playwright
+[00:55:56] MCP? Yes. Okay, so now it does cuz I
+[00:55:58] restarted the session.
+[00:56:00] So, basically I can have it just open my
+[00:56:03] project up in a browser and run some
+[00:56:05] tests. So, I'm going to grab this
+[00:56:08] which says use Playwright to open the
+[00:56:10] project and then click the star icon on
+[00:56:13] the on the first coin in the list. Then
+[00:56:16] click the favorites filter. Tell me if
+[00:56:19] the star the starred coin is the only
+[00:56:22] one showing and take a screenshot.
+[00:56:25] Which I just I think is amazing. If you
+[00:56:27] think of like where we were a couple
+[00:56:29] years ago to be able to do this now, I
+[00:56:31] think it's crazy.
+[00:56:33] So, let's go ahead and and let me just
+[00:56:34] check the
+[00:56:37] Yeah, so I'm just going to unfavorite
+[00:56:38] everything here.
+[00:56:41] Okay, so now
+[00:56:42] let's run this. I already have the
+[00:56:44] server running, so I'll tell it that.
+[00:56:47] I already have it running. Now, what
+[00:56:49] it's going to do is ask for permission
+[00:56:51] for different kinds of tools. Like this
+[00:56:54] one is called browser navigate. So, MCPs
+[00:56:57] have their own set of tooling. So, I'm
+[00:56:59] going to say yes to that.
+[00:57:00] Now, it's opening this, right? And it
+[00:57:03] should click the star, the first star.
+[00:57:07] Now, it's going to ask permission for
+[00:57:08] it.
+[00:57:10] So, browser snapshot. Let's say yes to
+[00:57:12] that. I'm just going to say allow
+[00:57:14] always. Okay, so it's running
+[00:57:16] Playwright.
+[00:57:18] And get that browser back.
+[00:57:22] Yep, so you can see it clicked the star
+[00:57:23] and now it's just showing Bitcoin. Now,
+[00:57:25] it's going to take a snapshot and it'll
+[00:57:27] create this {dot} Playwright folder. If
+[00:57:29] you're going going you're probably going
+[00:57:30] to want to get ignore that. Yes, it
+[00:57:32] works as expected after starring the
+[00:57:34] Bitcoin, the first coin, and checking
+[00:57:36] the favorites only filter, Bitcoin is
+[00:57:38] the only coin showing. So, that is
+[00:57:40] freaking awesome to me. That's still
+[00:57:43] amazing. I do that stuff all the time,
+[00:57:44] but it still amazes me.
+[00:57:47] So, yeah, that's MCPs, and that's play
+[00:57:50] right. All right, so this video is
+[00:57:51] longer than expected as usual, but I
+[00:57:54] wanted to just talk about sub agents
+[00:57:55] real quick. So, a sub agent is basically
+[00:57:58] a separate Claude session that gets spun
+[00:58:00] up to handle a specific task, and then
+[00:58:03] it reports it back to your main thread.
+[00:58:05] And what's great about sub agents is
+[00:58:07] they have their own context window. So,
+[00:58:09] when I run {slash} context, and you see,
+[00:58:12] you know, the used up tokens, it doesn't
+[00:58:15] get added to that. At least the the
+[00:58:17] whole thing doesn't. What does is what
+[00:58:20] it comes back with, which is just simply
+[00:58:21] just a summary of of what it finds. So,
+[00:58:24] you can create a sub agent that will
+[00:58:27] um basically look for dead code, or look
+[00:58:30] for
+[00:58:32] parts of your code it can optimize.
+[00:58:34] That's really where I find it useful is
+[00:58:36] to just make your code base better. So,
+[00:58:39] what I want to do is create a sub agent.
+[00:58:41] There are actually built-in ones.
+[00:58:43] There's one called explore that's used
+[00:58:46] just for that to kind of explore your
+[00:58:47] your your code and come back with
+[00:58:50] findings. So, I do have a prompt here to
+[00:58:53] use the explore agent. It says, "Use it
+[00:58:55] to map the data flow in this project.
+[00:58:58] Where does the coin data come from? What
+[00:59:00] components consume it? How uh how does
+[00:59:03] state move through the app after
+[00:59:06] uh after our recent refactor? Report
+[00:59:09] back with a summary." So, this will use
+[00:59:12] a built-in sub agent called explore. So,
+[00:59:14] let's try that out. I'm going to go
+[00:59:16] ahead and run that.
+[00:59:19] Now, whatever it does within this
+[00:59:20] explore agent is in its own context.
+[00:59:24] So, it says, "A lot launch an explore
+[00:59:26] agent to map the data flow across the
+[00:59:28] code base. So, all this stuff it's doing
+[00:59:30] right now, reading package.json, reading
+[00:59:33] use favorites, that's in its own
+[00:59:35] context. Okay, so this is basically the
+[00:59:37] report that it gives back and this is
+[00:59:39] what goes into our main context. So,
+[00:59:42] here's the data flow map. Um one
+[00:59:45] headline finding, the refactor
+[00:59:47] moved all state out of app.jsx,
+[00:59:50] where the coin data comes from. So, it
+[00:59:53] has our hook, use coins, the coin
+[00:59:55] details page, the coin chart component,
+[00:59:59] where the state lives, which is in
+[01:00:00] app.jsx.
+[01:00:02] Um how the data moves down through the
+[01:00:05] home.jsx, passes filter, limit, sort by.
+[01:00:09] Just gives us a a summary. So, anytime
+[01:00:10] you want to know anything about your
+[01:00:12] code, you want to use a sub agent, so
+[01:00:15] you don't add that to your context. Now,
+[01:00:17] you can also, in addition to using the
+[01:00:20] built-in ones, you can create your own.
+[01:00:22] So, I have this last prompt here that
+[01:00:24] says create a project-scoped sub agent
+[01:00:27] called code reviewer. It should review
+[01:00:29] the current uncommitted changes in this
+[01:00:31] project and check for things like dead
+[01:00:34] code or unused imports, console.log
+[01:00:37] statements left in, missing key props on
+[01:00:41] lists in React, um accessibility misses,
+[01:00:44] and so on. So, anytime you want to not
+[01:00:47] only check things, but, you know,
+[01:00:49] optimize your code, sub agents are great
+[01:00:51] for. So, I'm going to go ahead and run
+[01:00:53] this.
+[01:00:56] And again, I I specified I want it to be
+[01:00:59] project-scoped, so it should get put in
+[01:01:01] here in the projects.claud folder. If it
+[01:01:05] were user-scoped, it would be in my
+[01:01:07] home.claud folder. Okay, so this is it
+[01:01:10] and it's just a markdown file.
+[01:01:11] Literally, everything you do is a
+[01:01:12] markdown file. So, your read-only code
+[01:01:16] reviewer. Okay, so that's important,
+[01:01:17] it's not going to make any changes, it's
+[01:01:19] just to report. Your scope is to review
+[01:01:23] only the current uncommitted changes.
+[01:01:25] So, it's actually not going to go
+[01:01:26] through the entire code base, just your
+[01:01:28] uncommitted changes.
+[01:01:31] Which do I even have any? I'm not sure.
+[01:01:33] I don't even think I have any.
+[01:01:35] Um but yeah, let's go ahead and accept
+[01:01:37] that.
+[01:01:39] And now you can see there's now an
+[01:01:41] agents folder in my doc cloud folder
+[01:01:43] with that code review markdown file.
+[01:01:46] Yeah, it looks like all we have is
+[01:01:47] playwright stuff for uh for uncommitted
+[01:01:50] code.
+[01:01:52] But let's just try it. We'll say review
+[01:01:53] my code. So, right here, agent
+[01:01:57] review uncommitted changes.
+[01:02:00] And again, it has its own context
+[01:02:02] window, which I think is is the greatest
+[01:02:04] thing about sub using sub agents. So, I
+[01:02:06] think it saw that I had no uncommitted
+[01:02:09] code, and it's actually adding this
+[01:02:10] here. So, it did say if there are no
+[01:02:12] uncommitted changes, say so and stop. Do
+[01:02:15] not review committed code instead. Now
+[01:02:17] it says if there's no uncommitted
+[01:02:19] changes, say so and stop. And then
+[01:02:22] non-code artifacts like screenshots from
+[01:02:25] playwright do not count as reviewable
+[01:02:27] changes. So, what happened was it went
+[01:02:30] to do that, right? Review my uncommitted
+[01:02:32] code, and it sees all I have is like
+[01:02:34] playwright screenshots. So, it decided
+[01:02:37] to actually change. It learned from that
+[01:02:40] and changed its own markdown file to now
+[01:02:43] say, you know, ignore those playwright
+[01:02:45] screenshots. So, I'll say yes to that,
+[01:02:47] and now it's probably just going to tell
+[01:02:48] me I have no
+[01:02:50] uncommitted changes.
+[01:02:52] Let's see. If you make some changes in
+[01:02:54] source and say review my code again,
+[01:02:56] you'll get the real severity group
+[01:02:58] report. But I'm not going to do that cuz
+[01:02:59] this video is getting way too long. But
+[01:03:01] the point is you know what sub agents
+[01:03:03] are, and you know what that you can do
+[01:03:05] with them. You know, they they have
+[01:03:06] their own context. All right. So, again,
+[01:03:09] this video was a lot longer than I had
+[01:03:11] planned. I always plan to make it like a
+[01:03:13] a quick guide, but there's just too much
+[01:03:16] to say and and and teach. So, hopefully
+[01:03:19] you guys enjoyed it. Let me know if you
+[01:03:20] did and I will see you next time.
