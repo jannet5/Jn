@@ -1,0 +1,398 @@
+# 
+# https://www.youtube.com/watch?v=XN8qxj9E1CU
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:XN8qxj9E1CU.tr.json3
+
+[00:00:00] Herkese merhaba arkadaşlar. Tek kişilik
+[00:00:02] şirketlerin mobil uygulamalardan nasıl
+[00:00:03] milyonlarca dolar kazandığını
+[00:00:05] duymuşsunuzdur. Bugüne kadar bu
+[00:00:06] uygulamaları gerçekten yapmak çok zordu
+[00:00:09] ama iyi haber. Bugün size cloud kode ve
+[00:00:11] gelmiş geçmiş en iyi kodlama modeli olan
+[00:00:13] Opus 4.6'yı kullanarak hayatınıza tek
+[00:00:16] bir satır kod yazmamış olsanız bile bu
+[00:00:18] videoda size sıfırdan iOS uygulamayı
+[00:00:20] geliştirmeyi ve Store'a yüklemeyi
+[00:00:21] anlatacağım. Bu video sonunda kendi iOS
+[00:00:23] uygulamanızı geliştirebilecek seviyeye
+[00:00:25] geleceksiniz. Benimle birlikte
+[00:00:26] ilerleyebilmeniz için sadece iki
+[00:00:28] ücretsiz uygulamaya ihtiyacınız var.
+[00:00:30] Birincisi direkt App Store'dan
+[00:00:31] indirebileceğiniz X COD uygulaması.
+[00:00:33] Kurulum sırasında iOS'i işaretlemeyi
+[00:00:35] unutmayın. İkinci ücretsiz uygulama
+[00:00:37] cloud code. Tabii ki ücretsiz
+[00:00:38] versiyonunu bir yere kadar
+[00:00:39] kullanabiliyorsunuz. Proje
+[00:00:41] geliştireceğimiz zaman Pro hesabını
+[00:00:42] almanız gerekebilir. Xcodun ve Cloud'un
+[00:00:45] linklerini açıklamaya bırakacağım. Gidip
+[00:00:46] oradan ücretsiz bir şekilde
+[00:00:47] indirebilirsiniz. Şimdi uygulamayı
+[00:00:49] geliştirmeye başlıyoruz. İlk başta
+[00:00:51] Xcod'da projeyi kurarak başlıyoruz. X
+[00:00:54] kodu açtıktan sonra buradaki create new
+[00:00:56] project'e tıklıyoruz. Buradan iOS
+[00:00:59] bölümünden app'i seçiyoruz.
+[00:01:02] Next diyoruz. Buraya uygulamamızın
+[00:01:04] ismini yazıyoruz. Habit tracker iOS
+[00:01:08] diyorum. Organization identifier kısmını
+[00:01:11] com. Amurlu benimki gibi
+[00:01:13] bırakabilirsiniz.
+[00:01:14] Buradan next diyoruz ve proje dosyamız
+[00:01:17] yaratıldı arkadaşlar. Gördüğünüz gibi
+[00:01:19] Xcod bizim için dosya kurulumlarını ve
+[00:01:22] proje kurulumlarını gerçekleştirdi.
+[00:01:24] İleride bu uygulamayı store'a yükleyerek
+[00:01:26] para dahi kazanabilirsiniz. Şimdi proje
+[00:01:28] iskeletimiz gördüğünüz gibi burada
+[00:01:30] hazır. Şimdi uygulamamızın içeriğini
+[00:01:32] yani beynini yazacağız. Bunun için cloud
+[00:01:34] kod'a geçiyoruz. Şimdi cloud kod'a
+[00:01:36] geldikten sonra yukarıdan kod kısmına
+[00:01:38] geliyoruz. Buradan mevcut projemizi
+[00:01:41] yarattığımız klasörü seçiyoruz. Bakın
+[00:01:43] gördüğünüz gibi burada Habit Tracker iOS
+[00:01:46] az önce yarattığım projeyi seçtim. Şu an
+[00:01:48] lokalimde çalışıyorum, bilgisayarımda
+[00:01:50] çalışıyorum. Şu an en iyi yapay zeka
+[00:01:52] modeli olan Opus 4.6'yı seçtim. Siz de
+[00:01:54] bunun seçili olduğundan emin olun. Ben
+[00:01:57] burada Ask permission'ı kullanmayacağım.
+[00:01:59] Bypass permissions diyeceğim ki bana
+[00:02:01] artık her işlemde soru sormasın.
+[00:02:03] Otomatik bir şekilde ilerlesin. Bunu
+[00:02:05] anlattığım videolar kanalda var
+[00:02:06] arkadaşlar. Onlara bakabilirsiniz. Şimdi
+[00:02:09] ilk talimat olarak kocaman bir istekte
+[00:02:11] bulunmayacağız. Ufak ufak isteklerle
+[00:02:13] ilerleyeceğiz. Tüm projeyi tek seferde
+[00:02:15] isterseniz başarılı olamazsınız. Şimdi
+[00:02:17] isteğimi yapıştırıyorum. Şimdi
+[00:02:19] isteğimizde ne demişiz? Sıfırdan bir iOS
+[00:02:21] uygulaması geliştiriyorsun. Günlük
+[00:02:23] alışkanlık takibi yapan bir uygulama
+[00:02:25] oluşturmak istiyorum. Uygulama şu
+[00:02:27] özelliklere sahip olmalı. Kullanıcı yeni
+[00:02:30] alışkanlıklar ekleyebilmeli. Her gün o
+[00:02:33] alışkanlığı yapıp yapmadığını
+[00:02:34] işaretleyebilmeli ve kesintisiz devam
+[00:02:36] eden gün sayısını takip eden bir string
+[00:02:38] göstergesi bulunmalı. Yani üst üste
+[00:02:41] devam ettiğinde bir başarı göstergesi
+[00:02:42] olacak. Şimdi bunu gönderiyorum.
+[00:02:45] uygulamamı geliştirmesini bekliyorum.
+[00:02:47] Cloud 4.6'nın. Önceden bu işlemleri
+[00:02:50] yapabilmek için Swift öğrenmeniz
+[00:02:51] gerekirdi. iOS programlama dilini
+[00:02:53] günleriniz belki de haftalarınız
+[00:02:55] gidebilirdi. Şu anki yaptığımızda
+[00:02:57] kendisi otomatik bir şekilde bizim için
+[00:02:59] bütün kodları yazacak. Bu wipe coding
+[00:03:01] gerçekten kullanabilenler için mükemmel
+[00:03:04] bir hazine arkadaşlar. Şimdi gördüğünüz
+[00:03:06] gibi hemen bizim için bir to listesi
+[00:03:08] oluşturdu burada. Bakın ilk olarak data
+[00:03:10] modelini oluşturacak. Uygulamamız da
+[00:03:12] kullanılacak. Daha sonrasında daily
+[00:03:14] tracking özelliklerini ekleyecek. Ana
+[00:03:15] ekranı yazacak ve içeriğin ana sayfasını
+[00:03:18] yazacak. Burada bitirdiği tuzuları da
+[00:03:20] çizerek bu şekilde ilerliyor. Evet,
+[00:03:22] cloud burada neredeyse taskı bitirmek
+[00:03:24] üzere. Sadece burada iki adet taskımız
+[00:03:26] kaldı. Evet, cloud bitirdi. Mesajını bir
+[00:03:29] inceleyelim. Proje yapısını yani folder
+[00:03:31] yapısını buraya işlemiş. Veri katmanında
+[00:03:33] neler kullandığını bize burada anlatmış.
+[00:03:35] Strick hesaplama mantığında nasıl
+[00:03:37] olduğunu burada bize anlatmış. Ana
+[00:03:39] ekranı yapmış. Deta ekranını yapmış.
+[00:03:41] Hadi gelin beraber X kodla bakalım.
+[00:03:43] Şimdi Xcod'a geldiğimde sol tarafta
+[00:03:45] gördüğünüz gibi hemen yeni dosyalar
+[00:03:47] buraya eklenmiş. Daha sonrasında sağ
+[00:03:49] tarafta kanvas'ımızı görüyorsunuz
+[00:03:51] arkadaşlar. Burada soldaki kodun
+[00:03:53] çıktısını sağ tarafta görebiliyoruz.
+[00:03:55] Şimdi bir alışkanlık ekleyerek testimizi
+[00:03:57] yapalım. Şimdi sağ üstteki artı butonuna
+[00:04:00] basıyorum. Buraya kitap oku örneği
+[00:04:02] vermiş. Biz de kitap okuyu yazalım. Alt
+[00:04:04] taraftan ikon seçebiliyorum. Kitaba
+[00:04:06] uygun bir ikon seçtim ve kaydettim.
+[00:04:09] Bakın burada hemen tamamlama çemberim
+[00:04:11] geldi. Kitap oku alışkanlığımı da
+[00:04:13] buradan tamamlayayım. Bir gün streakini
+[00:04:15] ekledi. %100'ümüz doldu. Şu an birkaç
+[00:04:19] dakika içerisinde gerçekten çalışan bir
+[00:04:21] iOS uygulaması yaptık birkaç yıl önce.
+[00:04:23] Bunlar hayaldi arkadaşlar. Şimdi
+[00:04:25] uygulamamız güzel ama şimdi uygulamamızı
+[00:04:27] biraz daha ileri seviyeye taşıyalım.
+[00:04:29] Artık cloud'u sadece bir yazılımcı
+[00:04:31] olarak değil product manager olarak yani
+[00:04:33] ürün yöneticisi olarak da konumlandırıp
+[00:04:35] ondan fikir alalım ve uygulamayı o
+[00:04:37] şekilde geliştirelim. Bakalım bize neler
+[00:04:39] önerecek. Şimdi cloud desktop
+[00:04:41] kullanmanın bir güzelliğini daha burada
+[00:04:43] keşfedeceğiz. Bakın burada kod
+[00:04:45] bölümündeyim. Soru sormak için buradan
+[00:04:48] chat bölümüne geçiyorum ve hemen sorumu
+[00:04:51] buraya yapıştırıyorum. Elimizde
+[00:04:52] alışkanlık ekleme özelliği ile çalışan
+[00:04:54] bir uygulama var. Kullanıcıların
+[00:04:56] uygulamayı bırakmaması ve sürekli geri
+[00:04:58] için hangi dikkat çekici
+[00:05:00] özellikler eklenebilir? Burada
+[00:05:02] kullanıcıların sürekli geri
+[00:05:03] demesi arkadaşlar uygulamayı satın
+[00:05:05] alanlar veya abonelik alanları
+[00:05:07] uygulamada tutmamız gerekiyor. Bu o
+[00:05:10] özelliği temsil ediyor. Bunu yapıştırdım
+[00:05:12] ve gönderdim. Evet burada cloud hemen
+[00:05:15] isteğimizi anladık. Kullanıcı
+[00:05:16] bağlılığını retention'ı arttıran en
+[00:05:19] etkili mekanizmaları düşünelim dedi.
+[00:05:21] Strick'ten verdi. String sistemimiz
+[00:05:23] bizim var zaten. Seviye ve XP sistemi
+[00:05:26] dedi. Bunu kullanabiliriz. Aylık ve
+[00:05:28] haftalık özet kartları. Bunları çok
+[00:05:30] ileride kullanabiliriz. Bildirimler
+[00:05:31] akıllıca widget desteği iOS'te tutuluyor
+[00:05:35] arkadaşlar. Şimdi biz buradaki seviye ve
+[00:05:38] XP sistemini isteyelim. Şimdi buradaki
+[00:05:41] XP ve seviye açıklamasını kopyalıyorum.
+[00:05:43] Kod kısmına geliyorum. Buraya isteğimizi
+[00:05:46] yazalım. Aşağıdaki özelliği uygulamama
+[00:05:50] entegre etmeni istiyorum dedim ve
+[00:05:54] gönderdim. Artık buradan Cloud Opus
+[00:05:56] kendisi anlayıp uygulamaya bu özelliği
+[00:05:58] ekleyecek arkadaşlar. Bu oyunlaştırma
+[00:06:01] özelliği kullanıcıları gerçekten
+[00:06:02] uygulamaya bağlayan özellikler. Bunu
+[00:06:04] neredeyse piyasadaki tüm uygulamalar
+[00:06:06] kullanıyor arkadaşlar. Alışveriş
+[00:06:08] siteleri dahi bu taktiği kullanıyor.
+[00:06:09] Sürekli alışveriş yaptıkça size kupon ve
+[00:06:11] ödül veriyor. Aslında siz farkında
+[00:06:13] olmadan ona yavaş yavaş bağımlı bir hale
+[00:06:15] geliyorsunuz. Evet. Ekleyeceği
+[00:06:17] özelliklerin hemen burada listesini
+[00:06:19] çıkardı. XP'leri ekleyecek. Bir profil
+[00:06:21] sayfası yaratacak ve kodu buradan verify
+[00:06:24] edip yani kontrol edip onaylayıp canlıyı
+[00:06:27] alacak. Evet, alışkanlık tamamlamada XP
+[00:06:30] özelliğimiz gördüğünüz gibi entegre
+[00:06:31] edildi. Şimdi hemen beraber X kodu da
+[00:06:33] test edelim. Şimdi gördüğünüz gibi hemen
+[00:06:35] simülatörümüzde sağ taraftaki ekran
+[00:06:37] değişmiş arkadaşlar. Sol üst tarafa 0x
+[00:06:40] bir çaylak eklemiş. Bu çaylak seviyesini
+[00:06:42] de beğendim. Şimdi bir alışkanlık
+[00:06:44] ekleyerek test edelim. Buraya yine kitap
+[00:06:47] oku yazıyorum. Kitabı seçiyorum.
+[00:06:49] Kaydediyorum. Evet, yukarıya hemen
+[00:06:52] seviye bilgisi geldi. Gördüğünüz gibi
+[00:06:53] 100 XP eklendi. Kitabımı okudum. Hemen +
+[00:06:57] 12xp yukarıda geldi arkadaşlar. Seviyem
+[00:07:00] de güncellendi. Alışkanlık ekledikçe
+[00:07:02] artık burada levelde atlayabileceğim.
+[00:07:04] Tıkladığımda profil sayfası dahi bana
+[00:07:07] tasarlamış. Bakın ilk adım burada
+[00:07:09] rozetler bölümünde eklemiş. Max strick
+[00:07:12] bonusu. Arka arka yaptığımız görevler.
+[00:07:15] Burada temalar da açılıyor. Seviye 2
+[00:07:17] için mesela zümrüt için seviye 2'ye
+[00:07:18] gelmemiz gerekiyor. Şu konsept bile ben
+[00:07:21] geliştirici olarak uygulamaya beni
+[00:07:22] ısındırdı. Siz bir de kullanıcı
+[00:07:24] tarafından düşünün. Uygulamamızın
+[00:07:26] altyapısı ve oyunlaştırma özellikleri
+[00:07:28] kusursuz çalışıyor ama dürüst olalım.
+[00:07:30] App Store'a dikkat çekmek ve milyonlarca
+[00:07:32] indirimeye ulaşmak için profesyonel bir
+[00:07:34] arayüze ihtiyacımız var. İşte tam bu
+[00:07:36] noktada bu videonun sponsoru Mobbin
+[00:07:38] devreye giriyor. Mobbin dünyanın en
+[00:07:40] başarılı mobil uygulamaların ekran
+[00:07:41] tasarımlarını inceleyebileceğiniz ve
+[00:07:43] kendi projeniz için ilham alabileceğiniz
+[00:07:45] dünyanın en büyük UI kütüphanesine
+[00:07:47] sahip. Şimdi hemen Mobbin'e giriyorum.
+[00:07:49] Mobbin.com/eryelhamurlu
+[00:07:51] diyerek %20 indirime de sahip
+[00:07:53] olabilirsiniz. Mobbine girdikten sonra
+[00:07:55] arama çubuğuna habit tracker yazıyorum
+[00:07:58] ve piyasadaki en şık en yüksek dönüşüm
+[00:08:00] oranına sahip ekranları buradan
+[00:08:02] inceliyorum. Buradan gözüme kestirdiğim
+[00:08:04] harika bir tasarımı hemen bilgisayarıma
+[00:08:06] indiriyorum ve doğrudan uygulamama
+[00:08:09] referans olarak ekliyorum. Cloud'a
+[00:08:11] sadece tasarımımızı bu referansa göre
+[00:08:13] modernleştir diyorum ve gönderiyorum. Ve
+[00:08:15] saniyeler içerisinde artık o basit
+[00:08:17] görünümüz milyon dolarlık uygulamalara
+[00:08:19] benzeyecek. Eğer siz de kendi
+[00:08:21] uygulamalarınızı tasarlarken profesyonel
+[00:08:22] bir görünüme sahip olmak istiyorsanız
+[00:08:24] Mobin tam size göre. Açıklamadaki linke
+[00:08:27] tıklayarak Mobbin'e gidebilirsiniz ve
+[00:08:29] 120 indirime hemen sahip olabilirsiniz.
+[00:08:31] Tasarımı da hallettiğimize göre
+[00:08:32] uygulamamızı yeniden bir kontrol edelim.
+[00:08:34] Şimdi yeni bir alışkanlık ekleyerek yeni
+[00:08:36] ekranlarımızı test edelim arkadaşlar.
+[00:08:38] Artı butonuna basıyorum. Burada kitap
+[00:08:42] oku diyorum. Kitap ikonunu seçiyorum.
+[00:08:44] Kaydet dedim. Detay sayfasına giriyorum.
+[00:08:47] Bakın az önceki tasarımda bu tasarım
+[00:08:49] arasında dağlar kadar fark var
+[00:08:51] arkadaşlar. Yukarıya büyük ikonumuz. Bu
+[00:08:54] ay toplam streckimiz gelmiş. Burada
+[00:08:56] günümüz seçiliyor. Bugünü tamamla
+[00:08:58] dediğimde gördüğünüz gibi hemen 11 bir 1
+[00:09:01] artışlarımız da geldi. Şimdi hızımızı
+[00:09:03] kesmiyoruz. Yeni bir özellik daha
+[00:09:05] ekliyoruz. Cloud'a geliyorum. Burada
+[00:09:07] cloud cool içerisinden bir soru
+[00:09:08] soracağım. Bir ruh hali takipçisi
+[00:09:10] eklemek istiyorum. Bunu uygulamak için
+[00:09:12] senin fikirlerin neler diyorum. Ona da
+[00:09:14] soru sormak istiyorum. Çünkü yapay zeka
+[00:09:16] sizin düşünemediğiniz yeni ihtimaller ve
+[00:09:18] yeni fikirler düşünebilir. Her zaman ona
+[00:09:20] danışmakta fayda var. Ben genelde bunu
+[00:09:22] kullanıyorum. Özellikle kafanız
+[00:09:23] tıkandığında yeni fikir bulamıyorsunuz,
+[00:09:25] çözüm bulamıyorsanız kesinlikle yapay
+[00:09:27] zekaya danışın arkadaşlar. Birden fazla
+[00:09:30] yapay zekaya da burada danışabilirsiniz.
+[00:09:32] Burada bize bağımsız günlük ruh hali
+[00:09:34] eklemeyi öneriyor ve benim kafama yatan
+[00:09:36] da bu. Özellikle tavsiye ettiği de bu.
+[00:09:38] Biz buradan bunu seçelim. Aylık takvim
+[00:09:40] ve emoji diyelim ve yeni özelliğimizi bu
+[00:09:42] şekilde entegre edelim. Ruh hali
+[00:09:45] takipçisi modülümüz tamamlandı. Gelin
+[00:09:47] beraber test edelim. Bakın görmüş
+[00:09:49] olduğunuz gibi yukarıda ruh hali bölümü
+[00:09:51] var. Buraya tıklıyorum. Buradan bugünkü
+[00:09:53] modumu seçiyorum. Örneğin bugünkü modum
+[00:09:55] kötü diyelim. Hemen 5 XP modumu girdiğim
+[00:09:58] için geldi. Gördüğünüz gibi takvimde de
+[00:10:00] emojim eklendi. Bu çok tatlı gözüküyor
+[00:10:01] gerçekten. Aya bakıp bu ay nasıl geçmiş,
+[00:10:04] duygu durumum nasıldı? Bu ay beni iyi,
+[00:10:06] kötü etkileyen nelerdi gibi buradan
+[00:10:07] çıkarım yapabilirim. Bunu kullanıcıya da
+[00:10:09] satabilirim arkadaşlar. Normal olarak da
+[00:10:12] güncelleyebiliyorum. Şimdilik kötü
+[00:10:14] kalsın. Geri döndüğümde bakın bugün
+[00:10:16] girdiğim için buraya da bir strak
+[00:10:17] eklemiş ve işlem tamam. Bence harika bir
+[00:10:20] eklenti oldu. Şimdi yapmış olduğumuz
+[00:10:22] özelliklerle beraber kullanılabilir bir
+[00:10:24] app ortaya koyduk. Şimdi daha fazla
+[00:10:26] kayıt olma gibi detaylı özellikleri
+[00:10:28] burada anlatmayacağım. Onları cloud'un
+[00:10:30] rehberliğinde kolayca
+[00:10:31] tamamlayabilirsiniz. Az önce anlattığım
+[00:10:33] şekilde buraya iCloud'la giriş
+[00:10:34] mekanizması koyabilirsiniz. iOS Swift'te
+[00:10:37] en kusursuz çalışan odur ve en kolay
+[00:10:39] entegrasyonu olan da odur arkadaşlar.
+[00:10:42] Database ve backend için super base veya
+[00:10:44] cloud kit'i kullanabilirsiniz. Cloud kit
+[00:10:46] çok bilinmiyor ama iOS'im bu da.
+[00:10:48] Superbase de yine kullanabilirsiniz.
+[00:10:50] Free kullanımda abonelik ve uygulama
+[00:10:52] için satın alma için kendiniz entegre
+[00:10:54] edebilirsiniz iOS'inkini. Ama bu
+[00:10:56] meşakatle gelirse veya hatalarla
+[00:10:58] karşılaşırsanız Reven Cet gibi ücretsiz
+[00:11:01] alternatif kaynaklara da
+[00:11:02] yönelebilirsiniz. Şimdi uygulamayı
+[00:11:04] yayınlamadan önce burada yapmamız
+[00:11:06] gereken bazı değişiklikler var
+[00:11:07] arkadaşlar X kod içerisinde. Bakın
+[00:11:09] buradan appimizin kategorisini
+[00:11:11] seçiyoruz. Örneğin bizim hepimizin
+[00:11:13] kategorisi productivity olarak
+[00:11:15] işaretleyebiliriz. Yani verimlilik. Daha
+[00:11:17] sonrasında buraya uygulamamızın adını
+[00:11:19] yazıyoruz. Telefonda gözükeceği şekilde.
+[00:11:22] Ebit tracker iOS dedim. Burada iPhone
+[00:11:24] orientation dediği landscape yatay
+[00:11:27] çevirmesi. Bunu kapatıyoruz. Biz portret
+[00:11:29] yani dikey modda kullanacağız. Buradan
+[00:11:31] iPad, iPhone desteğiniz varsa
+[00:11:33] ekleyebilirsiniz ama ben şu anlık iPad,
+[00:11:36] Mac veya Apple Vision eklemeyeceğim.
+[00:11:37] Sadece iPhone'da çıkacağım. Eğer iPad'de
+[00:11:40] yapacaksanız iPad'de test edip onu da
+[00:11:42] yayınlayabilirsiniz.
+[00:11:44] Uygulamamızın ikonu yok tabii ki.
+[00:11:45] İkonunu nasıl ekleyeceğiz? Soldaki
+[00:11:47] assets bölümüne geliyoruz. Burada Epicon
+[00:11:49] bölümüne 1024'e 1024 görseli arkadaşlar
+[00:11:52] buraya sürüklediğinizde uygulamanızın
+[00:11:54] ikon işlemi bitmiştir. Bu kadar. Evet
+[00:11:57] uygulamamız sonunda hazırsa ne yapmamız
+[00:11:59] gerekiyor? Buradan SN and Capabilities
+[00:12:02] bölümüne gelip buradan bir Apple
+[00:12:04] developer hesabınız olması gerekiyor
+[00:12:05] arkadaşlar. Buraya onunla giriş
+[00:12:07] yapıyorsunuz. Örneğin benim kendi adıma
+[00:12:09] bir Apple developer hesabım var. Onu
+[00:12:11] buradan seçerek ekliyorum. Evet, Apple
+[00:12:14] hesabımıza girdik. Uygulamamızın
+[00:12:15] isteklerini ve gereksinimlerini
+[00:12:17] tamamladık. Artık menüden sol üstteki
+[00:12:20] product bölümüne tıklıyorum. Buradan
+[00:12:23] arkaya tıklıyorum ve benim projem artık
+[00:12:25] App Store'a göndermek için tüm
+[00:12:26] hazırlıkları yapıyor. Arka planda arkiv
+[00:12:29] işlemini yaptıktan sonra size şu şekilde
+[00:12:31] küçük bir pencere açılacak arkadaşlar.
+[00:12:33] Buradan ilk başta validate app daha
+[00:12:34] sonrasında distribute app'e tıklayarak
+[00:12:36] uygulamamızı test flight'a gönderiyoruz.
+[00:12:38] Size burada şema olarak da anlatayım.
+[00:12:40] Sol üstten product'a bastık. Archive'a
+[00:12:42] bastık. Validation işlemi yaptık.
+[00:12:44] Sonrasında distribute app butonuna
+[00:12:46] bastık ve uygulamamız artık test
+[00:12:48] flight'ta. Test flight'a geldikten sonra
+[00:12:50] mağaza görsellerimizi hazırlıyoruz. İşte
+[00:12:52] mağaza görsellerimizi, açıklamamızı
+[00:12:54] vesaire bunları tamamlıyoruz ve
+[00:12:56] uygulamamızı Apple'daki çalışan
+[00:12:58] kişilerin incelemesine gönderiyoruz.
+[00:13:00] İncelemeden geçtikten sonra otomatik
+[00:13:02] olarak zaten yayınlanıyor ve bu şekilde
+[00:13:04] ilk uygulamanızı yayınlamanız için size
+[00:13:06] bir roadmap'te paylaşmış olayım. Eğer
+[00:13:08] buradaki adımlarda takılırsanız
+[00:13:10] Cloud'dan yardım alabilirsiniz. Örneğin
+[00:13:12] bu adımda takıldım. Uygulamamı
+[00:13:14] yayınlamam için bana rehberlik eder
+[00:13:16] misin diyebilirsiniz. Artık cloud kod
+[00:13:18] sayesinde iOS mobil uygulama geliştirmek
+[00:13:20] gerçekten büyük bir fırsat. Siz de bu
+[00:13:22] fırsatı kaçırmayın ve kendi iOS
+[00:13:24] uygulamanızı yapıp yayınlayın
+[00:13:25] arkadaşlar. Eğer uygulamanızı
+[00:13:27] yayınlarsanız yorumlarda
+[00:13:28] paylaşabilirsiniz. Topluluğumuzdaki
+[00:13:29] insanlar da bu şekilde görmüş olur.
+[00:13:31] Açıklamada topluluğumuzun da linki var.
+[00:13:33] Oradan topluluğumuza da
+[00:13:34] katılabilirsiniz. Eğer bu videodan bir
+[00:13:36] şeyler öğrendiyseniz beğenip abone
+[00:13:38] olmayı ve bildirimleri açmayı unutmayın.
+[00:13:40] Herkese kolay gelsin. Bir sonraki
+[00:13:42] videoda görüşmek üzere. Yeah.
