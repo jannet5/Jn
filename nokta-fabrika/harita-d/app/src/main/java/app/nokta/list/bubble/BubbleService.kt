@@ -61,6 +61,7 @@ class BubbleService : Service() {
     override fun onCreate() {
         super.onCreate()
         running = true
+        instance = this
         wm = getSystemService(WINDOW_SERVICE) as WindowManager
         repo = Repo.get(this)
         repo.addListener(countListener)
@@ -135,7 +136,16 @@ class BubbleService : Service() {
         attachTouch(v, lp)
         bubble = v; bubbleLp = lp
         wm.addView(v, lp)
+        // Uygulama on plandaysa balon kendi ekraninin (ve diyaloglarin) ustunu kapatmasin.
+        v.visibility = if (appForeground) View.GONE else View.VISIBLE
         visible = true
+    }
+
+    /** Uygulama on plana gelince balon gizlenir, cikinca geri gelir (pencere silinmez, konum korunur). */
+    private fun applyForeground() {
+        val v = bubble ?: return
+        if (appForeground) closePanel()
+        v.visibility = if (appForeground) View.GONE else View.VISIBLE
     }
 
     private fun hideBubbleTemporarily() {
@@ -305,6 +315,7 @@ class BubbleService : Service() {
 
     override fun onDestroy() {
         running = false; visible = false
+        if (instance === this) instance = null
         repo.removeListener(countListener)
         springX?.cancel(); flingY?.cancel()
         closePanel(); hideTrash()
@@ -321,6 +332,14 @@ class BubbleService : Service() {
         private const val PREFS = "nokta"
         @Volatile var running = false
         @Volatile var visible = false
+        @Volatile private var appForeground = false
+        private var instance: BubbleService? = null
+
+        /** MainActivity onStart/onStop'ta cagirir. */
+        fun setAppForeground(fg: Boolean) {
+            appForeground = fg
+            instance?.applyForeground()
+        }
 
         fun wantsBubble(c: Context) = c.getSharedPreferences(PREFS, MODE_PRIVATE).getBoolean("bubble_wanted", true)
         fun setWanted(c: Context, v: Boolean) { c.getSharedPreferences(PREFS, MODE_PRIVATE).edit().putBoolean("bubble_wanted", v).apply() }

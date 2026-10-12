@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        BubbleService.setAppForeground(true)
         controller.attach()
     }
 
@@ -101,6 +102,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        BubbleService.setAppForeground(false)
         controller.detach()
         super.onStop()
     }
