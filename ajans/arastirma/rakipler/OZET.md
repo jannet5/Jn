@@ -102,11 +102,10 @@ Kademeleme mantığı: platform sayısı × aylık içerik adedi × reel sayıs�
 12. **Blog/ipuçları** (sektör başına "2026'da restoran Instagram'ı" gibi) — SEO
 13. **Kapanış CTA:** "WhatsApp'tan yaz" (sabit buton, "Online" rozeti) + telefon + takvim + çalışma saatleri; footer'da sektör ve şehir sayfaları
 
-## 8. Sonraki tur (eksikler)
-- ~~21 ajansın tam not dosyası~~ → 2026-10-10: Owner, B12, Primi, Kiwi, AdresGezgini, Webtasarimji yazıldı (toplam 13). Kalan 15: Hibu, Webtures, MediaClick, E-Pazarla, Collified, Bravery, Webolizma, Ajans360, Proji, 1062 Studio, Oğuz Yatağan, Creamaxi, Arty Digital, Hike Your Market, SwiftCase.
-- ~~Eksik web/mobil SS'ler~~ → 2026-10-10: `ss_al.py`'ye `--reduced-motion` (prefers-reduced-motion + animasyon kapatma CSS'i) ve `--bekle SN` bayrakları, mobil yatay taşmaya kırpma, 6000px üst sınır eklendi; 9 ajansın web+mobil SS'i alındı. Kalan: E-Pazarla, Collified, Bravery, Webolizma, Ajans360, Proji, Hibu, Hike Your Market (web+mobil), 1062 Studio/TrueFuture/LocalSite (eksik tek tür), Creamaxi/Arty/SwiftCase siyah SS'lerin yeni bayraklarla tekrarı.
+## 8. Eksikler (2026-10-12 itibarıyla)
+- 28 ajansın hepsinin notu yazıldı (`ajanslar/`). Önceki "21 eksik not" maddesi kapandı.
+- Web/mobil SS alınamayanlar: E-Pazarla, Webolizma, Ajans360 (zaman aşımı/proxy), Creamaxi ve Arty Digital mobil (proxy politikası engeli). Creamaxi, Proji, Bravery web görüntüleri siyah/hata/CAPTCHA çıktığı için silindi.
 - Instagram bio/link-in-bio (embed vermiyor) — hâlâ açık.
-- Armut/Bionluk fiyat aralıkları tablosu — hâlâ açık.
 
 ## Ek (2026-10-10)
 - Sonuca bağlı paket adı: Primi programları gelir kalemine göre (covers/catering/events), Kiwi "site + SEO + Ads = tek sistem, üç motor"; Owner "traffic / sales / repeat orders".
@@ -115,3 +114,35 @@ Kademeleme mantığı: platform sayısı × aylık içerik adedi × reel sayıs�
 - Kanıt formatı: isimli işletme sahibi + tek büyük rakam (Owner), kaynağı yazılı rakam ("POS VERIFIED", Primi), tek CPL vakası ($28, Kiwi).
 - Global restoran oyuncuları (Owner, Primi) komisyonlu platformlara karşı "doğrudan sipariş" satıyor — TR'de restoran için yerel muadil boşluğu var.
 - Sosyal medya satan küçük ajansların kendi IG'si ölü (Primi 66, Kiwi 9 takipçi; Webtasarimji yok) — bizim için kolay fark.
+
+## Ek (2026-10-12): 28 not sonrası güncellemeler
+**Türkiye'de fiyat şeffaflığı:** 18 Türk ajansın yalnızca 8'i sitesinde TL fiyat yayınlıyor (DijiPal, Kurgu, sosyalmedyayonetim.net, ZBT aralık, Webtasarimji, AdresGezgini, Oğuz Yatağan/Bionluk, Armut aralığı). Webtures, MediaClick, E-Pazarla, Collified ("paket fiyatımız yoktur ve asla olmayacaktır"), Webolizma, Ajans360, Proji (paketler ✓/✗ listesi, fiyat yok), 1062 Studio, Creamaxi, Arty Digital fiyat yazmıyor. Fiyatlı olmak başlı başına fark.
+
+**Yeni TL fiyat verileri**
+| Kaynak | Hizmet | Fiyat |
+|---|---|---|
+| AdresGezgini | Reklam paketleri, taksitli, "hediye ek bütçe" | 3.000 / 5.000 / 10.000 / … / 50.000 / 100.000 ₺ + KDV; AI SEO 11.500 ₺ tek seferlik |
+| Bravery (piyasa rehberi, 2026) | SEO aylık | temel 12-20K, orta 20-40K, kapsamlı 40-80K, e-ticaret 30-70K ₺; SEO denetimi 10-35K ₺ |
+| Collified | GEO danışmanlığı (kurumsal) | 25.000 – 250.000 ₺/ay (sayfada piyasa referansı olarak) |
+| Armut İstanbul | Sosyal medya yönetimi | 2.000 – 40.000 ₺ ("ortalama fiyat"); 20 örnek talepte müşteri aralığı alt 2.5-20K, üst 4.5-50K, ortanca ~5.000 ₺ |
+| Bionluk (Oğuz Yatağan) | Instagram yönetimi | 5.000 ₺/ay (15 post + 4 reel + story) |
+| Bionluk (Oğuz Yatağan) | WordPress web sitesi | 30.000 ₺ (7 gün, 20 sayfa); ödeme altyapısı +5.000, çoklu dil +2.000, hızlı teslim +2.500 ₺ |
+| Bionluk (Oğuz Yatağan) | WordPress hata giderme | 500 ₺ |
+
+Çıkarım: pazar yeri tabanı (5.000 ₺/ay sosyal medya, 30.000 ₺ site) butik ajans bandının alt ucuyla örtüşüyor; "ortanca 5.000 ₺" bizim giriş paketini kıyaslayacağımız fiyat.
+
+**Yeni global fiyat verileri**
+| Kaynak | Fiyat |
+|---|---|
+| SwiftCase Signal (UK) | Launch £1,500 + KDV, Grow £2,000 + KDV (tek seferlik); bakım £99/ay, SEO £299/ay, e-ticaret £1,500'den |
+| Kiwi Web Design (NZ) | Yönetilen site aboneliği $59/ay + eklentiler (yerel SEO +$299, blog +$199, Google Ads +$399/ay) |
+| Hibu | Sitede fiyat yok; üçüncü taraf listeleri $449/ay, 6-12 ay sözleşme + kurulum ücreti |
+| Hike Your Market | Fiyat yok; "free 30 day trial, no contract" ile başlıyor |
+| Owner, B12, Primi, LocalSite, Revolux, TrueFuture | yukarıdaki tablolarda |
+
+**Yeni kalıplar**
+- **Deneme/analiz kapısı:** "30 günlük ücretsiz deneme" (Hike), "60 saniyede SI görünürlük skoru" (Webtures), "ücretsiz SEO analizi" (E-Pazarla), "Marka Analiz formu" (Proji), "ücretsiz 15 dk görüşme + 48 saatte önizleme" (Arty). Her ajansın ilk adımı ücretsiz.
+- **Teklif sihirbazı:** Ajans360 hizmet seçtirip her hizmete 1-3 kapsam sorusu soruyor (sayfa sayısı, aylık paylaşım adedi), fiyatı ekranda göstermeden teklif gönderiyor. Kapsam sorusu sormak iyi fikir, fiyatı saklamak değil.
+- **AI/GEO ("ChatGPT seni önerecek mi?") yeni pazarlama dili:** Webtures, Collified, Hike Your Market, Primi, Kiwi, AdresGezgini, SwiftCase. TR'de bu sadece büyük/orta ajanslarda; KOBİ dilinde karşılığı yok. Fırsat: "Google Haritalar + ChatGPT'de görünürsün" paketine yan ürün olarak eklemek.
+- **Sektör dikeyi:** Collified (sağlık, 35 hekim referansı), Owner/Primi (restoran), LocalSite (hizmet esnafı), Arty (berber/kuaför/spor salonu). Genelci ajanslar (Webolizma, Proji, Ajans360, MediaClick) fiyat da yazmıyor.
+- **Kendi sitesi kusurlu ajans:** E-Pazarla'nın sitesinde şablon artıkları var (H1 "ewebot", Lorem ipsum yorumlar, görünür PHP uyarısı); Proji sitesi bir ara "upstream request failed" hatası verdi. Biz kendi sitemizi kusursuz ve hızlı tutmalıyız.
