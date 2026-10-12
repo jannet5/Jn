@@ -1,0 +1,1900 @@
+# 
+# https://www.youtube.com/watch?v=s2KVJirRoRs
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:s2KVJirRoRs.tr.json3
+
+[00:00:00] Bir araç var ki son birkaç ayda yazılım
+[00:00:02] dünyasını altüst etti. Yurt dışında
+[00:00:05] developerlar bu araçla tek başlarına 5
+[00:00:08] kişilik işi yapabiliyorlar. Teknik
+[00:00:09] bilgisi olmayan insanlar fikirlerini
+[00:00:12] mobil ya da web uygulamasına
+[00:00:13] dönüştürerek bundan gelir elde
+[00:00:15] ediyorlar. Şirketler bu aracı bilen
+[00:00:17] insanları arıyor. Bilmeyenler ise çoktan
+[00:00:19] elenmeye başladı ve dünyada yapay zeka
+[00:00:22] kullananların sadece %1'i bu aracı
+[00:00:24] biliyor. Türkiye'de ise onu da siz
+[00:00:26] düşünün. Bu video içerisinde sana cloud
+[00:00:28] kodu 6. seviyede kurulumdan uzmanlığa
+[00:00:31] kadar öğreteceğim. Yazılımcı olman
+[00:00:33] gerekmiyor, kod bilmen gerekmiyor. Tek
+[00:00:35] yapman gereken bir saatini ayırmak ve bu
+[00:00:38] videoyu izlemek. Ama önce duralım ve
+[00:00:39] şunu soralım. Cloud COD ile neler
+[00:00:41] yapılabilir? Neden bu kadar büyük
+[00:00:43] konuşuyorum? Şimdi birkaç örnek vereyim.
+[00:00:45] Web sitesi mi yapmak istiyorsun? Cloud
+[00:00:46] kodu anlat. Sana komple çalışan bir
+[00:00:49] siteyi tek atışta çıkarsın. Dashboard,
+[00:00:51] e-ticaret sitesi hiç fark etmez. Bir
+[00:00:54] mobil ya da web uygulama fikrin mi var?
+[00:00:56] Cloud koda tarif ediyorsun. Sana anında
+[00:00:58] çalışan bir prototipi üretiyor. Ya da
+[00:01:01] halihazırda çalışan projelerin var ve
+[00:01:03] onun içerisinde sorunlar var ama
+[00:01:05] bulamıyorsun. Cloud Code projeni okur,
+[00:01:07] hataları bulur, düzeltir, test eder,
+[00:01:10] yayınlar. Ama asıl mesele şu, bunları
+[00:01:12] yapmak için yazılımcı olman gerekmiyor.
+[00:01:14] Senin yapman gereken sadece ne
+[00:01:16] istediğini bilmek ve bunu doğru bir
+[00:01:18] şekilde Cloud Cod'a anlatabilmek. İşte
+[00:01:20] bu videonun konusu da tam olarak bu.
+[00:01:22] Cloud Cod'a ne istediğini nasıl
+[00:01:23] anlatırsın? 6. seviyede bunu göreceksin.
+[00:01:26] Hazırsan başlayalım. Şimdi 6. seviyeye
+[00:01:28] geçmeden önce seviye 0'la başlayalım.
+[00:01:31] Yani cloud kodun ne olduğunu, nasıl
+[00:01:33] kurulduğunu bir anlayalım. Eğer cloud
+[00:01:35] kodu zaten kurduysan bu kısmı
+[00:01:37] geçebilirsin ama bence geçme. Çünkü
+[00:01:39] maliyet ve komut rehberi kısmında önemli
+[00:01:42] detaylardan bahsedeceğim. Hemen
+[00:01:43] başlayalım. Seviye 0'ı geçtikten sonra
+[00:01:46] her seviyede seviye 1'de komutçudan
+[00:01:48] planlayıcıya, oradan bağlan mühendisine,
+[00:01:51] oradan araç ustasına, sonrasında
+[00:01:53] yetenekli bir ustaya dönüşmeye ve
+[00:01:55] orkestratörü en sona cloud kodu agents
+[00:01:58] teamlerle kullanmaya bakıyor olacağız
+[00:02:00] birlikte. Ve ayrıca her seviye içinde
+[00:02:02] yine nasıl o burada yaptıklarımızı,
+[00:02:05] burada anlatılanları nasıl uygulamaya
+[00:02:07] dökebileceğini de örneklerle gösteriyor
+[00:02:10] olacağım. Şimdi Cloudya ve Cloud Cod'un
+[00:02:12] farkından bahsedelim. Cloud bizim Google
+[00:02:15] üzerinden girdiğimiz, tarayıcıda
+[00:02:16] çalıştırdığımız, sadece sohbet arayüzü
+[00:02:19] olan soru cevap yaptığımız, ona bir
+[00:02:21] girdi verdiğimiz, onun da bize output
+[00:02:23] çıktı verdiği bir yapı aslında. Normal
+[00:02:25] chat GPT ve Ceminay gibi düşünebiliriz.
+[00:02:27] Buna direkt kendi sitesi üzerinden de
+[00:02:29] zaten erişebilirsin. Modelleri
+[00:02:32] seçebilirsin veya burada farklı
+[00:02:34] ihtiyaçlarına göre yine geçişler
+[00:02:36] yapabilirsin. Burada farklı projeler
+[00:02:38] ekleyebilirsin, kod yazdırabilirsin. Ama
+[00:02:41] şöyle bir durum var. Claudio'ya ne
+[00:02:43] istediğini söylersin. O da sana kodu
+[00:02:45] verir. Ama senin alıp bir yere
+[00:02:47] yapıştırman gerekiyor. Bir kod
+[00:02:48] editöründe onu bizzat çalıştırman ve
+[00:02:50] görmen gerekiyor. Ve dosyalarına
+[00:02:52] erişemez, projeni bilemez. Sadece girdi
+[00:02:55] çıktı vardır. Cloud Code ise
+[00:02:56] terminalinde çalışır. Burası çok önemli.
+[00:02:59] Projeyi okur, dosyalarını görür.
+[00:03:01] halihazırdaki buna göre bağlama anlar ve
+[00:03:04] kodu kendisi yazar, çalıştırır,
+[00:03:06] düzeltir, tekrardan yazar, publish eder.
+[00:03:08] Ve burada aslında git, test ve deploy
+[00:03:11] işlemlerini de yapar. Yani sıfırdan
+[00:03:13] başlayarak ona bir komut vererek bir
+[00:03:15] uygulama geliştirebilirsin. Bunun
+[00:03:17] yayınlanmasına kadar sadece cloud kode
+[00:03:19] üzerinden her şeyi
+[00:03:20] gerçekleştirebilirsin. Cloud Cod'un
+[00:03:22] neler yapabildiğinden bahsettim ama
+[00:03:24] biraz daha üstünden geçelim. Burada hiç
+[00:03:26] kod bilmeden sıfırdan web sitesi ve
+[00:03:28] uygulama oluşturabilirsin ihtiyacına
+[00:03:30] göre. API entegrasyonlarını yapabilir.
+[00:03:32] Bunu projenin içerisindeyken API
+[00:03:34] entegrasyonlarından bahsediyorum. Kodu
+[00:03:36] test eder, optimize eder. Gerekirse
+[00:03:38] kendisi çalıştırır, düzeltir. Git
+[00:03:40] yönetimini yapar. Gitabınıza proje
+[00:03:42] yükleyebilirsiniz. Zaten hepsinin
+[00:03:44] detaylarından bahsediyor olacağım.
+[00:03:45] Halihazırda bir projem varsa bunları
+[00:03:47] düzeltebilir. Mobil uygulama zaten
+[00:03:49] dedik. Otomatik test yazar, proje
+[00:03:51] dokümantasyonu oluşturur. Burada
+[00:03:53] yazılanlardan çok daha fazlasını da
+[00:03:55] Cloud Code yine yapabilir. Örneğin video
+[00:03:57] bile editleyebiliyor veya yine farklı
+[00:03:59] projeler varsa onlar üzerinde
+[00:04:01] çalışabiliyor. Tamamen burada esnek bir
+[00:04:03] yapıya sahip. Önemli olan bizim onu ne
+[00:04:05] için kullanacağımızı bilmek. Zaten bu
+[00:04:07] derste de komple buna odaklanacağız.
+[00:04:09] Yani oturup prompt yazıp cloud kodun
+[00:04:11] çıktısını terminalde akan kodları öyle
+[00:04:13] oturup izlemeyeceğiz. Çünkü zaten
+[00:04:14] teoride aslında cloud kod'un kullanımı
+[00:04:16] basit. Ona bir prompt veriyorsun ve
+[00:04:18] çıktı veriyor. Ama o promptu nasıl
+[00:04:20] veriyorsun? O projeyi nasıl
+[00:04:21] anlatıyorsun? Dikkat etmen gereken
+[00:04:23] şeyler neler? Burada seviye seviye
+[00:04:25] hepsini zaten düzelt oldum. Şimdi tabii
+[00:04:27] ki cloud kodu kullanabilmemiz için ona
+[00:04:30] erişiyor olmamız lazım. Burada 3 adet
+[00:04:32] yöntem var. Aslında iki tanesi zaten
+[00:04:35] birbirine benzer olan yöntem. Şimdi
+[00:04:36] burada insanların kafası karışıyor.
+[00:04:38] Cloud kodu nereden nasıl kullanacağım
+[00:04:40] şeklinde. Bunu hemen bu kısımda
+[00:04:42] hallediyor olacağız. Hiçbir şekilde
+[00:04:43] kafan karışmayacak. Öncelikle
+[00:04:45] terminalden başlayalım. Şimdi terminali
+[00:04:47] duyunca ne oluyor? İnsanlar bir
+[00:04:49] korkuyor. Kod mu yazacağız vesaire. Asla
+[00:04:51] kod yazmayacağız. Ama terminalden
+[00:04:53] çalıştığını bilmekte fayda var. Çünkü
+[00:04:55] terminal üzerinde biz çoğu komutu
+[00:04:57] uygulayabiliyoruz. Birazdan göreceğiz.
+[00:04:59] VS kod içerisinde şimdi vs kod nedir?
+[00:05:01] Bilmeyenler için bir kod editörü aslında
+[00:05:03] burada. Çünkü sıfırdan hiç bilmeyen
+[00:05:05] biriymişsin gibi anlatıyorum. VS kod bir
+[00:05:08] kod editörü. direkt hızlı bir şekilde
+[00:05:10] inebiliyor ve içinden sadece eklentiyi
+[00:05:12] kurarak çalıştırabiliyoruz. Cloud Code
+[00:05:14] kendi içerisinde Cloud yayın Antropic'in
+[00:05:17] yayınladığı kendi uygulamasını da
+[00:05:18] bilgisayara indirip oradan da
+[00:05:20] çalıştırabiliyorsun. Şimdi her birine
+[00:05:22] ayrı ayrı bakalım. Burada terminalde
+[00:05:24] çalıştırman için gerekli kodlar tek
+[00:05:26] satır, tek komut. Sadece bunu yazarak
+[00:05:28] çalıştırabiliyorsun. MacOS için, Windows
+[00:05:30] için ve Linux için kodlar zaten
+[00:05:32] görünüyor. Bu kodları çalıştırırken Note
+[00:05:35] JS gerekmiyor. Fakat yöntem B eğer bir
+[00:05:38] sorun olursa bu kısımda, bu kısımda bir
+[00:05:40] sorun olursa yöntem B'yi de npm ile
+[00:05:42] alternatif bir şekilde kullanabiliriz.
+[00:05:45] Burada Note GS'in kurulu olması
+[00:05:46] gerekiyor. Hemen gösteriyorum. Direkt
+[00:05:48] Google'a Node JS yazıyoruz ve Node JS'i
+[00:05:51] buradan indiriyorsun. Bu kadar basit.
+[00:05:53] Node JS yazdın ve indirdin. Ardından
+[00:05:55] buradaki kodu kopyalıyorsun ve
+[00:05:57] kopyaladığın kodu Windows üzerinde
+[00:05:59] PowerSell'i açarak yapıştırıyorsun. Bu
+[00:06:02] kadar. Sadece bu komutu çalıştırman
+[00:06:04] yeterli oluyor. Cloud kodu kurmak için
+[00:06:06] ben terminalle vesaire uğraşmam diyorsan
+[00:06:09] vs kod içerisinde kurabiliyoruz. Bunun
+[00:06:12] için de VS kodu yine Google'a yazıyorsun
+[00:06:14] ve Windows için veya kendi bilgisayarın
+[00:06:17] için indiriyorsun. indirdiğin vs kodu
+[00:06:19] açtığında direkt seni bu ekran
+[00:06:21] karşılıyor. Burada sol tarafta extension
+[00:06:24] kısmı var. Extension yani eklenti olarak
+[00:06:26] biz cloud kodu aslında kurabiliyoruz.
+[00:06:29] Buraya cloud kode yazdım ve eklenti
+[00:06:31] karşıma çıkacak. Direct burada şu an
+[00:06:33] bende kurulu sizde zaten install
+[00:06:35] olacaktır. Basıp kuruyorsunuz. Bu kadar.
+[00:06:37] Şimdi bu eklentiyi kurduğunda aynı
+[00:06:39] zamanda terminalde de kurmuş oluyorsun.
+[00:06:41] O yüzden terminalde ayrı bir işlem
+[00:06:42] yapmaya gerek kalmıyor. Ve cloud kodu
+[00:06:45] yine eklenti olarak eklediğinde şu
+[00:06:47] kısımda sağ üstte umarım görünüyorsa
+[00:06:49] ikon bir ikon çıkacak. Cloud kode ikonu.
+[00:06:51] Bunu açtığımda eee direkt cloud
+[00:06:54] terminalde aslında kodu yapıştırıyor,
+[00:06:56] çalıştırıyor. Buna yes diyorum ve ben de
+[00:06:59] direkt giriş yaptı. Burada senden
+[00:07:01] antropik hesabına girmeni isteyecektir.
+[00:07:03] Normal Cloud Aı hesabına girmeni
+[00:07:05] isteyecektir. Orada bir tarayıcıya
+[00:07:07] yönlendiriyor. Girişini yapıyorsun ve
+[00:07:09] hazır. Yine eklentinin haricinde bir de
+[00:07:11] terminal üzerinden kullanabiliyorsun.
+[00:07:14] Terminale tıkladım. New terminal dedim.
+[00:07:16] Buraya cloud yazıyorum ve aynı şekilde
+[00:07:19] çalışıyor. Aslında bir farkı yok.
+[00:07:21] Hangisinden istersen, hangisini
+[00:07:23] seviyorsan oradan kullanabilirsin.
+[00:07:25] Hangisini tercih edeceğin tamamen sana
+[00:07:27] kalmış. VS kodda da adımlar. Bu şekilde
+[00:07:31] şimdi desktop yani masaüstü üzerinden
+[00:07:33] nasıl kuracağına bakalım. Zaten normal
+[00:07:35] cloud AI üzerinden kuracağımızı
+[00:07:37] bahsetmiştik. Şu sol altta zaten bir
+[00:07:39] indirme düğmesini görüyorum. İndirme
+[00:07:42] düğmesine tıkladım ve burada desktop app
+[00:07:45] diyor. İndiriyorum. Download ediyorum.
+[00:07:47] Zaten direkt tarayıcıma inmiş oluyor.
+[00:07:49] Uygulamayı indirdikten sonra chat kısmı,
+[00:07:52] cover kısmı, kod kısmı olarak üçe
+[00:07:54] ayrılıyor. Burada aynı arayüz promptuna
+[00:07:57] giriyorsun. Yine modeli seçebiliyorsun,
+[00:07:59] talimatları seçebiliyorsun ve klasörünü
+[00:08:02] seçebiliyorsun üzerinde çalışacağın.
+[00:08:04] Ardından zaten burada lokaline erişmiş
+[00:08:06] oluyor. Bu bunun üzerine çalışmış
+[00:08:08] oluyor. Ama biz bu video içerisinde
+[00:08:10] uygulama üzerinden kullanmayacağız.
+[00:08:12] Şimdi bu ikisi arasında bir fark yok
+[00:08:14] dedim ama uygulamayla kullanma arasında
+[00:08:16] fark var. Terminalde biz çok daha fazla
+[00:08:18] özelliğe sahip oluyoruz. Birazdan
+[00:08:20] hepsine bakıyor olacağız. O yüzden
+[00:08:21] terminalde veya vs kodda kurmanı
+[00:08:24] kesinlikle öneriyorum. Kesinlikle
+[00:08:25] bununla kurmalısın. Sonrasında cloud
+[00:08:27] code app olarak, desktop olarak orası da
+[00:08:29] geliştikçe orada da kullanmaya devam
+[00:08:31] edebilirsin ileride. Zaten bu video
+[00:08:33] içerisinde diğer kısımlarda anlatacağım
+[00:08:35] şeyler genel. Yani tarayıcıdan
+[00:08:37] terminalden de çalışsan, tarayıcıdan
+[00:08:39] indirip uygulamayı da kursan fark
+[00:08:41] etmiyor. Genel şeylerden bahsedeceğim.
+[00:08:43] Şimdi çalıştırman için ne yapman
+[00:08:44] gerekiyordu? Dolar işareti cloud yazarak
+[00:08:47] çalıştırabiliyorsun. Ama senin yerine
+[00:08:49] zaten vs kod yazıyor. Sen eklenti olarak
+[00:08:51] açtığında onu gösterdik. Şimdi gerekli
+[00:08:54] hesap türlerine bakalım. Şimdi gerekli
+[00:08:56] hesap türlerinde ya Pro, ya Max, ya
+[00:08:58] Team, ya Enterprise bu paketlerden
+[00:09:00] birine sahip olman gerekiyor. Veya API
+[00:09:03] kredisi olması gerekiyor. API kredisi
+[00:09:05] ile de bağlayabiliyorsun ama ücretsiz
+[00:09:07] planda cloud kodu çalıştıramıyorsun.
+[00:09:10] Şimdi cloud'un planlar kısmındayım. Ya
+[00:09:12] 17 dolar pro plan ya da max planı 100
+[00:09:15] dolarlık ya da team planlardan birine
+[00:09:17] sahip olman gerekiyor. API ile dedik.
+[00:09:20] Peki API'ı nasıl bağlayacaksın? Şimdi
+[00:09:22] burada vs kodda ne dedim? Cloud
+[00:09:24] yazdığında direkt zaten sana e bir login
+[00:09:26] ekranına atacak. Orada Proan hesabına
+[00:09:29] zaten giriş yaparak cloud kodu
+[00:09:31] çalıştırmış oluyorsun. Orada problem
+[00:09:33] yok. Veya ikinci seçenek olarak API
+[00:09:35] keyini isteyecek senden. Bunun için de
+[00:09:38] API K ile çalıştırmak istiyorsan eğer
+[00:09:40] platform.cloud.com'a
+[00:09:41] giriş yapıyorsun. Ardından sol panelden
+[00:09:44] API key kısmına geliyorsun. Buradan
+[00:09:46] create key diyorsun ve kendi eee isim
+[00:09:49] verip aslında burada direkt API keine
+[00:09:51] alabiliyorsun. Şimdi hangisinin
+[00:09:53] avantajlı olduğundan vesaire zaten
+[00:09:55] bahsedeceğim. Evet, cloud kode
+[00:09:57] maliyetlere, abonelikler Pro Max, 5X,
+[00:10:00] 20X. Bunlar ne anlama geliyor? Eğer pro
+[00:10:02] planın varsa 20 dolar veriyorsun aylık
+[00:10:04] ve burada temel erişime sahip oluyorsun.
+[00:10:07] Aslında senin tabii ki belli bir token
+[00:10:09] limitin oluyor. Eğer max plandaysan da
+[00:10:11] 5x yani Pro'nun 5x katı kadar tokena
+[00:10:14] limite sahip oluyorsun. Artı opus
+[00:10:16] erişimine de sahip oluyorsun bu kısımda.
+[00:10:19] Yani Proda da diğer modellere yine
+[00:10:20] erişiyorsun ama token limitin daha düşük
+[00:10:23] oluyor. Max 20X'te de yine 20 katı bu
+[00:10:26] sefer de e bir limite sahip oluyorsun.
+[00:10:29] Peki API kullandıkça öde şeklinde
+[00:10:32] gidiyor. Input, output. Bunlar ne anlama
+[00:10:34] geliyor? Input benim cloud'a verdiğim
+[00:10:36] input tokenım. Çıktı da ondan aldım
+[00:10:38] çıktı. Aslında bu tokenlar 1 milyona
+[00:10:41] göre hesaplanıyor. 1 milyon girdi token
+[00:10:43] olursa eğer 3 dolarlık bir maliyeti var.
+[00:10:45] Çıktı olarak yine 1 milyonda 15 dolar.
+[00:10:48] Opus'ta ise tabii ki daha maliyetli
+[00:10:50] oluyor. Şimdi burada hangisi daha
+[00:10:51] mantıklı? Eğer hafif veya yoğun işlerde
+[00:10:54] e zaten maliyetleri görebiliyorsun. 2
+[00:10:56] dolar 5 dolar arası. Yoğunda 15 dolar 30
+[00:10:59] dolar arası. Ve bu günlük maliyet.
+[00:11:01] Burası ise aylık maliyet. Şimdi API
+[00:11:03] kullandıkça ödede sürekli günlük bir
+[00:11:05] maliyetin olacak. Buna aylığa vurursan
+[00:11:08] max planından çok daha fazla aslında bir
+[00:11:10] maliyetin olmuş oluyor. O yüzden orta
+[00:11:12] yoğun kullanımda daha büyük projeler
+[00:11:14] üzerine çalışıyorsan API değil de yine
+[00:11:16] burada max planı kullanman daha mantıklı
+[00:11:18] olacaktır. Çünkü token limitin zaten
+[00:11:21] orada yüksek. Belli bir limitin var,
+[00:11:22] kotan var. Ve bu limit hani doldukça da
+[00:11:25] yenileniyor. Fakat API tarafında sürekli
+[00:11:27] kullandıkça ödüyorsun. O yüzden buraya
+[00:11:29] da not düşmüş oldum. Ve ayrıca bu
+[00:11:31] maliyetleri cost [homurdanır]
+[00:11:34] görebileceksin. Zaten komutlara
+[00:11:36] geldiğimizde oraya bakıyor olacağız.
+[00:11:38] Peki hangi model ne işe yarıyor? Burada
+[00:11:40] Sonet, Opus 46, Hik modelleri var. Hiko
+[00:11:44] modeli en hızlı ve ekonomik olan ve
+[00:11:47] aslında en kötüsü olan performans olarak
+[00:11:49] basit ve rutin düzeltlemeler için belki
+[00:11:52] kullanılabilir. Ama burada en yoğun
+[00:11:54] kullanacağımız Sets 4.6 ve Opus 46
+[00:11:58] modelleri olacak. günlük kodlama
+[00:12:00] işlerinin %80'ini buna yaptırıyor
+[00:12:02] olacağız varsayılan model olarak. Fakat
+[00:12:04] daha örneğin riskli bir işlem gerekti
+[00:12:07] veya daha çok derin düşünmesi gereken
+[00:12:09] bir işlem gerekti. O zaman Opus'a
+[00:12:11] geçiyor olacağım. Karmaşık mimarilerde
+[00:12:13] çok iyi çalışıyor. Zorlu soruları
+[00:12:15] çözebiliyor, bugları çözebiliyor ve 1
+[00:12:17] milyon tokenlık bir kontext penceresi
+[00:12:20] var. Zaten bunların ne olduğundan yine
+[00:12:21] bahsediyor olacağız. Buradaki olay şu.
+[00:12:23] Çoğu işi son etile yapıyoruz. Zor
+[00:12:25] kısımlara gelince de opus'a geçiyoruz.
+[00:12:28] modeller arasına geçiş için de slashmel
+[00:12:30] komutunu burada kullanıyoruz. Evet,
+[00:12:33] bilmemiz gereken komutlara bakalım.
+[00:12:35] Burada komutlar çok basit. Hiçbir
+[00:12:37] şekilde korkmaya gerek yok. Aslında
+[00:12:39] bunları ezberlemeye de gerek yok. Zaten
+[00:12:42] kullandıkça alışıyor olacağız. Öncelikle
+[00:12:45] plan moduna geçiyor. Cloud'a direkt kod
+[00:12:48] yazdırmak yerine seninle adım adım plan
+[00:12:50] yapıyor. Oldukça önemli kısım bu.
+[00:12:52] Özellikle bunun altını çiziyorum. Zaten
+[00:12:55] ilerleyen bölümde plana çokça
+[00:12:56] değineceğiz. Şimdi terminalimde cloud
+[00:12:58] yazdım ve çalıştırdım. Buradan örneğin
+[00:13:01] plan komutuna geçtiğimde artık enable
+[00:13:03] plan mod şu anda plan modunda cloud'la
+[00:13:06] sohbet ediyoruz gibi düşünebiliriz bu
+[00:13:08] komutla. Oldukça basit. Ardından clear
+[00:13:10] var. Konuşma geçmişini siliyor. Sıfırdan
+[00:13:13] başlıyor. Farklı bir şey geçerken
+[00:13:15] kullanıyoruz. Clear. Clear modu yine
+[00:13:18] burada kullanabiliyorum. Compact var.
+[00:13:20] Compact ise clear'la karıştırmamamız
+[00:13:22] lazım. Burada compact konuşmayı
+[00:13:24] özetliyor. Özetliyor ve sıkıştırıyor.
+[00:13:27] Contextli olduğunda aynı işe devam etmek
+[00:13:29] için kullanabiliyorum. Örneğin uzun uzun
+[00:13:31] konuştum. Cloud'da projemi bir yere
+[00:13:33] kadar getirdim. Compact diyorum burada.
+[00:13:35] Slash compact diyorum ve orayı ne
+[00:13:37] yapıyor? Özetliyor. Bir sonraki yeni
+[00:13:39] conversation başlattığımda bağlamı
+[00:13:41] unutmuyorum. Oradan devam etmiş
+[00:13:43] oluyorum. Zaten bunun püf noktalarına
+[00:13:45] değineceğiz. Şu an komutları binmek
+[00:13:47] yeterli bizim için. Contex'e bakalım.
+[00:13:49] token kullanımını gösteriyor. Context
+[00:13:51] window'un ne kadar dolu olduğunu
+[00:13:52] görüyorsun. Token kullanımını takip
+[00:13:54] etmek çok önemli. Çünkü limitli
+[00:13:56] token'ımız var. Bu yüzden de onu verimli
+[00:13:58] bir şekilde en iyi şekilde cloud'dan en
+[00:14:00] iyi performansı alacak şekilde
+[00:14:01] kullanmamız gerekiyor. Burada context
+[00:14:04] window dediğimizde aslında bağlam
+[00:14:06] penceresindeki sınır. Onu da yine
+[00:14:08] context ile görüntüleyebiliyorum bu
+[00:14:11] kısımda. SLC context slashcost bu
+[00:14:13] oturumda ne kadar harcadığını gösterir.
+[00:14:16] Kontexten farkı ne? context token'ımı
+[00:14:18] gösteriyordu. Costa daha çok yine
+[00:14:21] maliyeti göstermiş oluyor. Costu da
+[00:14:23] zaten API kullanımlarında sıkça
+[00:14:26] kullanıyorsun. Orada komut karşına
+[00:14:27] çıkacaktır. Aylık plan limitine ne kadar
+[00:14:29] yakın olduğumu görmek için de usage'ı
+[00:14:32] kullanabilirim. Şöyle usage yazıyorum.
+[00:14:34] Örneğin bakın burada şimdi ne yaptı? Bu
+[00:14:37] oturumumdaki burada %14'lük bir kullanım
+[00:14:39] olmuş. Haftalık ve diğer ekstra yüz
+[00:14:42] dışları kullanımları gösteriyor. Proje
+[00:14:44] esnasında bunları takip etmek çok
+[00:14:46] önemli. model demiş. Modellerden
+[00:14:49] bahsetmiştik. Model diyoruz ve aslında
+[00:14:52] burada diğer modele geçiş yapıyoruz.
+[00:14:54] Slash dedim, model dedim ve seçiyorum.
+[00:14:57] Örneğin burada opus opusun veya 1 milyon
+[00:14:59] contextlik eee window pencereli olanı
+[00:15:02] veya highku veya sonnet'i
+[00:15:04] kullanabiliyorum veya default diyorum.
+[00:15:06] Eee o da benim için her testk için uygun
+[00:15:09] olanı seçmiş oluyor. Birinci seçenekte
+[00:15:11] de slash inits nedir? projeye özel Cloud
+[00:15:14] MD dosyası oluşturur. Kuralları öğretir.
+[00:15:17] Zaten Cloud MD'den yine ayrıntılı bir
+[00:15:19] şekilde bahsediyor olacağım. Şunu
+[00:15:21] bilmemiz yeterli. Init komutu bizim
+[00:15:23] Cloud MD dosyamızı oluşturuyor. Burada
+[00:15:25] diğer komutları da yine resume ve config
+[00:15:27] gibi ayarlar menüsünü açma ve oturuma
+[00:15:30] geri dönme. Onları da yine aynı şekilde
+[00:15:32] buradan kullanabilirim. Şimdi aslında
+[00:15:34] burada birçok komut var. Yine slash'a
+[00:15:36] bastım. Batch dear agentlar, BTV'ler.
+[00:15:40] Bunlar mesela BTW sohbet esnasında
+[00:15:43] cloud'la normal projeye devam ediyor.
+[00:15:45] Bir testk verdim ona. O teski yapıyor. O
+[00:15:48] anda araya bunu neden yaptın gibi bir
+[00:15:51] talimat ekleyebiliyorum kullanarak.
+[00:15:53] Aslında bu sayede de cloud hani orada
+[00:15:56] çalışmasına devam ediyor. Arada ayrı bir
+[00:15:58] soru sormuş oluyorum gibi. Yani birçok
+[00:16:00] daha komut var aslında burada kullanıma
+[00:16:02] göre değişecektir. DI komutları diğer
+[00:16:05] işte eee MCP memorie mobil plandan zaten
+[00:16:10] modelden bahsettik. Pluginlere
+[00:16:12] bahsedeceğim. Remote control uzaktan
+[00:16:14] çalıştırmanızı sağl cloud kodu bir QR
+[00:16:17] kod çıkıyor ve onu telefondan
+[00:16:18] okuttuğunuzda uzaktan bağlantı sağlamış
+[00:16:21] oluyorsun. skiller var. Yine bunlara
+[00:16:23] değineceğim. Tasklara bakabiliyorum ve
+[00:16:26] diğer komutlar da yine var. Bunları
+[00:16:29] zaten zamanla öğreniyor olacaksın. O
+[00:16:31] yüzden ezberlemeye gerek yok. Şu an en
+[00:16:32] çok kullanılanları ben sıralamış oldum.
+[00:16:34] Terminal ipuçlarında yine gits ve npm
+[00:16:37] gibi komutları da ne yapabiliyor? cloud
+[00:16:40] çalıştırabiliyor. Cloud bizim yerimize
+[00:16:41] terminalde komutları da
+[00:16:43] çalıştırabiliyor. Örneğin bir kurulum
+[00:16:44] vesaire yapacaksa direkt terminali
+[00:16:46] çalıştırabilir. Bunun için bizden izin
+[00:16:48] ister ve biz o izni verdiğimizde gerekli
+[00:16:51] ayarlamaları kendisi yapar. Burada
+[00:16:53] BTV'den zaten bahsettik. Cloud
+[00:16:55] çalışırken araya girip soru soruyoruz.
+[00:16:57] Kontext bu sayede de bozulmamış oluyor.
+[00:16:59] Uzun işlemler sırasında merak
+[00:17:00] ettiklerini mutlaka soruyorsun. Kurulum
+[00:17:02] tamam. Komutları biliyoruz. Artık 6.
+[00:17:04] seviyeye geçebiliriz. Seviye 0'ı
+[00:17:07] hallettik. Her seviye bir sonrakinin
+[00:17:09] temeli. O yüzden sırayla gitmemizde
+[00:17:11] burada fayda var. Hiçbir yere atlamadan
+[00:17:13] devam ediyorsun. Bugüne kadar birçok
+[00:17:15] kişiye tane otomasyon eğitimi verdim ve
+[00:17:17] birlikte projelerine yapmalarına,
+[00:17:19] geliştirmelerine işte satış kısmına
+[00:17:21] kadar şahit oldum. Açıkçası artık
+[00:17:23] sektörün gittiği yer burası ve burada
+[00:17:25] cloud Code çok önemli bir rol oynamaya
+[00:17:28] devam edecek gelecekte. Birkaç ay sonra
+[00:17:30] belki bir yıl sonra 2 yıl sonra bunlar
+[00:17:32] geç bile olabilir. Geç kalınabilir bu
+[00:17:35] sektöre, bu gelişmelere. O yüzden değer
+[00:17:38] verm ve şu anda yatırdığın zamanın
+[00:17:40] karşılığını alacağını bilmende fayda
+[00:17:43] var. Mutlaka alacaksın. Çünkü alanları
+[00:17:45] gördüm. Nat ilk zamanlarda yine popüler
+[00:17:48] olmaya başladığında yine orada yatırım
+[00:17:50] yapanlar şu anda karşılığını alıyorlar.
+[00:17:53] Cloud Code da yine aynı şekilde sektör
+[00:17:55] biraz da bu tarafa doğru gidiyor.
+[00:17:57] İkisini birleştirip harika işler
+[00:17:58] çıkartanlar yine var ve gün geçtikçe de
+[00:18:01] bu araçlar gelişmeye farklı araçlarla
+[00:18:03] birleşip mükemmel çıktılar vermeye devam
+[00:18:06] edecek. Teknik bilgisi olmayan kişiler
+[00:18:08] harika web uygulamaları, mobil
+[00:18:09] uygulamalar geliştirebilecekler ve bunu
+[00:18:12] sadece wipe coding mantığında yani
+[00:18:14] aklına bir fikir gelecek ve belki orada
+[00:18:16] cloud kodu remote kontrolle hatta hiç
+[00:18:17] bilgisayara bile gitmeden yazacak ve
+[00:18:20] uygulamayı oluşturacak ve bunu belki
+[00:18:22] satacak sadece keyif için değil ileride
+[00:18:24] geliştirecek ve satacak. Ve eminim ki şu
+[00:18:26] anda bu videoyu izleyenler, burada
+[00:18:28] olanlar ve cloud kodu öğrenenler
+[00:18:30] kazananlar olacak. Yarının kazananları
+[00:18:32] olacak. O yüzden devam edelim. 6.
+[00:18:34] seviyede cloud kodu inceleyelim. Burada
+[00:18:36] nereden nereye doğru gideceğiz?
+[00:18:38] Prompt'tan başlayacağız aslında bu
+[00:18:39] kısımda ve planlama kısmına sonra
+[00:18:42] context engineer sonra toolar, skiller
+[00:18:44] ve orkestratör seviyesine kadar
+[00:18:46] çıkacağız. Sıfırdan başladık. Bu
+[00:18:48] temelleri bilmen çok önemli çünkü bu
+[00:18:50] temeller değişmeyecek. O yüzden
+[00:18:52] başlıyoruz. Komutçu. Komutçu nedir?
+[00:18:54] Cloud bir araçtır diyen kişi buradadır.
+[00:18:57] Seviye 1'dedir. Eğer ne yapıyorsak
+[00:18:59] buradayızdır. Cloud kodu açar açmaz
+[00:19:01] komut girmeye başlıyorsak bana bir
+[00:19:03] açılış sayfası yap. Tek atışlık istekler
+[00:19:05] veriyorsak cloud'u sadece komut çıktı
+[00:19:07] ilişkisi olarak görüyorsak bu
+[00:19:09] seviyedeyizdir. Ki zaten normal olarak
+[00:19:11] şu anda başlangıç seviyesindeysen bu
+[00:19:13] seviyedesindir. Ya cloud kod zaten böyle
+[00:19:15] bir şey değil miydi diyorsun. Böyle bir
+[00:19:17] şey değil. Diğer seviyelerde göreceksin.
+[00:19:19] O yüzden neredesin? Şu anda seviye
+[00:19:21] 1'desin. Burada yaptığın hatadan
+[00:19:22] bahsedeyim. Cloud kodu açtık. VS
+[00:19:25] koddayım şu anda. Burada bir open folder
+[00:19:27] diyorum ve masaüstünden bir klasör
+[00:19:29] açıyorum veya bir klasör seçiyorum.
+[00:19:32] Örneğin burada seçtim. Deneme test
+[00:19:34] adında bir klasör açtım. Şimdi benim
+[00:19:36] klasörümü cloud kode burada görüyor.
+[00:19:39] Cloud yazdım terminale ve buradan
+[00:19:41] okliyorum. Sonrasında burada örneğim
+[00:19:44] modelim hatta opus 46 olsun. Aynen opus
+[00:19:47] 46 olsun. Çünkü en güçlü modeli
+[00:19:49] seçeceksin. Yine başta yaptığın bir
+[00:19:52] hatadır bu. En güçlü modeli seçtim ve
+[00:19:54] dedim ki AI otomasyon ajansım için
+[00:19:57] otomasyon ajansım için bana bir landing
+[00:20:01] page yani bir işte ilk tanıtım giriş
+[00:20:04] sayfası hazırla. Şimdi böyle bir prompt
+[00:20:07] verdim. Cloud'un benimle hiçbir
+[00:20:09] muhabbeti yok. Hiçbir şey bilmiyor şu
+[00:20:11] anda. Ama yine de tamam dedi sana modern
+[00:20:13] etkileyici bir AI otomasyon ajansı
+[00:20:15] landing page hazırlıyorum dedi. Bakalım
+[00:20:17] ne çıkacak şimdi. Ne yaptı? Tamam,
+[00:20:19] oluşturdum dedi. Index htm'ini burada
+[00:20:22] oluşturmuş. Açalım bakalım o zaman.
+[00:20:23] Şimdi burada ne yaptı? Görüyorsun zaten.
+[00:20:26] Bu her yerde gördüğün daha önce E ile
+[00:20:29] tasarım yaptıysan her yerde gördüğün
+[00:20:31] mor, mavi ufaktan butonlarda işte
+[00:20:34] butonlar hep birbirine benzer tek
+[00:20:36] sayfalık. Eee, bir ne yaptı? Site yaptı.
+[00:20:39] Şimdi bu ne demek oluyor? Bu klasik
+[00:20:41] demek oluyor. Hiçbir fark yok, değil mi?
+[00:20:43] Hep aynı şeyler. Buna herhangi bir
+[00:20:45] kişiye atsam yapay zeka oldu zaten. O
+[00:20:47] şekilde yapıldığı belli olur. Ne yaptım?
+[00:20:49] AI otomasyon ajansım için web site
+[00:20:51] oluştur dedim. Hiçbir şey vermedim. Peki
+[00:20:53] buradaki hata ne? İşte buradaki hata
+[00:20:56] bağlam yok. Eşittir cloud her şeyi
+[00:20:58] tahmin eder. Tahmin kalitesiz çıktı
+[00:21:01] verir. İnsanların %90'ı burada. Şimdi ne
+[00:21:03] dedik? Dünyada zaten yapay zeka
+[00:21:05] kullananların %1'i cloud kodu anca
+[00:21:08] kullanıyor. İyi bir şekilde, verimli bir
+[00:21:09] şekilde kullanabiliyor. Bunların ne
+[00:21:11] kadarı Türkiye'de ne kadarı yani iyi
+[00:21:14] seviyede? İnsanların %90'ı burada. Yani
+[00:21:16] kullananların da %90'ı daha bu seviyede.
+[00:21:18] Bağlam yok. Her şeyi cloud'a veriyorlar
+[00:21:20] ve oluşturmasını bekliyorlar. Bu da
+[00:21:22] tahmin tahmine sebep oluyor ve kalitesiz
+[00:21:24] çıktıya sebep oluyor. Yani esasında biz
+[00:21:27] yapay zekaya, cloud'a bağlam
+[00:21:29] vermediğimiz için o ortalamayı hedef
+[00:21:32] alıyor. Gördüğü yer orası oluyor. Yapay
+[00:21:34] zekanın sadece öğrendiği bilgilerle o
+[00:21:37] kısımda kalmış oluyor. Bizim o açıyı
+[00:21:39] genişletmemiz lazım. Cloud açısını
+[00:21:41] genişletmemiz lazım. Bunun için neler
+[00:21:43] yapıyoruz? Zaten diğer seviyelerde
+[00:21:44] göreceksin. Ama en azından şunları da
+[00:21:46] yapabiliyor olmamız lazım. Net ve
+[00:21:48] spesifik komutlar yazmak. Cloud'un
+[00:21:51] çıktısını okumak ve değerlendirmek.
+[00:21:53] Temel terminal okur yaazarlığına hakim
+[00:21:55] olmak. Bunlar ne demek? Şimdi net ve
+[00:21:57] spesifik komutlar yazmalıyım. Örneğin
+[00:21:59] bir web site yap diyorsam eğer ben
+[00:22:02] landing page yap diyorsam bunun kimin
+[00:22:04] için, ne için, hangi hedefle olduğunu
+[00:22:06] belirtmeliyim. Örneğin o siteye giren
+[00:22:08] kişiler günün sonunda ne yapacaklar? O
+[00:22:10] sitede randevu mu alacaklar veya bir
+[00:22:13] form mu dolduracaklar ya da bir WhatsApp
+[00:22:15] chat botuna mı bağlanacaklar? Bu
+[00:22:16] bilgileri vermem lazım. Otomasyon
+[00:22:18] ajansım için oluşturuyorsam kendi
+[00:22:20] otomasyon ajansımın bilgilerini
+[00:22:22] vermeliyim. Ben ne hizmetler veriyorum?
+[00:22:24] Referanslarım var mı? Şu ana kadar ne
+[00:22:26] gibi projeler yaptım? İletişim
+[00:22:28] bilgilerim ne? Bunların hepsini cloud'a
+[00:22:30] vermeliyim. Specifik dediğimiz yeri bu
+[00:22:32] şekilde halledebiliriz. Daha sonrasında
+[00:22:34] diğer kısımlara bakalım. Verdiği çıktıyı
+[00:22:36] kontrol etmek. Verdiği çıktıyı burada
+[00:22:38] kod olarak zaten görebiliyorsun. Ama ne
+[00:22:40] dedik? Sen kod bilmiyorsun. Öyle
+[00:22:42] düşünüyoruz. kod bilmeyeceğin için de
+[00:22:44] bilemeyeceğin için de burada en azından
+[00:22:46] sayfada neler var? İşte navbar, hero
+[00:22:49] hizmetler, süreçler ya navbar'ın ne
+[00:22:51] olduğunu, her ne olduğunu, CTA'ların,
+[00:22:53] referansların eee bu tamam okey foterın
+[00:22:56] ne olduğunu belki bu kavramlara hakim
+[00:22:58] olman gerekiyor. Terminalde çalıştırdığı
+[00:23:00] şeylere hakim olman gerekiyor. Bu sadece
+[00:23:03] web site için geçerli değil. Terminalde
+[00:23:04] çalıştıracak bir proje yaparsın. Orada
+[00:23:06] çalışması gerekir. Orada neler
+[00:23:08] çalıştırdı, ne yaptı? bunlara hakim
+[00:23:10] olmam lazım ki zaten tüm detayları bana
+[00:23:12] burada söylüyor. Örneğin bana burada ne
+[00:23:14] diyor? Onaylıyor musun? Enter'a bastım.
+[00:23:16] Şu şekilde shift. Bu arada buradaki
+[00:23:18] temel terminal komutlarından kasıt yine
+[00:23:21] Upuz'un terminal komutlarını bilmek
+[00:23:23] değil. Cloud ne çalıştırmak istedi? Ne
+[00:23:25] yaptı? Orada özel dosyalarıma da
+[00:23:26] erişebilir. Belki terminalde çalıştırdı
+[00:23:28] komutlarla. Bunları bilmekte fayda var.
+[00:23:30] Nereye erişti, ne yaptı gibi. Zaten
+[00:23:32] hepsini sana log kısmında ya bu kısımda
+[00:23:35] göstermiş oluyor neler yaptığını. Burada
+[00:23:38] ustalaşmamız gereken becerilerden
+[00:23:39] bahsetmiş olduk. Peki kilidi nasıl
+[00:23:42] açacağım burada? Tamam. Seviye 1. Okey.
+[00:23:45] Artık ikinci seviyeye geçmemiz için
+[00:23:46] bizim komut vermeyi bırakıp cloud'u
+[00:23:49] birlikte plan yaptığımız bir ajan, bir
+[00:23:51] yol arkadaşı, bir proje arkadaşı gibi
+[00:23:54] görebiliyor olmamız lazım. Bunu
+[00:23:55] gerçekten bu şekilde söylüyorum.
+[00:23:57] Gerçekten onu bir arkadaş gibi sorular
+[00:23:59] sorarak, plan yaparak, sohbet ederek
+[00:24:01] gitmeniz gerekiyor ki bu da bizi ikinci
+[00:24:02] seviyeye getiriyor. Yani planlayıcı.
+[00:24:05] Burada ne oluyor artık? Cloud benim için
+[00:24:07] bir ortak. Eğer ne zaman buradayımdır
+[00:24:10] buna bakalım. Eğer inşaya başlamadan
+[00:24:12] önce plan modunu kullanıyorsan burada
+[00:24:14] neyi gözden kaçırıyorum diye soruyorsam
+[00:24:17] tek bir satır kod yazmadan önce mimariyi
+[00:24:19] tartışıyorsam ki doğru olanlar zaten bu.
+[00:24:21] Eğer bunları yapıyorsam artık ikinci
+[00:24:23] seviyedeyim diyebilirim. Yani az önceki
+[00:24:26] hatamızı düzeltelim o zaman. Burada VS
+[00:24:28] koda geldim tekrardan. Cloud kod şu anda
+[00:24:30] açık. Burada önceki oluşturduğum dosyayı
+[00:24:33] siliyorum. Sildim dosyamı. Dosyamı
+[00:24:35] sildim. Burayı da kapatacağım. Yeni bir
+[00:24:37] sohbet başlatacağım. Burada yeni bir
+[00:24:40] terminalı yine açıyorum. Sonra cloud'u
+[00:24:42] tekrar başlatıyorum. Ve burada dikkatini
+[00:24:44] çekmek istediğim bir nokta var. Opero
+[00:24:46] kurumsal tanıtım belgesi. Bu benim
+[00:24:48] şirketimin içerisindeki bilgileri
+[00:24:51] aslında barındıran bir doküman diyelim.
+[00:24:53] TXT dosyası. Bu bile olur. Yani şu
+[00:24:55] andaki örnek için bu bile yeterli. Şimdi
+[00:24:58] buraya geliyorum. Slash koyuyorum. En
+[00:25:00] başa dönelim. Neydi bizim komutumuz?
+[00:25:02] Plan değil mi? Cloud'u da normal bir
+[00:25:04] başlamadan önce, projeye başlamadan önce
+[00:25:06] plan modunu alıyorum. Enable plan dedim.
+[00:25:08] Plan modumu aldım. Ya burada cloudu bir
+[00:25:10] ortak olarak görüyorum. Hiçbir şey
+[00:25:12] bilmiyormuşum gibi. Şimdi burada bir de
+[00:25:14] işaretinden bahsediyor olayım. Et
+[00:25:16] işaretini koyduğumda şöyle görüyorsun
+[00:25:19] burada Operico kurumsal tanıtım belgesi
+[00:25:21] txt çıktı. Bu neden çıktı? Çünkü ben bu
+[00:25:23] dosyayı referans olarak göstereceğim.
+[00:25:25] Tıkladım. Referans olarak aldı. Artık
+[00:25:28] bunu okuyabilecek. Ya aslında normalde
+[00:25:30] de direkt yazarsam okur, referans
+[00:25:31] koyarsam spesifik olarak o dosyayı
+[00:25:33] göstermiş olurum. Yazdım. TXT dedim ve
+[00:25:36] diyorum ki bu dosya benim yapay zeka ve
+[00:25:41] otomasyon ajansımın ajansımın
+[00:25:44] bilgilerini içeriyor. Ajansım için bir
+[00:25:47] web site düşünüyorum. Bu web siteye
+[00:25:51] giren ziyaretçiler
+[00:25:53] benden randevu alabilsinler. Hatta oraya
+[00:25:58] link CTA olarak randevu al. GTA randevu
+[00:26:01] al. Yani link tıkladığında GTA dediğimiz
+[00:26:04] şey yönlendirme bir buton olsun. Randevu
+[00:26:06] ala tıkladıklarında Calcom dediğim
+[00:26:09] aslında veya Can diye veya Google Takbim
+[00:26:11] olabilir. Herhangi bir toplantı alacağı
+[00:26:13] bir link eee dediğinde sana vereceğim e
+[00:26:16] linki eklemeni eklemeni istiyorum. Şu an
+[00:26:20] kabaca bir prompt yazıyorum. Yani hiç
+[00:26:21] prompt yazmayı bile bilmediğimi farz
+[00:26:23] ederek prompt yazıyorum. tavsiyelerini
+[00:26:25] tavsiyelerini tavsiyelerini duymak
+[00:26:28] isterim. Eee, tasarım hakkında bilgim
+[00:26:30] yok. Hakkında bilgim yok. E sen ne
+[00:26:33] diyorsun? Soru sordum. Yani normal şu an
+[00:26:36] plan modundayız çünkü bir şey
+[00:26:37] yapmayacağız. Okusun, baksın ve
+[00:26:39] isteklerimi görsün. Tavsiyelerini duymak
+[00:26:42] isterim. Tasarım hakkında bilgim yok.
+[00:26:43] Bakalım web sitesi hangi dilde olsun?
+[00:26:45] Bana burada şimdi ne yaptı? Plan modunda
+[00:26:48] şu şekilde dil, yapı, tema, teknoloji,
+[00:26:51] submit gibi böyle yapılara ayırdı.
+[00:26:53] kategorileri ayırdı. Hepsinde bana
+[00:26:55] sorular soracak. Web sitesi hangi dilde
+[00:26:57] olsun? Diyorum ki Türkçe olsun. Tek
+[00:27:00] sayfa mı? İşte yapı nasıl olsun? Çok
+[00:27:02] sayfalı mı? Bakın nasıl değişti tema.
+[00:27:04] Yani şu an benden bilgi almak istiyor.
+[00:27:06] Hadi ben bilmiyorum. Diyelim ki cloud'a
+[00:27:08] söyledim. Tamam dedi ya ben sen
+[00:27:10] bilmiyorsan ben sana sorayım. Nasıl
+[00:27:12] olsun? Böyle mi olsun? Böyle mi olsun?
+[00:27:13] Ben de okey diyorum. Tek sayfa olsun
+[00:27:15] diyorum. Koyu bir tema olsun diyorum.
+[00:27:17] İşte burada hangi teknolojiyle
+[00:27:19] geliştirelim diyor. Şimdi burada bir
+[00:27:21] kalabilirsin. Örneğin kodlama vesaire
+[00:27:23] bilmiyorsan burada bir durursun. HTML
+[00:27:25] CSS ne diyor? En azından belki onlara
+[00:27:27] hakimsindir. Ama React'ın ondan farkı
+[00:27:29] ne? İkisinin farkı ne? NextJS'ten farkı
+[00:27:32] ne gibi bunları bilmiyor olabilirsin ve
+[00:27:34] sana burada zaten açıklıyor. HTML CSS
+[00:27:37] sade hızlı hostingi kolay statik site
+[00:27:40] olarak her yerde çalışır diyor. Daha
+[00:27:42] modüler yapı ileride büyütmek kolay
+[00:27:44] biraz daha teknik bilgi gerektirir ama
+[00:27:46] diyor ve CEO dostu CCR desteği daha
+[00:27:49] kapsamlı projeler için uygun ama
+[00:27:51] başlangıç için ağır olabilir. Sana
+[00:27:53] açıklamasını da yaptı. Burada yapman
+[00:27:55] gereken şey belki eğer yine emin
+[00:27:57] değilsen farkını sormak olabilir.
+[00:27:59] Farklarını sorabilirsin mutlaka.
+[00:28:01] Başlamadan önce her şeyi netleştirmekte
+[00:28:03] fayda var. Ben HTML CSS olsun dedim ve
+[00:28:06] burada submit ediyorum. Tamam diyorum.
+[00:28:08] Şimdi bizim BTV komutumuz vardı. Onu da
+[00:28:10] kullanıyor olalım. Mesela bana neyi
+[00:28:13] sormadı? Bir hatası varsa cloud da hata
+[00:28:15] yapabilir. Ne hatası yapmış olabilir
+[00:28:17] burada? Tasarımın, renklerin, fontların
+[00:28:20] nasıl olacağını bana sormadın değil mi?
+[00:28:24] sormadın. Eee, bunu söyleyebilirim.
+[00:28:26] Örneğin modern temiz tipografide,
+[00:28:29] tipografide olsun direkt açıkça
+[00:28:31] söyleyebilirim. Hatta yapay zekanın
+[00:28:33] verdiği o klasik sitelerden biraz farklı
+[00:28:38] olsun. Şu an ne oldu? Araya girdim
+[00:28:41] aslında. Hiçbir şekilde durdurmadım ama
+[00:28:43] araya girdim. Tamam diyor. Ben sormam
+[00:28:46] gerekirdi diyor. Notumu aldım. O zaman
+[00:28:48] devam edebilirsin diyorum. Bu kadar
+[00:28:50] aslında. Evet. Şimdi bana burada dedi ki
+[00:28:53] planı yaptım dedi. Cloud planı yaptım
+[00:28:55] dedi. Yaptı dedi ve planı şimdi
+[00:28:57] gösteriyorum. Burada belgenizi okudum.
+[00:29:00] Operco için güzel bir temel var dedi.
+[00:29:02] Soruları sordu zaten cevapladık.
+[00:29:04] Ardından ne yaptı? Ü tane dosya
+[00:29:07] hazırlayacağım dedi senin için. Siyah
+[00:29:09] zemin bu şekilde tasarım. Okey mi? Daha
+[00:29:11] değil. Hani plan yapıyor şu anda. Hiçbir
+[00:29:13] şekilde daha aksiyona geçmedi.
+[00:29:15] Implementasyon yapmadı. E burada sadece
+[00:29:18] bana fontları söylüyor, animasyonları
+[00:29:20] söylüyor, bunları bunları kullanacağım
+[00:29:22] diyor. Responsive tasarım olacak diyor.
+[00:29:24] Her cihaz için uyumlu bir tasarım
+[00:29:26] olacak. Randevu al dedi. Tamam. E
+[00:29:29] aslında hepsini inceleyip sonrasında
+[00:29:31] tasarım kararları istediğim yer varsa
+[00:29:33] değiştirebilirim. Şimdi plan farkını
+[00:29:35] aslında görmeni istiyorum. Burada
+[00:29:37] gördüğünüz gibi şu an hiçbir şekilde eee
+[00:29:39] aksiyon almadı ve en sona dedi ki plan
+[00:29:42] okey ise dedi bağlamı sileyim başlayayım
+[00:29:44] dedi veya otomatik kabul et veya manuel
+[00:29:47] varsa editlemek istedin değiştirmek
+[00:29:48] istediğin bir yer. Ya şurası siyah değil
+[00:29:50] de yeşil olsun mu istiyorsun söyle diyor
+[00:29:52] bana. Ben okey diyorsam buradan eğer
+[00:29:55] tamam diyorum. Otomatik kabul ediyorum
+[00:29:57] ve şu anda oluşturmaya başlıyor. Şimdi
+[00:29:59] bakın burada ne yaptı? Klasörleri
+[00:30:01] oluşturdu kendisi. Direkt yakaladım.
+[00:30:04] CSS, CS, JavaScript dosyalarını
+[00:30:07] oluşturdu ve şu anda kendisi yazmaya
+[00:30:09] başlayacak. Asıl aksiyonu almaya
+[00:30:11] başladı. Evet, Cloud Code burada siteyi
+[00:30:13] oluşturdum dedi. Açalım. Burada şu anda
+[00:30:16] güzel. Yine mavi mor. Evet, biraz var
+[00:30:18] ama farkı var. Ya burada en azından
+[00:30:20] şöyle animasyonlar eklemiş ve fontu
+[00:30:22] değiştirmiş. Sayıları yine benim
+[00:30:25] ajansımın ver kendi verdiğim bilgilerime
+[00:30:27] göre eklemiş. Randevu al dediğimde
+[00:30:29] muhtemelen yine randevu linkine
+[00:30:31] gidecekti ama linki vermedim. eee
+[00:30:33] hizmetler, ürünler, değerler, iletişim
+[00:30:35] şeklinde gidiyor. Yine şu hani bir
+[00:30:38] üzerine gelince efekt var ya plan sadece
+[00:30:41] plan yaparak bile, plan modunu açarak
+[00:30:42] bile ne kadar fark olduğunu burada
+[00:30:44] aslında görmüş oldun. Ama hala fark
+[00:30:46] ettiysen ne yapıyoruz? Burada tuzak var.
+[00:30:49] Ne tuzağına düştük? Güzel sohbet ettik,
+[00:30:52] muhabbet ettik cloud'la ama hala proje
+[00:30:54] ve tercihlerim hakkında tahmin
+[00:30:56] yürütüyor. Yani tamamen bir bilgiye
+[00:30:58] sahip değil. Kesin olarak sözler
+[00:31:00] yetmiyor burada. Ve burada ustalaşılması
+[00:31:02] gereken beceriler yine olacaktır. Seviye
+[00:31:05] 2'de de kalmayacağız. Burada plan modu
+[00:31:07] artı derinlemesini düşünmeye de başlıyor
+[00:31:09] olacağız. İşbirlikçi sorgulama
+[00:31:11] kesinlikle olmalı. Bir uzman burada neyi
+[00:31:13] düşünürdü? Nasıl yapardı? Cloud'a benim
+[00:31:15] de soru sormam gerekiyor. Hep ona emir
+[00:31:17] vermeyeceğim aslında. Şöyle bir şey var.
+[00:31:19] Mantıklı mı değil mi? Bir uzman burada
+[00:31:21] benim yerime ne düşünürdü? Sonuçta ben
+[00:31:23] kod yazmayı bilmiyorum. Değil mi? Öyle
+[00:31:25] düşünüyorum. Cloud'un fikirlerinize
+[00:31:26] karşı çıkmasına izin vermek. Aynen öyle.
+[00:31:29] şeytanın avukatı olacaksın diyeceğiz
+[00:31:31] aslında Cloud'a burada. Eee ve bize
+[00:31:33] karşı çıkmasını sağlayacağız bazen.
+[00:31:35] Çünkü bizim her zaman fikirlerimiz doğru
+[00:31:36] olmayabilir. Ardından seviye 3'e
+[00:31:39] geçeceğiz. Cloud'a doğru bilgilere,
+[00:31:41] cloud doğru bilgilere sahip değilse
+[00:31:43] konuşmanın da bir önemi tabii ki yoktur.
+[00:31:45] Ve bu da bizi seviye 3'e getiriyor. O da
+[00:31:48] bağlam mühendisliği. Şimdi neden bağlam
+[00:31:50] mühendisliği? Neden bağlam
+[00:31:51] mühendisliğindeyiz? Burada bir yazılımcı
+[00:31:54] değil bir küratör oluyoruz. Aslında
+[00:31:57] küratör dediği burada yönlendiren şef
+[00:31:59] gibi düşünebiliriz. Bir sanat eseri
+[00:32:01] yaratan, sanatı yönlendiren. Benim
+[00:32:03] yazılımcım Cloud. Burada ben onu yöneten
+[00:32:06] kişiyim. Burada Cloud MD dosyasından
+[00:32:08] bahsedeyim öncelikle. Cloud MD dosyası
+[00:32:11] nedir? Oraya bakalım. Cloud MD kendi
+[00:32:14] sayfasından da aslında bulabilirsin
+[00:32:16] nasıl kullanıldığını. using Cloud MDO
+[00:32:18] sayfasından cloud.com'dan bulabilirsin.
+[00:32:21] Burada Cloud MD aslında bizim cloud'a
+[00:32:23] verdiğimiz tüm yönergeleri içeren bir
+[00:32:26] dosya. Ne yönergeler içeriyor peki bu
+[00:32:28] dosya? Şunları içeriyor. Benim projem X
+[00:32:30] hakkında diyelim ki bir proje yapıyorum.
+[00:32:32] X konusu hakkında proje yapıyorum. Bu
+[00:32:34] projenin içeriği ne? Projenin contenti
+[00:32:37] içeriği ne? Cloud'un bunu bilmesini
+[00:32:38] sağlıyorum. Sonrasında proje hakkında
+[00:32:41] diğer bilgiler. Burada kullanacağım
+[00:32:42] belki teknolojileri yazabilirim.
+[00:32:44] Ardından yine diğer anahtar kelimeler,
+[00:32:47] anahtar noktalar ve standartlarım. Yani
+[00:32:50] bu başlıklar olmak zorunda değil. Burada
+[00:32:52] önemli olan şey cloud öyle olabildiğince
+[00:32:54] bilgi vermek yapacağım proje hakkında.
+[00:32:56] Örneğin aklınıza bir fikir geldi.
+[00:32:58] Aklınıza bir web ya da mobil uygulama
+[00:32:59] fikri geldi. Bu fikri değerlendirmek
+[00:33:02] istiyorsun değil mi? Yazılım da
+[00:33:03] bilmiyorsun. Öncelikle ya GPT, ya
+[00:33:06] Cemini, ya Cloud, bunlardan birine
+[00:33:07] giderek şunu yazabilirsin. Benim bir
+[00:33:09] fikrim var. Direkt o fikre dökebilirsin.
+[00:33:12] Kağıda, yazıya, klavyeye döküp direkt
+[00:33:13] ona atabilirsin. Araştırmaları
+[00:33:15] yapabilirsin. Bu proje hakkında yani
+[00:33:18] neler eksik, hangi teknolojiler
+[00:33:19] kullanılabilir, hangi yöntemlerle
+[00:33:21] yapılabilir, ne özellikler eklenebilir,
+[00:33:23] neler çıkarılabilir, bunun tüm planını
+[00:33:25] yapıp aslında cloud'da plan modunda
+[00:33:28] yaptığımız gibi ama bir elemle yapıyorum
+[00:33:30] bunu ve sonrasında bir Cloud MD dosyası
+[00:33:32] oluşturuyorum. Cloud MD dosyası. Aslında
+[00:33:35] bunu ben de oluşturmuyorum. Belki orada
+[00:33:36] konuştuğum yapay zekaya Claudio Yayın
+[00:33:39] tarayıcısında özellikle öyle
+[00:33:41] düşünebilirsin. Konuşuyorum orada işte
+[00:33:43] diyorum ki ben bir diyet takip
+[00:33:44] uygulaması yapacağım. Böyle böyle bir
+[00:33:46] fikrim var. Bana bu projeyi
+[00:33:48] gerçekleştirebilmem için cloud codeda
+[00:33:50] gerçekleştirebilmemem için bana bir
+[00:33:52] cloud MD dosyası ver diyorum. O MD
+[00:33:55] dosyasını alıyorum. Şöyle önceki
+[00:33:56] oluşturduğumuz projeyi bir silelim.
+[00:33:58] Şöyle projeme geldim. Diyelim ki burada
+[00:34:01] direct cloud MD dosyasını buraya
+[00:34:02] sürükleyip bırakabilirsin. Veya veya
+[00:34:05] geliyorsun terminale geliyorsun burada
+[00:34:07] new terminal diyorsun. Inits yazıyorsun.
+[00:34:10] Cloud'u çalıştırdıktan sonra yine
+[00:34:12] klasörüme bakıyor. Cloud kod burada.
+[00:34:14] Init yazıyorum ve benim için burada
+[00:34:16] cloud MD dosyasını zaten kendisi
+[00:34:18] oluşturuyor. Ama bilgilerle değil tabii
+[00:34:20] ki o bilgileri ben veriyorum. Kendisi
+[00:34:22] oluşturuyor. Önemli olan burada nasıl
+[00:34:23] oluşturulduğu değil. MD dosyasının
+[00:34:25] içeriğinin ne olduğu. Şimdi burada güzel
+[00:34:28] güzel anlattım. Ballandıra vallandıra
+[00:34:30] anlattım Cloud MD'yi ama anlamak için de
+[00:34:33] bilmek için de. Peki burayla bağlantısı
+[00:34:36] ne? Buna bakalım. Cloud'un görüş al
+[00:34:37] cloud MD dosyaları yazıyor ve yönetiyor.
+[00:34:40] Şimdi cloud MD dosyasını biz sürekli
+[00:34:41] cloud kodda konuşurken ondan referans
+[00:34:44] alıyoruz. Bu kısımdaysak eğer seviye
+[00:34:46] 3'teyiz artık ve sürekli ben yazıyorum
+[00:34:48] ve yönetiyorsam cloud dosyalarına, Cloud
+[00:34:51] MD dosyasını, Cloud'un görüş
+[00:34:52] alanındakiler üzerine kafa yoruyorsam ya
+[00:34:54] buradan kasıt ne aslında Cloud'un görüş
+[00:34:56] alanındakiler sadece onun bağlamı onun
+[00:34:59] gördüğü açı üzerinden gidiyorsam demek
+[00:35:01] diyor aslında. Eee ve görevler arasında
+[00:35:03] clear komutu kullanıyorsam. Şimdi buna
+[00:35:05] ayrı bir parantez açalım. Buna
+[00:35:07] geleceğim. Önce Cloud MD'yi bir
+[00:35:08] netleştirelim. eee az çoktur. AI
+[00:35:11] tarafından oluşturulan bağlam dosyaları
+[00:35:12] modelleri daha kötü hale getirebilir.
+[00:35:14] Cloud MD dosyasını tamam güzel övdük. Şu
+[00:35:17] an dinleyince gayet de mantıklı geldi.
+[00:35:18] Aa ne güzel planı yapıyorum. Atıyorum
+[00:35:20] Cloud COD'a yapıştırıyorum projeyi.
+[00:35:22] Uygulamayı oluşturuyor mu? Değil. Şimdi
+[00:35:24] burada aslında dikkat edilmesi gereken
+[00:35:26] noktalar var. Burada bir araştırmayı
+[00:35:28] gösteriyorum şimdi sana. Burada bir
+[00:35:30] yapay zeka ajanları üzerine yapılan
+[00:35:32] araştırmada ona ne kadar çok fazla
+[00:35:35] bağlam dosyası verirsem aslında
+[00:35:37] performansının o kadar düştüğünü
+[00:35:39] görebiliyorum. Yani Cloud MD dosyası
+[00:35:41] tamam güzel ama yine çok fazla bağlam
+[00:35:44] birikirse kötü sebeplere yol açabilir.
+[00:35:46] Token kullanımı artabilir, maliyet
+[00:35:48] artabilir ve bu yüzden de projede
+[00:35:51] halüsinasyon görmeye başlayabilir. Token
+[00:35:53] yükselir, context dolar vesaire vesaire.
+[00:35:55] O yüzden şişkin bir Cloud MD dosyasını
+[00:35:58] burada asla vermiyorum. Tamam tüm
+[00:36:00] projeye anlatalım ama yalın az çoktur.
+[00:36:03] Her zaman bu mantık önemli. Az ve öz
+[00:36:05] anlatacağım. AI tarafından oluşturulan
+[00:36:07] bağlam dosyaları modelleri daha kötü
+[00:36:08] hale getirebilir. Güzeldir ama dikkat
+[00:36:11] edilmesi gerekir. Peki o zaman burada
+[00:36:13] ustalaşılması gereken beceri ne? Hafif
+[00:36:15] Cloud MD dosyası kullanmak. Şişkin
+[00:36:18] değil. Şişirilmiş olmayacak. Uzun
+[00:36:20] yönergeler yerine birkaç örnekli yöntem
+[00:36:22] yeterli. Bağlam penceresini yönetmek.
+[00:36:24] Buraya geleceğim. Buraya geleceğim.
+[00:36:26] Burayı ayrı bir şekilde anlatacağım.
+[00:36:28] Doğru zamanda doğru bağlamı sunmak
+[00:36:30] önemli. Tüm bağlamı sunmak yerine doğru
+[00:36:32] zamanda doğru bağlamı sunmak. Cloud MD
+[00:36:35] diyelim ki cloud dosyasındayım. Cloud
+[00:36:37] MD'm de var ama gerektiği yerde her şey
+[00:36:39] de ona yönlendirmek yerine Cloud MD
+[00:36:41] dosyasına eğer varsa yönlendirmek yerine
+[00:36:44] doğru zamanda doğru bağlamı vermeliyim.
+[00:36:46] Şimdi burası böyle ama bir de clear
+[00:36:48] mevzusuna değinelim. Şişirilmiş Cloud
+[00:36:50] MD'den bahsettik. dikkat edilmesi
+[00:36:51] gereken. Şimdi diğer bir komutumuz da
+[00:36:54] clear komutu. Clear. Clear ve
+[00:36:56] compact'tan bahsetmiştim. Clear ne
+[00:36:58] yapıyordu? Benim chatimi komple burada
+[00:37:00] siliyordu. Değil mi? Compact ne
+[00:37:02] yapıyordu? Compakta benim dosyalarımı
+[00:37:05] orada oraya kadar konuştuklarımı
+[00:37:06] sıkıştırıyordu. Sıkıştırıp yeni bir
+[00:37:08] conversation'a ben orada devam
+[00:37:10] edebiliyordum. Güzel. Şimdi ama ne zaman
+[00:37:12] hangisini kullanmalıyım? Hangisi daha
+[00:37:14] avantajlı? Şimdi burada yine bir
+[00:37:16] çalışmadan bahsetmek istiyorum. Burada
+[00:37:18] Kroma'nın yaptığı çalışmaya göre bu
+[00:37:20] grafikten de anlaşılacağı üzere burada
+[00:37:23] tüm modelleri görüyorsun. Modellerin
+[00:37:25] input tokenları yani ona verdiğim
+[00:37:28] tokenlar, ona verdiğim inputlar aslında.
+[00:37:30] Inputlar ne kadar artıyorsa artıyor.
+[00:37:33] Inputlar artıyor. Veriyorum. Input
+[00:37:35] veriyorum. Buna bağlam dosyaları dahil,
+[00:37:37] ona verdiğim promptlar, sistem promtu
+[00:37:39] vesaire her şey dahil. Hepsini
+[00:37:41] yüklüyorum, yüklüyorum. Performans
+[00:37:42] düşüyor. O kadar performans düşüyor.
+[00:37:45] Şimdi neden düşüyor peki? Şimdi biz
+[00:37:46] dedik ki en başta bir bir context window
+[00:37:49] var dedik değil mi? Neydi bu? Bağlam
+[00:37:51] penceresi. Türkçeye bu şekilde geçiyor.
+[00:37:54] Şimdi bu bağlam pencereleri Gemini'da,
+[00:37:56] GPT'de, Cloud'da veya farklı modellerde
+[00:37:59] her zaman bir üst sınırı vardır. Bu
+[00:38:01] pencerenin bir üst sınırı vardır. Sen
+[00:38:03] buraya sistem promptunu döşersin. Farklı
+[00:38:05] dosyaları verirsin. Verirsin, verirsin,
+[00:38:07] verirsin. Konuşursun, konuşursun. O
+[00:38:08] pencere, o chat donmaya başlar. Artık
+[00:38:10] bir yerden sonra zaten fark etmişsindir.
+[00:38:12] O chatleştikçe artık GPT eskileri
+[00:38:14] hatırlamaz. Ya ne diyordun? Kaçırdım
+[00:38:16] orayı demeye başlar veya halüsinasyon
+[00:38:19] görür. Evet görüyorum der. Evet
+[00:38:20] biliyorum. Bunlardan bunlardan
+[00:38:22] bahsetmişti Nisa der ama aslında hayal
+[00:38:24] görüyordur. Çünkü artık onun limiti
+[00:38:26] dolmaya başlamıştır. İşte bu noktada da
+[00:38:28] aslında bağlam çürümesi dediğimiz olay
+[00:38:31] meydana geliyor. Ne kadar input verirsem
+[00:38:33] o kadar performans düşüyor ve her model
+[00:38:36] için GPT, cloud hepsi için bir sınır
+[00:38:38] vardır dedik. Bu sınır örneğin cloud
+[00:38:40] kodu için 200 token. 200.000 token. O
+[00:38:42] zaman burada düşüşün başlangıcı 100.000
+[00:38:45] 1000 token, 120.000 tokenlarda artık
+[00:38:47] gelmeye başlıyor. Artık oralarda gitmeye
+[00:38:49] başlıyor Cloud. Ben ya hafiften gitmeye
+[00:38:52] başlıyorum diyor. Bu da işte %60 ile %80
+[00:38:55] arasına tekabül ediyor. Burada kritik
+[00:38:57] nokta şu. 1 milyon token penceresi olsa
+[00:38:59] bile çürüme yine 100.000 tokena başlar.
+[00:39:02] Araştırmalar bunu gösteriyor. Buna
+[00:39:04] yüzdelik olarak da bakabiliriz. Şimdi
+[00:39:06] yapay zekalarda her zaman bir kontekst
+[00:39:08] pencere sınırı olacaktır. Yani sınırsız
+[00:39:11] olma gibi bir durumu şu an yok.
+[00:39:12] Artabilir 10 milyon token olur yarın.
+[00:39:14] Birkaç ay sonra farklı bir token olur,
+[00:39:16] sınır koyarlar ama sınır olacak ve biz o
+[00:39:19] sınıra yüzdelik olarak ne kadar
+[00:39:21] yaklaştırırsak yaklaşalım bunun
+[00:39:23] performansı bir noktada düşecek. E peki
+[00:39:26] bunun çözümü ne? Yani nasıl çözeceğiz?
+[00:39:28] İşte burada pencereyi büyütmek sorunu
+[00:39:30] çözmüyor. Bağlamı yönetmek çözüyor.
+[00:39:32] Burada yani yapay zeka şirketleri
+[00:39:35] istediği kadar yükseltsin bağlamı.
+[00:39:37] Limitini istediği kadar yükseltsin.
+[00:39:38] Bizim burada bağlamı bir şekilde
+[00:39:40] yönetebilmemiz lazım. İşte bu da bizi
+[00:39:42] clear ve compact. Hangisini kullanalım
+[00:39:44] demiştim ya işte buraya getiriyor. Clear
+[00:39:46] compact. Ne dedik? Konuşma geçmişini
+[00:39:49] tamamen siler dedik. Sıfırdan temiz
+[00:39:51] başlangıç sağlar. Gold base erişimi
+[00:39:53] devam eder. Projelerimi yine erişir. Ama
+[00:39:55] o konuştuklarımı unutur silinir. Yani
+[00:39:57] farklı görevler için idealdir. Hani bir
+[00:39:59] görevi yaptım, front endendi yaptım,
+[00:40:01] bitirdim. Farklı bir göreve geçiyorum. O
+[00:40:03] zaman clear komple sileyim sohbete
+[00:40:05] geçeyim diyebilirim. Şimdi burada dikkat
+[00:40:06] edilmesi gereken nokta bağlamı
+[00:40:08] yönetebilmek dedik ya. İşte bu
+[00:40:10] komutlarla biz bağlamı cloud code'da
+[00:40:12] yönetmemiz lazım. Kompact dikkatli
+[00:40:14] olmamız lazım. Ama burada konuşmayı
+[00:40:16] sıkıştırır. Özetleyip devam ederiz. Neyi
+[00:40:19] taşıyacağına cloud karar verir. Her
+[00:40:21] zaman doğru şeyi seçemeyebilir. Çünkü
+[00:40:23] kendisine göre karar veriyor. Yine ona
+[00:40:25] bırakıyoruz bir şeyleri. O yüzden
+[00:40:26] dikkatli olmakta fayda var. Kötü bir
+[00:40:28] komut değil ama gerektiği yerde
+[00:40:30] kullanılmalı. Aynı görevde devam ederken
+[00:40:32] risklidir. Görevin ortasında compact
+[00:40:34] yapmak çok iyi bir hamle olmaz. Peki
+[00:40:36] buradaki en iyi yöntem nedir? En iyi
+[00:40:38] yöntemi aşağıda verdim. En iyi yöntem
+[00:40:40] önemli bilgiyi özetle, kopyala, clear,
+[00:40:43] yapıştır. Ne diyorum şimdi? Bir yere
+[00:40:45] kadar geldik cloud'la. Cloud'la bir yere
+[00:40:47] kadar geldik. Konuştuk, konuştuk,
+[00:40:49] konuştuk, konuştuk. Projenin bir kısmına
+[00:40:51] kadar geldik. Ufaktan dolmaya başladı.
+[00:40:53] Hemen orada compact atıyorum. Bir
+[00:40:55] özetlemesini sağlıyorum. Ve bu bundan
+[00:40:57] bir MD dosyası oluşturmasını istiyorum.
+[00:40:59] Belki bu kontexti bağlama alıyorum.
+[00:41:01] Farklı bir dosyaya masaüstüme kendim
+[00:41:03] kendi diskimde kopyalıyorum. Orada
+[00:41:06] tutuyorum. Tutuyorum. Sonrasında
+[00:41:07] geliyorum. Tekrardan clear komutunu
+[00:41:09] yapıştırıyorum. O sohbet içerisinde
+[00:41:11] komple siliyorum bağlamı. Yeni bir
+[00:41:13] projeye geçecekken bunu yapıyorum ama
+[00:41:15] yine de yeni bir projeye geçecekken
+[00:41:17] bilgi özetle. Kopyaladım kendime.
+[00:41:19] Clear'ı yapıştırdım. Sonrasında devam
+[00:41:21] ediyorum Cloud'la projeye. Gerektiğinde
+[00:41:23] eski bilgi mi gerekti? Hemen orada
+[00:41:25] bağlam dosyası zaten benim elimde
+[00:41:27] bilgisayarımda zaten. Oradan
+[00:41:28] verebilirim. Oradan add işaretiyle gidip
+[00:41:31] kendi işte eski dosyamı örneğin burada
+[00:41:33] eskiden oluşturduğum eee eski bağlam
+[00:41:36] dosyam diyelim.
+[00:41:37] bağlamdosyam. MDG cloud hani şurada
+[00:41:40] kalmıştık buradan böyle böyle yapmıştık
+[00:41:42] hatırlamıyordur o clear attığımız için
+[00:41:45] ama aynı dosyaları görüyordur. Gördüğü
+[00:41:47] için de buradan devam ederim. Hani
+[00:41:49] şuradan bilgi alabilirsin deyip orada
+[00:41:50] bağlamı koruyabilirim. En sağlıklı
+[00:41:52] yöntem budur. Bunu yaparsan da aslında
+[00:41:55] seviye 3'ü halletmiş olursun. Artık
+[00:41:57] bağlan mühendisliği noktasına gelirsin.
+[00:41:59] Peki burada kilidin açılması için şimdi
+[00:42:01] ne gerekiyor? bağlan mühendisliği de.
+[00:42:03] Okey. Artık cloud'un yerleşik
+[00:42:04] yeteneklerin ötesine geçmesi gerekiyor.
+[00:42:07] Şimdi artık dışarı çıkma zamanı. Tamam.
+[00:42:09] Cloud'u öğrendik. Hallettik. Token
+[00:42:11] kullanımı, proje plan modu vesaire.
+[00:42:13] Tamam. Ama artık biraz daha özellik
+[00:42:15] eklemem lazım Cloud'a. O kısma seviye
+[00:42:17] 4'te geçiyoruz şimdi. Evet, seviye 4'te
+[00:42:20] araç ustası. Artık cloud'u donatıyoruz.
+[00:42:22] Ona tooları takıyoruz ve açıyoruz.
+[00:42:25] İnterneti açıyoruz. Oradan uygulamaları
+[00:42:26] kullansın, güçlensin ve projelerimizi
+[00:42:29] harika hale getirsin diye uğraşıyoruz.
+[00:42:31] Bu seviyede eğer neredeysek
+[00:42:33] buradayızdır. MCP'leri
+[00:42:34] kullanabiliyorsak, cloud'u dış dünyaya
+[00:42:37] bağlayabiliyorsak, çerçeveler,
+[00:42:38] frameworkl'lerle denemeler
+[00:42:40] yapabiliyorsak. Şimdi MCP dediğimiz şey
+[00:42:42] ne? Öncelikle bundan bahsedelim. MCP
+[00:42:44] bizim dış uygulamaları, örneğin
+[00:42:46] Superabase, Figma, Playwright gibi
+[00:42:48] uygulamaları bunları da bilmiyor
+[00:42:50] olabilirsin. Herhangi bir cloud dışında
+[00:42:51] bir uygulama düşün. Onu ben cloud'a
+[00:42:53] bağlamak istiyorum ve bununla işbirliği
+[00:42:55] yapsınlar istiyorum. Cloud bu uygulamayı
+[00:42:57] yönetsin veya oradan bir şeyler alsın,
+[00:42:59] eklesin, çıkarsın. bunları istiyorum.
+[00:43:01] MCP ile bunu bağlayabiliyorum. İşte
+[00:43:03] cloud'u dış dünyaya bağlamak aslında bu
+[00:43:06] oluyor. Framework'ler nelerdir? Ondan
+[00:43:08] ayrıca bahsedeceğim. Framework'ler
+[00:43:10] birazcık daha kod tabanlı çerçevelerdir,
+[00:43:12] tasaklardır aslında. Cloud'u dış dünyaya
+[00:43:15] bağlıyor oluyoruz bu kısımda. Burada
+[00:43:17] düşmememiz gereken bir tuzak var. Tamam.
+[00:43:19] Çok güzel bu anlattıklarım ya seviye
+[00:43:21] 4'te veya seviye 3'te az önce teki gibi
+[00:43:23] ona verdiğimiz yetenekler işte MCP'ler,
+[00:43:26] bağlamlar kötü şeyler değil ama sınırı
+[00:43:28] olan şeyler her zaman az. Çoktur
+[00:43:30] mantığıyla gidiyoruz. Yapay zekada 15
+[00:43:33] araç bağlamak. Burada şekerci dükkanı
+[00:43:35] gibi olmuyoruz. Oradan şeker alayım,
+[00:43:36] buradan MCP alayım, buradan yetenek
+[00:43:38] bağlayayım. Her yerde bir şeyler
+[00:43:39] görüyorsun çünkü. E yutl olsun, farklı
+[00:43:42] yerlerde olsun. Cloud'a işte bu özellik
+[00:43:44] geldi. Şu özellik geldi. Bu skil ekle,
+[00:43:47] 10 numara olsun, yazılımcı olsun. Bunu
+[00:43:49] ekle, işte harikalar yarat gibi gibi.
+[00:43:52] Görüyorsun bunlar kötü şeyler değil.
+[00:43:53] Gerektiği yerde kullanıldığında güzel
+[00:43:55] şeyler. Ama burada 15 araç eşittir
+[00:43:58] cloud'un yanlış aracı seçmesine sebep
+[00:44:00] olur. Daha fazla seçenek daha kötü
+[00:44:02] kararlar alması demektir. Yapay zeka ona
+[00:44:04] verdiğin her şeyi ya bu araç bunun için,
+[00:44:06] bu araç bunun için demiyor. Eee onun
+[00:44:08] sürekli bakıyor. Ne bağlanmış bana? IMCP
+[00:44:11] bağlanmış. Ona bakayım, buna bakayım
+[00:44:12] derken yanlış araç seçmesine sebep
+[00:44:15] olabilir bu. Bu yüzden şekerci dükkanını
+[00:44:17] tuzağına düşmüyoruz. Her yerden bir
+[00:44:19] şeyler alıp vermiyoruz. Şimdi şimdi en
+[00:44:21] çok kullanacağınız MCP. MCP demişken
+[00:44:23] mesela Superabase. Superabase bir veri
+[00:44:25] tabanı. Veri tabanı. Verileri
+[00:44:27] kaydettiğim yer. Bir uygulama yapıyorsam
+[00:44:29] bir CRM sistemi yapıyorsam kayıt işlemi
+[00:44:32] olacak değil mi? Veya veriler orada
+[00:44:34] tutulacak. O zaman benim kesinlikle bir
+[00:44:36] veri tabanı veriyi bir yerde tutan
+[00:44:37] uygulama kullanmam gerekiyor. Supase
+[00:44:39] bunlardan bir tanesi. Farklıları da var
+[00:44:41] yine. Yani MCP ile bir veri tabanınız
+[00:44:43] garant veri tabanı bağlamak. MCP ile
+[00:44:45] veri tabanı bağlamak cloud koda garanti
+[00:44:48] karşılaşacağınız bir durum. Base'de
+[00:44:50] bunlardan birisi örnek olması açısından
+[00:44:52] veya Figma yine bağlanabilir. Figma
+[00:44:54] nedir? Figma yine içerisinde tasarımlar
+[00:44:56] barındıran örneğin şu tasarımı beğendim.
+[00:44:59] Alıyorum, seçiyorum, alıyorum ve kendi
+[00:45:01] uygulamama, kendi mobil uygulamama, web
+[00:45:04] uygulamama yapıştırıyorum ve tasarımı
+[00:45:06] oraya almış oluyorum. Aslında bunlardan
+[00:45:08] bir tanesidir. Yine Figma MCP'lerden bir
+[00:45:11] tanesidir. Farklı MCP'ler de var aşağı
+[00:45:13] doğru kaydırdıkça. E bu aslında Figma
+[00:45:15] MC'si. E Figma MCP'nin nasıl
+[00:45:18] bağlanılacağına dair ve detaylarını
+[00:45:20] içeren bir gitub arşivi bu. Şimdi bunu
+[00:45:22] ben ne yapıyorum? Cloud COD'a veriyorum
+[00:45:24] ve Figma'yı bağlamış oluyorum. Cloud
+[00:45:26] kod'a geldiğimde ya o gitub linkini
+[00:45:28] atıyorum ve sizden yine gitub linkini
+[00:45:30] attığınızda sizden apıpı isteyecektir
+[00:45:33] belki. Burada authentication dediğimiz
+[00:45:35] yapılar devreye girecektir.
+[00:45:37] Authentication nedir? Kimlik doğrulama.
+[00:45:39] Tamam Figma'yı bağlayayım ama kimin
+[00:45:40] hesabını bağlayacağım ben o templateri
+[00:45:42] kimin hesabından alacağım diyor cloud.
+[00:45:44] Biz de diyoruz ki alt bu API benim
+[00:45:47] benden çek diyorum. Authentication API
+[00:45:49] bağlıyorum. token isteyecektir. Bu her
+[00:45:51] uygulamada alış şekli farklıdır. O
+[00:45:53] yüzden burada tüm uygulamaların hepsini
+[00:45:55] token API alımından bahsetmeyeceğim ama
+[00:45:57] sizden bunları zaten cloud code
+[00:45:59] isteyecektir. Nasıl alacağınızı belki
+[00:46:01] anlatacaktır. O yüzden o şekilde alıp
+[00:46:03] yapıştırıyorsun Cloud COD'a ve kendisi
+[00:46:05] bağlıyor. Ve bir diğer özellikten
+[00:46:07] bahsedelim. Framework demiştik işte GCD
+[00:46:10] get. Ne demek bu? Bu bir aslında
+[00:46:13] uygulama oluşturucu tarafından,
+[00:46:16] developer tarafından, cloud kodu
+[00:46:17] kullanan birisi tarafından oluşturulmuş
+[00:46:19] bir taslak, bir framework. Bunun
+[00:46:21] içerisinde zaten ne işe yaradığı, nasıl
+[00:46:24] kullanıldığı vesaire yazıyor gitapta.
+[00:46:26] Bunun gibi bir tonlarcası var. Diyor ki
+[00:46:28] ben context mühendisliği işte meta
+[00:46:31] promptları oluşturma ve bunları sistem
+[00:46:34] cloud kode sistemine entegre etme,
+[00:46:35] sistem promptlarını döşeme kısmında eee
+[00:46:38] takılıyordum ve bu şekilde bir framework
+[00:46:39] tastak hazırladım. Al diyor sen bunu
+[00:46:41] kur. Cloud kodu çok daha güçlü hale
+[00:46:43] getir. Bu sayede daha eee iyi bir
+[00:46:45] şekilde kullan. Bazı komutlara burada
+[00:46:47] eriş diyor. Ve ben bunu alıyorum. Cloud
+[00:46:49] koda yüklüyorum. Ama gerekiyor mu
+[00:46:51] gerekmiyor mu ya? Soru işareti bu. Tamam
+[00:46:53] böyle bir vaat sunuyor olabilir bana ama
+[00:46:55] gerçekten benim projeme ihtiyaç var mı?
+[00:46:57] Benim projemde buna ihtiyaç var mı? Bunu
+[00:46:59] bilmeden bunu almıyorum kesinlikle.
+[00:47:01] Framework dediğimizde bu yapı örnek
+[00:47:04] verilebilir. Burada tuzağımızı tekrardan
+[00:47:06] hatırlatıyorum ve sonrasında ustalık
+[00:47:08] kazanılacak becerilere bakalım. cerrahi
+[00:47:10] hassasiyette MCP seçimi. Nerede, ne
+[00:47:13] zaman, hangi uygulamayı cloud code'a
+[00:47:14] bağlayacağımı bilmem gerekiyor. Bunu
+[00:47:16] nereden biliyorum? Bunu nereden
+[00:47:17] bileceksiniz? Yazılımın yapı taşlarına
+[00:47:19] en azından bazı kavramlara hakim olman
+[00:47:22] gerekiyor bu kısımda. Burada biraz daha
+[00:47:24] şimdi durabiliriz. Frontend, backend,
+[00:47:26] veri tabanı, kimlik doğrulama, API,
+[00:47:28] deploy bunlar nedir? Bunların hepsini
+[00:47:30] böyle spesifik uzmanlık alanları
+[00:47:32] barındıran şeyler aslında ama hepsini
+[00:47:34] uzmanlık alanını barındıracak şekilde
+[00:47:36] bilmene de gerek yok. Sadece ne işe
+[00:47:37] yadığını kavram olarak bilmen yeterli.
+[00:47:39] Frontend, kullanıcının gördüğü kısım
+[00:47:41] değil mi? Butonlar, sayfa tasarımı,
+[00:47:43] backend, arka planda çalışan mantık,
+[00:47:45] verileri işleyen ve yürüten motor sıkça
+[00:47:47] karşılaşacaksın. Veri tabanı, verilerin
+[00:47:49] saklandığı yer, bilmen yeterli. Supase
+[00:47:52] az önce bahsettik veya kimlik doğrulama,
+[00:47:54] authentication değil mi? API token
+[00:47:56] mantığı. Az önce bahsettim. Çünkü senin
+[00:47:58] yani bilmiyor Cloud Codu orada kimin eee
+[00:48:02] hesabını bağlayacağını. Aynısı bizim
+[00:48:04] sistemimiz için de geçerli. Kendim bir
+[00:48:05] proje kuruyorum. Kim giriş yapıyor?
+[00:48:07] Hangi verilere erişecek? Ne yapma
+[00:48:09] yetkisi var? Sistemlerin konuşma yolu
+[00:48:11] API değil mi? Bir MCP bağlayacaksam
+[00:48:13] kesinlikle benden API isteyecek. Cloud
+[00:48:15] Code dedik. Deploy projeyi bir internete
+[00:48:18] çıkarma yani her şey hazır ve artık bunu
+[00:48:21] sunmam gerekiyor. Kullanıcılara sunmam
+[00:48:22] gerekiyor. Bunları bilmem gerekiyor.
+[00:48:24] Veya burada diğer gizlilikle ilgili,
+[00:48:26] güvenlikle ilgili, security ile ilgili,
+[00:48:28] penetrasyon testleriyile ilgili bazı
+[00:48:30] testler yapmak gerekecek. Sızıntı
+[00:48:32] testleri yapmak gerekecek uygulamaya.
+[00:48:34] Bunları mutlaka en azından kavramları
+[00:48:36] bilmekte duyunca bu neymiş dememekte
+[00:48:39] fayda var. Çünkü yarın bir gün bir
+[00:48:40] uygulama proje çıkardığınızda bir veri
+[00:48:42] sızıntısı olduğunda ya şirket gelip İsa
+[00:48:45] işte bizim veriler gitti. Ne olacak
+[00:48:47] şimdi biz yani ne yapacağız?
+[00:48:48] Müşterilerimiz böyle böyle mağdur biz
+[00:48:50] mağduruz. Eee veya son kullanıcı geldi
+[00:48:53] sitenizi şikayet etti. Böyle bir benim
+[00:48:55] kimliğim verilerim sızdırılmış dedi. Bu
+[00:48:57] ciddi sorunlar doğurabilir. O kısımda o
+[00:48:59] noktaya geldiğinde ne diyeceksin? Ben
+[00:49:01] Claudio'ya cloud koda verdim yazdı. Ben
+[00:49:04] de bilmiyordum diyemem. O yüzden öyle
+[00:49:06] bir savunma olamaz. Suçu ona
+[00:49:07] yükleyemeyiz. O yüzden en azından
+[00:49:09] kavramları bilip burada önceden ne
+[00:49:11] yapıyoruz? Önlemleri alıyoruz. Ve net
+[00:49:13] bir şekilde söylüyorum. Bu önlemler
+[00:49:14] alındığında o çok kullanıcılı binlerce
+[00:49:17] kullanıcıların yine giriş yaptığı bir
+[00:49:19] uygulama cloud code'la inşa edebilirsin
+[00:49:21] veya şirketlerin kullandığı uygulamalar
+[00:49:23] yine inşa edebilirsin. Dikkat etmen
+[00:49:25] gereken noktalara iyice bakarsan. Burada
+[00:49:28] yeri gelmişken e bir parantez açıp
+[00:49:30] security'den bahsetmek istiyorum. Yine
+[00:49:32] burada bir cloud code içerisinde
+[00:49:34] kullandığımız security reave yani eee
+[00:49:37] güvenlik kontrolü yapacağımız komutlar
+[00:49:39] da var. Hazır bir şekilde bunu da
+[00:49:40] kullanabilirsin. Şimdi artık bu da bizi
+[00:49:42] neye götürüyor? Aynı iş akışlarını
+[00:49:45] tekrarlayıp duruyorsak ya cloud code
+[00:49:47] sadece bilseydi. Şimdi buradan da
+[00:49:49] bahsetmiş olduk. Yapı taşlarını anladık.
+[00:49:52] Peki cloud'dan nasıl yaptığını
+[00:49:53] açıklamasını isteme. Bu da önemli.
+[00:49:55] Neden? Çünkü bir Tamam. geliştirme
+[00:49:58] yapıyor ama ne yaptığını da bilmemde de
+[00:49:59] fayda var. Cloud kendisi bir yapay zeka
+[00:50:02] sonuçta sonsuz bir şekilde sabırlı bir
+[00:50:04] öğretmendir aslında. O yüzden ona nasıl
+[00:50:07] yaptım bu neden böyle yaptık? Niye şöyle
+[00:50:09] yaptık dersek bize 1000 kere de sorsak
+[00:50:11] yani açıklar ve ne oluyor? Biz de
+[00:50:13] aslında o süreç içerisinde projeyi inşa
+[00:50:15] ederken öğrenmiş oluyoruz ve bir sonraki
+[00:50:17] projemizde onu kullanıyoruz. Veya cloud
+[00:50:19] code onu yaptığında ya diyorum ki
+[00:50:21] önceden bir projem vardı orada da
+[00:50:22] yapmıştık bunu diyebiliyorum. Hem biz
+[00:50:24] öğrenciyiz hem de yöneteniz gibi
+[00:50:26] düşünebiliriz. Burada düzey 5 aynı iş
+[00:50:28] akışlarını tekrarlayıp duruyorsak şimdi
+[00:50:30] düzey 5'te buna bakacağız. Aynı iş
+[00:50:32] akışlarını tekrarlayıp duruyorsak cloud
+[00:50:34] burada birtım şeyler vermemiz gerekiyor.
+[00:50:37] Seviye 5 yetenekli usta. Burada cloud
+[00:50:39] tamamen bizim oluyor. Artık onu
+[00:50:41] güçlendirdim. Yönetebiliyorum ve kendi
+[00:50:44] standartlarımı, kendi iş akışlarımı
+[00:50:46] oluşturabildiğim bir araç haline
+[00:50:48] getiriyorum. Cloud kurulumu sadece bize
+[00:50:51] özgü olmuş oluyor. Başka kimsenin
+[00:50:53] cloud'u bizimki gibi olmuyor. Yani ne
+[00:50:56] demek istiyorum? Kendi yeteneklerimizi,
+[00:50:58] kendi skillerimizi oluşturduğumuz bir
+[00:51:00] yer burası. Skill. Bunu da sürekli
+[00:51:02] duyuyorsun cloud'da. Belki duymuyorsan
+[00:51:04] da şu anda öğreneceksin. Yetenek
+[00:51:05] anlamına geliyor. Ona kazandırdığın
+[00:51:07] beceriler. Burada MCP'den farkı olarak
+[00:51:10] skill dosyaları cloud'a yani bir bir işi
+[00:51:13] nasıl yapacağını gösteren dosyalardır.
+[00:51:16] Yine bir aslında texstir. Bir bağlam
+[00:51:18] konteksttir. Ve buradaki tuzak nedir?
+[00:51:20] Yine çok aşırı yükleme. Bakın bu son üç
+[00:51:22] seviyede de yine hep aynı şeye değindik.
+[00:51:24] Çok fazla beceri, çok fazla bağlam, çok
+[00:51:27] fazla MCP yükleme cloud'u daha iyi
+[00:51:29] yapmaz. doğru alanı seçmekte zorlanır.
+[00:51:31] Özenle hazırlanmış 20 tane beceri
+[00:51:33] yeterlidir veya kendi becerilerimiz
+[00:51:35] yeterlidir. Beceri dediğimiz şey gelelim
+[00:51:37] hemen burada da birçok gitubda yine
+[00:51:39] bulabilirsin bunları. Birçok MD dosyası
+[00:51:42] görüyorsun. Eee, örneğin burada 1254
+[00:51:45] tane agenting yeteneği var ve inanılmaz
+[00:51:48] büyük bir repo bu. Eee, bunların hepsini
+[00:51:51] cloud'a yüklemek devasa bir facia olur.
+[00:51:53] O yüzden seçim yapıyorum. Ben Supa
+[00:51:56] Base'le ilgili veya epifyile ilgili bir
+[00:51:58] işlem yapıyorsam buradan atıyorum Epify
+[00:52:00] ile ilgili bir bakıyorum yeteneklere
+[00:52:03] bakıyorum. Ya kullanmam da gerekiyor mu
+[00:52:05] gerekmiyor mu bakmam lazım. Örneğin
+[00:52:07] epify içerisinde bir webs yapacağım.
+[00:52:09] Cloud codla bir sayfadan veri çekmek
+[00:52:12] istiyorum. Burada kullanabilirim ya
+[00:52:14] projem bunun üzerine ise kullanabilirim.
+[00:52:16] Veya remotion var burada. Remotion ne?
+[00:52:18] Remotion kendi içerisinde bir aslında
+[00:52:20] video render yeteneğini barındıran bir
+[00:52:24] framework gibi düşünebiliriz. Bunu cloud
+[00:52:25] COD'a bu yetenek olarak
+[00:52:26] kazandırabiliyorum ve e harika aslında
+[00:52:29] animasyonlar video editlemekte
+[00:52:31] kullanılacak olan animasyonları
+[00:52:32] oluşturabiliyorum gibi. Yani sadece
+[00:52:34] kodlama yönünden bakmamak lazım. Birçok
+[00:52:37] yine yetenek var burada. Eee ve yine
+[00:52:39] kötü şeyler değildir ama çok fazla
+[00:52:41] gereksiz eklememeliyim diyorum. Ve
+[00:52:44] burada ustalaşılacak beceriler neler? O
+[00:52:46] zaman beceri yazarlığı. Ya az önce
+[00:52:48] başkasının reposundaki yeteneklere
+[00:52:50] baktık. Aslında ben de burada kendim
+[00:52:52] yetenek oluşturabilirim. Nasıl yaparsın?
+[00:52:54] E ona geleceğim. Şimdi slash komutları
+[00:52:57] skill adı ile direkt zaten
+[00:52:58] çağırabiliyorum. Ona bakalım. Ve şurayı
+[00:53:00] da hemen geçelim. İş akışı becerileri
+[00:53:02] çok adımlı süreçler. Kendi
+[00:53:04] becerilerinizi oluşturmak için skill
+[00:53:05] creator. Evet bunlara değinelim. Burada
+[00:53:07] skill yazarak zaten direkt ben
+[00:53:09] listeleyebiliyorum skill'larımı. Şu an
+[00:53:11] yok. Eee şu anda zaten kendi kullandığım
+[00:53:14] bir projemde olmadığından çıkmadı. veya
+[00:53:16] find skill dedim. E buradan da eee nasıl
+[00:53:19] bir şey alıyor arıyorsun diyor. Cloud
+[00:53:20] kod'la ben burada konuşarak eee
+[00:53:23] bulabiliyorum. Skill'ları bulabiliyorum
+[00:53:25] veya buradan plugin yazıyorum. Plugin
+[00:53:27] komutunu çalıştırıyorum ve pluginleri
+[00:53:29] görüyorum. Bu 59 adet burada plugin var.
+[00:53:32] Gitab zaten kesinlikle yüklenir.
+[00:53:34] Yüklenilir, kullanılır veya front end
+[00:53:36] design kullanılır. Frontend'leri
+[00:53:37] geliştirmek için. Ya bakın bunlar genel
+[00:53:39] şeylerdir. Yani bunlar kullanılır. E
+[00:53:41] yine farklı farklı burada e pluginleri
+[00:53:44] yükleyebilirsin kendi içerisinden.
+[00:53:46] Gitub'tan da yükleyebilirsin. Buradan da
+[00:53:48] yükleyebilirsin. Marketplace'e göz
+[00:53:50] atabilirsin kendi içindeki cloud'un. Eee
+[00:53:53] yine yüklenen Kanva, Gmail, Google,
+[00:53:55] Calendar gibi MCP'leri bağlayabilirsin.
+[00:53:58] Pluginler genel olarak bunlardır. Şimdi
+[00:54:00] burada şunu yazmak istiyorum ben. Burada
+[00:54:03] skill creator'ı biz yüklüyor olacağız.
+[00:54:05] Neden? Bunu yüklerim. Bu da kendi
+[00:54:07] skillerimi oluşturmak için, kendi
+[00:54:08] yeteneklerimi oluşturmak için yüklediğim
+[00:54:10] bir plugin. Kendim için oluştur dedim.
+[00:54:13] Şu anda ne yaptı? Bunu yükledi.
+[00:54:15] Yükledikten sonra bir kez açıp
+[00:54:17] kapatıyorum e kodumu. Tekrar
+[00:54:19] çalıştırdıktan sonra tekrar skill
+[00:54:21] creator yazıyorum ve burada kendi
+[00:54:24] skillerimi oluşturabileceğim bir e alan
+[00:54:26] çıkıyor. Ama direkt yapıştırdık biz.
+[00:54:28] Öyle değil. Şöyle yapıyoruz. Ama zaten
+[00:54:30] direkt kabul etti ve burada bana sordu
+[00:54:32] işte. Dedi ki ya şimdi burada ne
+[00:54:34] yapıyoruz? Yeni bir beceri yetenek
+[00:54:35] oluşturuyorum. Aslında ben burada
+[00:54:37] önceden ne yapıyordum? Gitub'tan vesaire
+[00:54:39] alıyordum becerileri. Cloud koda
+[00:54:41] yüklüyordum. Şu anda ise ben kendi
+[00:54:43] becerimi oluşturmak istiyorum. ISA'ya
+[00:54:45] özel, bana özel oluşturacağım ve bunu
+[00:54:47] sürekli kullanacağım belki de. Bunun
+[00:54:49] için de cloud codeda bu skill creator'ı
+[00:54:51] kullanıyoruz. Ne yapacağım hakkında bana
+[00:54:53] soruyor veya burada skilleri birleştire
+[00:54:55] debilirim. Yani yetenekleri
+[00:54:56] birleştirebilirim. A, B, C bunları
+[00:54:59] birleştireyim. 3 tane burada zaten
+[00:55:02] projemde eee olduğunu düşünün. bunları
+[00:55:04] birleştirip yeni bir tane tek MD de
+[00:55:06] oluşturmak istiyorum gibi bu e yetenek
+[00:55:09] beceriler mutlaka zaten kullanılır.
+[00:55:11] Şimdi burada seviye 6'ya geçerken tek
+[00:55:14] bir ajan yetmez. Paralel işlemeye
+[00:55:16] ihtiyacımız var diyoruz. Neden? Artı
+[00:55:19] cloud'u dış dünyaya açtım. Kullanımını
+[00:55:22] yapabiliyorum, yönetebiliyorum. Bana
+[00:55:24] özel artık bana özel eee yetenekler de
+[00:55:27] oluşturdum. Her şey hazır. Ama artık bir
+[00:55:29] tane yetmiyor. 2iü tane lazım. Bir takım
+[00:55:31] oluşturmam lazım. Orada da orkestratöre
+[00:55:34] geçiyor olacağız. Seviye 6'da burada
+[00:55:36] artık külatör değil yöneticiyiz. Tam bir
+[00:55:38] yöneticiyiz. Tam bir yöneticiyiz. Eee,
+[00:55:40] ne yapıyorsak buradayızdır. Hangi
+[00:55:42] yeteneklere sahipsek buradayızdır. Aynı
+[00:55:44] anda birden fazla cloud oturumu
+[00:55:45] çalıştırıyorsak, izole edilmiş ajanlar
+[00:55:47] için work tree ne anlama geldiğini
+[00:55:49] anlatacağım. Kullanıyorsak nasıl
+[00:55:51] yapılacağını değil ne yapılacağına karar
+[00:55:53] veriyorum. Artık ben bir düzenleyiciyim,
+[00:55:55] dağıtıcıyım. Görevleri veriyorum.
+[00:55:57] Agentlar benim yerime hallediyor. Bu
+[00:55:59] yapıya gelmiş oluyoruz. Artık burası up
+[00:56:01] seviye. Şimdi burada ustalaşılacak olan
+[00:56:04] şey ne? Görev bölümü ve paralel iş
+[00:56:06] planlaması. Buraya gelmeden önce
+[00:56:09] tuzağımıza bakalım. Tuzak burada temeli
+[00:56:11] göz ardı etmek. Asla direkt videoyu
+[00:56:13] buraya atlayıp geldiysen hata yapmışsın
+[00:56:15] demektir. Gidip seviye 1den başlıyorsun.
+[00:56:18] 1inci ve 5. seviyelere atlamak e yapay
+[00:56:20] zeka çöpü yani slop üreten beş ajanla
+[00:56:23] sonuçlanır. Oraları bilmezsen burada
+[00:56:25] oluşturduğun ajanlar hiçbir işe yaramaz.
+[00:56:27] Neden? Çünkü yanlış oluşturdun. Şimdiye
+[00:56:29] kadar yanlış kullandım. O yüzden herkes
+[00:56:31] işte agents kuruyor, agent team
+[00:56:33] oluşturuyor. E sub agentlar, agent
+[00:56:35] team'ler işte eee 10 çalışanlı bir ek
+[00:56:38] kurdum, 5 çalışanlı bir kurdum,
+[00:56:40] çalıştırıyorum, proje yönettiriyorum
+[00:56:42] cloud'a. Ama nasıl yönettiriyorsun? Yani
+[00:56:44] direkt buraya atlayıp şu anda benim
+[00:56:46] vereceğim bilgilerle agent team
+[00:56:48] oluşturabilirsin ama 1 ve 5 seviyesi
+[00:56:50] arasındaki de uygulamazsan e hiçbir işe
+[00:56:52] yaramaz o agentlar. Ustalaşılacak
+[00:56:54] beceri. Ne dedik o zaman? Görev bölümü
+[00:56:56] paralel iş planlaması. Ne anlama geliyor
+[00:56:59] bu? Şimdi şöyle düşünüyorsun. Mutlaka
+[00:57:01] zaten Cloud Code kullanırken projeni
+[00:57:04] Gitub'a bir repo olarak yüklüyorsun. Ya
+[00:57:07] zaten Cloud Code kullanıyorken mutlaka
+[00:57:09] git yüklü olması gerekiyor. Gitab'ın
+[00:57:10] yüklü olması gerekiyor. Bunu eklentiler
+[00:57:13] kısmından gitub yükleyerek de direkt
+[00:57:15] eklenti olarak ekleyebilirsin. Cloud
+[00:57:17] buna erişir. Kendi terminalde de bu
+[00:57:19] arada kodları çalışarak git init gibi
+[00:57:21] eee ve stip kodları çalıştırarak commit
+[00:57:24] kod komutlarını çalıştırarak ne
+[00:57:26] yapabilir? repoyu eee kontrol edebilir.
+[00:57:28] Gitaptaki buradaki git bir repom
+[00:57:31] olduğunu düşünelim. Şu anda mantığını
+[00:57:32] anlatıyorum. Ne anlama geliyor? Workade
+[00:57:34] yani iş ağacı gibi çevirebiliriz aslında
+[00:57:37] bunu. İş ağacı dediğim şey ne? Burada
+[00:57:39] öncelikle en basit agent oluşturma
+[00:57:42] mantığını gösteriyorum cloud'da. Geldim.
+[00:57:44] Eee buradayım. Kapattım bunu ve new
+[00:57:46] terminal dedim. Tamam mı? Burada cloud
+[00:57:49] yazdım. Şunları bir kapatayım. Şöyle
+[00:57:51] burada bir tane cloud çalışıyor. Burada
+[00:57:53] merhaba diyorum. Benim klasörümü burası
+[00:57:55] görüyor değil mi? Bu benim bir ajanım.
+[00:57:58] Şimdi buradan e bir tane daha terminal
+[00:58:00] açıyorum. Buraya da tekrar
+[00:58:01] cloud'luyorum. Bir tane daha açtım.
+[00:58:03] Burada da burada da çalıştırabilirim.
+[00:58:05] Paralel 1 2. Buradan bir tane daha
+[00:58:07] açabilirim. 3 tane olsun diyebilirim.
+[00:58:09] Paralel çalıştırabilirim bu şekilde.
+[00:58:11] Şimdi bunlar ayrı ayrı pencerelerdir
+[00:58:13] aslında. Kontext window'la e bahsettik
+[00:58:15] değil mi? Bundan işte bu bahsettiğim
+[00:58:18] yapı agent A, agent B, agent C. Eğer
+[00:58:21] git, Gitup yüklü olmadan yapmadığım hali
+[00:58:24] bahsediyorum şu anda. Git workflowu
+[00:58:26] çalıştırma, work tre'yi çalıştırmadanki
+[00:58:27] halim bahsediyorum. Bunların hepsi artık
+[00:58:30] benim şu anda projemi görüyor. Şuradaki
+[00:58:32] benim projemi görüyorlar. Bunun üzerine
+[00:58:33] işlemler yapıyorlar. Örneğin burada X Y
+[00:58:36] dosyası var. Bunun üzerine işlem
+[00:58:37] yaptılar. Tamam ama hangisini ne yaptı?
+[00:58:40] Hepsini aynı anda çalıştırırsam bir
+[00:58:42] kavga gürültü çıkar orada. Dünyada düzen
+[00:58:44] böyledir. Herkesin bir rolü vardır ve bu
+[00:58:46] role göre kendi işini belirlersin. O
+[00:58:49] işleri yerine getirirsin. Kaos çıkar
+[00:58:51] yoksa. Yani rol, düzen olmazsa, görev
+[00:58:53] dağılımı olmazsa kaos çıkar. Sen ne
+[00:58:55] yaptın, ne ettin? O oraya gitti. Aynı
+[00:58:58] projeye bir dosyaya bir şey yazdı,
+[00:58:59] diğeri de bir şey yazdı derken burası
+[00:59:02] karman çorban olur. Bu şekilde
+[00:59:04] gidemeyiz. O yüzden tek bir proje
+[00:59:06] üzerine çalıştırmıyoruz. Peki gitub
+[00:59:07] kurduğumuzda projeyi gitab'a
+[00:59:09] yüklediğimizde ne işe yarıyor? Bu work
+[00:59:12] komutu ne işe yarıyor? Aslında şu işe
+[00:59:14] yarıyor. Benim gitapta bir projem var,
+[00:59:16] değil mi? Gitup'ta bir projem var.
+[00:59:18] Sadece şunu yapıyorsun. Tek komut. Yeni
+[00:59:20] bir komut açtım. Atıyorum bu benim eee
+[00:59:22] kendi cloud'um. Şöyle yapmış olalım.
+[00:59:24] Hepsini kapatalım. Yeni bir terminal
+[00:59:25] açıyorum. Cloud diyorum. İki tane tire
+[00:59:28] koyuyorum şurada. İki tane tire
+[00:59:29] koyuyorum. Ardından work 3 e front end
+[00:59:33] olsun. Şimdi ne oldu? Şu anda
+[00:59:34] repozitörün yok diyor senin. Sizde de bu
+[00:59:36] hatayı verir. Eğer eee sen gidip git
+[00:59:39] yüklemediysen projeni bu şekilde hata
+[00:59:42] verecektir. Git yüklü değilse yüklüyse
+[00:59:43] problem yok. Bu sadece frontend'de bakan
+[00:59:46] bir cloud ajanım olacak benim. Bunu
+[00:59:48] cloud kendi arka planda yapıyor. Sorun
+[00:59:50] değil. Ekstra hiçbir şeye gerek yok.
+[00:59:51] Frontend'i açtım. Sonrasında artıya
+[00:59:53] tıklıyorum. Tekrar cloud diyorum. Work
+[00:59:56] diyorum ve backend diyorum. Artık
+[00:59:59] backend'te çalışan bir ajanım var.
+[01:00:01] Frontend, backend, front end backend. Bu
+[01:00:03] şekilde gideceğim. İşte bu ne yapıyor?
+[01:00:05] Agent a işte frontend'e çalışıyor. Bu
+[01:00:08] main'e çalışıyor. Genel yapıya
+[01:00:09] çalışıyor. Frontend'e çalışıyor. Teste
+[01:00:11] çalışıyor. Agent C ve hepsi en sonda
+[01:00:14] asıl projeye yaptıkları değişiklikleri
+[01:00:16] gönderiyorlar. Bu yapı bu şekilde
+[01:00:18] diyebiliriz. Fakat burada da aslında bir
+[01:00:20] sorun var. Peki buradaki sorun ne?
+[01:00:22] Agentlar birbiriyle haberleşemiyor.
+[01:00:24] Burada biri bir şey yaptı. Bu da yaptı.
+[01:00:27] Bu da yaptı. Ama Jim ne yaptı? Bunu
+[01:00:28] yöneten yok. Birbiriyle iletişim yok.
+[01:00:30] Eee, bu da aslında bazı sorunlara yol
+[01:00:32] açabilir. İşte ben burada o yüzden
+[01:00:34] ajanları oluşturmayı dört temel noktaya
+[01:00:37] ayırdım. Birincisi çoklu terminal. Zaten
+[01:00:39] çoklu terminalden bahsettim. Okey,
+[01:00:41] burası git work 3'den bahsettim. Bu da
+[01:00:44] orta seviye. Kolay, orta seviye. Aynı
+[01:00:47] projede 2 terminal açtın. Bu çoklu
+[01:00:49] dedik, manuel dedik, kolay dedik. Eee,
+[01:00:51] bu kesinlikle yani aslında yapılmaması
+[01:00:54] gereken dedik. Git work trede dedik.
+[01:00:57] Cloud work frontend dedik. orta dedik ve
+[01:00:59] subagent'a gelelim. Şimdi burada da
+[01:01:01] cloud kendi work treerini oluşturuyor ve
+[01:01:03] yönetiyor. Daha otomatiktir. Bir tık
+[01:01:05] daha orta ileri seviyedir. Nasıl oluyor
+[01:01:07] peki? Şimdi burada sub agent'ların
+[01:01:09] mantığını görüyorsun. Sub agentların
+[01:01:11] çalışma mantığı. Burada da main
+[01:01:14] agent'ımız var. Bir tane main agent var.
+[01:01:16] Bunun altında sub agent'lar var. Sub
+[01:01:18] agent'lar var. Bu sub agent'ları biz
+[01:01:21] work tleri oluşturuyorduk ya. Sub agent
+[01:01:23] mantığında da ne oluyor? Cloud kendi
+[01:01:25] yerine bu worky'leri aslında bizim
+[01:01:27] yerimize oluşturuyor. Spawn sub agent
+[01:01:30] diyor. Ü tane oluşturuyor ve bunların
+[01:01:32] çıktılarını alıyor, alıyor, alıyor ve
+[01:01:34] main agent'a yolluyor, raporluyor. Main
+[01:01:37] agent'ta değişiklikleri yapıyor. Yöneten
+[01:01:39] eee bir main agent var gibi aslında. Sub
+[01:01:41] agent'ları agent team'e gelmeden önce
+[01:01:44] burayı burayı anlatalım. Zaten burayı
+[01:01:46] anlatmış oldum. Peki bunun work 3'den
+[01:01:48] farkı ne? Cloud'un kendisi oluşturması
+[01:01:50] aslında. Peki nasıl çalışıyor bu? Direkt
+[01:01:53] doğal komut da çalışıyor. 3 tane sub
+[01:01:55] agent spaw red dedim. Frontend, backend
+[01:01:58] e test. Bu şekilde direkt prompt vererek
+[01:02:00] oluşturmuş oluyorum. Biraz soyut kalıyor
+[01:02:02] biliyorum ama eee bu şekilde cloud'da bu
+[01:02:05] şekilde çalışıyor. Arkadaki sub
+[01:02:07] agent'lar. Work yazmam yerine benim
+[01:02:09] sürekli terminalde açıp e direkt
+[01:02:11] söylüyorum ve benim için oluşturmuş
+[01:02:13] oluyor. Onları da bir görev ver diyor
+[01:02:15] burada. Görevleri verdikten sonra eee
+[01:02:17] kendisini oluşturmuş oluyor. Biraz soyut
+[01:02:19] kalıyor. Evet. Ve eee ama kullanılıyor.
+[01:02:22] Hala da kullanılıyor. Birçok projelerde
+[01:02:25] yine de kullanılıyor. Sub agent'lar. Sub
+[01:02:27] agent'lara da burada tic atmış olduk.
+[01:02:29] Aslında daha otomatik ve daha kolay
+[01:02:31] oluyor ama sürekli kontrol etmekte de
+[01:02:33] fayda var cloud'da. Kim ne yaptı, hangi
+[01:02:35] projede hala? Bir tık daha yönetim var.
+[01:02:37] Yani işte Agent Team'de bu olay ortadan
+[01:02:40] kalkıyor. Koordineli takım çalışması.
+[01:02:42] Agentlar birbiriyle konuşuyor. Süper
+[01:02:45] yönetiyor onu. Benim işte burada sürekli
+[01:02:47] cloud'la konuşmam yerine aslında tek eee
+[01:02:50] bir agent team benim yerime yönetmiş
+[01:02:53] oluyor. Orada bir süper oluyor. O benim
+[01:02:54] yerime yönetiyor. Peki bu birazcık daha
+[01:02:57] deneysel bir modda ileri seviye ve
+[01:02:59] deneysel. Yani şu anda test eee
+[01:03:01] aşamalarında evet yayınlandı. Bu özellik
+[01:03:04] geldi cloud'a ama şu anda %100 stabil
+[01:03:07] çalışıyor denemez. Ama agentin yapısına
+[01:03:09] bakalım. Fark ne? bahsetmiştim.
+[01:03:11] Work'lerde ne demiştik? İletişim yok
+[01:03:13] demiştik birbiriyle. Burada birbiriyle
+[01:03:15] iletişim yok. Yani her birinin bir
+[01:03:17] görevi var. Yerine getiriyorlar,
+[01:03:19] gönderiyorlar. Agent team'de fark bu.
+[01:03:21] Fark burada oluşuyor. Bir tane team
+[01:03:23] lideri var dedim ve bu team lider ne
+[01:03:25] yapıyor? bir eee süpervizör oluşturuyor.
+[01:03:28] Bu da taskleri oluşturuyor. Görevleri
+[01:03:29] oluşturuyor. Oluşturulan görevler
+[01:03:31] teammate'lere veriliyor. Burada alt eee
+[01:03:34] aslında iş çalışanlara veriliyor ve
+[01:03:36] bunlar sürekli birbiriyle iletişim
+[01:03:38] halinde. Bu da sürekli birbiriyle
+[01:03:39] iletişim halinde. Bu da iletişim
+[01:03:41] halinde. Şimdi şuradan daha iyi
+[01:03:43] göstermiş olurum. Burada sub agent ve
+[01:03:45] agentimin farkını görmüş oldunuz. Fark
+[01:03:47] iletişim. Daha eee spesifik güzel bir
+[01:03:49] örnek verecek olursak burada bir süper
+[01:03:52] olduğunu düşünelim demiştik. Bu hatta ne
+[01:03:55] diyelim? Buna şf diyelim. Bu bizim
+[01:03:57] şefimiz olsun. E burada da bir
+[01:03:59] frontendçi olsun. Frontend olsun.
+[01:04:02] Frontend olsun. Eee bu test olsun.
+[01:04:05] Tester olsun. Test ediyor. Ve sonrasında
+[01:04:07] da burada da bir e ödeme entegrasyonu
+[01:04:09] üzerine çalışan payment diyelim. Payment
+[01:04:12] bir ajan olsun. Şimdi amacımız bir ödeme
+[01:04:14] altyapısı oluşturmak değil mi? E kart
+[01:04:16] bilgileriyle vesaire veya orada bir buy
+[01:04:19] butonuna tıkladığında satın ala
+[01:04:20] tıkladığında payment'a yönlendiren bir
+[01:04:22] yapı kurmak istiyorum. Şef buna
+[01:04:24] görevleri dağıttı. Sen dedi, Stripe'ı
+[01:04:26] bağlayacaksın. Sen Stripe'ı
+[01:04:28] bağlayacaksın. Ödeme altyapısı
+[01:04:30] uygulamasını bağlayacaksın. Sen işte
+[01:04:32] satın al butonunu oluşturacaksın
+[01:04:34] frontend'te. Sen de en son test
+[01:04:36] edeceksin. Görevleri verdi. Burada
+[01:04:38] frontend ne yaptı? İletişim halindeler.
+[01:04:40] Çünkü iletişim halindeler. Frontend e
+[01:04:42] satın al butonunu oluşturdu. Tamam dedi.
+[01:04:44] Ben oluşturdum. Hatta diğerine de
+[01:04:46] söyledi. İkisine de söyledi. Bu da tamam
+[01:04:48] dedi. Sen Stripe altyapısını, payment'ı
+[01:04:50] oraya ekle. Linki eklediler. Ödeme
+[01:04:52] altyapısını oluşturdular. En son hepsi
+[01:04:55] testera söyleder. Bizim işler bitti
+[01:04:57] burada sen test et. Bu da test etti.
+[01:04:59] Şeffe söyledi gibi bir takım iletişimi
+[01:05:01] olmuş oluyor burada. Bunları kendileri
+[01:05:03] organize bir şekilde yapıyor bu arada
+[01:05:05] tamamen. Eee burada token maliyeti fazla
+[01:05:08] oluyor Agent Starda. Maalesef Agent
+[01:05:10] Team'de token maliyeti fazla. Çünkü her
+[01:05:12] biri birbiriyle iletişim kuruyor ve o
+[01:05:14] iletişim sırasında bir token
+[01:05:16] harcıyorlar. Ve ne kadar harcadıklarını
+[01:05:18] maalesef biz o an kontrol edemiyoruz.
+[01:05:20] sürekli burada eee slash costla veya
+[01:05:23] context'le kontrol etmekte o kısımda eee
+[01:05:26] fayda var. Unutmayalım. Context ve yine
+[01:05:28] burada contexti hatırlayalım ve işte
+[01:05:31] cost'u hatırlayalım. Bunlarla ne
+[01:05:32] yapıyoruz? Kontrol ediyoruz oradaki
+[01:05:34] token eee maliyetini. Peki bunu nasıl
+[01:05:37] enable ediyorsunuz? Bunu nasıl enable
+[01:05:39] ediyorsunuz? Agent team'i nasıl
+[01:05:40] çalıştırıyorsunuz? Bunun için Cloud
+[01:05:42] Code'un resmi dokümantasyonunda bir
+[01:05:44] sayfa var. Cloud Code Agent Team. Bu
+[01:05:47] şekilde direkt ben linkini kopyalayıp
+[01:05:49] aslında eee linkini yollayıp eee agent
+[01:05:52] team oluştur diyebilirim. Linkini
+[01:05:54] kopyalayıp söyleyebilirim. Eee ve böyle
+[01:05:57] diyebilirim. Ve bunun bir aslında agent
+[01:05:59] team'in yazılması gereken prompttu bu
+[01:06:02] şekilde. E burada bir terminoloji var
+[01:06:04] uyulması gereken. Bu terminolojiye göre
+[01:06:05] yazıyorsun. Ardından burada bir setting
+[01:06:07] ayarı var. Bu setting ayarını zaten
+[01:06:09] agent team'i aktif edebilmek için cloud
+[01:06:11] gerekli ayarı yapıyor. Prompt verdiğimde
+[01:06:13] nasıl bir prompt verebiliriz? Burada bir
+[01:06:15] örnek var. eee, İngilizce yazılmış
+[01:06:18] durumda. Enable agent teamde diyorum.
+[01:06:21] Linkini atıyorum. Bu şekilde linkini
+[01:06:23] atıyorum ve diyorum ki benim için bir
+[01:06:25] agent teamm oluştur. O gerekli
+[01:06:27] ayarlamaları yapıyor ve benim setting
+[01:06:29] jon dosyamı güncelliyor. Dokümantasyonda
+[01:06:32] aslında bu kısımda benim manuel yapmamı
+[01:06:34] istediğim şeyi cloud code benim yerime
+[01:06:36] yapıyor. Ardından asıl agent'ları
+[01:06:39] oluşturabilmem için gerekli promptu.
+[01:06:41] Türkçe de yazılabilir. 3 adet agent
+[01:06:43] oluştur diyorum. front end, backend e ve
+[01:06:46] authentication yani kimlik doğrulama
+[01:06:47] tarafı için bu şekilde de yazılabilir.
+[01:06:51] Eee okey diyorum. Örneğin bana
+[01:06:53] değişiklikleri yapmamı söylüyor ve
+[01:06:55] sonrasında da diğer komutumu
+[01:06:57] hazırlıyorum. Bu promptu da verip doğal
+[01:06:59] dille artık burada agentları
+[01:07:00] yönetebiliyorsun. Şimdi burada terminali
+[01:07:02] açtı gördüğün gibi. Setting Jason'ı
+[01:07:04] güncelledim dedi. Güncellediği yeri de
+[01:07:06] gösterdi. Ardından cloud'a bir görev
+[01:07:08] verip diyerek takım oluşturabilirsin.
+[01:07:10] Ben de öyle yapıyorum. Diyorum ki bana
+[01:07:12] bir takım oluştur. tane ajanım olsun.
+[01:07:14] Frontend, backend ve authentication
+[01:07:16] diyorum. Evet. Burada ne yaptı? Benim
+[01:07:19] eee teammate'lerimi oluşturdu. Tüm
+[01:07:21] güncellemeleri okey diyorum. Bu kısımda,
+[01:07:24] eee şu anda front end, backend,
+[01:07:26] authentication ve test ajanlarım benim
+[01:07:29] hazır. Takım oluşturuldu diyor. Burada
+[01:07:31] takımın içerisindekileri kontrol
+[01:07:33] ediyoruz bir de. Şimdi onu da
+[01:07:35] göstereyim. Aslında burada bir göreve de
+[01:07:37] başladılar kendileri. Çalışıyor. Login,
+[01:07:39] register, dashboard ve diğer kısımları
+[01:07:42] yapmak için görev dağılımlarını
+[01:07:43] yaptılar. Burada geçiş yapabilmek için
+[01:07:46] shift'i kullanıyoruz. Şimdilik bir no
+[01:07:48] diyelim buna. No diyelim ve bakın burada
+[01:07:50] görüyorsun. Team lead, backend,
+[01:07:52] authentication, front end, developer,
+[01:07:54] test, writer. Sonrasında bunların
+[01:07:55] arasında geçiş yapabiliyorum. Şu şekilde
+[01:07:57] direkt shift, shift'e basıyorum ve eee
+[01:08:00] down up tuşlarıyla geçiş yapabiliyorum.
+[01:08:03] Bu şekilde diğerin bir tanesine görev
+[01:08:04] vereceğim. Şöyle test writer'a gidiyorum
+[01:08:06] ve gerekli görevi verip eee burada test
+[01:08:10] writer'a yazı yazabiliyorum. Bu şekilde
+[01:08:12] şu an test writer'la konuşabiliyorum
+[01:08:14] veya team leadle de konuşabilirim. Yine
+[01:08:16] eee ona geçiş yapıp ona sorular
+[01:08:18] sorabilirim. Agentlarımın durumlarını
+[01:08:20] görebilirim burada yine kaç token
+[01:08:21] harcadıklarını görüntüleyebilirim. Tüm
+[01:08:24] yapı bu şekilde ilerliyor. Doğal dille
+[01:08:26] devam ediyor. Evet uzun bir cloud code
+[01:08:28] yolculuğu yaptık. 6. seviyede inceledik.
+[01:08:31] Aslında seviye 0'la birlikte 7. seviye
+[01:08:33] oldu. Peki sen hangi seviyedesin? Nereye
+[01:08:35] kadar geldin? Nereden başladın? Nerenin
+[01:08:38] sana faydaları oldu? Bunları da
+[01:08:40] yorumlarda belirtebilirsin. Kameram
+[01:08:42] kapandı. Uzun bir video oldu. Umarım
+[01:08:44] faydalı olmuştur. Cloud kodu ile ilgili
+[01:08:46] uygulamalı, detaylı videolar yine
+[01:08:48] gelmeye devam edecek. Abone ol, takipte
+[01:08:51] kal, videoyu beğenmeyi unutma.
+[01:08:52] Görüşürüz.
