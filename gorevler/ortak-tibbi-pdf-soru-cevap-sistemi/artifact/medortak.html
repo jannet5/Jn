@@ -1,0 +1,410 @@
+<title>MedOrtak</title>
+<style>
+/* Düzen: solda iş alanı (Sor / Kütüphane), sağda her zaman görünen kota paneli; telefonda panel üste iner */
+:root{
+  --bg:#f3f6f5; --surface:#ffffff; --ink:#15211f; --muted:#5a6a67; --line:#d9e2e0;
+  --accent:#0d6e66; --accent-soft:#e2f1ee; --on-accent:#ffffff;
+  --warn:#9a5b06; --warn-soft:#fbf1df; --bad:#a32020; --bad-soft:#fbe6e6;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1716; --surface:#16211f; --ink:#e3ece9; --muted:#9bb0ab; --line:#2a3836;
+  --accent:#4fc2b4; --accent-soft:#163a35; --on-accent:#06231f;
+  --warn:#f0b450; --warn-soft:#33270f; --bad:#f08a8a; --bad-soft:#3a1717; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1716; --surface:#16211f; --ink:#e3ece9; --muted:#9bb0ab; --line:#2a3836;
+  --accent:#4fc2b4; --accent-soft:#163a35; --on-accent:#06231f;
+  --warn:#f0b450; --warn-soft:#33270f; --bad:#f08a8a; --bad-soft:#3a1717; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);margin:0}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;background:var(--accent);color:var(--on-accent);font-style:normal;font-size:1rem}
+.tabs{display:flex;gap:4px}
+.tabs button{border:0;background:none;color:var(--muted);padding:7px 12px;border-radius:8px;font:inherit;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.spacer{flex:1}
+.pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 10px;font:inherit;font-size:.85rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill .m{width:40px;height:6px;background:var(--line);border-radius:4px;overflow:hidden}.pill .m b{display:block;height:100%;background:var(--accent)}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%}
+#lang{width:auto}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;max-width:1160px;margin:0 auto;padding-block:20px 56px;padding-inline:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:10px;margin-bottom:16px;min-width:0}
+h1,h2{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance}
+h2{font-size:1.15rem}
+.lbl{font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.row.end{justify-content:flex-end}
+.row>select{flex:1;min-width:180px;width:auto}
+button.primary{background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer}
+button.ghost{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 14px;font:inherit;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hint{color:var(--muted);font-size:.86rem;margin:0}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:.92rem}.chk input{width:auto;margin-top:4px}
+.ans{border-left:4px solid var(--accent)}
+.ans.none{border-left-color:var(--muted)}.ans.warn{border-left-color:var(--warn)}
+.ans .q{font-weight:600}
+.ans .a{white-space:pre-wrap;margin:0}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:.78rem;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 9px}
+.badge.w{background:var(--warn-soft);color:var(--warn)}
+.quote{border-left:2px solid var(--line);padding-left:10px;font-size:.9rem;color:var(--muted)}
+.quote b{color:var(--ink);font-weight:600}
+.flag{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:8px 10px;font-size:.88rem}
+.err{background:var(--bad-soft);color:var(--bad);border-radius:8px;padding:8px 10px;font-size:.9rem}
+.docs{list-style:none;margin:0;padding:0}
+.docs li{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.docs .t{flex:1;min-width:0;overflow-wrap:anywhere}.docs .meta{color:var(--muted);font-size:.84rem}
+.docs button{font-size:.8rem;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:4px 8px;cursor:pointer}
+.quota{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);align-self:start}
+.big{font-family:var(--display);font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}.big small{font-family:var(--body);font-size:.9rem;color:var(--muted);margin-left:4px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.bar b{display:block;height:100%;background:var(--accent);transition:width .4s}
+.level{font-size:.88rem;border-radius:8px;padding:8px 10px;background:var(--accent-soft)}
+.quota[data-level="warn"] .bar b,.pill[data-level="warn"] .m b{background:var(--warn)}
+.quota[data-level="grace"] .bar b,.quota[data-level="blocked"] .bar b,.pill[data-level="grace"] .m b,.pill[data-level="blocked"] .m b{background:var(--bad)}
+.quota[data-level="warn"] .level,.quota[data-level="grace"] .level{background:var(--warn-soft);color:var(--warn)}
+.quota[data-level="blocked"] .level{background:var(--bad-soft);color:var(--bad)}
+dl.facts{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin:0;font-size:.88rem}
+dl.facts dt{color:var(--muted)}dl.facts dd{margin:0;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+details{font-size:.88rem;color:var(--muted)}summary{cursor:pointer}
+.hist{list-style:none;margin:0;padding:0;font-size:.8rem;color:var(--muted);font-family:var(--mono);max-height:150px;overflow:auto}
+.hist li{display:flex;justify-content:space-between;gap:8px}
+.foot{color:var(--muted);font-size:.8rem;text-align:center}
+.prog{height:4px;background:var(--line);border-radius:4px;overflow:hidden}.prog b{display:block;height:100%;width:0;background:var(--accent)}
+@media (max-width:860px){.wrap{grid-template-columns:1fr}.quota{position:static;order:-1}.quota.closed{display:none}}
+@media (min-width:861px){#pill{display:none}}
+@media (prefers-reduced-motion:reduce){.bar b{transition:none}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono&display=swap">
+
+<header class="top">
+  <div class="brand"><i aria-hidden="true">+</i>MedOrtak</div>
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="t-ask" aria-selected="true" data-k="tAsk">Sor</button>
+    <button role="tab" id="t-lib" aria-selected="false" data-k="tLib">Kütüphane</button>
+  </nav>
+  <span class="spacer"></span>
+  <button class="pill" id="pill" type="button"><span id="pillTxt">–</span><span class="m"><b id="pillBar"></b></span></button>
+  <select id="lang" aria-label="Dil / Language"><option value="tr">TR</option><option value="en">EN</option><option value="es">ES</option></select>
+</header>
+
+<div class="wrap">
+<main>
+  <div id="sysMsg"></div>
+  <section id="p-ask">
+    <form class="card" id="askForm">
+      <label class="lbl" for="q" data-k="askL">Sorunu istediğin dilde yaz</label>
+      <textarea id="q" rows="3" maxlength="800" required></textarea>
+      <div class="row">
+        <select id="scope" aria-label="Kapsam"><option value="" data-k="all">Tüm ortak kütüphane</option></select>
+      </div>
+      <div class="row end">
+        <button type="button" class="ghost" id="newTopic" data-k="newT">Yeni konu</button>
+        <button type="submit" class="primary" id="askBtn">Sor</button>
+      </div>
+      <p class="hint" id="topicHint"></p>
+    </form>
+    <div id="answers"></div>
+    <p class="foot" data-k="disc">Eğitim amaçlıdır; tıbbi tavsiye değildir. Her cevabı kaynak alıntısıyla karşılaştırın.</p>
+  </section>
+
+  <section id="p-lib" hidden>
+    <form class="card" id="upForm">
+      <h2 data-k="upT">PDF paylaş — katkı ücretsiz</h2>
+      <input type="file" id="file" accept="application/pdf" required>
+      <input id="title" maxlength="160" data-ph="titlePh" placeholder="Başlık (isteğe bağlı)">
+      <input id="subject" maxlength="80" data-ph="subjPh" placeholder="Ders / konu (ör. Kardiyoloji)">
+      <label class="chk"><input type="checkbox" id="rights" required> <span data-k="rights">Bu PDF'i paylaşma hakkım var (kendi notum, açık lisans ya da izinli).</span></label>
+      <div class="prog" id="prog" hidden><b id="progBar"></b></div>
+      <div class="row end"><button class="primary" id="upBtn" data-k="up">Yükle</button></div>
+      <p class="hint" id="upMsg" role="status"></p>
+    </form>
+    <div class="card">
+      <input id="libQ" type="search" data-ph="libPh" placeholder="Kütüphanede ara">
+      <ul class="docs" id="docs"></ul>
+    </div>
+  </section>
+</main>
+
+<aside class="card quota" id="quota" aria-live="polite">
+  <h2 data-k="qT">Kullanım hakkın</h2>
+  <div class="big"><span id="qLeft">–</span><small id="qOf"></small></div>
+  <div class="bar"><b id="qBar" style="width:0"></b></div>
+  <p class="level" id="qLevel"></p>
+  <dl class="facts">
+    <dt data-k="next">Sıradaki soru</dt><dd id="qCost">1</dd>
+    <dt data-k="grace">İş bitirme payı</dt><dd id="qGrace">–</dd>
+    <dt data-k="reset">Yenilenme</dt><dd id="qReset">–</dd>
+  </dl>
+  <details><summary data-k="howT">Bu kota nasıl çalışır?</summary><p data-k="how"></p></details>
+  <div id="donateBox"></div>
+  <details id="ownerBox" hidden><summary data-k="ownerT">Sahip ayarları</summary>
+    <div class="row" style="margin-top:8px"><input id="donateIn" placeholder="https://ko-fi.com/..."><button class="ghost" id="donateSave" type="button" data-k="save">Kaydet</button></div>
+  </details>
+  <h2 style="font-size:.95rem" data-k="hist">Son hareketler</h2>
+  <ul class="hist" id="qHist"></ul>
+</aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script>
+"use strict";
+/* ---------- Ayarlar ---------- */
+const FREE = 60;          // herkese eşit aylık ücretsiz soru
+const GRACE = 6;          // kredili başlamış konuyu bitirme payı
+const PART_BYTES = 180000;// veritabanı belgesi başına metin (256 KiB sınırının altında)
+
+/* ---------- Dil ---------- */
+const T = {
+tr:{tAsk:"Sor",tLib:"Kütüphane",askL:"Sorunu istediğin dilde yaz",all:"Tüm ortak kütüphane",newT:"Yeni konu",ask:"Sor",cr:"kredi",
+disc:"Eğitim amaçlıdır; tıbbi tavsiye değildir. Her cevabı kaynak alıntısıyla karşılaştırın.",upT:"PDF paylaş — katkı ücretsiz",titlePh:"Başlık (isteğe bağlı)",subjPh:"Ders / konu (ör. Kardiyoloji)",
+rights:"Bu PDF'i paylaşma hakkım var (kendi notum, açık lisans ya da izinli).",up:"Yükle",libPh:"Kütüphanede ara",qT:"Kullanım hakkın",next:"Sıradaki soru",grace:"İş bitirme payı",reset:"Yenilenme",
+howT:"Bu kota nasıl çalışır?",how:"Herkese her ay eşit ücretsiz hak verilir; kart ya da ödeme istenmez. Bitmeden önce uyarırız. Başladığın bir konu hakkın bitse bile iş bitirme payıyla tamamlanır. PDF paylaşmak ücretsizdir.",
+ownerT:"Sahip ayarları",save:"Kaydet",hist:"Son hareketler",donate:"Projeye destek ol",of:"/ {n} bu ay",
+l_ok:"Rahat kullanabilirsin.",l_warn:"Aylık hakkının çoğunu kullandın — planlı ilerle.",l_grace:"Aylık hakkın bitti. Açık konunu iş bitirme payıyla tamamlayabilirsin.",l_blocked:"Bu ayın hakkı bitti; {d} tarihinde yenilenir.",
+topic:"Açık konu: {n} soru. Hakkın bitse de bu konu yarıda kesilmez.",thinking:"Kaynaklar aranıyor ve cevap yazılıyor…",
+noAns:"Bu sorunun cevabı ortak kütüphanedeki kaynaklarda yok. Uydurma cevap vermiyoruz.",empty:"Kütüphane boş. İlk PDF'i Kütüphane sekmesinden sen paylaş.",
+src:"Kaynak alıntı (orijinal dil)",qlang:"Soru dili",slang:"Kaynak dili",page:"s.",
+fNum:"Uyarı: cevaptaki şu sayılar alıntılarda bulunamadı: {x}. Kaynakla karşılaştırın.",fQuote:"Uyarı: bir alıntı kaynak sayfada birebir bulunamadı; o alıntıya güvenmeyin.",
+checked:"Sayılar ve alıntılar kaynak sayfayla otomatik karşılaştırıldı (yüzeysel denetim).",
+reading:"PDF okunuyor: sayfa {i}/{n}",saving:"Kaydediliyor…",added:"Eklendi: {t} ({p} sayfa). Artık herkes bu PDF'ten soru sorabilir.",dup:"Bu PDF zaten kütüphanede: {t}",
+noText:"Bu PDF'te seçilebilir metin yok (taranmış görüntü olabilir). Metin içeren bir sürüm yükleyin.",pages:"sayfa",report:"Bildir",del:"Kaldır",hidden:"gizlendi",
+rep:"Bildirildi. Telif bildirimi belgeyi hemen gizler.",noDb:"Bu görünümde ortak kütüphaneye bağlanılamadı. claude.ai'de oturum açık olarak açın.",
+noWrite:"Bu sayfayı yalnız görüntüleme izniyle açtınız; PDF eklemek için sayfa sahibinden düzenleme ya da katkı izni isteyin.",
+noSample:"Bu görünümde Claude'a soru sorulamıyor (izin verilmedi ya da hesapta kapalı).",rate:"Çok sık soruldu ya da Claude kullanım sınırına ulaşıldı. Biraz sonra yeniden deneyin.",
+fail:"Cevap alınamadı. Yeniden deneyin.",quotaFull:"Bu ayın hakkı ve iş bitirme payı bitti. {d} tarihinde yenilenir.",
+repWhy:"Neden bildiriyorsun?",rCopy:"Telif ihlali",rWrong:"Yanlış / zararlı içerik",rSpam:"Alakasız",cancel:"Vazgeç",hk_q:"soru",hk_g:"soru · pay"},
+en:{tAsk:"Ask",tLib:"Library",askL:"Ask in any language",all:"Whole shared library",newT:"New topic",ask:"Ask",cr:"credit",
+disc:"For education only; not medical advice. Compare every answer with its source quote.",upT:"Share a PDF — contributing is free",titlePh:"Title (optional)",subjPh:"Course / subject (e.g. Cardiology)",
+rights:"I have the right to share this PDF (my own notes, open licence or permission).",up:"Upload",libPh:"Search the library",qT:"Your allowance",next:"Next question",grace:"Finish-up buffer",reset:"Resets",
+howT:"How does this allowance work?",how:"Everyone gets the same free monthly allowance; no card, no payment. We warn you before it runs out. A topic you started can always be finished with the finish-up buffer. Sharing PDFs is free.",
+ownerT:"Owner settings",save:"Save",hist:"Recent activity",donate:"Support the project",of:"/ {n} this month",
+l_ok:"Plenty left.",l_warn:"Most of this month is used — plan ahead.",l_grace:"Monthly allowance used. You can still finish your open topic with the buffer.",l_blocked:"This month is used up; it resets on {d}.",
+topic:"Open topic: {n} question(s). It won't be cut off even if your allowance runs out.",thinking:"Searching the sources and writing the answer…",
+noAns:"The shared library does not contain the answer to this question. We do not make one up.",empty:"The library is empty. Share the first PDF from the Library tab.",
+src:"Source quote (original language)",qlang:"Question language",slang:"Source language",page:"p.",
+fNum:"Warning: these numbers in the answer were not found in the quotes: {x}. Compare with the source.",fQuote:"Warning: a quote was not found word for word on its source page; do not rely on it.",
+checked:"Numbers and quotes were automatically compared with the source page (surface check).",
+reading:"Reading PDF: page {i}/{n}",saving:"Saving…",added:"Added: {t} ({p} pages). Everyone can now ask questions from it.",dup:"Already in the library: {t}",
+noText:"This PDF has no selectable text (it may be a scanned image). Upload a version with text.",pages:"pages",report:"Report",del:"Remove",hidden:"hidden",
+rep:"Reported. A copyright report hides the document at once.",noDb:"Could not connect to the shared library in this view. Open it on claude.ai while signed in.",
+noWrite:"You opened this page with view-only access; ask the owner for edit or contributor access to add PDFs.",
+noSample:"Claude can't be asked from this view (not allowed, or turned off for the account).",rate:"Too many questions, or the Claude usage limit was reached. Try again a little later.",
+fail:"No answer came back. Try again.",quotaFull:"This month's allowance and buffer are used up. It resets on {d}.",
+repWhy:"Why are you reporting it?",rCopy:"Copyright",rWrong:"Wrong / harmful content",rSpam:"Unrelated",cancel:"Cancel",hk_q:"question",hk_g:"question · buffer"},
+es:{tAsk:"Preguntar",tLib:"Biblioteca",askL:"Pregunta en cualquier idioma",all:"Toda la biblioteca compartida",newT:"Nuevo tema",ask:"Preguntar",cr:"crédito",
+disc:"Solo con fines educativos; no es consejo médico. Compara cada respuesta con su cita de origen.",upT:"Comparte un PDF — aportar es gratis",titlePh:"Título (opcional)",subjPh:"Asignatura / tema (p. ej. Cardiología)",
+rights:"Tengo derecho a compartir este PDF (apuntes propios, licencia abierta o permiso).",up:"Subir",libPh:"Buscar en la biblioteca",qT:"Tu cuota",next:"Próxima pregunta",grace:"Margen para terminar",reset:"Se renueva",
+howT:"¿Cómo funciona la cuota?",how:"Todos reciben la misma cuota mensual gratuita; sin tarjeta ni pago. Avisamos antes de que se agote. Un tema iniciado siempre se puede terminar con el margen. Compartir PDF es gratis.",
+ownerT:"Ajustes del propietario",save:"Guardar",hist:"Actividad reciente",donate:"Apoyar el proyecto",of:"/ {n} este mes",
+l_ok:"Te queda de sobra.",l_warn:"Has usado la mayor parte del mes — planifica.",l_grace:"Cuota mensual agotada. Aún puedes terminar tu tema abierto con el margen.",l_blocked:"La cuota del mes se agotó; se renueva el {d}.",
+topic:"Tema abierto: {n} pregunta(s). No se cortará aunque se agote tu cuota.",thinking:"Buscando en las fuentes y escribiendo la respuesta…",
+noAns:"Las fuentes de la biblioteca no contienen la respuesta. No inventamos respuestas.",empty:"La biblioteca está vacía. Comparte el primer PDF desde la pestaña Biblioteca.",
+src:"Cita de la fuente (idioma original)",qlang:"Idioma de la pregunta",slang:"Idioma de la fuente",page:"p.",
+fNum:"Aviso: estos números de la respuesta no aparecen en las citas: {x}. Compáralos con la fuente.",fQuote:"Aviso: una cita no aparece literalmente en su página de origen; no confíes en ella.",
+checked:"Números y citas comparados automáticamente con la página de origen (control superficial).",
+reading:"Leyendo el PDF: página {i}/{n}",saving:"Guardando…",added:"Añadido: {t} ({p} páginas). Ya todos pueden preguntar sobre él.",dup:"Ya está en la biblioteca: {t}",
+noText:"Este PDF no tiene texto seleccionable (puede ser una imagen escaneada). Sube una versión con texto.",pages:"páginas",report:"Reportar",del:"Quitar",hidden:"oculto",
+rep:"Reportado. Un aviso de copyright oculta el documento al instante.",noDb:"No se pudo conectar con la biblioteca en esta vista. Ábrela en claude.ai con la sesión iniciada.",
+noWrite:"Abriste esta página solo para ver; pide al propietario acceso de edición o colaboración para añadir PDF.",
+noSample:"No se puede preguntar a Claude desde esta vista (no permitido o desactivado en la cuenta).",rate:"Demasiadas preguntas o se alcanzó el límite de uso de Claude. Inténtalo un poco más tarde.",
+fail:"No llegó respuesta. Inténtalo de nuevo.",quotaFull:"La cuota del mes y el margen se agotaron. Se renueva el {d}.",
+repWhy:"¿Por qué lo reportas?",rCopy:"Copyright",rWrong:"Contenido erróneo o dañino",rSpam:"No relacionado",cancel:"Cancelar",hk_q:"pregunta",hk_g:"pregunta · margen"}};
+const LN={tr:"Türkçe",en:"English",es:"Español",de:"Deutsch",fr:"Français",pt:"Português",it:"Italiano",ar:"العربية",ru:"Русский"};
+const $=(s)=>document.querySelector(s);
+const esc=(s)=>String(s??"").replace(/[&<>"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let lang="tr";
+try{lang=localStorage.getItem("lang")||(navigator.language||"tr").slice(0,2)}catch{lang=(navigator.language||"tr").slice(0,2)}
+if(!T[lang])lang="en";
+const t=(k,v={})=>(T[lang][k]??T.en[k]??k).replace(/\{(\w+)\}/g,(_,x)=>v[x]??"");
+
+/* ---------- Durum ---------- */
+let db=null,user=null,sample=null,uid=null,isOwner=false;
+let docs=[];               // kütüphane belgeleri (meta)
+let usage={period:"",used:0,grace:0,hist:[]};
+let topic={id:null,n:0,credited:false};
+let donateUrl="";
+
+const period=()=>new Date().toISOString().slice(0,7);
+const resetDate=()=>{const d=new Date();return new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1)).toLocaleDateString(lang)};
+const fold=(s)=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ı/g,"i");
+
+/* ---------- Basit dil tahmini (rozet için) ---------- */
+const SW={tr:"ve bir bu ile için olarak da de daha olan gibi veya hasta tedavi",en:"the and of to in is for with that are patient treatment",es:"el la de que y en los las del se por con para una paciente",
+de:"der die und das ist mit von den zu patienten",fr:"le la les de et des est en du une pour",pt:"o a de que e do da em os para com uma",it:"il la di che e del della per con"};
+function guessLang(text){const w=fold(text).match(/[a-zÀ-ɏ]+/g)||[];let best="?",bs=0;
+  for(const[l,list]of Object.entries(SW)){const set=new Set(list.split(" "));let s=0;for(const x of w.slice(0,3000))if(set.has(x))s++;
+    if(l==="tr"&&/[çğışöü]/i.test(text))s=s*1.5+1; if(l==="es"&&/[ñ¿¡]/i.test(text))s=s*1.5+2; if(s>bs){bs=s;best=l}}return bs?best:"?"}
+
+/* ---------- Arayüz metinleri ---------- */
+function applyI18n(){document.documentElement.lang=lang;$("#lang").value=lang;
+  document.querySelectorAll("[data-k]").forEach((e)=>{e.textContent=t(e.dataset.k)});
+  document.querySelectorAll("[data-ph]").forEach((e)=>{e.placeholder=t(e.dataset.ph)});
+  renderQuota();renderTopic();renderDocs();renderDonate();}
+function sys(msg,cls="err"){$("#sysMsg").innerHTML=msg?`<div class="card ${cls==="err"?"":""}"><div class="${cls}">${esc(msg)}</div></div>`:""}
+
+/* ---------- Kota ---------- */
+function quotaState(){const left=Math.max(0,FREE-usage.used);const gl=Math.max(0,GRACE-usage.grace);
+  const level=left>0?(left/FREE<=0.2?"warn":"ok"):(gl>0?"grace":"blocked");return{left,gl,level}}
+function renderQuota(){const{left,gl,level}=quotaState();const pct=Math.round(left/FREE*100);
+  $("#quota").dataset.level=level;$("#pill").dataset.level=level;
+  $("#qLeft").textContent=left;$("#qOf").textContent=t("of",{n:FREE});$("#qBar").style.width=pct+"%";$("#pillBar").style.width=pct+"%";
+  $("#pillTxt").textContent=left+" "+t("cr");$("#qLevel").textContent=t("l_"+level,{d:resetDate()});
+  $("#qGrace").textContent=gl+" / "+GRACE;$("#qReset").textContent=resetDate();$("#qCost").textContent="1 "+t("cr");
+  $("#askBtn").textContent=t("ask")+" · 1 "+t("cr");
+  $("#qHist").innerHTML=(usage.hist||[]).slice(-12).reverse().map((h)=>`<li><span>${esc(t(h.g?"hk_g":"hk_q"))}</span><span>−1 · ${esc(new Date(h.at).toLocaleTimeString(lang,{hour:"2-digit",minute:"2-digit"}))}</span></li>`).join("");}
+async function loadUsage(){if(!db||!uid)return;try{const s=await db.doc("data/users/"+uid+"/usage").get();const d=s.exists?s.data():null;
+  usage=d&&d.period===period()?{period:d.period,used:d.used||0,grace:d.grace||0,hist:d.hist||[]}:{period:period(),used:0,grace:0,hist:[]};}catch{}renderQuota()}
+/* Hak kontrolü: kredi varsa normal; yoksa yalnız kredili başlamış konu esneme payıyla devam eder */
+function canAsk(){const{left,gl}=quotaState();if(left>0)return"free";if(topic.id&&topic.credited&&gl>0)return"grace";return null}
+async function charge(kind){const g=kind==="grace";usage={period:period(),used:usage.used+(g?0:1),grace:usage.grace+(g?1:0),
+  hist:[...(usage.hist||[]).slice(-40),{at:new Date().toISOString(),g}]};renderQuota();
+  if(db&&uid){try{await db.doc("data/users/"+uid+"/usage").set(usage)}catch{}}}
+function renderTopic(){$("#topicHint").textContent=topic.id?t("topic",{n:topic.n}):""}
+
+/* ---------- Kütüphane ---------- */
+function renderDocs(){const q=fold($("#libQ").value||"");const list=docs.filter((d)=>!q||fold(d.title+" "+(d.subject||"")).includes(q));
+  $("#docs").innerHTML=list.length?list.map((d)=>`<li><div class="t"><b>${esc(d.title)}</b><div class="meta">${esc(LN[d.lang]||d.lang)} · ${d.pages} ${esc(t("pages"))}${d.subject?" · "+esc(d.subject):""}${d.hidden?" · "+esc(t("hidden")):""}</div></div>
+    <button type="button" data-rep="${esc(d.id)}">${esc(t("report"))}</button>${(isOwner||d.by===uid)?`<button type="button" data-del="${esc(d.id)}">${esc(t("del"))}</button>`:""}</li>`).join("")
+    :`<li class="meta">${esc(t("empty"))}</li>`;
+  const sel=$("#scope"),cur=sel.value;sel.innerHTML=`<option value="">${esc(t("all"))}</option>`+docs.filter((d)=>!d.hidden).map((d)=>`<option value="${esc(d.id)}">${esc(d.title)} (${esc(LN[d.lang]||d.lang)})</option>`).join("");sel.value=cur;}
+function subscribeDocs(){db.collection("docs").onSnapshot((snap)=>{docs=snap.docs.map((s)=>({id:s.id,...s.data()})).filter((d)=>d.ready)
+    .sort((a,b)=>String(b.at).localeCompare(String(a.at)));renderDocs()},()=>sys(t("noDb")))}
+function renderDonate(){$("#donateBox").innerHTML=donateUrl&&/^https:\/\//.test(donateUrl)?`<a class="primary" style="display:block;text-align:center;text-decoration:none;background:var(--accent);color:var(--on-accent);border-radius:8px;padding:10px" href="${esc(donateUrl)}" target="_blank" rel="noopener">${esc(t("donate"))}</a>`:""}
+
+/* PDF → sayfa metinleri (tarayıcıda, pdf.js) */
+async function readPdf(buf,onPage){const pdf=await pdfjsLib.getDocument({data:buf}).promise;const pages=[];
+  for(let i=1;i<=pdf.numPages;i++){onPage(i,pdf.numPages);const c=await (await pdf.getPage(i)).getTextContent();
+    let s="";for(const it of c.items){s+=it.str+(it.hasEOL?"\n":" ")}s=s.replace(/[ \t]+/g," ").replace(/\n{2,}/g,"\n").trim();if(s)pages.push({p:i,t:s})}
+  // Sayfaların yarısından çoğunda tekrar eden üst/alt bilgi satırlarını at
+  if(pages.length>=3){const cnt=new Map();for(const pg of pages)for(const l of new Set(pg.t.split("\n").map((x)=>x.trim()).filter(Boolean)))cnt.set(l,(cnt.get(l)||0)+1);
+    const rep=new Set([...cnt].filter(([l,c])=>c>pages.length/2&&!/^\d+$/.test(l)).map(([l])=>l));
+    for(const pg of pages)pg.t=pg.t.split("\n").filter((l)=>!rep.has(l.trim())).join("\n").trim()}
+  return{pages:pages.filter((x)=>x.t),title:(await pdf.getMetadata().catch(()=>({})))?.info?.Title||"",n:pdf.numPages}}
+async function sha(buf){const h=await crypto.subtle.digest("SHA-256",buf);return[...new Uint8Array(h)].map((b)=>b.toString(16).padStart(2,"0")).join("")}
+
+$("#upForm").addEventListener("submit",async(e)=>{e.preventDefault();const f=$("#file").files[0];if(!f||!db)return;
+  const btn=$("#upBtn"),msg=$("#upMsg"),prog=$("#prog"),pb=$("#progBar");btn.disabled=true;prog.hidden=false;
+  try{const buf=await f.arrayBuffer();const id=(await sha(buf)).slice(0,24);
+    const ex=docs.find((d)=>d.id===id);if(ex){msg.textContent=t("dup",{t:ex.title});return}
+    const r=await readPdf(buf.slice(0),(i,n)=>{msg.textContent=t("reading",{i,n});pb.style.width=Math.round(i/n*90)+"%"});
+    if(!r.pages.length){msg.textContent=t("noText");return}
+    msg.textContent=t("saving");
+    const parts=[];let cur=[],size=0;for(const pg of r.pages){const b=pg.t.length*2;if(size+b>PART_BYTES&&cur.length){parts.push(cur);cur=[];size=0}cur.push(pg);size+=b}if(cur.length)parts.push(cur);
+    for(let k=0;k<parts.length;k++){await db.doc(`parts/${id}-${k}`).set({doc:id,k,pages:parts[k]});pb.style.width=(90+Math.round((k+1)/parts.length*10))+"%"}
+    const title=($("#title").value||r.title||f.name.replace(/\.pdf$/i,"")).trim().slice(0,160);
+    const head=r.pages.slice(0,15).map((x)=>x.t).join(" ");
+    await db.doc("docs/"+id).set({title,subject:$("#subject").value.trim().slice(0,80),lang:guessLang(head),pages:r.n,parts:parts.length,by:uid||"",at:new Date().toISOString(),ready:true,hidden:false,reports:0});
+    msg.textContent=t("added",{t:title,p:r.n});e.target.reset();
+  }catch(err){msg.textContent=(err&&err.code==="quota_exceeded")?String(err.message):(err&&err.code)?t("noWrite"):String(err&&err.message||err)}
+  finally{btn.disabled=false;setTimeout(()=>{prog.hidden=true;pb.style.width="0"},800)}});
+
+/* Bildir / kaldır — sayfa içi seçim (tarayıcı diyalogları bu çerçevede çalışmaz) */
+$("#docs").addEventListener("click",async(e)=>{const rep=e.target.dataset.rep,del=e.target.dataset.del;const li=e.target.closest("li");
+  if(del&&db){try{const d=docs.find((x)=>x.id===del);for(let k=0;k<(d.parts||1);k++)await db.doc(`parts/${del}-${k}`).delete();await db.doc("docs/"+del).delete()}catch(err){sys(t("noWrite"))}return}
+  if(rep&&db&&!li.querySelector(".repbox")){const box=document.createElement("div");box.className="repbox row";box.style.flexBasis="100%";
+    box.innerHTML=`<span class="hint">${esc(t("repWhy"))}</span>`+["copyright","wrong","spam"].map((r)=>`<button type="button" data-r="${r}">${esc(t(r==="copyright"?"rCopy":r==="wrong"?"rWrong":"rSpam"))}</button>`).join("")+`<button type="button" data-r="">${esc(t("cancel"))}</button>`;
+    li.style.flexWrap="wrap";li.appendChild(box);
+    box.addEventListener("click",async(ev)=>{const r=ev.target.dataset.r;if(r===undefined)return;box.remove();if(!r)return;
+      try{await db.doc(`reports/${rep}-${uid||"anon"}`).set({doc:rep,reason:r,at:new Date().toISOString()});
+        const d=docs.find((x)=>x.id===rep);const n=(d.reports||0)+1;await db.doc("docs/"+rep).update({reports:n,hidden:d.hidden||r==="copyright"||n>=3});sys(t("rep"),"flag")}catch{sys(t("noWrite"))}});}});
+$("#libQ").addEventListener("input",renderDocs);
+
+/* ---------- Soru-cevap ---------- */
+async function loadPages(scopeId){const want=docs.filter((d)=>!d.hidden&&(!scopeId||d.id===scopeId));const out=[];
+  for(const d of want){for(let k=0;k<(d.parts||1);k++){const s=await db.doc(`parts/${d.id}-${k}`).get();if(s.exists)for(const pg of s.data().pages)out.push({doc:d,p:pg.p,t:pg.t})}}return out}
+function score(pages,terms){const fterms=[...new Set(terms.map((x)=>fold(String(x)).trim()).filter((x)=>x.length>=3))];
+  const stems=fterms.map((x)=>x.split(/\s+/).map((w)=>w.slice(0,Math.max(4,Math.min(6,w.length)))));
+  const N=pages.length;const ft=pages.map((pg)=>fold(pg.t));const df=stems.map((st)=>ft.filter((x)=>st.every((w)=>x.includes(w))).length);
+  return pages.map((pg,i)=>{let s=0;stems.forEach((st,j)=>{if(df[j]&&st.every((w)=>ft[i].includes(w)))s+=Math.log(1+N/df[j])*(st.length>1?1.5:1)});return{...pg,s}})
+    .filter((x)=>x.s>0).sort((a,b)=>b.s-a.s)}
+const nums=(s)=>(String(s).replace(/yüzde\s+/gi,"%").match(/(?<![\w.,])\d+(?:[.,]\d+)?(?![\w])/g)||[]).map((x)=>x.replace(",","."));
+const norm=(s)=>fold(String(s)).replace(/\s+/g," ").trim();
+
+$("#askForm").addEventListener("submit",async(e)=>{e.preventDefault();const question=$("#q").value.trim();if(question.length<3)return;
+  if(!sample){sys(t("noSample"));return} if(!db){sys(t("noDb"));return}
+  const kind=canAsk();if(!kind){sys(t("quotaFull",{d:resetDate()}));$("#quota").classList.remove("closed");return}
+  if(!topic.id){topic={id:Date.now().toString(36),n:0,credited:quotaState().left>0}}
+  const btn=$("#askBtn");btn.disabled=true;sys("");
+  const card=document.createElement("article");card.className="card ans";card.innerHTML=`<div class="q">${esc(question)}</div><p class="hint">${esc(t("thinking"))}</p>`;$("#answers").prepend(card);
+  try{
+    const pages=await loadPages($("#scope").value);
+    if(!pages.length){card.className="card ans none";card.innerHTML=`<div class="q">${esc(question)}</div><p class="a">${esc(t("empty"))}</p>`;return}
+    const libLangs=[...new Set(docs.map((d)=>d.lang).filter((x)=>x&&x!=="?"))];
+    // 1) Soruyu kütüphane dillerinde arama terimlerine çevir
+    const plan=await sample.json(`You help search a shared medical-education PDF library. Library languages: ${libLangs.join(", ")||"unknown"}.
+Question: """${question}"""
+Return JSON only: {"lang":"<ISO 639-1 code of the question>","terms":["..."]}
+terms: 12-30 short search terms (single words or 2-word phrases) for the key medical concepts, drug names, measures and numbers in the question, each given in EVERY library language and in English, including common synonyms and the stem forms used in text (e.g. Turkish "enfarktüs", "miyokard"). Do not include generic words like "what", "treatment", "patient".`,{modelTier:"quick"});
+    const qlang=String(plan&&plan.lang||"?").slice(0,2);
+    const top=score(pages,Array.isArray(plan&&plan.terms)?plan.terms:[]).slice(0,6);
+    if(!top.length){await charge(kind);topic.n++;renderTopic();card.className="card ans none";card.innerHTML=`<div class="q">${esc(question)}</div><p class="a">${esc(t("noAns"))}</p><div class="badges"><span class="badge">${esc(t("qlang"))}: ${esc(LN[qlang]||qlang)}</span><span class="badge">−1 ${esc(t("cr"))}</span></div>`;return}
+    const excerpts=top.map((x,i)=>`[${i+1}] (${x.doc.title}, page ${x.p}, language ${x.doc.lang})\n${x.t.slice(0,3500)}`).join("\n\n");
+    // 2) Yalnız alıntılardan, soru dilinde cevap + birebir kaynak alıntıları
+    const res=await sample.json(`You answer a medical-education question ONLY from the numbered excerpts of a shared PDF library.
+Rules:
+- Answer in the language of the question (${qlang}), even if the excerpts are in another language.
+- Use only facts stated in the excerpts. If they do not contain the answer, set "found": false and leave "answer" empty.
+- Keep every number, unit, dose, comparison (below/above) and negation exactly as in the source.
+- For every fact, cite the excerpt as [n]. In "quotes", copy the exact supporting sentence(s) WORD FOR WORD from the excerpt, in its original language.
+- Keep it short (2-6 sentences). Educational only, not clinical advice.
+Return JSON only: {"found":true|false,"answer":"...","quotes":[{"n":1,"text":"exact sentence copied from excerpt 1"}]}
+
+Excerpts:
+${excerpts}
+
+Question: """${question}"""`,{modelTier:"default"});
+    await charge(kind);topic.n++;renderTopic();
+    const lbl=(x)=>`${esc(x.doc.title)}, ${esc(t("page"))}${x.p}`;
+    if(!res||!res.found||!String(res.answer||"").trim()){card.className="card ans none";
+      card.innerHTML=`<div class="q">${esc(question)}</div><p class="a">${esc(t("noAns"))}</p><div class="badges"><span class="badge">${esc(t("qlang"))}: ${esc(LN[qlang]||qlang)}</span><span class="badge">−1 ${esc(t("cr"))}</span></div>`;return}
+    // 3) Yüzeysel doğrulama: alıntı kaynak sayfada birebir mi, cevaptaki sayılar alıntılarda var mı
+    const quotes=(Array.isArray(res.quotes)?res.quotes:[]).filter((q)=>top[q.n-1]&&q.text).slice(0,8);
+    let badQuote=false;const qhtml=quotes.map((q)=>{const src=top[q.n-1];const ok=norm(src.t).includes(norm(q.text));if(!ok)badQuote=true;
+      return`<div class="quote"><b>[${q.n}] ${lbl(src)}</b>${ok?"":" ⚠"}<br>${esc(q.text)}</div>`}).join("");
+    const qnums=new Set(quotes.flatMap((q)=>nums(q.text)));
+    const ansNums=nums(String(res.answer).replace(/\[\d+\]/g," "));
+    const missing=[...new Set(ansNums.filter((n)=>!qnums.has(n)))];
+    const srcLangs=[...new Set(quotes.map((q)=>top[q.n-1].doc.lang))];
+    const warn=badQuote||missing.length||!quotes.length;
+    card.className="card ans"+(warn?" warn":"");
+    card.innerHTML=`<div class="q">${esc(question)}</div><p class="a">${esc(res.answer)}</p>
+      ${missing.length?`<div class="flag">${esc(t("fNum",{x:missing.join(", ")}))}</div>`:""}${badQuote||!quotes.length?`<div class="flag">${esc(t("fQuote"))}</div>`:""}
+      <div class="badges"><span class="badge">${esc(t("qlang"))}: ${esc(LN[qlang]||qlang)}</span>${srcLangs.map((l)=>`<span class="badge">${esc(t("slang"))}: ${esc(LN[l]||l)}</span>`).join("")}<span class="badge">−1 ${esc(t("cr"))}</span></div>
+      <details open><summary>${esc(t("src"))}</summary>${qhtml}</details><p class="hint">${esc(t("checked"))}</p>`;
+    $("#q").value="";
+  }catch(err){const c=err&&err.code;card.className="card ans none";
+    card.innerHTML=`<div class="q">${esc(question)}</div><div class="err">${esc(c==="rate_limited"?t("rate"):(c==="not_granted"||c==="sampling_disabled")?t("noSample"):t("fail"))}</div>`;
+    if(c==="not_granted"||c==="sampling_disabled")sample=null;}
+  finally{btn.disabled=false}});
+$("#newTopic").addEventListener("click",()=>{topic={id:null,n:0,credited:false};renderTopic();$("#q").focus()});
+
+/* ---------- Sekmeler, dil, panel ---------- */
+for(const[id,p]of[["#t-ask","#p-ask"],["#t-lib","#p-lib"]])$(id).addEventListener("click",()=>{
+  $("#t-ask").setAttribute("aria-selected",String(id==="#t-ask"));$("#t-lib").setAttribute("aria-selected",String(id==="#t-lib"));
+  $("#p-ask").hidden=id!=="#t-ask";$("#p-lib").hidden=id!=="#t-lib"});
+$("#lang").addEventListener("change",(e)=>{lang=e.target.value;try{localStorage.setItem("lang",lang)}catch{}applyI18n()});
+$("#pill").addEventListener("click",()=>$("#quota").classList.toggle("closed"));
+$("#donateSave").addEventListener("click",async()=>{const v=$("#donateIn").value.trim();if(v&&!/^https:\/\//.test(v))return;
+  try{await db.doc("settings/main").set({donateUrl:v})}catch{sys(t("noWrite"))}});
+
+/* ---------- Başlat ---------- */
+if(matchMedia("(max-width:860px)").matches)$("#quota").classList.add("closed");
+applyI18n();
+if(window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+(async()=>{
+  const c=window.claude;
+  [db,user,sample]=await Promise.all([c?.use("db"),c?.use("user"),c?.use("sample")].map((p)=>p?p.catch(()=>null):null));
+  if(!db){sys(t("noDb"));return}
+  uid=user?await user.id().catch(()=>null):null;isOwner=user?await user.isOwner().catch(()=>false):false;
+  $("#ownerBox").hidden=!isOwner;
+  subscribeDocs();
+  db.doc("settings/main").onSnapshot((s)=>{donateUrl=s.exists?String(s.data().donateUrl||""):"";if(isOwner)$("#donateIn").value=donateUrl;renderDonate()});
+  await loadUsage();
+  if(!sample)sys(t("noSample"),"flag");
+})();
+</script>
