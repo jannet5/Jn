@@ -1,0 +1,260 @@
+# 
+# https://www.youtube.com/watch?v=at7rogD2lMY
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:at7rogD2lMY.tr.json3
+
+[00:00:00] Cemini 3.1'in web sitesi yapma özelliği
+[00:00:02] inanılmaz iyi. Bu Cemini'ın UI versiyonu
+[00:00:05] vardı ve sosyal medyada bayağı bir
+[00:00:06] popülerdi açıkçası. Ve sonrasında ben bu
+[00:00:08] sosyal medyada popüler olan şeyi aldım
+[00:00:10] ve bunun üzerine biraz daha kendim
+[00:00:12] promptlamasını eklemedim ve bu sayede de
+[00:00:14] baştan sona çok profesyonel web
+[00:00:16] sitelerini yapabildi. Örneğin buradaki
+[00:00:17] web sitesini sıfırdan kendisi yaptı
+[00:00:19] bütün geçişleri ile birlikte ve sadece
+[00:00:21] tek bir promptla ve ben bunu açıklamaya
+[00:00:23] koyuyorum. Oradan da indirebilirsiniz ve
+[00:00:25] birebir aynı promptları verip siz de bu
+[00:00:27] tarz bir web sitesi oluşturabilirsiniz
+[00:00:29] bu arada. Ve bunu yapmanız bir
+[00:00:30] dakikanızı alır. Oldukça kaliteli şeyler
+[00:00:32] yapabiliyor. Buradaki açıklamaları,
+[00:00:33] şuradaki şeyleri de kendisi yazmış
+[00:00:35] örneğin. Ve eee bu şekilde baştan sona
+[00:00:37] bir web sitesi yapabiliyor. Peki bunu
+[00:00:39] nasıl yapıyorsunuz? Kendiniz sıfırdan
+[00:00:41] başlayacak olsanız nasıl yapmanız lazım?
+[00:00:43] Hemen bunu gösteriyorum. İlk olarak eee
+[00:00:45] buraya angravit yazıyorsunuz.
+[00:00:47] Antegravit.google'dan bunu
+[00:00:48] indiriyorsunuz. Sonrasında başlangıçta
+[00:00:50] size zaten, eee, belli bir sayıda kredi
+[00:00:53] veriyor ve bu ücretsiz kredileri
+[00:00:55] kullanarak siz web sitesini oluşturmuş
+[00:00:57] oluyorsunuz. Aslında bu da bence
+[00:00:58] mükemmel. O yüzden kendiniz
+[00:01:00] indiriyorsunuz. İndirdikten sonra da
+[00:01:02] şöyle bir panel açılıyor size. Bunun
+[00:01:04] içerisinde sonradan eee benim vermiş
+[00:01:06] olduğum ki bunu açıklamada
+[00:01:07] alabilirsiniz. Direkt dosyayı
+[00:01:09] indiriyorsunuz. Dosyayı buraya sürükle
+[00:01:11] bırak yapıyorsunuz ve sonrasında
+[00:01:13] diyorsunuz ki şu prompları veriyorsunuz
+[00:01:15] baştan sona. İlk demiştim ki ben
+[00:01:17] Ceminay'ın işte UI 3.1'ini kullanarak ve
+[00:01:19] MD dosyasını yani indireceğiniz dosyayı
+[00:01:21] okuyarak bir web site oluştur. Chatbo
+[00:01:23] uygulaması yapan bir ajans için bir web
+[00:01:25] sitesi olacak demiştim. Sonrasında
+[00:01:27] burada ekstra bir sürü detay
+[00:01:28] verebilirsiniz. Hatta web sitesinin
+[00:01:30] logosunu, renklerini ekstra bir sürü şey
+[00:01:33] verebilirsiniz. Onların hepsini
+[00:01:34] değiştirir. Ama ben bunların hiçbirisini
+[00:01:35] demedim. Sadece dedim ki kendin ayarla.
+[00:01:38] Çok profesyonel görüntü olsun.
+[00:01:40] Sonrasında kendisi web sitesini yaptı ve
+[00:01:42] eee sonrasında nereden bakabilirim web
+[00:01:44] siteye? benim için lokalde runet
+[00:01:46] dediğimde de buradaki aslında linki
+[00:01:48] vermiş oldu. Ve bu link de aslında
+[00:01:49] direkt şurayı açıyor
+[00:01:52] ve ben bu sayede aslında sıfırdan çok
+[00:01:55] kaliteli bir web sitesini
+[00:01:56] oluşturabiliyorum. Burada ekstra şeyler
+[00:01:58] de ekleyebilirim bu arada. Eee yine hani
+[00:02:00] istersem yazıları değiştirebilirim. E
+[00:02:02] farklı sayılar ve yazılar ekleyebilirim.
+[00:02:04] Videolar ekletebilirim hatta. Ve
+[00:02:06] bunların hepsini de kendisi yine
+[00:02:07] oluşturabilir. Örneğin eee benim için
+[00:02:12] görsel ve videoda
+[00:02:14] oluştur web sitesine
+[00:02:18] dediğinizde bunu da aslında sürekli
+[00:02:19] olarak ekleyebilir. Burada sürekli
+[00:02:21] olarak bunu görebilirsiniz. Tabii ki şu
+[00:02:23] andaki kod web sitenizde çalışmıyor. Kod
+[00:02:25] sizin lokalinizde çalışıyor. Şimdi benim
+[00:02:28] lokalimde çalışan bir uygulamayı ben
+[00:02:29] nasıl buluta koyabilirim diye
+[00:02:31] sorabilirsiniz. Burada da şunu
+[00:02:32] yapıyorsunuz. Gitub'ı aslında yüklemiş
+[00:02:35] oluyorsunuz. Gitub'tan direkt eee
+[00:02:37] buradaki web sitesini canlıya almasını
+[00:02:39] istiyorsunuz. Buradaki işlemde şöyle
+[00:02:41] oluyor. Mesela bunu aslında basmasak
+[00:02:43] daha güzel olurdu ama prompt olarak şunu
+[00:02:45] veriyorum. Bu web sitesini
+[00:02:49] canlıya alacağız.
+[00:02:52] Benim için gitub'a bunu pushl
+[00:02:55] diyorsunuz. Ve sonrasında bu arada
+[00:02:58] görselleri yine Cemine'yi oluşturarak
+[00:03:00] yapmış oluyor. Yani zaten Google kendi
+[00:03:02] içerisinde hem video oluşturabiliyor hem
+[00:03:03] de görsel oluşturabiliyor. Örneğin bu
+[00:03:05] tarz görselleri tekrardan oluşturup eee
+[00:03:07] web sitesini ekleyebiliyor ve bunu da
+[00:03:09] yine video video için de kullanabilir. E
+[00:03:12] yani aslında sizin için baştan bütün her
+[00:03:13] şeyi kendi içerisinde oluşturabilir. Siz
+[00:03:16] ekstra vakit harcamadan bile. Hatta
+[00:03:18] burada şunu bile yapabilirsiniz. İşte
+[00:03:20] belki bir kurucunun eee yüzünü web
+[00:03:22] sitesine koymak isteyebilirsiniz. Onunla
+[00:03:23] alakalı bir görsel verebilirsiniz.
+[00:03:25] Bunları koyabilirsiniz. Ve bunları
+[00:03:26] aslında kendisi görselleri oluşturup web
+[00:03:28] site ekleyebiliyor. Aynı zamanda
+[00:03:30] videoları da oluşturabilir VO3'ü
+[00:03:31] kullanarak. Şimdi normalde bu bunu devam
+[00:03:34] ettirecek ama bu web sitesini canlıya al
+[00:03:36] dediğinizde Gitub'a bunu pushla
+[00:03:38] dediğinizde Gitub projesi olarak bunu
+[00:03:40] buraya eklemiş oluyor. Git projesi
+[00:03:42] olarak ekledikten sonra da siz aslında
+[00:03:44] Versel'den bu projeyi çekmeniz
+[00:03:46] gerekiyor. Önce Versel'e gidiyorsunuz ki
+[00:03:48] burada ben bir başka örneğini
+[00:03:49] göstereyim. Versel'de de sıfırdan
+[00:03:51] aslında burada yeni geldiğinizde yeni
+[00:03:54] diyorsunuz. Sonrasında proje diyorsunuz.
+[00:03:58] Sonrasında projede de burada gitup
+[00:04:00] reponuzdan bunu direkt otomatik olarak
+[00:04:02] çekiyorsunuz ve projeyi sizin için
+[00:04:03] kuruyor. Kurduktan sonra da şu şekilde
+[00:04:06] bir link veriyor size. Şöyle bir link.
+[00:04:09] Sonrasında bu linki istiyorsanız siz
+[00:04:10] kendi domainize koyabilirsiniz ama bu
+[00:04:12] şekilde bir linkte bunu sürekli
+[00:04:13] görebiliyorsunuz. İşin güzel yanıysa
+[00:04:16] mesela projeyi burada update
+[00:04:17] ettiğinizde, güncellediğinizde burada da
+[00:04:19] otomatik olarak güncellenir. Yani verser
+[00:04:21] olu otomatik olarak bir değişiklik
+[00:04:23] olduğunda gitapta otomatik olarak burada
+[00:04:25] da gösterecektir. Yani aslında bu sayede
+[00:04:27] siz çok hızlı bir şekilde bir web
+[00:04:29] sitesini kurabiliyorsunuz. Peki bu neden
+[00:04:31] önemli? Artık birçok ajansın, birçok
+[00:04:33] uygulamanın kendi web sitelerini daha da
+[00:04:35] geliştirmesi lazım. Ve bu tarz
+[00:04:37] sistemlerle siz çok hızlı bir şekilde
+[00:04:39] aslında web sitelerini
+[00:04:40] oluşturabilirsiniz. hem kendiniz için
+[00:04:41] kullanabilirsiniz hem de bunu
+[00:04:43] müşterilerinize hizmet olarak
+[00:04:44] satabilirsiniz. Videoyu bitirmeden önce
+[00:04:46] aslında indireceğiniz dosyanın
+[00:04:48] içerisinde neler olduğundan bahsediyor
+[00:04:49] olacağım ki bunu açıklamadan
+[00:04:50] bulabilirsiniz. Şimdi dosyamız şu
+[00:04:52] şekilde bir dosya. Şurada gördüğünüz
+[00:04:54] gibi. Burada aslında rolü şu. Çok
+[00:04:57] kaliteli bir web sitesi oluşturacaksın.
+[00:04:59] Senin görevin bu. Ve sonrasında da
+[00:05:03] agent'ın yapması gereken işler var
+[00:05:05] burada. Örneğin başlangıçta soru
+[00:05:06] soracaksın ki burada bana sorduğu
+[00:05:08] sorular bunlardı. Ne gibi? Örneğin işte
+[00:05:10] eee markanın resmi nedir, görseli nedir,
+[00:05:13] ismi nedir? Sonrasında bir eee işte
+[00:05:16] bununla alakalı neler koyayım web
+[00:05:17] sitesine? Yani örneğin bir chatbot
+[00:05:19] yapıyorsanız örneğin chatbot'un
+[00:05:21] fiyatından bahsetmeniz gibi bunlar
+[00:05:22] önemli. Sonrasında ekstra eee burada
+[00:05:25] ihtiyacı olan şeylerden bahsediyor. Hani
+[00:05:27] ne tarz bir sistem kurayım diye.
+[00:05:29] Sonrasında hiçbir zaman değiştirmemesi
+[00:05:31] gereken bir şey var. O da e ki bunu
+[00:05:33] kendiniz tabii ki değiştirtirebilirsiniz
+[00:05:35] ama eee buradaki görüntünün nasıl olması
+[00:05:37] gerektiği ile alakalı. Zaten web
+[00:05:39] sitesine baktığınızda oldukça hani
+[00:05:41] kaliteli burada geçişlerin de güzel
+[00:05:43] olduğu şeyleri görüyorsunuz. Yani şu
+[00:05:44] tarz şeylerin içerisinde olmasını
+[00:05:46] istiyoruz biz. Örneğin az önce
+[00:05:47] oluşturduğu görseli buraya koymuş
+[00:05:49] aslında. Hani buradaki renkleri de bu
+[00:05:51] yine barşındırıyor. Aynı zamanda
+[00:05:53] içerisinde işte navigasyonun olması,
+[00:05:55] hero section dediğimiz başlangıcının
+[00:05:57] olması gibi bir sürü şey de var. Eee ve
+[00:05:59] sonrasında bunların hepsini kendisi
+[00:06:01] yapıyor. Yani bu aslında bir başlangıç
+[00:06:03] dosyası, bir kılavuz diyebiliriz. Ve siz
+[00:06:05] bu kılavuzu verdikten sonra prompt
+[00:06:07] yazmanıza bile gerek yok. Çünkü zaten bu
+[00:06:09] aslında sizin promtunuz ve çok kaliteli
+[00:06:12] bir şekilde çalışabilir. Siz bunu
+[00:06:13] isterseniz müşterinize göre
+[00:06:14] değiştirebilirsiniz veya kendi
+[00:06:16] şirketiniz ki bu ajans olabilir veya
+[00:06:18] uygulama olabilir. Buna göre de
+[00:06:19] değiştirebilirsiniz ve oldukça verimli
+[00:06:22] bir şekilde, hızlı bir şekilde web
+[00:06:23] sitenizi yapabilirsiniz. Burada aslında
+[00:06:24] önemli olan şey eee bir anti gravity
+[00:06:27] indirmek. Anti Gravity'nin içerisinde
+[00:06:29] buradaki Cemini modelini kullanmak. E
+[00:06:31] isterseniz Cloud Sonet'i de
+[00:06:33] kullanabilirsiniz ama Cemini bunun için
+[00:06:35] gayet yeterli ve güzel. Aynı zamanda da
+[00:06:37] ücretsiz çalışmış oluyor ve sonrasında
+[00:06:39] siz çok kaliteli bir web sitesini
+[00:06:41] oluşturabiliyorsunuz. İsterseniz
+[00:06:43] içerisine bir sürü detay bile
+[00:06:44] ekleyebilir. Örneğin blog sayfası ekle
+[00:06:46] dediğinizde bütün blogları ekleyebilir.
+[00:06:48] Onlara görsel oluşturabilir. Teker teker
+[00:06:50] hepsini yazabilir. Yani sayfaların
+[00:06:52] hepsini kendisi oluşturacak şekilde bir
+[00:06:55] sistem bu. Sonrasında çok basit bir
+[00:06:56] şekilde her şeyi GTAB'a yüklüyorsunuz.
+[00:06:58] Sonrasında Versale açıyorsunuz ve
+[00:07:00] projeyi burada deploy etmiş oluyorsunuz.
+[00:07:02] Sonrasında linkten bu şekilde
+[00:07:04] görebiliyorsunuz. Ekstra bunu kendi
+[00:07:06] domainize de koyabilirsiniz. Burada
+[00:07:08] şöyle yapıyorsunuz. Kendi domainize
+[00:07:09] koyma olayını. Onu da hemen göstermiş
+[00:07:11] olayım. Şimdi açtıktan sonra aslında
+[00:07:13] dosyayı, dosyanın içerisinde eee burada
+[00:07:15] farklı farklı bir sürü şey göreceksiniz.
+[00:07:17] Bir burada domain'i göreceksiniz. Domain
+[00:07:19] tarafında öncelikle buraya bir kendi
+[00:07:21] domainizi eklemeniz lazım veya yeni bir
+[00:07:22] domain satın almanız lazım. Sonrasında
+[00:07:24] da buradaki domaini aslında siz
+[00:07:26] değiştirerek direkt kendi domainize
+[00:07:28] eklemiş oluyorsunuz ve sonrasında
+[00:07:30] sürekli olarak değişikliklerde görülmüş
+[00:07:32] oluyor. Aslında baştan sona çok kaliteli
+[00:07:35] bir web sitesini oluşturmak için tek
+[00:07:36] ihtiyacınız olan şey bu. Yine
+[00:07:38] açıklamadan dosyayı bulabilirsiniz,
+[00:07:40] sorularınızı yazabilirsiniz. Onlara da
+[00:07:41] bakıyor olacağım. Ve bu tarz sistemleri
+[00:07:43] aslında ekstra öğrenmek istiyorsanız
+[00:07:45] bununla alakalı biliyorsunuz zaten
+[00:07:46] topluluğumuz var veya diğer videolara da
+[00:07:48] bakabilirsiniz. Ve bizim hedefimiz
+[00:07:50] aslında şu. Bu tarz teknolojilerin
+[00:07:52] kullanılarak girişimlerin ortaya
+[00:07:54] çıkartılması ve bu girişimlerin sonrası
+[00:07:56] para kazanacak hale gelmesi. Ve şu anda
+[00:07:58] cloud kod'la, antigravity ile N8N ile
+[00:08:01] yapamayacağınız şey yok açıkçası. O
+[00:08:03] yüzden tek yapmanız gereken şey aksiyon
+[00:08:05] almak. Bu tarz sistemlerin nasıl
+[00:08:07] kurulacağını öğrenmek ve sürekli aslında
+[00:08:09] ileriye gidebileceğiniz sistemleri
+[00:08:10] kurmaya devam etmek. Umarım birçok kişi
+[00:08:13] için verimli bir video olmuştur. Mutlaka
+[00:08:14] açıklamaya bakın. Oradan dosyayı indirip
+[00:08:16] kendiniz de denemiş olursunuz. Bir
+[00:08:18] sonraki videolarda görüşmek üzere. Çokça
+[00:08:19] selamlar.
