@@ -1,0 +1,428 @@
+# 
+# https://www.youtube.com/watch?v=t4gzwA_uklQ
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:t4gzwA_uklQ.tr.json3
+
+[00:00:00] Selamlar arkadaşlar. Geçenlerdeki yaptığımız giriş videosundan sonra
+[00:00:04] ikinci video olarak bugün mobil uygulamaya giriş yapacağız. Yani direkt
+[00:00:07] temel bir şekilde uygulamamızı yazacağız, yaptıracağız. Ayriıyeten
+[00:00:11] geçen iki videoda kuramadığımız antigravity'yi bugün kuracağız.
+[00:00:19] Google'a anti gravity diye arattığınızda ilk siteye girebilirsiniz. Linki de bu
+[00:00:23] şekilde. Antigravity.google Google girdiğinizde hangi sistemi
+[00:00:27] kullanıyorsanız, hangi işletim sistemini kullanıyorsanız onu indirirsiniz. Ben
+[00:00:30] Windows kullanıyorum. Windows indireceğim. Tıkladım ve buradan Windows
+[00:00:33] için uygun sürümünü seçtim. İndir dedim ve indirildikten sonra açacağım. Kurmaya
+[00:00:38] başlayacağız. Kurulum ekranı geldi. Normal Visual Studio di kod gibi aynı
+[00:00:41] şey zaten. Devam ediyorum. Bunu da ve bunu da aktif edip nextip install ve
+[00:00:46] kuracak. Ayrıca bunun için biz Cemini öğrenci paketi almıştık ilk videomda.
+[00:00:50] Onunla beraber kullanacağız. Öğrencilikle bir yıl kadar
+[00:00:53] kullanabileceğiz. içerisinde Cemili'nin yapay zekası, cloud'un yapay zekası
+[00:00:57] barınıyor. Kuruldu. Şimdi aç dedim ve geldim bekliyorum burada. Evet, giriş
+[00:01:01] ekranımız açıldı. Next dedim ve nasıl bir kurulum yapmak istediğimizi soruyor.
+[00:01:05] VS COD'dan import mu edeyim diyor ayarlarını falan. Yoksa temiz mi
+[00:01:08] başlıyor? Ben import et dedim ve benden bir tema seçmemi istedi. Tokyo'yu
+[00:01:12] seçtim. Devam dedim. Burada dör tane seçenek sunuyor bize. Bu önerilen olanı
+[00:01:16] seçeceğim. Çünkü her şeyi ajanı bırakırsak geçenlerde gördüğünüz C
+[00:01:20] diskini silme haberini yaşayabiliriz. O yüzden bunu seçtim. Çünkü her komutu
+[00:01:24] incelemek istiyorum. Belki C hisselecek. Nereden bile sonra extensions indireyim
+[00:01:28] mi diyor. Önerilenleri indir dedim. Next dedim ve Google'la giriş yap diyor.
+[00:01:32] Giriş yapacağım. Girişimi yaptım. Veri toplayabilir miyim diyor senden. Yok
+[00:01:35] dedim. Seçmedim bunu. Ve next dedim. Şu anda anti gravity'ye giriş yap. Burada
+[00:01:39] gördüğünüz üzere eklentileri indirdiğini söylüyor bize. Biraz bekleyeceğim bu
+[00:01:43] bildirim gidene kadar ve buradaki eklentiler inene kadar. Ayrıca şunları
+[00:01:47] kapatacağım. Güncelleme bilgileri veya işte öneri bilgileri, tanıtım vesaire.
+[00:01:51] Burada hangi modelleri seçebileceğimizi, hangi modu seçebileceğimizi
+[00:01:54] görebiliyoruz. Şimdi eklentilere baktığımda blutter gelmedi. O yüzden
+[00:01:58] buraya gelip blutterı yazıp indireceğim. Blutter'ı indir dedim. Aynı şekilde
+[00:02:01] otomatikman dart'ı da indiriyor. Önceki videoda zaten bunların SDK'sını vesaire
+[00:02:05] kurmuştuk. Burada işte kodu yazarken hataları vesaire görmemiz için çok
+[00:02:09] yardımcı olacak. Bu kurulum gerçekleşti. Şimdi bizim bir klasör açmamız
+[00:02:13] gerekiyor. O klasör içerisinde uygulamamızı yapacağız. Open folder
+[00:02:17] dedim ben burada. C'ye DVTER projesi açmıştım zaten daha önce ve gördüğünüz
+[00:02:21] gibi zaten önceden oluşturduğumuz proje burada. Giriş yaptım ve select folder
+[00:02:25] deyip o projenin içerisine girdim. Ayrıca güvendim. Projeye giriş
+[00:02:28] yapmıştık. Ayriyeten burada gitab'ı da görebiliriz ve doğru bir şekilde neyin
+[00:02:32] ne olduğunu görebiliyoruz. Yaptığımız yüklemelerin geçmişi vesaire. Burada
+[00:02:35] ayrıyeten buradan terminal açacağım ve bir tane de tema kurmak istiyorum çünkü
+[00:02:39] bu çok kötü. Burada eklentiler kısmına geldim ve purple yazdım. Bu istediğinize
+[00:02:44] göre değişir. Ben bu temayı seviyorum. Bunu seçtim ve indir dedim ve Super
+[00:02:48] Dark'ı seçtim. Bu benim gözüme daha hoş geliyor. Daha okunaklı. Daha sonra
+[00:02:52] görünüş açısından ben buradaki portu en sola aldım. Problemleri en sağa aldım.
+[00:02:56] Terminal ve problemler yan yana dursun. İkisi arasında çok geçiş yapacağız.
+[00:03:00] Şimdi hangi uygulamayı yapacağımıza dair bilgi geçeyim size. Normalde sizin
+[00:03:04] dediğiniz fikirleri dikkate alarak yapmak isterdim ama birazcık az bilgi
+[00:03:07] geldi. Önceki videoda da öneri istememe rağmen. O yüzden basit bir not
+[00:03:11] defterinden başlayacağız. Gene yazan olursa önerileri dinleyerek
+[00:03:14] ilerleyebiliriz. değişiklikler yapabiliriz veya not defteri uygulaması
+[00:03:17] bittiğinde farklı bir uygulamayı yapabiliriz. İki tane geri bildirim
+[00:03:20] geldi. Bir tanesi aklımdaki sayı kaç gibi bir uygulama. Aslında güzel ama
+[00:03:24] bunu yani yapay zekayı yaptıracağımız için çok fazla basit kaçabilir. Ayrıca
+[00:03:28] ben de öneri sunmuşum. Mesela sadece sayı kaç gibi değil içerisinde 34 tane
+[00:03:32] daha oyun barındırabilir. Bu da olabilir. İleride belki bunu yaparız.
+[00:03:35] Bunu yapabiliriz her türlü zaten. Ayrıca burada bir YouTube kanalında bulunan
+[00:03:38] videoları yazıya dönüştüren uygulamadan bahsedildi. Bu güzel bir öneriydi ama
+[00:03:42] apı olayları işte telif hakları dolayısı vesaire yapmak istemedim. Yapılabilir ve
+[00:03:47] zaten yapan uygulamalar da var. Direkt transcriptini çekiyor videonun ve
+[00:03:51] yapabiliyor. Aslında bunu da yapabiliriz ileride ama şu an mobil uygulama
+[00:03:55] yapacağımız için şu anda bu sistemi yapmayacağım. Yani mobil uygulamasını da
+[00:03:58] yaparız. Ancak bu web sitesine uygun bir proje gibi duruyor. Şimdi chat.com yazıp
+[00:04:02] chat cptye geçtim. Geldim. Buradan bir login deyip giriş yapacağım. Buraya
+[00:04:05] giriş yaptık. Ayriyeten buraya gelip sit yazacağım ve sitchwit withgoogle.com'a
+[00:04:10] girdim. Buradan da Google hesabıma giriş yapacağız. Şimdi sitich'i de girdik.
+[00:04:14] Burada tasarım yazacağız ve o bize güzel bir şekilde mobil uygulama tasarımı
+[00:04:18] hazırlayacak. Oradan birazcık kopya çekeceğiz ve buraya attığımızda yapay
+[00:04:21] zekaya attığımızda kopya çektiğimiz tasarımları oraya aktarabileceğiz. Şimdi
+[00:04:25] chat cebiteye geldim ve onunla biraz fikir alışverişinde bulunmam gerekiyor.
+[00:04:29] Yapacağım uygulama bir iOS görünümünde olmasını istiyorum. bol animasyonlu
+[00:04:33] iOS'a benzesin. Ben çünkü iOS'un tasarımını çok seviyorum. Yazalım. Bir
+[00:04:36] uygulama yaptıracağımı söyledim ve bana bir prom hazırlanması gerektiğini
+[00:04:39] söyledim ve hangi yapay zekayı atacağımı söylüyorum. Şimdi cloud upus 4.5 dedim
+[00:04:44] ve daha sonra burada uygulamanın amacını söyleyeceğim buna. Hangi ekranlar olacak
+[00:04:48] vesaire. Uygulamanın amacını yazdım. Not defteri. Not kaydetmek. Notları
+[00:04:52] görüntülemek yani kısaca bir not uygulaması blutter'la yapacağız. Ve
+[00:04:55] promtu hazırlarken her zaman güncel paketleri kontrol etmesi gerektiğini ve
+[00:04:59] yüklemesini söyledim. Ayrıca paket seçmemiz gerekiyor. Geldim arama kısmına
+[00:05:02] ve Flutter Gams yazacağım. Burada çıkan XT'ye girdim ve buradan biraz paketlere
+[00:05:07] göz atacağım. Gözüme hoş giden paketlere onu söyleyeceğim. O da bizim promt'umuzu
+[00:05:10] ekleyecek. Siteye geldik ve ben database'i belirlemek istiyorum. Önce
+[00:05:14] buraya database yazdım ve tıkladım. Her sitenin SQL database'i ve en popüler
+[00:05:18] olan SQ Flight'ı kuracağız. Buna tıkladım ve kopyalaya bastım. Tekrar bu
+[00:05:22] chat bitye geldim ve kullanman gereken paketlerden veri tabanı için bunu kullan
+[00:05:26] diyeceğiz. Notlar bu veri tabanına kaydedilsin. Notlar için veri tabanı
+[00:05:29] eski flight diye yazdım. Ayrıca yanlışlıkla enter tuşuna basmamak için
+[00:05:33] ctrol a ve ctrol c yapı metni kopyaladım ve ant gravity'ye geldim. Burada yeni
+[00:05:37] bir dosya oluşturup prompt.md adını verdim ki bunu kopyalayayım. Daha sonra
+[00:05:42] kaybedersem geri ulaşabileyim diye ve bottom bar için yani aşağıdaki menü için
+[00:05:47] bir menü seçmek istiyorum ben. Buraya bar yazdım ve bottom navigation barı
+[00:05:51] seçtim. Burada gözüme hoş gelen bir tanesini seçip onu da ekleteceğiz.
+[00:05:54] Burada Google'ın Navbar olayı varmış. Google'ın değil ama adını öyle vermiş.
+[00:05:58] Bir bakalım fotoğraflarına. Gördüğünüz gibi bu şekilde. Kötü değil. Güzel. Bunu
+[00:06:01] seçelim. Kopyaladım ve bar için bu paketi kullan diyeceğim. Ayrıca bunu
+[00:06:05] kopyaladım ve anta gravity'ye geldim. Yapıştırdım. Daha sonra okulda gördüğüm
+[00:06:10] bir şeyi merak ettim. Esla bir paintten çizin. Bir şey düşünün. Böyle hep
+[00:06:14] birbiriyle bağlantılı bir şey var. N'la düğün mü öyle bir şey diyorlarmış. Böyle
+[00:06:18] mesela hep birbirleriyle bağlantılı bir olay var. Niye böyle oldu? Tamam. Mesela
+[00:06:22] bunu koydum. Bu buna bağlı. Sonra tekrar buna bağlı. Mesela her şey birbiriyle
+[00:06:26] bağlantılı. Bu şekilde not'lar, oluşturduğumuz not'lar birbiriyle
+[00:06:29] bağlantılı olabilecek. Ayrı bir sayfada böyle güzel bir görünüm sağlayabilirsek
+[00:06:33] yapacağız. Bundan da bahsedeceğim ona. Mesela bu şekilde birbiriyle bağlantılı
+[00:06:37] bir ekran gözükecek. Uzay boşluğu gibi. Grab bak buraya yazdığımda zaten çıkar
+[00:06:41] muhtemelen. Evet bu şekilde birbirleriyle bağlantılı notlar olacak
+[00:06:44] ve anti gravity'ye gelip burayı söyleyeceğim. Button buarda notların
+[00:06:48] görüntülendiği ana sayfa ekranına ek olarak ikinci bir sayfa daha olacak ve o
+[00:06:53] sayfada grab, not düğüm şeklinde notların önlemesi gözükecek. Bunu
+[00:06:57] yazdık. 1 ve 2inci sayfayı yazdık. 1inci sayfa ana sayfa notların görüntülendiği
+[00:07:01] alan diyeceğim. 2. Grab sayfası notların grap olarak görüntülendiği alan olacak.
+[00:07:06] 3. Öneriye bakalım. Ayarlar sayfası mı diyelim? Aynen ayarlar sayfası olsun. 3
+[00:07:11] 4 yok sanırım. Bir öneri bakalım. Belki yapay zeka bize güzel bir şey önerir.
+[00:07:15] Yok. not ekleme sayfası değil. Burada notu flating buton ile ekleyebilecekler.
+[00:07:20] Yani ana ekranda ana sayfada bir tane artı butonu olacak. O artı butonuna
+[00:07:24] bastığımızda not ekleme ekranı açalacak. Not oraya girilebilecek. Tamam bu kısım
+[00:07:28] güzel. Ayrıca sayfa geçişleri için Bertino mu Jubertin kullanmasını
+[00:07:32] söyledim. Sayfalar arası ekranlar arası geçişler için kullan dedim. Daha sonra
+[00:07:37] bakalım biraz daha burada belki paket bulabiliriz. Buraya geldim ve plating
+[00:07:41] yazdım. Butonlara bakalım. Genel olarak beğendiğim bir şey yok. O yüzden
+[00:07:45] varsayılan buton kullanabilir. Gerek yok. A burada ek olarak notu bolt
+[00:07:49] yapabilirim. Kalınlaştırabilirim. Altını çizebilirim büyütüp küçültebilelim. Onun
+[00:07:53] içinde bir paket vardı diyebiliyorum. Burada araştırdığımda çıkacak karşıma.
+[00:07:58] Editör yazdığımda wit text burada çıktı. En çok indirilene bakacağım şimdi
+[00:08:02] buralardan. Muhtemelen bu mesela Flutter Quil varmış. Kaynak koduna bakalım. Yani
+[00:08:06] güzel ancak çok karış gözüküyor. Buna bakalım. Bu daha hoş gözüküyor ve
+[00:08:10] gerçekten kullanabiliriz bunu. Mobil için de böyle. Tamam. Bu paketi seçelim.
+[00:08:14] Ve burada son güncelleme Haziran 2025 olarak gözüküyor. Paketin adını da aldım
+[00:08:18] ve geldim antiravity'ye yapıştıracağım. Not düzenleme ekranı için yani kısaca
+[00:08:23] notu düzenleme not ekranı için paketi kullanalım. Başka bir ekrana bakmaya
+[00:08:27] gerek var mı acaba? Uygulamada karanlık ve siyah yani karanlık beyaz sistemi
+[00:08:31] olmasını da söyleyelim. Burada settings sayfası demiştik. Settings sayfasında
+[00:08:36] uygulama geneli için karanlık aydınlık tema seçeneği olacak. Bir switch
+[00:08:40] yardımıyla ayarlayabilelim. Notlara fotoğraf da ekleyebilelim. Gelelim onu
+[00:08:43] da yazalım. not ekranında notlara fotoğrafta ekleyebilelim. Fotoğrafı da
+[00:08:48] Google'ın image picker paketiyle alabiliriz. Burada dosya depolama izni
+[00:08:51] kullanmaya gerek kalmadan fotoğraf ekleyebiliyoruz. Onu da belirtelim.
+[00:08:54] Hatta depolama iznine gerek kalmadan. Daha sonra burada homewardard
+[00:08:58] bakabiliriz. Uygulamayı dediklerinde açılacak ekran. Kendimiz de yapabiliriz.
+[00:09:02] Paket de kullanabiliriz. Şu an eklemeyeceğim çünkü gereksiz şekilde
+[00:09:05] yormuş oluruz yapay zekayı. Daha sonra ekleyebiliriz. Çok basit bir şey zaten.
+[00:09:09] Bildirimler için post paketine bakabiliriz. Burada güzel uyarı
+[00:09:12] ekranları, uyarı var. Kullanmay da biliriz. Bunu da sonradan ekleyelim.
+[00:09:16] Şimdilik bu kadar. Ve bu yazdığımız promtu hepsini kopyaladım ve yapay
+[00:09:19] zekayı yapıştırdım. Bize bir prompt hazırlasın. Promtu'u veriyor. Kopyala
+[00:09:23] yapıştır. Hazır olduğunu söylüyor ve genel kurallar verdi ona. Her zaman
+[00:09:27] güncel flutter ve dart sürümünü hedefliyor. En gücel stabil sürümünü bu
+[00:09:30] siteden kontrol ediyor. Hubdev'den. Tamam işte ekranlardan başlattı. Grab
+[00:09:34] sayfasından başlattı. Ayarlardan, ana sayfadan. Dil değiştirme seçeneği de
+[00:09:38] ekleyebiliriz. kullanacak. Dediğim gibi şu an için erken düzenlemek için paket
+[00:09:41] vesaire fotoğraf için ve arayüz iOS artı. Tamam bu şekilde alacağım.
+[00:09:46] Birazcık basit kaldı gibi aslında. Biraz daha detaylayabilir diyeceğim. Burada
+[00:09:50] bize detaylı bir promt hazırlıyor. En baştan kopyalıyorum. Mimariyi, veri
+[00:09:53] tabanını vesaire ayarlıyor. Uygulama amacından bahsediyor. Fotoğraflar için
+[00:09:57] liste kullanacak veri tabanında. Tamam. Bu güzel. Kopyaladım. Geldim gravity'ye
+[00:10:01] ve setup.md adında bir dosya oluşturacağım. Ya da direkt bu prompt
+[00:10:05] medyaya yapıştırdım bunu. Şimdi bir de Stitch için ekranlar oluşturmasını
+[00:10:09] isteyelim. Eğer Stitch'teki tasarımı beğenirsek bu promt da güncelleriz ve
+[00:10:13] Stitch'teki tasarım örnek almasını söyleriz. Direkt bu stic kopyaladım.
+[00:10:17] Kopyala dedim ve buraya geldim. 3 Pro'yı seçip gönderdim. Bize şu anda 4 tane
+[00:10:21] ekran oluşturuyor. Amini 90 saniye 80 saniye sonra oluşturacağını söyledi.
+[00:10:25] Bekleyelim biz burada agrabilan rengini karartalım. Stitch görselleri
+[00:10:29] oluştururken bu yorumdan bahsetmek istiyorum. güzel bir tavsiye verdi.
+[00:10:33] Teşekkür ederim o yüzden ve burada da size göstermek isterim. Mesela
+[00:10:36] kendimizden bir şeyler katmaya çalışmamız gerektiğini savunuyor. Haklı
+[00:10:40] yaratıcı olmamız gerekiyor. Kodu sadece şunu yap, bunu yap dersek yapamayız
+[00:10:43] zaten. Bunun arkasında böyle kendi hayal dünyamızdan bir şeyler katmamız
+[00:10:47] gerekiyor. Mesela ben orada düğüm işte graf gibi yuvarlak çizimler çizdim ya
+[00:10:51] onları ekledim. Bunlar belki bir fark yaratacak bize. Ek olarak çözüm
+[00:10:54] notlarına bakalım. Mesela Google Play'de bir not uygulamasının kötü yorumlarına
+[00:10:58] bakacağım. İnsanlar neyi beğenmemiş, neyden nefret etmiş onlara bakıp onların
+[00:11:01] hatasını görüp kendimize çözüm eklememiz gerekiyor. Bize gelmeden. Birkaçına
+[00:11:05] çözüm bularak yeni bir uygulama geliştirmemizden bahsetmiş. Pomodor
+[00:11:08] uygulama ve yeni şeyler, rekabet gibi şeyler getirebilir miyiz? Onlardan
+[00:11:11] bahsediyor. Çok güzel bir yorumdu. Teşekkürler o yüzden tekrardan. Şimdi
+[00:11:14] Sitch'e geldik. Ekranlarımız oluştu. Birazcık garip değişik ekranlar olmuş.
+[00:11:18] Ayrıca graf ekranı gelmemiş. Burada bize bir şeyler diyor mu? Aynen. Beğendiysen
+[00:11:22] diyor diğer graf view ve ayarları çizeyim diyor. Güzel bu arada. Çiz
+[00:11:26] dedim. Muhtemelen bu az önce komutu birazcık değiştireceğiz ve örnek için şu
+[00:11:30] klasörü örnek al diyeceğiz ve fotoğrafları da ekleyeceğiz. Tekrardan
+[00:11:34] bir dör tane ekran oluşturuyor bize. Muhtemelen siyah beyaz siyah beyaz
+[00:11:37] şeklinde. Ayrıca antigravity içerisindeki cloud belki sakat olabilir.
+[00:11:41] O yüzden Ceminii kullanabiliriz. Çünkü bunun konteksti 1 milyon diye biliyorum.
+[00:11:45] Buradaki cloud e editör içerisinde ucuz tutmak için 100.000 token olabilir. Yani
+[00:11:50] 23 dakika sonra bir dakika sonra kodun uzunluğuna bağlı kafası karışabiliyor.
+[00:11:54] Biz gene cloud'u kullanırız. Cemini ile tasarım yaparız veya en başta Ceminiyi
+[00:11:58] kullanırız. Beğenmezsek Cloud'a geçeriz. Bakalım. Ayarlar ekranı geldi. Graf
+[00:12:02] ekranı da geldi. Birazcık otostick gibi duruyor ama bakalım. Cloud toparlar
+[00:12:06] belki. Ayrıca ayarlar ekranı geldi ama çok iOS'a benzedi. Bu kadar benzetebilir
+[00:12:10] miyiz bilmiyorum. Bakalım göreceğiz. Ve gördüğünüz gibi DN gibi şeyler koymuş.
+[00:12:14] Profil koymuş. Ancak biz veri tabanlı yapmadık. Bunu ileride yaparız. Belki
+[00:12:18] ayrı bir uygulama olarak bir siteye bağlanırız. Superbase gibi. Kötü değil.
+[00:12:21] Bakalım. Ben direkt örnek tasarımı olarak bunları kullanabilirsin
+[00:12:24] diyeceğim. ve Ceminiyi yaptıralım. Ceminiyi test edelim. Hatta hepsini
+[00:12:28] seçtim ve indir dedim. Burada indirme klasörünü seçmemi istiyor. Ben buraya
+[00:12:31] direkt C'ye geldim. Buradan oluşturduğum projenin içerisine yapıştırdım ve
+[00:12:36] masaüstü diyorum. Buradan C'den o klasöre tekrar giriş yapacağım. Zip
+[00:12:39] burada buradan zip'ten çıkar diyeceğim. Bu şekilde de çıkarabilirsiniz. Ha böyle
+[00:12:43] yapalım. Zip'ten çıkardık. Şimdi önceki RAR'ı sildim ve burada tüm
+[00:12:47] tasarımlarımız var. Geldim bunun adında örnek tasarım yapacağım. Şu anda
+[00:12:51] tarayıcıyı kapadım ben. Şu an daha sonra kullanır mıyız bilmiyorum. Bromp da
+[00:12:54] birazcık alt satır olmuş ama anlayacağı için sıkıntı yok. Burada UX kısmına
+[00:12:58] yazacağım. Tasarımlar için tamamen proje klasöründeki örnek alt tasarım klasörünü
+[00:13:04] örnek alabilirsin. Minimal modern iOS fiyatlı. Tamam bu şekilde. Ayriyeten ben
+[00:13:08] bunu bir gitab'a yükleyeyim. Olur ne olmaz? Gitab'a da yükledik. Yedeğimizi
+[00:13:12] aldık. Kötü bir proje gelirse tekrardan o pusla daha da yapabilmemiz için
+[00:13:16] Cemin'yu seçtim ve alt Q'ye basarak bu add işaretini çıkardım. Buradan prompt
+[00:13:21] yazdım. Geldi. Enter'a bastım. Seçtim. içerisindeki her şeye uy ve bana tüm
+[00:13:25] şartları sağlanan çalışılabilir bir not uygulaması yap. Gönderdim. Yolca
+[00:13:29] bekleyeceğiz. Şu an düşünmeye başladı. İşte bu prom dosyasını analiz ettim.
+[00:13:33] Burada da başladım falan diyor. Şu an projeyi inceliyor. Klasörlerimize girdi
+[00:13:36] ve kendince plan yapıyor. Mesela buraya odaklanacak. Burayı bitirmiş. Diyor ki
+[00:13:40] işte review ve diyor inceliyorum diyor bu uygulamadaki paketleri. Bu kısmı
+[00:13:44] örnek tasarıma da bakmış. İşte karanlık aydınlık mod için örnek tasarım
+[00:13:48] içerisindeki klasörleri inceledi ve şu an paketleri kuracak. Versiyon
+[00:13:51] belirtmemiş. belirtmediği için güncel versiyonlar inecek. Ekledim ve
+[00:13:54] onayladım. Bu da bu kısmı ilk başta kurarken recuse reable seçmeseydik
+[00:13:58] otomatik onaylayacak ama C'yi de ve istemediğimiz şeyleri de yıklayabilirdi,
+[00:14:02] silebilirdi. Tamam bekleyeceğiz. Paketler ekledi. Gördüğünüz gibi çıktı
+[00:14:06] yani. Şimdi düşünmeye devam ediyor tekrardan ve klasör yapısını
+[00:14:09] oluşturacak. Onayladığımda libe geldiğimde herhangi bir şey yok.
+[00:14:12] Yavaştan oluşturmuş tema mainü ayrıca color tema gibi yani uygulama karanlık
+[00:14:16] aydınlık tema renklerini ayarlıyor. Ek olarak biz MCP kurabilirdik. Sonraya
+[00:14:21] kaldı sanırım MCP için. Buraya tıklayıp MCP servers dediğimizde burada tüm
+[00:14:25] MCP'leri görebiliyoruz destekle. Ben dartı indireceğim. İndirdik. Yapay zeka
+[00:14:29] bunu kullanarak buradaki hataları hızlıca görebilecek mesela. Ayrıca
+[00:14:32] gitup, Stripe, Mongo diye bir super base gibi database'ler de var. Yani veri
+[00:14:37] tabanı içinde hızlı bir şekilde yapay zeka yaptırabiliyorsunuz. Secantal tin
+[00:14:40] yükleyeceğim diyor. Muhtemelen yapay zeka çalıştığı için kuramadık. Şu an
+[00:14:43] sıkıntı yok. Bu neden derseniz bu detaylı bir şekilde her şeyi düşünüyor,
+[00:14:47] adım adım yapmasını sağlıyor. Yere geldi buradan gene bir paket yüklemek
+[00:14:50] istediğini söylüyor. Bu paket geçici depolama için mesela basit veriler için
+[00:14:54] örneğin karanlık tema mı, aydınlık tema mı hangi temsa onu aklında tutacak.
+[00:14:58] Gördüğünüz gibi problemler devam ediyor. Kurulum gerçekleşiyor. Ancak mesela
+[00:15:02] kullanımdan kaldırılmış bir komutu hala kullanıyor. Bunu basit çözümleri
+[00:15:06] bunların çoğunun çözümü basit. Mesela bu hatanın çözümü de basit. Ancak
+[00:15:10] bitirmesini bekleyelim. Belki güzel bir şey yapacak. Ek olarak biz buradan
+[00:15:13] telefon başlatabiliriz. Buradan daha önce açtığımız emülatörü seçebiliyoruz.
+[00:15:17] Burada diyoruz buna. Siz de bu yazmıyorsa new device yazar. Buradan
+[00:15:20] medium ponu seç. Telefonumuz açılacak. Benden gene komut çalıştırm istedi.
+[00:15:24] Flutter pump get adında paketleri yüklüyor ve şu an mesela hızlı bir
+[00:15:28] şekilde projeyi yaptığını söylüyor. Ancak bence çok hızlı yap. Ve bu hatalar
+[00:15:32] var. Flutter run dediğimizde zaten hata verecek. Ben direkt MCP kullan ve tüm
+[00:15:36] hataları sil diyeceğim. Infolar dahil. Burada MCP'yi de işaret edebiliyormuşuz.
+[00:15:41] MCP yazdım ve dart MCP'sini seçtim. Bul tek bir hata bırakma. Info dahil dedim.
+[00:15:47] O MCP kullanarak hataları bulacak. Bu bizim gördüğümüz kısmı ve kullandı.
+[00:15:51] Gördüğünüz gibi şu an MCP'yi. Çoğu hatayı çözdü. Bunu da çözmeye çalışıyor
+[00:15:55] ki yapmıyormuş. Şu an sadece refresh attı gibi bir şey oldu. Bakalım
+[00:15:59] bekliyoruz. Mesela şu an tüm hataları gördü. Bizden bir terminal kodu
+[00:16:03] çalıştırmadan burayı bana söyle demeden mesela kart temasını gördü. Burada kart
+[00:16:06] tema hatasını şu an bunları çözmeye çalışıyor. Yavaş yavaş infoları çözdü.
+[00:16:11] doğru kullanımlarını kullandı. Printi de ya sildi ya da güzel bir şekilde
+[00:16:14] kullandı diyeyim. Şu an bu kart temasına kaldı. Onu da muhtemelen şu an çözecek.
+[00:16:18] O kart temasını çözerken biz ana sayfaya falan bakalım. Not sayfası mesela kaç
+[00:16:23] satır kod? 200. Muhtemelen basit bir şey verecek bize. Note editöre bakalım. Yani
+[00:16:28] hangi paketi kullanıyor burada? Muhtemelen editör de kullanıyor.
+[00:16:30] Bakalım. Umarım güzel bir şey yapar. Hatayı çözdü. Muhtemelen kapatacak.
+[00:16:34] Böyle gelip buraya blutter run yazarak alıştıracağız. Ayrıca şu anda bu
+[00:16:38] düzenlemeler yapıyor. Ancak hatasız bir şekilde çalışırsa biz refresh
+[00:16:41] edebiliyoruz. Yani tekrar kapatıp açmaya gerek kalmadan uygulama içerisini
+[00:16:45] içerisindeki verileri yeniden görebiliyoruz. Evet her şeyi yaptı.
+[00:16:48] Bizim çalıştırdığımız bu hala devam ediyor. İşte lisans falan varmış onları
+[00:16:52] indiriyor. Revizyon edilmiş. Bunları kaydedim. Bakalım bizim vermiş olduğumuz
+[00:16:56] tasarımlara uyarak bize bir not uygulaması yapacak mı? Bence yapacak.
+[00:17:00] Çünkü bu Cemini arayüz bakımından çok iyi. Frontend tasarım konusunda bayağı
+[00:17:04] iyi. Muhtemelen bu ekranlarımızı yapacak ama be nasıl onu bilmiyorum. Yani bug
+[00:17:09] çıkabilir bayağı bir göreceğiz. Bu hala lisanslar onaylıyor. Evet buildimiz
+[00:17:13] açıldı. Umarım güzeldir. Ve ekrana bakalım. Bizi böyle bir ekran karşıladı.
+[00:17:17] Kötü değil. Ayarlara geldiğimde dark modu açtım. Kötü değil. Artı butonuna
+[00:17:21] bastım ve not ekleme ekranı geldi. Ancak bizim burada şeylerimiz olacaktı.
+[00:17:25] Düzenleme ekranımız olacaktı ama yok olur. Şu an için sıkıntı değil buna
+[00:17:29] şükür. Grafa bakalım. Yani sabit bir şey mi? Biraz daha not ekleyelim. Bir hata.
+[00:17:33] Mesela burada karanlıklı da siyah harf çıkıyor. Ü tane not ekledim ve grafa
+[00:17:37] bak. Yine bir şey olmamış. Ben bunu geri alacağım ve size cloud halinde
+[00:17:40] göstereceğim. Git restore nokta yaptığım an tüm her şeyi geri aldı. Ayrıca
+[00:17:44] bunları da sildim. Tekrar git restore yaptım. Geldim buraya. Prompt'ımız
+[00:17:48] duruyor. Örnek tasarımımız da duruyor. Aynısını cloud yazdıracağız. Prompt
+[00:17:52] md'deki tüm şartları uy ve gerçekten çalışır. Bir not uygulaması hazırla.
+[00:17:57] Buradan cloud'u seçemiyorum. kapatıp açacağım burayı. Cloud'u seçtim ve bunu
+[00:18:01] yapıştırdım. Ayrıca note düzenleme için de editör vesaire kullanılsın ve
+[00:18:05] tasarımlara tamamen uymak zorunda olmadığını da söylerim. Tasarım konusuna
+[00:18:08] uymak zorunda değilsin. Ancak tüm kodlar çalışmalı. Yani daha sonradan ekleme
+[00:18:13] yapamayacakmışsın gibi hazırla. Biraz göz korkutalım. Bir de cloud'dan
+[00:18:16] bakalım. Cloud paketleri ayarladı. Versiyonları MCP'den çekti. Yani direkt
+[00:18:21] bir şekilde bu MCP sayesinde güncel versiyonları bulabiliyor. Paketleri.
+[00:18:25] Projeyi oluşturuyor. Bakalım bu nasıl bize yapacak? projeyi hazırlıyor. Ben
+[00:18:28] orada prom'ta göz gezdirirken çıktı beklentisinde mesela aynı şey demişiz.
+[00:18:32] Yarım bırakılmış yerler olmasın. Yarım çalışan örnekler olmasın ama Cemini
+[00:18:36] oldu. Oldu diyor. Yani not düzenleme ekranında bu paket kullanılacak. Zengin
+[00:18:39] Metin özellikleri aktif olacak demişiz ama Cemini yok diyor. Demedin diyor.
+[00:18:43] Bakalım Cloud nasıl yapacak ama bu cloud güçsüz yani antigravity içerisinde
+[00:18:46] oluyor ama bu hali bile bence ceminden daha iyi. Back için bayağı bir uğraştı.
+[00:18:51] Şimdi arayüzü oluşturacak. Tom screen'i yaptığını söylüyor. Bir bakalım kaç
+[00:18:54] satır yani 85 satır. Gerçi çok fazlının olmasına da gerek yok. Çünkü bir home
+[00:18:58] screen yani bizde önemli olan not ekranları birazcık yani 200 300 satır
+[00:19:02] olması lazım hani. Evet grap sayfası Ceminin yaptığı gibi 50 satır değil 200
+[00:19:06] satır pardon not disk sayfasıymış. Graf da öyle gerçi. 200 satır var. Muhtemelen
+[00:19:11] gerçekten çalışıyor. Hepsini göreceğiz. Burada import hataları var. Bunlar çok
+[00:19:15] basit bir şekilde çözülecek. Ayarlar ve not editör ekranında oluşturdu. Yani 200
+[00:19:19] sayfa 200 satır çoğu 335. Muhtemelen KTEX yetecek bu proje ve saçma bir proje
+[00:19:25] vermeyecek bize. Cloud'a güveniyorum. Şimdi paketleri yükleyip projeyi analiz
+[00:19:29] edeceğinden bahsetti. MCP yardımıyla bize bir onay yapmadan gördüğünüz gibi
+[00:19:33] paketleri onayladı. Ayriyeten bize hiçbir şey demeden analiz yapabiliyor.
+[00:19:37] Mükemmel bir şey bu MCP. Hataları düzeltiyor ve import pad'lerini
+[00:19:40] düzeltiyor. Az önce dediğim gibi bunlar. Mesela burada editörümüzde apı eskiymiş
+[00:19:46] kullandığı şeyler ve bu gitti hubdev'den API'ın şeyini çekti. Nasıl kullanacağına
+[00:19:50] dair dokümana var. Contenti inceledim. Nasıl kullanıyoruz diye. Şimdi güncel
+[00:19:53] API'ı göre düzeltiyor. Muazzam bir şey. Övüyorum ama umarım kötü şeyler yapmaz.
+[00:19:58] Hatalarımızın çoğunu düzeltim bir gereksiz kast varmış. Onları
+[00:20:01] kaldıracakmış. Test dosyasını falan güncelleyecekmiş. Bu test dosyasını
+[00:20:05] silsek daha mantıklı olabilir aslında. Aynen öyle yaptı. Sildi. Ben direkt
+[00:20:09] buradan klasör olarak da sildim. tekrar analiz diyor. Lütfen bunları düzelt.
+[00:20:12] Quyerlar varmış. Bunları da hızlıca düzeltecek. Bu cloud sanırım güçlenmiş
+[00:20:15] gibi. Bakalım. Önceki uygulamada bu şekildeydi. Bizim o tombımızı kullanmış
+[00:20:19] en azından. Bakalım. En azından çalışıyor arkadaşlar. Yani o da güzel.
+[00:20:22] Fotoğraf da seçebiliyoruz. Tekrar analiz edecek. Analiz bittiğinde zaten
+[00:20:26] hazırlanı diyecek. Biz direkt çalıştıralım. Burada run yazdım. O zaten
+[00:20:30] cihazları uygulamayı çalıştıralım dedi ama çalıştırmadı. Neyse her şeyi
+[00:20:34] kaydettim ve başlıyoruz. Cloud'ın gücünü görelim. Uygulamamız build oldu ve
+[00:20:38] açılıyor. Direkt hata karşıladı bizi. Yapma kılav. Ben bunu direkt
+[00:20:41] kopyalayacağım. Hepsini seçtim ve CtrlC yaptım. Geldim. Uygulama ilk açılıştı.
+[00:20:45] Şu hala karşıladı. Shift enter yapıp hatayı yapıştırdım. Ayrıca bunu kapadım
+[00:20:50] ve tekrar çalıştırdım. Buradan silmem gerekiyor. Çünkü eski uygulamanın
+[00:20:54] kalıntıları da bozmuş olabilir. Geldim. Basılı tutup app info deyip unal
+[00:20:58] diyeceğim. Sileceğiz. Sildik. Cloud'da değişiklikler yaptım. Bak burada dediğim
+[00:21:02] gibi daha önceden farklı bir veri tipi kaydedilmiş olabilir. Uygulamayı silip
+[00:21:06] yüklemiz gerekiyordu ve not ekranımız açıldı. Gerginim biraz. Not ekle
+[00:21:10] butonuna bastım. Cemini yaptığı aynı editör sorunu burada da var. Tamamd not
+[00:21:14] kaydedili diyor. Ve grafa baktığımda en azından bir grafiğimiz var. Mesela
+[00:21:18] adında kanala abone ol diyeyim. Not kaydedildi ve grafın adı da bu şekilde
+[00:21:22] oldu. Zoom da yapabiliyoruz. Güzel. En azından arkadaşımızın dediği gibi
+[00:21:26] kendimizden bir şeyler kat bu şekilde zaten bizim farkımız açılacak.
+[00:21:29] alınacaklar diyeyim. 1 elma 2 muz dedik. Kaydet geri geldik. Burayı da düştü.
+[00:21:34] Süper oldu. Ayrıyeten ayarlara geldiğimizde zengin metin destek
+[00:21:38] uygulaması işte bir şeyler yazmış. Kuçlar vermiş. Bunları silerim
+[00:21:41] muhtemelen çünkü yapay zekayla olduğunu anlaş olduğunu fark ettiren şeyler
+[00:21:45] bunlar genelde. Çok iyi bu arada şu an. Sizce nasıl ve neler ekleyebiliriz?
+[00:21:49] Ayrıca ben bunun üzerine gideceğim. Bu editör özelliklerini aktifleştirmesini
+[00:21:53] isteyeceğim. Bunu bir kaydedelim. Git addd nokta yazdım. Bu projenin
+[00:21:56] içerisindeki her şeyi ekliyor, listeye alıyor. Sonra yaptığımız değişikliği
+[00:22:00] yazmak için komitet bir yorum bıraktım. Ben rastgele bir şey yazdım. Şimdi git
+[00:22:04] push dediğim an uzak sunucuya gituba yükleyecek. Yükledi. Artık yedeğimizi de
+[00:22:08] alabiliriz istediğimiz gibi. Az önce videoyu durdurup tekrar başlatmayı
+[00:22:11] unutmuşum. Ben buna demiştim ki not düzenlemede yani burada bir editör yok.
+[00:22:16] Not'u nasıl düzenleyeceğim? Büyük küçük harf yapacağım dedim ve bana bir prompt
+[00:22:20] hazırla dedim. Yeni bir sohbet başlatıp yapay zekaya atayım. O bana bunu eklesin
+[00:22:23] dedim. Buna atmadım çünkü çok fazla bellek harcadı. Kafası doldu. Karışıklık
+[00:22:28] yaşamaması için yeni bir sohbet de yapabilirdik sıfırda. Ama bu direkt bana
+[00:22:31] prompt atmak yerine kontrol etti. İnternetten araştırdı. Nasıl
+[00:22:35] kullanacağına dair, nasıl ekleyeceğine dair ve analiz etti. Tekrar bir hata
+[00:22:38] çıktı. O hatayı çözdü ve ekledi. Bu kadar basit bir şekilde buraya
+[00:22:41] geldiğimde mesela bunu denedim. Tekrar deneyelim. Mesela başlık ekleyeceğim.
+[00:22:45] Kanalıma abone ol yaptım ve açıklamaya tıkladığımda mesela burada toolbar
+[00:22:48] çıktı. Burada bunu seçip bol italik altı çizgili çizgili yapabiliyorum. rengini
+[00:22:53] mavi yapabiliyorum. Arka plan rengini değiştirebiliyorum. Boyutunu büyüte
+[00:22:56] küçültebiliyorum. Checkbox checkbox yapabiliyorum. Söylenişi unuttum. Mesela
+[00:23:01] todo liste olabilir bundan veya sıralı liste, sıras
+[00:23:04] ekleyebiliyoruz buraya. Tıkladığımızda link açılıyor. Gayet iyi bir şekilde
+[00:23:07] çalışıyor. Fotoğraf ekleyebiliyoruz buradan. Şu an telefonda fotoğraf yok
+[00:23:11] ama ekran görüntüsü alıp yapabiliriz. Mesela bu yaratıcılık. Ekran görüntüsü
+[00:23:14] almak aklıma gelmesi yaratıcılık. Bu bizi insanların önüne çıkaracak ileride.
+[00:23:18] Ancak burada ekran görüntüsü yok mu? Neyse biz ekran kaydı. Bu olmadı ya. Bu
+[00:23:22] hiç olmadı. Neyse bu şekilde. Şimdi yeni değişiklikler yapmamız gerekiyor. Sizin
+[00:23:26] de önerilerinizi isterim bu arada. Şimdi mesela ilk başta buraya gelip ben direkt
+[00:23:30] düzenleme ekrana girmek istemiyorum. Geleceğim buraya. Prompt nerede bizim?
+[00:23:33] Bu prompta'a geldim ve bunu hiç değiştirmeden yeni bir prompt açayım.
+[00:23:37] E.1 MD yazdım. Yapacaklarımı söyleyelim. Notlar sayfasındayım. Notu tıkladığımda
+[00:23:42] not düzenleme değil notu görüntüleme ekranı açılsın. Senden değişiklikler
+[00:23:46] yapmanı istiyorum. Yazdım. Veri tabanı işlemler için geçmişteki kullanıcıların
+[00:23:49] sorun yaşamasını istemiyorum. O yüzden dikkatli güncelle diyeceğim. Çünkü
+[00:23:53] ileride bir şey yaptırdığımızda veri tabanını karıştırsa mesela bu uygulamayı
+[00:23:57] kullanan geçmişteki insanların verileri silinebilir bir şey olabilir. Onu en
+[00:24:00] baştan söylüyorum. Şimdi notlar sayfasında not'a bastığımda direkt not
+[00:24:04] düzenli ekranı yerine görüntüleme yapabilirim. Bunun yerine not detayları
+[00:24:07] ekran açılsın dedik. Ve bu nasıl olacak? Not düzenleme ekranına direkt notu
+[00:24:11] görüntüleme yapabiliriz. Aynı dosya içerisinde boş yere fazla kod olmaz.
+[00:24:15] Geldim ve onayı söyleyeceğim. farklı bir dosya yerine normal zaten yapay zeka
+[00:24:19] dolduracak bunu. Şimdi bize not düzenleme ekranında not detaylarını
+[00:24:23] görüntüleyebilelim. Aynı şekilde sadece metinler ve özellikler değişecek. Yani
+[00:24:29] not başlığına veya not'a tıkladığımızda notu düzenleme işlemleri yapılabilsin.
+[00:24:34] Kaydettiğimizde ise not detay kısmı geri gelsin. Yani düzenleme işleminden
+[00:24:39] çıkılsın. Daha sonra burada karanlık temada toolbarımız sıkıntılı. 2. Not
+[00:24:43] düzenleme ekranında reach editör toolbarı karanlık temada siyah
+[00:24:48] gözüküyor. Karanlık temada beyaz olsun diyeceğim. Aydınlık temada ise siyah
+[00:24:52] gözükmeli. Tamam bunu da yaptık ve bunu kopyaladım. Yeni bir sohbet açtım.
+[00:24:56] Cloud'u seçile yapıştırdım ve burada projenin mevcut yapısını inceleyerek
+[00:25:00] başlaması gerektiğini söyledim. Her şeyi inceledi şu an bayağı bir analiz yaptı.
+[00:25:03] Şimdi yapılacak işlemleri söylüyor bize. Not düzenleme sayfası, not detayları
+[00:25:06] sayfasına dönüşecek ve başlağa içeriye tıklandığında düzenleme moduna
+[00:25:09] geçilecek. Aydında, tekrar okunur moda dönücek. Toolbarı düzeltecek. Şu an
+[00:25:13] işlemler başladı. Bakalım. İstediğin şeyleri uyguladım dedi. Veri tabanında
+[00:25:16] hiçbir şey olmayacak dedi. Buraya geldim ve capstok açıp yükye bastım. Uygulama
+[00:25:20] ekranına geldim. Not düzenleme ekranına geldim. Bir şey tıkladım ve düzenlemeye
+[00:25:24] geçebiliyoruz. Tamam. Geri butonuna basınca geri atması üzücü oldu. Onu da
+[00:25:27] toparlarız. Kaydettiğimizde not detaylarına geri geliyor. O güzel.
+[00:25:30] Tıkladık ve toolbox hala siyah gözüküyor. Böyle toolboxtaki ikonlar
+[00:25:34] karanlık temada hala renkler kötü bir şekilde front yazdı. İkonlar hala siyah.
+[00:25:38] Renkler şakışıyor. Düzel. Geri geldiğimde aydınlık temada ne
+[00:25:41] durumdayız? İyi durumdayız. Okey. Graf da güzel çalışıyor. Not detaylarından
+[00:25:45] not düzenli ekranına geçtiğimizde ve geri butonuna bastığımızda da sayfayı
+[00:25:49] atmak yerine not detayları açılsın. Buraya 1 yazdım. Buraya 2 yazdım. Not
+[00:25:52] düzenleme ekranından partdaki geri butonuna basınca not detayları ekranı
+[00:25:57] açılsın. Yani direkt ana sayfayı göndermesin. Şimdi de işleri yaptı. Geri
+[00:26:01] butonuna basınca not otomatik kaydedecek. bildirim gelecek ve ana
+[00:26:04] sayfaya gidilmiyor. İkinci değişiklik ise toolbarımızın renkleri
+[00:26:07] düzeltildiğini söylüyor. Ben garanti olsun diye kapadım ve tekrar flutter run
+[00:26:12] yazarak tekrardan açacağım. Açtık ve uygulamaya geldiğimizde aydınlık temada
+[00:26:16] not düzenleme ekranına geçiş yapabiliyoruz. Sulbar vesaire düzgün.
+[00:26:19] Not kaydımızda not detaylara geliyor. Daha sonra karanlık temaya geçtiğimizde
+[00:26:24] toolbarın beyaz olması gerekirken hala ve hala siyah gözüküyor. Bu muhtemelen
+[00:26:28] bu eklediğimiz paketin sorunu olabilir. Bir ekran görüntüsü alıp hala siyah
+[00:26:32] olduğundan bahsedeceğim. Ctrol P'ye bastım ya da klavyedir prtsc tuşuna
+[00:26:36] bastım. Bunu seçtim ve ctrol v yaparak fotoğrafı yapıştırdım. Bulvar karanlık
+[00:26:40] temada hala siyah dedim ve beyaz temaya zorlasın diyeceğim. Beyaz temaya zorla.
+[00:26:45] Screenshot'a attık an okudu fotoğrafı. Gördüğünüz gibi görüyormuş. widget'la
+[00:26:50] sararak beyaz demeyi zorlayacakmışız. Dediğim gibi muhtemelen bu paketin
+[00:26:53] uyumlulukla alakasında başka bir paket kullanabilirdik ama bu daha hoşuma
+[00:26:57] gitmişti benim. Bakalım. Edit yaptı. 1RE tuşuna bastım ve beyaza büründü. Neymiş?
+[00:27:02] Bu kadar basitmiş. Aslında karanlık temel uyumlu olması gerekirdi. Biz bu
+[00:27:05] şekilde çözdük. Güzel bir çözüm. Çok da kötü değil tamam çözebiliriz. Çok da
+[00:27:09] sıkıntı edilecek bir şey değil. Bu şekilde videoyu bitirdik arkadaşlar.
+[00:27:12] Burada dediğim gibi videoyu beğenmeyi, kanalıma abone olmayı unutmayın. Bir ik
+[00:27:16] aydır ilk defa söylüyorum bunu ama abone olursanız çok sevinirim. Buraya kadar
+[00:27:20] izlediyseniz kendinize iyi bakın. Devamında neler yapmamızı istiyorsanız
+[00:27:23] söyleyin yapalım ona göre. Görüşürüz. Yeah.
