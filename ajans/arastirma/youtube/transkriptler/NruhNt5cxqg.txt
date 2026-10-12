@@ -1,0 +1,371 @@
+# 
+# https://www.youtube.com/watch?v=NruhNt5cxqg
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:NruhNt5cxqg.tr.json3
+
+[00:00:00] Az önce Cloud COD'a sadece tek bir
+[00:00:01] prompt verdim. Dedim ki benim için tane
+[00:00:04] çalışan oluştur. Bir tanesi metin
+[00:00:06] yazarı, bir tanesi frontend geliştirici,
+[00:00:08] bir tanesi de kalite kontrolcüsü. Üçünü
+[00:00:10] de oluşturdu ve ona görevler tanımladı.
+[00:00:12] Görev kapsamında projemi oluşturmaya
+[00:00:14] başladılar. Metin yazarı Sit'in
+[00:00:16] metinlerini yazıp front end
+[00:00:18] geliştiriciye verdi. O da tasarımını
+[00:00:20] halletti ve projeyi kalite kontrolcüye
+[00:00:22] gönderdiler. Kalite kontrolcü projeyi
+[00:00:24] inceledi ve dör adet burada sorun buldu.
+[00:00:27] Bu 4 adet sorunun düzeltilmesini istedi.
+[00:00:29] Frontend geliştirici 4 adet sorunu
+[00:00:31] düzeltti. Kalite kontrolcüsü onayladı ve
+[00:00:34] günün sonunda bu şekilde landing page'i
+[00:00:36] oluşturmuş oldular. Ajanlarım benim için
+[00:00:39] çalıştılar. Bu video içerisinde cloud
+[00:00:41] code agentlarının nasıl oluşturulacağını
+[00:00:43] göstereceğim. Kritik detaylara
+[00:00:45] değineceğim. Püf noktaları vereceğim.
+[00:00:47] Her şeyden bahsediyor olacağız. Nasıl ve
+[00:00:49] nerelerde kullanacağınızdan
+[00:00:50] bahsedeceğim. Hiçbir şekilde kafa
+[00:00:52] karışıklığı yaşamayacaksınız. Çok basit
+[00:00:54] bir şekilde birlikte bakıyor olacağız.
+[00:00:55] Hazırsanız başlayalım. Şimdi agent
+[00:00:57] team'ler mantık olarak basit aslında. 4
+[00:01:00] adet bizim cloud code çalışanımız oluyor
+[00:01:02] burada. Agent team'leri anlayabilmeniz
+[00:01:04] için öncesinde sub agentları ve agent
+[00:01:07] team'lerden farkını anlamanız gerekiyor.
+[00:01:09] Bu da oldukça basit. Biz daha öncesinde
+[00:01:11] sub agent oluşturabiliyorduk. Sub
+[00:01:13] agent'ı şöyle düşünebiliriz. Ben
+[00:01:14] patronum ve üç çalışanıma da görev
+[00:01:16] veriyorum. Sen git bu işi yap diyorum.
+[00:01:18] Sen git Y işini yap diyorum. Sen git Z
+[00:01:20] işini yap diyorum. Ve günün sonunda
+[00:01:22] işlerini halledip geri bana buraya
+[00:01:24] getiriyorlar. Ama bu yapıda kimsenin
+[00:01:26] birbirinden haberi yok. Herkes kendine
+[00:01:28] verilen görevi yerine getirip bana
+[00:01:29] teslim ediyor. Agent Team ise bundan
+[00:01:31] tamamen farklı çalışıyor ve harika bir
+[00:01:33] teknoloji. Geleceğin teknolojisi. Eğer
+[00:01:35] doğru bir şekilde kullanırsanız Cloud
+[00:01:37] Codeaki projelerinizi, uygulamalarınızı
+[00:01:40] bambaşka bir seviyeye taşıyabilirsiniz.
+[00:01:42] Burada şöyle bir yapı var. Bir adet Team
+[00:01:44] Leider var. Bu projenin yöneticisi,
+[00:01:46] projenin yöneticisi bir task list
+[00:01:48] oluşturuyor. Görevleri oluşturuyor ve bu
+[00:01:50] görevleri alt ajanlara dağıtıyor. Tabii
+[00:01:52] benim ona verdiğim yönergeyle patron
+[00:01:54] yine benim ve yönergeyi verdim. Ajanlar
+[00:01:57] oluştu burada. Sonrasında bakın bu
+[00:01:59] ajanlar arasında bir iletişim var. Hem
+[00:02:01] ajanların kendisi iletişim halinde hem
+[00:02:03] de burada kimle iletişim halindeler?
+[00:02:05] Tabii ki de liderle iletişim halindeler.
+[00:02:08] Bu yapıda ben sadece görevi tanımlıyorum
+[00:02:09] ve oturup bekliyorum. Onlar benim için
+[00:02:11] çalışıyorlar. Ve burada harika bir döngü
+[00:02:13] var. döngüde şu sorun bulunursa eğer
+[00:02:16] örneğin az önce benim bir ajanım kalite
+[00:02:18] kontrolcü sorunları buldu ve team
+[00:02:19] leader'e iletti. Ardından sorunların
+[00:02:21] düzeltilmesi için tekrardan bir döngüye
+[00:02:23] girdik. Buradan tekrardan görevler
+[00:02:25] verildi. Peki kurulumu nasıl yapılıyor?
+[00:02:26] Aslında settings Jason dosyasına sadece
+[00:02:28] bir komut ekliyoruz ve çalışmaya
+[00:02:30] başlıyor. Bu kadar ama önemli noktalar
+[00:02:32] var. Örneğin prompt verme ve onları
+[00:02:34] yönetme konusunda. Onlara da ilerleyen
+[00:02:36] kısımda değineceğim. Şu anda kurulumu
+[00:02:37] gösteriyorum. Öncelikle cloud code
+[00:02:39] dokümantasyonunda, resmi dokümantasyonda
+[00:02:41] Run Agent Team'e geldiğimde burada
+[00:02:43] görüntüleyebiliyorum. Agent Team'lerin
+[00:02:45] nasıl çalıştığına dair. Zaten aynı resmi
+[00:02:47] burada görüyorsunuz. Burada bir kılavuz
+[00:02:49] var. Setting Jason'a gömeceğimiz kod da
+[00:02:51] burada. Tek yapmam gereken kodu
+[00:02:53] kopyalayıp burada ben VS kod üzerinde
+[00:02:56] çalıştırıyorum cloud kodu. Öyle
+[00:02:58] öneriyorum size de. Burada kurmak
+[00:02:59] isterseniz zaten VS kodu indiriyorsunuz.
+[00:03:01] Sonrasında extension kısmından cloud
+[00:03:03] kodu aratıp kuruyorsunuz. Ardından tabii
+[00:03:05] ki de benim üzerinde çalıştığım bir
+[00:03:07] proje gerekiyor. Burada örneğin Demo
+[00:03:09] Agent projesi üzerine çalışıyorum.
+[00:03:10] Şuradan yeni bir terminal başlatıyorum.
+[00:03:12] Cloud'u çalıştırıyorum. Şu anda bende
+[00:03:15] kurulama yapmanız gereken tek şey lokal
+[00:03:17] projemde settings Jason dosyasına
+[00:03:20] aşağıdaki ayarı ekle diyorum ve kodu
+[00:03:23] burada yapıştırıyorum. Zaten daha önce
+[00:03:24] de ben çalıştırmıştım lokal projemde.
+[00:03:27] Ayarı ekre dedim. Bu kadar. Sonrasında o
+[00:03:29] zaten kendi ayarlamaları yapıyor.
+[00:03:31] Ardından şunu söylüyorum. Bu
+[00:03:32] dokümantasyonu oku ve doküman klasörüne
+[00:03:36] Agent Team Rehber MD olarak Türkçe bir
+[00:03:38] referans dosyası oluştur. Şuraya aslında
+[00:03:41] bir tane dosya oluşturuyor. Bunu neden
+[00:03:43] yapıyoruz? Bu aslında zorunlu değil ama
+[00:03:44] nedenini anlatayım. Ona oku deyip
+[00:03:46] verdiğim link aslında Cloud Cod'un resmi
+[00:03:48] dokümantasyonu. Burada agent team'lerle
+[00:03:50] ilgili çok detaylı bilgiler yer alıyor
+[00:03:52] demiştim. Bunu cloud kod'un güncel
+[00:03:54] olarak bilmesini istediğimden dolayı ona
+[00:03:56] veriyorum ve ileride agentım kurarken
+[00:03:59] buna bakarak daha iyi takımlar kurması
+[00:04:01] için söylemiş oluyorum. Ardından
+[00:04:03] dokümantasyonu oluşturdum diyor ve
+[00:04:05] aslında kurulum bu kadar. Buradaki en
+[00:04:07] önemli, en kritik nokta ona agent
+[00:04:09] oluşturması için vereceğimiz prompt. Bu
+[00:04:12] prompt verirken nelere dikkat etmeniz
+[00:04:13] lazım zaten anlatacağım. Öncelikle
+[00:04:15] promptun modelini anlayalım. vereceğimiz
+[00:04:17] şey 1inci agent'ın, 2inci agent'ın ve
+[00:04:20] 3üncü agent'ın rollerini tanımlamak,
+[00:04:23] nelere erişimlerinin olduğunu söylemek
+[00:04:25] ve neleri üretmesi gerektiğini söylemek.
+[00:04:27] Yapı bu kadar. Örneğin burada bir
+[00:04:29] tanesine API tasarımcısısın. Bir
+[00:04:31] tanesine sen veri tabarı mühendisisin.
+[00:04:33] Bir tanesine sen test yazarısın
+[00:04:34] diyebilirim. Şimdi bu olayı çok güzel
+[00:04:36] bir örnekte göstereceğim. Diyelim ki ben
+[00:04:38] web siteme satın al butonu koyuyorum.
+[00:04:40] İnsanlar bu satın al butonuna tıklayıp
+[00:04:42] benim uygulamamı, hizmetimi abonelik
+[00:04:44] olarak satın alacaklar. Burada ben bir
+[00:04:46] prompt veriyorum sayfama. Şunu şunu
+[00:04:48] eklemek istiyorum. Satın al butonu
+[00:04:49] eklemek istiyorum. Benim için 3 tane
+[00:04:51] ajan oluştur şeklinde. Burada leadim ne
+[00:04:53] yapıyor? Yöneticim 3 tane ajanı
+[00:04:55] oluşturuyor. Sonra bunlara görev
+[00:04:57] dağıtımını veriyor. Frontendçi satın al
+[00:04:59] butonunu oluşturuyor. Stripe ödeme
+[00:05:01] altyapısını ekliyor. Testçi de bunu test
+[00:05:03] ediyor aslında. Örneğin frontend işini
+[00:05:05] bitirdi ve diyor ki Stripe'a ben işimi
+[00:05:07] bitirdim. Sen git linki ekle diyor.
+[00:05:09] Stripe ajanı da ödeme linkini buraya
+[00:05:12] entegre ediyor ve ben işimi bitirdim.
+[00:05:14] Sen test et diyor testçiye. Tesçi de
+[00:05:16] test ediyor ve günün sonunda burada
+[00:05:18] rapor gönderiyor. Eğer her şey
+[00:05:19] tamamlandıysa rapor da benim elime
+[00:05:21] geliyor ve günün sonunda halletmiş
+[00:05:23] oluyorum. Bu mantığı anladığınızda zaten
+[00:05:25] promptları vermek kolaylaşacaktır. Şimdi
+[00:05:27] peki benim verdiğim prompt neydi? Buna
+[00:05:29] bakalım. Burada zeka Flow adında hayali
+[00:05:31] bir Türk yapay zeka girişim için modern
+[00:05:33] ve etkileyici bir landing page oluştur
+[00:05:35] diyorum. Hedefi veriyorum. Öncelikle
+[00:05:37] hedefi tanımlıyorum. Aynı şekilde burada
+[00:05:38] bir örnek daha görüyorsunuz. Burada da
+[00:05:40] yine en üst kısımda hedefi görüyorsunuz.
+[00:05:42] İçeriği şu an çok önemli değil. Yapısal
+[00:05:45] olarak bakın içeriğinde çok teknik
+[00:05:46] bilgiler yer alabilir. Tabii ki de
+[00:05:48] detaylı vermeniz gerekiyor ama yapıyı
+[00:05:50] öğrenmenizi istiyorum. Hedefi verdikten
+[00:05:52] sonra benim özel tabii ki burada
+[00:05:54] belirtmem gereken talimatlar varsa
+[00:05:57] belirtiyorum. Burada ben projemde front
+[00:05:59] md dosyası oluşturdum. Örneğin şu
+[00:06:00] kısımda. Bu ne? Aslında bu front end'te
+[00:06:02] dikkat etmesi gerekenler içeren bir
+[00:06:04] dosya. Sizde bu bir skill dosyası
+[00:06:06] olabilir. Ona vereceğiniz bir yönerge
+[00:06:08] olabilir. Bunları da referans
+[00:06:09] verebilirsiniz. Burada projemin
+[00:06:11] içeriğinden bahsediyorum. Aslında
+[00:06:13] sonrasında ü kişilik bir takım kur
+[00:06:15] diyorum. Tamamen doğal dille söylüyorum
+[00:06:17] bunu. Bir tanesi frontendçi, bir tanesi
+[00:06:19] metin yazarı, bir tanesi de burada
+[00:06:21] kalite kontrolcüsü olsun. Ve net bir
+[00:06:23] şekilde bakın ona neyi kullanması
+[00:06:24] gerektiğini söylüyorum. Çıktığı da bir
+[00:06:26] tane copy MD dosyasına kaydet diyorum.
+[00:06:28] Burada bakın copy MD dosyasını
+[00:06:30] oluşturmuş. Neden böyle yaptık? Çünkü
+[00:06:32] sonrasında frontendçi bunu kullanacak.
+[00:06:34] Bakın burada ne yazmışım? Metin
+[00:06:35] yazarından gelen metinleri bekle ve
+[00:06:38] entegre et. Böylece birbirleriyle
+[00:06:40] iletişimi kontrol edebilmem gerekiyor.
+[00:06:42] Bakın burada da aynı yapı var. Backend
+[00:06:44] developer'a ne demişim? Sen işleri
+[00:06:45] tamamladığında frontend developer'a API
+[00:06:48] end pointleri ile mesaj gönder demiş. Bu
+[00:06:50] da diğer kendi görevini çalıştırmış.
+[00:06:52] Backend devin apaklarını içeren mesajını
+[00:06:55] bekle gibi. Burada mutlaka yönergeleri
+[00:06:58] veriyorum ve en sonunda da son çıktıları
+[00:07:00] istiyorum. Yani bu görev bittiğinde ben
+[00:07:02] ne göreyim elimde? Bunu istiyorum. Bakın
+[00:07:04] burada da aynı şeyi söylemişim. Son
+[00:07:05] çıktılar. Günün sonunda bana local host
+[00:07:07] 3.000 adresinde çalışan bir uygulama
+[00:07:09] ver. Bir de report md dosyası oluştur.
+[00:07:11] Prompta dikkat etmeniz gereken noktalar
+[00:07:13] bunlar. Peki şimdi nelere dikkat etmeniz
+[00:07:15] gerekiyor? Tamam çok güzel bir özellik.
+[00:07:17] Promtlara da değindik. Burada yapmanız
+[00:07:20] ve yapmamanız gereken şeyler var.
+[00:07:22] Örneğin bir tanesi kendine özel
+[00:07:24] dosyalarına sahip olmaları. Agentlar
+[00:07:26] kendine özel dosyaları olması gerekiyor.
+[00:07:28] Burada az önce de gösterdim. Copy M'de
+[00:07:30] kime aitti? Tabii ki metin yazarına
+[00:07:32] aitti. Her birinin tabii gerekiyorsa
+[00:07:34] ajanların dosyaları olmalı ama aynı
+[00:07:37] dosyayı kesinlikle paylaşmamaları lazım.
+[00:07:39] Bu şekilde bir kaos ortamı oluşur.
+[00:07:41] Örneğin ben burada herkesin indeks
+[00:07:43] üzerinde değişiklik yapmasını isteseydim
+[00:07:45] frontendçi gider buna bulaşırdı. Kalite
+[00:07:47] kontrolcü gider buna bulaşırdı. Farklı
+[00:07:49] bir şey eklerdi. Metin yazarı farklı bir
+[00:07:51] şey eklerdi. O zaman sorunlar ortaya
+[00:07:53] çıkardı. Günün sonunda bir kişi
+[00:07:55] index.html ellemeli ama o dosyayı
+[00:07:57] oluşturmak için gerekli bir metin
+[00:07:59] vesaire varsa onu metinci yazabilir.
+[00:08:02] Çıktıyı mutlaka iyi bir şekilde
+[00:08:03] tanımlıyorum. Burada ne yaptık? Prompta
+[00:08:05] çok net bir şekilde her şeyi söyledik
+[00:08:07] aslında değil mi? Burası oldukça önemli.
+[00:08:10] Çok çok önemli. Ajan sayısı arttıkça
+[00:08:12] performans artmaz. Burada ideal aralık 3
+[00:08:16] ila 5'tir. Daha fazla ajan oluşturmayın.
+[00:08:18] Çünkü her ajan burada her ajan ben 3
+[00:08:20] tane ajan oluşturursam eğer 3 tane
+[00:08:23] aslında 3 adet 3x token yakıyorum. Öyle
+[00:08:25] düşünün. 3x token yakıyorum. Çünkü her
+[00:08:27] biri artık ayrı cloud. Her biri ayrı bir
+[00:08:29] elem ki zaten 10 tane oluşturursanız
+[00:08:31] kaos çıkar. Birbiriyle iletişimi o kadar
+[00:08:34] sağlayamazlar. Burada bağlamı mutlaka
+[00:08:37] veriyorsunuz. Bağlam mutlaka verilmeli.
+[00:08:39] Daha önce projemde geliştirdiğim bir
+[00:08:41] cloud MD dosyam vesaire varsa burada bir
+[00:08:43] hafıza dosyam varsa bunu da tabii ki ne
+[00:08:46] yapıyorum? Veriyorum. Bunu okumaları
+[00:08:47] gerekiyor bağlamı anlamaları için. Ve
+[00:08:50] plan onay modu çok kritik bir yer.
+[00:08:52] Örneğin benim projemde bakın burada
+[00:08:54] kalite kontrolcüsü dör tane sorun buldum
+[00:08:56] demişti. Örneğin mobilde GTA butonları
+[00:08:58] görünmüyor, çakışıyor. Kartlarda
+[00:09:00] animasyon sorunu var. Hakkımızda
+[00:09:02] linkleri çalışmamış gibi gibi. Bunu
+[00:09:04] yapmasının sebebi ne? Aslında burada
+[00:09:06] benim verdiğim promptaki plan onay
+[00:09:08] modunu sağlamam. Bir tane ajan burada
+[00:09:10] görevi yerine getirip bir plan
+[00:09:12] oluşturuyor. Burada örneğin X ajanı bir
+[00:09:14] plan oluşturuyor ve bu planı kalite
+[00:09:16] kontrolcü veya işte orada projenizin
+[00:09:19] liderini iletiyor. Plan onaylanırsa
+[00:09:21] devreye giriyor veya sorunlar varsa
+[00:09:23] düzeltiliyor. Bu mekanizma oldukça
+[00:09:25] değerli. Zaten tüm sırrı da burada
+[00:09:27] yatıyor aslında. Çünkü her şeyi siz
+[00:09:29] kontrol edebilecek olsaydınız zaten tek
+[00:09:32] bir cloud kullanarak yapabilirdiniz
+[00:09:34] projeyi. Burada ajanları kullanmanın bir
+[00:09:36] mantığı olmazdı veya sub agent
+[00:09:37] kullanırdınız. Yine oldukça önemli bir
+[00:09:39] püf noktadan daha bahsetmek istiyorum.
+[00:09:41] Ortak bir bağlam. Yani ajanlarınızın
+[00:09:43] yaptığı işleri kaydettikleri bir
+[00:09:45] doküman. Tamam kendi dokümanları da var
+[00:09:47] ama ortak bir bağlama da sahip olmaları
+[00:09:50] oldukça güçlendirir. Yani zaten buraya
+[00:09:52] kadar olanları yaparsanız harika bir
+[00:09:54] takım kurmuş olursunuz. Projelerinizi
+[00:09:56] çok şahane yerlere getirirsiniz. Üzerine
+[00:09:58] bu püf noktaları da uygularsanız ve yine
+[00:10:01] harika işler çıkartmış olursunuz. Nedir
+[00:10:03] bu bağlam dosyası? Örneğin ben burada
+[00:10:05] bir dosya oluşturabilirim. Bağlam. MD.
+[00:10:07] Şu anda ismi çok önemli değil. Önemli
+[00:10:09] olan burada bir MD dosyasının olması ve
+[00:10:11] benim yine tabii bunu prompta yapmam
+[00:10:13] lazım. Doğal olarak vermem lazım
+[00:10:15] ajanlara. Doğal dille söylemem lazım.
+[00:10:17] Diyeceğim ki siz günün sonunda
+[00:10:18] yaptıklarınızı buradaki bağlam dosyasına
+[00:10:21] kaydedin. Üçünüz de bu dosyada
+[00:10:23] değişiklik yapabilirsiniz. Tabii ki
+[00:10:24] birbirlerinin işlerine karışmadıkları
+[00:10:27] sürece. Bu sayede ortak kullanılan
+[00:10:29] MCP'ler varsa eğer hem bilmiş olurlar.
+[00:10:32] Yine varsa farklı beceriler, skiller
+[00:10:34] kullanıyorsanız bunları da bilmiş
+[00:10:35] olurlar, görmüş olurlar. Bu sayede
+[00:10:37] izinler yine kritik bir nokta. Çünkü siz
+[00:10:39] ajanlara bir görev vereceksiniz ve
+[00:10:41] sonrasında belki bırakıp gideceksiniz.
+[00:10:43] Orada zaten cloud code normalde sürekli
+[00:10:47] sürekli işte şu değişikliği yapayım mı,
+[00:10:48] bu değişikliği yapayım mı diye size bir
+[00:10:50] onay istiyor. Bir de 3 tane d tane ajan
+[00:10:52] oluşturduğunuzu düşünün. Üçünden,
+[00:10:54] dördünden de sürekli onay geliyor
+[00:10:55] olacak. Hepsini gelip burada onaylamanız
+[00:10:57] gerçekten rahatsız edici olabilir. O
+[00:10:59] yüzden ne yapıyoruz? Burada izinleri
+[00:11:01] veriyoruz. Bunu slash permission'la yani
+[00:11:03] izinleri kontrol ederek yapabilirsiniz.
+[00:11:05] Veya genel cloud'u başlatırken burada
+[00:11:07] skip permissions'ı kullanarak komutuyla
+[00:11:10] da burada aslında direkt izinleri
+[00:11:12] vererek başlatabilirsiniz. En başta
+[00:11:14] böyle yapsanız daha iyi olur zaten.
+[00:11:16] Ekstra bir yöntem daha göstereyim.
+[00:11:17] Burada settings Jason vardı benim.
+[00:11:19] Settings Jason dosyasına geliyorum ve
+[00:11:21] bakın burada permissions ekleyerek yine
+[00:11:23] bu şekilde eklemeniz gerekiyor. Ne için
+[00:11:25] izin vermek istiyorsam bunları
+[00:11:26] ekleyebiliyorum. Evet. Peki ajanlar ne
+[00:11:28] zaman kullanılmalı? Gereksiz yere
+[00:11:30] kullanırsanız fazla token yakarsınız. O
+[00:11:32] yüzden size şimdi etkili bir örnek
+[00:11:33] gösteriyorum. Yani burada A, B ve Clinde
+[00:11:37] gidiyorsa benim işlerim. Yani ben
+[00:11:39] projemle örneğin satın al butonu
+[00:11:41] demiştik değil mi? Bunu ben önce
+[00:11:42] frontend'le yaparım. Sonrasında Stripe'e
+[00:11:45] eklerim. Ama bunu ayrı ayrı yine aynı
+[00:11:47] cloud kodu kullanarak farklı zamanlarda
+[00:11:49] birinci gün bunu yaparım, ikinci gün
+[00:11:51] stripe eklerim, 3üncü gün test ederim
+[00:11:52] diyorsanız 3 günlük işi ama daha kapsam
+[00:11:55] daha kapsamlı bir proje yönetiyorsanız
+[00:11:57] burada ajan oluşturmanız daha iyi olur.
+[00:11:59] Burada tüm iş aslında bir saatte bitmiş
+[00:12:02] olur. Tek bir yapı altında hepsi
+[00:12:04] tamamlanmış olur. Yani ardışık gidiyorsa
+[00:12:06] ekiplere burada gerek yok. Ama
+[00:12:08] hızlanmanız gerekiyorsa, paralel
+[00:12:10] araştırmalar gerekiyorsa, ajanlar
+[00:12:12] birbiriyle iletişim kurduğu için,
+[00:12:13] birbirlerine tepki vermesi gerekiyorsa,
+[00:12:15] kalite kontrolü varsa mutlaka ajanları
+[00:12:18] kullanmam daha faydalı olur. Sadece
+[00:12:20] ajanları kullanmak yetmez. Cloud kodu
+[00:12:22] tam verimli kullanmak istiyorsanız diğer
+[00:12:24] araçlarla birleştirmelisiniz. Bununla
+[00:12:26] alakalı kanalımda diğer videolara göz
+[00:12:28] atabilirsiniz. görüşmek üzere.
