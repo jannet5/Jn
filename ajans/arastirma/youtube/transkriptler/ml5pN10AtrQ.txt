@@ -1,0 +1,691 @@
+# 
+# https://www.youtube.com/watch?v=ml5pN10AtrQ
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:ml5pN10AtrQ.tr.json3
+
+[00:00:00] Cloud Code yazılım dünyasını inanılmaz
+[00:00:02] bir şekilde değiştiriyor ve insanlar
+[00:00:04] artık birkaç saat içinde uygulama
+[00:00:05] geliştirebiliyorlar. Bu harika bir şey
+[00:00:07] ama yine de kaçırdıkları birkaç nokta
+[00:00:09] var ki eğer bunları bilmezsen
+[00:00:12] geliştirdiğin uygulama öylece elinde
+[00:00:14] kalır. O yüzden bu video içerisinde
+[00:00:15] tamamen sıfırdan uygulama fikrinin
+[00:00:18] bulunmasından üretimine ve oradan da
+[00:00:20] yayınlanmasına kadar tüm adımları canlı
+[00:00:22] canlı göstereceğim. birlikte bir
+[00:00:24] uygulama geliştireceğiz ve videonun
+[00:00:25] sonunda hiçbir soru işareti kalmadan sen
+[00:00:28] de fikrini ürüne dönüştürebilir hale
+[00:00:30] geleceksin. Ayrıca son adımda uygulamayı
+[00:00:32] canlıya alırken [müzik] Hostingeri
+[00:00:34] kullanacağız. Size özel indirimli linki
+[00:00:36] ve kuponu da açıklamanın en üstüne
+[00:00:38] bırakıyor olacağım. Hazırsan başlayalım.
+[00:00:40] Burada üç adımımız var. Önce fikir nasıl
+[00:00:42] inşa edilir? Ürün nasıl bulunur?
+[00:00:44] Sonrasında Cloud MD ile Cloud Cod'a
+[00:00:46] geçip geliştireceğiz ürünümüzü ve
+[00:00:48] ardından uygulamayı yayına alacağız. Üç
+[00:00:50] adımda ilerleyeceğiz. Buradaki her bir
+[00:00:52] adım önceki adımda mutlaka bağlantılı. O
+[00:00:54] yüzden atlamamanda fayda var. Şimdi
+[00:00:56] başlayalım. Fikir nasıl inşa edilir? Bu
+[00:00:59] kısımda sıfırdan bir fikir inşa ediyor
+[00:01:00] olabilirsin ya da bir fikrin vardır.
+[00:01:02] Yine de bunu doğrulamak için buraya
+[00:01:04] dikkat etmen gerekiyor. Öncelikle ben
+[00:01:06] bir ürün çıkartacağım. Bir uygulama
+[00:01:07] çıkartacağım ve bundan gelir elde etmek
+[00:01:09] istiyorum. Yani satış yapmak istiyorum.
+[00:01:11] Benim satış yapabilmem için bir problemi
+[00:01:13] çözüyor olmam lazım. Mutlaka bir
+[00:01:15] problemi çözen bir ürün geliştirmem
+[00:01:17] lazım. O yüzden burada bir üçgen var
+[00:01:19] aslında. Satış eşittir problem çözmek
+[00:01:22] diyebiliriz. Ve o problemi çözmek için
+[00:01:24] de bir ürüne ihtiyacım var. Yani zaten
+[00:01:26] burada problem ürünü mutlaka doğuruyor.
+[00:01:29] Öncelikle problemi tespit etmemiz lazım
+[00:01:31] ki ürünü çıkartalım ve satışı yapalım.
+[00:01:34] Peki problemi nasıl bulacağız? Dünyada
+[00:01:36] birçok sektör var. Birçok niş alan var.
+[00:01:38] Burada inanılmaz fazla problem var
+[00:01:40] aslında. Kendi iş tecrübelerinizden
+[00:01:42] yararlanarak geçmişte bizzat
+[00:01:43] gözlemlediğiniz problemler ya da
+[00:01:45] çevrenizde gördüğünüz problemler
+[00:01:47] olabilir. Bunlara odaklanabilirsiniz ya
+[00:01:49] da sezgisel olarak piyasayı araştırıp
+[00:01:51] problemleri tespit edebilirsiniz. Şimdi
+[00:01:53] ben burada çok basit bir örnek vereceğim
+[00:01:54] kendi uygulamam üzerinden ve aslında
+[00:01:56] mantığı direkt kavrayabileceksiniz.
+[00:01:58] Burada ben kapatanı diye bir uygulama
+[00:02:00] geliştirdim ve Ali de benim resellerım,
+[00:02:02] benim müşterim. Bu kapatan EI uygulaması
+[00:02:05] Ali'ye aslında bir altyapı sağlıyor.
+[00:02:07] Yani Ali bu uygulamayı kullanarak AI
+[00:02:10] satış ajanları kurabiliyor. Kısaca
+[00:02:12] chatbot da diyebiliriz. Bunları
+[00:02:13] işletmelere gidiyor ve satıyor. Çok
+[00:02:15] basit bir şekilde Ali'nin teknik bilgisi
+[00:02:17] yok. Şimdi bu uygulama zaten Ali'nin
+[00:02:19] teknik bilgisinin olmamasını çözüyor. Bu
+[00:02:22] problemi çözüyor. Ama Ali'nin burada bir
+[00:02:24] problemi daha var. O da müşterilere
+[00:02:26] ulaşmak. Müşterilere nasıl ulaşacak?
+[00:02:28] Ali'nin burada soru işareti var
+[00:02:29] kafasında. Biz de bu soru işaretini
+[00:02:31] gidermek istiyoruz. Bu video içerisinde
+[00:02:33] yapacağımız uygulama çıkartacağımız ürün
+[00:02:35] bunun üzerine. Şimdi bu noktada ben
+[00:02:37] biraz düşünüyorum. Ali işletmelere nasıl
+[00:02:39] ulaşabilir? Instagram'dan ulaşabilir.
+[00:02:41] Çünkü işletmeler Instagram'dan çok fazla
+[00:02:43] DM alıyor. E-ticaret sitelerine
+[00:02:45] ulaşabilir. Herhangi bir web sitesi olan
+[00:02:47] işletmeye dahi ulaşabilir. Çünkü web
+[00:02:49] site varsa web chat ekleyebilir oraya.
+[00:02:51] Diyelim ki yerel işletmelere ulaşmak
+[00:02:53] istiyor. Biraz düşündüm ve burada bir
+[00:02:55] ürün ortaya çıkartımı. Orada biraz artık
+[00:02:57] beyin fırtınası yapıyorum. Ve diyorum ki
+[00:02:58] Google Maps'ten işletme bilgilerini
+[00:03:00] çıkarabileceği bir uygulama yapalım. Ali
+[00:03:03] bu uygulamaya girsin. Desin ki ben
+[00:03:05] diyetisyenlere ulaşmak istiyorum.
+[00:03:06] Diyetisyen yazsın. Konumu, lokasyonu
+[00:03:08] yazsın. Oradaki işletmeleri çıkarsın.
+[00:03:10] Sonra bunlara ulaşsın ve kendi ürününü
+[00:03:12] satabilsin. Çünkü birçok işletmenin
+[00:03:14] adresi var ve bunlar Google Maps'e
+[00:03:15] işaretliyorlar. Web sitelerini de oradan
+[00:03:17] görebiliyor Ali. O yüzden burası altın
+[00:03:19] madeni diyebiliriz. Tamamdır. Fikrimi,
+[00:03:21] ürünümü seçtim. Hepsini toparlıyorum ve
+[00:03:24] artık cloud MD oluşturmaya geçiyorum.
+[00:03:26] Mutlaka cloud COD'da uygulama
+[00:03:28] geliştireceksek bu dosyayı hafızamıza
+[00:03:30] kazıyoruz. Cloud MD. Şimdi bunu nasıl
+[00:03:32] oluşturacağız peki? Burada ben normal
+[00:03:34] cloud'un web chatini kullanıyorum. Siz
+[00:03:36] GPT veya Cemina'yı da kullanabilirsiniz.
+[00:03:39] Amaç burada herhangi bir yapay zekaya
+[00:03:40] gitmek ve Cloud MD'yi oluşturmak. Tabii
+[00:03:43] burada vereceğim bilgiler çok değerli.
+[00:03:44] Öncelikle fikrimi anlatıyorum. Az önce
+[00:03:46] inşa ettiğimiz fikir aslında burası.
+[00:03:48] Bakın Kapatanay işletmeleri satış ajanı
+[00:03:50] birazcık burada tanıtıyorum. Şimdi
+[00:03:52] üzerinden geçmeyeceğim. Bu uygulama
+[00:03:54] klinikler, emlak ofisleri, restoranlar,
+[00:03:56] güzellik merkezlerini bulacak ve Ali'ye
+[00:03:58] listeleyecek. Olay şu. Kısaca fikri
+[00:04:00] özetledim. Sonra teknik olarak şimdi
+[00:04:01] burada dikkat edeceğiniz noktalar. Epify
+[00:04:03] diye bir uygulama var. Ben burada Google
+[00:04:05] Maps scraperlarını kullanabiliyorum. Bu
+[00:04:07] bilgi benim hafızamda var ama olmasa
+[00:04:10] bile ne yazacaktım? Google Map Scraper'ı
+[00:04:12] nereden bulabilirim? Bunu da araştır
+[00:04:14] diyebilirdim ama bildiğim için yazdım.
+[00:04:15] Zaten ne olduğunu birazdan göstereceğim.
+[00:04:17] Burada veri tabanı olarak Superbase'i
+[00:04:19] kullanacağız diyebilirsiniz siz de.
+[00:04:20] Aynen bu şekilde çok basit. MCP ile
+[00:04:23] cloud COD'a bağlayacağız. Göstereceğim.
+[00:04:25] Uygulama NextJS ile geliştirilecek. Bu
+[00:04:27] önemli ve Node GS hosting ortamında
+[00:04:29] deploy edilebilir olacak. Bu da önemli.
+[00:04:31] Başlangıçta her zaman hedefimiz
+[00:04:33] prototiplik MVP app oluşturmak. Landing
+[00:04:35] page yok dedim. Direkt app odaklı
+[00:04:37] olacak. Yani bir tanıtım sayfası
+[00:04:38] olmayacak uygulamanın. Ben istiyorum ki
+[00:04:40] direkt bassınlar ve kullanmaya
+[00:04:42] başlasınlar. Kullanıcı login girişi
+[00:04:44] yapabilir. Kayıt olabilir. Burada
+[00:04:46] tasarımı vermek zorunda değilsiniz ama
+[00:04:47] ben kendi uygulamam kapatayın renklerini
+[00:04:49] vermek istedim ve diyorum ki senin
+[00:04:51] görevin bana Cloud MD'yi oluşturmak.
+[00:04:53] Kısacası ne yapacağız? Fikir ve teknik.
+[00:04:56] Hatta tekniği yazmaya da bilirsiniz.
+[00:04:58] Sadece fikri anlatsanız bile o Cloud
+[00:05:00] MD'yi oluşturacaktır. Cloud MD dosyamı
+[00:05:02] oluşturdu. Buradan indiriyorum ve vs
+[00:05:05] kodu açıyorum. Şimdi nereden
+[00:05:06] indireceksiniz? Direkt olarak Google'a
+[00:05:09] VS Code yazıp bu siteden
+[00:05:10] indirebilirsiniz. Amacımız içerisinde
+[00:05:12] cloud kodu çalıştırmak. Ardından Note
+[00:05:14] GS'i aratıyorsunuz. Note GS ve bunu
+[00:05:17] indiriyorsunuz. Kuruyorsunuz. Sonrasında
+[00:05:19] Google'a şunu yazıyorum. NPM Cloud Code
+[00:05:22] Install. Karşıma çıkan ilk siteye
+[00:05:23] giriyorum ve ardından şu komutu
+[00:05:26] çalıştırıyorum. Bu komutunu da direkt
+[00:05:27] terminalinizde çalıştırsanız olur zaten.
+[00:05:29] Artık cloud kodu kurmuş oldunuz.
+[00:05:31] Ardından VS kod geri döndüm. Buradan
+[00:05:33] open folder diyorum. Yeni bir klasör
+[00:05:35] açıyorum bilgisayarımda. Burada isim
+[00:05:37] verebilirim. Lead Finder diyelim. Proje
+[00:05:39] klasörümü açtım. solda görünüyor.
+[00:05:42] Ardından terminali açmam gerekiyor.
+[00:05:43] Burada view kısmından terminal diyorum.
+[00:05:46] Ctrl'li shift tırnağı tıklayarak da
+[00:05:48] açabilirsiniz. Cloud yazıyorum ve
+[00:05:50] cloud'u başlatıyorum. Bu kadar. Artık
+[00:05:52] açıldı. Hesabınıza giriş yapmanızı
+[00:05:53] isteyecektir tabii. Bende giriş yapıldı.
+[00:05:55] Şimdi az önce indirdiğim cloud MD
+[00:05:57] dosyasını buraya sürükleyip bırakıyorum.
+[00:05:59] Bu kadar aslında geldi. Şu anda
+[00:06:01] klasörümün içerisinde. Şurada bakın
+[00:06:03] görebiliyoruz içeriğini. Şimdi benim
+[00:06:05] yapmam gereken cloud koda bunu
+[00:06:07] okutturmak. Ne yapacağım? Burada bir add
+[00:06:09] işareti koyuyorum ve cloud 4.md diye
+[00:06:12] çıkıyor. Ama şunu yeniden adlandıralım.
+[00:06:14] 4 diye görünmesin burası mutlaka cloud
+[00:06:16] md bu şekilde olacak. Ardından seçiyorum
+[00:06:19] ve diyorum ki dosyayı oku. Planlama
+[00:06:22] yapalım diyorum. Mutlaka planlama
+[00:06:23] yapalım demem lazım. Sonra shift tab
+[00:06:25] butonuna basıyorum ve plan modunu
+[00:06:27] alıyorum. Burada garanti olması
+[00:06:29] açısından. Yani bir aksiyon almasın.
+[00:06:31] Öncelikle planlayalım. Hem bu şekilde
+[00:06:32] gereksiz token yakmamış olursunuz. Şimdi
+[00:06:34] plan modunu aldığınızda size bazı
+[00:06:36] sorular soruyor burada. İşte stili nasıl
+[00:06:38] olacak, servis erişimi nasıl olacak
+[00:06:40] vesaire. Önerilenleri seçiyorum ben
+[00:06:42] genellikle çok aksi bir durum olmadığı
+[00:06:44] sürece 1'e bastım devam ediyorum. Diyor
+[00:06:46] ki Superbase ve epify hesap key durumu
+[00:06:48] nedir? Şimdi bu önemli. Biz bir uygulama
+[00:06:50] yapacağımız zaman o uygulamaya farklı
+[00:06:51] farklı eğer APİ'lar bağlayacaksam
+[00:06:54] bunları almak istiyor Cloud Code. Burada
+[00:06:56] 4'e basıyorum ve diyorum ki mümkünse
+[00:06:58] Supase MCP kullanılarak ilerlenecek.
+[00:07:01] APC'lerimi vereceğim. Epify için de
+[00:07:04] apikimi vereceğim diyelim. Bu şekilde
+[00:07:07] yapalım. Yani şu anda istiyor ama
+[00:07:09] acelesi de yok. Önce bir planlamayı
+[00:07:11] yapalım. İlk uygulama kapsamı nasıl
+[00:07:13] olsun diyor. Burada tam MVP
+[00:07:15] çıkartabiliriz. Önerilen seçiyorum. 1'e
+[00:07:17] basıyorum. Tüm cevaplarımı sonrasında
+[00:07:19] onaylıyorum. Şimdi Cloud Code burada
+[00:07:20] kapsamlı bir plan çıkartıyor. Aşama 1,
+[00:07:23] aşama 2 vesaire. Hepsini tek tek okumama
+[00:07:25] gerek var mı? Yok. Burada sadece dikkat
+[00:07:27] edeceğim şeyler anlamını bilmediğim
+[00:07:29] şeyler değil anlamını bildiğim şeyler.
+[00:07:31] Yani super base mcp dedim ya az önce.
+[00:07:33] Burada suabase mcp ile aşama 3te tamam
+[00:07:36] demek ki anlamış beni. Epify demiştim.
+[00:07:38] Epify entegrasyonu demiş. Tamam tabii ki
+[00:07:40] de bir dashboard olacak. Leadler
+[00:07:42] listelenecek. Yani zaten biraz bakınca
+[00:07:44] şu aşamanın başlıklarını okusanız dahi
+[00:07:46] cloud kodun anladığını görüyorsunuz.
+[00:07:48] Sonra diyor ki benden kullanıcıdan
+[00:07:49] ihtiyaç duyulanlar zaten o an geldiğinde
+[00:07:52] sizden isteyecektir. Şu an bir aksiyon
+[00:07:54] almama gerek yok. diyor ki aşama 1'in
+[00:07:56] sonunda senden ben supa base proje
+[00:07:58] URL'ni ve API ke'lerini isteyeceğim.
+[00:08:00] Baştan sona aslında her şey hazır. Benim
+[00:08:03] tek yapmam gereken ona onay vermek.
+[00:08:05] Burada eğer max plandaysanız otomodu
+[00:08:07] alabilirsiniz. Prodaysanız approve edit
+[00:08:09] alabilirsiniz. Şu anda ben otomodu aldım
+[00:08:11] ve birazcık bekliyorum. Şimdi altyapı ve
+[00:08:13] iskeleti tamamladı cloud code. Burada
+[00:08:15] devam etmek için bazı yapmam gereken
+[00:08:17] şeyler var. Birincisi noktaenv.lokal
+[00:08:21] dosyası oluştur diyor. Neden? Çünkü
+[00:08:23] benim Spaase'ime, Epify'ıma bağlanması
+[00:08:25] gerekiyor ki veri ekleyebilsin.
+[00:08:28] Epify'dan da Google Maps verilerini
+[00:08:30] çekebilsin. Çok basit. Sadece sol tarafa
+[00:08:32] gidiyorum. Eğer bana bir dosya oluştur
+[00:08:34] derse şunu da yazabiliriz. Sen oluştur,
+[00:08:36] ben eklerim de diyebiliriz veya biz de
+[00:08:38] oluşturabiliriz. Bunun için solda bakın
+[00:08:40] dosya oluştura tıklıyorum ve noyn
+[00:08:42] ynv.lal yazıyorum. Oluşturdum. Bana
+[00:08:44] şurada bir de örnek bir dosya
+[00:08:46] oluşturmuş. Hani bunu direkt kopyala
+[00:08:47] yapıştır diyor sen şuraya. Ve sonrasında
+[00:08:50] bakın karşılığına şöyle göreceksiniz.
+[00:08:53] Burada diyor ki, "Supa Base'in URL'sini
+[00:08:55] gir, Anon K'yi gir, roll KE'i gir,
+[00:08:57] işte'daki API tokenını gir vesaire.
+[00:09:00] Şimdi bunları alacağız. Ne tür uygulama
+[00:09:02] oluşturuyor olursanız olun mantık
+[00:09:03] aynıdır. Cloud Code size git buradan
+[00:09:06] apik'yi al getir der ve siz gidip
+[00:09:08] verirsiniz. Bunun için örneğin Epify'e
+[00:09:10] geldim. Kolay yoldan başlayalım. Net
+[00:09:12] Epify burada birçok içerisinde aktör
+[00:09:14] barındırıyor. Kendi yapacağınız
+[00:09:16] uygulamalar için de ben öneriyorum.
+[00:09:17] Örneğin Google Map Scraper'ı
+[00:09:19] kullanacağız biz burada. Siz belki
+[00:09:21] TikTok Scraper'ı kullanarak bir uygulama
+[00:09:23] yapıyor olabilirsiniz. YouTube Scraper
+[00:09:25] var, Instagram Scraper var,
+[00:09:26] e-commerce'da, e-ticaretle alakalı yine
+[00:09:28] birçok şey var. LinkedIn var, Twitter
+[00:09:30] var, her şey var. Benim yapacağım şey
+[00:09:32] şu. Buradan tek bir apı almak. Setting
+[00:09:35] kısmına geliyorum sol alttan. Genelde
+[00:09:37] her uygulama için aynıdır. Setting'e
+[00:09:38] gelirsiniz ve burada bir API tabı
+[00:09:40] görürsünüz. Eğer bunu da yapamazsanız
+[00:09:42] CloudCO'a sorun. Ben nereden alacağım
+[00:09:44] linkini ver deyip linke gidebiliriz.
+[00:09:46] Buradan new token diyorum. İsim
+[00:09:48] veriyorum. Oluşturuyorum. Çok önemli
+[00:09:50] değil. Kopyalıyorum. VS COD'a geri
+[00:09:52] döndüm. Şurada eşittir işaretinden sonra
+[00:09:55] yapıştırıyorum. Bu kadar. Şimdi gelelim
+[00:09:57] Supase. Burası önemli. Veri tabanı
+[00:09:59] olmazsa uygulama olmaz. Veri tabanını
+[00:10:01] nereden oluşturacağız? Supase.com'a
+[00:10:03] giriyorsunuz. Bir hesap açıyorsunuz.
+[00:10:05] Tamamen ücretsiz. Ardından organizasyon
+[00:10:07] oluşturmanızı isteyecektir. Girdikten
+[00:10:09] sonra da bir proje oluşturacaksınız.
+[00:10:12] Önemli olan kısım burası. Burada projeye
+[00:10:14] bir isim veriyorum. Leadfer finder
+[00:10:16] diyelim ve bir şifre belirliyorum. Bu
+[00:10:17] şifre mutlaka önemli bir yere kaydedin.
+[00:10:20] Burada bana Asya bölgesini önerdi. Sorun
+[00:10:22] değil. Burada işaretlemeler aynen
+[00:10:24] kalabilir. New project dedim ve
+[00:10:26] oluşturuyorum. Ardından böyle bir ekran
+[00:10:27] beni karşılıyor. Merak etmeyin burada
+[00:10:29] hiçbir şeyi böyle ayrıntılı bir şekilde
+[00:10:31] öğrenmeyeceksiniz, kullanmayacaksınız.
+[00:10:33] Bizim yerimize cloud code kullanacak. O
+[00:10:35] yüzden ona yeter ki biz K verelim.
+[00:10:37] Bağlanabilsin. Project setting'e
+[00:10:39] gidiyorum. Yine setting'e geldim. Bakın
+[00:10:41] burada API ke kısmını buluyorum. API
+[00:10:43] KE'ye geldim. Şurada sağda legacy anon
+[00:10:46] ve servis rolü görüyorsunuz. Tıkladım
+[00:10:48] buraya. Bakın ikisi de açıldı. Ne
+[00:10:50] demişti zaten benden burada? Anon key'yi
+[00:10:52] ve roll key'i istiyorum senden. Tamam.
+[00:10:54] Kopyalıyorum bunu. Üsttekini kopyaladım.
+[00:10:57] Yapıştırdım. Alttakini kopyaladım. Onu
+[00:10:59] da alta şu şekilde yapıştırdım. Şimdi
+[00:11:02] benden bir de URL istiyor. UR nerede?
+[00:11:04] URL'de project overweave yani ana
+[00:11:07] sayfadaydı. Şuradaki bizim URL'miz.
+[00:11:09] Project URL'yi kopyaladım. Buraya
+[00:11:11] yapıştırdım. Bu kadar. bağlantıları
+[00:11:13] gerçekleştirdik. Bir de MCP bağlantısını
+[00:11:16] yapacağız ama önce bunu yapalım dedik ve
+[00:11:18] kapattık. Şimdi burayı burada işareti
+[00:11:20] koyup dosyayı işaretliyorum. Gerekli
+[00:11:22] APK'lerimi girdim. MCP Superabase
+[00:11:25] bağlantısını
+[00:11:26] MCP Superbase kurar mısın? Gerekirse
+[00:11:30] token vereyim diyelim. Bunu da yapalım.
+[00:11:32] Bakın MCP'yi ben hazırladım dedi. Şimdi
+[00:11:35] git bir de token al dedi. Bu token MCP
+[00:11:37] için. Bunu farklı bir yerden alacağız. O
+[00:11:39] yüzden follow link diyorum. Burada bana
+[00:11:41] linki verdi. Bakın gidiyorum direkt
+[00:11:42] link'e. Şurada bir token oluşturuyorum.
+[00:11:45] Daha önce de oluşturmuşum. Sil 2 diye
+[00:11:47] bir isim verdim. Buradan never diyorum.
+[00:11:49] Hiçbir zaman bitmesin. Generate token
+[00:11:51] dedik. Ve bakın buraya çıktı token'ım.
+[00:11:53] Şuradan kopyalıyorum. Mutlaka kaydedim
+[00:11:56] bir yere. Yine token'ı bana ver diyor.
+[00:11:58] Verdim. Ve sonrasında bakın cloud kodu
+[00:12:00] yeniden başlatmam gerekiyor mutlaka.
+[00:12:02] Şimdi VS Codu'u yeniden başlattım.
+[00:12:04] Cloud'u çalıştırıyorum ve buradan slash
+[00:12:06] resume diyorum. Resume deyince ben eski
+[00:12:09] konuşmama gidebiliyorum. tıkladım.
+[00:12:10] Sonrasında slmcp diyorum ve superbase'in
+[00:12:13] bağlı olduğunu görüyorum. Sonra geri
+[00:12:15] dönüyorum ve diyorum ki super base
+[00:12:17] bağlı. Doğruladım doğruladım diyorum.
+[00:12:20] Tabloları oluşturabilirsin. Zaten
+[00:12:22] kaldığı yerden sohbeti bildiği için
+[00:12:24] devam ediyor. Evet her şey bitti. Burada
+[00:12:26] local host'ta çalıştır dedim en sonda.
+[00:12:29] Eğer siz de uygulamayı test etmek
+[00:12:30] istiyorsanız böyle yazacaksınız. Sonra
+[00:12:32] bana bir link veriyor. Local host 3000.
+[00:12:34] Bu linke gidiyorum. Linke'e geldim.
+[00:12:36] Hesabım yok. Önce bir kayıt olalım.
+[00:12:38] Deneyelim. Burada spaase doğrulama
+[00:12:40] isteyecektir. Email adresine tıklıyorum
+[00:12:42] ve sonrasında doğruladı. Şimdi giriş
+[00:12:44] yapıyorum uygulamaya tekrardan. Bakın
+[00:12:46] geldi. Şu an tasarım önemli değil.
+[00:12:48] Çalışıyor mu, çalışmıyor mu? Buna
+[00:12:50] bakalım. İkiye ayrılmış. Arama
+[00:12:51] yapabiliyorum. Kaydedilenlere tıklayıp
+[00:12:53] kaydedebiliyorum. Burada şehir
+[00:12:55] seçiyorum. Sonrasında da emlak, kafe,
+[00:12:58] spor salonu, kuaför vesaire
+[00:12:59] seçebiliyorum. Şimdi İstanbul, Kadıköy
+[00:13:01] diyelim. Neleri bulsun buradaki bize?
+[00:13:04] Klinikleri bulsun. Aramayı başlat dedim.
+[00:13:06] Evet, sonuçlar geldi. Psikologlar çıktı.
+[00:13:08] Klinikler çıktı. Birçok fazla aslında
+[00:13:10] burada numara var, iletişim adresi var.
+[00:13:12] Varsa web sitelerine giriş
+[00:13:14] yapabiliyorum. Örneğin burada web
+[00:13:16] sitelerini de koymuş. Her şey hazır.
+[00:13:18] Şimdi Ali'nin sorunu çözüldü mü? Size
+[00:13:20] soruyorum. Ali müşterilere ulaşmak
+[00:13:22] istiyordu ve sorunu 10 dakikada çözen
+[00:13:24] bir uygulama yaptık. Şimdi Ali ne
+[00:13:25] yapabilir? Buradaki numaraları
+[00:13:27] yazabilir. Sitelerine göz atabilir.
+[00:13:29] Belki yakınındaysa adresine gidebilir.
+[00:13:31] Bir şekilde sosyal medyasına vesaire
+[00:13:33] ulaşır. Örneğin burada kaç kişi var? 20
+[00:13:36] tane işletme var. 20'sine ulaşır. En
+[00:13:38] azından iki tane 3 tanesini bağlar.
+[00:13:39] Satışını yapar. O zaman ne oldu? Problem
+[00:13:41] doğrulandı. Çözüm doğrulandı. Uygulama
+[00:13:44] hazır. Artık ekstraları sonra sonrasında
+[00:13:46] tasarımı değiştirebilirim. Kredi
+[00:13:48] sistemi, aylık paketler ekleyebilirim
+[00:13:50] vesaire. Peki Ali bu benim yaptığım
+[00:13:53] uygulamaya nereden ulaşacak? Şu anda bu
+[00:13:55] böyle cihazımda duruyor. İşte burada da
+[00:13:57] yayını alma kısmına geçiyoruz. Bunun
+[00:13:59] için iki adım var. Birincisi Gitup'ta
+[00:14:01] bir hesap açıyorsunuz tamamen ücretsiz
+[00:14:03] şekilde. Sonrasında repository kısmına
+[00:14:06] geliyorsunuz. Buradan bir repo
+[00:14:07] oluşturuyorsunuz. New deyip buna bir
+[00:14:09] isim veriyorum. Leadfer finder. Burada
+[00:14:11] visibility'yi mutlaka private yapıyorum.
+[00:14:14] Sonrasında create diyorum. Şimdi bu link
+[00:14:16] önemli. Linki'i aldım. VScod'a gittim ve
+[00:14:19] buraya yapıştırdım. Öncelikle cloud
+[00:14:20] Cod'a diyorum ki Gitub'a projeyi pushl.
+[00:14:24] Bu kadar linki verdim ve pushl dedim.
+[00:14:25] Şimdi burada private bir repoyu
+[00:14:27] yayınlayacağı için bizden token istiyor.
+[00:14:29] Tekrardan gittik. Buraya bakın her şeyi
+[00:14:31] söylemiş zaten. Token name'e bunu ver
+[00:14:33] diyor. Linke gittim. Token name'i
+[00:14:35] yazdım. kaç günlüğüne vereceğimi
+[00:14:37] seçebiliyorum. 30 60 buradan no
+[00:14:39] expression seçebilirsiniz yine. Sonra
+[00:14:41] only select repository diyorum ve kendi
+[00:14:44] yayınlayacağımı seçiyorum. Lead Finder'ı
+[00:14:46] seçiyorum burada. Sonrasında bana hangi
+[00:14:48] izinleri vereceğimi söylüyor.
+[00:14:49] Permissions kısmından content'i ver dedi
+[00:14:52] bana. Seçiyorum. Read and write diyorum
+[00:14:54] mutlaka. Generate token diyorum. Burada
+[00:14:57] mutlaka yine token'ı kaydediyorum bir
+[00:14:59] yere ve cloud code'a da veriyorum.
+[00:15:00] Kendisi şimdi bağlayacaktır. Bakın
+[00:15:02] repomun içi burada dolmaya başladı.
+[00:15:04] Çünkü cloud code artık buraya yüklüyor
+[00:15:06] her şeyi. Tamamdır. Burada da push
+[00:15:07] başarılı dedi. Şimdi gelelim yayını
+[00:15:09] almaya. Gitaba da yükledik. Burada tek
+[00:15:11] tıkla deploy edeceğiz. Artık herkes
+[00:15:13] internette erişebilecek hale gelecek.
+[00:15:16] Şimdi burada Hostinger'in nots
+[00:15:17] deployment hizmetini kullanacağız.
+[00:15:19] Geldim burada business paketi seçiyorum.
+[00:15:21] Neden? Bu soru da bana çok fazla
+[00:15:23] geliyor. Nerede deploy edebilirim
+[00:15:24] vesaire diye ve hangi özelliklere dikkat
+[00:15:26] etmeliyim? Şimdi açıklıyorum. Burada
+[00:15:28] Hostinger'in business panelini tercih
+[00:15:30] edebiliriz. Az önce yaptığımız uygulama
+[00:15:32] gibi 5 tanesini daha burada deploy
+[00:15:33] edebiliyorsunuz. Yayına alabiliyorsunuz.
+[00:15:35] Web site başına 5 e-posta kutusu
+[00:15:37] veriyor. Oldukça değerli. Uygulamalarda
+[00:15:39] mutlaka görüyorsunuzdur.
+[00:15:40] Infoapatanayayayayay.com,
+[00:15:41] destekkapatanayay.com. Bu bizi
+[00:15:43] profesyonel gösterir. Bu posta
+[00:15:45] kutularını kullanabilirsiniz. Burada
+[00:15:46] Gitup entegrasyonu çok değerli. Az önce
+[00:15:48] Gitup'a repoyu yükledik. Şimdi tek tıkla
+[00:15:50] içe aktaracağız. Domainlerime kendi
+[00:15:52] domainlerimi bağlayabiliyorum ve SSR
+[00:15:54] sertifikası da ücretsiz geliyor. Yani o
+[00:15:56] linke girdiklerinde kişiler güvenli
+[00:15:58] değil bağlantısını görmüyorlar. Plan
+[00:16:00] ekranına geldim. Şimdi bu arada
+[00:16:02] aşağıdaki açıklama linkinden giderseniz
+[00:16:04] ve İsa Nurdoğlu kuponunu burada
+[00:16:06] kullanırsanız size %10 indirim
+[00:16:08] uygulayacaktır Hostinger. Bu şekilde
+[00:16:11] paketi daha avantajlı alabilirsiniz. 12
+[00:16:13] ay ve üzeri. Sürelerde geçerli ki bir
+[00:16:15] aya göre çok daha avantajlı oluyor
+[00:16:17] zaten. Bir yıllık almanızı öneririm.
+[00:16:19] Sonuçta yaptığımız projenin sürekli açık
+[00:16:21] olması gerekiyor. Sabit fiyat garantisi
+[00:16:23] var. Hiçbir şekilde bir depolama vesaire
+[00:16:25] arttığında ekstra fatura olmayacaktır.
+[00:16:27] Bu arada parantez açayım. Aynı kuponu
+[00:16:29] Hostinger'in diğer hizmetlerinde VPS,
+[00:16:31] hosting vesaire yine kullanabilirsiniz.
+[00:16:34] Örneğin burada KVM2 VPS paketinde
+[00:16:36] işledim ve uygulandı. Bu VPS'leri de Nat
+[00:16:39] için veya Open Cloud kurulumları için
+[00:16:41] vesaire kullanabilirsiniz. Satın
+[00:16:43] aldıktan sonra Ostinger'in çok basit bir
+[00:16:44] paneli var. Burada web site bölümüne
+[00:16:46] geliyorum. Note JS kısmına geliyorum ve
+[00:16:48] paketim burada tanımlanıyor. Direkt size
+[00:16:50] onboarding yani setup ekranına da
+[00:16:52] atabilir. Setup ekranı da şu şekilde
+[00:16:54] gözüküyor. Geldi. Şimdi burada ben yeni
+[00:16:56] bir site oluşturmayacağım. Zaten sitem
+[00:16:57] var. O yüzden migrate diyorum. Bu kısım
+[00:17:00] önemli. Şurada küçük bir buton olacak
+[00:17:01] çünkü notde js web app şeklinde
+[00:17:03] yayınlamak istiyorum diyorum ben.
+[00:17:05] Sonrasında bana domainini bağlamak
+[00:17:06] istiyor musun diye soruyor. Burası da
+[00:17:08] önemli bir detay. İkinci planı atacağım
+[00:17:10] şimdilik. Burada geçici bir domainle
+[00:17:12] devam et diyorum. Sonrasında zaten
+[00:17:14] ekleyebiliyoruz. Bakın gitub'tan import
+[00:17:16] edebilirsin dede. Connect with gitub
+[00:17:18] dedim. Şimdi az önceki hesabımı aslında
+[00:17:20] bağlayacağım. Burada only select
+[00:17:22] repository deyip lead finder repomu
+[00:17:25] şuraya bağlıyorum. Install diyorum. tek
+[00:17:27] tıkla şu anda çekecektir kendisi.
+[00:17:29] Seçtim. Continue diyorum. Bakın
+[00:17:31] Hostinger burada tüm işte teknolojileri,
+[00:17:34] versiyonları vesaire çekti. Şimdi burası
+[00:17:36] önemli. Environment variable. Az önce
+[00:17:38] biz apı vesaire ekledik hatırlıyorsanız.
+[00:17:40] Şuradaki noenv.lal dosyasında. Bunun bir
+[00:17:44] kopyasını mutlaka oluşturuyorum. Nasıl
+[00:17:46] oluşturacağım? Şimdi bu M dosyasına
+[00:17:48] nasıl ulaşacağım? Direkt masaüstündeki
+[00:17:50] klasöre gidiyorum. Şurada zaten
+[00:17:52] görüntüleyebiliyorum. Bakın burada.
+[00:17:54] Sonrasında environment variable'a add
+[00:17:56] diyorum. import.n diyorum. Dosyamı
+[00:17:58] seçiyorum. Aç dedim. Direkt buraya
+[00:18:00] geldi. Kendim manuel eklemek yerine
+[00:18:02] dosyadan aktardım. Finish dedim. Deploy
+[00:18:04] ediyorum ve birazcık bekliyorum. Evet,
+[00:18:06] yayınlama hazır. Linki verdi. Linke'e
+[00:18:08] gittiğimde zaten erişebiliyorum. Şu anda
+[00:18:10] herkes bu linkten erişebilir. Ama
+[00:18:12] dashboard'a bir gidelim. Orada biz kendi
+[00:18:14] domain'imizi bağlayalım. Şu şekilde beni
+[00:18:16] bir dashboard karşıladı. Burası hiç kafa
+[00:18:18] karıştırıcı olmasın. Burada herhangi bir
+[00:18:20] ayar gerektiğinde direkt ekran görüntüsü
+[00:18:22] alıyorum. Cloud Cod'a atıyorum ve bana
+[00:18:24] burada nerede tıklayacağımı, ne
+[00:18:25] yapacağımı söylüyor. Aslında sıkça
+[00:18:27] gireceğimiz iki yer var. Deployment
+[00:18:29] kısmı. Burası cloud koda biz bir
+[00:18:31] değişiklik yaptırdığımızda ona deploy et
+[00:18:33] dediğimizde, pushta dediğimizde buraya
+[00:18:35] düşüyor. Sonra tıklıyorum. Örneğin
+[00:18:36] burada logları görüntüleyebiliyorum. Bir
+[00:18:38] hatamı aldım. Hemen bunu kopyalıyorum.
+[00:18:40] Cloud kodu'a atıyorum ve değişiklik
+[00:18:42] yapıp tekrardan pushluyor. Bir de
+[00:18:44] environment variable yani biz yeni bir
+[00:18:46] uygulama eklediğimizde, bir apı key
+[00:18:48] eklediğimizde burası bizim lokalimizdi.
+[00:18:50] Unutmayın cloud code lokale ekler. Ama
+[00:18:52] der ki senin bir de gidip panelde
+[00:18:54] eklemen lazım der. İşte orada
+[00:18:56] ekleyeceğimiz kısım burası aslında.
+[00:18:58] Şimdi biz domain'imizi bağlayalım.
+[00:18:59] Dashboard'u açtım. Burada bakın connect
+[00:19:01] domain diyor. I understand diyorum.
+[00:19:03] Devam ediyorum. Şimdi burada benim kendi
+[00:19:05] domainlerim hostinger üzerinde. Şöyle
+[00:19:07] yapalım. Getkapatanai.com
+[00:19:10] diyelim. Burada sizin de domaininiz
+[00:19:11] Hostinger üzerinden alındıysa direkt
+[00:19:13] bağlantıyı gerçekleştirir. Farklı bir
+[00:19:15] yerden aldıysanız size DNS IP adresleri
+[00:19:18] verecektir. O IP adreslerini alıp hangi
+[00:19:21] alan adı sağlayıcısından aldıysanız
+[00:19:22] oraya eklemeniz gerekecek. Next diyorum
+[00:19:24] şu anda ben. Bakın direkt ekledi. Bu
+[00:19:26] kadar. Artık linke gittiğimde benim
+[00:19:28] uygulamam açılacaktır. Buradan tekrar
+[00:19:31] giriş yapalım. Her şey aynı. Hiçbir şey
+[00:19:33] değişmiyor. Kullanıcılar vesaire. Bakın
+[00:19:36] İsa yani Ali. Ali'nin yine burada eski
+[00:19:38] çıkarttığı şeyleri görebiliyorum. Artık
+[00:19:40] Ali bu linkten girebilir. Uygulamayı
+[00:19:42] kullanabilir, çıkış yapabilir vesaire.
+[00:19:44] Aslında uygulamayı bitirdiniz ve
+[00:19:46] yayınladınız ama burada geliştirmeye
+[00:19:47] devam edebilirsiniz. Cloud Code
+[00:19:49] tarafında. Orayı da göstermek istiyorum.
+[00:19:51] Yani biz bu az önce yaptığımız işlemleri
+[00:19:53] bir kerelik yapıyoruz. Ardından siz yine
+[00:19:55] cloud kodda burada devam edin
+[00:19:56] geliştirmeye. Örneğin ne ekleyeceğiz?
+[00:19:59] Ödeme altyapısı. Tamam uygulamayı yaptım
+[00:20:01] ama benim ödeme almam gerekiyor tabii
+[00:20:03] ki. Şimdi burada iki yol var. Birincisi
+[00:20:05] manuel almak. İkincisi de bir ödeme
+[00:20:07] altyapısı eklemek. Bunun için de Stripe
+[00:20:09] kullanılabilir. Ama Stripe kullanmak
+[00:20:11] için Türkiye dışında bir yerde
+[00:20:13] şirketinizin olması gerekiyor. Yurt
+[00:20:15] dışında İngiltere'de en hızlı
+[00:20:16] açabilirsiniz. Bunu başlangıçta önermem.
+[00:20:19] Belki şirket açmaya direkt mailli
+[00:20:21] olmayabilirsiniz. Zor bir karar olabilir
+[00:20:22] sizin için. Manuel gidebilirsiniz.
+[00:20:24] Manuel nedir? Şimdi ben diyorum ki free
+[00:20:27] olarak giren her kullanıcıya 20 kredi
+[00:20:30] tanımla diyorum ve bir sonuç bir krediye
+[00:20:33] eşit olsun. Sonrasında paketler tanımla.
+[00:20:36] Kullanıcı giriş yaptığında yukarıda
+[00:20:39] paketleri görebilsin. Orta büyük şekilde
+[00:20:42] maliyet hesabına göre fiyat biç diyelim.
+[00:20:45] Satın al dediğinde toplantı linkine
+[00:20:49] yönlendir. Benim için de bir admin panel
+[00:20:53] yap. Oluştur. Ben oradan kullanıcıların
+[00:20:56] planlarını kontrol edebileyim. En basit
+[00:20:59] budur. Yani ne olacak? Ben yine her
+[00:21:01] giren kişiye öyle bedava sınırsız kredi
+[00:21:04] vermeyeceğim. 20 kredi tanımlıyorum.
+[00:21:06] Senin kredin mi bitti? O zaman pakete
+[00:21:07] geçeceksin. Pakete geçerken de benimle
+[00:21:09] görüşeceksin. Çünkü bir ödeme altyapısı
+[00:21:11] yok. Toplantı linkine yönlendirin. Sorun
+[00:21:13] değil. Zaten inanılmaz bir trafik
+[00:21:15] olmayacak uygulamaya en başta. Ya
+[00:21:16] binlerce kişi gelmeyecek ki hemen Stripe
+[00:21:18] ödeme altyapısı ekleyelim. Burada en
+[00:21:20] fazla 310 kişiye satış yapsam manuel
+[00:21:23] sadece 2 dakikamı alır bu. Toplantılara
+[00:21:25] girerim. Ödemeyi yine ben bir şekilde
+[00:21:27] freelance vesaire birçok platform var.
+[00:21:29] Bununla ilgili fatura kesebileceğiniz
+[00:21:31] faturayı kesin. Sonrasında bu admin
+[00:21:34] panelini neden söyledik Cloud COD'a?
+[00:21:36] Çünkü ben o kişinin kredilerini işte
+[00:21:38] planını değiştirebileyim, kontrol
+[00:21:40] edeyim, gönderiyorum Cloud Cod'a. Benim
+[00:21:41] için bu altyapıyı kuruyor. Tamamdır.
+[00:21:43] Burada Cloud Code değişiklikleri
+[00:21:44] yaptığını söyledi. Her zaman için
+[00:21:46] yaptıktan sonra diyorum ki comit at. O
+[00:21:49] zaten comiti'i atıyor. Ve bakın burada
+[00:21:51] deployment'a düşecek. Birazdan comit'i
+[00:21:53] atsın. Şu anda geldi building'de yani
+[00:21:56] deploy başladı. Bu kadar canlıda
+[00:21:58] güncellemek için tek yapmam gereken
+[00:21:59] comit at pushla demek. Burası
+[00:22:01] completated olduktan sonra linke'e
+[00:22:03] gidiyorum. Şimdi burada bir hesap
+[00:22:05] oluşturdum. Giriş yaptım. Örneğin
+[00:22:07] bakalım paketlerimiz gelmiş mi?
+[00:22:09] İşleniyor dedi. Paketlerim geldi. 20
+[00:22:11] kredim var. Şimdi ne yapabiliyorum
+[00:22:13] burada? Tekrar aramalar yapabiliyorum.
+[00:22:14] Zaten 100 kredi satın alırsam 100 500
+[00:22:18] 2.000 kredi 800. Örneğin satın al dedim.
+[00:22:21] Ne yapacak burada? Kende bir toplantı
+[00:22:23] oluşturabilirsiniz. WhatsApp'a
+[00:22:24] yönlendirebilirsiniz. Fark etmez. Sonra
+[00:22:26] görüştüm örneğin ben bu kişiyle dedim ki
+[00:22:28] ben sana paket sağlayabilirim. O zaman
+[00:22:30] admin hesabımla giriş yapıyorum. Admin
+[00:22:32] hesabımda şurada admin tabını gördüm.
+[00:22:35] Sol tarafta örneğin coeric.com 500
+[00:22:38] tanımladım ben sana diyorum veya özel
+[00:22:40] tanımlayabiliyorum. Çıkış yaptım.
+[00:22:42] Tekrardan girdim 500 kredim tanımlandı.
+[00:22:44] Alın size ödeme kredi sistemi. Bu kadar.
+[00:22:46] Stripe ödeme altyapısının eklediğinizde
+[00:22:49] olan tek şey bunun otomatik
+[00:22:50] gerçekleşmesi. Artık Ali özgürce burada
+[00:22:53] listeleyebilir, aratabilir ve güzellik
+[00:22:55] merkezlerine vesaire ulaşabilir. Artı
+[00:22:57] bunun özellikleri eklenebilir. Bu
+[00:22:58] kişilere otomatik email yazacak, işte
+[00:23:01] satış cümleleri yazacak vesaire vesaire.
+[00:23:03] Tüm adımlar birbiriyle bağlantılıydı.
+[00:23:05] Atlamadan izlediyseniz oldukça faydalı
+[00:23:07] bir eğitim videosu oldu. Baştan sona
+[00:23:09] aslında fikirden satışa kadar, ödeme
+[00:23:12] altyapısına kadar, deploymenta, yayın
+[00:23:14] almaya kadar her şeyi görmüş olduk.
+[00:23:15] Özellikle yayına alma kısmı için
+[00:23:17] Hostinger'deki kampanyadan
+[00:23:19] faydalanmanızı isterim. Link açıklamada.
+[00:23:21] Bu tarz uçtan uca baştan sona videoların
+[00:23:23] gelmesini istiyorsanız beğenip yorum
+[00:23:26] atabilirsiniz. Cloud kodu ile alakalı
+[00:23:28] diğer videolara da göz atabilirsiniz.
+[00:23:30] Kolaylıklar görüşürüz.
