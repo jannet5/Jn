@@ -1,0 +1,1317 @@
+# 
+# https://www.youtube.com/watch?v=cE7SI4FTaCw
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:cE7SI4FTaCw.tr.json3
+
+[00:00:00] WordPress kullanıyorsanız harika haber.
+[00:00:02] Bugün bu videoda cloud design ile nasıl
+[00:00:04] web sitesi oluşturulacağını
+[00:00:05] göstereceğim. Cloud bir tasarım sistemi
+[00:00:06] kullanarak harika web siteleri
+[00:00:08] oluşturmanızı sağlayan bir özellik
+[00:00:09] sundu. Belirli renkleri ve yazı
+[00:00:11] tıplarını seçip bir yapay zeka web
+[00:00:13] sitesine uygulayabilirsiniz. Daha da
+[00:00:14] iyisi aynı yapay zeka web sitesini alıp
+[00:00:17] doğrudan WordPress'e aktarabilirsiniz.
+[00:00:19] Bu videoyu diğerlerinden ayıran şey
+[00:00:21] yapay zeka sitesine aktardığımızda tüm
+[00:00:23] Elementorerini kullanacak olması.
+[00:00:25] [müzik] Buton ve metin modüllerini
+[00:00:27] kullanarak gerçek bir Elementor sitesi
+[00:00:29] gibi çalışacak. Bu WordPress için devrin
+[00:00:32] niteliğinde. Bunu yaptıktan sonra
+[00:00:34] muhtemelen giraha asla sıfırdan site
+[00:00:36] tasarlamayacaksınız.
+[00:00:37] Bugün ne öğreneceğinize ve bunun neden
+[00:00:39] yararlı olduğuna dair bir örnek vermek
+[00:00:41] gerekirse diyelim ki tasarımı cloud
+[00:00:43] design ile yaptınız. Sonunda bir şeyler
+[00:00:45] ortaya çıkardınız ve burada bir projeniz
+[00:00:46] var. Bunu düzenlemenin bir kabus
+[00:00:48] olduğunu biliyorsunuz değil mi? Buradan
+[00:00:50] devam edeceksiniz. Sürekli değişiklikler
+[00:00:52] yapacaksınız. Ondan yardım
+[00:00:54] isteyeceksiniz. şunu yapın diyeceksiniz.
+[00:00:56] Bu size çok krediye mal olur. Ama sadece
+[00:00:58] bu da değil çok fazla zamanınızı alacak.
+[00:01:00] Şimdi bu videoda size bir Cloud Design
+[00:01:02] projesini alıp canlı gerçek bir alan
+[00:01:05] adına nasıl yerleştireceğinizi
+[00:01:06] göstereceğim. Burada görebileceğiniz
+[00:01:08] gibi bu plot dizignda üzerinde
+[00:01:10] çalıştığım ürünün aynısı ve onu canlı
+[00:01:12] bir alan adına koydum. Daha da iyisi
+[00:01:14] canlı bir alan adında olduğu için artık
+[00:01:16] yapay zeka web sitelerimi tamamen
+[00:01:18] düzenleyip özelleştirebiliyorum. Örneğin
+[00:01:21] projeme bir buton eklemek istersem onu
+[00:01:23] sürükleyip bırakabilirim. Onu bilirsiniz
+[00:01:26] işte silebilirsiniz. Metni Daryl Wilson
+[00:01:28] falan gibi istediğim şekilde
+[00:01:29] değiştirebilirim. Aşağı kaydıma vileim.
+[00:01:30] Tüm bölümleri kopyalayabilirim.
+[00:01:32] Sütunları ayarla ilgilirim. Artık yapay
+[00:01:34] zeka web sitelerimle istediğim her şeyi
+[00:01:35] yapabiliriz. İşte yapay zekayı düzgün
+[00:01:38] bir şekilde kullanmanın doğru yolu
+[00:01:40] budur. Tüm projeyi oluşturmak için temel
+[00:01:42] olarak cloud yapay zekasını kullanacağız
+[00:01:44] ve bu bittiğinde ona WordPress'i
+[00:01:46] aktarabilir ve ardından üzerinde
+[00:01:47] değişiklik yapabiliriz. öğeler ekleyip
+[00:01:49] metni ayarlayarak yapay zeka
+[00:01:51] sitelerimizi detaylandırın. Böylece çok
+[00:01:54] zaman kazanırsınız. Dürüstçe yapay
+[00:01:56] zekayı kullanmanın doğru yolu budur.
+[00:01:58] Çünkü artık müşterilere gönderebiliriz.
+[00:02:00] Çalışma süresini ve her şeyi takip etmek
+[00:02:03] için bir eklenti ekleyebiliriz. Bu da bu
+[00:02:05] web sitelerini gerçek ödeme yapan
+[00:02:06] müşterilere teslim etmeyi daha ideal
+[00:02:08] hale getiriyor. Videonun sonunda cloud
+[00:02:11] design projenizi Cloud'dan alacağız.
+[00:02:13] Ardından canlı bir alan adına
+[00:02:14] taşıyacağız. ücretsiz sürükle bırak
+[00:02:17] oluşturucuyla tamamen
+[00:02:18] düzenleyebileceksiniz.
+[00:02:19] Nasıl fikir? Şimdi cloud'a geçelim.
+[00:02:22] Tasarım sistemini kullandığımız için
+[00:02:24] tarayıcı sürümünü kullanıyor
+[00:02:25] olmalısınız. Cloud dizign şu anda
+[00:02:27] yalnızca Pro planındaki kişiler için
+[00:02:29] kullanılabilir. Yani Pro veya Max'i
+[00:02:31] satın alabilirsiniz. Bu da size Cloud
+[00:02:32] Design'a erişim sağlayacaktır. Ücretsiz
+[00:02:34] sürümdeyseniz cloud dizign sistemini
+[00:02:36] kullanmak için Pro'ya yükseltmeniz
+[00:02:38] gerekecektir. Masaüstü değil, cloud
+[00:02:40] tarayıcı sürümünde. Tarayıcı sürümünü
+[00:02:42] kullandığınızdan emin olun. Ürünler
+[00:02:44] altında tasarımı göreceksiniz. Şimdi
+[00:02:46] tasarım sekmesine tıklayıp size cloud
+[00:02:48] dizaynın nasıl kullanılacağını
+[00:02:50] göstereyim. İlk olarak bir tasarım
+[00:02:52] sistemi oluşturacağız. Cloud insanları
+[00:02:54] bu sistemi kullanmaya teşvik ediyor.
+[00:02:56] Dürüstçesi bu çok işe yarıyor. İşte
+[00:02:59] çalıştığım bazı ürünler. Biz bir tasarım
+[00:03:01] sistemi oluşturacağız. Şimdi en üstte
+[00:03:04] tasarım sistemlerini göreceksiniz. Hemen
+[00:03:06] tasarım sistemlerini seçin ve yepyeni
+[00:03:08] bir tane oluşturacağız. Burada oluştura
+[00:03:10] tıklayacağım. Şimdi buna bakıp şöyle
+[00:03:12] dediğinize eminim. Bir dakika. Dosya
+[00:03:14] yok. Figma kullanmıyorum. Renklerimi
+[00:03:16] girmekle uğraşmak istemiyorum. Bu çok iş
+[00:03:18] aslında. Pek sayılmaz. Video
+[00:03:19] açıklamasına koyduğun iki web sitesi var
+[00:03:21] ve tek yapacağımız tasarımları
+[00:03:23] kopyalayıp bu sisteme yapıştırmak. O her
+[00:03:26] şeyi bizim yerimize yapacak. Bu ilk
+[00:03:28] kaynak adı designmd.Ii
+[00:03:31] ve bu sitenin asıl harika yanı şu.
+[00:03:34] Buradan keşfete tıklayacağım
+[00:03:36] ve işte burada doğrudan kopyalayıp
+[00:03:38] yapıştırabileceğimiz renk paletleri var.
+[00:03:40] Burada çeşitli farklı renk paletleri
+[00:03:42] sunduklarını görebilirsiniz. Yeşili veya
+[00:03:44] bunlardan herhangi birini beğendiyseniz
+[00:03:46] üzerlerine tıklamanız yeterli. Şimdi tüm
+[00:03:48] bunların nasıl çalıştığını açıklayayın.
+[00:03:49] Tamam mı? Hemen yeşil desteğe
+[00:03:51] tıklıyorum. İşte kullandıkları tasarım
+[00:03:53] sistemi burada. Şimdi aşağı kaydırırsak
+[00:03:55] her şeyi göreceksiniz. Asure yadı
+[00:03:57] tiplerini göreceksiniz. Düğmeleri
+[00:03:59] birincil, ikincil, n arka planı
+[00:04:01] göreceksiniz. Burada renk paletlerinin
+[00:04:03] iyi bir görüntüsü var. tipografi ve
+[00:04:06] kullandıkları tüm farklı yazı tipi
+[00:04:07] türleri burada aşağı kaydırdığımızda
+[00:04:10] bileşenleri, kartları, girişleri,
+[00:04:12] çipleri yani her şeyi görebiliyoruz.
+[00:04:14] Kutu gölgesi ekledikleri yerleri bile
+[00:04:16] tüm bu tasarımları kopyalayabiliriz.
+[00:04:18] Şimdi bu kaynaklardan biri. Diğeri ise
+[00:04:20] Get Design MD olarak adlandırılır. Ha
+[00:04:23] aşağı kaydırırsak çeşitli farklı web
+[00:04:25] sitelere sunduklarını göreceksiniz ve
+[00:04:27] bunlar aslında en iyi marka isimlerinden
+[00:04:29] yani Binance, BMW, Bugatti, Clot
+[00:04:31] bilirsiniz Coinbase, Expo, Ferrari var.
+[00:04:35] Hadi bunlardan birine bir göz atalım.
+[00:04:36] Buradaki Ferrari projesine tıklayacağım
+[00:04:39] ve aşağı kaydırırsak bize asıl tasarım
+[00:04:42] sistemini gösterdiğini göreceksiniz.
+[00:04:44] Şimdi burada aşağı kaydırmaya devam
+[00:04:46] edeceğiz ve bize kullandıkları renkleri
+[00:04:48] gösteriyor. Bize yüzeyi gösteriyor.
+[00:04:51] Ayrıca metni ve ardından semant
+[00:04:53] gösteriyor. Ve burada aşağı
+[00:04:54] kaydırdığımızda asıl yazı tiplerini
+[00:04:56] görüntülüyor. Bunları beğendiyseniz
+[00:04:58] tasarım sisteminize kopyalayıp
+[00:04:59] yapıştırabilirsiniz. Aşağı
+[00:05:01] kaydırdığınızda düğmelerin nasıl
+[00:05:02] göründüğünü göreceksiniz. Her şeyi
+[00:05:04] kolaylaştırıyorlar çünkü sitenizin
+[00:05:06] görünümünü ve ne bekleyeceğinizi
+[00:05:08] gösteriyorlar. Örneğin bunlardan birini
+[00:05:11] kullanmak istiyorsunuz diyelim ama
+[00:05:14] dürüstçesi bu benim için fazla yeşil.
+[00:05:16] Yani sadece yeşil ve şey gibi gri var.
+[00:05:19] Bu renkleri pek kullanmak istemiyor.
+[00:05:21] Belki bu bir finans uygulaması içindir.
+[00:05:23] Bu yüzden sadece genesisi kolonca en
+[00:05:25] baştaki olan bunu seçeceğim ve bu
+[00:05:27] tasarım sistemini kullanmak istiyorum.
+[00:05:29] Yapacağım ilk şey panoya kopyalaya
+[00:05:31] tıklayıp Cloud'a geri dönmek. Cloud'a
+[00:05:34] dönersek ilk yapmak istediğim bir isim
+[00:05:36] koymak. Şöyle bir şey yazacağım. Mavimsi
+[00:05:38] Genesis tasarım sistemi gibi bir şey
+[00:05:40] yazdım. Çünkü biraz mavi değil mi yani?
+[00:05:42] Ya da mavi morsu değil mi? Sadece ne
+[00:05:45] olduğunu hatırlayabileceğim bir şeyi
+[00:05:46] istiyorum. Böylece yapay zeka sitesini
+[00:05:48] kurduğumda bu tasarım siteme
+[00:05:50] uygulanacak. Şimdi aşağı kaydırıyoruz.
+[00:05:52] Tek yapmamız gereken onu kopyalayıp
+[00:05:54] yapıştırmak. Buraya geldik ve bunu
+[00:05:56] panoya kopyaladık. Ve sonra burada diğer
+[00:05:58] notlar kısmına bunu aynen bu şekilde
+[00:06:00] yapıştıracağız. Tamam mı? İşte bu kadar.
+[00:06:03] Bu tasarım sistemindeki her şeyi alacak
+[00:06:05] ve cloud'a uygulayacak. E sonra tam
+[00:06:08] buradaki sağ üst köşeden oluşturmaya
+[00:06:10] devam et butonuna tıklayacağım. Ve bu
+[00:06:11] birkaç dakika sürebilir. Bu yüzden
+[00:06:13] oluştura tık ya. Şimdi çok hızlı bir
+[00:06:15] şekilde bu tasarımı bu web sitesinden
+[00:06:17] nasıl içe aktaracağınızı da göstereyim.
+[00:06:19] Şimdi bir tane daha yapalım. Şöyle
+[00:06:21] yukarıdan tasarım sistemleri ve sonra
+[00:06:23] bir tane daha oluşturacağım. Ve bu lüks
+[00:06:25] sarı, lüks siyah ve sarı gibi olacak. Ve
+[00:06:28] istediğin tasarımı zaten bir ön yani
+[00:06:30] şurada getdesign.md altında. Yani tekrar
+[00:06:33] söylüyorum bu renkleri almak için de
+[00:06:34] kullanabileceğiniz web sitesi. Ve şimdi
+[00:06:36] yapmak istediğim şey tam buradaki
+[00:06:38] Lamborghini'yi seçmek. Yani
+[00:06:39] Lamborghini'yi seçeceğim ve aşağı
+[00:06:40] kaydırırsak tüm bu tasarım sistemine
+[00:06:42] sahip olduğunu göreceksiniz. Yani bu
+[00:06:44] sarı, siyah, beyaz renklerimiz var. Daha
+[00:06:46] çok lüks üst düzey bir renkçi. Bu yüzden
+[00:06:49] ben de tam olarak aynı renk şemasını ve
+[00:06:51] tasarım sistemini kullanmak istiyorum.
+[00:06:53] Burada butonlar, kartlar ve formüleri
+[00:06:56] var. Ne demek istediğimi anladınız değil
+[00:06:57] mi? Yani ama gerçekten iyi görünmesini
+[00:06:59] sağlıyorlar. Bu yüzden yukarı
+[00:07:01] kaydıracağım en yukarıya ve sonra burada
+[00:07:03] design. Tıklayacağım ve sonra kopyalaya
+[00:07:06] tıklayacağım. Ve şimdi tek yapmam
+[00:07:08] gereken buradaki tasarım sistemine girip
+[00:07:10] diğer notlar kısmına geçmek. Ve sonra
+[00:07:13] bunu oraya yapıştıracağım. İşte bu
+[00:07:14] kadar. Ve sonra yukarı kaydırıp
+[00:07:17] oluşturmaya devam et butonuna
+[00:07:18] tıklayacağım. Sonra oluştura
+[00:07:20] tıklayacağım. Yani temel olarak burada
+[00:07:22] yapabileceğimiz şey müşterilerinize veya
+[00:07:24] ne tür bir web sitesi oluşturmak
+[00:07:26] istediğinize bağlı olarak birden fazla
+[00:07:27] farklı tasarım sistemi yapabilirsiniz.
+[00:07:30] İşte Genesis tasarımı ve aşağı
+[00:07:31] kaydırdığınızda kullanıcı arayüzik
+[00:07:33] kitini göreceksiniz. Yani genel olarak
+[00:07:36] böyle görüce yani renkleri kullandıkları
+[00:07:38] yazı tipi türlerini görebiliyoruz.
+[00:07:40] Burada marka renkleri var. Birincil
+[00:07:42] birincil üzerine gelme, iç incil işte
+[00:07:44] ekledikleri bazı n tır renkler ve sonra
+[00:07:47] aşağı kaydırdığımızda burada butonlar da
+[00:07:49] var. Böylece butonların farklı
+[00:07:51] boyutlarını ve varyantlarını
+[00:07:52] görebilirsiniz. Bu yüzden bunu da
+[00:07:54] yayınlamalıyız.
+[00:07:55] Tamam. Ve işte böylece artık yapay zeka
+[00:07:58] web sitelerini uygulayabileceğimiz iki
+[00:07:59] tasarım sistemimiz var. Şimdi cloud
+[00:08:01] tasarımına geri dönelim ve bunu
+[00:08:03] uygulayalım. Yani artık bir yapay zeka
+[00:08:05] web sitesi oluşturmaya hazırız. Yani
+[00:08:07] burada yeni bir prototipte Wilson emlak
+[00:08:09] yazacağız. Tamam. Çünkü bir emlak ver
+[00:08:12] sitesi yapacağım. Ve sonra tasarım
+[00:08:14] sistemi için Genesis tasarım sistemini
+[00:08:16] seçeceğim. Yani tam buradaki bu rengi
+[00:08:18] kullanmak istiyorum. Bunu kısa bir
+[00:08:20] kesitini görebilirsiniz ve sonra
+[00:08:21] oluştura diyeceğim. Şimdi tasarım
+[00:08:23] hakkında komşu. Şimdi tasarımı
+[00:08:25] kullanırken web sitenizi nasıl
+[00:08:27] oluşturabileceğinize dair hemen hemen üç
+[00:08:28] farklı yol var ve hep bir yöntemi tek
+[00:08:30] göstereceğim. İlk yöntem verdiğiniz
+[00:08:32] tasarıma dayalı basit bir komut
+[00:08:34] oluşturmaktır. Örneğin az önce hepinize
+[00:08:37] gösterdiğim bu web sitesi için Cloud'a
+[00:08:39] yazdığın tek şey bu tasarım ve stillerle
+[00:08:42] 5 sayfalık bir emlak web sitesi
+[00:08:43] oluşturdu. Yani temel olarak burada
+[00:08:46] istediğim şey Cloud'un verdiğim tasarım
+[00:08:48] sistemini kullanması ve verdiğim tasarım
+[00:08:50] sistemine dayalı çok genel, çok basit
+[00:08:52] bir şey oluşturmasıydı. Dürüstçe
+[00:08:53] söyleyeyim, bu harika görünüyor. Sitede
+[00:08:56] hiçbir sorun yok. Gerçekten çok iyi.
+[00:08:57] Ancak görebileceğiniz gibi biraz basit
+[00:09:00] ama işini gayet iyi yapıyor. Bu
+[00:09:02] yöntemlerden biri. İkinci yöntemse
+[00:09:04] [müzik]
+[00:09:05] hazırladığın komutlardan birini
+[00:09:06] kullanmak. Buradaki Dogi web sitesi
+[00:09:09] hepinize tamamen ücretsiz vereceğim bir
+[00:09:12] komutla oluşturuldu. Şimdi bu web
+[00:09:14] sitesinde biraz daha fazla tasarım var.
+[00:09:16] Yani ilki kadar basit değil ama aşağı
+[00:09:19] indikçe biraz daha fazla tasarım
+[00:09:21] içerdiğini anlayabiliyorsunuz. Bu özgün
+[00:09:23] stil ve animasyonlara sahibiz. Genelde
+[00:09:25] üzerinde daha fazla emek olduğunu
+[00:09:27] görebilirsiniz. Çok fazla değil, hala
+[00:09:29] basit tutmak istiyorum ama benzersiz bir
+[00:09:31] tasarım uygulamak istiyorum. Şimdi
+[00:09:33] yapabileceğiniz en son seçenek ise başka
+[00:09:35] bir web sitesinin ekran görüntüsünü
+[00:09:37] dahil etmektir. Diğer birçok
+[00:09:38] tasarımcının bunu yaptığını gördüm.
+[00:09:40] Şahsen ben bir komut ve ekran
+[00:09:42] görüntüsünden çok benzer bir sonuç
+[00:09:44] alacağını düşünüyorum ama örneğin tam
+[00:09:47] buradaki bu site başka bir web sitesinin
+[00:09:49] ekran görüntüsündendi.
+[00:09:51] Şimdi site aslında oldukça iyi
+[00:09:53] görünüyor. Şimdi başka bir web sitesinin
+[00:09:55] ekran görüntüsünü alıp cloud'a
+[00:09:56] verdiğinizde size birebir aynı web
+[00:09:58] sitesini vermeyecektir. Tasarımın bir
+[00:10:00] kısmını kullanacak ve uygulayacaktır ama
+[00:10:03] kopyalamayacaktır. Bu yüzden bu konuda
+[00:10:05] endişelenmeyeyim. Şimdi yukarı
+[00:10:07] kaydıracağım ve size bunun için
+[00:10:09] kullandığım web sitesinden bir örnek
+[00:10:10] vereceğim. Böylece Team Forest'a gittim.
+[00:10:13] Bu çok popüler bir web sitesir.
+[00:10:14] WordPress kullanıyorsanız bu
+[00:10:16] arkadaşların piyasadaki en iyi
+[00:10:17] tasarımcılardan bazıları olduğunu
+[00:10:19] bilirsiniz. Ve Ohio teması adında bir
+[00:10:21] tema seçtim. Ve Ohio temasının bunun
+[00:10:23] gibi bir deması var. Burada yaptığım tek
+[00:10:25] şey ne diyeceğim biliyor musunuz? Bu
+[00:10:27] tasarımı biraz sevdi. Bunu kullanmak
+[00:10:29] istiyorum. Bu yüzden aslında ekran
+[00:10:30] görüntüsü oldu. Burada Go Full Page'e
+[00:10:33] tıkladım ve tüm web sitesinin ekran
+[00:10:36] görüntüsünü aldım. Sonra bunu Clou'a
+[00:10:38] verdim ve andan bana bu özel tasarım
+[00:10:40] etrafında bir web sitesi kurmasını
+[00:10:41] istedim. Bu eklentiyi merak ediyorsanız
+[00:10:44] sanırım adı Go Page. [müzik] Şöyle bir
+[00:10:47] bakayım şuraya. Evet eklenti bu. Adı Go
+[00:10:49] Full Page. Bunu Chrome'a ekleyebilir ve
+[00:10:51] ardından tüm tasarımın ekran görüntüsünü
+[00:10:53] alabilirsiniz. 11 milyon kullanıcısı
+[00:10:55] var. Oldukça popüler ve bence birçok
+[00:10:57] tasarımcı bunu tasarımları için ilham
+[00:10:59] almak istedikleri için kullanıyor. Şimdi
+[00:11:01] size bu farklı web sitelerini oluşturmak
+[00:11:03] için kullandığım komutu vereyim. Video
+[00:11:04] açıklamasında bir everne var ve bu
+[00:11:06] komutu herkes için çalıştığından emin
+[00:11:08] olmak için yaklaşık iki gün harcadım.
+[00:11:10] Yani bir cloud web sitesi oluşturmak
+[00:11:12] için üç seçeneğiniz var. Birçok durumda
+[00:11:14] işe yarayan çok genel sürümü
+[00:11:16] kullanabilirsiniz veya bir komut
+[00:11:18] kullanabilir ya da web siteniz için bir
+[00:11:20] komut ve ekran görüntüsü
+[00:11:21] kullanabilirsiniz. Burada ekran
+[00:11:23] görüntüsü sürümü ile birlikte bu komutu
+[00:11:24] göreceksiniz.
+[00:11:26] Ve tek yapmanız gereken tüm bunları
+[00:11:27] kopyalayıp yapıştırmak. Şimdi bunu
+[00:11:29] kopyaladığınızda size sorular soracak.
+[00:11:32] Burada yapmanızı önerdiğim şey bunu
+[00:11:34] kopyalamak. Bir Microsoft Word veya
+[00:11:36] Evernote açıp bunu doldurmaktır. Bunun
+[00:11:39] nedeni eğer bunu girmezseniz yapay zeka
+[00:11:42] web sitenizi oluşturduğunda işinizle
+[00:11:44] ilgili olmayan bir sürü genel bilgi
+[00:11:46] koyacaktır. Yapay zekaya vermeden önce
+[00:11:49] kendiniz ve işiniz hakkında bazı
+[00:11:51] bilgiler koymak istersiniz. Böylece
+[00:11:52] işinizin ne hakkında olduğunu
+[00:11:54] anlayabilir ve bunun etrafında metin
+[00:11:55] oluşturabilir. Şimdi ikinci kısım burayı
+[00:11:57] aşağı kaydırmaktır. Ekran görüntüsü
+[00:11:59] olmayan komut sürümü yazan bu bölümü
+[00:12:01] göreceksiniz. Yani bir ekran görüntüsü
+[00:12:03] kullanmak istemiyorsanız ve cloud'un
+[00:12:05] yine çok iyi olan yaratıcılığını
+[00:12:07] kullanmak istiyorsanız bunu
+[00:12:08] kullanabilirsiniz.
+[00:12:10] Yani bu da aynı şey. Tek yapmanız
+[00:12:12] gereken işletme adınızı, sunduğunuz
+[00:12:14] hizmetleri ve konumunuzu girmek. Bu çok
+[00:12:17] önemli. Ve sonra anahtar kelimeleri de
+[00:12:19] ekleyin. Şimdi size bir örnek göstermek
+[00:12:22] için bunu kopyalayıp yapıştırayım. Şimdi
+[00:12:24] bunu kopyalıyorum. Şimdi Evernote'a
+[00:12:26] dönüp bunu yapıştıracağım ve nasıl
+[00:12:28] doldurulacağını açıklayacağım. Yani
+[00:12:30] yapmanız gereken tek şey temel olarak
+[00:12:31] şirket bilgilerinizi girmek. Yani bu
+[00:12:34] Wilson Estates olacak diye. Wilson
+[00:12:36] Estates ve burada hedeflenecek SEO
+[00:12:38] anahtar kelimelerimiz var. Bu önemli
+[00:12:40] çünkü SEO gerçekten çok kritiktir. Yapay
+[00:12:42] zeka web siteleri oluştururken insanlar
+[00:12:45] bunu hep görmezden gelir ama sitenin her
+[00:12:47] yerinde oluşturulmasını istediğiniz
+[00:12:48] belirli anahtar kelimeleri
+[00:12:50] eklemelisiniz. Örneğin hedeflenecek
+[00:12:52] anahtar kelimeler Las Vegas emlak, Las
+[00:12:54] Vegas da emlakçı, Daryl Wilson emlakçı,
+[00:12:57] Las Vegas mülk hizmetleri. Clod'un
+[00:12:59] yapacağı şey web sitenizdeki tüm
+[00:13:01] bilgileri doldururken bu anahtar
+[00:13:03] kelimeleri kullanmak ve yapay zeka web
+[00:13:05] siteniz için uygun içerikler
+[00:13:06] oluşturmaktır. Ve aşağı kaydırdığımızda
+[00:13:09] burası tasarım yönüdür. Şimdi burada bir
+[00:13:11] tutarsızlık var. Bazen bir tasarım yönü
+[00:13:13] uygularken cloud tasarımınızın üzerine
+[00:13:15] yazabilir ve kendince en iyi olduğunu
+[00:13:17] düşündüğü bir şeyi kullanabilir. Eğer bu
+[00:13:19] hatayı yaparsa tek yapmanız gereken ona
+[00:13:21] tasarım sistemini kullanmasını
+[00:13:23] hatırlatmaktır. Endişelenmeyin. Bunu
+[00:13:25] size canlı olarak göstereceğim. [müzik]
+[00:13:27] Diyelim ki örneğin kurumsal model tarzı
+[00:13:29] kullanmak istiyorsunuz değil mi? Bu
+[00:13:30] yüzden bunların hepsinden kurtulacağım.
+[00:13:32] Tamam. Ve kurumsal modern bir yaklaşım
+[00:13:34] kullanmak istiyorum. Pekala. Temiz,
+[00:13:36] yapılandırılmış, güvenilir, finans,
+[00:13:38] hukuk ve işletmeden işletme hizmetleri
+[00:13:40] için iyidir. Şimdi geri tuşuna
+[00:13:42] basıyorum. Aşağıda oluşturulacak
+[00:13:43] sayfalar görünüyor. 1'den 6'ya kadar ana
+[00:13:46] sayfa hakkımızda hizmetler ve portföy
+[00:13:49] mevcut. İsterseniz daha fazla sayfa
+[00:13:51] eklemekte ölgürsünüz. Ancak 6 sayfanın
+[00:13:53] muhtemelen yeterli olduğunu düşünüyorum.
+[00:13:55] Ama yine de istediğiniz kadar sayfa
+[00:13:56] ekleyebilirsiniz. Ve işte gereksinimler
+[00:13:58] burada. Önce siteyi HTML yapalım. Sonra
+[00:14:01] dönüşümü anlatacağım. HTML en hızlı yol.
+[00:14:04] Kullanılabilecek en sevi kod. çok temel
+[00:14:06] bir iskelet yapısı gibidir. Böylece web
+[00:14:08] sitesini hızlıca oluşturabiliriz. Ayrıca
+[00:14:10] mobil uyumlu SEO optimize edilmiş
+[00:14:12] olmasını ve görseller kullanmasını
+[00:14:13] istiyorum. Şimdi cloud ve görsellerle
+[00:14:15] ilgili durum şu. Bazen çalışıyor cloud'a
+[00:14:18] sorsanız bile yaklaşık %50 ihtimalle
+[00:14:20] doğru yapıyor. Yani görselleri alabilir
+[00:14:22] ama alamazsa her zaman kendi
+[00:14:24] görsellerimizi ekleyebiliriz. Sorun
+[00:14:26] değil. E bunun altında tasarımın neleri
+[00:14:28] içermesi gerektiği var. İzgara tabanlı
+[00:14:29] bir düzene sahip olmasını istiyoruz.
+[00:14:31] Benzersiz olmasını istiyoruz. ve en
+[00:14:33] altta telif haklı yılı, hızlı
+[00:14:35] bağlantılar ve sosyal medya linkleri
+[00:14:37] olan bir alt bilgi istiyoruz. Şimdi
+[00:14:39] yapacağımız tek şey bu komutun tamamını
+[00:14:41] alıp cloud'a vermek. İşte tam bu şekilde
+[00:14:43] bunu kopyalıyorum. Pekala.
+[00:14:46] Ardından sağ tıklayıp kopyalayacağım ve
+[00:14:48] projemize geri döneceğiz. Ve ilk yapmak
+[00:14:51] istediğim şey bir tasarım sistemi
+[00:14:52] seçmek. Ama bunu zaten yaptık. Burada
+[00:14:54] seçtiğimizi göreceksiniz. Ama diyelim ki
+[00:14:57] bunu kapatıyorum. Ve burada tasarım
+[00:14:58] sistemine tıklarsam onu her zaman tekrar
+[00:15:01] ekleyebiliriz. Yani bu Genesis tasarım
+[00:15:02] sistemidir. Tamam. Ve sonra bunu buraya
+[00:15:05] yapıştıracağım.
+[00:15:07] Her şeyi Everne'da yapmamızın nedeni
+[00:15:09] buraya nasıl yapıştırdığıma dikkat edin.
+[00:15:11] Ne yaptığımızı gerçekten göremiyoruz.
+[00:15:13] Onu açamıyoruz da. Yani o istemeyi
+[00:15:15] değiştirdiğinizde bunu yapmadan önce tam
+[00:15:17] olarak düzenleyebileceğiniz bir not
+[00:15:19] defteri veya Microsoft Word gibi bir şey
+[00:15:21] kullanın. Şimdi bunu eklediğimize göre
+[00:15:24] yapmamız gereken son şey bunu göndermek.
+[00:15:26] Şimdi devam edip bu işlemi
+[00:15:27] çalıştıracağım. O oluşturulurken size
+[00:15:30] ekran görüntüsü kullanmaya dair başka
+[00:15:31] bir gösterim yapayım. Kendi kişisel web
+[00:15:33] sitemde kullandığım ve çok sevdiğim bir
+[00:15:35] diğer tema da essentials teması.
+[00:15:37] Gerçekten çok iyi tasarımları var. Şimdi
+[00:15:39] buradaki bazı tasarımlarına bir göz
+[00:15:40] akacağım. Diyelim ki tam buradakini
+[00:15:42] kullanmak istiyorum. Bunun adı yapay
+[00:15:43] zeka ajansı. İşte ilham almak istediğim
+[00:15:46] şey bu. Adı yapay zeka ajansi. Şimdi tüm
+[00:15:49] web sitesinin bir ekran görüntüsünü
+[00:15:50] alacağım. Sonra bunu alıp cloud'a
+[00:15:52] vereceğim. Şimdi buradaki tüm bu şeyleri
+[00:15:55] eee tutacağım ve sonra sadece kopyalayıp
+[00:15:58] yapıştıracağız. Sonra Cloud'a geri dönüp
+[00:16:01] bir yaratıcı ajans oluşturuyor. Tasarım
+[00:16:03] içinde Genesis tasarım sistemini
+[00:16:05] kullanacak. Tamam. Ardından oluşturuya
+[00:16:08] tıklayacağım. Pekala. Sonra o ekran
+[00:16:11] görüntüsünü yükleyip dosyaya
+[00:16:13] ekleyeceğim. İşte ekran görüntüsü
+[00:16:15] burada. Ekran görüntüsünü yükleyip cloud
+[00:16:18] için konutu yapıştıracağım.
+[00:16:21] Tamam. Şimdi tek yapmam gereken bu
+[00:16:23] işlemi çalıştırdak. Pekala ya. Yaklaşık
+[00:16:25] 10 dakika bekledikten sonra artık bu
+[00:16:27] güzel emlak web sitesine sahibiz. Şuna
+[00:16:29] bir bakın. Yani yapısına bayıldım. Şimdi
+[00:16:31] bunu şuradaki bir eee sekmede sunacağım.
+[00:16:34] Sağda metnimiz bir de görselimiz var. Ve
+[00:16:37] açılış sayfasına bu görseli eklemesini
+[00:16:39] söyledim. Ona verdiğimiz tutarlı tasarım
+[00:16:41] şemasının aynısını taşıdığını da
+[00:16:43] görebilirsiniz.
+[00:16:45] Aşağı indiğimizde ilanlarımız der.
+[00:16:46] Burada bu bölümümüz var. Daha fazla
+[00:16:49] bölümümüz var. bazı referanslarımız var.
+[00:16:52] E burada gerçekten harika bir eylem
+[00:16:54] çağrımız var. Bu renk şemasına bayıldın
+[00:16:56] ve en altta da outbildimiz var. Genel
+[00:16:58] olarak bunun nasıl sonuçlandığından
+[00:17:00] gerçekten çok memnunum. Diğer sayfalara
+[00:17:03] da bir göz atalım. İşte hizmetler
+[00:17:04] sayfamız burada ve burada nasıl
+[00:17:06] yazdığını dikkat edin. Wilson Emlak
+[00:17:08] Eneva'da komisyon uygulaması. Anahtar
+[00:17:10] kelimeler çok önemli. Çünkü tüm web
+[00:17:13] sitesinde bu kelimelerle ilişki kuracak.
+[00:17:16] alıcısiliği, satıcı kremseyeciliği ama
+[00:17:18] genel olarak bu web sitesinin yapısını
+[00:17:20] çok sevdim. Yani gelecek bu değil mi?
+[00:17:22] Web sitesi kurmanın yolu bu. Bigme
+[00:17:25] yaklaşık 10 dakikada güzel bir web
+[00:17:27] sitesi alabileceğiniz böyle bir şey
+[00:17:29] yerine gerçekten Figmada taslak çizip
+[00:17:31] sıfırdan mı başlamak istiyorsunuz?
+[00:17:34] Ve burada bir sürü başka blog yazısının
+[00:17:36] falan olduğu günlük sayfamız var. Ama
+[00:17:38] genel olarak bu emlak sitesinin
+[00:17:40] tasarımının çok iyi göründüğünü
+[00:17:42] görebilirsiniz. Tabii ki muhtemelen bazı
+[00:17:44] şeyleri ayarlayabilirdim. Kurumsal
+[00:17:46] yaklaşımı muhtemelen biraz
+[00:17:47] yumuşatabilirim. Belki bazı soyut
+[00:17:49] tasarımlar ekleyebilirim ama sanırım ne
+[00:17:51] demek istediğimi anladınız değil mi?
+[00:17:52] Şimdi diğer web sitemize bir göz atalım.
+[00:17:55] Bu diğer web sitesiydi ve aslında ekleri
+[00:17:57] kullanıyordu. Şimdi bu daha çok bir sa
+[00:18:01] yaklaşımı anlayabilirsiniz. Çünkü tam
+[00:18:03] buradaki bu görseli dahil ettik ve bu
+[00:18:05] kesinlikle bir saımına sahip. Ama bir
+[00:18:08] bakınca aradaki farkı görelim. Burada
+[00:18:11] görebileceğiniz gibi tam ekrana bir
+[00:18:13] bakacağım.
+[00:18:14] Bir nevi daha çok SAS yaklaşımını
+[00:18:16] kullanıyor. Aynı yapının bir temsili
+[00:18:18] gibi göründüğünü fark edebilirsiniz.
+[00:18:20] Ve aşağı kaydırıyoruz. Ve hemen altında
+[00:18:23] ortaklarımız gibi kısımlar var. Ama
+[00:18:24] diğer web sitesine bakıp aşağı
+[00:18:26] kaydırırsak hiçbir şeyi
+[00:18:28] kopyalamadıklarını fark edin. Benzer
+[00:18:29] tutuyorlar ama kesinlikle birebir
+[00:18:31] kopyalamıyorlar. Bunu seviyorum çünkü
+[00:18:33] yani açıkçası web sitelerini kopyalamak
+[00:18:36] istemeyiz, değil mi? Aşağı
+[00:18:37] kaydırdığımızda şimdi bu gri kutuların
+[00:18:40] olduğu bölüme geliyoruz ve aşağı
+[00:18:42] kaydırınca burada bu küçük animasyonlu
+[00:18:45] kutularımız var. Şimdi size bir iyilik
+[00:18:47] yapacağım. Göz atmak isterseniz diye bu
+[00:18:49] iki web sitesini de video açıklamasına
+[00:18:51] bırakacağım. Onlara dokunmayacağım.
+[00:18:53] Onları düzenlemeyeceğim ama eee
+[00:18:54] anlayabileceğiniz gibi harika görünür o.
+[00:18:57] Ve şuradaki alt bilgi kısmına bir takım.
+[00:18:58] Yani bu da başka bir örnek. Burada bu
+[00:19:00] alt bilgi var ve en altta bu Northw
+[00:19:02] metni bulunuyor. Bu demo web sitesine
+[00:19:05] gidip aşağı kaydırırsak tasarımı
+[00:19:07] kopyalamadan bir nevi biraz çoğaltmışlar
+[00:19:10] ama burada AI Agency'yi görüyorsunuz ve
+[00:19:13] bu sitede Nortint var. Yani yine her
+[00:19:15] şeyi kopyalamıyorlar. Sadece o ekran
+[00:19:17] görüntüsünden ilham alıyorlar. Yani bu
+[00:19:19] yapay zeka web sitenizi oluşturmaya
+[00:19:21] nasıl yaklaşabileceğinizin başka bir
+[00:19:23] yolu bu. Size bağlı. Gördüğünüz gibi her
+[00:19:26] iki yolda iyi çalışıyor. Yapay zeka
+[00:19:28] sitemizi oluşturduk. Clot kullanarak
+[00:19:31] modern görünümlü siteler yapabilirsiniz.
+[00:19:33] Videonun devamında bu yapay zeka
+[00:19:36] sitesine canlı bir alan adını aktarıp
+[00:19:38] sayfa oluşturucuyla nasıl
+[00:19:39] özelleştireceğinizi göstereceğim.
+[00:19:41] Açıklamadaki bağlantı yeni siteniz için
+[00:19:44] alan adı ve hosting almanız adına sizi
+[00:19:46] Hostinger'a yönlendirecek. Tamam. Şimdi
+[00:19:49] WordPress'i kuracağız. Bunun için
+[00:19:51] Hostinger'ı kullanacağız. Hostinger'ın
+[00:19:53] avantajı 30 günlük koşulsuz para iade
+[00:19:55] garantisi sunan çok saygın bir şirket
+[00:19:57] olmasıdır. Sizin için işe yaramazsa form
+[00:20:00] değil. Paranızı geri alabilirsiniz.
+[00:20:02] Burada şimdi başlıya tıklayın. Premium,
+[00:20:05] kurumsal ve bulut başlangıç planlarını
+[00:20:07] göreceksiniz. Şimdi kesinlikle kurumsal
+[00:20:10] planla devam etmenizi öneririm. Bunun
+[00:20:11] temel nedeni bu barındırma paketinde 50
+[00:20:14] taneye kadar web sitesi
+[00:20:15] barındırabilmenizdir ve tipik SSD'den
+[00:20:17] çok daha hızlı olan NVM depolama alanına
+[00:20:19] erişim sağlarsınız. Premiumda sadece 3
+[00:20:22] site kurabilirsiniz ve NVME'den daha
+[00:20:25] yavaş olan SSD depolama alırsınız. Bulut
+[00:20:28] başlangıç ise çok sitesi olanlar
+[00:20:30] içindir. Henüz orada değilsiniz. Yapay
+[00:20:32] zekada yeniyseniz ve başlamak
+[00:20:33] istiyorsanız kurumsal planı seçin. Bu
+[00:20:35] planla yanlış yapmazsınız. Yani kurumsal
+[00:20:37] planın altından planı seçe tıklayacağım.
+[00:20:39] Sırada sepet sayfası var. Buradan
+[00:20:41] hosting sürenizi seçebilirsiniz. Süre
+[00:20:44] uzadıkça daha büyük indirim alırsınız.
+[00:20:46] Yani 48 ay size en çok indirimi
+[00:20:48] kazandırır ve dürüst olmak gerekirse 200
+[00:20:51] dolara 4 yıllık barındırma aslında
+[00:20:53] oldukça uygun. Ama web sitesi yapmaya
+[00:20:54] yeniyseniz ve buna gücünüz yetmiyorsa
+[00:20:57] kesinlikle 12 aylık paketi öneririm. Bu
+[00:20:59] size ücretsiz bir alan adı hakkı verir
+[00:21:00] ve size yılda sadece yaklaşık 50 dolara
+[00:21:02] mal olur. Ayrıca hostinger.com
+[00:21:05] paketlerinde geçerli bir kupon kodumuz
+[00:21:07] var. Sağ tarafta kupon kodu alanını
+[00:21:09] görebilirsiniz. Buna tıklarsam bir
+[00:21:11] şeyler girebileceğimizi göreceksiniz.
+[00:21:13] Yani darlon yazacağım ve bu kupon kodu
+[00:21:15] ne kadar süreyle kaydolursanız olun
+[00:21:17] hostinger'daki paketlerin herhangi
+[00:21:18] birinde size ek %10 indirim
+[00:21:20] sağlayacaktır. Burada uygula butonuna
+[00:21:22] tıklıyorum. Hosting paketinde ek %10
+[00:21:24] indirim kazandığımızı göreceksiniz.
+[00:21:26] Şimdi devam ek butonuna tıklıyorum.
+[00:21:28] Sonraki sayfada hostinger hesabı
+[00:21:30] oluşturacaksınız.
+[00:21:31] E-posta ve şifrenizi girdikten sonra
+[00:21:33] kaydol butonuna tıklayın. Sonraki
+[00:21:35] sayfada ad, soyat, ülke, telefon ve
+[00:21:37] sosyal güvenlik numarası gibi fatura
+[00:21:39] bilgilerinizi gireceksiniz. Şaka
+[00:21:41] yapıyorum. Sosyal güvenlik yok. Sadece
+[00:21:43] bir şaka. Şimdi buraları dolduruyorum.
+[00:21:45] Son adım ise ödemeyi yapmak. Buraya
+[00:21:47] kredi kartı bilgilerinizi
+[00:21:48] girebilirsiniz. PayPal veya Google Pay
+[00:21:50] ile de ödeyebilirsiniz. Sağda toplam
+[00:21:52] tutarı ve uygulanan kupon kodunu
+[00:21:54] görebilirsiniz. Kredi kartı bilgilerimi
+[00:21:56] giriyorum. Bilgileri girdikten sonra
+[00:21:58] ödemeyi gönder butonuna tıklayın.
+[00:22:00] Tebrikler. Yeni web sitemizi kurmaya
+[00:22:01] başlıyoruz. Pekala. Tamam. Artık web
+[00:22:04] hosting'imiz var. Hostinger bize sitenin
+[00:22:06] kimin için olduğu gibi bazı temel
+[00:22:08] sorular soracak. Burada kendim veya işim
+[00:22:11] için seçeneğini seçip ileriye
+[00:22:12] tıklıyorum. Sonraki sayfada web sitesi
+[00:22:14] oluştur seçeneğine ve ardından ileriye
+[00:22:16] tıklayın. Sonraki sayfada WordPress
+[00:22:18] hesabınız için giriş bilgilerini
+[00:22:19] oluşturmanız istenecek. Bunları bir yere
+[00:22:21] not etme mümkün. E-posta adresimi ve
+[00:22:23] şifremi girip geri butonuna tıklıyorum.
+[00:22:26] Sonraki sayfada ücretsiz alan adınızı
+[00:22:28] gireceksiniz. Alan adı kısmına
+[00:22:30] orienttutorial.com
+[00:22:32] yazıp müsait mi diye bakıyorum. Ve evet
+[00:22:35] müsait iş. Ücretsiz alan adımı seçip
+[00:22:37] ileri butonuna tıklıyorum.
+[00:22:39] Sonraki sayfada sahip bilgilerini
+[00:22:41] gireceksiniz. Alan adını taşımak veya
+[00:22:43] satmak isterseniz bu bilgiler önemli
+[00:22:45] olacak. Sahip bilgilerimi dolduruyorum.
+[00:22:48] Sayfayı aşağı kaydırıp kaydet butonuna
+[00:22:49] tıklıyorum. Tamam. Şimdi alan adımız
+[00:22:51] kaydediliyor. Sonraki sayfada hedef
+[00:22:54] kitlenizin nerede olduğunu gireceksiniz.
+[00:22:56] Bu çok önemli değil ama işinizi
+[00:22:58] ağırlıklı olarak yürüttüğünüz yeri
+[00:23:00] seçmelisiniz.
+[00:23:01] Ülke olarak Amerika Birleşik
+[00:23:03] Devletleri'ni seçeceğim. Burada Arizona
+[00:23:05] var. Arizona ben yeneceğim de yaklaşık
+[00:23:07] bir hafta ormaydım. Phoenix ve Tucukson
+[00:23:09] da çok akrabazlar. Arizona'yı seçip
+[00:23:12] ileri butonuna tıklıyorum. Şimdi
+[00:23:14] WordPress kuruluyor. Bu işten birkaç
+[00:23:15] dakika sürrir. WordPress kurulurken
+[00:23:17] oynayabileceğimiz harika bir oyun
+[00:23:19] koymuşlar. Kurulumu beklerken oynayalı.
+[00:23:21] Nasıl ama? Ah, kaybettim. Sırada bize
+[00:23:23] sorulacak birkaç soru daha var. Bu sayfa
+[00:23:26] gelecekte değişebilir. Hostinger kurulum
+[00:23:28] sürecini sıkça değiştirir. Ama ben
+[00:23:30] alttaki WordPress'e git butonuna
+[00:23:32] tıklayacağım. WordPress'e git diyorum ve
+[00:23:35] işte WordPress sitemize giriş yaptık.
+[00:23:38] Steenizi hemen görmek isterseniz sol
+[00:23:39] üstteki siteyi ziyaret et butonuna
+[00:23:41] tıklayın. İşte bu bizim yeni web
+[00:23:43] sitemiz. Doğrulama beklediği için şu an
+[00:23:45] geçici bir alan adı kullanıyor. Şimdi
+[00:23:47] kontrol paneline geri dönelim. Devam
+[00:23:49] etmeden önce Hostinger hesabımızı ve
+[00:23:51] alan adımızı doğrulamamız gerekiyor.
+[00:23:53] Üstte gördüğünüz gibi geçici bir alan
+[00:23:55] adı var. Çünkü alan adını
+[00:23:57] doğrulamalıyız.
+[00:23:58] Hostinger'a kaydolduğunuz e-posta
+[00:24:00] adresinizi kontrol edin. İki e-posta
+[00:24:02] göreceksiniz. Biri hostinger hesabınızı,
+[00:24:05] diğeri ise alan adınızı doğrulamak için.
+[00:24:08] E-postalara girip e-postayı doğrula
+[00:24:11] butonuna tıkıyorum. Harika. Şimdi bizi
+[00:24:13] Hostinger kontrol paneline yönlendirdi.
+[00:24:15] Şimdi geri dönüp e-postalarımızı tekrar
+[00:24:17] kontrol edelim. Alan adımızı doğrulamak
+[00:24:19] için diğer e-postaya tıklıyorum ve
+[00:24:21] ardından sadece e-postayı doğrulaya
+[00:24:23] tıklayacağım. Harika. Artık e-postamız
+[00:24:25] doğrulandı. E-postanızı doğrulamanız çok
+[00:24:27] önemli. Çünkü 30 gün içinde
+[00:24:29] doğrulamazsanız paranızı iade edip
+[00:24:30] hesabınızı kapatırlar. Bu yüzden
+[00:24:32] e-postanızı doğruladığınızdan emin olun.
+[00:24:34] Sırada web sitenizi oluşturmaya
+[00:24:35] başlamanız için canlı sitenize nasıl
+[00:24:37] giriş yapacağınızı göstereyim. Bunu
+[00:24:38] yapmanın iki yolu var. İlk yol aslında
+[00:24:40] sadece alan adınızı yazmaktır. Yani sat
+[00:24:42] avlarınızı benimki Orion Tutorial Doct
+[00:24:45] Comedy. Ardından sadece şuna
+[00:24:46] yazacaksınız. Tire wp tire admin. Bu
+[00:24:49] sizi giriş ekranına götürecektir. İşte
+[00:24:51] buraya bunu gireceğim ve burada giriş
+[00:24:53] ekranımıza yönlendirildiğimizi
+[00:24:54] görebilirsiniz. Bunlar WordPress'e
+[00:24:56] kaytolken kullandığınız giriş
+[00:24:58] bilgileriniz olacak. Buraya e-posta
+[00:25:00] adresimi gireceğim. Beni hatırla
+[00:25:02] kutusunu işaretleyip ardından giriş
+[00:25:04] yapacağım. Şimdi Hostinger'dan satın
+[00:25:06] aldığımız canlı alan adımızı
+[00:25:07] kullanıyoruz. Sitelere git dersem web
+[00:25:09] sitemizin artık internette yayında
+[00:25:11] olduğunu göreceksiniz. Diyelim ki
+[00:25:13] şifrenizi unuttunuz veya WordPress
+[00:25:15] bilgilerinizi bilmiyorsunuz. Sorun
+[00:25:16] değil. Her zaman hostinger üzerinden
+[00:25:18] giriş yapabilirsiniz. Hostinger hesabıma
+[00:25:20] geçiyorum. Web sitelerine ve tüm web
+[00:25:22] sitelerine gidersem sitenizin iş
+[00:25:25] paketinizin altında olduğunu
+[00:25:26] göreceksiniz. Ardından sadece web
+[00:25:28] admin'e tıklayacaksınız ve buradan
+[00:25:30] hiçbir bilgi girmeden doğrudan WordPress
+[00:25:32] web sitenize giriş yapabilirsiniz. İşte
+[00:25:34] bu kadar. Hostinger paneli ile sitemize
+[00:25:36] giriş yaptık. Tebrikler. WordPress
+[00:25:38] kurulumu bitti. Çok basit değil mi?
+[00:25:41] Hostinger süreci herkes için
+[00:25:42] kolaylaştırıyor. Şimdi bu sonraki
+[00:25:44] bölümde size birkaç eklentiyi nasıl
+[00:25:46] kuracağınızı anlatacağım ve bu yapay
+[00:25:48] zeka web sitenizi içe aktarma sürecini
+[00:25:50] kolaylaştıracak ücretsiz bir sayfa
+[00:25:51] oluşturucu, iletişim formu eklentisi ve
+[00:25:54] ayrıca bir üst ve alt bilgi oluşturucu
+[00:25:55] kuracağız. Böylece cloud bunu web
+[00:25:57] sitemizde kolayca aktarabilsin. Bunu
+[00:25:59] söyledikten sonra videoya geri dönelim.
+[00:26:01] Tamam artık WordPress web sitemiz kurulu
+[00:26:03] olduğuna göre şimdi birkaç eklenti ve
+[00:26:04] bir WordPress teması kuracağız. Yapmak
+[00:26:07] istediğim ilk şey buradaki görünüm
+[00:26:08] kısmına gidip temalara tıklamak.
+[00:26:10] WordPress web sitenize
+[00:26:11] yükleyebileceğiniz birkaç tema var.
+[00:26:13] Ancak bu temaların çoğunu AB testiyle
+[00:26:15] denedikten sonra en iyisinin Astra
+[00:26:17] olduğuna karar verdim. Bu yüzden devam
+[00:26:19] edin ve Astra temasını atılın. Burada
+[00:26:21] şimdi kura tıkmayacağım.
+[00:26:24] Ardından etkinleştire tıklayın ve işte
+[00:26:26] bu kadar. Yapmamız gereken tek şey bu.
+[00:26:28] Oldukça basit. Şimdi bu başlığı
+[00:26:29] kapatacağım. WordPress temamızı
+[00:26:31] kurduğumuza göre şimdi birkaç eklenti
+[00:26:32] kuralım. Eklentilere gidelim ve yeni
+[00:26:35] eklenti ekleye tıklayalım. İlki
+[00:26:36] Elementor. Tabii ki bu sayfa oluşturucu
+[00:26:38] ve tüm tasarımımızı bu özel sayfa
+[00:26:40] oluşturucuya göre uyarlayacağız. Buraya
+[00:26:42] Elementor yazacağım
+[00:26:45] ve işte kuracağımız sayfa oluşturucu
+[00:26:47] burada. Şimdi kura ve ardından
+[00:26:49] etkinleştire tıklayın. Tamam. Harika.
+[00:26:51] Şimdi size bir kurulum sihirbazı
+[00:26:53] sunabilirler. İlk kez kullananlar için
+[00:26:55] büyük bir kurulum sihirbazı
+[00:26:56] çıkaracaklar. Sadece atla atla atla
+[00:26:58] diyerek devam edin ve oradan çıkmaya
+[00:27:00] çalışın. Tamam mı? Elementoru
+[00:27:02] kurduğunuzda web sitenize yüklendiğini
+[00:27:04] göreceksiniz. Şimdi kuracağımız bir
+[00:27:07] sonraki şey bir iletişim formu. Eklenti
+[00:27:09] arama kısmına WP forms yazacağız
+[00:27:13] ve buradaki bu eklentiyi kuracağız.
+[00:27:15] Şimdi kura tıklayayım. Ardından
+[00:27:17] etkinleştire tıklayacağız. Pekala.
+[00:27:19] Güzel. Öylece bu diğer eklentiyi de
+[00:27:20] kurmuş olduk. Şimdi kuracağımız son
+[00:27:22] eklenti XO adlı bir eklenti ve nedenini
+[00:27:25] açıklayacağım. Buraya şunu yazacağız.
+[00:27:27] Pardon o da neydi öyle? Vay o neydi?
+[00:27:29] İşte başlıyoruz. X Pro. Tamam işte tam
+[00:27:33] burada kuracağımız şey bu. Bu Elementor
+[00:27:35] için ücretsiz X Pro oluşturucu. Şimdi
+[00:27:39] kura tıklayın ve ardından etkinleştire
+[00:27:41] basın. Şimdi X Pro Elementor
+[00:27:43] eklentilerini kurmanızı da isteyecek.
+[00:27:46] Hadi bunu da kurun yani kurun. Tamam. E
+[00:27:48] sonra eklentiyi etkinleştireceğim.
+[00:27:51] Pekala. Güzel. Şimdi neden X Pro
+[00:27:53] eklentisini kurduğumuzu açıklayayım. X
+[00:27:56] Pro eklentisi Elementor sayfa
+[00:27:58] oluşturucuyla özel üst ve alt bilgi
+[00:27:59] yapmanızı sağlar. Yani sitemizi kurarken
+[00:28:02] bu kısmı temanın değil Elementor'un
+[00:28:04] yapmasını istiyorum. Aslında Elementor
+[00:28:06] Pro ile bunu aşabilirsiniz ama çoğu
+[00:28:08] kişinin ücretsiz bir özellik için Pro
+[00:28:10] sürümünü almak istemediğini biliyorum.
+[00:28:15] Ayrıca sitenizi cloud ile içe aktarırken
+[00:28:18] tema özelleştiriciyi kullanırsanız çok
+[00:28:20] hata alırsınız. Denediğim beş farklı
+[00:28:23] temada da bu yöntem iyi çalışmadı. Bu
+[00:28:25] yüzden eklentilerle Elementoru
+[00:28:27] kullanacağız. Bu şekilde süreç çok daha
+[00:28:30] sorunsuz ilerleyecek ve daha az hatayla
+[00:28:32] karşılaşacaksınız.
+[00:28:34] Şimdi kuracağımız son eklenti WordPress
+[00:28:36] kütüphanesinde mevcut değil. Bu eklenti
+[00:28:38] aslında aradaki boşluğu dolduracak. Yani
+[00:28:40] WordPress'i cloud ile bağlayacak. onları
+[00:28:42] birbirine bağlar ve web sitesini içe
+[00:28:44] aktarır. İşte gitmeniz gereken web
+[00:28:46] sitesi burası. Bu ücretsiz bir web
+[00:28:48] sitesi. Ücretsiz eklenti. Size hiçbir
+[00:28:50] maliyeti yok. Yükseltme yapabilirsiniz
+[00:28:52] ama bunun yaptığı şey web sitenizi cloud
+[00:28:54] ile bağlamaktır. Ayrıca yapay zekaya
+[00:28:57] Elementory öğretir. Gerçekten sorunsuz
+[00:28:59] bir geçiş yapmanızı sağlamak için.
+[00:29:00] Burada devam edip zik dosyasını indire
+[00:29:02] tıklayacağım.
+[00:29:04] Ve şimdi o eklentiyi yükleyeceğiz. Hadi
+[00:29:06] bakalım. Eklenti ekle. Eklentiyi yükle.
+[00:29:10] Dosya seç.
+[00:29:12] Tamam. Ve sonra şunun altındaki
+[00:29:14] indirilenler işte orada işte burada Nova
+[00:29:17] Mira var. Eklenti bu. Sadece açın ve
+[00:29:20] şimdi kura tıklayın.
+[00:29:25] Tekrarlar güzel. Sonra eklentiyi
+[00:29:26] etkinleştire tıklayacağım. İçe aktarma
+[00:29:28] işlemini başlatmak için ihtiyacımız olan
+[00:29:30] tüm eklentiler bunlar. Şimdi yapmamız
+[00:29:32] gereken son bir şey var. O da Elementor
+[00:29:34] seçeneklerini ayarlamak. Web sitesini
+[00:29:36] içe aktarmadan önce Elementor
+[00:29:38] ayarlarında bazı değişiklikler
+[00:29:39] yapmalıyız. Buradaki ayarlar altından
+[00:29:41] Elementor'a gelince ilk yapmak istediğim
+[00:29:44] şey atomik düzenleyiciyi devre dışı
+[00:29:46] bırakmak. Bu sundukları yeni bir
+[00:29:48] deneysel araç aslında geliştiriciler
+[00:29:50] için. Atomik öğeleri seven bir
+[00:29:52] geliştiriciyseniz bunu açabilirsiniz.
+[00:29:55] Yapay zeka bunların nasıl kullanacağını
+[00:29:57] anlayacaktır. Ama çoğu kişi için bunu
+[00:29:59] kapatmak istiyorum. Burada devre dışı
+[00:30:02] bıraka okudum ve anladıma tıklayıp
+[00:30:04] atomik düzenleyiciyi kapatacağım.
+[00:30:08] Tamam. Ayrıca bir sonraki yapmak
+[00:30:10] istediğim şey özelliklere gidip bir
+[00:30:12] seçeneği açmak. Özelliklere gidip aşağı
+[00:30:15] kaydırdığınızda konteyner seçeneğini
+[00:30:17] göreceksiniz. Clot aslında Elementor'un
+[00:30:19] iç bölümler denilen eski bileşenlerini
+[00:30:21] kullanacak. Bu web sitelerinizi
+[00:30:23] oluşturmanın artık kullanılmayan bir
+[00:30:25] yoludur. Ve bugün Phoxbox kullanıyoruz.
+[00:30:27] Konteyner için aktif seçeneğini
+[00:30:29] seçtiğinizden emin olmalısınız.
+[00:30:30] konteynerı seçerek clou'u iç bölümler
+[00:30:32] yerine flexbox kullanmaya
+[00:30:34] zorlayacaksınız ki bu web sitesi
+[00:30:36] oluşturmanın artık kullanılmayan bir
+[00:30:38] yöntemidir. Bu yüzden konteynerı aktif
+[00:30:40] seçtiğinizden emin olun. Aşağı kaydırın
+[00:30:42] ve değişik bitleri kaydete tıklayın.
+[00:30:44] İşte bu kadar. Şu an WordPress tarafında
+[00:30:46] yapmamız gereken tek şey bu. Şimdi
+[00:30:48] WordPress sürecinin kusursuz
+[00:30:49] işlediğinden emin olmak için Note. Örim.
+[00:30:52] Bazen cloud kullanırken sitemizin bazı
+[00:30:54] kısımlarını HTML yerine React ile
+[00:30:56] oluşturacaktır. Ve eğer bu olursa web
+[00:30:59] sitesini dışa aktarmaya çalışırken bir
+[00:31:00] hata bildirimi alırsınız. Sisteminizde
+[00:31:03] node. O sitenizin canlı bir domaine
+[00:31:05] aktarılabilmesini garanti edecektir.
+[00:31:07] Ayrıca cloud code kullanıyorsanız buna
+[00:31:09] da ihtiyacınız olacak. Çünkü bu yerel
+[00:31:11] cihazlarda JavaScript gösterir. Yani
+[00:31:13] cloud code kullanıyorsanız buna her
+[00:31:15] halikarda ihtiyacınız olacak. Açıklamaya
+[00:31:17] bırakacağım. Bu web sitesine
+[00:31:18] girdiğinizde sadece node. Butonuna
+[00:31:21] tıklayın ve bilgisayarınızı kurun. Bunu
+[00:31:23] kurmak gerçekten çok basit. Sadece tamam
+[00:31:25] tamam evet evet evet diyorsunuz ve
+[00:31:27] bitiyor. Şimdi size kurulum sürecinde
+[00:31:29] eşlik edeceğiz. Sonra tek yapmanız
+[00:31:30] gereken onu kurnak. Burada devam ede
+[00:31:32] tıklıyorum. Devam et.
+[00:31:35] Kur ve buraya şifremi giriyorum.
+[00:31:41] Ve kuruluyor. İşte bu kadar. Yani hepsi
+[00:31:43] bu kadar. Evet. Bazen cloud
+[00:31:45] projelerinizi sitenizi React ile
+[00:31:47] oluşturur ve node.
+[00:31:49] Geçiş süreci kolaylaşır. Şimdi
+[00:31:51] WordPress'e geri dönelim. Cloud'a
+[00:31:53] dönmeden önce WordPress'i cloud ile
+[00:31:55] bağlamamız gerekiyor. Hadi bunu yapalım.
+[00:31:57] Burada Nova Mira'yı göreceksiniz.
+[00:31:59] Yapılandırmaya tıklayacaksınız ve burada
+[00:32:01] bize bu site için yapay zeka
+[00:32:03] yeteneklerini açma seçeneği sunacaklar.
+[00:32:05] O kutuyu işaretleyip ayarları kaydete
+[00:32:06] tıklayacağım. Tama tıktı. Pekala. Sırada
+[00:32:11] bir uygulama şifresi oluşturacağız.
+[00:32:13] Buradan uygulama şifresi oluştura
+[00:32:15] basıyoruz.
+[00:32:16] Tamam. Aşağı kaydırdığımızda yapay zeka
+[00:32:20] istemci bağlantı komutunu göreceğiz. Bu
+[00:32:23] eklenti cloud ile pek iyi
+[00:32:24] çalışmadığından doğrudan Cloud'u
+[00:32:26] kullanacağız. En altta istemci için JSON
+[00:32:30] yapılandırması seçeneğini göreceksiniz.
+[00:32:33] Bu bağlantıya tıkayın ve sonra cloud
+[00:32:35] masaüstünü göreceksiniz. Burada cloud
+[00:32:37] masaüstüne tık buyorum ve tüm bu kodları
+[00:32:39] göreceksiniz. Endişelenmeyin, panik
+[00:32:41] yapmayın. Sadece kopyalayıp cloud'un
+[00:32:43] içine yapıştıracağız.
+[00:32:44] Burada kopyalaya tıklıyorum. Şimdi bu
+[00:32:47] kısım için cloud'un masaüstü sürümünü
+[00:32:49] indirmemiz gerekiyor. Yani şimdi cloud
+[00:32:51] masaüstünü WordPress'le bağlamamız
+[00:32:53] lazım. Masaüstü uygulamasına ihtiyacımız
+[00:32:56] var. Çünkü tarayıcı sürümü Wordc ile
+[00:32:59] düzgün senkronize olmuyor. O yüzden
+[00:33:01] gidip cloud'u indireceğiz.
+[00:33:03] Cloud.ai/download
+[00:33:05] adresine girip masaüstü sürümünü
+[00:33:06] indirin. Bunu Mac veya PC için
+[00:33:08] indirebilirsiniz. İndire
+[00:33:10] tıklayacaksınız.
+[00:33:11] Ve ardından doğal olarak kurulum
+[00:33:13] sürecinden geçeceksiniz. Bunu
+[00:33:14] yaptığınızda sizinle cloud uygulamasında
+[00:33:16] buluşacağız. Tamam. Güzel. Şimdi cloud'a
+[00:33:19] çık. Şimdi ilk yapmak istediğim masaüstü
+[00:33:21] sürümümüzü web sitemize bağlamak. Bunun
+[00:33:24] için buraya gelip ayarlara tıklıyoruz.
+[00:33:27] Sonra geliştiriciye ve ardından
+[00:33:29] yapılandırmayı düzene tıklayacağım.
+[00:33:31] Şimdi burada bu cloud masaüstü
+[00:33:33] yapılandırmasını göreceksiniz. Tek
+[00:33:35] yapmamız gereken bu dosyayı çift
+[00:33:36] tıklamak
+[00:33:39] ve sonra buradaki her şeyi sileceğiz.
+[00:33:41] Yani tüm bunları sileceğim. Ve şimdi
+[00:33:43] WordPress web sitemizden aldığımız o
+[00:33:45] kodu yapıştıracağız. İşte buraya
+[00:33:47] yapıştırıyorum. İşte bu kadar. Böylece
+[00:33:50] göreceksiniz URL'nizi, kullanıcı adınızı
+[00:33:52] ve şifrenizi de göreceksiniz. Sonra tek
+[00:33:54] yapmanız gereken dosyaya gidip
+[00:33:56] kaydetmek. Farklı kaydete tıklamayın.
+[00:33:58] Sadece kaydete tıkladığınızdan emin
+[00:34:00] olun. Farklı kaydete tıklarsanız
+[00:34:01] dosyanızın müjdeline yazar ve bir
+[00:34:03] kopyasını oluşturur. Bu yüzden sadece
+[00:34:05] kaydet dediğinizden emin olun. Tamam. Ve
+[00:34:08] sonra bunu kapatacağım. Bunu da
+[00:34:09] kapatacağım. Ve hala bağlı olmadığımızı
+[00:34:12] göreceksiniz. Şimdi cloud'u kapatıp
+[00:34:13] yeniden açmamız gerekiyor. Hemen sağ
+[00:34:16] tıklayıp çıkış yapacağım ve sonra clou
+[00:34:18] yeniden açalım. İşte burada cloud'u
+[00:34:20] yeniden açıyorum. Pekala. Ve sonra
+[00:34:22] buraya gelip ayarlara tıklayacağım ve
+[00:34:24] geliştiriciye gideceğim. Ve şimdi Nova
+[00:34:27] Mirror'ın web sitesine bağlandığını
+[00:34:29] göreceksiniz. Ve sonra sohbete geri
+[00:34:31] döneceğim. Ve ona sormak istediğim ilk
+[00:34:33] şey bağlı mısın? Bağlı mısın?
+[00:34:38] WordPress verena. Ve sonra bunun bağlı
+[00:34:40] olduğunu göreceksiniz. Hadi cloud
+[00:34:42] tasarıma geçelim. Clot tasarıma geri
+[00:34:44] dönersek şimdi bu web sitesinin bir
+[00:34:46] kopyasını indirmek istiyorum. İşte
+[00:34:48] burada paylaş düğmesini göreceksiniz.
+[00:34:51] Şimdi burada projeyi zip olarak indir
+[00:34:52] seçeneğini göreceksiniz. Tek yapmanız
+[00:34:54] gereken bunu bir zip olarak indirmek.
+[00:34:56] Burada projeyi zip olarak indire
+[00:34:58] tıklayacağım ve sonra Wilson Estate'in
+[00:35:00] bilgisayarıma indiğini göreceksiniz. Ama
+[00:35:02] hemen belirteyim. Video açıklamasında
+[00:35:04] başka bir everne var ve bu web sitenizi
+[00:35:06] oluşturmak için Cloud'a tam olarak ne
+[00:35:08] vermeniz gerektiğini söyleyecektir.
+[00:35:09] Yapay zekaya ne talimat verdiğimizin bir
+[00:35:11] özetini sunarsam ona verdiğim ilk
+[00:35:13] talimat ona web sitemizin bir kopyasını
+[00:35:15] verdiğimizi bildirmek. Sonra bu web
+[00:35:18] sitesini WordPress için dönüştürmesini
+[00:35:20] istiyorum. Bir sonraki satın isen sadece
+[00:35:23] web sitesi için sayfaları oluşturmasını
+[00:35:24] istiyorum ve burada web sitemiz için üst
+[00:35:27] bilgi ve alt bilgimiz oluşturmak üzere X
+[00:35:30] pro eklentisini kullanmasını istiyorum.
+[00:35:32] Şimdi burada yapmanız gereken son şey bu
+[00:35:35] URL'yi kendi web sitenizde değiştirmek.
+[00:35:38] Burada bunu geri alacağım ve yeni web
+[00:35:40] sitemi koyacağım. Yani yeni web sitenizi
+[00:35:43] gireceksiniz ve sonra bunu kopyalayıp
+[00:35:46] cloud'a vereceğiz. Yani sağ tıklayıp
+[00:35:49] kodalayız ve masaüstü sürümüne geri
+[00:35:52] dönelim. İşte clot buradar. Ve ilk
+[00:35:54] yapacağım şey o dosyayı yüklemek olacak.
+[00:35:57] İşte burada dosyayı yükleyeceğim.
+[00:36:01] Tamam. E burada indirilenler altında
+[00:36:04] işte orada ve bu Wilson estake işte
+[00:36:06] başlıyoruz
+[00:36:07] ve sonra aça tıklayacağım
+[00:36:10] ve sonra o komutu yapıştıracağım.
+[00:36:13] Gördüğünüz gibi her şey bağlı gitmeye
+[00:36:14] hazır. Ve şimdi bu komutu gireceğiz ve
+[00:36:17] bunu girdikten sonra tüm web sitemizi
+[00:36:19] WordPress'a aktaracak.
+[00:36:22] Şimdi bu işlem birkaç dakika sürebilir.
+[00:36:24] Bazı ayarlara izin vermeniz de
+[00:36:25] gerekebilir. O yüzden bu konuda tetikli
+[00:36:27] oldum. Şimdi devam edelim ve bu komutu
+[00:36:29] çalıştıralım. web sitenizi oluşturma
+[00:36:31] süreci birkaç dakikanızı alabilir.
+[00:36:33] Ayrıca size birkaç soru da sorabilir.
+[00:36:35] Yani ne zaman bir soru sorsa sadece her
+[00:36:37] zaman izin veret işte biliyorsunuz. Evet
+[00:36:39] evet deyin. Siz işte işi biliyorsunuz
+[00:36:41] değil mi? Bu yüzden bunu web sitenize
+[00:36:42] uygulaması için ona izin vermeniz
+[00:36:44] yeterli. İşte burada her zaman izin ver
+[00:36:47] kez daha izin ver. Tamam. Ve yaklaşık
+[00:36:49] tam 15 dakika bekledikten sonra şimdi
+[00:36:52] web sitesini oluşturdu. web sitesini
+[00:36:54] bitirdiğini bildirdi ama X Pro üst ve
+[00:36:57] alt bilgisinde sorunlar var gibi. Önemli
+[00:36:59] değil, düzeltebiliriz. Hadi sitemize bir
+[00:37:01] bakalım. Şimdi buraya Google Chrome'a
+[00:37:04] geri dönelim. Bu benim projem ama
+[00:37:06] WordPress web sitemizi kontrol edelim.
+[00:37:08] Umarım her şey yolundadır. İşte
+[00:37:10] başlıyoruz ve işte orada Widenla.
+[00:37:13] Bu aslında düşündüğümden çok daha iyi
+[00:37:15] değil mi? Yani açıkçası yapmamız gereken
+[00:37:18] bazı düzeltmeler var. Üst bilgi yanlış
+[00:37:20] ama görebileceğiniz gibi ana fikri
+[00:37:21] kavramış değil mi? Yani buradaki
+[00:37:23] ürünümüze bakarsak metin biraz daha
+[00:37:25] büyük. Sorun değil. Hadi aşağı doğru
+[00:37:28] kaydıralım. Tam buradaki bu bölüm
+[00:37:30] birebir aynı görme aslında. Demo web
+[00:37:32] sitemize bakarsak hemen hemen aynı.
+[00:37:34] Sırada tam burada bu belirli mülkler
+[00:37:36] hakkında sadece bazı bilirsiniz bazı
+[00:37:39] görsellerin olduğu öne çıkan ilanlar
+[00:37:41] kısmı var. Bu bölümde. Bilirsiniz bu üç
+[00:37:44] küçük tanıtım yazısı var ve aynı şey
+[00:37:45] değil mi? Birebir aynısını kullanmadı
+[00:37:47] ama ne demek istediğimi anladınız değil
+[00:37:49] mi? Eldekileri kullanıyoruz. Aşağı
+[00:37:52] kaydırdığımızda burada bu bölüm var.
+[00:37:54] Güzel. Sırada referanslar bölümümüz var.
+[00:37:57] Mükemmel görünüyor ve görünüşe göre
+[00:37:59] burada biraz çalışmamız gerekiyor. Yani
+[00:38:01] burada düğmelerin yan yana olduğunu
+[00:38:02] göreceksiniz ve sonra en altta alt
+[00:38:04] bilginiz var. Ve ayrıca en alttaki alt
+[00:38:06] bilgi sadece tam buradaki bu kısımla
+[00:38:08] birlikte yani anlayabileceğiniz gibi ana
+[00:38:11] fikri kavramış değil mi? Yani diğer
+[00:38:12] yapay zeka web sitemizdeki işlerin
+[00:38:14] çoğunu aynen yaptı ve tüm günleri
+[00:38:16] değiştirebiliriz. Şimdi burada bir sayfa
+[00:38:18] oluşturucu kullanmak istemenizin nedeni
+[00:38:21] artık içeri girip her bir öğeyi
+[00:38:23] tasarlayabilmemizdir. Ölümleri
+[00:38:24] çoğaltabiliriz. Şimdi ilk olarak web
+[00:38:28] sitesini sayfa oluşturucuyla nasıl
+[00:38:30] düzenleyeceğinizi göstereceğim. Şimdi en
+[00:38:33] üstte Elementor ile düzenle seçeneği
+[00:38:35] var. Bu yapay zeka sitelerimizdeki tüm
+[00:38:37] içeriği düzenleyen sayfa oluşturucudur.
+[00:38:39] Hadi bunu Elementor ile düzenleyelim.
+[00:38:41] İşte Elementor bu. Hemen bu sinir bozucu
+[00:38:43] bildirimi kapatıyorum. Burada
+[00:38:45] düzenleyicileri kullanarak web sitesinde
+[00:38:47] düzeltmeler ve eklemeler yapabiliriz.
+[00:38:50] Örneğin buraya bir düğme eklemek için
+[00:38:52] sürükleyip bırakmam yeterli. Bir süredir
+[00:38:55] Elementor kullandığım için neler olup
+[00:38:57] bittiğini zaten biliyorum. Görünüşe göre
+[00:39:00] genel stil kapalı çünkü bu yeşil rengi
+[00:39:02] atıyor ve ben o rengi istemiyorum. O
+[00:39:05] yüzden bunu hemen sileceğim. Şimdi asıl
+[00:39:07] harika olan şey bunu aslında
+[00:39:08] çoğaltabiliyor olmam. Yani bunu
+[00:39:10] çoğaltabilir ve sonra başka bir yere
+[00:39:11] ekleyebilirim. Yani bölümleri
+[00:39:13] çoğaltabilir, stilleri kopyalayıp
+[00:39:15] yapıştırabilirsiniz. Bu yüzden burada
+[00:39:17] devam edip bunu sileceğim. Ve işin
+[00:39:19] havalı kısmı da bu. Diyelim ki örneğin
+[00:39:21] tam buradaki bu büyük bölümü beğendiniz.
+[00:39:23] Yani yapabileceğimiz şey bunu sadece
+[00:39:25] çoğaltmaktır. Örneğin sağ tıklayıp
+[00:39:27] çoğaltacağım
+[00:39:28] ve işte oldu. Şimdi o bölümün tamamını
+[00:39:30] çoğalttık. Yani bu sayede şöyle oluyor.
+[00:39:32] Tasarımı yapay zekadan alabilirsiniz.
+[00:39:34] Zaman kazanmak adına bunu web sitenizin
+[00:39:36] her yerine şöyle yayabilirsiniz. Bu
+[00:39:39] bölümü pek istemediğim için tamamen
+[00:39:40] siliyorum. İşte böyle. Sildim. Ah
+[00:39:43] penceremin dışında bir kuş var gibi
+[00:39:45] görünüyor. Bu tuhafı. Ayrıca bu kısmı e
+[00:39:48] muhtemelen siyaha çevirmek istiyorum.
+[00:39:50] Burada metin renginin bu renk olduğunu
+[00:39:52] görüyorsunuz. Yani düğme rengini bazı
+[00:39:54] metinlere de uyguladı. Büyük bir sorun
+[00:39:56] değil. Biliyorsunuz açıkçası bunu hemen
+[00:39:58] değiştirebiliriz. Aşağı iniyorum. Burada
+[00:40:00] da aynı şey. Bunu hemen ayarlayabiliriz.
+[00:40:03] Muhtemelen genel stil ayarlarını
+[00:40:05] yapmalıyım. Çünkü en büyük hata
+[00:40:06] muhtemelen orada. Burada tüm bunları
+[00:40:08] nasıl yanlış renkli yazı tipiyle
+[00:40:10] şekillendirdiğini görebilirsiniz.
+[00:40:12] Tamam. Şimdi bu bölüm hızlı bir çözüm.
+[00:40:14] Yapacağım ilk şey herhangi bir
+[00:40:16] kaydırmanın etkinleştirilmediğinden emin
+[00:40:17] olmak. E sonra sadece genişliği
+[00:40:19] artıracağız. Tamam. Ve bunu engelleyen
+[00:40:23] başka bir şey var gibi görünüyor. Yani
+[00:40:25] bu muhtemelen gelişmiş sekmesindeki bir
+[00:40:27] seçenektir. İşte burada CSS sınıfları
+[00:40:29] bazen yapay zeka öğelere SSS
+[00:40:31] uygulayabilir. Bundan kurt olursam artık
+[00:40:34] yan yana hizalandığını göreceksiniz.
+[00:40:35] Bunu neden yattığından emin değilim ama
+[00:40:37] e olması gerektiği gibi davranmayan
+[00:40:39] öğeler görürseniz muhtemelen eklenmiş
+[00:40:41] bir CSS vardır. Sadece silmeniz
+[00:40:43] gerekiyor. Sonra burada genişliği
+[00:40:45] arttırmaya devam edebiliriz. Tamamdır.
+[00:40:47] Şöyle yapalım değil mi yani? Evet. Bu
+[00:40:49] hızlı bir çözüm ve burada aşağı inerken
+[00:40:51] belli ki yazı tipinin asıl rengini
+[00:40:53] değiştirmemiz gerekiyor. Burada tek
+[00:40:55] yapmanız gereken web sitenizi gözden
+[00:40:57] geçirip yapay zekanın gerekli
+[00:40:59] değişiklikleri yapmasını sağlamaktır.
+[00:41:01] Size karşılaşabileceğiniz yaygın
+[00:41:03] durumları göstereyim. İlk kona genel
+[00:41:05] stil ayarlarıdır. Yani burada site
+[00:41:07] ayarlarımız olacak. Şimdi cloud'u
+[00:41:10] kullandığınızda tüm web sitenize genel
+[00:41:12] bir renk ve yazı tipi atayacaktır. Ve
+[00:41:14] hata şingıdem burada. Yani hata bunu
+[00:41:16] birincil olarak seçmiş olması muhtemelen
+[00:41:19] ikincil olmalıydı değil mi? Çünkü metnin
+[00:41:21] birincil olmasını istiyorum ve düğmenin
+[00:41:23] de belki ikincil gibi olmasını
+[00:41:24] istiyorum. Bu da özel bir renk ama ben
+[00:41:27] bunu öylece bırakacağım. Yani evet web
+[00:41:30] sitenizin genelindeki renklere atamak
+[00:41:31] isteyeceğiniz yer burasıdır. Burada
+[00:41:33] değiştirmeyeceğim ama sadece bunu
+[00:41:35] nereden değiştireceğinizi gösteriyorum.
+[00:41:37] Ayrıca web sitenizde eşleşmeyen tuhaf
+[00:41:39] yazı tipleriyle karşılaşırsanız genel
+[00:41:41] yazı tiplerine de gidip birinci
+[00:41:43] seçeneğine tıklayacaksınız ve sonra
+[00:41:45] burada web sitenizin asıl yazı tipini
+[00:41:47] atayabilirsiniz. Tamam. Şimdi yine bazen
+[00:41:51] cloud belirli yazı tiplerini
+[00:41:52] atayacaktır. Çoğu durumda ona
+[00:41:54] söylediğiniz yazı tipini atayacaktır.
+[00:41:56] Ancak bazen biraz tuhaflaşabilir ve bunu
+[00:41:57] yapmayabilir. Şimdi hepinize üst bilgi
+[00:42:00] ve alt bilginizi nasıl tasarlayacağınızı
+[00:42:02] göstereyim. Şimdi şu şey bu aslında X
+[00:42:04] Pro adlı bir eklentiden. Şimdi buna
+[00:42:06] tıklarsam artık üst bilgi ve alt bilgiyi
+[00:42:09] tasarlayabileceğimizi göreceksiniz.
+[00:42:11] Örneğin burada kalem simgesine
+[00:42:13] tıklayacağım ve e burada sadece her
+[00:42:16] şeyde görüntülendiğinden emin olmak
+[00:42:18] istiyoruz. Yani tüm web sitesinde
+[00:42:20] görüntüle. Tamam. Ve yayınlandığımdan
+[00:42:22] emin olun. Ardından güncelleye
+[00:42:24] tıklayacağım. Şimdi bunun burada yaptığı
+[00:42:26] şey üst bilginizin genel olarak
+[00:42:28] uygulanmasıdır. Böylece sadece ana
+[00:42:30] sayfada değil sitenizin tüm sayfalarında
+[00:42:32] uygulanacaktır. Ve aynı şeyi asıl alt
+[00:42:35] bilgi için de yapmak isteyeceksiniz.
+[00:42:37] Şimdi burada kalem simgesi şurada göster
+[00:42:39] tüm web sitesi ve sonra güncelle. İşte
+[00:42:41] bu kadar. Şimdi diyelim ki örneğin üst
+[00:42:44] bilgiyi özelleştirmek istiyorsunuz.
+[00:42:46] Burada üst bilgi düğmesine tıklayacağım
+[00:42:48] ve işte burada kalemimiz var. Ve aşağı
+[00:42:50] kaydırırsak burada elementör var. Buna
+[00:42:53] tıklarsam bu düzenleyiciyi açacaktır. Bu
+[00:42:55] artık üst bilgiyi tamamen tasarlayıp
+[00:42:57] özelleştirebileceğimiz özel bir
+[00:42:59] düzenleyici. Şimdi buna tıklarsam bir
+[00:43:01] menü kullandığını göreceksiniz. Yani
+[00:43:03] WordPress panelinizde oluşturduğunuz
+[00:43:05] menü tam burada görüntülenecek. Şimdi
+[00:43:07] burada muhtemelen bu düğmeyi değiştirmek
+[00:43:09] istiyorum. Değil mi? Bunu sevmedim.
+[00:43:10] Biliyorsunuz farklı bir renkle
+[00:43:12] değiştirmek istiyorum. Şimdi şurada arka
+[00:43:14] plan rengine bir göz atalım. Yani arka
+[00:43:17] plan türü, klasik, renk ve burada ana
+[00:43:20] rengimiz var. Yani ana rengi kullanmak
+[00:43:22] istiyorum. O yazı tipinin nesi var?
+[00:43:24] Büyüme. Önön. Biliyorsunuz o yazı tipi
+[00:43:26] rastgele seçilmiş. Yani seçtiğim yazı
+[00:43:28] tipinin bir parçası değil. Rastgele bir
+[00:43:30] yazı tipi gibi değil mi? Sadece
+[00:43:31] değiştirmemiz gerekiyor. Önemli bir şey
+[00:43:33] değil. Tamam. Şimdi arka planın
+[00:43:35] değiştiğini görebiliyoruz. Ve tabii ki
+[00:43:38] buraya tıklayın kısmına bir görüşme
+[00:43:40] ayarlayın falan yazacağım. Görüşme
+[00:43:42] ayarlayın ve bağlantı için sadece
+[00:43:44] sayfanın adımı yazarsanız aslında
+[00:43:46] otomatik olarak yetirecektir. İşte
+[00:43:48] burada iletişim ve sonra yayınlaya
+[00:43:51] tıklayacağım. Tabii ki buradaki bu menü
+[00:43:53] de öyle. Biraz daha büyük olmasını
+[00:43:55] istiyorum çünkü nasıl daraldığını
+[00:43:56] görüyorsunuz. Genişlik için genişliği
+[00:43:58] biraz artırmak istiyorum. İşte oldu.
+[00:44:01] Sadece %70 yapalım. Tamam. Ve yayınla.
+[00:44:04] Ayrıca logonuzu değiştirmek isterseniz
+[00:44:06] buradaki öğeye tıklamanız yeterli. Bir
+[00:44:08] metin düzenleyici kullanıyorlar gibi
+[00:44:09] görünüyor. Biraz tuhaf de mı? Yani metin
+[00:44:12] düzenleyici kullanmamaları gerekiyor ama
+[00:44:14] işe yarıyor. Ama e evet sanırım bu da
+[00:44:17] gidilebilecek bir yol. Tek yapmanız
+[00:44:19] gereken orta ekleye tıklamak. Sonra
+[00:44:21] logonuzu yükleyip buraya uygulayın.
+[00:44:24] Burada logo adında bir öğe kullanıyor
+[00:44:26] olmalılar. logo yazarsam evet site
+[00:44:29] logosu kullanıyor olmalılar gerekir. Bir
+[00:44:31] görsel veya site logosu kullanabilir.
+[00:44:34] Logonuzu metin düzenleyiciyle
+[00:44:35] gösterebilirsiniz. Gerçekten hiç fark
+[00:44:37] etmez. Mesela buraya sadece görsel koyup
+[00:44:40] sonra sürükleyebilirim. Bunun altına ve
+[00:44:42] logomu aynen bu şekilde yükleyebilirim.
+[00:44:44] Mesela e bunun logom olduğunu
+[00:44:47] varsayalım. Şu biliyorsunuz şu WordPress
+[00:44:49] simgesi. Seçe tıklayacağım ve işte oldu.
+[00:44:51] Sonra sağ tıklayıp bunu sileceğim. Yeni
+[00:44:53] logonuz burada veya sadece site logosunu
+[00:44:56] kullanabilirsiniz. Aynı sonucu verir.
+[00:44:59] Şimdi X Pro eklentilerine gidersek
+[00:45:02] kayıtlı şablonlar üst bilgi ve alt
+[00:45:04] bilginizin bir kopyasını göreceksiniz ve
+[00:45:06] bunu buradan arka uçtan da tasarlayıp
+[00:45:07] özelleştirebilirsiniz. E e ama bunu ön
+[00:45:10] uçtan veya arka uçtan da yapabilirsiniz.
+[00:45:12] Aynı sonucu Legos. Yani şimdi o düğmenin
+[00:45:14] değiştiğini ve menümüzün çok daha iyi
+[00:45:15] göründüğünü göreceksiniz. [müzik] Umarım
+[00:45:17] bu videoyu beğenmişsinizdir arkadaşlar.
+[00:45:19] Anlayabileceğiniz gibi bu yöntem çok
+[00:45:21] daha verimli. Çünkü içeri girip
+[00:45:22] düzeltebilirsiniz. Tüm o küçük teknik
+[00:45:24] şeyler gibi. Ah dolgu yanlış, boşluklar
+[00:45:26] yanlış. Metnin biraz renk değişimine
+[00:45:28] ihtiyacı var. Cloud'a gidip sürekli
+[00:45:30] yazmak, beklemek, yazmak, beklemek
+[00:45:32] yerine biliyorsunuz cloud çok iyidir ama
+[00:45:34] temeli oluşturmak için iyidir. Ama ufak
+[00:45:36] dokunuşlarla sayfa oluşturucu çok daha
+[00:45:38] iyi çalışıyor. Ben Daryl Wilson. Umarım
+[00:45:41] videoyu beğenirsiniz. Bir sonraki
+[00:45:43] videoda görüşmek üzere. Hoşça kalın.
