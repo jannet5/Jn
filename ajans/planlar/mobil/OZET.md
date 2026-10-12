@@ -88,3 +88,48 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
   - Skill'leri CLI ile kur (Clerk skills, Stream agent skills `getstream init` + `stream-react-native`), sonra Reload Window.
   - Gerçek cihaz: EAS dev build + QR; build öncesi commit şart; OTA yalnız JS değişikliğinde.
   - AGENTS.md'ye görsel üretim maliyet kuralı (1K, 9:16, model); Delete account'ta cascade doğrulaması; Support URL sayfası.
+
+## Ek (2026-10-12): 33 yeni planın sentezi — fabrikaya girecek kararlar
+
+**A. Tasarım kalitesi = skill + referans + döngü (en çok tekrar eden bulgu)**
+1. **Zorunlu skill seti (project scope, kurulum script'inde):** Expo `building-native-ui` + `expo-deployment` (`npx skills add expo/skills`), Anthropic `frontend-design` (`/plugin marketplace add anthropics/claude-code` → `/plugin install frontend-design@claude-code-plugins`), backend'in kendi skill'i (Clerk / Supabase / InstantDB / Convex), Android için Google'ın resmi Android skill'leri, yayın öncesi App Store Preflight, ikon için App Icon + SnapAI. Kaynak: Beto (sneNR5KnRJU, mvfQGjQurAQ, Ji2Lmh1kolA), Build Great Products (95_NJ-a-CMQ), Tech With Tim (misjUj4Q_ho).
+2. **Referans kütüphanesi skill'i (`tasarim-ilham`):** Mobbin'den sektör + 2 farklı dikeyden 6-10 ekran; `references/onboarding|paywall|home|empty-state|bottom-sheet|modal-dialog/`; kural "mimic, not copy". Mobbin MCP ile moodboard → PDF stil rehberi → **müşteri başına brand skill** (ljJuOxTsrtY, nbk0PMS0tos).
+3. **Extract → Expand → Merge → Design zinciri** slash command olarak: `design/competitor-analysis.md` → `styles.md` → `design-system.md` (color, typography, spacing, radius, shadow, motion) → `theme.ts` (wiQMsQwWJQE).
+4. **Screen-match / verify-loop'u skill yap:** `design/<ekran>-ref.png` oku → kur → `xcrun simctl io booted screenshot` → karşılaştır → tekrarla; ekran prompt'u tek satıra iner: "make sure <ekran> looks like @design/<ekran>-ref.png" (bGALxRWI10A, FegYRu-swbA). **Uyarı:** simülatör screenshot döngüsü context ve krediyi çok yakıyor; ekran başına tur sınırı koy (9V2ZFhLsh9w).
+5. **Bileşen varyantı önce, sayfa sonra:** tek bileşenin aynı veriyle 4 varyantı → seç → tüm ekranlara uygula; dev-only `app/design.tsx` ekranında token + Button/Card/Input/Sheet/Toast vitrin, müşteri onayı sonrası "apply to all screens" (ljJuOxTsrtY, misjUj4Q_ho).
+6. **"AI işi" görünümünü temizleme:** teslim öncesi Impeccable skill (`quieter`, `distill`) bir tur; CLAUDE.md'de emoji ikon ve mor/mavi gradient yasağı (ljJuOxTsrtY, 95_NJ-a-CMQ). Impeccable linki (github.com/pbakaus/impeccable) doğrulanmadı.
+7. **Tasarım kilidi:** görsel prototip (Claude Design / `/design` / Paper) onaylanmadan build yok; her özellik prompt'una sabit ek "Do not change the existing visual design; new screens must reuse the existing design tokens and components" (s4E8iQBUrJA, eoEsVQJruow, L_tpLe8pIn8, 76_h94U4ztQ).
+8. **Illüstrasyon hattı:** her ekran için stil+palet+konu prompt'u `design/illustration-prompts.md` → Higgsfield MCP / GPT Image → `assets/illustrations/` → `expo-image` (76_h94U4ztQ).
+
+**B. "Ham Android pop-up" şikâyetinin kesin çözümü**
+- `@expo/ui` (SwiftUI / Jetpack Compose) native dialog, picker, switch; Beto'nun planı "Expo UI native components" diye açıkça istiyor (LZFEr9QDIVg, 9V2ZFhLsh9w).
+- **Production polish prompt'u** (xfptZcCf484'ten uyarlanacak): loading/skeleton, başarı-hata toast'ı, geçişler, dokunmaya uygun kontroller, haptics; `Alert.alert` yasak.
+- Animasyon karar kuralı: basit enter/exit/state için `react-native-ease` `EaseView`; gesture/layout/shared element için Reanimated 4 (oAIqn44Y63c). Hazır kalıplar: `SelectableRow`, `StaggerReveal`, onboarding sonu "congratulations" ekranı.
+- Şablona özel animasyonlu tab bar: `TabBar.tsx` + `TabBarButton.tsx`, `onLayout` ile kayan gösterge, `withSpring`, tek `useSharedValue` + `interpolate` (GrLCS5ww030). Codesistency ise Native Tabs (liquid glass) kuralı koyuyor; **karar: iOS'ta Native Tabs, özel marka hissi gereken projede animasyonlu TabBar**.
+- Sohbet ekranı kalıpları: "yazıyor" üç noktası, boşken mikrofon / konuşurken dalga animasyonu, linkleri uygulama içinde açma (eoEsVQJruow).
+
+**C. Varsayılan stack'e eklenecekler**
+- Simon Grimm 2026 stack'i (LZFEr9QDIVg): `expo-sqlite` + Drizzle, `react-native-mmkv` (AsyncStorage yerine), Zustand (MMKV persist), TanStack Query, `@shopify/flash-list` (uzun listede FlatList yasak), `react-hook-form` + zod; stil için tek seçim sabitlenir (Uniwind / NativeWind veya Unistyles).
+- Backend alternatifleri: Supabase (RLS), Convex (Codex kurslarında Instagram klonu), InstantDB (Beto), Sanity Studio = işletmenin kendi verisini girdiği hazır panel (lpeP6BcUlFU).
+- **Çok kullanıcılı test zorunlu:** iki test kullanıcısı ile RLS/izolasyon ve paylaşılan durum (koltuk/randevu slotu) kontrolü; tek kullanıcıyla "boş görünen dolu slot" hatası yakalanmaz (lpeP6BcUlFU, s4E8iQBUrJA).
+
+**D. Süreç / ajan kuralları**
+- **AGENTS.md tek gerçek kaynak, CLAUDE.md = `@AGENTS.md`**; aynı repo Codex/Claude/Cursor ile çalışır. Bir AI'nın geri aldığı her tasarım kararı anında kurala yazılır ("remember we always want to …") (FegYRu-swbA, ZXkeWiWB4xg).
+- Prompt'ta framework + sürüm açık ("React Native + Expo SDK 54"); aşama 1 "only front end with placeholder data", sonra her özellikte "remove placeholder data" (6q8joS_592k, oaYIiJvtJ0g).
+- `plans/phase-N.md` ritmi, her büyük değişiklikte commit, bozulunca temiz commit'ten yeni sohbet (nlMyplRL8V8, Ji2Lmh1kolA).
+- Kod yazmadan önce ayrı ürün turu: "What are other cool high retention and engagement features we can add?" → gamification modülü (XP, level, streak, fireworks) (-ldzZ6D5cwY).
+- Brief formu eksenleri: 6 soru (müşteri, pain, outcome, mechanism, pricing, proof) + **magic moment** (76_h94U4ztQ); Claude Design'ın soru formu (palet vibe, kişilik, grain, varyasyon stratejisi) (L_tpLe8pIn8).
+- Codex araçları: `/goal` (bitiş kriterine kadar döngü), teslim öncesi `/review`, `/compact` %70-90'da, worktree ile paralel iş (ZXkeWiWB4xg).
+- Her uygulamaya **Developer ekranı**: izin durumu, onboarding reset, dummy data, light/dark geçişi (uUUQjJm9zRw, Nick Saraev ile aynı).
+- **Referans proje MCP'si:** Beto kaliteyi "Inkigo'nun onboarding'ini referans al" gibi üretimde kanıtlanmış kendi projelerinden çekiyor → bizim de kendi referans kütüphanemiz (skill veya MCP) olmalı (REEt7nX6x-0).
+- Maliyet gözlemi: aynı habit tracker + widget Fable 5 ile ~$50 / 49 dk, Fable 5.1 ile ~$33 / 40 dk (9V2ZFhLsh9w, REEt7nX6x-0); Claude Design'ın ayrı haftalık kotası var, 30 dk'da ~%21-26 bitti (L_tpLe8pIn8).
+
+**E. Yayın ve pazarlama**
+- **Mağaza ekran görüntüsü hattı:** metin HTML'de gerçek fontla, ortada gerçek screenshot, AI sadece arka plan → PNG; yazım hatası sıfır (J17j1wiisCs). Alternatif: Beto'nun ücretsiz Figma şablonu.
+- Her projede `business-context.md` + koddan üretilen `brand-guideline.html` (renk rolleri, tipografi, bileşenler, voice & tone) (J17j1wiisCs).
+- Claude in Chrome ile RevenueCat, Resend DNS, App Store Connect kurulumunu ajan yapabiliyor; **legal sayfaları okumadan yayınlama** (J17j1wiisCs uyarısı).
+- iOS widget: Expo SDK 57 dev build + `containerBackground` API (REEt7nX6x-0).
+
+**F. Dikkat: başlığı yanıltıcı / düşük değerli videolar**
+- xfptZcCf484 (Mikey) Claude Code değil, sponsorlu Base44; yalnız polish prompt'u değerli. GUgxx6fMiR8 (Tim) web + Hostinger deploy, mobil değil. ZXkeWiWB4xg Codex özellik turu, mobil uygulama yok. uUUQjJm9zRw, eoEsVQJruow, L_tpLe8pIn8 native Swift; kod değil iş akışı alınır.
+- Planı olmayan, transkripti çekilemeyen A videoları: qa5jMoJRQL8 (altyazı yok), UMjeSU6C4qU (henüz çekilemedi).
