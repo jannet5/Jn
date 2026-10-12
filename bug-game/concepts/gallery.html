@@ -23,11 +23,16 @@ dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0 0 10px}
 dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
 dd{margin:0}
 .hook{margin:0;border-left:3px solid var(--leaf);padding-left:10px;color:var(--fg)}
+.dlbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 22px}
+.dl{font:800 15px var(--body);background:var(--leaf);color:#10200a;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;margin-top:12px}
+.dl.big{margin:0;font-size:17px;padding:12px 20px}.dl:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.dl:disabled{opacity:.6;cursor:wait}#dlmsg{color:var(--muted)}
 .pick{margin-top:30px;color:var(--muted)}
 </style>
 <div class="wrap">
 <h1>Böcek Ringi: 20 konsept</h1>
 <p class="lead">Her kart aynı oyun mantığını farklı bir dünyada gösteriyor: maskot, mekan, böcek kapıştıran rakip, 5 slotlu arena, slotları kapatan yaprak ve sis içinde bağıran seyirci böcekler. Beğendiğin kartın numarasını söyle, o dünyayla oyunu kuralım.</p>
+<div class="dlbar" id="dlbar" hidden><button class="dl big" data-file="bocek-ringi-20-konsept.zip">20 görselin hepsini indir (ZIP, 7 MB)</button><span id="dlmsg" role="status"></span></div>
 <section class="rules">
 <div><b>1. Hikâye</b>Maskot yeni bir yere gelir, rakiple konuşur. Oyun direkt başlamaz, sahne sahne ilerler.</div>
 <div><b>2. Bak</b>Rakip 5 slota 5 böcek koyar. Birkaç saniye görürsün.</div>
@@ -51,6 +56,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Dev mantarların altında, ateşböceği ışıklı bir alacakaranlık vadisi</dd>
     </dl>
     <p class="hook">Kayıp pusulasının peşindeki Fındık, mantar ışıkları altında böcek ringi kuran Gırtlak Usta ile karşılaşır.</p>
+    <button class="dl" data-file="png/konsept-01.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k2">
@@ -67,6 +73,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Hurma ağaçlı bir vaha, dolunay ve kum tepeleri</dd>
     </dl>
     <p class="hook">Su arayan Kumru, vahada böcek pazarı kuran Bukalemun Tüccar'a takılır: "Kazanırsan su senin."</p>
+    <button class="dl" data-file="png/konsept-02.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k3">
@@ -83,6 +90,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Kağıt fenerli, köprülü ve sazanlı gece bahçesi</dd>
     </dl>
     <p class="hook">Fener festivalinde Tofu, ustasının efsane böcek turnuvasına çırak olarak katılır.</p>
+    <button class="dl" data-file="png/konsept-03.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k4">
@@ -99,6 +107,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Kar fırtınası sonrası buzdan bir arena, kuzey ışıkları</dd>
     </dl>
     <p class="hook">Kışın uyanan buz böcekleri için Pofuduk, Komodor Pengu'nun buz ringine meydan okur.</p>
+    <button class="dl" data-file="png/konsept-04.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k5">
@@ -115,6 +124,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Parlayan kristallerle dolu yeraltı mağarası, yankılı tezahürat</dd>
     </dl>
     <p class="hook">Tünel kazarken bir mağaraya düşen Burgu, DJ Yarasa'nın yeraltı böcek ligini keşfeder.</p>
+    <button class="dl" data-file="png/konsept-05.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k6">
@@ -131,6 +141,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Sazlıklar, ağaç kökleri ve yeşil sis arasında bir iskele</dd>
     </dl>
     <p class="hook">Nil'in sandalı Dişlek'in iskelesine sürüklenir. Geri almak için böcek düellosu şart.</p>
+    <button class="dl" data-file="png/konsept-06.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k7">
@@ -147,6 +158,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Uzay istasyonunda cam kubbeli böcek serası, dışarıda gezegen</dd>
     </dl>
     <p class="hook">Uzay serasından kaçan böcekleri toplayan Miyu, BZZ-9'un turnuva protokolüne girer.</p>
+    <button class="dl" data-file="png/konsept-07.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k8">
@@ -163,6 +175,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Dumanı tüten volkanın eteğinde siyah kumlu sahil</dd>
     </dl>
     <p class="hook">Gemisi karaya oturan Çakıl, adanın bekçisi Magma Dede'nin lav ringinde sınanır.</p>
+    <button class="dl" data-file="png/konsept-08.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k9">
@@ -179,6 +192,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Fırtınalı denizde sallanan korsan gemisinin güvertesi</dd>
     </dl>
     <p class="hook">Gemide hazine haritası yerine böcek kavanozları çıkar. Kaptan: "Haritayı kazanırsın!"</p>
+    <button class="dl" data-file="png/konsept-09.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k10">
@@ -195,6 +209,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Şeker tezgahlı, bayraklı rengarenk bir sokak pazarı</dd>
     </dl>
     <p class="hook">Pastasına üşüşen böcekleri kovalayan Lokum, Madam Bal'ın tatlı böcek yarışmasına düşer.</p>
+    <button class="dl" data-file="png/konsept-10.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k11">
@@ -211,6 +226,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Halat köprülü ağaç evler, ip ışıkları, akşam serinliği</dd>
     </dl>
     <p class="hook">Köyün yıllık böcek şampiyonası! Fıstık ilk kez çağrılır, hakem Bilge kuralları anlatır.</p>
+    <button class="dl" data-file="png/konsept-11.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k12">
@@ -227,6 +243,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Batık bir hava kubbesi içinde mercanlarla çevrili arena</dd>
     </dl>
     <p class="hook">Batık gemiyi keşfeden Deniz, hava kubbesinde böcek gösterisi yapan Sekizkol'u bulur.</p>
+    <button class="dl" data-file="png/konsept-12.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k13">
@@ -243,6 +260,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Çizgili sirk çadırı, spot ışıkları ve konfeti</dd>
     </dl>
     <p class="hook">Sirkin yeni yıldızı aranıyor: Zıpzıp şapkadan böcek çıkarır, Pıtırcık hafızasıyla yarışır.</p>
+    <button class="dl" data-file="png/konsept-13.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k14">
@@ -259,6 +277,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Akasya ağaçlı savan, gün batımında kamp ateşi</dd>
     </dl>
     <p class="hook">Nadir böcek fotoğrafı arayan Zeki, Aslan Paşa'nın kamp ateşi turnuvasına davet edilir.</p>
+    <button class="dl" data-file="png/konsept-14.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k15">
@@ -275,6 +294,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Neon tabelalı şehir çatısı, yağmur sonrası parıltı</dd>
     </dl>
     <p class="hook">Kaybolan kaykayını arayan Kaan, gizli çatı böcek ligine kafayı uydurur.</p>
+    <button class="dl" data-file="png/konsept-15.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k16">
@@ -291,6 +311,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Kırmızı ahır, saman balyaları ve köy fuarı bayrakları</dd>
     </dl>
     <p class="hook">Köy fuarında Horoz Ağa her yıl kazanır. Bu yıl Papatya bahçe böcekleriyle sahnede.</p>
+    <button class="dl" data-file="png/konsept-16.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k17">
@@ -307,6 +328,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Sisli bambu ormanında taş basamaklı bir tapınak avlusu</dd>
     </dl>
     <p class="hook">Bilge Maymun öğrenci kabul eder: sınav, sisin içindeki böcekleri hatırlamaktır.</p>
+    <button class="dl" data-file="png/konsept-17.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k18">
@@ -323,6 +345,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Tozlu çatı katı, kitap yığınları ve mum ışığı</dd>
     </dl>
     <p class="hook">Ansiklopedideki böcek sayfaları canlanır! Profesör sayfaları geri toplamak için düello eder.</p>
+    <button class="dl" data-file="png/konsept-18.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k19">
@@ -339,6 +362,7 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Gökyüzünde süzülen bulut adası, sıcak hava balonları</dd>
     </dl>
     <p class="hook">Balonu karga tarafından delinen Pervane, onarım için Kara Karga'yla böcek bahsine girer.</p>
+    <button class="dl" data-file="png/konsept-19.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article>
 <article class="card" id="k20">
@@ -355,7 +379,46 @@ dd{margin:0}
       <dt>Mekan</dt><dd>Böcek boyuna küçülmüş bir çocuğun gözünden dev çimen ve çiçekler</dd>
     </dl>
     <p class="hook">İcadıyla küçülen Mini, eski boyuna dönmek için bahçe cücesinin böcek turnuvasını kazanmalı.</p>
+    <button class="dl" data-file="png/konsept-20.png" hidden>Bu görseli indir (PNG)</button>
   </div>
 </article></div>
 <p class="pick">Not: Bunlar konsept taslakları. Seçilen konseptin son çizimleri daha detaylı hazırlanacak.</p>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+(async () => {
+  const dl = window.claude ? await window.claude.use('downloads') : null;
+  if (!dl) return;
+  const msg = document.getElementById('dlmsg');
+  document.getElementById('dlbar').hidden = false;
+  document.querySelectorAll('.dl').forEach(b => {
+    b.hidden = false;
+    b.addEventListener('click', async () => {
+      const file = b.dataset.file, old = b.textContent;
+      b.disabled = true; b.textContent = 'Hazırlanıyor...';
+      try {
+        let data;
+        if (file.endsWith('.zip')) {
+          const zip = new JSZip();
+          for (let n = 1; n <= 20; n++) {
+            const name = 'konsept-' + String(n).padStart(2, '0') + '.png';
+            const r = await fetch('png/' + name);
+            if (!r.ok) throw { code: 'fetch' };
+            zip.file(name, await r.blob());
+            b.textContent = 'Hazırlanıyor... ' + n + '/20';
+          }
+          data = await zip.generateAsync({ type: 'blob' });
+        } else {
+          const res = await fetch(file);
+          if (!res.ok) throw { code: 'fetch' };
+          data = await res.blob();
+        }
+        await dl.save({ filename: file.split('/').pop(), data });
+        msg.textContent = 'İndirildi: ' + file.split('/').pop();
+      } catch (e) {
+        msg.textContent = e && e.code === 'declined' ? 'İndirme iptal edildi.' : 'İndirilemedi, tekrar dene.';
+      } finally { b.disabled = false; b.textContent = old; }
+    });
+  });
+})();
+</script>
