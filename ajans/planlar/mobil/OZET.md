@@ -89,7 +89,7 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
   - Gerçek cihaz: EAS dev build + QR; build öncesi commit şart; OTA yalnız JS değişikliğinde.
   - AGENTS.md'ye görsel üretim maliyet kuralı (1K, 9:16, model); Delete account'ta cascade doğrulaması; Support URL sayfası.
 
-## Ek (2026-10-12): 33 yeni planın sentezi — fabrikaya girecek kararlar
+## Ek (2026-10-12): 32 yeni planın sentezi — fabrikaya girecek kararlar
 
 **A. Tasarım kalitesi = skill + referans + döngü (en çok tekrar eden bulgu)**
 1. **Zorunlu skill seti (project scope, kurulum script'inde):** Expo `building-native-ui` + `expo-deployment` (`npx skills add expo/skills`), Anthropic `frontend-design` (`/plugin marketplace add anthropics/claude-code` → `/plugin install frontend-design@claude-code-plugins`), backend'in kendi skill'i (Clerk / Supabase / InstantDB / Convex), Android için Google'ın resmi Android skill'leri, yayın öncesi App Store Preflight, ikon için App Icon + SnapAI. Kaynak: Beto (sneNR5KnRJU, mvfQGjQurAQ, Ji2Lmh1kolA), Build Great Products (95_NJ-a-CMQ), Tech With Tim (misjUj4Q_ho).
