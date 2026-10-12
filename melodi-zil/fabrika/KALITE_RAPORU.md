@@ -3,11 +3,11 @@
 ## Makine kontrolü
 | Kontrol | Sonuç |
 |---|---|
-| `gradle :app:testDebugUnitTest` (CoreTest 11 test: FFT, MIDI, sentetik çok sesli melodi %92 doğruluk, sentez 8 tını, pencere, WAV, bölüm seçici, bağlantı ayrıştırma, resampler) | ✅ geçti |
+| `gradle :app:testDebugUnitTest` (CoreTest 11 + VocalSeparatorTest 3 test: FFT, MIDI, sentetik çok sesli melodi %93 doğruluk, sentez 8 tını, pencere, WAV, bölüm seçici, bağlantı ayrıştırma, resampler) | ✅ geçti |
 | Canlı YouTube testi (`YouTubeLiveTest`, JVM'den gerçek YouTube): çözümleme + 3.4 MB m4a indirme | ✅ geçti (ilk çözümlemede boş akış → 3 deneme kuralı eklendi, D-006) |
 | Gerçek şarkı testi (`RealSongHarnessTest`, "Never Gonna Give You Up" 3:33): 337 nota, çıkarım 1.0 s, perdeler A♭ majör gamında, 8 tını × 30 sn WAV üretildi | ✅ |
 | Android Lint (`lintDebug`): 0 hata, 0 fatal; kalan 1 uyarı (strings "nota nota" tekrarı yanlış pozitif) | ✅ |
-| `bundleRelease` (R8 küçültme + kaynak kırpma, imzalı) → 6.0 MB AAB · `assembleRelease` → 2.9 MB APK | ✅ |
+| `bundleRelease` (R8 küçültme + kaynak kırpma, imzalı) → 30.6 MB AAB · `assembleRelease` → 37.9 MB APK (v1.1.0; 19.7 MB vokal modeli dahil) | ✅ |
 | Token denetimi: `grep -rn "Color(0x" ui/` yalnızca `Tokens.kt`; ekranlarda ham hex yok; ikon boyutları 20/24 (+48 boş durum) | ✅ |
 
 ## Tutarlılık turu (DESIGN.md'ye göre)
@@ -56,6 +56,7 @@ Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı �
 | Gerçek pop şarkısı, bağımsız referans RPA | 0.41 | 0.68 |
 | Karşılaştırma: Essentia Melodia (karışım) | — | 0.52 |
 - Yöntem: cihazda Spleeter vokal ayırma (TFLite fp16, 19.7 MB) + tam Melodia. Ayrıntı: DERSLER D-013, COZUMLER Ç-011.
+- Emülatörde (Android 8.0, x86, donanım hızlandırmasız) doğrulandı: TFLite XNNPACK ile 95/95 düğüm çalıştı, "Vokal ayrıştırılıyor" → "Melodin hazır" (30 sn kesit, 58 nota), çökme ve "Vokal ayırma atlandı" uyarısı yok (v03_result.png). Yazılım emülatöründe 55 dk sürdü; gerçek ARM telefonda saniyeler.
 - Süre: sunucuda 213 sn şarkı için ayırma 8.3 sn; telefonda tahmini 25-40 sn.
 - APK 37.9 MB (4 mimari), AAB 30.6 MB (Play cihaza göre böler, indirme ~22 MB).
 
