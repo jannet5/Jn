@@ -1,0 +1,3132 @@
+# Claude Code Full Course 2026 | How Senior Engineers Actually Build with AI
+# https://www.youtube.com/watch?v=u2QqWkMv3Lg
+# kanal: JavaScript Mastery | süre:  sn | kaynak: yt-dlp:web_safari+pot:u2QqWkMv3Lg.en.json3
+
+[00:00:00] This is claude code refusing to read my
+[00:00:04] environment file because I told it that
+[00:00:06] it's never allowed to. This is it laying
+[00:00:09] out its entire database plan and waiting
+[00:00:12] for my approval before it writes a
+[00:00:15] single line of code. And this is it
+[00:00:18] splitting one big investigation across
+[00:00:21] five parallel agents because I asked it
+[00:00:24] to. If your entire cloud code experience
+[00:00:26] so far is typing something like build
+[00:00:29] this feature and then hitting enter,
+[00:00:31] you're using maybe 10% of what this tool
+[00:00:34] allows you to do. So, let me ask you
+[00:00:37] this. Do you really know when to use
+[00:00:41] skills, sub agents, project rules, plan
+[00:00:44] mode, permissions, and all the other
+[00:00:47] parts of cloud code that decide how your
+[00:00:50] agent actually works? Because if your
+[00:00:53] answer to some of these is no, then yes,
+[00:00:57] there is still quite a lot to learn. And
+[00:00:59] companies are already paying engineers
+[00:01:02] $200 to $300,000 a year to build AI
+[00:01:06] agents, orchestration systems, and
+[00:01:09] production workflows. Not because these
+[00:01:11] engineers can type build this feature
+[00:01:13] into a prompt any better than you can.
+[00:01:16] Because knowing how to work with an
+[00:01:18] agent while building real software is a
+[00:01:21] completely different skill from just
+[00:01:23] getting one to generate code. And that's
+[00:01:26] the skill this video is about. Hi there
+[00:01:29] and welcome to this Claude code crash
+[00:01:32] course where I'm going to spend the next
+[00:01:34] few hours showing you random commands
+[00:01:36] one after another and expecting you to
+[00:01:38] remember all of them. Oh, wait, wrong
+[00:01:42] script. Instead, you're going to learn
+[00:01:44] cloud code by actually using it on a
+[00:01:47] real app. Throughout this course, we'll
+[00:01:50] work on an e-commerce app inspired by a
+[00:01:53] real luxury storefront. But here's the
+[00:01:55] important part. Every feature we build
+[00:01:58] exists for one reason. It's the moment a
+[00:02:02] cloud code concept actually becomes
+[00:02:04] useful. A design system when you learn
+[00:02:07] how permissions work. A real Postgress
+[00:02:10] database. When you learn why the plan
+[00:02:12] mode exists. Reusable workflows. When
+[00:02:16] you notice the same process repeating.
+[00:02:18] Separate agents. When the codebase gets
+[00:02:20] big enough that one context can't carry
+[00:02:23] everything. And if you've been on this
+[00:02:25] channel a while, you know I love a long
+[00:02:28] build. This isn't that. This video is
+[00:02:32] optimized for one thing. that you walk
+[00:02:35] away actually understanding how to work
+[00:02:38] with an AI coding agent in a couple of
+[00:02:40] hours and not a couple of weekends. So
+[00:02:44] along the way, you'll learn how claude
+[00:02:46] works inside your codebase, how to give
+[00:02:49] it persistent project context with
+[00:02:51] Claude and agents MD file, how
+[00:02:53] permissions control what it can access,
+[00:02:56] when plan mode is actually worth it, how
+[00:02:59] skills turn processes you keep repeating
+[00:03:02] into reusable workflows, and how sub
+[00:03:05] agents let Claude hand over focused work
+[00:03:09] to another agent without filling your
+[00:03:11] main context with everything else it had
+[00:03:14] to read along the way. The goal isn't
+[00:03:16] that you know 50 claw code commands by
+[00:03:19] the end. The goal is that you understand
+[00:03:22] how to work with a coding agent and know
+[00:03:24] exactly when and why to reach for any of
+[00:03:28] these because pretty soon simply saying
+[00:03:31] I use AI to code isn't going to mean
+[00:03:34] very much. Almost everyone will. What
+[00:03:37] will matter is how well you work with
+[00:03:40] it. And to make it even easier, you
+[00:03:42] don't need to memorize anything in this
+[00:03:44] video. I've created a completely free
+[00:03:47] claude code cheat sheet with the
+[00:03:48] commands you'll actually keep coming
+[00:03:50] back to, such as sessions, context
+[00:03:52] management, permissions, models, plan
+[00:03:54] mode, skills, all of it is there. So,
+[00:03:57] you can just grab it from the link in
+[00:03:59] the description and keep it open beside
+[00:04:01] you instead of trying to remember
+[00:04:03] everything. Oh, and one more thing
+[00:04:05] before we start. Everything in this
+[00:04:06] crash course scales up into a complete
+[00:04:09] engineering workflow that I've built and
+[00:04:12] open source for free. And there's a full
+[00:04:14] agentic engineering course if you ever
+[00:04:16] want to go deeper. We've been testing it
+[00:04:18] with a closed group of engineers who
+[00:04:20] went through the full course and loved
+[00:04:22] it. And as of today, it is officially
+[00:04:25] public. I'll leave the link down in the
+[00:04:27] description. And with it, you'll also
+[00:04:28] get a discount on top of the current
+[00:04:30] offer. preparing for that course for the
+[00:04:33] past two years built the foundation that
+[00:04:36] I'm going to use right now to teach you
+[00:04:37] the claude code skills in this video. So
+[00:04:40] for now we'll proceed with that. But if
+[00:04:42] at any point in time you want to go
+[00:04:43] deeper, you know where to find it. But
+[00:04:46] that's all I'll say about it for now. So
+[00:04:48] let's get into cloud code.
+[00:05:00] So what is claude code? You can already
+[00:05:04] open claude, ask it coding questions,
+[00:05:06] give it files, and build things with it.
+[00:05:09] So you might be thinking, why do you
+[00:05:12] need cloud code? Well, cloud code can
+[00:05:15] work directly inside your development
+[00:05:17] environment. You open your project, run
+[00:05:21] cloud code, and it can read files,
+[00:05:23] search through your codebase, edit code,
+[00:05:26] run terminal commands, use git, run
+[00:05:29] tests, and check whether its own changes
+[00:05:32] actually worked. Imagine you're building
+[00:05:34] the e-commerce app in this course, and
+[00:05:37] customers can add more units to their
+[00:05:39] cart than you actually have in stock.
+[00:05:42] Instead of finding the cart logic
+[00:05:44] yourself, copying it into claude and
+[00:05:47] explaining everything around it, you
+[00:05:49] could simply say customers can add more
+[00:05:52] units to their cart than what we have in
+[00:05:54] stock, find out why, and fix it. Claude
+[00:05:58] can then search for the cart logic,
+[00:06:01] inspect both your product and inventory
+[00:06:03] code, follow the flow, make the
+[00:06:06] necessary change, and then run the
+[00:06:08] tests. That's what makes Claude code an
+[00:06:11] agentic coding tool. The claude model is
+[00:06:15] still doing the reasoning underneath,
+[00:06:17] but Claude code gives that model the
+[00:06:20] tools, project context, and environment
+[00:06:23] it needs to actually work on your code.
+[00:06:27] That's the important difference. So
+[00:06:29] wait, does it mean that Claude can see
+[00:06:32] my private code? Yes, Cloud Code can
+[00:06:36] read files inside your project you've
+[00:06:38] given it access to. It searches your
+[00:06:41] project locally rather than first
+[00:06:43] uploading and then indexing the entire
+[00:06:46] repository somewhere else. But when
+[00:06:48] Claude needs the contents of a file to
+[00:06:51] reason about your task, relevant
+[00:06:53] information can still be sent to the
+[00:06:55] Claude model. So Claude code runs
+[00:06:58] locally does not mean that everything
+[00:07:01] always stays on my machine. If you're
+[00:07:04] working with private company code,
+[00:07:06] understand the data policy of the
+[00:07:07] account you're using and follow whatever
+[00:07:10] rules your company has around AI tools.
+[00:07:13] And then there's the obvious next
+[00:07:15] question. What about thev? Later on in
+[00:07:18] this course, our e-commerce app will
+[00:07:20] contain av files with things like a
+[00:07:23] database URL, a better off secret, or
+[00:07:27] even a stripe secret key. You shouldn't
+[00:07:29] assume that Claude automatically knows
+[00:07:32] those values are sensitive and should
+[00:07:34] never touch them. Claude code has a
+[00:07:36] permission system where you can
+[00:07:38] explicitly control what it can read,
+[00:07:41] edit or execute. You can block files
+[00:07:44] such as thev orenv
+[00:07:49] secrets or any kind of credentials and
+[00:07:52] therefore control which tools claude is
+[00:07:55] allowed to use. I'll show you how you
+[00:07:57] can set this up properly later in the
+[00:07:59] course and we'll actually test it by
+[00:08:02] blocking an environment file, asking
+[00:08:04] claw to read it and checking whether
+[00:08:07] that access is refused. For now, just
+[00:08:10] remember that sensitive files should be
+[00:08:13] explicitly protected. Okay, now let's
+[00:08:16] talk about how claude code actually
+[00:08:19] works. Now that Claude can work directly
+[00:08:22] inside your project, how does it decide
+[00:08:25] what to do? Most tasks follow a simple
+[00:08:28] loop, gather context, take action, and
+[00:08:32] then verify the result. So imagine one
+[00:08:35] of your inventory tests starts failing.
+[00:08:38] You ask, find out why the inventory test
+[00:08:41] is failing and fix it. Claude might
+[00:08:44] first run the test, then read the error,
+[00:08:48] then search for the inventory logic,
+[00:08:50] then inspect the relevant files, then
+[00:08:52] make a change, and then run the test
+[00:08:54] again. And if it still fails, Claude
+[00:08:57] gets new information from that result
+[00:08:59] and continues. That's the basic example
+[00:09:02] of an agentic loop. And while this is
+[00:09:05] happening, you'll actually see the tools
+[00:09:08] that Claude is using. Read when it opens
+[00:09:10] a file. Glob when it's looking for files
+[00:09:14] matching a pattern. Grep when it's
+[00:09:16] searching through the file contents.
+[00:09:19] Edit when it's changing an existing
+[00:09:21] file. Write when it's creating a file.
+[00:09:24] And bash when it's running something in
+[00:09:26] your terminal such as pmppm build test
+[00:09:29] or git status. And if Claude needs
+[00:09:32] information from outside your project,
+[00:09:34] you may see web search and web fetch.
+[00:09:38] Later, for example, Claude might use the
+[00:09:41] web to check the current Drizzle
+[00:09:42] documentation or research a design
+[00:09:44] reference for the storefront. So, don't
+[00:09:47] only read Claude's final answer. Watch
+[00:09:50] what it's doing. If you see it reading
+[00:09:53] your product schema while debugging
+[00:09:55] stock, you know what it's investigating.
+[00:09:58] And if you see tests running through
+[00:09:59] bash, you know it's verifying its work.
+[00:10:02] And if you see web search, it looks like
+[00:10:04] claw decided it needed information from
+[00:10:07] outside the project. Maybe from Stack
+[00:10:09] Overflow, who knows? And you can totally
+[00:10:12] interrupt Claude while it's working. If
+[00:10:14] it makes a wrong assumption or starts
+[00:10:16] heading somewhere else you don't want,
+[00:10:18] correct it instead of waiting for the
+[00:10:20] entire task to finish. You can do that
+[00:10:22] by simply pressing the escape key. Now,
+[00:10:24] what can claude code do by default?
+[00:10:27] Before you add any skills, MCP servers,
+[00:10:30] sub aents, or anything more advanced,
+[00:10:33] cloud code can already do a lot. It can
+[00:10:36] read, create and edit files, search
+[00:10:39] through your codebase, run shell
+[00:10:41] commands, start servers, run tests, work
+[00:10:44] with Git, search the web, fetch
+[00:10:46] documentation, and use the supported
+[00:10:49] code intelligence such as errors,
+[00:10:51] definitions, and references. That's
+[00:10:53] already enough to build a large part of
+[00:10:56] the e-commerce app in this course and
+[00:10:58] you'll learn each of these in more
+[00:11:00] detail as they start helping you build
+[00:11:03] faster. So let's install it. Cloud code
+[00:11:06] is available in several places including
+[00:11:08] the terminals, idees, desktop, and the
+[00:11:11] web. For this course, I'll start mostly
+[00:11:14] from the terminal because it makes it
+[00:11:16] very easy to see what Claude is actually
+[00:11:19] doing. So head over to cloud code
+[00:11:21] website and follow the instructions for
+[00:11:23] your operating system. Once you install
+[00:11:26] it, you can verify it by running claude-
+[00:11:29] version. And if you'd rather work inside
+[00:11:32] an editor, cloud code is also available
+[00:11:35] through supported IDE integrations such
+[00:11:37] as VS Code and you can use it through
+[00:11:39] compatible editors like cursor as well.
+[00:11:42] Once we check it out in the terminal, I
+[00:11:44] would highly recommend that you also
+[00:11:45] download Claude Code as a VS Code
+[00:11:48] extension and then check it out there.
+[00:11:50] It has a bit of a friendlier UI. And as
+[00:11:53] I said, there are also web, desktop, and
+[00:11:56] even remote ways to use Cloud Code such
+[00:11:58] as from your phone, but you don't need
+[00:12:00] to learn every option right now. Either
+[00:12:03] way, the core workflow is the same, and
+[00:12:06] we'll use other surfaces later on when
+[00:12:08] they actually become useful. Another
+[00:12:10] important question is how do you access
+[00:12:13] cloud code? Well, the exact plans and
+[00:12:16] usage limits can change over time. So,
+[00:12:19] understand what they offer and see
+[00:12:21] what's enough for you. You can use cloud
+[00:12:23] code through supported cloud
+[00:12:25] subscription plans. There's even team or
+[00:12:28] organization plans or through API based
+[00:12:31] billing through the cloud console. If
+[00:12:33] you're learning and building normal
+[00:12:35] projects, a subscription will give you
+[00:12:37] predictable usage. So definitely start
+[00:12:39] there. And if you're using cloud code
+[00:12:41] heavily every day on bigger projects or
+[00:12:44] longer sessions, you'll naturally need a
+[00:12:47] higher tier. And API billing charges per
+[00:12:50] token instead of a subscription
+[00:12:52] allowance. That's usually the right
+[00:12:54] choice for automation and CI pipelines,
+[00:12:57] not for following a course because heavy
+[00:13:00] interactive sessions add up quickly when
+[00:13:02] you're paying per token. And that's
+[00:13:04] really all you need to know for this
+[00:13:05] course. Check out Anthropic's current
+[00:13:07] pricing page whenever you're choosing a
+[00:13:09] plan because details can change. So now
+[00:13:12] let's actually use cloud code. Create an
+[00:13:15] empty folder on your desktop MKDIR
+[00:13:19] and call it Aellier store. We're going
+[00:13:22] to build an e-commerce store for a
+[00:13:24] luxury brand like Gucci for example. So
+[00:13:28] create it and then cd over into it. Once
+[00:13:31] you do, we can actually open that folder
+[00:13:33] up within VS Code. And we're in. Then we
+[00:13:37] can start Claude Code. I will open up my
+[00:13:40] terminal and expand it. And then within
+[00:13:42] it, simply run Claude. The first time
+[00:13:46] you use it, you'll be asked to sign in.
+[00:13:49] So sign in and then you'll be asked
+[00:13:51] whether you trust this folder. I'll say
+[00:13:54] yes, we trust it. And then you're in.
+[00:13:58] When you take a first look at it, it
+[00:14:00] seems like there's a lot of stuff
+[00:14:01] happening right here. If this looks
+[00:14:04] daunting, I would highly recommend
+[00:14:06] heading over to extensions and then
+[00:14:09] search for claw code. I can even update
+[00:14:12] it right here. It's a super popular
+[00:14:14] Visual Studio Code extension that you
+[00:14:17] can open up by simply pressing command
+[00:14:19] shiftp and searching for cloud code.
+[00:14:23] It'll open up that same session that we
+[00:14:26] saw right here as part of our UI. And as
+[00:14:29] you can see, we need to be logged in.
+[00:14:31] So, we can log in either through our
+[00:14:33] subscription or through the Entropic
+[00:14:35] console. In this case, most likely you
+[00:14:38] have an active subscription. So, let's
+[00:14:40] go with that. It'll open up a new
+[00:14:41] browser window. So, simply continue with
+[00:14:43] whichever provider you chose. And then
+[00:14:46] you're in. As you can see here, you can
+[00:14:48] see the model you're using. You can see
+[00:14:52] the permissions and modes such as
+[00:14:54] whether you're in auto, plan, edit
+[00:14:56] automatically and so on. And you can
+[00:14:58] also upload some files or run some
+[00:15:00] additional commands. Anything that you
+[00:15:02] can do within the terminal, you can also
+[00:15:04] do right here using the cloud code VS
+[00:15:07] Code extension. So from this point
+[00:15:09] onward, whether you're following along
+[00:15:11] through terminal or through the
+[00:15:12] extension, either way works. I might
+[00:15:15] even switch between the two. Now, here
+[00:15:18] it says not logged in, but we just
+[00:15:20] logged in through our extension. So, if
+[00:15:22] I just rerun Claude, it should be able
+[00:15:25] to get access to our account. And we're
+[00:15:27] in. Here you can see which model we're
+[00:15:30] using and which effort is currently
+[00:15:32] selected. Here you can see some tips on
+[00:15:35] how we can switch the model any time by
+[00:15:37] running the model command and then
+[00:15:39] switching between different models. At
+[00:15:41] the bottom, you can also see which model
+[00:15:42] you're using, how much of the context
+[00:15:44] you have spent, and on which mode you're
+[00:15:46] on. You can hold the shift tab to cycle
+[00:15:48] between different modes. But yeah, let's
+[00:15:50] give Claude the first real task. Let's
+[00:15:54] tell it to set up a new Nex.js ecommerce
+[00:15:59] app in this folder using TypeScript,
+[00:16:04] Tailwind,
+[00:16:05] Better Off, Drizzle OM, and Postgress
+[00:16:10] via Neon. I'll hold the shift key to be
+[00:16:13] able to enter a couple of empty spaces
+[00:16:15] and tell it to only create the initial
+[00:16:18] project structure, dependencies,
+[00:16:22] configuration, envample
+[00:16:25] and minimal integrations.
+[00:16:28] I'll tell it very clearly. Do not build
+[00:16:32] e-commerce features, full O flows,
+[00:16:36] schemas, UI, payments or deployment.
+[00:16:41] That's going to come in later. So yeah,
+[00:16:44] this is going to be our first prompt. So
+[00:16:47] just press enter and watch what Claude
+[00:16:50] does. You'll probably see a lot of
+[00:16:53] different commands like bash, write,
+[00:16:55] read, and edit as it creates the
+[00:16:58] project, installs packages, and checks
+[00:17:00] its work. This is the agentic loop that
+[00:17:03] you just learned about happening on the
+[00:17:06] actual app you're going to be building
+[00:17:08] throughout this course. If you want to,
+[00:17:10] you can also expand specific pieces. And
+[00:17:13] you can see that here it used the bash
+[00:17:15] command to run something. Then it's
+[00:17:17] installing O and DB dependencies. So
+[00:17:20] let's give it some time until it
+[00:17:22] finishes running this command. And in
+[00:17:24] less than 2 and 1/2 minutes, it is done.
+[00:17:28] It scaffolded the project, verified it,
+[00:17:30] and gave us info on the text stack it
+[00:17:33] used as well as the files it created. So
+[00:17:36] what you just saw right here was running
+[00:17:39] Claude code interactively. You can stop
+[00:17:41] the current session by pressing Ctrl C
+[00:17:44] two times. And if you run Claude like we
+[00:17:47] just ran it right now, opens a new
+[00:17:50] session that stays active. You give
+[00:17:53] Claude a task, it works, you respond,
+[00:17:56] and the conversation continues. But you
+[00:17:58] can also start Claude with the first
+[00:18:00] task already included. You can do
+[00:18:03] something like this. Claude, explain how
+[00:18:06] this project is structured. That'll
+[00:18:09] start the session and then automatically
+[00:18:11] prompt the agent to give you the answer.
+[00:18:13] And there you go. the answer is in. But
+[00:18:16] in this way, the session will remain
+[00:18:19] active. So you can continue speaking
+[00:18:21] with the agent. But if you just want to
+[00:18:23] ask it something and then call it a day,
+[00:18:26] there's also a oneoff mode
+[00:18:30] where Claude performs a task, prints the
+[00:18:33] results, and then exits. You can use it
+[00:18:35] that way by adding the P tag and then
+[00:18:38] asking it a specific question. If you do
+[00:18:41] that,
+[00:18:43] Claude will perform the task, print out
+[00:18:45] the result, and then exit. There you go.
+[00:18:49] Back in the terminal. But you can even
+[00:18:51] pipe something into it like this. Tail N
+[00:18:56] 200 app logs claude p find anything
+[00:19:00] unusual in these logs. So if there were
+[00:19:03] some logs, it will be able to go through
+[00:19:05] it and share its output directly into
+[00:19:08] the terminal. This becomes very useful
+[00:19:10] later on for automation and CI. For now,
+[00:19:14] just remember that claude keeps the
+[00:19:17] session open and claude-p
+[00:19:20] runs one task and then exits. Then the
+[00:19:24] next major question is which model
+[00:19:26] should you be using? So if you're within
+[00:19:29] the cloud window and you type
+[00:19:31] forward/model, you can see which models
+[00:19:34] are currently available.
+[00:19:36] The exact model names will change over
+[00:19:38] time, so don't memorize the list from
+[00:19:41] this video. Instead, think about them in
+[00:19:44] terms of the task. Use a faster general
+[00:19:47] purpose model for normal development,
+[00:19:50] small fixes, and everyday coding. Use a
+[00:19:52] stronger reasoning model when you're
+[00:19:54] dealing with things like architecture,
+[00:19:56] difficult debugging, larger refactors,
+[00:19:59] or several systems integrating at once.
+[00:20:02] For example, changing the layout of a
+[00:20:05] product card probably doesn't need your
+[00:20:07] strongest model. Figuring out how the
+[00:20:09] inventory should behave across the
+[00:20:11] database, storefront, and checkout.
+[00:20:14] Well, that might need a stronger one.
+[00:20:16] So, yeah, whenever you want to switch
+[00:20:18] the model, you can simply use the
+[00:20:20] forward/model command. But yeah, that's
+[00:20:23] enough for now. You'll understand the
+[00:20:25] model choices much better once you
+[00:20:27] actually start working on the harder
+[00:20:29] parts of our e-commerce app. And other
+[00:20:31] than that, you don't need to know 50
+[00:20:34] other commands. I will show you some of
+[00:20:36] the more important ones, but don't try
+[00:20:38] to remember all of them. That's exactly
+[00:20:41] why I included that free cheat sheet in
+[00:20:43] the description down below so you can
+[00:20:45] open it up, have it side by side.
+[00:20:47] Whenever you need something, you know
+[00:20:49] where it is. And with time, you'll
+[00:20:51] naturally remember it. So, you can start
+[00:20:54] Claude like this. You can start Claude
+[00:20:57] with a task. As you know, you can run
+[00:21:00] one task and then exit by using the
+[00:21:03] -ashp command. You can also continue
+[00:21:07] from your most recent session by running
+[00:21:10] claude- c. You can also resume an older
+[00:21:14] session by running claude r and then you
+[00:21:17] can select which session you want to
+[00:21:18] run. You can see which other commands
+[00:21:21] are available by running claude and then
+[00:21:23] within it you can run help. Here you can
+[00:21:26] see all the information and one more
+[00:21:29] which is super important is
+[00:21:31] forward/clear. But the question is when
+[00:21:34] should you use clear to start a new
+[00:21:37] session with an empty context? Well
+[00:21:39] suppose that later on you spend half an
+[00:21:41] hour debugging some authentication
+[00:21:44] connection. Claude has read your O code,
+[00:21:48] seen several errors and tried a few
+[00:21:50] different approaches. Then you suddenly
+[00:21:52] say redesign the product cards. Claude
+[00:21:55] is still carrying all that
+[00:21:57] authentication conversation in the
+[00:21:59] current session. So that information
+[00:22:01] probably isn't helping with the product
+[00:22:03] card task. That's when running clear is
+[00:22:06] useful as it gives you a fresh
+[00:22:08] conversation.
+[00:22:10] You don't need to use it after every
+[00:22:12] task. Use it when you're moving onto
+[00:22:14] something genuinely unrelated. You learn
+[00:22:17] more about context, compaction, and sub
+[00:22:20] aents later on. Or if you want to dive
+[00:22:23] deeper, you can check out the agentic
+[00:22:25] engineering course. I believe that under
+[00:22:27] the third module, I'm covering a lot of
+[00:22:29] stuff regarding your agents like what
+[00:22:32] the agent sees, how they read your
+[00:22:34] codebase, context windows, context rod,
+[00:22:37] topic switching, clearing versus
+[00:22:39] compacting, and much more. But yeah, now
+[00:22:42] that the initial setup is finished, you
+[00:22:44] can simply ask the agent to explain the
+[00:22:47] codebase such as the architecture,
+[00:22:49] technologies, the main folders, and
+[00:22:51] important parts currently connect. Now,
+[00:22:54] if you watch Claude again, you'll
+[00:22:55] probably see it use bash, glop, or grap
+[00:22:59] as it searches through the project and
+[00:23:01] builds an understanding. The point isn't
+[00:23:03] only to read the final explanation. Pay
+[00:23:06] attention to how Claude finds the
+[00:23:09] answer. That's one of the most useful
+[00:23:11] habits you can build while learning cla
+[00:23:13] code. You should understand what cloud
+[00:23:15] code is doing even when cla is doing
+[00:23:18] most of the actual file and command work
+[00:23:21] for you. But with this, another problem
+[00:23:23] appears immediately as the app grows.
+[00:23:27] You don't want to keep telling Claude
+[00:23:29] some specific rules like use pmppm or
+[00:23:33] we're using drizzle or this is how tests
+[00:23:37] should run or to keep the design
+[00:23:40] consistent. Claude needs a way to know
+[00:23:43] those project instructions every time
+[00:23:45] you start a new session. And that's
+[00:23:48] exactly where the claude.md
+[00:23:52] or as of super recently agents MD which
+[00:23:56] now claude code is reading as well comes
+[00:23:59] in. So let's cover those in the next
+[00:24:01] lesson.
+[00:24:03] Now that you've got your store project
+[00:24:05] running, what happens when you close cla
+[00:24:08] code and then come back tomorrow? Claude
+[00:24:12] won't automatically remember that you're
+[00:24:14] using pmppm. how you're using Drizzle or
+[00:24:17] RM to define your Postgress schemas or
+[00:24:20] that same mistake that you already
+[00:24:21] corrected twice. You don't want to keep
+[00:24:24] explaining the same project every time
+[00:24:27] you start a new session. And that's
+[00:24:29] exactly where the Claude MD or the
+[00:24:32] agents MD file comes in. Claude MD is
+[00:24:35] simply a markdown file where you give
+[00:24:38] Claude instructions about your project.
+[00:24:41] Claude loads it automatically when a
+[00:24:43] session starts. So those instructions
+[00:24:45] are already there before you even give
+[00:24:47] it your first task. For example, use
+[00:24:50] pmppm instead of mpm. Use drizzle for
+[00:24:54] database access or run pmppm type check
+[00:24:57] before finishing larger changes. Instead
+[00:25:00] of repeating those things again and
+[00:25:02] again, you put them in a cloud MD. Then
+[00:25:05] whenever Claude works on this project,
+[00:25:08] it already knows them. And as of
+[00:25:10] recently, it is official. Claude is
+[00:25:14] finally adding support for agents MD to
+[00:25:17] claude code. Starting today in the
+[00:25:19] newest version, if there is no claude MD
+[00:25:22] in a folder, Claude will check for and
+[00:25:24] use the agents MD file. So whenever I
+[00:25:28] mention anything about the claude MD,
+[00:25:30] the same rules go for the agents MD
+[00:25:32] file. This agents MD file has been the
+[00:25:35] standard for all other coding tools and
+[00:25:38] it looks like claude code is catching up
+[00:25:40] too. But there's one thing you need to
+[00:25:42] understand. Claude MD gives Claude
+[00:25:45] instructions. It doesn't technically
+[00:25:48] block Claude from doing something. So if
+[00:25:51] you write never modify migration files
+[00:25:53] manually, Claude should follow that
+[00:25:56] rule, but it still technically has
+[00:25:59] access to those files. If something
+[00:26:01] absolutely shouldn't happen, that's
+[00:26:04] where permissions, sandboxing, and hooks
+[00:26:07] come in. and we'll get to those next.
+[00:26:10] But before going further, you should
+[00:26:12] understand the context window. This is
+[00:26:16] basically the information Claude is
+[00:26:18] working with during the current session.
+[00:26:21] That includes your conversation, files
+[00:26:24] that Claude has read, terminal output,
+[00:26:27] tool results, claude MD file, and all
+[00:26:30] the other memory Claude has loaded. And
+[00:26:33] that context has a limit. So if you keep
+[00:26:36] loading unnecessary information into it,
+[00:26:39] you're using space and attention that
+[00:26:42] Claude could be using on the actual
+[00:26:44] task. And that's also why Claude MD
+[00:26:48] shouldn't become some massive document.
+[00:26:51] As more information enters the context
+[00:26:53] window, Claude has more things competing
+[00:26:56] for its attention. You can think of it
+[00:26:58] like an attention budget. every line
+[00:27:01] inside the Claude or agents MD files is
+[00:27:04] using some of that budget because Claude
+[00:27:06] keeps loading that file while working on
+[00:27:08] your project. So don't put something
+[00:27:10] there just because Claude might need to
+[00:27:13] use it one day. Put things there because
+[00:27:15] Claude should know them whenever it
+[00:27:17] works on the project. And you'll often
+[00:27:19] see the guidance around keeping Claude
+[00:27:21] MD well under 200 lines. But don't treat
+[00:27:24] 200 lines as a target. If everything
+[00:27:27] useful fits into 30 or 40 lines, that's
+[00:27:31] even better. And talking about the
+[00:27:33] context budget, in one of the lessons in
+[00:27:35] the course, I go over something that
+[00:27:37] even I didn't know before I started
+[00:27:39] working on it. And that's context rot. I
+[00:27:42] mean, I knew about the concept of
+[00:27:44] context rot. You shouldn't fill up your
+[00:27:46] context window because agents
+[00:27:48] performance dropped significantly, but I
+[00:27:50] didn't know it was this severe. Don't
+[00:27:54] wait until the window is nearly full
+[00:27:56] because a model advertising 200,000
+[00:27:59] token window can show real measurable
+[00:28:02] degradation starting at 50,000 tokens
+[00:28:06] which is only a quarter in. So the
+[00:28:09] number on the box is the technical
+[00:28:11] ceiling but it is not the point where
+[00:28:13] the quality starts to slip. So as a rule
+[00:28:16] of thumb context rod isn't something
+[00:28:18] that happens near the edge of a full
+[00:28:20] window. It starts well before that
+[00:28:23] continuously not as a cliff. So whenever
+[00:28:26] you start working on something new,
+[00:28:27] clear the context. Now let's talk about
+[00:28:30] where does the claude MD or agents MD
+[00:28:33] file lives because there isn't only one
+[00:28:36] place you can have it. Claude supports
+[00:28:38] different levels of instructions. You
+[00:28:41] can have personal instructions under the
+[00:28:43] cloud folder and then claude MD file
+[00:28:46] which applies across all your projects.
+[00:28:49] So if there's something you personally
+[00:28:51] want claw to follow everywhere, you can
+[00:28:53] put it there. Then there are project
+[00:28:56] instructions. Inside your project in the
+[00:28:59] root of the application, you can just
+[00:29:01] put the claude or agent file there. This
+[00:29:04] is usually the one you'll use the most.
+[00:29:06] For our luxury store application, this
+[00:29:09] is where you can keep things like your
+[00:29:11] stack commands, database rules, testing
+[00:29:14] rules, and storefront design rules. And
+[00:29:17] you can also commit this file to git. So
+[00:29:19] everyone working on the project gives
+[00:29:21] claude the same project instructions.
+[00:29:24] This is something you might not have
+[00:29:25] known about, but there are also local
+[00:29:28] project instructions. You can also have
+[00:29:30] something like a.claude.local.md,
+[00:29:33] which is a file that only applies to you
+[00:29:36] on this specific project. Maybe you use
+[00:29:38] a local test account. Maybe you have
+[00:29:41] your own sandbox URL. things like that
+[00:29:44] can live here and normally stay out of
+[00:29:46] git and claude can then use instructions
+[00:29:48] from all of these levels together. And
+[00:29:51] if you're working on a much larger
+[00:29:53] codebase or a monor repo, this can go
+[00:29:56] quite a bit further. You can have
+[00:29:58] multiple nested cloudmd files across
+[00:30:01] different parts of the project. So
+[00:30:03] claude only pulls the instructions that
+[00:30:05] are relevant to that area it's actually
+[00:30:07] working on. I don't want to go too deep
+[00:30:09] into that here because this is a crash
+[00:30:11] course, but this is exactly the kind of
+[00:30:14] concept that I cover inside of the
+[00:30:15] agentic engineering course. And because
+[00:30:18] that course uses that completely free
+[00:30:20] open-source agentic engineering
+[00:30:22] workflow, you get a set of those
+[00:30:24] reusable skills and commands that
+[00:30:27] inspect your codebase and help you set
+[00:30:29] up the right project context
+[00:30:30] automatically.
+[00:30:32] What does that mean? Well, if your
+[00:30:34] project is small, it may create only one
+[00:30:37] claim MD file. But if the codebase is
+[00:30:39] much larger, it can create multiple
+[00:30:42] nested clamd files. So each one is
+[00:30:45] loaded only when Claude starts working
+[00:30:47] on that specific part of the project.
+[00:30:50] The workflow of course goes beyond
+[00:30:52] context files too, as it's built around
+[00:30:54] helping to develop applications with
+[00:30:56] stronger engineering and system design
+[00:30:58] practices instead of just throwing
+[00:31:00] prompts at an agent randomly. And yeah,
+[00:31:02] you can use the workflow completely on
+[00:31:04] your own since it's free and open-
+[00:31:05] source. But if you want to learn how to
+[00:31:07] use it properly alongside more advanced
+[00:31:10] cloud concepts and the real agentic
+[00:31:12] engineering course workflows, well then
+[00:31:14] check out the agentic engineering
+[00:31:16] course. But for our Gucci store
+[00:31:18] application, just having one project
+[00:31:21] level cloudmd file is more than enough
+[00:31:24] for now. And you might also think, but
+[00:31:26] wait, doesn't clot already have memory?
+[00:31:29] Well, it does. Cloud code also has
+[00:31:32] automemory, but the difference is
+[00:31:35] simple. Claude MD is what you
+[00:31:37] intentionally tell Claude. Automemory is
+[00:31:41] what Claude learns while working with
+[00:31:43] you. For example, while working on our
+[00:31:45] Gucci store, Claude discovers some weird
+[00:31:48] issue with your local setup. Or maybe
+[00:31:50] you correct the same project specific
+[00:31:52] behavior a couple of times. Claude can
+[00:31:55] save useful things like that so they can
+[00:31:57] be used again in future sessions. Each
+[00:32:00] project gets its own memory folder with
+[00:32:02] a memory.md as the main file. CLA can
+[00:32:06] also create other memory files for more
+[00:32:08] specific things. To see what is stored,
+[00:32:11] you can just run forward/memory.
+[00:32:13] And you can see that the automemory has
+[00:32:15] been turned on with the project
+[00:32:17] instructions checked in at the cloud MD
+[00:32:20] file. There are some additional
+[00:32:21] instructions and user instructions.
+[00:32:25] And you can also open up the automemory
+[00:32:28] folder. And then to see what Claude has
+[00:32:30] stored within your current session, you
+[00:32:31] can just run context.
+[00:32:34] This will show you how much of the
+[00:32:35] context has currently been spent and
+[00:32:38] show you the estimated usage by the
+[00:32:40] category. So the main question is what
+[00:32:43] should actually go into a claude or
+[00:32:46] agent MD file? A simple rule is like
+[00:32:49] this. If removing this instruction would
+[00:32:53] probably make Claude assume the wrong
+[00:32:55] thing, then keep it. Otherwise ask
+[00:32:59] whether claude really needs it in every
+[00:33:01] session. For example, inside of our
+[00:33:04] Gucci store, we can give it some
+[00:33:06] commands to run like a package manager
+[00:33:08] is pmppm with the start dev server
+[00:33:11] command being pmppmdev. And we can also
+[00:33:14] share the commands to run the tests or
+[00:33:16] run the type check. Later on, once you
+[00:33:19] add the database, we can also give it
+[00:33:21] some information such as use drizzle for
+[00:33:24] all database access. We can specify
+[00:33:26] where the database schema lives such as
+[00:33:29] in source DB schema. And we can also
+[00:33:31] tell it to never write raw SQL queries
+[00:33:34] unless specifically requested. These are
+[00:33:37] some important pieces of info. And once
+[00:33:39] we set up the storefront design, we can
+[00:33:41] also tell it to keep the customerf
+[00:33:43] facing pages editorial and product focus
+[00:33:46] to reuse the existing design system to
+[00:33:49] avoid the dashboard style UI and to not
+[00:33:52] include any of those purple gradients.
+[00:33:55] These are useful because they actually
+[00:33:57] change how clot should work. Now compare
+[00:34:01] that with something like write
+[00:34:03] highquality code, follow best practices,
+[00:34:06] make the UI beautiful, or keep
+[00:34:09] everything clean. These sound nice, but
+[00:34:13] they don't really tell Claude anything
+[00:34:15] useful. It's the same with make the
+[00:34:18] landing page premium, but what does that
+[00:34:20] actually mean? Instead, you could say,
+[00:34:23] "Use large product imagery, generous
+[00:34:26] spacing, and restrain controls on
+[00:34:28] storefront pages." That's something
+[00:34:31] Claude can actually follow. And don't
+[00:34:33] dump your entire project structure or
+[00:34:35] huge API documentation into Claude or
+[00:34:38] agents MD file either. Keep the things
+[00:34:40] Claude should know every time it works
+[00:34:43] on this project. And the wording
+[00:34:45] matters, too. Instead of saying format
+[00:34:48] the code properly, say use two space
+[00:34:51] indentation or instead test your work,
+[00:34:54] say something like run pmpp test before
+[00:34:57] finishing the task. Or instead of keep
+[00:35:00] the API code organized, you can say
+[00:35:02] something like API handlers live in
+[00:35:05] source API handlers. The more specific
+[00:35:08] you are, the less Claude has to guess
+[00:35:11] what you meant. And if the file starts
+[00:35:13] becoming huge, don't just keep throwing
+[00:35:16] everything at it. Cloud code also
+[00:35:18] supports the claude rules where you can
+[00:35:21] split instructions into separate files.
+[00:35:24] For example, within the cloud folder,
+[00:35:26] you can have the claude MD file and then
+[00:35:29] you can have the additional rules folder
+[00:35:31] within which you can have something like
+[00:35:33] testing.md, database MD, storefront or
+[00:35:37] security MD. You can even make rules
+[00:35:40] apply only to certain files by giving it
+[00:35:42] a specific path and setting out the
+[00:35:44] rules. Now, Claude only needs those
+[00:35:48] rules when it's working in matching
+[00:35:50] files. That helps you keep the rest of
+[00:35:53] the context clear. And if something
+[00:35:55] isn't really a rule, but rather a
+[00:35:57] process that you keep doing again and
+[00:35:59] again, that usually belongs in a skill.
+[00:36:02] But we'll get to that later.
+[00:36:05] For now, we can create our first Claude
+[00:36:07] MD file by running init. There's no need
+[00:36:11] to do it from scratch. So, just have
+[00:36:13] your Claude window open and type init.
+[00:36:16] And as you can see, this will initialize
+[00:36:18] a new Claude MD with the codebase
+[00:36:20] documentation. It'll pick up things like
+[00:36:23] the package manager, the framework, the
+[00:36:25] build commands, tests, and other project
+[00:36:28] conventions. And if you already have a
+[00:36:30] cloud MD in it can suggest changes
+[00:36:33] instead of simply replacing it. But
+[00:36:35] don't just accept whatever cla creates
+[00:36:38] read it. Once it's done, you can either
+[00:36:40] read it right here or you can head over
+[00:36:43] into the cloud MD or the agentd file
+[00:36:46] that it created. We can then preview it
+[00:36:49] either in markdown or with a nice
+[00:36:51] previewer like this which you can
+[00:36:52] install as a VS code extension. Here you
+[00:36:55] can see the commands, the architecture,
+[00:36:57] the nextG 16 notes as well. It is all
+[00:37:01] here. But if Claude added something it
+[00:37:04] can easily figure out from package JSON,
+[00:37:06] ask whether you really need it taking up
+[00:37:08] the context every time. And if something
+[00:37:10] is wrong, fix it. And then add the
+[00:37:13] things that Claude couldn't know just by
+[00:37:15] reading the code. For example, Claude
+[00:37:17] can see that we are using Tailwind, but
+[00:37:20] it can't automatically know that we're
+[00:37:22] building a Gucci store, which needs to
+[00:37:24] feel editorial and product focus, or
+[00:37:27] that you don't want a simple dashboard
+[00:37:29] style UI. That's the kind of information
+[00:37:32] that belongs here. And how do you know
+[00:37:34] this file is actually getting loaded?
+[00:37:36] Well, open up claude and run context. If
+[00:37:39] you do it and then check the memory
+[00:37:41] files, you can see the memory right
+[00:37:43] here. And you can run forward/context
+[00:37:46] all to expand it. That way you can see
+[00:37:50] exactly where your context is being
+[00:37:52] spent. And on top of checking the
+[00:37:54] context, you can also check the memory.
+[00:37:57] And here you can see where it's
+[00:37:59] extracting it from. Now another pro tip
+[00:38:01] with the cloud MD file is to not just
+[00:38:04] create it once and then forget about it.
+[00:38:07] Your project changes, commands change,
+[00:38:09] and the architecture changes too. Maybe
+[00:38:12] your database layer lives in one folder
+[00:38:14] today and later you move it somewhere
+[00:38:16] else. If Claude MD still tells Claude to
+[00:38:19] use the old location, you're now giving
+[00:38:22] it wrong information before it even
+[00:38:24] starts the task. So keep the file
+[00:38:26] updated, remove things that aren't true
+[00:38:29] anymore, and don't keep adding new rules
+[00:38:32] forever either. Sometimes the right
+[00:38:34] change is just deleting an old one. And
+[00:38:37] in our agentic engineering workflow, we
+[00:38:40] have a skill for that. It's called sync.
+[00:38:44] What it does is it keeps all the context
+[00:38:46] files up to date. It checks your latest
+[00:38:49] git commits, figures out what changed,
+[00:38:51] and updates the information
+[00:38:53] automatically across your cloud MD and
+[00:38:56] agents MD files automatically. So now
+[00:38:58] that we have this cloud MD file, Claude
+[00:39:01] knows how you want this project to work.
+[00:39:03] But the next question is how much
+[00:39:05] freedom should you give it? When should
+[00:39:07] clot stop and show you a plan first? Or
+[00:39:11] which files should it be allowed to
+[00:39:13] touch? Which commands should it be
+[00:39:15] allowed to run? That's where the plan
+[00:39:17] mode and the additional permissions come
+[00:39:20] in.
+[00:39:22] Thanks to our Claude MD, Claude now
+[00:39:25] knows how we want this project to be
+[00:39:27] structured. So, let's keep building this
+[00:39:29] app while learning more of what Claude
+[00:39:32] Code can do. But before we do that,
+[00:39:34] there's one thing you should check. Look
+[00:39:37] at the current Claude Code mode you're
+[00:39:39] in. Claude Code can work with different
+[00:39:41] levels of freedom depending on the mode
+[00:39:43] you're using. There's manual, where
+[00:39:47] Claude asks before actions that need
+[00:39:49] your approval. There's the edit
+[00:39:52] automatically where normal file edits
+[00:39:54] can happen without asking you every
+[00:39:57] time. There's plan where Claude can
+[00:40:00] inspect and think through the project
+[00:40:02] without immediately editing your source
+[00:40:05] files. And there's auto where Claude can
+[00:40:08] approve many actions itself after
+[00:40:10] checking whether they match what you
+[00:40:12] asked it to do. And there are a few
+[00:40:14] other modes for more restricted or
+[00:40:16] isolated workflows, but you don't need
+[00:40:19] them right now. The important thing is
+[00:40:21] to know which mode you're actually
+[00:40:23] using. Because if your Claude code is
+[00:40:25] currently in auto mode, you may see
+[00:40:28] Claude editing files and running things
+[00:40:30] without showing the same permission
+[00:40:32] prompts I'm seeing. That doesn't mean
+[00:40:34] permissions aren't working. It just
+[00:40:36] means you're giving Claude a different
+[00:40:37] level of freedom. And you can cycle
+[00:40:40] between modes right here if you're using
+[00:40:41] the VS Code extension. Or if you're
+[00:40:44] using it in console,
+[00:40:46] you can just press shift tab to switch
+[00:40:50] between the modes right here. I almost
+[00:40:52] always have it on auto mode on. But for
+[00:40:56] this first feature we'll implement,
+[00:40:58] let's switch it over to manual mode so
+[00:41:00] we can better understand how it's
+[00:41:02] working. And let's start with our first
+[00:41:05] real feature. Building the UI of our
+[00:41:08] storefront. Instead of randomly
+[00:41:10] designing pages, let's give Claude an
+[00:41:13] actual reference. We'll use Gucci's
+[00:41:16] current website as inspiration, but
+[00:41:18] we're not copying their branding,
+[00:41:20] assets, or content. So, let's tell it
+[00:41:23] something like study
+[00:41:26] the current Gucci website as a visual
+[00:41:31] reference for this ecommerce
+[00:41:34] application. And of course, that website
+[00:41:37] might be completely different depending
+[00:41:38] on when you're watching this video, but
+[00:41:40] that's totally okay. You might just have
+[00:41:42] a newer design than what I have. And
+[00:41:45] when I'm developing apps myself, I don't
+[00:41:48] typically type. That sounds a bit weird
+[00:41:50] knowing that we all code a lot, but
+[00:41:53] lately I've been more narrating the
+[00:41:55] prompts and the commands for my agent. I
+[00:41:58] used a tool called the whisper flow
+[00:42:00] which you can see here at the bottom.
+[00:42:02] But there's many of these different
+[00:42:03] tools that you can use to speak to your
+[00:42:06] agent. Let me show you how that works.
+[00:42:08] I'll press the command key on my
+[00:42:09] keyboard and continue telling it the
+[00:42:11] prompt. Analyze its typography, spacing,
+[00:42:14] layout, navigation, product
+[00:42:16] presentation, imagery, buttons, borders,
+[00:42:19] colors, and responsive behavior without
+[00:42:22] copying its text, assets, or branding.
+[00:42:25] Something like this. Feel free to take
+[00:42:27] your time to copy this and then I'll say
+[00:42:31] then implement those principles in our
+[00:42:33] project by setting up the global design
+[00:42:36] system including typography, color
+[00:42:39] tokens, spacing, containers, buttons,
+[00:42:42] links, borders, and reusable responsive
+[00:42:45] primitives in the appropriate Tailwind
+[00:42:47] and CSS files. And then finally, briefly
+[00:42:51] explain the rules you implemented and
+[00:42:53] the files you changed. Now press enter
+[00:42:57] and watch what happens next. Claude may
+[00:43:00] use web search or web fetch to research
+[00:43:04] that reference and only then it'll start
+[00:43:07] working within your project. Yep, there
+[00:43:10] we go. Fetch. And it's even using a
+[00:43:13] front-end design skill that I have
+[00:43:14] loaded. And because you're in manual
+[00:43:17] mode, you'll start seeing permission
+[00:43:19] prompts whenever Claude wants to make
+[00:43:21] changes or run commands that need your
+[00:43:24] approval. You might need to approve an
+[00:43:26] edit, then approve another, then Claude
+[00:43:30] might want to do something else, and you
+[00:43:32] need to approve that, too. So, let's
+[00:43:34] give it some time. There we go. Do you
+[00:43:36] want to allow Claude to fetch this
+[00:43:38] content? Yep, we do. Then, again, do you
+[00:43:41] want to proceed with this? Yep. We want
+[00:43:42] to proceed with a web search. And
+[00:43:44] throughout the rest of this task, it
+[00:43:46] might ask us to do this a couple of
+[00:43:48] times. Yep. Yep. We want to allow claw
+[00:43:52] to fetch more websites to figure out
+[00:43:54] exactly what we want. And after some
+[00:43:57] time, you'll start thinking, do I really
+[00:44:00] have to approve everything every single
+[00:44:03] time? And that's where the permissions
+[00:44:07] become useful because permissions let
+[00:44:10] you decide what Claude can do
+[00:44:12] automatically, what it should ask you
+[00:44:14] about, and what it shouldn't be allowed
+[00:44:17] to do at all. And there are three basic
+[00:44:19] rule types: allow, ask, and deny. Allow
+[00:44:24] means that Claude can perform that
+[00:44:26] matching action without asking you. Ask
+[00:44:29] means that Claude has to stop and get
+[00:44:31] your approval. And deny means that
+[00:44:34] claude code blocks it. And if several
+[00:44:37] rules match, cloth checks them in order
+[00:44:40] of deny, ask, and allow. So deny wins
+[00:44:43] first. You can inspect the permissions
+[00:44:45] that you have with your current project
+[00:44:47] after it finishes doing its thing and
+[00:44:50] then running permissions. Permissions
+[00:44:53] will show you which permissions you
+[00:44:54] currently have such as which allow,
+[00:44:57] which ask, deny, or whether it is set to
+[00:45:00] the auto mode with soft allow, soft
+[00:45:03] deny, and so on. So you can check all of
+[00:45:06] those permissions right here. You might
+[00:45:08] have also noticed that when Claude asked
+[00:45:10] us for permissions, it asked whether we
+[00:45:13] want to allow it once or whether we want
+[00:45:15] to allow it from here onward so that we
+[00:45:19] don't have to approve that same or
+[00:45:20] similar action again. That's useful
+[00:45:23] because you probably don't need to
+[00:45:24] approve the pmpm build command for the
+[00:45:26] 15th time. But you also shouldn't click
+[00:45:29] don't ask again on everything without
+[00:45:31] thinking about what you're allowing. So
+[00:45:33] it looks like our design system is in
+[00:45:37] and we should be able to see it right
+[00:45:39] here within our source app and then
+[00:45:42] globals.css.
+[00:45:43] All of the colors, type fonts and texts
+[00:45:46] and headings and buttons, all of it is
+[00:45:49] right here. We'll take a look at that
+[00:45:51] soon. But now let's set up permissions
+[00:45:53] for our store.
+[00:45:56] What would make sense for this project?
+[00:45:58] Well, Claude will probably run commands
+[00:46:00] like pmppmdev, build, test, or type
+[00:46:04] check every now and then. These are
+[00:46:06] normal development checks, and you may
+[00:46:08] want claw to run them without stopping
+[00:46:11] you each time. But get push is
+[00:46:13] different. Maybe you always want to see
+[00:46:16] before it happens. And later on, your
+[00:46:19] project will contain things like the
+[00:46:21] database URL or some other environment
+[00:46:24] variables.
+[00:46:26] Claude shouldn't be able to read those.
+[00:46:28] So, you can keep project permission
+[00:46:30] rules inside of thecloud folder. If it
+[00:46:34] doesn't exist already, you can create
+[00:46:36] one by creating a new.claude.
+[00:46:40] And then within it, you can create a new
+[00:46:42] file called settings.json.
+[00:46:46] For example, inside of there, you can do
+[00:46:48] something like this. Inside of a new
+[00:46:50] JSON object, you can add the permissions
+[00:46:53] and then split them by allow, ask, and
+[00:46:56] deny just as we talked about. Now, under
+[00:47:00] allow, I gave it permission to run PMP
+[00:47:03] build, test, rungit status, and so on.
+[00:47:06] But I wanted to ask before it pushes
+[00:47:09] anything, and I want to explicitly deny
+[00:47:12] that it reads our ENV files. With that,
+[00:47:16] you've created a much more useful
+[00:47:18] baseline. Claude can run the normal
+[00:47:20] checks you'd expect. It will ask before
+[00:47:23] pushing and your environment files are
+[00:47:26] blocked from its normal access. So this
+[00:47:28] is where the difference from the
+[00:47:30] previous lesson becomes clear. Inside of
+[00:47:33] the claude code file, you could write
+[00:47:36] never read.v
+[00:47:40] and claude should follow that
+[00:47:42] instruction, but it's still guidance
+[00:47:44] you're giving to the model. A permission
+[00:47:47] rule set is different. When something
+[00:47:49] matches a deny rule, cloud code itself
+[00:47:52] will block that action. So use claude MD
+[00:47:56] for things like, hey, use the existing
+[00:47:59] design system when building the
+[00:48:00] storefront pages.
+[00:48:02] But use permissions for things like
+[00:48:05] Claude, you shouldn't read this file.
+[00:48:08] So, Claude MD simply tells Claude how
+[00:48:12] you want it to work, but permissions
+[00:48:14] decide what Claude code is actually
+[00:48:17] allowed to do. And just like with the
+[00:48:20] code, don't set up permissions and
+[00:48:22] assume everything works. You may not
+[00:48:24] have a realenv yet. So, create a
+[00:48:27] temporary example file or test that rule
+[00:48:30] later when the database is added. For
+[00:48:32] now, we have this enenv.ample, example,
+[00:48:35] but I'll go ahead and copy it and create
+[00:48:37] a new env.
+[00:48:41] And let's assume that this includes the
+[00:48:42] actual password. Now, we can open up
+[00:48:45] claude and tell it to read the env.
+[00:48:50] Claude code should block the access.
+[00:48:53] First, it'll ask us to run the bash
+[00:48:55] command because we're still in manual or
+[00:48:58] autoaccept edits mode. But once it
+[00:49:00] reaches that file, it'll say I can't.
+[00:49:04] Reading that file is blocked by this
+[00:49:06] session's permission settings. File is
+[00:49:08] in a directory that is denied by your
+[00:49:10] permission settings. I didn't try to
+[00:49:12] route around it with a cat since the
+[00:49:14] deny rule is clearly aimed at content
+[00:49:17] specifically. And you can always run the
+[00:49:20] permissions command to check which rules
+[00:49:23] are under allow, ask, or deny. Now,
+[00:49:27] let's see what the experience feels like
+[00:49:29] with those permissions set. Since we
+[00:49:32] already have a full design system put in
+[00:49:35] place right here within the app
+[00:49:37] globals.css,
+[00:49:38] we can ask Claude to build the first
+[00:49:40] homepage. For example, we can tell it to
+[00:49:44] build the first complete homepage for
+[00:49:46] the e-commerce storefront using the
+[00:49:48] design system or the setup in the
+[00:49:50] project. We can then continue telling it
+[00:49:53] to take inspiration from the way premium
+[00:49:56] fashion websites like Gucci use large
+[00:49:58] editorial imagery, featured collections,
+[00:50:01] and product focus sections. And finally,
+[00:50:04] we can tell it to use simple sample
+[00:50:06] product and collection data where needed
+[00:50:08] with images from Unsplash or other
+[00:50:10] sources. We want to make it responsive
+[00:50:13] and verify the result when it's done and
+[00:50:16] run it. Now, if you watch Claude again,
+[00:50:20] it can make the changes it needs. And
+[00:50:22] when it wants to run one of the commands
+[00:50:24] you've already allowed, it doesn't need
+[00:50:26] to interrupt you every time. But for
+[00:50:29] some things like running bash commands,
+[00:50:31] it might still ask you for permission.
+[00:50:33] The goal is that you're not trying to
+[00:50:34] remove every permission prompt, but
+[00:50:37] rather you're trying to remove the
+[00:50:38] boring ones that you already understand
+[00:50:41] while keeping control around the things
+[00:50:42] that matter. But to be honest, the auto
+[00:50:45] mode has gotten so advanced that I
+[00:50:47] typically leave it on. And I'm totally
+[00:50:49] happy with the amount of permissions
+[00:50:51] that Claude code has by default. So
+[00:50:54] that's what I'll shift it to by using
+[00:50:56] shift tab. And let's let it finish
+[00:50:59] running this task. And after some time,
+[00:51:02] it is done. Here it gave us the final
+[00:51:05] explanation of what happened, the files
+[00:51:08] that changed, and so much more. So, what
+[00:51:11] do you say that we run the application
+[00:51:13] for the first time and check it out?
+[00:51:16] I'll open up a secondary terminal and
+[00:51:19] run pmpm dev as that's what we're using
+[00:51:22] to run the application. And then I'll
+[00:51:24] open it up on localhost 3000. You can
+[00:51:27] either open it up within your browser or
+[00:51:29] nowadays even VS Code has its built-in
+[00:51:32] browser. Since this is a large scale
+[00:51:36] pretty well-designed application, I
+[00:51:38] definitely want to open it up within the
+[00:51:40] browser. So, check it out. Complimentary
+[00:51:43] delivery and returns Attelier. And here
+[00:51:47] we have the long coat as well as some of
+[00:51:50] the additional collections of the
+[00:51:51] printed silk outwear and leather goods.
+[00:51:55] This is looking like a real store. So,
+[00:51:58] just from a single prompt, we were able
+[00:52:00] to get a pretty good output. Of course,
+[00:52:03] the other pages are not going to work
+[00:52:05] right now, like the products page, but
+[00:52:07] that's going to be the next step. For
+[00:52:09] now, we only have the homepage, and
+[00:52:11] sure, we can play with the hero section
+[00:52:13] to present it a bit better. But now, I
+[00:52:16] want to be able to open up one of these
+[00:52:19] product detail pages. That's going to be
+[00:52:22] under products and then the product
+[00:52:23] name. So, back within the application,
+[00:52:26] open up the terminal, head over to
+[00:52:28] Claude, and let's tell it something
+[00:52:31] along the lines of build the product
+[00:52:33] detail page with large imagery, product
+[00:52:36] information, price, category, and stock
+[00:52:39] state. Keep it consistent with the
+[00:52:41] homepage, and product listing and run
+[00:52:44] it. I'm running it on auto mode, so now
+[00:52:47] we shouldn't be getting as many
+[00:52:48] permission questions. And a couple of
+[00:52:51] minutes in, the product detail page is
+[00:52:54] built and verified. The build passes and
+[00:52:57] all 13 product pages pre-render as
+[00:53:00] static HTML with lint being clean. You
+[00:53:03] can see all the files that have been
+[00:53:05] changed right here. Information about
+[00:53:07] how the page is structured. And that is
+[00:53:10] it. And all of this only took 21% of the
+[00:53:13] context window. So, let's quickly check
+[00:53:15] it out by rerunning our application,
+[00:53:18] opening it up on localhost 3000, and
+[00:53:21] then opening a specific product details
+[00:53:23] page, such as this Jouro soft backpack.
+[00:53:27] A nice product page opens. We can see a
+[00:53:30] static product information on the right
+[00:53:32] while the images on the left scroll and
+[00:53:34] then we can see the recommended product
+[00:53:36] section at the bottom. And all of this
+[00:53:38] really feels like a polished editorial
+[00:53:42] Gucci inspired style website. But with
+[00:53:44] all of this, we're still not setting up
+[00:53:46] the real database. Right now, we're
+[00:53:48] working on the customer experience and
+[00:53:50] making sure that the design components
+[00:53:53] and the page structure feels right. And
+[00:53:56] these are exactly the kind of things
+[00:53:58] where letting Claude edit normally make
+[00:54:00] sense. If the product grid is wrong, you
+[00:54:03] can easily change it. or if you don't
+[00:54:05] like a specific section like this one,
+[00:54:08] you can redesign it. And if the spacing
+[00:54:10] is off, Claude can fix it on its own.
+[00:54:13] These changes are easy to review and
+[00:54:16] therefore easy to undo as well. And
+[00:54:19] that's how you should approach building
+[00:54:21] with AI in general. Instead of asking it
+[00:54:23] to build the entire store in one prompt
+[00:54:26] and then wondering what it did, you
+[00:54:28] break the work into small features. Let
+[00:54:31] Claude build one, review it, accept it
+[00:54:33] or undo it, and then move on to the next
+[00:54:35] one. That is what agentic engineering is
+[00:54:38] all about. So, at this point, our
+[00:54:40] atelier is starting to look like an
+[00:54:42] actual e-commerce application. You've
+[00:54:45] got the main project set up, the claude
+[00:54:48] MD file right here up and running,
+[00:54:50] giving Claude instructions, a design
+[00:54:53] system within the globals.css
+[00:54:56] based on a real reference. You also have
+[00:54:59] storefront homepage right here in the
+[00:55:02] page. There's also the product listing
+[00:55:05] pages as well as project permissions
+[00:55:08] that remove unnecessary approvals while
+[00:55:10] protecting more important sections. And
+[00:55:13] notice how you learned about those
+[00:55:15] permissions. You didn't memorize a
+[00:55:17] settings file and moved on. You saw the
+[00:55:20] problem first. Claude kept asking before
+[00:55:23] it could work. Then you decided which
+[00:55:26] actions were safe enough to allow and
+[00:55:28] which ones should still stay under your
+[00:55:30] control. And that's how most of the rest
+[00:55:32] of this course will work too. So far the
+[00:55:35] features you build are relatively easy
+[00:55:37] to change. If you don't like the
+[00:55:39] homepage, redesign it. Or if a product
+[00:55:42] card is wrong, just change it. But the
+[00:55:46] next step is different. You need to add
+[00:55:49] the real database layer. That means
+[00:55:52] Postgress, Drizzle, products,
+[00:55:54] categories, inventory, and database
+[00:55:56] migrations. And those decisions are
+[00:55:58] harder to undo casually. And for
+[00:56:01] something like that, you may not want
+[00:56:03] Claude to immediately start writing code
+[00:56:06] the moment you describe the feature. You
+[00:56:08] may want it to inspect the project first
+[00:56:11] and show you exactly what it plans to
+[00:56:13] do. And that's exactly where the plan
+[00:56:18] mode comes into play. So let's talk
+[00:56:21] about that next.
+[00:56:25] Now let's use the plan mode on the first
+[00:56:27] part of our e-commerce application where
+[00:56:29] the approach actually matters which is
+[00:56:32] the real database. You can either
+[00:56:35] approach it through the VS code
+[00:56:37] extension by selecting the plan mode
+[00:56:39] right here and then tell it what to do
+[00:56:41] or you can do it through the terminal if
+[00:56:43] you start a new session. This would be a
+[00:56:46] great place to clear the context and
+[00:56:48] then you can simply run forward slash
+[00:56:50] plan to enable the plan mode or view the
+[00:56:53] current session plan or you can shift to
+[00:56:56] it naturally by holding the shift key
+[00:56:57] and then tabbing onto plan mode. Here we
+[00:57:01] can ask it to inspect the current
+[00:57:03] e-commerce project and plan how to
+[00:57:06] replace the current product data with a
+[00:57:08] real Postgress database using Drizzle
+[00:57:11] ORM. We can also continue to say that
+[00:57:14] for now we only need products,
+[00:57:16] categories, and stock. We can then ask
+[00:57:19] it to study how the existing storefront
+[00:57:22] currently uses product data before
+[00:57:24] deciding the schema. And since we're
+[00:57:26] just starting off, we want to keep this
+[00:57:28] first version simple. Don't add carts,
+[00:57:31] orders, payments, reviews, wish lists,
+[00:57:33] or product variants yet. And most
+[00:57:36] importantly, we want to ask it to show
+[00:57:38] us the database structure,
+[00:57:40] relationships, files that need to
+[00:57:42] change, migration approach, and how the
+[00:57:44] existing storefront will start using the
+[00:57:47] database. Press enter and watch Claude
+[00:57:52] work. In plan mode, Claude can now
+[00:57:55] inspect, search, and research, but
+[00:57:58] normal source edits stay blocked until
+[00:58:01] you approve the plan. You can see that
+[00:58:03] it started a new agent right here on
+[00:58:05] main as well as it started a sub agent
+[00:58:08] on the explore part where it's exploring
+[00:58:11] how the storefront uses the product data
+[00:58:13] right now. And if you want to see what
+[00:58:15] that sub agent is doing, you can just
+[00:58:17] head over to it, press enter, and then
+[00:58:19] you can see what that agent is doing
+[00:58:21] right here. Or you can go back to the
+[00:58:22] main session. Looks like it already has
+[00:58:24] a clear picture of the current data
+[00:58:26] layer. So it's going to confirm a few
+[00:58:28] schema decisions. And now Claude got
+[00:58:30] back to us with a couple of questions.
+[00:58:33] How should the stock be represented in
+[00:58:35] the database? Well, it can be quantity
+[00:58:37] plus derived state. Yep, that looks good
+[00:58:40] to me. How should the multiple product
+[00:58:41] images be stored? Well, we can use
+[00:58:44] separate product images table. The
+[00:58:46] homepage collection strip, printed,
+[00:58:48] silk, outwear, leather goods, overlaps
+[00:58:50] with the product categories. Well, those
+[00:58:52] can just be categories. Uh, the homepage
+[00:58:54] has two hard-coded list. Well, we just
+[00:58:57] want to order it by created ad. I
+[00:58:59] basically accepted all the recommended
+[00:59:01] options because in this case they fit
+[00:59:03] what I was after. So we can submit the
+[00:59:06] answers and let the agent continue
+[00:59:08] planning without these questions. If you
+[00:59:10] just accepted what Claude gave you and
+[00:59:13] you immediately press approve without
+[00:59:15] actually reading the plan, you've gained
+[00:59:17] almost nothing. The whole point is to
+[00:59:20] catch bad decisions before they become
+[00:59:24] code. For this database, we want to
+[00:59:27] check things like what tables Claude
+[00:59:30] wants to create, how products and
+[00:59:32] categories connect, where the stock is
+[00:59:35] stored and how, how prices are
+[00:59:38] represented, where the drizzle schema
+[00:59:40] will live, which files need to change,
+[00:59:43] and how Claude plans to verify the
+[00:59:45] result. A weak plan might sound
+[00:59:48] something like add database, add
+[00:59:50] products, update storefront, but that
+[00:59:53] doesn't tell you much. A useful plan
+[00:59:56] should show that Claude understood the
+[00:59:58] current application and can name the
+[01:00:00] actual parts of the codebase that will
+[01:00:02] change. While it's doing its thing, I
+[01:00:05] want to give you an example. So, I'll
+[01:00:07] head over into our readme and I'll just
+[01:00:10] paste something at the top. You can also
+[01:00:12] open it in preview. Just imagine that
+[01:00:14] Claude says something like this. Create
+[01:00:17] separate products, product variants,
+[01:00:19] inventory locations, and more. You could
+[01:00:22] stop right there and say that's too much
+[01:00:24] for where the application is right now.
+[01:00:26] Keep stock directly on the product and
+[01:00:29] only create what we currently need. That
+[01:00:32] only takes a few seconds. But if you
+[01:00:34] catch the same mistake after Claude has
+[01:00:36] already created the schema, generated
+[01:00:39] migrations, and changed the storefront.
+[01:00:41] Well, then there's much more to undo.
+[01:00:44] And that's one of the biggest reasons to
+[01:00:46] use the plan mode. The cheapest place to
+[01:00:49] fix a wrong decision is in the plan, not
+[01:00:52] after the code is written. So back in
+[01:00:55] the terminal, it looks like Claude
+[01:00:57] presented us with a plan. The goal is to
+[01:00:59] move the catalog into Postgress. It gave
+[01:01:02] us context on all of that, the database
+[01:01:04] plumbing and even which files to change.
+[01:01:07] You should analyze all of this in
+[01:01:09] detail. It's specifying which column is
+[01:01:11] it going to add, how a database is going
+[01:01:13] to be structured, and more. And you
+[01:01:15] could even ask it to turn this into a
+[01:01:17] markdown file so you can review it more
+[01:01:19] nicely. If you want to edit the plan
+[01:01:21] directly, you can just press CtrlG to
+[01:01:24] open it up. And once you do that, it'll
+[01:01:26] be opened up in a new markdown window.
+[01:01:29] Here you can even preview it for a bit
+[01:01:31] of a nicer view. And spend some time,
+[01:01:34] maybe even 5 to 10 minutes, going over
+[01:01:36] the plan and noting down or directly
+[01:01:39] changing right here all the things that
+[01:01:41] you think should change. And only when
+[01:01:44] you're happy with the approach, you can
+[01:01:46] approve it. One important thing to know
+[01:01:48] is that approving the plan exits the
+[01:01:51] plan mode. Claude doesn't stay in the
+[01:01:54] same readonly state afterward. So you
+[01:01:57] can choose how you want to continue and
+[01:01:58] then claude moves into the
+[01:02:00] implementation. In this case, we can say
+[01:02:02] yes, proceed, execute the plan, and use
+[01:02:05] auto mode. And that's exactly what it'll
+[01:02:07] proceed to do. And the one important
+[01:02:09] thing to know is that approving the plan
+[01:02:12] exits the plan mode. As you can see on
+[01:02:15] my end right here, it finished and we're
+[01:02:18] back in the auto mode. Now, in this plan
+[01:02:21] or the execution of the plan, we set
+[01:02:24] some very important foundations for the
+[01:02:26] rest of the application. And that's
+[01:02:28] something that's not only useful for
+[01:02:31] this one task, but something that Claude
+[01:02:33] should probably remember every time it
+[01:02:35] works on this database. So we can tell
+[01:02:39] Claude to update the claude MD with only
+[01:02:42] the database conventions from this
+[01:02:44] decision that Claude should remember in
+[01:02:46] future sessions. It'll take a look at
+[01:02:48] what it did and it'll read and then
+[01:02:50] update the claud. We want to keep it
+[01:02:53] short and don't add things that Claude
+[01:02:55] can easily discover from the codebase.
+[01:02:57] It might end up with just as you can see
+[01:03:00] right here an additional seed command as
+[01:03:03] well as some database specific
+[01:03:05] configurations such as where the schemas
+[01:03:08] are stored the catalog and so much more.
+[01:03:11] And that's it. This is exactly how
+[01:03:13] Claude MD should grow. Not because you
+[01:03:15] want a bigger file, but because the
+[01:03:17] project has now made a real decision
+[01:03:20] that Claude should remember. And if
+[01:03:22] Claude keeps making the same wrong
+[01:03:24] assumption every time you plan
+[01:03:25] something, that's usually a sign that
+[01:03:27] your project instructions are either
+[01:03:29] missing or are wrong. Okay, so as we
+[01:03:32] approve the plan, Claude went into
+[01:03:35] building. We can zoom out a bit because
+[01:03:37] there's a lot of stuff that happened
+[01:03:38] right here and we can read its update.
+[01:03:41] Claude first configured Drizzle. Then it
+[01:03:44] created three additional tables and
+[01:03:46] schemas for them. It set up a database
+[01:03:49] connection, generated migrations,
+[01:03:52] created seed data so we can seed our
+[01:03:54] database. It updated the product queries
+[01:03:57] and connected the storefront to
+[01:03:59] Postgress. The important part is that
+[01:04:02] Claude isn't inventing the direction
+[01:04:04] anymore. It's implementing the approach
+[01:04:06] that we reviewed. But at some point,
+[01:04:09] you'll need a real Postgress connection
+[01:04:11] string. So let's create the database
+[01:04:13] using any kind of a provider. In this
+[01:04:16] case, I'll use Neon as it's free and
+[01:04:19] easiest to set up. So, simply create
+[01:04:21] your account. You can use any provider.
+[01:04:25] Then create a new project. Let's call it
+[01:04:28] Attilier
+[01:04:30] Store. You can choose the region that is
+[01:04:32] closest to you and just click create
+[01:04:35] project. The project was created. So,
+[01:04:37] you can head over into it, then click
+[01:04:40] connect. And here you'll be able to
+[01:04:42] connect to your database. Simply copy
+[01:04:44] this connection string. Head back into
+[01:04:46] the application under the env.local
+[01:04:53] because that is the env that we're going
+[01:04:55] to use locally on this device. And then
+[01:04:57] here we can update the database URL with
+[01:05:00] the one we just copied. You don't want
+[01:05:02] to paste the secret into claude.
+[01:05:05] Instead, you want to add it here. And
+[01:05:07] we'll use that to run the application,
+[01:05:10] but we'll never tell it to claude. And
+[01:05:12] now we want to test the whole database
+[01:05:14] end to end such as running migrations
+[01:05:17] right here that were generated and
+[01:05:18] inspected for us. Claude should have
+[01:05:21] created a command for us in order to be
+[01:05:23] able to do that. I believe the command
+[01:05:25] in question is the one that it added to
+[01:05:27] Claude. So we can even tell it to run
+[01:05:29] the migration and seed now that the
+[01:05:31] database URL is set. And I love how it
+[01:05:34] autorecommended that line for us. It's
+[01:05:38] going to check what's in the database.
+[01:05:40] It'll create a script and very soon
+[01:05:42] it'll run that script. But in the
+[01:05:44] meantime, it says that it can't run it
+[01:05:46] because database URL isn't reaching my
+[01:05:48] shell. Maybe it is specifically looking
+[01:05:51] forv and notenv.local.
+[01:05:54] So I'll remove that env part and tell it
+[01:05:58] to try again.
+[01:06:00] There we go. It got connected and the
+[01:06:03] database is empty with no o tables. So
+[01:06:06] our first migration applies cleanly.
+[01:06:08] Great. Now it'll verify whether the data
+[01:06:10] landed correctly. But we can also verify
+[01:06:12] on our end by heading over into neon
+[01:06:16] tables. And you can see the account,
+[01:06:18] categories, products, all of the data is
+[01:06:22] actually right here. We can even verify
+[01:06:26] an image. I believe if we find where the
+[01:06:29] images are stored.
+[01:06:32] There we go. Product images. And here we
+[01:06:34] can see the URLs from Unsplash. So if
+[01:06:37] you were to copy this entire URL, you
+[01:06:40] would be able to see the image, but
+[01:06:42] we'll see it in our application soon. So
+[01:06:44] with that in mind, we can now actually
+[01:06:46] run our application by opening up the
+[01:06:48] terminal and running pmppdev to spin it
+[01:06:51] up on localhost 3000. So back in the
+[01:06:54] browser, heading over to localhost 3000.
+[01:06:57] If you reload, you should be able to see
+[01:06:59] the application and it looks very
+[01:07:02] similar as it did before, but now it's
+[01:07:05] actually pulling the real data from the
+[01:07:08] database. And that's the beauty of it.
+[01:07:10] So before we proceed, we can now open up
+[01:07:13] Claude and tell it to show me the
+[01:07:16] important changes you made and explain
+[01:07:18] anything that I should review.
+[01:07:22] Or you can run git diff in your
+[01:07:25] terminal. Maybe I can open up another
+[01:07:27] one and this will tell us all the file
+[01:07:28] changes that happened recently. You can
+[01:07:30] also explore them right here. But yeah,
+[01:07:34] let's see what clot itself thinks that
+[01:07:36] we should review. And there we go.
+[01:07:38] Here's the walk through the important
+[01:07:40] changes. Stock became a number and the
+[01:07:43] states became derived. So here we can
+[01:07:46] see how we are handling the state
+[01:07:47] behavior of how many items do we have in
+[01:07:50] stock available to order. Before sold
+[01:07:53] out was typed by hand per product. Now
+[01:07:56] nothing stores a state two columns do
+[01:07:58] and every badge tone and disabled button
+[01:08:01] follows them. Two one mapper is the
+[01:08:04] scene between the database and the UI.
+[01:08:06] So in this case we have the price the
+[01:08:08] compare at price the images the badge
+[01:08:10] and the stock and every query returns
+[01:08:13] the product data never a row. And that's
+[01:08:15] why a product card and a detailed page
+[01:08:17] asx are left untouched since nulls and
+[01:08:21] foreign keys stop here. And there's a
+[01:08:23] couple more things that we should review
+[01:08:25] carefully. In this case, plan mode
+[01:08:27] helped us catch the wrong direction
+[01:08:29] early, but it still doesn't replace
+[01:08:32] reviewing what was actually built. If
+[01:08:35] Claude starts drifting, replan by going
+[01:08:38] back into the plan mode and then update
+[01:08:40] the approach based on the new
+[01:08:42] information. That's better than letting
+[01:08:44] a wrong direction spread across the
+[01:08:46] project and trying to clean it up
+[01:08:48] afterward. But before we keep building,
+[01:08:51] there's one thing I want to talk about.
+[01:08:53] It's security. And this has become a
+[01:08:55] genuinely wild topic recently. In July
+[01:08:59] 2026, OpenAI disclosed that two of its
+[01:09:02] models during an internal cyber security
+[01:09:05] evaluation escaped their sandbox testing
+[01:09:08] environment by exploiting a zeroday
+[01:09:12] vulnerability, reach the internet, and
+[01:09:14] compromised parts of the hugging faces
+[01:09:17] production infrastructure. And the
+[01:09:19] reason for that, they were trying to
+[01:09:21] find answers so they could cheat on the
+[01:09:24] benchmark they were being evaluated on.
+[01:09:27] Yep, I'm not joking. A week later,
+[01:09:30] Anthropic reviewed its own cyber
+[01:09:33] security evaluations and found incidents
+[01:09:35] where cloud models had gained
+[01:09:37] unauthorized access to the real systems
+[01:09:40] of other organizations. By September,
+[01:09:44] that count was up to four incidents
+[01:09:46] found across a review of roughly 480
+[01:09:50] million transcripts. So apparently the
+[01:09:53] AI is not only writing your back end
+[01:09:56] anymore. Sometimes it's also trying to
+[01:09:58] find its way out of the building.
+[01:10:01] Obviously these were very unusual
+[01:10:03] evaluation environments with safety
+[01:10:06] measures reduced for testing, not cloud
+[01:10:08] code randomly attacking websites from
+[01:10:10] someone's laptop. But it does make one
+[01:10:12] thing very clear. As AI starts writing
+[01:10:15] more of your application, security
+[01:10:18] matters even more. And there's another
+[01:10:21] problem. Claude just helped us plan this
+[01:10:24] database implementation. Claude wrote
+[01:10:27] most of the code. Now technically I
+[01:10:30] could ask Claude to check whether the
+[01:10:32] code that it just wrote is secure and it
+[01:10:35] absolutely can find useful issues. But
+[01:10:39] for important security checks, I don't
+[01:10:42] love the idea of having the same model
+[01:10:45] that made the implementation decisions
+[01:10:47] be the only model judging those same
+[01:10:50] decisions afterward. I want another pair
+[01:10:53] of eyes and that's where I use Code
+[01:10:55] Rabbit. They've sponsored this segment
+[01:10:57] of the video to show you a feature
+[01:10:59] that's especially useful at this stage
+[01:11:02] and it's called AI Deep Scan. Instead of
+[01:11:05] only reviewing a single change, Deepcan
+[01:11:08] can inspect committed code across the
+[01:11:10] repository and look for security risks
+[01:11:13] across the application. And this is a
+[01:11:16] good time to run it because we've just
+[01:11:18] introduced our first real backend and
+[01:11:20] data layer. To be able to test it, we
+[01:11:23] have to commit our work and push it over
+[01:11:25] to GitHub. So, head over to
+[01:11:27] github.com/new
+[01:11:29] and create a new repository. I'll call
+[01:11:32] an atelier store and I'll create it
+[01:11:34] under my own profile. Once it is done,
+[01:11:37] we can copy the URL and we can tell
+[01:11:39] Claude to commit and push all the
+[01:11:42] existing code to this GitHub repo. And
+[01:11:46] it should be able to do that nicely for
+[01:11:48] us. But we want to turn on the plan mode
+[01:11:51] when we run that and just switch over to
+[01:11:53] auto mode. And I like how it's going to
+[01:11:56] check whether the env is not included as
+[01:11:58] part of the push. While that is
+[01:12:00] happening, you can head over to Code
+[01:12:02] Rabbit by clicking the link in the
+[01:12:04] description. You can start using it
+[01:12:06] completely for free, but I've also got a
+[01:12:09] special discount code for you. You can
+[01:12:11] use JSMCR as the discount code and the
+[01:12:15] first 50 new users will get Code Rabbit
+[01:12:17] Pro Plus completely for free which also
+[01:12:20] gives you more Deepcan runs for bigger,
+[01:12:22] more ambitious projects. So grab it
+[01:12:25] while those pots are available. But for
+[01:12:27] now, let's go ahead and sign in using
+[01:12:29] GitHub. Once you're there, you can
+[01:12:31] connect a repository by adding it right
+[01:12:33] here. In this case, I'm going to give it
+[01:12:35] access to the specific repository, the
+[01:12:38] Atalier store, and I'll click install
+[01:12:41] and authorize. Once it's there, you
+[01:12:44] should be able to see it right here.
+[01:12:45] Now, back on the VS Code side, as you
+[01:12:48] can see, as per our rule, it's asking us
+[01:12:51] whether we want to allow it to push over
+[01:12:52] to GitHub, which I'll say yes. It pushed
+[01:12:56] over to main. So, if you head over here,
+[01:12:58] you should be able to see all your code
+[01:12:59] right here. You can clean it up a bit by
+[01:13:02] hiding the releases, deployments, and
+[01:13:04] packages, giving it a short description
+[01:13:07] such as a luxury brand store front. We
+[01:13:11] can enter the website. As soon as we
+[01:13:13] deployed, we'll be able to enter the
+[01:13:15] real deployed URL. For now, I'll put the
+[01:13:17] link to jsmastery.com.
+[01:13:19] And here you can put something like
+[01:13:21] Nex.js, claude, or whatever else you
+[01:13:24] want to add. Then head over to code
+[01:13:26] rabbit. And under security, you can head
+[01:13:30] over to AI deepcan. Currently, we have
+[01:13:33] three deep scans. So, let's scan a
+[01:13:35] repository. In this case, we're going to
+[01:13:37] pick the one that I chose. Some
+[01:13:39] estimated credits are going to be right
+[01:13:41] here. And then we can scan it. The scan
+[01:13:44] has started. And we can see that right
+[01:13:46] here. Now, there's one thing that I want
+[01:13:48] to point out right here. And that is
+[01:13:50] that I'm not going to intentionally
+[01:13:52] introduce a vulnerability just so
+[01:13:54] something dramatic appears on screen. I
+[01:13:57] want to see what it finds in the
+[01:13:58] application that we've genuinely built
+[01:14:01] using claude. Deepcan will look across
+[01:14:03] the repository rather than only
+[01:14:05] examining one isolated file or diff. So
+[01:14:09] it can reason about how different parts
+[01:14:11] of the application connect and surface
+[01:14:13] security problems that may span several
+[01:14:16] files. Now let's give it some time until
+[01:14:18] it finishes. Now about 10 minutes in,
+[01:14:21] the deep search is now complete. So,
+[01:14:24] let's open it up and take a look at what
+[01:14:26] it found. If we expand the scan details,
+[01:14:29] we can see three findings. One medium,
+[01:14:32] two low. No secrets were leaked, but
+[01:14:34] under vulnerabilities, we can see three.
+[01:14:38] And what's funny is that earlier I said
+[01:14:40] that I wasn't going to plant a
+[01:14:42] vulnerability just to have something
+[01:14:43] dramatic on the screen, but it turns out
+[01:14:46] I didn't need to. These are real
+[01:14:49] findings in code that we genuinely built
+[01:14:52] in this video. Don't just look at the
+[01:14:54] count and panic and don't automatically
+[01:14:56] tell claw to fix everything. We want to
+[01:14:59] try first. Let's start with the highest
+[01:15:02] severity. And for each finding, decide,
+[01:15:05] is this real? Is it relevant? And does
+[01:15:08] it need fixing? Now, the first finding
+[01:15:11] is the weak secret. This medium finding
+[01:15:15] right here says that the application
+[01:15:18] accepts any better o secret without
+[01:15:21] checking whether it's actually a strong
+[01:15:23] secret. Now why does that matter? Well,
+[01:15:26] that secret signs authentication tokens.
+[01:15:30] If a deployment ever uses something
+[01:15:32] guessable there, an attacker can forge
+[01:15:34] those tokens and code rabbit even trace
+[01:15:37] the specific path. a forged change email
+[01:15:40] verification token that ends with the
+[01:15:43] attacker owning the victim's account.
+[01:15:45] Notice what kind of finding this is.
+[01:15:48] There is no bug in our code today. It's
+[01:15:50] a missing guardrail and it becomes a
+[01:15:52] real vulnerability the day someone
+[01:15:54] deploys this with a lazy secret.
+[01:15:56] Exploitability right here is marked
+[01:15:58] difficult, but the impact is account
+[01:16:01] takeover, which is why it's the only
+[01:16:04] medium in this list. And there's a bit
+[01:16:06] of irony right here because our
+[01:16:08] permission rules stopped Claude from
+[01:16:10] ever reading the secret, but nothing in
+[01:16:13] the application ever checked whether the
+[01:16:15] secret is any good. So let's bring this
+[01:16:17] into claude code. What you can do is
+[01:16:20] just say fix right here. And if you have
+[01:16:22] fixed enabled for this organization,
+[01:16:24] claude code will be able to
+[01:16:25] automatically apply it. Else you can
+[01:16:28] just share this for agents. Head over
+[01:16:31] into clot code by opening the terminal
+[01:16:33] and then pasting it in. It explains what
+[01:16:36] the issue is
+[01:16:38] and specifies how to fix it. You can
+[01:16:41] either pass it in like that or just tell
+[01:16:43] it something like this. The application
+[01:16:46] accepts any explicitly configured better
+[01:16:48] o secret while the authentication
+[01:16:50] dependency only warns about short or low
+[01:16:53] entropy values. A guessable shared
+[01:16:55] secret allows attackers to forge
+[01:16:57] authentication related tokens. And then
+[01:16:59] we can ask it to investigate whether
+[01:17:01] this is accurate for our own current
+[01:17:03] better o setup and explain the risk in
+[01:17:06] the context of this application first
+[01:17:08] without modifying anything yet. In your
+[01:17:11] case, it's going to be enough if you
+[01:17:12] just copy this and paste it in. But I
+[01:17:15] want to investigate this first and then
+[01:17:16] get back to you with more information on
+[01:17:19] whether this really is that critical and
+[01:17:21] then if cla confirms it, we can easily
+[01:17:24] fix it. Very quickly, the answer is in.
+[01:17:26] It told me that it traced this through
+[01:17:28] the installed better o source. The
+[01:17:30] report is partly accurate. The mechanism
+[01:17:32] is real, but its premise doesn't match
+[01:17:34] this deployment and it understates one
+[01:17:37] thing while oversaturating another. The
+[01:17:39] mechanism is real. It found it. It mints
+[01:17:42] a session for the victim and rewrites
+[01:17:44] their email. So, anyone who knows a
+[01:17:46] secret forges that token and takes that
+[01:17:49] account over. One thing that the report
+[01:17:52] gets more right than I'd guessed is that
+[01:17:54] this branch never checks the option user
+[01:17:56] change email enabled as that gate only
+[01:17:59] exists on post change email. But that
+[01:18:02] premise is wrong for us and the reality
+[01:18:04] is worse. The report describes any
+[01:18:06] explicitly configurable guessable secret
+[01:18:09] and we don't have one. Better odd secret
+[01:18:12] is present but empty. So create context
+[01:18:14] falls through. That's a default secret,
+[01:18:17] an exported constant in the in the
+[01:18:19] published mpm package. It's publicly
+[01:18:21] known. So, this definitely is something
+[01:18:24] to fix. We currently don't have any
+[01:18:26] users, but as soon as we make this
+[01:18:28] application live, this is a real risk.
+[01:18:31] So, let's simply tell it to fix it. And
+[01:18:34] there we go. The vulnerability is now
+[01:18:37] fixed. Now, if the secret is unset,
+[01:18:39] we'll get this result. If it's the
+[01:18:41] default, we'll say that this is not
+[01:18:43] good. If it's under 32 characters, we'll
+[01:18:45] say must be at least 32. And if it's a
+[01:18:48] repeated filler, well, we can also
+[01:18:50] disqualify it. So, it'll only work if
+[01:18:53] it's an OpenSSL randomized B 64 32
+[01:18:56] character string. Perfect. So, let's
+[01:18:59] generate one by heading over into a new
+[01:19:02] terminal and run open SSL rand 64. This
+[01:19:07] will give you a string which we can now
+[01:19:09] put into our env
+[01:19:11] secret and it'll work. So we can
+[01:19:14] consider this one fixed. Now the next
+[01:19:16] finding is low severity and honestly I
+[01:19:20] really like it. The homepage has a
+[01:19:22] newsletter signup form. So when Claude
+[01:19:25] built that page back in the permission
+[01:19:27] lesson, it scaffolded the form with the
+[01:19:30] action hash. Something that looks like
+[01:19:33] this.
+[01:19:35] and it has no method. It's just
+[01:19:38] placeholder code, but HTML has a
+[01:19:41] default. A form without a method submits
+[01:19:44] a get request, which means that every
+[01:19:46] email address typed into that form gets
+[01:19:49] appended to the URL into the address
+[01:19:51] bar, the browser history, and our server
+[01:19:54] logs. So, think about what just
+[01:19:56] happened. AI generated placeholder code
+[01:19:59] sitting on the homepage quietly leaking
+[01:20:02] subscriber emails. I mean, nothing
+[01:20:05] crashed, per se, but this is exactly the
+[01:20:07] kind of thing that an independent scan
+[01:20:09] catches. And with a click, and if I took
+[01:20:13] a quick glance, I would have missed it.
+[01:20:15] So, I'm going to share this for agent.
+[01:20:17] And then back into the cloud code
+[01:20:20] terminal, we can just paste it. And
+[01:20:22] we'll tell it to fix it. Fix this. But
+[01:20:26] before I run it, I also want to take a
+[01:20:28] look at the next one. That's going to be
+[01:20:30] the last one right here about
+[01:20:32] information disclosure. And right now,
+[01:20:34] what's happening is that signing up with
+[01:20:36] an email that already has an account
+[01:20:39] returns a specific error while a new
+[01:20:41] email succeeds. So, anyone can probe our
+[01:20:44] signup endpoint and figure out which
+[01:20:46] email addresses have accounts on this
+[01:20:49] store. Is that a real issue? Yep. Is it
+[01:20:53] critical for us today? Well, that is
+[01:20:55] where you have to think instead of just
+[01:20:57] autofix it.
+[01:20:59] complete fix is requiring email
+[01:21:01] verification so that every signup
+[01:21:03] attempt looks identical from the outside
+[01:21:06] but that needs an email sender which we
+[01:21:08] deliberately kept out of this build for
+[01:21:10] now. If you just add an email service
+[01:21:13] onto this project right now mid lesson
+[01:21:15] just to close a low severity finding
+[01:21:17] well that would be exactly the kind of
+[01:21:19] scope creep that we've been avoiding all
+[01:21:22] this course. So an honest engineering
+[01:21:24] answer is that not every finding gets
+[01:21:27] fixed the moment it appears. Some get
+[01:21:30] fixed now like the one that I sent over
+[01:21:32] claw to fix the first medium one and the
+[01:21:35] second low severity one. But some will
+[01:21:38] get a note that I will keep either in my
+[01:21:40] mind or on a postit next to me and then
+[01:21:43] later on we can fix it. But what you
+[01:21:45] never want to do is just silently ignore
+[01:21:48] it. Okay. So let's summarize what just
+[01:21:51] happened here. Code Rabbit found three
+[01:21:53] issues and explained exactly why each
+[01:21:56] one matters. Claude then investigated
+[01:21:59] each one inside the codebase, confirmed
+[01:22:01] them and implemented the fixes and you
+[01:22:04] made the decision in between whether to
+[01:22:06] fix now or document it for later. That's
+[01:22:10] two independent systems and you are in
+[01:22:13] the middle. It's a much healthier setup
+[01:22:15] than just letting one model write the
+[01:22:17] entire application and then asking it is
+[01:22:19] everything good. So after it implements
+[01:22:22] it, let's just go ahead and tell it to
+[01:22:24] commit and push the changes. This will
+[01:22:27] now be chained. So as soon as it is
+[01:22:29] done, we'll be able to take a look at
+[01:22:30] the code changes on GitHub. And
+[01:22:32] alongside this, Code Rabbit also reviews
+[01:22:35] pull request as code comes in for bigger
+[01:22:38] teams. There's also triage, which
+[01:22:41] surfaces the changes that need attention
+[01:22:43] first. So go ahead and check out all
+[01:22:45] that it does. I personally use Code
+[01:22:47] Rabbit on jsmastery.com. That's our
+[01:22:50] official platform repo. So, I highly
+[01:22:52] recommend it. The link is going to be in
+[01:22:54] the description. But now, as we're
+[01:22:56] pushing the final changes, I want to
+[01:22:58] quickly continue where we left off. And
+[01:23:01] if I remember correctly, that was the
+[01:23:03] talk about context window and context
+[01:23:06] rot. In this case, we've been speaking
+[01:23:09] with this particular agent for a long
+[01:23:12] time. And sure, we still haven't filled
+[01:23:15] out more than 20% of its context window,
+[01:23:17] but I think it's about time that we
+[01:23:19] reduce the clutter because we are done
+[01:23:21] with fixing these security issues. So
+[01:23:24] there are two options. You can either
+[01:23:27] use compact which frees up the context
+[01:23:30] by summarizing the conversation so far
+[01:23:33] or you can also run clear which we have
+[01:23:36] seen before. This cloud session did a
+[01:23:38] lot. So let's go ahead and compact it.
+[01:23:41] This will keep the useful parts of the
+[01:23:43] current work while reducing the amount
+[01:23:45] of conversation that Claude is carrying.
+[01:23:49] It'll take some time and then you'll
+[01:23:51] still be able to continue on the same
+[01:23:53] conversation but with less clutter. To
+[01:23:55] be honest, I don't use compact as often.
+[01:23:59] You only want to use this when you're
+[01:24:01] working on the same work, but you need
+[01:24:04] smaller context. But in most cases, when
+[01:24:06] you fill up the context, you'll already
+[01:24:08] be done with the feature you're
+[01:24:09] implementing. So you can just run clear
+[01:24:12] and start from a new session. And in
+[01:24:15] this lesson, the thing that filled up
+[01:24:16] the context was us using the plan mode
+[01:24:19] to plan our entire database. But while
+[01:24:22] we're compacting the conversation right
+[01:24:24] here, I want to tell you to not use the
+[01:24:27] plan mode for everything. If the task is
+[01:24:30] something like change the heading or add
+[01:24:32] more spacing here, just do it. Plan mode
+[01:24:35] is useful when the approach itself needs
+[01:24:38] to review. things like the database
+[01:24:40] changes, authentication, migrations,
+[01:24:43] large refactors, or changes across
+[01:24:46] several parts of the system. But if the
+[01:24:49] change is obvious, don't add another
+[01:24:51] step just because the plan mode exists.
+[01:24:53] And for more complex things, there's
+[01:24:56] something on top of plan mode. Uh, let
+[01:24:59] me explain this in a read me right here.
+[01:25:01] Plan mode works well when you already
+[01:25:03] know what you want and Claude needs to
+[01:25:05] figure out how to implement it.
+[01:25:07] Something like add products, categories,
+[01:25:10] and stock using Postgress and Drizzle.
+[01:25:13] That's clear enough, but something like
+[01:25:16] build proper inventory management is
+[01:25:19] much more vague. Does that mean multiple
+[01:25:22] warehouses, reservations,
+[01:25:25] low stock alerts, inventory history, or
+[01:25:29] more? Well, that's where I separate the
+[01:25:32] problem further inside of Agentic
+[01:25:34] Engineering Skills. As I told you
+[01:25:37] already, it's an open- source repo. And
+[01:25:39] specifically, the skill in question
+[01:25:41] right here would be the scope skill. So,
+[01:25:45] head over here into scope just to show
+[01:25:47] you. And what the scope skill does is to
+[01:25:51] turn a product idea into a living core
+[01:25:54] scope in the doc scope and keep it
+[01:25:56] current. You can use it for planning a
+[01:25:59] new product or a new slice, which would
+[01:26:01] be a feature. You can use it to plan one
+[01:26:03] feature specifically or run it with no
+[01:26:06] arguments to reconcile after shipping
+[01:26:08] and cue what is next. So basically it's
+[01:26:11] a seed for what to build. Then there's
+[01:26:15] also the architect skill which works
+[01:26:17] with you through the important technical
+[01:26:18] decisions and then the develop skill
+[01:26:21] that builds. So basically we use the
+[01:26:24] scope skill to challenge the idea before
+[01:26:27] writing any code. Then we use the
+[01:26:30] architect skill, this one right here, to
+[01:26:34] ask what important technical decisions
+[01:26:36] need to be made. And finally, we can use
+[01:26:39] the plan mode to check how should this
+[01:26:42] specific change be implemented into the
+[01:26:44] current codebase.
+[01:26:46] You don't need all of these at every
+[01:26:48] step for every feature, but once you're
+[01:26:51] working on larger applications, that
+[01:26:53] separation becomes really useful. The
+[01:26:56] workflow itself is completely free and
+[01:26:58] open source. But if you want to learn
+[01:27:00] how to use it with claude code, then you
+[01:27:03] can check out the agentic engineering
+[01:27:04] course. At this point, all the pieces
+[01:27:07] you've learned are starting to work
+[01:27:09] together. Claude ND keeps the important
+[01:27:12] project rules. Permissions right here
+[01:27:15] control what Claude can or must not do.
+[01:27:19] Plan mode lets you review important
+[01:27:21] changes before implementation. Compact
+[01:27:23] helps when a long task starts filling
+[01:27:26] the context. You can run context to see
+[01:27:29] what is filling the context. And
+[01:27:31] finally, the clear command gives you a
+[01:27:34] fresh start when the new task is
+[01:27:35] unrelated. That's the pattern you want
+[01:27:38] to build, knowing when each one is
+[01:27:41] useful while you're actually building.
+[01:27:45] At this point, you've already built
+[01:27:48] several parts of our luxury storefront.
+[01:27:51] And you're [clears throat] probably
+[01:27:52] starting to notice something. The
+[01:27:54] features change, but a lot of the
+[01:27:57] process doesn't. When Claude builds
+[01:28:00] another page, you still wanted to
+[01:28:02] inspect what already exists, reuse the
+[01:28:04] design system, search for existing
+[01:28:07] components, keep the page responsive,
+[01:28:10] avoid unrelated changes, and verify what
+[01:28:12] it built. You could keep writing all of
+[01:28:15] that inside every prompt or you can
+[01:28:18] teach Claude that process once and reuse
+[01:28:20] it. And that's what skills are for. A
+[01:28:25] skill is a reusable procedure or piece
+[01:28:28] of knowledge that Claude can load when
+[01:28:31] it becomes relevant. At its simplest, a
+[01:28:34] skill is a folder containing a skill.md
+[01:28:37] file. Inside of that file, you describe
+[01:28:40] what the skill does and how Claude
+[01:28:43] should handle that kind of work. You can
+[01:28:45] call a skill yourself with a forward
+[01:28:46] slash like build UI or Claude can use it
+[01:28:50] automatically when your request matches
+[01:28:53] what the skill is meant for. This is
+[01:28:56] different from Claude MD because your
+[01:28:58] Claude or agents MD loads into every
+[01:29:01] conversation for this project. But a
+[01:29:03] skill loads its full instructions only
+[01:29:06] when it's actually needed. So a detailed
+[01:29:10] UI workflow doesn't take up context
+[01:29:12] while you're debugging a database
+[01:29:14] migration. So when should you write
+[01:29:16] something into the cloud MD or when
+[01:29:19] should you invoke a skill? The answer is
+[01:29:21] simple. Just ask yourself is this a
+[01:29:24] project or is it a repeatable process?
+[01:29:28] Use pmppm, use drizzle, reuse the
+[01:29:31] existing design system. Those are facts
+[01:29:34] and they belong in CloudMD.
+[01:29:37] But inspect the implementation, find
+[01:29:40] reusable components, build the UI, check
+[01:29:42] responsive behavior, run the app,
+[01:29:45] verify, type check, summarize is a
+[01:29:48] process. Claude only needs it when doing
+[01:29:50] that kind of work. That's a skill. So
+[01:29:54] project fact goes into claude MD.
+[01:29:57] Repeatable process is a skill and a
+[01:30:00] one-time task. Well, just ask claude.
+[01:30:02] Anthropic specifically recommends skills
+[01:30:05] when you keep repeating the same
+[01:30:06] instructions or when something inside
+[01:30:09] Claude MD starts becoming a procedure
+[01:30:11] rather than project context. And this is
+[01:30:14] something that we go into a lot of
+[01:30:15] detail about within the skills module of
+[01:30:18] the course, such as how to understand
+[01:30:20] the skills, read them, build your own,
+[01:30:23] and when you should use MCPs instead of
+[01:30:26] skills as well. But let me tell you a
+[01:30:28] bit about them here as well. Project
+[01:30:30] skills live inside of thecloud folder
+[01:30:33] and then within the skills folder. So,
+[01:30:36] let me show you how to create a skill.
+[01:30:38] Head over intoclaude.
+[01:30:40] create a new folder called skills and
+[01:30:43] then within skills create another folder
+[01:30:45] called build- ui and then within it you
+[01:30:49] can also create a new file called
+[01:30:52] skill.md
+[01:30:54] just like this the directory name
+[01:30:58] becomes the command build ui because
+[01:31:01] this skill is specific to our store
+[01:31:04] keeping it inside of the project means
+[01:31:06] you can commit it with the code and
+[01:31:08] everyone gets the same workflow
+[01:31:10] A skill for all your projects would live
+[01:31:13] not under this cloud folder but under
+[01:31:15] the cloud folder of your computer. Now a
+[01:31:18] skill has a YAML formatter and markdown
+[01:31:22] instructions and that looks something
+[01:31:24] like this. You start with three dashes.
+[01:31:27] Then you give it a name such as build UI
+[01:31:30] as well as a description. And here we
+[01:31:33] can say something like build or update
+[01:31:37] customerf facing e-commerce UI
+[01:31:42] using the existing design system
+[01:31:46] components product patterns and
+[01:31:50] responsive conventions. And here you
+[01:31:53] also have to tell it when should it
+[01:31:55] invoke it. So we can tell it to use it
+[01:31:57] when creating or significantly changing
+[01:32:00] pages, sections or customerf facing
+[01:32:02] components. Then you close this header
+[01:32:05] with three more dashes and you're ready
+[01:32:07] to write the body of a skill. In this
+[01:32:10] case, we can say build or update the
+[01:32:13] following UI. And skills can also accept
+[01:32:17] arguments. You use the dollar sign and
+[01:32:20] then say arguments. So we're asking it
+[01:32:22] to build a UI of whatever we pass into
+[01:32:25] it. So we're telling it to build the UI
+[01:32:28] of whatever they pass here. Arguments is
+[01:32:31] going to be filled in with whatever you
+[01:32:33] type after the command. So the skill
+[01:32:35] carries over the process and you only
+[01:32:37] describe the feature. And then we can
+[01:32:39] give it some steps such as inspect the
+[01:32:41] current implementation and related
+[01:32:43] components, search for reusable
+[01:32:45] components before creating new ones,
+[01:32:47] reuse the existing design system, and so
+[01:32:50] on. Notice how we're not turning this
+[01:32:52] skillmd into a huge manual. Rather, it
+[01:32:55] is focused. If it eventually needs large
+[01:32:58] references, materials, or scripts, those
+[01:33:01] can be moved into separate files within
+[01:33:03] the build UI folder. And the part that
+[01:33:06] matters much more than it looks like is
+[01:33:09] the description. The description isn't
+[01:33:12] just documentation for you. It's how
+[01:33:14] Claude decides whether this skill is
+[01:33:17] relevant. Claude reads the names and
+[01:33:20] descriptions of available skills and
+[01:33:22] matches them against your request.
+[01:33:25] If you give it a description of useful
+[01:33:29] UI workflow, well, that basically tells
+[01:33:31] it nothing. But if you specify it like
+[01:33:34] this, that tells Claude what the skill
+[01:33:36] does and when to use it. So a weak
+[01:33:39] description is going to be the main
+[01:33:41] reason that a skill doesn't trigger when
+[01:33:43] you expect it to. So now instead of that
+[01:33:46] same long checklist, we can just open up
+[01:33:49] claude and tell it forward slashbuild UI
+[01:33:54] which is going to build or update
+[01:33:56] customerf facing e-commerce UI using the
+[01:33:58] existing design system components and so
+[01:34:00] on. And then we can tell it build a new
+[01:34:04] arrivals page using the latest products
+[01:34:09] from the database.
+[01:34:12] Keep it consistent with the homepage,
+[01:34:16] product listing, and product detail
+[01:34:19] pages already in the application.
+[01:34:23] Perfect. Now that we have the skill,
+[01:34:26] it's much easier as we don't have to
+[01:34:28] have such detailed and accurate prompts.
+[01:34:31] So, let's see how it approaches it. And
+[01:34:33] I'm running it with auto mode on. And
+[01:34:36] there we go. In a couple of minutes, the
+[01:34:38] new arrivals is now live and reachable
+[01:34:41] from Chrome. It added a new page, server
+[01:34:44] components, breadcrumbs, hairline rule,
+[01:34:47] empty states with no new colors,
+[01:34:49] classes, or components. So, we can
+[01:34:52] explore it on localhost 3000. Back
+[01:34:54] within the browser, we can browse our
+[01:34:56] existing collections or product pages,
+[01:34:59] or you can head over into this new in at
+[01:35:02] the top left and see what seems to be a
+[01:35:05] category page. sorted by the newest
+[01:35:08] pieces right here. It did it incredibly
+[01:35:11] well. And of course, even from here, you
+[01:35:13] can visit a specific product page. And
+[01:35:16] if you take a closer look at how it did
+[01:35:18] it, Claude simply loaded the skill and
+[01:35:21] inspected the existing implementation.
+[01:35:24] You can see that right here. Skill
+[01:35:25] loaded successfully. And then it
+[01:35:28] searched for one pattern, read three
+[01:35:30] files, listed one directory, and only
+[01:35:32] then did it start with the
+[01:35:33] implementation.
+[01:35:35] So the skill follows the workflow but we
+[01:35:38] only described what we are building and
+[01:35:42] it's completely reusable. You can also
+[01:35:44] tell it to do something else such as
+[01:35:46] build UI add a category collection page
+[01:35:49] and let's see how quickly and how well
+[01:35:52] does it do that. And just like that
+[01:35:54] again in about 2 minutes it added a new
+[01:35:57] page. So, back in the browser, we can
+[01:36:00] test it out by heading over to a
+[01:36:03] specific collection like going to maybe
+[01:36:06] sunglasses and then right here using
+[01:36:08] breadcrumbs, you can head over to
+[01:36:10] eyewear and you'll see that we have
+[01:36:12] three pieces belonging to eyewear right
+[01:36:14] here. You can also browse other things
+[01:36:17] such as leather goods and I can notice
+[01:36:19] that we still have to connect it from
+[01:36:21] our navigation bar, but right now we can
+[01:36:23] navigate over from the collections part.
+[01:36:25] So you can see we have leather, we have
+[01:36:28] eyewear, there's jewelry as well. So you
+[01:36:31] can see that now we have full-on product
+[01:36:33] categories. And that was pretty simple
+[01:36:35] to build, right? This was the same
+[01:36:38] process as running the initial prompt
+[01:36:41] just on a different feature. And this is
+[01:36:43] where skills become much more useful
+[01:36:45] than saving prompts somewhere. You're
+[01:36:47] turning the way you work into something
+[01:36:49] reusable. And that's exactly why I've
+[01:36:51] built the agentic engineering workflow I
+[01:36:54] mentioned at the start of the video.
+[01:36:55] What you just did with the build UI
+[01:36:58] skill is the same idea applied to the
+[01:37:00] entire engineering workflow. Instead of
+[01:37:03] repeatedly telling an AI to inspect the
+[01:37:05] project, decide what should be built,
+[01:37:08] make the technical decisions, develop
+[01:37:10] the features, verify them, test them,
+[01:37:14] check them, review them, and keep the
+[01:37:16] project context updated with sync. Each
+[01:37:18] one of those becomes a reusable skill.
+[01:37:22] Scope is the first one. It figures out
+[01:37:24] what should actually be built. Then
+[01:37:27] there's the audit, which studies what
+[01:37:30] already exists. Architect works through
+[01:37:33] the important technical decision.
+[01:37:35] Develop
+[01:37:36] implements the feature. Check simply
+[01:37:39] verifies or reviews the work. Test
+[01:37:43] handles testing. Document updates
+[01:37:45] documentation. sync keeps the project
+[01:37:48] context up to date and debug gives you a
+[01:37:51] proper debugging process instead of
+[01:37:53] letting it randomly change files until
+[01:37:55] something works. The workflow is
+[01:37:58] completely free and open- source and
+[01:38:00] because it's built on skills, it works
+[01:38:02] with cloud code, cursor, codecs, or any
+[01:38:05] other agent. And on top of it, the
+[01:38:07] agentic engineering course is where I
+[01:38:09] show you how to use all of it properly
+[01:38:12] on larger applications, legacy code
+[01:38:14] bases, and monor repos. Both links are
+[01:38:17] going to be in the description in case
+[01:38:18] you want to check it out. But to get
+[01:38:20] back to skills briefly, I want to tell
+[01:38:22] you that you don't always have to
+[01:38:24] manually type build UI or any other
+[01:38:27] skill name. If you properly wrote the
+[01:38:30] name of the skill and its description,
+[01:38:32] running something like add a new
+[01:38:34] arrivals page using the current design
+[01:38:36] system should be enough because Claude
+[01:38:39] can see the skill description, recognize
+[01:38:41] the match, and load it automatically.
+[01:38:44] And that's one of the major differences
+[01:38:45] between skills and older custom slash
+[01:38:48] commands. User invoked versus model
+[01:38:51] invoked. But you don't always want both.
+[01:38:54] Imagine you create something like a
+[01:38:56] deploy skill or a commit skill. Those
+[01:39:00] have real side effects and you probably
+[01:39:02] don't want claw designing on its own.
+[01:39:04] Everything looks ready. I'll deploy it.
+[01:39:07] So for workflows like that, you can head
+[01:39:10] over to that specific skill and you can
+[01:39:13] modify its front matter with an
+[01:39:16] additional line disable model invocation
+[01:39:20] set to true. Now only you can trigger it
+[01:39:23] manually. And another reason why skills
+[01:39:26] scale better than simply stuffing Claude
+[01:39:29] MD is how they load. There are three
+[01:39:32] layers. First, Claude sees the metadata,
+[01:39:36] which is the name and the description.
+[01:39:38] When the skill becomes relevant, it
+[01:39:40] loads the skill MD file. And if the
+[01:39:43] skill has extra references right here in
+[01:39:45] the same folder, for example, scripts or
+[01:39:48] examples, we can load those only when
+[01:39:50] necessary. So the main skill MD doesn't
+[01:39:53] need the entire design system inside it.
+[01:39:55] It can point Claude to something like
+[01:39:57] references design system MD whenever
+[01:40:00] deeper guidance is needed. Ananthropic
+[01:40:03] calls this progressive disclosure. If
+[01:40:05] you take a look at the skills of the
+[01:40:07] agentic engineering workflow and
+[01:40:08] specifically the scope or architect
+[01:40:11] skills, you can see that alongside the
+[01:40:13] skill MD, there's so much more stuff
+[01:40:15] right here such as the scope template
+[01:40:18] that it can read whenever it needs to.
+[01:40:21] The modes such as the brownfield
+[01:40:23] project, green field project, plan,
+[01:40:26] replan, and more. three different
+[01:40:28] development approaches, facade, journey,
+[01:40:30] skateboard, and tracer bullet, which are
+[01:40:32] actual software development workflows to
+[01:40:35] follow when building applications, as
+[01:40:37] well as the YAML file right here.
+[01:40:40] All of those are part of a larger skills
+[01:40:43] setup. And in the course, we go a bit
+[01:40:45] deeper into how to build your own skill.
+[01:40:48] Oh, and another pro tip is that you
+[01:40:50] don't have to write every skillmd by
+[01:40:52] hand. Anthropic has something called a
+[01:40:55] skill creator workflow that builds and
+[01:40:57] improves skills through conversation.
+[01:40:59] And it can even run evaluation cases
+[01:41:01] with and without the skill to check
+[01:41:03] whether it actually improves Claude's
+[01:41:05] behavior. Because a skill that sounds
+[01:41:08] good isn't necessarily a skill that
+[01:41:10] works. So test it. You can run it easily
+[01:41:13] by running the skill creator skill and
+[01:41:15] tell it what skill you want to create.
+[01:41:17] Another pro tip is to not turn this
+[01:41:20] Claude skills folder into a mess. Every
+[01:41:23] skill adds metadata that Claude has to
+[01:41:26] consider. 10 useful skills are fine, but
+[01:41:29] 100 random ones aren't. There's also a
+[01:41:32] custom skill called skill doctor which
+[01:41:35] can show you which loaded skills are
+[01:41:37] unused and costing context. That way,
+[01:41:41] you can just delete them. And also be
+[01:41:44] careful with the skills you download.
+[01:41:46] They can contain scripts, command
+[01:41:48] executions, and tool access. So, read
+[01:41:51] the skillmd and any scripts before
+[01:41:53] installing. Whenever you do try to
+[01:41:55] install them, you'll also get some
+[01:41:57] information on whether they might
+[01:41:59] include something sketchy. If we install
+[01:42:01] my own skills right here by exiting the
+[01:42:05] claude and telling it MPX skills latest
+[01:42:07] JS Mastery Pro skills, you'll need to
+[01:42:10] install the skills package. Select which
+[01:42:13] skills to install. You can do them
+[01:42:15] either on a project or a global basis.
+[01:42:18] And you can see that here you'll see
+[01:42:19] that most of them are safe. And for some
+[01:42:22] reason, if something got changed in the
+[01:42:23] meantime, maybe some are going to be
+[01:42:25] medium or high risk or some are going to
+[01:42:27] be like, please don't install them. But
+[01:42:30] I can assure you that these skills are
+[01:42:32] more than safe. And yeah, the last pro
+[01:42:35] tip would be to try not to design the
+[01:42:38] perfect skill on day one. Rather use it.
+[01:42:42] Watch where Claude still makes mistake
+[01:42:44] and then fix that skill. Add some kind
+[01:42:47] of a missing rule or sharpen the
+[01:42:49] verification step. Fix a description
+[01:42:51] that triggers it whenever you need it
+[01:42:53] and not at the wrong times. Skills
+[01:42:55] improve from the actual usage. So by
+[01:42:58] this point, you've already moved beyond
+[01:43:01] giving Claude some random individual
+[01:43:03] prompts. Your Claude MD now keeps the
+[01:43:06] rules that should always be available.
+[01:43:09] Permissions control what claude can do.
+[01:43:11] Plan mode reviews the approach before
+[01:43:13] the implementations and skills can give
+[01:43:16] you reusable workflows that load only
+[01:43:19] when needed. The next step is what
+[01:43:21] happens when one cloud session doesn't
+[01:43:24] need to do every part of the work
+[01:43:26] itself. So let's work on that next.
+[01:43:31] At this point you've learned quite a few
+[01:43:34] cloud code features individually.
+[01:43:36] CloudMD for project context, permissions
+[01:43:39] for control, plan mode for expensive
+[01:43:42] decisions, and your own skills for
+[01:43:44] repeatable processes. And our storefront
+[01:43:48] looks like a real store now, but you
+[01:43:51] still can't actually buy anything. We're
+[01:43:54] missing authentication, a cart, stock
+[01:43:57] enforcement, checkout, orders, and the
+[01:44:00] customer account. But here's the thing.
+[01:44:03] Building all of that is the exact same
+[01:44:06] loop you've already learned over and
+[01:44:09] over. Describe the feature plan when the
+[01:44:13] decision is expensive and let Claude
+[01:44:16] build, review, and verify it. So, I'm
+[01:44:19] not going to build it at you. This is
+[01:44:22] your assessment. You're going to ship
+[01:44:24] the rest of the store yourself. and I'll
+[01:44:27] give you everything you need, every
+[01:44:29] prompt in order in the free resources
+[01:44:32] linked below. But before you start, let
+[01:44:35] me show you three things that make this
+[01:44:37] assessment much easier because you don't
+[01:44:40] have to do all of it with plain prompts.
+[01:44:43] First, the UI. You already built the
+[01:44:46] build UI skill in the last lesson. The
+[01:44:49] cart page, the account overview, order
+[01:44:52] history, those are exactly what the
+[01:44:54] skill is for. So you can just use the
+[01:44:57] build UI skill and tell it to build the
+[01:45:01] cart page or build the account overview.
+[01:45:05] It is the same process just a different
+[01:45:08] feature and that's the whole point of
+[01:45:10] encoding your workflow into a skill.
+[01:45:13] This assessment will reuse it. But
+[01:45:15] second, you're going to have to work on
+[01:45:17] authentication. You could prompt it from
+[01:45:20] scratch, but remember how skills work.
+[01:45:24] They don't have to come from you.
+[01:45:26] Libraries such as Betteroth can publish
+[01:45:29] skills that teach agents how their APIs
+[01:45:32] and workflows are supposed to be used.
+[01:45:36] So Betteroth does exactly that. So we
+[01:45:38] can install their skills. Back within
+[01:45:40] our application, you can open up a new
+[01:45:43] terminal window and run MPX skills add
+[01:45:46] better o skills like this. It'll then
+[01:45:50] ask you which skills you want to
+[01:45:51] install. You can install some additional
+[01:45:53] ones or just the core o skills, which is
+[01:45:56] what I'll select. I'll select it for my
+[01:45:59] claude code. Press enter a few more
+[01:46:01] times and they're going to get installed
+[01:46:03] immediately. That'll install better odds
+[01:46:06] official skill pack. And you can even
+[01:46:08] see that right here how we have our own
+[01:46:10] skill. We now also have this agents
+[01:46:13] folder. Within it, we have skills. And
+[01:46:15] then there are two skills. One is called
+[01:46:17] create o and the other one is called
+[01:46:20] better o best practices. Now that you
+[01:46:22] know how to create your own skill, you
+[01:46:25] also should understand how some other
+[01:46:27] people or companies can create their own
+[01:46:30] skills maintained by the developers who
+[01:46:33] build a library and instead of hoping
+[01:46:35] Claude remembers exactly how the latest
+[01:46:37] version works, the maintainers give your
+[01:46:40] agent instructions directly. And the
+[01:46:43] habit from the last lesson still
+[01:46:45] applies. A skill can contain
+[01:46:47] instructions, scripts, and tools. These
+[01:46:51] come from better off itself, but always
+[01:46:53] look at what you just gave your agent.
+[01:46:55] For example, make sure that the skill
+[01:46:57] will actually get executed based on your
+[01:46:59] prompt. Oh, and one more tip. When you
+[01:47:02] do the off part of the assessment, run
+[01:47:04] it in plan mode first. Authentication
+[01:47:07] touches the database, sessions,
+[01:47:09] protected routes, and customer data,
+[01:47:11] which is exactly what kind of change the
+[01:47:13] plan mode is for. And I'll leave the
+[01:47:15] exact planning prompt in the resources
+[01:47:17] down below. On top of the skills that we
+[01:47:19] have built and the skills that you can
+[01:47:21] install, there's also a third thing
+[01:47:25] called plugins.
+[01:47:27] In the same way that specific tools can
+[01:47:29] create their own skills, some more
+[01:47:31] well-established tools can publish
+[01:47:33] official Claude plugins. The Stripe
+[01:47:36] plug-in, for example, which we'll have
+[01:47:38] to use for checkout, allows Claude to
+[01:47:41] connect to Stripe's MCP server, enabling
+[01:47:43] AI assisted payment integration
+[01:47:45] development. As a skill, it provides
+[01:47:48] everything that a skill does, such as
+[01:47:50] best practices, guidance for
+[01:47:52] implementing checkout flows,
+[01:47:53] subscriptions, and more, as well as more
+[01:47:56] on top of it, such as helping you avoid
+[01:47:58] deprecated APIs, and follow Stripe's
+[01:48:00] recommended patterns. So you can very
+[01:48:03] easily install it by copying this
+[01:48:05] installation command.
+[01:48:07] You can do that in the terminal by
+[01:48:09] running claude plug-in install stripe
+[01:48:12] atclaude-plugins-official
+[01:48:14] and just press enter. It'll ask you
+[01:48:16] whether you want to install the plugin
+[01:48:18] and very soon it'll be installed. So now
+[01:48:21] if you run claude
+[01:48:24] and you run forward slash plugins,
+[01:48:27] you'll be able to see which plugins you
+[01:48:29] might have installed before. I have a
+[01:48:31] couple, but in this case, we are looking
+[01:48:33] for the Stripe plugin, which might
+[01:48:36] already be under installed. There we go.
+[01:48:40] You just need to press enter to
+[01:48:41] authenticate it from Stripe. So, go
+[01:48:44] ahead and press authenticate, and it'll
+[01:48:46] be opened in a new browser window where
+[01:48:48] you'll have to sign into your Stripe
+[01:48:50] account. Then, you'll have to enable
+[01:48:53] your MCP. I'll do it for the test
+[01:48:55] environment and give it all the
+[01:48:57] necessary permissions and authorize.
+[01:49:00] And that's it. You can now close this
+[01:49:02] tab and return to Quad Code. And just
+[01:49:05] like that, you have successfully
+[01:49:07] authenticated your plug-in. So now you
+[01:49:09] know not only how to create your own
+[01:49:11] skills, but install other people's
+[01:49:13] skills as well as plugins. There's one
+[01:49:17] small distinction between the two. You
+[01:49:18] can think of a skill as a one reusable
+[01:49:21] process. Whereas a plug-in is a package
+[01:49:24] that can include skills as well as other
+[01:49:28] cloud code capabilities such as MCPS.
+[01:49:31] And you can also browse what's installed
+[01:49:33] with the forward/plugin command. And
+[01:49:36] same rule as always applies. Don't
+[01:49:39] install random plugins. They can contain
+[01:49:42] much more than markdown. So trust where
+[01:49:44] they come from. So now you have
+[01:49:47] everything you need. your build UI skill
+[01:49:49] for the pages, better odd community
+[01:49:51] skills for authentication, and Stripe's
+[01:49:54] official plug-in for the checkout. The
+[01:49:56] full assessment is in the free resource
+[01:49:58] linked below. It contains a couple of
+[01:50:01] prompts in order from authentication all
+[01:50:04] the way to the customer accounts. So,
+[01:50:06] build it, break it, fix it, use the plan
+[01:50:09] mode where the decision is expensive,
+[01:50:11] and skip it where it isn't. And that's
+[01:50:14] where everything from this course
+[01:50:15] actually becomes yours. If you're just
+[01:50:18] following along, you're not learning as
+[01:50:20] much. But now that you've been watching
+[01:50:22] this video for more than an hour, it's
+[01:50:24] time for you to actually give it a shot.
+[01:50:27] And when you're done, tell me in the
+[01:50:29] comments how it went. I do read all of
+[01:50:32] the comments. Pause this video, do it,
+[01:50:35] and then let's continue together. So,
+[01:50:37] how did it go? After I ran a couple of
+[01:50:40] these prompts, the last step was to
+[01:50:43] create and hook up my Stripe account.
+[01:50:46] Thankfully, that was easy thanks to the
+[01:50:48] Stripe package and the CLI. So, I was
+[01:50:51] more or less able to do it directly to
+[01:50:53] the terminal, but I simply got the
+[01:50:55] Stripe secret key and added it to the
+[01:50:57] env.
+[01:51:00] With that in mind, our application now
+[01:51:02] not only looks good, but has a real
+[01:51:06] database and a real checkout where we
+[01:51:08] can actually buy stuff. So, let me add
+[01:51:11] this to a bag. You can see that now we
+[01:51:14] can sign in. So, this is a beautiful
+[01:51:16] looking sign-in page, which looks
+[01:51:18] exactly as I would expected from a
+[01:51:20] luxury storefront. So, let me go ahead
+[01:51:23] and enter my contact information. In
+[01:51:26] this case, of course, we can't sign in
+[01:51:27] because we never created an account, but
+[01:51:30] let's go ahead and create one. I'll call
+[01:51:32] myself JSMy,
+[01:51:35] and I'll create a new account.
+[01:51:39] There we go. Looks like we are now
+[01:51:41] signed in successfully. So, we can go
+[01:51:43] ahead and add some items to the cart.
+[01:51:46] Let's go ahead and add this uh Bordeaux
+[01:51:49] croc embossed flap bag. Close to 3,000
+[01:51:52] bucks. As well as let's try to add
+[01:51:55] something else. Maybe these sunglasses
+[01:51:59] right here or this card holder. Let's go
+[01:52:01] with Oh, it's sold out. This is nice.
+[01:52:04] So, the soldout functionality works as
+[01:52:06] well. And you can see that there's email
+[01:52:08] me when it returns functionality which
+[01:52:10] we can implement later on as well. Let's
+[01:52:13] go with this backpack.
+[01:52:15] Okay, we have added those two to the bag
+[01:52:18] and you can now see how that looks like.
+[01:52:20] We'll need to modify the design slightly
+[01:52:22] so it looks a bit better. But let's try
+[01:52:25] to proceed to the checkout. This
+[01:52:27] actually opens up a complete Stripe
+[01:52:30] checkout in sandbox mode. And oh my god,
+[01:52:33] I would never pay close to 5,000 bucks
+[01:52:37] for a bag and a backpack. But
+[01:52:39] thankfully, I can use my test card right
+[01:52:42] here by just pressing the letters four
+[01:52:44] and two one after another. And with
+[01:52:46] that, we can now pay. In about a minute,
+[01:52:49] it looks like it succeeded and we can
+[01:52:51] see a thank you page. Of course, the
+[01:52:54] next natural steps would be to take a
+[01:52:56] screenshot of this page right here that
+[01:52:58] says thank you as well as of the other
+[01:53:01] pages that we have seen which don't look
+[01:53:04] as good and then fix the UI of them. But
+[01:53:07] that will be super simple like I can
+[01:53:09] remain on this page right now, head over
+[01:53:11] to the code and then simply drag and
+[01:53:14] drop the photo while holding the shift
+[01:53:16] key and then tell it the design seems
+[01:53:21] off. improve the UI of the thank you
+[01:53:27] page.
+[01:53:29] And we can say use front- end skills.
+[01:53:32] This should take about a minute. And
+[01:53:34] then without reloading, we should be
+[01:53:36] able to see this page get to its proper
+[01:53:38] look to match the rest of this beautiful
+[01:53:41] design. And it looks like it found it
+[01:53:43] pretty quickly. It'll load the design
+[01:53:45] skill before reworking the page and fix
+[01:53:47] it. And in about a minute, this is much
+[01:53:51] much better. Or should I say much worse
+[01:53:54] because now I can more clearly see this
+[01:53:56] huge amount that was spent well
+[01:53:58] thankfully on my testing account. But
+[01:54:00] yeah, as you can see, with the right
+[01:54:02] tools and the right process, I didn't
+[01:54:04] even have to tell you how to fix this
+[01:54:06] because I've taught you the process of
+[01:54:08] developing on your own. And believe it
+[01:54:11] or not, this is it. We have successfully
+[01:54:14] implemented the full functionality for
+[01:54:16] logging in for adding the items to the
+[01:54:18] cart as well as purchasing the items for
+[01:54:22] our account through our Atilier store.
+[01:54:25] Wonderful. And these items are also
+[01:54:28] getting updated. So you can see since we
+[01:54:31] added this backpack, maybe this one has
+[01:54:33] more items in stock. But if we take a
+[01:54:35] look at this one, this one only has
+[01:54:38] three left. So yeah, the store is
+[01:54:41] officially done. You can go ahead and
+[01:54:43] play with the design a bit more. Fix a
+[01:54:45] couple of those pages that didn't look
+[01:54:46] as good or modify this hero section or
+[01:54:49] center the items in the navigation bar.
+[01:54:52] At least that's something that I would
+[01:54:53] do if I was continuing to develop this
+[01:54:55] application further. But now that we
+[01:54:57] have a fully functional e-commerce
+[01:54:59] store, somebody still has to run it.
+[01:55:02] There's no place to create products, to
+[01:55:06] update the inventory, or manage orders.
+[01:55:08] We need an admin side. So, in this
+[01:55:11] video, I'll teach you how to do that,
+[01:55:13] too. And keep in mind that that admin
+[01:55:15] side touches almost everything. It
+[01:55:18] touches the database, which we haven't
+[01:55:20] opened in some time. So, now would be a
+[01:55:23] good time if you head over into tables,
+[01:55:26] you can see the exact number of items
+[01:55:29] that we have for each specific product.
+[01:55:32] You can see that these two are low in
+[01:55:35] stock. And for now, we can update the
+[01:55:37] stock manually like this. But we don't
+[01:55:40] really want to do that. We want to do
+[01:55:41] that through an admin system that
+[01:55:43] touches the database, authentication,
+[01:55:46] products, inventory, orders, and all of
+[01:55:48] that. Now, Claude could investigate all
+[01:55:51] of that inside of our main conversation,
+[01:55:53] but it would fill the same context that
+[01:55:56] we need to use for building. And that's
+[01:55:58] where the sub aents come in. So, let me
+[01:56:01] teach you a bit about them in the next
+[01:56:03] lesson.
+[01:56:05] The customer side of our store is now a
+[01:56:09] pretty good place. A customer can browse
+[01:56:12] products, search, create an account, add
+[01:56:15] products to cart, check out, place an
+[01:56:17] order, or see their order history, but
+[01:56:20] somebody still has to actually run the
+[01:56:23] store. We need an admin side where
+[01:56:26] someone can create and edit products,
+[01:56:29] manage categories, update the inventory,
+[01:56:32] see the orders or update the order
+[01:56:34] status. And this is where our
+[01:56:37] application has finally become large
+[01:56:39] enough that another cloud code feature
+[01:56:42] becomes genuinely useful because before
+[01:56:45] Claude builds the admin side, it needs
+[01:56:47] to understand quite a few different
+[01:56:50] areas of the application.
+[01:56:51] authentication, products, database,
+[01:56:54] schema, inventory, orders, existing UI
+[01:56:57] patterns. Claude could research all of
+[01:57:00] that inside of the main conversation.
+[01:57:03] But then all of those file reads,
+[01:57:05] searches, and intermediate findings
+[01:57:07] would fill the same context we're about
+[01:57:09] to use to actually build the feature.
+[01:57:12] And that's where the sub aents come in.
+[01:57:15] A sub agent is another claude agent that
+[01:57:19] receives a focused task and works on it
+[01:57:22] inside of its own context. The main
+[01:57:26] claude delegates the task. The sub agent
+[01:57:29] investigates it and then reports the
+[01:57:32] important result back. So instead of
+[01:57:35] your main conversation carrying every
+[01:57:38] file and every search the sub agent
+[01:57:40] needed, you mainly get back the useful
+[01:57:43] findings.
+[01:57:44] That's the real value. Sub aents give
+[01:57:47] you context isolation. They're not
+[01:57:50] magically smarter versions of claude.
+[01:57:52] They're only useful because some work
+[01:57:55] can happen separately. And don't think
+[01:57:58] of them as AI employees. Because this is
+[01:58:01] where sub agents sometimes get over
+[01:58:03] complicated.
+[01:58:05] People create things like senior staff
+[01:58:07] backend engineer or elite security
+[01:58:10] architect, worldclass React expert. But
+[01:58:13] Claude doesn't suddenly gain new
+[01:58:16] knowledge because you gave the context
+[01:58:18] window a fancy job title. The better
+[01:58:21] question is what work can happen
+[01:58:24] separately that my main conversation
+[01:58:26] doesn't need to carry for our admin
+[01:58:29] application. That's pretty obvious.
+[01:58:31] Before implementing anything, we need
+[01:58:34] several independent investigations.
+[01:58:37] So let's delegate them. Now tell the
+[01:58:40] main claude something like this. Before
+[01:58:44] building the admin side of our project,
+[01:58:46] investigate the existing application
+[01:58:49] using separate focused sub aents. Have
+[01:58:52] them independently inspect the products
+[01:58:56] categories and the current Drizzle data
+[01:58:57] model, stock and inventory behavior,
+[01:59:01] authentication and safest minimal way to
+[01:59:03] add admin access orders and the current
+[01:59:06] order life cycle existing UI pattern. So
+[01:59:09] we can reuse each sub agent should
+[01:59:12] return the current behavior, relevant
+[01:59:14] files, important constraints, and a
+[01:59:17] recommended approach. Do not implement
+[01:59:19] anything yet. Combine their findings
+[01:59:21] into one concise summary when they're
+[01:59:24] done. Run it. And now watch Claude do
+[01:59:26] its work. It'll dispatch five focused
+[01:59:30] investigators in parallel. This is a
+[01:59:33] good example of a parallel fan out. None
+[01:59:36] of these agents need an answer from
+[01:59:39] another agent before beginning their
+[01:59:40] investigation. Rather, they can
+[01:59:43] independently explore the parts of the
+[01:59:45] codebase and then report back. One is
+[01:59:49] investigating the data model. Another is
+[01:59:52] investigating the stock behavior and
+[01:59:54] another investigating off and admin
+[01:59:56] access and another investigating order
+[01:59:59] life cycle and the last one is
+[02:00:03] investigating the UI patterns. The main
+[02:00:06] model is not doing anything. It is
+[02:00:09] waiting for all the findings to come
+[02:00:11] back and then it'll combine their
+[02:00:13] findings into one summary and then you
+[02:00:15] can do something with it. a beautiful
+[02:00:17] example of a parallel fan out. So, let's
+[02:00:21] give it some time to run. You can see
+[02:00:23] for how long each one of these has been
+[02:00:25] running and how many tokens is it
+[02:00:27] spending. Even though it might seem like
+[02:00:30] it's a lot of tokens, you would spend
+[02:00:32] more tokens and more time if you just
+[02:00:34] let one agent do the thing. This way,
+[02:00:37] the work is being done five times as
+[02:00:40] fast. one already finished after a
+[02:00:43] minute and 20 seconds and we're waiting
+[02:00:45] for the four other ones to finish as
+[02:00:47] well. You can switch to another model to
+[02:00:50] see what it is doing at any time or
+[02:00:53] simply get back to the main four in one
+[02:00:56] to go. The UI patterns agent is still
+[02:00:59] working and that one reported too. All
+[02:01:02] five investigations are complete and
+[02:01:04] here are the combined findings. We can
+[02:01:07] see everything we need to know about our
+[02:01:08] data model about the stock how there are
+[02:01:11] four states the constraints about it as
+[02:01:14] well the o and the admin access the
+[02:01:17] recommendation on how to approach
+[02:01:19] authentication for the admin panel and
+[02:01:22] then there's orders how we can keep
+[02:01:24] track of them or increase the number of
+[02:01:26] items and then there are UI patterns
+[02:01:29] that follow this editorial luxury system
+[02:01:32] entirely stored in globals.css CSS.
+[02:01:35] There's some crosscutting themes and an
+[02:01:37] important decision to consider before
+[02:01:39] proceeding. That's it. This took 3
+[02:01:43] minutes exactly, but it did more than 15
+[02:01:46] minutes of work. So, why didn't we just
+[02:01:48] let the main claude read everything?
+[02:01:50] Just imagine the product investigation
+[02:01:52] reads 10 files, o reads another eight,
+[02:01:55] and orders reads another 12, and then UI
+[02:01:58] exploration reads another 10. The main
+[02:02:02] claude may only need a few important
+[02:02:04] conclusions from each investigation
+[02:02:06] before it can build a feature. Sub
+[02:02:08] agents let all that exploration happen
+[02:02:11] somewhere else. The main conversation
+[02:02:14] gets the useful result without carrying
+[02:02:17] the entire journey. And that's the whole
+[02:02:19] point. And you may have already seen
+[02:02:22] claude delegate work automatically. I
+[02:02:25] mean claude code includes built-in
+[02:02:27] agents for different kinds of jobs. For
+[02:02:30] example, explore, plan, or general
+[02:02:32] purpose. Explore is useful for readonly
+[02:02:36] codebased investigation. Plan helps with
+[02:02:38] research during planning and general
+[02:02:41] purpose can handle well, as it says,
+[02:02:43] general purpose tasks. But you don't
+[02:02:46] always need to wait for Claude to
+[02:02:49] decide. You can simply say use an
+[02:02:52] explore sub agent to inspect how admin
+[02:02:55] authorization should fit into the
+[02:02:58] current better o implementation or
+[02:03:01] something like delegate the order life
+[02:03:04] cycle investigation to a separate sub
+[02:03:06] agent and return the important findings
+[02:03:08] underneath this. The current claude code
+[02:03:11] tool is called agent. You usually don't
+[02:03:14] need to call the internal tool yourself.
+[02:03:16] You can just tell Claude what should be
+[02:03:18] delegated and let it handle the
+[02:03:20] mechanics. So once the research comes
+[02:03:22] back, don't immediately say build an
+[02:03:25] admin dashboard. First decide what this
+[02:03:28] first admin version actually needs for
+[02:03:32] our store. Keep it focused. We need
+[02:03:34] admin only access, basic dashboard
+[02:03:37] overview, product category and order
+[02:03:40] management as well as inventory updates.
+[02:03:43] We don't need multiple admin permission
+[02:03:46] levels, warehouse management, advanced
+[02:03:49] analytics, staff invitations, refunds,
+[02:03:52] or complicated fulfillment systems. At
+[02:03:54] least not yet. Now, even without our
+[02:03:57] admin panel, but just with the full
+[02:03:59] logic of the databases, authentication,
+[02:04:01] and more, our application has changed
+[02:04:03] massively since we ran that first deep
+[02:04:06] scan. Our application now holds
+[02:04:08] authentication sessions, customer data,
+[02:04:12] payment logic, orders, and very soon an
+[02:04:15] entire admin side with its own
+[02:04:17] authorization. So before we begin
+[02:04:20] working on the admin platform of the
+[02:04:22] application, we want to commit and push
+[02:04:24] everything that we've done so far
+[02:04:26] because there's a lot of work that was
+[02:04:27] done. So I'll tell it commit and push
+[02:04:30] all the work done so far. And as soon as
+[02:04:33] the changes are in, we can run the
+[02:04:36] second code rabbit AI deep scan. Let's
+[02:04:39] let it look across of it all to see just
+[02:04:41] how well have you done your assessment
+[02:04:43] or how well Claude has developed it. You
+[02:04:46] can also connect Slack to be updated
+[02:04:48] when the deep scan is done or you can
+[02:04:50] just head over here where you can see
+[02:04:52] them estimating and then running. The
+[02:04:54] deep scan report will likely be
+[02:04:56] different for you than what it is for
+[02:04:58] me. But thankfully, the process of
+[02:05:00] resolving some of these vulnerabilities
+[02:05:02] is the same as what I've shown you
+[02:05:04] before. So, feel free to take a coffee
+[02:05:06] until the deep scan is back. Resolve the
+[02:05:09] vulnerabilities which you believe need
+[02:05:10] fixing and then let's continue. And
+[02:05:13] here's the thing. From this point on,
+[02:05:16] building the admin side is nothing you
+[02:05:19] haven't done before. You'd take all of
+[02:05:21] these sub agent findings into plan mode
+[02:05:24] and plan the admin experience. You'd
+[02:05:27] read that plan carefully, especially
+[02:05:29] around one thing, authorization has to
+[02:05:32] live on the server because hiding the
+[02:05:35] admin link isn't authorization. And then
+[02:05:37] a normal customer should never be able
+[02:05:40] to open an admin URL or call an admin
+[02:05:43] action directly. But that's exactly the
+[02:05:45] kind of decision that you catch in the
+[02:05:47] plan, not after the code is written. And
+[02:05:50] then you'd build it feature by feature.
+[02:05:53] Admin access first, then product
+[02:05:55] management, then inventory, and then
+[02:05:58] orders. The same loop you've used
+[02:06:00] throughout the rest of the course,
+[02:06:02] describe the feature, plan when the
+[02:06:04] decision is expensive, let Claude build,
+[02:06:07] review, and verify. So the admin side is
+[02:06:11] part two of your assessment. Every
+[02:06:13] prompt in order is going to be in the
+[02:06:16] free resource down below in case you
+[02:06:17] want to follow along. But go ahead and
+[02:06:20] give it a shot. Try to build it yourself
+[02:06:22] or take a look at a couple of hints in
+[02:06:24] that document that I've shared. So,
+[02:06:26] pause the video and go ahead and do it
+[02:06:28] right now and let me know in the
+[02:06:30] comments how it went. Were you able to
+[02:06:32] successfully add the admin side to this
+[02:06:34] luxury and overly expensive e-commerce
+[02:06:38] store? Hopefully, the answer is yes. But
+[02:06:41] even if you've built it properly, check
+[02:06:44] whether the claw MD or agents MD file
+[02:06:46] that you had from the beginning properly
+[02:06:48] describes the application that you have
+[02:06:50] right now, not the one from five lessons
+[02:06:53] ago. Because if that is the case, every
+[02:06:56] future cloud session will start with
+[02:06:58] stale information that has no idea about
+[02:07:01] the admin interface or some of the
+[02:07:03] features you developed within it. So
+[02:07:05] update it either manually or through the
+[02:07:08] conversation with Claude to analyze the
+[02:07:10] codebase and update the necessary parts
+[02:07:13] and then review it. Or you can use a
+[02:07:15] skill that I built specifically for that
+[02:07:17] purpose. In this case, the skill is part
+[02:07:21] of the agentic engineering workflow and
+[02:07:23] it is the sync skill. You can check it
+[02:07:26] out right here. Its goal is to run it
+[02:07:29] after a specific feature or an
+[02:07:31] application is complete to keep the
+[02:07:34] durable knowledge current. Simply put,
+[02:07:36] it keeps your project context in sync
+[02:07:38] with the codebase by checking your
+[02:07:40] latest git commits, updates the relevant
+[02:07:42] parts of clawed and HSMD files, and
+[02:07:45] flags anything that no longer matches
+[02:07:48] how the project actually works. And you
+[02:07:50] can use sync completely on your own. You
+[02:07:52] don't need the entire workflow as it's
+[02:07:54] free and open source. So maybe this is
+[02:07:57] the right chance to give it a shot if
+[02:07:58] you haven't already. But now just take a
+[02:08:00] look at how your usage of Claude code
+[02:08:03] grew as you kept using the app. You
+[02:08:06] started this course with Claude in an
+[02:08:08] empty folder. Then you added the
+[02:08:10] permissions so you controlled what it
+[02:08:12] could do. You used plan mode when
+[02:08:14] decisions became expensive. You also
+[02:08:17] used a couple of skills, one of which
+[02:08:19] you created yourself, as well as
+[02:08:21] external skills and plugins when you
+[02:08:23] needed them. when libraries themselves
+[02:08:25] provided the guidance and you also used
+[02:08:29] sub agents when the codebase got big
+[02:08:31] enough that investigation didn't belong
+[02:08:33] in the main context and that's the
+[02:08:36] progression to remember. Don't start
+[02:08:39] every project by enabling every claude
+[02:08:41] code feature you know. Instead let the
+[02:08:44] problem you have create the reason to
+[02:08:47] use that feature. Is that everything you
+[02:08:49] need to know about claude code? Well,
+[02:08:51] definitely not. You just learned how sub
+[02:08:54] agents let Claude split the work into
+[02:08:56] separate contexts so different parts of
+[02:08:59] a problem can be investigated
+[02:09:00] independently. But you can take that
+[02:09:02] same idea much further. What if those
+[02:09:05] agents don't just investigate different
+[02:09:07] parts of the application? But what if
+[02:09:09] they start building different features
+[02:09:11] at the same time? Well, Cloud Code has a
+[02:09:14] solution for that, too. You can combine
+[02:09:16] agents with isolated Git workre. So each
+[02:09:20] agent can work on its own copy of the
+[02:09:22] repository while building features in
+[02:09:24] parallel. And that's where you start
+[02:09:26] getting into the more advanced side of
+[02:09:28] cloud code. parallel feature
+[02:09:31] development, git workshrees, MCP
+[02:09:34] servers, and there's also hooks to
+[02:09:37] automate your actions, multi- aent
+[02:09:40] workflows, and complete production
+[02:09:43] engineering workflows, such as the one
+[02:09:45] that I've built on top of cloud code for
+[02:09:47] professional software engineering. But
+[02:09:49] yeah, sub agents are really just the
+[02:09:52] beginning of that idea. You learn how to
+[02:09:54] separate context, but the next step is
+[02:09:57] learning how to separate the actual work
+[02:10:00] happening across multiple agents at the
+[02:10:03] same time. But that's a story for
+[02:10:05] another day, or another video at least.
+[02:10:08] If you'd like to see an advanced version
+[02:10:10] of the Cloud Code crash course, leave a
+[02:10:13] like, share the video, and let me know
+[02:10:15] down below in the comments. If you
+[02:10:17] request it, I'll make it. With that in
+[02:10:20] mind, let's go to the outro because I
+[02:10:22] have something important to share with
+[02:10:23] you.
+[02:10:26] At this point, you've gone quite a bit
+[02:10:28] further than simply opening Claude code
+[02:10:31] and asking it to build something. You've
+[02:10:33] learned how to give Claude proper
+[02:10:35] project context with Claude and agents
+[02:10:38] files. Control what it can do with
+[02:10:41] permissions. Use plan mode when the
+[02:10:44] approach matters. Turn repeatable
+[02:10:46] processes into skills and delegate
+[02:10:49] focused work to sub agents without
+[02:10:51] filling your main context. And honestly,
+[02:10:54] this is where cloud code starts becoming
+[02:10:57] much more interesting because once you
+[02:11:00] understand those pieces, you can start
+[02:11:02] building much larger workflows around
+[02:11:04] them. For example, the next thing I
+[02:11:08] would normally teach are using git work
+[02:11:10] trees so agents can safely work on
+[02:11:13] different features at the same time.
+[02:11:16] connecting Claude to external tools
+[02:11:18] through MCPs, using hooks when something
+[02:11:21] should happen automatically every time,
+[02:11:24] and combining everything into a complete
+[02:11:27] engineering workflow where Claude can
+[02:11:29] plan, build, verify, review, and even
+[02:11:33] coordinate work across several agents.
+[02:11:36] And that's where you stop using cloud
+[02:11:38] code like a really powerful coding
+[02:11:40] assistant and start treating it more
+[02:11:43] like an actual engineering system around
+[02:11:46] your application. So here's what I'll
+[02:11:48] do. If this crash course gets enough
+[02:11:51] likes and comments and you want a more
+[02:11:54] detailed video, I'll continue from
+[02:11:56] exactly where this lesson ends and cover
+[02:11:58] the next layer in detail. Work trees,
+[02:12:01] MCPs, hooks, multi- aent workflows. And
+[02:12:04] if you already got that cloud code cheat
+[02:12:06] sheet, that means I have your email. So
+[02:12:08] whenever I do put that video out, I'll
+[02:12:11] let you know via email. But if you don't
+[02:12:13] want to wait and if you want to
+[02:12:15] immediately dive much deeper than that
+[02:12:17] second video would go, the agentic
+[02:12:20] engineering course that I showed you
+[02:12:21] earlier already covers that entire layer
+[02:12:24] from parallel feature development and
+[02:12:26] isolated work trees to hooks, automated
+[02:12:29] verification and the complete process
+[02:12:32] that I use on larger applications and
+[02:12:35] even existing code bases. As part of it,
+[02:12:38] I'll also hold a live workshop that you
+[02:12:40] can join and ask any questions you might
+[02:12:42] have. So, I'll link it below. For now,
+[02:12:45] though, you already have everything you
+[02:12:48] need to start building very differently
+[02:12:50] with Claude Code. Don't try to use every
+[02:12:53] feature just because you learned it.
+[02:12:55] Start with the basics. Give Claude code
+[02:12:58] good context. Keep your tasks small.
+[02:13:01] Review what it does. Turn repeated
+[02:13:04] processes into skills. Use sub agents
+[02:13:07] when work can happen separately and
+[02:13:09] slowly give Claude more freedom as you
+[02:13:12] understand how it behaves on your own
+[02:13:14] projects. That's the foundation and
+[02:13:16] everything after this is scaling that
+[02:13:19] approach to larger applications and more
+[02:13:21] serious engineering work. And when
+[02:13:24] you're ready for that, you know where to
+[02:13:26] find it. Now go build something. I'll
+[02:13:30] see you in the next one.
