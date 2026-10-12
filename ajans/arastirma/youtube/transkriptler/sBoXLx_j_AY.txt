@@ -1,0 +1,735 @@
+# 
+# https://www.youtube.com/watch?v=sBoXLx_j_AY
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:sBoXLx_j_AY.tr.json3
+
+[00:00:00] İsim vermek istemiyorum ama çevremde
+[00:00:02] yalan ağzında yuva yapmış tanıdıklarım
+[00:00:04] var. Ben de bu yeteneklerini pozitife
+[00:00:06] çevireyim dedim. Mobil bir uygulama
+[00:00:07] yapayım. Külahım gibi yalanlarını buraya
+[00:00:09] girsinler. Yapay zeka yalanlarını
+[00:00:11] değerlendirsin. Sorular sorsun. Farklı
+[00:00:13] kriterlere göre değerlendirsin ve bir
+[00:00:15] puan versin. Güzel uygulama olur değil
+[00:00:17] mi? Bunu bu videonun da sponsoru
+[00:00:19] Abakusei Deep Agent'le yapacağım. Sadece
+[00:00:21] prompt gireceğim. Abakusa Deep Agent
+[00:00:23] front end backend kullanıcı girişi,
+[00:00:25] tasarımı, görselleri, ikonları her şeyi
+[00:00:28] kendi halledecek. Ben de Google Play'e
+[00:00:30] yükleyeceğim. iOS için paketleyip
+[00:00:31] yüklemeyeceğim çünkü henüz gelmemiş. Çok
+[00:00:33] yakın zamanda gelecekmiş. Geldiği zaman
+[00:00:35] onun da videosunu yaparım. Bunun dışında
+[00:00:37] bir uygulama yapmayı daha planlıyorum.
+[00:00:39] Hemen başlayalım. Abocus AI
+[00:00:40] sayfasındayım. Signup Google butonuna
+[00:00:42] tıkladım ve giriş yaptım. Abusayı ana
+[00:00:44] sayfasındayım. Soldaki menüden deep
+[00:00:46] agent butonuna tıkladım. Bahsettiğim
+[00:00:47] uygulamanın promptunu girdim. Ben size
+[00:00:49] böyle videonun başında anlattığım gibi
+[00:00:51] yapay zekaya da anlattım. Ondan böyle
+[00:00:53] bir uygulama yapabilmek için bir prompt
+[00:00:55] istedim. O verdiği promptı girdim.
+[00:00:57] Videoda kullandığım prompları videonun
+[00:00:58] açıklamasına ekleyeceğim. İşte
+[00:00:59] uygulamanın adı yalan makinesi olacak.
+[00:01:01] Kullanıcı bir yalan yazacak. Yapay
+[00:01:03] zekada soracağı sorularla yalanın
+[00:01:05] tutarlılığını kontrol edecek. En
+[00:01:06] yaratıcı ve en tutarlı yalanı söyleyen
+[00:01:08] en çok puanı alacak. Yapay zekanın
+[00:01:10] soruları sorarken biraz esprili olmasını
+[00:01:12] istedim. İşte kullanıcı girişi yapmadan
+[00:01:14] yalan söyleyemeyecek. Bir liderlik puan
+[00:01:16] sıralaması da olsun istedim. Böyle bir
+[00:01:18] uygulama olacak işte. Gönder butonuna
+[00:01:19] tıkladım. İnceledi promptumu ve
+[00:01:21] uygulamayı kodlamaya başlamak için
+[00:01:23] birkaç soru sordu. Sırayla cevaplıyorum.
+[00:01:25] Birinci soru, platform tercihiniz nedir?
+[00:01:26] demiş. Sadece iOS ve Android mobil
+[00:01:28] uygulaması olsun dedim. İkinci soru,
+[00:01:30] misafir kullanıcılar kayıt olmadan oyunu
+[00:01:32] oynayabilsin mi? demiş. Giriş yapmadan
+[00:01:34] oynayamasın dedim. 3üncü soru yalanlar
+[00:01:36] paylaşılabilsin mi ve kullanıcılar
+[00:01:38] birbirlerinin yalanlarını görebilsin mi?
+[00:01:39] demiş. Paylaşım olsun ve kullanıcılar
+[00:01:41] görsün dedim. 4.üncü yalanı
+[00:01:43] değerlendirebilmek için şablon soru mu
+[00:01:45] sorsun yoksa dinamik sorular mı üretsin
+[00:01:47] dedi. Yalana özel dinamik sorular
+[00:01:49] üretsin dedim. 5. soru rozetler ve
+[00:01:51] paylaşımlar için bildirim göndermek
+[00:01:52] ister misiniz? dedi. Evet, gönderelim
+[00:01:54] dedim ve gönderdim. Verdiğim cevaplar
+[00:01:56] üzerine düşündü ve cevapladı. Bakın
+[00:01:57] burası çok önemli bir EA agent olduğu
+[00:02:00] için projeyi değerlendirdi ve 5.000
+[00:02:02] satının üzerine kod gerektirdiğini ve
+[00:02:03] çok fazla kredi tüketeceği konusunda
+[00:02:05] uyardı. Bana MVP yapmam konusunda
+[00:02:07] öneride bulundu. Bazı özellikleri
+[00:02:09] çıkardı. İlk versiyonda
+[00:02:10] yapabileceklerini sıraladı. Abox deep
+[00:02:12] agent adından da anlaşılacağı üzere bir
+[00:02:14] AI agent olduğu için hemen sub agentları
+[00:02:16] alt görevleri tamamladı ve çalışmaya
+[00:02:18] başladı. Gerçekten bir yazılımcı gibi
+[00:02:19] çalışıyor. İlk versiyonda olmayacakları
+[00:02:21] da sıralamış. Bakalım. Liderlik
+[00:02:23] tabloları periyoda göre değil tüm
+[00:02:25] zamanlar olacak dedi. Bildirimler
+[00:02:27] olmayacakmış. Kategori sistemini
+[00:02:28] eklemeyecek. Paylaşım ve periyotlar da
+[00:02:30] olmayacağı için haftalık rozette de
+[00:02:32] olmayacak. Tamamdır. Benim için uygundur
+[00:02:34] dedim ve gönderdik. Proje planını
+[00:02:35] çıkardı. Önce uygulamamın backendini
+[00:02:37] geliştirecek. 5000 satır kod kolay
+[00:02:39] değil. Bakalım. Backend bölümü yaklaşık
+[00:02:41] 10 dakikada tamamlandı. Şimdi React
+[00:02:43] Native mobil uygulamasını geliştirmeye
+[00:02:44] başladı. React Native ile geliştirince
+[00:02:47] aynı zamanda iOS'ta da kullanabiliyoruz.
+[00:02:49] Böylece işi iki kere yapmamış oluyoruz.
+[00:02:51] Yaklaşık 15 dakikada Native Reck
+[00:02:53] uygulamamı tamamladı. Toplam 25-30
+[00:02:55] dakikada yazmış oldu. Uygulamanın ön
+[00:02:56] izlemesini de getirdi. Şık görünüyor.
+[00:02:58] İkon da çalışmış. Google girişi eklemiş.
+[00:03:01] Kullanıcılar, oyunlar, sorular ve
+[00:03:02] rozetlerle ilgili veri tabanını
+[00:03:04] oluşturmuş. Ben hiçbir yönlendirmede
+[00:03:06] bulunmamıştım. O GPT 4 üzerinden AI
+[00:03:08] entegrasyonu da yapmış. İstersem AI
+[00:03:10] modelini de değiştirebilirim. Küfür
+[00:03:12] filtresini eklemiş. Rozet sistemi,
+[00:03:14] liderlik tablosu, Swager API
+[00:03:16] dokümantasyonunu da yapmış. Notlar da
+[00:03:18] almış. Google için Google Cloud
+[00:03:20] konsoldan alacağınız client ID ile
+[00:03:22] değiştirmelisiniz dedi. Client ID'yi
+[00:03:24] alıp buraya girersem onu da uygulayacak.
+[00:03:26] Şimdi videonun süresini daha fazla
+[00:03:27] uzatmamak adına burayı geçiyorum. Normal
+[00:03:29] mail girişi de ekle diyeceğim. Süper ya.
+[00:03:31] Karşımda tecrübeli bir yazılımcı var
+[00:03:33] gibi. Ne istesem yapmış. Email kullanıcı
+[00:03:35] girişi de ekler misin dedim ve
+[00:03:36] gönderdim. Bu arada buraya kadar olan
+[00:03:38] tüm 30 dakikalık kodlama için 1428 kredi
+[00:03:41] tüketti. Videonun sonunda fiyatlandırma
+[00:03:43] konusundan da bahsedeceğim. Google
+[00:03:45] girişi yanına mail girişi de ekledi.
+[00:03:46] Hemen giriş yapıp bakalım. Kayıt ol
+[00:03:48] butonuna tıkladım. Email bölümüne mail
+[00:03:50] adresimi girdim. Takma ad bölümüne adımı
+[00:03:52] girdim. Şifreyi girdim. Kayıt ol
+[00:03:54] butonuna tıkladım. Şimdi giriş yap
+[00:03:56] bölümündeyim. Kayıt olduğum mail
+[00:03:57] adresimi ve şifremi girdim. Çok güzel
+[00:03:59] bir arayüz yapmış. Promp'tta ben bir
+[00:04:00] yönlendirme yapmamıştım. Bence güzel.
+[00:04:02] Tabii ki toplam puanım. Oyun sayısı en
+[00:04:04] yüksek puanımı eklemiş. Yeni yalan söyle
+[00:04:06] butonu hazır. Yalanlarımı görle daha
+[00:04:08] önce girdiğim yalanlarımı görebilirim.
+[00:04:10] Gerçek hayat da böyle olsa yani birisini
+[00:04:11] gördük mü yalanlarını gör butonu olsa
+[00:04:13] bassak yalan söyleyip söylemediğini
+[00:04:15] hemen görsek ne güzel olur. Liderlik
+[00:04:16] tablosu hazır. Bakın benim dışımda da
+[00:04:18] hazır kullanıcılar var. Bunlar neden
+[00:04:19] var? Aacakı deep agent bir AI agent
+[00:04:22] olduğu için sadece kod yazmıyor. Aynı
+[00:04:24] zamanda yazdığı kodların testlerini de
+[00:04:26] yapıp öyle teslim ediyor. Bu
+[00:04:27] kullanıcıları kendi kendine oluşturdu.
+[00:04:29] Yani en sağdaki ikondan profilimi
+[00:04:31] görüntüleyebilirim. Şimdi ilk yalanımızı
+[00:04:33] söyleyerek ilk testimizi yapalım. Ama
+[00:04:35] bunu direkt telefonumdan yapayım. Her
+[00:04:37] şey hazır çünkü. Abakusoya deep tüm
+[00:04:39] sistemi Expo Go üzerinden ön
+[00:04:41] izleyebileceğimiz ve
+[00:04:42] yayınlayabileceğimiz şekilde kodladı.
+[00:04:44] Bakalım. Bakın bu sayfada uygulama ön
+[00:04:45] izlemenin sağında QR kod da hazırlamış.
+[00:04:47] Buradaki yönergelerde yazdığı gibi önce
+[00:04:49] telefonumuza Expo Go uygulamasını
+[00:04:51] yükleyeceğiz. Sonra telefonumuzun
+[00:04:53] kamerasına bu QR kodu gösterdiğimizde
+[00:04:55] indirdiğimiz Expo Go uygulaması
+[00:04:57] içerisinde hazırladığım uygulamam
+[00:04:59] açılacak. Telefonuma geldim. Bakın Expo
+[00:05:01] uygulaması burada. Ben iPhone
+[00:05:03] kullanıyorum. Dolayısıyla React Native
+[00:05:04] ile kodladığımız için hem iOS'ta hem de
+[00:05:06] Android'de çalışacak. Dediğim gibi
+[00:05:08] kamera uygulamamı açtım. QR kodu tuttum.
+[00:05:10] Hemen altta sarı renkli Expo Go ile aç
+[00:05:13] butonu belirdi. Dokundum üzerine ve
+[00:05:14] direkt Expo Go uygulamasına yönlendirdi.
+[00:05:17] Açılıyor uygulamam ikonu çok tatlı
+[00:05:18] olmuş. Yeni yalan söyle butonuna
+[00:05:20] dokundum. Buraya yaratıcı yalanını yaz
+[00:05:22] kutucuğuna yalanımı yazıyorum. Ne
+[00:05:24] diyeyim? Uyduruyorum. Dün gece Mars'a
+[00:05:26] gittim. Yalanını girdim. Başla butonuna
+[00:05:27] tıkladık. Yalanımı okudu ve cevap verdi.
+[00:05:30] Mars'a gitmişsin öyle mi? Vay canına.
+[00:05:32] Biz burada metrobüs sırası beklerken sen
+[00:05:34] uzayda cirit atıyorsun. Peki uçak bileti
+[00:05:36] mi aldın yoksa ışınlanma teknolojisini
+[00:05:38] mi keşfettin? Onu merak ettim şimdi.
+[00:05:39] Dedi. Çok iyi ya. Esprili ol dedik ya.
+[00:05:41] Şakalarda falan yapıyor arada.
+[00:05:43] Gerekçelendireyim yalanımı inandırıcı
+[00:05:44] olsun. İlanla gittim dedim. Cevap geldi.
+[00:05:47] İlanla gittin ha. Vay be. Kimler
+[00:05:49] kimlerle takılıyor? Biz de en son Şahin
+[00:05:51] K ile denk gelmiştik. O da otobüs
+[00:05:53] Durandı. Neyse İlan'ın uzay araçları
+[00:05:55] var. Biliyorum da bizim bildiğimiz
+[00:05:56] kadarıyla Mars'a gitmek için öyle
+[00:05:58] bakkala gider gibi hadi atla denmiyor.
+[00:06:00] Yoksa sen Ilan'ın hangi aracıyla gittin?
+[00:06:02] Starship mi, SpaceX mi, gizli bir
+[00:06:04] projesi mi? Yoksa siz Ilan'la Torpil
+[00:06:06] filminin senaryosunu mu yazdınız orada?
+[00:06:07] Bir de bu gidiş dönüş kaç saat sürdü?
+[00:06:09] Onu da ekle de trafik raporuna not
+[00:06:11] dışım. Çok iyi ya. Resmen X trollü
+[00:06:13] kesildi başımıza. Ama arada önemli
+[00:06:14] soruyu da sıkıştırdı. Cevap veriyorum.
+[00:06:17] He beni iyi tanı. Space X'ile gittik.
+[00:06:19] Uyuyordum anlamadım ne kadar sürdü dedim
+[00:06:21] ve gönderdim. Cevap geldi. Gerçekten
+[00:06:23] uyuyordum diyorsun ama Mars bir gecelik
+[00:06:25] gezi değil. Hangi uzay aracıyla?
+[00:06:27] Starship mi? Yolculuk toplam kaç saat
+[00:06:29] sürdü? Kalkışta G'leri nasıl fark
+[00:06:31] etmedin? Aynı gece nasıl geri döndünüz?
+[00:06:33] Mars normale göre aylarca uzakta ve
+[00:06:35] bununla ilgili bir foto, video ya da
+[00:06:37] İlan'dan bir tanık var mı diye ciddi
+[00:06:39] sorular sordu. Yalanımı değerlendiriyor
+[00:06:41] istediğimiz gibi. Cevabımı yazıyorum.
+[00:06:43] Foto yok. İlan dedi ki telefonunu kapa.
+[00:06:45] Starship telefondan etkileniyor. Dedi.
+[00:06:47] Bundan dolayı foto çekemedim. Dedim
+[00:06:48] gönderdim. Cevap geldi. Bu sefer uzun
+[00:06:50] yazmış. Vay be, yılan da bayağı titizmiş
+[00:06:53] telefon konusunda. Demek Starship'in
+[00:06:54] telefondan etkilenme gibi bir hassas
+[00:06:56] durumu var. Bizim buradaki otobüslerde
+[00:06:58] bile her an telefonla konuşan, video
+[00:07:00] izleyen oluyor da otobüsün motorunu
+[00:07:02] etkilemiyor. Neyse senin için
+[00:07:03] endişelendim. Şimdi Mars'a gidiyorsun,
+[00:07:05] telefonunu kapatıyorsun, fotoğraf
+[00:07:06] çekmiyorsun. Dönüşte de muhtemelen
+[00:07:08] jetlck oluyorsun. Peki bu telefondan
+[00:07:10] etkilenme durumu yüzünden GPS de mi
+[00:07:12] çalışmadı? Mars'tan geri dönüş yolunda
+[00:07:14] İlana'a, "Abi Google Maps açsana,
+[00:07:16] neredeyiz? Varamadık mı daha falan
+[00:07:17] diyemedin mi? Bayağı makara yapıyor
+[00:07:19] bende. Bir de Starship'in telefonsuzluk
+[00:07:21] özelliği. Sadece Starship'e mi özel
+[00:07:23] yoksa genel bir uzay aracı kuralı mı bu?
+[00:07:25] Mesela bir dahaki sefere aya gitmek
+[00:07:27] istersen orada da telefonu kapatacak
+[00:07:28] mısın dedi. Şakaları yapıyor. Soruları
+[00:07:30] ciddi ciddi soruyor. Tabii ilan ne derse
+[00:07:32] o bedavaya gittik. Dedim ki gitmezsek
+[00:07:35] seni engellerim. Gönderdik. Puanlar
+[00:07:36] geldi. Birinci sıraya yerleştim çünkü
+[00:07:38] henüz kimse yok. Yaratıcılıktan 30
+[00:07:40] üzerinden 20 vermiş. Tutarlılık 30
+[00:07:42] üzerinden 11. Çok tutarlı olamamışım.
+[00:07:44] Detay zenginliği 20 üzerinden 12.
+[00:07:46] cesaret puanımı yüksek vermiş. Yani
+[00:07:48] cahil cesareti 20'de 15. Toplam 58
+[00:07:51] puanda videonun yayınını yetiştirip
+[00:07:52] uygulamayı yayınlarsam siz de girersiniz
+[00:07:54] yalanlarınızı. Şuradan yalanlarımı gör
+[00:07:56] butonuna dokunarak geçmiş yalanlarımı da
+[00:07:58] görüntüleyebilirim. Bu uygulama tamam.
+[00:08:00] Gördüğünüz gibi Abakusa Deep Agent her
+[00:08:02] şeyi halletti. Ben sadece prompt girdim
+[00:08:04] ve 30 dakika bekledim. Şimdi bir
+[00:08:06] uygulama daha yapalım. Sonra bu yalan
+[00:08:07] makinesi uygulamasını da nasıl
+[00:08:09] yayınlayabileceğinizi de göstereceğim.
+[00:08:11] Bu yeni uygulamada da bir mahkeme
+[00:08:12] kuracağız. Basit bir mahkeme. Devamlı
+[00:08:14] arkadaşlar, dostlar, sevgililer arasında
+[00:08:16] herhangi bir konuda bir tartışma olur ya
+[00:08:18] bunları esprili şekilde çözecek bir
+[00:08:20] mahkeme olacak. Taraflar savunmasını
+[00:08:22] verecek. Yapay zeka değerlendirecek ve
+[00:08:24] sonuçlandıracak. Hemen bakalım. Aboka,
+[00:08:26] "Dep agent'tayım. Yine promptu yapay
+[00:08:28] zekaya hazırlattım. Uygulamanın adı
+[00:08:30] bilir kişi baki dijital kadı dedi.
+[00:08:32] Kararı da böyle damgalı mühürlü falan
+[00:08:34] hazırla dedim. Promptumu girdim
+[00:08:36] gönderdim. Yine üzerine düşündü ve
+[00:08:38] sorularıyla birlikte geri döndü. Sırayla
+[00:08:39] cevaplıyorum. Yine birinci soruda
+[00:08:41] platformu sormuş. Hem iOS hem de Android
+[00:08:44] için olsun dedim. İkinci soru,
+[00:08:45] "Klanıcılar giriş yapmadan dava
+[00:08:47] açabilsinler mi?" demiş. Email'ile
+[00:08:49] kullanıcı girişi olsun dedim. Geçmiş
+[00:08:51] davalar ve kararlar kaydedilsin. Evet,
+[00:08:53] kabul edilsin dedi. 4. soruda, "Sosyal
+[00:08:55] medya paylaşımı olsun mu ve davacılar
+[00:08:57] farklı kişi olarak ayrı ayrı mı giriş
+[00:08:59] yapsın yoksa tek girişle iki tarafta
+[00:09:01] yazabilsin mi?" demiş. Tek giriş ile iki
+[00:09:03] tarafta yazabilsin dedim. 5. Ceza ödül
+[00:09:05] sistemini sormuş. Açıklamasında promtu
+[00:09:07] biraz yanlış anlamış gibi
+[00:09:09] detaylandırıyorum. Yok zaten bir olayı
+[00:09:11] çözeceği için karar verdiği sonuç
+[00:09:13] uygulanacak. Örneğin birisinin çay
+[00:09:14] demlemesi gerekiyor ama iki taraf da
+[00:09:16] üşeniyor. Savunmasını veriyorlar. Hakim
+[00:09:18] Baki karar veriyor. 6. soru. Hakim
+[00:09:21] Baki'nin dili tonu nasıl olsun diye
+[00:09:22] sormuş. Tarafsız ve spiritüel olsun
+[00:09:24] dedim ve gönderdim. Üzerine düşündü ve
+[00:09:26] iş planını çıkardı. Yine önce bekenti
+[00:09:28] kodlamaya başladı. Alt görevler
+[00:09:30] oluşturdu. Yine ortalama 25 dakikada hem
+[00:09:33] backendi hem front end'i tamamladı.
+[00:09:35] Kullanıcı kayıt giriş sistemini yapmış.
+[00:09:37] dava yönetimini, EA entegrasyonunu,
+[00:09:39] sorgu, karar verme sistemini kurmuş. Ön
+[00:09:41] izlemesi de geldi. Bu uygulama için 3563
+[00:09:44] kredi harcamış. İkon da çalışmış. Bilir
+[00:09:46] kişi baki dijital kadı uygulaması hazır.
+[00:09:49] Kayıt ol butonuna tıkladım. İsmim Erhan
+[00:09:51] dedim. Mail adresimi girdim. Şifrede
+[00:09:53] girdim ve kayıt ol butonuna tıkladım.
+[00:09:55] Bir daha giriş yaptırmadı. Direkt içeri
+[00:09:56] girdim. Bu noktadan sonra telefonuma
+[00:09:58] geçeyim. Telefonumun kamerasını açtım ve
+[00:10:00] ön izlemedeki QR kod ikonuna tuttum.
+[00:10:02] Expo'da açtım bilirkişi bakiyi. Az önce
+[00:10:05] ön izlemeden kayıt olduğum mail adresim
+[00:10:07] ve şifremle giriş yaptım. Henüz üç dava
+[00:10:09] yok. Yeni dava aç butonuna tıkladım.
+[00:10:11] Hayali bir şey olsun. Ne olsun? Çay
+[00:10:13] demleme davası olsun. İki arkadaş
+[00:10:15] arasında çayı kim demleyecek? Kararı
+[00:10:16] hakim baki versin. Dava konusunu
+[00:10:18] giriyorum. Çay demleme dedim. Taraflara
+[00:10:21] giriyorum. Ahmet ve tahsin olsun. Harika
+[00:10:23] gidiyor. Tam anlamış promtu. Ahmet'in
+[00:10:25] savunmasını yazıyorum. Dün çayı ben
+[00:10:27] demledim. Bugün tahsin demlemeli. Sıra
+[00:10:29] onda dedim. İleri butonuna tıkladım.
+[00:10:32] Tahsin'in savunmasını giriyorum. Ne
+[00:10:33] desin Tahsin? Tamam kabul ediyorum. O
+[00:10:35] demledi dün ama Baki Bey mükemmel çay
+[00:10:38] demliyor. Bergam mutlu aramolu falan
+[00:10:40] müthiş bir çay. Mutlaka içmelisiniz. O
+[00:10:42] demlesin ben de servis yapayım ve
+[00:10:44] bulaşıkları ekeyim dedim ve davayı
+[00:10:45] başlat butonuna tıkladım. Şimdi Hakim
+[00:10:47] Baki savunmaları ve konuyu inceliyor.
+[00:10:49] Taraflara sorular hazırlamış. Çok iyi
+[00:10:51] ya. Konuyu anlamış. Ahmet'e net bir soru
+[00:10:53] sormuş. Dün kim demledi? Sen mi yoksa
+[00:10:56] Tahsin mi? Ahmet'in ağzından ben
+[00:10:57] demledim. Yazdım. Tahsin'e sormuş.
+[00:10:59] Tahsin, "Tamam kabul ediyorum" deyip
+[00:11:01] Baki Bey demlesin ne demek? Sıra mı
+[00:11:03] devrediyorsun? Lezzet mi peşindesin?
+[00:11:05] Virgül koymayınca yanlış anlamış.
+[00:11:07] Tahsinin savunması için lezzet
+[00:11:09] peşindeyim ben. Berbat çay demlerim
+[00:11:11] dedim. Gönderdim. Bakalım hakim Baki ne
+[00:11:13] karar verecek. Adaletin kestiği parmak
+[00:11:15] acımaz. Animasyon da güzel olmuş. İşte
+[00:11:17] buraya reklam konulabilir mesela.
+[00:11:18] Beklerken sıkılmaz kullanıcı. Hem de
+[00:11:20] reklamı uzun süre izleyebilir. Geldi
+[00:11:23] dava sonucu. Tam istediğim gibi görsel
+[00:11:25] olarak da hazırlamış. Madi'den dava
+[00:11:27] numarası falan eklemiş. gerekçeve kararı
+[00:11:29] detaylıca yazmış. Mahkeme dosyasını
+[00:11:31] açtık, kokladık. Çay bu. Memleketin en
+[00:11:34] hassas delili. Taraflar arası gerginlik
+[00:11:36] düşük. Çekişme sıraya ilişkin tat zevki
+[00:11:38] üzerinden ufak bir yan yol denemesi var.
+[00:11:41] Ahmet dün demlediğini açık ve samimi bir
+[00:11:43] şekilde beyan etmiş. Çaprazlarla da
+[00:11:45] teyit etmiş. Kayıtlar net. Laf uzamaz.
+[00:11:47] Tahsin kabul ediyor ama işi mahkemeyi
+[00:11:49] çay ocağına çevirmeye yelteniyor. Hakim
+[00:11:51] beyin çayı efsane. O demin diyor.
+[00:11:53] Evladım bu kürsü demlik değildir. Hakim
+[00:11:56] nefsine hakim olur. Demliye değil. Hem
+[00:11:58] ben emekliyim. Yetki dışı talep reddi
+[00:12:00] miras diye devam ediyor. Grafik de
+[00:12:02] hazırlamış. %80 Ahmet'e hak vermiş. Ceza
+[00:12:05] karar bugün çayı tahsin demleyecek.
+[00:12:07] Ahmet Reşeteyi ve gözetimi sağlayacak.
+[00:12:09] Servis ve bulaşıklar tahsinde. Yarın
+[00:12:11] normale dönecek. Çok güzel ya. Adli
+[00:12:14] dilde de yazmış gördüğünüz gibi. Hakim
+[00:12:16] Bakir özetini deştirmiş. Bir kere de
+[00:12:18] yaptı. Gerçekten çok güzel oldu. Yazdığı
+[00:12:20] tüm kodları buradaki kod sekmesine
+[00:12:22] tıkladığımda görebilirim. Edit kod
+[00:12:24] butonuna tıkladığımda açılan kod editörü
+[00:12:26] yardımıyla kodları düzenleyebilirim.
+[00:12:28] Uygulamanın apı bağlantıları da hazır.
+[00:12:30] API sekmesine geldiğimde buradan API
+[00:12:33] bağlantılarını alarak uygulamaya
+[00:12:34] bilgiler gönderip alabilirim. Preview'de
+[00:12:36] hep gösterdiğim gibi ön izlemesini
+[00:12:38] görebilirim. Settings sekmesinden
+[00:12:39] uygulamanın detaylarını görebilirim.
+[00:12:41] Tıkladım. Soldaki menüden database'leri
+[00:12:43] görebilirim. Bunların tümünü kendi
+[00:12:44] oluşturduğu ve kendi üzerinde
+[00:12:45] barındırıyor. Benim bir ayar yapmama
+[00:12:47] gerek yok. Hepsi de ayrı database'ler,
+[00:12:49] case davalar, benim girdiklerim hepsi
+[00:12:51] burada saklanıyor. Decision kararlar,
+[00:12:52] Hakim Bakinin verdiği kararlar burada.
+[00:12:55] Users'ta kullanıcı bilgilerinin
+[00:12:56] saklandığı bölüm. Story şu an boş.
+[00:12:58] Görsel öğreten bir uygulama olsaydı
+[00:13:00] onları da burada görebilirdim. Domains
+[00:13:01] menüsünden domain bağlantı bilgilerini
+[00:13:03] görebilirim. Versin'tan versiyon
+[00:13:05] takibini yapabilirim. Buraya kadar her
+[00:13:07] şey tamam. Şimdi uygulamayı nasıl
+[00:13:09] paketleyip yayına alabiliriz onu
+[00:13:11] göstereceğim. İlk yaptığım yalan
+[00:13:12] makinesi uygulamasını paketleyeceğim.
+[00:13:14] Yalan makinesi uygulamama geldim. Sağ
+[00:13:16] üst köşeden deploy butonuna tıkladım.
+[00:13:18] Açılan popup'tan önce uygulamanın
+[00:13:19] backend tarafını deploy edeceğim.
+[00:13:21] Backend deployment bölümünden domain
+[00:13:23] name kutucuna uygulamanın adını yalan
+[00:13:25] makinesi girdim. Burada custom
+[00:13:27] sekmesinden DNS ayarları ile kendi
+[00:13:28] domainiz üzerinden de
+[00:13:29] yayınlayabilirsiniz. Sonra deploy
+[00:13:31] backend butonuna tıkladım. Success
+[00:13:33] mesajı geldi ve yayınlamış oldum.
+[00:13:35] Kapattım popup'ı. Sağ üst köşeden tekrar
+[00:13:37] deploy butonuna tıkladım. Yine açılan
+[00:13:39] popup'tan bu sefer sol tarafta
+[00:13:40] çalışacağım. Android ve iOS olmak üzere
+[00:13:42] iki sekme var. Android'deyim. Dediğim
+[00:13:44] gibi iOS yakında gelecek. Build Type'tan
+[00:13:46] APK veya ABB seçebilirim. Başkalarına
+[00:13:48] uygulamayı dosya olarak göndermek
+[00:13:50] istersem APK'yı yani Android package'ı
+[00:13:52] seçebilirim. Eğer Google Play Store'a
+[00:13:54] koyacaksam ABB yani Android app bundleı
+[00:13:56] seçmeliyim. Ben yayınlayacağım için
+[00:13:58] ABB'yi seçtim ve build up butonuna
+[00:14:00] tıkladım. Paketlemeye başladı. iOS'un
+[00:14:02] mesajını da göstereyim. iOS'a
+[00:14:04] tıkladığımda gördüğünüz gibi yakında
+[00:14:05] gelecek mesajı göründü. Bekliyoruz. Bu
+[00:14:07] paketleme işi yaklaşık 10-15 dakika
+[00:14:09] sürecek. Sayfayı açık tutmanıza gerek
+[00:14:11] yok. Sonradan açtığınızda bitirdiyse
+[00:14:13] indirebilirsiniz. Arada sayfayı refresh
+[00:14:15] de yaparsınız. Tamamladı. Şuradaki
+[00:14:16] download ikonuna tıkladım ve Google
+[00:14:18] Play'e yükleyeceğim paketi indirmeye
+[00:14:20] başladı. İndirdi. Gördüğünüz gibi 67 MW
+[00:14:22] boyutunda bir uygulamam olmuş oldu.
+[00:14:24] Şimdi bunu Google Play'e yükleyeceğim.
+[00:14:26] Google Play'de bir şey yayınlayabilmeniz
+[00:14:27] için bir developer hesabınız olması
+[00:14:29] gerekiyor. Bir kereliğine 25 dolar
+[00:14:31] ödeyerek ve bilgilerinizi girerek bunu
+[00:14:33] aktif edebilirsiniz. Google Play
+[00:14:34] Consol'a geldim. Benim bir hesabım
+[00:14:36] olduğu için direkt açıldı. Sizin yoksa
+[00:14:38] kendi adınıza veya şirketiniz kurumunuz
+[00:14:40] adına da bir hesap açabilirsiniz.
+[00:14:41] Dediğim gibi bir kerelik 25 dolar
+[00:14:43] ödemeniz yeterli. Ana sayfadayım. Sağ
+[00:14:45] üst köşeden uygulama oluştur linkine
+[00:14:46] tıkladım. Sayfa açıldı. Uygulamamın
+[00:14:48] adını giriyorum. Yalan makinesi dedim.
+[00:14:50] Varsayılan dil olarak Türkçeyi seçtim.
+[00:14:52] Oyun olduğunu belirttim. Uygulamam
+[00:14:54] ücretsiz olduğu için onu seçtim.
+[00:14:55] Beyanların da checkbox'larını
+[00:14:57] işaretledim. Sağ alt köşeden uygulama
+[00:14:59] oluştur butonuna tıkladım. Uygulamamın
+[00:15:01] kontrol bölümüne geldim. Uygulamayı test
+[00:15:03] etmeye başlayayım bölümünü geçiyorum.
+[00:15:04] Çünkü Expo Go ile test ettim. Sanırım
+[00:15:06] burada yeni açılan Google Play hesapları
+[00:15:08] için test sorunlu. 14 gün boyunca 12
+[00:15:11] kişiye test ettiriyorsunuz. Benim eski
+[00:15:12] hesap olduğu için bana sormadı. Siz
+[00:15:14] bakarsınız kesin bir grubu falan vardır.
+[00:15:16] Birbirinize destek olursunuz.
+[00:15:17] Uygulamanızın kurulumu bölümüne geldim.
+[00:15:19] Görevleri görüntüle linkine tıkladım.
+[00:15:21] Şimdi buradaki tüm aşamaları teker teker
+[00:15:23] tamamlayacağım. Öncelikle gizlilik
+[00:15:25] politikasını ayarlayın linkine tıkladım.
+[00:15:27] Benden uygulamanın gizlilik
+[00:15:28] politikasının yer aldığı linki bekliyor.
+[00:15:30] Önce gizlilik politikasını çözelim.
+[00:15:32] Linkine bakarız. Şimdi uygulamayı ben
+[00:15:34] kodlamadığım için haliyle politikası ile
+[00:15:36] ilgili de bir bilgim yok. Hemen yapana
+[00:15:37] soralım. Geldim Abakus ID Agent'a.
+[00:15:39] Promptumu girdim. Ben uygulamayı Google
+[00:15:41] Play'e yükleyeceğim. Bir gizlilik
+[00:15:43] politikası yazar mısın dedim ve
+[00:15:44] gönderdim. Çalışmaya başladı. O devam
+[00:15:46] etsin. Biz linke bakalım. Şimdi
+[00:15:48] uygulamanın bir web sayfası varsa
+[00:15:50] gizlilik politikasını oraya girip
+[00:15:52] linkini buraya girebilirim. Ama yoksa ne
+[00:15:54] yapacağım? Google Sites'i
+[00:15:55] kullanabilirim. sites.google.com
+[00:15:57] adresine geldim. Buradan ücretsiz statik
+[00:15:59] web sayfaları oluşturabilirim. Boş sit
+[00:16:01] ikonuna tıkladım. Hemen boş bir şablon
+[00:16:03] açıldı. Başlığı ve üst bannerı
+[00:16:05] siliyorum. Sağdaki menüden bir metin
+[00:16:07] kutusu ekledim. Şimdi oluşturduğum
+[00:16:09] gizlilik politikasını buraya girip
+[00:16:10] yayınlayacağım. Geldim Abakus ID
+[00:16:12] Pagent'a. Gizlilik politikamı
+[00:16:14] hazırlamış. Notunu da eklemiş. Mail
+[00:16:15] adresinizi değiştirin ve yürüyün demiş.
+[00:16:17] Buradaki metnin hepsini kopyaladım.
+[00:16:19] Geldim Sit Google içerisindeki text
+[00:16:22] kutucuğuna yapıştırdım. Önerdiği gibi
+[00:16:23] mail adresimi değiştiriyorum. Her şey
+[00:16:25] tamam. Sağ üst köşeden yayınla butonuna
+[00:16:27] tıkladım. POV açıldı ve benden bir isim
+[00:16:29] istedi. Yalan app dedim. Sağ alt köşeden
+[00:16:31] yayınla butonuna tıkladım. Site
+[00:16:33] yayınlandı. Şimdi linkini alalım.
+[00:16:35] Sitenin sağ üst köşesindeki OK ikonuna
+[00:16:37] tıkladım ve açılan menüden yayınlanan
+[00:16:39] siteyi görüntüle linkine tıkladım.
+[00:16:40] Gizlilik politikam geldi. Adres
+[00:16:42] çubuğundan linkini kopyaladım. Google
+[00:16:44] Play konsol'a geldim ve gizlilik
+[00:16:46] politikası URL'si kutucuna linki
+[00:16:48] yapıştırdım. Kaydet butonuna tıkladım.
+[00:16:50] Tamamdır. Kaydedildi. Yukarıdan kontrol
+[00:16:52] paneli linkine tıkladım ve geri döndüm.
+[00:16:53] Gördüğünüz gibi üzeri çizildi. Yani
+[00:16:55] tamamlandı. Devam edelim. İkinci sırada
+[00:16:57] uygulama erişimi var. Ona tıkladım. Eğer
+[00:16:59] uygulamanızda kullanıcı girişi ile
+[00:17:00] ilgili erişilebilen yerler varsa onların
+[00:17:02] bilgisini buraya girmelisiniz. Örneğin
+[00:17:04] benim yaptığım uygulamada kullanıcı
+[00:17:06] girişi olmadan içeri giremiyorsunuz. Bir
+[00:17:08] kullanıcı adı ve şifresi buraya girmem
+[00:17:10] gerekiyor. Ben şimdilik kısıtlama yok
+[00:17:11] diyeceğim. Amacım yüklemeyi göstermek.
+[00:17:13] Ben sonra düzeltirim. Zaten onlar da
+[00:17:15] onaylanmadı diye geri dönecekler. Kaydet
+[00:17:17] butonuna tıkladım. Geri geldim. Üçüncü
+[00:17:18] seçenek reklam. Hayır reklam içermiyor
+[00:17:20] dedim. Google Admop ile kolayca reklam
+[00:17:23] ekleyebilirsiniz. Addmob'da bir hesap
+[00:17:24] açıp bilgisini Abox Depent ile
+[00:17:27] paylaşırsanız hızlıca ekleyecektir. Ben
+[00:17:28] şimdilik eklemedim. Kaydet butonuna
+[00:17:30] tıkladım. İçerik derecelendirme. Burayı
+[00:17:32] hızlıca geçiyorum. Uygulamanın
+[00:17:34] içerikleri ile ilgili bilgiler soruyor.
+[00:17:36] Buralarda hep dürüst olmanızı tavsiye
+[00:17:37] ederim. Bir sonraki hedef kitlesi burada
+[00:17:39] yaş grubunu belirliyorsunuz. Ben 18 yaş
+[00:17:41] üstünü seçiyorum. Çocukları yalan
+[00:17:43] konusunda yarıştırmayalım. İleri
+[00:17:45] butonuna tıkladım. Sonra da kaydet
+[00:17:47] butonuna tıkladım. Veri güvenliği
+[00:17:48] kullanıcılardan zorunlu olarak hangi
+[00:17:50] bilgileri topluyor dedi. Hayır dedim.
+[00:17:52] Bir bilgi toplamıyorum. ileri ve
+[00:17:53] sonrasında kaydet butonuna tıkladım.
+[00:17:55] Resmi kuruluş uygulamaları, finans
+[00:17:57] uygulamaları ve sağlık uygulamaları
+[00:17:59] bölümünü hayır diyerek geçiyorum. Çünkü
+[00:18:01] bunların hiçbirisini içermiyor
+[00:18:02] uygulamam. Sizin uygulamanızda varsa
+[00:18:04] dikkatlice okuyup işaretlersiniz.
+[00:18:05] Kategori seçme bölümüne geldim. Tıkladım
+[00:18:08] linke. Oyun olduğunu en başta seçmiştim.
+[00:18:10] Buradan kategori seçeceğim. Düzenle
+[00:18:11] linkine tıkladım ve açılan popup'tan
+[00:18:13] soru cevap olarak seçtim. Kaydettim.
+[00:18:15] Etiketler belirlemedim. İsterseniz Abox
+[00:18:18] Deep Agent'a sorabilirsiniz. uygulamayı
+[00:18:20] o yaptığı için etiketleri de hızlıca
+[00:18:21] belirleyecektir. Mail adresimi de
+[00:18:23] girdim. Kontrol paneline döndüm. Bu
+[00:18:25] bölümde son olarak mağaza girişi kaldı.
+[00:18:27] Buraya uygulamalarda sık gördüğünüz ad,
+[00:18:29] açıklama, uygulama görsellerini falan
+[00:18:31] gireceğim. Tıkladım. Uygulama adı
+[00:18:32] gelmiş. Yalan makinesi. Kısa açıklama ve
+[00:18:34] tam açıklama istemiş. Tabii ki 2026
+[00:18:36] yılında bunları ben yazacak değilim.
+[00:18:38] Abox ID Bent'a geldim ve Google Play'de
+[00:18:40] uygulamam için kısa ve uzun açıklama
+[00:18:42] oluşturabilir misin dedim ve gönderdim.
+[00:18:44] O yazmaya devam etsin. Ben mağazadaki
+[00:18:46] görsellerimi yükleyeyim. Uygulama
+[00:18:48] simgesi bölümünde uygulamanın simgesini
+[00:18:50] ve özel grafik kapak görselini istedik.
+[00:18:52] Yine bunları da Abox Deep Agent'a
+[00:18:54] hazırlattım. Bunları da hızlıca
+[00:18:55] yükledim. Uygulamadan ekran görüntüleri
+[00:18:57] talep etti. Aldığım uygulama ekran
+[00:18:59] görüntülerini hem telefon hem de tablet
+[00:19:01] için yükledim. Android tabletim yok.
+[00:19:03] Ekran görüntüsü alamazdım. Gerçi Android
+[00:19:05] telefonum da yok. Mecbur olduğum için
+[00:19:07] tüm yerlere bu ekran görüntülerini
+[00:19:08] yükledim. Abok Deep Agent' da
+[00:19:10] açıklamaları bitirmiş. Hızlıca
+[00:19:11] kopyaladım ve bunları da girdim. Bu
+[00:19:13] bölümde her şey tamam gibi görünüyor.
+[00:19:15] Kaydet butonuna tıkladım. Kontrol
+[00:19:16] paneline geri döndüm. Test, ön izleme,
+[00:19:18] ön kayıt gibi şeyleri de yapabilirim ama
+[00:19:20] ben size göstermek ve videonun süresini
+[00:19:22] uzatmamak adına en alttaki sürüm
+[00:19:24] oluşturma ve yayınlama bölümüne geldim.
+[00:19:26] Görevleri görüntüle linkine tıkladım.
+[00:19:28] Önce uygulama ülke ve bölgesini seçin
+[00:19:29] dedi. Ülke bölge ekle linkine tıkladım.
+[00:19:32] Elimi korkak alıştırmadığım tüm ülke ve
+[00:19:34] bölgeleri seçtim. Yalan makinesi appim
+[00:19:36] tüm dünyaya yayılsın. Kaydet butonuna
+[00:19:38] tıkladım. Geri geldim. Açılan sayfada
+[00:19:40] yeni sürüm oluştur butonuna tıkladım.
+[00:19:41] Sonunda ABB'yi yükleyeceğimiz yere
+[00:19:43] geldik. Hemen yükle ikonuna tıkladım ve
+[00:19:45] ABB uzantılı uygulamamı seçtim.
+[00:19:47] Yüklemeye başladı. Sürüm notlarına ilk
+[00:19:49] sürüm yazdım. Buraya yeni versiyonunuzda
+[00:19:51] gelen özellikleri yazabilirsiniz.
+[00:19:53] Yükleme tamamlandı. Sürüm adını otomatik
+[00:19:55] kendi verdi. İleri butonuna tıkladım.
+[00:19:57] Kaydet butonuna tıkladım. Yayınlama
+[00:19:59] sayfasına geçeceğiz. Genel bakışa git
+[00:20:01] butonuna tıkladım. Her şeyin özeti bu
+[00:20:03] sayfada. 11. değişikliği incelemeye
+[00:20:05] gönder butonuna tıkladım. İnceleme
+[00:20:07] genellikle 7 gün içerisinde tamamlanır.
+[00:20:09] Uyarısı verdi. Değişikliği incelemeye
+[00:20:11] gönder butonuna tıkladım ve gönderdim.
+[00:20:13] onaylandığında uygulamanın linkini de
+[00:20:14] videonun açıklamasına ekleyeceğim. İşlem
+[00:20:16] tamamlandı. Gördüğünüz gibi bu kadar
+[00:20:18] kolay. Uzun zaman olmuştu Google Play'e
+[00:20:20] bir şey göndermeyi. Muhtemelen
+[00:20:21] eksiklerim olacak ve geri dönecek. Bir
+[00:20:23] tanesini ben tahmin ediyorum zaten
+[00:20:24] videoda söyledim. Ama hiç çekincem yok.
+[00:20:26] Rejected'ile birlikte yorumlar da
+[00:20:28] gelecek. Ben o yorumları hiç okumadan
+[00:20:30] Abok Deep Agent'da yapıştıracağım. O da
+[00:20:32] bana ne yapmam gerektiğini söyleyecek
+[00:20:33] şimdilik. Şimdilik dedim çünkü yakın
+[00:20:36] zamanda bu karmaşık çok basamaklı işleri
+[00:20:38] de AI agent'ımın benim için yapacağını
+[00:20:40] düşünüyorum. Şimdi Abox Deep Agent'ın
+[00:20:42] fiyatlandırmasına da bakıp videoyu
+[00:20:44] tamamlayalım. Fiyatlandırma sayfasına
+[00:20:46] geldim. Önce sayfayı Türkçeleştiriyorum.
+[00:20:48] Abacus EA'yı kullanmak için aylık 10
+[00:20:50] dolar ödüyorsunuz. Bu 10 dolar
+[00:20:52] karşılığında 20.000 kredi alıyorsunuz.
+[00:20:54] 10 dolar daha ödeyerek pro sürüme
+[00:20:56] geçebiliyorsunuz. Buna geçtiğinizde Abox
+[00:20:59] Depent'ı sınırsız kullanabiliyorsunuz.
+[00:21:01] Tabii ki kredileriniz dahilinde ilk
+[00:21:03] pakette kalırsanız Abakusa Depent'a ayda
+[00:21:06] 3 kere sınırlı erişim
+[00:21:07] sağlayabiliyorsunuz. Bu ekstra 10 doları
+[00:21:09] ödediğinizde 5.000 kredi daha geliyor.
+[00:21:11] Chatelmemle ilgili şu yorum bana çok
+[00:21:12] geldi. Krediler hızlı tükeniyor deniyor.
+[00:21:14] Şunu belirtmek isterim. Opus 4.5, GPT
+[00:21:17] 5.2, Cemina 3 gibi modeller normalde de
+[00:21:20] pahalı modeller. Her sorunuzu bunlara
+[00:21:22] sorarsanız kredileriniz hızlı tükenir.
+[00:21:24] Bence burada da yazdığı gibi GPT5 Mini,
+[00:21:27] Cemine 3 Flash, GLM 4.7 gibi modelleri
+[00:21:30] sınırsız kullanarak sorularınızı onlara
+[00:21:32] sorup onların cevaplarından tatmin
+[00:21:34] olmadığınızda güçlü kapalı modellere
+[00:21:36] sorun. Bu daha doğru bir yöntem olur.
+[00:21:38] Abakusa zaten bu modelleri ay boyunca
+[00:21:40] hiçbir sınırlama olmadan
+[00:21:42] kullandıracağını taahhüt ediyor.
+[00:21:43] Abakusa'ın farkı tek bir ödeme ile
+[00:21:45] birçok modeli kullanma şansına sahip
+[00:21:47] oluyorsunuz. Dengeyi bulun yani. Şimdi
+[00:21:49] şu soru da aklınıza gelmiştir. Bu
+[00:21:51] uygulamalarda bir backend kurulumu
+[00:21:52] yaptık. Bir trafik alacak. Arkada chat
+[00:21:54] GPT çalışacak. Barınd hizmeti olacak.
+[00:21:57] Abakay bu konuda da destek oluyor. Aylık
+[00:21:59] 25.000 krediye kadar kullanım ücretsiz
+[00:22:01] veriyor. Detayları nedir bakalım?
+[00:22:02] Uygulamanıza gelen her 1000 ziyaret için
+[00:22:05] 327 kredi kesiliyor. Her GB transferi
+[00:22:07] için 33 kredi kesiliyor. Depolama
+[00:22:09] hizmeti her 1 GB için aylık 500 kredi. 1
+[00:22:12] milyon veri tabanı sorgusu için de 300
+[00:22:14] kredi alıyor. Bence makul. Her şeyin tek
+[00:22:17] bir yerde çözülebilmesi çok güzel. Ha
+[00:22:18] bir şey daha aklıma geldi. Yorumlarda
+[00:22:20] görmüştüm. 20.000 krediyi aldıktan sonra
+[00:22:22] Abakusay onları bir günde
+[00:22:24] kullandırtmıyor. Aya bölüyor ki tüm
+[00:22:26] kullanıcılar için adil bir kullanım
+[00:22:28] olsun. Bunu da cevaplamış olayım. AKSo
+[00:22:30] Deep Agent'la bir uygulama yapmak bu
+[00:22:32] kadar keyifli ve kolay. Abakuso Deep
+[00:22:34] Agent'ı hemen videonun açıklamasındaki
+[00:22:36] link üzerinden deneyebilirsiniz.
+[00:22:37] Uygulama yapma konusu işte bu kadar
+[00:22:39] kolaylaştı. Eskiden uygulama yapmak
+[00:22:41] zordu. Şimdi ı 10 dolar belki 10 dolar
+[00:22:44] daha için pahalı deniyor. Bir şey
+[00:22:46] diyemem tabii. Herkesin bütçesine göre
+[00:22:48] değişir. Ama bu videoda yaptığım iki
+[00:22:50] uygulamayı tecrübeli yazılımcı bir
+[00:22:51] dostunuza veya akrabanıza yaptırmak
+[00:22:53] isteseniz haklı olarak ne kadar para
+[00:22:55] talep eder acaba? Bundan sonrası için
+[00:22:57] daha zor olan fikir bulmak ve bunun
+[00:22:59] pazarlamasını, yayılımını
+[00:23:01] gerçekleştirebilmek. İşte her şey o
+[00:23:03] zaman başlıyor. Eskiden fikirler ucuz,
+[00:23:05] uygulama pahalıydı. Artık tam tersi.
+[00:23:07] Kafanızdaki o fikir hiç bu kadar değerli
+[00:23:09] olmamıştı.
