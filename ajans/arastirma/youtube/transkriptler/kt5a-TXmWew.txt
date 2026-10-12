@@ -1,0 +1,641 @@
+# Claude Code: The Advanced Guide (99% of Devs Skip These Features)
+# https://www.youtube.com/watch?v=kt5a-TXmWew
+# kanal: Tech With Tim | süre:  sn | kaynak: yt-dlp:mweb+pot:kt5a-TXmWew.en.json3
+
+[00:00:00] In this video, I'm going to show you
+[00:00:02] nine advanced Cloud Code features that
+[00:00:04] most people don't even know exist. We're
+[00:00:06] going to go through custom sub agents,
+[00:00:08] skills, hooks, MCP servers, parallel
+[00:00:12] sessions with things like Git work
+[00:00:13] trees, headless mode, and much more.
+[00:00:16] Now, every single one of these is going
+[00:00:17] to come with a real demo so you can see
+[00:00:19] how you would actually use it. And by
+[00:00:21] the end of this video, you'll be able to
+[00:00:22] set it all up in your own project. Now,
+[00:00:24] if you want the references in this
+[00:00:25] video, I'll leave a link below. You can
+[00:00:27] join my school community. It is
+[00:00:29] completely free and I'll have everything
+[00:00:30] here so you can follow along with a
+[00:00:32] textbased guide. With that said, let's
+[00:00:34] get into it and look at the first
+[00:00:36] feature. So, the first feature on my
+[00:00:38] list here is custom sub aents. Now, most
+[00:00:40] people know that Claude is capable of
+[00:00:42] creating its own sub agents. That means
+[00:00:44] you can give it a prompt and
+[00:00:45] automatically it can delegate to other
+[00:00:47] agents or do things in parallel, right?
+[00:00:49] So, it can have multiple agents running
+[00:00:51] at the exact same time. Now, Claude will
+[00:00:53] do this automatically and it can make
+[00:00:55] its own agents without you doing
+[00:00:56] anything. However, you can also create
+[00:00:58] your own custom sub agents that Claude
+[00:01:01] can then invoke. Now, the way you do
+[00:01:03] that is you create a doc folder. You
+[00:01:05] then create a nested agents folder and
+[00:01:07] inside of there you create some markdown
+[00:01:09] files that specify what the agents are.
+[00:01:12] So, you can see I have two here. I have
+[00:01:13] a debugger agent and a reviewer agent.
+[00:01:16] And the format and syntax looks like
+[00:01:18] this. Now, you don't need to manually
+[00:01:19] write all of this yourself. You can tell
+[00:01:21] Claude to create the agent spec for you.
+[00:01:23] But when you have this, it will specify
+[00:01:25] a list of agents that Claude can then
+[00:01:27] invoke. So you'll notice we have a
+[00:01:29] reviewer and a debugger. And for these,
+[00:01:31] we have a name, description, the tools
+[00:01:33] that they're allowed to use, as well as
+[00:01:35] optionally the model that we want them
+[00:01:36] to run. This can be helpful, especially
+[00:01:38] if you're running a lot of sub aents to
+[00:01:40] reduce the cost. So once we have those
+[00:01:42] set up, what we can do is run Claude
+[00:01:43] inside of our project. So I'm inside of
+[00:01:45] the sub aents folder here. And if we
+[00:01:47] want to make sure that these sub aents
+[00:01:49] are appearing, we can run /context. When
+[00:01:52] we do that, it should show us here that
+[00:01:53] we have two custom sub aents. You can
+[00:01:55] see they're specified right here. And
+[00:01:57] then if we ask Claude to do something
+[00:01:58] that would involve invoking the sub
+[00:02:00] agents, you should see it spin that up
+[00:02:02] automatically. So, for example, I may
+[00:02:03] say something like, please review this
+[00:02:05] PR before I merge it. Tell me if there's
+[00:02:07] any issues. Okay, let's go ahead and
+[00:02:10] press on enter. And we should see that
+[00:02:11] it pulls up our reviewing sub agent here
+[00:02:14] and does that automatically. Boom. So,
+[00:02:16] you can see I'll have the reviewer agent
+[00:02:17] examine. And then you can see that it is
+[00:02:19] calling the reviewer sub aent and
+[00:02:21] running that in its own thread. Okay. So
+[00:02:23] we can see the review agent is done and
+[00:02:25] then we get back the overall response.
+[00:02:26] And effectively what claw does here is
+[00:02:28] it will invoke the sub aent and then it
+[00:02:30] will only take the response from that
+[00:02:32] sub aent and bring that into context for
+[00:02:35] the main thread that we're currently
+[00:02:36] chatting inside of. The reason this is
+[00:02:38] important is it means that our main
+[00:02:40] thread stays a little bit leaner. So we
+[00:02:42] can have separate context windows for
+[00:02:44] each of the individual sub aents that
+[00:02:46] only need to know what it is that
+[00:02:47] they're specifically working on which
+[00:02:49] typically will give us better accuracy
+[00:02:51] than doing everything in one massive
+[00:02:53] thread where when we start getting near
+[00:02:55] the context window limit as you guys
+[00:02:57] probably see the agents start to get a
+[00:02:58] lot dumber. So that's custom sub agents.
+[00:03:00] I would only create them when you want
+[00:03:02] to delegate things out of the main
+[00:03:03] thread when you want specific rules to
+[00:03:05] be set up in terms of tools read only
+[00:03:07] you know models to be used etc. but they
+[00:03:10] are super useful and you can create them
+[00:03:11] in the way that I showed you. Moving on,
+[00:03:13] we talk about skills, but I'm going to
+[00:03:15] show you some advanced features that you
+[00:03:16] haven't seen before related to them.
+[00:03:18] Now, if you're unfamiliar, a skill is
+[00:03:20] just a markdown file that outlines a set
+[00:03:22] of procedures or a set of steps that are
+[00:03:24] kind of like a reusable workflow. Rather
+[00:03:26] than constantly telling the model to do
+[00:03:27] the same thing over and over again, you
+[00:03:29] create a skill. So, it's kind of a
+[00:03:31] reusable workflow and then you can
+[00:03:32] trigger it. Now the model can
+[00:03:34] automatically call the skill and it will
+[00:03:36] discover it when it needs to use it or
+[00:03:38] you can manually invoke the skill
+[00:03:40] yourself and force the model to go
+[00:03:42] through the process. Now that's actually
+[00:03:43] the first feature of skills that I want
+[00:03:45] to talk about here. First skills sit
+[00:03:47] inside of doclaude/skills
+[00:03:49] similar to how we have this agents
+[00:03:51] folder for the sub agents. You can make
+[00:03:53] them manually by writing them yourself.
+[00:03:55] You can ask the agent to create them for
+[00:03:56] you or you can import them from
+[00:03:58] something like a GitHub repo or someone
+[00:04:00] else's skill that's already been
+[00:04:01] written. Now when you create the skill
+[00:04:03] you'll see that you can have a name and
+[00:04:05] a description and this is the only thing
+[00:04:07] the model will see before it decides to
+[00:04:09] invoke the skill. Now inside the skill
+[00:04:11] you then have all of the steps. Now
+[00:04:12] another interesting thing you can do is
+[00:04:14] add this flag called disable model
+[00:04:16] invocation to your skill which most
+[00:04:18] people don't know about. Now what this
+[00:04:20] will do is actually tell the model
+[00:04:22] whether or not it can call this skill
+[00:04:24] itself or whether you have to invoke it
+[00:04:26] manually. So when you set this to true,
+[00:04:28] essentially that will prevent the agent
+[00:04:30] from automatically loading the skill. So
+[00:04:32] it won't sit inside of the context. And
+[00:04:34] this will only be used when you invoke
+[00:04:36] the skill yourself. So I'm going to show
+[00:04:37] you what I mean by that. But if I go
+[00:04:39] into my terminal here and I invoke
+[00:04:41] claude from this folder first, we can
+[00:04:43] type /sklls and see all of the ones
+[00:04:45] available. So you can see that we have
+[00:04:47] this deploy skill and this roll back
+[00:04:49] skill. These are projectbased skills, so
+[00:04:51] they're just available in this specific
+[00:04:52] folder. And you'll see that one of them
+[00:04:54] is locked because I have that disable
+[00:04:56] model invocation. Now, if I want to
+[00:04:58] actually run that skill, I can invoke it
+[00:05:00] manually by just typing / rollback and
+[00:05:02] then it should go through the process of
+[00:05:04] actually invoking the skill. Now, I'm
+[00:05:05] just going to cancel it for right now
+[00:05:06] because I don't want to do that.
+[00:05:07] Alternatively, if I want to run a
+[00:05:09] different skill, so let's say maybe the
+[00:05:10] deploying skill, I can actually add an
+[00:05:12] argument to this when I run it. So,
+[00:05:14] slash deploy and then staging. So, you
+[00:05:16] don't just have to do the slash command.
+[00:05:17] You can say afterwards what you want to
+[00:05:19] be done. Then again, Claude should find
+[00:05:21] the skill, discover it, figure out what
+[00:05:23] needs to be done, and then go ahead and
+[00:05:24] actually run the entire process. I'm not
+[00:05:26] going to walk you through the full
+[00:05:27] thing. I'm sure you guys understand what
+[00:05:29] skills are. I also could tell Claude to
+[00:05:31] do something that would involve invoking
+[00:05:32] the skill, and then it would just figure
+[00:05:34] it out and call the correct one. Point
+[00:05:36] is that they have a few more features. I
+[00:05:37] wanted to show you that kind of locking
+[00:05:39] uh feature, which is quite useful when
+[00:05:41] you want to have to manually invoke it
+[00:05:43] and not accidentally have the model do
+[00:05:44] it on your behalf. So, the next feature
+[00:05:46] to talk about is called hooks. Now, this
+[00:05:48] is a much more advanced feature. It
+[00:05:50] really deserves its own video, but I'll
+[00:05:51] quickly cover it here so you can look
+[00:05:53] into it more if it seems useful. Now,
+[00:05:55] Claude has a bunch of different events
+[00:05:57] that will happen throughout its agentic
+[00:05:59] loop. The events look something like
+[00:06:01] this. And while they look a little bit
+[00:06:02] confusing, you can at least get an idea
+[00:06:04] of kind of the flow. For example, we
+[00:06:06] have session start, user prompt, submit,
+[00:06:08] pre-tool use, right? You get the idea.
+[00:06:10] And all of these things will occur
+[00:06:12] throughout some kind of process while
+[00:06:14] you're using clawed code. Now what you
+[00:06:16] can actually do is you can hook into
+[00:06:18] these events and you can trigger a bash
+[00:06:20] command to run whenever these events
+[00:06:23] occur. So for example if we scroll down
+[00:06:25] you can see all the events like session
+[00:06:26] start setup user prompt submit whatever.
+[00:06:29] So you can do something like hey
+[00:06:30] whenever it's set up I want to
+[00:06:32] automatically create a markdown file or
+[00:06:34] I want to automatically test my
+[00:06:35] application or hey after we use a tool
+[00:06:37] or before we use a tool I want to make
+[00:06:39] sure that tool is permitted. You get the
+[00:06:40] idea. Okay. So there's a lot of
+[00:06:42] interesting stuff you can hook into here
+[00:06:44] to customize how claude works. And the
+[00:06:46] way you do that is by writing a config
+[00:06:48] file that looks something like this. So
+[00:06:50] let me show you an actual example here
+[00:06:52] on Windows. You can see that this is an
+[00:06:54] example of a config file that you can
+[00:06:56] create right inside of a hooks folder
+[00:06:58] inside of claw. So what you'll do if you
+[00:06:59] want to create hooks is you'll create a
+[00:07:01] cloud folder. You'll create a hooks
+[00:07:02] folder. You'll create a settings.json.
+[00:07:04] And then the hooks can include different
+[00:07:06] files that you want to actually run or
+[00:07:08] different scripts that you want to run
+[00:07:10] when an event occurs. So for example,
+[00:07:12] what we have here is post tool use and
+[00:07:14] pre-tool use. And what will happen here
+[00:07:16] is that we're going to match against
+[00:07:17] edit and write. And whenever there's a
+[00:07:19] tool that has edit or write, we're going
+[00:07:21] to run this Python claude hooks format
+[00:07:24] hook.py Python script. So that's going
+[00:07:26] to automatically format all of the code
+[00:07:28] for us before any tool is ran or sorry
+[00:07:31] after any tool is ran. Then we have
+[00:07:33] pre-tool use. And what this is going to
+[00:07:34] do is run the block dangerous. So what
+[00:07:36] that's going to do is it's going to
+[00:07:37] block any dangerous commands or whatever
+[00:07:39] from being ran before it allows those to
+[00:07:42] run. So if we have an exit code too,
+[00:07:44] that means block the tool calls so that
+[00:07:45] it cannot work in claude. I'm not going
+[00:07:47] to go through exactly how you set it up,
+[00:07:48] but the point is we can have these hooks
+[00:07:50] and I'm going to show you now how they
+[00:07:51] actually work. So let me get out of
+[00:07:52] claude. Let's change into the other
+[00:07:55] directory which is 03 hooks and let's
+[00:07:58] run claude and give it some prompts. You
+[00:08:00] can see how they trigger. Okay, so we're
+[00:08:02] just going to say something like add a
+[00:08:03] function called get average age to
+[00:08:05] messy.js that returns the average age of
+[00:08:08] all of the users.
+[00:08:10] Okay, and let's see what we get here. So
+[00:08:13] we can see we're reading a file messy.js
+[00:08:15] searching for a pattern. Okay, so we're
+[00:08:17] going to go yes, we do want to allow
+[00:08:18] this. So let's proceed. Okay, keep
+[00:08:22] going. Read file and we should see that
+[00:08:24] the hook will actually trigger now
+[00:08:26] because it's gone with that process.
+[00:08:28] Perfect. So you can see the post tool
+[00:08:30] use hook then ran prettier on the file
+[00:08:32] automatically. So the whole file got
+[00:08:33] reformatted after my edit. So you can
+[00:08:35] see this ran right both our hooks went
+[00:08:38] through and essentially it just worked
+[00:08:40] right. So we didn't need to do anything.
+[00:08:41] It just automatically formatted the
+[00:08:43] file. And if we go back here maybe we
+[00:08:45] can have a look at uh let's see here
+[00:08:46] message.js and you can see that it was
+[00:08:48] formatted. So the next feature I want to
+[00:08:50] show you is related to MCPs or model
+[00:08:53] context protocol. Now, these are servers
+[00:08:55] that you can add inside of Clawude that
+[00:08:57] allow you to connect to external tools.
+[00:08:59] Of course, there's tons of different
+[00:09:00] MCPs that are worth adding, and I'll
+[00:09:02] make an entire video on that. But one
+[00:09:03] that I want to highlight here that I've
+[00:09:05] been using a lot recently is Granola.
+[00:09:07] Now, they've kindly sponsored this video
+[00:09:08] and been a long-term partner of the
+[00:09:10] channel, but this is an AI note-taking
+[00:09:12] app that I use pretty much every single
+[00:09:14] day that automatically transcribes your
+[00:09:16] meetings without joining your call. So,
+[00:09:18] rather than having that little annoying
+[00:09:20] noteaker that joins in, it just sits on
+[00:09:22] your computer. It reads your computer
+[00:09:24] audio and it keeps track of all of your
+[00:09:25] notes, keeps track of your calendar and
+[00:09:27] sends you reminders and then saves
+[00:09:29] everything in a nicely formatted way so
+[00:09:31] you can view it and also pull it into AI
+[00:09:34] to have additional context. So earlier
+[00:09:36] this year they actually released an
+[00:09:37] official MCP server. You can see I'm
+[00:09:39] connected to it right here. It allows us
+[00:09:41] to query all of the different meetings
+[00:09:43] and I want to show you just in live time
+[00:09:44] how it works. Using the Granola MCP
+[00:09:47] server, tell me what I learned in my
+[00:09:48] most recent Indonesian lesson. And
+[00:09:50] that's because using Granola, I actually
+[00:09:51] automatically transcribe all of my
+[00:09:53] lessons with my teacher. So, it should
+[00:09:54] tell me some words that I actually
+[00:09:56] learned here. Let's see. Cool. So, we
+[00:09:58] can see it pulled the most recent
+[00:09:59] transcript and gave me all of the
+[00:10:00] information. Now, we'll just open up the
+[00:10:02] UI so you can see what it looks like.
+[00:10:03] Notice that we have the Indonesian
+[00:10:04] language lesson and a bunch of other
+[00:10:05] stuff that I was going through and you
+[00:10:07] get the point. Granola is great.
+[00:10:09] Download it from the link in the
+[00:10:10] description. And now, let's move to the
+[00:10:12] next feature. So, the next feature to
+[00:10:14] discuss here is work trees. Now, this is
+[00:10:16] super useful whenever you're going to
+[00:10:18] run Claude in parallel and you want to
+[00:10:19] make sure that agents aren't changing
+[00:10:21] things that other agents are working on.
+[00:10:23] It's effectively essential if you want
+[00:10:25] to have multiple agents that are working
+[00:10:27] on the same pieces of projects. Now,
+[00:10:29] workree is really an isolated copy of
+[00:10:32] your project that's on your own
+[00:10:33] computer. It's similar to something like
+[00:10:35] a git branch, but it differs just
+[00:10:37] slightly and works better with agents.
+[00:10:39] Now, you don't really need to understand
+[00:10:40] the mechanics of the work tree, but what
+[00:10:42] you need to know is how to invoke one
+[00:10:44] and create one. Now Claude will
+[00:10:45] sometimes do this automatically for you
+[00:10:47] but you can do it manually and it's best
+[00:10:49] practice to create it on your own. So
+[00:10:51] for example I'm inside of a folder you
+[00:10:53] know work trees right where I have a
+[00:10:54] quick demo set up. What I can do is run
+[00:10:56] claude but rather than just running
+[00:10:58] claude I can add this work tree flag.
+[00:11:01] Now for the work tree flag after this I
+[00:11:03] can do something like fix delete bug.
+[00:11:06] Now what I'm doing is giving this work
+[00:11:07] tree a name. And when I go ahead and
+[00:11:09] press on enter here, Claude is now going
+[00:11:11] to be running inside of my folder, but
+[00:11:14] inside of this work tree. So it's on its
+[00:11:16] own isolated version, which is
+[00:11:18] essentially a copy of whatever was
+[00:11:20] inside of my project. And from here, I
+[00:11:22] can give this a prompt. So let me just
+[00:11:23] copy this in. Read bug.md. Reproduce the
+[00:11:25] bug, right? Find the root cause and fix
+[00:11:27] it. And at the same time, I can create a
+[00:11:30] new work tree in another terminal. So
+[00:11:31] claude workree. And let's go maybe
+[00:11:34] feature dark mode or something because
+[00:11:36] we want to add a dark mode feature. And
+[00:11:38] again, I'm just going to copy in another
+[00:11:39] prompt. From here, let's put it in this,
+[00:11:42] I don't know, auto mode. And same thing
+[00:11:44] here. Okay. So, let's go yes and just
+[00:11:45] put it in auto mode. And you'll see that
+[00:11:47] both of these are now going to work in
+[00:11:49] their own repo or own copy of the repo.
+[00:11:51] So, they're not accidentally going to
+[00:11:52] mess something up. All right. So, we can
+[00:11:54] see that both of the agents have
+[00:11:55] finished. So, now let's just open up
+[00:11:56] another cloud code session here. This
+[00:11:58] one I didn't put in a work tree. And I'm
+[00:12:00] going to say, can you find all of the
+[00:12:02] changes that have been made across the
+[00:12:03] different work trees for this repo or
+[00:12:05] for this project and tell me which ones
+[00:12:07] are there and just ensure that they are
+[00:12:09] actually in isolation and then I want to
+[00:12:11] combine them together. Okay, so let's
+[00:12:13] press enter here. And by the way, if you
+[00:12:15] guys are wondering what I'm using to
+[00:12:16] dictate, I'm using a really cool tool
+[00:12:18] called Whisper Flow. You can see I have
+[00:12:20] almost 300,000 words at this point. I
+[00:12:21] use it literally every single day. I do
+[00:12:23] have a partnership with them. It's free
+[00:12:25] to try out, so I'll leave a link to it
+[00:12:26] in the description, but it's just the
+[00:12:28] fastest way to work with AI, as you guys
+[00:12:30] can see from my own usage. So, anyways,
+[00:12:31] would highly recommend from here. Let's
+[00:12:33] go. Yes, I'm just going to put this in
+[00:12:34] auto mode, so it can run. And let's see
+[00:12:36] what it tells us. So, you can see right
+[00:12:38] away that it found both of the work
+[00:12:39] trees, and now it's inspecting them. And
+[00:12:41] then what we'll be able to do is
+[00:12:42] actually combine these changes together
+[00:12:44] without losing anything or messing up
+[00:12:46] either one of these branches, right,
+[00:12:47] that we're running in isolation. Okay.
+[00:12:49] And we can see it was able to kind of
+[00:12:50] reconcile all of this together. And now
+[00:12:52] it told us what was in both work trees
+[00:12:54] and then it combined them or merged them
+[00:12:56] so that now everything is in this one
+[00:12:58] repo. Anyways, that's work trees.
+[00:13:00] Definitely use them especially when you
+[00:13:02] have multiple agents. So the next
+[00:13:04] feature I want to show you here is
+[00:13:05] headless mode. Now this allows you to
+[00:13:07] run claude without actually being in the
+[00:13:09] interactive terminal which is super
+[00:13:11] useful when you want to use this as a
+[00:13:12] part of something like a bash script or
+[00:13:14] kind of a one-step process. So I'm just
+[00:13:16] going to show you a few really quick
+[00:13:17] examples and of course if it's going to
+[00:13:19] be useful to you, you'll know. So you
+[00:13:20] can see that I'm inside of the headless
+[00:13:22] folder and what I'm going to do is
+[00:13:23] actually let's make sure we get the full
+[00:13:25] thing. I'm going to run the cat command.
+[00:13:27] So this is just going to log out
+[00:13:28] whatever is in this build log.txt and
+[00:13:31] then it's going to pipe that into this
+[00:13:32] where we have claude-p which essentially
+[00:13:35] is prompt and then we place a prompt
+[00:13:37] right here. So what's going to happen
+[00:13:38] when I run this is claude is going to
+[00:13:40] run but it runs in headless mode where
+[00:13:42] it's not opening up the interactive
+[00:13:44] window for us and it just gives us the
+[00:13:46] response. So I was able to take the
+[00:13:48] result of the build log. I was able to
+[00:13:49] include that as part of the context in
+[00:13:51] this clawed prompt and then just tell
+[00:13:53] it, hey, you know, why did this fail?
+[00:13:54] And then it gave me the response right
+[00:13:56] here directly in my terminal, which
+[00:13:58] means you can then use this as a part of
+[00:14:00] other scripts. Now I'm going to show you
+[00:14:02] even how we could use this with
+[00:14:03] something like JSON. So for example, now
+[00:14:05] I said, hey, I want the output format to
+[00:14:07] be in JSON, and I want to use jq to
+[00:14:09] actually parse out the result. And now
+[00:14:11] we're going to have this in a format
+[00:14:12] where I can use it more kind of reliably
+[00:14:14] in a script. So here you can see build
+[00:14:17] failed gives us the errors. You get the
+[00:14:19] idea. Now let's have a look at maybe
+[00:14:21] some of the metadata here. So same thing
+[00:14:22] I'm going to do this again. Summarize
+[00:14:24] this build failure in one sentence.
+[00:14:25] Output format JSON. And notice this is
+[00:14:28] what the result looks like. So we get
+[00:14:29] the result. We get the total cost, the
+[00:14:31] number of turns, and then the duration
+[00:14:32] in milliseconds. And of course the cost
+[00:14:34] doesn't really make sense in this
+[00:14:35] context cuz I have the subscription. But
+[00:14:38] you get the idea. Let's do one more. So
+[00:14:40] maybe I want to run this, but I only
+[00:14:41] want to allow it to read something. So,
+[00:14:43] I don't want it to actually have access
+[00:14:44] to a bunch of tools. I can add allowed
+[00:14:46] tools read. The reason I'm showing this
+[00:14:48] to you is that you don't need to use
+[00:14:50] cloud from the interactive terminal. You
+[00:14:52] can trigger it from scripts. You can run
+[00:14:54] it on one-off prompts using this
+[00:14:56] command, which I always thought was
+[00:14:58] really useful. So, to kind of prove what
+[00:14:59] I mean here, notice that I wrote this
+[00:15:01] triage script. And you can see that what
+[00:15:03] we actually do here is we run this
+[00:15:05] clawed headless mode automatically and
+[00:15:07] then get the result and print it out.
+[00:15:09] Now, I'm not going to run this script,
+[00:15:10] but the point is I can do something like
+[00:15:12] this where I'm actually triggering it
+[00:15:14] inside of a script. All right. So, the
+[00:15:16] next feature that I want to show you
+[00:15:18] here is checkpoints and rewinding. Now,
+[00:15:20] in order to do this, I'm just going to
+[00:15:21] do a prompt in a new example that I have
+[00:15:23] here where where I tell it to rewrite
+[00:15:25] app.js from scratch as a single tip
+[00:15:27] calculator class. We have like, you
+[00:15:29] know, a quick kind of React example or
+[00:15:30] whatever. And we'll just give this a
+[00:15:32] second here to rewrite it. And I want to
+[00:15:34] show you how I can roll back so we can
+[00:15:36] actually go back to different
+[00:15:37] checkpoints in case Claude makes a
+[00:15:39] mistake. So this is effectively the app
+[00:15:40] I had. Super simple, right? Where we can
+[00:15:42] just calculate the tip based on the bill
+[00:15:43] amount splitting between a certain
+[00:15:45] number of people. You get the idea. Now,
+[00:15:47] let's do one more prompt here where I'm
+[00:15:48] just going to tell it to rename every
+[00:15:50] function and its ID and not to touch
+[00:15:52] index.html. And hopefully I'm going to
+[00:15:54] have this actually break the app so I
+[00:15:56] can show you how we can roll back to a
+[00:15:57] working version. So now you're going to
+[00:15:59] see that actually the app is completely
+[00:16:01] broken. and if I try to do anything, it
+[00:16:03] just doesn't work because I
+[00:16:04] intentionally broke it. So, let's say
+[00:16:06] you were to do that, but obviously
+[00:16:08] unintentionally, and you wanted to go
+[00:16:09] back to a previous point. Well, Claude
+[00:16:12] will actually checkpoint different
+[00:16:13] builds for you. So, what you can do here
+[00:16:15] is you can use the command slashre.
+[00:16:18] Now, when you do that, it's going to
+[00:16:19] show you whatever was in the current
+[00:16:21] conversation, and you can go back at any
+[00:16:23] point. So, we have current, we have
+[00:16:24] rename every function, we have rewrite
+[00:16:26] every app, whatever. So, I'm going to go
+[00:16:27] to rewrite, and I'm going to go restore
+[00:16:29] code and conversation. And now it brings
+[00:16:32] me back to this stage where if I go back
+[00:16:34] to my application here and I refresh.
+[00:16:37] Okay, let's put in 100. And you can see
+[00:16:40] now the app is working. So basically
+[00:16:42] just understand that you have that /re
+[00:16:44] feature. So you can always roll back in
+[00:16:46] case you make a mistake. Now this next
+[00:16:47] feature is super useful when you want to
+[00:16:49] go back into an old conversation that
+[00:16:51] you had in a particular project. So
+[00:16:53] let's say I go into I don't know three
+[00:16:55] hooks, right? And I want to go back into
+[00:16:57] the previous conversation that we had at
+[00:16:59] that point. Well, in order to do that, I
+[00:17:01] can actually just type claude- continue.
+[00:17:04] Now, this is going to bring me back into
+[00:17:06] whatever that conversation was because
+[00:17:08] the session is stored and saved on our
+[00:17:10] machine. There's actually multiple ways
+[00:17:11] to get into different sessions, which
+[00:17:13] I'm going to show you in a second. But
+[00:17:14] the point is that you can do this,
+[00:17:16] right? So, you don't need to always
+[00:17:17] restart a new session. You can resume
+[00:17:20] different sessions. You'll even notice
+[00:17:21] here that it has various IDs for each
+[00:17:23] session, which you can manually invoke
+[00:17:25] to get back into regardless of what
+[00:17:27] directory you're in. So now that you
+[00:17:29] understand continue, let's talk about
+[00:17:31] being a little bit more proactive with
+[00:17:32] our sessions. So you saw that random ID
+[00:17:34] we had for sessions previously. That's
+[00:17:37] great. But you can actually name your
+[00:17:38] sessions as well. So for example, when I
+[00:17:40] run claude, I can do dash n and then
+[00:17:43] call this something like o refactor. Now
+[00:17:45] I've just named the session o refactor.
+[00:17:47] So it's always going to be saved as
+[00:17:49] that. And again, I can give this a long
+[00:17:50] prompt. So let's paste something in like
+[00:17:52] this. And notice in the bottom right of
+[00:17:54] my screen that it shows us what session
+[00:17:56] we're in. We'll just put this in auto
+[00:17:57] mode so we can go. So I'm going to say
+[00:17:59] look at source uh you know ojs make a
+[00:18:02] change whatever and then we can get out
+[00:18:03] of this session and come back into at
+[00:18:05] any point that we want. Okay. So let's
+[00:18:07] get out of this and I'm going to show
+[00:18:08] you again if I want to resume this one I
+[00:18:10] can do claw d-res and then off refactor
+[00:18:13] and it's going to bring me right back in
+[00:18:14] to where I was before. There's some
+[00:18:16] other interesting stuff we can do in
+[00:18:18] here. For example, we can use slash
+[00:18:20] branch. Now when we do that it's going
+[00:18:21] to create a branch of the current
+[00:18:23] conversation but not override this
+[00:18:25] session. So when I do that, notice that
+[00:18:27] I'm now in a branch. Okay. And then I
+[00:18:29] can ask it to do something that's maybe
+[00:18:31] risky that I want to potentially have to
+[00:18:33] get back to the main conversation for.
+[00:18:35] So let's say actually scrap incremental
+[00:18:37] changes, rewrite the entire module as a
+[00:18:39] class with static methods and see how
+[00:18:40] that looks. Okay. And you can see that
+[00:18:42] we're now working inside of this branch
+[00:18:44] of the main conversation. Okay. So this
+[00:18:46] is finished. And now what I can do if I
+[00:18:48] want to go back to the original branch,
+[00:18:50] so not the one that I just branched off
+[00:18:52] on, I can type slashres and I can go
+[00:18:54] back into this before the branch. So we
+[00:18:57] no longer have those changes that were
+[00:18:58] applied. And then same thing, I can go
+[00:19:00] sloom here and you can see we have the
+[00:19:02] branch and I can go back into that. The
+[00:19:05] point of me showing this to you is that
+[00:19:06] you can be really clever how you manage
+[00:19:08] sessions inside of Claude. There's
+[00:19:10] actually a lot more that you can do that
+[00:19:11] I haven't shown you in this video
+[00:19:12] because it's meant just to be kind of a
+[00:19:14] quick run through, but you can name
+[00:19:15] them, you can branch them, you can
+[00:19:16] resume them, you can go in and out of
+[00:19:18] them, and you can be really clever and
+[00:19:20] have a lot of parallel work going on
+[00:19:21] that's also going to be safe. So anyways
+[00:19:24] guys, with that said, that's going to
+[00:19:25] wrap up this video. If you enjoyed,
+[00:19:26] leave a like, subscribe, and I will see
+[00:19:28] you in the next one.
