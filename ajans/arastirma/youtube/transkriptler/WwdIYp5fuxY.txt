@@ -1,0 +1,296 @@
+# 
+# https://www.youtube.com/watch?v=WwdIYp5fuxY
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:WwdIYp5fuxY.en.json3
+
+[00:00:00] Over the last couple of months, like many others, I've used
+[00:00:03] Claude Code a lot. I've used it to help me build
+[00:00:07] projects like Build My Graphics, some other projects which are yet to
+[00:00:11] launch, and lots of internal tools.
+[00:00:14] I'm not using it for live coding, to be very clear about that, but
+[00:00:18] I'll get back to how I use it because that's exactly what this video is
+[00:00:22] about. I wanna share my top Claude
+[00:00:25] Code usage strategy, my six top usage
+[00:00:29] strategies. The six things I would recommend
+[00:00:33] doing when you're using Claude Code to get good
+[00:00:36] results. Now it's worth noting that I'm using Claude Code with
+[00:00:40] the Max Plan, which gives you 20X the
+[00:00:44] usage. Obviously, heavily subsidized by Anthropic,
+[00:00:47] but you get lots of usage out of Claude Code here, and
+[00:00:51] if you're not running Claude Code in a loop, in a Rolf
+[00:00:55] loop, and there's been lots of hype about that,
+[00:00:59] usage out of it. And that's actually already my first
+[00:01:03] point: I don't loop, I don't
+[00:01:07] Rolf, I stay in control. And that's
+[00:01:11] important to me. I know there's lots of hype these days
+[00:01:15] about running Claude Code in a loop.
+[00:01:18] We have that entire Rolf Wiggum thing here,
+[00:01:22] where the idea is that you have a detailed product
+[00:01:25] document, in the end a document that details all
+[00:01:29] the different steps you need to take to build the product you wanna
+[00:01:33] build, and you hand that document off to,
+[00:01:36] uh, Claude Code in a loop, a simple bash
+[00:01:40] loop, for example, where you run Claude Code over and over
+[00:01:44] again with a prompt where you tell it to look into the
+[00:01:47] document, pick the next step, tackle that step, and then work
+[00:01:51] its way through the document until it's done.
+[00:01:54] And the idea simply is that by having a detailed
+[00:01:58] plan, you get good results. Now I will
+[00:02:02] totally agree that a detailed plan matters.
+[00:02:06] Planning matters. I totally agree
+[00:02:09] with that. It absolutely does matter, no matter what
+[00:02:13] you're building. But I'm not a fan of the AI working its
+[00:02:17] way through a plan on its own. Instead, I like to stay
+[00:02:21] in control, as I mentioned. That is really important to
+[00:02:25] me. I feel like AI can be a very helpful
+[00:02:28] tool for developers, and I shared that and plenty of other videos on
+[00:02:32] my other YouTube channel, Maximilian Schwarzmulle.
+[00:02:35] I feel like AI can be a very helpful tool for developers.
+[00:02:39] I believe every developer should use AI as a
+[00:02:42] tool, but I don't feel like it can really
+[00:02:46] give me good results if I let it run on its own.
+[00:02:48] That's why I'm absolutely not into live coding.
+[00:02:51] I tried the Rolf loop; I'm not just saying
+[00:02:55] For me, the results were not convincing.
+[00:02:57] I wanna stay in control. And kind of
+[00:03:01] related to that, my second point is use
+[00:03:05] plan mode, because plan mode is amazing.
+[00:03:08] In Claude Code, you can cycle through different modes with
+[00:03:12] and there is a plan mode built into Claude Code.
+[00:03:15] And the idea behind that mode, and I'm sure you know that, is simply that
+[00:03:19] it does not go ahead and execute changes right away,
+[00:03:23] or that it does something based on your prompt right away.
+[00:03:26] But that instead first it gathers information, it explores
+[00:03:30] the code base, it tries to understand your prompt.
+[00:03:32] It may also look up documentation, though I'll get
+[00:03:36] back to that. And then it makes a plan, and
+[00:03:40] then you, uh, approve that plan or not.
+[00:03:43] It may even ask you some questions if more clarification is needed.
+[00:03:47] Now plan mode, therefore, is really helpful for a
+[00:03:50] couple of different reasons. For one, it can
+[00:03:54] save bad prompts. So if you're writing
+[00:03:58] poor prompts, plan mode can help you
+[00:04:02] here because it can kind of help you
+[00:04:05] get to a better prompt. By asking follow-up
+[00:04:09] questions, it might clarify things that might not be clear from
+[00:04:13] your prompt. But of course, you should try to write good prompts in
+[00:04:16] first place, because that's important.
+[00:04:19] AI is a tool. The output will only be as good
+[00:04:23] as your input. And even then, there is randomness involved, let's
+[00:04:27] be honest. But if you're throwing bad,
+[00:04:31] unprecise prompts with missing context at the
+[00:04:34] AI, you will not get great results out of it.
+[00:04:37] So good prompts with good context engineering, so with
+[00:04:41] the right context being provided, matter.
+[00:04:44] So good prompts are still important.
+[00:04:47] That is really, uh, worth noting here.
+[00:04:50] But of course, you definitely have plan mode as
+[00:04:54] a little, uh, well, savior that can come in.
+[00:04:58] But that's still just one advantage of plan mode.
+[00:05:01] Another advantage of plan mode is that it shows you what
+[00:05:05] the AI wants to do, and that is
+[00:05:08] really valuable in my experience.
+[00:05:12] Because it's far too easy to just blindly trust the
+[00:05:15] AI to do something and that it does the right thing.
+[00:05:19] But hey, it's AI. (laughs) It's not necessarily going to do
+[00:05:23] thing. It's definitely not necessarily going to
+[00:05:27] you might want it to write. And the great thing
+[00:05:31] about plan mode is that even if you don't get follow-up questions,
+[00:05:35] prompt maybe already was good enough, like here for me in this
+[00:05:38] example, I still get a plan. And I know a lot of
+[00:05:42] developers that will just blindly accept that plan, so that will just
+[00:05:46] hit, uh, enter and let it do its thing, but don't be
+[00:05:50] that kind of developer. Take a look at that plan.
+[00:05:53] It tells you what it wants to do. If you asked it to
+[00:05:57] fix an issue or find a solution for a
+[00:06:01] bug, it will tell you what it thinks causes the
+[00:06:05] And by the way, when I say think, you always wanna keep in mind
+[00:06:09] with token generators here. But still, it will tell you
+[00:06:12] what it wants to do, and you should take a look at
+[00:06:16] that.And then, here's the shocking part: you
+[00:06:20] should feel free to edit that plan.
+[00:06:23] So don't blindly accept it; edit and
+[00:06:26] tweak the plan if needed. You can and
+[00:06:30] should do that. It's nothing you have to just
+[00:06:34] accept and get done with and then fix any problems that might occur
+[00:06:38] thereafter. Instead, take a look at the plan, tweak it to your
+[00:06:42] likings, and then accept it. Because you can always go to
+[00:06:46] here and say, "I don't like the
+[00:06:49] text on the 404 page," and then be more
+[00:06:53] precise. And then you can get it to generate a new
+[00:06:57] then may accept. And that's a way better approach than
+[00:07:01] thing, just to then find out that you don't like what it did
+[00:07:05] to fix. That burns more tokens, is more
+[00:07:08] work, wastes time, and fixing code
+[00:07:12] with AI is not a lot of fun. And by the way, I
+[00:07:16] cover in detail how to use Claude Code, how to write
+[00:07:20] prompts, how to do context engineering, how to provide
+[00:07:23] general rules, how to use tools Claude Code offers like
+[00:07:28] agents or skills, to which I'll get back in this video too,
+[00:07:32] And I'll build a complete demo project in a brand new
+[00:07:35] course I just launched about Claude Code.
+[00:07:38] You find a link to the course with a great discount below the video in case you're
+[00:07:41] interested. The third point here is that I use
+[00:07:45] agents and skills, and what do I mean
+[00:07:49] by that? Claude Code allows you to build custom
+[00:07:52] sub-agents, uh, something I also show in my course,
+[00:07:56] all the things I mention here and much, much more.
+[00:07:58] The idea here is that Claude Code can launch these
+[00:08:02] sub-agents with their own dedicated context window to save tokens
+[00:08:06] in the main context window so that you don't run out of context space
+[00:08:10] there, and those agents can then specialize in
+[00:08:14] certain tasks. And one agent I like to build,
+[00:08:18] build in the course, is a Docs Explorer agent, for example,
+[00:08:22] which is simply an agent optimized for browsing
+[00:08:25] documentation. And I give that agent certain tools
+[00:08:29] like web search or the Context7
+[00:08:33] MCP. So I give that agent, uh, those
+[00:08:36] tools. The Context7 MCP, in case you don't
+[00:08:40] know, is a MCP server that gives AI agents
+[00:08:44] easier access to the documentation of third-party
+[00:08:47] libraries or languages you might be working with.
+[00:08:50] I'm not a huge MCP fan. I will say that, uh, because
+[00:08:54] I feel like they're token inefficient.
+[00:08:56] AI is not that good at using MCPs in my experience, and
+[00:09:00] I prefer built-in tools and I don't need that many tools anyways.
+[00:09:04] But the Context7 MCP is pretty amazing and I built my
+[00:09:08] own Docs Explorer agent which has the specific task of using web
+[00:09:12] and this agent to browse for documentation.
+[00:09:16] And in addition to that custom agent, I also
+[00:09:19] equip Claude Code with skills and that will be skills
+[00:09:23] that are project dependent or specific.
+[00:09:27] So for example, if I'm working in a Next.js project, I
+[00:09:31] might give it some skill that describes some best
+[00:09:35] practices I want it to use in relation to, uh,
+[00:09:39] Next.js to ensure that it uses Next.js
+[00:09:42] or writes Next.js co- code that is in line with
+[00:09:46] my expectations and my preferences.
+[00:09:49] And it's worth noting here that there also are open source
+[00:09:52] initiatives like, uh, Vercel's skills here, uh, that make
+[00:09:56] it easy to install specific skills into projects and
+[00:10:00] load openly shared open source skills into a
+[00:10:04] project, like the React best practices shared by
+[00:10:08] Vercel. I will also do that in many projects but I
+[00:10:12] still like to craft my own skills with my very own
+[00:10:15] preferences, patterns, and simply rules that come
+[00:10:19] from my experience as a developer that I want the AI to
+[00:10:23] use. Because the idea behind the skills is that the
+[00:10:27] AI will read those skill files when needed.
+[00:10:30] They are lazily discovered. They're not always loaded in full
+[00:10:34] into the context. Instead they're loaded
+[00:10:38] use a skill, and then that skill can give the AI extra
+[00:10:42] context, extra instructions, which should increase the chances
+[00:10:46] of getting good results. And that's important here.
+[00:10:49] We're always talking about increasing our chances because
+[00:10:53] it's still AI, there is randomness.
+[00:10:56] You can't be sure that it does stuff the way you want it to
+[00:10:59] do, but you can try to increase the chances.
+[00:11:02] That's the entire game of using AI as a developer in my
+[00:11:05] experience. And that's there for my fourth point here,
+[00:11:09] explicit over implicit. Now, what do
+[00:11:13] I mean with that? With that I simply mean
+[00:11:17] that the AI may do something the way I want it to
+[00:11:21] do, but I can't be sure about it. So I'm rather explicit.
+[00:11:25] So for example, if I'm using the BetterAuth library in a
+[00:11:29] project and I want to use authentication via Google, I write that
+[00:11:32] explicitly. But I'll also say something like,
+[00:11:36] agent," which is the custom agent I wrote which is good at
+[00:11:40] exploring documentation, which I mentioned before, to explore the
+[00:11:44] relevant BetterAuth docs before implementing because I've seen
+[00:11:47] it too often that AI will just head off
+[00:11:51] and do something and then I see that it didn't do what I wanted it to
+[00:11:55] do, and that it, for example, has access to certain agents
+[00:11:59] but it just won't use them even though in theory it should.
+[00:12:03] And I don't want that. I'm not getting anything out of saying,
+[00:12:07] the AI is pretty bad. It didn't do what I want it to do,"
+[00:12:11] it should do. It's a stupid...... tool that
+[00:12:15] can be amazing, kind of. And therefore, don't
+[00:12:19] hope that it does something or don't wait for it to fail just
+[00:12:23] so that then you can be convinced that AI is not
+[00:12:26] good. Instead, know that it is good at generating lots
+[00:12:30] of code quickly and use that as its strength
+[00:12:34] and give it the necessary instructions it needs
+[00:12:38] to increase the chances of getting the output you want, essentially.
+[00:12:42] So that's what I mean with explicit over implicit.
+[00:12:46] I rather tell it explicitly what I want it to do, if I
+[00:12:49] know what I want it to do, than that I hope that it
+[00:12:53] does that. I hope that makes sense.
+[00:12:56] I have no problem with telling the AI something which it maybe would've
+[00:13:00] done anyways if I can then be sure that it
+[00:13:03] will do what I want it to do. So for example, here, it used the Docs
+[00:13:07] Explorer to look up the better of docs, and I didn't have to hope for
+[00:13:11] that. My fifth point is kind of related to this:
+[00:13:15] trust, but verify. AI is great, and if you give it a
+[00:13:19] good prompt, if you are specific, if you provide the right
+[00:13:22] context, depending on the problem that was tackled, you
+[00:13:25] have good chances of getting decent results.
+[00:13:29] But don't blindly trust that. You are in
+[00:13:32] control, so you should
+[00:13:35] verify the results. You should not blindly
+[00:13:39] trust them. Carefully review the
+[00:13:42] code. Don't just think that it's correct.
+[00:13:46] Think about it critically. Don't dismiss it as
+[00:13:50] AI-generated. It's certainly bad.
+[00:13:52] Instead, accept what's good and try to improve what's bad.
+[00:13:56] And bad can also be something that maybe is okay,
+[00:14:00] maybe works, but isn't using a pattern or an approach you
+[00:14:04] want to use. So do that. But
+[00:14:07] also give the AI tools of self-verification.
+[00:14:11] So give it tools for self-verifying, because
+[00:14:15] that can vastly improve results.
+[00:14:18] Actually, I guess that's my second point.
+[00:14:20] The first one is review the code, as I just
+[00:14:23] mentioned. But with tools for self-verifying, I mean
+[00:14:27] stuff like unit tests, E2E tests,
+[00:14:32] and also potentially, depending on what you're building,
+[00:14:36] Playwright MCP, for example. The idea
+[00:14:40] here simply is that the AI can do these
+[00:14:44] things on its own. You might wanna tell it, as I mentioned
+[00:14:47] here, in explicit over implicit, but it can run tests.
+[00:14:51] It can run linting commands, for example.
+[00:14:54] So, um, that would be something else in here.
+[00:14:58] And it can also access the browser with tools like the Playwright
+[00:15:01] MCP, though you wanna be careful here.
+[00:15:04] That is token heavy, so that burns a lot of tokens and you
+[00:15:08] don't wanna use that all the time, therefore.
+[00:15:11] Um, at least you wanna know that it can burn a lot of tokens.
+[00:15:15] But giving the AI tools that help it to evaluate
+[00:15:19] the results on its own can vastly improve the quality of the
+[00:15:23] output. It's still not a guarantee.
+[00:15:25] For example, the AI may write tests that simply pass
+[00:15:28] and it might adjust the tests to the code
+[00:15:32] instead of the other way around, so you wanna be careful.
+[00:15:35] But still, this can lead to better results and it
+[00:15:39] does still not mean that you should not review the code,
+[00:15:43] course, also test yourself. You wanna do that.
+[00:15:46] You're in control and you have responsibility for the code.
+[00:15:49] You can't say, "AI wrote it, it's bad." Sorry.
+[00:15:52] You are in control. And then the last one: you're
+[00:15:56] still allowed to write
+[00:15:59] code. Shocking, I know, but with AI,
+[00:16:03] with AI tools, it's not an either/or
+[00:16:06] choice. You're still allowed to write code and
+[00:16:10] you should still write code. I'm not going to
+[00:16:14] ask AI, "Please increase the margin of this box
+[00:16:18] from .5 rem to one rem." I can do that myself.
+[00:16:22] And if you review the code, if you understand the code the
+[00:16:26] AI generated, which you should, getting back into the code base shouldn't
+[00:16:30] be too difficult. And don't get me wrong, I've fallen into the trap
+[00:16:34] of handing off too much work to the AI and of not fully
+[00:16:38] understanding the code base. I'm not doing that anymore.
+[00:16:41] I make sure that I always understand the code base and that I'm always able to
+[00:16:45] get back in there because I am a developer.
+[00:16:48] I can read code, I can write code, and I can still write code even when
+[00:16:52] I'm using AI. So if AI can't figure something
+[00:16:56] out, if you have a trivial change where you
+[00:17:00] tokens, I mean, those tokens cost money, just do it
+[00:17:04] yourself. And by the way, coding is fun, at least for me,
+[00:17:08] so I love getting into the code and writing code myself from
+[00:17:12] time to time, and it's never been easier with great auto
+[00:17:16] in Cursor or VS Code, and therefore, this also
+[00:17:19] is, uh, a very important point. And the last of my
+[00:17:23] points here. Now, as I mentioned, I have a full course where I dive deeper
+[00:17:27] into Cloud Code, where I dive deeper into these points,
+[00:17:31] others where I explain in detail how to build custom agents and all
+[00:17:35] that fun stuff. You find a link below.
+[00:17:37] But I hope these points are also helpful and allow you to get
+[00:17:41] results out of Cloud Code.
