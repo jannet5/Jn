@@ -713,3 +713,10 @@ Aynı `yt_ara.py` ile 5 ek sorgu. Zaten yukarıdaki bölümlerde olan videolar `
 | [bPUjyJVahH8](https://www.youtube.com/watch?v=bPUjyJVahH8) | Claude Code Skills Artık Çok Daha Güçlü — Sıfırdan Skill İnşa Etmek | 24 | 7679 | Mert Durmazer | Digital Academy | A |
 | [DfqrB-1uqLU](https://www.youtube.com/watch?v=DfqrB-1uqLU) | Claude Code + Superpowers: AI Now Writes Code 10 Times Better! It Manages the Entire Project. | 18 | 13634 | Ömer Göçmen | Yapay Zeka & Otomasyon | B |
 | [iTce_6aHfIs](https://www.youtube.com/watch?v=iTce_6aHfIs) | Bu 43 dakikayı izlemezsen 2026'da çok geç kalacaksın - Claude Code ile Yapay Zeka Ajanlar | 43 | 92419 | Doruk Yalçınsoy | B |
+
+
+## MOBİL grubu: transkript alınamayanlar (YouTube-1, 2026-10-12)
+
+YouTube bu oturumun IP'sini 429 / IpBlocked ile engelledi (yt-dlp web_embedded, youtube-transcript-api ve Invidious denendi). Başka IP'li bir oturum bu listeyi `python3 ajans/araclar/yt_transcript.py <id>` ile tekrar deneyebilir. qa5jMoJRQL8 için hiçbir yolda altyazı bulunamadı.
+
+`qa5jMoJRQL8` (A) `UMjeSU6C4qU` (A) `E6Bj5Wxh-50` (B) `cTiP900ghk0` (B) `AAmdB1bvmYw` (B) `Em9EzurouOU` (B) `xno-O4vAx7Q` (B) `X7YMMyd2Qnk` (B) `Cpi--ZrpMns` (B) `g5d3ok5TbiI` (B) `KKWS0bSiCT4` (B) `CwHD6Fg-Mjs` (B) `lHXtPkhElw4` (C) `ofwjMmusZJw` (C) `iMZUp6E3lJ0` (C) `ducCNB2QQ7o` (C) `6UaflAMTPNE` (C) `o3CX_Y59_74` (C) `j7d5rs0iMlE` (C) `LdxTrI3bepA` (C) `4OiLljSo-hw` (C) `uJO_wLMqgTc` (C) `x6xyV5GqhDE` (C) `x4SeN3422r4` (C) `Ot582-E61ac` (C) `lxmrK4RCWQQ` (C) `WTRNddbopGQ` (C) `UXlEV7VMW64` (C) `-SjH5yPe_Gs` (C) `GChgKhfuzYA` (C) `6QhtLLxgLoo` (C) `IdMe66TKyp0` (C) `EsRyyJmO-u8` (C)
