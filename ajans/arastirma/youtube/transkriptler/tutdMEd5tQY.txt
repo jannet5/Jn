@@ -1,0 +1,383 @@
+# 
+# https://www.youtube.com/watch?v=tutdMEd5tQY
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:tutdMEd5tQY.tr.json3
+
+[00:00:00] Ekranda gördüğünüz bu Android
+[00:00:01] uygulamasını tek satır kod yazmadan 10
+[00:00:03] dakikada geliştirdim. Sadece Google AI
+[00:00:05] Studio'nun yeni özelliğini kullanarak
+[00:00:07] fikrimi anlattım ve gerisini yapay zeka
+[00:00:09] halletti ve tamamen ücretsiz çalışıyor.
+[00:00:12] Bu özellik çıktıktan sonra sadece bir
+[00:00:13] hafta içinde 250.000 uygulama
+[00:00:15] geliştirilmiş [müzik] ve bu uygulamaları
+[00:00:17] geliştirenler yazılımcı değiller.
+[00:00:18] Üstelik bundan para da kazanıyorlar. Bu
+[00:00:20] video [müzik] içerisinde sıfırdan fikri
+[00:00:22] bulmaktan uygulamayı geliştirmeye,
+[00:00:24] oradan da yayınlamaya kadar her şeyi
+[00:00:26] adım [müzik] adım göstereceğim.
+[00:00:27] Hazırsanız başlayalım. Geçtiğimiz
+[00:00:28] haftalarda Google io ile büyük bir
+[00:00:30] güncelleme yayınladı. Yanında birçok
+[00:00:32] özellik geldi ve bu özelliklerden bir
+[00:00:34] tanesi de Google AI Studio içine gelen
+[00:00:36] Android app geliştirme özelliği. Tamamen
+[00:00:38] natif bir şekilde geliştiriliyor. Yani
+[00:00:40] tek tıkla siz bunu yayına
+[00:00:41] alabiliyorsunuz. Peki bu özellik neden
+[00:00:43] önemli? Daha önce web uygulaması
+[00:00:45] geliştirebiliyorduk. Zaten bununla
+[00:00:47] ilgili benim birçok videom var ama bazı
+[00:00:49] uygulamalar var ki web'de değil de
+[00:00:51] Android'de bir telefonda çalışması
+[00:00:52] gerekiyor. Belki kamerayı kullanmam
+[00:00:54] gerekiyor. İşte öyle bir fikriniz varsa
+[00:00:56] artık bunu hayata geçirmek çok kolay
+[00:00:58] oldu. O yüzden bu video içerisinde
+[00:00:59] birlikte örnek yapacağız. Ama önce ikiye
+[00:01:01] ayırmak istiyorum. Birincisi kendimiz
+[00:01:03] için kullanmak. İkincisi de Play
+[00:01:05] Store'da bunu paylaşmak ve para
+[00:01:07] kazanmak. Şimdi birincisi kendimiz için
+[00:01:09] kullanmak. Neden kendimiz için
+[00:01:10] kullanacağız? Günümüzde biliyorsunuz
+[00:01:12] yazılım ekosistemi, uygulama ekosistemi
+[00:01:14] devasa bir şekilde büyüdü. Artık
+[00:01:16] neredeyse telefonunuza indirdiğiniz her
+[00:01:18] uygulama için para ödemek zorunda
+[00:01:19] kalıyorsunuz ki buna yakında Instagram,
+[00:01:21] WhatsApp gibi uygulamalar da dahil
+[00:01:23] olacak. Tabii burada Instagram
+[00:01:24] uygulamasını yapmayacağız ama bir dil
+[00:01:26] uygulaması indirmek için de para
+[00:01:28] ödemenize artık gerek yok. Bu uygulamayı
+[00:01:30] kendiniz geliştirip kendi telefonunuza
+[00:01:32] indirip kullanabilirsiniz tamamen
+[00:01:33] ücretsiz bir şekilde. İkincisi ise bu
+[00:01:35] geliştirdiğim uygulamayı Play Store'da
+[00:01:37] paylaşmak. Belki başka insanların bundan
+[00:01:40] kendisi için kullanacağından,
+[00:01:41] geliştirebileceğinden haberi yok. Onlara
+[00:01:43] ben bu uygulamayı farklı özellikleri de
+[00:01:45] içinde barındırarak değerli bir şeye
+[00:01:47] dönüştürürsem Play Store'da paylaşıp
+[00:01:49] satabilirim. Reklamdan gelir elde
+[00:01:51] edebilirim veya uygulama içi
+[00:01:52] aboneliklerden gelir elde edebilirim.
+[00:01:54] Şimdi ikisinin de nasıl yapıldığını ayrı
+[00:01:55] ayrı göreceğiz ama önce bir fikir
+[00:01:57] bulalım ve uygulamayı geliştirelim.
+[00:01:59] Elimizde bir uygulama olsun. Şimdi bir
+[00:02:01] mobil uygulama fikriniz olabilir
+[00:02:03] aklınıza gelmiştir. Yoksa bile şu anda
+[00:02:05] nasıl fikir oluşturulur? Bunu da
+[00:02:06] gösteriyorum. Ben genelde fikir
+[00:02:08] konularında cloud'ı kullanıyorum ve şu
+[00:02:10] promtu yapıştırıyorum. Diyorum ki AI
+[00:02:12] Studio'da tek ekranda çalışan, işe
+[00:02:14] yarar, Ceminay kullanan basit bir
+[00:02:16] Android uygulaması fikri ver. Bir
+[00:02:18] fikirleri versin bakalım. Uygulamayı
+[00:02:20] geliştirirken de neler yapabildiğini,
+[00:02:21] arka taraftan hangi mantıkların
+[00:02:23] çalıştığını, hangi özellikleri
+[00:02:25] ekleyebileceğinizi konuşuyor olacağız
+[00:02:27] zaten. Tabii geliştirdiğiniz fikrin
+[00:02:28] biraz da EI ile birleşen bir tarafı
+[00:02:30] olursa çok daha iyi olur. Çünkü arka
+[00:02:32] tarafta Cemin'yı ben kullanabiliyorum
+[00:02:34] bir model olarak. Yapay zeka modelini
+[00:02:36] uygulamama bağlayabiliyorum. Peki bu ne
+[00:02:38] yapar? Görselleri analiz edebilir,
+[00:02:40] verilerden içgörü çıkartabilir, kişisel
+[00:02:42] asistana dönüşebilir vesaire vesaire.
+[00:02:44] Bir uygulama fikri verdi. Tek fikir
+[00:02:46] dedi, etiket okuyucu. Kullanıcı bir
+[00:02:48] ürünün içindekileri yani besin etiketini
+[00:02:50] fotoğraflar. Bir markete gittim veya
+[00:02:52] marketten bir şeyler aldım. Eve geldim.
+[00:02:54] Fotoğrafını çekiyorum ve bana neyi
+[00:02:56] çıkartıyor? Bu üründe ne var? Hangi
+[00:02:58] katkı maddeleri, kaç kalori, alerjen, bu
+[00:03:00] artabilir tabii ki. Şu anda bakın
+[00:03:02] tamamen doğal bir şekilde fikir ürettik.
+[00:03:04] Kullanımı da çok basit. Kamera analiz et
+[00:03:06] butonu bitti. Bu kadar. Burada az önce
+[00:03:08] dediğim gibi bakın Ceminay'ın asıl
+[00:03:09] gücünü kullanmış oluyoruz. Yani bir
+[00:03:11] fotoğraf analizi var değil mi? Bu
+[00:03:12] normalde herhangi bir uygulamanın
+[00:03:14] yapabileceği bir şey değil. Bir AI
+[00:03:16] entegrasyonu var. Gayet güzel bu
+[00:03:18] kriterimi de tutuyor. O zaman ben bu
+[00:03:19] uygulamayı geliştirebilirim. Günlük araç
+[00:03:21] olarak kullanılabilir. Gayet mantıklı.
+[00:03:23] Diyor ki mesela E471 ne demek? Paketi
+[00:03:25] çevirdiğinde bunu görüyormuş. Siz
+[00:03:27] biliyor musunuz ne demek olduğunu? Ben
+[00:03:28] bilmiyorum. Mesela belki duymuşsunuzdur.
+[00:03:30] Buna benzer bir kalori uygulaması var ve
+[00:03:32] bunu geliştiren 19-20 yaşlarında bir
+[00:03:34] arkadaş tek başına oturup uygulamayı
+[00:03:36] çıkartıyor. Ardından 1 milyon eurol'uk
+[00:03:39] ciroya kadar ulaşıyor. Yani bunlar
+[00:03:41] gerçekten hayal değil artık olan şeyler.
+[00:03:43] Bu tabii kalori uygulaması daha klasik
+[00:03:45] gelebilir. Güzel bir fikir bulmuş olduk.
+[00:03:47] Farklı bir fikir oldu. Ve bakın diyorum
+[00:03:49] ki eğer stüdyo ekranım açık yapıştırmam
+[00:03:51] gereken promtu bana ver. Buraya verelim.
+[00:03:53] Kendisi oluştursun. Şöyle verdiği promtu
+[00:03:55] alıyorum ve yapıştırıyorum. Ne diyor?
+[00:03:58] Nati bir Android uygulaması oluştur. O
+[00:03:59] da etiket okuyucu. Amacımız zaten belli.
+[00:04:02] Ekran yapısı, arayüzü, kritik kuralları,
+[00:04:04] her şeyi yazıyor. Ben değiştirmiyorum.
+[00:04:05] Akışına bırakıyorum. Buradan ne
+[00:04:07] yapıyorum? Tabii ki Android appi
+[00:04:09] seçiyorum. Sonrasında oluştur diyorum.
+[00:04:11] Aslında bu kadar. Bu arada Google AI
+[00:04:13] Studio yazıp direkt erişebilirsiniz
+[00:04:14] buraya. Normal Google hesabınızda giriş
+[00:04:16] yapmanız yeterli olur. Şimdi uygulamayı
+[00:04:18] geliştirdiğimde de bakacağız, kontrol
+[00:04:21] edeceğiz. Ne yaptı bana burada? Bir
+[00:04:23] aslında Android uygulamasının,
+[00:04:25] telefonunun ön izlemesini ben
+[00:04:26] görebiliyorum. Bakın şimdi bu tıpkı bir
+[00:04:28] telefon gibi çalışıyor. Normal ben
+[00:04:30] burada Chrome'a girdim. Örneğin az önce
+[00:04:32] fıstık ezmesi etiketi yazdım Google'a.
+[00:04:34] Sonra burada fotoğraflara gelip burada
+[00:04:35] herhangi bir fotoğrafın işte üzerine
+[00:04:37] basıp kaydedebilirim, indirebilirim.
+[00:04:39] Sonrasında zaten bunu indirmiştim.
+[00:04:41] Dönüyorum. Normal bir telefon gibi
+[00:04:43] kullanıyorum. Etiketi neden indirdim?
+[00:04:45] Birazdan çünkü uygulamaya yükleyeceğim.
+[00:04:47] Kamerayı açamıyorum çünkü bu şu anda
+[00:04:49] emülatör olarak çalışıyor. Şöyle yukarı
+[00:04:51] doğru kaldırdım. Menüye erişiyorum ve
+[00:04:53] burada etiket okuyucuyu görüyorum. Bu
+[00:04:55] benim uygulamam. Tıkladım. İşte kamerayı
+[00:04:57] açabilirim ama şu anda açamam tabii ki.
+[00:05:00] Bunu galeri tarafından şimdi
+[00:05:02] kullanacağım. Galeriye tıkladım. Analiz
+[00:05:04] et diyorum. Bakalım. Şu anda hata verdi.
+[00:05:06] Gayet güzel. Önemli olan buraya kadar da
+[00:05:08] gelmek. Şimdilik geri çıkalım. Geri
+[00:05:10] gelelim. Buradan kapatıyorum. Neden hata
+[00:05:12] aldık? Çünkü Google AI Studio'ya biz
+[00:05:14] Ceminay'ın apikini eklemedik. Yani
+[00:05:16] fotoğrafı analiz edecek model şu anda
+[00:05:18] arka tarafta çalışmıyor. API K nedir? Bu
+[00:05:20] uygulamanın o cemin modeliyle iletişim
+[00:05:22] kurması için ama benim hesabımdan
+[00:05:24] iletişim kurması için gerekli anahtar.
+[00:05:27] Şimdi bakın sağdan ayarlara tıklıyorum.
+[00:05:29] Buradan secrets kısmına geliyorum ve
+[00:05:31] jemini apı ke'ini buradan seçebiliyorum.
+[00:05:34] Ben de default olarak şu anda seçili
+[00:05:36] duruma geldi. Sonrasında istersem bunu
+[00:05:38] değiştirebilirim. Farklı bir key
+[00:05:40] seçebilirim. Eğer o kısımda apı key
+[00:05:42] görünmezse burada bakın sol altta get
+[00:05:44] apı kısmına geliyorum. Burada bir key
+[00:05:46] oluşturabiliyorum. create apik deyip
+[00:05:48] buna daha sonra silmem için sil yazdım.
+[00:05:51] Örneğin create dedim ve apik burada
+[00:05:53] zaten gözükecektir. Bu arada burada daha
+[00:05:55] zeki bir modele geçebiliriz. Chat
+[00:05:57] kısmından eğer istersem 3.5 flash'ı
+[00:05:59] seçip o şekilde ilerleyebilirim. Burada
+[00:06:01] Gitub'a bağlanabilirim. Gitub'a
+[00:06:03] aktarabilirim. Direct share deyip burada
+[00:06:05] paylaşabilirim uygulamamı bir link
+[00:06:07] veriyor ve paylaşabiliyorum. Şimdi
+[00:06:09] tekrar analiz ediyorum. Evet, yüksek
+[00:06:11] enerjili protein ve yağ değerine sahip,
+[00:06:13] yer fıstığı ve hindistan cevizi içeren
+[00:06:15] bir gıda ürünüdür. Alerjenler, yer,
+[00:06:17] fıstığı, hindistan cevizi, fındık.
+[00:06:18] Dikkat edilmesi gerekenleri sıralamış
+[00:06:21] oldu burada. Şimdi az önce uygulama
+[00:06:23] sadece hani fotoğraf çek, analiz et
+[00:06:25] mantığındaydı. Ne yaptım? Üzerine
+[00:06:27] düzenleme yaptım. Dedim ki insanların
+[00:06:29] her gün severek açtığı bir sağlık ve
+[00:06:31] beslenme uygulamasına dönüştür. Çünkü
+[00:06:33] geliştirdiğimiz bir uygulamayı insanlara
+[00:06:35] biz kullandırtmak istiyorsak sadece tek
+[00:06:37] bir özellik var. Al bunu kullan şeklinde
+[00:06:40] olmamalı. Ona sadece özelliği değil
+[00:06:42] biraz da hissiyatı satmamız lazım. Yani
+[00:06:44] kişi bu uygulamayı indirecek ve ben
+[00:06:46] sağlıklı bir yaşama başlıyorum.
+[00:06:47] Yediklerime dikkat ediyorum. Markete
+[00:06:49] vesaire gittiğimde etiketi okutup
+[00:06:51] kesinlikle bakıyorum gibi bir hissiyatla
+[00:06:53] yaşamalı. Uygulamayı yaşamalı. Bu yüzden
+[00:06:55] dör tane bölüm ekledim ki bunu zaten
+[00:06:57] büyük markalar çokça yaparlar. Size
+[00:06:59] özelliği değil. O ürünün verdiği
+[00:07:01] hissiyatı, statüyü satarlar. O yüzden
+[00:07:03] burası kritik. birkaç özellik eklemesini
+[00:07:05] istedim ve uygulama şuna dönüştü
+[00:07:07] aslında. Etiketi taranın yanında bir de
+[00:07:09] günlük yediklerim, kaç kalori aldım, ne
+[00:07:11] kadar besin tükettiğim, şeker, tuz
+[00:07:13] vesaire bunlara dikkat edebiliyorum,
+[00:07:15] ekleyebiliyorum. Liste
+[00:07:16] oluşturabiliyorum. Favori veya kara
+[00:07:18] liste. Asla almamam gerekenler. İşte
+[00:07:20] alışveriş, eklenecek alışveriş ürünü şu
+[00:07:22] an mesela boş. Alışveriş listesini
+[00:07:24] hazırlayabilirim. Veya burada az önce
+[00:07:26] okuttuğum şeyi mesela şimdi de bir ton
+[00:07:29] balığı ekledim ve analiz et dedim. Bakın
+[00:07:31] daha bir görselleşti. Güzel oldu.
+[00:07:32] Sağlıklı bir seçim dedi. 71 puan verdi.
+[00:07:35] İşte ben bunu favoriye ekleyebilirim
+[00:07:37] veya kara listeye ekleyebilirim veya
+[00:07:39] günlüğüme ekleyebilirim. Günlüğüme
+[00:07:41] kaydetti besin değerleri. Gerisi zaten
+[00:07:43] analiz ama daha hoş bir uygulamaya
+[00:07:45] dönüştü. Şimdi ne dedik? Kendiniz
+[00:07:47] kullanabilirsiniz. Bir de bunu
+[00:07:48] yayınlayabilirsiniz. Şimdi kendiniz
+[00:07:50] nasıl kullanacaksınız? Şu anda Android
+[00:07:52] telefonum olmadığı için aktaramıyorum
+[00:07:53] ama adım adım burada size anlatıyorum.
+[00:07:56] Öncelikle telefonunuzda geliştirici
+[00:07:57] seçenekleri olur. Ayarlara girdiğinizde
+[00:07:59] Android telefonda orada USB hata
+[00:08:01] yıklamayı açıyorsunuz. Sonra telefonu
+[00:08:03] USB ile bilgisayara bağlıyorsunuz. Daha
+[00:08:05] sonra AI Studio'ya geliyorum tekrardan.
+[00:08:07] Burada bakın install seçeneğini
+[00:08:09] görüyorsunuz. Tıkladım buraya. Bana
+[00:08:11] diyor ki USB ile zaten bağladığında
+[00:08:13] diyor ve e number'a tıkladığında
+[00:08:15] yüklemeyi senin telefonuna yapacağım
+[00:08:17] diyor. Aslında bu kadar sadece
+[00:08:18] sonrasında telefona ilon gelmiş olacak
+[00:08:20] ve siz uygulamayı kullanmaya
+[00:08:21] başlayacaksınız. Artık bu tarz bir
+[00:08:23] uygulamaya para vermenize gerek yok veya
+[00:08:25] farklı farklı uygulamalar da
+[00:08:27] oluşturabilir, kullanabilirsiniz. Hatta
+[00:08:29] oyun bile oluşturabilirsiniz belki
+[00:08:30] oynamak istiyorsanız. Şimdi ben app'i
+[00:08:32] yayınlamak istiyorsam Google Play'de
+[00:08:34] bunun için öncelikle bir geliştirici
+[00:08:36] hesabına ihtiyacım var. Bunun için
+[00:08:38] Google Play Store Developer yazıyorum.
+[00:08:40] Sonra ilk çıkan siteye giriyorum.
+[00:08:42] Ardından burada bir işletmeniz varsa
+[00:08:43] işletme ile başlayabilirsiniz.
+[00:08:45] Türkiye'de şahıs veya farklı bir
+[00:08:47] işletmeniz olabilir veya yoksa kendiniz
+[00:08:49] için burada devam ediyorsunuz. Burada
+[00:08:51] önemli bir detay. 25 dolarlık bir ödeme
+[00:08:53] gerekiyor. Kayıt ücreti gerekiyor. Ama
+[00:08:55] bunu tek seferlik ödüyorsunuz.
+[00:08:57] Uygulamayı yayına alabilmeniz için,
+[00:08:59] hesabı açabilmeniz için. Devam ediyorum.
+[00:09:01] Burada benim Google hesabımdaki
+[00:09:02] bilgileri kullanacağını söylüyor. Devam
+[00:09:04] ediyorum. Şimdi bir geliştirici adı
+[00:09:06] verin diyor. Geliştirici adı dediği şey
+[00:09:08] aslında Google Play Store'a girdim.
+[00:09:09] Burada örneğin herhangi bir oyuna
+[00:09:11] girelim. Mesela Garticio diyor ki bu
+[00:09:13] Gartic tarafından geliştirilmiş.
+[00:09:15] Buradaki ismi soruyor aslında bize.
+[00:09:17] Buraya herhangi bir geliştirici ismi
+[00:09:18] yazabilirsiniz. Devam ediyorum. Ödeme
+[00:09:20] profilinizi bağlayın diyor. Bu normal
+[00:09:22] aslında açık adresiniz. Geliştiricinin
+[00:09:24] e-posta adresi ve diğerlerini de
+[00:09:26] onaylayıp bu şekilde adım adım devam
+[00:09:28] ediyorum. Burayı daha fazla
+[00:09:29] uzatmayacağım. Siz de devam
+[00:09:31] edebilirsiniz. O adımları hallettikten
+[00:09:32] sonra sadece geliştirici hesabı açmış
+[00:09:35] oluyorsunuz. Uygulamayı henüz
+[00:09:36] yayınlamadınız. Yayınlamak için A
+[00:09:38] Studio'da connect Google Play account
+[00:09:40] diyorum. Nasıl diyeceğim bunu? Şuradan
+[00:09:42] publish kısmına geldim. Sağ üstten bakın
+[00:09:44] burada publish'e tıklıyorum. Ve diyor ki
+[00:09:46] test konsolundan yükleyebilirsin
+[00:09:48] uygulamayı. Neden teste? Direkt olarak
+[00:09:50] bir publisher'i alamıyorsunuz. Onu
+[00:09:51] Google Play'in önce incelemesi
+[00:09:53] gerekiyor. İncelemeye kadar olan süreçte
+[00:09:55] ise test konsol kısmına atabiliyorsunuz.
+[00:09:57] Bunun için get started deyip aslında
+[00:09:59] direkt bağlayabiliyorum. Az önce açtığım
+[00:10:01] Google hesabıma bağlanıp oradan
+[00:10:03] yükleyebilirim. Ardından işte oyunun
+[00:10:04] ismi, açıklaması, ekran görüntüleri
+[00:10:06] varsa ikonunu, gizlilik politikasını ve
+[00:10:09] veri güvenliği formunu verdiğinizde
+[00:10:11] incelemeye gönderiyorsunuz. Tek tıkla
+[00:10:13] Play Store bakıyor, inceliyor, yayını
+[00:10:14] alıyor. Biz uygulama üzerinden gittik
+[00:10:16] ama bir oyun da yapabilirsiniz. Mesela
+[00:10:18] burada paralı oyunlar var. Orada artık
+[00:10:20] fikri size bırakıyorum ama bu
+[00:10:21] uygulamalardan nasıl gelir elde
+[00:10:23] ediliyor? Birinci yöntem abonelik. Yani
+[00:10:26] uygulama için satın alma
+[00:10:27] ekleyebiliyorum. Örneğin burada bazı
+[00:10:28] özellikler, temel özellikler ücretsiz
+[00:10:30] olsun ama ben buraya bir fiyatlandırma
+[00:10:32] kısmı ekleyeyim diyorum uygulamaya ve
+[00:10:34] profil kısmına geldiğinde atıyorum
+[00:10:36] mesela bu uygulama için konuşuyorum.
+[00:10:38] Kişi diyet yapıyor. Ben uygulamaya şunu
+[00:10:40] ekleyebilirim. bir diyetisyen asistanı
+[00:10:42] eklerim ve sürekli bu kişiyi takip eder.
+[00:10:45] Günlük, haftalık, aylık şekilde beslenme
+[00:10:47] programı yazar. Böylece herhangi bir
+[00:10:48] diyetisyen de para vermesine vesaire
+[00:10:50] gerek kalmaz. Ne yapmış oldum? Bunu ama
+[00:10:52] paket olarak ücretli yapıyorum. Yani
+[00:10:54] diyorum ki bunun için senin 20 dolara
+[00:10:56] yükseltmen lazım. Böyle özellikleri
+[00:10:58] direkt söyleyerek de yapabilirim. Hani
+[00:11:00] paketi ekletebilirim. Şimdi ne yapmış
+[00:11:01] oldum? Bir upsell yapıyorum. Yani tamam
+[00:11:03] temel özellikler ücretsiz ama seni takip
+[00:11:05] eden bir koç olsun istiyorsan o zaman
+[00:11:08] uygulamaya para öde. Abonelik mantığı bu
+[00:11:10] şekilde oluyor. İkincisi ise reklam. Siz
+[00:11:12] zaten Play Store'a yayınladığınızda bunu
+[00:11:14] kabul ediyorsunuz. Yani uygulama içinde
+[00:11:16] Google reklamlar gösteriyor ve bunun
+[00:11:18] için size para ödüyor. Bu zaten doğal
+[00:11:20] olarak gerçekleşiyor. Bazı uygulamalarda
+[00:11:22] vardır zaten. Hani reklamı kaldırmak
+[00:11:24] için para öde şeklinde de bir tuzak
+[00:11:25] yapılabilir mi? Açıkçası bence
+[00:11:27] yapılmaması daha iyi. O biraz sinir
+[00:11:29] bozucu olabiliyor. İki şekilde gelir
+[00:11:31] elde edebiliyorsunuz. Aslında süreç
+[00:11:32] tamamen bu şekilde gerçekleşiyor. Bu
+[00:11:34] videoda göstermek istediğim şey artık
+[00:11:36] yapay zekanın gelişmesiyle birlikte bu
+[00:11:38] tarz çok uçmuş gibi uygulama
+[00:11:40] geliştirmek, yazılım geliştirmek, Google
+[00:11:42] Play'e yüklemek, bundan gelir elde etmek
+[00:11:44] vesaire. Artık bunların ne kadar
+[00:11:45] kolaylaştığı ve bunu başkalarına para
+[00:11:47] ödemeden ne kadar basit bir şekilde
+[00:11:49] yapabileceğinizi göstermek olmuş oldu.
+[00:11:51] Yani hiç gelir elde etmek gibi bir
+[00:11:53] niyetiniz yoksa bile hobi olarak daha
+[00:11:55] iyi yapılabilir. Ben yaparken çok keyif
+[00:11:57] aldım. Bu sistemler gelişmeye devam
+[00:11:59] edecek ve denemenizde fayda var bence.
+[00:12:01] Sonraki videolarda görüşürüz.
