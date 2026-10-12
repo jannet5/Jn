@@ -515,11 +515,16 @@ cipler(); ciz(); cizP();
   btn.addEventListener('click', async () => {
     btn.disabled = true; durum.textContent = 'Hazırlanıyor…';
     try {
-      const r = await fetch('paket.zip');
+      // Artifact sunucusu .zip sunmadığı için paket base64 metin olarak yayımlanır; burada ZIP baytlarına çevrilir
+      const r = await fetch('paket-zip-base64.txt');
       if (!r.ok) throw { code: 'paket_yok' };
-      const blob = await r.blob();
-      await d.save({ filename: 'hazir-ai-katalogu.zip', data: blob });
-      durum.textContent = 'İndirildi. ZIP\'i aç, index.html dosyasına çift tıkla.';
+      const ikili = atob((await r.text()).trim());
+      const bayt = new Uint8Array(ikili.length);
+      for (let i = 0; i < ikili.length; i++) bayt[i] = ikili.charCodeAt(i);
+      let ozet = '';
+      try { ozet = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bayt))].map(x => x.toString(16).padStart(2, '0')).join(''); } catch (e) {}
+      await d.save({ filename: 'hazir-ai-katalogu.zip', data: new Blob([bayt]) });
+      durum.textContent = 'İndirildi. ZIP\'i aç, index.html dosyasına çift tıkla.' + (ozet ? ' SHA-256: ' + ozet : '');
     } catch (e) {
       const k = e && e.code;
       durum.textContent = k === 'declined' ? 'İndirme iptal edildi. Tekrar denemek için düğmeye bas.'

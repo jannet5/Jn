@@ -222,7 +222,7 @@ Uzak HEAD `5e3777df4576e110ce9f0b07a05652cbc35bb837` üzerindeki statik inceleme
 
 ## 10. İndirme düğmesi (kullanıcı isteği: indirme takılmasın)
 - Artifact sayfasının içinde indirme bağlantıları çalışmadığı için (sayfa ortamı `<a download>` bağlantılarını engelliyor) sayfaya platformun `downloads` yetkisiyle çalışan bir "Paketi indir (ZIP)" düğmesi eklendi.
-  - Düğme, sayfayla birlikte yayımlanan `paket.zip` dosyasını alıp kullanıcıya bir onay penceresiyle kaydettiriyor.
+  - Artifact sunucusu .zip dosyası sunmadığı için (yayın denemesi bu gerekçeyle reddedildi) ZIP, base64 metin olarak (`paket-zip-base64.txt`) sayfayla birlikte yayımlanıyor. Düğme bu metni tarayıcıda ZIP baytlarına çeviriyor, SHA-256 değerini gösteriyor ve kullanıcıya bir onay penceresiyle kaydettiriyor.
   - Çevrimdışı açılan kopyada bu yetki olmadığı için düğme gizli kalıyor.
 - Testler yeniden çalıştırıldı:
   - `dogrula.py` GEÇTİ: 70 linkin 67'si erişildi; promptbase.com bu kez 200 döndü, kalan 3 adres bot koruması.
