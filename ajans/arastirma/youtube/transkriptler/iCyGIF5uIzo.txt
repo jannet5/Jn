@@ -1,0 +1,488 @@
+# 
+# https://www.youtube.com/watch?v=iCyGIF5uIzo
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:iCyGIF5uIzo.tr.json3
+
+[00:00:00] Selam arkadaşlar. Şu anda ekranda
+[00:00:01] gördüğünüz bu burgercü web sitesini
+[00:00:04] Antropy'in yeni çıkardığı Fable 5.1
+[00:00:06] modeliyle yaptırdım. Ama tabii ki direkt
+[00:00:08] olarak bana bir burgercı web sitesi yap
+[00:00:10] şeklinde tek prom'la yapmadım. Belirli
+[00:00:13] bir sistematik kurdum. Bu videoda da bu
+[00:00:15] sistematiği işleyeceğiz ve bu web
+[00:00:16] sitesini nasıl çıkarttım ve siz de bu
+[00:00:18] tarz web sitelerini nasıl yapabilirsiniz
+[00:00:20] onu göreceğiz. Bu video içerisinde
+[00:00:22] kullandığım tüm promları da aşağıdaki
+[00:00:24] yorumlar kısmında sabitleyeceğim. Direkt
+[00:00:26] oradan alıp kullanabilirsiniz.
+[00:00:28] Hazırsanız başlayalım. İşlemlere
+[00:00:30] geçmeden önce gelin isterseniz nasıl bir
+[00:00:32] web sitesi oluşturdum? Burada neler var
+[00:00:34] ona bir bakalım. Burada gördüğünüz gibi
+[00:00:35] bir Burgercı web sitesi Burgerc'nın
+[00:00:37] tanıtımını içeriyor. Üst kısımda burada
+[00:00:39] Burgercı şeklinde bir logo oluşturuldu.
+[00:00:41] Bu videoda kullandığım sistematik
+[00:00:43] kullanılmasaydı bu muhtemelen farklı bir
+[00:00:45] logo olacaktı. Bir ikona sahip ve düz
+[00:00:48] bir yazı şeklinde. Ama gördüğünüz gibi
+[00:00:50] şu anda bambaşka bir yapı var. Menü
+[00:00:52] hikayeyle iletişim kısmı var ve
+[00:00:53] rezervasyon kısmı da var. Butonlar gayet
+[00:00:55] güzel gözüküyor. Header'da scroll'la
+[00:00:57] birlikte çalışan bir animasyonumuz var.
+[00:00:59] Aşağı doğru scroll ettiğimde büyük
+[00:01:01] ısırık gidiyor ve bizim en yıldız olan
+[00:01:03] ürünümüz öne doğru çıkıyor. Yani sanki
+[00:01:06] üstümüze doğru geliyor. Gayet güzel
+[00:01:08] gözüküyor bu da. Bu şekilde yukarı aşağı
+[00:01:10] yapabiliyoruz. Aşağı doğru indiğimiz
+[00:01:11] zaman buradaki menü başlıkları gayet
+[00:01:13] güzel gözüküyor. Yine buradaki font
+[00:01:15] seçimi ve dizayn seçimi de tamamen yapay
+[00:01:18] zekayla yapıldı. Yani Fable 5.1
+[00:01:20] modeliyle. Buradan tüm menüyü
+[00:01:22] gidebiliyoruz. Özel ürünleri burada
+[00:01:24] gösteriyoruz. kategorini sen seç,
+[00:01:26] galeriye dal şeklinde bir şey yapmışız.
+[00:01:29] Burgerlar, yan lezzetler, tatlılar gibi
+[00:01:31] bir filtreleme işlemi yapıyoruz. Resme
+[00:01:33] tıkladığımız zamanda da bir animasyonlu
+[00:01:35] gösterim var. Burada bir galerimiz var.
+[00:01:38] Gördüğünüz gibi diğer taraflara
+[00:01:39] gidebiliyoruz. Diğer resimlere bu
+[00:01:41] şekilde seçim yapabiliyoruz. Kömür
+[00:01:43] tezgah 1de biz şeklinde bir hikaye
+[00:01:45] kısmımız var. Burada da bir reviews
+[00:01:47] kısmımız var. Yani yorumlar nerede ne
+[00:01:49] zaman bizim map ve çalışma saatlerimiz
+[00:01:52] kısmı var. Aşağı doğru iniyorum ve
+[00:01:53] rezervasyon bölümü var. Gayet güzel ve
+[00:01:56] futurumuz da gayet güzel gözüküyor.
+[00:01:58] Buradan hikayeye gidebiliriz, iletişime
+[00:02:01] gidebiliriz veya rezervasyona giderek
+[00:02:02] rezervasyon yapabiliriz. İletişim
+[00:02:04] bilgileri ve diğer kısımları girerek.
+[00:02:06] Gördüğünüz gibi böyle bir sistemimiz
+[00:02:07] var. Bunu ben birkaç iterasyonla güzel
+[00:02:09] bir sistematiğe oturtarak yaptım. Şimdi
+[00:02:11] bunun nasıl yapıldığına geçelim. Şimdi
+[00:02:13] bu videoda ne göreceğiz? Tasarlatmadan
+[00:02:15] ajans kalitesinde belirli bir site
+[00:02:17] çıkartılabilir mi? Gerçekten bu işlemi
+[00:02:19] nasıl yaparız? Fable 5.1 modeli şüphesiz
+[00:02:22] ki antropyin en iyi modellerinden birisi
+[00:02:25] şu anda ve gerçekten iyi iş çıkartıyor.
+[00:02:27] Şimdi biz ne yapacağız peki? Biz bu
+[00:02:29] sistematikte öncelikle planı
+[00:02:31] çizdireceğiz. Parçaları seçeceğiz ve
+[00:02:32] birleştirteceğiz. Peki bugün Fable 5.1
+[00:02:35] ne getirdi? Buna bakacağız. Sistem
+[00:02:37] olarak mimar, malzeme, usta ve bütün
+[00:02:39] prompları sizle birlikte göreceğiz.
+[00:02:41] Canlı olarak da siteye yeni bir parça
+[00:02:43] ekleteceğiz. Bu sistemi nasıl yaptığımı
+[00:02:45] göstereceğim. Geçmeden önce gelin adım
+[00:02:47] adım neler yapacağımıza bakalım. Şimdi
+[00:02:49] bu noktada tabii ki bize Fable 5.1 ile
+[00:02:52] gelen bazı yenilikler var. Rakamları
+[00:02:54] dürüstçe okuyalım. Şimdi terminal bench
+[00:02:56] 4.0'da Fable 5.1 %55'miş. Fable 5 42 ve
+[00:03:00] Opus'ta %52 şeklinde bir derecelendirme
+[00:03:04] almış. Terminal bench science'ta da yani
+[00:03:06] bilim testinde aslında Fable 5.1 %52 ile
+[00:03:10] 1 şeklinde olmuş. İki katından daha
+[00:03:12] fazla bir derecelendirme yapılmış
+[00:03:14] Fable'a göre. Yani kısaca detaya
+[00:03:16] girmeden bakacak olursak 5.1 önceki
+[00:03:19] modellerin en iyisi şeklinde görüyoruz.
+[00:03:21] Şimdi tabii ki buradaki asıl konu
+[00:03:22] benchmark'ta değil faturada girdi ve
+[00:03:24] çıktı maliyetler olarak Fable 5.1 ile
+[00:03:27] aynı maliyete sahip. Şu anda gördüğünüz
+[00:03:29] gibi 10 dolar girdi ve 50 dolar çıktı
+[00:03:32] maliyeti var. Aynı şekilde de Fable
+[00:03:34] 5.1'de de aynı durum geçerli. Buradaki
+[00:03:37] asıl ayrışan fark ise catch read'ten
+[00:03:39] geliyor. Ön bellekten okumadan geliyor.
+[00:03:41] Yani catch read'te gördüğünüz gibi 1
+[00:03:43] dolarken fable, fable 5.1 de 0.25 dolar
+[00:03:48] şeklinde belirlenmiş. Ön bellek okuma
+[00:03:50] %75 indi. Tipik işte %25, ajans
+[00:03:53] işlerinde %45'e varan gerçek tasarruf
+[00:03:56] demek oluyor bu. Dolayısıyla uzun süreli
+[00:03:59] işlerde tek konuşmada uzun süreli
+[00:04:01] işlerde çok daha az maliyetle 5.1 ile
+[00:04:04] çalışabiliriz demek oluyor. Bu aynı
+[00:04:06] lokantada aynı fiyat listesi ama dünkü
+[00:04:08] siparişini hazır bekliyor 1te fiyatına
+[00:04:11] diyebiliriz. Videonun sonunda da cost
+[00:04:14] ekranında bu satırı canlı göreceğiz. Ne
+[00:04:15] kadar harcadık? Önemli bir nokta var.
+[00:04:18] Efor merdiveni ve cloud code şeklinde
+[00:04:20] bir başlık attık buraya. düşük ve orta
+[00:04:22] eforda Fable 5 kalitesini daha ucuza
+[00:04:25] veriyor. Fark yüksek eforda açılıyor.
+[00:04:27] Neden? Çünkü Cage fiyatları farklı ya.
+[00:04:30] CCH fiyatları daha düşük olduğu için
+[00:04:32] sürekli cage'e yazılan kod üzerinden
+[00:04:34] daha az harcama yapar. Fable 5.1 Fable
+[00:04:38] 5'e göre. Dolayısıyla da bu şekilde
+[00:04:40] diyebiliriz. Oturum ortasında efor
+[00:04:41] değiştirme geldi. Keçi kaybetmeden vites
+[00:04:44] değiştirebiliyoruz. Artık X'te kullanım
+[00:04:46] limiti şikayetleri var. Ağır görevde max
+[00:04:48] limiti hızla dolabiliyor. Evet ben de
+[00:04:50] bunu fark ettim. Ufak bir kullanımda
+[00:04:52] bile %15 %20'lere hemen vuruyor. Max 5x
+[00:04:55] planı kullanıyorum ben de. Gerçekten
+[00:04:57] normal Fable 5'e göre bence daha hızlı
+[00:04:59] bitiriyor. Dolayısıyla siz de dikkatli
+[00:05:01] olun. Kullanırsanız daha dengeli
+[00:05:03] kullanmaya çalışın. Bence şu anda Fable
+[00:05:05] 5.1 alayım 1 saat böyle aralıksız
+[00:05:08] kullanayım. Bütün işte alt ajanlar 10
+[00:05:10] tane alt ajan açayım bunları da
+[00:05:12] kullanayım şeklinde yapılamayacak kadar
+[00:05:14] hızlı session tüketiyor. Bilginiz olsun.
+[00:05:16] Peki bu noktada değinmek istediğim bir
+[00:05:18] konu da yapay zeka siteleri neden
+[00:05:20] birbirine benziyor? Genelde görürsünüz
+[00:05:21] işte aynı fontlar kullanıyor, işte
+[00:05:23] geçişler aynı veya ikonlar aynı
+[00:05:25] şeklinde. Buna biz AI slope diyoruz.
+[00:05:27] Genelde AI'ların eğitimine göre,
+[00:05:29] aldıkları, okudukları kaynaklara göre bu
+[00:05:32] şekilde eğitiliyorlar. Dolayısıyla da
+[00:05:33] genelde ınter fontu kullanılıyor. Ödüllü
+[00:05:36] tasarımlarda ise karakterli cesur
+[00:05:38] tipografiler kullanılıyor. Mavi mor
+[00:05:41] gradyan oluyor genelde. Ödüllü
+[00:05:42] tasarımlarda ise iki renkli cesur palet
+[00:05:44] ya da disiplinli siyah beyaz. Yani
+[00:05:46] aslında insanın tasarımında kullandığı
+[00:05:49] yapılar genelde ödüllü tasarımlar
+[00:05:51] oluyor. Ortalanmış euro + 3 yuvarlak
+[00:05:53] kart şeklinde sistematik oluşturuluyor.
+[00:05:55] Bir section oluşturuluyor. Ödül
+[00:05:57] tasarımlarda ise asimetri, grid, kran
+[00:05:59] yerleşim, böyle farklı sistematikler
+[00:06:01] oluyor. Daha hızlı, daha akıllı lafları
+[00:06:03] gibi birçok şeyden bahsediliyor. Sadece
+[00:06:05] o markanın söyleyebileceği cümleler
+[00:06:07] oluyor. Genelde özel söylemler ekleniyor
+[00:06:10] ödüllü tasarımlara. Sebep model değil,
+[00:06:12] tasarım kararlarını yapay zekaya
+[00:06:14] bırakmak. Peki bu videomuzda neyi
+[00:06:15] kullanacağız biz olarak? Mimar, malzeme
+[00:06:18] ve usta şeklinde tanımladım. Mimar
+[00:06:20] olarak biz dizayn skillini kullanacağız.
+[00:06:23] Dizign'la birlikte yeni geldi Cloud'a
+[00:06:25] bu. Bununla ilgili ileriki videolarda
+[00:06:28] geniş açılı bir video yapacağım.
+[00:06:30] Dizign'la birlikte nasıl mobil
+[00:06:32] uygulamalar ya da web siteleri için veya
+[00:06:34] Facebook reklamlarınız için nasıl
+[00:06:36] bedlar, web siteleri dinamik responsive
+[00:06:39] yapıda oluşturabiliriz güzelce. Bunu
+[00:06:41] göreceğiz. Detaylı bir şekilde
+[00:06:43] çekeceğim. O yüzden abone olmayı ve
+[00:06:45] kanalı takip etmeyi unutmayın. Şimdiden
+[00:06:47] söylüyorum. Sayfaları ve blogları çizdi
+[00:06:49] plan görsel tasarım değil. Şimdi
+[00:06:52] birazdan göstereceğim. Malzeme
+[00:06:53] noktasında 21 SD dev olarak ben bu
+[00:06:56] şekilde tabir ediyorum. 12.000 insan
+[00:06:58] tasarımı olan bir web sitesi bu. O
+[00:07:00] tasarımları ve animasyonları alıp kendi
+[00:07:02] tarafımıza uygulatabiliyoruz. Usta
+[00:07:04] olarak da Fable 5.1 modelini
+[00:07:06] kullanacağız. Kurdu, tek temaya uydurdu.
+[00:07:09] Ekran görüntüsü de kendini denetledi. Bu
+[00:07:12] yapıyı da göreceğiz. Ev yaptırırken
+[00:07:13] kimse ustadan evi tasarlamasını
+[00:07:15] beklemez. Değil mi? Seçen benim
+[00:07:17] birleştiren o. Dolayısıyla hem dizaynı
+[00:07:19] hem yerleştirmeyi hem kararı ona
+[00:07:21] bırakırsak tabii ki de kendi öğrendiği
+[00:07:24] bildiği yapıları seçecek. Bu da
+[00:07:26] problemli bir yaklaşım olacaktır. Design
+[00:07:28] henüz research preview'de kısa kullan
+[00:07:30] tokun tüketimi yüksek. Bu noktada
+[00:07:32] şuradaki dizayn skil gerçekten
+[00:07:34] kullanışlı ama dikkatli kullanmak
+[00:07:36] gerekiyor. Evet, şimdi kısaca
+[00:07:37] baktığımıza göre sisteme ve Fable 5.1'e
+[00:07:40] şimdi gelin isterseniz pratikte ben bunu
+[00:07:42] nasıl kullandım, neler yaptım ona
+[00:07:43] bakalım. Öncelikle az önce bahsettiğim
+[00:07:45] 21 ST dev web sitesine gelelim. Neyden
+[00:07:48] bahsediyorum ben? Nasıl bir yapı
+[00:07:49] kullanıldı burada? 21 STD devile
+[00:07:51] birlikte aslında biz insan yapımı,
+[00:07:53] componentları ve işte farklı hero
+[00:07:55] sectionları vesaire falan örnek olarak
+[00:07:57] alabiliyoruz. direkt olarak prompt
+[00:07:59] veriyor bize. Bu prompt'ı cloua veya
+[00:08:01] başka yapay zeka modellerine
+[00:08:02] yapıştırarak aslında buradaki
+[00:08:04] tasarımları, animasyonları ve
+[00:08:06] sistematiği alabiliyoruz. Gördüğünüz
+[00:08:08] gibi burada insan yapımı farklı farklı
+[00:08:10] scroll animation'lar var. Farklı şekilde
+[00:08:12] spot spotlight kartlar var veya burada
+[00:08:14] gördüğünüz gibi farklı sistematikler
+[00:08:16] var. Bunların içerisinden hoşunuza
+[00:08:19] gittiği yapıyı alabilirsiniz ve bunu
+[00:08:21] direkt olarak verebilirsiniz. bu yapıyı
+[00:08:23] kullanmak istiyorum diye. Bu şekilde bir
+[00:08:25] seçici olursanız, yönlendirici olursanız
+[00:08:27] çok daha iyi web siteleri alıyoruz.
+[00:08:29] Şimdi bundan bahsettiğimize göre gelin
+[00:08:31] hemen cloud kodumuza gelelim. Bu cloud
+[00:08:34] code desktop uygulaması ve buradan
+[00:08:36] coding'e geçtim. Kod tarafına geçtim.
+[00:08:38] Şuradan görebilirsiniz. Kod tarafına
+[00:08:40] geçtiğim zaman bir tane klasör açtım ve
+[00:08:42] bir konuşma başlattım. Bu konuşmayı
+[00:08:44] başlattım ve şu şekilde bir şey yazdım.
+[00:08:46] Özellikle görüyorsunuz ki başında bir
+[00:08:48] dizign yazıyor. Bu ne demek oluyor? Eğer
+[00:08:50] buraya gelip ben dizayn yazarsam bu bir
+[00:08:53] skill olarak çalışıyor. Bir komut olarak
+[00:08:55] çalışıyor aslında. Bu komutla birlikte
+[00:08:57] ben bir sistematik oluşturdum. Yani ben
+[00:08:59] bir web sitesi istiyorum. Bu Burgercı
+[00:09:01] web sitesi olacak. Ana sayfa, menü,
+[00:09:02] rezervasyon ve hikaye ve iletişim kısmı
+[00:09:05] da bu şekilde olacak. Ben sadece Fable
+[00:09:07] 5.1'den neyi istedim? Dizignını
+[00:09:09] çıkartmasını istedim. Web sitesinin
+[00:09:11] yerleşimi. Peki nasıl bir sonuç ortaya
+[00:09:13] çıktı? Hemen ona bakalım. Bu şekilde
+[00:09:15] geldiğimiz zaman artık dizaynlarımızı bu
+[00:09:18] şekilde panelden görebiliyoruz. Dediğim
+[00:09:19] gibi çok detaya girmeyeceğim. Bunun için
+[00:09:21] zaten özel bir video yapacağım detaylı
+[00:09:24] şekilde. Şimdi buraya geldiğimiz zaman
+[00:09:25] gördüğünüz gibi bir web sitesi tasarımı
+[00:09:28] oluşturulmuş. Bu tabii ki bir tastak
+[00:09:29] olarak oluşturulmuş. Üst tarafta menüyü
+[00:09:31] görüyoruz. Orta kısımda hero section
+[00:09:33] imza üçlüsü. Aşağı doğru indiğimiz zaman
+[00:09:35] yön lezzetler, tatkılar gibi ürünlerin
+[00:09:38] fotoğrafları ve aşağı indiğim zamanda da
+[00:09:40] bu şekilde sistematik var. Şimdi bu ana
+[00:09:42] sayfa tasarımı tabii ki şuradan da
+[00:09:44] görebiliyoruz. Burada tasarım yönü,
+[00:09:45] okuma kılavuzu, ana sayfa olduğu ve menü
+[00:09:47] kısmında da neler olduğu ayrıca
+[00:09:49] rezervasyon ve hikaye ve iletişim
+[00:09:50] kısmındaki bölümlerin nasıl olması
+[00:09:53] gerektiğinin sadece yüzeysel çizimi.
+[00:09:56] Nasıl biz bir tasarım yaparken öncelikle
+[00:09:58] çiziyoruz, kağıt kalemi alıyoruz,
+[00:09:59] yazıyoruz mesela öncelikle dış tasarımı
+[00:10:02] oluşturuyoruz ya da dış iskeleti
+[00:10:03] oluşturuyoruz. Buna yaptığım şey de
+[00:10:05] aslında tam olarak bu. Dış iskeleti
+[00:10:07] oluşturdum. Şimdi peki süper. Bunu
+[00:10:09] yaptık. Bunu yaptıktan sonra ne yaptım
+[00:10:10] ben? Hemen aşağı doğru iniyorum. Sonra
+[00:10:13] dedim ki 21 ST araçlarıyla şu blokların
+[00:10:15] her biri için 23 component adayı bul ve
+[00:10:18] bana linkleriyle listele. Scroll'da
+[00:10:20] büyüyen medya herosu, kategori seçici
+[00:10:22] çipler, fotoğraf bento galerisi gibi
+[00:10:24] gibi birçok şey bilgi verdim ben burada.
+[00:10:26] Oraya yerleşmesi gereken componentları
+[00:10:29] seçiyoruz aslında biz. 21S'te ne dedik?
+[00:10:31] Bu şekilde componentlar var. Tabii ki de
+[00:10:33] ben gidip elle seçebilirim,
+[00:10:35] kopyalayabilirim. Ancak tabii ki bunu
+[00:10:37] yapmıyoruz. Ne yapıyoruz? Customize'a
+[00:10:38] geliyoruz. Sol üst taraftan ve buradan
+[00:10:40] gelip connectors'e gidiyorum.
+[00:10:42] Connectors'le birlikte biz ne
+[00:10:43] yapıyorduk? MCP'ler bağlayabiliyorduk,
+[00:10:44] değil mi? MCP'lerle birlikte yapay
+[00:10:46] zekamızı besleyebiliyorduk. O sistemin
+[00:10:49] kullanabileceği toolar oluyordu, araçlar
+[00:10:51] oluyordu. Bu araçları da buradan
+[00:10:53] kullanabiliyordu. Şimdi ben burada neyi
+[00:10:54] ekledim? Custom'la birlikte 21 SD web
+[00:10:57] sitesini ekledim. Zaten yine aşağı
+[00:10:59] bırakırım linkleri nasıl ekleneceği
+[00:11:00] konusunda onu yapabilirsiniz. Şimdi 21
+[00:11:03] STD buraya gelmiş MCP olarak ve
+[00:11:05] tıkladığım zaman kullanabileceği toolar,
+[00:11:07] araçlar burada listeleniyor. Dolayısıyla
+[00:11:09] ben diyorum ki git buradaki MCP'yi
+[00:11:11] kullan ve benim web sitem için bu
+[00:11:13] Burgerc web sitesi için o bölümlere
+[00:11:15] uygun olabilecek componentları al ve
+[00:11:18] getir. Getirdi bana gitti taramasını
+[00:11:21] yaptı ve dedi ki Scrollda büyüyen Medya
+[00:11:23] Herosu için sana önerdiği üç tane yapı
+[00:11:26] bu. Hemen bakalım. Yönlendiğim zaman
+[00:11:28] karşıma böyle bir tasarım çıkıyor.
+[00:11:29] Direkt olarak burada da görebiliyoruz.
+[00:11:31] Hatta tam ekran yapayım daha net
+[00:11:32] görelim. Burada aşağı doğru scroll
+[00:11:34] ettiğim zaman şu ortadaki yapının
+[00:11:36] büyüdüğüne bakın. Gördünüz mü? Tam boy
+[00:11:39] oluyor ve aşağı doğru iniyoruz. Bu
+[00:11:41] şekilde bir scroll effect eklenmiş. Bunu
+[00:11:44] aynı şekilde biz ana sayfamızı da
+[00:11:45] ekleyelim. Zaten videonun girişinde
+[00:11:47] gösterdim ya size web siteyi. Ne
+[00:11:48] yapıyordu? Bizim burgerumuz büyüyordu,
+[00:11:50] değil mi? Büyüyerek gözüküyordu. İşte
+[00:11:52] tam olarak buradaki efekti kullandık.
+[00:11:54] Sonra ikinci olarak bakalım. Kategori
+[00:11:56] seçici chipler. Şimdi selector chips'e
+[00:11:58] gidiyorum. Mesela üç tane yine bana
+[00:12:00] tasarım örneği verdi. Ben burada
+[00:12:01] seçtiğim zaman gördüğünüz gibi böyle bir
+[00:12:03] efekt uygulanıyor. Bu efekti ben
+[00:12:05] beğendim. Dedim ki o zaman tamam bunu
+[00:12:07] uygulayalım. Fotoğraf bento galerisi
+[00:12:09] olarak yani fotoğrafların istenince
+[00:12:10] bento galerisi olarak yine bu şekilde
+[00:12:12] bir eee şey önermiş bize. Gördüğünüz
+[00:12:14] gibi bu şekilde değiştirebiliyoruz.
+[00:12:15] Gördüğünüz gibi çok hoş bir şekilde
+[00:12:17] animasyonlar da var. İnsan yapımı
+[00:12:19] animasyonlar. Bunları direkt
+[00:12:20] çekebiliyoruz. Tabii ki manuel yapmak
+[00:12:22] istiyorsak da şuradaki copy promp'la
+[00:12:23] birlikte promptu'u kopyalayabiliyoruz.
+[00:12:25] Burada bir üyelik gerekiyor. Normalde
+[00:12:28] günlük iki tane kopyalama hakkımız
+[00:12:30] oluyor ama 3 aylı 1200 lira gibi bir
+[00:12:32] fiyat verdim. Bu benim sponsorum değil
+[00:12:34] ama linkimle de kayıt olmak isterseniz
+[00:12:36] aşağıdaki sabitlenmiş yorumlara
+[00:12:38] bırakacağım onu. Oradan kayıt
+[00:12:39] olabilirsiniz. Bana da bu şekilde destek
+[00:12:41] olmuş olursunuz. Bu şekilde .00 lira
+[00:12:43] verip 3 aylına ben de aldım ve sınırsız
+[00:12:46] şekilde bu promplları ve sistemleri
+[00:12:47] kullanabiliyoruz. Daha sonrasında
+[00:12:49] rezervasyon takvimi noktasında buradaki
+[00:12:51] işte saat seçici nasıl olsun şeklinde
+[00:12:53] yine tasarımsal olarak bana örnek
+[00:12:56] gönderdi ve ben bunlardan birisini
+[00:12:58] seçtirdim. Testtim news'a gittiğimiz
+[00:13:00] zamanda da işte müşterilerin e yazmış
+[00:13:02] olduğu yorumlar burada bu şekilde
+[00:13:03] tasarım var şeklinde gösterdi bana. Ben
+[00:13:05] de dedim ki hepsini senin seçimine
+[00:13:08] bırakıyorum. Gerekli placeolder
+[00:13:09] görselleri unsplash sitesinden al koy.
+[00:13:12] Bu da önemli. Unsplash sitesine ücretsiz
+[00:13:14] şekilde biz görseller alabiliyoruz
+[00:13:16] buradan. İşte hamburger resimleri
+[00:13:18] yazdığımız zaman hamburger ücretsiz bir
+[00:13:19] şekilde şunları alıp kullanabiliyoruz.
+[00:13:22] Bunu dedikten sonra seçimi ben yapıyorum
+[00:13:24] dedi. Tabii ki burada ben
+[00:13:25] yönlendirebilirdim de sadece onun
+[00:13:27] tercihlerine bıraktım. Bakalım nasıl
+[00:13:28] tercih edecek. Ona göre zaten müdahale
+[00:13:31] edecektim. Bunu dedikten sonra kendisi
+[00:13:33] seçti ve ekleme işlemlerini kendisi
+[00:13:35] yaptı. Buradan resimleri çekti.
+[00:13:37] resimleri de bu şekilde koydu. Şimdi ben
+[00:13:39] npm round dev dersem cloud code hem
+[00:13:41] tasarım yaptı şu anda hem de siteyi
+[00:13:44] kodladı arka bölümde. Dolayısıyla ben
+[00:13:46] local 3.000'e gittiğim zaman yine aynı
+[00:13:48] web sitesini göreceğim. Gördüğünüz gibi
+[00:13:50] bu şekilde sistematiğimiz oluşturuldu.
+[00:13:51] Yukarı doğru scroll yapınca da tabii
+[00:13:53] güzel bir şekilde oluyor. Tabii buna
+[00:13:55] ekstra farklı animasyonlar da
+[00:13:56] ekleyebilirdik ama burada anlatmak
+[00:13:58] istediğim şey dizayn ve işte 21 SD dev
+[00:14:02] sistemini birleştirdiğimizde Fable
+[00:14:04] 5.1'ile nasıl bir şey elde edebiliyoruz?
+[00:14:06] Yani basitçe 23 promtla neler
+[00:14:09] çıkabiliyor aslında bunu göstermek
+[00:14:11] istedim size. Diğer AI slot'lara hiç
+[00:14:13] benzemediğini özellikle vurguluyorum.
+[00:14:15] Hikayeye gittiğimiz zaman yine güzel
+[00:14:17] fotoğraflar seçilmiş. Yine bunları
+[00:14:18] kendisi seçti. Izgara tarafında uçan
+[00:14:21] burgür şeklinde gayet güzel seçimler
+[00:14:23] yapmış. Tabii ki ufak tefek şurada
+[00:14:25] değişiklik yapılması gereken fırın adı,
+[00:14:26] işte sokak, cadde gibi değişkenleri biz
+[00:14:29] verebiliriz. Onların hiçbir önemi yok.
+[00:14:31] İletişim de yine burada. rezervasyona
+[00:14:33] gittiğimiz zaman da ayrı bir rezervasyon
+[00:14:35] bölümü yapmış. Bahsettiğimiz gibi
+[00:14:36] buradan da gönderilebiliyor. Gelmeden
+[00:14:38] önce merak edilenler yapmış yine FQ
+[00:14:41] şeklinde ve burası da gayet güzel
+[00:14:43] gözüküyor. Bu şekilde Burgercı web
+[00:14:44] sitesi güzel bir çıktı üretmiş olduk.
+[00:14:48] Şimdi terminalde durduruyorum ve son
+[00:14:49] olarak sizle birlikte şunu yazacağım.
+[00:14:51] Dedim ki header kısmındaki arka planı
+[00:14:53] biraz daha hareketlendirelim. 21 SD
+[00:14:55] animations kısmında bir duman efekti
+[00:14:57] eklenebilir. Seçenekleri bana ilet ve
+[00:14:59] birlikte karar verelim dedim. gönderdim.
+[00:15:02] Buradaki terminali kapatalım. Şimdi
+[00:15:04] burada işlemi yapsın ve bana gitsin MCP
+[00:15:06] ile birlikte oradaki animasyonları
+[00:15:08] tarasın. En uygun olabileceği getirsin
+[00:15:11] ve birlikte implemente edelim. Canlı bir
+[00:15:13] şekilde de görelim. Evet, üç tane
+[00:15:14] önerimiz geldi. Eternal Whispers'mış.
+[00:15:17] Hiç fena değil. Bunu belki böyle biraz
+[00:15:19] daha transparent yapıp sadece
+[00:15:21] smoke'larını göstersek daha iyi
+[00:15:22] olabilir. Birazdan bakalım ona.
+[00:15:24] İkincisine geçelim. Üçüncüsüne de
+[00:15:26] bakalım. Sanki daha fena değil gibi.
+[00:15:28] Arkası bir siyah değil tabii ki. Bizim
+[00:15:30] arka plan olursa sadece yanlarda böyle
+[00:15:32] bir şey gözükürse belki olabilir. Yani
+[00:15:34] çok patlıyor bu. Bu olmaz bence.
+[00:15:36] Öncelikle şuna bir bakalım. Eternal
+[00:15:38] Whispers'a. Etheral Whispers'mış bu
+[00:15:40] arada yanlış söylemişim. Gördüğünüz gibi
+[00:15:42] yani şu anda session limitime
+[00:15:43] yaklaşıyormuşum. Şu anda neredeyim ben?
+[00:15:46] Tabii ekstrada kullanıyorum biraz. Onun
+[00:15:49] da etkisi vardır. Şu anda 2 saat 40
+[00:15:52] dakika kalmasına rağmen 5 saatlik
+[00:15:54] limitimden %94'ü bitmiş durumda
+[00:15:57] neredeyse. Umarım bunu tamamlar.
+[00:15:59] tamamlayamazsa da size daha sonradan en
+[00:16:01] sona eklerim görüntüsünü nasıl olduğunu
+[00:16:03] o şekilde tamamlarız. Burada yazdım
+[00:16:05] dedim ki tamam bu şekilde olsun ama
+[00:16:07] dedim header'la birlikte birleştir ve
+[00:16:09] sanki sağ alttan ve sol üstten böyle bir
+[00:16:11] smoke efekti geliyor gibi olsun dedim.
+[00:16:13] Bu şekilde uyarlayacağını söyledi. Şimdi
+[00:16:15] gidecek oradan component promptunu
+[00:16:17] kopyalayacak ve kendisine alacak. Ona
+[00:16:19] göre işlemlere devam edecek.
+[00:16:28] Evet, aslında bahsedeceğim yapı tam
+[00:16:30] olarak buydu ve kesinlikle sizlere de
+[00:16:32] denemenizi tavsiye ediyorum. Ama dediğim
+[00:16:34] gibi Fable 5.1 modeli gayet fazla token
+[00:16:37] tüketimi yapıyor ve Sation'ı çok hızlı
+[00:16:39] bitiriyor. O yüzden dikkatli kullanmaya
+[00:16:41] özen gösterin. Dediğim gibi prompları ve
+[00:16:43] gereken kaynakları aşağıda yorumlar
+[00:16:45] kısmına sabitleyeceğim. Oradan
+[00:16:47] alabilirsiniz. Videoyu beğendiyseniz
+[00:16:49] beğenmeyi, kanala abone olmayı da
+[00:16:50] unutmayın. Bir sonraki videomuzda
+[00:16:52] görüşmek üzere. Hoşça kalın.
