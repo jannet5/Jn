@@ -1,0 +1,2 @@
+requests>=2.31
+unidecode>=1.3   # opsiyonel: Çince, Japonca, Hintçe vb. tüm yazılar için
