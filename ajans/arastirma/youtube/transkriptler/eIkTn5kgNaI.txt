@@ -1,0 +1,334 @@
+# 
+# https://www.youtube.com/watch?v=eIkTn5kgNaI
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:eIkTn5kgNaI.tr.json3
+
+[00:00:00] App Store'da ödüllü bir uygulamaya denk
+[00:00:02] geldi. Su takip uygulaması. İsmi
+[00:00:04] waterlama. Bu uygulama günlük olarak
+[00:00:07] ihtiyacınız olan su hedefini
+[00:00:08] giriyorsunuz ve içtikçe lama farklı
+[00:00:11] renklerde dolmaya başlıyor. Basit bir
+[00:00:13] grafikte farklı challenge'lar var.
+[00:00:15] Sensor Tower tarafına baktığımda bu
+[00:00:17] uygulamanın 90.000 indirmesi ve son ayda
+[00:00:19] da yaklaşık 90.000 dolar geliri var
+[00:00:22] olarak gözüküyor. Şimdi biz bu
+[00:00:24] uygulamaya benzer farklı bir uygulama
+[00:00:26] yapacağız. Farklı bir karakter
+[00:00:28] kullanacağız. Tabii ki kod bilmeden
+[00:00:31] 0'dan adım adım ilerleyeceğim ve bu
+[00:00:33] uygulamayı yapmak için Cloud'un en son
+[00:00:35] çıkan modeli Opus 5.5'i kullanacağım.
+[00:00:38] Tabii ki uygulama içerisindeki bu
+[00:00:40] hareketli görselleri, animasyonları
+[00:00:43] yapabilmek için cloud'a böyle bir
+[00:00:46] yetkinlik tanımlamamız gerekiyor. E bunu
+[00:00:48] da connector kısmından bir AI Tool'un
+[00:00:51] MCP'sini bağlayarak yapabilirsiniz. Ben
+[00:00:54] bu video özelinde Hixfield'i
+[00:00:56] kullanacağım. Hexfield'in ana sayfasında
+[00:00:58] doğrudan menüden ilgili olana tıklayıp
+[00:01:00] cloud'la bağlantı kurmanız yeterli.
+[00:01:03] Mailinizi giriyorsunuz ve onaylarınızı
+[00:01:05] verip doğrudan bağlantıyı
+[00:01:07] gerçekleştiriyorsunuz.
+[00:01:09] Tabii hızlı bir şekilde cloud tarafında
+[00:01:11] da bağlantı yapıldı mı yapılmadı mı bir
+[00:01:13] kontrol edelim. Hemen sol menüden
+[00:01:15] customize kısmına geliyorum. Connectors
+[00:01:18] alanına tıklıyorum ve benim
+[00:01:20] bağlantılarım kısmına geldikten sonra
+[00:01:22] yours kısmına geldikten sonra Hex'in
+[00:01:24] burada aktif olduğunu görüyorum. Şimdi
+[00:01:25] sırada klasörümü bağlamak var. Bu
+[00:01:27] klasörde neler var? Water tracker diye
+[00:01:29] bir klasör açtım ben masaüstüne ve bu
+[00:01:32] klasör içerisinde örnek aldığım
+[00:01:34] uygulamanın eee ekran kaydı var ve kendi
+[00:01:38] karakterimin bir görseli var.
+[00:01:41] Ve opus 5.5 seçili olduğundan da emin
+[00:01:44] oluyorum. Ve ardından ilk promptumu
+[00:01:46] cloud'a yazıyorum. Burada eee ilgili
+[00:01:50] uygulamanın App Store linkini koydum ve
+[00:01:52] zaten klasörde ekran kaydı var. bunları
+[00:01:55] incelemesini istiyorum. Bu uygulamaya
+[00:01:57] benzer şekilde kendi karakterimi
+[00:01:59] kullanarak farklı bir uygulama
+[00:02:01] yapacağımı söylüyorum. Ama ilk etapta
+[00:02:03] herhangi bir şey yapmıyor. Bir analiz ve
+[00:02:05] planlama yapmasını istiyorum benim için.
+[00:02:07] Yani ihtiyaçları doğru bir şekilde
+[00:02:09] netleştirmemiz gerekiyor. Şimdi gitti
+[00:02:12] cloud ekran kaydını izledi ve burada
+[00:02:15] hangi adımların olduğunu tek burada
+[00:02:17] çıkartmış. Kayıttaki kullanıcı akışını
+[00:02:19] veriyor bize. Tüketimi takip et. İşte
+[00:02:21] ilk yudum, akıllı hatırlatıcılar, hedef
+[00:02:24] hesaplama, işte paywall ekranının olması
+[00:02:27] gibi indirim popup'ının çıkması, içecek
+[00:02:29] ekleme gibi farklı ipuçlarının yer
+[00:02:32] aldığı ekranları söylüyor. Peki biz
+[00:02:34] nasıl farklılaşabiliriz?
+[00:02:36] Yani hippo karakteri nasıl
+[00:02:37] özgünleşebilir burada? Bunu da ayrıca
+[00:02:40] değerlendiriyor. İşte farklı bir stil
+[00:02:42] kullanırız. İşte hipo mesela lamanın
+[00:02:46] renkleri değişiyordu. Bunun yerine
+[00:02:47] mesela hipoda bir havuzda e yüzsün. su
+[00:02:50] sıçrasın gibi daha animasyonu daha
+[00:02:53] kuvvetli bir uygulama yapabiliriz
+[00:02:54] şeklinde önermiş. Peki oluşturmamız
+[00:02:56] gereken ana ekranlar neler diye 7 ana
+[00:02:58] ekran çıkartmış. E bunlar bence detaylı.
+[00:03:01] Daha az ekranda bunu bitirebiliriz ama
+[00:03:03] para kazanma kısmını yani ilk etapta
+[00:03:06] yapalım görmek için ama yayınlamak için
+[00:03:08] eee ilk seferde bunları kaldırabiliriz
+[00:03:10] diye düşünüyorum. E ana uygulamada neler
+[00:03:12] olması gerektiğini burada belirtiyor.
+[00:03:14] Karar vermemiz gereken e dör tane madde
+[00:03:17] var. Birincisi hangi platformda
+[00:03:19] yayınlayacağımız iOS mu, Android mi,
+[00:03:21] ikisi birlikte mi? Eee, uygulama adını
+[00:03:23] soruyor, karakter üretimini soruyor ve
+[00:03:25] havuz mekaniği ile mi devam edeceğiz?
+[00:03:27] Bunu öğrenmek istiyor. iOS öncelikli
+[00:03:29] diyorum ama Android'e de uygun bir
+[00:03:31] şekilde olması için React Native
+[00:03:33] kullanalım dedim. Uygulamanın adı Water
+[00:03:36] Tracker Hippo olacak. Karakter için ve
+[00:03:38] animasyonlar için Xfield'in NCP'sini
+[00:03:41] kullanarak ilerleyecek. havuz mekaniği
+[00:03:43] ile ilerleyecek ve bir sonraki adımda
+[00:03:45] artık localosda kontrol edilebilir
+[00:03:48] şekilde bir uygulama göreceğiz. Bu arada
+[00:03:50] Cloud arka planda projenin iskeletini
+[00:03:53] hazırlamaya başladı ve karakterin
+[00:03:55] görsellerini de bir yandan yapıyor. Peki
+[00:03:57] neler oluyor diye merak ettiğiniz
+[00:03:58] noktada Hix Fil'de geçiş yapıp bu image
+[00:04:01] kısmında karakterinizi görebilirsiniz.
+[00:04:03] Farklı ekranlarda kullanılacak böyle
+[00:04:05] tatlış bir karakter oldu diye
+[00:04:07] düşünüyorum. Yani su aygırı, su içmeyle
+[00:04:10] bence lamadan daha iyi örtüşüyor
+[00:04:12] olabilir. Şimdi cloud neler yapıyor
+[00:04:14] biraz ona bakalım. Çünkü opus 5.5'i de
+[00:04:17] kullanıyoruz. Burada kendi testlerini
+[00:04:20] kendi gerçekleştiriyor.
+[00:04:22] Bir eşleşmezlik varsa, bir sorun varsa
+[00:04:25] bunu yine kendi fark edip kendi çözmeye
+[00:04:27] çalışıyor. Arka planda ilk testleri o
+[00:04:29] gerçekleştirdikten sonra ben test etmeye
+[00:04:32] başlıyorum. Şimdi mesela uygulamayı
+[00:04:33] hemen yeniledim. Localosa bakıyorum işte
+[00:04:37] onboarding ekranına geldim. Evet. Su
+[00:04:39] içmeye başlayınca böyle bir seviniyor
+[00:04:42] vesaire. Başlayalım diyorum. Burada
+[00:04:44] diğer uygulamadaki gibi bana doğrudan
+[00:04:46] birim seçtiriyor. Hemen bir su içelim.
+[00:04:51] Sonra devam edelim hızlı bir şekilde
+[00:04:53] dediğimde benden işte kişisel
+[00:04:55] bilgilerimi istiyor. Ama burada ayrıca
+[00:04:58] veri tabanına da ihtiyacınız yok. Yani
+[00:05:00] telefonun lokalinde de tutulabilir bu
+[00:05:01] bilgiler. Bu da aklınızda olsun. Yani
+[00:05:04] uygulama yaparken ilk etapta bu şekilde
+[00:05:06] yapabilirsiniz. Mesela burada Ş harfi
+[00:05:08] noktası kaymış. Sanırım bu font burada
+[00:05:11] çalışmıyor. Böyle hataları da not alıp
+[00:05:14] tekrar cloud'a yaptırabilirsiniz.
+[00:05:16] Bildirim tabii ki bu tarz uygulamaların
+[00:05:18] en önemli özelliği. Bildirimleri
+[00:05:21] açıyoruz. En iyi halinde hissedeyim
+[00:05:23] diyorum. Ve bir planlama çıkartıyor
+[00:05:25] benim için. Ve burada bir paket çıkardı.
+[00:05:28] Premium'a geç şeklinde. Bunu şimdilik
+[00:05:31] tabii ki hani ödeme yapıyormuş gibi
+[00:05:33] geçiyor ve uygulamanın en çalışır
+[00:05:35] versiyonu bu. MVPsi diyebiliriz. Tabii
+[00:05:37] ki güzelleştirebileceğimiz,
+[00:05:40] düzeltebileceğimiz ufak hatalar var. O
+[00:05:43] yüzden bir sonraki adımda bu uygulamayı
+[00:05:45] daha böyle animasyonlu hale getireceğiz.
+[00:05:48] Daha yayınlanabilir bir formatta olacak.
+[00:05:51] Bu ekranları da bir hızlıca kontrol
+[00:05:53] edelim istedim. İşte yazım hataları
+[00:05:55] olabilir çünkü hiçbir metin vesaire
+[00:05:57] vermedim. Cloud tamamen bunları kendi
+[00:05:59] belirledi. Mesela işte su, kahve
+[00:06:01] vesaire. Bunların sadece renkleri
+[00:06:03] değişik. Yani hiç anlaşılmıyor orada ne
+[00:06:05] olduğu. Evet. Uygulamanın geneli ilk
+[00:06:08] çıktıya göre güzel bir noktada. Ama
+[00:06:11] şimdi ben not ettiğim şeyleri yazıyorum.
+[00:06:14] İşte onboarding ekranında daha fazla
+[00:06:16] hareket istediğimi yazıyorum. E belli
+[00:06:18] başlı hatalar vardı. Bunu fark ettik.
+[00:06:20] Onu yazdık. işte su, kahve, çay, diğer
+[00:06:22] içecek ikonları daha kaliteli olsun ve
+[00:06:24] uygulamanın e kimliğiyle, mevcut
+[00:06:26] stiliyle uyumlu olsun şeklinde
+[00:06:28] belirttim. Karakter sorununu yazdım ve
+[00:06:31] sonraki halini kontrol etmek için
+[00:06:34] cloud'a çalışması için gönderiyorum.
+[00:06:36] Revize edilmiş hali şu anda yüklendi.
+[00:06:38] Bakın bir önceki uygulamada simit yoktu.
+[00:06:41] Smit geldi. Daha hareketli bir ekran
+[00:06:44] görüyorsunuz şu anda. Bakın burada şimdi
+[00:06:47] su eklemeye devam ediyorum. Bu sefer
+[00:06:49] eklenen su da bir hareket oluşturuyor.
+[00:06:52] Mesela buradaki ikonları değiştirdik.
+[00:06:54] Bakın ince velli çay vardı. Tam Türk
+[00:06:57] çayı olmuş. Yeşil çay. Bu bunların
+[00:06:59] ikonlarının değişmesi bence çok güzel
+[00:07:01] oldu. Çok tatlı oldu. Ve su eklendikçe
+[00:07:04] şimdi burada bir barem var görüyorsunuz.
+[00:07:06] E bu da bir yani görsel bir hata olarak
+[00:07:09] burada yansıyor ekrana. Şimdi bunu da
+[00:07:11] ekran görüntüsü alıyorum ve yapıyorum.
+[00:07:13] Artık ya bu saatten sonra ya cloud'a
+[00:07:15] diyeceksiniz ki işte git ekranları test
+[00:07:17] et, hataları bul ya da siz fark ettikçe
+[00:07:20] ekran kayıtlarını alabilirsiniz.
+[00:07:22] Screenshotları alıp nerede ne hata varsa
+[00:07:25] onu söyleyebilirsiniz. Bakın bu ekranlar
+[00:07:27] daha hareketli. Zıplıyor, atlıyor
+[00:07:30] vesaire. Ve mesela bu ekranda da
+[00:07:33] ayakları gözükmüyor suyun içinde.
+[00:07:35] Diğerlerinde gözüküyordu. E ve bu iki
+[00:07:37] ekranı alıyorum ve buradaki hataları da
+[00:07:39] söylüyorum. Düzeltmesi gerektiğini
+[00:07:42] belirtiyorum. Ve burada aslında arka
+[00:07:44] planda e bu görsel üretimindeki hatayı
+[00:07:48] düzeltiyor. Bakın zaten Hix ekranını da
+[00:07:50] burada görebiliyorsunuz. Artık ayakları
+[00:07:53] olan versiyonu buraya ekledi. Buradaki
+[00:07:57] mantık sorununu da çözmüş olduk hızlı
+[00:07:59] bir şekilde ve buradaki grafik de
+[00:08:02] hatırlarsanız böyle o da gitti. O da
+[00:08:04] kayboldu. Ve şimdi artık diyorum ki
+[00:08:07] uygulamaya İngilizce dilini de ekle ve
+[00:08:10] Expo Go üzerinden gerçek iPhone'da test
+[00:08:12] edebileceğim bir hale getir diyorum.
+[00:08:15] Artık tamam. Yani lokalden çıkıp
+[00:08:18] telefonumuzda test yapacağız. Sonrasında
+[00:08:20] beni Cloud adım adım yönlendirecek ve
+[00:08:23] bunu e App Store Connect tarafına
+[00:08:26] göndereceğiz. Evet. Şimdi Expo Go'yu
+[00:08:29] telefonuma indirdim.
+[00:08:31] E cloud da bana bir QR verdi. Şimdi bu
+[00:08:34] QR'ı
+[00:08:35] Expo Go'ya giriş yaptıktan sonra
+[00:08:38] mailinizle giriş yapıyorsunuz. Ücretsiz
+[00:08:39] bir uygulama. Giriş yaptıktan sonra scan
+[00:08:42] QR var. QR'ı doğrudan
+[00:08:46] okutuyorum.
+[00:08:48] Evet. Şimdi böyle basit bir epikonu da
+[00:08:51] yapmış. Water tracker hippo diye. Bakın
+[00:08:55] burada susamış bir vaziyette. Şimdi
+[00:08:57] hemen Türkçe, İngilizce bölümleri
+[00:09:00] eklenmiş. İngilizcesi yoktu ilk başta
+[00:09:02] hatırlarsanız.
+[00:09:03] Onarding ekranına dönüyorum. Bu
+[00:09:06] ekranlarda yine İngilizce
+[00:09:08] şu anda hani kendi ilerliyor. Su ekle
+[00:09:10] dedim. Devam et dediğinde bana burada
+[00:09:12] seçimlerimi yaptırıyor. Ya da işte ben
+[00:09:15] bir hedef belirleyeceğim diye biliyorum.
+[00:09:17] Burada bildirimlere izin veriyorum bu
+[00:09:19] ekranda. Sonrasında devam et diyorum ve
+[00:09:23] benim için bir hedef belirliyor. Günlük
+[00:09:25] su içme hedefi. Tabii ki paket almam
+[00:09:28] gerekiyor. Bunlar şimdilik tamam deyip
+[00:09:32] ilerliyorum. Bu arada görüyorsunuz süt,
+[00:09:36] meyve suyu, kahve bunların ikonları
+[00:09:39] değişti tamamen ve su içmeye devam
+[00:09:42] ediyorum. Biraz da çay içeyim. Şimdi ben
+[00:09:45] hedefime ulaştım. Evet, farklı bir ekran
+[00:09:48] açılıyor, zıplıyor işte iki günlük
+[00:09:51] seriyi tamamladın şeklinde. Hemen
+[00:09:54] oradaki ateş ikonu da 2 oldu gibi
+[00:09:56] düşünebilirsiniz. Yani uygulamayı böyle
+[00:09:57] geliştirebilirsiniz. Farklı
+[00:09:58] challenge'lar eklersiniz. E işte ödem
+[00:10:01] atma challenge'ı, işte kahveye ara verme
+[00:10:04] vesaire vesaire gibi şeyler
+[00:10:05] ekleyebilirsiniz. Şimdi telefondan
+[00:10:07] testimizi gerçekleştirdik ama tabii ki
+[00:10:09] ufak hatalar olabilir. Doğrudan
+[00:10:11] yayınlamadan önce yani submit etmeden
+[00:10:14] önce uygulamayı belli düzenlemeler
+[00:10:16] yapmamız gerekiyor. Eee ve bunu yaparken
+[00:10:19] hem e gördüğüm hataları, değiştirmesi
+[00:10:22] gereken şeyleri söyledim. Eee ve bunu
+[00:10:25] kendi test etmesi gerektiğini de
+[00:10:27] bildirdi. Ve Xcod uygulamasını açtı
+[00:10:31] bilgisayarımdan. Sonra işte Expo Goy'u
+[00:10:34] indirdi. IOS Simulatörü açtı. Şu anda
+[00:10:37] ben hiçbir şey yapmıyorum. Bakın ellerim
+[00:10:40] havada. Ve kendi ekranda işte butonlara
+[00:10:44] tıklıyor, ekran kayıtlarını alıyor. Bir
+[00:10:46] sorun var mı yok mu görsellerde,
+[00:10:48] animasyonlarda?
+[00:10:49] Bunu da kendi yine belirliyor ve
+[00:10:52] hataları tespit edip kendi çözüyor. Opus
+[00:10:55] 5.5 arka planda. Burada sizin
+[00:10:58] müdahaleniz minimumda diyebilirim. Şimdi
+[00:11:02] bu uygulamayı App Store Connect'e
+[00:11:04] yükleyeceğiz. App Store developer
+[00:11:07] hesabım var benim. Almıştım daha
+[00:11:09] önceden. Bu da oraya göndereceğim. İlk
+[00:11:11] uygulama olacak. Diyor ki, "Expo Go'ya
+[00:11:13] önce bir giriş yap." Expo Go'ya giriş
+[00:11:15] yapıyorum. Şimdi bu ekran şu anda boş.
+[00:11:18] Gördüğünüz gibi hiçbir şey yok. Şimdi
+[00:11:20] cloud'a dönüyorum. Cloud beni adım adım
+[00:11:22] yönlendiriyor zaten. Sonra buradaki
+[00:11:25] adımları çalıştırıyorum. çeşitli izinler
+[00:11:27] istiyor. O Expo tarafına giriş yapması
+[00:11:30] için, buradaki dosyaları oraya aktarması
+[00:11:32] için izin veriyorum. Aslında bu uygulama
+[00:11:35] aslında işte developers tarafı ve cloud
+[00:11:37] tarafıyla bir geçiş sağlıyor bu
+[00:11:38] paketleri göndermesi için gibi
+[00:11:40] düşünebilirsiniz.
+[00:11:42] Sırasıyla developer hesabıma da giriş
+[00:11:44] yapmamı istiyor. Burada doğrudan benden
+[00:11:47] işte developer hesabımın mailini
+[00:11:49] soracak, şifresini soracak. Bunları
+[00:11:51] vererek buradaki bağlantıyı sağlıyorum.
+[00:11:53] Bir yandan Expo'yu da kontrol ettiğimde
+[00:11:55] uygulamanın oraya yüklendiğini
+[00:11:58] görüyorum.
+[00:11:59] Ve App Store Connect tarafına da
+[00:12:02] uygulamam gitmiş durumda. Ve bundan
+[00:12:05] sonra yapmam gereken şey eee Store'da
+[00:12:08] görünecek işte metinleri, görselleri
+[00:12:11] hazırlayıp onaya göndermek. Test flight
+[00:12:14] tarafına da bakalım. Evet, test flight
+[00:12:16] tarafında da uygulamamız görünüyor.
+[00:12:19] Developer süreçlerini bir kenara
+[00:12:21] bırakırsak sizlerle birlikte baştan sona
+[00:12:23] hiç kod yazmadan Cloud Opus 5.'i
+[00:12:26] kullanarak tracker uygulaması yaptık. Bu
+[00:12:28] uygulamada görsellik ve animasyon çok ön
+[00:12:30] planda olduğu için ne kadar kredi
+[00:12:32] harcadığını merak ettiğinizi biliyorum.
+[00:12:34] E kısaca ona bir bakalım. Hexit
+[00:12:36] tarafında hemen account baktığımda bu
+[00:12:38] uygulamayı da bir gün içerisinde yaptım.
+[00:12:40] Bu hemen yaklaşık hepsi için 160 kredi
+[00:12:45] harcamış gözüküyor. Detaya baktığımızda
+[00:12:48] şeyi de görebiliyoruz. Bu arada GPT
+[00:12:50] image 2.5'i kullanmış. Animasyonlar için
+[00:12:53] Minx H3 Max'ı kullanmış. Eğer farklı bir
+[00:12:56] modeli kullanmasını isterseniz paket
+[00:12:58] içeriğinize göre de değişebilir.
+[00:13:00] Cloud'da da bunu belirtmeniz yeterli
+[00:13:02] olacaktır. Bu arada ben basit ama
+[00:13:04] oldukça kullanışlı bir uygulama hayata
+[00:13:06] geçirdiğimizi düşünüyorum. Sizlerin
+[00:13:08] görüşlerini de merak ediyorum.
+[00:13:10] Yorumlarda benimle paylaşırsanız
+[00:13:11] sevinirim.
