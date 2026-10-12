@@ -1,0 +1,848 @@
+# Claude Code Built My Entire iOS App Company (Code to App Store)
+# https://www.youtube.com/watch?v=J17j1wiisCs
+# kanal: Omar Farook | Building Beautiful Products | süre: 1842 sn | kaynak: yt-dlp:web_embedded:J17j1wiisCs.en-orig.json3
+
+[00:00:00] I'm about to launch an entire iOS mobile
+[00:00:02] app company and it's all built with just
+[00:00:05] claude code. This is not just the
+[00:00:07] product but all the marketing materials
+[00:00:09] along with even submitting the mobile
+[00:00:11] app in App Store Connect to get it live
+[00:00:14] on the app store. This is my setup. This
+[00:00:16] workflow comes together with just cloud
+[00:00:18] code in the desktop app and then you
+[00:00:20] give it the right permissions to your
+[00:00:22] computer uh and then you use the cloud
+[00:00:24] uh extension as well to get control of
+[00:00:26] the browser. With those two parts,
+[00:00:28] there's nothing stopping it from doing
+[00:00:30] pretty much anything you want. It's not
+[00:00:32] only built my mobile app, giving me full
+[00:00:34] visibility inside of the uh iPad and
+[00:00:38] iPhone um simulators that you see on the
+[00:00:40] right hand side. Uh it can also use the
+[00:00:43] browser in this workflow to then uh open
+[00:00:45] up the different services. You know, it
+[00:00:47] would need me to sign in to those
+[00:00:48] services that it requires. Cloud code
+[00:00:50] has set up payments with revenue cat. Um
+[00:00:54] it's got railway to deploy and set up
+[00:00:57] the backend side and then we use resend
+[00:01:00] for uh you know automated OTP emails the
+[00:01:03] app store connect included that's an
+[00:01:05] important part to actually actually
+[00:01:06] submit the app and but it will fill out
+[00:01:09] and do the work for you it would fill
+[00:01:10] out the entire sort of listing details
+[00:01:13] which you know takes hours to do
+[00:01:15] normally if you were to do this manually
+[00:01:17] it does that all for you right and not
+[00:01:20] only that I've gotten claude code to
+[00:01:23] build out my landing page um using the
+[00:01:25] lead pages MCP. Lead pages is a company
+[00:01:28] that I work at where we focus on
+[00:01:30] building high converting landing pages
+[00:01:32] and it uses the claude model with its
+[00:01:34] own native agent which you can continue
+[00:01:36] to work right from the builder itself or
+[00:01:38] you can use the lead pages MCP and work
+[00:01:40] directly from your claude chat. Now, the
+[00:01:42] other layer of this is, you know, for
+[00:01:44] the creative outputs that you see over
+[00:01:45] here, these beautiful screenshots. And
+[00:01:47] you may have noticed on the top left
+[00:01:49] there's this UCG style ad that I have
+[00:01:51] right over here. Those uh assets are
+[00:01:54] created with the Higsfield MCP.
+[00:01:56] Higsfield is a phenomenal uh AI content
+[00:02:01] uh creation platform. It's got all the
+[00:02:03] models you can think of built into one
+[00:02:05] place and then it comes together in
+[00:02:08] brilliant workflows, right? You can
+[00:02:10] there's nothing stopping you from doing
+[00:02:11] anything that you want. You can build
+[00:02:12] storyboards. From storyboards, you can
+[00:02:14] build complete video formats. Um and
+[00:02:17] then you have this new feature that they
+[00:02:18] rolled out called supercomput which is
+[00:02:20] essentially the super uh agent that will
+[00:02:23] essentially create any asset that you
+[00:02:24] want. Uh I started with this single
+[00:02:26] prompt that you see over here. Gen
+[00:02:28] generate an app UCG style promo video
+[00:02:31] for brain fam um of a mom talking about
+[00:02:34] how smart her kids are becoming etc etc.
+[00:02:37] One prompt gave me this incredible ad
+[00:02:39] with a voice over.
+[00:02:41] >> My kids used to just doom scroll on
+[00:02:43] their tablets. Now we play BrainFam.
+[00:02:46] It's an AI quiz app that makes a fresh
+[00:02:48] quiz for whoever's playing any topic. My
+[00:02:51] seven-year-old's obsessed with Space
+[00:02:53] Facts now. And honestly, I'm actually
+[00:02:56] talking to my kids again instead of
+[00:02:58] everyone staring at screens. We learn
+[00:03:00] together and we level up as a family.
+[00:03:03] >> You know, this is just one prompt. I
+[00:03:05] know I can tighten up that video, make
+[00:03:06] it better, but as a first pass, that
+[00:03:09] that video is incredible, right? And I
+[00:03:12] think from there, I'll just kind of
+[00:03:13] tighten up the script and then possibly
+[00:03:14] even do some iterations on the avatar
+[00:03:16] that you see over there. But overall,
+[00:03:18] like, you know, as a single prompt, it's
+[00:03:20] like I'm blown away. Uh, and then in the
+[00:03:23] Claude code or Claude desktop app, the
+[00:03:25] the advantage with the desktop app, a
+[00:03:26] couple advantages like I've used all the
+[00:03:28] different workflows you can think of.
+[00:03:29] I've tried an IDE. I've tried cursor.
+[00:03:31] I've tried um you know just running the
+[00:03:33] native Mac OS terminal. All these
+[00:03:36] workflows are okay. You just get to have
+[00:03:38] cloud code in the terminal. But the cool
+[00:03:40] thing about the cloud desktop app since
+[00:03:42] their recent revamp is that you can run
+[00:03:45] multiple sessions. You know, previously
+[00:03:47] it wouldn't reliably have two sessions
+[00:03:48] running at the same time. If I switch
+[00:03:51] between different sessions and have one
+[00:03:53] session running a prompt, I would find
+[00:03:55] sometimes it would stall, right? But now
+[00:03:58] I can literally submit a prompt to this
+[00:04:00] session which is a completely different
+[00:04:02] project. Uh again that's the power is
+[00:04:04] that if I was running a native Mac OS
+[00:04:06] terminal like to set each terminal to
+[00:04:09] different projects um is a bit uh
+[00:04:11] tedious. I found with cloud code desktop
+[00:04:13] app I just start a new session. I pick
+[00:04:15] the project I want to work on by just
+[00:04:17] picking the folder. I ask it to to run
+[00:04:20] the the session and then we're off to
+[00:04:22] the races and you start uh telling
+[00:04:24] Claude what to do next. So that's one
+[00:04:26] advantage running multiple sessions at
+[00:04:27] the same time. Uh it's got recently a
+[00:04:30] bunch of tools embedded. We now also
+[00:04:32] have a terminal inside of cloud uh
+[00:04:34] desktop app. So you can have as many
+[00:04:36] terminals as you like. And it's got all
+[00:04:38] these other tools like background task
+[00:04:40] planning. Um preview, I'm not sure what
+[00:04:42] diff does. I have to find out. Uh and
+[00:04:44] then files too like you can actually
+[00:04:46] like explore the entire sort of uh quad
+[00:04:49] uh file, the setup file that we're
+[00:04:51] running in the project. So yeah, this
+[00:04:53] just like it's incredible. Now, let's
+[00:04:55] deep dive into how this workflow came
+[00:04:58] together. So I'll go historically of how
+[00:05:00] I've actually built this workflow to
+[00:05:01] give you context and then we'll go into
+[00:05:03] the details of, you know, how I was able
+[00:05:05] to, for example, generate the
+[00:05:06] screenshots, how I was able to generate
+[00:05:09] this beautiful landing page and these
+[00:05:11] assets that look really brand consistent
+[00:05:13] um and essentially ready to to to be
+[00:05:16] delivered into the app store and start
+[00:05:18] uh a company and start marketing, right?
+[00:05:19] So, I literally just have to press add
+[00:05:22] for review and I think we're off to the
+[00:05:24] races. It's going to be published in the
+[00:05:26] app store. Um, so yeah, looks like I've
+[00:05:29] got a draft submission. And you know,
+[00:05:31] for the most part, I've been really
+[00:05:33] quite hands-off in this process, right?
+[00:05:34] I've uh only had to sort of check in
+[00:05:37] with the agent or whe sometimes would
+[00:05:39] have a question that would definitely
+[00:05:40] require my input. Uh, which, you know,
+[00:05:42] could have been more sort of sensitive
+[00:05:44] information like legals, that sort of
+[00:05:46] thing. Um but look, I've submitted the
+[00:05:48] app and hopefully we'll see it in the
+[00:05:51] app store very soon. But let's deep dive
+[00:05:54] now. So starting with historic context.
+[00:05:57] Um when I started building this app,
+[00:05:59] essentially this this is a um mobile app
+[00:06:02] in iOS for families. It's a um sort of a
+[00:06:06] trivia or AI generative quiz app that
+[00:06:10] essentially personalizes quizzes for
+[00:06:12] each member of the family to help the
+[00:06:14] family grow together and learn together.
+[00:06:16] That's sort of the premise. Um, and
+[00:06:19] actually came we uncovered this problem
+[00:06:21] with a specific issue that my wife had
+[00:06:23] with with our kids. When they're going
+[00:06:26] for a walk, they would come up with
+[00:06:28] interesting topics to talk about and
+[00:06:30] they would almost quiz each other on
+[00:06:31] those topics. Um, and sometimes they
+[00:06:33] would run out of ideas, right? So,
+[00:06:35] typically it's it's along the lines of
+[00:06:37] general knowledge, uh, for example,
+[00:06:38] capital cities, things like that. And
+[00:06:41] they our kids enjoy um those type of
+[00:06:44] kind of activities. uh and I thought you
+[00:06:47] know what if we were able to create an
+[00:06:48] app uh along along this idea and so I
+[00:06:51] started sort of brainstorming with her
+[00:06:53] and we came up with this app idea and so
+[00:06:55] the first instinct I had is okay what if
+[00:06:57] we can vibe code this app so I looked up
+[00:06:59] online come come across various vibe
+[00:07:02] coding platforms that we can use to get
+[00:07:03] get this started uh and there was a
+[00:07:05] particular platform I don't want to name
+[00:07:07] them because in hindsight I found that
+[00:07:10] working directly with cloud code is way
+[00:07:12] better than using any vibe coding
+[00:07:13] platform But what I would do want to say
+[00:07:16] is that this particular vibe coding
+[00:07:18] tool, right, for whatever reason, I
+[00:07:19] don't want to name them right now. If I
+[00:07:21] end up being uh okay with naming them,
+[00:07:23] I'll probably drop a link soon. But one
+[00:07:26] advantage I had with this tool is that
+[00:07:28] you can essentially install the app on
+[00:07:31] your phone. Uh you know, this vibe
+[00:07:33] coding tool and start prompting in your
+[00:07:37] phone and building and visualizing the
+[00:07:39] mobile app on your phone, right? And I
+[00:07:42] got to about 90% of this app. So this is
+[00:07:44] the app that you see over here. It's you
+[00:07:46] know just a as mentioned you just you
+[00:07:49] know start a quiz. You pick your family
+[00:07:51] members. You you pick a topic and then
+[00:07:54] you start the quiz essentially. I've
+[00:07:56] already got a quiz going on over here.
+[00:07:58] Uh I can go into voice mode. So I can
+[00:08:00] essentially go into a quiz where it's
+[00:08:02] hands-free and an AI agent narrates the
+[00:08:05] questions. Um so let's go ahead and give
+[00:08:08] you a preview of that.
+[00:08:10] Which bird is known for its ability to
+[00:08:12] fly the highest altitudes? Your options
+[00:08:14] are A. Bald eagle, B. Rupel's Griffin
+[00:08:19] vulture, C. Andian Condor, D. Paragan
+[00:08:23] Falcon.
+[00:08:24] You can answer now.
+[00:08:28] Sorry, that's not right. The correct
+[00:08:30] answer is Rupel's Griffin Vulture.
+[00:08:32] >> So, that's how the app comes together.
+[00:08:34] This is quiz trivia time for the family.
+[00:08:36] Uh, and it's personalized to every age.
+[00:08:38] uh you know depending on your age
+[00:08:39] there'll be more complex questions and
+[00:08:41] as you progress the app learns about
+[00:08:43] your strengths and weaknesses and it
+[00:08:45] gets smarter about picking curated
+[00:08:48] questions based on the player. I was
+[00:08:50] able to get 90% with this vibe coding
+[00:08:51] tool and it was able to generate largely
+[00:08:54] sort of the front-end experience, you
+[00:08:55] know, the creating of the family
+[00:08:57] members, the the progress tracking, the
+[00:08:59] point scoring, the um you know, all the
+[00:09:02] different APIs I'm using to generate the
+[00:09:04] voice. I use 11 Labs, use OpenAI, for
+[00:09:06] example, to generate the questions. All
+[00:09:08] those things were able to come together
+[00:09:10] in this experience quite easily. But
+[00:09:13] what it struggled with is to do the
+[00:09:16] backend side, account creation, email
+[00:09:18] creation, payments. Uh, and the promise
+[00:09:20] of this violin tool is that it could
+[00:09:21] cover all those things. But, you know, I
+[00:09:24] kept prompting it, trying different
+[00:09:25] approaches, and it kept messing up the
+[00:09:27] backend side. It just wouldn't get it.
+[00:09:28] And I was prompting for weeks before I
+[00:09:30] tapped out and I I told the support team
+[00:09:32] that, look, it's just not working out
+[00:09:33] for me. I need to download the code. And
+[00:09:36] they have a slightly high paid service.
+[00:09:38] um I think it's like $50 if you want to
+[00:09:41] upgrade to I think it's either pro or
+[00:09:43] business um tier that allows you then to
+[00:09:46] download the code. So I I opted for
+[00:09:48] that. Downloaded the code, put it in a
+[00:09:50] local folder, set up my cloud code just
+[00:09:53] by going to claude code, starting a new
+[00:09:55] session, uh picking the folder.
+[00:09:58] Essentially, I just dumped it in a
+[00:09:59] folder called brainfam. It's this folder
+[00:10:00] that you see right over here. And then
+[00:10:02] asking Claude, giving it full context
+[00:10:04] like, hey, I used this um vibe coding
+[00:10:08] tool to build this app so far. um you
+[00:10:11] know it's probably got some you know I
+[00:10:13] guess some unique native services that
+[00:10:16] it was running. I want to um you know
+[00:10:19] decouple all of those and run a local or
+[00:10:23] cloud service that you recommend that
+[00:10:25] allows me to you know make this app uh
+[00:10:27] become fully functional. Um, oh, one
+[00:10:29] other thing that I did is before I even
+[00:10:31] migrated with the agent in the vi coding
+[00:10:34] tool, I asked that agent to create an MD
+[00:10:36] file that would essentially tell the the
+[00:10:40] the my cloud code agent when I brought
+[00:10:42] it locally about the full context of how
+[00:10:45] that vibe coding platform creates this
+[00:10:48] developer environment, right? So
+[00:10:50] essentially like all of the uh I guess
+[00:10:53] you know the the the secrets behind the
+[00:10:55] scenes like what what is you know how
+[00:10:57] does this vibe coding tool set up the
+[00:10:59] entire backend infrastructure to deliver
+[00:11:01] people's applications and build it cuz
+[00:11:03] they have lots of unique workflows and
+[00:11:05] and frameworks that they've built their
+[00:11:06] whole platform on so people can launch
+[00:11:08] their app publicly into the app store.
+[00:11:10] There was another unique thing about
+[00:11:11] this platform by the way is that you can
+[00:11:13] publish it directly to the app store
+[00:11:15] just by a single button. So those things
+[00:11:17] were pretty cool. Um but like I said the
+[00:11:20] back end wasn't working. So I asked the
+[00:11:22] agent in the vi coding tool to create an
+[00:11:24] MD file to give full context of how uh
+[00:11:27] the develop environment in this platform
+[00:11:29] works. And then when I brought it into
+[00:11:30] cloud code cloud code started going
+[00:11:32] through the learning curve of
+[00:11:33] understanding uh how this app came
+[00:11:36] together originally from that vibe
+[00:11:38] coding tool and then started to
+[00:11:40] recommend and build out uh the backend
+[00:11:43] services. Right? So that was step number
+[00:11:44] one is bringing it locally and it
+[00:11:46] recommended a couple of things. We
+[00:11:48] already had revenue cat. Revenue cat is
+[00:11:50] built into the vibe coding tool that I
+[00:11:51] was using earlier. Um but uh you know
+[00:11:55] essentially it had to rewire a couple of
+[00:11:57] things to make it fully functional. And
+[00:11:59] so what I had to do was what what
+[00:12:02] essentially Claude recommended me to do
+[00:12:04] in this chat at some point was set up
+[00:12:07] the cloud extension in the Chrome
+[00:12:10] browser and then start signing into
+[00:12:12] these services. So, I signed into
+[00:12:13] Revenue Cat and it built out all the
+[00:12:16] different payment plans and options. Um,
+[00:12:18] then it asked me to sign up to my
+[00:12:20] NameCheep listing to set up all the
+[00:12:22] different records so that we can start
+[00:12:24] delivering uh emails. Uh, and to deliver
+[00:12:28] the emails, we used resend. So, Claude
+[00:12:31] did all of this for me. Like, if you've
+[00:12:32] ever worked with like sort of domains
+[00:12:33] and setting up uh, you know, the various
+[00:12:35] records to deliver emails through
+[00:12:37] another third party, like it's a bit of
+[00:12:39] manual work, right? right? You have to
+[00:12:40] input all these numbers and documents
+[00:12:42] and or text records, etc. Didn't have to
+[00:12:44] do any of that. Just got cloud code on
+[00:12:46] the browser and it started running it,
+[00:12:48] you know, by just asking it to do so in
+[00:12:51] the code session. Um, and then I think
+[00:12:54] one of the first things actually did was
+[00:12:56] set up the back end and we did this
+[00:12:57] through Railway. And so with the Railway
+[00:12:59] account created through the browser
+[00:13:01] extension, Claude was able to set up
+[00:13:03] everything he needed. uh at one point
+[00:13:04] just needed me to create a token and uh
+[00:13:07] essentially paste the API key into cloud
+[00:13:09] code so you can run those various and
+[00:13:11] connect those various services and it
+[00:13:13] did that. So that was the only manual
+[00:13:15] step I had to do. Uh, and then finally,
+[00:13:17] uh, I needed to sign in to my Apple
+[00:13:19] Store Connect, which I already had an
+[00:13:21] account previously. Um, and so I just
+[00:13:23] opened that, signed into it, and then
+[00:13:25] left it open as you can see over here.
+[00:13:27] And it started to go ahead and fill in
+[00:13:29] the all the different information that I
+[00:13:31] required like the promotional text,
+[00:13:33] descriptions, keywords, etc. And
+[00:13:35] whenever it needed a human in the loop,
+[00:13:36] whether it was something some to do with
+[00:13:38] legals or tax, um, you know, it
+[00:13:40] essentially asked me, hey, look, these
+[00:13:41] are certain things that I just can't do
+[00:13:43] without uh your input or your help. Um,
+[00:13:46] and so it walked me through that and
+[00:13:47] like again the cognitive overload of
+[00:13:49] trying to figure those things out. I
+[00:13:51] didn't have to do that because Claude
+[00:13:52] would just tell me do this, click here,
+[00:13:54] get to this part and submit this
+[00:13:56] document and, you know, essentially just
+[00:13:58] follow those steps and it was pretty
+[00:14:00] much good to go. So that was sort of
+[00:14:02] the, you know, building the app process
+[00:14:04] and the uh, the publishing process. Um,
+[00:14:07] and so once we, you know, got most of
+[00:14:09] the publishing stuff out of the way, I
+[00:14:11] also wanted to create marketing
+[00:14:12] materials. And I thought, look, it's
+[00:14:13] doing a fantastic job of designing the
+[00:14:15] app with my instructions. Can we
+[00:14:17] instruct it to generate beautiful iOS
+[00:14:19] app uh previews, right? And it did,
+[00:14:22] right? These are pretty decent. Like,
+[00:14:24] sure, if you know, I'm a designer, I can
+[00:14:26] see lots of issues with this, like, you
+[00:14:28] know, I'd love to have more padding at
+[00:14:29] the top, more space, centralize this
+[00:14:31] text in this in this available space
+[00:14:33] over here. There's too much white space.
+[00:14:35] You know, those are just like nuances
+[00:14:36] that we could fix, but for a fully
+[00:14:40] automated
+[00:14:41] graphic asset, this is just incredible,
+[00:14:45] right? Like, it's just mind-blowing that
+[00:14:46] you can do this now. Um, and so, how do
+[00:14:50] I do this? I have a account with
+[00:14:52] Higsfield AI. I purchased it during
+[00:14:54] their deal during Black Friday. I've got
+[00:14:55] like the uh I think it's the ultimate
+[00:14:57] account. It's g me plenty of credits.
+[00:14:59] They recently launched something called
+[00:15:01] supercomputer which I'll get into in a
+[00:15:03] moment but they've got tons of cool
+[00:15:05] generative AI tools. If I go to
+[00:15:06] Higsville AI the main page you'll see
+[00:15:08] over here that you know essentially you
+[00:15:10] can do image video audio you've got a
+[00:15:13] MCP as well and that's what I did is I
+[00:15:15] plugged in the MCP into cloud code so
+[00:15:17] you got it's got access to these
+[00:15:18] services went through the steps the
+[00:15:20] steps are all outlined very clearly over
+[00:15:22] here and once the Higsfield MCP was
+[00:15:25] plugged in I said hey generate some
+[00:15:28] beautiful screenshots. So there's a
+[00:15:29] combination of things happening here. It
+[00:15:31] used raw HTML which is much better. Like
+[00:15:33] you don't want to do complete, you know,
+[00:15:36] image gen like generative AI images for
+[00:15:39] your uh store images because text
+[00:15:42] usually isn't the best still with
+[00:15:44] generative AI. Uh even with like GPT's
+[00:15:47] latest 5.1 model, you get amazing text,
+[00:15:51] but still it's unpredictable. You might
+[00:15:52] get misspellings. uh you know it doesn't
+[00:15:55] necessarily hold the font categories
+[00:15:57] together like you know it could you know
+[00:15:59] just interpret fonts its own way. Um
+[00:16:02] it's good for like little fun
+[00:16:04] infographics and things like that you
+[00:16:05] don't really um you're not too worried
+[00:16:09] about but this is an app store listing
+[00:16:11] you need people to be able to read the
+[00:16:12] content properly. um it's not like a
+[00:16:14] social media post which is very
+[00:16:16] temporary right and so that for that
+[00:16:19] reason you know discussing with Claude
+[00:16:21] uh and this is something I've been
+[00:16:23] familiar with is you know Claude does
+[00:16:24] incredibly well with HTML designs uh
+[00:16:27] with his landing pages uh I've done in
+[00:16:29] this channel previously working with
+[00:16:31] Claude to generate carousel posts all
+[00:16:33] that comes on the back of HTML based
+[00:16:36] layouts so the first step was I asked
+[00:16:38] Claude okay how are you gonna design
+[00:16:39] these screenshots it said it needed
+[00:16:41] permissions to simulator right So it
+[00:16:44] offered the permissions right in the
+[00:16:45] chat and then I would just click allow.
+[00:16:48] Um and then once it's got access to
+[00:16:51] those services or my computer I think
+[00:16:53] also needed um access to folder being
+[00:16:56] able to modify and delete files in a
+[00:16:58] folder. I gave access to those things
+[00:17:00] too and so that sort of like limited
+[00:17:02] access to those aspects within my Mac
+[00:17:05] OS. Uh, and then what it started doing,
+[00:17:08] it was incredible just watching it go
+[00:17:10] through the app itself autonomously and
+[00:17:12] take screenshots and video recordings,
+[00:17:14] which it did. And then it took all those
+[00:17:16] screenshots and video recordings and it
+[00:17:18] dumped it right in a desktop folder. If
+[00:17:21] I can show you that uh right over here.
+[00:17:23] So, I didn't do any of this stuff. It
+[00:17:25] created all this that you see in here um
+[00:17:28] with screenshots
+[00:17:30] and HTML files um and then using those
+[00:17:33] HTML files to snapshot and generate
+[00:17:35] these these final uh assets. Claude did
+[00:17:38] that all by itself fully autonomously.
+[00:17:41] And so it started dumping these
+[00:17:43] screenshots in this folder. So you can
+[00:17:45] see some of these raw screenshots. This
+[00:17:46] is what they look like. Um this is an
+[00:17:49] example. And along with those
+[00:17:50] screenshots, it used the Higsville MCP
+[00:17:53] to generate images as well. Images like
+[00:17:56] this one over here of this family using
+[00:17:58] the phone on the dinner table or this
+[00:18:00] family using the phone in in the couch.
+[00:18:02] And you can see like the daughter sort
+[00:18:04] of thinking possibly trying to answer a
+[00:18:06] question. Um, so it could generate these
+[00:18:09] images for you through the Higsville MCP
+[00:18:11] save it locally. Um, and then it starts
+[00:18:15] to combine those assets together. So
+[00:18:17] HTML for the layout uh pops the
+[00:18:20] screenshot on that layout, right? And
+[00:18:22] then pops those generated assets. Uh
+[00:18:25] this includes the background as well.
+[00:18:26] You can see these backgrounds. It
+[00:18:29] actually generated itself as different
+[00:18:31] experiments and examples. You can see
+[00:18:33] here's another one. And we sort of
+[00:18:35] iterated together. Like if I didn't like
+[00:18:36] something, I would tell it and tell it
+[00:18:38] what I didn't like and it would generate
+[00:18:39] another version with Higsfield. Uh and
+[00:18:42] in fact, if I go to Higsfield, if I go
+[00:18:43] to images, you'll see. So there you go.
+[00:18:45] in assets. You can see all these
+[00:18:48] backgrounds H it generated through the
+[00:18:52] literally through the claude code chart.
+[00:18:55] Um so generated through the Higsville
+[00:18:57] MCP saved it locally in this folder. Now
+[00:18:59] we got screenshots, we got backgrounds
+[00:19:02] and images, generated images or stock
+[00:19:04] and we got the HTML layouts. Uh the HTML
+[00:19:07] layout is what puts it all together. And
+[00:19:10] here's an example of an HTML layout. If
+[00:19:12] I drag this into a browser, this is what
+[00:19:14] it sort of looks like. more or less if I
+[00:19:16] can like
+[00:19:18] command zoom you can see this is the
+[00:19:20] layout so as you can see all those
+[00:19:22] pieces are there it's HTML um you know
+[00:19:24] selectable text screenshot in the middle
+[00:19:27] background in the background and then
+[00:19:29] you know probably using all various
+[00:19:31] types of properties uh to generate the
+[00:19:33] shadow through you know so sort of like
+[00:19:35] uh based on code right so a combination
+[00:19:39] of this gives you much more higher
+[00:19:40] fidelity uh assets as you can see
+[00:19:42] because the text is real text through
+[00:19:44] HTML And then you're also using uh
+[00:19:47] actual you know screenshots combined
+[00:19:50] with you know sort of the parts that
+[00:19:52] gener generative AI is really good at is
+[00:19:54] stock photography backgrounds and
+[00:19:56] effects and that sort of thing.
+[00:19:59] U so yeah that was the screenshots very
+[00:20:01] interestingly as it was trying to go
+[00:20:03] through my listing and publishing and
+[00:20:04] uploading these assets it then at one
+[00:20:06] point flagged that hey we need iPad
+[00:20:08] assets cuz your your app is actually
+[00:20:10] iPad enabled. Um, and I said, "Okay,
+[00:20:13] well, they'll go ahead and do that." And
+[00:20:14] automatically it pulled up for me an
+[00:20:17] iPad simulator, then started generating
+[00:20:20] the screenshots and uploading them for
+[00:20:22] me autonomously, and I just watched it
+[00:20:24] do all of that, right? Um, no input for
+[00:20:26] me. By that time, it had all the
+[00:20:27] permissions it needed to just go ahead
+[00:20:29] and get that done. Um, yeah. And then so
+[00:20:32] after that uh one of the things I like
+[00:20:34] to do is once the mobile app was had
+[00:20:37] come together uh I I kind of did this a
+[00:20:39] little bit before is you know as I'm
+[00:20:41] working with the agent building the
+[00:20:42] mobile app it's learning about obviously
+[00:20:45] you're asking it to build what you want
+[00:20:47] and so through that process naturally
+[00:20:48] the agent is getting smarter about what
+[00:20:50] the mobile app is right and who it's
+[00:20:52] targeting and who you're designing it
+[00:20:54] for because you're having that sort of
+[00:20:55] organically through conversation. What's
+[00:20:57] really good is make sure you create an
+[00:20:58] MD file which is sort of business
+[00:21:00] context about what this market is. Uh
+[00:21:03] and you can just work with an LLM. Um
+[00:21:05] you know whether it's I mean you
+[00:21:07] technically you've got your LLM in cloud
+[00:21:08] code so you can ask it there or you can
+[00:21:10] go to a different browser and ask any
+[00:21:13] LLM of choice to essentially give you a
+[00:21:15] breakdown of the industry you know what
+[00:21:16] are you trying to do with this with this
+[00:21:18] mobile app that you uh you're you're
+[00:21:19] you're building what problem you're
+[00:21:21] trying to solve. So I did this whole
+[00:21:22] sort of business context breakdown and I
+[00:21:25] I I uh did it directly inside of cloud
+[00:21:27] code actually and then I asked you to
+[00:21:29] create an MD file to so that the agent
+[00:21:31] is aware whenever it needs to get
+[00:21:33] business context to make better choices
+[00:21:35] about the UX about um some of these
+[00:21:38] descriptions and promotional text
+[00:21:40] generated it'll always refer to that so
+[00:21:42] that it sort of reminds itself what the
+[00:21:44] business is all about right um and on
+[00:21:48] top of that because we had that business
+[00:21:50] context I then asked it to generate a
+[00:21:54] HTML brand guideline which I'll show you
+[00:21:56] right over here. So this is a very
+[00:21:58] critical asset is that once you get
+[00:22:00] ahead and you start you're starting to
+[00:22:02] build out your mobile app it's coming
+[00:22:03] come to 90% um you know you've it's got
+[00:22:06] good business context ask it to generate
+[00:22:08] a an HTML brand guideline which is a
+[00:22:11] lightweight code file that you see over
+[00:22:12] here that covers broadly what the what
+[00:22:16] the product is all about the company is
+[00:22:18] all about. So you can see over here we
+[00:22:20] have an about section, who's it for, the
+[00:22:22] market, the problem, why families love
+[00:22:24] it, why it matters at a glance. So tax
+[00:22:26] st tax everything you need to know. Then
+[00:22:28] the logo, you know, the key mark of the
+[00:22:31] the app itself or the company itself.
+[00:22:33] This is our uh app icon with the
+[00:22:35] different lockups. And then we go into
+[00:22:37] color. Uh the purpose of the colors, uh
+[00:22:39] what's the primary color? We have a
+[00:22:41] lavender gradient, orange for more like
+[00:22:43] primary CTAs, that sort of thing. And
+[00:22:45] then some of the core colors, the
+[00:22:46] semantic colors for like success,
+[00:22:48] warning, errors. Um, and then we have
+[00:22:51] some of the uh quiz colors that we're
+[00:22:53] generating through the those emoji call
+[00:22:55] outs that you see over here. We use
+[00:22:57] emojis to give the uh category meaning
+[00:23:00] and then from that we derive color
+[00:23:02] background colors off that. Uh, and then
+[00:23:04] we have the typography, the cards, the
+[00:23:06] button styles. You can see from the UI,
+[00:23:08] these are the the voice mode buttons
+[00:23:10] that we have in the app itself. the
+[00:23:13] settings uh setting buttons, the
+[00:23:15] progress uh experiences in the app, the
+[00:23:17] question and answer experience in the
+[00:23:19] app, uh the quiz uh character styles,
+[00:23:22] the the family uh avatars, leveling up,
+[00:23:26] generating or category loading
+[00:23:28] experience. So all these things I
+[00:23:30] essentially as cuz like remember cloud
+[00:23:33] code has got the whole codebase of the
+[00:23:35] mobile app. It's ready and primed to
+[00:23:38] build this asset very efficiently. And
+[00:23:41] you can see all these things are
+[00:23:42] familiar experiences in the mobile app
+[00:23:44] itself that I have right over here. It's
+[00:23:46] built it into this one HTML file with
+[00:23:49] all of the context of how those design
+[00:23:51] elements are used and the voice and tone
+[00:23:54] of the brand itself. And then now once
+[00:23:56] you have this file, what I did is I
+[00:23:59] asked it to publish it into Lead Pages
+[00:24:03] uh through the MCP. Right? Again, Lead
+[00:24:05] Pages is uh this landing page platform
+[00:24:07] that I a company I work at which has an
+[00:24:09] incredible MCP integration which you can
+[00:24:12] use through any LLM to publish and and
+[00:24:15] uh generate pages, right? Um and you
+[00:24:18] it's got a native Cloud Code agent as
+[00:24:20] well with you know it's all of its
+[00:24:22] custom kind of modeling to build
+[00:24:25] incredible high converting pages, right?
+[00:24:26] So here's the agent. Um, so what I do is
+[00:24:29] I ask cloud code to then take that first
+[00:24:32] build HTML file, publish it on on lead
+[00:24:35] pages. This is now published. I then
+[00:24:37] take the URL. I go to leadpages.com
+[00:24:42] and I can generate anything I want. I'll
+[00:24:43] just essentially plug in that HTML brand
+[00:24:46] guideline first and I'll say brand
+[00:24:48] guideline and I'll be like
+[00:24:53] generate a blog or like any page that I
+[00:24:56] want any website like I can just ask it
+[00:24:58] to do it or any landing page campaign
+[00:25:00] sales page webinar anything I need I
+[00:25:02] just plug in this HTML file and then ask
+[00:25:06] it to build it and it will do an
+[00:25:07] incredible job of building it and an
+[00:25:08] example of that is look at this this is
+[00:25:10] one of the pages I generated earlier
+[00:25:13] Um, incredible, right? So, fully on
+[00:25:17] brand. Um, could do a couple of tweaks,
+[00:25:19] but it's pretty much there. Another
+[00:25:21] version of this page I generated is is
+[00:25:23] where? Let me find it. Here's another
+[00:25:24] version of that. So, again,
+[00:25:28] look at this animated carousel of the
+[00:25:30] app itself
+[00:25:33] and an early access form. So, yeah. So,
+[00:25:35] that's the potential of this workflow is
+[00:25:37] that if you build that lightweight code
+[00:25:39] file, uh, it's stored in the codebase.
+[00:25:41] So at any point the agent is aware to be
+[00:25:44] able to pull the HTML file so I can
+[00:25:46] build assets um like these screenshots
+[00:25:50] like these landing pages right uh and
+[00:25:52] then use the various services to
+[00:25:53] generate it. So, Hakesville MCP generate
+[00:25:55] some assets. Um, you know, Lead Pages
+[00:25:57] MCP to generate these pages. And
+[00:25:59] likewise, at some point it was going
+[00:26:01] through the the requirements of
+[00:26:03] publishing this app. Um, and one of the
+[00:26:06] things it realiz is that okay, it needs
+[00:26:08] a support URL. It needs the marketing
+[00:26:10] URL. It also needed URLs for privacy
+[00:26:12] policy and terms, right? And I just
+[00:26:15] asked Claude to build all those. You can
+[00:26:16] see right over here. Here's the pages it
+[00:26:19] created. Privacy policy, terms of use,
+[00:26:20] support, all those things. it it
+[00:26:23] generated and it submitted through
+[00:26:28] the lead pages MCP as a live page. So
+[00:26:31] now I've got these pages live and ready.
+[00:26:34] Privacy policy um terms of use. It's
+[00:26:38] like all good to go. I don't have to
+[00:26:39] look at these things. Um you know, I'm
+[00:26:41] going to trust that it all all it's all
+[00:26:44] legit and and it all makes sense. But
+[00:26:46] look, it's so intelligent that it can do
+[00:26:48] all of this. I'm pretty sure it did a
+[00:26:49] fantastic job with those parts as well.
+[00:26:52] It's just like a incredible employee. If
+[00:26:54] an employee did, you know, the privacy
+[00:26:55] policy for you or terms of use, you
+[00:26:57] wouldn't go back through that and double
+[00:26:58] check it. You'd sort of trust the
+[00:27:00] employee to do its work. I just, you
+[00:27:02] know, cloud code is just a even more
+[00:27:04] intelligent version of that. Right? So
+[00:27:07] that is the workflow. That's how this
+[00:27:08] whole workflow came together. And um I'm
+[00:27:12] really excited to just progress in this
+[00:27:14] workflow. Next steps for me is to um
+[00:27:17] really set an agentic system that would
+[00:27:21] essentially allow me to you know connect
+[00:27:24] meta uh into cloud code, connect various
+[00:27:28] analytic tools um and then use all these
+[00:27:31] services into one cloud code session
+[00:27:34] where I can essentially just build out
+[00:27:36] marketing campaigns, submit organic
+[00:27:39] content, carousels, um you know UCG
+[00:27:42] content into Instagram, Tik Tok talk and
+[00:27:45] just do this autonomously from one chat
+[00:27:47] and then just get people to sign up to
+[00:27:49] the app and pay for the application. Uh,
+[00:27:52] you know, the app is a simple business
+[00:27:53] model. Um, you know, you get 10 free
+[00:27:56] quizzes once you hit the limit. You got
+[00:27:58] to upgrade to premium and we've got 42
+[00:28:00] to49 plans. We might change the pricing.
+[00:28:03] Maybe it's a bit too expensive for what
+[00:28:04] it is. Um, but you know, I think
+[00:28:06] families will have a great time having
+[00:28:07] personalized quizzes and learning during
+[00:28:09] that process and having fun. Uh, we
+[00:28:11] certainly love it. We enjoyed this app
+[00:28:13] on road trips and things like that. So,
+[00:28:14] it was a pain we were solving for
+[00:28:16] ourselves and I think a lot of families
+[00:28:18] will appreciate that too. So, this is
+[00:28:20] it. Hope you enjoyed this video. This is
+[00:28:22] my workflow. It's just, you know, no
+[00:28:24] structure here. It was just literally a
+[00:28:25] stream of consciousness. I just wanted
+[00:28:26] to show you what I've got going on and
+[00:28:28] hopefully you learned a thing or two in
+[00:28:30] this process. Um, and I hopefully I want
+[00:28:32] to teach more of this, right? I want to
+[00:28:34] be uh creating more content around how
+[00:28:37] I'm using Cloud Code to take to create
+[00:28:39] uh mobile app companies. um how I'm
+[00:28:42] using it in my full-time job, how I'm
+[00:28:43] using it across various uh experiments.
+[00:28:46] Of course, you've been following this
+[00:28:47] channel, I've been essentially becoming,
+[00:28:49] you know, all in claude code vibe
+[00:28:52] coding. If you are interested in having
+[00:28:55] more kind of structured learning around
+[00:28:57] building with AI, go ahead and sign up
+[00:28:59] to granular link is going to be in the
+[00:29:01] description. It's my way of being able
+[00:29:03] to run workshops with people who are
+[00:29:05] passionate or curious about building
+[00:29:07] with AI and having more of a structured
+[00:29:09] learning process so that they can take
+[00:29:11] all of this and apply it uh in their
+[00:29:13] workflow, right? And so go ahead and
+[00:29:15] check that out. I ran a workshop
+[00:29:17] recently with a small group of people.
+[00:29:18] They loved it and I want to keep running
+[00:29:20] these type of workshops of people that
+[00:29:21] are truly looking to fasttrack their
+[00:29:23] learning. Of course, what you see here
+[00:29:25] is fantastic for you to potentially get
+[00:29:26] started and experiment. Uh and it's very
+[00:29:29] high level of how this workflow comes
+[00:29:30] together. and you've got all the sort of
+[00:29:32] bare bones to get started with what you
+[00:29:34] learned in this video. But in the
+[00:29:36] workshop, I think what's valuable about
+[00:29:37] it is you have lots of brains coming
+[00:29:39] together. Uh you know, we get you
+[00:29:41] started through sort of, you know, these
+[00:29:43] different uh activities and and
+[00:29:45] milestones and steps that we go through
+[00:29:48] and you know, it just keeps everyone
+[00:29:49] accountable in the workshop. We're all
+[00:29:51] doing it together. And you've got myself
+[00:29:53] to answer any questions. You have Q&A at
+[00:29:54] the end. uh and then you know we
+[00:29:57] essentially get you grouped into a
+[00:29:58] community where we can keep learning and
+[00:30:00] progressing together. That's the idea of
+[00:30:02] it. I've always wanted to get into the
+[00:30:04] space to to build a community around
+[00:30:07] what I'm passionate about and so this is
+[00:30:08] my opportunity for that and it's uh
+[00:30:10] hopefully an opportunity for everyone
+[00:30:11] who's interested to learn. So check out
+[00:30:13] the link in the description, sign up.
+[00:30:15] I'd love to see you there in the next
+[00:30:16] workshop that I run. I don't I don't do
+[00:30:18] it very often. Typically it's on the
+[00:30:20] weekend or in the middle of the week uh
+[00:30:22] evening. So, I live in the UK and
+[00:30:24] wherever you're based, I try to make it
+[00:30:26] accessible to as many people around the
+[00:30:28] globe as possible. So, I typically do it
+[00:30:31] at evening UK, which means in the US
+[00:30:33] sometimes it's in the morning time. Um,
+[00:30:36] so yeah, check it out and hopefully I
+[00:30:37] see you there. Other than that, I'll see
+[00:30:39] you in a future video. And of course,
+[00:30:40] never stop

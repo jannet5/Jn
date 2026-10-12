@@ -1,0 +1,658 @@
+# Build a FULL Mobile App with Codex (Full Guide)
+# https://www.youtube.com/watch?v=eoEsVQJruow
+# kanal: Riley Brown | süre: 1649 sn | kaynak: yt-dlp:web_embedded:eoEsVQJruow.en-orig.json3
+
+[00:00:00] Not only can you vibe code apps with
+[00:00:02] zero coding experience, you can also
+[00:00:04] vibe code an app that vibe codes apps.
+[00:00:08] And today, I'm going to do exactly that.
+[00:00:10] So, I was testing Replit all weekend,
+[00:00:13] and it's just not my favorite. So,
+[00:00:15] instead, I'm going to make my own
+[00:00:17] version of Replit without writing a
+[00:00:19] single line of code. So, in this video,
+[00:00:21] I'm going to design and build a Swift
+[00:00:24] app that I'm going to use instead of
+[00:00:25] Replit. And I'm going to use the Codex
+[00:00:28] app, which is my new favorite coding app
+[00:00:30] on the desktop. And I'm also going to be
+[00:00:32] putting Claude code inside the Swift app
+[00:00:35] that will actually power the app
+[00:00:38] generation. And so, let's not waste any
+[00:00:40] time. Let's build an app that builds
+[00:00:42] apps. Okay. So, this right here is the
+[00:00:45] Replit mobile app. And to me, everything
+[00:00:48] is just really small. Everything is
+[00:00:51] really cluttered. And I really don't
+[00:00:54] like the experience of this app. I think
+[00:00:57] the main home screen is a little bit
+[00:00:58] confusing and boring. So, we're going to
+[00:01:00] be building a better vibe coding mobile
+[00:01:03] app today in this video. And to do this,
+[00:01:05] we're going to be using Codex. So,
+[00:01:07] OpenAI's Codex, which is a desktop app,
+[00:01:11] which I've been using more and more, and
+[00:01:13] I've really fallen in love with it. And
+[00:01:15] we're going to use it to build our own
+[00:01:16] version of Replit. And on top of the
+[00:01:19] Codex application, we're also going to
+[00:01:21] be using Xcode. And Xcode will allow us
+[00:01:23] to create an app in Swift, and I'm going
+[00:01:25] to run it on my phone, and we're going
+[00:01:27] to develop this app right now. This is
+[00:01:29] going to be a really fun one. Okay. So,
+[00:01:31] here's our prompt for a better version
+[00:01:33] of Replit iOS app. Let's go over the
+[00:01:35] prompt real quick, and then we'll we'll
+[00:01:37] get started. We're not going to waste
+[00:01:38] any time. I want you to build a Swift
+[00:01:40] app that builds web apps and mobile
+[00:01:42] apps. And so, I want to build a clone of
+[00:01:44] Replit mobile app because it's pretty
+[00:01:46] bad. And I might be sound a little
+[00:01:48] harsh. I don't think it's really bad. I
+[00:01:49] just really don't like the UI. It's just
+[00:01:51] not that fun to use. And so, I want a
+[00:01:53] more simple experience, right? I want to
+[00:01:55] make it simple, and I want it to be like
+[00:01:58] Replit except it's going to be a lot
+[00:02:00] more like iMessage. So, the whole
+[00:02:01] process will be a lot more simple,
+[00:02:03] almost like you're texting a friend,
+[00:02:06] right? And it's going to feel like
+[00:02:08] texting a really smart Vibe Coder or a
+[00:02:10] really smart developer named Jerry,
+[00:02:13] right? This guy's name is going to be
+[00:02:14] Jerry. And the app is going to be called
+[00:02:17] Jerry. And so, for this we're going to
+[00:02:19] be using Swift. We're going to save all
+[00:02:21] the messages locally to the phone and
+[00:02:24] we're also just going to be using the
+[00:02:25] Claude SDK. It's technically called the
+[00:02:27] Claude Agent SDK, which allows you to
+[00:02:30] put Claude code into your application.
+[00:02:32] And so, we're basically going to put
+[00:02:33] Claude code into our app and this Claude
+[00:02:36] code is going to communicate with the
+[00:02:38] brand new Vibe Code CLI, which will
+[00:02:40] handle the sandboxing and it will
+[00:02:42] actually create the app and send a link
+[00:02:45] back to Claude Code. So, we have this
+[00:02:47] user message, right? Build me a fitness
+[00:02:49] tracker. You're going to chat with
+[00:02:51] Jerry, which will be powered by the
+[00:02:53] Agent SDK. You may go back and forth,
+[00:02:56] right? It may ask you like, "Hey, what
+[00:02:57] colors do you want your app to be? What
+[00:02:59] features do you want?" You're going to
+[00:03:00] provide some more answers and then it's
+[00:03:02] going to generate and host the app with
+[00:03:04] the Vibe Code CLI. It's going to return
+[00:03:07] an app URL back and be like, "Hey,
+[00:03:09] here's the link." And so, it's going to
+[00:03:11] auto open this URL, right? So, the Vibe
+[00:03:14] Code CLI returns links for the app and
+[00:03:17] the last link in any message will be
+[00:03:19] automatically opened in this browser
+[00:03:22] preview and then the user will see it.
+[00:03:25] And then the user can just go back and
+[00:03:26] forth with the Jerry agent updating this
+[00:03:29] app. But, by the end of this video, I
+[00:03:31] think we're going to create a really
+[00:03:32] compelling Vibe Coding platform. And so,
+[00:03:34] that's what we're going to do. Okay, so
+[00:03:35] let's go ahead and we're going to
+[00:03:37] actually use Codex right now. But, first
+[00:03:39] what I like to do is I like to just go
+[00:03:41] into Xcode manually and I like to create
+[00:03:42] a new project. I'm just going to say
+[00:03:45] we're going to create an app. I'm just
+[00:03:46] going to hit next. We're going to call
+[00:03:47] this Jerry and we're going to hit next
+[00:03:50] and we're going to create this project
+[00:03:52] here. And now this is just going to open
+[00:03:54] up. And so when the project first
+[00:03:56] starts, this is what you'll see. It's
+[00:03:58] basically the most simple iOS app you
+[00:04:01] can possibly build, which is a white
+[00:04:03] screen that says hello world. So you
+[00:04:05] have your code here on the right. We can
+[00:04:07] zoom in a little bit. But as you can see
+[00:04:09] here, you have some files. This is
+[00:04:10] basically like a starting template for
+[00:04:13] any sort of Swift application. So now
+[00:04:16] that we have this open, I'm going to go
+[00:04:17] back to CodeX. And in CodeX, I'm going
+[00:04:20] to create a new project. And here, what
+[00:04:23] we're going to do, we call this project
+[00:04:24] Jerry. And we want to make sure that we
+[00:04:27] choose this one right here, where it's
+[00:04:30] like the the most highest level project,
+[00:04:33] cuz there's a subfolder in Jerry called
+[00:04:35] Jerry. We don't want that one. We want
+[00:04:38] the folder, the highest level folder for
+[00:04:40] it. So we're going to open this up. And
+[00:04:42] now we have a new thread. And so this
+[00:04:44] thread will be dedicated to that
+[00:04:47] specific folder. And by folder, I mean
+[00:04:50] this directory that has all the code for
+[00:04:52] this specific project. And so we can
+[00:04:54] create many threads and run many things
+[00:04:56] in parallel. And so I'm going to show
+[00:04:58] you. And so in this video, I'm not going
+[00:04:59] to go linearly. When I use CodeX, I'm
+[00:05:02] often doing many things in parallel,
+[00:05:04] whether that's research, design, and
+[00:05:05] building the app. I like to work. And
+[00:05:08] the better you get with these tools, the
+[00:05:09] more you can work in parallel. And so if
+[00:05:12] I'm moving a little fast, that's just
+[00:05:14] because that's how I work now. And I
+[00:05:16] will do my best to explain my process as
+[00:05:18] I go. If I go too fast at any point,
+[00:05:21] please leave comments down below. I
+[00:05:23] would love to answer as many questions
+[00:05:25] as I can. Anyway, so what we're going to
+[00:05:27] do is we're going to create a new thread
+[00:05:28] in Jerry, right? So we're we're building
+[00:05:31] Jerry, and I'm going to say, "This is my
+[00:05:34] app idea." And I'm going to go to
+[00:05:37] Notion, and I'm just going to go like
+[00:05:39] this. I'm going to snag this prompt, and
+[00:05:42] I'm just going to paste in this prompt.
+[00:05:44] Now what I'm going to do is I'm just
+[00:05:45] going to let's toss in that image that
+[00:05:48] we had here, this flow diagram. And I'm
+[00:05:51] going to do is I'm going to press shift
+[00:05:53] tab, which turns on plan mode. Let's
+[00:05:56] make a plan for this. So, Codex is going
+[00:06:00] to make a plan. Now, while Codex is
+[00:06:02] making a plan, what I'm going to do is
+[00:06:04] I'm going to make some let's figure out
+[00:06:06] a design here. So, I'm going to go ahead
+[00:06:08] and open up paper, which is basically a
+[00:06:11] Figma, but it's designed specifically
+[00:06:14] for AI agents to use. And so, we can
+[00:06:16] open up this new board, and I'm going to
+[00:06:18] paste in my idea again. Please design
+[00:06:23] the four most prominent screens here in
+[00:06:27] paper.design.
+[00:06:29] Use the MCP tool to make the design. So,
+[00:06:34] I made a video. I think it's my previous
+[00:06:36] video by the time you're watching of me
+[00:06:38] using paper. I actually fully set up
+[00:06:41] paper and how to use it. So, this is
+[00:06:44] just my process. I don't want to go
+[00:06:46] fully in how to set up paper right now.
+[00:06:48] This is just how I'm going to design the
+[00:06:49] app. And so, what this MCP tool will do
+[00:06:53] is it will actually see my application
+[00:06:55] that's open, which is just like Figma.
+[00:06:57] Paper is just like Figma, and it should
+[00:06:59] create the designs right here. And so,
+[00:07:01] I'm mapping the app structure from your
+[00:07:02] brief. I got the empty paper canvas. I'm
+[00:07:05] reading the vibe code workflow now. And
+[00:07:08] you can actually steer Codex. So, I can
+[00:07:11] say like, "By the way, focus most of
+[00:07:16] your attention on the chat and the
+[00:07:19] preview pages. Keep it simple." And you
+[00:07:23] can just add steer. You know, like you
+[00:07:25] see it's working right here in this
+[00:07:26] thread, and you can actually steer it.
+[00:07:29] And this gets entered into the prompt as
+[00:07:32] it's working, and then it just continues
+[00:07:33] to work with your added feedback. And
+[00:07:35] you can enter in as many steer messages
+[00:07:37] as you want. As you notice here, it says
+[00:07:39] awaiting response. So, we're going to go
+[00:07:40] back to our plan, and let's see if it's
+[00:07:43] You can see here on It's actually
+[00:07:45] designing those four screens right now.
+[00:07:48] Jerry inbox, Jerry conversation, Jerry
+[00:07:50] preview, and build result, which is kind
+[00:07:52] of fun. And so, what I'm going to do is
+[00:07:54] I'm just going to go ahead and leave
+[00:07:55] this open over here. We can get rid of
+[00:07:57] this phone for now. And so, we'll just
+[00:08:00] leave the designs open right there as we
+[00:08:02] work. Where should Jerry's agent runtime
+[00:08:05] live for the first version? Hosted
+[00:08:08] bridge, Mac companion, device only.
+[00:08:12] Let's go ahead and do hosted bridge.
+[00:08:14] Don't fully know what that means. What
+[00:08:15] should we the first shippable milestone
+[00:08:18] include? And I'm going to add context.
+[00:08:21] The Vibe Code CLI treats the mobile apps
+[00:08:26] and web apps the same. Both open in web
+[00:08:30] preview. So, we should do both. So, now
+[00:08:34] we're going to submit this. Okay, so
+[00:08:36] this is pretty fun. You see here at the
+[00:08:37] same time our full plan is done. And
+[00:08:41] additionally, we're making some progress
+[00:08:44] on these designs. So, this is a pretty
+[00:08:45] good design for Jerry, right? Tell me
+[00:08:47] what you want to build, and I'll build
+[00:08:48] it. Web first. Yep, ship it. And now
+[00:08:51] it's starting to build. It's showing the
+[00:08:53] preview page. And so, we can just like
+[00:08:56] make some adjustments to this. So, in
+[00:08:58] paper, what I like about this is I can
+[00:09:00] like select this and this and copy this
+[00:09:03] link. And I'm just going to say I'm
+[00:09:05] going to paste this here. I'm going to
+[00:09:06] say, "On the preview page, can you
+[00:09:07] please don't show the link? And also,
+[00:09:10] don't show the open automatically from
+[00:09:12] Jerry's latest link. And then make the
+[00:09:14] Safari icon at the top right. And then
+[00:09:17] have the the back button to Jerry there
+[00:09:19] as well to minimize the space. I want
+[00:09:23] this preview to basically take up the
+[00:09:24] whole screen. Additionally, I want the
+[00:09:28] home page should be don't have messages
+[00:09:31] at the top. Just have it be a big photo
+[00:09:33] of of Jerry on the right, which is just
+[00:09:35] like the black J. And then the text at
+[00:09:37] the top should just be like build with
+[00:09:38] Jerry. And then in the chats it should
+[00:09:41] just have a name of the project. And so
+[00:09:42] use AI to name whatever my first prompt
+[00:09:45] is name the project that. And so instead
+[00:09:48] of it having a J it should just have
+[00:09:49] like a little app icon like a mobile app
+[00:09:52] icon there. So we can enter that in to
+[00:09:54] steer. Okay, and so another thing we're
+[00:09:56] going to need multiple API keys. So I'm
+[00:09:58] going to go get those now. So I'm going
+[00:10:00] to open up my browser. So I'm going to
+[00:10:02] need a Claude API key and so I can find
+[00:10:04] this on plat form.claude.com.
+[00:10:06] I just created a key. I'm going to keep
+[00:10:08] it private. And then we're going to need
+[00:10:10] a key on vibe.dev
+[00:10:13] to access to the vibe code CLI. And so
+[00:10:15] I'm going to do what I'm going to do
+[00:10:16] first is I'm just going to say yes
+[00:10:18] submit this plan. And then as a follow
+[00:10:20] up I'm going to say here are the API
+[00:10:23] keys by the way. And I'm going to paste
+[00:10:26] these here. All right, so this has been
+[00:10:27] going for about 7 minutes now and it's
+[00:10:30] still not done. But things are being
+[00:10:32] changed here. As soon as this is done
+[00:10:34] I'm going to run it on my iPhone instead
+[00:10:36] of this little simulator thing here. I
+[00:10:39] do not like using this. It's not very
+[00:10:40] good. I want to run it on my iPhone. So
+[00:10:43] I just went for a walk for about 30
+[00:10:45] minutes because it was taking so long
+[00:10:46] and I just wanted to kind of take a
+[00:10:48] little break because the initial prompt
+[00:10:50] that you do on Codex is usually the
+[00:10:52] longest. And so now we're back. Let's go
+[00:10:55] ahead and see how our app has done here.
+[00:10:58] So we're going to go back to Xcode and
+[00:10:59] what we're going to do is we are going
+[00:11:02] to hit play here. And so this
+[00:11:05] automatically opens up on my iPhone. And
+[00:11:08] so this is opening up on my phone and
+[00:11:11] we're kind of in this empty chat. And so
+[00:11:13] we can start a new conversation with
+[00:11:16] Jerry. So I'm going to hit new chat and
+[00:11:19] I'm just going to say hello there.
+[00:11:21] What's up? Okay, the data couldn't be
+[00:11:24] read because it's missing. So I'm just
+[00:11:26] going to hit okay. And if we go down
+[00:11:28] here into these logs here we just see a
+[00:11:31] bunch of stuff. And so this
+[00:11:33] automatically pops up in the bottom of
+[00:11:35] Xcode. So I'm going to do is I'm just
+[00:11:37] going to copy this. We're going to go to
+[00:11:39] Codex and say, I got this message.
+[00:11:42] Please let's fix this. Now we'll paste
+[00:11:46] this here. Boom. And we'll see what
+[00:11:48] Codex has to say about this. I don't
+[00:11:50] fully understand what's going on. Okay,
+[00:11:52] so I think it's done. I do believe I
+[00:11:55] need to go refresh this real quick.
+[00:11:58] Build succeeded. Let's see if we can
+[00:12:01] actually communicate with this agent. So
+[00:12:04] I need to go new chat. Hi, I'm Riley.
+[00:12:08] Okay, Jerry's thinking through the
+[00:12:09] build. What's going on? So we're not
+[00:12:12] getting a response. So we need to
+[00:12:13] screenshot this. I'm going to drag this
+[00:12:15] into the chat. I'm going to say, yo, now
+[00:12:18] it's working. It says Jerry is thinking
+[00:12:24] through the build. By the way, like I
+[00:12:27] want to chat with this just like any
+[00:12:28] ordinary agent. The Vibe code CLI skill
+[00:12:31] will allow us to create apps when we ask
+[00:12:33] it. And so we're basically just chatting
+[00:12:35] as this as if this was just Claude code.
+[00:12:37] I can talk to it and so I'm not seeing
+[00:12:38] any response by the agent. And so this
+[00:12:41] should just be like a chat response. And
+[00:12:43] I should get a response when the AI
+[00:12:45] responds. And when we add the Vibe code
+[00:12:48] CLI, it'll respond with a link to our
+[00:12:50] application. That's how this will work.
+[00:12:52] So please focus on making this just be
+[00:12:54] like a chat with the with the Claude
+[00:12:57] agent SDK. And then we'll start adding
+[00:13:00] in the Vibe code functionality and
+[00:13:03] testing if the apps actually open on the
+[00:13:05] phone.
+[00:13:06] Okay, now we're going to wait a little
+[00:13:07] bit longer. So let's run the latest
+[00:13:10] version of this. Let's see how this does
+[00:13:12] here. So I'm going to hit new chat. I'm
+[00:13:14] going to say, hello there. Jerry's
+[00:13:17] thinking. Come on. Yes. Hey, I'm Jerry.
+[00:13:21] What are you building today? Amazing. Do
+[00:13:24] you have access to the Vibe Code CLI.
+[00:13:29] Jerry's thinking. It's not on your
+[00:13:32] machine. Okay. Please write a paragraph
+[00:13:37] of what you have access to. Ooh. Okay,
+[00:13:42] so we need to screenshot this. You can
+[00:13:44] see here. Oh, wow. Wow. Yeah,
+[00:13:45] everything's all messed up. I'm going to
+[00:13:48] go ahead and create a new chat. Oh,
+[00:13:50] yeah. So, by the way, you can create a
+[00:13:52] new thread within the same chat. And
+[00:13:55] here, I just dragged in the image here.
+[00:13:57] So, we have this image showing the
+[00:13:59] formatting is all messed up. This is
+[00:14:00] very messed up. Uh can we fix this,
+[00:14:02] please? I want to make it look like
+[00:14:06] iMessage chat with multiple lines. Make
+[00:14:10] sure everything is aligned. And please
+[00:14:14] have the three dots like in iMessage
+[00:14:20] when AI is responding. And now we're
+[00:14:23] going to wait. Okay, so I believe it is
+[00:14:27] done. Let's take a look here. Let's see.
+[00:14:31] Hello. Ah, the three dots. That's
+[00:14:34] looking pretty good. Hey, what's up?
+[00:14:35] What are we building today? Okay, so it
+[00:14:39] doesn't have access to the Vibe Code
+[00:14:40] CLI. So, I need you to make sure that
+[00:14:45] this agent has access to the Vibe Code
+[00:14:49] CLI and skill, please. What we're going
+[00:14:52] to do here is we're going to go to
+[00:14:54] vibecode.dev.
+[00:14:56] And I'm just going to copy this. These
+[00:14:59] are the installation
+[00:15:02] instructions.
+[00:15:03] You should already have the API key.
+[00:15:08] Make sure this agent SDK
+[00:15:12] does as well. We'll paste this in right
+[00:15:15] here. This is not a real key. You have
+[00:15:19] that. Okay, so let's go ahead and run
+[00:15:20] this latest one here. I want to say,
+[00:15:26] "Hi." Okay, just making sure the chat
+[00:15:28] works. What's up? Do you have access to
+[00:15:32] the Vibe code CLI? Okay, so it's still
+[00:15:37] not I asked the agent it's not
+[00:15:40] downloaded. It need all new agent SDK
+[00:15:45] chats should know it has it installed
+[00:15:50] and have it installed. Okay, so I just
+[00:15:53] did a test and I'm just trying to figure
+[00:15:55] out that in the new project that gets
+[00:15:57] created, I don't see a skills file. So,
+[00:15:59] I gave that to Codex. I think Codex
+[00:16:02] figured it out, so we'll see. I'm going
+[00:16:04] to go ahead and delete the app from my
+[00:16:06] home screen. Now, we're going to rerun
+[00:16:08] it. Okay, now it's open. Okay, now let's
+[00:16:10] go ahead and test it. Do you have access
+[00:16:14] to the Vibe code CLI? Yes, I have access
+[00:16:18] to the Vibe code CLI. Can you please
+[00:16:22] build a simple landing page for Joe and
+[00:16:26] the Juice Smoothies? Make it simple.
+[00:16:30] Let's see. Oh, and look at this. So,
+[00:16:32] since it uses the Vibe code CLI, my Vibe
+[00:16:35] code app, so this is the Vibe code app
+[00:16:37] and you can actually build apps directly
+[00:16:38] on the Vibe code app and I am biased. I
+[00:16:41] am a co-founder, but I think it's better
+[00:16:44] than Replit. It's a lot easier, right?
+[00:16:46] You know, I think the UI is much easier
+[00:16:47] to use. And so now the project's being
+[00:16:49] created. And so now we're going to wait
+[00:16:52] and we should get a link and what we
+[00:16:55] want to be able to do is click the link
+[00:16:57] and stay within the app, right? We
+[00:16:59] shouldn't go to an external browser.
+[00:17:01] Ideally, the browser opens up in the
+[00:17:03] iPhone app and then we'll test it
+[00:17:05] directly in the app. That's our goal at
+[00:17:07] least. Okay, so we got an error. I think
+[00:17:10] maybe something timed out, but let's
+[00:17:12] just go ahead and copy this. Okay, it
+[00:17:14] looks like we got an error. This does
+[00:17:18] take a while to run. It will take like 5
+[00:17:23] minutes or so. I want it to work. So,
+[00:17:28] please figure out what you need to
+[00:17:32] change. Okay, it's done. Let's delete
+[00:17:34] and let's go ahead and try this once
+[00:17:37] again. Please make a simple landing
+[00:17:41] page, please, with the Vibe Code CLI.
+[00:17:44] Bang. Let's see what happens here.
+[00:17:47] All right. I believe it is starting. Yo!
+[00:17:51] So, I just went down to grab some yogurt
+[00:17:54] and I came up and this is what it
+[00:17:56] showed. A literal app preview. So, we
+[00:17:59] have this app. We can get started, learn
+[00:18:01] more. We have this full app. We can
+[00:18:03] close. Uh, it should open it in the
+[00:18:06] preview. Okay. So, I noticed that the
+[00:18:09] app was open in the app preview
+[00:18:11] automatically, but what when I click on
+[00:18:14] any link in the app, it should also open
+[00:18:16] the app preview. Right now, it's taking
+[00:18:18] me out of the app to the link. For
+[00:18:19] whatever reason, I've been having to
+[00:18:21] like fully delete the app every time and
+[00:18:25] rerun it, which means my chat won't be
+[00:18:27] there. I believe it's going to be a new
+[00:18:29] database. So, yeah, all my chats aren't
+[00:18:31] here. So, the way that I'm going to test
+[00:18:33] this is I'm just going to say, "Please
+[00:18:35] show me this link." Ooh, weird. We need
+[00:18:38] to change the color of the links in the
+[00:18:40] input to white. That's not a priority
+[00:18:43] right now. I just want it to just show
+[00:18:44] me the full link right here. Hopefully,
+[00:18:47] I can open it up in the web preview. So,
+[00:18:49] I'm going to paste this. Let's see.
+[00:18:53] Okay. It opened up automatically. I'm
+[00:18:55] going to say, "Look at this. So, do that
+[00:18:58] again." And so, now it automatically
+[00:19:01] opens this little app preview, but we
+[00:19:02] want it so that if we were to click on
+[00:19:04] it, see, it still opens it like in a new
+[00:19:07] menu. So, now, anytime there's any
+[00:19:10] message that has a link, it
+[00:19:11] automatically opens in app, right? It
+[00:19:14] opens in app like and it just kind of
+[00:19:16] automatically pops up and it shows app
+[00:19:19] preview. But when I click one of the
+[00:19:20] links, it doesn't do that. And so I want
+[00:19:23] this to open the preview. Please figure
+[00:19:24] out how to do this. And now we can test
+[00:19:27] this again. Boom. There you go. Okay, so
+[00:19:30] now I want to see what happens if we
+[00:19:32] have it create a mobile app. So I'm
+[00:19:34] going to say, "Please create a mobile
+[00:19:37] app that is a to-do list app in the
+[00:19:42] style of Notion. Make it cool." Okay,
+[00:19:46] let's see how this looks. And while this
+[00:19:47] is loading, let's go back to paper. And
+[00:19:50] if you remember, ooh, this is looking
+[00:19:52] good. So I gave it a prompt earlier.
+[00:19:54] This is very good. I like this a lot. So
+[00:19:57] this is going to be our home page. So
+[00:19:59] I'm going to create a new thread.
+[00:20:00] "Please redesign this page right here.
+[00:20:04] This is the front main page. Keep the
+[00:20:08] settings menu. We need that, but other
+[00:20:12] than that, have it look like this, but
+[00:20:16] add a projects page that can be accessed
+[00:20:21] to see a full page of projects somewhere
+[00:20:25] in the list. Like at the bottom of the
+[00:20:27] list that shows on the main page, it
+[00:20:29] should show see more at the bottom,
+[00:20:31] please." And also, let's see what else
+[00:20:33] we can do here. It's looking good. Yeah,
+[00:20:36] that's basically the only screen that I
+[00:20:37] really want to use. And also, no need to
+[00:20:41] add the attach button. Okay, let's see.
+[00:20:45] Boom. Let's go. There is our app.
+[00:20:50] Testing.
+[00:20:52] We have a basic notes app. We can choose
+[00:20:54] our little thing. Ooh, we can add an
+[00:20:55] item. Hello there. This is me. Well,
+[00:21:00] there you go. We have a little notes
+[00:21:02] app. We have the iOS app rendering. I do
+[00:21:06] want to see if I can just like make this
+[00:21:08] bigger, this web preview. So, let's see
+[00:21:11] here. I want to see is the Is it
+[00:21:16] possible to make the web preview full
+[00:21:20] screen? Actually, more full screen and
+[00:21:24] basically not have the part at the top
+[00:21:29] that is white, right? If we get a
+[00:21:31] screenshot of this, drag this in, the
+[00:21:34] close button can be an overlay and we
+[00:21:38] don't need app preview and we could make
+[00:21:42] the part on the bottom not take up as
+[00:21:47] much as well. Okay, so my other agent is
+[00:21:50] done. Let's go ahead and refresh the
+[00:21:52] app, see what happens here. We tried to
+[00:21:55] redesign the main home page. Let's see
+[00:21:57] if that Oh,
+[00:21:59] what the hell? What the heck? I wanted
+[00:22:03] you to make it look like this. Did I
+[00:22:07] drag the wrong screenshot in? Oh, I'm
+[00:22:11] sorry. I didn't give you an image. I
+[00:22:16] want it to look like the image I just
+[00:22:21] gave you. Sorry. Okay, so this version
+[00:22:24] is done. Let's see if we can run this.
+[00:22:26] So, now we're going to try and run the
+[00:22:28] version that fixed the web preview and
+[00:22:30] in order to test this, what we can do is
+[00:22:32] we can go into our really ugly list
+[00:22:35] here. We can open this up. Okay, it's a
+[00:22:37] little bit ugly. Let's actually open a
+[00:22:40] web app. It's hard to see here. Maybe we
+[00:22:43] should go to the mobile. Yeah, this
+[00:22:45] one's a little bit ugly. Let's drag this
+[00:22:47] in here. Please actually lower it a bit,
+[00:22:52] just a little and the bottom has a lot
+[00:22:56] of wasted space as you can see. Just fix
+[00:23:02] this the best you can. Oh my I I just
+[00:23:05] got I have an idea. I have an idea. I
+[00:23:07] have an idea. Okay, so Twitter opens
+[00:23:09] their links like this. I'm wondering if
+[00:23:12] we can do the same. So, let's close out
+[00:23:14] of this X thing. Okay, so what I'm going
+[00:23:17] to do is I'm going to screenshot this
+[00:23:18] right here. I'm going to drag this in.
+[00:23:21] I'm going to say, "See this screenshot?
+[00:23:23] You see how when I opened it on Twitter,
+[00:23:25] it has the part of the app on the
+[00:23:27] bottom? Can you make that the chat just
+[00:23:29] like put a little chat bubble there
+[00:23:31] where I would type into like in text,
+[00:23:34] you know, that's at the bottom? Just put
+[00:23:35] that there so I can actually type into
+[00:23:38] the message as I use the app. And it
+[00:23:40] should be about this height, so keep it
+[00:23:42] vertically where it is, right? It's very
+[00:23:44] pushed up towards the top. That's okay.
+[00:23:46] I actually want you to have this little
+[00:23:48] overlay, so when you open this up, the
+[00:23:50] little input chat should be there as if
+[00:23:53] in I should be in that same
+[00:23:54] conversation. And then this allows me to
+[00:23:57] like see that I can type while I'm using
+[00:24:00] the app preview. This will be really
+[00:24:02] cool. And put a little voice record
+[00:24:05] button. Uh we'll add voice record later.
+[00:24:07] For now, just put a voice record button
+[00:24:10] there similar to this user interface,
+[00:24:13] but this is kind of how I want it to
+[00:24:15] open when I open one of these links.
+[00:24:16] Okay, so it's done. Let's go ahead and
+[00:24:19] check this out. Let's open it. Let's see
+[00:24:21] how it looks. Boom! There you go. And it
+[00:24:25] has this bottom part so I can type
+[00:24:28] directly into it, right? I can just type
+[00:24:30] into it. It does make it a little bit
+[00:24:32] clunky here. I'm wondering if we could
+[00:24:35] get that to open in an overlay, but
+[00:24:38] that's okay. I think that's good for
+[00:24:40] now. I do want to make this voice thing
+[00:24:41] work. Please make the input area in the
+[00:24:46] chat and in the preview have a voice
+[00:24:51] record button. This should be there when
+[00:24:56] there is nothing typed. So, before
+[00:24:59] anything is typed, it should be a black
+[00:25:03] button with a small sound wave icon. And
+[00:25:09] when pressed, it should make a cool
+[00:25:12] animation when I speak. Subtle, but it
+[00:25:16] should record my voice and enter it in
+[00:25:21] the app or enter it in the text area so
+[00:25:25] I can send a message or type in it
+[00:25:28] without opening keyboard and viewing the
+[00:25:32] app that open on preview. Please use
+[00:25:36] OpenAI Whisper. I'll give you a key if
+[00:25:41] you need it. Okay, so I just made a
+[00:25:42] little quality of life updates here. So,
+[00:25:44] this is basically the final version of
+[00:25:46] our app. So, you can create apps,
+[00:25:49] obviously. And so, here's the Notion app
+[00:25:51] that we created. If we click on a link,
+[00:25:53] this should open up here. We see the iOS
+[00:25:56] app. It's loading the preview. And we
+[00:25:59] just added this new voice feature so I
+[00:26:00] can say, "Please actually make this app
+[00:26:03] light mode. It should be very light
+[00:26:05] gray, like almost white, but light gray,
+[00:26:07] and completely change the font. And then
+[00:26:09] add one feature that you think would be
+[00:26:11] cool." And so, we can just send off
+[00:26:13] prompts while the preview is open, which
+[00:26:15] is pretty cool. And so, now it should
+[00:26:17] just make this change. This should only
+[00:26:19] take like 30 seconds to a minute. Let me
+[00:26:21] see here. And you know what? That's
+[00:26:23] actually one final thing we can do.
+[00:26:25] Please make the bold formatting and
+[00:26:29] bullets, etc., render properly in that
+[00:26:33] because right here it's just like not
+[00:26:34] showing up the right way. But let's see
+[00:26:36] if those changes were made. Yep, so
+[00:26:38] those changes were made. I need to say,
+[00:26:41] "Send preview link." Okay, well, there
+[00:26:44] you have it. I know that this It was
+[00:26:46] hard for me to do this in a structured
+[00:26:48] manner because this is the first time
+[00:26:49] that I've ever built an app like this,
+[00:26:51] but this is what we created, a Swift app
+[00:26:53] that allows us to build apps. And we can
+[00:26:57] open them directly in the app, which I
+[00:27:00] think is pretty cool. And we can even
+[00:27:02] make changes with our voice. And I think
+[00:27:04] this is a really fun experience. Go
+[00:27:06] crazy, add like 30 features, do some
+[00:27:08] crazy All right, I can look at the
+[00:27:10] app, direct the changes, submit the
+[00:27:13] prompt, we see it in this chat-like
+[00:27:15] experience. This is a Swift app. We can
+[00:27:17] ship this to the App Store. Anyway, you
+[00:27:19] guys learned a lot. I hope you guys
+[00:27:21] learned a little bit about Codex. I'm
+[00:27:23] going to do a much deeper guide on Codex
+[00:27:25] in the future. But anyway, thank you
+[00:27:26] guys for watching. Peace.

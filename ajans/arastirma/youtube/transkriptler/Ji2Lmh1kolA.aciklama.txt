@@ -1,0 +1,56 @@
+# 
+# https://www.youtube.com/watch?v=Ji2Lmh1kolA
+
+📘 Book: From Idea to App Store https://cwb.sh/book?r=yt-codex
+
+Build and run a real mobile app on your phone, working on both iOS and Android, using OpenAI's new Codex desktop app, no coding required.
+
+Resources mentioned
+Companion Guide PDF: https://cwb.lemonsqueezy.com/checkout/buy/fef9b539-1e69-46a6-83fd-3f78ae90f11e
+Claude Skills: https://codewithbeto.dev/blog/my-favorite-claude-skills
+AquaVoice (speech-to-text): https://cwb.sh/aqua
+https://youtu.be/sneNR5KnRJU
+
+My Products
+• Pro Access — get access to everything: https://cwb.sh/pro?r=yt
+• React Native Course: https://cwb.sh/rn?r=yt
+• Platano — AI app template: https://cwb.sh/platano?r=yt
+• Inkigo — AI Tattoo (iOS): https://cwb.sh/inkigo?r=yt
+• Quick Push — test push notifications (macOS): https://apple.co/4tvT4wF
+
+Free Resources
+• Newsletter: https://cwb.sh/newsletter?r=yt
+• Discord: https://cwb.sh/discord?r=yt
+
+Support My Work
+• Channel Membership: https://cwb.sh/join
+• GitHub Sponsors: https://github.com/sponsors/betomoedano
+
+Socials
+Follow Beto on X: https://cwb.sh/x?r=yt
+LinkedIn: https://cwb.sh/in?r=yt
+GitHub: https://cwb.sh/gh?r=yt
+Instagram: https://cwb.sh/insta?r=yt
+TikTok: https://cwb.sh/tiktok?r=yt
+Threads: https://cwb.sh/threads?r=yt
+Bluesky: https://cwb.sh/bsky?r=yt
+Facebook: https://cwb.sh/fb?r=yt
+
+Timestamps
+00:00 Intro
+01:25 Step 1: Install Codex (desktop app)
+01:42 Step 2: Install Expo Go (SDK 55 via TestFlight & expo.dev/go)
+04:15 Install Bun
+05:01 Set up Codex + the terminal
+05:39 Create the Expo project
+07:49 Run the app on your phone
+10:08 Install Expo agent skills (Build Native UI)
+10:53 Plan the app with Codex (plan mode)
+14:56 Codex builds the app
+15:48 Add the create-habit feature
+16:14 Test it on Android
+17:05 Recap + take it to the App Store
+17:50 Platform tweaks & dark mode
+18:57 Outro
+
+#codex #ai #claude

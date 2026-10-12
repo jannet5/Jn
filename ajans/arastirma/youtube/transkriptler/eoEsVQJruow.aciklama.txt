@@ -1,0 +1,40 @@
+# 
+# https://www.youtube.com/watch?v=eoEsVQJruow
+
+I built a Swift iOS app that builds apps.. a better, simpler alternative to Replit, built entirely without writing code. Using OpenAI's Codex desktop app, Xcode, and the Claude Agent SDK (Claude Code SDK), I created "Jerry" which is an iMessage style vibe coding app that generates and hosts web and mobile apps through natural conversation.
+
+In this video, I walk through the entire process: 
+-designing the UI in Paper (a Figma alternative for AI agents), 
+-building the Swift app with Codex, 
+-integrating the Claude Agent SDK for AI-powered app generation, 
+-connecting the Vibecode CLI for hosting, 
+-and adding voice input with OpenAI Whisper
+
+Tools used in this build:
+- OpenAI Codex (desktop coding app): https://openai.com/codex
+- Claude Agent SDK (Anthropic): https://docs.anthropic.com
+- Vibe Code CLI: https://vibecode.dev
+- Paper (AI-native design tool)
+- Xcode + Swift
+- OpenAI Whisper (voice input)
+
+Where to find my other content:
+https://x.com/rileybrown
+https://www.linkedin.com/in/riley-brown-7441b1101/
+https://www.instagram.com/realrileybrown/
+https://www.tiktok.com/@rileybrown.ai
+
+TIME STAMPS
+00:00 Intro
+00:38 Why I'm Replacing Replit
+01:35 The Jerry App Concept & Prompt
+03:35 Setting Up Xcode & Codex
+06:08 Designing the UI with Paper
+10:54 First Build & Testing on iPhone
+14:58 Integrating Vibe Code CLI
+17:32 Testing Real App Generation
+24:40 Adding Voice Input
+26:44 Final Demo
+
+#vibecoding #replitalternative #codex More about me: rileybrown.xyz
+Sponsorships: https://rileybrown.xyz/sponsorships

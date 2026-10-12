@@ -1,0 +1,544 @@
+# Build Your First App with Codex (No Experience Needed)
+# https://www.youtube.com/watch?v=Ji2Lmh1kolA
+# kanal: Code with Beto | süre: 1156 sn | kaynak: yt-dlp:web_embedded:Ji2Lmh1kolA.en-orig.json3
+
+[00:00:00] Right now, people who have never written
+[00:00:01] a single line of code are building real
+[00:00:04] applications. The gap between I have an
+[00:00:06] idea and this is on my phone has [music]
+[00:00:09] basically collapsed. A tiny heavy
+[00:00:11] tracker, a game for their kids, a tool
+[00:00:14] to make their job less annoying, a gift
+[00:00:16] for a friend, and for the first time
+[00:00:18] ever, that's actually possible. What
+[00:00:20] unlocks all of it is knowing how to
+[00:00:22] actually use AI tools like OpenAI's new
+[00:00:24] Codex [music] desktop application. So,
+[00:00:26] in this video, we're going to build a
+[00:00:28] real application from scratch and run it
+[00:00:30] on your phone. It will work on Android
+[00:00:32] and iOS. The app itself doesn't really
+[00:00:34] matter. It's just a vehicle. What
+[00:00:36] matters is the workflow. I want to walk
+[00:00:38] you through the exact five-step [music]
+[00:00:39] process I use as a professional
+[00:00:41] developer every time I start a new
+[00:00:43] project. The workflow isn't Codex
+[00:00:45] [music] specific. It works with Cloud
+[00:00:48] Code, Cursor, whatever you use. Today,
+[00:00:50] we're doing one thing: getting an app
+[00:00:52] running on your phone, iOS and Android.
+[00:00:54] That's [music] mile one. If you want to
+[00:00:56] take it all the way to the App Store, I
+[00:00:58] wrote a book on the full process.
+[00:00:59] [music] Yes, the title says Cloud Code,
+[00:01:02] but the workflow is the workflow. Same
+[00:01:04] mental model, any AI you pick. If you're
+[00:01:06] new here, I'm Beto. I've shipped mobile
+[00:01:08] applications at Walmart, then at Expo as
+[00:01:10] a developer success engineer, and now I
+[00:01:13] run Code with Beto full-time. I've used
+[00:01:15] the exact same workflow to ship
+[00:01:17] applications [music] to the App Store,
+[00:01:18] and I've used it to build dumb little
+[00:01:21] projects just for me and my wife. Both
+[00:01:23] are worth it. Let's get into it. All
+[00:01:25] right, let's get down to business. I've
+[00:01:27] prepared a document for you that you can
+[00:01:28] reference. I'm going to leave it in the
+[00:01:30] description. So, the first thing that
+[00:01:32] you need to do is install Codex, the
+[00:01:34] desktop application. Once you install
+[00:01:36] it, it's going to look something like
+[00:01:38] this. Once you open it, we're going to
+[00:01:40] come back to it in a moment. The second
+[00:01:42] thing that you need is install Expo Go
+[00:01:45] in your iOS or Android device. Now, at
+[00:01:48] the time that I'm recording this video,
+[00:01:50] Expo Go latest version is 55, but it's
+[00:01:54] actually not available in the App Store.
+[00:01:56] Expo Go is, by the way, an application
+[00:01:58] that you can find in [music] the App
+[00:02:00] Store. So, if you open the App Store,
+[00:02:03] search for Expo Go, you should see
+[00:02:04] something like this [music] in the App
+[00:02:06] Store or Play Store. But, if you notice
+[00:02:08] here, this is version 54. And I want you
+[00:02:11] to use the latest version, which is 55
+[00:02:14] at the time that I'm recording this
+[00:02:15] video. So, in order to get the version
+[00:02:17] 55 in your phone, you can do it [music]
+[00:02:19] through the beta version. So, to
+[00:02:21] download the beta version, which is SDK
+[00:02:24] 55, you can download TestFlight.
+[00:02:26] TestFlight is an application developed
+[00:02:29] by Apple that allows you to test beta
+[00:02:31] versions of applications before they are
+[00:02:33] released. So, we can join the beta
+[00:02:35] version for SDK 55. So, in your iPhone,
+[00:02:38] go to TestFlight. Download this
+[00:02:40] application if you don't have it yet.
+[00:02:42] Open it. Once you have it, you can
+[00:02:44] actually open this link from your phone,
+[00:02:47] and that will allow you to join the beta
+[00:02:49] [music] version. So, once you join the
+[00:02:51] beta version, you should see it in the
+[00:02:53] list of applications that you are
+[00:02:54] testing. If you notice, Expo Go is using
+[00:02:57] version SDK 55 in the beta version,
+[00:03:00] okay? This is the one we want. I'm going
+[00:03:02] to press install, and after a moment,
+[00:03:05] it's ready for us. We can open it. This
+[00:03:08] is how Expo Go looks like. Now, for
+[00:03:11] Android, it's not available on the Play
+[00:03:13] [music] Store as well. So, in order to
+[00:03:15] install the SDK 55 on Android instead of
+[00:03:19] the one available in the Play Store, you
+[00:03:20] can just go to the expo.dev/go
+[00:03:23] website. And I'm here in my Android
+[00:03:25] device, here in the expo.dev/go
+[00:03:28] website, and you can select the SDK
+[00:03:31] version that you want to use here.
+[00:03:33] >> [music]
+[00:03:33] >> So, select 55. This is the version that
+[00:03:36] we're using, and on Android, press
+[00:03:38] install, download the APK. Once you
+[00:03:41] download it, you can see it in your
+[00:03:43] downloads. This is 55. Go ahead and
+[00:03:45] install it, and open it. Okay.
+[00:03:48] Just to make sure that we're using the
+[00:03:50] correct version, you can go to the
+[00:03:51] settings and the client version is 55,
+[00:03:54] which means we are good to go. Okay, we
+[00:03:56] have codex, we have Expo Go in our
+[00:03:58] phone. I would recommend that you have
+[00:04:01] this log handy, which is my favorite
+[00:04:03] clutch skills. It's going to be
+[00:04:04] available in the document as well. We're
+[00:04:06] going to be using this skill. These are
+[00:04:09] my favorite skills, the ones that I use
+[00:04:11] and are available in my website. Make
+[00:04:12] sure to check them out. That is
+[00:04:14] optional. Then, we need to install
+[00:04:16] [music]
+[00:04:17] bun. Now, bun is actually a tool that
+[00:04:20] allows you to download and manage all
+[00:04:23] the building blocks that our application
+[00:04:25] needs to run. So, this is kind of like a
+[00:04:27] tool that you just need to install once
+[00:04:29] in your computer and you're done. Okay,
+[00:04:32] you can use it every time. You can think
+[00:04:33] of it as the App Store for code because
+[00:04:36] when we start a new project, a new
+[00:04:38] application, we are basically just
+[00:04:40] pulling code from repositories that
+[00:04:43] [music] are available thanks to other
+[00:04:45] developers that have shared the code.
+[00:04:47] Everything is open source. You just have
+[00:04:48] to run this command to install bun. If
+[00:04:51] you're using Mac, copy this. Or if
+[00:04:53] you're using Windows, you can do this
+[00:04:55] through the PowerShell. Copy this
+[00:04:57] command. Next thing that we need to do
+[00:04:59] is go to codex. This is how codex looks
+[00:05:01] like. Super simple. I actually don't
+[00:05:03] have a project set up here, but that's
+[00:05:07] okay. First thing that I want to do is
+[00:05:08] install bun. So, on the top right, I'm
+[00:05:11] going to press this icon to open this
+[00:05:13] window down here. And in here, I'm going
+[00:05:16] to select terminal. Once you open the
+[00:05:18] terminal, paste the command we copied.
+[00:05:22] It's going to look something like this.
+[00:05:24] And hit [music] enter. After a moment,
+[00:05:26] it is installed. And you can verify it
+[00:05:29] by typing bun
+[00:05:31] version like this.
+[00:05:33] And you should see something like this.
+[00:05:35] Congratulations, you have bun. And at
+[00:05:37] this point, we are ready to create our
+[00:05:38] project. [music]
+[00:05:39] Let's go back to the document. And
+[00:05:41] actually, I added two commands that you
+[00:05:44] can use with bun now that we have it
+[00:05:46] installed. To create a new Expo project
+[00:05:48] using the template [music]
+[00:05:49] with the SDK version that we are using.
+[00:05:52] If you remember, we're using 55, but if
+[00:05:55] for any reason you cannot use 55 [music]
+[00:05:58] at the time that you are watching this
+[00:05:59] video, you can also run the command with
+[00:06:02] the version 54, which is the one
+[00:06:04] available in the App Store. It's a bit
+[00:06:06] older, but still works. [music] Now, if
+[00:06:09] the latest version at the time that you
+[00:06:10] are watching this video is 56, you just
+[00:06:12] [music] go ahead and replace this 55 for
+[00:06:14] a 56.
+[00:06:15] Right now, we're using 55. Let's copy
+[00:06:18] this command.
+[00:06:19] >> [music]
+[00:06:19] >> This command is going to help us create
+[00:06:21] the project. Okay, so in my codex, I'm
+[00:06:24] going to select the folder that I want
+[00:06:27] to work on. Let's select add new project
+[00:06:29] and use [music] an existing folder. Now,
+[00:06:33] I like to create my applications in my
+[00:06:35] apps folder. I have this folder in my
+[00:06:38] desktop, so you can select any folder
+[00:06:40] that you want to create your
+[00:06:41] application. You can select desktop if
+[00:06:43] you want, but I'm going to create it
+[00:06:45] inside my apps. Let's open this folder.
+[00:06:49] Now, again, let's go to the icon here to
+[00:06:52] open the terminal. I'm going to select
+[00:06:54] [music] terminal, and now if you're
+[00:06:56] notice, we are inside the apps folder.
+[00:06:59] This is where I want to paste my
+[00:07:01] command, create Expo with template 55.
+[00:07:04] Now, you might be wondering why we
+[00:07:06] cannot just prompt codex to create this
+[00:07:09] project. In my experience, it's just a
+[00:07:11] waste of expensive tokens. [music] And
+[00:07:14] if you're a little bit scared about the
+[00:07:15] terminal, don't worry, it's not that
+[00:07:17] bad, and you actually need to become
+[00:07:19] familiar with the terminal because
+[00:07:20] you're going to be running many commands
+[00:07:22] as you develop your application. So,
+[00:07:24] let's hit enter. This is going to ask
+[00:07:26] me, "What is my app name?" Today, we're
+[00:07:29] building a habit tracker. Say, "Habit
+[00:07:32] tracker." And I'm going to say, "Codex."
+[00:07:34] You can name it whatever you want, but
+[00:07:36] this is just the name of the folder that
+[00:07:39] we are creating. So, let's hit enter.
+[00:07:41] >> [music]
+[00:07:42] >> This is going to create the project
+[00:07:44] using SDK 55. So, you should see
+[00:07:46] something like this. The project is
+[00:07:48] ready.
+[00:07:49] Okay, we're good. We created the
+[00:07:51] project. Now,
+[00:07:53] let's go ahead and close this. Let's
+[00:07:55] change the working directory. Again,
+[00:07:57] let's use an existing folder. Inside the
+[00:08:00] apps, now you'll [music] notice that I
+[00:08:01] have my Habit Tracker Codex project that
+[00:08:04] I just created. So, let's select this
+[00:08:07] one. Okay, now we are positioned in the
+[00:08:09] Habit Tracker Codex application. Now,
+[00:08:12] let's go ahead and start the project so
+[00:08:15] that we can see how this looks like. I'm
+[00:08:17] going to again open my terminal. You can
+[00:08:20] open it on the right or at the bottom.
+[00:08:23] Doesn't really matter. I'm going to
+[00:08:24] close this one. This is the one that we
+[00:08:26] used to create the project. Let's open a
+[00:08:29] new one.
+[00:08:30] >> [music]
+[00:08:30] >> Select again a terminal. Now, notice
+[00:08:33] that we are inside the Habit Tracker
+[00:08:35] Codex. This is good. This is where we
+[00:08:37] want to run the commands to start
+[00:08:39] [music] the project. So, in here, you
+[00:08:41] can type MPX Expo start and hit enter.
+[00:08:45] After a moment, you should see a QR code
+[00:08:48] like this. And Expo Go is running.
+[00:08:50] [music] This is basically us starting
+[00:08:53] the application so that we can see what
+[00:08:55] we have so far. So, let's scan this QR
+[00:08:57] code with our phone. So, I'm going to
+[00:08:59] bring my phone. I already have Expo Go
+[00:09:01] installed. And what I'm going to do now
+[00:09:02] is just open the camera and scan this QR
+[00:09:06] code. You should see something that says
+[00:09:08] open in Expo Go. Press open in Expo Go.
+[00:09:11] Okay, and you are going to see something
+[00:09:13] like this. The reason for this is that
+[00:09:15] now Expo requires you to have an Expo
+[00:09:18] [music] account to be able to use Expo
+[00:09:20] Go. So, you need to sign in to your
+[00:09:21] account. You can just go to the profile
+[00:09:23] here. Okay, I have signed in. Let me try
+[00:09:26] this again. I'm going to scan the QR
+[00:09:28] code, open in Expo Go. And this time
+[00:09:30] it's going to work. All right, this is
+[00:09:31] how it looks. We have an application
+[00:09:34] running in our phone. And it's actually
+[00:09:36] compatible with light mode. So, if I
+[00:09:38] switch to light mode, everything is
+[00:09:39] going to work just great on a physical
+[00:09:41] device. How [music] cool is that? You
+[00:09:43] can do the same for Android. Once we
+[00:09:45] have the application running, we can
+[00:09:46] actually just close the terminal, and
+[00:09:48] it's going to still running. You can
+[00:09:49] always go back at any time. It looks
+[00:09:51] something like that. Another thing to
+[00:09:53] notice in Expo Go is that you might need
+[00:09:55] to refresh the application. So, you can
+[00:09:57] press this settings button, and then
+[00:09:59] press reload. [music] So, anytime that
+[00:10:01] you need to refresh, if you make changes
+[00:10:03] and you don't see them, just reload, and
+[00:10:05] should be able to see some changes. Now,
+[00:10:07] before we actually start planning for
+[00:10:09] our application, I want to install some
+[00:10:11] agent skills for Expo, which is what
+[00:10:13] we're using to develop our application.
+[00:10:15] So, on the left side, we can go to the
+[00:10:17] plugins, close this, and search for
+[00:10:19] Expo. Here it is. These are agent skills
+[00:10:23] that you can use to develop your
+[00:10:24] application. The one that [music] we
+[00:10:26] care right now is building native UI.
+[00:10:28] Building native UI skill allows CodeX
+[00:10:31] and the agents that you're using to
+[00:10:32] create beautiful UIs using native
+[00:10:35] [music] components. So, apart from that,
+[00:10:37] I don't really care about these skills
+[00:10:39] at the moment, so you can just turn them
+[00:10:41] off, and just press add to CodeX, and
+[00:10:44] install Expo, [music] and the plugin has
+[00:10:46] been installed. Okay, perfect. So, we
+[00:10:47] can go back to the Habit Tracker.
+[00:10:49] [music] Just press this little icon, and
+[00:10:51] you should come back to this view. Okay,
+[00:10:53] so at this point, we are ready to plan
+[00:10:55] for our application. With CodeX, you can
+[00:10:57] select, [music] by the way, the
+[00:10:59] reasoning level. I'm going to use high
+[00:11:01] for now. You can use extra high, and
+[00:11:03] also select [music] any other model if
+[00:11:04] you prefer. I would recommend 5.5, which
+[00:11:06] is the latest. Now, to plan, you can use
+[00:11:09] the slash command, and then plan mode.
+[00:11:11] [music] Click on it, you'll notice that
+[00:11:13] it is here now. So, now we plan for our
+[00:11:15] application. Planning is very important,
+[00:11:17] especially if you're building something
+[00:11:18] serious, you're going to get better
+[00:11:20] results by being as specific as
+[00:11:22] possible, and this is something that I
+[00:11:23] cover in my book. But, for a simple
+[00:11:25] habit tracker, just to show you how you
+[00:11:27] can do this, we can say something like,
+[00:11:29] "Let's create a plan to build a habit
+[00:11:31] tracker application. I care about a
+[00:11:34] minimalistic UI at the moment. Use the
+[00:11:36] built-native UI export skill when
+[00:11:39] building the UI. For each habit tracker,
+[00:11:42] I care about having a title,
+[00:11:44] description, and an emoji, and a color
+[00:11:47] for each habits that we want to track. I
+[00:11:49] want to have two tabs, one for my home
+[00:11:51] screen, one for my settings, where I can
+[00:11:54] toggle settings uh for the application.
+[00:11:57] I'm not exactly sure at the time which
+[00:11:59] settings I want to have, but definitely
+[00:12:01] we need the settings screen. There we
+[00:12:03] go. So, apart from that, I'm thinking
+[00:12:05] that I also want to store the [music]
+[00:12:07] habits, right? Everything I want to
+[00:12:09] store it locally on a database. Uh so,
+[00:12:12] for that, we can use SQLite, which is a
+[00:12:14] database that lives on the phone. So,
+[00:12:16] let's ask Codex to plan for that. All
+[00:12:19] the habits and the progress in the
+[00:12:21] application, I want it to save locally
+[00:12:24] using an SQLite database, [music] so
+[00:12:26] that we don't lose any progress.
+[00:12:28] Now, since this is the first time that
+[00:12:29] we're running this, this is the first
+[00:12:31] time that we are kind of like touching
+[00:12:32] the project, you can be vague. You can
+[00:12:35] ask Codex for ideas if you don't have,
+[00:12:37] right? So, I think this is good to start
+[00:12:39] working. Let's hit enter.
+[00:12:41] Okay, and after a moment, Codex is going
+[00:12:43] to ask me a couple things about the
+[00:12:45] plan. This is great. This is where we
+[00:12:47] actually decide which features we want
+[00:12:50] to implement. So, for example, what
+[00:12:51] should habit progress mean in V1, right?
+[00:12:54] Daily check-in, weekly targets,
+[00:12:56] quantified counts, or you can write
+[00:12:58] something else down here. So, I'm going
+[00:12:59] to keep it simple for now, just select
+[00:13:01] the recommended. Now, how much habit
+[00:13:03] management should be one include? This
+[00:13:05] is the recommended. I'm going to select
+[00:13:07] this one, but CRUD basically means
+[00:13:08] create, read, update, and delete habits,
+[00:13:11] okay? So, let's select this one. Now,
+[00:13:13] which platform scope should the plan
+[00:13:15] optimize for? Mobile first. You can also
+[00:13:17] select a specific iOS version or Android
+[00:13:20] version, okay? So, mobile. And after a
+[00:13:22] moment, Codex comes up with the plan.
+[00:13:25] Okay, so let's check the plan. The
+[00:13:26] summary is that we're building a
+[00:13:28] mobile-first Expo as a gift 55 heavy
+[00:13:31] tracker. It looks good. It's the version
+[00:13:33] that we're using. Going to use
+[00:13:34] minimalistic native UI, two tabs,
+[00:13:37] basically all we asked for. Now, since
+[00:13:39] I'm technical, I'm happy that it's
+[00:13:41] actually using this package, which is
+[00:13:42] Expo SQLite to preserve the packages,
+[00:13:45] but if you're not technical, don't worry
+[00:13:47] about this. The thing that I would look
+[00:13:49] for, especially if you're not familiar
+[00:13:50] with coding and stuff, is just the shape
+[00:13:53] of the data that you want to handle in
+[00:13:55] your application. For example, this is
+[00:13:56] the data model. This is very important
+[00:13:58] and anyone can understand this. Each
+[00:14:00] habit is going to have a title,
+[00:14:02] description, emoji, color, when it was
+[00:14:04] created, when it was updated. All this
+[00:14:06] it's really good. But, if you have
+[00:14:08] something in specific that you would
+[00:14:10] like to track, it's a good idea to have
+[00:14:13] it from the first prompt. Before Codex
+[00:14:16] starts coding, it's a good idea to have
+[00:14:18] the data model that you want. Because
+[00:14:20] changing it usually means having to
+[00:14:22] change the database and also the UI and
+[00:14:25] refactor the entire application. So, if
+[00:14:27] you change the data model as less as
+[00:14:29] possible, it's going to make changing
+[00:14:31] the application and maintaining it and
+[00:14:32] adding more features easier. That said,
+[00:14:35] if you really want to update the data
+[00:14:36] model, you can do it later on. It's also
+[00:14:38] going to track the habit entries [music]
+[00:14:40] and the settings. This is really good
+[00:14:42] because for each setting we're going to
+[00:14:44] have a key and value. For example, you
+[00:14:46] can enable haptics or hide the completed
+[00:14:49] habits. Now, this is the time to push
+[00:14:51] back in case you're not happy with the
+[00:14:52] plan or you want something else. Just
+[00:14:55] let Codex know. So, what I'm going to do
+[00:14:56] here is just go ahead and approve it and
+[00:14:59] just wait for it. Okay, so Codex is
+[00:15:01] going to ask me to run these commands.
+[00:15:03] So, I'm going to say yes and don't ask
+[00:15:05] again. This is good because it's
+[00:15:06] installing basically some pieces of code
+[00:15:09] to add the functionality that we want.
+[00:15:11] If this is your first time, I would
+[00:15:13] recommend to just accept everything.
+[00:15:14] Okay, Codex is working and as Codex
+[00:15:17] changes code in the application, it
+[00:15:19] might break a couple things in your app.
+[00:15:20] And maybe you are going to see something
+[00:15:21] like this. It's a red scary screen. Uh
+[00:15:24] you can just dismiss it, then try again.
+[00:15:26] And now this is basically like reloading
+[00:15:29] the application, and now I can actually
+[00:15:30] see the application that we're building.
+[00:15:32] Now this is a bit funny. I think Codex
+[00:15:34] is starting to trip, and this is
+[00:15:36] something that you might encounter. It's
+[00:15:38] not allowing me to create new habits,
+[00:15:40] right? So, what I want to do is just Now
+[00:15:42] that we have a solid foundation, we
+[00:15:44] actually have the screens that we want.
+[00:15:46] Let's go ahead and open a new chat here.
+[00:15:48] Let's start from zero, and let's prompt
+[00:15:50] directly, because now we have the
+[00:15:52] foundation. We don't need to make a
+[00:15:53] plan. I'm just going to say add a way to
+[00:15:56] create new habits. Add a button at the
+[00:16:00] top right plus icon with an input and a
+[00:16:04] way to select an emoji and all the
+[00:16:09] entries for a habits. Okay, let's hit
+[00:16:13] enter. Okay, so here's my Android
+[00:16:14] device, and Expo Go on Android actually
+[00:16:17] has a scan QR code button that you can
+[00:16:19] use. Then scan the code.
+[00:16:21] It's going to load the application.
+[00:16:22] Let's see how this looks. Perfect. So,
+[00:16:25] this works on Android as well. Go to the
+[00:16:27] settings screen. The toggles look a bit
+[00:16:29] different, but overall we have the same
+[00:16:32] functionality. Okay, so after a moment,
+[00:16:34] Codex has implemented the plus button,
+[00:16:37] and I can see it now on my phone. Let's
+[00:16:40] add a new item. I'm going to say hello
+[00:16:42] world, and you can add a nice
+[00:16:44] description here. It's really cool that
+[00:16:46] we can select an emoji here. I don't
+[00:16:48] know, could be go for a run. We can
+[00:16:50] select a color like I asked at the
+[00:16:52] beginning. So, let's save this habit.
+[00:16:54] It's amazing, and it looks really nice,
+[00:16:56] and we can toggle it. But I don't see
+[00:16:58] it. So, let's go to the settings screen.
+[00:17:00] Let's disable the hide completed, and
+[00:17:02] now I can see it and toggle it. Okay,
+[00:17:05] pause for a second. You just got a real
+[00:17:08] application running on your phone, and
+[00:17:10] it also has dark mode.
+[00:17:12] How amazing is that? This is a real
+[00:17:14] application running on your phone using
+[00:17:17] AI. That's mile one. Now, if you want to
+[00:17:20] take it to the App Store, that's exactly
+[00:17:22] what I wrote my book around. [music] It
+[00:17:23] picks up right where this video ends.
+[00:17:25] App icons, screenshots, permissions,
+[00:17:28] surviving Apple's rejections emails, and
+[00:17:30] the whole submission process. It's the
+[00:17:32] same workflow that you just learned all
+[00:17:34] the way to life in the store. There's
+[00:17:36] also a chapter on agent skills that will
+[00:17:39] save you weeks. The link is in the
+[00:17:40] description, and yeah, the title says
+[00:17:42] cloud code, but [music] it's the same
+[00:17:44] mental model or any AI, too. So, if you
+[00:17:46] want to support my work, link is in the
+[00:17:48] description, and let's go back to
+[00:17:49] building. So, from here, what I do is
+[00:17:51] just make sure that the application is
+[00:17:53] working nicely. On Android, I'm going to
+[00:17:56] just hide the button that it's pretty
+[00:17:58] annoying. I can press the button, but if
+[00:18:00] you notice, we're missing the icon
+[00:18:02] [music] on Android, but the
+[00:18:03] functionality is pretty much the same.
+[00:18:05] From here, you can just ask Cortex to do
+[00:18:08] the changes that you want. Let's add
+[00:18:10] these habits. There we go. You can
+[00:18:11] toggle it as well. And if you want to
+[00:18:13] apply changes to a platform
+[00:18:16] specifically, like on Android, I would
+[00:18:18] like to have a padding here,
+[00:18:20] you can prompt something like make
+[00:18:22] [clears throat] sure that Android has a
+[00:18:23] nice padding top above the header. Leave
+[00:18:26] Leave iOS as it is. Cortex knows that it
+[00:18:29] can make changes to a specific platform.
+[00:18:32] Let's go back to Android and iOS, and
+[00:18:35] now you'll see the difference between
+[00:18:37] the header on the left, we got the
+[00:18:40] update right there, and iOS remained the
+[00:18:42] same. You can again shake and refresh to
+[00:18:45] make sure that we are on the latest
+[00:18:48] changes.
+[00:18:49] And this just looks amazing. Now, I'm
+[00:18:51] going to toggle dark mode. It's
+[00:18:53] completely compatible with dark mode.
+[00:18:56] So, how cool is that? Congratulations,
+[00:18:58] if you made it this far, you have a real
+[00:19:00] application running on your phone. It
+[00:19:03] works on Android, iOS. It has light and
+[00:19:05] dark mode, [music]
+[00:19:06] and you're ready to put it on the store.
+[00:19:08] If you want to go further, the link of
+[00:19:10] the book is in the description. [music]
+[00:19:11] And if you want to keep building with
+[00:19:13] AI, check out this other video. I'll see
+[00:19:14] you there.

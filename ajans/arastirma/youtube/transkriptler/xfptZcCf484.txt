@@ -1,0 +1,548 @@
+# How to Build Your First App with Claude Code (FREE)
+# https://www.youtube.com/watch?v=xfptZcCf484
+# kanal: Mikey No Code | süre: 1243 sn | kaynak: yt-dlp:web_embedded:xfptZcCf484.en-orig.json3
+
+[00:00:00] Have you ever had an app idea, but
+[00:00:02] thought building it was way too
+[00:00:04] complicated or expensive? Well, what if
+[00:00:07] I told you that you can build your first
+[00:00:10] app with Cloud Code completely for free,
+[00:00:13] >> [music]
+[00:00:13] >> and it's actually a lot easier than you
+[00:00:15] think? Because most people do believe
+[00:00:17] that you need years of coding
+[00:00:19] experience, a computer science degree,
+[00:00:22] or maybe even thousands [music] of
+[00:00:24] dollars to create an app. But here's the
+[00:00:26] thing, that's just not true, not
+[00:00:29] anymore. With AI tools like Cloud Code,
+[00:00:31] you can literally go from having an idea
+[00:00:33] in your head to a working app that
+[00:00:36] people can actually use in just a
+[00:00:38] [music] few hours, not months. So, in
+[00:00:40] this video, I'm going to go ahead and
+[00:00:42] walk you through the entire process step
+[00:00:45] by step to get that accomplished. We're
+[00:00:47] going from idea to building to actually
+[00:00:49] getting your app live and running. I'm
+[00:00:51] going to show you exactly how to do it.
+[00:00:53] I'm going to keep everything simple so
+[00:00:55] that anyone can follow along, and I'll
+[00:00:57] even share the biggest mistakes that
+[00:01:00] beginners make so you can avoid them
+[00:01:02] completely. Plus, I'm also going to show
+[00:01:04] you how to turn your app into something
+[00:01:06] genuinely useful, [music]
+[00:01:08] and maybe even profitable, too. So, that
+[00:01:11] by the end of this video, you're going
+[00:01:12] to have your very own first working app
+[00:01:15] live on the internet, [music] and you're
+[00:01:16] going to realize that building apps
+[00:01:18] isn't this impossible mountain to climb.
+[00:01:21] It's actually pretty straightforward
+[00:01:23] once you know the right approach. And
+[00:01:26] the best part yet, everything that I'm
+[00:01:28] about to show you today in this video
+[00:01:30] costs absolutely nothing to get started.
+[00:01:33] So, if you've ever wanted to bring an
+[00:01:35] app idea to life, then this is your
+[00:01:37] [music] chance to finally make it
+[00:01:39] happen. Now, if you want to master AI
+[00:01:41] tools, and you want to learn how to
+[00:01:43] build profitable mobile apps with AI,
+[00:01:45] SaaS apps, websites, and AI agents, then
+[00:01:48] I've created a complete masterclass that
+[00:01:50] shows you exactly how to do it all step
+[00:01:53] [music] by step. And this masterclass
+[00:01:55] normally costs $299 to join, but since
+[00:01:59] you are watching this video, I'm
+[00:02:00] thankful you can also join completely
+[00:02:02] free. All you got to do is check out
+[00:02:04] that link in the description below to
+[00:02:05] get free access [music] to my
+[00:02:06] masterclass, and you too can start
+[00:02:08] building your own AI-powered business
+[00:02:10] today. So, if you've been looking into
+[00:02:12] building apps with AI, then Claude code
+[00:02:15] is usually one of the first tools that
+[00:02:17] does come up. Now, on paper, it sounds
+[00:02:20] simple. You simply describe what you
+[00:02:22] want, and then the AI generates the code
+[00:02:24] for you. And that makes it seem like you
+[00:02:26] can go straight from idea to finished
+[00:02:28] app just by learning how to prompt it
+[00:02:31] properly, right? [music]
+[00:02:32] But once you actually try working with
+[00:02:34] it directly, then the process becomes a
+[00:02:37] lot more involved. Because Claude
+[00:02:39] [music] code still expects you to
+[00:02:40] understand how applications are built
+[00:02:42] from the ground up. You're working with
+[00:02:46] development environments really, and
+[00:02:48] you're organizing your files, and making
+[00:02:50] sure different parts of the system all
+[00:02:52] connect properly. Also, hosting isn't
+[00:02:55] handled for you here, so you need to set
+[00:02:57] that up yourself, too. And the same goes
+[00:02:59] for databases and user authentication,
+[00:03:02] which then means configuring external
+[00:03:04] services and making sure, again, that
+[00:03:07] all of that everything communicates
+[00:03:09] correctly. And even when the code is
+[00:03:12] generated quickly enough, turning that
+[00:03:14] into something usable does take more
+[00:03:16] time. Getting a stable working app can
+[00:03:18] take weeks or even months, especially if
+[00:03:21] you run into bugs or integration issues.
+[00:03:24] Security is another factor as well that
+[00:03:26] needs attention since [music] it really
+[00:03:28] is your responsibility to make sure that
+[00:03:30] everything is set up correctly and
+[00:03:32] protected. So, at that point, the focus
+[00:03:35] then shifts away from your idea and more
+[00:03:38] towards managing all of those technical
+[00:03:41] pieces behind it. And the process starts
+[00:03:43] to feel less like building an app and
+[00:03:45] more like handling the responsibilities
+[00:03:48] of a full developer. And there's a more
+[00:03:50] [music] practical way to approach this
+[00:03:52] instead because Base 44 can simplify
+[00:03:55] that entire workflow by acting as a sort
+[00:03:57] of wrapper around Claude code. It still
+[00:04:00] runs on Claude as the underlying
+[00:04:02] language model, so the intelligence and
+[00:04:04] the capability, those are still there,
+[00:04:06] but everything around it is structured
+[00:04:09] to help you actually build and launch
+[00:04:11] applications. So that difference shows
+[00:04:14] up right away in how easy it is to use.
+[00:04:17] The platform removes most of that
+[00:04:20] technical friction, which then makes it
+[00:04:22] much faster to go from, again, idea to
+[00:04:24] working app. It's also more reliable for
+[00:04:28] real applications because the core
+[00:04:30] systems are already configured in the
+[00:04:33] background for you. So scaling doesn't
+[00:04:35] require extra setup, either. So you've
+[00:04:37] got hosting, databases, authentication,
+[00:04:40] and deployment that are already built
+[00:04:42] into the platform in Base 44. So you're
+[00:04:45] not assembling those parts manually. So
+[00:04:47] everything is ready to go from the
+[00:04:49] start. Now, working directly with Claude
+[00:04:52] code still requires some technical
+[00:04:55] knowledge to make something actually
+[00:04:57] functional, but using Base 44 shifts
+[00:05:00] that responsibility away from you, so
+[00:05:02] your attention stays on what the app
+[00:05:05] should do rather than how to build it.
+[00:05:07] So the simplest way to look at it is
+[00:05:10] like this. [music] Base 44 gives you
+[00:05:12] Claude's intelligence, but inside a
+[00:05:14] complete app development platform that's
+[00:05:17] already set up and ready to use.
+[00:05:19] >> [music]
+[00:05:19] >> Getting started is usually where most
+[00:05:22] people do get stuck, especially when a
+[00:05:24] platform asks for payment details before
+[00:05:27] you've even tried anything at all. But
+[00:05:29] Base 44 removes that completely because
+[00:05:31] now you can just jump in and you can
+[00:05:32] start building right away without having
+[00:05:35] to enter your credit card, which just so
+[00:05:37] makes it a much easier actual way to
+[00:05:40] test things [music] and see how it works
+[00:05:42] for yourself. Now, what's important here
+[00:05:44] is that the free tier is not limited the
+[00:05:47] way most platforms are because you still
+[00:05:49] get full access to Claude AI. So,
+[00:05:51] there's no drop in quality or
+[00:05:53] capability. Also, that same intelligence
+[00:05:56] that powers advanced [music]
+[00:05:58] builds is available from the start,
+[00:06:00] which means you're not working with a
+[00:06:02] stripped-down version just because
+[00:06:05] you're on a free plan. So, everything
+[00:06:08] around the AI is already set up as well.
+[00:06:11] So, that means the infrastructure is
+[00:06:13] professional-grade, which includes
+[00:06:15] hosting and security that would normally
+[00:06:17] cost a significant amount more if you
+[00:06:20] were setting it up all on your own. So,
+[00:06:22] that entire layer is handled in the
+[00:06:24] background for you [music] and you're no
+[00:06:25] longer dealing with configuration or
+[00:06:28] external services just to get something
+[00:06:30] running. So, the platform itself already
+[00:06:33] covers that full development process
+[00:06:35] >> [music]
+[00:06:35] >> and that means you've got databases,
+[00:06:38] authentication, deployment tools, and
+[00:06:40] even security scanning already built
+[00:06:42] into Baseplate 44. You're not connecting
+[00:06:45] multiple services or figuring out how to
+[00:06:47] make them work together. It's all
+[00:06:49] accessible from the moment you start
+[00:06:52] without paying anything up front. So,
+[00:06:54] when you do build something, it doesn't
+[00:06:56] just stay inside an editor. You can
+[00:06:59] publish it immediately
+[00:07:00] >> [music]
+[00:07:00] >> and your app then goes live without any
+[00:07:03] extra setup at all. There's no separate
+[00:07:05] deployment step or you manually having
+[00:07:08] to configure anything that you have to
+[00:07:10] worry about. So, if you look at
+[00:07:12] everything included, it's honestly just
+[00:07:14] way more than what most paid development
+[00:07:17] platforms offer because you're getting a
+[00:07:19] complete environment already to build
+[00:07:22] real applications from the get-go, of
+[00:07:25] course powered by Claude, without the
+[00:07:27] usual barriers that stop people from
+[00:07:29] even getting started. So, now let's go
+[00:07:31] ahead and build an actual app and I'm
+[00:07:33] doing this entirely inside of Baseplate
+[00:07:35] 44, which again uses Claude as its
+[00:07:37] language model. And for this example,
+[00:07:39] we're going to create a personal task
+[00:07:42] management app, but not just a basic
+[00:07:45] checklist either. The goal here is to
+[00:07:47] build something smarter with features
+[00:07:49] that help users organize their tasks,
+[00:07:51] [music] to track their progress, and
+[00:07:53] manage everything from a clean
+[00:07:55] dashboard. So, before building anything,
+[00:07:58] I am going to use Base 44's plan mode
+[00:08:01] here with Claude Opus 4.7 selected as
+[00:08:04] the main AI model. And this matters
+[00:08:06] because planning first helps Claude
+[00:08:08] understand the app properly before it
+[00:08:10] starts generating the structure. It can
+[00:08:13] ask us questions, it can organize the
+[00:08:16] architecture, it can decide how the
+[00:08:18] features should fit all together. And
+[00:08:20] the prompt I'm using is this: I want to
+[00:08:23] build a personal task management
+[00:08:25] application. The app should include user
+[00:08:28] registration and login, a main
+[00:08:30] dashboard, task creation and management,
+[00:08:34] smart categorization, progress tracking
+[00:08:37] and analytics, and mobile-responsive
+[00:08:38] [music]
+[00:08:39] design. Can you help me plan out the app
+[00:08:42] architecture and features before we
+[00:08:44] start building? And once that's entered
+[00:08:47] in, Base 44 starts mapping out the app
+[00:08:49] for us before even jumping into the
+[00:08:52] build. So, basically here, we're giving
+[00:08:54] it the full direction from the very
+[00:08:56] beginning: user registration and login,
+[00:08:58] task creation and management, smart
+[00:09:00] categorization using Claude's
+[00:09:02] intelligence. And all of that, including
+[00:09:05] progress tracking, analytics, and a
+[00:09:07] responsive layout that works well on
+[00:09:09] mobile. So, this planning stage here is
+[00:09:12] important because it keeps our app from
+[00:09:15] becoming just messy later on. Instead of
+[00:09:17] randomly adding features one by one, now
+[00:09:20] Claude, through Base 44, helps organize
+[00:09:23] the foundation first so that the right
+[00:09:25] features are built in the right order.
+[00:09:28] But here's the thing, and as you've seen
+[00:09:29] here, Base 44 is incredibly powerful,
+[00:09:32] but a lot of people still don't know how
+[00:09:33] to use it properly. They end up building
+[00:09:36] these basic apps that don't make money
+[00:09:38] or websites that can't even convert. So,
+[00:09:41] that's exactly why I created my own
+[00:09:44] complete Base 44 Masterclass. And inside
+[00:09:47] my course, I'm going to show you
+[00:09:48] step-by-step how to build profitable
+[00:09:51] SaaS businesses and high-converting
+[00:09:53] websites, along with, of course, mobile
+[00:09:56] apps, all using AI with zero coding
+[00:09:58] required. You're going to learn how to
+[00:10:01] build SaaS apps that solve real problems
+[00:10:04] and generate recurring revenue. Also,
+[00:10:06] the exact prompts and the strategies
+[00:10:08] that I use to create professional
+[00:10:10] websites in minutes, along with how to
+[00:10:13] clone, yes, clone successful apps and
+[00:10:15] then add your own profitable twist, and
+[00:10:18] my proven system for turning Base 44
+[00:10:19] projects into actual income streams. So,
+[00:10:22] this is not just theory. I'm going to
+[00:10:24] walk you through those builds. I'm going
+[00:10:26] to show you my exact process, and of
+[00:10:28] course, I'm going to give you the
+[00:10:28] templates and the frameworks that have
+[00:10:31] also helped my students launch their own
+[00:10:33] successful AI-powered businesses.
+[00:10:35] [music]
+[00:10:35] So, again, this masterclass normally
+[00:10:37] costs $299 to join, but only for the
+[00:10:40] people that are watching this video,
+[00:10:42] thank you very much, you can go ahead
+[00:10:44] and join completely free. So, if you're
+[00:10:45] serious, and I hope you are, about
+[00:10:47] building something profitable with AI in
+[00:10:49] 2026, you got to click that link in the
+[00:10:52] description below to join my Base 44
+[00:10:55] Masterclass. I promise you, your future
+[00:10:57] self will thank you for taking action
+[00:10:58] today instead of just watching another
+[00:11:00] tutorial. All right, so going back to
+[00:11:02] the build now, after confirming that
+[00:11:04] plan, the next step is turning that
+[00:11:06] structure into a working application
+[00:11:09] using Base 44's app building feature, of
+[00:11:11] course, again, powered by Claude. And
+[00:11:13] the moment the build starts, as you can
+[00:11:15] see, everything just begins coming
+[00:11:17] together automatically. The
+[00:11:19] authentication system is already handled
+[00:11:21] natively within Base 44, so user
+[00:11:24] registration and login are set up right
+[00:11:26] from the beginning without any extra
+[00:11:28] steps from our end. So, there's no No to
+[00:11:30] connect external services or manually
+[00:11:33] create login flows. So, as the app is
+[00:11:35] generated here, Base44 builds the core
+[00:11:38] systems in the background. So, the task
+[00:11:40] database is created, the task management
+[00:11:43] functionality is already implemented for
+[00:11:45] us, and the interface along with
+[00:11:47] navigation is designed in real time.
+[00:11:50] [music] Also, user profiles and
+[00:11:52] preferences are set up all behind the
+[00:11:53] scenes as well, which means that the app
+[00:11:56] is being built as a complete [music]
+[00:11:58] product now, not just a visual layout.
+[00:12:00] And this is where Claude's role becomes
+[00:12:02] clear. Base44 uses Claude to understand
+[00:12:06] exactly what we need and then build it
+[00:12:09] intelligently. Everything is defined
+[00:12:11] during that planning stage earlier, and
+[00:12:13] it's translated into a functional
+[00:12:15] application without writing any code
+[00:12:17] manually ourselves. And once the build
+[00:12:19] is complete, as you can see, testing can
+[00:12:21] happen right away. So, we can go through
+[00:12:23] the dashboard here. We can create tasks,
+[00:12:25] interact with the interface, and we can
+[00:12:27] also check how the database responds.
+[00:12:30] So, the live demo happens during this
+[00:12:32] phase, where the app is already usable,
+[00:12:35] and its functionality can be verified in
+[00:12:38] real time. [music]
+[00:12:39] The technical implementation is handled
+[00:12:41] entirely by Claude through Base44, while
+[00:12:44] the focus just stays on how the app
+[00:12:46] performs and whether it does or not
+[00:12:49] deliver the intended experience. So,
+[00:12:52] right now, the app will turn into more
+[00:12:53] than just a basic task manager. Claude's
+[00:12:56] intelligence is now being integrated
+[00:12:58] directly into the features through
+[00:13:01] Base44. So, here's the prompt that I'm
+[00:13:03] going to use. Integrate Claude AI for
+[00:13:06] intelligent features. Add AI-powered
+[00:13:08] task categorization that analyzes task
+[00:13:11] descriptions and suggests appropriate
+[00:13:14] categories automatically.
+[00:13:17] Implement smart reminder timing where AI
+[00:13:21] determines optimal notification
+[00:13:23] schedules based on task priority and due
+[00:13:26] dates. Create a natural language task
+[00:13:29] input where users can type tasks [music]
+[00:13:32] in plain English and the AI extracts the
+[00:13:34] details. Add an analytics dashboard
+[00:13:37] where AI provides productivity insights
+[00:13:40] and suggestions based [music] on task
+[00:13:42] completion patterns. So, all of that
+[00:13:45] prompt, all of those capabilities,
+[00:13:47] they're added through a single prompt
+[00:13:49] only. Claude analyzes those task
+[00:13:51] descriptions and automatically suggests
+[00:13:53] the most relevant categories, thus
+[00:13:56] removing the need for us to organize
+[00:13:58] everything manually. It also handles
+[00:14:01] reminder timing, which is great, by
+[00:14:02] looking at task priority and the
+[00:14:04] deadlines, then choosing when
+[00:14:06] notifications should be sent for the
+[00:14:08] best timing. Natural language input also
+[00:14:11] makes the app a lot easier to use here,
+[00:14:14] since tasks [music] can just be written
+[00:14:16] in plain English, while Claude then
+[00:14:18] extracts and structures the details
+[00:14:21] behind the scenes. The analytics
+[00:14:23] dashboard here becomes more meaningful,
+[00:14:25] as well, since Claude can now detect
+[00:14:27] [music] those patterns in our completed
+[00:14:30] tasks and also provide insights along
+[00:14:33] with suggestions to improve our own
+[00:14:35] productivity. And after running the
+[00:14:37] prompt, these features can now be tested
+[00:14:39] directly inside the app to see how each
+[00:14:42] one does behave. So, base44 is not just
+[00:14:45] helping build the app at this point,
+[00:14:46] [music] it's using Claude to actively
+[00:14:49] enhance how the app works for the user.
+[00:14:51] [music]
+[00:14:52] Our final step is turning the app into
+[00:14:54] something more polished and ready for
+[00:14:56] real users. So, we'll focus on refining
+[00:14:59] the design, improving the user
+[00:15:01] experience, and of course, making sure
+[00:15:03] that everything works smoothly across
+[00:15:06] devices. So, here's the prompt I'm going
+[00:15:08] to use. Polish the task management app
+[00:15:11] for production. Customize the branding
+[00:15:14] with a professional color scheme. Add a
+[00:15:17] custom logo placeholder and refine the
+[00:15:20] UI design with smooth transitions and
+[00:15:23] animations. Ensure the mobile experience
+[00:15:26] is perfect with touch optimized
+[00:15:29] controls, [music]
+[00:15:30] responsive layouts that work on all
+[00:15:32] screen sizes, and mobile-friendly
+[00:15:34] navigation. Add loading states for all
+[00:15:37] actions, success, error notifications
+[00:15:40] for user feedback, and improve the
+[00:15:43] overall user experience with polished
+[00:15:45] interactions. Make sure all features
+[00:15:48] work seamlessly on both desktop and
+[00:15:50] mobile devices. And after running that
+[00:15:52] prompt, the app now gets a more
+[00:15:54] professional look. As you can see,
+[00:15:55] branding is applied through colors and
+[00:15:57] visual adjustments. There are
+[00:15:59] transitions and animations added, and
+[00:16:02] small details like loading states and
+[00:16:04] notifications make our app just a lot
+[00:16:07] more complete feeling. Mobile
+[00:16:09] optimization is also handled here,
+[00:16:11] making sure that everything works
+[00:16:13] properly on different screen sizes with
+[00:16:15] smooth navigation and still
+[00:16:17] touch-friendly controls.
+[00:16:19] >> [music]
+[00:16:19] >> Testing is part of this process as well,
+[00:16:21] because Base 44 has built-in tools that
+[00:16:23] allow you to go through the app. So,
+[00:16:25] we'll go ahead and check features and
+[00:16:27] make sure that everything runs as
+[00:16:29] expected without needing external tools.
+[00:16:32] [music] And once everything is ready,
+[00:16:34] then the app can now be published
+[00:16:36] directly. [music] There's no separate
+[00:16:38] setup for hosting or deployment because
+[00:16:41] as soon as you click publish here, the
+[00:16:43] app then goes live and becomes
+[00:16:45] accessible through a shareable link. So,
+[00:16:48] you can send that link to others and
+[00:16:50] make sure that the app is public for
+[00:16:52] anyone to use. So, all the technical
+[00:16:55] parts like the hosting, the security,
+[00:16:56] and the deployment, those are already
+[00:16:58] handled automatically in the background
+[00:17:00] for you. So, what started as a simple
+[00:17:03] build is now a production-ready app
+[00:17:05] without you needing to manage any other
+[00:17:08] infrastructure. Now, if you've ever
+[00:17:10] looked into building an app the
+[00:17:12] traditional way, you've probably seen
+[00:17:14] how quickly the costs and the complexity
+[00:17:17] start adding up before you even get
+[00:17:20] something working. Now, Base44's free
+[00:17:22] tier already includes full Claude AI
+[00:17:25] integration, which means now you're
+[00:17:27] working with the same level of
+[00:17:29] intelligence that you would get from
+[00:17:32] paid platforms. And it's not limited or
+[00:17:34] restricted, either. On top of that, it
+[00:17:36] functions as a complete app development
+[00:17:39] platform. So, again, you're not missing
+[00:17:42] any core pieces needed [music] to build
+[00:17:44] real applications.
+[00:17:46] Along with that, we've got hosting and
+[00:17:48] infrastructure that are already
+[00:17:49] included. So, again, there's no need to
+[00:17:52] pay for external services just to get
+[00:17:54] your app online. User authentication
+[00:17:56] [music]
+[00:17:56] is built in, which means login systems
+[00:17:59] are already handled for you without
+[00:18:01] connecting tools like, say, Auth0.
+[00:18:04] Database functionality is also part of
+[00:18:06] the whole platform, allowing you to
+[00:18:08] store and manage data directly inside of
+[00:18:11] Base44. Of course, mobile optimization
+[00:18:14] is handled automatically. So, apps do
+[00:18:16] work properly across different screen
+[00:18:18] sizes from desktop [music] to mobile
+[00:18:20] without any extra adjustments.
+[00:18:22] Deployment happens instantly. So, once
+[00:18:24] the app is ready, you can just go live
+[00:18:26] with a single action. And then, the end
+[00:18:28] result really just matches what you
+[00:18:30] would expect from professional
+[00:18:32] development tools. And all of this is
+[00:18:34] available without a credit card, which
+[00:18:37] makes it one of the most accessible ways
+[00:18:40] to really start building AI-powered
+[00:18:42] applications. Now, traditional
+[00:18:45] development works very differently,
+[00:18:47] right? Hosting alone can cost anywhere
+[00:18:49] from 50 bucks to $200 [music] per month.
+[00:18:52] Databases add another 20 to $100 monthly
+[00:18:55] through services like Superbase or
+[00:18:57] Firebase. And then, authentication
+[00:19:00] systems can cost an additional 30 to
+[00:19:02] $150 per month [music] using tools like
+[00:19:05] Auth0. So, before even launching
+[00:19:07] anything, the total can easily reach
+[00:19:09] $100 to $450 every month. So, time is
+[00:19:12] also another factor, too, because
+[00:19:14] learning how to connect all these
+[00:19:15] systems [music] properly does take
+[00:19:17] months, and even then, the setup process
+[00:19:19] can be incredibly complex. Managing
+[00:19:23] multiple services means ongoing
+[00:19:25] maintenance, and of course, mistakes in
+[00:19:27] configuration can lead to a security
+[00:19:30] vulnerabilities. There's also no
+[00:19:32] built-in AI capability from the get-go,
+[00:19:34] so additional tools or subscriptions are
+[00:19:36] required just to match what Base 44
+[00:19:39] already provides. So, the difference
+[00:19:41] really comes down to what you're
+[00:19:43] actually spending your time and money on
+[00:19:46] because traditional development really
+[00:19:48] just focuses heavily on infrastructure
+[00:19:51] and setup, while Base 44 removes that
+[00:19:54] layer for you completely and gives you a
+[00:19:57] working system from the very start.
+[00:19:59] You've now seen how an idea can go from
+[00:20:02] a simple concept to a fully working app
+[00:20:05] that is live and usable. And the entire
+[00:20:08] process stays focused on what you want
+[00:20:10] to build without really you getting
+[00:20:12] pulled into [music] any technical setup,
+[00:20:14] infrastructure, or any other complicated
+[00:20:17] workflows. Of course, Claude handles the
+[00:20:19] logic, and then Base 44 handles the
+[00:20:21] system around it, [music] and everything
+[00:20:23] just comes together in one place. So, if
+[00:20:25] building apps has been something that
+[00:20:28] you've been putting off, then this makes
+[00:20:30] [music] it a lot more practical to
+[00:20:32] actually try. So, start small, test out
+[00:20:34] your ideas, and then build something
+[00:20:36] that people can use. And that's it for
+[00:20:38] this one. Thanks for investing your time
+[00:20:40] with me today. I'll see you on the next
+[00:20:41] one.

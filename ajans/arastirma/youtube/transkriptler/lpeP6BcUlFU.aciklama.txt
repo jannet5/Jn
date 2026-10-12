@@ -1,0 +1,45 @@
+# How to Build Real Mobile Apps with Claude - FULL COURSE
+# https://www.youtube.com/watch?v=lpeP6BcUlFU
+
+In this complete build, we're vibe coding a full-stack Flight Booking Mobile App (Flightly) with an Admin Dashboard from scratch using AI! ✈️ 
+
+You’ll learn how to build production-grade mobile applications with dynamic seat selection, real-time booking management, CMS administration, and seamless database architecture.
+
+🚀 What We're Building & What You'll Learn:
+• Full-stack Mobile App built with Expo & React Native
+• Sanity.io CMS Admin Panel for airlines, routes, and flight schedules
+• Supabase for user authentication, bookings, and seat inventory
+• AI-powered coding workflow with Claude Code & Whisper Flow
+• Interactive Aircraft Seat Selection & Real-Time Seat Locking
+• Search, filters (Cheapest, Fastest, Best), and checkout flows
+
+🛠️ Tech Stack:
+- Frontend: Expo (React Native), Expo Router
+- Admin CMS: Sanity.io (GROQ queries)
+- Backend & Auth: Supabase (PostgreSQL, Row-Level Security)
+- AI Coding Tools: Claude Code / Cursor / Whisper Flow
+
+⏱️ Timestamps:
+00:00 - Introduction & Live App Demo
+01:18 - Tech Stack & Architecture Overview
+02:05 - Creating & Initializing the Expo Project
+04:00 - Supabase Project Setup & Auth Configuration
+04:44 - Sanity.io Studio Initialization
+08:43 - Prompting Claude Code for Database Schema
+11:15 - Running SQL Tables & RLS in Supabase
+14:48 - Creating Sanity Flight, Airline & Route Schemas
+18:00 - Deploying Sanity CMS Studio
+20:08 - Connecting Sanity CMS to React Native / Expo
+24:25 - Building Auth, Home & Search Screens
+29:15 - Flight Details & Pricing Screen
+30:38 - Seeding Real Flight Data into Sanity
+36:35 - Connecting GROQ Queries for Flight Search
+40:17 - Debugging GROQ Route References
+44:40 - Passenger Details & Interactive Seat Map UI
+47:00 - Mock Card Payment Flow & Booking Insertion
+52:05 - Real-Time Seat Locking with Supabase Queries
+56:35 - Fixing RLS Policies for Cross-User Seat Availability
+57:58 - Final Multi-User Test & Conclusion
+
+🔔 Click the subscribe button for more in-depth full-stack AI development tutorials!
+💬 Have questions or building your own version? Drop a comment below or reach out on x.com/omatsoladev

@@ -1,0 +1,1084 @@
+# Can Claude Fable 5 Build a Real iPhone App?
+# https://www.youtube.com/watch?v=REEt7nX6x-0
+# kanal: Code with Beto | süre: 1371 sn | kaynak: yt-dlp:web_embedded:REEt7nX6x-0.en-US.json3
+
+[00:00:00] this is a complete
+[00:00:01] habit tracker streaks
+[00:00:02] reminders a heat
+[00:00:04] graph of
+[00:00:04] my consistency
+[00:00:05] and a native
+[00:00:06] iOS widget
+[00:00:08] right on my home
+[00:00:09] screen showing the
+[00:00:10] heat graph live it's all
+[00:00:11] running on my phone
+[00:00:13] right now and i didn't
+[00:00:14] write a single line of
+[00:00:15] code. Claude's brand
+[00:00:16] new Fable 5 model
+[00:00:18] built the entire thing
+[00:00:19] and in this video i'll
+[00:00:20] show you exactly how
+[00:00:22] step by step even if
+[00:00:23] you've never coded
+[00:00:25] before quick thing
+[00:00:25] before we start my
+[00:00:26] team and i are
+[00:00:27] opening up spots for
+[00:00:28] one or two clients
+[00:00:30] who are serious about
+[00:00:31] their application we
+[00:00:32] take it from zero all
+[00:00:33] the way planning
+[00:00:34] building publishing
+[00:00:35] maintaining it a real
+[00:00:37] long-term
+[00:00:37] collaboration we've
+[00:00:38] been building mobile
+[00:00:39] applications for years
+[00:00:40] it's what we do and if
+[00:00:41] you are building on
+[00:00:42] your own i also open a
+[00:00:43] few one-on-one
+[00:00:44] spots one hour with
+[00:00:45] me every week or a
+[00:00:47] month or two
+[00:00:47] depending on the
+[00:00:48] project going from
+[00:00:49] idea to App Store
+[00:00:50] together if that's you
+[00:00:51] please send me an
+[00:00:52] email it's right here in
+[00:00:53] the description. Quick
+[00:00:54] context: Fable 5 just
+[00:00:55] came out it's
+[00:00:56] anthropic's smartest
+[00:00:58] model ever
+[00:00:59] a whole new tier
+[00:01:00] above Opus and
+[00:01:01] everyone is busy
+[00:01:02] arguing about
+[00:01:03] benchmarks we're
+[00:01:04] skipping that the only
+[00:01:05] benchmark that
+[00:01:06] matters today is
+[00:01:07] whether it can take
+[00:01:08] you from an idea
+[00:01:09] to an app on your
+[00:01:10] phone in five steps
+[00:01:12] set up plan build
+[00:01:14] iterate and ship
+[00:01:19] so i'm going to be
+[00:01:20] using Claude Code
+[00:01:21] desktop application so
+[00:01:23] right now i have this
+[00:01:24] in my obsidian but i'm
+[00:01:25] going to select
+[00:01:26] open folder
+[00:01:27] then i'll just go to my
+[00:01:28] desktop and i have an
+[00:01:29] apps folder where i
+[00:01:31] like to create my
+[00:01:32] application okay so
+[00:01:33] now i'm pointing to
+[00:01:34] that specific folder
+[00:01:36] now make sure that
+[00:01:37] you select Fable 5 so
+[00:01:39] the cost of Fable is $10
+[00:01:41] per 1 million input
+[00:01:42] tokens and $50
+[00:01:45] per million
+[00:01:46] output tokens
+[00:01:48] so it's pretty
+[00:01:48] expensive now
+[00:01:50] thankfully it is
+[00:01:51] actually included in
+[00:01:53] the Pro
+[00:01:54] plan right now so i'm
+[00:01:56] going to use it today i
+[00:01:57] have the $20
+[00:01:57] subscription let's see
+[00:01:59] if i'm able to actually
+[00:02:00] get the
+[00:02:00] application done
+[00:02:01] i'm going to try to be a
+[00:02:02] little aggressive i
+[00:02:03] want to create a
+[00:02:04] complex application
+[00:02:05] now for the effort i
+[00:02:07] recommend using
+[00:02:08] extra this is what i
+[00:02:09] personally use and it's
+[00:02:10] good it's decent of
+[00:02:12] course you need Claude
+[00:02:13] Code but apart from
+[00:02:13] that you need a couple
+[00:02:14] things before we can
+[00:02:15] create our application
+[00:02:16] so for that i created a
+[00:02:18] document for you i'm
+[00:02:18] going to leave the link
+[00:02:19] in the description so
+[00:02:20] that you can reference
+[00:02:21] it it includes
+[00:02:22] commands and things
+[00:02:24] that you need to
+[00:02:24] install in your
+[00:02:25] computer before we
+[00:02:26] move on so today
+[00:02:27] we're using Expo i
+[00:02:28] used to work at Expo
+[00:02:29] and you know i was
+[00:02:30] helping thousands of
+[00:02:31] developers get their
+[00:02:32] first app
+[00:02:33] running so trust me
+[00:02:35] on this choice Expo is
+[00:02:36] how you write an
+[00:02:37] application that runs
+[00:02:38] on an iPhone
+[00:02:39] and android to test
+[00:02:41] your application you
+[00:02:42] can use Expo Go so
+[00:02:43] grab your phone go to
+[00:02:45] the App Store or Play
+[00:02:46] Store search for
+[00:02:48] Expo Go and download
+[00:02:49] it it's the application
+[00:02:50] that we'll use as a
+[00:02:52] sandbox for
+[00:02:54] testing our
+[00:02:54] application so one
+[00:02:55] quick version note
+[00:02:56] here i'm recording
+[00:02:57] this video using
+[00:02:59] SDK 57 which is the
+[00:03:00] latest SDK at the time
+[00:03:03] now there is a little
+[00:03:04] issue on the App Store
+[00:03:05] and Play Store the
+[00:03:07] version available is
+[00:03:08] SDK 54
+[00:03:10] now in my previous
+[00:03:11] videos i was
+[00:03:12] recommending my
+[00:03:12] viewers to use
+[00:03:14] TestFlight to join the
+[00:03:16] SDK 57 beta release
+[00:03:18] but unfortunately the
+[00:03:20] testing group for the
+[00:03:21] beta version is full
+[00:03:22] so you cannot join the
+[00:03:24] TestFlight version
+[00:03:26] of the SDK 57
+[00:03:28] that means that you
+[00:03:29] need to use
+[00:03:30] SDK 54 if you want to
+[00:03:32] use Expo Go to test
+[00:03:34] your application
+[00:03:35] or the other option is
+[00:03:37] actually create a
+[00:03:38] development build
+[00:03:40] that means just
+[00:03:41] compiling the project
+[00:03:43] into a
+[00:03:44] standalone
+[00:03:44] application
+[00:03:45] using your computer
+[00:03:47] and that's actually
+[00:03:48] what i'm gonna do
+[00:03:48] today because since i
+[00:03:49] want to integrate
+[00:03:50] a widget
+[00:03:51] that specific
+[00:03:53] capability is not
+[00:03:54] available in Expo Go
+[00:03:56] so i'm gonna show you
+[00:03:57] how you can create
+[00:03:59] a development build
+[00:03:59] for iOS and for that
+[00:04:01] the only requirement
+[00:04:03] is that you go to the
+[00:04:04] App Store in your Mac
+[00:04:06] and search for
+[00:04:08] Xcode it's a developer
+[00:04:09] tool that allows you to
+[00:04:10] create iOS applications
+[00:04:12] the reason why we
+[00:04:13] need it is so that we
+[00:04:14] can run the
+[00:04:15] application on a
+[00:04:16] simulator in your
+[00:04:17] computer or you can
+[00:04:18] run it on your
+[00:04:19] physical
+[00:04:19] device directly
+[00:04:21] the only caveat here is
+[00:04:22] that if you want to
+[00:04:23] run it on a physical
+[00:04:24] device you need to
+[00:04:25] have a
+[00:04:25] developer account
+[00:04:26] but if you don't have a
+[00:04:27] developer account you
+[00:04:28] can still
+[00:04:30] download Xcode
+[00:04:31] and run it locally on
+[00:04:32] your computer using
+[00:04:34] a simulator if you
+[00:04:35] don't want to use the
+[00:04:36] widget in your app
+[00:04:37] you can still use
+[00:04:38] Expo Go okay so i
+[00:04:39] already have Xcode i'm
+[00:04:40] going to close this the
+[00:04:41] next thing that you
+[00:04:42] need to do before we
+[00:04:43] can actually create
+[00:04:44] the Expo project
+[00:04:46] is make sure that you
+[00:04:47] have Bun installed
+[00:04:49] Bun is a program that
+[00:04:51] just allows you to run
+[00:04:52] commands on
+[00:04:53] your computer
+[00:04:54] commands
+[00:04:55] like creating an Expo
+[00:04:56] project so you can
+[00:04:58] install it by running
+[00:04:58] this command on Mac
+[00:05:01] or this one
+[00:05:01] on windows
+[00:05:03] so if this is the first
+[00:05:04] time just copy this
+[00:05:05] open your terminal
+[00:05:07] paste the
+[00:05:08] command hit enter
+[00:05:10] and you're done after
+[00:05:11] that you can run
+[00:05:14] bun --version and then you
+[00:05:16] should see something
+[00:05:16] like this this is the
+[00:05:17] version that i'm using
+[00:05:18] that means i have Bun
+[00:05:19] in my computer and
+[00:05:20] i'm ready to create my
+[00:05:21] project okay so i'm
+[00:05:22] going to close my
+[00:05:23] terminal at this point
+[00:05:24] i'm going to keep
+[00:05:25] scrolling down
+[00:05:26] and the next thing
+[00:05:27] that you'll find is the
+[00:05:29] command to
+[00:05:30] create the actual
+[00:05:31] application now i
+[00:05:32] recommend to do this
+[00:05:34] manually because if
+[00:05:35] you let Fable or any
+[00:05:37] other agent do it for
+[00:05:38] you it's going to be a
+[00:05:39] just a waste of tokens
+[00:05:41] expensive tokens
+[00:05:42] right so we're using
+[00:05:43] Fable 5 we need to be
+[00:05:44] careful with the
+[00:05:45] tokens and we need to
+[00:05:46] provide as much
+[00:05:47] information as
+[00:05:48] possible so that Fable
+[00:05:50] is able to deliver high
+[00:05:51] quality results
+[00:05:53] without wasting out
+[00:05:54] of tokens and without
+[00:05:56] too much back and
+[00:05:57] forth we can start the
+[00:05:58] conversation with
+[00:05:59] a simple hello
+[00:06:01] and this will show you
+[00:06:02] at the top right the
+[00:06:04] terminal button and
+[00:06:05] then paste the
+[00:06:06] command bun create
+[00:06:07] expo-app so i'm going
+[00:06:09] to hit enter and let's
+[00:06:10] select a name for
+[00:06:11] the application
+[00:06:12] so i'm going to
+[00:06:13] call mine
+[00:06:14] Fable and hit enter so
+[00:06:16] everyone knows about
+[00:06:17] the issue
+[00:06:19] Expo Go in the app
+[00:06:20] store only supports
+[00:06:21] SDK 54
+[00:06:23] but the latest is 57 so
+[00:06:25] the Expo team actually
+[00:06:26] updated this
+[00:06:27] command to ask you
+[00:06:29] what do you want to
+[00:06:30] use do you want to
+[00:06:31] use the SDK 57 with a
+[00:06:33] development build
+[00:06:34] meaning that you are
+[00:06:35] going to compile
+[00:06:35] the project
+[00:06:37] directly on your Mac
+[00:06:38] or windows or you
+[00:06:40] want to just keep
+[00:06:41] learning with Expo Go
+[00:06:42] using the version 54
+[00:06:43] which is the one
+[00:06:44] available in the app
+[00:06:45] store so today i'm
+[00:06:46] going to use a
+[00:06:46] development build i'm
+[00:06:47] going to compile it
+[00:06:48] directly already have
+[00:06:49] Xcode in my computer
+[00:06:50] so let's select
+[00:06:51] the latest
+[00:06:52] this will create a new
+[00:06:55] folder inside my apps
+[00:06:57] folder okay so at this
+[00:06:58] point we can close
+[00:06:59] this and i'm actually
+[00:07:01] going to create a new
+[00:07:02] project by pressing
+[00:07:03] command n let's
+[00:07:04] change the folder
+[00:07:05] because now we have
+[00:07:06] a new folder let's
+[00:07:07] press open
+[00:07:09] and inside my
+[00:07:10] desktop apps
+[00:07:12] i now have the Fable
+[00:07:13] 5 video
+[00:07:15] this is the actual
+[00:07:16] application and the
+[00:07:17] code where Fable 5 is
+[00:07:19] going to work let's
+[00:07:20] open it Claude Code is
+[00:07:22] pointing to this folder
+[00:07:23] and we can start
+[00:07:24] working okay so we
+[00:07:25] have the project let's
+[00:07:26] actually run it
+[00:07:28] so
+[00:07:29] again to be able to
+[00:07:30] see the
+[00:07:31] to be able to see the
+[00:07:33] terminal button i
+[00:07:34] want to say hello and
+[00:07:35] now it appears let's
+[00:07:37] press it
+[00:07:38] i'm going to
+[00:07:38] collapse the left
+[00:07:39] sidebar so that we
+[00:07:40] have more space here
+[00:07:42] to start the
+[00:07:42] application we can
+[00:07:43] run npx expo
+[00:07:46] start
+[00:07:47] make sure to run this
+[00:07:48] command in the
+[00:07:48] folder and this will
+[00:07:49] start the server like
+[00:07:50] this now on my phone
+[00:07:52] as you can see here on
+[00:07:53] the right
+[00:07:54] i have installed
+[00:07:55] Expo Go
+[00:07:56] that means that i can
+[00:07:56] open directly
+[00:07:57] the camera
+[00:07:59] and scan this QR code
+[00:08:02] and then
+[00:08:03] press open in Expo Go
+[00:08:04] so let me sign in
+[00:08:06] into my Expo account
+[00:08:08] all right so once you
+[00:08:10] are logged in you can
+[00:08:11] scan the QR code
+[00:08:14] in Expo Go and this
+[00:08:15] will load the
+[00:08:16] application now i'm
+[00:08:17] using Expo Go with
+[00:08:18] SDK 57 because i'm
+[00:08:19] part of the beta
+[00:08:21] group
+[00:08:23] but if you are using 54
+[00:08:24] it's basically the same
+[00:08:25] you can just scan the
+[00:08:26] QR code and you
+[00:08:27] should be able to see
+[00:08:28] the application there
+[00:08:29] it's also compatible
+[00:08:30] with light mode which
+[00:08:32] is really nice
+[00:08:33] and you know this is
+[00:08:34] just the blank
+[00:08:35] template that you get
+[00:08:37] by creating a new
+[00:08:38] Expo project and
+[00:08:39] that's already further
+[00:08:41] than most people will
+[00:08:43] ever get so
+[00:08:43] congratulations
+[00:08:44] everything from here
+[00:08:46] is just describing
+[00:08:47] what you want
+[00:08:51] to make sure that we
+[00:08:52] get good results from
+[00:08:53] Fable 5 because you
+[00:08:55] know it's expensive
+[00:08:56] and i don't want
+[00:08:57] to just prompt it build
+[00:08:58] me a habit tracker
+[00:09:00] application because
+[00:09:01] the results are going
+[00:09:01] to be bad the prompt
+[00:09:02] needs to be very
+[00:09:03] specific and high
+[00:09:04] quality and we can
+[00:09:06] also provide
+[00:09:06] extra tools
+[00:09:08] agent skills and MCP
+[00:09:09] servers so for now i'm
+[00:09:11] going to use my skills
+[00:09:12] i'm going to just scroll
+[00:09:14] up i actually have a
+[00:09:15] link for my favorite
+[00:09:16] Claude skills
+[00:09:18] so the one that i want
+[00:09:19] to use right now is
+[00:09:20] app-icon. app-icon is a
+[00:09:22] custom skill that me
+[00:09:23] and my team built and
+[00:09:25] maintain it
+[00:09:26] allows Claude
+[00:09:27] to generate an icon
+[00:09:28] for your application
+[00:09:30] so let's go ahead and
+[00:09:31] copy this command
+[00:09:32] go back to
+[00:09:33] the terminal
+[00:09:34] paste it in here and
+[00:09:36] hit enter
+[00:09:37] this way Claude
+[00:09:39] Fable 5 will have
+[00:09:41] access to the skill it's
+[00:09:42] just a matter of
+[00:09:43] pressing enter
+[00:09:44] until the installation
+[00:09:46] is complete there we
+[00:09:47] go so now Fable 5 has
+[00:09:49] the superpower of
+[00:09:50] creating a custom
+[00:09:51] icon for my
+[00:09:52] application apart from
+[00:09:53] that i also want to use
+[00:09:55] the MCP server and
+[00:09:57] this is actually
+[00:09:58] another tool for our
+[00:10:00] members at
+[00:10:01] codewithbeto.dev to
+[00:10:01] connect to the MCP
+[00:10:03] server it's actually
+[00:10:04] pretty easy you can
+[00:10:05] just go to your profile
+[00:10:06] at codewithbeto.dev
+[00:10:08] copy the MCP setup
+[00:10:10] give it to Claude and
+[00:10:11] Claude will set it for
+[00:10:12] you so once you do
+[00:10:14] that you can go back
+[00:10:16] to Claude i'm going to
+[00:10:17] ask Claude hey
+[00:10:19] can you use the
+[00:10:21] Code with Beto MCP
+[00:10:23] server to list
+[00:10:25] the resources
+[00:10:27] so this is we'll just
+[00:10:28] confirm that i have
+[00:10:30] access to the MCP
+[00:10:31] server all right so
+[00:10:32] Claude is actually
+[00:10:33] using the tools
+[00:10:34] let's allow this and
+[00:10:36] now we get a list
+[00:10:36] of the
+[00:10:38] examples right we
+[00:10:39] actually have more
+[00:10:40] but it's just a list of
+[00:10:41] the most popular ones
+[00:10:43] and now Claude
+[00:10:45] can read
+[00:10:46] patterns that already
+[00:10:47] survived production
+[00:10:49] and real users things
+[00:10:51] like haptics
+[00:10:51] onboarding
+[00:10:52] animations and the
+[00:10:53] stuff that really makes
+[00:10:54] an application feel
+[00:10:55] expensive like i said
+[00:10:56] this is part of the Pro
+[00:10:57] membership link
+[00:10:58] below you don't have
+[00:11:00] to follow along with
+[00:11:01] the MCP but you can
+[00:11:02] watch and see what it
+[00:11:03] does and then later
+[00:11:04] you can decide
+[00:11:08] so the difference
+[00:11:09] between build me
+[00:11:10] something and build
+[00:11:11] me exactly
+[00:11:13] this is the actual plan
+[00:11:15] and for that i actually
+[00:11:16] added the plan to the
+[00:11:17] document again you
+[00:11:19] can reference it and
+[00:11:20] copy it let's go
+[00:11:21] through it just super
+[00:11:22] quickly it's basically
+[00:11:23] the plan to build a
+[00:11:24] habit tracker
+[00:11:25] but i'm being super
+[00:11:27] specific on what
+[00:11:28] i want
+[00:11:29] so i'm going to ask
+[00:11:30] Fable 5 to come up
+[00:11:32] with a name for
+[00:11:33] the application
+[00:11:34] i want the name to be
+[00:11:35] short between three
+[00:11:37] to eight letters and
+[00:11:38] use it everywhere in
+[00:11:39] the application so we
+[00:11:40] need branding right
+[00:11:42] the name is going to
+[00:11:43] be a part of that the
+[00:11:44] app is going to track
+[00:11:45] daily habits for
+[00:11:46] example you know
+[00:11:48] walk outside and this
+[00:11:49] is just a preference of
+[00:11:50] mine i want my
+[00:11:51] applications to feel
+[00:11:52] native like it was
+[00:11:53] created with SwiftUI i
+[00:11:55] think it's just way
+[00:11:56] better elegant and
+[00:11:57] familiar to iOS users
+[00:11:59] in this case
+[00:12:00] and of course i'm
+[00:12:01] asking to reference
+[00:12:03] the Platano template
+[00:12:04] and other projects
+[00:12:05] available through the
+[00:12:07] Code with Beto MCP
+[00:12:08] server so just a quick
+[00:12:09] look here the Platano
+[00:12:10] template is one of the
+[00:12:11] most beautiful
+[00:12:12] applications that
+[00:12:13] we've created me and
+[00:12:14] my team
+[00:12:15] it's for creating
+[00:12:16] applications for AI
+[00:12:17] image generations
+[00:12:18] there are actually
+[00:12:19] many applications
+[00:12:20] already published
+[00:12:21] from our members
+[00:12:22] and this is just a great
+[00:12:23] example that Fable can
+[00:12:25] reference then i'm
+[00:12:26] being extremely
+[00:12:28] specific on what i
+[00:12:29] want i want to be able
+[00:12:30] to create edit and
+[00:12:32] delete habits
+[00:12:33] many little details
+[00:12:34] here you can pause
+[00:12:35] the video and actually
+[00:12:35] read everything but
+[00:12:37] the highlights here is
+[00:12:38] that i actually want to
+[00:12:39] have local
+[00:12:40] notifications that
+[00:12:41] remind me to do stuff
+[00:12:43] like taking my
+[00:12:44] medicine or go out for
+[00:12:45] a walk
+[00:12:47] and then i want to
+[00:12:48] save the data locally of
+[00:12:49] course so that we
+[00:12:49] don't lose it we want a
+[00:12:51] clean onboarding flow
+[00:12:52] for new users and for
+[00:12:54] this i'm actually using
+[00:12:55] the MCP to reference
+[00:12:57] how Inkigo my AI
+[00:12:58] tattoo application
+[00:12:59] nails the onboarding
+[00:13:01] people are actually
+[00:13:02] paying for Inkigo
+[00:13:03] which means the
+[00:13:03] onboarding actually
+[00:13:04] works another
+[00:13:05] highlight is that i
+[00:13:06] want an iOS home
+[00:13:07] screen widget
+[00:13:09] and i'm asking the
+[00:13:10] agent to
+[00:13:11] explore the
+[00:13:12] documentation here
+[00:13:14] on how to implement
+[00:13:15] it and then go ahead
+[00:13:16] and implement it i
+[00:13:17] want to be able to see
+[00:13:19] my
+[00:13:20] habits
+[00:13:21] in the home screen
+[00:13:22] that's the main goal
+[00:13:23] another very
+[00:13:23] important thing is
+[00:13:24] that we are requiring
+[00:13:25] Fable 5 to generate an
+[00:13:27] icon for this
+[00:13:28] application using the
+[00:13:29] Code with Beto
+[00:13:30] app-icon skill
+[00:13:32] that we already
+[00:13:32] installed so it's good
+[00:13:34] to constrain the agent
+[00:13:35] to only focus on iOS
+[00:13:38] this will save you
+[00:13:38] tokens for the
+[00:13:39] version one
+[00:13:41] and it will also
+[00:13:41] generate better
+[00:13:42] results for that
+[00:13:43] specific platform
+[00:13:45] then we can adopt
+[00:13:46] android in the future
+[00:13:47] or you can start with
+[00:13:48] android this is the
+[00:13:49] plan let's go ahead and
+[00:13:50] copy it
+[00:13:54] let's go back to
+[00:13:55] Claude Code
+[00:13:56] and one thing that i
+[00:13:57] like to do here is
+[00:13:58] actually change
+[00:13:59] the manual
+[00:14:00] to be
+[00:14:01] bypass permissions
+[00:14:03] so personally
+[00:14:04] i'm always accepting
+[00:14:05] the changes
+[00:14:07] so if you don't want to
+[00:14:08] hit enter every time
+[00:14:10] just set
+[00:14:11] bypass permissions
+[00:14:12] and Fable 5 will handle
+[00:14:14] everything for you
+[00:14:15] so let's paste the
+[00:14:16] plan here
+[00:14:17] and
+[00:14:18] hit enter right off
+[00:14:19] the bat
+[00:14:20] Fable is already
+[00:14:21] checking the tooling
+[00:14:23] it's calling the MCP
+[00:14:25] server it's gathering
+[00:14:26] information to start
+[00:14:27] coding okay so we are
+[00:14:29] five minutes in i've
+[00:14:30] been using Fable 5 for
+[00:14:31] a while now i mean
+[00:14:33] like a week
+[00:14:35] and i can tell you that
+[00:14:36] it's gonna take a while
+[00:14:38] it really takes its time
+[00:14:39] and if you're
+[00:14:39] interested by the way
+[00:14:40] in the difference
+[00:14:41] between Fable 5
+[00:14:42] and Opus 4.8
+[00:14:44] i actually made a
+[00:14:45] video i'm gonna link it
+[00:14:46] in the description
+[00:14:47] which will tell you
+[00:14:49] you know if it's
+[00:14:49] actually worth paying
+[00:14:51] double the price for
+[00:14:52] Fable 5 you can watch
+[00:14:53] that after you finish
+[00:14:55] with this video okay
+[00:14:56] you guys quick update
+[00:14:58] it's been 26 minutes 27
+[00:15:01] almost 30 minutes
+[00:15:02] and still cooking
+[00:15:04] i'm worried about
+[00:15:05] my usage
+[00:15:07] so the context
+[00:15:07] window looks good
+[00:15:09] but if i go to my plan
+[00:15:10] and for the current
+[00:15:12] session i've used 67%
+[00:15:14] it's generated so far
+[00:15:15] close to
+[00:15:17] 4000 lines of code and
+[00:15:19] it removed
+[00:15:20] 1000 i can see that it's
+[00:15:21] actually
+[00:15:22] generating the
+[00:15:23] the icon okay
+[00:15:24] it's using this skill
+[00:15:28] so this is awesome
+[00:15:29] this is actually going
+[00:15:30] to generate an image
+[00:15:31] that we can see in the
+[00:15:32] code base and it's
+[00:15:33] building now the
+[00:15:34] application and it's
+[00:15:35] going to install it on
+[00:15:36] my iPhone 17 Pro
+[00:15:38] which is my physical
+[00:15:39] device connected to
+[00:15:40] my computer okay
+[00:15:41] here it is
+[00:15:43] it's installing it i can
+[00:15:44] see it on my phone
+[00:15:45] it has an icon which is
+[00:15:47] absolutely amazing so
+[00:15:48] i didn't have to run
+[00:15:49] the build manually
+[00:15:51] Fable 5 was able to
+[00:15:52] install it and it's now
+[00:15:54] open it on my phone
+[00:15:55] now don't worry this
+[00:15:56] is a normal error i'm
+[00:15:57] just going to allow
+[00:15:59] access to the network
+[00:16:00] so that i can connect
+[00:16:01] to my local server
+[00:16:02] and then press
+[00:16:04] Reload JS
+[00:16:05] this will reload
+[00:16:07] from my computer it
+[00:16:09] will load the
+[00:16:10] application and here
+[00:16:11] we have it
+[00:16:15] i mean how cool is
+[00:16:16] that to press continue
+[00:16:18] i want to check if this
+[00:16:20] is compatible with
+[00:16:21] dark mode it is and it
+[00:16:23] looks really nice
+[00:16:25] let's test notifications
+[00:16:27] okay it's asking for
+[00:16:28] permissions this is a
+[00:16:29] great user experience
+[00:16:30] it's onboarding me
+[00:16:31] i'm going to allow it
+[00:16:33] and now navigates to
+[00:16:35] the screen where i
+[00:16:36] can see
+[00:16:36] everything okay
+[00:16:38] so something cool is
+[00:16:40] that we asked for
+[00:16:41] sample data so let's
+[00:16:42] press the load
+[00:16:43] sample data
+[00:16:45] amazing
+[00:16:46] it's using this toast
+[00:16:49] with information and
+[00:16:50] now we can actually
+[00:16:51] see how this looks like
+[00:16:53] so i asked for context
+[00:16:55] menu here let's see if i
+[00:16:57] am able to long press
+[00:16:59] so i'm not able to long
+[00:17:00] press but we have a
+[00:17:01] nice animation when
+[00:17:02] we complete
+[00:17:03] the items let's see this
+[00:17:05] in light mode
+[00:17:07] and when we
+[00:17:07] complete everything
+[00:17:08] we have a nice
+[00:17:09] animation let's long
+[00:17:10] press this
+[00:17:11] i can see that we have
+[00:17:12] widgets so let's test
+[00:17:14] this okay so seems
+[00:17:15] like the widget is not
+[00:17:17] working and when i
+[00:17:18] open the application
+[00:17:19] through the widget
+[00:17:20] we get this
+[00:17:21] unmatched route but
+[00:17:22] we can press go back
+[00:17:23] and it will take me to
+[00:17:24] the application
+[00:17:25] let's test the
+[00:17:26] notifications i'm going
+[00:17:27] to send a
+[00:17:28] test notification
+[00:17:30] it arrives in three
+[00:17:31] seconds okay let's see
+[00:17:33] and there we have it
+[00:17:34] so i can press on the
+[00:17:36] notification and it will
+[00:17:37] open the application
+[00:17:38] so notifications are
+[00:17:39] working great and
+[00:17:41] we can create
+[00:17:42] new habits
+[00:17:43] awesome so let's do a
+[00:17:45] test here
+[00:17:46] now some of the icons
+[00:17:47] as you can see here
+[00:17:48] are outside of the
+[00:17:49] container which is
+[00:17:51] maybe something that
+[00:17:51] we can fix we can
+[00:17:53] select specific days or
+[00:17:55] every day so we have
+[00:17:56] an issue on the layout
+[00:17:58] there time for
+[00:17:59] the notification
+[00:18:00] and then save it
+[00:18:02] okay here it is this is
+[00:18:04] the test so we have
+[00:18:05] the sortable list i
+[00:18:07] actually ask for this
+[00:18:09] so i can move it
+[00:18:10] at the position that i
+[00:18:12] want this is amazing
+[00:18:16] so what i'm going to
+[00:18:16] do is just create a new
+[00:18:18] window by pressing
+[00:18:19] Command-N. Please
+[00:18:20] adopt the
+[00:18:21] containerBackground API. I don't
+[00:18:22] know what that
+[00:18:23] means but we can just
+[00:18:24] start passing these
+[00:18:25] kind of like
+[00:18:26] bullet points right
+[00:18:27] items in the habits
+[00:18:29] are not responding to
+[00:18:30] press events in
+[00:18:32] the new
+[00:18:34] screen
+[00:18:36] colors are okay and i
+[00:18:38] think this is good for
+[00:18:39] now hopefully we can
+[00:18:40] do it within the
+[00:18:42] tokens that we have
+[00:18:43] available now while
+[00:18:44] Fable 5 is fixing those
+[00:18:46] issues and improving
+[00:18:47] the application
+[00:18:49] let's just pause for a
+[00:18:50] second you just watch
+[00:18:52] an idea become a real
+[00:18:53] application running
+[00:18:54] on a physical device
+[00:18:56] without writing any
+[00:18:58] code so that's mile
+[00:18:59] one but if you want to
+[00:19:00] take this all the way to
+[00:19:01] the App Store. Check
+[00:19:02] out my book, From Idea
+[00:19:03] to App Store with
+[00:19:04] Claude Code, which is
+[00:19:05] basically the
+[00:19:06] mental model
+[00:19:08] behind everything in
+[00:19:08] this video like how to
+[00:19:09] write good plans
+[00:19:11] providing feedback to
+[00:19:12] the model
+[00:19:12] fixing errors
+[00:19:13] how to handle
+[00:19:14] publishing either to
+[00:19:15] the App Store or Play
+[00:19:17] Store. It has a guide for
+[00:19:18] both. There's a whole
+[00:19:19] chapter on Claude
+[00:19:20] Code skills
+[00:19:22] it's basically a pack
+[00:19:23] that will save you
+[00:19:24] weeks of work just by
+[00:19:25] using the app-icon
+[00:19:26] skill i was able to get a
+[00:19:28] decent icon this icon
+[00:19:29] is solid right and it's
+[00:19:31] compatible with dark
+[00:19:33] mode as well so check
+[00:19:34] out the book link in
+[00:19:35] the description okay
+[00:19:36] now the items
+[00:19:37] are fixed
+[00:19:38] and every time that
+[00:19:40] Fable makes a change
+[00:19:41] you can see the blue
+[00:19:42] bar appearing at the
+[00:19:43] top with the refresh
+[00:19:45] and now this feels way
+[00:19:47] better i'm able to
+[00:19:48] quickly drag and drop
+[00:19:49] this is fully native
+[00:19:52] i love being able to do
+[00:19:53] this and i have the
+[00:19:55] feedback so of course
+[00:19:56] you cannot feel it but
+[00:19:58] it feels amazing
+[00:19:59] let's see okay and it
+[00:20:01] fixed now
+[00:20:01] the container
+[00:20:03] everything
+[00:20:03] displays correctly
+[00:20:05] okay let's take a look
+[00:20:06] this looks
+[00:20:08] super clean it feels
+[00:20:09] super native
+[00:20:09] the navigation
+[00:20:11] the transition of the
+[00:20:12] toolbar buttons
+[00:20:13] looks great
+[00:20:15] the form sheet
+[00:20:15] presentation is
+[00:20:16] amazing let's see if it
+[00:20:18] was able to fix the
+[00:20:19] widget it's working on
+[00:20:21] this it's been seven
+[00:20:22] minutes and let's try
+[00:20:24] to see okay and now
+[00:20:25] the widget is working
+[00:20:27] there we have it
+[00:20:29] we can play around
+[00:20:30] with the size
+[00:20:32] we have the name of
+[00:20:33] the application which
+[00:20:34] is amazing for
+[00:20:35] branding i can
+[00:20:36] actually change the
+[00:20:37] order so for example
+[00:20:38] if i want workouts at
+[00:20:40] the top
+[00:20:41] and read second
+[00:20:43] let's check the widget
+[00:20:45] and it updates
+[00:20:47] so how cool is that we
+[00:20:48] can open the app and
+[00:20:49] now it actually takes
+[00:20:50] me to the screen
+[00:20:52] everything seems to
+[00:20:52] be working fine we
+[00:20:54] get push notifications
+[00:20:55] and of course the
+[00:20:56] widget is also
+[00:20:57] compatible with dark
+[00:20:58] mode and it looks
+[00:20:59] really nice now let's
+[00:21:01] talk money because
+[00:21:02] Fable 5 is pretty
+[00:21:03] expensive you can
+[00:21:04] check the cost by just
+[00:21:06] running /usage
+[00:21:08] we can see that it
+[00:21:09] costs $6
+[00:21:11] and it was basically
+[00:21:12] eight minutes so Fable
+[00:21:14] can spin subagents
+[00:21:15] and sometimes these
+[00:21:16] subagents need to
+[00:21:17] fetch data or need to
+[00:21:19] do something else and
+[00:21:20] in that case it's not
+[00:21:22] worth using Fable 5
+[00:21:24] because just fetching
+[00:21:24] data
+[00:21:25] gathering information
+[00:21:27] so sometimes Fable
+[00:21:28] will spin subagents
+[00:21:29] using a
+[00:21:30] different model
+[00:21:31] in the same session so
+[00:21:32] it cost me $6
+[00:21:33] let's take a look at the
+[00:21:34] other one
+[00:21:35] this session was 41
+[00:21:37] minutes to get the
+[00:21:38] first version of
+[00:21:39] the application
+[00:21:40] it cost me nearly $40
+[00:21:42] you can round it to
+[00:21:43] basically $50
+[00:21:45] for creating
+[00:21:46] this application
+[00:21:47] which to be fair it's a
+[00:21:49] pretty
+[00:21:49] solid application
+[00:21:51] and i think it's almost
+[00:21:51] ready to ship
+[00:21:53] to the App Store
+[00:21:55] by the way subscribe
+[00:21:56] if you want to see the
+[00:21:56] video on how to
+[00:21:57] deploy this to the app
+[00:21:58] store so you might be
+[00:21:59] thinking maybe you
+[00:22:00] could have created
+[00:22:01] this application using
+[00:22:02] Opus 4.8 for
+[00:22:04] maybe $25 right
+[00:22:06] because it's half 50%
+[00:22:08] of the cost
+[00:22:10] but i actually tried it
+[00:22:11] and i'm gonna leave
+[00:22:12] the video
+[00:22:13] comparison in the
+[00:22:14] description personally
+[00:22:15] i'm gonna be using
+[00:22:16] Fable 5 for
+[00:22:17] complex things
+[00:22:18] like planning and
+[00:22:19] building the first
+[00:22:20] version of the
+[00:22:21] application so if you
+[00:22:22] want your agent to
+[00:22:23] have context of this
+[00:22:24] application Ember is
+[00:22:26] now actually available
+[00:22:27] in the Code with Beto
+[00:22:28] MCP server so if you
+[00:22:29] decide to join the Pro
+[00:22:30] membership and then
+[00:22:31] you can ask your
+[00:22:32] agent you know what i
+[00:22:33] just want a sortable
+[00:22:34] list like Ember from
+[00:22:36] the Code with
+[00:22:37] Beto MCP
+[00:22:38] a widget like the
+[00:22:39] Ember application and
+[00:22:40] Fable 5 will know how
+[00:22:42] to do it you can also
+[00:22:43] use the skills check
+[00:22:44] out the plan as well
+[00:22:45] everything is in the
+[00:22:46] description and if you
+[00:22:47] want to keep
+[00:22:48] watching more videos
+[00:22:49] check this one i'll see
+[00:22:49] you there

@@ -1,0 +1,1120 @@
+# Codex - Full Course for Beginners
+# https://www.youtube.com/watch?v=ZXkeWiWB4xg
+# kanal: Tech With Tim | süre: 2097 sn | kaynak: yt-dlp:web_embedded:ZXkeWiWB4xg.en-orig.json3
+
+[00:00:00] This video will teach you codeex. I'll
+[00:00:02] go through all of the important
+[00:00:03] features, show you how to set it up and
+[00:00:05] install it and assume no prior
+[00:00:07] knowledge. So, even if you're a complete
+[00:00:08] beginner, you'll be able to follow
+[00:00:10] along. Now, I'm going to be covering
+[00:00:11] things like computer use or browser
+[00:00:14] control. I'm going to show you how to
+[00:00:15] set it up for coding, model selection,
+[00:00:17] all of the different commands like
+[00:00:19] /goal, and a lot of the new features
+[00:00:21] that I haven't seen many people cover.
+[00:00:23] So, with that said, stick around. Let's
+[00:00:25] get into it and let me teach you codecs.
+[00:00:27] So, let's start by discussing what
+[00:00:28] Codeex is. We'll look at how we can use
+[00:00:30] it because there's actually many
+[00:00:31] different ways and then I'll start going
+[00:00:33] through all of the different features.
+[00:00:34] There'll be timestamps down below in
+[00:00:36] case you want to skip forward. And keep
+[00:00:38] in mind, I like to make things really
+[00:00:39] thorough and detailed. So, if you feel
+[00:00:41] like I'm going too slow, fast forward to
+[00:00:42] the next section. Okay, so first, what
+[00:00:45] is Codeex? Well, Codeex is essentially
+[00:00:47] OpenAI's answer to tools like Claude
+[00:00:50] Code. It's actually much more involved
+[00:00:52] than Claw Code. I would say it has a lot
+[00:00:54] more features and a lot of people don't
+[00:00:55] know about what you can do with it. Now
+[00:00:57] the basics is that you can use it to
+[00:00:59] write code because it will give you
+[00:01:00] access to their top models like GPT 5.5.
+[00:01:03] However, you can also use it to control
+[00:01:05] your computer to automate tasks to, you
+[00:01:08] know, perform something repetitive for
+[00:01:10] you. And you can even do something like
+[00:01:11] tell it to play a song on Spotify for
+[00:01:13] you and it can go and do that by
+[00:01:15] controlling your computer. So there's a
+[00:01:17] lot of cool features that are not just
+[00:01:18] related to coding and I'm going to try
+[00:01:20] to cover all of those in this video. So,
+[00:01:22] what I want to do is quickly cover how
+[00:01:24] you can use codecs because there's a lot
+[00:01:26] of different ways and OpenAI has been
+[00:01:28] very confusing with the naming of codecs
+[00:01:30] because they had models called Codeex,
+[00:01:32] like their actual LLMs. Now, they have
+[00:01:34] the tool called Codeex and you can use
+[00:01:36] it in like many different fashions. So,
+[00:01:38] for this video, we're going to be using
+[00:01:40] the standalone desktop application. The
+[00:01:43] way this works is you download it and
+[00:01:44] install it on your computer. You can get
+[00:01:46] it for Windows, Mac, and then they don't
+[00:01:48] have it for Linux right now, so just
+[00:01:49] Windows or Mac. Now, you'll sign into
+[00:01:51] this using your Chat GPT subscription.
+[00:01:53] You can use it, I believe, as low as $20
+[00:01:55] per month on the plus plan. Just keep in
+[00:01:57] mind, I do have the $200 per month plan.
+[00:02:00] So, my usage limits will be
+[00:02:01] significantly higher. Now, the limits
+[00:02:03] are typically very generous. You're
+[00:02:04] probably going to get five or 10 times
+[00:02:06] the amount of usage than you would
+[00:02:07] compared to something like Claude Code.
+[00:02:09] So, I wouldn't be too concerned with
+[00:02:11] ripping through it unless you use the
+[00:02:13] highest end models and you're running it
+[00:02:14] 24/7. Now, you can also use this with an
+[00:02:16] OpenAI API key. I definitely do not
+[00:02:18] recommend that because that's going to
+[00:02:20] be very expensive. So, first step, if
+[00:02:22] you don't already, download and install
+[00:02:24] Codeex. I'll leave a link to it in the
+[00:02:25] description. Sign in with your ChatgPT
+[00:02:28] account. Then you're good to go. Now, as
+[00:02:30] well as the desktop app, which again is
+[00:02:32] what we're going to be using, they also
+[00:02:33] have an IDE extension. You can install
+[00:02:35] this in the popular editors like Cursor,
+[00:02:37] Visual Studio Code, and Windsurf and
+[00:02:39] have access to the same codeex interface
+[00:02:42] inside of that editor. If you're a
+[00:02:43] developer, you may want to do that. We
+[00:02:45] also have CLI. Now, this is a command
+[00:02:47] line interface, more familiar to
+[00:02:49] something like Claude Code, where you're
+[00:02:50] not in kind of a nice graphical user
+[00:02:52] interface, which you'll see in a minute.
+[00:02:54] But the advantage here is that you can
+[00:02:55] run this on something like Linux or a
+[00:02:57] server and you can have this as a remote
+[00:02:58] machine that's running 24/7. Same thing,
+[00:03:01] you can sign in with your account. And
+[00:03:02] then we have the cloud version, which is
+[00:03:04] running directly in your browser. It's
+[00:03:06] better if you can use the desktop
+[00:03:08] version, but if you want to do it from
+[00:03:09] the browser on your phone or something,
+[00:03:11] you can do that. Okay, so those are the
+[00:03:13] surfaces for codecs. Again, what we want
+[00:03:15] to do is download the desktop
+[00:03:16] application, which is where we're going
+[00:03:18] to be working. And now, let's open up
+[00:03:20] that app. So, I've just opened up the
+[00:03:21] desktop application, which is where
+[00:03:23] we're going to be working and where I
+[00:03:24] recommend you use Codeex because that's
+[00:03:26] the most number of features. Now, let's
+[00:03:28] start by going through the user
+[00:03:29] interface so you can understand what all
+[00:03:31] of these buttons actually do, and then I
+[00:03:33] promise we'll go through all of the
+[00:03:34] features. So, here you have your main
+[00:03:36] chat window. There's a few things you
+[00:03:37] want to pay attention to like the model
+[00:03:39] selector which we'll look at in a
+[00:03:40] minute, the voice dictation in case you
+[00:03:42] want to use that. The approval modes, so
+[00:03:44] ask for approval, approve for me or full
+[00:03:46] access. And then being able to add
+[00:03:48] different skills, context, and then if
+[00:03:50] you want, you can actually run commands
+[00:03:52] by using this slash. So if you do
+[00:03:54] forward slash, you'll be able to see a
+[00:03:55] list of all of the stuff available,
+[00:03:57] which we'll be going through. You also
+[00:03:58] have the ability to organize different
+[00:04:00] chats into projects. So you can see I
+[00:04:02] have a few projects here. You can make a
+[00:04:04] new one, but we'll look at that in a few
+[00:04:05] minutes. Now from the right hand side,
+[00:04:07] you also notice that you have these
+[00:04:08] toggleable bars. So if you click on the
+[00:04:10] right, it's going to show you a browser
+[00:04:11] and a terminal. That's because Codeex
+[00:04:13] can automatically control a browser for
+[00:04:15] you and test your applications. And then
+[00:04:18] you can also toggle up the terminal or
+[00:04:20] the shell, which again Codeex can
+[00:04:22] control and use for you. You typically
+[00:04:23] don't need to do this, but I'm just
+[00:04:25] showing you those views exist. From the
+[00:04:27] lefth hand side, you can also toggle
+[00:04:28] this sidebar where you have some of the
+[00:04:30] important, I don't know, buttons or
+[00:04:32] views. Now, if you want to access the
+[00:04:34] settings menu, you can click on your
+[00:04:35] profile, can go to profile or to
+[00:04:38] settings. For settings, if you are
+[00:04:39] someone who's not going to do any
+[00:04:40] coding, you can switch this over to the
+[00:04:42] everyday work mode. So, it's going to be
+[00:04:44] a little bit less technical. But for
+[00:04:45] most of us, we're going to want to stay
+[00:04:46] here where we have access to the
+[00:04:48] browser, the terminal, and some other
+[00:04:49] features. There's a ton of settings.
+[00:04:51] Feel free to look through these and
+[00:04:52] change any of them if you want, but
+[00:04:54] again, I will go through them one by
+[00:04:56] one. And then last thing, if you go and
+[00:04:57] look at usage and billing, you'll be
+[00:04:59] able to see your usage, the plan that
+[00:05:01] you're currently on, if you have any
+[00:05:02] balance or anything. Again, these are
+[00:05:04] very generous limits. It's very unlikely
+[00:05:06] that you're going to hit them,
+[00:05:07] especially if you're doing something
+[00:05:08] somewhat normal. So, I wouldn't stress
+[00:05:10] out about it too much. Okay, so now that
+[00:05:12] we've gone through that, let's start
+[00:05:13] looking at the models. Let's start
+[00:05:14] running a few chats and setting up some
+[00:05:16] plugins so I can show you things like
+[00:05:17] the computer control, which is super
+[00:05:19] cool. But first, just a quick word from
+[00:05:22] our sponsor, boot.dev. Now, this is one
+[00:05:25] of the best learning platforms out there
+[00:05:26] and actually a long-term partner of this
+[00:05:28] channel. Now, one of the biggest
+[00:05:30] problems that I see with people learning
+[00:05:32] to code is boredom. They watch
+[00:05:33] tutorials, copy code, feel productive
+[00:05:36] for a week, and then they quit. Now,
+[00:05:38] boot.dev takes a completely different
+[00:05:40] approach. It's very hands-on, and
+[00:05:42] honestly, it feels more like a game than
+[00:05:44] a course. Now, you're learning back-end
+[00:05:46] development by actually building things,
+[00:05:48] not just watching videos. You work
+[00:05:50] through real challenges in Python, SQL,
+[00:05:52] and Go. earn XP, level up, fight bosses,
+[00:05:55] and progress through a full back-end
+[00:05:57] curriculum. Now, it sounds a bit
+[00:05:58] gimmicky, but I promise you it actually
+[00:06:00] works because you're doing the same kind
+[00:06:02] of problem solving that you do on the
+[00:06:03] job. Now, they also have an AI tutor
+[00:06:05] called Boots, which doesn't just dump
+[00:06:07] answers on you. It asks follow-up
+[00:06:09] questions and helps you reason through
+[00:06:11] problems when you get stuck, which is
+[00:06:12] way closer to how you actually learn.
+[00:06:14] Now, all of the content is free to read
+[00:06:16] and watch. And if you want the
+[00:06:18] interactive coding, the progress
+[00:06:19] tracking, and the AI assistance, that's
+[00:06:21] part of the paid plan. If you want to
+[00:06:23] check it out, go to boot.dev and use my
+[00:06:25] code tech with Tim to get 25% off your
+[00:06:28] first year. Big thanks to boot.dev for
+[00:06:30] sponsoring this video. Now, let's get
+[00:06:32] back into it. So, like I was saying,
+[00:06:34] let's have a look at the model
+[00:06:35] selection. Now, for some reason, you
+[00:06:36] don't see this view. You can always just
+[00:06:38] press new chat, and it will bring this
+[00:06:39] up. Now, from here, if you go to model
+[00:06:41] selector, you're going to see that you
+[00:06:43] have a reasoning level, light, medium,
+[00:06:45] high, and extra high. Now, of course,
+[00:06:47] you want to use the best reasoning
+[00:06:49] whenever you possibly can, but keep in
+[00:06:51] mind that this is going to take
+[00:06:52] significantly longer. So, the reasoning
+[00:06:55] can kind of come down to how long this
+[00:06:57] is going to take. Of course, the higher
+[00:06:59] reasoning, the better responses and
+[00:07:01] results that you're typically going to
+[00:07:02] get, but it can increase the time by
+[00:07:04] like four or five, sometimes 10x. I've
+[00:07:07] had tasks here take, you know, 30
+[00:07:08] minutes to run in extra high reasoning.
+[00:07:10] So, if you want something fast, if
+[00:07:12] you're asking a quick question, you
+[00:07:13] don't need super high reasoning, and you
+[00:07:15] can put this in light or medium mode.
+[00:07:17] Now, when it comes to the model itself,
+[00:07:19] you have a few options. GPD 5.5 is kind
+[00:07:22] of the best one. You know, the frontier
+[00:07:24] coding model, the one you're going to
+[00:07:25] want to use for pretty much everything.
+[00:07:27] GBD 5.4 is just the generation before
+[00:07:30] that that has kind of cheaper usage
+[00:07:32] limits. I would never use this one. GPD
+[00:07:34] 5.4 mini. This can be used for small,
+[00:07:37] fast, kind of efficient things where
+[00:07:38] you're asking a question or you just
+[00:07:40] want, you know, a quick UI change or
+[00:07:42] something. And then 5.3 Codec Spark is
+[00:07:44] just an extremely fast model that you
+[00:07:46] use again for very minor things that
+[00:07:48] don't require a lot of intelligence and
+[00:07:50] specifically when you're running out of
+[00:07:52] the usage on GPT 5.5. So for 99% of you,
+[00:07:55] you just keep GPT 5.5 on probably throw
+[00:07:58] it in medium reasoning. If you have
+[00:08:00] enough credits, you can turn on this
+[00:08:01] fast mode so it'll run faster. I pretty
+[00:08:03] much always leave that on. And then if
+[00:08:05] you start running out of the usage, you
+[00:08:07] can switch to some of these other
+[00:08:08] models. You can change the speed back to
+[00:08:10] default and you can adjust the
+[00:08:11] reasoning. But most of the time, 5.5
+[00:08:13] medium, this is what you're going to
+[00:08:15] keep it in. And if you're doing
+[00:08:16] something more complicated, switch up
+[00:08:18] the reasoning level here to high or
+[00:08:20] extra high. You can play around with it,
+[00:08:21] but that's pretty much all you need to
+[00:08:23] know. Okay. So, of course, we're going
+[00:08:24] to use this. I'm going to show you a
+[00:08:25] bunch of prompts, but I want to show you
+[00:08:26] how to set this up so we can do some
+[00:08:28] really interesting things with codecs.
+[00:08:30] So, what we're going to do here is go to
+[00:08:32] plugins. Now, this is one of my favorite
+[00:08:34] features of Codeex is all of the plugins
+[00:08:36] that it has by default and the fact that
+[00:08:38] it can control your computer, control
+[00:08:40] your browser, control spreadsheets,
+[00:08:42] access Google Drive, and do this in a
+[00:08:45] really interactive and intuitive way.
+[00:08:47] Now, most of your tools like this, like
+[00:08:48] Cloud Code, they can do the same thing,
+[00:08:50] but I find Codeex performs a lot better,
+[00:08:52] and it's just way easier to understand.
+[00:08:54] So, what we're going to want to do here
+[00:08:56] is go to plugins and start installing
+[00:08:58] some of the ones that you see on my
+[00:08:59] computer right now. So, the first one is
+[00:09:02] computer use. If you don't already have
+[00:09:03] this installed, you can install it and
+[00:09:05] activate it. It may ask for some
+[00:09:06] permissions here. And this is going to
+[00:09:08] allow you to control your computer. So,
+[00:09:10] you can tell it to open up an
+[00:09:11] application, go to your browser, access
+[00:09:14] Spotify. We're going to look at that in
+[00:09:15] one second. Next plugin we're going to
+[00:09:17] want is Chrome. So, we're going to want
+[00:09:18] to install this Chrome plugin here. And
+[00:09:20] then open up this Chrome extension.
+[00:09:23] Okay, this Codeex Chrome extension. You
+[00:09:24] can see I already have mine installed
+[00:09:26] here. And if I go to the view, you can
+[00:09:28] see we have Codeex and it's connected.
+[00:09:30] And this will allow Codeex to control
+[00:09:32] your browser. So it can open up a tab.
+[00:09:33] It can search for something. It can
+[00:09:34] debug your application. Make sure that
+[00:09:36] you get that set up. Again, if you just
+[00:09:38] press this open button, you can install
+[00:09:40] the extension and link it. Another
+[00:09:41] extension that I highly recommend is
+[00:09:43] GitHub. If you're unfamiliar with Git
+[00:09:45] and GitHub, this is essentially a
+[00:09:47] version control software for code. This
+[00:09:49] means that you can save your changes so
+[00:09:51] that you know you can recover them later
+[00:09:53] on. You can store them in the clouds,
+[00:09:55] you can use them from a different
+[00:09:56] device, [clears throat] and you can
+[00:09:57] share them with your teammates. This is
+[00:09:58] a standard anytime you're building even
+[00:10:00] a medium-sized project. Really any type
+[00:10:02] of coding project, you should be using
+[00:10:04] this. So create a free GitHub account.
+[00:10:07] Very easy. You can just go to github.com
+[00:10:09] and then you can connect your GitHub
+[00:10:10] account here inside of Codeex so it can
+[00:10:12] automatically make what's called a
+[00:10:13] repository which is just storing your
+[00:10:15] code effectively and upload it to the
+[00:10:17] cloud so that you're not going to lose
+[00:10:18] it. You can access it from other devices
+[00:10:20] and you can revert back in case Codeex
+[00:10:22] makes a change and breaks you know
+[00:10:24] whatever the version of your project is.
+[00:10:25] I'm not going to be teaching Git and
+[00:10:27] GitHub too much, but I do highly
+[00:10:28] recommend that you set up that plugin.
+[00:10:30] And you can see we have a few other ones
+[00:10:32] here like Google Drive, Presentations,
+[00:10:33] Spreadsheets, Slack, Gmail. You can add
+[00:10:36] as many of these as you want, but I'm
+[00:10:37] going to stick with these for right now.
+[00:10:39] So, now that we have the computer plugin
+[00:10:41] installed, I want to show you how to use
+[00:10:42] this. So, if I go and I use this at
+[00:10:45] symbol, you can see that I can actually
+[00:10:46] reference different applications and
+[00:10:49] specifically this computer, right? So,
+[00:10:51] from computer, what I can do is ask it
+[00:10:53] to do something. So, let's start by
+[00:10:55] doing something simple. Open up Notepad.
+[00:10:58] Close any of the existing windows that
+[00:11:00] are there. And then write a simple note
+[00:11:02] and describe your ideal day. I know
+[00:11:05] you're a computer, but just come up with
+[00:11:07] something. Okay, I'm just giving it kind
+[00:11:08] of, you know, random prompt. By the way,
+[00:11:10] if you're wondering what I'm using to
+[00:11:11] prompt here, I always use this tool
+[00:11:12] called Whisper Flow. Very good for voice
+[00:11:15] dictation, especially in AI tools. I'll
+[00:11:17] leave a link to it so you can check it
+[00:11:18] out in the description. You can see that
+[00:11:19] I use it a ton based on my usage. Very,
+[00:11:22] very good and free to try out. Okay, so
+[00:11:24] let's run this and let's see what we get
+[00:11:26] here. And you can see that it's going to
+[00:11:28] use the computer plugin and it should
+[00:11:30] control my computer. And keep in mind
+[00:11:32] that while it's controlling my computer,
+[00:11:33] I can still use the computer myself. So
+[00:11:36] I can navigate into an application. I
+[00:11:38] can close something. I don't need to
+[00:11:39] have it kind of freely using the mouse
+[00:11:42] because it will actually use its own
+[00:11:43] cursor. Okay, apologies because it had a
+[00:11:46] note there that I didn't want you guys
+[00:11:47] to see. So I had to kind of rerun this.
+[00:11:49] But you can see that it actually just
+[00:11:50] opened up my computer here. open up
+[00:11:52] notepad and wrote this note inside for
+[00:11:54] me. Okay. So now if I want to say
+[00:11:55] something, can you continue this note
+[00:11:57] and make it like double or triple the
+[00:11:59] length? Don't worry if it's unsaved.
+[00:12:00] Just keep writing. Okay. And let's hit
+[00:12:02] enter. And again, you'll see that we
+[00:12:03] kind of get that blue hue around our
+[00:12:05] computer. And it's able to take over and
+[00:12:07] do anything that we want, which can be
+[00:12:09] super useful, especially for automating
+[00:12:12] kind of like testing a website, going
+[00:12:14] through a form, running a task
+[00:12:16] repetitively. You get the idea. So let's
+[00:12:18] see how it works. And you can see that
+[00:12:19] it just opened it. And then did it
+[00:12:21] extend the note? Um, I guess not. Says
+[00:12:23] thinking. Okay, maybe it will take over
+[00:12:25] again in a second. But when it does
+[00:12:26] that, you also see its kind of cursor
+[00:12:28] appearing, which I think is pretty cool.
+[00:12:29] Okay, so for some reason it didn't keep
+[00:12:31] controlling the note. But let's just do
+[00:12:32] another example here. I'm going to say
+[00:12:34] computer, open up Spotify, find Drake's
+[00:12:36] most popular song, and then tell me what
+[00:12:38] it is and play it. Okay, and let's just
+[00:12:40] do this as an example so we can see.
+[00:12:42] Okay, so it actually found that Spotify
+[00:12:44] wasn't installed on my computer, and
+[00:12:45] it's going to now do this from Chrome,
+[00:12:47] which is what I was trying to show. So,
+[00:12:48] I'm going to allow this to access my
+[00:12:50] Chrome browser. Okay, so we can see it
+[00:12:52] opened this. It actually started playing
+[00:12:53] the song. I just paused it because I
+[00:12:54] don't want to get the copyright strike.
+[00:12:55] And it found the song for me. And then
+[00:12:57] if I go here, it says that this is the
+[00:12:58] most popular one. Okay, I don't know if
+[00:13:00] that's true, but at least that's what it
+[00:13:01] gave us. So, the point is it can control
+[00:13:03] Chrome. It can control its own devices.
+[00:13:04] So, keep that in mind. That's super
+[00:13:06] useful. But now, let's move to some more
+[00:13:08] coding related features. Okay, so if
+[00:13:10] we're done with the current chat here,
+[00:13:11] what we can do is just press new chat
+[00:13:13] and open up a new one here. And what I'm
+[00:13:15] going to do now is I'm actually going to
+[00:13:16] create a new project. Now, whenever
+[00:13:18] you're coding, I recommend that you make
+[00:13:20] a new project. You can organize all of
+[00:13:22] your chats for that specific project,
+[00:13:24] and you can go back and find them
+[00:13:25] easily. It's not required to do this,
+[00:13:27] but it's kind of a good practice. So,
+[00:13:29] you can see that I can make new project.
+[00:13:31] I can use an existing folder. So, maybe
+[00:13:33] I have an existing code repo that I want
+[00:13:35] to use. I can open that up, and that's
+[00:13:36] kind of what a project is. It's really
+[00:13:38] just a folder on your computer. Or I can
+[00:13:40] start one from scratch. So, I'm going to
+[00:13:42] start one from scratch. And I'm just
+[00:13:43] going to call this, I don't know, chess
+[00:13:45] game. And what we'll do is we'll try to
+[00:13:47] make like an interactive chess game here
+[00:13:49] using codeex. So you can see that it's
+[00:13:50] made a new project for me. It's called
+[00:13:52] chess game. And notice that we have a
+[00:13:54] few options here for the project. Now I
+[00:13:56] have the ability to connect to Codeex
+[00:13:58] web. This would essentially send all of
+[00:14:01] the kind of info to the cloud, which is
+[00:14:03] a little bit more complicated. We can
+[00:14:05] work locally, which just means we're
+[00:14:06] working on our own computer, which is
+[00:14:08] what we're going to do here. Or we can
+[00:14:09] create something called a work tree.
+[00:14:11] Now, we're going to look at work trees
+[00:14:12] later, but essentially this is a clone
+[00:14:14] of this kind of project so that we can
+[00:14:16] work on multiple things at the same time
+[00:14:18] without having a conflict. So, for now,
+[00:14:20] we're going to leave it in the uh
+[00:14:21] current location that it's in. You'll
+[00:14:23] notice that it automatically is
+[00:14:24] connecting to Git. So, it's created a
+[00:14:26] branch called main, and you can make
+[00:14:28] different branches if you're familiar
+[00:14:30] with Git, but we're not going to look at
+[00:14:31] that for right now. I'm also just going
+[00:14:32] to move this to full access mode just so
+[00:14:34] I don't need to keep approving things.
+[00:14:35] And you can see it's pretty
+[00:14:36] straightforward what you do here with
+[00:14:37] those. So, now let me give this a simple
+[00:14:39] prompt. I want to create a simple chess
+[00:14:41] game. I want to have a backend which is
+[00:14:44] using websockets and kind of keeping
+[00:14:46] track of scores and ratings and stuff in
+[00:14:48] a database and people's usernames. And
+[00:14:50] then I want to have a front end where we
+[00:14:52] can actually play this. I want it to be
+[00:14:54] multiplayer. So I want two people to be
+[00:14:56] able to play against each other. We can
+[00:14:57] keep it simple, have an MVP to start and
+[00:15:00] then build everything out. Okay. So I'm
+[00:15:01] just giving it, you know, prompt on what
+[00:15:03] I what it is that I want it to do. I
+[00:15:05] wanted to build something out here. And
+[00:15:06] we're going to go ahead and press enter.
+[00:15:08] And I just want to show you how this
+[00:15:09] works. Okay, so we can see here the
+[00:15:11] codeex is now working. It's making
+[00:15:12] multiple files. We can see what it's
+[00:15:14] doing. And I can kind of, you know, go
+[00:15:15] into this and inspect the different
+[00:15:17] commands. But I want to see what's
+[00:15:18] actually running. If I expand this right
+[00:15:20] toggle now, you'll notice that it's
+[00:15:22] giving me a preview tab. We don't see
+[00:15:24] anything right now because we're just
+[00:15:25] waiting for it to finish the files, but
+[00:15:26] we will be able to see all of the
+[00:15:28] different files, code changes, and all
+[00:15:30] this stuff going on here in 1 second.
+[00:15:32] And then if I go here to this kind of
+[00:15:35] little, I don't know, to-do list icon,
+[00:15:37] you can see that we have a bunch of
+[00:15:39] options. So I can change where I want it
+[00:15:40] to work. I can change the branch. I can
+[00:15:42] commit or push directly to GitHub. Now,
+[00:15:44] it's not giving us any results cuz it's
+[00:15:46] not available online right now. It's
+[00:15:47] just locally on our computer, but you
+[00:15:49] get the idea. And then we can view the
+[00:15:50] changes which is making right now. So
+[00:15:52] we're just waiting for those to finish.
+[00:15:53] So there's a lot that will start
+[00:15:54] happening when you actually write code.
+[00:15:56] And then I can also toggle open the
+[00:15:58] terminal, right? So I can run commands
+[00:16:00] or see what's happening there. Let's go
+[00:16:01] back into this view and then I can open
+[00:16:03] this in any of the tools that are shown
+[00:16:06] here. So, if I wanted to open this in
+[00:16:07] cursor and view all of the code in IDE,
+[00:16:09] I can press that button and do so. So,
+[00:16:11] let's wait a second for it to finish
+[00:16:12] writing this code. You can see that it's
+[00:16:13] starting to show me some of the files
+[00:16:15] that we have inside of this folder and
+[00:16:17] then we'll review it and see what we
+[00:16:18] get. Okay, so it just finished the first
+[00:16:20] pass here. It says that it built the
+[00:16:22] multiplayer chess MVP and started
+[00:16:24] locally. And if I press on any of the
+[00:16:26] links here, you'll notice that they'll
+[00:16:27] actually open directly in codeex. So you
+[00:16:29] can see that it's opened up right here.
+[00:16:31] We kind of have this view. I can, you
+[00:16:32] know, change the view, make it larger,
+[00:16:34] smaller, whatever. So let's give a
+[00:16:36] username maybe like Tim. Okay. And join
+[00:16:38] the game. And then let's try to find a
+[00:16:41] game. Okay. And then I'm just going to
+[00:16:42] open up another browser here. So you can
+[00:16:44] see I can press this plus button. Go
+[00:16:46] browser. We could actually manually
+[00:16:48] type. So localhost 3000. Okay. And let's
+[00:16:51] see, maybe we can change this as, I
+[00:16:54] don't know, Joe or something. Okay. Join
+[00:16:56] and find a game. And you can see that we
+[00:16:59] find a game and then we can start
+[00:17:00] playing. So, I don't know. Let me try to
+[00:17:02] move here and see if it moves on this
+[00:17:04] side. And it looks like it's working.
+[00:17:05] So, let's make a move like that. I'm not
+[00:17:08] going to play the full thing out, but
+[00:17:09] you guys get the idea that it is indeed
+[00:17:11] working. We have a track of all the
+[00:17:13] moves. We have some leaderboard. And
+[00:17:14] then maybe if I resign, you can see now
+[00:17:16] the ELO has updated and I won. So, it
+[00:17:19] says white wins by resignation. I mean,
+[00:17:22] pretty cool that that worked that fast.
+[00:17:24] Now, within this browser view, there's a
+[00:17:25] few buttons you should be aware of. So
+[00:17:27] if you have a look at this right hand
+[00:17:28] side, you can see that you can actually
+[00:17:30] take a screenshot. If you do that, it
+[00:17:32] will save it to the clipboard and then
+[00:17:33] you can copy that screenshot so or paste
+[00:17:35] it sorry into the chat in case you want
+[00:17:37] to capture what's going on inside of
+[00:17:39] this window rather than doing it
+[00:17:40] manually. And of course chat GBT and you
+[00:17:43] know GBT here can do image generation.
+[00:17:44] It can view images. So that's I mean
+[00:17:46] should be straightforward. You also can
+[00:17:48] annotate. So if you annotate this will
+[00:17:50] allow you to select different HTML
+[00:17:52] elements. So, for example, maybe I'm
+[00:17:54] going to select this and I can say
+[00:17:55] something like, I don't really like this
+[00:17:57] title. I think we can make it look a lot
+[00:17:59] better and put a chess logo. Okay. And
+[00:18:01] then we can go here and we can actually
+[00:18:03] just update any of the values directly
+[00:18:05] on screen. I'm not going to do that cuz
+[00:18:07] I would prefer just to prompt it, but
+[00:18:09] I'm just going to run that. You can see
+[00:18:10] we now have an annotation in chat and I
+[00:18:13] can start adding other annotations. So
+[00:18:14] maybe I'm going to say, can we change
+[00:18:17] the color of the board or have like a
+[00:18:19] white or dark mode or maybe change the
+[00:18:21] square colors? I'm just giving random
+[00:18:23] prompts to kind of show you how this
+[00:18:24] works. And you can see we have
+[00:18:25] annotations and I can say like go or
+[00:18:28] something. And now it's going to have
+[00:18:29] the annotations that we made in the
+[00:18:31] browser and it's going to make those
+[00:18:33] changes which are a lot more targeted.
+[00:18:35] Okay, so I just refreshed cuz I want to
+[00:18:36] see what this was doing live. And you
+[00:18:38] can see if I go here now and I refresh,
+[00:18:40] we've kind of changed what the board
+[00:18:41] looks like. Obviously we've disconnected
+[00:18:43] now. Now we're waiting to join. We can
+[00:18:44] see we have the kind of chess icon and
+[00:18:46] it's essentially followed the
+[00:18:48] annotations we asked for. Okay, so
+[00:18:49] hopefully that gave you a bit of
+[00:18:50] information on how the general kind of
+[00:18:52] coding works inside of codeex. It's very
+[00:18:55] good for me. I really like this user
+[00:18:57] interface and I like using this
+[00:18:58] application and I mean you can see that
+[00:19:00] it gives us pretty good results even
+[00:19:02] though I didn't do anything crazy. So
+[00:19:04] now let's move to a few more advanced
+[00:19:05] features. Let's start by having a look
+[00:19:07] at some basic commands. So, commands are
+[00:19:10] just anything that start with a slash.
+[00:19:11] And there's a ton of built-in commands
+[00:19:13] inside of Claude Code, or not Cloud
+[00:19:15] Code, inside of Codeex. I'm not going to
+[00:19:17] go over all of them, but I'll show you a
+[00:19:18] few that you should be aware of. So,
+[00:19:21] first, if we do slash, we're going to
+[00:19:22] want to look at status. Now, status will
+[00:19:25] just show you your usage limits. You can
+[00:19:27] see that for my 5 hour limit, I'm at 98%
+[00:19:29] and for my 7-day limit, I'm at 99%. It
+[00:19:32] also gives me my context limit. Now, the
+[00:19:34] context can be viewed using this little
+[00:19:37] kind of circular icon down here. It
+[00:19:39] won't give you a detailed breakdown, but
+[00:19:41] you'll be able to see how much you've
+[00:19:43] used, how much is left, and how many
+[00:19:45] tokens are there. Now, depending on the
+[00:19:46] models you're using, the context size
+[00:19:48] can change. But this is something that's
+[00:19:50] useful to be aware of because if the
+[00:19:51] context gets too large, which means you
+[00:19:53] have too many uh, you know, too much
+[00:19:55] conversation history, tool calls, etc.,
+[00:19:57] you will need to compact that. Now,
+[00:20:00] there's actually a command that can do
+[00:20:01] this for you. It's called slash compact.
+[00:20:04] Now what slash compact will do is it
+[00:20:06] will take everything that you have in
+[00:20:07] your current conversation history. So
+[00:20:10] all of the tool calls, all of the code,
+[00:20:11] anything that it's understood in this
+[00:20:13] whole conversation that we've had and it
+[00:20:15] will generate a summary of that and then
+[00:20:17] add that to kind of a new fresh
+[00:20:19] conversation that you'll start. So
+[00:20:21] you'll notice that after I did that, we
+[00:20:23] now if we look at the uh what is it
+[00:20:24] context use here, we've only used 4%. So
+[00:20:27] it's taken 22% there. It's condensed it
+[00:20:30] down, given us a summary, and now we can
+[00:20:32] continue. Now, it's not a great idea to
+[00:20:34] compact super early cuz you want to use
+[00:20:36] up the context window, but as soon as
+[00:20:38] you start getting to 70%, 80%, 90%
+[00:20:41] context, you typically want to compact
+[00:20:44] it because you're going to get better
+[00:20:45] results because as the model fills up
+[00:20:47] with context, it performs worse. This is
+[00:20:50] pretty wellnown. Not going to go into
+[00:20:52] all of the details. Just be aware that
+[00:20:54] command exists. you can use it and
+[00:20:55] codeex will automatically compact for
+[00:20:58] you if you're going to go past your
+[00:20:59] context. So you may want to do it at a
+[00:21:01] time that you decide rather than waiting
+[00:21:03] for it to do it automatically. Now
+[00:21:05] another thing that we can do which is
+[00:21:06] sometimes useful is we can fork this.
+[00:21:09] Now you can see that if we type /fork it
+[00:21:11] will allow us to fork this chat into a
+[00:21:12] local or new work tree which we're going
+[00:21:15] to look at. Effectively, what this will
+[00:21:17] do is take everything that we've done
+[00:21:18] and just create a complete copy of it.
+[00:21:20] So, we can work in multiple agents at
+[00:21:22] the same time without them having any
+[00:21:25] conflicts. So, they both will kind of
+[00:21:27] work in their own copy of the codebase
+[00:21:29] and then they can go and kind of uh join
+[00:21:32] everything together, fix any of the
+[00:21:33] merge conflicts when we get to the final
+[00:21:35] version. Again, we'll look at fork in a
+[00:21:37] minute, but that is a command to be
+[00:21:38] aware of. You have the fast mode
+[00:21:40] feedback. We're not going to do that. a
+[00:21:42] nit goal and some other kind of modes
+[00:21:44] that we'll look at here in a second. Few
+[00:21:46] last things to be aware of. You can also
+[00:21:47] pin chats. So if we want this chat to be
+[00:21:49] available, we can pin it and then we can
+[00:21:51] create new chats inside of the same
+[00:21:52] project. You can see it's in chess game
+[00:21:54] here and we can decide how we want to
+[00:21:56] work and just have another agent either
+[00:21:58] running at the same time or in a new
+[00:21:59] chat if we want to ask for something
+[00:22:01] different and kind of forget the
+[00:22:02] previous conversation history we had
+[00:22:04] here. Anyways, let's go to a new chat.
+[00:22:07] Now we're inside of chess game and let's
+[00:22:09] use a new mode that we haven't seen yet
+[00:22:11] which is plan. So if we use slash plan,
+[00:22:14] we can enable plan mode. You'll see that
+[00:22:16] it's here. And now with plan mode, what
+[00:22:18] we can do is we can ask this something a
+[00:22:21] little bit more detailed. We can
+[00:22:22] describe what we want and codeex will
+[00:22:24] prompt us with different questions and
+[00:22:26] kind of clarifying details before it
+[00:22:28] goes and executes the plan. Pretty
+[00:22:30] straightforward, but typically you want
+[00:22:31] to make a plan before you do something
+[00:22:33] too complex. So really for our chess
+[00:22:35] game, we should have started in plan
+[00:22:37] mode, built the plan, and then executed
+[00:22:39] it. I was just saving it for later
+[00:22:40] because it's a little bit more complex.
+[00:22:42] So now maybe I want to expand this chess
+[00:22:44] game. I want to have puzzles. I want to
+[00:22:46] have a leaderboard. I want to have maybe
+[00:22:48] a big UI. I want to have whatever it
+[00:22:50] counts. So let's start generating a plan
+[00:22:51] for that. I want to expand our chess
+[00:22:54] game. I want to have a better landing
+[00:22:56] page so that a user can see their stats
+[00:22:59] and they have the ability to either play
+[00:23:00] a game or play a puzzle or go to like a
+[00:23:03] practice board. I want to generate a few
+[00:23:05] different game modes and I want to
+[00:23:06] really polish this up and make it kind
+[00:23:08] of like a chess.com clone. Let's start
+[00:23:10] with just the MVP features. Can you
+[00:23:12] generate a plan for this? Ask me any
+[00:23:13] questions you need to. Okay, so let's go
+[00:23:16] here and press enter. And because it's
+[00:23:18] in plan mode, it's going to map
+[00:23:20] everything out and it should start
+[00:23:22] asking us some questions and prompting
+[00:23:24] us so that it can generate that for us.
+[00:23:26] Okay, so we can see that it's now
+[00:23:27] prompting us with a few questions in the
+[00:23:29] bottom here. So it says for the first
+[00:23:30] MVB pass, which mode set should the
+[00:23:33] landing page launch? Uh we can have add
+[00:23:35] bot game, add time modes, or core three,
+[00:23:37] ship the landing page, live game, daily
+[00:23:39] style puzzles. Let's go with that. How
+[00:23:41] should the user stats work for an MVP?
+[00:23:43] Let's just go username profiles. Okay.
+[00:23:46] Um, username, login, expand stats. Okay.
+[00:23:50] How deep should the puzzle mode be in
+[00:23:51] MVP? Let's just do
+[00:23:54] yeah, small bundled puzzled library.
+[00:23:56] That looks good. And now we continue.
+[00:23:58] Now, while it's doing this, also mention
+[00:24:00] that if you open up the sidebar here,
+[00:24:02] you'll see a few more options. Because
+[00:24:03] we're in this kind of coding
+[00:24:05] environment, we can now view all of the
+[00:24:07] files. If we want to look at this, we
+[00:24:08] see we have the database. We can open up
+[00:24:10] the server, right? And you can modify
+[00:24:12] the code or you can add comments
+[00:24:13] directly inside of here or tag different
+[00:24:15] things. And now you'll see that it's
+[00:24:17] generating the plan. I believe the plan
+[00:24:19] will be stored in this repo. I might
+[00:24:20] just need to refresh, but we should be
+[00:24:23] able to view it. So if I want to look at
+[00:24:24] the plan here, you can see we can open
+[00:24:26] it up and it gives us everything that
+[00:24:28] needs to be done. Okay. So I could just
+[00:24:31] implement this plan, right, and just
+[00:24:32] start running with that. But what I want
+[00:24:34] to show you now is another mode that's
+[00:24:36] super useful that is going to get things
+[00:24:39] done a lot more efficiently for us
+[00:24:40] without us having to keep approving
+[00:24:42] things or prompting the model multiple
+[00:24:44] times. and that is called goal. So there
+[00:24:47] is this um slash command called
+[00:24:49] slashgoal. Now if we use this um let me
+[00:24:52] just actually type it out. What will
+[00:24:55] happen is that codeex will run until a
+[00:24:58] goal is achieved. Now this is kind of
+[00:25:00] that agentic loops that you may have
+[00:25:02] heard about recently that everyone's
+[00:25:04] talking about. They have that built in
+[00:25:05] now. So what we can do is we can say hey
+[00:25:08] here's the goal and we just set a highle
+[00:25:10] objective and codex will keep going
+[00:25:13] until the goal is achieved. So it will
+[00:25:14] plan, it will execute, and then it will
+[00:25:16] review if it's achieved the goal. And if
+[00:25:18] it hasn't, it will just keep running. So
+[00:25:20] it's not just going to do one pass or
+[00:25:22] implement one set of features. It will
+[00:25:24] go until the goal is achieved. Now, in
+[00:25:26] order to use this effectively, you need
+[00:25:28] to set a good goal and the conditions
+[00:25:30] for the goal to be achieved. Now, in our
+[00:25:32] case, we already have the plan. So we
+[00:25:34] can effectively just say keep running
+[00:25:36] until the entire plan is implemented. It
+[00:25:38] will then run, check if the plan is
+[00:25:40] done. If it's not, it will keep going.
+[00:25:42] If it is, it will finish. So this will
+[00:25:44] allow it to run for a long period of
+[00:25:46] time which also will use a lot of usage.
+[00:25:48] So keep that in mind. So for the goal
+[00:25:50] I'm going to say okay keep running and
+[00:25:52] implement the entire plan until the plan
+[00:25:54] is fully finished everything is tested
+[00:25:57] everything is working and we are
+[00:25:58] confident to deploy this. Again not the
+[00:26:01] best prompt in the world but I'm just
+[00:26:02] showing you the usage here. And now that
+[00:26:04] the plan is enabled we have goal set. I
+[00:26:07] can press enter and you can see that
+[00:26:08] it's going to pursue this goal and start
+[00:26:11] running. and we can view this is the
+[00:26:13] goal and it's going through all of the
+[00:26:14] different steps and it will just be this
+[00:26:16] infinite loop which can take a very long
+[00:26:19] time to run. All right, so the goal has
+[00:26:20] just finished. It built this application
+[00:26:22] for us. I don't know if it's fully
+[00:26:23] working but you guys get the idea and
+[00:26:25] it's done. So now let's have a look at
+[00:26:27] some more features um and start going
+[00:26:29] through it. Okay, so first things first,
+[00:26:31] if you look at any of these chats, you
+[00:26:33] have the ability to right-click them,
+[00:26:34] you can pin them, rename them, you can
+[00:26:37] also fork them into a local version or a
+[00:26:39] new work tree. Now, I want to really
+[00:26:42] briefly discuss what a work tree is cuz
+[00:26:44] it's a little bit complicated and then
+[00:26:46] we'll save the full usage for a part
+[00:26:48] two. So, let me know if you guys want to
+[00:26:49] see that in the comments down below.
+[00:26:51] Now, if I try to open a new project
+[00:26:53] here, right? So, I've gone sorry, new
+[00:26:54] chat. Okay, so I went new chat and then
+[00:26:56] I selected chess game and then what I
+[00:26:58] did is rather than selecting work
+[00:27:00] locally, I selected new work tree. I
+[00:27:02] have the ability to create a local
+[00:27:04] environment. Now the reason this is
+[00:27:06] important is that if you want to run
+[00:27:08] parallel agents at the same time, they
+[00:27:10] should be working in their own copy of
+[00:27:12] the repository or the project that you
+[00:27:15] have. If they work on the same files,
+[00:27:17] there can be conflicts because they're
+[00:27:19] touching the same information at the
+[00:27:20] same time. Um, and that's not good. So
+[00:27:23] the solution to this is a work tree.
+[00:27:25] This is provided by Git. Again, it's a
+[00:27:28] little bit complicated to set up and a
+[00:27:30] bit confusing to use. So I'm not going
+[00:27:31] to go through all of the details, but if
+[00:27:33] you do want to run parallel agents at
+[00:27:36] the same time, you have multiple tasks
+[00:27:38] going. This is what you would use. You
+[00:27:40] have to configure the environment first,
+[00:27:41] which you can ask Codeex to help you do.
+[00:27:44] And then you can change the branches and
+[00:27:45] stuff um in order to work on the
+[00:27:47] different features. And now you'll have
+[00:27:48] different agents because you can run
+[00:27:50] multiple at the same time working in
+[00:27:52] these kind of copies of the same repo.
+[00:27:54] Again, this is a more advanced developer
+[00:27:56] feature, so I'm not going to dive into
+[00:27:57] it too much. Now, another feature that's
+[00:28:00] somewhat related to this, let's go back
+[00:28:01] to local copy here, is this tool called
+[00:28:04] slash review. Now, this is a code review
+[00:28:07] that can automatically compare any
+[00:28:09] changes that have been made in the
+[00:28:10] current session against what's in um
+[00:28:13] GitHub. Okay. So, if I go to maybe this
+[00:28:16] right now and I go slash review, you can
+[00:28:19] see that I can review this against a
+[00:28:21] base branch. So, a branch in Git if
+[00:28:23] you're familiar with that, or review any
+[00:28:25] uncommitted changes. So, if I go slash
+[00:28:27] review, right, and then uncommitted
+[00:28:29] changes, it's going to start looking at
+[00:28:31] all of the changes that it made here and
+[00:28:33] automatically review them to make sure
+[00:28:35] that they're good before we push them to
+[00:28:37] get or before we commit them. This is a
+[00:28:39] pretty useful feature that Codeex has.
+[00:28:41] And this is something you should always
+[00:28:43] do after you've done a large amount of
+[00:28:44] changes before you push them to remote
+[00:28:47] repository. And if you don't know what
+[00:28:48] that means, don't worry. But if you're a
+[00:28:49] developer, you'll understand the value
+[00:28:51] of having a built-in shortcut that will
+[00:28:53] do all of those passes and checks for
+[00:28:55] you. Okay, so you can see that it's done
+[00:28:56] the review and it's given us some
+[00:28:58] comments now and it said, "Hey, these
+[00:28:59] are errors that I found after doing the
+[00:29:01] code review, right? So then we could go
+[00:29:03] ahead and fix them." Okay, so let's move
+[00:29:04] to the next feature, which is memory and
+[00:29:07] context. Now, this is less maybe I don't
+[00:29:09] know demo-wise and more me explaining
+[00:29:12] how this works because I want you to
+[00:29:13] understand this. So if I make a new um
+[00:29:15] chat right here, okay, and we go into
+[00:29:17] this and I'm working locally, I want you
+[00:29:19] to see something. What did I do in my
+[00:29:22] last session when I was working on the
+[00:29:24] chess game? Now, the reason why I'm
+[00:29:26] going to run this prompt and show you
+[00:29:28] the result is that you need to
+[00:29:29] understand that by default, Codeex
+[00:29:33] doesn't remember things that you worked
+[00:29:35] on in the past. Anytime you create a new
+[00:29:38] chat, what it's doing is reviewing
+[00:29:40] anything that you have in your current
+[00:29:42] repo, kind of trying to load in
+[00:29:44] information and find any context that's
+[00:29:46] relevant, and then give you an answer.
+[00:29:48] But by default, it doesn't remember
+[00:29:50] everything that you did. So it won't
+[00:29:51] have the full conversation history. It
+[00:29:53] won't know maybe preferences that you
+[00:29:55] told it and it can forget things because
+[00:29:57] it doesn't remember by default. The only
+[00:29:59] reason this actually just gave me a
+[00:30:00] response is because it looked inside of
+[00:30:03] my, you know, project here that I'm
+[00:30:04] inside of and was able to find that
+[00:30:06] information. But if I go to a new chat
+[00:30:08] and I say and I remove the project, what
+[00:30:11] did I work on for my chess game? And I
+[00:30:13] just ask it something really vague like
+[00:30:15] that, it shouldn't know. At least I
+[00:30:17] don't think it will know because it's
+[00:30:19] not going to have any of that context.
+[00:30:20] The reason why I'm mentioning this is
+[00:30:22] that you need to understand that anytime
+[00:30:24] you make a new session, you're
+[00:30:26] effectively starting from scratch and
+[00:30:28] anything that you want this to know, it
+[00:30:30] has to already exist as a file. It has
+[00:30:32] to be saved persistently so Codex can
+[00:30:34] read it in. And you can see here that
+[00:30:35] it's not able to really find the
+[00:30:37] information very well for me here. And
+[00:30:39] it has to actually go and look through
+[00:30:41] the different conversation history and
+[00:30:43] threads to find this information. So it
+[00:30:45] can find it, but the only reason it can
+[00:30:47] do that is because it's searching
+[00:30:49] through the threads and it's very slow
+[00:30:51] and again it's not going to remember
+[00:30:52] everything by default. The reason why
+[00:30:54] I'm mentioning this is that you can fix
+[00:30:56] this problem by creating something
+[00:30:58] called an agent.md
+[00:31:00] file. Now, this is something that's
+[00:31:02] common in all of your codebased tools,
+[00:31:05] CLI based tools, whatever, AI agents,
+[00:31:07] where you can make effectively a memory
+[00:31:09] file that will always be loaded into the
+[00:31:12] prompt or into the model before you
+[00:31:14] start working with it. Now, this is a
+[00:31:16] really good file to create, especially
+[00:31:18] when you're working on larger projects
+[00:31:19] with multiple people, because you can
+[00:31:21] store preferences, different tools or
+[00:31:23] stacks that you want to use. I wouldn't
+[00:31:25] say credentials, but you can store, you
+[00:31:27] know, just important info that you don't
+[00:31:29] want to have to keep telling the model
+[00:31:30] over and over again. So, for example, I
+[00:31:32] can tell this I would like you to create
+[00:31:34] an agents.md file with all of the
+[00:31:36] conventions for for this project,
+[00:31:38] specifically the text stack that we're
+[00:31:40] using, how to run it, and what we've set
+[00:31:42] up so far. Okay. And what this will do
+[00:31:45] now is create a new file for us called
+[00:31:47] agents.mmd. You'll see it in a second.
+[00:31:50] It's automatically making it starts with
+[00:31:51] all capitals. And it's going to fill
+[00:31:53] this file with important info that now
+[00:31:56] we're never going to forget or codec
+[00:31:58] will never forget because this is by
+[00:31:59] default automatically loaded into codeex
+[00:32:02] anytime we make a new conversation. So
+[00:32:04] let's give this a second to make the
+[00:32:05] file and see what it looks like. So
+[00:32:07] let's open this up and you can see that
+[00:32:09] it gives us project conventions,
+[00:32:11] direction, text stack, how to run it,
+[00:32:13] etc. So now if we make a new
+[00:32:15] conversation, I go what are the project
+[00:32:17] conventions? It's not going to have to
+[00:32:19] search through a bunch of uh files to
+[00:32:21] find this. it can just get it directly
+[00:32:23] from its kind of system info now because
+[00:32:25] it will have been loaded in agents.mmd.
+[00:32:28] So you can see it just immediately gives
+[00:32:29] us the result. It doesn't need to read
+[00:32:31] anything because it was already loaded
+[00:32:33] in when we started the conversation. If
+[00:32:35] we look at the context, you can see the
+[00:32:37] context is, you know, slightly higher
+[00:32:39] usage than normal because it started by
+[00:32:41] loading that file. I hope that that
+[00:32:43] makes sense to you. I know that's not
+[00:32:44] the best explanation possible, but
+[00:32:46] anything that you want to be kind of
+[00:32:47] long-term persistent info that's going
+[00:32:49] to be used all of the time, you want to
+[00:32:51] put it in this agents.mmd file and tell
+[00:32:54] codeex to create that for you. And you
+[00:32:56] can continually update this to improve
+[00:32:58] the performance of the model you use in
+[00:33:01] a particular project. Okay, so that is
+[00:33:03] kind of the agents.md and memory info
+[00:33:06] that you need to know. And the last
+[00:33:07] thing we'll look at is scheduled tasks.
+[00:33:09] Now, I'm not going to actually create
+[00:33:10] these, but I'm just going to mention
+[00:33:11] that they exist. Just like Claw Code or
+[00:33:13] other tools that you may have used, you
+[00:33:15] can create scheduled tasks that run
+[00:33:17] automatically for you, assuming your
+[00:33:19] computer is on. So, you can make a daily
+[00:33:21] brief where every morning it, you know,
+[00:33:23] opens your computer, searches the news,
+[00:33:25] and gives you some info. You can do a
+[00:33:26] weekly review where it tells you all the
+[00:33:28] things you worked on. You can do project
+[00:33:30] monitor where if something changes, we
+[00:33:31] do this. So if I do create via chat for
+[00:33:33] example, I can make it to set up a
+[00:33:35] scheduled task for me automatically or I
+[00:33:38] can go to templates and I can pick one.
+[00:33:39] So maybe like this. This is what I want
+[00:33:41] to do. I want to run it in, you know,
+[00:33:43] this chat or in a work tree. I want it
+[00:33:46] in this project. I want it to repeat at
+[00:33:48] this time. Then this is the model that I
+[00:33:50] want to use. Okay. So again, you can
+[00:33:52] make these. You can have them set to
+[00:33:53] run. And you can set this up to kind of
+[00:33:55] automatically do things for you, which
+[00:33:57] is useful if you want some automations,
+[00:33:59] but for me, I don't really need any, so
+[00:34:00] I don't have those set up as of now. And
+[00:34:02] then of course you can search through
+[00:34:03] all of your chats and a bunch of other
+[00:34:05] stuff and we can go crazy and we can go
+[00:34:08] to, you know, add MCP servers. We can
+[00:34:11] control the browser use. We can do
+[00:34:13] computer use, hooks, connections, git
+[00:34:15] environments, work trees. There is a lot
+[00:34:17] more to go over, but I'm going to save
+[00:34:18] that for a part two if you guys let me
+[00:34:20] know in the comments that you want to
+[00:34:21] see an advanced version of this. That is
+[00:34:24] going to wrap up this video. That was a
+[00:34:25] pretty comprehensive overview of Codeex.
+[00:34:28] a lot of the features, how to use it,
+[00:34:30] some good demos, setting up a lot of the
+[00:34:31] important plugins. At this point, you
+[00:34:33] know, probably 90% of codecs. If you
+[00:34:36] want the extra 10%, let me know and I
+[00:34:38] will happily make an advanced version
+[00:34:39] for those of you that are devs and are
+[00:34:41] kind of past some of the beginner stuff
+[00:34:42] that I showed here. Anyways, I hope you
+[00:34:44] enjoyed. If you did, leave a like,
+[00:34:46] subscribe, and I will see you in the
+[00:34:47] next one.
+[00:34:50] [music]

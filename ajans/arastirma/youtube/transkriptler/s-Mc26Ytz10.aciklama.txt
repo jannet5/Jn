@@ -1,0 +1,80 @@
+# 
+# https://www.youtube.com/watch?v=s-Mc26Ytz10
+
+In this step-by-step tutorial, I show you how to use Claude Code to build a fully working web app — without writing a single line of code yourself. We go from an empty desktop to a complete Bookmark Dashboard app with search, categories, dark mode, and more — all by typing plain English.
+
+Whether you're a teacher, a professional, or just someone curious about AI — this video will show you that the barrier to building technology is coming down.
+
+Claude Code - Build your First Agent:    • Claude Code: Build Your First AI Agent   
+Claude Code: Build a Business Analyst
+Learn how to use Claude Cowork:    • Claude Cowork for Beginners - Complete Ste...  
+
+⏱ TIMESTAMPS
+0:00 — What we're building (preview)
+0:45 — What is Claude Code?
+1:51 — Pricing & what you need
+3:03 — Installation walkthrough
+3:42 — Windows fix: Git Bash error
+6:02 — Building the app (live demo)
+11:45 — Tips & best practices
+13:22 — Wrap-up
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+🔗 IMPORTANT LINKS
+Claude (sign up / pricing):
+https://claude.ai/pricing
+Claude Code documentation:
+https://code.claude.com/docs
+Git Bash for Windows (if you get the red error):
+https://git-scm.com/downloads/win
+━━━━━━━━━━━━━━━━━━━━━━━━━
+💻 INSTALLATION COMMANDS
+Mac (with Homebrew):
+brew install claude-code
+Windows (PowerShell):
+winget install Anthropic.ClaudeCode
+Start Claude Code:
+claude
+Windows Git Bash fix (if Claude Code can't find it):
+$env:CLAUDE_CODE_GIT_BASH_PATH = "C:\Program Files\Git\bin\bash.exe"
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PROMPT 1: Build the Bookmark App
+
+(Copy and paste this into Claude Code)
+
+Create a new folder on my Desktop called my-bookmarks-app, then build me a personal bookmark dashboard as a single HTML file inside it. Here's what it should do:
+
+Let me save bookmarks with a title, URL, category, and optional notes
+Display all bookmarks as nice-looking cards in a grid layout
+Include a search bar that filters bookmarks by title or category
+Let me filter by category using clickable buttons
+Save everything to the browser's local storage so bookmarks persist
+Include some sample bookmarks so it doesn't look empty when it first loads
+Make it look modern and clean with a blue color scheme
+Let me delete bookmarks I don't want anymore
+Make it responsive so it works on mobile too
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PROMPT 2: Open the App
+
+(After Claude finishes building)
+Open the app in my browser so I can see it
+━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PROMPT 3: Add New Features
+
+(To add edit and dark mode)
+Can you add two more features to the bookmark app:
+
+An edit button on each card so I can update the title, URL, or category
+A dark mode toggle in the top right corner
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+⚡ TIPS & USEFUL COMMANDS
+
+Plan Mode (review before building):
+Press Shift + Tab before typing your prompt
+Compact (refresh Claude's memory):
+/compact
+Ask Claude to explain code:
+Can you explain how the search feature works?
+Paste errors back to Claude:
+I'm getting this error: [paste error here] — can you fix it?

@@ -1,0 +1,564 @@
+# Can Claude Fable 5.1 Build a Real iPhone App?
+# https://www.youtube.com/watch?v=9V2ZFhLsh9w
+# kanal: Code with Beto | süre: 726 sn | kaynak: yt-dlp:web_embedded:9V2ZFhLsh9w.en-US.json3
+
+[00:00:00] Claude Fable 5.1 came
+[00:00:01] out today same price
+[00:00:03] as Fable 5 but
+[00:00:04] Anthropic says that it's
+[00:00:05] about 25% cheaper in
+[00:00:07] practice and a lot
+[00:00:09] better at agentic
+[00:00:10] coding last month i
+[00:00:11] actually built this
+[00:00:12] application in this
+[00:00:13] channel with Fable 5
+[00:00:14] and it took me about
+[00:00:15] 40 minutes and i spent
+[00:00:17] about $40 as well and
+[00:00:19] the widget of the
+[00:00:20] application was broken
+[00:00:21] at least in the first try
+[00:00:22] so today we're building
+[00:00:24] the same application
+[00:00:25] with 5.1 using the same
+[00:00:27] plan the same MCP the
+[00:00:29] same starting project
+[00:00:30] and one prompt so by
+[00:00:32] the end of this video
+[00:00:33] you'll know if Fable 5.1
+[00:00:35] is actually better and
+[00:00:36] cheaper let's get into it
+[00:00:39] okay so let's get down
+[00:00:40] to business i just
+[00:00:41] created a new React
+[00:00:43] Native application
+[00:00:44] using Expo selecting
+[00:00:45] the model Fable 5.1
+[00:00:48] and let's actually go
+[00:00:50] ahead and
+[00:00:51] use Ultracode
+[00:00:52] hopefully this will not
+[00:00:54] cost me a lot of money
+[00:00:55] but let's test it out so i
+[00:00:56] actually created a
+[00:00:57] document that you can
+[00:00:58] reference i'm going to
+[00:00:59] leave the link in the
+[00:01:00] description in case you
+[00:01:00] want to use the same
+[00:01:02] prompt that i'm using
+[00:01:02] i'm just going to copy
+[00:01:04] the entire plan let's go
+[00:01:05] back to Claude i'm going
+[00:01:07] to paste it in here and
+[00:01:08] just like that kick
+[00:01:09] things off okay just to
+[00:01:10] give you more context
+[00:01:11] we're actually building
+[00:01:12] a habit tracker
+[00:01:13] application i want to
+[00:01:14] focus on iOS and make
+[00:01:16] it feel super native so
+[00:01:18] i'm asking Fable 5.1
+[00:01:20] to use Expo UI native
+[00:01:22] components add a
+[00:01:23] native widget
+[00:01:24] save data locally using
+[00:01:26] the Code with Beto
+[00:01:27] MCP server just to
+[00:01:28] make the
+[00:01:29] UI more beautiful in
+[00:01:30] case you want to learn
+[00:01:31] more about the MCP
+[00:01:31] i'm going to leave a
+[00:01:32] link in the description
+[00:01:33] as well i'm also asking
+[00:01:34] it to reference some of
+[00:01:35] the examples that can
+[00:01:37] access through the
+[00:01:37] MCP like my template
+[00:01:39] Platano or the settings
+[00:01:40] screen i'm also asking
+[00:01:42] the agent to give the
+[00:01:44] app a name and an
+[00:01:45] icon using the App Icon
+[00:01:47] skill that my team and
+[00:01:48] i actually maintain and
+[00:01:49] created if you're
+[00:01:50] interested about the
+[00:01:51] App Icon skill as well
+[00:01:52] i'm going to leave a
+[00:01:53] link in the description
+[00:01:54] but at the end of the
+[00:01:54] day the goal is to have
+[00:01:56] a fully standalone
+[00:01:57] application that has a
+[00:01:58] widget has an icon has
+[00:01:59] a name works locally
+[00:02:01] and feels absolutely
+[00:02:02] native with a beautiful
+[00:02:03] UI so while it's building
+[00:02:05] let me actually give
+[00:02:05] you more context
+[00:02:06] about the
+[00:02:07] announcement they
+[00:02:07] also announced
+[00:02:08] Mythos 5.1 there is
+[00:02:10] actually a little caveat
+[00:02:11] because Mythos 5.1 is
+[00:02:13] only available through
+[00:02:14] the trusted access
+[00:02:15] program so basically
+[00:02:17] only big companies
+[00:02:18] that talk to Anthropic
+[00:02:19] have access to this
+[00:02:20] model but these
+[00:02:21] models are actually the
+[00:02:22] same the only
+[00:02:23] difference is the
+[00:02:24] safeguards now the
+[00:02:25] actual price didn't
+[00:02:26] change it's still $10 in
+[00:02:28] and $50 out per
+[00:02:30] million tokens so even
+[00:02:31] though they are the
+[00:02:32] same price Fable 5.1 is
+[00:02:34] cheaper because the
+[00:02:35] Anthropic team was
+[00:02:36] able to improve the
+[00:02:37] cache reads down by 75%
+[00:02:40] and sessions like the
+[00:02:41] one that we are just
+[00:02:42] kicking off right now
+[00:02:43] are the ones that use a
+[00:02:44] lot of context and a lot
+[00:02:45] of reads Anthropic says
+[00:02:46] that's about a quarter
+[00:02:48] of a normal session
+[00:02:49] and closer to a half of a
+[00:02:50] long agentic one now
+[00:02:51] let's take a look at the
+[00:02:52] performance of 5.1 the
+[00:02:54] interesting part here is
+[00:02:55] that Fable 5 with max
+[00:02:58] or high thinking effort
+[00:03:00] was able to achieve
+[00:03:01] basically the same
+[00:03:02] results that you would
+[00:03:04] achieve now with 5.1
+[00:03:06] using the low
+[00:03:06] reasoning effort with
+[00:03:07] of course a better
+[00:03:09] performance so on
+[00:03:10] paper this means that
+[00:03:11] you should
+[00:03:12] spend less money for
+[00:03:14] better results now
+[00:03:15] it's making GPT-5.6
+[00:03:18] Sol look pretty bad so i'm
+[00:03:20] guessing OpenAI will
+[00:03:21] release a new model
+[00:03:22] next week now this
+[00:03:23] channel is about
+[00:03:24] coding but this really
+[00:03:25] caught my attention
+[00:03:26] they tested this new
+[00:03:27] version for molecular
+[00:03:28] design so they gave
+[00:03:29] the model access to
+[00:03:30] open source
+[00:03:31] protein design
+[00:03:32] and folding tools and
+[00:03:34] sent the designs that
+[00:03:35] Fable made to external
+[00:03:36] organizations for
+[00:03:37] experimental
+[00:03:38] validation and Mythos
+[00:03:39] 5.1 proved able to
+[00:03:41] design very high
+[00:03:42] affinity binders and
+[00:03:43] the design that Mythos
+[00:03:44] 5.1 was able to craft
+[00:03:46] apparently was better
+[00:03:48] than the ones that
+[00:03:49] everyone submitted to
+[00:03:50] this competition
+[00:03:50] another cool
+[00:03:51] experiment that
+[00:03:52] they did
+[00:03:53] was
+[00:03:54] ask Fable 5.1 to create a
+[00:03:55] neural network to
+[00:03:57] create a new high
+[00:03:58] resolution elevation
+[00:03:59] map of a third of the
+[00:04:01] planet Venus so the
+[00:04:02] work was based
+[00:04:04] on radar images taken
+[00:04:05] by NASA's Magellan
+[00:04:06] mission more than 30
+[00:04:08] years ago
+[00:04:09] and a map that already
+[00:04:11] existed for one-fifth of
+[00:04:12] the planet and the new
+[00:04:13] map now reveals
+[00:04:14] details down to two to
+[00:04:16] three kilometers
+[00:04:17] rather than 10 to 20 so
+[00:04:19] this is a massive
+[00:04:20] improvement and
+[00:04:21] shows heights up to 25
+[00:04:23] percent more
+[00:04:24] accurately than before
+[00:04:25] they released this map
+[00:04:26] we can see a quick
+[00:04:27] preview here of
+[00:04:28] a volcano
+[00:04:29] on Venus this is
+[00:04:31] absolutely amazing
+[00:04:33] these models are
+[00:04:33] getting really good and
+[00:04:35] they are actually doing
+[00:04:36] cool things here we
+[00:04:37] can see more clearly
+[00:04:38] the pricing difference
+[00:04:40] just for the cache you
+[00:04:40] know in
+[00:04:41] typical workload
+[00:04:43] you could expect Fable
+[00:04:44] 5.1 to cost a little less
+[00:04:46] so for this build that
+[00:04:47] we're doing today i
+[00:04:48] would expect to spend
+[00:04:49] at least a million
+[00:04:50] tokens or close to it
+[00:04:51] and then we have for
+[00:04:52] highly agentic workload
+[00:04:54] which is
+[00:04:55] apparently 45 percent
+[00:04:56] cheaper let's go back
+[00:04:57] to the build and see
+[00:04:58] how it's doing it's been
+[00:05:00] almost 20 minutes so
+[00:05:02] it is using the MCP it is
+[00:05:04] fetching high quality
+[00:05:05] examples using
+[00:05:06] the MCP
+[00:05:07] i actually have a bunch
+[00:05:08] of widget examples so
+[00:05:10] i really expect Fable 5.1
+[00:05:12] to nail the
+[00:05:13] widget my
+[00:05:14] expectations are high
+[00:05:16] it also created the icon
+[00:05:17] using the App Icon skill
+[00:05:19] and i can show you the
+[00:05:21] icon since it's already
+[00:05:23] done this is the
+[00:05:24] main source
+[00:05:25] you know it's okay it's
+[00:05:26] not bad but it also
+[00:05:28] created the dark icon
+[00:05:29] format for iOS
+[00:05:30] which looks
+[00:05:32] really good oh no and
+[00:05:33] now i am out of credits
+[00:05:36] okay i'm gonna buy 50
+[00:05:37] dollars in credits
+[00:05:38] hopefully that should
+[00:05:39] be enough okay so i'm
+[00:05:40] gonna say please
+[00:05:41] continue okay so these
+[00:05:42] experiments are
+[00:05:43] getting expensive if
+[00:05:44] you want to support
+[00:05:45] the channel by the way
+[00:05:46] and you're also
+[00:05:47] building a mobile app
+[00:05:48] with Claude Code check
+[00:05:49] out my book From Idea
+[00:05:50] to App Store it teaches
+[00:05:51] you the mental model
+[00:05:52] from idea saving your
+[00:05:54] progress with Git and
+[00:05:56] of course getting
+[00:05:57] Claude Code to be your
+[00:05:58] senior engineer and
+[00:06:00] build solid
+[00:06:01] foundations that you
+[00:06:02] can then ship to the
+[00:06:02] stores it comes with
+[00:06:04] guides on the App
+[00:06:05] Store and Play Store
+[00:06:06] including a pack of
+[00:06:08] agent skills and for
+[00:06:09] limited time only i'm
+[00:06:10] running a massive
+[00:06:12] promotion if you use
+[00:06:13] the promo code
+[00:06:14] BUILD19 at checkout
+[00:06:16] you can get the book
+[00:06:17] for $19 instead of $49
+[00:06:19] this is a limited time
+[00:06:20] only offer make sure to
+[00:06:22] grab it before it's gone
+[00:06:23] the link is in the
+[00:06:24] description and your
+[00:06:25] support also helps me
+[00:06:26] pay these credits for
+[00:06:28] more videos like this
+[00:06:29] all right let's get back
+[00:06:30] to the video all right so
+[00:06:31] apparently Fable 5.1 is
+[00:06:33] about to test this on a
+[00:06:36] simulator and this is
+[00:06:37] actually something
+[00:06:38] pretty cool that you
+[00:06:38] can now see the
+[00:06:39] simulator within the
+[00:06:41] Claude Desktop
+[00:06:42] application
+[00:06:43] that's amazing
+[00:06:45] so i'm just gonna
+[00:06:47] press attach simulator
+[00:06:48] and continue and
+[00:06:49] accept everything so
+[00:06:50] that Claude can actually
+[00:06:53] test this and here you
+[00:06:54] can see how it is
+[00:06:55] controlling it i can
+[00:06:57] also intervene
+[00:06:58] and see how the
+[00:06:59] application looks like
+[00:07:00] let's see if i can toggle
+[00:07:01] between dark and
+[00:07:02] light mode
+[00:07:04] pretty cool as you can
+[00:07:05] see it's taking
+[00:07:06] screenshots gathering
+[00:07:08] feedback and iterating
+[00:07:11] before it says that it's
+[00:07:12] done but i'm actually
+[00:07:13] concerned that it's
+[00:07:14] going to use all my
+[00:07:14] tokens so it is scrolling
+[00:07:16] and everything and i
+[00:07:17] feel like this is cool
+[00:07:19] but since this is
+[00:07:20] costing me a lot
+[00:07:21] of money
+[00:07:22] right now and it's
+[00:07:22] increasing the context
+[00:07:23] window a lot i'm just
+[00:07:25] gonna stop it right
+[00:07:26] now and i'm gonna try
+[00:07:27] to do the test myself
+[00:07:28] okay here we go
+[00:07:30] so i asked Fable to
+[00:07:32] actually use
+[00:07:33] my physical
+[00:07:35] device i tried to run it
+[00:07:36] myself but i had a
+[00:07:37] couple issues so i just
+[00:07:38] asked directly
+[00:07:39] Claude and
+[00:07:40] apparently fixed it let me
+[00:07:42] hide this button that
+[00:07:44] annoys me
+[00:07:45] let's check it out wow
+[00:07:49] looks really nice i have
+[00:07:50] to say let's check it out
+[00:07:51] i'm gonna continue
+[00:07:52] okay so we have a cool
+[00:07:53] animation when we
+[00:07:55] transition okay that's
+[00:07:55] really nice and it also
+[00:07:57] has haptics that's
+[00:07:58] really good
+[00:07:59] it's also it's still doing
+[00:08:01] some stuff so i'm just
+[00:08:02] gonna stop it for now
+[00:08:03] it's compatible with
+[00:08:04] dark and light mode
+[00:08:05] which is really nice we
+[00:08:07] have haptics
+[00:08:08] animations between
+[00:08:09] transitions in the
+[00:08:10] onboarding screen
+[00:08:11] and it's
+[00:08:12] asking me nicely if i
+[00:08:13] want to receive
+[00:08:14] notifications so yes
+[00:08:16] okay this looks
+[00:08:18] really really nice
+[00:08:20] no errors no issues
+[00:08:22] on the first try it's way
+[00:08:24] better than the first
+[00:08:25] time that i did it
+[00:08:26] with Fable
+[00:08:27] let's test if we can
+[00:08:28] create something here
+[00:08:29] yeah this looks
+[00:08:30] super nice
+[00:08:32] to be fair
+[00:08:34] my MCP is exposing a
+[00:08:36] very similar example
+[00:08:37] for this application but
+[00:08:39] anyways let's see this
+[00:08:40] is way better than the
+[00:08:41] first time that i created
+[00:08:42] with Fable with the
+[00:08:44] same MCP so i'm
+[00:08:45] surprised let's create
+[00:08:47] just a dummy you can
+[00:08:48] drag left or right for
+[00:08:49] quick actions like undo
+[00:08:52] and do
+[00:08:53] this is so satisfying to
+[00:08:54] do perfect let's
+[00:08:56] actually load the
+[00:08:56] dummy data here
+[00:08:59] let's take a look how
+[00:09:00] this looks on real life
+[00:09:03] items
+[00:09:04] perfect let's check it
+[00:09:06] out in dark mode
+[00:09:08] looks really nice so the
+[00:09:10] animation in the
+[00:09:10] header is not working
+[00:09:12] but it's not a big deal i
+[00:09:13] would say
+[00:09:15] okay i don't really like
+[00:09:16] this too much because
+[00:09:18] it's not appearing on
+[00:09:20] the left but
+[00:09:21] this works nicely you
+[00:09:23] can drag from here
+[00:09:24] okay then the
+[00:09:25] animation is
+[00:09:26] really good
+[00:09:27] let's take a look at how
+[00:09:28] this looks here
+[00:09:31] so in the habits screen
+[00:09:33] it's using
+[00:09:34] zoom transitions
+[00:09:36] looks a bit weird
+[00:09:37] because of the header
+[00:09:38] animation but
+[00:09:39] everything else seems
+[00:09:40] to work nicely
+[00:09:43] let's press this button
+[00:09:44] you can edit
+[00:09:45] and update items here
+[00:09:48] so it's not bad now for
+[00:09:49] the final test
+[00:09:51] let's actually see if the
+[00:09:52] widgets work
+[00:09:53] so i'm gonna close
+[00:09:54] the app
+[00:09:55] long press
+[00:09:56] i can see that we have
+[00:09:57] two available sizes
+[00:09:58] here so i'm gonna use
+[00:09:59] the big one
+[00:10:01] okay and it nailed it
+[00:10:03] first try let's use
+[00:10:04] the small
+[00:10:06] one nice
+[00:10:07] now let's see if it
+[00:10:08] actually updates the
+[00:10:10] values so i'm gonna
+[00:10:11] open and let's
+[00:10:13] uncheck everything
+[00:10:16] and close the app and
+[00:10:17] see if it updates yes
+[00:10:19] it did
+[00:10:20] let's check hello
+[00:10:21] for example
+[00:10:24] yes it's working nicely
+[00:10:25] let's check the widget
+[00:10:26] in dark mode perfect
+[00:10:28] let's actually check the
+[00:10:29] icon in dark mode icon
+[00:10:31] changes yes it changes
+[00:10:33] in dark mode
+[00:10:34] clear
+[00:10:36] so it nailed the icon as
+[00:10:38] well okay so i'm gonna
+[00:10:39] run the usage
+[00:10:40] command here so in
+[00:10:41] usage credits i spent in
+[00:10:43] total $33
+[00:10:45] and it took about 40
+[00:10:46] minutes to build now i
+[00:10:48] have to say that i
+[00:10:49] actually stopped it
+[00:10:50] because it was using a
+[00:10:51] lot of context window
+[00:10:53] while taking
+[00:10:53] screenshots of the
+[00:10:54] simulator and going
+[00:10:55] back and forth at
+[00:10:56] the beginning
+[00:10:57] so i stopped that and
+[00:10:58] just run it myself
+[00:10:59] i actually recommend
+[00:11:00] that you do that
+[00:11:01] because it's very
+[00:11:02] expensive unless
+[00:11:02] you're using a different
+[00:11:03] model most of the
+[00:11:04] context was being
+[00:11:05] spent into the iOS
+[00:11:07] simulator MCP a little
+[00:11:09] bit on the Code with
+[00:11:10] Beto MCP my MCP 16%
+[00:11:13] and this is because i
+[00:11:14] heavily rely on the
+[00:11:15] MCP to build the
+[00:11:16] application but if you
+[00:11:16] are not using an MCP
+[00:11:18] you shouldn't see
+[00:11:19] something like this so
+[00:11:20] comparing this with
+[00:11:20] the last time that i
+[00:11:21] created the same
+[00:11:22] application using
+[00:11:23] Fable 5
+[00:11:24] i spent close to $50
+[00:11:26] so today we only
+[00:11:27] spent $33
+[00:11:29] on time it roughly took
+[00:11:30] the same 40 minutes
+[00:11:31] and had to steer it a
+[00:11:32] little bit to run the
+[00:11:33] application on my
+[00:11:34] physical device but
+[00:11:35] overall i would say it
+[00:11:36] was a better
+[00:11:37] experience the
+[00:11:38] application worked the
+[00:11:39] first time and most
+[00:11:40] importantly the widget
+[00:11:42] actually works nicely
+[00:11:44] it updates when i
+[00:11:45] update the habits i
+[00:11:46] would say this is pretty
+[00:11:47] expensive but
+[00:11:48] you know
+[00:11:48] this is technically a
+[00:11:49] fully finished almost
+[00:11:51] finished application
+[00:11:53] $33
+[00:11:54] and 40 minutes
+[00:11:55] so it's not bad if you
+[00:11:56] wanna watch the first
+[00:11:58] build check out this
+[00:11:59] video don't forget to
+[00:12:00] check out my book as
+[00:12:01] well before the promo
+[00:12:02] code is gone link is
+[00:12:03] down here thanks for
+[00:12:04] watching and i'll see
+[00:12:05] you in the next one

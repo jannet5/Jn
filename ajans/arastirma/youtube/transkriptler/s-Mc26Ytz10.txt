@@ -1,0 +1,399 @@
+# Claude Code for Beginners — Build Your First App with AI (No Coding Required!)
+# https://www.youtube.com/watch?v=s-Mc26Ytz10
+# kanal: Teacher's Tech | süre: 838 sn | kaynak: yt-dlp:web_embedded:s-Mc26Ytz10.en-orig.json3
+
+[00:00:00] What if I told you that you could build
+[00:00:01] something like this? A fully working web
+[00:00:04] app without writing a single line of
+[00:00:05] code yourself. No coding boot camp, no
+[00:00:08] YouTube tutorial rabbit hole, just you
+[00:00:10] talking to an AI in plain English and
+[00:00:13] watching it build the whole thing for
+[00:00:14] you.
+[00:00:17] Hey everyone, welcome back to Teacher's
+[00:00:19] Tech. I'm Jamie and today we're diving
+[00:00:21] into one of the most exciting tools I've
+[00:00:23] seen in a long time. It's called Claude
+[00:00:26] Code and it's going to change the way
+[00:00:28] you think about building things with
+[00:00:29] technology. Now, I know what some of you
+[00:00:31] are thinking, I'm not a coder, this
+[00:00:33] isn't for me. But that's exactly why I'm
+[00:00:35] making this video. Claude Code is
+[00:00:37] genuinely accessible to beginners and by
+[00:00:40] the end of this video, you're going to
+[00:00:41] have built a real working app, so stick
+[00:00:44] with me. So, let's start with the
+[00:00:46] basics. You might already know Claude is
+[00:00:48] the AI chatbot from company called
+[00:00:50] Anthropic. You can go to claude.ai and
+[00:00:53] chat with it. Ask it questions, have it
+[00:00:55] write things for you. That's what most
+[00:00:57] people know. Claude Code is different.
+[00:01:00] Think of regular Claude as someone you
+[00:01:02] can talk to about building a house. They
+[00:01:04] can describe how to frame a wall, what
+[00:01:06] materials to use, draw you a blueprint.
+[00:01:08] That's great. But Claude Code? Claude
+[00:01:11] Code is the person who actually picks up
+[00:01:13] the hammer, measures the wood, and
+[00:01:16] builds the wall for you. Claude Code
+[00:01:18] runs in something called a terminal.
+[00:01:20] That's just a text-based window on your
+[00:01:21] computer where you can type commands.
+[00:01:24] And from there, Claude Code can actually
+[00:01:26] read your files, create new files, run
+[00:01:28] programs, install all things, and build
+[00:01:31] entire projects. All you do is describe
+[00:01:33] what you want in plain English. Now,
+[00:01:35] Claude Code launched in early 2025 and
+[00:01:38] it has absolutely taken off. Developers
+[00:01:41] around the world are using it, but
+[00:01:42] here's what I want you to understand.
+[00:01:44] You don't need to be a developer to use
+[00:01:46] this tool. If you can describe what you
+[00:01:48] want clearly, Claude Code can build it.
+[00:01:51] Okay, let's talk about what you need to
+[00:01:53] get started. There are really just two
+[00:01:54] things, a computer and a Claude
+[00:01:56] subscription. Claude Code works on Mac,
+[00:01:59] Windows, and Linux. There's a
+[00:02:00] straightforward installer as well. I'll
+[00:02:02] show you both in a minute. Now, here's
+[00:02:03] the part everyone wants to know about.
+[00:02:05] What does it cost? Let me break this
+[00:02:07] down for you simply. There's a free
+[00:02:08] version, but no Claude Code access. This
+[00:02:11] is just chat only. In the Pro, $20 a
+[00:02:13] month, you have Claude Code and
+[00:02:15] Terminal. This is where most beginners
+[00:02:17] should start. You also get Claude Code
+[00:02:19] in the Max plans. The 5X, more usage
+[00:02:22] than Pro, good for heavy daily users,
+[00:02:24] and you have the 20X more usage for
+[00:02:26] power users and professionals. My
+[00:02:28] recommendations for beginners, start
+[00:02:30] with the Pro plan at $20 a month. That
+[00:02:32] gives you access to Claude Code and
+[00:02:34] Co-work. I'm going to have a different
+[00:02:35] video coming out about that, so make
+[00:02:37] sure you stay tuned. And it gives you
+[00:02:39] plenty of usage to learn and experiment.
+[00:02:41] You can always upgrade later if you find
+[00:02:42] yourself using it a lot. Now, I'm going
+[00:02:44] to show you the terminal version today
+[00:02:46] because it's the most powerful, but I
+[00:02:48] want you to know, you can also use
+[00:02:49] Claude Code right inside claude.ai on
+[00:02:52] the web with no installation as a
+[00:02:54] desktop app or inside VS Code if you're
+[00:02:56] already a coder. Same brain, different
+[00:02:58] interfaces. I'll cover those in future
+[00:03:00] videos. All right, let's get Claude Code
+[00:03:02] installed on our computer, and I'm going
+[00:03:04] to walk you through this step-by-step.
+[00:03:06] I'm going to start with Windows first,
+[00:03:07] and then I'll show you on Mac as well.
+[00:03:09] On Windows, just go down, and we're
+[00:03:12] going to open up Terminal here. And I'm
+[00:03:14] going to get you to right-click on
+[00:03:16] Terminal and run this as administrator
+[00:03:19] to avoid any permission issues.
+[00:03:21] What I want you to do is type this in:
+[00:03:24] winget install anthropic.claude.code.
+[00:03:27] I have it down below in the description,
+[00:03:28] so you can just copy and paste it in.
+[00:03:30] Once you have that in, go ahead and hit
+[00:03:32] enter. Now, if you got this error, don't
+[00:03:35] worry. I got this too. This is a quick
+[00:03:37] fix. Let me show you what to download,
+[00:03:39] and then install it, and it should work
+[00:03:41] fine. The link to this page is down
+[00:03:43] below. What I want you to do is just go
+[00:03:46] here, click to download this related
+[00:03:48] version, go and install this on your
+[00:03:50] computer, and then we're going to run
+[00:03:52] Claude after. I'm going to go and open
+[00:03:54] up terminal again.
+[00:03:56] And I'm just going to type Claude in
+[00:03:58] here and hit enter. And look at that,
+[00:04:00] we're ready to set up, and our next step
+[00:04:02] will be logging in, but let me show you
+[00:04:03] on a Mac real quick. All right, I'm just
+[00:04:05] back on the get SEM page, and I'm just
+[00:04:08] going to go over to the Mac. And how I
+[00:04:10] did it on my Mac is I actually installed
+[00:04:13] Homebrew first if you don't have it. So,
+[00:04:15] go ahead and copy this, and you're going
+[00:04:17] to need to open up terminal on Mac,
+[00:04:20] which is your uh command plus spacebar
+[00:04:23] together, and then that's going to open
+[00:04:24] up terminal. And once you open that up,
+[00:04:27] just paste what you've just copied into
+[00:04:30] it and hit enter. So, this is going to
+[00:04:32] run through and install Homebrew. After
+[00:04:35] that, just go back over to where you see
+[00:04:38] Homebrew here, and then you can copy
+[00:04:40] this,
+[00:04:41] and open up terminal again with the
+[00:04:43] command space spacebar.
+[00:04:46] When terminal opens back up again, all
+[00:04:48] you're going to need to do is paste that
+[00:04:51] code into it and hit enter. And it's
+[00:04:53] going to go through and run Claude code
+[00:04:57] on here.
+[00:04:58] It won't take too long.
+[00:05:01] When it's all done, you can type Claude
+[00:05:04] at the end, just like I did with the
+[00:05:05] Windows, and you can see that it will
+[00:05:07] open up, and we can go through setup.
+[00:05:12] Now, the first step is to pick our
+[00:05:14] textile. I'm just going to leave it at
+[00:05:15] dark mode. I just hit enter. Now, it's
+[00:05:18] asking us uh to connect to our
+[00:05:21] subscription. So, for me, this is just
+[00:05:23] number one. I'm going to go ahead and
+[00:05:25] hit enter again. My browser came up, it
+[00:05:27] connects, pops it open. All I have to do
+[00:05:29] is authorize this.
+[00:05:32] You can see that I'm logged in
+[00:05:33] successfully, and I'm just going to hit
+[00:05:35] enter.
+[00:05:36] A few security notes. I'm going to hit
+[00:05:38] enter again.
+[00:05:39] And I am going to trust this folder. So,
+[00:05:42] I'm going to put number one and hit
+[00:05:43] enter.
+[00:05:44] And I am going to keep the effort level
+[00:05:46] with number one, use the high effort,
+[00:05:48] but you can see you can also adjust this
+[00:05:50] later.
+[00:05:51] If you get any other errors during
+[00:05:52] installation, the simplest fix is to
+[00:05:54] copy the error message and paste it into
+[00:05:57] regular Claude at claude.ai. It usually
+[00:05:59] can tell you exactly what to do.
+[00:06:02] All right, here we go. First, I'm just
+[00:06:04] going to go open up my terminal and type
+[00:06:06] in Claude to start Claude code. So, we
+[00:06:08] can go to terminal
+[00:06:10] and all we need to do now is just type
+[00:06:13] Claude.
+[00:06:15] Better spell it correctly, and it's
+[00:06:17] asking again to trust the folder. I'm
+[00:06:19] just going to hit enter.
+[00:06:22] All right, we're all ready. Now, here's
+[00:06:24] the beautiful thing. I don't need to
+[00:06:25] create any folders or type any special
+[00:06:27] commands. I can tell Claude what I want
+[00:06:30] in plain English and it will handle
+[00:06:31] everything for me, including setting up
+[00:06:33] the project folder. Watch this. Now,
+[00:06:36] before I ask Claude to build anything,
+[00:06:38] I'm going to use plan mode first.
+[00:06:40] Remember, shift plus tab. This way,
+[00:06:43] Claude will think through the project
+[00:06:44] before writing any code.
+[00:06:49] Here's what I'm going to type, and I
+[00:06:51] want you to notice something. I'm
+[00:06:52] telling it to create the folder, set up
+[00:06:54] the project, and build the app, all in
+[00:06:57] one plain English prompt. No commands,
+[00:06:59] no jargon, just describing what I want.
+[00:07:02] Here's the prompt that I'm going to use,
+[00:07:03] and again, it will be down below in the
+[00:07:05] description if you want to copy mine.
+[00:07:07] Create a new folder on my desktop called
+[00:07:09] my bookmarks app, then build me a
+[00:07:12] personal bookmark dashboard as a single
+[00:07:14] HTML file inside it. Here's what it
+[00:07:16] should do. It should let me save
+[00:07:18] bookmarks with a title, URL, category,
+[00:07:21] optional notes, display all bookmarks as
+[00:07:23] a nice-looking cards in a grid layout,
+[00:07:25] include a search bar that filters
+[00:07:28] bookmarks as title and category, let me
+[00:07:30] filter by category using clickable
+[00:07:32] buttons, save everything to the browser
+[00:07:34] local storage to so mark bookmarks
+[00:07:36] persist, include small sample bookmarks
+[00:07:39] so it doesn't look empty when it first
+[00:07:42] loads, Make it looks modern and clean
+[00:07:44] with a blue color scheme. Let me delete
+[00:07:47] bookmarks I don't want anymore. Make it
+[00:07:49] responsive so it works on mobile, too.
+[00:07:52] Now, before I go and put the prompt in,
+[00:07:54] I'm just going to hit shift and tab one
+[00:07:55] more time. Notice that it wasn't on plan
+[00:07:57] mode. And now I'm going to go and paste
+[00:08:00] those lines of text in and hit enter.
+[00:08:03] I can see right now it says I'll plan
+[00:08:05] this out and write up the approach. So,
+[00:08:07] since it's a new project from scratch
+[00:08:09] with clear requirements, I can go
+[00:08:10] straight to the designing the plan.
+[00:08:13] So, here's the plan. Now, if I didn't
+[00:08:16] have that on, if I didn't have plan mode
+[00:08:18] on, it would just would have went
+[00:08:19] through and created the whole thing. So,
+[00:08:21] if you want to see all the steps that
+[00:08:23] are going to be happening, if it has the
+[00:08:24] right structure, the bookmark design of
+[00:08:27] what you want, you can go through and
+[00:08:29] check the plan first. So, you can see
+[00:08:31] down below, yes, clear context, and I
+[00:08:35] can accept that. Uh yes, auto accept
+[00:08:37] edits. Yes, manually approve edits. So,
+[00:08:40] I'm actually going to go uh to number
+[00:08:42] two on this one to auto accept edits.
+[00:08:46] Now, the folder was created. I'll just
+[00:08:48] drag it a little bit closer.
+[00:08:51] All right. So, Claude just built our
+[00:08:52] entire Book Bark Dashboard app. I can
+[00:08:55] see there's something in the folder
+[00:08:56] right now. We'll check it out in a
+[00:08:57] second. I want to I'm really curious
+[00:08:59] about it. I'm just going to ask Claude
+[00:09:00] to open for me. I could go to the folder
+[00:09:02] and double-click on it and open it up,
+[00:09:04] but I just want to see what I can get
+[00:09:06] Claude to do for me. So, I'm going to
+[00:09:08] say open the app in my browser so I can
+[00:09:09] see it. And I'm going to go to number
+[00:09:11] two so it doesn't ask me this anymore.
+[00:09:14] And it just popped up on my other
+[00:09:15] window.
+[00:09:17] Look at this. We have a beautiful Book
+[00:09:19] Bark Dashboard. There's a search at the
+[00:09:22] top. We have category filter buttons.
+[00:09:24] And our sample bookmarks are showing up
+[00:09:26] here as nice cards. Let me test some
+[00:09:28] things out. Let's test out the search
+[00:09:29] first. I'm just going to go in here and
+[00:09:31] start typing. I know there's only six in
+[00:09:33] here, but if I start typing CSS,
+[00:09:36] all right, that seems to be very
+[00:09:38] responsive. We'll try free. Yep, right
+[00:09:40] away. So, do we have the buttons? Let's
+[00:09:43] see what happens.
+[00:09:44] Oh, very good everything. So, that's all
+[00:09:48] working fine. What happens if I hit the
+[00:09:50] X here? Do you want to delete a
+[00:09:51] bookmark? Sure, why not? Okay, so that's
+[00:09:54] deleted. So, now I just need to test
+[00:09:56] this out by adding one. Let's go add
+[00:09:58] bookmark.
+[00:09:59] All right, I just quickly typed some
+[00:10:01] things out. Just my own YouTube channel
+[00:10:03] URL, category. Let's see if it creates a
+[00:10:06] category. We have some notes. Let's hit
+[00:10:08] save.
+[00:10:09] So, here it is right here. And now I
+[00:10:11] have YouTube. So, it's very responsive,
+[00:10:14] very quick. Now, here's the really cool
+[00:10:16] part. I'm just going to hit refresh.
+[00:10:19] And all my bookmarks are still there.
+[00:10:21] That's because Claude built it to save
+[00:10:23] everything to local storage, just like I
+[00:10:25] asked. Here's where things get really
+[00:10:27] interesting. Let's say I want to add a
+[00:10:28] feature. I can just go back to Claude
+[00:10:30] code and ask for it. Let me try
+[00:10:32] something fun. So, I have some prompts
+[00:10:35] ready here. And there's two lines, and
+[00:10:36] you're going to see it in a second. So,
+[00:10:38] I'll hit enter. So, can you add two more
+[00:10:41] features to the bookmark app? I want to
+[00:10:44] an edit button on each card so I can
+[00:10:46] update the title, URL, or category. And
+[00:10:49] I also want to toggle for dark mode.
+[00:10:52] Now, watch what's happening. Claude
+[00:10:54] didn't start over. It read the existing
+[00:10:56] file, understood the entire structure,
+[00:10:59] and now surgically adding the new
+[00:11:01] features. An edit button on each card, a
+[00:11:03] dark and a dark mode toggle. This is the
+[00:11:05] power of Claude code. It understands
+[00:11:07] context. Here's the moment of truth. I'm
+[00:11:10] just going to get it to open it again.
+[00:11:12] All right, brought it over here. So,
+[00:11:14] what were some of the things that we
+[00:11:16] asked? Well, first of all, dark mode. I
+[00:11:18] like how they put the little moon up
+[00:11:19] here. So, let's toggle. Well, that works
+[00:11:21] really well. Toggle off on. And we now
+[00:11:25] have the edit with each of these. So, if
+[00:11:27] I click edit, now it opens back up
+[00:11:30] again. So, I can quickly make any
+[00:11:32] changes.
+[00:11:33] We just built a fully functional
+[00:11:35] bookmark dashboard app with search
+[00:11:37] categories, add, edit, delete, local
+[00:11:39] storage, dark mode, and we did it all
+[00:11:41] just by describing what we wanted in
+[00:11:44] plain English. No coding required.
+[00:11:47] Before we wrap up, let me share some
+[00:11:48] tips that will save you a lot of time as
+[00:11:50] you start using Claude Code on your own.
+[00:11:52] Tip one, be specific in your prompts.
+[00:11:55] The more detail you give Claude, the
+[00:11:56] better your results will be. Instead of
+[00:11:59] saying, "Make me a website." say, "Make
+[00:12:01] me a single-page website with a header,
+[00:12:03] three sections, a contact form, and a
+[00:12:05] blue color scheme."
+[00:12:06] Being specific will be your friend. Tip
+[00:12:09] two, use the plan mode for bigger
+[00:12:10] projects. Remember, shift plus tab for
+[00:12:13] plan mode. If you're building something
+[00:12:14] with multiple features, always start in
+[00:12:16] plan mode. Let Claude show you its
+[00:12:18] thinking before it starts coding. It's
+[00:12:20] like reviewing the blueprint before
+[00:12:22] construction starts.
+[00:12:24] Tip three, iterate. Don't start over. If
+[00:12:26] something isn't quite right, don't start
+[00:12:28] from scratch. Just tell Claude what to
+[00:12:30] fix. Say, "The search bar isn't
+[00:12:32] filtering correctly. Can you fix it?"
+[00:12:33] Or, "Can you make the cards bigger?"
+[00:12:35] Claude remembers the entire project and
+[00:12:38] can make targeted changes.
+[00:12:40] Tip four, paste errors back to Claude if
+[00:12:42] something breaks. And things will
+[00:12:44] occasionally break. That's just normal.
+[00:12:46] Just copy the error message and paste it
+[00:12:48] back into the Claude code saying, "I'm
+[00:12:50] getting this error. Can you fix it?"
+[00:12:52] Nine times out of 10, it will fix it
+[00:12:54] immediately.
+[00:12:56] Tip five, ask Claude to explain if
+[00:12:58] you're curious about what Claude built.
+[00:13:00] Just ask. Say, "Can you explain how the
+[00:13:02] search feature works?" Or, "Walk me
+[00:13:04] through what this code does." It's a
+[00:13:05] fantastic learning tool, not just a
+[00:13:07] building tool. Tip six, use {slash}
+[00:13:10] compact for long sessions. If you've
+[00:13:12] been working with Claude for a while and
+[00:13:14] it starts to slow down or lose track,
+[00:13:16] just type {slash} compact. This clears
+[00:13:18] up the memory while keeping important
+[00:13:20] context. Think of it as a quick refresh.
+[00:13:23] And that's it. Look at what we
+[00:13:24] accomplished today. We went from an
+[00:13:26] empty folder to a fully functional,
+[00:13:29] good-looking bookmark dashboard app with
+[00:13:31] search, categories, dark mode, and the
+[00:13:33] whole thing. And we did it entirely by
+[00:13:36] talking to Claude Code in plain English.
+[00:13:38] If you're someone who has always been
+[00:13:40] curious about building things with
+[00:13:42] technology, but felt like coding was a
+[00:13:43] barrier, I hope this video has shown you
+[00:13:45] that the barrier is coming down. Tools
+[00:13:48] like Claude Code are making it possible
+[00:13:50] for anyone to bring their ideas to life.
+[00:13:52] Thanks for watching this week on
+[00:13:53] Teacher's Tech. I'll see you next time
+[00:13:55] with more tech tips and tutorials.

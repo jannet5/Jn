@@ -1,0 +1,967 @@
+# Build Your First iPhone App with Claude & Xcode 27
+# https://www.youtube.com/watch?v=uUUQjJm9zRw
+# kanal: Code with Beto | süre: 1159 sn | kaynak: yt-dlp:web_embedded:uUUQjJm9zRw.en-US.json3
+
+[00:00:00] in today's video we're
+[00:00:00] building an expense
+[00:00:01] tracker application
+[00:00:03] using Xcode 27 for this
+[00:00:05] application I want to
+[00:00:06] be a little bit ambitious
+[00:00:07] I want to use modern
+[00:00:08] APIs like speech-to-text
+[00:00:10] Foundation Models
+[00:00:11] which is on-device AI
+[00:00:12] we're going to use that
+[00:00:13] to make sense of the
+[00:00:15] speech-to-text and
+[00:00:15] then translate that into
+[00:00:17] a structured data that
+[00:00:18] we can save on the
+[00:00:19] device locally if you're
+[00:00:20] new to building apps
+[00:00:21] with AI don't worry I'll
+[00:00:23] explain everything as
+[00:00:24] we go and we'll do
+[00:00:25] most of the prompting
+[00:00:26] by talking let's get
+[00:00:27] into it
+[00:00:30] here's what you need
+[00:00:31] to follow along you're
+[00:00:32] gonna need Xcode 27
+[00:00:34] if you're watching this
+[00:00:34] video right after I
+[00:00:35] publish it Xcode 27 is
+[00:00:37] actually not available
+[00:00:38] in the Mac App Store if
+[00:00:40] you're watching this
+[00:00:41] after September
+[00:00:42] it is already available
+[00:00:43] so you can just go to
+[00:00:44] the App Store and
+[00:00:45] download it
+[00:00:46] otherwise just go to
+[00:00:47] the
+[00:00:47] developer.Apple.com
+[00:00:48] slash downloads
+[00:00:49] website and press on
+[00:00:51] download now
+[00:00:52] throughout this video
+[00:00:52] I'm gonna be using
+[00:00:53] VoiceOS which is a very
+[00:00:55] useful tool that I've
+[00:00:55] been using for the past
+[00:00:56] couple of weeks that
+[00:00:58] helps with speech to
+[00:00:59] text translation but
+[00:01:00] not only that because
+[00:01:01] it can actually take
+[00:01:03] actions in
+[00:01:03] your computer
+[00:01:04] it can help with
+[00:01:05] prompts definitions
+[00:01:06] schedule meetings and
+[00:01:07] many more things that
+[00:01:08] you're gonna see as we
+[00:01:09] go now for this video
+[00:01:10] I'm gonna be using
+[00:01:10] Fable 5.1
+[00:01:12] which
+[00:01:12] actually requires
+[00:01:13] usage credits but if
+[00:01:15] you're using the $20
+[00:01:17] Claude subscription you
+[00:01:18] can use Opus 5
+[00:01:19] to follow along
+[00:01:22] okay so I'm going to
+[00:01:23] start by opening Xcode
+[00:01:25] open Xcode and this is
+[00:01:26] by the way VoiceOS in
+[00:01:28] action you can press
+[00:01:29] Ctrl Option speak
+[00:01:31] whatever you want to
+[00:01:32] do and it's going to
+[00:01:33] do it
+[00:01:34] there we have it so
+[00:01:36] once you open Xcode
+[00:01:37] let's go ahead and
+[00:01:37] create a new project
+[00:01:38] you can
+[00:01:39] select app here but
+[00:01:40] actually I don't
+[00:01:41] recommend to do that
+[00:01:42] because this is kind of
+[00:01:43] like a quick start that
+[00:01:45] will skip like the name
+[00:01:47] of your application and
+[00:01:48] very important things
+[00:01:49] or a real project so if
+[00:01:50] you're just playing
+[00:01:51] around with it just
+[00:01:52] select app but if you're
+[00:01:53] building something
+[00:01:54] serious like we are
+[00:01:55] today just choose a
+[00:01:57] template okay so this
+[00:01:58] will open this window
+[00:01:59] and then you can
+[00:02:00] select application so
+[00:02:02] I'm going to select
+[00:02:02] multi platform select
+[00:02:04] app press next and
+[00:02:05] let's give it a name
+[00:02:06] since this is an
+[00:02:07] expense tracker app
+[00:02:09] let's call it Budget Buddy
+[00:02:10] and this is the app
+[00:02:12] name then you need to
+[00:02:13] select your team
+[00:02:14] if this is the first time
+[00:02:15] that you're doing this
+[00:02:16] you just need to sign in
+[00:02:17] into your Apple
+[00:02:18] developer account by
+[00:02:19] the way you don't need
+[00:02:20] to pay the $100 for the
+[00:02:23] Apple developer
+[00:02:23] account unless you
+[00:02:24] want to actually
+[00:02:25] publish this but if
+[00:02:26] you're just developing
+[00:02:27] you can use it for free
+[00:02:29] okay next we need to
+[00:02:30] provide an
+[00:02:31] organization identifier
+[00:02:33] I recommend that you
+[00:02:34] use your brand
+[00:02:35] website so in my case
+[00:02:36] is codewithbeto.dev
+[00:02:38] and in this case you
+[00:02:39] start with the domain
+[00:02:41] which is dev
+[00:02:42] and then my company
+[00:02:43] and then
+[00:02:44] budgetbuddy-video
+[00:02:47] okay so everything
+[00:02:48] else just none and
+[00:02:49] none press next then
+[00:02:51] select the folder where
+[00:02:52] you want to save your
+[00:02:53] progress and press
+[00:02:54] create okay and this is
+[00:02:55] how it looks the first
+[00:02:56] time that you create
+[00:02:57] your application on
+[00:02:58] the top you can select
+[00:03:00] an iPhone you can
+[00:03:01] select actually your
+[00:03:01] physical device if you
+[00:03:03] want or we can just
+[00:03:04] use a simulator so I'm
+[00:03:05] going to use an iPhone
+[00:03:05] 17 here and here we
+[00:03:07] have it here's our first
+[00:03:08] application now if we
+[00:03:09] go to the content view
+[00:03:10] this is just going to
+[00:03:11] display a preview of
+[00:03:12] the application at the
+[00:03:14] bottom you can select
+[00:03:15] the resizable option
+[00:03:17] and this will basically
+[00:03:19] let you know how your
+[00:03:20] application would look
+[00:03:21] like in
+[00:03:22] larger screen devices
+[00:03:23] like the iPhone Duo or
+[00:03:25] iPad so this is great
+[00:03:26] and we're going to be
+[00:03:27] using this in a moment
+[00:03:28] let's go back to the
+[00:03:29] iPhone view for now
+[00:03:30] now something cool is
+[00:03:31] that you can actually
+[00:03:32] change this text to be
+[00:03:34] Budget Buddy if this is
+[00:03:35] the first time that
+[00:03:36] you're doing this you
+[00:03:37] can see that it live
+[00:03:38] loads on the right so
+[00:03:40] within Xcode if you
+[00:03:41] press Command
+[00:03:41] comma this is where
+[00:03:43] you can set up settings
+[00:03:44] for Xcode like your
+[00:03:46] Apple account so you
+[00:03:47] can see here that I
+[00:03:48] already have my
+[00:03:48] account now apart
+[00:03:49] from your account
+[00:03:50] there's something very
+[00:03:51] important here there's
+[00:03:52] a new intelligence tab
+[00:03:53] that allows you to
+[00:03:54] connect agents
+[00:03:55] to Xcode
+[00:03:56] so here you can see
+[00:03:57] that I have Claude Agent
+[00:03:58] and Codex connected
+[00:04:00] just click on the one
+[00:04:01] that you want to
+[00:04:01] connect and then you
+[00:04:02] have to sign in into
+[00:04:03] your account and most
+[00:04:04] importantly select the
+[00:04:06] agent that you want to
+[00:04:07] use so in this case I'm
+[00:04:08] going to use Fable right
+[00:04:10] let's go back and you
+[00:04:11] can do the same for
+[00:04:12] Codex by the way now
+[00:04:13] this is if you want to
+[00:04:14] use the agent within
+[00:04:15] Xcode but it's actually
+[00:04:16] also possible to use it
+[00:04:17] from the Claude Code
+[00:04:18] desktop application
+[00:04:20] by pointing it to this
+[00:04:21] project but before you
+[00:04:22] do that you need to
+[00:04:23] make sure that the
+[00:04:24] Model
+[00:04:24] Context Protocol
+[00:04:26] is available to external
+[00:04:28] agents so make sure
+[00:04:29] that you have selected
+[00:04:30] always here but today
+[00:04:31] we're using Xcode
+[00:04:33] so on the top left you
+[00:04:34] can select the coding
+[00:04:36] assistant button
+[00:04:37] and then press new
+[00:04:39] conversation select
+[00:04:40] your agent Claude Agent
+[00:04:42] and boom we are now
+[00:04:43] in business
+[00:04:47] now before we start
+[00:04:48] prompting the agent
+[00:04:49] to build
+[00:04:49] our application
+[00:04:50] I actually recommend
+[00:04:51] doing a little bit of
+[00:04:52] research and this
+[00:04:53] includes searching for
+[00:04:54] UI inspiration so what I
+[00:04:56] personally like to do
+[00:04:57] when I'm building new
+[00:04:58] applications is go to
+[00:04:59] Dribbble and then I'm
+[00:05:00] going to search for
+[00:05:01] expense tracker I'm
+[00:05:02] going to use VoiceOS
+[00:05:03] you can just press the
+[00:05:04] Fn key expense tracker
+[00:05:06] release it and it's going
+[00:05:07] to automatically paste
+[00:05:08] the text and we can hit
+[00:05:10] enter this actually
+[00:05:11] allows me to move
+[00:05:12] extremely fast and it's
+[00:05:13] very useful and of
+[00:05:14] course you might
+[00:05:15] already be familiar
+[00:05:15] with this app speech
+[00:05:16] to text tools we have
+[00:05:17] them everywhere but
+[00:05:19] VoiceOS it's actually
+[00:05:20] pretty different
+[00:05:20] because it allows you
+[00:05:22] to connect
+[00:05:22] applications and take
+[00:05:24] action not only doing
+[00:05:25] things like opening
+[00:05:26] applications like we
+[00:05:27] just did at the
+[00:05:27] beginning but for
+[00:05:28] example you can press
+[00:05:29] Control Option and
+[00:05:30] start speaking
+[00:05:30] something like help me
+[00:05:31] schedule a meeting
+[00:05:32] with Cesar for
+[00:05:33] tomorrow to check
+[00:05:35] some of the videos
+[00:05:36] that we have coming
+[00:05:37] up okay and release
+[00:05:39] and then it's going to
+[00:05:39] do it while you keep
+[00:05:41] using your application
+[00:05:42] like we can come back
+[00:05:43] here and explore the
+[00:05:45] UIs by the way this is
+[00:05:46] one of my favorite
+[00:05:47] ones I want something
+[00:05:48] like this super simple
+[00:05:49] scheduling a meeting
+[00:05:50] with Cesar for
+[00:05:51] tomorrow all right and
+[00:05:52] the agent it's already
+[00:05:54] doing it what time
+[00:05:55] tomorrow works best
+[00:05:56] there we have it uh
+[00:05:57] this is with Cesar
+[00:05:58] Lozano uh tomorrow 9
+[00:06:00] am can you release hit
+[00:06:02] enter this is pretty
+[00:06:03] cool because like I said
+[00:06:04] you can keep doing
+[00:06:05] stuff like this I drafted
+[00:06:07] a calendar event
+[00:06:07] with Cesar
+[00:06:08] there we go and then
+[00:06:10] you can save the event
+[00:06:11] and boom it's done the
+[00:06:13] meeting is on your
+[00:06:14] calendar amazing so
+[00:06:15] this is by the way just a
+[00:06:16] simple example you
+[00:06:17] can also send Slack
+[00:06:18] messages take notes
+[00:06:19] post on X which is
+[00:06:21] something that I
+[00:06:21] do often
+[00:06:25] but there's actually
+[00:06:25] another feature that
+[00:06:26] it's pretty massive so
+[00:06:28] let's say that this is the
+[00:06:29] inspiration that we
+[00:06:30] want to use for our
+[00:06:31] Budget Buddy
+[00:06:31] application I'm going
+[00:06:32] to press Control Option
+[00:06:33] and say help me create
+[00:06:35] a plan I want to build a
+[00:06:37] an expense tracker
+[00:06:38] application it's going
+[00:06:39] it's going to be called
+[00:06:40] Budget Buddy
+[00:06:41] but I want it to
+[00:06:42] be modern
+[00:06:43] I want to use modern
+[00:06:45] APIs like speech to text
+[00:06:47] the goal is that the
+[00:06:48] user doesn't have to
+[00:06:50] type it only says
+[00:06:52] something like oh I just
+[00:06:53] spent $20
+[00:06:55] in McDonald's
+[00:06:57] then using Foundation
+[00:06:58] Models which is the
+[00:06:59] local LLMs for iOS
+[00:07:02] we can get a
+[00:07:03] structured data
+[00:07:05] for the expense item
+[00:07:07] and then save it locally
+[00:07:08] okay and for the UI
+[00:07:09] you can
+[00:07:10] check this here so I
+[00:07:12] want something like
+[00:07:13] this black and white
+[00:07:15] and I want something
+[00:07:16] like this for the for the
+[00:07:18] chart the daily chart
+[00:07:19] where you can
+[00:07:20] see how much
+[00:07:20] you're spending
+[00:07:22] I also want the list of
+[00:07:23] items like these one
+[00:07:24] right here in the
+[00:07:25] middle and for the
+[00:07:26] input of course we
+[00:07:28] want speech
+[00:07:29] to input
+[00:07:31] but also you know
+[00:07:32] some users might not
+[00:07:33] be able to speak
+[00:07:35] to enter a record so
+[00:07:36] we want something
+[00:07:37] like this for a fallback
+[00:07:38] when you are entering
+[00:07:39] an item manually
+[00:07:41] so help me create a
+[00:07:42] prompt of course
+[00:07:43] using best practices
+[00:07:44] with Xcode and SwiftUI
+[00:07:46] okay so that was a long
+[00:07:47] prompt I'm going
+[00:07:48] to release
+[00:07:49] and then VoiceOS is
+[00:07:50] actually going to craft
+[00:07:51] a massive prompt that
+[00:07:53] we can use
+[00:07:54] with some screenshots
+[00:07:55] as you can see here
+[00:07:56] there we have it so
+[00:07:58] let's check it out here
+[00:07:59] I'm going to go
+[00:07:59] back here
+[00:08:01] and yeah it is
+[00:08:02] copied so
+[00:08:03] let's go back and just
+[00:08:05] paste it in here and
+[00:08:06] boom so we have
+[00:08:07] added the screenshots
+[00:08:09] and the prompt now in
+[00:08:10] Xcode what I'm going
+[00:08:11] to do is just say slash
+[00:08:12] plan and then we can
+[00:08:13] pass a plan now at the
+[00:08:15] very end of this
+[00:08:15] prompt I'm going to
+[00:08:16] add a couple of things
+[00:08:17] like it just came to
+[00:08:19] mind that would be
+[00:08:20] nice to have an
+[00:08:20] onboarding so I want
+[00:08:21] to say please add a
+[00:08:23] simple onboarding
+[00:08:24] with three steps
+[00:08:25] modern looking just to
+[00:08:27] onboard the user to
+[00:08:28] the application
+[00:08:30] make sure that we ask
+[00:08:31] for permissions in the
+[00:08:32] onboarding like for
+[00:08:33] Apple Intelligence
+[00:08:34] make sure that
+[00:08:34] everything is available
+[00:08:35] let's save the data
+[00:08:37] locally make sure that
+[00:08:38] the items
+[00:08:39] on the list are sortable
+[00:08:41] so that the user can
+[00:08:42] move them around
+[00:08:43] don't make
+[00:08:43] assumptions ask me
+[00:08:45] questions all right so I
+[00:08:46] think this looks good
+[00:08:47] enough let's just
+[00:08:48] send it and see
+[00:08:50] what happens
+[00:08:51] okay so here are the
+[00:08:52] questions this is very
+[00:08:53] important let's press
+[00:08:54] on the first one
+[00:08:55] I'm going to select the
+[00:08:56] recommended SwiftData
+[00:08:57] for the
+[00:08:58] information now
+[00:08:59] should the on-device
+[00:09:01] LLM also
+[00:09:02] auto categorize the
+[00:09:04] expenses yes auto
+[00:09:06] categorize it's the
+[00:09:06] recommended then we
+[00:09:08] have the time ranges I
+[00:09:09] don't have a strong
+[00:09:10] preference for this so
+[00:09:11] I'm going to select the
+[00:09:12] recommended and
+[00:09:13] how should currency
+[00:09:14] be handled okay so
+[00:09:15] this is an interesting
+[00:09:16] question I want my
+[00:09:17] application to be used
+[00:09:18] in Europe with euros
+[00:09:19] in Mexico with
+[00:09:20] pesos so
+[00:09:21] let's use the device
+[00:09:22] locale currency this is
+[00:09:24] perfect let's submit
+[00:09:25] these questions
+[00:09:26] and let Fable cook now
+[00:09:28] something important
+[00:09:28] to keep in mind here is
+[00:09:29] that this is just an
+[00:09:30] experiment but if
+[00:09:31] you're building
+[00:09:32] something more
+[00:09:33] serious I would
+[00:09:33] encourage you to
+[00:09:34] spend some time
+[00:09:35] thinking about the
+[00:09:36] structure of the data
+[00:09:37] like the expenses ID
+[00:09:39] the name description
+[00:09:40] maybe you want
+[00:09:41] an emoji
+[00:09:42] or something else
+[00:09:42] some extra notes in
+[00:09:44] the shape of the data
+[00:09:45] that you want
+[00:09:46] to handle
+[00:09:47] then tell that to Claude
+[00:09:48] otherwise it's going to
+[00:09:49] make some
+[00:09:49] assumptions so the
+[00:09:50] code is on the first
+[00:09:52] button here in the
+[00:09:53] navigator then you can
+[00:09:54] see that we have the
+[00:09:55] actual code so you can
+[00:09:57] press right click
+[00:09:58] and open in a new
+[00:10:00] tab this is so that we
+[00:10:01] can quickly toggle
+[00:10:02] between the agent and
+[00:10:03] the code in case you
+[00:10:04] want to inspect
+[00:10:05] something manually or
+[00:10:07] see the previews like
+[00:10:08] you can refresh here
+[00:10:09] now if you're learning
+[00:10:10] SwiftUI like me
+[00:10:11] sometimes it's useful
+[00:10:12] to you know quickly
+[00:10:13] search how you can
+[00:10:15] create some UI here
+[00:10:16] for example I like to
+[00:10:18] use VoiceOS for that
+[00:10:19] I'm going to press
+[00:10:20] Control Option how do
+[00:10:21] I create a button in
+[00:10:22] SwiftUI and this is
+[00:10:23] pretty cool because
+[00:10:24] while you're here the
+[00:10:25] agent can give you
+[00:10:27] some explanation and
+[00:10:28] you don't lose context
+[00:10:29] and you don't have to
+[00:10:30] go anywhere else
+[00:10:31] to google it try to click
+[00:10:33] around there we have
+[00:10:34] it so this is pretty cool
+[00:10:35] then you can just copy
+[00:10:36] the snippet this is
+[00:10:37] something very useful
+[00:10:38] especially if you are
+[00:10:39] you know learning
+[00:10:41] playing around or if
+[00:10:42] you want to quickly
+[00:10:43] see
+[00:10:44] or a definition VoiceOS
+[00:10:46] is pretty handy for that
+[00:10:47] and here's the button
+[00:10:48] okay and after a
+[00:10:49] moment Fable came up
+[00:10:50] with the plan let's take
+[00:10:51] a look something very
+[00:10:52] important here is that
+[00:10:53] we are targeting iOS 27
+[00:10:55] of course this is the
+[00:10:56] latest and greatest
+[00:10:57] which is fine by me but
+[00:10:58] for this example I want
+[00:10:59] to look I want to use
+[00:11:00] local LLMs speech to
+[00:11:02] text so pretty
+[00:11:03] advanced features that
+[00:11:04] you know I think it's
+[00:11:05] going to be easier if we
+[00:11:06] just target iOS 27 only
+[00:11:08] amazing so it went and
+[00:11:09] verified the API
+[00:11:12] that's great so it's
+[00:11:12] showing me all the
+[00:11:13] research the project
+[00:11:14] changes that it's going
+[00:11:15] to do the permissions
+[00:11:16] the file structure the
+[00:11:18] models that it's going
+[00:11:18] to create so this is a
+[00:11:19] bit technical I'm not
+[00:11:21] going to dive deep into
+[00:11:22] that the
+[00:11:22] implementation order
+[00:11:23] edge cases that it's
+[00:11:24] going to handle so of
+[00:11:25] course I would
+[00:11:26] encourage you to
+[00:11:27] check the edge cases
+[00:11:28] spend some time on it
+[00:11:29] but since this is the
+[00:11:29] first iteration that we
+[00:11:30] are doing
+[00:11:31] I'm just going to go
+[00:11:32] ahead and say yes
+[00:11:33] implement it boom
+[00:11:35] now we are
+[00:11:35] on business
+[00:11:39] okay so Fable 5 just
+[00:11:40] build the application
+[00:11:41] and launch the iPhone
+[00:11:43] 17 here if this is the
+[00:11:45] first time that you're
+[00:11:45] running a simulator it
+[00:11:46] takes a while to turn
+[00:11:47] on but then it's going
+[00:11:48] to run the application
+[00:11:49] just like that perfect
+[00:11:50] wow this looks
+[00:11:51] pretty cool
+[00:11:53] and we have cool
+[00:11:54] animations in the
+[00:11:55] onboarding and Apple
+[00:11:56] Intelligence okay so I
+[00:11:57] want to test this
+[00:11:58] actually on my
+[00:11:58] physical device
+[00:12:00] right here so actually
+[00:12:01] Xcode 27 has a pretty
+[00:12:03] cool feature so once
+[00:12:04] you sign it in with your
+[00:12:05] Apple account you can
+[00:12:07] select your iPhone
+[00:12:09] from the drop down so
+[00:12:10] this is my iPhone
+[00:12:11] 17 Pro um let me just
+[00:12:12] go ahead and select
+[00:12:13] that and press the play
+[00:12:15] button and this will
+[00:12:16] run it on my
+[00:12:18] physical iPhone oh
+[00:12:19] wow and wow
+[00:12:20] it's running
+[00:12:21] wow that was super
+[00:12:22] quick now
+[00:12:23] in Device Hub actually
+[00:12:26] if you expand this on
+[00:12:26] the left you can find
+[00:12:28] your iPhone and you
+[00:12:29] can actually view it
+[00:12:30] directly so so I'm going
+[00:12:31] to view my
+[00:12:32] iPhone 17 Pro and
+[00:12:34] something pretty cool
+[00:12:34] about Device Hub is
+[00:12:36] that you can control
+[00:12:37] your physical phone
+[00:12:38] like for example I don't
+[00:12:39] know if you can see
+[00:12:40] there on screen but I
+[00:12:41] can click on the
+[00:12:42] computer and it
+[00:12:43] controls my phone but
+[00:12:44] I can also control it
+[00:12:45] from my physical
+[00:12:46] device so I'm gonna
+[00:12:48] just get started and
+[00:12:49] boom this is great and
+[00:12:51] we actually have the
+[00:12:52] input so I'm gonna try
+[00:12:53] this out okay this is the
+[00:12:56] microphone we need
+[00:12:57] to allow it
+[00:12:58] and it's using a bottom
+[00:12:59] sheet it's preparing
+[00:13:00] now this is I think
+[00:13:01] normal the first time
+[00:13:02] that you oh it's
+[00:13:03] listening let me cancel
+[00:13:04] let me do that again I
+[00:13:06] just spent $20 in
+[00:13:08] McDonald's what's
+[00:13:09] going on
+[00:13:10] okay so it seems that it
+[00:13:11] says that it's listening
+[00:13:13] but the done button is
+[00:13:15] disabled so I cannot do
+[00:13:16] anything I'm going to
+[00:13:17] press cancel let's test
+[00:13:18] the keyboard okay so
+[00:13:20] we have actually a
+[00:13:21] button there I'm going
+[00:13:22] to I don't know say $20
+[00:13:24] wow look at the
+[00:13:25] animation guys this
+[00:13:26] is amazing
+[00:13:27] let's save the expense
+[00:13:29] ooh pretty cool
+[00:13:30] okay so
+[00:13:31] this speech is not
+[00:13:32] working let's take a
+[00:13:33] look yeah and actually
+[00:13:35] Fable 5 still work it's
+[00:13:36] still working on this
+[00:13:38] now if this is actually
+[00:13:39] the first time that you
+[00:13:40] are running this and
+[00:13:41] you cannot open
+[00:13:42] Device Hub let me
+[00:13:43] show you how you can
+[00:13:44] open it in Xcode just
+[00:13:45] go to the Xcode tab
+[00:13:48] and then select open
+[00:13:49] developer tool and you
+[00:13:50] can press Device Hub
+[00:13:52] it's basically an
+[00:13:53] application that comes
+[00:13:54] within Xcode okay
+[00:13:55] then you can view
+[00:13:56] your phone here or
+[00:13:57] view the simulator the
+[00:13:59] simulator is the one
+[00:14:00] that Fable is actually
+[00:14:02] using right now so you
+[00:14:03] can see there that it's
+[00:14:05] testing it and now
+[00:14:06] once you know that
+[00:14:07] you can actually
+[00:14:08] minimize this so we
+[00:14:09] can see what Xcode is
+[00:14:11] doing okay hey dollars
+[00:14:12] in Uber
+[00:14:13] this is pretty
+[00:14:14] interesting so it's
+[00:14:15] actually using the
+[00:14:16] device okay here we go
+[00:14:17] now it's going to test
+[00:14:18] the microphone okay
+[00:14:19] so it didn't provide
+[00:14:20] access to the
+[00:14:21] microphone and it
+[00:14:22] created a fallback
+[00:14:23] which takes the user
+[00:14:24] to the settings to
+[00:14:25] enable permissions for
+[00:14:26] the microphone okay
+[00:14:27] so we are able to add
+[00:14:28] basic transactions as
+[00:14:29] you can see here um
+[00:14:31] but we hit we have to
+[00:14:32] do it manually so the
+[00:14:33] microphone is not
+[00:14:34] working I'm going to
+[00:14:35] cancel this and then
+[00:14:36] let's go back and
+[00:14:37] prompt a follow-up so
+[00:14:39] if you're about to
+[00:14:40] prompt uh something
+[00:14:41] big something that you
+[00:14:42] can do is just press Fn
+[00:14:43] twice with VoiceOS um
+[00:14:45] and then you can start
+[00:14:46] speaking so
+[00:14:47] when I press the
+[00:14:49] microphone button it
+[00:14:50] says that it's listening
+[00:14:51] but it's not doing
+[00:14:52] anything and I'm not
+[00:14:53] able to press done and
+[00:14:55] I can actually see like a
+[00:14:56] circle moving up and
+[00:14:58] down in a loop
+[00:14:59] animation that I don't
+[00:15:01] understand why uh
+[00:15:02] could you please fix
+[00:15:03] that let's Fn again and
+[00:15:06] then it's going to paste
+[00:15:07] a nice text there now
+[00:15:08] something that I like to
+[00:15:09] do in my in my
+[00:15:10] applications is to
+[00:15:11] create a screen for
+[00:15:12] development so let's
+[00:15:13] prompt for that create
+[00:15:14] a screen for
+[00:15:15] development where I
+[00:15:16] can toggle things
+[00:15:18] like permissions verify
+[00:15:19] that Foundation
+[00:15:20] Models and the Siri AI
+[00:15:22] capabilities are
+[00:15:24] enabled also
+[00:15:26] uh double
+[00:15:27] viewing the
+[00:15:28] onboarding screen and
+[00:15:30] I think that's good for
+[00:15:31] now so let's submit
+[00:15:32] that okay so here we
+[00:15:33] have it now I can see
+[00:15:35] the top right oh and by
+[00:15:36] the way I forgot to tell
+[00:15:37] you that this is
+[00:15:38] compatible with dark
+[00:15:40] mode and looks really
+[00:15:40] nice so let's go to the
+[00:15:42] developer settings
+[00:15:43] awesome we can see
+[00:15:44] that we have the
+[00:15:45] microphone
+[00:15:46] authorized we have
+[00:15:47] Foundation
+[00:15:48] model available
+[00:15:49] okay guys I just found
+[00:15:51] the issue and it
+[00:15:51] actually works
+[00:15:52] really nice
+[00:15:53] the issue is that
+[00:15:54] because I was using
+[00:15:55] Device Hub to show
+[00:15:57] you the device on
+[00:15:58] screen for some
+[00:15:59] reason Apple disabled
+[00:16:00] the microphone and
+[00:16:02] camera input in
+[00:16:03] this version
+[00:16:05] so I'm using now
+[00:16:06] QuickTime to show you
+[00:16:07] the screen on
+[00:16:08] my phone
+[00:16:09] let's try this again $20
+[00:16:11] in McDonald's okay I'm
+[00:16:13] going to say done and
+[00:16:14] then it uses AI
+[00:16:16] the Foundation Models
+[00:16:17] locally and let me
+[00:16:18] change this to light
+[00:16:19] mode looks pretty cool
+[00:16:21] and you can of course
+[00:16:22] um move it up okay so
+[00:16:24] this actually looks
+[00:16:25] different maybe we
+[00:16:25] want to change that
+[00:16:26] that's a little detail
+[00:16:28] and then here you can
+[00:16:29] quickly view that the
+[00:16:30] data is correct
+[00:16:31] McDonald's food and
+[00:16:33] drink the date and you
+[00:16:34] can add some extra
+[00:16:35] notes if you want just
+[00:16:36] save the expense but
+[00:16:37] we can also add inputs
+[00:16:39] for money right so I
+[00:16:41] just made a hundred
+[00:16:42] dollars from a course
+[00:16:44] sale yeah course sale
+[00:16:46] um so the category for
+[00:16:47] this is other I guess we
+[00:16:49] don't have like
+[00:16:50] something for that but
+[00:16:51] we can save although
+[00:16:53] it's taken as expense I
+[00:16:55] think so we can delete
+[00:16:56] it oh and this is
+[00:16:57] something pretty cool
+[00:16:57] we can swipe left
+[00:16:59] to delete
+[00:16:59] and we can hold it and
+[00:17:01] drag it to reorder so
+[00:17:03] this is really cool uh
+[00:17:05] let's go to the month
+[00:17:06] we can see that the
+[00:17:07] graph changes
+[00:17:08] we can enter just
+[00:17:09] dummy data here or
+[00:17:11] quick test and see how
+[00:17:13] it looks but this is
+[00:17:14] pretty reliable uh $35
+[00:17:16] in tacos press done
+[00:17:18] okay so that didn't
+[00:17:19] work we can cancel try
+[00:17:20] again $35 in tacos
+[00:17:23] okay it's generating
+[00:17:24] the expense food
+[00:17:25] perfect and we can just
+[00:17:27] save it now from here
+[00:17:28] it's just a matter of
+[00:17:29] keep iterating for
+[00:17:30] example let's use VoiceOS
+[00:17:31] Control Option can
+[00:17:32] you dispatch
+[00:17:33] Claude Code to change
+[00:17:35] the graph to use
+[00:17:37] different colors maybe
+[00:17:39] like a blue but make it
+[00:17:41] more beautiful
+[00:17:43] okay something like
+[00:17:43] that this is just an
+[00:17:44] example and yeah this
+[00:17:46] is automatically going
+[00:17:46] to dispatch Claude
+[00:17:48] and after a moment we
+[00:17:49] can recompile it and
+[00:17:50] see the changes okay
+[00:17:51] so now let's create a
+[00:17:52] new quick
+[00:17:52] conversation and I'm
+[00:17:53] going to ask can you
+[00:17:54] add in the developer
+[00:17:56] screen an option to
+[00:17:58] add dummy data so
+[00:17:59] that we can see
+[00:18:00] the app
+[00:18:01] with rich data past
+[00:18:03] events and see the
+[00:18:05] actual graph with
+[00:18:07] more data
+[00:18:08] something like that hit
+[00:18:10] enter now something
+[00:18:11] cool is that you can
+[00:18:11] also inspect the actual
+[00:18:14] prompt and you can
+[00:18:14] see that when you are
+[00:18:15] circling things when
+[00:18:16] you press Control
+[00:18:17] Option uh it's basically
+[00:18:19] taking screenshots but
+[00:18:20] this is really useful for
+[00:18:21] agents because it
+[00:18:22] provides the exact
+[00:18:24] context where the
+[00:18:25] change needs to be
+[00:18:26] made okay and after a
+[00:18:27] moment the change
+[00:18:28] has completed let's
+[00:18:30] recompile the
+[00:18:30] application okay now it
+[00:18:32] actually added a
+[00:18:33] gradient pretty cool
+[00:18:35] let's add sample data
+[00:18:36] because this is actually
+[00:18:37] an option that we have
+[00:18:39] here okay and this is
+[00:18:40] how this would
+[00:18:40] actually look like with
+[00:18:41] real data
+[00:18:42] we can toggle amazing
+[00:18:45] we can reorder
+[00:18:46] expenses like this this
+[00:18:48] is amazing
+[00:18:49] we have haptics
+[00:18:51] we can toggle between
+[00:18:52] light and dark this
+[00:18:53] looks really nice and
+[00:18:55] from here of course
+[00:18:55] you can keep iterating
+[00:18:57] if you want a full
+[00:18:58] written guide on how
+[00:18:59] to take it from here
+[00:19:00] how to keep iterating
+[00:19:01] save your progress on
+[00:19:02] Git GitHub deployment
+[00:19:04] versioning control
+[00:19:05] and a pack of skills
+[00:19:07] make sure to check
+[00:19:07] out my book From Idea
+[00:19:08] to App Store the link is
+[00:19:10] in the description let
+[00:19:10] me know if you'd like
+[00:19:11] to see more videos like
+[00:19:12] this thanks to VoiceOS
+[00:19:13] for sponsoring this
+[00:19:14] video check them out
+[00:19:15] using my link in the
+[00:19:16] description I'll see you
+[00:19:17] in the next one

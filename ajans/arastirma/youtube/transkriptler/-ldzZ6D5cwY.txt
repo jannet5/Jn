@@ -1,0 +1,554 @@
+# The EASIEST way to build iOS apps with Claude Code (Opus 4.5)
+# https://www.youtube.com/watch?v=-ldzZ6D5cwY
+# kanal: Alex Finn | süre: 1115 sn | kaynak: yt-dlp:web_embedded:-ldzZ6D5cwY.en-orig.json3
+
+[00:00:00] oneperson companies have been printing
+[00:00:02] billions of dollars off mobile apps. The
+[00:00:05] bad news is up until now they've been
+[00:00:07] really hard to build. The good news is
+[00:00:09] I'm going to show you the easiest way
+[00:00:12] ever to build them using Claude code and
+[00:00:14] Claude Opus 4.5, the greatest coding
+[00:00:17] model of all time. I'm going to show you
+[00:00:19] how absolutely anyone can build, launch,
+[00:00:23] and ship their own iOS app using Claude
+[00:00:26] Code, even if you've never written a
+[00:00:27] line of code in your entire life. This
+[00:00:29] is gonna be the most important video you
+[00:00:31] watch for a while. Let's get into it.
+[00:00:32] So, two apps you're going to need to
+[00:00:34] follow along with me here. One is Xcode,
+[00:00:37] which is a free app you can download
+[00:00:38] from the Mac App Store. Go download it
+[00:00:41] now. It's completely free. Make sure to
+[00:00:43] choose iOS when you're installing it.
+[00:00:45] The second app you're going to need is
+[00:00:48] Claude Code. So, this is the Clawed
+[00:00:50] Desktop app. You can download it now. It
+[00:00:52] has Claude Code built in, and this is
+[00:00:54] what we're going to be using for much of
+[00:00:56] the building. I'll have links to both
+[00:00:57] these down below. So, feel free to
+[00:00:59] download, get them installed now, and
+[00:01:00] then you can follow along with me here.
+[00:01:02] First step to building amazing iOS apps
+[00:01:05] with Claude Code, which is the best
+[00:01:07] coding tool on planet Earth, is to go
+[00:01:10] into Xcode. Click on iOS right here for
+[00:01:13] then once you're in Xcode, you're going
+[00:01:15] to want to click create new project.
+[00:01:18] Then from there, click iOS at the top
+[00:01:20] and then app next. We're going to give
+[00:01:23] it a name. Today, we're going to be
+[00:01:24] building a habit tracking app. I like to
+[00:01:27] build apps like this because they're
+[00:01:28] apps that you can not only build and
+[00:01:30] learn from, but also use in your
+[00:01:31] day-to-day life. So, we're going to call
+[00:01:32] this Habit Tracker iOS. You'll even be
+[00:01:35] able to ship this afterwards if you
+[00:01:37] want. Put it in the app store and start
+[00:01:38] making a couple bucks if you want. So,
+[00:01:40] we're going to call this Habit Tracker
+[00:01:42] iOS. We just need to give this an
+[00:01:43] organization identifier. I'm going to
+[00:01:45] call it Alex. We're going to hit next.
+[00:01:47] And then we just need to create a new
+[00:01:49] folder for our project. So, I'm going to
+[00:01:50] go into documents here, do new folder,
+[00:01:53] and then habit tracker. So, just make
+[00:01:55] that new folder right there and then
+[00:01:57] create it. Boom. There we go. What's
+[00:01:58] going to happen after that is Xcode is
+[00:02:01] going to create all the files we need
+[00:02:03] for an iOS project. That is all good to
+[00:02:06] go. The next step is we're going to go
+[00:02:08] into Claude Code and we're going to
+[00:02:09] start building this app out. Xcode is
+[00:02:11] basically the skeleton of what we're
+[00:02:13] going to do here, right? It's building
+[00:02:15] the project and going to allow us to
+[00:02:16] test it. Claude Code's going to be the
+[00:02:18] brain. It's what's going to write all
+[00:02:19] the code, build the project out because
+[00:02:21] Claude Code's the greatest app ever for
+[00:02:23] vibe coding. It's going to make it super
+[00:02:25] easy to build this app. So, we pull open
+[00:02:27] the new Claude Code for Desktop app,
+[00:02:29] which is one of my favorite ways to use
+[00:02:31] Claude Code ever. We're going to make
+[00:02:34] sure we select our folder. So, we're
+[00:02:36] going to open up that folder we just
+[00:02:38] created inside of Xcode. And we're just
+[00:02:40] going to select that first folder here
+[00:02:42] inside. And we're going to click open.
+[00:02:44] And now we are inside. Now, we can start
+[00:02:46] building our app. So, let's do this.
+[00:02:48] Make sure Opus 4.5 is select because
+[00:02:50] that's the greatest coding AI model of
+[00:02:52] all time. And let's start building this
+[00:02:53] out. I'm going to show you how to build
+[00:02:55] out the core functionality. Then I'm
+[00:02:57] going to get into adding more advanced
+[00:02:59] functionality. And then I'm going to go
+[00:03:01] over how you would ship this to the app
+[00:03:02] store. So, the key to using Claude Code
+[00:03:04] well is giving specific but simple
+[00:03:07] instructions. Right? We don't want to do
+[00:03:08] too much all at once. We don't want to
+[00:03:10] oneshot the entire world. We just give
+[00:03:12] simple but specific instructions. So,
+[00:03:15] here we go. Very simple prompt. You are
+[00:03:17] in an iOS app we just created. I want to
+[00:03:20] build a habit tracker app. Users should
+[00:03:22] be able to enter a new habit, then click
+[00:03:24] a checkbox to say they completed it.
+[00:03:26] Next, that will be their current streak
+[00:03:28] for days in a row. And I'm going to hit
+[00:03:30] send on that. And there we go. It gets
+[00:03:32] right to work. It is now going to build
+[00:03:33] our app. So, because this is running in
+[00:03:36] the folder we just created in Xcode,
+[00:03:38] it's going to know what it is. It's
+[00:03:39] going to know it's a Swift app, which
+[00:03:41] Swift is the technology behind iOS apps.
+[00:03:43] and it is going to get ahead building
+[00:03:45] our iOS app. In a second, I'm going to
+[00:03:48] show you how to actually test all of
+[00:03:50] this out inside of Xcode. So, you can
+[00:03:52] actually see an entire iPhone simulator
+[00:03:54] inside Xcode to test this. But, let's
+[00:03:56] get V1 of this app done. First, I'll
+[00:03:58] just tell you this as it's working. It's
+[00:04:00] been a couple weeks now since Opus 4.5
+[00:04:02] launched, and this is the most
+[00:04:04] mind-blowing leap in AI, I think, so far
+[00:04:07] since AI started. The ability for Opus
+[00:04:11] to build apps pretty much do it
+[00:04:13] flawlessly and do it to a really
+[00:04:15] advanced intelligent level has seriously
+[00:04:18] blown my mind since launch. This is
+[00:04:20] going to allow so many people to do
+[00:04:22] stuff like this. Build iOS apps out
+[00:04:24] quickly, put them on the app store, and
+[00:04:26] start making money and building their
+[00:04:28] own businesses. If you haven't done what
+[00:04:29] I'm showing you here yet, you need to
+[00:04:31] make sure you follow through and all the
+[00:04:33] instructions I give you and actually
+[00:04:35] launch your first app because this is
+[00:04:37] such a huge opportunity right now
+[00:04:39] because of Opus 45. What I love about
+[00:04:41] Claude Code as always builds a to-do
+[00:04:43] list, goes through the to-dos, checks
+[00:04:44] them off as it's building, and in a
+[00:04:46] second it's going to have all the to-dos
+[00:04:48] done and we can test it out in Xcode.
+[00:04:50] All right, looks like it is done. And
+[00:04:52] while you don't need to read this entire
+[00:04:54] thing because it's very technical, I
+[00:04:56] always recommend you do just so you kind
+[00:04:57] of start to get an understanding how all
+[00:04:59] this works. So let's go back to Xcode
+[00:05:01] now. So I'm going to click on Xcode
+[00:05:03] here. And what you can see is one, all
+[00:05:06] the new files were placed right in here
+[00:05:09] since we're working out of the exact
+[00:05:10] same folder. But two, you can see over
+[00:05:13] here on the right the demo of the app
+[00:05:15] that we're building live. So you can see
+[00:05:16] it says habits, no habits. Tap plus to
+[00:05:18] add your first habit. So let's try that
+[00:05:20] out. I click the plus, we can add a new
+[00:05:23] habit. We can type right in here. So, I
+[00:05:25] like to meditate. So, let's add that
+[00:05:27] habit. Add. And then boom, it has the
+[00:05:30] new habit there as well as a checkbox
+[00:05:32] and the current streak we're on. So,
+[00:05:34] let's check that off. And boom. Just
+[00:05:37] like that, we are now on a streak of
+[00:05:39] habits. We are going to add way more to
+[00:05:41] this app. Then, I'm going to go over how
+[00:05:42] to actually ship this to the app store.
+[00:05:44] But just take a second here if this is
+[00:05:46] your first time ever building a mobile
+[00:05:49] app and appreciate the fact that in
+[00:05:51] about 30 40 seconds you just built an
+[00:05:54] entire iOS app by typing in a sentence.
+[00:05:56] Literally two years ago if you wanted to
+[00:05:59] build this you would have to read a
+[00:06:01] Swift textbook, spend an entire week
+[00:06:03] coding and even then probably have to
+[00:06:05] fix 100,000 bugs. But thanks to the
+[00:06:08] magic of AI and Clawude Code, you could
+[00:06:11] now build an entire app in just a few
+[00:06:14] seconds with one sentence. So, just
+[00:06:15] wanted to pause there, but let's keep
+[00:06:16] adding new things here. Let's think
+[00:06:18] about how we can add more here. One of
+[00:06:20] my favorite things to do in this new
+[00:06:23] Claude Code for desktop app is take
+[00:06:25] advantage of the fact that it has the
+[00:06:27] chatbot built in. So, if I open this
+[00:06:29] sidebar and then we click on this chat
+[00:06:32] bubble right there, we're now in the
+[00:06:34] chat. So, I can do this. I can close
+[00:06:36] this sidebar and I can start to get
+[00:06:38] advice on what features we can add next.
+[00:06:40] I highly recommend you use this workflow
+[00:06:43] when building out any app at all, but
+[00:06:44] for sure iOS apps. So, let's send a
+[00:06:47] quick prompt to the chat to get an idea
+[00:06:50] for the next feature we can add in. So,
+[00:06:53] here's the prompt I did. I'm building an
+[00:06:54] iOS app for habit tracking. Right now,
+[00:06:56] you have the ability to add a habit,
+[00:06:58] check it off, and see your daily streak.
+[00:07:00] What are other cool high retention and
+[00:07:01] engagement features we can add? This is
+[00:07:04] my favorite thing to do when using Cloud
+[00:07:06] Code, especially Claude Code for desktop
+[00:07:07] because it's so easily accessible. This
+[00:07:10] chat feature is we're basically making
+[00:07:11] this our co-pilot CEO and we're saying,
+[00:07:13] "Hey, what other things can we add to
+[00:07:15] this habit tracker?" Opus 4.5 is so good
+[00:07:18] at coming up with other features. So,
+[00:07:20] here we go. Accountability Partners.
+[00:07:23] That's a pretty good idea. Anonymous
+[00:07:24] habit buddies. Gamifications. Let's do
+[00:07:27] some gamifications. Weekly, monthly,
+[00:07:29] perfect week badges. Oo, I like that.
+[00:07:31] So, getting badges for all the habits.
+[00:07:33] Oh, here we go. XP system that levels up
+[00:07:35] and unlocks themes, icons, or app
+[00:07:37] features. I like this. I'm a gamer. I
+[00:07:39] like earning XP. Let's implement an XP
+[00:07:42] system into our app. So, what we're
+[00:07:44] going to do is we're going to open up
+[00:07:45] our sidebar again. Go back into the code
+[00:07:48] section of Claude Code. Go into our chat
+[00:07:50] for the app we're building here. We'll
+[00:07:52] close this again. And now, let's add
+[00:07:54] more features. So, again, we'll just
+[00:07:56] keep telling it exactly what we want to
+[00:07:57] build. So, here's the prompts we're
+[00:07:58] going to use. And I'll put all the
+[00:07:59] prompts down below and all the links and
+[00:08:00] everything you need. I want to add XP
+[00:08:03] features. For every habit a user does,
+[00:08:05] they should earn XP points. When they
+[00:08:07] check off a habit, an XP fireworks
+[00:08:09] animation happens and it shows their XP
+[00:08:11] at the top. Every 100 XP gains them a
+[00:08:14] level. They start off at level one. If
+[00:08:16] anyone here is not a gamer, XP is just
+[00:08:18] experience points. They're points you
+[00:08:20] gain for doing different things, and
+[00:08:21] they level you up and give you a sense
+[00:08:23] of achievement. Right now, I'm
+[00:08:24] absolutely addicted to a game called Arc
+[00:08:25] Raiders where I'm leveling up like
+[00:08:27] crazy. It makes you want to play a lot.
+[00:08:28] So, let's add this in. If you're
+[00:08:30] building your own iOS app now, I would
+[00:08:32] highly recommend figuring out different
+[00:08:35] ways to gify your experience. It's
+[00:08:37] really going to increase the retention
+[00:08:39] and engagement so your users use your
+[00:08:41] app a ton. Implementing XP and levels
+[00:08:44] are a fantastic way to do this. It
+[00:08:46] basically turns your app into like a
+[00:08:48] game experience, which is awesome. So,
+[00:08:50] let's hit send on this. And now it's
+[00:08:52] going to get get to work on our new XP
+[00:08:55] feature, which we'll be able to test out
+[00:08:57] in just like a minute here. With these
+[00:08:58] iOS apps, people go in and out so quick.
+[00:09:01] Uninstall, install. It's all about
+[00:09:04] engagement and retention when it comes
+[00:09:05] to these apps. How long can you keep
+[00:09:07] them using your app? How often can you
+[00:09:09] keep them coming back? If they come back
+[00:09:11] often, you have a lot higher of a chance
+[00:09:14] to get them to do payments, subscribe,
+[00:09:17] or any other monetizable action. So, it
+[00:09:20] is really important to focus on adding
+[00:09:22] features that increase retention and
+[00:09:24] keep them coming back on a regular
+[00:09:26] basis. So, let's see. And now, little
+[00:09:28] spiel. It already finished two of the
+[00:09:30] five check boxes. So, create the user
+[00:09:32] progress model, update the app entry
+[00:09:34] point. And listen, some of this might
+[00:09:35] come off as really technical. Do you
+[00:09:37] need to understand every technical
+[00:09:39] detail? No. But quickly reading it, kind
+[00:09:41] of getting a highlevel gist of what's
+[00:09:43] going on here will really go far in
+[00:09:46] helping you improve your prompting and
+[00:09:49] your instructions to the AI. So
+[00:09:51] definitely make sure you go through and
+[00:09:52] just read everything it's doing. As this
+[00:09:55] is building, I've been shipping a ton of
+[00:09:56] web apps. I have yet to ship an iOS app,
+[00:09:59] but this Cloud Code with Opus 45 has
+[00:10:02] really pushed me to start shipping iOS
+[00:10:05] apps. I've shipped successful web apps.
+[00:10:07] I've yet to ship a successful mobile
+[00:10:09] app, but I think that's going to happen
+[00:10:10] pretty soon because these new
+[00:10:12] capabilities we have. And I hope you
+[00:10:13] take this challenge with me. If you're
+[00:10:15] taking this challenge with me, make sure
+[00:10:16] to reply down below. I'm building with
+[00:10:18] you or something like that so I can
+[00:10:20] check in with you later and see who's
+[00:10:22] actually building these iOS apps with
+[00:10:23] me. All right, looks like it added the
+[00:10:25] XP and leveling system. Here's what we
+[00:10:27] implemented. Added all these new
+[00:10:28] features, how it works. Each tablet
+[00:10:30] completion awards 10 XP. Progress bar
+[00:10:32] fills up and then you get higher levels
+[00:10:35] every 100 XP. Let's go in here. Oh, look
+[00:10:38] at that new interface. So, you can see
+[00:10:39] your level. You can see your XP bar.
+[00:10:41] Let's add a habit. We're going to say
+[00:10:43] exercise. I'm going to add Let's see
+[00:10:46] what happens when I check it off. Boom.
+[00:10:48] Plus 10 XP with the little fireworks.
+[00:10:50] That was nice. That was cool. And you
+[00:10:52] can see the XP bar filling up. I mean,
+[00:10:54] we've been doing this for what, a minute
+[00:10:55] and a half now. We have a pretty good
+[00:10:57] habit tracker. We're going to add a lot
+[00:10:58] more here, but it is still, again, take
+[00:11:01] a second to appreciate how amazing this
+[00:11:03] is, what we're doing. By the way, if you
+[00:11:04] learned anything at all so far, make
+[00:11:06] sure to leave a like, subscribe, turn on
+[00:11:07] notifications. All I do is create
+[00:11:09] amazing videos about AI. I also launched
+[00:11:11] a Vibe Coding Academy. Has a full Claude
+[00:11:13] Code Master Class in that and weekly
+[00:11:15] calls of me. Check that out. Link down
+[00:11:16] below. Let's keep adding new features
+[00:11:18] here though. I think it would be cool, I
+[00:11:20] think it had on the last screen when we
+[00:11:21] were chatting to add kind of a mood
+[00:11:23] tracker where every day we can put in
+[00:11:24] our mood. So, we can track our mood with
+[00:11:26] all our habits. So, let's do this. I
+[00:11:28] want to add a mood tracker where every
+[00:11:33] day we can enter our mood in what are a
+[00:11:38] few different ideas you have for
+[00:11:41] implementing this system. So this is
+[00:11:43] another thing you really should be doing
+[00:11:45] as well. You should be using Claude as a
+[00:11:49] partner, a creative partner just as much
+[00:11:51] as you use it as a developer, right? You
+[00:11:53] don't have to only just give it commands
+[00:11:55] and prompts to do and things to do. You
+[00:11:57] can also ask it questions right here in
+[00:11:59] the chat and say, "Hey, how would you do
+[00:12:00] this? How would you change this? Is this
+[00:12:02] a good idea? Is this a bad idea?" So,
+[00:12:04] before we implement this mood tracking
+[00:12:05] system, I'm just going to say, "What are
+[00:12:06] a few different ideas you have for
+[00:12:08] implementing this?" And I promise you,
+[00:12:10] it's going to give us at least one idea
+[00:12:12] that we haven't thought of that's going
+[00:12:13] to be really, really cool. So, do this
+[00:12:15] as much as you can. Even after every
+[00:12:17] step, you might want to do this where
+[00:12:18] you just ask it, "What do you think of
+[00:12:20] this? How would you do this differently?
+[00:12:21] How do other apps do this?" Here we go.
+[00:12:24] So, here are a few different approaches
+[00:12:25] for mood tracker. Simple emoji picker.
+[00:12:27] This is what I was thinking where you
+[00:12:29] can click an emoji every day to see what
+[00:12:31] your mood is. Mood and notes journal.
+[00:12:34] Same emoji but with an optional text
+[00:12:36] field. I like that. I didn't think of
+[00:12:38] that adding like you can also add an
+[00:12:39] optional journal. I think I kind of like
+[00:12:42] that. Let's go with that one. So, let's
+[00:12:45] do that. So, we can go in. My
+[00:12:47] recommendation start with option one.
+[00:12:48] We're going to go option two. I like the
+[00:12:51] idea of option two with the note tracker
+[00:12:56] as well. Let's do that. And I'm going to
+[00:12:58] hit enter. And boom. Just like that, the
+[00:13:00] AI helped us come up with a brand new
+[00:13:02] idea for how we could implement that
+[00:13:05] feature. If we didn't bounce off the AI,
+[00:13:07] it probably would have been a much more
+[00:13:08] boring way of implementing. But because
+[00:13:10] we talked to the AI, we had an awesome
+[00:13:12] way of implementing that feature. Again,
+[00:13:14] as much as you can bounce ideas off the
+[00:13:16] AI. The AI is much smarter than us,
+[00:13:19] especially Opus 4.5. Maybe not as smart
+[00:13:21] as you, but definitely smarter than me.
+[00:13:22] So, you want to make sure you bounce
+[00:13:24] ideas as much as you can. All right,
+[00:13:26] just like that. That was one of the
+[00:13:27] quickest updates ever. Uh, looks like it
+[00:13:29] implemented a new mood tracker
+[00:13:31] component. That looks good. Updated
+[00:13:33] files. All right, let's see. Features.
+[00:13:34] Tap to log today's mood with one of five
+[00:13:36] emojis. Add optional notes. And then the
+[00:13:38] history shows all your past entries.
+[00:13:40] That's sick. Let's see what we got here.
+[00:13:42] All right, so Oh, look at this. There's
+[00:13:43] a new mood uh section down here. If I
+[00:13:46] click that. Ooh, it uses the uh liquid
+[00:13:48] glass. Look at that. The brand new
+[00:13:50] liquid glass. A little controversial.
+[00:13:52] Liquid glass. I think I like it. I think
+[00:13:54] it's cool. Makes my phone and computer
+[00:13:56] uh smoking hot and the battery about 10%
+[00:13:58] of what normally is. But liquid glass.
+[00:14:00] All right, let's log today's mood. How
+[00:14:02] are you feeling today? We have the five
+[00:14:03] emojis. Look, this doesn't this feel
+[00:14:05] like a professional UI? Claude is so
+[00:14:07] good. And then we have our notes.
+[00:14:10] Feeling great. filmed a new video about
+[00:14:14] iOS and claude code. Let's save that. Do
+[00:14:17] I get XP points for that? No XP points
+[00:14:19] for that, but that's fine. I don't need
+[00:14:20] XP points for that. We can add that in.
+[00:14:22] And then the habit. Enter our mood.
+[00:14:24] Let's make that a habit and make sure
+[00:14:25] that still works there. Enter. Boom.
+[00:14:27] There we go. And then let's check it
+[00:14:29] off. Do we get Yeah. Okay, good. We get
+[00:14:30] the XP. So, that's looking good. It's
+[00:14:32] always important to go back and test all
+[00:14:33] your other functionality just in case
+[00:14:35] adding a new feature break something
+[00:14:37] else. Always go back and test all those
+[00:14:39] things. Let's do this. Uh let's add one
+[00:14:42] more feature. Then we'll go over
+[00:14:44] database authorization kind of high
+[00:14:46] level how all that works and then we'll
+[00:14:48] talk about shipping this to the app
+[00:14:50] store. So I think we have a pretty
+[00:14:52] decent app right here. I mean this is
+[00:14:54] something I'm going to use every day
+[00:14:55] now. I'm going to put this on my phone
+[00:14:57] and start using this. So let's go over a
+[00:14:59] couple more things you need to know as
+[00:15:01] well as how to ship this to the app
+[00:15:03] store. So before we cover shipping to
+[00:15:05] the app store, just three real quick
+[00:15:06] things that we're not going to cover in
+[00:15:08] this video because it would be really
+[00:15:10] boring. But you can use claude to
+[00:15:11] implement it. One is O. So just ask
+[00:15:14] claud code to implement authorization
+[00:15:16] using the Apple signin. It'll very
+[00:15:18] easily be able to implement that. Make
+[00:15:20] sure you also implement database. I I'd
+[00:15:22] implement actually superbase first
+[00:15:23] because superbase is going to be needed
+[00:15:25] for the authorization. So implement
+[00:15:27] superbase as a database. This is my
+[00:15:28] favorite database to use. You can just
+[00:15:30] simply go to claude code and say hey I
+[00:15:33] want to implement superbase. If this is
+[00:15:34] your first time ever doing that, say
+[00:15:36] this is my first time ever doing it.
+[00:15:37] Please walk me through how to do it. And
+[00:15:38] then monetization. You have to use
+[00:15:40] Apple's payment system for monetization.
+[00:15:42] It's how they take their tax. So, say I
+[00:15:44] need to implement payments. I want to do
+[00:15:46] a subscription. Whatever it is you want
+[00:15:47] to do, and it will be able to implement
+[00:15:49] that for you. Now, let's talk about
+[00:15:51] shipping to the app store. So, real
+[00:15:52] quick, you want to make sure all your
+[00:15:54] information in your app is filled out.
+[00:15:55] So, click on your parent folder right
+[00:15:58] there. When you're in here, go in, look
+[00:15:59] at the identity, make sure you have your
+[00:16:03] category filled out. I'm going to say
+[00:16:05] this is lifestyle. Give it a display
+[00:16:06] name. We'll call it habit tracker plus.
+[00:16:09] Make sure there's a bundle identifier, a
+[00:16:10] version, and a build. Make sure all of
+[00:16:13] this looks good. You're going to want to
+[00:16:14] give it an app icon. So, make your own
+[00:16:16] app icon. You can use Google Nano Banana
+[00:16:19] for this. Nano Banana is a fantastic
+[00:16:21] icon builder. You want to upload a
+[00:16:23] launch screen file as well. That is
+[00:16:25] super easy to do with Nano Banana to get
+[00:16:27] generated. And by the way, you can also
+[00:16:30] use Claude as a walkthrough to do
+[00:16:32] everything I'm showing you here, too.
+[00:16:34] Just in case you get lost in the future
+[00:16:35] to say, "Hey, Claude, walk me through
+[00:16:37] shipping this app store." or it'll tell
+[00:16:38] you exactly how to do it. You will also
+[00:16:39] want to add a signing team. So, you go
+[00:16:42] to team and add an account. This will
+[00:16:44] require an Apple account with developer
+[00:16:46] rights. There's a subscription you need
+[00:16:48] to sign up for to be an Apple developer.
+[00:16:50] If you sign up for that, you add your
+[00:16:52] Apple account that has that developer
+[00:16:54] team in there. Once you do that, you
+[00:16:55] only have one more step to do, which is
+[00:16:57] going to your menu at the top, clicking
+[00:16:59] product archive organizer, distribute
+[00:17:02] app. That will give you a few last
+[00:17:04] things you need to fill out. You hit
+[00:17:06] submit and it will be under review to go
+[00:17:08] to the app store. This is very very
+[00:17:11] simple to do. Again, if you get lost as
+[00:17:14] you go, you can just go to Claude or
+[00:17:16] Chad GBT, whatever bot you're using. If
+[00:17:18] you're using Claude desktop, just use
+[00:17:19] Claude and say, "Hey, I'm ready to ship
+[00:17:21] my app. Walk me through step by step how
+[00:17:24] to do it." It will make it super easy.
+[00:17:25] That's the best part about AI. You don't
+[00:17:27] need any sort of specialized knowledge
+[00:17:29] anymore. You just ask the AI and you
+[00:17:30] have infinite knowledge at your
+[00:17:32] fingertips. I really do believe building
+[00:17:35] iOS apps and mobile apps are such a
+[00:17:38] massive opportunity now because of
+[00:17:40] claude code because it's become so easy
+[00:17:43] for anyone to build mobile apps. Mobile
+[00:17:45] apps are very simple user interfaces.
+[00:17:49] So, it's very quick for you to go build
+[00:17:51] it and ship it. The ecosystem for people
+[00:17:53] with iPhones is absolutely massive. So,
+[00:17:56] you can build and ship apps so quickly
+[00:17:59] and start making money right away if
+[00:18:01] other people want to buy the app. If you
+[00:18:02] learned anything at all, make sure to
+[00:18:04] leave a like. Let me know down in the
+[00:18:06] replies if you're taking my challenge. I
+[00:18:08] challenge you to build and ship your
+[00:18:09] first iOS app. It's something I'm going
+[00:18:11] to do. I'm going to take the challenge
+[00:18:13] because I think it's such a big
+[00:18:14] opportunity. I'm probably going to live
+[00:18:15] stream this as I build the iOS app every
+[00:18:18] Monday, Wednesday, Friday, 11:00 a.m.
+[00:18:20] Pacific. So, tune in for that. Turn on
+[00:18:22] notifications so you get alert on that.
+[00:18:23] I also just launched the Vibe Coding
+[00:18:25] Academy full Claude Code Master Class
+[00:18:28] and weekly calls with me. Link for that
+[00:18:30] is down below as well. Hope you enjoyed
+[00:18:32] it. Hope you learned something.
