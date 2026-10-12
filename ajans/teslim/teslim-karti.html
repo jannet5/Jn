@@ -1,0 +1,110 @@
+<title>Vitrin Atölyesi Teslim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400;100..125,500;100..125,800&display=swap">
+<style>
+/* Düzen: tek sütun, sol hizalı; üstte özet, altında indirilebilir dosya satırları (marka: Vitrin Atölyesi DESIGN.md) */
+:root{
+  --bg:#FFFFFF; --surface:#F3F5F2; --fg:#0E1512; --muted:#4F5B55; --line:#DCE2DE;
+  --primary:#D7381E; --primary-hover:#B92E17; --on-primary:#FFFFFF;
+  --font:"Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1512; --surface:#151E1A; --fg:#EEF2EF; --muted:#A3AFA9; --line:#26322C;
+  --primary:#FF5A3C; --primary-hover:#FF7A60; --on-primary:#0E1512; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1512; --surface:#151E1A; --fg:#EEF2EF; --muted:#A3AFA9; --line:#26322C;
+  --primary:#FF5A3C; --primary-hover:#FF7A60; --on-primary:#0E1512; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.6;margin:0;padding-inline:20px;padding-block:40px 64px;-webkit-font-smoothing:antialiased}
+main{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.eyebrow{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--muted);margin:0}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+h1{font-size:clamp(34px,7vw,56px);line-height:1;letter-spacing:-.03em;font-weight:800;font-stretch:112%;margin:12px 0 16px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--primary)}
+.lead{font-size:18px;color:var(--muted);margin:0;max-width:60ch}
+h2{font-size:22px;font-weight:800;font-stretch:112%;letter-spacing:-.015em;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:15px}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px 16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.row > div{min-width:0}
+.name{font-weight:800;font-size:17px;margin:0}
+.desc{color:var(--muted);font-size:14px;margin:2px 0 0}
+.url{grid-column:1 / -1;font-size:12px;color:var(--muted);word-break:break-all;user-select:all;font-variant-numeric:tabular-nums;margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:var(--primary);color:var(--on-primary);font-weight:500;font-size:15px;text-decoration:none;white-space:nowrap;transition:background .18s cubic-bezier(.2,.7,.2,1),transform .18s cubic-bezier(.2,.7,.2,1)}
+.btn:hover{background:var(--primary-hover);transform:translateY(-2px)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--fg)}
+.btn.ghost:hover{background:var(--surface)}
+.btn:focus-visible{outline:3px solid color-mix(in srgb,var(--primary) 40%,transparent);outline-offset:2px}
+.btn svg{width:16px;height:16px;flex:none}
+.size{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.steps{background:var(--surface);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.steps ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.steps p{margin:0}
+.todo li{margin-bottom:4px}
+.note{font-size:14px;color:var(--muted);margin:0}
+@media (max-width:520px){.row{grid-template-columns:1fr}.btn{justify-self:start}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+
+<main>
+  <header>
+    <p class="eyebrow">Teslim · 12 Ekim 2026</p>
+    <h1>Ajansın <em>fabrikası</em> hazır.</h1>
+    <p class="lead">Bir işletme geldiğinde web sitesi, mobil uygulama, Instagram içeriği ve reklamı aynı adımlardan ve kalite kontrollerinden geçirerek üreten sistemi kurduk; ilk ürünü de kendimiz için çıkardık.</p>
+  </header>
+
+  <section>
+    <h2>İndir</h2>
+    <p class="sub">Butonlar dosyayı doğrudan GitHub'dan indirir. Açılmazsa altındaki adresi kopyalayıp tarayıcıya yapıştır.</p>
+    <div class="list">
+      <div class="row">
+        <div><p class="name">Ajans Fabrikası skill'i</p><p class="desc">claude.ai'ye yüklenir; "müşteri geldi" deyince bütün sistem devreye girer. <span class="size">44 KB</span></p></div>
+        <a class="btn" href="https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/ajans-fabrikasi.zip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>İndir</a>
+        <p class="url">https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/ajans-fabrikasi.zip</p>
+      </div>
+      <div class="row">
+        <div><p class="name">Instagram ve reklam paketi</p><p class="desc">Profil resmi, ilk 14 günün gönderileri, açıklamalar, takvim, 5 reklam görseli ve kampanya planı. <span class="size">10 MB</span></p></div>
+        <a class="btn" href="https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/instagram-paketi.zip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>İndir</a>
+        <p class="url">https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/instagram-paketi.zip</p>
+      </div>
+      <div class="row">
+        <div><p class="name">Uygulama ekranları</p><p class="desc">Satış demosu uygulamanın 36 ekran görüntüsü: kafe, berber, restoran; açık ve koyu. <span class="size">3,8 MB</span></p></div>
+        <a class="btn" href="https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/uygulama-ekranlari.zip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>İndir</a>
+        <p class="url">https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/uygulama-ekranlari.zip</p>
+      </div>
+      <div class="row">
+        <div><p class="name">Vitrin sitesi (canlı önizleme)</p><p class="desc">Fiyatlı, karşılaştırmalı 2. sürüm. Telefondan açıp gezebilirsin.</p></div>
+        <a class="btn ghost" href="https://claude.ai/artifact/TEkTaBpWkjdRThRfCLNVBA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>Aç</a>
+        <p class="url">https://claude.ai/artifact/TEkTaBpWkjdRThRfCLNVBA</p>
+      </div>
+      <div class="row">
+        <div><p class="name">Her şeyin kaynağı</p><p class="desc">Araştırma, planlar, sistem, kodlar. GitHub deposu, dal ccr-11072837-dfhtyx, klasör ajans.</p></div>
+        <a class="btn ghost" href="https://github.com/jannet5/Jn/tree/ccr-11072837-dfhtyx/ajans" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>Aç</a>
+        <p class="url">https://github.com/jannet5/Jn/tree/ccr-11072837-dfhtyx/ajans</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps">
+    <h2>Skill'i yükle</h2>
+    <ol>
+      <li>Yukarıdan "Ajans Fabrikası skill'i" dosyasını indir.</li>
+      <li>claude.ai → Ayarlar → Yetenekler (Skills) → Yükle → dosyayı seç.</li>
+      <li>Yeni sohbette yaz: "Müşteri geldi, Kadıköy'de bir kafe için site yap."</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Sende kalanlar</h2>
+    <p class="sub">Bunlar hesap ve ödeme gerektirdiği için senin elinden geçmeli.</p>
+    <ul class="todo">
+      <li>WhatsApp numarası (siteye ve uygulamaya yazılacak)</li>
+      <li>Instagram ve Facebook hesabı (gönderiler hazır bekliyor)</li>
+      <li>Alan adı (istersen; site kendi adresine taşınır)</li>
+      <li>Reklam için ödeme yöntemi ve bütçe onayı</li>
+    </ul>
+    <p class="note">Marka adı şimdilik "Vitrin Atölyesi", fiyatlar 2.990 / 5.990 / 11.990 ₺ aylık. İkisi de tek yerden değişir.</p>
+  </section>
+</main>
