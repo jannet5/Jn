@@ -334,12 +334,17 @@ ol{margin:6px 0 0;padding-left:20px}
 .lisans a{color:var(--vurgu);word-break:break-all}
 footer{max-width:1100px;margin:0 auto;padding:0 16px 32px;color:var(--soluk);font-size:.85rem}
 .tema{margin-left:auto}
+.indir{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px}
+.indir button{border:0;background:var(--vurgu);color:var(--bg);padding:10px 16px;border-radius:10px;font:inherit;font-weight:600;cursor:pointer}
+.indir button:focus-visible,.sekme:focus-visible,.cip:focus-visible,.kopyala:focus-visible{outline:2px solid var(--vurgu);outline-offset:2px}
+.indir button[disabled]{opacity:.6;cursor:wait}
 </style>
 </head>
 <body>
 <header>
 <h1>{{BASLIK}}</h1>
 <p class="alt" id="ozet"></p>
+<div class="indir" id="indir-kutu" hidden><button type="button" id="indir">Paketi indir (ZIP)</button><span class="kucuk" id="indir-durum">Tüm katalog, 30 prompt ve lisans belgeleri. İçindeki index.html internetsiz açılır.</span></div>
 </header>
 <main>
 <div class="sekmeler" role="tablist">
@@ -498,6 +503,32 @@ $('#ara-p').oninput = cizP;
 $('#tema').onclick = () => { const r = document.documentElement; const koyu = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; r.dataset.theme = koyu ? 'light' : 'dark'; try { localStorage.setItem('tema', r.dataset.theme); } catch (e) {} };
 try { const t = localStorage.getItem('tema'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 cipler(); ciz(); cizP();
+
+// İndirme düğmesi: yalnız Claude sayfasında (downloads yetkisi) görünür; çevrimdışı kopyada gizli kalır
+(async () => {
+  if (!window.claude || typeof window.claude.use !== 'function') return;
+  let d = null;
+  try { d = await window.claude.use('downloads'); } catch (e) { d = null; }
+  if (!d) return;
+  const kutu = $('#indir-kutu'), btn = $('#indir'), durum = $('#indir-durum');
+  kutu.hidden = false;
+  btn.addEventListener('click', async () => {
+    btn.disabled = true; durum.textContent = 'Hazırlanıyor…';
+    try {
+      const r = await fetch('paket.zip');
+      if (!r.ok) throw { code: 'paket_yok' };
+      const blob = await r.blob();
+      await d.save({ filename: 'hazir-ai-katalogu.zip', data: blob });
+      durum.textContent = 'İndirildi. ZIP\'i aç, index.html dosyasına çift tıkla.';
+    } catch (e) {
+      const k = e && e.code;
+      durum.textContent = k === 'declined' ? 'İndirme iptal edildi. Tekrar denemek için düğmeye bas.'
+        : k === 'rate_limited' ? 'Bir indirme penceresi zaten açık; onu tamamla.'
+        : k === 'paket_yok' ? 'Paket dosyası bulunamadı. ZIP sohbette de ekli.'
+        : 'Bu görünümde indirme kullanılamıyor. ZIP sohbette de ekli.';
+    } finally { btn.disabled = false; }
+  });
+})();
 </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Tarayıcı kabul testi (Chromium, Playwright)
 
-Çalıştırma: 2026-10-03T20:18:34.957Z
+Çalıştırma: 2026-10-12T22:08:48.256Z
 
 | Kontrol | Sonuç | Ayrıntı |
 |---|---|---|

@@ -1,6 +1,6 @@
 # Prompt birebirlik doğrulaması
 
-Çalıştırma: 2026-10-03 20:18 UTC
+Çalıştırma: 2026-10-12 22:08 UTC
 
 ## A. Katalogdaki birebir örnekler commit'e sabit kaynakta geçiyor mu?
 

@@ -1,10 +1,10 @@
 {
-  "zaman": "2026-10-03 20:18 UTC",
+  "zaman": "2026-10-12 22:08 UTC",
   "gecti": true,
   "sema_hatalari": [],
   "lisans_hatalari": [],
   "link_toplam": 70,
-  "link_erisildi": 66,
+  "link_erisildi": 67,
   "engelli": [
     {
       "url": "https://cursor.directory",
@@ -16,10 +16,6 @@
     },
     {
       "url": "https://promptbase.com",
-      "http": "403"
-    },
-    {
-      "url": "https://www.capterra.com/p/10015083/Lexica/",
       "http": "403"
     }
   ],

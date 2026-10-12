@@ -1,6 +1,6 @@
 # Lisans doğrulaması
 
-Çalıştırma: 2026-10-03 20:18 UTC
+Çalıştırma: 2026-10-12 22:08 UTC
 
 Kurallar: birebir metin yalnız CC0-1.0/MIT kaynaktan; her birebir kopyada kaynak depo, commit'e sabit tam dosya permalinki, commit + tarih, erişim tarihi, sahip, lisans, lisans belgesi ve yeniden dağıtım sınırı dolu; lisans belgeleri `lisanslar/` içinde; MIT telif satırları `NOTICE.md` içinde; lisansı belirsiz/tescilli kaynaklardan ilk sürümde alınan metinler hiçbir çıktı dosyasında yok.
 

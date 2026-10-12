@@ -1,8 +1,8 @@
 # Link raporu
 
-Çalıştırma: 2026-10-03 20:18 UTC · araç: `python3 araclar/dogrula.py` (curl ile canlı istek)
+Çalıştırma: 2026-10-12 22:08 UTC · araç: `python3 araclar/dogrula.py` (curl ile canlı istek)
 
-- Toplam benzersiz link: **70** · erişildi: **66** · engelli/başarısız: **4**
+- Toplam benzersiz link: **70** · erişildi: **67** · engelli/başarısız: **3**
 - Ana site linkleri: **34/36** erişildi (%94)
 - github.com HTML sayfaları bu bulut ortamının proxy'sinde 403 döner; bu durumda depo varlığı `raw.githubusercontent.com/.../README.md` 200 yanıtıyla kanıtlanır. github.com/blob permalinkleri aynı commit'teki raw adresle (aşağıda) doğrulanır.
 - ENGEL satırları yalnız bu ortamdaki otomatik isteğin sonucudur; normal tarayıcıda açılıp açılmadıkları test edilmedi, garanti verilmez.
@@ -75,7 +75,7 @@
 | ERİŞİLDİ | 200 |  | https://workspace.google.com/learning/content/gemini-prompt-guide |  |
 | ERİŞİLDİ | 200 |  | https://www.aiprm.com | https://www.aiprm.com/ |
 | ERİŞİLDİ | 200 |  | https://www.atlabs.ai/blog/gpt-5.2-prompting-guide-the-2026-playbook-for-developers-agents |  |
-| BOT KORUMASI/ENGEL | 403 |  | https://www.capterra.com/p/10015083/Lexica/ |  |
+| ERİŞİLDİ | 200 |  | https://www.capterra.com/p/10015083/Lexica/ |  |
 | ERİŞİLDİ | 200 |  | https://www.mejba.me/superpowers-plugin-claude-code-review | https://www.mejba.me/blog/superpowers-plugin-claude-code-review |
 | ERİŞİLDİ | 200 |  | https://www.promptingguide.ai | https://www.promptingguide.ai/ |
 | ERİŞİLDİ | 200 |  | https://zie619.github.io/n8n-workflows | https://zie619.github.io/n8n-workflows/ |
