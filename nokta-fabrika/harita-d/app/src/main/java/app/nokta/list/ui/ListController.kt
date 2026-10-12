@@ -86,7 +86,11 @@ class ListController(
         }
     }
 
-    fun attach() { repo.addListener(listener); Reminders.addListener(reminderListener); render() }
+    fun attach() {
+        repo.addListener(listener); Reminders.addListener(reminderListener); render()
+        // Arka plandayken (bildirimden "Durdur"/"Aldim") degisen zil durumlari geri donuste yenilenir.
+        reminderListener()
+    }
     fun detach() {
         repo.removeListener(listener); Reminders.removeListener(reminderListener)
         dismissTask?.let { handler.removeCallbacks(it) }
