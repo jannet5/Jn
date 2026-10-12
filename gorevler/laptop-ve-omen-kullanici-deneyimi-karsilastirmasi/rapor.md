@@ -156,6 +156,15 @@ Sonuç: Bir haftada fiyatlar %10–15 oynadı. Satın alma günü fiyat mutlaka 
 - **En geniş ekran isteniyorsa:** **Nitro 16S** (10.10'da epey'de satıcı fiyatı yok; 03.10'da 92.999 TL). Belirsizlikler: RAM'in satıcı yükseltmesi olma ihtimali, slot yapısı ve Acer'in düşük servis notu.
 - **OMEN illa isteniyorsa:** ap0010nt yerine %100 sRGB panelli bir OMEN SKU'su aranmalı. Notebookcheck, HP'nin seride 1600p %100 sRGB seçenekler sunduğunu yazıyor; örneğin 1. tur verisindeki **ap0032nt**, 123.048 TL. Bu durumda bütçe aşılır, yanına HP Care Pack düşünülmeli.
 
+### 6.4a Son tavsiye (10.10.2026 fiyatlarıyla)
+**Casper Excalibur G915.1362-DF60X-C, 92.599 TL.**
+- 32 GB RAM, 1 TB SSD ve RTX 5060 kutudan geliyor; ek RAM masrafı yok.
+- İlanda %100 sRGB ekran var; OMEN'in %62,5'lik paneliyle karşılaştırılınca tasarıma uygun.
+- Türkiye servis notu, listedeki markalar arasında en yüksek (76/100). Bu, kullanıcının kronik arıza kaygısına en doğrudan yanıt.
+- Legion 5 bir haftada 109.999 TL'ye çıktı. Casper aynı RAM ve SSD'yi yaklaşık 17.000 TL ucuza veriyor.
+- **Belirsizlikler:** Bağımsız ölçüm yok. Model yeni; Şikayetvar'da GPU artifact ve açılmama dahil 11 şikâyet var (küçük örneklem). İşlemci H serisi; Legion'daki HX daha güçlü.
+- **Legion 5 ne zaman tercih edilir:** Ek ~17.000 TL bütçeye uyuyorsa ve daha güçlü işlemci, iki x4 M.2 yuvası isteniyorsa.
+
 ### 6.4 Satın almadan önce kullanıcının kendisinin yapması gereken kontroller
 Bu adımların **hiçbiri bu çalışmada yapılmadı**:
 1. Kutu veya etiket üzerinde tam ürün kodunu (83LY00PYTR / G915.1362-DF60X-C / 83JG008UTRv1) ve panel satırında "%100 sRGB" yazdığını görmek.

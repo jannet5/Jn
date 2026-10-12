@@ -122,3 +122,4 @@ Fiyatlar 2. turda epey'den yeniden okundu (Legion, Casper, Nitro 16S, OMEN ap001
 - epey'deki 5 ürün sayfası WebFetch ile yeniden açıldı. Legion 109.999 TL, Casper 92.599 TL, LOQ 84.994,10 TL, OMEN 91.999 TL; Nitro 16S'de satıcı fiyatı yok.
 - `rapor.md` §5.1, `liste.md` ve `kanit/fiyat-anlik-2026-10-10.json` güncellendi. Test sonucu: KABUL.
 - Kullanıcı için tek sayfalık bir "kart" yayımlandı (claude.ai Artifact, özel). İçeriği `liste.md` ile aynı.
+- 2026-10-12: Son tavsiye (Casper G915) rapor §6.4a, liste ve karta eklendi; görev köklü ZIP yeniden üretildi.
