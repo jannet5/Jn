@@ -1,0 +1,967 @@
+# The Ultimate Claude Code Tutorial (Beginner to Pro)
+# https://www.youtube.com/watch?v=OVm2AGTxYuE
+# kanal: Zinho Automates | süre:  sn | kaynak: yt-dlp:web_safari+pot:OVm2AGTxYuE.en.json3
+
+[00:00:00] So, 2 months ago I
+[00:00:01] did a review of Claude code,
+[00:00:03] but since then Claude has
+[00:00:04] undergone major
+[00:00:05] updates.  And the way
+[00:00:07] you have to use it
+[00:00:10] has really changed.  And
+[00:00:11] I'm not the only one saying this.
+[00:00:13] Anthropic's own engineers
+[00:00:14] are writing about it right
+[00:00:16] now.  The old methodology
+[00:00:18] no longer works
+[00:00:19] completely because Claude is
+[00:00:20] different now.  So
+[00:00:22] today we'll go
+[00:00:23] from the basics to
+[00:00:24] advanced stuff.  I
+[00:00:27] will show you the latest
+[00:00:28] changes and the correct
+[00:00:29] way to use
+[00:00:31] Claude code now.  Because,
+[00:00:32] honestly,
+[00:00:34] a lot
+[00:00:35] has changed in the last few months.  And you
+[00:00:36] will see it in the video.
+[00:00:38] So, let's prepare for
+[00:00:39] a few things.  These
+[00:00:42] include a
+[00:00:44] preview system that tests
+[00:00:45] your own builds, sessions
+[00:00:46] for parallel
+[00:00:47] running, and a way
+[00:00:48] to view
+[00:00:49] Claude's results as a
+[00:00:50] manager rather than a
+[00:00:51] programmer.  And
+[00:00:53] the most important thing
+[00:00:54] everyone is talking about:
+[00:00:55] tasks that
+[00:00:56] continue
+[00:00:56] to run even
+[00:00:58] when you close your
+[00:00:58] laptop.  Let's say
+[00:01:00] you've never
+[00:01:01] used Claude code before,
+[00:01:02] don't worry, I'll
+[00:01:03] explain the basics
+[00:01:04] as simply as possible.
+[00:01:05] Also, if you
+[00:01:05] need all
+[00:01:06] the tips for your work,
+[00:01:07] they are available in our
+[00:01:08] free
+[00:01:09] School community.
+[00:01:09] The link is in the description
+[00:01:10] below.  By the way, we
+[00:01:12] already have 33,000 participants.
+[00:01:14] So join
+[00:01:15] us today.  I
+[00:01:16] guarantee you will
+[00:01:17] enjoy being a
+[00:01:18] part of this
+[00:01:19] community.  Now
+[00:01:20] let's move on to the
+[00:01:21] laptop and
+[00:01:22] get started.  First,
+[00:01:27] we're going to
+[00:01:28] use Claude
+[00:01:29] code in the desktop
+[00:01:30] application, okay?  This is the
+[00:01:31] easiest way to
+[00:01:33] get started.  You need to
+[00:01:34] download the
+[00:01:36] Claude desktop app, log in to your
+[00:01:37] account, and
+[00:01:38] then click the
+[00:01:39] “code” tab at the top.
+[00:01:41] That's where
+[00:01:42] all the
+[00:01:43] magic happens, right?
+[00:01:44] The layout is quite simple.
+[00:01:46] Chat in the middle,
+[00:01:48] your project files on
+[00:01:49] one side, and a
+[00:01:50] preview of what
+[00:01:51] you're creating
+[00:01:52] on the other.  You just
+[00:01:55] specify the folder—and you're
+[00:01:56] ready to go.    A
+[00:01:58] quick note
+[00:01:59] before we
+[00:02:00] begin, and this is nothing
+[00:02:01] new.  The model selection
+[00:02:03] is here,
+[00:02:04] next to the
+[00:02:05] input panel.  Keep
+[00:02:06] Sonnet as the default model
+[00:02:07] ,
+[00:02:08] okay?  It
+[00:02:09] handles
+[00:02:09] most tasks, and
+[00:02:12] only switch to Opus when
+[00:02:12] you encounter a really
+[00:02:14] complex problem.
+[00:02:15] So, it's essentially things
+[00:02:16] like complex
+[00:02:17] logic or, let's say, a
+[00:02:19] task that's completely
+[00:02:20] impossible, you
+[00:02:21] know?  And you'll also
+[00:02:22] see Fable 5—it's the
+[00:02:23] most advanced
+[00:02:24] model for
+[00:02:25] programming in the
+[00:02:26] system.  So this is an
+[00:02:28] option that
+[00:02:29] should only be used
+[00:02:30] in extremely
+[00:02:31] complex projects.
+[00:02:33] When you need the
+[00:02:34] most powerful solution that
+[00:02:35] Claude is capable of,
+[00:02:36] you switch to
+[00:02:38] Fable 5 because it
+[00:02:39] can create almost the
+[00:02:40] entire product in one
+[00:02:41] go.  But the problem
+[00:02:43] is that it's quite
+[00:02:44] expensive for everyday
+[00:02:45] use,
+[00:02:46] okay?  So
+[00:02:47] save it for
+[00:02:48] the moments when it
+[00:02:49] really matters.  So
+[00:02:51] , next to the model there is
+[00:02:52] a setting,
+[00:02:53] okay?  This shows
+[00:02:55] how deeply
+[00:02:56] Claude thinks
+[00:02:57] before acting.  Leave
+[00:02:59] this at the
+[00:03:00] default value for
+[00:03:01] most tasks and
+[00:03:03] only increase to the maximum when
+[00:03:04] the problem requires
+[00:03:05] additional considerations
+[00:03:06] .  Also, don't forget
+[00:03:08] to keep an eye on the
+[00:03:09] context window.
+[00:03:10] That little
+[00:03:12] usage indicator at the top
+[00:03:13] is the context
+[00:03:14] window.  This is
+[00:03:15] Claude's working memory within a
+[00:03:16] session, and as it
+[00:03:18] fills up, Claude
+[00:03:19] begins to forget
+[00:03:20] previous decisions.  I'll
+[00:03:22] show you how to work with this
+[00:03:23] further in
+[00:03:24] the video, but for now I want to
+[00:03:25] move on to what
+[00:03:26] actually changed.
+[00:03:31] The first thing I want to
+[00:03:32] talk about is,
+[00:03:34] oddly enough, how to
+[00:03:34] actually
+[00:03:35] communicate with Claude.
+[00:03:38] After all, this is the point where
+[00:03:39] most
+[00:03:40] beginners always
+[00:03:41] make
+[00:03:41] mistakes, and it's what, oddly enough
+[00:03:43] ,
+[00:03:43] has changed the most.
+[00:03:46] First, we need
+[00:03:47] to discuss the basics.    A
+[00:03:49] good prompt is
+[00:03:50] simply a clear prompt.    That's the
+[00:03:51] best way to
+[00:03:52] think about it.  Before
+[00:03:54] you build, clearly
+[00:03:55] define five things,
+[00:03:56] okay?  What you are building, what
+[00:03:58] it is for,
+[00:03:59] what it should do, how it should
+[00:04:01] look, and what
+[00:04:02] it
+[00:04:03] should never do.  It's
+[00:04:04] pretty simple.
+[00:04:05] Consider these five
+[00:04:06] points, and then Claude will
+[00:04:07] actually not have to guess anything
+[00:04:09] .  He will build exactly what
+[00:04:11] you have in mind.
+[00:04:12] So, here's what's
+[00:04:13] changed.  This is almost
+[00:04:14] the opposite of
+[00:04:15] the advice that has
+[00:04:16] been spread
+[00:04:17] over the past
+[00:04:18] few months.    The
+[00:04:19] old method was to
+[00:04:20] simply
+[00:04:21] accumulate a bunch of
+[00:04:22] rules.  You can do
+[00:04:23] this, but never
+[00:04:24] do that.  Always
+[00:04:25] format like this.
+[00:04:28] But engineers at
+[00:04:29] Anthropic itself have just publicly
+[00:04:30] stated that with
+[00:04:31] the latest models,
+[00:04:32] this is
+[00:04:33] backfiring and doesn't work as well as
+[00:04:35] many people
+[00:04:36] think.  Piling up
+[00:04:38] rules no longer
+[00:04:39] makes Claude better.
+[00:04:40] It simply puts
+[00:04:42] him in a frame.  So the
+[00:04:43] new approach to
+[00:04:44] follow is
+[00:04:45] to give it
+[00:04:46] evaluation criteria
+[00:04:47] instead of a set of
+[00:04:47] rules, okay?
+[00:04:48] Describe the standard
+[00:04:49] you are aiming for,
+[00:04:50] then let Claude
+[00:04:52] move
+[00:04:53] forward on his own.  Same
+[00:04:54] story with examples,
+[00:04:55] okay?  It used to
+[00:04:57] be helpful to show three samples.
+[00:04:58] Now he just
+[00:04:59] copies them and stops
+[00:05:01] experimenting.
+[00:05:02] So instead of “this is
+[00:05:04] exactly what to do,” you
+[00:05:05] set the bar and
+[00:05:06] let the powerful
+[00:05:07] model decide for itself
+[00:05:08] how to
+[00:05:09] overcome it.  So
+[00:05:11] keep that
+[00:05:12] mindset for everything
+[00:05:13] that comes next, okay?
+[00:05:19] Start each
+[00:05:20] build in
+[00:05:21] planning mode, this is
+[00:05:21] extremely important.
+[00:05:23] Switch the mode to "
+[00:05:25] plan", then Claude
+[00:05:26] will read your files,
+[00:05:27] think about the task and
+[00:05:28] ask you
+[00:05:29] questions.  So, you
+[00:05:31] won't have to
+[00:05:32] touch any
+[00:05:33] files until you
+[00:05:34] say "go."  This is the same
+[00:05:36] habit that
+[00:05:37] prevents Claude from confidently
+[00:05:38] creating something wrong
+[00:05:40] .  Then, before you
+[00:05:41] type a single
+[00:05:42] word, click on the
+[00:05:43] microphone.  This is something
+[00:05:44] most people
+[00:05:45] usually miss
+[00:05:46] , and it's what separates a
+[00:05:48] good build from a
+[00:05:49] great one.  You see, when
+[00:05:50] you type, you
+[00:05:51] compress information
+[00:05:52] .  You're editing yourself, and
+[00:05:54] it cuts off the context
+[00:05:55] that's actually
+[00:05:56] important.  When you
+[00:05:58] speak, you
+[00:05:59] express everything without a
+[00:06:00] trace.  So what I would
+[00:06:02] do is
+[00:06:02] switch to
+[00:06:04] planning mode, click
+[00:06:05] on the microphone, and just
+[00:06:06] say how we are right now.
+[00:06:08] For this video, I'm
+[00:06:09] building one easy
+[00:06:10] thing—a habit tracker
+[00:06:11] I call Streak.  I'm just going to
+[00:06:14] sit back and
+[00:06:15] tell you exactly this: a
+[00:06:16] simple and clean
+[00:06:17] tracker where I add
+[00:06:18] a habit, check it off
+[00:06:20] every day, and see
+[00:06:21] my streak of
+[00:06:22] success grow.  And he should never
+[00:06:23] bother
+[00:06:24] me with reminders.
+[00:06:25] This is what I really
+[00:06:27] want.  So, Claude
+[00:06:28] brings back the plan and
+[00:06:29] a few questions to
+[00:06:30] it, like:
+[00:06:31] Should we set
+[00:06:33] bedtime at midnight?  Do
+[00:06:35] I want a reminder
+[00:06:36] about this?  And only after
+[00:06:38] my approval does he
+[00:06:39] actually start
+[00:06:40] the assembly.  That's the
+[00:06:42] real key to
+[00:06:43] success.  The best
+[00:06:44] results are
+[00:06:45] not achieved by those who
+[00:06:46] type.  These are the ones who
+[00:06:47] talk, because that's how
+[00:06:49] you give Claude the
+[00:06:49] most material
+[00:06:51] to work with.  Now
+[00:06:55] look what he
+[00:06:56] does after
+[00:06:57] the build is complete.
+[00:06:58] It independently
+[00:06:59] launches the
+[00:07:00] development server, opens
+[00:07:01] the application, presses
+[00:07:02] buttons, fills out
+[00:07:03] forms, and fixes
+[00:07:04] errors before
+[00:07:06] reporting that everything is
+[00:07:07] ready.  He is testing
+[00:07:08] himself.  Now
+[00:07:09] look at the
+[00:07:10] preview
+[00:07:11] on the right and you'll
+[00:07:12] see it
+[00:07:13] moving through
+[00:07:14] the program on its own.  This is Claude
+[00:07:16] doing his own
+[00:07:17] quality control,
+[00:07:18] finding and
+[00:07:19] fixing errors
+[00:07:20] before returning
+[00:07:22] the build to us, and it's
+[00:07:23] just incredible.
+[00:07:28] Of course, the first version
+[00:07:29] won't be perfect.
+[00:07:31] Let's admit it right away
+[00:07:32] .  So, you
+[00:07:33] just communicate with
+[00:07:34] it like a designer.  You
+[00:07:35] don't need a code.  You
+[00:07:36] are describing what is wrong.
+[00:07:39] For example, the cards
+[00:07:41] look cramped
+[00:07:42] , the numbers are too small,
+[00:07:43] or the switch works
+[00:07:44] with a delay.  Then you
+[00:07:47] simply send
+[00:07:49] the request, the
+[00:07:50] preview is updated
+[00:07:51] , and you continue.
+[00:07:52] Creation, review,
+[00:07:53] description, and then
+[00:07:54] refinement.
+[00:07:55] The process is extremely
+[00:07:56] simple.  This is, in essence, a
+[00:07:58] cycle worth
+[00:07:59] remembering.
+[00:08:00] The reward depends
+[00:08:01] on how
+[00:08:02] clearly you describe
+[00:08:03] the problem, not on your
+[00:08:04] knowledge of the code,
+[00:08:05] okay?  So,
+[00:08:06] the terminal is
+[00:08:07] actually not needed here.
+[00:08:13] When the coder says it's
+[00:08:14] done, don't just
+[00:08:15] test it, okay?
+[00:08:17] Open the
+[00:08:18] diff view mode—this is
+[00:08:19] one of the most
+[00:08:20] underrated features
+[00:08:21] in the app.  Every
+[00:08:22] time Claude edits a file
+[00:08:24] , you see exactly what
+[00:08:25] changed, line by
+[00:08:26] line, just like a
+[00:08:28] pull request in a
+[00:08:29] real company.
+[00:08:30] You don't need to
+[00:08:31] understand the code.  You
+[00:08:32] just need to see
+[00:08:34] that something has changed where
+[00:08:35] you expected it to, and
+[00:08:36] nothing has changed
+[00:08:37] where it shouldn't
+[00:08:38] have.  Additionally, you
+[00:08:40] can even
+[00:08:41] leave a comment on the
+[00:08:42] line, like a note
+[00:08:43] in a document.  I'll just
+[00:08:45] write it down.  Make the streak light
+[00:08:47] orange instead of
+[00:08:49] gray.  Something quite
+[00:08:50] simple.  And what does
+[00:08:52] Claude do?  Claude makes
+[00:08:53] edits.  There is one more thing
+[00:08:54] — a built-in
+[00:08:56] code inspection tool that can be
+[00:08:57] run with a command.
+[00:08:58] You launch it and
+[00:09:00] Claude checks his own
+[00:09:01] work.  He's
+[00:09:02] tuned in to the
+[00:09:03] really important things:
+[00:09:04] real bugs,
+[00:09:05] broken logic,
+[00:09:07] security holes he
+[00:09:08] can find, not
+[00:09:09] just
+[00:09:10] style nitpicking.  For example, he
+[00:09:13] found that skipping a
+[00:09:14] day did not reset the
+[00:09:15] streak counter.  This
+[00:09:17] was a real bug
+[00:09:19] that I found before I even
+[00:09:20] encountered
+[00:09:21] it.  You are not a coder here.
+[00:09:25] You are a manager
+[00:09:26] checking in on a very
+[00:09:27] fast and capable
+[00:09:28] colleague.  Now
+[00:09:33] let's move on to where
+[00:09:35] Claude Code really
+[00:09:36] changed, and this
+[00:09:37] came straight from
+[00:09:38] Anthropic.  In July, they
+[00:09:39] published
+[00:09:40] information about how they
+[00:09:41] now handle
+[00:09:42] context.  The headline
+[00:09:43] was pretty
+[00:09:44] awesome back then.  For
+[00:09:45] the newest models,
+[00:09:47] they have reduced the Claude Code
+[00:09:48] system prompt by over 80%
+[00:09:50] .  And they did
+[00:09:51] it without any
+[00:09:52] decrease in
+[00:09:53] programming performance.
+[00:09:55] Conclusion for your
+[00:09:56] Claude MD: this is not a composition, it is a
+[00:09:58] reference.  The models are
+[00:09:59] now
+[00:10:00] advanced enough to
+[00:10:01] find context on their own
+[00:10:03] .  So, a
+[00:10:04] giant file is an
+[00:10:05] unnecessary burden.  It
+[00:10:06] loads
+[00:10:07] every session and
+[00:10:08] burns through your budget
+[00:10:10] before Claude
+[00:10:11] even writes a line.  Leave
+[00:10:13] only what Claude
+[00:10:14] really can't
+[00:10:14] learn from your
+[00:10:16] codebase.
+[00:10:17] Your brand voice,
+[00:10:18] messaging style, one
+[00:10:19] architectural decision
+[00:10:21] that isn't obvious.  And
+[00:10:22] also a link to
+[00:10:23] where the
+[00:10:24] details are in your
+[00:10:26] skill files.  So, to
+[00:10:27] set this up,
+[00:10:28] just type slash
+[00:10:29] init and Claude will automatically
+[00:10:31] generate the file.  Then
+[00:10:32] open it and
+[00:10:33] just start
+[00:10:34] deleting.  Cut out everything
+[00:10:36] that is already obvious from the
+[00:10:37] code.  So, leave
+[00:10:38] only what
+[00:10:39] cannot be replaced,
+[00:10:40] okay?  Test: Would an
+[00:10:42] experienced developer know this
+[00:10:44] by looking at the folder?
+[00:10:46] If so, just
+[00:10:47] delete it.  Now,
+[00:10:48] for Sleek, my entire file
+[00:10:49] is literally three
+[00:10:51] lines.  A dark theme with
+[00:10:52] one warm
+[00:10:53] accent, friendly
+[00:10:54] text style, no
+[00:10:55] instruction, and
+[00:10:56] design rules are stored
+[00:10:58] in a design skills file
+[00:10:59] .  The result:
+[00:11:01] when I later request a
+[00:11:02] new weekly
+[00:11:03] look, it
+[00:11:04] comes back dark,
+[00:11:05] warm, and friendly, without
+[00:11:06] having to repeat
+[00:11:08] anything again.  It's fast
+[00:11:10] , and it's powerful.    A
+[00:11:11] three-line Claude MD
+[00:11:12] is better than a 50-line
+[00:11:13] file that tells
+[00:11:15] Claude what he already
+[00:11:16] knows.  This template is available in
+[00:11:17] our free
+[00:11:18] School community.
+[00:11:19] Take it for
+[00:11:20] your next
+[00:11:21] project.  Your Claude MD
+[00:11:26] stays
+[00:11:27] compact because
+[00:11:28] the parts are stored
+[00:11:30] in the best place—in
+[00:11:31] skills.
+[00:11:32] A skill is just a
+[00:11:33] stored process
+[00:11:34] that you
+[00:11:35] pass on to Claude once, and
+[00:11:36] then he just
+[00:11:37] uses it
+[00:11:39] forever.  You write down exactly
+[00:11:40] how
+[00:11:41] the job should be done,
+[00:11:42] save it, and from
+[00:11:43] that point on, simply
+[00:11:44] activate the command
+[00:11:45] via a slash, or Claude
+[00:11:47] will apply it himself when
+[00:11:48] appropriate.
+[00:11:50] Think about everything
+[00:11:51] you do the same way
+[00:11:53] every time.  How do you
+[00:11:55] like your
+[00:11:56] components and what does
+[00:11:57] your brand look like?
+[00:11:58] Your research or
+[00:12:00] tasks you
+[00:12:01] complete each week.
+[00:12:02] Each of them becomes a
+[00:12:03] skill.  So you
+[00:12:04] never have to
+[00:12:06] explain everything
+[00:12:07] again.  In Sleek, those
+[00:12:07] design rules
+[00:12:09] I mentioned
+[00:12:10] live in the
+[00:12:11] design skill.  So, every time
+[00:12:12] Claude creates a
+[00:12:13] new screen, he already
+[00:12:14] knows the
+[00:12:15] look he wants, and I don't
+[00:12:16] have to say a
+[00:12:17] word.  Write a
+[00:12:18] process once and
+[00:12:19] then just
+[00:12:20] use it
+[00:12:21] forever and it will
+[00:12:22] make your life much easier.
+[00:12:27] So far, Claude has worked
+[00:12:28] within your
+[00:12:29] project, but your
+[00:12:30] work is not
+[00:12:31] concentrated in one
+[00:12:32] place.  It's in GitHub, in
+[00:12:34] Slack, in Notion, in your Google
+[00:12:35] Sheets.  MCP is a
+[00:12:37] way to connect
+[00:12:38] Claude to all of this.
+[00:12:40] It stands for "
+[00:12:41] model context protocol",
+[00:12:42] but forget that name
+[00:12:43] , because I know it
+[00:12:44] sounds a bit
+[00:12:45] technical.  This simply
+[00:12:46] means that Claude can
+[00:12:47] access the
+[00:12:48] tools
+[00:12:49] you already use.    It
+[00:12:51] only takes a few seconds to set up, and
+[00:12:52] I'll show you right
+[00:12:53] now.  So,
+[00:12:54] open the
+[00:12:55] connectors menu,
+[00:12:55] click to add the
+[00:12:57] tool you want
+[00:12:58] , and you're connected.
+[00:12:59] Now that it's
+[00:13:00] added, you just
+[00:13:01] chat with it.
+[00:13:02] For example, in Steek, I
+[00:13:03] connect to Google
+[00:13:04] Sheets and ask Claude
+[00:13:06] to record each
+[00:13:07] completed habit in a
+[00:13:08] spreadsheet so that the data
+[00:13:09] is stored somewhere
+[00:13:10] secure, not just in the
+[00:13:11] app.  Choose
+[00:13:12] one tool that
+[00:13:14] you actually
+[00:13:14] use to
+[00:13:15] connect it.  This is the very
+[00:13:16] moment
+[00:13:17] when Claude stops
+[00:13:18] being just an app
+[00:13:19] you visit and
+[00:13:21] becomes what controls
+[00:13:22] your other
+[00:13:22] apps.  Did
+[00:13:27] you know that you can
+[00:13:27] run multiple
+[00:13:29] sessions at the same time,
+[00:13:30] each
+[00:13:30] isolated so they
+[00:13:32] don't interfere with each
+[00:13:33] other?  In Steek, one
+[00:13:34] session builds the
+[00:13:36] statistics page, and another
+[00:13:37] improves the style.  This is the
+[00:13:38] same
+[00:13:39] project, running
+[00:13:40] in parallel, but there
+[00:13:41] are no conflicts
+[00:13:42] at all.  And you
+[00:13:43] don't even have to be at your
+[00:13:44] laptop while it's
+[00:13:45] happening.
+[00:13:46] Claude sessions continue to
+[00:13:47] run even
+[00:13:48] after you
+[00:13:49] close the app.  You
+[00:13:50] just start a
+[00:13:51] big task,
+[00:13:52] walk away, and an
+[00:13:53] hour later you can
+[00:13:54] come back and
+[00:13:55] see that everything is
+[00:13:56] ready.  It's so cool:
+[00:14:00] you can start
+[00:14:01] a task on your phone at a
+[00:14:02] coffee shop while you're getting
+[00:14:03] a coffee, and when you get
+[00:14:05] home, find that
+[00:14:06] the work is already done.
+[00:14:09] So, if you
+[00:14:10] need to
+[00:14:11] ask something while you're
+[00:14:12] running, you
+[00:14:13] open the side
+[00:14:14] chat and the main
+[00:14:15] task continues while
+[00:14:16] you get
+[00:14:17] your
+[00:14:18] question answered.  This means there are
+[00:14:19] no interruptions and
+[00:14:20] your laptop is no longer a
+[00:14:22] "bottleneck".
+[00:14:23] Technically, it is your
+[00:14:25] imagination.  Remember the
+[00:14:29] usage counter
+[00:14:30] I mentioned
+[00:14:31] earlier?  As it
+[00:14:32] fills up, Claude
+[00:14:33] begins to forget
+[00:14:34] the decisions made at
+[00:14:35] the beginning of the session.  Here's how to
+[00:14:37] deal with it.  You
+[00:14:38] only need two
+[00:14:39] teams.  The slash compact
+[00:14:40] compresses the conversation into
+[00:14:42] a summary, and the work
+[00:14:43] simply continues.
+[00:14:44] So, use
+[00:14:45] this to continue
+[00:14:46] working in the same
+[00:14:47] session, and then {forward
+[00:14:48] slash} clear erases everything for a
+[00:14:49] complete reset.  You
+[00:14:51] can
+[00:14:51] use this
+[00:14:52] when you switch
+[00:14:53] to something completely different.  And
+[00:14:54] one more tip
+[00:14:55] I want to mention:
+[00:14:56] if something doesn't look
+[00:14:57] right, don't try
+[00:14:58] to describe it, okay?
+[00:14:59] Take a screenshot,
+[00:15:00] paste it, and
+[00:15:01] say, "Fix this."    For
+[00:15:02] example, on Stake,
+[00:15:04] the counter was superimposed
+[00:15:05] on the date in the mobile
+[00:15:06] version.  So I put in
+[00:15:07] a screenshot and said, "
+[00:15:08] Fix this."  And the problem
+[00:15:10] disappeared.  For
+[00:15:10] the most difficult
+[00:15:11] tasks, increase your
+[00:15:12] effort level to
+[00:15:13] maximum.  It's
+[00:15:14] slower and more expensive,
+[00:15:15] but the result is on a
+[00:15:16] completely different level.
+[00:15:19] Before ending
+[00:15:20] the session, run {forward
+[00:15:22] slash} doctor.  It scans
+[00:15:24] your settings and
+[00:15:26] finds what's unnecessary:
+[00:15:27] unused
+[00:15:28] skills, forgotten
+[00:15:29] connectors, junk in the
+[00:15:30] claw MD file, and then
+[00:15:31] tells you what to
+[00:15:32] delete.  On Stake, he
+[00:15:34] marked a connector
+[00:15:35] that I had connected
+[00:15:36] before but
+[00:15:37] never
+[00:15:38] used again.  So
+[00:15:40] it disappeared with just one
+[00:15:41] click.  That's how you
+[00:15:43] keep the system
+[00:15:44] light, keep
+[00:15:46] it in order every
+[00:15:47] few sessions, and even though
+[00:15:48] it's not perfect on the first day
+[00:15:49] , it really does
+[00:15:50] work.  Now that
+[00:15:56] you have your workflow set up
+[00:15:57] , here's
+[00:15:58] one advanced
+[00:15:59] technique you
+[00:16:00] should know about.  It
+[00:16:01] recently went
+[00:16:02] viral, so you
+[00:16:03] might have seen it;  it
+[00:16:05] shows how far
+[00:16:06] these
+[00:16:07] models have advanced.  It's
+[00:16:08] called Gauntlet Loop
+[00:16:09] from developer Matt
+[00:16:10] Schumer, and
+[00:16:11] the most incredible thing is
+[00:16:12] that it's actually a
+[00:16:14] three-line prompt.
+[00:16:15] The structure is quite
+[00:16:16] simple.  The first is the
+[00:16:17] task, that is, what
+[00:16:19] you want to create, and the
+[00:16:20] second is the
+[00:16:21] development method.  You
+[00:16:22] instruct the main
+[00:16:23] agent to distribute
+[00:16:24] the work among the sub-
+[00:16:25] agents, each of
+[00:16:25] whom takes their
+[00:16:26] share, and a critic
+[00:16:27] checks their
+[00:16:28] work.  The third is the
+[00:16:29] bar, meaning you
+[00:16:30] tell him not
+[00:16:31] to stop until
+[00:16:32] every critic is
+[00:16:33] satisfied, and that's
+[00:16:35] basically it.  Agents
+[00:16:36] create,
+[00:16:37] critique, and
+[00:16:37] repeat the cycle
+[00:16:38] according to your
+[00:16:39] standard until it is
+[00:16:41] achieved.  In the
+[00:16:42] desktop application,
+[00:16:43] you can
+[00:16:44] observe the entire
+[00:16:45] process in the
+[00:16:46] workflow panel and
+[00:16:47] see it step by step.
+[00:16:49] We have to
+[00:16:49] discuss this, and that's because there's
+[00:16:51] no
+[00:16:52] magic here.  This kind of cycle
+[00:16:54] takes a lot of time and
+[00:16:55] a lot of tokens,
+[00:16:57] you know?  And it
+[00:16:58] optimizes the result
+[00:17:00] according to the
+[00:17:01] standard you
+[00:17:02] set.  So,
+[00:17:03] if you direct it
+[00:17:05] at a weak idea, it will
+[00:17:06] just beautifully
+[00:17:07] polish something that is not the same
+[00:17:08] , and that is not exactly what
+[00:17:09] we want.  So don't
+[00:17:11] start from scratch with
+[00:17:12] him.
+[00:17:14] Create a solid
+[00:17:15] first version the
+[00:17:16] usual way,
+[00:17:17] then run a
+[00:17:18] gauntlet to
+[00:17:19] improve it, and
+[00:17:20] just make sure the
+[00:17:21] foundation
+[00:17:22] is laid, while
+[00:17:23] using the gauntlet
+[00:17:24] to polish—that's how
+[00:17:25] you'll get the
+[00:17:26] best results.
+[00:17:32] Now that everything is
+[00:17:32] working, we can
+[00:17:34] focus on
+[00:17:35] getting it
+[00:17:36] online in one
+[00:17:37] sentence.  I just
+[00:17:38] contact Claude,
+[00:17:39] tell him to deploy the
+[00:17:40] project to Vercel, after which
+[00:17:42] he configures
+[00:17:43] the project, sends the data,
+[00:17:44] and gives me a working
+[00:17:45] link.  This is something
+[00:17:48] I can share,
+[00:17:49] open on my phone,
+[00:17:50] and send to
+[00:17:52] anyone without leaving the
+[00:17:53] app.  And on top
+[00:17:54] of that, there's
+[00:17:56] even more waiting for you once you get
+[00:17:57] the hang of it.  Routines
+[00:17:58] run tasks
+[00:17:59] in the Enthalpic cloud on a
+[00:18:00] schedule.  They
+[00:18:01] review your pull
+[00:18:03] requests at night and
+[00:18:04] resolve bugs every
+[00:18:05] Monday morning.
+[00:18:10] Now, a few rules to
+[00:18:11] learn
+[00:18:12] before you
+[00:18:13] start, because I've learned this
+[00:18:14] over the past few
+[00:18:15] months, and you
+[00:18:16] shouldn't repeat
+[00:18:17] my mistakes.
+[00:18:18] Please.  So, first thing:
+[00:18:19] talk, don't
+[00:18:20] type, okay?  We
+[00:18:22] mentioned this
+[00:18:23] earlier in the video, but
+[00:18:24] let's touch on it
+[00:18:25] again.  When you
+[00:18:26] type, you
+[00:18:26] compress and
+[00:18:27] cut off the context
+[00:18:28] that really
+[00:18:29] matters.  When you
+[00:18:31] speak, you
+[00:18:31] lay it all out.  So
+[00:18:33] click on
+[00:18:33] the microphone before
+[00:18:34] writing a word.
+[00:18:35] Now on to the
+[00:18:36] next thing: keep
+[00:18:38] your Claude within narrow
+[00:18:39] limits.  Treat
+[00:18:40] it like a
+[00:18:41] reference guide, not a
+[00:18:43] storage warehouse.  If Claude
+[00:18:44] can tell it from
+[00:18:45] your code, it has no
+[00:18:46] place in the file.  After
+[00:18:48] that—compress
+[00:18:50] the context before
+[00:18:50] changing tasks.    A
+[00:18:53] clean context
+[00:18:54] provides a better
+[00:18:55] result, and it
+[00:18:57] only takes 5 seconds for
+[00:18:58] everything that follows to
+[00:18:59] remain clear.  And
+[00:19:01] the last thing I want
+[00:19:03] to mention, and this is probably
+[00:19:04] the most important:
+[00:19:05] send your
+[00:19:06] big tasks to the
+[00:19:07] cloud.  Start
+[00:19:08] the task, step away, and
+[00:19:09] let it
+[00:19:10] come back to you
+[00:19:11] ready.  Your
+[00:19:12] laptop is no longer
+[00:19:14] your limit,
+[00:19:15] now it is only your
+[00:19:16] imagination.  So, this is the
+[00:19:17] updated Claude Code.
+[00:19:20] The version that exists
+[00:19:21] now, everything we've
+[00:19:22] covered:
+[00:19:23] prompting for the
+[00:19:25] judgment planning mode,
+[00:19:26] voice, cheerful Claude MD,
+[00:19:27] skills, connectors,
+[00:19:29] concurrency,
+[00:19:30] Claude sessions—everything
+[00:19:32] the doctor ordered.  This is literally
+[00:19:34] just the foundation,
+[00:19:35] okay?  This is the journey
+[00:19:38] from the version that made
+[00:19:40] you close the app
+[00:19:41] to one you can't
+[00:19:42] imagine how you ever
+[00:19:44] worked with before.  And everything
+[00:19:46] we
+[00:19:47] discussed today is available in
+[00:19:48] our free
+[00:19:50] School community.
+[00:19:52] Prompts from
+[00:19:52] today's board,
+[00:19:54] cool Claude MD templates, a
+[00:19:55] complete
+[00:19:56] workflow—it's all in
+[00:19:57] our School, link
+[00:19:59] in the description below.  And also
+[00:20:00] remember, it's
+[00:20:01] free.  So
+[00:20:02] come on in today,
+[00:20:03] join in.
+[00:20:04] I guarantee you'll
+[00:20:05] like it.  And
+[00:20:06] since you
+[00:20:07] watched to the end, like
+[00:20:08] this
+[00:20:09] video, subscribe to the
+[00:20:10] channel, and click the
+[00:20:11] bell so you don't
+[00:20:11] miss new
+[00:20:12] videos.  Also
+[00:20:13] check out other
+[00:20:14] videos on the channel.  I
+[00:20:15] know there is a lot of
+[00:20:16] useful stuff to
+[00:20:17] learn there.  And as
+[00:20:17] always, see you in the
+[00:20:19] next video.
