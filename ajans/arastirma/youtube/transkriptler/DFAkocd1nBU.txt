@@ -1,0 +1,232 @@
+# AI ile Sıfırdan Yönetim Paneli Yaptım! İnanılmaz... (STITCH + AI STUDIO)
+# https://www.youtube.com/watch?v=DFAkocd1nBU
+# kanal: Ali UĞUR | süre:  sn | kaynak: yt-dlp:web_safari+pot:DFAkocd1nBU.tr.json3
+
+[00:00:00] Developer Ali kanalından herkese
+[00:00:01] merhabalar. Ben Ali. Bu videoda yapay
+[00:00:03] zeka ile backend kodlaması nasıl
+[00:00:05] yapılır? Bir yönetim paneli nasıl
+[00:00:06] oluşturulur ve giriş kısımlarında şifre
+[00:00:08] ile nasıl giriş yapabilirsiniz?
+[00:00:10] Bunlardan bahsedeceğim. Dilerseniz
+[00:00:12] videoya geçelim. İyi seyirler.
+[00:00:13] >> Herkese tekrardan merhabalar. Bu kısımda
+[00:00:15] site ile birlikte sitemizin tasarımını
+[00:00:17] kodlayacağız. Yani front'ını
+[00:00:19] kodlayacağız. Ardından backend için
+[00:00:21] Google A Stud'an yardım alacağız.
+[00:00:22] Dilerseniz başlayalım. İlk öncelikle
+[00:00:24] Google'a gelip City yazıyorum. City şu
+[00:00:26] anda ücretsiz. En iyi ajan olarak şu an
+[00:00:28] benim listemde birinci sırada. Siz de
+[00:00:30] istediğiniz kadar kullanabilirsiniz.
+[00:00:31] Geliyorum. Hazır web stageim stageim
+[00:00:34] firmam için bana bir agency OS yani
+[00:00:38] yönetim paneli tasarla diyorum.
+[00:00:41] Müşterilerim için bir müşteri takip
+[00:00:46] müşteri paneli hazırla diyorum. Giriş ve
+[00:00:49] login kısımları da giriş pardon ikisi
+[00:00:52] aynı şey. Login ve register kısımları da
+[00:00:56] olsun.
+[00:00:57] diyorum. Buraya geldik. Promt'umuzu
+[00:01:00] verdik. Ben dediğim gibi hazır web sejim
+[00:01:02] firmam için bana bir agent yani yeni tüm
+[00:01:03] paneli hazırlı dedim. Aynı zamanda
+[00:01:05] şuradan web'e tıklıyorum. Buradan
+[00:01:07] geliyorum. Thinking print 3.1 Pro'yu
+[00:01:09] seçiyorum ve hemen prom'u gönderiyorum.
+[00:01:12] Sitch burada bizim için düşünme sürecine
+[00:01:13] girdikten sonra ilk önce marka
+[00:01:15] paletimizi ve ardından ekranlarımızı
+[00:01:17] vermeye başlayacak. Hani bu kısımda
+[00:01:19] bekliyoruz. Demiş olduğumuz gibi ilk
+[00:01:21] önce marka kimliklerimizi verdi.
+[00:01:23] Markamıza uygun renk paletlerini seçti.
+[00:01:25] e kullanacağımız bu butonları burada
+[00:01:27] verdi. Yazı metinlerimizi, tipografimizi
+[00:01:29] yani marka kimliğimizin tüm halini bize
+[00:01:31] vermiş oldu. Diğer ekranlarda ekranları
+[00:01:33] oluşturmasını bekleyeceğiz. Evet,
+[00:01:35] birinci ekranımızı şu an oluşturuyor.
+[00:01:36] İkinci ekranımızı ve sırasıyla diğer
+[00:01:38] ekranlarımızı oluşturmaya başlayacak.
+[00:01:40] Buraya geldikten sonra ST bizim için ana
+[00:01:43] tasarımı yani yönetim panelinin ana
+[00:01:44] tasarımını oluşturmaya başladı. Burada
+[00:01:46] proje kısımları, silent kısımları,
+[00:01:48] ödemeler kısımları ve görevler kısımları
+[00:01:50] var. Hepsini tek tek bizim için
+[00:01:51] oluşturuyor. Bu çok güzel bir şey
+[00:01:52] aslında arkadaşlar. E burada da aynı
+[00:01:54] zamanda login ekranlarımızı oluşturuyor.
+[00:01:56] Hemen bakalım. Oluşturmaya devam etsin.
+[00:01:59] Ardından devam edelim. Şimdi ST bizim
+[00:02:01] için marka kimliğimizi tasarladı.
+[00:02:03] Yönetim panelimiz burada. Giriş
+[00:02:05] kısımlarımız burada ve ardından kayıt ol
+[00:02:08] kısımları için gerekli bilgi kısımları
+[00:02:10] burada. E şu an gayet güzel oldu. Sırada
+[00:02:12] sitin yapmış olduğu ekranları kodlama
+[00:02:15] kısımları var arkadaşlar. Hemen buraya
+[00:02:17] geliyorum. Şunu kapatıyorum. Kaydet ve
+[00:02:19] uygula diyorum. Ctrl yaptıktan sonra
+[00:02:21] burada dışarı aktar menüsüne tıklıyorum
+[00:02:23] ve AI Studio'yu seçiyorum. A Studio ile
+[00:02:26] geliştirere tıkladıktan sonra bize bir
+[00:02:28] hem promptumuzu hem de ekranlarımızı
+[00:02:30] burada vermiş olacak. Aynı zamanda
+[00:02:31] buraya gelip burada e yönetim paneli
+[00:02:34] için şifre zorunluluğu olsun
+[00:02:38] olsun ve şifre Ali 1 2 3 olsun diyorum.
+[00:02:42] Gerekli tüm ekranları da ekranları da da
+[00:02:46] detaylıca kodla diyorum. Hemen buraya
+[00:02:48] geldikten sonra build tuşuna basıyorum
+[00:02:49] ve Google Studio'nun bizim için hem
+[00:02:52] backend hem frontend tasarımını yani
+[00:02:54] sitenin tam halini vermesini bekliyorum.
+[00:02:56] Şu gelen uyarıyı kapatıyorum. Ardından
+[00:02:58] Google A Studio bizim için düşünme
+[00:03:00] aşamasına giriş yaptı. Şimdi vermiş
+[00:03:03] olduğumuz ekranlardan Google Ad Studio
+[00:03:05] bizim için web sitesarımını yaptı.
+[00:03:07] Arkadaşlar hani bu videoda backend
+[00:03:09] kodlaması yaptığımız için normal bir web
+[00:03:11] site değil de sadece yönetim paneli
+[00:03:12] üzerinden ilerledim. E bir sonraki
+[00:03:14] videolarda direkt web site içinde
+[00:03:16] yönetim panelini nasıl dahil
+[00:03:17] edebileceğinizi bahsedeceğim. Şimdi
+[00:03:19] burada hemen test edelim. E buraya gelip
+[00:03:22] Ali 1 2 3 yazıyoruz. Şifre kısmına giriş
+[00:03:24] yapıyoruz ve yönetim panelimizi bizim
+[00:03:26] için açıyor. Burada proje kısımları,
+[00:03:30] burada müşterilerin kısımları, ödemeler
+[00:03:32] kısımları ve görevler var. Ayarlar
+[00:03:35] kısımları da burada. Hani burada
+[00:03:36] iyileştirilebilir olarak hemen yönetim
+[00:03:38] paneline geldikten sonra login yazalım.
+[00:03:41] Bu kısımda şu kısımları falan
+[00:03:43] kaldırabiliriz. Bunları biz kendimiz de
+[00:03:44] yapabiliriz. E ilk öncelikle yönetim
+[00:03:47] panelini ben Türkçe yapmasını
+[00:03:48] isteyeceğim. Yönetim panelini
+[00:03:52] panelini Türkçeye çevirir misin?
+[00:03:53] Türkçeye çevirir misin?
+[00:03:56] Siz de istediğiniz özellikleri burada
+[00:03:57] güncelleyebilirsiniz. PrompuTu vererek
+[00:03:59] unutmayın. Hani ben bu kısımda yönetim
+[00:04:01] panelinin Türkçeye çevmesini istedim.
+[00:04:03] Hemen bunu da benim için yapacak. Diğer
+[00:04:05] videolarımızda ise yönetim paneli, login
+[00:04:07] kısımları ve database nasıl eklenir?
+[00:04:10] Bunlardan bahsedeceğim. Hani bu video
+[00:04:12] sadece backend kısmı için yani yönetim
+[00:04:14] paneli kısmı için geçerli. Web sitemizi
+[00:04:16] incelersek eee şu an istediğimiz
+[00:04:18] ekranlara uygun bize web sitemizi yaptı.
+[00:04:20] Burada diyor ki yanıtım paneli için eee
+[00:04:22] şifremiz Ali 1 2 3 diyor. Hemen
+[00:04:24] deneyelim. Ali 1 2 3 yazalım şuraya.
+[00:04:26] Hatta yanlış yazdığımızda direkt böyle
+[00:04:28] uyarı veriyor. Şifreyi otomatik uygula
+[00:04:30] diyorum. Giriş yapıyorum ve yönetim
+[00:04:32] panelimizi bize çıkartıyor. Burada
+[00:04:34] dashboardumuz var. Proje kısımlarımız,
+[00:04:36] müşteri kısımlarımız burada.
+[00:04:38] Ödemelerimiz kısmı burada. Görevler ise
+[00:04:41] burada. Şimdi gelin hep beraber bunu
+[00:04:43] export edelim. Yani visit kod üzerinden
+[00:04:45] düzenleyelim ve ardından webs olarak
+[00:04:47] yayınlayalım. Şimdi hemen buraya
+[00:04:48] geliyoruz. Kod aına tıklıyoruz ve
+[00:04:50] buradan export tuşuna basıyoruz. Export
+[00:04:53] tuşuna bastıktan sonra ise develop file
+[00:04:55] diyoruz. Yani zip olarak indir diyoruz.
+[00:04:57] Buraya geldikten sonra zip'imizi hemen
+[00:05:00] masaüstümüzde
+[00:05:01] uygun bir yere çıkartıyoruz. Agence
+[00:05:04] klasörümüzü seçiyoruz. Seçtikten sonra
+[00:05:07] terminali açıyoruz.
+[00:05:08] Ve hemen gelip buraya npm
+[00:05:09] bağımlılıklarını yüklemesi için npm
+[00:05:12] install diyoruz. npm yükledikten sonra
+[00:05:15] sitemizde isterseniz düzenlenmesini
+[00:05:16] gereken bir yer varsa bunları
+[00:05:18] düzenledikten sonra yayına alabiliriz.
+[00:05:20] Ticaretten sonra hostingimize giriyoruz
+[00:05:22] ve C paneli açıyoruz. C panelde
+[00:05:24] istediğimiz domainden hemen alan altları
+[00:05:26] kısmından domainimize giriyoruz. Ben e
+[00:05:29] hazır web seçim altında sub domaininden
+[00:05:30] yayınlayacağım. Siz dilerseniz başka bir
+[00:05:32] şeyden yayınlayabilirsiniz. Buradaki tüm
+[00:05:34] klasörleri siliyorum. İlk önce burayı
+[00:05:36] boşaltıyorum. Ardından lokalde
+[00:05:38] çalıştığım sunucuyu CtrlC ile
+[00:05:40] durduruyorum ve buraya npm runild
+[00:05:42] yazıyorum. Bu kısımda npm round run
+[00:05:44] build yazdıktan sonra build'ımızı
+[00:05:46] alıyoruz. Build ne işe yarıyor derseniz
+[00:05:47] almış olduğumuz build nexts dilini index
+[00:05:50] dillerini yani HTML, CSS, JavaScript
+[00:05:53] diline çevirerek bunu bizimiz için bir
+[00:05:55] export ediyor aslında dışarı aktarıyor.
+[00:05:57] Hani bu kısımda disk klasörümüzü
+[00:05:58] oluşturdu. Şimdi gelin hep beraber disk
+[00:06:00] klasörümüzü sağ tıklayıp eee dosya
+[00:06:03] gezgini daha aç diyoruz. Buradan hemen
+[00:06:05] açıldı. Disz klasörümüzü sıkıştırıyoruz.
+[00:06:07] Türk TC'te C panel üzerinden kanadımıza
+[00:06:10] giriş yaptıktan sonra yüklü kısmına
+[00:06:11] basıyoruz ve buradan hemen agent
+[00:06:13] source'un websam zipini buraya
+[00:06:15] yüklüyoruz. Sürekli bırak sistemiyle ve
+[00:06:17] kısmına geri dön diyoruz ve ana sayfaya
+[00:06:19] geri dönüyoruz. Şimdi ise bu kısımda
+[00:06:21] websam zipi çıkar diyoruz ve
+[00:06:23] çıkartıyoruz. Bu kısımda takılacağınız
+[00:06:25] bir yer olabilir. Şu an biri webse
+[00:06:27] içinde bir klasör altında yayınlanıyor
+[00:06:28] web sitemiz. Hemen klasörümüze giriş
+[00:06:30] yapıyoruz. Tümünü seç diyoruz ve buradan
+[00:06:32] taşıya basıyoruz. Taşıya bastıktan sonra
+[00:06:35] ise disk klasörünün disk kısmını
+[00:06:36] siliyoruz. Sadece domainimiz kalıyor ve
+[00:06:38] enterlıyoruz. Şimdi ise web sitemiz
+[00:06:41] yayınlanmış olacak. Oluşturmuş olduğumuz
+[00:06:43] web siteyi internet üzerinden şu an demo
+[00:06:45] 2hazırwebsizim.comtr olarak giriş
+[00:06:47] yaptım. Buraya hemen Ali birç yazıyorum
+[00:06:50] ve giriş yapıyorum. Şimdi ise yayın
+[00:06:52] aldığımız websiyi gelin hep beraber
+[00:06:54] kontrol edelim. Hemen
+[00:06:55] demo2.hazırwebsim.com.tr
+[00:06:58] yazıyorum ve giriş yapıyorum. Şifremi
+[00:07:00] giriş yaptıktan sonra websam açılıyor.
+[00:07:02] Dediğim gibi bütün kısımlar burada.
+[00:07:05] Projelerimiz burada. Yeni proje ekleyip
+[00:07:07] çıkartabiliyoruz.
+[00:07:09] Hemen şöyle yazalım. Hatta şöyle
+[00:07:11] dolduralım bir şeyleri. Gördüğünüz gibi
+[00:07:13] eklendi. Müşteri kısımlarımız burada.
+[00:07:15] Gelir ve faturalarımız burada.
+[00:07:17] Görevlerimiz ise burada. Ve ayarlar
+[00:07:19] kısmında bizim için birkaç bir şey
+[00:07:21] yapmış. Aslında çok güzel oldu. Hani bu
+[00:07:23] kısımda database olarak nasıl yapıyor
+[00:07:26] derseniz Nixs ve diğer portlar Supas
+[00:07:29] kullanır arkadaşlar. Yapay zekaların
+[00:07:30] geneli suppıyor. Hani siz de bu web siti
+[00:07:33] göz atmak isterseniz açıklama kısmında
+[00:07:35] linklere bırakacağım. Arkadaşlar
+[00:07:37] videonun sonuna geldik. İzlediğiniz için
+[00:07:39] hepinize teşekkür ederim. Bu bölümde ilk
+[00:07:41] önce Twitch ile ekranları kodladık.
+[00:07:42] Ardından Google A Studio ile web
+[00:07:44] sitemizi tamamladık ve yayın aşamasında
+[00:07:46] Türk Ticareti kullanarak domainimizden
+[00:07:47] yayınladık. Videoyu beğendiyseniz beğen
+[00:07:49] tuşuna basmayı ve abone olmayı
+[00:07:50] unutmayın. Yorumlarınız benim için çok
+[00:07:52] değerli. Yorumlarınızı bekliyorum. İyi
+[00:07:54] günler.
