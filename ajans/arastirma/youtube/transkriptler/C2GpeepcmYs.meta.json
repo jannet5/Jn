@@ -1,5 +1,10 @@
 {
  "kaynak": "yt-dlp:web_safari+pot:C2GpeepcmYs.en.json3",
  "id": "C2GpeepcmYs",
- "url": "https://www.youtube.com/watch?v=C2GpeepcmYs"
+ "url": "https://www.youtube.com/watch?v=C2GpeepcmYs",
+ "title": "Claude Code Crash Course For Developers",
+ "channel": "Traversy Media",
+ "upload_date": "20260622",
+ "view_count": 290430,
+ "description": "An overview and starting point for Claude Code.\n\nWant to learn more about coding with AI? Check out my course:\nhttps://www.traversymedia.com/coding-...\n\nGet Cluade Code To Follow Along: https://clau.de/TraversyMedia\n\nGet the Neon free plan:  https://get.neon.com/6uuwMG3\n \nFollow Neon to not miss course giveaways:\nX/Twitter: https://x.com/neondatabase\nLinkedin:   / neondatabase  \n\nGithub Gist With Prompts:\nhttps://gist.github.com/bradtraversy/...\n\nCrypto Dash Repo:\nhttps://github.com/bradtraversy/crypt...\n\nTimestamps:\n0:00 - intro\n2:23 - What Is Claude Code\n3:56 - Installing Claude\n6:43 - First Launch\n7:26 - Models & Usage Limits\n10:44 - Effort\n11:14 - Using Claude In VS Code\n12:16 - The First Prompt\n16:10 - Shell Mode\n17:30 - Modes\n19:15 - Settings & Permissions\n22:55 - VS Code Extension\n24:05 - Refactoring Code\n27:03 - Context, Tokens & Clearing\n29:20 - Global Sessions\n33:14 - Working on an Existing Project\n35:48 - Claude.md File & /init\n39:28 - Plan Mode\n44:58 - Adding Favorites Feature\n48:05 - Skills\n53:27 - MCPs\n57:51 - Sub-Agents"
 }

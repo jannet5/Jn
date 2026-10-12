@@ -1,0 +1,44 @@
+Bu videoda Claude Desktop ve Claude Code kullanarak sıfırdan bir macOS masaüstü uygulaması geliştirme sürecimi gösteriyorum. Web sitesi değil, gerçek bir masaüstü uygulaması.
+
+Yaptığım uygulama, videolardaki “eee”, “yani”, “şimdi”, uzun duraksamalar ve sessizlikler gibi gereksiz konuşma parçalarını otomatik tespit edip kesiyor. Üstelik tamamen yerel çalışıyor, API key gerektirmiyor ve video dosyasını yeniden birleştiriyor.
+
+Bu videoda amaç sadece bir uygulama göstermek değil. Kod bilmeyen, terminal kullanmayan, teknik olmayan birinin bile doğru şekilde anlatarak kendi ihtiyacına yönelik bir uygulama geliştirebileceğini göstermek.
+
+Bekleme listesi: https://killthefill.kayraai.com/tr.html
+
+Bu tarz AI araçları, Claude Code, vibe coding, yapay zeka ile ürün geliştirme ve kendi araçlarını üretme videolarını kaçırmamak için kanala abone olmayı unutma.
+
+Zaman çizelgesi
+00:00 Kod yazmadan masaüstü uygulama yapmak
+00:26 Terminal bilmeden uygulama geliştirmek mümkün mü?
+00:52 Uygulamanın demo gösterimi
+01:20 Filler kelimeleri seçme ve video temizleme
+01:49 Preview / dry run özelliği
+02:28 Kesilecek bölümleri onaylama
+02:56 Orijinal video ile temizlenmiş video karşılaştırması
+03:34 Türkçe / İngilizce ve çoklu dil desteği
+03:48 Claude ile uygulamayı nasıl geliştirdim?
+04:42 Claude Desktop nasıl kullanılır?
+05:09 Chat, Cowork, Dispatch ve Code bölümleri
+06:00 Uygulama promptunun yapısı
+06:52 Agent’lara amaç vermek neden önemli?
+07:20 MVP mantığı nedir?
+07:31 Test, feedback ve düzeltme süreci
+08:06 Vibe coding gerçekten zor mu?
+08:52 Token tasarrufu için iyi prompt yazmak
+09:03 Kendi ihtiyacından ürün fikri çıkarmak
+09:38 Kill The Fill bekleme listesi
+10:34 Landing page ve ilk kullanıcılar
+11:20 Filler word özelleştirme mantığı
+11:37 Kodlamadan çok dağıtım ve satış zorlaştı
+12:14 Yazılımcılar bitti mi?
+12:36 Kod bilmeyenler için yeni dönem
+13:05 Claude Code tarafında agent kullanımı
+13:41 Kullandığım AI geliştirme ortamları
+14:07 Kapanış
+
+
+Kullandığım amaç promptu: 
+
+1. Amaç
+Bir video dosyasındaki gereksiz konuşma parçalarını — kullanıcının kendi belirlediği filler kelimeler ("şimdi", "yani", "eee", "ıııı"), uzun duraklamalar ve sessizlikler — otomatik tespit edip kesen ve videoyu yeniden birleştiren, tamamen yerel (cloud yok, API key yok) bir macOS masaüstü uygulaması.

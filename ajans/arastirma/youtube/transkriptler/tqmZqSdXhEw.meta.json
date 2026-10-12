@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:tqmZqSdXhEw.tr.json3",
  "id": "tqmZqSdXhEw",
- "url": "https://www.youtube.com/watch?v=tqmZqSdXhEw"
+ "url": "https://www.youtube.com/watch?v=tqmZqSdXhEw",
+ "title": "YAPAY ZEKA İLE SIFIRDAN AJANS WEBSİTESİ KURDUM! 🚀 (Gemini + Blackbox AI)",
+ "channel": "Ali UĞUR",
+ "duration": 408,
+ "upload_date": "20260810",
+ "view_count": 289,
+ "description": "Herkese selamlar, ben Ali! Bu videoda yapay zeka araçlarını bir araya getirerek sıfırdan profesyonel bir dijital ajans web sitesi (Ugrsoft) inşa ediyoruz. Fikir aşamasından projenin canlıya alınma sürecine kadar tüm adımları şeffaf bir şekilde anlattım.\n\nPlanlamada Google Gemini, tasarımda Stitch AI ve kodlama kısmında Blackbox AI kullanarak günlerce sürecek bir işi dakikalara nasıl sığdırdığımızı hep birlikte göreceğiz. Videonun sonunda bir yazılımcı gözüyle yapay zekanın şu anki konumunu (admin panelleri, backend eksiklikleri vb.) dürüstçe değerlendirdim. İyi seyirler!\n\nVideoda Kullandığım Araçlar:\n\nPlanlama (PRD): Google Gemini\n\nTasarım (UI & Prototip): Stitch AI\n\nKodlama (HTML/CSS): Blackbox AI + VS Code\n\nYayınlama: cPanel (Turkticaret.net)"
 }

@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:android:gv0WHhKelSE.en.json3",
  "id": "gv0WHhKelSE",
- "url": "https://www.youtube.com/watch?v=gv0WHhKelSE"
+ "url": "https://www.youtube.com/watch?v=gv0WHhKelSE",
+ "title": "Claude Code best practices | Code w/ Claude",
+ "channel": "Anthropic",
+ "duration": 1553,
+ "upload_date": "20250731",
+ "view_count": 578763,
+ "description": "Presented at Code w/ Claude by @anthropic-ai on May 22, 2025 in San Francisco, CA, USA.\n\nSpeakers:\nCal Rueb, Member of Technical Staff at @anthropic-ai"
 }

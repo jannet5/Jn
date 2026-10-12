@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:tutdMEd5tQY.tr.json3",
  "id": "tutdMEd5tQY",
- "url": "https://www.youtube.com/watch?v=tutdMEd5tQY"
+ "url": "https://www.youtube.com/watch?v=tutdMEd5tQY",
+ "title": "Mobil Uygulama Yapmak Artık Bu Kadar Basit !",
+ "channel": "İsa Nurdoğdu",
+ "duration": 724,
+ "upload_date": "20260618",
+ "view_count": 59362,
+ "description": "Neler yapıyorum → https://isanurdogdu.com\n\n0:00 Kod Yazmadan 10 Dakikada Android Uygulama Geliştirme\n0:27 Google AI Studio'nun Yeni Android Uygulama Özelliği\n1:00 İki Yol: Kendin İçin Kullan veya Para Kazan\n1:54 Uygulama Fikri Bulma ve Etiket Okuyucu Örneği\n3:47 AI Studio'da Uygulamayı Geliştirme ve Önizlemede Test\n5:13 Gemini API Anahtarı Ekleme ve Hata Çözümü\n6:23 Uygulamayı Zenginleştirme: Özellik Değil Hissiyat Satmak\n7:47 Uygulamayı Kendi Telefonuna Yükleme\n8:32 Play Store Geliştirici Hesabı ve Uygulamayı Yayınlama\n10:17 Uygulamadan Para Kazanma: Abonelik ve Reklam Geliri"
 }

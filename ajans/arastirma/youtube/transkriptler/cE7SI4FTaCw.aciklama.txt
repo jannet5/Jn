@@ -1,0 +1,151 @@
+Claude Design'ı Ziyaret Et:
+https://claude.ai/design
+
+Tasarımı WordPress'e Aktar:
+https://darrelwilson.com/hostinger-turkish
+
+NovaMira'yı Ücretsiz Al:
+https://www.darrelwilson.com/novamira
+
+Claude'u İndir:
+https://claude.com/download
+
+Bu Claude AI web tasarım eğitiminde, Claude AI kullanarak nasıl tamamen bir web sitesi oluşturacağınızı, profesyonel bir tasarım sistemi hazırlamayı ve ardından bu siteyi Elementor ile tamamen özelleştirmek için WordPress'e aktarmayı göstereceğim.
+
+Bahsettiğim web siteleri:
+
+https://designmd.ai/explore?page=1
+https://getdesign.md/
+
+Evernote Promptları (Tiberium'a taşındı):
+https://tiberium.app/p/2FwUcExQQqN2
+
+Bu eğitimde Claude Design kullanarak nasıl bir web sitesi oluşturacağınızı ve ardından bu tasarımı Elementor ile WordPress'e aktararak tamamen özelleştirebileceğinizi göstereceğim.
+
+Sürekli yeni promptlar girerek değişiklik yapmak zorunda kaldığınız basit yapay zeka web sitesi oluşturucularını kullanmak yerine, bu workflow iki dünyanın en iyi özelliklerini birleştiriyor: Claude modern ve temiz bir web tasarımı oluşturmanıza yardımcı olurken, Elementor ile WordPress size son web sitesi üzerinde tam kontrol sağlar.
+
+Ayrıca Claude'u WordPress'e bağlamak için NovaMira kullanacağız. NovaMira, yapay zeka ajanlarının MCP aracılığıyla WordPress'e erişmesini sağlar. Böylece Claude gibi araçlar sadece rastgele öneriler veya kod parçaları vermek yerine doğrudan WordPress ortamınızla çalışabilir. NovaMira'ya göre yapay zeka; WordPress dosyalarına, veritabanı sorgularına, WP-CLI komutlarına, PHP çalıştırmaya, eklentilere, temalara ve Elementor gibi sayfa oluşturuculara erişebilir.
+
+Bu videoda tüm süreci göstereceğim: Claude Design ile web sitesi düzeni oluşturma, NovaMira ile Claude'u WordPress'e bağlama ve Elementor kullanarak siteyi düzenleme ve özelleştirme. Bu eğitim; yeni başlayanlar, web tasarımcıları, freelancerlar, ajanslar ve yapay zeka kullanarak WordPress sitelerini daha hızlı oluşturmak isteyen herkes için uygundur.
+
+Zaman Damgaları
+
+0:00 Giriş
+
+0:37 Neden sadece Claude içinde düzenleme yapmak zor
+
+2:27 Claude Design'ı açma (sadece Pro plan, tarayıcı sürümü)
+
+3:05 Tasarım sistemi oluşturma
+
+3:39 Kaynak 1: designmd.ai
+
+4:29 Kaynak 2: getdesign.md
+
+5:37 Tasarım sistemini Claude'a ekleme
+
+6:28 İkinci tasarım sistemini oluşturma (Lamborghini)
+
+8:05 İlk yapay zeka web sitesini oluşturma
+
+8:25 Site oluşturmanın 3 yolu
+
+9:02 Yöntem 2: Hazır prompt kullanımı
+
+9:31 Yöntem 3: Ekran görüntüsü yöntemi
+
+10:08 ThemeForest + Go Full Page Screenshot eklentisi
+
+10:58 Ücretsiz promptlar (Evernote bağlantısı)
+
+12:18 Prompt doldurma
+
+12:38 SEO anahtar kelimeleri ekleme
+
+13:01 Tasarım yönünü ve sayfaları belirleme
+
+14:30 Promptu çalıştırma
+
+15:23 Ekran görüntüsü demosu (Essentials teması)
+
+16:28 Tamamlanan emlak sitesini inceleme
+
+17:51 Ekran görüntüsü ile oluşturulan siteyi inceleme
+
+19:22 WordPress'e geçmeden önce özet
+
+19:44 Hostinger hosting kurulumu
+
+19:59 Plan seçimi (Business önerilir)
+
+20:37 Faturalandırma süresi
+
+21:02 Darrel10 indirim kodu
+
+21:28 Hesap oluşturma ve ödeme
+
+22:06 Hostinger ayarları ve WordPress kurulumu
+
+23:56 Alan adı ve hesap doğrulama
+
+24:40 WordPress sitene giriş
+
+25:51 Neden eklenti kuruyoruz
+
+26:16 Astra temasını yükleme
+
+26:38 Elementor ve WPForms kurulumu
+
+27:27 XPro kurulumu
+
+27:53 XPro neden kullanılır (ücretsiz header ve footer oluşturucu)
+
+28:38 Nova Mirror eklentisini yükleme
+
+29:26 Elementor ayarlarını düzenleme
+
+30:35 Node.js kurulumu
+
+31:36 WordPress'i Claude'a bağlama
+
+32:30 Claude Desktop indirme
+
+32:55 Bağlantı için yapılandırmayı düzenleme
+
+34:11 Projeyi ZIP olarak indirme
+
+34:29 Aktarma promptu (Evernote bağlantısı)
+
+35:13 Siteyi WordPress'e aktarma
+
+36:06 Aktarılan WordPress sitesini inceleme
+
+37:40 Siteyi Elementor ile düzenleme
+
+39:18 Global renkleri ve yazı tiplerini düzeltme
+
+41:12 XPro ile Header ve Footer tasarlama
+
+44:25 Çıkış
+
+Claude'u kullanarak web sitenizi planlamayı, profesyonel bir tasarım oluşturmayı, sayfalarınızı düzenlemeyi, içeriklerinizi geliştirmeyi ve ardından her şeyi Elementor içinde özelleştirmeyi öğreneceksiniz. Amaç basit: Tasarım sürecini hızlandırmak için yapay zekayı kullanırken WordPress'in esnekliğini ve kontrolünü korumak.
+
+NovaMira geliştirme ve staging ortamları için tasarlanmıştır. Kendi web sitelerinde, WordPress kurulumunuza güçlü erişim sağladığı için yedekleme kullanılması önerilmektedir.
+
+Bu videonun sonunda Claude Design, WordPress, Elementor ve NovaMira'yı birlikte kullanarak modern bir yapay zeka destekli web sitesi oluşturma workflow'unu anlayacaksınız.
+
+Öğrenecekleriniz
+
+Claude Design ile web sitesi oluşturmayı
+
+NovaMira kullanarak Claude'u WordPress'e bağlamayı
+
+Claude'u Elementor ile kullanmayı
+
+Yapay zeka tasarımını gerçek bir WordPress sitesine dönüştürmeyi
+
+AI web sitenizi Elementor ile özelleştirmeyi
+
+Yapay zekanın WordPress web tasarımını nasıl hızlandırdığını
+
+Yapay zeka çağında WordPress ve Elementor'un neden hâlâ önemli olduğunu

@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:u8MY7FQz874.tr.json3",
  "id": "u8MY7FQz874",
- "url": "https://www.youtube.com/watch?v=u8MY7FQz874"
+ "url": "https://www.youtube.com/watch?v=u8MY7FQz874",
+ "title": "Yapay Zeka ile Mobil Uygulama Yaptım! 2 (Claude + Gemini + Vibe Coding)",
+ "channel": "Ephe",
+ "duration": 1120,
+ "upload_date": "20251123",
+ "view_count": 1537,
+ "description": "Yapay zeka ile mobil uygulama geliştirmeye devam ediyoruz!\nBu videoda, Claude ve Gemini’yi birlikte kullanarak uygulamaya kronometre (timer) ekranı, geliştirilmiş pomodoro akışı ve daha iyi UI ekliyorum.\n\nBu proje tamamen no-code / low-code vibe coding yaklaşımıyla yapıldı, yani neredeyse hiç manuel kod yazmıyoruz — çoğu işlemi yapay zekalar bizim için hallediyor.\n\nEğer:\nAI ile kodlama\nNo-code mobil uygulama geliştirme\nClaude, Gemini, Stitch ve vibe coding yaklaşımı\nilginizi çekiyorsa, bu video tam size göre 👇\n\n\n🔔 Etiketler\n#yapayzeka #geminiai #claude #anthropic #stitch #mobileapp\n#vibecoding #nocode #lowcode #uygulama #mobiluygulama\n#timer #pomodoro #ai #coding"
 }

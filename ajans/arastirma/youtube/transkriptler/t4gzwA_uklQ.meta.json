@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:t4gzwA_uklQ.tr.json3",
  "id": "t4gzwA_uklQ",
- "url": "https://www.youtube.com/watch?v=t4gzwA_uklQ"
+ "url": "https://www.youtube.com/watch?v=t4gzwA_uklQ",
+ "title": "Yapay Zeka ile Mobil Uygulama Yaptım! (Antigravity + Claude + Stitch + ChatGPT)",
+ "channel": "Ephe",
+ "duration": 1646,
+ "upload_date": "20251229",
+ "view_count": 15233,
+ "description": "Bu videoda, Yapay Zeka kullanarak Vibe Coding yöntemiyle sıfırdan profesyonel bir Not Defteri Uygulaması geliştiriyoruz. Serinin 2. videosunda, en güçlü yapay zekaları (ChatGPT + Claude) bir araya getirip, yeni nesil araçlarla süreci nasıl hızlandırdığımızı adım adım gösteriyorum.\n\nUygulamanın Amacı: Gelişmiş Not Defteri Uygulaması\n\n✅ Kod yazmadan, sadece yapay zekaya prompt yazarak uygulama nasıl yapılır? \n✅ AntiGravity kurulumu ve Flutter ile kusursuz entegrasyonu. \n✅ ChatGPT & Claude ile hata almadan \"Vibe Coding\" nasıl yapılır? \n✅ Stitch ve FlutterGems kullanarak modern arayüz tasarımı.\n\nEğer AI + mobil uygulama geliştirme, no-code teknoloji ve yapay zeka ile kodlama projeleri ilginizi çekiyorsa bu 28 dakikalık rehber tam size göre.\n\n📌 Bu videoda öğrenecekleriniz:\n    ChatGPT ve Claude’u bir arada kullanarak mobil uygulama geliştirme\n    AntiGravity kurulumu ve AI ile kod yazımı\n    Stitch ile uygulama arayüzünü (UI) hızlıca sağlama\n    Not ekleme, silme ve düzenleme mantığının yapay zekaya kurgulatılması\n    Prompt Engineering: Doğru sonuç için en iyi prompt teknikleri\n\n🎯 Abone olmayı unutma! — Bu seride tamamen sizin yorumlarınızla ilerliyoruz. Bir sonraki videoda uygulamaya hangi özellikleri ekleyelim? Yorumlarda buluşalım! 👇\n\n🚀 Yapay Zeka ile Mobil Uygulama Geliştirme Serisi (Playlist): https://youtube.com/playlist?list=PLIXKPQCZP-FHmbUOmSZPFVNZns6VcG07c&si=-ykvee2a4wy_xrQA\n\n🎬 Bölümler: \n0:00 Giriş\n0:19 AntiGravity Kurulumu \n02:59 Uygulama Tanıtımı ve Yorumlar\n04:01 ChatGPT Prompt Yazımı\n10:06 Stitch ile Tasarım ve Öneriler\n13:15 Gemini 3.5 Pro ile Uygulama Geliştirme\n17:49 Claude Opus 4.5 ile Uygulama Geliştirme\n20:34 Hata Ayıklama & Sonuç ve İnceleme\n27:10 Kapanış\n\n🔔 Etiketler: #yapayzeka, #chatgpt, #claudeai, #antigravity, #stitch, #flutter, #vibecoding, #nocode, #mobiluygulama, #kodlama, #uygulamagelistirme #fluttergems"
 }

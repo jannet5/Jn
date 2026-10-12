@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:web_safari+pot:PJ4JAim5-jQ.tr.json3",
  "id": "PJ4JAim5-jQ",
- "url": "https://www.youtube.com/watch?v=PJ4JAim5-jQ"
+ "url": "https://www.youtube.com/watch?v=PJ4JAim5-jQ",
+ "title": "WEB TASARIM TARİH OLDU ! (Claude Code + Stitch)",
+ "channel": "İsa Nurdoğdu",
+ "duration": 612,
+ "upload_date": "20260402",
+ "view_count": 61760,
+ "description": "Neler yapıyorum → https://isanurdogdu.com\n\n00:00 Yapay Zeka ile Ücretsiz Web Tasarımı (Figma Alternatifi)\n00:54 Google Stitch Nedir Nasıl Kullanılır ?\n03:42 Site Tasarımını Claude Code'a Aktarma\n05:02 Claude Code ile Frontend Kodlama \n08:31 GitHub ve Vercel ile Ücretsiz Web Sitesi Yayınlama (Deploy)"
 }

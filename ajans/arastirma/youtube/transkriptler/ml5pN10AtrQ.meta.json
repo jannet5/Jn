@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:ml5pN10AtrQ.tr.json3",
  "id": "ml5pN10AtrQ",
- "url": "https://www.youtube.com/watch?v=ml5pN10AtrQ"
+ "url": "https://www.youtube.com/watch?v=ml5pN10AtrQ",
+ "title": "YAZILIMCILIK BİTİYOR: Claude Code ile sıfırdan app geliştirdim",
+ "channel": "İsa Nurdoğdu",
+ "duration": 1412,
+ "upload_date": "20260521",
+ "view_count": 12974,
+ "description": "Hostinger ile uygulamanı canlıya al: https://hostinger.com/ISANURDOGDU\nİndirimli Kupon kodu: ISANURDOGDU\n\nNeler yapıyorum → https://isanurdogdu.com\n\n00:00 Giriş — Claude Code ile 3 Adımda Uygulama\n00:57 1. Adım: Fikir Bulma ve Problem–Ürün Doğrulama\n03:26 2. Adım: Claude.md Dosyasını Hazırlama\n05:07 VS Code + Claude Code Kurulumu ve Plan Modu\n08:13 Apify, Supabase ve MCP API Bağlantıları\n12:26 Uygulamayı Localhost'ta Test Etme\n13:55 3. Adım: Github'a Push + Hostinger ile Yayına Alma\n19:45 Kredi & Ödeme Sistemi Ekleme\n23:05 Kapanış"
 }

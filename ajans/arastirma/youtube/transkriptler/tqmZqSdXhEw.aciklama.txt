@@ -1,0 +1,13 @@
+Herkese selamlar, ben Ali! Bu videoda yapay zeka araçlarını bir araya getirerek sıfırdan profesyonel bir dijital ajans web sitesi (Ugrsoft) inşa ediyoruz. Fikir aşamasından projenin canlıya alınma sürecine kadar tüm adımları şeffaf bir şekilde anlattım.
+
+Planlamada Google Gemini, tasarımda Stitch AI ve kodlama kısmında Blackbox AI kullanarak günlerce sürecek bir işi dakikalara nasıl sığdırdığımızı hep birlikte göreceğiz. Videonun sonunda bir yazılımcı gözüyle yapay zekanın şu anki konumunu (admin panelleri, backend eksiklikleri vb.) dürüstçe değerlendirdim. İyi seyirler!
+
+Videoda Kullandığım Araçlar:
+
+Planlama (PRD): Google Gemini
+
+Tasarım (UI & Prototip): Stitch AI
+
+Kodlama (HTML/CSS): Blackbox AI + VS Code
+
+Yayınlama: cPanel (Turkticaret.net)

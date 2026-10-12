@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:jZgcWCzxh1I.en.json3",
  "id": "jZgcWCzxh1I",
- "url": "https://www.youtube.com/watch?v=jZgcWCzxh1I"
+ "url": "https://www.youtube.com/watch?v=jZgcWCzxh1I",
+ "title": "Claude Code Dynamic Workflows Clearly Explained",
+ "channel": "Nate Herk | AI Automation",
+ "duration": 991,
+ "upload_date": "20260530",
+ "view_count": 121940,
+ "description": "Get started with Lovable for FREE: https://lovable.link/FZfjuMb\nMy FREE AI OS Course: https://www.skool.com/ai-automation-society/about?el=claude-dynamic-workflows-release&hcategory=youtube-videos&utm_campaign=free-group\nFull courses + unlimited support: https://www.skool.com/ai-automation-society-plus/about?el=claude-dynamic-workflows-release&hcategory=youtube-videos&utm_campaign=ais-plus\nApply for my YT podcast: https://podcast.nateherk.com/apply\nWork with me: https://uppitai.com/\n\nMy Tools💻\nFREE MONTH voice to text: https://get.glaido.com/nate\nCode NATEHERK for 10% off VPS (annual plan): https://www.hostinger.com/vps/claude-code-hosting\n\nClaude Opus 4.8 added dynamic workflows to Claude Code, and they look a lot like skills, subagents, agent teams, and the /goal feature, so it's easy to get confused about when you'd actually reach for one. \n\nIn this video I break down what dynamic workflows really are, how they stack up against everything else on the complexity ladder, why one prompt burned through half my $200 monthly plan, and the simple question I ask before deciding if a job is even worth a workflow. \n\nI also cover the hidden stuff like ultracode mode and /deep-research so you don't accidentally torch your session limit.\n\nSponsorship Inquiries:\n📧 nate@smoothmedia.co\n\nConnect with me:\nhttps://www.linkedin.com/in/nateherkelman/\nhttps://x.com/nateherk\nhttps://www.instagram.com/nateherk/\n\nTIMESTAMPS \n0:00 Intro\n1:06 What Are Dynamic Workflows\n1:40 Skills vs Subagents vs Teams vs Workflows\n5:47 Climbing the Complexity Ladder\n8:39 Goal vs Workflow: Depth vs Width\n10:13 The Token Cost Question\n11:18 When You Actually Need It\n12:17 Running a Workflow Live\n14:08 Ultracode Mode\n15:25 One Slide + Wrap-Up"
 }

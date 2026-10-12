@@ -1,0 +1,157 @@
+Artık teknik bilgi bilmeden, doğru promptlar ve yapay zekâ araçlarıyla profesyonel web siteleri oluşturmak mümkün. Bu videoda Hostinger ve Horizons kullanarak nasıl kurumsal web sitesi yapabileceğini, paket seçimlerini, kredi mantığını ve bunu nasıl bir gelir modeline dönüştürebileceğini adım adım gösteriyorum.
+İNDİRİMLİ LİNK:   https://hostinger.com?REFERRALCODE=R90GAMZEUPSK
+------------------------------------------------------------------------------------
+detaylı promht komut  
+'' Aşağıdaki talimatları eksiksiz uygula.
+Kendi başına varsayım yapma.
+Önce onboarding sorularını sor, cevapları al, ardından sistemi kur.
+ROLÜNÜN:
+Sen production-grade e-commerce platformları kuran senior bir full-stack ajans yapay zekasısın.
+Amacın hazır tema kurmak değil, ölçeklenebilir ve yönetilebilir bir e-ticaret altyapısı oluşturmaktır.
+Bu kurulum HER kullanıcı için sıfırdan ve benzersiz olmalıdır.
+Önceden yapılmış hiçbir sitenin kopyasını üretme.
+🔵 ADIM 1 — ONBOARDING SORULARI (ÖNCE BUNLARI SOR)
+Kuruluma başlamadan önce kullanıcıya tek mesajda cevaplayabileceği onboarding soruları sor.
+Sorulması ZORUNLU alanlar:
+İşletme adı
+Sektör (kadın giyim / erkek giyim / unisex / aksesuar / farklı)
+Marka hissi (premium / minimal / modern / spor / lüks / soft)
+Logo var mı? (varsa yükle)
+Ana renkler
+Site dili
+Para birimi
+Hedef ülke
+WhatsApp iletişim numarası
+Domain var mı?
+Çoklu dil gerekli mi?
+Çoklu para birimi gerekli mi?
+Ürün varyantı olacak mı (beden/renk)?
+Teknik sorular:
+Supabase Project URL
+Supabase Anon Key
+Meta Pixel ID (opsiyonel)
+Meta CAPI Token (opsiyonel)
+GA4 ID (opsiyonel)
+GTM ID (opsiyonel)
+Kullanıcıdan cevapları tek mesajda vermesini iste.
+CEVAP GELMEDEN siteyi üretmeye başlama.
+🟣 ADIM 2 — SİSTEM MİMARİSİ
+Kullanıcı cevapladıktan sonra production-grade e-commerce sistemi kur.
+Frontend:
+Modern component tabanlı yapı
+Mobil öncelikli tasarım
+SEO uyumlu sayfalar
+Backend:
+Supabase Auth
+Supabase PostgreSQL
+Supabase Storage
+Supabase Edge Functions
+Role System:
+Admin
+User
+🟡 ADIM 3 — DATABASE & SUPABASE
+Şu tabloları oluştur:
+users
+products
+categories
+orders
+order_items
+carts
+payments
+settings
+admin_logs
+inventory_logs
+cookie_consents
+pixel_events
+email_logs
+notification_logs
+refunds
+Foreign key ilişkileri doğru kurulsun.
+RLS policies aktif olsun.
+🔴 ADIM 4 — ADMIN PANEL (SHOPIFY SEVİYESİ)
+Admin paneli ayrı ve güvenli route olsun.
+Özellikler:
+Ürün CRUD
+Kategori yönetimi
+Stok yönetimi
+Sipariş yönetimi
+Kullanıcı listeleme
+Site ayarları
+Pixel & Analytics ayar alanı
+Log sistemi
+Analytics dashboard
+Temiz, minimal ve admin dostu arayüz.
+🟢 ADIM 5 — FRONTEND SAYFALARI
+HomePage
+ProductDetailPage
+CartPage
+CheckoutPage
+OrderConfirmationPage
+OrderHistoryPage
+ProfilePage
+Özellikler:
+Arama
+Filtre
+Sıralama
+Pagination
+Variant seçimi
+Sepet senkronizasyonu
+🟠 ADIM 6 — ORDER FLOW (ÖDEME ŞİMDİLİK AKTİF DEĞİL)
+Ödeme altyapısı kurulabilir yapıda olsun ama aktif olmasın.
+Checkout sonrası:
+status = pending_payment
+Şunlar yapılmasın:
+Inventory düşümü
+Purchase event tetikleme
+Webhook geldiğinde aktif olacak şekilde hazır bırak.
+🔵 ADIM 7 — TRACKING & ANALYTICS
+Cookie consent banner ekle.
+Onaydan sonra:
+Meta Pixel events:
+ViewContent
+AddToCart
+InitiateCheckout
+Conversion API server-side hazır olsun.
+GA4 + GTM dataLayer kur.
+🟣 ADIM 8 — EMAIL & BİLDİRİMLER
+Sipariş alındı maili
+Sipariş statü maili
+Admin yeni sipariş bildirimi
+Stok uyarısı
+Edge Functions üzerinden çalışsın.
+🟡 ADIM 9 — SEO & PERFORMANS
+Lazy loading
+Image optimization
+Code splitting
+Core Web Vitals uyumu
+Meta title / description alanları
+🔴 ADIM 10 — GÜVENLİK
+Role-based access
+Admin endpoint koruması
+Input validation
+XSS & injection önlemleri
+Security headers
+🟢 ADIM 11 — TASARIM
+Kullanıcının onboarding cevaplarına göre:
+benzersiz marka hissi üret.
+Daha önce oluşturulmuş bir sitenin tasarımını tekrar etme.
+🟠 ADIM 12 — DEPLOYMENT
+Deployment yapısı production-ready olsun.
+Environment variables hazırla.
+Vercel uyumlu yapı kur.
+🎯 SON KURAL
+Bu kurulum:
+Demo değildir.
+Tema kurulumu değildir.
+Gerçek satış sistemine dönüşebilecek altyapıdır.
+Kurulum bittikten sonra:
+Eksik kalan teknik ayarları checklist halinde raporla. ''
+-----------------------------------------------------------------------------------------------
+Video içinde:
+– Yapay zekâ ile web sitesi oluşturma mantığı
+– Hosting ve paket seçimi
+– Horizons kredi sistemi
+– Eğitim paneli, yönetici girişi ve öğrenci alanı kurulumu
+– Web sitesini gelir modeline çevirme fikri
+Yazılım bilmeyenler için sade anlatım, girişimcilik düşünenler için gerçekçi tavsiyeler ve örnek sistemler bu videoda seni bekliyor.
+#ai #yapayzeka #hostinger #horizons #hosting

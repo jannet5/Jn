@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:3aKVArutiIU.en.json3",
  "id": "3aKVArutiIU",
- "url": "https://www.youtube.com/watch?v=3aKVArutiIU"
+ "url": "https://www.youtube.com/watch?v=3aKVArutiIU",
+ "title": "Learn 80% of Claude Code in 10 Minutes (2026 Tutorial)",
+ "channel": "Sajjaad Khader",
+ "duration": 596,
+ "upload_date": "20260107",
+ "view_count": 357203,
+ "description": "Claude Code completely changed how I build software.\n\nTry out Claude Code on Max Plan: http://clau.de/sajjaad12\n\nOver the last 8 months, I’ve been using it daily to plan, code, debug, test, and ship faster than ever - often doing work that used to require an entire team.\n\n\n\n\n🚀 JOIN MY TECH COMMUNITY: SWE LAUNCHPAD\nInside, you'll learn How to break Into tech with practical resources, job prep guidance, and real industry insights you won’t find in school. \n→ https://swelaunchpad.com\n\n✉️ TECH NEWSLETTER\nDiscover the latest tech trends shaping the industry, unlock career tips, and access exclusive resources to stay competitive in tech. \n→ https://sajjaad.substack.com/\n\n🗣️ INVITE ME TO SPEAK AT YOUR EVENT\n→ https://forms.gle/p38f7Jqt7FjYWtYU7\n\n🧑‍💻 LEARN TO CODE\nLearn to code with bite-sized projects and an AI-bot to help answer your queries. I recommend you start with their python module, then check out java and javascript.\n→ https://coddy.tech/ (It's FREE, but you can use the code SAJYT for 20% off of premium features!)\n\n⬇️ MY OTHER SOCIALS:\n📸 Instagram:    / https://www.instagram.com/sajjaad.khader/\n📱 TikTok:    / https://www.tiktok.com/@sajjaadkhader\n🌍 My website: https://sajjaad-s-site.thinkific.com/...\n\nTIMESTAMPS\n\n0:00 - Why Claude Code changes how software is built\n0:36 - Layer 1: Installing & running Claude Code\n1:12 - Layer 2: Choosing the right AI model\n1:45 - Opus 4.5 vs Sonnet (planning vs execution)\n2:33 - Layer 3: Turning AI into a real teammate\n2:51 - Markdown Files (claude.md) \n3:26 - Prompt.md\n4:02 - Layer 4: AI-powered debugging (UI & CSS)\n4:42 - Fixing bugs visually with screenshots\n5:08 - Layer 5: AI multitasking with task queues\n5:22 - Messaging Queue Feature\n6:27 - Layer 6: Plan mode & ultra-thinking\n7:31 - Managing sub-agents like a tech lead\n8:20 - Engineers becoming AI team managers\n8:52 - Layer 7: AI enhanced collaboration"
 }

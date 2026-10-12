@@ -1,5 +1,11 @@
 {
  "kaynak": "yt-dlp:mweb+pot:s2KVJirRoRs.tr.json3",
  "id": "s2KVJirRoRs",
- "url": "https://www.youtube.com/watch?v=s2KVJirRoRs"
+ "url": "https://www.youtube.com/watch?v=s2KVJirRoRs",
+ "title": "Claude Code 6 Seviyede Öğren: Kodlamadan Yazılım Yap",
+ "channel": "İsa Nurdoğdu",
+ "duration": 4133,
+ "upload_date": "20260316",
+ "view_count": 121048,
+ "description": "Neler yapıyorum → https://isanurdogdu.com\n\n00:00 Giriş \n01:27 Seviye 0: Claude Code Nedir ? Kurulum, Maliyet ve Temel Komutlar\n18:40 Seviye 1: Komutçu — Claude'a Komut Vermek\n23:45 Seviye 2: Planlayıcı — Claude ile Plan Yapmak\n31:45 Seviye 3: Bağlam Mühendisi — Claude Token Yönetimi\n42:19 Seviye 4: Araç Ustası — MCP ve Dış Araç Bağlantısı\n50:37 Seviye 5: Yetenekli Usta — Skills ile Özelleştirme\n55:28 Seviye 6: Orkestratör — Çoklu Agent Kurulumu"
 }
