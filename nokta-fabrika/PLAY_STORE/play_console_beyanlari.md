@@ -14,6 +14,8 @@
 ## İzinler
 - SYSTEM_ALERT_WINDOW: çekirdek özellik (yüzen balon). Kullanıcı sistem ayar sayfasından kendisi verir; mağaza açıklamasında belirtildi. Google'ın overlay politikasını Policy status'ta tekrar doğrula (NOTLAR'da doğrulanamadı olarak işaretli).
 - FOREGROUND_SERVICE, FOREGROUND_SERVICE_SPECIAL_USE, POST_NOTIFICATIONS.
+- SCHEDULE_EXACT_ALARM (1.1.0): kullanıcının zil işaretiyle kurduğu hatırlatma/alarm için. USE_EXACT_ALARM kullanılmadı (o yalnız alarm/takvim uygulamalarına açık). İzin yoksa uygulama yine çalışır, alarm birkaç dakika kayabilir; diyalogdan izin ekranına yönlendirme var.
+- RECEIVE_BOOT_COMPLETED (1.1.0): telefon yeniden başlayınca hatırlatmaları yeniden kurmak için.
 
 ## İçerik derecelendirme
 Anket: şiddet/cinsellik/kumar yok, kullanıcı etkileşimi/paylaşım yok (yalnızca metin paylaşma menüsü), konum yok, satın alma yok → muhtemelen "Herkes". Anketi sen kendin doldur ve doğru beyan et.

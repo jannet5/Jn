@@ -17,6 +17,7 @@ nokta, ekranının sağ kenarında duran küçük yuvarlak bir balon. Hangi uygu
 - Art arda hızlı ekle: imleç hep yerinde.
 - Tamamlananları tek dokunuşla temizle.
 - Listeyi metin olarak paylaş.
+- Zil işareti: istediğin maddeye "her 10 dakikada bir" gibi tekrarlayan hatırlatma ya da belli bir saate alarm kur.
 - Koyu tema.
 
 Hesap yok, reklam yok, internet izni yok. Verilerin yalnızca telefonunda durur.
@@ -38,6 +39,7 @@ nokta is a small round bubble that sits on the right edge of your screen. In any
 - Fast repeated adding: the cursor stays put.
 - Clear completed items in one tap.
 - Share the list as text.
+- Bell icon: set a repeating reminder (for example every 10 minutes) or an alarm at a set time for any item.
 - Dark theme.
 
 No account, no ads, no internet permission. Your data stays on your phone.

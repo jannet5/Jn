@@ -43,6 +43,11 @@ class ReminderReceiver : BroadcastReceiver() {
 /** Telefon acilisi, uygulama guncellemesi ya da tam zaman izni degisince alarmlari yeniden kurar. */
 class RescheduleReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Reminders.rescheduleAll(context.applicationContext)
+        when (intent.action) {
+            Intent.ACTION_BOOT_COMPLETED,
+            Intent.ACTION_MY_PACKAGE_REPLACED,
+            "android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED",
+            -> Reminders.rescheduleAll(context.applicationContext)
+        }
     }
 }

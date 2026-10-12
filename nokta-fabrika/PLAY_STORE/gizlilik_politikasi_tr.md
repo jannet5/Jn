@@ -12,7 +12,8 @@ Verileriniz üçüncü taraflarla paylaşılmaz. "Paylaş" düğmesine bastığ�
 
 ## İzinler
 - **Diğer uygulamaların üzerinde görüntüleme (SYSTEM_ALERT_WINDOW):** yüzen balonu ve balondan açılan liste panelini göstermek için. Yalnızca siz açarsanız çalışır; ayarlardan kapatabilirsiniz.
-- **Ön plan hizmeti (özel kullanım) ve bildirim:** balon açıkken Android'in zorunlu kıldığı sessiz bildirimi göstermek için.
+- **Ön plan hizmeti (özel kullanım) ve bildirim:** balon açıkken Android'in zorunlu kıldığı sessiz bildirimi göstermek ve zil işaretiyle kurduğun hatırlatmaları göstermek için.
+- **Alarmlar ve hatırlatıcılar (SCHEDULE_EXACT_ALARM) ve açılışta başlatma (RECEIVE_BOOT_COMPLETED):** kurduğun hatırlatmanın tam zamanında çalması ve telefon yeniden başlayınca hatırlatmaların kaybolmaması için. Hatırlatma ayarları da yalnız cihazında tutulur.
 
 ## Veri silme
 Uygulamayı kaldırdığınızda tüm liste verileri cihazdan silinir. Uygulama içinden maddeleri tek tek silebilir veya "tamamlananları sil" ile toplu temizleyebilirsiniz.

@@ -12,7 +12,8 @@ Your data is not shared with third parties. When you tap "Share", you send the l
 
 ## Permissions
 - **Display over other apps (SYSTEM_ALERT_WINDOW):** to show the floating bubble and the list panel that opens from it. It runs only if you turn it on, and you can turn it off at any time.
-- **Foreground service (special use) and notification:** to show the silent notification Android requires while the bubble is on.
+- **Foreground service (special use) and notification:** to show the silent notification Android requires while the bubble is on, and to show the reminders you set with the bell icon.
+- **Alarms & reminders (SCHEDULE_EXACT_ALARM) and run at startup (RECEIVE_BOOT_COMPLETED):** so a reminder fires on time and survives a restart. Reminder settings are stored only on your device.
 
 ## Deleting data
 Uninstalling the app removes all list data from the device. In the app you can delete items one by one or clear completed items.
