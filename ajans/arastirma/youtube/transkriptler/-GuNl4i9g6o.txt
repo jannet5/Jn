@@ -1,0 +1,545 @@
+# 
+# https://www.youtube.com/watch?v=-GuNl4i9g6o
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:-GuNl4i9g6o.tr.json3
+
+[00:00:00] Abi bir şey söyleyeyim mi? Zevkli
+[00:00:01] biliyor musun? Şöyle bak bir can gitti.
+[00:00:04] [kahkaha]
+[00:00:05] Arkadan da köpek kovalıyor. Bak burada
+[00:00:06] bir tane bir şey kazandık. Şu an
+[00:00:08] uçuyoruz vesaire. Abi güzel ya. Gayet
+[00:00:10] güzel yapmış yani. Başlangıç olarak
+[00:00:12] gayet iyi. Dediğim gibi üzerinde
+[00:00:13] uğraşsak çok daha güzel bir şey ortaya
+[00:00:15] çıkar. Ama bu şu an zor değil. A bir
+[00:00:17] canım daha gitti sizle konuşurken.
+[00:00:18] [kahkaha] Biliyorsunuz ki yapay zeka
+[00:00:20] alanında vipe coding aldı başını
+[00:00:22] gidiyor. Şu an insanlar türlü türlü
+[00:00:24] uygulamalar yapıyor ve biz de geçtiğimiz
+[00:00:26] haftalarda biliyorsunuz bir finansal
+[00:00:27] analiz uygulaması yaptırmıştık. Şu an bu
+[00:00:30] videoda Subway Surf tarzında bir oyun
+[00:00:32] yapacağız ve bunun için de herkesin
+[00:00:34] bildiği Cloud kodu değil aslında gizli
+[00:00:36] bir güç olan birçok kişinin şu an yeni
+[00:00:38] fark ettiği GPT Codex'i de kullanacağız
+[00:00:40] ve Cloud Code ve GPT Codex'in güçlerini
+[00:00:43] birleştirerek bence güzel bir oyun
+[00:00:45] yapmış olacağız. Yani başlı başına bir
+[00:00:47] mobil oyunun APK'sını çıkarmaktan
+[00:00:49] bahsediyoruz. Peki neden GPT Codex ve
+[00:00:52] Cloud Codu'u birlikte kullandık? Şimdi
+[00:00:53] biliyorsunuz ki wipe coding alanında
+[00:00:55] Minix Agent çıktı. İşte kimi çıktı. Chat
+[00:00:57] GPT bir hamle yaptı. Google bir hamle
+[00:00:59] yaptı. İşte antigravitisini çıkardı ve
+[00:01:01] cloud kod bir şey çıkardı. Zaten işin
+[00:01:02] başından beri o vardı biliyorsunuz.
+[00:01:04] Şimdi bunların hangisinin hangi alanda
+[00:01:06] güçlü olduğunu bilmek gerekiyor. Biz
+[00:01:07] burada neden bu ikisini kullandık? GPT
+[00:01:09] Codex o kadar güzel kodlama yapıyor ki
+[00:01:11] neredeyse hatasız bir şekilde sonucu
+[00:01:13] çıkarıyor. Biraz uzun bir sürede bunu
+[00:01:15] yapıyor ama sonuç olarak hatasız bir
+[00:01:16] projeye sahip oluyorsunuz. Kodlama
+[00:01:18] tarafında Codex'i kullanacağız. Cloud
+[00:01:20] da, cloud kod da o kadar güzel analiz
+[00:01:22] yapıyor ki arkadaşlar sizin bütün
+[00:01:23] hatalarınızı, her şeyinizi buluyor ve bu
+[00:01:25] ikisinin gücünü birleştirerek güzel bir
+[00:01:26] mobil oyun ortaya çıkaracağız. APK'sını
+[00:01:28] çıkaracağız. Mobil oyun yapmaktan
+[00:01:30] bahsediyoruz. Mobil oyun için
+[00:01:31] biliyorsunuz normalde birkaç kişilik bir
+[00:01:33] ekip belki bir departman belki de bir
+[00:01:35] firmanın tamamı aylar süren bir çalışma
+[00:01:37] yapıyordu ve sonuç olarak bir mobil oyun
+[00:01:39] ortaya çıkıyordu. Şimdi bizim
+[00:01:40] yapacağımız şey yaklaşık bizim baştan
+[00:01:42] söyleyeyim bir 810 saatinizi alacak ve
+[00:01:44] tabii ki burada 810 saat boyunca bir
+[00:01:46] video size gösteremeyeceğim için burada
+[00:01:48] daha önce yaptığım ve geliştirdiğim
+[00:01:50] proje üzerinden size nerede ne yaptığımı
+[00:01:53] teker teker anlatacağım ve bunun
+[00:01:54] olabildiğince net ve açık bir şekilde
+[00:01:56] olmasını sağlayacağım ki kollama falan
+[00:01:58] bilmeyen, proje nasıl yürütülür bilmeyen
+[00:02:00] kişiler bile gelsin burada kendi
+[00:02:02] hayalleri olan mobil uygulamayı
+[00:02:03] geliştirebilsinler. çok muazzam bir şey
+[00:02:06] beklemeyin. Böyle bir GTA 6 falan
+[00:02:07] çıkarmayacağız yani. Ama sonuç olarak
+[00:02:10] burada tatmin edici, kullanıcıyı da
+[00:02:11] tatmin eden bir şey ortaya çıkaracağız.
+[00:02:13] Ve emin olun size az önce gösterdiğim,
+[00:02:14] videonun başında gösterdiğim şey aslında
+[00:02:16] işin başlangıcı. Çok da fazla
+[00:02:18] uğraşmadım. Belki 15-16 saatimi
+[00:02:20] verseydim daha güzel şeyler ortaya
+[00:02:21] çıkardı. Ama ben bunu hemen sizinle
+[00:02:24] paylaşmak için bu videoyu hızlı bir
+[00:02:26] şekilde çekmek istedim. Zaten
+[00:02:27] gösterdiğim adımları yaptıktan sonra siz
+[00:02:29] zaten istediğiniz oyunu e benim
+[00:02:31] gösterdiğim gibi çıkarabilirsiniz.
+[00:02:33] üstüne eklemeler yapıp
+[00:02:34] geliştirebilirsiniz. Şimdi hızlı bir
+[00:02:36] şekilde başlamak istiyorum. Öncesinde
+[00:02:38] kanala abone olursanız, videoyu da
+[00:02:39] beğenirseniz çok hoşuma gider. İlk başta
+[00:02:41] şunu söyleyeyim. Bu işlem tabii ki
+[00:02:43] maliyeti olan bir işlem. Bunun ücretsiz
+[00:02:45] yöntemleri de var ama biraz daha
+[00:02:47] alengirli ve bunu daha sona size
+[00:02:48] göstermeyi dşüyorum. Çünkü şu an için
+[00:02:50] çok da sağlıklı olduğunu düşünmüyorum
+[00:02:51] bunların. Cloud COD ve GPT Codex'i satın
+[00:02:54] alacağız. İkisi için de 20şer dolar
+[00:02:55] vereceğiz. İşte vergisiyle 24 dolara
+[00:02:57] falan tekabül ediyor galiba. Şöyle
+[00:02:59] cloud'a girdiniz. Tamam mı? Buradan get
+[00:03:02] apps and extensions diyor. Buna
+[00:03:03] tıkladınız. Tıkladıktan sonra bakın
+[00:03:05] burada desktop app diyor. Bunu
+[00:03:07] ekliyorsunuz. Diğer detaylara hiçbir
+[00:03:09] şekilde girmenize gerek yok. Kafanızın
+[00:03:10] karışmasına gerek yok. Buradan
+[00:03:12] yüklediğinizde zaten yükleme işlemi
+[00:03:13] başlıyor. Cloud'u kendi bilgisayarınıza
+[00:03:15] indirmiş oluyorsunuz. Ardından Google'a
+[00:03:17] geliyorsunuz. Codex yazıyorsunuz. Tamam
+[00:03:19] mı? Open Codex'i karşınıza çıkıyor.
+[00:03:21] Buraya tıklıyorsunuz. Burada MacOS'ta
+[00:03:23] veya Windows'da artık hangisini
+[00:03:25] kullanıyorsunuz onun için indir diyor.
+[00:03:27] Buna tıklıyorsunuz. tıkladığınızda yine
+[00:03:28] bilgisayarınıza iniyor. Zaten bunları
+[00:03:30] yaptıktan sonra çok basit yükleme
+[00:03:32] işlemleri var. Bunları da
+[00:03:33] gerçekleştiriyorsunuz. Ve sonuç olarak
+[00:03:35] Cloud'a sizin karşınıza şöyle bir şey
+[00:03:38] çıkıyor. Bakın burada mesela benim
+[00:03:40] ürettirdiğim şeyler mevcut. Ve Codex'te
+[00:03:42] de karşınıza böyle bir ekran çıkıyor.
+[00:03:44] Şöyle en başa alalım isterseniz. Yeni
+[00:03:46] sohbet diyelim. Böyle bir şey karşınıza
+[00:03:47] çıkacak. Şimdi ilk başlayacağımız yer
+[00:03:49] Cloud'un customize'dan çıkalım
+[00:03:51] arkadaşlar. Chat bölümü. Cloud'un chat
+[00:03:53] bölümüne geldiniz ve ekranda verdiğim
+[00:03:56] promtu'u buraya yapıştırıyorsunuz.
+[00:03:57] Diyorsunuz ki Subway Surfers tarzında
+[00:03:59] bir mobil oyun yapıp APK'sını oluşturman
+[00:04:01] için vermen gereken MD'yi en eksiksiz
+[00:04:04] şekilde hazırlaman için sana girmem
+[00:04:06] gereken profesyonel promptü ver. Sadece
+[00:04:09] promptü istiyorum. Bunu yapmak için
+[00:04:11] Subway Surfers'ın senaryosunu,
+[00:04:12] oynanışını ve karakter setlerini iyi bir
+[00:04:15] şekilde incelemelisin. Bu arada
+[00:04:17] istediğim oyun kalitesini anlaman için
+[00:04:19] sana Subway Surfers'tan bir saniyenin
+[00:04:21] ekran görüntüsünü ilettim diyorum ve
+[00:04:23] buraya Subway Surfers'tan herhangi bir
+[00:04:25] işte YouTube'dan falan bulabilirsiniz.
+[00:04:27] Ekran görüntüsünü atın arkadaşlar ki iyi
+[00:04:29] bir şekilde anlasın. Ben mesela şöyle
+[00:04:30] bir şey atacağım. Şöyle koydum. Tamam mı
+[00:04:32] diyoruz ve bunu çalıştırıyoruz. Ben
+[00:04:34] şimdi çalıştırmıyorum. Dediğim gibi bu
+[00:04:36] çok uzun sürecek bir işlem çünkü
+[00:04:37] bunların hepsi totalde. O yüzden bunları
+[00:04:40] ben sizden sadece yapmanızı istiyorum. E
+[00:04:42] burada yolu gösteriyorum. Siz burada tek
+[00:04:43] tek uygulamanız gerekiyor. Enterladıktan
+[00:04:45] sonra zaten gereken işlemleri yapacak.
+[00:04:47] Şimdi burada MD ne demek? Ben size onu
+[00:04:49] söyleyeyim. MD dediğiniz aslında
+[00:04:51] projenizin dokümantasyonu. Yani burada
+[00:04:54] yapay zekanın sizin projenizi anlaması
+[00:04:56] için belli bir doküman olması onun için
+[00:04:58] her zaman çok daha iyidir ki ezbere
+[00:05:00] gitmez. Sizin kurallarınızı bilir orada
+[00:05:02] işte işin senaryosunu bilir, her şeyini
+[00:05:04] bilir ve ona göre size bir proje
+[00:05:06] çıkartır. Aset dediğimiz şey de şu
+[00:05:08] karakter setleri dedik ya. Bu setlerde
+[00:05:10] projede kullanacağımız modeller işte
+[00:05:12] karakter modelleri, ne bileyim oradaki
+[00:05:14] nesnelerin modelleri. Eğer bunu
+[00:05:15] yapmazsanız size dümdüz bir odunun
+[00:05:18] hareket ettiğini gösterir. Zıpladığını
+[00:05:20] adığını gösterir. İşte karşınıza da
+[00:05:21] aslında dörtgenler işte yuvarlak sadece
+[00:05:24] dümdüz şekiller gelir karşınıza ve
+[00:05:26] muhtemelen de bunu anlayamaz ve hatalı
+[00:05:28] bir şekilde çıkarır. O yüzden bize
+[00:05:31] verilmesi önemli. Birazdan zaten bunları
+[00:05:33] irdeleyeceğiz. Bunu yapıyorsunuz. Hatta
+[00:05:35] ben size şöyle bir şey yapayım en son.
+[00:05:37] Bakın projeyi şu şekilde vermiştim ve
+[00:05:40] bana bunun promptunu verdi. Biz en başta
+[00:05:42] aslında bunun direkt olarak MD'sini
+[00:05:44] çıkarmasını isteyebilirdik ama bunu iyi
+[00:05:45] bir şekilde analiz etmesini istediğimiz
+[00:05:47] için ilk önce MD'yi oluşturacak
+[00:05:49] profesyonel bir prompu ver ki ben sana o
+[00:05:51] şekilde profesyonelce sonucu vereyim.
+[00:05:53] Daha doğrusu MD'yi oluşturma için promtu
+[00:05:55] vereyim. Bana ona göre güzel bir sonuç
+[00:05:57] ver. Bunu yapmasını istediğim için ilk
+[00:05:59] başta MD için bile bir prompt
+[00:06:01] oluşturdum. Bu promtu aldık değil mi?
+[00:06:03] Kopyaladık ve tekrar geldim. Bunu yeni
+[00:06:05] bir cloud chat sayfasına açıp
+[00:06:07] yapıştırdım ve direkt olarak
+[00:06:08] çalıştırdım. Çalıştırdıktan sonra bana
+[00:06:10] bakın burada MDmi verdi. MD dediğimiz
+[00:06:13] şey şöyle gördüğünüz gibi böyle bütün
+[00:06:15] detayların aslında baştan sona belki bir
+[00:06:18] 6070 sayfa falan bir dokümantasyon
+[00:06:20] vardır burada. Bunların hepsinin olduğu
+[00:06:22] bir doküman bana verdi. Bunu aldım
+[00:06:24] indirdim. Şuradan copy kısmından bakın
+[00:06:27] copynin yanındaki butondan download as
+[00:06:29] md diyor. Buradan indirebilirsiniz.
+[00:06:31] Tamam mı? İndirdiniz. İndirdikten sonra
+[00:06:34] geldim. Burada ben deneme diye bir
+[00:06:35] klasörü atmışım. Tamam. Bunu ilk olarak
+[00:06:37] ben denediğim için ve denediğimde direkt
+[00:06:39] olarak başarı sağladığım için deneme
+[00:06:41] demiştim. Daha sonra değiştirmedim tabii
+[00:06:43] ki dosyanın yolu değişmemesi için. Şunu
+[00:06:45] göstermek istiyorum size bu arada. Bunu
+[00:06:46] mutlaka göstereceğim arkadaşlar. 10 GB
+[00:06:49] kadar bir dosya oluşturmuş. Ben şu ana
+[00:06:51] kadar böyle bu boyutta bir dosyayı bu
+[00:06:53] kadar kısa zaman içerisinde yapmamıştım
+[00:06:55] açıkçası. Neyse tamam diyoruz. Şimdi
+[00:06:57] bunu bu MD'yi buraya yükledik değil mi?
+[00:06:59] Buraya attınız MD dosyasını. Daha sonra
+[00:07:02] bu klasörünüzün şöyle yolunu
+[00:07:03] alıyorsunuz. Sol tıkla kopyalıyorsunuz.
+[00:07:06] CtrlC diyorsunuz ve Codex'i açıyorsunuz.
+[00:07:09] Buraya yapıştırıyorsunuz ve altına da şu
+[00:07:11] vereceğim promptu yazıyorsunuz.
+[00:07:14] Diyorsunuz ki verdiğim klasörde içindeki
+[00:07:16] MD'ye dayanarak bütün yapılması
+[00:07:17] gerekenleri gerçekleştir. Hazır ve
+[00:07:19] kullanılabilir, eksiksiz ve hatasız bir
+[00:07:21] şekilde bana projeyi teslim et.
+[00:07:23] Çalıştırabilmem için bilgisayarımda tüm
+[00:07:25] kurulumları yap ve işlemleri eksiksiz
+[00:07:27] bir şekilde yapmanı istiyorum diyorum.
+[00:07:29] Tekrar irdeliyorum bunu. Gerekli olan
+[00:07:31] Gitub repoları varsa araştırıp
+[00:07:32] kullanabilirsin. Bu önemli arkadaşlar.
+[00:07:34] Gitub reposu dediğimiz şey ne?
+[00:07:36] Repositiler. Şöyle ben size hızlı bir
+[00:07:38] şekilde göstereceğim. Bunu farklı
+[00:07:41] alanlarda deneyeceğiz. Short formatta ve
+[00:07:43] uzun video olarak da farklı alanlarda
+[00:07:45] paylaşacağım. Bu muazzam bir şey bunları
+[00:07:47] kullanabilmeniz. Şimdi burada ben mesela
+[00:07:49] diyelim ki pazarlamayla ilgili kendime
+[00:07:52] gelişmiş bir bot oluşturmak, bir agent
+[00:07:55] oluşturmak istiyorum. agent demeyeyim
+[00:07:56] daha doğrusu bir asistan oluşturmak
+[00:07:58] istiyorum. Değil mi? Pazarlamanın
+[00:08:00] ingilizcesine marketing şuraya marketing
+[00:08:02] yazıyorsunuz. Marketing yazdığınızda
+[00:08:05] burada sizin birebir mükemmel bir
+[00:08:07] şekilde kullanabileceğiniz gitub
+[00:08:09] repoları oluyor. Mesela buna tıklıyoruz.
+[00:08:11] Tamam şurada kod diyor. Ben bunu mesela
+[00:08:13] direkt download zip olarak gösterebilir
+[00:08:15] ve bunu yapay zekaya vererek işte
+[00:08:17] Codex'e veya Cloud'a veya işte Minx'e
+[00:08:18] vesaire vererek bunlar üzerinden direkt
+[00:08:21] olarak hazır bir şekilde çalışmanı
+[00:08:22] sağlayabilirim. Çünkü buradaki kodların
+[00:08:24] hepsi hazır. Sadece bunu işte Codex
+[00:08:26] gelecek, yorumlayacak. Anladınız mı?
+[00:08:28] Eee, bu yüzden bunlar bizim için muazzam
+[00:08:30] bir güç demek. Tamam, bu tarafı geçtim.
+[00:08:32] Bunu ilerleyen projelerde kullanacağız.
+[00:08:34] Şimdiden söyleyeyim dedim. Biraz da
+[00:08:35] sürprizi bozdum ama süper şeyler
+[00:08:37] yapabiliyorsunuz burada ki ben denedim.
+[00:08:39] Muazzam şeyler yapabiliyorsunuz. Eee, bu
+[00:08:41] arada bunu şunu da söyleyeyim. Çok kısa
+[00:08:43] bir değineceğim. Tabii ki buradan
+[00:08:44] direktor araştırmak zorunda değilsiniz.
+[00:08:46] Gelirsiniz chat GPT'ye. Normal chat
+[00:08:48] GPT'ye geldiniz. Tamam mı? Şöyle işte
+[00:08:51] gitapta pazarlamayla ilgili Codex'te
+[00:08:55] projem için kullanabileceğim git
+[00:08:58] repoları öner dersiniz ve burada size
+[00:09:02] saniyeler içerisinde sizin projenizde
+[00:09:04] kullanabileceğiniz gayet ideal ve yüksek
+[00:09:07] puanlı repoları karşınıza çıkarır. Tamam
+[00:09:09] repoların ne olduğunu da gördük. Neden
+[00:09:11] yazdığımızı da buraya anlamış olduk ve
+[00:09:13] enterlıyoruz. Üretimimize başlıyoruz.
+[00:09:15] Şimdi buradan ben daha sonra şuradan
+[00:09:17] devam edeceğim. size tekrar yaptığım
+[00:09:19] kısımdan göstereceğim. Burada başladım
+[00:09:21] demiş. Gerekli işlemleri vesaire hepsini
+[00:09:23] yapmış. Burada tabii bazı deneme yanılma
+[00:09:25] yollarını da ben burada tek test ettim
+[00:09:27] ve size şu anda ekranda nihai olarak
+[00:09:30] yazmanız gereken promptları veriyorum.
+[00:09:32] Şimdi gereken işlemleri yaptıktan sonra
+[00:09:34] tabii ki burada bazı hatalar olacak.
+[00:09:35] Direkt olarak burada sonuca ulaşmanız
+[00:09:37] neredeyse mümkün değil. E siz burada
+[00:09:39] amatör olarak aldığınız oyun çıktısından
+[00:09:41] bir ekran görüntüsü alıyorsunuz ve
+[00:09:42] tekrar cloud koda geliyorsunuz ve şunu
+[00:09:44] yazıyorsunuz. İşte mesela şöyle bir
+[00:09:46] ekran görünüsü aldığımızı düşünelim.
+[00:09:48] Şöyle yapayım ben size. Şuradan diyelim
+[00:09:50] ki bunun o ekran görüntüsü olduğunu
+[00:09:53] düşünelim. Bu dosyadan aldığım sonuç bu
+[00:09:55] ama dosyayı incelediğinde anlayacağın
+[00:09:57] üzere tam bir Subway Surfers oyunu yapıp
+[00:10:00] APK olarak bana iletmeni istiyorum.
+[00:10:02] Hataları ve eksikleri analiz edip rapor
+[00:10:04] mahiyetinde bir MD dosyası oluşturmasını
+[00:10:06] istiyorum. Bunu yaptıktan sonra bana
+[00:10:08] tekrardan bir MD dosyası veriyor ve ben
+[00:10:11] bunu indiriyorum. Geliyorum Codex'e
+[00:10:13] yüklüyorum. Bakın burada yüklemişim.
+[00:10:14] Diyorum ki hataların ve eksiklerin
+[00:10:16] hakkında bir MD dosyası oluşturdum. Bu
+[00:10:18] MD'ye göre eksik ve hatalarını düzelt
+[00:10:20] diyorum ve tekrardan işlemlere başlıyor.
+[00:10:22] Ve bir saat 56 dakika boyunca sadece bu
+[00:10:24] hataları ayıklamak, düzeltmek için
+[00:10:26] çalışmış arkadaşlar. Diyorum ya 10
+[00:10:28] saatlik falan bir e işlemden
+[00:10:30] bahsediyoruz burada ki daha bence basic
+[00:10:32] aşamada bir şey yaptık ortaya çıktı.
+[00:10:34] Bence çok daha fazlası yapılabilir.
+[00:10:36] Böyle bir gününüzü, iki gününüzü
+[00:10:37] verdiğinizde belki muazzam bir şey
+[00:10:39] ortaya çıkabilir. Çünkü burada önemli
+[00:10:41] olan sizin vereceğiniz kaynaklar. Yani
+[00:10:43] birazdan zaten göreceksiniz. Asetler
+[00:10:45] için ayrı bir kaynak vereceğiz. İşte
+[00:10:47] kitaplar için ayrı bir kaynak vereceğiz.
+[00:10:48] Bunların hepsini verdikten sonra nereden
+[00:10:50] ne alacağını ne kadar iyi bilirse ona
+[00:10:52] göre sonuçlar daha güzel bir şekilde
+[00:10:54] ortaya çıkıyor. Şimdi o noktaya
+[00:10:55] geliyoruz ama eee fark etmenizi
+[00:10:57] istediğim bir şey var. Şimdi ne yaptık?
+[00:10:59] İlk önce Codex'te güzelce bir kodlattık.
+[00:11:01] Değil mi? Burada 1 saat 56 dakikalar, 21
+[00:11:03] dakikalar işte neler var mesela? Eee,
+[00:11:05] bir bakayım. 14 dakika boyunca
+[00:11:07] çalıştırmışız bir tane prompt için
+[00:11:09] mesela. Tamam. Burada dakikalarca,
+[00:11:11] saatlerce çalışan bir şeyden
+[00:11:12] bahsediyorum. bir saat 14 dakika boyunca
+[00:11:14] çalıştırmışız ve geldik daha sonra
+[00:11:16] eksikleri, hataları analiz etmesi için
+[00:11:18] gittik plot koda. Orada güzel bir
+[00:11:20] şekilde hataları analiz et dedik. O da
+[00:11:22] dakikalar boyunca çalıştı ve bana
+[00:11:24] sayfalarca bir MD oluşturdu. O MD'yi de
+[00:11:27] aldık. Tekrar buraya getirdik. Bakın
+[00:11:29] nerede hangi aracın uzmanlığı varsa
+[00:11:32] onları tek tek çalıştırıyoruz. Bunların
+[00:11:33] hepsini aslında tek bir yerde
+[00:11:34] çalıştırabiliriz. Mesela antigravity
+[00:11:36] içerisinde zaten bunların hepsini
+[00:11:37] çalıştırabiliyoruz ama bu çok büyük
+[00:11:38] boyutlu bir proje olduğu için ve
+[00:11:40] gerçekten verdiğim saatlere nazaran
+[00:11:43] verimlilik bakımından büyük bir şey
+[00:11:44] olduğu için büyük bir proje olarak
+[00:11:46] değerlendirilebileceği için burada tek
+[00:11:48] farklı araçlar içerisinde herkesin kendi
+[00:11:50] modelinde çalıştırmasını istedim bunu.
+[00:11:52] Ve bu şekilde yaptıktan sonra şunu
+[00:11:55] diyoruz. Tabi burada bazen çıldırmışım
+[00:11:57] vesaire. Abi bu ne ya vesaire bir şeyler
+[00:11:59] yazmışım. E şimdi size ekranda bir kod
+[00:12:02] daha vereceğim. Dediğim gibi bu kodların
+[00:12:04] daha doğrusu kod diyorum pardon prompt.
+[00:12:05] Eee bu promtların hepsi ereme yanılma
+[00:12:08] yoluyla saatlerce uğraşmam sonucunda
+[00:12:10] oluşturulmuş nihai prompt. O yüzden size
+[00:12:13] buradan bazen bağımsız olarak eee
+[00:12:16] promptları vermiş oluyorum. Size
+[00:12:18] ekrandaki promptü yazmanızı isteyeceğim
+[00:12:20] bu noktada. Birincisi böyle bir proje
+[00:12:22] için demişim. Gitup'tan bir yol
+[00:12:24] göstermişim. Proje yolu. Eee bu
+[00:12:27] adresteki gitub reposunu kullanıp bu
+[00:12:29] mobil uygulama projesine uyarlaman.
+[00:12:30] İkincisi de bu sefer Aset için bir Aset
+[00:12:33] mağazasından Set store'dan bir yol
+[00:12:35] vermişim, göstermişim. Oradan Aset
+[00:12:37] paketini indirmem ve projede kullanmam.
+[00:12:39] Bakın ben Aset Store'a gitmiyorum. Orada
+[00:12:41] herhangi bir şey indirmiyorum. Veya bu
+[00:12:43] arada bu şu anda Unity'de üretilen bir
+[00:12:45] proje ve Unity ile alakalı herhangi bir
+[00:12:48] şey yapmadım. İnanın bana Unity'nin
+[00:12:50] sayfasını bile açmadım. Zaten şu ana
+[00:12:52] kadar da herhangi bir manuel bağlamda
+[00:12:54] bir oyun geliştirme yetmişim yok. Evet,
+[00:12:57] yazılım projelerinde çok fazla bulundum
+[00:12:58] kurumsal hayattayken ama bu konuda bir
+[00:13:00] geçmişim yok. Sadece bir mantık kurdum
+[00:13:02] ve yaptığım araştırmalar sonucunda ki
+[00:13:04] zaten benim de bir tecrübem var
+[00:13:06] biliyorsunuz yapay zeka alanda. Bunun
+[00:13:08] gayet basit bir şekilde buradan aslında
+[00:13:10] şu anki geldiğimiz teknolojide
+[00:13:11] yapılabileceğini fark ettim ve şu an
+[00:13:12] size gösteriyorum. Hazır bir şekilde
+[00:13:14] gösteriyorum. Bu da sizin için bence
+[00:13:15] değerli bir video oluyor. Şimdi bunları
+[00:13:18] size bu yolları göstereyim. Nereden ne
+[00:13:20] alıyoruz? Şimdi şurayı şöyle
+[00:13:21] kopyalayayım. İlk başta bunu göstereyim
+[00:13:23] size. Bunları da bilmeniz gerekiyor.
+[00:13:25] Geldim. Şöyle git içerisinde. Tamam mı?
+[00:13:27] Şöyle bir proje varmış. Geldim bunu
+[00:13:29] buldum. Daha sonra buradan indirecek.
+[00:13:32] Ben yapmayacağım. Codex kendisi
+[00:13:33] indirecek. İndirdikten sonra bunu kendi
+[00:13:35] projeye etmesine daha doğrusu bizim
+[00:13:37] projemize entegre edecek. Sonrasında
+[00:13:39] gelecek e https ss store. Hemen şöyle
+[00:13:42] bakalım. Şurayı alalım. Gelecek aynı
+[00:13:45] şekilde şuradan şöyle bir şey var. Tamam
+[00:13:48] mı? Biz şimdi birebir aynı şeyi üretmek
+[00:13:50] istemiyoruz. Biraz daha farklı bir şey
+[00:13:52] olsun. Bir de SS Store'larda yani bu
+[00:13:55] sattıkları bu modellerin vesaire
+[00:13:56] satıldığı mağazalarda biraz daha bizim
+[00:13:59] olaya yakın bir şeyler olsun istedik ve
+[00:14:00] sonuçta karşımıza böyle bir şey çıktı.
+[00:14:02] Bunu gelecek indirecek zaten bu
+[00:14:03] ücretsiz. Eee, gitta da birçok repo
+[00:14:06] zaten ücretsiz ve sorunsuz olarak
+[00:14:07] inebiliyor biliyorsunuz. Gelecek bunu
+[00:14:09] indirecek buradan ve bizim projemize
+[00:14:12] entegre edecek. Evet, bakın şeyi de
+[00:14:14] buldum. Prompt'un olduğu yeri de buldum.
+[00:14:16] Eee, buradan bunu istemişim ve çalışmaya
+[00:14:18] başlamış. Ve son olarak da şu an ekranda
+[00:14:21] gördüğünüz prom'ta giriyorum. Diyorum ki
+[00:14:22] oyuna fizik kurallarını en doğru şekilde
+[00:14:24] uygula. Çünkü burada bazen tren falan
+[00:14:26] geçerken içinden geçebiliyor ve senin
+[00:14:28] canın azalmayabiliyor. Buradan
+[00:14:29] etkilenmeyebiliyorsun karakter olarak.
+[00:14:31] Bunların eee gerçekleşmesini istiyorum.
+[00:14:33] Fizik kurallarına uymasını istiyorum
+[00:14:35] oyunun. Ki bu eee zaten oyun
+[00:14:37] geliştirmede önemli bir şey. Fizik
+[00:14:38] kurallarının uygulanması. Sadece bunun
+[00:14:39] için zaten günlerce, aylarca çalışılan
+[00:14:42] projeler var. Daha fazlası da var hatta.
+[00:14:44] Neyse eee bunları uygula. Örneğin trene
+[00:14:47] çarpıldığında can azalsın. Burada bir
+[00:14:48] örnekleme vermeniz gerekiyor. Şu an
+[00:14:50] ürettiğiniz şey Subway Surfers tarzı bir
+[00:14:52] şey olmak zorunda değil. Muhtemelen de
+[00:14:53] zaten benimle aynı şeyi yapmayacaksınız.
+[00:14:55] Gideceksiniz bir Counter Strike falan
+[00:14:57] yapmaya çalışacaksınız. Olabilir,
+[00:14:58] yapılmaz diye bir şey yok. Yani bir
+[00:14:59] Counter Strike kadar olmasa da Counter
+[00:15:01] Strike benzeri neredeyse aynı fizik
+[00:15:03] kurallarına, motorlarına vesaire sahip
+[00:15:05] bir eee proje ortaya çıkarabilirsiniz.
+[00:15:08] Ve bunu zaten mobil uygulamada
+[00:15:09] gerçekleştirdiğinizde gayet yeterli bir
+[00:15:11] şey ortaya çıkacaktır diye düşünüyorum.
+[00:15:13] Çünkü mobil mağazalarda çok fazla detaya
+[00:15:15] gerek yok. İnsanlar bunu aramıyor. Yani
+[00:15:17] bir eee modern combat falan çıkarmaya
+[00:15:20] gerek yok. Evet, bunu yapıyorsunuz.
+[00:15:21] Örneğimizi de verdik. Bu arada oyun
+[00:15:23] login ve logoutları için menüye estetik
+[00:15:26] oyuna uygun ve doğru hale getir diyoruz.
+[00:15:28] Bunu da enterlıyoruz. Enterladıktan
+[00:15:30] sonra karşımıza şöyle bir oyun çıkıyor.
+[00:15:33] Oyunu göstermeden önce size şunu da
+[00:15:35] göstermek istiyorum. APK'sını falan da
+[00:15:36] verdi. Yani APK'sını incelersiniz.
+[00:15:38] İnceledikten sonra da şu noktayı
+[00:15:40] söyleyeyim. Siber güvenlik alanı vesaire
+[00:15:42] diyeceksiniz. Biliyorum. Siber güvenlik
+[00:15:44] alanında şu an en güvenebileceğiniz araç
+[00:15:47] diyeyim. Antigraviti üzerinden
+[00:15:49] gelirsiniz. Bu projenin tamamına
+[00:15:50] gelirsiniz. Şöyle yolunu, lokaldeki
+[00:15:52] yolunu şöyle alırsınız. Tamam mı? Şöyle
+[00:15:55] göstereyim. Hadi onu da size göstereyim.
+[00:15:57] Şurayı kapatalım. Agent modunda Gemini
+[00:15:59] 3.1 Hike çalıştıralım mesela. Tamam.
+[00:16:02] Şunun yolunu verirsiniz. verdikten sonra
+[00:16:04] dersiniz ki siber güvenlik anlamında
+[00:16:08] bütün testleri gerçekleştir ve bana buna
+[00:16:13] dair bir rapor oluşturup MD formatında
+[00:16:17] bana ver dersiniz. Bunu verdikten sonra
+[00:16:19] bu şekilde çalıştırdıktan sonra burada
+[00:16:21] size verilen MD'yi alırsınız. Tekrar
+[00:16:23] Codex'i iletirsiniz ve buraya
+[00:16:25] yapıştırırsınız. Yapıştırdıktan sonra da
+[00:16:28] dersiniz ki buna dair testleri, UMD'de
+[00:16:30] yer alan testleri yapmanı ve buna göre
+[00:16:32] projeyi revize etmeni istiyorum
+[00:16:33] dersiniz. Muhtemelen proje bir tık daha
+[00:16:35] bozulur ve tekrardan bir kodlama
+[00:16:37] yaptırırsınız. Olay nihayete erer. Şimdi
+[00:16:40] bakalım sonucumuz ne olmuş. Şimdi
+[00:16:42] bakalım. Bu benim daha önce yaptığım bir
+[00:16:43] şey olduğu için tekrardan projeyi
+[00:16:45] çalıştır demem gerekiyor. Bir aktif
+[00:16:46] etmem gerekiyor. Evet. Şimdi dikey
+[00:16:48] formatta normalde yatay formatta bunu
+[00:16:50] gösterdiği için bazı yerleri tabii
+[00:16:51] kaymış. Sorun yok. Bunu dikey dikey
+[00:16:54] formatta da oynayabilirsiniz. Şöyle abi
+[00:16:56] bir şey söyleyeyim [homurdanır] mi?
+[00:16:57] Zevkli biliyor musun? Böyle bak bir can
+[00:16:59] gitti. [kahkaha]
+[00:17:01] Arkadan da köpek kovalıyor. Bak burada
+[00:17:02] bir tane bir şey kazandık. Şu an
+[00:17:04] uçuyoruz vesaire. Abi güzel ya. Gayet
+[00:17:06] güzel yapmış yani. Başlangıç olarak
+[00:17:08] gayet iyi. Dediğim gibi üzerinde
+[00:17:09] uğraşsak çok daha güzel bir şey ortaya
+[00:17:11] çıkar. Ama bu şu an zor değil. A bir
+[00:17:13] canım daha gitti sizle konuşurken.
+[00:17:15] Bu videoda anlatacaklarım bu kadardı.
+[00:17:17] Umarım hoşunuza gitmiştir. Bir şeyler
+[00:17:19] katabilmişimdir sizlere. Videoyu buraya
+[00:17:20] kadar izlediyseniz abone olmayı ve
+[00:17:22] videoyu beğenmeyi unutmayın. Yorumlara
+[00:17:23] da yazın. Ne düşünüyorsunuz? Bu işin
+[00:17:25] sonu nereye varır? 6 ay sonra nereye
+[00:17:27] geleceğiz bu konuda? Bence şu anda eee
+[00:17:29] Vipe Gaming tarafı artık öne çıkmaya
+[00:17:31] başladı. Vip coding tarafı genel manada
+[00:17:33] şu an ilerliyor ama yavaş yavaş artık
+[00:17:35] trend Vipe Gaming'e doğru kayıyor. Belki
+[00:17:37] 6 ay sonra gerçekten GTA 5, GTA 6
+[00:17:39] seviyesinde olmasa da bir GTA San
+[00:17:41] Andreas tarzı şeyler artık onları
+[00:17:42] üretmek biraz daha kolay hale gelecek.
+[00:17:45] Ne düşünüyorsunuz yorumlara yazın.
+[00:17:46] Elimden geldiğince hepsine zaten cevap
+[00:17:48] vermeye çalışacağım. Kendinize iyi
+[00:17:49] bakın. görüşmek üzere.
