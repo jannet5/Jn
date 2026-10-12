@@ -57,6 +57,12 @@ pre.metin{white-space:pre-wrap;font:inherit;margin:0;background:var(--surface);b
 .sekme [aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .alt-satir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .hs{font-size:14px;color:var(--muted);flex:1;min-width:0}
+.secim{display:flex;flex-direction:column;gap:2px;margin-top:10px;padding:10px 12px;border:1px solid var(--ok);border-radius:8px;font-size:14px}
+.secim b{color:var(--ok);font-weight:500}
+.btn.buyuk{height:48px;padding:0 22px;font-size:15px}
+.kararlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;margin-top:12px}
+.kararlar div{border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:14px}
+.kararlar b{display:block;font-weight:800;font-stretch:112%;font-size:16px}
 .not{font-size:13px;color:var(--muted);margin-top:8px}
 details{margin-top:10px}
 summary{cursor:pointer;font-weight:500}
@@ -103,13 +109,25 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
     <div>
       <span class="eb">Vitrin Atölyesi · Instagram + Facebook</span>
       <h1 style="margin-top:8px">Sosyal kit: ilk 14 gün</h1>
-      <p class="mut">Hesap açılınca sırayla paylaş. Her gün: görseller, iki caption seçeneği, hashtag. Kopyala butonuna bas, Instagram'a yapıştır. Görseli kaydetmek için büyüt, basılı tut.</p>
+      <p class="mut">Hesap açılınca sırayla paylaş. Her gün: görseli kaydet, kırmızı butona bas, Instagram'a yapıştır. Hangi metnin kullanılacağını ben seçtim. Görseli kaydetmek için büyüt, basılı tut.</p>
     </div>
     <div class="say" id="sayilar"></div>
   </header>
   <nav aria-label="Bölümler">
-    <a href="#profil">Profil</a><a href="#izgara">Izgara</a><a href="#gunler">14 gün</a><a href="#reklam">Reklam</a><a href="#kampanya">Kampanya</a>
+    <a href="#kararlar">Seçimler</a><a href="#profil">Profil</a><a href="#izgara">Izgara</a><a href="#gunler">14 gün</a><a href="#reklam">Reklam</a><a href="#kampanya">Kampanya</a>
   </nav>
+
+  <section id="kararlar">
+    <div class="bas"><h2>Senin için seçtim</h2><span class="mut">Değiştirmek istersen söyle</span></div>
+    <div class="kararlar">
+      <div><span class="mut">Kullanıcı adı</span><b>@vitrinatolyesi</b>Doluysa @vitrin.atolyesi</div>
+      <div><span class="mut">Paylaşım saati</span><b>Her gün 20.30</b>Dükkân kapandı, sahibi telefonda</div>
+      <div><span class="mut">Caption</span><b>Her gün hazır seçili</b>Tek butona bas, yapıştır</div>
+      <div><span class="mut">Hashtag</span><b>Tek günler var, çiftler yok</b>2 haftada hangisi iyi, göreceğiz</div>
+      <div><span class="mut">İlk reklamlar</span><b>R5, R1, R3</b>En yüksek puanlı üçü</div>
+      <div><span class="mut">Bütçe</span><b>Günde 150 ₺, ilk hafta</b>Deneme kademesi, sonra karar</div>
+    </div>
+  </section>
 
   <section id="profil">
     <div class="bas"><h2>Profil kiti</h2><span class="mut">1. gün kur</span></div>
@@ -179,6 +197,21 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 
 <script>
 const V = /*VERI*/;
+// Caption seçimleri: daha güçlü hook'u olan seçildi. Tek günler hashtag'li, çift günler hashtag'siz (2 haftalık test).
+const SECIM = {
+  1: { c: 'B', neden: 'Soru ile açılıyor, okuyanı kendi işletmesini düşündürüyor.' },
+  3: { c: 'B', neden: 'Merak uyandırıyor, videoyu izletiyor.' },
+  4: { c: 'A', neden: '"Kaçı sizde var?" kaydetme ve yorum getirir.' },
+  5: { c: 'B', neden: '"Su kaçağı olan kişi yazı okumaz, arar." Kısa ve akılda kalır.' },
+  6: { c: 'A', neden: 'Görseldeki soruyla birebir aynı, net cevap.' },
+  7: { c: 'B', neden: 'Okuyana hemen yapacağı bir iş veriyor.' },
+  8: { c: 'B', neden: 'Komisyon, restoran sahibinin en hassas konusu.' },
+  9: { c: 'B', neden: '"Kaça kadar açıksınız?" her kafecinin günlük derdi.' },
+  10: { c: 'A', neden: 'Dürüstlüğü ilk cümlede söylüyor.' },
+  11: { c: 'B', neden: 'Fiyatı saklamayan ajans olarak ayrışıyoruz.' },
+  12: { c: 'A', neden: 'B gerçek süre sayacı ister; A risksiz.' },
+  13: { c: 'B', neden: 'Hemen kullanılabilir bir tarif veriyor.' },
+};
 const $ = s => document.querySelector(s);
 const el = (tag, attrs = {}, ...kids) => { const e = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'text') e.textContent = v; else if (k === 'class') e.className = v; else e.setAttribute(k, v); } kids.forEach(k => k && e.append(k)); return e; };
 const kopyalar = {};
@@ -226,17 +259,18 @@ V.gunler.forEach(g => {
   if (g.ornek) ust.append(el('span', { class: 'cip ornek', text: 'Örnek konsept' }));
   sag.append(ust, el('h3', { style: 'margin-top:6px', text: g.baslik }));
   if (g.not) sag.append(el('div', { class: 'not', text: g.not }));
-  let secili = 'A';
+  const sec = SECIM[g.gun]; let secili = sec.c; const etiketli = g.gun % 2 === 1;
+  sag.append(el('div', { class: 'secim' }, el('b', { text: `Seçtim: Caption ${sec.c}${etiketli ? ' + hashtag' : ', hashtag yok'}` }), el('span', { text: sec.neden })));
   const pre = el('pre', { class: 'metin', id: id + 'm' });
   const sekme = el('div', { class: 'sekme', role: 'tablist' });
   const ciz = () => { pre.textContent = g[secili].metin; sekme.querySelectorAll('[role=tab]').forEach(b => b.setAttribute('aria-selected', b.dataset.s === secili)); };
-  ['A', 'B'].forEach(s => { const b = el('button', { class: 'btn', role: 'tab', 'data-s': s, text: `Caption ${s} · ${g[s].tip}` }); b.onclick = () => { secili = s; ciz(); }; sekme.append(b); });
+  ['A', 'B'].forEach(s => { const b = el('button', { class: 'btn', role: 'tab', 'data-s': s, text: `${s}${s === sec.c ? ' (seçilen)' : ''} · ${g[s].tip}` }); b.onclick = () => { secili = s; ciz(); }; sekme.append(b); });
   sag.append(sekme, pre); ciz();
-  kopyalar[id + 'c'] = () => g[secili].metin; kopyalar[id + 'h'] = g.hashtag; kopyalar[id + 'ch'] = () => g[secili].metin + '\n\n' + g.hashtag;
+  kopyalar[id + 'k'] = () => g[secili].metin + (etiketli ? '\n\n' + g.hashtag : '');
+  kopyalar[id + 'h'] = g.hashtag;
   sag.append(el('div', { class: 'alt-satir' },
-    el('button', { class: 'btn ana', 'data-kopya': id + 'ch', text: 'Caption + hashtag kopyala' }),
-    el('button', { class: 'btn', 'data-kopya': id + 'c', text: 'Sadece caption' })));
-  sag.append(el('div', { class: 'alt-satir' }, el('span', { class: 'hs', text: g.hashtag }), el('button', { class: 'btn', 'data-kopya': id + 'h', text: 'Hashtag' })));
+    el('button', { class: 'btn ana buyuk', 'data-kopya': id + 'k', text: 'Kopyala, Instagram\'a yapıştır' })));
+  sag.append(el('div', { class: 'alt-satir' }, el('span', { class: 'hs', text: etiketli ? 'Hashtag metnin sonunda: ' + g.hashtag : 'Bugün hashtag yok (test: hashtag erişimi artırıyor mu?)' })));
   if (g.fb) sag.append(el('div', { class: 'not', text: 'Facebook: ' + g.fb }));
   $('#gunListe').append(el('article', { class: 'gun', id }, sol, sag));
 });

@@ -57,3 +57,12 @@ Gizlilik kuralı: kayıtta gerçek işletme adı, yorum, telefon görünmesin. H
 | 18-26 | Telefon önizlemesinde sayfa dolar, "Hemen ara" butonu görünür | 3. Telefonda kontrol | - |
 | 26-30 | Son hâl + logo | Sizinki için DM'den ÖRNEK | - |
 Sağ üstte gerçek kayıt süresi sayacı (gerçek değilse koyma).
+
+---
+
+## Seçimler (kullanıcı "sen seç" dedi, 2026-10-12)
+- Caption: 1B · 3B · 4A · 5B · 6A · 7B · 8B · 9B · 10A · 11B · 12A · 13B (daha güçlü hook; 12'de B gerçek süre sayacı istediği için A)
+- Hashtag: tek günler var, çift günler yok (2 haftalık erişim testi)
+- Kullanıcı adı @vitrinatolyesi (dolu ise @vitrin.atolyesi) · paylaşım saati her gün 20.30
+- İlk reklamlar R5, R1, R3 · bütçe ilk hafta günde 150 ₺ (Deneme kademesi)
+- Kart: claude.ai/artifact/GH6rTbv7pTWV2HqhiHwo62 (üretici `sablonlar/kart/`)
