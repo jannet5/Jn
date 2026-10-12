@@ -1,0 +1,446 @@
+# 
+# https://www.youtube.com/watch?v=wJyLGopw304
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:wJyLGopw304.tr.json3
+
+[00:00:00] hoş geldiniz. Bugün sizlerle birlikte
+[00:00:01] yapay zekayla bir web sitesi
+[00:00:03] oluşturacağız. Kullandığım yapay zekalar
+[00:00:04] bugün cloud [müzik] olacak. Bütün her
+[00:00:07] şeyi cloud üzerinden yapmayı
+[00:00:08] planlıyorum. Bu yüzden eğer cloud
+[00:00:09] hesabınız varsa bu video daha verimli
+[00:00:11] olur. Eğer yoksa da izlediğim yolları
+[00:00:13] izleyerek siz de diğer yapay zekaları
+[00:00:15] kullanarak oluşturabilirsiniz. [müzik]
+[00:00:16] Biraz uzun bir video olacak. Atlamanızı
+[00:00:18] önermiyorum. Pro ipucu olarak da şunu
+[00:00:20] söyleyebilirim. Videoyu 1,5x [müzik]
+[00:00:22] yaparak izleyebilirsiniz. Atlamamanızı
+[00:00:24] mutlaka öneriyorum. Bugün yapacağımız
+[00:00:25] yapay zeka web sitesinde aslında şunlara
+[00:00:27] dikkat edeceğiz. Bunları baştan
+[00:00:28] söylememde fayda var. Yapay zekanın
+[00:00:30] kendi yaptığı tasarımlardan uzak, daha
+[00:00:32] farklı ve modern tasarımlar nasıl
+[00:00:34] yapılır? Hosting domain nasıl bağlanır?
+[00:00:36] Hani insanlara hep şunu anlatıyorlar.
+[00:00:38] Web sitesi nasıl yapılır deyince [müzik]
+[00:00:40] sadece işin tasarım yapmak olduğunu
+[00:00:42] sanıyorlar. Ama aslında arka sunucu
+[00:00:44] ekleyebilme, [müzik] domain almak,
+[00:00:46] hosting almak ve bunları canlı bir hale
+[00:00:48] aslında getirmek konu. [müzik] Bunu
+[00:00:50] aslında anlatmaya çalışacağım bugün
+[00:00:52] sizlere. Kolay bir şekilde nasıl
+[00:00:53] yapılırı. Kim bu adam ne işe yarıyor
+[00:00:55] diyorsanız da ben Burak Çakır.
+[00:00:56] Instagram'da insanlara yapay zeka
+[00:00:58] öğretiyorum. Yapay zekada işlerini
+[00:00:59] kolaylaştırmasını sağlayacak olan bütün
+[00:01:01] hamleleri göstermeye çalışıyorum. Şimdi
+[00:01:03] konuya gelelim. Hem beni tanımış
+[00:01:04] olursunuz hem de yapay zekayla web
+[00:01:06] sitenizi nasıl oluşturursunuz? Gelin
+[00:01:07] beraber bakalım. Şimdi cloud'a giriş
+[00:01:09] yapıyoruz. Açılan sayfada çok basitle
+[00:01:11] anlatmam gerekirse [müzik] cloud ana
+[00:01:13] kısım karşımızda. Bugün terminalde
+[00:01:14] anlatmayacağım çünkü terminal birazcık
+[00:01:16] daha teknik işlere giriyor. Yani öyle
+[00:01:17] hissettiriyor en azından kullanıcılara.
+[00:01:19] Bugün normal herkesin dahil olup çok
+[00:01:22] basitçe bir linke tıklayarak
+[00:01:23] girebileceği sistemden anlatmaya
+[00:01:24] çalışacağım. Cloud'u açtıktan sonra
+[00:01:26] karşımıza gelen alanda e ister cowork
+[00:01:29] istersek chat olarak çalışabiliyoruz.
+[00:01:31] [müzik] Bugün en basitinden gitmek için
+[00:01:33] sadece chat olarak çalışacağım. Bu
+[00:01:35] videonun birkaç versiyonu da olacak.
+[00:01:37] Diğer videolarda ise daha teknik
+[00:01:38] bilgiler, daha zor kısımlarında daha iyi
+[00:01:40] işler nasıl çıkartılır [müzik] onları
+[00:01:42] anlatmaya çalışacağım. Şimdi bunun
+[00:01:43] öncesinde eklemem gereken bir tane
+[00:01:45] yetenek var. Onun için internete hemen
+[00:01:47] [müzik] UA, UX, Promx ve Gitub
+[00:01:49] yazıyorum.
+[00:01:51] Çıkan sayfada bu linke [müzik]
+[00:01:52] tıklıyoruz. En üst sayfada zaten genelde
+[00:01:54] bu çıkıyor. Açılan sayfada normalde
+[00:01:57] cloud terminal [müzik]
+[00:01:58] kullandığınızda aşağıya kaydırdığımızda
+[00:02:00] buradaki eee using cloud marketplace
+[00:02:03] kısmındaki şuradaki kodu kopyalayıp
+[00:02:05] terminale yapıştırmamız aslında yetiyor.
+[00:02:07] Ama bugün herkesin çok daha rahat
+[00:02:09] yapabilmesi için bunu sürekli dile
+[00:02:11] getiriyorum. Çünkü çoğu eğitimlerde
+[00:02:13] karşı tarafın bildiği varsayılarak
+[00:02:15] işlemler yapılıyor. [müzik] Ben bu
+[00:02:16] tarafta değilim. Ben hiç bilmeyen
+[00:02:18] birisine göre anlatmak istiyorum
+[00:02:19] aslında. Yukarıda yeşil butonda kod
+[00:02:22] kelimesine basıyoruz. Burada do not dip
+[00:02:24] diyor. [müzik] Buna tıklayıp indirmesini
+[00:02:26] bekliyoruz. Şimdi bu indirdiğimiz
+[00:02:28] dosyayı cloud'da aslında cloud kod
+[00:02:30] versiyonunda kullanabiliyoruz ama biz şu
+[00:02:32] anlık o kadar teknik dataya
+[00:02:34] girmeyeceğimiz için normal cloud
+[00:02:36] sohbetinde nasıl tricklerle bunu
+[00:02:38] kullanabiliriz? Gelin sizlere
+[00:02:39] göstereyim. indirdiğimiz zip dosyasını
+[00:02:41] alıp buraya sürüklüyorum. Aslında bu bir
+[00:02:43] yetenek ama cloud o kadar akıllı ki bunu
+[00:02:46] zip dosyasına ayıklayıp sizlere ne
+[00:02:48] istediğini anlıyor ve aslında bir yandan
+[00:02:50] da öğrenmeye devam ediyor. Şimdi [müzik]
+[00:02:51] bunu yükledik. Bu zip aslında bizim şunu
+[00:02:53] temsil ediyor. Ben yapay zekada normal
+[00:02:56] bir tasarım değil abi. Bu UA UX Pro Max
+[00:03:00] yeteneğinin verdiği bilgilere ve
+[00:03:02] şartlara göre bir tasarım istiyorum
+[00:03:04] demek. Bu da zaten içerisindeki modern
+[00:03:06] olan tasarımların diline hitap ediyor.
+[00:03:09] Şimdi bunu da %100 okeiz. Şimdi gelelim
+[00:03:10] prompt yazma kısmına. Hangisi diye baz
+[00:03:12] alalım? Mesela bir tane makarna
+[00:03:14] işletmesi var. İşletmenin bir tane web
+[00:03:16] sitesine ihtiyacı var ama makarna ile
+[00:03:18] ilgili teknik bilgilerden de bahsediyor.
+[00:03:20] O yüzden blog sayfası falan da olsun.
+[00:03:22] Uzun bir detay yazalım. Ben en sonunda
+[00:03:24] sizlere yazdığım promtu hem açıklama
+[00:03:26] kısmına bırakacağım hem de ekrana esas
+[00:03:28] olarak bırakacağım. [müzik] Başlıyorum
+[00:03:29] yazmaya.
+[00:03:31] Şimdi ben buraya basit bir prompt
+[00:03:33] yazdım. Bunun haricinde internetten bir
+[00:03:35] tane tema seçmemiz lazım. Temadan kastım
+[00:03:38] renk paleti aslında. Bunun için de color
+[00:03:41] palet [müzik] web site yazıyoruz.
+[00:03:43] Website yazıyoruz. Buraya bu isteği
+[00:03:46] zaten açıklamaya ekleyeceğim. Buradan
+[00:03:48] renk paletleri beğenebiliyoruz. [müzik]
+[00:03:50] Hemen bir tane bulalım. Start the
+[00:03:52] generator diyelim. Buradan zaten bizlere
+[00:03:55] her boşluk tuşuna bastığımızda farklı
+[00:03:57] bir renk teması veriyor. Hatta ben bunu
+[00:03:59] direkt beğendim. Bunu nasıl yapıyoruz?
+[00:04:01] Export diyoruz.
+[00:04:03] >> [müzik]
+[00:04:04] >> İster PDF isterseniz image olarak
+[00:04:05] indirebilirsiniz. Genelde image olarak
+[00:04:07] iyidir. Makarna yazıyorum. Export dedim.
+[00:04:12] Şimdi izin ver diyorum. Dosyayı
+[00:04:13] indiriyor. Bunu da alıp cloud'un
+[00:04:15] içerisine renk teması olarak ekledim.
+[00:04:16] Şimdi aşağıya da bir de bundan
+[00:04:18] bahsedeceğim.
+[00:04:19] Sio ve Gio açısından.
+[00:04:23] Gio yapay zekanın SEO versiyonudur. Yani
+[00:04:25] Google'da aramalarda ön plana çıkmak
+[00:04:27] istiyorsanız eğer SEO'yu arttırırsınız.
+[00:04:29] Yapay zeka aramalarında yeni terim
+[00:04:30] olarak GI da yapay zeka aramalarının ön
+[00:04:33] plana çıkmanızı sağlayacak olan terimdir
+[00:04:35] aslında. Şimdi promptumuz hazır. Bunu
+[00:04:37] istersek cowork olarak verebiliriz.
+[00:04:39] İstersek de normal chat olarak
+[00:04:41] verebiliriz. Yine [müzik] basitten
+[00:04:42] gideceğim ki bunun ne kadar basit bir
+[00:04:45] şey olduğunu basitten de yaptığımızda
+[00:04:47] anlamanızı sağlamak istiyorum. Chaten
+[00:04:49] devam ediyoruz. Yeteneğimizi yükledik.
+[00:04:52] Renk paletimizi yükledik. Varsa eğer
+[00:04:54] logonuzu da yükleyebilirsiniz. Bu
+[00:04:56] promptu tam diğer kendi sektörlerinize
+[00:04:59] özel olarak da değiştirebilirsiniz.
+[00:05:02] Şimdi buradan Opus 4.8
+[00:05:05] isterseniz yeni çıkmış olan Sonet 5 ya
+[00:05:08] da Fable 5 yapabilirsiniz.
+[00:05:10] Hatta Fable 5'ten mi yapsak? [müzik] Bu
+[00:05:12] çok meşhur oldu bu aralar.
+[00:05:15] Fable 5'ten yapalım. Hatta Efor'u da
+[00:05:17] yüksek yaptım. Başlatalım bakalım nasıl
+[00:05:20] bir tasarım bizleri bekliyor. Aa şunu
+[00:05:23] unuttum. Hemen durdurdum. Bu şekilde
+[00:05:25] durdurarak şuradaki kaleme basarak
+[00:05:28] promptu değiştirebilirsiniz. [müzik]
+[00:05:29] Bu tasarımı şu anlık HTML CSS [müzik]
+[00:05:34] olarak
+[00:05:36] üretmen yeterli. Şu an bize HTML CSS
+[00:05:39] gayet yeterli. İlerleyen zamanlarda
+[00:05:41] zaten bu kod dilini diğer yapay
+[00:05:42] zekalarda PHP'ye çevirebiliriz.
+[00:05:44] Tekrardan save diyorum ve komuta kaldığı
+[00:05:46] yerden devam [müzik] ediyor. Şimdi bu
+[00:05:49] burada devam ede dursun. Biz de hosting
+[00:05:51] ve domain işlerimizi ayarlayalım. Ben
+[00:05:53] hostinger kullanıyorum. Az daha reklam
+[00:05:55] değildir. Kendim yıllarca buradan
+[00:05:57] kullandım. Şu anki web sitelerimin çoğu
+[00:05:58] da zaten burada. Hostinger.com'a
+[00:06:01] giriyoruz. Profil oluşturuyorsunuz. Ben
+[00:06:03] direkt olan girişimi yapacağım. Direkt
+[00:06:05] Google'a giriş yapıyorum. Mailimi açtım.
+[00:06:08] Karşıma zaten kullandığım web sitelerim
+[00:06:10] gelecektir. Şimdi şimdi sıfırdan domain
+[00:06:12] almak yerine olanları göstereceğim.
+[00:06:14] Almak da çok basit. Nasıl alacağınızı da
+[00:06:16] hemen şimdi gösteriyorum. Site
+[00:06:18] açıldığında Türkçe değilse eğer buradan
+[00:06:20] Türkçe yapın. Önce açılan sayfada sol
+[00:06:22] tarafta domainler dediğimiz bir kısım
+[00:06:24] var. Benim burada kendi domainlerim var.
+[00:06:27] Hepsi etkin bağlısı değil. Buradan
+[00:06:29] öncelikle size bir isim almamız lazım.
+[00:06:32] Yeni alan adı satın al diyoruz. Buraya
+[00:06:34] geliyoruz. [müzik]
+[00:06:35] Örnek geliyor. Makarna
+[00:06:37] sitesi
+[00:06:39] burada diye domain aratıyorum. Ne dedi?
+[00:06:43] Makarna sitesib burada.com [müzik]
+[00:06:45] yıllık 9 10 pardon. Yani siz 10 T'ye
+[00:06:49] vererek isterseniz.com online gibi bir
+[00:06:52] sürü altlı domainler var mesela buradan
+[00:06:53] [homurdanır] ben.com'u sepete ekleyip
+[00:06:56] satın aldığımda domainler kısmına
+[00:06:59] geliyor burası. Şunun şu an makarna
+[00:07:02] burada.com sitesi gibi olduğunu
+[00:07:04] varsayalım. Şimdi bu bizim iskeletimiz
+[00:07:06] yani dış e dış görüntümüz. Bu sırada bir
+[00:07:09] cloud'a bakalım. Bizden bir şey istiyor
+[00:07:10] [müzik] mu? Şu an hiçbir şey istemiyor.
+[00:07:12] Güzel. Bazen normalde sorular soruyor.
+[00:07:14] Bunu ister misin, bunu ister misin diye.
+[00:07:15] Ara ara [müzik] kontrol edin. E hosting
+[00:07:17] almamız lazım. Diğer hizmetler kısmına
+[00:07:19] geliyoruz. Hosting ve VPS kısmı var.
+[00:07:22] Bende premium web hosting var. Buradan
+[00:07:24] şunu seçmiştim. Aylık 100 lira gayet
+[00:07:26] yetiyor. Bunu direkt siz de
+[00:07:27] alabilirsiniz. Bunu da alıyoruz. Planı
+[00:07:30] seç diyorum mesela. Ödemesini buradan
+[00:07:32] yaptıktan sonra ister yıllık ister
+[00:07:34] bütçenize bağlı bir şey. Ödeme
+[00:07:35] tamamlanıyor. Ondan sonra web siteleri
+[00:07:37] kısmına geliyorsunuz. Buradan yeni bir
+[00:07:39] domain aldığınızda zaten sizlere diyor
+[00:07:41] ki [müzik] bunu bağlamak ister misin
+[00:07:43] diyor hostingine siz de zaten
+[00:07:45] istiyorsunuz. E tabii ki direkt bağla
+[00:07:47] diyorsunuz [müzik] size aşağıdan
+[00:07:49] soracaktır. HTML CSS olarak mı devam
+[00:07:51] edilsin? Evet diyorsunuz ve bitti. Şu an
+[00:07:54] için artık benimle aynı seviyeye gelmiş
+[00:07:57] oldunuz. Webeleri kısmına bastığınızda
+[00:07:59] bu panel açılacak. Buradan domainizin
+[00:08:01] içerisinde kontrol paneli var. Burası
+[00:08:04] buna tıklıyoruz. Açılan sayfada
+[00:08:07] burada dosya yöneticisi diyor. Buna
+[00:08:10] tıklıyoruz [müzik]
+[00:08:13] ve bizi 3üncü bir sayfaya yönlendirecek.
+[00:08:15] Bazen böyle engelleyebiliyor.
+[00:08:17] Bastığınızda tekrar açılıyor. Artık şu
+[00:08:18] an sonucunu kontrol paneliniz FTP panel
+[00:08:20] diyorlar buna. Public HTML diye bir tane
+[00:08:23] klasörümüz var. Bu bizim ana klasörümüz.
+[00:08:25] Bunun içerisine giriyoruz. İki tane
+[00:08:27] zaten dosyamız var. [müzik]
+[00:08:29] Bu ister tek olabilir ister 3 olabilir.
+[00:08:31] Bu cloud'un vereceği dosya yapısına
+[00:08:33] bağlı. Ama biz HTML CSS olarak
+[00:08:35] istediğimiz için bizlere zaten tek
+[00:08:37] başına bu yetecek. Şimdi sizde bu
+[00:08:39] olmayacak. New file dedim. Makarna.html
+[00:08:42] dedim. [müzik] Direkt index html'in
+[00:08:43] olduğu yere makarna.
+[00:08:46] Bunu kullanabiliriz. İçine giriyoruz ve
+[00:08:48] [müzik] kodu yapıştırıyoruz.
+[00:08:50] Tamam. Cloud şu an çok farklı [müzik]
+[00:08:53] bir tasarımla bize geldi. Şimdi bunu hiç
+[00:08:57] buradan bakmıyorum. Ne demiş? Paleti
+[00:09:00] uydurdum demiş. SC G olarak. Tamam. Her
+[00:09:03] şey süper. Şimdi buna hiç buradan
+[00:09:04] bakmıyoruz. Direkt kopyalıyoruz.
+[00:09:07] İsterseniz buradan HM olarak
+[00:09:08] indirebilirsiniz ama kopyalayalım. Az
+[00:09:11] önce makarna HTM olarak açtığımız yere
+[00:09:13] giriyoruz. Yapıştırıyorum.
+[00:09:16] Kaydet diyorum. [müzik] Şimdi sitemiz
+[00:09:18] neydi bizim? Bir daha bakalım. Yapay
+[00:09:20] zeka. E makarna. Makarna site budur
+[00:09:23] falandı ya. Öyle almıştık domaini.
+[00:09:25] [müzik]
+[00:09:25] Ama ben burada şu anki benim e domainim
+[00:09:28] bu olduğu için buraya web siteniz sadece
+[00:09:31] makarna HTML yazdığımda ve sitemiz artık
+[00:09:34] karşımızda makarnanın yeşil hali diye e
+[00:09:37] farklı bir tasarım yapmış. Mesela burada
+[00:09:39] penei üç boyutlu olarak yapmış. Burguyu
+[00:09:41] üç boyutlu olarak yapmış. Spaghettiyi
+[00:09:43] belli etmiş. Üstelik kontrol de
+[00:09:45] edebiliyoruz. [müzik] Mükemmel yapmış
+[00:09:48] burada makarnalarımızı. Mesela başka
+[00:09:50] neler yapmış? [homurdanır]
+[00:09:52] 3te incele diyorsun. tekrardan buraya
+[00:09:54] yönlendiriyor seni. Her sos'la ilgili
+[00:09:57] bilgi vermiş. Çok çok klass [müzik]
+[00:10:00] yapmış siteyi ya. Ben çok beğendim.
+[00:10:02] Burada da yazılar dediğimiz kısım var.
+[00:10:04] Blog yapmış. Oku deyince bir yere tabii
+[00:10:06] gitmeyecek [müzik] şu an. Çünkü o kısım
+[00:10:07] eksik. Sıkça sorulan sorular yapmış,
+[00:10:09] cevaplarını vermiş ve siteyi bu şekilde
+[00:10:12] bitirmiş. [müzik]
+[00:10:14] Üç boyutlu olarak yapması çok güzel, çok
+[00:10:16] kreatif.
+[00:10:18] Şimdi iselim bir de mobil versiyonuna
+[00:10:19] bakalım. Bunun için genelde ben Chrome
+[00:10:22] kullanıyorum. Google Chrome'u açıyoruz.
+[00:10:25] Açılan sayfada siteyi yapıştırıyorum.
+[00:10:28] [müzik] Çift tıklıyorum. İncele diyorum.
+[00:10:31] Buradan telefon modeli dahi birisini
+[00:10:33] seçebiliyoruz. 14 Pro Max diyeyim.
+[00:10:35] Sayfayı bir yeniliyorum. Mobilde de
+[00:10:37] gayet uyumlu duruyor. Üstelik üç boyutlu
+[00:10:40] versiyonu burada da kontrol
+[00:10:41] edebiliyoruz. Şu an baktığınızda [müzik]
+[00:10:44] sizin siteniz hazır. Şimdi burada
+[00:10:46] revizeler verebilirsiniz. Mesela RPI'i
+[00:10:49] [müzik]
+[00:10:49] daha üst bir aşamaya geçmeden, web
+[00:10:52] sitenizi admin paneline bağlamadan
+[00:10:55] sadece bu şekilde kullanmak istiyorsanız
+[00:10:57] da sitenizde şunları kaldırmanız lazım.
+[00:11:00] Örneğin abone ol butonu kısmını
+[00:11:01] kaldırıyorsunuz. Hemen cloud'a bunu
+[00:11:03] yazabilirsiniz. Örnek veriyorum
+[00:11:05] revizeler diyorum.
+[00:11:08] Abone ol kısmını kaldır. Bloglardaki oku
+[00:11:11] kısmını kaldırabilirsiniz. Çünkü şu an
+[00:11:13] bunlar boş olarak geçiyor.
+[00:11:18] Bloklarda
+[00:11:20] oku kısmını kaldır. [müzik] Kısaca özet
+[00:11:22] bırak.
+[00:11:25] Zaten diğer tüm revizeleri de yine
+[00:11:27] konuşarak vereceksiniz. Örneğin logo
+[00:11:29] linkiniz var. Logonuzun linkini buraya
+[00:11:31] yazarak tasarımdaki logo kısmını benim
+[00:11:33] sana ilettiğim [müzik] logo linkiyle
+[00:11:35] değiştir diyebilirsiniz. Renk temasını
+[00:11:37] beğenmediyseniz buradan farklı temaların
+[00:11:40] esesini alıp atıp bunun renk temasını bu
+[00:11:43] şekilde [müzik] değiştir diyebilirsiniz.
+[00:11:46] Fontu beğenmediyseniz font
+[00:11:48] değiştirebilirsiniz.
+[00:11:49] Şimdi bunun haricinde diyelim siz her
+[00:11:52] şeyi tek bir sayfada istemiyorsunuz.
+[00:11:54] Şöyle bir güzellik yapabiliriz. Örnek
+[00:11:56] veriyorum hikayemiz kısmına bastığınızda
+[00:11:58] aşağıya böyle inmesin [müzik] de farklı
+[00:12:00] bir sayfa açılsın istiyorsunuz. Onu da
+[00:12:03] şöyle yapıyoruz. Gelin göstereyim.
+[00:12:07] Tasarım ve her şey çok güzel. Şimdi
+[00:12:10] ikinci bir sayfa yapacağız.
+[00:12:14] [müzik]
+[00:12:14] Temaya bağlı kal
+[00:12:17] ve hikayemiz kısmını
+[00:12:21] farklı bir [müzik] linkte farklı bir
+[00:12:24] sayfa olarak göstereceğim.
+[00:12:28] Buna göre
+[00:12:31] temaya bağlı kalarak yine diyorum
+[00:12:34] sayfanın tasarımını yap.
+[00:12:36] Şimdi ben bu komutu verdim. Şimdi bana
+[00:12:38] şunu verecek. [müzik] Artık hikayemiz
+[00:12:40] kısmına bastığımızda aşağıya inip
+[00:12:42] bizlere hikayemiz kısmını göstermek
+[00:12:44] yerine bizi farklı bir sayfaya atacak.
+[00:12:46] Bunu da şöyle yapacağız. Geri geliyorum.
+[00:12:49] Şu an Hostinger'dayım. Bu kısma
+[00:12:51] makarna.html yazdık ya buraya yeni bir
+[00:12:53] sayfa açacağız. diyeceğiz [müzik] ki
+[00:12:56] sayfanın adına hikayemiz.
+[00:12:59] HTML
+[00:13:01] create dedim. Şimdi bize birazdan
+[00:13:04] vereceği kodu şu an oluşturuyor. Bu kodu
+[00:13:06] alıp buraya yapıştıracağız.
+[00:13:08] websiteniz.com/hikayemiz.
+[00:13:13] İlk tasarımımız olan makna.
+[00:13:17] Komut f yaparak hikayemiz [müzik]
+[00:13:19] kısmını buluyoruz. Burada fark
+[00:13:21] ettiyseniz hashtag hikaye diye bir kısım
+[00:13:24] var. Bu araft dediğimiz kısım butona
+[00:13:28] link veren kısım. Bu [müzik] hash hikaye
+[00:13:30] dediğimiz kısma o linki yapıştıracağız.
+[00:13:32] Şimdi olduktan sonra göstereceğim. Artık
+[00:13:34] hikayemiz butonuna basıldığında o
+[00:13:36] sayfaya gitmiş olacak. Evet şimdi
+[00:13:38] kodlamayı yaptı. Burada zaten hikayemiz
+[00:13:40] diye bir kod HTML kısmı var. Buna
+[00:13:42] tıklıyoruz.
+[00:13:45] Kod kısmına giriyoruz. Kopyalıyorum.
+[00:13:48] Geri geliyorum. hikayemiz. HTML diye bir
+[00:13:50] kısım açmıştık ya. Buna girip
+[00:13:52] yapıştırıyorum. Kaydediyorum. [müzik]
+[00:13:54] Şimdi sadece sayfayı kontrol etmek için
+[00:13:57] buraya
+[00:13:59] hikayemiz
+[00:14:01] noht html yapıyorum. Enterlıyorum.
+[00:14:04] Tamam. Çok da güzel yapmış. Aşama aşama.
+[00:14:07] Bütün versiyonu ayarlamış.
+[00:14:11] Süremiz [müzik]
+[00:14:12] vesaire. Burayı zaten kendinize göre çok
+[00:14:14] rahat ayarlarsınız. Şimdi burayı
+[00:14:15] kopyaladım. Tamam mı? Geri geldim.
+[00:14:18] makarna.html'e giriş yaptım. Com f
+[00:14:22] hikayemiz dedim. Link kısmına
+[00:14:25] bahsettiğim gibi link yapıştırdım.
+[00:14:28] Kaydet dedim. Şimdi geri geliyorum.
+[00:14:32] Makarna sayfamızdayız şu an. Artık
+[00:14:33] hikayemiz butonuna bastığımızda bizi
+[00:14:36] hikayemiz sayfasına atıyor [müzik] fark
+[00:14:38] ettiyseniz. Şimdi buradaki bütün
+[00:14:39] linkleri isterseniz bu şekilde
+[00:14:41] yapabilirsiniz. Admin paneline gerek
+[00:14:43] kalmadan bu şekilde çok rahat
+[00:14:44] yapabilirsiniz. sizin çok rahat işinizi
+[00:14:46] görecektir. Diğer ürünler 3D, vitrin,
+[00:14:50] günlük, [müzik] SS gibi diğer linkleri
+[00:14:51] de isterseniz direkt ana sayfaya
+[00:14:53] yönlendirin. İsterseniz [müzik] de boş
+[00:14:55] bırakabilirsiniz. Ama mutlaka logoyu ana
+[00:14:58] sayfaya yönlendirin. İnsanlar geri
+[00:15:00] gelmek istediğinde oraya genelde
+[00:15:01] basarlar. Bu şekilde şu an makarna web
+[00:15:04] sitemiz hazır. Umarım bu video işinize
+[00:15:06] yaramıştır ve artık web site yapabilmeyi
+[00:15:08] yapay zekaile birlikte biliyorsunuzdur.
+[00:15:11] Şu an bu öğrettiğim kadarıyla inanın
+[00:15:13] bana herkes yapay zekayla oldukça
+[00:15:16] kreatif ve güzel bir şekilde web site
+[00:15:18] oluşturabilir. Buna ben inanıyorum. Yani
+[00:15:20] ben şu an gözünüzün önünde yaptım ve
+[00:15:22] hatalarla birlikte yaptım. Hiçbir yeri
+[00:15:23] bilerek kırpmadım. Siz de eğer buna
+[00:15:25] güveniyorsanız ve kendinizi
+[00:15:26] güveniyorsanız mutlaka bu videodan sonra
+[00:15:28] bir gidin deneyin. Domain almasanız bile
+[00:15:31] farklı yöntemlerle, ücretsiz
+[00:15:32] versiyonlarla bunu deneyebilirsiniz. Tek
+[00:15:34] kullandığım yapay zeka cloud oldu. Başka
+[00:15:36] hiçbir yapay zeka kullanmadım. Bir
+[00:15:38] sonraki [müzik] videoda bu tasarımı
+[00:15:40] birebir olarak hiçbir şey aksatmadan ve
+[00:15:41] kırpmadan panel haline getirmeyi Raplit
+[00:15:44] yapay zekasında öğreteceğim. Mutlaka bu
+[00:15:47] videodan sonra onu eğer beklerseniz
+[00:15:49] Rapit nedir araştırabilirsiniz. Açıklama
+[00:15:51] kısmına zaten linki de bıraktım. Bir
+[00:15:53] sonraki videoda ve eğitimlerde görüşmek
+[00:15:55] üzere. YouTube kanalıma abone olmayı ve
+[00:15:57] Instagram hesabında beni takip etmeyi
+[00:15:58] unutmayın. Şimdiden görüşmek üzere.
+[00:16:00] Hoşça kalın.
