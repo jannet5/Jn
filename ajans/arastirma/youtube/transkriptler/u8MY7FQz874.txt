@@ -1,0 +1,495 @@
+# 
+# https://www.youtube.com/watch?v=u8MY7FQz874
+# kanal:  | süre:  sn | kaynak: yt-dlp:mweb+pot:u8MY7FQz874.tr.json3
+
+[00:00:00] Selamlar herkese. Bugün Cemini ile
+[00:00:02] yaptığımız pomodoro sayıcı uygulamasını
+[00:00:04] geliştireceğiz. [müzik]
+[00:00:05] Geliştirirken cloud kodu kullanacağız.
+[00:00:07] Şu an en iyi kod yazan yapay
+[00:00:09] zekalılardan biri veya en iyisi. Bugün
+[00:00:11] Pomodoro yerine yani Pomodoro kalacak.
+[00:00:13] Kronometre ekleyeceğiz. Kullanıcılar
+[00:00:15] kronometrede açarak ne kadar süre
+[00:00:17] çalıştığını görebilecek. Aynı şekilde
+[00:00:19] aktivitelerde de gözükecek ve gözümüze
+[00:00:22] kötü gelen bazı gerekli yerleri de
+[00:00:24] değiştireceğiz. Şimdi başlayalım.
+[00:00:26] Öncelikle [müzik] cloud'a geldik ve Ctrl
+[00:00:29] G yaparak not defterini açtım. İlk
+[00:00:31] değiştireceğim işlemden başlıyorum.
+[00:00:33] Diyeceğim [müzik] ki uygulamamda şu an
+[00:00:35] pomodora sayıcı var. Ek olarak ayrı bir
+[00:00:38] kategori yani seçenek olsun bu bottom. O
+[00:00:42] da kronometreyi hesaplasın. Aynı [müzik]
+[00:00:43] tasarımda olacak. Ayrıca bunu yaparken
+[00:00:46] Cemini ile yapmıştık. Şimdi cloud'la
+[00:00:48] yapacağız. Cloud'un ne kadar iyi
+[00:00:50] olduğunu görmüş olacaksınız. Geldim ve
+[00:00:52] kronometre ekle diyeceğim. Şimdi yapması
+[00:00:54] gereken şeyleri yazdım ilk olarak.
+[00:00:56] kronometre için bir ekran oluşturacak ve
+[00:00:58] bottom burada bir tane daha seçenek
+[00:01:00] [müzik] ekleyecek. Bu ikisinin arasında
+[00:01:02] olacak. Ayrıca kronometre başlığı falan
+[00:01:05] olacak dedim. Sıralama olarak da burada
+[00:01:06] olacak. Ve bu ekranın nasıl olacağını da
+[00:01:08] söylemem gerekiyor. Şimdi yazacağım ve
+[00:01:10] kronometre ekranından bahsettim. Bir de
+[00:01:12] geçenki bu uygulamayı yaptığımız videoda
+[00:01:15] sıfırla butonuna basınca uyarı çıkması
+[00:01:17] gerekiyordu. Bakın çıkmadı onu
+[00:01:18] söyleyeceğim. Dedim ki sıfırla butonuna
+[00:01:20] basınca bottom [müzik] sheet çıksın.
+[00:01:22] Aşağıdan açılacak bir tane pencere.
+[00:01:24] Orada onay vermeleri istenecek dedim.
+[00:01:27] Evete basarsa sıfırlanacak mesela. Daha
+[00:01:29] sonra bu zamanlama ayarları sayfasında
+[00:01:32] şu an manuel olarak süre
+[00:01:34] belirleyebiliyoruz.
+[00:01:36] Biz bunu elle de seçebilelim
+[00:01:37] isteyeceğim. Dakikaları söyledim.
+[00:01:40] Örneğin 25 45 60 tarzında süreler olacak
+[00:01:43] burada. Biz onlara basarak hızlı bir
+[00:01:45] şekilde değiştireceğiz. İsteğe bağlı
+[00:01:47] elle değiştirebileceğiz burada. Daha
+[00:01:49] sonra tema sayfasına yüksek kontrat
+[00:01:52] teması ekleyeceğiz. Bu koyuları tam koy
+[00:01:55] yapması için olacak. Şu tarz gelip
+[00:01:58] yazayım. Şimdi söyledim. Uygulama
+[00:02:00] gelininde tüm arka plan siyah olacak
+[00:02:02] dedim. Bu koy modda yüksek konsolat
+[00:02:06] açırken öyle olacak dedim. Daha sonra bu
+[00:02:09] [müzik] ayarlardaki geçmiş temizle
+[00:02:11] butonuna basınca uyarı penceresi değil
+[00:02:13] de alttan açılır bir şey çıkmasını
+[00:02:15] [müzik] isteyeceğim.
+[00:02:17] İkinci söylediğimizdeki gibi yani
+[00:02:19] sıfırla butonu gibi aynı bir şekilde
+[00:02:22] bottom sheet çıkacak burada. basınca onu
+[00:02:25] da yaptık. Hakkında sayfasına lisanslar
+[00:02:28] ekleyelim. Uygulama logosu yer alsın. Şu
+[00:02:30] an yok ama ilerleyen günlerde ilerleyen
+[00:02:33] videolarda olacak. Bu versiyon
+[00:02:35] muhtemelen sabit bir versiyon. Bunu
+[00:02:38] dinamik yapalım. Bir bakalım. Geldim
+[00:02:40] hakkında sayfasına versiyonlar attığımda
+[00:02:42] burada sabit gözüküyor ama bizim
+[00:02:45] versiyonumuz burada belki değişecek.
+[00:02:47] Mesela 1.02 olacak ama gene burada 1.0
+[00:02:50] gözükecek. Bunu dinamik yapalım.
+[00:02:53] İsteklerimi yazdım. Bu hakkında
+[00:02:55] sayfasındaki versiyon dinamik olacak
+[00:02:56] [müzik] dedim. Elle yazmayalım dedim.
+[00:02:58] Bir paket yardımıyla bunun uygulamanın
+[00:03:01] versiyonu kontrol etsin. Direkt
+[00:03:02] göstersin dedim ve aşağıda olsun dedim.
+[00:03:04] Bu Cem'in yazısını da sildim. Metni
+[00:03:07] sildirdim. Logo da yer alacak şu an. E
+[00:03:10] basit bir logo olacak Flatun'. Daha
+[00:03:12] sonra da Lout bakımından daha kullanıcı
+[00:03:15] dostlu bir ekran olsun. Yani daha tatlı
+[00:03:17] bir ekran olsun dedim. Ayrıca bu pomodor
+[00:03:20] ekranında şu taraf boş. Onu da
+[00:03:22] söyleyeceğim. Buradaki boşluğu sil
+[00:03:24] dedim. Akbar ve bu pomodoro
+[00:03:26] seçeneklerinin üstünde olan boşluğu.
+[00:03:28] Daha sonra bu kronometre eklettirdik ama
+[00:03:31] aktivitelere de istatistiğini falan
+[00:03:33] eklememiz gerekiyor. Onlardan
+[00:03:35] bahsedelim. O zaten muhtemelen yapacak.
+[00:03:38] Ben gene söyledim. Şimdilik bu kadar.
+[00:03:40] Bir yollayalım. Duruma göre
+[00:03:42] güncelleyeceğiz. Kopyaladım gene
+[00:03:43] kapadım. zaten geldi. Düşünmeyi açacağım
+[00:03:46] çünkü 9 madde bayağı bir karışık şeyler
+[00:03:48] söyledik. Düşünsün biraz. Tamam
+[00:03:51] istenilen şeyleri anladı. Şimdi mevcut
+[00:03:54] kodu inceleyecek. Kapsamlı bir
+[00:03:55] güncelleme olacak diyor. O yüzden
+[00:03:58] düşünceyi açtım. Çünkü kafası karışırsa
+[00:04:00] saçmalayabilir. Şu an bana veri çekici
+[00:04:04] paketi yükleyeyim mi diyor. Yani paketin
+[00:04:06] bililerini öğrenecek. Uygulamada
+[00:04:08] göstereceğiz bunu. İzin verdim ben
+[00:04:10] hepsine. Her zaman istediğini ekle
+[00:04:13] dedim. Burada planlamayı da görüyoruz
+[00:04:15] zaten. Bayağı bir kapsamlı. Gene izin
+[00:04:18] istedi. Paketleri kurdum ama bunları
+[00:04:21] yüklemem lazım diyor. Evet dedim.
+[00:04:23] İstediğin zaman yap dedim. Şu an
+[00:04:25] ayrılara tema için bahsettiğimiz tamamen
+[00:04:29] siyah rengi ekliyor. Ondan öncesinde
+[00:04:31] bayağı bir şey yaptı. Mesela zamanlama
+[00:04:34] ayarını yaptı. Şu an görürüz. Mesela
+[00:04:37] R'ye bastım. Yenileyecek. [müzik]
+[00:04:38] Ayarlara geldiğimde burada varsayılan
+[00:04:41] süreler çıkıyor. Seçebilirim. Şu an
+[00:04:43] seçemiyorum. Muhtemelen tam olarak
+[00:04:45] eklemedi. Bu zaten hatalar yapacak. Biz
+[00:04:47] onları düzelteceğiz. Çoğunlukla böyle
+[00:04:49] geçiyor zaten. Yapay zekayı kodu
+[00:04:51] yazdırdığımızda. Gene reload attım.
+[00:04:53] Kronometre ekranı bu şekilde geldi.
+[00:04:55] Başlattığımda normal sayaç gibi
+[00:04:57] çalışıyor. Sıfırla dediğimde bottom
+[00:04:59] sheet çıkıyor ve tek sıkıntısı yön
+[00:05:01] tuşları iletiş içe girmesi. Bunu da
+[00:05:03] düzelteceğiz. Aynı şekilde Pomodoro
+[00:05:05] sayfasında da sorun düzeltmiş. Ancak iç
+[00:05:08] içe giriyor. Bunları basit kolay bir
+[00:05:10] şekilde toparlayacağız. Şimdi yüksek
+[00:05:12] kontrasa devam ediyor. Geçmiş temizde de
+[00:05:15] bu bottom sheet çıkması için işlem
+[00:05:17] yapacak. Hakkında sayfasını
+[00:05:18] iyileştirecek. Bu boşluğu silecek ve
+[00:05:21] aktiviteler ekranını güncelleyecek. Bu
+[00:05:23] işlemler bittikten sonra sabit metinleri
+[00:05:26] çevirmesi için istekte bulunalım.
+[00:05:28] Yabancılar da bu uygulamayı kullanacak
+[00:05:30] çünkü ama Türkçe görecekler ve sıkıntı
+[00:05:32] bu. Şu anlık Türkçe ve İngilizce
+[00:05:35] yapacağız. Ben mesela kronometre
+[00:05:36] istatistiği eklemiş yukarı attı beni.
+[00:05:39] Onun için migratation yaptı. Yani
+[00:05:41] [müzik] veri tabanını da güncelledi.
+[00:05:44] İstatistikleri veri tabanında tutmak
+[00:05:45] için de ek olarak yeni bir ayar yapması
+[00:05:48] gerekiyordu. Analizediğim diyor. Hata
+[00:05:49] varsa çözeyim diyor. Hata yok. Şu
+[00:05:51] kullanılmamış importları silmemiz
+[00:05:53] gerekiyor. Gereksiz aslında. Gerek yok
+[00:05:56] silmeye ama temizleyelim daha temiz
+[00:05:58] gözükmesi için. Ve kaldırılmış olan
+[00:06:00] kodlar kullanıyor Mesela. Bunları Cemini
+[00:06:02] ekledi diye biliyorum. Toparlayacağız
+[00:06:04] bunları da. Mesela şu an 4 tane mi ne
+[00:06:06] hata var be tane. Bu böyle sağa doğru
+[00:06:08] [müzik] geçişler için ayarlar ekleme
+[00:06:10] yaptı ama orada tanınmadı diyor. Üzerine
+[00:06:13] geldiğimde muhtemelen import isteyecek
+[00:06:15] [müzik] yani. Evet ona bıraktım. Bu gene
+[00:06:17] kendi çözsün diye karışmayayım. Import
+[00:06:19] yaptığımda çözülecek ama o yapsın.
+[00:06:20] Bıraktım. Şu an çözdü. Import etti.
+[00:06:23] Hataları da halletti. Şu an uygulamayı
+[00:06:25] ilerleyecekmiş. Kontrol yapacak ya
+[00:06:27] analiz edecek şu an burada. Onu
+[00:06:28] söylüyor. [müzik] Bunu çalıştırdı bu
+[00:06:30] kodu. O sırada bizim kullanım limitimize
+[00:06:32] bakalım. %28 kullandık. Bu önceki
+[00:06:35] videolarda yaptığımız işlemlere göre
+[00:06:36] biraz daha fazla çok kapsamlı bir şeyler
+[00:06:38] verdik ama 9 tane madde verdik. Normal
+[00:06:41] düşünme de açıktı. Şu an değişiklikleri
+[00:06:43] yaptı. Kronometre ekranı, sıfırla
+[00:06:45] butonu, zamanlama ayarı, eee, siyah
+[00:06:47] ekran, tam ekran, arka plan geçmiş
+[00:06:50] temizle hakkında sayfasını iyileştirdi.
+[00:06:52] Tomodor [müzik] ekranındaki boşluğu
+[00:06:53] sildiğini söylüyor. Aktiviteler ekranını
+[00:06:55] iyileştirdi. Kronometreyi gösterdi.
+[00:06:58] Moğaları gösteriyor. Oluşturduğu
+[00:06:59] dosyalar falan yer alıyor. Güncellemeler
+[00:07:01] yer alıyor. Bunları hemen denemeden
+[00:07:03] geldim. Bu eskiden kullanımdan
+[00:07:05] kaldırılan kodları temizlemeye burada
+[00:07:07] otomatik yapmıyor. Bunun çözümü zaten
+[00:07:09] burada yazıyor. Onun yerine with values
+[00:07:12] kullanmamızı söylüyor. Kullanalım. With
+[00:07:14] valus yazdım. İçine alfa yazdım ve
+[00:07:16] çözdük. Diğer yerleri de düzeltelim.
+[00:07:18] Burada mesela active color diye bir şey
+[00:07:20] varmış. O kod da eskiymiş. Üzerine
+[00:07:23] bastığımda güncel sürüme
+[00:07:24] dönüştürebiliyormuşum. Bastım.
+[00:07:26] Dönüştürdü. [müzik] Güzel bir şekilde.
+[00:07:27] Bir tane de oposity eski kodu var. Onu
+[00:07:29] da temizleyeceğiz. Ve şurada bir tane
+[00:07:31] sıkıntılı seçenek var. Bunları ben
+[00:07:34] direkt yapay zekaya atacağım. O
+[00:07:36] toparlasın. Öncelikle bunları kaydettim.
+[00:07:39] Geldim buraya hataları yapıştırdım.
+[00:07:41] Hiçbir şekilde bu hataları istemiyor mu
+[00:07:43] yazacağım. Gönderdim. Muhtemelen bu
+[00:07:45] araştırıp çözecek. Burada zaten yazıyor.
+[00:07:48] Düzeltelim dedi ve yeni API'ile
+[00:07:51] kullanacağını söyledi. Yapacağı işlemi
+[00:07:53] düşünüp işleme [müzik] geçecek. Geçti
+[00:07:55] mesela şu an işleme. Hata düzeldi ancak
+[00:07:58] yeni bir hata çıktı. Onu da
+[00:07:59] toparlayacak. Yeni kullanımı yapar
+[00:08:01] muhtemelen. Sorunu çözdü.
+[00:08:03] Hatalar sıfırlandı. Analiz yaptı. Sorun
+[00:08:07] olmadığını görecek ve bize şunu şunu
+[00:08:09] yaptım diyecek. Teşekkür edeceğiz ve
+[00:08:11] bakacağız ne durumda diye. Tamam. Bir
+[00:08:14] kontekst bakalım. Hala var. Bu sohbet
+[00:08:16] üzerinden konuşmaya devam edebiliriz.
+[00:08:18] Şimdi uygulamaya bakalım. Otr atacağım.
+[00:08:21] E R tuşuna bastım. Büyük harfle
+[00:08:23] uygulamaya geldim. Bu boşluğu [müzik]
+[00:08:25] silmiş. Yukarı kaymış gördüğünüz gibi.
+[00:08:27] Başlatıp durdurabiliyoruz. Sıfırlama
+[00:08:29] butonu. Güzel. Hemen bunu yazalım.
+[00:08:31] Mesela geldim buraya. Birinci seçenek
+[00:08:33] Comodoro ekranındaki zamanlayıcı
+[00:08:36] sıfırlama buton şindeki butonlar Android
+[00:08:41] 15 yön tuşlarıyla çakışıyor. Save
+[00:08:44] yöntemle çöz diyeceğim. [müzik] Aynı
+[00:08:45] şekilde granometre ve geçmiş temizle
+[00:08:48] butonu da öyle onu da söyleyeceğim. Her
+[00:08:50] haftada yaşandığını söyledim birinci
+[00:08:52] maddedeki [müzik] sorunun. Onları da
+[00:08:54] düzeltedim. Üçüncüye geçelim bakalım.
+[00:08:57] Bir kronometre başlatalım. Hata çıkmıştı
+[00:08:59] normalde ve bunu bitirme gözükmüyor şu
+[00:09:02] an mesela. Duraklat dedim. Hata yok.
+[00:09:04] Sıfırladık. Hata yok. Burada gözüküyor.
+[00:09:08] Ancak ne zaman yaptığımız gözüküyor.
+[00:09:10] Tamam bunda sıkıntı yok. Ama buraya bir
+[00:09:12] kronometreyi bitirmek için butonu da
+[00:09:14] eklememiz lazım. Kronometre ekranına
+[00:09:17] kronometreyi bitirmek için buton ekle
+[00:09:18] dedim. Ayarlara bakalım. Bu tema [müzik]
+[00:09:21] sayfasına bakalım.
+[00:09:23] Siyahlar tam siyah oldu gördüğünüz gibi.
+[00:09:26] Burası birazcık çok kara oldu ama
+[00:09:27] yapacak bir şey yok. Tamam, açık renk
+[00:09:30] yaptım ve sürelere bakalım. Sabit
+[00:09:32] [müzik] süreler var. Değiştirebiliyoruz
+[00:09:34] burada. 60'a bastığımda otomatik
+[00:09:36] değişiyor. Bu güzel olmuş. Tamam. Çok
+[00:09:39] iyi. Bu arada hakkında sayfasına baktık
+[00:09:41] ve yani minimalistleştirmiş ancak
+[00:09:44] versiyon gözükmüyor. Logo koymuş. Logo
+[00:09:46] dediğimde emoji yani ikon kötü [müzik]
+[00:09:49] değil. Koy moda geçelim. Bu logo
+[00:09:51] yukarıda yer alsın diyeceğim ve
+[00:09:53] versiyonu göstermemiz lazım. Logoyu
+[00:09:55] yukarı taşı dedim. Onun altına bir kare
+[00:09:58] kart koy dedim. Bu açıklama kartın
+[00:10:00] içinde olacak ve onun altında da
+[00:10:03] versiyon yer alacak dedim. Hata
+[00:10:04] veriyormuş hakkında sayfasına
+[00:10:06] girdiğimizde mesela burayı silip
+[00:10:09] baktığımda hata çıkıyor. Bunu
+[00:10:10] kopyalayacağım ve onu atacağım. O
+[00:10:12] toparlayacak zaten. Geldim not defterine
+[00:10:15] ve 4. maddenin oraya zaten ben hatayı
+[00:10:17] yapıştırdığımda o çözecek. Bunlara ek
+[00:10:19] olarak uygulamaya çoklu dil ekleyelim.
+[00:10:22] Yani dili değiştirebilelim.
+[00:10:24] Geldim ve uygulamadaki tüm metinleri up
+[00:10:27] localation diyeceğim. Yani ben buradan
+[00:10:30] dili değiştirdiğimde
+[00:10:32] otomatikman metinler de değişecek, sabit
+[00:10:35] metinler de değişecek. Onları
+[00:10:37] sildireceğiz. Tüm metinleri uplocalize
+[00:10:40] dedim. Narp yöntemiyle Leonla klasör
+[00:10:43] altında dosyalar oluştur ve Türkçe ve
+[00:10:45] İngilizce olmak üzere ikil için tüm
+[00:10:47] metinleri çevir dedim. O dosyalara da
+[00:10:48] ekleyecek keyleri çevirileri. Tamam.
+[00:10:50] Bunu kapatıp ve göndereceğim. Düşünmeye
+[00:10:52] [müzik] açık kalsın. Şu an değişiklikler
+[00:10:54] yaptı, düzenlemeler yaptı. Bu hatayı
+[00:10:56] düzeltmek için bir uygulamayı temizlemek
+[00:10:59] istiyor ve muhtemelen bu hata biz
+[00:11:00] uygulamayı kapatıp açmadığımız için
+[00:11:02] oldu. Yani yeniden derlememiz lazımdı.
+[00:11:04] Çünkü paketin infosunu almak için yani
+[00:11:07] derlememiz gerekiyordu. Muhtemelen o
+[00:11:09] yüzden hata verdi. Uygulamayı kapatıp
+[00:11:11] açsaydık bu hata çözülecekti. Uygulamayı
+[00:11:14] kapadım. Burayı sileceğim şimdi. Ve
+[00:11:16] bekleyelim. Şu an bu sabit metinleri
+[00:11:18] gördüğünüz gibi göstereyim. Çevirmesi
+[00:11:20] gerekiyordu ama çevirmemiş. Şu an bazı
+[00:11:22] yerlerde yaptı galiba. Mesela burada
+[00:11:24] yapmış bazı şeyler için izin vereceğim
+[00:11:27] ve çevirileri oluştur diyeceğim.
+[00:11:28] Buraları unuttuysa göstermemiz gerekiyor
+[00:11:31] ona. Şu an APK built etmeye çalışıyorum.
+[00:11:34] Hata var burada. Import eksik galiba.
+[00:11:36] Buraya basıp ekledim ben. Eklemiyorum
+[00:11:38] işe yaramadı. Bakalım bu nasıl çözecek
+[00:11:40] hatayı. Time falan diyor. Tamam yap.
+[00:11:43] Burada çıktı da hatayı gördü. Ona göre
+[00:11:45] çözümler uygulayacak. Şimdi gene
+[00:11:47] çözemedik. Buradaki import hatasını
+[00:11:51] düzeltmeye çalışacağım. Bastım bunu
+[00:11:53] düzelttik. Bunu da silersek çözdük. Bu
+[00:11:56] şekilde aslında bunu beklemeye gerek
+[00:11:58] yoktu. Tamam reddettim ve contex'e
+[00:12:01] bakacağım. %73 [müzik] kullanmışız. Bu
+[00:12:03] sohbeti sileceğim. Bu cloud'a baktığımda
+[00:12:06] %60 da gitmiş. Buradan gelip cla
+[00:12:08] yazacağım. Yeni bir sohbetten. Tüm sabit
+[00:12:10] metinleri applojalize et diyeceğim.
+[00:12:12] Burada bize çeviri için Leon klasör
+[00:12:15] eklemiş. Şurada İngilizce çevirileri ve
+[00:12:17] yanındaki keyleri görebiliyoruz. Aynı
+[00:12:19] şekilde Türkçe için de görebiliyoruz. Ve
+[00:12:21] ben bunu yazacağım. Sonra gitabağım.
+[00:12:24] Düşünmeyi kapadım çünkü düşünmeye gerek
+[00:12:26] yok. Bu kapsamlı bir şey değil. Geldim
+[00:12:28] ve git pushlayacağım. Buradan git ad
+[00:12:30] nokta [müzik] yazıp her şeyi ekledim.
+[00:12:32] Sonra bir yorum yapmamız gerekiyor.
+[00:12:33] Çeviriler falan diyeceğim. Yani daha
+[00:12:36] detaylı yazsak daha iyi ama gerek yok
+[00:12:38] çünkü zaten anlayabiliyorum. Ve uşladık.
+[00:12:40] Bu şu an tüm sabit metinleri arayacak.
+[00:12:43] Örneğin çevirileri kontrol etti. Ona
+[00:12:45] göre işlem yapacak. Şu an 5 dakikadır
+[00:12:47] çevirilerle uğraşıyor. Burada
+[00:12:49] göreceğiniz gibi zaten yazıyordu. Burada
+[00:12:53] 318 saniye oldu. [müzik] Çoğunda hata
+[00:12:55] var ama çok basit hatalar. Import
+[00:12:57] hataları ben de düzeltebilirim. Böyle
+[00:12:59] bunu silebilirim mesela. Sonra geldim
+[00:13:01] bunu da sileceğim. Geldim buradan fix
+[00:13:03] dedim mesela. Aynı şekilde diğer
+[00:13:05] sayfalarda da tek sıkıntı şu an bunu
+[00:13:06] yaparak yapay zekanın aklını alıyorum. O
+[00:13:09] şu an farklı sayfada çalışıyor. Ben
+[00:13:11] başka sayfayadaki hataları
+[00:13:12] düzeltebilirim şu an. Aynı şekilde
+[00:13:14] burada da düzelteceğiz. Şu an mesela bu
+[00:13:17] kronometre sayfasında. O yüzden oraya
+[00:13:19] gitmeyeceğim. Farklı sayfalardaki
+[00:13:21] hataları düzelteceğiz. Şu an kodlama işi
+[00:13:24] bitti. Benden izin istiyor. Çevreleri
+[00:13:27] oluşturayım mı diye. Oluşturma çünkü şu
+[00:13:30] an hata var. Oluştursa da hata verir
+[00:13:32] muhtemelen. Ben onları bir elle çözeyim.
+[00:13:35] Çok basit bir şekilde yani ampüle
+[00:13:36] basarak burada çözdük. Buraya da bir
+[00:13:40] tane şey eklememiz gerekiyor. Bitti.
+[00:13:43] Şimdi oluşturabilirsin diyeceğim. Mesela
+[00:13:45] kendi başına düzeltecekmiş. Importları
+[00:13:48] düzeltmem gerekiyor falan dedi ama sonra
+[00:13:51] burada sistem zaten düzeltmiş görünüyor
+[00:13:53] dedi. Yani ben düzelttim aslında.
+[00:13:56] Tamam. Ultelim mi diyor? Gerek yok. Biz
+[00:13:58] direkt çalıştıralım.
+[00:14:00] Geldim buraya. Flutter clean yazacağım.
+[00:14:02] Paketleri silsin ve tekrar yüklesin. Run
+[00:14:05] yazıp çalıştır dedim. Uygulama çalıştı.
+[00:14:07] Gördüğünüz gibi İngilizce başlıyor.
+[00:14:10] Çünkü benim telefonum da İngilizce. O da
+[00:14:13] otomatikman İngilizce başladı. Tek
+[00:14:14] sıkıntımız burada dil değiştirme sayfası
+[00:14:17] eklemeyi unutmamız. Yani bu dili
+[00:14:20] sonradan değiştiremiyoruz. Otomatik
+[00:14:22] telefon dili oluyor. Varsayılan olarak
+[00:14:24] muhtemelen İngilizce olacak. Buradan
+[00:14:26] bakalım. Varsan olarak TR gözüküyor. Ben
+[00:14:28] bunu İngilizce yapacağım. Globeli
+[00:14:30] oynayacaksın. Tamam. Bir de buraya dil
+[00:14:32] [müzik] değiştirme sayfası ekletelim.
+[00:14:34] Konteekine bakacağım. Bayağı bir var.
+[00:14:36] Yazalım dedim. Bir tane ayar ekle. Kart
+[00:14:38] ekle. Ona basınca dil değiştirmek için
+[00:14:40] ayrı bir sayfa çıksın. Orada yer alan
+[00:14:43] diller gözüksün. Kullanılan dil vesaire.
+[00:14:45] Dil değişimi yapabilelim. Ben bunu
+[00:14:47] direkt yollayacağım. Mee gerek yok.
+[00:14:48] Yapıştırdım. Cloud'a bakalım. Bayağı bir
+[00:14:50] gitti. %77'ye geldik. Haftalıkta da
+[00:14:53] yarıladım neredeyse. Şu an dil çevirme
+[00:14:56] ekranı eklediğini söylüyor. Dört hata
+[00:14:58] var ama. Ha bunların çevresini
+[00:15:00] eklememiş. Bir R'ye basayım. E R'ye
+[00:15:02] basınca otomatik yenilemesi gerekiyordu.
+[00:15:05] Varsa şu an yok. Onları atacağım. Hatta
+[00:15:08] direkt ben bunu Cemini atayım. Gereksiz
+[00:15:11] cloud'u kullanmayalım. Geldim terminali
+[00:15:14] artıya basıp ekran üstüne attım [müzik]
+[00:15:17] ve Cemini yazacağım. Tabii Cemini'ye
+[00:15:19] güvenmediğim için önce bir kitabı atmam
+[00:15:22] gerekiyor. Onu commit edeceğim ve
+[00:15:24] yükleyeceğim. O sırada Cemini açıldı. Bu
+[00:15:28] hataları kopyaladım. Attım. Nokta ARP
+[00:15:31] dosyalarına çevirileri ekle diyeceğim.
+[00:15:33] Şu an analiz ediyor zaten. Varmış diyor.
+[00:15:36] Senin e güncelleme yapmanı istiyor
+[00:15:38] dilleri. Tamam dedim. Bir hata varmış
+[00:15:41] burada. Kaç pamadura yaptığımızı
+[00:15:43] gösteren [müzik]
+[00:15:44] sayı dilde eşleşmiyormuş galiba. Öyle
+[00:15:47] bir tip hatası var. Onu toparlayacak.
+[00:15:49] Basit bir şey bu muhtemelen. Aynen.
+[00:15:52] Mesela burada kaç sayı olduğunu söyledik
+[00:15:54] ama biz tipini vermedik. Bu sayı ne? Bir
+[00:15:57] stranger mı? Ay string mi yoksa [müzik]
+[00:16:01] int mi? Onun tipini vermemiz
+[00:16:03] gerekiyordu. Tamam dedim. Devam et.
+[00:16:05] Şimdi çevirileri oluşturacak. Muhtemelen
+[00:16:07] hatalar gidecek. Gitti. Teşekkürler
+[00:16:10] Cemini. Biz şimdi yenileyelim sayfayı
+[00:16:12] bakalım. Büyük bir hata verdi. O string
+[00:16:15] hatası. Niye bilmiyorum. Bir relat
+[00:16:17] atacağım. Devam ediyorsa gene yapacağız.
+[00:16:19] Gitti. Kapadı açmamız gerekiyor mu?
+[00:16:21] Geldim tema sayf dil sayfasına. Dili
+[00:16:24] değiştirelim. anı değişiyor. Mesela
+[00:16:26] gördüğünüz gibi mesela stop'a
+[00:16:29] pardon uygulamayı ilk açtığımda database
+[00:16:32] hatası verdi. Gene rest [müzik]
+[00:16:33] atmıştım. Neden olduğu dille alakalıymış
+[00:16:37] ben bunu Cemini çıkıp
+[00:16:40] cloud atacağım çünkü biraz zor olabilir
+[00:16:43] veri tabanı işlerinde cloud'a
+[00:16:45] güveneceğim.
+[00:16:47] Context var. Yapıştırdım.
+[00:16:50] veri tabanı dönüşümlerini kontrol et
+[00:16:51] falan diyeceğim mesela şu an çeviri için
+[00:16:53] bu database'i kullanmaya gerek yoktu
+[00:16:55] aslında. Onu kullanıyorsa burada zaten
+[00:16:57] shared preference diye bir paketimiz
+[00:16:59] olması gerekiyordu. Ayarlar gibi basit
+[00:17:02] seçenekleri, verileri o pakette
+[00:17:04] tutabilirdik. Ama en başında ben
+[00:17:06] Ceminiye bu paketi kullan demiştim.
+[00:17:09] [müzik] Muhtemelen o yüzden hata verdi.
+[00:17:10] Ya da onunla alakasız tek veri tabanını
+[00:17:12] o gördü ve onu seçti. Tamam. Direkt
+[00:17:14] [müzik] migration galiba yaptı. R'ye
+[00:17:17] bastım ve sohbeti sildim. Hata çıkacak
+[00:17:20] mı? Hata çıktı ama daha az bir hata
+[00:17:22] çıktı. Kopyaladım ben. Bunu gene
+[00:17:23] yapıştıracağım. Kaldırıp yükle diyor.
+[00:17:26] Muhtemelen veri tabanıyile alakalı bir
+[00:17:27] yatay yaptık. Debook olmasına şükür. Şu
+[00:17:30] an mesela dili değiştirdim ve reset
+[00:17:32] attım. Gene çıkacak mı? Hata düzeldi.
+[00:17:35] Geldim. Türkçe attım. Reset attım. Bir
+[00:17:39] sıkıntı yok. Tamam bunu da hallettik. Bu
+[00:17:42] videoda bu kadar diyeceğim. Bakın
+[00:17:44] versiyon da geldi. Süper. Temı koyuya
+[00:17:46] aldım. Benim sevdiğim en güzel temeler
+[00:17:48] bu. Bu ayar kartlarını da düzeltelim ve
+[00:17:51] videoyu bitirelim. Geldim. Ctrl ve G
+[00:17:54] yaptım. Setting page settings [müzik]
+[00:17:56] page'teki çok basit ve değişik bir yazı
+[00:17:59] yazdım. Ayarlardaki kartlar hem oyunumlu
+[00:18:02] olsun dedim ve yüksek [müzik] konsolat
+[00:18:04] koyu vs kontrol et dedim. Renk farklı
+[00:18:07] olsun. Kartın arka planı dedim. Tapadım
+[00:18:09] yollayacağım
+[00:18:11] ve sonuca bakacağız. Bunu gitaba
+[00:18:13] yükleyeyim hızlıca. İşlemi bitirdi.
+[00:18:15] Buraya geldim ve R tuşuna bastım.
+[00:18:17] [müzik]
+[00:18:18] Çerçeve eklemiş. Rengi değiştir demiştim
+[00:18:20] ama şu an çerçeve daha güzel. Bu
+[00:18:22] uygulama temasına da uyumlu oldu. Bakın
+[00:18:24] burada, burada da [müzik] böyle. Burada
+[00:18:26] da böyle değil ama burada böyle mesela.
+[00:18:29] Güzel. Çok iyi oldu.
+[00:18:32] Peki şimdilik bu kadar. Kendinize iyi
+[00:18:34] bakın. İsterseniz abone olmayı
+[00:18:35] unutmayın. Bay bay.
+[00:18:40] Yeah.
