@@ -1,7 +1,23 @@
 # MOBİL UYGULAMA — YouTube planlarının özeti (YouTube-1 oturumu)
 
-Kaynak: `ajans/planlar/mobil/*.md` (8 plan) + `ajans/arastirma/youtube/transkriptler/` (mobil grubundan 29 transkript, 0 başarısız).
-Index'teki 8 mobil bölümden 7'si bu oturumda arandı ve eklendi (`index.md` → "MOBİL UYGULAMA ek sorgular"). Hesap limiti nedeniyle (ana oturumun kapanış talimatı) plan yazımı en değerli 8 videoyla sınırlandı. **Planı yazılmayan ama transkripti diskte duran değerli videolar:** OcqWu_kasck (Codesistency 12 saatlik bootcamp, 3 uygulama; 16k satır), bGALxRWI10A ve FegYRu-swbA (Codex ile mobil, 155 dk), UMjeSU6C4qU (Jason Lee $80K/ay app), G9o8eoHzpxc / 76_h94U4ztQ / wiQMsQwWJQE / 95_NJ-a-CMQ (Claude Design + tasarım skill'leri), oAIqn44Y63c / LZFEr9QDIVg / GrLCS5ww030 (RN animasyon/stack). Sonraki oturum bunlardan plan çıkarabilir; sıkıştırılmış okuma için transkriptteki satır başı zaman damgalarını paragraf başına indirmek token'ı ~%40 azaltıyor.
+## Kapsam ve durum (denetim: 2026-10-14)
+
+**Durum: kısmen tamamlandı.** Erişilebilen her transkript planlandı ve sentezlendi; 33 videonun transkripti YouTube IP engeli (429 / IpBlocked) nedeniyle çekilemedi.
+
+| Kalem | Sayı | Not |
+|---|---|---|
+| Mobil grup (8 index bölümü, benzersiz video) | 77 | A 28 · B 27 · C 22 |
+| Transkript (`transkriptler/<id>.txt`) | 44 | A/B 43 · C 1 |
+| Açıklama (`<id>.aciklama.txt`) | 49 | transkripti olmayan bazı videoların açıklaması var; açıklama tam metin değildir |
+| Plan, bu klasörde (`planlar/mobil/<id>-*.md`) | 41 | |
+| Plan, başka klasörde (web grubu oturumu) | 2 | `Iup1WlUyj9M`, `VeWf0l4ci6Y` |
+| A/B video / planlı | 55 / 43 | transkripti olan her A/B videonun planı var |
+| Transkript alınamayan | 33 | A/B 12, C 21; liste `arastirma/youtube/index.md` sonunda |
+
+- **Eksik A/B (planı yok, transkript yok):** `qa5jMoJRQL8`, `UMjeSU6C4qU`, `E6Bj5Wxh-50`, `cTiP900ghk0`, `AAmdB1bvmYw`, `Em9EzurouOU`, `xno-O4vAx7Q`, `X7YMMyd2Qnk`, `Cpi--ZrpMns`, `g5d3ok5TbiI`, `KKWS0bSiCT4`, `CwHD6Fg-Mjs`. `qa5jMoJRQL8` için hiçbir yolda altyazı bulunamadı; diğerleri IP engeli.
+- **Alternatif tam metin:** repoda bu 33 video için başka bir transkript veya tam metin yok (denetimde tüm `ajans/` tarandı). Bazılarının yalnızca YouTube açıklaması var. `WTRNddbopGQ` (C) aynı kanalın aynı başlıklı videosu `uUUQjJm9zRw` ile benzer görünüyor ve onun planı var; içeriklerin aynı olduğu kanıtlanmadı.
+- **Sentezin dayanağı:** bu özet yalnızca yukarıdaki 43 plana dayanır. Transkripti alınamayan videolardan çıkarım yapılmadı.
+- Aşağıdaki "En iyi 5 video" ve ilk bölümler ilk 8 plandan yazıldı; sonraki planların kararları en alttaki "Ek" bölümlerinde.
 
 ## 1. Herkesin kullandığı ortak stack
 
@@ -89,7 +105,7 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
   - Gerçek cihaz: EAS dev build + QR; build öncesi commit şart; OTA yalnız JS değişikliğinde.
   - AGENTS.md'ye görsel üretim maliyet kuralı (1K, 9:16, model); Delete account'ta cascade doğrulaması; Support URL sayfası.
 
-## Ek (2026-10-12): 32 yeni planın sentezi — fabrikaya girecek kararlar
+## Ek (2026-10-12): sonradan eklenen planların sentezi — fabrikaya girecek kararlar
 
 **A. Tasarım kalitesi = skill + referans + döngü (en çok tekrar eden bulgu)**
 1. **Zorunlu skill seti (project scope, kurulum script'inde):** Expo `building-native-ui` + `expo-deployment` (`npx skills add expo/skills`), Anthropic `frontend-design` (`/plugin marketplace add anthropics/claude-code` → `/plugin install frontend-design@claude-code-plugins`), backend'in kendi skill'i (Clerk / Supabase / InstantDB / Convex), Android için Google'ın resmi Android skill'leri, yayın öncesi App Store Preflight, ikon için App Icon + SnapAI. Kaynak: Beto (sneNR5KnRJU, mvfQGjQurAQ, Ji2Lmh1kolA), Build Great Products (95_NJ-a-CMQ), Tech With Tim (misjUj4Q_ho).
@@ -132,4 +148,8 @@ Mevcut `uygulama-fabrikasi` skill'inin 8 aşamasına oturtulmuş hâli; her madd
 
 **F. Dikkat: başlığı yanıltıcı / düşük değerli videolar**
 - xfptZcCf484 (Mikey) Claude Code değil, sponsorlu Base44; yalnız polish prompt'u değerli. GUgxx6fMiR8 (Tim) web + Hostinger deploy, mobil değil. ZXkeWiWB4xg Codex özellik turu, mobil uygulama yok. uUUQjJm9zRw, eoEsVQJruow, L_tpLe8pIn8 native Swift; kod değil iş akışı alınır.
-- Planı olmayan, transkripti çekilemeyen A videoları: qa5jMoJRQL8 (altyazı yok), UMjeSU6C4qU (henüz çekilemedi).
+
+**G. Son eklenen plan (2026-10-14): u2QqWkMv3Lg, JS Mastery Claude Code kursu (web, mobil değil)**
+- Tasarım kalitesi süreçten geliyor: referans site analizi (tipografi, spacing, renk, buton, responsive) → tek global tasarım sistemi (token + temel bileşenler) → ancak sonra ekranlar. Expo karşılığı: `theme/tokens.ts` + primitive bileşenler aşaması.
+- CLAUDE.md'de somut, yasaklayıcı estetik kurallar ("avoid dashboard-style UI", "no purple gradients"); "make it beautiful" işe yaramıyor. `build-ui` skill'i: önce mevcut bileşeni ara, yeni renk/stil icat etme, sonunda doğrula. Mobil uyarlaması: `Alert.alert` yasak, kendi Sheet/Dialog, her basılabilir öğede Reanimated basma geri bildirimi.
+- Süreç: izin şablonunda `.env*`, keystore, `.p8` için deny, `eas build/submit` için ask; yayın skill'lerine `disable-model-invocation: true`; kodu yazan modelden bağımsız güvenlik taraması (videoda placeholder formun e-posta sızdırması ve boş auth secret yakalandı).
