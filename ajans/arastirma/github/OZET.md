@@ -1,6 +1,6 @@
 # ÖZET — zincire hemen alınacak kaynaklar (GitHub araştırması, 2026-10-05)
 
-6 kategori, 230+ repo/kaynak incelendi (ayrıntı: `index.md` ve `notlar/`). 150+ SKILL.md / DESIGN.md / kural dosyası `kopyalar/` altında birebir duruyor. Bu dosya "ne alalım, neden, nasıl kurulur" sorusuna cevap verir.
+6 kategoride 197 benzersiz GitHub reposu ve dokümantasyon/dizin siteleri incelendi; kategori tablolarında toplam 234 satır var, bazı repolar birden fazla kategoride geçiyor (ayrıntı: `index.md` ve `notlar/`). `kopyalar/` altında 140 klasörde 222 SKILL.md ve 49 DESIGN.md dahil 1.505 dosya birebir duruyor; her klasörde `KAYNAK.md` var. Bu dosya "ne alalım, neden, nasıl kurulur" sorusuna cevap verir.
 
 ## Teşhis: çıktılarımız neden çirkin?
 
