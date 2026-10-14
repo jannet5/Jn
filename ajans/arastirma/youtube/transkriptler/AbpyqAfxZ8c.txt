@@ -1,0 +1,353 @@
+# I Built an Agentic Software Factory with Codex and Claude Code
+# https://www.youtube.com/watch?v=AbpyqAfxZ8c
+# kanal: Owain Lewis | süre: 1249 sn | kaynak: yt-dlp:ios:AbpyqAfxZ8c.en.json3
+
+[00:00:00] There's a lot of hype online around AI software factories, and people are
+[00:00:02] skeptical for good reason. But, what I found is applying these ideas in my own
+[00:00:06] workflow has completely changed the way I think about building software with AI
+[00:00:10] agents. [music] So, this video is going to be a complete guide to building an AI
+[00:00:13] software factory. We're going to look at what a software factory is, how to build
+[00:00:17] one, and how to think about applying [music] this in your own workflow,
+[00:00:19] whether you're a solo developer looking to be more productive or an engineering
+[00:00:23] leader in a large enterprise organization looking to raise the
+[00:00:26] quality bar. This is one [music] of the most exciting
+[00:00:28] topics in AI and software engineering right now. In my opinion, software
+[00:00:32] engineering has always been about systems thinking [music] and systems
+[00:00:35] design, and that's exactly what this video is going to be all about. If
+[00:00:39] [music] you stick around to the end of the video, I'll give away all of the
+[00:00:41] code, the resources, the prompts, and everything you need to build your own
+[00:00:44] software factory. So, let's get into it. >> [music]
+[00:00:46] >> So, the first question is what is a software factory? And it's basically
+[00:00:49] just an extension of everything we've already been doing as developers. We're
+[00:00:52] just applying AI to the systems and the processes we're already following. So,
+[00:00:56] if you think about the typical development process, it's pretty
+[00:00:57] straightforward. And so, what happens in any software engineering team, whether
+[00:01:01] you're working at Google, or Netflix, or Amazon, or just whether you're working
+[00:01:04] on your own as a solo developer, it's pretty much the same thing, right? We
+[00:01:07] have intent. So, we have customer issues. We
+[00:01:11] have things from our PMs or stakeholders. We have, you know, things
+[00:01:15] that we decide we want to build as developers. We put these into some kind
+[00:01:19] of ticketing queue, and then they go into the backlog. We refine them a
+[00:01:23] little bit, and then we do some kind of design phase where we'll take those
+[00:01:25] ideas, we'll design them in some way, we'll figure out how we're going to
+[00:01:29] build these things. What are we building? Why are we building it? How
+[00:01:32] are we going to build it? Then we do some kind of planning where we break
+[00:01:35] that work down into a number of smaller tasks or tickets. We give those tasks to
+[00:01:40] developers who then do, obviously, the the typical development cycle, right? We
+[00:01:43] write the code, we do some local and manual testing, we do some code review,
+[00:01:48] then we open a pull request on something like GitHub, and then we'll have like a
+[00:01:52] human review the code, or we'll have some kind of automated checks to look
+[00:01:56] for problems, bugs. We'll run a bunch of other checks and tests as well. Then if
+[00:02:01] there are any errors, we go back through the cycle. So we're doing a loop here.
+[00:02:04] So this is our first development loop. We write the code.
+[00:02:07] We iterate a couple of times until we get the quality high enough. Then
+[00:02:11] finally, we merge that code in and then we deploy it. And if you think about
+[00:02:15] CI/CD, it's a good analogy to a software factory, right? This is an automated
+[00:02:19] process. You push your change in and then the system or the process will then
+[00:02:23] take that into production. Typically in the best software engineering teams,
+[00:02:27] you're not manually deploying. You have the system that will deploy for you. It
+[00:02:31] will take care of, you know, checking that all of the code is working, it's
+[00:02:34] well tested. It will deploy it to production. If If there are any errors,
+[00:02:37] it will even roll back the code for you. So this is the CI/CD system. Deploy your
+[00:02:42] code into production. Then we have a bunch of user feedback. We have customer
+[00:02:46] feedback. We have, you know, monitoring agents that look for problems in our
+[00:02:49] code and then we'll feed all of that information back into the the kind of
+[00:02:54] starting point here. So this is really just a loop or a cycle.
+[00:02:59] And when it comes to AI agents, we're basically following a similar process.
+[00:03:02] We're just applying agents to different parts of the process. So this is the
+[00:03:05] pipeline we're going to be building. It has a bunch of steps. So the first thing
+[00:03:08] is we put work into the pipeline. So this is stuff we want to do. So I could
+[00:03:12] add an item here like I could say improve
+[00:03:15] the readme. So this is something I might want to do, right? Let's create a new
+[00:03:18] issue. And let's just use a blank issue.
+[00:03:22] So this is a really badly defined ticket. This is the example of something
+[00:03:25] you might find in a typical engineering organization, sadly. You might have a
+[00:03:29] ticket that looks like this, right? There's no way an agent can do anything
+[00:03:32] with this ticket. It has no description, no acceptance criteria. If you give this
+[00:03:37] to an agent, it's going to try and do the work, but it has no idea what it's
+[00:03:40] actually meant to be doing. So what we want to do is refine these tickets using
+[00:03:45] some kind of automated process. Once we give this to an agent, the agent will
+[00:03:49] then improve the ticket. Then we have a ticket that is then ready to implement,
+[00:03:53] and then we can kind of run it through the pipeline. The agent will then move
+[00:03:56] it into implementing. The agent will be writing the code. We're going to spawn
+[00:04:00] up an agent using a sandbox on a virtual machine or some remote location. The
+[00:04:04] agent will write the code. It will run all of the tests. It'll run your
+[00:04:07] pipeline. Then finally, you'll have a pull request that you can review, and
+[00:04:11] then finally, we have a change that is done. So, essentially, what we're doing
+[00:04:15] is just running all of our tickets or our tasks through this pipeline, and
+[00:04:19] we're going to use agents every single step.
+[00:04:22] All right. So, what we're going to do is go into the terminal, and this is the
+[00:04:25] code base we're working on. So, this is the factory code base. And what I'm
+[00:04:29] going to do is spin up a coding agent. You can use any coding agent here. I'm
+[00:04:32] going to use Neo, which is my own coding agent. But honestly, it doesn't really
+[00:04:36] matter. You could use any coding agent. So, what I'm going to say is something
+[00:04:40] like um task to PR. So, this will basically take one task or
+[00:04:45] ticket, and then it will open a pull request. This is going to run the entire
+[00:04:48] pipeline. [music] I'm going to do nothing else other than
+[00:04:51] pass the ticket in. So, within the Neo coding agent, you can
+[00:04:54] see here that it's running what I call a workflow.
+[00:04:56] >> [music] >> So, we're not just randomly prompting
+[00:04:58] the agent. We're actually just defining the entire step-by-step process up
+[00:05:02] front, and letting the agent work through this. This means we can be very,
+[00:05:05] very consistent in our dev process. [music] You can see here we're resolving
+[00:05:08] the ticket. We're now creating an isolated Git work tree. Then we're
+[00:05:12] reading the ticket, and we're outlining the change. We're making [music] a
+[00:05:15] little plan. We're doing the work. You can see here now the agent is doing the
+[00:05:19] code change. Then we're going to do the tests, the reviews. We're going to wait
+[00:05:22] for any feedback. We're going to address those findings, and then finally, we're
+[00:05:25] going to kind of finish this off essentially.
+[00:05:28] >> [music] >> So, this is why I really like the
+[00:05:30] workflow approach to agentic coding. We're just giving the agent a task.
+[00:05:34] We're defining the workflow or the steps the agent needs to run through, and then
+[00:05:38] we're just letting it run. This is it. This is my entire development process
+[00:05:41] right now. So, what you'll see here is this is the skill that we're using to
+[00:05:44] transform our task into a pull request. This is really a workflow definition
+[00:05:47] more than the skill. If you look at any company, if you go and work at Amazon or
+[00:05:51] Google, or you look at any engineering team,
+[00:05:53] >> [music] >> every developer is basically following
+[00:05:55] the same series of steps, right? We read the task, we make a bit of a plan, we
+[00:05:59] implement the code change, we run some tests, we review the code, maybe we even
+[00:06:03] use some browser testing for any UI work, then we address any findings we
+[00:06:07] get on GitHub, then we publish a change using a commercial commit, we wait for
+[00:06:12] any other feedback or any testing to happen,
+[00:06:15] we address the feedback and then we give the results over to a human to kind of
+[00:06:19] review and make a decision about merging the change. This is a really simple
+[00:06:22] skill, but it's what I use for 99% of all of my development work now. I spend
+[00:06:27] the time planning and designing, then when it comes to actual implementation,
+[00:06:30] it's just a case of handing off those tasks to an agent. When it comes to
+[00:06:33] actually planning out my work, I use a really simple skill called plan. This
+[00:06:36] will take a take a spec and it will turn it into a well-defined ticket. And you
+[00:06:40] can see here that it's again really really simple. We're just defining the
+[00:06:44] template we want for our tickets. We have an outcome, we have some context,
+[00:06:48] we have some acceptance criteria to test, and any other information that the
+[00:06:52] agent might need to complete the task. So, you can see here we take a spec. So,
+[00:06:56] this takes a brief or a spec and breaks it into a number of tickets or optional
+[00:07:00] milestones. We're basically just planning out our work into a number of
+[00:07:03] tasks. So, this would be exactly the same
+[00:07:06] process whether I was using Claude Code or Codex or Pi. The agents you're using
+[00:07:11] don't matter as much as everyone thinks they do. Ultimately, the workflow is
+[00:07:14] what matters. All of the agents are equally capable at this point. So, if
+[00:07:17] you go back into our browser, you can see now that we've finished this task
+[00:07:20] and it is fully ready. You can see here we've been given a thumbs up from Codex.
+[00:07:24] So, everything is good to go and then we can just literally just kind of squash
+[00:07:28] merge this and we're good to go. So, that was a
+[00:07:31] change that we did following a manual factory process. What I mean by that is
+[00:07:35] we didn't do a single thing. We just gave the agent a task. The agent did all
+[00:07:39] of the work. We could have gone away, come back 20 minutes later and have the
+[00:07:43] pull request ready to go. So, the next thing we want to do is take this manual
+[00:07:46] process and then figure out a way to scale this to a more automated system.
+[00:07:51] All right. So, what I want to show you now is Factory. This is a project that
+[00:07:54] I've been building. It's an open-source project written in Rust, but it
+[00:07:56] essentially [music] encodes all of the ideas behind building a software
+[00:07:59] factory. So, we're going to use this to now build our automated software
+[00:08:02] factory. This is the process we're going to be following. We're going to take an
+[00:08:05] idea. This is the intake step. We're then going to run it through a an agent
+[00:08:09] to write the specification and create [music] the task. We're then going to
+[00:08:12] run it through a build step. We'll do some testing, review, and then finally
+[00:08:17] we'll merge. We're just going to run this as a cycle.
+[00:08:20] So, if we look at the workflow, there are two stages to [music] this. So, the
+[00:08:23] first stage we're going to do is the task refinement step. And then the
+[00:08:26] second step is the actual build pipeline. So, this [music] project is
+[00:08:31] just running on your local machine, but you can also deploy it to a virtual
+[00:08:34] machine as well. So, you could deploy this to the cloud. And [music] it's
+[00:08:37] basically going to run on a loop looking for tickets or looking for work to do,
+[00:08:41] uh updating all of your tasks, implementing all of your code for you.
+[00:08:43] The only thing you need to do is kind of plan out the work and assign it to
+[00:08:46] [music] Factory. All right. So, what we're going to do is just run the
+[00:08:49] project so you can type factory to list all of the commands you can run. Let's
+[00:08:52] clear this out and let's just run the agent. So, this is going to run on a
+[00:08:56] loop basically monitoring your ticket queue and for any automated jobs you
+[00:09:00] have, you can then run this on a virtual machine. You can run it on your local
+[00:09:03] computer if you want to. I'm using work tree-based isolation, which means every
+[00:09:07] time we run an agent, we're going to spawn a new get work tree and run it
+[00:09:11] there to keep the code isolated. But, if you were running this in production, you
+[00:09:15] could also use something like a Docker sandbox if you wanted to.
+[00:09:18] Okay. So, we're going to go ahead and create a new issue. What we're going to
+[00:09:20] do is click up here to create a new issue. I'm just going to do a regular
+[00:09:23] blank issue here. So, Factory demon dies overnight. So, we have a problem
+[00:09:30] where I've noticed a behavior. And so, what I'm going to do is put in a rough
+[00:09:35] description of what happens. Again, I'm not explaining to the agent how to solve
+[00:09:38] this. I'm just describing the problem or the intent I've got.
+[00:09:42] And then, we're going to go ahead and create this task.
+[00:09:45] All right, so what we're going to do is add a label called factory ready for
+[00:09:48] spec. And when we have this label, the agent should then pick this up. So, if
+[00:09:52] we go and check this ticket now, it has the factory ready and factory
+[00:09:55] ready for spec labels. And if we were to go back into the terminal, what you
+[00:10:00] should see is that the agent will then actually pick up that task.
+[00:10:05] Okay, so what you can see now is that factory has picked up this task. So,
+[00:10:07] this demon has now found that we have a label ready for spec. It's found the
+[00:10:11] task. And what it's going to do is spawn a new agent. So, you can see here that
+[00:10:16] it's delegated it to codex. And it's spawned up a new git work tree. What I
+[00:10:21] want to quickly show you is how this is configured. So, you can see here that we
+[00:10:24] have a source, which is GitHub issues, and then we have a trigger. So, anytime
+[00:10:28] we have a label factory ready for spec, we're basically going to run this
+[00:10:31] particular workflow. And if you go through this triage workflow, this is
+[00:10:34] essentially what the agent is now running. It says, "Your goal is to turn
+[00:10:38] the GitHub issue into a clear implementation ready task for a human or
+[00:10:42] the agent." And then, firstly, we understand the work. We then create the
+[00:10:46] ticket specification. We're basically following a template. And then, we kind
+[00:10:50] of move the ticket into ready to implement. So, essentially, this is the
+[00:10:54] triage workflow. This is just a simple prompt. You could have this do anything
+[00:10:57] you like. It's absolutely fine. And then, the other implement workflow
+[00:11:02] that we're running is this. So, this is what we do when we want to actually
+[00:11:05] implement the task. So, "Your goal is to implement the GitHub issue supplied to
+[00:11:09] you. Do not merge or auto merge. Use the GitHub CLI to pull the issue.
+[00:11:14] We're then going to implement the code. We're going to kind of just run through
+[00:11:17] this massive prompt, essentially. Um but this could be a simple step-by-step
+[00:11:22] workflow, anything you want, basically. This describes to the agent how to
+[00:11:25] actually execute the work when it's given a task. So, factory will move
+[00:11:29] stuff through the pipeline without us doing anything. It's working on the
+[00:11:33] ticket. It's picked it up. It's moved it into this status. As it works on it, it
+[00:11:37] should move it into the next status as well. So, you can see here that the
+[00:11:40] agent has now updated our task. It was a very vague, ill-described problem, and
+[00:11:45] the agent has now reviewed all of our code, has inspected everything, has
+[00:11:48] actually found the bug, has reproduced the bug, and then it's updated our
+[00:11:52] ticket with all of the information we need to hand this off to either a human
+[00:11:55] or an agent to go and fix the problem. The The way this works is it's
+[00:11:59] completely customizable. So, you could imagine if you are a public-facing team
+[00:12:04] where users or customers are reporting bugs, you could run this automation
+[00:12:08] workflow over the inputs, the customer requests, and take their vague ideas and
+[00:12:13] turn them into actionable tickets that a developer could then pick up and work
+[00:12:16] on. This is really useful cuz often when you get a ticket from a customer, there
+[00:12:20] may be missing information, the problem may not be valid. So, you can use an
+[00:12:25] agent to triage any of the work that comes into your queue. All right. So,
+[00:12:28] this ticket is now ready to go. What I'm going to do is just add this factory
+[00:12:31] ready to implement label. I'm happy with this ticket. I want the agent to work on
+[00:12:35] it. Again, I could be working on maybe 10, 20 tickets at a time here. This is
+[00:12:40] kind of just a single ticket, but the idea of the factory is that you can run
+[00:12:43] lots and lots of things all at the same time.
+[00:12:46] So, what you can see is that the agent has now picked this up. So, you can see
+[00:12:49] it's detected we have this ready to implement label. And again, we're not
+[00:12:52] doing anything. We're just moving the tasks through the task board. We're
+[00:12:55] coordinating the work. But the factory system is running the entire pipeline
+[00:12:59] for us. This could be running hundreds and hundreds of tickets at the same
+[00:13:02] time. If you work in a team, obviously, this will be coordinating all of your
+[00:13:06] team's work. And we just need to now wait for the
+[00:13:09] agent to kind of run through and fix the issue for us. There's nothing else to it
+[00:13:13] than this. Another really important concept to
+[00:13:15] think about is sandboxing. So, when we run these kind of systems in production,
+[00:13:19] you want to be a bit careful about sandboxing the workers to make sure
+[00:13:22] they're not destroying anything. So, one A to this problem is using something
+[00:13:26] like Docker sandboxes. So, Docker recently released a sandboxing feature
+[00:13:30] which I've been experimenting with. I'll be honest, I'm still new to
+[00:13:33] sandboxing and still figuring out the right approach myself, but this is the
+[00:13:37] current implementation strategy I'm using at the moment.
+[00:13:41] Locally, what I will typically do is use Git worktrees.
+[00:13:44] But when working on a VM or like in a team environment, you definitely want
+[00:13:48] some kind of good sandboxing solution. So, Docker sandboxes are one solution,
+[00:13:53] regular Docker containers, there are a whole bunch of different solutions. And
+[00:13:57] I'll probably do a video on this topic because it's quite an interesting and
+[00:14:00] important one for for any developer right now. So, whenever we talk about
+[00:14:03] automated systems or things like this, there are always the same objections
+[00:14:07] that come up. The first one is cost. Yes, if you're automating your system or
+[00:14:11] running agents, it will cost you money. I'm not using this to do work that I
+[00:14:15] wouldn't do otherwise anyway, though. This is kind of the key point. This is
+[00:14:18] not necessarily something that's aimed at like solo developers necessarily.
+[00:14:22] This is more of a thing you would run at scale in an engineering organization.
+[00:14:26] So, if you're if you're using any kind of automated flow, it will use tokens.
+[00:14:30] But the way Factory is designed is to be largely deterministic. So, when we're
+[00:14:33] polling GitHub looking for work to do, we're not wasting any tokens. We're only
+[00:14:38] executing agents or using tokens when there's actually work to do. So, this is
+[00:14:42] actually very very token efficient. You could run this running 24/7 every single
+[00:14:47] day and it's only going to use tokens when
+[00:14:50] there's actual work to do. So, if there's a genuine ticket to work on,
+[00:14:53] it's going to use tokens. Otherwise, it's going to sit there polling using
+[00:14:57] largely deterministic code. So, it's not going to burn a load of tokens. The
+[00:15:01] other objection that comes up is that AI isn't smart enough and I definitely
+[00:15:04] agree with this. There are some tasks you don't want to hand off fully to an
+[00:15:07] agent. You sometimes want to be in the loop on certain tasks. And then the
+[00:15:11] other objection is that sometimes you want to work interactively, right? So,
+[00:15:14] sometimes you still want to be in the mix. You still want to be involved in
+[00:15:17] the process, but you can still do that, right? You you can use this sometimes.
+[00:15:21] Sometimes you'll want to be iterating with your agents, and that's totally
+[00:15:24] fine. This pipeline isn't for every single situation. So, as agents get more
+[00:15:28] capable, I think these pipelines become even more important because the typical
+[00:15:31] task in my development workflow, an agent will run on it for maybe 20
+[00:15:35] minutes to even up to an hour. The agents are doing extensive code review.
+[00:15:39] They're doing a lot of CI checks. They're doing a lot of work. And so,
+[00:15:43] it's very painful to be sitting in the terminal watching hundreds of different
+[00:15:47] tasks or working on many things at once. It's very very painful.
+[00:15:51] So, by offloading this process to a virtual machine or a system like this,
+[00:15:56] you can just basically hand off the work. You can go do something else. You
+[00:15:59] can kind of come back 2 hours later and find that all of the work is done. You
+[00:16:02] can then review the code changes, obviously, make any adjustments you
+[00:16:06] want, but basically, you don't have to be tied to your keyboard anymore.
+[00:16:10] So, this project is currently open source, and I don't think it's suitable
+[00:16:13] for everyone right now. It's still very early stages, but the main thing to
+[00:16:16] think about are the principles and the ideas. It's not all that difficult to
+[00:16:20] build your own version of something like this. You could use GitHub actions, for
+[00:16:24] example, which allows you to run an automation. So, for example, with GitHub
+[00:16:27] actions, every time a customer raises a ticket, you could run an agent to triage
+[00:16:32] the ticket. And every time we add a label to a ticket, you could have an
+[00:16:35] agent that will run. So, GitHub actions is another great solution for this kind
+[00:16:39] of problem as well. All right. So, the next concept we're
+[00:16:42] going to look at is one of my favorites, which is this concept of a scheduled
+[00:16:45] job. So, we have a bug finder job here. You could add any workflows you want.
+[00:16:50] These are useful for a couple of reasons. So, if you go into our
+[00:16:53] config.toml, what you can see here is I've got this scheduled bug finder.
+[00:16:57] Obviously, you can do this with something like Claude routines or Codex
+[00:17:01] automations, but what I like about this is keeping all of these automations
+[00:17:05] version controlled. If you work in a team, you can keep these version
+[00:17:08] controlled, and you can also run them manually as well very very easily. Okay.
+[00:17:12] So, we're going to go into the terminal. We're going to type factory. So, we're
+[00:17:15] going to type factory workflows,
+[00:17:19] which is going to list out the workflows we have. You can see here we have this
+[00:17:22] bug finder workflow. So, let me go ahead and run that. Again,
+[00:17:26] you can run this on a schedule, but you can also trigger them manually, and I
+[00:17:30] find triggering things like this manually is very, very useful. So, say I
+[00:17:33] want to find any bugs in my code, I can just run factory run bug finder.
+[00:17:39] And then just kind of wait for that. So, you can see here it's running the
+[00:17:41] workflow bug finder. It spawned a new get work tree. It's now going to go
+[00:17:45] ahead and find bugs in our code base, find a bug, and then it's going to open
+[00:17:49] a ticket that we can review later. So, this is a bug that the agent found. You
+[00:17:53] could actually make this more automated and have the agent open the pull request
+[00:17:56] at the end. It already clearly knows what the bug is, and it looks like it's
+[00:17:59] well reasoned as well. So, as you begin to trust these agent
+[00:18:03] systems more and more, you can let them run for longer. You can allow them to
+[00:18:06] open pull requests. You could even allow this to merge if it is a, you know,
+[00:18:10] personal project. If you're confident in your system, you can kind of delegate
+[00:18:14] more and more trust to the system over time. So, there's nothing stopping you
+[00:18:18] here having this as a fully automated system.
+[00:18:21] Okay, so finally our implementation agent has finished. So, this task ran
+[00:18:24] for, I think it was about 35 minutes. So, this is obviously quite a big
+[00:18:28] change, and one of the reasons why this ran for so long is because we're
+[00:18:31] actually running a long pipeline. So, we're not just changing the code, we're
+[00:18:35] writing, you know, sub agent tests, we're doing code reviews, we're waiting
+[00:18:40] for feedback on CI infrastructure as well. So, this is why using something
+[00:18:44] like a factory pipeline is so valuable, because I don't want to be wasting in my
+[00:18:48] terminal for 34 minutes. As these agents get way more capable and powerful,
+[00:18:52] you're going to be delegating much longer running work to these agents.
+[00:18:55] They're doing a better job of the code implementation, but they're also just
+[00:18:58] running for much, much longer. And so, this is why I pretty much prefer this
+[00:19:02] factory approach. Just delegate your tasks to the system,
+[00:19:06] and let them run for like 30 minutes to an hour to work on your code base, do a
+[00:19:10] really good job, and then review the changes at the end. If you're a senior
+[00:19:13] engineer, you've probably got many objections to this topic and I think
+[00:19:17] [music] those objections are somewhat founded. You do need to be very very
+[00:19:20] careful. If you're introducing these concepts into a team, you need to have
+[00:19:24] the culture [music] such that people don't abuse these pipelines and what I
+[00:19:27] mean by that is you don't want to use [music] these kind of pipelines for
+[00:19:30] every single task. You still need humans to think critically.
+[00:19:33] >> [music] >> You still need human judgment. You still
+[00:19:35] need engineering thinking at every single step of the process. [music]
+[00:19:38] It's just there's a percentage of tickets that we can now just give to
+[00:19:42] agents, mechanical things, security upgrades, [music] bug fixes, really
+[00:19:46] trivial tedious work that developers don't like doing anyway. All of those
+[00:19:50] can largely just be handed off to agents now. Run it [music] in a pipeline, build
+[00:19:54] more consistency and a good analogy to this process is CICD. If you remember
+[00:19:59] back in the day, >> [music]
+[00:20:00] >> we used to manually deploy our software. It was very error-prone, inconsistent.
+[00:20:04] Deployments were stressful. They would often break or go wrong.
+[00:20:07] >> [music] >> And we would struggle to get software
+[00:20:09] into production at a speed that was valuable [music] to our customers. And
+[00:20:13] then when we introduced CICD, we built systems and automation and processes
+[00:20:16] around [music] the release process and how we got software into production and
+[00:20:20] what that led to was a massive increase in quality. We were able to essentially
+[00:20:24] deploy software [music] almost daily without worrying about whether things
+[00:20:28] were going to be breaking because the [music] system would be taking care of
+[00:20:31] the deployment. It would be running all of the automated checks for us. And this
+[00:20:34] means whether you're a junior developer or the most senior engineer, you're
+[00:20:37] using the same pipeline to deploy software which just massively raises the
+[00:20:41] quality bar within a team. Anyone can have
+[00:20:44] >> [music] >> the perfect deployment process no matter
+[00:20:46] where you are in the company or how experienced you are.

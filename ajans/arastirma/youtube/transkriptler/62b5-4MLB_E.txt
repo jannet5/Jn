@@ -1,0 +1,753 @@
+# Claude Code Deep Dive: Skills, Hooks & Sub-Agents
+# https://www.youtube.com/watch?v=62b5-4MLB_E
+# kanal: Kowalah | süre: 3935 sn | kaynak: yt-dlp:android:62b5-4MLB_E.en.json3
+
+[00:00:00] Good morning and welcome to this week's Koala Wednesday webinar from wherever
+[00:00:05] you are uh dialing in uh from. Now, um, for those of you that have not joined us
+[00:00:11] before, every Wednesday at 3:00 UK time, uh, we spend an hour or so together
+[00:00:16] going through one, uh, topic, uh, that is top of mind in the world of AI, uh,
+[00:00:22] just to help, uh, share a little bit about what's working for us, what we're
+[00:00:26] seeing in other clients, and hopefully help you as you drive your organization
+[00:00:31] on your AI adoption, uh, journey. Now, this week is slightly different. Uh
+[00:00:37] normally I'm very uh rigorous about protecting at my time at 3:00 on a
+[00:00:42] Wednesday. Uh but I'm actually running a live customer workshop at this
+[00:00:47] afternoon. So um I've recorded this a little bit earlier in the day and and so
+[00:00:52] you are watching uh me in a recording, but I hope that uh you'll get exactly
+[00:00:57] the same experience. Uh it just means that I won't be able to answer live
+[00:01:02] questions as we go. But the format that we're going to follow is uh very much
+[00:01:07] the same as we do each week. So we'll spend probably the bulk of our time
+[00:01:11] today uh on the main topic which is Claude code. And I can't wait to get
+[00:01:16] into that. Um normally we do then have a section about AI in the news. But
+[00:01:21] because we're going to spend so much time talking about Claude code, uh I'm
+[00:01:25] I'm not going to cover AI in the news this week. And as I've mentioned, we
+[00:01:29] won't have the opportunity to do live Q&A. But my understanding is that you do
+[00:01:34] have the option to ask questions in uh this uh sort of simulated live webinar
+[00:01:40] and this will come through to our team and to myself and I will come straight
+[00:01:44] back to you with those answers. So do feel free to ask uh or to email us
+[00:01:49] afterwards if you've got any questions. So let's get into it. Claude code and uh
+[00:01:56] I've given it this name a deep dive. We're going to talk about skills at
+[00:01:59] hooks and sub aents uh for developers. Now I'm going to go into claude code in
+[00:02:05] a fair bit of detail uh today. Um I've positioned it as for developers, but
+[00:02:11] this could also be for someone that is not a developer but is looking to dip
+[00:02:15] their toe in clawed code. There are a number of use cases of non-engineers
+[00:02:22] uh maybe from marketing, from product management, from uh from legal, from
+[00:02:27] sales uh that are building their first uh products, uh web apps, um landing
+[00:02:32] pages uh using clawed code because they really have uh stripped away a lot of
+[00:02:38] the complexity and scariness uh that it had for someone that was trying to learn
+[00:02:43] uh to code uh before. Now, one of the reasons why we're doing
+[00:02:47] uh this session is that there are so many uh development tools uh AI powered
+[00:02:53] engineering uh platforms that are out there today. Uh you might have heard of
+[00:02:58] cursor. Uh you might be playing with factory, you might be playing with uh
+[00:03:02] Google's anti-gravity. Uh there are a lot of these tools and my experience has
+[00:03:07] been that unless you go deep on one of them, you're actually just using surface
+[00:03:13] functionality. uh you're using the same prompt uh from one platform to another
+[00:03:19] and you're not really getting the benefit of the the harness uh that each
+[00:03:23] of these tools uh provides. And certainly uh the feedback and the uh the
+[00:03:29] tone that I see on on X, formerly known as Twitter, is that Claude code is a
+[00:03:35] harness that really is tightly embedded with the models that are behind it.
+[00:03:39] Obviously, Opus 4.5 and Sonic 4.5 and Haiku at the moment. Um, and uh when you
+[00:03:45] combine these amazing models uh with this amazing harness, uh you can really
+[00:03:51] customize and get great output from uh these tools.
+[00:03:55] So let's get into it. Um at a simple level, uh if you are a non-developer or
+[00:04:01] even a beginner developer, let's just visualize what we're talking about here.
+[00:04:06] So you might be working on a project, a repository that is hosted uh up there uh
+[00:04:12] in version control in GitHub. Uh for the sake of argument, let's say we're
+[00:04:16] working on an Acme project. Um so that's up in in GitHub. And what we have done
+[00:04:21] is pull or clone a copy of that down onto our local machine. And so on our
+[00:04:28] local laptop uh we have got a directory called Acme project. And in that uh
+[00:04:35] directory we've got a series of folders. And in those folders there are some
+[00:04:40] files. And here we can think about the different files that represent the code
+[00:04:44] and the dependencies and the API routts that make up our project.
+[00:04:50] All so far so good. Um now Claude Code is a package that you install onto your
+[00:04:58] machine. And Claude Code comes with all of these different uh capabilities that
+[00:05:04] we're going to be going through on our call today. What Claude Code is able to
+[00:05:08] do then as an agent is to interact with all of the files and the folders on your
+[00:05:15] local machine to uh manage create uh work on this project uh that you are are
+[00:05:22] building. So hopefully that visualizes things for you.
+[00:05:27] Now, how do you install clawed code? Where can you install clawed code? Uh if
+[00:05:32] you are an engineer, uh you're probably familiar with a terminal interface. It
+[00:05:36] might be the native uh terminal on your Mac or Windows machine. Uh you might be
+[00:05:41] using a uh a uh specific terminal like warpdev. Um you're going to use this
+[00:05:47] native installation. Uh and when you do this installation, uh it is going to
+[00:05:52] install Claude on your machine so that you can then use it in any of the
+[00:05:58] directories that you give it uh permission to.
+[00:06:02] Now, if you're not a hardcore terminal user interface developer, you can also
+[00:06:08] uh use Claude in a number of different places. So, having installed it on your
+[00:06:12] machine, uh you can then use it in your uh development environment. So that you
+[00:06:17] might be using an IDE uh like VS code, Visual Studio Code. Uh and then that's
+[00:06:22] open sourced and there are a number of forks of IDE. So you might have heard of
+[00:06:26] Cursor as a as a uh AI powered development platform uh and you can use
+[00:06:31] Claude within that. Uh there are also a number of Claude uh
+[00:06:36] surfaces that you can use Claude code in. And I'm going to show you this a
+[00:06:40] little bit later on. You can use Claude code in the web uh portal. So that's
+[00:06:45] claude.ai. AI. Um, and it will allow you to spin up web versions of uh of Claude
+[00:06:51] Code. Uh, you can use it on the Claude desktop app, and I'm going to show you
+[00:06:55] that a little bit later as well, and that will allow Claude Code to interact
+[00:06:59] with local files on your desktop. Uh, you can use it in Chrome, uh, especially
+[00:07:05] useful for debugging live uh, in your uh, in your project.
+[00:07:10] And you can also use Claude in a range of your uh continuous integration,
+[00:07:15] continuous deployment um uh uh processes. Uh there is a GitHub action
+[00:07:21] that allows Claude to take action on your uh PRs as they land in in GitHub.
+[00:07:27] For example, there's a Slack integration. So you can just mention
+[00:07:31] Claude and start getting Claude to work on various uh requirements that you've
+[00:07:35] got. So the installation fairly simple. uh you're just going to type in that
+[00:07:40] command into your terminal and then you're going to be able to access it.
+[00:07:44] Now I mentioned Claude Desktop. Uh now if you're a Claude uh user of of just
+[00:07:50] normal Claude, you should be familiar with Claude Desktop. Um but you're going
+[00:07:54] to download the Claude Desktop application. um that is going to sit in
+[00:07:59] your dock if you're on a Windows uh on a on a Mac machine or uh I don't even know
+[00:08:04] what it's called on a on a Windows machine, but in your in your menu bar
+[00:08:08] and you're going to be able to access either any cloud repositories that
+[00:08:13] you've linked up to Claude or in this example, you can see on the screen uh
+[00:08:18] just working on my local directory. So, it's going to be able to work and
+[00:08:22] navigate around my uh my local laptop directories.
+[00:08:29] If you get clawed on your mobile, uh, then you're going to be able to work
+[00:08:32] with clawed code, uh, directly through your Android or, uh, iOS device. Now,
+[00:08:39] this is actually something that I was working on this morning. So, at 7:36
+[00:08:43] this morning, I realized that we needed to update the footer um, of our
+[00:08:49] Wednesday webinar website that's promoting this very webinar. um that I
+[00:08:54] had accidentally hardcoded it to a specific uh webinar and not our regular
+[00:08:59] uh recurring slot. So 7:36 while I was still in my pajamas having my coffee uh
+[00:09:06] I just fired up on my iPhone. Uh the link on this webinar footer is wrong. It
+[00:09:10] should be the same as the one that you can pull from sanity which is our
+[00:09:14] content management uh platform uh for our upcoming Claude code webinar this
+[00:09:18] Wednesday. Can you change uh Claude Code gets to work? I'll help you fix the
+[00:09:23] webinar footer link. Let me first find the footer component and then check
+[00:09:26] sanity for the correct webinar link. And then here you can see uh Claude is using
+[00:09:31] tools GP to go and search for things. It's then going reading files. It does a
+[00:09:36] little bit of work. And then on the right hand side 7:43 you can see. So uh
+[00:09:41] actually this is me having my coffee. It didn't take till 7:43. Uh it was done in
+[00:09:45] about a minute and a half but I've done it. uh the the webinar footer is now
+[00:09:50] using the dynamic registration link from Sanity instead of the hard-coded Zoom
+[00:09:54] link. And then um what I was able to do was then create a uh pull request
+[00:09:59] directly from my iPhone, still in my pajamas. Um and then um approve that
+[00:10:04] merge into uh GitHub directly from the GitHub app that was also on my mobile
+[00:10:10] phone. So this is just an example of how claude code uh is really abstracting me
+[00:10:16] from actually needing to see the code uh that is being worked on.
+[00:10:23] So what subscriptions do you need in order to access uh this huge power?
+[00:10:28] Well, there's two ways of doing it. Um the first is through a claude
+[00:10:32] subscription. Um now you might as an individual user, you might have a pro or
+[00:10:37] a max uh subscription. Um, uh, the pro is the first level up from, uh, from,
+[00:10:43] uh, the free one, and you're talking about, I think it's$25 or $30 a month
+[00:10:48] for that, and that gets you a little bit of clawed code. Uh, you can go to a max,
+[00:10:53] which gives you five times the amount of clawed code, or there is a max 20x,
+[00:10:59] which gives you 20 times the amount of clawed code. And it really is clawed
+[00:11:04] code that is driving uh the high usage of uh the claude platform. Uh because
+[00:11:10] once you start using it for any kind of uh product development ah you're just
+[00:11:14] you're just using it uh constantly. And so these 5x and 20x limits uh they work
+[00:11:19] on a uh on a 5h hour window and also a weekly window. So if you're hammering
+[00:11:25] these you may well see uh you know you've hit your limit, take a break. uh
+[00:11:29] this resets at 2:35 uh p.m. Uh and then you get another 5h hour window.
+[00:11:36] If in your company you have got uh Claude licenses, you might have a team
+[00:11:41] or an enterprise license. Um then just yesterday I think it was they've given
+[00:11:47] you a smidgen of Claude even if you're on a standard license and uh and then a
+[00:11:52] premium gives you I don't know I don't know exactly what it is. I'm going at
+[00:11:56] rule of thumb. I think it's about like 10x because I hit I hit the barrier more
+[00:12:01] than I did on 5x but less than I did on on 20x. So I think it's somewhere in the
+[00:12:06] middle there. So those are the claud subscriptions.
+[00:12:10] The alternative way is that you can log in with your own API key either personal
+[00:12:16] from your company uh through a claude console account and you can use pay as
+[00:12:21] you go tokens. Now, big sort of flash alert. Um, the API tokens cost a
+[00:12:29] substantial amount more than the clawed subscription tokens. Um, I don't have a
+[00:12:36] uh hard data on this, but from my uh uh following people on X, the subscriptions
+[00:12:42] could be subsidized to like a 30th of what um the API is. Uh people are
+[00:12:49] talking about how they're seeing uh using 5,000 6,000 API uh dollars worth
+[00:12:55] of tokens um on their clawed uh subscriptions. So my recommendation is
+[00:13:01] that your company is using a team license or if you're individual you're
+[00:13:05] on a max license because you're going to get way more bang uh for your buck
+[00:13:09] there. So what does Claude code include? We
+[00:13:15] talk about this harness. You know what is the harness? uh what is it and then
+[00:13:19] as we go through this session I'm going to dive into each of these individually
+[00:13:23] and show them in claude code so you can get a real feel for them. So the first
+[00:13:27] is skills uh sometimes called agent skills. Um skills are a uh a concept
+[00:13:34] that was uh created by anthropic. They've now been turned into an open
+[00:13:39] standard. So you will see them in uh chat GBT and Gemini uh and other coding
+[00:13:45] platforms. But they really describe a way of doing something. You know, how is
+[00:13:50] it that you want to do something uh in this specific project or in your
+[00:13:54] company? This is how we write product requirements documents. This is how we
+[00:13:58] generate tests. This is how we design UI in our organization. Uh we we document
+[00:14:04] those ways of doing things and then we give them to Claude so that it knows uh
+[00:14:08] how to follow them. Uh we can create sub agents. Uh so we
+[00:14:13] can assign work off to these sub aents for asynchronous work to go off and
+[00:14:19] learn the codebase to explore our documentation to review our tests.
+[00:14:24] We can create or add in MCP servers. Uh I'll touch on this in a bit more detail,
+[00:14:30] but it stands for model context protocol. How do we give Claude eyes and
+[00:14:36] ears so that it can see and do things in our other systems?
+[00:14:41] We can give Claude memory so it can remember what we're working on, the
+[00:14:46] decisions that we've made, the reasons why we have certain architecture, where
+[00:14:50] we are in our project uh so that it's not coming in a blind each time.
+[00:14:56] We can give CL Claude commands uh for specific things that we want to do
+[00:15:01] quickly. Here's how I want to commit uh to Git. Here's how I want to run our
+[00:15:06] tests. Here is how I want to write a document.
+[00:15:10] We can create hooks that guide and provide some protection to Claude as it
+[00:15:15] works. Uh so that we can protect certain files or subdirectories. We can run
+[00:15:19] analysis, keep track on what we're doing.
+[00:15:23] We can give Claude access to tools so that Claude can get work done. uh using
+[00:15:28] Bash to be able to take action on our laptop uh to write write documents, edit
+[00:15:34] documents, move and read documents, to go and search the web, uh to search our
+[00:15:39] own files with GP and Globe. And we can give it access to plugins, uh
+[00:15:44] which is a great way of just borrowing other people's great skills, hooks, and
+[00:15:50] sub aents. And I'm going to show you some of these examples, some of the
+[00:15:53] plugins that I have plugged in, uh, which I'd recommend that you take a look
+[00:15:57] at as well. So, let's start off and I'm going to use
+[00:16:02] a combination of some of these slides to help explain at the core concept and
+[00:16:07] then diving into an example project that I'm working on to show you how these
+[00:16:12] things at work in in action. So the core of your um uh your claude code
+[00:16:19] implementation once you have uh installed it uh is to uh initiate it and
+[00:16:25] get a claude uh file uh set up. Now one of the things that took me a little
+[00:16:32] minute to work my head around uh was where these dot claudes uh can sit and
+[00:16:37] they can sit at multiple levels. If you are working in an organization
+[00:16:43] and your organization is rolling out clawed code at a companywide level to
+[00:16:48] all of your engineers, uh then you may well have some uh companywide
+[00:16:53] organizationwide uh uh managed settings and these will be
+[00:16:58] deployed by your IT team uh and will be picked up by uh any of your instances
+[00:17:04] that are using Claude in your organization's uh network.
+[00:17:09] Now I'm not using that. So I go down one level and I can install a doclaude
+[00:17:16] directory at my user scope. So this is on my Mac. I'm looking at my um my
+[00:17:21] Charlie Cowan user directory uh and Claude and this is globally scoped. So
+[00:17:27] any project that I set up um is going to pull in uh this.claude uh settings uh
+[00:17:33] file. Then we go down one level further and
+[00:17:37] then we might have a dot claude in our individual project. And here we might
+[00:17:42] have certain uh settings and and rules that are specific to this uh this
+[00:17:48] project. And then I and I should say and that claude is then committed to git.
+[00:17:54] And then we might go down one level further and I might have some local uh
+[00:17:58] rules or settings that are very specific to this project and specific to me and I
+[00:18:03] don't want to commit them to git and so this is excluded uh from that. So
+[00:18:08] there's these four different levels and they may all be uh impacting a single
+[00:18:13] project if they've all been set up. And as you'll find on the claude code
+[00:18:17] documentation, uh it'll talk you through about the precedence that these take
+[00:18:21] when there are multiple competing uh settings files.
+[00:18:26] So let me just um dive across to um my cursor and I'll just show you here. So
+[00:18:33] this is a um an example project. It's just a Formula 1 uh community that I'm
+[00:18:38] just using for a little bit of uh of demo. And so here you can see I've got a
+[00:18:44] dot claude uh which is in the project level. So this is project level scoping
+[00:18:50] and uh we'll come into some of these other things later on but I just wanted
+[00:18:53] to show you the settings file here. And the settings.json
+[00:18:58] at theclaude in our project level is what's defining a lot of the the
+[00:19:04] permissions and the settings that Claude is going to use when I'm working.
+[00:19:10] So, a it's worth knowing that that is here. Um, and there's lots of
+[00:19:14] permissions here, but over on the right hand side here, I've got my Claude code.
+[00:19:19] Now, all I had done uh when I got this set up was to type in uh Claude to get
+[00:19:24] it to start, but also because I'm working in Cursor, I'm using the Claude
+[00:19:31] Code uh VS Code extension. So, you'll be able to install this from your VS Code
+[00:19:37] uh marketplace. Um, and what this means is that Claude can then just be added
+[00:19:42] in. You can see here Claude code open in terminal, which is what I had done. And
+[00:19:47] now I've got Claude working from within uh within cursor.
+[00:19:51] Now I should add I think I've got my settings here.
+[00:19:56] Uh, settings. Let's just open that up. I I'm in this terminal view of Claude code
+[00:20:03] here. Um there is another setting which is to not use the terminal view and you
+[00:20:08] get a slightly different UI um which looks a little bit more user friendly.
+[00:20:13] The reason why I use the terminal view is that you get more functionality uh in
+[00:20:20] that uh and I I tried the the sort of the visual UI for a little bit and I I
+[00:20:25] navigated back to the to the terminal UI. But if your clawed code doesn't look
+[00:20:29] exactly like this, then it's going to be this this toggle, and you can decide uh
+[00:20:34] which one that you want uh want to use. So, let me just go back to my directory
+[00:20:39] here. And here's my settings. Now, a lot of the control of clawed code in the
+[00:20:46] terminal or in the uh the native UI is through a backslash. So, I'm just going
+[00:20:50] to do a backslash here, and you'll see a few of these uh come up. If I type in
+[00:20:55] permissions here, we'll see permissions is coming up. And I uh t uh hit return
+[00:21:01] to end. And then here we can see all of our uh rules that are in here. And it's
+[00:21:06] possible for me to set um allow um and what am I going to do to tab across?
+[00:21:13] Yeah. Tab tab tab tab tab tab. So here what I'm able to do is to set the
+[00:21:20] permissions for Claude in what it's allowed to do in the active uh sort of
+[00:21:27] original working directory. So here on my laptop users Charlie Cowan Formula 1
+[00:21:33] community this is the working directory and within this directory Claude I'm
+[00:21:39] allowing it to do all of these things without asking me for permission. Um, if
+[00:21:45] for example it is uh, you know, git status, you know, I'm fine with you
+[00:21:50] doing that. You don't need to ask me each time. Then if I go to ask, I could
+[00:21:54] add in some new rules and say, right, well, actually, I want you to ask me
+[00:21:58] permission for that. And for deny, you know, I do not want you to be able to
+[00:22:02] read my environment variables. I do not want you to be able to remove delete
+[00:22:08] files. And here we can be very granular about the permission that we can give to
+[00:22:13] Claude. Now this is really important because when you're getting started, one
+[00:22:18] of the first uh fears that any engineer is going to have is whoa, whoa, whoa.
+[00:22:22] You know, I don't want Claude running riot around my directory. How will I
+[00:22:26] know what it's doing? How will I know uh what has changed? Well, let's give it
+[00:22:31] some quite locked down permissions to start with, and then as you gain more
+[00:22:35] confidence, you can start to uh to to open it up.
+[00:22:41] So let's just go back to our slides uh here quickly.
+[00:22:46] And so here we were looking at our permissions allow, ask, deny, and which
+[00:22:50] workspace we're in. The next thing I want to look at is uh skills. Now I
+[00:22:56] described earlier that a skill is a way of doing things. Um and it's it's just
+[00:23:03] written text. I'm going to show you an example. It's a markdown document. And
+[00:23:08] uh the skill, if I'm to use that word too many times, that the skill is in
+[00:23:13] breaking down what it is that you want to do or that you do today and
+[00:23:17] describing it in a way that you can put into this format. So a skill is uh the
+[00:23:23] the name of a folder. So my skill and I'm going to show you one called product
+[00:23:28] manager skill in a minute. So this folder is product manager. And then the
+[00:23:33] heart of each skill is a skill.md file. And it's always named that
+[00:23:39] regardless of what your skill is. It's called skill.md.
+[00:23:42] And this is like um uh I describe it as a signpost. It's basically a signpost to
+[00:23:48] tell Claude what to do in what order. So you might have a workflow, step one,
+[00:23:54] step two, step three. You might have a decision uh uh flow. If X do Y. If a do
+[00:24:02] b to direct it in a different direction then we can have subfolders of scripts
+[00:24:10] which could be code executable code or scripts that are going to run. Um we
+[00:24:15] could have one or more references which could be documents that relate to each
+[00:24:19] of those steps of the process or the different decision trees. And then we
+[00:24:24] could have one or more assets which are templates uh things that Claude can use
+[00:24:29] to fill in. So, for example, we might have a product requirements document
+[00:24:35] template that we want Claude to use when creating a product requirements uh
+[00:24:40] document. So, this is what the format of a skill looks like. Uh let me um go over
+[00:24:46] to cursor. And so, here we are once again in our project scoped settings for
+[00:24:53] do.claude. And I go to skills and here I've got a product manager skill. So
+[00:24:59] this is the uh the the folder and I mentioned this skill.md
+[00:25:05] file which is the the signpost. So what is a skill.md file? Well at the
+[00:25:13] top it's got this yaml front matter and the two definite things that you have to
+[00:25:18] have in it is a name product manager and a description. So product thinking and
+[00:25:24] specification before implementation planning. uh use this when the user
+[00:25:28] wants to think through what to build before planning how to build it. It
+[00:25:33] creates PRDs, design specs that feed into Claude's plan mode. Uh it triggers
+[00:25:37] on product manager, create a PRD, help me think through this feature, what
+[00:25:41] should we build? Uh and so on. Now, why this is important is that this front
+[00:25:47] matter is loaded into Claude whenever a new Claude session is started. So if
+[00:25:54] you've got five skills or 10 skills, Claude is always aware of just uh this
+[00:26:00] amount. And so as I'm having a conversation, as I will do in a moment,
+[00:26:04] and I ask, you know, can you help us think through what to build? Uh it
+[00:26:08] knows, oh, Charlie asked what should we build? Oh, I know I've got a product
+[00:26:12] manager skill for that. Let me go and read the skill.md file and learn what
+[00:26:18] that is about. Now, this is the key point about skills.
+[00:26:23] It's a thing called progressive disclosure, which sounds a bit
+[00:26:28] complicated, but what it means is how do we protect Claude's context window. We
+[00:26:33] protect it by only loading up what we need when we need it. So, at starting a
+[00:26:39] Claude session, we load up all of this so that Claude knows what skills it's
+[00:26:43] got available. uh when it wants to use the product manager skill, it then loads
+[00:26:48] up the skill.md which should be quite short like a uh signpost and depending
+[00:26:55] on where we are in the workflow, then it can go and open up different references.
+[00:27:00] So in this example, we've got a design spec, some of the questions that I want
+[00:27:05] you to ask me. And here we've got a PRD template, which to be honest could be in
+[00:27:10] an assets uh subdirectory rather than a references one.
+[00:27:14] Um, and and so those only get loaded up when required. So if I go over here on
+[00:27:20] the right hand side and I just say, "Hey Claude, uh, can you help me think
+[00:27:25] through uh what to build?"
+[00:27:30] And uh, this should uh, have access to the skill. Most of the times because I
+[00:27:35] know what skill I want to use, I'll actually mention the skill. But uh for
+[00:27:39] the purposes of the video, I want to see if this is going to pick up. Um okay, I
+[00:27:45] can see you're working on this. So it didn't directly pick up the skill. So I
+[00:27:49] can say, can you uh use the product manager skill? Oh, do you know what? I
+[00:27:55] only loaded this up the skill up after I set up Claude. So this is a good point
+[00:28:00] of learning. when you add in uh agents, commands, hooks or skills, uh they only
+[00:28:06] get picked up when you restart your Claude session because on initiating the
+[00:28:12] Claude session, um it looks at it's available. Claudes and that's what
+[00:28:17] informs it. So, let's try that again. And I will just mention the the skill
+[00:28:22] for the sake of the video. Uh hey Claude, could you use the product
+[00:28:25] manager skill to help me think through what uh we should build next?
+[00:28:33] Now, I'm going to show you in a minute. I use a thing called Whisper Flow uh to
+[00:28:38] talk to Claude. I have not typed anything to Claude in 6 months. I just
+[00:28:42] talk to Claude as if it's another human, and it allows me to work so much faster.
+[00:28:47] So, here, use the skill product manager. Um uh this is what the description is.
+[00:28:52] Should I use the skill? Yes.
+[00:28:57] So now it's going to read uh the skill.m MD. So uh it knows successfully loaded
+[00:29:03] the skill and in that skill great let's think
+[00:29:07] strategically about what to build next for your F1 community app and so it's
+[00:29:11] going to guide me through that. Uh this is a wonderful uh fairly recent feature
+[00:29:17] in uh Claude code which is called ask user question. So instead of me just
+[00:29:23] having to talk uh through whisper flow to describe things um uh it's saying
+[00:29:29] here before I suggest directions I need to understand where you're at. Let me
+[00:29:32] ask a few questions. What's the current state of the app? Is it live with real
+[00:29:36] users in beta testing or still in early development? Well this is just a demo
+[00:29:40] project this F F1. So uh I'm going to tab down. It's in early development. And
+[00:29:46] then I hit return. What's your primary goal for the next feature you build?
+[00:29:50] Increase engagement. user acquisition, retention. Uh, so I'm going to say it's
+[00:29:55] user engagement. And then here's a multi-choice one. Have
+[00:29:59] you noticed any specific pain points or feature requests from users or yourself
+[00:30:03] when using it? Um, so I'm going to say uh here just to show you that I can type
+[00:30:08] something. Uh, I'm going to say we haven't actually developed this uh yet.
+[00:30:13] Uh, we're just in uh testing. It's a demo site.
+[00:30:17] Again, whisper flow there. And then I'm Oh, and then I'm going to click submit.
+[00:30:21] Submit my answers. That's the ask user question. Super useful. And I think as
+[00:30:26] you find it, as you start using that, you'll see that the questions are so um
+[00:30:32] uh specific and direct. It's a great uh great tool. So, I'm going to stop going
+[00:30:38] through that process, but you've seen there a little bit about how a skill can
+[00:30:42] get used. uh I would consider skills for any part of your development process.
+[00:30:49] And to help you on that track, I would think about the people, the humans that
+[00:30:54] you would normally interact. So, do you normally work with a product manager?
+[00:31:00] Well, I've got a product manager skill there. Do you normally work with a test
+[00:31:04] manager? Do you normally work with a documentation writer? Uh all of these
+[00:31:09] things are skills that you can create that are going to um pick up that work
+[00:31:15] either from you or prevent you from needing to have someone else uh do that
+[00:31:19] work on your behalf.
+[00:31:24] Um okay, let's go back. Where's my Oh, it's because I'm in
+[00:31:29] uh presentation mode. Let me go back here so you can see that. Right. Uh so
+[00:31:35] that was skills. Um, I would 100% recommend building out your first skill
+[00:31:42] because learning the skill of skill creation uh is uh is super super
+[00:31:47] valuable. Um, uh, uh, yes. Next up, sub aents.
+[00:31:55] Uh, what is a sub agent? All right, I've tried to build a really simple uh, image
+[00:31:59] here uh, to explain. So, on the left is our main chat with uh, Claude. Um uh
+[00:32:06] this is a user sending a message. Uh then Claude coming back maybe making
+[00:32:10] some tool calls. Uh then I send another message and uh then Claude decides to
+[00:32:16] launch a sub agent either because I've asked it to or because it makes that
+[00:32:20] determination. A sub agent is a completely other uh claude instance um
+[00:32:26] that goes off and does some work. Now why why do we care about that? Well, it
+[00:32:32] can use its own choice of model. So it might not be using Opus 4.5 which is the
+[00:32:37] biggest model or Sonet. It could choose to use Haiku which is a very small model
+[00:32:42] and uses very few amount of your uh credits. Um uh we could ask it to go off
+[00:32:47] and do something while um the main uh agent is carrying on working on
+[00:32:53] something else. um it uses its own context window so it can go and do lots
+[00:32:58] of research and then all it does is report back with its findings into the
+[00:33:03] main agent rather than bringing uh everything uh back in.
+[00:33:08] Um now Claude has already got a number of sub agents built in uh and I'll show
+[00:33:12] you a couple of these examples uh in a minute. a plan mode which goes off and
+[00:33:17] does a work to build a plan and it's been instructed to build a plan and it
+[00:33:21] cannot write or edit any of your files. Um explore uh which is fantastic for
+[00:33:27] just going and learning things about a um uh a specific um directory um or a
+[00:33:34] general purpose agent where it just asks this other agent to go and do stuff and
+[00:33:38] protect your your um uh your context. So, let me come back into to cursor here
+[00:33:44] and let me just uh cancel out of out of that and uh let me just clear as well
+[00:33:51] here. Uh that hashtag uh clear not hashtag
+[00:33:56] backslash clear it clears the context and it clears the conversation. So,
+[00:34:00] you're starting from from scratch. That's a useful uh backslash command. Um
+[00:34:06] so, let me give you an example of spinning up some sub aents. And I do
+[00:34:09] this a lot. Um, hey Claude, I'm new to this uh uh project. Um, so can you spin
+[00:34:17] up a couple of sub agents? Uh, one, can you go and take a look at our um project
+[00:34:23] directory? Uh, let me know a bit about what we've built. Um, another, can you
+[00:34:27] take a look at our claude.md and double check what we have um, uh, set up uh, in
+[00:34:32] our instructions for Claude? And a third one, could you go and do a web search uh
+[00:34:38] just to go and double check uh any information about the upcoming Formula 1
+[00:34:42] season? What are the names of the teams and the drivers for each uh team?
+[00:34:46] Because I think that's going to be important.
+[00:34:50] Again, Whisper Flow, there's absolutely no way that I'm going to type all of
+[00:34:54] that in. It's much easier to talk. And what Whisper Flow does is actually, you
+[00:34:59] can see it's put the one, two, three bullet points in here. Absolutely
+[00:35:03] fantastic. Um, and uh, it also automatically atment mentions any files
+[00:35:09] that I have mentioned here. So, at@claude.mmd. I didn't say that, but it
+[00:35:13] knows we've got that file and so it's at mentioned it.
+[00:35:17] So, here we go. I've asked it to fire up some sub aents. So, I'll spin up all
+[00:35:23] three agents in parallel to gather this information for you. Here's three, one,
+[00:35:28] two, three explore agents because that's what I've asked them to go and do. One
+[00:35:33] is exploring the project structure. I'm just going to click uh some approvals
+[00:35:37] here, some permissions. One is exploring the project structure as I asked.
+[00:35:41] Another is exploring the claw.md and another one is searching F125.
+[00:35:47] Okay, we're F126. Um so I'm going to have to tell it about that, but I'm sure
+[00:35:52] maybe it will find out that we're actually got the F126 uh season coming
+[00:35:56] up. Um, for each of those, you can see the
+[00:36:00] number of tool uses that each of those agents is using and the number of
+[00:36:04] tokens. They're all independent of each other and therefore not polluting our
+[00:36:09] initial uh main chat context and they will then report back um into the main
+[00:36:16] uh thread. So that's us just using the general
+[00:36:20] agents from uh from Claude, but we can also define our own agents. And so while
+[00:36:27] that's building, let me just go and have a look up here in our do.claude. Again,
+[00:36:32] this is in our project scope, but this could be in our user scope or local
+[00:36:37] scope. We've got an agent following very much the same format. Uh I know we've
+[00:36:43] got stuff on the right. I'm going to come back to that uh in uh in a moment.
+[00:36:47] Um but let's look at the agent here. Here I've got one, a console security
+[00:36:52] reviewer. I want to use this agent to make sure that before we push any code
+[00:36:58] to the remote branch that we've checked that we've not got any uh console
+[00:37:03] logging that is exposing sensitive information like uh API keys or personal
+[00:37:08] information. So this describes what the agent uh does and then here are the
+[00:37:13] instructions. Agent I want you to identify sensitive data exposures. I
+[00:37:18] want you to flag debug logs and so on and so on. So you can create a sub agent
+[00:37:23] for for anything. Um it's just describing the work that you want to do.
+[00:37:28] The main thing I would encourage you to think about is that these are
+[00:37:31] asynchronous. So for the console security reviewer, I'm saying go away
+[00:37:36] and go and do this thing and then come back and report back. It's not really
+[00:37:41] having a chat about it while you're doing it.
+[00:37:45] So over on the right here, we've got our report back. All three agents have
+[00:37:49] finished. There's a comprehensive summary of what they found. A project
+[00:37:52] overview. Um, this is what the project does. Great. Um, claude.mmd key
+[00:37:58] instructions reports back from our claude.mmd. And then three, uh, 2025 F1
+[00:38:03] season. Uh, if I was actually doing this, I would just let Claude know
+[00:38:07] gently that we're coming up to the 2026 season. And so, can they, um, can they
+[00:38:12] go and do uh, some changes for that? But you've got the idea here about how these
+[00:38:16] sub aents go away, do their work, and then report back um and uh report back
+[00:38:22] to the main uh agent. Okay, so let me go back to our Chrome.
+[00:38:31] So that's sub agents. Next one I want to look at is hooks.
+[00:38:38] Now, a hook is a uh a functionality that runs at various
+[00:38:47] points during uh the claude code life cycle. Um what does that mean, Charlie?
+[00:38:54] Well, let's look at these hook events on the right hand side. These are all
+[00:38:58] things that happen while claud code is working. So, pre-tool use before it does
+[00:39:06] anything, before it writes something, before it does a web search, uh before
+[00:39:10] it edits something, before it deletes something. Um, so we can put in a hook
+[00:39:15] at that point. Before you do anything with a tool, do you know X run this hook
+[00:39:22] um before Oh, I've got a bad spelling there. Permission. Permission request.
+[00:39:26] Um, whenever you ask for permission, run this hook. After you've used a tool, run
+[00:39:31] this hook. After the user has put a prompt in, but before they've submitted
+[00:39:37] it, run this hook. Whenever there's a notification that Claude is providing,
+[00:39:42] run this hook. When Claude has stopped everything in a specific turn, run this
+[00:39:48] hook. When one of our sub agents has finished, run this hook before we
+[00:39:54] compact our context. and then at the session start and at the session end uh
+[00:40:00] run this hook. So these are kind of the trigger points for when we want to run
+[00:40:05] uh uh one or more of these hooks. And then what does a hook look like? Uh I'm
+[00:40:10] going to show you this in my uh in my Claude code settings in a minute. But in
+[00:40:15] our settings file, uh we can have a section for hooks. And here I've got a
+[00:40:20] stop hook. And so for the the stop um uh uh hook event, these are the hooks. I've
+[00:40:27] got one and I want to run this hook. So this test keeper hook will run whenever
+[00:40:34] the stop uh signal uh is given. And I'll show you what that um what that looks
+[00:40:38] like in practice once that hook has run. Uh this was an example. Um, so what my
+[00:40:46] test keeper hook does is whenever Claude finishes work, so stop. I've finished my
+[00:40:53] turn. We run the test keeper hook. And what I want my test keeper hook to do is
+[00:40:59] to number one double check if the files that Claude has been working in are in a
+[00:41:05] protected area where I want to run tests. If they are, has it got tests?
+[00:41:11] Uh, if it has got tests, run those tests and check that they still pass. If it
+[00:41:17] has not got tests, suggest that I write tests because it's probably a new file
+[00:41:21] that's been created. Uh, and you should test uh you should write tests for that.
+[00:41:26] And in this uh screenshot at the bottom, you can get an example of exactly uh how
+[00:41:32] this works. Uh, I'd done some work. Um, Claude has finished uh its its work.
+[00:41:38] It's run a build and at the end it says, "Ah, the stop sign has run. I've run my
+[00:41:43] test keeper hook as I'm instructed to do. And by the way, there are now five
+[00:41:48] files uh that have not got tests that should have because they include
+[00:41:52] business logic or an API route. Um, should I use my test manager skill to
+[00:41:57] design suitable tests?" Now, for me, working as a solo developer without a
+[00:42:02] ton of uh testers uh behind me to to mop up anything that I'm working on, this
+[00:42:08] means I'm building and testing as I go automatically because of the protection
+[00:42:13] that these hooks are providing. So, let me flip back to cursor here and
+[00:42:18] let's just go into our hooks directory and well, first off, let me go to our
+[00:42:23] settings. So, here we are in our settings.json JSON and here is that
+[00:42:29] hooks um uh uh code uh that I talked about the hooks uh settings um hooks uh
+[00:42:36] stop and uh we want to run uh this command when uh that hook needs to fire.
+[00:42:44] Now you may then end up having uh multiple hooks. Um I have a number of
+[00:42:49] hooks that are all scoped at the user level. Uh I have a session end hook. So
+[00:42:55] whenever I hit let's go if I was to close this clawed code window or I was
+[00:43:01] to hit clear it would run our session end hook and that will um log details of
+[00:43:09] uh what we've done in the project and then when I start a new session it will
+[00:43:14] run a session start hook which will pick up from where we were what decisions
+[00:43:18] have we made where are we in the project what is uh what is working
+[00:43:24] So here's where we've got the the hooks defined. This is the command that should
+[00:43:28] run. And then here in my hooks directory include is where the actual uh hook uh
+[00:43:34] resides. And you don't need to worry too much about this. Um uh Claude wrote this
+[00:43:40] for me. I didn't write it. I I just said right um I've got a certain number of
+[00:43:44] files that are what I'd call high priority. And whenever we create any uh
+[00:43:49] files in those directories, I want to uh to trigger uh this process of checking
+[00:43:55] for existing tests or uh creating um uh creating tests. There we go. Extract all
+[00:44:02] the edited TypeScript files. Look for edit write tool uses.
+[00:44:08] Uh get the corresponding test file if there is one. Build an output message.
+[00:44:14] Report any failed tests. report missing tests.
+[00:44:18] Okay, so this is how a hook would run that script. And this is what I then see
+[00:44:24] in the um uh in the uh in the in the UI here telling me that I need to to write
+[00:44:32] some more tests. Um so those are hooks. I would say that um they were the
+[00:44:38] hardest thing for me to get my head around. um not necessarily the
+[00:44:43] complexity of creating them because Claude is fantastic at writing them.
+[00:44:47] It's more for me to think about my development process and where I might
+[00:44:52] want to use hooks and how they could help me in my development life cycle.
+[00:45:02] Next up is memory. And I talked about this a little bit earlier when I
+[00:45:07] mentioned a claw.md file. So what is a claw.md file? And let me show you uh
+[00:45:13] where where that sits. So when you um create uh or or put Claude into a new
+[00:45:20] directory, you'll use this init command backslashinit
+[00:45:24] um to uh let me go up here so it's highlighted. Initialize a new claude.md
+[00:45:30] file within the codebase. And so what that does is launches an explore sub
+[00:45:35] agent to learn all about your your project. And then down here in the root
+[00:45:41] of your project, it will put in a claude.md file which is basically uh a
+[00:45:47] signpost a memory to Claude about what this project is and what you're doing.
+[00:45:52] Um this file provides guidance to Claude code when walking working with CL code
+[00:45:57] in this uh repository. Um these are how we run various commands and this is
+[00:46:02] because this is what we've been set up in our um in our application. Uh this is
+[00:46:07] how we do testing. This is our architecture. Um, these are some of the
+[00:46:11] integrations or dependencies we're using for authentication. Uh, this is how our
+[00:46:16] database is structured. Now, what this means is that whenever we're having a
+[00:46:21] chat with Claude over on the right hand side here, it is able to reference the
+[00:46:27] Claude MD file. So, we're not having to explain to it every time, oh, by the
+[00:46:31] way, we use Superbase as our database. Oh, by the way, we use CL for
+[00:46:35] authentication. Oh, by the way, we structured it like this for these uh
+[00:46:39] these reasons. And the claude.md gives claude uh code that knowledge.
+[00:46:46] Now, um when you do this initial initiation, you will get a claude.md at
+[00:46:50] the root of your directory. But what I want to show you is that you can also
+[00:46:55] put claw.mds at any level of your uh um application. Um, so here for example,
+[00:47:03] I've got a claude.md in our superbase uh directory.
+[00:47:08] Um, now when claude is working around your project, it will always look for
+[00:47:14] claude.mds at uh the level of the subdirectory that
+[00:47:19] it's working in. So you can be really really super specific all through your
+[00:47:24] project. you know, here's how we do the UI, here's how we do the authentication,
+[00:47:28] here's how we do um our our backend database. And this Claude MD can be
+[00:47:33] super targeted on this specific directory. And when Claude is working,
+[00:47:38] it will start from the specific file that it is working in and it will go up
+[00:47:43] to the nearest subdirectory and look for a claude.md there. Uh it will take
+[00:47:48] account of that and then it will go up a level, upper level, upper level. So it
+[00:47:51] will take account of all of these Claude.m MDs, but prioritizing the one
+[00:47:56] that's at the subdirectory. So if you've ever felt, oh, I just wish Claude knew
+[00:48:01] this about why we've done this or how we do that or what our process is, this is
+[00:48:06] where you litter your Claude MDs around the project.
+[00:48:12] um like um uh everything that we've seen so far, it is just markdown documents.
+[00:48:20] It is text. It is a way of describing things. And when I'm creating these
+[00:48:24] things, I'm not writing this. I didn't write this. I just had a conversation
+[00:48:28] using Whisper Flow with Claude code over here uh to create the Claude MD. So,
+[00:48:34] let's uh let's try and do one uh here. Uh hey Claude. Um, I want to create a
+[00:48:39] new claude.md that handles our authentication. So we can put that in
+[00:48:43] the or section maybe of our app. Um, so can you create that for me?
+[00:48:51] So once again, whisper flow uh it's tagged the claw.md that handles our
+[00:48:56] authentication. Can we put that in the O section? Because I know we've got the or
+[00:49:00] section up here. Uh, I'll create a dedicated claw.md. Let me first take a
+[00:49:05] quick look at what's in the orth route to make sure the documentation is
+[00:49:08] accurate. So, it's doing a little search. Then, it's going to go and have
+[00:49:11] a look at our layout. Then, it's seeing these different signin and sign up
+[00:49:14] pages. Taking a look at uh our clerk web hook. We're using clerk for
+[00:49:18] authentication middleware. This is the harness working. It's reading, reading,
+[00:49:24] searching. It's learning its way around um without me having to point it in
+[00:49:29] various uh directions. Now I've got a complete picture of the or system. Let
+[00:49:34] me create the or specific claw.md. Uh here it is. If I wanted to, this is
+[00:49:39] because we've got the VS Code um integration. You know, I could read
+[00:49:43] this. But to be honest, I'm just clicking allow because I know Claude
+[00:49:47] knows more about this than I do. And if I now go to my orth directory, we've now
+[00:49:52] got a claude.md authentication section. This directory
+[00:49:56] contains the public authentication pages. Uh here's how the directory is
+[00:49:59] structured. Lovely little markdown image here. Here's how the orthflow works. Uh,
+[00:50:05] great. And do you know what I find? Yes, these Claude MDs are useful for Claude,
+[00:50:11] but my goodness, they're useful for me as well. It really helps me to
+[00:50:15] understand and visualize uh way we've architected the project and and uh how
+[00:50:21] we've uh made certain decisions. Uh so that's claude.md
+[00:50:28] for your memory. Let's go back now over here.
+[00:50:36] Next thing, plugins. Now I talked about this um as you are creating your own
+[00:50:42] skills uh your own hooks your own agents your own commands you might be thinking
+[00:50:48] well come on I can't be the first person in the world to have wanted to do I
+[00:50:52] don't know test-driven development or to do uh you know react uh design or you
+[00:50:57] know good uh tailwind front end you can't be the first person to do that so
+[00:51:01] surely someone else has done this before and this is where plugins come in so
+[00:51:06] plugins either come from sort of official sources such as uh Vel or
+[00:51:10] Anthropic themselves or individuals can create their own plugins uh in a
+[00:51:15] marketplace and you can browse those. So let me just switch back across and I'll
+[00:51:20] show you how these uh these work. So I'm going to go back slashplugin
+[00:51:28] and here we get the screen. So uh discover plugins
+[00:51:32] uh installed plugins and marketplaces. So, for discover plugins, I might uh
+[00:51:37] know of one because I've seen it on on X or someone's uh mentioned it on a
+[00:51:42] podcast. Um, and so I could search for it or I'm literally just going down here
+[00:51:47] and I spend quite a bit of time uh looking at a few of the Okay, there's an
+[00:51:52] official Claude plugins official. So, that's coming from Claude and it's the
+[00:51:57] Superbase MCP integration. So, I'm going to click that because we use Superbase
+[00:52:01] here. Do I want to install it just for me on my user scope? Do I want to
+[00:52:06] install it for all collaborators in this repository at the project scope that we
+[00:52:11] talked about or install it for me uh uh just in this repo uh only? Oh yes. So
+[00:52:18] user scope, project scope, local scope. Um so as we use this uh superbase in a
+[00:52:24] number of our projects, I'm actually going to install it on my user scope. So
+[00:52:28] let's do that. Installed. And like I mentioned earlier, restart Claude Code
+[00:52:33] to load the new plugins. I'm not going to restart it, but the next time I
+[00:52:36] would, I would have access to that. Um, so let me just go back to the plugins UI
+[00:52:41] here. If I look at ones that I've installed,
+[00:52:44] um, so I'm going to give you some examples of these, but uh, specific
+[00:52:49] ones, um, from Claude themselves, code review, uh, commit commands, uh, super
+[00:52:55] useful, uh, example skills, feature dev, which teaches Claude code
+[00:53:01] uh, how to go through a code architecture, implementation,
+[00:53:05] front-end design. I love it so much. which I think I've implemented it uh you
+[00:53:09] know two times from different different plugins. The Superbase one that we've
+[00:53:13] just turned on um Superbase uh LSP this teaches Claude all about TypeScript and
+[00:53:20] there are a number of these for different languages uh which gives it
+[00:53:23] access to a lot of the TypeScript functionality. Um and then uh Claude in
+[00:53:29] Chrome that I'm going to talk about in a little moment as well. So um this front-
+[00:53:34] end design uh I can you know access it update it blah blah blah. So all so good
+[00:53:40] and then if I go through these marketplaces the marketplace contains
+[00:53:45] the plugins that contain the skills. Um and so I've added a few plugin a few
+[00:53:51] marketplaces here anthropic agent skills uh claude code plugins and this claude
+[00:53:56] plugins official um I have added in. So those are the um uh the plugins. If I
+[00:54:05] switch back to my screen here, let me give you a couple of other examples.
+[00:54:12] Um so I showed you the claude code uh plugins from anthropic. Um these are
+[00:54:18] just GitHub repositories and you can go and view them. Um so this is the claude
+[00:54:23] code plugins in here. We've got a number of uh uh plugins within the marketplace.
+[00:54:30] So the code review one and commit commands one. I talked about the feature
+[00:54:34] dev one, the front-end design for great UIs and and what is in each of these?
+[00:54:40] Well, it's just markdown text just like uh the the skills that we looked at. So
+[00:54:46] this is the front-end design one. Front-end design, it's a claude plugin.
+[00:54:50] Uh it's a skill that is in that plugin. And what does a skill contain? Well, you
+[00:54:55] remember a skill.md. And uh here is the name and the
+[00:55:00] description and it is just written text. This helps guide Claude in how to do
+[00:55:06] great front-end uh design. Um but instead of you having to write this
+[00:55:10] text, you use the plugin and you pull it uh straight in.
+[00:55:15] Um here is another one that was just launched uh last week from Vel. Uh now
+[00:55:20] if you're hosting your uh your project somewhere you may have come across VEL
+[00:55:25] uh a cloud uh hosting and management uh platform and they have launched their
+[00:55:30] agent skills plugin and this includes specific uh rules if you're building on
+[00:55:36] react. This has got their 20 years I think they said of of React best
+[00:55:40] practices all built into into one skill. So you uh plug this skill in and now in
+[00:55:47] your project you can just ask uh Claude, hey, can you use the React best
+[00:55:51] practices skill to make sure that we're following React best practices? And this
+[00:55:55] is speeding up websites and applications by removing things like async waterfalls
+[00:56:00] that might be slowing down uh your uh your projects.
+[00:56:06] Next up, MCPS. Uh now MCP stands for model context
+[00:56:12] protocol and it was a uh uh I'm going to say the word protocol. It was a protocol
+[00:56:18] that was uh defined and written by anthropic the makers of claude code. And
+[00:56:24] it defines a way that a um uh uh an agent of any to type not just claude can
+[00:56:33] get information and context about other systems and pull it back in. Um so
+[00:56:39] common ones that we are using in our projects are the top one linear uh which
+[00:56:44] is a great product management uh platform. Uh but then uh Sentry for our
+[00:56:50] kind of error logging uh Canva for getting access to designs. Um Stripe for
+[00:56:55] billing, Vel for managing our deployments. Superbase for managing our
+[00:57:00] backend databases. All of the things that oh wouldn't it be great if Claude
+[00:57:04] knew this? Wouldn't it be great if Claude could update that? And that's
+[00:57:07] what MCPs allow you to do. Now, how do you install them? Um, it's pretty
+[00:57:13] simple. Uh, you will get a uh an instruction or a line like this that you
+[00:57:20] will just type into uh into your terminal. And um when you go to the
+[00:57:25] individual site, whether it's Canva, Sanity, Stripe, if you just type in
+[00:57:30] Stripe MCP server, you'll go to their own documentation and it will give you
+[00:57:34] the page and it will give you the instructions that you need to type uh to
+[00:57:38] allow Claude uh to add these MCP servers in. Um so if I go back to my cursor
+[00:57:45] here, now I've got all of my uh MCPs scoped at the user level. So, let me
+[00:57:52] just ask uh hey Claude, uh can you confirm what MCPs we've got available in
+[00:57:57] this project? They're probably at the user level
+[00:58:02] and it's just going to take a look at what MCPS were initiated at the start of
+[00:58:07] this uh this project. I can see they're available. Let me
+[00:58:12] check the MCP config.
+[00:58:25] Okay, doing a little bit of searching to look in my user directory.
+[00:58:35] Okay, it's now found the skills in my user directory.
+[00:58:46] Um, and then as this builds, uh, I'll then show you the backslash command,
+[00:58:50] which would be a much quicker way of doing this. But I wanted to to show you
+[00:58:53] this kind of UI. Um, so based on my available tools in the configuration,
+[00:58:58] uh, here are the available, um, uh, skills, uh, not skills, uh, MCPS that
+[00:59:04] are active. Claude in Chrome, uh, IDE, uh, Superbase that we just installed,
+[00:59:10] and there should be some more. Let me go MCP manage MCP service. Okay, so maybe
+[00:59:15] I've not activated some of the others here, but we've just got this claude uh
+[00:59:19] in Chrome. Um, but what that then means uh is that we can then uh interact with
+[00:59:26] those other systems from within uh Claude. Now, I find this super helpful
+[00:59:31] for activating um uh or getting information from uh
+[00:59:37] Superbase. Uh what's going on in our database? Can you actually go and
+[00:59:41] interact with the demo environment, the test environment? Uh can you go off to
+[00:59:47] linear and pull in the most recent issue that we want to work on? Can you update
+[00:59:51] at the status of that? So it's all about ensuring that claude is not working in a
+[00:59:57] silo. We want to give it as much access as uh as possible.
+[01:00:06] Okay. So, that's MCP servers.
+[01:00:13] And now we're going to get into wrapping up with a little bit of uh work and how
+[01:00:18] I use uh Claude uh code once we've set it up. Lots of setting up that we've
+[01:00:22] gone through there in getting all of these things configured. Um but now, you
+[01:00:27] know, how is it that we should use this? One of the most powerful uh things you
+[01:00:31] can do in any work, not just coding, but is is planning, preparing. Uh you might
+[01:00:38] have heard of the five Ps. Perfect preparation prevents poor performance.
+[01:00:43] If we dive straight into building something, Claude will build us
+[01:00:46] something, but it won't necessarily be exactly what we want. The more time we
+[01:00:51] spend planning, uh the better. And Claude Code has got built in a fantastic
+[01:00:57] plan mode that we can that we can use. So, let me um switch across to uh my
+[01:01:04] cursor here. And I'm going to just uh backslash into plan mode.
+[01:01:11] And here you can see we're in plan mode here. Hey Claude, uh can you help us to
+[01:01:16] plan out what we should build uh next? Now, that's a really bad uh question.
+[01:01:22] What we should build next? uh because I would probably have more of an idea. But
+[01:01:27] I just want you to show that what this is going to do is to kick off uh plan
+[01:01:31] mode. Uh it is not now allowed to make any changes. It is not allowed to um
+[01:01:37] update or create any files. It is just to go and set off these agents and help
+[01:01:42] us to uh to plan. I would be spending 70 to 80% of my time
+[01:01:50] in plan mode. This is where I'm talking to Claude as a co-creator, a co-worker,
+[01:01:56] a product manager, and we're thinking about what it is that we want to build.
+[01:02:01] We are architecting it. We are coming up with uh the the the structure of the the
+[01:02:08] files that we want to create. We are deciding whether we're going to create
+[01:02:12] various API routes or different dependencies that we might need. We
+[01:02:16] might be toing and throwing about doing some web search to test out various
+[01:02:20] other um approaches. And it's only once we've locked down our plan that I'd go
+[01:02:27] anywhere near moving out of plan mode and into building.
+[01:02:32] What happens through plan mode is that you're going to spend whatever it might
+[01:02:36] be hours uh discussing in plan mode and having locked down the plan it will
+[01:02:41] create a plan file in your do.claw claude directory in your user scoped um
+[01:02:47] uh plan directory. Um and it will then use that plan to refer back to it and
+[01:02:54] update as it goes building. So what you're really doing is laying down some
+[01:02:59] hardcore documentation about what it is that you want to build. And this allows
+[01:03:04] Claude to keep itself honest while it's uh it's building. So, I'm not going to
+[01:03:09] go through the ask us a question process again because um because we've already
+[01:03:14] already done that. Um but uh my 100% recommendation is spend the majority of
+[01:03:21] your time in plan mode and only uh come out of plan mode once you are 100%
+[01:03:28] aligned with Claude on what the plan is and what you're going to do and uh and
+[01:03:32] you know that if Claude builds what is in the plan, you're going to be happy.
+[01:03:44] Okay, I'm conscious of time uh now. So, we are coming towards the end here. Um
+[01:03:50] I've talked about whisper flow typing is so 2010s. Absolutely. I've not typed
+[01:03:55] once in this and we're just talking to Claude. We're talking to Claude. I'm
+[01:03:59] able to share so much context. So, go to Whisperflow. That's WISPR
+[01:04:05] uh not whisper uh WISPR uh flow.ai.
+[01:04:10] You get a free download uh and then you can just start talking uh to Claude,
+[01:04:14] which is fantastic. Um be aware that Claude has got access
+[01:04:19] to many tools. They're all written here. And this is really at the heart of what
+[01:04:24] we've been setting up with our um with all of our settings. Claude is then able
+[01:04:30] to use all of these tools um as it wishes, as it chooses, according to the
+[01:04:36] permissions and settings that you have set. You are in control. And then you're
+[01:04:40] going to find you have built an amazing uh co-c collaborator, co-creator to
+[01:04:46] create uh amazing uh products and projects.
+[01:04:51] So, slightly different uh Wednesday webinar this week. I'm really sorry I'm
+[01:04:55] not there with you 100% live, but I hope I brought the energy uh and the passion
+[01:05:00] and that you're excited to go and spin up your own clawed code right now and uh
+[01:05:04] and start testing out some of the things uh that we've been looking at. Um next
+[01:05:09] week, normal service resumes. We're going to be looking at Notebook LM uh
+[01:05:13] which you may have been using a little bit for research. It's a fantastic
+[01:05:16] Google product, but I'm going to show you how your sales team can be using it
+[01:05:21] to uh qualify and to plan uh for prospects in your sales process. So,
+[01:05:27] with that, thank you very much. Enjoy the rest of your week and I'll speak to
+[01:05:30] you soon.

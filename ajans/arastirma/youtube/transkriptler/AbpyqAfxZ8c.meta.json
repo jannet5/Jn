@@ -1,0 +1,11 @@
+{
+ "title": "I Built an Agentic Software Factory with Codex and Claude Code",
+ "channel": "Owain Lewis",
+ "duration": 1249,
+ "description": "🔗 Skills used in this video: https://aiengineer.co/start/\n\nIn this video I walk through how I build a software factory: an automated pipeline where agents pick up tickets, refine them, implement the change, run tests and reviews, and open a pull request without me sitting in the terminal.\n\nI show this on a real open source project called Factory, written in Rust, which polls GitHub issues for labels, spawns an agent in an isolated Git worktree, and moves the work through triage, implementation, and review. It solves the problem of tedious mechanical work sitting in a backlog while you babysit agents one conversation at a time.\n\nWhat you'll learn:\n- What a software factory is and how it maps onto the development loop you already follow\n- The task to PR workflow I use for most of my implementation work\n- How a triage agent turns a vague ticket into an implementation ready spec\n- How label based triggers move work through the pipeline automatically\n- Worktree isolation vs Docker sandboxes, and why I am still working this out\n- Scheduled workflows, including a bug finder that opens tickets on its own\n- The honest limits: token cost at scale, and the fact that only a share of your tickets should ever be handed off this way\n\n🔗 Links\nThe skills: https://aiengineer.co/start/\nAI Engineer Community: https://aiengineer.co\nFactory repo: https://github.com/owainlewis/factory\nNeo coding agent: https://neoharness.dev/\n\nDrop a comment with any topics you'd like me to cover in future videos.\n\n#AIEngineering #AICoding #AIAgents #AgenticCoding #SoftwareEngineering #Codex #ClaudeCode",
+ "upload_date": "20260725",
+ "view_count": 77818,
+ "kaynak": "yt-dlp:ios:AbpyqAfxZ8c.en.json3",
+ "id": "AbpyqAfxZ8c",
+ "url": "https://www.youtube.com/watch?v=AbpyqAfxZ8c"
+}
