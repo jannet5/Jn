@@ -33,4 +33,26 @@ class LogicTest {
         assertEquals(2, Logic.dayBucket(now, now - 3 * day, 0))
         assertEquals(3, Logic.dayBucket(now, now - 9 * day, 0))
     }
+
+    private fun n(pkg: String, app: String, time: Long, read: Boolean = false) =
+        com.notivo.app.data.Notif(sbnKey = "k", pkg = pkg, appName = app, title = "t", text = "x$time", time = time, category = "", isMessage = true, read = read)
+
+    @Test fun groupsByAppNewestGroupFirstAndCountsUnread() {
+        val items = listOf(n("wa", "WhatsApp", 100), n("mail", "Gmail", 300), n("wa", "WhatsApp", 200, read = true), n("wa", "WhatsApp", 50))
+        val g = Logic.groupByApp(items)
+        assertEquals(listOf("mail", "wa"), g.map { it.pkg })            // Gmail has the newest notification
+        val wa = g.last()
+        assertEquals("WhatsApp", wa.appName)
+        assertEquals(listOf(200L, 100L, 50L), wa.items.map { it.time })  // newest first inside a group
+        assertEquals(2, wa.unread)
+        assertTrue(Logic.groupByApp(emptyList()).isEmpty())
+    }
+
+    @Test fun collapsedGroupShowsOnlyNewestThree() {
+        val wa = Logic.groupByApp((1..5).map { n("wa", "WhatsApp", it * 10L) }).single()
+        assertEquals(listOf(50L, 40L, 30L), Logic.visible(wa, expanded = false).map { it.time })
+        assertEquals(5, Logic.visible(wa, expanded = true).size)
+        val few = Logic.groupByApp(listOf(n("m", "Mail", 1))).single()
+        assertEquals(1, Logic.visible(few, expanded = false).size)
+    }
 }

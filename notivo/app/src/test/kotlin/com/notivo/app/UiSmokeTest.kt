@@ -24,7 +24,10 @@ class UiSmokeTest {
     @get:Rule val rule = createComposeRule()
     private val app: Application get() = ApplicationProvider.getApplicationContext()
 
-    @Before fun setUp() { resetDbSingleton() }
+    @Before fun setUp() {
+        resetDbSingleton()
+        app.getSharedPreferences("notivo", android.content.Context.MODE_PRIVATE).edit().clear().commit()   // view choice must not leak between tests
+    }
     @After fun tearDown() { resetDbSingleton() }
 
     private fun enableListener() {
@@ -47,6 +50,7 @@ class UiSmokeTest {
         }
         rule.setContent { NotiTheme { App() } }
         rule.waitUntil(5000) { rule.onAllNodesWithText("Akşam görüşelim mi?").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Zamana göre").performClick()
         rule.onNodeWithText("Bugün").assertIsDisplayed()
         rule.onNodeWithText("Bu hafta").assertIsDisplayed()
         rule.onNodeWithText("Ekstreniz hazır").assertIsDisplayed()
@@ -57,5 +61,34 @@ class UiSmokeTest {
             rule.onAllNodesWithText(tab).onFirst().performClick()
             rule.waitForIdle()
         }
+    }
+
+    @Test fun appGroupViewShowsOneHeaderPerAppAndExpands() {
+        enableListener()
+        val now = System.currentTimeMillis()
+        runBlocking {
+            val dao = Db.get(app).dao()
+            (1..5).forEach { dao.insert(notif(pkg = "com.whatsapp", appName = "WhatsApp", title = "Ayşe", text = "wa mesaj $it", time = now - it * 1000L)) }
+            dao.insert(notif(pkg = "com.mail", appName = "Gmail", title = "Fatura", text = "mail içerik", time = now - 60_000))
+        }
+        rule.setContent { NotiTheme { App() } }
+        // Robolectric leaks the stored view choice between tests, so pick the grouped view the way a user does.
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Uygulamaya göre").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Uygulamaya göre").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("5 bildirim", substring = true).fetchSemanticsNodes().isNotEmpty() }
+        // one header per app with counts
+        rule.onNodeWithText("WhatsApp").assertIsDisplayed()           // exactly one header: rows inside the group do not repeat the app name
+        rule.onNodeWithText("Gmail").assertIsDisplayed()
+        rule.onNodeWithText("5 bildirim", substring = true).assertIsDisplayed()
+        // collapsed: newest three of five shown, the rest behind "2 daha göster"
+        rule.onNodeWithText("wa mesaj 1").assertIsDisplayed()
+        rule.onNodeWithText("wa mesaj 3").assertIsDisplayed()
+        rule.onAllNodesWithText("wa mesaj 4").assertCountEquals(0)
+        rule.onNodeWithText("2 daha göster").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("wa mesaj 5").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("wa mesaj 5").assertIsDisplayed()
+        // switching to conversations leaves the app groups
+        rule.onNodeWithText("Konuşmalar").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("5 bildirim", substring = true).fetchSemanticsNodes().isEmpty() }
     }
 }

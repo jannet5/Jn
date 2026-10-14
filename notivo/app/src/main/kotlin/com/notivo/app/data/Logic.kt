@@ -1,5 +1,11 @@
 package com.notivo.app.data
 
+/** All notifications of one app, newest first. */
+data class AppGroup(val pkg: String, val appName: String, val items: List<Notif>) {
+    val unread: Int get() = items.count { !it.read }
+    val latest: Long get() = items.first().time
+}
+
 /** Pure decision logic, kept free of Android types so it can be unit-tested on the JVM. */
 object Logic {
     private val deletedPatterns = listOf(
@@ -28,4 +34,15 @@ object Logic {
         val d = Math.floorDiv(now + zoneOffsetMs, 86_400_000L) - Math.floorDiv(t + zoneOffsetMs, 86_400_000L)
         return when { d <= 0 -> 0; d == 1L -> 1; d < 7 -> 2; else -> 3 }
     }
+
+    const val GROUP_PREVIEW = 3
+
+    /** One group per app, groups ordered by their newest notification, items newest first. */
+    fun groupByApp(items: List<Notif>): List<AppGroup> =
+        items.groupBy { it.pkg }
+            .map { (pkg, l) -> AppGroup(pkg, l.first().appName, l.sortedByDescending { it.time }) }
+            .sortedByDescending { it.latest }
+
+    /** Collapsed groups show only the newest few; expanded groups show everything. */
+    fun visible(g: AppGroup, expanded: Boolean): List<Notif> = if (expanded) g.items else g.items.take(GROUP_PREVIEW)
 }

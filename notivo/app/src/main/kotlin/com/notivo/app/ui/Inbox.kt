@@ -28,6 +28,9 @@ import androidx.core.graphics.drawable.toBitmap
 import com.notivo.app.data.Logic
 import com.notivo.app.data.Notif
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
+import com.notivo.app.data.AppGroup
 import java.text.DateFormat
 import java.util.Date
 
@@ -58,7 +61,8 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
     val all by vm.all.collectAsState()
     var q by remember { mutableStateOf("") }
     var mode by remember { mutableIntStateOf(0) }   // 0 all, 1 unread, 2 starred, 3 messages
-    var byConv by remember { mutableStateOf(false) }
+    var view by remember { mutableIntStateOf(vm.prefs.viewMode) }   // 0 by time, 1 by app, 2 by conversation
+    val expanded = remember { mutableStateListOf<String>() }
     var menu by remember { mutableStateOf<Notif?>(null) }
     var thread by remember { mutableStateOf<Pair<String, String>?>(null) }
     val list = remember(all, q, mode, pkg) {
@@ -70,6 +74,7 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
     }
     // one row per conversation (app + sender/title): newest message, total count
     val convs = remember(list) { list.groupBy { it.pkg to it.title }.values.map { it.first() to it.size }.sortedByDescending { it.first.time } }
+    val groups = remember(list) { Logic.groupByApp(list) }
     val now = System.currentTimeMillis()
     val off = remember { java.util.TimeZone.getDefault().getOffset(now).toLong() }
 
@@ -78,21 +83,22 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
             placeholder = { Text("Bildirimlerde ara") }, leadingIcon = { Icon(Icons.Default.Search, null) },
             trailingIcon = { Row { if (q.isNotEmpty()) IconButton({ q = "" }) { Icon(Icons.Default.Close, "Temizle") }
                 IconButton({ vm.readAll() }) { Icon(Icons.Default.DoneAll, "Tümünü okundu yap") } } })
-        Row(Modifier.padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             listOf("Tümü", "Okunmamış", "Yıldızlı", "Mesajlar").forEachIndexed { i, l -> FilterChip(mode == i, { mode = i }, { Text(l) }) }
         }
-        Row(Modifier.padding(horizontal = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            if (pkg != null) AssistChip(onClick = clearPkg, label = { Text("Filtre: ${all.firstOrNull { it.pkg == pkg }?.appName ?: pkg}  ✕") })
-            Spacer(Modifier.weight(1f))
-            Text("Konuşmalar", style = MaterialTheme.typography.labelMedium); Spacer(Modifier.width(6.dp))
-            Switch(byConv, { byConv = it })
+        Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            listOf("Uygulamaya göre" to 1, "Zamana göre" to 0, "Konuşmalar" to 2).forEach { (l, v) ->
+                FilterChip(view == v, { view = v; vm.prefs.viewMode = v }, { Text(l) })
+            }
         }
+        if (pkg != null) AssistChip(onClick = clearPkg, modifier = Modifier.padding(horizontal = 12.dp),
+            label = { Text("Filtre: ${all.firstOrNull { it.pkg == pkg }?.appName ?: pkg}  ✕") })
         if (list.isEmpty()) {
             Box(Modifier.fillMaxSize(), Alignment.Center) {
                 Text(if (all.isEmpty()) "Henüz bildirim yok.\nYeni bildirimler burada toplanacak." else "Sonuç yok",
                     color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(32.dp))
             }
-        } else if (byConv) LazyColumn {
+        } else if (view == 2) LazyColumn {
             items(convs, key = { "${it.first.pkg}|${it.first.title}" }) { (n, count) ->
                 ListItem(leadingContent = { AppIcon(n.pkg) },
                     overlineContent = { Text(n.appName) },
@@ -103,19 +109,24 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
                     modifier = Modifier.clickable { thread = n.pkg to n.title })
                 HorizontalDivider()
             }
-        } else LazyColumn(state = rememberLazyListState()) {
+        } else if (view == 0) LazyColumn(state = rememberLazyListState()) {
             var last = -1
             list.forEach { n ->
                 val b = Logic.dayBucket(now, n.time, off)
                 if (b != last) { last = b; item(key = "h$b") { Text(dayLabels[b], Modifier.padding(16.dp, 12.dp, 16.dp, 4.dp),
                     style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.primary) } }
-                item(key = n.id) {
-                    val dismiss = rememberSwipeToDismissBoxState(confirmValueChange = { if (it != SwipeToDismissBoxValue.Settled) { vm.delete(n); true } else false })
-                    SwipeToDismissBox(dismiss, backgroundContent = { Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.errorContainer)) }) {
-                        NotifRow(n, Modifier.background(MaterialTheme.colorScheme.surface)
-                            .combinedClickable(onClick = { if (!vm.open(n)) toast(ctx, "Uygulama açılamadı") }, onLongClick = { menu = n }))
-                    }
-                    HorizontalDivider()
+                item(key = n.id) { SwipeNotifRow(n, vm) { menu = it } }
+            }
+        } else LazyColumn {
+            // grouped by app: WhatsApp, Gmail, ... each under its own header
+            groups.forEach { g ->
+                val open = g.pkg in expanded
+                item(key = "g:${g.pkg}") {
+                    GroupHeader(g, open, onToggle = { if (open) expanded.remove(g.pkg) else expanded.add(g.pkg) }, onRead = { vm.readApp(g.pkg) })
+                }
+                Logic.visible(g, open).forEach { n -> item(key = n.id) { SwipeNotifRow(n, vm, showApp = false) { menu = it } } }
+                if (!open && g.items.size > Logic.GROUP_PREVIEW) item(key = "m:${g.pkg}") {
+                    TextButton({ expanded.add(g.pkg) }, Modifier.padding(start = 56.dp)) { Text("${g.items.size - Logic.GROUP_PREVIEW} daha göster") }
                 }
             }
         }
@@ -164,20 +175,22 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun NotifRow(n: Notif, modifier: Modifier) {
+/** [showApp] = false inside an app group: the header already names the app, so the row leads with the sender/title instead. */
+fun NotifRow(n: Notif, modifier: Modifier, showApp: Boolean = true) {
     Row(modifier.fillMaxWidth().padding(12.dp), verticalAlignment = Alignment.Top) {
-        AppIcon(n.pkg)
-        Spacer(Modifier.width(12.dp))
+        if (showApp) { AppIcon(n.pkg); Spacer(Modifier.width(12.dp)) } else Spacer(Modifier.width(44.dp))
         Column(Modifier.weight(1f)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (!n.read) Box(Modifier.size(8.dp).clip(CircleShape).background(MaterialTheme.colorScheme.primary)).also { Spacer(Modifier.width(6.dp)) }
-                Text(n.appName, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, modifier = Modifier.weight(1f), maxLines = 1)
+                if (showApp) Text(n.appName, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary, modifier = Modifier.weight(1f), maxLines = 1)
+                else Text(n.title.ifBlank { n.text.take(30) }, fontWeight = if (n.read) FontWeight.Normal else FontWeight.Bold, maxLines = 1,
+                    overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
                 if (n.starred) Icon(Icons.Default.Star, null, Modifier.size(14.dp), tint = MaterialTheme.colorScheme.tertiary)
                 Spacer(Modifier.width(4.dp)); Text(whenStr(n.time), style = MaterialTheme.typography.labelSmall)
             }
             val w = if (n.read) FontWeight.Normal else FontWeight.Bold
-            if (n.title.isNotBlank()) Text(n.title, fontWeight = w, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            if (n.text.isNotBlank()) Text(n.text, maxLines = 3, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodyMedium,
+            if (showApp && n.title.isNotBlank()) Text(n.title, fontWeight = w, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            if (n.text.isNotBlank() && (showApp || n.title.isNotBlank())) Text(n.text, maxLines = 3, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
             if (n.deletedBySender) Text("🗑 Gönderen silmiş olabilir", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.error)
         }
@@ -194,3 +207,31 @@ fun SheetItem(icon: androidx.compose.ui.graphics.vector.ImageVector, label: Stri
 fun Modifier.combinedClickableNoRipple(onClick: () -> Unit) = this.combinedClickable(onClick = onClick)
 
 fun toast(c: Context, s: String) = Toast.makeText(c, s, Toast.LENGTH_SHORT).show()
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@Composable
+private fun SwipeNotifRow(n: Notif, vm: Vm, showApp: Boolean = true, onMenu: (Notif) -> Unit) {
+    val ctx = LocalContext.current
+    val dismiss = rememberSwipeToDismissBoxState(confirmValueChange = { if (it != SwipeToDismissBoxValue.Settled) { vm.delete(n); true } else false })
+    SwipeToDismissBox(dismiss, backgroundContent = { Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.errorContainer)) }) {
+        NotifRow(n, Modifier.background(MaterialTheme.colorScheme.surface)
+            .combinedClickable(onClick = { if (!vm.open(n)) toast(ctx, "Uygulama açılamadı") }, onLongClick = { onMenu(n) }), showApp)
+    }
+    HorizontalDivider()
+}
+
+@Composable
+private fun GroupHeader(g: AppGroup, open: Boolean, onToggle: () -> Unit, onRead: () -> Unit) {
+    Row(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surfaceVariant).clickable(onClick = onToggle)
+        .padding(horizontal = 12.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+        AppIcon(g.pkg, 32)
+        Spacer(Modifier.width(12.dp))
+        Column(Modifier.weight(1f)) {
+            Text(g.appName, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text("${g.items.size} bildirim" + if (g.unread > 0) " · ${g.unread} okunmamış" else "", style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+        }
+        if (g.unread > 0) IconButton(onRead) { Icon(Icons.Default.DoneAll, "${g.appName} okundu yap") }
+        Icon(if (open) Icons.Default.ExpandLess else Icons.Default.ExpandMore, if (open) "Daralt" else "Genişlet")
+    }
+}

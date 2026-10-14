@@ -182,7 +182,7 @@ fun SettingsScreen(vm: Vm) {
             modifier = Modifier.clickable { confirm = true })
         ListItem(headlineContent = { Text("Gizlilik politikası") }, leadingContent = { Icon(Icons.Default.PrivacyTip, null) },
             modifier = Modifier.clickable { policy = true })
-        Text("Notivo 1.1.1", Modifier.padding(16.dp), style = MaterialTheme.typography.labelMedium)
+        Text("Notivo 1.2.0", Modifier.padding(16.dp), style = MaterialTheme.typography.labelMedium)
     }
     if (confirm) AlertDialog({ confirm = false }, title = { Text("Emin misin?") }, text = { Text("Yıldızsız tüm kayıtlı bildirimler silinecek.") },
         confirmButton = { TextButton({ vm.clear(); confirm = false }) { Text("Sil") } }, dismissButton = { TextButton({ confirm = false }) { Text("Vazgeç") } })

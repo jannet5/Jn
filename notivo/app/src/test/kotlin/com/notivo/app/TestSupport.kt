@@ -26,7 +26,7 @@ fun awaitUntil(timeoutMs: Long = 5000, cond: () -> Boolean) {
     check(cond()) { "condition not met within ${timeoutMs}ms" }
 }
 
-fun notif(pkg: String = "com.chat", title: String = "Ayşe", text: String = "Merhaba", time: Long = System.currentTimeMillis(),
+fun notif(pkg: String = "com.chat", appName: String = pkg, title: String = "Ayşe", text: String = "Merhaba", time: Long = System.currentTimeMillis(),
           starred: Boolean = false, read: Boolean = false) =
-    Notif(sbnKey = "k", pkg = pkg, appName = pkg, title = title, text = text, time = time, category = "msg", isMessage = true,
+    Notif(sbnKey = "k", pkg = pkg, appName = appName, title = title, text = text, time = time, category = "msg", isMessage = true,
         read = read, starred = starred)

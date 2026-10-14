@@ -23,6 +23,7 @@ class Vm(app: Application) : AndroidViewModel(app) {
 
     fun read(n: Notif) = viewModelScope.launch { dao.markRead(n.id) }
     fun readAll() = viewModelScope.launch { dao.markAllRead() }
+    fun readApp(pkg: String) = viewModelScope.launch { dao.markAppRead(pkg) }
     fun star(n: Notif) = viewModelScope.launch { dao.toggleStar(n.id) }
     fun delete(n: Notif) = viewModelScope.launch { dao.delete(n.id) }
     fun clear() = viewModelScope.launch { dao.clearUnstarred() }

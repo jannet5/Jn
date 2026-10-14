@@ -5,6 +5,7 @@ Kaynak: `app/`, APK: `dist/notivo-release.apk` (derlenince).
 
 ## Özellikler
 - Bildirim erişimiyle (NotificationListenerService) tüm bildirimleri yerel Room veritabanına toplar
+- **Uygulamaya göre gruplama (varsayılan):** WhatsApp, Gmail gibi her uygulama kendi başlığı altında toplanır (bildirim/okunmamış sayısı, son 3 bildirim, "N daha göster", başlıktan topluca okundu); istersen Zamana göre veya Konuşmalar görünümüne geç, seçim hatırlanır
 - Birleşik gelen kutusu: arama, filtre (Tümü/Okunmamış/Yıldızlı/Mesajlar), uygulamaya göre filtre
 - Kaydırarak sil, uzun basınca: yıldızla, okundu, **ertele (15 dk/1 sa/12 sa)**, uygulamayı hariç tut
 - Dokununca orijinal bildirimi/uygulamayı açar
@@ -33,13 +34,13 @@ anahtarıyla (`notivo-release.jks`) imzalanır. **Google Play için kendi anahta
   (metin `ui/Screens.kt` → `PRIVACY`). Play'in kısıtlı izin politikasına göre ana işlev bildirim yönetimi olduğundan uygundur, ancak inceleme sonucu garanti değildir.
 - Play için `.aab` (`gradle bundleRelease`) ve kendi upload key'in gerekir.
 
-## Test durumu (1.1.1)
+## Test durumu (1.2.0)
 - **Derleme:** `assembleRelease` (R8 küçültmeli) ve `lintRelease` tamam; lint 0 hata, 20 uyarı (çoğu kütüphane sürümü bildirimi). APK mevcut `notivo-release.jks` anahtarıyla imzalı.
-- **JVM testleri (19, hepsi geçiyor):** `gradle testDebugUnitTest`. Robolectric ile bir **simülasyondur, gerçek cihaz veya emülatör değildir**:
-  - `LogicTest`: kural eşleme, silinen-mesaj metni, gün kovaları, Türkçe İ/I/ı normalizasyonu
+- **JVM testleri (22, hepsi geçiyor):** `gradle testDebugUnitTest`. Robolectric ile bir **simülasyondur, gerçek cihaz veya emülatör değildir**:
+  - `LogicTest`: kural eşleme, silinen-mesaj metni, gün kovaları, Türkçe İ/I/ı normalizasyonu, uygulamaya göre gruplama ve "son 3" kuralı
   - `DaoTest`: Room sorguları (silinen işareti, kopya penceresi, saklama süresi, sayaçlar, kural/ertele kayıtları)
   - `ListenerTest`: gerçek `NotiListener` ile yakalama, kopya engeli, ENGELLE/SESSİZ kuralı, hariç tutma, kalıcı/özet bildirimleri atlama, silinen mesaj işareti
   - `VmTest`: yedek/geri yükleme gidiş-dönüş, CSV kaçışı, yanıt/açma yedekleri
-  - `UiSmokeTest`: onboarding ve gelen kutusu ekranlarının açılması, arama, sekmeler
+  - `UiSmokeTest`: onboarding ve gelen kutusu ekranlarının açılması, arama, sekmeler, uygulama grubu başlıkları ve "N daha göster"
 - **Gerçek cihaz:** Henüz denenmedi. Ortamda emülatör/AVD/KVM/USB cihaz yoktu.
 - Mağaza metni ve marka notları: `PLAY_LISTING.md`.

@@ -50,6 +50,7 @@ interface NotiDao {
     fun perDay(since: Long): Flow<List<DayCount>>
     @Query("UPDATE notifs SET read=1 WHERE id=:id") suspend fun markRead(id: Long)
     @Query("UPDATE notifs SET read=1") suspend fun markAllRead()
+    @Query("UPDATE notifs SET read=1 WHERE pkg=:pkg") suspend fun markAppRead(pkg: String)
     @Query("UPDATE notifs SET starred = NOT starred WHERE id=:id") suspend fun toggleStar(id: Long)
     @Query("DELETE FROM notifs WHERE id=:id") suspend fun delete(id: Long)
     @Query("DELETE FROM notifs WHERE starred=0") suspend fun clearUnstarred()
