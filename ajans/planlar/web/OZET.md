@@ -1,10 +1,23 @@
 # WEB SİTESİ + TASARIM — YouTube araştırması ÖZETİ
 
-Kapsam: index.md'deki 3 bölüm ("landing page animations scroll", "framer motion gsap", "DESIGN.md skill") + 5 ek arama (claude design tutorial, awwwards style, website skill steal, restaurant website, nano banana animated). Toplam 98 benzersiz video kuyruğa alındı; YouTube bu bulut IP'sine altyazı indirmede **HTTP 429 (rate limit)** uyguladığı için 8 transkript çekilebildi (Invidious/Piped yedekleri de kapalı ya da boş döndü). 99 videonun açıklaması çekildi; açıklamalardaki 7 kaynak (skill/şablon/repo) açılıp `ajans/arastirma/youtube/kaynaklar/` altına aynen kaydedildi. 9 plan yazıldı (`ajans/planlar/web/`).
+## 0. Gerçek kapsam (denetim, 2026-10-14)
 
-Durum: `transkriptler/<id>.txt` var = transkript çekildi; `.aciklama.txt` = açıklama. Altyazısı hiç olmayan: QUI6Ug4cHnE. 429 nedeniyle çekilemeyenler index'te A/B olarak duruyor; başka IP'den `python3 ajans/araclar/yt_transcript.py <id>` ile tamamlanmalı (kuyruk: `kuyruk.txt` mantığı A→B→C).
+İstenen: index'teki 3 bölüm + 5 ek arama = **98 benzersiz video** için transkript + açıklama + A/B planı, sonra sentez. ID bazlı tam liste: `KAPSAM.md`.
 
-## 1. Ortak kalıplar (9 planın kesişimi)
+| grup | video | transkript | açıklama | plan |
+|---|---|---|---|---|
+| asıl 3 bölüm | 39 | 7 | 39 | 8 |
+| 5 ek arama | 59 | 1 | 59 | 1 |
+| **istenen toplam** | **98** | **8** | **98** | **9** |
+| Türkçe web bölümü (bitişik, istenmemişti) | 15 | 13 | 13 | 13 |
+
+- **İstenen kapsam tamamlanmadı.** 98 videonun 8'inde transkript var; 65 A/B videosunun 56'sında transkript ve plan yok. Sebep: YouTube bu bulut IP'sinde altyazı indirmeyi HTTP 429 ile kesti. Yeniden toplu istek atılmadı.
+- Diğer oturumların sonradan eklediği transkriptler ID ile kontrol edildi: **hiçbiri bu 98'lik kuyruktan değil** (mobil, iş akışı, satış ve Türkçe gruplarına ait).
+- Bu sebeple sentez, istenen gruptan 9 plan + Türkçe web bölümünden 13 plan (transkriptleri başka oturumlar çekti) + mobil klasördeki 7 tasarım planına çapraz referansla güncellendi. Toplam web planı: 22 (+ başka oturumun `kdev1F8o5y8` satış planı).
+- QUI6Ug4cHnE'de altyazı hiç yok; planı skill reposundan yazıldı. 7 skill/şablon metni `ajans/arastirma/youtube/kaynaklar/` altında.
+- Kalan iş: 90 videonun transkripti başka IP'den `python3 ajans/araclar/yt_transcript.py <id>` ile çekilip A (19) ve B (37) planları yazılmalı; C (33) isteğe bağlı.
+
+## 1. Ortak kalıplar (ilk 9 planın kesişimi; Türkçe grup bulguları en altta)
 
 1. **Düz prompt = AI slop.** Herkes aynı sonucu gösteriyor: mor/indigo gradient (Tailwind'in eski varsayılanı), 3 eşit kart, Inter, ortalanmış hero, fazla metin. Fark araçta değil kurulumda.
 2. **Skill katmanı şart ama yetmez.** Anthropic frontend-design + UI UX Pro Max (ya da taste-skill / scroll-craft) ilk üretimi "tasarlanmış şablon" seviyesine çıkarıyor; premium his için sonraki katmanlar gerekiyor.
@@ -86,3 +99,36 @@ Onur: Ed Hill ANF (bileşen montajı + normalize + fill), Jeff Su (DESIGN.md →
   - Galeri/görsel üretiminde sayı sabitle (örn. 6); AI placeholder'ları teslimden önce değişir.
   - Fiyat: saat değil sonuç; KOBİ tatlı nokta $2–8K; ilk işlerde düşük, her projede artır; bakım retainer'ı 3 kademe ($50–500/ay), 50 × $99 ≈ $5K MRR.
   - Satış kiti: domainli e-posta, sözleşme, Loom, booking linki; yüz yüze ziyaret açılış metni + önce/sonra tek sayfa; "ücretsiz denetim günü" paylaşımı.
+
+## Ek (2026-10-14): Türkçe web bölümü (13 plan) ve mobil tasarım planlarından aktarılanlar
+
+Planlar: `PJ4JAim5-jQ`, `DidvfbtO--c`, `iCyGIF5uIzo`, `wJyLGopw304`, `ydO2_a97J6g`, `tDHWgGpZE2M`, `at7rogD2lMY`, `Lk3rSo1cXBs`, `cE7SI4FTaCw`, `jebtS94HLa0`, `9DYDT_jQwt8`, `tqmZqSdXhEw`, `DFAkocd1nBU` (dosya adları `ajans/planlar/web/<id>-…`).
+
+**Sentezi değiştiren bulgular**
+1. **İkinci teslim hattı: WordPress + Elementor (Darrel Wilson, cE7SI4FTaCw + jebtS94HLa0).** Claude Design'da tasarla → ZIP/HTML indir → NovaMira eklentisinin MCP bağlantısıyla Claude Desktop'tan WordPress'e aktar → sonuç native Elementor öğeleri, müşteri kendi düzenler. Aktarım sonrası global renk/font, eklenen CSS sınıfları ve header/footer elle düzeltilir; hatalar "bozuk SS + orijinal SS + olabildiğince benzet" tek prompt'uyla giderilir. NovaMira geliştirme/staging için tasarlanmış: yedek al, teslimden sonra MCP yetkisini kaldır.
+2. **Karar kuralı:** vitrin ve premium hareket isteyen müşteri → statik HTML hattı (mevcut zincir). "Kendim düzenleyeceğim / blog-SEO / form-popup" diyen müşteri → WordPress hattı.
+3. **Tasarım önce dışarıda kilitlenir.** Stitch (Redesign + URL, varyantlar, DESIGN.md export, kodu kopyala) ya da Claude Design'da tasarla → Claude Code'a "@DESIGN.md + kod, sadık kal, responsive" ver (PJ4JAim5-jQ). Ek sayfalar DESIGN.md sayesinde aynı tipografide çıkar ve token maliyeti düşer. Mobil tarafta aynı kural: "tasarım kilidi" ve her prompt'ta "mevcut görsel tasarımı değiştirme" (`../mobil/s4E8iQBUrJA-…`).
+4. **Mimar, Malzeme, Usta (iCyGIF5uIzo):** `/design` skill'i yalnız iskelet çıkarır; 21st.dev MCP her blok için 2-3 insan yapımı bileşen adayı getirir, seçimi insan yapar; Claude birleştirir. ANF (Ed Hill) ile aynı fikir, MCP ile hızlandırılmış. Maliyet uyarısı: tek videoda Max 5x 5 saatlik limitin %94'ü doldu.
+5. **Proje MD'si ile sınır koyma (ydO2_a97J6g):** "Nano Banana + Fal kullan, frontend-design skill'i kullan, en fazla 30 görsel / 10 video, bitince Vercel'e deploy et." Model adı açıkça yazılmazsa Claude ucuz modele düşer (Flux Dev); API anahtarı `.env`'e konacak diye ayrıca söylenmeli (tDHWgGpZE2M). Claude "deploy ettim" dedi ama etmemişti; Vercel'de deployment tarihine bakarak doğrula.
+6. **Kılavuz MD dosyası soru sordurur (at7rogD2lMY, DidvfbtO--c):** rol + başlangıç soruları (marka adı, estetik yön seçenekleri, 3 değer önerisi, ziyaretçi aksiyonu, fiyatlar) + "asla değişmez" görsel kurallar. Bizim BRIEF şablonuyla aynı yön; Antigravity'nin ücretsiz kredileriyle satış öncesi demo maliyeti sıfıra yakın.
+7. **Kare kare scroll hero, Türkçe reçete (DidvfbtO--c, tDHWgGpZE2M):** Nano Banana Pro ile ilk kare + "parçalanmış" son kare → fal üzerinde Kling 3.0 start/end frame (12 sn, sessiz, slow motion) → MP4'ü JPG karelere böl (001-289) → `image/` klasörü → "her görsel bir frame, hero'ya scroll animasyonu ekle". Aynı akış iç mimarlık sitesinde çok iyi, otomasyon ajansı sitesinde sönük kaldı: konu fiziksel ürün ya da mekân değilse bu efekti seçme.
+8. **Statik teslim kuralları (wJyLGopw304, Lk3rSo1cXBs, tqmZqSdXhEw):** ölü buton bırakma (abone ol, "oku"), ek sayfalar "temaya bağlı kal" ile ayrı HTML, `#anchor` linkleri sayfa linkine çevir, logo ana sayfaya bağlı, Tally form embed, Google Analytics etiketi, domainli e-posta, SEO + GEO maddesi. cPanel'de zip açılınca dosyalar alt klasörde kalır, köke taşı. Admin paneli girişsiz bırakılmaz.
+9. **Terminalsiz yol (wJyLGopw304):** UI UX Pro Max reposu ZIP olarak claude.ai sohbetine sürüklenir, yanına Coolors paleti eklenir. Ekipte Claude Code kullanmayan biri için yedek akış.
+10. **Mobil klasördeki tasarım planlarından web'e alınacaklar:** Impeccable skill'i teslim öncesi bir kez "anti-slop" geçişi (`../mobil/ljJuOxTsrtY-…`); Mobbin referanslarını skill klasörüne koyan `tasarim-ilham` skill'i (`../mobil/nbk0PMS0tos-…`); farklı iki dikeyden extract → expand → merge ile kendi tasarım sistemi (`../mobil/wiQMsQwWJQE-…`); önce kilit bileşenin 3-4 varyantı; illüstrasyonu Claude'a SVG çizdirmek yerine görsel modelle üretmek (`../mobil/76_h94U4ztQ-…`).
+
+**Türkiye fiyat ve maliyet verisi (yeni)**
+| kalem | değer | kaynak |
+|---|---|---|
+| Reklamlardaki site fiyatı | 10.000-15.000 TL | 9DYDT_jQwt8 |
+| Ajansa yaptırma | 30.000-40.000 TL | 9DYDT_jQwt8 |
+| Önerilen giriş fiyatı | 5.000-7.000 TL | 9DYDT_jQwt8 |
+| Yurt dışı çapa | 2.000-3.000 $ | ydO2_a97J6g |
+| Hostinger Premium, 12 ay | 1.439 TL (hosting + domain + e-posta) | Lk3rSo1cXBs |
+| 21st.dev ücretli | ~1.200 TL / 3 ay | iCyGIF5uIzo |
+| Fal limitsiz bırakılırsa | ~100 $ / 100 istek | ydO2_a97J6g |
+
+**Satış zinciri (ydO2_a97J6g):** Apify Google Maps scraper ile kategori + semt taranır (örn. Kadıköy restoranları), sitesi olmayana yeni site, olana yenileme teklif edilir; kısa soğuk e-posta (Instantly). Dönüş %7-12, yarısı olumlu; %7-8 dönüşte 100 e-postadan ~4 toplantı.
+
+**Değeri düşük çıkanlar:** tqmZqSdXhEw ve DFAkocd1nBU yeni teknik getirmiyor; 9DYDT_jQwt8'in değeri yalnız açıklamadaki e-ticaret prompt'unda (15 tablo, RLS, pending_payment, çerez onayı sonrası Pixel/GA4).
+
+**Açılmamış kaynak linkleri (YouTube dışı, sonraki adım):** İsa Nurdoğdu GEMINI.md, Emrullah Yaprak prompt paketi, Darrel Wilson Evernote/Tiberium prompt'ları ve iki WordPress skill'i (Drive). Burhan Kocabıyık'ın söylediği kılavuz MD ve repo açıklamalarda yok.

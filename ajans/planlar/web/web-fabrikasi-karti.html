@@ -1,0 +1,178 @@
+<title>Web Fabrikası Kartı</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun referans kartı; her bölüm kendi "kart"ı değil, hairline ile ayrılmış başlıklı bloklar; komut ve prompt'lar mono blok */
+:root{
+  --bg:#f3f4f6; --surface:#ffffff; --fg:#171a21; --muted:#5b6170; --line:#d9dce3;
+  --accent:#0f6f68; --accent-soft:#e3f1ef; --warn:#8a3b12; --warn-soft:#f9e8de;
+  --display:"Sora",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#13161c; --surface:#1b1f27; --fg:#e8eaef; --muted:#9aa1b1; --line:#2d323d; --accent:#4fb3aa; --accent-soft:#17302e; --warn:#e3a071; --warn-soft:#3a2418; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#13161c; --surface:#1b1f27; --fg:#e8eaef; --muted:#9aa1b1; --line:#2d323d; --accent:#4fb3aa; --accent-soft:#17302e; --warn:#e3a071; --warn-soft:#3a2418; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:860px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,4vw,40px)}
+h1{font-family:var(--display);font-size:clamp(26px,4vw,36px);line-height:1.1;margin:0 0 8px;text-wrap:balance;letter-spacing:-.01em}
+.lead{font-size:16px;color:var(--muted);margin:0 0 6px;max-width:65ch}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 28px}
+h2{font-family:var(--display);font-size:18px;margin:32px 0 12px;padding-top:20px;border-top:1px solid var(--line);letter-spacing:-.01em}
+h2 .tag{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:4px}
+p{margin:0 0 10px;max-width:70ch}
+ol.chain{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ol.chain li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+ol.chain li::before{content:counter(s);font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);background:var(--accent-soft);border-radius:6px;height:26px;display:inline-flex;align-items:center;justify-content:center}
+ol.chain b{font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}}
+.cols>div{min-width:0}
+.cols h3{font-family:var(--display);font-size:14px;margin:0 0 8px}
+.cols h3.no{color:var(--warn)} .cols h3.yes{color:var(--accent)}
+ul{margin:0;padding-left:18px;display:grid;gap:4px}
+ul li{padding-left:2px}
+pre{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;margin:0 0 10px;white-space:pre-wrap;word-break:break-word}
+code{font-family:var(--mono);font-size:.92em;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+.prompt{border-left:3px solid var(--accent);padding:6px 12px;margin:0 0 10px;background:var(--accent-soft);border-radius:0 8px 8px 0}
+.prompt .k{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
+.prompt .t{font-family:var(--mono);font-size:12.5px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td:first-child{font-family:var(--mono);color:var(--accent);white-space:nowrap}
+.tablewrap{overflow-x:auto}
+a{color:var(--accent)}
+.price{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}
+@media (max-width:640px){.price{grid-template-columns:1fr}}
+.price div{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.price b{font-family:var(--display);font-size:20px;display:block;font-variant-numeric:tabular-nums}
+.price span{font-size:12.5px;color:var(--muted)}
+
+.scope{border:1px solid var(--warn);background:var(--warn-soft);border-radius:10px;padding:12px 14px;margin:0 0 8px}
+.scope b{color:var(--warn)}
+.scope table{margin-top:8px}
+.scope td:first-child{color:var(--fg);font-family:var(--body);white-space:normal}
+.foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <h1>Web Fabrikası Kartı</h1>
+  <p class="lead">Claude Code ile "AI yapmış gibi durmayan" premium müşteri sitesi üretip satmanın özeti: kurulum, 10 adımlık üretim zinciri, anti-slop kuralları, hazır prompt'lar, satış senaryosu.</p>
+  <p class="meta">Kaynak: 22 web planı + 7 mobil tasarım planı + 7 skill/şablon metni. Dosyalar: ajans/planlar/web/ (OZET.md, KAPSAM.md) ve ajans/arastirma/youtube/kaynaklar/. Güncelleme: 14 Ekim 2026</p>
+  <div class="scope">
+    <p style="margin:0"><b>Kapsam uyarısı.</b> İstenen 98 videonun yalnız 8'inde transkript var; YouTube bu sunucuda altyazı indirmeyi 429 ile kesti. Kart, istenen gruptan 9 plan ile Türkçe web bölümünden 13 planın (transkriptleri başka oturumlar çekti) sentezidir. 56 A/B videosu hâlâ okunmadı.</p>
+    <div class="tablewrap"><table>
+      <tr><th>Grup</th><th>Video</th><th>Transkript</th><th>Açıklama</th><th>Plan</th></tr>
+      <tr><td>İstenen (3 bölüm + 5 arama)</td><td>98</td><td>8</td><td>98</td><td>9</td></tr>
+      <tr><td>Türkçe web bölümü</td><td>15</td><td>13</td><td>13</td><td>13</td></tr>
+    </table></div>
+  </div>
+
+  <h2><span class="tag">1 · Kurulum (bir kez)</span>Skill'ler ve araçlar</h2>
+<pre># Claude Code içinde
+/plugin marketplace add nateherkai/scroll-craft   →  /plugin install nateherk-design
+npx skills add https://github.com/Leonxlnx/taste-skill
+# Anthropic frontend-design: /plugins → Manage Plugins → "frontend" → install (global)
+# UI UX Pro Max: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill → "install this plugin using npm"
+node plugins/nateherk-design/skills/scroll-craft/scripts/doctor.mjs   # ffmpeg / playwright kontrolü</pre>
+  <p>Ek: 21st.dev (bileşen "Copy Prompt"), Nano Banana 2 (Google AI Studio, ücretsiz), Kling 3.0 / Veo 3.1 (start+end frame video), Netlify veya Vercel, Loom. Aylık işletme maliyeti ~40 $ (Claude Pro + Vercel Pro).</p>
+
+  <h2><span class="tag">2 · Üretim zinciri</span>Müşteriden canlı siteye 10 adım</h2>
+  <ol class="chain">
+    <li><span><b>Keşif ve satış.</b> Instagram / Google Maps'te eski siteli yerel hizmet işletmesi bul; 20 dakikada logosu ve renkleriyle ana sayfa demosu yap; Loom'da yan yana göster; "ana sayfa bizden, yorum istiyoruz".</span></li>
+    <li><span><b>Brief.</b> scroll-craft'ın 8 sorusu + 4 öğe (hedef, bölüm listesi, içerik ve ses, kitle). Cevaplar müşterinin kelimeleriyle <code>BRIEF.md</code>'ye; ses tonu dosyası (em dash yok, jargon yok); eldeki logo, foto, menü.</span></li>
+    <li><span><b>Marka skill'i.</b> Brand Guidelines şablonundan <code>skills/marka-&lt;musteri&gt;/SKILL.md</code>: hex, font, spacing, do/don't. Web, app ve sosyal hattı aynı dosyayı okur.</span></li>
+    <li><span><b>Yön seçimi.</b> <code>/ui-ux-pro-max</code> + brief + "Ask me clarifying questions" → Claude'un 3 stil yönü → müşteri seçer. Kadranlar: restoran/premium 7/6/3, klinik/güven 3-4/2-3/4-5.</span></li>
+    <li><span><b>Varlıklar.</b> Claude görsel prompt'unu yazar → Nano Banana (2K, beyaz fon, tek stil ön-metni, referanslı tutarlılık) → Kling start+end frame 3-5 sn ya da 15 sn subtle loop → hero ≤300 KB, mobilde statik görsel.</span></li>
+    <li><span><b>Montaj (ANF).</b> 21st.dev bileşenleri <code>components/1.txt…</code> → "assemble in order" → <b>normalize</b> (tek font çifti, 4-5 hex, tek radius, light/dark) → <b>research + fill</b> (sektör araştırması ve müşteri bilgisiyle gerçek içerik).</span></li>
+    <li><span><b>Hareket.</b> Hero video + inward mask gradient; isteğe göre scroll-scrub (JPEG kareler + preload ya da three.js); bölüm başına tek mikro-etkileşim; reduced-motion zorunlu.</span></li>
+    <li><span><b>Kalite kapısı.</b> 10K checklist + anti-slop listesiyle "be honest" puanlama → toplu düzeltme → SS ile geri besleme → "more subtle" → Inter yerine Geist → mobil için ayrı tur → "daha hızlı yükle" x2 → headless SS / kontrast doğrulaması.</span></li>
+    <li><span><b>Onay.</b> Claude Design / preview linki, müşteri yorumu → geri bildirimler proje <code>CLAUDE.md</code>'sine → fingerprint kaydı (önceki sitelerden 6 boyutun 4'ünde farklı).</span></li>
+    <li><span><b>Yayın ve bakım.</b> Tek dosya HTML → Netlify / Vercel, müşteri domaini → meta, SEO, hız kontrolü → aylık bakım paketi.</span></li>
+  </ol>
+
+  <h2><span class="tag">2b · İkinci hat</span>Müşteri kendi düzenleyecekse: WordPress</h2>
+  <p>Vitrin ve premium hareket isteyen müşteri statik HTML hattına gider. "Kendim düzenleyeceğim, blog, SEO, form" diyen müşteri bu hatta gider.</p>
+  <ol class="chain">
+    <li><span><b>Tasarım.</b> Claude Design'da tasarla, ZIP ya da HTML indir (görselleri ayrı tut).</span></li>
+    <li><span><b>Kurulum.</b> Hostinger WordPress, Astra veya Solace teması, Elementor (Atomic Editor kapalı, Container açık), NovaMira eklentisi.</span></li>
+    <li><span><b>Bağlantı.</b> NovaMira MCP bağlantısını Claude Desktop'a connector olarak ekle; görselleri WP Medya'ya yükle.</span></li>
+    <li><span><b>Aktarım.</b> ZIP + aktarım prompt'u; sonuç native Elementor öğeleri olur (~12-15 dk).</span></li>
+    <li><span><b>Düzeltme.</b> Global renk ve font, eklenen CSS sınıfları, header/footer; kalan hatalar "bozuk SS + orijinal SS + olabildiğince benzet" ile tek turda.</span></li>
+    <li><span><b>Güvenlik.</b> İşten önce yedek al; teslimden sonra MCP yetkisini kaldır.</span></li>
+  </ol>
+
+  <h2><span class="tag">3 · Anti-slop</span>Teslim öncesi kontrol</h2>
+  <div class="cols">
+    <div>
+      <h3 class="no">Yasak (varsayılan olarak)</h3>
+      <ul>
+        <li>Mor / indigo gradient, neon glow, saf siyah, gradient başlık metni</li>
+        <li>Inter, Roboto, Arial; Fraunces, Instrument Serif; başlıkta tek kelimeyi başka fontla vurgulama</li>
+        <li>Krem + pirinç + espresso "artisan" paleti refleksi</li>
+        <li>3 eşit özellik kartı, beyaz üstü beyaz bento, 3. ardışık zigzag, her bölüme eyebrow</li>
+        <li>Hero'da 4'ten fazla metin öğesi, 2 satıra sarılan CTA, aynı niyette iki CTA etiketi, 2 satırlı nav</li>
+        <li>"01 / 06" sayaçları, "Scroll to explore", dekoratif renkli noktalar, dikey metin, hairline grid süsü, lokasyon/saat şeritleri, sürüm etiketleri</li>
+        <li>Div'den sahte dashboard, elle çizilmiş SVG ikon, kırık Unsplash linki, metin logosu duvarı</li>
+        <li>John Doe, Acme, %99,99, "Elevate / Seamless", şairane etiketler, "Step 1/2/3"; em dash ve en dash</li>
+        <li><code>window.addEventListener("scroll")</code>, her bölümde fade-up, her kartta hover, özel cursor, tek kesintisiz kamera uçuşu, clay diorama</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="yes">Zorunlu</h3>
+      <ul>
+        <li>Tek satırlık "Design Read" + kadranlar brief'ten çıkar</li>
+        <li>Tek palet (4-5 hex, 1 vurgu, doygunluk &lt;%80), tek radius ölçeği, en fazla 2 font ailesi, 45-75ch ölçü</li>
+        <li>Hero başlık ≤2 satır, alt metin ≤20 kelime, gerçek görsel ya da hareket</li>
+        <li>8 bölümde ≥4 farklı layout ailesi; scroll sitede ≥4 cihaz, aynı cihaz art arda yok, en fazla 2 scrub</li>
+        <li>His eğrisi, tek zirve anı, tek imza etkileşimi</li>
+        <li>Loading / empty / error durumları, WCAG AA kontrast (buton, form, video üstü metin), klavye odağı, reduced-motion, dark mode tutarlılığı</li>
+        <li>LCP &lt;2 s, hero medya ≤300 KB, semantik HTML, gerçek meta</li>
+        <li>Mobil ayrı tasarlanır: her çok sütunlu bölüm için &lt;768 px kuralı yazılı, videoda statik görsel</li>
+        <li>Copy: aktif fiil, kısa, somut; CTA eylemi söyler ve her yerde aynı ad</li>
+        <li>Tasarım kodlamadan önce kilitlenir (Stitch / Claude Design + DESIGN.md); sonraki her prompt "mevcut görsel tasarımı değiştirme" der</li>
+        <li>Proje MD'sinde model adı, görsel/video üst sınırı ve <code>.env</code> açıkça yazılır; deploy Vercel'de tarihle doğrulanır</li>
+        <li>Ölü buton yok, logo ana sayfaya bağlı, <code>#anchor</code> çok sayfada sayfa linkine çevrilir, admin paneli girişsiz bırakılmaz</li>
+        <li>Teslim öncesi bir kez Impeccable "anti-slop" geçişi</li>
+        <li>Teslim öncesi 10K checklist + bu liste ile "be honest" puanlama; önceki sitelerle fingerprint farkı</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="tag">4 · Prompt'lar</span>Aynen kullan</h2>
+  <div class="prompt"><span class="k">Brief</span><span class="t">/ui-ux-pro-max  [işletme brief'i: hedef, bölümler, ses, kitle]  Ask me clarifying questions.</span></div>
+  <div class="prompt"><span class="k">Puanlama</span><span class="t">Where does this site land against each of these criteria? Be honest.  [+ 10K checklist 8 madde]</span></div>
+  <div class="prompt"><span class="k">Toplu polish</span><span class="t">We need more handcrafted micro-interactions. The lower sections feel a bit generic. We don't need to make them busier, just more expensive.</span></div>
+  <div class="prompt"><span class="k">Bölüm bazlı</span><span class="t">Add some elegant micro movements and cursor interactions here. This section is feeling very static.  →  Make it more subtle, more refined.</span></div>
+  <div class="prompt"><span class="k">Normalize</span><span class="t">Bu sayfadaki bileşenler farklı kaynaklardan geldi. Hepsini tek bir tasarım sistemine normalize et: tek başlık + tek gövde fontu, 4-5 renklik tek palet (mor yok), tutarlı spacing/radius/gölge, light ve dark mod, yatay taşma yok. İçeriği değiştirme.</span></div>
+  <div class="prompt"><span class="k">Mobil + hız</span><span class="t">Do a dedicated pass on the mobile version: what should be hidden, tighter, resized.  →  Make it load significantly faster.  →  Make it live on Netlify.</span></div>
+  <div class="prompt"><span class="k">3D scroll hero</span><span class="t">Build a scroll-driven frame animation website using three.js. The video plays forward as the user scrolls down and reverses when they scroll up. Add a hero headline and a clean gradient background.</span></div>
+
+  <h2><span class="tag">5 · Satış</span>Önce iş yap, sonra yaz</h2>
+  <div class="prompt"><span class="k">DM (sıcak)</span><span class="t">Merhaba, sitenizi gördüm ve ana sayfanızı 3D animasyonla yeniden yaptım, 20 dakika sürdü. Yan yana video burada: [Loom]. İsterseniz sizin olsun, ana sayfa için ücret yok; tek istediğim bir yorum.</span></div>
+  <div class="prompt"><span class="k">E-posta (soğuk, 3 cümle)</span><span class="t">Ana sayfanızı 3D animasyonla yeniden yaptım. Yan yana karşılaştırma ekte. İlgilenirseniz tam sürümü ücretsiz gönderirim; tek istediğim bir yorum.</span></div>
+  <div class="price">
+    <div><b>5.000 $</b><span>tek sayfa landing (çapa: ajans three.js işi 5-15K $, 3-8 hafta)</span></div>
+    <div><b>5-10K $</b><span>çok sayfa + çoklu 3D bölüm; ek sayfalar, özel animasyon, bakım ayrı</span></div>
+    <div><b>~40 $/ay</b><span>işletme maliyeti; site başına 3-5 $ token + video kredisi</span></div>
+  </div>
+  <div class="tablewrap"><table>
+    <tr><th>Türkiye verisi</th><th>Değer</th><th>Kaynak</th></tr>
+    <tr><td>Reklamlardaki site</td><td>10.000-15.000 TL</td><td>9DYDT_jQwt8</td></tr>
+    <tr><td>Ajansa yaptırma</td><td>30.000-40.000 TL</td><td>9DYDT_jQwt8</td></tr>
+    <tr><td>Önerilen giriş</td><td>5.000-7.000 TL</td><td>9DYDT_jQwt8</td></tr>
+    <tr><td>Hostinger 12 ay</td><td>1.439 TL (domain + e-posta dahil)</td><td>Lk3rSo1cXBs</td></tr>
+    <tr><td>Soğuk e-posta dönüşü</td><td>%7-12; 100 e-postada ~4 toplantı</td><td>ydO2_a97J6g</td></tr>
+  </table></div>
+  <p>Lead bulma: Apify Google Maps scraper ile kategori + semt (örn. Kadıköy restoranları); sitesi olmayana yeni site, olana yenileme.</p>
+  <p>Hedef: restoran, berber, diş kliniği, emlakçı, spor salonu. SaaS ve e-ticarete satma; teklifte "statik site, CMS/login/sepet yok" açıkça yazılır. 50 kişiselleştirilmiş e-posta ≈ 5 yanıt ≈ 1 müşteri.</p>
+
+  <h2><span class="tag">6 · En iyi 5 video</span>Planları ajans/planlar/web/ altında</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Plan</th><th>Video</th><th>Neden</th></tr>
+    <tr><td>VMvZuhcDdnw</td><td><a href="https://www.youtube.com/watch?v=VMvZuhcDdnw">Metics Media, Build $10,000 Websites</a></td><td>Uçtan uca en eksiksiz akış; 10K checklist PDF'i elimizde</td></tr>
+    <tr><td>QUI6Ug4cHnE</td><td><a href="https://github.com/nateherkai/scroll-craft">Nate Herk, Scrollcraft skill</a></td><td>Röportaj, his eğrisi, 8 gramer, fingerprint kapısı, kendi doğrulaması</td></tr>
+    <tr><td>ZfYvv-0l9NA</td><td><a href="https://www.youtube.com/watch?v=ZfYvv-0l9NA">Nick Saraev, taste-skill + Kling</a></td><td>En kısa yol: tek prompt + skill + 5 sn video; "AI tells" listesi</td></tr>
+    <tr><td>1PXFAFMgdns</td><td><a href="https://www.youtube.com/watch?v=1PXFAFMgdns">Chase AI, 7 seviye</a></td><td>Teardown ile öğrenme, görsel hikâye, mikro dokunuş listesi</td></tr>
+    <tr><td>mhIAd5lVMag</td><td><a href="https://www.youtube.com/watch?v=mhIAd5lVMag">AI Chris Lee, 3D site + 10K satış</a></td><td>Tek satış anlatan video: outreach, fiyat çapası, sınırlar</td></tr>
+  </table></div>
+
+  <p class="foot">Kalan: istenen 98 videonun 90'ında transkript yok (A 19, B 37 planı yazılmadı). Başka IP'den <code>python3 ajans/araclar/yt_transcript.py &lt;id&gt;</code> ile çekilip planlanmalı. Açılmamış kaynaklar: GEMINI.md, Emrullah Yaprak prompt paketi, Darrel Wilson prompt ve skill dosyaları. ID bazlı liste: ajans/planlar/web/KAPSAM.md</p>
+</div>
