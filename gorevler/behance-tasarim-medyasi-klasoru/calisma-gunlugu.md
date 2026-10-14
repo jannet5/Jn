@@ -59,3 +59,22 @@ node arac/arama.mjs <cikti>          # ilk kartları listeler + ekran görüntü
 node arac/proje.mjs <proje-url> <cikti>   # sayfa durumu JSON (proje.html içinden)
 python3 arac/indir.py <state.json> <hedef> [vimeo-oembed.json]
 ```
+
+## 5. Devam (2026-10-12 / 2026-10-14) — indirme sayfası
+- Kapsayıcı yenilendiği için geçici dosyalar silinmişti. Paket depodaki araçlarla yeniden üretildi:
+  25 kalem → 23 indirildi, 2 eksik (aynı sonuç). Vimeo yeniden denendi: yine HTTP 401; atlatma denenmedi.
+- `BENI_OKU.md` ve `videolari-indir.ps1` kaybolmasın diye `teslim-ekleri/` altına depoya eklendi
+  (medya ve özel bağlam yok).
+- ZIP sıkıştırmasız (STORED) yeniden kuruldu: 28 girdi, 106.650.703 bayt,
+  SHA-256 `25b2183c09101fdafd470a422e0ad9e6bd674ec998d07ea0aa60aabe896aa02c`. testzip temiz,
+  açılan içerik kaynak klasörle `diff -r` birebir, manifestteki 23 SHA-256 eşleşti.
+- İndirme sayfası (özel artifact): yayın servisi ikili `.bin` dosyaları kabul etmedi; ZIP 10 MiB'lik
+  11 base64 `.txt` parçasına bölündü, 64 MB yayın sınırı nedeniyle 3 yayında yüklendi. Sayfa parçaları
+  çözüp ZIP'i kurar, SHA-256 doğrular ve platformun `downloads` izniyle kaydettirir; tek tek dosya da
+  ZIP içinden kesilip doğrulanarak kaydedilir (`arac/indirme-sayfasi.tmpl.html`).
+- Doğrulama: yayındaki 11 parça geri okundu → birleşik SHA-256 aynı. Sayfa yerel Chromium'da test
+  kancasıyla çalıştırıldı: ZIP (106.650.703 bayt, aynı SHA-256), bir GIF ve betik doğru çıktı; JS hatası
+  yok. Telefon genişliğinde Kaydet düğmeleri ekran dışındaydı → düzeltildi, 400 px'te yatay taşma yok.
+- Test edilemeyen: claude.ai görüntüleyicisindeki gerçek kaydetme onay penceresi (yalnız sayfayı açan
+  kullanıcı tetikleyebilir) ve Windows'ta `copy /b` birleştirmesi.
+- Sohbet eki: tek ZIP 30 MiB sınırını aştı; 5 ham parça + `BIRLESTIR.txt` + `parcalar.sha256` gönderildi.

@@ -1,0 +1,266 @@
+<title>Niva Medya Paketi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun indirme masası — üstte tek büyük indirme eylemi, altında dosya dökümü ve eksikler */
+:root {
+  --bg: #f6f4f1;
+  --surface: #ffffff;
+  --fg: #1d1b22;
+  --muted: #66616e;
+  --line: #e3dfe6;
+  --accent: #3d5bd9;
+  --accent-fg: #ffffff;
+  --warm: #f07a3a;
+  --ok: #1f8a55;
+  --warn: #b5541a;
+  --bad: #c0362c;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15141a; --surface: #1e1d25; --fg: #eeecf2; --muted: #a29dab; --line: #2e2c37;
+    --accent: #7d95ff; --accent-fg: #0f1020; --warm: #ff9a5e; --ok: #4cc58a; --warn: #f0a060; --bad: #ff7b70;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15141a; --surface: #1e1d25; --fg: #eeecf2; --muted: #a29dab; --line: #2e2c37;
+  --accent: #7d95ff; --accent-fg: #0f1020; --warm: #ff9a5e; --ok: #4cc58a; --warn: #f0a060; --bad: #ff7b70;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 860px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: grid; gap: 28px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(30px, 6vw, 46px); line-height: 1.05; }
+h2 { font-size: 20px; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--accent); }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+header { display: grid; gap: 12px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 14px; }
+.meta b { color: var(--fg); font-weight: 600; }
+.hero { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: grid; gap: 16px; }
+.hero-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+.big { font: 600 17px/1 var(--font-body); background: var(--accent); color: var(--accent-fg); border: 0; border-radius: 10px; padding: 16px 22px; cursor: pointer; }
+.big:disabled { opacity: .55; cursor: progress; }
+button:focus-visible { outline: 3px solid var(--warm); outline-offset: 2px; }
+.sum { font-family: var(--font-mono); font-size: 12px; color: var(--muted); word-break: break-all; }
+.bar { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+.status { font-size: 14px; min-height: 1.5em; }
+.status.ok { color: var(--ok); } .status.err { color: var(--bad); }
+.counts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.count { border-top: 2px solid var(--line); padding-top: 8px; }
+.count strong { font: 700 24px/1.1 var(--font-display); display: block; font-variant-numeric: tabular-nums; }
+.count span { font-size: 13px; color: var(--muted); }
+.count.miss { border-top-color: var(--warn); }
+.notice { border-left: 3px solid var(--warn); padding: 4px 0 4px 14px; display: grid; gap: 6px; }
+section { display: grid; gap: 12px; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 12px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td.n { font-family: var(--font-mono); font-size: 13px; overflow-wrap: anywhere; min-width: 0; }
+@media (max-width: 560px) { th:nth-child(2), td:nth-child(2) { display: none; } th, td { padding: 8px 10px; } }
+td.sz { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+.chip { display: inline-block; font: 500 11px var(--font-mono); padding: 2px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.chip.gif { border-color: var(--warm); color: var(--warm); }
+.chip.miss { border-color: var(--bad); color: var(--bad); }
+.small { font: 500 13px var(--font-body); background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 6px 10px; cursor: pointer; white-space: nowrap; }
+.small:disabled { opacity: .5; cursor: progress; }
+figure { margin: 0; display: grid; gap: 8px; }
+figure img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+figcaption { font-size: 13px; color: var(--muted); }
+code { font-family: var(--font-mono); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Behance · proje 241915081 · “mobile app” aramasında 1. sıra</div>
+    <h1>Niva | AI family assistant</h1>
+    <p>Behance’teki projenin indirilebilen tüm görselleri ve GIF’leri, en büyük boyutlarında, tek ZIP içinde.</p>
+    <div class="meta">
+      <span>Sahipler: <b>Estrella Gracia, Luca Giordano, Aina Sanz, Isla Pearce Cano</b></span>
+      <span>Kaynak: <a href="https://www.behance.net/gallery/241915081/Niva-AI-family-assistant" target="_blank" rel="noopener">behance.net/gallery/241915081</a></span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-row">
+      <div style="display:grid;gap:4px;min-width:0">
+        <strong id="zipname" style="font-family:var(--font-mono);font-size:14px;word-break:break-all"></strong>
+        <span id="zipsize" style="color:var(--muted);font-size:14px"></span>
+      </div>
+      <button class="big" id="dlzip" type="button">Tam ZIP’i indir</button>
+    </div>
+    <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+    <div class="status" id="status" role="status" aria-live="polite">Dosya 11 parça hâlinde yüklenir, bilgisayarına inmeden önce SHA-256 ile doğrulanır.</div>
+    <div class="sum">SHA-256: <span id="zipsha"></span></div>
+    <div class="counts">
+      <div class="count"><strong>14</strong><span>PNG görsel</span></div>
+      <div class="count"><strong>6</strong><span>Animasyonlu GIF</span></div>
+      <div class="count"><strong>3</strong><span>Kapak ve video kareleri</span></div>
+      <div class="count miss"><strong>0 / 2</strong><span>Video (eksik)</span></div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>Kullanım hakkı</strong>
+    <p>Projenin Behance lisansı <code>no-use</code>, yani tüm hakları saklı. Dosyalar yalnızca kişisel referans içindir; yeniden yayımlama, ticari kullanma ve kendi işin gibi gösterme. Bu sayfayı başkalarıyla paylaşma.</p>
+  </div>
+
+  <section>
+    <h2>Eksik videolar</h2>
+    <p>Vimeo, bulut ortamından gelen indirmeyi güvenlik doğrulamasıyla reddetti (HTTP 401; 3 ve 12 Ekim’de iki ayrı ortamda denendi). Kendi bilgisayarında ZIP içindeki <code>videolari-indir.ps1</code> ile indirebilirsin (yt-dlp gerekir).</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Sıra</th><th>Video</th><th>Süre</th><th>Bağlantı</th></tr></thead>
+      <tbody>
+        <tr><td class="n">02</td><td>“final” <span class="chip miss">eksik</span></td><td class="sz">9 sn</td><td><a href="https://vimeo.com/1154829526" target="_blank" rel="noopener">vimeo.com/1154829526</a></td></tr>
+        <tr><td class="n">16</td><td>“Scene-1” <span class="chip miss">eksik</span></td><td class="sz">20 sn</td><td><a href="https://vimeo.com/1154828935" target="_blank" rel="noopener">vimeo.com/1154828935</a></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Dosyaları tek tek kaydet</h2>
+    <p>ZIP’i açmadan tek bir dosya lazımsa buradan al. Her dosya kaydedilmeden önce SHA-256 ile doğrulanır.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Dosya</th><th>Tür</th><th>Boyut</th><th></th></tr></thead>
+      <tbody id="files"></tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Önizleme</h2>
+    <figure>
+      <img src="onizleme.png" alt="İndirilen 23 görselin numaralı küçük resimleri" loading="lazy">
+      <figcaption>Numaralar dosya adlarındaki sırayla aynı. 02 ve 16 numaralı videolar pakette yok.</figcaption>
+    </figure>
+  </section>
+</div>
+
+<script>
+const META = __META__;
+const $ = id => document.getElementById(id);
+const mb = n => (n / 1048576).toLocaleString("tr-TR", { maximumFractionDigits: 1 }) + " MB";
+const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+$("zipname").textContent = META.zip;
+$("zipsize").textContent = mb(META.size) + " · " + META.files.length + " dosya";
+$("zipsha").textContent = META.sha256;
+
+const PART = META.partSize;
+const partCache = new Map();
+// Parçalar base64 metin olarak yayınlanır; ikili baytlara geri çevrilir
+function b64ToBuf(s) {
+  s = s.trim();
+  if (Uint8Array.fromBase64) return Uint8Array.fromBase64(s).buffer;
+  const bin = atob(s), out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out.buffer;
+}
+function getPart(i) {
+  if (!partCache.has(i)) {
+    partCache.set(i, fetch(META.parts[i]).then(r => {
+      if (!r.ok) throw new Error("Parça " + (i + 1) + " yüklenemedi (HTTP " + r.status + ")");
+      return r.text();
+    }).then(b64ToBuf).catch(e => { partCache.delete(i); throw e; }));
+  }
+  return partCache.get(i);
+}
+
+let downloadsP = null;
+function downloads() {
+  if (!downloadsP) downloadsP = window.claude?.use ? window.claude.use("downloads") : Promise.resolve(null);
+  return downloadsP;
+}
+async function save(filename, blob) {
+  const dl = await downloads();
+  if (!dl) throw { code: "unavailable" };
+  return dl.save({ filename, data: blob });
+}
+function saveError(e) {
+  const c = e && e.code;
+  if (c === "declined") return "Kaydetme iptal edildi. Tekrar denemek için düğmeye yeniden bas.";
+  if (c === "rate_limited") return "Açık bir kaydetme penceresi var. Onu kapatıp tekrar dene.";
+  if (c === "rejected_extension" || c === "extension_not_enabled") return "Bu görünümde bu dosya türü kaydedilemiyor.";
+  if (c === "too_large") return "Dosya bu uygulamanın sınırını aşıyor. Sayfayı bilgisayardaki tarayıcıda aç.";
+  if (c === "unavailable" || c === "not_granted" || c === "capability_disabled" || c === "capability_removed")
+    return "Bu görünümde dosya kaydetme kullanılamıyor. Sayfayı claude.ai’de tarayıcıdan açıp tekrar dene.";
+  return (e && e.message) || "Beklenmeyen bir hata oluştu.";
+}
+
+$("dlzip").addEventListener("click", async () => {
+  const btn = $("dlzip"), st = $("status");
+  btn.disabled = true; st.className = "status";
+  try {
+    const bufs = [];
+    for (let i = 0; i < META.parts.length; i++) {
+      st.textContent = "Parça " + (i + 1) + " / " + META.parts.length + " yükleniyor…";
+      bufs.push(await getPart(i));
+      $("prog").style.width = Math.round(((i + 1) / META.parts.length) * 90) + "%";
+    }
+    st.textContent = "SHA-256 doğrulanıyor…";
+    const blob = new Blob(bufs, { type: "application/zip" });
+    if (blob.size !== META.size) throw new Error("Boyut tutmuyor: " + blob.size + " bayt");
+    const sum = hex(await crypto.subtle.digest("SHA-256", await blob.arrayBuffer()));
+    if (sum !== META.sha256) throw new Error("SHA-256 tutmuyor. Sayfayı yenileyip tekrar dene.");
+    $("prog").style.width = "100%";
+    st.textContent = "Doğrulandı. Kaydetme onayını bekliyor…";
+    await save(META.zip, blob);
+    st.className = "status ok";
+    st.textContent = "Kaydedildi: " + META.zip + " (" + mb(META.size) + ", SHA-256 doğrulandı).";
+  } catch (e) {
+    st.className = "status err";
+    st.textContent = saveError(e);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+const SAVE_NAME = n => n.endsWith(".ps1") ? n + ".txt" : n;
+function kind(n) {
+  if (n.endsWith(".gif")) return ["GIF", "gif"];
+  if (n.startsWith("00_")) return ["önizleme", ""];
+  if (/kapak/.test(n)) return ["kapak", ""];
+  if (/\.(png|jpg|webp)$/.test(n)) return ["görsel", ""];
+  return ["belge", ""];
+}
+async function fileBlob(f) {
+  const first = Math.floor(f.off / PART), last = Math.floor((f.off + f.size - 1) / PART);
+  const pieces = [];
+  for (let i = first; i <= last; i++) {
+    const buf = await getPart(i);
+    const s = Math.max(f.off - i * PART, 0);
+    const e = Math.min(f.off + f.size - i * PART, buf.byteLength);
+    pieces.push(buf.slice(s, e));
+  }
+  const blob = new Blob(pieces);
+  const sum = hex(await crypto.subtle.digest("SHA-256", await blob.arrayBuffer()));
+  if (sum !== f.sha256) throw new Error("SHA-256 tutmuyor: " + f.name);
+  return blob;
+}
+const tbody = $("files");
+for (const f of META.files) {
+  const tr = document.createElement("tr");
+  const [k, cls] = kind(f.name);
+  const name = document.createElement("td"); name.className = "n"; name.textContent = f.name;
+  const t = document.createElement("td"); const chip = document.createElement("span"); chip.className = "chip " + cls; chip.textContent = k; t.append(chip);
+  const sz = document.createElement("td"); sz.className = "sz"; sz.textContent = f.size < 1048576 ? Math.max(1, Math.round(f.size / 1024)) + " KB" : mb(f.size);
+  const act = document.createElement("td"); const b = document.createElement("button"); b.className = "small"; b.type = "button"; b.textContent = "Kaydet";
+  b.addEventListener("click", async () => {
+    b.disabled = true; const old = b.textContent; b.textContent = "Hazırlanıyor…";
+    try { await save(SAVE_NAME(f.name), await fileBlob(f)); b.textContent = "Kaydedildi"; }
+    catch (e) { b.textContent = old; $("status").className = "status err"; $("status").textContent = f.name + ": " + saveError(e); }
+    finally { b.disabled = false; }
+  });
+  act.append(b);
+  tr.append(name, t, sz, act);
+  tbody.append(tr);
+}
+</script>
