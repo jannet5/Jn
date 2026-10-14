@@ -36,10 +36,12 @@ class Vm(app: Application) : AndroidViewModel(app) {
     /** Opens the original notification's target (only possible while the process holds the live notification). */
     fun open(n: Notif): Boolean {
         read(n)
-        val sbn = NotiListener.cache[n.id]
-        try { sbn?.notification?.contentIntent?.send(); if (sbn != null) return true } catch (_: Exception) {}
-        val i = getApplication<Application>().packageManager.getLaunchIntentForPackage(n.pkg) ?: return false
-        i.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK); getApplication<Application>().startActivity(i); return true
+        val pi = NotiListener.cache[n.id]?.notification?.contentIntent
+        if (pi != null) { try { pi.send(); return true } catch (_: Exception) { /* cancelled: fall back to launcher intent */ } }
+        val app = getApplication<Application>()
+        val i = app.packageManager.getLaunchIntentForPackage(n.pkg) ?: return false
+        i.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+        return try { app.startActivity(i); true } catch (_: Exception) { false }
     }
 
     fun exportCsv(): String = buildString {

@@ -21,15 +21,19 @@ class MainActivity : AppCompatActivity() {
                 if (unlocked) App() else LockScreen { promptUnlock() }
             }
         }
-        if (!unlocked) promptUnlock()
     }
 
     override fun onStop() { super.onStop(); if (Prefs(this).appLock) unlocked = false }
     override fun onStart() { super.onStart(); if (!unlocked) promptUnlock() }
 
+    private var prompting = false
+
     private fun promptUnlock() {
+        if (prompting) return
+        prompting = true
         val p = BiometricPrompt(this, ContextCompat.getMainExecutor(this), object : BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationSucceeded(r: BiometricPrompt.AuthenticationResult) { unlocked = true }
+            override fun onAuthenticationSucceeded(r: BiometricPrompt.AuthenticationResult) { prompting = false; unlocked = true }
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) { prompting = false }
         })
         p.authenticate(BiometricPrompt.PromptInfo.Builder().setTitle("Notivo")
             .setAllowedAuthenticators(androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK or

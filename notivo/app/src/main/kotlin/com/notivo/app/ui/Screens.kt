@@ -149,7 +149,13 @@ fun SettingsScreen(vm: Vm) {
         SwitchRow("Bildirimleri topla", "Kapatırsan yeni bildirim kaydedilmez", cap) { cap = it; p.capturing = it }
         SwitchRow("Süregelen bildirimleri atla", "Müzik çalar, navigasyon gibi kalıcı bildirimler", ongoing) { ongoing = it; p.hideOngoing = it }
         SwitchRow("Gizli bildirimleri atla", "Uygulamanın \"gizli\" işaretlediği içerik (ör. OTP)", sens) { sens = it; p.hideSensitive = it }
-        SwitchRow("Uygulama kilidi", "Parmak izi / yüz / ekran kilidi ile aç", lock) { lock = it; p.appLock = it }
+        SwitchRow("Uygulama kilidi", "Parmak izi / yüz / ekran kilidi ile aç", lock) { want ->
+            val ok = androidx.biometric.BiometricManager.from(ctx).canAuthenticate(
+                androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_WEAK or androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
+            ) == androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS
+            if (want && !ok) toast(ctx, "Önce telefonda ekran kilidi veya parmak izi tanımla")
+            else { lock = want; p.appLock = want }
+        }
         ListItem(headlineContent = { Text("Saklama süresi") }, supportingContent = { Text(if (ret == 0) "Süresiz" else "$ret gün (yıldızlılar silinmez)") },
             trailingContent = { TextButton({ ret = when (ret) { 7 -> 30; 30 -> 90; 90 -> 0; else -> 7 }; p.retentionDays = ret }) { Text("Değiştir") } })
         HorizontalDivider()
@@ -176,7 +182,7 @@ fun SettingsScreen(vm: Vm) {
             modifier = Modifier.clickable { confirm = true })
         ListItem(headlineContent = { Text("Gizlilik politikası") }, leadingContent = { Icon(Icons.Default.PrivacyTip, null) },
             modifier = Modifier.clickable { policy = true })
-        Text("Notivo 1.1.0", Modifier.padding(16.dp), style = MaterialTheme.typography.labelMedium)
+        Text("Notivo 1.1.1", Modifier.padding(16.dp), style = MaterialTheme.typography.labelMedium)
     }
     if (confirm) AlertDialog({ confirm = false }, title = { Text("Emin misin?") }, text = { Text("Yıldızsız tüm kayıtlı bildirimler silinecek.") },
         confirmButton = { TextButton({ vm.clear(); confirm = false }) { Text("Sil") } }, dismissButton = { TextButton({ confirm = false }) { Text("Vazgeç") } })

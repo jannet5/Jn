@@ -33,7 +33,13 @@ anahtarıyla (`notivo-release.jks`) imzalanır. **Google Play için kendi anahta
   (metin `ui/Screens.kt` → `PRIVACY`). Play'in kısıtlı izin politikasına göre ana işlev bildirim yönetimi olduğundan uygundur, ancak inceleme sonucu garanti değildir.
 - Play için `.aab` (`gradle bundleRelease`) ve kendi upload key'in gerekir.
 
-## Test durumu
-- JVM birim testleri geçiyor (`gradle testDebugUnitTest`): kural eşleme, silinen-mesaj tespiti, gün kovaları, Türkçe normalizasyon.
-- Gerçek cihazda/emülatörde **henüz çalıştırılmadı**.
+## Test durumu (1.1.1)
+- **Derleme:** `assembleRelease` (R8 küçültmeli) ve `lintRelease` tamam; lint 0 hata, 20 uyarı (çoğu kütüphane sürümü bildirimi). APK mevcut `notivo-release.jks` anahtarıyla imzalı.
+- **JVM testleri (19, hepsi geçiyor):** `gradle testDebugUnitTest`. Robolectric ile bir **simülasyondur, gerçek cihaz veya emülatör değildir**:
+  - `LogicTest`: kural eşleme, silinen-mesaj metni, gün kovaları, Türkçe İ/I/ı normalizasyonu
+  - `DaoTest`: Room sorguları (silinen işareti, kopya penceresi, saklama süresi, sayaçlar, kural/ertele kayıtları)
+  - `ListenerTest`: gerçek `NotiListener` ile yakalama, kopya engeli, ENGELLE/SESSİZ kuralı, hariç tutma, kalıcı/özet bildirimleri atlama, silinen mesaj işareti
+  - `VmTest`: yedek/geri yükleme gidiş-dönüş, CSV kaçışı, yanıt/açma yedekleri
+  - `UiSmokeTest`: onboarding ve gelen kutusu ekranlarının açılması, arama, sekmeler
+- **Gerçek cihaz:** Henüz denenmedi. Ortamda emülatör/AVD/KVM/USB cihaz yoktu.
 - Mağaza metni ve marka notları: `PLAY_LISTING.md`.

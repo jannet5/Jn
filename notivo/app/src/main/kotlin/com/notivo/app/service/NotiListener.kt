@@ -12,10 +12,16 @@ import com.notivo.app.R
 import com.notivo.app.data.*
 import com.notivo.app.data.Logic
 import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 /** Captures every posted notification into the local DB. Nothing leaves the device. */
 class NotiListener : NotificationListenerService() {
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO.limitedParallelism(1))
+    private val lock = Mutex()
+
+    override fun onDestroy() { scope.cancel(); super.onDestroy() }
 
     override fun onListenerConnected() { connected = true; scope.launch { purge() } }
     override fun onListenerDisconnected() { connected = false }
@@ -33,22 +39,29 @@ class NotiListener : NotificationListenerService() {
         if (title.isBlank() && text.isBlank()) return
         val pkg = sbn.packageName
         val dao = Db.get(this).dao()
-        scope.launch {
-            if (pkg in dao.excludedNow()) return@launch
-            if (dao.dupCount(pkg, title, text, System.currentTimeMillis() - 10_000) > 0) return@launch
-            val hit = Logic.matchRule(dao.activeRules(), pkg, title, text)
-            if (hit?.action == "BLOCK") { cancelSafe(sbn.key); return@launch }
-            if (Logic.isDeletedNotice(text)) {
-                dao.markDeleted(pkg, title, System.currentTimeMillis() - 24 * 3_600_000L)
-                return@launch
-            }
-            val isMsg = n.category == Notification.CATEGORY_MESSAGE || ex.getString(Notification.EXTRA_TEMPLATE)?.contains("Messaging") == true
-            val id = dao.insert(Notif(sbnKey = sbn.key, pkg = pkg, appName = label(pkg), title = title, text = text,
-                time = sbn.postTime, category = n.category ?: "", isMessage = isMsg))
-            if (n.actions != null || n.contentIntent != null) cache[id] = sbn
-            if (cache.size > 200) cache.keys.minOrNull()?.let { cache.remove(it) }
-            if (hit?.action == "MUTE") cancelSafe(sbn.key)
+        scope.launch { lock.withLock { process(sbn, dao, pkg, title, text) } }
+    }
+
+    /**
+     * Runs under [lock], one notification at a time and in arrival order. Without it two identical notifications both pass the
+     * duplicate check before either is inserted, and a "message deleted" notice can look for a message that is not stored yet.
+     */
+    private suspend fun process(sbn: StatusBarNotification, dao: NotiDao, pkg: String, title: String, text: String) {
+        val n = sbn.notification
+        if (pkg in dao.excludedNow()) return
+        if (dao.dupCount(pkg, title, text, System.currentTimeMillis() - 10_000) > 0) return
+        val hit = Logic.matchRule(dao.activeRules(), pkg, title, text)
+        if (hit?.action == "BLOCK") { cancelSafe(sbn.key); return }
+        if (Logic.isDeletedNotice(text)) {
+            dao.markDeleted(pkg, title, System.currentTimeMillis() - 24 * 3_600_000L)
+            return
         }
+        val isMsg = n.category == Notification.CATEGORY_MESSAGE || n.extras.getString(Notification.EXTRA_TEMPLATE)?.contains("Messaging") == true
+        val id = dao.insert(Notif(sbnKey = sbn.key, pkg = pkg, appName = label(pkg), title = title, text = text,
+            time = sbn.postTime, category = n.category ?: "", isMessage = isMsg))
+        if (n.actions != null || n.contentIntent != null) cache[id] = sbn
+        if (cache.size > 200) cache.keys.minOrNull()?.let { cache.remove(it) }
+        if (hit?.action == "MUTE") cancelSafe(sbn.key)
     }
 
     private fun cancelSafe(key: String) = try { cancelNotification(key) } catch (_: Exception) {}
