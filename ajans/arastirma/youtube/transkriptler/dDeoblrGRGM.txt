@@ -1,0 +1,303 @@
+# How I Run 6 Coding Agents at Once (My Actual Workflow)
+# https://www.youtube.com/watch?v=dDeoblrGRGM
+# kanal: Chris Raroque | süre: 523 sn | kaynak: yt-dlp:web_embedded:dDeoblrGRGM.en.json3
+
+[00:00:00] I've already done tutorials on how I use
+[00:00:01] Claude Code, how I use cursor, but I
+[00:00:04] wanted to do a video to show you guys
+[00:00:05] what my actual workflow looks like when
+[00:00:07] I'm in the weeds, how I'm juggling
+[00:00:09] everything, how I'm prompting, and how
+[00:00:11] I'm moving quickly. This one's a little
+[00:00:12] bit more advanced. It is not a beginner
+[00:00:14] tutorial. If you want a more
+[00:00:15] beginner-friendly tutorial on cloud code
+[00:00:17] and cursor, I will leave a link in the
+[00:00:18] description to those videos. If you're
+[00:00:20] new here, my name is Chris and I build
+[00:00:21] productivity apps. And as a solo
+[00:00:22] developer with multiple apps, I am
+[00:00:24] constantly running like five instances
+[00:00:26] of Cloud Code at once. I'm on the $200 a
+[00:00:28] month max plan and even running it the
+[00:00:30] way that I am against multiple code
+[00:00:31] bases for many many hours each day, I
+[00:00:34] have not run into any limits. But in
+[00:00:36] this video, I want to show you
+[00:00:36] realistically what it looks like to run
+[00:00:38] this many instances at once. My workflow
+[00:00:40] has changed a lot because of AI coding.
+[00:00:42] And honestly, I feel like AI coding in
+[00:00:44] general has really changed over the last
+[00:00:45] year. It used to be about typing the
+[00:00:47] right commands and telling the agent
+[00:00:48] what to do. Tab complete was a thing.
+[00:00:50] Like that used to be what AI coding was.
+[00:00:52] But now I haven't even done that in the
+[00:00:54] last year. Now, it's all about having
+[00:00:55] conversations with agents like Claude
+[00:00:57] Code. The way that I work is I genuinely
+[00:00:59] treat the agent like a human. I'm
+[00:01:01] constantly asking questions like, "What
+[00:01:02] do you think about this? Is there a
+[00:01:04] better way to do this?" And I'm having
+[00:01:05] this kind of back and forth every single
+[00:01:07] day. Let me just show you guys what I
+[00:01:08] mean. So, let's say I'm working in the
+[00:01:09] Luna codebase, which is my budgeting
+[00:01:11] app. I'm having a conversation with one
+[00:01:13] agent and I'm asking it, "Is there any
+[00:01:16] place where I'm using Swift UI gestures
+[00:01:18] where it might be better to use UI Kit?"
+[00:01:21] And then I let that run. And when you're
+[00:01:23] using cloud code like this, it is really
+[00:01:25] slow because it's thinking a lot. It
+[00:01:26] takes like three to four minutes to
+[00:01:28] respond sometimes. And since I have so
+[00:01:29] much time, that's when I switch to
+[00:01:31] another agent. By the way, as you saw,
+[00:01:32] I'm using dictation to work with Claude
+[00:01:34] Code. And that is super important to my
+[00:01:37] workflow. The tool that I'm using is
+[00:01:38] Whisper Flow for dictation. More on that
+[00:01:40] later in the video. But because I'm
+[00:01:41] dictating everything, I'm able to get
+[00:01:43] way more detailed prompts compared to if
+[00:01:45] I was typing, and I'm able to move very
+[00:01:46] quickly between agents. So now I
+[00:01:48] switched over and now we're looking at
+[00:01:49] the code base for Amy, which is my
+[00:01:51] calorie tracking app. And I'm working on
+[00:01:52] another feature which is barcode
+[00:01:54] scanning. So now I'm going to ask it,
+[00:01:57] I'm thinking about adding barcode
+[00:01:58] scanning. Can you do some research and
+[00:02:00] figure out if there are any good APIs
+[00:02:02] for this? What's the best way to do this
+[00:02:04] and make sure that it goes well with the
+[00:02:06] current photo scanning that we have
+[00:02:07] [music]
+[00:02:08] and then I kick off that agent while the
+[00:02:10] first one is running. And I have a bunch
+[00:02:11] of other apps, too. I'm working on
+[00:02:13] Ellie, which is my daily planning app.
+[00:02:15] And I do a lot of AI consulting work. So
+[00:02:16] I build a lot of prototypes. It's just a
+[00:02:18] bunch of code bases that I'm working on
+[00:02:20] at once. Also, if you didn't notice, I'm
+[00:02:22] using plan mode in Claude Code. The way
+[00:02:23] it works is you hit shift tab and then
+[00:02:25] you enter this plan mode. This is a mode
+[00:02:26] where Claude Code is not going to start
+[00:02:28] editing files. It's going to draft a
+[00:02:31] plan on [music] what it's going to do.
+[00:02:32] And then I can go back and forth with
+[00:02:33] the AI to really try to reshape this
+[00:02:35] plan before I have it execute. I never
+[00:02:37] skip this step. And then when I'm happy
+[00:02:39] with the plan, that's when I let it go
+[00:02:41] off and execute. Another tip is you can
+[00:02:43] run this command with Claude Code, which
+[00:02:45] is dangerously skip permissions. And if
+[00:02:46] you've ever worked with cloud code, you
+[00:02:48] know that it's always asking for
+[00:02:49] permission. Can I update this file? Can
+[00:02:50] I go look at this website? When you run
+[00:02:52] this command, it's going to skip all
+[00:02:53] that and it's just going to go off and
+[00:02:55] execute without asking your permission
+[00:02:57] for anything. It is a little risky to
+[00:02:58] run this, but I am personally doing this
+[00:03:00] if I'm working in an area of the
+[00:03:02] codebase where I feel like not a lot can
+[00:03:04] go wrong. And to be honest, I think as
+[00:03:05] long as you're using plan mode and you
+[00:03:07] are really reviewing the plan that it's
+[00:03:08] generating, doing that along with
+[00:03:10] reviewing the code after it's generated
+[00:03:12] should be completely [music] fine. So
+[00:03:14] sometimes I'm running this dangerously
+[00:03:15] skip permissions, especially when I'm
+[00:03:16] running like five agents at once, but
+[00:03:18] I'm always using plan mode and I'm
+[00:03:20] reviewing the plan every single time.
+[00:03:21] And I'm not just using these agents
+[00:03:23] across multiple code bases. I'm actually
+[00:03:25] running multiple agents in a single
+[00:03:27] codebase sometimes. So for example, in
+[00:03:28] Ellie, my daily planning app, I really
+[00:03:30] want to improve this AI assistant
+[00:03:32] feature that we have. And so I'm going
+[00:03:33] to ask it, can we actually improve the
+[00:03:35] animation when the loading happens? I
+[00:03:37] don't want a circle, but I want a
+[00:03:39] shimmering animation where it kind of
+[00:03:41] shimmers from left to right. [music] And
+[00:03:43] then at the same time, I have another
+[00:03:44] agent in the same codebase. So, it's
+[00:03:46] just another cloud code tab. And I'm
+[00:03:48] asking it about the Google calendar
+[00:03:50] integration.
+[00:03:51] Are we missing any actions that Google
+[00:03:53] Calendar supports? Can you look at the
+[00:03:54] API documentation and see if there's
+[00:03:56] anything glaring we should be adding?
+[00:04:00] [music] And then I'm going to kick off a
+[00:04:01] third agent also in the LE codebase. And
+[00:04:04] this one I'm going to do the same kind
+[00:04:05] of research I'm doing for a Google
+[00:04:07] Calendar, but with Apple Calendar this
+[00:04:09] time. I wrote this integration a long
+[00:04:10] time ago. I don't even know if I did it
+[00:04:12] the right way. So, I'm going to ask it,
+[00:04:14] is the method that we're doing for Apple
+[00:04:16] calendar integration correct or is there
+[00:04:18] a better way we should be doing this?
+[00:04:21] And then I'll actually kick up a fourth
+[00:04:22] agent to check the code quality of one
+[00:04:24] of the features I was working on
+[00:04:26] earlier. So, I'll say
+[00:04:29] code quality check, please. By the way,
+[00:04:31] that was using a Whisper Flow snippet,
+[00:04:33] which I'll talk about later in the
+[00:04:34] video. So, I'm just kicking off all
+[00:04:35] these agents and going back and forth
+[00:04:36] with them. Because of how long it takes,
+[00:04:38] there's a lot of downtime. And so while
+[00:04:40] they're thinking, I can just hop between
+[00:04:42] each of them. And this is how I'm moving
+[00:04:43] so quickly. We have six agents running
+[00:04:45] simultaneously. Right now, one more tip.
+[00:04:47] If you are in cursor and you have a
+[00:04:49] bunch of terminal tabs open like this to
+[00:04:51] run cloud code, you can actually rename
+[00:04:52] these terminal tabs, which I do to make
+[00:04:54] sure that I know, okay, this terminal
+[00:04:56] tab is for this conversation. We're
+[00:04:58] working on this feature here. So, let me
+[00:04:59] just go ahead and rename these. We now
+[00:05:01] renamed it. This helps a lot when you're
+[00:05:03] juggling multiple agents. And then as
+[00:05:05] you probably saw, the key here is that
+[00:05:06] this would not be possible if I was not
+[00:05:08] dictating everything. As the coding
+[00:05:10] models are getting better, it's less
+[00:05:11] about prompting in a specific way or
+[00:05:13] saying the right set of words. It's more
+[00:05:15] about giving the right context and
+[00:05:17] intent, which is way easier with
+[00:05:18] dictation because then you can just word
+[00:05:20] dump all the context just like I would
+[00:05:22] to a human if I was speaking to them.
+[00:05:23] And then the model will understand and
+[00:05:25] perform the task better. I get a lot of
+[00:05:27] questions asking what I'm using for
+[00:05:28] dictation. And the answer is Whisper
+[00:05:30] Flow. And a huge thank to them for
+[00:05:31] actually being a channel sponsor.
+[00:05:33] Whisperflow is a smart speechtoext app,
+[00:05:35] it works in any application. So if
+[00:05:36] you're using cloud code, cursor, slack,
+[00:05:39] superhuman, or any app with a text box,
+[00:05:41] it will work there. And by the way, the
+[00:05:43] thing that says dictation using whisper
+[00:05:44] flow, it's something I enabled for the
+[00:05:46] video, if you're using it, that's not
+[00:05:47] going to appear there for you. They also
+[00:05:48] have integrations with cursor, windface,
+[00:05:53] and you can tag files and variables
+[00:05:55] without typing anything. So check this
+[00:05:57] out. If I say something like, can you
+[00:05:59] check for code quality in subscription
+[00:06:01] overview.tsx? tsx.
+[00:06:03] It correctly tags the file without me
+[00:06:05] having to [music] do anything. They also
+[00:06:07] have an iOS app which I'm using all the
+[00:06:09] time when I'm responding to YouTube
+[00:06:10] comments. That is typically how I'm
+[00:06:12] doing it because I want to be really
+[00:06:13] thorough and it's just so much easier
+[00:06:15] with dictation. And then obviously I'm
+[00:06:16] using it in iMessage and Slack, too. But
+[00:06:18] dictating is so important, especially
+[00:06:20] when you're running multiple agents
+[00:06:21] because you can get way more detailed
+[00:06:23] prompts than you would otherwise if you
+[00:06:25] were just typing everything. Let me show
+[00:06:26] you another example of what I'm talking
+[00:06:28] about. I'm actually going to ask the
+[00:06:29] agent, can you do some research on MCP
+[00:06:32] servers? I'm really interested,
+[00:06:33] especially on external MCP servers
+[00:06:36] versus internal because I know that
+[00:06:38] there are slight differences in
+[00:06:40] architecture. [music]
+[00:06:42] That would have been super annoying to
+[00:06:44] type out. Like I probably would have
+[00:06:45] just stopped at can you do some research
+[00:06:49] on MCP servers and that's it. But I can
+[00:06:52] get way more granular because I'm
+[00:06:54] dictating. And the last thing I want to
+[00:06:55] show you is their snippets feature. You
+[00:06:57] can save snippets for frequently used
+[00:06:59] text. And that's how I did that code
+[00:07:00] quality check snippet for Ellie earlier.
+[00:07:02] So I have it where if I say code quality
+[00:07:05] check, please, [music] it expands to
+[00:07:06] this prompt that I have saved, which
+[00:07:08] saves me a ton of time because I'm
+[00:07:10] constantly using this to check code
+[00:07:11] quality. I will leave a link in the
+[00:07:13] description if you want to check out
+[00:07:14] Whisper Flow. There's a code for 1 month
+[00:07:15] free and that's on top of the 14-day
+[00:07:17] trial you already get with Whisperflow
+[00:07:18] Pro. They did not have to give me the
+[00:07:19] code. I'm the one that asked for that.
+[00:07:21] So a huge thank you to them for
+[00:07:22] providing that. So that's my workflow.
+[00:07:24] This is how I am juggling multiple
+[00:07:25] Claude Code instances. [music] And
+[00:07:27] again, I have not hit any limits being
+[00:07:29] on the $200 a month plan. And I'll leave
+[00:07:31] you actually with a little tip that I
+[00:07:33] figured out. If you've used Claude Code,
+[00:07:35] you know that there are weekly limits. I
+[00:07:37] don't know if this is a glitch because I
+[00:07:38] really haven't heard anyone talk about
+[00:07:40] this, but if you choose to upgrade to
+[00:07:42] the yearly plan of Claude Code, I
+[00:07:45] [music] don't think they have weekly
+[00:07:46] limits because that's just completely
+[00:07:48] gone from my UI. So, if you're someone
+[00:07:49] that is running into the weekly limits,
+[00:07:51] even on the $200 plan, which that's
+[00:07:53] really rare, people normally don't hit
+[00:07:55] that limit, you could upgrade to the
+[00:07:57] yearly and those limits are gone. The
+[00:07:58] important things for workflow is always
+[00:08:00] use plan mode. You can use dangerously
+[00:08:02] skip permissions if you want. I think
+[00:08:03] it's completely fine, but again, use
+[00:08:05] plan mode and then dictate everything if
+[00:08:07] you're doing this. If you've been
+[00:08:08] following along, you know that I do use
+[00:08:09] cursor for some things, especially
+[00:08:11] complex debugging because I love their
+[00:08:13] debug mode. If you want to see a video
+[00:08:15] where I talk about that, I will leave a
+[00:08:16] link in the description for that as
+[00:08:17] well. I have more in-depth guides to my
+[00:08:19] workflow that I'll leave below with tips
+[00:08:21] like MCP servers, how to use sub agents,
+[00:08:24] more granular cloud code tips like that.
+[00:08:26] I'll leave a link in the description. If
+[00:08:27] you enjoyed this content, feel free to
+[00:08:28] check out my Instagram and Tik Tok. I
+[00:08:30] post almost every other day about
+[00:08:31] building productivity apps. And
+[00:08:32] obviously, if you like this content,
+[00:08:33] don't forget to subscribe. But thank you
+[00:08:34] guys so much for watching and I will see
+[00:08:36] you guys in the next video.
+[00:08:40] >> [music]

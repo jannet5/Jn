@@ -1,0 +1,11 @@
+{
+ "title": "Claude Code's Agent Teams Are Insane - Multiple AI Agents Coding Together in Real Time",
+ "channel": "Cole Medin",
+ "duration": 1216,
+ "description": "Claude just shipped Agent Teams and it changes the game of AI coding. Instead of one agent doing everything sequentially, you can now spin up multiple agents that communicate with each other in real time, share a task list, and coordinate their work.\n\nThis is fundamentally different from subagents. Subagents work in isolation and report back. Agent Teams actually talk to each other, divide work intelligently, and you can interact with each agent directly. I'll show you exactly how it works, how to set it up (Windows, Mac, and Linux), and the use cases where it absolutely dominates traditional coding workflows.\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n- Join me at the Sonar Summit (free global virtual event) on March 3rd! I'll be speaking on building self-validation and guardrails into AI coding systems.\nhttps://fandf.co/4rjEkz0\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n- The Dynamous Agentic Coding Course is now FULLY released - learn how to build reliable and repeatable systems for AI coding: \nhttps://dynamous.ai/agentic-coding-course\n\n- Agent team skill to tackle any plan (my resource for you):\nhttps://github.com/coleam00/context-engineering-intro/tree/main/use-cases/build-with-agent-team\n\n- Excalidraw diagram (subagents vs. agent teams):\nhttps://github.com/coleam00/context-engineering-intro/blob/main/use-cases/build-with-agent-team/AgentTeamsVsSubagents.png\n\n- Agent Teams docs: \nhttps://code.claude.com/docs/en/agent-teams\n\n- C compiler blog post: \nhttps://www.anthropic.com/engineering/building-c-compiler\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n0:00 Intro to Claude Code Agent Teams\n3:14 Get Started Quick\n5:15 Demo: Creating an Agent Team\n8:16 Sonar Summit\n9:52 Agent Teams vs. Subagents\n14:12 Limitations of Agent Teams\n15:41 My Custom Agent Team Skill\n17:34 Advanced Building Demo\n19:39 Final Thoughts\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nJoin me as I push the limits of what is possible with AI. I'll be uploading videos weekly - at least every Wednesday at 7:00 PM CDT!",
+ "upload_date": "20260209",
+ "view_count": 176847,
+ "kaynak": "yt-dlp:android:-1K_ZWDKpU0.en.json3",
+ "id": "-1K_ZWDKpU0",
+ "url": "https://www.youtube.com/watch?v=-1K_ZWDKpU0"
+}

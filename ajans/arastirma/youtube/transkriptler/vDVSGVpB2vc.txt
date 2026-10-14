@@ -1,0 +1,590 @@
+# How to Build Claude Agent Teams Better Than 99% of People
+# https://www.youtube.com/watch?v=vDVSGVpB2vc
+# kanal: Nate Herk | AI Automation | süre: 990 sn | kaynak: yt-dlp:web_embedded:vDVSGVpB2vc.en.json3
+
+[00:00:00] I just pasted in this message and I'm
+[00:00:01] shooting it off to Claude and it says,
+[00:00:02] create a team called Neuroflow of three
+[00:00:04] teammates using Sonnet. The first one is
+[00:00:06] a front-end developer, the second one is
+[00:00:08] a back-end developer, and the third one
+[00:00:10] is a QA agent. So, this now invoked a
+[00:00:12] tool called team create. And you can see
+[00:00:14] that what it's doing is now that it's
+[00:00:15] created this team, it's spawning up
+[00:00:17] three teammates in parallel. And these
+[00:00:19] are all individual agents. So, right now
+[00:00:21] we can see we have our front-end
+[00:00:22] developer, we have our back-end
+[00:00:23] developer, and we have our QA agent. So,
+[00:00:25] what's happening is right now we have
+[00:00:27] these three agents working together with
+[00:00:28] our main session. They all share a task
+[00:00:30] list, they can talk to each other, and
+[00:00:32] I'm going to check back in with you guys
+[00:00:33] once this is done. Okay, so this is
+[00:00:35] really interesting. The front-end and
+[00:00:36] back-end developer sent work over to the
+[00:00:38] QA agent, and then the QA agent found
+[00:00:40] three critical issues. So, the main
+[00:00:42] agent said that it's going to send all
+[00:00:43] of this work right back to those first
+[00:00:45] two agents to take another pass at it.
+[00:00:46] So, here's where you can see it sent off
+[00:00:47] those messages to the front-end
+[00:00:49] developer, the back-end dev, and the QA.
+[00:00:51] And now they're all back to work once
+[00:00:52] again. And there we go, the second time
+[00:00:54] the QA agent gives it a pass. All three
+[00:00:56] of those critical issues have been
+[00:00:57] resolved. And then it was able to
+[00:00:59] basically one-shot this website. Now,
+[00:01:01] obviously there are some things that
+[00:01:02] aren't perfect about this and we'd want
+[00:01:03] to go back and iterate, but considering
+[00:01:05] in the prompt all I said was to build me
+[00:01:07] a landing page for a fictional AI
+[00:01:09] startup and we get all of this text, we
+[00:01:11] get these animations, we get all of this
+[00:01:12] stuff to come in dynamically, and it
+[00:01:14] feels pretty polished. It came up with
+[00:01:16] all the copy, the color scheme, all of
+[00:01:17] it. This is truly one of the most
+[00:01:19] powerful AI agent features I've ever
+[00:01:21] used, but you have to know how to use it
+[00:01:22] right, which is why in today's video I'm
+[00:01:24] going to explain everything you need to
+[00:01:25] know, what they are, how to set them up,
+[00:01:26] how to use them, when not to use them,
+[00:01:28] everything that you need. So, let's not
+[00:01:29] waste any time and get straight into the
+[00:01:31] video. So, agent teams. As you guys saw
+[00:01:33] in the demo, we had one get spun up
+[00:01:35] called Neuroflow, and in that team we
+[00:01:36] had three agents. We had the front-end
+[00:01:38] dev, the back-end dev, and the QA. So,
+[00:01:40] what happens is the main orchestrator,
+[00:01:41] the Claude code session you're talking
+[00:01:43] to, creates these different agents and
+[00:01:45] manages them. But not in the same way
+[00:01:47] that we do sub agents, because sub
+[00:01:48] agents work independently and then they
+[00:01:50] send their individual result back to the
+[00:01:52] main agent. Agent teams have a team
+[00:01:54] lead, maybe like a project manager, and
+[00:01:56] it creates all of these different agents
+[00:01:58] and a shared task list. So, the huge
+[00:02:00] unlock here is that individual teammates
+[00:02:02] can talk to each other. So, sometimes
+[00:02:04] there's a dependency. Teammate one needs
+[00:02:06] something from teammate two, and they
+[00:02:07] can just talk. And you can get in these
+[00:02:08] really cool loops, especially when you
+[00:02:10] have the QA agent like we just saw in
+[00:02:11] the demo, where one of the teammates
+[00:02:13] will basically say, "Hey, this isn't
+[00:02:14] good enough." and send the work back.
+[00:02:16] And then the main agent, like I said, is
+[00:02:17] just making sure that the tasks are
+[00:02:18] getting done and that they're all high
+[00:02:20] quality. So, that's the big difference
+[00:02:21] between sub-agents and agent teams, and
+[00:02:23] I had to clear that up because I know
+[00:02:24] that's probably where there's some
+[00:02:25] confusion. So, I am going to break more
+[00:02:27] stuff down, but what I want to do first
+[00:02:28] is just show you guys how to set this up
+[00:02:30] because I think the best way to learn is
+[00:02:31] just to be able to play around with
+[00:02:32] stuff. And all you have to do to set
+[00:02:34] this up is add one environment variable
+[00:02:36] into your project setting. So, let me
+[00:02:37] show you how that works right now. All
+[00:02:38] right, here I am in Cloud Code. I like
+[00:02:40] to use it in VS Code, but you can use
+[00:02:42] the agent teams feature wherever you
+[00:02:44] decide to use Cloud Code. You can see
+[00:02:46] that I am in a brand new project with
+[00:02:47] nothing in it. So, this is exactly what
+[00:02:49] one of you guys' setup should look like
+[00:02:50] if you want to follow along. So, like I
+[00:02:52] said, we need to enable the feature, and
+[00:02:53] I'm going to do that in this demo on the
+[00:02:55] project level. So, what I'm going to do
+[00:02:57] is go to the official Cloud Code
+[00:02:58] documentation for agent teams, and you
+[00:03:00] can see right here that it says they are
+[00:03:01] disabled by default because it's an
+[00:03:03] experimental feature. So, you have to
+[00:03:04] enable them by adding this variable into
+[00:03:06] your settings.json. So, what I'm going
+[00:03:08] to do is literally just copy this JSON
+[00:03:10] right here and come into Cloud Code and
+[00:03:12] say, "Hey, I need you to put this in our
+[00:03:14] local settings in this project." and
+[00:03:16] then just paste in that JSON prompt. And
+[00:03:19] I'm going to go ahead and shoot that
+[00:03:20] off, and that should basically be able
+[00:03:21] to create that file for us. So, you can
+[00:03:23] see that it set everything up. We now
+[00:03:24] have a .cloud folder. If I click in
+[00:03:26] here, we have a settings.local.json,
+[00:03:28] and it has put that command in there.
+[00:03:30] And now our project should be set up to
+[00:03:32] actually be able to use agent teams.
+[00:03:34] Now, before we dive in and I start
+[00:03:35] showing you guys how to do that, there
+[00:03:36] is one thing that I recommend doing
+[00:03:37] first. And that's basically training
+[00:03:39] your Cloud Code project on how agent
+[00:03:41] teams work so that they can actually be
+[00:03:43] used as effectively as possible. So, the
+[00:03:45] easiest way to do this is you go to the
+[00:03:46] documentation on agent teams, you take
+[00:03:48] the URL, and you copy it. And then I
+[00:03:50] said, "Hey, create me a master reference
+[00:03:52] guide for agent teams in a folder called
+[00:03:54] docs. This will be used to help you
+[00:03:55] build better and more effective agents
+[00:03:57] in the future." And now it's going to
+[00:03:58] read through that documentation. And now
+[00:04:00] if you ever have questions about agent
+[00:04:01] teams or if it ever needs to look up
+[00:04:03] something while it is building them, it
+[00:04:04] already has that locally here stored as
+[00:04:06] markdown. So it's going to be much
+[00:04:07] quicker. And it just created this
+[00:04:09] documentation about enabling them, when
+[00:04:10] to use them, display modes, task
+[00:04:12] management, hooks, best practices, tons
+[00:04:14] of stuff like that. And that can be
+[00:04:16] found in the docs folder in this
+[00:04:18] section, which is a full markdown file
+[00:04:20] with
+[00:04:21] hundreds of lines. And that's just a
+[00:04:23] little tip. That's something that I like
+[00:04:24] to do whenever I have like maybe a big
+[00:04:26] MCP server or certain documentation that
+[00:04:28] I know it might need to look at
+[00:04:29] constantly. So now that we're pretty
+[00:04:30] much set up and ready to start building,
+[00:04:32] let's talk about prompting. How do we
+[00:04:33] actually tell Claude code to build us
+[00:04:35] agent teams, but not just to build them,
+[00:04:36] but to actually make them really good to
+[00:04:38] give you what you want. Because the
+[00:04:39] truth about agent teams is that they are
+[00:04:41] more expensive and they are a bit
+[00:04:42] slower, but you do get much higher
+[00:04:44] quality if you use them right. Now the
+[00:04:46] good news is you can pretty much invoke
+[00:04:48] them just using natural language. So I
+[00:04:49] kind of follow this pattern. Create a
+[00:04:51] team of X number of agents using X
+[00:04:55] model. So Haiku, Sonnet or Opus.
+[00:04:57] And then you basically just say the
+[00:04:58] agents that you want. You would say
+[00:05:01] the first agent is X role.
+[00:05:03] This agent should be doing this and it
+[00:05:05] should produce me this.
+[00:05:06] It can talk to the other agents to do X,
+[00:05:08] Y and Z.
+[00:05:10] And so pretty much just listing that out
+[00:05:11] in natural language. Whether that be an
+[00:05:14] API designer, a database engineer and or
+[00:05:17] a test writer. So let's take a real
+[00:05:18] quick look at an example prompt. So I'm
+[00:05:20] going to read this full one out. Now
+[00:05:21] what you'll notice is I start off by
+[00:05:23] establishing a goal. The reason I do
+[00:05:25] this is because when the agents wake up,
+[00:05:27] they have no context. They basically
+[00:05:29] only get the prompt that the main
+[00:05:30] session feeds into them. So if we tell
+[00:05:33] the main agent a goal to give to the sub
+[00:05:35] agents, they understand a little bit
+[00:05:36] better, you know, like what they're
+[00:05:37] working towards, but also why they have
+[00:05:39] their teammates next to them. So the
+[00:05:41] goal here is to build a working full
+[00:05:42] stack app with a rest API and a react
+[00:05:44] front end. The end result should be a
+[00:05:46] running app that I can view on a local
+[00:05:48] host. It should have users and post
+[00:05:49] functionality plus a QA test report
+[00:05:51] confirming that everything works. So
+[00:05:53] then I said, "Hey, create me a team of
+[00:05:54] three teammates using Sonnet. The first
+[00:05:56] one's a back-end dev, it should be doing
+[00:05:58] this. The second one is a front-end dev,
+[00:06:00] and it should be doing this. And the
+[00:06:02] third one is a QA agent that should be
+[00:06:04] doing this." You can see that in the
+[00:06:06] descriptions I said, "When you're done,
+[00:06:07] message the front-end dev." And then in
+[00:06:09] this one I said, "Wait for the back-end
+[00:06:11] dev's message, and then you will send
+[00:06:12] all this stuff to the QA." And then I'm
+[00:06:15] saying what the final deliverables
+[00:06:16] should be because the main agent spins
+[00:06:18] these three up, and then it's going to
+[00:06:19] get a bunch of information back. So what
+[00:06:21] do I actually want at the end of the
+[00:06:22] day? I want a running app, I want a
+[00:06:24] report about pass and fail tests, and
+[00:06:27] then I want a doc, which is basically
+[00:06:29] what was built, key decisions, and how
+[00:06:31] we run this moving forward. So we're
+[00:06:33] about to hop right back into Claude Code
+[00:06:35] and live prompt an agent. But real
+[00:06:37] quick, let's talk about some dos and
+[00:06:39] don'ts. So do have each agent own
+[00:06:41] specific files because if you don't do
+[00:06:43] this and agents are sharing files, they
+[00:06:45] might overwrite each other's work, which
+[00:06:46] is not good. Do define the output, don't
+[00:06:49] use vague deliverables. Do name
+[00:06:51] recipients, don't just assume that
+[00:06:52] they're going to understand who to talk
+[00:06:54] to and why. Do have about three to five
+[00:06:56] teammates, don't go for massive agent
+[00:06:58] swarms of 10+. That'll also be 10 times
+[00:07:01] more expensive. And do give full context
+[00:07:03] because of the fact that no history is
+[00:07:05] given beforehand. Now of course, they
+[00:07:07] can still read everything in the
+[00:07:08] project, they can still look through all
+[00:07:09] of those files, but no context is fed in
+[00:07:12] initially. And I will show you exactly
+[00:07:14] what I mean by that when we go in here
+[00:07:15] and spin up a new agent team. Okay, so
+[00:07:17] I'm in that project that we set up
+[00:07:18] together. I'm in a fresh session, and
+[00:07:20] I'm going to send off this prompt. I
+[00:07:22] said that the goal is to help me clean
+[00:07:23] up the workspace. We have three agents
+[00:07:24] called research team. We're using
+[00:07:26] Sonnet. We've got a researcher, a
+[00:07:28] strategist, and a critic, and they're
+[00:07:29] basically just going to read through
+[00:07:30] this project and make sure that
+[00:07:31] everything's accurate and make sure that
+[00:07:33] we're set up good. Let's take a look at
+[00:07:34] what's going on. It's creating the
+[00:07:36] research team, right? So it's created
+[00:07:38] the team, and now we have a to-do list.
+[00:07:40] Now what it's doing is it's going to
+[00:07:41] spawn the three teammates in parallel.
+[00:07:43] And when it spawns these, I'm going to
+[00:07:44] actually show you how. So the first one
+[00:07:46] is a researcher. If I click into this,
+[00:07:48] you can see that this says in. So this
+[00:07:50] is basically saying this is what the
+[00:07:51] main agent sent to the agent. You are
+[00:07:55] the researcher on the research team,
+[00:07:56] here is what your job is, and you have
+[00:07:58] to be thorough and include anything that
+[00:08:00] might be helpful. So this is basically
+[00:08:01] the prompt that spun up that agent. You
+[00:08:04] can see same exact thing happened for
+[00:08:05] the strategist and for the critic. And
+[00:08:08] if I clicked in, we could once again
+[00:08:09] read exactly what they were prompted to
+[00:08:11] do and the step-by-step instructions.
+[00:08:13] Including stuff like when you're done,
+[00:08:15] send your five use cases to the critic
+[00:08:16] teammate using the send message tool.
+[00:08:19] Which once again validates that these
+[00:08:20] agents are able to talk to each other
+[00:08:22] and send messages to each other. So now
+[00:08:24] we can see that all three of our agents
+[00:08:26] are running and they are all basically
+[00:08:27] just waiting for their turn. And you'll
+[00:08:29] notice what it does is pretty much every
+[00:08:31] time there's a new update, it updates
+[00:08:32] me. So here comes another live update.
+[00:08:34] Let's see if the researcher is finally
+[00:08:35] done. There we go, it's done. So now
+[00:08:37] what happens is we sent a message off to
+[00:08:40] the researcher. And let's go ahead and
+[00:08:41] see what that message actually said. So
+[00:08:43] this is the main agent talking to the
+[00:08:44] researcher. It said, "Did you send your
+[00:08:47] structured inventory to both the
+[00:08:49] strategist and the critic? Please make
+[00:08:51] sure the strategist also received it.
+[00:08:52] You were asked to message both
+[00:08:53] teammates." And then we can see that the
+[00:08:55] researcher confirmed that both teammates
+[00:08:57] received the inventory and now the
+[00:08:58] critic is running. All right, so
+[00:09:00] everything just finished up. All the
+[00:09:01] reports are here. But real quick, I
+[00:09:03] wanted to draw your attention to this.
+[00:09:04] The main agent said, "Cool, let me shut
+[00:09:06] down the teammates and finalize."
+[00:09:08] I'll touch on this a little bit later,
+[00:09:10] but now the main agent has sent a
+[00:09:12] message to each of them, the researcher,
+[00:09:13] the strategist and the critic, and
+[00:09:15] basically said, "You're done.
+[00:09:17] Save your work." So anyways, we'll come
+[00:09:18] back to that in a little bit, but we now
+[00:09:20] have an output, which is a new document
+[00:09:22] over here, Agent Teams Patterns, and it
+[00:09:24] found a ton of stuff. There were 11
+[00:09:26] documentation gaps identified that are
+[00:09:28] worth reviewing against your reference
+[00:09:29] doc. So anyways, let's just click into
+[00:09:31] the doc real quick. We're not going to
+[00:09:32] read this whole thing cuz I'm assuming
+[00:09:33] it is super long, but this is the actual
+[00:09:35] output that we just got from this agent
+[00:09:37] team, and you can see that this thing is
+[00:09:38] insanely thorough. So, if you wanted to
+[00:09:40] really, really understand how agent
+[00:09:42] teams work, then spin up an agent team
+[00:09:44] to help you explain agent teams. Now,
+[00:09:46] what you'll notice here is we were kind
+[00:09:47] of able to see what was going on, but
+[00:09:49] not really under the hood. We couldn't
+[00:09:50] actually tell what the agents were
+[00:09:52] thinking or doing, and that's because
+[00:09:54] we're doing this in the Cloud Code
+[00:09:55] extension. If you do this in your
+[00:09:57] terminal, and specifically if you have
+[00:09:58] tmux installed, you can actually see the
+[00:10:00] different agents working and thinking,
+[00:10:02] and you can individually send messages
+[00:10:04] to them. Because right here we're kind
+[00:10:05] of only communicating through the main
+[00:10:07] session, and the main session sends
+[00:10:08] messages to the other ones. But one of
+[00:10:10] the value props of agent teams is that I
+[00:10:11] could individually message a sub-agent
+[00:10:14] if I wanted to. So, let me show you what
+[00:10:15] that looks like.
+[00:10:16] All right, so right now I'm running
+[00:10:17] Cloud Code in a tmux terminal. Now, if
+[00:10:20] you're on Windows, you have to take a
+[00:10:21] little bit of a work around, but you
+[00:10:22] just have to be in a tmux terminal. So,
+[00:10:24] I'm not going to do a full setup video
+[00:10:25] on it right now, but I literally just
+[00:10:27] had Cloud Code walk me through it, and
+[00:10:28] it was super simple. But anyways, what I
+[00:10:30] did here is I just pasted in this
+[00:10:31] prompt, which obviously is like we
+[00:10:33] talked about, we have the goal, we say
+[00:10:35] create me an agent team, and then we
+[00:10:37] have our front-end dev, our back-end
+[00:10:38] dev, and our QA. This is basically the
+[00:10:40] same exact prompt that I ran in the
+[00:10:41] demo, so this isn't to show you the
+[00:10:42] actual deliverable. What I want to show
+[00:10:44] you guys here is the way that we can
+[00:10:45] visually see this. So, right here what
+[00:10:47] it's going to do is it's going to spin
+[00:10:48] up that agent team for us, right? It's
+[00:10:50] setting up the task dependencies, and
+[00:10:51] it's assigning owners, and now it's
+[00:10:53] spawning those agents. And there we go,
+[00:10:55] we just got our front-end dev created
+[00:10:57] right here, and this is the blue agent.
+[00:10:59] We have another one right here, which is
+[00:11:00] the back-end dev, and this is the green
+[00:11:02] agent. And there we go, we just got our
+[00:11:04] QA agent, which is the yellow one. So,
+[00:11:06] now I very clearly can see what each of
+[00:11:09] these agents is doing, which is super
+[00:11:10] cool. And now if I wanted to, I could
+[00:11:12] come over here, and I could check on the
+[00:11:13] team status with the main session. I
+[00:11:15] could come up here, and I could talk to
+[00:11:16] the front-end dev, I could approve
+[00:11:17] things, or I could give it more info.
+[00:11:19] Same exact thing with the QA, or same
+[00:11:21] exact thing with the back-end dev. So,
+[00:11:22] now I literally have an agent team that
+[00:11:24] I can watch, and I can interact with any
+[00:11:26] of them. And I can also watch them do
+[00:11:29] research, create things, talk to each
+[00:11:31] other. It's super, super cool. So, like
+[00:11:33] I said, I'm not going to run this whole
+[00:11:34] thing out. I just wanted to show you
+[00:11:35] guys that this is possible. Okay, now
+[00:11:37] that we've seen some cool demos, let's
+[00:11:39] talk about how do we actually make these
+[00:11:41] things better and better and understand
+[00:11:43] a little bit more about what's going on.
+[00:11:45] So, here are three key rules. The first
+[00:11:47] one is that each of these agents has
+[00:11:48] their own territory. So, they should
+[00:11:50] have their own file and they should be
+[00:11:51] working on their own deliverables. They
+[00:11:53] can send them across and they can
+[00:11:54] communicate, but they should only really
+[00:11:56] all be editing their own thing. The
+[00:11:58] second thing is, once again, direct
+[00:11:59] messaging. They can talk to each other.
+[00:12:00] They don't have to use the middleman of
+[00:12:02] the main session. And then the third
+[00:12:03] piece is that they can be working at the
+[00:12:05] same time. It doesn't have to be agent
+[00:12:07] one hands off to agent two and then
+[00:12:08] agent two hands off to agent three,
+[00:12:10] because that honestly might not even
+[00:12:11] call for an agent team. Agent teams work
+[00:12:14] together in parallel and need to
+[00:12:15] communicate throughout the whole
+[00:12:16] process. So, what do teammates instantly
+[00:12:18] know when they wake up? Because we know
+[00:12:19] that they don't have any context from
+[00:12:21] the jump. What they do have is they
+[00:12:22] inherit the permissions from the main
+[00:12:24] session. So, if you're on bypass
+[00:12:26] permissions, then all of your agents are
+[00:12:27] going to be on bypass permissions. If
+[00:12:29] you allow all bash commands, then those
+[00:12:30] same permissions will once again be
+[00:12:32] inherited by the teammates. But the
+[00:12:34] other thing to know that's very
+[00:12:35] important is that any of your files, any
+[00:12:38] of your MCP servers, any of your skills,
+[00:12:40] all of the teammates can use and access
+[00:12:42] those things. We also have a really cool
+[00:12:44] ability to use something called plan
+[00:12:45] approval mode. So, you guys know how
+[00:12:47] I've told you always start in plan mode.
+[00:12:49] If you plan with your main session
+[00:12:51] before anything actually happens, it's
+[00:12:53] way better. What we can do is we can
+[00:12:55] have all of those agent teammates plan
+[00:12:57] first and they have to basically get
+[00:12:59] their plan approved by the main agent
+[00:13:01] before they're actually allowed to go
+[00:13:03] execute. So, it's really cool. You could
+[00:13:04] also set it up where you're actually the
+[00:13:06] one who has to approve every single
+[00:13:07] plan, but I think it's probably better
+[00:13:09] to just have the main session do that.
+[00:13:11] Or maybe even one of the teammates is
+[00:13:12] just the plan reviewer and approver. So,
+[00:13:15] I wanted to talk about some common
+[00:13:17] pitfalls or mistakes that you might be
+[00:13:19] making and what the fix could be for
+[00:13:21] that.
+[00:13:22] So, the first one is if the agents keep
+[00:13:24] asking permissions and they keep
+[00:13:25] stopping for that. You can pre-approve
+[00:13:27] certain tools. So, that would be in your
+[00:13:29] project settings or your local settings.
+[00:13:31] You can allow certain commands, and that
+[00:13:33] way they won't stop to ask you something
+[00:13:34] every couple seconds. If the
+[00:13:36] deliverables aren't coming out feeling
+[00:13:37] holistic, maybe they're being
+[00:13:39] overridden, so make sure that you assign
+[00:13:40] file owners. If you spin up an agent
+[00:13:42] team and you realize that one of the
+[00:13:43] agents isn't really doing much or is
+[00:13:45] just sitting around, then maybe you want
+[00:13:46] to specifically make sure you're
+[00:13:48] assigning each agent work or some sort
+[00:13:50] of dependency in your plan in your
+[00:13:52] prompt. If you're burning through way
+[00:13:53] too many tokens, just use fewer agents.
+[00:13:56] If it seems like your agents are losing
+[00:13:57] work, then tell them to basically store
+[00:13:59] everything as a temporary file that they
+[00:14:00] can then call on later. And if you're
+[00:14:02] getting the wrong approval and it just
+[00:14:03] seems like it's off, then maybe just try
+[00:14:05] to have you be the one who approves
+[00:14:06] things to start until you understand the
+[00:14:08] flow of how these teams work a little
+[00:14:09] better. All right, so next I wanted to
+[00:14:10] talk about when to use agent teams
+[00:14:12] because like I said earlier, they can be
+[00:14:13] slow and expensive, so you really just
+[00:14:15] want to use them when you need something
+[00:14:17] pretty complex done, and you need lots
+[00:14:18] of different specialized agents. So,
+[00:14:21] think about using them if your specific
+[00:14:23] process or project has multiple areas,
+[00:14:25] and that way you can have one
+[00:14:26] specialized in each of those. If you
+[00:14:28] need those things to be done in
+[00:14:29] parallel. If you need them to be able to
+[00:14:30] react to each other, assign tasks to
+[00:14:32] each other, communicate with each other.
+[00:14:34] And if something needs to be done at a
+[00:14:35] really high quality and you want tons of
+[00:14:36] different steps to make sure, then an
+[00:14:38] agent team is probably a decent idea.
+[00:14:40] Now, if you have a process that could be
+[00:14:41] done sequentially, meaning every time it
+[00:14:43] basically goes one, two, three, and
+[00:14:45] those steps are dependent on each other,
+[00:14:46] then maybe an agent team isn't the right
+[00:14:48] call. Maybe that's just sub agents. If
+[00:14:50] you need everything in one specific
+[00:14:51] conversation history or one context
+[00:14:53] window, then don't use teams. If you're
+[00:14:55] just kind of working on the same files,
+[00:14:57] don't use teams. And if it's a very
+[00:14:58] simple task, then agent teams would be
+[00:15:00] overkill. There might be a lot of times
+[00:15:02] where you'd be able to use sub agents
+[00:15:03] instead. Like I said, with sequential or
+[00:15:05] if you need a very focused result. If
+[00:15:07] you don't need the agents to
+[00:15:08] communicate, and if you want to save
+[00:15:09] some tokens. Because once again, if you
+[00:15:11] have three sessions running, that's
+[00:15:13] basically going to be three times the
+[00:15:14] cost. So, if you have five, it'll be
+[00:15:16] five times the cost. Which means I like
+[00:15:17] to stay around maybe two to five agents
+[00:15:20] max. You can keep them running parallel.
+[00:15:22] Otherwise, you can use sub agents and
+[00:15:24] make sure that you are shutting them
+[00:15:26] down if you see them early on going off
+[00:15:28] down the wrong path. Which is another
+[00:15:30] reason why I think it's helpful to use
+[00:15:31] the tmux version, so you can actually
+[00:15:33] see them in that split pane view. And
+[00:15:35] when I say shut down, which is kind of
+[00:15:36] what we saw earlier, I just mean
+[00:15:38] basically at the end of every session
+[00:15:40] saving your work. Because remember right
+[00:15:42] here how we saw the main session say,
+[00:15:44] "Hey, this is a shut down request." The
+[00:15:46] researcher agent here could have said,
+[00:15:48] "I'm not done yet. Let me save stuff.
+[00:15:50] Don't shut me down yet." So when the
+[00:15:51] teammates actually confirm that they're
+[00:15:52] ready to be shut down, that means that
+[00:15:53] everything's good and we can essentially
+[00:15:55] cleanly save that work. So everything
+[00:15:57] gets cleaned up and then we're good to
+[00:15:59] close the session and shut down that
+[00:16:00] agent team rather than just force
+[00:16:02] killing it right away where things might
+[00:16:04] be all out of control and not cleaned up
+[00:16:06] yet. Well, all right. That is agent
+[00:16:08] teams. I hope by now you are excited to
+[00:16:09] hop into Cloud Code and start building
+[00:16:11] with some agent teams. And if you want
+[00:16:12] to check out other Cloud Code stuff that
+[00:16:14] I've been doing to expand your learning,
+[00:16:16] then definitely check out this video
+[00:16:17] right up here. Hopefully I'll see you
+[00:16:18] guys over there, but that is going to be
+[00:16:19] the end of the video. So if you enjoyed
+[00:16:21] it and you learned something new, please
+[00:16:22] give it a like. It definitely helps me
+[00:16:23] out a ton. And as always, I appreciate
+[00:16:25] you guys making it to the end of the
+[00:16:26] video. I'll see you on the next one.
+[00:16:28] Thanks, everyone.

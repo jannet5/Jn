@@ -1,0 +1,300 @@
+# Claude Code Skills Artık Çok Daha Güçlü — Sıfırdan Skill İnşa Etmek
+# https://www.youtube.com/watch?v=bPUjyJVahH8
+# kanal: Mert Durmazer | Digital Academy | süre: 1440 sn | kaynak: yt-dlp:android:bPUjyJVahH8.tr.json3
+
+[00:00:00] Artık class skillerini oluşturmak 10 kat daha kolay ve bu skiller eskisinden 10
+[00:00:05] kat daha güçlü. Bu videoda size canlı olarak bu skilleri nasıl
+[00:00:09] oluşturabileceğinizi anlatacağım. Aynı zamanda bu skillerle
+[00:00:13] birlikte nasıl bir güncelleme geldi? Class 8 1.0'dan 2.0'a geçişte ne oldu ve
+[00:00:20] bu işinize nasıl yarayacak? Bundan da bahsedeceğim. Ama önce hemen hızla class
+[00:00:24] skillsine ondan başlayalım. İki tip skillimiz var. Bir tanesi capabilitylift
+[00:00:29] dediğimiz aslında yeteneğini arttıran cloud'a daha iyi bir eee şey yapmayı
+[00:00:34] öğreten prompt diyebiliriz buna. Aslında bu bir front end design skill olabilir.
+[00:00:39] Orijinal cloud'un kullandığı ya da document creator skill olabilir. E daha
+[00:00:44] detaylı konuşacağız. Diğer tarafta da encoded preference var. Burada belirli
+[00:00:48] bir sırada akışı takip eden skiller var. Öncelikle skil'i nasıl kullanırsınız onu
+[00:00:53] göstereyim size. Burada önümde açık cloudım. Geldim ayarlardan settings'e
+[00:00:59] girdim ya da şuradan customize'e de girebilirsiniz. Skills var burada. Bir
+[00:01:04] skill dosyasını görebiliyorsunuz. Gördüğünüz gibi burada birçok var.
+[00:01:07] Mesela marketing insight skilli. Neymiş bu marketing inside skilli? eee
+[00:01:13] marketing kampanyalarının datasını, CSV filarını inceleyip buradan e datalarla
+[00:01:20] ilgili bize analizler yapan bir skinmiş. Yüklüyorsunuz marketing kampanyasını. E
+[00:01:25] Metaads olur, Google Ads olur, hiç fark etmez. Buradan bize anlamlı eee datalar
+[00:01:30] çıkartıyor. Bu skill sayesinde cloud meta performansınızı analiz ediyor ve
+[00:01:37] çok doğru bir şekilde çıkmasını sağlıyor. Peki bu skill ne? Bu skill
+[00:01:41] burada bahsettiğim aslında belirli bir sırada adımlar takip eden workflowlardan
+[00:01:46] değil. Bu skill burada aslında verdiğiniz datadan eee anlamlı çıkart
+[00:01:51] anlam çıkartan bir eee akış bir prompt aslında. Ama siz daha detaylı sistemleri
+[00:01:58] de yapabiliyorsunuz ki bir örneğini şimdi göstereceğim. Şu bu dediğim gibi
+[00:02:03] datadan anlam çıkartıyor. Belirli kurallar var. Bunu çok detaylı bir
+[00:02:07] prompt olarak düşünebilirsiniz bu skilli ama YouTube Social skillimizde şu var.
+[00:02:12] Eee, YouTube transkriptini alıyor sosyal medya içeriklerine dönüştürüp sonra
+[00:02:17] bunlarla ilgili daha farklı adımlar yaratıyor. İşte bu e encoded dediğimiz
+[00:02:22] daha detaylı skill ve bunların ikisini de yapmak çok kolay. Bunlar ne sağlıyor
+[00:02:26] derseniz aslında cloud koda çok farklı yetenekler sağlıyor. Diyelim ki şurada
+[00:02:31] örneği var. Frontend design skill. Cloud kod'un otomatik skilli. Bu arada
+[00:02:35] skilleri buradan oluşturabiliyorsunuz. Şöyle göstereyim. Buradan herhangi bir
+[00:02:40] skil buradan ekleyip buradan oluşturabiliyorsunuz. Burada MCP builder
+[00:02:45] var, skill creator var. Bunlar da antropicin kendi skilleri. Gördüğünüz
+[00:02:50] gibi bunlar özel skiller. Bunlar Antropic'te kendi gelen skiller. Ve
+[00:02:54] bunlardan bahsedeceğiz. Mesela burada açtığımızda Antropy'nin kendi front end
+[00:02:59] design skillini gitup riposunda görebiliyorsun. senin için daha iyi eee
+[00:03:03] tasarımlar yapmanı sağlayan böylelikle çok daha güzel appler yapmanı sağlayan
+[00:03:07] skill bu olmadan çalışmıyor mu? Frontend design çalışıyor. Yine bir dizayn
+[00:03:12] yapıyor. Web sitesini çıkarıyor ama bununla tasarımı çok iyileştiriyor. Yani
+[00:03:16] bir şey yapmayı öğreniyor. Şimdi bu skiller niye çok güçlendi? Çünkü bunları
+[00:03:20] yapmak çok kolaylaştı ve çok daha etkili hale geldiler. Bunu göstereceğim. Burada
+[00:03:25] front end design skill'den bahsettim. Bunlar dediğim gibi prompllar. E şu anda
+[00:03:31] mesela Opus 4.6 kullanıyoruz ve front end design skilliyle çok güzel web
+[00:03:36] siteler çıkıyor. Document creatorla daha iyi dokümanlar çıkıyor. Excel formülleri
+[00:03:42] skilliyle daha iyi e şeyler çıkıyor, formüller çıkıyor. Fakat bunlar zamanla
+[00:03:47] geçersizleşebilir. Çünkü bir sonraki Opus modelinde
+[00:03:51] front end dizaynı direkt modele verebilirler. Böylelikle model zaten çok
+[00:03:55] iyi tasarım yapıyor olabilir. Bunlar daha çok prom şeklinde belirli
+[00:03:59] tasarımları, belirli patternları öğreten sistemler cloudda. Ama bir şey daha
+[00:04:04] geldi. Encoded preference. Biraz önce dediğimiz gibi burada belirli sırada
+[00:04:10] adımlar takip eden workflowlar yaptırarak ki bu otomasyon mantığıyla
+[00:04:15] ilerliyor. YouTube yorumlarıma bak. Nişimdeki videoları analiz et. Ex ve
+[00:04:19] web'de AI trendlerini tara. işte iki paralel agent spawnet gibi örnekler
+[00:04:25] verebiliriz. Burada video fikirleri üret, test et. Bunları takip eden bir
+[00:04:30] skill oluşturabiliyorsun ve her seferinde senin için bu işlemi yapıyor.
+[00:04:34] Bu sana özel olduğu için aslında hep geçerli. Yani opus bunun kendine
+[00:04:40] edinebilir ama burası sana özel olduğu için uzun vadede de çalışabileceğin bir
+[00:04:45] skill bu. Şimdi antropikin skill creatorü bu ne anlama
+[00:04:50] geliyor şimdi burada? İşte skills 2.0 dediğimiz anopin
+[00:04:55] yeni skill creator skilli var. Bu ne anlama geliyor aslında? Skiller üzerinde
+[00:05:00] çalışmanızı sağlıyor. Yeni skiller oluşturabiliyorsunuz bu skill'i
+[00:05:04] kullanarak. Bu skill'i kullanarak elinizdeki skilleri
+[00:05:07] güncelleyebiliyorsunuz. Daha iyi performans getirebiliyorsunuz.
+[00:05:11] Eval dediği bir e evalüasyon var. Bununla bu skilleri evalden
+[00:05:16] geçirdiğinizde çok daha güçleniyorlar. Aynı zaman benchmark yapıyor. Trigger
+[00:05:21] accuracy var. Şurada skilld dosyasını açayım. Burada neler yapabildiğini
+[00:05:25] burada yazıyor zaten. Aynı zamanda bununla birlikte 33 sayfalık bir PDF
+[00:05:29] yayınladılar. Bir skill oluşturmanın fundamental en temellerinden giriyor.
+[00:05:34] İşte skillerle ilgili her şeyi yazıyor. Bu inanılmaz detaylı bir dosya ve bizim
+[00:05:40] de çok işimize yarayacak. Bugün işte bu skill creator skille neler
+[00:05:44] yapabilirsiniz? Nasıl çalıştırtırırsınız? Mevcut skillerinizi
+[00:05:48] nasıl değerlendirirsiniz? Buna bakacağız ve skill oluşturacağız birlikte. YouTube
+[00:05:51] yorumlarından analiz yapan bir skilli birlikte oluşturacağız. Bu hem bir
+[00:05:55] hizmet olarak düşünülebilir. Benim işime yarayacak. Mesela yorumlardan istenen
+[00:05:59] videoları ya da competitorların, rakiplerin videolarını takip
+[00:06:02] edebileceğim. O yüzden ben de bu şekilde bir skille ilerleyeceğim. Şimdi gördüğün
+[00:06:07] gibi burada skill creator'ın bütün dosyası var. Bunu çekebilirsin. Burada
+[00:06:11] da bahsettim. Sıfırdan skill oluştur. Güncelle optimize et. Evile çalıştır
+[00:06:15] benchmark yap. Bu ev skill kalitesini test ediyor. Benchmark skillli ve
+[00:06:19] skillsiz nasıl iş yapıyor bunu yapıyor ve triggerl tuning var. Üç adımlı da
+[00:06:24] kurulumu var. Plugins'ten bunları göstereceğim. Cloud kodu restart
+[00:06:28] ediyorsun. E ondan sonra da cloud'a soruyorsun. PDF böyle. Şimdi Eval ve
+[00:06:34] benchmark ne? Bu kısım önemli. Eval aslında agent'a çok sayıda iş örneği
+[00:06:40] veriyorsun. Bunu bir çalışanı yetiştirmek gibi düşünebilirsin. Ona bir
+[00:06:44] önceki çalışanın ne yaptığını gösterirsen, neler yapıldığını
+[00:06:47] inceletirsen o da öğrenecektir. Bu da aynı mantıkla ilerliyor. Çok sayıda
+[00:06:51] örnek veriyorsun. İyi örnek veriyorsun ve agent skill'i test ediyor farklı
+[00:06:55] prompllarla. Çıktıları da örneklerle karıştırıyor, karşılaştırıyor ve skill'i
+[00:07:00] optimize ediyor. Eee, bu ne demek? Mesela regresyon yakalıyor. Neden
+[00:07:05] kullanılıyor? Bu arada şeyden, Antropi'nin yaptığı kendi örneğinden de
+[00:07:08] bahsedeyim. Bir PDF'te checkbox'lar oturmuyor. Skill kullanıyorlar. Evalle
+[00:07:13] çalıştırdıklarında checkbox'ları doğru doldurduğu bir skill e PDF'te var
+[00:07:17] örneği. Eee, skil sayesinde bu checkbox'ları doğru dolduran, PDF'i
+[00:07:22] doğru dolduran bir yetenek elde ediyorlar. Bu neye zaman yarar? Mesela
+[00:07:27] model değişti. 4.6'dan 4.8'e gittik, 5'e gittik. Eee, belki skill bozuldu. Bunu
+[00:07:33] test edebiliyoruz. ya da büyüdü, model güncellendi. Yeni model skillsiz iyi mi
+[00:07:38] yoksa skill hala ihtiyaç var mı? Skillsiz iyiyse ihtiyaç yoksa bunu sil.
+[00:07:43] Yani aslında bu şunu da sağlıyor. Elimizde bir skill çöplüğü olabilir
+[00:07:47] zaman ilerledikçe. Artık bu skill çöplüğü olmasına gerek yok. İnceliyoruz.
+[00:07:51] Kullanmayacaksak rafa kaldırıyoruz. Böyle ilerliyoruz. Eee bu pratik örnek
+[00:07:55] de burada görebilirsin. Evar sonrası ne kadar başarılı olduğunu. Benchmarksa
+[00:08:00] tamamen farklı. E tüm evalleri birlikte çalıştırıyor. Güncelleme sonrası mesela
+[00:08:05] skill ile 92 skillsiz 61'in altındaysa tamam skillsiz 61'in altındaysa gerek
+[00:08:12] yok böyle bir şeyde skill kesinlikle gerekli ama daha farklı bir oran oldu.
+[00:08:17] Skillle de skillsizle aynı olduysa o zaman skill gerekli değil diye aslında
+[00:08:22] bunları test edebileceğimiz bir şey yarattı. Bu tabii model
+[00:08:26] güncellemelerinde şu an kullanıyorsanız skil kalacaktır. Bir problem yok. Ama
+[00:08:30] dediğim gibi bunlar yüksek ihtimalle sizin oluşturduğunuz bu hardcoded
+[00:08:35] olanlara şey sistemlere çok adımlı otomasyon sistemleri gibi olanlara etki
+[00:08:40] etmeyecek. Genelde front end design ya da diğer skiller gibi daha prompt bazlı
+[00:08:44] skiller için. Şimdi trigger bu şu zaman önemli. Mesela 10 tane skill birlikti
+[00:08:50] diyelim ya da 50 tane skille çalışıyorsunuz.
+[00:08:54] Ajan çalışmaya çalışırken cloud code vesaire skille çağırmaya çalışıyor ama
+[00:08:58] çağırılmıyor. Yanlış triggerlanmıyor ya da başka şekilde geliyor. Trigger
+[00:09:02] tuningde false trigger ya da hiç skill çağrılmaması ya da yanlış skillin
+[00:09:06] gelmesini analiz ediyor ve ondan sonra farklı prompllarla test edip skill
+[00:09:11] descriptionını düzenliyor. Böylelikle sistem daha doğru tetiklenmeyle
+[00:09:15] birbiriyle uyumlu skiller oluşturuyor ve bu genel problem skillerde ne zaman
+[00:09:20] çalıştırılacak, ne zaman çalıştırılmayacak, dizign front end
+[00:09:24] design skilli ne zaman devreye girecek, ne zaman girmeyecek bunları eee aslında
+[00:09:29] direkt olarak optimize ediyor. Bunu şöyle düşünebilirsiniz. Bir çalışanım
+[00:09:32] var. Diyelim ki eee Excel'le de yazıyor. Çok basit anlatacağım. Google
+[00:09:38] dokümanları da yazıyor. Eee, PowerPoint'le yapıyor. Ama bir şey
+[00:09:42] yaparken hangisinde PowerPoint'te mi yapsın, Google dokümanlarda mı yapsın,
+[00:09:47] eee, Word'de mi yapsın bilemiyor. Çünkü iki o yetenekleri var. Onları
+[00:09:52] kullanabiliyor ama hangisini kullanacağından tam emin değil. İşte bu
+[00:09:55] onu netleştiriyor. Nerede kullanması gerektiğini söylüyor. Böylelikle hangi
+[00:09:59] skill kullanılacak, hangi durumda nasıl karışıklıklar oluyor, bunları engellemiş
+[00:10:03] oluyorsun. antropik vizyonu şu: Zamanla skillin ne yapması gerektiğinin doğal
+[00:10:08] dilde açıklanması yeterli olacak. Modelin geri kalanını kendisi çözmeye
+[00:10:12] çalışacak. şu anda belirli skill kullanması gerektiğini söyleyebiliyoruz
+[00:10:16] ama zamanla buna ihtiyaç kalmayacak diyor Antropic ki çok mantıklı zaten
+[00:10:21] skiller orda agentların da kendini kendi kendine kullanması gerekiyor. Gittiğimiz
+[00:10:25] nokta şu agent sistemlere geçtik artık otomasyon kısımları da agentlarla
+[00:10:30] oluşuyor. Artık şirketlere biz yapay zeka çalışanlar tasarlıyoruz ve
+[00:10:35] çalışanların skiller sayesinde bu yetenekleri oluyor ve şirketler de
+[00:10:39] bunları kullanıyor. Şimdi çalışanlar eğer kendi kendilerini geliştirirlerse
+[00:10:44] daha uzun vadeli, daha verimli, daha çalış, daha çok işe yarayan çalışanlara
+[00:10:48] dönüşüyorlar. Buna şu anda belirli kısımlarını manuel yapmak zorundayız ama
+[00:10:52] giderek eval dediğimiz evüasyon giderek aslında bunların gelişmesini,
+[00:10:57] evrimleşmesini sağlayacak. Eee, şimdi alt, adım, kurallar, format
+[00:11:01] tanımlıyoruz. Detaylı skill diye yazıyoruz. Gelecekte haftalık YouTube
+[00:11:05] raporu istiyorum dediğiniz anda bitti gitti. Bu kadar kolaylaşacak aslında. O
+[00:11:10] yüzden çok değerli bu skill 2.0 özelliği. Şimdi canlı demoya geçeceğiz.
+[00:11:16] Neler göstereceğim? Pluginlerden skill creator'ı plan mod'la skill
+[00:11:19] tanımlayacağız. Cloud'ın sorularını cevaplayacağız. Sonucu inceleyeceğiz.
+[00:11:24] Bunların iyileştirilmiş versiyona bakacağız. Benmark'lara bakacağız. Yani
+[00:11:27] burada anlattığım şeyi uygulayacağız canlı olarak. Aynı zamanda executive
+[00:11:31] summary böyle bir final PDF raporu alacağız. Bu da aslında e çok işinize
+[00:11:37] yarayacak bir sistem olacak. Unutmayın ne kadar çok kullanırsanız o kadar
+[00:11:41] güçlenecek. Kontext genişleyecek. Script ilerleyecek. Bu çok önemli. Öncelikle
+[00:11:47] ama size Digital Academy'den bahsetmek istiyorum.
+[00:11:52] Burada topluluğumuzu görüyorsun. Eee burada aslında araç kullanma değil
+[00:11:57] sistem kurmayı öğretiyoruz. Nat ya da herhangi bir teknik bilgiye ihtiyacın
+[00:12:01] yok. Yazılımcı olmana hiç gerek yok. Zaten hep bunu söylüyorum. Yapay zeka
+[00:12:05] senin için yapıyorsan kullanmayı bil. En iyi çalışan yanında, en iyi öğretmen
+[00:12:09] yanında, en iyi yazılımcı yanında artık fırsat eşitliği var. Sadece bu araçların
+[00:12:14] nasıl kullanacağını öğrenmen gerekiyor. Benim burada mantığım aslında nasıl para
+[00:12:18] kazanacağını öğretmek. Bu araçlarla neler kurgulayacaksın? İşletmelerin
+[00:12:22] ihtiyaçlarını bulup neler sunacaksın? Burada da hazır sistemleri zaten
+[00:12:26] veriyoruz. Burada başarılı öğrencilere, örneklere bakabilirsin aslında. Burada
+[00:12:31] topluluğumuzla paylaşılan aramıza da katıldığında burada topluluğu
+[00:12:36] görüyorsun. Topluluğumuz oldukça aktif. Gayet de başarılı örnekler var. Çok çok
+[00:12:41] başarılı arkadaşlarımız var. Hepsine devrımızda olduğu için teşekkür
+[00:12:44] ediyorum. Her gün canlı yayınlarımız var takvimimizde. Buradan izleyebilirsin.
+[00:12:48] Her gün canlı yayınlarımız var. eee canlı yayınlara katılıp sorularını
+[00:12:52] sorabilirsin, projelerini geliştirebilirsin, birlikte işverileri
+[00:12:55] yapabilirsin. Burada da çok fazla aslında sistem kurma mantığından ajans
+[00:13:01] kurmaya, SAS'tan mobil uygulamaya, YouTube otomasyonundan pazarlama
+[00:13:05] araçlarına, agentlik sistemlere, hazır sistemlere çok fazla eee kaynak var.
+[00:13:12] İstediğini kullanabilirsin. Seni de aramıza bekliyoruz. Bu arada videoyu da
+[00:13:15] beğenirsen ve eee takip de edersen çok mutlu olurum. Çünkü birlikte büyüyoruz.
+[00:13:21] Büyüdükçe daha çok paylaşım oluyor. Daha çok motive oluyoruz. Aynı zamanda
+[00:13:25] anlıyorum ki daha çok böyle video yapayım. Şimdi geldik eee şey nerede
+[00:13:31] kullanacağız bu skill creator? Nasıl kullanacağız? Şimdi bir tane şey açayım.
+[00:13:37] Şöyle büyüttüm. Gördüğün gibi ben şu anda şey açtım.
+[00:13:43] Eee, şunun ekranını değiştireyim. Ben burada cursda açtım şeyi. E, cloud
+[00:13:51] kodu. Cursor'da cloud kodu nasıl açıım dersen burada extension var.
+[00:13:56] Extension'dan burada instal'a baktı. Bende update duruyor. Sen de install
+[00:14:01] olduğunda kullanabiliyorsun. Ama sadece buradan değil, VS coddan da aynı
+[00:14:05] extension mantığıyla kullanabiliyorsun. Eee, aynı şekilde
+[00:14:11] antigravity kullanıyor sanki kanalda gösteriyorum. Orada da extension şekilde
+[00:14:14] kullanabiliyorsun. Ya da terminal açtığında, eee, herhangi bir new
+[00:14:20] terminal diyeyim, açayım. Böyle cloud dediğimde burada da kullanmaya
+[00:14:24] başlayabiliyorsun. Ben şimdi buradan göstereceğim. Neyi kapadım? Bir saniye.
+[00:14:29] Tamam, buradan göstereceğim. Cloud üyeliğinizle bağlanabiliyorsunuz bu
+[00:14:34] skilleri kullanmak için. Antigravity versiyonlarını da göstereceğim. Ama bu
+[00:14:38] skill creator skill şu anda cloud için gösteriyorum. Şimdi buradan slash
+[00:14:44] yaptığınızda manage plugins dediğinizde burada
+[00:14:48] pluginleri görebiliyorsunuz. Frontend design mesela install dediğinizde front
+[00:14:53] end design eee install localı herkes kullanabilsin.
+[00:14:58] Frontend design skillini official yani antropic tarafından yayınlanmış skilleri
+[00:15:04] kullanabiliyorsun. Burada yine aynı şekilde birçok skill var. Hepsini
+[00:15:08] alabiliriz. Biz ne arıyoruz? Skill creator. Burada görüyorsun. Yükledik.
+[00:15:14] Skill creator skill'i. Install localı dedim. Buradan manage pluginsen skill
+[00:15:19] creator skill'i kullanabiliyorsun. Ya da gitubda
+[00:15:23] antropicin sayfasında aşağı bırakıyorum burada ücretsiz kaynakları nasıl bu
+[00:15:27] skillerde uzmanlaşırsın? Bir hediyem var aşağıda linke bırakacağım. Onu
+[00:15:32] kullanabilirsin ama eee Antropic'in official skillinde skill sayfasından da
+[00:15:37] çekebilirsin bunu. Alırsın linkini cloud verirsin. Cloud senin için kurar. Burada
+[00:15:42] skill creditor kurduk. Restart dedik. Tamam restart oldu. Önce doğrulayalım
+[00:15:48] şimdi dosyalarımıza bakalım. Skill creator burada gözükmüyor ama şeyin
+[00:15:53] içine de gitmiş olabilir. Cloud'un içindeki e içinde olabilir. Bir soralım.
+[00:16:00] Tamam. Burada diyor sıfırdan skill
+[00:16:04] oluşturabilirsin diyor. Skill creator sende mi dedim. Bende dedi var.
+[00:16:09] Kullanabiliyorum. Şunları yapabiliyorum dedi. Tamam başlayalım. Şimdi birlikte
+[00:16:13] yapacağız. Diyorum ki bir tane skill yapman lazım. YouTube weekly roundup.
+[00:16:19] Eee her hafta sonu videolara bakacak. O hafta yaptığım videolara yorumları
+[00:16:24] analiz edecek. Eee izlenmeleri, engagement'ları ve bana PDF raporu
+[00:16:29] verecek. Güçlü yanlarım, zayıf yanlarım, neler sıkıntılı, nasıl fırsatlar var?
+[00:16:35] Bunlarla ilgili bir skill yapmamı, yapmanı istiyorum dedim ve çalışmaya
+[00:16:39] başladı. Skill creator yüklendi dedi. Skill creator yüklendiği için de buradan
+[00:16:44] ilerleyebileceğim. Ne olabilir diyor? Hangi şeyde? YouTube API vereceğim.
+[00:16:49] Google API key verebilirim. E hangi kanal diyor ben vereceğim sana.
+[00:16:56] URL vereceğim. Nereye kaydedeyim diyor. Herhangi bir yere.
+[00:17:00] indir lan klasörüne kaydet her hafta. Tamam. Şimdi benden istediği Cemin AP
+[00:17:06] olacak. Bunu yapabilmem için AI Studio'ya gitmem gerekiyor. AI Studio'ya
+[00:17:10] gidelim. Geldim AI Studio'ya. Buradan bir tane API key aldım. Burada
+[00:17:17] API keyyden alabilirsin. Get API key deyip AI Studio'dan geri geldim. Burada
+[00:17:23] environment dosyasına koyabilirsin ya da buradan direkt olarak yapıştırabilirsin.
+[00:17:27] Ama öncesinde zaten oluşturmaya başladı. Bu arada ne zaman istersen paylaş dedi.
+[00:17:34] Eee YouTube apiinde ve şeyi de eee handle'ı da YouTube URLinde ben
+[00:17:41] hazırlayacağım dedi. YouTube URL de verelim. Geldim. YouTube URL verdim
+[00:17:47] aldım. Okes verdim bunu bekliyoruz. dedi ki, "E şey YouTube api tabi. Bunu Cemina
+[00:17:55] için kurmuştum. APiniz aktif değil dedi. Hemen aktifleştirelim.
+[00:18:01] Geldim buradan YouTube dataı 3 enable diyorum. Burada cloud
+[00:18:05] consol.cloud.google.com'dan. Tamam oldu.
+[00:18:11] Buraya da verdim enledi. Tamam şimdi teste başladı.
+[00:18:17] kendi kendine geliştirdi sistemi. Testi bizim için yapıyor. Göreceğiz nasıl bir
+[00:18:21] sonuç olduğunu. Rapor çıktı bile. Bu hafta bir tane
+[00:18:25] koymuşum. 3.000 izlenmiş. Eee, 162 like, 5.81
+[00:18:31] çıktı. Executive summary çıktı. Bir şirketi kurdum. Ne olduğunu. Eee, bir
+[00:18:38] şirketi kurdum. Tamam. Süper. Eee, frequency'yi arttır diyor. Bu arada
+[00:18:44] boşluklar var. Çok boşluk var şeyde. Onu düzeltelim.
+[00:18:48] Kaç izlenm, kaç like, ne kadar yorum var hepsini gösteriyor. Eee, bütün raporu da
+[00:18:54] verdi. Çok güzel verdi. Böyle de verdi. Ama estetik olarak bence yeterli. SWAT
+[00:18:59] analizi yaptı. Güçlü yönleri, zayıf yönleri bir video sadece olmaz diyor.
+[00:19:05] Eee, full setup'ı yap diyor. Çünkü o videoda bakın çok enteresan bu. O
+[00:19:11] videoda dedim ki daha da detaylı setupını yapacağım. bunu yap diyor.
+[00:19:15] Çünkü e burada ilgi çekici şey var. Haftada bir video riskli diyor
+[00:19:20] takipçiler için öneriler çıktı. Çok detaylı bir YouTube doktoru edindik
+[00:19:25] aslında kendimize. Süper. Şimdi geliştiriyorum.
+[00:19:29] Çok güzel. Çok güzel bir rapor yaptın ama yok. Data güzel. Kaçan yerler var
+[00:19:36] datada. Estetik olarak da bu raporu güzelleştir dedim. trending videosuna
+[00:19:42] yayı vermedin. Eee, daha detaylı şekilde vermeni istiyorum. Yorum analizlerini
+[00:19:47] daha detaylı. Diğerlerinde işe yarayan ne? Yani rakiplere de bak benim için
+[00:19:52] analizler yaparken bunu istedim. Plan moduna girdi. Planlıyor şimdi ne
+[00:19:57] yapacağını. Sonra da bize sunacak. Ama gördüğün gibi işim için ne kadar yani bu
+[00:20:01] hizmeti alabilmek eskiden çok zordu. Bunun için sahaslar var. Bunun için
+[00:20:07] araçlar var. para vermeniz gerekiyor. Ama şu anda kendi sisteminizi kurdunuz.
+[00:20:11] Neyle kurdunuz? Cloud code'la kurdunuz. Bir araca 29 dolar vereceğinize. Aylık
+[00:20:16] 20 dolara bunu kullandınız ve bu sizin için yapıyor aslında. Böyle
+[00:20:20] düşünebilirsiniz. Birçok aracı kendi işinize geliştirebilirsiniz. Bunlar
+[00:20:24] sizin mini çalışanlarınız, mini yetenekleri var ve bunları işe uygun
+[00:20:28] böyle hedefe yönelik şekilde kullandığınızda çok etkiler. Bunlardan
+[00:20:32] 10 tanesini bir AI agent'a yüklediğinizde de işte o zaman iş
+[00:20:36] değişiyor. Şimdi bizim için bir plan çıkardı, analiz etti. Gördüğün gibi çok
+[00:20:41] detaylı bir plan oldu bu sefer geliştirmek için. Bu çok önemli ve bizim
+[00:20:47] için uygulayacak. Tamam diyorum. Oto accept diyorum. Bütün geliştirmeyi kendi
+[00:20:50] yapacak ama gördüğün gibi yaklaşımını değiştirdi. Yaklaşımını değiştirmesi de
+[00:20:56] aslında sistemin değişmesini sağladı. Çok daha detaylı bir prompta doğru
+[00:21:00] skill'e doğru ilerliyoruz. Şimdi bitirdi ama işte değişti. [kahkaha]
+[00:21:05] Eee, şöyle bakalım. Bir tasarımı değiştirdi. Çok teşekkür ederim sevgili
+[00:21:10] Cloton. Tamam. bir video var diyor. Thumbnail'ı da aldı buraya koydu. Böyle
+[00:21:15] daha çok video haftalık bakıyor. Şimdi daha çok video oldukça daha çok bakacak.
+[00:21:19] Son 7 günlük değil haftalık bakıyor. Dışıl Akademi. Tamam böyle paylaştı. Çok
+[00:21:24] daha detaylı. Tamam nişe göre daha çok izlenen bir video
+[00:21:29] olmuş. Tamam çok iyi. Rapor değişti. engagement
+[00:21:35] ratleri, raporalar çok iyi gerçekten. Şu anda gördüğümüz gibi nasıl skilli
+[00:21:41] aslında evaluate ettik ve değiştirdik. Praise, yorum şeyleri, e, team
+[00:21:47] collaboration request varmış, business sales interest varmış. 6 tane yorum
+[00:21:52] incelendi ama binlerce yorum olduğunu düşünün. Büyük YouTuberlar çok
+[00:21:56] zorlanıyorlar bunda. Eee, oke, local stop gösterdik. Burada audience voice'i
+[00:22:04] görüyoruz. Tamam. Beni ikimize alın. Tamam. Engagement rate'ler, viewslar,
+[00:22:10] discussion ratio var. Competitor labs var. Tamam. Capcate okey. Tamam. Süper.
+[00:22:18] Bu arada herkese başarılar diliyorum. Yaptıkları paylaşımlar da çok değerli.
+[00:22:22] Çok teşekkür ederim herkese. Rakip analizi yaptı, trend analizi yaptı ama
+[00:22:26] trending'i Turkey yaptı. Trending global'ı yaptı. Tamam. Süper.
+[00:22:32] Content opportunities open a pentagon vesaire onu geldi savaş dolayısıyla çok
+[00:22:38] normal. Burada da swat analizin ne kadar ilkine göre detaylandı görebilirsin.
+[00:22:42] Yani burada ne var burada? Daha da daha da Pentagon anlaşması iki tane 3 tane
+[00:22:49] shorts video. Eğer şirket kurulumu Max Studio o lama + Max Studio
+[00:22:55] yapabilirsin dedi. Süper. Cover down tropic deep sick increase upload diyor.
+[00:23:01] Tamam. Daha çok paylaşım yap. Eee tamam. Anti Gravity ID ile yat diyor. 5
+[00:23:11] 4 haftada 5 tane antigravity videosu koymuş. Genelde 7.3K izleniyor. Demek ki
+[00:23:16] sen de kullanabilirsin bu nişi diyor. Yani elimizde bir skille neler
+[00:23:21] yapabildiğinizi gördünüz. Sadece skille ve cloud kodla bu tarz bir raporu nasıl
+[00:23:26] çevirdik? öğrettik ve birlikte yazdık. Hiç başka bir şey olmadı. Umarım faydalı
+[00:23:30] bir video olmuştur. İzlediğiniz için sonuna kadar çok teşekkür ederim. Daha
+[00:23:35] çok skill videosu gelecek. Daha çok cloud kod içerisi gelecek. Anti gravity
+[00:23:39] gelecek. Yeni bir çağa geçtik. Kazananlar burada hızlı hareket edenler.
+[00:23:43] Sen de onlardan biri ol. Hediyelerini aşağı bıraktım. Class skillsle ilgili
+[00:23:47] dosyaları ücretsiz Garm'dan indirebilirsin. Topluluk linki de
+[00:23:51] aşağıda aramıza katılmak istiyoruz. Yani seni de bekliyoruz. Çok keyifli
+[00:23:54] sohbetlerimiz var. Ama en önemlisi para kazanmanı sağlıyorsun. Görüşürüz.

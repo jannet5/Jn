@@ -1,0 +1,151 @@
+# Spec Driven Workflow with Claude Code #1 - Making a /spec Command
+# https://www.youtube.com/watch?v=e_D9M_MJ9Hs
+# kanal: Net Ninja | süre: 606 sn | kaynak: yt-dlp:ios:e_D9M_MJ9Hs.en.json3
+
+[00:00:00] All right then, gang. So, I just recently released a new Claude Code
+[00:00:03] masterass on netninja.dev, which is a deep dive into Claude Code and how I use
+[00:00:07] it within my own projects. And I wanted to upload a small preview of that course
+[00:00:11] here on YouTube. So, I decided to release a small chapter of it all about
+[00:00:15] setting up and using a custom specdriven workflow because I think this small
+[00:00:19] chapter sits well on its own. And I also think it's a good way of working with
+[00:00:23] any Aentic coding tools, not just clawed code, and I wanted to share it. So, if
+[00:00:27] you do like this small free chapter and you want to learn more about the process
+[00:00:31] and dive much deeper into Claude Code and Aentic Workflows, then definitely
+[00:00:35] grab the full masterass from the netinja.dev website. It's $15, but you
+[00:00:39] can still get it half price using the promo code Claude Ninja at the checkout.
+[00:00:43] So, I'll leave this link down below the video. And now, I'll just cut straight
+[00:00:47] into the content.
+[00:00:53] All right then, my friends. Welcome to a brand new chapter. And in this one, I'm
+[00:00:57] going to share with you one of the workflows I like to use when I'm working
+[00:01:00] with cloud code in a project. And that is a specd driven development workflow
+[00:01:05] whereby we create a highle non-technical specification for any new feature. Then
+[00:01:11] we create a detailed technical development plan based on that spec. And
+[00:01:14] then finally, we use that plan to implement the feature. And by using a
+[00:01:18] workflow like this, I find it keeps the model more focused on the task and makes
+[00:01:22] any guesswork or incorrect assumptions about any features it's working on to a
+[00:01:27] minimum. Now, the inspiration for this kind of spec first workflow came from a
+[00:01:31] tool by GitHub called SpecKit, which goes heavy on the philosophy of having a
+[00:01:36] highlevel spec at the heart of AIdriven development. But personally, as a
+[00:01:41] developer who likes to be very hands-on and stay firmly within the development
+[00:01:44] loop myself, I think that SpecKit makes me feel a little bit too detached from
+[00:01:49] the whole process of adding new features. So, I've stripped that process
+[00:01:53] back and I've come up with my own lightweight and much simpler approach,
+[00:01:56] which makes it easier for me to add my own input and manage the process. And
+[00:02:00] therefore, it hands a lot of that agency back to me, the developer. So throughout
+[00:02:05] this chapter then we'll be putting everything together to implement this
+[00:02:08] specd driven workflow. To begin with we'll make a new custom slash command to
+[00:02:12] help us automate the process of generating highle and nontechnical specs
+[00:02:16] for new features. After that we'll be using claude codes builtin planning mode
+[00:02:20] to make detailed technical plans for implementing those specs. And then
+[00:02:24] finally we'll be using claude codes extending thinking mode along with the
+[00:02:28] opus model to implement those plans. And they're the three core steps involved in
+[00:02:32] this workflow that we're going to be focusing on in this chapter. Spec out a
+[00:02:36] new feature, plan the feature, then implement the plan. Now, you could also
+[00:02:41] add a review step at the end of this cycle to review the code once the
+[00:02:44] features been implemented. But that's something we're going to look at in a
+[00:02:47] later chapter, and we'll just focus on the first three steps for now. I'll also
+[00:02:51] be integrating Git into the workflow as well, so that every time we start a new
+[00:02:55] specification or feature, Claude Code switches us to a new branch. And that
+[00:02:59] way if things do go south, we can just delete the branch and our main codebase
+[00:03:03] remains untouched. Again, I would strongly advise using Git and GitHub if
+[00:03:07] you ever use AI to touch your code because without it, things can get
+[00:03:11] really messy really quickly, believe me. Now, if you're new to version control
+[00:03:15] and you do want to learn about it, then I've got a big Git and GitHub
+[00:03:19] masterclass course that you can check out and I will leave the link to that
+[00:03:21] below the video. Anyway, let's crack on with this workflow by first of all
+[00:03:25] creating a new custom slash command to generate specs. All right, so now we
+[00:03:30] know about the general process of this specd driven workflow. Let's start off
+[00:03:34] by making a new spec command. And this spec command is going to do a few things
+[00:03:38] for us. First, it's going to generate a feature name and a branch name based on
+[00:03:42] the input or arguments that we provide to the command. Second, it's going to
+[00:03:47] switch to a new branch with the name it comes up with. And then it's going to
+[00:03:51] make a high-level feature specification based on our import and write that spec
+[00:03:55] to a file inside a specs folder. And this specification like I mentioned
+[00:04:00] before is going to be a highle one meaning it shouldn't go into too much
+[00:04:03] detail about how the feature should be implemented from a technical viewpoint
+[00:04:07] but rather focus on the bigger picture and how the feature should behave from a
+[00:04:12] user's perspective I guess including any edge cases and wide implications.
+[00:04:17] So then let's make this new spec command by opening the commands folder in the
+[00:04:21] do.claw directory and then making a new file called spec.nd
+[00:04:26] which means to run the command later we're going to type out for/spec.
+[00:04:31] Okay. So now we can start to flesh out this file. And the first thing I want to
+[00:04:35] do like in all the other commands we've made is make some front matter for the
+[00:04:39] command description and allowed tools at the top. And also to add an argument
+[00:04:44] hint as well. So then let's start with the three dashes to go either side of
+[00:04:48] this front matter section. And then inside those dashes, I'm just going to
+[00:04:52] paste in three different keys and values. The description, which says
+[00:04:56] create a feature spec file and branch from a short idea, an argument hint,
+[00:05:01] which is the short feature description, and the allowed tools, which are read,
+[00:05:06] write, glob, and bash to switch to a new branch. So that's the front matter
+[00:05:11] sorted. And now we just need to write out the actual command itself. And
+[00:05:14] rather than me type all of this out from scratch, I'm just going to paste this in
+[00:05:18] and walk through it all with you step by step. And by the way, like I mentioned
+[00:05:22] before, you can get this entire command yourself from the GitHub repo for the
+[00:05:26] course files. All you need to do is select the claude snippets branch from
+[00:05:29] the drop down up here. Then go into the commands folder where you're going to
+[00:05:34] see this spec command plus any other command that we make as well. So if you
+[00:05:38] click on that command, you're going to see all the content for that file which
+[00:05:42] you can just copy and paste into your own file. So then let me just paste all
+[00:05:47] of this in and then we'll walk through it slowly. First of all then we have
+[00:05:51] this summary at the top which tells the model it's going to be making a new
+[00:05:54] feature spec for the application using the user input below which we say down
+[00:05:59] here is from the arguments. So when we run the spec command later, we'll be
+[00:06:03] adding a sentence or two about the new feature we want to spec so the model can
+[00:06:06] use that input. We also tell the model to respect anything inside the claw MD
+[00:06:11] file. Next down here, we go into a little bit more detail outlining the
+[00:06:15] steps the model needs to take using that user input. Starting with creating a
+[00:06:19] feature title in kebab case, then making a safe branch name for the feature and
+[00:06:24] finally writing a detail markdown spec in the specs directory which we don't
+[00:06:28] have yet, but we will make shortly. Below that outline, we go into each step
+[00:06:32] in more detail, starting with the step one, which is to check the current
+[00:06:36] branch for uncommitted or unstaged changes. If we have any of those, we
+[00:06:40] tell the model to abol instruct the user to either stash or
+[00:06:44] commit the changes first. After that, we tell the model to pass the input
+[00:06:48] arguments to extract or come up with the following values. a feature title, a
+[00:06:53] feature slug which follows the below criteria like lowercase letters, kebab
+[00:06:57] case, only letters and numbers, replace spaces with dashes and so on. Then
+[00:07:02] finally a safe git branch name with the following format claude slashfeature
+[00:07:07] slash then whatever the slug value is and we give an example of that down
+[00:07:11] below. So then once the model has extracted those values, the next step
+[00:07:15] down here is for Claude code to switch us to the new feature branch using the
+[00:07:20] branch name the model just came up with. After that, we ask the model to create
+[00:07:24] the actual spec markdown file and save it in the specs folder using the feature
+[00:07:28] slug it just came up with. We also mention here that we'll be using plan
+[00:07:32] mode later to plan the spec. And we're going to talk about plan mode later in
+[00:07:36] this chapter. But as well as that, we tell the model to use the same structure
+[00:07:40] for the spec file as the spec template file right here using the at@ symbol to
+[00:07:44] manually add that template file as context. Now, we don't have that
+[00:07:48] template file created yet, but again, we will make it shortly. We also tell the
+[00:07:52] model not to add any technical implementation details such as code
+[00:07:56] examples because that's what the planning step is for later. Finally,
+[00:08:01] once that spec's been created, we ask the model to respond with a short
+[00:08:05] summary of what it's done, including the branch name, the spec file location, and
+[00:08:10] the feature title. So, that is the spec command done now, and we're going to be
+[00:08:15] using this in the next lesson to spec out a new feature. But for now, all we
+[00:08:19] need to do is create the underscore specs folder, which is going to create
+[00:08:24] all the new spec files in. And we also need to create the template file because
+[00:08:27] it's going to use that file to create those specs, right? So let's cross this
+[00:08:30] off and then we'll create a new folder in the root directory called underscore
+[00:08:35] specs. And the only reason I'm using an underscore right here is so that this
+[00:08:39] folder sits at the top of the tree. There's no deeper meaning than that. But
+[00:08:42] inside that now we're going to create a new file called template.md.
+[00:08:46] And I'm just going to paste in this template. It's very very simple but I'll
+[00:08:51] go through it. So we have the feature name at the top then the branch name it
+[00:08:55] chooses and then down here we say Figma component if used. Now, don't worry
+[00:08:59] about this too much for now. Later in the course, we'll be using Figma, and
+[00:09:03] we're going to integrate that into the spec command. So, we'll come back to
+[00:09:07] that later. For now, we're not using Figma. Anyway, we have these different
+[00:09:11] sections that we want Claude Code to fill in when it's creating the spec
+[00:09:14] file. So, we have a summary of the spec or feature, any functional requirements,
+[00:09:19] uh the Figma design reference only of referenced. Again, don't worry about
+[00:09:22] that too much for now. We'll come back to it later. And then down here, any
+[00:09:26] possible edge cases, the acceptance criteria, open questions. So if it has
+[00:09:31] any questions it wants to ask us, put them there. And then we can go in and um
+[00:09:35] answer those questions. And then any testing guidelines at the bottom. And
+[00:09:39] I've also said here, create a test file in the test folder for any new feature
+[00:09:42] and create meaningful tests for the following cases without going too heavy.
+[00:09:46] So obviously I don't know the test cases. That's for Claude code to decide
+[00:09:50] when we're specking out the new feature. All right. So now we have the new
+[00:09:55] command, this spec command, and we have this template so that when it's creating
+[00:09:59] specs, it uses this template. In the next lesson, let's create a new spec for
+[00:10:03] a brand new feature.

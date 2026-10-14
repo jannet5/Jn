@@ -1,0 +1,148 @@
+# Claude Code Agent Teams Nedir? Nasıl Kullanılır? Tam Rehber
+# https://www.youtube.com/watch?v=ggvKF8F01VI
+# kanal: Eray Hamurlu | süre: 604 sn | kaynak: yt-dlp:android:ggvKF8F01VI.tr.json3
+
+[00:00:00] Cloud Code önceki subagent özelliğine göre çok büyük bir güncelleme aldı. Bu
+[00:00:04] güncellemenin adı da Agent Teams arkadaşlar. Resmi olarak yayınlandı.
+[00:00:08] Deneysel olarak yayınlandı ama bu videoda tüm detaylarına bakacağız.
+[00:00:11] Uygulamalar olarak da test edeceğiz. Şu an ekranda görmüş olduğunuz bilgileri
+[00:00:16] official yani resmi dokümantasyondan bakıyorum arkadaşlar. Bulabileceğimiz en
+[00:00:19] sağlam kaynak burası. cod.cloud.com adresindeyim. İlk olarak bu Agent
+[00:00:24] Teams'i nerelerde kullanmalıyız? Onlara bakalım. Videonun ilerleyen aşamalarında
+[00:00:28] kurulumu ve bir demoyu da beraber yapacağız. Bu agent team nerelerde
+[00:00:31] başarılı? Araştırma yapma işlerinde başarılı. Örneğin birden fazla araştırma
+[00:00:36] yapmak istiyorsanız bir projede farklı bakış açıları istiyorsanız bu sizin
+[00:00:40] işinizi görecektir. Farklı agentları aynı anda çalıştırıp birden farklı bakış
+[00:00:44] açısı, birden farklı problem çözümü bulabilirsiniz. Yeni özellikler eklemek
+[00:00:49] için kullanılabilir. Mesela uygulamanıza 3 adet özellik ekleyeceksiniz. Bunu üç
+[00:00:53] farklı agent'a atayarak devam ettirebilirsiniz. Bunun sub agag'tan
+[00:00:57] farkı nedir diye sorarsanız birazdan onu da açıklayacağım. Paralelde debugging
+[00:01:01] için de birden fazla agent çalıştırabilirsiniz. Bir projeyi aynı
+[00:01:05] anda paralel bir şekilde de yürütebilirsiniz. Örneğin front end,
+[00:01:08] backend ve test işlemlerini aynı anda paralel bir şekilde yapabilirsiniz ve
+[00:01:13] üstlerine birer team lead atayarak bence mükemmel bir güncelleme. Önceki sub
+[00:01:17] agent'a göre bayağı bir değişiklik var arkadaşlar. Şimdi sub agents ve agent
+[00:01:21] teams'in karşılaştırmasına bakalım. Şimdi ilk olarak context olayına
+[00:01:25] bakacağız. Sub agents bir tane main terminal paneliniz olurdu. Alt taraftaki
+[00:01:30] agentlar işlemleri yaptıktan sonra sonucu team lead dönerdi. Öyle diyelim.
+[00:01:35] Agent Teams'te şöyle oluyor. Her agent'ın kendi bir paneli var, terminal
+[00:01:40] paneli var. Hepsi kendi başına çalışıyor. Sonuca ulaşmadan yine de
+[00:01:44] kendi aralarında konuşup tartışabiliyorlar. Böyle bir özellik
+[00:01:46] ekleyeceğim. Nasıl olur? Gibisinden kendi aralarında konuşabiliyorlar.
+[00:01:50] Direkt sonucu dönmüyorlar. Bunu size şimdi grafik olarak da açıklayayım. çok
+[00:01:54] daha net geçecektir. Şimdi burada sizin için bir çizim yaptım. Bakın sub
+[00:01:58] agentsardı normalde bir team leadimiz var burada. Bu team lead'e görev
+[00:02:02] veriyorsunuz. Daha sonra bu teamlead UX Designer'a görevi veriyor ve sonucu
+[00:02:06] alıyor. Yine aynı şekilde frontend developer'a görevi veriyor, sonucu
+[00:02:10] alıyor ve son olarak da backend developer'a görevi veriyor ve sonucu
+[00:02:14] alıyor. Bu şekilde tekli bir konuşma yöntemi var arkadaşlar. Monolog bir
+[00:02:18] konuşma var burada. Monolog diyebiliriz. Agent Teams'e geldiğimizde işin rengi
+[00:02:23] değişiyor arkadaşlar. Burada Team lead'imiz UX UI Design'a görevi verdiği
+[00:02:27] zaman UX UI designer gidip front end'le konuşabiliyor. Frontend' de aynı şekilde
+[00:02:32] backend'le konuşabiliyor. Bunlar yine Team lead'le de konuşabiliyor. Görmüş
+[00:02:36] olduğunuz gibi her yönden bir iletişim var. Bu tabii ki token tüketimini
+[00:02:40] arttırıyor ama işinizin kalitesini de aynı seviyede arttırıyor. Şimdi burada
+[00:02:44] hangi durumlarda ikisinden biri seçilmeli? Onu da anlatacağım. Biri kötü
+[00:02:48] biri iyi değil. işe göre seçilmesi gerekiyor. Şimdi kıyaslamamızdan devam
+[00:02:52] edelim. Communication iletişim alanında sonuçlar her zaman main agent'a team
+[00:02:57] leadimize dönüyor. Agent Teams'te ise burada takım arkadaşları kendi
+[00:03:01] aralarında da mesajlaşabiliyor. Bildiğiniz mesajlaşıp konuşabiliyor.
+[00:03:05] Koordinasyon görev dağıtımında main agent'ımız sub agent'ta main agent'ımız
+[00:03:10] bütün işi yönetiyor. Agent Teams'te ise bildiğiniz normal birisine görev task
+[00:03:14] verir gibi o taskı veriyorsunuz. kendi başına halledip size sonucu dönüyor veya
+[00:03:18] size sorular soruyor. Tıpkı bir insana görev veriyormuş gibi düşünebilirsiniz.
+[00:03:22] Peki sub agents en iyi hangi sorunları çözüyor? Eğer bir taskınızda sadece
+[00:03:27] sonuç önemliyse yani bir geliştirme süreci değilse direkt bana tak diye
+[00:03:30] sonucu ver diyorsanız burada sub agents kullanmanız gerekiyor. Eğer işiniz
+[00:03:35] kompleksse ara sıra konuşmanız ve tartışmanız gerekiyorsa biraz akıl
+[00:03:39] yürütmeniz gerekiyorsa bir de takım çalışması istiyorsa göreviniz burada
+[00:03:43] aged teams kullanmalısınız. Bu öneriler direkt cloud ekibinin dokümantasyondan
+[00:03:47] geliyor arkadaşlar. Tokend'an da bahsetmiştim. Subagents çok daha az
+[00:03:52] token kullanıyor. Agent Teams daha fazla token kullanıyor. Çünkü sürekli kendi
+[00:03:56] aralarında da konuşuyorlar. Şimdi kurulum adımına geldik. Kurulum için
+[00:04:00] setting Jason dosyasına biraz veri yazmamız gerekiyor. Buradan
+[00:04:04] yapıştıracağım eveyi kopyalıyorum ve burada terminalime geldim. Şu an
+[00:04:09] antigravity içerisinden yapıyorum. Siz isterseniz başka ID içerisinden de
+[00:04:12] yapabilirsiniz. Bilgisayarın kendi yüklü olan terminalinde shift, tab ve agentlar
+[00:04:17] arası geçiş çalışmadığı için size de burayı tavsiye edim. Ben öyle bir sorun
+[00:04:20] yaşadım. Siz de aynı sorunu yaşamayın. Şimdi settings dosyasını açmak için
+[00:04:24] burada open.cloud settingsj dosyasını açacağız arkadaşlar. Bu şekilde az önce
+[00:04:30] kopyaladığımız komutu da bunun içine yapıştıracağız environment olarak. Çünkü
+[00:04:34] bu deneysel olarak geliyor. Default'ta kapalı geliyor. Komutumu yazdıktan sonra
+[00:04:38] enter'a basıyorum ve bilgisayarımdaki cloud'un settings dosyası açılıyor
+[00:04:41] arkadaşlar. Gördüğünüz gibi bakın burada en üste ben dosyayı eklemişim. Bunu
+[00:04:46] sizin için sileyim. Tekrar beraber ekleyelim. Buradan değerimizi
+[00:04:50] kopyalamıştık. Dosyamıza gelip Ctrl V ile yapıştırıyorum. Şu sondaki kırlangıç
+[00:04:55] parantezleri siliyorum ve şurasına da virgül ekliyorum. Kaydediyorum. İşlem
+[00:05:00] tamam. Artık agent Teams'imizi kullanabiliriz. Uygulamanızı
+[00:05:04] geliştirdiniz. Bir testlere ihtiyacınız var. Artık bunları yapan AI test
+[00:05:07] agentları var. Sizi ilk otonom AI test agentı olan test sprite'ile tanıştırmak
+[00:05:11] istiyorum. MCP özelliğiyle kullandığınız ideye tek tıkla kurabiliyorsunuz.
+[00:05:15] Sizlerle beraber hemen kurulumunu yapalım. Test sprite sitesine girip dry
+[00:05:18] MCP free butonuna tıklıyoruz. Şimdi üç gerekli işlem var. Bir ide'ye
+[00:05:22] ihtiyacımız var. 2. Test sprite hesabına ihtiyacımız var. 3. Up 2'ye ihtiyacımız
+[00:05:26] var. Hemen sign up free'ye tıklayıp hesabımızı oluşturuyoruz. Şimdi create
+[00:05:30] API key butonuna tıklıyoruz. API key'imizi kopyalıyoruz. Son olarak add
+[00:05:34] to cursor butonuna tıklıyoruz ve API keyimizi yapıştırıp install butonuna
+[00:05:38] basıyoruz. Cursor gerekli tooları bizim için yüklüyor. Cursor'ıma girip, "Can
+[00:05:42] you test this project with test sprite diyorum." Şimdi bize web sayfası açıyor.
+[00:05:46] Burada neyi test etmek istediğimizi soruyor. Biz buradan frontend seçiyoruz.
+[00:05:49] Buraya PRD dosyasını ekliyoruz. Eğer PRD dosyanız yoksa curs'a girip generate a
+[00:05:54] PRD file for this project deyip kendi PRD dosyanızda yaratabilirsiniz.
+[00:05:59] Continue deyip işlemi başlatıyoruz. Cursor'a döndüğünüzde test sprite'ın
+[00:06:03] klasörleri ve dosyaları yarattığını görebilirsiniz. Sprite şu an bizim için
+[00:06:08] test planlarını oluşturuyor ve testleri çalıştırmaya başlıyor. Aynı şekilde
+[00:06:12] testlerin ilerleyişini buradan veya MCP test kısmına gelip buradan canlı bir
+[00:06:16] şekilde de izleyebilirsiniz. Testi geçemeyenlerden bir tanesinin üstüne
+[00:06:20] tıklayıp inceleyelim. Video şeklinde görebiliyorsunuz ki bu bence harika bir
+[00:06:24] şey. Test bittiğinde de size bir rapor sunuyor. Şu an testlerimizin 12 testten
+[00:06:29] 10'u başarılı geçmiş. Şu an başarı oranımız %83. tüm bağlantıları
+[00:06:33] açıklamalarda bulabilirsin. Şimdi ilk agent temimizi çalıştırmamız için burada
+[00:06:37] cloud'un bir demo kodu var. Bunu da buradan kopyalıyoruz. Artık terminalden
+[00:06:42] cloud'umu açabilirim. Cloud'um açıldı ve buraya da prompt'umu yapıştırıyorum ve
+[00:06:47] enter'a basıyorum. Bakalım cloud neler yapacak. İlk başta
+[00:06:51] iki tane 3 tane agent yaratması gerekiyor. Onlara görev ataması
+[00:06:55] gerekiyor ve işlemleri tamamlayınca bana da burada bir rapor sunması gerekiyor.
+[00:06:58] Agentlar arasına geçişle şimdi size göstereceğim. UX research için bir tane
+[00:07:03] araç yarattı. Technik arkitecture için, mimari için bir agent yarattı. Bir de
+[00:07:09] sistemdeki sıkıntıları bulması için, bugları bulması için bir analiz agentı
+[00:07:13] yarattı. Şu an 3 tane agent yarattı. Zaten burada agentları spamlıyorum
+[00:07:17] diyor. Paralelde çalışacaklar diyor. Agentlar spamlandı. 3 adet
+[00:07:22] teammate'imiz, takım arkadaşımız var. Paralelde çalışıyorlar. Şimdi bakın alt
+[00:07:26] tarafa hemen geldi. Arkitect mimarımız UX Researcher. Buraya geldi. Bir de main
+[00:07:32] agent'ımız var. Bu da zaten takım liderimiz. Şimdi bu agentlar arasına
+[00:07:36] geçiş yapmak için shift ve yukarı oku işaretine basıyorum. Bakın Team Lead,
+[00:07:41] Architect ve bugları bulan arkadaşımız. Burada kullanılan tokenları da
+[00:07:46] görebiliyoruz. Örneğin burada arkitectimiz 22K token kullanmış. 9 tane
+[00:07:51] araç kullanmış. UI araştırmacımız da 22K token kullanmış. Yine aynı şekilde bakın
+[00:07:56] şu an paralelde hepsi çalışıyor. Kendi aralarında da communicate ediyorlar.
+[00:08:00] İletişim kuruyorlar ve Team Lead'de de communicate ediyorlar. Bu official
+[00:08:03] metodu arkadaşlar alternatif metotlar olabilir. Artık official çıktığına göre
+[00:08:07] bunu kullanabiliriz. Tüm agentlar görevlerini tamamladıktan sonra team
+[00:08:10] leadimiz bütün görevleri taskı kapatıyor arkadaşlar. Bunu bizim için kendisi
+[00:08:14] yapıyor. Kendimizi durdurmamıza gerek yok. Yine burada işlemleri kapatmak için
+[00:08:18] ESC tuşuna basabiliriz veya buradan CtrlC'ye iki kere basarak da konuşmayı
+[00:08:22] kapatabiliriz. Bu yöntem beni gerçekten heyecanlandırdı arkadaşlar. Siz neler
+[00:08:26] düşünüyorsunuz? Yorumlarda fikrinizi belirtin. Bakın burada arkitectimiz ona
+[00:08:31] tanımlanan ikinci taskı başarıyla tamamlamış. Şu an boşta duruyor. UX
+[00:08:35] Researcher'ın burada işlemini bitirmesini bekliyoruz. Birazdan
+[00:08:38] işlemleri tamamladığında toplam kaç token kullanmışız onu da göstereceğim.
+[00:08:43] Evet arkadaşlar istek gördüğünüz gibi Team Lead tarafından kapatıldı. Şu an
+[00:08:47] kontextimizin %29'unu kullanmışız. Şöyle bir use çıkaralım. Şu anki bu oturumda
+[00:08:53] current sation'ımı yani mevcut oturumumu %100 kullanmıştım arkadaşlar. Max
+[00:08:57] kullanıyorum ama az önce bir proje geliştirdim o yüzden doluydu. Extra
+[00:09:01] usage kullandım. 50 dolar bir hediye veriyor. Cloud 4.6 çıktığından beri
+[00:09:05] burada 3.35 dolar kullanmış. API kullanımı çok verimli değil arkadaşlar.
+[00:09:10] Buna da burada değinmiş olalım. Subscription yani abonelik modeli eğer
+[00:09:13] sürekli geliştiriyorsanız sizin için daha iyi. Eğer bulutta bir projeniz
+[00:09:17] vesaire yoksa abonelik modelini size öneririm. Kontext kullanımına da
+[00:09:21] baktığımızda bakın burada 46K token kullanmışız. Toplamda şu an kapasitemiz
+[00:09:26] opus 4.6K bir kontekstimiz var. Kontimizin 14'ini 1şte birini
+[00:09:31] kullanmışız. Şimdi sonuçta nasıl bir rapor çıkardılar onlara bakalım. Ve
+[00:09:35] burada sonuç olarak bana 700 satırlık bir UX dokümanı hazırlamış oldu. Tabii
+[00:09:40] bu bir demo olduğu için bana dokümanı verdi. İstersen dokümanı devam edip bunu
+[00:09:45] işlemleri götürebilirim diyor. Bunu gerçek projelerde deneyimlemek istiyorum
+[00:09:49] arkadaşlar. Size de öneririm. Çünkü cloud tarafından yapılan bir eklenti,
+[00:09:53] bir hizmet olduğu için bence kesinlikle kullanmalısınız. Videoyu beğendiyseniz
+[00:09:57] like atmayı ve abone olmayı unutmayın. Daha fazla cloud videosu istiyorsanız da
+[00:10:00] yorumlarda belirtebilirsiniz arkadaşlar. Herkese kolay gelsin.

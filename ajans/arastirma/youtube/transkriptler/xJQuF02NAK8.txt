@@ -1,0 +1,51 @@
+# The Explore → Plan → Code → Commit workflow in Claude Code
+# https://www.youtube.com/watch?v=xJQuF02NAK8
+# kanal: Claude | süre: 191 sn | kaynak: yt-dlp:android:xJQuF02NAK8.en.json3
+
+[00:00:03] If you take one thing away from Claude code, let it be this workflow: explore,
+[00:00:08] plan, code, and commit.
+[00:00:13] Without this, most people jump straight to pasting in Claude to write code,
+[00:00:17] which means more course correcting later on.
+[00:00:21] The fastest way to handle step one and two is with plan mode. With plan mode,
+[00:00:25] Claude can't edit files. It just reads files to gather research on how to
+[00:00:29] tackle this implementation. To enter plan mode, hit shift and tab until you
+[00:00:33] see the plan mode under the text input. I need to add WebP conversion to our
+[00:00:38] image upload pipeline. Figure out where in the pipeline it should happen,
+[00:00:41] whether we need new dependencies, and how to approach it.
+[00:00:44] And Claude will read relevant files, do some web searches, and give you a plan
+[00:00:49] of action. Make sure you review it and determine if
+[00:00:52] it meets your criteria. Otherwise, I can ask it to add on or
+[00:00:57] revise some areas. Perfect. And this right here is the best
+[00:01:02] place to course correct because it's before any code is written. You can also
+[00:01:06] use explore without being in plan mode by just asking Claude to explore your
+[00:01:09] code base. Now, once the plan looks good, you can
+[00:01:14] select approve to accept the plan and let Claude toggle all of the list items
+[00:01:18] it provided. You can determine if you want Claude to auto accept the file
+[00:01:21] edits or ask every single time. Claude will do its best to troubleshoot your
+[00:01:24] code base before considering the plan finished. But at times, you'll need to
+[00:01:29] course correct. This is the benefit of working with plan mode because after the
+[00:01:32] plan is finished, we also have the context of how it got to the results to
+[00:01:36] help it guide its next decision. In order for Claude to be confident in
+[00:01:40] its results, it has to be clear on what it deems correct. When writing your
+[00:01:45] plan, make this explicit. Adding tools that will help Claude
+[00:01:50] complete its goals will remove a lot of back and forth.
+[00:01:54] For example, if you're building web UIs, make sure you have the Claude and Chrome
+[00:01:58] extension so that Claude code can control a tab and test out the UI before
+[00:02:02] deeming it finished. In your project, include a test suite
+[00:02:05] that Claude can continuously validate on.
+[00:02:08] Claude can even write tests for you. Before passing this off to Claude, make
+[00:02:12] sure that the tests are a source of truth for you and your team to avoid any
+[00:02:16] false positives. Quick tip, if you find Claude keeps
+[00:02:19] running into the same issues, ask Claude to save the solution to his Claude MD
+[00:02:23] file. Now, once you have tested for yourself
+[00:02:27] and are happy with the results, it's time to push your code. A tip before you
+[00:02:30] commit, run a sub agent code reviewer to look at your code.
+[00:02:34] Then you get Claude to generate a commit message for you in your style. Rinse and
+[00:02:38] repeat. >> [music]
+[00:02:43] >> If you want to be effective with Claude code, follow the explore, plan, code,
+[00:02:47] and commit workflow. Exploration will give the relevant context Claude needs
+[00:02:51] for your project. Plan will create a plan of action that Claude will use to
+[00:02:55] determine if they are successful. Code is the back and forth that you and
+[00:02:58] Claude do before settling on the final outcomes of the plan.
+[00:03:02] Commit helps you review and push your code so you can start on your next
+[00:03:05] feature.

@@ -1,0 +1,1382 @@
+# Sıfırdan Claude Code: 45 dakikada ilk projeni yap (Uygulamalı)
+# https://www.youtube.com/watch?v=q3Dp4AQYb-I
+# kanal: Dolunay Özeren | süre: 2688 sn | kaynak: yt-dlp:web_embedded:q3Dp4AQYb-I.tr.json3
+
+[00:00:00] Sıfırdan cloud kod eğitimine hoş
+[00:00:02] geldiniz. Sıfır teori doğrudan aksiyona
+[00:00:04] giriyoruz ve bu videonun sonunda artık
+[00:00:07] cloud kod ile istediğiniz yapay zeka
+[00:00:09] projesini hayata geçirebiliyor
+[00:00:10] olacaksınız. Bir saatinizi ayırıp bir
+[00:00:13] şey size öğretebilmem için onun
+[00:00:14] gerçekten anlamlı olduğuna ikna olmanız
+[00:00:16] lazım. O yüzden sizden sadece 5
+[00:00:18] dakikanızı rica ediyorum. Bunun ne kadar
+[00:00:20] önemli olduğunu, hayatınızı
+[00:00:22] değiştirebileceğini ve neden tek
+[00:00:23] seferlik bir fırsat olduğunu anlatmama
+[00:00:25] izin verin. İkna olmazsanız lütfen 5
+[00:00:27] dakika sonra videodan çıkın.
+[00:00:31] 2025'te Amerika'daki teknoloji
+[00:00:32] şirketleri 245.000 kişiyi işten çıkardı.
+[00:00:35] Bu yılın ilk 4 ayında 95.000 daha günde
+[00:00:38] ortalama 882 insan evine işsiz dönüyor.
+[00:00:41] Peki neden? Bu gördüğünüz Antropik'in
+[00:00:43] yani Cloud'u yapan firmanın CEO'su
+[00:00:45] açıkça söylüyor. Beyaz yakalı giriş
+[00:00:47] seviyesi işlerin yarısı AI tarafından
+[00:00:49] silinecek. Kriz mi? Evet. Ama sen bu
+[00:00:52] videoyu izliyorsan bu krizi fırsata
+[00:00:53] çevirmek istiyorsun ve sana iki tane yol
+[00:00:55] göstereceğim. Birincisi şirketler insan
+[00:00:57] yerine yapay zeka çalıştırmak istiyor ve
+[00:01:00] sen de bu geçişi yapan kişi olabilirsin.
+[00:01:02] Eğer işletmen varsa kendi işletmene
+[00:01:04] uygularsın ve personel giderini sıfıra
+[00:01:06] indirmeye çalışırsın. Eğer girişimciysen
+[00:01:08] başkasının işletmesine bu sistemleri
+[00:01:10] kurarsın ve aylık bakım ücreti alırsın.
+[00:01:12] Örneğin şu anda ekranda benim yapay zeka
+[00:01:14] sistemleri kurduğum için kestiğim
+[00:01:16] faturaları görüyorsunuz. [müzik] Mesela
+[00:01:17] bu sistem Instagram'dan ve WhatsApp'tan
+[00:01:19] gelen müşteri mesajlarını otomatik
+[00:01:21] olarak cevaplıyor. Bu sistem ürünün
+[00:01:23] linkini atıyorsun. sana reklam videosu
+[00:01:24] yapıyor ve Instagram'dan anında
+[00:01:26] paylaşıyor. Bu sistem senin yerine
+[00:01:28] otomatik müşteri buluyor. Müşteriye mail
+[00:01:30] yazıyor ve gönderiyor. Hatta dönüş
+[00:01:32] almazsa gidip hatırlatma yapıyor. Daha
+[00:01:33] sonra pazarlık sürecine başlıyor.
+[00:01:35] Örneğin bu da öğrencim Pelin Hanım'ın
+[00:01:37] sistemi. Kendi işletmesi için otomatik
+[00:01:39] olarak müşterilere ulaşan bir personel
+[00:01:40] yapmış. Bu arada Pelin Hanım 60 yaşında
+[00:01:43] ve hiçbir teknik geçmişi yok. Ya da
+[00:01:44] üyemiz Özgün Bey müşterisinin Instagram
+[00:01:46] mesajlarını yanıtlayan bir yapay zeka
+[00:01:48] personeli inşa ederek ilk döviz gelirini
+[00:01:50] elde etmiş. Üyemiz Ahmet Bey arkadaşının
+[00:01:52] firması için kurduğu sistemden 40.000
+[00:01:54] kazanmış. Şu anda ekranda harika
+[00:01:56] sistemler kuran ve bundan gelir elde
+[00:01:58] eden üyelerimizi görüyorsunuz.
+[00:02:02] Yöntem 2. Bu üç insan tek başına
+[00:02:04] kurdukları uygulamalardan milyonlar
+[00:02:06] kazandı. Roy Lee 22 yaşında böyle bir
+[00:02:08] eklenti yapıp sosyal medyada viral oldu.
+[00:02:10] Şirketi ilk haftada 70.000 kayıt aldı ve
+[00:02:12] 20 milyon dolar yatırım topladı. Peter
+[00:02:14] Levels ekranda gördüğüm bu uygulamaların
+[00:02:16] sahibi. Hepsini tek başına yaptı ve tek
+[00:02:18] başına yönetiyor. Yıllık geliri 3 milyon
+[00:02:20] dolar. Sadece bu uygulamadan ayda
+[00:02:22] 138.000 dolar kazanıyor. Hiç çalışanı
+[00:02:24] yok. Mark 4 yıl önce ailesinin evinde
+[00:02:27] sıfır gelirle yaşıyordu. Bugün tek bir
+[00:02:29] üründen ayda 133.000 dolar kazanıyor.
+[00:02:31] Yine tek kişi. Evet, biliyorum bunlar
+[00:02:33] fazla başarılı insanlar ve hiçbirimiz bu
+[00:02:35] kadar yükseğe belki çıkamayacağız. Ama
+[00:02:37] bunun 10 birine, 20de birine ulaşsak
+[00:02:39] bile hayatımızın kökten değişeceğine
+[00:02:41] eminim. Ve bu insanların hiçbiri 20 yıl
+[00:02:43] önce bunu imkansız yapamazdı. O dönem
+[00:02:45] onlarca kişilik ekip ve yüz binlerce
+[00:02:47] dolar sermaye lazımdı. Bugün o engel
+[00:02:50] tamamen yıkıldı. Çünkü cloud kode senin
+[00:02:52] yerine sadece kod yazmıyor. Senin yerine
+[00:02:54] düşünen, planlayan, hataları ayıklayan,
+[00:02:57] işi bitiren bir personel gibi çalışıyor.
+[00:02:59] Sen ne istediğini söylüyorsun. Bir mobil
+[00:03:01] uygulama, bir web sitesi, bir otomasyon
+[00:03:03] sistemi cloud kod yazacak, test edecek,
+[00:03:05] yayına alacak ve iş bitecek. Yani artık
+[00:03:07] kod bilmek değil ne istediğini bilmek
+[00:03:10] işe yarıyor. Örneğin üyemiz Beyazıt Bey
+[00:03:12] hukukçuların evrak işlerini yapan böyle
+[00:03:13] bir web sitesi yaptı. Oğuz Bey trend yol
+[00:03:15] mağazaları için soru yanıtlayan bu
+[00:03:17] sistemi kurdu. Murat Bey YouTube'da
+[00:03:19] otomatik video atan sistemiyle 10 milyon
+[00:03:21] izlenme aldı. Furkan Bey'in yapay zeka
+[00:03:23] influencerı 18 milyon izlendi. İhsan Bey
+[00:03:26] restoranların yönetimini kolaylaştıran
+[00:03:28] bu sistemi inşa etti. Ve tekrar
+[00:03:30] hatırlatıyorum ne üyeler ne ben
+[00:03:31] hiçbirimiz kodlama bilmiyoruz. teknik
+[00:03:33] geçmişimiz yok ve bunları sadece
+[00:03:35] konuşarak yapay zekaya yaptırabiliyoruz.
+[00:03:39] Tamam. Şimdi gelin sıfırdan başlayalım.
+[00:03:41] Bu gösterdiğim bütün bu sistemler var ya
+[00:03:43] bunların hepsi aslında bilgisayarınızda
+[00:03:44] bulunan bir grup dosya. Mesela benim
+[00:03:46] bilgisayarımda şöyle bir dosya var ve
+[00:03:48] bunun içinde onlarca proje dosyası var.
+[00:03:50] Mesela bir tanesinin içerisine giriyorum
+[00:03:52] ve burada bir grup kodlar görüyorum. Bu
+[00:03:54] kodların ne olduğu hakkında hiçbir
+[00:03:55] fikrim yok. Sadece yapay zeka bu kodları
+[00:03:58] benim yerime benim bilgisayarımda yazmış
+[00:04:00] ve bunu yazdığı için de ben istediğim
+[00:04:02] nihai sonuca bir mobil uygulama
+[00:04:04] geliştirme, bir web sitesi geliştirmeye,
+[00:04:06] bir yapay zeka otomasyonu yapmaya
+[00:04:08] gidebiliyorum. Aslında konu şu. Benim
+[00:04:09] bilgisayarımda bir tane boş bir dosya
+[00:04:11] açacağım ve yapay zekaya diyeceğim ki
+[00:04:13] git bu dosyanın içerisine bu projeyi
+[00:04:15] gerçekleştirmek için ihtiyacın olan kodu
+[00:04:17] yaz. O yüzden hemen gelin bunu yapalım.
+[00:04:19] Bilgisayarımın ana ekranına geldim.
+[00:04:21] Hemen yeni bir tane dosya oluşturdum ve
+[00:04:22] rastgele isimlendirelim. Yapay zeka
+[00:04:24] projelerim diye isimlendirdim ve bu
+[00:04:26] dosyayı açıyorum. Şu anda boş. Eğer
+[00:04:28] yapay zeka bunun içerisine ilgili proje
+[00:04:30] dosyalarını yazarsa, kodlamaları
+[00:04:31] yaparsa, ben kodlamaların ne olduğunu
+[00:04:33] umursamıyorum. Projem çalışacak. Konu
+[00:04:35] aslında bu kadar basit. Peki buradaki
+[00:04:37] boş dosyayı nasıl yapay zekaya vereceğiz
+[00:04:39] ki yapay zeka gidip bu dosyayı erişsin,
+[00:04:41] içerisini doldurmaya başlasın? Cevabı
+[00:04:43] çok basit. Antigravity indiriyoruz.
+[00:04:45] Hemen Google'a geldim.
+[00:04:47] Antigravity.google yazdım ki aşağıda
+[00:04:49] linki bulabilirsiniz. Ardından sağ
+[00:04:51] üstten download butonuna bastım. Burada
+[00:04:53] gördüğünüz gibi her işletim sistemi için
+[00:04:55] farklı şekilde indirme opsiyonları var.
+[00:04:57] Eğer Linux kullanıyorsanız bilgisayar
+[00:04:58] hakkında benden daha fazla şey
+[00:04:59] biliyorsunuz. O yüzden ne yaptığınızı
+[00:05:01] çok iyi biliyorsunuz. Eğer Windows
+[00:05:02] kullanıyorsanız gördüğünüz gibi X64 veya
+[00:05:05] ARM64 mü bilgisayarınız kontrol etmeniz
+[00:05:07] gerekiyor. Şu anda ekranda gördüğünüz
+[00:05:09] videodaki adımları takip ederek bunu
+[00:05:11] kontrol edebilirsiniz. Ettikten sonra
+[00:05:13] ikisinden bir tanesini seçip
+[00:05:15] indirebilirsiniz. Peki gelelim
+[00:05:16] MacBook'a. Inıntel mi yoksa Apple
+[00:05:18] Silicon Chip mi kullanıyorsunuz? Hemen
+[00:05:20] sol üstteki Apple logosuna tıklıyorum ve
+[00:05:22] buradan about this Mac butonuna
+[00:05:23] basıyorum. Ve gördüğünüz gibi burada
+[00:05:25] benim çipim M4'müş. Eğer M çip
+[00:05:27] görüyorsanız M1, M2, M3, M4 o zaman
+[00:05:30] Apple silikon kullanıyorsunuz. Eğer iP
+[00:05:32] görüyorsanız o zaman Intel
+[00:05:33] kullanıyorsunuz. Ona göre buradaki
+[00:05:35] ilgili seçimi yapabilirsiniz. Ben Apple
+[00:05:36] Silikon kullandığım için tıklıyorum ve
+[00:05:38] indirmeye şu anda sağ tarafta başladı.
+[00:05:40] Ben antigravity'yi indirirken bu arada
+[00:05:41] bir tane üyemiz oteller için bir yapay
+[00:05:43] zeka sistemi tasarlamış. Onu gördüm.
+[00:05:45] Aşağıdaki linkten de topluğa
+[00:05:46] erişebilirsiniz. Böylece hem benim anti
+[00:05:48] Gravity ve Cloud Code tarafındaki
+[00:05:50] eğitimleme ulaşabilirsiniz veya farklı
+[00:05:51] farklı sektörler için ticarileştirdiğim
+[00:05:53] otomasyonlara erişebilirsiniz.
+[00:05:55] Erişmekten kastım doğrudan kendi
+[00:05:56] otomasyonlarımı size veriyorum. Böylece
+[00:05:58] benim otomasyonumu alıp
+[00:05:59] kullanabiliyorsunuz ya da doğrudan bana
+[00:06:01] ulaşıp sorularınızı sorabiliyorsunuz.
+[00:06:03] Böylece düştüğünüz yerde ben sizi ayağa
+[00:06:05] kaldırıyorum ve gerçekten bu sistemleri
+[00:06:07] sağlıklı şekilde çalıştırdığınıza emin
+[00:06:09] oluyoruz. Link aşağıda. Devam ediyorum.
+[00:06:11] Bilgisayarıma indirildi. Şimdi buradan
+[00:06:12] tıklayarak anti gravity'yi açıyorum.
+[00:06:14] Gördüğünüz gibi böyle bir ekran açıldı.
+[00:06:16] Şimdi hemen size bunun neye benzediğini
+[00:06:18] göstereyim. Şu sağ tarafta gördüğünüz
+[00:06:20] bölüm bizim yapay zekamız. Buradan
+[00:06:21] kendisiyle sohbet edeceğiz ve bu sohbet
+[00:06:23] doğrultusunda projeleri geliştireceğiz.
+[00:06:25] Yani en çok muhatap olduğunuz bölüm
+[00:06:27] burası olacak. Şu ortada ise şu anda
+[00:06:29] hiçbir şey görmüyorsunuz. Çünkü hangi
+[00:06:30] dosyada çalışacağımızı ona söylemedik.
+[00:06:32] Hatırlarsanız böyle boş bir dosyamız
+[00:06:34] vardı ve bunun içerisinde çalışmaya
+[00:06:36] karar vermiştik. O yüzden ne yapıyorum?
+[00:06:38] Hemen ortadaki şu mavi butona basıyorum
+[00:06:41] ve diyorum ki bir dosya seç. ve yapay
+[00:06:43] zeka projelerim diye açtığımız o boş
+[00:06:45] dosya vardı ya işte onu seçiyorum ve aç
+[00:06:48] diyorum. Gördüğünüz gibi artık yapay
+[00:06:49] zeka projelerim dosyasını burada
+[00:06:51] görebiliyorum. Tabii ki bunun altı şu
+[00:06:53] anda bomboş çünkü dosyanın içerisinde
+[00:06:55] hiçbir kod bulunmuyor. O yüzden burayı
+[00:06:57] boş görüyorum. Ve ortada da tabii ki
+[00:06:59] yapay zeka projelerim dosyasının
+[00:07:01] içerisine ekleyeceğimiz bütün
+[00:07:02] dokümanları vesaire burada
+[00:07:04] görebiliyoruz. Birazdan ne demek
+[00:07:05] istediğimi çok iyi anlayacaksınız ve
+[00:07:07] tabii ki sağ tarafta konuşacağız. O
+[00:07:09] yüzden şunu tutup şöyle biraz daha
+[00:07:10] genişletiyorum ve geliyorum bu tarafa.
+[00:07:13] Burada istediğimizi yazdığımız bir bölüm
+[00:07:14] bulunuyor. Buna hepiniz aşinasınız.
+[00:07:16] Altta da model seçebiliyorum. Burada
+[00:07:18] modelleri görüyorum ve buraya
+[00:07:19] tıkladığımda cloud modelini
+[00:07:21] görebiliyorum. Aslında cloud kod
+[00:07:22] dediğiniz şey bu. Yani cloud yapay zeka
+[00:07:24] modelini antigravity veya başka bir şey
+[00:07:26] üzerinden bilgisayarımızdaki proje
+[00:07:28] dosyalarına erişilebilir kılmak. Yani
+[00:07:31] ben buradan Cloud'u seçiyorum ve artık
+[00:07:33] antigravity kullandığım için
+[00:07:34] bilgisayarımdaki bu boş yapay zeka
+[00:07:36] projelerim dosyası artık cloudun
+[00:07:39] erişimine açık ve bunun içini
+[00:07:40] doldurabilir. Ve artık doğru modeli de
+[00:07:42] seçtiğim için istediğim herhangi bir
+[00:07:44] şeyi burada söyleyebilirim ve inşa
+[00:07:45] etmeye başlayabilirim. Yani şu anda
+[00:07:47] antigravity'de birinci aşamadayız.
+[00:07:49] Bebeklik aşamasındayız ve 1 yaşında
+[00:07:51] küçük bir çocuğunuz olduğunu düşünün.
+[00:07:53] Kendisine bir şeyi anlatıyorsunuz ve o
+[00:07:54] da yapmaya çalışıyor. Yeterli eğitimi
+[00:07:57] yok. Şu anda bizi tanımıyor. Sahip
+[00:07:58] olduğumuz araçları tanımıyor ama yine de
+[00:08:00] bir şeyler yaptırtmaya çalışacağız. Bir
+[00:08:01] bakalım 1 yaşındaki bu çocuğa bu görevi
+[00:08:03] verince nasıl yapacak. Hemen ilk
+[00:08:05] komutumuzu verelim. Yapay zeka
+[00:08:07] otomasyonları satabilmek için bana bir
+[00:08:09] müşteri bulma otomasyonu inşa etmeni
+[00:08:11] istiyorum. Ben sana hangi alandan kime
+[00:08:13] ulaşmak istediğimi söyleyeceğim ve sen
+[00:08:15] de gidip bana o alandaki doğru kişiyi
+[00:08:18] e-posta adresini ve onunla ilgili bilmem
+[00:08:20] gereken bütün bilgileri çıkartacaksın.
+[00:08:21] Böylece kişiye özel bir e-posta
+[00:08:23] yazabilir ve ona bunu atabilirsin.
+[00:08:25] Sadece atmanı da istemiyorum. Ona bu
+[00:08:27] harika kişiselleştirilmiş e-postayı
+[00:08:29] yazdıktan sonra bir takip et bakalım.
+[00:08:31] Eğer mailimiz cevaplanmazsa tekrardan
+[00:08:33] ona e-posta at. Daha sonrasında cevap
+[00:08:35] gelirse de kendisiyle konuşmaya başla.
+[00:08:37] Gördüğünüz gibi kendisinden binlerce
+[00:08:38] dolarlık bir firmaya özel olarak
+[00:08:40] hazırlanması gereken bir otomasyon
+[00:08:42] istedim. Ve şimdi buradaki artı butonuna
+[00:08:44] basıyorum ve plan diyorum. Böylece
+[00:08:46] planlama modunu aktifleştiriyorum. Yani
+[00:08:48] diyorum ki hemen gidip buradaki boş
+[00:08:50] dosyanın içini doldurup projeyi yazmaya
+[00:08:52] başlama. Bir dur bir bekle bakalım. Biz
+[00:08:53] seninle bir ne istediğimizi net şekilde
+[00:08:55] konuşalım. Ondan sonra burayı
+[00:08:56] doldurursun. Sorun yok diyorum ve
+[00:08:58] buradaki butona basarak gönderiyorum.
+[00:09:00] Gördüğünüz gibi şu anda çalışmaya
+[00:09:01] başladı ve benden izin istiyor. Hemen
+[00:09:03] izni veriyorum. Böylece kendisi bana
+[00:09:05] muhtaç olmadan gidip bilgisayarım
+[00:09:07] üzerinde belli dosyalara erişebilir,
+[00:09:09] düzenlemeler yapabilir.
+[00:09:16] Evet, birazcık kendisi çalıştı ve şimdi
+[00:09:18] ekranın başına geri oturdum. Burada
+[00:09:20] benden bazı soruları cevaplamamı
+[00:09:21] istemiş. Demiş ki, "Hangi e-posta
+[00:09:23] adresiyle mail atacaksın? Çok haklı.
+[00:09:26] Hangi yapay zeka modelini kullanalım?
+[00:09:27] Mailleri yazmak için haklı bir soru.
+[00:09:29] E-postaları bulmak için hangi yazılımı
+[00:09:31] kullanalım? Ve tabii ki de bütün bu
+[00:09:33] bilgileri nerede görmek istersin? Bir
+[00:09:35] Excel tablosunda mı, nerede diye soruyor
+[00:09:37] ve kendisi bize burada bir plan
+[00:09:38] çıkartmış. Hemen buradan planı aç
+[00:09:40] diyorum. Ve aç dediğim gibi gördüğünüz
+[00:09:42] gibi ekranın ortası artık doluyor.
+[00:09:44] Böylece arayüze biraz daha alıştık. Ne
+[00:09:46] yapıyoruz? Sağ tarafta konuyu
+[00:09:48] konuşuyoruz. Konuyla ilgili dokümanları
+[00:09:50] ekranın ortasında görüyoruz ve ekranın
+[00:09:52] sol tarafı henüz boş. Çünkü projeye
+[00:09:54] başlamadık. Şimdi bu binlerce dolarlık
+[00:09:56] otomasyonumuzu başlatabilmesi için
+[00:09:58] antigravity'nin buradaki dört şeyi ona
+[00:10:00] vermemiz lazım. Bunu aynen bir personel
+[00:10:02] gibi düşünebilirsiniz. Önceden bu işler
+[00:10:04] nasıl oluyordu? Biz manuel çalışma
+[00:10:06] çağındaydık. Yani patronlar insanlara
+[00:10:08] veya çalıştığı ajanslara görevleri
+[00:10:10] veriyorlardı. Bu insanlar da belli
+[00:10:12] araçlara sahipti. Örneğin satış
+[00:10:13] temsilcisi dediğiniz adam yani bizim şu
+[00:10:15] anda otomasyon kuracağımız işi yapan
+[00:10:17] adam önceden LinkedIn'e gidiyordu.
+[00:10:19] Oradan ilgili insanları buluyordu.
+[00:10:21] Gmaili'i vardı onun. E-postası vardı.
+[00:10:23] oradan gidip mailleri atıyordu ya da
+[00:10:24] müşteriyle ilgili daha fazla bilgi
+[00:10:26] edinmek isterse Apollo'yu kullanıyordu.
+[00:10:28] Oradan gidip bilgileri alıyordu. Ona
+[00:10:30] göre mail hazırlıyordu. Yani işe
+[00:10:31] aldığımız bu insana bu dijital araçları
+[00:10:33] veriyorduk ve git diyorduk bunları
+[00:10:35] kullan sen işi hallet. Şimdi de aynısını
+[00:10:37] anti gravity ile yapıyoruz aslında. Ona
+[00:10:39] buradaki soruları yanıtlayarak araçları
+[00:10:40] vereceğiz ve ortadan kaybolacağız. O da
+[00:10:42] bir personel gibi çalışmaya başlayacak
+[00:10:44] ve bunu çeşitlendire debiliriz. Yani
+[00:10:46] şuradaki butona basarak, artı butonuna
+[00:10:48] basarak ben yeni bir konuşma
+[00:10:49] başlatabilirim ve bu sefer de bir
+[00:10:51] müşteri hizmetleri inşa etmesini
+[00:10:52] isteyebilirim. E düşünelim müşteri
+[00:10:54] hizmetlerinin normalde neye ihtiyacı
+[00:10:56] var? Burada gördüğünüz gibi Instagram
+[00:10:58] hesabına erişmesi lazım ki
+[00:11:00] yanıtlayabilsin. E WhatsApp hesabına
+[00:11:02] erişmesi lazım ki oradan da yazabilsin.
+[00:11:04] E bir de bütün bu müşteri bilgilerinin
+[00:11:06] bulunduğu bir CRM yani böyle bir tabloya
+[00:11:08] ihtiyacımız var ki oraya da gitsin
+[00:11:09] şununla şunu konuştum bunu yaptım diye
+[00:11:11] belirtsin. Ben de patron olarak lider
+[00:11:14] olarak ona bakabileyim. O yüzden Anti
+[00:11:15] Gravity'ye gitsem bana bir müşteri
+[00:11:17] asistan oluştur diye buraya yazsam hemen
+[00:11:19] Instagram'ı, WhatsApp'ı hızlıca
+[00:11:21] bağlayacağım. Bir tane CRM yani bir
+[00:11:22] tablo gibi bir şey bağlayacağım ve bunu
+[00:11:24] yapabiliyor olacak. Bu arada bu ekranda
+[00:11:26] gördüğünüz görselleri de antiravity ile
+[00:11:28] yaptım. O da başka bir zamanın konusu.
+[00:11:30] Bu anti Gravity bir orkestra şefi ve o
+[00:11:32] orkestra şefinin bağlı olduğu araçlar
+[00:11:34] var ve bu her projede değişiyor.
+[00:11:36] Kimisinde Gmail, kimisinde chat GPT yani
+[00:11:39] Open AI, kimisinde video, müzik veya
+[00:11:41] görsel üretmek isterseniz Key AI,
+[00:11:42] kimisinde internetten veri çekmek
+[00:11:44] istiyorsunuz. Epify kimisinde müşteri
+[00:11:46] verisi çekmek istiyorsunuz. Apollo veya
+[00:11:48] her ne isterseniz. Bunlar araçlarımız.
+[00:11:50] Bunlar normalde eskiden personele
+[00:11:52] verdiğimiz araçlar. Şimdi ise orkestra
+[00:11:55] şefimiz olan bütün bu dijital araçları
+[00:11:57] yönetecek olan antigravity'ye verilecek
+[00:11:59] ve denilecek ki sen artık bu araçları
+[00:12:02] kullan. Sen yap. Ben bunun yerine
+[00:12:04] personel almıyorum. Personele
+[00:12:05] yaptırmıyorum. E tamam o zaman gelin
+[00:12:07] bunu yapalım. Öncelikle buradaki
+[00:12:09] chatleşmemi ben kaybettim. Onu bir geri
+[00:12:11] bulayım. Şurada bir buton var gördüğünüz
+[00:12:13] üzere. Buradan geçmiş chatlerime
+[00:12:14] ulaşabiliyorum ve son chat' tıkladığımda
+[00:12:17] hemen az önce kaybettiğim chat'e
+[00:12:18] eriştim. Buradan devam edebilirim. Şimdi
+[00:12:20] benim bu araçları anti gravity vermem
+[00:12:22] gerekiyor. Aynı personelime al bunlar bu
+[00:12:25] hesabın şifresi. Dediğim gibi ilgili
+[00:12:27] şifreyi vermem lazım ki o personel nasıl
+[00:12:30] o aracı kullanabiliyorsa antiravity'de
+[00:12:32] kullansın. O zaman başlayalım. Öncelikle
+[00:12:33] müşteri verisi çekmesi için Apifi'yı
+[00:12:35] kullanmak istiyorum. Apifa ile
+[00:12:36] internetteki herhangi bir veriyi
+[00:12:38] çekebilirsiniz. Örneğin TikTok'tan veri
+[00:12:40] çekebilirim. Google haritalardan bizzat
+[00:12:42] işletmelerin verisini çekebilirim.
+[00:12:44] Instagram'dan, Facebook'tan istediğim
+[00:12:45] her yerden veri çekebilirim. Normalde
+[00:12:47] bunu kullanım şekli APIFA'ya girip
+[00:12:49] kullanmaktı. Tabii ki biz bunu
+[00:12:50] yapmayacağız. Anti Gravity'ye
+[00:12:51] kullandıracağız. Peki bunu yapmak için
+[00:12:53] neye ihtiyacımız var? Bir API anahtarına
+[00:12:56] ihtiyacımız var. Ya da API anahtarı diye
+[00:12:58] duymuşsunuzdur. Bu ne demek? Al bu
+[00:13:01] platformu benim yerime kullan demek.
+[00:13:02] Aslında eğer ben bu anahtarı verirsem
+[00:13:05] Apify'ın kapısını antiravity açacak ve
+[00:13:08] girip kullanmaya başlayacak. O yüzden
+[00:13:09] Anti Gravity'nin ya da cloud Code da
+[00:13:11] diyebilirsiniz. Cloud Cod'un benim Apify
+[00:13:13] hesabımı kullanması için bir anahtara
+[00:13:16] ihtiyacım var ki benim hesabın kapısını
+[00:13:18] açıp girsin. O yüzden hemen gelin sağ
+[00:13:20] üstten konsola git diyelim. İçeriye
+[00:13:22] girdik. Birazcık ezbere adımlarımız var.
+[00:13:24] AP anahtarını bulmak için. Eğer
+[00:13:25] bilmiyorsanız da chat GPT cloud gibi bir
+[00:13:27] yapay zekayı sorabilirsiniz. Ben şimdi
+[00:13:29] sizi de oradan doğru yere götüreceğim.
+[00:13:31] Buradan hemen ayarlara tıklıyorum.
+[00:13:33] Genellikle ayarların içinde olur ve API
+[00:13:35] and integrations diye bir bölüm buldum.
+[00:13:37] Buraya gidiyorum. Burada gördüğünüz gibi
+[00:13:38] benim bir AP anahtarım var. Sizin
+[00:13:40] olmayacak yeni kullanıyorsanız o yüzden
+[00:13:42] şuradan create new token yani yeni bir
+[00:13:44] token AP anahtarı oluştur diyorum. Ve
+[00:13:46] gördüğünüz gibi yeni bir tane
+[00:13:47] oluşturdum. Hemen şuradan kopyalıyorum.
+[00:13:50] Anti Gravity'ye gidiyorum ve diyorum ki
+[00:13:52] müşteri verilerini Appify aracılığıyla
+[00:13:54] çekeceğiz. İşte AP anahtar
+[00:13:59] ve gördüğünüz gibi yapıştırdım. Bu
+[00:14:00] birinci adımdı. Bir de şimdi mailleri
+[00:14:02] yazmak için ona bir yapay zeka vermem
+[00:14:04] gerekiyor. Yani nasıl ben chat GPT'ye
+[00:14:05] gidip önceden mail yazdırıyordum. Şimdi
+[00:14:07] chat GPT'nin AP anahtarını alacağım.
+[00:14:10] Yani kapının anahtarını. O anahtarı anti
+[00:14:12] Gravity'ye vereceğim ki gitsin chat GPT
+[00:14:14] kullanarak benim maillerimi yazabilsin.
+[00:14:16] Bunun için ne yapıyorum? Hemen
+[00:14:18] platform.com'a
+[00:14:20] gidiyorum ve buradan giriş yapıyorum.
+[00:14:22] Burası benim chat GPT AP anahtarı almamı
+[00:14:24] sağlayan yer. Hemen ayarlara gidiyorum.
+[00:14:26] Buradan billink bölümüne tıklıyorum.
+[00:14:27] Çünkü kullandıkça 1 cent dahi olsa minik
+[00:14:30] paralar ödüyoruz. O yüzden buraya bir
+[00:14:31] miktar bakiye yatırmanız gerekiyor.
+[00:14:33] Bakmayın benim bu kadar paramın
+[00:14:34] olduğuna. 5 dolar yatırsanız işinizi
+[00:14:36] hayli hayli görecektir. Bir de bunu
+[00:14:37] bedava kullanmanın bir yolu var. Hemen
+[00:14:39] araya sıkıştırayım bu taktiği. Buradan
+[00:14:41] data controls bölümüne gidiyorum.
+[00:14:43] Sharing diyorum. Aşağı kaydırıyorum. Ve
+[00:14:46] buradaki bölümden eğer enabled for all
+[00:14:49] projects dersem bu şu anlama geliyor.
+[00:14:51] Ben GPT modellerinin eğitilmesi için
+[00:14:53] verimin kullanılmasına izin veriyorum
+[00:14:55] anlamına geliyor. Eğer çok özel bir
+[00:14:57] veriniz yoksa yani KVKK gibi bir problem
+[00:14:59] yaşamayacaksanız bunu açabilirsiniz.
+[00:15:01] Böylece her gün bedava chat GPT AP
+[00:15:04] anahtarı kullanabileceksiniz. Tamam.
+[00:15:06] Şimdi API Keys bölümüne gidiyorum ve
+[00:15:08] burada benim AP anahtarlarımı
+[00:15:10] görüyorsunuz. Hemen şuradaki butona
+[00:15:12] tıklayarak yeni bir tane oluştur
+[00:15:13] diyorum. İsimlendiriyorum. Anahtarım
+[00:15:15] geldi. Hemen kendisini kopyalıyorum.
+[00:15:17] Open AI API diye buraya yapıştırıyorum.
+[00:15:20] O zaman Epifa'yı bağladık. Chat GPT'yi
+[00:15:22] bağladık. Kaldı e-postamızı bağlamak.
+[00:15:24] Burada hemen e-posta adresimi de girdim
+[00:15:26] ki buradan mailleri göndersin ki bunun
+[00:15:28] kurulumuna birazdan geleceğim. Bir de
+[00:15:30] bütün bunları kaydettiği bir veri tabanı
+[00:15:31] istiyor. Şimdilik bununla uğraşmaya
+[00:15:33] gerek yok. Veri tabanı bağlamayacağım.
+[00:15:35] Sen bir veri tabanı bizim için oluştur.
+[00:15:36] Oradan ben sana soru sordukça ilgili
+[00:15:38] bilgileri bana getirirsin. Ve bunu
+[00:15:40] gönderdim. Böylece birazdan benim AP
+[00:15:42] anahtarlarımı kullanarak, benim mailimi
+[00:15:44] kullanarak bu projeyi benim için inşa
+[00:15:46] etmeye başlayacak. O yapa dursun
+[00:15:47] bilmeniz gereken bir şey var. Anti
+[00:15:49] Gravity'ye girdiğinizde Google
+[00:15:50] hesabınızla bağlanıyorsunuz. Çünkü bu
+[00:15:52] bir Google ürünü ve Google'a
+[00:15:53] bağlandığınızda tabii ki de eğer
+[00:15:55] ücretsiz Google hesabınız varsa burada
+[00:15:56] belirli bir krediniz var. Hemen buradaki
+[00:15:58] ayarlara tıklıyorum. Open antigravity
+[00:16:00] user settings diyorum. Ardından models
+[00:16:03] diyorum. Ve burada gördüğünüz gibi bizim
+[00:16:05] elimizde çeşitli modeller var. Biz az
+[00:16:07] önce Cloud'un 4.6 modelini kullanıyorduk
+[00:16:09] ve gördüğünüz gibi 5 barın ikisini
+[00:16:11] tüketmişiz ve şu anda projeyi
+[00:16:13] çalıştırmaya, kendisini kullanmaya devam
+[00:16:15] ediyoruz. Ve 3 barımız daha var. Bunlar
+[00:16:17] gittikçe azalacak ve bitecek. Fakat
+[00:16:19] tabii ki bunlar bittikten belirli bir
+[00:16:21] süre sonra burada gördüğünüz gibi
+[00:16:22] yenileniyor. Böylece tekrardan bunu
+[00:16:24] kullanabileceğim. Eğer ücretsiz
+[00:16:25] sürümdeyseniz bu çok hızlı tükenecektir.
+[00:16:27] Ücretli sürüme geçmeniz gerekebilir.
+[00:16:29] Geçtikten sonra da bunu
+[00:16:31] aktifleştirdiğinizde artık daha fazla
+[00:16:33] limitiniz olacak. ya da bir Google
+[00:16:34] hesabınızdan çıkıp diğer Google
+[00:16:36] hesabınıza geçiş yapabilirsiniz. Böyle
+[00:16:38] böyle biraz daha götürebilirsiniz. Bu da
+[00:16:40] ücretsiz kullanmanızı sağlayacaktır.
+[00:16:41] Eğer ücretliye geçersem kaç para
+[00:16:43] derseniz burada hemen paketleri
+[00:16:44] göstereyim. Gördüğünüz gibi bir 200
+[00:16:46] liralık aylık paketi var. Bir 700
+[00:16:48] liralık var ki çoğunlukla bu yeterli
+[00:16:50] oluyor. Bir de eğer benim gibi çok yoğun
+[00:16:52] kullanıyorsanız geçebileceğiniz bir
+[00:16:53] ultra paketi mevcut. Genellikle şu 700
+[00:16:55] liralık işinizi hayli hayli görecektir.
+[00:16:57] Ücretsiz de görebilir ama bazen Google
+[00:16:59] hesabından çıkarsınız yenisine
+[00:17:01] girerseniz onun kredisini kullanırsınız.
+[00:17:03] birazcık uğraşabilirsiniz. Bu arada
+[00:17:04] dönüyorum projeme. Gördüğünüz gibi
+[00:17:05] şurayı açtığımda devamlı arkada
+[00:17:07] çalıştığını, benim için kodlar yazdığını
+[00:17:09] görebiliyorum. Peki bu kodlar nerede
+[00:17:11] diyeceksiniz. Tabii ki de buradaki
+[00:17:13] dosyamızın içerisinde. Gördüğünüz gibi
+[00:17:15] artık yapay zeka projelerim dosyasının
+[00:17:17] altı boş değil. Burada müşteri bulucu
+[00:17:19] diye bir dosya açmış. Bunun içine
+[00:17:21] girdiğimde burada başka modüller
+[00:17:22] görüyorum. Bunların içine girdiğimde
+[00:17:24] burada kodlar görüyorum. Ve böyle böyle
+[00:17:26] artık dosyayı doldurmaya başlıyor. Yani
+[00:17:28] bildiğiniz bir yazılımcı gibi proje
+[00:17:30] yazıyor. E tabii ki de antigravity
+[00:17:32] ekranımın sol tarafı bunu daha kolay
+[00:17:34] görebilmek içindi. Burada yapay zeka
+[00:17:36] projelerimin altında müşteri bulucuyu
+[00:17:38] görüyorum. Açtığımda diğer detayları da
+[00:17:41] burada inceleyebiliyorum. Buraya
+[00:17:43] bakacağız mı? Çoğunlukla hayır
+[00:17:44] bakmayacağız. Çünkü buradaki kodlar
+[00:17:46] bizim umrumuzda değil. Mesela
+[00:17:47] tıkladığımda burada hepsini ziyaret
+[00:17:49] edebiliyorum. İçini görebiliyorum. Şu
+[00:17:51] ekranın orta kısmında. Ama biz bunlarla
+[00:17:54] muhatap olmayacağız. Bizim asıl muhatap
+[00:17:55] olduğumuz şey, biz bir proje lideriyiz.
+[00:17:58] Biz kodlama bilmiyoruz. Bizi patron gibi
+[00:18:00] düşünün ve biz yazılımcıya ne iş yapması
+[00:18:02] gerektiğini söylüyoruz. Yani onu da şu
+[00:18:05] sağ taraftaki ekrandan yapıyoruz. Şimdi
+[00:18:07] bırakalım biraz daha bekleyelim. O
+[00:18:08] burada işi icra etmeye devam etsin,
+[00:18:11] yapsın. Daha sonrasında dönüp bakalım
+[00:18:13] neler yapmış. Evet, ufak bir aradan
+[00:18:14] sonra geri geldim. Yaklaşık bir 15-20
+[00:18:16] dakika kadar antigravity çalıştı ve
+[00:18:18] burada gördüğünüz gibi benim onaylamam
+[00:18:20] gereken bir grup kod var. Yani ben
+[00:18:22] bunları onaylar onaylamaz artık bunlar
+[00:18:25] sol taraftaki proje dosyamın içerisine
+[00:18:27] eklenecek. O yüzden hemen accept all
+[00:18:29] diyoruz ve hepsini onaylıyoruz. Kendisi
+[00:18:32] diyor ki bana, "Bak ben şunları şunları
+[00:18:34] yaptım." diyor ki süper. Bunları her
+[00:18:36] zaman mutlaka okuduğunuzdan emin olun.
+[00:18:38] Daha sonrasında da benden bir şifre
+[00:18:40] istiyor. E-posta adresime bağlanabilmek
+[00:18:42] için. Daha sonrasında bunu yaptın mı
+[00:18:44] diyor. Artık projeyi başlatabilirim.
+[00:18:46] Hemen gelin Google hesabımızı
+[00:18:48] bağlayalım. Burada birden fazla mail
+[00:18:49] adresini bağlayabilirim. Fakat şöyle
+[00:18:51] güzel bir avantajım var. Anti Gravity
+[00:18:53] sizin Google hesabınıza bağlandığı için
+[00:18:55] şu sağ üstte gördüğünüz üzere direkt
+[00:18:58] anti Gravity ile bağlandığınız hesabı
+[00:19:00] kullanabilirsiniz ki bize de zaten
+[00:19:02] burada onu kastetmiş. Ben şu anda
+[00:19:04] kişisel hesabımla bağlı olduğum için
+[00:19:05] bunun üzerinden işi gerçekleştirebilirim
+[00:19:07] diyor. Hemen kendisine yapabilirsin
+[00:19:09] diyelim. Yazdım ve gönderdim. Birazcık
+[00:19:11] daha beklememiz lazım. Gördüğünüz gibi
+[00:19:13] bağlantıyı şu anda tamamladı. E-posta
+[00:19:15] gönderimi çalışıyor dedi. Geri kalan her
+[00:19:17] şeyi test etti. Bunların hepsi harika.
+[00:19:19] diyor ki artık sana düşen şey bana git
+[00:19:22] şuradan şu firmanın yetkilisini bul mail
+[00:19:24] at demek hemen gelin bir tane test
+[00:19:26] yapalım bana e-ticaret sektöründeki
+[00:19:27] dijital pazarlama yöneticilerinin
+[00:19:29] e-posta adreslerini bul ve bunlara bir
+[00:19:32] mail taslığı hazırla hatta bir tanesine
+[00:19:34] bu mail tasığını lütfen mail olarak
+[00:19:36] gönder bir görelim bakalım dedim ve
+[00:19:38] yolladım yani git artık aksiyon al dedim
+[00:19:41] yalnız burada bilmeniz gereken bir şey
+[00:19:43] var hemen bu konuşmayı şuradan
+[00:19:44] durduruyorum ve bunu alıyorum
+[00:19:46] kopyalıyorum yeni bir konuşma
+[00:19:48] başlatıyorum ve yeni konuşma üzerinden
+[00:19:50] hemen plan modunu kapatarak
+[00:19:51] gönderiyorum. Peki bunu neden yapıyorum?
+[00:19:53] Biliyorsunuz yapay zekayla
+[00:19:54] konuştuğunuzda bir süre sonra unutmaya
+[00:19:56] başlıyor ve konuyu karıştırmaya
+[00:19:57] başlıyor. Bunun sebebi onun bir hafızası
+[00:19:59] var ve biz bunu yavaş yavaş
+[00:20:01] dolduruyoruz. O yüzden yeni bir
+[00:20:03] konuşmaya geçmek bu tür durumlarda çok
+[00:20:04] sağlıklı. Projeyi her zaman parçalara
+[00:20:07] bölün ve parça parça işlerinizi farklı
+[00:20:09] konuşmalar üzerinde gerçekleştirin.
+[00:20:11] Böylece daha sağlıklı cevaplar
+[00:20:13] alacaksınız. Gördüğünüz gibi hemen gitti
+[00:20:14] kendisi bizim projemizi buldu. Projeyi
+[00:20:17] bulduğu için araştırdı. bu proje neydi
+[00:20:19] dedi. Çünkü proje ile ilgili bütün
+[00:20:20] bilgilere burada erişebiliyor zaten. Ha
+[00:20:22] dedi, biz böyle böyle bir proje
+[00:20:24] yapıyorduk ve sen benden bir e-ticaret
+[00:20:26] sektöründeki dijital pazarlama
+[00:20:27] yöneticilerini bulmamı istiyorsun. Süper
+[00:20:29] dedi. Konuyu anladı. Yani ben tekrardan
+[00:20:31] projeyi falan açıklamadım. Çünkü zaten o
+[00:20:33] benim proje dosyalarıma hakimti. Yani
+[00:20:35] tabiri caizse benim bilgisayarımda bir
+[00:20:37] tane dosya var. Bu dosyanın içerisindeki
+[00:20:39] her şeye erişimi var. Böylece bunun
+[00:20:41] içini açtı. Birazcık kurcaladı. Buraya
+[00:20:43] baktı, şuraya baktı ve konuyu anladı. E
+[00:20:46] şimdi gördüğünüz gibi ilgili işleri
+[00:20:48] teker teker yapıyor. Birazdan benim
+[00:20:50] mailimi kullanarak bir tane mail atacak.
+[00:20:52] Bekliyoruz. Bu arada gördüğünüz gibi
+[00:20:53] bana bir tane test mail atmış bile.
+[00:20:55] Hemen içini açıyorum ve gördüğünüz gibi
+[00:20:57] bu bir test mailidir demiş. Böylece
+[00:20:59] sistemin çalıştığından da emin olmuş. Bu
+[00:21:00] çok güzel. Şimdi gerçek bir mail
+[00:21:02] atmasını bekliyoruz. Tamam gördüğünüz
+[00:21:04] gibi yaptım diyor. Önce gittim lead
+[00:21:06] araştırdım. Yani potansiyel müşterileri
+[00:21:08] araştırdım. Ardından bir e-posta taslığı
+[00:21:10] çıkardım. Ardından bir test gönderimi
+[00:21:12] yaptım ve detaylı bir rapor hazırladım
+[00:21:14] diyor. Rapor burada. Buna tıkladığımda
+[00:21:16] bütün raporu görebiliyorum. Bildiğiniz
+[00:21:17] bir personel gibi. Ve burada mailimi de
+[00:21:20] görebiliyorum. Hemen açalım. Test maili
+[00:21:22] bu. Tabii ki de işletmenizin pazarlama
+[00:21:24] süreçlerine yapay zekayla %40'a varan
+[00:21:26] ver. Bunu bunu kendisi bulmuş. Çok
+[00:21:27] güzel. Bir de gitmiş maili yazmış. Maili
+[00:21:30] yazarken bizim hangi hizmetleri
+[00:21:31] verdiğimizden bahsetmiş. Bir de demiş ki
+[00:21:34] 15 dakikalık bir keşif görüşmesi için
+[00:21:36] uygun musunuz? Bunu cevapladığında da
+[00:21:38] artık otomatik olarak geri cevap veren
+[00:21:40] bir mekanizma da kurabilirim. Yani bu
+[00:21:42] noktadan sonra artık ben ona ne
+[00:21:44] söylersem onu yapacak. Yani projeyi
+[00:21:45] artık geliştirmek benim elimde.
+[00:21:47] Diyebilirim ki artık cevap veren
+[00:21:49] insanlara otomatik cevap atan bir
+[00:21:50] mekanizma kuralım veya bunun yerine
+[00:21:52] mailleri şöyle daha efektif
+[00:21:53] yazabilirsin. Git böyle mail yaz
+[00:21:55] diyebilirim. Ya da müşteri verisini
+[00:21:57] artık biz'dan almayalım. Örneğin Apollo
+[00:21:59] diye bir platform var. Şu anda ekranda
+[00:22:01] gördünüz. Ve burada envai çeşit müşteri
+[00:22:03] datası var. Ve gördüğünüz gibi buradan
+[00:22:05] müşteri datasını çok derin şekilde
+[00:22:06] filtreleyebiliyorum. Daha sonra bana sağ
+[00:22:09] tarafta bütün potansiyel müşterim
+[00:22:10] olabilecek kişilerin ne iş yaptığını,
+[00:22:12] ismini, e-postasını, her şeyi bana
+[00:22:14] burada veriyor. Mesela ben Apollo'dan
+[00:22:16] bir API anahtarı alabilirim ve derim ki
+[00:22:19] Anti Gravity'ye Apollo'dan bir API
+[00:22:20] aldım. Artık burada daha fazla müşteri
+[00:22:22] verisi var. Git Apollo kullanmaya başla.
+[00:22:24] Böylece 10 kat daha fazla müşteriye
+[00:22:26] ulaşabilirsin ve böyle böyle çok daha
+[00:22:28] öteye götürebilirim bunu. Böylece 1
+[00:22:30] yaşındaki anti gravity'den 5 yaşındaki
+[00:22:32] anti gravity'ye çıktık. Yani ona bir şey
+[00:22:34] yapması gerektiğini söyledik. Gittik
+[00:22:36] apıları bağladık. Böyle böyle onu
+[00:22:37] geliştirdik ve artık maili kullanıyor,
+[00:22:40] müşteri verisi çekiyor. Bazı becerilere
+[00:22:42] sahip olmaya başladı ve ben bu
+[00:22:43] becerileri tekrar tekrar ona
+[00:22:44] kazandırmayacağım. Bir kere kazandırdım
+[00:22:46] artık. Tamam. Bundan sonrasında artık bu
+[00:22:48] becerileri arttıracağım ve daha kapsamlı
+[00:22:50] projeler geliştireceğim. O yüzden gelin
+[00:22:52] şimdi 5 yaşınızdan antigravity'yi 12
+[00:22:56] yaşına daha da yukarıya çıkartmaya.
+[00:22:58] Bunun için ben zaten inanılmaz kapsamlı
+[00:23:00] bir antigravity dosyası oluşturdum.
+[00:23:01] Hemen kendi topluğuma gidiyorum. Burası
+[00:23:03] AI Factory ve burada hep beraber yapay
+[00:23:05] zeka otomasyonları üretiyoruz. Hemen
+[00:23:07] Classroom bölümüne tıklıyorum. Buradaki
+[00:23:09] eğitimlerim içerisinde anti gravity ve
+[00:23:11] cloud code eğitimi olduğunu
+[00:23:13] görebilirsiniz. Bunun içerisine hemen
+[00:23:15] giriyorum. Burada bir cloud code
+[00:23:16] antigravit eğitimi mevcut. Ve burada
+[00:23:19] antigravity'yi indirdiğimiz anda ben
+[00:23:21] öğrencilerime kendi antiravity dosyamı
+[00:23:23] da indirtiyorum. Hemen birlikte
+[00:23:24] indirelim. İndir butonuna bastım. Bir
+[00:23:26] yandan antigravity'yi artık kapatıyorum.
+[00:23:28] Şöyle dosyamıza yapay zeka projelerimin
+[00:23:30] yanına atalım. Artık bu basit dosyadan
+[00:23:32] benim oluşturduğum kapsamlı antiravity
+[00:23:34] dosyasına geçiş yapabilirim. Bunun için
+[00:23:36] anti Gravity'yi tekrardan açıyorum.
+[00:23:38] Hatırlarsanız burada boş bir dosya
+[00:23:39] seçmiştik. Bu sefer boş dosya
+[00:23:41] seçmiyorum. Kendi antigravity dosyamı
+[00:23:43] seçiyorum ve açıyorum. Ve işte sizin
+[00:23:45] onlarca personelinizin işini
+[00:23:46] yapabileceği antiravity dosyası burada
+[00:23:49] ve bilmesi gereken her şeye bütün
+[00:23:51] becerilere sahip ve benim bütün
+[00:23:53] projelerimde kullandığım bütün
+[00:23:55] beceriler, bütün kodlar buraya yüklenmiş
+[00:23:57] durumda. Ve bir de tabii ki sizi
+[00:23:59] tanıması için bir başlangıç rehberimiz
+[00:24:00] var. Peki burada neler var? Birazcık
+[00:24:02] göstereyim. Antigravit eğitiminden sonra
+[00:24:04] burada farklı otomasyonlarımızı da
+[00:24:06] görüyorsunuz. Mesela müşteri hizmetleri
+[00:24:07] veya stok analizi veya yapay zekayla
+[00:24:10] reklam videosu yapma veya diğer bütün
+[00:24:11] otomasyonlar. Bütün bunların hepsini
+[00:24:13] eğitimde anlatıyorum. Ve eğer siz bizzat
+[00:24:15] benim otomasyonlarımı kullanmak
+[00:24:16] isterseniz işte burada sahip olmanız
+[00:24:18] gereken her şey mevcut. Tek yapmanız
+[00:24:20] gereken şey bu tarafa gitmek ve bana
+[00:24:23] şunu yap demek. Hemen bir tane örnekle
+[00:24:25] göstereyim. sana yüklediğim topuklu
+[00:24:26] ayakkabı için bana bir reklam videosu
+[00:24:28] oluştur. Bana burada bir Türkçe reklam
+[00:24:31] metni oluşturdu. Bir de prompt
+[00:24:32] oluşturdu. Bunları onaylıyor musun diyor
+[00:24:34] ve nasıl bir altyapıyla nasıl bir video
+[00:24:36] üreteceğini söylüyor. Ben de diyorum ki
+[00:24:38] onaylıyorum ve gönderdim. Bakalım
+[00:24:40] videomuz gelsin. Yine biraz vakit geçti.
+[00:24:42] Geri geldim ve burada bana linki vermiş.
+[00:24:45] Hemen linki yapıştırdım ve videomu
+[00:24:47] izleyebilirim.
+[00:24:47] >> Zarafet her adımda hissedilir.
+[00:24:50] Kırmızının gücüyle kendine güvenle yürü.
+[00:24:53] Cesur, şık ve unutulmaz. Çünkü tarz
+[00:24:56] detaylarda gizlidir.
+[00:24:57] >> Şimdi videoyu yapmış ama harika bir
+[00:24:59] video yapmamış. Çünkü nasıl bir şey
+[00:25:01] istediğim hakkında hiçbir bilgi
+[00:25:02] vermedim. Şimdi vereceğim ve çok daha
+[00:25:04] iyi bir şey yapmasını sağlayacağım.
+[00:25:05] Tamam. Videoyu yapmışsın. İstediğim
+[00:25:07] olmuş. Yani hem bir video modeli
+[00:25:08] kullanmışsın hem de ses modeli kullanıp
+[00:25:10] bunları birleştirip tek bir videoya
+[00:25:11] dönüştürmüşsün. Fakat kaliteyi
+[00:25:13] beğenmedim. Bence biraz daha influencer
+[00:25:15] reklamı gibi UGC tarzında bir video
+[00:25:17] yapabileceğini düşünüyorum. Aynı zamanda
+[00:25:19] daha dinamik, sahnelerin daha sık
+[00:25:21] değiştiği, tek sahneye bağlı kalmayan
+[00:25:23] bir şey üret lütfen. Şimdi biraz daha
+[00:25:24] bekleyelim işini bitirip gelsin.
+[00:25:26] >> Kutuyu açtığın an başlıyor büyü.
+[00:25:28] Kusursuz kırmızı stiletto. Her adımda öz
+[00:25:31] >> şunun yapay zeka olup olmadığını kimse
+[00:25:33] bana söyleyemez. Ben bile anlamıyorum.
+[00:25:35] >> Güven her bakışta hayranlık. Sahip ol.
+[00:25:38] Farkını hisset.
+[00:25:42] >> Gerçekten gördüğünüz gibi çok başarılı
+[00:25:43] ve daha da bunu üst seviyeye
+[00:25:45] çıkartabiliriz. diyebilirim ki her gün
+[00:25:46] otomatik böyle videolar yap,
+[00:25:48] Instagram'da paylaş ya da bu videoyu şu
+[00:25:50] tarzda yap ya da benim web siteme git,
+[00:25:52] bütün ürünlerimi analiz et. Hepsi için
+[00:25:54] bir tane video yap. Videoları bana at.
+[00:25:57] Ben onaylarsam git her birini günde bir
+[00:25:59] kere olmak üzere sosyal medya
+[00:26:00] hesaplarında paylaş. Bunu istediğim yere
+[00:26:03] götürebilirim ve tamamen her şey benim
+[00:26:05] elimde. Sadece söylemem gerekiyor
+[00:26:07] istediğimi ve yapıyor. Fakat size gelin
+[00:26:09] bunu nasıl bu kadar iyi başardığını
+[00:26:10] söyleyeyim. Şimdi en başa döndüm. Büyü
+[00:26:12] burada. Diyebilirsiniz ki ben burada
+[00:26:14] senin antigravity dosyanı, senin kendi
+[00:26:16] dosyanı kullanmıyorum. Bende bunlar yok.
+[00:26:18] Merak etmeyin. Ne olduğunu anlattığımda
+[00:26:20] anti gravity ile konuşarak bunları yavaş
+[00:26:22] yavaş inşa etmeye başlayabilirsiniz.
+[00:26:24] Tabii ki aylarca üzerine emek harcanmış
+[00:26:26] bir dosya kadar verimli olmasa da siz de
+[00:26:28] bunu kendiniz inşa edebilirsiniz. Eğer
+[00:26:29] benim doğrudan dosyamı kullanmak
+[00:26:31] istiyorsanız topluğa gidip kayıt olup
+[00:26:33] ardından bu eğitimde dosyaya
+[00:26:34] erişebiliyorsunuz. Ben böyle bir yatırım
+[00:26:36] yapmak istemiyorum diyorsanız işte gelin
+[00:26:38] sizlere bunların mantığından bahsedeyim.
+[00:26:40] Bu mantığı anladığınızda siz de benzer
+[00:26:42] sistemler kurabiliyor olacaksınız. Şöyle
+[00:26:44] hemen bir büyütüyorum. Bütün olay şu sol
+[00:26:46] taraftaki şeyleri anlamakta. Hemen teker
+[00:26:48] teker anlatayım. Öncelikle en
+[00:26:50] önemlilerinden bir tanesi skills yani
+[00:26:52] beceriler. Yani bir şeyi yapma
+[00:26:54] becerisini burada açıklıyoruz. Örneğin
+[00:26:56] burada gördüğünüz eğitim görselleri
+[00:26:57] skill'ı sayesinde ben sizlere bu şekilde
+[00:27:00] görseller hazırlayıp bu konuyu
+[00:27:01] anlatabiliyorum. Ya da ben buradaki
+[00:27:03] fatura oluşturucu sayesinde şu müşterime
+[00:27:05] fatura kesiyorum. Gidip kendisi otomatik
+[00:27:07] kesiyor ve bana gönderiyor. Neden? Çünkü
+[00:27:09] bu bir beceri. Yani ben o beceriyi ona
+[00:27:11] kazandırdım. Neyi nasıl yapması
+[00:27:12] gerektiğini, akışları beni, hangi
+[00:27:14] markaya nasıl fatura kesmesi gerektiğini
+[00:27:16] keserken nelere dikkat etmesi
+[00:27:17] gerektiğini biliyor. O yüzden doğru bir
+[00:27:19] şekilde kesebiliyor. Veya bu video
+[00:27:22] üretebilen bir yetenek ki az önce
+[00:27:23] kullandık. Veya bu rakip analizi
+[00:27:25] yapabilen bir yetenek. Ya da benim
+[00:27:27] YouTube veya Instagram videolarımın
+[00:27:28] kapağını şu gördüğünüz şey yapıyor.
+[00:27:30] Otomatik olarak videonun içeriğine
+[00:27:31] bakıyor, kapağı oluşturuyor. Bana
+[00:27:33] gönderiyor. Ben de alıyorum onu
+[00:27:34] yüklüyorum. Yani bunların hepsi birer
+[00:27:35] yetenek. Yetenekleri oluşturduk diyelim.
+[00:27:37] E bir de bizi tanıması lazım. Çünkü kime
+[00:27:39] hizmet ediyor? Biz kimiz de bize hizmet
+[00:27:41] ediyor? Bizim markamızı, işletmemizi ya
+[00:27:44] da yaptığımız işleri kim olduğumuzu
+[00:27:46] bilmesi lazım. O yüzden bir de knowledge
+[00:27:47] var burada. Yani bilgi. Ve knowledge'in
+[00:27:50] içerisinde hem beni tanıyor. Burada
+[00:27:51] profil diye bir dosyam var. Buna
+[00:27:53] tıkladığımda burada dolunayın kim olduğu
+[00:27:55] hakkında uzun açıklamalar görüyorum.
+[00:27:56] Veya birçok durumda neyi nasıl yapması
+[00:27:58] gerektiğini burada onu açıkladığımı
+[00:28:00] görüyorum. Yani burada bir şeyi bir kere
+[00:28:01] açıklıyorum ve bir daha açıklamıyorum.
+[00:28:03] Buradaki bilgiler siz veya şirketiniz
+[00:28:05] hakkındaki her şeyi kapsıyor ve tabii ki
+[00:28:07] burada AP anahtarlarımızda mevcut.
+[00:28:09] Böylece gidip ilgili dijital araçları
+[00:28:11] kullanabiliyor. Bir de geldim agent'a.
+[00:28:13] Agent dediğiniz şey aslında bu işi
+[00:28:15] bizzat icra eden bir personel gibi
+[00:28:17] düşünün. Normalde personel nedir? Bir
+[00:28:19] aracı kullanan insandır. Mesela aşçının
+[00:28:21] mutfak aletleri vardır ve yemek yapması
+[00:28:23] beklenir. Veya editörün bazı yazılımlara
+[00:28:25] ihtiyacı vardır ki videoyu editlesin.
+[00:28:27] Peki biz ne yapıyoruz? Bunlara birer
+[00:28:29] yetenek atıyoruz. Yani benim agent'larım
+[00:28:31] var içeride. Bunları insan gibi düşünün.
+[00:28:32] Bunları yapay zeka personel gibi düşünün
+[00:28:35] ve bu agentların birer görevi var. Yani
+[00:28:37] benim bir içerik üreticim var içeride.
+[00:28:38] Bu bir personel. Benim bir müşteri
+[00:28:40] edinim için bir personelim var. Bunlar
+[00:28:42] aynı gerçek hayatta işe aldığımız aşçı
+[00:28:44] gibi, editör gibi personeller. Yapay
+[00:28:47] zeka personeller. Ve bu agentların tabii
+[00:28:49] ki de neye erişimi var? Bir knowledge
+[00:28:51] erişimi var ki beni tanısın. Bir de
+[00:28:53] skillere erişimi var. Yani bir aşçı iyi
+[00:28:56] bir yemek yapabilmesi için becerilere
+[00:28:57] ihtiyacı olduğu gibi benim buradaki
+[00:29:00] agent'ımın da yani personelimin de
+[00:29:02] buradaki becerilere ihtiyacı var ki o
+[00:29:04] işi layığıyla teslim edebilsin. E tabii
+[00:29:06] ki de bütün bu üçlüyü birleştirince çok
+[00:29:09] güçlü oluyorsunuz. Bu gücü de nerede
+[00:29:11] kullanacaksınız? Tabii ki de en
+[00:29:13] alttakinde yani projelerde yani sizin
+[00:29:15] aşçıya bugün 20 kişilik bir akşam
+[00:29:18] yemeğimiz var ya da editöre dolunayın
+[00:29:20] YouTube videosu editlenecek dediğiniz
+[00:29:22] gibi bir proje atamanız gerekiyor. İşte
+[00:29:24] bu da projeler bölümünün bir kapsamı.
+[00:29:26] Benim burada çeşitli bir sürü projem var
+[00:29:29] ve buradaki projeler benim yapay zeka
+[00:29:31] personellerim yani agentlarımın
+[00:29:33] yönettiği projeler. Bu agentların bu işi
+[00:29:35] iyi yapabilmesi için knowledge var. Yani
+[00:29:37] beni tanıyorlar, yaptığım işleri
+[00:29:39] biliyorlar ve tabii ki de skilleri var.
+[00:29:41] Yani o işi icra edebilecek becerileri
+[00:29:43] var. Örneğin internetten veri
+[00:29:44] çekebiliyorlar ya da gidip video
+[00:29:46] üretebiliyorlar ya da benim maillerimi
+[00:29:48] okuyabiliyorlar ya da benim
+[00:29:49] Instagram'ımı kullanabiliyorlar. Ve bu
+[00:29:51] gördüğünüz dörtlü yapı Agent Knowledge
+[00:29:53] Skills Projects. Bu yapı antigravity'yi
+[00:29:56] en verimli şekilde kullanmanızı sağlıyor
+[00:29:58] ve bunu bir kere öyle bir
+[00:30:00] oluşturuyorsunuz ki artık çok iyi
+[00:30:01] yetiştirilmiş bir personel gibi size hiç
+[00:30:04] soru sormadan konuyu anlıyor, işini
+[00:30:06] yapıyor, teslim ediyor ve her şey
+[00:30:08] tertemiz devam ediyor. Tamam, artık
+[00:30:10] konuyu çok iyi anladınız ve anti
+[00:30:11] gravity'yi kullanmaya hazırsınız ve
+[00:30:13] gidip bir tane prompt verebilirsiniz ama
+[00:30:15] aklınızda çok fazla farklı soru var
+[00:30:17] biliyorum. O yüzden bundan sonrasında
+[00:30:18] anti gravity'yi zaten
+[00:30:19] kullanabileceğinizi biliyorum ama daha
+[00:30:21] iyi, daha verimli kullanmanız için size
+[00:30:23] bazı harika taktikler vereceğim ve
+[00:30:25] böylece 10 kat daha hızlı anti
+[00:30:27] gravity'den verim almaya
+[00:30:28] başlayabileceksiniz. Öncelikle
+[00:30:29] modellerden başlayalım. Sağ tarafta
+[00:30:31] modelleri görüyorum. Burada kesinlikle
+[00:30:33] uzak durmam gereken bazı modeller var.
+[00:30:35] Cemini 3, Flash, Chat, GPD, OSS. Bunlar
+[00:30:38] iyi modeller değil. Benim burada
+[00:30:39] gördüğüm en iyi model. Birincisi Opus
+[00:30:41] 4.6 fakat 4.7 çıktı. Muhtemelen yakında
+[00:30:44] eklenecek ve Gemini 3.1 Pro High. Bu
+[00:30:48] ikisi elimizdeki en iyi model. Şöyle
+[00:30:50] tekrardan üzerlerini çizeyim. Şu model
+[00:30:53] ve tabii ki bu model. Fakat anti Gravity
+[00:30:56] Google'ın olduğu için size Gemini
+[00:30:58] kullanmak için daha fazla kredi veriyor.
+[00:31:00] Bu basit bir Google taktiği. O yüzden
+[00:31:02] Gemini daha fazla kullanabiliyorsunuz.
+[00:31:04] Yani ilk cloud kullanarak başlarsınız
+[00:31:06] limitiniz muhtemelen biter. Limit
+[00:31:08] bittiği için yenilenene kadar
+[00:31:10] dönersiniz. Gemini 3.1 Pro High
+[00:31:12] kullanırsınız. Böylece en iyi iki
+[00:31:14] modelle projelerinizi geliştirirsiniz.
+[00:31:16] Yani kısaca ne kadar akıllı model o
+[00:31:18] kadar iyi proje. Ve diyelim ki projeyi
+[00:31:20] oluşturmaya başladınız. Yani buraya
+[00:31:22] gerçekten iyi bir prompt verdiniz. Ne
+[00:31:24] istediğinizi açıkladınız. Bu noktada
+[00:31:26] yapmanız gereken önemli bir şey var. O
+[00:31:28] da çoğunlukla projeniz çok büyük bir
+[00:31:30] proje olabilir ve siz bunu tek bir
+[00:31:32] prompt vererek yapmaya çalışırsınız ama
+[00:31:34] yapamazsınız. Çünkü bu modellerin bir
+[00:31:36] kapasitesi var. Yani belirli bir süre
+[00:31:37] çalışıyorlar, çalışıyorlar,
+[00:31:39] çalışıyorlar. Artık hafızalarını
+[00:31:41] dolduruyorlar ve ondan sonrasını
+[00:31:43] saçmalamaya başlıyorlar. O yüzden siz bu
+[00:31:45] kadarlık bir işi bu kadar iş yapabilen
+[00:31:47] yapay zekaya veremezsiniz. Ne yapmanız
+[00:31:49] gerekiyor? Bu kadarlık işi parçalara
+[00:31:52] bölerek vermeniz gerekiyor. E peki
+[00:31:53] parçaya bölmekten kastım ne? Ne demek
+[00:31:56] istiyorum ben? Şunu demek istiyorum.
+[00:31:57] Örneğin e-postalarınızı
+[00:31:58] otomatikleştireceksiniz veya bir firma
+[00:32:00] için bunu yapacaksınız. Yani bundan
+[00:32:02] sonra bütün e-postalar otomatik
+[00:32:04] okunacak, otomatik cevaplanacak. Bütün
+[00:32:06] bir personelin işini e-posta tarafında
+[00:32:08] otomatikleştiriyorsunuz. Ne yapmanız
+[00:32:10] lazım? Adım adım ilerlemeniz lazım. Önce
+[00:32:12] bir tane chat başlatırım ben. Derim ki,
+[00:32:14] "E-postamı bağlamak istiyorum.
+[00:32:16] E-postanın bir bağlandığından emin
+[00:32:17] olalım. Bir mailleri bir gör.
+[00:32:19] Okuyabildiğinden emin olayım. Ondan
+[00:32:20] sonra bir sonraki aşamaya geçelim derim.
+[00:32:22] Ne yaparım? Aynı chat üzerinden devam
+[00:32:24] etmem. Çünkü onun hafızasını tükettim
+[00:32:26] artık. Hemen artı butonuna basıp yeni
+[00:32:29] bir chat açarım. Sıfırdan bir konuşma
+[00:32:31] başlatırım. Zaten proje dosyası burada
+[00:32:33] gidip okuyabiliyor. Geçmişe dönük bu
+[00:32:35] projede ne var ne yok biliyor. Sıfırdan
+[00:32:37] buradaki chat' ben başlarım ve ona derim
+[00:32:39] ki sen artık mailleri okuyabiliyorsun.
+[00:32:41] Bir sonraki aşamamız mailleri analiz
+[00:32:43] edebilmen. Bir analiz et bakalım doğru
+[00:32:45] ediyor musun? Sonra kötü analiz yapacak.
+[00:32:47] Düzelteceksiniz. Bak şöyle yap, böyle
+[00:32:49] yap diye. Sonrasında bir sonraki
+[00:32:50] projeniz ne? Gereksiz mailleri okundu
+[00:32:52] olarak işaretlemek mesela. O zaman ne
+[00:32:54] yapacaksınız? Yeni bir konuşma
+[00:32:56] başlatacaksınız. Ardından diyeceksiniz
+[00:32:58] ki seninle şimdi sadece gereksiz
+[00:33:00] maillerin okundu yapılacağı bir modül
+[00:33:03] tasarlıyoruz. Tek işin bu. Gerekli
+[00:33:04] olduğunu düşündüklerini geç. Onlar için
+[00:33:06] hiçbir aksiyon alma. Böylece bir aşama
+[00:33:08] daha tamamlarız. Sonra yeni bir konuşma
+[00:33:10] başlatırız. Bu sefer deriz ki gerekli
+[00:33:13] düşündüğün mailler için bundan sonra
+[00:33:14] mail yazacaksın ve bunları
+[00:33:16] göndermeyeceksin. Gerekli olan mailler
+[00:33:18] için şimdi seninle bir modül
+[00:33:19] geliştiriyoruz. mailleri şöyle şöyle
+[00:33:21] tarzda yaz ve gönder. Gönderdikten sonra
+[00:33:24] da bana her günün sonunda ben bu
+[00:33:26] mailleri gönderdim diye bir raporlama
+[00:33:28] yaptım. Böyle böyle adım adım ben bu
+[00:33:30] projeyi inşa edersem işte o zaman
+[00:33:32] gerçekten sağlıklı hale getirmiş
+[00:33:33] olacağım. Şimdi geliyorum birçoğunuzun
+[00:33:35] tıkanacağı yere. Artık antigravite
+[00:33:37] komutları vereceksiniz. Güzel projeler
+[00:33:39] oluşturacaksınız. Ama bir tane
+[00:33:41] problemimiz var ve onu aşmamız
+[00:33:42] gerekiyor. O da bu projelerin hepsi
+[00:33:44] bizim bilgisayarımızda. Biz bilgisayarı
+[00:33:47] kapattığımız anda o projeye kimse
+[00:33:48] erişemez. o proje çalışmaz. Yani şu anda
+[00:33:51] burada yapacağınız hiçbir proje 724
+[00:33:53] aktif şekilde çalışan bir proje değil
+[00:33:55] maalesef. Çünkü hatırlayalım bizim
+[00:33:57] bilgisayarımızda böyle bir dosya var. Bu
+[00:33:59] dosyanın içerisinde proje. Yani bulutta
+[00:34:02] değil herkesin erişebildiği bir yerde
+[00:34:03] değil. İnternette yayınlanmıyor. Ya da
+[00:34:05] Instagram'dan bir mesaj atıldı. Benim
+[00:34:07] bilgisayarım açık olmazsa mesaj
+[00:34:08] cevaplanmayacak. Maillerimi mi okumasını
+[00:34:11] istiyorum? Okumayacak. Bilgisayar
+[00:34:12] kapalıyken hiçbir işlevi yok. O yüzden
+[00:34:14] sizinle bir kavramı tanıştırmam
+[00:34:15] gerekiyor. Test ortamı ve yayın ortamı.
+[00:34:18] Biz bugüne kadar hep test ortamındaydık.
+[00:34:20] Yani biz mutfaktaydık. Bizi bir aşçı
+[00:34:22] gibi düşünün. Biz mutfağımızda
+[00:34:24] çalışıyorduk. Biz mutfağımızda
+[00:34:26] çalışıyorduk. Yemeği kendimiz
+[00:34:28] yapıyorduk. Kendimiz yiyorduk.
+[00:34:29] Bakıyorduk tadına. Tadını beğenmiyorduk.
+[00:34:31] Değiştiriyorduk. Yani projeyi
+[00:34:32] geliştiriyorduk. Ama o yemek hep bizim
+[00:34:33] mutfağımızdaydı. Yani dışarıdaki
+[00:34:35] insanların kullanımına kapalıydı.
+[00:34:37] Yayında değildi yani test ortamındaydı.
+[00:34:39] Ama biz yayın ortamına geçtiğimizde ne
+[00:34:42] olacak? Artık yemek düzenli olarak
+[00:34:44] servis edilecek. başka insanlar
+[00:34:45] tüketecek ve artık biz o restoranda
+[00:34:47] olmasak dahi bizim yerimize yemek o
+[00:34:50] restorana giden herkese servis edilmeye
+[00:34:52] başlanacak. Yani sistem yayınlanacak.
+[00:34:54] Gelin biraz daha örnek vereyim. Örneğin
+[00:34:56] Instagram veya WhatsApp asistanı
+[00:34:58] yaptınız. Bu asistan düzenli olarak
+[00:35:00] mesajlara cevap veriyor. Tabii ki de
+[00:35:02] bunun bir yayın ortamında olması lazım.
+[00:35:03] Böylece bilgisayarı kapattığımda da
+[00:35:05] çalışsın. Veya satış ekibiyle çalışan
+[00:35:07] bir sistem kurdunuz. Bunun yayında
+[00:35:09] olması lazım. Ya da bir web sitesi
+[00:35:10] ürettiniz antigravity ile ki benim web
+[00:35:12] sitem dolunay. Aı antigravity ile
+[00:35:14] üretildi. Ben hiçbir şey yapmadım.
+[00:35:16] Sadece bir prompt verdim ve ürettim.
+[00:35:19] Bunun insanlar tarafından ulaşılabiliyor
+[00:35:21] olması lazım. Ya da şu gün, şu zamanda,
+[00:35:23] şu tarihte düzenle, şu işi yap
+[00:35:24] diyebilirsiniz. Bunun da yine canlı
+[00:35:27] yayında olması gerekiyor. O yüzden şu
+[00:35:29] ekranda gördüğünüz sistemi
+[00:35:30] uygulayacağız. Yani öncelikle
+[00:35:32] antigravity ile konuşa konuşa projeyi
+[00:35:34] inşa edeceğiz. Bunu zaten yapmayı
+[00:35:35] öğrendiniz. Ondan sonrasında yapmamız
+[00:35:37] gereken çok basit iki adım var. Zaten
+[00:35:39] merak etmeyin. Bunu biz yapmayacağız.
+[00:35:41] Yine antigravity'i yaptıracağız. Sadece
+[00:35:43] mantığını bilmeniz yeterli. Birinci adım
+[00:35:45] antigravit'te projeyi yapmaktı. Yani şu
+[00:35:47] anda proje nerede? Bizim
+[00:35:48] bilgisayarımızın içerisinde. Tamam.
+[00:35:50] Şimdi bunu yayınlamamız lazım. Yani
+[00:35:52] bunun bir bulutta dışarıda erişilebilir
+[00:35:55] olması lazım ki bu bilgisayar
+[00:35:56] kapandığında çalışsın. O yüzden ikinci
+[00:35:58] adımı uyguluyorum. Yani bunu Github'da
+[00:36:01] yayınlıyorum. Bilmeyenler için GitHub
+[00:36:03] böyle bir yer ve kodların depolanmasını
+[00:36:04] sağlıyor ve tamamen ücretsiz. Tamam.
+[00:36:07] Artık kodlarım gitubda yani bulut
+[00:36:09] ortamında yayınlanıyor. Bu kodların bir
+[00:36:10] de çalıştırılması lazım. İşte
+[00:36:12] çalıştırılma işi için de Railway diye
+[00:36:14] bir sistem kullanacağız. O da şöyle bir
+[00:36:16] site. İlk başta ücretsiz. Aşağıdaki
+[00:36:18] linkten kayıt olduğunuzda 20 dolar size
+[00:36:20] ücretsiz kredi veriyor. Ben şu anda
+[00:36:22] aylık 5 dolar ödüyorum. O yüzden
+[00:36:24] neredeyse ücretsize yakın ama bir miktar
+[00:36:26] ücret bir noktadan sonra ödemeniz
+[00:36:28] gerekecek. Ve Railway ne yapıyor? benim
+[00:36:30] GitHub'da yayınladığım kodların
+[00:36:31] çalıştırılmasını sağlıyor ve bu ikisini
+[00:36:34] de kesinlikle biz kullanmayacağız. Anti
+[00:36:36] Gravity'ye yaptıracağız. Peki ne demek
+[00:36:38] istiyorum? Hemen göstereyim. Şimdi
+[00:36:40] dosyam önümde açık ve gitub ile
+[00:36:42] Railway'i anti Gravity'ye bağlamam
+[00:36:43] lazım. Yani bağlayacağım ve diyeceğim ki
+[00:36:46] artık ben bu işle uğraşmıyorum. Gitub'a
+[00:36:48] da erişimin var, Railway'e de erişimin
+[00:36:49] var. Git burada istediğin projeyi canlı
+[00:36:51] yayına al. Ben uğraşmak istemiyorum.
+[00:36:53] Bunun için hemen gelin bağlantıyı
+[00:36:55] yapalım. Yani bunlar tek seferlik
+[00:36:56] bağlantılar. Hemen githup.com'a
+[00:36:58] gidiyorum. Ardından ücretsiz bir şekilde
+[00:37:00] üye oluyorum. Üye olduğumda sağ üstteki
+[00:37:02] şu butona tıklıyorum ve buradan hemen
+[00:37:05] settings'e gidiyorum. Daha sonrasında
+[00:37:06] aşağı iniyorum ve burada developer
+[00:37:08] settings diye bir şey görüyorum. Buna
+[00:37:10] tıklıyorum. Buralar ezbere adımlar ve
+[00:37:11] tek seferlik adımlar. Hemen ardından
+[00:37:13] personal access token diyorum ve buradan
+[00:37:16] find great tokens'ı seçiyorum. Daha
+[00:37:18] sonra sağ üstten generate new token
+[00:37:19] diyorum. Hemen bir e-posta doğrulaması
+[00:37:21] yapalım. Doğrulamamı yaptım. Basitçe bir
+[00:37:23] isim verelim. Antiravity diyebiliriz
+[00:37:25] mesela. Aşağıya iniyorum. Ne zaman diyor
+[00:37:28] bunun süresi bitsin? Süresi bitmesin ben
+[00:37:30] bunu kullanacağım. All repositories
+[00:37:32] seçeneğini seçiyorum ve ardından buradan
+[00:37:34] izinleri ekliyorum. İzinlerden kastım
+[00:37:37] antigravity gitup üzerine ne yapabilir?
+[00:37:39] Bütün bunları işaretleyerek bütün
+[00:37:41] izinleri veriyorum.
+[00:37:47] Hepsini seçtim. Bu kısma geliyorum ve
+[00:37:49] burada sadece okuması için değil hem
+[00:37:51] okuyup hem yazması için izin veriyorum.
+[00:37:53] Yani en aşağıdakini seçiyorum. Teker
+[00:37:55] teker bu adımları yapacağım.
+[00:38:11] Ve artık generate token diyebilirim.
+[00:38:13] Gördüğünüz gibi token oluşturuldu. Bunu
+[00:38:15] hemen kopyalıyorum. Sakın kimseyle
+[00:38:17] paylaşmayın. Bu oldukça özel bir şey ve
+[00:38:18] ben bu videodan sonra sileceğim. Anti
+[00:38:20] Gravity'ye geldim. Hemen buradaki üç
+[00:38:22] noktaya basıyorum ve MCP Servers'ı
+[00:38:24] seçiyorum. Peki ne demek bu MCP? Aslında
+[00:38:26] burada gördüğünüz bütün uygulamaların
+[00:38:28] kullanımını anti gravity'ye açmak demek.
+[00:38:30] Yani ben buradan istediğim uygulamayı
+[00:38:31] seçiyorum ve anti Gravity'ye diyorum ki
+[00:38:34] ben bu uygulamaya erişebilmen için bir
+[00:38:35] token oluşturdum. Yani bir AP anahtarı.
+[00:38:38] Artık bu araca bağlanabilirsin ve
+[00:38:40] istediğin gibi kullanabilirsin. Yani
+[00:38:41] kullanıcı şifre vermek de aynı şey.
+[00:38:43] Şimdi buradan hemen gitab'ı buluyorum.
+[00:38:45] Buldum. Tıklıyorum üzerine. Gördüğünüz
+[00:38:47] gibi burada geldi ekranıma. Hemen şunu
+[00:38:49] kapatalım. Buradan configure diyorum.
+[00:38:51] Burada gördüğünüz bölüme token'ımı
+[00:38:53] yapıştırıyorum ve save diyorum. Ve
+[00:38:54] böylece bağlantı kurulmuş oluyor. Hemen
+[00:38:56] şu butona basarak tekrardan sağdaki chat
+[00:38:58] ekranımı açıyorum. Artık burayla işim
+[00:39:00] kalmadı. O yüzden artı butonuna
+[00:39:02] basabilirim. Ve döndüm geri geldim anti
+[00:39:04] Gravity pencereme. Böylece bir MCP
+[00:39:06] bağlantısı yapmış olduk. Bu da ne demek?
+[00:39:08] Artık anti Gravity'ye el kol verdik
+[00:39:10] gitsin GTA'ı kullansın diye. Şimdi sıra
+[00:39:12] geldi Railway'e. Maalesef Railway MCP
+[00:39:15] yok ama bu bir problem değil. Hemen
+[00:39:16] Railway'den de gidip bir token alalım.
+[00:39:18] Railway.com'a geldim. Bahsettiğim gibi
+[00:39:20] aşağıdaki linkten 20 dolar ücretsiz
+[00:39:22] kredi alabiliyorsunuz. Ücretsiz hesabımı
+[00:39:24] oluşturduktan sonra buradaki butona
+[00:39:26] tıkladım ve hemen account settings
+[00:39:28] dedim. Buradan tokens'ı seçtim. Hemen
+[00:39:30] yeni bir tane oluştur dedim. Ve
+[00:39:32] gördüğünüz gibi token oluşturuldu. Bunu
+[00:39:34] kopyalıyorum ve anti gravity'ye diyorum
+[00:39:36] ki railway token. Ardından gönderiyorum.
+[00:39:39] Zaten kendisi ne yapması gerektiğini çok
+[00:39:41] iyi biliyor. Böylece artık gitab'ı
+[00:39:43] bağladık. Railway şu anda antigravity
+[00:39:45] bizim yerimize bağlıyor ve herhangi bir
+[00:39:48] projeyi canlı yayına almak istediğimde
+[00:39:50] ona diyeceğim ki ben bu projeyi
+[00:39:52] geliştirdim ya. Sen bunu canlı yayına
+[00:39:54] al. Yani önce Gitup'ta daha sonra da
+[00:39:55] Railway'de yayınla ve kendisi benim
+[00:39:57] yerime bütün bunları becerebiliyor
+[00:39:59] olacak. Şu anda ekranda gördüğünüz gibi
+[00:40:01] anti graffit çalışıyor ve Railway'den
+[00:40:03] ürettiğim token'ı sağlıklı şekilde
+[00:40:05] entegre etmek için uğraşıyor. Bunu
+[00:40:06] bitirdiğinde artık railway bağlantım
+[00:40:09] tamam. Şimdi geliyorum başka bir
+[00:40:10] taktiğe. O da şu. Anti Gravity Google'ın
+[00:40:12] ürünü olduğu için sizin tarayıcınızı
+[00:40:14] kullanabiliyor ve bu efsane bir özellik.
+[00:40:16] Hemen göstereyim. Şimdi şöyle çok güzel
+[00:40:18] bir web sitesi buldum. Tasarımı
+[00:40:19] inanılmaz iyi gerçekten. Yavaş yavaş
+[00:40:21] kaydırıyorum. bir bakın. Çünkü hakikaten
+[00:40:24] şunu kopyalayabilmeyi ister miydim?
+[00:40:26] İsterdim. Ve bu mümkün. Ama bunun mümkün
+[00:40:28] olması için bunun detaylarını, her
+[00:40:31] harfini, her şeyini Anti Gravity'ye
+[00:40:33] benim gösterebilmem gerekiyor. O yüzden
+[00:40:35] buradaki linki kopyalıyorum. Gidiyorum
+[00:40:37] Anti Gravity'ye ve diyorum ki harika bir
+[00:40:39] web sitesi buldum ve bunu kendime
+[00:40:41] uyarlamak istiyorum. O yüzden lütfen
+[00:40:43] benim noge klasörüme git ve beni tanı.
+[00:40:45] Ben yeterinceyi tanıdıktan sonra şu web
+[00:40:48] sitesini incele. Tarayıcı da aç ve
+[00:40:49] kontrol et. Bütün detaylarını harfi
+[00:40:52] harfini öğrenmeni istiyorum. Tarzını
+[00:40:54] kopyalamanı istiyorum ve bana bunun gibi
+[00:40:56] bir web sitesi inşa etmeni istiyorum.
+[00:40:58] Komutumu verdim. Altına da web sitesinin
+[00:41:00] linkini yapıştırdım ve bunu
+[00:41:02] antiravity'ye gönderdim. Şimdi tarayıcı
+[00:41:05] da açıp onu incelemeye başlayacak.
+[00:41:07] Gördüğünüz gibi beni tanıdı ve burada
+[00:41:09] kim olduğumu otomatik olarak getirdi.
+[00:41:11] Şimdi beni tanıdığı için bir sonraki
+[00:41:12] aşamaya geçebilir. Evet, birazcık
+[00:41:14] bekledim ve gördüğünüz gibi burada web
+[00:41:16] sitesini tarayıcı üzerinden açmış,
+[00:41:18] incelemiş. incelerken bazı şeyleri
+[00:41:20] başarmış, bazı yerlerde de hata almış.
+[00:41:22] Ardından çalışmaya devam etmiş ve
+[00:41:24] ardından bana burada web sitesinin
+[00:41:26] linkini vermiş. Kendi oluşturduğunu
+[00:41:28] hemen geliyorum tarayıcıma. Bu benim
+[00:41:30] referans verdiğim web sitesiydi. Buradan
+[00:41:32] onun oluşturduğunu açıyorum ve
+[00:41:34] gördüğünüz gibi tasarım tarzı, şuradaki
+[00:41:37] butonların estetiği, pencereler bunun
+[00:41:40] gibi. Tabii ki de bizzat aynısı değil.
+[00:41:42] Zaten bizzat aynısını istemiyoruz. o
+[00:41:44] tarzını, minimalistliğini benzetmesini
+[00:41:46] istiyoruz. Ve bayağı bayağı sıfırdan çok
+[00:41:48] güzel bir şey yaptı. Şöyle biraz aşağı
+[00:41:51] kaydırıyorum. Randevu oluşturma bölümünü
+[00:41:52] görüyorum. Burayı tabii ki de daha
+[00:41:54] kurgulamadı ve aşağıya indiğimde sitemiz
+[00:41:57] bitiyor. Bundan sonrasında artık geriye
+[00:41:59] kalan tek şey geliştirmek ve diğer
+[00:42:01] buradaki bölümleri inşa etmek. Bunu
+[00:42:03] nasıl yapabilirim? Diyebilirim ki
+[00:42:04] kendisine buraya biraz daha bak. Buradan
+[00:42:06] daha fazla öğrenim elde et ve benim
+[00:42:08] sitemi ona göre güzelleştir. Ya da
+[00:42:10] doğrudan benim siteme git, bak ve burayı
+[00:42:12] güzelleştir. Çünkü artık tarayıcıyı
+[00:42:14] kullanabiliyor. Yani bu siteyi
+[00:42:16] görebiliyor. Görebildiği için de nelerin
+[00:42:18] eksik olduğunu anlayıp
+[00:42:19] güncelleyebilecek. Ve böylece gördüğünüz
+[00:42:21] gibi tek bir komutta web sitesi inşa
+[00:42:23] etmiş olduk. Tamam. Arayüzde birkaç şey
+[00:42:25] daha gösteriyorum. Ondan sonra
+[00:42:26] bitiriyoruz. Eğer birden fazla proje
+[00:42:28] yapıyorsanız ki bir süre sonra
+[00:42:29] antigravity çok sevip yapmaya
+[00:42:30] başlayacaksınız. O zaman şu Open Agent
+[00:42:33] Manager'ı açıyorsunuz ve burası chat
+[00:42:35] chipit ekranı gibi bir yer. Daha az
+[00:42:37] karmaşıklık var. Biraz daha tertemiz bir
+[00:42:39] arayüzü var. O yüzden buradan
+[00:42:41] istediğinizi söylüyorsunuz ve o yaparken
+[00:42:44] siz bir yandan diğer projelerinizle
+[00:42:46] burada ilgilenebiliyorsunuz. Böylece
+[00:42:47] aynı anda 34 tane konuşmayı birden
+[00:42:49] yönetebiliyorsunuz. Aslında aynı şey
+[00:42:51] şurasından hiçbir farkı yok. Fakat
+[00:42:53] birden fazla konuşmayı yönetmek için
+[00:42:55] mükemmel. Ben genellikle hep burada
+[00:42:56] takılıyorum. Bir diğer güzel özellik
+[00:42:58] bazen antiravity, PDF, Excel gibi
+[00:43:00] dosyaları güzel şekilde
+[00:43:02] görselleştiremiyor. Yani şurada çirkin
+[00:43:04] şekilde dosyayı görüyorsunuz ve bunu da
+[00:43:06] istemeyiz tabii ki de. O yüzden burada
+[00:43:09] extensions var. Extensions'a gidip
+[00:43:11] ilgili extension'ı indirebilirsiniz.
+[00:43:12] Örneğin PDF'i görüntülemek istiyorsam
+[00:43:14] PDF diye arattığımda benzer şeyler
+[00:43:17] çıkar. Ben genellikle buradan bir şey
+[00:43:18] seçmiyorum. Anti gravity'yi soruyorum. O
+[00:43:20] zaten bana şunu kullan diyor. Ondan
+[00:43:22] sonra örneğin bunu kullanacağız diyelim.
+[00:43:24] tıklayıp indirebilirim ve böylece artık
+[00:43:26] bu extension'ı yani bu uzantıyı
+[00:43:28] kullanarak daha kolaylaştırılmış bir
+[00:43:30] arayüze sahip olabilirim. Arayüzün bu
+[00:43:32] tarafında açıkçası çok da başka bilmeniz
+[00:43:34] gereken bir şey yok. Bunların hiçbirini
+[00:43:35] kullanmayacağız. Sadece buraya gidip
+[00:43:37] dosyaları burada görmeniz, içlerini
+[00:43:39] arada açıp bakabilmeniz yeterli. Bir de
+[00:43:41] extension'a ihtiyacınız varsa onu
+[00:43:43] kullanırsınız. Ek olarak başka bir şey
+[00:43:44] bilmeniz gerekmiyor. Bu tarafta da
+[00:43:46] bilmeniz gereken en önemli şey şuna
+[00:43:48] bastığınızda chat penceresi kapanır.
+[00:43:50] Tekrar bastığınızda açılır. Buradan yeni
+[00:43:52] konuşma başlatırsınız. Buradan eski
+[00:43:53] konuşmalarınızı görüntülerseniz buradan
+[00:43:55] da üç noktaya basıp MCP server deyip
+[00:43:58] MCP'leri görebilirsiniz. Bunlara bir göz
+[00:44:00] atın çünkü eğer bağlayabiliyorsanız ve
+[00:44:02] kullanıyorsanız çok işinize
+[00:44:03] yarayacaktır. Şahsen benim en faydalı
+[00:44:05] bulduğum gitub ve şirket bilgilerimi
+[00:44:07] barındırdığım CRM'imi barındırdığım
+[00:44:09] Notion ve bir de database olarak
+[00:44:11] kullandığım Supase. Ve tabii ki
+[00:44:13] Google'ın kendi bağlantısı da Google
+[00:44:14] hesabınıza giriş yapıldığınız için
+[00:44:16] otomatik geliyor.
+[00:44:19] İzlediğiniz için çok teşekkür ederim.
+[00:44:20] Eğer gerçekten sizlere faydalı
+[00:44:21] olabildiysem videoyu beğenmeniz ve güzel
+[00:44:24] bir yorum bırakmanız benim için çok
+[00:44:25] anlam ifade ediyor. Böylece gerçekten
+[00:44:27] faydalı olduğumu hissedebiliyorum. Eğer
+[00:44:29] ki bu işlerle daha derinlemesle
+[00:44:30] ilgileniyorsanız hem bütün anti gravity
+[00:44:32] projelerimi olduğu gibi verdiğim, hem bu
+[00:44:34] işi sizlere anlattığım, öğrettiğim hem
+[00:44:36] de birebir sizlere destek olduğum hatta
+[00:44:38] canlı yayınlarda doğaşlama otomasyon
+[00:44:40] yaptığım bir topluluğum var. Adı AI
+[00:44:41] Factory ve aşağıdaki linkten oraya
+[00:44:43] erişebilirsiniz. Benden bizzat destek
+[00:44:45] alabilirsiniz. Görüşmek üzere. Yeah.

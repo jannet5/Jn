@@ -1,0 +1,632 @@
+# I Made Claude Code and Codex Build the Same App (RAW RESULTS)
+# https://www.youtube.com/watch?v=_GAc6SFoQ9k
+# kanal: Mansel Scheffel | süre: 2336 sn | kaynak: yt-dlp:ios:_GAc6SFoQ9k.en.json3
+
+[00:00:00] I gave the exact same prompt to Claude and Codex. Build me a full stack app
+[00:00:03] from scratch, Superbase backend, fire crawl scraping, deployed live on Vercel.
+[00:00:07] >> [music] >> Just here's what I want, now go and
+[00:00:08] build it. Then I had Gemini judge both codebases to decide who won. This is
+[00:00:13] Claude versus Codex head-to-head [music] and the results are pretty hilarious. So
+[00:00:17] let's get into it. Seriously though, this thing on the
+[00:00:20] right is disgusting. I'm not sure how something can produce something with a
+[00:00:25] font and spacing that looks like this in 2026. I mean, obviously this one on the
+[00:00:30] left isn't production ready or going to win any awards for beauty, but it's
+[00:00:34] certainly a lot better than what's on the right here. Alrighty, so I think the
+[00:00:37] best way to do this test is to give them the exact same prompt, but give little
+[00:00:42] room for interpretation so these things can think a little bit for themselves.
+[00:00:45] There are a few more constraints though. One being that they're both can be
+[00:00:48] running off of the same framework, which is inside our Claude.md and this is my
+[00:00:52] gotcha framework, which we'll get into shortly. And then inside our goals
+[00:00:55] folder over here, we also have a build app.md which has the Atlas framework
+[00:01:00] inside and that is a very specific framework for building apps. And we'll
+[00:01:03] go into those while these things are building, but for now just know that
+[00:01:06] they're all going to be running in a completely fresh environment each of
+[00:01:08] them. They've both just initialized it based on their respective files and they
+[00:01:13] have the same prompt locked in. So we're going to run this. I'm going to leave
+[00:01:16] most of the things up to interpretation and we're going to see the result that
+[00:01:19] we get and just how well these things can function without any of my inputs
+[00:01:23] and obviously if they need my input, we will go and inspect that to see when and
+[00:01:27] where they go wrong. So a quick overview of what we're all building. We're going
+[00:01:30] to be building a competitive intelligence app called Rival. A user
+[00:01:33] pastes in a company URL and the app scrapes that company plus its top
+[00:01:37] competitors, then displays a full competitive teardown dashboard. This
+[00:01:41] kind of analysis would normally cost 10K from a consultant. Then I just tell it
+[00:01:45] that it needs to use my Atlas framework so read goals/build app. Inside there we
+[00:01:50] talk about Atlas. Then I give it some clues on the required stack that I want
+[00:01:54] and I'm mentioning this specifically because I want to see how well it
+[00:01:56] integrates with the MCP servers and does everything that it needs to do. So,
+[00:02:00] we're using Superbase for authentication. We're going to be doing
+[00:02:04] web scraping with Firecrawl, and the deployment is straight into Vercel, and
+[00:02:07] all of this is going to be by MCP. The front-end framework, this is where I'm
+[00:02:11] giving them a little bit of freedom, so they can pick whatever it will produce
+[00:02:13] the best result. We talk about some core features over here. I'm not going to go
+[00:02:17] too much into that. And we explicitly tell them that this
+[00:02:21] thing needs to have AI in there, obviously, for the analysis and things
+[00:02:23] like that. Then, I give them just a very brief list of requirements. So, the app
+[00:02:26] must be deployed and live on Vercel when you're done. Superbase must handle all
+[00:02:30] data persistence and authentication, and a few other things in here. One thing
+[00:02:35] that I thought would be really important is that it must create its own instance
+[00:02:39] of the Superbase project and the Vercel project. And I did that because I
+[00:02:42] figured maybe one of these might finish a step sooner than the other one. And if
+[00:02:47] it did that, then the other one might think, "Oh, hey, there's something in
+[00:02:49] here. I can just go ahead and use this." And that might screw things up for this
+[00:02:52] competition. So, other than that, I think we're ready to
+[00:02:56] go here. I was going to measure time on this, but I think they're probably going
+[00:02:59] to run into a little mistake here and there. But, we'll find out. So, straight
+[00:03:02] out of the batch, here we can see them in their planning process. This is
+[00:03:05] obviously Codex 5.3 on the right, and on the left, we have Opus 4.6. So, this
+[00:03:10] thing is already asking us questions. Who's the primary end user for Rival in
+[00:03:14] the first version? Let's just say founders.
+[00:03:18] Which LLM source should power the analysis pipeline? So, there we go. It
+[00:03:22] asked. And, you know, I was talking to one of the AIs earlier, and it was like,
+[00:03:26] "I bet OpenAI is going to recommend an OpenAI project." So, anyway, I'll go
+[00:03:30] with this. I'm happy to go with its recommendations. For free tier
+[00:03:34] operation, which run profile should be default? Let's just use balanced. How
+[00:03:39] should competitors selection work in V1? It's recommending fully automatic, so
+[00:03:43] again, I'll go with its recommendation here, because I want this thing to
+[00:03:46] supposedly tell me the best version of that this app that we can possibly get
+[00:03:49] out of it. What authentication UX should we launch
+[00:03:53] with? Email magic link as the recommended approach. Okay, we can try
+[00:03:57] that. I would have maybe gone with Google Auth
+[00:03:59] depending on how big the app is going to be. How should saved analysis be
+[00:04:03] accessible? Private per user, definitely.
+[00:04:06] So, it's interesting that it's asked so many clarifying questions up front,
+[00:04:10] whereas Claude hasn't asked a single thing yet.
+[00:04:13] But, we'll see what its planning is like.
+[00:04:15] What default usage cap should we enforce per user to stay in free tiers?
+[00:04:21] Okay, if that's what you recommend. Which visual direction should the
+[00:04:24] dashboard follow? Bold editorial, enterprise clean, or
+[00:04:28] playful startup? Let's go with playful. Which seed company should we use for
+[00:04:34] smoke testing and first demo run? Um fine. Okay, we'll use linear. I don't
+[00:04:39] really care. Wow, this thing is still just kind of
+[00:04:43] planning. And it's looking at the Vercel
+[00:04:46] documentation, which is interesting. So, I'm guessing it's trying to figure out
+[00:04:49] how to actually deploy directly to Vercel.
+[00:04:52] Which front end framework should I lock for implementation? I'll take your
+[00:04:55] recommendation. How should we handle repeated analysis
+[00:04:58] for the same target domain? 24-hour cache, that makes sense.
+[00:05:03] Which OpenAI model profile should be the default analyzer? 4.1 mini?
+[00:05:08] Really? I mean, maybe, but jeez, that's going to
+[00:05:12] be retired soon, surely. So, I mean So, I mean, if it's
+[00:05:17] recommending that again, I'm going to choose what this thing recommends
+[00:05:19] because otherwise it's kind of cheating. I don't want to steer it too much.
+[00:05:23] I guess it's not overly complex to just kind of sort through information,
+[00:05:27] but one would think that if it's doing some kind of sentiment analysis or any
+[00:05:31] deeper research, you might want a different model, but
+[00:05:34] maybe it's trying to balance costs, and I think we actually read over here one
+[00:05:37] final cost quality decision, model tier for the analysis engine.
+[00:05:40] Again, we'll see if it gets away with it. And coming in first place here, we
+[00:05:44] have Codex, which has its full plan and actually
+[00:05:47] asked a ton of questions up front that were pretty good to get more of a user
+[00:05:51] experience or workflow out of this thing.
+[00:05:54] So, let's expand the plan a little bit. Not going to read through the whole
+[00:05:57] thing cuz it's pretty in-depth. So, V1
+[00:06:01] implementation plan summary. Rival will be a Next.js 15 app deployed on Vercel
+[00:06:05] using Superbase for auth, data, real time,
+[00:06:08] and Superbase edge function for orchestration. Awesome. So, that's the
+[00:06:11] choice I would have made. A user submits one URL, Rival auto
+[00:06:16] discovers three direct competitors, configurable up to five, scrapes target
+[00:06:21] and competitors with Firecrawl, runs structured analysis using GPT-4.1 mini,
+[00:06:26] and and renders a live updating dashboard with history.
+[00:06:29] That's awesome. So, then it talks about the plan here,
+[00:06:32] and you can see this is where it's starting to go through my Atlas
+[00:06:34] framework, which we will go through very soon while these things are building.
+[00:06:38] So, the first phase is to architect, and it gives us our full app brief, problem,
+[00:06:42] users, success, constraints. Although, this isn't as in-depth as most
+[00:06:47] of my builds are with Claude, but we'll see what it does this time round.
+[00:06:50] Next up, we have trace, and this is where it goes through the data schema
+[00:06:53] and figures out all the moving parts from that end. So, you can see here
+[00:06:56] Superbase, and then it lists all the different schemas in here.
+[00:07:00] We have an integrations map. Superbase, Firecrawl, OpenAI.
+[00:07:05] Okay, that all looks pretty good, and we've got some free tier controls in
+[00:07:08] here. Then next up, we have link, and this is
+[00:07:11] where we check that everything is actually working before we go ahead and
+[00:07:13] build. So, we can see all of the moving parts over here. And we'll go and check
+[00:07:16] this before it just randomly builds the entire system and then has to figure
+[00:07:20] this out after it's built something. Then we have the assemble part, and this
+[00:07:24] should be layer-by-layer. So, hopefully it's done that.
+[00:07:27] Initialize app structure, implement Superbase schema, implement edge
+[00:07:30] orchestration. Yes, so it's doing it piece by piece rather than just trying
+[00:07:33] to one-shot something super amazing. It's going to take our layered approach.
+[00:07:37] And then finally, stress test. So, it's going to be doing functional tests,
+[00:07:41] and integration tests, and any edge case tests. Great.
+[00:07:45] Then we have validate, which is the security and the correctness. So, we
+[00:07:47] obviously have to bake this in because if we don't have any security protocols
+[00:07:50] on there, or if we don't do any security checks as a part of our app development,
+[00:07:54] it's not a very good app, is it? Now, realistically, there's only so many
+[00:07:57] tests that this thing can run. And obviously, if we have real users,
+[00:08:01] they'll be doing user acceptance testing and a whole much deeper form of testing.
+[00:08:05] But this thing just does what it can up front. Then last up, monitor, where we
+[00:08:08] have some operational telemetry. So, persist stage timings and failure
+[00:08:12] reasons in analysis events, track run duration. There are lots of paths that
+[00:08:16] could have taken here to monitor this stuff because both Superbase and Vercel
+[00:08:19] have some form of observability in them. We could also have used Helicone or
+[00:08:22] something like that for the Open AI agents and various other things we could
+[00:08:26] have done locally as well. But it didn't suggest any of those. To be honest, we
+[00:08:30] weren't really that specific on that front. It's just pulling this out of my
+[00:08:32] framework because my Atlas framework basically cements this in that we need
+[00:08:36] to do this sort of thing. So, that's a pretty cool plan. We're
+[00:08:39] going to go ahead and implement this very soon. I just want to have a look at
+[00:08:41] the questions that Claude is asking me over here.
+[00:08:44] And it looks like the first question this thing is asking me is if I have an
+[00:08:47] API key for Anthropic because it needs it for the edge function. So, it looks
+[00:08:51] like both of them have chosen a Superbase edge function for the AI,
+[00:08:54] which would probably be the right move. Edge functions are probably the best way
+[00:08:58] to do this kind of thing. So, I'm going to say yes, I have one, and I'll provide
+[00:09:02] this off screen to the AI when it asks for it. It did also offer GPT-4o as a
+[00:09:07] secondary option. But more interestingly here is that this
+[00:09:11] thing didn't ask me a single question apart from the API key. So, it's taken
+[00:09:15] the entire build into its own hands without asking any clarifying questions
+[00:09:18] and things like that, which is a very interesting approach. Let's have a look
+[00:09:21] at what its plan looks like. So, problem getting competitive intelligence today
+[00:09:25] requires hours of manual research across competitor websites or paying 10K for a
+[00:09:29] consultant. Rival automates this. Paste URL, get a whole competitive teardown in
+[00:09:33] under 90 seconds. Then it goes straight into Atlas. So,
+[00:09:36] architect, Talk about the problem, the user success, and constraints. So,
+[00:09:40] again, fairly similar to OpenAI's if we come and have a look over here.
+[00:09:45] Same four bullet points, so it's kind of aligned with mine. Put this in a table
+[00:09:48] for trace, which is just easier to read, I suppose, for us. So, layer, the choice
+[00:09:52] that it made, and why it made it. This one didn't do that, so that's also
+[00:09:56] really interesting. So, the front end it chose Next.js 14
+[00:10:00] plus, and it's chose that because it's native Vercel deploy.
+[00:10:05] And styling Tailwind CSS. Okay, okay, okay.
+[00:10:08] The AI analysis, Anthropic Claude Haiku 4.5, cheapest Claude model. Yeah, sure,
+[00:10:14] that makes sense, and it's fast. And I'm pretty sure this thing is going
+[00:10:18] to outperform what OpenAI recommended, but we'll find out very soon.
+[00:10:22] Long-running pipeline Supabase Edge Function, 150 seconds wait time versus
+[00:10:27] Vercel's 10-second limit. I wonder if it actually did research into that to make
+[00:10:31] sure that that's accurate. Key architecture decision, Supabase Edge
+[00:10:34] Functions orchestration. And it chose that because the Vercel Hobby plan has a
+[00:10:38] 10-second function timeout, far too short.
+[00:10:41] Okay, cool. And then we got database schema, so migration 1, 2, and 3, and 4.
+[00:10:47] Integrations map. All looking good. Atlas phase link
+[00:10:52] connection validation. Assembling everything. So, it prints a a very
+[00:10:56] different plan for assemble. If we look at assemble over here,
+[00:11:01] just the structure is very different. It This one didn't give us a breakdown of
+[00:11:04] everything. Cool. So, I'm going to approve both of these plans, and I'm
+[00:11:07] also going to add the API key off-screen so that this thing doesn't run into any
+[00:11:10] problems. And while those things are building, I'm going to give you guys a
+[00:11:13] very quick overview of the system. I've gone massively in-depth in other videos,
+[00:11:16] so you can check that out if you want long form. I'm just going to give you
+[00:11:19] some context as to how the system handbook works, how our build app
+[00:11:22] framework works, and then I'll show you how to set all of this up manually, and
+[00:11:26] how you can integrate it in your environment so you can then just go away
+[00:11:28] and get this thing to build anything that you want, really. So, firstly, we
+[00:11:32] have Claude.md. You can change this to any file name you want. Both Claude and
+[00:11:36] Codex are using this right now. If you're switching to Codex, all you do is
+[00:11:40] change this to agents.md, and it will do the exact same thing. So, we have the
+[00:11:44] Gotcha framework here. It's a six-layer architecture.
+[00:11:47] And this just governs everything inside VS Code or Anti-Gravity, whatever you're
+[00:11:50] using. So, we have our goals, and this is what needs to happen. So, you can see
+[00:11:55] here one of our goals that comes standard is to build an app. We'll get
+[00:11:58] into those very shortly. Then we have the orchestration layer, which is the
+[00:12:01] manager, and this is the thing that governs everything inside our
+[00:12:04] environment. Then we have tools, and these are deterministic scripts that
+[00:12:07] will do the job each time in the exact same way. The reason that we have this
+[00:12:12] three-letter acronym over here is because AI is probabilistic. So, one day
+[00:12:15] you might get something like this out of it, and the other day it might do
+[00:12:18] something completely different based on the exact same input. So, we stop that
+[00:12:21] happening by giving it deterministic tools, and those two things work
+[00:12:25] together in order to have the probabilistic nature of AI, but we have
+[00:12:29] that determinism for business logic systems that we're building.
+[00:12:33] Cool, but we can take it much further than that. So, then we have context,
+[00:12:37] because obviously you have a business or system or anything that you're building,
+[00:12:40] it has context behind it, and the AI can use that context as part of whatever it
+[00:12:44] is that it's building. So, for instance, in inside my folder, I have everything
+[00:12:48] to do with my life, my business, my content, and this environment here can
+[00:12:52] just pull that out for me. It's really useful if you're building specific
+[00:12:55] things where you need that context. Then we have prompts, and all that is is
+[00:12:59] literally a prompts folder with reusable prompts that we stash there so we can
+[00:13:03] use them for regression testing outside of a Python script, or we can use them
+[00:13:07] in other systems in a whole bunch of different scripts and things like that.
+[00:13:10] And then finally, we have arguments, which are just variables, and they go in
+[00:13:13] at run time for specific things that change during run time as opposed to
+[00:13:17] having to change them from a script every single time we run them. So again,
+[00:13:21] just know that this thing kind of governs our entire system, and there's a
+[00:13:24] whole bunch more that goes in here. We've got guardrails, big ten, and
+[00:13:28] again, you can check out the full length video if you really want to understand
+[00:13:30] how this file works. Just know that it governs everything within our
+[00:13:33] environment, and that's the important part here.
+[00:13:35] But then more importantly, when we're trying to build, we don't just want to
+[00:13:38] yellow our way into every single build. We want to give it some structure, some
+[00:13:41] best practices structure. And that's where Atlas comes in. So, this is a
+[00:13:44] five-step process for when I'm building MVPs, and it becomes a seven-step
+[00:13:48] process if I'm building something closer to production.
+[00:13:51] So, the first step that we have here is architect. This is where we define the
+[00:13:55] problem, the users, what success looks like because in context engineering, you
+[00:13:59] need to have an understanding of what good looks like.
+[00:14:02] If you don't have that, the system couldn't possibly know where to take
+[00:14:04] you. This is arguably the most important step in the entire process because the
+[00:14:08] more specific you are and the more planning you do up front, the less work
+[00:14:12] you're going to have to do later on. Next up, we have trace, and this is
+[00:14:15] where we define the data schema, the integrations map, your tech stack, and
+[00:14:18] things like that. You would want to feed as many ideas of the tools that you're
+[00:14:21] going to be using up front. And again, you can work with the AI beforehand to
+[00:14:25] figure this stuff out. It's not like I walk in there for every single build
+[00:14:28] that I'm doing like, yes, I want to do this. I know exactly what I'm doing. No,
+[00:14:32] you can think with the AI to fill all of this stuff in for you.
+[00:14:36] Then next up, we have link, and that's just where we validate all the
+[00:14:38] connections, and then we have assemble, and that's where we build our layered
+[00:14:41] architecture step by step. Start with basic functionality, and you move upward
+[00:14:46] rather than trying to just shoot for the moon and have to fix a bunch of
+[00:14:49] later on. And then we have stress test. It's very
+[00:14:51] important to test the functionality, the error handling before we actually do
+[00:14:55] anything. Then finally, bake in security and some
+[00:14:58] monitoring because those are vital for any real app up there. So again, that's
+[00:15:01] just these files at a very high level. Check out the deep dive on the screen
+[00:15:05] now. But what I'm going to do is you can grab these files in the description
+[00:15:08] below, and you can use them as your framework to build whatever you want.
+[00:15:11] I'm going to show you how to set those up. Cool. So, all you would have to do
+[00:15:14] to get started is drag these into VS Code. This is all part of the full
+[00:15:17] tutorial video that I just mentioned a few seconds ago. So, I'm not going to go
+[00:15:21] fully into the weeds with this because again, that will show you how to do all
+[00:15:23] of this. So, I got my little Claude chat here,
+[00:15:26] and I'm just going to say, "Initialize this environment." And then, what it's
+[00:15:29] going to do is it's going to go ahead and read its claude.md. It's going to
+[00:15:32] understand what the system handbook is, and it should build out our structure
+[00:15:35] exactly as we want it. So, I'm going to bypass permissions.
+[00:15:38] We can see there it's already gotten started, and you can see how it's
+[00:15:42] starting to build out our tools. We've got our context folder. We've got our
+[00:15:45] goals, which was already there, but it should add a manifest very, very soon.
+[00:15:49] We've also baked in memory, so that was an addition that I made in that other
+[00:15:52] video that I keep referencing. Where we're trying to bake in memory of
+[00:15:55] this, just like Claude bot had, but but this is obviously way more secure. While
+[00:15:59] our other environment is initializing, let's check in on our builds. So, this
+[00:16:02] thing is just over halfway. That's Claude.
+[00:16:05] And over here, it doesn't really have a to-do list. It just seems to be kind of
+[00:16:09] quirky away in the background. We'll flip back to this in a second. And
+[00:16:12] there we go, this thing's done a few seconds later. So, you can see it's now
+[00:16:15] set up our entire environment over here with our memory system and the manifests
+[00:16:19] that we need for our apps. And look at that. One of them is
+[00:16:24] finished, and one of them is asking me a question and kind of failed, but not
+[00:16:28] really a failure, I guess, at the end of the day.
+[00:16:30] So, we'll go into what it built very shortly.
+[00:16:33] But on the right-hand side here, Superbase reports that creating a new
+[00:16:36] project will cost $0 monthly. Please confirm you understand that and want me
+[00:16:40] to proceed. I absolutely do. Continue. That's fine.
+[00:16:46] $0 $0. Meanwhile, we can come over here and
+[00:16:50] have a look. Rival is live. What was built? The database Superbase project
+[00:16:54] Rival with three tables. The back end, Superbase Edge function
+[00:16:58] analyze company V2 with full scrape and AI pipeline. The front end, Next.js 16
+[00:17:03] plus Tailwind. Authentication is email password via
+[00:17:07] Superbase. So, Codex recommended the passwordless
+[00:17:11] via magic link. And this one recommended the traditional
+[00:17:15] email password. At the very least, I would have added
+[00:17:18] Gmail. I mean, come on. Deployment to the cell production. Yes,
+[00:17:22] this is exactly what we told it. And we'll come and open this up very,
+[00:17:26] very soon. I just want to see what this thing is saying on the right-hand side
+[00:17:29] here. Superbase project creation is blocked by
+[00:17:32] your account's free tier limit. Ah.
+[00:17:35] That's interesting. So, it's blocked because I've reached the max active free
+[00:17:39] projects, which is two. All righty, I just deleted one, so let's
+[00:17:42] tell it. I just deleted one of the older
+[00:17:45] projects, so you can go ahead and create it now.
+[00:17:48] And we'll let that thing go off to the races. We'll come back and reveal these
+[00:17:51] when the other one is done. Okay, and this thing is still chugging
+[00:17:55] along here a little bit. Having a bit of trouble with Superbase
+[00:17:58] or doing something very, very in-depth compared to whatever Claude did.
+[00:18:02] Another question. Do you want me to deploy Rival to the cell production now
+[00:18:06] with the required Superbase environment variables? I absolutely do. I wonder if
+[00:18:10] this thing's going to run at all in the left
+[00:18:13] because it literally asked me nothing. So, so far, already off the bat,
+[00:18:17] I think Codex is superior in terms of asking user clarification and
+[00:18:22] functionality up front. Claude just kind of says, I know what's best and nobody
+[00:18:26] cares about what the user wants. And then literally built the entire
+[00:18:30] thing without asking me a single question about it apart from the API
+[00:18:33] key. So, it'll be interesting to see if its
+[00:18:36] intelligence {slash} arrogance actually amounts to something over Codex's
+[00:18:40] ability. All righty, we got some more things
+[00:18:43] going on here. Production deploy started successfully.
+[00:18:46] The URL has been issued. Vercel blocked production because Next.js 15.2.4 is
+[00:18:52] vulnerable. I'm upgrading to a patched Next.js line now. I wonder if this thing
+[00:18:56] ran into the same version or if it automatically just went for Next.js
+[00:19:00] for Next.js 16. That'll be interesting to figure out, but this thing seems to
+[00:19:04] be healing itself and just carrying on with life.
+[00:19:07] And more questions here. Do you want me to install Next.js 16.1.6? Oh my god,
+[00:19:12] yes, just do it. And this thing is still chugging away.
+[00:19:16] Ask me another question about security, whether it should expose
+[00:19:20] the public URL, and another one. Do you want me to verify the deployed API
+[00:19:24] health? And yes, just do everything. So, this thing is very needy, but I
+[00:19:29] think they're doing it to bake in more security for people who are less
+[00:19:32] security conscious. So, they might stop, think about this, and then maybe ask
+[00:19:36] this thing, or you know, Google it to see what the consequences might be. I'm
+[00:19:39] not sure if that's intention. Do you want me to verify the deployed
+[00:19:42] run analysis? Yes, do it. So, that's quite frustrating, and I'm
+[00:19:47] sure you can bypass it. You probably just need to update your settings
+[00:19:51] somewhere inside here to completely disable any form of it asking you
+[00:19:54] anything. Claude just made that a lot easier by having a bypass permissions
+[00:19:58] button over here. Oh my god, I think it's finished, and I
+[00:20:01] have aged significantly. Implemented end-to-end rival V1 in this
+[00:20:06] workspace, and deployed it live. Cloud resources created.
+[00:20:11] Okay, that's fantastic. So, it looks like it built a bunch of stuff.
+[00:20:14] Cool. So, let's get this thing going then. We need one manual step. Both of
+[00:20:18] them recognized it, but Codex had a difference here, in the sense that it
+[00:20:22] needs to add the Superbase Edge Function secrets in the project. Wants me to do
+[00:20:26] that manually. This thing does not mention that. So, that's really
+[00:20:28] interesting, but we can easily go and do that. And
+[00:20:31] then, both of them identified that we need to change the URL inside the auth.
+[00:20:36] So, I'm going to do that off-screen, and then we'll jump back when it's ready.
+[00:20:38] Okay, so Codex is still stuck in some kind of
+[00:20:42] test verification loop, and as you can see, I'm just asking it politely why
+[00:20:47] it's taking so long to do all of this stuff, when Claude finished ages ago.
+[00:20:51] It's now literally been 2 hours, and I'm still sitting here. I've been sitting
+[00:20:55] silently, waiting, hoping, and even praying, which goes against every part
+[00:21:00] of my being. And we still haven't finished. I think it is broken. I think
+[00:21:04] I've officially broken Codex, or run out of something. We still have context,
+[00:21:09] quite a few tokens, but obviously it can compact it if it ran into any kind of
+[00:21:13] problem. I definitely still have credit. I checked that as well.
+[00:21:17] So, I'm really not sure what's going on at this point. But, we're going to check
+[00:21:19] Vercel and let's have a look at what's going on inside our console. So,
+[00:21:25] Codex rival, this is the Codex one. Up. It's rebuilding.
+[00:21:31] Okay, so at least it is doing something. It's been building for 7 seconds.
+[00:21:36] So, let's leave that one alone then. Okay, so Codex finally deployed it.
+[00:21:41] But, as you can see, there's an error. So, that's not a good start.
+[00:21:46] So, this is actually terrible. And we're going to reveal which one is which very
+[00:21:51] soon. So, what we did for testing here is we have a third-party involved
+[00:21:55] because it's not just me. I'm not just going to judge this aesthetically and
+[00:21:59] presume that the back end is all hunky-dory. What we're actually doing
+[00:22:02] here is we're going to judge this. We're going to test this ourselves. But, then
+[00:22:05] I've also been using Gemini Pro 3 and it's busy looking at the back end and at
+[00:22:11] our front end code to do an assessment for both of those to give its own
+[00:22:15] judgment on who it thinks is superior at what. So, let's do some basic tests and
+[00:22:19] then we're going to flip over to Gemini and see what it thinks of this thing's
+[00:22:22] building capabilities. Seriously though, this thing on the
+[00:22:25] right is disgusting. I'm not sure how something can produce something with a
+[00:22:30] font and spacing that looks like this in 2026. I mean, obviously this one on the
+[00:22:35] left isn't production ready or going to win any
+[00:22:38] awards for beauty, but it's certainly a lot better than what's on the right
+[00:22:41] here. But, I'm not going to be that negative.
+[00:22:43] Let's test functionality. So, why don't we just do
+[00:22:47] Let's do clickup.clickup.com.
+[00:22:51] Maybe if I could spell, clickup.com. And then we'll just copy and paste this
+[00:22:55] in here. So, if either of these work first shot,
+[00:23:00] I will be massively impressed. Cuz remember this was a one shot.
+[00:23:04] Ah, okay. So, this one wants me to sign up first before we're allowed to do
+[00:23:07] anything. So, I've signed up to the left-hand one. Let's see if this has the
+[00:23:10] same functionality. Run tear down. Sign in. Yes, so this won't let me do
+[00:23:15] anything without signing in either. But this one has a magic link. So, let's
+[00:23:18] test the magic link and see if that works.
+[00:23:21] Whoop, you're losing points there, buddy. Doesn't work.
+[00:23:24] Let's try refreshing the page and try again.
+[00:23:28] Nope, that's still not working. So, straight off the bat it failed
+[00:23:32] immediately for the second time trying to do its thing.
+[00:23:36] Which obviously isn't very good. So, I'm going to fix this off screen and we'll
+[00:23:39] try logging in again. Okay, so it fixed that problem. I'm going to enter my
+[00:23:43] email in here and sign up off screen again. Okay, so one of them is running
+[00:23:47] on the right and let's do the other one on the left. If these work, honestly
+[00:23:50] I'll be amazed. If I had to guess which one is going to
+[00:23:54] work, I would probably say none of them, but maybe the one on the left-hand side.
+[00:23:59] Let's find out. There we go. We already failed on the
+[00:24:02] right-hand side. Edge function returned a non-2XX status
+[00:24:07] code. So, this is super generic. It's just
+[00:24:10] saying a non-2XX. So, it's looking like 200 is normally okay.
+[00:24:15] It doesn't even give us a proper error code. So, we're going to have to go and
+[00:24:18] scrape through the back to see if we can find anything here.
+[00:24:21] And at this point it looks like they're both broken. Just as I thought, neither
+[00:24:24] of them would work. So, left-hand side we've got Claude, which at least looks
+[00:24:28] better and then the right-hand side we have Codex, which took hours and hours
+[00:24:32] to do absolutely nothing. Terrible and broken.
+[00:24:36] But we'll fix this in the background. For now, let's flick on over to our
+[00:24:39] anti-gravity and have a look at what this thing when thinks who's the winner.
+[00:24:43] So, first up I reviewed the security and architecture for the back end, cuz
+[00:24:47] obviously it's completely separate. So, the clear winner here was actually
+[00:24:51] Codex, if you can believe that. So, the winner is Rival 2026, which is
+[00:24:56] our Codex build. The newer project demonstrates a significantly more mature
+[00:25:00] and robust security architecture. It implements comprehensive row level
+[00:25:04] security which is pretty basic and also very important.
+[00:25:08] CRUD operations includes immutable ordered logging and utilizes performance
+[00:25:11] optimized authorization patterns. Lots and lots of words.
+[00:25:16] You can see this is a tie. This is probably the most basic thing that your
+[00:25:19] database should have enabled for security. So, it was a tie. No brainer
+[00:25:23] there. But this thing says that Codex is the
+[00:25:26] clear winner here. Which is interesting but I suppose also
+[00:25:30] not surprising because it took significantly longer at planning
+[00:25:35] but also implementing and it asked me a bunch of questions. So, I'm sure that
+[00:25:38] that influenced the security as well. And if you look at the updates for what
+[00:25:43] Codex 5.3 was supposed to bring is that it is more robust in its security.
+[00:25:48] So, that's clearly showing on the back end here.
+[00:25:51] However, on the front end for the code base itself, things are a
+[00:25:54] little bit different. And you can see here the clear winner is
+[00:25:57] Claude. So,
+[00:26:00] completeness, full auth flow, login, sign up, confirm, minimalist callback
+[00:26:05] only. So, it probably picked up that it didn't do the login first the first time
+[00:26:10] when I scanned this because I scanned this before I had actually logged into
+[00:26:13] either app. And that's probably why it picked up
+[00:26:16] that there was a problem. Core logic, dedicated API analyze
+[00:26:19] endpoint placeholder. Okay.
+[00:26:22] Not sure what this thing is analyzing. UI complexity, 10 static pages, six
+[00:26:28] architecture, 237 dependencies, 139.
+[00:26:33] Stability, how is it getting this? That's interesting.
+[00:26:39] Ah, right. So, it's literally just from a build. I wouldn't say that that is a
+[00:26:42] stability of the platform then. So, perhaps we'll rerun the code base
+[00:26:47] part of this after we get everything working. So, I've got to say that Claude
+[00:26:51] is still the clear winner for me. Like, for every single thing that you do,
+[00:26:55] Claude code is just better than Codex. I hate Codex's user journey. I hate its
+[00:26:59] user experience. It is vastly slow in comparison to
+[00:27:03] Claude. Even if I use Sonnet, Codex is slower than Sonnet. I don't
+[00:27:08] like the way it thinks. It does random things very slowly as well.
+[00:27:14] Everything in here is completely predictable. It lets me know what it's
+[00:27:17] doing. And I realize you can click on here and see anywhere.
+[00:27:20] But, something to do with the user journey of how Claude approaches it is
+[00:27:25] just far superior to me. Specifically in its troubleshooting as
+[00:27:29] well. There is no way you could convince me to
+[00:27:32] ever use Codex over Claude. I just wouldn't do it.
+[00:27:36] I realize both of them failed, but realistically you have to look at this.
+[00:27:39] We built a somewhat complex, obviously not really, but
+[00:27:43] for a one-shot, every single part of this functionality
+[00:27:47] is to work flawlessly. It's not really realistic. There's
+[00:27:49] always going to be a little bit of iterating, especially when I gave it
+[00:27:53] such vague instructions. If I gave it better planning up front and I was very
+[00:27:56] specific in what I wanted and how it worked and all of that, we would have
+[00:27:59] got a much better one-shot from the beginning. But, the point of this test
+[00:28:03] was to prove this kind of thing. I wanted to see what it could get away
+[00:28:06] with if it had to think a little bit for itself and then just go and build. And
+[00:28:09] this is where we got to. And Claude is definitely far superior on the sense of
+[00:28:14] the aesthetics, but also troubleshooting. I mean, look how much
+[00:28:17] faster this thing is working than this thing on the right. And Codex on the
+[00:28:21] right had much more of a head start because I started troubleshooting this
+[00:28:24] thing long before I started Claude. But, we have to take into account
+[00:28:27] Anti-Gravity's critique with the back end. Obviously, I'm not going to go
+[00:28:31] through the database and the back end and verify any of this information. I'm
+[00:28:34] going to take it for its word. It used the MCP server, logged straight into the
+[00:28:38] projects, and read both of them. So, we have to take it on its word for that
+[00:28:42] much. But, this one I will rerun if we get
+[00:28:45] these apps working. Otherwise, again, we're just going to take it on its word
+[00:28:47] because from what we can see on the front end,
+[00:28:51] it's vastly superior. It's a win for Claude. We don't really need Gemini's
+[00:28:55] perspective on this. We can clearly see who the winner is on
+[00:28:58] this side. In terms of front-end functionality, yes, they're both broken,
+[00:29:02] and I'm going to give this about 5 to 10 more minutes to see if I can get either
+[00:29:06] of them working properly. And if that doesn't work, then I'm just
+[00:29:09] going to cut this off because I've been recording for 2 hours and 34 minutes,
+[00:29:13] and for the most part, that is because of CodeX and its literal slow time.
+[00:29:18] Claude finished maybe an hour at least before CodeX did. It just seemed to keep
+[00:29:24] iterating through things and MCP servers and doing random things.
+[00:29:31] And again, they both had the exact same prompt to start, so it's not like I'm
+[00:29:34] doing something funny in the background here.
+[00:29:37] So, Claude has fixed its problem, allegedly. The edge function analyze
+[00:29:40] company was deployed with verified JWT true, which requires a valid JWT in the
+[00:29:46] authorization header. Cool. So, did you fix it?
+[00:29:48] No, Vercel redeployment needed. The fix was entirely on Superbase side.
+[00:29:53] All righty, you should now be able to go here and log in.
+[00:29:57] Okay.
+[00:30:03] Okay, and we're off on a second test here using our competitive analysis
+[00:30:06] while this thing is still trying to troubleshoot itself and just figure out
+[00:30:10] life. So, while this thing's running, I'm
+[00:30:12] going to see if we can trail any logs to see if this thing's actually running or
+[00:30:16] if it can pick something up in real time if it is failing.
+[00:30:19] It's working. Your new ClickUp analysis is actively running and is currently on
+[00:30:23] the analyzing step, the final stage. Here's the progress so far.
+[00:30:28] Okay, so then it's a front-end problem where it's just not updating these
+[00:30:31] little bubbles, but let's see if it actually finishes.
+[00:30:34] CodeX is still trying to fix itself. Let's have a look at our app. Have you
+[00:30:41] finished? Nope, still isn't finished. What we can do is we can actually check
+[00:30:46] Firecrawl to see if it's done anything. So, the time is wrong here. It thinks
+[00:30:50] I'm in a different time zone, but for the most part it looks like it has been
+[00:30:53] scraping competitors of ClickUp. So, we've got Monday, we've
+[00:30:57] got Notion, we've got Atlassian, Asana.
+[00:31:02] So, one of these has been scraping. I'm guessing it's obviously the Claude.
+[00:31:06] Let's have a look. So, they had scraped discovered
+[00:31:09] competitors. Yes. Okay, so the Claude is winning so far. AI analysis failed to
+[00:31:13] pass competitive analysis results. The problem is max tokens. It's too
+[00:31:18] small for a full competitive analysis. We can see here on the right that Codex
+[00:31:23] is just it's just getting nowhere.
+[00:31:26] So, from a troubleshooting perspective, I mean, we're doing it live right now.
+[00:31:29] This thing's already fixed two problems in the time that this thing's trying to
+[00:31:32] figure out where left and right is. It's massively different.
+[00:31:36] And this is what I'm talking about with the user journey. I I don't know how to
+[00:31:39] explain it or articulate it, but even even when this thing is wrong,
+[00:31:44] it's so confident about it that it just makes me love it.
+[00:31:47] >> [laughter] >> So, that's why I've been using it.
+[00:31:49] That's why the only thing I pay for for the max plan is Claude.
+[00:31:53] I promise I'm not sponsored by them. So, edge function V4 deployed three
+[00:31:58] three key fixes. Max tokens 8,000. Try pass JSON. Cool. Now, try again. I'll do
+[00:32:03] that. Okay, so it had a retry button which I
+[00:32:06] also like. I mean, I didn't ask for that functionality, but it had it and I
+[00:32:09] clicked it. And here we go.
+[00:32:12] So, we can flick back over to Firecrawl to see if this thing's doing anything.
+[00:32:17] Let me refresh this. We should see something in progress
+[00:32:22] unless this thing is so super fast that it's just
+[00:32:25] that it's just running through it or maybe it will use a cached version. Who
+[00:32:28] knows what it's doing. Nothing's been kicked off yet.
+[00:32:32] Let's ask it to trail the logs and see if it can do that. On the right hand
+[00:32:34] side here, we're still exploring life.
+[00:32:39] Six files, two surges. What is What is it even doing?
+[00:32:46] Pulling Superbase Edge function logs now to see the exact HTTP status body
+[00:32:50] behind. I mean, it is mental that it takes this
+[00:32:54] long to figure out something. Claude destroys it.
+[00:32:58] It's running great on V4. Here's the live status Edge function post. No more
+[00:33:03] 401s. So, if we come back here, do we see anything? Not yet.
+[00:33:08] I hit the retry button. So, are you saying that one is still pending?
+[00:33:12] Or what is happening with the one that was running now?
+[00:33:15] The newest one completed successfully. Fully worked, but it didn't populate the
+[00:33:20] front. I mean, let's try click back. So, this completed Ah, there we go. So,
+[00:33:25] there's still some kind of functionality problems here
+[00:33:28] in terms of how it presented to the front end because we had to refresh the
+[00:33:31] page. But, realistically, we're going to go
+[00:33:33] through this. I'm just going to stop bothering with Codex now because this is
+[00:33:36] ridiculous. We fixed four errors in the time it took
+[00:33:40] to do whatever the hell is going on here. But, it found a bug.
+[00:33:44] So, it's going to go fix that bug. While it fixes that bug, I'm just going to
+[00:33:47] come and take a look at this.
+[00:33:50] Let's zoom in. ClickUp positions itself as an
+[00:33:54] all-in-one replacement for 100 plus fragmented tools, competing against
+[00:33:57] established players like Asana, Monday, and Notion.
+[00:34:00] So, this is pretty cool. I mean, it We have features, pricing, positioning,
+[00:34:03] content gaps. And each of them on. So, obviously from
+[00:34:08] a UI perspective, I mean, it's not entirely beautiful, but it's functional.
+[00:34:13] And it far surpasses anything that Codex even bothered to get out. Even though it
+[00:34:16] failed, this thing fixed itself. Codex couldn't even do that properly. So,
+[00:34:21] it's just a very clear table. We got our pricing over here.
+[00:34:25] ClickUp freemium. All of these have freemium, I guess, but So, that's just a
+[00:34:29] feature comparison and then a pricing comparison for the features that you'd
+[00:34:32] get, positioning. ClickUp software to replace all
+[00:34:36] software. Strengths: Clear, memorable headline with strong consolidation value
+[00:34:41] prop. Weaknesses: Replace all software claim is hyperbolic and unsubstantiated.
+[00:34:46] May alienate enterprise buyers. All righty.
+[00:34:50] Asana. Strengths: Fortune 100 adoption creates significant credibility moat.
+[00:34:55] Weaknesses: Fortune 100 focus may alienate SMBs.
+[00:35:01] Notion is your AI everything app. Pretty sure a lot of apps are saying that now.
+[00:35:06] Monday: Outpace everyone with the best AI work platform.
+[00:35:10] So, these are pretty straightforward, but again, at least it's working.
+[00:35:13] Content. So, this is the content that each of them are putting out, and you
+[00:35:15] can see it's giving us a little summary over here. ClickUp and monday.com
+[00:35:19] minimize blog investment, instead embedding content throughout product and
+[00:35:22] demo pages. Asana and Notion prioritize blog and case studies for thought
+[00:35:27] leadership and SEO. So, again, that's pretty cool.
+[00:35:31] And then gaps. So, this is where it would be helpful to us if we were trying
+[00:35:34] to get into this market ourselves and see how we could be different.
+[00:35:37] Enterprise customer success and managed services narrative.
+[00:35:41] ClickUp mentions CSM and managed services on enterprise tier, but no
+[00:35:45] competitors prominently feature customer success stories, case studies, or ROI
+[00:35:49] testimonials. Asana leads here with Fortune 100
+[00:35:52] adoption claim, but lacks published customer success stories or quantified
+[00:35:56] outcomes. So, you can see this is pretty good. I
+[00:35:59] mean, it did exactly what we wanted based on our original prompt. In every
+[00:36:03] single way, Claude delivered on everything that we
+[00:36:06] wanted. Yes, it didn't work the first time round, but again, we were not hyper
+[00:36:10] specific, and it's normal to have some kind of bug with minor iterations. These
+[00:36:13] were not giant things. It solved it in less than 5 minutes, and if I didn't
+[00:36:18] spend time waiting for Codex, we would have been done ages ago.
+[00:36:23] But now, let's flip back over to Codex and see what's cracking.
+[00:36:26] So, the error was coming from Superbase returning 401 on run analysis. So, a
+[00:36:31] very similar error to what we had on the other side, except this thing took 19
+[00:36:36] minutes and 10 seconds to find the exact same problem that this
+[00:36:40] thing took, I don't know, what was it? Like, 30 seconds to a minute
+[00:36:44] to figure out and then solve in under 4 minutes.
+[00:36:48] So, that is an immense difference in in time. I mean, it's
+[00:36:52] it's ridiculous. I have no idea why the hell this thing takes so long.
+[00:36:55] And for those of you wondering, yes, I am running this on the highest possible
+[00:36:59] thought patterns that Codex has as well. So, it's
+[00:37:02] benchmark to benchmark here. >> [laughter]
+[00:37:06] >> And there we rerun it again, and it says invalid JWT. And that's it. That is how
+[00:37:12] I'm going to end this video. I'm not wasting any more time on Codex. There is
+[00:37:15] no way you could convince me or pay me to use Codex. And that's not me being a
+[00:37:20] dick. That is because the user experience I have had
+[00:37:23] from the get-go of this has been horrible. Both from the way that it
+[00:37:27] works inside VS Code, all the way through to building and iterating with
+[00:37:31] this thing, it is not a pleasant journey.
+[00:37:33] It might have much better security on the back end,
+[00:37:36] but if it can't get the front end functioning at all, then we have massive
+[00:37:40] disconnect between security and functionality. And realistically, when
+[00:37:44] you're building anything, you need to have that perfect little triad, or at
+[00:37:48] least put it in favor without destroying the ability to use the thing properly.
+[00:37:53] And again, that's why I think Claude is massively superior here because they
+[00:37:56] seem to be getting better and better at that balance while also riding this
+[00:38:00] massive hype train that they have at the moment without destroying their own
+[00:38:03] product. So, I think they're doing amazing things. And Gemini backs up,
+[00:38:08] obviously, their front end. Sure, maybe their back end with the security and
+[00:38:11] things like that could be better, but realistically, if you're going to be
+[00:38:14] sending this type of thing to clients, you would be doing pen testing. You
+[00:38:18] would be getting proper developers involved to make sure that this is
+[00:38:20] getting done the way that it should be is that you're selling a real product.
+[00:38:24] This was just MVP and Codex failed to build an MVP, which the majority of
+[00:38:29] platforms out there can do for 20 bucks or less.
+[00:38:32] And Claude Sonnet could easily have done if I didn't bother using the Opus model
+[00:38:36] here. Anyway, that's where I'm going to leave
+[00:38:38] this thing. Let me know any comments you have down below. I will get back to all
+[00:38:41] of them. Otherwise, check out the videos on the screen right now. You can also
+[00:38:44] look at my community where we've just launched the vibe coding course as well
+[00:38:47] as a whole consulting path based on everything I've done over the last 12
+[00:38:50] years. So, if that resonates with you, feel free to check it out. Otherwise,
+[00:38:53] I'll see you guys in the next one. Thanks for watching.

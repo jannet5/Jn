@@ -1,0 +1,302 @@
+# Claude Code SKILLS ile 50X Verimli VIBE CODING & Yapay Zekayı Gerçek Bir Yazılımcıya Dönüştür!
+# https://www.youtube.com/watch?v=G6Ll-Tz06Nk
+# kanal: AI Mevzuları | Yapay Zeka | süre: 1165 sn | kaynak: yt-dlp:android:G6Ll-Tz06Nk.tr.json3
+
+[00:00:00] Yapay zekaya her yeni projede aynı kuralları, aynı kod standartlarını
+[00:00:03] tekrar tekrar hatırlatmaktan hepimiz bıktık. Açıkçası bence de zaten bu bir
+[00:00:07] hamallık. Sıkıldık hatta bazen soğuduk. Bugün bu işi kökten çözüyoruz. Cloud
+[00:00:11] kodun beynine giriyoruz ve ona sizin gibi düşünmeyi, istediğiniz işleri
+[00:00:15] yapmayı kalıcı olarak öğretiyoruz. Yani konumuz olan Agent Skills mimarisini
+[00:00:19] konuşuyoruz. Sadece teori anlatıp geçmeyeceğim dostlar. Böyle bir
+[00:00:22] endişeniz olmasın. Videoyu da sonuna kadar izlemenizi tavsiye ediyorum. Çünkü
+[00:00:26] harika kaynaklar, skill repoları paylaşacağım. muhakkak işinize
+[00:00:30] yarayacak. Hatta web siteleri de paylaşacağım. Oradan kendi skillinizi
+[00:00:33] nasıl oluşturabilirsiniz? Hepsine karar vereceksiniz. Bu yapıyı kurmanın
+[00:00:36] sandığınız kadar zor olmadığını da size göstereceğim. Yani tabii ki elle gidip
+[00:00:40] tek skill yazmayacağız. Burada yine yapay zeka desteğiyle nasıl şakır şakır
+[00:00:44] skill yazabileceğinizi de size göstereceğim. Ama bir noktada sizden
+[00:00:47] dikkat istiyorum. Şunu baştan söylemiş olayım. Bu iş teknik olarak kolay olsa
+[00:00:51] da büyük bir titizlik istiyor. Yani gidip random skills yazarsanız
+[00:00:55] istediğiniz randumanı vermez ve verim alamazsınız. Verim almazsanız da çıkıp
+[00:00:58] şunu diyeceksiniz. Ya boş arkadaşım ne işime yarayacak? Tabii ki böyle
+[00:01:02] dememeniz için titiz olmanız lazım. Yani her bir skili yazarken çok inceleyip sık
+[00:01:07] okumanız gerekiyor. Dedektif gibi detaycı olmanız gerekiyor. İnce
+[00:01:11] ayarların neden hayati olduğunu falan hepsini size birazdan anlatacağım.
+[00:01:14] Hazırsanız önce bu sistemin mantığını bir oturtalım sizlerle. Kafamızda bir
+[00:01:18] canlansın, bir şablon olsun. Çünkü bilmeden bir şey öğrenmek yine bize bir
+[00:01:21] şey katmayacak. Sonra detaylara dalalım. Şimdi dostlar ilk anlamamız gereken şey
+[00:01:25] şu. Cloud'un hafızası da insanınki gibi. Yani düz ve tek parça bir blok değil.
+[00:01:30] Katmanlıdır. Cloud becerileri bu üç farklı kaynaktan öğreniyor. Bir de
+[00:01:34] burada çok zekice kurgulanmış bir olay var. Kimin sözü geçecek hiyerarşisi var.
+[00:01:38] Ya bunu üç katlı bir piramit gibi düşünebilirsiniz. Piramidin en tepesi
+[00:01:42] patronun olduğu yer. Yani bilgisayarın ana dizinde saklanıyor. Bunu şöyle hayal
+[00:01:46] edin. Bu beceriler sizin karakteriniz. Yani hangi işe giderseniz gidin, hangi
+[00:01:50] skill'e giderse gitsin, hangi ofiste çalışırsanız çalışın, hangi referans
+[00:01:53] klasörüne giderse gitsin karakteriniz de sizle geliyor. İşte bu skiller de
+[00:01:57] tamamen bu şekilde aynı mantıkla çalışıyor. Ya diyelim ki siz Python
+[00:02:01] kodlarken işte ben asla X kütüphanesini kullanmam. Her zaman Y'yi kullanırım
+[00:02:05] diyorsunuz. Mesela veri bilimi projesi yapıyorsunuz. Ben Cborn kullanırım. Mat
+[00:02:09] block kullanmam diyorsunuz. İşte grafik görselleştirme için. Bunu da kişisel bir
+[00:02:13] beceri olarak ekliyorsunuz. Yani artık ister kendi hobi projenizi açın, ister
+[00:02:17] dünyanın en büyük şirketinin projesini açın. Cloud sizin bu hassasiyetinizi
+[00:02:21] artık bilecek ve ona göre davranacak. Bu aslında sizin dijital parmak iziniz gibi
+[00:02:25] düşünebilirsiniz. Bir de bizim ikinci katmanımız var. Burası da takımın
+[00:02:29] anayasası gibi. Yani çalıştığınız projenin kendi klasörü içindeki skills
+[00:02:33] kısmı. Buranın büyüsü de aslında şurada. Projeleri git dediğimiz sistemde
+[00:02:37] paylaşıyoruz. Siz bu beceri klasörünü proje ile birlikte bu şekilde
+[00:02:41] gönderebilirsiniz. takıma yeni bir insan dahil oldu diyelim. Bir staj mesela
+[00:02:45] projeyi bilgisayarına indirdiği an hiçbir kurulum yapmasına gerek kalmadan
+[00:02:49] o projenin kurallarını Cloud'a öğretmiş oluyor. Yani iş bu kadar güzel yere
+[00:02:52] gitmiş. Bu projede veri tabanı şifreleri asla kodun içine yazılmaz diye bir
+[00:02:56] kuralımız var. Biz bu kuralı bir skill olarak ekledik. Yeni gelen arkadaş
+[00:02:59] yanlışlıkla şifre yazmaya kalksa bile cloud ne yapacak? Gidecek onu uyaracak.
+[00:03:03] Hop diyecek. Abi proje kurallarına göre bunu yapamam. Yani Cloud ekibin en
+[00:03:07] kıdemli abisi gibi davranıyor ve orkestrasyonu yöneten de yine o. Tamam,
+[00:03:11] skiller bizim, biz verdik, biz yönlendirdik ama yönetici konumunda yine
+[00:03:15] o oluyor. Bir de bizim 3üncü katmanımız var. Gördüğünüz gibi bu da işin market
+[00:03:18] kısmı. Başkaların hazırladığı paketleri indirip kullanabildiğimiz alan.
+[00:03:21] Telefonumuza uygulama indirmek gibi aslında faydalı ama sizin özel
+[00:03:25] kurallarınızı bilmiyorlar. Bu sebeple benim size önerim başkalarının
+[00:03:29] skillerini kullansanız bile açın o skilleri, bir içeriğini inceleyin veya
+[00:03:33] onlara bakarak kendi skillerinizi yazmaya çalışın. Bakın bir yapı nasıl
+[00:03:36] kuruluyor? Ya da diyelim ki siz backend konusunda belli bir teknoloji üzerine
+[00:03:40] geliştirme yapmasını istiyorsanız Cloud'un gidin onunla ilgili bir skills
+[00:03:44] bulursanız eğer alın bakın ona göre işte ben şöyle özelleştirebilirim deyin. Ona
+[00:03:48] göre alın gidin özelleştirin. Ya peki diyelim ki çakışma oldu. Burada kimin
+[00:03:52] sözü geçecek? Burası önemli. Dikkatli dinleyin. Eklenti diyor ki logları
+[00:03:56] kırmızı yaz. Projemizde mavi yaz. Ama siz kişisel ayarınızda ben siyah severim
+[00:04:01] dediniz. Cloud kime uyacak? Bu çakışmadan kim çağrılı çıkacak? sıralama
+[00:04:05] şaşmıyor. Sizin her zaman personal skillsiniz. Proje skillerinden o da
+[00:04:09] eklentilerden sonra gelir. Şimdi gelelim işin mutfağına. Biliyorum birçoğunuzun
+[00:04:13] skill deyince gözü korkuyor. Ya bilmediğinizden veya bilince aslında
+[00:04:17] içeriğinin yapısının nasıl olduğundan sürekli bir korkuyorsunuz ve soru
+[00:04:21] soruyorsunuz. Aslında sihirli bir yazılım veya karmaşık kod yayını değil.
+[00:04:24] Skill kodları. Skill kodu diye bir şey yok. Direct skills.md var. Yani markdown
+[00:04:28] formatı. Doğru isimlendirilmiş bir klasör ve bir markdown formatındaki
+[00:04:32] dosyadan ibaret. Bir beceri klasörünün içerisinde de olmazsa olmaz burada da
+[00:04:37] göreceğiniz gibi bir skill.md dosyası olması gerekiyor. Bu dosya aslında
+[00:04:41] skillin beyni ve iki ana bölümden oluşuyor. Peki içeriğinde ne var
+[00:04:45] derseniz dosyanın en tepesinde iki çizgi arasında kalan kısımız metadata yani
+[00:04:50] kimlik kartımız. Burada becerinin adı ve en önemlisi de açıklaması yani
+[00:04:55] descriptionı yazar. Hayatı önem taşıyan noktalardan biri aman bir şey yazarım
+[00:04:59] geçerim demeyin. Çünkü cloud müneccim değil dostlar. sizin ne istediğinizi
+[00:05:03] anlamak için buradaki açıklamayı okuyacak. Yani siz gidip açıklamaya kod
+[00:05:07] yazıyor derseniz cloud bunu ne zaman kullanacağını bilemeyecek. Ama siz gidip
+[00:05:11] oraya kullanıcı bir React bileşeni oluşturmak istediğinde veya arayüz
+[00:05:14] tasarımı sorduğunda bu beceriyi kullan derseniz işte tam da o noktada cloud
+[00:05:18] anahtar kelimeyi kapacak. Oradan sonra gidip işleme koyulacak. Yani cloud'a
+[00:05:22] verdiğimiz ipucu bu description kısmı. Bu muhakkak olması gerekiyor. Bir diğer
+[00:05:27] kısmımız ise talimatlar kısmımız var. Burada gördüğünüz gibi talimatlar kısmı.
+[00:05:31] Peki nedir bu talimatlar? Cloud'un aslında reçetesi burası. Adım adım ne
+[00:05:35] yapması gerektiğini buraya yazıyoruz. Yemek tarifi gibi düşünün ya. Önce
+[00:05:38] dosyayı oku, sonra şu kurala bak, sonra kodu yaz gibi emirleri buraya
+[00:05:41] sıralarsınız. İleri seviye diyebileceğimiz progressive disclosure
+[00:05:44] kısmımız var. Aslında diğer adıyla aşamalı açıklama. Biraz teknik ama basit
+[00:05:50] bir mantığı var. Cloud'un context window dediğimiz bir hafıza kapasitesi var.
+[00:05:54] Bunu zaten biliyorsunuz. Tıpkı insanlardaki gibi kısa süreli hafıza.
+[00:05:58] Eğer siz 100 sayfalık bir dokümanı tek seferde cloud'un önüne atarsanız kafası
+[00:06:02] karışıyor ve bundan dolayı hafızası doluyor. Bu yüzden profesyonel bir skill
+[00:06:06] yazarken şöyle yapacağız. Ana dosyaya sadece özet bilgiyi koyacağız. Ana
+[00:06:11] dosyamız neydi bizim? Skill.md. Detayları da yan tarafa oluşturduğumuz
+[00:06:16] yardımcı. MD gibi dosyalara yazacağız. Bir değil birkaç tane de
+[00:06:20] oluşturabilirsiniz. Ve ana dosyaya şunu diyeceğiz. Cloud eğer detaya ihtiyacın
+[00:06:24] olursa git yardımcı. MD veya şu dosyayı oku. Hangisini yazdıysanız veya
+[00:06:29] dosyaları oku. Böylece cloud gerekmedikçe o uzun dosyayı okumayacak.
+[00:06:34] Hafızası kirlenmemiş olacak. Bu yüzden aşamalı açıklama diyoruz. Sizi bu taktik
+[00:06:39] amatörlerden öne geçirir. Ona göre yazarsanız bu kurala göre. Ben zaten
+[00:06:42] size örnek ripoları bırakacağım. İncelersiniz. Aynı mantıkla söylüyor.
+[00:06:46] Entropic de zaten skill sayfasında şunu diyor. Her bir skill 500 satırı
+[00:06:51] geçmemesi lazım. Mümkünse 400 civarlarında tutun. Sizin de böyle
+[00:06:54] tutmanız gerekiyor. En son olarak da işin en güzel kısmına geldik. Beceriniz
+[00:06:59] sadece metin okumak ve yazmak zorunda da değil. Klasörün içine Python veya 5
+[00:07:02] script koyabilirseniz bunları da çalıştırabiliyorsunuz. Normalde cloud
+[00:07:06] sadece konuşabiliyor mantıken ama scriptler sayesinde ona el vermiş
+[00:07:10] oluyorsunuz. Yani o ellerle gidip iş yapıyor, eyleme geçmesini sağlıyorsunuz.
+[00:07:14] Şu veri tabanına bağlan ve hatalı kullanıcıları bul diyemiyorsunuz. Ama
+[00:07:18] veri tabanına bağlanan bir Python scrip'ti yazarsanız diyelim ki bağlan.py
+[00:07:22] PY diye klasöre koyarsanız cloud o kodu çalıştırabiliyor. Zaten işin güzelliği
+[00:07:27] de burada. Tüm bunları yaptığınızda aslında büyük bir kontekst mühendisliği
+[00:07:30] yapısı ortaya çıkıyor. Cloud ne yapıyor? O kodu çalıştırıyor. Çıkan sonucu
+[00:07:34] okuyor. Size hatalı kullanıcıları buldum diyor. Yani cloud'u kendi yazdığınız
+[00:07:38] araçların operatörü de yapabilirsiniz. Peki teoriyi anladık artık. Klavyenin
+[00:07:43] başında enter'a bastığınızda arka planda süreç nasıl işleyecek? Aslında bu sistem
+[00:07:48] model tetiklemeli çalışıyor. Böyle havalı bir isimmiş gibi geldi ama yani
+[00:07:52] robota komut vermek zorunda da değilsiniz. O ne yapacağını kendisi
+[00:07:55] anlıyor. Sürece bir restorandaki garson gibi düşünün. Cloud kod ile ilk
+[00:07:58] başladığınızda, terminali açtığınızda gidip tüm beceri klasörlerinizi hızlıca
+[00:08:02] tarıyor. Ama kitap okur gibi hepsini okumuyor. Sadece başlıkları ve
+[00:08:06] açıklamaları okuyor. Yani Garson'un menüdeki yemek isimlerini ezberlemesi
+[00:08:10] gibi. Tamam ben kebap yapmayı biliyorum, pizza yapmayı biliyorum diyor ve
+[00:08:14] bekliyor. Siz ekrana gelip doğal bir dille bana şu PDF dosyasındaki hataları
+[00:08:18] bul derseniz cloud duruyor. Hafızasındaki menüye bakıyor. Kullanıcı
+[00:08:22] PDF dedi. Hım. Hata dedi. Hım. benim PDF analiz diye bir becerim vardı ve
+[00:08:27] açıklamasında tam da bunlar yazıyor. O an karar veriyor aslında. Bu iş için şu
+[00:08:31] beceriyi kullanmalıyım, o beceriyi kullanmalıyım. Karar verdiği anda
+[00:08:34] gidiyor o becerinin dosyasını yani skill. M diye açıyor. İçindeki
+[00:08:38] talimatları okuyor. Bakın talimatlar çok önemli. Onları okuyor. Daha sonra
+[00:08:43] gerekiyorsa Python scripti varsa, bir 5 script varsa onu çalıştırıyor ve sonucu
+[00:08:48] karşımıza getiriyor. Şimdi dostlar tamam dediniz, anladınız. Hocam teoriyi
+[00:08:52] anladım. Şablon oturdu kafama. Artık skill nedir biliyorum. Burada uygulama
+[00:08:56] nasıl yapılır onu düşünüyorum. Bunu dediğinizi varsayıyorum. Artık uygulama
+[00:09:00] kısmına geçtik. Ancak uygulama kısmına geçmeden önce belli bir şeyi sizle
+[00:09:04] netleştirmem gerekiyor. Burada skill yazarken yorumlara gelip şunu
+[00:09:08] diyeceksiniz. Hocam işte front end niye yazmadınız? Hocam işte niye backend
+[00:09:11] yazmadınız? Bakın tekrar tekrar söylüyorum. Herkesin skili kendine özel.
+[00:09:16] Yani projenize özelleştirerek yazmanız gerekiyor. Benim burada sizin için bir
+[00:09:20] şey yazmam. Frontend skill fark etmiyor. Backend için de bir işinize yaramayacak.
+[00:09:24] Sadece temel mantığı öğretmem sizin işinize yarayacak ki kendiniz
+[00:09:27] alacaksınız, kendinize göre yazacaksınız. Bu sebeple şimdiden bunu
+[00:09:31] söylemiş olayım. Temel mantığı ben size burada oturtacağım. Emin olabilirsiniz.
+[00:09:34] Gidince kendiniz skill yazabileceksiniz. Yapay zeka desteğiyle de skill
+[00:09:38] yazabileceksiniz. Size zaten videonun sonunda efsane bir trick vereceğim. Yani
+[00:09:42] nasıl skill yazmayı daha kolay hale getirebilirsiniz onu göstereceğim size.
+[00:09:45] Hem de buradan nasıl bir mantıkla işlediğini göstereceğim. İlk etapta
+[00:09:49] diyelim ki bir tane projeniz var. Bakın benim projemin adı skills. Ama bu proje
+[00:09:52] adı normal skills dosyası olarak düşünmeyin. Proje 1 gibi düşünün. Ben
+[00:09:56] burada video için böyle yaptım. Proje 1 diye bir tane klasörümüzün içi var ve
+[00:09:59] içerisinde DC cloud dizignimiz var. Onun içerisinde de skills'imiz var. Bakın bu
+[00:10:04] çok önemli. DC cloud kök dizinin içerisindeki skill dosyası bizim için
+[00:10:08] işin başladığı nokta ana nokta. Yani oluşturacağımız her skil, her bir
+[00:10:12] beceriyi bunun içerisinde bir klasör olarak oluşturacağız. Örnek verecek
+[00:10:16] olursak geldik buraya. PDF skill diye bir tane klasör oluşturduk. PDF
+[00:10:20] skill'imizi burada iki farklı yapıya böldük. İlk yapımız markdown dosyaları.
+[00:10:24] İkinci yapımız scriptler yani Python scriptimiz var. Gördüğünüz gibi burada
+[00:10:28] size demin de bahsetmiştim zaten bundan. Bu PDF skill dediğimiz klasör bizim ilk
+[00:10:32] skillimiz. Siz bu skillsin içerisine 10 tane skill de koyabilirsiniz. İşte biri
+[00:10:36] PDF processing yapsın. İşte PDF'i biri alsın farklı bir şeye çevirsin
+[00:10:39] dönüştürme. Biri alsın başka bir şey yapsın. Bunlar hepsi farklı farklı skill
+[00:10:43] yapılarıyla kurulabilir. Yani siz bu şekilde de ilerleyebilirsiniz. Neyse
+[00:10:47] geldik PDF skill klasörümüzü oluşturduk. Klasörümüz dediğim gibi iki farklı
+[00:10:51] yapıdan oluşuyor. Biri script diğeri de markdown dosyaları. Bu markdown
+[00:10:54] dosyaları arasında bizim PDF skillimizin beyni deneyecek olan skill.md dosyamız
+[00:10:59] var. Bu olmak zorunda. Ana yapıyı buraya özetleyeceğiz. Buraya kuracağız. İlk
+[00:11:03] başta ne demiştik? Skillimizin bir tane ismi olacak. Mesela burada ben PDF
+[00:11:07] işleme yapmışım. PDF processing. Daha sonra önemli bir kısmımız vardı.
+[00:11:11] Description. Yani cloud'un bizim onunla konuşurken anlamasını sağlayacağımız bu
+[00:11:15] skili kullanmaya yönlendirmesini sağlayacağımız kısım tam olarak
+[00:11:19] description kısmıydı. Geldik. Ne dedik? PDF dosyalarından metin ve tabloları
+[00:11:22] çıkarın. Formları doldurun. Belgeleri birleştirin. PDF dosyalarıyla çalışırken
+[00:11:26] veya kullanıcı PDF'lerden, formlardan veya belge çıkarma işlemlerinden
+[00:11:29] bahsettiğinde kullanın. Tam da dediğim şey. Yani cloud'u burada tetikliyoruz.
+[00:11:33] Aslında bir trigger gibi düşünebilirsiniz. Daha sonra içerisine
+[00:11:36] geldik. Ne yaptık? Dedik ki PDF plumber kullanarak PDF dosyalarından metin
+[00:11:40] çıkartın. Sonra burada kod yapısını gösterdik. Aslında nasıl
+[00:11:43] çıkartabileceğini, hangi dosyadan çıkartabileceğini ve en sona geldik.
+[00:11:46] Dedik ki gelişmiş form doldurma işlemleri için forms. MD dosyasına
+[00:11:51] bakın. Yani aynı dizin içerisinde bizim bir de forms. MD dosyamız var. Biz ne
+[00:11:56] yaptık? Ne demiştik? Skilleri çok boğmamalıyız. Yapay zeka buradan aslında
+[00:12:01] başka yerlere dağılmalı. Başka kollara gitmesi gerekiyor. Yoksa tek bir dosyayı
+[00:12:06] çok fazla doldurursanız skill MD dosyasını ne olmuş olur? Bağlamı aşar.
+[00:12:10] ve iyi sonuç almazsınız. Önemli olan her bir beceriyi 400 500 satır bandında
+[00:12:15] tutarak mesela geldik Forms MD yine 200 300 satır tuttunuz. Sonra reference
+[00:12:20] MD'yi 200 300 satır tuttunuz. Bu şekilde becerileri böldünüz. Parçaları
+[00:12:24] böldüğünüz için cloud ihtiyacı olana gidip ihtiyacı olduğu zaman bakacak.
+[00:12:27] Yani ihtiyacı yoksa ona bakmayacak. Ama siz bunların hepsini yapmazsanız,
+[00:12:30] hepsini buraya doldurursanız bu dosyayı okurken tabii ki atlayacaktır bağlama
+[00:12:34] açtığı için. İşte bu şekilde ne dedik biz? Gelişmiş form doldurma işlemi
+[00:12:38] dediği için git form MD'ye bak. Sonra form sendin içine geldi. Bir şeyler
+[00:12:41] yaptı. Sonra dedik ki işte API'lar için, API referansları için reference M diye
+[00:12:46] bak. Yine geldik. Bunu buranın içini de yazabiliriz. Forms'tan da
+[00:12:49] yönlendirebiliriz. Yani bir API eklediğimizde gelecek reference MD
+[00:12:52] içerisinden bunu yapacak. Yani anlatmak istediğim tüm bu alt dosyaları, yan
+[00:12:56] dosyaları yönetecek olan yine ana beyin skill.md. Biz her şeyi buraya
+[00:13:01] özetleyeceğiz. Yönlendirmeleri, hookları yine buranın içerisine koyacak. Yapay
+[00:13:05] zeka cloud ihtiyacı olanı seçecek. ihtiyacı olduğu anda tetiklenecek ve
+[00:13:08] bunu kullanacak. Aslında skill mantığı tamamen bundan ibaret. Bir de script
+[00:13:12] yapımız vardı. Neydi bu script? Mesela burada tüm bu işlemleri yaparken Python
+[00:13:17] scrip'ti çalıştırmasını ve sonucu öyle getirmesini istiyoruz. Geldik burada
+[00:13:21] fill.py diye bir tane Python scrip'ti yazdınız. Ne yapacak bu? Tüm kodu
+[00:13:26] buradan çalıştıracak. İşte kod çalıştıktan sonra ilgili belgeyi, ilgili
+[00:13:30] sonuçları karşımıza getirecek. Yani skill yapısı tamamen bundan ibaret. Ne
+[00:13:34] eksik ne fazla. Siz kendinize göre özelleştireceksiniz. Mesela geleceksiniz
+[00:13:38] burada skills klasörünün içerisine. Geldikten sonra yeni bir klasör
+[00:13:41] oluşturuyorsunuz. Buraya front end dediniz. Dedikten sonra front end'in
+[00:13:45] içerisine yine aynı mantıkla bakın bu PDF skillin skill. MD'siydi. Siz yine
+[00:13:49] front end'in içerisine geleceksiniz. Geldiniz burada new file dediniz. Bir
+[00:13:53] tane skill.m diye oluşturdunuz. Oluşturduktan sonra buraya yine ana
+[00:13:57] yapıyı kuruyorsunuz. Ne yapıyorduk bu şekilde? Name diyorduk. Frontend. Sonra
+[00:14:01] içerisine geliyoruz. Description diyoruz. Burada tabii ki front end
+[00:14:05] development skills yazmıyoruz. İşte React bileşenleri dendiğinde tetiklensin
+[00:14:09] gibi yazıyoruz. Veya işte kullanıcı şu UI bileşenini kullan dediğinde bu skill
+[00:14:14] tetiklensin dediğimiz zaman o şekilde description'ı yazıyoruz. Yazdıktan sonra
+[00:14:18] geldik buranın içerisine yine demin de gösterdiğim gibi doldurduk. Doldurduktan
+[00:14:21] sonra artık skillimizin yan dosyaları varsa onları oluşturacağız. Örneğin işte
+[00:14:26] gitsin React. MD'den React bileşenlerini çeksin veya UIMD'den başka şeyler alsın.
+[00:14:31] Mesela geldiniz yine front end'in içine bir yan dosya oluşturuyorsunuz. UI 1 MD
+[00:14:35] diye. Yani burada belli UI tanımlamaları yaptınız. Sonra geldiniz bu skillin
+[00:14:39] içine dediniz ki şu şu bileşenler için UI1.mD
+[00:14:44] dosyasına git incele bunu. Bunu incele dediniz. Aslında mantık tamamen böyle
+[00:14:48] işliyor. Sonra geldiniz yine front end'in içerisine PDF skill'deki gibi bir
+[00:14:52] script oluşturdunuz. Tabii ki sürekli script oluşturmak zorunda mısınız?
+[00:14:54] Hayır. Sadece script oluşturmanız gereken durumlar varsa öyle
+[00:14:58] oluşturabilirsiniz. Yani anlayacağınız skill tamamen bundan ibaret. Bu olay
+[00:15:02] gerçekten elmleri bambaşka bir noktaya taşıyor. Çünkü her şeyi çok iyi
+[00:15:06] öğrettiğiniz için iyi çıktılar veriyorlar. Peki hocam biz bu skilleri
+[00:15:09] hepsini teker teker elle mi yazacağız? Hayır elle yazmayacaksınız arkadaşlar.
+[00:15:13] Bunun için de gerçekten güzel bir kullanım önerisi, kullanım senaryosu
+[00:15:17] size sunacağım. Bakın cloud'un dokümanlarının içerisinde agent skills
+[00:15:21] bölümü var. Bu sayfayı Entropic dokümanlarındaki güzel bir özellik bu.
+[00:15:24] Kopyalayabiliyorsunuz. Bakın isterseniz markdow olarak da kopyalayabiliyorsunuz.
+[00:15:28] Direkt chat cloud içerisinde açabiliyorsunuz. Kopyaladıktan sonra
+[00:15:31] Google AI Studio'nun içerisine geldiniz. Orada build kısmını seçtiniz. Seçtikten
+[00:15:35] sonra tüm kopyaladığınızı yapıştırıp şunu diyorsunuz. Tüm bu bilgileri
+[00:15:39] kullanarak içeriğe uygun ve profesyonel düzeyde kullanılabilecek bir agent
+[00:15:43] skills generator oluştur. Bakın benim verdiğim gibi böyle kısa kısa prom
+[00:15:46] vermeyin. Siz her bir inputun ne olacağını, her bir çıktı dosyasının ne
+[00:15:50] olacağını teker teker anlatın ki çok daha detaylı çıktılar alabilesiniz. Bunu
+[00:15:53] yaptıktan sonra veriyorsunuz. Yapay zeka gidecek ne yapacak size? güzel bir
+[00:15:57] skills generator oluşturacak. İlla Google build kısmında kullanmanıza gerek
+[00:16:01] yok. Farkta kullanabilirsiniz ama ücretsiz olması bakımından bence ilk
+[00:16:04] başvurmanız gereken yer bir de en gelişmiş model olan Gemila 3 Pro var.
+[00:16:08] Onu da kullanaraktan güzel çıktılar alabilirsiniz. Mesela ne yaptı? Getirdi
+[00:16:11] bize bu şekilde AI skills generator uygulamamızı oluşturdu. Şimdi baktığımız
+[00:16:15] zaman bu şekilde skills içeriğini hepsini oluşturabiliyoruz. Burada
+[00:16:18] skills'imizin ne olduğunu, nasıl bir skill oluşturacağımızı anlatıyoruz.
+[00:16:22] Skill ismi veriyoruz. Gördüğünüz gibi bir description veriyoruz. instructions
+[00:16:26] kısmını veriyoruz. Bir de örnekleri veriyoruz. Verdikten sonra ne yapıyor?
+[00:16:29] Gidiyor bize oluşturuyor. Burada oluşturduktan sonra markdow olarak
+[00:16:32] kopyalayabiliyoruz veya zip formatında indirebiliyoruz. Yani bu şekilde kendi
+[00:16:36] skess generatorınız yardımıyla çok daha hızlı skiller oluşturabilirsiniz. Ben
+[00:16:41] bunu yapmıyorum. Farklı bir şekilde ilerlemek istiyorum diyorsunuz. Bu
+[00:16:44] noktada nereye geleceksiniz? Burada gördüğünüz gibi size bir web sitesi
+[00:16:47] bırakıyorum. Siteyi açıklamalar kısmında bulacaksınız. Burada site içerisinde
+[00:16:51] cloud code template'ler var. Birçok template bakın 164 tane agent, 217 tane
+[00:16:56] komut, 61 tane ayar, 40 tane hook, 59 tane MCP, pluginler yani eklentiler ve
+[00:17:02] 254 tane skill var. Peki biz skill yapısını nasıl kuracağız hocam? Bu skill
+[00:17:06] yapısını ben nasıl kuracağım? Skillere geldiğiniz zaman bakın bu şekilde skill
+[00:17:10] creator bile var. Yani bunu alacaksın cloud kod içine kuracaksın. Kurduktan
+[00:17:13] sonra diyeceksin ki bak işte böyle böyle bir skill yapmak istiyorum. Lütfen skill
+[00:17:17] creator kullanarak bunu oluştur. gidecek bu skilli kullanarak size güzel bir
+[00:17:21] skill yazacak veya işte web uygulaması test etme skilli varmış. Burada bir sürü
+[00:17:25] skill var gördüğünüz gibi MCP builder da varmış. XLS6 diye bir tane skill de
+[00:17:29] varmış. Artifact builder diye bir skill varmış. Canvas design diye bir skill
+[00:17:33] varmış. Bayağı 254 tane skill var. Hepsini kullanabilirsiniz. Örneğin
+[00:17:36] ilkini seçtik. Bakın kaç kişinin indirdiğini de görüyorsunuz. Burada git
+[00:17:39] repostuna da erişebilirsiniz. Skill creator'ı seçtikten sonra buradaki
+[00:17:42] komutu kopyaladınız. Ama bir nokta var. Oraya dikkat etmeniz lazım. Şimdi bu
+[00:17:47] skillin içeriğini bilmiyorsunuz. bilmediğiniz için isteklerinizi
+[00:17:50] karşılamayabilir. Sadece Gitub'tan giderseniz bu skillin içeriğine teker
+[00:17:53] teker bakarsınız nasıl bir mantıkla. Ona göre kendi skill creatorınızı kendinize
+[00:17:58] göre yine oluşturabilirsiniz. Bastınız üzerine kopyaladık. Geldik cloud kodun
+[00:18:02] içerisine geldikten sonra burada isterseniz nasıl kurulacağını
+[00:18:05] anlatırsınız. İsterseniz direkt terminale gelin. Geldikten sonra bu
+[00:18:08] şekilde kurdurun. Böyle yaptıktan sonra cloud kodunun içerisine kurulacak. Onay
+[00:18:12] veriyorsunuz ve kurulmuş oldu. Kurulumu tamamladıktan sonra slash skills
+[00:18:17] yazıyorsunuz. yazdıktan sonra tüm skilleriniz hepsi burada ne yapacak?
+[00:18:20] Çıkacak. Bakın skill creator ilk başa kurulmuş. Buradan da görebiliyorsunuz.
+[00:18:24] Yani artık skill creator'ı kullanabileceğiniz anlamına geliyor. Ve
+[00:18:27] diğer tüm skillerinizi de bu şekilde görebiliyorsunuz. Bakın 17 tane skill
+[00:18:31] eklemişim mesela ben. Siz de ekleyebilirsiniz. Yani anlayacağınız
+[00:18:34] cloud kodu çok etkin bir şekilde kullanabilirsiniz. Hatta öyle ki Google
+[00:18:38] mühendisleri bile çıkıp ben cloud kode kullanıyorum diyorlar. O kadar iyi bir
+[00:18:42] agent'tan bahsediyoruz ki bence de zaten şu an dünyadaki en iyi kodlama ajanı
+[00:18:46] diyebiliriz Cloud Cod'a. Yani bunun tartışması olacağını düşünüyorum. Tamam
+[00:18:49] diğer ajanlar çok iyi, çok iyi işler yapıyorlar ama Cloud Code başka seviyede
+[00:18:53] iş yapıyor. Cloud Code ile ilgili çok daha detaylı böyle bir ik saatlik video
+[00:18:57] da çekmeyi planlıyorum. Böyle en başından en sonuna kadar nasıl bir
+[00:19:00] workflow ortaya çıkartabiliriz, neler yapabiliriz hepsine tek değineceğiz. Çok
+[00:19:05] daha fazla video gelecek bu konu hakkında da. Diğer CLI'lar veya ideler
+[00:19:09] hakkında da gelecek ama cloud kode başka bir nokta çünkü profesyonel derecede iş
+[00:19:13] yapmanızı sağlıyor. Yanına bir de opusu falan eklediğinizle bambaşka bir noktaya
+[00:19:17] gidiyor. Yani umarım size faydalı bir video olmuştur dostlar. Kendinize çok
+[00:19:20] çok dikkat edin. Bir sonraki videoda görüşebilmek dileğiyle. Hoşça kalın.

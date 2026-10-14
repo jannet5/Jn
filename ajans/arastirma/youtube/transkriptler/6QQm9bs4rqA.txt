@@ -1,0 +1,414 @@
+# Kullandığım En İyi 6 Claude Code Skill'i
+# https://www.youtube.com/watch?v=6QQm9bs4rqA
+# kanal: İsa Nurdoğdu | süre: 863 sn | kaynak: yt-dlp:web_embedded:6QQm9bs4rqA.tr.json3
+
+[00:00:00] Cloud kodu kullanıyorsun ama büyük
+[00:00:01] ihtimalle gücünün yarısını bile
+[00:00:03] kullanamıyorsun. Çünkü olay sadece hangi
+[00:00:05] modeli kullandığın değil, hangi skili
+[00:00:07] doğru kullandığın. Skiller aslında
+[00:00:09] Cloud'a neyi nasıl yapması gerektiğini
+[00:00:11] anlatan metin dosyaları. Yani
+[00:00:13] abartılacak bir şey değil. Ama etkili
+[00:00:15] mi? Tabii ki de etkili. Çünkü bir kere
+[00:00:17] kuruyorsun ve Cloud bambaşka çalışmaya
+[00:00:19] başlıyor. Yalnız şöyle bir problem var.
+[00:00:21] Etrafta her yerde skilleri görüyorsun,
+[00:00:24] duyuyorsun ve hangisini kullanacağım
+[00:00:25] diye kafan karışıyor. Biliyorum. Ben
+[00:00:28] aylarca 200'den fazla skill kullandım ve
+[00:00:30] bu video içerisinde en iyi altı tanesini
+[00:00:32] tek tek anlatacağım. Ne işe yarıyor,
+[00:00:34] neyi yapamıyor, hepsini dürüstçe
+[00:00:36] açıklayacağım. Sonra da bunları bir tier
+[00:00:38] listeye dizeceğim. S seviyesinden D
+[00:00:40] seviyesine kadar tamamen kendi
+[00:00:42] fikirlerime göre sıralamış olacağım.
+[00:00:44] Eminim sana da rehber bir video olacak.
+[00:00:46] Hazırsan başlayalım. Şimdi öncelikle bu
+[00:00:48] skilleri göstereceğim ama nasıl
+[00:00:50] kurulduğunu da göstereyim. Hepsi için
+[00:00:52] aynı. Ben linklerini zaten aşağıya
+[00:00:54] koyacağım. Tek yapmanız gereken kurmak
+[00:00:56] için kurmak istediğiniz skillin GitHub
+[00:00:58] linkini almak ve bunu yapıştırıp bu
+[00:01:02] skili kur demek. Bu kadar. Yani sadece
+[00:01:04] linki verip kur demeniz yeterli
+[00:01:05] olacaktır. Şimdi anlatıma geçelim.
+[00:01:07] Hepsinin tek tek ne yaptığını
+[00:01:09] açıklayacağım. Birinciyle başlayalım.
+[00:01:11] Andrej Karpathy'nin skilleri. Şimdi
+[00:01:12] Andrej Karpathy kim, bunu da bilmek
+[00:01:14] gerekiyor. Yapay zekanın, özellikle
+[00:01:16] LLM'ler, büyük dil modelleri tarafında
+[00:01:18] en önemli teknik isimlerinden bir
+[00:01:20] tanesi. Kendisi yapay zekayı yapay zeka
+[00:01:23] yapan isimlerden diyebiliriz. Şu anda
+[00:01:25] Cloud'un kurucusu Anthropic'in ekibinde
+[00:01:27] çalışıyor. Kendisi bu yılın başında bir
+[00:01:29] paylaşım yayınladı. "Artık yazdığım
+[00:01:31] kodun çoğunu ben değil yapay zeka
+[00:01:33] yazıyor." dedi ve yapay zekanın kod
+[00:01:35] yazarken en çok battığı yerleri
+[00:01:37] sıraladı. Bir geliştirici de bu
+[00:01:40] Karpathy'nin paylaşımını alıp dört basit
+[00:01:42] kurala dökmüş. Nedir bu dört basit
+[00:01:44] kural? Aslında bu kurallar Cloud'a şunu
+[00:01:46] söylüyor: "Kafandan varsayım yapma. Yani
+[00:01:48] emin değilsen sor. Birden fazla ihtimal
+[00:01:51] varsa hepsini söyle. Sessizce birini
+[00:01:53] seçip devam etme." Cloud bunu çok
+[00:01:55] yapıyor. Sadece Cloud değil, yapay zeka
+[00:01:58] modellerinin zaten kronik sorunu
+[00:02:00] diyebiliriz. O yüzden siz bunu diğer
+[00:02:02] modellerde de belki kullanabilirsiniz.
+[00:02:04] Anti Gravity, Gemini vesaire. İkinci
+[00:02:05] olarak en sade çözümü yap. İşe
+[00:02:07] yaramayacak fazladan özellik ekleme.
+[00:02:09] Bunu da yapıyor ve bunu yaparak da
+[00:02:11] aslında token yakıyor modeller. O yüzden
+[00:02:13] yine etkili bir madde. Sadece istenen
+[00:02:15] yere dokun. Yan taraftaki çalışan kodun
+[00:02:18] "Şunu da düzelteyim." deyip bozma. Zaten
+[00:02:20] bir yerden sonra karmaşıklaşmaya
+[00:02:21] başlıyor projeler. O noktada Cloud
+[00:02:23] kaybolabiliyor. Bunu da önleyen bir
+[00:02:25] madde olmuş. Çalıştırmadan önce kontrol
+[00:02:27] et. İşi bitirdim demeden önce gerçekten
+[00:02:29] istenen şey mi diye bak. Gayet güzel.
+[00:02:32] Şimdi bu kurallar aslında ne yapıyor?
+[00:02:33] Cloud'u frenliyor. Biz onu çok güçlü bir
+[00:02:35] motor gibi düşünebiliriz. İnanılmaz bir
+[00:02:38] kuvveti var. Ama onu kontrol eden,
+[00:02:39] dizginleyen şeyler lazım. İşte Karpathy
+[00:02:42] burada fren takan bir skill yaratmasına
+[00:02:44] vesile oldu aslında. Ve bu kurallar
+[00:02:46] Cloud'u temkinli yapıyor, gördüğünüz
+[00:02:48] üzere. O yüzden çok basit işlerde bazen
+[00:02:50] fazla tiz davranabilir. Bu da dürüst
+[00:02:52] yorumumuz olsun. Her şeyi açıkça
+[00:02:54] konuşacağız dedik. O yüzden kod
+[00:02:56] projelerinde kullanabilirsiniz skill'i.
+[00:02:57] Gayet güzel. Ama basit işlerde belki
+[00:02:59] kullanmayabilirsiniz. Şimdi o zaman
+[00:03:01] derecelendirelim. Karpathy'nin skill'ini
+[00:03:03] ben B'ye yerleştiriyorum. Tamamen kendi
+[00:03:06] şahsi fikrim. Dört madde, evet, gayet
+[00:03:08] hepsi doğru. Ama zaten ben bunu
+[00:03:10] içgüdüsel, sezgisel olarak Cloud'a
+[00:03:12] yaptırabiliyorum. Eğer siz
+[00:03:13] yaptıramıyorsanız zaten tabii ki
+[00:03:15] kullanın ve belki S'ye, A'ya
+[00:03:16] yerleştirebilirsiniz kendi kafanızda.
+[00:03:18] Şahsen çok spesifik ihtiyaç duyduğum bir
+[00:03:21] benim skill olmadı bu. Ama değersiz
+[00:03:23] olduğu anlamına kesinlikle gelmiyor.
+[00:03:25] Dediğim gibi, bunların hepsi faydalı.
+[00:03:27] Ama derecelendirme kısmı tamamen şahsi
+[00:03:29] fikrim. İkinci UI UX Pro Max. Yani
+[00:03:32] dizayn, tasarım skill'i. Biliyorsunuz
+[00:03:34] yapay zeka mavi, mor siteler yapıyor
+[00:03:36] genelde ve çok klişe, çok bunaltıcı
+[00:03:39] oluyor. Bunu düzeltmek için şu anda bu
+[00:03:42] skill'i kullanabilirsiniz. 100.000
+[00:03:44] yıldızı var. Tasarım konusunda en dolu
+[00:03:46] kütüphane diyebiliriz. Bir web site
+[00:03:48] tasarımında, bir uygulamanızın sayfasını
+[00:03:51] yaparken mutlaka kullanılması gereken
+[00:03:53] banko, ilk başta kurulması gereken skill
+[00:03:55] diyebilirim. Şimdi yaptığı şey şu, size
+[00:03:57] bir tasarım paketi çıkartıyor. Sitenizin
+[00:04:00] ruhu nasıl, hangi stili istiyorsunuz,
+[00:04:02] hangi renkleri kendinize uygun
+[00:04:03] buluyorsunuz, hangi yazı tipleri, sonra
+[00:04:05] emin olmadığınız bir konu varsa ona
+[00:04:07] derinlemesine dalıp bir çözüm, bir cevap
+[00:04:09] bulmaya çalışıyor. Hissederek yapıyor.
+[00:04:11] Tasarımı hissetmek çok önemli. Tasarım
+[00:04:13] bir duygudur sonuçta. Bir enerjidir
+[00:04:16] aslında. Çünkü renklerin, fontların
+[00:04:18] hepsinin insan üzerinde bir etkisi
+[00:04:20] vardır. Bunu sağlayan bir skill
+[00:04:22] diyebiliriz. Ve içinde 50'den fazla
+[00:04:24] tasarım stili var, 160'tan fazla renk
+[00:04:26] paleti var, onlarca yazı tipi eşleşmesi
+[00:04:29] var. Sizin için hepsini buluyor. Siz
+[00:04:31] sadece ruhu anlatıyorsunuz, ürünü
+[00:04:33] anlatıyorsunuz. Farklı sektörler için
+[00:04:35] hazır kurallar var. React ve Next JS
+[00:04:37] gibi 10 farklı ortam için öneriler var.
+[00:04:39] Yani tasarım üzerinde bir iş yapılacaksa
+[00:04:41] mutlaka kurulması gerekiyor. Ama dürüst
+[00:04:43] açıdan bakacak olursak bu skill'de
+[00:04:45] aslında bütün tasarım skill'leri de
+[00:04:47] Cloud kodu yazarken ona yol gösteriyor.
+[00:04:49] Ama yani bizim ekranımızı açıp bakamıyor
+[00:04:51] veya bir önceki tasarımınızı
+[00:04:53] hatırlamıyor olabilir uygulamanızın. O
+[00:04:55] yüzden sizin de yol göstermeniz lazım
+[00:04:57] Cloud'a. O yüzden kafanızdaki tasarımı
+[00:04:59] gerçekten yaptırabilmek için ona örnek
+[00:05:02] görseller vermeniz, çıktıyı kontrol
+[00:05:04] etmeniz, spesifik yerleri
+[00:05:06] değiştirtirmeniz, bunları yine de
+[00:05:07] yapmanız gerekiyor. Mucize değil tabii
+[00:05:10] ki skill'ler. Ama işi çokça
+[00:05:11] kolaylaştırır. Kullanmamaktan daha
+[00:05:14] iyidir tabii ki kullanmak. O zaman
+[00:05:15] derecelendirelim. Şimdi ne dedik?
+[00:05:17] Tasarım tarafında bir iş yapıyorsam
+[00:05:19] mutlaka kullanmalıyım dedik. O yüzden
+[00:05:21] sıralamada A'ya koyarım. Çünkü bunu
+[00:05:23] kullanmadan önce Cloud'ın ne kadar
+[00:05:25] berbat siteler yaptığını biliyorum. Ve
+[00:05:27] siz bir front-end designer
+[00:05:29] olmayabilirsiniz. Front-end tasarımında,
+[00:05:31] oradaki kullanılan kütüphanelerde
+[00:05:32] bilginiz olmayabilir. Bunu sezgisel
+[00:05:34] olarak Cloud'a yazdıramazsınız. O yüzden
+[00:05:37] bu işi bilen insanlar tasarım tarafında
+[00:05:39] böyle bir yetenek yazmışlar. Bunu
+[00:05:41] kullanmakta ve A seviyesine koymakta
+[00:05:44] tabii ki fayda var. Üçüncü skill'imiz
+[00:05:46] Superpowers. Oldukça değerli bir
+[00:05:48] yetenektir bu da. Şimdi bunun ana
+[00:05:50] fikrini anlamak için önce şunu
+[00:05:52] anlayalım. Cloud'un kötü çıktı
+[00:05:53] vermesinin çoğu sebebi aslında hata
+[00:05:55] yapması değil. Kendisi oldukça zeki bir
+[00:05:58] model. Ne dedik? Çok güçlü bir motor
+[00:05:59] dedik. Ama kontrolsüz bir motor. O
+[00:06:01] yüzden yanlış problemi çok emin bir
+[00:06:03] şekilde çözebiliyor. Çözüyormuş gibi
+[00:06:05] yapıyor ya da bir halüsinasyon görüyor
+[00:06:07] vesaire. Yani hızlı bir şekilde aksiyon
+[00:06:09] alıyor, yanlış yapıyor. Davranışında
+[00:06:11] problemler var. Şimdi bunu Karpathy'nin
+[00:06:12] skill'i ile karıştırmayın. Karpathy
+[00:06:14] Cloud'ı frenliyordu. Bu ise ona bir
+[00:06:16] çalışma düzeni veriyor, bir alan açıyor
+[00:06:18] ve o alanda doğru adımlar atmasını
+[00:06:20] sağlıyor. Ve 2026'da en iyi skill'ler
+[00:06:22] listesinde en çok gösterilen yetenek
+[00:06:25] diyebiliriz. Zaten GitHub'da 246.000
+[00:06:28] yıldızı var. Mutlaka ne iş yapıyorsanız
+[00:06:30] yapın, siz plan moduna almasanız bile
+[00:06:33] Cloud bunu kurunca plan modunu mutlaka
+[00:06:35] kendi içinde düşünüyor. Önce planlıyor,
+[00:06:37] adımları analiz ediyor, size soruyor
+[00:06:39] gerekirse, cevapları veriyorsunuz ve
+[00:06:41] öyle işe başlıyor. Birden dalmıyor
+[00:06:43] diyebiliriz aslında. Ama yine de modeli
+[00:06:46] yönlendirme becerisi bizde diyebiliriz.
+[00:06:49] Yani dürüst sınırı burada senin yerine
+[00:06:50] tabii ki de düşünmüyor. Her kararı
+[00:06:52] kendisi almıyor. Kontrollü gidiyor dedik
+[00:06:55] ama her opsiyonu da düşünemeyebilir. O
+[00:06:57] yüzden netliği yine benim vermem
+[00:06:59] gerekiyor. Netlik yine bende. Modeli
+[00:07:01] yönlendirme becerim benim çok önemli bu
+[00:07:03] noktada. Yine de güzel, faydalı bir
+[00:07:04] skill diyebiliriz. Şimdi Super Powers'ı
+[00:07:07] ben Karpathy bazında düşünüyorum, yan
+[00:07:09] yana koyuyorum. Bakın aynı değiller
+[00:07:11] kesinlikle ama birbirini tamamlıyorlar.
+[00:07:14] O yüzden ikisi birlikte kullanılabilir.
+[00:07:16] Bir projede mutlaka kurulabilir.
+[00:07:18] Özellikle kapsamlı bir proje üzerine
+[00:07:20] çalışıyorsam, biri fren veriyor, biri de
+[00:07:22] davranışını düzeltiyor. Gayet uslu bir
+[00:07:24] asistana dönüşüyor Cloud. Şimdi gelelim
+[00:07:26] Caveman, yani mağara adamı skill'i.
+[00:07:29] Nedir mağara adamı? Belki duymuş
+[00:07:30] olabilirsiniz. Şimdi özünde biz Cloud'a
+[00:07:32] bir input verdiğimizde, ona ben merhaba
+[00:07:35] yazdığımda bir token yakıyorum değil mi?
+[00:07:37] Cloud bana örneğin merhaba, nasıl
+[00:07:38] yardımcı olabilirim diye bir cevap
+[00:07:40] verdi. Onun verdiği cevap output, yani
+[00:07:42] çıktı token'ı olarak sayılıyor. Onun
+[00:07:44] verdiği cevap da token yakıyor. Şimdi
+[00:07:46] input benim kontrolümde, tamam klavyeden
+[00:07:48] ben yazıyorum ama Claude'un output'unu
+[00:07:50] kontrol edemiyorum. İşte bu skill bana
+[00:07:52] bunu sağlıyor ve output'taki, çıktıdaki
+[00:07:55] gereksiz açıklamaları, işte kibar dolgu
+[00:07:58] cümlelerini vesaire, bunların hepsini
+[00:07:59] atıyor. Ya tabii ki yardımcı olurum
+[00:08:01] nokta nokta nokta. Şimdi burada tabii ki
+[00:08:03] yardımcı oluruma gerek yok. Ya sonuçta
+[00:08:05] kişisel bir duygu alışverişi yapmıyoruz
+[00:08:07] yapay zekayla. İşimi görsün yeter, değil
+[00:08:09] mi? Ve bu sayede bunlar birike birike
+[00:08:11] ortalama %65 daha az token yakmaya
+[00:08:14] başlıyor. Ve bu şekilde kısa da
+[00:08:16] konuşunca daha net oluyor aslında
+[00:08:17] Claude. Çünkü verdiği output çıktılar da
+[00:08:20] o sohbette birikiyor. Böyle birikiyor
+[00:08:22] onun verdiği çıktılarda. Ve siz yeni
+[00:08:24] input verdiğinizde öncekini tekrardan
+[00:08:26] okuyor. E burası net olunca diğer
+[00:08:28] çıktısı da net oluyor. GitHub'da 80.000
+[00:08:30] yıldızı var. Ben Claude limitlerini
+[00:08:32] verimli kullanma videosunda da zaten
+[00:08:34] bunu önermiştim. Gayet de kullananlar
+[00:08:37] memnunlar. Mağara adamı yöntemi diye
+[00:08:39] geçiyor. Şimdi bunun dürüst sınırına
+[00:08:41] bakalım. Bu aslında bir tarz ayarı, yani
+[00:08:43] ucuzluk ve hız kazandırıyor, evet. Ama
+[00:08:46] açıklamaları da kaybediyorsunuz. Onu da
+[00:08:48] söylemekte fayda var. Çünkü yaptığı işin
+[00:08:50] size hani şunu şunu yaptım ve bu
+[00:08:51] nedenden dolayı diye söylemiyor. Sadece
+[00:08:53] bunu yaptım diyor. E dolayısıyla ben o
+[00:08:56] işi neden ve nasıl yaptığını
+[00:08:57] öğrenemeyebilirim. Bu da işin gerçeği.
+[00:09:00] Ama işimi yapsın, ne olursa olsun
+[00:09:02] diyorsanız az token yaksın, okey bir
+[00:09:04] yetenek. Şimdi ben çok fazla limit
+[00:09:06] sıkıntısı çeken birisi değilim. O yüzden
+[00:09:08] kendi kişisel gündelik hayatımda
+[00:09:11] kullanmıyorum. Dolayısıyla C'ye koymak
+[00:09:14] istiyorum. Çünkü yapay zekanın
+[00:09:15] açıklamalarını da ben önemseyen
+[00:09:17] birisiyim. Neyi nasıl yaptığını mutlaka
+[00:09:19] görmek isterim. Tamam işi yapmış
+[00:09:21] olabilir ama ben ondan öğrenen hem de
+[00:09:24] ona öğreten bir ilişkiyi baz alıyorum
+[00:09:26] yapay zekayı kullanırken. Dolayısıyla
+[00:09:28] benim için C klasmanına girecek yetenek
+[00:09:31] diyebiliriz. Şimdi gelelim Open montaj
+[00:09:34] nedir bu? Claude Code biliyorsunuz video
+[00:09:36] üretemiyor, fotoğraf da üretmiyor. Öyle
+[00:09:38] bir model değil. Open Montage edit
+[00:09:40] yapmasını sağlıyor. Yani grafiklerle,
+[00:09:42] animasyonlarla, altyazılarla aslında
+[00:09:45] teoride size bir video oluşturabiliyor
+[00:09:47] Cloud bu sayede. Aslında arka planda
+[00:09:49] yine kod dönüyor. Yani Veo gibi, Sora
+[00:09:51] gibi bir yapay zeka videosu üretmiyor,
+[00:09:53] bir çizgi film videosu üretmiyor. Peki
+[00:09:55] ne yapıyor? Hemen sonucu göstereyim
+[00:09:57] size. Girdim repoya. Aşağıda örneklerini
+[00:09:59] görebilirsiniz bakın. Arkada şöyle bir
+[00:10:01] fotoğraf mı var? Bakın bu fotoğrafı
+[00:10:03] yaratmaz ama fotoğrafın geçişi diğer
+[00:10:05] videoya geçti örneğin. Sonrasında bir
+[00:10:07] yazı çıktı değil mi? Animasyon geldi.
+[00:10:10] Sonra söndü, başka bir yer geldi. İşte
+[00:10:12] bu geçişleri, yani prodüksiyonu
+[00:10:14] yapabiliyor. Bu çok zaman alan bir iş.
+[00:10:16] Öyle şu yazıların, grafiklerin,
+[00:10:18] animasyonların gelmesi kolay bir iş
+[00:10:20] değil. Bunlar Premiere Pro ya da After
+[00:10:22] Effects'te yapılıyorsa, altyazı bile
+[00:10:23] eklenecekse yine bir 5-10 dakika zaman
+[00:10:26] alacak şeyler. E bunları neden
+[00:10:28] otomatikleştirmeyeyim Cloud'a, değil mi?
+[00:10:29] Bakın şu tarz animasyonlar, ben bunları
+[00:10:32] YouTube videolarımda kullandım bu arada.
+[00:10:34] Kendim de hala edit tarafında
+[00:10:36] gerektiğinde kullanmaya devam ediyorum.
+[00:10:37] Şu tarzda yazılar, mum animasyonu. Ya
+[00:10:40] var olan videolarınızı prodüksiyon
+[00:10:42] anlamında üst katmana taşıyacak bir
+[00:10:44] skill diyebiliriz. Üzerine bununla da
+[00:10:46] yetinmiyor. Varsa eğer API'larınızı
+[00:10:49] bağlarsanız yapay zeka videolarını çekip
+[00:10:52] sizin için üretip örneğin şu muz
+[00:10:53] videosunu hani çekip üzerine altyazıyı
+[00:10:56] ekleyip böyle bir render da yapabiliyor.
+[00:10:57] Hepsini birleştirip size bir dakikalık
+[00:11:00] çıktıyı veriyor. Artı olarak stok
+[00:11:01] fotoğrafları, videoları çekebiliyor.
+[00:11:03] Örneğin şurada bir dünya fotoğrafı var
+[00:11:05] değil mi? Bunu Google'dan bulup veya
+[00:11:07] stok fotoğraf sağlayan sitelerden şöyle
+[00:11:09] bir işte NASA'nın videolarını bulup
+[00:11:12] çekebiliyor, sizin prodüksiyonunuza
+[00:11:14] ekleyebiliyor. Hepsini render alıp yine
+[00:11:16] 30 saniyelik bir video olarak
+[00:11:17] çıkartabiliyor. Bunun nasıl yapıldığını
+[00:11:19] çok detaylı bir şekilde bir videoda
+[00:11:21] anlatmıştım. Onu da yukarıdan
+[00:11:22] izleyebilirsiniz. Ama ne yaptık, ne
+[00:11:24] dedik? Tek tıkla video değil. Yani o
+[00:11:27] animasyonu sizin için şu arkada dönen o
+[00:11:29] muz videosundaki gibi bunu tabii ki de
+[00:11:32] üretmiyor. Bunu yapmıyor. Şimdi video
+[00:11:34] edit tarafında ben içerik üreten biri
+[00:11:36] olarak çok fazla kullanıyorum. O yüzden
+[00:11:38] benim için S seviyesine geliyor. Çünkü
+[00:11:41] bunun muadili olan bir uygulama, araç
+[00:11:43] ben görmedim, kullanmadım. Cloud Code
+[00:11:46] içerisinde bu skill sayesinde Remotion'ı
+[00:11:48] da içinde barındırıyor bu arada. Ben
+[00:11:50] Remotion'ı ayrı almak istemedim.
+[00:11:52] Biliyorsunuzdur belki. Aslında bunu
+[00:11:54] yapan, render alan, videonun nihai
+[00:11:56] çıktısını sağlayan şey Remotion.
+[00:11:58] Remotion zaten Open Montaj'ın içinde
+[00:12:00] geliyor. O yüzden Open Montaj'ı daha
+[00:12:02] kapsamlı, genişletilmiş haline ben
+[00:12:04] koymak istedim. Dolayısıyla S
+[00:12:06] seviyesinde olacaktır Open Montaj. Son
+[00:12:10] olarak Skill Creator'a geldik. İsimden
+[00:12:12] de anlaşılacağı gibi skill yapan skill
+[00:12:14] diyebiliriz. Bu Antropi'nin resmi bu
+[00:12:17] arada kütüphanesi direkt şu an linkini
+[00:12:19] açtım örneğin. Hani ben geri gelip
+[00:12:21] burada Antropi'nin direkt skilllerini de
+[00:12:24] görebilirim. 150.000 yıldızı var. Resmi
+[00:12:26] olsun istiyorsanız buradaki yeteneklere
+[00:12:29] de bakabilirsiniz. Bunun için de ben
+[00:12:31] Skill Creator'ı aldım. Çünkü çokça
+[00:12:33] kullanılıyor. Aslında özünde basit.
+[00:12:35] Benim kendi fikrim var, kendi bir
+[00:12:37] düşüncem, iş akışım var. Bunu bir
+[00:12:39] skill'e dönüştürmek istiyorum diyorsanız
+[00:12:41] bu yeteneği kullanabilirsiniz. Bunu
+[00:12:44] yaptığında Cloud bana rehber adımları
+[00:12:46] sunuyor. Sizin sorular sorarak size
+[00:12:49] fikrinizi, iş akışınızı, o kafanızdaki
+[00:12:51] şeyi, sezgisel şeyi metne dökmeye
+[00:12:54] yardımcı oluyor ve bunu bir skill
+[00:12:56] yetenek olarak kaydediyor. Gayet güzel.
+[00:12:58] Kendim de bazen skilller yaratırken
+[00:13:00] kullanıyorum. Ama her gün de bir yetenek
+[00:13:02] oluşturmuyorum tabii ki. O yüzden yine C
+[00:13:05] seviyesine koyabilirim. D'lik bir durum
+[00:13:07] olmadı bence. Hepsi zaten gayet kaliteli
+[00:13:10] yetenekler. Özetleyecek olursak video
+[00:13:13] edit tarafında çokça zaman kazandıran,
+[00:13:15] çok büyük bir işi otomatikleştiren skill
+[00:13:18] olduğu için S seviyesine koyduk Open
+[00:13:20] Montaj'ı. A seviyesinde tasarım
+[00:13:22] açısından, tasarımla ilgili bir iş
+[00:13:23] geliştiriyorsam ki zaten mutlaka
+[00:13:25] geliştiriyorumdur. Bir uygulama
+[00:13:27] yapıyorsam site lazım vesaire dizayn
+[00:13:29] illaki işin içine giriyor. O yüzden A
+[00:13:31] seviyesine UI UX Pro Max'i koymuş olduk.
+[00:13:35] Carpe ve Superpowers birlikte
+[00:13:36] kullanıldığında inanılmaz güçlü Cloud'u
+[00:13:39] dizginliyor ve onu halüsinasyonlar gören
+[00:13:42] bir klasik yapay zekadan çıkartıp
+[00:13:44] zekasını en verimli şekilde kullanan bir
+[00:13:46] asistana dönüştürüyor diyebiliriz. B
+[00:13:49] seviyesine koymuş olduk. C'de Caveman
+[00:13:52] yani mağara adamı limitleri düşürüyor.
+[00:13:54] Eğer limit probleminiz varsa mutlaka
+[00:13:57] kullanılması gereken bir yetenek
+[00:13:59] diyebiliriz. Her şeyin haricinde ben
+[00:14:01] kendi yeteneklerimi de oluşturmak
+[00:14:03] istiyorum diyorsak Skill Creator'ı da
+[00:14:04] koymuş olduk buraya. Gayet güzel oldu.
+[00:14:07] Her birinin linkini koyacağım aşağıya.
+[00:14:09] Oradan ulaşabilirsiniz. Siz ne
+[00:14:11] düşünüyorsunuz yorumlarda
+[00:14:12] belirtebilirsiniz. Varsa kendi
+[00:14:14] kullandığınız skilleri de
+[00:14:15] paylaşabilirsiniz. Farklı kişilerden
+[00:14:17] farklı bakış açıları görmek bence güzel
+[00:14:19] oluyor. Sonraki videolarda görüşürüz.
+[00:14:21] Kolaylıklar. Hoşça kalın.

@@ -1,0 +1,360 @@
+# Parallel Claude Code + Git Worktrees: This Setup Will Change How You Ship
+# https://www.youtube.com/watch?v=rFGlJ4oIlhw
+# kanal: Cole Medin | süre: 1433 sn | kaynak: yt-dlp:ios:rFGlJ4oIlhw.en.json3
+
+[00:00:00] All right, what I have for you today is a playbook to help you 10x your AI
+[00:00:04] coding with parallel agentic development. I'm going to get into all
+[00:00:09] of the strategies that I use on a daily basis to run many Claude Code sessions
+[00:00:14] at the exact same time. And of course, I'll cover how these strategies will
+[00:00:18] work no matter the coding agent that you're using or the applications that
+[00:00:21] you are building. I would highly encourage you when you're trying to get
+[00:00:24] the most output possible to run more than a single coding agent session at a
+[00:00:29] time. I mean, it's a good start. It'll at least 2x your output using AI coding
+[00:00:34] assistance, but why stop there? Why not go for parallel agents to 10x your
+[00:00:38] output or even beyond that? And by the way, this 10x versus 2x framing is very
+[00:00:44] inspired by this book, 10x is easier than 2x by Dan Sullivan and Dr. Benjamin
+[00:00:49] Hardy. It's a very good read by the way, and I'm applying it here because the
+[00:00:52] main argument in the book is that when you go 10x over 2x or that's your goal,
+[00:00:57] it's actually is easier because it forces you to think differently. For
+[00:01:02] [snorts] AI coding, it forces us to think about building a system to make
+[00:01:06] our coding agents more self-sustainable because otherwise there's no way that it
+[00:01:10] would scale. And of course, there are features already built into these coding
+[00:01:13] agents to support parallel agentic development. Like Claude Code has Claude
+[00:01:17] Agent Teams, for example. But honestly, that's not very reliable and it's not a
+[00:01:21] true system to give agents self-sustainability to make parallel
+[00:01:25] agents really realistic. And it's also definitely not enough to just spin out
+[00:01:29] five instances of Claude Code or Code X or whatever because sure, I can give
+[00:01:34] multiple different feature requests to these different agents, but they're
+[00:01:37] going to step on each other's toes constantly, override each other's
+[00:01:40] changes. We need a system especially centered around a work trees. And so
+[00:01:44] that's the system that I want to cover with you right now. This video is really
+[00:01:47] two parts. I want to start with the five pillars. And this is really simple to
+[00:01:52] understand. I just want to cover the five things that we need for parallel
+[00:01:55] agentic development to really work. And a lot of it is going to center around
+[00:01:59] Git work trees. And then the second part of the video goes a little bit deeper
+[00:02:03] for real engineering. This is the good stuff here because there are some common
+[00:02:07] problems that come up whenever you have your agents do end-to-end validation in
+[00:02:11] parallel. Port conflicts, installing dependencies, token blowout. I want to
+[00:02:15] talk about how we address all of these things to make it so that you can really
+[00:02:19] scale your work, 10x your agentic development and beyond. Now, before we
+[00:02:24] get into the five pillars, I want to just really quickly address the elephant
+[00:02:27] in the room here, which is Arkon. If you've been following my open source
+[00:02:30] Harness Builder, you know that I've built support for a lot of these things
+[00:02:33] like isolation and work trees. So, it's a system that ships ready for you to do
+[00:02:38] parallel agentic development at extreme scale. And so, a lot of the things that
+[00:02:42] we'll cover in this video, Arkon takes care of for you, but it's still
+[00:02:46] important to understand how Arkon works, how to use it effectively, and then some
+[00:02:50] of the strategies that we'll talk about in the second part of the video are
+[00:02:53] things that you'd actually want to build in your Arkon workflows. And so, even if
+[00:02:56] you are using Arkon, it's still really good to know how this works. And also, I
+[00:03:01] don't want to always expect you to use my tool even though it is free and open
+[00:03:04] source. And so, that's why I want to cover these things with you, my system
+[00:03:08] for parallel agentic development. So, with that, let's get into the five
+[00:03:11] pillars. All right. So, pillar number one is that issue is the spec. Pretty
+[00:03:16] much all of my agentic coding now, my input into any implementation is always
+[00:03:20] a GitHub issue. And of course, if you're using some kind of task management
+[00:03:23] platform or Jira, the ticket is going to be the input into the implementation.
+[00:03:29] And then for validation, the input is always the pull request. We'll talk
+[00:03:32] about that in a little bit as well. But let me go to the GitHub repository for
+[00:03:36] this video to show you exactly what I mean. So, by the way, for this video, I
+[00:03:40] built a very simple GitHub issue triager dashboard. So, it's not like it's some
+[00:03:45] crazy powerful application I built or anything. I just built it to have a
+[00:03:48] demonstration for this video. It helps us classify GitHub issues managing a
+[00:03:52] repo, and then everything is stored in the back end in a Postgres database
+[00:03:56] using Neon. So, we have our issues, plans for the issues, and
+[00:03:59] classifications. I might actually keep working on this, but anyway, the point
+[00:04:03] here, going back to the repository, is that I have five open issues. And so, I
+[00:04:07] am ready to spin up five agents in parallel to handle each one of them. The
+[00:04:12] power of having the issue or the ticket as the input is we already have the
+[00:04:17] individual pieces of work scoped out. And so, usually what I'll do is I'll
+[00:04:22] create a bunch of issues in batch, and I'll use a coding agent to help me do
+[00:04:26] that. Because generally, when you're working on an application, you move in
+[00:04:29] sprints, where you have a bunch of bugs and features that you want to implement
+[00:04:32] at the same time. And so, usually I'll work with my coding agent here to create
+[00:04:37] these bugs and feature requests as issues in GitHub, and then I'll go into
+[00:04:42] my parallel development. So, it's sort of like a fan out pattern, right? Like
+[00:04:45] you start with one coding agent session to split your work into these different
+[00:04:50] issues, then you send them all out to be implemented at the same time. Then,
+[00:04:54] going to pillars two and three, once we have the bug fix or feature scoped out
+[00:04:59] in an issue or ticket, then we're going to go through the stages of planning,
+[00:05:03] building, and validating, but each one of the coding agents working with their
+[00:05:06] own local copy of the code base, so they aren't overriding each other's changes.
+[00:05:11] That is what Git worktrees gives us. And by the way, worktrees are supported
+[00:05:16] natively in Claude code, so I can do Claude, and then it's {dash} {dash}
+[00:05:19] worktree, or you can just do {dash} w, and then you give the name of the
+[00:05:24] worktree. Like it can just be the issue number, like issue {dash} 10, or you can
+[00:05:29] give a description of the feature, whatever it is. And so, I'm going to
+[00:05:32] send this in, and you can see here that the path that we're operating in is a
+[00:05:36] worktree created in the {dot} Claude folder. So, this is my main code base
+[00:05:40] right here, but then if I go into {dot} Claude worktrees, we can see that we
+[00:05:44] have the folder issue 10, that's the name of our worktree, and then we have
+[00:05:47] the exact same code base duplicated here. That is the beauty of worktrees is
+[00:05:52] now when our coding agent works on the feature here, it's not going to be
+[00:05:56] overriding other features that other coding agents are building. Each one of
+[00:05:59] them has their own environment. And by the way, later on in the video when I
+[00:06:03] show you my system to handle the more trickier parts of parallel development,
+[00:06:07] I'll talk about how we can create worktrees for any coding agent, even
+[00:06:11] ones that don't support it natively like Claude Code. But, this is the starting
+[00:06:15] point. It's very easy to do worktrees with Claude like I just showed you. All
+[00:06:19] right, now what I did off camera is I created five Git worktrees to work on
+[00:06:24] each of the issues in parallel. So, I essentially did a Claude-w,
+[00:06:29] but I'm using a custom script here cuz it takes care of some of the fancier
+[00:06:32] stuff that we'll get to in a little bit in the video like installing the
+[00:06:35] dependencies up front, creating a database branch. We'll get into all
+[00:06:39] that. It's very powerful. But, essentially, I have five worktrees ready
+[00:06:42] to go. And so, at this point, this is where we point each worktree, each
+[00:06:46] Claude Code in the worktree, to a GitHub issue as our input. And you can use
+[00:06:51] whatever your agentic coding process usually is to plan, build, and validate.
+[00:06:57] So, maybe you have a set of skills or commands, maybe you're using a framework
+[00:07:00] like GitHub Spec Kit or B Mad. It doesn't matter. You can use your usual
+[00:07:03] process. It's just instead of you typing what you want up front, you're just
+[00:07:07] going to point it right to the issue. So, take a look at this. We'll look at
+[00:07:10] our issue list here. We'll say for the first worktree, we want to work on issue
+[00:07:13] number one. All I have to say is use the GitHub CLI to view issue one and help me
+[00:07:19] make a plan for it. It is that simple. And so, for the sake
+[00:07:24] of simplicity here, I'm not going through my usual, you know, more
+[00:07:28] elaborate process with my planning command and implementing command. I'm
+[00:07:30] just kind of doing free-form text here. Uh if you want to see my full process
+[00:07:35] for building with AI coding assistants, I'll link to a video right here where I
+[00:07:39] show more intricately what I do for planning and building and validating.
+[00:07:43] The point here is more to focus on the parallel side of things. And so, I sent
+[00:07:47] this off. I'll literally just copy this prompt. Check this out. Go into this one
+[00:07:50] and say I'll use the GitHub CLI to view issue number two. Very cool. And then go
+[00:07:54] on to this one and we'll do issue number three. I mean, it's a little bit
+[00:07:58] redundant here, but I'm keeping this in the video on purpose just to show you
+[00:08:01] how easy it is to start up the session cuz we're going to use our exact same
+[00:08:05] process of planning. Maybe it's a command or whatever. Literally, the only
+[00:08:10] thing we have to change is the underlying issue number. And so, now
+[00:08:13] it's going to create a plan for each one of these all in parallel. And so, I'll
+[00:08:16] come back once we have that. All right. So, the plan is back for each one of our
+[00:08:20] issues now. And so, I'm not going to get into the weeds with exactly what it's
+[00:08:23] planning for each issue. That's not the point of this video. The point is now we
+[00:08:28] have all these plans. I can just say, go ahead and implement. And we can do it
+[00:08:32] all at the same time because they're not going to be overriding each other's
+[00:08:34] changes since we have the separate code bases. And so, again, usually my plan
+[00:08:38] and implement process is more elaborate. I'm going to be reviewing on the plan
+[00:08:42] and iterating it with the agent, but for the sake of demo here, I'm just going to
+[00:08:45] say, go with what you recommended and implement all the way to a pull request.
+[00:08:49] So, I'm just going to say this for each one of our work trees. And so, it's
+[00:08:53] important here that the output of the implementation is a pull request. Like I
+[00:08:58] said, the issue is input into the implementation and then the pull request
+[00:09:03] is going to be the input into the validation. And so, I'll let it go
+[00:09:06] through the implementation for each of these and then I'll talk about the
+[00:09:10] fourth pillar for how we can do better validation. Okay. So, our implementation
+[00:09:14] is done for each of our work trees as you can see here. We now have a pull
+[00:09:19] request open up for every single one of our issues. And so, that, my friend,
+[00:09:24] takes us to the fourth pillar. And so, the interesting thing about pillars
+[00:09:28] number four and five is they're not directly related to parallel agentic
+[00:09:32] development like the first three, but it's all about the the
+[00:09:35] of the validation to make it so that you can really scale your parallel agentic
+[00:09:40] development. Because the thing is, if you don't have a lot built into your
+[00:09:43] system for self-validation, then you're going to become such a big bottleneck
+[00:09:48] for your system that you can't have that many agents going at the same time. So,
+[00:09:51] that's why I'm so focused on these two things to make the whole process more
+[00:09:56] reliable. So, one of the most important strategies for honestly working with
+[00:10:01] large language models in general is you don't want it to validate its own work
+[00:10:05] in the same context window where it did the implementation. There is so much
+[00:10:10] bias that the agent builds up within the conversation that if you tell it to
+[00:10:15] review the code in the same context window, it's like asking a kid to grade
+[00:10:19] their own homework. They're going to sweep a lot of things under the rug and
+[00:10:23] say it looks good because they just did the work. And so, what we want to do is
+[00:10:27] start a fresh context window. The reviewer should never see the writer's
+[00:10:32] chat. So, now going back to our Claude code sessions, there is a specialized
+[00:10:36] command that I have created for this called review PR. So, it automatically
+[00:10:41] data mines the pull request associated with the current branch and it does a
+[00:10:45] comprehensive review. But, the important thing is we want to do this in a
+[00:10:48] separate session. So, I'm actually going to run a {slash} clear, completely wipe
+[00:10:53] the context window, then I will do a review PR. So, I don't need to get super
+[00:10:59] deep into what the workflow looks like here, but essentially it's going to,
+[00:11:02] based on the get diffs, analyze the code changes, compare it to the issue to make
+[00:11:07] sure we're really addressing the issue, and then spin up specialized sub-agents
+[00:11:11] just to make sure that the implementation is ideal. And of course,
+[00:11:14] this command will be linked in the description. This entire repository will
+[00:11:17] be because also there's a lot of references that I have here getting into
+[00:11:21] some of the fancier stuff we'll talk about in a little bit. So, I'm going to
+[00:11:24] go ahead and run review PR here, and then I'm just going to keep going
+[00:11:27] through all of these sessions, clearing, doing the the PR. I'll come back once we
+[00:11:31] have the reviews for each one of them. Our reviews are done. It looks like this
+[00:11:35] one says approve ship as is. We got one with approve with changes, approve with
+[00:11:40] changes, approve with changes. So, couple of little things to fix here and
+[00:11:43] then this one oh, actually request changes. So, this one it found two
+[00:11:47] critical issues. So, it's good we're doing the review here. Always important
+[00:11:51] to do the review with the coding agent and then yourself after before you're
+[00:11:54] merging any pull requests into production. And then one other thing I
+[00:11:58] want to show you here just another cool golden nugget to include is I love also
+[00:12:02] using other coding agents to review the work of Claude Code. So, for example,
+[00:12:06] using the Codex plugin for Claude Code. Very powerful. I'll link to this GitHub
+[00:12:11] repo in the description. Very easy to get installed through the Anthropic
+[00:12:15] plugin marketplace. And so, then what we can do is run a command called {slash}
+[00:12:20] codex adversarial review. And so, it's going to review this current branch as
+[00:12:25] it relates to the changes from main. I'm going to send this off on each one of
+[00:12:29] them. Not that you always have to do this comprehensive of a review where you
+[00:12:33] have both Claude and Codex doing the review in separate sessions, but it can
+[00:12:37] be pretty helpful. If you want to be really thorough, making sure that again
+[00:12:40] the agent takes care of as much validation as possible so that you don't
+[00:12:44] have to be the bottleneck for your system. And there we go. We got our
+[00:12:48] Codex reviews back for all of our pull requests and it ripped apart my code. It
+[00:12:52] says I need attention for this one. This one it actually approved, but then for
+[00:12:56] the other three I checked off camera, they all need attention. So, it's good
+[00:13:00] that we're doing these very comprehensive reviews. We're definitely
+[00:13:03] finding things. And so, the goal here is for the agent to address as many things
+[00:13:06] as possible. So, by the time it's our turn to review, we don't have to be as
+[00:13:11] much of a bottleneck. There's less for us to address. And so, at this point, we
+[00:13:15] now have our coding agent address these problems, review things ourselves, and
+[00:13:19] then merge the pull requests. And then we just move on to the next batch of
+[00:13:23] issues or tickets. That's the loop that we go through here with agentic
+[00:13:27] development. Very cool. And so, the last thing that I want to cover here as far
+[00:13:32] as the pillars go is the self-healing layer. This is pillar number five. The
+[00:13:37] big mental model here is whenever we encounter a bug in a pull request, we
+[00:13:42] don't just fix the bug and move on, but we fix the underlying system that
+[00:13:46] allowed for the bug. And so, this is where we evolve what I like to call the
+[00:13:51] AI layer. All of the context engineering for our coding agent, like our global
+[00:13:56] our workflows, our skills, anything that's context to the coding agent, we
+[00:14:01] might want to make it better. And the easiest way to start this process is for
+[00:14:06] any of the issues that we identified here,
+[00:14:09] we just say like, "Hey, issue XYZ came up. What could we fix in
+[00:14:15] our rules, skills, workflows, etc. so that this doesn't happen again?" Now,
+[00:14:22] obviously, this isn't oversimplification, but the point is you
+[00:14:25] can work with the coding agent. It has full context from the reviews to help
+[00:14:29] you identify like these are the core problems. Like maybe your validate skill
+[00:14:34] doesn't have enough of a process laid out, or your planning isn't elaborate
+[00:14:38] enough, or your rules need to specify something new so that the coding agent
+[00:14:42] understands your code base properly. Just kind of spitballing a couple of
+[00:14:45] examples here to give you the idea that usually there's something that we need
+[00:14:48] to change in, you know, for ClaudeCoder dot Claude layer. Like we have our
+[00:14:52] commands, we have our skills, or maybe it's something we'd have to change in
+[00:14:56] our Claude dot MD. Whatever it is, it's good to make those improvements cuz then
+[00:14:59] we're evolving and not just our code base over time, but also the reliability
+[00:15:03] of our coding agents. And again, that's very important so that over time we
+[00:15:07] reduce how much we have to be a bottleneck because we're making our
+[00:15:10] coding agents more self-sufficient. And the last thing that I'll point out here
+[00:15:15] is it's also very powerful since we have the issue going in and the pull request
+[00:15:20] coming out of our implementation, we can actually do a comparison here. So, like
+[00:15:25] I can open up this pull request and I can go to the issues it's related to
+[00:15:29] issue number one, right? So, like pull request number 12 closes issue number
+[00:15:33] one and we can identify any discrepancies here. So, we can look at
+[00:15:38] the get diffs and obviously have our coding agent help us to do this,
+[00:15:41] especially if you're not quite as technical. We can compare what was done
+[00:15:46] for the actual work compared to the scope that we had laid out in the issue.
+[00:15:50] If the coding agent deviated in any kind of way from planning to implementation,
+[00:15:54] it'll be obvious just comparing the pull request to the issue. So, it's yet
+[00:15:58] another reason that I love using issues and pull requests as the artifacts to
+[00:16:01] drive everything for my AI coding cuz then it's very easy to, you know, look
+[00:16:06] back retroactively and see if there's anything in our process that needs to be
+[00:16:09] adjusted because we deviate from our plans frequently. That happens a lot
+[00:16:12] with coding agents. Really good to do this after you have a set of pull
+[00:16:17] requests. All right, so if you have made it this far, congratulations. You now
+[00:16:21] know the core workflow for parallel agentic development. But now, I want to
+[00:16:25] get into some of the trickier stuff that you're going to encounter if you really
+[00:16:29] set up your agents for success by allowing them to do end-to-end
+[00:16:33] validation. Static code analysis is not enough. You need your agents to actually
+[00:16:39] start your application and use it as a user would to make sure you're really
+[00:16:43] ready for the pull request merge. Well, there are these core problems that come
+[00:16:47] up that we need to address for our agents to really be able to handle
+[00:16:50] issues and pull requests completely end-to-end so we can have five issues at
+[00:16:54] breakfast and then five pull requests ready for us to review and merge before
+[00:16:58] lunch. And so, these are the five problems. And by the way, I'm going to
+[00:17:02] go pretty quickly through these things because in the repository that I have
+[00:17:06] here, of course linked in the description, all of this is a reference
+[00:17:09] for you to point your coding agent at. And so, I literally say that at the top
+[00:17:13] of the read me here. If you want to incorporate these ideas for handling
+[00:17:16] port conflicts and database branching and all that into your own AI coding
+[00:17:20] systems, then just point your coding agent here and say, "Hey, take these
+[00:17:23] ideas from Cole. I love them." That's the goal that I have for you here.
+[00:17:27] And so, the first problem is port conflicts. If you're starting many
+[00:17:31] versions of your application up on your computer, they're going to try taking
+[00:17:34] the same port, and that's going to confuse your coding agent a lot. Also,
+[00:17:38] we have to reinstall dependencies for every single work tree because it is a
+[00:17:41] new local copy of our code base. So, how do we make that fast? And then, we also
+[00:17:46] have the issue of if different feature implementations are changing the
+[00:17:50] database, we will actually break different work trees if they're all
+[00:17:54] pointing to the same database. So, not only do we need a work tree for the code
+[00:17:58] base, but we need something like a work tree for the database as well. We'll
+[00:18:02] talk about what that looks like with Neon branching and how you can do
+[00:18:06] something similar with SQLite as well. And then, of course, we have scaling
+[00:18:10] issues with token blowouts and PR pileup. But, I want to focus on these
+[00:18:15] three to start. Okay, so going back to our Claude sessions here, this is the
+[00:18:19] script that I teased earlier. I'm not just running Claude-w, I have a decently
+[00:18:23] elaborate process under the hood here that's taking care of these first three
+[00:18:28] issues. And so, the first thing that I'm doing is I am installing all of the node
+[00:18:33] modules up front. So, that way my agent doesn't have to take care of that when
+[00:18:37] it goes from implementation to validation. That also keeps the agent
+[00:18:40] focused and it makes the process not take as long when I'm actually having
+[00:18:43] the agent run. And then, the other thing that I'm doing
+[00:18:46] here is I am creating a what is called a Neon branch. And so, okay, this this is
+[00:18:52] like a really cool feature. So, within Neon, and most databases support this,
+[00:18:57] but Neon just does this so well, we have the idea of database branching. Take a
+[00:19:01] look at this. We have our main production database, and then we have a
+[00:19:05] special branch for each one of the work trees. So, we essentially have not just
+[00:19:10] code base isolation with work trees, but now we have database isolation as well.
+[00:19:15] And the beautiful thing here, if I click into one of the branches and I look at
+[00:19:18] the tables, we have all of the tables and data copied over from the main
+[00:19:23] production instance. So, it carries everything over, and now I can test
+[00:19:27] database updates and inserting records for testing and everything, and it's not
+[00:19:31] going to go right to my production data or conflict with the other branches that
+[00:19:36] I'm working in with other pull requests. This is so important. If you're doing
+[00:19:40] anything with a database, which is most applications, you need something like
+[00:19:44] database branching with me which Neon offers. Another solution, if you just
+[00:19:48] want something free and local, is you can have like a SQLite database that you
+[00:19:51] spin up in each worktree. You can certainly have Cloud Code help you set
+[00:19:55] that up as well. And the script for all of this, the w.sh or ps1 if you are on
+[00:20:00] Windows, it runs this worktree setup command, and that is what creates the
+[00:20:05] worktree and then also the branch in Neon. And this is also really cool, by
+[00:20:08] the way, because you can use this script in any coding agent. This is how you're
+[00:20:12] able to add worktree support automatically without having it built
+[00:20:16] right into the tool like we have with Cloud Code. We don't have that luxury
+[00:20:19] with every single coding agent. And then the other cool thing I want to
+[00:20:23] show you here is our startup command. I have this separate command that handles
+[00:20:27] startup as well. And what this does is it assigns a unique port based on the
+[00:20:32] name of the worktree. So, it uses the worktree name to create a random port.
+[00:20:35] So, that way when we start up the application, it has a unique port that
+[00:20:39] isn't going to conflict with the other branches. So, my base port is port 4000,
+[00:20:44] and then it's 4161 for this one. And then going to the bottom of this one,
+[00:20:48] the port is 4107. So, going to the browser here, you can
+[00:20:52] see this is the main application that's running on main right now. And then I
+[00:20:56] have all of the instances running on different ports in our worktree. So, our
+[00:21:00] agents are able to start all these up in parallel and test everything in
+[00:21:04] parallel. And you can can that we have different features. Like this one has
+[00:21:07] classify all pending. That's not currently in main cuz that's what we
+[00:21:10] implemented for this pull request. And so everything that I've covered here
+[00:21:14] that hits on these first three things. And I know I'm going through it pretty
+[00:21:17] quickly, but you can just point your coding agent at the repo and bring these
+[00:21:20] commands into your own ecosystem if you'd like to. All right. So the last
+[00:21:24] two things I'm going to cover very briefly here. Just a couple of
+[00:21:26] recommendations that I have for you. We got token blowout and PR pileup. And so
+[00:21:31] for token blowout, the main thing we have to be aware of here is if we want
+[00:21:35] our coding agents to be reliable, yes, we need to give it a very end-to-end
+[00:21:39] process including a lot of validation and review. But it also means it's going
+[00:21:43] to take more tokens. But the cool thing is with really any AI coding agent, you
+[00:21:48] can switch between models. You aren't stuck always using the highest
+[00:21:52] capability model. You can go to something lower like Haiku or Sonnet and
+[00:21:56] Claude Code for example when you're doing something that you want to be
+[00:21:59] cheap and fast and doesn't need as much reasoning power like code base analysis,
+[00:22:03] web research, even using something like Sonnet for code review. And so within
+[00:22:06] Claude Code, and it works the same way with other coding agents as well, you
+[00:22:09] can just do {slash} model. And then you're able to pick between the
+[00:22:12] different models. Like let me just run it. I'll do this in another session here
+[00:22:16] cuz I already ran it. So {slash} model. I can pick between the different models
+[00:22:20] depending on the task that I know I'm about to do. And then the other cool
+[00:22:23] thing that you can do is when you invoke skills and sub agents, you can give a
+[00:22:27] specialized model to those as well. So I can say use Haiku for a sub agent and do
+[00:22:33] uh research for XYZ, right? Like use this model for this sub agent to do this
+[00:22:38] thing. So I highly recommend doing that a lot to manage the tokens as you're
+[00:22:42] doing these longer workflows. And then really for the last thing with PR
+[00:22:46] pileup, the main thing is to reduce yourself being the human bottleneck,
+[00:22:52] right? So like anytime that you feel like you're slowing down on these code
+[00:22:57] reviews and you just want to get over to that next batch of issues. If there's
+[00:23:00] any issues that come up where it feels like you're spending a lot of time
+[00:23:03] fixing, that is your signal to do the self-healing layer. You definitely need
+[00:23:08] to add in more validation, something in the AI layer to make it so that there's
+[00:23:11] not so much of a burden on you to do the reviews of the code and fixing all of
+[00:23:15] those things. So, there you go, my friend. That is your playbook to 10x
+[00:23:19] your AI coding with parallel agents. And remember to use this repository as a
+[00:23:24] reference, my entire system packaged up here that you can have your coding
+[00:23:28] agents steal for yourself. So, I hope that you found this really useful, even
+[00:23:32] just the mental models here that you can apply no matter what your process is for
+[00:23:36] parallel agentic development. And so, with that, if you appreciate this video
+[00:23:40] and you're looking forward to more things on agentic engineering and
+[00:23:44] building harnesses and my open-source harness builder Arkon, I would really
+[00:23:48] appreciate a like and a subscribe. And with that, I will see you in the next
+[00:23:52] video.
