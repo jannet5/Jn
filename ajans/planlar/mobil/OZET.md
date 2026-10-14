@@ -16,6 +16,8 @@
 
 - **Eksik A/B (planı yok, transkript yok):** `qa5jMoJRQL8`, `UMjeSU6C4qU`, `E6Bj5Wxh-50`, `cTiP900ghk0`, `AAmdB1bvmYw`, `Em9EzurouOU`, `xno-O4vAx7Q`, `X7YMMyd2Qnk`, `Cpi--ZrpMns`, `g5d3ok5TbiI`, `KKWS0bSiCT4`, `CwHD6Fg-Mjs`. `qa5jMoJRQL8` için hiçbir yolda altyazı bulunamadı; diğerleri IP engeli.
 - **Alternatif tam metin:** repoda bu 33 video için başka bir transkript veya tam metin yok (denetimde tüm `ajans/` tarandı). Bazılarının yalnızca YouTube açıklaması var. `WTRNddbopGQ` (C) aynı kanalın aynı başlıklı videosu `uUUQjJm9zRw` ile benzer görünüyor ve onun planı var; içeriklerin aynı olduğu kanıtlanmadı.
+- **Koordinasyon kontrolü (2026-10-14, ikinci tur):** Başka bir oturum dala 21 yeni transkript (iş akışı + Türkçe grubu) ve 52 videonun meta bilgisi ekledi. Bunların hiçbiri bu 77 mobil videodan değil; `ajans/arastirma/youtube/kaynaklar/` altındaki 23 kaynak dosyadan yalnız `Iup1WlUyj9M` ve `VeWf0l4ci6Y` mobil listede, ikisinin de transkripti ve planı zaten var. Mobil kapsam değişmedi: 44/77 transkript, 33 eksik.
+- **C önceliği:** transkripti olan tek C videosu `i5wd1-QGE1A`; istek yalnız A/B için plan istediği için planı yazılmadı.
 - **Sentezin dayanağı:** bu özet yalnızca yukarıdaki 43 plana dayanır. Transkripti alınamayan videolardan çıkarım yapılmadı.
 - Aşağıdaki "En iyi 5 video" ve ilk bölümler ilk 8 plandan yazıldı; sonraki planların kararları en alttaki "Ek" bölümlerinde.
 
