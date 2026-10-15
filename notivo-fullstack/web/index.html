@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>Notivo Bildirim Çubuğu</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="device" id="device">
+    <header class="statusbar">
+      <time id="clock" class="clock" aria-label="Saat">--:--</time>
+      <ul id="statusIcons" class="status-icons" aria-label="Bildirimi olan uygulamalar"></ul>
+      <span class="status-right">
+        <span id="dndBadge" class="dnd-badge" hidden>Rahatsız Etme</span>
+        <span id="conn" class="conn" role="status" aria-live="polite">bağlanıyor…</span>
+      </span>
+    </header>
+
+    <div id="headsup" class="headsup" role="alert" hidden></div>
+
+    <nav class="quick" aria-label="Hızlı ayarlar">
+      <button type="button" class="tile" id="tileDnd" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span>Rahatsız Etme</span></button>
+      <button type="button" class="tile" id="tileHistory"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3a9 9 0 1 0 8.9 10h-2.1A7 7 0 1 1 13 5v4l5-5-5-5v3z" transform="translate(0 2)"/></svg><span>Geçmiş</span></button>
+      <button type="button" class="tile" id="tileRules"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span>Kurallar</span></button>
+      <button type="button" class="tile" id="tileSim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm5 18a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg><span>Simülatör</span></button>
+      <button type="button" class="tile" id="tileSound" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9z"/></svg><span>Ses</span></button>
+    </nav>
+
+    <main class="shade" id="shade" tabindex="-1" aria-label="Bildirimler">
+      <div id="sections"></div>
+      <p id="empty" class="empty" hidden>
+        <strong>Bildirim yok</strong>
+        <span>Simülatörden bir uygulama bildirimi gönder ya da <code>POST /api/notify</code> kullan.</span>
+      </p>
+    </main>
+
+    <footer class="shade-foot">
+      <button type="button" id="snoozedChip" class="chip" hidden></button>
+      <button type="button" id="clearAll" class="clear-all" hidden>Tümünü temizle</button>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <dialog id="dlgMenu" class="sheet" aria-labelledby="menuTitle">
+    <h2 id="menuTitle"></h2>
+    <div id="menuBody" class="menu-body"></div>
+    <button type="button" class="sheet-close" data-close>Kapat</button>
+  </dialog>
+
+  <dialog id="dlgHistory" class="sheet tall" aria-labelledby="histTitle">
+    <h2 id="histTitle">Bildirim geçmişi</h2>
+    <div class="toolbar">
+      <input id="histQ" type="search" placeholder="Ara (ör. indirim)" autocomplete="off" aria-label="Geçmişte ara">
+      <select id="histState" aria-label="Duruma göre süz">
+        <option value="all">Hepsi</option>
+        <option value="active">Çubukta</option>
+        <option value="snoozed">Ertelenmiş</option>
+        <option value="removed">Kapatılmış</option>
+      </select>
+    </div>
+    <ul id="histList" class="hist-list"></ul>
+    <div class="sheet-actions">
+      <a id="lnkCsv" class="btn" href="/api/export.csv" download>CSV indir</a>
+      <a id="lnkBackup" class="btn" href="/api/backup" download>Yedek indir</a>
+      <label class="btn file-btn">Yedekten yükle<input id="fileRestore" type="file" accept="application/json,.json"></label>
+    </div>
+    <button type="button" class="sheet-close" data-close>Kapat</button>
+  </dialog>
+
+  <dialog id="dlgRules" class="sheet tall" aria-labelledby="rulesTitle">
+    <h2 id="rulesTitle">Kurallar</h2>
+    <p class="hint">ENGELLE: bildirim hiç gösterilmez ve kaydedilmez. SESSİZ: çubukta gösterilmez, yalnızca geçmişe yazılır.</p>
+    <ul id="ruleList" class="rule-list"></ul>
+    <form id="ruleForm" class="rule-form">
+      <label>Uygulama<select id="ruleApp" name="pkg"><option value="">Tüm uygulamalar</option></select></label>
+      <label>Anahtar kelime<input id="ruleKw" name="keyword" maxlength="100" autocomplete="off" placeholder="boş = hepsi"></label>
+      <label>İşlem<select id="ruleAction" name="action"><option value="MUTE">Sessize al</option><option value="BLOCK">Engelle</option></select></label>
+      <button type="submit" class="btn primary">Kural ekle</button>
+      <p id="ruleErr" class="form-err" role="alert" hidden></p>
+    </form>
+    <button type="button" class="sheet-close" data-close>Kapat</button>
+  </dialog>
+
+  <dialog id="dlgSim" class="sheet tall" aria-labelledby="simTitle">
+    <h2 id="simTitle">Uygulama simülatörü</h2>
+    <p class="hint">Gerçek uygulamaların <code>NotificationManager.notify()</code> ile yaptığını API üzerinden yapar. Yanıt ve düğme eylemleri uygulamaya geri döner.</p>
+    <div id="simGrid" class="sim-grid"></div>
+    <details class="curl">
+      <summary>Kendi uygulamandan kullan (curl)</summary>
+      <pre id="curlSample"></pre>
+    </details>
+    <button type="button" class="sheet-close" data-close>Kapat</button>
+  </dialog>
+
+  <dialog id="dlgToken" class="sheet" aria-labelledby="tokTitle">
+    <form method="dialog" id="tokenForm">
+      <h2 id="tokTitle">Erişim anahtarı gerekli</h2>
+      <p class="hint">Bu sunucu NOTIVO_TOKEN ile korunuyor.</p>
+      <input id="tokenInput" type="password" autocomplete="off" aria-label="Erişim anahtarı" required>
+      <button type="submit" class="btn primary">Giriş</button>
+    </form>
+  </dialog>
+</body>
+</html>
