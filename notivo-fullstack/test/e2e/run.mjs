@@ -72,7 +72,7 @@ if (MODE === 'card') await ctx.addInitScript(() => localStorage.setItem('notivo-
 if (MODE === 'card') await ctx.route(SQLJS_URL, (route) => route.fulfill({ path: join(here, '..', '..', 'node_modules', 'sql.js', 'dist', 'sql-asm.js'), contentType: 'text/javascript' }));
 const page = await ctx.newPage();
 const problems = [];
-page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
+page.on('pageerror', (e) => problems.push(`pageerror: ${e.message} ${String(e.stack).split('\n').slice(0,3).join(' / ')}`));
 page.on('console', (m) => {
   if (m.type() === 'error') problems.push(`console.error: ${m.text()}`);
 });
@@ -312,6 +312,21 @@ await step('görünüm: karışık durum ekran görüntüsü; dar ekranda yatay 
 });
 
 if (MODE === 'card') {
+  await step('kart: Proje paneli (Android / İstekler / Özellikler) açılır, indirme düğmesi ve sürüm var', async () => {
+    await page.click('#tileProject');
+    await page.waitForSelector('#dlgProject[open]');
+    const android = await page.locator('#dlgProject .panel').innerText();
+    if (!/1\.3\.0/.test(android) || !/SHA-256/.test(android)) throw new Error('Android sekmesinde sürüm/SHA yok: ' + android.slice(0, 120));
+    for (const t of ['İstekler', 'Özellikler']) {
+      await page.click(`#dlgProject [role=tab]:has-text("${t}")`);
+      const txt = await page.locator('#dlgProject .panel').innerText();
+      if (txt.length < 100) throw new Error(t + ' sekmesi boş');
+    }
+    await page.click('#dlgProject [data-close]');
+  });
+}
+
+if (MODE === 'card') {
   await step('kart: veri bu cihazda kalır (sayfa yenilenince bildirim yerinde, ertelenen de)', async () => {
     await reset();
     await chan('com.whatsapp', 4, 'Mesajlar', 'WhatsApp', 'msg');
@@ -347,7 +362,7 @@ if (MODE === 'card') {
 }
 
 await step('tarayıcı konsolunda hata/CSP ihlali yok', async () => {
-  assert.deepEqual(problems, []);
+  assert.deepEqual(problems, [], JSON.stringify(problems));
 });
 
 await browser.close();

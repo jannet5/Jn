@@ -34,13 +34,18 @@ anahtarıyla (`notivo-release.jks`) imzalanır. **Google Play için kendi anahta
   (metin `ui/Screens.kt` → `PRIVACY`). Play'in kısıtlı izin politikasına göre ana işlev bildirim yönetimi olduğundan uygundur, ancak inceleme sonucu garanti değildir.
 - Play için `.aab` (`gradle bundleRelease`) ve kendi upload key'in gerekir.
 
-## Test durumu (1.2.0)
-- **Derleme:** `assembleRelease` (R8 küçültmeli) ve `lintRelease` tamam; lint 0 hata, 20 uyarı (çoğu kütüphane sürümü bildirimi). APK mevcut `notivo-release.jks` anahtarıyla imzalı.
+## Test durumu (1.3.0)
+- **Derleme:** `assembleRelease` (R8 küçültmeli) ve `lintRelease` tamam; lint 0 hata, 22 bulgu (hepsi uyarı/bilgi) (çoğu kütüphane sürümü bildirimi). APK mevcut `notivo-release.jks` anahtarıyla imzalı.
 - **JVM testleri (22, hepsi geçiyor):** `gradle testDebugUnitTest`. Robolectric ile bir **simülasyondur, gerçek cihaz veya emülatör değildir**:
   - `LogicTest`: kural eşleme, silinen-mesaj metni, gün kovaları, Türkçe İ/I/ı normalizasyonu, uygulamaya göre gruplama ve "son 3" kuralı
   - `DaoTest`: Room sorguları (silinen işareti, kopya penceresi, saklama süresi, sayaçlar, kural/ertele kayıtları)
   - `ListenerTest`: gerçek `NotiListener` ile yakalama, kopya engeli, ENGELLE/SESSİZ kuralı, hariç tutma, kalıcı/özet bildirimleri atlama, silinen mesaj işareti
+  - `FeaturesTest`: yeniden gösterme, hatırlatıcı + alarm, widget metni, geri yükleme kanalı
   - `VmTest`: yedek/geri yükleme gidiş-dönüş, CSV kaçışı, yanıt/açma yedekleri
   - `UiSmokeTest`: onboarding ve gelen kutusu ekranlarının açılması, arama, sekmeler, uygulama grubu başlıkları ve "N daha göster"
 - **Gerçek cihaz:** Henüz denenmedi. Ortamda emülatör/AVD/KVM/USB cihaz yoktu.
 - Mağaza metni ve marka notları: `PLAY_LISTING.md`.
+
+
+## 1.3.0 yenilikleri
+Tarih filtreleri (Bugünkü/Dünkü/7/30 gün), sıralama yönü, metni kopyala, sesli oku, bildirim çubuğunda yeniden göster, kendi hatırlatıcın, ana ekran widget'ı. Rakip özellik listesi ve durumları: `docs/FEATURE_CHECKLIST.md`. **Sesli okuma ve widget gerçek cihazda denenmedi.**

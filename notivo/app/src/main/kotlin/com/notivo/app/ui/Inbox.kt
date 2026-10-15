@@ -269,24 +269,26 @@ private fun copyText(ctx: Context, n: Notif) {
 }
 
 /** Pinnit tarzı kendi hatırlatıcın: başlık + metin + süre; süre dolunca bildirim olarak çalar. */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReminderDialog(onDismiss: () -> Unit, onSave: (String, String, Int) -> Unit) {
     var title by remember { mutableStateOf("") }
     var text by remember { mutableStateOf("") }
     var minutes by remember { mutableIntStateOf(60) }
-    AlertDialog(onDismissRequest = onDismiss, title = { Text("Hatırlatıcı ekle") },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedTextField(title, { title = it }, label = { Text("Başlık") }, singleLine = true)
-                OutlinedTextField(text, { text = it }, label = { Text("Not") })
-                // kaydırmasız: iki satırda dört seçenek (AlertDialog içinde yatay kaydırma yerleşimi bozabilir)
-                listOf(listOf(15 to "15 dk", 60 to "1 saat"), listOf(180 to "3 saat", 1440 to "Yarın")).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        row.forEach { (m, l) -> FilterChip(minutes == m, { minutes = m }, { Text(l) }) }
-                    }
+    ModalBottomSheet(onDismiss, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+        Column(Modifier.padding(16.dp, 0.dp, 16.dp, 24.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Hatırlatıcı ekle", style = MaterialTheme.typography.titleLarge)
+            OutlinedTextField(title, { title = it }, Modifier.fillMaxWidth(), label = { Text("Başlık") }, singleLine = true)
+            OutlinedTextField(text, { text = it }, Modifier.fillMaxWidth(), label = { Text("Not") })
+            listOf(listOf(15 to "15 dk", 60 to "1 saat"), listOf(180 to "3 saat", 1440 to "Yarın")).forEach { row ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    row.forEach { (m, l) -> FilterChip(minutes == m, { minutes = m }, { Text(l) }) }
                 }
             }
-        },
-        confirmButton = { TextButton({ onSave(title.trim(), text.trim(), minutes) }, enabled = title.isNotBlank() || text.isNotBlank()) { Text("Kaydet") } },
-        dismissButton = { TextButton(onDismiss) { Text("Vazgeç") } })
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                TextButton(onDismiss) { Text("Vazgeç") }
+                TextButton({ onSave(title.trim(), text.trim(), minutes) }, enabled = title.isNotBlank() || text.isNotBlank()) { Text("Kaydet") }
+            }
+        }
+    }
 }

@@ -128,7 +128,7 @@ function build() {
   const defs = [
     ['Android', androidPanel],
     ['İstekler', () => { const p = el('div', 'panel'); p.append(...rows(REQUESTS)); return p; }],
-    ['Özellikler', () => { const p = el('div', 'panel'); p.append(el('p', 'hint', 'Rakip uygulamaların özellik listeleriyle (Play sayfaları, Android Ally, TechCrunch/Pinnit) karşılaştırma.'), ...rows(FEATURES)); return p; }],
+    ['Özellikler', () => { const p = el('div', 'panel'); p.append(el('p', 'hint', 'Rakip uygulamaların özellik listeleriyle (Play sayfaları, Android Ally, TechCrunch/Pinnit) karşılaştırma.'), ...rows(FEATURES.map(([t, st, n]) => [st, t, n]))); return p; }],
   ];
   const show = (i) => {
     [...tabs.children].forEach((b, j) => b.setAttribute('aria-selected', String(i === j)));

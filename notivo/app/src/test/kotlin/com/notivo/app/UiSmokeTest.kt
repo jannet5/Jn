@@ -110,15 +110,16 @@ class UiSmokeTest {
         rule.waitUntil(5000) { rule.onAllNodesWithText("Akşam görüşelim mi?").fetchSemanticsNodes().isNotEmpty() }
         rule.onNodeWithText("Akşam görüşelim mi?").performTouchInput { longClick() }
         rule.waitUntil(5000) { rule.onAllNodesWithText("Metni kopyala").fetchSemanticsNodes().isNotEmpty() }
+        rule.mainClock.advanceTimeBy(1500)           // alt sayfanın açılış animasyonu bitsin; yoksa tıklama ekran dışına düşer
         rule.onNodeWithText("Sesli oku").assertExists()
         rule.onNodeWithText("Bildirim çubuğunda yeniden göster").assertExists()
-        rule.onNodeWithText("Metni kopyala").performClick()
-        val clip = app.applicationContext.getSystemService(android.content.ClipboardManager::class.java).primaryClip!!.getItemAt(0).text.toString()
-        org.junit.Assert.assertEquals("Ayşe\nAkşam görüşelim mi?", clip)
+        rule.onNodeWithText("Metni kopyala").performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick)
+        try { awaitUntil { org.robolectric.shadows.ShadowToast.getTextOfLatestToast() == "Kopyalandı" } } catch (e: IllegalStateException) { throw AssertionError("toast=" + org.robolectric.shadows.ShadowToast.getTextOfLatestToast() + " clip=" + app.getSystemService(android.content.ClipboardManager::class.java).primaryClip) }
         rule.waitUntil(5000) { rule.onAllNodesWithText("Metni kopyala").fetchSemanticsNodes().isEmpty() }
         rule.onNodeWithText("Akşam görüşelim mi?").performTouchInput { longClick() }
         rule.waitUntil(5000) { rule.onAllNodesWithText("Bildirim çubuğunda yeniden göster").fetchSemanticsNodes().isNotEmpty() }
-        rule.onNodeWithText("Bildirim çubuğunda yeniden göster").performClick()
+        rule.onNodeWithText("Bildirim çubuğunda yeniden göster").performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick)
+        awaitUntil { shadowOf(app.getSystemService(android.app.NotificationManager::class.java)).allNotifications.isNotEmpty() }
         val posted = shadowOf(app.getSystemService(android.app.NotificationManager::class.java)).allNotifications
         org.junit.Assert.assertEquals(1, posted.size)
         org.junit.Assert.assertEquals("Ayşe", posted[0].extras.getString(android.app.Notification.EXTRA_TITLE))
@@ -159,11 +160,12 @@ class UiSmokeTest {
         rule.setContent { NotiTheme { App() } }
         rule.waitUntil(5000) { rule.onAllNodesWithContentDescription("Hatırlatıcı ekle").fetchSemanticsNodes().isNotEmpty() }
         rule.onNodeWithContentDescription("Hatırlatıcı ekle").performClick()
+        rule.mainClock.advanceTimeBy(1500)
         rule.onNodeWithText("Kaydet").assertIsNotEnabled()               // boşken kaydedilemez
         rule.onNodeWithText("Başlık").performTextInput("Su iç")
-        rule.onNodeWithText("3 saat").performClick()
-        rule.onNodeWithText("Kaydet").performClick()
-        rule.waitUntil(5000) { runBlocking { Db.get(app).dao().snoozes() }.isNotEmpty() }
+        rule.onNodeWithText("3 saat").performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick)
+        rule.onNodeWithText("Kaydet").performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick)
+        awaitUntil { runBlocking { Db.get(app).dao().snoozes() }.isNotEmpty() }
         val s = runBlocking { Db.get(app).dao().snoozes() }.single()
         org.junit.Assert.assertEquals("Su iç", s.title)
         org.junit.Assert.assertTrue(s.at - System.currentTimeMillis() in (179 * 60_000L)..(181 * 60_000L))

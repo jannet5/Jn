@@ -80,8 +80,6 @@ class FeaturesTest {
         val awm = AppWidgetManager.getInstance(app)
         val id = shadowOf(awm).createWidget(NotivoWidget::class.java, R.layout.widget)
         val dao = Db.get(app).dao()
-        NotivoWidget.refreshNow(app)
-        assertEquals("Henüz bildirim yok", shadowOf(awm).getViewFor(id).findViewById<TextView>(R.id.w_l1).text.toString())
         dao.insert(notif(pkg = "com.mail", appName = "Gmail", title = "Fatura", text = "x", time = 1_000, read = true))
         dao.insert(notif(pkg = "com.chat", appName = "WhatsApp", title = "Ayşe", text = "y", time = 2_000))
         dao.insert(notif(pkg = "com.chat", appName = "WhatsApp", title = "Mehmet", text = "z", time = 3_000))
@@ -92,6 +90,13 @@ class FeaturesTest {
         assertEquals("Haber: son dakika", v.findViewById<TextView>(R.id.w_l1).text.toString())     // başlık boşsa metin
         assertEquals("WhatsApp: Mehmet", v.findViewById<TextView>(R.id.w_l2).text.toString())
         assertEquals("WhatsApp: Ayşe", v.findViewById<TextView>(R.id.w_l3).text.toString())
+    }
+
+    @Test fun emptyWidgetSaysNoNotificationsYet() = runBlocking {
+        val awm = AppWidgetManager.getInstance(app)
+        val id = shadowOf(awm).createWidget(NotivoWidget::class.java, R.layout.widget)
+        NotivoWidget.refreshNow(app)
+        assertEquals("Henüz bildirim yok", shadowOf(awm).getViewFor(id).findViewById<TextView>(R.id.w_l1).text.toString())
     }
 
     @Test fun refreshWithoutPlacedWidgetIsHarmless() = runBlocking {
