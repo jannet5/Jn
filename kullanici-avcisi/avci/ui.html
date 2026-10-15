@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kullanıcı Adı Avcısı</title>
+<style>
+  :root {
+    --bg:#F2F5F7; --surface:#FFFFFF; --fg:#13202A; --muted:#566673; --line:#D3DCE2;
+    --accent:#0A6C74; --accent-fg:#FFFFFF; --code-bg:#E7EDF1; --ok:#17703F; --warn:#8F5400; --bad:#B3261E;
+    --found-bg:#E3F4EA;
+    --font:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) { :root {
+    --bg:#0D1519; --surface:#142026; --fg:#E3ECEF; --muted:#93A5AE; --line:#26373F; --accent:#4CC9BF;
+    --accent-fg:#06201E; --code-bg:#0A1013; --ok:#5FD08F; --warn:#E3A64B; --bad:#FF8A80; --found-bg:#12301F;
+    color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 var(--font); }
+  main { max-width:880px; margin:0 auto; padding:28px 16px 64px; display:flex; flex-direction:column; gap:20px; }
+  h1 { margin:0; font-size:1.7rem; letter-spacing:-.02em; }
+  h2 { margin:0 0 12px; font-size:1.05rem; }
+  p { margin:0; }
+  .sub { color:var(--muted); margin-top:4px; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px; min-width:0; }
+  .row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .grow { flex:1 1 200px; }
+  button, select, input[type=number], textarea { font:inherit; color:inherit; }
+  .btn { border:0; border-radius:8px; padding:12px 20px; min-height:46px; font-weight:600; cursor:pointer; background:var(--accent); color:var(--accent-fg); }
+  .btn.ghost { background:transparent; color:var(--fg); border:1px solid var(--line); }
+  .btn.stop { background:var(--bad); color:#fff; }
+  .btn[disabled] { opacity:.55; cursor:progress; }
+  .btn:focus-visible, select:focus-visible, textarea:focus-visible, input:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  select, input[type=number], textarea { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  textarea { width:100%; min-height:96px; resize:vertical; font-family:var(--font); }
+  input[type=number] { width:70px; }
+  .state { display:flex; align-items:center; gap:10px; font-weight:600; }
+  .dot { width:12px; height:12px; border-radius:50%; background:var(--muted); }
+  .dot.on { background:var(--ok); box-shadow:0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent); }
+  .nums { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-top:14px; }
+  .num { border-top:3px solid var(--line); padding-top:8px; }
+  .num b { display:block; font-size:1.5rem; font-variant-numeric:tabular-nums; line-height:1.2; }
+  .num span { color:var(--muted); font-size:.85rem; }
+  .num.hit { border-top-color:var(--ok); }
+  .msg { margin-top:12px; font-size:.95rem; }
+  .msg.ok { color:var(--ok); } .msg.warn { color:var(--warn); } .msg.bad { color:var(--bad); }
+  .log { margin-top:12px; font:12.5px/1.6 var(--mono); background:var(--code-bg); border-radius:8px; padding:10px 12px; max-height:170px; overflow:auto; white-space:pre-wrap; color:var(--muted); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 12px; }
+  .chip { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); border-radius:999px; padding:6px 12px; cursor:pointer; user-select:none; }
+  .chip:has(input:checked) { background:var(--accent); color:var(--accent-fg); border-color:var(--accent); }
+  .chip input { position:absolute; opacity:0; pointer-events:none; }
+  .chip:has(input:focus-visible) { outline:3px solid var(--accent); outline-offset:2px; }
+  label.opt { display:flex; align-items:center; gap:8px; }
+  .conv { margin-top:12px; display:flex; flex-direction:column; gap:6px; font-size:.93rem; }
+  .conv div { display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; }
+  .conv code, .names code { font-family:var(--mono); background:var(--code-bg); border-radius:4px; padding:1px 6px; }
+  .found { display:flex; flex-direction:column; gap:10px; }
+  .hit-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; background:var(--found-bg); border-radius:10px; padding:12px 14px; }
+  .hit-row strong { font-size:1.15rem; font-family:var(--mono); }
+  .hit-row .meta { color:var(--muted); font-size:.85rem; flex:1 1 100px; }
+  .empty { color:var(--muted); }
+  .badge { font-size:.8rem; border:1px solid var(--line); border-radius:999px; padding:3px 10px; color:var(--muted); }
+  .badge.demo { color:var(--warn); border-color:var(--warn); }
+  .small { color:var(--muted); font-size:.88rem; }
+  @media (max-width:520px) { .btn { width:100%; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="row"><h1>Kullanıcı Adı Avcısı</h1><span id="demo-badge" class="badge demo" hidden>DEMO: sahte Instagram</span></div>
+    <p class="sub">İsimleri sürekli kontrol eder, boşalan olursa burada gösterir ve ses çalar.</p>
+  </header>
+
+  <section class="card" aria-label="Durum">
+    <div class="row">
+      <div class="state"><span id="dot" class="dot"></span><span id="state-text">Durdu</span></div>
+      <span class="grow"></span>
+      <label class="opt">Hız
+        <select id="speed"><option value="yavas">Yavaş (güvenli)</option><option value="normal" selected>Normal</option><option value="hizli">Hızlı</option></select>
+      </label>
+      <label class="opt">Süre
+        <select id="minutes"><option value="">Sürekli</option><option value="30">30 dakika</option><option value="120">2 saat</option><option value="480">8 saat</option></select>
+      </label>
+      <button class="btn" id="start" type="button">▶ Başlat</button>
+      <button class="btn stop" id="stop" type="button" hidden>■ Durdur</button>
+    </div>
+    <div id="start-msg" class="msg" role="status" aria-live="polite"></div>
+    <div class="nums">
+      <div class="num"><b id="n-checks">0</b><span>kontrol edildi</span></div>
+      <div class="num"><b id="n-pending">0</b><span>sırada bekliyor</span></div>
+      <div class="num"><b id="n-taken">0</b><span>dolu çıktı</span></div>
+      <div class="num hit"><b id="n-found">0</b><span>BULUNDU</span></div>
+    </div>
+    <div class="log" id="log" aria-label="Son olaylar">Henüz bir şey olmadı.</div>
+    <p class="small" id="next-line" style="margin-top:10px"></p>
+  </section>
+
+  <section class="card" aria-label="Bulunanlar">
+    <h2>Bulunanlar</h2>
+    <div class="found" id="found"><p class="empty">Henüz bulunan yok. Araç çalışırken burada görünür.</p></div>
+    <p class="small" style="margin-top:12px">Bulunan isim <strong>adaydır</strong>: "bu isimde hesap yok" demektir. Instagram'da Profili düzenle → Kullanıcı adı'na yazınca son kararı Instagram verir. Hızlı ol.</p>
+  </section>
+
+  <section class="card" aria-label="İsim ekle">
+    <h2>Aklındaki isimleri ekle (her dilde)</h2>
+    <textarea id="names" placeholder="Her satıra ya da boşlukla ayırarak bir isim. Örn:&#10;habibi  قمر  qamar  привет  şeker"></textarea>
+    <div class="row" style="margin-top:10px">
+      <label class="opt"><input type="checkbox" id="add-digits"> rakamlı yazım (7abibi)</label>
+      <span class="grow"></span>
+      <button class="btn" id="add" type="button">Sıcak listeye ekle</button>
+    </div>
+    <div class="conv" id="conv" aria-live="polite"></div>
+    <p class="small" style="margin-top:8px">Sıcak liste en sık kontrol edilir (2 dakikada bir). Arapça gibi yazıları Instagram harflerine kendisi çevirir.</p>
+  </section>
+
+  <section class="card" aria-label="Havuz">
+    <h2>Aday havuzu kur</h2>
+    <p class="small">Dil seç; o dilin kelimeleri 3–7 harfli kullanıcı adlarına çevrilip sıraya eklenir.</p>
+    <div class="chips" id="langs"></div>
+    <div class="row">
+      <label class="opt"><input type="checkbox" id="big" checked> Büyük listeyi indir (50.000 kelime)</label>
+      <label class="opt"><input type="checkbox" id="c3"> tüm 3 harfliler (17.576)</label>
+      <label class="opt"><input type="checkbox" id="cvcv"> okunur 4 harfliler (ünsüz-ünlü-ünsüz-ünlü)</label>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <label class="opt">En az <input type="number" id="min" value="3" min="1" max="30"></label>
+      <label class="opt">En çok <input type="number" id="max" value="7" min="1" max="30"></label>
+      <label class="opt"><input type="checkbox" id="build-digits"> rakamlı yazımlar</label>
+      <span class="grow"></span>
+      <button class="btn" id="build" type="button">Havuzu kur</button>
+    </div>
+    <div class="msg" id="build-msg" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-label="Bağlantı testi">
+    <h2>Bağlantı testi</h2>
+    <p class="small">Araç Instagram'a bu internetten gerçekten bakabiliyor mu? Bilinen bir hesap "dolu", uydurma bir isim "boş" çıkmalı. Başlat'a basınca zaten otomatik çalışır.</p>
+    <div class="row" style="margin-top:10px"><button class="btn ghost" id="test" type="button">Testi çalıştır</button></div>
+    <div class="msg" id="test-msg" role="status" aria-live="polite"></div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var T = "__TOKEN__";
+  var $ = function (id) { return document.getElementById(id); };
+  var knownFound = null;
+
+  function api(path, body) {
+    return fetch(path, { method: body === undefined ? "GET" : "POST", headers: { "X-Token": T, "Content-Type": "application/json" },
+      body: body === undefined ? undefined : JSON.stringify(body) }).then(function (r) { return r.json(); });
+  }
+  function setMsg(id, text, cls) { var e = $(id); e.textContent = text || ""; e.className = "msg" + (cls ? " " + cls : ""); }
+  function busy(btn, on, label) { btn.disabled = on; if (label) btn.dataset.l = btn.dataset.l || btn.textContent; btn.textContent = on ? label : (btn.dataset.l || btn.textContent); }
+
+  function beep() {
+    try {
+      var C = window.AudioContext || window.webkitAudioContext, c = new C();
+      [0, 0.25, 0.5].forEach(function (d) {
+        var o = c.createOscillator(), g = c.createGain(); o.frequency.value = 880; o.connect(g); g.connect(c.destination);
+        g.gain.setValueAtTime(0.2, c.currentTime + d); g.gain.exponentialRampToValueAtTime(0.0001, c.currentTime + d + 0.2);
+        o.start(c.currentTime + d); o.stop(c.currentTime + d + 0.22);
+      });
+    } catch (e) { /* ses kapalı olabilir */ }
+  }
+
+  function copy(text, btn) {
+    var done = function (ok) { var o = btn.textContent; btn.textContent = ok ? "Kopyalandı" : "Elle kopyala"; setTimeout(function () { btn.textContent = o; }, 1500); };
+    try { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); } catch (e) { done(false); }
+  }
+
+  function renderFound(list) {
+    var box = $("found");
+    if (!list.length) { box.innerHTML = '<p class="empty">Henüz bulunan yok. Araç çalışırken burada görünür.</p>'; return; }
+    box.innerHTML = "";
+    list.forEach(function (f) {
+      var row = document.createElement("div"); row.className = "hit-row";
+      var s = document.createElement("strong"); s.textContent = "@" + f.name;
+      var m = document.createElement("span"); m.className = "meta"; m.textContent = f.length + " harf · " + f.at;
+      var b1 = document.createElement("button"); b1.className = "btn ghost"; b1.type = "button"; b1.textContent = "Kopyala";
+      b1.onclick = function () { copy(f.name, b1); };
+      var a = document.createElement("a"); a.className = "btn"; a.textContent = "Instagram'da al"; a.target = "_blank"; a.rel = "noopener";
+      a.href = "https://www.instagram.com/accounts/edit/"; a.style.textDecoration = "none"; a.style.display = "inline-flex"; a.style.alignItems = "center";
+      a.onclick = function () { copy(f.name, b1); };
+      row.append(s, m, b1, a); box.appendChild(row);
+    });
+  }
+
+  function render(s) {
+    $("demo-badge").hidden = !s.demo;
+    $("dot").className = "dot" + (s.running ? " on" : "");
+    var min = Math.floor(s.elapsed / 60);
+    $("state-text").textContent = s.running ? "Çalışıyor · " + min + " dk" : "Durdu";
+    $("start").hidden = s.running; $("stop").hidden = !s.running;
+    $("n-checks").textContent = s.stats.toplam_kontrol;
+    $("n-pending").textContent = s.stats.bekleyen;
+    $("n-taken").textContent = s.stats.alinmis;
+    $("n-found").textContent = s.stats.bulunan;
+    $("log").textContent = s.logs.length ? s.logs.join("\n") : "Henüz bir şey olmadı.";
+    var rps = { yavas: 0.2, normal: 0.4, hizli: 0.8 }[$("speed").value] || 0.4;
+    var secs = s.stats.bekleyen / rps, eta = secs < 3600 ? Math.ceil(secs / 60) + " dakika" : secs < 172800 ? Math.round(secs / 3600) + " saat" : Math.round(secs / 86400) + " gün";
+    $("next-line").textContent = s.next.length
+      ? "Sıradaki ilk isimler: " + s.next.join(", ") + (s.stats.bekleyen > 50 ? ". Bu hızda bekleyenlerin ilk turu ≈ " + eta + " (Instagram hızı sınırlar; sıcak liste ve kısa isimler öne alınır)." : "")
+      : (s.stats.toplam ? "" : "Havuz boş: aşağıdan isim ekle ya da dil seçip havuz kur.");
+    renderFound(s.found);
+    var names = s.found.map(function (f) { return f.name; }).join(",");
+    if (knownFound !== null && names !== knownFound && s.found.length) { beep(); document.title = "✅ BULUNDU: " + s.found[s.found.length - 1].name; }
+    knownFound = names;
+    if (!$("langs").children.length) {
+      s.langs.forEach(function (l) {
+        var lab = document.createElement("label"); lab.className = "chip";
+        var cb = document.createElement("input"); cb.type = "checkbox"; cb.value = l.code; if (l.code === "ar") cb.checked = true;
+        lab.append(cb, document.createTextNode(l.name)); $("langs").appendChild(lab);
+      });
+    }
+  }
+
+  function poll() { api("/api/state").then(render).catch(function () { $("state-text").textContent = "Bağlantı koptu (pencere kapanmış olabilir)"; }); }
+
+  $("start").onclick = function (ev) { startRun(false); };
+  function startRun(force) {
+    var btn = $("start"); busy(btn, true, force ? "Başlıyor…" : "Bağlantı test ediliyor…"); setMsg("start-msg", "");
+    api("/api/start", { speed: $("speed").value, minutes: $("minutes").value || null, force: force }).then(function (r) {
+      busy(btn, false);
+      if (r.ok) { setMsg("start-msg", "Başladı.", "ok"); }
+      else if (r.needs_force) {
+        setMsg("start-msg", r.msg, "bad");
+        var f = document.createElement("button"); f.className = "btn ghost"; f.type = "button"; f.style.marginLeft = "8px"; f.textContent = "Yine de başlat";
+        f.onclick = function () { f.remove(); startRun(true); }; $("start-msg").appendChild(document.createElement("br")); $("start-msg").appendChild(f);
+      } else setMsg("start-msg", r.msg, "warn");
+      poll();
+    });
+  }
+  $("stop").onclick = function () { var b = $("stop"); busy(b, true, "Duruyor…"); api("/api/stop", {}).then(function () { busy(b, false); setMsg("start-msg", "Durduruldu.", "ok"); poll(); }); };
+
+  $("add").onclick = function () {
+    var b = $("add"); busy(b, true, "Ekleniyor…");
+    api("/api/add", { text: $("names").value, digits: $("add-digits").checked, min: +$("min").value, max: +$("max").value }).then(function (r) {
+      busy(b, false); var c = $("conv"); c.innerHTML = "";
+      if (!r.ok) { c.textContent = r.msg; return; }
+      r.rows.forEach(function (row) {
+        var d = document.createElement("div"); var a = document.createElement("span"); a.textContent = row.girdi + " →";
+        d.appendChild(a);
+        if (!row.uygun.length) { var n = document.createElement("span"); n.className = "small"; n.textContent = "uygun yazım yok (harf sayısı " + $("min").value + "–" + $("max").value + " olmalı)"; d.appendChild(n); }
+        row.uygun.forEach(function (v) { var k = document.createElement("code"); k.textContent = v; d.appendChild(k); });
+        c.appendChild(d);
+      });
+      var t = document.createElement("div"); t.className = "small"; t.textContent = r.added + " yeni isim sıcak listeye eklendi."; c.appendChild(t);
+      poll();
+    });
+  };
+
+  $("build").onclick = function () {
+    var langs = Array.prototype.map.call(document.querySelectorAll("#langs input:checked"), function (i) { return i.value; });
+    var combos = $("c3").checked ? [3] : [];
+    if (!langs.length && !combos.length && !$("cvcv").checked) { setMsg("build-msg", "Önce bir dil ya da seçenek işaretle.", "warn"); return; }
+    var b = $("build"); busy(b, true, "Kuruluyor… (büyük listede 1 dk sürebilir)"); setMsg("build-msg", "");
+    api("/api/build", { langs: langs, combos: combos, cvcv: $("cvcv").checked, min: +$("min").value, max: +$("max").value,
+      digits: $("build-digits").checked, big: $("big").checked }).then(function (r) {
+      busy(b, false); setMsg("build-msg", r.ok ? (r.added + " yeni aday eklendi. " + r.report.join(" · ")) : r.msg, r.ok ? "ok" : "bad"); poll();
+    });
+  };
+
+  $("test").onclick = function () {
+    var b = $("test"); busy(b, true, "Test ediliyor…"); setMsg("test-msg", "");
+    api("/api/selftest", {}).then(function (r) { busy(b, false); setMsg("test-msg", r.msg, r.ok ? "ok" : "bad"); poll(); });
+  };
+
+  poll(); setInterval(poll, 2000);
+})();
+</script>
+</body>
+</html>

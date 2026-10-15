@@ -47,8 +47,9 @@ class Pacer:
 class Engine:
     def __init__(self, store: Store, checker: Checker, notifier: Notifier, rps: float = 0.5,
                  workers: int = 2, cool_hours: float = 6.0, hot_seconds: float = 120.0,
-                 confirm: int = 2, confirm_gap: float = 3.0, quiet: bool = False):
+                 confirm: int = 2, confirm_gap: float = 3.0, quiet: bool = False, log=None):
         self.store, self.checker, self.notifier = store, checker, notifier
+        self._logf = log or (lambda m: print(m, flush=True))
         self.pacer = Pacer(rps)
         self.workers = workers
         self.cool = cool_hours * 3600
@@ -153,7 +154,7 @@ class Engine:
 
     def _log(self, msg: str):
         if not self.quiet:
-            print(msg, flush=True)
+            self._logf(msg)
 
     def _progress(self, deadline: Optional[float], every: float = 10.0):
         t0 = time.monotonic()

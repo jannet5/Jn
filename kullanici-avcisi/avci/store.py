@@ -17,7 +17,10 @@ CREATE TABLE IF NOT EXISTS names (
   next_check REAL DEFAULT 0,
   note TEXT
 );
-CREATE INDEX IF NOT EXISTS idx_pick ON names(status, next_check, hot, score);
+CREATE INDEX IF NOT EXISTS idx_pending ON names(status, score DESC);
+CREATE INDEX IF NOT EXISTS idx_due ON names(status, next_check);
+CREATE INDEX IF NOT EXISTS idx_hot ON names(hot, next_check);
+CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, val INTEGER DEFAULT 0);
 CREATE TABLE IF NOT EXISTS events (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   ts REAL, name TEXT, kind TEXT, detail TEXT
@@ -50,13 +53,19 @@ class Store:
 
     # --- iş dağıtımı --------------------------------------------------------
     def lease(self, lease_seconds: float = 120.0, now: Optional[float] = None) -> Optional[str]:
-        """Sıradaki ismi verir (sıcak liste > bekleyenler > yüksek puan > en eski). Çifte iş olmasın diye kiralar."""
+        """Sıradaki ismi verir: sıcak liste > bekleyenler (yüksek puan) > dolu isimlerin tekrar zamanı.
+        Büyük havuzda yavaşlamasın diye her adım kendi indeksini kullanır. Çifte iş olmasın diye kiralar."""
         now = time.time() if now is None else now
         with self.lock:
-            row = self.db.execute(
-                "SELECT name FROM names WHERE status!='found' AND next_check<=? "
-                "ORDER BY hot DESC, (status='pending') DESC, score DESC, next_check ASC LIMIT 1",
-                (now,)).fetchone()
+            row = (self.db.execute(
+                "SELECT name FROM names WHERE hot=1 AND status!='found' AND next_check<=? "
+                "ORDER BY next_check LIMIT 1", (now,)).fetchone()
+                or self.db.execute(
+                "SELECT name FROM names WHERE status='pending' AND next_check<=? "
+                "ORDER BY score DESC LIMIT 1", (now,)).fetchone()
+                or self.db.execute(
+                "SELECT name FROM names WHERE status='taken' AND next_check<=? "
+                "ORDER BY next_check LIMIT 1", (now,)).fetchone())
             if not row:
                 return None
             self.db.execute("UPDATE names SET next_check=? WHERE name=?", (now + lease_seconds, row[0]))
@@ -70,6 +79,9 @@ class Store:
                 "UPDATE names SET status=?, next_check=?, last_checked=?, note=?, "
                 "checks=checks+? WHERE name=?",
                 (status, next_check, time.time(), note, 1 if count_check else 0, name))
+            if count_check:
+                self.db.execute("INSERT INTO meta(key,val) VALUES('checks',1) "
+                                "ON CONFLICT(key) DO UPDATE SET val=val+1")
             self.db.commit()
 
     def release_lease(self, name: str, next_check: float):
@@ -91,14 +103,16 @@ class Store:
     # --- raporlama ----------------------------------------------------------
     def stats(self) -> dict:
         with self.lock:
-            q = lambda sql, *a: self.db.execute(sql, a).fetchone()[0]
+            by = dict(self.db.execute("SELECT status, COUNT(*) FROM names GROUP BY status").fetchall())
+            hot = self.db.execute("SELECT COUNT(*) FROM names WHERE hot=1 AND status!='found'").fetchone()[0]
+            chk = self.db.execute("SELECT val FROM meta WHERE key='checks'").fetchone()
             return {
-                "toplam": q("SELECT COUNT(*) FROM names"),
-                "bekleyen": q("SELECT COUNT(*) FROM names WHERE status='pending'"),
-                "alinmis": q("SELECT COUNT(*) FROM names WHERE status='taken'"),
-                "bulunan": q("SELECT COUNT(*) FROM names WHERE status='found'"),
-                "sicak_liste": q("SELECT COUNT(*) FROM names WHERE hot=1 AND status!='found'"),
-                "toplam_kontrol": q("SELECT COALESCE(SUM(checks),0) FROM names"),
+                "toplam": sum(by.values()),
+                "bekleyen": by.get("pending", 0),
+                "alinmis": by.get("taken", 0),
+                "bulunan": by.get("found", 0),
+                "sicak_liste": hot,
+                "toplam_kontrol": chk[0] if chk else 0,
             }
 
     def found(self) -> List[sqlite3.Row]:

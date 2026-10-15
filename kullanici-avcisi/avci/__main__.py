@@ -14,24 +14,25 @@ from .notify import Notifier
 from .store import Store
 from .translit import to_latin
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-WORDLISTS = os.path.join(os.path.dirname(HERE), "wordlists")
-FREQ_URL = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/{l}/{l}_50k.txt"
+from .wordlists import WORDLISTS, fetch_lang
 
 
 def cmd_fetch(a):
-    os.makedirs(WORDLISTS, exist_ok=True)
     for lang in a.lang:
-        url = FREQ_URL.format(l=lang)
-        out = os.path.join(WORDLISTS, f"{lang}_50k.txt")
-        r = requests.get(url, timeout=60)
-        if r.status_code != 200:
-            print(f"✗ {lang}: indirilemedi (HTTP {r.status_code}). Dil kodu doğru mu? (ar, tr, fa, ru, es, fr, de, hi, id, ...)")
-            continue
-        lines = r.text.splitlines()[: a.top]
-        with open(out, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines) + "\n")
-        print(f"✓ {lang}: {len(lines)} kelime -> {out}")
+        ok, msg = fetch_lang(lang, a.top)
+        print(("✓ " if ok else "✗ ") + msg)
+
+
+def cmd_ui(a):
+    from .webui import serve
+    serve(db_path=a.db, port=a.port, demo=a.demo, open_browser=not a.no_browser)
+
+
+def cmd_selftest(a):
+    from .selftest import run_selftest
+    ok, msg = run_selftest(InstagramProfileChecker())
+    print(("✓ " if ok else "✗ ") + msg)
+    return 0 if ok else 1
 
 
 def _wordfiles(a):
@@ -182,6 +183,15 @@ def main(argv=None):
 
     s = sub.add_parser("demo", help="gerçek Instagram'sız tam deneme")
     s.set_defaults(fn=cmd_demo)
+
+    s = sub.add_parser("ui", help="tıklanan ekranı aç (önerilen)")
+    s.add_argument("--port", type=int, default=8765)
+    s.add_argument("--demo", action="store_true", help="sahte Instagram ile dene")
+    s.add_argument("--no-browser", action="store_true")
+    s.set_defaults(fn=cmd_ui)
+
+    s = sub.add_parser("selftest", help="bu internet bağlantısında kontrol çalışıyor mu?")
+    s.set_defaults(fn=cmd_selftest)
 
     a = p.parse_args(argv)
     return a.fn(a) or 0
