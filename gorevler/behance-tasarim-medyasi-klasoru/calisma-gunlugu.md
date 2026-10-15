@@ -78,3 +78,13 @@ python3 arac/indir.py <state.json> <hedef> [vimeo-oembed.json]
 - Test edilemeyen: claude.ai görüntüleyicisindeki gerçek kaydetme onay penceresi (yalnız sayfayı açan
   kullanıcı tetikleyebilir) ve Windows'ta `copy /b` birleştirmesi.
 - Sohbet eki: tek ZIP 30 MiB sınırını aştı; 5 ham parça + `BIRLESTIR.txt` + `parcalar.sha256` gönderildi.
+
+## 6. Devam (2026-10-15) — kalan istekler
+- Kullanıcının bilgisayarına bağlı bir oturum veya araç yok; yerel disk isteklerine buradan erişilemiyor.
+- Kalan işler için Windows PowerShell betiği hazırlandı (yalnız okur, hiçbir şey silmez): 2 videoyu
+  yt-dlp ile indirir, verilen klasördeki alt klasörlerin boyutlarını listeler, verilen geçici klasörün
+  boyutunu, içeriğini ve onu kullanan program olup olmadığını raporlar. Rapor masaüstüne yazılır.
+- Test: taşınabilir PowerShell 7.4.6 ile sahte klasörlerde çalıştırıldı (yt-dlp yok / var-401 /
+  klasör yok / son 7 günde değişen dosya var-yok dalları). Windows PowerShell 5.1'de denenmedi.
+- İndirme sayfasına "İsteklerinin durumu" bölümü ve betiği kaydet/kopyala düğmeleri eklendi; tarayıcı
+  testinde kaydedilen betik dosyayla birebir aynı çıktı (SHA-256 eşleşti). Betik sohbet eki olarak da verildi.
