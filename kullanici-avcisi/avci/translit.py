@@ -81,9 +81,11 @@ def _generic(word: str) -> str:
         elif "a" <= ch <= "z" or "0" <= ch <= "9":
             out.append(ch)
         else:
-            base = "".join(c for c in unicodedata.normalize("NFKD", ch) if not unicodedata.combining(c))
-            if base and all("a" <= c <= "z" or "0" <= c <= "9" for c in base.lower()):
-                out.append(base.lower())
+            base = "".join(c for c in unicodedata.normalize("NFKD", ch) if not unicodedata.combining(c)).lower()
+            if base in GREEK or base in CYR:  # vurgulu Yunanca/Kiril harf (ά, ё...)
+                out.append(GREEK.get(base) or CYR.get(base) or "")
+            elif base and all("a" <= c <= "z" or "0" <= c <= "9" for c in base):
+                out.append(base)
             elif unidecode is not None:
                 out.append(unidecode(ch).lower())
     return "".join(out)
