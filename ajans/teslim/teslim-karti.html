@@ -44,6 +44,8 @@ h2{font-size:22px;font-weight:800;font-stretch:112%;letter-spacing:-.015em;margi
 .steps p{margin:0}
 .todo li{margin-bottom:4px}
 .note{font-size:14px;color:var(--muted);margin:0}
+.talimat{font-size:15px;line-height:1.55;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px;user-select:all;max-width:65ch}
+button.btn{border:0;cursor:pointer;font-family:inherit}
 @media (max-width:520px){.row{grid-template-columns:1fr}.btn{justify-self:start}}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
 </style>
@@ -54,6 +56,23 @@ h2{font-size:22px;font-weight:800;font-stretch:112%;letter-spacing:-.015em;margi
     <h1>Ajansın <em>fabrikası</em> hazır.</h1>
     <p class="lead">Bir işletme geldiğinde web sitesi, mobil uygulama, Instagram içeriği ve reklamı aynı adımlardan ve kalite kontrollerinden geçirerek üreten sistemi kurduk; ilk ürünü de kendimiz için çıkardık.</p>
   </header>
+
+  <section>
+    <h2>Çalışma kuralların</h2>
+    <p class="sub">Yazdığın her cümle okunsun, her istek yapılsın, iş bitince bu karttaki gibi verilsin diye.</p>
+    <div class="list">
+      <div class="row">
+        <div><p class="name">Tam Teslim skill'i</p><p class="desc">Her sohbette isteklerini listeye çevirir, hiçbirini atlamadan bitirir, sonunda kart verir. <span class="size">2 KB</span></p></div>
+        <a class="btn" href="https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/tam-teslim.zip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>İndir</a>
+        <p class="url">https://github.com/jannet5/Jn/raw/ccr-11072837-dfhtyx/ajans/teslim/tam-teslim.zip</p>
+      </div>
+    </div>
+    <div class="steps" style="margin-top:16px">
+      <p class="name">Proje talimatı (claude.ai → Proje → Talimatlar'a yapıştır)</p>
+      <p class="talimat" id="talimat">Ben womwom. Yazdığım her cümleyi oku ve hiçbirini atlama; örnekleri genel mantığıyla anla. İşe başlamadan isteklerimi numaralı listeye çevir, en hızlı doğru yöntemi seç (tıklama yerine terminal/kod/API), önce yapmış olanları araştır (YouTube transkript, X, GitHub, rakipler) ve her bulguyu link + not + ekran görüntüsüyle dosyaya yaz. Büyük işi tek başına yapma, ayrı oturumlara dağıt ve kontrol et. Ben "hallet" dersem kararları sen ver, yaz ve sorma. Sadece hesap açma, ödeme, telefon numarası gibi benim yapabileceğim şeyleri bana bırak. Kanıtsız "bitti" deme; çalıştır, test et, ekran görüntüsüne bak. Her işin sonunda tek bir kart (Artifact link) ver: en üstte tek cümle ne yaptığın, altında her çıktı için GitHub raw linkine giden test edilmiş indirme butonu, en altta bende kalanlar. Benimle Türkçe, samimi, kısa konuş; "bitti mi" diye sorarsam önce evet/hayır de.</p>
+      <div><button class="btn" id="kopyala" type="button">Kopyala</button></div>
+    </div>
+  </section>
 
   <section>
     <h2>İndir</h2>
@@ -108,3 +127,12 @@ h2{font-size:22px;font-weight:800;font-stretch:112%;letter-spacing:-.015em;margi
     <p class="note">Marka adı şimdilik "Vitrin Atölyesi", fiyatlar 2.990 / 5.990 / 11.990 ₺ aylık. İkisi de tek yerden değişir.</p>
   </section>
 </main>
+<script>
+document.getElementById('kopyala').addEventListener('click', function () {
+  var b = this, t = document.getElementById('talimat');
+  function sec() { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Seçildi, kopyala'; }
+  try {
+    navigator.clipboard.writeText(t.textContent).then(function () { b.textContent = 'Kopyalandı'; }, sec);
+  } catch (e) { sec(); }
+});
+</script>
