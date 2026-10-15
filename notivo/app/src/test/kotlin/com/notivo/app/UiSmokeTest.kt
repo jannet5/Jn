@@ -15,6 +15,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 
 /** Renders the real screens under Robolectric: catches crash-on-open and wiring mistakes (not pixel/device behaviour). */
@@ -26,9 +27,15 @@ class UiSmokeTest {
 
     @Before fun setUp() {
         resetDbSingleton()
+        Settings.Secure.putString(app.contentResolver, "enabled_notification_listeners", "")   // testler arasında erişim izni sızmasın
         app.getSharedPreferences("notivo", android.content.Context.MODE_PRIVATE).edit().clear().commit()   // view choice must not leak between tests
     }
     @After fun tearDown() { resetDbSingleton() }
+
+    /** Robolectric tercihleri testler arasında taşıyabilir: sıralama çipi "eski → yeni" ise geri çevir. */
+    private fun ensureNewestFirst() {
+        if (rule.onAllNodesWithText("Sıra: eski → yeni").fetchSemanticsNodes().isNotEmpty()) rule.onNodeWithText("Sıra: eski → yeni").performClick()
+    }
 
     private fun enableListener() {
         Settings.Secure.putString(app.contentResolver, "enabled_notification_listeners",
@@ -74,6 +81,7 @@ class UiSmokeTest {
         rule.setContent { NotiTheme { App() } }
         // Robolectric leaks the stored view choice between tests, so pick the grouped view the way a user does.
         rule.waitUntil(5000) { rule.onAllNodesWithText("Uygulamaya göre").fetchSemanticsNodes().isNotEmpty() }
+        ensureNewestFirst()
         rule.onNodeWithText("Uygulamaya göre").performClick()
         rule.waitUntil(5000) { rule.onAllNodesWithText("5 bildirim", substring = true).fetchSemanticsNodes().isNotEmpty() }
         // one header per app with counts
@@ -90,5 +98,74 @@ class UiSmokeTest {
         // switching to conversations leaves the app groups
         rule.onNodeWithText("Konuşmalar").performClick()
         rule.waitUntil(5000) { rule.onAllNodesWithText("5 bildirim", substring = true).fetchSemanticsNodes().isEmpty() }
+    }
+
+    @Test fun menuOffersCopyReadAloudAndRestore() {
+        enableListener()
+        runBlocking { Db.get(app).dao().insert(notif(title = "Ayşe", text = "Akşam görüşelim mi?", appName = "WhatsApp")) }
+        shadowOf(app).grantPermissions("android.permission.POST_NOTIFICATIONS")
+        rule.setContent { NotiTheme { App() } }
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Zamana göre").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Zamana göre").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Akşam görüşelim mi?").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Akşam görüşelim mi?").performTouchInput { longClick() }
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Metni kopyala").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Sesli oku").assertExists()
+        rule.onNodeWithText("Bildirim çubuğunda yeniden göster").assertExists()
+        rule.onNodeWithText("Metni kopyala").performClick()
+        val clip = app.applicationContext.getSystemService(android.content.ClipboardManager::class.java).primaryClip!!.getItemAt(0).text.toString()
+        org.junit.Assert.assertEquals("Ayşe\nAkşam görüşelim mi?", clip)
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Metni kopyala").fetchSemanticsNodes().isEmpty() }
+        rule.onNodeWithText("Akşam görüşelim mi?").performTouchInput { longClick() }
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Bildirim çubuğunda yeniden göster").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Bildirim çubuğunda yeniden göster").performClick()
+        val posted = shadowOf(app.getSystemService(android.app.NotificationManager::class.java)).allNotifications
+        org.junit.Assert.assertEquals(1, posted.size)
+        org.junit.Assert.assertEquals("Ayşe", posted[0].extras.getString(android.app.Notification.EXTRA_TITLE))
+    }
+
+    @Test fun dateRangeChipsFilterAndSortChipFlipsOrder() {
+        enableListener()
+        val now = System.currentTimeMillis()
+        runBlocking {
+            val dao = Db.get(app).dao()
+            dao.insert(notif(title = "Eski", text = "eski haber", time = now - 3 * 86_400_000L))
+            dao.insert(notif(title = "Yeni", text = "yeni haber", time = now - 1_000))
+        }
+        rule.setContent { NotiTheme { App() } }
+        rule.waitUntil(5000) { rule.onAllNodesWithText("Zamana göre").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("Zamana göre").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("yeni haber").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("eski haber").assertExists()
+        rule.onAllNodesWithText("haber", substring = true)[0].assertTextContains("yeni haber", substring = true)   // yeni → eski
+        rule.onNodeWithText("Sıra: yeni → eski").performClick()
+        rule.onNodeWithText("Sıra: eski → yeni").assertExists()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("haber", substring = true)[0].fetchSemanticsNode().config.toString().contains("eski haber") }
+        rule.onNodeWithText("Bugünkü").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("eski haber").fetchSemanticsNodes().isEmpty() }
+        rule.onNodeWithText("yeni haber").assertExists()
+        rule.onNodeWithText("Tüm zaman").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("eski haber").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithText("7 gün").performClick()
+        rule.onNodeWithText("eski haber").assertExists()
+        rule.onNodeWithText("Dünkü").performClick()
+        rule.waitUntil(5000) { rule.onAllNodesWithText("yeni haber").fetchSemanticsNodes().isEmpty() }
+        rule.onNodeWithText("Tüm zaman").performClick()
+        ensureNewestFirst()   // sonraki testlere tercih bırakma
+    }
+
+    @Test fun reminderDialogSavesAReminder() {
+        enableListener()
+        rule.setContent { NotiTheme { App() } }
+        rule.waitUntil(5000) { rule.onAllNodesWithContentDescription("Hatırlatıcı ekle").fetchSemanticsNodes().isNotEmpty() }
+        rule.onNodeWithContentDescription("Hatırlatıcı ekle").performClick()
+        rule.onNodeWithText("Kaydet").assertIsNotEnabled()               // boşken kaydedilemez
+        rule.onNodeWithText("Başlık").performTextInput("Su iç")
+        rule.onNodeWithText("3 saat").performClick()
+        rule.onNodeWithText("Kaydet").performClick()
+        rule.waitUntil(5000) { runBlocking { Db.get(app).dao().snoozes() }.isNotEmpty() }
+        val s = runBlocking { Db.get(app).dao().snoozes() }.single()
+        org.junit.Assert.assertEquals("Su iç", s.title)
+        org.junit.Assert.assertTrue(s.at - System.currentTimeMillis() in (179 * 60_000L)..(181 * 60_000L))
     }
 }

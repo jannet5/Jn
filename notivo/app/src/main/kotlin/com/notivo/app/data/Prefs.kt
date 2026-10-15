@@ -12,5 +12,6 @@ class Prefs(c: Context) {
     var onboarded: Boolean get() = sp.getBoolean("onb", false); set(v) = sp.edit().putBoolean("onb", v).apply()
     /** Inbox layout: 0 by time, 1 by app (default), 2 by conversation. */
     var viewMode: Int get() = sp.getInt("view", 1); set(v) = sp.edit().putInt("view", v).apply()
+    var sortNewestFirst: Boolean get() = sp.getBoolean("newest", true); set(v) = sp.edit().putBoolean("newest", v).apply()
     var digestHour: Int get() = sp.getInt("digest", -1); set(v) = sp.edit().putInt("digest", v).apply()
 }

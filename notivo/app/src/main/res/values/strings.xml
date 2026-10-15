@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Notivo</string>
     <string name="snooze_title">Hatırlatma</string>
-    <string name="channel_snooze">Ertelenen bildirimler</string>
+    <string name="channel_snooze">Hatırlatmalar ve ertelenenler</string>
+    <string name="channel_restored">Yeniden gösterilen bildirimler</string>
+    <string name="widget_desc">Okunmamış sayısı ve en yeni bildirimler</string>
 </resources>

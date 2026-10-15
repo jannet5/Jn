@@ -54,5 +54,39 @@ class LogicTest {
         assertEquals(5, Logic.visible(wa, expanded = true).size)
         val few = Logic.groupByApp(listOf(n("m", "Mail", 1))).single()
         assertEquals(1, Logic.visible(few, expanded = false).size)
+        // eski → yeni sıralamada da önizleme EN YENİ 3'tür; sıra korunur
+        val asc = Logic.groupByApp((1..5).map { n("wa", "WhatsApp", it * 10L) }, newestFirst = false).single()
+        assertEquals(listOf(10L, 20L, 30L, 40L, 50L), asc.items.map { it.time })
+        assertEquals(listOf(30L, 40L, 50L), Logic.visible(asc, expanded = false).map { it.time })
+    }
+
+    @Test fun dateRangesUseCalendarDaysAndLocalZone() {
+        val day = 86_400_000L
+        val now = 100 * day + 12 * 3_600_000L
+        fun r(range: Int, ago: Long, off: Long = 0) = Logic.inRange(range, now, now - ago * day, off)
+        assertTrue(r(Logic.RANGE_TODAY, 0)); assertFalse(r(Logic.RANGE_TODAY, 1))
+        assertTrue(r(Logic.RANGE_YESTERDAY, 1)); assertFalse(r(Logic.RANGE_YESTERDAY, 0)); assertFalse(r(Logic.RANGE_YESTERDAY, 2))
+        assertTrue(r(Logic.RANGE_7_DAYS, 6)); assertFalse(r(Logic.RANGE_7_DAYS, 7))
+        assertTrue(r(Logic.RANGE_30_DAYS, 29)); assertFalse(r(Logic.RANGE_30_DAYS, 30))
+        assertTrue(r(Logic.RANGE_ALL, 400))
+        assertTrue(Logic.inRange(Logic.RANGE_TODAY, now, now + day, 0))   // gelecek tarihli kayıt bugün sayılır
+        // yerel saat dilimi: UTC'de dün 23:00 olan kayıt, UTC+3'te bugün 02:00'dir
+        val nowEarly = 100 * day + 3_600_000L
+        val t = 100 * day - 3_600_000L
+        assertTrue(Logic.inRange(Logic.RANGE_TODAY, nowEarly, t, 3 * 3_600_000L))
+        assertFalse(Logic.inRange(Logic.RANGE_TODAY, nowEarly, t, 0))
+    }
+
+    @Test fun sortingAndGroupingHonourDirection() {
+        val items = listOf(n("a", "A", 10), n("b", "B", 30), n("a", "A", 20), n("b", "B", 5))
+        assertEquals(listOf(30L, 20L, 10L, 5L), Logic.sorted(items, true).map { it.time })
+        assertEquals(listOf(5L, 10L, 20L, 30L), Logic.sorted(items, false).map { it.time })
+        val newest = Logic.groupByApp(items, true)
+        assertEquals(listOf("b", "a"), newest.map { it.pkg })                    // b'nin en yenisi 30
+        assertEquals(listOf(30L, 5L), newest.first().items.map { it.time })
+        val oldest = Logic.groupByApp(items, false)
+        assertEquals(listOf("a", "b"), oldest.map { it.pkg })                    // a'nın en yenisi 20 < 30
+        assertEquals(listOf(5L, 30L), oldest.last().items.map { it.time })
+        assertEquals(30L, oldest.last().latest)                                  // latest = en yeni, yön ne olursa olsun
     }
 }

@@ -7,6 +7,7 @@ import android.os.Build
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import androidx.core.app.NotificationCompat
+import androidx.core.graphics.drawable.toBitmap
 import com.notivo.app.MainActivity
 import com.notivo.app.R
 import com.notivo.app.data.*
@@ -62,6 +63,7 @@ class NotiListener : NotificationListenerService() {
         if (n.actions != null || n.contentIntent != null) cache[id] = sbn
         if (cache.size > 200) cache.keys.minOrNull()?.let { cache.remove(it) }
         if (hit?.action == "MUTE") cancelSafe(sbn.key)
+        runCatching { NotivoWidget.refreshNow(this) }
     }
 
     private fun cancelSafe(key: String) = try { cancelNotification(key) } catch (_: Exception) {}
@@ -83,6 +85,25 @@ class NotiListener : NotificationListenerService() {
 }
 
 const val SNOOZE_CH = "snooze"
+const val RESTORE_CH = "restored"
+
+/**
+ * Kayıtlı bir bildirimi bildirim çubuğuna geri koyar: özgün saati ve uygulamanın simgesiyle, sessiz kanalda.
+ * Bildirim izni yoksa false döner.
+ */
+fun postRestored(c: Context, n: Notif): Boolean {
+    if (Build.VERSION.SDK_INT >= 33 && c.checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) return false
+    val nm = c.getSystemService(NotificationManager::class.java)
+    nm.createNotificationChannel(NotificationChannel(RESTORE_CH, c.getString(R.string.channel_restored), NotificationManager.IMPORTANCE_LOW))
+    val target = c.packageManager.getLaunchIntentForPackage(n.pkg) ?: Intent(c, MainActivity::class.java)
+    val open = PendingIntent.getActivity(c, n.id.toInt(), target, PendingIntent.FLAG_IMMUTABLE)
+    val b = NotificationCompat.Builder(c, RESTORE_CH).setSmallIcon(R.drawable.ic_stat)
+        .setContentTitle(n.title.ifBlank { n.appName }).setContentText(n.text).setStyle(NotificationCompat.BigTextStyle().bigText(n.text))
+        .setSubText(n.appName).setWhen(n.time).setShowWhen(true).setContentIntent(open).setAutoCancel(true)
+    try { b.setLargeIcon(c.packageManager.getApplicationIcon(n.pkg).toBitmap(128, 128)) } catch (_: Exception) { /* simge yoksa varsayılan */ }
+    nm.notify(("restore" + n.id).hashCode(), b.build())
+    return true
+}
 
 class SnoozeReceiver : BroadcastReceiver() {
     override fun onReceive(c: Context, i: Intent) {

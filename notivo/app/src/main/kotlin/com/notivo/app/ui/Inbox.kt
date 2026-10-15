@@ -1,5 +1,7 @@
 package com.notivo.app.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -62,26 +64,33 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
     var q by remember { mutableStateOf("") }
     var mode by remember { mutableIntStateOf(0) }   // 0 all, 1 unread, 2 starred, 3 messages
     var view by remember { mutableIntStateOf(vm.prefs.viewMode) }   // 0 by time, 1 by app, 2 by conversation
+    var range by remember { mutableIntStateOf(Logic.RANGE_ALL) }
+    var newestFirst by remember { mutableStateOf(vm.prefs.sortNewestFirst) }
+    var reminder by remember { mutableStateOf(false) }
     val expanded = remember { mutableStateListOf<String>() }
     var menu by remember { mutableStateOf<Notif?>(null) }
     var thread by remember { mutableStateOf<Pair<String, String>?>(null) }
-    val list = remember(all, q, mode, pkg) {
-        all.filter { n ->
-            (pkg == null || n.pkg == pkg) &&
-            when (mode) { 1 -> !n.read; 2 -> n.starred; 3 -> n.isMessage; else -> true } &&
-            (q.isBlank() || Logic.norm("${n.title} ${n.text} ${n.appName}").contains(Logic.norm(q)))
-        }
-    }
-    // one row per conversation (app + sender/title): newest message, total count
-    val convs = remember(list) { list.groupBy { it.pkg to it.title }.values.map { it.first() to it.size }.sortedByDescending { it.first.time } }
-    val groups = remember(list) { Logic.groupByApp(list) }
     val now = System.currentTimeMillis()
     val off = remember { java.util.TimeZone.getDefault().getOffset(now).toLong() }
+    val list = remember(all, q, mode, pkg, range, newestFirst) {
+        Logic.sorted(all.filter { n ->
+            (pkg == null || n.pkg == pkg) && Logic.inRange(range, now, n.time, off) &&
+            when (mode) { 1 -> !n.read; 2 -> n.starred; 3 -> n.isMessage; else -> true } &&
+            (q.isBlank() || Logic.norm("${n.title} ${n.text} ${n.appName}").contains(Logic.norm(q)))
+        }, newestFirst)
+    }
+    // one row per conversation (app + sender/title): its newest message, total count
+    val convs = remember(list, newestFirst) {
+        list.groupBy { it.pkg to it.title }.values.map { g -> g.maxBy { it.time } to g.size }
+            .let { c -> if (newestFirst) c.sortedByDescending { it.first.time } else c.sortedBy { it.first.time } }
+    }
+    val groups = remember(list, newestFirst) { Logic.groupByApp(list, newestFirst) }
 
     Column(Modifier.fillMaxSize()) {
         OutlinedTextField(q, { q = it }, Modifier.fillMaxWidth().padding(12.dp, 8.dp), singleLine = true,
             placeholder = { Text("Bildirimlerde ara") }, leadingIcon = { Icon(Icons.Default.Search, null) },
             trailingIcon = { Row { if (q.isNotEmpty()) IconButton({ q = "" }) { Icon(Icons.Default.Close, "Temizle") }
+                IconButton({ reminder = true }) { Icon(Icons.Default.AddAlert, "Hatırlatıcı ekle") }
                 IconButton({ vm.readAll() }) { Icon(Icons.Default.DoneAll, "Tümünü okundu yap") } } })
         Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             listOf("Tümü", "Okunmamış", "Yıldızlı", "Mesajlar").forEachIndexed { i, l -> FilterChip(mode == i, { mode = i }, { Text(l) }) }
@@ -90,6 +99,11 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
             listOf("Uygulamaya göre" to 1, "Zamana göre" to 0, "Konuşmalar" to 2).forEach { (l, v) ->
                 FilterChip(view == v, { view = v; vm.prefs.viewMode = v }, { Text(l) })
             }
+        }
+        Row(Modifier.horizontalScroll(rememberScrollState()).padding(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            listOf("Tüm zaman", "Bugünkü", "Dünkü", "7 gün", "30 gün").forEachIndexed { i, l -> FilterChip(range == i, { range = i }, { Text(l) }) }
+            FilterChip(!newestFirst, { newestFirst = !newestFirst; vm.prefs.sortNewestFirst = newestFirst },
+                { Text(if (newestFirst) "Sıra: yeni → eski" else "Sıra: eski → yeni") })
         }
         if (pkg != null) AssistChip(onClick = clearPkg, modifier = Modifier.padding(horizontal = 12.dp),
             label = { Text("Filtre: ${all.firstOrNull { it.pkg == pkg }?.appName ?: pkg}  ✕") })
@@ -138,6 +152,15 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
                 SheetItem(Icons.Default.Forum, "Konuşmayı aç") { thread = n.pkg to n.title; menu = null }
                 SheetItem(Icons.Default.Star, if (n.starred) "Yıldızı kaldır" else "Yıldızla") { vm.star(n); menu = null }
                 SheetItem(Icons.Default.Done, "Okundu işaretle") { vm.read(n); menu = null }
+                SheetItem(Icons.Default.ContentCopy, "Metni kopyala") { copyText(ctx, n); menu = null }
+                SheetItem(Icons.Default.RecordVoiceOver, "Sesli oku") {
+                    if (!vm.speak(listOf(n.title, n.text).filter { it.isNotBlank() }.joinToString(". "))) toast(ctx, "Sesli okuma başlatılamadı")
+                    menu = null
+                }
+                SheetItem(Icons.Default.Restore, "Bildirim çubuğunda yeniden göster") {
+                    toast(ctx, if (vm.restore(n)) "Bildirim çubuğuna gönderildi" else "Bildirim izni yok: izin verip tekrar dene")
+                    menu = null
+                }
                 SheetItem(Icons.Default.Snooze, "15 dk sonra hatırlat") { vm.snooze(n, 15); menu = null }
                 SheetItem(Icons.Default.Snooze, "1 saat sonra hatırlat") { vm.snooze(n, 60); menu = null }
                 SheetItem(Icons.Default.Snooze, "12 saat sonra hatırlat") { vm.snooze(n, 720); menu = null }
@@ -145,6 +168,9 @@ fun InboxScreen(vm: Vm, pkg: String?, clearPkg: () -> Unit) {
                 SheetItem(Icons.Default.Delete, "Sil") { vm.delete(n); menu = null }
             }
         }
+    }
+    if (reminder) ReminderDialog(onDismiss = { reminder = false }) { title, text, minutes ->
+        vm.addReminder(title, text, minutes); reminder = false; toast(ctx, "Hatırlatıcı kuruldu")
     }
     thread?.let { (p, t) ->
         val msgs = remember(all, p, t) { all.filter { it.pkg == p && it.title == t }.sortedBy { it.time } }
@@ -234,4 +260,33 @@ private fun GroupHeader(g: AppGroup, open: Boolean, onToggle: () -> Unit, onRead
         if (g.unread > 0) IconButton(onRead) { Icon(Icons.Default.DoneAll, "${g.appName} okundu yap") }
         Icon(if (open) Icons.Default.ExpandLess else Icons.Default.ExpandMore, if (open) "Daralt" else "Genişlet")
     }
+}
+
+private fun copyText(ctx: Context, n: Notif) {
+    val text = listOf(n.title, n.text).filter { it.isNotBlank() }.joinToString("\n")
+    ctx.applicationContext.getSystemService(ClipboardManager::class.java).setPrimaryClip(ClipData.newPlainText("Notivo", text))
+    toast(ctx, "Kopyalandı")
+}
+
+/** Pinnit tarzı kendi hatırlatıcın: başlık + metin + süre; süre dolunca bildirim olarak çalar. */
+@Composable
+private fun ReminderDialog(onDismiss: () -> Unit, onSave: (String, String, Int) -> Unit) {
+    var title by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf("") }
+    var minutes by remember { mutableIntStateOf(60) }
+    AlertDialog(onDismissRequest = onDismiss, title = { Text("Hatırlatıcı ekle") },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedTextField(title, { title = it }, label = { Text("Başlık") }, singleLine = true)
+                OutlinedTextField(text, { text = it }, label = { Text("Not") })
+                // kaydırmasız: iki satırda dört seçenek (AlertDialog içinde yatay kaydırma yerleşimi bozabilir)
+                listOf(listOf(15 to "15 dk", 60 to "1 saat"), listOf(180 to "3 saat", 1440 to "Yarın")).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        row.forEach { (m, l) -> FilterChip(minutes == m, { minutes = m }, { Text(l) }) }
+                    }
+                }
+            }
+        },
+        confirmButton = { TextButton({ onSave(title.trim(), text.trim(), minutes) }, enabled = title.isNotBlank() || text.isNotBlank()) { Text("Kaydet") } },
+        dismissButton = { TextButton(onDismiss) { Text("Vazgeç") } })
 }

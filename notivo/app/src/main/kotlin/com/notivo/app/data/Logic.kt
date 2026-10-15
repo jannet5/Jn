@@ -3,7 +3,7 @@ package com.notivo.app.data
 /** All notifications of one app, newest first. */
 data class AppGroup(val pkg: String, val appName: String, val items: List<Notif>) {
     val unread: Int get() = items.count { !it.read }
-    val latest: Long get() = items.first().time
+    val latest: Long get() = items.maxOf { it.time }
 }
 
 /** Pure decision logic, kept free of Android types so it can be unit-tested on the JVM. */
@@ -37,12 +37,37 @@ object Logic {
 
     const val GROUP_PREVIEW = 3
 
-    /** One group per app, groups ordered by their newest notification, items newest first. */
-    fun groupByApp(items: List<Notif>): List<AppGroup> =
-        items.groupBy { it.pkg }
-            .map { (pkg, l) -> AppGroup(pkg, l.first().appName, l.sortedByDescending { it.time }) }
-            .sortedByDescending { it.latest }
+    const val RANGE_ALL = 0
+    const val RANGE_TODAY = 1
+    const val RANGE_YESTERDAY = 2
+    const val RANGE_7_DAYS = 3
+    const val RANGE_30_DAYS = 4
 
-    /** Collapsed groups show only the newest few; expanded groups show everything. */
-    fun visible(g: AppGroup, expanded: Boolean): List<Notif> = if (expanded) g.items else g.items.take(GROUP_PREVIEW)
+    /** Takvim günü bazlı tarih süzgeci (yerel saat dilimiyle). Gelecek tarihli kayıtlar bugün sayılır. */
+    fun inRange(range: Int, now: Long, t: Long, zoneOffsetMs: Long): Boolean {
+        val d = maxOf(0L, Math.floorDiv(now + zoneOffsetMs, 86_400_000L) - Math.floorDiv(t + zoneOffsetMs, 86_400_000L))
+        return when (range) {
+            RANGE_TODAY -> d == 0L
+            RANGE_YESTERDAY -> d == 1L
+            RANGE_7_DAYS -> d <= 6
+            RANGE_30_DAYS -> d <= 29
+            else -> true
+        }
+    }
+
+    fun sorted(items: List<Notif>, newestFirst: Boolean): List<Notif> =
+        if (newestFirst) items.sortedByDescending { it.time } else items.sortedBy { it.time }
+
+    /** One group per app, groups ordered by their newest notification, items newest first. */
+    fun groupByApp(items: List<Notif>, newestFirst: Boolean = true): List<AppGroup> =
+        items.groupBy { it.pkg }
+            .map { (pkg, l) -> AppGroup(pkg, l.first().appName, sorted(l, newestFirst)) }
+            .let { g -> if (newestFirst) g.sortedByDescending { it.latest } else g.sortedBy { it.latest } }
+
+    /** Collapsed groups show only the NEWEST few (whatever the sort direction); expanded groups show everything. Order is kept. */
+    fun visible(g: AppGroup, expanded: Boolean): List<Notif> {
+        if (expanded) return g.items
+        val keep = g.items.sortedByDescending { it.time }.take(GROUP_PREVIEW).toSet()
+        return g.items.filter { it in keep }
+    }
 }

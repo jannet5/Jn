@@ -5,6 +5,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.notivo.app.data.*
 import com.notivo.app.service.NotiListener
+import com.notivo.app.service.NotivoWidget
+import com.notivo.app.service.arm
+import com.notivo.app.service.postRestored
+import android.speech.tts.TextToSpeech
+import java.util.Locale
 import com.notivo.app.service.snooze as scheduleSnooze
 import com.notivo.app.service.Digest
 import org.json.JSONArray
@@ -21,18 +26,55 @@ class Vm(app: Application) : AndroidViewModel(app) {
     val excluded = dao.excluded().stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
     val perDay = dao.perDay(System.currentTimeMillis() - 14 * 86_400_000L).stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
-    fun read(n: Notif) = viewModelScope.launch { dao.markRead(n.id) }
-    fun readAll() = viewModelScope.launch { dao.markAllRead() }
-    fun readApp(pkg: String) = viewModelScope.launch { dao.markAppRead(pkg) }
+    /** Veriyi değiştirir, ardından ana ekran widget'ını (okunmamış sayısı, son bildirimler) tazeler. */
+    private fun mutate(block: suspend () -> Unit) = viewModelScope.launch {
+        block()
+        runCatching { NotivoWidget.refreshNow(getApplication()) }
+    }
+
+    fun read(n: Notif) = mutate { dao.markRead(n.id) }
+    fun readAll() = mutate { dao.markAllRead() }
+    fun readApp(pkg: String) = mutate { dao.markAppRead(pkg) }
     fun star(n: Notif) = viewModelScope.launch { dao.toggleStar(n.id) }
-    fun delete(n: Notif) = viewModelScope.launch { dao.delete(n.id) }
-    fun clear() = viewModelScope.launch { dao.clearUnstarred() }
-    fun deleteApp(pkg: String) = viewModelScope.launch { dao.deleteApp(pkg) }
+    fun delete(n: Notif) = mutate { dao.delete(n.id) }
+    fun clear() = mutate { dao.clearUnstarred() }
+    fun deleteApp(pkg: String) = mutate { dao.deleteApp(pkg) }
     fun addRule(pkg: String, kw: String, action: String) = viewModelScope.launch { dao.addRule(Rule(pkg = pkg, keyword = kw.trim(), action = action)) }
     fun delRule(r: Rule) = viewModelScope.launch { dao.delRule(r.id) }
     fun toggleRule(r: Rule) = viewModelScope.launch { dao.toggleRule(r.id) }
     fun setExcluded(pkg: String, on: Boolean) = viewModelScope.launch { if (on) dao.exclude(Excluded(pkg)) else dao.include(pkg) }
-    fun snooze(n: Notif, min: Int) = viewModelScope.launch { scheduleSnooze(getApplication(), n, min); dao.delete(n.id) }
+    fun snooze(n: Notif, min: Int) = mutate { scheduleSnooze(getApplication(), n, min); dao.delete(n.id) }
+
+    /** Kayıtlı bildirimi bildirim çubuğuna özgün saatiyle geri koyar. Bildirim izni yoksa false. */
+    fun restore(n: Notif): Boolean = postRestored(getApplication(), n)
+
+    /** Kendi hatırlatıcın: başlık ve metinle, süre sonunda bildirim olarak çalar (yeniden başlatmada kaybolmaz). */
+    fun addReminder(title: String, text: String, minutes: Int) = viewModelScope.launch {
+        val s = Snooze(at = System.currentTimeMillis() + minutes * 60_000L, title = title.ifBlank { "Hatırlatıcı" }, text = text, app = "Hatırlatıcı")
+        arm(getApplication(), s.copy(id = dao.addSnooze(s)))
+    }
+
+    private var tts: TextToSpeech? = null
+    private var ttsReady = false
+    private var ttsPending: String? = null
+
+    /** Metni sesli okur. Motor hazır değilse hazır olunca okur; başlatılamazsa false. */
+    fun speak(text: String): Boolean {
+        if (text.isBlank()) return false
+        val engine = tts ?: try {
+            TextToSpeech(getApplication()) { status ->
+                ttsReady = status == TextToSpeech.SUCCESS
+                if (ttsReady) {
+                    tts?.language = Locale("tr", "TR")
+                    ttsPending?.let { p -> ttsPending = null; tts?.speak(p, TextToSpeech.QUEUE_FLUSH, null, "notivo") }
+                }
+            }.also { tts = it }
+        } catch (_: Exception) { return false }
+        if (!ttsReady) { ttsPending = text; return true }
+        return engine.speak(text, TextToSpeech.QUEUE_FLUSH, null, "notivo") == TextToSpeech.SUCCESS
+    }
+
+    override fun onCleared() { tts?.shutdown(); super.onCleared() }
 
     /** Opens the original notification's target (only possible while the process holds the live notification). */
     fun open(n: Notif): Boolean {

@@ -61,6 +61,7 @@ interface NotiDao {
     @Query("SELECT COUNT(*) FROM notifs WHERE pkg=:pkg AND title=:t AND text=:x AND time=:time")
     suspend fun sameCount(pkg: String, t: String, x: String, time: Long): Int
     @Query("SELECT COUNT(*) FROM notifs WHERE read=0") suspend fun unreadNow(): Int
+    @Query("SELECT * FROM notifs ORDER BY time DESC LIMIT :n") suspend fun latest(n: Int): List<Notif>
     /** Marks the newest recent message of this conversation as (probably) deleted by its sender. */
     @Query("""UPDATE notifs SET deletedBySender=1 WHERE id = (SELECT id FROM notifs
         WHERE pkg=:pkg AND title=:title AND deletedBySender=0 AND time > :since ORDER BY time DESC LIMIT 1)""")
