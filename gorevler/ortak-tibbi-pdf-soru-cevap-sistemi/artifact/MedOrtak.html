@@ -78,6 +78,16 @@ details{font-size:.88rem;color:var(--muted)}summary{cursor:pointer}
 .foot{color:var(--muted);font-size:.8rem;text-align:center}
 .prog{height:4px;background:var(--line);border-radius:4px;overflow:hidden}.prog b{display:block;height:100%;width:0;background:var(--accent)}
 main{min-width:0}.quote,.ans .a,.ans .q{overflow-wrap:anywhere}
+.quota .row{flex-wrap:nowrap}.quota .row input{flex:1;width:auto;min-width:0}.quota .row button{flex:none}
+.about p{margin:0}.about{gap:8px}.about h2{margin-top:10px}.about h3{font-size:1rem;margin:0 0 6px}.about ul,.about ol{margin:0;padding-left:1.3em;display:grid;gap:4px}
+.about .lead{font-family:var(--display);font-size:1.15rem;margin:0}
+.flows{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+ol.flow{list-style:none;padding:0;margin:0;counter-reset:f;display:grid;gap:0}
+ol.flow>li{counter-increment:f;position:relative;padding:0 0 14px 40px;display:grid;gap:4px}
+ol.flow>li::before{content:counter(f);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:600;font-size:.85rem}
+ol.flow>li:not(:last-child)::after{content:"";position:absolute;left:13px;top:30px;bottom:2px;width:2px;background:var(--line)}
+ol.flow .st{font-weight:600;padding-top:3px}
+ol.flow .br{font-size:.86rem;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:3px 8px;justify-self:start}
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}.quota{position:static;order:-1}.quota.closed{display:none}}
 @media (min-width:861px){#pill{display:none}}
 @media (prefers-reduced-motion:reduce){.bar b{transition:none}}
@@ -89,6 +99,7 @@ main{min-width:0}.quote,.ans .a,.ans .q{overflow-wrap:anywhere}
   <nav class="tabs" role="tablist">
     <button role="tab" id="t-ask" aria-selected="true" data-k="tAsk">Sor</button>
     <button role="tab" id="t-lib" aria-selected="false" data-k="tLib">Kütüphane</button>
+    <button role="tab" id="t-how" aria-selected="false" data-k="tHow">Nasıl?</button>
   </nav>
   <span class="spacer"></span>
   <button class="pill" id="pill" type="button"><span id="pillTxt">–</span><span class="m"><b id="pillBar"></b></span></button>
@@ -115,6 +126,8 @@ main{min-width:0}.quote,.ans .a,.ans .q{overflow-wrap:anywhere}
     <div id="answers"></div>
     <p class="foot" data-k="disc">Eğitim amaçlıdır; tıbbi tavsiye değildir. Her cevabı kaynak alıntısıyla karşılaştırın.</p>
   </section>
+
+  <section id="p-how" hidden><div class="card about" id="about"></div></section>
 
   <section id="p-lib" hidden>
     <form class="card" id="upForm">
@@ -146,13 +159,24 @@ main{min-width:0}.quote,.ans .a,.ans .q{overflow-wrap:anywhere}
   </dl>
   <details><summary data-k="howT">Bu kota nasıl çalışır?</summary><p data-k="how"></p></details>
   <div id="donateBox"></div>
+  <details id="redeemBox"><summary data-k="moreT">Daha fazla hak</summary>
+    <p class="hint" data-k="moreHelp"></p>
+    <div class="row"><input id="redeemIn" maxlength="40" placeholder="DESTEK-XXXXXX"><button class="ghost" id="redeemBtn" type="button" data-k="redeem">Ekle</button></div>
+    <p class="hint" id="redeemMsg" role="status"></p>
+  </details>
   <details id="keyBox" hidden><summary data-k="keyT">Claude bağlantısı (bu cihaz)</summary>
     <p class="hint" data-k="keyHelp"></p>
     <div class="row" style="margin-top:6px"><input id="keyIn" type="password" autocomplete="off" placeholder="sk-ant-..."><button class="ghost" id="keySave" type="button" data-k="save">Kaydet</button></div>
     <p class="hint" id="keyState"></p>
   </details>
   <details id="ownerBox" hidden><summary data-k="ownerT">Sahip ayarları</summary>
-    <div class="row" style="margin-top:8px"><input id="donateIn" placeholder="https://ko-fi.com/..."><button class="ghost" id="donateSave" type="button" data-k="save">Kaydet</button></div>
+    <p class="hint" data-k="donL">Bağış bağlantısı</p>
+    <div class="row"><input id="donateIn" placeholder="https://ko-fi.com/..."><button class="ghost" id="donateSave" type="button" data-k="save">Kaydet</button></div>
+    <p class="hint" data-k="freeL">Herkese aylık ücretsiz soru</p>
+    <div class="row"><input id="freeIn" type="number" min="1" max="10000" step="1"><button class="ghost" id="freeSave" type="button" data-k="save">Kaydet</button></div>
+    <p class="hint" data-k="codeL">Destek kodu üret (bağış yapan ya da çok kullanan kişiye ver)</p>
+    <div class="row"><input id="codeCr" type="number" min="1" max="10000" step="1" value="50"><button class="ghost" id="codeMake" type="button" data-k="make">Kod üret</button></div>
+    <p class="hint" id="codeOut"></p>
   </details>
   <h2 style="font-size:.95rem" data-k="hist">Son hareketler</h2>
   <ul class="hist" id="qHist"></ul>
@@ -232,13 +256,13 @@ new Anthropic({ apiKey, dangerouslyAllowBrowser: true });
 <script>
 "use strict";
 /* ---------- Ayarlar ---------- */
-const FREE = 60;          // herkese eşit aylık ücretsiz soru
+let FREE = 60;            // herkese eşit aylık ücretsiz soru (sahip ayarlardan değiştirebilir)
 const GRACE = 6;          // kredili başlamış konuyu bitirme payı
 const PART_BYTES = 180000;// veritabanı belgesi başına metin (256 KiB sınırının altında)
 
 /* ---------- Dil ---------- */
 const T = {
-tr:{sdkLoad:"Claude bileşeni internetten yüklenemedi. Bağlantıyı kontrol edip yeniden sorun.",keyT:"Claude bağlantısı (bu cihaz)",keyHelp:"İndirilen dosyada sorulara Claude cevap versin istersen kendi Anthropic API anahtarını gir. Anahtar yalnız bu tarayıcıda saklanır ve doğrudan Anthropic'e gönderilir; kullanım ücreti anahtar sahibine yazılır.",keyOn:"Bağlı: cevaplar Claude ile.",keyOff:"Anahtar yok: kaynak cümleleri çevrilmeden gösterilir.",localMode:"Yerel kip: kütüphane yalnız bu cihazda tutulur. Ortak kütüphane için sayfayı claude.ai bağlantısından açın.",extractive:"Claude bağlı değil: en ilgili kaynak cümleleri orijinal dilinde gösteriliyor (çeviri ve özet yok).",badKey:"API anahtarı reddedildi. Anahtarı kontrol edin.",noPdf:"PDF okuyucu yüklenemedi; internet bağlantısını kontrol edip sayfayı yenileyin.",tAsk:"Sor",tLib:"Kütüphane",askL:"Sorunu istediğin dilde yaz",all:"Tüm ortak kütüphane",newT:"Yeni konu",ask:"Sor",cr:"kredi",
+tr:{tHow:"Nasıl?",donL:"Bağış bağlantısı",freeL:"Herkese aylık ücretsiz soru",codeL:"Destek kodu üret (bağış yapan ya da çok kullanan kişiye ver)",make:"Kod üret",moreT:"Daha fazla hak",moreHelp:"Aylık hakkın yetmezse kart gerekmez: projeye destek olduysan ya da sahibinden kod aldıysan kodu buraya gir. Kodla gelen hak ay sonunda silinmez.",redeem:"Ekle",bonusS:"destek",hk_b:"soru · destek",hk_add:"destek kodu",codeMade:"{n} haklık kod hazır, bir kez kullanılabilir:",codeBad:"Kod geçersiz ya da daha önce kullanılmış.",codeOk:"+{n} hak eklendi. Teşekkürler!",sdkLoad:"Claude bileşeni internetten yüklenemedi. Bağlantıyı kontrol edip yeniden sorun.",keyT:"Claude bağlantısı (bu cihaz)",keyHelp:"İndirilen dosyada sorulara Claude cevap versin istersen kendi Anthropic API anahtarını gir. Anahtar yalnız bu tarayıcıda saklanır ve doğrudan Anthropic'e gönderilir; kullanım ücreti anahtar sahibine yazılır.",keyOn:"Bağlı: cevaplar Claude ile.",keyOff:"Anahtar yok: kaynak cümleleri çevrilmeden gösterilir.",localMode:"Yerel kip: kütüphane yalnız bu cihazda tutulur. Ortak kütüphane için sayfayı claude.ai bağlantısından açın.",extractive:"Claude bağlı değil: en ilgili kaynak cümleleri orijinal dilinde gösteriliyor (çeviri ve özet yok).",badKey:"API anahtarı reddedildi. Anahtarı kontrol edin.",noPdf:"PDF okuyucu yüklenemedi; internet bağlantısını kontrol edip sayfayı yenileyin.",tAsk:"Sor",tLib:"Kütüphane",askL:"Sorunu istediğin dilde yaz",all:"Tüm ortak kütüphane",newT:"Yeni konu",ask:"Sor",cr:"kredi",
 disc:"Eğitim amaçlıdır; tıbbi tavsiye değildir. Her cevabı kaynak alıntısıyla karşılaştırın.",upT:"PDF paylaş — katkı ücretsiz",titlePh:"Başlık (isteğe bağlı)",subjPh:"Ders / konu (ör. Kardiyoloji)",
 rights:"Bu PDF'i paylaşma hakkım var (kendi notum, açık lisans ya da izinli).",up:"Yükle",libPh:"Kütüphanede ara",qT:"Kullanım hakkın",next:"Sıradaki soru",grace:"İş bitirme payı",reset:"Yenilenme",
 howT:"Bu kota nasıl çalışır?",how:"Herkese her ay eşit ücretsiz hak verilir; kart ya da ödeme istenmez. Bitmeden önce uyarırız. Başladığın bir konu hakkın bitse bile iş bitirme payıyla tamamlanır. PDF paylaşmak ücretsizdir.",
@@ -254,9 +278,9 @@ noText:"Bu PDF'te seçilebilir metin yok (taranmış görüntü olabilir). Metin
 rep:"Bildirildi. Telif bildirimi belgeyi hemen gizler.",noDb:"Bu görünümde ortak kütüphaneye bağlanılamadı. claude.ai'de oturum açık olarak açın.",
 noWrite:"Bu sayfayı yalnız görüntüleme izniyle açtınız; PDF eklemek için sayfa sahibinden düzenleme ya da katkı izni isteyin.",
 noSample:"Bu görünümde Claude'a soru sorulamıyor (izin verilmedi ya da hesapta kapalı).",rate:"Çok sık soruldu ya da Claude kullanım sınırına ulaşıldı. Biraz sonra yeniden deneyin.",
-fail:"Cevap alınamadı. Yeniden deneyin.",quotaFull:"Bu ayın hakkı ve iş bitirme payı bitti. {d} tarihinde yenilenir.",
+fail:"Cevap alınamadı. Yeniden deneyin.",quotaFull:"Aylık hakkın bitti. Yeni konu için {d} tarihindeki yenilenmeyi bekle ya da sağdaki \"Daha fazla hak\" bölümüne destek kodu gir. İş bitirme payı yalnız açık bir konuyu tamamlamak içindir.",
 repWhy:"Neden bildiriyorsun?",rCopy:"Telif ihlali",rWrong:"Yanlış / zararlı içerik",rSpam:"Alakasız",cancel:"Vazgeç",hk_q:"soru",hk_g:"soru · pay"},
-en:{sdkLoad:"The Claude component could not be downloaded. Check your connection and ask again.",keyT:"Claude connection (this device)",keyHelp:"In the downloaded file, enter your own Anthropic API key if you want Claude to answer. The key stays in this browser only and is sent straight to Anthropic; usage is billed to the key owner.",keyOn:"Connected: answers come from Claude.",keyOff:"No key: source sentences are shown untranslated.",localMode:"Local mode: the library is kept on this device only. Open the page from its claude.ai link for the shared library.",extractive:"Claude is not connected: the most relevant source sentences are shown in their original language (no translation or summary).",badKey:"The API key was rejected. Check the key.",noPdf:"The PDF reader could not load; check your internet connection and reload.",tAsk:"Ask",tLib:"Library",askL:"Ask in any language",all:"Whole shared library",newT:"New topic",ask:"Ask",cr:"credit",
+en:{tHow:"How?",donL:"Donation link",freeL:"Free questions per person per month",codeL:"Create a supporter code (give it to a donor or a heavy user)",make:"Create code",moreT:"More questions",moreHelp:"If the monthly allowance is not enough, no card is needed: if you supported the project or got a code from the owner, enter it here. Code credits do not expire at month end.",redeem:"Add",bonusS:"supporter",hk_b:"question · supporter",hk_add:"supporter code",codeMade:"Code for {n} questions is ready, single use:",codeBad:"The code is invalid or already used.",codeOk:"+{n} questions added. Thank you!",sdkLoad:"The Claude component could not be downloaded. Check your connection and ask again.",keyT:"Claude connection (this device)",keyHelp:"In the downloaded file, enter your own Anthropic API key if you want Claude to answer. The key stays in this browser only and is sent straight to Anthropic; usage is billed to the key owner.",keyOn:"Connected: answers come from Claude.",keyOff:"No key: source sentences are shown untranslated.",localMode:"Local mode: the library is kept on this device only. Open the page from its claude.ai link for the shared library.",extractive:"Claude is not connected: the most relevant source sentences are shown in their original language (no translation or summary).",badKey:"The API key was rejected. Check the key.",noPdf:"The PDF reader could not load; check your internet connection and reload.",tAsk:"Ask",tLib:"Library",askL:"Ask in any language",all:"Whole shared library",newT:"New topic",ask:"Ask",cr:"credit",
 disc:"For education only; not medical advice. Compare every answer with its source quote.",upT:"Share a PDF — contributing is free",titlePh:"Title (optional)",subjPh:"Course / subject (e.g. Cardiology)",
 rights:"I have the right to share this PDF (my own notes, open licence or permission).",up:"Upload",libPh:"Search the library",qT:"Your allowance",next:"Next question",grace:"Finish-up buffer",reset:"Resets",
 howT:"How does this allowance work?",how:"Everyone gets the same free monthly allowance; no card, no payment. We warn you before it runs out. A topic you started can always be finished with the finish-up buffer. Sharing PDFs is free.",
@@ -272,9 +296,9 @@ noText:"This PDF has no selectable text (it may be a scanned image). Upload a ve
 rep:"Reported. A copyright report hides the document at once.",noDb:"Could not connect to the shared library in this view. Open it on claude.ai while signed in.",
 noWrite:"You opened this page with view-only access; ask the owner for edit or contributor access to add PDFs.",
 noSample:"Claude can't be asked from this view (not allowed, or turned off for the account).",rate:"Too many questions, or the Claude usage limit was reached. Try again a little later.",
-fail:"No answer came back. Try again.",quotaFull:"This month's allowance and buffer are used up. It resets on {d}.",
+fail:"No answer came back. Try again.",quotaFull:"Your monthly allowance is used. For a new topic, wait for the reset on {d} or enter a supporter code under \"More questions\" on the right. The finish-up buffer is only for completing an open topic.",
 repWhy:"Why are you reporting it?",rCopy:"Copyright",rWrong:"Wrong / harmful content",rSpam:"Unrelated",cancel:"Cancel",hk_q:"question",hk_g:"question · buffer"},
-es:{sdkLoad:"No se pudo descargar el componente de Claude. Revisa la conexión y vuelve a preguntar.",keyT:"Conexión con Claude (este dispositivo)",keyHelp:"En el archivo descargado, introduce tu propia clave de API de Anthropic si quieres que Claude responda. La clave se guarda solo en este navegador y va directamente a Anthropic; el uso se cobra al dueño de la clave.",keyOn:"Conectado: las respuestas vienen de Claude.",keyOff:"Sin clave: las frases de la fuente se muestran sin traducir.",localMode:"Modo local: la biblioteca se guarda solo en este dispositivo. Abre la página desde su enlace de claude.ai para la biblioteca compartida.",extractive:"Claude no está conectado: se muestran las frases más relevantes en su idioma original (sin traducción ni resumen).",badKey:"La clave de API fue rechazada. Revísala.",noPdf:"No se pudo cargar el lector de PDF; revisa la conexión y recarga.",tAsk:"Preguntar",tLib:"Biblioteca",askL:"Pregunta en cualquier idioma",all:"Toda la biblioteca compartida",newT:"Nuevo tema",ask:"Preguntar",cr:"crédito",
+es:{tHow:"¿Cómo?",donL:"Enlace de donación",freeL:"Preguntas gratis por persona al mes",codeL:"Crear código de apoyo (para quien done o use mucho)",make:"Crear código",moreT:"Más preguntas",moreHelp:"Si la cuota mensual no alcanza, no hace falta tarjeta: si apoyaste el proyecto o recibiste un código del propietario, introdúcelo aquí. Los créditos del código no caducan a fin de mes.",redeem:"Añadir",bonusS:"apoyo",hk_b:"pregunta · apoyo",hk_add:"código de apoyo",codeMade:"Código de {n} preguntas listo, de un solo uso:",codeBad:"El código no es válido o ya se usó.",codeOk:"+{n} preguntas añadidas. ¡Gracias!",sdkLoad:"No se pudo descargar el componente de Claude. Revisa la conexión y vuelve a preguntar.",keyT:"Conexión con Claude (este dispositivo)",keyHelp:"En el archivo descargado, introduce tu propia clave de API de Anthropic si quieres que Claude responda. La clave se guarda solo en este navegador y va directamente a Anthropic; el uso se cobra al dueño de la clave.",keyOn:"Conectado: las respuestas vienen de Claude.",keyOff:"Sin clave: las frases de la fuente se muestran sin traducir.",localMode:"Modo local: la biblioteca se guarda solo en este dispositivo. Abre la página desde su enlace de claude.ai para la biblioteca compartida.",extractive:"Claude no está conectado: se muestran las frases más relevantes en su idioma original (sin traducción ni resumen).",badKey:"La clave de API fue rechazada. Revísala.",noPdf:"No se pudo cargar el lector de PDF; revisa la conexión y recarga.",tAsk:"Preguntar",tLib:"Biblioteca",askL:"Pregunta en cualquier idioma",all:"Toda la biblioteca compartida",newT:"Nuevo tema",ask:"Preguntar",cr:"crédito",
 disc:"Solo con fines educativos; no es consejo médico. Compara cada respuesta con su cita de origen.",upT:"Comparte un PDF — aportar es gratis",titlePh:"Título (opcional)",subjPh:"Asignatura / tema (p. ej. Cardiología)",
 rights:"Tengo derecho a compartir este PDF (apuntes propios, licencia abierta o permiso).",up:"Subir",libPh:"Buscar en la biblioteca",qT:"Tu cuota",next:"Próxima pregunta",grace:"Margen para terminar",reset:"Se renueva",
 howT:"¿Cómo funciona la cuota?",how:"Todos reciben la misma cuota mensual gratuita; sin tarjeta ni pago. Avisamos antes de que se agote. Un tema iniciado siempre se puede terminar con el margen. Compartir PDF es gratis.",
@@ -290,8 +314,47 @@ noText:"Este PDF no tiene texto seleccionable (puede ser una imagen escaneada). 
 rep:"Reportado. Un aviso de copyright oculta el documento al instante.",noDb:"No se pudo conectar con la biblioteca en esta vista. Ábrela en claude.ai con la sesión iniciada.",
 noWrite:"Abriste esta página solo para ver; pide al propietario acceso de edición o colaboración para añadir PDF.",
 noSample:"No se puede preguntar a Claude desde esta vista (no permitido o desactivado en la cuenta).",rate:"Demasiadas preguntas o se alcanzó el límite de uso de Claude. Inténtalo un poco más tarde.",
-fail:"No llegó respuesta. Inténtalo de nuevo.",quotaFull:"La cuota del mes y el margen se agotaron. Se renueva el {d}.",
+fail:"No llegó respuesta. Inténtalo de nuevo.",quotaFull:"Tu cuota mensual se agotó. Para un tema nuevo espera la renovación del {d} o introduce un código de apoyo en \"Más preguntas\" a la derecha. El margen para terminar solo sirve para completar un tema abierto.",
 repWhy:"¿Por qué lo reportas?",rCopy:"Copyright",rWrong:"Contenido erróneo o dañino",rSpam:"No relacionado",cancel:"Cancelar",hk_q:"pregunta",hk_g:"pregunta · margen"}};
+
+const ABOUT={
+tr:{one:"MedOrtak, tıp öğrencilerinin PDF'lerini ortak bir kütüphanede topladığı, herkesin istediği dilde soru sorup cevabı PDF'in hangi sayfasından geldiğiyle birlikte aldığı bir sitedir.",
+why:"Neden PDF'i ChatGPT projesine yüklemek yerine bu?",whyL:["ChatGPT'de yalnız kendi yüklediğin PDF'ler var. Burada başkalarının paylaştığı PDF'lerden de cevap alırsın; her PDF bir kez yüklenir, herkes yararlanır.","Her cevabın altında PDF'ten birebir alıntı ve sayfa numarası var; alıntı sayfada bulunamazsa uyarı çıkar.","Kaynakta yoksa \"yok\" der, uydurmaz.","Dil fark etmez: Türkçe PDF'e İspanyolca sorarsın, cevap İspanyolca gelir.","Kullanım hakkın her an görünür; bitmeden uyarır, başladığın konu yarıda kesilmez."],
+who:"Kim kullanır?",whoT:"Tıp, hemşirelik, eczacılık ve diş hekimliği öğrencileri; asistanlar; sınava hazırlananlar. Ders notunu paylaşan, başkasının notundan da yararlanır — bir dayanışma kütüphanesi.",
+todo:"Ne yapman gerekiyor?",todoL:["Kütüphane sekmesinden ders notu ya da kitap PDF'ini yükle (paylaşma hakkın olmalı).","Sor sekmesinde sorunu istediğin dilde yaz.","Cevabı ve altındaki kaynak alıntısını oku; şüphen varsa sayfasına bak.","Hakkın sağda yazar; yetmezse \"Daha fazla hak\" bölümünden destek kodu gir."],
+flow:"Sistem nasıl çalışır",flowSub:"Adımlar yukarıdan aşağı; ⤷ çatallanmaları gösterir.",
+up:"PDF yükleme",upS:[["PDF seçilir, paylaşma hakkı onaylanır",["Onay yok → yükleme yapılmaz"]],["PDF'in metni tarayıcıda sayfa sayfa okunur",["Metin yok (taranmış görüntü) → \"metin içeren sürüm yükle\" uyarısı"]],["Aynı PDF daha önce eklenmiş mi bakılır",["Evet → \"zaten kütüphanede\", tekrar eklenmez"]],["Ortak kütüphaneye eklenir; artık herkes soru sorabilir",[]]],
+ask:"Soru sorma",askS:[["Soru herhangi bir dilde yazılır",[]],["Hak kontrolü",["Aylık hak var → devam","Aylık hak bitti, destek kredisi var → devam","İkisi de yok ama açık konu var → iş bitirme payıyla devam","Hiçbiri yok → yenilenme tarihi ve destek kodu seçeneği gösterilir"]],["Soru, kütüphanedeki dillerde arama terimlerine çevrilir",[]],["En ilgili PDF sayfaları bulunur",["Hiç sayfa eşleşmezse → \"kaynaklarda yok\""]],["Claude yalnız bu sayfalardan, sorunun dilinde cevap ve birebir alıntı yazar",["Sayfalarda cevap yoksa → \"kaynaklarda yok\", uydurmaz"]],["Alıntı sayfada birebir var mı, cevaptaki sayılar alıntıda var mı denetlenir",["Uymuyorsa → sarı uyarı"]],["Cevap + kaynak alıntısı + sayfa gösterilir; 1 hak düşer",[]]],
+same:"Benzerleri var mı?",sameT:"Araştırdık: ChatPDF, NotebookLM, Humata, AMBOSS AI gibi araçların hepsi kişisel kütüphane mantığında çalışıyor ve hesap istiyor. Herkesin katkı yaptığı, dilden bağımsız sorulabilen ortak bir tıp PDF kütüphanesine rastlamadık.",
+lim:"Bilmen gerekenler",limL:["Bu sayfayı claude.ai linkinden açanlar ortak kütüphaneyi kullanır; bunun için claude.ai oturumu gerekir. İndirilen dosya giriş istemez, ama kütüphanesi yalnız o cihazdadır.","Taranmış (fotoğraf) PDF'ler okunmaz; metin içeren sürüm gerekir.","Eğitim amaçlıdır, tıbbi tavsiye değildir."]},
+en:{one:"MedOrtak is a site where medical students pool their PDFs in one shared library, and anyone can ask in any language and get an answer showing which PDF page it came from.",
+why:"Why not just upload the PDF to a ChatGPT project?",whyL:["ChatGPT only has the PDFs you uploaded yourself. Here you also get answers from PDFs others shared; each PDF is uploaded once and everyone benefits.","Every answer carries a word-for-word quote and page number from the PDF; if the quote is not on the page you get a warning.","If the sources don't contain it, it says so instead of making something up.","Language doesn't matter: ask a Turkish PDF in Spanish and the answer comes in Spanish.","Your allowance is always visible; you're warned early and a topic you started is never cut off."],
+who:"Who is it for?",whoT:"Medicine, nursing, pharmacy and dentistry students, residents and anyone preparing for exams. Whoever shares notes also benefits from others' notes — a solidarity library.",
+todo:"What do you need to do?",todoL:["Upload lecture notes or a book PDF from the Library tab (you must have the right to share it).","Type your question in any language on the Ask tab.","Read the answer and its source quote; check the page if in doubt.","Your allowance is on the right; if it runs out, enter a supporter code under \"More questions\"."],
+flow:"How the system works",flowSub:"Steps run top to bottom; ⤷ marks branches.",
+up:"Uploading a PDF",upS:[["The PDF is chosen and the right to share is confirmed",["Not confirmed → nothing is uploaded"]],["The PDF's text is read page by page in the browser",["No text (scanned image) → \"upload a version with text\""]],["Checked whether the same PDF was already added",["Yes → \"already in the library\", not added twice"]],["Added to the shared library; everyone can now ask about it",[]]],
+ask:"Asking a question",askS:[["The question is typed in any language",[]],["Allowance check",["Monthly allowance left → continue","Monthly used, supporter credit left → continue","Neither, but an open topic → continue with the finish-up buffer","None → reset date and supporter code option are shown"]],["The question is turned into search terms in the library's languages",[]],["The most relevant PDF pages are found",["No page matches → \"not in the sources\""]],["Claude writes the answer in the question's language from these pages only, with word-for-word quotes",["Pages don't contain it → \"not in the sources\", nothing made up"]],["Quotes are checked word for word against the page; numbers in the answer are checked against the quotes",["Mismatch → yellow warning"]],["Answer + source quote + page are shown; 1 question is used",[]]],
+same:"Does something like this exist?",sameT:"We looked: ChatPDF, NotebookLM, Humata and AMBOSS AI all work as personal libraries and require an account. We found no shared medical PDF library that everyone contributes to and can query in any language.",
+lim:"Good to know",limL:["People who open this page from its claude.ai link use the shared library, which needs a claude.ai sign-in. The downloaded file needs no sign-in, but its library stays on that device.","Scanned (photo) PDFs can't be read; a version with text is needed.","For education only, not medical advice."]},
+es:{one:"MedOrtak es un sitio donde los estudiantes de medicina reúnen sus PDF en una biblioteca compartida, y cualquiera pregunta en cualquier idioma y recibe una respuesta que indica de qué página del PDF sale.",
+why:"¿Por qué no subir el PDF a un proyecto de ChatGPT?",whyL:["En ChatGPT solo están los PDF que subiste tú. Aquí también obtienes respuestas de los PDF que compartieron otros; cada PDF se sube una vez y todos se benefician.","Cada respuesta lleva una cita literal y el número de página del PDF; si la cita no está en la página, aparece un aviso.","Si las fuentes no lo contienen, lo dice en vez de inventar.","El idioma da igual: pregunta en español a un PDF en turco y la respuesta llega en español.","Tu cuota siempre está a la vista; avisa antes y un tema iniciado nunca se corta."],
+who:"¿Para quién es?",whoT:"Estudiantes de medicina, enfermería, farmacia y odontología, residentes y quien prepare exámenes. Quien comparte apuntes también aprovecha los de otros: una biblioteca solidaria.",
+todo:"¿Qué tienes que hacer?",todoL:["Sube apuntes o un libro en PDF desde la pestaña Biblioteca (debes tener derecho a compartirlo).","Escribe tu pregunta en cualquier idioma en la pestaña Preguntar.","Lee la respuesta y su cita; si dudas, revisa la página.","Tu cuota está a la derecha; si se agota, introduce un código de apoyo en \"Más preguntas\"."],
+flow:"Cómo funciona el sistema",flowSub:"Los pasos van de arriba abajo; ⤷ marca las bifurcaciones.",
+up:"Subir un PDF",upS:[["Se elige el PDF y se confirma el derecho a compartirlo",["Sin confirmación → no se sube"]],["El texto del PDF se lee página a página en el navegador",["Sin texto (imagen escaneada) → \"sube una versión con texto\""]],["Se comprueba si el mismo PDF ya existe",["Sí → \"ya está en la biblioteca\", no se duplica"]],["Se añade a la biblioteca compartida; ya todos pueden preguntar",[]]],
+ask:"Hacer una pregunta",askS:[["Se escribe la pregunta en cualquier idioma",[]],["Control de cuota",["Queda cuota mensual → sigue","Cuota mensual agotada, hay crédito de apoyo → sigue","Ninguno, pero hay un tema abierto → sigue con el margen para terminar","Nada → se muestran la fecha de renovación y la opción de código"]],["La pregunta se convierte en términos de búsqueda en los idiomas de la biblioteca",[]],["Se encuentran las páginas más relevantes",["Ninguna coincide → \"no está en las fuentes\""]],["Claude escribe la respuesta en el idioma de la pregunta solo con esas páginas, con citas literales",["Las páginas no lo contienen → \"no está en las fuentes\", sin inventar"]],["Se comprueba que la cita esté literal en la página y que los números de la respuesta estén en las citas",["No coincide → aviso amarillo"]],["Se muestra respuesta + cita + página; se usa 1 pregunta",[]]],
+same:"¿Existe algo parecido?",sameT:"Lo investigamos: ChatPDF, NotebookLM, Humata y AMBOSS AI funcionan como bibliotecas personales y piden cuenta. No encontramos una biblioteca médica compartida, en la que todos aporten y se pueda preguntar en cualquier idioma.",
+lim:"Conviene saber",limL:["Quien abre esta página desde su enlace de claude.ai usa la biblioteca compartida, que requiere sesión en claude.ai. El archivo descargado no pide sesión, pero su biblioteca queda en ese dispositivo.","Los PDF escaneados (fotos) no se pueden leer; hace falta una versión con texto.","Solo con fines educativos; no es consejo médico."]}};
+function renderAbout(){const a=ABOUT[lang]||ABOUT.en;
+  const steps=(arr)=>`<ol class="flow">${arr.map(([st,br])=>`<li><span class="st">${esc(st)}</span>${br.map((b)=>`<span class="br">⤷ ${esc(b)}</span>`).join("")}</li>`).join("")}</ol>`;
+  $("#about").innerHTML=`<p class="lead">${esc(a.one)}</p>
+  <h2>${esc(a.why)}</h2><ul>${a.whyL.map((x)=>`<li>${esc(x)}</li>`).join("")}</ul>
+  <h2>${esc(a.who)}</h2><p>${esc(a.whoT)}</p>
+  <h2>${esc(a.todo)}</h2><ol>${a.todoL.map((x)=>`<li>${esc(x)}</li>`).join("")}</ol>
+  <h2>${esc(a.flow)}</h2><p class="hint">${esc(a.flowSub)}</p>
+  <div class="flows"><div><h3>${esc(a.up)}</h3>${steps(a.upS)}</div><div><h3>${esc(a.ask)}</h3>${steps(a.askS)}</div></div>
+  <h2>${esc(a.same)}</h2><p>${esc(a.sameT)}</p>
+  <h2>${esc(a.lim)}</h2><ul>${a.limL.map((x)=>`<li>${esc(x)}</li>`).join("")}</ul>`}
 const LN={tr:"Türkçe",en:"English",es:"Español",de:"Deutsch",fr:"Français",pt:"Português",it:"Italiano",ar:"العربية",ru:"Русский"};
 const $=(s)=>document.querySelector(s);
 const esc=(s)=>String(s??"").replace(/[&<>"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -303,7 +366,7 @@ const t=(k,v={})=>(T[lang][k]??T.en[k]??k).replace(/\{(\w+)\}/g,(_,x)=>v[x]??"")
 /* ---------- Durum ---------- */
 let db=null,user=null,sample=null,uid=null,isOwner=false;
 let docs=[];               // kütüphane belgeleri (meta)
-let usage={period:"",used:0,grace:0,hist:[]};
+let usage={period:"",used:0,grace:0,bonus:0,hist:[]};
 let topic={id:null,n:0,credited:false};
 let donateUrl="";
 
@@ -322,26 +385,29 @@ function guessLang(text){const w=fold(text).match(/[a-zÀ-ɏ]+/g)||[];let best="
 function applyI18n(){document.documentElement.lang=lang;$("#lang").value=lang;
   document.querySelectorAll("[data-k]").forEach((e)=>{e.textContent=t(e.dataset.k)});
   document.querySelectorAll("[data-ph]").forEach((e)=>{e.placeholder=t(e.dataset.ph)});
-  renderQuota();renderTopic();renderDocs();renderDonate();if(!$("#keyBox").hidden)renderKeyState();}
+  renderQuota();renderTopic();renderDocs();renderDonate();renderAbout();if(!$("#keyBox").hidden)renderKeyState();}
 function sys(msg,cls="err"){$("#sysMsg").innerHTML=msg?`<div class="card ${cls==="err"?"":""}"><div class="${cls}">${esc(msg)}</div></div>`:""}
 
 /* ---------- Kota ---------- */
-function quotaState(){const left=Math.max(0,FREE-usage.used);const gl=Math.max(0,GRACE-usage.grace);
-  const level=left>0?(left/FREE<=0.2?"warn":"ok"):(gl>0?"grace":"blocked");return{left,gl,level}}
-function renderQuota(){const{left,gl,level}=quotaState();const pct=Math.round(left/FREE*100);
+function quotaState(){const freeLeft=Math.max(0,FREE-usage.used);const bonus=Math.max(0,usage.bonus||0);const left=freeLeft+bonus;
+  const gl=Math.max(0,GRACE-usage.grace);
+  const level=left>0?(bonus===0&&freeLeft/FREE<=0.2?"warn":"ok"):(gl>0?"grace":"blocked");return{left,freeLeft,bonus,gl,level}}
+function renderQuota(){const{left,freeLeft,bonus,gl,level}=quotaState();const pct=Math.round(freeLeft/FREE*100);
   $("#quota").dataset.level=level;$("#pill").dataset.level=level;
-  $("#qLeft").textContent=left;$("#qOf").textContent=t("of",{n:FREE});$("#qBar").style.width=pct+"%";$("#pillBar").style.width=pct+"%";
+  $("#qLeft").textContent=left;$("#qOf").textContent=t("of",{n:FREE})+(bonus?" + "+bonus+" "+t("bonusS"):"");$("#qBar").style.width=pct+"%";$("#pillBar").style.width=pct+"%";
   $("#pillTxt").textContent=left+" "+t("cr");$("#qLevel").textContent=t("l_"+level,{d:resetDate()});
   $("#qGrace").textContent=gl+" / "+GRACE;$("#qReset").textContent=resetDate();$("#qCost").textContent="1 "+t("cr");
   $("#askBtn").textContent=t("ask")+" · 1 "+t("cr");
-  $("#qHist").innerHTML=(usage.hist||[]).slice(-12).reverse().map((h)=>`<li><span>${esc(t(h.g?"hk_g":"hk_q"))}</span><span>−1 · ${esc(new Date(h.at).toLocaleTimeString(lang,{hour:"2-digit",minute:"2-digit"}))}</span></li>`).join("");}
+  $("#qHist").innerHTML=(usage.hist||[]).slice(-12).reverse().map((h)=>`<li><span>${esc(t(h.g?"hk_g":h.b?"hk_b":h.add?"hk_add":"hk_q"))}</span><span>${h.add?"+"+h.add:"−1"} · ${esc(new Date(h.at).toLocaleTimeString(lang,{hour:"2-digit",minute:"2-digit"}))}</span></li>`).join("");}
 async function loadUsage(){if(!db||!uid)return;try{const s=await db.doc("data/users/"+uid+"/usage").get();const d=s.exists?s.data():null;
-  usage=d&&d.period===period()?{period:d.period,used:d.used||0,grace:d.grace||0,hist:d.hist||[]}:{period:period(),used:0,grace:0,hist:[]};}catch{}renderQuota()}
-/* Hak kontrolü: kredi varsa normal; yoksa yalnız kredili başlamış konu esneme payıyla devam eder */
-function canAsk(){const{left,gl}=quotaState();if(left>0)return"free";if(topic.id&&topic.credited&&gl>0)return"grace";return null}
-async function charge(kind){const g=kind==="grace";usage={period:period(),used:usage.used+(g?0:1),grace:usage.grace+(g?1:0),
-  hist:[...(usage.hist||[]).slice(-40),{at:new Date().toISOString(),g}]};renderQuota();
-  if(db&&uid){try{await db.doc("data/users/"+uid+"/usage").set(usage)}catch{}}}
+  // Ay değişince ücretsiz hak yenilenir; destek kredisi (bonus) bir sonraki aya devreder
+  usage=d&&d.period===period()?{period:d.period,used:d.used||0,grace:d.grace||0,bonus:d.bonus||0,hist:d.hist||[]}:{period:period(),used:0,grace:0,bonus:(d&&d.bonus)||0,hist:(d&&d.hist)||[]};}catch{}renderQuota()}
+async function saveUsage(){renderQuota();if(db&&uid){try{await db.doc("data/users/"+uid+"/usage").set(usage)}catch{}}}
+/* Hak kontrolü: önce aylık ücretsiz, sonra destek kredisi; ikisi de yoksa yalnız kredili başlamış konu esneme payıyla sürer */
+function canAsk(){const{freeLeft,bonus,gl}=quotaState();if(freeLeft>0)return"free";if(bonus>0)return"bonus";if(topic.id&&topic.credited&&gl>0)return"grace";return null}
+async function charge(kind){const g=kind==="grace",b=kind==="bonus";
+  usage={...usage,period:period(),used:usage.used+(g||b?0:1),grace:usage.grace+(g?1:0),bonus:Math.max(0,(usage.bonus||0)-(b?1:0)),
+  hist:[...(usage.hist||[]).slice(-40),{at:new Date().toISOString(),g,b}]};await saveUsage()}
 function renderTopic(){$("#topicHint").textContent=topic.id?t("topic",{n:topic.n}):""}
 
 /* ---------- Kütüphane ---------- */
@@ -405,7 +471,7 @@ const norm=(s)=>fold(String(s)).replace(/\s+/g," ").trim();
 
 $("#askForm").addEventListener("submit",async(e)=>{e.preventDefault();const question=$("#q").value.trim();if(question.length<3)return;
   if(!db){sys(t("noDb"));return}
-  const kind=canAsk();if(!kind){sys(t("quotaFull",{d:resetDate()}));$("#quota").classList.remove("closed");return}
+  const kind=canAsk();if(!kind){sys(t("quotaFull",{d:resetDate()}));$("#quota").classList.remove("closed");$("#redeemBox").open=true;return}
   if(!topic.id){topic={id:Date.now().toString(36),n:0,credited:quotaState().left>0}}
   const btn=$("#askBtn");btn.disabled=true;sys("");
   const card=document.createElement("article");card.className="card ans";card.innerHTML=`<div class="q">${esc(question)}</div><p class="hint">${esc(t("thinking"))}</p>`;$("#answers").prepend(card);
@@ -467,13 +533,12 @@ Question: """${question}"""`,{modelTier:"default"});
 $("#newTopic").addEventListener("click",()=>{topic={id:null,n:0,credited:false};renderTopic();$("#q").focus()});
 
 /* ---------- Sekmeler, dil, panel ---------- */
-for(const[id,p]of[["#t-ask","#p-ask"],["#t-lib","#p-lib"]])$(id).addEventListener("click",()=>{
-  $("#t-ask").setAttribute("aria-selected",String(id==="#t-ask"));$("#t-lib").setAttribute("aria-selected",String(id==="#t-lib"));
-  $("#p-ask").hidden=id!=="#t-ask";$("#p-lib").hidden=id!=="#t-lib"});
+for(const[id,p]of[["#t-ask","#p-ask"],["#t-lib","#p-lib"],["#t-how","#p-how"]])$(id).addEventListener("click",()=>{
+  for(const[i2,p2]of[["#t-ask","#p-ask"],["#t-lib","#p-lib"],["#t-how","#p-how"]]){$(i2).setAttribute("aria-selected",String(i2===id));$(p2).hidden=i2!==id}});
 $("#lang").addEventListener("change",(e)=>{lang=e.target.value;try{localStorage.setItem("lang",lang)}catch{}applyI18n()});
 $("#pill").addEventListener("click",()=>$("#quota").classList.toggle("closed"));
 $("#donateSave").addEventListener("click",async()=>{const v=$("#donateIn").value.trim();if(v&&!/^https:\/\//.test(v))return;
-  try{await db.doc("settings/main").set({donateUrl:v})}catch{sys(t("noWrite"))}});
+  try{const s0=await db.doc("settings/main").get();await db.doc("settings/main").set({...(s0.exists?s0.data():{}),donateUrl:v})}catch{sys(t("noWrite"))}});
 
 /* ---------- Yerel kip (claude.ai dışında, ör. indirilen dosya) ---------- */
 let localMode=false;
@@ -481,13 +546,15 @@ async function localDb(){
   const mem=new Map(),subs=new Set();let idb=null;
   try{idb=await new Promise((ok,no)=>{const r=indexedDB.open("medortak",1);r.onupgradeneeded=()=>r.result.createObjectStore("kv");r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
     await new Promise((ok)=>{const tx=idb.transaction("kv").objectStore("kv").openCursor();tx.onsuccess=(e)=>{const c=e.target.result;if(c){mem.set(c.key,c.value);c.continue()}else ok()};tx.onerror=()=>ok()});}catch{idb=null}
-  const persist=(k,v)=>{if(!idb)return;try{const st=idb.transaction("kv","readwrite").objectStore("kv");v===undefined?st.delete(k):st.put(v,k)}catch{}};
+  // Kayıt kalıcı olarak yazılana (işlem tamamlanana) kadar bekle: "eklendi" denip sayfa kapanınca veri kaybolmasın
+  const persist=(k,v)=>new Promise((ok)=>{if(!idb)return ok();try{const tx=idb.transaction("kv","readwrite");const st=tx.objectStore("kv");
+    v===undefined?st.delete(k):st.put(v,k);tx.oncomplete=()=>ok();tx.onerror=()=>ok();tx.onabort=()=>ok()}catch{ok()}});
   const snap=(p)=>({id:p.split("/").pop(),exists:mem.has(p),data:()=>mem.get(p),metadata:{fromCache:false,hasPendingWrites:false}});
   const notify=()=>subs.forEach((f)=>f());
   const doc=(p)=>({path:p,id:p.split("/").pop(),get:async()=>snap(p),
-    set:async(d)=>{const v=JSON.parse(JSON.stringify(d));mem.set(p,v);persist(p,v);notify()},
-    update:async(d)=>{if(!mem.has(p))throw{code:"invalid_argument"};const v={...mem.get(p),...JSON.parse(JSON.stringify(d))};mem.set(p,v);persist(p,v);notify()},
-    delete:async()=>{mem.delete(p);persist(p);notify()},
+    set:async(d)=>{const v=JSON.parse(JSON.stringify(d));mem.set(p,v);notify();await persist(p,v)},
+    update:async(d)=>{if(!mem.has(p))throw{code:"invalid_argument"};const v={...mem.get(p),...JSON.parse(JSON.stringify(d))};mem.set(p,v);notify();await persist(p,v)},
+    delete:async()=>{mem.delete(p);notify();await persist(p)},
     onSnapshot:(n)=>{const f=()=>n(snap(p));subs.add(f);setTimeout(f,0);return()=>subs.delete(f)}});
   const coll=(p)=>({path:p,doc:(id)=>doc(p+"/"+id),onSnapshot:(n)=>{const depth=p.split("/").length+1;
     const f=()=>{const ds=[...mem.keys()].filter((k)=>k.startsWith(p+"/")&&k.split("/").length===depth).sort().map(snap);n({docs:ds,size:ds.length,empty:!ds.length,docChanges:()=>[],metadata:{}})};
@@ -526,6 +593,27 @@ function renderKeyState(){$("#keyState").textContent=savedKey()?t("keyOn"):t("ke
 $("#keySave").addEventListener("click",()=>{const v=$("#keyIn").value.trim();try{v?localStorage.setItem("medortak-key",v):localStorage.removeItem("medortak-key")}catch{}
   $("#keyIn").value="";sample=v?keySample(v):null;renderKeyState()});
 
+/* ---------- Destek kodu: bağış yapana ya da çok kullanana kartsız ek hak ----------
+   Kod veritabanında yalnız SHA-256 özeti olarak durur (codes/<özet>, yalnız sahip yazar);
+   kullanılan kod redemptions/<özet> belgesiyle işaretlenir (katkıcılar yazabilir). */
+async function codeHash(c){return (await sha(new TextEncoder().encode(c.trim().toUpperCase()))).slice(0,40)}
+$("#codeMake").addEventListener("click",async()=>{const n=Math.round(Number($("#codeCr").value));if(!(n>=1&&n<=10000)||!db)return;
+  const abc="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";const rnd=crypto.getRandomValues(new Uint8Array(8));
+  const code="DESTEK-"+[...rnd].map((x)=>abc[x%abc.length]).join("");
+  try{await db.doc("codes/"+await codeHash(code)).set({credits:n,at:new Date().toISOString()});
+    $("#codeOut").innerHTML=`${esc(t("codeMade",{n}))} <b style="font-family:var(--mono)">${esc(code)}</b>`}
+  catch{$("#codeOut").textContent=t("noWrite")}});
+$("#redeemBtn").addEventListener("click",async()=>{const c=$("#redeemIn").value.trim();const msg=$("#redeemMsg");if(!c||!db||!uid)return;
+  try{const h=await codeHash(c);const code=await db.doc("codes/"+h).get();const red=await db.doc("redemptions/"+h).get();
+    if(!code.exists||red.exists){msg.textContent=t("codeBad");return}
+    await db.doc("redemptions/"+h).set({by:uid,at:new Date().toISOString()});
+    const n=Number(code.data().credits)||0;
+    usage={...usage,bonus:(usage.bonus||0)+n,hist:[...(usage.hist||[]).slice(-40),{at:new Date().toISOString(),add:n}]};await saveUsage();
+    msg.textContent=t("codeOk",{n});$("#redeemIn").value=""}
+  catch{msg.textContent=t("noWrite")}});
+$("#freeSave").addEventListener("click",async()=>{const n=Math.round(Number($("#freeIn").value));if(!(n>=1&&n<=10000)||!db)return;
+  try{const s0=await db.doc("settings/main").get();await db.doc("settings/main").set({...(s0.exists?s0.data():{}),free:n})}catch{sys(t("noWrite"))}});
+
 /* ---------- Başlat ---------- */
 if(matchMedia("(max-width:860px)").matches)$("#quota").classList.add("closed");
 applyI18n();
@@ -538,7 +626,9 @@ applyI18n();
   else{uid=user?await user.id().catch(()=>null):null;isOwner=user?await user.isOwner().catch(()=>false):false}
   $("#ownerBox").hidden=!isOwner;
   subscribeDocs();
-  db.doc("settings/main").onSnapshot((s)=>{donateUrl=s.exists?String(s.data().donateUrl||""):"";if(isOwner)$("#donateIn").value=donateUrl;renderDonate()});
+  db.doc("settings/main").onSnapshot((s)=>{const d=s.exists?s.data():{};donateUrl=String(d.donateUrl||"");
+    const f=Math.round(Number(d.free));FREE=f>=1&&f<=10000?f:60;
+    if(isOwner){$("#donateIn").value=donateUrl;$("#freeIn").value=FREE}renderDonate();renderQuota()});
   await loadUsage();
   if(!sample&&!localMode)sys(t("noSample"),"flag");
   if(!window.pdfjsLib)sys(t("noPdf"));
