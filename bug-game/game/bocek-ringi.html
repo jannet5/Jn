@@ -1,0 +1,727 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}</style></head><body><title>Böcek Ringi</title>
+<meta name="theme-color" content="#141a12">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;800&display=swap">
+<style>
+/* Layout: telefon dikey; üstte sahne (mekan + karakterler + sisli seyirci), altta arena ve kontroller */
+:root{--bg:#141a12;--panel:#1f2a1b;--line:#3a4a31;--fg:#f1f6e8;--muted:#b1bfa4;--leaf:#6fc04a;--leafd:#2f6b1c;--sun:#ffd166;--win:#5ee07a;--lose:#ff6b6b;--draw:#9ec5ff;
+--display:'Baloo 2','Trebuchet MS',sans-serif;--body:'Nunito',system-ui,sans-serif;color-scheme:dark}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;-webkit-tap-highlight-color:transparent;user-select:none;overscroll-behavior:none}
+.screen{max-width:560px;margin:0 auto;padding-inline:16px;padding-block:12px 24px;display:flex;flex-direction:column;gap:12px;min-height:100%}
+h1,h2{font-family:var(--display);font-weight:800;margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(40px,12vw,64px);color:var(--sun);text-shadow:0 4px 0 #6b3d00}
+h2{font-size:28px}
+.scene{position:relative;border-radius:16px;overflow:hidden;border:3px solid #000;aspect-ratio:16/10;background:#000;max-width:100%}
+.scene-svg{display:block;width:100%;height:100%}
+.btn{font:800 19px var(--display);border:0;border-radius:14px;padding:14px 18px;cursor:pointer;background:var(--leaf);color:#0f2208;box-shadow:0 5px 0 var(--leafd);touch-action:manipulation}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--leafd)}
+.btn.alt{background:var(--panel);color:var(--fg);box-shadow:0 5px 0 #000;border:2px solid var(--line)}
+.btn:disabled{opacity:.45}
+button:focus-visible,.slot:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1 1 140px}
+.muted{color:var(--muted);font-size:14px;margin:0}
+label{display:flex;flex-direction:column;gap:4px;font-weight:800;font-size:14px;color:var(--muted);min-width:0}
+input{font:700 17px var(--body);padding:10px 12px;border-radius:10px;border:2px solid var(--line);background:var(--panel);color:var(--fg);min-width:0;user-select:text}
+#worlds{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.world{flex:0 0 auto;scroll-snap-align:start;border:2px solid #000;border-radius:12px;padding:10px 12px;color:#fff;font:800 15px var(--body);background:linear-gradient(160deg,var(--a),var(--b));text-shadow:0 1px 2px #000;cursor:pointer}
+.world span{display:block;font-size:12px;opacity:.85}
+.world.on{outline:3px solid var(--sun);outline-offset:2px}
+/* hikaye */
+.dialog{background:#fffdf5;color:#1b1b1b;border:3px solid #000;border-radius:16px;padding:12px 14px 14px;position:relative;min-height:120px}
+.dialog .who{font:800 18px var(--display);color:#7a3d00}
+.dialog.m .who{color:#1d5e10}.dialog.n{background:#f0ecdf}.dialog.n .who{color:#555}
+.dialog p{margin:4px 0 0;font-size:18px;line-height:1.35;font-weight:700}
+.step{position:absolute;right:12px;top:10px;font-size:12px;color:#888}
+.talk{animation:bob .5s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-8px)}}
+.fan{animation:jump .6s ease-in-out infinite alternate}
+@keyframes jump{to{transform:translateY(-14px)}}
+.shouts text{animation:shout 1.2s ease-in-out infinite}
+.shouts text:nth-child(2){animation-delay:.4s}.shouts text:nth-child(3){animation-delay:.8s}
+@keyframes shout{0%,100%{opacity:.2}50%{opacity:1}}
+.smoke{animation:drift 6s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(30px)}}
+/* oyun */
+#hud{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.ps{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:6px 10px;display:flex;justify-content:space-between;gap:6px;min-width:0}
+.ps span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800}
+.ps strong{font:800 20px var(--display);color:var(--sun);font-variant-numeric:tabular-nums}
+.ps.on{border-color:var(--sun);box-shadow:0 0 0 2px var(--sun) inset}
+.rnd{font:800 15px var(--display);color:var(--muted)}
+.arena{position:relative;background:radial-gradient(ellipse at center,#a9845e,#7a5a3c);border:3px solid #000;border-radius:20px;padding:10px 8px;display:flex;flex-direction:column;gap:10px}
+.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.slot{position:relative;background:#8a6a4a;border:2px solid #2b1d14;border-radius:12px;min-height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px 2px;min-width:0}
+.slot b{position:absolute;top:2px;left:6px;font-size:12px;color:#ffe9c7}
+.bugbox{display:flex;flex-direction:column;align-items:center;min-width:0;width:100%}
+.bugbox svg{max-width:100%;height:auto}
+.bugbox i{font-style:normal;font-size:10.5px;font-weight:800;text-align:center;line-height:1.1;color:#fff;overflow-wrap:anywhere}
+.bugbox em{font:800 34px var(--display);color:#ffe9c7;font-style:normal}
+.pick{cursor:pointer;background:#3d5a2c;border-color:#1d3512}
+.pick.empty{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{background:#557d3d}}
+.locked .slot{cursor:default;animation:none;opacity:.8}
+.vs{text-align:center;font:800 14px var(--display);color:#ffe9c7;letter-spacing:.1em;margin:-4px 0}
+.leaf{position:absolute;left:-3%;right:-3%;top:-6px;height:132px;pointer-events:none;transform:translateY(-140%) rotate(-8deg);opacity:0;transition:transform .55s cubic-bezier(.3,1.4,.5,1),opacity .3s}
+.leaf.down{transform:none;opacity:1}
+.leaf.up{transform:translateY(-160%) rotate(12deg);opacity:0}
+.leaf svg{width:100%;height:100%;filter:drop-shadow(0 6px 4px rgba(0,0,0,.5))}
+.covered .bugbox{visibility:hidden}
+.clash{animation:clash .5s ease-in-out}
+@keyframes clash{30%{transform:scale(1.15) rotate(-4deg)}60%{transform:scale(.95) rotate(4deg)}}
+.won{background:#1f6b2d;border-color:var(--win)}.lost{background:#6b1f1f;border-color:var(--lose)}.draw{background:#2d4466;border-color:var(--draw)}
+.res{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;font:800 11px var(--body);padding:2px 6px;border-radius:8px;background:#000;color:#fff;z-index:2}
+#msg{min-height:48px;margin:0;font-weight:800;font-size:17px;text-align:center;text-wrap:balance}
+/* modallar */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;justify-content:center;z-index:10;padding-bottom:env(safe-area-inset-bottom,0px)}
+.sheet{background:var(--panel);border:2px solid var(--line);border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:88vh;display:flex;flex-direction:column;gap:10px;padding:14px 16px 16px}
+.sheet header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sheet h3{font:800 20px var(--display);margin:0}
+.x{background:none;border:0;color:var(--fg);font-size:28px;cursor:pointer;line-height:1;padding:4px 8px}
+#picker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;overflow-y:auto}
+.pbug{background:#2b3a24;border:2px solid var(--line);border-radius:12px;padding:4px 2px;color:var(--fg);display:flex;flex-direction:column;align-items:center;gap:2px;font:800 11px var(--body);cursor:pointer;min-width:0}
+.pbug.on{border-color:var(--sun);background:#4a5a1c}
+.pbug span{overflow-wrap:anywhere;text-align:center;line-height:1.1}
+#picker-info{margin:0;font-size:14px;min-height:40px;color:var(--muted)}#picker-info b{color:var(--sun)}
+#guide-list{overflow-y:auto;display:flex;flex-direction:column;gap:8px}
+.gitem{display:flex;gap:10px;align-items:center;background:#2b3a24;border-radius:12px;padding:6px 10px}
+.gitem div{display:flex;flex-direction:column;min-width:0}.gitem small{color:var(--muted);font-size:12.5px}.gitem small.eq{color:var(--draw)}
+.big{font:800 clamp(34px,10vw,48px) var(--display);color:var(--sun);text-align:center;margin:0}
+#end-scores{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#end-scores div{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:12px;text-align:center;display:flex;flex-direction:column}
+#end-scores strong{font:800 40px var(--display);font-variant-numeric:tabular-nums}
+#end-scores .champ{border-color:var(--sun)}#end-scores .champ strong{color:var(--sun)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mini{font:800 13px var(--body);background:var(--panel);color:var(--fg);border:2px solid var(--line);border-radius:10px;padding:6px 10px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<section class="screen" id="title">
+  <div class="top"><h1>Böcek Ringi</h1><button class="mini" id="mute" aria-pressed="false">Ses: açık</button></div>
+  <div class="scene" id="title-scene"></div>
+  <p class="muted" id="world-info"></p>
+  <div><p class="muted">Dünyanı seç (20 farklı hikâye):</p><div id="worlds"></div></div>
+  <div class="row"><label for="p1">1. oyuncu<input id="p1" maxlength="14" autocomplete="off"></label><label for="p2">2. oyuncu<input id="p2" maxlength="14" autocomplete="off"></label></div>
+  <button class="btn" id="start">Maceraya başla</button>
+  <button class="btn alt" id="guide-btn">Böcek rehberi: kim kimi yener?</button>
+</section>
+
+<section class="screen" id="story" hidden>
+  <div class="scene" id="story-scene"></div>
+  <div class="dialog" id="story-box"><div class="who" id="story-who"></div><p id="story-text"></p><span class="step" id="story-step"></span></div>
+  <div class="row"><button class="btn alt" id="story-skip">Hikâyeyi geç</button><button class="btn" id="story-next">Devam</button></div>
+</section>
+
+<section class="screen" id="turn" hidden>
+  <p class="muted" style="text-align:center;margin-top:20vh">Sıra sende</p>
+  <p class="big" id="turn-name"></p>
+  <p class="muted" id="turn-sub" style="text-align:center"></p>
+  <button class="btn" id="turn-go">Hazırım, böcekleri göster</button>
+  <p class="muted" style="text-align:center">Diğer oyuncu ekrana bakmasın!</p>
+</section>
+
+<section class="screen" id="play" hidden>
+  <div id="hud"></div>
+  <div class="scene" id="play-scene" style="aspect-ratio:16/9"></div>
+  <div class="arena">
+    <div class="slots" id="rival-row"></div>
+    <div class="leaf" id="leaf"><svg viewBox="0 0 400 120" preserveAspectRatio="none"><path d="M4 60 Q40 2 200 4 Q360 2 396 56 Q370 118 200 118 Q30 118 4 60 Z" fill="#3a9d23" stroke="#1d5e10" stroke-width="6"/><path d="M6 64 Q200 58 394 50" stroke="#c7f9cc" stroke-width="4" fill="none"/><path d="M80 62 q30 -30 60 -36 M80 62 q30 26 60 32 M170 60 q30 -30 60 -38 M170 60 q30 26 60 34 M260 56 q30 -26 60 -30 M260 56 q30 22 60 26" stroke="#c7f9cc" stroke-width="3" fill="none" opacity=".8"/></svg></div>
+    <div class="vs">KARŞISINA KOY</div>
+    <div class="slots" id="pick-row"></div>
+  </div>
+  <p id="msg" role="status" aria-live="polite"></p>
+  <button class="btn" id="go" hidden>Kapıştır!</button>
+  <button class="btn" id="next" hidden>Devam</button>
+  <button class="mini" id="guide-btn2" style="align-self:center">Böcek rehberi</button>
+</section>
+
+<section class="screen" id="end" hidden>
+  <div class="scene" id="end-scene"></div>
+  <h2 id="end-title" style="text-align:center;color:var(--sun);font-size:36px"></h2>
+  <div id="end-scores"></div>
+  <p class="muted" id="end-line" style="text-align:center"></p>
+  <p class="muted" id="end-best" style="text-align:center"></p>
+  <button class="btn" id="again">Tekrar oyna</button>
+  <button class="btn alt" id="home">Dünya değiştir</button>
+</section>
+
+<div class="modal" id="picker" hidden><div class="sheet" role="dialog" aria-labelledby="picker-title">
+  <header><h3 id="picker-title"></h3><button class="x" id="picker-close" aria-label="Kapat">×</button></header>
+  <div id="picker-grid"></div><p id="picker-info"></p><button class="btn" id="picker-ok" disabled>Bu böceği koy</button>
+</div></div>
+<div class="modal" id="guide" hidden><div class="sheet" role="dialog" aria-labelledby="guide-title">
+  <header><h3 id="guide-title">Böcek rehberi</h3><button class="x" id="guide-close" aria-label="Kapat">×</button></header>
+  <p class="muted">Her böcek 9 böceği yener. Yenersen 10 puan, berabere 3 puan.</p>
+  <div id="guide-list"></div>
+</div></div>
+
+<script>
+const W = 1280, H = 800;
+
+const CONCEPTS = [
+  { title: 'Mantar Vadisi', mascot: { name: 'Fındık', who: 'tilki izci', ears: 'fox', fur: '#e07a2f', belly: '#fff2df', hat: 'scout', hatC: '#3f6b35' },
+    rival: { name: 'Gırtlak Usta', who: 'yaşlı kurbağa', ears: 'none', fur: '#6aa84f', belly: '#d9ead3', hat: 'top', hatC: '#4a2b5c' },
+    place: 'Dev mantarların altında, ateşböceği ışıklı bir alacakaranlık vadisi', sky: ['#2b1d4f', '#d86d6d'], ground: '#4b3a2a', motif: 'mushrooms',
+    hook: 'Kayıp pusulasının peşindeki Fındık, mantar ışıkları altında böcek ringi kuran Gırtlak Usta ile karşılaşır.',
+    line: 'Yaprağın altında ne kaldı, hatırlıyor musun evlat?' },
+  { title: 'Gece Vahası', mascot: { name: 'Kumru', who: 'gözlüklü çöl kaşifi kız', ears: 'human', fur: '#c98b5a', belly: '#f3d2b3', hat: 'goggles', hatC: '#7a4a1e' },
+    rival: { name: 'Bukalemun Tüccar', who: 'renk değiştiren tüccar', ears: 'none', fur: '#3fae9a', belly: '#bdeee2', hat: 'fez', hatC: '#b8322c' },
+    place: 'Hurma ağaçlı bir vaha, dolunay ve kum tepeleri', sky: ['#0d1b3d', '#3c5a8a'], ground: '#c9a46a', motif: 'palms',
+    hook: 'Su arayan Kumru, vahada böcek pazarı kuran Bukalemun Tüccar\'a takılır: "Kazanırsan su senin."',
+    line: 'Kum kadar böcek, ama hangisi hangisini yener?' },
+  { title: 'Fener Bahçesi', mascot: { name: 'Tofu', who: 'panda çırak', ears: 'round', fur: '#f4f4f4', belly: '#ffffff', patch: '#222', hat: 'band', hatC: '#d23b3b' },
+    rival: { name: 'Usta Kerpeten', who: 'kılıçlı kurbağa ustası', ears: 'none', fur: '#7fb069', belly: '#e6f2d8', hat: 'straw', hatC: '#d9b45a' },
+    place: 'Kağıt fenerli, köprülü ve sazanlı gece bahçesi', sky: ['#1a1030', '#5a2f5f'], ground: '#3d4f3a', motif: 'lanterns',
+    hook: 'Fener festivalinde Tofu, ustasının efsane böcek turnuvasına çırak olarak katılır.',
+    line: 'Sabır, Tofu. Önce gör, sonra unutma.' },
+  { title: 'Karlı Zirve', mascot: { name: 'Pofuduk', who: 'yavru yeti', ears: 'round', fur: '#e9f1f7', belly: '#ffffff', hat: 'beanie', hatC: '#e0533a' },
+    rival: { name: 'Komodor Pengu', who: 'madalyalı penguen', ears: 'none', fur: '#1f2a36', belly: '#f2f2f2', hat: 'captain', hatC: '#1d3557' },
+    place: 'Kar fırtınası sonrası buzdan bir arena, kuzey ışıkları', sky: ['#0b2239', '#1f8a85'], ground: '#dfeaf2', motif: 'mountains',
+    hook: 'Kışın uyanan buz böcekleri için Pofuduk, Komodor Pengu\'nun buz ringine meydan okur.',
+    line: 'Buz böceği soğuğa dayanır ama ateş böceğine asla!' },
+  { title: 'Kristal Mağara', mascot: { name: 'Burgu', who: 'madenci köstebek', ears: 'round', fur: '#6b4f3a', belly: '#c9a98a', hat: 'miner', hatC: '#f2c230' },
+    rival: { name: 'DJ Yarasa', who: 'kulaklıklı yarasa', ears: 'bat', fur: '#3b2f4a', belly: '#7d6b94', hat: 'headphones', hatC: '#ff3d9a' },
+    place: 'Parlayan kristallerle dolu yeraltı mağarası, yankılı tezahürat', sky: ['#120a24', '#2a1a4a'], ground: '#2c2238', motif: 'crystals',
+    hook: 'Tünel kazarken bir mağaraya düşen Burgu, DJ Yarasa\'nın yeraltı böcek ligini keşfeder.',
+    line: 'Bu mağarada ses yankılanır, hafızan yankılanmaz!' },
+  { title: 'Sisli Bataklık', mascot: { name: 'Nil', who: 'sandalcı kız', ears: 'human', fur: '#8d5a3b', belly: '#e8b98f', hat: 'bandana', hatC: '#2f7d6d' },
+    rival: { name: 'Dişlek', who: 'kurnaz timsah', ears: 'none', fur: '#4f7d3a', belly: '#c7d99a', hat: 'top', hatC: '#222' },
+    place: 'Sazlıklar, ağaç kökleri ve yeşil sis arasında bir iskele', sky: ['#1d2b24', '#6d8f6a'], ground: '#3a4a33', motif: 'reeds',
+    hook: 'Nil\'in sandalı Dişlek\'in iskelesine sürüklenir. Geri almak için böcek düellosu şart.',
+    line: 'Sis yaprağı da yutar, aklını da evlat...' },
+  { title: 'Yörünge Arenası', mascot: { name: 'Miyu', who: 'astronot kedi', ears: 'cat', fur: '#f0a04b', belly: '#ffe0b8', hat: 'helmet', hatC: '#cfe8ff' },
+    rival: { name: 'BZZ-9', who: 'böcek toplayan robot', ears: 'antenna', fur: '#9aa7b4', belly: '#dfe6ec', hat: 'none', hatC: '#000' },
+    place: 'Uzay istasyonunda cam kubbeli böcek serası, dışarıda gezegen', sky: ['#05051a', '#1d1f4a'], ground: '#3a3f55', motif: 'space',
+    hook: 'Uzay serasından kaçan böcekleri toplayan Miyu, BZZ-9\'un turnuva protokolüne girer.',
+    line: 'HAFIZA TESTİ BAŞLIYOR. YAPRAK KAPANIYOR. BİP.' },
+  { title: 'Volkan Adası', mascot: { name: 'Çakıl', who: 'kertenkele kaşif', ears: 'none', fur: '#58b368', belly: '#d8f0c2', hat: 'safari', hatC: '#c7a26b' },
+    rival: { name: 'Magma Dede', who: 'taş golem', ears: 'none', fur: '#5a5050', belly: '#ff7a2a', hat: 'none', hatC: '#000' },
+    place: 'Dumanı tüten volkanın eteğinde siyah kumlu sahil', sky: ['#2a0e0e', '#c4471b'], ground: '#2b2424', motif: 'volcano',
+    hook: 'Gemisi karaya oturan Çakıl, adanın bekçisi Magma Dede\'nin lav ringinde sınanır.',
+    line: 'Ada sıcaktır, böcekler daha da sıcak!' },
+  { title: 'Korsan Güvertesi', mascot: { name: 'Çaça', who: 'miço maymun', ears: 'monkey', fur: '#8b5a2b', belly: '#e8c39e', hat: 'bandana', hatC: '#c0392b' },
+    rival: { name: 'Kaptan Tekbacak', who: 'tahta bacaklı papağan kaptan', ears: 'none', fur: '#2ea84a', belly: '#f5d33b', hat: 'pirate', hatC: '#1b1b1b' },
+    place: 'Fırtınalı denizde sallanan korsan gemisinin güvertesi', sky: ['#14213d', '#4f6d8f'], ground: '#7a5230', motif: 'ship',
+    hook: 'Gemide hazine haritası yerine böcek kavanozları çıkar. Kaptan: "Haritayı kazanırsın!"',
+    line: 'Yo-ho! Yaprak kapandı, şimdi hafızanı göster miço!' },
+  { title: 'Şekerleme Pazarı', mascot: { name: 'Lokum', who: 'fırıncı tavşan', ears: 'bunny', fur: '#f7d7e3', belly: '#ffffff', hat: 'chef', hatC: '#ffffff' },
+    rival: { name: 'Madam Bal', who: 'arıcı ayı', ears: 'round', fur: '#b5763c', belly: '#f2cf8f', hat: 'beekeeper', hatC: '#f5f0dc' },
+    place: 'Şeker tezgahlı, bayraklı rengarenk bir sokak pazarı', sky: ['#ffb4a2', '#ffe5b4'], ground: '#d9a066', motif: 'candy',
+    hook: 'Pastasına üşüşen böcekleri kovalayan Lokum, Madam Bal\'ın tatlı böcek yarışmasına düşer.',
+    line: 'Tatlı mı acı mı kazanır? Bak ve unutma tatlım!' },
+  { title: 'Ağaç Ev Köyü', mascot: { name: 'Fıstık', who: 'sincap çocuk', ears: 'round', fur: '#c46a2b', belly: '#f3d1a8', hat: 'cap', hatC: '#2d6cdf' },
+    rival: { name: 'Hakem Bilge', who: 'gözlüklü baykuş', ears: 'owl', fur: '#7a6650', belly: '#e0d2bd', hat: 'graduate', hatC: '#222' },
+    place: 'Halat köprülü ağaç evler, ip ışıkları, akşam serinliği', sky: ['#29335c', '#f3a712'], ground: '#4c6b3c', motif: 'treehouses',
+    hook: 'Köyün yıllık böcek şampiyonası! Fıstık ilk kez çağrılır, hakem Bilge kuralları anlatır.',
+    line: 'Hu-huu! Kural basit: gördüğünü unutan kaybeder.' },
+  { title: 'Mercan Resifi', mascot: { name: 'Dalgıç Deniz', who: 'dalgıç su samuru', ears: 'round', fur: '#7b5a44', belly: '#d9c0a5', hat: 'diving', hatC: '#ffd166' },
+    rival: { name: 'Sekizkol', who: 'gösterişçi ahtapot', ears: 'none', fur: '#c2457a', belly: '#f2a7c5', hat: 'top', hatC: '#222' },
+    place: 'Batık bir hava kubbesi içinde mercanlarla çevrili arena', sky: ['#023047', '#219ebc'], ground: '#e9c46a', motif: 'coral',
+    hook: 'Batık gemiyi keşfeden Deniz, hava kubbesinde böcek gösterisi yapan Sekizkol\'u bulur.',
+    line: 'Sekiz kolum var ama hafızam tek. Ya seninki?' },
+  { title: 'Gece Sirki', mascot: { name: 'Pıtırcık', who: 'palyaço kız', ears: 'human', fur: '#f1c27d', belly: '#ffe1bd', hat: 'jester', hatC: '#e63946' },
+    rival: { name: 'Büyücü Zıpzıp', who: 'sihirbaz tavşan', ears: 'bunny', fur: '#dcdcdc', belly: '#ffffff', hat: 'top', hatC: '#3a0ca3' },
+    place: 'Çizgili sirk çadırı, spot ışıkları ve konfeti', sky: ['#240046', '#7b2cbf'], ground: '#9d0208', motif: 'circus',
+    hook: 'Sirkin yeni yıldızı aranıyor: Zıpzıp şapkadan böcek çıkarır, Pıtırcık hafızasıyla yarışır.',
+    line: 'Abra-kadabra! Yaprak kapandı... böcekler nerede?' },
+  { title: 'Savan Kampı', mascot: { name: 'Zürafa Zeki', who: 'fotoğrafçı zürafa', ears: 'giraffe', fur: '#f4c25b', belly: '#fff0c9', hat: 'safari', hatC: '#a68a5b' },
+    rival: { name: 'Aslan Paşa', who: 'emekli aslan', ears: 'round', fur: '#d9a441', belly: '#f6dfa8', mane: '#8c4a1c', hat: 'none', hatC: '#000' },
+    place: 'Akasya ağaçlı savan, gün batımında kamp ateşi', sky: ['#4a1942', '#f28f3b'], ground: '#b5874a', motif: 'acacia',
+    hook: 'Nadir böcek fotoğrafı arayan Zeki, Aslan Paşa\'nın kamp ateşi turnuvasına davet edilir.',
+    line: 'Savanda en güçlü değil, en iyi hatırlayan kazanır.' },
+  { title: 'Neon Çatı', mascot: { name: 'Kaykay Kaan', who: 'kaykaycı çocuk', ears: 'human', fur: '#a0673f', belly: '#e0aa7f', hat: 'cap', hatC: '#00f5d4' },
+    rival: { name: 'Rakun Ringo', who: 'çatı rakunu', ears: 'round', fur: '#7a7a7a', belly: '#d0d0d0', patch: '#333', hat: 'hoodie', hatC: '#f15bb5' },
+    place: 'Neon tabelalı şehir çatısı, yağmur sonrası parıltı', sky: ['#0f0c29', '#302b63'], ground: '#24243e', motif: 'neon',
+    hook: 'Kaybolan kaykayını arayan Kaan, gizli çatı böcek ligine kafayı uydurur.',
+    line: 'Çatıda kural yok, sadece hafıza var kanka!' },
+  { title: 'Ahır Fuarı', mascot: { name: 'Papatya', who: 'çiftçi kız', ears: 'human', fur: '#f0c8a0', belly: '#ffe3c7', hat: 'straw', hatC: '#e9c46a' },
+    rival: { name: 'Horoz Ağa', who: 'gururlu horoz', ears: 'comb', fur: '#f5f0e6', belly: '#ffffff', hat: 'none', hatC: '#000' },
+    place: 'Kırmızı ahır, saman balyaları ve köy fuarı bayrakları', sky: ['#8ecae6', '#ffe8a3'], ground: '#a7c957', motif: 'barn',
+    hook: 'Köy fuarında Horoz Ağa her yıl kazanır. Bu yıl Papatya bahçe böcekleriyle sahnede.',
+    line: 'Ü-ürü-üü! Yaprak kapanınca herkes tavuk gibi şaşırır!' },
+  { title: 'Bambu Sisi', mascot: { name: 'Kızıl', who: 'kırmızı panda', ears: 'round', fur: '#c1440e', belly: '#2b1a12', hat: 'band', hatC: '#f2e8cf' },
+    rival: { name: 'Bilge Maymun', who: 'yaşlı kar maymunu', ears: 'monkey', fur: '#b9a68f', belly: '#f2a08b', hat: 'straw', hatC: '#c9a227' },
+    place: 'Sisli bambu ormanında taş basamaklı bir tapınak avlusu', sky: ['#d8e2dc', '#9cc5a1'], ground: '#5b6b4f', motif: 'bamboo',
+    hook: 'Bilge Maymun öğrenci kabul eder: sınav, sisin içindeki böcekleri hatırlamaktır.',
+    line: 'Göz görür, yaprak örter, akıl hatırlar.' },
+  { title: 'Kütüphane Tavanı', mascot: { name: 'Profesör Kurt', who: 'kitap kurdu', ears: 'none', fur: '#d98f9b', belly: '#f7d1d7', hat: 'graduate', hatC: '#2b2d42' },
+    rival: { name: 'Bayan Ağ', who: 'kütüphaneci örümcek', ears: 'none', fur: '#3d405b', belly: '#81b29a', hat: 'glasses', hatC: '#e07a5f' },
+    place: 'Tozlu çatı katı, kitap yığınları ve mum ışığı', sky: ['#3b2c25', '#7f5539'], ground: '#5e4232', motif: 'books',
+    hook: 'Ansiklopedideki böcek sayfaları canlanır! Profesör sayfaları geri toplamak için düello eder.',
+    line: 'Bu sayfayı okudun mu? Yaprak kapandı, sınav başlasın!' },
+  { title: 'Bulut Adası', mascot: { name: 'Pilot Pervane', who: 'balon pilotu ördek', ears: 'none', fur: '#ffd23f', belly: '#fff3b0', hat: 'aviator', hatC: '#8b5e34' },
+    rival: { name: 'Kara Karga', who: 'parlak şeyler toplayan karga', ears: 'none', fur: '#1c1c2b', belly: '#3a3a55', hat: 'monocle', hatC: '#f1c40f' },
+    place: 'Gökyüzünde süzülen bulut adası, sıcak hava balonları', sky: ['#5fa8d3', '#cae9ff'], ground: '#f7f7ff', motif: 'clouds',
+    hook: 'Balonu karga tarafından delinen Pervane, onarım için Kara Karga\'yla böcek bahsine girer.',
+    line: 'Gak! Parlak şeyleri severim, ama hafızası parlak olanları daha çok!' },
+  { title: 'Dev Bahçe', mascot: { name: 'Mini', who: 'küçülmüş kaşif çocuk', ears: 'human', fur: '#e0ac69', belly: '#ffd8a8', hat: 'helmet', hatC: '#ffb703' },
+    rival: { name: 'Cüce Gnomo', who: 'bahçe cücesi heykeli', ears: 'human', fur: '#f4c7a1', belly: '#ffe3cc', beard: '#ffffff', hat: 'gnome', hatC: '#d62828' },
+    place: 'Böcek boyuna küçülmüş bir çocuğun gözünden dev çimen ve çiçekler', sky: ['#a2d2ff', '#fefae0'], ground: '#6a994e', motif: 'giantgarden',
+    hook: 'İcadıyla küçülen Mini, eski boyuna dönmek için bahçe cücesinin böcek turnuvasını kazanmalı.',
+    line: 'Ufak boyla büyük hafıza gerek, ufaklık!' },
+];
+
+// 20 böceklik kadro (konseptlerin hepsinde ortak oyun mantığı)
+const BUGS = [
+  ['Gergedan Böceği', '#6b3e26'], ['Uğur Böceği', '#d62828'], ['Peygamber Devesi', '#5cb85c'], ['Ateş Böceği', '#f4d35e'],
+  ['Akrep', '#8d6e63'], ['Karınca Askeri', '#3b2a1e'], ['Eşek Arısı', '#f1c40f'], ['Yusufçuk', '#2ec4b6'],
+  ['Hamam Böceği', '#7f4f24'], ['Çekirge', '#90be6d'], ['Kırkayak', '#bc4749'], ['Bokböceği', '#264653'],
+  ['Geyik Böceği', '#432818'], ['Su Örümceği', '#577590'], ['Tarantula', '#4a3f35'], ['Ağustos Böceği', '#9c6644'],
+  ['Kelebek', '#ff70a6'], ['Sivrisinek', '#6c757d'], ['Tespih Böceği', '#adb5bd'], ['Kınkanatlı Dev', '#1b4332'],
+];
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;');
+let uid = 0;
+const rnd = (seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647);
+
+// ---------- Karakter çizimi ----------
+function character(c, x, y, s, flip) {
+  const f = flip ? -1 : 1;
+  let g = `<g transform="translate(${x},${y}) scale(${s * f},${s})">`;
+  // gölge
+  g += `<ellipse cx="0" cy="118" rx="70" ry="12" fill="#000" opacity=".25"/>`;
+  // gövde
+  g += `<path d="M-48 115 Q-58 40 0 30 Q58 40 48 115 Z" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`;
+  g += `<ellipse cx="0" cy="80" rx="28" ry="32" fill="${c.belly}"/>`;
+  // kollar
+  g += `<path d="M-44 55 Q-75 75 -66 100" fill="none" stroke="${c.fur}" stroke-width="16" stroke-linecap="round"/>`;
+  g += `<path d="M44 55 Q78 40 82 12" fill="none" stroke="${c.fur}" stroke-width="16" stroke-linecap="round"/>`;
+  if (c.mane) g += `<circle cx="0" cy="-15" r="62" fill="${c.mane}" stroke="#1b1b1b" stroke-width="4"/>`;
+  // kulaklar
+  const E = {
+    fox: `<path d="M-40 -40 L-50 -95 L-12 -60 Z M40 -40 L50 -95 L12 -60 Z" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    cat: `<path d="M-42 -35 L-45 -88 L-10 -58 Z M42 -35 L45 -88 L10 -58 Z" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    round: `<circle cx="-36" cy="-50" r="16" fill="${c.patch || c.fur}" stroke="#1b1b1b" stroke-width="4"/><circle cx="36" cy="-50" r="16" fill="${c.patch || c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    bunny: `<ellipse cx="-20" cy="-95" rx="13" ry="42" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/><ellipse cx="20" cy="-95" rx="13" ry="42" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    bat: `<path d="M-30 -45 L-62 -95 L-15 -62 Z M30 -45 L62 -95 L15 -62 Z" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    monkey: `<circle cx="-48" cy="-15" r="16" fill="${c.belly}" stroke="#1b1b1b" stroke-width="4"/><circle cx="48" cy="-15" r="16" fill="${c.belly}" stroke="#1b1b1b" stroke-width="4"/>`,
+    human: `<circle cx="-46" cy="-12" r="10" fill="${c.fur}" stroke="#1b1b1b" stroke-width="3"/><circle cx="46" cy="-12" r="10" fill="${c.fur}" stroke="#1b1b1b" stroke-width="3"/>`,
+    owl: `<path d="M-38 -45 L-48 -82 L-18 -58 Z M38 -45 L48 -82 L18 -58 Z" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`,
+    giraffe: `<rect x="-26" y="-100" width="8" height="40" fill="${c.fur}" stroke="#1b1b1b" stroke-width="3"/><rect x="18" y="-100" width="8" height="40" fill="${c.fur}" stroke="#1b1b1b" stroke-width="3"/><circle cx="-22" cy="-102" r="7" fill="#7a4a1e"/><circle cx="22" cy="-102" r="7" fill="#7a4a1e"/>`,
+    antenna: `<line x1="-20" y1="-55" x2="-30" y2="-100" stroke="#333" stroke-width="4"/><circle cx="-30" cy="-102" r="7" fill="#ff4d4d"/><line x1="20" y1="-55" x2="30" y2="-100" stroke="#333" stroke-width="4"/><circle cx="30" cy="-102" r="7" fill="#4dff88"/>`,
+    comb: `<path d="M-20 -55 Q-15 -95 0 -70 Q10 -100 18 -68 Q30 -90 30 -55 Z" fill="#e63946" stroke="#1b1b1b" stroke-width="3"/>`,
+    none: '',
+  };
+  g += E[c.ears] || '';
+  // kafa
+  const robot = c.ears === 'antenna';
+  g += robot ? `<rect x="-50" y="-58" width="100" height="88" rx="18" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`
+             : `<circle cx="0" cy="-15" r="50" fill="${c.fur}" stroke="#1b1b1b" stroke-width="4"/>`;
+  g += `<ellipse cx="0" cy="5" rx="30" ry="22" fill="${c.belly}"/>`;
+  if (c.patch) g += `<ellipse cx="-18" cy="-20" rx="13" ry="16" fill="${c.patch}"/><ellipse cx="18" cy="-20" rx="13" ry="16" fill="${c.patch}"/>`;
+  // gözler
+  if (robot) g += `<rect x="-32" y="-30" width="64" height="20" rx="8" fill="#0ff" opacity=".85"/>`;
+  else {
+    g += `<circle cx="-18" cy="-20" r="10" fill="#fff"/><circle cx="18" cy="-20" r="10" fill="#fff"/>`;
+    g += `<circle cx="-15" cy="-19" r="5" fill="#111"/><circle cx="21" cy="-19" r="5" fill="#111"/>`;
+  }
+  g += `<path d="M-12 12 Q0 22 12 12" fill="none" stroke="#1b1b1b" stroke-width="3.5" stroke-linecap="round"/>`;
+  g += `<ellipse cx="0" cy="0" rx="6" ry="4" fill="#1b1b1b"/>`;
+  if (c.beard) g += `<path d="M-35 5 Q0 75 35 5 Q0 25 -35 5 Z" fill="${c.beard}" stroke="#1b1b1b" stroke-width="3"/>`;
+  // şapka / aksesuar
+  const k = c.hatC;
+  const HAT = {
+    scout: `<path d="M-55 -50 L55 -50 L30 -60 L0 -95 L-30 -60 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    top: `<rect x="-30" y="-115" width="60" height="55" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><rect x="-48" y="-64" width="96" height="10" rx="4" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><rect x="-30" y="-78" width="60" height="9" fill="#c0392b"/>`,
+    goggles: `<rect x="-50" y="-48" width="100" height="10" fill="${k}"/><circle cx="-18" cy="-45" r="14" fill="#8fd3ff" stroke="#1b1b1b" stroke-width="4"/><circle cx="18" cy="-45" r="14" fill="#8fd3ff" stroke="#1b1b1b" stroke-width="4"/>`,
+    fez: `<path d="M-25 -55 L-20 -100 L20 -100 L25 -55 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><line x1="0" y1="-100" x2="22" y2="-80" stroke="#111" stroke-width="3"/>`,
+    band: `<rect x="-50" y="-48" width="100" height="12" fill="${k}"/><path d="M48 -44 L72 -30 L66 -48 Z" fill="${k}"/>`,
+    straw: `<ellipse cx="0" cy="-58" rx="70" ry="14" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M-30 -60 Q0 -110 30 -60 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    beanie: `<path d="M-48 -40 Q0 -120 48 -40 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="0" cy="-88" r="12" fill="#fff" stroke="#1b1b1b" stroke-width="3"/>`,
+    captain: `<path d="M-48 -52 Q0 -105 48 -52 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><rect x="-52" y="-56" width="104" height="10" fill="#111"/><circle cx="0" cy="-72" r="8" fill="#ffd166"/>`,
+    miner: `<path d="M-50 -45 Q0 -115 50 -45 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="0" cy="-75" r="12" fill="#fffbe0" stroke="#1b1b1b" stroke-width="3"/><path d="M0 -75 L-120 -160 L-40 -175 Z" fill="#fff6b0" opacity=".25"/>`,
+    headphones: `<path d="M-52 -15 Q0 -110 52 -15" fill="none" stroke="#222" stroke-width="8"/><rect x="-62" y="-30" width="18" height="34" rx="6" fill="${k}"/><rect x="44" y="-30" width="18" height="34" rx="6" fill="${k}"/>`,
+    bandana: `<path d="M-50 -38 Q0 -100 50 -38 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M-50 -38 L-75 -20 L-58 -50 Z" fill="${k}"/>`,
+    helmet: `<circle cx="0" cy="-15" r="62" fill="${k}" opacity=".35" stroke="#fff" stroke-width="5"/>`,
+    safari: `<ellipse cx="0" cy="-50" rx="66" ry="12" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M-40 -52 Q0 -110 40 -52 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    pirate: `<path d="M-70 -50 Q0 -140 70 -50 Q0 -70 -70 -50 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="0" cy="-78" r="9" fill="#fff"/><path d="M-26 -30 L-6 -30 L-10 -10 L-26 -12 Z" fill="#111"/>`,
+    chef: `<rect x="-30" y="-85" width="60" height="35" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="-22" cy="-92" r="18" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="0" cy="-102" r="20" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="22" cy="-92" r="18" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    beekeeper: `<ellipse cx="0" cy="-55" rx="66" ry="12" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M-35 -58 Q0 -105 35 -58 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M-60 -50 L-55 30 L55 30 L60 -50" fill="#fff" opacity=".25"/>`,
+    cap: `<path d="M-48 -42 Q0 -110 48 -42 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><path d="M20 -45 L85 -40 L40 -55 Z" fill="${k}" stroke="#1b1b1b" stroke-width="3"/>`,
+    graduate: `<path d="M-60 -72 L0 -95 L60 -72 L0 -50 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><line x1="40" y1="-72" x2="48" y2="-35" stroke="#ffd166" stroke-width="4"/>`,
+    diving: `<rect x="-55" y="-45" width="110" height="38" rx="14" fill="#9fe3ff" opacity=".6" stroke="${k}" stroke-width="7"/><path d="M50 -30 Q75 -60 70 -110" fill="none" stroke="${k}" stroke-width="8"/>`,
+    jester: `<path d="M-50 -45 L-80 -105 L-10 -70 L0 -115 L10 -70 L80 -105 L50 -45 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="-80" cy="-105" r="8" fill="#ffd166"/><circle cx="0" cy="-115" r="8" fill="#ffd166"/><circle cx="80" cy="-105" r="8" fill="#ffd166"/>`,
+    hoodie: `<path d="M-62 30 Q-70 -80 0 -78 Q70 -80 62 30 L45 30 Q55 -50 0 -58 Q-55 -50 -45 30 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    glasses: `<circle cx="-18" cy="-20" r="15" fill="none" stroke="${k}" stroke-width="4"/><circle cx="18" cy="-20" r="15" fill="none" stroke="${k}" stroke-width="4"/><line x1="-3" y1="-20" x2="3" y2="-20" stroke="${k}" stroke-width="4"/>`,
+    aviator: `<path d="M-50 -30 Q0 -110 50 -30 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/><circle cx="-18" cy="-55" r="12" fill="#bde0fe" stroke="#1b1b1b" stroke-width="3"/><circle cx="18" cy="-55" r="12" fill="#bde0fe" stroke="#1b1b1b" stroke-width="3"/><path d="M-40 60 L60 60 L90 90" stroke="#e63946" stroke-width="10" fill="none"/>`,
+    monocle: `<circle cx="18" cy="-20" r="14" fill="none" stroke="${k}" stroke-width="4"/><line x1="30" y1="-12" x2="38" y2="40" stroke="${k}" stroke-width="2"/><rect x="-28" y="-115" width="56" height="50" fill="#111" stroke="#1b1b1b" stroke-width="3"/><rect x="-45" y="-68" width="90" height="8" fill="#111"/>`,
+    gnome: `<path d="M-50 -40 Q-10 -170 50 -40 Z" fill="${k}" stroke="#1b1b1b" stroke-width="4"/>`,
+    none: '',
+  };
+  g += HAT[c.hat] || '';
+  if (c.ears === 'owl' || c.ears === 'none' && /papağan|ördek|karga|horoz|penguen/.test(c.who)) {
+    g += `<path d="M-10 -2 L10 -2 L0 14 Z" fill="#f4a261" stroke="#1b1b1b" stroke-width="2"/>`;
+  }
+  return g + '</g>';
+}
+
+// ---------- Böcek çizimi ----------
+function bug(x, y, s, color, rot = 0, cheer = false) {
+  let g = `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})">`;
+  for (let i = -1; i <= 1; i++) {
+    g += `<path d="M-6 ${i * 9} L-30 ${i * 14 - 8}" stroke="#111" stroke-width="3"/><path d="M6 ${i * 9} L30 ${i * 14 - 8}" stroke="#111" stroke-width="3"/>`;
+  }
+  g += `<ellipse cx="0" cy="6" rx="18" ry="24" fill="${color}" stroke="#111" stroke-width="3"/>`;
+  g += `<line x1="0" y1="-14" x2="0" y2="28" stroke="#111" stroke-width="2" opacity=".6"/>`;
+  g += `<circle cx="0" cy="-22" r="11" fill="#2b2b2b" stroke="#111" stroke-width="3"/>`;
+  g += `<circle cx="-4" cy="-24" r="3.5" fill="#fff"/><circle cx="4" cy="-24" r="3.5" fill="#fff"/>`;
+  g += `<path d="M-4 -31 Q-14 -50 -20 -48 M4 -31 Q14 -50 20 -48" stroke="#111" stroke-width="2.5" fill="none"/>`;
+  if (cheer) g += `<path d="M-30 -10 L-38 -36 M30 -10 L38 -36" stroke="#111" stroke-width="4"/>`;
+  return g + '</g>';
+}
+
+// ---------- Mekan motifleri ----------
+function motif(kind, r, c) {
+  let g = '';
+  const R = (a, b) => a + r() * (b - a);
+  switch (kind) {
+    case 'mushrooms':
+      for (let i = 0; i < 6; i++) { const x = R(0, W), h = R(180, 380), w = R(140, 260);
+        g += `<rect x="${x - 18}" y="${520 - h}" width="36" height="${h}" fill="#e8d8c3" opacity=".9"/><ellipse cx="${x}" cy="${520 - h}" rx="${w / 2}" ry="${w / 4}" fill="${['#c0392b', '#8e44ad', '#e67e22'][i % 3]}" opacity=".85"/>`; }
+      for (let i = 0; i < 40; i++) g += `<circle cx="${R(0, W)}" cy="${R(60, 500)}" r="${R(2, 5)}" fill="#fff59d" opacity="${R(.4, 1)}"/>`; break;
+    case 'palms':
+      g += `<circle cx="1050" cy="130" r="60" fill="#fffbe0"/>`;
+      g += `<path d="M0 520 Q300 420 600 500 Q900 420 1280 500 L1280 560 L0 560 Z" fill="#a8844f"/>`;
+      g += `<ellipse cx="640" cy="560" rx="260" ry="30" fill="#3a7ca5" opacity=".8"/>`;
+      for (const x of [150, 320, 1000, 1180]) { g += `<path d="M${x} 540 Q${x + 20} 380 ${x - 10} 260" stroke="#5c3d1e" stroke-width="18" fill="none"/>`;
+        for (let a = 0; a < 6; a++) g += `<path d="M${x - 10} 260 q${Math.cos(a) * 90} ${-40 + Math.sin(a) * 50} ${Math.cos(a) * 140} ${40}" stroke="#1f5f3a" stroke-width="14" fill="none"/>`; } break;
+    case 'lanterns':
+      g += `<path d="M300 520 Q640 380 980 520" stroke="#b5452a" stroke-width="18" fill="none"/>`;
+      for (let i = 0; i < 14; i++) { const x = 40 + i * 90, y = 80 + Math.sin(i) * 25;
+        g += `<line x1="${x}" y1="0" x2="${x}" y2="${y}" stroke="#222"/><ellipse cx="${x}" cy="${y + 22}" rx="20" ry="26" fill="#ff6b35"/><ellipse cx="${x}" cy="${y + 22}" rx="40" ry="40" fill="#ffb347" opacity=".18"/>`; } break;
+    case 'mountains':
+      g += `<path d="M0 520 L200 220 L360 420 L560 160 L780 430 L980 240 L1280 520 Z" fill="#cfe1ee"/><path d="M200 220 L240 280 L170 270 Z M560 160 L610 230 L520 225 Z M980 240 L1020 300 L950 295 Z" fill="#fff"/>`;
+      g += `<path d="M0 120 Q320 40 640 130 T1280 90" stroke="#7cf5c3" stroke-width="40" fill="none" opacity=".35"/>`;
+      for (let i = 0; i < 60; i++) g += `<circle cx="${R(0, W)}" cy="${R(0, 560)}" r="${R(1.5, 4)}" fill="#fff" opacity=".8"/>`; break;
+    case 'crystals':
+      for (let i = 0; i < 14; i++) { const x = R(0, W), y = R(100, 540), h = R(60, 180), col = ['#b388ff', '#64ffda', '#ff80ab'][i % 3];
+        g += `<path d="M${x} ${y} L${x + 20} ${y - h} L${x + 40} ${y} Z" fill="${col}" opacity=".7"/><circle cx="${x + 20}" cy="${y - h / 2}" r="${h / 2}" fill="${col}" opacity=".08"/>`; }
+      g += `<path d="M0 0 L1280 0 L1280 70 Q900 140 640 60 Q300 140 0 60 Z" fill="#0a0614"/>`; break;
+    case 'reeds':
+      for (let i = 0; i < 70; i++) { const x = R(0, W); g += `<path d="M${x} 560 Q${x + R(-20, 20)} 460 ${x + R(-30, 30)} ${R(330, 450)}" stroke="#2f4a2a" stroke-width="5" fill="none"/>`; }
+      g += `<rect x="760" y="480" width="420" height="20" fill="#6b4f2a"/>`;
+      for (let i = 0; i < 5; i++) g += `<ellipse cx="${R(0, W)}" cy="${R(250, 520)}" rx="${R(150, 300)}" ry="${R(25, 50)}" fill="#c8f7c5" opacity=".2"/>`; break;
+    case 'space':
+      for (let i = 0; i < 120; i++) g += `<circle cx="${R(0, W)}" cy="${R(0, 560)}" r="${R(.8, 2.5)}" fill="#fff"/>`;
+      g += `<circle cx="1060" cy="160" r="110" fill="#e76f51"/><ellipse cx="1060" cy="160" rx="190" ry="26" fill="none" stroke="#f4a261" stroke-width="8" opacity=".8"/>`;
+      g += `<path d="M120 560 Q640 40 1160 560" fill="#7ad3ff" opacity=".08" stroke="#bfe9ff" stroke-width="6"/>`; break;
+    case 'volcano':
+      g += `<path d="M300 540 L560 160 L720 160 L980 540 Z" fill="#3b2f2f"/><path d="M560 160 L600 260 L640 200 L680 280 L720 160 Z" fill="#ff5400"/>`;
+      g += `<circle cx="640" cy="90" r="70" fill="#555" opacity=".7"/><circle cx="700" cy="40" r="60" fill="#666" opacity=".6"/>`;
+      g += `<path d="M0 540 Q200 500 400 540" stroke="#4cc9f0" stroke-width="12" fill="none" opacity=".6"/>`; break;
+    case 'ship':
+      g += `<path d="M0 500 Q160 470 320 500 T640 500 T960 500 T1280 500 L1280 560 L0 560 Z" fill="#1d3557"/>`;
+      g += `<rect x="620" y="40" width="20" height="480" fill="#5c3d1e"/><path d="M640 70 Q860 160 640 320 Z" fill="#f1faee" opacity=".9"/><path d="M640 50 L720 70 L640 90 Z" fill="#111"/>`;
+      g += `<path d="M120 0 L170 160 M300 0 L330 140" stroke="#fff" stroke-width="2" opacity=".3"/>`; break;
+    case 'candy':
+      for (let i = 0; i < 4; i++) { const x = 60 + i * 320; g += `<rect x="${x}" y="300" width="240" height="160" fill="#fff" opacity=".85"/>`;
+        for (let s = 0; s < 6; s++) g += `<rect x="${x + s * 40}" y="270" width="40" height="40" fill="${s % 2 ? '#ff8fab' : '#fff'}"/>`;
+        g += `<circle cx="${x + 60}" cy="380" r="26" fill="#ffd166"/><circle cx="${x + 130}" cy="380" r="22" fill="#06d6a0"/><circle cx="${x + 190}" cy="380" r="24" fill="#ef476f"/>`; }
+      for (let i = 0; i < 24; i++) g += `<path d="M${i * 56} 60 l28 40 l28 -40" fill="${['#ef476f', '#ffd166', '#06d6a0', '#118ab2'][i % 4]}"/>`; break;
+    case 'treehouses':
+      for (const x of [140, 1120]) { g += `<rect x="${x - 30}" y="80" width="60" height="480" fill="#5a3e2b"/><circle cx="${x}" cy="90" r="150" fill="#2d6a4f" opacity=".9"/><rect x="${x - 80}" y="200" width="160" height="110" fill="#a47148" stroke="#3b2a1e" stroke-width="5"/><path d="M${x - 95} 200 L${x} 140 L${x + 95} 200 Z" fill="#7f4f24"/><rect x="${x - 20}" y="245" width="40" height="40" fill="#ffd166"/>`; }
+      g += `<path d="M220 250 Q640 340 1040 250" stroke="#8b6b4a" stroke-width="6" fill="none"/>`;
+      for (let i = 0; i < 18; i++) g += `<circle cx="${230 + i * 45}" cy="${260 + Math.sin(i / 17 * Math.PI) * 70}" r="6" fill="#ffe066"/>`; break;
+    case 'coral':
+      for (let i = 0; i < 30; i++) g += `<circle cx="${R(0, W)}" cy="${R(0, 520)}" r="${R(3, 12)}" fill="none" stroke="#caf0f8" stroke-width="2" opacity=".6"/>`;
+      for (let i = 0; i < 10; i++) { const x = R(0, W), col = ['#ff7f50', '#ff4d6d', '#ffb703', '#c77dff'][i % 4];
+        g += `<path d="M${x} 560 q-10 -80 -40 -120 M${x} 560 q10 -90 30 -150 M${x} 540 q30 -50 60 -60" stroke="${col}" stroke-width="12" fill="none" stroke-linecap="round"/>`; }
+      g += `<path d="M140 560 Q640 0 1140 560" fill="#fff" opacity=".07" stroke="#e0fbfc" stroke-width="5"/>`; break;
+    case 'circus':
+      for (let i = 0; i < 16; i++) g += `<path d="M640 0 L${i * 80} 560 L${i * 80 + 80} 560 Z" fill="${i % 2 ? '#c1121f' : '#fdf0d5'}" opacity=".35"/>`;
+      g += `<path d="M300 0 L520 560 L120 560 Z M980 0 L1160 560 L760 560 Z" fill="#fff8b0" opacity=".12"/>`;
+      for (let i = 0; i < 60; i++) g += `<rect x="${R(0, W)}" y="${R(0, 540)}" width="8" height="5" fill="${['#ffd166', '#06d6a0', '#ef476f', '#4cc9f0'][i % 4]}" transform="rotate(${R(0, 90)})"/>`; break;
+    case 'acacia':
+      g += `<circle cx="640" cy="420" r="150" fill="#ffb347" opacity=".85"/>`;
+      for (const [x, s] of [[180, 1], [1100, 1.2], [900, .7]]) g += `<g transform="translate(${x},520) scale(${s})"><path d="M0 0 L0 -160 L-60 -220 M0 -160 L70 -230" stroke="#2b1d14" stroke-width="16" fill="none"/><ellipse cx="0" cy="-240" rx="170" ry="40" fill="#2b1d14"/></g>`;
+      g += `<path d="M560 520 L600 470 L640 520 L680 470 L720 520 Z" fill="#ff7b00"/>`; break;
+    case 'neon':
+      for (let i = 0; i < 9; i++) { const x = i * 150, h = R(200, 420); g += `<rect x="${x}" y="${520 - h}" width="130" height="${h}" fill="#1a1a2e"/>`;
+        for (let w = 0; w < 10; w++) g += `<rect x="${x + 15 + (w % 3) * 38}" y="${540 - h + Math.floor(w / 3) * 40}" width="22" height="18" fill="#ffd166" opacity="${R(.2, .9)}"/>`; }
+      g += `<text x="220" y="210" font-size="56" font-family="Arial Black" fill="#f15bb5" opacity=".9">BÖCEK</text><text x="860" y="160" font-size="48" font-family="Arial Black" fill="#00f5d4">LİG</text>`; break;
+    case 'barn':
+      g += `<rect x="880" y="260" width="300" height="260" fill="#c1121f" stroke="#5c0a0a" stroke-width="6"/><path d="M860 270 L1030 150 L1200 270 Z" fill="#780000"/><path d="M960 520 L960 380 L1100 380 L1100 520 M960 380 L1100 520 M1100 380 L960 520" stroke="#fff" stroke-width="8" fill="none"/>`;
+      for (const x of [100, 240]) g += `<rect x="${x}" y="440" width="120" height="80" rx="10" fill="#e9c46a" stroke="#b08930" stroke-width="5"/>`;
+      for (let i = 0; i < 20; i++) g += `<path d="M${i * 64} 40 l32 40 l32 -40" fill="${['#e63946', '#f1faee', '#457b9d'][i % 3]}"/>`; break;
+    case 'bamboo':
+      for (let i = 0; i < 22; i++) { const x = R(0, W); g += `<rect x="${x}" y="0" width="${R(12, 24)}" height="560" fill="#4f772d" opacity="${R(.3, .8)}"/>`; }
+      g += `<path d="M450 520 L830 520 L790 470 L490 470 Z" fill="#8d99ae"/><path d="M500 470 L780 470 L750 430 L530 430 Z" fill="#a3aab8"/>`;
+      for (let i = 0; i < 6; i++) g += `<ellipse cx="${R(0, W)}" cy="${R(150, 500)}" rx="300" ry="50" fill="#fff" opacity=".3"/>`; break;
+    case 'books':
+      for (let s = 0; s < 6; s++) { let x = 20 + s * 210; for (let b = 0; b < 8; b++) { const h = R(80, 220); g += `<rect x="${x}" y="${540 - h}" width="22" height="${h}" fill="${['#9b2226', '#005f73', '#ee9b00', '#3a5a40', '#6d597a'][b % 5]}" stroke="#2b1d14"/>`; x += 24; } }
+      g += `<path d="M0 0 L640 140 L1280 0" stroke="#5e4232" stroke-width="30" fill="none"/>`;
+      g += `<rect x="1100" y="120" width="14" height="50" fill="#fffbe0"/><ellipse cx="1107" cy="112" rx="8" ry="14" fill="#ffb703"/><circle cx="1107" cy="130" r="90" fill="#ffd166" opacity=".12"/>`; break;
+    case 'clouds':
+      for (let i = 0; i < 9; i++) { const x = R(0, W), y = R(40, 400); g += `<g opacity=".9"><circle cx="${x}" cy="${y}" r="40" fill="#fff"/><circle cx="${x + 45}" cy="${y - 15}" r="50" fill="#fff"/><circle cx="${x + 95}" cy="${y}" r="38" fill="#fff"/></g>`; }
+      for (const [x, y, col] of [[200, 160, '#ef476f'], [1100, 230, '#ffd166']]) g += `<circle cx="${x}" cy="${y}" r="60" fill="${col}"/><path d="M${x - 30} ${y + 50} L${x - 15} ${y + 100} L${x + 15} ${y + 100} L${x + 30} ${y + 50}" stroke="#5c3d1e" fill="none" stroke-width="3"/><rect x="${x - 18}" y="${y + 100}" width="36" height="26" fill="#a47148"/>`; break;
+    case 'giantgarden':
+      for (let i = 0; i < 50; i++) { const x = R(0, W); g += `<path d="M${x} 560 Q${x + R(-40, 40)} 300 ${x + R(-60, 60)} ${R(40, 260)}" stroke="#386641" stroke-width="${R(10, 22)}" fill="none" opacity=".8"/>`; }
+      for (const [x, y, col] of [[200, 150, '#ff006e'], [1050, 110, '#ffbe0b'], [700, 60, '#8338ec']]) { for (let p = 0; p < 6; p++) g += `<ellipse cx="${x + Math.cos(p) * 55}" cy="${y + Math.sin(p) * 55}" rx="50" ry="30" fill="${col}" transform="rotate(${p * 60},${x + Math.cos(p) * 55},${y + Math.sin(p) * 55})"/>`; g += `<circle cx="${x}" cy="${y}" r="35" fill="#ffd166"/>`; }
+      g += `<circle cx="900" cy="470" r="22" fill="#a2d2ff" opacity=".7"/>`; break;
+  }
+  return g;
+}
+
+
+// Böcek Ringi - oyun mantığı (tarayıcı). art (CONCEPTS, BUGS, character, motif, rnd) build sırasında önce eklenir.
+'use strict';
+
+// ---------- Böcekler: görünüm + kim kimi yener ----------
+// Her böcek kendinden sonraki 9 böceği yener, önceki 9'a yenilir, tam karşısındakiyle berabere.
+const KIND = ['rhino', 'lady', 'mantis', 'firefly', 'scorpion', 'ant', 'wasp', 'dragonfly', 'roach', 'hopper',
+  'centipede', 'dung', 'stag', 'strider', 'tarantula', 'cicada', 'butterfly', 'mosquito', 'pill', 'giant'];
+function outcome(a, b) {
+  if (a === b) return 0;
+  const d = (b - a + 20) % 20;
+  if (d === 10) return 0;
+  return d < 10 ? 1 : -1;
+}
+const beats = a => Array.from({ length: 9 }, (_, k) => (a + 1 + k) % 20);
+
+function bugSVG(i, size = 80, extra = '') {
+  const [name, col] = BUGS[i]; const k = KIND[i];
+  const L = (x1, y1, x2, y2, w = 3) => `<path d="M${x1} ${y1} L${x2} ${y2}" stroke="#111" stroke-width="${w}" stroke-linecap="round"/>`;
+  let s = '';
+  const legs = (n = 3, len = 24, y0 = -6, gap = 10) => { let g = ''; for (let j = 0; j < n; j++) { const y = y0 + j * gap; g += L(-8, y, -8 - len, y - 8 + j * 6) + L(8, y, 8 + len, y - 8 + j * 6); } return g; };
+  const head = (y = -24, r = 10) => `<circle cx="0" cy="${y}" r="${r}" fill="#222" stroke="#111" stroke-width="3"/><circle cx="-4" cy="${y - 2}" r="3.2" fill="#fff"/><circle cx="4" cy="${y - 2}" r="3.2" fill="#fff"/><circle cx="-4" cy="${y - 2}" r="1.4" fill="#111"/><circle cx="4" cy="${y - 2}" r="1.4" fill="#111"/>`;
+  const ant = (y = -32) => `<path d="M-4 ${y + 2} Q-12 ${y - 16} -18 ${y - 14} M4 ${y + 2} Q12 ${y - 16} 18 ${y - 14}" stroke="#111" stroke-width="2.5" fill="none"/>`;
+  const shell = (rx = 18, ry = 24) => `<ellipse cx="0" cy="6" rx="${rx}" ry="${ry}" fill="${col}" stroke="#111" stroke-width="3"/><line x1="0" y1="${6 - ry + 4}" x2="0" y2="${6 + ry}" stroke="#111" stroke-width="2" opacity=".5"/><ellipse cx="-6" cy="-4" rx="5" ry="9" fill="#fff" opacity=".25"/>`;
+  const wings = (c = '#dff6ff', big = 1) => `<ellipse cx="-20" cy="-2" rx="${18 * big}" ry="${9 * big}" fill="${c}" opacity=".8" stroke="#111" stroke-width="2" transform="rotate(-25 -20 -2)"/><ellipse cx="20" cy="-2" rx="${18 * big}" ry="${9 * big}" fill="${c}" opacity=".8" stroke="#111" stroke-width="2" transform="rotate(25 20 -2)"/>`;
+  switch (k) {
+    case 'rhino': case 'giant': s = legs() + shell(k === 'giant' ? 22 : 18, k === 'giant' ? 28 : 24) + head(-24) + `<path d="M0 -30 Q4 -52 14 -${k === 'giant' ? 62 : 52}" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>`; break;
+    case 'lady': s = legs(3, 18) + `<circle cx="0" cy="6" r="22" fill="${col}" stroke="#111" stroke-width="3"/><line x1="0" y1="-14" x2="0" y2="28" stroke="#111" stroke-width="2.5"/>${[[-10, -2], [10, -2], [-11, 14], [11, 14], [0, 22]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4.5" fill="#111"/>`).join('')}` + head(-20, 9) + ant(-28); break;
+    case 'mantis': s = L(-6, 18, -22, 40) + L(6, 18, 22, 40) + L(-6, 26, -20, 48) + L(6, 26, 20, 48) + `<ellipse cx="0" cy="20" rx="9" ry="22" fill="${col}" stroke="#111" stroke-width="3"/><rect x="-5" y="-22" width="10" height="26" fill="${col}" stroke="#111" stroke-width="3"/><path d="M-5 -10 L-22 -24 L-14 -2 M5 -10 L22 -24 L14 -2" stroke="${col}" stroke-width="6" fill="none"/><path d="M-12 -36 L12 -36 L0 -22 Z" fill="${col}" stroke="#111" stroke-width="3"/><circle cx="-10" cy="-36" r="4" fill="#111"/><circle cx="10" cy="-36" r="4" fill="#111"/>`; break;
+    case 'firefly': s = `<circle cx="0" cy="22" r="22" fill="#fff59d" opacity=".5"/>` + legs(3, 16) + shell(14, 22) + `<ellipse cx="0" cy="20" rx="12" ry="10" fill="#fff176" stroke="#111" stroke-width="2"/>` + head(-20, 8) + ant(-26); break;
+    case 'scorpion': s = legs(4, 20, -4, 7) + `<ellipse cx="0" cy="4" rx="13" ry="18" fill="${col}" stroke="#111" stroke-width="3"/><path d="M0 20 Q4 42 -6 50 Q-26 52 -18 34" stroke="${col}" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M-18 34 l-6 -8 l8 2 z" fill="#111"/><path d="M-10 -10 L-22 -26 M10 -10 L22 -26" stroke="${col}" stroke-width="6"/><path d="M-28 -34 q6 -4 10 6 q-8 4 -10 -6 M28 -34 q-6 -4 -10 6 q8 4 10 -6" fill="${col}" stroke="#111" stroke-width="2"/>` + head(-14, 7); break;
+    case 'ant': s = legs(3, 22, -2, 8) + `<ellipse cx="0" cy="22" rx="11" ry="15" fill="${col}" stroke="#111" stroke-width="3"/><ellipse cx="0" cy="2" rx="7" ry="8" fill="${col}" stroke="#111" stroke-width="3"/>` + head(-16, 9) + ant(-24) + `<path d="M-5 -8 L-9 -2 M5 -8 L9 -2" stroke="#111" stroke-width="3"/>`; break;
+    case 'wasp': s = wings() + legs(3, 16) + `<ellipse cx="0" cy="18" rx="12" ry="18" fill="${col}" stroke="#111" stroke-width="3"/>${[10, 18, 26].map(y => `<rect x="-11" y="${y}" width="22" height="4" fill="#111"/>`).join('')}<path d="M-3 36 L0 44 L3 36" fill="#111"/><ellipse cx="0" cy="-4" rx="8" ry="9" fill="#111"/>` + head(-20, 9) + ant(-28); break;
+    case 'dragonfly': s = `<ellipse cx="-22" cy="-6" rx="22" ry="6" fill="#bdf" opacity=".7" stroke="#111" stroke-width="1.5"/><ellipse cx="22" cy="-6" rx="22" ry="6" fill="#bdf" opacity=".7" stroke="#111" stroke-width="1.5"/><ellipse cx="-20" cy="6" rx="20" ry="5" fill="#bdf" opacity=".7" stroke="#111" stroke-width="1.5"/><ellipse cx="20" cy="6" rx="20" ry="5" fill="#bdf" opacity=".7" stroke="#111" stroke-width="1.5"/><rect x="-4" y="-6" width="8" height="52" rx="4" fill="${col}" stroke="#111" stroke-width="2.5"/>` + `<circle cx="-7" cy="-16" r="7" fill="${col}" stroke="#111" stroke-width="2.5"/><circle cx="7" cy="-16" r="7" fill="${col}" stroke="#111" stroke-width="2.5"/>`; break;
+    case 'roach': s = legs(3, 26) + `<ellipse cx="0" cy="8" rx="16" ry="27" fill="${col}" stroke="#111" stroke-width="3"/><line x1="0" y1="-12" x2="0" y2="34" stroke="#111" stroke-width="2"/>` + head(-22, 8) + `<path d="M-3 -28 Q-20 -60 -36 -54 M3 -28 Q20 -60 36 -54" stroke="#111" stroke-width="2" fill="none"/>`; break;
+    case 'hopper': s = L(-8, 0, -18, -6) + L(8, 0, 18, -6) + `<path d="M-8 16 L-28 -4 L-30 30 M8 16 L28 -4 L30 30" stroke="${col}" stroke-width="6" fill="none" stroke-linejoin="round"/><ellipse cx="0" cy="12" rx="10" ry="26" fill="${col}" stroke="#111" stroke-width="3"/>` + head(-20, 9) + ant(-28); break;
+    case 'centipede': for (let j = 0; j < 7; j++) { const y = -18 + j * 9; s += L(-6, y, -22, y + 3, 2.5) + L(6, y, 22, y + 3, 2.5); } for (let j = 6; j >= 0; j--) s += `<circle cx="${Math.sin(j) * 4}" cy="${-18 + j * 9}" r="8" fill="${col}" stroke="#111" stroke-width="2.5"/>`; s += head(-26, 8) + ant(-32); break;
+    case 'dung': s = `<circle cx="0" cy="30" r="16" fill="#8d6e4a" stroke="#111" stroke-width="3"/>` + legs(3, 18, -10, 8) + shell(15, 18).replace('cy="6"', 'cy="0"') + head(-20, 8); break;
+    case 'stag': s = legs() + shell(17, 23) + head(-22, 9) + `<path d="M-6 -28 Q-20 -46 -6 -56 M-14 -44 l-8 -2 M6 -28 Q20 -46 6 -56 M14 -44 l8 -2" stroke="#3a2412" stroke-width="5" fill="none" stroke-linecap="round"/>`; break;
+    case 'strider': s = L(-6, 0, -40, -24, 2) + L(6, 0, 40, -24, 2) + L(-6, 10, -42, 34, 2) + L(6, 10, 42, 34, 2) + L(-6, -6, -18, -20, 2) + L(6, -6, 18, -20, 2) + `<ellipse cx="0" cy="8" rx="6" ry="20" fill="${col}" stroke="#111" stroke-width="2.5"/>` + head(-16, 6); break;
+    case 'tarantula': for (let j = 0; j < 4; j++) { const y = -8 + j * 7; s += `<path d="M-8 ${y} Q-26 ${y - 18} -36 ${y + 8} M8 ${y} Q26 ${y - 18} 36 ${y + 8}" stroke="${col}" stroke-width="6" fill="none" stroke-linecap="round"/>`; } s += `<circle cx="0" cy="18" r="17" fill="${col}" stroke="#111" stroke-width="3"/><circle cx="0" cy="-6" r="12" fill="${col}" stroke="#111" stroke-width="3"/>${[-5, -1, 3, 7].map((x, j) => `<circle cx="${x - 1}" cy="${-10 + (j % 2) * 3}" r="2.2" fill="#e33"/>`).join('')}`; break;
+    case 'cicada': s = wings('#e6f9ec', 1.15) + legs(3, 14) + shell(14, 20) + head(-18, 10).replace(/r="3.2"/g, 'r="4"'); break;
+    case 'butterfly': s = `<path d="M0 0 C-50 -50 -50 20 0 6 Z M0 0 C50 -50 50 20 0 6 Z" fill="${col}" stroke="#111" stroke-width="2.5"/><path d="M0 8 C-36 20 -30 46 0 18 Z M0 8 C36 20 30 46 0 18 Z" fill="#ffd166" stroke="#111" stroke-width="2.5"/><circle cx="-22" cy="-12" r="5" fill="#fff"/><circle cx="22" cy="-12" r="5" fill="#fff"/><rect x="-3" y="-14" width="6" height="40" rx="3" fill="#222"/>` + ant(-16); break;
+    case 'mosquito': s = L(-4, 4, -30, 30, 2) + L(4, 4, 30, 30, 2) + L(-4, 0, -32, 6, 2) + L(4, 0, 32, 6, 2) + `<ellipse cx="-14" cy="-6" rx="14" ry="5" fill="#eee" opacity=".8" transform="rotate(-20 -14 -6)"/><ellipse cx="14" cy="-6" rx="14" ry="5" fill="#eee" opacity=".8" transform="rotate(20 14 -6)"/><ellipse cx="0" cy="16" rx="5" ry="18" fill="${col}" stroke="#111" stroke-width="2"/>` + head(-10, 6) + `<path d="M0 -16 L0 -40" stroke="#111" stroke-width="2"/>`; break;
+    case 'pill': s = legs(3, 10) + `<ellipse cx="0" cy="6" rx="20" ry="26" fill="${col}" stroke="#111" stroke-width="3"/>${[-8, 0, 8, 16, 24].map(y => `<path d="M-19 ${y} Q0 ${y + 6} 19 ${y}" stroke="#555" stroke-width="2" fill="none"/>`).join('')}` + head(-22, 9) + ant(-30); break;
+  }
+  return `<svg viewBox="-50 -64 100 116" width="${size}" height="${size * 1.16}" role="img" aria-label="${name}" ${extra}>${s}</svg>`;
+}
+
+// ---------- Ses (WebAudio ile sentezlenen tezahürat) ----------
+let AC = null, muted = false;
+function audio() { if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; } } return AC; }
+function tone(f, d = .12, type = 'square', v = .06, when = 0) {
+  const a = audio(); if (!a || muted) return; const t = a.currentTime + when;
+  const o = a.createOscillator(), g = a.createGain(); o.type = type; o.frequency.setValueAtTime(f, t);
+  g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(.0001, t + d); o.connect(g).connect(a.destination); o.start(t); o.stop(t + d);
+}
+function hey(times = 2) {
+  const a = audio(); if (!a || muted) return;
+  for (let n = 0; n < times; n++) {
+    const t = a.currentTime + n * .32;
+    for (let v = 0; v < 6; v++) { // kalabalık: birkaç ses + gürültü
+      const o = a.createOscillator(), g = a.createGain(), f = a.createBiquadFilter();
+      o.type = 'sawtooth'; const base = 180 + Math.random() * 260;
+      o.frequency.setValueAtTime(base, t); o.frequency.exponentialRampToValueAtTime(base * 1.35, t + .12);
+      f.type = 'bandpass'; f.frequency.value = 900; f.Q.value = 1.4;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.035, t + .03); g.gain.exponentialRampToValueAtTime(.0001, t + .22);
+      o.connect(f).connect(g).connect(a.destination); o.start(t + Math.random() * .04); o.stop(t + .25);
+    }
+    const len = a.sampleRate * .2, buf = a.createBuffer(1, len, a.sampleRate), d = buf.getChannelData(0);
+    for (let j = 0; j < len; j++) d[j] = (Math.random() * 2 - 1) * (1 - j / len);
+    const src = a.createBufferSource(), g2 = a.createGain(); src.buffer = buf; g2.gain.value = .05; src.connect(g2).connect(a.destination); src.start(t);
+  }
+}
+const sfx = {
+  tap: () => tone(660, .06, 'triangle', .05),
+  place: () => tone(420, .08, 'square', .04),
+  leaf: () => { tone(300, .25, 'sine', .05); tone(200, .3, 'sine', .04, .1); },
+  win: () => { tone(523, .1); tone(659, .1, 'square', .06, .1); tone(784, .18, 'square', .06, .2); hey(2); },
+  draw: () => tone(440, .2, 'triangle', .05),
+  lose: () => { tone(300, .15, 'sawtooth', .05); tone(220, .25, 'sawtooth', .05, .12); },
+  tick: () => tone(880, .04, 'square', .03),
+};
+
+// ---------- Durum ----------
+const $ = s => document.querySelector(s);
+const save = (k, v) => { try { localStorage.setItem('br_' + k, JSON.stringify(v)); } catch (e) {} };
+const load = (k, d) => { try { const v = localStorage.getItem('br_' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } };
+const S = { world: load('world', 0), names: load('names', ['Oyuncu 1', 'Oyuncu 2']), rounds: 3, round: 1, turn: 0, scores: [0, 0], hidden: [], picks: [], showTime: 5 };
+const W0 = () => CONCEPTS[S.world];
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// ---------- Sahne (üst bölüm: mekan, maskot, rakip, sisli seyirci) ----------
+function sceneSVG(opts = {}) {
+  const c = W0(), r = rnd(4242 + S.world * 13);
+  let s = `<svg viewBox="0 0 1280 800" preserveAspectRatio="xMidYMid slice" class="scene-svg"><defs><linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c.sky[0]}"/><stop offset="1" stop-color="${c.sky[1]}"/></linearGradient><filter id="fb"><feGaussianBlur stdDeviation="16"/></filter></defs>`;
+  s += `<rect width="1280" height="800" fill="url(#gs)"/>` + motif(c.motif, r, c) + `<rect y="540" width="1280" height="260" fill="${c.ground}"/>`;
+  // seyirci böcekler sisin içinde
+  let smoke = ''; for (let k = 0; k < 16; k++) smoke += `<circle cx="${360 + r() * 560}" cy="${420 + r() * 150}" r="${55 + r() * 55}" fill="#eee" opacity="${.22 + r() * .25}"/>`;
+  s += `<g class="smoke" filter="url(#fb)">${smoke}</g><g class="crowd">`;
+  for (let k = 0; k < 10; k++) s += `<g class="fan" style="animation-delay:${(k % 5) * .12}s"><g transform="translate(${400 + (k % 5) * 110 + r() * 30},${450 + Math.floor(k / 5) * 70})">${bugSVG((S.world + k * 3) % 20, 70).replace('<svg ', '<svg x="-35" y="-40" ')}</g></g>`;
+  s += `</g><g class="smoke2" filter="url(#fb)" opacity=".75">${smoke.slice(0, smoke.length / 2)}</g>`;
+  s += `<g class="shouts">${[['HEY!', 470, 400], ['HEY HEY!', 640, 380], ['VUR!', 820, 410]].map(([t, x, y]) => `<text x="${x}" y="${y}" font-size="38" font-weight="900" fill="#fff" stroke="#111" stroke-width="6" paint-order="stroke" text-anchor="middle">${t}</text>`).join('')}</g>`;
+  s += `<g class="mascot ${opts.talk === 'm' ? 'talk' : ''}">${character(c.mascot, 190, 560, 1.35, false)}</g>`;
+  s += `<g class="rival ${opts.talk === 'r' ? 'talk' : ''}">${character(c.rival, 1090, 580, 1.25, true)}</g>`;
+  return s + '</svg>';
+}
+
+// ---------- Ekranlar ----------
+function show(id) { document.querySelectorAll('.screen').forEach(e => e.hidden = e.id !== id); window.scrollTo(0, 0); }
+
+function renderTitle() {
+  $('#worlds').innerHTML = CONCEPTS.map((c, i) => `<button class="world ${i === S.world ? 'on' : ''}" data-w="${i}" style="--a:${c.sky[0]};--b:${c.sky[1]}" aria-pressed="${i === S.world}"><span>${String(i + 1).padStart(2, '0')}</span>${c.title}</button>`).join('');
+  $('#title-scene').innerHTML = sceneSVG();
+  const c = W0();
+  $('#world-info').textContent = `${c.mascot.name} (${c.mascot.who}) · Rakip: ${c.rival.name} · ${c.place}`;
+  $('#p1').value = S.names[0]; $('#p2').value = S.names[1];
+}
+
+const STORY = () => {
+  const c = W0(), m = c.mascot.name, r = c.rival.name;
+  return [
+    ['n', `${c.place}.`],
+    ['n', c.hook],
+    ['m', `Burası da neresi böyle? Şu sisin içinden bağırışlar geliyor...`],
+    ['r', `Hoş geldin ${m}! Ben ${r}. Burada böcekler kapışır, seyirci de coştu bile!`, 'hey'],
+    ['r', `Kural basit: yere 5 böcek koyacağım. İyi bak, çünkü sonra üstlerine yaprağı kapatacağım.`],
+    ['r', `Sen de her böceğin karşısına onu yenecek böceği koyacaksın. Yenersen 10 puan, berabere 3 puan.`],
+    ['r', c.line],
+    ['m', `Hazırım! Hadi bakalım, yaprağın altından ne çıkacak?`, 'hey'],
+  ];
+};
+let storyIdx = 0;
+function renderStory() {
+  const st = STORY(), [who, text, fx] = st[storyIdx], c = W0();
+  $('#story-scene').innerHTML = sceneSVG({ talk: who });
+  $('#story-who').textContent = who === 'n' ? 'Anlatıcı' : who === 'm' ? c.mascot.name : c.rival.name;
+  $('#story-box').className = 'dialog ' + who;
+  $('#story-text').textContent = text;
+  $('#story-step').textContent = `${storyIdx + 1}/${st.length}`;
+  if (fx === 'hey') hey(3);
+}
+
+function slotHTML(i, content, cls = '') { return `<div class="slot ${cls}" data-i="${i}"><b>${i + 1}</b><div class="bugbox">${content}</div></div>`; }
+
+function renderBoard() {
+  const c = W0();
+  $('#hud').innerHTML = `<div class="ps ${S.turn === 0 ? 'on' : ''}"><span>${esc(S.names[0])}</span><strong>${S.scores[0]}</strong></div><div class="rnd">Tur ${S.round}/${S.rounds}</div><div class="ps ${S.turn === 1 ? 'on' : ''}"><span>${esc(S.names[1])}</span><strong>${S.scores[1]}</strong></div>`;
+  $('#play-scene').innerHTML = sceneSVG({ talk: 'r' });
+  $('#rival-row').innerHTML = S.hidden.map((b, i) => slotHTML(i, b == null ? '' : bugSVG(b, 54) + `<i>${BUGS[b][0]}</i>`)).join('');
+  $('#pick-row').innerHTML = S.picks.map((b, i) => slotHTML(i, b == null ? '<em>+</em>' : bugSVG(b, 54) + `<i>${BUGS[b][0]}</i>`, 'pick ' + (b == null ? 'empty' : 'filled'))).join('');
+  $('#leaf').className = 'leaf';
+}
+
+async function startTurn() {
+  S.hidden = Array(5).fill(null); S.picks = Array(5).fill(null);
+  S.showTime = Math.max(2, 6 - S.round); // her tur daha az süre
+  $('#turn-name').textContent = S.names[S.turn];
+  $('#turn-sub').textContent = `Tur ${S.round}/${S.rounds} · ${W0().rival.name} böcekleri diziyor. ${S.showTime} saniye bakabileceksin.`;
+  show('turn');
+}
+
+async function runShow() {
+  show('play'); renderBoard();
+  $('#msg').textContent = `${W0().rival.name}: "İyi bak!"`;
+  $('#go').hidden = true; $('#pick-row').classList.add('locked');
+  const pool = [...Array(20).keys()].sort(() => Math.random() - .5);
+  for (let i = 0; i < 5; i++) { await sleep(320); S.hidden[i] = pool[i]; sfx.place(); renderBoard(); }
+  for (let t = S.showTime; t > 0; t--) { $('#msg').textContent = `Ezberle! Yaprak ${t} saniye sonra kapanıyor...`; sfx.tick(); await sleep(1000); }
+  $('#leaf').className = 'leaf down'; sfx.leaf(); hey(1);
+  await sleep(250); $('#rival-row').classList.add('covered');
+  await sleep(700);
+  $('#msg').textContent = 'Yaprak kapandı! Her slotun altına, o böceği yenecek böceği koy.';
+  $('#pick-row').classList.remove('locked');
+}
+
+function openPicker(i) {
+  sfx.tap();
+  $('#picker-title').textContent = `${i + 1}. slotun karşısına hangi böcek?`;
+  $('#picker-grid').innerHTML = BUGS.map((b, k) => `<button class="pbug ${S.picks[i] === k ? 'on' : ''}" data-k="${k}">${bugSVG(k, 44)}<span>${b[0]}</span></button>`).join('');
+  $('#picker-info').textContent = 'Bir böceğe dokun: kimleri yendiği burada görünür.';
+  $('#picker').dataset.slot = i; $('#picker-ok').disabled = true; $('#picker').hidden = false;
+}
+
+async function fight() {
+  $('#go').hidden = true; $('#pick-row').classList.add('locked');
+  $('#rival-row').classList.remove('covered'); $('#leaf').className = 'leaf up'; sfx.leaf(); hey(2);
+  await sleep(800);
+  let gained = 0;
+  for (let i = 0; i < 5; i++) {
+    const a = S.picks[i], b = S.hidden[i], o = outcome(a, b);
+    const top = $(`#rival-row .slot[data-i="${i}"]`), bot = $(`#pick-row .slot[data-i="${i}"]`);
+    top.classList.add('clash'); bot.classList.add('clash');
+    $('#msg').textContent = `${BUGS[a][0]} vs ${BUGS[b][0]}...`;
+    await sleep(650);
+    const pts = o === 1 ? 10 : o === 0 ? 3 : 0; gained += pts; S.scores[S.turn] += pts;
+    bot.classList.add(o === 1 ? 'won' : o === 0 ? 'draw' : 'lost'); top.classList.add(o === -1 ? 'won' : o === 0 ? 'draw' : 'lost');
+    bot.insertAdjacentHTML('beforeend', `<span class="res">${o === 1 ? 'KAZANDI +10' : o === 0 ? 'BERABERE +3' : 'YENİLDİ'}</span>`);
+    (o === 1 ? sfx.win : o === 0 ? sfx.draw : sfx.lose)();
+    $('#hud strong').parentElement; // hud yenile
+    $('#hud').querySelectorAll('strong')[S.turn].textContent = S.scores[S.turn];
+    await sleep(800);
+  }
+  $('#msg').textContent = `${S.names[S.turn]} bu turda ${gained} puan aldı!`;
+  $('#next').hidden = false;
+}
+
+function nextTurn() {
+  $('#next').hidden = true;
+  if (S.turn === 0) S.turn = 1; else { S.turn = 0; S.round++; }
+  if (S.round > S.rounds) return finish();
+  startTurn();
+}
+
+function finish() {
+  const [a, b] = S.scores, c = W0();
+  const win = a === b ? -1 : a > b ? 0 : 1;
+  $('#end-title').textContent = win < 0 ? 'Berabere!' : `${S.names[win]} kazandı!`;
+  $('#end-scores').innerHTML = S.names.map((n, i) => `<div class="${i === win ? 'champ' : ''}"><span>${esc(n)}</span><strong>${S.scores[i]}</strong></div>`).join('');
+  $('#end-line').textContent = win < 0 ? `${c.rival.name}: "İkiniz de iyi hatırladınız. Bir el daha?"` : `${c.rival.name}: "Tebrikler ${S.names[win]}! Seyirci senin adını bağırıyor!"`;
+  $('#end-scene').innerHTML = sceneSVG({ talk: 'r' });
+  show('end'); hey(4);
+  const best = load('best', 0); const top = Math.max(a, b); if (top > best) save('best', top);
+  $('#end-best').textContent = `En yüksek skor: ${Math.max(best, top)}`;
+}
+
+function renderGuide() {
+  $('#guide-list').innerHTML = BUGS.map((b, k) => `<div class="gitem">${bugSVG(k, 56)}<div><b>${b[0]}</b><small>Yener: ${beats(k).map(x => BUGS[x][0]).join(', ')}</small><small class="eq">Berabere: ${BUGS[(k + 10) % 20][0]}</small></div></div>`).join('');
+}
+
+// ---------- Olaylar ----------
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, .slot'); if (!t) return;
+  if (t.matches('.world')) { S.world = +t.dataset.w; save('world', S.world); sfx.tap(); renderTitle(); return; }
+  if (t.id === 'start') { audio(); S.names = [$('#p1').value.trim() || 'Oyuncu 1', $('#p2').value.trim() || 'Oyuncu 2']; save('names', S.names);
+    S.round = 1; S.turn = 0; S.scores = [0, 0]; storyIdx = 0; show('story'); renderStory(); return; }
+  if (t.id === 'story-next') { sfx.tap(); if (++storyIdx >= STORY().length) startTurn(); else renderStory(); return; }
+  if (t.id === 'story-skip') { sfx.tap(); startTurn(); return; }
+  if (t.id === 'turn-go') { audio(); runShow(); return; }
+  if (t.matches('#pick-row .slot') && !$('#pick-row').classList.contains('locked')) { openPicker(+t.dataset.i); return; }
+  if (t.matches('.pbug')) { const k = +t.dataset.k; document.querySelectorAll('.pbug').forEach(x => x.classList.toggle('on', x === t)); sfx.tap();
+    $('#picker-info').innerHTML = `<b>${BUGS[k][0]}</b> yener: ${beats(k).map(x => BUGS[x][0]).join(', ')}`; $('#picker-ok').disabled = false; $('#picker-ok').dataset.k = k; return; }
+  if (t.id === 'picker-ok') { const i = +$('#picker').dataset.slot; S.picks[i] = +t.dataset.k; $('#picker').hidden = true; sfx.place(); renderPicks(); return; }
+  if (t.id === 'picker-close') { $('#picker').hidden = true; return; }
+  if (t.id === 'go') { fight(); return; }
+  if (t.id === 'next') { nextTurn(); return; }
+  if (t.id === 'again') { S.round = 1; S.turn = 0; S.scores = [0, 0]; startTurn(); return; }
+  if (t.id === 'home') { show('title'); renderTitle(); return; }
+  if (t.id === 'guide-btn' || t.id === 'guide-btn2') { renderGuide(); $('#guide').hidden = false; return; }
+  if (t.id === 'guide-close') { $('#guide').hidden = true; return; }
+  if (t.id === 'mute') { muted = !muted; t.textContent = muted ? 'Ses: kapalı' : 'Ses: açık'; t.setAttribute('aria-pressed', muted); return; }
+});
+function renderPicks() {
+  $('#pick-row').innerHTML = S.picks.map((b, i) => slotHTML(i, b == null ? '<em>+</em>' : bugSVG(b, 54) + `<i>${BUGS[b][0]}</i>`, 'pick ' + (b == null ? 'empty' : 'filled'))).join('');
+  const done = S.picks.every(x => x != null);
+  $('#go').hidden = !done;
+  $('#msg').textContent = done ? 'Hepsi hazır. Kapıştır!' : `${S.picks.filter(x => x == null).length} slot kaldı. Slota dokun, böcek seç.`;
+}
+
+renderTitle(); show('title');
+
+</script>
+</body></html>
