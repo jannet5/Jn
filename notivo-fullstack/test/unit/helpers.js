@@ -1,11 +1,18 @@
 import { openDb } from '../../server/db.js';
 import { Shade } from '../../server/shade.js';
+import { openSqlJsDb } from '../../card/sqljs-shim.js';
+
+// NOTIVO_ENGINE=sqljs: aynı testleri kartın kullandığı SQLite (sql.js + shim) üzerinde çalıştırır.
+let SQL = null;
+if (process.env.NOTIVO_ENGINE === 'sqljs') SQL = await (await import('sql.js')).default();
+export const ENGINE = SQL ? 'sql.js' : 'node:sqlite';
+export const newDb = () => (SQL ? openSqlJsDb(SQL) : openDb(':memory:'));
 
 /** Sahte saatli, bellek içi bir Shade. */
 export function mk(start = 1_700_000_000_000) {
   const clock = { t: start };
   const events = [];
-  const shade = new Shade({ db: openDb(':memory:'), now: () => clock.t, emit: (e) => events.push(e) });
+  const shade = new Shade({ db: newDb(), now: () => clock.t, emit: (e) => events.push(e) });
   return { shade, clock, events, advance: (ms) => (clock.t += ms), types: () => events.map((e) => e.type) };
 }
 

@@ -1,5 +1,6 @@
 // Notivo bildirim çubuğu arayüzü. Tüm kullanıcı metni textContent ile yazılır (innerHTML kullanılmaz).
-import { buildSimulator, handleAppEvent, curlSample } from './sim.js';
+import { buildSimulator, handleAppEvent, curlSample, seedDemo } from './sim.js';
+import { mode, firstRun, api, connect, setToken, hasToken, downloadHref, download } from './transport.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -55,27 +56,16 @@ const state = {
 
 // ---------------------------------------------------------------- API
 
-const token = () => localStorage.getItem('notivoToken') ?? '';
-export async function api(method, path, body) {
-  const headers = { 'content-type': 'application/json' };
-  if (token()) headers.authorization = `Bearer ${token()}`;
-  const res = await fetch(path, { method, headers, body: method === 'GET' ? undefined : JSON.stringify(body ?? {}) });
-  if (res.status === 401) {
-    askToken();
-    throw Object.assign(new Error('Erişim anahtarı gerekli'), { status: 401, code: 'unauthorized' });
-  }
-  const json = await res.json().catch(() => null);
-  if (!res.ok) throw Object.assign(new Error(json?.error?.message ?? res.statusText), { status: res.status, code: json?.error?.code });
-  return json;
-}
+export { api };
 
 function askToken() {
   const dlg = $('#dlgToken');
   if (dlg.open) return;
   dlg.showModal();
 }
+window.addEventListener('notivo:unauthorized', askToken);
 $('#tokenForm').addEventListener('submit', () => {
-  localStorage.setItem('notivoToken', $('#tokenInput').value.trim());
+  setToken($('#tokenInput').value.trim());
   location.reload();
 });
 
@@ -424,9 +414,10 @@ async function loadHistory() {
 
 function openHistory(stateFilter = 'all') {
   $('#histState').value = stateFilter;
-  const t = token() ? `?token=${encodeURIComponent(token())}` : '';
-  $('#lnkCsv').href = `/api/export.csv${t}`;
-  $('#lnkBackup').href = `/api/backup${t}`;
+  if (mode === 'http') {
+    $('#lnkCsv').href = downloadHref('/api/export.csv');
+    $('#lnkBackup').href = downloadHref('/api/backup');
+  }
   $('#dlgHistory').showModal();
   loadHistory();
 }
@@ -485,15 +476,6 @@ function onEvent(ev) {
   scheduleRefresh();
 }
 
-function connect() {
-  const es = new EventSource(`/api/events${token() ? `?token=${encodeURIComponent(token())}` : ''}`);
-  es.onopen = () => { setConn('live'); scheduleRefresh(); };
-  es.onerror = () => setConn('down');
-  es.onmessage = (m) => {
-    try { onEvent(JSON.parse(m.data)); } catch { /* bozuk olay */ }
-  };
-}
-
 // ---------------------------------------------------------------- başlangıç
 
 $('#tileDnd').addEventListener('click', () => guarded(async () => {
@@ -541,6 +523,20 @@ setInterval(tickClock, 10_000);
 setInterval(() => { if (!state.dragging) render(); }, 30_000);
 
 buildSimulator($('#simGrid'), { api, toast, guarded });
-$('#curlSample').textContent = curlSample(location.origin, !!token());
+if (mode === 'http') $('#curlSample').textContent = curlSample(location.origin, hasToken());
+else $('.curl').hidden = true; // kart sürümünde dışarıdan API yok
+if (mode === 'local') {
+  $('#empty span').textContent = 'Yukarıdaki Simülatör düğmesinden bir uygulama bildirimi gönder.';
+  // Kart sürümü: indirmeyi tarayıcı bağlantısı değil, sayfanın "downloads" yeteneği yapar.
+  for (const [sel, kind] of [['#lnkCsv', 'csv'], ['#lnkBackup', 'backup']]) {
+    $(sel).setAttribute('href', '#');
+    $(sel).addEventListener('click', (e) => { e.preventDefault(); download(kind).then((r) => r && toast('Dosya kaydetmeye hazır')).catch((err) => toast(err.message)); });
+  }
+}
+if (firstRun) await seedDemo(api).catch(() => {});
 refresh();
-connect();
+connect({
+  onEvent,
+  onOpen: () => { setConn('live'); scheduleRefresh(); },
+  onError: () => setConn('down'),
+});

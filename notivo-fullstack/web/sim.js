@@ -172,6 +172,12 @@ export async function handleAppEvent(ev, { api, toast }) {
   }
 }
 
+/** Kartın ilk açılışı: çubuk boş görünmesin; uygulamaların gerçekte yaptığı birkaç gönderi. */
+export async function seedDemo(api) {
+  const quiet = { toast() {}, api };
+  for (const i of [0, 0, 0, 2, 2, 3, 4]) await PRESETS[i].run(api, quiet);
+}
+
 export function curlSample(origin, hasToken) {
   const auth = hasToken ? "\n  -H 'authorization: Bearer $NOTIVO_TOKEN' \\" : '';
   return `# 1) Kanalı bir kez oluştur

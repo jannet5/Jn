@@ -5,6 +5,8 @@ import { mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import assert from 'node:assert/strict';
+import http from 'node:http';
+import { readFileSync } from 'node:fs';
 import { createApp } from '../../server/app.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -21,19 +23,53 @@ function chromiumPath() {
   throw new Error('Chromium bulunamadı; CHROMIUM_PATH ayarlayın');
 }
 
-const app = createApp({ webRoot: join(here, '..', '..', 'web'), tickMs: 500 });
-await new Promise((r) => app.server.listen(0, '127.0.0.1', r));
-const base = `http://127.0.0.1:${app.server.address().port}`;
+// MODE=http (varsayılan): gerçek sunucuya karşı. MODE=card: sunucusuz kart sürümüne (card/dist) karşı.
+const MODE = process.env.MODE === 'card' ? 'card' : 'http';
+const SQLJS_URL = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.13.0/sql-asm.js';
+const DIST = join(here, '..', '..', 'card', 'dist');
+let app = null;
+let staticServer = null;
+let base;
 
-const api = async (method, path, body) => {
-  const res = await fetch(base + path, { method, headers: { 'content-type': 'application/json' }, body: method === 'GET' ? undefined : JSON.stringify(body ?? {}) });
-  return { status: res.status, json: await res.json().catch(() => null) };
-};
+if (MODE === 'http') {
+  app = createApp({ webRoot: join(here, '..', '..', 'web'), tickMs: 500 });
+  await new Promise((r) => app.server.listen(0, '127.0.0.1', r));
+  base = `http://127.0.0.1:${app.server.address().port}`;
+} else {
+  // Artifact çerçevesini taklit eder: doctype/head'i ekler ve yalnızca kendi dosyalarına + cdnjs betiğine izin veren sıkı bir CSP uygular.
+  const TYPES = { '.js': 'text/javascript', '.css': 'text/css', '.html': 'text/html; charset=utf-8' };
+  staticServer = http.createServer((req, res) => {
+    const name = new URL(req.url, 'http://x').pathname === '/' ? 'index.html' : new URL(req.url, 'http://x').pathname.slice(1);
+    const file = join(DIST, name);
+    if (!file.startsWith(DIST) || !existsSync(file)) { res.writeHead(404); return res.end(); }
+    let body = readFileSync(file);
+    if (name === 'index.html') body = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head><body>${body}</body></html>`;
+    res.writeHead(200, {
+      'content-type': TYPES[name.slice(name.lastIndexOf('.'))] ?? 'application/octet-stream',
+      'content-security-policy': "default-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src 'self'",
+    });
+    res.end(body);
+  });
+  await new Promise((r) => staticServer.listen(0, '127.0.0.1', r));
+  base = `http://127.0.0.1:${staticServer.address().port}`;
+}
+
+const api = MODE === 'http'
+  ? async (method, path, body) => {
+      const res = await fetch(base + path, { method, headers: { 'content-type': 'application/json' }, body: method === 'GET' ? undefined : JSON.stringify(body ?? {}) });
+      return { status: res.status, json: await res.json().catch(() => null) };
+    }
+  : (method, path, body) => page.evaluate(async ([m, p, b]) => {
+      try { return { status: 200, json: await window.__notivo.api(m, p, b) }; }
+      catch (e) { return { status: e.status ?? 500, json: { error: { code: e.code, message: e.message } } }; }
+    }, [method, path, body]);
 const chan = (pkg, importance = 3, name = 'Kanal', appName = pkg, id = 'ch') => api('POST', `/api/apps/${pkg}/channels`, { id, name, importance, appName });
 const post = (o) => api('POST', '/api/notify', { channel: 'ch', id: 1, title: 'Başlık', text: 'metin', ...o });
 
 const browser = await chromium.launch({ executablePath: chromiumPath(), args: ['--no-sandbox'] });
 const ctx = await browser.newContext({ viewport: { width: 412, height: 860 }, locale: 'tr-TR' });
+if (MODE === 'card') await ctx.addInitScript(() => localStorage.setItem('notivo-no-seed', '1'));
+if (MODE === 'card') await ctx.route(SQLJS_URL, (route) => route.fulfill({ path: join(here, '..', '..', 'node_modules', 'sql.js', 'dist', 'sql-asm.js'), contentType: 'text/javascript' }));
 const page = await ctx.newPage();
 const problems = [];
 page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
@@ -72,7 +108,7 @@ async function swipe(locator, fraction) {
   await page.mouse.up();
 }
 
-console.log('Notivo arayüz uçtan uca testi');
+console.log(`Notivo arayüz uçtan uca testi (${MODE === 'card' ? 'kart sürümü, sunucusuz' : 'HTTP sunucusu'})`);
 await page.goto(base);
 
 await step('açılış: boş durum ve canlı bağlantı', async () => {
@@ -275,12 +311,48 @@ await step('görünüm: karışık durum ekran görüntüsü; dar ekranda yatay 
   await page.setViewportSize({ width: 412, height: 860 });
 });
 
+if (MODE === 'card') {
+  await step('kart: veri bu cihazda kalır (sayfa yenilenince bildirim yerinde, ertelenen de)', async () => {
+    await reset();
+    await chan('com.whatsapp', 4, 'Mesajlar', 'WhatsApp', 'msg');
+    await post({ pkg: 'com.whatsapp', channel: 'msg', id: 31, title: 'Kalıcı', text: 'yenileme sonrası da görünmeli', conversation: true });
+    await post({ pkg: 'com.whatsapp', channel: 'msg', id: 32, title: 'Ertelenen', text: 'gizli', conversation: true });
+    await sec('Konuşmalar').getByText('yenileme sonrası da görünmeli').waitFor();
+    await api('POST', '/api/shade/snooze', { key: 'com.whatsapp|32|', minutes: 30 });
+    await page.waitForTimeout(700); // kaydetme gecikmesi (400 ms) dolsun
+    await page.reload();
+    await sec('Konuşmalar').getByText('yenileme sonrası da görünmeli').waitFor();
+    await q('#snoozedChip').waitFor({ state: 'visible' });
+    assert.equal((await q('#snoozedChip').innerText()).trim(), 'Ertelenen: 1');
+    assert.equal((await api('GET', '/api/history?q=gizli')).json.items.length, 1);
+  });
+}
+
+if (MODE === 'card') {
+  await step('kart: ilk açılışta örnek bildirimler hazırdır (boş ekran yok)', async () => {
+    const fresh = await browser.newContext({ viewport: { width: 412, height: 860 }, locale: 'tr-TR' });
+    await fresh.route(SQLJS_URL, (route) => route.fulfill({ path: join(here, '..', '..', 'node_modules', 'sql.js', 'dist', 'sql-asm.js'), contentType: 'text/javascript' }));
+    const p = await fresh.newPage();
+    await p.goto(base);
+    await p.locator('#conn.live').waitFor();
+    await p.locator('#sections article').first().waitFor();
+    const text = await p.locator('#sections').innerText();
+    assert.match(text, /WhatsApp/);
+    assert.match(text, /Gmail/);
+    assert.match(text, /Gece Yolculuğu/);
+    assert.equal(await p.locator('#empty').isHidden(), true);
+    await p.screenshot({ path: join(OUT, '08-first-run.png') });
+    await fresh.close();
+  });
+}
+
 await step('tarayıcı konsolunda hata/CSP ihlali yok', async () => {
   assert.deepEqual(problems, []);
 });
 
 await browser.close();
-await app.close();
+await app?.close();
+staticServer?.close();
 console.log(failed ? `\n${failed} adım başarısız` : '\nTüm uçtan uca adımlar geçti');
 console.log(`Ekran görüntüleri: ${OUT}`);
 process.exit(failed ? 1 : 0);

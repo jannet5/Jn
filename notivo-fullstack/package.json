@@ -9,10 +9,12 @@
   },
   "scripts": {
     "start": "node --disable-warning=ExperimentalWarning server/index.js",
-    "test": "node --disable-warning=ExperimentalWarning --test \"test/unit/*.test.js\" \"test/api/*.test.js\"",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/unit/*.test.js\" \"test/api/*.test.js\" && NOTIVO_ENGINE=sqljs node --disable-warning=ExperimentalWarning --test \"test/unit/*.test.js\"",
+    "build:card": "node card/build.mjs",
     "e2e": "node --disable-warning=ExperimentalWarning test/e2e/run.mjs"
   },
   "devDependencies": {
-    "playwright-core": "^1.64.1"
+    "playwright-core": "^1.64.1",
+    "sql.js": "^1.13.0"
   }
 }

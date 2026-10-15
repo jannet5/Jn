@@ -47,6 +47,21 @@ Başlıca uç noktalar: `POST /api/notify`, `/api/cancel`, `/api/cancel-all`, `/
 `GET /api/export.csv`, `/api/backup`, `POST /api/restore`. `notify` alanları: `pkg, channel, id, tag, title, text, bigText, subText, category,
 group, groupSummary, ongoing, autoCancel, onlyAlertOnce, conversation, timeoutAfterMs, when, contentIntent, actions[≤3]`.
 
+## Kart (telefon) sürümü: sunucusuz
+
+`npm run build:card` aynı arayüzü ve **aynı çekirdeği** (`server/shade.js`) tek bir klasöre (`card/dist/`) derler. SQLite bu sürümde sayfanın içinde
+çalışır (sql.js, saf JS derlemesi, WebAssembly gerekmez) ve veri o cihazın `localStorage`'ında kalır. Sunucu, API ya da hesap yoktur; bu yüzden bir
+Artifact/statik sayfa olarak telefonda açılabilir. Dışarıdan `curl` ile bildirim göndermek bu sürümde mümkün değildir (Simülatör kullanılır).
+
+- `card/sqljs-shim.js`: `node:sqlite` arayüzünü sql.js üzerinde sağlar; çekirdek koda dokunulmaz.
+- `card/local-api.js`: `server/app.js` ile aynı uç noktalar, HTTP olmadan.
+- `card/transport.js` ↔ `web/transport.js`: arayüz yalnızca bu dosyayla sunucuya ya da sayfa içi motora bağlanır.
+- Doğrulama: aynı 40 çekirdek test sql.js üzerinde de çalışır; **57 istekte** yerel yönlendirici ile HTTP sunucusu birebir aynı yanıtı verir
+  (`test/api/local-parity.test.js`); arayüz, yalnızca kendi dosyalarına ve cdnjs'ye izin veren sıkı bir CSP altında gerçek Chromium'da sürülür
+  (`MODE=card npm run e2e`), dokunmatik kaydırma gerçek dokunma olaylarıyla denenir (`node test/e2e/touch.mjs`).
+- Sınırlar: veri yalnızca o tarayıcıda durur (başka cihaza taşınmaz; Ayarlar'daki yedek/geri yükleme kullanılır), `localStorage` kotası (~5 MB) dolarsa
+  oturum boyunca çalışır ama kalıcı olmaz; sql.js betiği cdnjs'den yüklenir, internet yoksa sayfa açılmaz.
+
 ## Mimari
 
 ```
@@ -71,8 +86,9 @@ docs/ANDROID_PARITY.md  hangi Android davranışı nerede, nasıl test edildi, b
 ## Testler
 
 ```bash
-npm test      # 51 test: Shade davranışları, Türkçe metin mantığı, HTTP, güvenlik, SSE, kalıcılık
+npm test      # 52 test (node:sqlite) + aynı 40 çekirdek test sql.js üzerinde: Shade, Türkçe metin mantığı, HTTP, güvenlik, SSE, kalıcılık, kart eşleşmesi
 npm run e2e   # gerçek Chromium: kaydırma, heads-up, gruplar, DND, geçmiş, kurallar, erteleme, XSS, konsol hatası
+npm run build:card && MODE=card npm run e2e && node test/e2e/touch.mjs   # kart sürümü + dokunmatik
 ```
 
 `docs/ANDROID_PARITY.md`: Android davranışlarının hangilerinin kaynakla doğrulandığını, hangilerinin genel bilgiye dayandığını ve hangilerinin yaklaşık olduğunu listeler.
