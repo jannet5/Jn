@@ -156,6 +156,18 @@ Sonuç: Bir haftada fiyatlar %10–15 oynadı. Satın alma günü fiyat mutlaka 
 - **En geniş ekran isteniyorsa:** **Nitro 16S** (10.10'da epey'de satıcı fiyatı yok; 03.10'da 92.999 TL). Belirsizlikler: RAM'in satıcı yükseltmesi olma ihtimali, slot yapısı ve Acer'in düşük servis notu.
 - **OMEN illa isteniyorsa:** ap0010nt yerine %100 sRGB panelli bir OMEN SKU'su aranmalı. Notebookcheck, HP'nin seride 1600p %100 sRGB seçenekler sunduğunu yazıyor; örneğin 1. tur verisindeki **ap0032nt**, 123.048 TL. Bu durumda bütçe aşılır, yanına HP Care Pack düşünülmeli.
 
+### 6.4b Fiyat yenilemesi (15.10.2026) ve tavsiyenin teyidi
+Kaynak: [`kanit/fiyat-anlik-2026-10-15.json`](kanit/fiyat-anlik-2026-10-15.json)
+
+| Model | 10.10 | **15.10** |
+|---|---|---|
+| Casper G915.1362-DF60X-C | 92.599 | **95.350 TL** |
+| LOQ 15AHP10 83JG008UTRv1 (2 TB) | 84.994 | **93.489 TL** (aynı sayfada 1 TB ilanlar 88.513 TL'den başlıyor) |
+| Legion 5 83LY00PYTR | 109.999 | **109.999 TL** |
+| OMEN 16-ap0010nt | 91.999 | **fiyat yok** |
+
+Tavsiye değişmedi. Casper, 32 GB RAM ile LOQ'nun 16 GB'lı 2 TB ilanından yalnızca ~1.900 TL pahalı. Ekşi Sözlük 15.10'da yeniden denendi ve yine 403 verdi.
+
 ### 6.4a Son tavsiye (10.10.2026 fiyatlarıyla)
 **Casper Excalibur G915.1362-DF60X-C, 92.599 TL.**
 - 32 GB RAM, 1 TB SSD ve RTX 5060 kutudan geliyor; ek RAM masrafı yok.

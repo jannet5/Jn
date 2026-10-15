@@ -123,3 +123,4 @@ Fiyatlar 2. turda epey'den yeniden okundu (Legion, Casper, Nitro 16S, OMEN ap001
 - `rapor.md` §5.1, `liste.md` ve `kanit/fiyat-anlik-2026-10-10.json` güncellendi. Test sonucu: KABUL.
 - Kullanıcı için tek sayfalık bir "kart" yayımlandı (claude.ai Artifact, özel). İçeriği `liste.md` ile aynı.
 - 2026-10-12: Son tavsiye (Casper G915) rapor §6.4a, liste ve karta eklendi; görev köklü ZIP yeniden üretildi.
+- 2026-10-15: Fiyatlar yenilendi (Casper 95.350, LOQ 93.489, Legion 109.999, OMEN fiyat yok); Ekşi yine 403; istek-kontrol.md eklendi; kart v3 yayımlandı.
