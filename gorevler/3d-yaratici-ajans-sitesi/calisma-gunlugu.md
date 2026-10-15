@@ -66,7 +66,7 @@ npm run build
 npm test
 ```
 
-Son çalıştırma: **19/19 geçti** (`kanit/sonuc.json`). Ana değerler: fare ile rot −0.49 ↔ +0.49 rad, piksel değişimi %44; dönüş boşta 0.05 / yavaş 10.2 / hızlı 28.8; başlık 63 px (ilk sürüm 138 px); yavaş giriş 0 → 1 (~1.3 sn), 27/27; mobil 390 px taşma 0; reduced-motion ve file:// açılışı hatasız.
+Son çalıştırma: **20/20 geçti** (K12 tek dosya sürüm sonradan eklendi) (`kanit/sonuc.json`). Ana değerler: fare ile rot −0.49 ↔ +0.49 rad, piksel değişimi %44; dönüş boşta 0.05 / yavaş 10.2 / hızlı 28.8; başlık 63 px (ilk sürüm 138 px); yavaş giriş 0 → 1 (~1.3 sn), 27/27; mobil 390 px taşma 0; reduced-motion ve file:// açılışı hatasız.
 
 Görsel kontrol: `kanit/*.png` ekran görüntüleri tek tek açılıp incelendi (başlık okunur, spiral kadrajda, hover etiketi görünür, mobil düzen düzgün).
 
@@ -74,9 +74,19 @@ Görsel kontrol: `kanit/*.png` ekran görüntüleri tek tek açılıp incelendi 
 
 ## 8. Kalıcı teslim
 
-- Görev dalına commit + push; ardından uzak daldan geri okuma (aşağıdaki SHA’lar sohbet yanıtında raporlanır).
-- Özel ZIP: `scratchpad/teslim/sarmal-studyo-teslim.zip` — yalnızca ürün dosyaları, harita, günlük, kanıtlar; kaynak metni ve görev dosyası **içermez**. SHA-256 hesaplandı, ZIP açılıp yeniden derlenerek/test edilerek geri okundu.
+- **Depo:** görev dalı `claude/sweet-mendel-7qrogq` → `gorevler/3d-yaratici-ajans-sitesi/`. Her push sonrası `git ls-remote` ile uzak dal SHA'sı yerel HEAD ile karşılaştırıldı.
+- **ZIP:** `git archive` ile yalnızca bu klasörden üretilir; kaynak metni ve görev dosyası içermez. SHA-256 yanındaki `.sha256` dosyasında; ZIP açılıp `npm ci && npm run build` ile yeniden derlendi, `app.js` baytı baytına aynı çıktı, `npm test` açılan kopyada da geçti.
+- **Tek dosya HTML:** `site/dist/sarmal-studyo.html` (build üretir; K12 testi).
+- **Artifact kartları (claude.ai, özel):**
+  - Canlı önizleme: https://claude.ai/artifact/62XvZMAUkNowCLNZX8HSgg
+  - İndirme sayfası (HTML + ZIP butonları, kaydetmeden önce tarayıcıda SHA-256 kontrolü): https://claude.ai/artifact/Ef3V38pJZbs6ov6Kt97V9n
+  - Artifact barındırması `.zip` dosyası sunmadığı için ZIP base64 metin olarak yayımlanır ve sayfada çözülür; çözülmüş dosyanın SHA-256'sı yerel ZIP ile aynı olduğu sahte kaydetme penceresiyle test edildi. Gerçek claude.ai kaydetme penceresi bu ortamdan denenemedi.
 
 ## 9. Gerekli gerçek girdiler
 
 Gerçek portföy görselleri (lisanslı), gerçek stüdyo adı/metinleri/iletişim adresi, yayın için barındırma erişimi. Bunlar gelmeden uydurulmadı.
+
+## 10. Kalan ve yapılamayanlar
+
+- Gerçek Windows tarayıcısı, gerçek telefon, Safari/Firefox, gerçek GPU FPS ölçümü: bu Linux bulut ortamında yapılamadı.
+- Canlı alan adında yayın: hesap/erişim yok.

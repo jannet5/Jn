@@ -6,7 +6,8 @@ Fare hareketine ve kaydırma hızına tepki veren three.js spiral görsel galeri
 
 ## Hemen aç
 
-- **Sunucusuz:** `site/dist/index.html` dosyasını çift tıklayın (file:// ile çalışır, internet gerekmez).
+- **Tek dosya:** `site/dist/sarmal-studyo.html` — CSS ve JS gömülü tek HTML; çift tıklayın, internet gerekmez.
+- **Sunucusuz klasör:** `site/dist/index.html` dosyasını çift tıklayın (file:// ile çalışır).
 - **Yerel sunucu:** `cd site && npm run serve` → http://127.0.0.1:4173
 - **Yayın:** `site/dist/` klasörünü olduğu gibi herhangi bir statik barındırmaya (Netlify, GitHub Pages, Hostinger vb.) yükleyin. Yayın hesabı bu görevde kullanılmadı.
 
@@ -15,8 +16,8 @@ Fare hareketine ve kaydırma hızına tepki veren three.js spiral görsel galeri
 ```bash
 cd site
 npm install        # three 0.186.1, lenis 1.3.26, esbuild, playwright-core
-npm run build      # src/ → dist/ (tek IIFE app.js + styles.css)
-npm test           # 19 gerçek-tarayıcı kabul kontrolü; ekran görüntüleri test-output/
+npm run build      # src/ → dist/ (index.html + assets/, ayrıca tek dosya sarmal-studyo.html)
+npm test           # 20 gerçek-tarayıcı kabul kontrolü; ekran görüntüleri test-output/
 ```
 
 Test, Chromium yolunu `/opt/pw-browsers/...` altında arar; başka makinede `CHROMIUM_PATH=/yol/chrome npm test` verin.
@@ -33,13 +34,13 @@ Tüm galeri ayarları tek yerde: `site/src/config.js` (görsel sayısı, tur, ya
 
 ## Kabul sonucu (Linux, headless Chromium 1194 / SwiftShader)
 
-19/19 kontrol geçti — ayrıntı `kanit/sonuc.json`, görseller `kanit/`. Özet:
+20/20 kontrol geçti — ayrıntı `kanit/sonuc.json`, görseller `kanit/`. Özet:
 
 - Fare: sol kenarda rot −0.49 rad, sağ kenarda +0.49 rad; ekran görüntüsünde piksellerin %44’ü değişti.
 - Kaydırma: 0.8 sn’lik dönüş — boşta 0.05, yavaş kaydırma 10.2, hızlı kaydırma 28.8 (rad, birikimli).
 - Başlık: 1440 px genişlikte 63 px (ilk sürüm `clamp(54px, 9.6vw, 160px)` → 138 px; oran 0.46).
 - Yavaş yazılar: bölüm görünmeden önce opaklık 0, kaydırınca ≈1.3 sn’de 1; 27/27 giriş tetiklendi.
-- Galeri bozulmadı: sayfanın sonuna gidip dönünce çizim ve fare tepkisi sürüyor; masaüstü/mobil/reduced-motion/file:// testlerinde konsol hatası yok.
+- Galeri bozulmadı: sayfanın sonuna gidip dönünce çizim ve fare tepkisi sürüyor; masaüstü/mobil/reduced-motion/file:// ve tek dosya testlerinde konsol hatası yok.
 
 **Yapılmayan testler:** gerçek Windows masaüstü tarayıcısı, gerçek telefon (yalnızca 390×844 mobil emülasyonu yapıldı), Safari/Firefox, gerçek GPU’da FPS ölçümü.
 

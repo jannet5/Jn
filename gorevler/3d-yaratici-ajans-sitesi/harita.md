@@ -16,7 +16,7 @@ Bu harita hedeften kalıcı teslime kadar her adımı birbirine bağlar. Her dü
  ▼
 [U] Uygulama  → site/src/{config,artwork,gallery,reveal,main}.js + styles.css + index.html
  ▼
-[T] Test/Build → npm run build (dist/) → npm test (19 kontrol; Chromium, http + file://, mobil, reduced-motion)
+[T] Test/Build → npm run build (dist/) → npm test (20 kontrol; Chromium, http + file://, tek dosya, mobil, reduced-motion)
  ▼
 [K] Kalıcı teslim → görev dalına push + geri okuma; özel ZIP (kaynak metni yok) + SHA-256 + geri okuma
 ```
@@ -42,7 +42,7 @@ Bu harita hedeften kalıcı teslime kadar her adımı birbirine bağlar. Her dü
 | Yazılar kaydırmayla yavaşça gelsin | `reveal.js`: kelime maskeli yükselme + blok fade-up, 1.3–1.6 sn | K5, K5b |
 | Galeri bozulmasın | Metin katmanı `pointer-events: none`; galeri ayrı modül; başa dönüşte tekrar doğrulama | K7 |
 | Hover efektleri / görsel “yavaşça geriye gider” | 3D karo hover’da eksene doğru çekilir + etiket; büyük görseller 1.12 → 1.00 ölçek | K4, K6, K6b |
-| Erişilebilirlik / mobil | `prefers-reduced-motion`, mobil düzen, file:// açılış | K9, K10, K11 |
+| Erişilebilirlik / mobil / taşınabilirlik | `prefers-reduced-motion`, mobil düzen, file:// açılış, tek dosya HTML | K9, K10, K11, K12 |
 
 ## Referanslar (kontrol edildi, 2026-10-03)
 

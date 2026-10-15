@@ -265,6 +265,17 @@ function diffRatio(a, b) {
   await ctx.close();
 }
 
+// ---------------------------------------------------------------- tek dosya sürüm (sarmal-studyo.html)
+{
+  const { ctx, page, errors } = await openPage(new URL('../dist/sarmal-studyo.html', import.meta.url).href);
+  await page.mouse.move(100, 450, { steps: 5 });
+  await sleep(1500);
+  const st = await g(page);
+  check('K12', 'Tek dosya sarmal-studyo.html file:// ile açılıyor, galeri fareye tepki veriyor', st.frames > 20 && st.rotCurrent < -0.3 && errors.length === 0,
+    { frames: st.frames, rot: +st.rotCurrent.toFixed(3), hatalar: errors.slice(0, 3) });
+  await ctx.close();
+}
+
 await browser.close();
 server.close();
 

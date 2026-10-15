@@ -1,15 +1,15 @@
 {
-  "tarih": "2026-10-03T11:49:08.619Z",
+  "tarih": "2026-10-15T23:41:32.523Z",
   "chromium": "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
-  "gecen": 19,
-  "toplam": 19,
+  "gecen": 20,
+  "toplam": 20,
   "sonuclar": [
     {
       "id": "K0",
       "name": "WebGL spiral galeri kuruldu ve çiziyor",
       "pass": true,
       "detail": {
-        "frames": 44,
+        "frames": 45,
         "tiles": 48
       }
     },
@@ -18,9 +18,9 @@
       "name": "Canvas boş değil (gerçek görüntü var)",
       "pass": true,
       "detail": {
-        "min": 6.666666666666667,
-        "max": 229.33333333333334,
-        "mean": 33.7
+        "min": 7,
+        "max": 229.66666666666666,
+        "mean": 34.4
       }
     },
     {
@@ -28,9 +28,9 @@
       "name": "Fare X hareketi galeriyi döndürüyor",
       "pass": true,
       "detail": {
-        "solda_rot": -0.486,
+        "solda_rot": -0.487,
         "sagda_rot": 0.486,
-        "fark_rad": 0.972
+        "fark_rad": 0.973
       }
     },
     {
@@ -38,7 +38,7 @@
       "name": "Fare hareketi görüntüyü gerçekten değiştiriyor (piksel farkı)",
       "pass": true,
       "detail": {
-        "degisen_piksel_orani": 0.437
+        "degisen_piksel_orani": 0.434
       }
     },
     {
@@ -46,9 +46,9 @@
       "name": "Kaydırma hızı dönüşü artırıyor (boşta < yavaş < hızlı)",
       "pass": true,
       "detail": {
-        "bosta": 0.058,
-        "yavas": 10.124,
-        "hizli": 28.744
+        "bosta": 0.05,
+        "yavas": 10.323,
+        "hizli": 28.973
       }
     },
     {
@@ -56,7 +56,7 @@
       "name": "Kaydırma kamerayı spiral boyunca hareket ettiriyor",
       "pass": true,
       "detail": {
-        "once": -2.68,
+        "once": -2.69,
         "sonra": -3.99
       }
     },
@@ -79,9 +79,9 @@
       "detail": {
         "x": 860,
         "y": 450,
-        "hovered": 14,
+        "hovered": 13,
         "label": true,
-        "text": "Gece Bahçesi"
+        "text": "Dalga Odası"
       }
     },
     {
@@ -99,7 +99,7 @@
       "pass": true,
       "detail": {
         "baslangic": 1.12,
-        "300ms": 1.038,
+        "300ms": 1.044,
         "2.1sn": 1
       }
     },
@@ -146,7 +146,7 @@
       "detail": {
         "overflow": 0,
         "title": 30,
-        "frames": 60
+        "frames": 58
       }
     },
     {
@@ -177,6 +177,16 @@
       "pass": true,
       "detail": {
         "frames": 21,
+        "hatalar": []
+      }
+    },
+    {
+      "id": "K12",
+      "name": "Tek dosya sarmal-studyo.html file:// ile açılıyor, galeri fareye tepki veriyor",
+      "pass": true,
+      "detail": {
+        "frames": 36,
+        "rot": -0.471,
         "hatalar": []
       }
     }
