@@ -31,6 +31,8 @@ class DemoChecker(Checker):
         time.sleep(0.03)
         if username == "instagram":
             return Result(TAKEN, "demo dolu")
+        if username.startswith("zq"):  # bağlantı testinin uydurma ismi
+            return Result(FREE, "demo boş")
         h = int(hashlib.sha1(username.encode()).hexdigest(), 16)
         return Result(FREE, "demo boş") if h % 50 == 0 else Result(TAKEN, "demo dolu")
 
@@ -157,7 +159,8 @@ class Controller:
 
 
 def make_handler(ctrl: Controller, token: str, port: int):
-    index = open(os.path.join(HERE, "ui.html"), encoding="utf-8").read().replace("__TOKEN__", token)
+    with open(os.path.join(HERE, "ui.html"), encoding="utf-8") as fh:
+        index = fh.read().replace("__TOKEN__", token)
     hosts = {f"127.0.0.1:{port}", f"localhost:{port}"}
 
     class H(BaseHTTPRequestHandler):
@@ -184,6 +187,10 @@ def make_handler(ctrl: Controller, token: str, port: int):
                 return
             if self.path.split("?")[0] == "/":
                 return self._send(200, index, "text/html; charset=utf-8")
+            if self.path == "/favicon.ico":
+                self.send_response(204)
+                self.end_headers()
+                return
             if self.path == "/api/state" and self.headers.get("X-Token") == token:
                 return self._send(200, json.dumps(ctrl.state(), ensure_ascii=False))
             self._send(404, '{"ok":false}')
@@ -207,7 +214,7 @@ def make_handler(ctrl: Controller, token: str, port: int):
             if path == "/api/stop":
                 return ctrl.stop()
             if path == "/api/selftest":
-                return dict(ok=True, **ctrl.do_selftest())
+                return ctrl.do_selftest()
             if path == "/api/add":
                 return ctrl.add_names(b.get("text", ""), bool(b.get("digits")),
                                       int(b.get("min", 3)), int(b.get("max", 7)))

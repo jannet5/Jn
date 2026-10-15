@@ -198,5 +198,77 @@ class NotifyTests(unittest.TestCase):
         self.assertTrue(all("habibi" in json.dumps(b) for _, b in got))
 
 
+class WebUiTests(unittest.TestCase):
+    def ctrl(self, demo=True):
+        from avci.webui import Controller
+        return Controller(os.path.join(tempfile.mkdtemp(), "u.db"), demo=demo)
+
+    def test_add_names_converts_and_filters(self):
+        c = self.ctrl()
+        r = c.add_names("حبيبي ab şeker @Qamar", False, 3, 7)
+        rows = {x["girdi"]: x["uygun"] for x in r["rows"]}
+        self.assertIn("habibi", rows["حبيبي"])
+        self.assertEqual(rows["ab"], [])
+        self.assertEqual(rows["şeker"], ["seker"])
+        self.assertEqual(rows["Qamar"], ["qamar"])
+        self.assertGreaterEqual(c.store.stats()["sicak_liste"], 10)
+
+    def test_blocked_connection_asks_before_starting(self):
+        c = self.ctrl(demo=False)
+        c.checker = MockChecker(limit_every=1)  # hep "yavaşla"
+        c.add_names("habibi", False, 3, 7)
+        r = c.start()
+        self.assertFalse(r["ok"])
+        self.assertTrue(r.get("needs_force"))
+        self.assertIn("429", r["msg"])
+        self.assertFalse(c.running())
+
+    def test_start_stop(self):
+        c = self.ctrl()
+        c.add_names("habibi qamar salam", False, 3, 7)
+        self.assertTrue(c.start()["ok"])
+        self.assertTrue(c.running())
+        self.assertFalse(c.start()["ok"])  # ikinci kez başlatılamaz
+        time.sleep(1.0)
+        c.stop()
+        self.assertFalse(c.running())
+
+    def test_build_respects_big_flag(self):
+        c = self.ctrl()
+        r = c.build(["ar"], [], False, 3, 7, False, big=False)
+        self.assertGreater(r["added"], 100)
+        self.assertFalse(any("50k" in line for line in r["report"]))
+
+    def test_http_token_and_state(self):
+        import urllib.error
+        import urllib.request
+        httpd, ctrl, token, url = __import__("avci.webui", fromlist=["x"]).create_server(
+            os.path.join(tempfile.mkdtemp(), "h.db"), port=8851, demo=True)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        try:
+            with self.assertRaises(urllib.error.HTTPError) as e:
+                urllib.request.urlopen(url + "api/state")
+            self.assertEqual(e.exception.code, 404)
+            req = urllib.request.Request(url + "api/state", headers={"X-Token": token})
+            data = json.loads(urllib.request.urlopen(req).read())
+            self.assertIn("stats", data)
+            self.assertTrue(data["demo"])
+            self.assertIn(token, urllib.request.urlopen(url).read().decode())
+        finally:
+            httpd.shutdown()
+            httpd.server_close()
+
+
+class StoreScale(unittest.TestCase):
+    def test_lease_is_fast_on_big_pool(self):
+        st = tmpdb()
+        st.add_many([(f"n{i}", "t", i % 100) for i in range(60000)])
+        t0 = time.time()
+        for _ in range(50):
+            self.assertIsNotNone(st.lease())
+        self.assertLess(time.time() - t0, 1.5)  # eskiden her sorgu tüm tabloyu sıralıyordu
+        self.assertEqual(st.stats()["toplam"], 60000)
+
+
 if __name__ == "__main__":
     unittest.main()
