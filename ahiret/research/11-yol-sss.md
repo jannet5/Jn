@@ -9,7 +9,7 @@ Ham dosyalar (çalışma): scratchpad `q/ayet.txt` ve `q/ayet2.txt`. Kullanılan
 Bakara 2:197 · 2:201 · 2:155-157 · 2:186 · 2:216 · 2:286 · 2:152 · 2:153 · 3:8 · 3:133-135 · 3:185 · 3:191 · 4:124 · 7:23 · 7:172 · 7:187 · 8:29 · 9:105 · 11:114 · 13:28 · 14:7 · 14:40-41 · 16:97 · 17:14 · 17:15 · 17:85 · 18:107-110 · 21:35 · 21:87 · 23:115-116 · 25:70 · 25:74 · 29:2-3 · 29:45 · 30:30 · 31:34 · 36:78-83 · 39:53 · 40:60 · 50:16 · 51:56 · 52:21 · 59:18 · 64:11 · 66:8 · 67:1-4 · 75:3-4 · 76:2-3 · 79:42-44 · 94:5-6 · 99:7-8 · 103:1-3.
 API tuhafları: 65:2 ve 65:3, 29:2 ve 29:3 aynı birleşik meali döndürüyor (Diyanet ayet gruplarını birlikte çeviriyor) — bölümde 65. sure kullanılmadı; 29:2-3 tek blok olarak, API'deki birleşik metinle verildi. 23:115 mealinde "Allah' ..." diye başlayan API ifadesi olduğu gibi bırakılmadı, bölümde 23:115 kullanılmadı.
 
-## Doğrulanmış hadisler (fawazahmed0/hadith-api@1 — jsdelivr; ara/eng baskıları indirilip numara + metin kontrol edildi; derece alanı Tirmizî/Ebû Dâvûd/İbn Mâce için dosyadaki Elbânî/Şâkir/Arnaût/Zübeyr Ali Zay'dan)
+## Doğrulanmış hadisler (fawazahmed0/hadith-api@1 — jsdelivr; ara/eng baskıları indirilip numara + metin kontrol edildi; derece alanı Tirmizî/Ebû Dâvûd/İbn Mâce için dosyadaki Elbânî/Şâkir/Ma‘rûf/Zübeyr Ali Zay'dan)
 | Anlam (TR) | Kaynak+no | Derece | Doğrulama |
 |---|---|---|---|
 | Ameller niyetlere göredir… | Buhârî 1 | Sahih (Buhârî) | eng-bukhari #1 açıldı |
@@ -17,7 +17,7 @@ API tuhafları: 65:2 ve 65:3, 29:2 ve 29:3 aynı birleşik meali döndürüyor (
 | Rabbini anan ile anmayan, diri ile ölü gibidir | Buhârî 6407 (Ebû Mûsâ) | Sahih | eng-bukhari 6407 |
 | Zulmedilene helalleşme; kıyamette dinar/dirhem yok, hasenat alınır | Buhârî 2449 (Ebû Hüreyre) | Sahih | eng-bukhari 2449 |
 | Müflis: namaz/oruç/zekâtla gelip başkalarına sövüp hakkını yemiş kimse | Müslim 2581 | Sahih | eng-muslim 2581 |
-| Kıyamette kulun ilk hesaba çekileceği ameli namazıdır | Tirmizî 413 (Ebû Hüreyre) | Sahih (Elbânî, Şâkir), Hasen (Arnaût); Zübeyr Ali Zay zayıf der → ihtilaf notu | eng-tirmidhi 413 grades alanı |
+| Kıyamette kulun ilk hesaba çekileceği ameli namazıdır | Tirmizî 413 (Ebû Hüreyre) | Sahih (Elbânî, Şâkir), Hasen (Ma‘rûf); Zübeyr Ali Zay zayıf der → ihtilaf notu | eng-tirmidhi 413 grades alanı |
 | Mü'minin işi şaşılacak: her işi hayır; sevinirse şükreder, sıkıntıya düşerse sabreder | Müslim 2999 (Suheyb) | Sahih | eng-muslim 2999 |
 | Cibril hadisi: iman, İslam, ihsan; "sorulan sorandan fazla bilmez" | Müslim 8 (Ömer); kısa varyant Ebû Hüreyre | Sahih | eng-muslim 8.01 tam metin açıldı |
 | Her çocuk fıtrat üzere doğar; anne-babası onu Yahudi/Hristiyan/Mecûsî yapar | Buhârî 1385, 1359; Müslim 2658 | Sahih | eng-bukhari 1385/1359; eng-muslim 2658.02/.04 |
@@ -26,11 +26,11 @@ API tuhafları: 65:2 ve 65:3, 29:2 ve 29:3 aynı birleşik meali döndürüyor (
 | Müslim 2662'de Âişe'ye "cennet kuşu" demesi üzerine "Allah cennet için… yarattı" uyarısı → ihtilaf nedeni ("tevakkuf" görüşü) | Müslim 2662 | Sahih | eng-muslim 2662.02/.03 |
 | "Günah işlemeseydiniz Allah sizi giderir, günah işleyip istiğfar eden bir kavim getirir, onları bağışlardı" | Müslim 2749 (Ebû Hüreyre) [Ebû Eyyûb rivayeti de aynı bâbda]. NOT: Görevlendirmedeki "Müslim 2759" numarası bu baskıda yok; doğru numara 2749 | Sahih | eng-muslim 2749 |
 | Doksan dokuz kişiyi öldüren adam tevbe etti, bağışlandı | Buhârî 3470; Müslim 2766 | Sahih | eng-bukhari 3470; eng-muslim 2766.01/.02 |
-| Kudsî: "Ey Âdemoğlu, bana dua edip umdukça… günahların gök bulutlarına ulaşsa da…" | Tirmizî 3540 (Enes) | Sahih (Elbânî, Şâkir); Hasen (Arnaût) | eng-tirmidhi 3540 |
+| Kudsî: "Ey Âdemoğlu, bana dua edip umdukça… günahların gök bulutlarına ulaşsa da…" | Tirmizî 3540 (Enes) | Sahih (Elbânî, Şâkir); Hasen (Ma‘rûf) | eng-tirmidhi 3540 |
 | "Nerede olursan Allah'tan sakın, kötülüğün ardından iyilik yap ki onu silsin, insanlara güzel ahlâkla davran" | Tirmizî 1987 (Ebû Zerr) | Hasen (Elbânî, Şâkir) | eng-tirmidhi 1987 |
 | Güleryüzün sadakadır; yol göstermek, yoldan taş-diken kaldırmak sadakadır | Tirmizî 1956 (Ebû Zerr) | Sahih (Elbânî, Şâkir) | eng-tirmidhi 1956 |
 | "Yarım hurmayla da olsa ateşten korunun" | Buhârî 1417 (Adî b. Hâtim) | Sahih | eng-bukhari 1417 |
-| "Tedavi olun ey Allah'ın kulları; Allah ilacını yaratmadığı hastalık yaratmadı, yalnız ihtiyarlık hariç" | Tirmizî 2038; Ebû Dâvûd 3855; İbn Mâce 3436 (Üsâme b. Şerîk) | Sahih (Elbânî; Şâkir; Tirmizî'de Arnaût Hasen-Sahih) | eng-tirmidhi 2038, eng-abudawud 3855, eng-ibnmajah 3436 |
+| "Tedavi olun ey Allah'ın kulları; Allah ilacını yaratmadığı hastalık yaratmadı, yalnız ihtiyarlık hariç" | Tirmizî 2038; Ebû Dâvûd 3855; İbn Mâce 3436 (Üsâme b. Şerîk) | Sahih (Elbânî; Şâkir; Tirmizî'de Ma‘rûf Hasen-Sahih) | eng-tirmidhi 2038, eng-abudawud 3855, eng-ibnmajah 3436 |
 | "Allah hiçbir hastalık indirmedi ki şifasını da indirmiş olmasın" | Buhârî 5678 (Ebû Hüreyre) | Sahih | eng-bukhari 5678 |
 | Allah suretlerinize, malınıza değil kalplerinize ve amellerinize bakar | Müslim 2564 | Sahih | eng-muslim 2564.02/.03 |
 | Dünyada garip/yolcu gibi ol; akşama çıkınca sabahı bekleme… | Buhârî 6416 (İbn Ömer) | Sahih | eng-bukhari 6416 |

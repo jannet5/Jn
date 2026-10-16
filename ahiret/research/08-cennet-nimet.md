@@ -300,3 +300,11 @@ Açılmayan / kullanılmayan: Kurtubî et-Tezkire (cennet bâbları) ve Süyût�
 - **40:39** | يَـٰقَوْمِ إِنَّمَا هَـٰذِهِ ٱلْحَيَوٰةُ ٱلدُّنْيَا مَتَـٰعٌ وَإِنَّ ٱلْـَٔاخِرَةَ هِىَ دَارُ ٱلْقَرَارِ | "Ey milletim! Şüphesiz bu dünya hayatı geçicidir, ama ahiret, doğrusu işte o, kalınacak yurttur."
 - **25:15** | قُلْ أَذَٰلِكَ خَيْرٌ أَمْ جَنَّةُ ٱلْخُلْدِ ٱلَّتِى وُعِدَ ٱلْمُتَّقُونَ ۚ كَانَتْ لَهُمْ جَزَآءً وَمَصِيرًا | De ki: "Bu mu iyidir, yoksa Allah'a karşı gelmekten sakınanlara mükafat ve gidilecek yer olarak söz verilen ebedi cennet mi daha iyidir?"
 - **32:19** | أَمَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ فَلَهُمْ جَنَّـٰتُ ٱلْمَأْوَىٰ نُزُلًۢا بِمَا كَانُوا۟ يَعْمَلُونَ | İnanıp yararlı iş işleyenlere gelince, onların yaptıklarına karşılık, varacakları cennet konakları vardır.
+
+## Ek B — Yazım sırasında yapılan ek doğrulamalar
+
+- Müslim 2833'ün Arapçasında rüzgârın "yüzlerine ve elbiselerine" savurduğu şeyin adı geçmez ("fe-tahsû fî vucûhihim ve siyâbihim"); İngilizce çeviri "fragrance" ekler. HTML'de "(koku)" parantezi ile verildi, "misk" denmedi.
+- Buhârî 2790 Arapçası açılıp kontrol edildi: "fe-innehû evsatu'l-cenneti ve a'le'l-cenneti, urâhu fevkahû arşu'r-Rahmân ve minhu tefecceru enhâru'l-cenne" — "urâhu" (kanaatimce) ravinin şüphe kaydıdır.
+- Said Nursî alıntıları risale.online sayfasından (Latince basılı nüsha, s.171-176) harfi harfine alındı; yalnız yazım işareti (‘ ve â/î) korunarak.
+- Sağlam isim listesi (HTML): Firdevs 18:107, 23:11; Adn 9:72; Naîm 56:12; Me'vâ 32:19, 53:15; Dârü's-Selâm 6:127, 10:25; Dârü'l-Karâr 40:39; Cennetü'l-Huld 25:15 — hepsi API'den doğrulandı. "Dârü'l-Huld" ifadesi Kur'an'da cehennem için geçtiği için (Fussılet 41:28) cennet ismi olarak verilmedi (Fussılet 41:28 bu turda çekilmedi, Arapça kök bilgisine dayalı not; sonra doğrulanmalı).
+- Boş/istisna: Kurtubî ve Süyûtî'ye bu bölümde atıf yok.

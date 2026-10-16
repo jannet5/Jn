@@ -16,7 +16,7 @@ frags = []
 for f in sorted(glob.glob('bolumler/*.html')):
     s = open(f, encoding='utf-8').read().strip()
     s = re.sub(r'<script.*?</script>', '', s, flags=re.S | re.I)
-    s = re.sub(r'</?(?:!doctype|html|head|body)[^>]*>', '', s, flags=re.I)
+    s = re.sub(r'</?(?:!doctype|html|head|body)(?=[\s>])[^>]*>', '', s, flags=re.I)
     m = re.search(r'<section[^>]*\bid="(b-\d+)"', s)
     if not m:
         print('UYARI: id yok', f, file=sys.stderr); continue
