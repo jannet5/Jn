@@ -8,6 +8,9 @@
   kanca    Claude Code Stop kancası: her yanıt sonunda kısa rapor gösterir.
   uzlastir stream-json/SDK çıktısındaki API sonucunu transkriptle karşılaştırır.
   codex    Codex CLI rollout kayıtlarından (salt okunur) token ve kota raporu.
+  kur      settings.json'a statusline ve Stop kancasını ekler (yedekli).
+  kaldir   Bu aracın eklediği ayarları kaldırır.
+  dogrula-yerel  Bu bilgisayarın gerçek Claude/Codex kayıtlarıyla doğrulama raporu.
 """
 
 import argparse
@@ -238,6 +241,28 @@ def komut_codex(a):
     return 0
 
 
+def komut_kur(a):
+    from . import kurulum
+    kod, notlar = kurulum.kur(a.ayar, a.statusline_degistir)
+    print("\n\n".join(notlar))
+    return kod
+
+
+def komut_kaldir(a):
+    from . import kurulum
+    kod, notlar = kurulum.kaldir(a.ayar)
+    print("\n\n".join(notlar))
+    return kod
+
+
+def komut_dogrula_yerel(a):
+    from . import kurulum
+    metin, yol = kurulum.dogrula(a.cikti, a.tz)
+    sys.stdout.write(metin)
+    print(f"\nRapor dosyası: {yol}")
+    return 0
+
+
 def ayristirici():
     p = argparse.ArgumentParser(prog="sohbet_olcer", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -286,6 +311,19 @@ def ayristirici():
     c.add_argument("--liste", action="store_true", help="konuşmaları listele")
     c.add_argument("--simdi", help="test için 'şimdi' zamanı (ISO 8601)")
     c.set_defaults(f=komut_codex)
+
+    ku = alt.add_parser("kur", help="statusline ve Stop kancasını kur")
+    ku.add_argument("--ayar", help="settings.json yolu (varsayılan ~/.claude/settings.json)")
+    ku.add_argument("--statusline-degistir", action="store_true", help="mevcut başka statusline'ın yerine geç")
+    ku.set_defaults(f=komut_kur)
+
+    ka = alt.add_parser("kaldir", help="bu aracın ayarlarını kaldır")
+    ka.add_argument("--ayar")
+    ka.set_defaults(f=komut_kaldir)
+
+    dy = alt.add_parser("dogrula-yerel", help="gerçek yerel verilerle doğrulama raporu")
+    dy.add_argument("--cikti", help="rapor dosyası (varsayılan ~/.claude/sohbet-olcer/yerel_dogrulama.txt)")
+    dy.set_defaults(f=komut_dogrula_yerel)
 
     h = alt.add_parser("kanca", help="Claude Code Stop kancası")
     h.add_argument("--kayit", default=VARSAYILAN_KOTA_KAYDI)

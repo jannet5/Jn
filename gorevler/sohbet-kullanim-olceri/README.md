@@ -21,6 +21,26 @@ Windows'ta çalışır. Windows'ta `tzdata` paketi gerekmez. Çıktı her zaman
 UTF-8'dir. Bu önemli, çünkü Windows'ta yönlendirilmiş çıktı (kanca, boru,
 dosya) normalde cp1252 olur ve Türkçe karakterde çökerdi.
 
+## Kurulum: Windows'ta üç çift tıklama
+
+1. **`KUR.bat`**: Claude Code ayarlarına (`%USERPROFILE%\.claude\settings.json`)
+   statusline'ı ve Stop kancasını ekler. Önce ayar dosyasının yedeğini alır,
+   mevcut ayarlarına dokunmaz. Başka bir statusline varsa onu değiştirmez ve
+   bunu söyler; değiştirmek istersen komut satırından
+   `py olc.py kur --statusline-degistir` çalıştır. Ardından Claude Code'u
+   yeniden başlat.
+2. Claude Code'da bir mesaj gönder. Yanıt bitince ekranda "Bu sohbet: …
+   token" özeti görünür; ayrıntılı rapor
+   `%USERPROFILE%\.claude\sohbet-olcer\raporlar\` klasörüne yazılır.
+3. **`DOGRULA.bat`**: Bu bilgisayardaki gerçek Claude ve Codex kayıtlarını
+   okur; neyin erişilebilir olduğunu ve en son konuşmaların raporunu
+   `%USERPROFILE%\.claude\sohbet-olcer\yerel_dogrulama.txt` dosyasına yazar.
+
+Kaldırmak için **`KALDIR.bat`**. Yalnızca bu aracın eklediği girdileri siler.
+
+Gerekli olan tek şey Python 3.9 veya üstü (python.org ya da Microsoft
+Store). Başka paket gerekmez.
+
 ## Hızlı başlangıç
 
 ```text
