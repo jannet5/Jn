@@ -54,3 +54,10 @@
 ## Ç-012: APK sohbet eki sınırını (30 MiB) aşıyor
 - Belirti: 37.9 MB evrensel APK sohbete eklenemedi; kullanıcı link ile indirirken %100'de takılıyordu.
 - Çözüm: `app/build.gradle.kts` içinde `splits { abi { isEnable = true; reset(); include("arm64-v8a","armeabi-v7a","x86_64","x86"); isUniversalApk = true } }`. arm64 APK 26 MB oldu, aynı imza (`apksigner verify --print-certs` ile karşılaştırıldı). Günümüz telefonlarının neredeyse tamamı arm64. Play'e AAB gider, bölme orada etkisizdir.
+
+## Ç-013: "Melodi çıkarılıyor" ekranı boş kalıyor (adımlar ve İptal yok)
+- Belirti (kullanıcı ekran görüntüsü, gerçek telefon): Başlık ve alt yazı var, adım listesi ve İptal butonu yok; hiçbir şey ilerlemiyor.
+- Kök neden: İşlem ekranı yalnızca `Running` ve `Failed` durumlarını çiziyordu. Vokal ayırma telefonda dakikalar sürebiliyor; kullanıcı uygulamadan çıkınca telefon (MIUI gibi pil yöneticileri, düşük pil) süreci öldürüyor. Uygulama yeniden açılınca Android gezinme yığınını geri yüklüyor (işlem ekranı), ama ViewModel yeni ve durumu `Idle` → ekran boş. Ayrıca alt yazı "Birkaç saniye sürer" diyordu, gerçek süre daha uzun.
+- Çözüm: (1) `service/ProcessingService.kt`: işlem sürerken ön plan servisi (dataSync) + ilerleme bildirimi; telefon süreci arka planda öldürmez. (2) `AppViewModel`: `SavedStateHandle` ile "işlem sürüyordu" bayrağı ve son bağlantı/dosya; süreç öldürülüp uygulama geri gelirse `Interrupted` durumu → "İşlem yarıda kaldı" + Tekrar dene. Dosya için `takePersistableUriPermission`. (3) Android 13+ bildirim izni işlem başlarken istenir. (4) Alt yazı gerçek süreye göre düzeltildi.
+- Doğrulama: `araclar/emu_kesinti_testi.sh` (işlem başlat → servis/bildirim kontrolü → HOME → `am kill` (servis varken öldürmemeli) → root `kill -9` (düşük bellek öldürmesi taklidi) → yeniden aç → "yarıda kaldı" → Tekrar dene).
+- Kural: Her ekran, ViewModel'in alabileceği HER durumu çizmeli; "else -> boş" yasak. Uzun süren iş (≥10 sn) ön plan servisiyle korunur ve süreç ölümü testi koşulur.

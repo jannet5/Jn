@@ -20,7 +20,7 @@
     <string name="onboarding_note">All audio processing happens on your phone; nothing is uploaded. Please only use content you have the rights to.</string>
     <string name="onboarding_start">Get started</string>
     <string name="process_title">Extracting melody</string>
-    <string name="process_subtitle">Takes a few seconds. Keep the app open.</string>
+    <string name="process_subtitle">Takes 1–2 minutes depending on song length. You can switch apps, it keeps going.</string>
     <string name="step_resolve">Getting video info</string>
     <string name="step_open">Opening file</string>
     <string name="step_download">Downloading audio</string>
@@ -81,4 +81,6 @@
     <string name="privacy_text">Melodi Zil does not collect, store or share any personal data.\n\n• No accounts, no sign-up, no analytics, no ad SDKs.\n• The YouTube link you paste is sent only to YouTube\'s servers to fetch the audio stream. It is never sent to us or to any third party.\n• All audio processing happens on your phone. The downloaded audio file is deleted after processing.\n• Ringtones you create are saved to your phone\'s Ringtones/Notifications/Alarms folders and stay fully under your control.\n• The \"Modify system settings\" permission is used only to set the default ringtone and is optional.\n\nContent rights: make sure you have the right to use the content you download. Melodi Zil is not affiliated with YouTube.\n\nContact: jakeworkx@proton.me</string>
     <string name="licenses_text">NewPipeExtractor — GPL-3.0 (TeamNewPipe)\nSpleeter vocal model — MIT (Deezer Research)\nTensorFlow Lite — Apache-2.0 (Google)\nOkHttp — Apache-2.0 (Square)\nCoil — Apache-2.0\nJetpack Compose, AndroidX — Apache-2.0 (Google)\nKotlin, kotlinx — Apache-2.0 (JetBrains)\nRhino — MPL-2.0 (Mozilla)\njsoup — MIT\n\nMelodi Zil\'s own source code is released under GPL-3.0 (required by NewPipeExtractor\'s license).</string>
     <string name="storage_denied">Storage permission was denied, so the ringtone could not be saved.</string>
+    <string name="notif_channel">Melody extraction</string>
+    <string name="process_interrupted">Processing was interrupted. Your phone may have closed the app in the background.</string>
 </resources>

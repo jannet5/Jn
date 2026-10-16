@@ -8,6 +8,11 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions" />
     <!-- Android 8-9'da MediaStore'a yazmak için; Android 10+ gerektirmez -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <!-- Melodi çıkarılırken telefonun uygulamayı arka planda kapatmaması için ön plan servisi -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <!-- Android 13+: işlem ilerlemesini bildirimde göstermek için -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".MelodiZilApp"
@@ -38,6 +43,12 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+
+        <!-- Melodi çıkarma sırasında süreci ön planda tutar, ilerlemeyi bildirimde gösterir -->
+        <service
+            android:name=".service.ProcessingService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
 
         <!-- Üretilen WAV'ı diğer uygulamalarla paylaşmak için -->
         <provider

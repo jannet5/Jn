@@ -70,9 +70,15 @@ class MelodyPipeline(private val context: Context, private val youTube: YouTubeS
         coroutineContext.ensureActive() // İptal
         onProgress(PipelineProgress(Step.SEPARATE, 0f)) // Vokal ayırma
         val ctx = coroutineContext // Geri çağrı içinden iptal kontrolü için bağlam
-        val vocal = try { // Model yoksa ya da bellek yetmezse karışımla devam edilir
+        val guard = context.getSharedPreferences("koruma", Context.MODE_PRIVATE) // Yerel (native) çökme koruması
+        val strikes = guard.getInt(KEY_SEP_STRIKES, 0) // Vokal ayırma sırasında kaç kez süreç öldü/çöktü
+        val vocal = if (strikes >= MAX_SEP_STRIKES) { android.util.Log.w("MelodiZil", "Vokal ayırma $strikes kez yarıda kaldı, atlanıyor"); null } // Bu cihazda model sürekli çöküyorsa karışımla devam (uygulama kullanılabilir kalsın)
+        else try { // Model yoksa ya da bellek yetmezse karışımla devam edilir
+            guard.edit().putInt(KEY_SEP_STRIKES, strikes + 1).commit() // Başlamadan say: süreç burada ölürse sayaç kalır
             TfliteMaskModel(context).use { m -> VocalSeparator(m).separate(pcm) { ctx.ensureActive(); onProgress(PipelineProgress(Step.SEPARATE, it)) } }
-        } catch (e: kotlinx.coroutines.CancellationException) { throw e } catch (e: Throwable) { android.util.Log.w("MelodiZil", "Vokal ayırma atlandı", e); null }
+                .also { guard.edit().putInt(KEY_SEP_STRIKES, 0).apply() } // Başarılı: sayaç sıfırlanır
+        } catch (e: kotlinx.coroutines.CancellationException) { guard.edit().putInt(KEY_SEP_STRIKES, strikes).apply(); throw e } // Kullanıcı iptali çökme sayılmaz
+        catch (e: Throwable) { guard.edit().putInt(KEY_SEP_STRIKES, 0).apply(); android.util.Log.w("MelodiZil", "Vokal ayırma atlandı", e); null } // Yakalanan hata: karışımla devam
         coroutineContext.ensureActive() // İptal
         val useVocal = vocal != null && rms(vocal) >= VOCAL_PRESENCE * rms(pcm) // Vokal yoksa (enstrümantal) karışımdan çıkar
         onProgress(PipelineProgress(Step.ANALYZE, 0f)) // Analiz
@@ -91,5 +97,7 @@ class MelodyPipeline(private val context: Context, private val youTube: YouTubeS
     companion object {
         const val ANALYSIS_RATE = 22050 // Analiz örnekleme hızı
         const val VOCAL_PRESENCE = 0.1 // Vokal kanalı karışımın %10'undan sessizse şarkı enstrümantal sayılır
+        private const val KEY_SEP_STRIKES = "vokal_yarida" // Vokal ayırma sırasında süreç ölümü sayacı
+        private const val MAX_SEP_STRIKES = 3 // Üst üste bu kadar yarıda kalırsa bu cihazda vokal ayırma atlanır
     }
 }

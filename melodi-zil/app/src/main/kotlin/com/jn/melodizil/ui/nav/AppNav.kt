@@ -80,7 +80,11 @@ fun AppNav(vm: AppViewModel, sharedLink: String?, versionName: String, onConsume
     }
     fun needsStorage(): Boolean = Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED // Android 8-9 ve izin yok
     /** Android 8-9: depolama izni verildiğinde sistem uygulamayı yeniden başlatır (GID değişimi); bu yüzden izin, işlem BAŞLAMADAN istenir, kayıt anında değil. */
-    val startWithPermission: (() -> Unit) -> Unit = { action -> if (needsStorage()) { pendingStart = action; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) } else action() }
+    val notifPermission = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { } // Android 13+: ilerleme bildirimi izni (verilmese de işlem sürer)
+    fun askNotifications() { // Bir kez sorulur; reddedilirse sistem tekrar göstermez
+        if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) notifPermission.launch(Manifest.permission.POST_NOTIFICATIONS) // İste
+    }
+    val startWithPermission: (() -> Unit) -> Unit = { action -> askNotifications(); if (needsStorage()) { pendingStart = action; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) } else action() }
     val saveWithPermission: (RingtoneKind, Boolean) -> Unit = { kind, setDefault -> // Kayıt: Android 8-9'da önce depolama izni
         if (needsStorage()) { // İzin yok (yedek yol)
             pendingSave = kind to setDefault; storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE) // İste

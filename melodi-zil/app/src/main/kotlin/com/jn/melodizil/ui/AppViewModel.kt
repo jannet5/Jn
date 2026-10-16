@@ -5,8 +5,10 @@ import android.content.Intent // Paylaşım
 import android.net.Uri // Uri
 import androidx.core.content.FileProvider // Dosya paylaşımı
 import androidx.lifecycle.AndroidViewModel // ViewModel
+import androidx.lifecycle.SavedStateHandle // Süreç ölümünden sonra da kalan küçük durum
 import androidx.lifecycle.viewModelScope // Kapsam
 import com.jn.melodizil.MelodiZilApp // Bağımlılıklar
+import com.jn.melodizil.R // Metinler
 import com.jn.melodizil.core.Instrument // Enstrüman
 import com.jn.melodizil.core.SegmentChooser // Bölüm seçici
 import com.jn.melodizil.core.Synth // Sentez
@@ -18,6 +20,8 @@ import com.jn.melodizil.data.store.ThemeMode // Tema
 import com.jn.melodizil.data.youtube.SourceException // Hatalar
 import com.jn.melodizil.domain.AnalyzedTrack // Analiz sonucu
 import com.jn.melodizil.domain.PipelineProgress // İlerleme
+import com.jn.melodizil.domain.Step // Adımlar
+import com.jn.melodizil.service.ProcessingService // Ön plan servisi
 import kotlinx.coroutines.Dispatchers // İş parçacığı
 import kotlinx.coroutines.Job // İş
 import kotlinx.coroutines.flow.MutableStateFlow // Durum
@@ -36,6 +40,7 @@ sealed interface ProcessState {
     data class Running(val progress: PipelineProgress, val sourceLabel: String) : ProcessState // Çalışıyor
     data class Failed(val message: String, val canRetry: Boolean) : ProcessState // Hata
     data class Done(val track: AnalyzedTrack) : ProcessState // Bitti
+    data class Interrupted(val canRetry: Boolean) : ProcessState // Telefon süreci işlem sırasında öldürdü; uygulama yeniden açıldı
 }
 
 /** Sonuç ekranının durumu. */
@@ -52,7 +57,7 @@ data class ResultState(
     val needsWriteSettings: Boolean = false, // Varsayılan yapmak için izin gerekiyor
 )
 
-class AppViewModel(app: Application) : AndroidViewModel(app) {
+class AppViewModel(app: Application, private val saved: SavedStateHandle) : AndroidViewModel(app) {
     private val deps = app as MelodiZilApp // Bağımlılıklar
     private val synth = Synth(RENDER_RATE) // Sentezleyici
     val player = PcmPlayer(viewModelScope) // Önizleme oynatıcı
@@ -61,8 +66,12 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     val onboarded: StateFlow<Boolean?> = deps.prefs.onboarded.stateIn(viewModelScope, SharingStarted.Eagerly, null) // Tanıtım (null = yükleniyor)
     val library: StateFlow<List<SavedRingtone>> = deps.prefs.library.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList()) // Kütüphane
 
-    private val _process = MutableStateFlow<ProcessState>(ProcessState.Idle) // İşlem
+    private val _process = MutableStateFlow<ProcessState>( // İşlem
+        if (saved.get<Boolean>(KEY_RUNNING) == true) ProcessState.Interrupted(saved.get<String>(KEY_LINK) != null || saved.get<String>(KEY_URI) != null) // Yarıda kalmış işlem: boş ekran yerine açıklama + tekrar dene
+        else ProcessState.Idle // Normal açılış
+    )
     val process: StateFlow<ProcessState> = _process // Dışa
+    init { saved[KEY_RUNNING] = false } // Yarıda kalma bir kez gösterilir; sonraki açılışlarda tekrar çıkmaz
     private val _result = MutableStateFlow(ResultState()) // Sonuç
     val result: StateFlow<ResultState> = _result // Dışa
     private var job: Job? = null // Aktif işlem
@@ -71,17 +80,28 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     // -------------------------------------------------------------- işlem
 
-    fun startFromLink(link: String) { lastInput = { startFromLink(link) }; run("YouTube") { deps.pipeline.fromYouTube(link, it) } } // Bağlantıdan
-    fun startFromFile(uri: Uri) { lastInput = { startFromFile(uri) }; run("Dosya") { deps.pipeline.fromLocalFile(uri, it) } } // Dosyadan
-    fun retry() { lastInput?.invoke() } // Tekrar dene
+    fun startFromLink(link: String) { lastInput = { startFromLink(link) }; saved[KEY_LINK] = link; saved.remove<String>(KEY_URI); run("YouTube") { deps.pipeline.fromYouTube(link, it) } } // Bağlantıdan
+    fun startFromFile(uri: Uri) { runCatching { getApplication<Application>().contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION) }; lastInput = { startFromFile(uri) }; saved[KEY_URI] = uri.toString(); saved.remove<String>(KEY_LINK); run("Dosya") { deps.pipeline.fromLocalFile(uri, it) } } // Dosyadan
+    fun retry() { // Tekrar dene
+        lastInput?.let { it(); return } // Aynı oturumdaki son eylem
+        saved.get<String>(KEY_LINK)?.let { startFromLink(it); return } // Süreç öldüyse kayıtlı bağlantı
+        saved.get<String>(KEY_URI)?.let { startFromFile(Uri.parse(it)) } // Ya da kayıtlı dosya
+    }
 
     private fun run(label: String, block: suspend ((PipelineProgress) -> Unit) -> AnalyzedTrack) {
         job?.cancel() // Önceki iptal
         player.stop() // Ses dursun
-        _process.value = ProcessState.Running(PipelineProgress(com.jn.melodizil.domain.Step.RESOLVE, 0f), label) // Başladı
+        _process.value = ProcessState.Running(PipelineProgress(Step.RESOLVE, 0f), label) // Başladı
+        saved[KEY_RUNNING] = true // Süreç ölürse yeniden açılışta "yarıda kaldı" gösterilsin
+        var lastNotif = -1 // Bildirimi her karede değil, yüzde değişince güncelle
+        notify(Step.RESOLVE, 0f, label).also { lastNotif = 0 } // Ön plan servisi: telefon süreci öldürmesin
         job = viewModelScope.launch { // Arka plan
             try {
-                val track = block { p -> _process.value = ProcessState.Running(p, label) } // Çalıştır
+                val track = block { p -> // Çalıştır
+                    _process.value = ProcessState.Running(p, label) // Ekran
+                    val pct = overallPercent(p) // Genel yüzde
+                    if (pct != lastNotif) { lastNotif = pct; notify(p.step, p.fraction, label) } // Bildirim
+                }
                 val length = 30 // Varsayılan uzunluk
                 val start = SegmentChooser.bestStart(track.melody, length.toFloat()) // En iyi bölüm
                 val inst = deps.prefs.lastInstrument.first()?.let { Instrument.fromId(it) } ?: Instrument.PIYANO // Son seçilen enstrüman ya da piyano
@@ -93,11 +113,29 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             catch (e: SourceException) { _process.value = ProcessState.Failed(e.message ?: "Bir sorun oluştu", true) } // Kaynak hatası
             catch (e: Exception) { _process.value = ProcessState.Failed("Beklenmeyen hata: ${e.javaClass.simpleName}", true) } // Diğer
             catch (e: Error) { _process.value = ProcessState.Failed("Beklenmeyen hata: ${e.javaClass.simpleName} ${e.message?.take(80) ?: ""}", false) } // NoSuchMethodError gibi: uygulama çökmesin, hata ekranı göstersin
+            finally { saved[KEY_RUNNING] = false; ProcessingService.stop(getApplication()) } // Her sonuçta servis durur
         }
     }
 
-    fun cancel() { job?.cancel(); job = null; _process.value = ProcessState.Idle } // İptal
-    fun resetProcess() { if (_process.value !is ProcessState.Running) _process.value = ProcessState.Idle } // Ekrandan çıkışta
+    /** Beş adımın toplamına göre 0-100 arası genel ilerleme. */
+    private fun overallPercent(p: PipelineProgress): Int = (((p.step.ordinal + p.fraction.coerceIn(0f, 1f)) / Step.entries.size) * 100).toInt()
+
+    /** Ön plan servisinin bildirimini adım adı ve yüzdeyle günceller. */
+    private fun notify(step: Step, fraction: Float, label: String) {
+        val app = getApplication<Application>() // Bağlam
+        val local = label != "YouTube" // Dosyadan mı
+        val res = when (step) { // Adım adı
+            Step.RESOLVE -> if (local) R.string.step_open else R.string.step_resolve
+            Step.DOWNLOAD -> if (local) R.string.step_copy else R.string.step_download
+            Step.DECODE -> R.string.step_decode
+            Step.SEPARATE -> R.string.step_separate
+            Step.ANALYZE -> R.string.step_analyze
+        }
+        ProcessingService.update(app, app.getString(res), overallPercent(PipelineProgress(step, fraction))) // Gönder
+    }
+
+    fun cancel() { job?.cancel(); job = null; saved[KEY_RUNNING] = false; ProcessingService.stop(getApplication()); _process.value = ProcessState.Idle } // İptal
+    fun resetProcess() { if (_process.value !is ProcessState.Running) { saved[KEY_RUNNING] = false; _process.value = ProcessState.Idle } } // Ekrandan çıkışta
 
     // -------------------------------------------------------------- sonuç
 
@@ -191,6 +229,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     companion object {
         const val RENDER_RATE = 44100 // Sentez örnekleme hızı
+        private const val KEY_RUNNING = "isleniyor" // İşlem sürüyor mu (süreç ölümü tespiti)
+        private const val KEY_LINK = "son_baglanti" // Son YouTube bağlantısı
+        private const val KEY_URI = "son_dosya" // Son dosya
         fun instrumentName(i: Instrument): String = when (i) { // Türkçe adlar
             Instrument.PIYANO -> "Piyano"; Instrument.MUZIK_KUTUSU -> "Müzik Kutusu"; Instrument.SEKIZ_BIT -> "8-Bit"; Instrument.MARIMBA -> "Marimba"
             Instrument.FLUT -> "Flüt"; Instrument.CAN -> "Çan"; Instrument.GITAR -> "Gitar"; Instrument.SYNTH -> "Synth"

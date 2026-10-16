@@ -56,6 +56,7 @@ fun ProcessingScreen(state: ProcessState, onCancel: () -> Unit, onRetry: () -> U
                 Spacer(Modifier.height(Space.xl)) // Boşluk
                 SecondaryButton(stringResource(R.string.cancel), onCancel) // İptal (birincil değil: işlem birincil eylem)
             }
+            is ProcessState.Interrupted -> ErrorState(stringResource(R.string.process_interrupted), if (state.canRetry) onRetry else null, stringResource(R.string.retry), secondaryText = stringResource(R.string.back), onSecondary = onBack) // Süreç öldürülüp uygulama yeniden açıldı: boş ekran yerine açıklama
             else -> Unit // Idle/Done: gezinme yönetir
         }
     }
