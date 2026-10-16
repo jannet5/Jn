@@ -18,6 +18,12 @@
 - Android uygulama: yeni hat (RMVPE ONNX + nota_cikar) Kotlin’e taşınmadı; emülatör testleri (API 26/34, süreç öldürme, tam uzunluk) bu turda yapılmadı.
 - Demucs/CREPE/basic-pitch/FCPE adayları: ajanlar hâlâ ölçüyor olabilir; biten sonuçlar `arastirma/sonuc/` içinde.
 
+## Tur 1'de bulunan engeller ve ipuçları
+- **Gradle derlemesi bu turda APK üretemedi**: Maven Central proxyde ara ara 429/404 veriyor, Gradle geçici 404'leri önbelleğe "yok" diye yazdı. Çözüm planı: `rm -rf ~/.gradle/caches/modules-2/metadata-* ~/.gradle/caches/transforms-*`, sonra tek işçiyle (`--max-workers=1`, `--refresh-dependencies` KULLANMA), başka ajan Maven'e vurmazken, tekrar denemeli döngüyle derle; olmazsa eksik jar'ları curl ile tekrarlı indirip yerel depodan ver. Ortam: `source /home/user/android-env.sh`.
+- RMVPE salience eşiği: 0,03 yerine **0,2** → sessiz karelerde yanlış alarm 0,60→0,20, nota F (MIR-1K 30 klip) 0,485→0,605, doğru perde yalnız 0,946→0,929. Segmenter eşik 0,2 çıktısıyla yeniden ayarlanacak.
+- Demucs+RMVPE: doğru perde ~%94,5–96 ama hız ~1× gerçek zaman (masaüstü CPU) + 265 MB model → telefonda pratik değil; ayırmasız RMVPE seçildi.
+- Güvenlik notu: `keystore/upload.jks` ve `keystore.properties` (parolalar) depoda izleniyor (önceki turdan). Play yükleme anahtarı olduğu için depodan çıkarılıp yerelde tutulmalı — kullanıcıya sorulacak.
+
 ## Sıradaki tur (tur 2) sırası
 1. NewPipeExtractor ile (JVM testi) 3–5 bilinen şarkıyı indir → RMVPE+nota_cikar → 30 sn melodi MP3 (kullanıcı dinleyecek).
 2. RMVPE’yi fp16/int8 ONNX → boyut + arm64’e yakın hız ölçümü; ORT-mobile.

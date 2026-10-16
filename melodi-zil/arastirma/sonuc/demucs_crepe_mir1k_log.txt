@@ -5,3 +5,6 @@ abjones_2_10           RPA 0.941 RCA 0.941 OA 0.740 notaF 0.437 (1.5s/8.9s)
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 amy_10_05              RPA 0.990 RCA 0.990 OA 0.781 notaF 0.286 (10.0s/6.9s)
 amy_15_05              RPA 0.729 RCA 0.729 OA 0.678 notaF 0.318 (8.7s/11.3s)
+amy_3_05               RPA 0.981 RCA 0.981 OA 0.812 notaF 0.381 (8.7s/8.0s)
+amy_7_02               RPA 0.976 RCA 0.976 OA 0.874 notaF 0.811 (8.9s/11.6s)
+annar_2_03             RPA 0.968 RCA 0.968 OA 0.800 notaF 0.483 (8.6s/9.7s)
