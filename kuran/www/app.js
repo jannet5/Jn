@@ -61,6 +61,13 @@
     el.scrollTop = 0;                                  // en üste al
   }
 
+  /* Roller: #pgP önceki, #pgC şimdiki, #pgN sonraki. Paneller yer değiştirince kimlikler de güncellenir */
+  function tagRoles() {
+    ['p', 'c', 'n'].forEach(function (k) { panes[k].removeAttribute('id'); });       // önce hepsini boşalt (kimlikler benzersiz kalsın)
+    panes.p.id = 'pgP'; panes.c.id = 'pgC'; panes.n.id = 'pgN';                       // sonra rollere göre yaz
+    panes.c.setAttribute('aria-hidden', 'false'); panes.p.setAttribute('aria-hidden', 'true'); panes.n.setAttribute('aria-hidden', 'true');
+  }
+
   /* ---------- Yerleşim: üç sayfa yan yana (sonraki solda, önceki sağda) ---------- */
   function place(dx, anim) {
     view.classList.toggle('anim', !!anim);             // animasyon sınıfı
@@ -75,7 +82,7 @@
     var from = Q.p[page - 1], to = Q.p[page], names = [], last = -1;   // sayfadaki sureler
     for (var g = from; g < to; g++) { var s = A2S[g]; if (s !== last) { names.push(Q.s[s][2]); last = s; } }
     $('tSure').textContent = names.slice(0, 2).join(' · ');           // sure adı(ları)
-    $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page + ' / ' + N;   // cüz ve sayfa
+    $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page;                  // cüz ve sayfa
     document.title = names[0] + ' · Sayfa ' + page + ' · Kur\'an';
   }
 
@@ -118,7 +125,7 @@
     var P = panes.p, C = panes.c, Nx = panes.n;
     if (d.dir > 0) { panes.p = C; panes.c = Nx; panes.n = P; page += 1; renderPage(panes.n, page + 1); }   // ileri: sonraki sayfa ortaya
     else           { panes.n = C; panes.c = P; panes.p = Nx; page -= 1; renderPage(panes.p, page - 1); }   // geri
-    place(0, false); updateBar(); store.set('page', page); store.set('sc', 0);
+    tagRoles(); place(0, false); updateBar(); store.set('page', page); store.set('sc', 0);
   }
   function turn(dir, instant) {
     if (animating) finishAnim();

@@ -59,11 +59,11 @@ button{ cursor:pointer; }
 .t{ margin:0 0 .35em; font-size:var(--fs,26px); line-height:2.15; text-align:justify; text-justify:inter-word; overflow-wrap:anywhere; }
 .bsm{ margin:.1em 0 .25em; font-size:var(--fs,26px); line-height:2.15; text-align:center; }
 .e{ white-space:nowrap; color:var(--accent); }                       /* ayet sonu işareti ۝ + sayı */
-.ban{ margin:18px 0 10px; padding:10px 14px; border:1px solid var(--line); border-radius:14px; background:var(--ban);
+.ban{ flex-wrap:wrap; margin:18px 0 10px; padding:10px 14px; border:1px solid var(--line); border-radius:14px; background:var(--ban);
   display:flex; align-items:center; justify-content:space-between; gap:10px; direction:ltr; }
 .ban .tr{ font-size:15px; font-weight:700; line-height:1.25; min-width:0; }
 .ban .tr small{ display:block; font-weight:500; color:var(--muted); font-size:13px; }
-.ban .ar{ font-size:calc(var(--fs,26px)*.95); line-height:1.7; text-align:right; }
+.ban .ar{ flex:1 1 auto; font-size:min(calc(var(--fs,26px)*.9),46px); line-height:1.7; text-align:right; }
 .end{ text-align:center; color:var(--muted); padding:24px 0; font-size:14px; }
 
 /* ===== Git paneli ===== */
@@ -89,6 +89,8 @@ button{ cursor:pointer; }
 #list .ar{ flex:none; font-family:"AmiriQuran","Amiri Quran",serif; font-size:24px; direction:rtl; line-height:1.6; color:var(--fg); }
 #list .empty{ padding:24px 8px; color:var(--muted); cursor:default; display:block; }
 .foot{ padding-top:8px; }
+.src{ margin:10px 4px 0; font-size:12px; line-height:1.4; color:var(--muted); }
+.src a{ color:inherit; }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; }
 .chip{ min-height:40px; padding:0 14px; border:1px solid var(--line); border-radius:20px; background:var(--card); display:inline-flex; align-items:center; gap:6px; font-size:15px; }
 .chip.x{ padding:0 10px; color:var(--muted); }
