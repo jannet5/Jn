@@ -177,10 +177,15 @@
     var had = ptrs[e.pointerId]; delete ptrs[e.pointerId];
     if (!had) return;
     if (mode === 'pinch') { if (count() < 2) { mode = (count() === 0) ? null : 'scroll'; pinch = null; store.set('fs', fs); } return; }
-    if (mode === 'drag' && count() === 0) {
-      var dx = e.clientX - sx, dir = 0;
-      if (e.type !== 'pointercancel' && (Math.abs(dx) > W * 0.22 || (Math.abs(vx) > 0.45 && Math.abs(dx) > 24))) dir = (dx > 0) ? 1 : -1;   // eşik veya hız
-      if (dir !== 0 && page + dir >= 1 && page + dir <= N) turn(dir); else place(0, true);   // çevir ya da geri dön
+    // Sürükleme (move olayları geldiyse) ya da hızlı çekiş (yavaş/eski WebView'da move olayı hiç gelmeyebilir: karar bırakma anındaki konumdan verilir)
+    if ((mode === 'drag' || mode === null) && count() === 0) {
+      var cancel = e.type === 'pointercancel';
+      var dx = (cancel ? lastX : e.clientX) - sx, dy = (cancel ? sy : e.clientY) - sy;   // toplam yer değiştirme
+      var dt = Math.max(1, e.timeStamp - st), dir = 0;                                    // süre (ms)
+      var horizontal = mode === 'drag' || (Math.abs(dx) > 24 && Math.abs(dx) > Math.abs(dy) * 1.5);   // yatay mı
+      var speed = Math.max(Math.abs(vx), Math.abs(dx) / dt);                              // px/ms
+      if (horizontal && (Math.abs(dx) > W * 0.22 || (speed > 0.45 && Math.abs(dx) > 24))) dir = (dx > 0) ? 1 : -1;   // eşik veya hız
+      if (dir !== 0 && page + dir >= 1 && page + dir <= N) turn(dir); else if (mode === 'drag') place(0, true);   // çevir ya da geri dön
     }
     if (count() === 0) mode = null;
   }
