@@ -41,7 +41,8 @@ class ItemAdapter(
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val vh = VH(LayoutInflater.from(parent.context).inflate(R.layout.item_row, parent, false))
-        vh.itemView.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onToggle(items[it].id) } }
+        // Surukleme suresince gelen dokunus ustunu cizmez (uzun basip birakinca yanlislikla isaretlenmesin).
+        vh.itemView.setOnClickListener { if (!dragging) vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onToggle(items[it].id) } }
         vh.delete.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onDelete(items[it].id) } }
         vh.bell.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onBell(items[it]) } }
         vh.handle.setOnTouchListener { _, e ->
@@ -51,7 +52,14 @@ class ItemAdapter(
         return vh
     }
 
+    /** Geri donusturulen satirda onceki surukleme buyutmesi/golgesi kalmasin. */
+    private fun resetLift(h: VH) {
+        if (dragging) return
+        h.itemView.scaleX = 1f; h.itemView.scaleY = 1f; h.itemView.translationZ = 0f
+    }
+
     override fun onBindViewHolder(h: VH, position: Int) {
+        resetLift(h)
         val it = items[position]
         h.text.text = it.text
         h.text.set(it.done, false)
@@ -84,6 +92,7 @@ class ItemAdapter(
 
     override fun onBindViewHolder(h: VH, position: Int, payloads: MutableList<Any>) {
         if (payloads.isEmpty()) return onBindViewHolder(h, position)
+        resetLift(h)
         val it = items[position]
         h.text.set(it.done, true)
         h.dot.set(it.done, true)

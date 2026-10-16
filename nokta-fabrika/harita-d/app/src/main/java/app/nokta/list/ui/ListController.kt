@@ -182,7 +182,10 @@ class ListController(
 
         override fun clearView(rv: RecyclerView, vh: RecyclerView.ViewHolder) {
             super.clearView(rv, vh)
-            vh.itemView.animate().scaleX(1f).scaleY(1f).translationZ(0f).setDuration(150).start()
+            // Animasyonla degil kesin olarak yerine oturt: liste guncellemesinin animasyonu bunu yarida kesebiliyordu
+            // ve satir buyutulmus/golgeli kaliyordu (yavas dokunusta uzun basma -> birakma).
+            vh.itemView.animate().cancel()
+            vh.itemView.scaleX = 1f; vh.itemView.scaleY = 1f; vh.itemView.translationZ = 0f
             if (adapter.dragging) {
                 if (from >= 0 && from != to) repo.move(from, to)
                 from = -1; to = -1
