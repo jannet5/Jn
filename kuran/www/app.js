@@ -233,7 +233,8 @@
   function applyTheme() {
     if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
     var dark = theme === 'dark' || (!theme && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
-    document.querySelector('meta[name=theme-color]').setAttribute('content', theme ? TCOL[theme] : (dark ? TCOL.dark : TCOL.light));
+    var tc = document.querySelector('meta[name=theme-color]');                       // tarayıcı çubuğu rengi (etiket yoksa atla)
+    if (tc) tc.setAttribute('content', theme ? TCOL[theme] : (dark ? TCOL.dark : TCOL.light));
   }
   $('bTheme').addEventListener('click', function () {
     var i = THEMES.indexOf(theme); theme = THEMES[(i + 1) % THEMES.length];
