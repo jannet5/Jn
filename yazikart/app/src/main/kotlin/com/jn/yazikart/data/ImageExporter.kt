@@ -84,4 +84,53 @@ object ImageExporter {
         }
         context.startActivity(Intent.createChooser(send, "Paylaş").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) // uygulama seçme penceresi
     }
+
+    // Videoyu galeriye (Filmler/YaziKart) kaydeder
+    fun saveVideoToGallery(context: Context, file: File): Uri {
+        val name = "YaziKart_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date()) + ".mp4" // tarihli ad
+        val resolver = context.contentResolver // galeri veritabanı
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) { // Android 10 ve üstü: izin gerekmez
+            val values = ContentValues().apply { // dosya bilgileri
+                put(MediaStore.Video.Media.DISPLAY_NAME, name) // ad
+                put(MediaStore.Video.Media.MIME_TYPE, "video/mp4") // tür
+                put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/" + FOLDER) // Filmler/YaziKart
+                put(MediaStore.Video.Media.IS_PENDING, 1) // yazma bitene kadar gizli
+            }
+            val uri = resolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values) ?: error("Galeride dosya oluşturulamadı") // yer açılıyor
+            try { // kopyalama deneniyor
+                resolver.openOutputStream(uri)?.use { out -> file.inputStream().use { it.copyTo(out) } } ?: error("Dosya açılamadı") // video kopyalanıyor
+                values.clear() // bilgiler temizleniyor
+                values.put(MediaStore.Video.Media.IS_PENDING, 0) // artık görünsün
+                resolver.update(uri, values, null, null) // güncelleniyor
+            } catch (e: Exception) { // hata olursa
+                resolver.delete(uri, null, null) // yarım dosya siliniyor
+                throw e // hata iletiliyor
+            }
+            return uri // galerideki adres
+        } else { // Android 9 ve altı
+            @Suppress("DEPRECATION") // eski API, sadece eski telefonlarda
+            val dir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), FOLDER) // Filmler/YaziKart
+            dir.mkdirs() // klasör oluşturuluyor
+            val target = File(dir, name) // hedef
+            file.copyTo(target, overwrite = true) // kopyalanıyor
+            val values = ContentValues().apply { // galeriye tanıtılıyor
+                put(MediaStore.Video.Media.DISPLAY_NAME, name) // ad
+                put(MediaStore.Video.Media.MIME_TYPE, "video/mp4") // tür
+                @Suppress("DEPRECATION") // eski telefonlarda yol böyle bildirilir
+                put(MediaStore.Video.Media.DATA, target.absolutePath) // yol
+            }
+            return resolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values) ?: Uri.fromFile(target) // ekleniyor
+        }
+    }
+
+    // Videoyu paylaşma penceresiyle paylaşır (dosya önbellekteki "paylas" klasöründe olmalı)
+    fun shareVideo(context: Context, file: File) {
+        val uri = FileProvider.getUriForFile(context, context.packageName + ".fileprovider", file) // güvenli adres
+        val send = Intent(Intent.ACTION_SEND).apply { // paylaşma isteği
+            type = "video/mp4" // video türü
+            putExtra(Intent.EXTRA_STREAM, uri) // dosya
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // okuma izni
+        }
+        context.startActivity(Intent.createChooser(send, "Paylaş").addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) // uygulama seçme penceresi
+    }
 }

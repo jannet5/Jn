@@ -13,8 +13,8 @@ android {
         applicationId = "com.jn.yazikart" // telefondaki uygulama kimliği
         minSdk = 26 // Android 8.0 ve üstü telefonlarda çalışır
         targetSdk = 34 // Android 14 hedefleniyor
-        versionCode = 6 // mağaza sürüm numarası
-        versionName = "1.0.5" // kullanıcıya görünen sürüm
+        versionCode = 7 // mağaza sürüm numarası
+        versionName = "1.1.0" // kullanıcıya görünen sürüm
     }
 
     signingConfigs {
@@ -33,7 +33,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false // kod küçültme kapalı (basit uygulama)
+            isMinifyEnabled = true // kullanılmayan kod atılır: uygulama daha küçük ve hafif olur
+            isShrinkResources = true // kullanılmayan kaynaklar da atılır
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro") // varsayılan kurallar
             if (rootProject.file("keystore.properties").exists()) { // imza dosyası varsa
                 signingConfig = signingConfigs.getByName("release") // release APK'sı imzalanıyor
@@ -92,6 +93,13 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.6.0") // internetten görsel yükleme
     implementation("com.squareup.okhttp3:okhttp:4.12.0") // internet istekleri
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1") // arka plan işleri
+
+    // Video: Android'in kendi (Google) video kütüphanesi. Telefonun donanım kodlayıcısını kullanır,
+    // FFmpeg gibi ağır bir motor eklemez; uygulama hafif kalır.
+    val media3 = "1.4.1" // sürüm
+    implementation("androidx.media3:media3-exoplayer:$media3") // videoyu oynatma (önizleme)
+    implementation("androidx.media3:media3-transformer:$media3") // videoları birleştirme, kırpma, yazıyı videoya basma
+    implementation("androidx.media3:media3-effect:$media3") // yazı katmanı ve boyutlandırma efektleri
 
     testImplementation("junit:junit:4.13.2") // birim test kütüphanesi
     testImplementation("org.json:json:20240303") // testlerde gerçek JSON ayrıştırıcı

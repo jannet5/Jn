@@ -34,9 +34,12 @@ object PostRenderer {
         fakeBold: Boolean, // kalın dosya yoksa yapay kalınlık
         image: Bitmap?, // arka plan resmi (yoksa sadece renk)
         placeholder: String? = null, // yazı boşken önizlemede gösterilecek ipucu
+        videoMode: Boolean = false, // arka planda video varsa: zemin çizilmez, sadece karartma + yazı (video katmanının üstüne)
     ) {
-        canvas.drawColor(style.backgroundColor) // önce zemin rengi boyanıyor
-        if (image != null) { // arka plan resmi varsa
+        if (videoMode) { // video üstü yazı katmanı
+            if (style.dim > 0f) canvas.drawColor(Color.argb((style.dim * 255).toInt(), 0, 0, 0)) // videoyu biraz karart
+        } else canvas.drawColor(style.backgroundColor) // önce zemin rengi boyanıyor
+        if (!videoMode && image != null) { // arka plan resmi varsa
             drawCenterCrop(canvas, image, w, h) // resim ortadan kırpılarak tüm alana yayılıyor
             if (style.dim > 0f) { // karartma isteniyorsa
                 canvas.drawColor(Color.argb((style.dim * 255).toInt(), 0, 0, 0)) // üstüne yarı saydam siyah çekiliyor
@@ -139,6 +142,13 @@ object PostRenderer {
             val topY = (srcH - cropH) / 2 // üstten ve alttan eşit kırpılıyor
             CropBox(0, topY, srcW, topY + cropH) // ortadaki bölge
         }
+    }
+
+    // Videoya basılacak saydam yazı katmanını tam boyutta üretir (karartma dahil)
+    fun renderOverlay(style: PostStyle, typeface: Typeface, fakeBold: Boolean): Bitmap {
+        val bmp = Bitmap.createBitmap(style.aspect.width, style.aspect.height, Bitmap.Config.ARGB_8888) // saydam boş görsel
+        draw(Canvas(bmp), bmp.width, bmp.height, style, typeface, fakeBold, null, videoMode = true) // yazı ve karartma çiziliyor
+        return bmp // katman hazır
     }
 
     // Kaydetmek/paylaşmak için tam boyutlu görsel üretir (örn. 1080x1350)

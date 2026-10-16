@@ -29,3 +29,13 @@ object GooglePick {
         return decoded.takeIf { it.startsWith("http://") || it.startsWith("https://") } // sadece internet adresi kabul
     }
 }
+
+// Ücretsiz video sitesi (Pexels) adresleri: videoları indirmeye ve her yerde kullanmaya izin verir
+object VideoSite {
+    // Pexels'te video arama adresi (Türkçe)
+    fun searchUrl(query: String): String {
+        val q = java.net.URLEncoder.encode(query.trim(), "UTF-8").replace("+", "%20") // kelime adrese kodlanıyor (boşluk %20)
+        return "https://www.pexels.com/tr-tr/arama/videos/$q/" // arama sayfası
+    }
+    const val HOME = "https://www.pexels.com/tr-tr/videolar/" // video ana sayfası
+}

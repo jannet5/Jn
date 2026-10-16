@@ -81,6 +81,7 @@ fun EditorScreen(
     onShare: () -> Unit, // paylaş
     onReset: () -> Unit, // baştan başla
     onFullscreen: () -> Unit, // tam ekran
+    video: VideoUi, // video ile ilgili durum ve işler
 ) {
     val snackbar = remember { SnackbarHostState() } // alt mesaj durumu
     LaunchedEffect(message) { // yeni mesaj gelince
@@ -132,7 +133,7 @@ fun EditorScreen(
                     Icon(Icons.Default.Refresh, contentDescription = "Baştan başla") // yenile ikonu
                 }
             }
-            Preview(style, image, busy, onFullscreen) // canlı önizleme (sağ üstte tam ekran)
+            Preview(style, image, busy, onFullscreen, video) // canlı önizleme (sağ üstte tam ekran)
             Spacer(Modifier.height(16.dp)) // boşluk
             OutlinedTextField( // yazının yazıldığı kutu
                 value = style.text, // güncel yazı
@@ -151,10 +152,10 @@ fun EditorScreen(
             }
             Spacer(Modifier.height(16.dp)) // boşluk
             when (tab) { // seçili sekmenin paneli
-                0 -> BackgroundPanel(style, image != null, online, onStyle, onOpenSearch, onPickGallery, onClearImage) // zemin
+                0 -> BackgroundPanel(style, image != null, online, onStyle, onOpenSearch, onPickGallery, onClearImage, video) // zemin
                 1 -> FontPanel(style, onStyle) // yazı tipi
                 2 -> TextPanel(style, onStyle) // yazı ayarları
-                else -> SizePanel(style, onStyle) // görsel boyutu
+                else -> SizePanel(style, onStyle, video.hasVideo) // görsel boyutu
             }
             Spacer(Modifier.height(24.dp)) // alt boşluk
         }
@@ -163,7 +164,7 @@ fun EditorScreen(
 
 // Canlı önizleme: kaydedilecek görselin birebir küçültülmüş hali + sağ üstte tam ekran düğmesi
 @Composable
-private fun Preview(style: PostStyle, image: Bitmap?, busy: String?, onFullscreen: () -> Unit) {
+private fun Preview(style: PostStyle, image: Bitmap?, busy: String?, onFullscreen: () -> Unit, video: VideoUi) {
     BoxWithConstraints(Modifier.fillMaxWidth().padding(horizontal = 16.dp), contentAlignment = Alignment.Center) { // ortalı alan
         val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
         val maxH = (LocalConfiguration.current.screenHeightDp * 0.42f).dp // önizleme ekran yüksekliğinin en çok %42'si (yazı kutusu görünür kalsın)
@@ -175,7 +176,7 @@ private fun Preview(style: PostStyle, image: Bitmap?, busy: String?, onFullscree
                 .clickable(onClick = onFullscreen), // önizlemeye dokununca da tam ekran açılır
             contentAlignment = Alignment.Center, // gösterge ortada
         ) {
-            PostCanvas(style, image, Modifier.fillMaxSize()) // görsel
+            PostSurface(style, image, video.hasVideo, video.player, Modifier.fillMaxSize()) // görsel ya da video + yazı
             FullscreenButton(onFullscreen, Modifier.align(Alignment.TopEnd).padding(4.dp)) // sağ üst köşede tam ekran düğmesi
             if (busy != null) { // iş sürüyorsa
                 Surface(shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surface.copy(alpha = 0.9f)) { // yarı saydam kutu

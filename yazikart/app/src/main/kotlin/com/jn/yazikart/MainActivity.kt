@@ -21,6 +21,8 @@ import com.jn.yazikart.ui.EditorScreen // ana ekran
 import com.jn.yazikart.ui.EditorViewModel // ana ekranın beyni
 import com.jn.yazikart.ui.FullscreenScreen // tam ekran
 import com.jn.yazikart.ui.GoogleImagesScreen // Google Görseller ekranı
+import com.jn.yazikart.ui.VideoSearchScreen // internetten video ekranı
+import com.jn.yazikart.ui.VideoUi // video durumu paketi
 import com.jn.yazikart.ui.YaziKartTheme // tema
 
 // Uygulamanın tek ekranı (Activity). Ana ekran ile arama ekranı arasında geçiş burada yapılır.
@@ -40,6 +42,21 @@ class MainActivity : ComponentActivity() {
                 val online by vm.online.collectAsStateWithLifecycle() // internet durumu
                 var showSearch by rememberSaveable { mutableStateOf(false) } // arama ekranı açık mı
                 var showFullscreen by rememberSaveable { mutableStateOf(false) } // tam ekran açık mı
+                var showVideoSearch by rememberSaveable { mutableStateOf(false) } // video arama ekranı açık mı
+                val clips by vm.clips.collectAsStateWithLifecycle() // arka plan videoları
+                val videoPicker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri -> // galeriden video seçici
+                    if (uri != null) vm.addVideo(uri) // seçildiyse eklenir
+                }
+                val video = VideoUi( // video durumu ve işleri tek pakette
+                    clips = clips, // videolar
+                    player = vm.player, // önizleme oynatıcısı
+                    onSearch = { showVideoSearch = true }, // video ara ekranı
+                    onGallery = { videoPicker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly)) }, // galeriden video
+                    onRange = vm::setClipRange, // aralık değişti
+                    onRangeDone = vm::commitClipRange, // aralık ayarı bitti
+                    onMoveUp = vm::moveClipUp, // yukarı al
+                    onRemove = vm::removeClip, // kaldır
+                )
 
                 val galleryPicker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri -> // galeri seçici
                     if (uri != null) vm.pickFromGallery(uri) // seçildiyse arka plan yapılıyor
@@ -48,12 +65,20 @@ class MainActivity : ComponentActivity() {
                     if (granted) vm.saveToGallery() // izin verildiyse kaydediliyor
                 }
 
-                if (showFullscreen) { // tam ekran: görsel Reels'teki gibi ekranı kaplar
+                if (showVideoSearch) { // internetten video ekranı
+                    VideoSearchScreen(
+                        busy = busy, // indirme durumu
+                        onDownload = { url, ua, cookies -> vm.downloadVideo(url, ua, cookies) { showVideoSearch = false } }, // indirip ekle, ekranı kapat
+                        onClose = { showVideoSearch = false }, // kapat
+                    )
+                } else if (showFullscreen) { // tam ekran: görsel Reels'teki gibi ekranı kaplar
                     FullscreenScreen(
                         style = style, // stil
                         image = image, // resim
                         onStyle = vm::updateStyle, // yazı değiştir
                         onClose = { showFullscreen = false }, // kapat
+                        hasVideo = video.hasVideo, // video var mı
+                        player = vm.player, // oynatıcı
                     )
                 } else if (showSearch) { // Google Görseller ekranı
                     GoogleImagesScreen(
@@ -85,9 +110,13 @@ class MainActivity : ComponentActivity() {
                         onShare = vm::share, // paylaş
                         onReset = vm::resetAll, // baştan başla
                         onFullscreen = { showFullscreen = true }, // tam ekranı aç
+                        video = video, // video durumu ve işleri
                     )
                 }
             }
         }
     }
+
+    override fun onStop() { super.onStop(); vm.pausePreview() } // uygulama arka plana gidince video durur
+    override fun onStart() { super.onStart(); vm.resumePreview() } // geri gelince devam eder
 }

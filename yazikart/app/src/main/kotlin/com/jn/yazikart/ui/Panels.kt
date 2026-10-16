@@ -58,6 +58,13 @@ import com.jn.yazikart.data.FontCatalog // yazı tipleri
 import com.jn.yazikart.data.MAX_TEXT_SIZE // en büyük yazı boyu
 import com.jn.yazikart.data.MIN_TEXT_SIZE // en küçük yazı boyu
 import com.jn.yazikart.data.PostStyle // görsel ayarları
+import com.jn.yazikart.data.Clips // video süre hesapları
+import androidx.compose.material.icons.filled.Movie // video ikonu
+import androidx.compose.material.icons.filled.VideoLibrary // video galerisi ikonu
+import androidx.compose.material.icons.filled.ArrowUpward // yukarı ok
+import androidx.compose.material.icons.filled.Delete // silme ikonu
+import androidx.compose.material3.IconButton // ikon buton
+import androidx.compose.material3.RangeSlider // iki tutamaçlı kaydırıcı
 import com.jn.yazikart.data.TextAlign // yatay hiza
 import com.jn.yazikart.data.VerticalPos // dikey konum
 
@@ -84,6 +91,7 @@ fun BackgroundPanel(
     onOpenSearch: () -> Unit, // internetten ara
     onPickGallery: () -> Unit, // galeriden seç
     onClearImage: () -> Unit, // resmi kaldır
+    video: VideoUi, // video durumu ve işleri
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) { // alt alta
         Label("Zemin rengi") // başlık
@@ -103,7 +111,9 @@ fun BackgroundPanel(
                 Text("Galeriden") // etiket
             }
         }
-        if (hasImage) { // resim varsa ek ayarlar
+        VideoSection(online, video) // arka plan videoları
+
+        if (hasImage || video.hasVideo) { // resim ya da video varsa karartma
             Label("Karartma (yazı daha net okunsun)") // başlık
             Slider( // karartma kaydırıcısı
                 value = style.dim, // güncel değer
@@ -111,11 +121,57 @@ fun BackgroundPanel(
                 valueRange = 0f..0.8f, // en fazla %80
                 modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
             )
-            TextButton(onClick = onClearImage, modifier = Modifier.padding(horizontal = 8.dp)) { // resmi kaldır
+            if (hasImage) TextButton(onClick = onClearImage, modifier = Modifier.padding(horizontal = 8.dp)) { // resmi kaldır
                 Icon(Icons.Default.Close, contentDescription = null) // ikon
                 Spacer(Modifier.width(8.dp)) // boşluk
                 Text("Görseli kaldır, sadece renk kalsın") // etiket
             }
+        }
+    }
+}
+
+// Arka plan videoları: ekleme düğmeleri + her video için sıra, süre ayarı ve silme
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun VideoSection(online: Boolean, video: VideoUi) {
+    Spacer(Modifier.height(12.dp)) // bölümler arası boşluk
+    Label("Arka plan videosu") // başlık
+    Row(Modifier.padding(horizontal = SIDE), horizontalArrangement = Arrangement.spacedBy(12.dp)) { // yan yana iki buton
+        OutlinedButton(onClick = video.onSearch, enabled = online, modifier = Modifier.weight(1f).height(48.dp)) { // internetten video
+            Icon(if (online) Icons.Default.Movie else Icons.Default.WifiOff, contentDescription = null) // ikon
+            Spacer(Modifier.width(8.dp)) // boşluk
+            Text(if (online) "Video ara" else "İnternet yok") // etiket
+        }
+        OutlinedButton(onClick = video.onGallery, modifier = Modifier.weight(1f).height(48.dp)) { // galeriden video
+            Icon(Icons.Default.VideoLibrary, contentDescription = null) // ikon
+            Spacer(Modifier.width(8.dp)) // boşluk
+            Text("Galeriden") // etiket
+        }
+    }
+    if (!video.hasVideo) return // video yoksa liste gösterilmez
+    Text( // toplam süre
+        "${video.clips.size} video arka arkaya · toplam ${Clips.format(Clips.totalMs(video.clips))}", // örn. 2 video · 0:12
+        style = MaterialTheme.typography.bodyMedium, // gövde yazısı
+        color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
+        modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
+    )
+    video.clips.forEachIndexed { i, clip -> // her video
+        Column(Modifier.padding(horizontal = SIDE)) { // video satırı
+            Row(verticalAlignment = Alignment.CenterVertically) { // başlık satırı
+                Text( // video adı ve aralığı
+                    "${i + 1}. video · ${Clips.format(clip.startMs)}–${Clips.format(clip.endMs)} (${Clips.format(clip.lengthMs)})", // örn. 1. video · 0:02–0:07 (0:05)
+                    style = MaterialTheme.typography.bodyLarge, // gövde yazısı
+                    modifier = Modifier.weight(1f), // kalan genişlik
+                )
+                if (i > 0) IconButton(onClick = { video.onMoveUp(i) }) { Icon(Icons.Default.ArrowUpward, contentDescription = "Yukarı al") } // sırayı değiştir
+                IconButton(onClick = { video.onRemove(i) }) { Icon(Icons.Default.Delete, contentDescription = "Videoyu kaldır") } // sil
+            }
+            RangeSlider( // oynama aralığı: soldaki tutamaç başlangıç, sağdaki bitiş
+                value = clip.startMs.toFloat()..clip.endMs.toFloat(), // güncel aralık
+                onValueChange = { r -> video.onRange(i, r.start.toLong(), r.endInclusive.toLong()) }, // kaydırırken
+                onValueChangeFinished = { video.onRangeDone(i) }, // bırakınca önizleme o videodan oynar
+                valueRange = 0f..clip.durationMs.toFloat(), // videonun tamamı
+            )
         }
     }
 }
@@ -206,7 +262,7 @@ fun TextPanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
 
 // BOYUT sekmesi: kare / dikey / hikaye
 @Composable
-fun SizePanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
+fun SizePanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit, hasVideo: Boolean = false) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) { // alt alta
         Label("Görsel boyutu") // başlık
         Segmented( // oran seçimi
@@ -221,6 +277,15 @@ fun SizePanel(style: PostStyle, onStyle: ((PostStyle) -> PostStyle) -> Unit) {
         )
         Spacer(Modifier.height(12.dp)) // bölümler arası boşluk
         Label("Kayıt biçimi") // başlık
+        if (hasVideo) { // video varsa MP4 kaydedilir
+            Text(
+                "Arka planda video var: MP4 video olarak kaydedilir (yazı videonun üstüne basılır).", // açıklama
+                style = MaterialTheme.typography.bodyMedium, // gövde yazısı
+                color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
+                modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
+            )
+            return@Column // PNG/JPEG seçimi gösterilmez
+        }
         FormatToggle(style.format) { f -> onStyle { it.copy(format = f) } } // PNG / JPEG
         Text( // biçimlerin farkı
             if (style.format == ExportFormat.PNG) "PNG: kayıpsız, yazılar jilet gibi net." else "JPEG: daha küçük dosya, fotoğraflı zeminde ideal.", // açıklama
