@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<!-- Pinch ile tarayıcı yakınlaştırması kapalı: yakınlaştırma yazıyı büyütür ve yeniden dizer (kaydırma gerekmez) -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#fbf8f0">
+<meta name="description" content="Hafif ve hızlı Kur'an okuyucu. Medine Mushafı sayfaları, 604 sayfa, çevrimdışı çalışır.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preload" href="fonts/amiri-quran.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<title>Kur'an Okuyucu</title>
+</head>
+<body>
+<!-- Üst çubuk: Git | konum bilgisi | yazıyı küçült | büyüt | tema -->
+<header id="bar">
+  <button id="bGit" class="btn wide" type="button" aria-label="Sure, cüz veya sayfaya git">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <span>Git</span>
+  </button>
+  <button id="ttl" class="ttl" type="button" aria-label="Konum">
+    <b id="tSure">Kur'an</b>
+    <small id="tInfo"></small>
+  </button>
+  <button id="bMinus" class="btn zoom" type="button" aria-label="Yazıyı küçült"><span class="za">A</span><span class="zs">−</span></button>
+  <button id="bPlus" class="btn zoom" type="button" aria-label="Yazıyı büyüt"><span class="za big">A</span><span class="zs">+</span></button>
+  <button id="bTheme" class="btn" type="button" aria-label="Tema değiştir">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+  </button>
+</header>
+
+<!-- Okuma alanı: önceki sayfa sağda, şimdiki ortada, sonraki solda (Kur'an sağdan sola çevrilir) -->
+<main id="view">
+  <section class="pg" id="pgP" aria-hidden="true"></section>
+  <section class="pg" id="pgC" aria-live="off"></section>
+  <section class="pg" id="pgN" aria-hidden="true"></section>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- Git paneli: Sure | Cüz | Sayfa yan yana, aynı anda yalnızca biri geçerli -->
+<div id="sheet" class="sheet" aria-hidden="true">
+  <div class="panel" role="dialog" aria-modal="true" aria-label="Git">
+    <div class="top">
+      <b>Git</b>
+      <button id="bClose" class="btn" type="button" aria-label="Kapat">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="cols">
+      <label class="col" id="cSure"><span>Sure</span><input id="fSure" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ma… ya da 5" enterkeyhint="go"></label>
+      <label class="col" id="cCuz"><span>Cüz</span><input id="fCuz" type="text" inputmode="numeric" autocomplete="off" placeholder="1–30" enterkeyhint="go"></label>
+      <label class="col" id="cSayfa"><span>Sayfa</span><input id="fSayfa" type="text" inputmode="numeric" autocomplete="off" placeholder="1–604" enterkeyhint="go"></label>
+      <button id="bGo" class="go" type="button">Git</button>
+    </div>
+    <ul id="list" role="listbox" aria-label="Seçenekler"></ul>
+    <div class="foot">
+      <div class="chips" id="chips"></div>
+    </div>
+  </div>
+</div>
+
+<noscript><p style="padding:24px">Kur'an Okuyucu için JavaScript gerekir.</p></noscript>
+<script src="data.js" charset="utf-8" defer></script>
+<script src="app.js" charset="utf-8" defer></script>
+</body>
+</html>
