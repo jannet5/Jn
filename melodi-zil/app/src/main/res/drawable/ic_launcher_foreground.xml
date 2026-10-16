@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Uygulama ikonu ön planı: "ses dalgası → nota" (6 varyasyon arasından bağımsız değerlendirici seçti, bkz. fabrika/IKON_SECIMI.md). 108dp tuval, güvenli alan 66dp. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M26,50 L30.5,50 L30.5,58 L26,58 Z" android:fillColor="#FFFFFF" android:fillAlpha="1" />
+    <path android:pathData="M32.5,44 L37,44 L37,64 L32.5,64 Z" android:fillColor="#FFFFFF" android:fillAlpha="1" />
+    <path android:pathData="M39,40 L43.5,40 L43.5,68 L39,68 Z" android:fillColor="#FFFFFF" android:fillAlpha="1" />
+    <path android:pathData="M45.5,46 L50,46 L50,62 L45.5,62 Z" android:fillColor="#FFFFFF" android:fillAlpha="0.7" />
+    <path android:pathData="M62,33 L66,33 L66,64 A7.5,6.5 0 1 1 62,58.8 Z" android:fillColor="#FFFFFF" android:fillAlpha="1" />
+    <path android:pathData="M66,33 C71.5,35 75.5,39.5 74.5,47 C72.5,43 69.5,41 66,41 Z" android:fillColor="#FFFFFF" android:fillAlpha="1" />
+    <path android:pathData="M77.5,52 A6,6 0 0 1 77.5,62" android:strokeColor="#FFFFFF" android:strokeWidth="3" android:strokeLineCap="round" android:strokeAlpha="0.6" />
+</vector>
