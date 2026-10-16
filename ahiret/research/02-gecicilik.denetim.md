@@ -64,7 +64,7 @@ Denetim: bağımsız denetçi. Betik: `araclar/ayet_dogrula.py` (12 ayet bloğu,
 | 50.000 / 80 = 625 ömür | doğru | |
 | Bin yıllık gün = 24 saat ise 80 yıl ≈ 1 sa 55 dk | doğru | 80/1000 × 24 sa = 1,92 sa = 1 sa 55,2 dk |
 | Elli bin yıllık gün = 24 saat ise 80 yıl ≈ 2 dk 18 sn | doğru | 80/50000 × 1440 dk = 2,304 dk = 2 dk 18,2 sn |
-| Logaritmik şema ölçeği | doğru | Çentik aralığı 79,2 birim/dekat; çubuk uzunlukları: log10(80)=1,903 → 150,7; log10(1000)=3 → 237,6; log10(50000)=4,699 → 372,2 — şemadaki değerlerle birebir. Başlıktaki "doğrusal çizsek 625'te biri" doğru |
+| Logaritmik şema ölçeği | doğru | Çentik aralığı 79,2 birim/on katı; çubuk uzunlukları: log10(80)=1,903 → 150,7; log10(1000)=3 → 237,6; log10(50000)=4,699 → 372,2 — şemadaki değerlerle birebir. Başlıktaki "doğrusal çizsek 625'te biri" doğru |
 | Küresel yaşam beklentisi 2019 ≈ 73 | doğru, ifade sadeleştirildi | WHO World Health Statistics 2021: 73,3 (2019); sonraki baskılarda 73,1'e revize. "(73,3)" parantezi çıkarıldı, "yaklaşık 73" kaldı |
 | "Meâric 70:4 / Hac 22:47 farklı bağlam, dönüşüm formülü değil" uyarısı | doğru | Doğru ve yeterince belirgin |
 | Berzah/kıyamet süresi gayb notu | doğru | Şemada berzah çizilmemiş |
