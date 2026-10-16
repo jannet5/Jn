@@ -31,11 +31,11 @@ Durum: ⬜ başlamadı · 🛠️ yapılıyor · ✅ yapıldı+doğrulandı · �
 
 | # | İstek | Durum | Kanıt / not |
 |---|---|---|---|
-| 23 | Melodi dinleyince şarkı olduğu anlaşılsın (en önemli şart) | 🛠️ | ölçüm → algoritma sırası |
-| 24 | Önce ölçüm altyapısı (mir_eval RPA + nota F), açık veri + ≥5 gerçek pop şarkısı | 🛠️ | araclar/degerlendirme |
-| 25 | Hedef: doğru perde ≥ %80, nota F ≥ 0.65 (gerçek şarkıda) | ⬜ | |
-| 26 | Hazır modelleri ölçerek seç (Demucs/Spleeter, RMVPE/CREPE/FCPE, basic-pitch); seçimi sayıyla gerekçelendir | 🛠️ | |
-| 27 | Titreme/kayma/kırık nota temizle, tona (gam) oturt | ⬜ | |
+| 23 | Melodi dinleyince şarkı olduğu anlaşılsın (en önemli şart) | 🛠️ | sayılar iyi (RPA %92+), kulakla doğrulama için şarkı örnekleri tur 2 |
+| 24 | Önce ölçüm altyapısı (mir_eval RPA + nota F), açık veri + ≥5 gerçek pop şarkısı | ⚠️ | olc.py + MIR-1K + Vocadito ✅; gerçek pop şarkısı YouTube botu yüzünden yok (Ç-015) |
+| 25 | Hedef: doğru perde ≥ %80, nota F ≥ 0.65 (gerçek şarkıda) | ⚠️ | perde %92 ✅; nota F 0,64–0,665 (ham), 0,61–0,62 (yuvarlanmış) |
+| 26 | Hazır modelleri ölçerek seç (Demucs/Spleeter, RMVPE/CREPE/FCPE, basic-pitch); seçimi sayıyla gerekçelendir | 🛠️ | RMVPE ayırmasız seçildi (Ç-014); CREPE/basic-pitch/FCPE ölçümleri sürüyor |
+| 27 | Titreme/kayma/kırık nota temizle, tona (gam) oturt | ⚠️ | Viterbi nota temizleme + akort düzeltmeli yuvarlama ✅; gam (anahtar) oturtma tur 2 |
 | 28 | ≥3 bilinen şarkı için 30 sn melodi MP3 örneği (kullanıcı dinleyip onaylayacak) | ⬜ | |
 | 29 | Kotlin+Compose+M3, minSdk 26, targetSdk 35 | ✅ (önceki kod) | |
 | 30 | Uzun işler ön plan servisi + bildirim; boş ekran asla; süreç ölünce "Tekrar dene" | ⚠️ (önceki kod, yeniden test edilecek) | |

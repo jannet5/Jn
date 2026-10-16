@@ -61,3 +61,17 @@
 - Çözüm: (1) `service/ProcessingService.kt`: işlem sürerken ön plan servisi (dataSync) + ilerleme bildirimi; telefon süreci arka planda öldürmez. (2) `AppViewModel`: `SavedStateHandle` ile "işlem sürüyordu" bayrağı ve son bağlantı/dosya; süreç öldürülüp uygulama geri gelirse `Interrupted` durumu → "İşlem yarıda kaldı" + Tekrar dene. Dosya için `takePersistableUriPermission`. (3) Android 13+ bildirim izni işlem başlarken istenir. (4) Alt yazı gerçek süreye göre düzeltildi.
 - Doğrulama: `araclar/emu_kesinti_testi.sh` (işlem başlat → servis/bildirim kontrolü → HOME → `am kill` (servis varken öldürmemeli) → root `kill -9` (düşük bellek öldürmesi taklidi) → yeniden aç → "yarıda kaldı" → Tekrar dene).
 - Kural: Her ekran, ViewModel'in alabileceği HER durumu çizmeli; "else -> boş" yasak. Uzun süren iş (≥10 sn) ön plan servisiyle korunur ve süreç ölümü testi koşulur.
+
+## Ç-014: "Melodi şarkıya benzemiyor" (doğru perde %30–67)
+- Belirti: Eski hat (Spleeter vokal ayırma + Melodia) gerçek şarkı karışımında doğru perdeyi %31–67 buluyordu; çıkan ezgi tanınmıyordu.
+- Kök neden: Ayırma hatası perde takibine biniyordu (iki aşamalı hatanın çarpımı). Ayrıca önceki ölçüm tek bir sentetik testle "çalışıyor" sayılmıştı.
+- Çözüm (ölçerek seçildi, tur 1): vokal ayırma YOK; RMVPE'yi doğrudan karışık sese ver. Sonra perde eğrisini Viterbi ile "parçalı sabit yarım ton" notalara böl (titreme/kayma ceza ile yutulur, min 120 ms), şarkının akort kaymasını düzeltip yarım tona yuvarla (`arastirma/ortak/nota_cikar.py`).
+- Sayılar (MIR-1K karışım, 100 klip): pYIN doğru perde %29,7 → RMVPE %92,4 (ayırmasız). Demucs+RMVPE (10 klip) %94,5 ama 18× yavaş (RTF 1,85 vs 0,06–0,10) → telefonda anlamsız. Nota F (Vocadito, insan işaretli): 0,46 → 0,64; MIR-1K karışım: 0,665 (yarım tona yuvarlanınca 0,61–0,62).
+- Doğrulama: `python -I araclar/degerlendirme/olc.py --aday rmvpe_mix --veri mir1k --mod mix` (sonuçlar `arastirma/sonuc/`). Kalan: telefonda çalışacak model boyutu/hızı, gerçek pop şarkısında kulakla doğrulama.
+- Kural: Yeni yöntem eklemeden önce `olc.py` ile gerçek karışımda ölç; tek sentetik teste güvenme.
+
+## Ç-015: YouTube bu sandbox'tan yt-dlp ile inmiyor
+- Belirti: yt-dlp "Sign in to confirm you're not a bot", yalnızca storyboard görüntüsü, ses yok (5 farklı player_client, JS runtime denendi). Invidious 403, Piped 526.
+- Kök neden: Sunucu/veri merkezi IP'si için YouTube bot kontrolü.
+- Çözüm yolu: Uygulama zaten NewPipeExtractor ile (emülatörde, bu IP'den, önceki turda) 340 notaya kadar çalışmıştı; gerçek şarkı örnekleri için aynı NewPipeExtractor'ı JVM testinde (`YouTubeLiveTest`) kullan, yt-dlp'yi bırak. Telefonun kendi IP'si bot kontrolüne takılmaz.
+- Durum: tur 2'de uygulanacak.

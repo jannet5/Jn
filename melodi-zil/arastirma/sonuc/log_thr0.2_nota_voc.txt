@@ -1,0 +1,12 @@
+vocadito_1             RPA 0.987 RCA 0.987 OA 0.946 notaF 0.642 (6.4s/33.2s)
+vocadito_5             RPA 0.980 RCA 0.983 OA 0.926 notaF 0.343 (3.5s/23.2s)
+vocadito_9             RPA 0.972 RCA 0.972 OA 0.916 notaF 0.703 (2.6s/20.4s)
+vocadito_14            RPA 0.975 RCA 0.975 OA 0.937 notaF 0.492 (1.6s/12.2s)
+vocadito_18            RPA 0.989 RCA 0.989 OA 0.965 notaF 0.579 (4.4s/29.1s)
+vocadito_22            RPA 0.957 RCA 0.957 OA 0.940 notaF 0.348 (2.1s/18.3s)
+vocadito_27            RPA 0.984 RCA 0.984 OA 0.930 notaF 0.700 (1.9s/14.0s)
+vocadito_31            RPA 0.959 RCA 0.959 OA 0.903 notaF 0.600 (2.0s/14.0s)
+vocadito_35            RPA 0.996 RCA 0.996 OA 0.886 notaF 0.290 (2.0s/13.8s)
+vocadito_40            RPA 0.982 RCA 0.991 OA 0.938 notaF 0.579 (2.4s/18.6s)
+ORTALAMA {"RPA": 0.9779578564645725, "RCA": 0.9791703390623168, "OA": 0.9287622524375546, "VR": 0.9914395902450103, "VFA": 0.16126389049674567, "RPA_oktavsiz": 0.9791821269876138, "nota_P": 0.6434652597350902, "nota_R": 0.45124529594769863, "nota_F": 0.5274915962654422, "klip_sayisi": 10, "toplam_ses_sn": 196.9, "toplam_islem_sn": 28.8, "RTF": 0.146}
+yazildi: /home/user/Jn/melodi-zil/arastirma/sonuc/rmvpe_mix_thr0.2_nota_vocadito_10klip.json
