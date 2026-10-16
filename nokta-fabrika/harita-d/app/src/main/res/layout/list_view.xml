@@ -158,6 +158,18 @@
             android:textSize="20sp"
             android:visibility="gone" />
 
+        <!-- Klavye acikken klavyenin hemen sag ustunde ikinci Ekle: basparmak oradayken uzanmadan ekler. -->
+        <TextView
+            android:id="@+id/kb_add"
+            style="@style/NoktaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="8dp"
+            android:elevation="4dp"
+            android:text="@string/add"
+            android:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/undo_bar"
             android:layout_width="match_parent"

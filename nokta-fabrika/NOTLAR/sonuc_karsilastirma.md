@@ -51,3 +51,7 @@ Mağaza ekran görüntüsü çekerken bulundu: bir satıra basılı tutup hareke
 - Duzenleme: maddeye basili tut, kipirdatmadan birak -> metin giris alanina gelir, "Duzenleniyor · Vazgeç" seridi, dugme "Kaydet". Tutamactan surukleme duzenleme acmaz. Ilk eklemede bir kez ipucu gosterilir.
 - Yedek metni cok satirli ogeleri 4 bosluk iceride devam satiri olarak yazar/okur.
 - Dogrulama: 43 birim testi + lint temiz; API 26 emulatorde paragrafli ekleme, bas-birak duzenleme, kaydetme ve dokununca ustunu cizme denendi. Izin dugmesi API 31+ gerektirdiginden emulatorde gorsel olarak denenmedi.
+
+## 1.2.1
+- Klavye acik ve giris alani odaktayken klavyenin hemen sag ustunde ikinci bir "Ekle" (duzenlemede "Kaydet") belirir; ustteki Ekle yerinde kalir. Geri al cubugu bu dugmenin ustune kayar. Klavye kapaninca gizlenir.
+- Dogrulama: API 26 emulatorde gorundu, basinca ekledi, klavye kapaninca kayboldu. 43 test + lint temiz.

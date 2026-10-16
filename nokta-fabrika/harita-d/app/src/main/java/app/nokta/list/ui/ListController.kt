@@ -12,6 +12,9 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import android.view.ViewTreeObserver
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +42,7 @@ class ListController(
     private val recycler: RecyclerView = root.findViewById(R.id.recycler)
     private val add: EditText = root.findViewById(R.id.add)
     private val addBtn: TextView = root.findViewById(R.id.add_btn)
+    private val kbAdd: TextView = root.findViewById(R.id.kb_add)
     private val editBar: View = root.findViewById(R.id.edit_bar)
     /** Duzenlenen ogenin kimligi; null ise giris alani yeni oge ekler. */
     private var editingId: Long? = null
@@ -86,6 +90,8 @@ class ListController(
 
         // Enter yeni satir acar (paragraf); ekleme/kaydetme yalniz dugmeyle.
         addBtn.setOnClickListener { submitAdd() }
+        kbAdd.setOnClickListener { submitAdd() }
+        add.setOnFocusChangeListener { _, _ -> syncKbAdd() }
         root.findViewById<View>(R.id.edit_cancel).setOnClickListener { stopEdit(clear = true) }
     }
 
@@ -93,7 +99,7 @@ class ListController(
     private fun startEdit(item: Item) {
         editingId = item.id
         editBar.visibility = View.VISIBLE
-        addBtn.setText(R.string.save)
+        addBtn.setText(R.string.save); kbAdd.setText(R.string.save)
         add.setText(item.text)
         add.setSelection(add.text.length)
         refocus()
@@ -103,16 +109,30 @@ class ListController(
         if (editingId == null) return
         editingId = null
         editBar.visibility = View.GONE
-        addBtn.setText(R.string.add)
+        addBtn.setText(R.string.add); kbAdd.setText(R.string.add)
         if (clear) add.setText("")
     }
 
+    private val layoutListener = ViewTreeObserver.OnGlobalLayoutListener { syncKbAdd() }
+
+    /** Klavye acik ve giris alani odaktaysa klavye ustundeki Ekle gorunur; geri al cubugu onun ustune kayar. */
+    private fun syncKbAdd() {
+        val ime = ViewCompat.getRootWindowInsets(root)?.isVisible(WindowInsetsCompat.Type.ime()) == true
+        val show = ime && add.hasFocus()
+        val vis = if (show) View.VISIBLE else View.GONE
+        if (kbAdd.visibility != vis) kbAdd.visibility = vis
+        val lift = if (show) -52f * ctx.resources.displayMetrics.density else 0f
+        if (undoBar.translationY != lift) undoBar.translationY = lift
+    }
+
     fun attach() {
+        root.viewTreeObserver.addOnGlobalLayoutListener(layoutListener)
         repo.addListener(listener); Reminders.addListener(reminderListener); render()
         // Arka plandayken (bildirimden "Durdur"/"Aldim") degisen zil durumlari geri donuste yenilenir.
         reminderListener()
     }
     fun detach() {
+        root.viewTreeObserver.removeOnGlobalLayoutListener(layoutListener)
         repo.removeListener(listener); Reminders.removeListener(reminderListener)
         dismissTask?.let { handler.removeCallbacks(it) }
     }
