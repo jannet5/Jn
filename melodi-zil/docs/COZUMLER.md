@@ -75,3 +75,9 @@
 - Kök neden: Sunucu/veri merkezi IP'si için YouTube bot kontrolü.
 - Çözüm yolu: Uygulama zaten NewPipeExtractor ile (emülatörde, bu IP'den, önceki turda) 340 notaya kadar çalışmıştı; gerçek şarkı örnekleri için aynı NewPipeExtractor'ı JVM testinde (`YouTubeLiveTest`) kullan, yt-dlp'yi bırak. Telefonun kendi IP'si bot kontrolüne takılmaz.
 - Durum: tur 2'de uygulanacak.
+
+## Ç-016: Gradle derlemesi "Could not find …" ile düşüyor (Maven proxy 429/404)
+- Belirti: `:app:checkDebugAarMetadata` → `Could not find io.coil-kt:coil-compose`, `org.jsoup:jsoup`, `org.mozilla:rhino`… Aynı adrese curl bazen 200 bazen 404/429 veriyordu.
+- Kök neden: Proxy üzerinden Maven Central'a gelen eşzamanlı istekler ara sıra 429/geçici 404 dönüyor; Gradle geçici 404'ü "yok" diye önbelleğe yazıp bir sonraki denemede de hata veriyor. `--refresh-dependencies` her şeyi yeniden çektiği için durumu kötüleştirdi.
+- Çözüm: `araclar/build_retry.sh <klasör> <görev>`: önce `~/.gradle/caches/modules-2/metadata-*` ve `transforms-*` silinir; `--max-workers=2`, `nice`, hata olunca metadata önbelleği silinip 15 sn sonra en çok 8 kez yeniden denenir. `--refresh-dependencies` kullanılmaz; başka bir Gradle/ajan aynı anda Maven'e vurmaz.
+- Doğrulama: 2. denemede `BUILD SUCCESSFUL in 4m 26s`; `aapt2 dump badging` → targetSdk 35, versionName 1.1.1, arm64 debug APK 43 MB.
