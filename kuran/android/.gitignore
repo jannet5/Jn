@@ -3,3 +3,8 @@ build/
 local.properties
 *.iml
 .idea/
+# İmza anahtarı ve şifresi ASLA depoya girmez
+keystore/
+keystore.properties
+*.jks
+*.keystore

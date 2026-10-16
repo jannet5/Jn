@@ -23,20 +23,23 @@ cd www && python3 -m http.server 8765    # sonra http://localhost:8765
 ```
 Telefonda: tarayıcıda aç, "Ana ekrana ekle".
 
-## Android uygulaması (APK)
-`dist/kuran.apk`: imzalı, 0,7 MB, internet izni yok (tamamen çevrimdışı). Telefona kurmak için dosyayı indirip aç ("Bilinmeyen kaynaklardan yükleme"ye izin ver).
-Tam ekran WebView içinde `www/` klasörünü çalıştırır. Web uygulaması tek kaynaktır, ayrı bir kopya yok.
-- Geri tuşu Git panelini kapatır. Telefonun yazı boyutu ayarı Kur'an düzenini bozmaz (uygulamanın kendi yakınlaştırması var).
-- Okurken ekran kararmaz. Tema değişince durum çubuğu rengi de değişir.
-- İmza anahtarı (`android/keystore/`) kişisel kullanım içindir, Play Store anahtarı değildir. Güncellemeler aynı anahtarla imzalanır, böylece üstüne kurulabilir.
+## Android uygulaması (APK ve Google Play AAB)
+- `dist/kuran.apk`: doğrudan telefona kurmak için (2,2 MB, internet izni yok, tamamen çevrimdışı). Dosyayı indirip aç ("Bilinmeyen kaynaklardan yükleme"ye izin ver).
+- `dist/kuran.aab`: **Google Play'e yüklenecek dosya**. Yayın adımları: `play/YAYIN_REHBERI.md`. Mağaza metinleri `play/ilan-tr.md`, görseller `play/assets/`, gizlilik politikası `../docs/kuran-gizlilik.md`.
+- Hedef/derleme sürümü Android 16 (API 36), en düşük Android 7.0 (API 24). Kenardan kenara ekran ve yeni geri hareketi desteklenir.
+- Tam ekran WebView içinde `www/` klasörünü çalıştırır. Web uygulaması tek kaynaktır, ayrı bir kopya yok.
+- Geri hareketi Git panelini kapatır. Telefonun yazı boyutu ayarı Kur'an düzenini bozmaz (uygulamanın kendi yakınlaştırması var). Okurken ekran kararmaz. Tema değişince çubuk simgeleri de uyar.
 
-Yeniden derleme (Android SDK 34 ve Java 17+ gerekir):
+**İmza anahtarı depoda YOK** (`android/keystore/`, `keystore.properties` git'e girmez). Anahtar ayrıca teslim edildi. Daha önce depoya girmiş eski anahtar (`kuran-release.jks`) herkese açık olduğundan bir daha kullanılmamalıdır.
+
+Yeniden derleme (Android SDK 36, Java 17+ ve Gradle 8.13+ gerekir):
 ```
 cd android && echo "sdk.dir=$ANDROID_HOME" > local.properties
-gradle assembleRelease      # veya ./gradlew assembleRelease
-# -> android/app/build/outputs/apk/release/app-release.apk
+# imza için android/keystore.properties (storeFile, storePassword, keyAlias, keyPassword) ve anahtar dosyası gerekir
+gradle bundleRelease assembleRelease
+# -> app/build/outputs/bundle/release/app-release.aab ve apk/release/app-release.apk
 ```
-Not: Release derlemesinde lint kapalıdır (lint'in kendi bağımlılığı kısıtlı ağlarda inmiyor).
+Notlar: Release derlemesinde lint kapalıdır (lint'in kendi bağımlılığı kısıtlı ağlarda inmiyor). `settings.gradle.kts` içindeki Google Maven Central aynası, bazı ağlarda mavenCentral()'ın getiremediği dosyalar içindir.
 
 ## Veriyi yeniden üretme
 ```

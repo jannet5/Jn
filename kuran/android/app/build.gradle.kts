@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.jn.kuran"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jn.kuran"
         minSdk = 24                      // Android 7.0 ve üstü
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -58,5 +58,7 @@ android {
 }
 
 dependencies {
-    implementation("androidx.webkit:webkit:1.11.0")   // WebViewAssetLoader: https://appassets... altından yerel dosya sunar
+    implementation("androidx.webkit:webkit:1.13.0")      // WebViewAssetLoader: https://appassets... altından yerel dosya sunar
+    implementation("androidx.activity:activity:1.10.1")  // kenardan kenara ekran + yeni geri hareketi (predictive back)
+    implementation("androidx.core:core:1.16.0")          // WindowInsets uyumluluğu
 }
