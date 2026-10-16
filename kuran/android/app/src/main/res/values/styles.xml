@@ -1,0 +1,10 @@
+<resources>
+    <!-- Başlık çubuğu yok, pencere zemini kâğıt rengi (WebView yüklenirken beyaz parlama olmasın) -->
+    <style name="AppTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:navigationBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <color name="paper">#fbf8f0</color>
+</resources>

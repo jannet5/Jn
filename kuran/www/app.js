@@ -233,8 +233,10 @@
   function applyTheme() {
     if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
     var dark = theme === 'dark' || (!theme && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+    var bg = theme ? TCOL[theme] : (dark ? TCOL.dark : TCOL.light);                  // temanın zemin rengi
     var tc = document.querySelector('meta[name=theme-color]');                       // tarayıcı çubuğu rengi (etiket yoksa atla)
-    if (tc) tc.setAttribute('content', theme ? TCOL[theme] : (dark ? TCOL.dark : TCOL.light));
+    if (tc) tc.setAttribute('content', bg);
+    try { if (window.KuranApp && KuranApp.setBars) KuranApp.setBars(bg, theme === 'dark' || (!theme && dark)); } catch (e) { }   // Android uygulaması: durum çubuğu rengi
   }
   $('bTheme').addEventListener('click', function () {
     var i = THEMES.indexOf(theme); theme = THEMES[(i + 1) % THEMES.length];
@@ -383,7 +385,7 @@
   window.addEventListener('resize', function () {                  // döndürme / boyut değişimi
     clearTimeout(rT); rT = setTimeout(function () { calcLimits(); measure(); }, 120);
   });
-  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && !window.KuranApp) {   // Android uygulamasında gerek yok (dosyalar zaten içinde)
     window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () { }); });   // çevrimdışı çalışsın
   }
   window.__kuran = { goTo: goTo, turn: turn, setFs: setFs, get state() { return { page: page, fs: fs, maxFs: maxFs, minFs: minFs }; } };   // test için
