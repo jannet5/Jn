@@ -71,6 +71,17 @@ for fr in frags:
         if c: parts.append(ayrac(c))
     parts.append(fr['body'])
 
+def ozet_maddeleri(body):
+    m = re.search(r'<div class="ozetle">(.*?)</div>', body, flags=re.S)
+    return re.findall(r'<li>(.*?)</li>', m.group(1), flags=re.S) if m else []
+kartlar = []
+for fr in frags:
+    mad = ozet_maddeleri(fr['body'])
+    if not mad: continue
+    kartlar.append(f'<article class="kisa-kart"><h3><a href="#{fr["id"]}"><span>{fr["id"][2:]}</span> {html.escape(fr["title"])}</a></h3><ul>' + ''.join(f'<li>{x}</li>' for x in mad[:5]) + '</ul></article>')
+kisa = ('<section class="kisa" id="kisa"><div class="kisa-ic"><p class="etiket-k">Vaktin azsa</p><h2>Yolculuk bir bakışta</h2>'
+        '<p class="kisa-not">Her durağın en önemli birkaç cümlesi. Ayrıntı ve kaynaklar için başlığa dokun.</p><div class="kisa-grid">' + ''.join(kartlar) + '</div></div></section>')
+toc.insert(0, '      <li><a href="#kisa"><span class="nokta"></span><span class="t"><b>Yolculuk bir bakışta</b><small>5 dk</small></span></a></li>')
 toplam_dk = sum(f['dk'] for f in frags)
 kredi = ''.join(f'<li>{html.escape(c.get("title",c["file"]))}: {html.escape(c.get("author","?"))}, {html.escape(c.get("license",""))} (<a href="{html.escape(c.get("source_url","#"),quote=True)}" rel="noopener">kaynak</a>)</li>' for c in credits if c['file'] in used)
 alt = f'''      <h2>Yöntem ve kaynaklar</h2>
@@ -82,7 +93,7 @@ def fill(t):
     return (t.replace('{{KAPAK_STIL}}', kapak_stil).replace('{{N_BOLUM}}', str(len(frags)))
              .replace('{{TOPLAM_DK}}', str(toplam_dk)).replace('{{HERO_AR}}', hero['ar'])
              .replace('{{HERO_TR}}', html.escape(hero['tr'])).replace('{{HERO_REF}}', hero['key'])
-             .replace('{{TOC}}', '\n'.join(toc)).replace('{{BOLUMLER}}', '\n'.join(parts))
+             .replace('{{TOC}}', '\n'.join(toc)).replace('{{KISA}}', kisa).replace('{{BOLUMLER}}', '\n'.join(parts))
              .replace('{{ALT_BILGI}}', alt))
 out = fill(tpl)
 os.makedirs('dist', exist_ok=True)

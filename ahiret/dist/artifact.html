@@ -120,8 +120,9 @@ main{min-width:0;padding-bottom:4rem}
 .bolum{padding-block:clamp(2.5rem,7vw,5rem) 1rem}
 .bolum>*{max-width:42rem;margin-inline:auto}
 .bolum>figure.sema,.bolum>.kutular,.bolum>table{max-width:50rem}
-.bolum>.bolum-baslik{max-width:50rem}
+.bolum>.bolum-baslik{max-width:42rem}
 .bolum p{margin:0 0 1.15em}
+.bolum>p,.bolum>ul,.bolum>ol{margin-inline:auto}
 .bolum h3{font-family:var(--f-display);font-weight:700;font-size:clamp(1.55rem,3.6vw,2rem);line-height:1.15;margin:2.4em auto .7em;text-wrap:balance}
 .bolum h4{font-family:var(--f-ui);font-size:1rem;margin:0 0 .4rem}
 .bolum ul,.bolum ol{padding-left:1.3em;margin-block:0 1.2em}
@@ -200,6 +201,22 @@ table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%;marg
 th,td{border:1px solid var(--line);padding:.55rem .8rem;text-align:left;vertical-align:top}
 th{background:var(--surface-2)}
 
+/* Kısa özet */
+.kisa{padding-block:clamp(2.5rem,6vw,4rem) 1rem}
+.kisa-ic{max-width:62rem;margin-inline:auto}
+.kisa .etiket-k{font-family:var(--f-ui);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+.kisa h2{font-family:var(--f-display);font-weight:600;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;margin:.3rem 0 .6rem}
+.kisa-not{color:var(--ink-soft);margin:0 0 1.6rem;max-width:40rem}
+.kisa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1rem}
+.kisa-kart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;min-width:0}
+.kisa-kart h3{font-family:var(--f-display);font-size:1.3rem;line-height:1.2;margin:0 0 .6rem;font-weight:700}
+.kisa-kart h3 a{color:var(--ink);text-decoration:none}
+.kisa-kart h3 a:hover{color:var(--accent)}
+.kisa-kart h3 span{font-family:var(--f-ui);font-size:.7rem;letter-spacing:.14em;color:var(--gold);display:block;margin-bottom:.15rem}
+.kisa-kart ul{margin:0;padding-left:1.1em;font-size:.94rem;line-height:1.55}
+.kisa-kart li{margin-bottom:.4em}
+.kisa-kart li::marker{color:var(--accent)}
+
 /* Bölüm arası fotoğraf şeridi */
 .ayrac{margin:clamp(2rem,6vw,4rem) 0 0;position:relative;border-radius:6px;overflow:hidden;min-height:clamp(13rem,34vw,22rem);background:var(--night) var(--img) center/cover no-repeat;max-width:62rem;margin-inline:auto;display:flex;align-items:flex-end}
 .ayrac::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,8,20,.75))}
@@ -237,7 +254,7 @@ th{background:var(--surface-2)}
     </div>
     <ul class="rozetler">
       <li>12 durak</li>
-      <li>yaklaşık 242 dakikalık okuma</li>
+      <li>yaklaşık 238 dakikalık okuma</li>
       <li>her alıntının kaynağı belirtilir</li>
     </ul>
     <div class="ayet-ust">
@@ -253,12 +270,13 @@ th{background:var(--surface-2)}
   <nav class="ray" id="ray" aria-label="Yolculuk durakları">
     <h2>Yolculuk durakları</h2>
     <ol>
+      <li><a href="#kisa"><span class="nokta"></span><span class="t"><b>Yolculuk bir bakışta</b><small>5 dk</small></span></a></li>
       <li><a href="#b-00"><span class="nokta"></span><span class="t"><b>Neden Görmek İstiyoruz?</b><small>17 dk</small></span></a></li>
       <li><a href="#b-01"><span class="nokta"></span><span class="t"><b>Ben Niçin Buradayım?</b><small>23 dk</small></span></a></li>
       <li><a href="#b-02"><span class="nokta"></span><span class="t"><b>Dünya: Uzun Yolculukta Kısa Bir Durak</b><small>19 dk</small></span></a></li>
       <li><a href="#b-03"><span class="nokta"></span><span class="t"><b>Ölüm ve Berzah: Perdenin Öbür Tarafı</b><small>20 dk</small></span></a></li>
       <li><a href="#b-04"><span class="nokta"></span><span class="t"><b>Kıyametin Kopuşu</b><small>20 dk</small></span></a></li>
-      <li><a href="#b-05"><span class="nokta"></span><span class="t"><b>Diriliş ve Mahşer</b><small>26 dk</small></span></a></li>
+      <li><a href="#b-05"><span class="nokta"></span><span class="t"><b>Diriliş ve Mahşer</b><small>22 dk</small></span></a></li>
       <li><a href="#b-06"><span class="nokta"></span><span class="t"><b>Hesap ve Mizan: Hiçbir Zerre Kaybolmaz</b><small>21 dk</small></span></a></li>
       <li><a href="#b-07"><span class="nokta"></span><span class="t"><b>Sırat, Nur ve Havuz</b><small>17 dk</small></span></a></li>
       <li><a href="#b-08"><span class="nokta"></span><span class="t"><b>Cennet: Gözün Görmediği Yer</b><small>21 dk</small></span></a></li>
@@ -268,6 +286,7 @@ th{background:var(--surface-2)}
     </ol>
   </nav>
   <main id="icerik">
+<section class="kisa" id="kisa"><div class="kisa-ic"><p class="etiket-k">Vaktin azsa</p><h2>Yolculuk bir bakışta</h2><p class="kisa-not">Her durağın en önemli birkaç cümlesi. Ayrıntı ve kaynaklar için başlığa dokun.</p><div class="kisa-grid"><article class="kisa-kart"><h3><a href="#b-00"><span>00</span> Neden Görmek İstiyoruz?</a></h3><ul><li>Ahiret hayal gibi gelir, çünkü beş duyunun dar penceresinden bakıyoruz; vahiy, perdenin ardından haber getirir (Kâf 50:22).</li><li>Kur’an ahiret sahnelerini yalnızca anlatmaz, <em>gösterir</em>; Hz. Peygamber de kıyameti “gözüyle görmek” isteyene Tekvîr, İnfitâr ve İnşikâk surelerini önerdi (Tirmizî 3333).</li><li>Gaflet insanidir (Hanzala hadisi, Müslim 2750); çare, hatırlamayı bir ritme bağlamaktır: “bir saat şunun, bir saat bunun.”</li><li>Canlı tasvir gerçeğin yerini tutmaz: “hiçbir göz görmemiş, hiçbir kulak işitmemiş, hiçbir insanın kalbine gelmemiş” (Buhârî 3244; Müslim 2824).</li><li>Bu sayfa ilim kaynağı değil, yol arkadaşıdır: ayetler Diyanet mealiyle, hadisler sahih/hasen olarak verilir, zayıf olan etiketlenir; şüphede âlimlere danışılır.</li></ul></article><article class="kisa-kart"><h3><a href="#b-01"><span>01</span> Ben Niçin Buradayım?</a></h3><ul><li>"Ben niye buradayım?" sorusu haklı ve gerçektir; Kur'an bu soruyu baştan kabul eder ve "boşuna yaratılmadınız, başıboş bırakılmayacaksınız" cevabını verir.</li><li>Üç soru, üç cevap: Nereden? Bilerek var edildik, fıtrat taşıyoruz. Niçin? İmtihan, kulluk, halifelik ve emanet için. Nereye? Rabbimize kavuşmak üzere.</li><li>İbadet yalnız ritüel değil, yönümüzün Allah'a dönük olmasıdır; Allah'ın değil, bizim ihtiyacımızdır. Âlimler 51:56'yı kulluk, tanıma ve emre boyun eğme anlamlarında yorumlamıştır.</li><li>Her insan bir şeyin kuludur; soru "kul olacak mıyım" değil "kime"dir. Allah'a kulluk, para, beğeni, korku ve nefis gibi diğer efendilerden özgürleşmenin yoludur.</li><li>Fıtrat bir pusuladır: Hiçbir dünyevî hedef kalbi tek başına doyurmaz; çünkü kalp başka bir adresi arar (Ra'd 13:28).</li></ul></article><article class="kisa-kart"><h3><a href="#b-02"><span>02</span> Dünya: Uzun Yolculukta Kısa Bir Durak</a></h3><ul><li>Bir ömür yaklaşık 80 yıl; Kur'an'ın zaman ölçüsünde (bin yıllık, elli bin yıllık gün) çok kısa, ebediyetin yanında ise oransal olarak sıfır. Vahyin haber verdiğine göre insanlar, hesap günü dünyada kalışlarını “bir gün ya da günün bir kısmı” kadar hissedecek.</li><li>Hz. Peygamber dünyayı yolcu, gölge ve parmakla denizden alınan damla ile anlattı (Buhârî 6416, Tirmizî 2377, Müslim 2858). Damla gerçek; ama denize tercih edilirse yanlış hesap olur.</li><li>Dünya değersiz değil: “Dünyadaki payını unutma” (Kasas 28:77); “ziyneti kim haram kıldı?” (A'râf 7:32). Kınanan, kalbi Allah'tan alıkoyan dünyadır (Gazâlî); nimet şükür vesilesidir.</li><li>Zühd, elde tutmamak değil, kalbe sokmamaktır: dünya emanettir. Hz. Ali'nin sözüyle: “Bugün amel var, hesap yok; yarın hesap var, amel yok.”</li><li>Zaman bir sermaye: sağlık ve boş vakit (Buhârî 6412). Kısa süre, ebedî karşılığın kapısıdır; bu bir korku haberi değil, ümit ve fırsat haberidir.</li></ul></article><article class="kisa-kart"><h3><a href="#b-03"><span>03</span> Ölüm ve Berzah: Perdenin Öbür Tarafı</a></h3><ul><li>Ölüm yok oluş değil, "teveffî": canın eksiksiz teslim alınması ve Allah'a dönüştür. Can boğaza dayandığında Allah, kuluna yakınlarından daha yakındır (Vâkıa 56:85).</li><li>Melekler müminlere "korkmayın, üzülmeyin" müjdesiyle gelir (Fussılet 41:30); ölümden hoşlanmamak insanîdir, asıl mesele son andaki müjdedir (Buhârî 6507; Müslim 2684).</li><li>Berzah, ölümle diriliş arasındaki perdedir (Mü'minûn 23:100). Geri dönüş yoktur, ama bekleyiş yalnızlık değildir: kabirde iki melek, üç soru ve sabit kılma vardır (Buhârî 1338; İbrâhîm 14:27).</li><li>Kabir nimeti ve azabı haktır; keyfiyeti gaybdır. Zayıf rivayetlere değil, sahih olana dayanmak ve rahmetten ümit kesmemek gerekir.</li><li>Ölüm amel defterini kapatır, ama üç kapı açık kalır: sürekli sadaka, faydalı ilim ve hayırlı evlat (Müslim 1631).</li></ul></article><article class="kisa-kart"><h3><a href="#b-04"><span>04</span> Kıyametin Kopuşu</a></h3><ul><li>Kıyametin zamanını yalnız Allah bilir; Cebrâil de Hz. Peygamber de (s.a.v.) bunu bilmediklerini bildirdi. Alametler uyarıdır, takvim değil.</li><li>Sûr, üfürülen bir boynuzdur; ilk üfürüşle gökte ve yerde olanlar korku ve ölümle karşılaşır (Allah'ın dilediği hariç), ikinci üfürüşte herkes ayağa kalkar. Üfürüş sayısı ve "kırk"ın birimi hakkında kesin bilgi yoktur.</li><li>Kozmik sahneler ışığın gitmesi, göğün yarılması, dağların yün olup savrulması, denizlerin kaynaşması ve yerin sarsılmasıyla anlatılır; mekanizmasını Kur'an tarif etmez.</li><li>Bu yıkım, sondan çok bir dönüşümdür: yer başka bir yere çevrilir, gök kitap gibi dürülür ve yeniden var edilir. Amaç, insanın kendi hazırladığıyla yüzleşmesidir.</li><li>Dehşetin ortasında müminlere emniyet vaat edilir; korku ile ümit birlikte yürür.</li></ul></article><article class="kisa-kart"><h3><a href="#b-05"><span>05</span> Diriliş ve Mahşer</a></h3><ul><li>Diriliş mümkündür: İlk yaratan tekrar yaratır (Yâsîn 36:79; Rûm 30:27); parmak ucuna kadar hiçbir ayrıntı kaybolmaz (Kıyâme 75:4). Kur'an bunu ölü toprağın dirilmesi, rahimdeki yaratılış ve Ashâb-ı Kehf, Bakara 2:259, 2:260 gibi örneklerle gösterir.</li><li>İnsanlar yalın ayak, çıplak ve sünnetsiz toplanır (Buhârî 3349); o gün herkes kendi derdindedir (Abese 80:37).</li><li>Güneş yaklaştırılır, insanlar amelleri ölçüsünde terler: ayak bileği, diz, bel ve ağza kadar (Müslim 2864).</li><li>Hiçbir gölgenin olmadığı günde yedi sınıf Allah'ın gölgesinde barınır (Buhârî 660).</li><li>Peygamberler sırayla "nefsî, nefsî" der; Hz. Muhammed (s.a.v.) secdeye kapanıp "ümmetî" der; şefaati kabul edilir ve hesap başlar (Buhârî 4712; Müslim 194).</li></ul></article><article class="kisa-kart"><h3><a href="#b-06"><span>06</span> Hesap ve Mizan: Hiçbir Zerre Kaybolmaz</a></h3><ul><li>Hesap günü adaletin en eksiksiz hâlidir: "Bugün haksızlık yoktur"; zerre kadar iyilik de kötülük de görülür (Zilzâl 99:7-8).</li><li>Kolay hesap, amellerin kişiye sunulmasıdır; didik didik sorguda ise kimse dayanamaz. Bu yüzden rahmete sığınırız (Buhârî 6536).</li><li>Defter, şahitler (organlar, yer, kâtipler) ve mizan birlikte düşünülür; sıralama konusunda nasslar kesin kronoloji vermez.</li><li>Hak yiyen sevabını kaybedebilir; bu yüzden hakkı dünyada ödemek ve helallik istemek en akıllıca yoldur (Müslim 2581; Buhârî 2449).</li><li>Hesapsız girenler tevekkül ehlidir; ama herkes için "kolay hesap" ve bağışlanma ümidi sürer (Buhârî 6541, 6491).</li></ul></article><article class="kisa-kart"><h3><a href="#b-07"><span>07</span> Sırat, Nur ve Havuz</a></h3><ul><li>Sırat, cehennemin üzerindeki köprüdür; kaygan ve çengellidir, geçiş hızı amele göre değişir ve en sonuncusu bile sürünerek de olsa geçer (Buhârî 7439; Müslim 195).</li><li>“Kıldan ince, kılıçtan keskin” ifadesi Müslim’de Ebû Saîd’in “bana ulaştı” diyerek aktardığı bir ektir; merfû bir hadis olarak kesin değildir.</li><li>Nur, müminlerin önünde ve sağında yürür; ikiyüzlülerle aralarına, içi rahmet dışı azap bir sur çekilir (Hadîd 57:12-14; Tahrîm 66:8).</li><li>Köprü bitince kantarada dünyadaki haksızlıklar giderilir; amaç cennete kinsiz, temiz girmektir (Buhârî 6535).</li><li>Havz-ı Kevser: bir aylık yol, sütten beyaz su, miskten güzel koku, yıldız kadar kap; ondan içen bir daha susamaz (Buhârî 6579; Müslim 2292, 2300, 400). Kapıda ilk Hz. Peygamber (s.a.v.) açtırır; sonra “Selam size, hoş geldiniz” (Müslim 197; Zümer 39:73).</li></ul></article><article class="kisa-kart"><h3><a href="#b-08"><span>08</span> Cennet: Gözün Görmediği Yer</a></h3><ul><li>Cennet tasvirleri "mesel"dir; İbn Abbas'a göre dünyadakilerle ortak olan yalnız isimdir. Gerçeği gözün görmediği, kulağın duymadığı, kalbe gelmeyen şeydir (Buhârî 3244; Müslim 2824).</li><li>Cennet çok büyük (eni gökler ve yer kadar) ve katlıdır: yüz derece, Firdevs en yücesi (Buhârî 2790). En alttaki cennetlik bile dünya ve on katını alır (Buhârî 6571).</li><li>İnsan orada yeni bir bedenle yaşar: hasta olmaz, yaşlanmaz, ölmez; yer içer ama zahmeti yoktur; tesbih nefes gibidir (Müslim 2835, 2837).</li><li>Kin sökülür, yorgunluk biter; sevdikleriyle bir araya gelir, kalpler tek kalp gibi olur (Hicr 15:47-48; Ra'd 13:23; Buhârî 3254).</li><li>Nimetlerin zirvesi Allah'a bakmak ve O'nun hoşnutluğudur: "Allah'ın hoşnut olması en büyük şeydir" (Tevbe 9:72; Müslim 181, 2829).</li></ul></article><article class="kisa-kart"><h3><a href="#b-09"><span>09</span> Cennetin Zirvesi: Rıdvan ve Allah&#x27;a Bakmak</a></h3><ul><li>Cennetin zirvesi maddî nimetler değil: Allah'ın hoşnutluğu (rıdvan) ve O'na bakmak (rü'yet). Hadislerde "daha üstünü" olarak ikisi de anılır.</li><li>"Bundan sonra size asla kızmayacağım" (Buhârî 6549, Müslim 2829); "Rablerine bakmaktan daha sevgili bir şey verilmemiştir" (Müslim 181).</li><li>Cennette sıkılma yok: usanç kaldırılır (Fâtır 35:35), nimet tanıdık ama yenidir (Bakara 2:25), Allah her an bir iştedir (Rahmân 55:29), bilgi ve marifet tükenmez (Kehf 18:109).</li><li>Ebediyet: ölüm boğazlanır, "artık ölüm yok" (Buhârî 4730, Müslim 2849); cennet amelin bedeli değil, rahmetin ikramıdır (Buhârî 5673).</li><li>Sahih hadislerle sabit olan rü'yet, nasıl olacağı bilinmeden kabul edilir; zayıf rivayetlere ihtiyaç yoktur.</li></ul></article><article class="kisa-kart"><h3><a href="#b-10"><span>10</span> Cehennem, Adalet ve Rahmet</a></h3><ul><li>Cehennem, adaletin gereğidir: Zalim ile mazlum, iyi ile kötü bir tutulmaz; Allah hiç kimseye haksızlık etmez (Câsiye 45:21-22; Kehf 18:49).</li><li>Vahiy cehennemi kısa ama ağır anlatır; amaç korkutup susturmak değil, korunmaya çağırmaktır (Zümer 39:16). Kaynağı doğrulanmamış ayrıntılara itibar edilmez; azap dereceli ve adildir.</li><li>Tevbe kapısı ruh gırtlağa gelene kadar açıktır (Tirmizî 3537, Zümer 39:53); kalbinde zerre kadar hayır olan şefaatle ateşten çıkarılır (Buhârî 6560, Müslim 183).</li><li>“Rahmetim gazabımı geçmiştir” (Buhârî 3194); rahmetin yüzde biri dünyadadır, doksan dokuzu ahirete saklıdır (Müslim 2752).</li><li>Ümit ve korku kuşun iki kanadıdır; kimseye “cehennemlik” demeyiz, hüküm Allah'ındır.</li></ul></article><article class="kisa-kart"><h3><a href="#b-11"><span>11</span> Peki Şimdi Ne Yapacağım?</a></h3><ul><li>Azığın en iyisi takvadır; Asr suresine göre kurtuluş dört şarttır: iman, salih amel, hakkı tavsiye, sabrı tavsiye.</li><li>Allah’ın en sevdiği amel “az da olsa devamlı olan”dır; bugün için yalnızca bir adım yeter.</li><li>Tevbenin kapısı hep açık; kul hakkı varsa helalleşmek, sadaka vermek ve dua etmek yolun parçasıdır.</li><li>Depresyon ve benzeri durumlarda tedavi olmak sünnete aykırı değildir; acil durumda 112.</li><li>Kıyametin zamanı yalnızca Allah’ın bilgisindedir; bize düşen ona hazırlıktır.</li></ul></article></div></div></section>
 <section class="bolum" id="b-00">
   <header class="bolum-baslik">
     <span class="no">00</span>
@@ -2553,7 +2572,7 @@ th{background:var(--surface-2)}
     <p class="ozet">Toprak çağrıya cevap verir, herkes tek bir düzlükte buluşur; hesap başlamadan önce bir bekleyiş ve bir şefaat vardır.</p>
   </header>
 
-  <p class="giris">Kıyametin gürültüsü dinmiş olsun. Sonra bir kez daha Sûr'a (kıyamette üfürülecek boruya) üflenir ve Kur'an'ın en kısa, en sarsıcı cümlelerinden biri gelir: "hemen ayağa kalkıp bakışır dururlar." Bu bölüm iki soruyla ilerliyor. Önce kalbimizin en çok takıldığı yerden başlayacağız: <em>Bu gerçekten mümkün mü?</em> Sonra o ayağa kalkışın hemen ardını, yani hesaba başlamadan önceki uzun anı yaşayacağız: kim nerede duruyor, güneş nerede, insanlar ne yapıyor, kim ne ister? Hesabın kendisi bir sonraki bölümde.</p>
+  <p class="giris">Kıyametin gürültüsü dinmiş olsun. Sonra bir kez daha Sûr'a (kıyamette üfürülecek boruya) üflenir ve Kur'an'ın en kısa, en sarsıcı cümlelerinden biri gelir: "hemen ayağa kalkıp bakışır dururlar." Bu bölüm iki soruyla ilerliyor. Önce kalbimizin en çok takıldığı yerden başlayacağız: <em>Bu gerçekten mümkün mü?</em> Sonra o ayağa kalkışın hemen ardını yaşayacağız: kim nerede duruyor, güneş nerede, insanlar ne yapıyor, kim kimden ne ister? Hesabın kendisi bir sonraki bölümde.</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَنُفِخَ فِى ٱلصُّورِ فَصَعِقَ مَن فِى ٱلسَّمَـٰوَٰتِ وَمَن فِى ٱلْأَرْضِ إِلَّا مَن شَآءَ ٱللَّهُ ۖ ثُمَّ نُفِخَ فِيهِ أُخْرَىٰ فَإِذَا هُمْ قِيَامٌ يَنظُرُونَ</p>
@@ -2562,7 +2581,7 @@ th{background:var(--surface-2)}
   </blockquote>
 
   <h3>Önce itiraz: "Çürümüş kemikleri kim diriltecek?"</h3>
-  <p>Ölülerin yeniden diriltilmesine İslam literatüründe <strong>ba's</strong> (diriliş), diriltilenlerin Allah'ın huzurunda toplanmasına <strong>haşr</strong> (toplanma) denir. Bunu akıl dışı bulmak yeni bir şey değil. Kur'an, itirazı kendi lafzıyla aktarır; bir insan elinde ufalanmış bir kemikle gelir ve alay eder gibi sorar. Yâsîn suresi bu soruyu doğrudan karşılıyor:</p>
+  <p>Ölülerin yeniden diriltilmesine İslam literatüründe <strong>ba's</strong> (diriliş), diriltilenlerin Allah'ın huzurunda toplanmasına <strong>haşr</strong> (toplanma) denir. Bunu akıl dışı bulmak yeni bir şey değil; Kur'an itirazı kendi lafzıyla aktarır. Yâsîn suresinde bir insan, elinde ufalanmış bir kemikle gelir ve alay eder gibi sorar:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">أَوَلَمْ يَرَ ٱلْإِنسَـٰنُ أَنَّا خَلَقْنَـٰهُ مِن نُّطْفَةٍ فَإِذَا هُوَ خَصِيمٌ مُّبِينٌ وَضَرَبَ لَنَا مَثَلًا وَنَسِىَ خَلْقَهُۥ ۖ قَالَ مَن يُحْىِ ٱلْعِظَـٰمَ وَهِىَ رَمِيمٌ</p>
@@ -2570,7 +2589,7 @@ th{background:var(--surface-2)}
     <cite>Yâsîn 36:77-78 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Ayet itirazı küçümsemiyor, itirazdaki eksiği gösteriyor: insan <strong>kendi yaratılışını unutmuş</strong>. Bir damla sudan gelmiş, sonra kalkıp "kim yaratacak?" diye tartışmacı kesilmiş. Cevap ise tek cümle:</p>
+  <p>Ayet itirazı küçümsemiyor, itirazdaki eksiği gösteriyor: insan <strong>kendi yaratılışını unutmuş</strong>. Bir damla sudan gelmiş, sonra kalkıp tartışmacı kesilmiş. Cevap tek cümle:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">قُلْ يُحْيِيهَا ٱلَّذِىٓ أَنشَأَهَآ أَوَّلَ مَرَّةٍ ۖ وَهُوَ بِكُلِّ خَلْقٍ عَلِيمٌ</p>
@@ -2578,7 +2597,7 @@ th{background:var(--surface-2)}
     <cite>Yâsîn 36:79 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Mantık şu: İlk yaratılış <em>örneksiz</em> oldu; hiçbir şey yokken, hiçbir plan elde değilken. Bir kez yoktan var eden için tekrar var etmek daha zor olamaz. Rûm suresi bunu açıkça söyler:</p>
+  <p>Mantık şu: İlk yaratılış <em>örneksiz</em> oldu; hiçbir şey yokken, elde hiçbir plan yokken. Yoktan var eden için tekrar var etmek daha zor olamaz. Rûm suresi bunu açıkça söyler:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَهُوَ ٱلَّذِى يَبْدَؤُا۟ ٱلْخَلْقَ ثُمَّ يُعِيدُهُۥ وَهُوَ أَهْوَنُ عَلَيْهِ ۚ وَلَهُ ٱلْمَثَلُ ٱلْأَعْلَىٰ فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ</p>
@@ -2586,18 +2605,10 @@ th{background:var(--surface-2)}
     <cite>Rûm 30:27 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>"Daha kolaydır" ifadesini insan ölçüsüyle düşünmeyelim; Allah (c.c.) için zor ve kolay yoktur, ayet bize kendi idrakimizin seviyesinden sesleniyor. Yâsîn bu yüzden şöyle biter:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">أَوَلَيْسَ ٱلَّذِى خَلَقَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ بِقَـٰدِرٍ عَلَىٰٓ أَن يَخْلُقَ مِثْلَهُم ۚ بَلَىٰ وَهُوَ ٱلْخَلَّـٰقُ ٱلْعَلِيمُ إِنَّمَآ أَمْرُهُۥٓ إِذَآ أَرَادَ شَيْـًٔا أَن يَقُولَ لَهُۥ كُن فَيَكُونُ</p>
-    <p class="tr">Gökleri ve yeri yaratan, kendilerinin benzerini yaratmaya kadir olmaz mı? Elbette olur; çünkü O, yaratan ve bilendir. Bir şeyi dilediği zaman, O'nun buyruğu sadece, o şeye &quot;Ol&quot; demektir, hemen olur.</p>
-    <cite>Yâsîn 36:81-82 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p>Ahkâf suresi de aynı noktayı bir soruyla vurgular: Gökleri ve yeri yaratıp yorulmayan, ölüleri diriltmeye de kâdir olduğunu görmüyorlar mı? (Ahkâf 46:33)</p>
+  <p>"Daha kolaydır" ifadesini insan ölçüsüyle düşünmeyelim; Allah (c.c.) için zor ve kolay yoktur, ayet bize idrakimizin seviyesinden sesleniyor. Yâsîn de şöyle biter: "O'nun buyruğu sadece, o şeye "Ol" demektir, hemen olur." (Yâsîn 36:82). Ahkâf suresi aynı noktayı bir soruyla vurgular: "Gökleri, yeri yaratan ve onları yaratmaktan yorulmayan Allah'ın, ölüleri diriltmeye de kadir olduğunu görmezler mi? Evet; O her şeye Kadir'dir." (Ahkâf 46:33)</p>
 
   <h3>Kemik değil, parmak ucu bile</h3>
-  <p>İnkârcının asıl takıldığı yer çoğu zaman "dağılmış parçalar nasıl bir araya gelecek?" sorusudur. Kıyâme suresi bu soruyu daha da ileri taşır:</p>
+  <p>İnkârcının takıldığı yer çoğu zaman şudur: "Dağılmış parçalar nasıl bir araya gelecek?" Kıyâme suresi bu soruyu daha da ileri taşır:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">أَيَحْسَبُ ٱلْإِنسَـٰنُ أَلَّن نَّجْمَعَ عِظَامَهُۥ بَلَىٰ قَـٰدِرِينَ عَلَىٰٓ أَن نُّسَوِّىَ بَنَانَهُۥ</p>
@@ -2605,21 +2616,11 @@ th{background:var(--surface-2)}
     <cite>Kıyâme 75:3-4 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Mesele sadece kemikleri toplamak değil: "parmak uçlarına varıncaya kadar bütün incelikleriyle" yeniden yapmak. Parmak ucu, insanın en küçük ve en kişisel ayrıntılarından biridir; ayet, kimlik düzeyinde bile hiçbir şeyin kaybolmadığını söylüyor. Bunu bir bilimsel "bulguyla" ispatlamaya çalışmıyoruz; ayet bir laboratuvar dili değil, bir kudret ilanı.</p>
-  <p>Kâf suresi aynı itirazı ve cevabı yan yana koyar. İnkâr edenler "Bu, ihtimali olmayan bir dönüştür" derler; cevap bir güvence cümlesidir:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">أَءِذَا مِتْنَا وَكُنَّا تُرَابًا ۖ ذَٰلِكَ رَجْعٌۢ بَعِيدٌ قَدْ عَلِمْنَا مَا تَنقُصُ ٱلْأَرْضُ مِنْهُمْ ۖ وَعِندَنَا كِتَـٰبٌ حَفِيظٌۢ</p>
-    <p class="tr">Kafirler, Aralarından bir uyarıcının gelmesine şaştılar da: &quot;Bu şaşılacak bir şey; öldüğümüz ve toprak olduğumuz zaman dirilecek miyiz? Bu, ihtimali olmayan bir dönüştür&quot; dediler. Onlardan kimlerin ölüp toprağa karıştığını biliyoruz. Katımızda her şeyi unutulmaktan koruyan bir kitap vardır.</p>
-    <cite>Kâf 50:3-4 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p>Toprağın bedenden neyi eksilttiği de, nerede ne kaldığı da kayıtlıdır. Dirilişte bir şeyin "karışıp gitmesi" diye bir ihtimal yoktur.</p>
+  <p>Mesele sadece kemikleri toplamak değil: "parmak uçlarına varıncaya kadar bütün incelikleriyle" yeniden yapmak. Parmak ucu, insanın en küçük ve en kişisel ayrıntılarından biridir; ayet, kimlik düzeyinde bile hiçbir şeyin kaybolmadığını söylüyor. Bunu bir bilimsel "bulguyla" ispatlamaya çalışmıyoruz; ayet bir laboratuvar dili değil, bir kudret ilanıdır.</p>
+  <p>Kâf suresi aynı itirazı ve cevabı yan yana koyar. İnkâr edenler "Bu, ihtimali olmayan bir dönüştür" derler (50:3); cevap bir güvence cümlesidir: "Onlardan kimlerin ölüp toprağa karıştığını biliyoruz. Katımızda her şeyi unutulmaktan koruyan bir kitap vardır." (Kâf 50:4). Yani dirilişte bir şeyin "karışıp gitmesi" diye bir ihtimal yoktur.</p>
 
   <h3>Gözümüzün önündeki üç delil: toprak, rahim, tarih</h3>
-  <p>Kur'an iddiayı havada bırakmaz; "bak" der. Gözümüzün önündeki üç şeyi sırayla gösterir.</p>
-
-  <p><strong>Birinci delil: ölü toprak.</strong> Kupkuru, çatlamış bir tarla düşün. Aylardır yağmur yok; tek bir yeşillik yok. Sonra su iner.</p>
+  <p>Kur'an iddiayı havada bırakmaz; "bak" der. Önce toprağa bakmamızı ister. Kupkuru, çatlamış bir tarla düşün; aylardır yağmur yok, tek bir yeşillik yok. Sonra su iner.</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَمِنْ ءَايَـٰتِهِۦٓ أَنَّكَ تَرَى ٱلْأَرْضَ خَـٰشِعَةً فَإِذَآ أَنزَلْنَا عَلَيْهَا ٱلْمَآءَ ٱهْتَزَّتْ وَرَبَتْ ۚ إِنَّ ٱلَّذِىٓ أَحْيَاهَا لَمُحْىِ ٱلْمَوْتَىٰٓ ۚ إِنَّهُۥ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ</p>
@@ -2677,14 +2678,7 @@ th{background:var(--surface-2)}
     <figcaption>Kur'an'ın "ölü yerin dirilmesi" delili: kupkuru toprak, inen su, kabarıp harekete geçen yeryüzü. Ayet bunu "insanların diriltilmesi de böyledir" diye bağlar.</figcaption>
   </figure>
 
-  <p>Rûm suresi de aynı sahneyi sayar: "Yeryüzünü ölümünden sonra O canlandırır. Ey insanlar! İşte siz de böylece diriltileceksiniz." (Rûm 30:19, Diyanet meali). A'râf 7:57 aynı benzetmeyle biter: "ölüleri de bunun gibi diriltip, çıkarırız."</p>
-  <p>Said Nursî bu delili, Onuncu Söz'ün (Haşir Bahsi) Dokuzuncu Hakikat'inde şöyle açar. Nursî'nin dili ağırdır; altına sade karşılığını da yazıyorum:</p>
-
-  <blockquote class="alim">
-    <p>"Evet, şu âlemin Mutasarrıf-ı Zîşan'ı, her asırda, her senede, her günde bu dar, muvakkat rû-yi zeminde Haşr-i Ekberin ve meydân-ı Kıyâmet'in pek çok emsâlini ve nümûnelerini ve işârâtını icâd ediyor."</p>
-    <p>Sade söyleyiş: Bu âlemin sahibi, her çağda, her yıl, hatta her gün şu küçük yeryüzünde büyük dirilişin ve kıyamet meydanının birçok benzerini ve işaretini yaratıp gösteriyor.</p>
-    <cite>Said Nursî — Sözler, Onuncu Söz (Haşir Bahsi), Dokuzuncu Hakikat</cite>
-  </blockquote>
+  <p>Rûm suresi de aynı sahneyi sayar: "Yeryüzünü ölümünden sonra O canlandırır. Ey insanlar! İşte siz de böylece diriltileceksiniz." (Rûm 30:19). Said Nursî bu delili, Onuncu Söz'ün (Haşir Bahsi) Dokuzuncu Hakikat'inde açar. Dili ağırdır; altına sade karşılığını yazıyorum:</p>
 
   <blockquote class="alim">
     <p>"Evet, en büyük bir ağacın rûh programını, bir nokta gibi en küçük bir çekirdekte dercedip, muhâfaza eden Zât-ı Hakîm-i Hafîz; 'Vefât edenlerin rûhlarını nasıl muhâfaza eder.' denilir mi?"</p>
@@ -2698,7 +2692,7 @@ th{background:var(--surface-2)}
     <cite>Said Nursî — Sözler, Onuncu Söz (Haşir Bahsi), Dokuzuncu Hakikat</cite>
   </blockquote>
 
-  <p><strong>İkinci delil: rahim.</strong> Hac suresi, bir sonraki delili birinci delille tek ayette birleştirir. Önce insanın yaratılış basamakları sayılır, ardından yine kurumuş yer ve su gelir:</p>
+  <p>İkinci delil <strong>rahim</strong>. Hac suresi, onu birinci delille tek ayette birleştirir: önce insanın yaratılış basamakları sayılır, ardından yine kurumuş yer ve su gelir.</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">يَـٰٓأَيُّهَا ٱلنَّاسُ إِن كُنتُمْ فِى رَيْبٍ مِّنَ ٱلْبَعْثِ فَإِنَّا خَلَقْنَـٰكُم مِّن تُرَابٍ ثُمَّ مِن نُّطْفَةٍ ثُمَّ مِنْ عَلَقَةٍ ثُمَّ مِن مُّضْغَةٍ مُّخَلَّقَةٍ وَغَيْرِ مُخَلَّقَةٍ لِّنُبَيِّنَ لَكُمْ ۚ وَنُقِرُّ فِى ٱلْأَرْحَامِ مَا نَشَآءُ إِلَىٰٓ أَجَلٍ مُّسَمًّى ثُمَّ نُخْرِجُكُمْ طِفْلًا ثُمَّ لِتَبْلُغُوٓا۟ أَشُدَّكُمْ ۖ وَمِنكُم مَّن يُتَوَفَّىٰ وَمِنكُم مَّن يُرَدُّ إِلَىٰٓ أَرْذَلِ ٱلْعُمُرِ لِكَيْلَا يَعْلَمَ مِنۢ بَعْدِ عِلْمٍ شَيْـًٔا ۚ وَتَرَى ٱلْأَرْضَ هَامِدَةً فَإِذَآ أَنزَلْنَا عَلَيْهَا ٱلْمَآءَ ٱهْتَزَّتْ وَرَبَتْ وَأَنۢبَتَتْ مِن كُلِّ زَوْجٍۭ بَهِيجٍ</p>
@@ -2706,23 +2700,9 @@ th{background:var(--surface-2)}
     <cite>Hac 22:5 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Sıraya dikkat: toprak, nutfe, pıhtılaşmış kan, çiğnem et; sonra doğum, büyüme, yaşlılık ve unutkanlık. İnsan zaten hayatı boyunca "var olmanın" aşamalarından geçmiştir; ayet "bunu gördüğünüz hâlde dirilişten niçin şüphe ediyorsunuz?" diye soruyor. Sonra gelen iki ayet şöyle hükmeder:</p>
+  <p>Toprak, nutfe, pıhtılaşmış kan, çiğnem et; sonra doğum, büyüme, yaşlılık ve unutkanlık. İnsan zaten hayatı boyunca "var olmanın" aşamalarından geçmiştir; ayet "bunu gördüğünüz hâlde dirilişten niçin şüphe ediyorsunuz?" diye soruyor. Sonraki ayetler sonucu bağlar: bütün bunlar Allah'ın ölüleri diriltmeye kâdir olduğunun ve kıyametin geleceğinin işaretidir (Hac 22:6-7).</p>
 
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّهُۥ يُحْىِ ٱلْمَوْتَىٰ وَأَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ وَأَنَّ ٱلسَّاعَةَ ءَاتِيَةٌ لَّا رَيْبَ فِيهَا وَأَنَّ ٱللَّهَ يَبْعَثُ مَن فِى ٱلْقُبُورِ</p>
-    <p class="tr">Bunlar, yalnız Allah'ın gerçek olduğunu, ölüleri dirilttiğini, gücünün herşeye yettiğini, şüphe götürmeyen kıyamet saatinin geleceğini, Allah'ın kabirlerde olanı dirilteceğini gösterir.</p>
-    <cite>Hac 22:6-7 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p><strong>Üçüncü delil: tarih içinden tanıklar.</strong> Kur'an'da "uyuyup uyanan" ve "ölüp yeniden kalkan" kişilerin hikâyeleri de delil olarak yer alır. Kehf suresindeki mağara arkadaşları (Ashâb-ı Kehf), uzun bir süre uyuduktan sonra uyandırılır ve birbirlerine "Ne kadar kaldınız?" diye sorarlar: "Bir gün veya daha az bir müddet" (Kehf 18:19). Sonra ayet, hikâyenin neden anlatıldığını açıkça söyler:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">وَكَذَٰلِكَ أَعْثَرْنَا عَلَيْهِمْ لِيَعْلَمُوٓا۟ أَنَّ وَعْدَ ٱللَّهِ حَقٌّ وَأَنَّ ٱلسَّاعَةَ لَا رَيْبَ فِيهَآ إِذْ يَتَنَـٰزَعُونَ بَيْنَهُمْ أَمْرَهُمْ ۖ فَقَالُوا۟ ٱبْنُوا۟ عَلَيْهِم بُنْيَـٰنًا ۖ رَّبُّهُمْ أَعْلَمُ بِهِمْ ۚ قَالَ ٱلَّذِينَ غَلَبُوا۟ عَلَىٰٓ أَمْرِهِمْ لَنَتَّخِذَنَّ عَلَيْهِم مَّسْجِدًا</p>
-    <p class="tr">Böylece, Allah'ın sözünün gerçek olduğunu ve kıyametin kopmasından şüphe edilemeyeceğini bilmeleri için, insanların onları bulmalarını sağladık. Nitekim halk, bunların hakkında çekişip duruyor: &quot;Onların mağaralarının çevresine bir bina kurun&quot; diyorlardı. Oysa, Rableri onları çok iyi bilir. Tartışmayı kazananlar: &quot;Onların mağaralarının çevresinde mutlaka bir mescid kuracağız&quot; dediler.</p>
-    <cite>Kehf 18:21 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p>Bakara suresinde ise başka bir kıssa var: Altı üstüne gelmiş bir kasabaya uğrayan kişi, "Allah burayı ölümünden sonra nasıl diriltecek?" diye aklından geçirir.</p>
+  <p>Üçüncü delil <strong>tarih içinden tanıklardır</strong>. Kehf suresindeki mağara arkadaşları (Ashâb-ı Kehf) uzun bir uykudan uyandırılır, birbirlerine "Ne kadar kaldınız?" diye sorarlar: "Bir gün veya daha az bir müddet" (Kehf 18:19). Ayet hikâyenin sebebini açıkça söyler: "Allah'ın sözünün gerçek olduğunu ve kıyametin kopmasından şüphe edilemeyeceğini bilmeleri için, insanların onları bulmalarını sağladık." (Kehf 18:21). Bakara suresindeki bir başka kıssada ise altı üstüne gelmiş bir kasabaya uğrayan kişi, "Allah burayı ölümünden sonra nasıl diriltecek?" diye aklından geçirir:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">أَوْ كَٱلَّذِى مَرَّ عَلَىٰ قَرْيَةٍ وَهِىَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا قَالَ أَنَّىٰ يُحْىِۦ هَـٰذِهِ ٱللَّهُ بَعْدَ مَوْتِهَا ۖ فَأَمَاتَهُ ٱللَّهُ مِا۟ئَةَ عَامٍ ثُمَّ بَعَثَهُۥ ۖ قَالَ كَمْ لَبِثْتَ ۖ قَالَ لَبِثْتُ يَوْمًا أَوْ بَعْضَ يَوْمٍ ۖ قَالَ بَل لَّبِثْتَ مِا۟ئَةَ عَامٍ فَٱنظُرْ إِلَىٰ طَعَامِكَ وَشَرَابِكَ لَمْ يَتَسَنَّهْ ۖ وَٱنظُرْ إِلَىٰ حِمَارِكَ وَلِنَجْعَلَكَ ءَايَةً لِّلنَّاسِ ۖ وَٱنظُرْ إِلَى ٱلْعِظَامِ كَيْفَ نُنشِزُهَا ثُمَّ نَكْسُوهَا لَحْمًا ۚ فَلَمَّا تَبَيَّنَ لَهُۥ قَالَ أَعْلَمُ أَنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ</p>
@@ -2730,8 +2710,7 @@ th{background:var(--surface-2)}
     <cite>Bakara 2:259 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Gördüğümüz gibi, kişi "bir gün" sanmıştı, oysa yüz yıl geçmişti. Yiyeceği bozulmamıştı; kendisine ayrıca kemiklere bakması ve onların nasıl birleştirilip et giydirildiğini görmesi söylendi. Aynı kıssa iki şeyi birden öğretir: Zaman Allah'ı (c.c.) bağlamaz ve bir şeyi eski hâline getirmek O'na zor değildir.</p>
-  <p>Son kıssa, en insanî olanı. İbrâhim (a.s.) da "nasıl?" diye sorar:</p>
+  <p>Kişi "bir gün" sanmıştı, oysa yüz yıl geçmişti. Aynı kıssa iki şeyi birden öğretir: Zaman Allah'ı (c.c.) bağlamaz ve bir şeyi eski hâline getirmek O'na zor değildir. Son kıssa en insanî olanı. İbrâhim (a.s.) de "nasıl?" diye sorar:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَإِذْ قَالَ إِبْرَٰهِـۧمُ رَبِّ أَرِنِى كَيْفَ تُحْىِ ٱلْمَوْتَىٰ ۖ قَالَ أَوَلَمْ تُؤْمِن ۖ قَالَ بَلَىٰ وَلَـٰكِن لِّيَطْمَئِنَّ قَلْبِى ۖ قَالَ فَخُذْ أَرْبَعَةً مِّنَ ٱلطَّيْرِ فَصُرْهُنَّ إِلَيْكَ ثُمَّ ٱجْعَلْ عَلَىٰ كُلِّ جَبَلٍ مِّنْهُنَّ جُزْءًا ثُمَّ ٱدْعُهُنَّ يَأْتِينَكَ سَعْيًا ۚ وَٱعْلَمْ أَنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌ</p>
@@ -2739,19 +2718,19 @@ th{background:var(--surface-2)}
     <cite>Bakara 2:260 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>"İnanmıyor musun?" sorusuna verdiği cevap çok öğreticidir: "Hayır öyle değil, fakat kalbim iyice kansın." İman ile <em>kalbin tam yatışması</em> aynı şey olmayabilir; ayet bu isteği ayıplamıyor, bir yol gösterip karşılığını veriyor. Eğer içinde "bunu bir şekilde görsem, sindirsem" diye bir özlem varsa, bu bölümün yaptığı iş tam olarak bu: kalbin yatışmasına yardım etmek.</p>
+  <p>"İnanmıyor musun?" sorusuna verdiği cevap çok öğreticidir: "Hayır öyle değil, fakat kalbim iyice kansın." İman ile <em>kalbin tam yatışması</em> aynı şey olmayabilir; ayet bu isteği ayıplamıyor, karşılığını veriyor. İçinde "bunu görsem, sindirsem" diye bir özlem varsa, bu bölümün yaptığı iş tam olarak bu: kalbin yatışmasına yardım etmek.</p>
 
   <aside class="not dusun">
     <strong>Bunlar neyin delili?</strong>
-    <p>Bu işaretler laboratuvar deneyi gibi bir ispat sunmuyor. Bahar ve rahim, "bir kez olmuşsa tekrar olabilir" mantığını gözümüzün önüne koyan <em>işaretlerdir</em>. Tohumun ya da embriyonun bugünkü bilimsel anlatımı bu delillerin yerini almaz, onları kanıtlamaz da; ayetler zaten böyle bir iddiada değil. Ayetler aklı davet ediyor: "bak, düşün, kıyas et."</p>
+    <p>Bu işaretler laboratuvar deneyi gibi bir ispat sunmuyor; "bir kez olmuşsa tekrar olabilir" mantığını gözümüzün önüne koyuyor. Tohumun ya da embriyonun bugünkü bilimsel anlatımı bu delillerin yerini almaz, onları kanıtlamaz da. Ayetler aklı davet ediyor: "bak, düşün, kıyas et."</p>
   </aside>
 
   <h3>Çağrı: kabirden çıkış</h3>
-  <p>Şimdi delil bitti, sahne başlıyor.</p>
+  <p>Delil bitti, sahne başlıyor.</p>
 
   <div class="sahne">
     <p class="sahne-etiket">Gözünü kapat…</p>
-    <p>Ne kadar zaman geçtiğini bilmiyorsun; sana kısacık bir uyku gibi gelmiş. Sonra "tek bir çığlık" kopuyor. Ses sana yakın bir yerden geliyor, öyle yakın ki hiçbir yere kaçamıyorsun. Toprak yarılıyor. Kalkıyorsun, koşuyorsun; çevrende binlerce, milyonlarca kişi aynı yöne akıyor. Kendi kendine soruyorsun: <em>"Yattığım yerden beni kim kaldırdı?"</em></p>
+    <p>Ne kadar zaman geçtiğini bilmiyorsun; sana kısacık bir uyku gibi gelmiş. Sonra "tek bir çığlık" kopuyor. Ses sana yakın bir yerden geliyor, öyle yakın ki hiçbir yere kaçamıyorsun. Toprak yarılıyor. Kalkıyorsun, koşuyorsun; çevrende milyonlarca kişi aynı yöne akıyor. Kendi kendine soruyorsun: <em>"Yattığım yerden beni kim kaldırdı?"</em></p>
   </div>
 
   <blockquote class="ayet">
@@ -2765,19 +2744,13 @@ th{background:var(--surface-2)}
     <cite>Kamer 54:7-8 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>İki kareye dikkat: "koşarak" ve "çekirgeler gibi yayılmış". Kabirden çıkış, tek tek ve sakin bir uyanış değil; bir çağrıya karşı toplu ve hızlı bir akıştır. İsrâ suresi, o anki yanılgıyı da verir:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">يَوْمَ يَدْعُوكُمْ فَتَسْتَجِيبُونَ بِحَمْدِهِۦ وَتَظُنُّونَ إِن لَّبِثْتُمْ إِلَّا قَلِيلًا</p>
-    <p class="tr">Sizi çağırdığı gün, O'na hamdederek davetine uyarsınız ve kabirlerinizde pek az bir müddet kaldığınızı sanırsınız.</p>
-    <cite>İsrâ 17:52 · Diyanet İşleri meali</cite>
-  </blockquote>
+  <p>İki kareye dikkat: "koşarak" ve "çekirgeler gibi yayılmış". Kabirden çıkış, tek tek ve sakin bir uyanış değil; bir çağrıya karşı toplu ve hızlı bir akıştır. İsrâ suresi o anki şaşkınlığı da verir: kabirlerinde "pek az bir müddet kaldığınızı sanırsınız" (İsrâ 17:52).</p>
 
   <h3>Çıplak, yalın ayak, sünnetsiz: ilk yaratılıştaki gibi</h3>
-  <p>Hz. Muhammed (s.a.v.) bir hutbede dirilişin hâlini şöyle bildirir. Hadisi İbn Abbas aktarıyor:</p>
+  <p>Hz. Muhammed (s.a.v.) bir hutbede dirilişin hâlini bildirir. Hadisi İbn Abbas aktarıyor:</p>
 
   <blockquote class="hadis">
-    <p>"Siz (kıyamet günü) yalın ayak, çıplak ve sünnetsiz olarak toplanacaksınız." Sonra şu ayeti okudu: "İlk yaratmaya nasıl başladıysak, onu yine öyle yeniden yaratacağız…" (Enbiyâ 21:104). Ardından şöyle ekledi: "Kıyamet günü ilk giydirilecek kişi İbrâhim (a.s.) olacaktır."</p>
+    <p>"Siz (kıyamet günü) yalın ayak, çıplak ve sünnetsiz olarak toplanacaksınız." Sonra Enbiyâ 21:104 ayetini okudu ve ekledi: "Kıyamet günü ilk giydirilecek kişi İbrâhim (a.s.) olacaktır."</p>
     <cite>Buhârî 3349 (ayrıca Buhârî 6524-6526, Müslim 2860; Tirmizî 2423 "hasen sahih") · Sahih</cite>
   </blockquote>
 
@@ -2787,15 +2760,14 @@ th{background:var(--surface-2)}
     <cite>Enbiyâ 21:104 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>"Sünnetsiz" ifadesi, bedenin doğumdaki ilk hâline işaret eder; Tirmizî'nin rivayetinde "yaratıldıkları gibi" ibaresi de geçer. Yani bu bir mahcubiyet sahnesinden önce, bir <strong>ilk yaratılışa dönüş</strong> sahnesidir: Allah (c.c.), "ilk yarattığımız gibi tekrar yaratırız" sözünü tutuyor.</p>
-  <p>Hz. Âişe validemizin içimizden gelen soruyu sorduğunu görüyoruz:</p>
+  <p>"Sünnetsiz", bedenin doğumdaki ilk hâli olarak anlaşılır; Tirmizî'nin rivayetinde "yaratıldıkları gibi" ibaresi de geçer. Yani bu, bir mahcubiyet sahnesinden önce bir <strong>ilk yaratılışa dönüş</strong> sahnesidir: Allah (c.c.) "ilk yarattığımız gibi tekrar yaratırız" sözünü tutuyor. Hz. Âişe validemiz, içimizden gelen soruyu sorar:</p>
 
   <blockquote class="hadis">
     <p>Hz. Âişe (r.anha) anlatıyor: Allah'ın Resûlü (s.a.v.) buyurdu: "İnsanlar yalın ayak, çıplak ve sünnetsiz toplanacak." Dedim ki: "Ey Allah'ın Resûlü! Erkekler ve kadınlar birbirlerine bakmayacak mı?" Buyurdu: "Durum, onların buna dikkat edemeyeceği kadar ağır olacak."</p>
     <cite>Buhârî 6527; Müslim 2859 · Sahih</cite>
   </blockquote>
 
-  <p>Dünyadaki en büyük utanç bile o günün şiddeti yanında küçük kalır. Bu, korkutan bir ayrıntı gibi görünür; ama bir yandan da şunu söyler: <em>o gün kimse kimsenin ayıbını görecek hâlde değil.</em> Herkes kendi meselesine dalmıştır. Kur'an bunu iki yerde açıkça anlatır:</p>
+  <p>Dünyadaki en büyük utanç bile o günün şiddeti yanında küçük kalır. Bu ürkütücü bir ayrıntı gibi görünür; ama bir yandan da şunu söyler: <em>o gün kimse kimsenin ayıbını görecek hâlde değil.</em> Herkes kendi meselesine dalmıştır. Kur'an bunu iki yerde açıkça anlatır:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">فَإِذَا نُفِخَ فِى ٱلصُّورِ فَلَآ أَنسَابَ بَيْنَهُمْ يَوْمَئِذٍ وَلَا يَتَسَآءَلُونَ</p>
@@ -2808,46 +2780,24 @@ th{background:var(--surface-2)}
     <cite>Abese 80:33-37 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Meâric suresi de aynı manzarayı çizer: "Hiç bir dost diğer bir dostunu sormaz." (Meâric 70:10). Kur'an'ın bu sahneleri, hayalimizi zorlayacak kadar canlı çizmesine bir "tasvir" diyebiliriz: konuşmayı, kaçışı, bakışı gösterir, anlatmakla yetinmez.</p>
-  <p>Burada bir yorum: Çıplaklık ve yalın ayaklık, dünyadaki bütün ayırt edici işaretleri alır götürür. Makam, mal, nesep, kıyafet, unvan, hiçbiri o düzlükte yok. Herkes, doğduğu hâliyle, aynı yerde, aynı çağrıya kulak vermiştir. Tek ölçü, birazdan göreceğimiz gibi, amellerdir.</p>
-  <p>Hadislerde dirilişin üç farklı biçimi de geçer: <strong>yürüyerek, binekli olarak ve yüzleri üstü sürüklenerek</strong> toplanma (Tirmizî 2424, hasen). Biri Hz. Peygamber'e "Kâfir yüzü üstü mü toplanacak?" diye sorunca şu cevabı almıştır: "Dünyada onu iki ayağı üstünde yürüten, kıyamette yüzü üstünde yürütmeye kâdir değil midir?" (Buhârî 6523; Müslim 2806). Binekli gelenlerden maksat, ayetin "konuk" dediği kişilerdir; bu konuya bölümün sonunda döneceğiz.</p>
+  <p>Meâric suresi de aynı manzarayı çizer: "Hiç bir dost diğer bir dostunu sormaz." (Meâric 70:10).</p>
+  <p>Burada bir yorum: Çıplaklık ve yalın ayaklık, dünyadaki bütün ayırt edici işaretleri alıp götürür. Makam, mal, nesep, unvan, hiçbiri o düzlükte yok. Herkes, doğduğu hâliyle, aynı çağrıya kulak vermiştir. Tek ölçü, birazdan göreceğimiz gibi, amellerdir.</p>
+  <p>Hadislerde dirilişin üç biçimi de geçer: <strong>yürüyerek, binekli olarak ve yüzleri üstü sürüklenerek</strong> toplanma (Tirmizî 2424, hasen). Biri Hz. Peygamber'e "Kâfir yüzü üstü mü toplanacak?" diye sorunca şu cevabı almıştır: "Dünyada onu iki ayağı üstünde yürüten, kıyamette yüzü üstünde yürütmeye kâdir değil midir?" (Buhârî 6523; Müslim 2806). Binekli gelenlerden maksat, ayetin "konuk" dediği kişilerdir; ona bölümün sonunda döneceğiz.</p>
 
   <h3>Meydan: tek düzlük, her şey görünür</h3>
-  <p>Şimdi bütün ilk ve son insanlar toplanmıştır. Bu toplanma yerine <strong>mahşer</strong> denir. Bu meydanı en iyi, Hz. Peygamber'in (s.a.v.) kendi anlatımından öğreniyoruz:</p>
+  <p>Şimdi bütün ilk ve son insanlar toplanmıştır. Bu toplanma yerine <strong>mahşer</strong> denir. Meydanı en iyi, Hz. Peygamber'in (s.a.v.) kendi anlatımından öğreniyoruz:</p>
 
   <blockquote class="hadis">
     <p>"Ben, kıyamet günü insanların efendisiyim. Bunun sebebini biliyor musunuz? Allah, ilkleri ve sonrakileri tek bir düzlükte toplar; öyle ki çağıran hepsine sesini duyurur, bakan hepsini görür. Güneş onlara yaklaşır; öyle ki dayanamayacakları ve tahammül edemeyecekleri bir sıkıntıya ve zorluğa düşerler."</p>
     <cite>Buhârî 4712 (ayrıca Buhârî 3340; Müslim 194) · Sahih</cite>
   </blockquote>
 
-  <p>Üç şeye bakalım: tek düzlük, çağıran ve güneş. Kur'an da düzlüğü ve çağrıyı bildirir:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">فَإِنَّمَا هِىَ زَجْرَةٌ وَٰحِدَةٌ فَإِذَا هُم بِٱلسَّاهِرَةِ</p>
-    <p class="tr">Doğrusu bir tek çığlık yetecektir. Hepsi hemen bir düzlüğe dökülecektir.</p>
-    <cite>Nâziât 79:13-14 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p>Bu düzlük, bildiğimiz dünyanın aynısı olmayabilir. İbrâhîm suresi, o günü yeryüzünün ve göklerin değiştirildiği bir gün olarak anar:</p>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">يَوْمَ تُبَدَّلُ ٱلْأَرْضُ غَيْرَ ٱلْأَرْضِ وَٱلسَّمَـٰوَٰتُ ۖ وَبَرَزُوا۟ لِلَّهِ ٱلْوَٰحِدِ ٱلْقَهَّارِ</p>
-    <p class="tr">Yerin başka bir yerle, göklerin de başka göklerle değiştirildiği, her şeye üstün gelen tek Allah'ın huzuruna çıktıkları günde, sakın Allah'ın peygamberlerine verdiği sözden cayacağını sanma; doğrusu Allah güçlüdür, öç alandır.</p>
-    <cite>İbrâhîm 14:48 · Diyanet İşleri meali</cite>
-  </blockquote>
-
-  <p>Bu yüzden hadisteki "güneş" ve "mil" gibi kelimeleri, bildiğimiz fizik kurallarıyla ölçmeye kalkmayalım. Vahiy bize sahnenin <em>anlamını</em> veriyor, laboratuvar ölçüsünü değil.</p>
+  <p>Üç şey var: tek düzlük, çağıran ve güneş. Kur'an düzlüğü ve çağrıyı şöyle bildirir: "Doğrusu bir tek çığlık yetecektir. Hepsi hemen bir düzlüğe dökülecektir." (Nâziât 79:13-14). Bu düzlük, bildiğimiz dünyanın aynısı olmayabilir; İbrâhîm suresi o günü yerin ve göklerin değiştirildiği gün olarak anar (14:48). Bu yüzden hadisteki "güneş" ve "mil" gibi kelimeleri bildiğimiz fizik kurallarıyla ölçmeye kalkmayalım. Vahiy bize sahnenin <em>anlamını</em> veriyor, laboratuvar ölçüsünü değil.</p>
 
   <div class="sahne">
     <p class="sahne-etiket">Gözünü kapat…</p>
-    <p>Ayağının altında dümdüz bir zemin var; ne bir ağaç, ne bir bina, ne bir gölge. Bir ses duyuyorsun ve en uzaktakinin de aynı sesi duyduğunu anlıyorsun. Bakıyorsun ve öyle bir meydan ki en uzaktaki kişi bile görünüyor. Melekler saf saf, dizi dizi duruyor; Rahmân'ın izni olmadan kimsenin konuşamayacağı sessiz bir bekleyiş. Kalpler titriyor, bakışlar yere eğik (Nâziât 79:8-9). Ve yukarıda güneş çok yakın.</p>
+    <p>Ayağının altında dümdüz bir zemin var; ne bir ağaç, ne bir bina, ne bir gölge. Bir ses duyuyorsun ve en uzaktakinin de aynı sesi duyduğunu anlıyorsun. Bakıyorsun; öyle bir meydan ki en uzaktaki kişi bile görünüyor. Melekler saf saf, dizi dizi duruyor; Rahmân'ın izni olmadan kimsenin konuşamayacağı sessiz bir bekleyiş (Nebe' 78:38). Kalpler titriyor, bakışlar yere eğik (Nâziât 79:8-9). Ve yukarıda güneş çok yakın.</p>
   </div>
-
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">يَوْمَ يَقُومُ ٱلرُّوحُ وَٱلْمَلَـٰٓئِكَةُ صَفًّا ۖ لَّا يَتَكَلَّمُونَ إِلَّا مَنْ أَذِنَ لَهُ ٱلرَّحْمَـٰنُ وَقَالَ صَوَابًا</p>
-    <p class="tr">Cebrail ve meleklerin dizi dizi durdukları gün, Rahman olan Allah'ın izni olmadan kimse konuşamayacaktır. Konuştuğu zaman da doğruyu söyleyecektir.</p>
-    <cite>Nebe' 78:38 · Diyanet İşleri meali</cite>
-  </blockquote>
 
   <h3>Güneş yaklaştırılır, ter amelin ölçüsü olur</h3>
   <p>Hz. Peygamber'in (s.a.v.) bildirdiği en çarpıcı ayrıntı şudur: Herkes aynı güneşin altında, ama herkesin durumu aynı değil.</p>
@@ -2903,23 +2853,18 @@ th{background:var(--surface-2)}
   <text x="260" y="532" text-anchor="middle" style="font-family:inherit;font-size:20px;font-weight:700;fill:var(--ink)">Gölgede olanlar</text>
   <text x="260" y="556" text-anchor="middle" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">yedi sınıf (Buhârî 660)</text>
 </svg>
-    <figcaption>Mahşer meydanının şeması: yaklaşan güneş, amelin ölçüsüne göre değişen ter seviyeleri ve Arş'ın gölgesi. (Müslim 2864; Buhârî 660). Şema bir ölçek değil, hadisin anlattığı sıralamanın sadece görünür kılınmış hâlidir; figür kullanılmadı.</figcaption>
+    <figcaption>Mahşer meydanının şeması: yaklaşan güneş, amelin ölçüsüne göre değişen ter seviyeleri ve gölgede olanlar (Müslim 2864; Buhârî 660). Şema bir ölçek değil, hadisin anlattığı sıralamanın görünür kılınmış hâlidir; figür kullanılmadı.</figcaption>
   </figure>
 
-  <p>Hadisin merkezindeki kelime "<strong>amellerinin ölçüsünde</strong>". Aynı meydan, aynı güneş, ama herkesin yükü kendi geçmişiyle ilgili. Hesap henüz başlamamış, ama ölçü şimdiden işliyor. Bu bir cezalandırma sahnesi değil; her şeyin adaletle işlediğini gösteren ilk işaret. Bu kadarını bilmek yeter: Biz, o gün, topuğa mı, dize mi, beline mi gireceğimizi bilemeyiz; ama bu ölçünün <em>bugün</em> yaptıklarımızla ilgili olduğunu biliyoruz.</p>
-  <p>Terin ne kadar büyük olabileceği bakımından başka iki rivayet daha var:</p>
+  <p>Hadisin merkezindeki ifade "<strong>amellerinin ölçüsünde</strong>". Aynı meydan, aynı güneş, ama herkesin yükü kendi geçmişiyle ilgili. Hesap henüz başlamadı, ama ölçü şimdiden işliyor. Bu, adaletin ilk işareti. Biz o gün topuğa mı, dize mi, beline mi gireceğimizi bilemeyiz; ama bu ölçünün <em>bugün</em> yaptıklarımızla ilgili olduğunu biliyoruz.</p>
+  <p>Terin boyutu için başka rivayetler de var; biri kulak yarısını anar (Buhârî 4938; Müslim 2862), biri de şunu:</p>
 
   <blockquote class="hadis">
     <p>"Kıyamet günü insanlar öyle terler ki, ter yere yetmiş zirâ' (arşın) işler; sonra yükselip insanların ağızlarına ve kulaklarına kadar çıkar."</p>
     <cite>Buhârî 6532; Müslim 2863 · Sahih</cite>
   </blockquote>
 
-  <blockquote class="hadis">
-    <p>"Âlemlerin Rabbi önünde duracakları gün, onlardan kimi terine kulaklarının yarısına kadar gömülür."</p>
-    <cite>Buhârî 4938; Müslim 2862 (İbn Ömer rivayeti) · Sahih</cite>
-  </blockquote>
-
-  <p>Rivayetler birbiriyle çelişmez: biri kulak yarısını, biri ağız-kulak hizasını, biri gem vurulan ağzı anar; hepsi aynı hakikati ayrı ayrı resmeder. İbn Kesîr, Mutaffifîn suresinin tefsirinde bu hadisleri toplar ve ardından şunu da nakleder: Resûlullah (s.a.v.), kıyamet günkü duruşun darlığından Allah'a sığınırdı (İbn Kesîr bu bilgiyi Ebû Dâvûd'a atfeder). Bu, bize de bir yol gösterir: o günü anmak umutsuzluk için değil, <strong>sığınmak ve hazırlanmak</strong> içindir.</p>
+  <p>Rivayetler birbiriyle çelişmez: kulak yarısı, ağız-kulak hizası ve gem vurulan ağız, aynı hakikatin ayrı ayrı resimleridir. İbn Kesîr, Mutaffifîn suresinin tefsirinde bu hadisleri toplar ve Resûlullah'ın (s.a.v.) kıyamet günkü duruşun darlığından Allah'a sığındığını da nakleder (Ebû Dâvûd'a atfeder). O günü anmak umutsuzluk için değil, <strong>sığınmak ve hazırlanmak</strong> içindir.</p>
 
   <blockquote class="alim">
     <p>"Yalın ayak, çıplak ve sünnetsiz olarak, suçlular için zor, çetin ve sıkıntılı bir makamda dururlar. Allah'ın emriyle kuşatılırlar; bu, güç ve duyuların kaldıramayacağı bir şeydir."</p>
@@ -2928,11 +2873,11 @@ th{background:var(--surface-2)}
 
   <aside class="not dikkat">
     <strong>"Mil" nedir?</strong>
-    <p>Hadisin râvisi Süleym b. Âmir, "mil"in yeryüzü mili mi, sürme mili mi olduğunu bilmediğini açıkça söylüyor. Yani anlatılmak istenen kesin bir ölçü değil, <em>çok büyük bir yakınlık</em>. Bu yakınlığın keyfiyetini Allah bilir; biz hadisi, bildirildiği şekliyle kabul ederiz.</p>
+    <p>Hadisin râvisi Süleym b. Âmir, "mil"in yeryüzü mili mi, sürme mili mi olduğunu bilmediğini açıkça söylüyor. Yani anlatılmak istenen kesin bir ölçü değil, <em>çok büyük bir yakınlık</em>. Keyfiyetini Allah bilir; biz hadisi bildirildiği şekliyle kabul ederiz.</p>
   </aside>
 
   <h3>Ne kadar bekleyeceğiz?</h3>
-  <p>Meâric suresi, bu günün uzunluğunu şöyle anar:</p>
+  <p>Meâric suresi bu günün uzunluğunu şöyle anar:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">تَعْرُجُ ٱلْمَلَـٰٓئِكَةُ وَٱلرُّوحُ إِلَيْهِ فِى يَوْمٍ كَانَ مِقْدَارُهُۥ خَمْسِينَ أَلْفَ سَنَةٍ</p>
@@ -2940,7 +2885,7 @@ th{background:var(--surface-2)}
     <cite>Meâric 70:4 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>İbn Kesîr, İbn Abbas'tan sağlam bir isnatla "Bu, kıyamet günüdür" açıklamasını nakleder. Müslim'deki bir hadiste de zekâtını vermeyen kişinin azabı bağlamında, Allah kulları arasında hükmünü verinceye kadar geçen bir gün anılır ve bu günün "miktarı elli bin yıl" olduğu söylenir (Müslim 987). Mutaffifîn suresi de bu uzun duruşa işaret eder:</p>
+  <p>İbn Kesîr, İbn Abbas'tan sağlam bir isnatla "Bu, kıyamet günüdür" açıklamasını nakleder. Müslim'deki bir hadiste de Allah kulları arasında hükmünü verinceye kadar geçen ve miktarı elli bin yıl olan bir gün anılır (Müslim 987). Mutaffifîn suresi de bu uzun duruşa işaret eder:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">أَلَا يَظُنُّ أُو۟لَـٰٓئِكَ أَنَّهُم مَّبْعُوثُونَ لِيَوْمٍ عَظِيمٍ يَوْمَ يَقُومُ ٱلنَّاسُ لِرَبِّ ٱلْعَـٰلَمِينَ</p>
@@ -2950,11 +2895,8 @@ th{background:var(--surface-2)}
 
   <aside class="not dikkat">
     <strong>Kesin süre vermiyoruz</strong>
-    <p>İbn Kesîr, İbn Cerîr'e dayanarak sahabeden iki farklı süre nakleder: İbn Mes'ûd'dan "kırk yıl", İbn Ömer'den "yüz yıl". Bunlar sahabe sözleridir, Peygamberimize (s.a.v.) ulaşan bir hadis değildir ve birbirinden farklıdır. Bu yüzden bekleyişin süresini kesinleştirmek yerine, vahyin bildirdiği çerçevede kalıyoruz: uzun, çetin ve herkes için bir hazırlık.</p>
-    <p>Bazı rivayetler müminler için bu bekleyişin hafifleyeceğini söyler. Sağlamlık derecesini bu çalışmada doğrulayamadığımız için onları buraya koymuyoruz.</p>
+    <p>İbn Kesîr, İbn Cerîr'e dayanarak sahabeden iki farklı süre nakleder: İbn Mes'ûd'dan "kırk yıl", İbn Ömer'den "yüz yıl". Bunlar sahabe sözleridir, Peygamberimize (s.a.v.) ulaşan bir hadis değildir ve birbirinden farklıdır. Bu yüzden süreyi kesinleştirmiyor, vahyin bildirdiği çerçevede kalıyoruz: uzun, çetin ve herkes için bir hazırlık. Bazı rivayetler müminler için bekleyişin hafifleyeceğini söyler; sağlamlık derecesini bu çalışmada doğrulayamadığımız için onları buraya koymuyoruz.</p>
   </aside>
-
-  <p>Kur'an, zamanı bir de insanın içinden anlatır: Dirilenler, yaşadıklarına rağmen "pek az bir müddet kaldığımızı sanırız" (İsrâ 17:52). Yani uyanış, uzun bir uykudan sonraki şaşkınlığı da taşır. Zaman, o gün başka bir kıvamdadır.</p>
 
   <h3>Gölge: hiç gölgenin olmadığı günde</h3>
   <p>Bütün bu yakıcılık ve kalabalık içinde bir istisna var, hem de çok güzel bir istisna:</p>
@@ -2964,35 +2906,20 @@ th{background:var(--surface-2)}
     <cite>Buhârî 660; Müslim 1031 · Sahih (Müttefekun aleyh)</cite>
   </blockquote>
 
-  <p>Bu yedi sınıfı bir kalıp olarak değil, bir <em>yön</em> olarak okuyalım:</p>
-  <ol>
-    <li><strong>Âdil yönetici:</strong> Gücü eline geçtiğinde adaleti seçmiş.</li>
-    <li><strong>İbadetle büyüyen genç:</strong> Nefsin en güçlü çağında Rabbine yönelmiş.</li>
-    <li><strong>Kalbi mescitlere bağlı kişi:</strong> Dünya işleri içinde bile gönlü Allah'ın evinde.</li>
-    <li><strong>Allah için sevişenler:</strong> Çıkarsız, karşılıksız dostluk.</li>
-    <li><strong>"Allah'tan korkarım" diyen:</strong> Fırsat, güzellik ve imkân varken günahı terk eden.</li>
-    <li><strong>Gizli sadaka veren:</strong> Gösterişten uzak cömertlik.</li>
-    <li><strong>Tek başına Allah'ı anıp ağlayan:</strong> Kimsenin görmediği yerde Allah'a yönelen.</li>
-  </ol>
-  <p>Ortak noktaları, <em>kimse görmezken bile Allah'ı gözetmek</em> ya da gücü ve imkânı varken doğruyu seçmektir. O gün gölge, dünyada Allah'ın huzurunu hissederek yaşayanlar için bir karşılık olarak ortaya çıkıyor.</p>
+  <p>Bu yedi sınıfı bir kalıp olarak değil, bir <em>yön</em> olarak okuyalım: gücü eline geçtiğinde adaleti seçen; nefsin en güçlü çağında Rabbine yönelen; dünya işleri içinde bile gönlü Allah'ın evinde olan; çıkarsız dostluk kuran; fırsat ve imkân varken günahı terk eden; gösterişsiz cömert; kimsenin görmediği yerde Allah'a yönelen. Ortak noktaları, <em>kimse görmezken bile Allah'ı gözetmek</em> ya da gücü varken doğruyu seçmektir.</p>
 
   <aside class="not">
     <strong>Hangi gölge?</strong>
-    <p>Hadis lafzında "Allah'ın gölgesi" geçer; şârihler arasında bunu <strong>Arş'ın</strong> (Allah'ın hükümranlığının en yüce makamının) gölgesi olarak açıklayanlar vardır. Bunun keyfiyetini Allah bilir. Bizim anlamamız gereken şudur: Hiçbir gölge yokken, gölge bile bir lütuftur.</p>
+    <p>Hadis lafzında "Allah'ın gölgesi" geçer; şârihler arasında bunu <strong>Arş'ın</strong> (Allah'ın hükümranlığının en yüce makamının) gölgesi olarak açıklayanlar vardır. Keyfiyetini Allah bilir. Bizim anlamamız gereken şudur: Hiçbir gölge yokken, gölge bile bir lütuftur.</p>
   </aside>
 
   <h3>Çaresizliğin zirvesi: "Nefsî, nefsî"</h3>
-  <p>Günler uzuyor, güneş yakın, terin ölçüsü artıyor. İnsanlar bir noktada şunu anlar: <strong>Bu bekleyiş bitmeden hesaba başlanmayacak; birinin aracı olması lazım.</strong> İşte hadislerde ve âlimlerin anlatımında <strong>şefaat-i uzmâ</strong> (büyük şefaat) denilen olay burada başlıyor. "Şefaat", bir kişinin başkası adına Allah'a aracılık etmesi, dilekte bulunmasıdır. Kur'an'a göre şefaat <em>Allah'ın iznine</em> bağlıdır:</p>
+  <p>Günler uzuyor, güneş yakın, terin ölçüsü artıyor. İnsanlar bir noktada şunu anlar: <strong>Bu bekleyiş bitmeden hesaba başlanmayacak; birinin aracı olması lazım.</strong> Hadislerde ve âlimlerin anlatımında <strong>şefaat-i uzmâ</strong> (büyük şefaat) denilen olay burada başlıyor. "Şefaat", bir kişinin başkası adına Allah'a aracılık etmesi, dilekte bulunmasıdır. Kur'an'a göre şefaat <em>Allah'ın iznine</em> bağlıdır:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">يَوْمَئِذٍ لَّا تَنفَعُ ٱلشَّفَـٰعَةُ إِلَّا مَنْ أَذِنَ لَهُ ٱلرَّحْمَـٰنُ وَرَضِىَ لَهُۥ قَوْلًا</p>
     <p class="tr">O gün Rahman'ın izin verdiği ve sözünden hoşnut olduğu kimseden başkasının şefaati fayda vermez.</p>
     <cite>Tâhâ 20:109 · Diyanet İşleri meali</cite>
-  </blockquote>
-  <blockquote class="ayet">
-    <p class="ar" lang="ar" dir="rtl">لَّا يَمْلِكُونَ ٱلشَّفَـٰعَةَ إِلَّا مَنِ ٱتَّخَذَ عِندَ ٱلرَّحْمَـٰنِ عَهْدًا</p>
-    <p class="tr">Rahman'ın katında bir ahd almış olandan başkası asla şefaatte bulunamıyacaktır.</p>
-    <cite>Meryem 19:87 · Diyanet İşleri meali</cite>
   </blockquote>
 
   <div class="sahne">
@@ -3050,20 +2977,19 @@ th{background:var(--surface-2)}
   <rect x="120" y="668" width="280" height="44" rx="12" style="fill:var(--surface);stroke:var(--gold);stroke-width:3"/>
   <text x="260" y="697" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--ink)">Hesap başlar (bölüm 06)</text>
 </svg>
-    <figcaption>Şefaat-i uzmâ akışı: Âdem'den İsa'ya her kapıda "nefsî, nefsî"; sonunda Hz. Muhammed (s.a.v.) Arş'ın altında secdeye kapanır (Buhârî 4712, Müslim 194). Şemada yüz ya da figür yoktur; yalnızca isim kutuları vardır.</figcaption>
+    <figcaption>Şefaat-i uzmâ akışı: Âdem'den Îsâ'ya her kapıda "nefsî, nefsî"; sonunda Hz. Muhammed (s.a.v.) Arş'ın altında secdeye kapanır (Buhârî 4712, Müslim 194). Şemada yüz ya da figür yoktur; yalnızca isim kutuları vardır.</figcaption>
   </figure>
 
-  <p>Hadisin uzun metnini özetliyorum; Buhârî 4712 ve Müslim 194'e sadık kalarak:</p>
+  <p>Hadisin uzun metnini, Buhârî 4712 ve Müslim 194'e sadık kalarak özetliyorum:</p>
 
   <blockquote class="hadis">
-    <p>Hz. Peygamber (s.a.v.) o günü şöyle anlatıyor: İnsanlar birbirlerine: "Rabbinize sizin için şefaat edecek birini aramaz mısınız?" derler. Âdem'e (a.s.) gelirler: "Sen insanlığın babasısın; Allah seni eliyle yarattı, sana ruhundan üfledi, melekleri sana secde ettirdi; Rabbine bizim için şefaat et." Âdem der ki: "Rabbim bugün öyle öfkelenmiştir ki ne daha önce öyle öfkelenmiştir ne de bundan sonra öyle öfkelenecektir. O beni ağaçtan men etmişti, ben de O'na isyan ettim. Nefsî, nefsî, nefsî! Başkasına gidin; Nûh'a gidin."</p>
-    <p>Nûh'a (a.s.) gelirler: "Sen yeryüzü ehline gönderilen ilk resûlsün; Allah sana 'çok şükreden kul' adını verdi." O, kendisine tanınan kesinlikle kabul edilecek bir dua hakkını kavmi aleyhinde kullandığını söyler ve "Nefsî, nefsî, nefsî! İbrâhim'e gidin" der. İbrâhim (a.s.) "Üç yalan söylemiştim" diyerek (hadisteki ifadeyle) onları Mûsâ'ya (a.s.) gönderir. Mûsâ (a.s.), emredilmediği hâlde bir kişiyi öldürdüğünü anar ve Îsâ'ya (a.s.) yönlendirir. Îsâ (a.s.) hiçbir günah anmaz; yalnızca "Nefsî, nefsî! Muhammed'e gidin" der.</p>
-    <p>Bana gelirler: "Ey Muhammed! Sen Allah'ın resûlü ve peygamberlerin sonuncususun; Allah senin geçmiş ve gelecek günahlarını bağışladı; Rabbine bizim için şefaat et. Hâlimizi görmüyor musun?" "Arş'ın altına gider, Rabbimin huzurunda secdeye kapanırım. Sonra Allah, benden önce hiç kimseye ilham etmediği hamd ve senâları bana ilham eder. Sonra: 'Ey Muhammed! Başını kaldır; iste, verilir; şefaat et, şefaatin kabul edilir' denir. Başımı kaldırıp: 'Ümmetim, ey Rabbim! Ümmetim, ey Rabbim!' derim. Bunun üzerine: 'Ey Muhammed! Ümmetinden hesabı olmayanları Cennet kapılarından sağdaki kapıdan sok; onlar diğer kapılarda da halkla ortaktırlar' denir."</p>
+    <p>Hz. Peygamber (s.a.v.) o günü şöyle anlatıyor: İnsanlar birbirlerine: "Rabbinize bizim için şefaat edecek birini aramaz mısınız?" derler. Âdem'e (a.s.) gelirler: "Sen insanlığın babasısın; Allah seni eliyle yarattı, sana ruhundan üfledi, melekleri sana secde ettirdi; Rabbine bizim için şefaat et." Âdem der ki: "Rabbim bugün öyle öfkelenmiştir ki ne daha önce öyle öfkelenmiştir ne de bundan sonra öfkelenecektir. O beni ağaçtan men etmişti, ben de O'na isyan ettim. Nefsî, nefsî, nefsî! Nûh'a gidin."</p>
+    <p>Nûh (a.s.) kavmi aleyhine kullandığı kabul edilecek dua hakkını, İbrâhim (a.s.) hadiste sayılan "üç yalanını", Mûsâ (a.s.) emredilmeden öldürdüğü kişiyi anar; her biri "Nefsî, nefsî!" diyerek bir sonrakine yönlendirir. Îsâ (a.s.) hiçbir günah anmaz; o da "Nefsî, nefsî! Muhammed'e gidin" der.</p>
+    <p>Bana gelirler: "Ey Muhammed! Sen Allah'ın resûlü ve peygamberlerin sonuncususun; Allah senin geçmiş ve gelecek günahlarını bağışladı; Rabbine bizim için şefaat et." Arş'ın altına gider, Rabbimin huzurunda secdeye kapanırım. Allah, benden önce kimseye ilham etmediği hamd ve senâları bana ilham eder. Sonra: "Ey Muhammed! Başını kaldır; iste, verilir; şefaat et, şefaatin kabul edilir" denir. Başımı kaldırıp "Ümmetim, ey Rabbim! Ümmetim!" derim. Bunun üzerine ümmetimden hesabı olmayanların Cennet kapılarından sağdaki kapıdan girmeleri söylenir.</p>
     <cite>Buhârî 4712 (ayrıca Buhârî 3340'ta kısa rivayet); Müslim 194 · Sahih (Müttefekun aleyh) · özet çeviri</cite>
   </blockquote>
 
-  <p>Bu hadisin iki katmanı var. Birincisi: <strong>peygamberlerin tevazuu.</strong> En yüksek rütbeli kişiler bile o günün büyüklüğü karşısında "bunu yapabilecek kişi ben değilim" derler. Hiçbiri "evet, ben" demez. Her biri, bildiği tek küçük hatayı hatırlar ve geri çekilir. İkincisi, çarpıcı olan: <strong>"ben" diyen bir secde.</strong> Sıra Hz. Muhammed'e (s.a.v.) geldiğinde, o aracılığı yerine getirmeden önce bile hemen konuşmaz; önce secdeye kapanır. Dilek, bir talep olarak değil, bir hamd olarak başlar. Sonra "ümmetim, ümmetim" der. O gün, kendisi için hiçbir şey istemeyen birinin sesi, bizim adımıza yükselir.</p>
-  <p>Bu şefaatin Kur'an'daki karşılığı, İsrâ suresinde "övülecek makam" olarak anılır:</p>
+  <p>Hadisin iki katmanı var. Birincisi <strong>peygamberlerin tevazuu</strong>: En yüksek rütbeli kişiler bile o günün büyüklüğü karşısında "bunu yapacak kişi ben değilim" derler; her biri bildiği tek küçük hatayı hatırlar ve geri çekilir. İkincisi <strong>secde</strong>: Sıra Hz. Muhammed'e (s.a.v.) geldiğinde hemen konuşmaz; önce secdeye kapanır. Dilek bir talep olarak değil, bir hamd olarak başlar. Sonra "ümmetim, ümmetim" der. O gün kendisi için hiçbir şey istemeyen birinin sesi, bizim adımıza yükselir. Kur'an bu makamı İsrâ suresinde "övülecek makam" diye anar:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَمِنَ ٱلَّيْلِ فَتَهَجَّدْ بِهِۦ نَافِلَةً لَّكَ عَسَىٰٓ أَن يَبْعَثَكَ رَبُّكَ مَقَامًا مَّحْمُودًا</p>
@@ -3081,15 +3007,10 @@ th{background:var(--surface-2)}
     <cite>TDV İslâm Ansiklopedisi — "Şefaat" maddesi (islamansiklopedisi.org.tr/sefaat)</cite>
   </blockquote>
 
-  <p>Yani bu büyük şefaatin sonucu, <strong>bekleyişin sona ermesi ve hesabın başlamasıdır</strong>. Ansiklopedi maddesi, âlimlerin bu noktada ittifak ettiğini de belirtir: Hz. Peygamber, mahşer meydanında uzun bekleyiş sıkıntısı içindeki insanların hesaba çekilmesi için Allah katında şefaat edecektir.</p>
-
-  <aside class="not">
-    <strong>Şefaatin ayrıntıları</strong>
-    <p>Şefaatin kimleri kapsayacağı, hangi günahları içine alacağı gibi ayrıntılarda kelâm âlimleri farklı görüşler belirtmiştir (aynı TDV maddesi bu tartışmayı özetler). Biz burada sadece hadiste geçen büyük şefaati, Allah'ın izni ve hoşnutluğu çerçevesinde anlattık. Şefaatin keyfiyetini Allah bilir.</p>
-  </aside>
+  <p>Yani büyük şefaatin sonucu, <strong>bekleyişin sona ermesi ve hesabın başlamasıdır</strong>. Aynı madde, âlimlerin bu noktada ittifak ettiğini de belirtir. Şefaatin başka kapsamlarında (kimleri içine alacağı gibi) kelâm âlimleri farklı görüşler ileri sürmüştür; biz yalnızca hadiste geçen büyük şefaati, Allah'ın izni çerçevesinde anlattık. Keyfiyetini Allah bilir.</p>
 
   <h3>Bu sahnenin güvenli yüzü</h3>
-  <p>Şimdiye kadar anlatılanlar ürpertici olabilir. Ama Kur'an, aynı sahneyi ikinci bir ışıkla da aydınlatır. Müttakiler (Allah'a karşı gelmekten sakınanlar) için bu toplanma bir <strong>konukluk</strong>tur:</p>
+  <p>Şimdiye kadar anlatılanlar ürpertici olabilir. Ama Kur'an aynı sahneyi ikinci bir ışıkla da aydınlatır. Müttakiler (Allah'a karşı gelmekten sakınanlar) için bu toplanma bir <strong>konukluk</strong>tur:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">يَوْمَ نَحْشُرُ ٱلْمُتَّقِينَ إِلَى ٱلرَّحْمَـٰنِ وَفْدًا وَنَسُوقُ ٱلْمُجْرِمِينَ إِلَىٰ جَهَنَّمَ وِرْدًا</p>
@@ -3097,7 +3018,7 @@ th{background:var(--surface-2)}
     <cite>Meryem 19:85-86 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>İbn Kesîr, bu ayetteki "vefd" kelimesini, bir yere binekli olarak varan topluluk diye açıklar; yani şeref ile karşılanan bir heyet. Aynı sahnede kimi yüzlerin nasıl göründüğünü Abese suresi anlatır:</p>
+  <p>İbn Kesîr, ayetteki "vefd" kelimesini, bir yere binekli olarak varan topluluk, yani şerefle karşılanan bir heyet diye açıklar. Aynı sahnede yüzlerin nasıl göründüğünü Abese suresi anlatır:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ ضَاحِكَةٌ مُّسْتَبْشِرَةٌ</p>
@@ -3105,9 +3026,8 @@ th{background:var(--surface-2)}
     <cite>Abese 80:38-39 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Diğer yüzler ise "tozlanmış ve karanlık bürümüş" (Abese 80:40-41). Hepimiz, bu ikisinden birine doğru yürüyoruz; bu cümleyi okurken yapacağımız tek şey, <em>şimdiden</em> hangisine yaklaştığımıza bakmak. Hz. Peygamber'in (s.a.v.) o gün "ümmetim, ümmetim" diyeceği ve kendisine "iste, verilir" denileceği bildirildi; bu, mümin için en büyük ümit kapılarından biridir. Havz-ı Kevser'e (Peygamberimizin havuzuna) ilerleyen bölümlerde, hesaba ve mizana ise bir sonraki bölümde gelinecek.</p>
-
-  <p>Son bir uyarı: Burada anlattığımız her şey, vahyin bize anlattığı kadar. Gerçeği, hayalimizin çok ötesinde:</p>
+  <p>Birtakım yüzler de "tozlanmış ve onları karanlık bürümüştür" (Abese 80:40-41). Hepimiz bu ikisinden birine doğru yürüyoruz; yapacağımız tek şey, <em>şimdiden</em> hangisine yaklaştığımıza bakmak. Hz. Peygamber'in (s.a.v.) o gün "ümmetim, ümmetim" diyeceği ve kendisine "iste, verilir" denileceği bildirildi; bu, mümin için en büyük ümit kapılarından biridir. Havz-ı Kevser'e (Peygamberimizin havuzuna) ve sırata ilerleyen bölümlerde, hesaba ve mizana ise bir sonraki bölümde gelinecek.</p>
+  <p>Son bir uyarı: Burada anlattığımız her şey, vahyin bize anlattığı kadar. Gerçek, hayalimizin çok ötesindedir:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">فَلَا تَعْلَمُ نَفْسٌ مَّآ أُخْفِىَ لَهُم مِّن قُرَّةِ أَعْيُنٍ جَزَآءًۢ بِمَا كَانُوا۟ يَعْمَلُونَ</p>
@@ -3122,7 +3042,7 @@ th{background:var(--surface-2)}
 
   <aside class="not umut">
     <strong>Korku ile ümit arasında</strong>
-    <p>Mahşerin ilk saatleri bir hayli ağır; ama bu bölümde her kapkaranlık sahnenin yanında bir ışık da vardı: Allah'ın dilediği gölgesi, peygamberlerin tevazuu içinde yükselen "ümmetî" sözü, Rahmân'ın konukları. Korku bizi hazırlanmaya çağırır; ümit ise kapıyı çalmaya devam ettirir. İkisi bir kuşun iki kanadı gibi birlikte olmalı.</p>
+    <p>Mahşerin ilk saatleri ağır; ama her karanlık sahnenin yanında bir ışık da vardı: gölge, "ümmetî" sözü, Rahmân'ın konukları. Korku bizi hazırlanmaya çağırır; ümit kapıyı çalmaya devam ettirir. İkisi bir kuşun iki kanadı gibi birlikte olmalı.</p>
   </aside>
 
   <div class="ozetle">
@@ -3131,7 +3051,7 @@ th{background:var(--surface-2)}
       <li>Diriliş mümkündür: İlk yaratan tekrar yaratır (Yâsîn 36:79; Rûm 30:27); parmak ucuna kadar hiçbir ayrıntı kaybolmaz (Kıyâme 75:4). Kur'an bunu ölü toprağın dirilmesi, rahimdeki yaratılış ve Ashâb-ı Kehf, Bakara 2:259, 2:260 gibi örneklerle gösterir.</li>
       <li>İnsanlar yalın ayak, çıplak ve sünnetsiz toplanır (Buhârî 3349); o gün herkes kendi derdindedir (Abese 80:37).</li>
       <li>Güneş yaklaştırılır, insanlar amelleri ölçüsünde terler: ayak bileği, diz, bel ve ağza kadar (Müslim 2864).</li>
-      <li>Hiçbir gölgenin olmadığı günde, yedi sınıf Allah'ın gölgesinde barınır (Buhârî 660).</li>
+      <li>Hiçbir gölgenin olmadığı günde yedi sınıf Allah'ın gölgesinde barınır (Buhârî 660).</li>
       <li>Peygamberler sırayla "nefsî, nefsî" der; Hz. Muhammed (s.a.v.) secdeye kapanıp "ümmetî" der; şefaati kabul edilir ve hesap başlar (Buhârî 4712; Müslim 194).</li>
     </ul>
   </div>
@@ -3171,35 +3091,35 @@ th{background:var(--surface-2)}
       <text x="62" y="87" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--bg)">1</text>
       <text x="96" y="78" style="font-family:inherit;font-size:19px;font-weight:700;fill:var(--ink)">Defterler açılır</text>
       <text x="96" y="102" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">Kayıt herkesin önüne konur</text>
-      <path d="M260 117 L248 128 L272 128 Z" style="fill:var(--ink-soft)"/>
+      <path d="M248 117 L272 117 L260 128 Z" style="fill:var(--ink-soft)"/>
 
       <rect x="24" y="132" width="472" height="66" rx="12" style="fill:var(--surface);stroke:var(--line);stroke-width:1.5"/>
       <circle cx="62" cy="165" r="18" style="fill:var(--accent)"/>
       <text x="62" y="171" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--bg)">2</text>
       <text x="96" y="162" style="font-family:inherit;font-size:19px;font-weight:700;fill:var(--ink)">Arz ya da sorgu</text>
       <text x="96" y="186" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">Kimine kolay hesap, kimine didik didik</text>
-      <path d="M260 201 L248 212 L272 212 Z" style="fill:var(--ink-soft)"/>
+      <path d="M248 201 L272 201 L260 212 Z" style="fill:var(--ink-soft)"/>
 
       <rect x="24" y="216" width="472" height="66" rx="12" style="fill:var(--surface);stroke:var(--line);stroke-width:1.5"/>
       <circle cx="62" cy="249" r="18" style="fill:var(--accent)"/>
       <text x="62" y="255" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--bg)">3</text>
       <text x="96" y="246" style="font-family:inherit;font-size:19px;font-weight:700;fill:var(--ink)">Şahitler</text>
       <text x="96" y="270" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">Organlar, yer, kayıt melekleri</text>
-      <path d="M260 285 L248 296 L272 296 Z" style="fill:var(--ink-soft)"/>
+      <path d="M248 285 L272 285 L260 296 Z" style="fill:var(--ink-soft)"/>
 
       <rect x="24" y="300" width="472" height="66" rx="12" style="fill:var(--surface);stroke:var(--line);stroke-width:1.5"/>
       <circle cx="62" cy="333" r="18" style="fill:var(--accent)"/>
       <text x="62" y="339" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--bg)">4</text>
       <text x="96" y="330" style="font-family:inherit;font-size:19px;font-weight:700;fill:var(--ink)">Sorular</text>
       <text x="96" y="354" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">Ömür, ilim, mal, beden, nimetler</text>
-      <path d="M260 369 L248 380 L272 380 Z" style="fill:var(--ink-soft)"/>
+      <path d="M248 369 L272 369 L260 380 Z" style="fill:var(--ink-soft)"/>
 
       <rect x="24" y="384" width="472" height="66" rx="12" style="fill:var(--surface);stroke:var(--line);stroke-width:1.5"/>
       <circle cx="62" cy="417" r="18" style="fill:var(--accent)"/>
       <text x="62" y="423" text-anchor="middle" style="font-family:inherit;font-size:18px;font-weight:700;fill:var(--bg)">5</text>
       <text x="96" y="414" style="font-family:inherit;font-size:19px;font-weight:700;fill:var(--ink)">Haklar ödenir</text>
       <text x="96" y="438" style="font-family:inherit;font-size:16px;fill:var(--ink-soft)">Sevap ve günah devri, kısas</text>
-      <path d="M260 453 L248 464 L272 464 Z" style="fill:var(--ink-soft)"/>
+      <path d="M248 453 L272 453 L260 464 Z" style="fill:var(--ink-soft)"/>
 
       <rect x="24" y="468" width="472" height="66" rx="12" style="fill:var(--surface);stroke:var(--gold);stroke-width:2.5"/>
       <circle cx="62" cy="501" r="18" style="fill:var(--gold)"/>
@@ -3222,7 +3142,7 @@ th{background:var(--surface-2)}
     <cite>İsrâ 17:13-14 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Dikkat edelim: "Kitabını oku" denir ve hükmü veren yine kitabın kendisidir. Kişi, defterinde kendi hayatını görür ve "bu bana ait değil" diyemez. Aynı sahne Kehf suresinde, suçluların ağzından anlatılır. Defter açılınca onlar korkarlar ve şöyle derler:</p>
+  <p>Dikkat edelim: "Kitabını oku" denir ve hesap görücü olarak kişinin kendisi yeterli sayılır. Kişi, defterinde kendi hayatını görür ve "bu bana ait değil" diyemez. Aynı sahne Kehf suresinde, suçluların ağzından anlatılır. Defter açılınca onlar korkarlar ve şöyle derler:</p>
 
   <blockquote class="ayet">
     <p class="ar" lang="ar" dir="rtl">وَوُضِعَ ٱلْكِتَـٰبُ فَتَرَى ٱلْمُجْرِمِينَ مُشْفِقِينَ مِمَّا فِيهِ وَيَقُولُونَ يَـٰوَيْلَتَنَا مَالِ هَـٰذَا ٱلْكِتَـٰبِ لَا يُغَادِرُ صَغِيرَةً وَلَا كَبِيرَةً إِلَّآ أَحْصَىٰهَا ۚ وَوَجَدُوا۟ مَا عَمِلُوا۟ حَاضِرًا ۗ وَلَا يَظْلِمُ رَبُّكَ أَحَدًا</p>
@@ -3305,7 +3225,7 @@ th{background:var(--surface-2)}
     <cite>Fussılet 41:20-21 · Diyanet İşleri meali</cite>
   </blockquote>
 
-  <p>Aynı surenin devamı, bu şahitliğin gerekçesini de verir: "Siz, gözleriniz, kulaklarınız ve derilerinizin aleyhinize şahitlik edeceğinden korkarak kötü iş işlemekten çekinmiyordunuz. Hayır; Allah'ın, yaptıklarınızın çoğunu bilmediğini sanıyordunuz." (41:22) Yani insan, kimse görmüyor sanarak yaşamıştı. O gün bu yanılgı, sahibine kendi bedeniyle gösterilir. Peygamberimiz de bu sahneyi şöyle anlatmıştır:</p>
+  <p>Aynı surenin devamı, bu şahitliğin gerekçesini de verir: "Siz, gözleriniz, kulaklarınız ve derilerinizin aleyhinize şahidlik edeceğinden korkarak kötü iş işlemekten çekinmiyordunuz. Hayır; Allah'ın, yaptıklarınızın çoğunu bilmediğini sanıyordunuz." (41:22) Yani insan, kimse görmüyor sanarak yaşamıştı. O gün bu yanılgı, sahibine kendi bedeniyle gösterilir. Peygamberimiz de bu sahneyi şöyle anlatmıştır:</p>
 
   <blockquote class="hadis">
     <p class="tr">Enes (r.a.) anlatıyor: Resûlullah (s.a.v.) gülümsedi ve sordu: "Neye güldüğümü biliyor musunuz?" … "Kulun Rabbiyle konuşmasına. Kul, 'Rabbim, beni zulümden korumayı üstlenmedin mi?' der. Allah 'Evet' der. Kul, 'O hâlde aleyhimde kendi nefsimden başka şahit kabul etmem' der. Allah, 'Bugün nefsin sana şahit olarak yeter; kâtip melekler de şahit' der. Sonra ağzına mühür vurulur, elleriyle ayaklarına 'Konuşun' denir; amellerini anlatırlar. Sonra ağzı serbest bırakılır; organlarına 'Uzak olun! Allah sizi kahretsin, ben sizin için mücadele ediyordum' der."</p>
@@ -3327,7 +3247,7 @@ th{background:var(--surface-2)}
 
   <blockquote class="hadis">
     <p class="tr">Kıyamet günü kulun ayakları, şu hususlarda sorulmadıkça yerinden ayrılmaz: Ömrünü nerede tükettiğinden, ilmiyle ne yaptığından, malını nereden kazanıp nereye harcadığından ve bedenini nerede eskittiğinden.</p>
-    <cite>Tirmizî 2417 (Ebû Berze el-Eslemî) · Tirmizî: hasen sahih; Elbânî: sahih</cite>
+    <cite>Tirmizî 2417 (Ebû Berze el-Eslemî) · Tirmizî: hasen sahih; Elbânî: sahih (Zübeyr Ali Zâî zayıf sayar)</cite>
   </blockquote>
 
   <p>Dört başlık, beş soru: Mal için iki soru vardır, çünkü hem kazanç hem harcama sorgulanır. Kur'an bu soruları daha da genişletir:</p>
@@ -3420,9 +3340,9 @@ th{background:var(--surface-2)}
     <cite>Buhârî 2449 (Ebû Hüreyre) · Sahih</cite>
   </blockquote>
 
-  <p>"Bugün helallik iste" çağrısı, hesap gününün dünyadaki yansımasıdır. Kul hakkı konusunda ciddi olmanın sebebi budur: Allah'a karşı işlenen günahlar için tövbe ve bağışlanma kapısı, "Allah kendisine ortak koşulmasını bağışlamaz; bundan başkasını dilediğine bağışlar" (Nisâ 4:48) ve "Allah günahların hepsini bağışlar" (Zümer 39:53) ayetleriyle sürekli açıktır. Kul hakkı ise, hak sahibiyle ilgili olduğu için ödemeyi ya da onun razı olmasını gerektirir. Şehit gibi çok yüksek bir mertebenin bile borç dışındaki günahlarının bağışlanacağı bildirilmiştir (Müslim 1886): bu da insan haklarının ne kadar ağır tutulduğunu gösterir.</p>
+  <p>"Bugün helallik iste" çağrısı, hesap gününün dünyadaki yansımasıdır. Kul hakkı konusunda ciddi olmanın sebebi budur: Allah'a karşı işlenen günahlar için tövbe ve bağışlanma kapısı, "Allah kendisine ortak koşmayı elbette bağışlamaz, bundan başkasını dilediğine bağışlar" (Nisâ 4:48) ve "Allah günahların hepsini bağışlar" (Zümer 39:53) ayetleriyle sürekli açıktır. Kul hakkı ise, hak sahibiyle ilgili olduğu için ödemeyi ya da onun razı olmasını gerektirir. Şehit gibi çok yüksek bir mertebenin bile borç dışındaki günahlarının bağışlanacağı bildirilmiştir (Müslim 1886): bu da insan haklarının ne kadar ağır tutulduğunu gösterir.</p>
 
-  <details class="detay"><summary>Daha derine in: Hak sahibine ulaşamazsam ne yaparım?</summary><p>Fetva vermiyoruz; ama kaynaklarda şu çizgi öne çıkar: Hak sahibine ulaşılabiliyorsa borcu ödemek veya helallik istemek esastır. Ulaşılamıyorsa, ikincil kaynaklarda Diyanet Fetva Kurulu'na atıfla ve İbn Teymiyye'nin el-Fetâva'l-Kübrâ'sından, kişinin kendi adına tövbe etmesi, hak sahibi için istiğfar ve dua etmesi, onun adına hayır yapması keffaret olarak anılır. Samimi tövbe edenin Allah'ın (c.c.) hak sahibini razı etmesini ümit edebileceği de aynı kaynaklarda söylenir. Bunlar kesin hüküm değil, ümit ve yönlendirme olarak okunmalıdır; konu için bir din görevlisine danışmak en doğrusudur.</p></details>
+  <details class="detay"><summary>Daha derine in: Hak sahibine ulaşamazsam ne yaparım?</summary><p>Fetva vermiyoruz. Hak sahibine ulaşılabiliyorsa borcu ödemek veya helallik istemek esastır; hadis de bunu söyler (Buhârî 2449). Ulaşılamıyorsa ne yapılacağını bilen birine, örneğin bir müftülüğe sormak en doğrusudur. İkincil kaynaklarda bu durumda samimi tövbe, hak sahibi için dua ve istiğfar, onun adına hayır yapmak da anılır; bunu birinci elden bir kaynaktan doğrulayamadığımız için hüküm olarak sunmuyoruz. Her hâlde Allah'ın (c.c.) rahmetinden umut kesilmez (Zümer 39:53).</p></details>
 
   <p>Hakkın karşılığının alınmasına <strong>kısas</strong> denir. Bu ilke, hayvanlara kadar iner:</p>
 
@@ -3508,7 +3428,7 @@ th{background:var(--surface-2)}
     <cite>Ebû Dâvûd 4799 (Ebü'd-Derdâ) · Elbânî: sahih</cite>
   </blockquote>
 
-  <p>Üç hadisin ortak mesajı şu: Mizanda ağırlık, bizim dünyadaki hesabımıza göre değişir. Uzun sözler değil, kalbe yerleşen kısa kelimeler; gösterişli işler değil, insanlara güzel muamele ağır gelebilir. Peki bir insanın günah kayıtları çok, iyiliği az görünse ne olur? Peygamberimiz böyle bir kişinin hâlini de anlatmıştır:</p>
+  <p>Üç hadisin ortak mesajı şu: Mizanda neyin ağır geleceği, dünyadaki hesaplarımıza uymayabilir. Uzun sözler değil, kalbe yerleşen kısa kelimeler; gösterişli işler değil, insanlara güzel muamele ağır gelebilir. Peki bir insanın günah kayıtları çok, iyiliği az görünse ne olur? Peygamberimiz böyle bir kişinin hâlini de anlatmıştır:</p>
 
   <blockquote class="hadis">
     <p class="tr">Allah kıyamet günü ümmetimden bir adamı, bütün insanların önünde ayırır ve önüne doksan dokuz sicil açar; her sicil göz alabildiğince uzundur. "Bundan bir şeyi inkâr ediyor musun? Koruyucu kâtiplerim sana haksızlık mı etti?" der. Adam "Hayır Rabbim" der. "Bir özrün var mı?" "Hayır Rabbim." Allah şöyle buyurur: "Hayır, bizde senin bir iyiliğin var; bugün sana haksızlık yoktur." Sonra küçük bir kart çıkarılır; üzerinde "Eşhedü en lâ ilâhe illallâh ve eşhedü enne Muhammeden abduhû ve resûlühû" yazar. "Mizanını getir." Adam "Rabbim, bu kart bu sicillerin yanında ne ki?" der. "Sana haksızlık edilmeyecek." Siciller bir kefeye, kart bir kefeye konur; siciller hafifler, kart ağır gelir. Allah'ın isminden ağır hiçbir şey yoktur.</p>
@@ -3531,7 +3451,7 @@ th{background:var(--surface-2)}
   </blockquote>
 
   <blockquote class="alim">
-    <p>"Her ne kadar amellerin terazisi cisimleri tartan teraziye benzemese de, herkes hayır ve şer ne kadar ameli varsa bunların miktarını doğru bir miyar (ölçü) ile bilir. Bu miyara mizan denir… Mizan, kulun kendi amellerinin miktarını bizzat görmesi ve adaletle cezalandırıldığını veya Yüce Allah'ın lütfu ile affedildiğini bilmesi açısından son derece önemlidir."</p>
+    <p>"Her ne kadar amellerin terazisi cisimleri tartan teraziye benzemese de, herkes hayır ve şer ne kadar ameli varsa bunların miktarını doğru bir miyar (ölçü) ile bilir. Bu miyara mizan denir… Mizan, kulun kendi amellerinin miktarını bizzat görmesi ve adaletle cezalandırıldığını veya Yüce Allah'ın lütfü ile affedildiğini bilmesi açısından son derece önemlidir."</p>
     <cite>Gazâlî'nin görüşünün bir makaledeki özeti — İbrahim Çapak, "Gazzâlî ve Dikkat Çektiği Bazı Meseleler", YDÜ İlahiyat Fakültesi Dergisi 2/1 (2016) (el-İktisâd fi'l-İ'tikâd ve Kitâbü'l-Erbaîn'e atıfla; Gazâlî'nin kendi metni burada doğrudan açılmamıştır)</cite>
   </blockquote>
 

@@ -120,8 +120,9 @@ main{min-width:0;padding-bottom:4rem}
 .bolum{padding-block:clamp(2.5rem,7vw,5rem) 1rem}
 .bolum>*{max-width:42rem;margin-inline:auto}
 .bolum>figure.sema,.bolum>.kutular,.bolum>table{max-width:50rem}
-.bolum>.bolum-baslik{max-width:50rem}
+.bolum>.bolum-baslik{max-width:42rem}
 .bolum p{margin:0 0 1.15em}
+.bolum>p,.bolum>ul,.bolum>ol{margin-inline:auto}
 .bolum h3{font-family:var(--f-display);font-weight:700;font-size:clamp(1.55rem,3.6vw,2rem);line-height:1.15;margin:2.4em auto .7em;text-wrap:balance}
 .bolum h4{font-family:var(--f-ui);font-size:1rem;margin:0 0 .4rem}
 .bolum ul,.bolum ol{padding-left:1.3em;margin-block:0 1.2em}
@@ -200,6 +201,22 @@ table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%;marg
 th,td{border:1px solid var(--line);padding:.55rem .8rem;text-align:left;vertical-align:top}
 th{background:var(--surface-2)}
 
+/* Kısa özet */
+.kisa{padding-block:clamp(2.5rem,6vw,4rem) 1rem}
+.kisa-ic{max-width:62rem;margin-inline:auto}
+.kisa .etiket-k{font-family:var(--f-ui);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+.kisa h2{font-family:var(--f-display);font-weight:600;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;margin:.3rem 0 .6rem}
+.kisa-not{color:var(--ink-soft);margin:0 0 1.6rem;max-width:40rem}
+.kisa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1rem}
+.kisa-kart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;min-width:0}
+.kisa-kart h3{font-family:var(--f-display);font-size:1.3rem;line-height:1.2;margin:0 0 .6rem;font-weight:700}
+.kisa-kart h3 a{color:var(--ink);text-decoration:none}
+.kisa-kart h3 a:hover{color:var(--accent)}
+.kisa-kart h3 span{font-family:var(--f-ui);font-size:.7rem;letter-spacing:.14em;color:var(--gold);display:block;margin-bottom:.15rem}
+.kisa-kart ul{margin:0;padding-left:1.1em;font-size:.94rem;line-height:1.55}
+.kisa-kart li{margin-bottom:.4em}
+.kisa-kart li::marker{color:var(--accent)}
+
 /* Bölüm arası fotoğraf şeridi */
 .ayrac{margin:clamp(2rem,6vw,4rem) 0 0;position:relative;border-radius:6px;overflow:hidden;min-height:clamp(13rem,34vw,22rem);background:var(--night) var(--img) center/cover no-repeat;max-width:62rem;margin-inline:auto;display:flex;align-items:flex-end}
 .ayrac::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(5,8,20,.75))}
@@ -257,6 +274,7 @@ th{background:var(--surface-2)}
     </ol>
   </nav>
   <main id="icerik">
+{{KISA}}
 {{BOLUMLER}}
     <footer class="alt-bilgi">
 {{ALT_BILGI}}
