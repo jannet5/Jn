@@ -96,7 +96,7 @@ button{ cursor:pointer; }
 #list .ar{ flex:none; font-family:"AmiriQuran","Amiri Quran",serif; font-size:24px; direction:rtl; line-height:1.6; color:var(--fg); }
 #list .empty{ padding:24px 8px; color:var(--muted); cursor:default; display:block; }
 
-#toast{ position:fixed; left:50%; bottom:24px; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translate(-50%,20px); background:var(--fg); color:var(--bg);
+#toast{ position:fixed; left:50%; bottom:96px; bottom:calc(96px + env(safe-area-inset-bottom)); transform:translate(-50%,20px); background:var(--fg); color:var(--bg);
   padding:8px 16px; border-radius:20px; font-size:15px; opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; z-index:30; max-width:90%; text-align:center; }
 #toast.show{ opacity:1; transform:translate(-50%,0); }
 @media (prefers-reduced-motion:reduce){ #view.anim .pg,.sheet.open,#toast{ transition:none; animation:none; } }
@@ -112,8 +112,15 @@ button{ cursor:pointer; }
 .tlist .chk{ flex:none; width:24px; color:var(--accent); font-weight:800; font-size:20px; text-align:center; }
 
 /* ===== "Kaldığım yere dön" ===== */
-.resume{ position:fixed; left:50%; transform:translateX(-50%); bottom:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:4;
+.resume{ position:fixed; left:50%; transform:translateX(-50%); bottom:52px; bottom:calc(52px + env(safe-area-inset-bottom)); z-index:4;
   min-height:44px; padding:0 20px; border:0; border-radius:22px; background:var(--accent); color:var(--accent-fg); font-weight:700; font-size:16px;
   box-shadow:0 4px 14px rgba(0,0,0,.28); }
 .resume[hidden]{ display:none; }
 .resume:active{ filter:brightness(.92); }
+
+/* ===== Sayfa numarası (alt orta) ===== */
+.pgnum{ position:fixed; left:50%; transform:translateX(-50%); bottom:8px; bottom:calc(8px + env(safe-area-inset-bottom)); z-index:3;
+  min-width:56px; height:36px; padding:0 16px; border:1px solid var(--line); border-radius:18px; background:var(--card); color:var(--fg);
+  font:700 17px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; font-variant-numeric:tabular-nums; letter-spacing:.3px; opacity:.92; }
+.pgnum:active{ filter:brightness(.94); }
+.pgnum:focus-visible{ outline:2px solid var(--ring); outline-offset:2px; }

@@ -85,6 +85,7 @@
     $('tSure').textContent = names.slice(0, 2).join(' · ');           // sure adı(ları)
     $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page;                  // cüz ve sayfa
     document.title = names[0] + ' · Sayfa ' + page + ' · Kur\'an';
+    $('pgNum').textContent = page;                     // alt ortadaki tek başına sayfa numarası
     updateResume();                                    // işaretli ayet başka sayfadaysa "Kaldığım yere dön" görünür
   }
 
@@ -395,6 +396,7 @@
   window.addEventListener('popstate', function () { closeSheet(true); closeTheme(true); });
   $('bGit').addEventListener('click', openSheet);
   $('ttl').addEventListener('click', openSheet);
+  $('pgNum').addEventListener('click', function () { openSheet(); setActive('sayfa', true); });   // sayfa numarasına dokun: "Sayfa" alanı seçili Git paneli
   $('bClose').addEventListener('click', function () { closeSheet(); });
   sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
   $('bTheme').addEventListener('click', openTheme);

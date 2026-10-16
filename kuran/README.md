@@ -6,6 +6,7 @@
 - Medine Mushafı: 604 sayfa, 30 cüz, 114 sure. Sayfalar sağdan sola çevrilir (parmağı soldan sağa kaydır = sonraki sayfa).
 - Yakınlaştırma yazıyı büyütür ve satırları yeniden dizer, yana kaydırma gerekmez. `A−` / `A+` düğmeleri ya da iki parmak.
 - **Git** paneli: Sure | Cüz | Sayfa yan yana. Aynı anda yalnızca biri geçerli. "Ma" yazınca Mâide... sıralanır, listeden seçince hemen gider. Sure numarası adın yanında yazar.
+- **Sayfa numarası** alt ortada tek başına görünür (kitaptaki gibi). Dokununca sayfa seçme paneli açılır.
 - Açılışta ayar sormaz: kaldığın sayfadan ve kaydırma yerinden devam eder.
 - **Kaldığım yer işareti:** ayet sonundaki yuvarlağa dokun, işaretlensin (tekrar dokun, kalksın). Başka sayfadayken "Kaldığım yere dön" düğmesi çıkar.
 - **6 göz yormayan tema:** Gündüz, Sepya, Nane (yeşil), Gri gece, Kehribar, Siyah (+ Otomatik). Koyu temalarda saf siyah/beyaz parlaması olmasın diye yazı soluk tutulur (ana yazı kontrastı 9–11:1).
