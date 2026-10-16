@@ -7,7 +7,9 @@
 - Yakınlaştırma yazıyı büyütür ve satırları yeniden dizer, yana kaydırma gerekmez. `A−` / `A+` düğmeleri ya da iki parmak.
 - **Git** paneli: Sure | Cüz | Sayfa yan yana. Aynı anda yalnızca biri geçerli. "Ma" yazınca Mâide... sıralanır, listeden seçince hemen gider. Sure numarası adın yanında yazar.
 - Açılışta ayar sormaz: kaldığın sayfadan ve kaydırma yerinden devam eder.
-- Yer imi, Gündüz / Sepya / Gece teması, ayet sonu işaretleri.
+- **Kaldığım yer işareti:** ayet sonundaki yuvarlağa dokun, işaretlensin (tekrar dokun, kalksın). Başka sayfadayken "Kaldığım yere dön" düğmesi çıkar.
+- **6 göz yormayan tema:** Gündüz, Sepya, Nane (yeşil), Gri gece, Kehribar, Siyah (+ Otomatik). Koyu temalarda saf siyah/beyaz parlaması olmasın diye yazı soluk tutulur (ana yazı kontrastı 9–11:1).
+- Sure araması Türkçe adı öne alır: "a" yazınca Âl-i İmrân, A'râf... gelir; "Baqara" gibi yabancı yazımlar da bulunur.
 
 ## Kur'an metni bozulmaz
 - Metin Tanzil Uthmani kaynağındandır. `tools/build_data.py` yalnızca iki şey yapar: BOM karakterini atar ve kaynakta her surenin ilk ayetine eklenmiş besmele önekini ayıklar (besmele surenin başında ayrı gösterilir).

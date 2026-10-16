@@ -30,9 +30,10 @@
   /* ---------- Durum ---------- */
   var page = Math.min(N, Math.max(1, +store.get('page', 1) || 1));   // şu anki sayfa (son kalınan yer)
   var fs = +store.get('fs', 0) || 0;                  // yazı boyutu (px). 0 = ekrana göre otomatik
-  var theme = store.get('theme', '');                 // '', 'light', 'sepia', 'dark'
-  var bookmarks = store.get('bm', []);                // yer imi sayfaları
-  var backTo = 0;                                     // "Git" ile atlamadan önceki sayfa
+  var theme = store.get('theme', '');                 // '' (otomatik), 'light', 'sepia', 'green', 'dark', 'amber', 'black'
+  var mark = +store.get('mark', -1);                  // "kaldığım yer" işareti: ayet sonu yuvarlağının ayet indeksi (-1 = yok)
+  if (!(mark >= 0 && mark < 6236)) mark = -1;         // bozuk değer gelirse yok say
+  var dragged = false;                                // dokunuş sürükleme oldu mu (ayet yuvarlağına tıklamayı ayırt etmek için)
   var W = 0, minFs = 16, maxFs = 100;                 // alan genişliği, yazı alt/üst sınırı
   var animating = false;                              // sayfa çevirme animasyonu sürüyor mu
 
@@ -52,7 +53,7 @@
         if (s !== 0 && s !== 8) h += '<p class="bsm">' + Q.b + '</p>';   // besmele (Fâtiha'da ayet, Tevbe'de yok)
       }
       if (!open) { h += '<p class="t">'; open = true; }  // paragraf aç
-      h += Q.a[g] + ' <span class="e">۝' + arNum(no) + '</span> ';   // ayet metni + ayet sonu işareti
+      h += Q.a[g] + ' <span class="e' + (g === mark ? ' on' : '') + '" data-g="' + g + '">۝' + arNum(no) + '</span> ';   // ayet metni + ayet sonu işareti (dokununca "kaldığım yer")
     }
     if (open) h += '</p>';                             // son paragrafı kapat
     if (p === N) h += '<div class="end">Sadakallahülazîm</div>';
@@ -84,6 +85,7 @@
     $('tSure').textContent = names.slice(0, 2).join(' · ');           // sure adı(ları)
     $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page;                  // cüz ve sayfa
     document.title = names[0] + ' · Sayfa ' + page + ' · Kur\'an';
+    updateResume();                                    // işaretli ayet başka sayfadaysa "Kaldığım yere dön" görünür
   }
 
   /* ---------- Kaldığın yeri kaydet ---------- */
@@ -111,6 +113,9 @@
     if (opt.surah != null) {                           // sureye gidildiyse başlığa kaydır
       var b = c.querySelector('.ban[data-s="' + opt.surah + '"]');
       if (b) c.scrollTop = Math.max(0, b.offsetTop - 8);
+    } else if (opt.ayah != null) {                     // işaretli ayete git: yuvarlağı ekranın üst üçte birine getir
+      var el = c.querySelector('.e[data-g="' + opt.ayah + '"]');
+      if (el) c.scrollTop = Math.max(0, el.offsetTop - c.clientHeight * 0.35);
     } else if (opt.ratio) {                            // kaldığın yere dön
       c.scrollTop = opt.ratio * (c.scrollHeight - c.clientHeight);
     }
@@ -144,10 +149,10 @@
   view.addEventListener('pointerdown', function (e) {
     if (animating) finishAnim();
     ptrs[e.pointerId] = { x: e.clientX, y: e.clientY };
-    if (count() === 1) { sx = lastX = e.clientX; sy = e.clientY; st = lastT = e.timeStamp; mode = null; vx = 0; }
+    if (count() === 1) { sx = lastX = e.clientX; sy = e.clientY; st = lastT = e.timeStamp; mode = null; vx = 0; dragged = false; }
     else if (count() === 2) {                          // iki parmak: yazı boyutu (pinch)
       if (mode === 'drag') place(0, true);             // sürüklemeyi iptal et
-      mode = 'pinch';
+      mode = 'pinch'; dragged = true;
       var k = Object.keys(ptrs), a = ptrs[k[0]], b = ptrs[k[1]];
       pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, fs: fs };
     }
@@ -162,6 +167,7 @@
     }
     if (count() !== 1) return;
     var dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) > 8 || Math.abs(dy) > 8) dragged = true;   // parmak kaydı: bu bir tıklama değil
     if (mode === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
       mode = (Math.abs(dx) > Math.abs(dy) * 1.2) ? 'drag' : 'scroll';   // yön kararı: yatay = sayfa çevir, dikey = kaydır
       if (mode === 'drag') { try { view.setPointerCapture(e.pointerId); } catch (x) { } }
@@ -196,7 +202,7 @@
 
   /* ---------- Klavye (masaüstü): sol ok = sonraki sayfa (sağdan sola) ---------- */
   document.addEventListener('keydown', function (e) {
-    if ($('sheet').classList.contains('open')) { if (e.key === 'Escape') closeSheet(); return; }
+    if ($('sheet').classList.contains('open') || $('themeSheet').classList.contains('open')) { if (e.key === 'Escape') { closeSheet(); closeTheme(); } return; }
     if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
     if (e.key === 'ArrowLeft') { e.preventDefault(); turn(1); }
     else if (e.key === 'ArrowRight') { e.preventDefault(); turn(-1); }
@@ -233,20 +239,36 @@
     setFs(fs, true);
   }
 
-  /* ---------- Tema ---------- */
-  var THEMES = ['light', 'sepia', 'dark'], TNAME = { light: 'Gündüz', sepia: 'Sepya', dark: 'Gece' }, TCOL = { light: '#fbf8f0', sepia: '#f0e4c8', dark: '#101310' };
+  /* ---------- Tema: göz yormayan seçenekler. Saf siyah zemin + saf beyaz yazı parlama yapar, bu yüzden koyu temalarda yazı soluk ---------- */
+  var THEMES = [
+    { id: '', name: 'Otomatik', desc: 'Telefonun gündüz/gece ayarına uyar' },
+    { id: 'light', name: 'Gündüz', desc: 'Aydınlık ortam için', bg: '#fbf8f0', fg: '#171512', dark: false },
+    { id: 'sepia', name: 'Sepya', desc: 'Sıcak kâğıt rengi, parlamayı azaltır', bg: '#f0e4c8', fg: '#2a2011', dark: false },
+    { id: 'green', name: 'Nane', desc: 'Yeşil ton, uzun okumada gözü dinlendirir', bg: '#dbe9d6', fg: '#1c2a1f', dark: false },
+    { id: 'dark', name: 'Gri gece', desc: 'Koyu gri zemin, yumuşak açık gri yazı', bg: '#1f2124', fg: '#d4d1c8', dark: true },
+    { id: 'amber', name: 'Kehribar', desc: 'Sıcak tonlar, gece için en az mavi ışık', bg: '#17110a', fg: '#d8b07a', dark: true },
+    { id: 'black', name: 'Siyah', desc: 'OLED ekranda pil tasarrufu, soluk yazı', bg: '#000000', fg: '#bdb8ab', dark: true }
+  ];
+  function themeById(id) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i]; return THEMES[0]; }
+  if (!themeById(theme).id && theme) theme = '';       // bilinmeyen kayıt: otomatiğe dön
   function applyTheme() {
     if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
-    var dark = theme === 'dark' || (!theme && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
-    var bg = theme ? TCOL[theme] : (dark ? TCOL.dark : TCOL.light);                  // temanın zemin rengi
+    var sysDark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+    var eff = theme ? themeById(theme) : themeById(sysDark ? 'dark' : 'light');      // geçerli tema
     var tc = document.querySelector('meta[name=theme-color]');                       // tarayıcı çubuğu rengi (etiket yoksa atla)
-    if (tc) tc.setAttribute('content', bg);
-    try { if (window.KuranApp && KuranApp.setBars) KuranApp.setBars(bg, theme === 'dark' || (!theme && dark)); } catch (e) { }   // Android uygulaması: durum çubuğu rengi
+    if (tc) tc.setAttribute('content', eff.bg);
+    try { if (window.KuranApp && KuranApp.setBars) KuranApp.setBars(eff.bg, eff.dark); } catch (e) { }   // Android: çubuk simgeleri
   }
-  $('bTheme').addEventListener('click', function () {
-    var i = THEMES.indexOf(theme); theme = THEMES[(i + 1) % THEMES.length];
-    store.set('theme', theme); applyTheme(); toast(TNAME[theme]);
-  });
+  function renderThemes() {                            // tema listesi: renk örneği + ad + açıklama
+    var h = '';
+    THEMES.forEach(function (t) {
+      var sw = t.id ? '<span class="sw" style="background:' + t.bg + ';color:' + t.fg + '">Aa</span>'
+                    : '<span class="sw" style="background:linear-gradient(90deg,#fbf8f0 50%,#1f2124 50%);color:transparent">Aa</span>';
+      h += '<li role="option" tabindex="0" data-t="' + t.id + '"' + (t.id === theme ? ' class="sel"' : '') + '>' + sw +
+           '<span class="nm">' + t.name + '<small>' + t.desc + '</small></span><span class="chk">' + (t.id === theme ? '✓' : '') + '</span></li>';
+    });
+    $('themeList').innerHTML = h;
+  }
 
   /* ---------- Git paneli: Sure | Cüz | Sayfa. Aynı anda yalnızca biri geçerli ---------- */
   var sheet = $('sheet'), list = $('list'), active = 'sure';
@@ -256,12 +278,27 @@
     return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ı/g, 'i').replace(/[^a-z0-9]/g, '').replace(/(.)\1+/g, '$1');
   }
   var STOP = /^(al|an|ar|as|at|ash|ad|az|adh|ath|ul|ud|us|i)$/;
-  var KEYS = Q.s.map(function (sr) {                   // her sure için arama anahtarları
-    var ks = [norm(sr[2])];
-    (sr[2] + ' ' + sr[5]).split(/[\s\-']+/).forEach(function (t) { var n = norm(t); if (n.length > 1 && !STOP.test(n)) ks.push(n); });
-    sr[5].split(/\s+/).forEach(function (t) { var n = norm(t); if (n.length > 2) ks.push(n); });
-    return ks;
+  var KEYS = Q.s.map(function (sr) {                   // her sure için arama anahtarları (Türkçe adlar önce, yabancı yazımlar sonra)
+    var K = { tr: norm(sr[2]), trTok: [], al: [], alFull: [] };
+    sr[2].split(/[\s\-']+/).forEach(function (t) { var n = norm(t); if (n.length > 1 && !STOP.test(n)) K.trTok.push(n); });
+    sr[5].split(/\s+/).forEach(function (w) {          // ek adlar: "Al-Baqara", "Gâfir"...
+      var full = norm(w); if (full.length > 2) K.alFull.push(full);
+      w.split(/[\-']+/).forEach(function (t) { var n = norm(t); if (n.length > 1 && !STOP.test(n)) K.al.push(n); });
+    });
+    return K;
   });
+  // Sıra: 0 Türkçe adın başı, 1 Türkçe kelimenin başı, 2 ek adın başı, 3 Türkçe içinde geçen, 4 ek adlarda geçen
+  function scoreOf(K, q) {
+    var i, best = 99;
+    if (K.tr.indexOf(q) === 0) return 0;
+    for (i = 0; i < K.trTok.length; i++) if (K.trTok[i].indexOf(q) === 0) return 1;
+    for (i = 0; i < K.al.length; i++) if (K.al[i].indexOf(q) === 0) return 2;
+    if (K.tr.indexOf(q) > 0) return 3;
+    for (i = 0; i < K.trTok.length; i++) if (K.trTok[i].indexOf(q) > 0) return 3;
+    for (i = 0; i < K.al.length; i++) if (K.al[i].indexOf(q) >= 0) best = 4;
+    for (i = 0; i < K.alFull.length; i++) if (K.alFull[i].indexOf(q) >= 0) best = 4;
+    return best;
+  }
 
   function items(kind, q) {                            // listeyi hazırla: [{v, n, name, sub, ar}]
     var out = [], i, qq = String(q || '').trim();
@@ -272,7 +309,7 @@
         var score = 99;
         if (!qq) score = 0;
         else if (isNum) { var sn = String(i + 1); score = sn === qq ? 0 : (sn.indexOf(qq) === 0 ? 1 : 99); }
-        else if (nq) { for (var k = 0; k < KEYS[i].length; k++) { var key = KEYS[i][k]; if (key.indexOf(nq) === 0) { score = Math.min(score, 1); } else if (key.indexOf(nq) > 0) { score = Math.min(score, 2); } } }
+        else if (nq) score = scoreOf(KEYS[i], nq);
         if (score < 99) scored.push([score, i]);
       }
       scored.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
@@ -314,12 +351,11 @@
     F[k].addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
   });
   function navigate(kind, v) {
-    var from = page, target = 1, opt = {};
+    var target = 1, opt = {};
     if (kind === 'sure') { target = surahPage[v]; opt.surah = v; }
     else if (kind === 'cuz') target = Q.j[v - 1];
     else target = Math.min(N, Math.max(1, v));
     closeSheet();
-    if (target !== from) backTo = from;
     goTo(target, opt);
   }
   function submit() {                                  // "Git" düğmesi / Enter: yazılanı uygula
@@ -338,44 +374,56 @@
   list.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.dataset.i != null) e.target.click(); });
   $('bGo').addEventListener('click', submit);
 
-  function renderChips() {                             // alt satır: geri dön + yer imleri
-    var h = '', here = bookmarks.indexOf(page) >= 0;
-    if (backTo && backTo !== page) h += '<button class="chip" data-a="back" type="button">↩ Sayfa ' + backTo + '\'e dön</button>';
-    h += '<button class="chip" data-a="bm" type="button">' + (here ? '★ Yer imini kaldır' : '☆ Bu sayfaya yer imi koy') + ' (' + page + ')</button>';
-    bookmarks.slice().sort(function (a, b) { return a - b; }).forEach(function (p) {
-      h += '<button class="chip" data-a="go" data-p="' + p + '" type="button">' + p + ' · ' + Q.s[A2S[Q.p[p - 1]]][2] + '</button>';
-    });
-    $('chips').innerHTML = h;
-  }
-  $('chips').addEventListener('click', function (e) {
-    var b = e.target.closest('.chip'); if (!b) return;
-    var a = b.dataset.a;
-    if (a === 'back') { var t = backTo; backTo = page; closeSheet(); goTo(t); }
-    else if (a === 'go') { var p = +b.dataset.p; closeSheet(); backTo = page; goTo(p); }
-    else if (a === 'bm') {
-      var i = bookmarks.indexOf(page);
-      if (i >= 0) bookmarks.splice(i, 1); else bookmarks.push(page);
-      store.set('bm', bookmarks); renderChips(); toast(i >= 0 ? 'Yer imi kaldırıldı' : 'Yer imi eklendi');
-    }
-  });
-
-  function openSheet() {
+  /* ---------- Paneller (Git, Tema): açılınca geçmişe bir kayıt eklenir, Android geri tuşu paneli kapatır ---------- */
+  var tsheet = $('themeSheet');
+  function showSheet(el) {
     if (animating) finishAnim();
-    sheet.classList.add('open'); sheet.setAttribute('aria-hidden', 'false');
-    F.sure.value = F.cuz.value = F.sayfa.value = ''; setActive('sure', true); renderChips();
-    try { history.pushState({ sheet: 1 }, ''); } catch (e) { }       // Android geri tuşu paneli kapatsın
+    el.classList.add('open'); el.setAttribute('aria-hidden', 'false');
+    try { history.pushState({ sheet: 1 }, ''); } catch (e) { }
   }
-  function closeSheet(fromPop) {
-    if (!sheet.classList.contains('open')) return;
-    sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true');
+  function hideSheet(el, fromPop) {
+    if (!el.classList.contains('open')) return;
+    el.classList.remove('open'); el.setAttribute('aria-hidden', 'true');
     document.activeElement && document.activeElement.blur && document.activeElement.blur();
     if (!fromPop) { try { if (history.state && history.state.sheet) history.back(); } catch (e) { } }
   }
-  window.addEventListener('popstate', function () { closeSheet(true); });
+  function openSheet() { showSheet(sheet); F.sure.value = F.cuz.value = F.sayfa.value = ''; setActive('sure', true); }
+  function closeSheet(fromPop) { hideSheet(sheet, fromPop); }
+  function openTheme() { renderThemes(); showSheet(tsheet); }
+  function closeTheme(fromPop) { hideSheet(tsheet, fromPop); }
+  window.addEventListener('popstate', function () { closeSheet(true); closeTheme(true); });
   $('bGit').addEventListener('click', openSheet);
   $('ttl').addEventListener('click', openSheet);
   $('bClose').addEventListener('click', function () { closeSheet(); });
   sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
+  $('bTheme').addEventListener('click', openTheme);
+  $('bThemeClose').addEventListener('click', function () { closeTheme(); });
+  tsheet.addEventListener('click', function (e) { if (e.target === tsheet) closeTheme(); });
+  $('themeList').addEventListener('click', function (e) {          // temayı seç: hemen uygulanır
+    var li = e.target.closest('li[data-t]'); if (!li) return;
+    theme = li.getAttribute('data-t'); store.set('theme', theme); applyTheme(); closeTheme();
+  });
+  $('themeList').addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.getAttribute('data-t') != null) e.target.click(); });
+
+  /* ---------- "Kaldığım yer": ayet sonundaki yuvarlağa dokun, işaretlensin. Tekrar dokun, kalksın ---------- */
+  function pageOfAyah(g) { var lo = 1, hi = N; while (lo < hi) { var m = (lo + hi + 1) >> 1; if (Q.p[m - 1] <= g) lo = m; else hi = m - 1; } return lo; }
+  function setMark(g) {
+    mark = g; store.set('mark', g);
+    var on = view.querySelectorAll('.e.on'); for (var i = 0; i < on.length; i++) on[i].classList.remove('on');   // eski işareti her sayfadan sil
+    if (g >= 0) { var els = view.querySelectorAll('.e[data-g="' + g + '"]'); for (var j = 0; j < els.length; j++) els[j].classList.add('on'); }
+    updateResume();
+  }
+  function updateResume() {                            // işaret başka sayfadaysa "Kaldığım yere dön" düğmesi görünür
+    $('resume').hidden = !(mark >= 0 && pageOfAyah(mark) !== page);
+  }
+  view.addEventListener('click', function (e) {
+    if (dragged || !e.target.closest) return;          // kaydırma sonrası tıklama sayılmaz
+    var t = e.target.closest('.e'); if (!t) return;
+    var g = +t.getAttribute('data-g');
+    if (g === mark) { setMark(-1); toast('İşaret kaldırıldı'); }
+    else { setMark(g); toast('Kaldığın yer işaretlendi'); }
+  });
+  $('resume').addEventListener('click', function () { if (mark >= 0) goTo(pageOfAyah(mark), { ayah: mark }); });
 
   /* ---------- Başlat: son kalınan sayfadan, ayar sormadan ---------- */
   function start() {

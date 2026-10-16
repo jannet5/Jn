@@ -25,6 +25,10 @@ await shot('ekran-5-gece', async () => { await p.evaluate(() => { window.__kuran
 await theme('sepia');
 await shot('ekran-6-sepya', async () => { await p.evaluate(() => { window.__kuran.setFs(32); window.__kuran.goTo(50); }); });
 await theme('light');
+await shot('ekran-7-temalar', async () => { await p.evaluate(() => { window.__kuran.setFs(30); window.__kuran.goTo(2); }); await p.click('#bTheme'); });
+await p.keyboard.press('Escape'); await p.waitForTimeout(250);
+await shot('ekran-8-isaret', async () => { await p.evaluate(() => { window.__kuran.setFs(32); window.__kuran.goTo(2); }); await p.click('#pgC .e[data-g="9"]'); await p.waitForTimeout(1500); });
+await p.evaluate(() => { localStorage.setItem('q.mark', '-1'); });
 // Öne çıkan görsel 1024x500: sol metin, sağda iki telefon
 const f = await b.newPage({ viewport: { width: 1024, height: 500 }, deviceScaleFactor: 1 });
 const img = (n) => 'data:image/png;base64,' + fs.readFileSync(`${out}/${n}.png`).toString('base64');

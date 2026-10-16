@@ -1,18 +1,22 @@
 /* ===== Renk jetonları: açık / sepya / koyu. Sistem koyuysa otomatik koyu, kullanıcı seçtiyse o ===== */
+/* ===== Renk jetonları. Koyu temalarda saf siyah/saf beyaz YOK: parlama (halation) göz yorar, yazı soluk tutulur ===== */
 :root{
   --bg:#fbf8f0; --fg:#171512; --muted:#6a6455; --card:#f2ebda; --line:#d8cdb4;
-  --accent:#1f6f5c; --accent-fg:#ffffff; --ban:#efe6cf; --ring:#1f6f5c;
+  --accent:#1f6f5c; --mark:rgba(31,111,92,.30); --accent-fg:#ffffff; --ban:#efe6cf; --ring:#1f6f5c;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]):not([data-theme="sepia"]){
-    --bg:#101310; --fg:#ebe8de; --muted:#a09b8d; --card:#1b201b; --line:#303830;
-    --accent:#6fcf97; --accent-fg:#08140d; --ban:#1d251e; --ring:#6fcf97; color-scheme:dark;
+@media (prefers-color-scheme:dark){                  /* otomatik: tema seçilmediyse telefonun gece ayarı = Gri gece */
+  :root:not([data-theme]){
+    --bg:#1f2124; --fg:#d4d1c8; --muted:#9c998f; --card:#2a2d31; --line:#3b3f44;
+    --accent:#86cfa8; --mark:rgba(134,207,168,.34); --accent-fg:#0c1a12; --ban:#26292d; --ring:#86cfa8; color-scheme:dark;
   }
 }
-:root[data-theme="light"]{ --bg:#fbf8f0; --fg:#171512; --muted:#6a6455; --card:#f2ebda; --line:#d8cdb4; --accent:#1f6f5c; --accent-fg:#fff; --ban:#efe6cf; --ring:#1f6f5c; color-scheme:light; }
-:root[data-theme="sepia"]{ --bg:#f0e4c8; --fg:#2a2011; --muted:#665a3f; --card:#e7d8b4; --line:#c9b88d; --accent:#7a4a12; --accent-fg:#fff; --ban:#e4d3a8; --ring:#7a4a12; color-scheme:light; }
-:root[data-theme="dark"]{ --bg:#101310; --fg:#ebe8de; --muted:#a09b8d; --card:#1b201b; --line:#303830; --accent:#6fcf97; --accent-fg:#08140d; --ban:#1d251e; --ring:#6fcf97; color-scheme:dark; }
+:root[data-theme="light"]{ --bg:#fbf8f0; --fg:#171512; --muted:#6a6455; --card:#f2ebda; --line:#d8cdb4; --accent:#1f6f5c; --mark:rgba(31,111,92,.30); --accent-fg:#ffffff; --ban:#efe6cf; --ring:#1f6f5c; color-scheme:light; }
+:root[data-theme="sepia"]{ --bg:#f0e4c8; --fg:#2a2011; --muted:#665a3f; --card:#e7d8b4; --line:#c9b88d; --accent:#7a4a12; --mark:rgba(122,74,18,.32); --accent-fg:#ffffff; --ban:#e4d3a8; --ring:#7a4a12; color-scheme:light; }
+:root[data-theme="green"]{ --bg:#dbe9d6; --fg:#1c2a1f; --muted:#4a5e4d; --card:#cfe0ca; --line:#aac4a5; --accent:#2c6a38; --mark:rgba(44,106,56,.32); --accent-fg:#ffffff; --ban:#c9dcc4; --ring:#2c6a38; color-scheme:light; }
+:root[data-theme="dark"]{ --bg:#1f2124; --fg:#d4d1c8; --muted:#9c998f; --card:#2a2d31; --line:#3b3f44; --accent:#86cfa8; --mark:rgba(134,207,168,.34); --accent-fg:#0c1a12; --ban:#26292d; --ring:#86cfa8; color-scheme:dark; }
+:root[data-theme="amber"]{ --bg:#17110a; --fg:#d8b07a; --muted:#a8845a; --card:#221a10; --line:#3a2d1c; --accent:#e3a95a; --mark:rgba(227,169,90,.36); --accent-fg:#1a1006; --ban:#1f160c; --ring:#e3a95a; color-scheme:dark; }
+:root[data-theme="black"]{ --bg:#000000; --fg:#bdb8ab; --muted:#8f8b80; --card:#121212; --line:#2b2b2b; --accent:#7fc7a0; --mark:rgba(127,199,160,.34); --accent-fg:#000000; --ban:#0e0e0e; --ring:#7fc7a0; color-scheme:dark; }
 
 /* ===== Yazı tipi: Amiri Quran (OFL). Harfler ve harekeler değişmeden çizilir ===== */
 @font-face{ font-family:"AmiriQuran"; src:url(fonts/amiri-quran.woff2) format("woff2"); font-display:block; }
@@ -32,7 +36,7 @@ button{ cursor:pointer; }
 .btn{ min-width:44px; height:44px; padding:0 8px; border:0; border-radius:12px; background:transparent; color:var(--fg);
   display:inline-flex; align-items:center; justify-content:center; gap:6px; flex:none; }
 .btn:active{ background:var(--card); }
-.btn:focus-visible,.go:focus-visible,#list li:focus-visible,.chip:focus-visible,.ttl:focus-visible,input:focus-visible{ outline:2px solid var(--ring); outline-offset:1px; }
+.btn:focus-visible,.go:focus-visible,#list li:focus-visible,.tlist li:focus-visible,.resume:focus-visible,.ttl:focus-visible,input:focus-visible{ outline:2px solid var(--ring); outline-offset:1px; }
 .btn[disabled]{ opacity:.35; }
 .btn.wide{ background:var(--accent); color:var(--accent-fg); font-weight:700; padding:0 12px; }
 .btn.wide:active{ filter:brightness(.92); background:var(--accent); }
@@ -60,7 +64,8 @@ button{ cursor:pointer; }
 }
 .t{ margin:0 0 .35em; font-size:var(--fs,26px); line-height:2.15; text-align:justify; text-justify:inter-word; word-wrap:break-word; overflow-wrap:anywhere; }
 .bsm{ margin:.1em 0 .25em; font-size:var(--fs,26px); line-height:2.15; text-align:center; }
-.e{ white-space:nowrap; color:var(--accent); }                       /* ayet sonu işareti ۝ + sayı */
+.e{ white-space:nowrap; color:var(--accent); cursor:pointer; padding:.12em .2em; margin:-.12em -.2em; border-radius:50%; }   /* ayet sonu yuvarlağı: dokununca "kaldığım yer" */
+.e.on{ padding:.12em .34em; margin:-.12em -.34em; background:radial-gradient(circle closest-side at 50% 57%, var(--mark) 0, var(--mark) 84%, transparent 86%); }   /* işaretli: yarı saydam dolu daire, numara kendi renginde kalır */
 .ban{ flex-wrap:wrap; margin:18px 0 10px; padding:10px 14px; border:1px solid var(--line); border-radius:14px; background:var(--ban);
   display:flex; align-items:center; justify-content:space-between; gap:10px; direction:ltr; }
 .ban .tr{ font-size:15px; font-weight:700; line-height:1.25; min-width:0; }
@@ -90,15 +95,25 @@ button{ cursor:pointer; }
 #list .nm small{ display:block; color:var(--muted); font-weight:400; font-size:13px; }
 #list .ar{ flex:none; font-family:"AmiriQuran","Amiri Quran",serif; font-size:24px; direction:rtl; line-height:1.6; color:var(--fg); }
 #list .empty{ padding:24px 8px; color:var(--muted); cursor:default; display:block; }
-.foot{ padding-top:8px; }
-.src{ margin:10px 4px 0; font-size:12px; line-height:1.4; color:var(--muted); }
-.src a{ color:inherit; }
-.chips{ display:flex; flex-wrap:wrap; gap:8px; }
-.chip{ min-height:40px; padding:0 14px; border:1px solid var(--line); border-radius:20px; background:var(--card); display:inline-flex; align-items:center; gap:6px; font-size:15px; }
-.chip.x{ padding:0 10px; color:var(--muted); }
-.chip:active{ filter:brightness(.93); }
 
 #toast{ position:fixed; left:50%; bottom:24px; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translate(-50%,20px); background:var(--fg); color:var(--bg);
   padding:8px 16px; border-radius:20px; font-size:15px; opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; z-index:30; max-width:90%; text-align:center; }
 #toast.show{ opacity:1; transform:translate(-50%,0); }
 @media (prefers-reduced-motion:reduce){ #view.anim .pg,.sheet.open,#toast{ transition:none; animation:none; } }
+
+/* ===== Tema paneli ===== */
+.panel.small{ height:auto; max-height:92%; }
+.tlist{ list-style:none; margin:0; padding:0 0 4px; overflow-y:auto; border-top:1px solid var(--line); }
+.tlist li{ display:flex; align-items:center; gap:14px; min-height:64px; padding:8px 6px; border-bottom:1px solid var(--line); cursor:pointer; }
+.tlist li:active,.tlist li.sel{ background:var(--card); }
+.tlist .sw{ flex:none; width:46px; height:46px; border-radius:12px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font:700 20px/1 system-ui,sans-serif; }
+.tlist .nm{ flex:1; min-width:0; font-size:17px; font-weight:600; line-height:1.25; }
+.tlist .nm small{ display:block; color:var(--muted); font-weight:400; font-size:13px; }
+.tlist .chk{ flex:none; width:24px; color:var(--accent); font-weight:800; font-size:20px; text-align:center; }
+
+/* ===== "Kaldığım yere dön" ===== */
+.resume{ position:fixed; left:50%; transform:translateX(-50%); bottom:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:4;
+  min-height:44px; padding:0 20px; border:0; border-radius:22px; background:var(--accent); color:var(--accent-fg); font-weight:700; font-size:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,.28); }
+.resume[hidden]{ display:none; }
+.resume:active{ filter:brightness(.92); }

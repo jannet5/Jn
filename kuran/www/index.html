@@ -56,12 +56,24 @@
       <button id="bGo" class="go" type="button">Git</button>
     </div>
     <ul id="list" role="listbox" aria-label="Seçenekler"></ul>
-    <div class="foot">
-      <div class="chips" id="chips"></div>
-      <p class="src">Metin: <a href="https://tanzil.net" target="_blank" rel="noopener">Tanzil</a> Uthmani (değiştirilmeden). Yazı tipi: Amiri Quran (OFL). Sayfalar: Medine Mushafı.</p>
-    </div>
   </div>
 </div>
+
+<!-- Tema paneli -->
+<div id="themeSheet" class="sheet" aria-hidden="true">
+  <div class="panel small" role="dialog" aria-modal="true" aria-label="Tema">
+    <div class="top">
+      <b>Tema</b>
+      <button id="bThemeClose" class="btn" type="button" aria-label="Kapat">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul id="themeList" class="tlist" role="listbox" aria-label="Temalar"></ul>
+  </div>
+</div>
+
+<!-- İşaretli ayet başka sayfadaysa görünür -->
+<button id="resume" class="resume" type="button" hidden>Kaldığım yere dön</button>
 
 <noscript><p style="padding:24px">Kur'an Okuyucu için JavaScript gerekir.</p></noscript>
 <script src="data.js" charset="utf-8" defer></script>

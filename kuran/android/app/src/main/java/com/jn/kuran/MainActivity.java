@@ -3,6 +3,7 @@ package com.jn.kuran;  // uygulama paketi
 import android.content.Intent;  // dış bağlantıları başka uygulamada açmak için
 import android.graphics.Color;  // renk dönüşümü
 import android.net.Uri;  // adres işlemleri
+import android.os.Build;  // sürüm kontrolü
 import android.os.Bundle;  // durum paketi
 import android.view.View;  // ekran görünümü
 import android.view.ViewGroup;  // yerleşim parametreleri
@@ -39,6 +40,10 @@ public class MainActivity extends ComponentActivity {
                 SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT),
                 SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT));
         super.onCreate(saved);  // üst sınıf
+        if (Build.VERSION.SDK_INT >= 29) {  // Android 10+: gezinme/durum çubuğunun yarı saydam beyaz koruma katmanı kapalı, çubuk tam saydam
+            getWindow().setNavigationBarContrastEnforced(false);
+            getWindow().setStatusBarContrastEnforced(false);
+        }
         // assets klasörünü https://appassets.androidplatform.net/assets/ altında sun (localStorage tutarlı çalışsın)
         final WebViewAssetLoader loader = new WebViewAssetLoader.Builder()
                 .setDomain(HOST)
