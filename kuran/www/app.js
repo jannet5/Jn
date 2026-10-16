@@ -182,6 +182,7 @@
   function up(e) {
     var had = ptrs[e.pointerId]; delete ptrs[e.pointerId];
     if (!had) return;
+    if (e.type === 'pointercancel' || Math.abs(e.clientX - sx) > 8 || Math.abs(e.clientY - sy) > 8) dragged = true;   // bırakma yeri uzaksa tıklama sayılmaz
     if (mode === 'pinch') { if (count() < 2) { mode = (count() === 0) ? null : 'scroll'; pinch = null; store.set('fs', fs); } return; }
     // Sürükleme (move olayları geldiyse) ya da hızlı çekiş (yavaş/eski WebView'da move olayı hiç gelmeyebilir: karar bırakma anındaki konumdan verilir)
     if ((mode === 'drag' || mode === null) && count() === 0) {
@@ -418,6 +419,7 @@
   }
   view.addEventListener('click', function (e) {
     if (dragged || !e.target.closest) return;          // kaydırma sonrası tıklama sayılmaz
+    if (Math.hypot(e.clientX - sx, e.clientY - sy) > 12) return;   // parmak başladığı yerden uzakta bittiyse bu bir çekiştir (move olayı gelmese de)
     var t = e.target.closest('.e'); if (!t) return;
     var g = +t.getAttribute('data-g');
     if (g === mark) { setMark(-1); toast('İşaret kaldırıldı'); }
