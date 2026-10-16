@@ -12,6 +12,8 @@
 ## Kur'an metni bozulmaz
 - Metin Tanzil Uthmani kaynağındandır. `tools/build_data.py` yalnızca iki şey yapar: BOM karakterini atar ve kaynakta her surenin ilk ayetine eklenmiş besmele önekini ayıklar (besmele surenin başında ayrı gösterilir).
 - Sayfa ve cüz sınırları iki bağımsız kaynakla (Tanzil metadata + alquran.cloud) birebir doğrulanır; uyuşmazlıkta derleme durur.
+- İkinci bağımsız kaynakla (quran.com, KFGQPC) harf harf karşılaştırıldı: 6236 ayetin 6234'ünde harf iskeleti aynı. Fark yalnızca Yûsuf 12:39 ve 12:41'de: Tanzil "صَىٰحِبَىِ", KFGQPC "صَـٰحِبَىِ" yazıyor. Aynı harfin iki kodlanışı, ekranda aynı görünür. Metne dokunulmadı.
+- `tools/verify_render.mjs`: 604 sayfayı tarayıcıda çizer, ekrandaki metnin veriyle birebir aynı olduğunu ve ayetlerin sırayla eksiksiz geldiğini doğrular.
 - Tüm ayetlerin SHA-256 özeti `tools/CHECKSUM.txt` içindedir.
 - Yazı tipi Amiri Quran (OFL), kullanılan tüm 69 karakteri ve işareti içerir. CSS'te harf aralığı, dönüşüm ve kelime bölme yoktur.
 
