@@ -3,7 +3,9 @@ package com.jn.yazikart.ui // arayüz paketi
 import android.app.Application // uygulama bağlamı
 import android.graphics.Bitmap // arka plan resmi
 import android.graphics.drawable.BitmapDrawable // Coil'in döndürdüğü resim türü
+import android.graphics.BitmapFactory // gömülü (data:) resmi çözmek için
 import android.net.Uri // galeriden seçilen resmin adresi
+import android.util.Base64 // gömülü resmin şifrelemesini çözmek için
 import androidx.lifecycle.AndroidViewModel // ekran dönse de yaşayan durum tutucu
 import androidx.lifecycle.viewModelScope // ViewModel'e bağlı iş kapsamı
 import coil.imageLoader // uygulamanın görsel yükleyicisi
@@ -14,8 +16,6 @@ import com.jn.yazikart.data.ImageExporter // kaydet / paylaş
 import com.jn.yazikart.data.PostStyle // görsel ayarları
 import com.jn.yazikart.data.StyleStore // ayarları saklama
 import com.jn.yazikart.render.PostRenderer // görsel çizici
-import com.jn.yazikart.search.ImageResult // arama sonucu
-import com.jn.yazikart.search.ImageSearch // görsel arama
 import com.jn.yazikart.search.NetworkMonitor // internet takibi
 import kotlinx.coroutines.Dispatchers // arka plan iş parçacıkları
 import kotlinx.coroutines.Job // iptal edilebilir iş
@@ -28,20 +28,10 @@ import kotlinx.coroutines.flow.update // durumu güvenle güncelleme
 import kotlinx.coroutines.launch // iş başlatma
 import kotlinx.coroutines.withContext // işi başka iş parçacığına alma
 
-// Arama ekranının durumu
-data class SearchState(
-    val query: String = "", // yazılan kelime
-    val loading: Boolean = false, // aranıyor mu
-    val results: List<ImageResult> = emptyList(), // sonuçlar
-    val error: String? = null, // hata mesajı
-    val searched: Boolean = false, // en az bir kez arandı mı (boş sonucu ayırt etmek için)
-)
-
 // Ana ekranın tüm durumunu ve işlerini yöneten sınıf
 class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     private val store = StyleStore(app) // ayar saklayıcı
-    private val searcher = ImageSearch() // görsel arayıcı
     private val network = NetworkMonitor(app) // internet takipçisi
 
     private val _style = MutableStateFlow(store.load()) // son kullanılan stil ile başlanıyor
@@ -49,9 +39,6 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     private val _image = MutableStateFlow<Bitmap?>(null) // arka plan resmi (başta yok)
     val image: StateFlow<Bitmap?> = _image.asStateFlow() // ekranın okuyacağı resim
-
-    private val _search = MutableStateFlow(SearchState()) // arama durumu
-    val search: StateFlow<SearchState> = _search.asStateFlow() // ekranın okuyacağı arama durumu
 
     private val _busy = MutableStateFlow<String?>(null) // uzun süren iş varsa açıklaması ("Kaydediliyor…")
     val busy: StateFlow<String?> = _busy.asStateFlow() // ekranın okuyacağı meşguliyet
@@ -63,7 +50,6 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     val online: StateFlow<Boolean> = network.online
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), network.isOnline()) // akış durum olarak tutuluyor
 
-    private var searchJob: Job? = null // süren arama (yenisi gelirse iptal için)
     private var imageJob: Job? = null // süren resim indirme
 
     // Stili değiştirir ve kaydeder
@@ -74,12 +60,10 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     // Her şeyi sıfırlar: uygulamayı ilk kez açmış gibi (siyah zemin, beyaz yazı, boş metin, resim yok)
     fun resetAll() {
-        searchJob?.cancel() // süren arama durduruluyor
         imageJob?.cancel() // süren resim indirme durduruluyor
         _style.value = PostStyle() // stil varsayılana dönüyor
         store.save(_style.value) // varsayılan stil kaydediliyor (sonraki açılışta da temiz)
         _image.value = null // arka plan resmi kaldırılıyor
-        _search.value = SearchState() // arama kutusu ve sonuçlar temizleniyor
         _busy.value = null // bekleme göstergesi kapanıyor
         _message.value = "Baştan başlandı" // kısa bilgi mesajı
     }
@@ -87,31 +71,23 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     // Mesaj gösterildikten sonra temizlenir
     fun messageShown() { _message.value = null }
 
-    // Arama kutusundaki yazı değişti
-    fun setQuery(q: String) { _search.update { it.copy(query = q) } }
-
-    // Görsel aramasını başlatır
-    fun runSearch() {
-        val q = _search.value.query.trim() // kelime boşluklardan temizleniyor
-        if (q.isEmpty()) return // boşsa aranmıyor
-        if (!network.isOnline()) { // internet yoksa
-            _search.update { it.copy(error = "İnternet bağlantısı yok. Wi-Fi ya da mobil veriyi aç.", loading = false) } // hata gösteriliyor
-            return // arama yapılmıyor
+    // Google Görseller'de basılı tutulan görseli arka plan yapar.
+    // Adres "data:image/..." ise (Google'ın küçük önizlemesi) görsel zaten sayfanın içindedir, doğrudan çözülür.
+    fun pickFromWeb(url: String, onDone: () -> Unit) {
+        if (url.startsWith("data:image")) { // gömülü küçük görsel
+            val bmp = runCatching { // çözmeyi dene
+                val bytes = Base64.decode(url.substringAfter(","), Base64.DEFAULT) // virgülden sonrası base64 veri
+                BitmapFactory.decodeByteArray(bytes, 0, bytes.size) // resme çevriliyor
+            }.getOrNull() // hata olursa null
+            if (bmp != null) { // başarılıysa
+                _image.value = bmp // arka plan oldu
+                _message.value = "Küçük önizleme alındı. Daha net olması için görsele dokunup büyüyünce basılı tut." // ipucu
+                onDone() // Google ekranı kapanıyor
+            } else _message.value = "Bu görsel alınamadı, başka birini dene." // hata
+            return // iş bitti
         }
-        searchJob?.cancel() // önceki arama iptal
-        searchJob = viewModelScope.launch { // yeni arama başlıyor
-            _search.update { it.copy(loading = true, error = null) } // yükleniyor durumu
-            try { // arama deneniyor
-                val results = searcher.search(q) // iki kaynakta aranıyor
-                _search.update { it.copy(loading = false, results = results, searched = true) } // sonuçlar yazılıyor
-            } catch (e: Exception) { // hata olursa
-                _search.update { it.copy(loading = false, error = "Arama yapılamadı. Bağlantını kontrol edip tekrar dene.", searched = true) } // hata mesajı
-            }
-        }
+        loadBackground(url, onDone) // normal adres: indiriliyor
     }
-
-    // Aramadan seçilen görseli indirip arka plan yapar
-    fun pickResult(r: ImageResult, onDone: () -> Unit) = loadBackground(r.fullUrl, onDone) // tam boy resim indiriliyor
 
     // Galeriden seçilen resmi arka plan yapar
     fun pickFromGallery(uri: Uri) = loadBackground(uri, {}) // telefondaki resim yükleniyor

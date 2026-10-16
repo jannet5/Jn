@@ -95,7 +95,7 @@ fun BackgroundPanel(
             Button(onClick = onOpenSearch, enabled = online, modifier = Modifier.weight(1f).height(48.dp)) { // internetten ara
                 Icon(if (online) Icons.Default.Search else Icons.Default.WifiOff, contentDescription = null) // ikon
                 Spacer(Modifier.width(8.dp)) // boşluk
-                Text(if (online) "İnternetten ara" else "İnternet yok") // etiket: bağlantıya göre
+                Text(if (online) "Google'da ara" else "İnternet yok") // etiket: bağlantıya göre
             }
             OutlinedButton(onClick = onPickGallery, modifier = Modifier.weight(1f).height(48.dp)) { // galeriden seç
                 Icon(Icons.Default.Image, contentDescription = null) // ikon

@@ -20,7 +20,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle // akışları gü
 import com.jn.yazikart.ui.EditorScreen // ana ekran
 import com.jn.yazikart.ui.EditorViewModel // ana ekranın beyni
 import com.jn.yazikart.ui.FullscreenScreen // tam ekran
-import com.jn.yazikart.ui.SearchScreen // arama ekranı
+import com.jn.yazikart.ui.GoogleImagesScreen // Google Görseller ekranı
 import com.jn.yazikart.ui.YaziKartTheme // tema
 
 // Uygulamanın tek ekranı (Activity). Ana ekran ile arama ekranı arasında geçiş burada yapılır.
@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
             YaziKartTheme { // tema uygulanıyor
                 val style by vm.style.collectAsStateWithLifecycle() // stil
                 val image by vm.image.collectAsStateWithLifecycle() // arka plan resmi
-                val search by vm.search.collectAsStateWithLifecycle() // arama durumu
                 val busy by vm.busy.collectAsStateWithLifecycle() // meşguliyet
                 val message by vm.message.collectAsStateWithLifecycle() // mesaj
                 val online by vm.online.collectAsStateWithLifecycle() // internet durumu
@@ -56,13 +55,11 @@ class MainActivity : ComponentActivity() {
                         onStyle = vm::updateStyle, // yazı değiştir
                         onClose = { showFullscreen = false }, // kapat
                     )
-                } else if (showSearch) { // arama ekranı
-                    SearchScreen(
-                        state = search, // arama durumu
+                } else if (showSearch) { // Google Görseller ekranı
+                    GoogleImagesScreen(
                         online = online, // internet var mı
-                        onQuery = vm::setQuery, // kelime değişti
-                        onSearch = vm::runSearch, // ara
-                        onPick = { r -> vm.pickResult(r) { showSearch = false } }, // seçilince indirilip ekran kapanıyor
+                        busy = busy, // görsel iniyor mu
+                        onPick = { url -> vm.pickFromWeb(url) { showSearch = false } }, // basılı tutulan görsel arka plan olur, ekran kapanır
                         onClose = { showSearch = false }, // kapat
                     )
                 } else { // ana ekran
