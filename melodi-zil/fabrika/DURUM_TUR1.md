@@ -9,9 +9,11 @@
 - Nota temizleme: `arastirma/ortak/nota_cikar.py` — nota F Vocadito **0,46→0,64**, MIR-1K karışım **0,665** (hedef 0,65: ham perdede ✅ sınırda; yarım tona yuvarlanmış çıktıda 0,61–0,62 ⚠️).
 - Araştırma: `docs/ARASTIRMA_MELODI.md`.
 
+- Model küçültme: RMVPE ONNX int8 (dinamik nicemleme) **361 MB → 98,7 MB**, doğruluk aynı (MIR-1K karışım 10 klip: doğru perde %91,26 vs %91,28; nota F 0,634 vs 0,633). Hız (bu x86 CPU, 2 iş parçacığı): gerçek zamanın ~0,09 katı (3–4 dk şarkı ≈ 20 sn); arm64 telefonda ölçülecek. Dosya: `/home/user/models/rmvpe_q/rmvpe_int8.onnx` (depoda yok; betik: nicemleme `onnxruntime.quantization.quantize_dynamic`).
+
 ## Yapılamadı / açık
 - YouTube’dan gerçek pop şarkı indirilemedi (bot kontrolü) → Ç-015. Bu yüzden **3 şarkılık dinleme örneği henüz yok**.
-- Model telefona sığmıyor: rmvpe.onnx 361 MB. Gerekli: fp16/int8 + ORT-mobile, ya da ilk açılışta indirme; hız ölçülecek.
+- Model 98,7 MB (int8) hâlâ APK sınırına (30 MB) sığmaz → ilk açılışta indirilecek (SHA-256 + ilerleme çubuğu) ya da FCPE (≈10 M parametre) aday olarak ölçülecek.
 - Nota F yarım tona yuvarlanmış halde hedefin biraz altında; enerji/onset ile aynı perdeli tekrar notaları ayırma denenecek.
 - Android uygulama: yeni hat (RMVPE ONNX + nota_cikar) Kotlin’e taşınmadı; emülatör testleri (API 26/34, süreç öldürme, tam uzunluk) bu turda yapılmadı.
 - Demucs/CREPE/basic-pitch/FCPE adayları: ajanlar hâlâ ölçüyor olabilir; biten sonuçlar `arastirma/sonuc/` içinde.
