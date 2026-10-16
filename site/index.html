@@ -84,7 +84,7 @@
   // Contact address follows whatever domain the site is served from: hello@<domain>.
   (function () {
     var h = location.hostname.replace(/^www\./, '');
-    if (h && h.indexOf('.') > 0 && !/^\d+(\.\d+){3}$/.test(h) && !/(pages\.dev|github\.io)$/.test(h)) {
+    if (h && h.indexOf('.') > 0 && !/^\d+(\.\d+){3}$/.test(h) && !/(pages\.dev|github\.io|claude\.ai|claudeusercontent\.com)$/.test(h)) {
       var m = document.getElementById('mail');
       m.href = 'mailto:hello@' + h; m.textContent = 'hello@' + h;
     }
