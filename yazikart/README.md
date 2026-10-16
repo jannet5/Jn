@@ -10,7 +10,7 @@ görsel olarak kaydetmeye/paylaşmaya yarayan basit Android uygulaması.
 | Zemin rengi | Hazır 20 renk (ilki siyah) + ton/doygunluk/parlaklık ya da HEX kodu ile özel renk |
 | Yazı | Çok satırlı yazı; boyut, renk, kalın, gölge, hiza (sol/orta/sağ), konum (üst/orta/alt). Sığmayan yazı otomatik küçülür |
 | 50 yazı tipi | Dünyada en çok kullanılan Google Fonts yazı tipleri (Roboto, Open Sans, Montserrat, Poppins, Bebas Neue, Pacifico…). Hepsi uygulamanın içinde, **internetsiz çalışır**, hepsi Türkçe karakterleri (ç ğ ı İ ö ş ü) destekler. Arial yerine metrik olarak birebir aynı **Arimo**, Times New Roman yerine **Tinos** var |
-| İnternetten görsel | "İnternetten ara"ya bas, örn. *lahmacun* yaz, çıkan görsellerden birine dokun → arka plan olur. İnternet yoksa düğme "İnternet yok" der ve kapanır; bağlantı gelince kendiliğinden açılır |
+| Google Görseller | "Google'da ara"ya bas, uygulama içinde gerçek Google Görseller açılır; görsele dokun, büyüyünce basılı tut → arka plan olur. İnternet yoksa düğme "İnternet yok" der |
 | Galeriden görsel | Telefondaki bir fotoğrafı arka plan yap |
 | Karartma | Arka plan fotoğrafını koyulaştırıp yazıyı okunur yapar |
 | Boyut | Kare 1:1 (1080×1080), Dikey 4:5 (1080×1350), Hikâye 9:16 (1080×1920) |
@@ -20,17 +20,17 @@ görsel olarak kaydetmeye/paylaşmaya yarayan basit Android uygulaması.
 Ekrandaki önizleme ile kaydedilen dosya **aynı kodla** çizilir; ekranda ne görüyorsan dosyada o çıkar.
 Son kullandığın stil (yazı tipi, renkler, boyut…) hatırlanır.
 
-## Görsel arama hakkında dürüst not
+## Görsel arama (Google Görseller) ve gizlilik
 
-Google Görseller'in ücretsiz, anahtarsız resmi bir arayüzü yok (Google'ın Custom Search API'si ücretli anahtar
-istiyor ve yeni kullanıcılara kapatıldı); sayfayı kazımak ise Google'ın kurallarına aykırı ve her an bozulur.
-Bu yüzden uygulama aynı anda iki büyük, yasal ve anahtarsız arşivde arıyor:
+"Google'da ara"ya basınca uygulamanın içinde **gerçek Google Görseller sayfası** açılır. Görsele dokun,
+büyüyünce üstüne **basılı tut**: görsel telefona iner ve arka plan olur.
 
-- **Openverse** — Flickr, Wikimedia ve daha birçok kaynaktan 800 milyonu aşkın açık lisanslı görsel
-- **Wikimedia Commons** — Vikipedi'nin görsel arşivi
-
-"lahmacun" gibi aramalarda yüzlerce sonuç geliyor. Türkçe kelime az sonuç verirse İngilizcesini dene.
-Lisanslar görsele göre değişir; ticari kullanımda kaynağı kontrol et.
+- Uygulamanın **kendi sunucusu yok**. Yazdıkların, renklerin, kaydettiğin görseller hiçbir yere gönderilmez,
+  her şey telefonda kalır.
+- Sadece Google'da arama yaptığında telefon **doğrudan Google'a** bağlanır (Chrome'da arama yapmakla aynı);
+  seçtiğin görsel de doğrudan bulunduğu siteden iner. Arada başka kimse yok.
+- İnternet yoksa bu ekran açılmaz; uygulamanın geri kalanı internetsiz çalışır.
+- Görsellerin telif hakkı sahiplerine aittir; kişisel kullanım dışında kaynağı kontrol et.
 
 ## Kurulum (telefona)
 
@@ -59,9 +59,9 @@ app/src/main/kotlin/com/jn/yazikart/
   data/PostStyle.kt        görsel ayarları + son stili saklama
   data/ImageExporter.kt    galeriye kaydet (PNG/JPEG) + paylaş
   render/PostRenderer.kt   önizleme ve kaydın ortak çizicisi
-  search/ImageSearch.kt    Openverse + Wikimedia arama
+  search/GooglePick.kt     Google Görseller'de basılı tutulan görselden en iyi adresi seçer
   search/NetworkMonitor.kt internet var mı (canlı)
-  ui/                      ekranlar ve paneller (Jetpack Compose)
+  ui/                      ekranlar ve paneller (Jetpack Compose); GoogleImagesScreen = uygulama içi Google Görseller
 app/src/main/assets/fonts/ 50 yazı tipinin dosyaları (Latin + Türkçe karakterlere küçültülmüş)
 ```
 
