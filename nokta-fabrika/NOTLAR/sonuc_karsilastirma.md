@@ -41,3 +41,6 @@ Teslim APK SHA-256 1d1b79ad…3d67840. Birim test 40/40 (ReminderPlan 8 yeni), l
 - Saatli alarm 21:00'de "Eggs — Alarm" bildirimi verdi, tek seferlik kaydı silindi.
 - APK yeniden kurulunca (MY_PACKAGE_REPLACED) alarmlar yeniden kuruldu. Telefon açılışı (BOOT_COMPLETED) emülatörde denenmedi.
 - Testte bulunan ve düzeltilen iki hata: uygulama açıkken balon diyalog düğmelerini örtüyordu (artık uygulama ön plandayken gizleniyor); bildirimden "Durdur"/"Aldım" sonrası uygulamaya dönünce zil simgesi eski kalıyordu (geri dönüşte yenileniyor).
+
+## 1.1.1 — düzeltme
+Mağaza ekran görüntüsü çekerken bulundu: bir satıra basılı tutup hareket ettirmeden bırakınca satır büyütülmüş/gölgeli kalıyordu (bırakma animasyonu liste güncellemesiyle kesiliyordu) ve sürükleme sırasında gelen dokunuş maddenin üstünü çiziyordu. Düzeltildi: bırakınca satır animasyonsuz yerine oturuyor, satır yeniden çizilirken boyutu sıfırlanıyor, sürükleme sürerken dokunuş yok sayılıyor. Emülatörde 1,5 sn basılı tut-bırak ile doğrulandı. APK SHA-256 3be7904f…e418e28c1.

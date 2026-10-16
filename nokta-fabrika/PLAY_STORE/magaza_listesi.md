@@ -47,7 +47,7 @@ No account, no ads, no internet permission. Your data stays on your phone.
 The bubble uses the "display over other apps" permission and a silent notification that Android requires. You can turn it off any time.
 
 ## Grafik varlıklar (üretilecek / kontrol listesi)
-- [ ] Uygulama ikonu 512x512 PNG (D'nin adaptive ikonundan)
-- [ ] Feature graphic 1024x500
-- [ ] En az 4 telefon ekran görüntüsü (liste, çizili, balon, panel)
-- [ ] Balon için FGS beyan videosu (specialUse)
+- [x] Uygulama ikonu 512x512 PNG: `gorseller/ikon-512.png`
+- [x] Feature graphic 1024x500 (JPEG, alfasız): `gorseller/tanitim-1024x500.jpg`
+- [x] 5 telefon ekran görüntüsü (JPEG, alfasız, gerçek uygulamadan, Android 8 emülatörü): `gorseller/ekran-1..5-*.jpg`
+- [ ] Balon için FGS beyan videosu (specialUse): telefonda ekran kaydıyla çekilmeli (emülatörde video kaydı yapılmadı)
