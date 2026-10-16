@@ -34,6 +34,14 @@ Windows tarafında tanımlı izin listesinden). Ayrıntılar için
 
 ### 1) Windows tarafı
 
+**En kolay yol:** `WinRemoteMonitor-Kurulum.zip`'i çıkarın, `KUR.bat`'a çift
+tıklayın; kopyalama, `config.json`, güvenlik duvarı (tek UAC onayı), oturum
+açılışında otomatik başlatma ve ilk eşleştirme QR'ı otomatik yapılır. Yeni
+kod için `yeni-kod.bat`, kaldırmak için `KALDIR.bat`. Bir yapay zekâya
+kurduracaksanız ona `YAPAY_ZEKA_ICIN_KURULUM.md`'yi verin. Paket
+`paket/paketle.sh` ile üretilir. Elle kurmak isterseniz:
+
+
 1. Bir klasör oluşturun (örn. `C:\WinRemoteMonitor`) ve içine
    `winremotemonitor-agent.exe` ile birlikte şu iki dosyayı koyun:
    - `config.json` (örnek: `windows-agent/config.example.json`) — port,
@@ -95,7 +103,7 @@ yönet).
 
 | Dosya | Konum | SHA-256 |
 |---|---|---|
-| Windows ajanı (.exe) | `windows-agent/dist/winremotemonitor-agent.exe` | `4b0c17ba754fa761e11774081c192f5c9b4de2d792b8d232e1eb0784c610f497` |
+| Windows ajanı (.exe) | `windows-agent/dist/winremotemonitor-agent.exe` | `b8ca485d6ffe2fc502e458e74b4d92d1932e3d80d7e9a66fc1a8d4b4d145602f` |
 | Android APK (release, imzalı) | `android-app/dist/app-release.apk` | `306b33fa2d52cbe9d53f75ef9d4cfca13fd3de7ad58706992edbee558828be66` |
 | Android APK (debug) | `android-app/dist/app-debug.apk` | `42c007b014ad923d13f39fc2dc2498adc6bf980a0d97eac0baf38ffee5dddaf7` |
 
