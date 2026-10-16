@@ -66,7 +66,14 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     val clips: StateFlow<List<VideoClip>> = _clips.asStateFlow() // ekranın okuyacağı videolar
 
     // Önizleme oynatıcısı: videolar arka arkaya, seçilen aralıklarla, sürekli tekrar oynar
-    val player: ExoPlayer = ExoPlayer.Builder(app).build().apply { repeatMode = Player.REPEAT_MODE_ALL } // tekrar modunda
+    val player: ExoPlayer = ExoPlayer.Builder(app).build().apply { // önizleme oynatıcısı
+        repeatMode = Player.REPEAT_MODE_ALL // sürekli tekrar
+        addListener(object : Player.Listener { // oynatma hatası olursa
+            override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
+                _message.value = "Video önizlemesi oynatılamadı. Kaydetmeyi yine de deneyebilirsin." // kullanıcıya söyleniyor (siyah ekranda kalmasın)
+            }
+        })
+    }
 
     private val videoDir = File(app.cacheDir, "videolar") // internetten inen videoların klasörü
 
