@@ -50,3 +50,7 @@
 - Bulgular ve çözümler: Melodia'nın eksik adımları eklendi; Spleeter vokal U-Net'i TFLite'a aktarıldı (`araclar/model/spleeter_vokal_tflite.py`), telefonda 22050 Hz STFT (2048/512, genlik ×2) ile birebir aynı sonuç (`vokal_ayir22.py` ile doğrulandı).
 - İki tuzak: (1) Essentia'nın `pitchContinuity` değeri cent/ms'dir ve 2.9 ms kare için yazılmıştır; büyük karede ms ile ölçeklemek notaları birbirine yapıştırır → kare başına sabit 50-80 cent kullan. (2) Kontur güçleri birbirine çok yakınsa "ortalama − v·σ" sessizlik eşiği melodiyi keser → σ'ya ortalamanın %15'i kadar taban koy.
 - Ölçüt: perde doğruluğu tek başına yanıltıcıdır (kırık notalar perdeyi tutar ama kulağa kötü gelir); nota düzeyi F (±50 ms başlangıç, ±50 cent) ile birlikte bak.
+
+## Ç-012: APK sohbet eki sınırını (30 MiB) aşıyor
+- Belirti: 37.9 MB evrensel APK sohbete eklenemedi; kullanıcı link ile indirirken %100'de takılıyordu.
+- Çözüm: `app/build.gradle.kts` içinde `splits { abi { isEnable = true; reset(); include("arm64-v8a","armeabi-v7a","x86_64","x86"); isUniversalApk = true } }`. arm64 APK 26 MB oldu, aynı imza (`apksigner verify --print-certs` ile karşılaştırıldı). Günümüz telefonlarının neredeyse tamamı arm64. Play'e AAB gider, bölme orada etkisizdir.

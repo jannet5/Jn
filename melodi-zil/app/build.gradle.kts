@@ -71,6 +71,15 @@ android {
 
     bundle { language { enableSplit = false } } // Tüm diller tek pakette (sadece Türkçe/İngilizce var)
 
+    splits {
+        abi { // Doğrudan kurulum için işlemciye göre küçük APK'lar (Play AAB'yi zaten kendisi böler)
+            isEnable = true // Mimariye göre bölme açık
+            reset() // Varsayılan liste temizleniyor
+            include("arm64-v8a", "armeabi-v7a", "x86_64", "x86") // Üretilecek mimariler
+            isUniversalApk = true // Hepsini içeren tek APK da üretilir
+        }
+    }
+
     androidResources { noCompress += "tflite" } // Model sıkıştırılmadan paketlenir: belleğe doğrudan eşlenir
 }
 

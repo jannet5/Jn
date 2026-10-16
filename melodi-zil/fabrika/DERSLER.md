@@ -54,3 +54,8 @@
 - Ne yapıldı (ölçerek): (1) Değerlendirme seti: Vocadito (40 gerçek şarkı söyleme, f0 + insan işaretli nota) + sentetik pop eşlik, Orchset; mir_eval ile perde ve nota düzeyi puan; Essentia Melodia karşılaştırma. (2) Melodia yönteminin tamamı (10 cent harita, konturlar, sessizlik/oktav/aykırı eleme). (3) Spleeter (Deezer, MIT) vokal U-Net'i TFLite fp16 olarak cihazda: önce vokal ayrılır, sonra melodi çıkarılır. (4) Ayarlar ölçülerek seçildi; iki gerçek hata bulundu: kontur sürekliliği süreye göre yanlış ölçeklenmişti (80 → 320 cent/kare), sessizlik eşiği küçük sapmada melodiyi kesiyordu (sapma tabanı).
 - Sonuç: Vokal setinde doğru perde %31 → %67, nota F 0.27 → 0.52; gerçek şarkıda (bağımsız referans) %41 → %68.
 - Yeni kural (tüm uygulamalar): Bir yapay zeka/sinyal işleme özelliği, gerçek veriye karşı sayısal bir ölçüt olmadan "bitti" sayılmaz. Önce ölçüm altyapısı, sonra iyileştirme; her değişiklik önce/sonra sayısıyla.
+
+### K-003 (genel, HAFIZA.md'de de var): Yazılan her şey okunur, hepsi yapılır, kart olarak verilir
+- Kullanıcı ne dedi: "Ben proje sohbetlerinde istediğim yazdığım tüm her şey okunsun ve yapılsın istiyorum … kart olarak verilsin kullanayım"
+- Kök neden: Bağlam özetlendiğinde bazı mesajlar (ör. kart istemi, "tek cümle") gözden kaçma riski taşıyordu; teslim sohbet metni olarak dağınık kalıyordu.
+- Yeni kural: Her turda tüm kullanıcı mesajları transkriptten çıkarılıp ISTEKLER.md ile karşılaştırılır; teslim bir artifact kartıdır (tek cümle tanım, indirme, istek listesi, kullanım).
