@@ -65,7 +65,7 @@ Sınıflar sözleşmedeki kümeyle sınırlı (alim, ar, ayet, bolum, bolum-basl
 
 ## Türkçe
 
-"Doymadan bırakma, bunalmadan devam etme" çelişkili okunuyordu, "Acele etme" yapıldı; "sûrenin"/"sure" yazımları, "Hz. Peygamber/Hz. Muhammed (s.a.v.)" kullanımı tutarlı; hadis dereceleri açıklamasına "hafızası sağlam" eklendi.
+"Doymadan bırakma, bunalmadan devam etme" çelişkili okunuyordu, "Acele etme" yapıldı; "Hz. Peygamber / Hz. Muhammed (s.a.v.)" kullanımı tutarlı; hadis dereceleri açıklamasına "hafızası sağlam" eklendi; Bakara 2:25 ve İbn Abbas cümlelerinin akışı düzeltildi.
 
 ## Kalan riskler
 
