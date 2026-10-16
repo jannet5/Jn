@@ -35,7 +35,7 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
         val everyMin = v.findViewById<EditText>(R.id.every_min)
         val atSw = v.findViewById<SwitchCompat>(R.id.at_switch)
         val atBtn = v.findViewById<Button>(R.id.at_time)
-        val exactHint = v.findViewById<TextView>(R.id.exact_hint)
+        val exactRow = v.findViewById<View>(R.id.exact_row)
         v.findViewById<TextView>(R.id.item_text).text = item.text
         v.findViewById<View>(R.id.notif_hint).visibility = if (Reminders.canNotify(act)) View.GONE else View.VISIBLE
 
@@ -61,7 +61,7 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
             atBtn.text = act.getString(
                 if (ReminderPlan.isToday(System.currentTimeMillis(), at)) R.string.remind_today_fmt else R.string.remind_tomorrow_fmt, time,
             )
-            exactHint.visibility = if (atSw.isChecked && !Reminders.canExact(act)) View.VISIBLE else View.GONE
+            exactRow.visibility = if (atSw.isChecked && !Reminders.canExact(act)) View.VISIBLE else View.GONE
         }
         atSw.isChecked = plan?.atMillis != null
         atSw.setOnCheckedChangeListener { _, _ -> renderAt() }
@@ -69,9 +69,11 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
             TimePickerDialog(act, { _, h, m -> hour = h; minute = m; atSw.isChecked = true; renderAt() },
                 hour, minute, DateFormat.is24HourFormat(act)).show()
         }
-        if (Build.VERSION.SDK_INT >= 31) exactHint.setOnClickListener {
+        if (Build.VERSION.SDK_INT >= 31) v.findViewById<View>(R.id.exact_btn).setOnClickListener {
             act.startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:${act.packageName}")))
         }
+        // Ayarlardan izin verip donunce uyari kendiliginden kaybolur.
+        v.viewTreeObserver.addOnWindowFocusChangeListener { if (it) renderAt() }
         renderAt()
 
         val b = AlertDialog.Builder(act)

@@ -14,4 +14,18 @@
         <item name="colorControlActivated">@color/accent</item>
         <item name="android:colorControlHighlight">#22888888</item>
     </style>
+
+    <!-- Tek dolu dugme bicimi: vurgu renginde hap. Ekle/Kaydet ve izin dugmesi. -->
+    <style name="NoktaButton">
+        <item name="android:background">@drawable/btn_accent</item>
+        <item name="android:fontFamily">@font/plex_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:paddingEnd">18dp</item>
+        <item name="android:textColor">@color/on_accent</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">true</item>
+    </style>
 </resources>

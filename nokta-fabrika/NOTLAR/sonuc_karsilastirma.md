@@ -44,3 +44,10 @@ Teslim APK SHA-256 1d1b79ad…3d67840. Birim test 40/40 (ReminderPlan 8 yeni), l
 
 ## 1.1.1 — düzeltme
 Mağaza ekran görüntüsü çekerken bulundu: bir satıra basılı tutup hareket ettirmeden bırakınca satır büyütülmüş/gölgeli kalıyordu (bırakma animasyonu liste güncellemesiyle kesiliyordu) ve sürükleme sırasında gelen dokunuş maddenin üstünü çiziyordu. Düzeltildi: bırakınca satır animasyonsuz yerine oturuyor, satır yeniden çizilirken boyutu sıfırlanıyor, sürükleme sürerken dokunuş yok sayılıyor. Emülatörde 1,5 sn basılı tut-bırak ile doğrulandı. APK SHA-256 3be7904f…e418e28c1.
+
+## 1.2.0 (kullanici geri bildirimi, gercek telefon)
+- Alarm izni uyarisi artik tiklanacak yazi degil, "Izni aç" dugmesi; ayarlardan donunce uyari kendiliginden kalkar.
+- Giris alani cok satirli: Enter yeni satir/paragraf acar, ekleme sagdaki "Ekle" dugmesiyle. Satir sonlari korunur, art arda bos satirlar tek paragraf boslugu olur; azami metin 1000 karakter.
+- Duzenleme: maddeye basili tut, kipirdatmadan birak -> metin giris alanina gelir, "Duzenleniyor · Vazgeç" seridi, dugme "Kaydet". Tutamactan surukleme duzenleme acmaz. Ilk eklemede bir kez ipucu gosterilir.
+- Yedek metni cok satirli ogeleri 4 bosluk iceride devam satiri olarak yazar/okur.
+- Dogrulama: 43 birim testi + lint temiz; API 26 emulatorde paragrafli ekleme, bas-birak duzenleme, kaydetme ve dokununca ustunu cizme denendi. Izin dugmesi API 31+ gerektirdiginden emulatorde gorsel olarak denenmedi.

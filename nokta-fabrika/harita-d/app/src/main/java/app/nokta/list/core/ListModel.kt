@@ -36,11 +36,20 @@ class ListModel(initial: List<Item> = emptyList()) {
 
     /** Bos/bosluk metni eklenmez. Yeni oge en uste girer (hizli ekleme sonucu hemen gorunur). */
     fun add(raw: String): Item? {
-        val text = raw.trim().replace(Regex("\\s+"), " ")
+        val text = clean(raw)
         if (text.isEmpty()) return null
-        val item = Item(nextId(), text.take(MAX_TEXT), done = false, position = 0)
+        val item = Item(nextId(), text, done = false, position = 0)
         list = (listOf(item) + list).reindexed()
         return list.first()
+    }
+
+    /** Metni degistirir; yeri ve durumu korunur. Bos metin kabul edilmez. */
+    fun edit(id: Long, raw: String): Boolean {
+        val text = clean(raw)
+        val i = list.indexOfFirst { it.id == id }
+        if (i < 0 || text.isEmpty()) return false
+        list = list.toMutableList().also { it[i] = it[i].copy(text = text) }
+        return true
     }
 
     fun toggle(id: Long): Boolean {
@@ -91,29 +100,47 @@ class ListModel(initial: List<Item> = emptyList()) {
 
     fun dismissUndo() { undo = null }
 
-    /** Yedek metni: "[ ] oge" / "[x] oge". Paylasilabilir, insan okur. */
-    fun export(): String = list.joinToString("\n") { (if (it.done) "[x] " else "[ ] ") + it.text }
+    /** Yedek metni: "[ ] oge" / "[x] oge"; cok satirli ogenin devam satirlari 4 bosluk iceride. */
+    fun export(): String = list.joinToString("\n") { (if (it.done) "[x] " else "[ ] ") + it.text.replace("\n", "\n" + CONT) }
 
     /** [export] ciktisini (ya da duz satirlari) sonuna ekler. @return eklenen oge sayisi. */
     fun importText(text: String): Int {
-        var n = 0
-        val parsed = text.lines().mapNotNull { line ->
+        val parsed = ArrayList<Pair<Boolean, StringBuilder>>()
+        var boxed = false
+        for (line in text.lines()) {
+            // Kutulu bir ogenin ardindaki 4 bosluklu satir o ogenin devamidir (paragraf dahil).
+            if (boxed && line.startsWith(CONT)) { parsed.last().second.append('\n').append(line.substring(CONT.length)); continue }
             val t = line.trim()
-            if (t.isEmpty()) return@mapNotNull null
+            if (t.isEmpty()) continue
             val m = BOX.matchEntire(t)
-            if (m != null) (m.groupValues[1].isNotBlank()) to m.groupValues[2] else false to t
+            boxed = m != null
+            parsed += if (m != null) (m.groupValues[1].isNotBlank()) to StringBuilder(m.groupValues[2]) else false to StringBuilder(t)
         }
         var id = nextId()
         val add = parsed.mapNotNull { (done, raw) ->
-            val s = raw.trim()
-            if (s.isEmpty()) null else Item(id++, s.take(MAX_TEXT), done, 0).also { n++ }
+            val s = clean(raw.toString())
+            if (s.isEmpty()) null else Item(id++, s, done, 0)
         }
         list = (list + add).reindexed()
-        return n
+        return add.size
     }
 
     companion object {
-        const val MAX_TEXT = 200
+        const val MAX_TEXT = 1000
+        private const val CONT = "    "
         private val BOX = Regex("^\\[([ xX])](?:\\s+(.*))?$")
+        private val SPACES = Regex("[ \\t\\u00A0]+")
+
+        /** Satir ici bosluklar teke iner; satir sonlari kalir, art arda bos satirlar tek paragraf boslugu olur. */
+        fun clean(raw: String): String {
+            val out = ArrayList<String>()
+            for (l in raw.replace("\r", "").split('\n')) {
+                val t = l.trim().replace(SPACES, " ")
+                if (t.isEmpty() && (out.isEmpty() || out.last().isEmpty())) continue
+                out += t
+            }
+            while (out.isNotEmpty() && out.last().isEmpty()) out.removeAt(out.lastIndex)
+            return out.joinToString("\n").take(MAX_TEXT).trimEnd()
+        }
     }
 }

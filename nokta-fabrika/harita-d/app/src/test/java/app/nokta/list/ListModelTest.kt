@@ -132,6 +132,30 @@ class ListModelTest {
 
     @Test fun veryLongTextIsCapped() {
         val m = ListModel()
-        assertEquals(ListModel.MAX_TEXT, m.add("x".repeat(500))!!.text.length)
+        assertEquals(ListModel.MAX_TEXT, m.add("x".repeat(5000))!!.text.length)
+    }
+
+    @Test fun addKeepsLinesAndOneParagraphGap() {
+        val m = ListModel()
+        assertEquals("süt al\nekmek yok\n\nyarın", m.add("\n  süt   al \r\n ekmek\u00A0 yok\n\n\n\n yarın \n\n")!!.text)
+        assertEquals("a\nb\n\nc", ListModel.clean(" a\n b \n\n\n c\n"))
+    }
+
+    @Test fun editChangesTextKeepsPlaceAndState() {
+        val m = model("a", "b", "c"); val id = m.items[1].id; m.toggle(id)
+        assertTrue(m.edit(id, "  bee \n iki "))
+        assertEquals(listOf("a", "bee\niki", "c"), m.texts())
+        assertTrue(m.items[1].done)
+        assertFalse(m.edit(id, "   \n "))
+        assertFalse(m.edit(999, "x"))
+        assertEquals("bee\niki", m.items[1].text)
+    }
+
+    @Test fun multiLineExportImportRoundTrip() {
+        val a = ListModel(); a.add("son"); a.add("liste:\nsüt\n\nekmek"); a.toggle(a.items[1].id)
+        assertEquals("[ ] liste:\n    süt\n    \n    ekmek\n[x] son", a.export())
+        val b = ListModel(); assertEquals(2, b.importText(a.export()))
+        assertEquals(a.texts(), b.texts())
+        assertEquals(a.items.map { it.done }, b.items.map { it.done })
     }
 }

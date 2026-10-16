@@ -4,7 +4,7 @@
     <string name="hint_add">Yeni öğe</string>
     <string name="remaining_fmt">%d kaldı</string>
     <string name="all_done">hepsi tamam</string>
-    <string name="empty">Boş. Yukarıya yaz, Enter\'a bas.</string>
+    <string name="empty">Boş. Yukarıya yaz, Ekle\'ye bas.\nDüzeltmek için maddeye basılı tut, bırak.</string>
     <string name="clear_done">Tamamlananları sil</string>
     <string name="clear_short">Temizle</string>
     <string name="clear_desc">Tamamlananları sil</string>
@@ -48,6 +48,9 @@
     <string name="trash_desc">Balonu gizle</string>
     <string name="fgs_subtype">Ekranın kenarında kalan yüzen liste balonu; kullanıcı açık tuttuğu sürece görünür kalmalıdır.</string>
     <string name="save">Kaydet</string>
+    <string name="add">Ekle</string>
+    <string name="editing">Düzenleniyor</string>
+    <string name="edit_tip">Düzeltmek için maddeye basılı tut, bırak.</string>
     <string name="cancel">Vazgeç</string>
     <string name="remind">Hatırlat</string>
     <string name="remind_item">%1$s için hatırlatma kur</string>
@@ -59,7 +62,8 @@
     <string name="remind_at_label">Alarm</string>
     <string name="remind_today_fmt">Bugün %1$s</string>
     <string name="remind_tomorrow_fmt">Yarın %1$s</string>
-    <string name="remind_exact_hint">Alarmın tam dakikasında çalması için "Alarmlar ve hatırlatıcılar" iznini aç (dokun).</string>
+    <string name="remind_exact_hint">Alarmın tam dakikasında çalması için izin gerekli.</string>
+    <string name="remind_exact_btn">İzni aç</string>
     <string name="remind_notif_off">Bildirim izni kapalı. Kaydettikten sonra izin isteyeceğiz; izin vermezsen hatırlatma görünmez.</string>
     <string name="remind_bad_min">1 ile 1440 arasında bir dakika yaz.</string>
     <string name="remind_remove">Kaldır</string>
