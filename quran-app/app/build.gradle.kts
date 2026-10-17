@@ -18,8 +18,8 @@ android {
         applicationId = "app.kuranoku" // mağaza paket adı
         minSdk = 26 // Android 8.0 ve üstü (uyarlanabilir ikon)
         targetSdk = 36 // hedef SDK
-        versionCode = 4 // sürüm kodu
-        versionName = "1.3.0" // görünen sürüm
+        versionCode = 5 // sürüm kodu
+        versionName = "1.4.0" // görünen sürüm
         resourceConfigurations += listOf("tr") // sadece Türkçe kaynaklar (APK küçülsün)
     }
 

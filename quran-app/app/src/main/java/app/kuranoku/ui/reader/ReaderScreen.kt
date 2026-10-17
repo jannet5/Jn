@@ -10,6 +10,11 @@ import androidx.compose.animation.slideInVertically // aşağıdan/yukarıdan ge
 import androidx.compose.animation.slideOutVertically // aşağı/yukarı gitme
 import androidx.compose.foundation.ExperimentalFoundationApi // deneysel temel API
 import androidx.compose.foundation.background // zemin
+import androidx.compose.foundation.border // çerçeve
+import androidx.compose.foundation.clickable // tıklanabilir
+import androidx.compose.foundation.text.BasicTextField // yazı kutusu
+import androidx.compose.foundation.text.KeyboardActions // klavye eylemleri
+import androidx.compose.foundation.text.KeyboardOptions // klavye seçenekleri
 import androidx.compose.foundation.gestures.awaitEachGesture // jest döngüsü
 import androidx.compose.foundation.gestures.awaitFirstDown // ilk dokunuş
 import androidx.compose.foundation.gestures.calculateZoom // iki parmak yakınlaşma oranı
@@ -19,7 +24,11 @@ import androidx.compose.foundation.layout.Box // kutu
 import androidx.compose.foundation.layout.BoxWithConstraints // ölçülü kutu
 import androidx.compose.foundation.layout.Column // dikey dizi
 import androidx.compose.foundation.layout.ExperimentalLayoutApi // deneysel düzen API
+import androidx.compose.foundation.layout.PaddingValues // iç boşluk değerleri
 import androidx.compose.foundation.layout.Row // yatay dizi
+import androidx.compose.foundation.layout.ime // klavye boşluğu
+import androidx.compose.foundation.layout.navigationBars // gezinme çubuğu
+import androidx.compose.foundation.layout.width // genişlik
 import androidx.compose.foundation.layout.WindowInsets // sistem çubuğu boşlukları
 import androidx.compose.foundation.layout.displayCutout // çentik
 import androidx.compose.foundation.layout.fillMaxSize // tam boyut
@@ -42,9 +51,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape // yuvarlak köşe
 import androidx.compose.foundation.verticalScroll // dikey kaydırma
 import androidx.compose.foundation.horizontalScroll // yatay kaydırma
 import androidx.compose.material3.MaterialTheme // tema
-import androidx.compose.material3.Slider // kaydırıcı
+import androidx.compose.material3.Button // birincil buton
 import androidx.compose.material3.Text // metin
 import androidx.compose.runtime.Composable // Compose işlevi
+import androidx.compose.runtime.DisposableEffect // bırakılırken yan etki
 import androidx.compose.runtime.LaunchedEffect // yan etki
 import androidx.compose.runtime.SideEffect // her çizimde yan etki
 import androidx.compose.runtime.getValue // durum okuma
@@ -59,7 +69,18 @@ import androidx.compose.runtime.snapshotFlow // durumdan akış
 import androidx.compose.runtime.CompositionLocalProvider // değer sağlayıcı
 import androidx.compose.ui.Alignment // hizalama
 import androidx.compose.ui.Modifier // değiştirici
+import androidx.compose.ui.draw.alpha // saydamlık
 import androidx.compose.ui.draw.clip // kırpma
+import androidx.compose.ui.focus.onFocusChanged // odak değişimi
+import androidx.compose.ui.graphics.SolidColor // düz boya
+import androidx.compose.ui.platform.LocalFocusManager // odak yöneticisi
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController // klavye denetimi
+import androidx.compose.ui.semantics.Role // erişilebilirlik rolü
+import androidx.compose.ui.text.TextRange // seçim aralığı
+import androidx.compose.ui.text.input.ImeAction // klavye eylemi
+import androidx.compose.ui.text.input.KeyboardType // klavye türü
+import androidx.compose.ui.text.input.TextFieldValue // yazı ve seçim
+import androidx.compose.ui.text.style.TextAlign // metin hizası
 import androidx.compose.ui.input.pointer.PointerEventPass // olay geçişi
 import androidx.compose.ui.input.pointer.pointerInput // dokunma girişi
 import androidx.compose.ui.platform.LocalLayoutDirection // yön
@@ -69,6 +90,7 @@ import androidx.compose.ui.layout.onGloballyPositioned // ekrandaki konum
 import androidx.compose.ui.layout.positionInRoot // köke göre konum
 import androidx.compose.ui.text.style.TextOverflow // taşma
 import androidx.compose.ui.unit.LayoutDirection // yön tipi
+import androidx.compose.ui.graphics.vector.ImageVector // ikon tipi
 import androidx.compose.ui.unit.dp // dp
 import androidx.core.view.WindowCompat // pencere yardımcıları
 import androidx.core.view.WindowInsetsCompat // sistem çubukları
@@ -76,8 +98,10 @@ import androidx.core.view.WindowInsetsControllerCompat // sistem çubuğu deneti
 import app.kuranoku.data.Quran // Kur'an
 import app.kuranoku.data.ReaderSettings // ayarlar
 import app.kuranoku.ui.NavRequest // sayfa isteği
+import app.kuranoku.ui.components.Ico // ikon
 import app.kuranoku.ui.components.IconBtn // ikon buton
 import app.kuranoku.ui.components.Lucide // ikonlar
+import app.kuranoku.ui.theme.IconSize // ikon boyutları
 import app.kuranoku.ui.theme.Radius // köşeler
 import app.kuranoku.ui.theme.Space // boşluklar
 import app.kuranoku.ui.theme.appColors // ek renkler
@@ -173,7 +197,11 @@ fun ReaderScreen(
             TopChrome(quran, sayfa, sayfa in bookmarkedPages, onOpenIndex, { onToggleBookmark(sayfa) }, onOpenSearch, { sheet = true }) // içerik
         }
         AnimatedVisibility(chrome, Modifier.align(Alignment.BottomCenter), enter = fadeIn() + slideInVertically { it }, exit = fadeOut() + slideOutVertically { it }) { // alt çubuk
-            BottomChrome(quran, sayfa) { hedef -> scope.launch { pager.scrollToPage(hedef - 1) } } // sayfa kaydırıcısı
+            BottomChrome(
+                quran, sayfa, // sayfa bilgisi
+                onStep = { adim -> scope.launch { pager.animateScrollToPage((pager.targetPage + adim).coerceIn(0, quran.pageCount - 1)) } }, // bir sayfa ileri/geri (peş peşe basışta hedeften devam eder)
+                onJump = { hedef -> scope.launch { pager.scrollToPage(hedef - 1) } }, // yazılan sayfaya git
+            ) // alt çubuk
         }
         AnimatedVisibility(hint && !chrome, Modifier.align(Alignment.BottomCenter), enter = fadeIn(), exit = fadeOut()) { // ilk açılış ipucu
             Text(
@@ -264,28 +292,88 @@ private fun TopChrome(quran: Quran, page: Int, bookmarked: Boolean, onIndex: () 
     }
 }
 
-/** Alt çubuk: sağdan sola sayfa kaydırıcısı. */
+/** Alt çubuk: sayfa bilgisi, bir sayfa ileri/geri okları ve sayfa numarası yazıp gitme. */
 @Composable
-private fun BottomChrome(quran: Quran, page: Int, onJump: (Int) -> Unit) {
-    var surukle by remember(page) { mutableFloatStateOf(page.toFloat()) } // sürüklenen değer
-    val hedef = surukle.toInt().coerceIn(1, quran.pageCount) // hedef sayfa
+private fun BottomChrome(quran: Quran, page: Int, onStep: (Int) -> Unit, onJump: (Int) -> Unit) {
+    var yazi by remember(page) { mutableStateOf(TextFieldValue(page.toString())) } // kutudaki yazı (sayfa değişince güncellenir)
+    var hata by remember(page) { mutableStateOf(false) } // yazılan numara geçersiz mi
+    val odak = LocalFocusManager.current // odak yöneticisi
+    val klavye = LocalSoftwareKeyboardController.current // klavye denetimi
+    DisposableEffect(Unit) { onDispose { klavye?.hide() } } // çubuk kapanırken klavye de kapansın
+    val git: () -> Unit = { // "Git" düğmesi ya da klavyedeki Git
+        val n = yazi.text.toIntOrNull() // yazılan numara
+        when {
+            yazi.text.isEmpty() -> { yazi = TextFieldValue(page.toString()); odak.clearFocus() } // boşsa sayfa değişmez
+            n == null || n !in 1..quran.pageCount -> hata = true // geçersiz: uyar, gitme
+            else -> { hata = false; odak.clearFocus(); onJump(n) } // geçerli: klavyeyi kapat, sayfayı aç
+        }
+    }
     Column(
-        Modifier.fillMaxWidth().background(appColors.chrome).navigationBarsPadding().padding(horizontal = Space.l, vertical = Space.s), // yarı saydam zemin
+        Modifier.fillMaxWidth().background(appColors.chrome).windowInsetsPadding(WindowInsets.navigationBars.union(WindowInsets.ime)).padding(horizontal = Space.l, vertical = Space.s), // yarı saydam zemin; klavye açılınca üstüne çıkar
         verticalArrangement = Arrangement.spacedBy(Space.xs), // aralık
     ) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) { // bilgi satırı
-            Text("Sayfa $hedef / ${quran.pageCount}", style = MaterialTheme.typography.labelLarge) // sayfa
-            Text("${quran.surahOfPage(hedef).turkishName} · ${quran.juzOfPage(hedef)}. Cüz", style = MaterialTheme.typography.labelLarge, color = appColors.muted) // sure ve cüz
+            Text("Sayfa $page / ${quran.pageCount}", style = MaterialTheme.typography.labelLarge) // sayfa
+            Text("${quran.surahOfPage(page).turkishName} · ${quran.juzOfPage(page)}. Cüz", style = MaterialTheme.typography.labelLarge, color = appColors.muted) // sure ve cüz
         }
-        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) { // mushaf yönü: 1. sayfa sağda
-            Slider(
-                value = surukle, // değer
-                onValueChange = { surukle = it }, // sürüklenirken
-                onValueChangeFinished = { onJump(hedef) }, // bırakınca git
-                valueRange = 1f..quran.pageCount.toFloat(), // 1-604
-                modifier = Modifier.fillMaxWidth().height(48.dp), // dokunma alanı
-            )
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { // mushaf yönü: "Sonraki" solda, "Önceki" sağda (telefon dili ne olursa olsun)
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Space.s)) { // oklar ve kutu
+                StepButton(Lucide.ChevronLeft, "Sonraki", "Sonraki sayfa", page < quran.pageCount) { onStep(1) } // sola: sonraki sayfa
+                Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Space.s)) { // ortada numara kutusu ve Git
+                    val sekil = RoundedCornerShape(Radius.md) // orta köşe
+                    BasicTextField(
+                        value = yazi, // kutudaki yazı
+                        onValueChange = { v -> // yazarken
+                            val temiz = v.text.filter { it.isDigit() }.take(3) // sadece rakam, en çok 3 hane
+                            yazi = if (temiz == v.text) v else TextFieldValue(temiz, TextRange(temiz.length)) // rakam olmayanı at
+                            hata = false // uyarıyı kaldır
+                        },
+                        singleLine = true, // tek satır
+                        textStyle = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.onSurface, textAlign = TextAlign.Center), // ortalı numara
+                        cursorBrush = SolidColor(MaterialTheme.colorScheme.primary), // imleç rengi
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Go), // rakam klavyesi, "Git" tuşu
+                        keyboardActions = KeyboardActions(onGo = { git() }), // klavyedeki Git
+                        modifier = Modifier.weight(1f).height(STEP_HEIGHT).onFocusChanged { f -> // dokununca eski numara silinir (yeni numara üstüne eklenmesin)
+                            if (f.isFocused) yazi = TextFieldValue("") else if (yazi.text.isEmpty()) yazi = TextFieldValue(page.toString()) // odak gidince boşsa eski numara geri gelir
+                        },
+                        decorationBox = { kutu -> // görünüm
+                            Box(
+                                Modifier.fillMaxSize().clip(sekil).background(MaterialTheme.colorScheme.surfaceContainer)
+                                    .border(if (hata) 2.dp else 1.dp, if (hata) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outline, sekil), // hatada kırmızı çerçeve
+                                contentAlignment = Alignment.Center, // ortalı
+                            ) {
+                                if (yazi.text.isEmpty()) Text(page.toString(), style = MaterialTheme.typography.titleMedium, color = appColors.muted) // yazarken eski numara soluk görünür
+                                kutu() // yazı alanı
+                            }
+                        },
+                    )
+                    Button(
+                        onClick = git, // git
+                        shape = sekil, // orta köşe
+                        contentPadding = PaddingValues(horizontal = Space.m), // dar iç boşluk
+                        modifier = Modifier.height(STEP_HEIGHT), // yükseklik
+                    ) { Text("Git", style = MaterialTheme.typography.labelLarge) } // birincil düğme
+                }
+                StepButton(Lucide.ChevronRight, "Önceki", "Önceki sayfa", page > 1) { onStep(-1) } // sağa: önceki sayfa
+            }
         }
+        if (hata) Text("1 ile ${quran.pageCount} arasında bir sayfa yaz", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center) // uyarı
+    }
+}
+
+private val STEP_HEIGHT = 52.dp // alt çubuk düğmeleri ve kutu yüksekliği
+
+/** Alt çubuktaki ok düğmesi: üstte ok, altında yazı. */
+@Composable
+private fun StepButton(icon: ImageVector, label: String, description: String, enabled: Boolean, onClick: () -> Unit) {
+    val sekil = RoundedCornerShape(Radius.md) // orta köşe
+    Column(
+        Modifier.width(72.dp).height(STEP_HEIGHT).alpha(if (enabled) 1f else 0.38f).clip(sekil).border(1.dp, MaterialTheme.colorScheme.outline, sekil)
+            .clickable(enabled = enabled, onClickLabel = description, role = Role.Button, onClick = onClick), // dokunma alanı
+        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center, // ortalı
+    ) {
+        Ico(icon, null, size = IconSize.m) // ok
+        Text(label, style = MaterialTheme.typography.labelMedium, maxLines = 1) // yazı
     }
 }
 

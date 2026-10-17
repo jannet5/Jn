@@ -133,4 +133,4 @@ private fun LoadingPage(s: ReaderSettings) {
     }
 }
 
-private const val BuildConfigVersion = "1.3.0" // görünen sürüm
+private const val BuildConfigVersion = "1.4.0" // görünen sürüm
