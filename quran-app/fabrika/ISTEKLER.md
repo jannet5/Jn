@@ -51,7 +51,7 @@
 | 24 | "Yerine oklar: bir sayfa ileri, bir sayfa geri; mushaf sağdan sola olduğu için Sonraki solda, Önceki sağda" | ✅ Sol: **Sonraki** (sayfa+1), sağ: **Önceki** (sayfa−1); 1. sayfada Önceki, 604'te Sonraki pasif; telefon dili ne olursa olsun yerleri sabit | 1.4 |
 | 25 | "Ortada sayfa numarasının yazdığı kutu; numarayı yazıp Git'e basınca o sayfa açılsın" | ✅ Kutuda şu anki sayfa yazar; dokununca silinir (yeni numara üstüne eklenmez), rakam klavyesi, Git düğmesi ya da klavyedeki Git tuşu; 1–604 dışı yazılırsa kırmızı uyarı, sayfa değişmez | 1.4 |
 | 26 | "Çubuğun üstündeki 'Sayfa 252 / 604 · Ra'd · 13. Cüz' bilgisi olduğu gibi kalsın" | ✅ Aynen duruyor (252 yazınca "Sayfa 252 / 604 · Ra'd · 13. Cüz") | 1.4 |
-| 27 | "Var olan hiçbir özellik bozulmasın" | ✅ Arama, Cüz, görünüm paneli, yer imi, kaldığı sayfadan açılış yeniden denendi (aşağıdaki tablo) | 1.4 |
+| 27 | "Var olan hiçbir özellik bozulmasın" | ✅ Arama, Cüz, görünüm paneli, kaldığı sayfadan açılış 1.4.0'da yeniden denendi (aşağıdaki tablo). Yer imi ve iki parmakla büyütme 1.4.0'da denenmedi (kodlarına dokunulmadı; iki parmak emülatörde yapılamıyor) | 1.4 |
 | 28 | "Linkten indirirken %100'de takılmasın" | ⏳ jsDelivr + commit kimliği (doğru APK türü, değişmeyen adres) — telefonda kullanıcı onayı bekleniyor | 1.4 |
 | 29 | "Yeni sürüm eskisinin üstüne kurulsun, ayarlarım ve yer imlerim silinmesin" | ⚠️ **İmza anahtarı henüz verilmedi.** Bu APK geçici bir anahtarla imzalı; 1.3.0'ın üstüne KURULMAZ (Android reddeder). Anahtar ve şifre gelince `araclar/imzala.sh` ile imzalanıp yeniden verilecek | — |
 
@@ -63,4 +63,8 @@
 | Yazarak gitme | 252 yazıp Git → "Sayfa 252 / 604 · Ra'd · 13. Cüz", klavye kapandı | ✅ |
 | Geçersiz numara | 700 yazıp Git → kırmızı uyarı, sayfa değişmedi | ✅ |
 | Klavye açıkken ok | Klavye açık + Sonraki → sayfa değişti, klavye kapandı, kutu yeni numarayı gösteriyor | ✅ |
-
+| Arama | "ma" yazınca ilk öneri Mâide; Enter → sayfa 106, Mâide | ✅ |
+| Cüz | "20" yazıp Enter → Neml, 20. Cüz, sayfa 382 | ✅ |
+| Görünüm paneli | Aa → panel açıldı, üstte canlı önizleme, "Mushaf sayfası" seçili | ✅ |
+| Kaldığı yer | Uygulama kapatılıp yeniden açıldı → sayfa 382 | ✅ |
+| Denenmedi | Yer imi ekle/sil, iki parmakla büyütme, TalkBack ile okuma | ⚠️ 1.4.0'da denenmedi |
