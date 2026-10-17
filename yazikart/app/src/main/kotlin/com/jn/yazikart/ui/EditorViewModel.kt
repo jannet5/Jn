@@ -139,14 +139,14 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         videoDir.listFiles()?.forEach { it.delete() } // indirilen dosyalar silindi
     }
 
-    // İnternetteki videoyu indirip ekler (Pexels gibi sitelerin "İndir" düğmesinden gelen adres)
-    fun downloadVideo(url: String, userAgent: String, cookies: String?, onDone: () -> Unit) {
+    // İnternetteki videoyu indirip ekler (sitede oynayan videonun ya da sitenin "İndir" düğmesinin adresi)
+    fun downloadVideo(url: String, userAgent: String, cookies: String?, referer: String?, onDone: () -> Unit) {
         if (videoJob?.isActive == true) return // zaten bir iş sürüyorsa bekle
         videoJob = viewModelScope.launch { // iş başlıyor
             _busy.value = "Video iniyor…" // gösterge
             val dest = File(videoDir, "video_${System.currentTimeMillis()}.mp4") // hedef dosya
             val result = runCatching { // hata yakalanıyor
-                VideoDownloader.download(url, userAgent, cookies, dest) { done, total -> // indiriliyor
+                VideoDownloader.download(url, userAgent, cookies, referer, dest) { done, total -> // indiriliyor
                     _busy.value = if (total > 0) "Video iniyor ${done / 1_048_576}/${total / 1_048_576} MB" else "Video iniyor ${done / 1_048_576} MB" // ilerleme
                 }
             }

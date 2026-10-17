@@ -18,10 +18,11 @@ object VideoDownloader {
         .build() // hazır
 
     // İndirir; onProgress indirilen ve toplam MB'ı bildirir. Video değilse ya da çok büyükse hata verir.
-    suspend fun download(url: String, userAgent: String, cookies: String?, dest: File, onProgress: (Long, Long) -> Unit): File =
+    suspend fun download(url: String, userAgent: String, cookies: String?, referer: String?, dest: File, onProgress: (Long, Long) -> Unit): File =
         withContext(Dispatchers.IO) { // ağ işi arka planda
             val req = Request.Builder().url(url).header("User-Agent", userAgent) // tarayıcıyla aynı kimlik
                 .apply { if (!cookies.isNullOrBlank()) header("Cookie", cookies) } // sitenin çerezleri (indirme izni için)
+                .apply { if (!referer.isNullOrBlank() && referer.startsWith("http")) header("Referer", referer) } // hangi sayfadan gelindiği (bazı siteler ister)
                 .build() // istek hazır
             client.newCall(req).execute().use { resp -> // istek atılıyor
                 if (!resp.isSuccessful) error("Sunucu ${resp.code} döndü") // başarısızsa hata

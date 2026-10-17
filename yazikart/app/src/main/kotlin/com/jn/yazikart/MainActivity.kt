@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                 if (showVideoSearch) { // internetten video ekranı
                     VideoSearchScreen(
                         busy = busy, // indirme durumu
-                        onDownload = { url, ua, cookies -> vm.downloadVideo(url, ua, cookies) { showVideoSearch = false } }, // indirip ekle, ekranı kapat
+                        onDownload = { url, ua, cookies, referer -> vm.downloadVideo(url, ua, cookies, referer) { showVideoSearch = false } }, // indirip ekle, ekranı kapat
                         onClose = { showVideoSearch = false }, // kapat
                     )
                 } else if (showFullscreen) { // tam ekran: görsel Reels'teki gibi ekranı kaplar

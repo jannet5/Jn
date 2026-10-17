@@ -30,12 +30,47 @@ object GooglePick {
     }
 }
 
-// Ücretsiz video sitesi (Pexels) adresleri: videoları indirmeye ve her yerde kullanmaya izin verir
-object VideoSite {
-    // Pexels'te video arama adresi (Türkçe)
+// Ücretsiz video siteleri: videoları her yerde kullanmaya izin verirler. Uygulama sitedeki OYNAYAN videoyu doğrudan alır,
+// bu yüzden sitenin "İndir" düğmesine ve girişe (login) gerek kalmaz.
+enum class VideoSite(val label: String, val home: String) {
+    PEXELS("Pexels", "https://www.pexels.com/tr-tr/videolar/"), // en büyük arşiv
+    PIXABAY("Pixabay", "https://pixabay.com/tr/videos/"), // büyük arşiv
+    COVERR("Coverr", "https://coverr.co/"), // dikey/kısa videolar
+    MIXKIT("Mixkit", "https://mixkit.co/free-stock-video/"); // seçkin klipler
+
+    // Sitede arama adresi
     fun searchUrl(query: String): String {
-        val q = java.net.URLEncoder.encode(query.trim(), "UTF-8").replace("+", "%20") // kelime adrese kodlanıyor (boşluk %20)
-        return "https://www.pexels.com/tr-tr/arama/videos/$q/" // arama sayfası
+        val q = java.net.URLEncoder.encode(query.trim(), "UTF-8").replace("+", "%20") // boşluk %20
+        return when (this) {
+            PEXELS -> "https://www.pexels.com/tr-tr/arama/videos/$q/" // Pexels arama
+            PIXABAY -> "https://pixabay.com/tr/videos/search/$q/" // Pixabay arama
+            COVERR -> "https://coverr.co/s?q=$q" // Coverr arama
+            MIXKIT -> "https://mixkit.co/free-stock-video/${q.replace("%20", "-")}/" // Mixkit konu sayfası
+        }
     }
-    const val HOME = "https://www.pexels.com/tr-tr/videolar/" // video ana sayfası
+}
+
+// Sayfadaki video öğelerinden eklenecek olanı seçen saf hesap
+object VideoPick {
+    // Sayfadaki tek bir <video> öğesi
+    data class Candidate(val src: String, val playing: Boolean, val area: Float)
+
+    // Önce oynayan, sonra ekranda en büyük görünen video; o da yoksa sayfanın en son yüklediği .mp4 dosyası.
+    // "blob:" adresleri (YouTube/Instagram gibi korumalı oynatıcılar) alınamaz.
+    fun choose(candidates: List<Candidate>, lastSeenMp4: String?): String? {
+        val ok = candidates.filter { it.src.startsWith("https://") || it.src.startsWith("http://") } // sadece doğrudan dosya adresleri
+        ok.filter { it.playing }.maxByOrNull { it.area }?.let { return it.src } // oynayan en büyük video
+        ok.filter { it.area > 0f }.maxByOrNull { it.area }?.let { return it.src } // ekranda görünen en büyük video
+        return lastSeenMp4 // son çare: sayfanın yüklediği son mp4
+    }
+
+    // Sayfadaki videolar korumalı mı (blob:) — kullanıcıya doğru mesaj vermek için
+    fun onlyProtected(candidates: List<Candidate>): Boolean =
+        candidates.isNotEmpty() && candidates.all { it.src.startsWith("blob:") } // hepsi korumalıysa
+
+    // Adres bir video dosyası mı (sayfanın arka planda yüklediklerini yakalamak için)
+    fun looksLikeVideoFile(url: String): Boolean {
+        val path = url.substringBefore('?').lowercase() // soru işaretinden önceki kısım
+        return path.endsWith(".mp4") || path.endsWith(".webm") || path.endsWith(".mov") // video uzantıları
+    }
 }
