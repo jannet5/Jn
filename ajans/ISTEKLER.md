@@ -6,7 +6,7 @@
 |---|---|---|---|
 | 1 | Önce en hızlı doğru yöntemi düşün, harita çıkar | ✅ | `ajans/README.md` |
 | 2 | Verileri topla, bilgisayara çek, notları kategorize klasörlere yaz | ✅ | `ajans/arastirma/` |
-| 3 | Var olan ajansları incele: site + Instagram linkleri, ekran görüntüleri | ✅ 28 ajans, 79 SS | `arastirma/rakipler/` |
+| 3 | Var olan ajansları incele: site + Instagram linkleri, ekran görüntüleri | ✅ 28 ajans, 86 SS | `arastirma/rakipler/` |
 | 4 | YouTube transkript aracını kullan, videoları metne çevir | ✅ 400+ transkript | `arastirma/youtube/` |
 | 5 | Transkriptlerden "nasıl yapılmış" planı çıkar | ✅ ~50 plan + 4 özet | `ajans/planlar/` |
 | 6 | X.com ve YouTube'a bak, link + not al | ✅ 118 X kaynağı | `arastirma/x/` |
