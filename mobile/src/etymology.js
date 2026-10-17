@@ -32,9 +32,14 @@ export async function fetchEtymology(word) {
     aiResult = await claude.explainFromOwnKnowledge(apiKey, trimmed);
     source = "ai";
   } else {
-    throw new Error(
-      "Bu kelime Nişanyan Sözlük'te bulunamadı. Özel isimler ve nadir kelimeler için Ayarlar'dan bir Anthropic API key ekle."
-    );
+    // Key yok, Nişanyan'da da yok (çoğunlukla özel isimler) — hata fırlatmak yerine
+    // nazik bir "bulunamadı" sonucu döndür, uygulama key'siz hiç kırılmasın.
+    return {
+      word: trimmed,
+      verified: false,
+      source: "not_found",
+      cached: false,
+    };
   }
 
   const result = { word: trimmed, verified: source === "nisanyan", source, ...aiResult };

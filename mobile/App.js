@@ -131,7 +131,9 @@ export default function App() {
           </View>
         )}
 
-        {result && !loading && <ResultCard result={result} />}
+        {result && !loading && (
+          <ResultCard result={result} onOpenSettings={() => setSettingsVisible(true)} />
+        )}
       </ScrollView>
 
       <SettingsModal
@@ -209,7 +211,24 @@ function SettingsModal({ visible, onClose, onSaved }) {
   );
 }
 
-function ResultCard({ result }) {
+function ResultCard({ result, onOpenSettings }) {
+  if (result.source === "not_found") {
+    return (
+      <View style={styles.card}>
+        <Text style={styles.word}>{result.word}</Text>
+        <Text style={[styles.fieldValue, { marginTop: 10 }]}>
+          Bu kelime/isim Nişanyan Sözlük'te bulunamadı — bu genelde özel isimlerde
+          (Ahmet, Ayşe gibi) olur. İstersen Ayarlar'dan ücretsiz bir Anthropic API key
+          ekleyip bu gibi isimler için de yapay zeka tahmini alabilirsin; eklemesen de
+          sözlükte olan tüm kelimeler için uygulama ücretsiz çalışmaya devam eder.
+        </Text>
+        <Pressable style={[styles.button, { marginTop: 14, alignSelf: "flex-start" }]} onPress={onOpenSettings}>
+          <Text style={styles.buttonText}>Ayarlar'ı aç</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
