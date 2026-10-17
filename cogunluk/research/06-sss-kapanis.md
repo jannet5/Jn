@@ -65,6 +65,10 @@
 - 43:78'de "çoğunuz" (ikinci çoğul şahıs) — dönem muhataplarına hitap.
 - Bölüm 02'nin sınıflaması (yazılmamış olabilir) ile çelişirsem kendi doğrulamam esas; çelişki beklenmiyor.
 
+## Üretim notu
+- Bölüm HTML: /home/user/Jn/cogunluk/bolumler/06-sss-kapanis.html (2284 kelime; 4 ayet bloğu [49:6, 6:116, 49:11, 39:17-18], 2 hadis bloğu [Buhârî 5752, Müslim 2623], 2 âlim bloğu [Gazâlî, Nevevî], 8 details.detay, 2 SVG: üç ilke şeması + düzeltilmiş kart). Ayet blokları ayet.py ile üretildi. SVG'ler cairosvg ile açık/koyu renkte çizilip kontrol edildi; metin genişlikleri DejaVu Sans ile ölçüldü.
+- Bölüm 02 yazılırken henüz yoktu; kart yalnız bölüm 00 (research/00-liste.md ve bolumler/00-liste.html) ve kendi doğrulamamla karşılaştırıldı: çelişki yok.
+
 ## Zayıf/tartışmalı
 - "İcmâ/cemaat" hadisleri (Tirmizî 2167 / İbn Mâce 3950 vb.) bu bölümde alıntılanmadı; bölüm 04'e atıf yapıldı (derece tartışması orada).
 - Müslim Mukaddime hadisinin standart numarası ikincil aramada "5" çıktı; birincil doğrulama yalnızca metin düzeyinde (tur-muslim girişi). Metinde numara verilmedi; Ebû Dâvûd 4992 esas alındı.
