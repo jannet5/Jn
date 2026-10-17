@@ -27,3 +27,6 @@ Thumbs.db
 
 # Runtime data written by the agent when run locally
 /windows-agent/**/data/
+
+# Teslim edilen derlemeler (telefondan GitHub üzerinden indirmek için)
+!/releases/*.apk
