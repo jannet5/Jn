@@ -1,0 +1,126 @@
+# Köken - sürüm yayını (TASARIM DOSYASI)
+#
+# Bu dosya şu an docs/ altında duruyor; çalışması için ana oturum/kullanıcı
+# onu şuraya KOPYALAMALI:  .github/workflows/koken-release.yml
+# (Bu işçi .github/workflows altına yazmadı; kural gereği yalnızca tasarladı.)
+#
+# Ne yapar:
+#   1) koken/dist/Koken.apk dosyasının sha256 özetini doğrular (bozuk APK yayınlanmasın).
+#   2) "son-surum" adlı SABİT etiketli bir GitHub Release oluşturur/yeniler ve
+#      APK + sha256 + tek dosya web sürümünü (koken.html) ona yükler.
+#      Sabit adres:  https://github.com/jannet5/Jn/releases/download/son-surum/Koken.apk
+#      Release dosyaları "Content-Disposition: attachment" ile iner (indirme için en sağlam yol).
+#   3) (İsteğe bağlı) Depo değişkeni KOKEN_PAGES=true ise web sürümünü GitHub Pages'e koyar.
+#      Önce Ayarlar > Pages > Source = "GitHub Actions" seçilmeli (tek seferlik, elle).
+#
+# Gereken izin: yalnızca varsayılan GITHUB_TOKEN (contents: write). Ek anahtar/parola YOK.
+#
+# NOT (dal): Bu depoda varsayılan dal "ccr-" dalı değil. workflow_dispatch düğmesi yalnızca
+# varsayılan daldaki dosyayı listeler; bu yüzden asıl tetikleyici "push" olarak bırakıldı
+# (push, dosyanın kendi daldaki sürümünü çalıştırır). Dispatch yine de eklendi.
+
+name: Koken sürüm yayını
+
+on:
+  # İlgili dosyalar değişince ccr-* dallarında otomatik çalış
+  push:
+    branches: ['ccr-*']
+    paths:
+      - 'koken/dist/Koken.apk'
+      - 'koken/dist/Koken.apk.sha256'
+      - 'koken/dist/koken.html'
+      - 'koken/web/**'
+      - '.github/workflows/koken-release.yml'
+  # Elle çalıştırma (dosya varsayılan dalda olursa görünür)
+  workflow_dispatch:
+
+# Release oluşturmak için içerik yazma izni yeterli
+permissions:
+  contents: write
+
+# Aynı anda iki yayın çakışmasın; yenisi eskisini iptal etsin
+concurrency:
+  group: koken-release
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Depoyu indir
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      # APK özetini doğrula; uyuşmazsa iş burada durur
+      - name: APK özetini doğrula
+        working-directory: koken/dist
+        run: |
+          # Özet dosyasındaki değer ile gerçek dosyayı karşılaştır
+          sha256sum -c Koken.apk.sha256
+          # Boyutu günlüğe yaz (bakmak için)
+          ls -l Koken.apk koken.html
+
+      # Sabit etiketli sürümü sil-yeniden oluştur: link hep aynı kalır
+      - name: Sürümü yayınla
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=son-surum
+          # Önceki sürüm ve etiketi varsa temizle (yoksa hata verme)
+          gh release delete "$TAG" --cleanup-tag --yes || true
+          # Yeni sürümü bu commit'e bağlayarak oluştur ve dosyaları yükle
+          gh release create "$TAG" \
+            koken/dist/Koken.apk \
+            koken/dist/Koken.apk.sha256 \
+            koken/dist/koken.html \
+            --target "$GITHUB_SHA" \
+            --title "Köken (son sürüm)" \
+            --notes "Android için Koken.apk. Commit: $GITHUB_SHA. Kurulum: APK'yı indirip açın; 'Bilinmeyen kaynaklardan yükle' izni gerekebilir." \
+            --latest
+
+  # İsteğe bağlı: web sürümünü GitHub Pages'e koy (https://jannet5.github.io/Jn/)
+  pages:
+    # Yalnızca depo değişkeni KOKEN_PAGES=true ise çalışır; Pages kapalıyken iş hata vermesin
+    if: ${{ vars.KOKEN_PAGES == 'true' }}
+    needs: release
+    runs-on: ubuntu-latest
+    # Bu işin kendi izinleri (üstteki genel izinleri geçersiz kılar)
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      # Depoyu indir
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      # Yayınlanacak klasörü hazırla: web dosyaları + tek dosya sürüm + APK
+      - name: Site klasörünü hazırla
+        run: |
+          mkdir -p _site
+          # Çok dosyalı PWA (index.html, app.js, sw.js, manifest, icons...)
+          cp -r koken/web/. _site/
+          # Tek dosya sürüm yedek olarak yanında dursun
+          cp koken/dist/koken.html _site/tek.html
+          # APK'yı da aynı siteden verebilmek için kopyala
+          cp koken/dist/Koken.apk _site/Koken.apk
+          # Jekyll işlemesini kapat (alt çizgili dosyalar kaybolmasın)
+          touch _site/.nojekyll
+
+      # Pages ayarlarını oku (kaynak "GitHub Actions" değilse burada hata verir)
+      - name: Pages'i yapılandır
+        uses: actions/configure-pages@v5
+
+      # Klasörü Pages yapıtına paketle
+      - name: Yapıtı yükle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      # Yayınla
+      - name: Pages'e dağıt
+        id: deploy
+        uses: actions/deploy-pages@v4
