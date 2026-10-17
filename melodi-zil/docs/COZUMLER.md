@@ -75,3 +75,9 @@
   Telefonda: Spleeter vokal ayırma → 16 kHz (pencereli-sinc yeniden örnekleme) → CREPE tiny TFLite (20 ms kare, sessiz kareler atlanır) → Viterbi (torchcrepe ile aynı bantlı geçiş) → güven ≥ 0.5 ve enerji ≥ −12 dB → nota bölme (akort kayması düzeltmeli). Nota F (insan işaretli notalar): 0.53 → 0.60. Gerçek şarkıda nakarat notaları doğru sırayla çıkıyor.
 - Dosyalar: `core/CrepeMelody.kt`, `data/audio/TfliteCrepeModel.kt`, `assets/crepe_tiny.tflite`, `core/NoteSegmenter.kt`; dönüştürme `araclar/model/crepe_tiny_tflite.py` (TFLite–PyTorch farkı 4e-7), birebir Python karşılığı `araclar/model/crepe_ref.py`; `CrepeMelodyTest` Kotlin'in Python ile aynı sonucu verdiğini doğrular.
 - Tuzaklar: (1) Vocadito gibi kayarak söylenen sette nota sonrası perde puanı düşük görünür (%70); asıl ölçüt insan işaretli nota F'si ve gerçek şarkı. (2) Aynı perdeli ardışık notalar birleşebildiği için nakarat aralık testinde tekrarlar tek nota sayılmalı. (3) Gradle, ortam değişkeni değişince testi yeniden koşmaz: `cleanTestDebugUnitTest` gerekir. (4) `pkill -f <desen>` kendi kabuk komutunu da öldürür: `grep "[d]esen"` hilesi kullan.
+
+## Ç-015: TFLite son (eksik) toplu çalıştırmada "Cannot copy to a TensorFlowLite tensor ... with N bytes from a Java Buffer with M bytes"
+- Belirti: Emülatörde CREPE adımı son pakette hata verdi, uygulama sessizce eski yönteme (Melodia) düştü; JVM testleri bunu göremez (TFLite yalnızca Android'de).
+- Kök neden: TFLite Java API'si `run(ByteBuffer, ...)` çağrısında tamponun KAPASİTESİNİ tensör boyutuyla karşılaştırır; `limit()` ayarlamak yetmez. Girdi `resizeInput` ile küçültülünce sabit 256'lık tampon artık uymaz.
+- Çözüm: Toplu boyutu değişince girdi ve çıktı tamponlarını tam boyda yeniden ayır (`data/audio/TfliteCrepeModel.kt`).
+- Kural: Değişken boyutlu TFLite modeli olan her özellik, emülatörde hem tam hem eksik toplu yolunu koşan bir kayıtla doğrulanır (logcat'te "atlandı" uyarısı = başarısız sayılır).

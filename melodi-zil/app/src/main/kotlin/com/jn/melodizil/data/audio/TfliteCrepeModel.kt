@@ -11,8 +11,8 @@ import java.nio.channels.FileChannel // Kanal
 /** assets/crepe_tiny.tflite (CREPE tiny perde modeli, 2 MB) için TFLite sarmalayıcı. Toplu boyutu değişince girdi yeniden boyutlanır. */
 class TfliteCrepeModel(context: Context, threads: Int = 4) : CrepeMelody.FrameModel, AutoCloseable {
     private val interpreter: Interpreter // Yorumlayıcı
-    private val inBuf = ByteBuffer.allocateDirect(CrepeMelody.BATCH * CrepeMelody.W * 4).order(ByteOrder.nativeOrder()) // Girdi (1 MB)
-    private val outBuf = ByteBuffer.allocateDirect(CrepeMelody.BATCH * CrepeMelody.NB * 4).order(ByteOrder.nativeOrder()) // Çıktı (360 KB)
+    private var inBuf: ByteBuffer = ByteBuffer.allocateDirect(4) // Girdi (toplu boyutuna tam eşit olmalı: TFLite tamponun kapasitesini tensörle karşılaştırır)
+    private var outBuf: ByteBuffer = ByteBuffer.allocateDirect(4) // Çıktı
     private var batch = -1 // Şu anki toplu boyutu
 
     init {
@@ -22,10 +22,13 @@ class TfliteCrepeModel(context: Context, threads: Int = 4) : CrepeMelody.FrameMo
     }
 
     override fun predict(frames: FloatArray, count: Int, out: FloatArray) {
-        if (count != batch) { interpreter.resizeInput(0, intArrayOf(count, CrepeMelody.W)); interpreter.allocateTensors(); batch = count } // Boyut değişti
-        inBuf.clear(); inBuf.asFloatBuffer().put(frames, 0, count * CrepeMelody.W); inBuf.limit(count * CrepeMelody.W * 4) // Girdi
-        outBuf.clear(); outBuf.limit(count * CrepeMelody.NB * 4) // Çıktı alanı
-        interpreter.run(inBuf, outBuf) // Çalıştır
+        if (count != batch) { // Boyut değişti (yalnızca son, eksik toplu için)
+            interpreter.resizeInput(0, intArrayOf(count, CrepeMelody.W)); interpreter.allocateTensors(); batch = count // Tensörü yeniden boyutla
+            inBuf = ByteBuffer.allocateDirect(count * CrepeMelody.W * 4).order(ByteOrder.nativeOrder()) // Tam boy girdi tamponu
+            outBuf = ByteBuffer.allocateDirect(count * CrepeMelody.NB * 4).order(ByteOrder.nativeOrder()) // Tam boy çıktı tamponu
+        }
+        inBuf.rewind(); inBuf.asFloatBuffer().put(frames, 0, count * CrepeMelody.W) // Girdi
+        outBuf.rewind(); interpreter.run(inBuf, outBuf) // Çalıştır
         outBuf.rewind(); outBuf.asFloatBuffer().get(out, 0, count * CrepeMelody.NB) // Oku
     }
 
