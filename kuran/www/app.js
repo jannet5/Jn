@@ -53,7 +53,7 @@
         if (s !== 0 && s !== 8) h += '<p class="bsm">' + Q.b + '</p>';   // besmele (Fâtiha'da ayet, Tevbe'de yok)
       }
       if (!open) { h += '<p class="t">'; open = true; }  // paragraf aç
-      h += Q.a[g] + ' <span class="e' + (g === mark ? ' on' : '') + '" data-g="' + g + '">۝' + arNum(no) + '</span> ';   // ayet metni + ayet sonu işareti (dokununca "kaldığım yer")
+      h += '<span class="a' + (g === mark ? ' hl' : '') + '" data-g="' + g + '">' + Q.a[g] + ' <span class="e" data-g="' + g + '">۝' + arNum(no) + '</span></span> ';   // ayet + ayet sonu yuvarlağı (işaretliyse tüm ayet vurgulu)
     }
     if (open) h += '</p>';                             // son paragrafı kapat
     if (p === N) h += '<div class="end">Sadakallahülazîm</div>';
@@ -86,6 +86,7 @@
     $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page;                  // cüz ve sayfa
     document.title = names[0] + ' · Sayfa ' + page + ' · Kur\'an';
     $('pgNum').textContent = page;                     // alt ortadaki tek başına sayfa numarası
+    hideSnack();                                       // sayfa değişince açık onay çubuğu kapanır
     updateResume();                                    // işaretli ayet başka sayfadaysa "Kaldığım yere dön" görünür
   }
 
@@ -115,7 +116,7 @@
       var b = c.querySelector('.ban[data-s="' + opt.surah + '"]');
       if (b) c.scrollTop = Math.max(0, b.offsetTop - 8);
     } else if (opt.ayah != null) {                     // işaretli ayete git: yuvarlağı ekranın üst üçte birine getir
-      var el = c.querySelector('.e[data-g="' + opt.ayah + '"]');
+      var el = c.querySelector('.a[data-g="' + opt.ayah + '"]');
       if (el) c.scrollTop = Math.max(0, el.offsetTop - c.clientHeight * 0.35);
     } else if (opt.ratio) {                            // kaldığın yere dön
       c.scrollTop = opt.ratio * (c.scrollHeight - c.clientHeight);
@@ -412,21 +413,26 @@
   function pageOfAyah(g) { var lo = 1, hi = N; while (lo < hi) { var m = (lo + hi + 1) >> 1; if (Q.p[m - 1] <= g) lo = m; else hi = m - 1; } return lo; }
   function setMark(g) {
     mark = g; store.set('mark', g);
-    var on = view.querySelectorAll('.e.on'); for (var i = 0; i < on.length; i++) on[i].classList.remove('on');   // eski işareti her sayfadan sil
-    if (g >= 0) { var els = view.querySelectorAll('.e[data-g="' + g + '"]'); for (var j = 0; j < els.length; j++) els[j].classList.add('on'); }
+    var on = view.querySelectorAll('.a.hl'); for (var i = 0; i < on.length; i++) on[i].classList.remove('hl');   // eski vurguyu her sayfadan sil
+    if (g >= 0) { var els = view.querySelectorAll('.a[data-g="' + g + '"]'); for (var j = 0; j < els.length; j++) els[j].classList.add('hl'); }
     updateResume();
   }
   function updateResume() {                            // işaret başka sayfadaysa "Kaldığım yere dön" düğmesi görünür
     $('resume').hidden = !(mark >= 0 && pageOfAyah(mark) !== page);
   }
+  var snackT = 0;
+  function hideSnack() { clearTimeout(snackT); $('snack').hidden = true; }
   view.addEventListener('click', function (e) {
     if (dragged || !e.target.closest) return;          // kaydırma sonrası tıklama sayılmaz
     if (Math.hypot(e.clientX - sx, e.clientY - sy) > 12) return;   // parmak başladığı yerden uzakta bittiyse bu bir çekiştir (move olayı gelmese de)
     var t = e.target.closest('.e'); if (!t) return;
     var g = +t.getAttribute('data-g');
-    if (g === mark) { setMark(-1); toast('İşaret kaldırıldı'); }
-    else { setMark(g); toast('Kaldığın yer işaretlendi'); }
+    if (mark < 0) { setMark(g); toast('Kaldığın yer işaretlendi'); }                       // işaret yoksa: işaretle
+    else if (g === mark) {                                                                  // işaretli ayetin yuvarlağı: kaldırmak için onay iste
+      $('snack').hidden = false; clearTimeout(snackT); snackT = setTimeout(hideSnack, 6000);
+    } else { toast('İşaret kilitli. Önce işaretliyi kaldır'); }   // başka yuvarlak: işaret yerinden oynamaz
   });
+  $('snackBtn').addEventListener('click', function () { hideSnack(); setMark(-1); toast('İşaret kaldırıldı'); });
   $('resume').addEventListener('click', function () { if (mark >= 0) goTo(pageOfAyah(mark), { ayah: mark }); });
 
   /* ---------- Başlat: son kalınan sayfadan, ayar sormadan ---------- */

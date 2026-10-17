@@ -6,7 +6,7 @@ Kur'an Okuyucu
 ## Kısa açıklama (79/80)
 Hafif, hızlı Kur'an okuyucu. Sağdan sola sayfa çevirme, büyük yazı, çevrimdışı.
 
-## Uzun açıklama (1617/4000)
+## Uzun açıklama (1739/4000)
 Kur'an Okuyucu, Medine Mushafı sayfalarını sade, hafif ve hızlı bir şekilde okumanız için hazırlandı. Uygulama açılır açılmaz kaldığınız sayfadan devam eder. Hesap, giriş ya da ayar ekranı yoktur.
 
 ÖZELLİKLER
@@ -14,7 +14,8 @@ Kur'an Okuyucu, Medine Mushafı sayfalarını sade, hafif ve hızlı bir şekild
 • Gerçek yakınlaştırma: Yazıyı büyüttüğünüzde satırlar ekrana yeniden dizilir. Sağa sola kaydırmanız gerekmez. Büyük yazı için ideal.
 • Sure, cüz ve sayfaya gitme: Üç alan yan yana. "Ma" yazın, Mâide listelensin ve seçin. Sure numarası adın yanında yazar. Cüz (1-30) ve sayfa (1-604) numarasını yazarak da gidebilirsiniz.
 • Kaldığınız yerden devam: Hangi sayfada ve sayfanın neresinde kaldığınızı unutmaz.
-• Kaldığım yer işareti: Ayet sonundaki yuvarlağa dokunun, işaretlensin. Başka sayfadayken tek dokunuşla geri dönün.
+• Kaldığım yer işareti: Ayet sonundaki yuvarlağa dokunun, o ayet vurgulanır ve siz kaldırana kadar yerinde sabit kalır. Başka sayfadayken tek dokunuşla geri dönün.
+• Sayfa numarası her an altta görünür. Dokunup istediğiniz sayfaya gidin.
 • Göz yormayan 6 tema: Gündüz, sepya, nane yeşili, gri gece, kehribar ve siyah. Koyu temalarda yazı saf beyaz değil, yumuşak tonlardadır.
 • Tamamen çevrimdışı: İnternet gerekmez. Uygulama internet izni bile istemez.
 • Çok hafif: Küçük boyutlu, hızlı açılır, pil dostu.

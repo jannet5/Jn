@@ -43,11 +43,13 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 
+<!-- İşaretli ayetin yuvarlağına dokununca: yanlışlıkla kalkmasın diye onay -->
+<div id="snack" class="snack" hidden><span>Kaldığın yer işareti kaldırılsın mı?</span><button id="snackBtn" type="button">Kaldır</button></div>
+
 <!-- Git paneli: Sure | Cüz | Sayfa yan yana, aynı anda yalnızca biri geçerli -->
 <div id="sheet" class="sheet" aria-hidden="true">
   <div class="panel" role="dialog" aria-modal="true" aria-label="Git">
     <div class="top">
-      <b>Git</b>
       <button id="bClose" class="btn" type="button" aria-label="Kapat">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       </button>
