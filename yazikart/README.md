@@ -12,7 +12,7 @@ görsel olarak kaydetmeye/paylaşmaya yarayan basit Android uygulaması.
 | 50 yazı tipi | Dünyada en çok kullanılan Google Fonts yazı tipleri (Roboto, Open Sans, Montserrat, Poppins, Bebas Neue, Pacifico…). Hepsi uygulamanın içinde, **internetsiz çalışır**, hepsi Türkçe karakterleri (ç ğ ı İ ö ş ü) destekler. Arial yerine metrik olarak birebir aynı **Arimo**, Times New Roman yerine **Tinos** var |
 | Google Görseller | "Google'da ara"ya bas, uygulama içinde gerçek Google Görseller açılır; görsele dokun, büyüyünce basılı tut → arka plan olur. İnternet yoksa düğme "İnternet yok" der |
 | Galeriden görsel | Telefondaki bir fotoğrafı arka plan yap |
-| Video arka plan | "Video ara" (uygulama içinde ücretsiz video sitesi Pexels; videoyu açıp "Ücretsiz indir"e bas) ya da galeriden video. En fazla 5 video arka arkaya; her birinin başlangıç/bitiş süresi makas düğmesiyle ayarlanır, sırası değiştirilir. Önizlemede yazı videonun üstünde canlı görünür |
+| Video arka plan | "Video ara" (uygulama içinde ücretsiz video siteleri: Pexels, Pixabay, Coverr, Mixkit; videoyu aç, oynat, "Bu videoyu ekle"ye bas — giriş gerekmez) ya da galeriden video. En fazla 5 video arka arkaya; her birinin başlangıç/bitiş süresi makas düğmesiyle ayarlanır, sırası değiştirilir. Önizlemede yazı videonun üstünde canlı görünür |
 | Video kaydet/paylaş | Video varken Kaydet/Paylaş **MP4** üretir: videolar birleştirilir, kırpılır, seçilen boyuta (ör. 1080×1920) getirilir, yazı videoya basılır. Telefonun donanım kodlayıcısı kullanılır; galeride `Filmler/YaziKart` |
 | Karartma | Arka plan fotoğrafını koyulaştırıp yazıyı okunur yapar |
 | Boyut | Kare 1:1 (1080×1080), Dikey 4:5 (1080×1350), Hikâye 9:16 (1080×1920) |
