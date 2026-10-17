@@ -1,0 +1,248 @@
+<title>Köken</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;700&display=swap">
+<style>
+/* Düzen: tek sütun, üstte marka, ortada arama + soyağacı zaman çizgisi, altta indirme. Katman (strata) hissi: sol ray + noktalar. */
+:root {
+  --bg: #eef2f0;          /* hafif yeşilimsi nötr */
+  --surface: #f9fbfa;
+  --ink: #14231f;
+  --ink-soft: #4b5f59;
+  --line: #c9d5d0;
+  --accent: #1f4fd8;      /* lacivert-kobalt: tek vurgu */
+  --accent-ink: #ffffff;
+  --accent-soft: #dfe7fb;
+  --warn: #8a5a00;
+  --warn-soft: #f6ecd2;
+  --ok: #1d6b45;
+  --display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1513; --surface: #141f1c; --ink: #e5eee9; --ink-soft: #9db1aa; --line: #2a3b36;
+    --accent: #86a6ff; --accent-ink: #0b1230; --accent-soft: #1b2a55; --warn: #e8c46a; --warn-soft: #2e2610; --ok: #7bd1a0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1513; --surface: #141f1c; --ink: #e5eee9; --ink-soft: #9db1aa; --line: #2a3b36;
+  --accent: #86a6ff; --accent-ink: #0b1230; --accent-soft: #1b2a55; --warn: #e8c46a; --warn-soft: #2e2610; --ok: #7bd1a0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 40rem; margin: 0 auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 32px; }
+header h1 { font-family: var(--display); font-weight: 600; font-size: 2.5rem; line-height: 1; margin: 0; letter-spacing: -0.01em; }
+header p { margin: 8px 0 0; color: var(--ink-soft); }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+
+form { display: flex; flex-direction: column; gap: 12px; }
+label { font-weight: 500; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+input[type="text"] { flex: 1 1 12rem; min-width: 0; min-height: 52px; padding: 0 16px; font: inherit; font-size: 1.125rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; }
+input[type="text"]:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button { font: inherit; cursor: pointer; }
+.primary { min-height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); font-weight: 700; flex: 0 0 auto; }
+.primary:disabled { opacity: 0.55; cursor: progress; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: transparent; color: var(--ink); }
+.chip:hover { border-color: var(--accent); }
+
+#out { display: flex; flex-direction: column; gap: 24px; }
+.tag { align-self: flex-start; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.word { font-family: var(--display); font-size: 2.75rem; font-weight: 600; line-height: 1.05; margin: 0; overflow-wrap: anywhere; }
+.meaning { margin: 4px 0 0; color: var(--ink-soft); font-size: 1.0625rem; }
+
+/* Zaman çizgisi: en yakın ata üstte, en eskiye iner. */
+ol.chain { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+ol.chain li { position: relative; padding: 0 0 24px 32px; min-width: 0; }
+ol.chain li::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: -8px; width: 2px; background: var(--line); }
+ol.chain li:last-child { padding-bottom: 0; }
+ol.chain li:last-child::before { display: none; }
+ol.chain li::after { content: ""; position: absolute; left: 0; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+ol.chain li:first-child::after { background: var(--accent); }
+.lang { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--accent); }
+.form { font-family: var(--display); font-size: 1.75rem; line-height: 1.2; margin: 2px 0 0; overflow-wrap: anywhere; }
+.translit { font-family: var(--mono); font-size: 0.9375rem; color: var(--ink-soft); }
+.note { margin: 4px 0 0; color: var(--ink-soft); }
+
+.parts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.parts li { border: 1.5px solid var(--line); border-radius: 12px; padding: 8px 12px; background: var(--surface); }
+.parts b { font-family: var(--display); font-size: 1.125rem; }
+.story { margin: 0; max-width: 65ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.875rem; color: var(--ink-soft); }
+.caveat { background: var(--warn-soft); color: var(--warn); border-radius: 12px; padding: 12px 16px; font-size: 0.9375rem; }
+.state { padding: 24px 0; color: var(--ink-soft); }
+.skel { display: flex; flex-direction: column; gap: 12px; }
+.skel i { display: block; height: 20px; border-radius: 8px; background: var(--line); animation: pulse 1.2s ease-in-out infinite; }
+.skel i:nth-child(1) { width: 50%; height: 40px; } .skel i:nth-child(2) { width: 85%; } .skel i:nth-child(3) { width: 65%; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+@media (prefers-reduced-motion: reduce) { .skel i { animation: none; } }
+
+section.get { border-top: 1.5px solid var(--line); padding-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+section.get h2 { font-family: var(--display); font-size: 1.5rem; margin: 0; }
+.dl { display: flex; flex-direction: column; gap: 8px; }
+.dl a, .dl button { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 8px 16px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; text-align: left; }
+.dl a.main { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.dl small { display: block; font-weight: 400; opacity: 0.8; }
+details { border: 1.5px solid var(--line); border-radius: 12px; padding: 0 16px; background: var(--surface); }
+summary { min-height: 48px; display: flex; align-items: center; cursor: pointer; font-weight: 500; }
+details ol { margin: 0 0 16px; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.foot { font-size: 0.875rem; color: var(--ink-soft); }
+#saveNote { font-size: 0.875rem; color: var(--ok); min-height: 1.4em; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Kelime soyağacı</div>
+    <h1>Köken</h1>
+    <p>Bir kelime yaz, nereden geldiğini öğren. Arama yapmak, sekme açmak yok.</p>
+  </header>
+
+  <form id="f" autocomplete="off">
+    <label for="word">Kelime</label>
+    <div class="row">
+      <input id="word" type="text" inputmode="text" enterkeyhint="search" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="ör. pijama" maxlength="60">
+      <button id="go" class="primary" type="submit">Kökenini bul</button>
+    </div>
+    <div class="chips" id="ex" aria-label="Örnek kelimeler"></div>
+  </form>
+
+  <main id="out" aria-live="polite"></main>
+
+  <section class="get" aria-labelledby="gt">
+    <h2 id="gt">Telefona kur, internetle kendisi araştırsın</h2>
+    <p class="foot" style="margin:0">Uygulama sunucu ve anahtar olmadan, telefonun kendi internetiyle Vikisözlük'ten canlı çeker. Bu kart ise cevabı Claude'un bilgisinden üretir.</p>
+    <div class="dl">
+      <a class="main" href="__APK_URL__" target="_blank" rel="noopener"><span>Android uygulamasını indir (APK)<small>Köken.apk · __APK_SIZE__ · yaklaşık bir dakikada kurulur</small></span><span aria-hidden="true">↓</span></a>
+      <a href="__WEB_URL__" target="_blank" rel="noopener"><span>Web sürümünü aç<small>Kurulum yok, tarayıcıda çalışır, ana ekrana eklenebilir</small></span><span aria-hidden="true">↗</span></a>
+      <button id="zipbtn" type="button" hidden><span>APK'yı ZIP olarak kaydet<small>İndirme %100'de takılırsa: ZIP'i Dosyalar uygulamasında aç, içindeki Koken.apk'yı kur</small></span><span aria-hidden="true">↓</span></button>
+    </div>
+    <div id="saveNote" role="status"></div>
+    <details>
+      <summary>İndirme %100'de takılırsa</summary>
+      <ol>
+        <li>Tarayıcıdan indirme yerine yukarıdaki ZIP yolunu dene.</li>
+        <li>Chrome'da: sağ üst ⋮ → Ayarlar → Gizlilik ve güvenlik → Güvenli Tarama → "Standart koruma"yı seç (Gelişmiş koruma, APK'yı yüklemeden önce taratıp bekletir).</li>
+        <li>Olmazsa linki Firefox veya Samsung Internet'te aç.</li>
+        <li>İndirilenler'de "Koken.apk"ya dokun. İlk seferde "Bu kaynaktan kurulumu izin ver" açılır; aç, geri dön, Kur de.</li>
+        <li>Hiçbiri olmazsa Web sürümünü aç: menüden "Ana ekrana ekle" dersen uygulama gibi durur.</li>
+      </ol>
+    </details>
+  </section>
+  <p class="foot">Sunucu yok · API anahtarı yok · Hesap yok</p>
+</div>
+
+<script>
+/* Örnek sonuç: kart açıldığında boş kalmasın diye elle yazılmış, "Örnek" etiketli. */
+var ORNEK = {
+  kelime: "Ahmet", dil: "Türkçe", anlam: "Ad. \"En çok övülen\" demek.",
+  yol: [
+    { dil: "Türkçe", bicim: "Ahmet", okunus: null, not: "Türkçede özel ad olarak kullanılır." },
+    { dil: "Arapça", bicim: "أَحْمَد", okunus: "ʾaḥmad", not: "\"Daha çok övülen\" anlamında üstünlük (ef'al) kalıbı." },
+    { dil: "Arapça kök", bicim: "ح م د", okunus: "ḥ-m-d", not: "\"Övmek, şükretmek\" kökü. Muhammed ve Mahmut aynı kökten gelir." }
+  ],
+  parcalar: [{ parca: "ح م د", anlam: "övmek" }, { parca: "ef'al kalıbı", anlam: "daha çok …" }],
+  hikaye: "Ahmet, Arapçadaki aḥmad adından Türkçeye girmiştir. Ad, ḥ-m-d (övmek) kökünden türer. Aynı kökten Muhammed, Mahmut ve Hamit de gelir.",
+  guven: "yüksek", uyari: null, ornek: true
+};
+var SORU = ["pijama", "kitap", "çay", "Ahmet", "telefon"];
+
+var $ = function (id) { return document.getElementById(id); };
+var out = $("out"), input = $("word"), btn = $("go"), sample = null, ctl = null;
+
+/* Yardımcı: etiketli düğüm üretir; metni her zaman textContent ile yazar (model çıktısı güvenilmez sayılır). */
+function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
+
+/* Sonucu ekrana çizer: kelime, anlam, zaman çizgisi, parçalar, hikâye, güven ve uyarı. */
+function render(r) {
+  out.replaceChildren();
+  if (r.ornek) out.append(el("span", "tag", "Örnek"));
+  var head = el("div"); head.append(el("h2", "word", r.kelime || ""));
+  var m = [r.dil, r.anlam].filter(Boolean).join(" · "); if (m) head.append(el("p", "meaning", m));
+  out.append(head);
+  if (r.yol && r.yol.length) {
+    var box = el("div"); box.append(el("div", "eyebrow", "Yol haritası · en yakından en eskiye"));
+    var ol = el("ol", "chain"); ol.style.marginTop = "16px";
+    r.yol.forEach(function (n) {
+      var li = el("li"); li.append(el("div", "lang", n.dil || ""));
+      var f = el("p", "form"); var fs = el("span", null, n.bicim || ""); fs.setAttribute("dir", "auto"); f.append(fs); li.append(f);
+      if (n.okunus) li.append(el("div", "translit", n.okunus));
+      if (n.not) li.append(el("p", "note", n.not));
+      ol.append(li);
+    });
+    box.append(ol); out.append(box);
+  }
+  if (r.parcalar && r.parcalar.length) {
+    var pb = el("div"); pb.append(el("div", "eyebrow", "Parçalar")); var ul = el("ul", "parts"); ul.style.marginTop = "12px";
+    r.parcalar.forEach(function (p) { var li = el("li"); var pb2 = el("b", null, p.parca || ""); pb2.setAttribute("dir", "auto"); li.append(pb2); li.append(document.createTextNode(p.anlam ? "  " + p.anlam : "")); ul.append(li); });
+    pb.append(ul); out.append(pb);
+  }
+  if (r.hikaye) { var sb = el("div"); sb.append(el("div", "eyebrow", "Kısaca")); var sp = el("p", "story", r.hikaye); sp.style.marginTop = "8px"; sb.append(sp); out.append(sb); }
+  var meta = el("div", "meta");
+  meta.append(el("span", null, r.ornek ? "Elle yazılmış örnek" : "Kaynak: Claude'un bilgisi, internet taranmadı"));
+  if (r.guven) meta.append(el("span", null, "Güven: " + r.guven));
+  out.append(meta);
+  if (r.uyari) out.append(el("div", "caveat", r.uyari));
+}
+
+/* Yükleniyor: iskelet gösterir. */
+function loading() { out.replaceChildren(); var s = el("div", "skel"); s.append(el("i"), el("i"), el("i")); out.append(s, el("p", "state", "Kökeni araştırılıyor. Bu 10-40 saniye sürebilir.")); }
+/* Hata: ne olduğunu ve ne yapılacağını söyler. */
+function fail(msg) { out.replaceChildren(el("p", "state", msg)); }
+
+/* Claude'a verilen komut: katı JSON, uydurma yok, Türkçe. */
+function istem(w) {
+  return "Sen bir etimoloji (köken bilimi) uzmanısın. Kullanıcının yazdığı kelimenin kökenini araştır: " + JSON.stringify(w) + "\n\n" +
+    "KURALLAR: Yalnızca bildiğin, güvendiğin bilgiyi yaz. Emin olmadığın yeri uydurma; güveni 'orta' veya 'düşük' yap ve uyarı alanında neyin belirsiz olduğunu söyle. " +
+    "Kelime çekimliyse (kitaplar, geldim) kök sözcüğü ele al. Birden çok anlamı varsa en yaygın olanı seç, uyarıda diğerini an. Türkçe yaz. Eski yazılışları kendi yazı sisteminde ver (Arapça, Farsça, Yunanca...) ve okunuşu ayrıca yaz.\n\n" +
+    "SADECE şu JSON nesnesini döndür, başka metin yok:\n" +
+    "{\"kelime\": string, \"dil\": string (kelimenin yazıldığı dil), \"anlam\": string (kısa), " +
+    "\"yol\": [ {\"dil\": string, \"bicim\": string, \"okunus\": string|null, \"not\": string} ] (en yakın atadan en eskiye; ilk eleman yazılan kelimenin kendisi), " +
+    "\"parcalar\": [ {\"parca\": string, \"anlam\": string} ] (kök/ek ayrımı; yoksa boş dizi), \"hikaye\": string (en fazla 3 cümle), " +
+    "\"guven\": \"yüksek\"|\"orta\"|\"düşük\", \"uyari\": string|null}";
+}
+
+/* Arama: Claude'a sorar, sonucu çizer. */
+async function ara(w) {
+  w = (w || "").trim(); if (!w) { fail("Önce bir kelime yaz."); input.focus(); return; }
+  if (!sample) { fail("Bu kart Claude içinde açıldığında çalışır. Uygulamayı aşağıdan kurarsan her yerde çalışır."); return; }
+  if (ctl) ctl.abort(); ctl = new AbortController(); btn.disabled = true; loading();
+  try {
+    var r = await sample.json(istem(w), { signal: ctl.signal, modelTier: "default" });
+    if (!r || typeof r !== "object" || !r.kelime) throw { code: "invalid_json" };
+    render(r);
+  } catch (e) {
+    var c = e && e.code, msg = "Bir şey ters gitti. Tekrar dene.";
+    if (c === "cancelled") return;
+    if (c === "not_granted" || c === "sampling_disabled") msg = "Claude kullanımına izin verilmedi. İzin verirsen kart çalışır; ya da uygulamayı kur.";
+    else if (c === "rate_limited") msg = "Kısa sürede çok soru soruldu. Biraz bekleyip tekrar dene.";
+    else if (c === "invalid_json") msg = "Cevap okunamadı. Aynı kelimeyi tekrar gönder.";
+    fail(msg);
+  } finally { btn.disabled = false; }
+}
+
+$("f").addEventListener("submit", function (e) { e.preventDefault(); ara(input.value); });
+SORU.forEach(function (w) { var b = el("button", "chip", w); b.type = "button"; b.addEventListener("click", function () { input.value = w; ara(w); }); $("ex").append(b); });
+render(ORNEK);
+
+/* Claude yeteneğini bekler; yoksa form kalır ama arama mesaj verir. */
+if (window.claude && window.claude.use) { window.claude.use("sample").then(function (s) { sample = s; }).catch(function () { sample = null; }); }
+
+/* ZIP yedek yolu: APK'yı ZIP'e koyup Claude'un kendi kaydetme penceresiyle verir; tarayıcı indirme taramasına takılmaz. */
+var ZIP_B64 = "__APK_ZIP_B64__";
+if (ZIP_B64 && ZIP_B64.length > 100 && window.claude && window.claude.use) {
+  window.claude.use("downloads").then(function (d) {
+    if (!d) return; var z = $("zipbtn"); z.hidden = false;
+    z.addEventListener("click", async function () {
+      var bin = atob(ZIP_B64), buf = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      try { await d.save({ filename: "Koken-apk.zip", data: buf }); $("saveNote").textContent = "Kaydedildi. Dosyalar uygulamasında aç, içindeki Koken.apk'ya dokun."; }
+      catch (e) { $("saveNote").textContent = e && e.code === "declined" ? "Kaydetmekten vazgeçtin." : "Bu görünümde kaydetme açık değil. Yukarıdaki indirme bağlantısını kullan."; }
+    });
+  }).catch(function () {});
+}
+</script>
