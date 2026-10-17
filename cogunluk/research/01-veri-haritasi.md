@@ -8,8 +8,8 @@ Hazırlayan: bölüm yazarı · Hesaplar: `veri/analiz.py` → `veri/analiz.json
 - Bu 68 ayet **33** surede dağılır; en yoğun: Şuarâ 9, Yûsuf 6, A'râf 4, Nahl 4, En'âm 3.
 - **En sık yüklem "bilmez"**: 27/68 (%40); ardından "iman etmez" 14, "şükretmez" 6. Bilmez+iman etmez+şükretmez+akletmez = 51/68: ağırlık **bilgi/idrak/iman/şükür** eksenindedir; "fasık" 4, "kâfir/nankör/yalancı" 4, "ortak koşar" 3, "haktan hoşlanmaz" 2, "zanna uyar" 2, "yüz çevirir" 1.
 - **Kim için?** Lafzen "insanların çoğu" (A): **21**; zamirle ama öncülü genel insan (A*): **5**; belirli topluluk (B): **40**; öncülü belirsiz (?): **2**. Genel insan toplamı 26/68, belirli topluluk 40/68. B içinde: Mekkeli/Arap müşrikler ve inkârcılar 23, Kitap ehli 3, geçmiş kavim/ümmet 11, diğer belirli grup 3.
-- **Olumlu-nötr "çoğu" (ekser) ayeti: 0.** Vâkıa 56:13-14 ve 39-40 ekser/kesîr değil, `ثلة` (sülle, topluluk) kullanır; Mâide 5:66 ise kesîr kalıbıdır. Olumlu-nötr örnekler ancak kesîr kalıbında (4 ayet + 2 karışık) ve "az" taramasında çıkar.
-- **İki kalıp ayrı sayıldı:** ekser 81 ham → 68 hüküm (hepsi olumsuz; 26 genel, 40 belirli); kesîr 71 ayet → 29 kişilere ilişkin hüküm (23 olumsuz, 4 olumlu-nötr, 2 karışık; 9 genel, 20 belirli; Mekkî 10 / Medenî 19). Paylaşılan 14 atfın 12'si ekser, 2'si (5:49, 10:92) kesîr.
+- **Olumlu-nötr "çoğu" (ekser) ayeti: 0.** Vâkıa 56:13-14 ve 39-40 ekser/kesîr değil, `ثلة` (sülle, topluluk) kullanır; Mâide 5:66 ise kesîr kalıbıdır. Olumlu-nötr örnekler ancak kesîr kalıbında (3 ayet + 2 karışık; DENETİM c-01'de 4+2'den düzeltildi) ve "az" taramasında çıkar.
+- **İki kalıp ayrı sayıldı:** ekser 81 ham → 68 hüküm (hepsi olumsuz; 26 genel, 40 belirli); kesîr 71 ayet → 29 kişilere ilişkin hüküm (24 olumsuz, 3 olumlu-nötr, 2 karışık [denetimde düzeltildi]; 9 genel, 20 belirli; Mekkî 10 / Medenî 19). Paylaşılan 14 atfın 12'si ekser, 2'si (5:49, 10:92) kesîr.
 - **Mekkî/Medenî** (api.quran.com surelerin `revelation_place` alanı): hüküm ayetleri Mekkî 59, Medenî 9 (Mekkî payı %87). Kur'an'ın kendi ayet dağılımı: Mekkî 4613 / Medenî 1623 (Mekkî payı %74); sure sayısı Mekkî 86 / Medenî 28. Yani çoğunluk ifadeleri Mekkî surelere biraz daha yaslanır (Mekkî sureler tevhid/inkâr/tebliğ tartışmalarını işler). Ra'd gibi bazı surelerde Mekkî/Medenî ayrılığı âlimler arasında tartışmalıdır.
 - **"Az" kalıbı** (قليل/قلة): 71 eşleşme, 1 yanlış eşleşme (35:18). Türler: az kişi (azınlık) 20, az davranış (az şükür/iman/öğüt) 13, az bedel (ثمنا قليلا) 9, az zaman/geçici zevk 20, az şey/miktar/algı 8. "Azınlık" anlamında olan yalnızca "az kişi" grubu (20 ayet); bunların çoğunda azınlık **iman eden/şükreden/doğru yolda kalan** taraftır (Sebe' 34:13, Hûd 11:40, Sâd 38:24 …).
 
@@ -157,11 +157,11 @@ Sonuç: 14 atfın 12'si ekser kalıbı, 2'si (Mâide "48" → gerçekte 5:49; Y�
 
 ## 4. İkinci kalıp: كثير (kesîr = çok/birçok) — ayrı sayıldı
 
-Kur'an'da كثير geçen **71** ayetin tamamı koddan bulundu ve elle etiketlendi: **29** ayet kişilere ilişkin "çoğu/birçoğu" hükmü taşıyor, **42** ayet kişi dışı (çok anmak, çok nimet, çok şey). Kişilere ilişkin 29: nitelik olumlu-nötr 4, olumsuz 23, karışık 2; özne: genel 9, belirli 20 (Kitap ehli 9); Mekkî 10 / Medenî 19. **Ekser'in tersine kesîr ağırlıkla Medenî surelerde ve Kitap ehli hakkındadır; ayrıca olumlu-nötr örnekleri de vardır.**
+Kur'an'da كثير geçen **71** ayetin tamamı koddan bulundu ve elle etiketlendi: **29** ayet kişilere ilişkin "çoğu/birçoğu" hükmü taşıyor, **42** ayet kişi dışı (çok anmak, çok nimet, çok şey). Kişilere ilişkin 29: nitelik olumlu-nötr 3, olumsuz 24, karışık 2 (denetim: karışık = kesîr kalıbı hem olumlu hem olumsuz yüklemle geçer: 2:26, 22:18); özne: genel 9, belirli 20 (Kitap ehli 9); Mekkî 10 / Medenî 19. **Ekser'in tersine kesîr ağırlıkla Medenî surelerde ve Kitap ehli hakkındadır; ayrıca olumlu-nötr örnekleri de vardır.**
 
 | Ayet | Nitelik | Özne türü | Özne | Ne deniyor | Diyanet kelimesi |
 |---|---|---|---|---|---|
-| 2:26 | olumlu-nötr | genel | insanlar | Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir | birçoğu |
+| 2:26 | karışık | genel | insanlar | Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir | birçoğu |
 | 2:109 | olumsuz | belirli | Kitap ehli | çoğu kıskançlıkla sizi küfre döndürmek ister | çoğu |
 | 2:249 | olumlu-nötr | belirli | Tâlût'un askerleri | "Nice az topluluk çok topluluğa Allah'ın izniyle galip gelmiştir" | çok |
 | 3:146 | olumlu-nötr | belirli | peygamberlerin yanında savaşanlar | nice peygamberle birlikte pek çok Rabbânî savaştı | pek çok |
@@ -187,7 +187,7 @@ Kur'an'da كثير geçen **71** ayetin tamamı koddan bulundu ve elle etiketlen
 | 36:62 | olumsuz | genel | insanlar | şeytan sizden nice nesilleri saptırdı | nice |
 | 38:24 | olumsuz | belirli | ortaklar | ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır | çoğu |
 | 57:16 | olumsuz | belirli | Kitap ehli | çoğunun kalbi katılaştı, fasıklaştı | çoğu |
-| 57:26 | karışık | belirli | Nûh ve İbrâhim soyu | kimi doğru yolda, birçoğu yoldan çıkmış | birçoğu |
+| 57:26 | olumsuz | belirli | Nûh ve İbrâhim soyu | kimi doğru yolda, birçoğu yoldan çıkmış | birçoğu |
 | 57:27 | olumsuz | belirli | İsâ'ya uyanlar | çoğu fasık (rahbâniyet icadı) | çoğu |
 | 71:24 | olumsuz | belirli | Nûh kavminin önderleri | birçoğunu saptırdılar | birçoğu |
 
