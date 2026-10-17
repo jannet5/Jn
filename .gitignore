@@ -30,3 +30,4 @@ melodi-zil/.kotlin/
 
 # Gradle Play Publisher servis hesabı anahtarı (asla depoya konmaz)
 melodi-zil/play-credentials.json
+__pycache__/

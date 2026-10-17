@@ -1,4 +1,4 @@
-# KALİTE RAPORU: Melodi Zil v1.1.0 (2026-10-10; ilk sürüm v1.0.0 2026-10-05)
+# KALİTE RAPORU: Melodi Zil v1.2.0 (2026-10-17; ilk sürüm v1.0.0 2026-10-05)
 
 ## Makine kontrolü
 | Kontrol | Sonuç |
@@ -47,6 +47,17 @@ Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı �
 - Yeni ikon: 6 varyasyon → bağımsız değerlendirici → C seçildi (IKON_SECIMI.md); çekmecede doğrulandı (`docs/store/ikon_cekmece.png`).
 - Gradle Play Publisher 3.12.1: `publishApps` görevi; mağaza metinleri Play sınırlarında (başlık ≤30, kısa açıklama ≤80 karakter, kontrol edildi).
 - Testler + lint + imzalı AAB/APK yeniden geçti.
+
+## v1.2.0: Hazır perde modeli (kullanıcı: "istediğim ses gelmiyor")
+| Ölçüm | v1.1 | v1.2 |
+|---|---|---|
+| Vocadito + pop eşlik (40), ham doğru perde | %67 | %97 |
+| Aynı set, nota F (insan işaretli) | 0.53 | 0.60 (P 0.68) |
+| Gerçek pop şarkısı nakaratı | bulunamıyor | notalar doğru sırayla |
+- Yarışan modeller (aynı set): RMVPE karışımda %96 (181 MB), FCPE ayrılmış vokalde %97.5 (43 MB), CREPE tiny ayrılmış vokalde %97 (2 MB, seçildi).
+- Kotlin = Python: `CrepeMelodyTest` (enerji, güven, Viterbi yolu birebir). TFLite = PyTorch: fark 4e-7.
+- Hız (sunucu, 4 çekirdek): 4 dk şarkıda CREPE ~7 sn (20 ms kare + sessiz kare atlama), vokal ayırma ~8 sn.
+- APK: arm64 28 MB (sohbet eki sınırı altında), evrensel 39.8 MB; AAB 32 MB.
 
 ## v1.1.0: Melodi doğruluğu (kullanıcı: "müziğe hiç benzemiyor")
 | Ölçüm (araclar/degerlendirme) | v1.0.0 | v1.1.0 |

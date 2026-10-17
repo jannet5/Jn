@@ -59,3 +59,8 @@
 - Kullanıcı ne dedi: "Ben proje sohbetlerinde istediğim yazdığım tüm her şey okunsun ve yapılsın istiyorum … kart olarak verilsin kullanayım"
 - Kök neden: Bağlam özetlendiğinde bazı mesajlar (ör. kart istemi, "tek cümle") gözden kaçma riski taşıyordu; teslim sohbet metni olarak dağınık kalıyordu.
 - Yeni kural: Her turda tüm kullanıcı mesajları transkriptten çıkarılıp ISTEKLER.md ile karşılaştırılır; teslim bir artifact kartıdır (tek cümle tanım, indirme, istek listesi, kullanım).
+
+### D-014: Elle yazılmış sinyal işleme yerine önce hazır, eğitilmiş modelleri ölç
+- Kullanıcı ne dedi: "Tamam şimdi bir de sen bir daha dene bakalım uygulama olmamış istediğim ses gelmiyor"
+- Kök neden: v1.1'de Melodia'yı (2012, elle kurallar) iyileştirmeye çalışıldı; aynı veriyle hazır derin öğrenme perde modelleri (RMVPE, FCPE, CREPE) denenmedi. Denenince ham perde doğruluğu %67'den %96-97'ye çıktı.
+- Yeni kural: Bir ses/görüntü/dil problemi için ilk iş, açık lisanslı eğitilmiş modelleri aynı ölçüm setinde yarıştırmak; sonra boyut/hız kısıtına göre en küçük yeterli modeli seçmek (burada 2 MB CREPE tiny, 181 MB RMVPE ile aynı nota doğruluğu). Telefona taşırken birebir Python referansı yaz ve Kotlin'i ona karşı test et.

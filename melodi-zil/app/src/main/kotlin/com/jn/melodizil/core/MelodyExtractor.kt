@@ -290,64 +290,13 @@ class MelodyExtractor(
 
     // ---------------------------------------------------------------- nota bölütleme
 
-    /** f0 (cent) → notalar: medyan filtre, histerezisli perde değişimi, kısa notaları birleştirme. */
+    /** f0 (cent) → notalar: ortak bölütleyici (NoteSegmenter) ile. */
     private fun segment(f0: FloatArray): List<Note> {
         val frameSec = hopSize.toFloat() / sampleRate // Kare süresi
         val midi = FloatArray(f0.size) { if (f0[it] > 0) (MIDI_AT_REF + f0[it] / 100f) else 0f } // Kesirli MIDI
-        val sm = FloatArray(midi.size) // Medyan filtrelenmiş
-        val half = MEDIAN_FRAMES / 2; val buf = FloatArray(MEDIAN_FRAMES) // Pencere
-        for (t in midi.indices) { if (midi[t] == 0f) continue; var c = 0
-            for (k in -half..half) { val i = t + k; if (i in midi.indices && midi[i] > 0f) buf[c++] = midi[i] } // Sesli komşular
-            java.util.Arrays.sort(buf, 0, c); sm[t] = buf[c / 2] } // Medyan
-        val notes = ArrayList<Note>() // Notalar
-        val minFrames = (p.minNoteSec / frameSec).roundToInt() // En kısa nota
-        var t = 0 // Kare
-        while (t < sm.size) { // Sesli koşular
-            if (sm[t] == 0f) { t++; continue } // Sessiz
-            var start = t; var cur = sm[t].roundToInt(); var pend = -1; var pendStart = 0 // Mevcut nota ve bekleyen değişim
-            while (t < sm.size && sm[t] > 0f) { // Koşu boyunca
-                val r = sm[t].roundToInt() // En yakın yarım ton
-                if (abs(sm[t] - cur) > p.hysteresis) { // Mevcut notadan belirgin uzak
-                    if (pend != r) { pend = r; pendStart = t } // Yeni aday
-                    if (t - pendStart + 1 >= minFrames) { // Aday yeterince sürdü: nota değiştir
-                        if (pendStart > start) notes.add(makeNote(start, pendStart, cur, frameSec)) // Önceki nota
-                        start = pendStart; cur = pend; pend = -1 // Yeni nota
-                    }
-                } else pend = -1 // Aday iptal
-                t++ // Sonraki kare
-            }
-            notes.add(makeNote(start, t, cur, frameSec)) // Koşunun son notası
-        }
-        // Temizlik: aynı perdede çok yakın notaları birleştir, çok kısa notaları komşuya ekle ya da at
-        val merged = ArrayList<Note>() // Birleşmiş
-        for (nt in notes) { val l = merged.lastOrNull()
-            if (l != null && l.midi == nt.midi && nt.startSec - l.endSec <= MERGE_GAP_SEC) merged[merged.size - 1] = l.copy(durationSec = nt.endSec - l.startSec)
-            else merged.add(nt) }
-        val clean0 = merged.filter { it.durationSec >= p.minNoteSec } // Çok kısaları at
-        val clean = if (p.absorbSec > 0f) absorbGlides(clean0) else clean0 // Kayma/vibrato parçalarını birleştir
-        val legato = ArrayList<Note>() // Kısa boşlukları doldur (zil sesinde kesik kesik duyulmasın)
-        for ((i, nt) in clean.withIndex()) { val next = clean.getOrNull(i + 1)
-            legato.add(if (next != null && next.startSec - nt.endSec in 0f..p.legatoGapSec) nt.copy(durationSec = next.startSec - nt.startSec) else nt) }
-        return legato.map { it.copy(velocity = 0.85f) } // Sabit şiddet (perde odaklı)
+        val sp = NoteSegmenter.Params(p.hysteresis, p.minNoteSec, p.legatoGapSec, p.absorbSec, MEDIAN_FRAMES * frameSec, MERGE_GAP_SEC) // Aynı ayarlar
+        return NoteSegmenter(sp).segment(midi, frameSec, frameSize / 2f / sampleRate) // Kare merkezine hizalı notalar
     }
-
-    /** Kısa (< absorbSec) ve bitişik komşusundan ±1 yarım ton farklı notayı, daha uzun bitişik komşuya katar; aynı perdeli komşular birleşir. */
-    private fun absorbGlides(input: List<Note>): List<Note> {
-        val ns = input.toMutableList(); var changed = true // Çalışma listesi
-        while (changed) { changed = false
-            for (i in ns.indices) { val n = ns[i]; if (n.durationSec >= p.absorbSec) continue // Uzun nota: dokunma
-                val prev = ns.getOrNull(i - 1)?.takeIf { n.startSec - it.endSec <= MERGE_GAP_SEC && abs(it.midi - n.midi) == 1 } // Bitişik önceki
-                val next = ns.getOrNull(i + 1)?.takeIf { it.startSec - n.endSec <= MERGE_GAP_SEC && abs(it.midi - n.midi) == 1 } // Bitişik sonraki
-                val host = listOfNotNull(prev, next).maxByOrNull { it.durationSec } ?: continue // Uzun olan komşu
-                if (host.durationSec <= n.durationSec) continue // Komşu daha kısa
-                val hi = ns.indexOf(host); val s0 = minOf(host.startSec, n.startSec); val e0 = maxOf(host.endSec, n.endSec) // Birleşik aralık
-                ns[hi] = host.copy(startSec = s0, durationSec = e0 - s0); ns.removeAt(i); changed = true; break } // Kat ve baştan tara
-            if (!changed) { for (i in ns.size - 1 downTo 1) { val a = ns[i - 1]; val b = ns[i]
-                if (a.midi == b.midi && b.startSec - a.endSec <= MERGE_GAP_SEC) { ns[i - 1] = a.copy(durationSec = b.endSec - a.startSec); ns.removeAt(i); changed = true } } } } // Aynı perdeleri birleştir
-        return ns // Sonuç
-    }
-
-    private fun makeNote(s: Int, e: Int, midi: Int, frameSec: Float) = Note(midi, s * frameSec + frameSize / 2f / sampleRate - hopSize.toFloat() / sampleRate / 2, (e - s) * frameSec, 0.85f) // Kare merkezine hizalı nota
 
     companion object {
         const val SD_FLOOR = 0.15 // Sessizlik eşiğinde sapma tabanı (ortalamanın oranı)

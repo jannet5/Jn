@@ -3,9 +3,12 @@ package com.jn.melodizil.domain // İş mantığı
 import android.content.Context // Bağlam
 import android.net.Uri // Yerel dosya Uri
 import android.provider.OpenableColumns // Dosya adı sorgusu
+import com.jn.melodizil.core.CrepeMelody // Vokal perde modeli
 import com.jn.melodizil.core.Melody // Melodi
 import com.jn.melodizil.core.MelodyExtractor // Çıkarıcı
+import com.jn.melodizil.core.Resampler // Yeniden örnekleme
 import com.jn.melodizil.core.VocalSeparator // Vokal ayırıcı
+import com.jn.melodizil.data.audio.TfliteCrepeModel // CREPE TFLite modeli
 import com.jn.melodizil.data.audio.TfliteMaskModel // TFLite modeli
 import com.jn.melodizil.data.audio.AudioDecoder // Çözücü
 import com.jn.melodizil.data.youtube.SourceException // Hatalar
@@ -82,10 +85,23 @@ class MelodyPipeline(private val context: Context, private val youTube: YouTubeS
         coroutineContext.ensureActive() // İptal
         val useVocal = vocal != null && rms(vocal) >= VOCAL_PRESENCE * rms(pcm) // Vokal yoksa (enstrümantal) karışımdan çıkar
         onProgress(PipelineProgress(Step.ANALYZE, 0f)) // Analiz
-        val melody = if (useVocal) vocalExtractor.extract(vocal!!) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Vokalden
-        else mixExtractor.extract(pcm) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Karışımdan
+        val melody = if (useVocal) vocalMelody(vocal!!, onProgress) // Vokalden: CREPE (yoksa Melodia)
+        else mixExtractor.extract(pcm) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Karışımdan (enstrümantal)
         if (melody.isEmpty) throw SourceException.Unavailable("Bu kayıtta belirgin bir melodi bulunamadı") // Boş
         return melody // Sonuç
+    }
+
+    /** Ayrılmış vokal → melodi. Önce CREPE perde modeli (doğru perde %96); model açılamaz ya da hiç nota bulamazsa Melodia (eski yol). */
+    private suspend fun vocalMelody(vocal: FloatArray, onProgress: (PipelineProgress) -> Unit): Melody {
+        val ctx = coroutineContext // İptal kontrolü için bağlam
+        val crepe = try {
+            val t0 = System.currentTimeMillis() // Süre ölçümü (logcat)
+            val v16 = Resampler.resampleSinc(vocal, ANALYSIS_RATE, CrepeMelody.SR) // 22050 → 16000
+            TfliteCrepeModel(context).use { m -> CrepeMelody(m).extract(v16) { ctx.ensureActive(); onProgress(PipelineProgress(Step.ANALYZE, it)) } } // Model
+                .also { android.util.Log.i("MelodiZil", "CREPE: ${it.notes.size} nota, ${System.currentTimeMillis() - t0} ms") } // Özet
+        } catch (e: kotlinx.coroutines.CancellationException) { throw e } catch (e: Throwable) { android.util.Log.w("MelodiZil", "CREPE atlandı", e); null } // Hata: eski yol
+        if (crepe != null && !crepe.isEmpty) return crepe // Başarılı
+        return vocalExtractor.extract(vocal) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Yedek
     }
 
     private fun rms(x: FloatArray): Double { var e = 0.0; for (v in x) e += v * v; return kotlin.math.sqrt(e / x.size.coerceAtLeast(1)) } // RMS

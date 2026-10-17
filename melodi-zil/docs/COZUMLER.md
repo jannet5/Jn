@@ -61,3 +61,17 @@
 - Çözüm: (1) `service/ProcessingService.kt`: işlem sürerken ön plan servisi (dataSync) + ilerleme bildirimi; telefon süreci arka planda öldürmez. (2) `AppViewModel`: `SavedStateHandle` ile "işlem sürüyordu" bayrağı ve son bağlantı/dosya; süreç öldürülüp uygulama geri gelirse `Interrupted` durumu → "İşlem yarıda kaldı" + Tekrar dene. Dosya için `takePersistableUriPermission`. (3) Android 13+ bildirim izni işlem başlarken istenir. (4) Alt yazı gerçek süreye göre düzeltildi.
 - Doğrulama: `araclar/emu_kesinti_testi.sh` (işlem başlat → servis/bildirim kontrolü → HOME → `am kill` (servis varken öldürmemeli) → root `kill -9` (düşük bellek öldürmesi taklidi) → yeniden aç → "yarıda kaldı" → Tekrar dene).
 - Kural: Her ekran, ViewModel'in alabileceği HER durumu çizmeli; "else -> boş" yasak. Uzun süren iş (≥10 sn) ön plan servisiyle korunur ve süreç ölümü testi koşulur.
+
+## Ç-014: Melodi hâlâ şarkıya benzemiyor (v1.1'de Melodia + vokal ayırma yetmedi)
+- Belirti: Kullanıcı: "uygulama olmamış, istediğim ses gelmiyor". Gerçek pop şarkısında nakarat ("Never gonna give you up") eski yöntemlerin hiçbirinde bulunamıyordu; notalarda alakasız oktav sıçramaları vardı.
+- Kök neden: Elle yazılmış perde bulucu (Melodia) ayrılmış vokalde bile arka vokal, reverb ve enstrüman sızıntısında yanlış perdeye kayıyor. Sorun nota bölmede değil, perde tahmininde.
+- Çözüm (ölçerek seçildi, `araclar/degerlendirme/perde_dene.py`):
+  | Yöntem | Doğru perde (ham) | Boyut |
+  |---|---|---|
+  | Melodia (v1.1, ayrılmış vokal) | %67 (nota sonrası) | — |
+  | RMVPE (karışımda) | %96 | 181 MB → telefona sığmaz |
+  | FCPE (ayrılmış vokal) | %97.5 | 43 MB |
+  | **CREPE tiny (ayrılmış vokal)** | **%97** | **2 MB** ← seçildi |
+  Telefonda: Spleeter vokal ayırma → 16 kHz (pencereli-sinc yeniden örnekleme) → CREPE tiny TFLite (20 ms kare, sessiz kareler atlanır) → Viterbi (torchcrepe ile aynı bantlı geçiş) → güven ≥ 0.5 ve enerji ≥ −12 dB → nota bölme (akort kayması düzeltmeli). Nota F (insan işaretli notalar): 0.53 → 0.60. Gerçek şarkıda nakarat notaları doğru sırayla çıkıyor.
+- Dosyalar: `core/CrepeMelody.kt`, `data/audio/TfliteCrepeModel.kt`, `assets/crepe_tiny.tflite`, `core/NoteSegmenter.kt`; dönüştürme `araclar/model/crepe_tiny_tflite.py` (TFLite–PyTorch farkı 4e-7), birebir Python karşılığı `araclar/model/crepe_ref.py`; `CrepeMelodyTest` Kotlin'in Python ile aynı sonucu verdiğini doğrular.
+- Tuzaklar: (1) Vocadito gibi kayarak söylenen sette nota sonrası perde puanı düşük görünür (%70); asıl ölçüt insan işaretli nota F'si ve gerçek şarkı. (2) Aynı perdeli ardışık notalar birleşebildiği için nakarat aralık testinde tekrarlar tek nota sayılmalı. (3) Gradle, ortam değişkeni değişince testi yeniden koşmaz: `cleanTestDebugUnitTest` gerekir. (4) `pkill -f <desen>` kendi kabuk komutunu da öldürür: `grep "[d]esen"` hilesi kullan.

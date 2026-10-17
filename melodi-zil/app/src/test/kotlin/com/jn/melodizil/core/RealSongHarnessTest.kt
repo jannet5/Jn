@@ -20,21 +20,24 @@ class RealSongHarnessTest {
         ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asFloatBuffer().get(pcm) // Çözülüyor
         val t0 = System.currentTimeMillis() // Süre ölçümü
         val params = if (System.getenv("MELODI_VOCAL") == "1") MelodyExtractor.Params.VOCAL else MelodyExtractor.Params() // Ayrılmış vokal mi karışım mı
-        val melody = MelodyExtractor(p = params).extract(pcm) // Melodi çıkarımı
+        val notesCsv = System.getenv("MELODI_NOTES_CSV") // Hazır notalar (başka yolla çıkarılmış: CREPE/RMVPE değerlendirmesi)
+        val melody = if (notesCsv != null) Melody(File(notesCsv).readLines().filter { it.isNotBlank() }.map { l -> val a = l.split(','); Note(Math.round(a[2].toFloat()), a[0].toFloat(), a[1].toFloat(), 0.85f) }, pcm.size / 22050f) // CSV'den
+            else MelodyExtractor(p = params).extract(pcm) // Melodi çıkarımı
         val t1 = System.currentTimeMillis() // Bitiş
         val voiced = melody.notes.sumOf { it.durationSec.toDouble() } / melody.durationSec // Sesli oran
         println("SÜRE: ${melody.durationSec}s, NOTA: ${melody.notes.size}, ÇIKARIM ${t1 - t0} ms, sesli oran %.2f".format(voiced)) // Özet
         val hist = melody.notes.groupBy { it.midi }.mapValues { it.value.sumOf { n -> n.durationSec.toDouble() } }.toSortedMap() // Perde histogramı
         println("PERDE HİSTOGRAMI: " + hist.entries.joinToString { "${midiToName(it.key)}=%.1f".format(it.value) }) // Yazdır
         println("ORT. NOTA SÜRESİ: %.3f".format(melody.notes.map { it.durationSec }.average())) // Ortalama süre
-        val start = SegmentChooser.bestStart(melody, 30f) // En iyi bölüm
+        val start = System.getenv("MELODI_START")?.toFloat() ?: SegmentChooser.bestStart(melody, 30f) // En iyi bölüm (ya da karşılaştırma için sabit başlangıç)
         println("EN İYİ BAŞLANGIÇ: $start") // Yazdır
         println("İLK 40 NOTA (seçilen pencere): " + melody.notes.filter { it.startSec >= start }.take(40).joinToString(" ") { "${midiToName(it.midi)}(%.2f)".format(it.durationSec) }) // Nota dizisi
         val outDir = System.getenv("MELODI_TEST_OUT") // Çıktı klasörü
         if (outDir != null) { // Çıktı isteniyorsa
             File(outDir).mkdirs() // Klasör
             val synth = Synth(44100) // Sentezleyici
-            for (inst in Instrument.entries) { // Her enstrüman
+            val only = System.getenv("MELODI_INSTR")?.split(',') // Yalnızca bu enstrümanlar
+            for (inst in Instrument.entries.filter { only == null || it.id in only }) { // Her enstrüman
                 val s0 = System.currentTimeMillis() // Süre
                 val pcmOut = synth.render(melody, inst, start, 30f) // 30 sn çal
                 File(outDir, "zil_${inst.id}.wav").writeBytes(WavWriter.toWav(pcmOut, 44100)) // Yaz

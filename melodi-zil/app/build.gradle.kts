@@ -16,8 +16,8 @@ android {
         applicationId = "com.jn.melodizil" // Google Play'deki benzersiz uygulama kimliği
         minSdk = 26 // Android 8.0 ve üzeri (MediaCodec/MediaStore API'leri için yeterli)
         targetSdk = 35 // Play'in 2025 sonrası zorunlu hedef SDK'sı
-        versionCode = 3 // Her mağaza yüklemesinde artırılır
-        versionName = "1.1.1" // Kullanıcıya görünen sürüm
+        versionCode = 4 // Her mağaza yüklemesinde artırılır
+        versionName = "1.2.0" // Kullanıcıya görünen sürüm
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // Cihaz testleri için koşucu
         vectorDrawables { useSupportLibrary = true } // Vektör ikonlar eski sürümlerde de çalışsın
     }

@@ -24,17 +24,18 @@ app/src/main/kotlin/com/jn/melodizil/
 ```
 
 ## Melodi çıkarma nasıl çalışır (özet)
-1. **Vokal ayırma (cihazda):** Spleeter 2stems vokal U-Net'i (Deezer Research, MIT) TFLite fp16 olarak `assets/vokal.tflite` (19.7 MB). 22050 Hz STFT (2048/512) → maske → iSTFT (`core/VocalSeparator.kt`, `data/audio/TfliteMaskModel.kt`). Vokal yoksa (enstrümantal) karışımdan devam edilir.
-2. **Melodi (Melodia, Salamon & Gómez 2012):** 10 cent perde haritası (10 harmonik), perde konturları (kare başına ≤50 cent), sessizlik ayıklama, oktav kopyası ve aykırı kontur eleme, ayrılmış vokalde enerji kapısı (`core/MelodyExtractor.kt`).
-3. **Notalar:** medyan filtre, histerezis (0.5 yarım ton), kayma/vibrato parçası birleştirme, en kısa nota 45 ms.
+1. **Vokal ayırma (cihazda):** Spleeter 2stems vokal U-Net'i (Deezer Research, MIT), TFLite fp16, `assets/vokal.tflite` (19.7 MB). Enstrümantal parçada bu adım karışımdan devam eder.
+2. **Perde (cihazda):** CREPE "tiny" (Kim ve ark. 2018; ağırlıklar torchcrepe, MIT), TFLite, `assets/crepe_tiny.tflite` (2 MB). 16 kHz vokal, 20 ms kare, sessiz kareler atlanır; Viterbi yolu (`core/CrepeMelody.kt`).
+3. **Notalar:** güven ve enerji eşiği, akort kayması düzeltmesi, medyan filtre, histerezis, kayma birleştirme (`core/NoteSegmenter.kt`).
+4. Yedek: model açılamazsa ya da şarkı enstrümantalsa Melodia (Salamon & Gómez 2012, `core/MelodyExtractor.kt`).
 
 ## Ölçülen doğruluk (`araclar/degerlendirme/`)
-| Set | Eski | Yeni |
-|---|---|---|
-| Vocadito + pop eşlik (40 parça), doğru perde | %31 | %67 |
-| Aynı set, nota F (±50 ms, ±50 cent) | 0.27 | 0.52 |
-| Gerçek pop şarkısı, bağımsız referansa göre doğru perde | %41 | %68 |
-Essentia'nın Melodia uygulaması aynı karışımlarda %52 doğru perde veriyor.
+| Ölçüm | v1.0 | v1.1 (Melodia + ayırma) | v1.2 (ayırma + CREPE) |
+|---|---|---|---|
+| Vocadito + pop eşlik (40), ham doğru perde | — | %67 | %97 |
+| Aynı set, nota F (insan işaretli notalar, ±50 ms, ±50 cent) | 0.27 | 0.53 | 0.60 |
+| Gerçek pop şarkısında nakarat notaları | yok | yok | doğru sırayla |
+Karşılaştırılan diğer modeller: RMVPE (karışımda %96, 181 MB), FCPE (ayrılmış vokalde %97.5, 43 MB).
 
 ## Derleme
 Gerekenler: JDK 17+, Android SDK (platform 35, build-tools 35). `local.properties` içine `sdk.dir=/yol/android-sdk`.
@@ -51,4 +52,4 @@ Gerekenler: JDK 17+, Android SDK (platform 35, build-tools 35). `local.propertie
 `keystore/upload.jks` + `keystore.properties` bu oturumda üretilen **yükleme anahtarı**dır (Play App Signing ile kullanılır). Üretim için kendi anahtarınla değiştirmek istersen `keystore.properties` değerlerini güncelle. Şifreler dosyada; depo özel kalmalı ya da anahtar değiştirilmeli.
 
 ## Lisans
-Uygulama kodu GPL-3.0 (NewPipeExtractor GPL-3.0 bağımlılığı gereği). Vokal modeli: Spleeter (Deezer Research, MIT). TensorFlow Lite: Apache-2.0. Üçüncü taraf lisansları Ayarlar → Açık kaynak lisansları.
+Uygulama kodu GPL-3.0 (NewPipeExtractor GPL-3.0 bağımlılığı gereği). Vokal modeli: Spleeter (Deezer Research, MIT). Perde modeli: CREPE tiny (Kim ve ark. 2018; torchcrepe ağırlıkları, MIT). TensorFlow Lite: Apache-2.0. Üçüncü taraf lisansları Ayarlar → Açık kaynak lisansları.
