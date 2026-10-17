@@ -128,7 +128,7 @@ class AppViewModel(app: Application, private val saved: SavedStateHandle) : Andr
             Step.RESOLVE -> if (local) R.string.step_open else R.string.step_resolve
             Step.DOWNLOAD -> if (local) R.string.step_copy else R.string.step_download
             Step.DECODE -> R.string.step_decode
-            Step.SEPARATE -> R.string.step_separate
+            Step.MODEL -> R.string.step_model
             Step.ANALYZE -> R.string.step_analyze
         }
         ProcessingService.update(app, app.getString(res), overallPercent(PipelineProgress(step, fraction))) // Gönder

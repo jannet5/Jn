@@ -4,9 +4,9 @@ import android.content.Context // Bağlam
 import android.net.Uri // Yerel dosya Uri
 import android.provider.OpenableColumns // Dosya adı sorgusu
 import com.jn.melodizil.core.Melody // Melodi
-import com.jn.melodizil.core.MelodyExtractor // Çıkarıcı
-import com.jn.melodizil.core.VocalSeparator // Vokal ayırıcı
-import com.jn.melodizil.data.audio.TfliteMaskModel // TFLite modeli
+import com.jn.melodizil.core.NoteTracker // Perde izi → notalar
+import com.jn.melodizil.data.audio.OrtRmvpe // RMVPE (ONNX Runtime)
+import com.jn.melodizil.data.store.ModelStore // Ezgi modelinin yeri/indirmesi
 import com.jn.melodizil.data.audio.AudioDecoder // Çözücü
 import com.jn.melodizil.data.youtube.SourceException // Hatalar
 import com.jn.melodizil.data.youtube.YouTubeSource // YouTube
@@ -17,7 +17,7 @@ import java.io.File // Dosya
 import kotlin.coroutines.coroutineContext // Mevcut bağlam
 
 /** İşlem adımları: ekranda adım adım gösterilir. */
-enum class Step { RESOLVE, DOWNLOAD, DECODE, SEPARATE, ANALYZE }
+enum class Step { RESOLVE, DOWNLOAD, MODEL, DECODE, ANALYZE }
 
 /** İlerleme bildirimi: hangi adım, o adımda yüzde kaç. */
 data class PipelineProgress(val step: Step, val fraction: Float)
@@ -33,9 +33,6 @@ data class AnalyzedTrack(
 
 /** YouTube bağlantısı ya da yerel dosyadan melodi üretir. Her adımda ilerleme yayar; coroutine iptaline saygı duyar. */
 class MelodyPipeline(private val context: Context, private val youTube: YouTubeSource) {
-    private val mixExtractor = MelodyExtractor(ANALYSIS_RATE) // Karışımdan çıkarım (enstrümantal ya da ayırma başarısızsa)
-    private val vocalExtractor = MelodyExtractor(ANALYSIS_RATE, p = MelodyExtractor.Params.VOCAL) // Ayrılmış vokalden çıkarım
-
     suspend fun fromYouTube(link: String, onProgress: (PipelineProgress) -> Unit): AnalyzedTrack = withContext(Dispatchers.IO) {
         onProgress(PipelineProgress(Step.RESOLVE, 0f)) // Çözümleme başlıyor
         val track = youTube.resolve(link) // Bilgi
@@ -65,39 +62,27 @@ class MelodyPipeline(private val context: Context, private val youTube: YouTubeS
     }
 
     private suspend fun analyze(file: File, onProgress: (PipelineProgress) -> Unit): Melody {
-        onProgress(PipelineProgress(Step.DECODE, 0f)) // Çözme
-        val pcm = AudioDecoder.decodeToMono(file, ANALYSIS_RATE) { onProgress(PipelineProgress(Step.DECODE, it)) } // PCM
-        coroutineContext.ensureActive() // İptal
-        onProgress(PipelineProgress(Step.SEPARATE, 0f)) // Vokal ayırma
         val ctx = coroutineContext // Geri çağrı içinden iptal kontrolü için bağlam
-        val guard = context.getSharedPreferences("koruma", Context.MODE_PRIVATE) // Yerel (native) çökme koruması
-        val strikes = guard.getInt(KEY_SEP_STRIKES, 0) // Vokal ayırma sırasında kaç kez süreç öldü/çöktü
-        val vocal = if (strikes >= MAX_SEP_STRIKES) { android.util.Log.w("MelodiZil", "Vokal ayırma $strikes kez yarıda kaldı, atlanıyor"); null } // Bu cihazda model sürekli çöküyorsa karışımla devam (uygulama kullanılabilir kalsın)
-        else try { // Model yoksa ya da bellek yetmezse karışımla devam edilir
-            guard.edit().putInt(KEY_SEP_STRIKES, strikes + 1).commit() // Başlamadan say: süreç burada ölürse sayaç kalır
-            TfliteMaskModel(context).use { m -> VocalSeparator(m).separate(pcm) { ctx.ensureActive(); onProgress(PipelineProgress(Step.SEPARATE, it)) } }
-                .also { guard.edit().putInt(KEY_SEP_STRIKES, 0).apply() } // Başarılı: sayaç sıfırlanır
-        } catch (e: kotlinx.coroutines.CancellationException) { guard.edit().putInt(KEY_SEP_STRIKES, strikes).apply(); throw e } // Kullanıcı iptali çökme sayılmaz
-        catch (e: Throwable) { guard.edit().putInt(KEY_SEP_STRIKES, 0).apply(); android.util.Log.w("MelodiZil", "Vokal ayırma atlandı", e); null } // Yakalanan hata: karışımla devam
+        onProgress(PipelineProgress(Step.MODEL, 0f)) // Model hazırlığı (ilk seferde ~99 MB iner)
+        val modelFile = ModelStore.ensure(context) { ctx.ensureActive(); onProgress(PipelineProgress(Step.MODEL, it)) } // Model
         coroutineContext.ensureActive() // İptal
-        val useVocal = vocal != null && rms(vocal) >= VOCAL_PRESENCE * rms(pcm) // Vokal yoksa (enstrümantal) karışımdan çıkar
+        onProgress(PipelineProgress(Step.DECODE, 0f)) // Çözme
+        val pcm = AudioDecoder.decodeToMono(file, ANALYSIS_RATE) { onProgress(PipelineProgress(Step.DECODE, it)) } // 16 kHz mono PCM
+        coroutineContext.ensureActive() // İptal
         onProgress(PipelineProgress(Step.ANALYZE, 0f)) // Analiz
-        val melody = if (useVocal) vocalExtractor.extract(vocal!!) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Vokalden
-        else mixExtractor.extract(pcm) { onProgress(PipelineProgress(Step.ANALYZE, it)) } // Karışımdan
+        val track = OrtRmvpe(modelFile.path).use { m -> m.estimate(pcm) { ctx.ensureActive(); onProgress(PipelineProgress(Step.ANALYZE, it * 0.95f)) } } // Karışık sesten ana ezgi perdesi
+        coroutineContext.ensureActive() // İptal
+        val melody = NoteTracker.track(track, pcm.size.toFloat() / ANALYSIS_RATE) // Perde izi → temiz notalar
+        onProgress(PipelineProgress(Step.ANALYZE, 1f)) // Bitti
         if (melody.isEmpty) throw SourceException.Unavailable("Bu kayıtta belirgin bir melodi bulunamadı") // Boş
         return melody // Sonuç
     }
-
-    private fun rms(x: FloatArray): Double { var e = 0.0; for (v in x) e += v * v; return kotlin.math.sqrt(e / x.size.coerceAtLeast(1)) } // RMS
 
     private fun queryName(uri: Uri): String? = try { // Dosya adını sorgula
         context.contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } // İlk satır
     } catch (e: Exception) { null } // Sorgu başarısız
 
     companion object {
-        const val ANALYSIS_RATE = 22050 // Analiz örnekleme hızı
-        const val VOCAL_PRESENCE = 0.1 // Vokal kanalı karışımın %10'undan sessizse şarkı enstrümantal sayılır
-        private const val KEY_SEP_STRIKES = "vokal_yarida" // Vokal ayırma sırasında süreç ölümü sayacı
-        private const val MAX_SEP_STRIKES = 3 // Üst üste bu kadar yarıda kalırsa bu cihazda vokal ayırma atlanır
+        const val ANALYSIS_RATE = 16000 // RMVPE'nin beklediği örnekleme hızı
     }
 }

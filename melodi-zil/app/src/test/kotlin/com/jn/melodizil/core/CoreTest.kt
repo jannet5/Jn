@@ -30,47 +30,8 @@ class CoreTest {
 
     /** Sentetik "şarkı": melodi (harmonik zengin) + bas + akor pedleri + gürültü. Melodi geri bulunmalı. */
     @Test
-    fun cokSesliKaritisimdanMelodiGeriBulunur() {
-        val sr = 22050 // Hız
-        val melody = intArrayOf(67, 67, 69, 67, 72, 71, 67, 67, 69, 67, 74, 72) // "Happy Birthday" başı (G4…)
-        val noteDur = 0.4f // Nota süresi
-        val total = (melody.size * noteDur * sr).toInt() // Örnek
-        val pcm = FloatArray(total) // Sinyal
-        var seed = 7 // Gürültü
-        for (i in 0 until total) { // Her örnek
-            val t = i.toFloat() / sr // Zaman
-            val idx = (t / noteDur).toInt().coerceAtMost(melody.size - 1) // Nota indeksi
-            val f = midiToHz(melody[idx]) // Melodi frekansı
-            val tn = t - idx * noteDur // Nota içi zaman
-            val env = if (tn < 0.01f) tn / 0.01f else 1f // Zarf
-            var s = 0f // Melodi: 6 harmonik
-            for (h in 1..6) s += sin(2 * PI * f * h * t).toFloat() / h // Harmonikler
-            s *= 0.5f * env // Genlik
-            val bass = midiToHz(43) // Bas G2
-            s += 0.4f * sin(2 * PI * bass * t).toFloat() + 0.2f * sin(2 * PI * bass * 2 * t).toFloat() // Bas
-            for (c in intArrayOf(55, 59, 62)) s += 0.15f * sin(2 * PI * midiToHz(c) * t).toFloat() // Akor (G3 B3 D4)
-            seed = seed * 1103515245 + 12345; s += 0.02f * (((seed ushr 8) and 0xFFFF) / 32768f - 1f) // Gürültü
-            pcm[i] = s * 0.5f // Yaz
-        }
-        val result = MelodyExtractor(sr, p = MelodyExtractor.Params.parse(System.getenv("MELODI_PARAMS"))).extract(pcm) // Çıkarım (varsayılan ya da test ayarı)
-        assertTrue("Nota yok", result.notes.isNotEmpty()) // Boş olmasın
-        var correct = 0f // Doğru süre
-        for (n in result.notes) { // Her çıkan nota
-            var t = n.startSec // Zaman
-            while (t < n.endSec) { // Çerçeve çerçeve
-                val idx = (t / noteDur).toInt().coerceAtMost(melody.size - 1) // Beklenen
-                if (melody[idx] == n.midi) correct += 0.01f // Doğru
-                t += 0.01f // İlerle
-            }
-        }
-        val accuracy = correct / (melody.size * noteDur) // Doğru oran
-        println("Sentetik melodi doğruluğu: %.2f, notalar: %s".format(accuracy, result.notes.map { midiToName(it.midi) })) // Bilgi
-        assertTrue("Doğruluk düşük: $accuracy", accuracy > 0.8f) // En az %80
-    }
-
-    @Test
-    fun sessizGirdiBosMelodiVerir() {
-        val m = MelodyExtractor().extract(FloatArray(22050 * 3)) // 3 sn sessizlik
+    fun sessizPerdeIziBosMelodiVerir() {
+        val m = NoteTracker.track(PitchTrack(0.01f, FloatArray(300), FloatArray(300)), 3f) // 3 sn sessizlik
         assertTrue(m.isEmpty) // Nota yok
         assertEquals(3f, m.durationSec, 0.01f) // Süre doğru
     }

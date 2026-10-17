@@ -19,6 +19,7 @@
 -dontwarn okhttp3.**
 -dontwarn okio.**
 
-# TensorFlow Lite (JNI ile çağrılan sınıflar korunur)
--keep class org.tensorflow.lite.** { *; }
--dontwarn org.tensorflow.lite.**
+
+# ONNX Runtime yerel kodu Java sınıflarına JNI ile bağlanır
+-keep class ai.onnxruntime.** { *; }
+-dontwarn ai.onnxruntime.**

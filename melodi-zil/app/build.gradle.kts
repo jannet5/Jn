@@ -80,7 +80,6 @@ android {
         }
     }
 
-    androidResources { noCompress += "tflite" } // Model sıkıştırılmadan paketlenir: belleğe doğrudan eşlenir
 }
 
 dependencies {
@@ -102,7 +101,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.8.5") // Ekranlar arası gezinme
     implementation("androidx.datastore:datastore-preferences:1.1.1") // Ayarlar (tema, geçmiş)
     implementation("io.coil-kt:coil-compose:2.7.0") // Kapak görseli yükleme
-    implementation("org.tensorflow:tensorflow-lite:2.17.0") // Cihaz üstü vokal ayırma modeli (Spleeter vokal U-Net)
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.28.0") // Cihaz üstü ezgi (perde) modeli RMVPE int8: ONNX Runtime
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0") // HTTP istemcisi (indirme)
     implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.26.5") // YouTube ses akışı çözücü (açık kaynak, NewPipe)
@@ -112,6 +111,7 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling") // Önizleme araçları
     testImplementation("junit:junit:4.13.2") // Birim test
+    testImplementation("com.microsoft.onnxruntime:onnxruntime:1.28.0") // JVM testinde aynı ONNX modeli masaüstü çalışma zamanıyla koşmak için
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0") // Coroutine testi
 }
 
