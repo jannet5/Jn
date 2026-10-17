@@ -81,3 +81,9 @@
 - Kök neden: Proxy üzerinden Maven Central'a gelen eşzamanlı istekler ara sıra 429/geçici 404 dönüyor; Gradle geçici 404'ü "yok" diye önbelleğe yazıp bir sonraki denemede de hata veriyor. `--refresh-dependencies` her şeyi yeniden çektiği için durumu kötüleştirdi.
 - Çözüm: `araclar/build_retry.sh <klasör> <görev>`: önce `~/.gradle/caches/modules-2/metadata-*` ve `transforms-*` silinir; `--max-workers=2`, `nice`, hata olunca metadata önbelleği silinip 15 sn sonra en çok 8 kez yeniden denenir. `--refresh-dependencies` kullanılmaz; başka bir Gradle/ajan aynı anda Maven'e vurmaz.
 - Doğrulama: 2. denemede `BUILD SUCCESSFUL in 4m 26s`; `aapt2 dump badging` → targetSdk 35, versionName 1.1.1, arm64 debug APK 43 MB.
+
+## Ç-017: Paralel ajanların yarısı hiç çalışmadı (iş akışı eşzamanlılık sınırı)
+- Belirti: 4 ajan başlatıldı, yalnızca 2'sinin kaydı oluştu; son ikisi iş yapmadan "süre doldu" raporu verdi (tur 2 ve tur 3).
+- Kök neden: Workflow aynı anda `min(16, CPU sayısı − 2)` ajan çalıştırır; bu makinede 4 CPU → 2. Sıradaki ajanın süresi (HARD STOP) bekleme sırasında akar.
+- Çözüm: Paralel ajan sayısı ≤ 2 planlanır; kritik yoldaki işi (derleme, entegrasyon) ana oturum yapar; ajan istemlerinde saat sınırı "başlama" değil "mutlak saat"tir, bu yüzden geç başlayan ajan boşa gider.
+- Doğrulama: Tur 3'te sorun fark edilince entegrasyon ana oturumda yapıldı; `:app:assembleDebug` BAŞARILI.

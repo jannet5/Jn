@@ -38,8 +38,8 @@ Durum: ⬜ başlamadı · 🛠️ yapılıyor · ✅ yapıldı+doğrulandı · �
 | 27 | Titreme/kayma/kırık nota temizle, tona (gam) oturt | ✅ | Viterbi + akort düzeltme + enerji ile tekrar-nota bölme (v2). Gama çekme denendi, Vocadito'da −0,09 zarar verdi → kapalı |
 | 28 | ≥3 bilinen şarkı için 30 sn melodi MP3 örneği (kullanıcı dinleyip onaylayacak) | ⚠️ | 3 yedek (eski kayıt) örnek üretildi ve gönderildi; pop şarkı: YouTube 403 (IP bağlı URL) |
 | 29 | Kotlin+Compose+M3, minSdk 26, targetSdk 35 | ✅ (önceki kod) | |
-| 30 | Uzun işler ön plan servisi + bildirim; boş ekran asla; süreç ölünce "Tekrar dene" | ⚠️ (önceki kod, yeniden test edilecek) | |
-| 31 | Ekranda gerçek süre yaz | ⬜ | yeni modelle yeniden ölçülecek |
+| 30 | Uzun işler ön plan servisi + bildirim; boş ekran asla; süreç ölünce "Tekrar dene" | ⚠️ | önceki kod korundu, yeni Step.MODEL eklendi; yeni APK ile süreç öldürme testi bekliyor |
+| 31 | Ekranda gerçek süre yaz | ⚠️ | metin yazıldı (3–4 dk şarkı 1–3 dk, ilk seferde ~99 MB); telefonda ölçülüp düzeltilecek |
 | 32 | NewPipeExtractor (GPL-3.0) + Play reddederse B planı | ⚠️ | B planı yazılacak |
 | 33 | Test: API 26 + güncel Android'de uçtan uca; zil gerçekten değişti mi | ⬜ | |
 | 34 | Test: süreç öldürme (am kill / kill -9) | ⬜ | |
