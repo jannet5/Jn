@@ -55,6 +55,7 @@ Emülatörün bulduğu ve düzeltilen gerçek hatalar: D-008 (Android 13 altı �
 | Aynı set, nota F (insan işaretli) | 0.53 | 0.60 (P 0.68) |
 | Gerçek pop şarkısı nakaratı | bulunamıyor | notalar doğru sırayla |
 - Yarışan modeller (aynı set): RMVPE karışımda %96 (181 MB), FCPE ayrılmış vokalde %97.5 (43 MB), CREPE tiny ayrılmış vokalde %97 (2 MB, seçildi).
+- Emülatör (Android 8.0): 10 sn nakarat dosyası → vokal ayırma → CREPE (tam ve eksik toplu) → "Melodin hazır", 33 nota; logcat'te "CREPE: 33 nota", "atlandı" uyarısı yok. İlk denemede eksik toplu TFLite tampon hatası yakalandı ve düzeltildi (Ç-015).
 - Kotlin = Python: `CrepeMelodyTest` (enerji, güven, Viterbi yolu birebir). TFLite = PyTorch: fark 4e-7.
 - Hız (sunucu, 4 çekirdek): 4 dk şarkıda CREPE ~7 sn (20 ms kare + sessiz kare atlama), vokal ayırma ~8 sn.
 - APK: arm64 28 MB (sohbet eki sınırı altında), evrensel 39.8 MB; AAB 32 MB.
