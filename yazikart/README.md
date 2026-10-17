@@ -12,6 +12,8 @@ görsel olarak kaydetmeye/paylaşmaya yarayan basit Android uygulaması.
 | 50 yazı tipi | Dünyada en çok kullanılan Google Fonts yazı tipleri (Roboto, Open Sans, Montserrat, Poppins, Bebas Neue, Pacifico…). Hepsi uygulamanın içinde, **internetsiz çalışır**, hepsi Türkçe karakterleri (ç ğ ı İ ö ş ü) destekler. Arial yerine metrik olarak birebir aynı **Arimo**, Times New Roman yerine **Tinos** var |
 | Google Görseller | "Google'da ara"ya bas, uygulama içinde gerçek Google Görseller açılır; görsele dokun, büyüyünce basılı tut → arka plan olur. İnternet yoksa düğme "İnternet yok" der |
 | Galeriden görsel | Telefondaki bir fotoğrafı arka plan yap |
+| Video arka plan | "Video ara" (uygulama içinde ücretsiz video sitesi Pexels; videoyu açıp "Ücretsiz indir"e bas) ya da galeriden video. En fazla 5 video arka arkaya; her birinin başlangıç/bitiş süresi makas düğmesiyle ayarlanır, sırası değiştirilir. Önizlemede yazı videonun üstünde canlı görünür |
+| Video kaydet/paylaş | Video varken Kaydet/Paylaş **MP4** üretir: videolar birleştirilir, kırpılır, seçilen boyuta (ör. 1080×1920) getirilir, yazı videoya basılır. Telefonun donanım kodlayıcısı kullanılır; galeride `Filmler/YaziKart` |
 | Karartma | Arka plan fotoğrafını koyulaştırıp yazıyı okunur yapar |
 | Boyut | Kare 1:1 (1080×1080), Dikey 4:5 (1080×1350), Hikâye 9:16 (1080×1920) |
 | Kaydet | PNG ya da JPEG olarak galeriye, `Resimler/YaziKart` klasörüne |
@@ -31,6 +33,12 @@ büyüyünce üstüne **basılı tut**: görsel telefona iner ve arka plan olur.
   seçtiğin görsel de doğrudan bulunduğu siteden iner. Arada başka kimse yok.
 - İnternet yoksa bu ekran açılmaz; uygulamanın geri kalanı internetsiz çalışır.
 - Görsellerin telif hakkı sahiplerine aittir; kişisel kullanım dışında kaynağı kontrol et.
+
+## Hafiflik
+
+- Video için Android'in kendi kütüphanesi (Media3) kullanılır; FFmpeg gibi ağır bir motor yok.
+- Kullanılmayan kod derlemede atılır (R8): video eklenmesine rağmen APK **16,7 MB → 7,8 MB** oldu.
+- Uygulamanın sunucusu yok; video ve görseller doğrudan bulundukları siteden telefona iner.
 
 ## Kurulum (telefona)
 
@@ -59,7 +67,10 @@ app/src/main/kotlin/com/jn/yazikart/
   data/PostStyle.kt        görsel ayarları + son stili saklama
   data/ImageExporter.kt    galeriye kaydet (PNG/JPEG) + paylaş
   render/PostRenderer.kt   önizleme ve kaydın ortak çizicisi
-  search/GooglePick.kt     Google Görseller'de basılı tutulan görselden en iyi adresi seçer
+  search/GooglePick.kt     Google Görseller'de en iyi görsel adresi + Pexels video arama adresleri
+  data/VideoClip.kt        video parçası (başlangıç/bitiş) ve süre hesapları
+  video/VideoExporter.kt   videoları birleştir + kırp + yazıyı bas → MP4 (Media3 Transformer)
+  video/VideoDownloader.kt internetten video indirme (300 MB sınır)
   search/NetworkMonitor.kt internet var mı (canlı)
   ui/                      ekranlar ve paneller (Jetpack Compose); GoogleImagesScreen = uygulama içi Google Görseller
 app/src/main/assets/fonts/ 50 yazı tipinin dosyaları (Latin + Türkçe karakterlere küçültülmüş)
