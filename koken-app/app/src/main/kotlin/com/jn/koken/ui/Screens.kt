@@ -196,7 +196,10 @@ private fun ErrorView(rateLimited: Boolean, onRetry: () -> Unit) {
     }
 }
 
-private enum class SourceTab(val label: String) { WT("Vikisözlük"), WE("Wiktionary"), WP("Vikipedi") }
+private fun WiktionaryResult?.hasEtymology(): Boolean =
+    this != null && languages.any { l -> l.groups.any { it.etymology != null } }
+
+private enum class SourceTab(val label: String) { WT("Vikisözlük"), WE("Wiktionary EN"), WP("Vikipedi") }
 
 @Composable
 private fun ResultView(data: LookupResult) {
@@ -205,7 +208,11 @@ private fun ResultView(data: LookupResult) {
         if (data.wiktEn != null) add(SourceTab.WE)
         if (data.wiki != null) add(SourceTab.WP)
     }
-    var selected by rememberSaveable(data.query) { mutableIntStateOf(0) }
+    // Açılışta köken bilgisi olan ilk sekmeyi göster (ana özellik gizli kalmasın)
+    val initial = tabs.indexOfFirst {
+        (it == SourceTab.WT && data.wiktTr.hasEtymology()) || (it == SourceTab.WE && data.wiktEn.hasEtymology())
+    }.coerceAtLeast(0)
+    var selected by rememberSaveable(data.query) { mutableIntStateOf(initial) }
     var showAll by rememberSaveable(data.query, selected) { mutableStateOf(false) }
     val tab = tabs[selected.coerceIn(0, tabs.size - 1)]
 
@@ -365,7 +372,7 @@ private fun SourceFooter(sourceLabel: String, url: String, query: String) {
     val ctx = LocalContext.current
     Column(verticalArrangement = Arrangement.spacedBy(Sp.xs)) {
         FlowRow {
-            TextButton(onClick = { open(ctx, url) }, modifier = Modifier.heightIn(min = 48.dp)) { Text("$sourceLabel'de aç ↗") }
+            TextButton(onClick = { open(ctx, url) }, modifier = Modifier.heightIn(min = 48.dp)) { Text("Kaynak sayfayı aç ↗") }
             TextButton(onClick = { open(ctx, nisanyan(query)) }, modifier = Modifier.heightIn(min = 48.dp)) { Text("Nişanyan Sözlük ↗") }
             TextButton(onClick = { open(ctx, "https://www.etymonline.com/search?q=" + Uri.encode(query)) }, modifier = Modifier.heightIn(min = 48.dp)) { Text("Etymonline ↗") }
         }

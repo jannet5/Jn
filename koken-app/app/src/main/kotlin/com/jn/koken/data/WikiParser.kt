@@ -152,19 +152,21 @@ internal object EtymologyExtractor {
         // Zincir sadece ilk paragraftan; akrabalar ve parçalar tüm paragraflardan
         allRaw.forEachIndexed { pi, raws ->
             var state = Kind.CHAIN
+            var chainSentence = true // ilk cümle zincirdir; sonraki cümleler ancak "From/Borrowed…" ile başlarsa zincirdir
             for (r in raws) {
                 val b = r.before.lowercase(if (tr) trLocale else Locale.ROOT)
                 val rel = if (tr) relatedTr else relatedEn
                 val ch = if (tr) chainTr else chainEn
-                // Yeni cümle başladıysa ve "from/kökenli" gibi bir bağlaç yoksa bu terim zincire ait değildir
                 val boundary = sentenceBoundary.findAll(r.before).lastOrNull()
-                val tail = if (boundary != null) b.substring(boundary.range.last.coerceAtMost(b.length - 1)).trim() else b
+                val scope = if (boundary != null) b.substring(boundary.range.last.coerceAtMost(b.length - 1)).trim() else b
+                if (boundary != null) {
+                    chainSentence = ch.any { scope.startsWith(it) }
+                    state = if (chainSentence) Kind.CHAIN else Kind.OTHER
+                }
                 val kind = when {
                     "+" in b || "+" in r.after -> Kind.PART
-                    rel.any { it in b } -> Kind.RELATED
-                    boundary == null && ch.any { it in b } -> Kind.CHAIN
-                    boundary != null && ch.any { tail.startsWith(it) } -> Kind.CHAIN
-                    boundary != null -> Kind.OTHER
+                    rel.any { it in scope } -> Kind.RELATED
+                    chainSentence && ch.any { it in scope } -> Kind.CHAIN
                     else -> state
                 }
                 if (kind != Kind.PART) state = kind
@@ -282,7 +284,8 @@ object WiktionaryParser {
                         for (li in el.children().toList().filter { it.tagName() == "li" }.take(5)) {
                             val c = li.clone()
                             c.select("ul, ol, dl, .h-usage-example, .HQToggle, .citation-whole, style, link, sup, .mw-editsection").remove()
-                            val t = cleanText(c.text())
+                            // "(kitap) Ciltli veya ..." gibi sözcüğün kendisini parantez içinde tekrar eden öneki at
+                            val t = cleanText(c.text()).replace(Regex("^\\((${Regex.escape(title)})\\)\\s*", RegexOption.IGNORE_CASE), "")
                             if (t.isNotBlank()) e.defs.add(t)
                         }
                     }

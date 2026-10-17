@@ -58,6 +58,12 @@ class ParserTest {
         val en = r.languages.first { it.language == "İngilizce" }
         val ety = en.groups.first().etymology!!
         assertTrue("zincir: ${ety.chain}", ety.chain.any { it.langName == "Latince" })
+        // Zincir ilk cümleyle sınırlı: sonraki cümledeki "salārium argentum" zincire sızmamalı
+        assertEquals(
+            listOf("salarie", "salarie", "salaire", "salārium", "salārius", "sal"),
+            ety.chain.map { it.text },
+        )
+        assertEquals("sal", ety.chain.last().text)
         assertEquals("Latince", ety.originLanguage?.takeIf { it == "Latince" } ?: ety.chain.first { it.langName == "Latince" }.langName)
         assertTrue(en.groups.flatMap { it.entries }.isNotEmpty())
     }
