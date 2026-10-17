@@ -188,7 +188,7 @@
       chips.appendChild(li);
     });
     show(el('section', { class: 'state', 'aria-labelledby': 'homeTitle' },
-      icon('leaf').cloneNode(true) && withClass(icon('leaf'), 'big-ic'),
+      withClass(icon('leaf'), 'big-ic'),
       el('h2', { id: 'homeTitle', text: 'Henüz bir şey aramadınız' }),
       el('p', { text: 'Bir kelime yazın; hangi dilden geldiğini, hangi parçalardan oluştuğunu ve zaman içindeki yolunu gösterelim. Çekimli yazsanız da (kitaplar) kök sözcüğe gideriz.' }),
       el('p', { class: 'eyebrow', style: 'margin-top:16px;margin-bottom:8px', text: 'Deneyin' }),
@@ -248,6 +248,13 @@
         ul.appendChild(li);
       });
       box.appendChild(ul);
+    }
+    // Bazı kaynaklara ulaşılamadıysa "yok" demek yanıltıcı olur: uyar ve tekrar dene sun.
+    var partial = (res.sources || []).some(function (x) { return !x.ok; });
+    if (partial) {
+      box.appendChild(el('p', { style: 'margin-top:12px', text: 'Bazı kaynaklara ulaşılamadı; sonuç eksik olabilir.' }));
+      box.appendChild(el('div', { class: 'actions' }, el('button', { type: 'button', class: 'btn', on: { click: function () { run(state.word); } } },
+        icon('refresh'), 'Tekrar dene')));
     }
     if (res.sources && res.sources.length) box.appendChild(el('div', { style: 'margin-top:16px' }, sourceStrip(res.sources)));
     show(box);

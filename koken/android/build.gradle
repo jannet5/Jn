@@ -1,0 +1,2 @@
+// Kök yapı dosyası: Android Gradle Eklentisi sürümü burada sabitlenir
+plugins { id 'com.android.application' version '8.5.2' apply false }

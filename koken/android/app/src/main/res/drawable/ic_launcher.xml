@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Eski Android (24-25) simgesi: mavi yuvarlak köşeli kare üstünde beyaz K -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#1f4fd8" android:pathData="M24,0H84A24,24 0 0 1 108,24V84A24,24 0 0 1 84,108H24A24,24 0 0 1 0,84V24A24,24 0 0 1 24,0Z"/>
+    <path android:fillColor="#ffffff" android:pathData="M38,32H47V76H38Z M47,58L63,32H74L55,60Z M55,58L76,76H64L47,63Z"/>
+</vector>

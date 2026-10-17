@@ -1,0 +1,46 @@
+// Uygulama modülü: bağımlılık YOK (küçük APK), web dosyaları assets'e kopyalanır, anahtarla imzalanır
+plugins { id 'com.android.application' }
+
+// Web klasörü: varsayılan ../web, -PwebDir=... ile değiştirilebilir
+def webDirPath = project.hasProperty('webDir') ? project.property('webDir') : "${rootDir}/../web"
+
+android {
+    namespace 'app.koken'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'app.koken'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+    }
+    // Herkese açık yan-yükleme anahtarı: güncellemeler eskisinin üstüne kurulsun diye repoda durur
+    signingConfigs {
+        release {
+            storeFile file("${rootDir}/koken-release.jks")
+            storePassword 'koken123'
+            keyAlias 'koken'
+            keyPassword 'koken123'
+            enableV1Signing true
+            enableV2Signing true
+            enableV3Signing true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+    // Lint indirmesi Maven'dan 429 veriyor ve APK için gerekmiyor: kapalı
+    lint { checkReleaseBuilds false; abortOnError false }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    sourceSets { main { assets.srcDirs += "${buildDir}/generated/webassets" } }
+}
+
+// Web dosyalarını (testler, .mjs, sondaj hariç) assets klasörüne kopyalar
+tasks.register('syncWeb', Copy) {
+    from(webDirPath) { exclude '**/*.mjs', 'probe.html', 'node_modules/**', 'tests/**' }
+    into "${buildDir}/generated/webassets"
+}
+preBuild.dependsOn 'syncWeb'
