@@ -75,7 +75,11 @@ import androidx.compose.ui.focus.onFocusChanged // odak değişimi
 import androidx.compose.ui.graphics.SolidColor // düz boya
 import androidx.compose.ui.platform.LocalFocusManager // odak yöneticisi
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController // klavye denetimi
+import androidx.compose.ui.semantics.LiveRegionMode // canlı bölge
 import androidx.compose.ui.semantics.Role // erişilebilirlik rolü
+import androidx.compose.ui.semantics.contentDescription // erişilebilirlik adı
+import androidx.compose.ui.semantics.liveRegion // sesli duyuru
+import androidx.compose.ui.semantics.semantics // erişilebilirlik bilgisi
 import androidx.compose.ui.text.TextRange // seçim aralığı
 import androidx.compose.ui.text.input.ImeAction // klavye eylemi
 import androidx.compose.ui.text.input.KeyboardType // klavye türü
@@ -91,6 +95,7 @@ import androidx.compose.ui.layout.positionInRoot // köke göre konum
 import androidx.compose.ui.text.style.TextOverflow // taşma
 import androidx.compose.ui.unit.LayoutDirection // yön tipi
 import androidx.compose.ui.graphics.vector.ImageVector // ikon tipi
+import androidx.compose.ui.unit.Density // yoğunluk tipi
 import androidx.compose.ui.unit.dp // dp
 import androidx.core.view.WindowCompat // pencere yardımcıları
 import androidx.core.view.WindowInsetsCompat // sistem çubukları
@@ -300,6 +305,7 @@ private fun BottomChrome(quran: Quran, page: Int, onStep: (Int) -> Unit, onJump:
     val odak = LocalFocusManager.current // odak yöneticisi
     val klavye = LocalSoftwareKeyboardController.current // klavye denetimi
     DisposableEffect(Unit) { onDispose { klavye?.hide() } } // çubuk kapanırken klavye de kapansın
+    LaunchedEffect(page) { odak.clearFocus(); klavye?.hide() } // sayfa değişince (ok, kaydırma, Git) kutu odağı bırakır, klavye kapanır
     val git: () -> Unit = { // "Git" düğmesi ya da klavyedeki Git
         val n = yazi.text.toIntOrNull() // yazılan numara
         when {
@@ -316,7 +322,11 @@ private fun BottomChrome(quran: Quran, page: Int, onStep: (Int) -> Unit, onJump:
             Text("Sayfa $page / ${quran.pageCount}", style = MaterialTheme.typography.labelLarge) // sayfa
             Text("${quran.surahOfPage(page).turkishName} · ${quran.juzOfPage(page)}. Cüz", style = MaterialTheme.typography.labelLarge, color = appColors.muted) // sure ve cüz
         }
-        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) { // mushaf yönü: "Sonraki" solda, "Önceki" sağda (telefon dili ne olursa olsun)
+        val yog = LocalDensity.current // ekran yoğunluğu
+        CompositionLocalProvider(
+            LocalLayoutDirection provides LayoutDirection.Ltr, // mushaf yönü: "Sonraki" solda, "Önceki" sağda (telefon dili ne olursa olsun)
+            LocalDensity provides Density(yog.density, yog.fontScale.coerceAtMost(1.3f)), // en büyük sistem yazısında da düğme yazıları kırpılmasın
+        ) {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Space.s)) { // oklar ve kutu
                 StepButton(Lucide.ChevronLeft, "Sonraki", "Sonraki sayfa", page < quran.pageCount) { onStep(1) } // sola: sonraki sayfa
                 Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Space.s)) { // ortada numara kutusu ve Git
@@ -333,7 +343,7 @@ private fun BottomChrome(quran: Quran, page: Int, onStep: (Int) -> Unit, onJump:
                         cursorBrush = SolidColor(MaterialTheme.colorScheme.primary), // imleç rengi
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Go), // rakam klavyesi, "Git" tuşu
                         keyboardActions = KeyboardActions(onGo = { git() }), // klavyedeki Git
-                        modifier = Modifier.weight(1f).height(STEP_HEIGHT).onFocusChanged { f -> // dokununca eski numara silinir (yeni numara üstüne eklenmesin)
+                        modifier = Modifier.weight(1f).height(STEP_HEIGHT).semantics { contentDescription = "Sayfa numarası" }.onFocusChanged { f -> // dokununca eski numara silinir (yeni numara üstüne eklenmesin)
                             if (f.isFocused) yazi = TextFieldValue("") else if (yazi.text.isEmpty()) yazi = TextFieldValue(page.toString()) // odak gidince boşsa eski numara geri gelir
                         },
                         decorationBox = { kutu -> // görünüm
@@ -357,7 +367,7 @@ private fun BottomChrome(quran: Quran, page: Int, onStep: (Int) -> Unit, onJump:
                 StepButton(Lucide.ChevronRight, "Önceki", "Önceki sayfa", page > 1) { onStep(-1) } // sağa: önceki sayfa
             }
         }
-        if (hata) Text("1 ile ${quran.pageCount} arasında bir sayfa yaz", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center) // uyarı
+        if (hata) Text("1 ile ${quran.pageCount} arasında bir sayfa yaz", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.error, modifier = Modifier.fillMaxWidth().semantics { liveRegion = LiveRegionMode.Polite }, textAlign = TextAlign.Center) // uyarı (TalkBack okur)
     }
 }
 

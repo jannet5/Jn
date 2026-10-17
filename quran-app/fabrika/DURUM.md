@@ -1,7 +1,7 @@
 # DURUM: Kur'an Oku (kuran-oku)
 
 **Şu anki aşama:** 08 Kalite & Yayın
-**Sıradaki adım:** Kullanıcı APK'yı telefonunda deneyecek; geri bildirime göre düzeltme.
+**Sıradaki adım:** Kullanıcı imza anahtarını + şifresini verince 1.4.0 o anahtarla imzalanıp teslim edilecek.
 **Başlangıç:** 2026-10-04
 
 | # | Aşama | Durum | Onay tarihi | Not |
@@ -16,6 +16,7 @@
 | 08 | Kalite & Yayın | ⏳ | | İmzalı APK hazır, kullanıcı testi bekleniyor |
 
 ## Günlük (en yeni en üstte)
+- 2026-10-17: 1.4.0 — alt çubukta kaydırıcı kalktı; Sonraki/Önceki okları ve numara yazıp Git kutusu eklendi. İmza anahtarı bekleniyor (eski sürümün üstüne kurulum için).
 - 2026-10-04: Kullanıcı "kısım kısım yok, full bitir" dedi; kapılar tek seferde geçildi. Uygulama yazıldı, testler geçti, imzalı APK (≈2 MB) üretildi.
 - 2026-10-04: 01-03 tamamlandı, 04 yön önizlemesi yayınlandı.
 - 2026-10-04: Fabrika başlatıldı.
