@@ -1,0 +1,17 @@
+  [INFO]: device is not None, use cpu
+  [INFO]    > call by:torchfcpe.tools.spawn_infer_cf_naive_mel_pe_from_pt
+  [WARN] args.model.use_harmonic_emb is None; use default False
+  [WARN]    > call by:torchfcpe.tools.spawn_cf_naive_mel_pe
+vocadito_1             RPA 0.994 RCA 0.994 OA 0.918 notaF 0.495 (1.4s/33.2s)
+vocadito_5             RPA 0.993 RCA 0.993 OA 0.861 notaF 0.308 (0.5s/23.2s)
+vocadito_9             RPA 0.980 RCA 0.980 OA 0.867 notaF 0.643 (0.4s/20.4s)
+vocadito_14            RPA 0.986 RCA 0.986 OA 0.842 notaF 0.400 (0.3s/12.2s)
+[error with torchfcpe.mel_extractor.MelModule]max value is  tensor(1.0058)
+vocadito_18            RPA 0.989 RCA 0.989 OA 0.953 notaF 0.579 (0.7s/29.1s)
+vocadito_22            RPA 0.977 RCA 0.977 OA 0.918 notaF 0.521 (0.4s/18.3s)
+vocadito_27            RPA 0.996 RCA 0.996 OA 0.873 notaF 0.678 (0.3s/14.0s)
+vocadito_31            RPA 0.976 RCA 0.976 OA 0.824 notaF 0.557 (0.3s/14.0s)
+vocadito_35            RPA 0.999 RCA 0.999 OA 0.899 notaF 0.373 (0.3s/13.8s)
+vocadito_40            RPA 0.987 RCA 0.997 OA 0.845 notaF 0.553 (0.4s/18.6s)
+ORTALAMA {"RPA": 0.9876980514358852, "RCA": 0.9886975963975623, "OA": 0.8800227748575727, "VR": 0.9987460555648549, "VFA": 0.31271627838796034, "RPA_oktavsiz": 0.9886130313192745, "nota_P": 0.651679196806057, "nota_R": 0.4250683042981012, "nota_F": 0.5105331186891667, "klip_sayisi": 10, "toplam_ses_sn": 196.9, "toplam_islem_sn": 5.0, "RTF": 0.025}
+yazildi: /home/user/Jn/melodi-zil/arastirma/sonuc/fcpe_mix_thr0.006_vocadito_10klip.json

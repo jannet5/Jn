@@ -6,7 +6,7 @@
 - ML ortamı (`/home/user/venv-ml`: torch CPU, demucs, torchcrepe, basic-pitch, mir_eval…), RMVPE ağırlıkları, ORTAM.md.
 - Veri: MIR-1K (100 klip karışım+vokal, perde etiketli), Vocadito (40 solo, insan notalı). Ölçüm aleti: `araclar/degerlendirme/olc.py` (RPA, RCA, OA, oktavsız RPA, nota F, RTF).
 - Ölçüm sonuçları (`arastirma/sonuc/*.json`): RMVPE ayırmasız karışımda doğru perde **%92–95** (hedef ≥%80 ✅). pYIN karışımda %29,7.
-- Nota temizleme: `arastirma/ortak/nota_cikar.py` — nota F Vocadito **0,46→0,64**, MIR-1K karışım **0,665** (hedef 0,65: ham perdede ✅ sınırda; yarım tona yuvarlanmış çıktıda 0,61–0,62 ⚠️).
+- Nota temizleme: `arastirma/ortak/nota_cikar.py` — nota F Vocadito **0,46→0,64**, MIR-1K karışım ~~0,665~~ (düzeltme: dairesel ölçümdü; tutarlı sayı 0,525, bkz. DURUM_TUR2) (hedef 0,65: ham perdede ✅ sınırda; yarım tona yuvarlanmış çıktıda 0,61–0,62 ⚠️).
 - Araştırma: `docs/ARASTIRMA_MELODI.md`.
 
 - Model küçültme: RMVPE ONNX int8 (dinamik nicemleme) **361 MB → 98,7 MB**, doğruluk aynı (MIR-1K karışım 10 klip: doğru perde %91,26 vs %91,28; nota F 0,634 vs 0,633). Hız (bu x86 CPU, 2 iş parçacığı): gerçek zamanın ~0,09 katı (3–4 dk şarkı ≈ 20 sn); arm64 telefonda ölçülecek. Dosya: `/home/user/models/rmvpe_q/rmvpe_int8.onnx` (depoda yok; betik: nicemleme `onnxruntime.quantization.quantize_dynamic`).
