@@ -1,0 +1,353 @@
+{
+  "query": "pijama",
+  "resolved": "pijama",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From French pyjama, from English pyjama, from Hindustani پائجامہ / पैजामा (paijāmā), from Classical Persian پایجامه (pāyjāma), archaic form of پاجامه (pājāma). Doublet of pacame.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "pyjamas",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "pyjama",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "pyjama",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Hindustani",
+              "languageTr": "Hindustani",
+              "term": "پائجامہ",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Classical Persian",
+              "languageTr": "Classical Persian",
+              "term": "پایجامه",
+              "translit": "pāyjāma",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "پاجامه",
+              "translit": "pājāma",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Turkish",
+              "term": "pacame"
+            }
+          ],
+          "gloss": "pyjamas",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Fransızca pyjama (fr)",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "pijama",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "pyjama",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/pijama#Turkish"
+    },
+    {
+      "language": "Catalan",
+      "languageTr": "Katalanca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from English pyjama.",
+          "chain": [
+            {
+              "language": "Catalan",
+              "languageTr": "Katalanca",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "pyjamas (clothes for wearing to bed and sleeping in)",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "pyjama",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "pyjamas (clothes for wearing to bed and sleeping in)",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Borrowed from French Pêche Melba, a dessert that inspired chef Paco Parellada of the 7 Portes restaurant in Barcelona, who created the pijama in 1951.",
+          "chain": [
+            {
+              "language": "Catalan",
+              "languageTr": "Katalanca",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "(cooking) a dessert consisting of ice cream, whipped cream, flan, and fruit in syrup",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "Pêche Melba",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(cooking) a dessert consisting of ice cream, whipped cream, flan, and fruit in syrup",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/pijama#Catalan"
+    },
+    {
+      "language": "Portuguese",
+      "languageTr": "Portekizce",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from English pyjamas, from Hindi पैजामा (paijāmā), from Persian پایجامه (“leg garment”).",
+          "chain": [
+            {
+              "language": "Portuguese",
+              "languageTr": "Portekizce",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "pajamas (clothes for wearing to bed and sleeping in)",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "pyjamas",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Hindi",
+              "languageTr": "Hintçe",
+              "term": "पैजामा",
+              "translit": "paijāmā",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "پایجامه",
+              "translit": null,
+              "gloss": "leg garment",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "pajamas (clothes for wearing to bed and sleeping in)",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Borrowed from Catalan pijama, from French Pêche Melba (“Peach Melba”), a dessert of peaches and raspberry sauce with vanilla ice cream, invented in 1892 or 1893 by the French chef Auguste Escoffier at the Savoy Hotel, London, to honour the Australian soprano Nellie Melba.",
+          "chain": [
+            {
+              "language": "Portuguese",
+              "languageTr": "Portekizce",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "(Portugal, informal, cooking) assortment of desserts",
+              "relation": "unknown"
+            },
+            {
+              "language": "Catalan",
+              "languageTr": "Katalanca",
+              "term": "pijama",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "Pêche Melba",
+              "translit": null,
+              "gloss": "Peach Melba",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(Portugal, informal, cooking) assortment of desserts",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/pijama#Portuguese"
+    },
+    {
+      "language": "Romanian",
+      "languageTr": "Rumence",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French pyjama, from Hindi पैजामा (paijāmā, “pajama”), from Persian پایجامه (“leg garment”).",
+          "chain": [
+            {
+              "language": "Romanian",
+              "languageTr": "Rumence",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "pyjamas",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "pyjama",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Hindi",
+              "languageTr": "Hintçe",
+              "term": "पैजामा",
+              "translit": "paijāmā",
+              "gloss": "pajama",
+              "relation": "derived"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "پایجامه",
+              "translit": null,
+              "gloss": "leg garment",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "pyjamas",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/pijama#Romanian"
+    },
+    {
+      "language": "Spanish",
+      "languageTr": "İspanyolca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from English pyjamas. The masculine gender is due to analogy with loanwords from the Ancient Greek neuter third declension, but it is not actually a Greek word.",
+          "chain": [
+            {
+              "language": "Spanish",
+              "languageTr": "İspanyolca",
+              "term": "pijama",
+              "translit": null,
+              "gloss": "pyjamas",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "pyjamas",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "pyjamas",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/pijama#Spanish"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/pijama",
+      "ok": true,
+      "ms": 50981,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/pijama",
+      "ok": true,
+      "ms": 2709,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:27:04.297Z"
+}

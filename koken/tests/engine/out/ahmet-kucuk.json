@@ -1,0 +1,145 @@
+{
+  "query": "ahmet",
+  "resolved": "Ahmet",
+  "found": true,
+  "via": "ahmet → Ahmet (yazım düzeltildi)",
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "proper noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Ottoman Turkish احمد (ahmed), from Arabic أَحْمَد (ʔaḥmad).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "Ahmet",
+              "translit": null,
+              "gloss": "a male given name from Arabic, equivalent to English Ahmad",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "احمد",
+              "translit": "ahmed",
+              "gloss": null,
+              "relation": "inherited"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "أَحْمَد",
+              "translit": "ʔaḥmad",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "a male given name from Arabic, equivalent to English Ahmad",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Osmanlı Türkçesi احمد‎, o da Arapça أَحْمَد‎ (ʾaḥmed) kelimesinden gelmektedir.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "Ahmet",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "احمد",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "أَحْمَد",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/Ahmet#Turkish"
+    },
+    {
+      "language": "Serbo-Croatian",
+      "languageTr": "Sırp-Hırvatça",
+      "pos": [
+        "proper noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Ottoman Turkish احمد (ahmed), from Arabic أَحْمَد (ʔaḥmad).",
+          "chain": [
+            {
+              "language": "Serbo-Croatian",
+              "languageTr": "Sırp-Hırvatça",
+              "term": "Ahmet",
+              "translit": null,
+              "gloss": "(chiefly Bosnia) a male given name from Arabic, equivalent to English Ahmad",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "احمد",
+              "translit": "ahmed",
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "أَحْمَد",
+              "translit": "ʔaḥmad",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(chiefly Bosnia) a male given name from Arabic, equivalent to English Ahmad",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/Ahmet#Serbo-Croatian"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/Ahmet",
+      "ok": true,
+      "ms": 2764,
+      "note": "yazım varyantı: Ahmet"
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/Ahmet",
+      "ok": true,
+      "ms": 57065,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:24:01.101Z"
+}

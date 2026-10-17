@@ -1,0 +1,308 @@
+{
+  "query": "kitaplar",
+  "resolved": "kitap",
+  "found": true,
+  "via": "kitaplar → kitap (çoğul biçim, kök sözcüğe gidildi)",
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Ottoman Turkish كتاب, borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "كتاب",
+              "translit": null,
+              "gloss": null,
+              "relation": "inherited"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Osmanlı Türkçesi كتاب‎ (kitab) sözcüğünden devralındı, o da Arapça كتاب‎ (kitāb, “yazı, yazılı şey, belge, kitap”) sözcüğünden.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "kitap",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "كتاب",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كتاب",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Turkish"
+    },
+    {
+      "language": "Atong (India)",
+      "languageTr": "Atong (India)",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Assamese কিতাপ (kitap), borrowed from Classical Persian کِتَاب (kitāb), borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Atong (India)",
+              "languageTr": "Atong (India)",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Assamese",
+              "languageTr": "Assamese",
+              "term": "কিতাপ",
+              "translit": "kitap",
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Classical Persian",
+              "languageTr": "Classical Persian",
+              "term": "کِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Atong_(India)"
+    },
+    {
+      "language": "Crimean Tatar",
+      "languageTr": "Kırım Tatarcası",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Crimean Tatar",
+              "languageTr": "Kırım Tatarcası",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Crimean_Tatar"
+    },
+    {
+      "language": "Karakalpak",
+      "languageTr": "Karakalpakça",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Karakalpak",
+              "languageTr": "Karakalpakça",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Karakalpak"
+    },
+    {
+      "language": "Tatar",
+      "languageTr": "Tatarca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Tatar",
+              "languageTr": "Tatarca",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Tatar"
+    },
+    {
+      "language": "Turkmen",
+      "languageTr": "Türkmence",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Classical Persian کِتَاب (kitāb), borrowed from Arabic كِتَاب (kitāb).",
+          "chain": [
+            {
+              "language": "Turkmen",
+              "languageTr": "Türkmence",
+              "term": "kitap",
+              "translit": null,
+              "gloss": "book",
+              "relation": "unknown"
+            },
+            {
+              "language": "Classical Persian",
+              "languageTr": "Classical Persian",
+              "term": "کِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "كِتَاب",
+              "translit": "kitāb",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "book",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kitap#Turkmen"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/kitaplar",
+      "ok": true,
+      "ms": 2996,
+      "note": null
+    },
+    {
+      "name": "en.wiktionary.org (kök sözcük)",
+      "url": "https://en.wiktionary.org/wiki/kitap",
+      "ok": true,
+      "ms": 3011,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/kitap",
+      "ok": true,
+      "ms": 3289,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:25:13.173Z"
+}

@@ -1,0 +1,102 @@
+{
+  "query": "elma",
+  "resolved": "elma",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Ottoman Turkish الما (alma, elma), from Old Anatolian Turkish الما (alma), from Proto-Common Turkic *alma, see there for more.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "elma",
+              "translit": null,
+              "gloss": "apple tree",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "الما",
+              "translit": "alma, elma",
+              "gloss": null,
+              "relation": "inherited"
+            },
+            {
+              "language": "Old Anatolian Turkish",
+              "languageTr": "Eski Anadolu Türkçesi",
+              "term": "الما",
+              "translit": "alma",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Proto-Common Turkic",
+              "languageTr": "Proto-Common Turkic",
+              "term": "*alma",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "apple tree",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Eski Türkçe alma‎ (alma).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "elma",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Old Turkic",
+              "languageTr": "Eski Türkçe",
+              "term": "alma",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/elma#Turkish"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/elma",
+      "ok": true,
+      "ms": 49002,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/elma",
+      "ok": true,
+      "ms": 3049,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:26:05.265Z"
+}

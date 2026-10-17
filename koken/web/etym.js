@@ -774,10 +774,11 @@
     function strip(s) { return norm(String(s || '').replace(/<[^>]*>/g, ' ')); }
     if (Array.isArray(w.etymologies)) {
       w.etymologies.forEach(function (e) {
-        var langs = (e.languages || []).map(function (l) { return l.name || l; }).join(', ');
+        // languages[0].name, romanizedText, originalText, definition, relation.text alanları kullanılır
+        var lang0 = (e.languages && e.languages[0]) ? (e.languages[0].name || e.languages[0]) : '';
         var rel = e.relation && (e.relation.text || e.relation.abbr || '');
-        var orig = e.originalText || e.romanizedText || e.text || '';
-        var piece = [rel, langs, orig].filter(Boolean).join(' ');
+        var orig = e.romanizedText || e.originalText || e.text || '';
+        var piece = [rel, lang0, orig, e.definition ? '“' + e.definition + '”' : ''].filter(Boolean).join(' ');
         if (piece) parts.push(strip(piece));
       });
     }
@@ -793,6 +794,17 @@
     var m = j[0];
     var anlamlar = (m.anlamlarListe || []).slice(0, 4).map(function (a) { return norm(a.anlam); }).filter(Boolean);
     return { name: m.madde || '', lisan: norm(m.lisan || ''), gloss: anlamlar.join('; ') };
+  }
+
+  // Etymonline sözcük sayfası: <section data-word> içindeki metin
+  function parseEtymonlineWord(html) {
+    var doc = parseHtml(html);
+    var secs = doc.querySelectorAll('section[data-word]');
+    if (!secs || !secs.length) return null;
+    var sec = secs[0];
+    var txt = norm(sec.textContent);
+    if (!txt) return null;
+    return { name: sec.getAttribute('data-word') || '', text: txt.length > 1500 ? txt.slice(0, 1497) + '…' : txt };
   }
 
   // Etymonline arama sayfası (HTML ya da __NEXT_DATA__)
@@ -1018,7 +1030,7 @@
       var nt = { timeoutMs: Math.min(o.timeoutMs, 7000), headers: { 'Accept': 'application/json, text/html' } };
       var jobs = [
         (async function () {
-          var s = now(), u = 'https://www.nisanyansozluk.com/api/words/' + enc(qn);
+          var s = now(), u = 'https://www.nisanyansozluk.com/api/words/' + enc(qn) + '?session=1';
           try {
             var r = await http(u, nt);
             if (r.status !== 200) { addSource('Nişanyan Sözlük', u, false, s, 'HTTP ' + r.status); return; }
@@ -1041,11 +1053,19 @@
           } catch (e) { addSource('TDK Güncel Sözlük', u, false, s, String(e && e.message || e)); }
         })(),
         (async function () {
-          var s = now(), u = 'https://www.etymonline.com/search?q=' + enc(result.resolved || query);
+          var ew = (result.resolved || query).toLocaleLowerCase('en');
+          var u = 'https://www.etymonline.com/word/' + enc(ew);
+          var s = now();
           try {
+            // Önce doğrudan sözcük sayfası (<section data-word>), olmazsa arama sayfasına düş
             var r = await http(u, nt);
-            if (r.status !== 200) { addSource('Etymonline', u, false, s, 'HTTP ' + r.status); return; }
-            var p = parseEtymonline(r.text);
+            var p = (r.status === 200) ? parseEtymonlineWord(r.text) : null;
+            if (!p) {
+              u = 'https://www.etymonline.com/search?q=' + enc(result.resolved || query);
+              r = await http(u, nt);
+              if (r.status !== 200) { addSource('Etymonline', u, false, s, 'HTTP ' + r.status); return; }
+              p = parseEtymonline(r.text);
+            }
             if (!p || !p.text) { addSource('Etymonline', u, false, s, 'kayıt yok'); return; }
             attachExtra('English', 'etymonline', p.text, p.name || query, u);
             addSource('Etymonline', u, true, s, null);
@@ -1132,6 +1152,6 @@
   return {
     lookup: lookup, makeHttp: makeHttp, translate: translate,
     // Testlerin kullandığı iç yardımcılar
-    _internal: { parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseTrPage: parseTrPage, trTextChain: trTextChain, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
+    _internal: { parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseEtymonlineWord: parseEtymonlineWord, parseTrPage: parseTrPage, trTextChain: trTextChain, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
   };
 });

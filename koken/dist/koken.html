@@ -973,8 +973,15 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
           for (ii = 0; ii < g.items.length; ii++) { if (partKind(g.items[ii].tok.term, 0) === 'root') nonAff++; }
           for (ii = 0; ii < g.items.length; ii++) {
             var t = g.items[ii].tok;
+            // Sonu tireli terim (say-, sev-) ardından düz sözcük gelmiyorsa ön ek değil fiil kökü sayılır
+            var kind = partKind(t.term, nonAff);
+            if (kind === 'prefix') {
+              var hasWordAfter = false, jj;
+              for (jj = ii + 1; jj < g.items.length; jj++) { if (partKind(g.items[jj].tok.term, 0) === 'root') hasWordAfter = true; }
+              if (!hasWordAfter) kind = 'root';
+            }
             parts.push({
-              term: t.term, kind: partKind(t.term, nonAff), gloss: t.gloss || null,
+              term: t.term, kind: kind, gloss: t.gloss || null,
               language: langNameOf(g.items[ii]) || null
             });
           }
@@ -1155,18 +1162,24 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
     return paras;
   }
 
-  // Metindeki Türkçe kalıplardan ("Arapça X sözcüğünden") basit zincir üretir
+  // Metindeki Türkçe dil adlarından ("Arapça X kelimesinden") basit zincir üretir
   function trTextChain(text, headTerm) {
     var chain = [{ language: 'Turkish', languageTr: 'Türkçe', term: headTerm, translit: null, gloss: null, relation: 'unknown' }];
-    var rx = /([A-ZÇĞİÖŞÜ][a-zçğıöşüâîû\-]+(?: [A-ZÇĞİÖŞÜa-zçğıöşü][a-zçğıöşüâîû\-]+)?)(?:\s+dilinden|\s+kökenli|dilinden)?\s*([^\s,.;()]+)?\s*(?:sözcüğünden|kelimesinden|dilinden|kökünden)/g;
+    // Türkçe dil adı -> İngilizce ad (uzun adlar önce denensin diye uzunluğa göre sıralanır)
+    var names = { 'Osmanlı Türkçesi': 'Ottoman Turkish', 'Osmanlıca': 'Ottoman Turkish', 'Eski Türkçe': 'Old Turkic', 'Orta Farsça': 'Middle Persian', 'Arapça': 'Arabic', 'Farsça': 'Persian', 'Fransızca': 'French', 'İngilizce': 'English', 'Almanca': 'German', 'İtalyanca': 'Italian', 'Eski Yunanca': 'Ancient Greek', 'Yunanca': 'Greek', 'Latince': 'Latin', 'Rusça': 'Russian', 'İspanyolca': 'Spanish', 'Moğolca': 'Mongolian', 'Ermenice': 'Armenian', 'Süryanice': 'Syriac', 'İbranice': 'Hebrew', 'Çince': 'Chinese', 'Sanskritçe': 'Sanskrit', 'Çağatayca': 'Chagatai', 'Hintçe': 'Hindi', 'Aramice': 'Aramaic', 'Sümerce': 'Sumerian', 'Akadca': 'Akkadian' };
+    var keys = Object.keys(names).sort(function (x, y) { return y.length - x.length; });
+    var rx = new RegExp('(' + keys.join('|') + ')\\s+([^\\s,;()]+)', 'g');
     var m;
-    var names = { 'Arapça': 'Arabic', 'Farsça': 'Persian', 'Fransızca': 'French', 'İngilizce': 'English', 'Almanca': 'German', 'İtalyanca': 'Italian', 'Yunanca': 'Greek', 'Latince': 'Latin', 'Rusça': 'Russian', 'İspanyolca': 'Spanish', 'Moğolca': 'Mongolian', 'Ermenice': 'Armenian', 'Süryanice': 'Syriac', 'İbranice': 'Hebrew', 'Çince': 'Chinese', 'Sanskritçe': 'Sanskrit', 'Osmanlıca': 'Ottoman Turkish', 'Eski Türkçe': 'Old Turkic' };
-    while ((m = rx.exec(text))) {
-      var trName = m[1];
-      var en = names[trName];
-      if (!en) continue;
-      var term = (m[2] || '').replace(/^["“”']+|["“”']+$/g, '');
-      chain.push({ language: en, languageTr: trName, term: term || '', translit: null, gloss: null, relation: 'derived' });
+    // Görünmez yön işaretlerini temizle
+    var clean = String(text || '').replace(/[\u200e\u200f\u202a-\u202e]/g, '');
+    while ((m = rx.exec(clean))) {
+      var term = m[2].replace(/^["“”'‘’]+|["“”'‘’.]+$/g, '');
+      // "kelimesinden/sözcüğünden" gibi sözcükleri terim sanma
+      if (/^(kelime|sözcük|dil|dilin|sözcüğ|kökenli|kökünden|ile|ve|o|da)/i.test(term)) continue;
+      var en = names[m[1]];
+      var last = chain[chain.length - 1];
+      if (last.term === term && last.language === en) continue;
+      chain.push({ language: en, languageTr: m[1], term: term, translit: null, gloss: null, relation: 'derived' });
     }
     return chain;
   }
@@ -1183,10 +1196,11 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
     function strip(s) { return norm(String(s || '').replace(/<[^>]*>/g, ' ')); }
     if (Array.isArray(w.etymologies)) {
       w.etymologies.forEach(function (e) {
-        var langs = (e.languages || []).map(function (l) { return l.name || l; }).join(', ');
+        // languages[0].name, romanizedText, originalText, definition, relation.text alanları kullanılır
+        var lang0 = (e.languages && e.languages[0]) ? (e.languages[0].name || e.languages[0]) : '';
         var rel = e.relation && (e.relation.text || e.relation.abbr || '');
-        var orig = e.originalText || e.romanizedText || e.text || '';
-        var piece = [rel, langs, orig].filter(Boolean).join(' ');
+        var orig = e.romanizedText || e.originalText || e.text || '';
+        var piece = [rel, lang0, orig, e.definition ? '“' + e.definition + '”' : ''].filter(Boolean).join(' ');
         if (piece) parts.push(strip(piece));
       });
     }
@@ -1202,6 +1216,17 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
     var m = j[0];
     var anlamlar = (m.anlamlarListe || []).slice(0, 4).map(function (a) { return norm(a.anlam); }).filter(Boolean);
     return { name: m.madde || '', lisan: norm(m.lisan || ''), gloss: anlamlar.join('; ') };
+  }
+
+  // Etymonline sözcük sayfası: <section data-word> içindeki metin
+  function parseEtymonlineWord(html) {
+    var doc = parseHtml(html);
+    var secs = doc.querySelectorAll('section[data-word]');
+    if (!secs || !secs.length) return null;
+    var sec = secs[0];
+    var txt = norm(sec.textContent);
+    if (!txt) return null;
+    return { name: sec.getAttribute('data-word') || '', text: txt.length > 1500 ? txt.slice(0, 1497) + '…' : txt };
   }
 
   // Etymonline arama sayfası (HTML ya da __NEXT_DATA__)
@@ -1427,7 +1452,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
       var nt = { timeoutMs: Math.min(o.timeoutMs, 7000), headers: { 'Accept': 'application/json, text/html' } };
       var jobs = [
         (async function () {
-          var s = now(), u = 'https://www.nisanyansozluk.com/api/words/' + enc(qn);
+          var s = now(), u = 'https://www.nisanyansozluk.com/api/words/' + enc(qn) + '?session=1';
           try {
             var r = await http(u, nt);
             if (r.status !== 200) { addSource('Nişanyan Sözlük', u, false, s, 'HTTP ' + r.status); return; }
@@ -1450,11 +1475,19 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
           } catch (e) { addSource('TDK Güncel Sözlük', u, false, s, String(e && e.message || e)); }
         })(),
         (async function () {
-          var s = now(), u = 'https://www.etymonline.com/search?q=' + enc(result.resolved || query);
+          var ew = (result.resolved || query).toLocaleLowerCase('en');
+          var u = 'https://www.etymonline.com/word/' + enc(ew);
+          var s = now();
           try {
+            // Önce doğrudan sözcük sayfası (<section data-word>), olmazsa arama sayfasına düş
             var r = await http(u, nt);
-            if (r.status !== 200) { addSource('Etymonline', u, false, s, 'HTTP ' + r.status); return; }
-            var p = parseEtymonline(r.text);
+            var p = (r.status === 200) ? parseEtymonlineWord(r.text) : null;
+            if (!p) {
+              u = 'https://www.etymonline.com/search?q=' + enc(result.resolved || query);
+              r = await http(u, nt);
+              if (r.status !== 200) { addSource('Etymonline', u, false, s, 'HTTP ' + r.status); return; }
+              p = parseEtymonline(r.text);
+            }
             if (!p || !p.text) { addSource('Etymonline', u, false, s, 'kayıt yok'); return; }
             attachExtra('English', 'etymonline', p.text, p.name || query, u);
             addSource('Etymonline', u, true, s, null);
@@ -1541,7 +1574,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
   return {
     lookup: lookup, makeHttp: makeHttp, translate: translate,
     // Testlerin kullandığı iç yardımcılar
-    _internal: { parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseTrPage: parseTrPage, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
+    _internal: { parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseEtymonlineWord: parseEtymonlineWord, parseTrPage: parseTrPage, trTextChain: trTextChain, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
   };
 });
 

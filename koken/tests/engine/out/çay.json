@@ -1,0 +1,308 @@
+{
+  "query": "çay",
+  "resolved": "çay",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Ottoman Turkish چای (çay), from Persian چای (čây), from Sinitic 茶 (chá).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "çay",
+              "translit": null,
+              "gloss": "tea (plant)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "چای",
+              "translit": "çay",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "چای",
+              "translit": "čây",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Sinitic",
+              "languageTr": "Sinitic",
+              "term": "茶",
+              "translit": "chá",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "tea (plant)",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "From Ottoman Turkish چای (çay), from Proto-Turkic *čāy.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "çay",
+              "translit": null,
+              "gloss": "A small river, a brook.",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "چای",
+              "translit": "çay",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Proto-Turkic",
+              "languageTr": "Proto-Türkçe",
+              "term": "*čāy",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "A small river, a brook.",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Osmanlı Türkçesi چای‎ sözcüğünden devralındı, o da Çince 茶 (chá) sözcüğünden gelmektedir.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "çay",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "چای",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Chinese",
+              "languageTr": "Çince",
+              "term": "茶",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay#Turkish"
+    },
+    {
+      "language": "Azerbaijani",
+      "languageTr": "Azerbaycan Türkçesi",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Ultimately from Sinitic 茶 (chá).",
+          "chain": [
+            {
+              "language": "Azerbaijani",
+              "languageTr": "Azerbaycan Türkçesi",
+              "term": "çay",
+              "translit": null,
+              "gloss": "tea",
+              "relation": "unknown"
+            },
+            {
+              "language": "Sinitic",
+              "languageTr": "Sinitic",
+              "term": "茶",
+              "translit": "chá",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "tea",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Inherited from Proto-Turkic *čāy.",
+          "chain": [
+            {
+              "language": "Azerbaijani",
+              "languageTr": "Azerbaycan Türkçesi",
+              "term": "çay",
+              "translit": null,
+              "gloss": "river",
+              "relation": "unknown"
+            },
+            {
+              "language": "Proto-Turkic",
+              "languageTr": "Proto-Türkçe",
+              "term": "*čāy",
+              "translit": null,
+              "gloss": null,
+              "relation": "inherited"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "river",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay#Azerbaijani"
+    },
+    {
+      "language": "Crimean Tatar",
+      "languageTr": "Kırım Tatarcası",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Ottoman Turkish, from Persian چای (čây).",
+          "chain": [
+            {
+              "language": "Crimean Tatar",
+              "languageTr": "Kırım Tatarcası",
+              "term": "çay",
+              "translit": null,
+              "gloss": "tea",
+              "relation": "unknown"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "چای",
+              "translit": "čây",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "tea",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay#Crimean_Tatar"
+    },
+    {
+      "language": "Northern Kurdish",
+      "languageTr": "Northern Kurdish",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Ottoman Turkish, from Persian چای (čây).",
+          "chain": [
+            {
+              "language": "Northern Kurdish",
+              "languageTr": "Northern Kurdish",
+              "term": "çay",
+              "translit": null,
+              "gloss": "tea",
+              "relation": "unknown"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "چای",
+              "translit": "čây",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "tea",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay#Northern_Kurdish"
+    },
+    {
+      "language": "Zazaki",
+      "languageTr": "Zazaki",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Ottoman Turkish, from Persian چای (čây).",
+          "chain": [
+            {
+              "language": "Zazaki",
+              "languageTr": "Zazaki",
+              "term": "çay",
+              "translit": null,
+              "gloss": "tea",
+              "relation": "unknown"
+            },
+            {
+              "language": "Persian",
+              "languageTr": "Farsça",
+              "term": "چای",
+              "translit": "čây",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "tea",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay#Zazaki"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/%C3%A7ay",
+      "ok": true,
+      "ms": 2295,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/%C3%A7ay",
+      "ok": true,
+      "ms": 2971,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:26:10.566Z"
+}
