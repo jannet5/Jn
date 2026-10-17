@@ -221,42 +221,62 @@ paylasim_ekser = sum(1 for p in paylasim if p['kalip'].startswith('ekser'))
 assert paylasim_ekser == 12 and len(paylasim) == 14
 assert [p['ayet'] for p in paylasim if p['kalip'].startswith('kes')] == ['5:49', '10:92']
 
-# ---------------------------------------------------------------- 5) KESÎR (كثير = "çok/birçok") YAN TARAMASI
-# كثير = "çok, birçok" demektir; "çoğu/çoğunluk" anlamını baskın taşıyan أكثر'den farklıdır.
-# 6236 ayette كثير geçen ayetler koddan bulundu; kişilere ilişkin "çoğu/birçoğu" hükmü taşıyanlar elle seçilip etiketlendi.
+# ---------------------------------------------------------------- 5) KESÎR (كثير = "çok/birçok") — AYRI KALIP
+# كثير = "çok, birçok"; كثير من = "…lerden birçoğu". Üstünlük kalıbı أكثر (ekser) gibi "çoğunluk" demez.
+# Kuran'da كثير geçen BÜTÜN ayetler koddan bulundu (kesir_tum); her biri elle ya "kişilere ilişkin çoğu/birçoğu hükmü"
+# ya da "kişi dışı" (çok anmak, çok nimet, çok şey) olarak etiketlendi.
 kesir_tum = [k for k in AR if 'كثير' in strip(AR[k])]
 KES = OrderedDict()
-def kz(k, nitelik, ozne, ne, dy):
-    KES[k] = dict(nitelik=nitelik, ozne=ozne, ne=ne, diyanet_kelime=dy)
-kz('2:26',  'olumlu-nötr', 'insanlar', 'Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir', 'birçoğu')
-kz('2:109', 'olumsuz', 'Kitap ehli', 'çoğu kıskançlıkla sizi küfre döndürmek ister', 'çoğu')
-kz('5:49',  'olumsuz', 'insanlar', 'çoğu fasıktır', 'çoğu')
-kz('5:62',  'olumsuz', 'Kitap ehli', 'çoğu günaha ve haksızlığa koşuşur', 'çoğu')
-kz('5:64',  'olumsuz', 'Kitap ehli', 'indirilenler çoğunun azgınlığını artırır', 'çoğu')
-kz('5:66',  'olumsuz', 'Kitap ehli', 'bir zümre orta yolda; çoğunun işledikleri kötü', 'çoğu')
-kz('5:68',  'olumsuz', 'Kitap ehli', 'indirilenler çoğunun azgınlık ve küfrünü artırır', 'çoğu')
-kz('5:71',  'olumsuz', 'Kitap ehli', 'tevbeleri kabulden sonra çoğu yine körleşti', 'çoğu')
-kz('5:80',  'olumsuz', 'Kitap ehli', 'çoğunun inkâr edenleri dost edindiği', 'çoğu')
-kz('5:81',  'olumsuz', 'Kitap ehli', 'çoğu fasıktır', 'çoğu')
-kz('6:119', 'olumsuz', 'insanlar', 'çoğunluk heva ile bilmeden sapıtır', 'çoğunluk')
-kz('7:179', 'olumsuz', 'cin ve insan', 'cehennem için birçok cin ve insan yaratıldı (kalpleri var anlamazlar)', 'birçok')
-kz('9:34',  'olumsuz', 'hahamlar ve rahipler', 'çoğu insanların mallarını haksızlıkla yer', 'çoğu')
-kz('10:92', 'olumsuz', 'insanlar', 'çoğu ayetlerimizden habersizdir', 'çoğu')
-kz('14:36', 'olumsuz', 'insanlar', 'putlar çok insanı saptırdı (İbrâhim\'in duası)', 'çok')
-kz('22:18', 'olumlu-nötr', 'insanlar', 'insanların birçoğu Allah\'a secde eder; birçoğu da azabı hak etmiştir', 'birçoğu')
-kz('27:15', 'olumlu-nötr', 'mü\'min kullar', 'Dâvûd ve Süleymân: "mü\'min kullarının çoğundan üstün kıldı"', 'çoğu')
-kz('30:8',  'olumsuz', 'insanlar', 'çoğu Rablerine kavuşmayı inkâr eder', 'çoğu')
-kz('36:62', 'olumsuz', 'insanlar', 'şeytan sizden nice nesilleri saptırdı', 'nice')
-kz('38:24', 'olumsuz', 'ortaklar', 'ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır', 'çoğu')
-kz('57:16', 'olumsuz', 'Kitap ehli', 'çoğunun kalbi katılaştı, fasıklaştı', 'çoğu')
-kz('57:26', 'karışık', 'Nûh ve İbrâhim soyu', 'kimi doğru yolda, birçoğu yoldan çıkmış', 'birçoğu')
-kz('57:27', 'olumsuz', 'İsâ\'ya uyanlar', 'çoğu fasık (rahbâniyet icadı)', 'çoğu')
-kz('71:24', 'olumsuz', 'Nûh kavminin önderleri', 'birçoğunu saptırdılar', 'birçoğu')
-kz('2:249', 'olumlu-nötr', 'Tâlût\'un askerleri', '"Nice az topluluk çok topluluğa Allah\'ın izniyle galip gelmiştir"', 'çok')
-kz('3:146', 'olumlu-nötr', 'peygamberlerin yanında savaşanlar', 'nice peygamberle birlikte pek çok Rabbânî savaştı', 'pek çok')
+def kz(k, nitelik, ozne_tur, ozne, ne, dy, yuklem):
+    KES[k] = dict(nitelik=nitelik, ozne_tur=ozne_tur, ozne=ozne, ne=ne, diyanet_kelime=dy, yuklem=yuklem)
+G, Bl = 'genel', 'belirli'
+kz('2:26',  'olumlu-nötr', G, 'insanlar', 'Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir', 'birçoğu', 'hidayet/dalâl (Allah\'ın fiili)')
+kz('2:109', 'olumsuz', Bl, 'Kitap ehli', 'çoğu kıskançlıkla sizi küfre döndürmek ister', 'çoğu', 'kâfir/küfre döndürmek ister')
+kz('2:249', 'olumlu-nötr', Bl, 'Tâlût\'un askerleri', '"Nice az topluluk çok topluluğa Allah\'ın izniyle galip gelmiştir"', 'çok', 'galip gelmek')
+kz('3:146', 'olumlu-nötr', Bl, 'peygamberlerin yanında savaşanlar', 'nice peygamberle birlikte pek çok Rabbânî savaştı', 'pek çok', 'sabretmek')
+kz('5:32',  'olumsuz', Bl, 'İsrailoğulları', 'bunca ayetten sonra çoğu yeryüzünde aşırı gider', 'çoğu', 'aşırı gitmek')
+kz('5:49',  'olumsuz', G, 'insanlar', 'çoğu fasıktır', 'çoğu', 'fasık')
+kz('5:62',  'olumsuz', Bl, 'Kitap ehli', 'çoğu günaha ve haksızlığa koşuşur', 'çoğu', 'günaha koşmak')
+kz('5:64',  'olumsuz', Bl, 'Kitap ehli', 'indirilenler çoğunun azgınlığını ve küfrünü artırır', 'çoğu', 'kâfir/azgın')
+kz('5:66',  'olumsuz', Bl, 'Kitap ehli', 'bir zümre orta yolda; çoğunun işledikleri kötü', 'çoğu', 'kötü iş')
+kz('5:68',  'olumsuz', Bl, 'Kitap ehli', 'indirilenler çoğunun azgınlık ve küfrünü artırır', 'çoğu', 'kâfir/azgın')
+kz('5:71',  'olumsuz', Bl, 'Kitap ehli', 'tevbe kabulünden sonra çoğu yine körleşti, sağırlaştı', 'çoğu', 'yüz çevirmek')
+kz('5:77',  'olumsuz', Bl, 'Kitap ehli\'nden önce sapan millet', 'öncekiler çoğunu saptırdı', 'çoğunu', 'saptırmak')
+kz('5:80',  'olumsuz', Bl, 'Kitap ehli', 'çoğunun inkâr edenleri dost edindiğini görürsün', 'çoğu', 'kötü iş')
+kz('5:81',  'olumsuz', Bl, 'Kitap ehli', 'çoğu fasıktır', 'çoğu', 'fasık')
+kz('6:119', 'olumsuz', G, 'insanlar', 'çoğunluk heva ile bilmeden sapıtır', 'çoğunluk', 'zanna/hevaya uymak')
+kz('6:137', 'olumsuz', Bl, 'müşrikler', 'ortaklar müşriklerin çoğuna çocuk öldürmeyi güzel gösterdi', 'çoğu', 'saptırılmak')
+kz('7:179', 'olumsuz', G, 'cin ve insan', 'cehennem için birçok cin ve insan yaratıldı (kalpleri var anlamazlar)', 'birçok', 'akletmez/anlamaz')
+kz('9:34',  'olumsuz', Bl, 'hahamlar ve rahipler', 'çoğu insanların mallarını haksızlıkla yer', 'çoğu', 'haksız kazanç')
+kz('10:92', 'olumsuz', G, 'insanlar', 'çoğu ayetlerimizden habersizdir', 'çoğu', 'gafil')
+kz('14:36', 'olumsuz', G, 'insanlar', 'putlar çok insanı saptırdı (İbrâhim\'in duası)', 'çok', 'saptırılmak')
+kz('22:18', 'karışık', G, 'insanlar', 'insanların birçoğu Allah\'a secde eder; birçoğu da azabı hak etmiştir', 'birçoğu', 'secde / azabı hak etmek')
+kz('27:15', 'olumlu-nötr', Bl, 'mü\'min kullar', 'Dâvûd ve Süleymân: "mü\'min kullarının çoğundan üstün kıldı"', 'çoğu', 'üstünlük (nimet)')
+kz('30:8',  'olumsuz', G, 'insanlar', 'çoğu Rablerine kavuşmayı inkâr eder', 'çoğu', 'kâfir')
+kz('36:62', 'olumsuz', G, 'insanlar', 'şeytan sizden nice nesilleri saptırdı', 'nice', 'saptırılmak')
+kz('38:24', 'olumsuz', Bl, 'ortaklar', 'ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır', 'çoğu', 'haksızlık')
+kz('57:16', 'olumsuz', Bl, 'Kitap ehli', 'çoğunun kalbi katılaştı, fasıklaştı', 'çoğu', 'fasık')
+kz('57:26', 'karışık', Bl, 'Nûh ve İbrâhim soyu', 'kimi doğru yolda, birçoğu yoldan çıkmış', 'birçoğu', 'fasık')
+kz('57:27', 'olumsuz', Bl, 'İsâ\'ya uyanlar', 'çoğu fasık (rahbâniyet icadı)', 'çoğu', 'fasık')
+kz('71:24', 'olumsuz', Bl, 'Nûh kavminin önderleri', 'birçoğunu saptırdılar', 'birçoğu', 'saptırmak')
+KES_DISI_NEDEN = OrderedDict([
+    ('kişi sayısı, hüküm değil', ['4:1']),
+    ('çok anmak / çok tesbih (zikir)', ['3:41', '8:45', '20:33', '20:34', '26:227', '33:21', '33:35', '33:41', '62:10', '22:40']),
+    ('çok nimet, rızık, ganimet, mal', ['2:245', '2:269', '4:19', '4:94', '4:100', '9:25', '23:19', '23:21', '25:49', '38:51', '43:73', '48:19', '48:20', '56:32']),
+    ('çok şey: azap, çelişki, günah, zan, misal', ['3:186', '4:82', '4:114', '4:160', '5:15', '6:91', '8:43', '9:82', '11:91', '25:14', '25:38', '41:22', '42:30', '42:34', '49:7', '49:12', '17:70']),
+])
+KES_DISI = {k: n for n, ks in KES_DISI_NEDEN.items() for k in ks}
+assert not (set(KES) & set(KES_DISI)), sorted(set(KES) & set(KES_DISI))
+assert set(KES) | set(KES_DISI) == set(kesir_tum), sorted((set(KES) | set(KES_DISI)) ^ set(kesir_tum))
 for k in KES:
-    assert k in AR and 'كثير' in strip(AR[k]), k
+    assert 'كثير' in strip(AR[k]), k
 kes_nitelik = Counter(v['nitelik'] for v in KES.values())
+kes_ozne = Counter(v['ozne_tur'] for v in KES.values())
+kes_kimB = Counter(v['ozne'] for v in KES.values() if v['ozne_tur'] == 'belirli')
+kes_kitap_ehli = sum(1 for v in KES.values() if v['ozne'] == 'Kitap ehli')
+kes_mm = mm(KES.keys())
+kes_mm_ham = mm(kesir_tum)
+KE_KESIR_YUKLEM = Counter(v['yuklem'] for v in KES.values())
 
 # ---------------------------------------------------------------- 6) "AZ" KALIPLARI (قليل / قلة)
 az_tum = [k for k in AR if re.search(r'قليل|قلة', strip(AR[k]))]
@@ -327,9 +347,17 @@ OUT['sure_basina_hukum_ayeti'] = {str(n): c for n, c in sorted(sure_say.items())
 OUT['en_cok_sure'] = [dict(sure_no=n, ad=CH[n]['translated_name']['name'], yer=CH[n]['revelation_place'], adet=c) for n, c in en_cok[:10]]
 OUT['paylasim_14_liste'] = paylasim
 OUT['paylasim_ekser_sayisi'] = paylasim_ekser
-OUT['kesir_yan_tarama'] = dict(
-    aciklama='كثير = "çok/birçok". Tam sayım değil: كثير geçen ayetlerden kişilere ilişkin "çoğu/birçoğu" hükmü taşıyanlar elle seçildi.',
-    kesir_geçen_ayet_sayisi=len(kesir_tum), secilen=len(KES), nitelik=dict(kes_nitelik), ayetler=KES)
+OUT['kesir'] = dict(
+    aciklama='كثير = "çok/birçok" (ayrı kalıp). Kur\'an\'da كثير geçen bütün ayetler koddan bulundu; her biri elle "kişilere ilişkin çoğu/birçoğu hükmü" ya da "kişi dışı" diye etiketlendi.',
+    kesir_gecen_ayet=len(kesir_tum), kisi_hukmu=len(KES), kisi_disi=len(KES_DISI),
+    nitelik=dict(kes_nitelik), ozne_tur=dict(kes_ozne), belirli_kim=dict(kes_kimB), kitap_ehli_ayet=kes_kitap_ehli,
+    yuklem=dict(KE_KESIR_YUKLEM), mekki_medeni_kisi_hukmu=kes_mm, mekki_medeni_tum_kesir=kes_mm_ham,
+    kisi_hukmu_ayetleri=KES, kisi_disi_ayetleri={n: ks for n, ks in KES_DISI_NEDEN.items()})
+OUT['iki_kalip_karsilastirma'] = dict(
+    ekser=dict(ham=len(RAW_KEYS), hukum=len(S), genel=ozne['A'] + ozne['A*'], belirli=ozne['B'], belirsiz=ozne['?'],
+               olumsuz=len(S), olumlu_notr=0, karisik=0),
+    kesir=dict(ham=len(kesir_tum), hukum=len(KES), genel=kes_ozne['genel'], belirli=kes_ozne['belirli'], belirsiz=0,
+               olumsuz=kes_nitelik['olumsuz'], olumlu_notr=kes_nitelik['olumlu-nötr'], karisik=kes_nitelik['karışık']))
 OUT['az_taramasi'] = dict(
     aciklama='قليل/قلة geçen ayetler; yanlış eşleşme çıkarıldı. "Az" birçok farklı şeyi niteler; yalnızca "az kişi" grubu azınlık ifadesidir.',
     eslesen_ayet=len(az_tum), yanlis_eslesme=YOK_AZ, sayim={t: az_tur[t] for t in (KISI, DAV, DEG, ZAM, MIK)},
@@ -337,13 +365,16 @@ OUT['az_taramasi'] = dict(
 OUT['sozluk_yontem'] = dict(
     kok='ك-ث-ر',
     kaynaklar=[
-        dict(eser='İbn Manzûr, Lisânü\'l-Arab, "كثر"', metin='والكُثْرُ معظم الشيء وأَكْثَرُه', anlam='"kuthr", bir şeyin büyük kısmı, çoğu',
-             url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/'),
-        dict(eser='Edward W. Lane, Arabic-English Lexicon, "كُثْرٌ"', metin='The greater, or greatest, or main, part, of a thing; the most thereof. (K)',
-             url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/'),
-        dict(eser='Zebîdî, Tâcü\'l-Arûs, "كثر" (hawramani sayfasındaki alıntı)', metin='الكُثْرُ هُوَ: مُعْظَمُ الشَّيْءِ وأَكْثَرُهُ', anlam='aynı',
+        dict(eser='Cevherî, es-Sıhâh (Tâcü\'l-Lüga), "كثر"', metin='الكثرة: نقيض القلة ... وقد كثر الشيء فهو كثير',
+             anlam='kesret, kıllet\'in (azlığın) zıddıdır; كثير bu köktendir (=çok)', url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/'),
+        dict(eser='İbn Manzûr, Lisânü\'l-Arab, "كثر"', metin='والكُثْرُ معظم الشيء وأَكْثَرُه',
+             anlam='"kuthr": bir şeyin büyük kısmı, çoğu; "ekser" bu anlamda çoğunluğu gösterir', url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/'),
+        dict(eser='E. W. Lane, Arabic-English Lexicon, "كُثْرٌ"', metin='The greater, or greatest, or main, part, of a thing; the most thereof.', anlam='aynı', url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/'),
+        dict(eser='Râgıb el-İsfahânî, el-Müfredât fî Garîbi\'l-Kur\'ân, "كثر"',
+             metin='الْكِثْرَةَ والقلّة يستعملان في الكمّيّة المنفصلة كالأعداد ... وليست الْكَثْرَةُ إشارة إلى العدد فقط بل إلى الفضل',
+             anlam='kesret/kıllet ayrık nicelikte (sayılarda) kullanılır; kesret yalnızca sayıya değil, bolluk ve fazlalığa da işaret edebilir. Râgıb örnek olarak 5:64, 23:70 (أكثرهم للحق كارهون), 21:24, 2:249, 4:1 ve 2:109 (كثير من أهل الكتاب) ayetlerini anar.',
              url='https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/')],
-    not_='Raghıb el-İsfahânî, el-Müfredât: hawramani sayfası "وأكثرهم للحق كارهون" ayetini أكثر için örnek verir; tanım metni sayfadan doğrulanamadığı için alıntılanmadı.')
+    fark='أكثر (ekser) = üstünlük/karşılaştırma kalıbı: "daha çok / çoğu / en çoğu"; ayrıca كُثْر (kuthr) "bir şeyin büyük kısmı". كثير (kesîr) = "çok, bol, birçok" sıfatı; كثير من = "…lerden birçoğu". Kesîr "çoğunluk (%50\'den fazla)" demeyi tek başına gerektirmez; ekser "çoğunu/en çoğunu" göstermeye daha yakındır. Diyanet meali ikisini de "çoğu" diye çevirebilir.')
 OUT['ayetler'] = ayetler
 
 json.dump(OUT, open(P('analiz.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -353,7 +384,8 @@ SV = P('svg'); os.makedirs(SV, exist_ok=True)
 F = 'style="font-family:inherit"'
 
 def svg_wrap(w, h, label, body):
-    return f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{label}">\n{body}\n</svg>\n'
+    import html as _h
+    return f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{_h.escape(label, quote=True)}">\n{body}\n</svg>\n'
 
 # --- SVG-1: sure haritası (114 hücre, 10 sütun)
 def harita_svg():
@@ -380,18 +412,18 @@ def harita_svg():
         stroke = 'var(--gold)' if med else 'var(--line)'
         sw = 3 if med else 1.5
         out.append(f'<rect x="{x}" y="{y}" width="{cs}" height="{cs}" rx="5" style="fill:{fill};fill-opacity:{op};stroke:{stroke};stroke-width:{sw}"/>')
-        out.append(f'<text x="{x + cs / 2}" y="{y + cs / 2 + 6}" text-anchor="middle" {F} style="font-family:inherit;font-size:16px;font-weight:{700 if cnt else 400};fill:{tcol}">{n}</text>')
+        out.append(f'<text x="{x + cs / 2}" y="{y + cs / 2 + 6}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:{700 if cnt else 400};fill:{tcol}">{n}</text>')
     # lejant
     ly = legend_y
     items = [('yok', 'var(--surface)', 1, 'var(--ink)'), ('1', 'var(--accent)', .28, 'var(--ink)'), ('2–3', 'var(--accent)', .55, 'var(--ink)'), ('4+', 'var(--accent)', 1, 'var(--accent-ink)')]
-    out.append(f'<text x="{x0}" y="{ly + 14}" style="font-family:inherit;font-size:16px;fill:var(--ink)">Her kutu bir sure; sayı = sure numarası. Dolgu = o surede kaç ayet:</text>')
+    out.append(f'<text x="{x0}" y="{ly + 14}" style="font-family:inherit;font-size:16px;fill:var(--ink)">Kutu = sure (sayı = sure no). Dolgu = surede kaç ayet:</text>')
     x = x0
     for lab, fl, op, tc in items:
         out.append(f'<rect x="{x}" y="{ly + 28}" width="44" height="30" rx="5" style="fill:{fl};fill-opacity:{op};stroke:var(--line);stroke-width:1.5"/>')
         out.append(f'<text x="{x + 22}" y="{ly + 49}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:{tc}">{lab}</text>')
         x += 56
     out.append(f'<rect x="{x0}" y="{ly + 72}" width="44" height="30" rx="5" style="fill:var(--surface);stroke:var(--gold);stroke-width:3"/>')
-    out.append(f'<text x="{x0 + 56}" y="{ly + 93}" style="font-family:inherit;font-size:16px;fill:var(--ink)">altın çerçeve = Medenî sure (api.quran.com)</text>')
+    out.append(f'<text x="{x0 + 56}" y="{ly + 93}" style="font-family:inherit;font-size:16px;fill:var(--ink)">altın çerçeve = Medenî sure</text>')
     label = (f'Kur\'an\'ın 114 suresinin haritası. "Çoğu" hükmü taşıyan {len(S)} ayet {len(sure_say)} surede dağılmıştır; '
              'en yoğun sureler: ' + ', '.join(f"{CH[n]['translated_name']['name']} {c}" for n, c in en_cok[:6]))
     return svg_wrap(W, H, label, '\n'.join(out))
@@ -427,44 +459,80 @@ def yuklem_svg():
     label = 'Yüklemlere göre ayet sayısı (yatay çubuk): ' + ', '.join(f'{y} {birincil[y]}' for y in YUKLEM_SIRA) + '. Çubuklar özne türüne göre bölünmüştür.'
     return svg_wrap(W, H, label, '\n'.join(out))
 
-# --- SVG-3: oranlar (yığılmış %100 çubuklar)
+# --- SVG-3: iki kalıbın karşılaştırması (ekser ve kesîr ayrı sayılır)
 def oran_svg():
     W, left = 540, 12
     bw = W - 2 * left
     out = []
-    y = 4
-    def panel(baslik, parcalar, y):
-        o = [f'<text x="{left}" y="{y + 16}" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">{baslik}</text>']
-        tot = sum(c for _, c, _ in parcalar)
-        x = left
-        for _, c, col in parcalar:
-            if not c:
-                continue
-            w = bw * c / tot
-            o.append(f'<rect x="{x:.1f}" y="{y + 26}" width="{w:.1f}" height="28" style="fill:{col};stroke:var(--bg);stroke-width:1.5"/>')
-            if w >= 30:
-                o.append(f'<text x="{x + w / 2:.1f}" y="{y + 46}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">{c}</text>')
-            x += w
-        ly = y + 62
-        lx = left
-        for i, (lab, c, col) in enumerate(parcalar):
-            if not c:
-                continue
-            o.append(f'<rect x="{left}" y="{ly + i * 22 - 0}" width="14" height="14" style="fill:{col}"/>')
-            o.append(f'<text x="{left + 22}" y="{ly + 13 + i * 22}" style="font-family:inherit;font-size:16px;fill:var(--ink)">{lab}: {c}</text>')
-        return o, ly + 22 * sum(1 for p in parcalar if p[1]) + 12
-    P1 = [('genel insan ("insanların çoğu" ve zamirle genel)', ozne['A'] + ozne['A*'], 'var(--accent)'),
-          ('belirli topluluk', ozne['B'], 'var(--gold)'), ('öncül belirsiz', ozne['?'], 'var(--ink-soft)')]
-    o, y = panel(f'1 · Kim için söyleniyor? ({len(S)} ayet)', P1, y); out += o
-    P2 = [('Mekkeli/Arap müşrikler, inkârcılar', kimler_grup[MEK], 'var(--gold)'), ('geçmiş kavimler', kimler_grup[GK], 'var(--sky)'),
-          ('Kitap ehli', kimler_grup[KE], 'var(--accent)'), ('diğer belirli grup', kimler_grup[DG], 'var(--ink-soft)')]
-    o, y = panel(f'2 · Belirli topluluk dediğimiz kim? ({ozne["B"]} ayet)', P2, y); out += o
-    P3 = [('Mekkî surelerde', mm_hukum['makkah'], 'var(--accent)'), ('Medenî surelerde', mm_hukum['madinah'], 'var(--gold)')]
-    o, y = panel(f'3 · Mekkî / Medenî ({len(S)} ayet)', P3, y); out += o
-    label = ('Oranlar: ' + f'{ozne["A"] + ozne["A*"]} ayet genel insan, {ozne["B"]} belirli topluluk, {ozne["?"]} belirsiz; '
-             f'belirli topluluk içinde Mekkeli müşrikler {kimler_grup[MEK]}, geçmiş kavimler {kimler_grup[GK]}, Kitap ehli {kimler_grup[KE]}, diğer {kimler_grup[DG]}; '
-             f'Mekkî {mm_hukum["makkah"]}, Medenî {mm_hukum["madinah"]}')
-    return svg_wrap(W, y, label, '\n'.join(out))
+    state = {'y': 4}
+    def panel(baslik, satirlar, legend):
+        y = state['y']
+        out.append(f'<text x="{left}" y="{y + 16}" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">{baslik}</text>')
+        y += 26
+        mx = max(sum(c for c, _ in parca) for _, parca in satirlar)
+        for lab, parca in satirlar:
+            out.append(f'<text x="{left}" y="{y + 15}" style="font-family:inherit;font-size:16px;fill:var(--ink)">{lab}</text>')
+            y += 22
+            x = left
+            for c, col in parca:
+                if not c:
+                    continue
+                w = bw * c / mx
+                out.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="26" style="fill:{col};stroke:var(--bg);stroke-width:1.5"/>')
+                if w >= 28:
+                    tc = 'var(--ink)' if col == 'var(--line)' else 'var(--bg)'
+                    out.append(f'<text x="{x + w / 2:.1f}" y="{y + 19}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:{tc}">{c}</text>')
+                x += w
+            y += 34
+        for col, tx in legend:
+            out.append(f'<rect x="{left}" y="{y + 1}" width="14" height="14" style="fill:{col};stroke:var(--ink-soft);stroke-width:.5"/>')
+            out.append(f'<text x="{left + 22}" y="{y + 14}" style="font-family:inherit;font-size:16px;fill:var(--ink)">{tx}</text>')
+            y += 22
+        state['y'] = y + 14
+    ek, ks = 'ekser', 'kesîr'
+    panel('1 · Kalıp kaç ayette geçiyor?', [
+        (f'{ek}: {len(RAW_KEYS)} ayet', [(len(S), 'var(--accent)'), (len(KAPSAM_DISI), 'var(--line)')]),
+        (f'{ks}: {len(kesir_tum)} ayet', [(len(KES), 'var(--accent)'), (len(KES_DISI), 'var(--line)')])],
+        [('var(--accent)', 'çoğu/birçoğu hükmü taşıyan ayet'), ('var(--line)', 'kalıp başka anlamda (daha çok, çok anmak…)')])
+    panel('2 · Kim için söyleniyor?', [
+        (ek, [(ozne['A'] + ozne['A*'], 'var(--accent)'), (ozne['B'], 'var(--gold)'), (ozne['?'], 'var(--ink-soft)')]),
+        (ks, [(kes_ozne['genel'], 'var(--accent)'), (kes_ozne['belirli'], 'var(--gold)')])],
+        [('var(--accent)', f'genel: insanlar (ekser {ozne["A"] + ozne["A*"]}, kesîr {kes_ozne["genel"]})'), ('var(--gold)', f'belirli topluluk (ekser {ozne["B"]}, kesîr {kes_ozne["belirli"]})'), ('var(--ink-soft)', f'öncül belirsiz (ekser {ozne["?"]})')])
+    panel('3 · Olumsuz mu, olumlu mu?', [
+        (ek, [(len(S), 'var(--danger)')]),
+        (ks, [(kes_nitelik['olumsuz'], 'var(--danger)'), (kes_nitelik['karışık'], 'var(--gold)'), (kes_nitelik['olumlu-nötr'], 'var(--accent)')])],
+        [('var(--danger)', f'olumsuz hüküm (ekser {len(S)}, kesîr {kes_nitelik["olumsuz"]})'), ('var(--gold)', f'karışık: hem olumlu hem olumsuz (kesîr {kes_nitelik["karışık"]})'), ('var(--accent)', f'olumlu ya da nötr (kesîr {kes_nitelik["olumlu-nötr"]})')])
+    panel('4 · Mekkî / Medenî (hüküm ayetleri)', [
+        (ek, [(mm_hukum['makkah'], 'var(--accent)'), (mm_hukum['madinah'], 'var(--gold)')]),
+        (ks, [(kes_mm['makkah'], 'var(--accent)'), (kes_mm['madinah'], 'var(--gold)')])],
+        [('var(--accent)', f'Mekkî sure (ekser {mm_hukum["makkah"]}, kesîr {kes_mm["makkah"]})'), ('var(--gold)', f'Medenî sure (ekser {mm_hukum["madinah"]}, kesîr {kes_mm["madinah"]})')])
+    H = state['y']
+    label = (f'İki kalıbın karşılaştırması. Ekser: {len(RAW_KEYS)} ayetten {len(S)}\'i çoğunluk hükmü; {ozne["A"] + ozne["A*"]} genel, {ozne["B"]} belirli, {ozne["?"]} belirsiz; hepsi olumsuz. '
+             f'Kesîr: {len(kesir_tum)} ayetten {len(KES)}\'i kişilere ilişkin; {kes_ozne["genel"]} genel, {kes_ozne["belirli"]} belirli; '
+             f'{kes_nitelik["olumsuz"]} olumsuz, {kes_nitelik["karışık"]} karışık, {kes_nitelik["olumlu-nötr"]} olumlu-nötr.')
+    return svg_wrap(W, H, label, '\n'.join(out))
+
+# --- SVG-5: paylaşılan 14'lü listedeki atıfların gerçek kalıbı
+def paylasim_svg():
+    cw, ch_, gx, gy, x0, y0 = 96, 56, 8, 8, 8, 8
+    out = []
+    for i, p in enumerate(paylasim):
+        r, c = divmod(i, 5)
+        x, y = x0 + c * (cw + gx), y0 + r * (ch_ + gy)
+        ek = p['kalip'].startswith('ekser')
+        fill, tc = ('var(--accent)', 'var(--accent-ink)') if ek else ('var(--gold)', 'var(--bg)')
+        out.append(f'<rect x="{x}" y="{y}" width="{cw}" height="{ch_}" rx="6" style="fill:{fill}"/>')
+        out.append(f'<text x="{x + cw / 2}" y="{y + 22}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:{tc}">{p["etiket"]}</text>')
+        out.append(f'<text x="{x + cw / 2}" y="{y + 44}" text-anchor="middle" style="font-family:inherit;font-size:16px;fill:{tc}">{p["ayet"]}</text>')
+    W = x0 * 2 + 5 * cw + 4 * gx
+    ly = y0 + 3 * (ch_ + gy) + 6
+    out.append(f'<rect x="{x0}" y="{ly}" width="16" height="16" style="fill:var(--accent)"/>')
+    out.append(f'<text x="{x0 + 24}" y="{ly + 14}" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser — {paylasim_ekser} atıf</text>')
+    out.append(f'<rect x="{x0}" y="{ly + 28}" width="16" height="16" style="fill:var(--gold)"/>')
+    out.append(f'<text x="{x0 + 24}" y="{ly + 42}" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr — {14 - paylasim_ekser} atıf (listedeki ad üstte, gerçek ayet altta)</text>')
+    H = ly + 56
+    label = 'Paylaşılan görseldeki 14 atıf: ' + ', '.join(f'{p["etiket"]} gerçekte {p["ayet"]} ({p["kalip"].split()[0]})' for p in paylasim)
+    return svg_wrap(W, H, label, '\n'.join(out))
 
 # --- SVG-4: "az" ifadeleri
 def az_svg():
@@ -484,7 +552,7 @@ def az_svg():
     label = '"Az" (قليل) kalıplarının türlere göre ayet sayısı: ' + ', '.join(f'{l} {az_tur[l]}' for l, _ in items)
     return svg_wrap(W, y + 4, label, '\n'.join(out))
 
-for ad, fn in (('01-harita', harita_svg), ('02-yuklem', yuklem_svg), ('03-oranlar', oran_svg), ('04-az', az_svg)):
+for ad, fn in (('01-harita', harita_svg), ('02-yuklem', yuklem_svg), ('03-oranlar', oran_svg), ('04-az', az_svg), ('05-paylasim', paylasim_svg)):
     open(os.path.join(SV, ad + '.svg'), 'w', encoding='utf-8').write(fn())
 
 # ---------------------------------------------------------------- 9) ÖZET YAZDIR
@@ -497,5 +565,5 @@ if __name__ == '__main__':
     print('Medenî hüküm ayetleri:', medeni_ayet)
     print('sure sayısı (hüküm):', len(sure_say), '| en çok:', [(n, CH[n]['translated_name']['name'], c) for n, c in en_cok[:10]])
     print('paylaşım:', [(p['etiket'], p['ayet'], p['kalip'], p['ozne']) for p in paylasim])
-    print('kesîr geçen ayet:', len(kesir_tum), '| seçilen:', len(KES), dict(kes_nitelik))
+    print('kesîr geçen ayet:', len(kesir_tum), '| kişi hükmü:', len(KES), '| kişi dışı:', len(KES_DISI), dict(kes_nitelik), dict(kes_ozne), dict(kes_kimB), 'Mekkî/Medenî:', kes_mm)
     print('az eşleşen:', len(az_tum), '| tür:', dict(az_tur), '| az kişi:', len(az_kisi_ayet))

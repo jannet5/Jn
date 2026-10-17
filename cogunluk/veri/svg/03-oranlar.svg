@@ -1,40 +1,66 @@
-<svg viewBox="0 0 540 424" role="img" aria-label="Oranlar: 26 ayet genel insan, 40 belirli topluluk, 2 belirsiz; belirli topluluk içinde Mekkeli müşrikler 23, geçmiş kavimler 11, Kitap ehli 3, diğer 3; Mekkî 59, Medenî 9">
-<text x="12" y="20" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">1 · Kim için söyleniyor? (68 ayet)</text>
-<rect x="12.0" y="30" width="197.3" height="28" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="110.6" y="50" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">26</text>
-<rect x="209.3" y="30" width="303.5" height="28" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="361.1" y="50" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">40</text>
-<rect x="512.8" y="30" width="15.2" height="28" style="fill:var(--ink-soft);stroke:var(--bg);stroke-width:1.5"/>
-<rect x="12" y="66" width="14" height="14" style="fill:var(--accent)"/>
-<text x="34" y="79" style="font-family:inherit;font-size:16px;fill:var(--ink)">genel insan ("insanların çoğu" ve zamirle genel): 26</text>
-<rect x="12" y="88" width="14" height="14" style="fill:var(--gold)"/>
-<text x="34" y="101" style="font-family:inherit;font-size:16px;fill:var(--ink)">belirli topluluk: 40</text>
-<rect x="12" y="110" width="14" height="14" style="fill:var(--ink-soft)"/>
-<text x="34" y="123" style="font-family:inherit;font-size:16px;fill:var(--ink)">öncül belirsiz: 2</text>
-<text x="12" y="160" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">2 · Belirli topluluk dediğimiz kim? (40 ayet)</text>
-<rect x="12.0" y="170" width="296.7" height="28" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="160.3" y="190" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">23</text>
-<rect x="308.7" y="170" width="141.9" height="28" style="fill:var(--sky);stroke:var(--bg);stroke-width:1.5"/>
-<text x="379.6" y="190" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">11</text>
-<rect x="450.6" y="170" width="38.7" height="28" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="470.0" y="190" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">3</text>
-<rect x="489.3" y="170" width="38.7" height="28" style="fill:var(--ink-soft);stroke:var(--bg);stroke-width:1.5"/>
-<text x="508.7" y="190" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">3</text>
-<rect x="12" y="206" width="14" height="14" style="fill:var(--gold)"/>
-<text x="34" y="219" style="font-family:inherit;font-size:16px;fill:var(--ink)">Mekkeli/Arap müşrikler, inkârcılar: 23</text>
-<rect x="12" y="228" width="14" height="14" style="fill:var(--sky)"/>
-<text x="34" y="241" style="font-family:inherit;font-size:16px;fill:var(--ink)">geçmiş kavimler: 11</text>
-<rect x="12" y="250" width="14" height="14" style="fill:var(--accent)"/>
-<text x="34" y="263" style="font-family:inherit;font-size:16px;fill:var(--ink)">Kitap ehli: 3</text>
-<rect x="12" y="272" width="14" height="14" style="fill:var(--ink-soft)"/>
-<text x="34" y="285" style="font-family:inherit;font-size:16px;fill:var(--ink)">diğer belirli grup: 3</text>
-<text x="12" y="322" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">3 · Mekkî / Medenî (68 ayet)</text>
-<rect x="12.0" y="332" width="447.7" height="28" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="235.9" y="352" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">59</text>
-<rect x="459.7" y="332" width="68.3" height="28" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="493.9" y="352" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
-<rect x="12" y="368" width="14" height="14" style="fill:var(--accent)"/>
-<text x="34" y="381" style="font-family:inherit;font-size:16px;fill:var(--ink)">Mekkî surelerde: 59</text>
-<rect x="12" y="390" width="14" height="14" style="fill:var(--gold)"/>
-<text x="34" y="403" style="font-family:inherit;font-size:16px;fill:var(--ink)">Medenî surelerde: 9</text>
+<svg viewBox="0 0 540 832" role="img" aria-label="İki kalıbın karşılaştırması. Ekser: 81 ayetten 68&#x27;i çoğunluk hükmü; 26 genel, 40 belirli, 2 belirsiz; hepsi olumsuz. Kesîr: 71 ayetten 29&#x27;i kişilere ilişkin; 9 genel, 20 belirli; 23 olumsuz, 2 karışık, 4 olumlu-nötr.">
+<text x="12" y="20" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">1 · Kalıp kaç ayette geçiyor?</text>
+<text x="12" y="45" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser: 81 ayet</text>
+<rect x="12.0" y="52" width="433.2" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="228.6" y="71" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">68</text>
+<rect x="445.2" y="52" width="82.8" height="26" style="fill:var(--line);stroke:var(--bg);stroke-width:1.5"/>
+<text x="486.6" y="71" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">13</text>
+<text x="12" y="101" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr: 71 ayet</text>
+<rect x="12.0" y="108" width="184.7" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="104.4" y="127" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">29</text>
+<rect x="196.7" y="108" width="267.6" height="26" style="fill:var(--line);stroke:var(--bg);stroke-width:1.5"/>
+<text x="330.5" y="127" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">42</text>
+<rect x="12" y="143" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="156" style="font-family:inherit;font-size:16px;fill:var(--ink)">çoğu/birçoğu hükmü taşıyan ayet</text>
+<rect x="12" y="165" width="14" height="14" style="fill:var(--line);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="178" style="font-family:inherit;font-size:16px;fill:var(--ink)">kalıp başka anlamda (daha çok, çok anmak…)</text>
+<text x="12" y="216" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">2 · Kim için söyleniyor?</text>
+<text x="12" y="241" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
+<rect x="12.0" y="248" width="197.3" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="110.6" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">26</text>
+<rect x="209.3" y="248" width="303.5" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="361.1" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">40</text>
+<rect x="512.8" y="248" width="15.2" height="26" style="fill:var(--ink-soft);stroke:var(--bg);stroke-width:1.5"/>
+<text x="12" y="297" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
+<rect x="12.0" y="304" width="68.3" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="46.1" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
+<rect x="80.3" y="304" width="151.8" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="156.2" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">20</text>
+<rect x="12" y="339" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="352" style="font-family:inherit;font-size:16px;fill:var(--ink)">genel: insanlar (ekser 26, kesîr 9)</text>
+<rect x="12" y="361" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="374" style="font-family:inherit;font-size:16px;fill:var(--ink)">belirli topluluk (ekser 40, kesîr 20)</text>
+<rect x="12" y="383" width="14" height="14" style="fill:var(--ink-soft);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="396" style="font-family:inherit;font-size:16px;fill:var(--ink)">öncül belirsiz (ekser 2)</text>
+<text x="12" y="434" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">3 · Olumsuz mu, olumlu mu?</text>
+<text x="12" y="459" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
+<rect x="12.0" y="466" width="516.0" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
+<text x="270.0" y="485" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">68</text>
+<text x="12" y="515" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
+<rect x="12.0" y="522" width="174.5" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
+<text x="99.3" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">23</text>
+<rect x="186.5" y="522" width="15.2" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<rect x="201.7" y="522" width="30.4" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="216.9" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">4</text>
+<rect x="12" y="557" width="14" height="14" style="fill:var(--danger);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="570" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumsuz hüküm (ekser 68, kesîr 23)</text>
+<rect x="12" y="579" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="592" style="font-family:inherit;font-size:16px;fill:var(--ink)">karışık: hem olumlu hem olumsuz (kesîr 2)</text>
+<rect x="12" y="601" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="614" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumlu ya da nötr (kesîr 4)</text>
+<text x="12" y="652" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">4 · Mekkî / Medenî (hüküm ayetleri)</text>
+<text x="12" y="677" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
+<rect x="12.0" y="684" width="447.7" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="235.9" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">59</text>
+<rect x="459.7" y="684" width="68.3" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="493.9" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
+<text x="12" y="733" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
+<rect x="12.0" y="740" width="75.9" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="49.9" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">10</text>
+<rect x="87.9" y="740" width="144.2" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="160.0" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">19</text>
+<rect x="12" y="775" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="788" style="font-family:inherit;font-size:16px;fill:var(--ink)">Mekkî sure (ekser 59, kesîr 10)</text>
+<rect x="12" y="797" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>
+<text x="34" y="810" style="font-family:inherit;font-size:16px;fill:var(--ink)">Medenî sure (ekser 9, kesîr 19)</text>
 </svg>

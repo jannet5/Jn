@@ -354,172 +354,372 @@
   }
  ],
  "paylasim_ekser_sayisi": 12,
- "kesir_yan_tarama": {
-  "aciklama": "كثير = \"çok/birçok\". Tam sayım değil: كثير geçen ayetlerden kişilere ilişkin \"çoğu/birçoğu\" hükmü taşıyanlar elle seçildi.",
-  "kesir_geçen_ayet_sayisi": 71,
-  "secilen": 26,
+ "kesir": {
+  "aciklama": "كثير = \"çok/birçok\" (ayrı kalıp). Kur'an'da كثير geçen bütün ayetler koddan bulundu; her biri elle \"kişilere ilişkin çoğu/birçoğu hükmü\" ya da \"kişi dışı\" diye etiketlendi.",
+  "kesir_gecen_ayet": 71,
+  "kisi_hukmu": 29,
+  "kisi_disi": 42,
   "nitelik": {
-   "olumlu-nötr": 5,
-   "olumsuz": 20,
-   "karışık": 1
+   "olumlu-nötr": 4,
+   "olumsuz": 23,
+   "karışık": 2
   },
-  "ayetler": {
+  "ozne_tur": {
+   "genel": 9,
+   "belirli": 20
+  },
+  "belirli_kim": {
+   "Kitap ehli": 9,
+   "Tâlût'un askerleri": 1,
+   "peygamberlerin yanında savaşanlar": 1,
+   "İsrailoğulları": 1,
+   "Kitap ehli'nden önce sapan millet": 1,
+   "müşrikler": 1,
+   "hahamlar ve rahipler": 1,
+   "mü'min kullar": 1,
+   "ortaklar": 1,
+   "Nûh ve İbrâhim soyu": 1,
+   "İsâ'ya uyanlar": 1,
+   "Nûh kavminin önderleri": 1
+  },
+  "kitap_ehli_ayet": 9,
+  "yuklem": {
+   "hidayet/dalâl (Allah'ın fiili)": 1,
+   "kâfir/küfre döndürmek ister": 1,
+   "galip gelmek": 1,
+   "sabretmek": 1,
+   "aşırı gitmek": 1,
+   "fasık": 5,
+   "günaha koşmak": 1,
+   "kâfir/azgın": 2,
+   "kötü iş": 2,
+   "yüz çevirmek": 1,
+   "saptırmak": 2,
+   "zanna/hevaya uymak": 1,
+   "saptırılmak": 3,
+   "akletmez/anlamaz": 1,
+   "haksız kazanç": 1,
+   "gafil": 1,
+   "secde / azabı hak etmek": 1,
+   "üstünlük (nimet)": 1,
+   "kâfir": 1,
+   "haksızlık": 1
+  },
+  "mekki_medeni_kisi_hukmu": {
+   "makkah": 10,
+   "madinah": 19
+  },
+  "mekki_medeni_tum_kesir": {
+   "makkah": 27,
+   "madinah": 44
+  },
+  "kisi_hukmu_ayetleri": {
    "2:26": {
     "nitelik": "olumlu-nötr",
+    "ozne_tur": "genel",
     "ozne": "insanlar",
     "ne": "Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir",
-    "diyanet_kelime": "birçoğu"
+    "diyanet_kelime": "birçoğu",
+    "yuklem": "hidayet/dalâl (Allah'ın fiili)"
    },
    "2:109": {
     "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
     "ozne": "Kitap ehli",
     "ne": "çoğu kıskançlıkla sizi küfre döndürmek ister",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:49": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "çoğu fasıktır",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:62": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "çoğu günaha ve haksızlığa koşuşur",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:64": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "indirilenler çoğunun azgınlığını artırır",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:66": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "bir zümre orta yolda; çoğunun işledikleri kötü",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:68": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "indirilenler çoğunun azgınlık ve küfrünü artırır",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:71": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "tevbeleri kabulden sonra çoğu yine körleşti",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:80": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "çoğunun inkâr edenleri dost edindiği",
-    "diyanet_kelime": "çoğu"
-   },
-   "5:81": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "çoğu fasıktır",
-    "diyanet_kelime": "çoğu"
-   },
-   "6:119": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "çoğunluk heva ile bilmeden sapıtır",
-    "diyanet_kelime": "çoğunluk"
-   },
-   "7:179": {
-    "nitelik": "olumsuz",
-    "ozne": "cin ve insan",
-    "ne": "cehennem için birçok cin ve insan yaratıldı (kalpleri var anlamazlar)",
-    "diyanet_kelime": "birçok"
-   },
-   "9:34": {
-    "nitelik": "olumsuz",
-    "ozne": "hahamlar ve rahipler",
-    "ne": "çoğu insanların mallarını haksızlıkla yer",
-    "diyanet_kelime": "çoğu"
-   },
-   "10:92": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "çoğu ayetlerimizden habersizdir",
-    "diyanet_kelime": "çoğu"
-   },
-   "14:36": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "putlar çok insanı saptırdı (İbrâhim'in duası)",
-    "diyanet_kelime": "çok"
-   },
-   "22:18": {
-    "nitelik": "olumlu-nötr",
-    "ozne": "insanlar",
-    "ne": "insanların birçoğu Allah'a secde eder; birçoğu da azabı hak etmiştir",
-    "diyanet_kelime": "birçoğu"
-   },
-   "27:15": {
-    "nitelik": "olumlu-nötr",
-    "ozne": "mü'min kullar",
-    "ne": "Dâvûd ve Süleymân: \"mü'min kullarının çoğundan üstün kıldı\"",
-    "diyanet_kelime": "çoğu"
-   },
-   "30:8": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "çoğu Rablerine kavuşmayı inkâr eder",
-    "diyanet_kelime": "çoğu"
-   },
-   "36:62": {
-    "nitelik": "olumsuz",
-    "ozne": "insanlar",
-    "ne": "şeytan sizden nice nesilleri saptırdı",
-    "diyanet_kelime": "nice"
-   },
-   "38:24": {
-    "nitelik": "olumsuz",
-    "ozne": "ortaklar",
-    "ne": "ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır",
-    "diyanet_kelime": "çoğu"
-   },
-   "57:16": {
-    "nitelik": "olumsuz",
-    "ozne": "Kitap ehli",
-    "ne": "çoğunun kalbi katılaştı, fasıklaştı",
-    "diyanet_kelime": "çoğu"
-   },
-   "57:26": {
-    "nitelik": "karışık",
-    "ozne": "Nûh ve İbrâhim soyu",
-    "ne": "kimi doğru yolda, birçoğu yoldan çıkmış",
-    "diyanet_kelime": "birçoğu"
-   },
-   "57:27": {
-    "nitelik": "olumsuz",
-    "ozne": "İsâ'ya uyanlar",
-    "ne": "çoğu fasık (rahbâniyet icadı)",
-    "diyanet_kelime": "çoğu"
-   },
-   "71:24": {
-    "nitelik": "olumsuz",
-    "ozne": "Nûh kavminin önderleri",
-    "ne": "birçoğunu saptırdılar",
-    "diyanet_kelime": "birçoğu"
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kâfir/küfre döndürmek ister"
    },
    "2:249": {
     "nitelik": "olumlu-nötr",
+    "ozne_tur": "belirli",
     "ozne": "Tâlût'un askerleri",
     "ne": "\"Nice az topluluk çok topluluğa Allah'ın izniyle galip gelmiştir\"",
-    "diyanet_kelime": "çok"
+    "diyanet_kelime": "çok",
+    "yuklem": "galip gelmek"
    },
    "3:146": {
     "nitelik": "olumlu-nötr",
+    "ozne_tur": "belirli",
     "ozne": "peygamberlerin yanında savaşanlar",
     "ne": "nice peygamberle birlikte pek çok Rabbânî savaştı",
-    "diyanet_kelime": "pek çok"
+    "diyanet_kelime": "pek çok",
+    "yuklem": "sabretmek"
+   },
+   "5:32": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "İsrailoğulları",
+    "ne": "bunca ayetten sonra çoğu yeryüzünde aşırı gider",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "aşırı gitmek"
+   },
+   "5:49": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "çoğu fasıktır",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "fasık"
+   },
+   "5:62": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "çoğu günaha ve haksızlığa koşuşur",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "günaha koşmak"
+   },
+   "5:64": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "indirilenler çoğunun azgınlığını ve küfrünü artırır",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kâfir/azgın"
+   },
+   "5:66": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "bir zümre orta yolda; çoğunun işledikleri kötü",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kötü iş"
+   },
+   "5:68": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "indirilenler çoğunun azgınlık ve küfrünü artırır",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kâfir/azgın"
+   },
+   "5:71": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "tevbe kabulünden sonra çoğu yine körleşti, sağırlaştı",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "yüz çevirmek"
+   },
+   "5:77": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli'nden önce sapan millet",
+    "ne": "öncekiler çoğunu saptırdı",
+    "diyanet_kelime": "çoğunu",
+    "yuklem": "saptırmak"
+   },
+   "5:80": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "çoğunun inkâr edenleri dost edindiğini görürsün",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kötü iş"
+   },
+   "5:81": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "çoğu fasıktır",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "fasık"
+   },
+   "6:119": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "çoğunluk heva ile bilmeden sapıtır",
+    "diyanet_kelime": "çoğunluk",
+    "yuklem": "zanna/hevaya uymak"
+   },
+   "6:137": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "müşrikler",
+    "ne": "ortaklar müşriklerin çoğuna çocuk öldürmeyi güzel gösterdi",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "saptırılmak"
+   },
+   "7:179": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "cin ve insan",
+    "ne": "cehennem için birçok cin ve insan yaratıldı (kalpleri var anlamazlar)",
+    "diyanet_kelime": "birçok",
+    "yuklem": "akletmez/anlamaz"
+   },
+   "9:34": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "hahamlar ve rahipler",
+    "ne": "çoğu insanların mallarını haksızlıkla yer",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "haksız kazanç"
+   },
+   "10:92": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "çoğu ayetlerimizden habersizdir",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "gafil"
+   },
+   "14:36": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "putlar çok insanı saptırdı (İbrâhim'in duası)",
+    "diyanet_kelime": "çok",
+    "yuklem": "saptırılmak"
+   },
+   "22:18": {
+    "nitelik": "karışık",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "insanların birçoğu Allah'a secde eder; birçoğu da azabı hak etmiştir",
+    "diyanet_kelime": "birçoğu",
+    "yuklem": "secde / azabı hak etmek"
+   },
+   "27:15": {
+    "nitelik": "olumlu-nötr",
+    "ozne_tur": "belirli",
+    "ozne": "mü'min kullar",
+    "ne": "Dâvûd ve Süleymân: \"mü'min kullarının çoğundan üstün kıldı\"",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "üstünlük (nimet)"
+   },
+   "30:8": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "çoğu Rablerine kavuşmayı inkâr eder",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "kâfir"
+   },
+   "36:62": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "genel",
+    "ozne": "insanlar",
+    "ne": "şeytan sizden nice nesilleri saptırdı",
+    "diyanet_kelime": "nice",
+    "yuklem": "saptırılmak"
+   },
+   "38:24": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "ortaklar",
+    "ne": "ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "haksızlık"
+   },
+   "57:16": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Kitap ehli",
+    "ne": "çoğunun kalbi katılaştı, fasıklaştı",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "fasık"
+   },
+   "57:26": {
+    "nitelik": "karışık",
+    "ozne_tur": "belirli",
+    "ozne": "Nûh ve İbrâhim soyu",
+    "ne": "kimi doğru yolda, birçoğu yoldan çıkmış",
+    "diyanet_kelime": "birçoğu",
+    "yuklem": "fasık"
+   },
+   "57:27": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "İsâ'ya uyanlar",
+    "ne": "çoğu fasık (rahbâniyet icadı)",
+    "diyanet_kelime": "çoğu",
+    "yuklem": "fasık"
+   },
+   "71:24": {
+    "nitelik": "olumsuz",
+    "ozne_tur": "belirli",
+    "ozne": "Nûh kavminin önderleri",
+    "ne": "birçoğunu saptırdılar",
+    "diyanet_kelime": "birçoğu",
+    "yuklem": "saptırmak"
    }
+  },
+  "kisi_disi_ayetleri": {
+   "kişi sayısı, hüküm değil": [
+    "4:1"
+   ],
+   "çok anmak / çok tesbih (zikir)": [
+    "3:41",
+    "8:45",
+    "20:33",
+    "20:34",
+    "26:227",
+    "33:21",
+    "33:35",
+    "33:41",
+    "62:10",
+    "22:40"
+   ],
+   "çok nimet, rızık, ganimet, mal": [
+    "2:245",
+    "2:269",
+    "4:19",
+    "4:94",
+    "4:100",
+    "9:25",
+    "23:19",
+    "23:21",
+    "25:49",
+    "38:51",
+    "43:73",
+    "48:19",
+    "48:20",
+    "56:32"
+   ],
+   "çok şey: azap, çelişki, günah, zan, misal": [
+    "3:186",
+    "4:82",
+    "4:114",
+    "4:160",
+    "5:15",
+    "6:91",
+    "8:43",
+    "9:82",
+    "11:91",
+    "25:14",
+    "25:38",
+    "41:22",
+    "42:30",
+    "42:34",
+    "49:7",
+    "49:12",
+    "17:70"
+   ]
+  }
+ },
+ "iki_kalip_karsilastirma": {
+  "ekser": {
+   "ham": 81,
+   "hukum": 68,
+   "genel": 26,
+   "belirli": 40,
+   "belirsiz": 2,
+   "olumsuz": 68,
+   "olumlu_notr": 0,
+   "karisik": 0
+  },
+  "kesir": {
+   "ham": 71,
+   "hukum": 29,
+   "genel": 9,
+   "belirli": 20,
+   "belirsiz": 0,
+   "olumsuz": 23,
+   "olumlu_notr": 4,
+   "karisik": 2
   }
  },
  "az_taramasi": {
@@ -914,24 +1114,31 @@
   "kok": "ك-ث-ر",
   "kaynaklar": [
    {
+    "eser": "Cevherî, es-Sıhâh (Tâcü'l-Lüga), \"كثر\"",
+    "metin": "الكثرة: نقيض القلة ... وقد كثر الشيء فهو كثير",
+    "anlam": "kesret, kıllet'in (azlığın) zıddıdır; كثير bu köktendir (=çok)",
+    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
+   },
+   {
     "eser": "İbn Manzûr, Lisânü'l-Arab, \"كثر\"",
     "metin": "والكُثْرُ معظم الشيء وأَكْثَرُه",
-    "anlam": "\"kuthr\", bir şeyin büyük kısmı, çoğu",
+    "anlam": "\"kuthr\": bir şeyin büyük kısmı, çoğu; \"ekser\" bu anlamda çoğunluğu gösterir",
     "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
    },
    {
-    "eser": "Edward W. Lane, Arabic-English Lexicon, \"كُثْرٌ\"",
-    "metin": "The greater, or greatest, or main, part, of a thing; the most thereof. (K)",
-    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
-   },
-   {
-    "eser": "Zebîdî, Tâcü'l-Arûs, \"كثر\" (hawramani sayfasındaki alıntı)",
-    "metin": "الكُثْرُ هُوَ: مُعْظَمُ الشَّيْءِ وأَكْثَرُهُ",
+    "eser": "E. W. Lane, Arabic-English Lexicon, \"كُثْرٌ\"",
+    "metin": "The greater, or greatest, or main, part, of a thing; the most thereof.",
     "anlam": "aynı",
+    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
+   },
+   {
+    "eser": "Râgıb el-İsfahânî, el-Müfredât fî Garîbi'l-Kur'ân, \"كثر\"",
+    "metin": "الْكِثْرَةَ والقلّة يستعملان في الكمّيّة المنفصلة كالأعداد ... وليست الْكَثْرَةُ إشارة إلى العدد فقط بل إلى الفضل",
+    "anlam": "kesret/kıllet ayrık nicelikte (sayılarda) kullanılır; kesret yalnızca sayıya değil, bolluk ve fazlalığa da işaret edebilir. Râgıb örnek olarak 5:64, 23:70 (أكثرهم للحق كارهون), 21:24, 2:249, 4:1 ve 2:109 (كثير من أهل الكتاب) ayetlerini anar.",
     "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
    }
   ],
-  "not_": "Raghıb el-İsfahânî, el-Müfredât: hawramani sayfası \"وأكثرهم للحق كارهون\" ayetini أكثر için örnek verir; tanım metni sayfadan doğrulanamadığı için alıntılanmadı."
+  "fark": "أكثر (ekser) = üstünlük/karşılaştırma kalıbı: \"daha çok / çoğu / en çoğu\"; ayrıca كُثْر (kuthr) \"bir şeyin büyük kısmı\". كثير (kesîr) = \"çok, bol, birçok\" sıfatı; كثير من = \"…lerden birçoğu\". Kesîr \"çoğunluk (%50'den fazla)\" demeyi tek başına gerektirmez; ekser \"çoğunu/en çoğunu\" göstermeye daha yakındır. Diyanet meali ikisini de \"çoğu\" diye çevirebilir."
  },
  "ayetler": [
   {

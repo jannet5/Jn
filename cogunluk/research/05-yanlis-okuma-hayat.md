@@ -64,3 +64,10 @@ KULLANILMADI (kasıtlı):
 
 ## Açılan kaynak URL'leri
 https://pdodds.w3.uvm.edu/teaching/courses/2009-08UVM-300/docs/others/everything/asch1955a.pdf · https://politics.media.mit.edu/papers/Vosoughi_Science.pdf · https://bps.org.uk/research-digest/textbook-coverage-classic-social-psychology-study-has-become-increasingly-biased · https://en.wikipedia.org/wiki/Asch_conformity_experiments · https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds · https://pmc.ncbi.nlm.nih.gov/articles/PMC3107299 · https://www.islamweb.net/ar/library/content/53/7707/ · https://www.islamweb.net/ar/library/content/78/1393/ · https://surahquran.com/Hadith-21406.html · https://api.quran.com/api/v4/tafsirs/169/by_ayah/{49:6,3:113,35:32,16:43} · https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/{ara,eng}-{bukhari,muslim,abudawud,tirmidhi}.json
+
+## Ek notlar (bölüm yazımı sırasında)
+- Bölümde dilbilimsel iddia: Hadîd 57:20'de "el-küffâr" = ekici (Diyanet "ekicilerin"); "kök örtmek anlamı taşır, ekici tohumu toprakla örter" açıklaması sözlükten ayrıca doğrulanmadı (genel Arapça kök bilgisi) — bölümde parantez içinde, tefsir alıntısı gibi sunulmadı.
+- Sebe' 34:13 "i'melû âle Dâvûde şükran" = "Ey Davud ailesi, şükür olarak amel edin" (Arapça ayet metninden doğrudan okuma).
+- Salganik ve ark. (2006) yalnızca ikincil özetlerden (acawiki, cs.toronto PDF listesi, SSRC) okundu; bölümde bu belirtildi, rakam olarak yalnızca 14.341 verildi.
+- Surowiecki/Galton ikincil özetten (Wikipedia) alındı; Galton için sayı verilmedi.
+- Bölüm HTML'i: /home/user/Jn/cogunluk/bolumler/05-yanlis-okuma-hayat.html — ~2530 kelime düz metin (SVG ve Arapça hariç), 4 SVG şeması (dört tuzak kartı, Asch sahnesi, Asch grup büyüklüğü çubuk grafiği, karar süzgeci akışı).
