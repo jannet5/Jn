@@ -42,6 +42,10 @@ import androidx.compose.runtime.rememberCoroutineScope // eşzamanlılık alanı
 import androidx.compose.runtime.rememberUpdatedState // güncel değer
 import androidx.compose.runtime.setValue // durum yazma
 import androidx.compose.ui.Alignment // hizalama
+import app.kuranoku.ui.theme.lineHeightFactor // satır yüksekliği
+import app.kuranoku.data.toArabicDigits // Arapça rakam
+import androidx.compose.ui.platform.LocalDensity // yoğunluk
+import androidx.compose.ui.draw.drawBehind // arkaya çizim
 import androidx.compose.ui.Modifier // değiştirici
 import androidx.compose.ui.draw.clip // kırpma
 import androidx.compose.ui.graphics.Color // renk
@@ -88,6 +92,7 @@ fun AppearanceSheet(s: ReaderSettings, onChange: (ReaderSettings) -> Unit, onDis
         shape = RoundedCornerShape(topStart = Radius.lg, topEnd = Radius.lg), // büyük köşe
         containerColor = MaterialTheme.colorScheme.surfaceContainerLow, // zemin
     ) {
+        LivePreview(s) // canlı önizleme: panelin üstünde sabit, her değişiklik anında görünür
         Column(
             Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).navigationBarsPadding().padding(bottom = Space.xl), // kaydırılabilir
             verticalArrangement = Arrangement.spacedBy(Space.xl), // bölümler arası 24
@@ -282,6 +287,41 @@ private fun FontSection(s: ReaderSettings, onChange: (ReaderSettings) -> Unit) {
                     Text(f.note, style = MaterialTheme.typography.bodySmall, color = appColors.muted, maxLines = 2, overflow = TextOverflow.Ellipsis) // not
                 }
                 Text(BASMALA, style = TextStyle(fontFamily = f.family(), fontSize = 18.sp, textDirection = TextDirection.Rtl, color = MaterialTheme.colorScheme.onSurface), softWrap = false) // örnek
+            }
+        }
+    }
+}
+
+
+/** Fâtiha 2-4 (KFGQPC metni): önizlemede gösterilen gerçek ayetler. */
+private val ONIZLEME_AYETLERI = listOf("ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ" to 2, "ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ" to 3, "مَٰلِكِ يَوۡمِ ٱلدِّينِ" to 4)
+
+/**
+ * Canlı önizleme: panel sayfayı kapatsa da ayarların sonucu burada anında görünür.
+ * Sayfa rengi, doku, çerçeve, yazı rengi, kabartma, yazı tipi ve yazı boyutu okuma ekranıyla aynı çizilir.
+ */
+@Composable
+private fun LivePreview(s: ReaderSettings) {
+    val ink = Color(s.inkColor) // yazı rengi
+    val boyut = BASE_FONT_SIZE * (if (s.mushafLayout) s.scale.coerceAtLeast(1f) else s.scale) // okuma ekranındaki büyüklük
+    val metin = remember(s.font) { ONIZLEME_AYETLERI.joinToString(" ") { (t, n) -> t + "\u00A0" + s.font.ayahMark(n.toArabicDigits()) } } // ayetler + kendi gülleri
+    val stil = TextStyle( // ayet stili (okuma ekranıyla aynı)
+        fontFamily = s.font.family(), fontSize = boyut, lineHeight = boyut * s.font.lineHeightFactor(), color = ink, // yazı tipi, boyut, renk
+        textAlign = TextAlign.Center, textDirection = TextDirection.Rtl, shadow = embossShadow(s, LocalDensity.current.density), // ortalı, sağdan sola, kabartma
+    )
+    Column(Modifier.padding(horizontal = Space.l).padding(bottom = Space.m), verticalArrangement = Arrangement.spacedBy(Space.xs)) {
+        SectionLabel("Önizleme") // etiket
+        Box(
+            Modifier.fillMaxWidth().height(156.dp).clip(RoundedCornerShape(Radius.md)) // sabit yükseklik: panel zıplamaz
+                .paper(s) // aynı kağıt (renk + doku + kenar gölgesi)
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(Radius.md)) // ince kenar
+                .padding(Space.s) // iç boşluk
+                .then(if (s.frame) Modifier.drawBehind { mushafFrame(Color(s.ornamentColor)) } else Modifier) // süslü çerçeve
+                .padding(horizontal = Space.m, vertical = Space.s), // çerçeve içi
+        ) {
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) { // ayetler
+                Text(BASMALA, style = stil, softWrap = false, maxLines = 1) // besmele
+                Text(metin, style = stil) // Fâtiha 2-4 (büyüyünce taşan kısım kesilir)
             }
         }
     }

@@ -37,3 +37,9 @@
 | — | Uygulamayı kapatıp açınca kaldığı sayfa (105) | ✅ |
 | 1–2 | APK 2,6 MB; tek izin Android'in kendi iç izni, internet izni yok | ✅ |
 | 17 | jsDelivr linki: HTTP 200, tür application/vnd.android.package-archive, içerik birebir | ✅ sunucu tarafı; telefonda kullanıcı onayı bekleniyor |
+
+## Sonraki istekler
+| # | İstek | Uygulamada | Sürüm |
+|---|---|---|---|
+| 21 | "Ayarlarınca anında ne olduğunu göremiyor, gir çık yapmak zorunda; şu anki hali bozmadan ekle" | ✅ Görünüm panelinin üstünde sabit **canlı önizleme** (gerçek Fâtiha ayetleri): sayfa görünümü, renk, doku, çerçeve, yazı tipi, boyut anında görünür; panel kaydırılsa da üstte kalır. Mevcut ayarların hiçbiri değişmedi. Emülatörde Lacivert, Scheherazade ve %125 ile denendi. | 1.3 |
+| 22 | "Proje sohbetlerinde yazdığım her şey okunsun ve yapılsın, bitirilip kart olarak verilsin" | ✅ Depo kökünde `CLAUDE.md` kalıcı kural; her teslim dosya kartı + Artifact linki | — |
