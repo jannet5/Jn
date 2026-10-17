@@ -1,0 +1,32 @@
+{
+  "query": "asdfqwerzx",
+  "resolved": "",
+  "found": false,
+  "via": null,
+  "suggestions": [],
+  "entries": [],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/Asdfqwerzx",
+      "ok": false,
+      "ms": 44707,
+      "note": "sayfa yok"
+    },
+    {
+      "name": "en.wiktionary.org (öneri)",
+      "url": "https://en.wiktionary.org/w/api.php?action=opensearch&search=asdfqwerzx",
+      "ok": false,
+      "ms": 3030,
+      "note": "öneri yok"
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/asdfqwerzx",
+      "ok": false,
+      "ms": 3042,
+      "note": "sayfa yok"
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:32:06.880Z"
+}

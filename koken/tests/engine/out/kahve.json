@@ -1,0 +1,111 @@
+{
+  "query": "kahve",
+  "resolved": "kahve",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Ottoman Turkish قهوه (kahve), from Arabic قَهْوَة (qahwa). Doublet of kafe and kafeterya.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "kahve",
+              "translit": null,
+              "gloss": "coffee",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "قهوه",
+              "translit": "kahve",
+              "gloss": null,
+              "relation": "inherited"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قَهْوَة",
+              "translit": "qahwa",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Turkish",
+              "term": "kafe"
+            },
+            {
+              "language": "Turkish",
+              "term": "kafeterya"
+            }
+          ],
+          "gloss": "coffee",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Arapça قهوة‎ (ḳahwa(t), “1. koyu şey, özsuyu [eskimiş], 2. coffea arabica bitkisinin tohumlarından elde edilen içecek”) sözcüğünden. Bu sözcük Arapça ḳhw kökünden faˁla(t) vezninde ism-i merredir. Arapça sözcüğün etimolojisi muğlaktır; nihai kaynağın bir Etiyopya dili veya Etiyopya'da bir toponim olduğu savunulmuştur.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "kahve",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قهوة",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "ḳhw",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/kahve#Turkish"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/kahve",
+      "ok": true,
+      "ms": 3427,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/kahve",
+      "ok": true,
+      "ms": 56248,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:31:01.170Z"
+}

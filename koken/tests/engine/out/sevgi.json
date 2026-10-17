@@ -1,0 +1,175 @@
+{
+  "query": "sevgi",
+  "resolved": "sevgi",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Ottoman Turkish سوكی (sevgi), from Old Anatolian Turkish سَوكُو (sevgü). Cognate with Azerbaijani, Uzbek, and Crimean Tatar sevgi, etc. By surface analysis, sev- (“to love”) +‎ -gi.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "sevgi",
+              "translit": null,
+              "gloss": "love (strong affection)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "سوكی",
+              "translit": "sevgi",
+              "gloss": null,
+              "relation": "inherited"
+            },
+            {
+              "language": "Old Anatolian Turkish",
+              "languageTr": "Eski Anadolu Türkçesi",
+              "term": "سَوكُو",
+              "translit": "sevgü",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [
+            {
+              "term": "sev-",
+              "kind": "root",
+              "gloss": "to love",
+              "language": "Turkish"
+            },
+            {
+              "term": "-gi",
+              "kind": "suffix",
+              "gloss": null,
+              "language": "Turkish"
+            }
+          ],
+          "cognates": [
+            {
+              "language": "Crimean Tatar",
+              "term": "sevgi"
+            }
+          ],
+          "gloss": "love (strong affection)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/sevgi#Turkish"
+    },
+    {
+      "language": "Azerbaijani",
+      "languageTr": "Azerbaycan Türkçesi",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Inherited from Old Anatolian Turkish سَوكُو (sevgü). By surface analysis, sev- (“to love”) +‎ -gi.",
+          "chain": [
+            {
+              "language": "Azerbaijani",
+              "languageTr": "Azerbaycan Türkçesi",
+              "term": "sevgi",
+              "translit": null,
+              "gloss": "love (strong affection)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Old Anatolian Turkish",
+              "languageTr": "Eski Anadolu Türkçesi",
+              "term": "سَوكُو",
+              "translit": "sevgü",
+              "gloss": null,
+              "relation": "inherited"
+            }
+          ],
+          "parts": [
+            {
+              "term": "sev-",
+              "kind": "root",
+              "gloss": "to love",
+              "language": "Azerbaijani"
+            },
+            {
+              "term": "-gi",
+              "kind": "suffix",
+              "gloss": null,
+              "language": "Azerbaijani"
+            }
+          ],
+          "cognates": [],
+          "gloss": "love (strong affection)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/sevgi#Azerbaijani"
+    },
+    {
+      "language": "Crimean Tatar",
+      "languageTr": "Kırım Tatarcası",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From sev- (“to love”) +‎ -gi.",
+          "chain": [
+            {
+              "language": "Crimean Tatar",
+              "languageTr": "Kırım Tatarcası",
+              "term": "sevgi",
+              "translit": null,
+              "gloss": "love",
+              "relation": "unknown"
+            }
+          ],
+          "parts": [
+            {
+              "term": "sev-",
+              "kind": "root",
+              "gloss": "to love",
+              "language": "Crimean Tatar"
+            },
+            {
+              "term": "-gi",
+              "kind": "suffix",
+              "gloss": null,
+              "language": "Crimean Tatar"
+            }
+          ],
+          "cognates": [],
+          "gloss": "love",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/sevgi#Crimean_Tatar"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/sevgi",
+      "ok": true,
+      "ms": 27474,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/sevgi",
+      "ok": false,
+      "ms": 2608,
+      "note": "Köken bölümü yok"
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:33:04.053Z"
+}

@@ -1,0 +1,139 @@
+{
+  "query": "okul",
+  "resolved": "okul",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From earlier okula. Coined during the language reforms from oku- (“to read, study”), possibly a phono-semantic matching of French école (“school”).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "okul",
+              "translit": null,
+              "gloss": "school",
+              "relation": "unknown"
+            },
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "okula",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "oku-",
+              "translit": null,
+              "gloss": "to read, study",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "school",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/okul#Turkish"
+    },
+    {
+      "language": "Gagauz",
+      "languageTr": "Gagavuzca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Turkish okul.",
+          "chain": [
+            {
+              "language": "Gagauz",
+              "languageTr": "Gagavuzca",
+              "term": "okul",
+              "translit": null,
+              "gloss": "school",
+              "relation": "unknown"
+            },
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "okul",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "school",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/okul#Gagauz"
+    },
+    {
+      "language": "Hungarian",
+      "languageTr": "Macarca",
+      "pos": [
+        "verb"
+      ],
+      "etymologies": [
+        {
+          "text": "From the obsolete dialectal verb okik (“to learn one's lesson”) +‎ -ul (verb-forming suffix).",
+          "chain": [
+            {
+              "language": "Hungarian",
+              "languageTr": "Macarca",
+              "term": "okul",
+              "translit": null,
+              "gloss": "(intransitive) to learn something as a lesson (from something: -n/-on/-en/-ön or -ból/-ből)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Hungarian",
+              "languageTr": "Macarca",
+              "term": "okik",
+              "translit": null,
+              "gloss": "to learn one's lesson",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(intransitive) to learn something as a lesson (from something: -n/-on/-en/-ön or -ból/-ből)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/okul#Hungarian"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/okul",
+      "ok": true,
+      "ms": 42654,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/okul",
+      "ok": false,
+      "ms": 59791,
+      "note": "Köken bölümü yok"
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:30:01.489Z"
+}

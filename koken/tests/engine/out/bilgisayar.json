@@ -1,0 +1,153 @@
+{
+  "query": "bilgisayar",
+  "resolved": "bilgisayar",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From bilgi (“information”) + sayar (“third-person singular indicative aorist of saymak”), literally “information counter”. Coined by Turkish software engineer and linguist Aydın Köksal in 1969",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": "(computer science, informatics) computer",
+              "relation": "unknown"
+            }
+          ],
+          "parts": [
+            {
+              "term": "bilgi",
+              "kind": "compound",
+              "gloss": "information",
+              "language": "Turkish"
+            },
+            {
+              "term": "sayar",
+              "kind": "compound",
+              "gloss": "third-person singular indicative aorist of saymak",
+              "language": "Turkish"
+            }
+          ],
+          "cognates": [],
+          "gloss": "(computer science, informatics) computer",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "bilgi + saymak İlk kez 1969'da Hacettepe Üniversitesinin gazeteye verdiği Bilgisayar Kiralanacaktır ilanıdır. Kelimeyi türetip gazeteye ilan veren kişi Prof. Dr. Aydın Köksal'dır.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/bilgisayar#Turkish"
+    },
+    {
+      "language": "Azerbaijani",
+      "languageTr": "Azerbaycan Türkçesi",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Turkish bilgisayar, from bilgi (“information”) + sayar (“third-person singular indicative aorist of saymak”), literally “information counter”.",
+          "chain": [
+            {
+              "language": "Azerbaijani",
+              "languageTr": "Azerbaycan Türkçesi",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": "(puristic, uncommon) computer",
+              "relation": "unknown"
+            },
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(puristic, uncommon) computer",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/bilgisayar#Azerbaijani"
+    },
+    {
+      "language": "Crimean Tatar",
+      "languageTr": "Kırım Tatarcası",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Turkish bilgisayar, from bilgi (“information”) + sayar (“third-person singular indicative aorist of saymak”), literally “information counter”.",
+          "chain": [
+            {
+              "language": "Crimean Tatar",
+              "languageTr": "Kırım Tatarcası",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": "(puristic) computer",
+              "relation": "unknown"
+            },
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "bilgisayar",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(puristic) computer",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/bilgisayar#Crimean_Tatar"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/bilgisayar",
+      "ok": true,
+      "ms": 2705,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/bilgisayar",
+      "ok": true,
+      "ms": 3022,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:28:19.021Z"
+}

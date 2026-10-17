@@ -1,0 +1,479 @@
+{
+  "query": "café",
+  "resolved": "café",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "English",
+      "languageTr": "İngilizce",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Unadapted borrowing from French café (“coffee; coffee shop”). Doublet of caffè and coffee.",
+          "chain": [
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "café",
+              "translit": null,
+              "gloss": "A coffee shop; an establishment selling coffee and sometimes other non-alcoholic beverages, simple meals or snacks, with a facility to consume them on the premises.",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": "coffee; coffee shop",
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "English",
+              "term": "caffè"
+            },
+            {
+              "language": "English",
+              "term": "coffee"
+            }
+          ],
+          "gloss": "A coffee shop; an establishment selling coffee and sometimes other non-alcoholic beverages, simple meals or snacks, with a facility to consume them on the premises.",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#English"
+    },
+    {
+      "language": "Asturian",
+      "languageTr": "Asturian",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French café.",
+          "chain": [
+            {
+              "language": "Asturian",
+              "languageTr": "Asturian",
+              "term": "café",
+              "translit": null,
+              "gloss": "coffee",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "coffee",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Asturian"
+    },
+    {
+      "language": "Champenois",
+      "languageTr": "Champenois",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Italian caffè, from Ottoman Turkish قهوه (kahve) (Turkish kahve), from Arabic قَهْوَة (qahwa, “coffee”).",
+          "chain": [
+            {
+              "language": "Champenois",
+              "languageTr": "Champenois",
+              "term": "café",
+              "translit": null,
+              "gloss": "coffee",
+              "relation": "unknown"
+            },
+            {
+              "language": "Italian",
+              "languageTr": "İtalyanca",
+              "term": "caffè",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "قهوه",
+              "translit": "kahve",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قَهْوَة",
+              "translit": "qahwa",
+              "gloss": "coffee",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "coffee",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Champenois"
+    },
+    {
+      "language": "Danish",
+      "languageTr": "Danca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Unadapted borrowing from French café.",
+          "chain": [
+            {
+              "language": "Danish",
+              "languageTr": "Danca",
+              "term": "café",
+              "translit": null,
+              "gloss": "café",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "café",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Danish"
+    },
+    {
+      "language": "Dutch",
+      "languageTr": "Felemenkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Unadapted borrowing from French café, from Italian caffè, from Ottoman Turkish قهوه (kahve), from Arabic قَهْوَة (qahwa, “coffee”).",
+          "chain": [
+            {
+              "language": "Dutch",
+              "languageTr": "Felemenkçe",
+              "term": "café",
+              "translit": null,
+              "gloss": "café; coffee shop",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Italian",
+              "languageTr": "İtalyanca",
+              "term": "caffè",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "قهوه",
+              "translit": "kahve",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قَهْوَة",
+              "translit": "qahwa",
+              "gloss": "coffee",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "café; coffee shop",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Dutch"
+    },
+    {
+      "language": "French",
+      "languageTr": "Fransızca",
+      "pos": [
+        "noun",
+        "adjective"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Italian caffè, first appearing as the form caveé, from Ottoman Turkish قهوه (kahve) (Turkish kahve), from Arabic قَهْوَة (qahwa, “coffee”). Doublet of caoua.",
+          "chain": [
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": "coffee (drink)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Italian",
+              "languageTr": "İtalyanca",
+              "term": "caffè",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "قهوه",
+              "translit": "kahve",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قَهْوَة",
+              "translit": "qahwa",
+              "gloss": "coffee",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "French",
+              "term": "caoua"
+            }
+          ],
+          "gloss": "coffee (drink)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#French"
+    },
+    {
+      "language": "Norman",
+      "languageTr": "Norman",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French café.",
+          "chain": [
+            {
+              "language": "Norman",
+              "languageTr": "Norman",
+              "term": "café",
+              "translit": null,
+              "gloss": "(Jersey) coffee (beverage)",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(Jersey) coffee (beverage)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Norman"
+    },
+    {
+      "language": "Polish",
+      "languageTr": "Lehçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Unadapted borrowing from French café. Doublet of kawa.",
+          "chain": [
+            {
+              "language": "Polish",
+              "languageTr": "Lehçe",
+              "term": "café",
+              "translit": null,
+              "gloss": "café, coffee shop (establishment selling coffee and sometimes other non-alcoholic beverages, simple meals or snacks, with a facility to consume them on the premises)",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Polish",
+              "term": "kawa"
+            }
+          ],
+          "gloss": "café, coffee shop (establishment selling coffee and sometimes other non-alcoholic beverages, simple meals or snacks, with a facility to consume them on the premises)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Polish"
+    },
+    {
+      "language": "Portuguese",
+      "languageTr": "Portekizce",
+      "pos": [
+        "noun",
+        "adjective"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French café, from Italian caffè, from Ottoman Turkish قهوه (kahve) (Turkish kahve), from Classical Arabic قَهْوَة (qahwa, “coffee”).",
+          "chain": [
+            {
+              "language": "Portuguese",
+              "languageTr": "Portekizce",
+              "term": "café",
+              "translit": null,
+              "gloss": "(uncountable) coffee (beverage)",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Italian",
+              "languageTr": "İtalyanca",
+              "term": "caffè",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "قهوه",
+              "translit": "kahve",
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "قَهْوَة",
+              "translit": "qahwa",
+              "gloss": "coffee",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "(uncountable) coffee (beverage)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Portuguese"
+    },
+    {
+      "language": "Spanish",
+      "languageTr": "İspanyolca",
+      "pos": [
+        "adjective",
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French café, or less likely directly from Italian caffè.",
+          "chain": [
+            {
+              "language": "Spanish",
+              "languageTr": "İspanyolca",
+              "term": "café",
+              "translit": null,
+              "gloss": "brown",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "café",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            },
+            {
+              "language": "Italian",
+              "languageTr": "İtalyanca",
+              "term": "caffè",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "brown",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9#Spanish"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/caf%C3%A9",
+      "ok": true,
+      "ms": 2996,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:28:13.269Z"
+}

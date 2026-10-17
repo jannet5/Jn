@@ -1,0 +1,87 @@
+{
+  "query": "algorithm",
+  "resolved": "algorithm",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "English",
+      "languageTr": "İngilizce",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Middle English algorisme, augrym, from Anglo-Norman algorisme, augrim, from Medieval Latin algorismus, from Arabic الخَوَارِزْمِيّ (al-ḵawārizmiyy), the nisba of Persian mathematician Muḥammad ibn Mūsā al-Khwārizmī and a toponymic name meaning \"the Chorasmian\". The spelling change (-s- > -th-) was influenced by unrelated Ancient Greek ἀριθμός (arithmós) (whence English arithmo-).",
+          "chain": [
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "algorithm",
+              "translit": null,
+              "gloss": "(countable, computer science, mathematics) A collection of ordered steps that solve a mathematical problem. A precise step-by-step plan for a computational procedure that possibly begins with an input value and yields…",
+              "relation": "unknown"
+            },
+            {
+              "language": "Middle English",
+              "languageTr": "Orta İngilizce",
+              "term": "algorisme",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Anglo-Norman",
+              "languageTr": "Anglo-Norman",
+              "term": "algorisme",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Medieval Latin",
+              "languageTr": "Orta Çağ Latincesi",
+              "term": "algorismus",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Arabic",
+              "languageTr": "Arapça",
+              "term": "الخَوَارِزْمِيّ",
+              "translit": "al-ḵawārizmiyy",
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Ancient Greek",
+              "term": "ἀριθμός"
+            },
+            {
+              "language": "English",
+              "term": "arithmo-"
+            }
+          ],
+          "gloss": "(countable, computer science, mathematics) A collection of ordered steps that solve a mathematical problem. A precise step-by-step plan for a computational procedure that possibly begins with an input value and yields…",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/algorithm#English"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/algorithm",
+      "ok": true,
+      "ms": 3006,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:28:07.047Z"
+}

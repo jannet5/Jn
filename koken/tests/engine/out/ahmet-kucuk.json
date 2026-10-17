@@ -130,16 +130,16 @@
       "name": "en.wiktionary.org",
       "url": "https://en.wiktionary.org/wiki/Ahmet",
       "ok": true,
-      "ms": 2764,
+      "ms": 2993,
       "note": "yazım varyantı: Ahmet"
     },
     {
       "name": "tr.wiktionary.org",
       "url": "https://tr.wiktionary.org/wiki/Ahmet",
       "ok": true,
-      "ms": 57065,
+      "ms": 51777,
       "note": null
     }
   ],
-  "fetchedAt": "2026-10-17T09:24:01.101Z"
+  "fetchedAt": "2026-10-17T09:30:01.771Z"
 }

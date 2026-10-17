@@ -286,16 +286,16 @@
       "name": "en.wiktionary.org",
       "url": "https://en.wiktionary.org/wiki/kitap",
       "ok": true,
-      "ms": 59999,
+      "ms": 2989,
       "note": null
     },
     {
       "name": "tr.wiktionary.org",
       "url": "https://tr.wiktionary.org/wiki/kitap",
       "ok": true,
-      "ms": 2724,
+      "ms": 3077,
       "note": null
     }
   ],
-  "fetchedAt": "2026-10-17T09:25:03.854Z"
+  "fetchedAt": "2026-10-17T09:30:07.874Z"
 }

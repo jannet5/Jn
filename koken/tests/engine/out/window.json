@@ -1,0 +1,128 @@
+{
+  "query": "window",
+  "resolved": "window",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "English",
+      "languageTr": "İngilizce",
+      "pos": [
+        "noun",
+        "verb"
+      ],
+      "etymologies": [
+        {
+          "text": "From Middle English wyndowe, wyndown, from Old Norse vindauga (“window”, literally “wind-eye; wind-hole”), equivalent to wind +‎ eye. Cognate with Scots windae and windock, Faroese vindeyga, Norwegian Bokmål vindu, Norwegian Nynorsk vindauge, Danish vindue, archaic Swedish vindöga, Elfdalian windog. Displaced native Old English ēagþȳrel (literally “eye hole”) (the rare direct descendant is eyethurl (“window, pupil, etc.”)). The “windows” among early Germanic peoples were just unglazed holes (eyes) in the wall or roof that permitted wind to pass through (Can this(+) etymology be sourced?). For semantic parallels, compare Gothic 𐌰𐌿𐌲𐌰𐌳𐌰𐌿𐍂𐍉 (augadaurō, “window”, literally “eye-door”); Vulgar Latin *ventāna, from ventus (“wind”); and Proto-Slavic *okъnò (“window”), from *ȍko (“eye”).",
+          "chain": [
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "window",
+              "translit": null,
+              "gloss": "An opening, usually covered by one or more panes of clear glass, to allow light and air from outside to enter a building or vehicle.",
+              "relation": "unknown"
+            },
+            {
+              "language": "Middle English",
+              "languageTr": "Orta İngilizce",
+              "term": "wyndowe",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Old Norse",
+              "languageTr": "Eski Nordik",
+              "term": "vindauga",
+              "translit": null,
+              "gloss": "window",
+              "relation": "derived"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "eyethurl",
+              "translit": null,
+              "gloss": "window, pupil, etc.",
+              "relation": "inherited"
+            },
+            {
+              "language": "Latin",
+              "languageTr": "Latince",
+              "term": "ventus",
+              "translit": null,
+              "gloss": "wind",
+              "relation": "derived"
+            },
+            {
+              "language": "Proto-Slavic",
+              "languageTr": "Proto-Slav",
+              "term": "*ȍko",
+              "translit": null,
+              "gloss": "eye",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Scots",
+              "term": "windae"
+            },
+            {
+              "language": "Scots",
+              "term": "windock"
+            },
+            {
+              "language": "Faroese",
+              "term": "vindeyga"
+            },
+            {
+              "language": "Norwegian Bokmål",
+              "term": "vindu"
+            },
+            {
+              "language": "Norwegian Nynorsk",
+              "term": "vindauge"
+            },
+            {
+              "language": "Danish",
+              "term": "vindue"
+            },
+            {
+              "language": "Swedish",
+              "term": "vindöga"
+            },
+            {
+              "language": "Elfdalian",
+              "term": "windog"
+            },
+            {
+              "language": "Old English",
+              "term": "ēagþȳrel"
+            },
+            {
+              "language": "Gothic",
+              "term": "𐌰𐌿𐌲𐌰𐌳𐌰𐌿𐍂𐍉"
+            }
+          ],
+          "gloss": "An opening, usually covered by one or more panes of clear glass, to allow light and air from outside to enter a building or vehicle.",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/window#English"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/window",
+      "ok": true,
+      "ms": 3032,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:28:10.158Z"
+}

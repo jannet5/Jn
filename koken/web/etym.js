@@ -355,7 +355,7 @@
       for (var i = 0; i < kids.length; i++) {
         var ch = kids[i];
         if (consumed(ch)) continue;
-        if (ch.nodeType === 3) { tokens.push({ t: 'text', s: ch.nodeValue }); continue; }
+        if (ch.nodeType === 3) { tokens.push({ t: 'text', s: ch.nodeValue.replace(/[\u200b-\u200f\u2060\u202a-\u202e]/g, '') }); continue; }
         if (ch.nodeType !== 1) continue;
         var tg = tag(ch);
         var c = cls(ch);
@@ -433,7 +433,7 @@
 
   var RX_COGNATE = /cognate|compare|\bcf\b|akin to|related to|doublet|see also|corresponds|parallel|displaced|replaced|unrelated|not related|\bwhence\b|same root|same origin|distinct from|sometimes (?:erroneous|confused)|influenced by|contrast|\bvs\b|\bsee\b/i;
   var RX_CHAIN = /(from|borrow|loan|inherit|descend|derive|via|calque|after|alteration|variant|short|clip|abbreviat|back-formation|origin|ultimately|coined|blend|diminutive|compound|developed|evolved|reborrow|adapt|transcri|translat|replac|form of|use of|feminine|masculine|plural|extended|contraction|metathe|corrupt|eponym|named)/i;
-  var RX_PARTS_HEAD = /(equivalent to|compound of|composed of|combination of|consist|blend of|formed? from|derivation of|analy[sz]able as)/i;
+  var RX_PARTS_HEAD = /(equivalent to|compound of|composed of|combination of|consist|blend of|formed? from|derivation of|analy[sz]able as|surface analysis|\banalysis\b|\bsuffixed\b|\bprefixed\b)/i;
 
   // Bağlaç metninden ilişki türünü tahmin eder
   function relationOf(conn) {

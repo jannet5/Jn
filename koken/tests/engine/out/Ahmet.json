@@ -130,16 +130,16 @@
       "name": "en.wiktionary.org",
       "url": "https://en.wiktionary.org/wiki/Ahmet",
       "ok": true,
-      "ms": 32472,
+      "ms": 6176,
       "note": null
     },
     {
       "name": "tr.wiktionary.org",
       "url": "https://tr.wiktionary.org/wiki/Ahmet",
       "ok": true,
-      "ms": 2621,
+      "ms": 3018,
       "note": null
     }
   ],
-  "fetchedAt": "2026-10-17T09:27:04.733Z"
+  "fetchedAt": "2026-10-17T09:29:04.117Z"
 }

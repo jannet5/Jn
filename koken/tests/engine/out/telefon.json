@@ -1,0 +1,594 @@
+{
+  "query": "telefon",
+  "resolved": "telefon",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Ottoman Turkish تلفون, تله‌فون (telefon), from French téléphone.",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "تلفون",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Osmanlı Türkçesi تلفون‎ (telefon) sözcüğünden devralındı, Fransızca téléphone sözcüğünden; télé- + -phone, Eski Yunanca τῆλε (têle) + φωνή (phōnḗ).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "telefon",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "تلفون",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            },
+            {
+              "language": "Ancient Greek",
+              "languageTr": "Eski Yunanca",
+              "term": "τῆλε",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Turkish"
+    },
+    {
+      "language": "Albanian",
+      "languageTr": "Arnavutça",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From English telephone or French téléphone, ultimately from Ancient Greek τῆλε (têle, “afar”) + φωνή (phōnḗ, “voice, sound”).",
+          "chain": [
+            {
+              "language": "Albanian",
+              "languageTr": "Arnavutça",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "telephone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Albanian"
+    },
+    {
+      "language": "Azerbaijani",
+      "languageTr": "Azerbaycan Türkçesi",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Internationalism; from French téléphone, from Ancient Greek τῆλε (têle, “afar”) + φωνή (phōnḗ, “voice, sound”).",
+          "chain": [
+            {
+              "language": "Azerbaijani",
+              "languageTr": "Azerbaycan Türkçesi",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Azerbaijani"
+    },
+    {
+      "language": "Crimean Tatar",
+      "languageTr": "Kırım Tatarcası",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From French téléphone.",
+          "chain": [
+            {
+              "language": "Crimean Tatar",
+              "languageTr": "Kırım Tatarcası",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Crimean_Tatar"
+    },
+    {
+      "language": "Danish",
+      "languageTr": "Danca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From tele- +‎ -fon.",
+          "chain": [
+            {
+              "language": "Danish",
+              "languageTr": "Danca",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone (an electronic device used for two-way talking with other people)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Danish",
+              "languageTr": "Danca",
+              "term": "tele-",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone (an electronic device used for two-way talking with other people)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Danish"
+    },
+    {
+      "language": "Faroese",
+      "languageTr": "Faroese",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French téléphone, from Ancient Greek τῆλε (têle, “afar”) + φωνή (phōnḗ, “voice, sound”).",
+          "chain": [
+            {
+              "language": "Faroese",
+              "languageTr": "Faroese",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Faroese"
+    },
+    {
+      "language": "Hungarian",
+      "languageTr": "Macarca",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from German Telephon.",
+          "chain": [
+            {
+              "language": "Hungarian",
+              "languageTr": "Macarca",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "German",
+              "languageTr": "Almanca",
+              "term": "Telephon",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Hungarian"
+    },
+    {
+      "language": "Karelian",
+      "languageTr": "Karelian",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from Russian телефо́н (telefón).",
+          "chain": [
+            {
+              "language": "Karelian",
+              "languageTr": "Karelian",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "Russian",
+              "languageTr": "Rusça",
+              "term": "телефо́н",
+              "translit": "telefón",
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Karelian"
+    },
+    {
+      "language": "Malay",
+      "languageTr": "Malayca",
+      "pos": [
+        "noun",
+        "verb"
+      ],
+      "etymologies": [
+        {
+          "text": "From English telephone or Dutch telefoon, by surface analysis, tele- +‎ -fon.",
+          "chain": [
+            {
+              "language": "Malay",
+              "languageTr": "Malayca",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "telephone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Malay"
+    },
+    {
+      "language": "Maltese",
+      "languageTr": "Maltese",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Derived from English telephone.",
+          "chain": [
+            {
+              "language": "Maltese",
+              "languageTr": "Maltese",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "telephone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Maltese"
+    },
+    {
+      "language": "Polish",
+      "languageTr": "Lehçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Internationalism. By surface analysis, tele- +‎ -fon. First attested in 1829. Compare Kashubian telefón and Silesian telefōn.",
+          "chain": [
+            {
+              "language": "Polish",
+              "languageTr": "Lehçe",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone (telecommunication device used for two-way talking with another person)",
+              "relation": "unknown"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Kashubian",
+              "term": "telefón"
+            },
+            {
+              "language": "Silesian",
+              "term": "telefōn"
+            }
+          ],
+          "gloss": "telephone (telecommunication device used for two-way talking with another person)",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Polish"
+    },
+    {
+      "language": "Romanian",
+      "languageTr": "Rumence",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "Borrowed from French téléphone, German Telephon. Equivalent to tele- +‎ -fon.",
+          "chain": [
+            {
+              "language": "Romanian",
+              "languageTr": "Rumence",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "French",
+              "languageTr": "Fransızca",
+              "term": "téléphone",
+              "translit": null,
+              "gloss": null,
+              "relation": "borrowed"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Romanian"
+    },
+    {
+      "language": "Swedish",
+      "languageTr": "İsveççe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "tele- +‎ -fon",
+          "chain": [
+            {
+              "language": "Swedish",
+              "languageTr": "İsveççe",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "a phone, a telephone",
+              "relation": "unknown"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "a phone, a telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Swedish"
+    },
+    {
+      "language": "Ternate",
+      "languageTr": "Ternate",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Dutch telefoon.",
+          "chain": [
+            {
+              "language": "Ternate",
+              "languageTr": "Ternate",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "Dutch",
+              "languageTr": "Felemenkçe",
+              "term": "telefoon",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Ternate"
+    },
+    {
+      "language": "Tok Pisin",
+      "languageTr": "Tok Pisin",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From English telephone.",
+          "chain": [
+            {
+              "language": "Tok Pisin",
+              "languageTr": "Tok Pisin",
+              "term": "telefon",
+              "translit": null,
+              "gloss": "telephone",
+              "relation": "unknown"
+            },
+            {
+              "language": "English",
+              "languageTr": "İngilizce",
+              "term": "telephone",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": "telephone",
+          "source": "en.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/telefon#Tok_Pisin"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/telefon",
+      "ok": true,
+      "ms": 56993,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/telefon",
+      "ok": true,
+      "ms": 2659,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:28:04.024Z"
+}

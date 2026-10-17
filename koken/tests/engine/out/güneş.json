@@ -1,0 +1,107 @@
+{
+  "query": "güneş",
+  "resolved": "güneş",
+  "found": true,
+  "via": null,
+  "suggestions": [],
+  "entries": [
+    {
+      "language": "Turkish",
+      "languageTr": "Türkçe",
+      "pos": [
+        "noun"
+      ],
+      "etymologies": [
+        {
+          "text": "From Ottoman Turkish گونش (güneş, “sun, sunlight”), from Proto-Turkic *küneĺ (“sun, sunny place”). Cognate with Azerbaijani günəş, Old Turkic 𐰛𐰈𐰤𐰾 (küneš, “sunshine, sunny place”), and Chuvash хӗвел (hĕvel, “sun”).",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "güneş",
+              "translit": null,
+              "gloss": "sun (light and warmth received from the sun)",
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "گونش",
+              "translit": "güneş",
+              "gloss": "sun, sunlight",
+              "relation": "derived"
+            },
+            {
+              "language": "Proto-Turkic",
+              "languageTr": "Proto-Türkçe",
+              "term": "*küneĺ",
+              "translit": null,
+              "gloss": "sun, sunny place",
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [
+            {
+              "language": "Azerbaijani",
+              "term": "günəş"
+            },
+            {
+              "language": "Old Turkic",
+              "term": "𐰛𐰈𐰤𐰾"
+            },
+            {
+              "language": "Chuvash",
+              "term": "хӗвел"
+            }
+          ],
+          "gloss": "sun (light and warmth received from the sun)",
+          "source": "en.wiktionary"
+        },
+        {
+          "text": "Osmanlı Türkçesi كونش‎ sözcüğünden devralındı",
+          "chain": [
+            {
+              "language": "Turkish",
+              "languageTr": "Türkçe",
+              "term": "güneş",
+              "translit": null,
+              "gloss": null,
+              "relation": "unknown"
+            },
+            {
+              "language": "Ottoman Turkish",
+              "languageTr": "Osmanlı Türkçesi",
+              "term": "كونش",
+              "translit": null,
+              "gloss": null,
+              "relation": "derived"
+            }
+          ],
+          "parts": [],
+          "cognates": [],
+          "gloss": null,
+          "source": "tr.wiktionary"
+        }
+      ],
+      "url": "https://en.wiktionary.org/wiki/g%C3%BCne%C5%9F#Turkish"
+    }
+  ],
+  "sources": [
+    {
+      "name": "en.wiktionary.org",
+      "url": "https://en.wiktionary.org/wiki/g%C3%BCne%C5%9F",
+      "ok": true,
+      "ms": 2971,
+      "note": null
+    },
+    {
+      "name": "tr.wiktionary.org",
+      "url": "https://tr.wiktionary.org/wiki/g%C3%BCne%C5%9F",
+      "ok": true,
+      "ms": 4177,
+      "note": null
+    }
+  ],
+  "fetchedAt": "2026-10-17T09:31:08.328Z"
+}
