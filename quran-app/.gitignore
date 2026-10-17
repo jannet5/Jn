@@ -7,3 +7,4 @@ keystore.properties
 fabrika/veri/
 fabrika/fontlar/
 dist/*.idsig
+.kotlin/
