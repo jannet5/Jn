@@ -83,3 +83,9 @@ Kaynaklı: 5:49 (İbn İshak–İbn Abbas; Taberî 12150), 2:100 (Mâlik b. es-S
 - https://islamansiklopedisi.org.tr/{kufur,fasik,sirk,kafir,musrik}
 - https://arabiclexicon.hawramani.com/شرك/?book=33
 - https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/{eng,ara}-{bukhari,muslim}.json
+
+## Ek notlar (son kontrol)
+- Diyanet 41:4'te Arapçadaki `ekseruhum` (onların çoğu) ifadesini "insanların çoğu" diye çevirmiş (41:2–5 birleşik metin); 5:49 ve 10:92'de `kesîr` → "çoğu". Bölümde not edildi.
+- Dil dağılımı (14 ayet): ekseruhum 8 (16:83, 30:42, 26:223, 10:36, 2:100, 12:106, 41:4, 5:103), ekserakum 1 (43:78), ekser en-nâs 3 (17:89, 25:50, 2:243), kesîr 2 (5:49, 10:92). Ek ayetler: 12:103 ekser en-nâs; 6:116 ekser men fi'l-ard.
+- HTML: /home/user/Jn/cogunluk/bolumler/02-baglam.html — 3 SVG (kime konuşuyor haritası; bağlam penceresi; Mekkî–Medenî × grup matrisi + oran çubukları), 18 blockquote (16 ayet, 2 hadis), kelime ~2440 (SVG hariç), SVG metni ~220.
+- Râgıb: "şrk" maddesi Hawramani'de açıldı; "kfr"/"fsq" sayfaları 503/zaman aşımı → TDV üzerinden atıf. Elmalılı denenmedi.
