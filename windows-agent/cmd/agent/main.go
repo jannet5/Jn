@@ -27,7 +27,16 @@ import (
 	"github.com/jake/winremotemonitor-agent/internal/core"
 )
 
-const agentVersion = "1.0.0"
+const agentVersion = "1.1.0"
+
+// guiBuild is set to "1" (-ldflags "-X main.guiBuild=1") for the windowless
+// WinRemoteMonitor.exe the installer runs in the background: there is no
+// console, so logs go to <data dir>\agent.log and --pair opens its page in
+// the browser instead of printing.
+var guiBuild string
+
+// playStoreURL is where the pairing page sends users who don't have the app yet.
+const playStoreURL = "https://play.google.com/store/apps/details?id=com.jn.winremote"
 
 func main() {
 	if len(os.Args) > 1 && os.Args[1] == "devices" {
@@ -40,16 +49,14 @@ func main() {
 	allowedAppsPath := fs.String("allowed-apps", "", "path to allowed_apps.json (overrides config)")
 	dataDirFlag := fs.String("data-dir", "", "override the agent's data directory (default: %ProgramData%\\WinRemoteMonitor or ~/.winremotemonitor)")
 	pair := fs.Bool("pair", false, "print a fresh pairing code + QR PNG + cert fingerprint, then exit")
-	qrOut := fs.String("qr-out", "pairing-qr.png", "where to write the pairing QR PNG (used with --pair)")
+	qrOut := fs.String("qr-out", "", "where to write the pairing QR PNG (used with --pair; default: the data dir)")
+	openPage := fs.Bool("open", guiBuild != "", "with --pair: open the pairing page in the default browser")
 	fs.Parse(os.Args[1:])
 
 	cfgFile := resolveConfigPath(*configPath)
 	cfg, err := core.LoadConfig(cfgFile)
 	if err != nil {
 		log.Fatalf("loading config: %v", err)
-	}
-	if cfgFile != "" {
-		log.Printf("using config %s", cfgFile)
 	}
 	dataDir := agent.DataDir(*dataDirFlag)
 	if cfg.DataDir != "" && cfg.DataDir != "." {
@@ -61,6 +68,13 @@ func main() {
 	if err := os.MkdirAll(dataDir, 0700); err != nil {
 		log.Fatalf("creating data dir %s: %v", dataDir, err)
 	}
+	if guiBuild != "" {
+		logToFile(filepath.Join(dataDir, "agent.log"))
+	}
+	if cfgFile != "" {
+		log.Printf("using config %s", cfgFile)
+	}
+	cfg.WatchedRoots = existingRoots(cfg.WatchedRoots)
 
 	allowedAppsFile := cfg.AllowedAppsPath
 	if allowedAppsFile != "" && !filepath.IsAbs(allowedAppsFile) {
@@ -89,7 +103,7 @@ func main() {
 	srv.AgentVersion = agentVersion
 
 	if *pair {
-		runPairCommand(srv, dataDir, *qrOut, cfg.Port)
+		runPairCommand(srv, dataDir, *qrOut, cfg.Port, *openPage)
 		return
 	}
 
@@ -211,7 +225,36 @@ func waitForShutdownSignal() {
 	<-sigCh
 }
 
-func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int) {
+// logToFile sends log output to path, starting fresh when it has grown past
+// 5 MB so a long-running background agent can't fill the disk.
+func logToFile(path string) {
+	if st, err := os.Stat(path); err == nil && st.Size() > 5<<20 {
+		os.Remove(path)
+	}
+	f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		return
+	}
+	log.SetOutput(f)
+}
+
+// existingRoots expands %VAR% references and drops folders that don't exist
+// (e.g. a Desktop moved into OneDrive), so the installer's generic config
+// works on every PC.
+func existingRoots(roots []string) []string {
+	var out []string
+	for _, r := range roots {
+		p := core.ExpandPathVars(r)
+		if st, err := os.Stat(p); err != nil || !st.IsDir() {
+			log.Printf("watched root %s not found, skipping", p)
+			continue
+		}
+		out = append(out, p)
+	}
+	return out
+}
+
+func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int, openPage bool) {
 	code, err := srv.PairingMgr.IssueCode(time.Now())
 	if err != nil {
 		log.Fatalf("generating pairing code: %v", err)
@@ -250,6 +293,13 @@ func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int) {
 		log.Fatalf("rendering QR code: %v", err)
 	}
 	outPath := qrOut
+	switch {
+	case outPath == "" && guiBuild != "":
+		// The windowless build lives in Program Files, which the user can't write to.
+		outPath = filepath.Join(dataDir, "pairing-qr.png")
+	case outPath == "":
+		outPath = "pairing-qr.png"
+	}
 	if !filepath.IsAbs(outPath) {
 		wd, _ := os.Getwd()
 		outPath = filepath.Join(wd, outPath)
@@ -258,6 +308,24 @@ func runPairCommand(srv *agent.Server, dataDir, qrOut string, port int) {
 		log.Fatalf("writing QR PNG: %v", err)
 	}
 	fmt.Printf("QR code written to: %s\n", outPath)
+
+	page, err := agent.RenderPairingPage(agent.PairingPage{
+		Code: code, Host: ip, Port: port, Fingerprint: fingerprint, QRPNG: png,
+		ExpiresAt: time.Now().Add(core.PairingCodeTTL), OtherHosts: others, PlayURL: playStoreURL,
+	})
+	if err != nil {
+		log.Fatalf("rendering pairing page: %v", err)
+	}
+	pagePath := filepath.Join(dataDir, "pairing.html")
+	if err := os.WriteFile(pagePath, page, 0644); err != nil {
+		log.Fatalf("writing pairing page: %v", err)
+	}
+	fmt.Printf("Pairing page:       %s\n", pagePath)
+	if openPage {
+		if err := openInBrowser(pagePath); err != nil {
+			log.Printf("opening pairing page: %v", err)
+		}
+	}
 	fmt.Println()
 	fmt.Println("This code is saved to the agent's local database, so it works whether")
 	fmt.Println("the agent server (`agent`, no --pair) is already running in the")

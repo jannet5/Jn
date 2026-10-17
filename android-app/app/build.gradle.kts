@@ -8,22 +8,25 @@ plugins {
 
 android {
     namespace = "com.jn.winremote"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jn.winremote"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        targetSdk = 36
+        versionCode = 2
+        versionName = "1.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         create("release") {
+            // Play uploads: ./gradlew bundleRelease -PsigningProps=/path/upload.properties
+            // (the upload key never lives in this repo). Default: the dev key.
             val keystoreProps = Properties()
-            val keystorePropsFile = rootProject.file("keystore.properties")
+            val keystorePropsFile = (project.findProperty("signingProps") as String?)?.let { file(it) }
+                ?: rootProject.file("keystore.properties")
             if (keystorePropsFile.exists()) {
                 keystoreProps.load(keystorePropsFile.inputStream())
                 storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
@@ -38,7 +41,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            if (rootProject.file("keystore.properties").exists()) {
+            if ((project.findProperty("signingProps") as String?)?.let { file(it).exists() } == true ||
+                rootProject.file("keystore.properties").exists()) {
                 signingConfig = signingConfigs.getByName("release")
             }
         }

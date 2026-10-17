@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Monitor with live bars + a phone in front: "watch your PC from your phone". -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path
-        android:fillColor="#4FC3F7"
-        android:pathData="M24,34 L84,34 L84,70 L24,70 Z" />
-    <path
-        android:fillColor="#1B2733"
-        android:pathData="M32,42 L76,42 L76,62 L32,62 Z" />
-    <path
-        android:fillColor="#4FC3F7"
-        android:pathData="M40,76 L68,76 L68,82 L40,82 Z" />
-    <path
-        android:fillColor="#4FC3F7"
-        android:pathData="M46,20 L62,20 L62,34 L46,34 Z" />
+    <!-- monitor -->
+    <path android:fillColor="#4FC3F7" android:pathData="M22,30 L76,30 L76,66 L22,66 Z" />
+    <path android:fillColor="#1B2733" android:pathData="M26,34 L72,34 L72,62 L26,62 Z" />
+    <path android:fillColor="#4FC3F7" android:pathData="M31,52 L36,52 L36,58 L31,58 Z" />
+    <path android:fillColor="#4FC3F7" android:pathData="M39,46 L44,46 L44,58 L39,58 Z" />
+    <path android:fillColor="#4FC3F7" android:pathData="M47,40 L52,40 L52,58 L47,58 Z" />
+    <path android:fillColor="#4FC3F7" android:pathData="M42,66 L56,66 L56,72 L42,72 Z" />
+    <path android:fillColor="#4FC3F7" android:pathData="M36,72 L62,72 L62,76 L36,76 Z" />
+    <!-- phone -->
+    <path android:fillColor="#1B2733" android:pathData="M60,44 L86,44 L86,84 L60,84 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M62,46 L84,46 L84,82 L62,82 Z" />
+    <path android:fillColor="#1B2733" android:pathData="M64,50 L82,50 L82,76 L64,76 Z" />
+    <path android:fillColor="#66BB6A" android:pathData="M67,66 L71,66 L71,72 L67,72 Z" />
+    <path android:fillColor="#66BB6A" android:pathData="M73,60 L77,60 L77,72 L73,72 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M71,78 L75,78 L75,80 L71,80 Z" />
 </vector>

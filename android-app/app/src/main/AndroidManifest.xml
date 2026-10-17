@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WinRemote"
         android:usesCleartextTraffic="false"
-        tools:targetApi="34">
+        tools:targetApi="36">
 
         <activity
             android:name=".MainActivity"

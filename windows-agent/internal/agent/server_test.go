@@ -341,3 +341,30 @@ func TestServer_BadHelloVersionClosesConnection(t *testing.T) {
 		t.Error("expected connection to be closed after bad proto_version")
 	}
 }
+
+// The Android app's initial timeline load sends from_ts/to_ts as null (no
+// range). That used to query "ts <= 0" and return nothing, so the Dosya
+// Etkinliği screen was empty until a live event arrived.
+func TestServer_ListFileEvents_NoTimeRangeReturnsStoredEvents(t *testing.T) {
+	h := newTestHarness(t)
+	if err := h.server.Store.InsertFileEvent(core.FileEventRecord{
+		TS: time.Now().Unix() - 30, Op: core.OpCreated, Path: `C:\Users\a\Downloads\big.zip`, SizeBytes: 1000,
+	}); err != nil {
+		t.Fatalf("inserting event: %v", err)
+	}
+	conn := h.dial()
+	h.pairAndAuth(conn)
+
+	// Exactly what ClientMessage.ListFileEvents serializes with its defaults.
+	sendJSON(t, conn, map[string]interface{}{
+		"type": "list_file_events", "request_id": "fe1", "from_ts": nil, "to_ts": nil,
+		"op": nil, "min_size_bytes": 0, "path_prefix": nil, "limit": 200, "offset": 0,
+	})
+	resp := recvJSON(t, conn)
+	if resp["type"] != "file_events" {
+		t.Fatalf("expected file_events, got %v", resp)
+	}
+	if total, _ := resp["total"].(float64); total != 1 {
+		t.Fatalf("expected the stored event, got total=%v items=%v", resp["total"], resp["items"])
+	}
+}

@@ -1,5 +1,6 @@
 package com.jn.winremote.ui.history
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -52,7 +53,7 @@ fun HistoryScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Scaffold { padding ->
+    Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0)) { padding ->
         Column(modifier = Modifier.padding(padding).fillMaxSize()) {
             when (val status = state.connectionStatus) {
                 is ConnectionStatus.Offline -> OfflineState(onAction = onRePair)

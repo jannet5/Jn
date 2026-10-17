@@ -1,5 +1,6 @@
 package com.jn.winremote.ui.fileactivity
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -55,7 +56,7 @@ fun FileActivityScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Scaffold { padding ->
+    Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0)) { padding ->
         Column(modifier = Modifier.padding(padding).fillMaxSize()) {
             when (val status = state.connectionStatus) {
                 is ConnectionStatus.Offline -> OfflineState(onAction = onRePair)

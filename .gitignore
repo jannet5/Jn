@@ -16,3 +16,7 @@ android-sdk/
 # misc
 .DS_Store
 *.log
+
+# Play upload key: never commit (kept by the owner, see play-store/README)
+upload-keystore.jks
+upload.properties

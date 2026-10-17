@@ -517,8 +517,14 @@ func (s *Server) handleListFileEvents(sess *Session, raw []byte) {
 		sess.send(core.NewError("", core.ReasonBadRequest, "malformed list_file_events"))
 		return
 	}
+	// An omitted to_ts means "up to now" (as for list_history); left at 0 it
+	// matched nothing, so the app's initial timeline load was always empty.
+	toTS := req.ToTS
+	if toTS == 0 {
+		toTS = time.Now().Unix()
+	}
 	items, total, err := s.Store.QueryFileEvents(FileEventQuery{
-		FromTS: req.FromTS, ToTS: req.ToTS, Op: req.Op,
+		FromTS: req.FromTS, ToTS: toTS, Op: req.Op,
 		MinSizeBytes: req.MinSizeBytes, PathPrefix: req.PathPrefix,
 		Limit: req.Limit, Offset: req.Offset,
 	})

@@ -2,6 +2,7 @@ package com.jn.winremote.ui.alerts
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -57,7 +58,7 @@ fun AlertsScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Scaffold { padding ->
+    Scaffold(contentWindowInsets = WindowInsets(0, 0, 0, 0)) { padding ->
         Column(modifier = Modifier.padding(padding).fillMaxSize()) {
             AnimatedVisibility(visible = state.banner != null) {
                 state.banner?.let { alert -> AlertBanner(alert, onDismiss = viewModel::dismissBanner) }

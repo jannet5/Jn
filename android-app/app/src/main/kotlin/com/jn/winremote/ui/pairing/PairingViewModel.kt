@@ -52,6 +52,8 @@ class PairingViewModel(application: Application) : AndroidViewModel(application)
             fingerprint = payload.fingerprint,
             pairingCode = payload.pairingCode,
         )
+        // A fresh scan starts a fresh attempt: don't keep showing the last attempt's error.
+        if (_uiState.value is PairingUiState.Failure) _uiState.value = PairingUiState.Idle
         return true
     }
 
@@ -107,7 +109,8 @@ class PairingViewModel(application: Application) : AndroidViewModel(application)
                 )
                 is PairingOutcome.ProtocolError -> PairingUiState.Failure(ReasonText.forCode(outcome.reasonCode))
                 is PairingOutcome.ConnectionError -> PairingUiState.Failure(
-                    "Sunucuya bağlanılamadı: ${outcome.detail}"
+                    "Bilgisayara bağlanılamadı. Telefon ve bilgisayar aynı Wi-Fi ağında mı, " +
+                        "bilgisayarda WinRemote Monitor kurulu ve açık mı? (Ayrıntı: ${outcome.detail})"
                 )
                 PairingOutcome.Timeout -> PairingUiState.Failure("Zaman aşımı: sunucu yanıt vermedi.")
             }

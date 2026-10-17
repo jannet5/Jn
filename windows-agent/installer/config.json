@@ -1,0 +1,9 @@
+{
+  "port": 8787,
+  "watched_roots": [
+    "%USERPROFILE%\\Downloads",
+    "%USERPROFILE%\\Desktop",
+    "%USERPROFILE%\\Documents"
+  ],
+  "allowed_apps_path": "allowed_apps.json"
+}

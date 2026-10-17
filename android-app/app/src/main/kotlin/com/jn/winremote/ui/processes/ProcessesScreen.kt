@@ -1,5 +1,6 @@
 package com.jn.winremote.ui.processes
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -59,7 +60,11 @@ fun ProcessesScreen(
         }
     }
 
-    Scaffold(snackbarHost = { SnackbarHost(snackbarHostState) { Snackbar(it) } }) { padding ->
+    Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) { Snackbar(it) } },
+        // Nested inside AppNav's Scaffold, which already applies the system bar insets.
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
+    ) { padding ->
         Column(modifier = Modifier.padding(padding).fillMaxSize()) {
             when (val status = state.connectionStatus) {
                 is ConnectionStatus.Offline -> OfflineState(onAction = onRePair)

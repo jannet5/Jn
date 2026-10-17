@@ -19,13 +19,16 @@ echo "==> cross-compiling dist/winremotemonitor-agent.exe (GOOS=windows GOARCH=a
 mkdir -p dist
 GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o dist/winremotemonitor-agent.exe ./cmd/agent
 
+echo "==> cross-compiling dist/WinRemoteMonitor.exe (windowless background build the installer runs)"
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-H=windowsgui -X main.guiBuild=1" -o dist/WinRemoteMonitor.exe ./cmd/agent
+
 echo "==> verifying dist/winremotemonitor-agent.exe is a real PE binary"
-file dist/winremotemonitor-agent.exe
+file dist/winremotemonitor-agent.exe dist/WinRemoteMonitor.exe
 
 echo "==> writing dist/SHA256SUMS.txt"
 (
   cd dist
-  sha256sum winremotemonitor-agent.exe > SHA256SUMS.txt
+  sha256sum winremotemonitor-agent.exe WinRemoteMonitor.exe > SHA256SUMS.txt
 )
 cat dist/SHA256SUMS.txt
 

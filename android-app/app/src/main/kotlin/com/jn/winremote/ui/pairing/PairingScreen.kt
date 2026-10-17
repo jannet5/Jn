@@ -8,6 +8,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -73,18 +74,22 @@ fun PairingScreen(
         if (uiState is PairingUiState.Success) onPaired()
     }
 
+    // Hosted inside AppNav's Scaffold, which already shows the "Eşleştirme" title and applies
+    // the system bar insets; only a standalone (cancellable) use gets its own bar.
     Scaffold(
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
-            TopAppBar(
-                title = { Text("Eşleştirme") },
-                navigationIcon = {
-                    if (onCancel != null) {
+            if (onCancel != null) {
+                TopAppBar(
+                    title = { Text("Eşleştirme") },
+                    windowInsets = WindowInsets(0, 0, 0, 0),
+                    navigationIcon = {
                         androidx.compose.material3.IconButton(onClick = onCancel) {
                             Icon(Icons.Filled.Close, contentDescription = "Kapat")
                         }
-                    }
-                },
-            )
+                    },
+                )
+            }
         },
     ) { padding ->
         Column(modifier = Modifier.padding(padding).fillMaxSize()) {
@@ -119,10 +124,11 @@ private fun QrScanTab(onDecoded: (String) -> Boolean) {
     ) { granted -> hasPermission = granted }
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(24.dp),
+        modifier = Modifier.fillMaxSize().padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (!hasPermission) {
+            GettingStartedCard()
             Column(
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -147,6 +153,7 @@ private fun QrScanTab(onDecoded: (String) -> Boolean) {
                 )
             }
         } else {
+            GettingStartedCard(modifier = Modifier.padding(bottom = 12.dp))
             CameraPreviewWithScanner(onDecoded = onDecoded)
         }
     }
