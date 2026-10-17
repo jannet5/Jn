@@ -1,0 +1,74 @@
+10-17 09:30:38.386  1348  1348 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:30:58.070  1537  1537 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:31:21.981   160   170 E vold    : Failed to find mounted volume for /sdcard/Android/obb/app.koken/
+10-17 09:31:22.026   542   614 E StorageManagerService: Failed to fixup app dir for app.koken
+10-17 09:31:22.175   542   614 I PackageDexOptimizer: Running dexopt (dexoptNeeded=1) on: /data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/base.apk pkg=app.koken isa=x86_64 dexoptFlags=boot_complete,profile_guided,public,enable_hidden_api_checks targetFilter=speed-profile oatDir=/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/oat classLoaderContext=PCL[]{}
+10-17 09:31:22.251   413   413 V installd: DexInv: --- BEGIN '/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/base.apk' ---
+10-17 09:31:28.496  1754  1754 I dex2oat32: /apex/com.android.art/bin/dex2oat32 --input-vdex-fd=-1 --output-vdex-fd=9 --updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt --resolve-startup-const-strings=true --max-image-block-size=524288 --compiler-filter=speed-profile --classpath-dir=/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ== --class-loader-context=PCL[]{} --generate-mini-debug-info --compact-dex-level=none --compilation-reason=install
+10-17 09:32:07.150  2051  2051 W migrate_legacy_: type=1400 audit(0.0:22): avc: denied { read } for path="/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/base.apk" dev="dm-5" ino=40963 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:apk_data_file:s0 tclass=file permissive=0
+10-17 09:32:07.170  2051  2051 W migrate_legacy_: type=1400 audit(0.0:23): avc: denied { read write } for path="/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/oat/x86_64/base.odex" dev="dm-5" ino=40967 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:dalvikcache_data_file:s0 tclass=file permissive=0
+10-17 09:32:07.170  2051  2051 W migrate_legacy_: type=1400 audit(0.0:24): avc: denied { read write } for path="/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/oat/x86_64/base.vdex" dev="dm-5" ino=40968 scontext=u:r:migrate_legacy_obb_data:s0 tcontext=u:object_r:dalvikcache_data_file:s0 tclass=file permissive=0
+10-17 09:32:34.356  1615  1615 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:32:49.079  1754  2346 W dex2oat32: Verification of void app.koken.KokenNative$1.<init>(app.koken.KokenNative, java.lang.String, java.lang.String, int, java.lang.String) took 894.298ms (15.65 bytecodes/s) (880B approximate peak alloc)
+10-17 09:32:49.216  1754  1754 W dex2oat32: Verification of void app.koken.KokenNative$1$1.<init>(app.koken.KokenNative$1, java.lang.String) took 1.047s (7.64 bytecodes/s) (824B approximate peak alloc)
+10-17 09:32:49.487  1754  1754 W dex2oat32: Verification of void app.koken.KokenNative$1$1.run() took 270.480ms (107.22 bytecodes/s) (1296B approximate peak alloc)
+10-17 09:32:49.855  1754  2346 W dex2oat32: Verification of void app.koken.KokenNative$1.run() took 774.434ms (134.29 bytecodes/s) (2112B approximate peak alloc)
+10-17 09:32:49.986  1754  1754 W dex2oat32: Verification of app.koken.MainActivity app.koken.KokenNative.-$$Nest$fgetactivity(app.koken.KokenNative) took 496.967ms (6.04 bytecodes/s) (752B approximate peak alloc)
+10-17 09:32:51.144  1754  2346 W dex2oat32: Verification of android.webkit.WebResourceResponse app.koken.MainActivity$1.shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest) took 723.976ms (40.06 bytecodes/s) (1200B approximate peak alloc)
+10-17 09:32:51.664  1754  1754 W dex2oat32: Verification of java.lang.Object[] app.koken.KokenNative.fetch(java.lang.String, java.lang.String, int) took 1.677s (160.38 bytecodes/s) (4096B approximate peak alloc)
+10-17 09:32:52.150  1754  2346 W dex2oat32: Verification of boolean app.koken.MainActivity$1.shouldOverrideUrlLoading(android.webkit.WebView, android.webkit.WebResourceRequest) took 938.378ms (46.89 bytecodes/s) (1384B approximate peak alloc)
+10-17 09:32:52.472  1754  1754 W dex2oat32: Verification of void app.koken.KokenNative.get(java.lang.String, java.lang.String, java.lang.String, int) took 387.522ms (43.87 bytecodes/s) (1080B approximate peak alloc)
+10-17 09:32:53.168  1754  2346 W dex2oat32: Verification of void app.koken.MainActivity.applyBars() took 1.016s (70.85 bytecodes/s) (1688B approximate peak alloc)
+10-17 09:32:54.342  1754  2346 W dex2oat32: Verification of android.webkit.WebResourceResponse app.koken.MainActivity.serveAsset(java.lang.String) took 726.618ms (140.38 bytecodes/s) (2240B approximate peak alloc)
+10-17 09:32:55.259  1754  2346 W dex2oat32: Verification of void app.koken.MainActivity.onCreate(android.os.Bundle) took 662.938ms (191.57 bytecodes/s) (2496B approximate peak alloc)
+10-17 09:32:56.179  1754  1754 W dex2oat32: Compilation of void app.koken.KokenNative$1$1.<init>(app.koken.KokenNative$1, java.lang.String) took 170.652ms
+10-17 09:32:56.325  1754  2346 W dex2oat32: Compilation of void app.koken.KokenNative$1.<init>(app.koken.KokenNative, java.lang.String, java.lang.String, int, java.lang.String) took 177.410ms
+10-17 09:32:56.846  1754  2346 W dex2oat32: Compilation of android.webkit.WebResourceResponse app.koken.MainActivity.-$$Nest$mserveAsset(app.koken.MainActivity, java.lang.String) took 201.213ms
+10-17 09:32:56.859  1754  1754 W dex2oat32: Compilation of void app.koken.KokenNative$1$1.<init>(app.koken.KokenNative$1, java.lang.String) took 226.994ms
+10-17 09:33:03.919   413   413 V installd: DexInv: --- END '/data/app/~~xNOou0i2xKZdjkAjrS-zNg==/app.koken-xbU0QfJwi-E6G7ifDJu2PQ==/base.apk' (success) ---
+10-17 09:33:18.222  2143  2143 I MediaProvider: Invalidating LocalCallingIdentity cache for package app.koken. Reason: package android.intent.action.PACKAGE_ADDED
+10-17 09:33:23.125  2348  2348 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:33:30.320   542   908 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=app.koken/.MainActivity} from uid 2000
+10-17 09:33:32.919  2629  2629 W app.koken: Unexpected CPU variant for X86 using defaults: x86_64
+10-17 09:33:33.108   542   595 I ActivityManager: Start proc 2629:app.koken/u0a130 for pre-top-activity {app.koken/app.koken.MainActivity}
+10-17 09:33:39.909  2629  2653 I app.koken: Waiting for a blocking GC ProfileSaver
+10-17 09:33:40.034  2629  2629 E chromium: [ERROR:filesystem_posix.cc(62)] mkdir /data/user/0/app.koken/cache/WebView/Crashpad: No such file or directory (2)
+10-17 09:33:45.046   542  2651 E ActivityManager:   33% 2629/app.koken: 11% user + 22% kernel / faults: 971 minor 181 major
+10-17 09:33:58.835  2629  2641 I app.koken: Background young concurrent copying GC freed 6327(469KB) AllocSpace objects, 0(0B) LOS objects, 44% free, 2187KB/3942KB, paused 31.158ms total 3.727s
+10-17 09:34:06.899  2585  2585 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:34:23.887   542  1912 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:app.koken flg=0x4000010 (has extras) } to com.android.packageinstaller/.PackageInstalledReceiver
+10-17 09:34:30.935   414  2619 I iorapd  : Perfetto TraceBuffer saved to file: /data/misc/iorapd/app.koken/1/app.koken.MainActivity/raw_traces/1792229670871589196.perfetto_trace.pb
+10-17 09:34:46.196   542  2894 E ActivityManager:   19% 2687/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 7.7% user + 11% kernel / faults: 49 minor 2 major
+10-17 09:34:46.196   542  2894 E ActivityManager:   16% 2629/app.koken: 8.2% user + 8.5% kernel
+10-17 09:35:16.791   542  3118 E ActivityManager:   26% 2687/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 10% user + 15% kernel / faults: 1345 minor 31 major
+10-17 09:35:16.791   542  3118 E ActivityManager:   24% 2629/app.koken: 10% user + 13% kernel / faults: 1242 minor 16 major
+10-17 09:35:41.715   542  3236 E ActivityManager:   20% 2687/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 9.4% user + 11% kernel / faults: 66 minor 2 major
+10-17 09:35:41.715   542  3236 E ActivityManager:   16% 2629/app.koken: 7.2% user + 9.2% kernel / faults: 263 minor
+10-17 09:36:03.949  3208  3208 I AndroidRuntime: VM exiting with result code 0, cleanup skipped.
+10-17 09:36:05.983   542  3432 E ActivityManager:   0.1% 2687/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0.1% user + 0% kernel / faults: 2 minor
+10-17 09:36:05.983   542  3432 E ActivityManager:   0% 2629/app.koken: 0% user + 0% kernel
+10-17 09:36:42.417   542   593 D ArtManagerInternalImpl: /data/misc/iorapd/app.koken/1/app.koken.MainActivity/compiled_traces/compiled_trace.pb doesn't exist
+10-17 09:36:42.685   542   593 I ActivityTaskManager: Displayed app.koken/.MainActivity: +25s694ms
+10-17 09:37:04.335  3746  3746 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-17 09:37:04.955  3746  3746 I AndroidRuntime: Using default boot image
+10-17 09:37:04.956  3746  3746 I AndroidRuntime: Leaving lock profiling enabled
+10-17 09:37:19.996  3746  3746 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-17 09:37:21.516  3746  3746 D AndroidRuntime: Shutting down VM
+10-17 09:37:33.682   542  3852 E ActivityManager:   0.7% 2629/app.koken: 0.3% user + 0.4% kernel / faults: 365 minor 2 major
+10-17 09:37:33.682   542  3852 E ActivityManager:   0.5% 2687/com.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0.2% user + 0.2% kernel / faults: 85 minor 4 major
+10-17 09:37:43.137  3848  3848 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-17 09:37:43.315  3848  3848 I AndroidRuntime: Using default boot image
+10-17 09:37:43.321  3848  3848 I AndroidRuntime: Leaving lock profiling enabled
+10-17 09:37:51.452  3848  3848 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-17 09:37:51.897  3848  3848 D AndroidRuntime: Shutting down VM
+10-17 09:38:22.719  3933  3933 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-17 09:38:23.073  3933  3933 I AndroidRuntime: Using default boot image
+10-17 09:38:23.075  3933  3933 I AndroidRuntime: Leaving lock profiling enabled
+10-17 09:38:31.008  3933  3933 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-17 09:38:31.879  3933  3933 D AndroidRuntime: Shutting down VM
+10-17 09:38:44.404  3996  3996 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-17 09:38:44.688  3996  3996 I AndroidRuntime: Using default boot image
+10-17 09:38:44.696  3996  3996 I AndroidRuntime: Leaving lock profiling enabled
+10-17 09:38:49.658  3996  3996 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-17 09:38:49.919  3996  3996 D AndroidRuntime: Shutting down VM
+10-17 09:39:09.299  2629  2641 I app.koken: Background concurrent copying GC freed 22855(1179KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 2905KB/5810KB, paused 323us total 1.858s
