@@ -1,0 +1,2006 @@
+{
+ "_aciklama": "Sınıflama bu çalışmanın yazarına aittir. Veri: Kur'an metni ve Diyanet İşleri meali (api.quran.com, çeviri id 77); Mekkî/Medenî: api.quran.com /chapters revelation_place (âlimler bazı surelerde ayrılır). ekser = Arapçada أكثر kalıbı; ham eşleşme 81 ayet.",
+ "ozet": {
+  "ham_eslesme": 81,
+  "hukum_ayeti": 68,
+  "kapsam_disi": 13,
+  "hukum_ayeti_sure_sayisi": 33,
+  "olumlu_notr_hukum": 0
+ },
+ "yuklem_birincil": {
+  "bilmez": 27,
+  "iman etmez": 14,
+  "şükretmez": 6,
+  "akletmez": 4,
+  "fasık": 4,
+  "kâfir/nankör/yalancı": 4,
+  "ortak koşar": 3,
+  "haktan hoşlanmaz": 2,
+  "zanna uyar": 2,
+  "yüz çevirir": 1,
+  "diğer (sapmak)": 1
+ },
+ "yuklem_anilan": {
+  "bilmez": 27,
+  "iman etmez": 14,
+  "şükretmez": 6,
+  "akletmez": 4,
+  "fasık": 4,
+  "kâfir/nankör/yalancı": 4,
+  "ortak koşar": 3,
+  "haktan hoşlanmaz": 2,
+  "zanna uyar": 2,
+  "yüz çevirir": 2,
+  "diğer (sapmak)": 1
+ },
+ "yuklem_x_ozne": {
+  "bilmez": {
+   "A": 11,
+   "A*": 1,
+   "?": 2,
+   "B": 13
+  },
+  "iman etmez": {
+   "A": 4,
+   "B": 10
+  },
+  "şükretmez": {
+   "A": 3,
+   "A*": 3
+  },
+  "akletmez": {
+   "B": 4
+  },
+  "fasık": {
+   "B": 4
+  },
+  "kâfir/nankör/yalancı": {
+   "A": 2,
+   "B": 2
+  },
+  "ortak koşar": {
+   "A*": 1,
+   "B": 2
+  },
+  "haktan hoşlanmaz": {
+   "B": 2
+  },
+  "zanna uyar": {
+   "A": 1,
+   "B": 1
+  },
+  "yüz çevirir": {
+   "B": 1
+  },
+  "diğer (sapmak)": {
+   "B": 1
+  }
+ },
+ "ozne": {
+  "A": 21,
+  "A*": 5,
+  "?": 2,
+  "B": 40
+ },
+ "ozne_genel_toplam": 26,
+ "ozne_B_kim": {
+  "Mekkeli/Arap müşrikler ve inkârcılar": 23,
+  "Kitap ehli": 3,
+  "geçmiş kavim/ümmet": 11,
+  "diğer belirli grup": 3
+ },
+ "mekki_medeni": {
+  "ham_81": {
+   "makkah": 69,
+   "madinah": 12
+  },
+  "hukum_68": {
+   "makkah": 59,
+   "madinah": 9
+  },
+  "ozne": {
+   "A": {
+    "makkah": 19,
+    "madinah": 2
+   },
+   "A*": {
+    "makkah": 5,
+    "madinah": 0
+   },
+   "B": {
+    "makkah": 33,
+    "madinah": 7
+   },
+   "?": {
+    "makkah": 2,
+    "madinah": 0
+   }
+  },
+  "B_kim": {
+   "Mekkeli/Arap müşrikler ve inkârcılar": {
+    "makkah": 20,
+    "madinah": 3
+   },
+   "Kitap ehli": {
+    "makkah": 0,
+    "madinah": 3
+   },
+   "geçmiş kavim/ümmet": {
+    "makkah": 11,
+    "madinah": 0
+   },
+   "diğer belirli grup": {
+    "makkah": 2,
+    "madinah": 1
+   }
+  },
+  "kuran_sure_sayisi": {
+   "makkah": 86,
+   "madinah": 28
+  },
+  "kuran_ayet_sayisi": {
+   "makkah": 4613,
+   "madinah": 1623
+  },
+  "kuran_mekki_ayet_payi": 0.7397,
+  "hukum_mekki_payi": 0.8676,
+  "medeni_hukum_ayetleri": [
+   "2:100",
+   "2:243",
+   "3:110",
+   "5:59",
+   "5:103",
+   "8:34",
+   "9:8",
+   "13:1",
+   "49:4"
+  ]
+ },
+ "sure_basina_hukum_ayeti": {
+  "2": 2,
+  "3": 1,
+  "5": 2,
+  "6": 3,
+  "7": 4,
+  "8": 1,
+  "9": 1,
+  "10": 3,
+  "11": 1,
+  "12": 6,
+  "13": 1,
+  "16": 4,
+  "17": 1,
+  "21": 1,
+  "23": 1,
+  "25": 2,
+  "26": 9,
+  "27": 2,
+  "28": 2,
+  "29": 1,
+  "30": 3,
+  "31": 1,
+  "34": 3,
+  "36": 1,
+  "37": 1,
+  "39": 2,
+  "40": 3,
+  "41": 1,
+  "43": 1,
+  "44": 1,
+  "45": 1,
+  "49": 1,
+  "52": 1
+ },
+ "en_cok_sure": [
+  {
+   "sure_no": 26,
+   "ad": "Şuarâ",
+   "yer": "makkah",
+   "adet": 9
+  },
+  {
+   "sure_no": 12,
+   "ad": "Yûsuf",
+   "yer": "makkah",
+   "adet": 6
+  },
+  {
+   "sure_no": 7,
+   "ad": "A'râf",
+   "yer": "makkah",
+   "adet": 4
+  },
+  {
+   "sure_no": 16,
+   "ad": "Nahl",
+   "yer": "makkah",
+   "adet": 4
+  },
+  {
+   "sure_no": 6,
+   "ad": "En'âm",
+   "yer": "makkah",
+   "adet": 3
+  },
+  {
+   "sure_no": 10,
+   "ad": "Yûnus",
+   "yer": "makkah",
+   "adet": 3
+  },
+  {
+   "sure_no": 30,
+   "ad": "Rûm",
+   "yer": "makkah",
+   "adet": 3
+  },
+  {
+   "sure_no": 34,
+   "ad": "Sebe'",
+   "yer": "makkah",
+   "adet": 3
+  },
+  {
+   "sure_no": 40,
+   "ad": "Mü'min",
+   "yer": "makkah",
+   "adet": 3
+  },
+  {
+   "sure_no": 2,
+   "ad": "Bakara",
+   "yer": "madinah",
+   "adet": 2
+  }
+ ],
+ "paylasim_14_liste": [
+  {
+   "etiket": "Nahl 83",
+   "ayet": "16:83",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar"
+  },
+  {
+   "etiket": "Mâide 48",
+   "ayet": "5:49",
+   "kalip": "kesîr (كثير)",
+   "ozne": null,
+   "kim": null
+  },
+  {
+   "etiket": "Rûm 42",
+   "ayet": "30:42",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet"
+  },
+  {
+   "etiket": "İsrâ 89",
+   "ayet": "17:89",
+   "kalip": "ekser (أكثر)",
+   "ozne": "A",
+   "kim": "insanlar (genel)"
+  },
+  {
+   "etiket": "Yûnus 92",
+   "ayet": "10:92",
+   "kalip": "kesîr (كثير)",
+   "ozne": null,
+   "kim": null
+  },
+  {
+   "etiket": "Şuarâ 223",
+   "ayet": "26:223",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "şeytanlara kulak veren günahkâr iftiracılar (kâhin tipi)"
+  },
+  {
+   "etiket": "Yûnus 36",
+   "ayet": "10:36",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar"
+  },
+  {
+   "etiket": "Furkân 50",
+   "ayet": "25:50",
+   "kalip": "ekser (أكثر)",
+   "ozne": "A",
+   "kim": "insanlar (genel)"
+  },
+  {
+   "etiket": "Bakara 243",
+   "ayet": "2:243",
+   "kalip": "ekser (أكثر)",
+   "ozne": "A",
+   "kim": "insanlar (genel)"
+  },
+  {
+   "etiket": "Bakara 100",
+   "ayet": "2:100",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "Kitap ehli"
+  },
+  {
+   "etiket": "Zuhruf 78",
+   "ayet": "43:78",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "cehennemdeki suçlular (ahiret sahnesinde hitap)"
+  },
+  {
+   "etiket": "Yûsuf 106",
+   "ayet": "12:106",
+   "kalip": "ekser (أكثر)",
+   "ozne": "A*",
+   "kim": "insanlar (öncül 12:103 \"en-nâs\")"
+  },
+  {
+   "etiket": "Fussılet 4",
+   "ayet": "41:4",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar"
+  },
+  {
+   "etiket": "Mâide 103",
+   "ayet": "5:103",
+   "kalip": "ekser (أكثر)",
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar"
+  }
+ ],
+ "paylasim_ekser_sayisi": 12,
+ "kesir_yan_tarama": {
+  "aciklama": "كثير = \"çok/birçok\". Tam sayım değil: كثير geçen ayetlerden kişilere ilişkin \"çoğu/birçoğu\" hükmü taşıyanlar elle seçildi.",
+  "kesir_geçen_ayet_sayisi": 71,
+  "secilen": 26,
+  "nitelik": {
+   "olumlu-nötr": 5,
+   "olumsuz": 20,
+   "karışık": 1
+  },
+  "ayetler": {
+   "2:26": {
+    "nitelik": "olumlu-nötr",
+    "ozne": "insanlar",
+    "ne": "Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir",
+    "diyanet_kelime": "birçoğu"
+   },
+   "2:109": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "çoğu kıskançlıkla sizi küfre döndürmek ister",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:49": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "çoğu fasıktır",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:62": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "çoğu günaha ve haksızlığa koşuşur",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:64": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "indirilenler çoğunun azgınlığını artırır",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:66": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "bir zümre orta yolda; çoğunun işledikleri kötü",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:68": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "indirilenler çoğunun azgınlık ve küfrünü artırır",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:71": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "tevbeleri kabulden sonra çoğu yine körleşti",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:80": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "çoğunun inkâr edenleri dost edindiği",
+    "diyanet_kelime": "çoğu"
+   },
+   "5:81": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "çoğu fasıktır",
+    "diyanet_kelime": "çoğu"
+   },
+   "6:119": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "çoğunluk heva ile bilmeden sapıtır",
+    "diyanet_kelime": "çoğunluk"
+   },
+   "7:179": {
+    "nitelik": "olumsuz",
+    "ozne": "cin ve insan",
+    "ne": "cehennem için birçok cin ve insan yaratıldı (kalpleri var anlamazlar)",
+    "diyanet_kelime": "birçok"
+   },
+   "9:34": {
+    "nitelik": "olumsuz",
+    "ozne": "hahamlar ve rahipler",
+    "ne": "çoğu insanların mallarını haksızlıkla yer",
+    "diyanet_kelime": "çoğu"
+   },
+   "10:92": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "çoğu ayetlerimizden habersizdir",
+    "diyanet_kelime": "çoğu"
+   },
+   "14:36": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "putlar çok insanı saptırdı (İbrâhim'in duası)",
+    "diyanet_kelime": "çok"
+   },
+   "22:18": {
+    "nitelik": "olumlu-nötr",
+    "ozne": "insanlar",
+    "ne": "insanların birçoğu Allah'a secde eder; birçoğu da azabı hak etmiştir",
+    "diyanet_kelime": "birçoğu"
+   },
+   "27:15": {
+    "nitelik": "olumlu-nötr",
+    "ozne": "mü'min kullar",
+    "ne": "Dâvûd ve Süleymân: \"mü'min kullarının çoğundan üstün kıldı\"",
+    "diyanet_kelime": "çoğu"
+   },
+   "30:8": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "çoğu Rablerine kavuşmayı inkâr eder",
+    "diyanet_kelime": "çoğu"
+   },
+   "36:62": {
+    "nitelik": "olumsuz",
+    "ozne": "insanlar",
+    "ne": "şeytan sizden nice nesilleri saptırdı",
+    "diyanet_kelime": "nice"
+   },
+   "38:24": {
+    "nitelik": "olumsuz",
+    "ozne": "ortaklar",
+    "ne": "ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır",
+    "diyanet_kelime": "çoğu"
+   },
+   "57:16": {
+    "nitelik": "olumsuz",
+    "ozne": "Kitap ehli",
+    "ne": "çoğunun kalbi katılaştı, fasıklaştı",
+    "diyanet_kelime": "çoğu"
+   },
+   "57:26": {
+    "nitelik": "karışık",
+    "ozne": "Nûh ve İbrâhim soyu",
+    "ne": "kimi doğru yolda, birçoğu yoldan çıkmış",
+    "diyanet_kelime": "birçoğu"
+   },
+   "57:27": {
+    "nitelik": "olumsuz",
+    "ozne": "İsâ'ya uyanlar",
+    "ne": "çoğu fasık (rahbâniyet icadı)",
+    "diyanet_kelime": "çoğu"
+   },
+   "71:24": {
+    "nitelik": "olumsuz",
+    "ozne": "Nûh kavminin önderleri",
+    "ne": "birçoğunu saptırdılar",
+    "diyanet_kelime": "birçoğu"
+   },
+   "2:249": {
+    "nitelik": "olumlu-nötr",
+    "ozne": "Tâlût'un askerleri",
+    "ne": "\"Nice az topluluk çok topluluğa Allah'ın izniyle galip gelmiştir\"",
+    "diyanet_kelime": "çok"
+   },
+   "3:146": {
+    "nitelik": "olumlu-nötr",
+    "ozne": "peygamberlerin yanında savaşanlar",
+    "ne": "nice peygamberle birlikte pek çok Rabbânî savaştı",
+    "diyanet_kelime": "pek çok"
+   }
+  }
+ },
+ "az_taramasi": {
+  "aciklama": "قليل/قلة geçen ayetler; yanlış eşleşme çıkarıldı. \"Az\" birçok farklı şeyi niteler; yalnızca \"az kişi\" grubu azınlık ifadesidir.",
+  "eslesen_ayet": 71,
+  "yanlis_eslesme": {
+   "35:18": "yanlış eşleşme: مثقلة (\"yükü ağır\") içinde قلة harfleri"
+  },
+  "sayim": {
+   "az kişi (azınlık)": 20,
+   "az davranış (az şükür/iman/öğüt)": 13,
+   "az bedel (ثمنا قليلا)": 9,
+   "az zaman/geçici zevk": 20,
+   "az şey/miktar/algı": 8
+  },
+  "az_kisi_ayetleri": [
+   "2:83",
+   "2:88",
+   "2:246",
+   "2:249",
+   "4:46",
+   "4:66",
+   "4:83",
+   "4:155",
+   "5:13",
+   "11:40",
+   "11:116",
+   "17:62",
+   "18:22",
+   "34:13",
+   "38:24",
+   "56:14",
+   "26:54",
+   "7:86",
+   "8:26",
+   "28:58"
+  ],
+  "ayrintili": {
+   "2:83": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık dönmeyenler (İsrailoğulları)",
+    "ikili_okuma": false
+   },
+   "2:88": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık inananlar (Medine Yahudileri)",
+    "ikili_okuma": true
+   },
+   "2:246": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık savaşa devam edenler",
+    "ikili_okuma": false
+   },
+   "2:249": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık: sudan içmeyenler; \"az topluluk çok topluluğa galip\"",
+    "ikili_okuma": false
+   },
+   "4:46": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık inananlar",
+    "ikili_okuma": true
+   },
+   "4:66": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık itaat edenler",
+    "ikili_okuma": false
+   },
+   "4:83": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık şeytana uymayanlar",
+    "ikili_okuma": false
+   },
+   "4:155": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık inananlar",
+    "ikili_okuma": true
+   },
+   "5:13": {
+    "tur": "az kişi (azınlık)",
+    "alt": "azınlık hainlik etmeyenler",
+    "ikili_okuma": false
+   },
+   "11:40": {
+    "tur": "az kişi (azınlık)",
+    "alt": "Nûh'la birlikte inananlar az",
+    "ikili_okuma": false
+   },
+   "11:116": {
+    "tur": "az kişi (azınlık)",
+    "alt": "kurtulanlar az",
+    "ikili_okuma": false
+   },
+   "17:62": {
+    "tur": "az kişi (azınlık)",
+    "alt": "İblis: \"azı hariç\" soyunu saptıracağım",
+    "ikili_okuma": false
+   },
+   "18:22": {
+    "tur": "az kişi (azınlık)",
+    "alt": "mağara ehlinin sayısını az kişi bilir (nötr)",
+    "ikili_okuma": false
+   },
+   "34:13": {
+    "tur": "az kişi (azınlık)",
+    "alt": "şükreden kullar az",
+    "ikili_okuma": false
+   },
+   "38:24": {
+    "tur": "az kişi (azınlık)",
+    "alt": "iman edip salih amel işleyenler az",
+    "ikili_okuma": false
+   },
+   "56:14": {
+    "tur": "az kişi (azınlık)",
+    "alt": "sonrakilerden az (cennetin öndekileri)",
+    "ikili_okuma": false
+   },
+   "26:54": {
+    "tur": "az kişi (azınlık)",
+    "alt": "Firavun: \"bunlar az bir topluluk\" (Mûsâ'ya uyanlar)",
+    "ikili_okuma": false
+   },
+   "7:86": {
+    "tur": "az kişi (azınlık)",
+    "alt": "\"az idiniz, sizi çoğalttı\" (nimet olarak)",
+    "ikili_okuma": false
+   },
+   "8:26": {
+    "tur": "az kişi (azınlık)",
+    "alt": "\"yeryüzünde az ve zayıf idiniz\" (nimet hatırlatması)",
+    "ikili_okuma": false
+   },
+   "28:58": {
+    "tur": "az kişi (azınlık)",
+    "alt": "Diyanet: \"pek az kimseler oturabilmiştir\" (zaman/kişi okuması belirsiz)",
+    "ikili_okuma": true
+   },
+   "7:3": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "7:10": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "23:78": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "27:62": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "32:9": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "40:58": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "67:23": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "69:41": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "69:42": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "4:142": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "48:15": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "33:18": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "33:20": {
+    "tur": "az davranış (az şükür/iman/öğüt)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "2:41": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "2:79": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "2:174": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "3:77": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "3:187": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "3:199": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "5:44": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "9:9": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "16:95": {
+    "tur": "az bedel (ثمنا قليلا)",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "2:126": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "3:197": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "4:77": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "9:38": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "9:82": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "16:117": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "17:52": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "17:76": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "23:40": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "23:114": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "31:24": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "33:16": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "33:60": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "39:8": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "44:15": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "73:2": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "73:3": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "73:11": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "77:46": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "51:17": {
+    "tur": "az zaman/geçici zevk",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "8:43": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "8:44": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "12:47": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "12:48": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "17:74": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "17:85": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "34:16": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   },
+   "53:34": {
+    "tur": "az şey/miktar/algı",
+    "alt": "",
+    "ikili_okuma": false
+   }
+  }
+ },
+ "sozluk_yontem": {
+  "kok": "ك-ث-ر",
+  "kaynaklar": [
+   {
+    "eser": "İbn Manzûr, Lisânü'l-Arab, \"كثر\"",
+    "metin": "والكُثْرُ معظم الشيء وأَكْثَرُه",
+    "anlam": "\"kuthr\", bir şeyin büyük kısmı, çoğu",
+    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
+   },
+   {
+    "eser": "Edward W. Lane, Arabic-English Lexicon, \"كُثْرٌ\"",
+    "metin": "The greater, or greatest, or main, part, of a thing; the most thereof. (K)",
+    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
+   },
+   {
+    "eser": "Zebîdî, Tâcü'l-Arûs, \"كثر\" (hawramani sayfasındaki alıntı)",
+    "metin": "الكُثْرُ هُوَ: مُعْظَمُ الشَّيْءِ وأَكْثَرُهُ",
+    "anlam": "aynı",
+    "url": "https://arabiclexicon.hawramani.com/%D9%83%D8%AB%D8%B1/"
+   }
+  ],
+  "not_": "Raghıb el-İsfahânî, el-Müfredât: hawramani sayfası \"وأكثرهم للحق كارهون\" ayetini أكثر için örnek verir; tanım metni sayfadan doğrulanamadığı için alıntılanmadı."
+ },
+ "ayetler": [
+  {
+   "ayet": "2:100",
+   "sure": "Bakara",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Kitap ehli",
+   "guven": "yüksek",
+   "detay": "ahdi bozan Yahudi topluluğu (Medine, 2:97-101)",
+   "not_": "",
+   "meal": "Onlar, her ne zaman bir ahidde bulunmuşlarsa içlerinden bir takımı onu bozmamış mıdır? Zaten onların çoğu inanmazlar."
+  },
+  {
+   "ayet": "2:243",
+   "sure": "Bakara",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يشكرون",
+   "not_": "",
+   "meal": "Binlerce kişinin memleketlerinden ölüm korkusuyla çıktıklarını görmedin mi? Allah onlara \"Ölün\" dedi. Sonra onları diriltti. Allah insanlara bol nimet verir, fakat insanların çoğu şükretmezler."
+  },
+  {
+   "ayet": "3:110",
+   "sure": "Âl-i İmrân",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "fasık",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Kitap ehli",
+   "guven": "yüksek",
+   "detay": "\"Kitap ehli... içlerinde inananlar var, çoğu yoldan çıkmıştır\"",
+   "not_": "aynı cümlede \"minhumu'l-mu'minûn\" (içlerinden inananlar da var)",
+   "meal": "Siz, insanlar için ortaya çıkarılan, doğruluğu emreden, fenalıktan alıkoyan, Allah'a inanan hayırlı bir ümmetsiniz. Kitap ehli inanmış olsalardı, kendileri için daha hayırlı olurdu; içlerinde inananlar olmakla beraber, çoğu yoldan çıkmıştır."
+  },
+  {
+   "ayet": "4:12",
+   "sure": "Nisâ",
+   "yer": "madinah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"bundan fazla\" (miras payı)",
+   "meal": "Kadınlarınızın çocukları yoksa bıraktıklarının yarısı sizindir, çocukları varsa, bıraktıklarının ettikleri vasiyetten veya borçtan arta kalanın dörtte biri sizindir. Sizin çocuğunuz yoksa ettiğiniz vasiyet veya borç çıktıktan sonra bıraktıklarınızın dörtte biri karılarınızındır; çocuğunuz varsa, bıraktıklarınızın sekizde biri onlarındır. Eğer bir erkek veya kadına kelale yollu (çocuğu ve babası ol…"
+  },
+  {
+   "ayet": "5:59",
+   "sure": "Mâide",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "fasık",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Kitap ehli",
+   "guven": "yüksek",
+   "detay": "\"Ey Kitap ehli! ... çoğunuzun fasık olması\"",
+   "not_": "",
+   "meal": "De ki, \"Ey kitap ehli! Allah'a, bize indirilene ve daha önce indirilene inanmamızdan ve çoğunuzun fasık olmasından ötürü mü bizden hoşlanmıyorsunuz?\""
+  },
+  {
+   "ayet": "5:103",
+   "sure": "Mâide",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "akletmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "bahîra, sâibe, vasîle, hâm adakları: cahiliye uygulaması",
+   "not_": "",
+   "meal": "Allah, kulağı çentilen, salıverilen, erkek dişi ikizler doğuran, on defa yavrulamasından ötürü yük vurulmayan hayvanların adanmasını emretmemiştir; fakat inkar edenler Allah'a karşı yalan uydururlar ve çoğu da akletmezler."
+  },
+  {
+   "ayet": "6:37",
+   "sure": "En'âm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Ona Rabbinden bir mucize indirilseydi\" diyenler",
+   "not_": "",
+   "meal": "\"Rabbinden ona (Muhammed'e) bir belge indirilseydi ya\" dediler. De ki: \"Doğrusu Allah bir belge indirmeye Kadir'dir, fakat çoğu bilmezler.\""
+  },
+  {
+   "ayet": "6:111",
+   "sure": "En'âm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "بل... يجهلون: melekler inse de inanmazlardı",
+   "not_": "",
+   "meal": "Eğer biz onlara melekleri indirsek, ölüler onlarla konuşsa ve her şeyi karşılarına toplasaydık, Allah dilemedikçe, yine de inanmazlardı; fakat onların çoğu bunu bilmiyorlar."
+  },
+  {
+   "ayet": "6:116",
+   "sure": "En'âm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "zanna uyar",
+   "ikinci": [
+    "saptırır"
+   ],
+   "ozne": "A",
+   "kim": "yeryüzündekiler (genel)",
+   "guven": "yüksek",
+   "detay": "إن يتبعون إلا الظن",
+   "not_": "ayetin asıl hükmü bir uyarıdır: çoğunluğa itaat edersen seni saptırırlar",
+   "meal": "Yeryüzündekilerin çoğunluğuna itaat edersen seni Allah yolundan saptırırlar. Onlar ancak zanna uyarlar, sadece tahminde bulunurlar."
+  },
+  {
+   "ayet": "7:17",
+   "sure": "A'râf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A*",
+   "kim": "Âdemoğulları (İblis'in iddiası)",
+   "guven": "yüksek",
+   "detay": "لا تجد أكثرهم شاكرين",
+   "not_": "söyleyen İblis'tir; Kur'an bunu 34:20'de \"iman edenlerden bir topluluk hariç\" diyerek aktarır",
+   "meal": "\"Beni azdırdığın için, and olsun ki, Senin doğru yolun üzerinde onlara karşı duracağım; sonra önlerinden, ardlarından, sağ ve sollarından onlara sokulacağım; çoğunu Sana şükreder bulamayacaksın\" dedi."
+  },
+  {
+   "ayet": "7:102",
+   "sure": "A'râf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "fasık",
+   "ikinci": [
+    "ahde vefasız"
+   ],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "yüksek",
+   "detay": "önceki şehir/ülke halkları (7:94-102); \"çoğunda ahde bağlılık görmedik\"",
+   "not_": "",
+   "meal": "Onların çoğunda ahde bağlılık görmedik, çoğunu fasık kimseler olarak bulduk."
+  },
+  {
+   "ayet": "7:131",
+   "sure": "A'râf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "yüksek",
+   "detay": "Firavun'un kavmi",
+   "not_": "",
+   "meal": "Onlara bir iyilik geldiği zaman; \"Bu bizden ötürüdür\" derler, bir fenalığa uğrarlarsa da, Musa ve onunla beraber olanların uğursuzluğuna verirlerdi. Bilin ki, kendilerinin uğradığı uğursuzluk Allah katındandır, fakat çoğu bunu bilmezler."
+  },
+  {
+   "ayet": "7:187",
+   "sure": "A'râf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Sana, kıyamet saatinin ne zaman gelip çatacağını soruyorlar, de ki: \"Onu ancak Rabbim bilir, onun vaktini, O'ndan başka belirtecek yoktur. Göklerin ve yerin, ağırlığını kaldıramayacağı o saat, sizlere ansızın gelecektir.\" Sen sanki öğrenmişsin gibi sana soruyorlar, de ki: \"Onu bilmek ancak Allah'a mahsustur, ama insanların çoğu bu gerçeği bilmezler.\""
+  },
+  {
+   "ayet": "8:34",
+   "sure": "Enfâl",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "Mescid-i Harâm'dan engelleyenler; \"Allah'ın dostları değiller\"",
+   "not_": "",
+   "meal": "Yoksa Mescidi Haram'a girmekten menederlerken Allah onlara niçin azab etmesin? Hem de O'nun dostu değiller; O'nun dostları ancak karşı gelmekten sakınanlardır. Fakat çoğu bunu bilmiyorlar."
+  },
+  {
+   "ayet": "9:8",
+   "sure": "Tevbe",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "fasık",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "ahit yapılan müşrikler (9:1-8)",
+   "not_": "Tevbe 9:7-8: ahdi gözetmeyen müşrikler; \"çoğu fasık\" (azı ahde bağlı: 9:7)",
+   "meal": "Nasıl olabilir ki, size üstün gelselerdi ne bir yakınlık, ne de bir ahd gözetirlerdi. Kalpleriyle istemezlerken sizi ağızlarıyla hoşnut etmeye uğraşırlar; çokları fasıktırlar."
+  },
+  {
+   "ayet": "9:69",
+   "sure": "Tevbe",
+   "yer": "madinah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"malları ve çocukları daha çok\"",
+   "meal": "Ey ikiyüzlüler! Siz, sizden önce daha kuvvetli, malları ve çocukları daha çok olup, hisselerince bunlardan faydalanan kimseler gibisiniz. Sizden öncekiler, hisselerince faydalandıkları gibi siz de hissenizce faydalandınız ve onların batıla daldıklarıgibi siz de daldınız. İşte bunlar dünyada ve ahirette işleri boşa çıkanlardır, işte bunlar mahvolanlardır."
+  },
+  {
+   "ayet": "10:36",
+   "sure": "Yûnus",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "zanna uyar",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "\"ortaklarınızdan hakka ileten var mı\" (10:35) bağlamı",
+   "not_": "",
+   "meal": "Onların çoğu zanna uyarlar; gerçekte ise zan, hakikat karşısında bir şey ifade etmez. Allah, yaptıklarını şüphesiz bilir."
+  },
+  {
+   "ayet": "10:55",
+   "sure": "Yûnus",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "?",
+   "kim": "öncül belirsiz (çevrede inkârcılar/zalimler)",
+   "guven": "düşük",
+   "detay": "لا يعلمون",
+   "not_": "10:54 zalimlerden söz eder; zamirin öncülü açık değil",
+   "meal": "İyi bilin ki, Allah'ın verdiği söz gerçektir, ama çoğu bunu bilmez."
+  },
+  {
+   "ayet": "10:60",
+   "sure": "Yûnus",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A*",
+   "kim": "insanlar (öncül: \"insanlara nimeti boldur\")",
+   "guven": "orta",
+   "detay": "لا يشكرون",
+   "not_": "aynı bağlamda \"Allah'a yalan uyduranlar\" (10:59-60) geçer",
+   "meal": "Allah'a karşı yalan uyduranlar kıyamet gününü ne zannederler? Doğrusu Allah'ın insanlara olan nimeti boldur, fakat çoğu şükretmezler."
+  },
+  {
+   "ayet": "11:17",
+   "sure": "Hûd",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يؤمنون",
+   "not_": "",
+   "meal": "Rabbinin katından bir belgesi ve onun arkasından da bir şahidi olanlar, önlerinde de Musa'nın Kitap'ı önder ve rahmet olarak bulunanlardır ki, işte onlar Kuran'a inanırlar. Hangi topluluk onu inkar ederse yeri ateştir; senin de bundan şüphen olmasın. Doğrusu o, Rabbinden bir gerçektir, fakat insanların çoğu inanmazlar."
+  },
+  {
+   "ayet": "11:32",
+   "sure": "Hûd",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "fiil: \"çok tartıştın\" (أكثرت)",
+   "meal": "\"Ey Nuh! Bizimle cidden tartıştın; hem de çok tartıştın. Doğru sözlülerden isen tehdit ettiğin azabı başımıza getir\" dediler."
+  },
+  {
+   "ayet": "12:21",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Mısır'da onu satın alan kimse karısına: \"Ona güzel bak, belki bize faydası olur yahut ta onu evlat ediniriz\" dedi. Biz işte böylece Yusuf'u o yere yerleştirdik; ona, rüyaların nasıl yorumlanacağını öğrettik. Allah, işinde hakimdir, fakat insanların çoğu bunu bilmezler."
+  },
+  {
+   "ayet": "12:38",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يشكرون",
+   "not_": "",
+   "meal": "Atalarım İbrahim, İshak ve Yakub'un dinine uydum. Allah'a herhangi bir ortak koşmak bize yaraşmaz; bu, Allah'ın bize ve insanlara olan lütfudur; fakat insanların çoğu şükretmez\" dedi."
+  },
+  {
+   "ayet": "12:40",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "\"Allah'ı bırakıp taptığınız, sizin ve babalarınızın adlandırdığı putlardan başka bir şey değildir. Allah onların doğru olduğuna dair bir delil indirmemiştir. Hüküm vermek ancak Allah'a aittir; kendisinden başkasına değil, O'na tapmanızı emretmiştir. Bu, dosdoğru dindir, fakat insanların çoğu bilmezler\"."
+  },
+  {
+   "ayet": "12:68",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Babalarının emrettiği gibi girdiler. Esasen bu, Allah katında onlara bir fayda sağlamazdı, ancak Yakub içindeki arzuyu ortaya koymuş oldu. O, şüphesiz kendisine öğrettiğimizi bilir fakat insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "12:103",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "بمؤمنين",
+   "not_": "",
+   "meal": "Sana böylece vahyettiklerimiz, gaybe ait haberlerdir. Onlar elbirliği edip düzen kurdukları zaman yanlarında değildin; sen ne kadar yürekten istersen iste, insanların çoğu inanmazlar."
+  },
+  {
+   "ayet": "12:106",
+   "sure": "Yûsuf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "ortak koşar",
+   "ikinci": [
+    "iman eder ama ortak koşar"
+   ],
+   "ozne": "A*",
+   "kim": "insanlar (öncül 12:103 \"en-nâs\")",
+   "guven": "orta",
+   "detay": "وما يؤمن أكثرهم بالله إلا وهم مشركون",
+   "not_": "İbn Abbâs: \"Allah yarattı\" derler, yine de ortak koşarlar (İbn Kesîr)",
+   "meal": "Onların çoğu, ortak koşmadan Allah'a inanmazlar."
+  },
+  {
+   "ayet": "13:1",
+   "sure": "Ra'd",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يؤمنون",
+   "not_": "",
+   "meal": "Elif, Lam, Mim, Ra. Bunlar Kitap'ın ayetleridir. Sana Rabbinden indirilen Kitap haktır; fakat insanların çoğu inanmazlar."
+  },
+  {
+   "ayet": "16:38",
+   "sure": "Nahl",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Ölen kimseyi Allah'ın diriltmeyeceği üzerine bütün güçleriyle Allah'a yemin ederler. Hayır; öyle değil, ayrılığa düştükleri şeyi onlara açıklamayı, inkar edenlerin kendilerinin yalancı olduklarını bileceklerini, Allah gerçekten vadetmiştir, fakat insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "16:75",
+   "sure": "Nahl",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "köle/hür misali: Allah'tan başkasına tapanlara",
+   "not_": "",
+   "meal": "Allah, hiçbir şeye gücü yetmeyen ve başkasının malı olan bir köle ile, kendisine verdiğimiz güzel nimetlerden gizlice ve açıkça sarfeden kimseyi misal gösterir: Hiç bunlar eşit olur mu? Övülmeğe layık olan Allah'tır, fakat çoğu bilmezler."
+  },
+  {
+   "ayet": "16:83",
+   "sure": "Nahl",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "kâfir/nankör/yalancı",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "\"nimeti bilirler, sonra inkâr ederler\"",
+   "not_": "kâfir (küfür)",
+   "meal": "Allah'ın nimetini hem bilirler hem de inkar ederler. Zaten çoğu kafir kimselerdir."
+  },
+  {
+   "ayet": "16:101",
+   "sure": "Nahl",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Sen uyduruyorsun\" diyenler",
+   "not_": "",
+   "meal": "Bir ayetin yerini başka bir ayetle değiştirdiğimizde, ki Allah ne indirdiğini gayet iyi bilir onlar, \"Sen sadece uyduruyorsun\" derler. Hayır, öyle değildir, ama onların çoğu bunu bilmezler."
+  },
+  {
+   "ayet": "17:6",
+   "sure": "İsrâ",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma, olumlu: \"sayıca daha çok kıldık\" (أكثر نفيرا)",
+   "meal": "\"Bunun ardından sizi onlara galip getireceğiz; mallar ve oğullarla size yardım edecek ve sizin sayınızı artıracağız.\""
+  },
+  {
+   "ayet": "17:89",
+   "sure": "İsrâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "kâfir/nankör/yalancı",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "أبى ... إلا كفورا (nankörlükte direnmek)",
+   "not_": "nankör (küfûr)",
+   "meal": "And olsun ki, biz Kuran'da insanlara türlü türlü misal gösterip açıkladık. Öyleyken insanların çoğu nankör olmakta direndiler."
+  },
+  {
+   "ayet": "18:34",
+   "sure": "Kehf",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"malca senden zenginim\"",
+   "meal": "Onun gelirleri de vardı. Bu yüzden, arkadaşiyle konuşurken: \"Ben malca senden zengin, nüfusça da senden daha itibarlıyım\" dedi."
+  },
+  {
+   "ayet": "18:54",
+   "sure": "Kehf",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "üstünlük: \"insan en çok tartışan varlıktır\" (çoğunluk hükmü değil, tür niteliği)",
+   "meal": "And olsun ki, Biz bu Kuran'da insanlara türlü türlü misali gösterip açıkladık. İnsanın en çok yaptığı iş tartışmadır."
+  },
+  {
+   "ayet": "21:24",
+   "sure": "Enbiyâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [
+    "yüz çevirir"
+   ],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "tanrılar edinenler",
+   "not_": "",
+   "meal": "O'nu bırakıp tanrılar mı edindiler? De ki: \"Kesin delilinizi getirin. İşte benim ve ümmetimin Kitap'ı ve senden öncekilerin kitapları.\" Hayır; onların çoğu gerçeği bilmez de yüz çevirirler."
+  },
+  {
+   "ayet": "23:70",
+   "sure": "Mü'minûn",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "haktan hoşlanmaz",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Onda delilik var\" diyenler",
+   "not_": "",
+   "meal": "Ya da: \"Onda delilik var\" diyorlar öyle mi? Hayır; onlara gerçeği getirmiştir, ama çoğu ondan hoşlanmamaktadır."
+  },
+  {
+   "ayet": "25:44",
+   "sure": "Furkân",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "akletmez",
+   "ikinci": [
+    "dinlemez"
+   ],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "25:41-44: Peygamber'le alay edenler",
+   "not_": "",
+   "meal": "Yoksa çoklarının söz dinlediklerini veya aklettiklerini mi sanırsın? Onlar şüphesiz davarlar gibidir, belki daha da sapık yolludurlar."
+  },
+  {
+   "ayet": "25:50",
+   "sure": "Furkân",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "kâfir/nankör/yalancı",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "أبى ... إلا كفورا (nankörlükte direnmek)",
+   "not_": "nankör (küfûr)",
+   "meal": "And olsun ki öğüt almaları için ülkeler arasında yer yer türlü türlü yağmur yağdırmışızdır. Buna rağmen insanların çoğu nankörlükte direnmiştir."
+  },
+  {
+   "ayet": "26:8",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "26:1-8 bağlamı: Kur'an'dan yüz çevirenler",
+   "not_": "",
+   "meal": "Şüphesiz bunlarda Allah'ın kudretine işaret vardır, ama çoğu inanmazlar."
+  },
+  {
+   "ayet": "26:67",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Mûsâ kıssası sonu (26:10-68); Firavun ve çevresi",
+   "not_": "refren; Mûsâ kıssasında kimin kastedildiği bağlamdan kesin okunmaz",
+   "meal": "Bunda şüphesiz ders vardır, ama çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:103",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "İbrâhîm kıssası sonu (26:69-104)",
+   "not_": "",
+   "meal": "Bunda şüphesiz bir ders vardır ama çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:121",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Nûh kıssası sonu (26:105-122)",
+   "not_": "",
+   "meal": "Doğrusu bunda bir ders vardır, ama çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:139",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Âd/Hûd kıssası sonu (26:123-140)",
+   "not_": "",
+   "meal": "Böylece onu yalanladılar; Biz de kendilerini yok ettik. Bunda şüphesiz ki ders vardır; ama çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:158",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Semûd/Sâlih kıssası sonu (26:141-159)",
+   "not_": "",
+   "meal": "Bunun üzerine onları azap yakaladı. Doğrusu bunda bir ders vardır, fakat çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:174",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Lût kıssası sonu (26:160-175)",
+   "not_": "",
+   "meal": "Şüphesiz bunda bir ders vardır, ama çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:190",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "orta",
+   "detay": "Eyke halkı/Şuayb kıssası sonu (26:176-191)",
+   "not_": "",
+   "meal": "Doğrusu bunda bir ders vardır. Fakat çoğu inanmamıştır."
+  },
+  {
+   "ayet": "26:223",
+   "sure": "Şuarâ",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "kâfir/nankör/yalancı",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "şeytanlara kulak veren günahkâr iftiracılar (kâhin tipi)",
+   "guven": "yüksek",
+   "detay": "26:221-223: \"Şeytanlar kimlere iner?\" \"Her günahkâr iftiracıya\"",
+   "not_": "yalancı; İbn Kesîr: \"kâhinler ve diğer günahkâr yalancılar\"",
+   "meal": "Bunlar şeytanlara kulak verirler, çoğu yalancıdırlar."
+  },
+  {
+   "ayet": "27:61",
+   "sure": "Neml",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Allah'la beraber başka ilah mı?\"",
+   "not_": "",
+   "meal": "Yoksa yeri, yaratıklarının oturmasına elverişli kılan ve aralarında ırmaklar meydana getiren, yeryüzüne sabit dağlar yerleştiren, iki deniz arasına engel koyan mı? Allah'ın yanında başka bir tanrı mı? Hayır; çoğu bilmezler."
+  },
+  {
+   "ayet": "27:73",
+   "sure": "Neml",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A*",
+   "kim": "insanlar (öncül: \"insanlara lütuf sahibidir\")",
+   "guven": "yüksek",
+   "detay": "لا يشكرون",
+   "not_": "",
+   "meal": "Doğrusu Rabbin, insanlara karşı lütuf sahibidir. Fakat onların çoğu şükretmezler."
+  },
+  {
+   "ayet": "27:76",
+   "sure": "Neml",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "şeylerin çokluğu: \"ayrılığa düştükleri şeyin çoğunu\" (kişi değil, konu)",
+   "meal": "Doğrusu bu Kuran, İsrailoğullarına, ayrılığa düştükleri şeyin çoğunu anlatmaktadır."
+  },
+  {
+   "ayet": "28:13",
+   "sure": "Kasas",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "?",
+   "kim": "öncül belirsiz",
+   "guven": "düşük",
+   "detay": "لا يعلمون",
+   "not_": "Mûsâ'nın annesine verilen sözün gerçekliği; \"çoğu\" kimdir ayetten kesin okunmuyor",
+   "meal": "Böylece onu, annesinin gözü aydın olsun, üzülmesin, Allah'ın verdiği sözün gerçek olduğunu bilsin diye, ona geri çevirdik. Fakat çoğu bilmezler."
+  },
+  {
+   "ayet": "28:57",
+   "sure": "Kasas",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Seninle doğru yola girersek yurdumuzdan edilirik\" diyenler",
+   "not_": "",
+   "meal": "\"Seninle beraber doğru yolda gidersek, yurdumuzdan ediliriz\" dediler. Onları katımızdan bir rızık olarak her şeyin ürününün toplandığı güvenli ve kutlu bir yere yerleştirmedik mi? Ama çoğu bilmezler."
+  },
+  {
+   "ayet": "28:78",
+   "sure": "Kasas",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"daha çok topladı\" (Kârûn kıssası)",
+   "meal": "Karun: \"Bu servet ancak, bende mevcut bir ilimden ötürü bana verilmiştir\" demişti. Allah'ın, önceleri, ondan daha güçlü ve topladığı şey daha fazla olan nice nesilleri yok ettiğini bilmez mi? Suçluların suçları kendilerinden sorulmaz."
+  },
+  {
+   "ayet": "29:63",
+   "sure": "Ankebût",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "akletmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Gökten suyu kim indirir?\" \"Allah\" derler",
+   "not_": "",
+   "meal": "And olsun ki onlara: \"Gökten su indirip onunla, ölümünden sonra yeri dirilten kimdir?\" diye sorarsan, şüphesiz, \"Allah'tır\" derler. De ki: \"Övülmek Allah içindir\", fakat çoğu bunu akletmezler."
+  },
+  {
+   "ayet": "30:6",
+   "sure": "Rûm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Bu, Allah'ın vaadidir; Allah verdiği sözden caymaz, fakat insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "30:9",
+   "sure": "Rûm",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"onlardan çok imar etmişlerdi\"",
+   "meal": "Yeryüzünde dolaşıp, kendilerinden önce geçmiş kimselerin sonlarının nasıl olduğuna bakmazlar mı? Ki onlar kendilerinden daha kuvvetli idiler, yeryüzünü kazıp alt üst ederek onlardan çok imar etmiş kimseydiler ve onlara belgelerle peygamberler gelmişti. Böylece Allah onlara zulmetmiyor, onlar kendilerine zulmediyorlardı."
+  },
+  {
+   "ayet": "30:30",
+   "sure": "Rûm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Hakka yönelerek kendini Allah'ın insanlara yaratılışta verdiği dine ver. Zira Allah'ın yaratışında değişme yoktur; işte dosdoğru din budur, fakat insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "30:42",
+   "sure": "Rûm",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "ortak koşar",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "yüksek",
+   "detay": "\"daha öncekilerden çoğu ortak koşanlardı\"",
+   "not_": "",
+   "meal": "De ki: \"Yeryüzünde dolaşın da daha öncekilerden çoğu ortak koşan (müşrik) olanların sonunun nasıl olduğuna bir bakın.\""
+  },
+  {
+   "ayet": "31:25",
+   "sure": "Lokmân",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Gökleri kim yarattı?\" \"Allah\" derler",
+   "not_": "",
+   "meal": "And olsun ki onlara: \"Gökleri ve yeri yaratan kimdir?\" diye sorsan, \"Allah'tır\" derler. De ki: \"Hamd Allah'a mahsustur\", ama çoğu bilmezler."
+  },
+  {
+   "ayet": "34:28",
+   "sure": "Sebe'",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Biz seni bütün insanlara ancak müjdeci ve uyarıcı olarak göndermişizdir; fakat insanların çoğu bilmez."
+  },
+  {
+   "ayet": "34:35",
+   "sure": "Sebe'",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"malları ve çocukları en çok olan biziz\" (müşriklerin iddiası)",
+   "meal": "Ve dediler ki: \"Malları ve çocukları en çok olan bizleriz, azaba uğratılacak da değiliz\""
+  },
+  {
+   "ayet": "34:36",
+   "sure": "Sebe'",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "De ki: \"Şüphesiz Rabbim rızkı dilediğine genişletir ve bir ölçüye göre verir, fakat insanların çoğu bilmezler.\""
+  },
+  {
+   "ayet": "34:41",
+   "sure": "Sebe'",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "ortak koşar",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"Çoğu cinlere inanıyordu\" (melekler konuşuyor)",
+   "not_": "yüklem olumlu görünür (مؤمنون) ama nesnesi cinlerdir",
+   "meal": "Melekler: \"Haşa, bizim dostumuz onlar değil, Sensin. Hayır; onlar bize değil cinlere tapıyorlardı, çoğu onlara inanıyorlardı\" derler."
+  },
+  {
+   "ayet": "36:7",
+   "sure": "Yâsîn",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"hüküm çoğunun aleyhine gerçekleşti\"; 36:6 babaları uyarılmamış kavim",
+   "not_": "",
+   "meal": "And olsun ki, hüküm çoğunun aleyhine gerçekleşmiştir, bunun için artık inanmazlar."
+  },
+  {
+   "ayet": "37:71",
+   "sure": "Sâffât",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "diğer (sapmak)",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "geçmiş kavim/ümmet",
+   "guven": "yüksek",
+   "detay": "\"evvelki ümmetlerin çoğu sapmıştı\"",
+   "not_": "",
+   "meal": "Onlardan önce, evvelki ümmetlerin çoğu, and olsun ki sapıtmıştı."
+  },
+  {
+   "ayet": "39:29",
+   "sure": "Zümer",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "ortaklı köle/tek efendili adam misali",
+   "not_": "",
+   "meal": "Allah, geçimsiz efendileri olan bir adamla, yalnız bir kişiye bağlı olan bir adamı misal olarak verir. Bu ikisi eşit midir? Övülmek Allah içindir, fakat çoğu bilmezler."
+  },
+  {
+   "ayet": "39:49",
+   "sure": "Zümer",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A*",
+   "kim": "insan (el-insân, tür)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "nimeti \"bilgimle kazandım\" diyen insan tipi; sıkıntıda yalvarıp nimette unutan",
+   "meal": "İnsanın başına bir sıkıntı gelince Bize yalvarır. Sonra katımızdan ona bir nimet verdiğimiz zaman: \"Bu bana bilgimden dolayı verilmiştir\" der. Hayır; o bir imtihandır, fakat çokları bilmezler."
+  },
+  {
+   "ayet": "40:57",
+   "sure": "Mü'min",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "Göklerin ve yerin yaratılması, insanların yaratılmasından daha büyük bir şeydir. Fakat insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "40:59",
+   "sure": "Mü'min",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "iman etmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يؤمنون",
+   "not_": "",
+   "meal": "Kıyamet günü mutlaka gelecektir. Bunda şüphe yoktur, fakat, insanların çoğu inanmıyor."
+  },
+  {
+   "ayet": "40:61",
+   "sure": "Mü'min",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "şükretmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يشكرون",
+   "not_": "",
+   "meal": "Size, geceyi dinlenesiniz diye karanlık ve gündüzü aydınlık olarak yaratan Allah'tır. Doğrusu Allah insanlara karşı lütufkardır, ama insanların çoğu şükretmezler."
+  },
+  {
+   "ayet": "40:82",
+   "sure": "Mü'min",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"kendilerinden daha çok ve daha güçlü\"",
+   "meal": "Yeryüzünde dolaşıp, kendilerinden daha çok, daha kuvvetli, yeryüzünde bıraktıkları eserler daha sağlam olan öncekilerin sonuçlarının nasıl olduğunu görmezler mi? Kazandıkları onlara bir fayda vermemiştir."
+  },
+  {
+   "ayet": "41:4",
+   "sure": "Fussilet",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "yüz çevirir",
+   "ikinci": [
+    "işitmez"
+   ],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "أعرض أكثرهم",
+   "not_": "Arapçada \"أكثرهم\" (onların çoğu); \"insanların\" kelimesini Diyanet mealine yerleştirmiş",
+   "meal": "Bu Kitap, merhametli olan Allah katından indirilmedir; bilen bir millet için müjdeci ve uyarıcı olmak üzere Arapça okunarak, ayetleri uzun uzun açıklanmıştır. Ama insanların çoğu yüz çevirmiştir, onlar işitmezler de: \"Bizi çağırdığın şeye karşı kalblerimiz kapalıdır, kulaklarımızda ağırlık, bizimle senin aranda anlaşmamıza engel vardır; istediğini yap, biz de yapacağız\" derler."
+  },
+  {
+   "ayet": "43:78",
+   "sure": "Zuhruf",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "haktan hoşlanmaz",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "cehennemdeki suçlular (ahiret sahnesinde hitap)",
+   "guven": "yüksek",
+   "detay": "43:74-78: nöbetçiyle konuşan cehennemlikler",
+   "not_": "dünyada değil, ahiret sahnesinde söylenen bir tespit",
+   "meal": "And olsun ki, size gerçeği getirdik; fakat çoğunuz gerçeği sevmiyorsunuz."
+  },
+  {
+   "ayet": "44:39",
+   "sure": "Duhân",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "orta",
+   "detay": "44:34-35: yeniden dirilişi inkâr edenler",
+   "not_": "Arapçada \"أكثرهم\"; \"insanların\" kelimesi Diyanet mealinde eklenmiş",
+   "meal": "Biz onları, ancak ve ancak gerektiği gibi yarattık, ama insanların çoğu bilmezler."
+  },
+  {
+   "ayet": "45:26",
+   "sure": "Câsiye",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "A",
+   "kim": "insanlar (genel)",
+   "guven": "yüksek",
+   "detay": "لا يعلمون",
+   "not_": "",
+   "meal": "De ki: \"Sizi Allah diriltir, sonra öldürür, sonra sizi şüphe götürmeyen kıyamet gününde toplar. Ama insanların çoğu bilmezler.\""
+  },
+  {
+   "ayet": "49:4",
+   "sure": "Hucurât",
+   "yer": "madinah",
+   "kapsam": "hüküm",
+   "yuklem": "akletmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "odaların ardından Peygamber'e seslenenler (bedevî)",
+   "guven": "yüksek",
+   "detay": "İbn Kesîr: \"odaların ardından seslenen bedevîler\"",
+   "not_": "sebeb-i nüzûl rivayetlerinde Temîm'den bir kişi anılır (İbn Kesîr/Ahmed)",
+   "meal": "Sana odaların ötesinden seslenenlerin çoğu akletmeyen kimselerdir."
+  },
+  {
+   "ayet": "52:47",
+   "sure": "Tûr",
+   "yer": "makkah",
+   "kapsam": "hüküm",
+   "yuklem": "bilmez",
+   "ikinci": [],
+   "ozne": "B",
+   "kim": "Mekkeli/Arap müşrikler ve inkârcılar",
+   "guven": "yüksek",
+   "detay": "\"zulmedenlere bundan başka da azap vardır\"",
+   "not_": "",
+   "meal": "Zulmedenlere, şüphesiz, bundan başka da azap vardır; fakat onların çoğu bilmezler."
+  },
+  {
+   "ayet": "58:7",
+   "sure": "Mücâdele",
+   "yer": "madinah",
+   "kapsam": "kapsam dışı",
+   "neden": "karşılaştırma: \"az veya çok\" (Allah'ın ilmi/ma'iyyeti)",
+   "meal": "Göklerde olanları da, yerde olanları da Allah'ın bildiğini bilmez misin? Üç kişinin gizli bulunduğu yerde dördüncü mutlaka O'dur; beş kişinin gizli bulunduğu yerde altıncıları mutlaka O'dur; bunlardan az veya çok, ne olursa olsunlar nerede bulunurlarsa bulunsunlar, mutlak onlarla beraberdir. Sonra, kıyamet günü, işlediklerini onlara haber verir. Doğrusu Allah her şeyi bilendir."
+  },
+  {
+   "ayet": "89:12",
+   "sure": "Fecr",
+   "yer": "makkah",
+   "kapsam": "kapsam dışı",
+   "neden": "fiil: \"bozgunculuğu artırdılar\" (فأكثروا)",
+   "meal": "Vadide kayaları kesip yontan Semud milletine, memleketlerde aşırı giden, oralarda bozgunculuğu artıran, sarsılmaz bir saltanat sahibi Firavun'a Rabbinin ne ettiğini görmedin mi?"
+  }
+ ]
+}

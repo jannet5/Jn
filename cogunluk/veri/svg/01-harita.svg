@@ -1,0 +1,241 @@
+<svg viewBox="0 0 492 716" role="img" aria-label="Kur'an'ın 114 suresinin haritası. "Çoğu" hükmü taşıyan 68 ayet 33 surede dağılmıştır; en yoğun sureler: Şuarâ 9, Yûsuf 6, A'râf 4, Nahl 4, En'âm 3, Yûnus 3">
+<rect x="8" y="8" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">1</text>
+<rect x="56" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--gold);stroke-width:3"/>
+<text x="78.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">2</text>
+<rect x="104" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--gold);stroke-width:3"/>
+<text x="126.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">3</text>
+<rect x="152" y="8" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="174.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">4</text>
+<rect x="200" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--gold);stroke-width:3"/>
+<text x="222.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">5</text>
+<rect x="248" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">6</text>
+<rect x="296" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--accent-ink)">7</text>
+<rect x="344" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--gold);stroke-width:3"/>
+<text x="366.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">8</text>
+<rect x="392" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--gold);stroke-width:3"/>
+<text x="414.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">9</text>
+<rect x="440" y="8" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="36.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">10</text>
+<rect x="8" y="56" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">11</text>
+<rect x="56" y="56" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--accent-ink)">12</text>
+<rect x="104" y="56" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--gold);stroke-width:3"/>
+<text x="126.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">13</text>
+<rect x="152" y="56" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">14</text>
+<rect x="200" y="56" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">15</text>
+<rect x="248" y="56" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--accent-ink)">16</text>
+<rect x="296" y="56" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">17</text>
+<rect x="344" y="56" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">18</text>
+<rect x="392" y="56" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">19</text>
+<rect x="440" y="56" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="84.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">20</text>
+<rect x="8" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">21</text>
+<rect x="56" y="104" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="78.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">22</text>
+<rect x="104" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">23</text>
+<rect x="152" y="104" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="174.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">24</text>
+<rect x="200" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">25</text>
+<rect x="248" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--accent-ink)">26</text>
+<rect x="296" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">27</text>
+<rect x="344" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">28</text>
+<rect x="392" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">29</text>
+<rect x="440" y="104" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="132.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">30</text>
+<rect x="8" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">31</text>
+<rect x="56" y="152" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">32</text>
+<rect x="104" y="152" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="126.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">33</text>
+<rect x="152" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">34</text>
+<rect x="200" y="152" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">35</text>
+<rect x="248" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">36</text>
+<rect x="296" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">37</text>
+<rect x="344" y="152" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">38</text>
+<rect x="392" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">39</text>
+<rect x="440" y="152" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="180.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">40</text>
+<rect x="8" y="200" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">41</text>
+<rect x="56" y="200" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">42</text>
+<rect x="104" y="200" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">43</text>
+<rect x="152" y="200" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">44</text>
+<rect x="200" y="200" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">45</text>
+<rect x="248" y="200" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">46</text>
+<rect x="296" y="200" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="318.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">47</text>
+<rect x="344" y="200" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="366.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">48</text>
+<rect x="392" y="200" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--gold);stroke-width:3"/>
+<text x="414.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">49</text>
+<rect x="440" y="200" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="228.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">50</text>
+<rect x="8" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">51</text>
+<rect x="56" y="248" width="44" height="44" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">52</text>
+<rect x="104" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">53</text>
+<rect x="152" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">54</text>
+<rect x="200" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="222.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">55</text>
+<rect x="248" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">56</text>
+<rect x="296" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="318.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">57</text>
+<rect x="344" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="366.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">58</text>
+<rect x="392" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="414.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">59</text>
+<rect x="440" y="248" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="462.0" y="276.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">60</text>
+<rect x="8" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="30.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">61</text>
+<rect x="56" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="78.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">62</text>
+<rect x="104" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="126.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">63</text>
+<rect x="152" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="174.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">64</text>
+<rect x="200" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="222.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">65</text>
+<rect x="248" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="270.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">66</text>
+<rect x="296" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">67</text>
+<rect x="344" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">68</text>
+<rect x="392" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">69</text>
+<rect x="440" y="296" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="324.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">70</text>
+<rect x="8" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">71</text>
+<rect x="56" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">72</text>
+<rect x="104" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">73</text>
+<rect x="152" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">74</text>
+<rect x="200" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">75</text>
+<rect x="248" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="270.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">76</text>
+<rect x="296" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">77</text>
+<rect x="344" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">78</text>
+<rect x="392" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">79</text>
+<rect x="440" y="344" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="372.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">80</text>
+<rect x="8" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">81</text>
+<rect x="56" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">82</text>
+<rect x="104" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">83</text>
+<rect x="152" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">84</text>
+<rect x="200" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">85</text>
+<rect x="248" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">86</text>
+<rect x="296" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">87</text>
+<rect x="344" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">88</text>
+<rect x="392" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">89</text>
+<rect x="440" y="392" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="420.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">90</text>
+<rect x="8" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">91</text>
+<rect x="56" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">92</text>
+<rect x="104" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">93</text>
+<rect x="152" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">94</text>
+<rect x="200" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">95</text>
+<rect x="248" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">96</text>
+<rect x="296" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">97</text>
+<rect x="344" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="366.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">98</text>
+<rect x="392" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="414.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">99</text>
+<rect x="440" y="440" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="462.0" y="468.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">100</text>
+<rect x="8" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">101</text>
+<rect x="56" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">102</text>
+<rect x="104" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">103</text>
+<rect x="152" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">104</text>
+<rect x="200" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="222.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">105</text>
+<rect x="248" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="270.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">106</text>
+<rect x="296" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="318.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">107</text>
+<rect x="344" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="366.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">108</text>
+<rect x="392" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="414.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">109</text>
+<rect x="440" y="488" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--gold);stroke-width:3"/>
+<text x="462.0" y="516.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">110</text>
+<rect x="8" y="536" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30.0" y="564.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">111</text>
+<rect x="56" y="536" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="78.0" y="564.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">112</text>
+<rect x="104" y="536" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="126.0" y="564.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">113</text>
+<rect x="152" y="536" width="44" height="44" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="174.0" y="564.0" text-anchor="middle" style="font-family:inherit" style="font-family:inherit;font-size:16px;font-weight:400;fill:var(--ink-soft)">114</text>
+<text x="8" y="612" style="font-family:inherit;font-size:16px;fill:var(--ink)">Her kutu bir sure; sayı = sure numarası. Dolgu = o surede kaç ayet:</text>
+<rect x="8" y="626" width="44" height="30" rx="5" style="fill:var(--surface);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="30" y="647" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">yok</text>
+<rect x="64" y="626" width="44" height="30" rx="5" style="fill:var(--accent);fill-opacity:0.28;stroke:var(--line);stroke-width:1.5"/>
+<text x="86" y="647" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">1</text>
+<rect x="120" y="626" width="44" height="30" rx="5" style="fill:var(--accent);fill-opacity:0.55;stroke:var(--line);stroke-width:1.5"/>
+<text x="142" y="647" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">2–3</text>
+<rect x="176" y="626" width="44" height="30" rx="5" style="fill:var(--accent);fill-opacity:1;stroke:var(--line);stroke-width:1.5"/>
+<text x="198" y="647" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--accent-ink)">4+</text>
+<rect x="8" y="670" width="44" height="30" rx="5" style="fill:var(--surface);stroke:var(--gold);stroke-width:3"/>
+<text x="64" y="691" style="font-family:inherit;font-size:16px;fill:var(--ink)">altın çerçeve = Medenî sure (api.quran.com)</text>
+</svg>

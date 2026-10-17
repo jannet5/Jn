@@ -1,0 +1,17 @@
+<svg viewBox="0 0 540 240" role="img" aria-label=""Az" (قليل) kalıplarının türlere göre ayet sayısı: az kişi (azınlık) 20, az davranış (az şükür/iman/öğüt) 13, az bedel (ثمنا قليلا) 9, az zaman/geçici zevk 20, az şey/miktar/algı 8">
+<text x="12" y="22" style="font-family:inherit;font-size:16px;fill:var(--ink)">az kişi (azınlık)</text>
+<rect x="12" y="28" width="484.0" height="18" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:0"/>
+<text x="502.0" y="43" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">20</text>
+<text x="12" y="68" style="font-family:inherit;font-size:16px;fill:var(--ink)">az davranış (az şükür/iman/öğüt)</text>
+<rect x="12" y="74" width="314.6" height="18" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:0"/>
+<text x="332.6" y="89" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">13</text>
+<text x="12" y="114" style="font-family:inherit;font-size:16px;fill:var(--ink)">az bedel (ثمنا قليلا)</text>
+<rect x="12" y="120" width="217.8" height="18" style="fill:var(--sky);stroke:var(--ink-soft);stroke-width:0"/>
+<text x="235.8" y="135" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">9</text>
+<text x="12" y="160" style="font-family:inherit;font-size:16px;fill:var(--ink)">az zaman/geçici zevk</text>
+<rect x="12" y="166" width="484.0" height="18" style="fill:var(--ink-soft);stroke:var(--ink-soft);stroke-width:0"/>
+<text x="502.0" y="181" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">20</text>
+<text x="12" y="206" style="font-family:inherit;font-size:16px;fill:var(--ink)">az şey/miktar/algı</text>
+<rect x="12" y="212" width="193.6" height="18" style="fill:var(--line);stroke:var(--ink-soft);stroke-width:1"/>
+<text x="211.6" y="227" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">8</text>
+</svg>
