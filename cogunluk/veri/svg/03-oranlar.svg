@@ -1,4 +1,4 @@
-<svg viewBox="0 0 540 832" role="img" aria-label="İki kalıbın karşılaştırması. Ekser: 81 ayetten 68&#x27;i çoğunluk hükmü; 26 genel, 40 belirli, 2 belirsiz; hepsi olumsuz. Kesîr: 71 ayetten 29&#x27;i kişilere ilişkin; 9 genel, 20 belirli; 23 olumsuz, 2 karışık, 4 olumlu-nötr.">
+<svg viewBox="0 0 540 832" role="img" aria-label="İki kalıbın karşılaştırması. Ekser: 81 ayetten 68&#x27;i çoğunluk hükmü; 26 genel, 40 belirli, 2 belirsiz; 68 hüküm ayetinin hepsi olumsuz yüklemli. Kesîr: 71 ayetten 29&#x27;i kişilere ilişkin; 9 genel, 20 belirli; 24 olumsuz, 2 karışık, 3 olumlu-nötr.">
 <text x="12" y="20" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">1 · Kalıp kaç ayette geçiyor?</text>
 <text x="12" y="45" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser: 81 ayet</text>
 <rect x="12.0" y="52" width="433.2" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
@@ -16,16 +16,16 @@
 <text x="34" y="178" style="font-family:inherit;font-size:16px;fill:var(--ink)">kalıp başka anlamda (daha çok, çok anmak…)</text>
 <text x="12" y="216" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">2 · Kim için söyleniyor?</text>
 <text x="12" y="241" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
-<rect x="12.0" y="248" width="197.3" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="110.6" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">26</text>
-<rect x="209.3" y="248" width="303.5" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="361.1" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">40</text>
-<rect x="512.8" y="248" width="15.2" height="26" style="fill:var(--ink-soft);stroke:var(--bg);stroke-width:1.5"/>
+<rect x="12.0" y="248" width="165.6" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="94.8" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">26</text>
+<rect x="177.6" y="248" width="254.8" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="305.0" y="267" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">40</text>
+<rect x="432.4" y="248" width="12.7" height="26" style="fill:var(--ink-soft);stroke:var(--bg);stroke-width:1.5"/>
 <text x="12" y="297" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
-<rect x="12.0" y="304" width="68.3" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="46.1" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
-<rect x="80.3" y="304" width="151.8" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="156.2" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">20</text>
+<rect x="12.0" y="304" width="57.3" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="40.7" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
+<rect x="69.3" y="304" width="127.4" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="133.0" y="323" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">20</text>
 <rect x="12" y="339" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
 <text x="34" y="352" style="font-family:inherit;font-size:16px;fill:var(--ink)">genel: insanlar (ekser 26, kesîr 9)</text>
 <rect x="12" y="361" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>
@@ -34,31 +34,31 @@
 <text x="34" y="396" style="font-family:inherit;font-size:16px;fill:var(--ink)">öncül belirsiz (ekser 2)</text>
 <text x="12" y="434" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">3 · Olumsuz mu, olumlu mu?</text>
 <text x="12" y="459" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
-<rect x="12.0" y="466" width="516.0" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
-<text x="270.0" y="485" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">68</text>
+<rect x="12.0" y="466" width="433.2" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
+<text x="228.6" y="485" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">68</text>
 <text x="12" y="515" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
-<rect x="12.0" y="522" width="174.5" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
-<text x="99.3" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">23</text>
-<rect x="186.5" y="522" width="15.2" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<rect x="201.7" y="522" width="30.4" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="216.9" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">4</text>
+<rect x="12.0" y="522" width="152.9" height="26" style="fill:var(--danger);stroke:var(--bg);stroke-width:1.5"/>
+<text x="88.4" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">24</text>
+<rect x="164.9" y="522" width="12.7" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<rect x="177.6" y="522" width="19.1" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="187.2" y="541" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">3</text>
 <rect x="12" y="557" width="14" height="14" style="fill:var(--danger);stroke:var(--ink-soft);stroke-width:.5"/>
-<text x="34" y="570" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumsuz hüküm (ekser 68, kesîr 23)</text>
+<text x="34" y="570" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumsuz hüküm (ekser 68, kesîr 24)</text>
 <rect x="12" y="579" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>
 <text x="34" y="592" style="font-family:inherit;font-size:16px;fill:var(--ink)">karışık: hem olumlu hem olumsuz (kesîr 2)</text>
 <rect x="12" y="601" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
-<text x="34" y="614" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumlu ya da nötr (kesîr 4)</text>
+<text x="34" y="614" style="font-family:inherit;font-size:16px;fill:var(--ink)">olumlu ya da nötr (kesîr 3)</text>
 <text x="12" y="652" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">4 · Mekkî / Medenî (hüküm ayetleri)</text>
 <text x="12" y="677" style="font-family:inherit;font-size:16px;fill:var(--ink)">ekser</text>
-<rect x="12.0" y="684" width="447.7" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="235.9" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">59</text>
-<rect x="459.7" y="684" width="68.3" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="493.9" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
+<rect x="12.0" y="684" width="375.9" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="199.9" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">59</text>
+<rect x="387.9" y="684" width="57.3" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="416.5" y="703" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">9</text>
 <text x="12" y="733" style="font-family:inherit;font-size:16px;fill:var(--ink)">kesîr</text>
-<rect x="12.0" y="740" width="75.9" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
-<text x="49.9" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">10</text>
-<rect x="87.9" y="740" width="144.2" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
-<text x="160.0" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">19</text>
+<rect x="12.0" y="740" width="63.7" height="26" style="fill:var(--accent);stroke:var(--bg);stroke-width:1.5"/>
+<text x="43.9" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">10</text>
+<rect x="75.7" y="740" width="121.0" height="26" style="fill:var(--gold);stroke:var(--bg);stroke-width:1.5"/>
+<text x="136.2" y="759" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--bg)">19</text>
 <rect x="12" y="775" width="14" height="14" style="fill:var(--accent);stroke:var(--ink-soft);stroke-width:.5"/>
 <text x="34" y="788" style="font-family:inherit;font-size:16px;fill:var(--ink)">Mekkî sure (ekser 59, kesîr 10)</text>
 <rect x="12" y="797" width="14" height="14" style="fill:var(--gold);stroke:var(--ink-soft);stroke-width:.5"/>

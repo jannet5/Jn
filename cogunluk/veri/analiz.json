@@ -360,9 +360,9 @@
   "kisi_hukmu": 29,
   "kisi_disi": 42,
   "nitelik": {
-   "olumlu-nötr": 4,
-   "olumsuz": 23,
-   "karışık": 2
+   "karışık": 2,
+   "olumsuz": 24,
+   "olumlu-nötr": 3
   },
   "ozne_tur": {
    "genel": 9,
@@ -415,7 +415,7 @@
   },
   "kisi_hukmu_ayetleri": {
    "2:26": {
-    "nitelik": "olumlu-nötr",
+    "nitelik": "karışık",
     "ozne_tur": "genel",
     "ozne": "insanlar",
     "ne": "Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir",
@@ -623,7 +623,7 @@
     "yuklem": "fasık"
    },
    "57:26": {
-    "nitelik": "karışık",
+    "nitelik": "olumsuz",
     "ozne_tur": "belirli",
     "ozne": "Nûh ve İbrâhim soyu",
     "ne": "kimi doğru yolda, birçoğu yoldan çıkmış",
@@ -717,8 +717,8 @@
    "genel": 9,
    "belirli": 20,
    "belirsiz": 0,
-   "olumsuz": 23,
-   "olumlu_notr": 4,
+   "olumsuz": 24,
+   "olumlu_notr": 3,
    "karisik": 2
   }
  },

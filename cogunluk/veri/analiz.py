@@ -230,7 +230,7 @@ KES = OrderedDict()
 def kz(k, nitelik, ozne_tur, ozne, ne, dy, yuklem):
     KES[k] = dict(nitelik=nitelik, ozne_tur=ozne_tur, ozne=ozne, ne=ne, diyanet_kelime=dy, yuklem=yuklem)
 G, Bl = 'genel', 'belirli'
-kz('2:26',  'olumlu-nötr', G, 'insanlar', 'Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir', 'birçoğu', 'hidayet/dalâl (Allah\'ın fiili)')
+kz('2:26',  'karışık', G, 'insanlar', 'Allah misalle birçoğunu saptırır, birçoğunu doğru yola iletir', 'birçoğu', 'hidayet/dalâl (Allah\'ın fiili)')
 kz('2:109', 'olumsuz', Bl, 'Kitap ehli', 'çoğu kıskançlıkla sizi küfre döndürmek ister', 'çoğu', 'kâfir/küfre döndürmek ister')
 kz('2:249', 'olumlu-nötr', Bl, 'Tâlût\'un askerleri', '"Nice az topluluk çok topluluğa Allah\'ın izniyle galip gelmiştir"', 'çok', 'galip gelmek')
 kz('3:146', 'olumlu-nötr', Bl, 'peygamberlerin yanında savaşanlar', 'nice peygamberle birlikte pek çok Rabbânî savaştı', 'pek çok', 'sabretmek')
@@ -256,9 +256,11 @@ kz('30:8',  'olumsuz', G, 'insanlar', 'çoğu Rablerine kavuşmayı inkâr eder'
 kz('36:62', 'olumsuz', G, 'insanlar', 'şeytan sizden nice nesilleri saptırdı', 'nice', 'saptırılmak')
 kz('38:24', 'olumsuz', Bl, 'ortaklar', 'ortakçıların çoğu birbirine haksızlık eder; inanıp salih amel işleyenler hariç, ne kadar azdır', 'çoğu', 'haksızlık')
 kz('57:16', 'olumsuz', Bl, 'Kitap ehli', 'çoğunun kalbi katılaştı, fasıklaştı', 'çoğu', 'fasık')
-kz('57:26', 'karışık', Bl, 'Nûh ve İbrâhim soyu', 'kimi doğru yolda, birçoğu yoldan çıkmış', 'birçoğu', 'fasık')
+kz('57:26', 'olumsuz', Bl, 'Nûh ve İbrâhim soyu', 'kimi doğru yolda, birçoğu yoldan çıkmış', 'birçoğu', 'fasık')
 kz('57:27', 'olumsuz', Bl, 'İsâ\'ya uyanlar', 'çoğu fasık (rahbâniyet icadı)', 'çoğu', 'fasık')
 kz('71:24', 'olumsuz', Bl, 'Nûh kavminin önderleri', 'birçoğunu saptırdılar', 'birçoğu', 'saptırmak')
+# DENETİM (c-01): 'karışık' ölçütü = kesîr kalıbının kendisi hem olumlu hem olumsuz bir yüklemle geçiyorsa (2:26, 22:18).
+# 57:26'da kesîr yalnızca olumsuz tarafta ('birçoğu yoldan çıkmış'; 'kimi doğru yolda' kesîr değil) olduğundan olumsuz sayıldı.
 KES_DISI_NEDEN = OrderedDict([
     ('kişi sayısı, hüküm değil', ['4:1']),
     ('çok anmak / çok tesbih (zikir)', ['3:41', '8:45', '20:33', '20:34', '26:227', '33:21', '33:35', '33:41', '62:10', '22:40']),
@@ -425,7 +427,8 @@ def harita_svg():
     out.append(f'<rect x="{x0}" y="{ly + 72}" width="44" height="30" rx="5" style="fill:var(--surface);stroke:var(--gold);stroke-width:3"/>')
     out.append(f'<text x="{x0 + 56}" y="{ly + 93}" style="font-family:inherit;font-size:16px;fill:var(--ink)">altın çerçeve = Medenî sure</text>')
     label = (f'Kur\'an\'ın 114 suresinin haritası. "Çoğu" hükmü taşıyan {len(S)} ayet {len(sure_say)} surede dağılmıştır; '
-             'en yoğun sureler: ' + ', '.join(f"{CH[n]['translated_name']['name']} {c}" for n, c in en_cok[:6]))
+             'en yoğun sureler: ' + ', '.join(f"{CH[n]['translated_name']['name']} {c}" for n, c in en_cok if c >= 4)
+             + '; üçer ayetle ' + ', '.join(CH[n]['translated_name']['name'] for n, c in sorted(sure_say.items()) if c == 3))
     return svg_wrap(W, H, label, '\n'.join(out))
 
 # --- SVG-2: yüklemlere göre yatay çubuk, özneye göre bölünmüş
@@ -469,7 +472,7 @@ def oran_svg():
         y = state['y']
         out.append(f'<text x="{left}" y="{y + 16}" style="font-family:inherit;font-size:16px;font-weight:700;fill:var(--ink)">{baslik}</text>')
         y += 26
-        mx = max(sum(c for c, _ in parca) for _, parca in satirlar)
+        mx = len(RAW_KEYS)  # DENETİM: dört panelin hepsinde aynı ölçek (1 ayet = bw/81 birim)
         for lab, parca in satirlar:
             out.append(f'<text x="{left}" y="{y + 15}" style="font-family:inherit;font-size:16px;fill:var(--ink)">{lab}</text>')
             y += 22
@@ -479,7 +482,7 @@ def oran_svg():
                     continue
                 w = bw * c / mx
                 out.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="26" style="fill:{col};stroke:var(--bg);stroke-width:1.5"/>')
-                if w >= 28:
+                if w >= 18:
                     tc = 'var(--ink)' if col == 'var(--line)' else 'var(--bg)'
                     out.append(f'<text x="{x + w / 2:.1f}" y="{y + 19}" text-anchor="middle" style="font-family:inherit;font-size:16px;font-weight:700;fill:{tc}">{c}</text>')
                 x += w
@@ -507,7 +510,7 @@ def oran_svg():
         (ks, [(kes_mm['makkah'], 'var(--accent)'), (kes_mm['madinah'], 'var(--gold)')])],
         [('var(--accent)', f'Mekkî sure (ekser {mm_hukum["makkah"]}, kesîr {kes_mm["makkah"]})'), ('var(--gold)', f'Medenî sure (ekser {mm_hukum["madinah"]}, kesîr {kes_mm["madinah"]})')])
     H = state['y']
-    label = (f'İki kalıbın karşılaştırması. Ekser: {len(RAW_KEYS)} ayetten {len(S)}\'i çoğunluk hükmü; {ozne["A"] + ozne["A*"]} genel, {ozne["B"]} belirli, {ozne["?"]} belirsiz; hepsi olumsuz. '
+    label = (f'İki kalıbın karşılaştırması. Ekser: {len(RAW_KEYS)} ayetten {len(S)}\'i çoğunluk hükmü; {ozne["A"] + ozne["A*"]} genel, {ozne["B"]} belirli, {ozne["?"]} belirsiz; 68 hüküm ayetinin hepsi olumsuz yüklemli. '
              f'Kesîr: {len(kesir_tum)} ayetten {len(KES)}\'i kişilere ilişkin; {kes_ozne["genel"]} genel, {kes_ozne["belirli"]} belirli; '
              f'{kes_nitelik["olumsuz"]} olumsuz, {kes_nitelik["karışık"]} karışık, {kes_nitelik["olumlu-nötr"]} olumlu-nötr.')
     return svg_wrap(W, H, label, '\n'.join(out))
