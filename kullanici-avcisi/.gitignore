@@ -4,4 +4,6 @@ __pycache__/
 *.db-wal
 *.db-shm
 bulunanlar.txt
+avci.log
+tani-raporu.txt
 wordlists/*_50k.txt
