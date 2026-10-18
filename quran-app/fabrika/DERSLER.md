@@ -13,3 +13,9 @@
 - Kullanıcı ne dedi: "Yuvarlakların üstüne gelmiş… harflerin araları bazen çok açık bazen çok kapalı… elif lam mim yanlış… var olan Kur'an'ı bulmalısın"
 - Kök neden: Tanzil metni + genel Arapça yazı tipleri + elle çizilmiş ayet gülü + iki yana yaslama (justify). Justify kelimeleri kaydırıyor ama satır içi gülleri kaydırmıyordu; med işaretleri yazı tipine göre yanlış duruyordu.
 - Yeni kural: Kur'an uygulamasında metin, yazı tipi ve sayfa/satır düzeni tek bir resmi kaynaktan gelir: KFGQPC Hafs metni + KFGQPC HAFS Uthmanic Script yazı tipi (değiştirilmeden) + quran.com QDC API `mushaf=5` kelime/satır verisi. Ayet gülü yazı tipinin kendi glifidir (Arapça rakam), elle çizilmez. Satırlar mushaftaki gibi kurulur; kelime arası eşit dağıtılır, taşan satır yatayda sıkıştırılır, harf aralığı asla açılmaz. Eski v4 API'nin kelime sayfa/satır alanları tutarsız (5:90 iki sayfada) — kullanılmaz. Python urllib Cloudflare'de 403 alır; curl kullanılır.
+
+### D-004: Eski imza anahtarı olmadan sürüm üretme; yeni anahtarı hemen kullanıcıya ver
+- Ne oldu: 1.4.0 geçici anahtarla imzalandı, kullanıcı 1.3.0'ın üstüne kurunca Android "Paket, mevcut bir paketle çakıştığından uygulama yüklenemedi" dedi. Eski anahtar önceki oturumun kapsayıcısında kalmıştı, depoda yok.
+- Kök neden: Aynı uygulamanın güncellemesi ilk sürümün anahtarıyla imzalanmak zorunda; anahtar kullanıcıya verilmiş ama sonraki oturuma taşınmamış.
+- Yeni kural: Yeni sürüm üretmeden önce kullanıcının elindeki `.jks` + şifre istenir (dosya sohbete eklenir). Anahtar kapsayıcıda üretilirse aynı turda `SendUserFile` ile kullanıcıya verilir ve şifre yazılır; depoya (herkese açık) asla konmaz. Elde olan bir anahtarı yeniden imzalamak için `araclar/imzala.sh` kullanılır. 1.3.0 anahtarının SHA-256 parmak izi README'de.
+

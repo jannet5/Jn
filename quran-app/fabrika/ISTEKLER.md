@@ -53,7 +53,7 @@
 | 26 | "Çubuğun üstündeki 'Sayfa 252 / 604 · Ra'd · 13. Cüz' bilgisi olduğu gibi kalsın" | ✅ Aynen duruyor (252 yazınca "Sayfa 252 / 604 · Ra'd · 13. Cüz") | 1.4 |
 | 27 | "Var olan hiçbir özellik bozulmasın" | ✅ Arama, Cüz, görünüm paneli, kaldığı sayfadan açılış 1.4.0'da yeniden denendi (aşağıdaki tablo). Yer imi ve iki parmakla büyütme 1.4.0'da denenmedi (kodlarına dokunulmadı; iki parmak emülatörde yapılamıyor) | 1.4 |
 | 28 | "Linkten indirirken %100'de takılmasın" | ⏳ jsDelivr + commit kimliği (doğru APK türü, değişmeyen adres) — telefonda kullanıcı onayı bekleniyor | 1.4 |
-| 29 | "Yeni sürüm eskisinin üstüne kurulsun, ayarlarım ve yer imlerim silinmesin" | ⚠️ **İmza anahtarı henüz verilmedi.** Bu APK geçici bir anahtarla imzalı; 1.3.0'ın üstüne KURULMAZ (Android reddeder). Anahtar ve şifre gelince `araclar/imzala.sh` ile imzalanıp yeniden verilecek | — |
+| 29 | "Yeni sürüm eskisinin üstüne kurulsun, ayarlarım ve yer imlerim silinmesin" | ⚠️ Telefonda denendi (2026-10-18): "Paket, mevcut bir paketle çakıştığından uygulama yüklenemedi". **Eski imza anahtarı henüz verilmedi.** Bu APK geçici bir anahtarla imzalı; 1.3.0'ın üstüne KURULMAZ (Android reddeder). Anahtar ve şifre gelince `araclar/imzala.sh` ile imzalanıp yeniden verilecek | — |
 
 ### 1.4.0 uygulama içi doğrulama (2026-10-17, Android 11 emülatörü, gerçek R8'li release APK)
 | Ne | Nasıl denendi | Sonuç |
