@@ -1,113 +1,97 @@
-# WinRemote Monitor — yapay zekâ asistanı için kurulum talimatı
+# WinRemote Monitor — yapay zekâ asistanı için kurulum ve yayın talimatı
 
-Bu klasörü alan yapay zekâ asistanına: kullanıcı bu ürünü kendi Windows
-bilgisayarına ve Android telefonuna kurmanı istiyor. Aşağıdaki adımları
-sırayla uygula, her adımın sonunda "Kontrol" satırını doğrula. Kullanıcıyla
-**Türkçe** ve kısa konuş.
+Bu klasörü alan yapay zekâ asistanına: kullanıcı bu ürünü (1) kendi Windows
+bilgisayarına ve Android telefonuna kurmanı, (2) istenirse Google Play'de
+yayınlamasına yardım etmeni istiyor. Kullanıcıyla **Türkçe, kısa** konuş;
+her adımın sonunda "Kontrol" satırını doğrula.
 
-## Ürün nedir
-
-- `winremotemonitor-agent.exe`: Windows'ta arka planda çalışan ajan. Telefona
-  CPU/RAM/disk, süreç listesi, dosya olayları ve uyarılar gönderir. TCP 8787,
-  TLS + sertifika parmak izi sabitleme + eşleştirme kodu ile korunur.
+## Ürün
+- `WinRemoteMonitor-Kurulum.exe`: Windows kurulum programı (Windows 10/11, 64-bit).
+  Arka planda çalışan bir ajan kurar; telefon ona yerel ağda TLS + QR eşleştirme
+  ile bağlanır. İnternete/sunucuya veri gitmez.
 - `app-release.apk`: Android uygulaması (Android 8.0+).
-- Telefon ve bilgisayar **aynı yerel ağda (Wi-Fi)** olmalı; internet
-  üzerinden çalışmaz.
+- `telefona-kur.bat`: APK'yı USB ile telefona kurar.
+- `google-play/`: Play'de yayın için her şey (AAB, mağaza metinleri, görseller,
+  gizlilik politikası, form cevapları, **GİZLİ** yükleme anahtarı).
+- Telefon ile bilgisayar **aynı Wi-Fi ağında** olmalı.
 
-## Klasördeki dosyalar
-
-| Dosya | Ne işe yarar |
-|---|---|
-| `KUR.bat` | Çift tıklanır, `kur.ps1`'i çalıştırır (tam kurulum) |
-| `kur.ps1` | Kurulum: kopyalama, config, güvenlik duvarı, otomatik başlatma, ilk eşleştirme kodu |
-| `yeni-kod.bat` | Yeni eşleştirme kodu + QR üretir (kod 5 dk geçerli) |
-| `KALDIR.bat` / `kaldir.ps1` | Her şeyi kaldırır (`-KeepData` ile eşleşmeleri korur) |
-| `allowed_apps.json` | Telefondan başlatılabilecek programlar (örnek: Not Defteri, Hesap Makinesi) |
-| `SHA256SUMS.txt` | Dosya bütünlüğü için SHA-256 değerleri |
-
-## Adım 1 — Bütünlük kontrolü (önerilir)
-
+## 1) Windows'a kur
+Zip'i bir klasöre çıkar. Kullanıcı ile:
 ```powershell
-Get-FileHash .\winremotemonitor-agent.exe, .\app-release.apk -Algorithm SHA256
+.\WinRemoteMonitor-Kurulum.exe            # sihirbaz: İleri, İleri, Bitti
+# veya sessiz kurulum (yönetici onayı ister):
+.\WinRemoteMonitor-Kurulum.exe /VERYSILENT /SUPPRESSMSGBOXES
 ```
-Kontrol: değerler `SHA256SUMS.txt` ile aynı olmalı.
-
-## Adım 2 — Windows'a kur
-
-Zip'i bir klasöre **çıkar** (zip içinden çalıştırma). Sonra o klasörde:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\kur.ps1
-```
-(veya kullanıcıya `KUR.bat`'a çift tıklamasını söyle.)
-
-Betiği **yönetici olarak başlatma**; normal kullanıcı olarak çalıştır. Betik
-sadece güvenlik duvarı kuralı için tek bir UAC onayı ister — kullanıcıya
-"Evet" demesini söyle. (Ajan yönetici olarak ilk kez çalışırsa veri klasörü
-yöneticiye ait olur ve sonraki normal açılışlarda ajan veritabanına yazamaz.)
-
-Seçenekler: `-InstallDir D:\Klasor`, `-Port 8787`, `-NoFirewall`,
-`-NoAutostart`, `-NoPair`.
-
-Betik şunları yapar: `C:\WinRemoteMonitor`'a kopyalar; yoksa `config.json`
-oluşturur (Downloads, Masaüstü, Belgeler izlenir); güvenlik duvarında TCP
-8787'yi açar; Başlangıç klasörüne kısayol koyar (oturum açılınca ajan gizli
-başlar); ajanı başlatır; eşleştirme kodunu yazdırır ve `pairing-qr.png`'yi açar.
+"Windows bilgisayarınızı korudu" çıkarsa: **Ek bilgi → Yine de çalıştır**
+(program kod imzalı değil). Kurulum: `C:\Program Files\WinRemote Monitor`,
+veriler `C:\ProgramData\WinRemoteMonitor`, güvenlik duvarı izni ve oturum
+açılışında otomatik başlatma otomatik yapılır. Sonunda tarayıcıda QR sayfası açılır.
 
 Kontrol:
 ```powershell
-Get-Process winremotemonitor-agent
-Get-Content C:\WinRemoteMonitor\agent.log -Tail 5   # "listening on :8787" görünmeli
+Get-Process WinRemoteMonitor                                  # çalışıyor olmalı
+Get-Content C:\ProgramData\WinRemoteMonitor\agent.log -Tail 5  # "listening on :8787"
 ```
-Çıktıdaki `Connect to:` satırı bilgisayarın yerel IP'sidir (örn. 192.168.1.20).
-`127.0.0.1` ise ağ bağlantısı yoktur — önce Wi-Fi'ı düzelt.
 
-## Adım 3 — APK'yı telefona kur
+## 2) Telefona kur
+- **USB ile (sen yapabilirsin):** Kullanıcıya telefonda *Ayarlar → Telefon
+  hakkında → Yapım numarasına 7 kez dokun → Geliştirici seçenekleri → USB hata
+  ayıklama: Açık* yaptır, telefonu USB ile bağlat, sonra `telefona-kur.bat`'ı
+  çalıştır. Telefonda çıkan "USB hata ayıklamaya izin verilsin mi?" sorusuna
+  **İzin ver** dedirt. (Script Google'ın resmi platform-tools paketini
+  indirir ve `adb install -r app-release.apk` çalıştırır.)
+- **USB'siz:** APK'yı telefona gönder (e-posta, WhatsApp, bulut), telefonda aç →
+  "Bilinmeyen kaynaklara izin ver" → Yükle.
+- Uygulama Play'de yayınlandıktan sonra müşteriler doğrudan Play'den indirir.
 
-- **USB ile (adb varsa):** telefonda Geliştirici seçenekleri → USB hata
-  ayıklama açık olmalı. `adb install -r app-release.apk`
-- **USB'siz:** `app-release.apk`'yı telefona gönder (kablo, e-posta, bulut),
-  telefonda dosyaya dokun → "Bilinmeyen kaynaklara izin ver" → Yükle.
+Kontrol: `adb shell pm list packages com.jn.winremote` → `package:com.jn.winremote`
 
-Kontrol: telefonda "WinRemote Monitor" uygulaması görünür.
+## 3) Eşleştir
+1. Bilgisayarda QR sayfası açık değilse: **Başlat → Telefonu Eşleştir**
+   (veya masaüstündeki kısayol; ya da
+   `& "C:\Program Files\WinRemote Monitor\WinRemoteMonitor.exe" --pair --open`).
+2. Telefonda uygulamayı aç → **QR Tara** → kamera iznine *Uygulamayı
+   kullanırken* → telefonu QR'a **düz karşıdan** tut → **Eşleştir**.
+3. QR okunmazsa **Elle Gir**: sayfadaki "QR okunmuyorsa elle girin"
+   bölümündeki adres, port (8787), kod ve parmak izini yazdır. Bu değerler
+   `C:\ProgramData\WinRemoteMonitor\pairing.html` dosyasında da var.
+4. Kod 5 dakika geçerli ve tek kullanımlık; süresi dolarsa 1. adımı tekrarla.
 
-## Adım 4 — Eşleştir
-
-1. Telefonda uygulamayı aç → **QR Tara** → kamera iznine "İzin ver".
-2. Bilgisayarda açılan `pairing-qr.png`'yi telefona **düz karşıdan** göster
-   (açılı tutulursa okunmayabilir).
-3. Form dolunca **Eşleştir**.
-   QR okunmazsa **Elle Gir**: `Connect to` IP'si, port 8787,
-   `Cert fingerprint` ve `Pairing code` değerlerini yazdır.
-4. Kod 5 dakikada geçer veya bir kez kullanılınca biter. Yeni kod: `yeni-kod.bat`.
-
-Kontrol: telefonda **Panel** açılır ve CPU/RAM/disk değerleri canlı değişir.
-Bilgisayarda `C:\WinRemoteMonitor\winremotemonitor-agent.exe devices list`
+Kontrol: telefonda **Panel** açılır, değerler canlı değişir. Bilgisayarda:
+`& "C:\Program Files\WinRemote Monitor\winremotemonitor-agent.exe" devices list`
 eşleşen telefonu listeler.
 
 ## Sorun giderme
-
 | Belirti | Yapılacak |
 |---|---|
-| Telefon "bağlanamadı" / zaman aşımı | Aynı Wi-Fi mi? `netsh advfirewall firewall show rule name="WinRemoteMonitor"` kural var mı? Ağ profili "Ortak" ise "Özel" yap. `--pair` çıktısındaki `Other addresses` IP'lerini Elle Gir'de dene. |
-| "Eşleştirme kodunun süresi doldu" | `yeni-kod.bat` ile yeni kod al. |
-| "Sunucu kimliği doğrulanamadı" | Sertifika değişmiş (veri klasörü silinmiş). Telefonda Ayarlar → eşleşmeyi kaldır, yeniden eşleştir. |
-| Ajan başlamıyor | `C:\WinRemoteMonitor\agent.log`'a bak. Port doluysa `config.json`'da `port`'u değiştir (telefonda da aynı port). |
-| Telefon "çevrimdışı" | Bilgisayar açık ve ajan çalışıyor mu (`Get-Process winremotemonitor-agent`)? Değilse oturumu kapatıp aç veya `kur.ps1 -NoPair`'i tekrar çalıştır. |
-| İzlenen klasörü değiştirmek | `C:\WinRemoteMonitor\config.json` → `watched_roots` (yollar `\\` ile yazılır), sonra ajanı yeniden başlat. |
+| "Bilgisayara bağlanılamadı" | Aynı Wi-Fi mi? Wi-Fi'ın "Misafir ağı" olmadığından emin ol (misafir ağları cihazları birbirinden ayırır). Bilgisayarda `Get-Process WinRemoteMonitor`. Windows ağ profili "Ortak" ise "Özel" yap. QR sayfasındaki diğer adresleri Elle Gir'de dene. |
+| "Kodun süresi doldu" | Başlat → Telefonu Eşleştir ile yeni kod. |
+| "Sunucu kimliği doğrulanamadı" | Program kaldırılıp yeniden kurulduysa sertifika değişir: telefonda Ayarlar → eşleşmeyi kaldır, yeniden eşleştir. |
+| Program çalışmıyor | Oturumu kapatıp aç (otomatik başlar) veya Başlat menüsünden yeniden kur. Günlük: `C:\ProgramData\WinRemoteMonitor\agent.log`. |
+| İzlenen klasörleri değiştirmek | `C:\Program Files\WinRemote Monitor\config.json` (yönetici olarak düzenle) → `watched_roots`; `%USERPROFILE%` kullanılabilir. Sonra programı yeniden başlat. |
+| Telefondan açılabilecek programlar | Aynı klasörde `allowed_apps.json`. |
+
+## 4) Google Play'de yayınlama (kullanıcının hesabıyla)
+`google-play/README.md` adım adım anlatıyor. Özet: Play Console hesabı (25 $,
+kimlik doğrulama) → uygulama oluştur → `play-console-cevaplari.md`'deki
+cevapları gir → mağaza kaydına metin ve görselleri yükle → **kapalı test**
+(yeni kişisel hesaplarda 12 testçi / 14 gün) → `app-release.aab`'yi yükle
+(Play Uygulama İmzalama'yı kabul et) → üretime başvur.
+Gizlilik politikasındaki `[iletişim e-postanız]` alanını kullanıcıya doldurt.
 
 ## Kurallar (uyulması zorunlu)
-
-- `allowed_apps.json`'a kullanıcı **açıkça istemedikçe** program ekleme;
-  özellikle `cmd.exe`, `powershell.exe`, betik çalıştırıcıları ekleme — bu
-  listeye eklenen her program telefondan başlatılabilir.
-- Güvenlik duvarını tamamen kapatma; sadece TCP 8787 kuralı yeterli.
-- Eşleştirme kodunu, parmak izini veya `%ProgramData%\WinRemoteMonitor`
-  içeriğini (anahtarlar, veritabanı) başka yere gönderme/paylaşma.
-- Ajanı internete açmak için port yönlendirme (router) yapma.
-- Dosyaları düzenlerken UTF-8 kullan (ajan BOM'lu dosyayı da okur).
+- `google-play/GIZLI/` içindeki yükleme anahtarını ve parolasını **hiçbir
+  yere yükleme, paylaşma, sohbete yapıştırma**; kullanıcıya güvenli bir yere
+  (ör. şifreli USB + bulut yedek) yedeklemesini söyle. Kaybolursa Play
+  Console'dan "yükleme anahtarını sıfırla" ile yenisi istenebilir.
+- `allowed_apps.json`'a kullanıcı açıkça istemedikçe program ekleme; özellikle
+  `cmd.exe`, `powershell.exe` ekleme.
+- Güvenlik duvarını kapatma; router'da port yönlendirme yapma (program
+  internete açılmak için tasarlanmadı).
+- Eşleştirme kodunu, parmak izini, `C:\ProgramData\WinRemoteMonitor`
+  içeriğini paylaşma.
 
 ## Kaldırma
-
-`KALDIR.bat` (veya `kaldir.ps1`; eşleşmeleri korumak için `-KeepData`).
-Telefondaki uygulama ayrıca kaldırılır.
+Windows: *Ayarlar → Uygulamalar → WinRemote Monitor → Kaldır* (veya Başlat
+menüsündeki kısayol). Tüm veriler, güvenlik duvarı kuralı ve otomatik
+başlatma silinir. Telefon: uygulamayı normal şekilde kaldır.

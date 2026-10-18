@@ -29,7 +29,8 @@ android {
                 ?: rootProject.file("keystore.properties")
             if (keystorePropsFile.exists()) {
                 keystoreProps.load(keystorePropsFile.inputStream())
-                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
+                // Relative paths are resolved next to the properties file.
+                storeFile = keystorePropsFile.parentFile.resolve(keystoreProps.getProperty("storeFile"))
                 storePassword = keystoreProps.getProperty("storePassword")
                 keyAlias = keystoreProps.getProperty("keyAlias")
                 keyPassword = keystoreProps.getProperty("keyPassword")

@@ -34,12 +34,14 @@ Windows tarafında tanımlı izin listesinden). Ayrıntılar için
 
 ### 1) Windows tarafı
 
-**En kolay yol:** `WinRemoteMonitor-Kurulum.zip`'i çıkarın, `KUR.bat`'a çift
-tıklayın; kopyalama, `config.json`, güvenlik duvarı (tek UAC onayı), oturum
-açılışında otomatik başlatma ve ilk eşleştirme QR'ı otomatik yapılır. Yeni
-kod için `yeni-kod.bat`, kaldırmak için `KALDIR.bat`. Bir yapay zekâya
-kurduracaksanız ona `YAPAY_ZEKA_ICIN_KURULUM.md`'yi verin. Paket
-`paket/paketle.sh` ile üretilir. Elle kurmak isterseniz:
+**En kolay yol (müşteriler için):** `WinRemoteMonitor-Kurulum.exe`'yi indirip
+çalıştırın — https://github.com/jannet5/Jn/raw/HEAD/downloads/WinRemoteMonitor-Kurulum.exe
+(telefondaki "Bağlantıyı gönder" düğmesi de bu bağlantıyı gönderir). İleri,
+İleri, Bitti: Program Files'a kurulum, güvenlik duvarı izni, oturum açılışında
+otomatik başlatma ve sonunda tarayıcıda QR sayfası. Yeni kod: Başlat →
+**Telefonu Eşleştir**. Kaldırma: Ayarlar → Uygulamalar. Kurulum programı
+`windows-agent/installer/setup.iss` (Inno Setup) ile üretilir; tüm teslimat
+paketi `paket/paketle.sh`, Google Play kiti `play-store/`. Elle kurmak isterseniz:
 
 
 1. Bir klasör oluşturun (örn. `C:\WinRemoteMonitor`) ve içine
