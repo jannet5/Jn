@@ -348,13 +348,15 @@
       });
       box.appendChild(section('Akraba sözcükler', cog));
     }
-    if (ety.text) box.appendChild(rawSection(ety.text));
+    if (ety.text) box.appendChild(rawSection(ety.text, ['tr.wiktionary', 'tdk', 'nisanyan', 'etimolojiturkce'].indexOf(ety.source) >= 0));
     return box;
   }
 
   // Ham metin (İngilizce) + "Türkçeye çevir" düğmesi (kullanıcı basınca çalışır).
-  function rawSection(text) {
+  function rawSection(text, turkish) {
     var out = el('div', { 'aria-live': 'polite' });
+    // Kaynak zaten Türkçe ise çeviri düğmesi gösterilmez
+    if (turkish) return section('Ham metin (Türkçe)', el('blockquote', { class: 'raw', lang: 'tr', text: text }));
     var btn = el('button', { type: 'button', class: 'btn' }, icon('lang'), 'Türkçeye çevir');
     // Daha önce çevrildiyse önbellekten göster.
     if (state.trCache[text]) paintTranslation(out, state.trCache[text], false);

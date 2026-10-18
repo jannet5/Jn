@@ -807,6 +807,19 @@
     return best;
   }
 
+  // Metindeki ilk dil adı ve ondan sonra gelen sözcük: {lang, term}. "Arapça ktb kökünden gelen kitāb ..." -> kitāb
+  function firstDonor(text) {
+    var lang = firstLangOf(text);
+    if (!lang) return null;
+    var at = text.indexOf(lang);
+    var rest = text.slice(at + lang.length).replace(/^\s+/, '');
+    var m = /^\S+\s+kökünden gelen\s+(\S+)/.exec(rest);
+    var tok = m ? m[1] : (rest.split(/\s+/)[0] || '');
+    var term = tok.replace(/^["“”'‘’(]+|["“”'‘’).,;:]+$/g, '');
+    if (/^(sözcü|kelime|dil|ile|ve|bir|veya)/i.test(term)) term = '';
+    return { lang: lang, term: term };
+  }
+
   // etimolojiturkce.com API yanıtı: {"return":"1","word":..,"root":"düz metin köken","explanation":".."}
   function parseEtimTr(text) {
     var j = JSON.parse(text);
@@ -815,7 +828,7 @@
     // HTML özel karakterlerini (&lt; &#8594; &thinsp;) metne çevir
     var d = parseHtml(String(raw));
     var t = norm((d.body || d.documentElement).textContent).replace(/[\u200e\u200f\u202a-\u202e]/g, '');
-    return t ? { name: j.word || '', text: t, lang: firstLangOf(t) } : null;
+    return t ? { name: j.word || '', text: t, lang: firstDonor(t) } : null;
   }
 
   // TDK Güncel Sözlük (gts JSON dizisi)
@@ -1073,7 +1086,7 @@
             var p = parseTdk(r.text);
             if (!p) { addSource('TDK Güncel Sözlük', u, false, s, 'kayıt yok'); return; }
             var txt = (p.lisan ? 'Köken dili: ' + p.lisan + '. ' : 'Türkçe kökenli (TDK\'da köken dili belirtilmemiş). ') + (p.gloss ? 'Anlam: ' + p.gloss : '');
-            attachExtra('Turkish', 'tdk', txt, qn, 'https://sozluk.gov.tr/', firstLangOf(p.lisan || '') || null, p.gloss);
+            attachExtra('Turkish', 'tdk', txt, qn, 'https://sozluk.gov.tr/', firstDonor(p.lisan || ''), p.gloss);
             addSource('TDK Güncel Sözlük', u, true, s, null);
           } catch (e) { addSource('TDK Güncel Sözlük', u, false, s, String(e && e.message || e)); }
         })());
@@ -1100,7 +1113,7 @@
             if (r.status !== 200) { addSource('Nişanyan Sözlük', u, false, s, 'HTTP ' + r.status); return; }
             var p = parseNisanyan(r.text);
             if (!p) { addSource('Nişanyan Sözlük', u, false, s, 'kayıt yok'); return; }
-            attachExtra('Turkish', 'nisanyan', p.text, qn, u, firstLangOf(p.text), null);
+            attachExtra('Turkish', 'nisanyan', p.text, qn, u, firstDonor(p.text), null);
             addSource('Nişanyan Sözlük', u, true, s, null);
           } catch (e) { addSource('Nişanyan Sözlük', u, false, s, String(e && e.message || e)); }
         })());
@@ -1134,9 +1147,11 @@
       var entry = result.entries.filter(function (e) { return e.language === language; })[0];
       var chain = [{ language: language, languageTr: langTr(language), term: term, translit: null, gloss: gloss || null, relation: 'unknown' }];
       if (srcLang) {
+        var sl = (typeof srcLang === 'object') ? srcLang.lang : srcLang;
+        var st = (typeof srcLang === 'object') ? (srcLang.term || '') : '';
         var en = null;
-        Object.keys(LANG_TR).forEach(function (k) { if (LANG_TR[k] === srcLang) en = k; });
-        chain.push({ language: en || srcLang, languageTr: srcLang, term: '', translit: null, gloss: null, relation: 'derived' });
+        Object.keys(LANG_TR).forEach(function (k) { if (LANG_TR[k] === sl) en = k; });
+        chain.push({ language: en || sl, languageTr: sl, term: st, translit: null, gloss: null, relation: 'derived' });
       }
       var ety = { text: text, chain: chain, parts: [], cognates: [], gloss: gloss || null, source: source };
       if (entry) entry.etymologies.push(ety);
@@ -1206,6 +1221,6 @@
   return {
     lookup: lookup, makeHttp: makeHttp, translate: translate,
     // Testlerin kullandığı iç yardımcılar
-    _internal: { parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseEtymonlineWord: parseEtymonlineWord, parseTrPage: parseTrPage, trTextChain: trTextChain, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
+    _internal: { firstDonor: firstDonor, firstLangOf: firstLangOf, parseEtimTr: parseEtimTr, parseEnPage: parseEnPage, buildEntries: buildEntries, analyzeEtymology: analyzeEtymology, variants: variants, chunkText: chunkText, parseTdk: parseTdk, parseNisanyan: parseNisanyan, parseEtymonline: parseEtymonline, parseEtymonlineWord: parseEtymonlineWord, parseTrPage: parseTrPage, trTextChain: trTextChain, tokenize: tokenize, sentencesOf: sentencesOf, langTr: langTr }
   };
 });
