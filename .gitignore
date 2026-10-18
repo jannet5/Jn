@@ -20,3 +20,6 @@ android-sdk/
 # Play upload key: never commit (kept by the owner, see play-store/README)
 upload-keystore.jks
 upload.properties
+
+# Public download for customers (linked from the app)
+!downloads/WinRemoteMonitor-Kurulum.exe

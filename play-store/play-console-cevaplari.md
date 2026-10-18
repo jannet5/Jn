@@ -19,7 +19,7 @@ Talimat metni (İngilizce yapıştırın):
 The app monitors the reviewer's own Windows PC, so it needs the free companion
 Windows program:
 1. On a Windows 10/11 (64-bit) PC, download and run:
-   https://github.com/jannet5/Jn/releases/latest/download/WinRemoteMonitor-Kurulum.exe
+   https://github.com/jannet5/Jn/raw/HEAD/downloads/WinRemoteMonitor-Kurulum.exe
    (Next, Next, Finish. No account needed.)
 2. When setup finishes, a page with a QR code opens on the PC.
 3. Put the phone on the same Wi-Fi as the PC, open the app, tap "QR Tara"

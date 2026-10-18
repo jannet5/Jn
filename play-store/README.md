@@ -57,7 +57,7 @@ birkaç gün sürer.
 
 ## Windows programı için önemli not
 Müşteriler Windows programını
-`https://github.com/jannet5/Jn/releases/latest/download/WinRemoteMonitor-Kurulum.exe`
+`https://github.com/jannet5/Jn/raw/HEAD/downloads/WinRemoteMonitor-Kurulum.exe`
 adresinden indirir (uygulamadaki "Bağlantıyı gönder" düğmesi bunu gönderir).
 Program kod imzalı olmadığı için Windows ilk çalıştırmada **"Windows
 bilgisayarınızı korudu"** uyarısı gösterir (Ek bilgi → Yine de çalıştır).
