@@ -131,7 +131,7 @@ fun Timeline(steps: List<Mention>, endLanguage: String, endWord: String) {
     Column {
         ordered.forEach { m ->
             TimelineRow(last = false, dot = MaterialTheme.colorScheme.secondary) {
-                Text(m.langName, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary, fontWeight = FontWeight.Bold)
+                Text(if (m.isRoot) "${m.langName} · kök" else m.langName, style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary, fontWeight = FontWeight.Bold)
                 Text(
                     m.text,
                     fontFamily = FontFamily.Serif, fontSize = 22.sp, lineHeight = 30.sp,

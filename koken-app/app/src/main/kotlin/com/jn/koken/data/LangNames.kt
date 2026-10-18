@@ -30,7 +30,7 @@ object LangNames {
         "Maori" to "Maoriçe", "Tagalog" to "Tagalogca", "Esperanto" to "Esperanto", "Yiddish" to "Yidiş",
         "Romani" to "Romanca", "Chagatai" to "Çağatayca", "Karakhanid" to "Karahanlı Türkçesi",
         "Ottoman Turkish" to "Osmanlı Türkçesi", "Old Anatolian Turkish" to "Eski Anadolu Türkçesi",
-        "Old Turkic" to "Eski Türkçe (Göktürkçe)", "Anglo-Norman" to "Anglo-Norman", "Norman" to "Norman Fransızcası",
+        "Old Turkic" to "Eski Türkçe", "Anglo-Norman" to "Anglo-Norman", "Norman" to "Norman Fransızcası",
         "Ancient Greek" to "Eski Yunanca", "Koine Greek" to "Koine Yunancası", "Byzantine Greek" to "Bizans Yunancası",
         "Medieval Greek" to "Bizans Yunancası", "Medieval Latin" to "Ortaçağ Latincesi", "Vulgar Latin" to "Halk Latincesi",
         "Late Latin" to "Geç Latince", "New Latin" to "Yeni Latince", "Classical Latin" to "Klasik Latince",

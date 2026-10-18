@@ -43,6 +43,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -64,6 +65,9 @@ import com.jn.koken.UiState
 import com.jn.koken.data.EtymologyBlock
 import com.jn.koken.data.LanguageSection
 import com.jn.koken.data.LookupResult
+import com.jn.koken.data.Mention
+import com.jn.koken.data.Narrator
+import com.jn.koken.data.Story
 import com.jn.koken.data.PosEntry
 import com.jn.koken.data.SenseGroup
 import com.jn.koken.data.Source
@@ -90,7 +94,7 @@ fun KokenApp(vm: MainViewModel) {
             when (val s = vm.state) {
                 UiState.Idle -> IdleView(vm.history, onPick = { focus.clearFocus(); vm.submit(it) })
                 is UiState.Loading -> LoadingView(s.query)
-                is UiState.Result -> ResultView(s.data)
+                is UiState.Result -> ResultView(s, onRetry = { vm.submit(s.data.query) })
                 is UiState.NotFound -> NotFoundView(s.query)
                 is UiState.Error -> ErrorView(s.rateLimited, onRetry = { vm.submit(s.query) })
             }
@@ -202,92 +206,139 @@ private fun WiktionaryResult?.hasEtymology(): Boolean =
 private enum class SourceTab(val label: String) { WT("Vikisözlük"), WE("Wiktionary EN"), WP("Vikipedi") }
 
 @Composable
-private fun ResultView(data: LookupResult) {
+private fun ResultView(s: UiState.Result, onRetry: () -> Unit) {
+    val data = s.data
+    // Anlatım: kaynak sayfa ve çeviriler geldikçe yeniden üretilir
+    val story = remember(data, s.deep, s.translations, s.busy) { Narrator.compose(data, s.deep, s.translations, s.busy) }
+    var details by rememberSaveable(data.query) { mutableStateOf(false) }
     val tabs = buildList {
         if (data.wiktTr != null) add(SourceTab.WT)
         if (data.wiktEn != null) add(SourceTab.WE)
         if (data.wiki != null) add(SourceTab.WP)
     }
-    // Açılışta köken bilgisi olan ilk sekmeyi göster (ana özellik gizli kalmasın)
+    // Ham kaynaklarda köken bilgisi olan ilk sekme açık gelsin
     val initial = tabs.indexOfFirst {
         (it == SourceTab.WT && data.wiktTr.hasEtymology()) || (it == SourceTab.WE && data.wiktEn.hasEtymology())
     }.coerceAtLeast(0)
     var selected by rememberSaveable(data.query) { mutableIntStateOf(initial) }
     var showAll by rememberSaveable(data.query, selected) { mutableStateOf(false) }
     val tab = tabs[selected.coerceIn(0, tabs.size - 1)]
+    val sourceUrl = when (tab) {
+        SourceTab.WT -> data.wiktTr?.url
+        SourceTab.WE -> data.wiktEn?.url
+        SourceTab.WP -> data.wiki?.url
+    }.orEmpty()
 
     LazyColumn(
         Modifier.fillMaxSize(),
         contentPadding = PaddingValues(horizontal = Sp.screen, vertical = Sp.sm),
         verticalArrangement = Arrangement.spacedBy(Sp.lg),
     ) {
-        item { SummaryCard(data) }
-        if (tabs.size > 1) {
-            item {
-                TabRow(
-                    selectedTabIndex = selected.coerceIn(0, tabs.size - 1),
-                    containerColor = Color.Transparent,
-                    contentColor = MaterialTheme.colorScheme.primary,
-                ) {
-                    tabs.forEachIndexed { i, t ->
-                        Tab(selected = i == selected, onClick = { selected = i }, text = { Text(t.label, fontWeight = FontWeight.Bold) })
-                    }
-                }
+        if (data.incomplete && !s.busy) item { IncompleteBanner(onRetry) }
+        item { StoryCard(story, s.busy) }
+        if (story.timeline.isNotEmpty()) item { JourneyCard(story) }
+        if (story.related.isNotEmpty()) item { RelatedCard(story.related) }
+        item {
+            TextButton(onClick = { details = !details }, modifier = Modifier.heightIn(min = 48.dp)) {
+                Text(if (details) "Kaynak ayrıntılarını gizle ▴" else "Kaynak ayrıntılarını göster ▾")
             }
         }
-        when (tab) {
-            SourceTab.WT, SourceTab.WE -> {
-                val r: WiktionaryResult = if (tab == SourceTab.WT) data.wiktTr!! else data.wiktEn!!
-                val langs = r.languages.sortedBy { LookupResult.languageRank(it.language) }
-                val shown = if (showAll) langs else langs.take(5)
-                items(shown.size) { LanguageCard(shown[it], r) }
-                if (langs.size > shown.size) {
-                    item {
-                        TextButton(onClick = { showAll = true }, modifier = Modifier.heightIn(min = 48.dp)) {
-                            Text("Diğer ${langs.size - shown.size} dili de göster")
+        if (details) {
+            if (tabs.size > 1) {
+                item {
+                    TabRow(
+                        selectedTabIndex = selected.coerceIn(0, tabs.size - 1),
+                        containerColor = Color.Transparent,
+                        contentColor = MaterialTheme.colorScheme.primary,
+                    ) {
+                        tabs.forEachIndexed { i, t ->
+                            Tab(selected = i == selected, onClick = { selected = i }, text = { Text(t.label, fontWeight = FontWeight.Bold, maxLines = 1) })
                         }
                     }
                 }
-                item { SourceFooter(r.source.label, r.url, data.query) }
             }
-            SourceTab.WP -> {
-                val w = data.wiki!!
-                item { WikipediaCard(w) }
-                item { SourceFooter("Vikipedi", w.url, data.query) }
+            when (tab) {
+                SourceTab.WT, SourceTab.WE -> {
+                    val r: WiktionaryResult = if (tab == SourceTab.WT) data.wiktTr!! else data.wiktEn!!
+                    val langs = r.languages.sortedBy { LookupResult.languageRank(it.language) }
+                    val shown = if (showAll) langs else langs.take(5)
+                    items(shown.size) { LanguageCard(shown[it], r) }
+                    if (langs.size > shown.size) {
+                        item {
+                            TextButton(onClick = { showAll = true }, modifier = Modifier.heightIn(min = 48.dp)) {
+                                Text("Diğer ${langs.size - shown.size} dili de göster")
+                            }
+                        }
+                    }
+                }
+                SourceTab.WP -> item { WikipediaCard(data.wiki!!) }
+            }
+        }
+        item { SourceFooter(tab.label, sourceUrl, data.query) }
+    }
+}
+
+/** Ana kart: sözcük + "şu anlama geliyor, kökü şu, şöyle gelmiş" diye düz Türkçe anlatım */
+@Composable
+private fun StoryCard(story: Story, busy: Boolean) {
+    KokenCard {
+        Text(
+            story.word,
+            fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold, fontSize = 36.sp, lineHeight = 42.sp,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+        story.badge?.let {
+            Pill(it, container = MaterialTheme.colorScheme.primary, content = MaterialTheme.colorScheme.onPrimary)
+        }
+        story.paras.forEach { p ->
+            Column(verticalArrangement = Arrangement.spacedBy(Sp.xs)) {
+                p.label?.let { SectionLabel(it) }
+                Text(
+                    p.text,
+                    fontSize = if (p.label == null) 18.sp else 16.sp,
+                    lineHeight = if (p.label == null) 26.sp else 24.sp,
+                    fontWeight = if (p.label == null) FontWeight.Medium else FontWeight.Normal,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+        }
+        if (busy) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
+                CircularProgressIndicator(Modifier.size(16.dp), strokeWidth = 2.dp, color = MaterialTheme.colorScheme.primary)
+                Text("Ayrıntılar getiriliyor…", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
     }
 }
 
-/** Üstteki özet: aranan sözcük, köken dili ve ilk anlam */
+/** Bir kaynağa ulaşılamadıysa: sonuç eksik olabilir, tekrar dene */
 @Composable
-private fun SummaryCard(data: LookupResult) {
-    val origin = data.origin
-    val wpOrigin = data.wiki?.facts?.firstOrNull { it.first.contains("Köken") }?.second
+private fun IncompleteBanner(onRetry: () -> Unit) {
     KokenCard {
         Text(
-            data.wiktTr?.title ?: data.wiktEn?.title ?: data.wiki?.title ?: data.query,
-            fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold, fontSize = 34.sp, lineHeight = 40.sp,
-            color = MaterialTheme.colorScheme.onSurface,
+            "Bazı kaynaklara ulaşılamadı (internet yavaş olabilir). Aşağıdaki bilgi eksik olabilir.",
+            style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface,
         )
-        if (origin != null || wpOrigin != null) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
-                Text("Köken:", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Pill(
-                    origin?.second ?: wpOrigin!!,
-                    container = MaterialTheme.colorScheme.primary,
-                    content = MaterialTheme.colorScheme.onPrimary,
-                )
-            }
-            if (origin != null && origin.first != origin.second) {
-                Text("${origin.first} sözcüğü olarak", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-        } else {
-            Text("Köken zinciri bu kaynaklarda ayrıntılı verilmemiş; aşağıdaki açıklamalara bak.", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-        }
-        data.firstMeaning?.let {
-            Text(it, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurface)
-        }
+        TextButton(onClick = onRetry, modifier = Modifier.heightIn(min = 48.dp)) { Text("Tekrar dene") }
+    }
+}
+
+@Composable
+private fun JourneyCard(story: Story) {
+    KokenCard {
+        SectionLabel("Yolculuğu")
+        Timeline(story.timeline, story.endLanguage, story.word)
+    }
+}
+
+@Composable
+private fun RelatedCard(related: List<Mention>) {
+    KokenCard {
+        SectionLabel("Akraba sözcükler")
+        Text(
+            related.take(8).joinToString("  ·  ") { "${it.text} (${it.langName})" },
+            style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 

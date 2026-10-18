@@ -3,6 +3,7 @@ package com.jn.koken.data
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
@@ -18,14 +19,16 @@ sealed interface Fetch {
 }
 
 /** Vikimedya sayfalarını anahtarsız çeker: index.php?action=render = sadece sayfa gövdesi HTML'i */
-class WikiClient(
-    private val http: OkHttpClient = OkHttpClient.Builder()
-        .connectTimeout(12, TimeUnit.SECONDS)
-        .readTimeout(20, TimeUnit.SECONDS)
-        .callTimeout(30, TimeUnit.SECONDS)
-        .build(),
-) {
-    suspend fun fetch(host: String, title: String): Fetch = withContext(Dispatchers.IO) {
+class WikiClient(private val http: OkHttpClient = defaultHttp) {
+    /** Ağ ya da sunucu hatasında (404 hariç) kısa bir bekleyişten sonra bir kez daha dener */
+    suspend fun fetch(host: String, title: String): Fetch {
+        val first = fetchOnce(host, title)
+        if (first !is Fetch.Failed) return first
+        delay(700)
+        return fetchOnce(host, title)
+    }
+
+    private suspend fun fetchOnce(host: String, title: String): Fetch = withContext(Dispatchers.IO) {
         val url: HttpUrl = HttpUrl.Builder()
             .scheme("https").host(host)
             .addPathSegments("w/index.php")
@@ -34,7 +37,7 @@ class WikiClient(
             .build()
         val req = Request.Builder().url(url)
             // Vikimedya, uygulamaların kendini tanıtmasını ister
-            .header("User-Agent", "Koken/1.0 (Android; https://github.com/jannet5/jn)")
+            .header("User-Agent", USER_AGENT)
             .header("Accept-Language", "tr,en;q=0.8")
             .build()
         try {
@@ -51,6 +54,17 @@ class WikiClient(
     }
 
     companion object {
+        const val USER_AGENT = "Koken/1.0 (Android; https://github.com/jannet5/jn)"
+
+        /** Tüm ağ istekleri aynı istemciyi paylaşır (bağlantı havuzu) */
+        val defaultHttp: OkHttpClient by lazy {
+            OkHttpClient.Builder()
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(25, TimeUnit.SECONDS)
+                .callTimeout(40, TimeUnit.SECONDS)
+                .build()
+        }
+
         /** Tarayıcıda açılacak okunur adres */
         fun pageUrl(host: String, title: String): String =
             "https://$host/wiki/" + java.net.URLEncoder.encode(title.replace(' ', '_'), "UTF-8").replace("+", "%20")

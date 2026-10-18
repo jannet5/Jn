@@ -22,6 +22,8 @@ data class Mention(
     val translit: String?,
     val gloss: String?,
     val relation: Relation?,
+    val isRoot: Boolean = false,   // Sami dillerindeki sözcük kökü (örn. م ي ز)
+    val glossEn: Boolean = false,  // anlam metni İngilizce mi (çevrilmesi gerekir)
 )
 
 /** Bir "Köken" bölümü: açıklama metni + ayrıştırılmış zincir */
@@ -30,11 +32,13 @@ data class EtymologyBlock(
     val chain: List<Mention>,
     val related: List<Mention>,
     val parts: List<Mention>,
+    /** Zincir yoksa, köken bölümünde tek başına yazılmış dil adı (örn. "Arapça") */
+    val lonelyLabel: String? = null,
 ) {
     /** Zincirdeki en eski dil; "Proto-" (yeniden kurulmuş) dilleri atlanır */
     val originLanguage: String?
         get() {
-            if (chain.isEmpty()) return null
+            if (chain.isEmpty()) return lonelyLabel
             val real = chain.lastOrNull { !it.langName.startsWith("Proto") }
             return (real ?: chain.last()).langName
         }
@@ -50,7 +54,18 @@ data class SenseGroup(
     val entries: List<PosEntry>,
 )
 
-data class LanguageSection(val language: String, val groups: List<SenseGroup>)
+/** Sami dili kökü: harfler ve okunuşu (örn. "م ي ز", "m y z") */
+data class Root(val letters: String, val translit: String?)
+
+data class LanguageSection(val language: String, val groups: List<SenseGroup>, val root: Root? = null)
+
+/** Zincirin en eski sözcüğünün kendi sayfasından alınan ek bilgi: kaynak dildeki anlam, atalar ve kök */
+data class DeepInfo(
+    val term: Mention,
+    val definitions: List<String>,
+    val chain: List<Mention>,
+    val root: Root?,
+)
 
 data class WiktionaryResult(
     val source: Source,
@@ -72,6 +87,8 @@ data class LookupResult(
     val wiktTr: WiktionaryResult?,
     val wiktEn: WiktionaryResult?,
     val wiki: WikipediaResult?,
+    /** Bir kaynağa ağ/sunucu hatası yüzünden ulaşılamadı: sonuç eksik olabilir */
+    val incomplete: Boolean = false,
 ) {
     val isEmpty: Boolean get() = wiktTr == null && wiktEn == null && wiki == null
 

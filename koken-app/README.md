@@ -1,7 +1,8 @@
 # Köken — sözcüğün ve ismin kökenini bulan Android uygulaması
 
-Bir sözcük ya da isim yaz (örn. **Ahmet**, **kitap**, **salary**). Uygulama Google'da tek tek aramana gerek bırakmadan
-şunu gösterir: **hangi dilden geldiği**, **anlamı** ve **zaman içinde nasıl değiştiği** (köken zinciri).
+Bir sözcük ya da isim yaz (örn. **Ahmet**, **mümtaz**, **kitap**). Uygulama doğrudan sana **düz Türkçe anlatır**:
+*"Arapça kökenli bir sıfattır. Anlamı: seçkin. Osmanlı Türkçesi'nden devralınmış, o da Arapça mumtāz sözcüğünden gelir.
+Kökü: م ي ز (ayırt edilmek)…"* — hangi dilden geldiği, anlamı, kaynak sözcüğün anlamı, kökü ve yolculuğu tek kartta.
 
 - **Hesap, API anahtarı, sunucu yok.** İnternet yeterli. Uygulama herkese açık sayfaları doğrudan çeker.
 - Tek izin: `INTERNET`.
@@ -9,10 +10,16 @@ Bir sözcük ya da isim yaz (örn. **Ahmet**, **kitap**, **salary**). Uygulama G
 
 ## Telefona kurmak
 
-`dist/Koken-1.0.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
+`dist/Koken-1.1.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
 GitHub mobilde: dosyaya dokun → **Download raw file**.
 
 ## Nasıl çalışıyor?
+
+1. **Üç kaynaktan** sayfa alınır (aşağıdaki tablo). 2. Köken paragrafı **dil etiketli zincire** çevrilir.
+3. Zincirin en eski gerçek sözcüğünün (örn. Arapça مُمْتَاز) **kendi sayfası da** çekilir: kaynak dildeki anlamı, atası ve **kökü** (م ي ز) oradan gelir.
+4. **Anlatım motoru** (`Narrator`) bunları kural tabanlı olarak düz Türkçe cümlelere dizer; yapay zekâ/anahtar yok, her cümle kaynak veriden gelir.
+5. İngilizce anlam metinleri **anahtarsız** iki herkese açık çeviri uç noktasıyla (Google Translate `gtx`, yedek MyMemory) Türkçeye çevrilir;
+   yalnızca kısa anlam metinleri gönderilir. Çeviri olmazsa metin İngilizce kalır.
 
 Aranan sözcük için aynı anda üç kaynaktan sayfa gövdesi alınır (`index.php?action=render`, anahtarsız):
 

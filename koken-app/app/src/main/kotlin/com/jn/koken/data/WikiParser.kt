@@ -146,7 +146,8 @@ internal object EtymologyExtractor {
         val parts = ArrayList<Mention>()
 
         // Etiketleri önce topla ki aynı koddaki sonraki terimler adı bilsin
-        val allRaw = paragraphs.map { assemble(tokenize(it)) }
+        val allToks = paragraphs.map { tokenize(it) }
+        val allRaw = allToks.map { assemble(it) }
         allRaw.flatten().forEach { r -> r.label?.let { names[r.code] = it } }
 
         // Zincir sadece ilk paragraftan; akrabalar ve parçalar tüm paragraflardan
@@ -173,7 +174,7 @@ internal object EtymologyExtractor {
                 val rawName = r.label ?: names[r.code] ?: LangNames.codeToEnglish(r.code) ?: r.code
                 val langName = LangNames.tr(rawName) // Türkçe ad zaten Türkçedir; İngilizce olanlar çevrilir
                 val relation = relationOf(if (tr) r.after else r.before, tr)
-                val m = Mention(r.code, langName, r.text, r.translit, r.gloss, relation)
+                val m = Mention(r.code, langName, r.text, r.translit, r.gloss, relation, glossEn = !tr)
                 when (kind) {
                     Kind.CHAIN -> if (pi == 0 && chain.none { it.text == m.text && it.langCode == m.langCode }) chain.add(m)
                     Kind.RELATED -> related.add(m)
@@ -182,11 +183,16 @@ internal object EtymologyExtractor {
                 }
             }
         }
+        // "Köken: Arapça" gibi sadece dil adı yazılmışsa onu sakla
+        val lonely = if (chain.isEmpty() && parts.isEmpty()) {
+            allToks.flatten().filterIsInstance<Tok.Label>().lastOrNull()?.s?.takeIf { it.isNotBlank() }?.let { LangNames.tr(it) }
+        } else null
         return EtymologyBlock(
             text = texts.take(3).joinToString("\n\n"),
             chain = chain.take(8),
             related = related.take(12),
             parts = parts.take(6),
+            lonelyLabel = lonely,
         )
     }
 
@@ -214,6 +220,7 @@ object WiktionaryParser {
         "zamir" to "Zamir", "edat" to "Edat", "bağlaç" to "Bağlaç", "ünlem" to "Ünlem", "sayı" to "Sayı",
         "ön ek" to "Ön ek", "son ek" to "Son ek", "deyim" to "Deyim", "atasözü" to "Atasözü",
         "kısaltma" to "Kısaltma", "harf" to "Harf", "simge" to "Simge", "ortaç" to "Ortaç", "sözcük" to "Sözcük",
+        "ön ad" to "Sıfat", "eylem" to "Fiil", "belirteç" to "Zarf", "adıl" to "Zamir", "ilgeç" to "Edat", "ek" to "Ek",
     )
 
     private enum class Mode { NONE, ETY, POS, SKIP }
@@ -230,6 +237,7 @@ object WiktionaryParser {
 
     private class Lang(val name: String) {
         val groups = ArrayList<Group>()
+        var root: Root? = null
     }
 
     private val insideSkip = setOf("table", "li", "dl", "ul", "ol", "blockquote")
@@ -244,7 +252,7 @@ object WiktionaryParser {
         var entry: PosEntryBuilder? = null
         var mode = Mode.NONE
 
-        for (el in root.select("div.mw-heading, p, ol")) {
+        for (el in root.select("div.mw-heading, p, ol, table")) {
             if (el.hasClass("mw-heading")) {
                 val h = el.selectFirst("h2, h3, h4, h5, h6") ?: continue
                 val level = h.tagName().substring(1).toInt()
@@ -272,6 +280,18 @@ object WiktionaryParser {
                 continue
             }
             if (lang == null) continue
+            // Arapça gibi dillerde bölümün başındaki "Root: م ي ز (m y z)" kutusu
+            if (el.tagName() == "table") {
+                if (lang.root == null && el.parents().none { it.tagName() == "table" }) {
+                    val th = el.selectFirst("th")?.text().orEmpty()
+                    if (th.startsWith("Root") || th.startsWith("Kök")) {
+                        val letters = el.selectFirst("span[lang=ar]")?.let { cleanText(it.text()) }
+                        val tl = el.selectFirst("span[lang=ar-Latn]")?.let { cleanText(it.text()) }
+                        if (!letters.isNullOrBlank()) lang.root = Root(letters, tl)
+                    }
+                }
+                continue
+            }
             // tablo, liste, açılır kutu içindekileri atla
             if (el.parents().any { it.tagName() in insideSkip || it.hasClass("NavFrame") || it.hasClass("etytree") }) continue
             when (mode) {
@@ -282,10 +302,20 @@ object WiktionaryParser {
                         if (e.headword == null) e.headword = el.selectFirst(".headword")?.let { cleanText(it.text()) }?.takeIf { it.isNotBlank() }
                     } else if (el.tagName() == "ol" && e.defs.isEmpty()) {
                         for (li in el.children().toList().filter { it.tagName() == "li" }.take(5)) {
+                            // İngilizce Wiktionary: "elative degree of حَمِيد:" gibi satırların asıl anlamı iç listededir
+                            val nested = if (isTr) emptyList() else li.children().toList()
+                                .filter { it.tagName() == "ul" || it.tagName() == "ol" }
+                                .flatMap { l -> l.children().toList().filter { it.tagName() == "li" } }
+                                .map { n ->
+                                    val cc = n.clone()
+                                    cc.select("ul, ol, dl, style, link, sup, .h-usage-example, .HQToggle, .citation-whole").remove()
+                                    cleanText(cc.text())
+                                }.filter { it.isNotBlank() }
                             val c = li.clone()
                             c.select("ul, ol, dl, .h-usage-example, .HQToggle, .citation-whole, style, link, sup, .mw-editsection").remove()
                             // "(kitap) Ciltli veya ..." gibi sözcüğün kendisini parantez içinde tekrar eden öneki at
-                            val t = cleanText(c.text()).replace(Regex("^\\((${Regex.escape(title)})\\)\\s*", RegexOption.IGNORE_CASE), "")
+                            var t = cleanText(c.text()).replace(Regex("^\\((${Regex.escape(title)})\\)\\s*", RegexOption.IGNORE_CASE), "")
+                            if (t.endsWith(":") && nested.isNotEmpty()) t = nested.take(3).joinToString("; ")
                             if (t.isNotBlank()) e.defs.add(t)
                         }
                     }
@@ -302,7 +332,13 @@ object WiktionaryParser {
                     .map { PosEntry(it.pos, it.headword, it.defs) }
                 if (ety == null && entries.isEmpty()) null else SenseGroup(multiHeading(g.heading), ety, entries)
             }
-            if (groups.isEmpty()) null else LanguageSection(l.name, groups)
+            if (groups.isEmpty()) null else {
+                // Tek köken bölümü varsa (Türkçe Vikisözlük'te köken türden sonra gelebilir) tüm türleri onunla birleştir
+                val merged = if (groups.size > 1 && groups.count { it.etymology != null } == 1) {
+                    listOf(SenseGroup("", groups.first { it.etymology != null }.etymology, groups.flatMap { it.entries }))
+                } else groups
+                LanguageSection(l.name, merged, l.root)
+            }
         }
         if (sections.isEmpty()) return null
         return WiktionaryResult(source, title, url, sections)

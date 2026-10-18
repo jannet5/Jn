@@ -27,38 +27,61 @@ class Lookup(private val client: WikiClient = WikiClient()) {
         cache[q.lowercase(trLocale)]?.let { return Outcome.Found(it) }
 
         val variants = titleVariants(q)
-        val fetched = coroutineScope {
-            val tr = variants.map { v -> async { v to client.fetch(Source.WIKT_TR.host, v) } }
-            val en = variants.map { v -> async { v to client.fetch(Source.WIKT_EN.host, v) } }
-            val wp = async { q to client.fetch(Source.WIKI_TR.host, q) }
-            Triple(tr.map { it.await() }, en.map { it.await() }, wp.await())
+
+        // Her kaynakta başlık yazılışlarını SIRAYLA dene (ilki varsa diğerlerine gerek yok): az istek, az hata
+        class Attempt(val title: String, val ok: Fetch.Ok?, val failed: Boolean, val rateLimited: Boolean)
+        suspend fun firstExisting(host: String): Attempt {
+            var failed = false
+            var rate = false
+            for (v in variants) {
+                when (val f = client.fetch(host, v)) {
+                    is Fetch.Ok -> return Attempt(v, f, failed, rate)
+                    is Fetch.Failed -> { failed = true; if (f.code == 429) rate = true }
+                    Fetch.Missing -> Unit
+                }
+            }
+            return Attempt(variants.first(), null, failed, rate)
         }
-        val allFetches = (fetched.first + fetched.second + listOf(fetched.third)).map { it.second }
-        val failures = allFetches.filterIsInstance<Fetch.Failed>()
+
+        val (trA, enA, wpF) = coroutineScope {
+            val a = async { firstExisting(Source.WIKT_TR.host) }
+            val b = async { firstExisting(Source.WIKT_EN.host) }
+            val c = async { client.fetch(Source.WIKI_TR.host, q) }
+            Triple(a.await(), b.await(), c.await())
+        }
+        val wpFailed = wpF as? Fetch.Failed
+        val incomplete = (trA.ok == null && trA.failed) || (enA.ok == null && enA.failed) || wpFailed != null
 
         val result = withContext(Dispatchers.Default) {
-            val trW = firstOk(fetched.first)?.let { (title, ok) ->
-                runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_TR, title, ok.pageUrl) }.getOrNull()
-            }
-            val enW = firstOk(fetched.second)?.let { (title, ok) ->
-                runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_EN, title, ok.pageUrl) }.getOrNull()
-            }
-            val wp = (fetched.third.second as? Fetch.Ok)?.let { ok ->
-                runCatching { WikipediaParser.parse(ok.html, fetched.third.first, ok.pageUrl) }.getOrNull()
-            }
-            LookupResult(q, trW, enW, wp)
+            val trW = trA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_TR, trA.title, ok.pageUrl) }.getOrNull() }
+            val enW = enA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_EN, enA.title, ok.pageUrl) }.getOrNull() }
+            val wp = (wpF as? Fetch.Ok)?.let { ok -> runCatching { WikipediaParser.parse(ok.html, q, ok.pageUrl) }.getOrNull() }
+            LookupResult(q, trW, enW, wp, incomplete)
         }
 
         if (!result.isEmpty) {
-            cache[q.lowercase(trLocale)] = result
+            // Eksik sonucu önbelleğe alma: tekrar denenince tam hali gelsin
+            if (!incomplete) cache[q.lowercase(trLocale)] = result
             return Outcome.Found(result)
         }
         // Hiçbir şey bulunamadı: hata yüzünden mi, gerçekten yok mu?
-        return if (failures.isNotEmpty()) Outcome.Failed(q, failures.any { it.code == 429 }) else Outcome.NotFound(q)
+        return if (incomplete) Outcome.Failed(q, trA.rateLimited || enA.rateLimited || wpFailed?.code == 429) else Outcome.NotFound(q)
     }
 
-    private fun firstOk(list: List<Pair<String, Fetch>>): Pair<String, Fetch.Ok>? =
-        list.firstNotNullOfOrNull { (title, f) -> (f as? Fetch.Ok)?.let { title to it } }
+    /**
+     * Zincirin en eski gerçek sözcüğünün (örn. Arapça مُمْتَاز) kendi sayfasını da çekip
+     * kaynak dildeki anlamını, atalarını ve kökünü bulur. Başarısız olursa null (anlatım bunsuz da çalışır).
+     */
+    suspend fun deepen(r: LookupResult): DeepInfo? {
+        val target = Narrator.chainOf(r).lastOrNull { !it.langName.startsWith("Proto") && !it.isRoot } ?: return null
+        val title = DeepBuilder.title(target) ?: return null
+        val ok = client.fetch(Source.WIKT_EN.host, title) as? Fetch.Ok ?: return null
+        return withContext(Dispatchers.Default) {
+            runCatching {
+                WiktionaryParser.parse(ok.html, Source.WIKT_EN, title, ok.pageUrl)?.let { DeepBuilder.build(target, it) }
+            }.getOrNull()
+        }
+    }
 
     companion object {
         private val trLocale = Locale("tr", "TR")
