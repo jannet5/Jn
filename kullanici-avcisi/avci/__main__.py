@@ -35,6 +35,27 @@ def cmd_selftest(a):
     return 0 if ok else 1
 
 
+def cmd_tani(a):
+    """Çalışmıyorsa: tek komutla tanı raporu üretir ve dosyaya yazar."""
+    from .diagnose import build_report, probe_instagram
+    raws, sel = probe_instagram(InstagramProfileChecker())
+    log = os.path.join(os.path.dirname(os.path.abspath(a.db)), "avci.log")
+    rep = build_report(Store(a.db), log, sel, None, raws)
+    with open(a.out, "w", encoding="utf-8") as f:
+        f.write(rep)
+    print(rep)
+    print(f"\n→ Rapor '{a.out}' dosyasına da kaydedildi. Sorunu çözecek kişiye bunu gönder.")
+
+
+def cmd_probe(a):
+    """Instagram'ın bir isim için döndürdüğü HAM cevabı gösterir (yöntem değiştiyse nedeni burada görünür)."""
+    import json
+    chk = InstagramProfileChecker()
+    for n in a.names:
+        print(f"--- {n}")
+        print(json.dumps(chk.raw(n), ensure_ascii=False, indent=2))
+
+
 def _wordfiles(a):
     files = list(a.file or [])
     for lang in a.lang or []:
@@ -192,6 +213,14 @@ def main(argv=None):
 
     s = sub.add_parser("selftest", help="bu internet bağlantısında kontrol çalışıyor mu?")
     s.set_defaults(fn=cmd_selftest)
+
+    s = sub.add_parser("tani", help="ÇALIŞMIYORSA: tanı raporu üret (tani-raporu.txt)")
+    s.add_argument("--out", default="tani-raporu.txt")
+    s.set_defaults(fn=cmd_tani)
+
+    s = sub.add_parser("probe", help="bir ismin Instagram'daki HAM cevabını göster (hata ayıklama)")
+    s.add_argument("names", nargs="+")
+    s.set_defaults(fn=cmd_probe)
 
     a = p.parse_args(argv)
     return a.fn(a) or 0

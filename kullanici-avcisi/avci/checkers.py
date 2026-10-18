@@ -50,8 +50,13 @@ class InstagramProfileChecker(Checker):
     URL = "https://www.instagram.com/api/v1/users/web_profile_info/"
     APP_ID = "936619743392459"
 
-    def __init__(self, timeout: float = 15.0):
+    HOME = "https://www.instagram.com/"
+
+    def __init__(self, timeout: float = 15.0, url: Optional[str] = None, home: Optional[str] = HOME):
+        """url/home yalnızca test içindir (yerel sahte sunucu). home=None: çerez ısınması yapma."""
         self.timeout = timeout
+        self.url = url or self.URL
+        self.home = home
         self.local = threading.local()
 
     def _session(self) -> requests.Session:
@@ -63,14 +68,15 @@ class InstagramProfileChecker(Checker):
                 "Accept-Language": "en-US,en;q=0.9",
                 "Accept": "*/*",
             })
-            try:  # çerez ısınması (tarayıcı gibi önce ana sayfa)
-                s.get("https://www.instagram.com/", timeout=self.timeout)
-            except requests.RequestException:
-                pass
+            if self.home:
+                try:  # çerez ısınması (tarayıcı gibi önce ana sayfa)
+                    s.get(self.home, timeout=self.timeout)
+                except requests.RequestException:
+                    pass
             self.local.s = s
         return s
 
-    def check(self, username: str) -> Result:
+    def _get(self, username: str) -> requests.Response:
         s = self._session()
         headers = {
             "X-IG-App-ID": self.APP_ID,
@@ -80,12 +86,26 @@ class InstagramProfileChecker(Checker):
         csrf = s.cookies.get("csrftoken")
         if csrf:
             headers["X-CSRFToken"] = csrf
+        return s.get(self.url, params={"username": username}, headers=headers,
+                     timeout=self.timeout, allow_redirects=False)
+
+    def check(self, username: str) -> Result:
         try:
-            r = s.get(self.URL, params={"username": username}, headers=headers,
-                      timeout=self.timeout, allow_redirects=False)
+            r = self._get(username)
         except requests.RequestException as e:
             return Result(ERROR, f"ağ hatası: {type(e).__name__}")
         return self.interpret(r.status_code, r.headers, r.text)
+
+    def raw(self, username: str) -> dict:
+        """Tanı için: Instagram'ın ham cevabı ve aracın bunu nasıl yorumladığı (1 istek)."""
+        try:
+            r = self._get(username)
+        except requests.RequestException as e:
+            return {"error": f"{type(e).__name__}: {e}"}
+        res = self.interpret(r.status_code, r.headers, r.text)
+        keep = ("content-type", "retry-after", "location", "x-ig-origin-region", "server", "date")
+        return {"http": r.status_code, "headers": {k: v for k, v in r.headers.items() if k.lower() in keep},
+                "body_start": r.text[:400], "decision": res.status, "decision_detail": res.detail}
 
     @staticmethod
     def interpret(code: int, headers, body: str) -> Result:

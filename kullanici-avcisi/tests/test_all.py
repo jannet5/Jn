@@ -259,6 +259,136 @@ class WebUiTests(unittest.TestCase):
             httpd.server_close()
 
 
+class FakeInstagram:
+    """Yerel sahte Instagram: gerçek HTTP, gerçek istek başlıkları. mode='all429' ise her şeye 'yavaşla' der."""
+
+    def __init__(self, mode="normal"):
+        self.mode, self.seen = mode, []
+        outer = self
+
+        class H(BaseHTTPRequestHandler):
+            def log_message(self, *a):
+                pass
+
+            def do_GET(self):
+                from urllib.parse import parse_qs, urlparse
+                q = parse_qs(urlparse(self.path).query)
+                name = (q.get("username") or [""])[0]
+                outer.seen.append({"name": name, "app_id": self.headers.get("X-IG-App-ID"),
+                                   "ua": self.headers.get("User-Agent"), "referer": self.headers.get("Referer")})
+                code, body, extra = 404, "", {}
+                if outer.mode == "all429" or name == "limited":
+                    code, extra = 429, {"Retry-After": "7"}
+                elif name in ("instagram", "taken"):
+                    code, body = 200, json.dumps({"data": {"user": {"id": "1"}}, "status": "ok"})
+                elif name == "wall":
+                    code, body = 200, "<html>login</html>"
+                self.send_response(code)
+                self.send_header("Content-Type", "application/json" if body.startswith("{") else "text/html")
+                for k, v in extra.items():
+                    self.send_header(k, v)
+                self.send_header("Content-Length", str(len(body.encode())))
+                self.end_headers()
+                self.wfile.write(body.encode())
+
+        self.srv = HTTPServer(("127.0.0.1", 0), H)
+        self.url = f"http://127.0.0.1:{self.srv.server_port}/api/v1/users/web_profile_info/"
+        threading.Thread(target=self.srv.serve_forever, daemon=True).start()
+
+    def checker(self):
+        return InstagramProfileChecker(url=self.url, home=None, timeout=5)
+
+    def close(self):
+        self.srv.shutdown()
+        self.srv.server_close()
+
+
+class InstagramCheckerOverHttp(unittest.TestCase):
+    def test_full_http_path(self):
+        fake = FakeInstagram()
+        try:
+            c = fake.checker()
+            self.assertEqual(c.check("taken").status, TAKEN)
+            self.assertEqual(c.check("zqnothere").status, FREE)
+            r = c.check("limited")
+            self.assertEqual((r.status, r.retry_after), (LIMITED, 7.0))
+            self.assertEqual(c.check("wall").status, LIMITED)  # 200 ama giriş duvarı
+            first = fake.seen[0]
+            self.assertEqual(first["app_id"], "936619743392459")
+            self.assertIn("Mozilla", first["ua"])
+            self.assertIn("/taken/", first["referer"])
+        finally:
+            fake.close()
+
+    def test_network_error_is_error_not_crash(self):
+        c = InstagramProfileChecker(url="http://127.0.0.1:1/x", home=None, timeout=2)
+        r = c.check("abc")
+        self.assertEqual(r.status, "error")
+        self.assertIn("ağ hatası", r.detail)
+
+    def test_selftest_ok_and_blocked(self):
+        from avci.selftest import run_selftest
+        fake = FakeInstagram()
+        try:
+            ok, msg = run_selftest(fake.checker())
+            self.assertTrue(ok, msg)
+        finally:
+            fake.close()
+        blocked = FakeInstagram("all429")
+        try:
+            ok, msg = run_selftest(blocked.checker())
+            self.assertFalse(ok)
+            self.assertIn("429", msg)
+            self.assertIn("hotspot", msg)
+        finally:
+            blocked.close()
+
+
+class DiagnoseTests(unittest.TestCase):
+    def test_report_has_raw_answers_and_verdict(self):
+        from avci.diagnose import build_report, probe_instagram
+        fake = FakeInstagram()
+        try:
+            raws, sel = probe_instagram(fake.checker())
+        finally:
+            fake.close()
+        rep = build_report(tmpdb(), None, sel, ["12:00:00  deneme olayı"], raws)
+        for needle in ("AVCI TANI RAPORU", "[Havuz]", "BAŞARILI", "http: 404", "http: 200",
+                       "decision: free", "decision: taken", "deneme olayı", "şifre"):
+            self.assertIn(needle, rep)
+
+    def test_report_explains_blocked_connection(self):
+        from avci.diagnose import build_report, probe_instagram
+        fake = FakeInstagram("all429")
+        try:
+            raws, sel = probe_instagram(fake.checker())
+        finally:
+            fake.close()
+        rep = build_report(tmpdb(), None, sel, None, raws)
+        self.assertIn("BAŞARISIZ", rep)
+        self.assertIn("429", rep)
+        self.assertIn("'Retry-After': '7'", rep)
+
+    def test_controller_diag_and_persistent_log(self):
+        from avci.webui import Controller
+        fake = FakeInstagram()
+        try:
+            c = Controller(os.path.join(tempfile.mkdtemp(), "d.db"), demo=False)
+            c.checker = fake.checker()
+            c.log("kalıcı kayıt denemesi")
+            rep = c.diag()
+        finally:
+            fake.close()
+        self.assertIn("kalıcı kayıt denemesi", rep)  # kayıt dosyasından da okunur
+        self.assertTrue(os.path.exists(c.log_path))
+        self.assertIn("BAŞARILI", rep)
+
+    def test_purpose_document_is_shipped(self):
+        doc = open(os.path.join(ROOT, "AMAC.md"), encoding="utf-8").read()
+        for needle in ("Bu araç ne için yazıldı", "python -m avci tani", "checkers.py", "TEST EDİLEMEDİ"):
+            self.assertIn(needle, doc)
+
+
 class StoreScale(unittest.TestCase):
     def test_lease_is_fast_on_big_pool(self):
         st = tmpdb()

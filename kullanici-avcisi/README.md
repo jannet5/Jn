@@ -3,6 +3,10 @@
 Instagram'da **boşalmış** kısa kullanıcı adlarını sürekli kontrol edip bulunca sana haber veren araç.
 Tıklanan bir ekranı var; terminal bilmen gerekmez.
 
+> **Bu proje ne için?** Instagram'da 3–7 harfli kullanıcı adlarını (her dilden: Arapça, Türkçe, Rusça…) sürekli kontrol eder;
+> dolu bir isim boşalırsa hemen haber verir, ismi sen alırsın. Amaç, çalışma şekli ve **çalışmazsa ne yapılacağı** için
+> **[`AMAC.md`](AMAC.md)** dosyasını oku. Çalışmıyorsa tek komut: `python -m avci tani` (ya da ekrandaki "Tanı raporu").
+
 ## Başlatmak (en kolay yol)
 
 1. ZIP'i bir klasöre aç.
@@ -62,4 +66,7 @@ python -m avci demo                       # sahte Instagram'la tam deneme
 | `avci/store.py` | Durum veritabanı |
 | `avci/checkers.py`, `avci/selftest.py` | Instagram kontrolcüsü, bağlantı testi |
 | `avci/engine.py`, `avci/notify.py` | Sürekli çalışan motor, bildirimler |
-| `tests/test_all.py` | 23 otomatik test: `python -m unittest discover -s tests` |
+| `AMAC.md` | **Amaç, harita, belirtiye göre sorun giderme, yapay zekâya yapıştırılacak metin** |
+| `avci/diagnose.py` | Tanı raporu (`python -m avci tani`), ham cevap (`python -m avci probe isim`) |
+| `avci.log` | Kalıcı olay kaydı (ne zaman ne oldu) |
+| `tests/test_all.py` | 30 otomatik test: `python -m unittest discover -s tests` |

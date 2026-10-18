@@ -64,6 +64,10 @@
   .badge { font-size:.8rem; border:1px solid var(--line); border-radius:999px; padding:3px 10px; color:var(--muted); }
   .badge.demo { color:var(--warn); border-color:var(--warn); }
   .small { color:var(--muted); font-size:.88rem; }
+  details.card > summary { cursor:pointer; font-weight:600; }
+  details.card[open] > summary { margin-bottom:10px; }
+  details.card ul { margin:8px 0 0; padding-left:1.2em; display:flex; flex-direction:column; gap:6px; }
+  #diag-out { height:240px; font-family:var(--mono); font-size:12px; margin-top:12px; }
   @media (max-width:520px) { .btn { width:100%; } }
 </style>
 </head>
@@ -73,6 +77,16 @@
     <div class="row"><h1>Kullanıcı Adı Avcısı</h1><span id="demo-badge" class="badge demo" hidden>DEMO: sahte Instagram</span></div>
     <p class="sub">İsimleri sürekli kontrol eder, boşalan olursa burada gösterir ve ses çalar.</p>
   </header>
+
+  <details class="card" id="purpose">
+    <summary>Bu araç ne işe yarar?</summary>
+    <p>Instagram'da <strong>3–7 harfli kullanıcı adlarını</strong> (her dilden kelimeden türetilmiş: Arapça, Türkçe, Rusça…) sürekli kontrol eder. Dolu bir isim boşalırsa (hesap silinir, isim değişir) burada gösterir ve ses çalar. İsmi sen Instagram'dan alırsın.</p>
+    <ul>
+      <li>İsmi kendisi <strong>almaz</strong>, hesabına girmez, şifre istemez, hız engelini aşmaya çalışmaz.</li>
+      <li>Bulunan isim <strong>adaydır</strong>: "bu isimde hesap yok" demektir; son kararı Instagram verir.</li>
+      <li>Çalışmıyorsa en alttaki <strong>Tanı raporu</strong> neyin bozulduğunu gösterir. Ayrıntılı belge: <code>AMAC.md</code></li>
+    </ul>
+  </details>
 
   <section class="card" aria-label="Durum">
     <div class="row">
@@ -140,6 +154,16 @@
     <p class="small">Araç Instagram'a bu internetten gerçekten bakabiliyor mu? Bilinen bir hesap "dolu", uydurma bir isim "boş" çıkmalı. Başlat'a basınca zaten otomatik çalışır.</p>
     <div class="row" style="margin-top:10px"><button class="btn ghost" id="test" type="button">Testi çalıştır</button></div>
     <div class="msg" id="test-msg" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-label="Sorun mu var">
+    <h2>Sorun mu var? Tanı raporu</h2>
+    <p class="small">Çalışmıyorsa raporu oluştur, kopyala ve sorunu çözecek kişiye (ya da bir yapay zekâya) gönder. Instagram'ın ham cevabını, bağlantı testini, havuz durumunu ve son olayları içerir. Şifre ya da kişisel bilgi içermez.</p>
+    <div class="row" style="margin-top:10px">
+      <button class="btn ghost" id="diag" type="button">Tanı raporunu oluştur</button>
+      <button class="btn" id="diag-copy" type="button" hidden>Raporu kopyala</button>
+    </div>
+    <textarea id="diag-out" readonly hidden aria-label="Tanı raporu"></textarea>
   </section>
 </main>
 
@@ -267,6 +291,18 @@
   $("test").onclick = function () {
     var b = $("test"); busy(b, true, "Test ediliyor…"); setMsg("test-msg", "");
     api("/api/selftest", {}).then(function (r) { busy(b, false); setMsg("test-msg", r.msg, r.ok ? "ok" : "bad"); poll(); });
+  };
+
+  $("diag").onclick = function () {
+    var b = $("diag"); busy(b, true, "Rapor hazırlanıyor… (Instagram'a 2 sorgu atılır)");
+    api("/api/diag", {}).then(function (r) {
+      busy(b, false); var o = $("diag-out"); o.hidden = false; o.value = r.report || r.msg || "Rapor alınamadı."; $("diag-copy").hidden = false;
+    }).catch(function () { busy(b, false); $("diag-out").hidden = false; $("diag-out").value = "Rapor alınamadı: ekran sunucusuna ulaşılamadı (siyah pencere kapanmış olabilir)."; });
+  };
+  $("diag-copy").onclick = function () {
+    var o = $("diag-out"), b = $("diag-copy");
+    var fail = function () { o.focus(); o.select(); b.textContent = "Seçildi: Ctrl+C bas"; };
+    try { navigator.clipboard.writeText(o.value).then(function () { b.textContent = "Kopyalandı"; setTimeout(function () { b.textContent = "Raporu kopyala"; }, 1500); }, fail); } catch (e) { fail(); }
   };
 
   poll(); setInterval(poll, 2000);

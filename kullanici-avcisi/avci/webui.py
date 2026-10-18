@@ -13,6 +13,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from . import wordlists as wl
 from .candidates import from_combos, from_names, from_pattern, from_words
 from .checkers import FREE, TAKEN, Checker, InstagramProfileChecker, Result
+from .diagnose import build_report, probe_instagram
 from .engine import Engine
 from .notify import Notifier
 from .selftest import run_selftest
@@ -42,8 +43,9 @@ class Controller:
         self.store = Store(db_path)
         self.demo = demo
         self.checker: Checker = DemoChecker() if demo else InstagramProfileChecker()
-        self.notifier = Notifier(found_file=os.path.join(os.path.dirname(os.path.abspath(db_path)), "bulunanlar.txt"),
-                                 bell=False)
+        base = os.path.dirname(os.path.abspath(db_path))
+        self.log_path = os.path.join(base, "avci.log")
+        self.notifier = Notifier(found_file=os.path.join(base, "bulunanlar.txt"), bell=False)
         self.engine = None
         self.thread = None
         self.started_at = None
@@ -54,7 +56,21 @@ class Controller:
 
     # --- log ---------------------------------------------------------------
     def log(self, msg: str):
-        self.logs.append(f"{time.strftime('%H:%M:%S')}  {msg}")
+        line = f"{time.strftime('%H:%M:%S')}  {msg}"
+        self.logs.append(line)
+        try:  # kalıcı kayıt: pencere kapansa bile ne olduğu kalsın
+            with open(self.log_path, "a", encoding="utf-8") as f:
+                f.write(f"{time.strftime('%Y-%m-%d')} {line}\n")
+        except OSError:
+            pass
+
+    def diag(self) -> str:
+        raws = None
+        if isinstance(self.checker, InstagramProfileChecker):
+            raws, st = probe_instagram(self.checker)
+            self.selftest = {"ok": st[0], "msg": st[1]}
+        sel = (self.selftest["ok"], self.selftest["msg"]) if self.selftest["ok"] is not None else None
+        return build_report(self.store, self.log_path, sel, list(self.logs), raws, self.demo)
 
     # --- işlemler ------------------------------------------------------------
     def running(self) -> bool:
@@ -215,6 +231,8 @@ def make_handler(ctrl: Controller, token: str, port: int):
                 return ctrl.stop()
             if path == "/api/selftest":
                 return ctrl.do_selftest()
+            if path == "/api/diag":
+                return {"ok": True, "report": ctrl.diag()}
             if path == "/api/add":
                 return ctrl.add_names(b.get("text", ""), bool(b.get("digits")),
                                       int(b.get("min", 3)), int(b.get("max", 7)))
