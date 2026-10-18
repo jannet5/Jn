@@ -60,6 +60,7 @@ android {
 
     packaging {
         resources { excludes += setOf("/META-INF/{AL2.0,LGPL2.1}", "/META-INF/DEPENDENCIES") } // Çakışan lisans dosyaları atılır
+        jniLibs { useLegacyPackaging = true } // Yerel kütüphaneler (ONNX Runtime) APK içinde sıkıştırılır: indirme boyutu küçülür (<30 MB hedefi)
     }
 
     sourceSets {
