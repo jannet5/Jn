@@ -1,0 +1,60 @@
+# Köken yayın hattı: APK'yı GitHub Release olarak, web sürümünü gh-pages dalı (GitHub Pages) olarak yayınlar.
+name: Köken yayın
+
+on:
+  push:
+    branches: [ccr-db720415-rxd9br]
+    paths:
+      - 'koken/dist/Koken.apk'
+      - 'koken/web/**'
+      - '.github/workflows/koken-yayin.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: koken-yayin
+  cancel-in-progress: true
+
+jobs:
+  yayin:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1) APK: doğru dosya türü ve tek adımlı indirme için Release varlığı olarak yükle
+      - name: APK sürümü
+        run: |
+          gh release delete koken-son-surum --cleanup-tag -y || true
+          gh release create koken-son-surum "koken/dist/Koken.apk#Koken.apk" \
+            --target "$GITHUB_SHA" \
+            --title "Köken (son sürüm)" \
+            --notes "Android uygulaması. İndirip açın; ilk seferde 'bu kaynaktan kurulum' iznini verin. SHA256: $(sha256sum koken/dist/Koken.apk | cut -d' ' -f1)"
+
+      # 2) Web: web klasörünü gh-pages dalına koy (GitHub Pages bu daldan sunar)
+      - name: Web sürümü (gh-pages)
+        run: |
+          rm -rf site && mkdir site
+          cp -r koken/web/. site/
+          rm -f site/probe.html site/*.mjs
+          cp koken/dist/Koken.apk site/Koken.apk
+          touch site/.nojekyll
+          cd site
+          git init -q -b gh-pages
+          git config user.name "koken-yayin"
+          git config user.email "koken-yayin@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Köken web sürümü ($GITHUB_SHA)"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+
+      # 3) Pages'i gh-pages dalına bağla (zaten açıksa ya da izin yoksa sessizce geç)
+      - name: GitHub Pages'i aç
+        continue-on-error: true
+        run: |
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages" -f "source[branch]=gh-pages" -f "source[path]=/" \
+            || gh api -X PUT "repos/${GITHUB_REPOSITORY}/pages" -f "source[branch]=gh-pages" -f "source[path]=/" \
+            || echo "Pages API izin vermedi: Settings > Pages > Branch: gh-pages seçilmeli"
