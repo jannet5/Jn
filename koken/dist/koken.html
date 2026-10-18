@@ -1496,7 +1496,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
     var turkishish = result.entries.some(function (e) { return e.language === 'Turkish'; }) || !result.found || /[çğıöşüÇĞİÖŞÜ]/.test(query);
     if (!(signal && signal.aborted) && (turkishish || bridge)) {
       progress('Türkçe sözlükler deneniyor…');
-      var nt = { timeoutMs: Math.min(o.timeoutMs, 4500), headers: { 'Accept': 'application/json, text/html' } };
+      var nt = { timeoutMs: Math.min(o.timeoutMs, 4000), headers: { 'Accept': 'application/json, text/html' } };
       var jobs = [];
       if (turkishish) {
         // TDK Güncel Sözlük (www'li adres şart; www'suz bağlantıyı sıfırlıyor)
@@ -1540,22 +1540,27 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
           } catch (e) { addSource('Nişanyan Sözlük', u, false, s, String(e && e.message || e)); }
         })());
       }
-      if (bridge) {
+      // Etymonline yalnız İngilizce sözcükler (ya da hiçbir yerde bulunamayanlar) için sorulur
+      var hasEnglish = result.entries.some(function (e) { return e.language === 'English'; });
+      if (bridge && (hasEnglish || !result.found)) {
         jobs.push((async function () {
           var ew = (result.resolved || query).toLocaleLowerCase('en');
+          // Sayfa gerçekten bu sözcüğün sayfası mı? (reklam/ana sayfa metni kabul edilmez)
+          var alnum = function (x) { return String(x || '').toLowerCase().replace(/[^\p{L}]/gu, ''); };
+          var okEty = function (q) { return q && q.text && q.name && alnum(q.name).indexOf(alnum(ew)) === 0 && !/remove ads|log in to see/i.test(q.text); };
           var u = 'https://www.etymonline.com/word/' + enc(ew);
           var s = now();
           try {
             // Önce doğrudan sözcük sayfası (<section data-word>), olmazsa arama sayfasına düş
             var r = await http(u, nt);
             var p = (r.status === 200) ? parseEtymonlineWord(r.text) : null;
-            if (!p) {
+            if (!okEty(p)) {
               u = 'https://www.etymonline.com/search?q=' + enc(result.resolved || query);
               r = await http(u, nt);
               if (r.status !== 200) { addSource('Etymonline', u, false, s, 'HTTP ' + r.status); return; }
               p = parseEtymonline(r.text);
             }
-            if (!p || !p.text) { addSource('Etymonline', u, false, s, 'kayıt yok'); return; }
+            if (!okEty(p)) { addSource('Etymonline', u, false, s, 'kayıt yok'); return; }
             attachExtra('English', 'etymonline', p.text, p.name || query, u);
             addSource('Etymonline', u, true, s, null);
           } catch (e) { addSource('Etymonline', u, false, s, String(e && e.message || e)); }
