@@ -765,6 +765,13 @@
   // ------------------------------------------------------------------ Yerel köprü kaynakları
   // Nişanyan Sözlük (JSON; biçim değişebilir, savunmacı yazıldı)
   function parseNisanyan(text) {
+    // Yeni site HTML veriyor: köken düz metin olarak <meta name="description"> içinde
+    if (/^\s*</.test(text)) {
+      var hd = parseHtml(text);
+      var mm = hd.querySelector('meta[name="description"]');
+      var ct = mm ? norm(mm.getAttribute('content') || '') : '';
+      return ct ? { name: '', text: ct, loan: false } : null;
+    }
     var j = JSON.parse(text);
     var words = j && (j.words || j.data || (Array.isArray(j) ? j : null));
     if (!words || !words.length) return null;
@@ -785,6 +792,30 @@
     var etxt = parts.join(' ← ') || strip(w.etymologyHtml || w.etymology || w.k || '');
     if (!etxt) return null;
     return { name: w.name || w.n || '', text: etxt, loan: !!(w.isLoanword) };
+  }
+
+  // Metinde ilk geçen dil adını (Arapça, Fransızca...) döndürür: sözcüğü veren dil
+  function firstLangOf(text) {
+    var names = Object.keys(LANG_TR).map(function (k) { return LANG_TR[k]; }).filter(function (n) { return n && n !== 'Türkçe'; });
+    names.sort(function (a, b) { return b.length - a.length; });
+    var best = null, bestAt = Infinity;
+    names.forEach(function (n) {
+      var re = new RegExp('(^|[^\\p{L}])' + n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?![\\p{L}])', 'u');
+      var m = re.exec(text);
+      if (m && m.index < bestAt) { bestAt = m.index; best = n; }
+    });
+    return best;
+  }
+
+  // etimolojiturkce.com API yanıtı: {"return":"1","word":..,"root":"düz metin köken","explanation":".."}
+  function parseEtimTr(text) {
+    var j = JSON.parse(text);
+    if (!j || String(j['return']) !== '1') return null;
+    var raw = j.root || j.explanation || '';
+    // HTML özel karakterlerini (&lt; &#8594; &thinsp;) metne çevir
+    var d = parseHtml(String(raw));
+    var t = norm((d.body || d.documentElement).textContent).replace(/[\u200e\u200f\u202a-\u202e]/g, '');
+    return t ? { name: j.word || '', text: t, lang: firstLangOf(t) } : null;
   }
 
   // TDK Güncel Sözlük (gts JSON dizisi)
@@ -1022,37 +1053,60 @@
       }
     }
 
-    // 3) Yalnız Android köprüsü varsa (ya da opts.extended): Nişanyan, TDK, Etymonline
+    // 3) Ek kaynaklar. TDK ve etimolojiturkce tarayıcıdan da açık (CORS *); Nişanyan ve Etymonline yalnız Android köprüsüyle.
     var g = (typeof window !== 'undefined') ? window : {};
-    if ((g.KokenNative || opts.extended) && !(signal && signal.aborted)) {
-      progress('Nişanyan, TDK ve Etymonline deneniyor…');
-      var qn = (result.resolved || query).toLocaleLowerCase('tr');
-      var nt = { timeoutMs: Math.min(o.timeoutMs, 7000), headers: { 'Accept': 'application/json, text/html' } };
-      var jobs = [
-        (async function () {
-          var s = now(), u = 'https://www.nisanyansozluk.com/api/words/' + enc(qn) + '?session=1';
-          try {
-            var r = await http(u, nt);
-            if (r.status !== 200) { addSource('Nişanyan Sözlük', u, false, s, 'HTTP ' + r.status); return; }
-            var p = parseNisanyan(r.text);
-            if (!p) { addSource('Nişanyan Sözlük', u, false, s, 'kayıt yok'); return; }
-            attachExtra('Turkish', 'nisanyan', p.text, qn, 'https://www.nisanyansozluk.com/kelime/' + enc(qn));
-            addSource('Nişanyan Sözlük', u, true, s, null);
-          } catch (e) { addSource('Nişanyan Sözlük', u, false, s, String(e && e.message || e)); }
-        })(),
-        (async function () {
-          var s = now(), u = 'https://sozluk.gov.tr/gts?ara=' + enc(qn);
+    var bridge = !!(g.KokenNative || opts.extended);
+    var qn = (result.resolved || query).toLocaleLowerCase('tr');
+    // Türkçe kaynaklar yalnız Türkçe sözcük gibi görünüyorsa (Türkçe girdi var, bulunamadı ya da Türkçe harf) sorulur
+    var turkishish = result.entries.some(function (e) { return e.language === 'Turkish'; }) || !result.found || /[çğıöşüÇĞİÖŞÜ]/.test(query);
+    if (!(signal && signal.aborted) && (turkishish || bridge)) {
+      progress('Türkçe sözlükler deneniyor…');
+      var nt = { timeoutMs: Math.min(o.timeoutMs, 4500), headers: { 'Accept': 'application/json, text/html' } };
+      var jobs = [];
+      if (turkishish) {
+        // TDK Güncel Sözlük (www'li adres şart; www'suz bağlantıyı sıfırlıyor)
+        jobs.push((async function () {
+          var s = now(), u = 'https://www.sozluk.gov.tr/gts?ara=' + enc(qn);
           try {
             var r = await http(u, nt);
             if (r.status !== 200) { addSource('TDK Güncel Sözlük', u, false, s, 'HTTP ' + r.status); return; }
             var p = parseTdk(r.text);
             if (!p) { addSource('TDK Güncel Sözlük', u, false, s, 'kayıt yok'); return; }
             var txt = (p.lisan ? 'Köken dili: ' + p.lisan + '. ' : 'Türkçe kökenli (TDK\'da köken dili belirtilmemiş). ') + (p.gloss ? 'Anlam: ' + p.gloss : '');
-            attachExtra('Turkish', 'tdk', txt, qn, 'https://sozluk.gov.tr/', p.lisan, p.gloss);
+            attachExtra('Turkish', 'tdk', txt, qn, 'https://sozluk.gov.tr/', firstLangOf(p.lisan || '') || null, p.gloss);
             addSource('TDK Güncel Sözlük', u, true, s, null);
           } catch (e) { addSource('TDK Güncel Sözlük', u, false, s, String(e && e.message || e)); }
-        })(),
-        (async function () {
+        })());
+        // etimolojiturkce.com (Nişanyan tarzı düz metin köken)
+        jobs.push((async function () {
+          var s = now(), u = 'https://api.etimolojiturkce.com/word/' + enc(qn);
+          try {
+            var r = await http(u, nt);
+            if (r.status !== 200) { addSource('Etimoloji Türkçe', u, false, s, 'HTTP ' + r.status); return; }
+            var p = parseEtimTr(r.text);
+            if (!p) { addSource('Etimoloji Türkçe', u, false, s, 'kayıt yok'); return; }
+            attachExtra('Turkish', 'etimolojiturkce', p.text, p.name || qn, 'https://www.etimolojiturkce.com/', p.lang, null);
+            addSource('Etimoloji Türkçe', u, true, s, null);
+          } catch (e) { addSource('Etimoloji Türkçe', u, false, s, String(e && e.message || e)); }
+        })());
+      }
+      if (bridge && turkishish) {
+        // Nişanyan Sözlük: sayfa HTML'i (eski /api/words 404 veriyor); CORS yok, yalnız köprü
+        jobs.push((async function () {
+          var s = now(), u = 'https://www.nisanyansozluk.com/kelime/' + enc(qn);
+          try {
+            var r = await http(u, { timeoutMs: nt.timeoutMs, headers: { 'Accept': 'text/html' } });
+            if (r.status === 404) { addSource('Nişanyan Sözlük', u, false, s, 'kayıt yok'); return; }
+            if (r.status !== 200) { addSource('Nişanyan Sözlük', u, false, s, 'HTTP ' + r.status); return; }
+            var p = parseNisanyan(r.text);
+            if (!p) { addSource('Nişanyan Sözlük', u, false, s, 'kayıt yok'); return; }
+            attachExtra('Turkish', 'nisanyan', p.text, qn, u, firstLangOf(p.text), null);
+            addSource('Nişanyan Sözlük', u, true, s, null);
+          } catch (e) { addSource('Nişanyan Sözlük', u, false, s, String(e && e.message || e)); }
+        })());
+      }
+      if (bridge) {
+        jobs.push((async function () {
           var ew = (result.resolved || query).toLocaleLowerCase('en');
           var u = 'https://www.etymonline.com/word/' + enc(ew);
           var s = now();
@@ -1070,8 +1124,8 @@
             attachExtra('English', 'etymonline', p.text, p.name || query, u);
             addSource('Etymonline', u, true, s, null);
           } catch (e) { addSource('Etymonline', u, false, s, String(e && e.message || e)); }
-        })()
-      ];
+        })());
+      }
       await Promise.all(jobs);
     }
 

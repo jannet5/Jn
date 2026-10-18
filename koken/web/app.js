@@ -334,7 +334,10 @@
   // Bir köken (Etymology) bloğunu çiz: yol haritası, parçalar, anlam, akrabalar, ham metin.
   function etymBlock(ety, idx, total, lang) {
     var box = el('div');
-    if (total > 1) box.appendChild(el('h3', { class: 'ety-title', text: 'Köken ' + (idx + 1) }));
+    // Başlıkta kaynağın adı görünsün (Vikisözlük, TDK, Nişanyan...)
+    var SRC = { 'en.wiktionary': 'Vikisözlük (İngilizce)', 'tr.wiktionary': 'Vikisözlük (Türkçe)', 'tdk': 'TDK Güncel Sözlük', 'nisanyan': 'Nişanyan Sözlük', 'etimolojiturkce': 'Etimoloji Türkçe', 'etymonline': 'Etymonline' };
+    var srcName = ety.source ? (SRC[ety.source] || ety.source) : 'Vikisözlük (İngilizce)';
+    if (total > 1) box.appendChild(el('h3', { class: 'ety-title', text: 'Köken ' + (idx + 1) + ' · ' + srcName }));
     box.appendChild(section('Yol haritası', timeline(ety.chain)));
     if (ety.parts && ety.parts.length) box.appendChild(section('Parçalar', partsList(ety.parts)));
     if (ety.gloss) box.appendChild(section('Anlam', el('p', { class: 'meaning', text: ety.gloss })));
