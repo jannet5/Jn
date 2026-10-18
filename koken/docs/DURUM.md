@@ -15,5 +15,5 @@
 1. GitHub Pages açık değil: Actions'ın `GITHUB_TOKEN`'ı Pages'i açamıyor (403). Tek seferlik elle: repo Settings → Pages → Branch: `gh-pages` / `/ (root)` → Save. Sonra web adresi `https://jannet5.github.io/Jn/` olur (githack ara sayfası kalkar, "ana ekrana ekle" çalışır).
 2. Vikisözlük `action=parse` hız sınırına (429) takılırsa REST HTML yedeğine geçiş yok. Test ortamının ortak IP'si sık takılıyor; telefonda beklenmiyor.
 3. Nişanyan ve Etymonline bu ortamda Node ile 403 veriyor (Cloudflare); APK köprüsü Chrome User-Agent'ı ile 200 aldı (JVM testi). Telefonda canlı doğrulanmadı.
-4. Emülatörde internetli uçtan uca test: ayrı işçide yürüyor, sonucu `tests/android/INTERNETLI-TEST.md` içine yazılacak.
+4. Emülatörde internetli uçtan uca test TAMAMLANAMADI: proxy CA'sını sisteme koyunca emülatörün system_server'ı çöktü (`tests/android/INTERNETLI-TEST.md`). Uygulamanın internetle sonuç getirmesi Android'de hiç görülmedi. Dolaylı kanıtlar: (a) internetsiz emülatörde köprü çağrıları Java'dan JS'e hata yoluyla döndü; (b) köprü JS tarafı Chromium'da curl ile taklit edilip gerçek Nişanyan/Etymonline/TDK/Etimoloji yanıtlarıyla çalıştı; (c) köprünün Java ağ kodu JVM'de https/gzip/2MB sınırıyla denendi. İlk gerçek deneme telefonda.
 5. Release güncellenirken (sil → yeniden oluştur) birkaç saniye link 404 verir.
