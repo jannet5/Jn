@@ -24,6 +24,9 @@
     <b id="tSure">Kur'an</b>
     <small id="tInfo"></small>
   </button>
+  <button id="bMark" class="btn mark" type="button" aria-label="Kaldığım yere git" hidden>
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6.5 3h11a1 1 0 0 1 1 1v17l-6.5-4.4L5.5 21V4a1 1 0 0 1 1-1z" fill="currentColor"/></svg>
+  </button>
   <button id="bMinus" class="btn zoom" type="button" aria-label="Yazıyı küçült"><span class="za">A</span><span class="zs">−</span></button>
   <button id="bPlus" class="btn zoom" type="button" aria-label="Yazıyı büyüt"><span class="za big">A</span><span class="zs">+</span></button>
   <button id="bTheme" class="btn" type="button" aria-label="Tema değiştir">
@@ -37,9 +40,6 @@
   <section class="pg" id="pgC" aria-live="off"></section>
   <section class="pg" id="pgN" aria-hidden="true"></section>
 </main>
-
-<!-- Sayfa numarası: kitaptaki gibi alt ortada tek başına, her an görünür. Dokununca sayfa seçme paneli açılır -->
-<button id="pgNum" class="pgnum" type="button" aria-label="Sayfa numarası, dokununca sayfaya git">1</button>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
@@ -76,9 +76,6 @@
     <ul id="themeList" class="tlist" role="listbox" aria-label="Temalar"></ul>
   </div>
 </div>
-
-<!-- İşaretli ayet başka sayfadaysa görünür -->
-<button id="resume" class="resume" type="button" hidden>Kaldığım yere dön</button>
 
 <noscript><p style="padding:24px">Kur'an Okuyucu için JavaScript gerekir.</p></noscript>
 <script src="data.js" charset="utf-8" defer></script>

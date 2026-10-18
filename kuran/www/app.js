@@ -57,7 +57,7 @@
     }
     if (open) h += '</p>';                             // son paragrafı kapat
     if (p === N) h += '<div class="end">Sadakallahülazîm</div>';
-    el.innerHTML = h + '</div>';                       // sayfayı yerleştir
+    el.innerHTML = h + '<div class="pno">' + p + '</div></div>';   // sayfa numarası: sayfanın alt ortasında düz yazı                       // sayfayı yerleştir
     el.dataset.page = p;                               // hangi sayfa olduğunu işaretle
     el.scrollTop = 0;                                  // en üste al
   }
@@ -85,7 +85,6 @@
     $('tSure').textContent = names.slice(0, 2).join(' · ');           // sure adı(ları)
     $('tInfo').textContent = juzOf(page) + '. Cüz · Sayfa ' + page;                  // cüz ve sayfa
     document.title = names[0] + ' · Sayfa ' + page + ' · Kur\'an';
-    $('pgNum').textContent = page;                     // alt ortadaki tek başına sayfa numarası
     hideSnack();                                       // sayfa değişince açık onay çubuğu kapanır
     updateResume();                                    // işaretli ayet başka sayfadaysa "Kaldığım yere dön" görünür
   }
@@ -397,7 +396,6 @@
   window.addEventListener('popstate', function () { closeSheet(true); closeTheme(true); });
   $('bGit').addEventListener('click', openSheet);
   $('ttl').addEventListener('click', openSheet);
-  $('pgNum').addEventListener('click', function () { openSheet(); setActive('sayfa', true); });   // sayfa numarasına dokun: "Sayfa" alanı seçili Git paneli
   $('bClose').addEventListener('click', function () { closeSheet(); });
   sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
   $('bTheme').addEventListener('click', openTheme);
@@ -417,8 +415,8 @@
     if (g >= 0) { var els = view.querySelectorAll('.a[data-g="' + g + '"]'); for (var j = 0; j < els.length; j++) els[j].classList.add('hl'); }
     updateResume();
   }
-  function updateResume() {                            // işaret başka sayfadaysa "Kaldığım yere dön" düğmesi görünür
-    $('resume').hidden = !(mark >= 0 && pageOfAyah(mark) !== page);
+  function updateResume() {                            // işaret varken üst çubukta yer imi simgesi görünür
+    $('bMark').hidden = !(mark >= 0);
   }
   var snackT = 0;
   function hideSnack() { clearTimeout(snackT); $('snack').hidden = true; }
@@ -433,7 +431,13 @@
     } else { toast('İşaret kilitli. Önce işaretliyi kaldır'); }   // başka yuvarlak: işaret yerinden oynamaz
   });
   $('snackBtn').addEventListener('click', function () { hideSnack(); setMark(-1); toast('İşaret kaldırıldı'); });
-  $('resume').addEventListener('click', function () { if (mark >= 0) goTo(pageOfAyah(mark), { ayah: mark }); });
+  $('bMark').addEventListener('click', function () {   // yer imi simgesi: işaretli ayete git
+    if (mark < 0) return;
+    if (pageOfAyah(mark) === page) {                   // aynı sayfadaysa sadece kaydır
+      var el = panes.c.querySelector('.a[data-g="' + mark + '"]');
+      if (el) panes.c.scrollTop = Math.max(0, el.offsetTop - panes.c.clientHeight * 0.35);
+    } else goTo(pageOfAyah(mark), { ayah: mark });
+  });
 
   /* ---------- Başlat: son kalınan sayfadan, ayar sormadan ---------- */
   function start() {

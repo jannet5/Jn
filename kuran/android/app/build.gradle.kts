@@ -12,8 +12,8 @@ android {
         applicationId = "com.jn.kuran"
         minSdk = 24                      // Android 7.0 ve üstü
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.2.0"
+        versionCode = 5
+        versionName = "1.2.1"
     }
 
     // Web uygulaması (kuran/www) tek kaynaktır: olduğu gibi APK içine konur
