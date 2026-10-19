@@ -174,7 +174,7 @@ internal object EtymologyExtractor {
                 val rawName = r.label ?: names[r.code] ?: LangNames.codeToEnglish(r.code) ?: r.code
                 val langName = LangNames.tr(rawName) // Türkçe ad zaten Türkçedir; İngilizce olanlar çevrilir
                 val relation = relationOf(if (tr) r.after else r.before, tr)
-                val m = Mention(r.code, langName, r.text, r.translit, r.gloss, relation, glossEn = !tr)
+                val m = Mention(r.code, langName, r.text, r.translit, r.gloss, relation, glossEn = !tr, how = if (tr) null else Derivation.howOf(r.before))
                 when (kind) {
                     Kind.CHAIN -> if (pi == 0 && chain.none { it.text == m.text && it.langCode == m.langCode }) chain.add(m)
                     Kind.RELATED -> related.add(m)

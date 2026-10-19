@@ -53,11 +53,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jn.koken.MainViewModel
@@ -290,14 +294,14 @@ private fun StoryCard(story: Story, busy: Boolean) {
         story.badge?.let {
             Pill(it, container = MaterialTheme.colorScheme.primary, content = MaterialTheme.colorScheme.onPrimary)
         }
-        story.paras.forEach { p ->
+        story.paras.forEachIndexed { i, p ->
             Column(verticalArrangement = Arrangement.spacedBy(Sp.xs)) {
                 p.label?.let { SectionLabel(it) }
+                // ⟦kalın⟧ işaretli kısımlar (anlam, kök harfleri, sözcükler) vurgulanır
                 Text(
-                    p.text,
-                    fontSize = if (p.label == null) 18.sp else 16.sp,
-                    lineHeight = if (p.label == null) 26.sp else 24.sp,
-                    fontWeight = if (p.label == null) FontWeight.Medium else FontWeight.Normal,
+                    markup(p.text),
+                    fontSize = if (i == 0) 19.sp else 17.sp,
+                    lineHeight = if (i == 0) 28.sp else 27.sp,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
             }
@@ -320,6 +324,24 @@ private fun IncompleteBanner(onRetry: () -> Unit) {
             style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurface,
         )
         TextButton(onClick = onRetry, modifier = Modifier.heightIn(min = 48.dp)) { Text("Tekrar dene") }
+    }
+}
+
+/** "⟦kalın⟧" işaretlerini kalın + vurgu rengiyle gösterir */
+@Composable
+private fun markup(text: String): AnnotatedString {
+    val color = MaterialTheme.colorScheme.primary
+    return buildAnnotatedString {
+        var i = 0
+        while (i < text.length) {
+            val open = text.indexOf('⟦', i)
+            if (open < 0) { append(text.substring(i)); break }
+            append(text.substring(i, open))
+            val close = text.indexOf('⟧', open)
+            if (close < 0) { append(text.substring(open + 1)); break }
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold, color = color)) { append(text.substring(open + 1, close)) }
+            i = close + 1
+        }
     }
 }
 

@@ -143,8 +143,9 @@ fun Timeline(steps: List<Mention>, endLanguage: String, endWord: String) {
                 m.gloss?.let {
                     Text("“$it”", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
-                m.relation?.let {
-                    Text("↓ ${it.label}", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+                // bir sonrakine nasıl geçtiği: önce türetme türü/kalıp (etken ortacı, VIII. bâb), yoksa devralındı/alıntı
+                (m.how ?: m.relation?.label)?.let {
+                    Text("↓ $it", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
                 }
             }
         }

@@ -76,11 +76,22 @@ class Lookup(private val client: WikiClient = WikiClient()) {
         val target = Narrator.chainOf(r).lastOrNull { !it.langName.startsWith("Proto") && !it.isRoot } ?: return null
         val title = DeepBuilder.title(target) ?: return null
         val ok = client.fetch(Source.WIKT_EN.host, title) as? Fetch.Ok ?: return null
-        return withContext(Dispatchers.Default) {
+        val deep = withContext(Dispatchers.Default) {
             runCatching {
                 WiktionaryParser.parse(ok.html, Source.WIKT_EN, title, ok.pageUrl)?.let { DeepBuilder.build(target, it) }
             }.getOrNull()
+        } ?: return null
+        // Köke hangi kalıbın uygulandığını (VIII. bâb), mastarı ve ortacı bulmak için atası olan Arapça fiilin sayfasını da çek
+        val base = deep.chain.firstOrNull()
+        if (base != null && base.langCode == "ar") {
+            val vt = DeepBuilder.title(base)
+            val vf = if (vt != null) client.fetch(Source.WIKT_EN.host, vt) as? Fetch.Ok else null
+            if (vf != null) {
+                val verb = withContext(Dispatchers.Default) { runCatching { ArabicVerbParser.parse(vf.html, base) }.getOrNull() }
+                if (verb != null) return deep.copy(verb = verb)
+            }
         }
+        return deep
     }
 
     companion object {

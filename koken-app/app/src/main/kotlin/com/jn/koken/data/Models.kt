@@ -24,6 +24,8 @@ data class Mention(
     val relation: Relation?,
     val isRoot: Boolean = false,   // Sami dillerindeki sözcük kökü (örn. م ي ز)
     val glossEn: Boolean = false,  // anlam metni İngilizce mi (çevrilmesi gerekir)
+    /** Bir sonraki (daha yeni) sözcüğün bundan nasıl türediği (Türkçe): "etken ortacı", "VIII. bâb" vb. */
+    val how: String? = null,
 )
 
 /** Bir "Köken" bölümü: açıklama metni + ayrıştırılmış zincir */
@@ -59,12 +61,23 @@ data class Root(val letters: String, val translit: String?)
 
 data class LanguageSection(val language: String, val groups: List<SenseGroup>, val root: Root? = null)
 
-/** Zincirin en eski sözcüğünün kendi sayfasından alınan ek bilgi: kaynak dildeki anlam, atalar ve kök */
+/** Arapça fiil sayfasından: kalıp numarası (I–X), anlam, mastar ve etken ortaç */
+data class VerbInfo(
+    val verb: Mention,
+    val form: String?,
+    val definitions: List<String>,
+    val verbalNoun: Mention?,
+    val activeParticiple: Mention?,
+)
+
+/** Zincirin en eski sözcüğünün kendi sayfasından alınan ek bilgi: kaynak dildeki anlam, atalar, kök ve fiil kalıbı */
 data class DeepInfo(
     val term: Mention,
     val definitions: List<String>,
     val chain: List<Mention>,
     val root: Root?,
+    val formHint: String? = null,
+    val verb: VerbInfo? = null,
 )
 
 data class WiktionaryResult(
