@@ -125,6 +125,50 @@ class NarratorTest {
     }
 
     @Test
+    fun ceviri_tekrarlari_atilir() {
+        val r = LookupResult("salary", null, wikt("en_salary.html", Source.WIKT_EN, "salary"), null)
+        val en = Narrator.englishStrings(r, null).first()
+        val s = Narrator.compose(r, null, mapOf(en to "maaş, maaş, aylık"), translating = false)
+        assertTrue(s.paras[0].text, s.paras[0].text.contains("⟦maaş, aylık⟧ demek."))
+    }
+
+    @Test
+    fun cevirisi_kelimenin_kendisi_olan_anlam_atilir() {
+        // en.wiktionary Türkçe "kitap" için sadece "book" der: çevirisi "kitap" = kendisi, bilgi vermez
+        val r = LookupResult("kitap", null, wikt("en_kitap.html", Source.WIKT_EN, "kitap"), null)
+        val deep = verbOf(deepOf(r, "en_ar_kitab.html", "كتاب")!!, "en_ar_verb_kataba.html")
+        val en = Narrator.englishStrings(r, deep)
+        val tr = en.associateWith { if (it == "book") "kitap" else "TR[$it]" }
+        val s = Narrator.compose(r, deep, tr, translating = false)
+        assertTrue(s.paras[0].text, !s.paras[0].text.contains("⟦kitap⟧, ⟦kitap⟧ demek"))
+        assertTrue(s.paras[0].text, s.paras[0].text.startsWith("⟦kitap⟧, ⟦TR[letter, note, paper, piece of writing, message]⟧ demek."))
+    }
+
+    @Test
+    fun baska_dilden_ata_kokten_turemis_denmez() {
+        val r = LookupResult("Elif", null, wikt("en_Elif.html", Source.WIKT_EN, "Elif"), null)
+        val target = Narrator.chainOf(r).last { !it.langName.startsWith("Proto") }
+        val base = com.jn.koken.data.Mention("phn", "Proto-Sinaitic", "𐩱𐩡𐩽", "ʾlp", null, null)
+        val deep = DeepInfo(
+            term = target, definitions = listOf("name of the first letter of the Arabic alphabet"), chain = listOf(base),
+            root = com.jn.koken.data.Root("ء ل ف", "ʔ l f"),
+        )
+        val s = story(r, deep)
+        val t = s.paras.last().text
+        assertTrue(t, !t.contains("Bu kökten ⟦𐩱𐩡𐩽⟧"))
+        assertTrue(t, t.contains("ise Proto-Sinaitic ⟦𐩱𐩡𐩽⟧ (ʾlp) sözcüğünden gelmiş: “TR[name of the first letter of the Arabic alphabet]”."))
+    }
+
+    @Test
+    fun vikipedi_sadece_isimlerde_istenir() {
+        val ahmet = wikt("tr_wikt_Ahmet.html", Source.WIKT_TR, "Ahmet")
+        val kitap = wikt("tr_wikt_kitap.html", Source.WIKT_TR, "kitap")
+        assertTrue(Narrator.wantsWikipedia(ahmet, null))
+        assertTrue(!Narrator.wantsWikipedia(kitap, null))
+        assertTrue(Narrator.wantsWikipedia(null, null))
+    }
+
+    @Test
     fun uzun_tanim_kisa_es_anlamlilara_iner() {
         assertEquals("to write, to inscribe", Narrator.shorten("to mark (symbols, shapes, graphs, glyphs, letters, and the like) on a surface, to write, to inscribe"))
         assertEquals("to surpass, to be superior", Narrator.shorten("to surpass, to be superior"))

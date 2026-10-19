@@ -1,8 +1,13 @@
 # Köken — sözcüğün ve ismin kökenini bulan Android uygulaması
 
-Bir sözcük ya da isim yaz (örn. **Ahmet**, **mümtaz**, **kitap**). Uygulama doğrudan sana **düz Türkçe anlatır**:
-*"Arapça kökenli bir sıfattır. Anlamı: seçkin. Osmanlı Türkçesi'nden devralınmış, o da Arapça mumtāz sözcüğünden gelir.
-Kökü: م ي ز (ayırt edilmek)…"* — hangi dilden geldiği, anlamı, kaynak sözcüğün anlamı, kökü ve yolculuğu tek kartta.
+Bir sözcük ya da isim yaz (örn. **Ahmet**, **mümtaz**, **kitap**). Uygulama doğrudan sana **düz Türkçe anlatır**, eskiden yeniye:
+
+> **mümtaz**, **seçkin** demek. Arapçadan gelmiş. Arapçada sözcükler üç harfli köklerden türetilir; bu sözcüğün kök harfleri
+> **م + ي + ز** (m + y + z). Bu köke VIII. bâb (iftiʿâl) kalıbı uygulanınca **اِمْتَازَ** (imtāza) fiili oluşmuş: "üstün olmak, ayırt edilmek".
+> Bu fiilin etken ortacı (ism-i fâil) olan **مُمْتَاز** (mumtāz) ise "mükemmel; seçkin; ayrıcalıklı" demek.
+> Sonra Osmanlı Türkçesine **ممتاز** olarak geçmiş. Türkçede ise **mümtaz** biçimini almış.
+
+Anlamı, kökü ve yolculuğu tek kartta; altında görsel "Yolculuğu" çizgisi (kök → fiil → ortaç → Türkçe).
 
 - **Hesap, API anahtarı, sunucu yok.** İnternet yeterli. Uygulama herkese açık sayfaları doğrudan çeker.
 - Tek izin: `INTERNET`.
@@ -10,13 +15,14 @@ Kökü: م ي ز (ayırt edilmek)…"* — hangi dilden geldiği, anlamı, kayna
 
 ## Telefona kurmak
 
-`dist/Koken-1.1.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
+`dist/Koken-1.2.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
 GitHub mobilde: dosyaya dokun → **Download raw file**.
 
 ## Nasıl çalışıyor?
 
 1. **Üç kaynaktan** sayfa alınır (aşağıdaki tablo). 2. Köken paragrafı **dil etiketli zincire** çevrilir.
-3. Zincirin en eski gerçek sözcüğünün (örn. Arapça مُمْتَاز) **kendi sayfası da** çekilir: kaynak dildeki anlamı, atası ve **kökü** (م ي ز) oradan gelir.
+3. Zincirin en eski gerçek sözcüğünün (örn. Arapça مُمْتَاز) **kendi sayfası** ve (Arapça ise) atası olan **fiilin sayfası** da çekilir:
+   kaynak dildeki anlam, **kök harfleri** (م ي ز), **fiil kalıbı** (VIII. bâb), mastar ve etken ortaç oradan gelir.
 4. **Anlatım motoru** (`Narrator`) bunları kural tabanlı olarak düz Türkçe cümlelere dizer; yapay zekâ/anahtar yok, her cümle kaynak veriden gelir.
 5. İngilizce anlam metinleri **anahtarsız** iki herkese açık çeviri uç noktasıyla (Google Translate `gtx`, yedek MyMemory) Türkçeye çevrilir;
    yalnızca kısa anlam metinleri gönderilir. Çeviri olmazsa metin İngilizce kalır.

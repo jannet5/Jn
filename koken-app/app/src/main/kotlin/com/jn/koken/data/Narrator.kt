@@ -114,6 +114,16 @@ object Narrator {
         return out.toList()
     }
 
+    /** Vikipedi sadece isimler (Özel ad) ya da Vikisözlük'te hiç kayıt yokken gerekir */
+    fun wantsWikipedia(tr: WiktionaryResult?, en: WiktionaryResult?): Boolean {
+        if (tr == null && en == null) return true
+        return listOfNotNull(tr, en).any { r ->
+            r.languages.any { l ->
+                LookupResult.languageRank(l.language) < 2 && l.groups.any { g -> g.entries.any { it.pos == "Özel ad" } }
+            }
+        }
+    }
+
     private fun genderOf(meanings: List<Txt>): String? {
         val t = meanings.joinToString(" ") { it.s }.lowercase(trLocale)
         return when {
@@ -153,10 +163,12 @@ object Narrator {
             val out = ArrayList<String>()
             for (t in list) {
                 val x = tx(t.s, t.en) ?: return null
-                val c = clean(x)
+                // Çeviri aynı parçayı iki kez verebilir ("üstün olmak, üstün olmak"): tekrarları at
+                val c = clean(x).split(Regex("\\s*[,;]\\s*")).filter { it.isNotBlank() }
+                    .distinctBy { it.lowercase(trLocale) }.joinToString(", ")
                 if (c.isNotEmpty()) out += soft(c)
             }
-            return out
+            return out.distinctBy { it.lowercase(trLocale) }
         }
         fun quoted(list: List<Txt>, max: Int): String? =
             meanings(list)?.take(max)?.takeIf { it.isNotEmpty() }?.joinToString("; ")?.let { "“$it”" }
@@ -168,13 +180,18 @@ object Narrator {
 
         // ---- 1) Ne demek?
         val deepDefs = deepTxts(deep?.definitions.orEmpty())
-        val meaningSrc = when {
-            isName -> deepDefs
-            g.meanings.isNotEmpty() -> g.meanings
-            else -> deepDefs
-        }
-        val wikiMeaning = if (isName && meaningSrc.isEmpty()) r.wiki?.facts?.firstOrNull { it.first == "Anlam" }?.second else null
-        val ms: List<String>? = if (wikiMeaning != null) listOf(wikiMeaning) else meanings(meaningSrc)
+        // Sözcüğün kendi anlamı çevrilince sözcüğün kendisi çıkıyorsa ("book" → "kitap") bilgi vermez: at
+        val ownMs: List<String>? =
+            if (isName || g.meanings.isEmpty()) emptyList()
+            else meanings(g.meanings)?.filter { !it.equals(g.word, ignoreCase = true) }
+        val ms: List<String>? = when {
+            // isim: adın anlamı kaynak sözcüğün anlamıdır; yoksa Vikipedi'nin "Anlam" alanı
+            isName -> if (deepDefs.isNotEmpty()) meanings(deepDefs)
+            else r.wiki?.facts?.firstOrNull { it.first == "Anlam" }?.second?.let { listOf(it) } ?: emptyList()
+            ownMs == null -> null                // çeviri bekleniyor
+            ownMs.isNotEmpty() -> ownMs
+            else -> meanings(deepDefs)           // kendi anlamı yok ya da anlamsız: kaynak sözcüğün anlamı
+        }?.let { l -> if (isName) l else l.filter { !it.equals(g.word, ignoreCase = true) } }
         val head = nameKind?.let { "${b(g.word)}, bir $it." }
         val p1: String? = if (ms == null || ms.isEmpty()) head else {
             val m1 = ms[0]
@@ -255,9 +272,13 @@ object Narrator {
                 else "Bu fiilden ${term(target, false)} türemiş" + (tDefs?.let { ": $it" } ?: "") + "."
                 val vn = v.verbalNoun
                 if (vn != null && base.how != "mastarı (fiil adı)" && vn.text != target.text) sentences += "Aynı fiilin mastarı ise ${term(vn, false)}."
-            } else if (base != null) {
+            } else if (base != null && base.langName == lang) {
+                // Aynı dilden bir ata (örn. حَمِيد): köke bağlı türev
                 sentences += "Bu kökten ${term(base)} türemiş."
                 sentences += "${term(target, false)} ise onun ${base.how ?: "türevi"}" + (tDefs?.let { ": $it" } ?: "") + "."
+            } else if (base != null) {
+                // Başka bir dilden gelen ata (örn. Proto-Sinaitik 𐩱𐩡𐩽): köke değil, o dildeki sözcüğe bağlanır
+                sentences += "${term(target, false)} ise ${base.langName} ${term(base)} sözcüğünden gelmiş" + (tDefs?.let { ": $it" } ?: "") + "."
             } else {
                 sentences += "Bu harflerden ${term(target, false)} olmuş" + (tDefs?.let { ": $it" } ?: "") + "."
             }

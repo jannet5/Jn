@@ -14,3 +14,8 @@
 - Kullanıcı ne dedi: (yok; testte yakalandı) Yavaş ağda İngilizce Wiktionary isteği zaman aşımına uğradı, "Nereden geldi?" ve kök hiç görünmedi, hata mesajı da yoktu.
 - Kök neden: Başarısız istekler "kayıt yok" gibi yutuluyordu.
 - Yeni kural: Ağ hatası olan istek bir kez yeniden denenir; yine olmazsa sonuç "eksik" işaretlenir ve ekranda "Bazı kaynaklara ulaşılamadı, tekrar dene" şeridi çıkar. Eksik sonuç önbelleğe alınmaz.
+
+### D-004: Anlatım "kutular" gibiydi; Arapça için "kök harfleri → kalıp → sözcük" hikâyesi yoktu
+- Kullanıcı ne dedi: "Direkt bana gelecek diyecek: işte şu anlama geliyor, kökü şu bilmem ne. Bayağı her şeyi anlatacak. İşte Arapça ise kökü şu şu harf, sonra bir araya gelmiş, şöyle olmuş."
+- Kök neden: Anlatım etiketli kutulardı ("ANLAMI / NEREDEN GELDİ? / KÖKÜ") ve yeniden eskiye doğru ("A, B'den gelir, o da C'den") yazılmıştı; kök harfleri tek satırdı, harflerin hangi kalıpla birleşip sözcüğe dönüştüğü yoktu.
+- Yeni kural: Sonuç metni ESKİDEN YENİYE akan düz Türkçe anlatımdır: ne demek → (Arapça vb. ise) kök harfleri "م + ي + ز" → hangi kalıp/bâb ile fiil → etken ortaç/mastar/üstünlük sıfatı → hangi dile nasıl geçti → Türkçedeki hâli. Metin sentezlenemeyen hiçbir şeyi uydurmaz; bilgi yoksa o cümle hiç yazılmaz. Dil adlarına Türkçe hâl ekleri doğru yazılır (Arapçadan, Latinceye, Osmanlı Türkçesinde) ve birim testiyle korunur.

@@ -43,21 +43,24 @@ class Lookup(private val client: WikiClient = WikiClient()) {
             return Attempt(variants.first(), null, failed, rate)
         }
 
-        val (trA, enA, wpF) = coroutineScope {
+        val (trA, enA) = coroutineScope {
             val a = async { firstExisting(Source.WIKT_TR.host) }
             val b = async { firstExisting(Source.WIKT_EN.host) }
-            val c = async { client.fetch(Source.WIKI_TR.host, q) }
-            Triple(a.await(), b.await(), c.await())
+            a.await() to b.await()
         }
+        val (trW, enW) = withContext(Dispatchers.Default) {
+            val t = trA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_TR, trA.title, ok.pageUrl) }.getOrNull() }
+            val e = enA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_EN, enA.title, ok.pageUrl) }.getOrNull() }
+            t to e
+        }
+        // Vikipedi sadece isimlerde ya da Vikisözlük'te hiç kayıt yokken gerekir: sıradan sözcükler için büyük sayfayı çekme
+        val wpF: Fetch? = if (Narrator.wantsWikipedia(trW, enW)) client.fetch(Source.WIKI_TR.host, q) else null
         val wpFailed = wpF as? Fetch.Failed
         val incomplete = (trA.ok == null && trA.failed) || (enA.ok == null && enA.failed) || wpFailed != null
-
-        val result = withContext(Dispatchers.Default) {
-            val trW = trA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_TR, trA.title, ok.pageUrl) }.getOrNull() }
-            val enW = enA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_EN, enA.title, ok.pageUrl) }.getOrNull() }
-            val wp = (wpF as? Fetch.Ok)?.let { ok -> runCatching { WikipediaParser.parse(ok.html, q, ok.pageUrl) }.getOrNull() }
-            LookupResult(q, trW, enW, wp, incomplete)
+        val wp = (wpF as? Fetch.Ok)?.let { ok ->
+            withContext(Dispatchers.Default) { runCatching { WikipediaParser.parse(ok.html, q, ok.pageUrl) }.getOrNull() }
         }
+        val result = LookupResult(q, trW, enW, wp, incomplete)
 
         if (!result.isEmpty) {
             // Eksik sonucu önbelleğe alma: tekrar denenince tam hali gelsin
