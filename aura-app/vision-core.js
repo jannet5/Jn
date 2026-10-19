@@ -11,11 +11,17 @@ function distanceM(lm,w,h){const a=lm[468],b=lm[473];if(!a||!b)return null;
  const ipdPx=Math.hypot((a.x-b.x)*w,(a.y-b.y)*h);if(ipdPx<1)return null;return FOCAL_RATIO*w*IPD_M/ipdPx}
 // Kırpma sayacı: histerezisli; en az 2 kare kapalı kalmalı (gürültü değil)
 class BlinkCounter{
- constructor(){this.closed=false;this.n=0;this.times=[];this.t0=null}
+ // Eşikler sabit değil: kişinin açık göz düzeyine (taban) göre ayarlanır. Dar gözlü biri de doğru ölçülür.
+ constructor(){this.closed=false;this.times=[];this.t0=null;this.base=null}
+ thresholds(){const b=this.base===null?0.28:this.base;
+  return{close:b*0.78,open:b*0.88}}
  push(earV,tSec){
   if(this.t0===null)this.t0=tSec;
-  if(!this.closed&&earV<EAR_CLOSE){this.closed=true;this.cs=tSec}
-  else if(this.closed&&earV>EAR_OPEN){this.closed=false;if(tSec-this.cs<1.0&&tSec-this.cs>0.03)this.times.push(tSec)}
+  if(this.base===null)this.base=earV;
+  if(!this.closed)this.base=earV>this.base?this.base+(earV-this.base)*0.2:this.base+(earV-this.base)*0.01; // yukarı hızlı, aşağı çok yavaş
+  const th=this.thresholds();
+  if(!this.closed&&earV<th.close){this.closed=true;this.cs=tSec}
+  else if(this.closed&&earV>th.open){this.closed=false;if(tSec-this.cs<1.0&&tSec-this.cs>0.03)this.times.push(tSec)}
   this.times=this.times.filter(x=>tSec-x<=60)}
  perMinute(tSec){const win=Math.min(60,Math.max(15,tSec-this.t0));return Math.round(this.times.length*60/win)}
 }

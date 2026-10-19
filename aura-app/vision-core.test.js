@@ -12,10 +12,18 @@ const open=Array(30).fill(.3),blink=[.1,.05,.1];
 t('1 kırpma sayılır',()=>assert.strictEqual(run([...open,...blink,...open]).times.length,1));
 t('3 kırpma sayılır',()=>assert.strictEqual(run([...open,...blink,...open,...blink,...open,...blink,...open]).times.length,3));
 t('uzun kapalı (>1sn, uyku) kırpma değil',()=>assert.strictEqual(run([...open,...Array(40).fill(.05),...open]).times.length,0));
-t('açık-gürültü (0.19 civarı) sayılmaz',()=>assert.strictEqual(run([...open,.19,.2,.19,.3,...open]).times.length,0));
+t('küçük titreşim (açık göz 0.30 iken 0.25) sayılmaz',()=>assert.strictEqual(run([...open,.26,.25,.26,.3,...open]).times.length,0));
 t('dakikada hız: 15sn’de 5 kırpma → 20/dk',()=>{
  const c=new V.BlinkCounter(),fps=30;let tt=0;
  for(let b=0;b<5;b++){for(let i=0;i<60;i++)c.push(.3,tt++/fps);for(const e of blink)c.push(e,tt++/fps)}
  for(let i=0;i<30;i++)c.push(.3,tt++/fps);
  const pm=c.perMinute(tt/fps);assert.ok(pm>=18&&pm<=22,pm)});
+t('dar gözlü kişi (açık 0.23) kırpması sayılır, sürekli açıkken sayılmaz',()=>{
+ const o=Array(40).fill(0.23),bl=[.14,.12,.14];
+ assert.strictEqual(run([...o,...bl,...o]).times.length,1);
+ assert.strictEqual(run(o).times.length,0)});
+t('gürültülü açık göz (0.23±0.01) yanlış kırpma saymaz',()=>{
+ const seq=Array.from({length:300},(_,i)=>0.23+0.01*Math.sin(i));assert.strictEqual(run(seq).times.length,0)});
+t('geniş gözlü kişi (açık 0.32) kırpması sayılır',()=>{
+ const o=Array(40).fill(0.32);assert.strictEqual(run([...o,.15,.1,.15,...o]).times.length,1)});
 console.log(ok,'test geçti');

@@ -74,3 +74,24 @@ her 100 ms:
 ## 7. Farkı ne? (Patent fikri)
 
 > **Ekran mesafesine göre otomatik odak ekleyen + periyodik "odak esnetme" yapan + kırpmayı izleyen** tek gözlük. Piyasadaki ürünler (mavi filtre, sabit "bilgisayar camı") bunlardan sadece birini yapıyor.
+
+## 8. Kanıt durumu (internet araştırması, Ekim 2026)
+
+| İddia | Ne buldum | Güven |
+|---|---|---|
+| Ekran başında göz kırpma azalır, gözyaşı filmi bozulur | Bilgisayar kullanımında tutarlı biçimde düşük; el cihazlarında sonuçlar çelişkili, görev zorluğuna da bağlı | Yüksek (bilgisayar için) |
+| Uzun süre yakına odaklanma odak ve yakınsama sistemini zorlar | Çocuklarda ve düzeltilmemiş görme sorunu olanlarda belirgin; yetişkinlerde bulgular karışık | Orta |
+| **Mavi ışık filtreli cam göz yorgunluğunu azaltır** | **Cochrane 2023 (17 çalışma, 619 kişi): kısa vadeli göz yorgunluğuna fayda olmayabilir.** Uyku etkisi belirsiz | **Destek yok** |
+| 20-20-20 kuralı | Küçük, çoğu randomize olmayan çalışmalar; bir çalışmada hatırlatıcıyla iyileşme oldu ama bırakınca geri gitti | Düşük-orta |
+| **Mesafeye göre otomatik ayarlanan odak camı yorgunluğu azaltır (AURA'nın ana fikri)** | **Bu amaçla yayımlanmış bir deneme bulamadım.** Yakın-ek camlar (accommodative support) ile küçük denemeler var; elektronik ayarlı cam presbiyopi için denenmiş, ekran yorgunluğu için değil | **Kanıtlanmamış hipotez** |
+
+**Sonuç ve değişiklikler:**
+- Mavi ışık filtresi gözlüğün **ana özelliği değil**; isteğe bağlı bırakıldı, faydası iddia edilmiyor.
+- Katman 1 (ayarlı odak) ve Katman 2 (odak esnetme) **test edilmesi gereken hipotezler**; V3 klinik testin asıl amacı bunları doğrulamak.
+- Kırpma takibi ve uyarı en sağlam dayanağı olan özellik.
+
+**Kaynaklar:**
+- Cochrane, mavi ışık filtreli camlar: https://www.cochrane.org/CD013244/EYES_do-blue-light-filtering-spectacle-lenses-reduce-digital-eye-strain
+- Dijital göz yorgunluğu, yaygınlık ve iyileştirme: https://pubmed.ncbi.nlm.nih.gov/29963645/
+- 20-20-20 testi (Aston Üniversitesi): https://research.aston.ac.uk/en/publications/the-effects-of-breaks-on-digital-eye-strain-dry-eye-and-binocular/
+- Entegratif derleme (Clinical Optometry, cilt 18): https://www.dovepress.com/from-the-ocular-surface-to-neurophysiology-an-integrative-review-of-di-peer-reviewed-fulltext-article-OPTO
