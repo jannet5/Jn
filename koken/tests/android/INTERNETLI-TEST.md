@@ -1,17 +1,29 @@
-# Internetli emülatör testi (TAMAMLANAMADI)
+# Internetli emülatör testi (2026-10-19): BAŞARILI
 
-Test edilen APK: dist/Koken.apk, sha256 e1150749b4228a08674133409cd393489d83201eaea24f67b00b7cd143eb5db6 (kurulum başarılı: "Success").
+Ortam: Android 11 (API 30) x86_64 emülatör, yazılımsal (KVM yok). Gerçek WebView, gerçek `MainActivity`, gerçek JS köprüsü (`KokenNative`).
 
-## Yapılanlar
-1. Emülatör (k30, API 30, yazılımsal) `-http-proxy http://127.0.0.1:40483 -writable-system` ile açıldı; ~13 dk sürdü (14:09 -> 14:22).
-2. Proxy CA'sı (/root/.ccr/agent-proxy-ca.crt, CN=CCR agent-proxy interception CA, hash_old 0266b358) `adb remount` (overlayfs, verity kapatıldı; yeniden başlatma yapılmadı) yerine tmpfs bindirme ile /system/etc/security/cacerts altına, init ve zygote/zygote64 mount ad alanlarına nsenter ile kondu. Dosya hem init hem zygote64 ad alanında görüldü (ls ile doğrulandı).
-3. APK kuruldu (pm path app.koken görüldü).
+## Nasıl denendi
+Emülatörün internet çıkışı yalnızca ortamın TLS'i yeniden sonlandıran proxy'sinden geçiyor. Bu yüzden APK'nın **test kopyası** yapıldı (`/tmp` altında, repoya girmedi). Teslim edilen APK'dan farkı yalnızca şu 3 satır/dosya:
+1. `network_security_config` ile proxy CA'sına güven (res/xml + res/raw),
+2. `WebView.setWebContentsDebuggingEnabled(true)` (DevTools ile sürmek için),
+3. `https.proxyHost=10.0.2.2` / `https.proxyPort` (emülatörden ana makinenin proxy'sine).
+Web varlıkları, `KokenNative` köprüsü ve motor teslim edilenle aynı. Teslim edilen APK sha256: `e1150749b4228a08674133409cd393489d83201eaea24f67b00b7cd143eb5db6`.
 
-## Başarısız / yapılamayan
-- Enjeksiyondan sonra Android çerçevesi (system_server) ölüp yeniden başladı; sonra SystemServer.systemReady içinde NullPointerException (RootWindowContainer.getTopDisplayFocusedStack) ile döngüye girdi (logcat-internet.txt). Neden kesin belirlenemedi (olası: tmpfs/ad alanı müdahalesi, yazılımsal emülatör yükü/watchdog). Doğrulanmadı.
-- Sonuç: uygulama AÇILAMADI; "kitap", "Ahmet", "pijama" aramaları YAPILMADI; sonuç ekranı, yol haritası ve kaynak durum şeridi (Nişanyan, TDK, Etymonline) GÖRÜLMEDİ.
-- Köprü (200 + base64) yolu internetle DOĞRULANMADI. CA'nın TLS'i gerçekten çözdüğü de test edilemedi.
-- Ekran-internet-*.png: yalnızca ekran-internet-son-durum.png (çerçeve çöküşü sırasındaki ekran; sonuç ekranı DEĞİL).
+(Önceki denemede proxy CA'sını sistem deposuna koymak system_server'ı çökertmişti; bu yol sistemi değiştirmiyor.)
 
-## Kaynak durumu
-Hiçbir kaynak test edilemedi.
+## Sonuçlar
+- Köprü: `typeof KokenNative = object`, sürüm `1.0.0`.
+- Köprü doğrudan çağrısı: `api.etimolojiturkce.com/word/kitap` → **200 + JSON gövde** (Türkçe karakterler base64 UTF-8 yolundan doğru çözüldü); `example.com` → 200. TDK bir denemede `Connection reset` verdi (aynı kaynak sonraki aramada çalıştı).
+- Arama akışı ("kitap", Ara'ya basıldı, ~68 sn, yazılımsal emülatör yavaş): sonuç ekranı geldi, **4 köken bloğu**:
+  - Köken 1 · Vikisözlük (Türkçe)
+  - Köken 2 · Etimoloji Türkçe
+  - Köken 3 · Nişanyan Sözlük (yalnız köprüyle gelen kaynak)
+  - Köken 4 · TDK Güncel Sözlük
+  Yol haritası: `Türkçe kitap ← Osmanlı Türkçesi كتاب ← Arapça كتاب`.
+- Kanıt: `cdp-kitap.log` (ekran metni), `ekran-internet-kitap.png`.
+
+## Eksik kalan
+- İngilizce Vikisözlük bu ortamdan hız sınırına (429) takılıyor; bu testte hep ulaşılamadı. Başarılı yolu telefonda görülmeli.
+- Etymonline yalnız İngilizce sözcüklerde sorulur; "kitap" için sorulmadı.
+- "pijama" ve "okul" aramaları bu oturumda tamamlanmadan zaman doldu (emülatör çok yavaş).
+- Gerçek telefonda denenmedi.
