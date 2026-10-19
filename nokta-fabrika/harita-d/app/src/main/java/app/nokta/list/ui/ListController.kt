@@ -248,7 +248,7 @@ class ListController(
             if (adapter.dragging) {
                 if (from >= 0 && from != to) repo.move(from, to)
                 // Basili tutup kipirdatmadan birakmak = duzenle (tutamactan baslayan dokunus haric).
-                val pressOnly = from < 0 && !dragFromHandle
+                val pressOnly = from < 0 && !dragFromHandle && !adapter.downOnButton
                 from = -1; to = -1; dragFromHandle = false
                 adapter.endDrag(repo.items)
                 if (pressOnly) vh.itemId.let { id -> repo.items.firstOrNull { it.id == id } }?.let { startEdit(it) }

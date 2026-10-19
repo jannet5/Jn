@@ -25,9 +25,9 @@ import java.util.Calendar
 
 /**
  * Zil isaretine basinca acilan pencere: "her N dakikada bir" ve/veya "alarm (saat)".
- * Ikisi birlikte kullanilabilir. [onSaved] bildirim izni istemek icin cagrilir.
+ * Ikisi birlikte kullanilabilir. [onNotify] bildirim iznini ister ya da bildirim ayarlarini acar.
  */
-class ReminderDialog(private val act: AppCompatActivity, private val item: Item, private val onSaved: () -> Unit) {
+class ReminderDialog(private val act: AppCompatActivity, private val item: Item, private val onNotify: () -> Unit) {
 
     fun show() {
         val v = LayoutInflater.from(act).inflate(R.layout.dialog_reminder, null)
@@ -37,7 +37,8 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
         val atBtn = v.findViewById<Button>(R.id.at_time)
         val exactRow = v.findViewById<View>(R.id.exact_row)
         v.findViewById<TextView>(R.id.item_text).text = item.text
-        v.findViewById<View>(R.id.notif_hint).visibility = if (Reminders.canNotify(act)) View.GONE else View.VISIBLE
+        val notifRow = v.findViewById<View>(R.id.notif_row)
+        v.findViewById<View>(R.id.notif_btn).setOnClickListener { onNotify() }
 
         val plan = Reminders.get(act, item.id)
         everySw.isChecked = plan?.everyMin != null
@@ -61,17 +62,18 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
             atBtn.text = act.getString(
                 if (ReminderPlan.isToday(System.currentTimeMillis(), at)) R.string.remind_today_fmt else R.string.remind_tomorrow_fmt, time,
             )
-            exactRow.visibility = if (atSw.isChecked && !Reminders.canExact(act)) View.VISIBLE else View.GONE
+            // Tam zaman izni hem alarm hem tekrar icin gerekir; yoksa Android bildirimleri dakikalarca geciktirir.
+            exactRow.visibility = if ((atSw.isChecked || everySw.isChecked) && !Reminders.canExact(act)) View.VISIBLE else View.GONE
+            notifRow.visibility = if (Reminders.canNotify(act)) View.GONE else View.VISIBLE
         }
+        everySw.setOnCheckedChangeListener { _, _ -> renderAt() }
         atSw.isChecked = plan?.atMillis != null
         atSw.setOnCheckedChangeListener { _, _ -> renderAt() }
         atBtn.setOnClickListener {
             TimePickerDialog(act, { _, h, m -> hour = h; minute = m; atSw.isChecked = true; renderAt() },
                 hour, minute, DateFormat.is24HourFormat(act)).show()
         }
-        if (Build.VERSION.SDK_INT >= 31) v.findViewById<View>(R.id.exact_btn).setOnClickListener {
-            act.startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:${act.packageName}")))
-        }
+        v.findViewById<View>(R.id.exact_btn).setOnClickListener { openExactSettings() }
         // Ayarlardan izin verip donunce uyari kendiliginden kaybolur.
         v.viewTreeObserver.addOnWindowFocusChangeListener { if (it) renderAt() }
         renderAt()
@@ -97,11 +99,21 @@ class ReminderDialog(private val act: AppCompatActivity, private val item: Item,
                 val next = ReminderPlan(every, at)
                 Reminders.set(act, item.id, next)
                 Toast.makeText(act, summary(next), Toast.LENGTH_LONG).show()
-                if (!next.isEmpty) onSaved()
                 d.dismiss()
+                // Kayitli hatirlatma eksik izin yuzunden sessiz kalmasin: gereken ekran hemen acilir.
+                if (!next.isEmpty) when {
+                    !Reminders.canNotify(act) -> onNotify()
+                    !Reminders.canExact(act) -> openExactSettings()
+                }
             }
         }
         d.show()
+    }
+
+    private fun openExactSettings() {
+        if (Build.VERSION.SDK_INT < 31) return
+        Toast.makeText(act, R.string.remind_exact_toast, Toast.LENGTH_LONG).show()
+        runCatching { act.startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:${act.packageName}"))) }
     }
 
     private fun summary(p: ReminderPlan): String {

@@ -26,6 +26,8 @@ class ItemAdapter(
         private set
     /** Surukleme suresince gelen guncellemeler bekletilir (satir elinden kaymasin). */
     var dragging = false
+    /** Son dokunus bir dugmede (zil/sil) basladiysa true. */
+    var downOnButton = false
     private var pending: List<Item>? = null
 
     init { setHasStableIds(true) }
@@ -45,6 +47,17 @@ class ItemAdapter(
         vh.itemView.setOnClickListener { if (!dragging) vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onToggle(items[it].id) } }
         vh.delete.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onDelete(items[it].id) } }
         vh.bell.setOnClickListener { vh.bindingAdapterPosition.takeIf { it >= 0 }?.let { onBell(items[it]) } }
+        // Dugmelere uzun basmak "bas-birak duzenle" sayilmaz (zile/silmeye biraz uzun basan duzenlemeye dusmesin).
+        val markButton = View.OnTouchListener { _, e ->
+            if (e.actionMasked == MotionEvent.ACTION_DOWN) downOnButton = true
+            false
+        }
+        vh.bell.setOnTouchListener(markButton)
+        vh.delete.setOnTouchListener(markButton)
+        vh.itemView.setOnTouchListener { _, e ->
+            if (e.actionMasked == MotionEvent.ACTION_DOWN) downOnButton = false
+            false
+        }
         vh.handle.setOnTouchListener { _, e ->
             if (e.actionMasked == MotionEvent.ACTION_DOWN) onStartDrag(vh)
             false

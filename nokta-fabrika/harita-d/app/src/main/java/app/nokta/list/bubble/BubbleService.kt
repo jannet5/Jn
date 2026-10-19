@@ -66,6 +66,7 @@ class BubbleService : Service() {
         repo = Repo.get(this)
         repo.addListener(countListener)
         createChannel()
+        app.nokta.list.reminder.Reminders.ensureScheduled(applicationContext)
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -335,9 +336,15 @@ class BubbleService : Service() {
         @Volatile private var appForeground = false
         private var instance: BubbleService? = null
 
-        /** MainActivity onStart/onStop'ta cagirir. */
+        private var foregroundScreens = 0
+
+        /**
+         * Uygulama ekranlari (liste, alarm) onStart/onStop'ta cagirir. Sayac: ekranlar arasi geciste
+         * yeni ekranin onStart'i eskisinin onStop'undan once gelir.
+         */
         fun setAppForeground(fg: Boolean) {
-            appForeground = fg
+            foregroundScreens = maxOf(0, foregroundScreens + if (fg) 1 else -1)
+            appForeground = foregroundScreens > 0
             instance?.applyForeground()
         }
 

@@ -13,6 +13,7 @@ class ReminderReceiver : BroadcastReceiver() {
         if (id < 0) return
         when (intent.action) {
             Reminders.ACTION_STOP -> Reminders.clear(app, id)
+            Reminders.ACTION_SILENCE -> androidx.core.app.NotificationManagerCompat.from(app).cancel(Reminders.notifId(id))
             Reminders.ACTION_DONE -> {
                 Reminders.clear(app, id)
                 val res = goAsync()

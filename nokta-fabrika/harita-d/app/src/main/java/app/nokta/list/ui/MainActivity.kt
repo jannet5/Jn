@@ -23,6 +23,7 @@ import app.nokta.list.R
 import app.nokta.list.data.Item
 import app.nokta.list.bubble.BubbleService
 import app.nokta.list.core.Repo
+import app.nokta.list.reminder.Reminders
 
 class MainActivity : AppCompatActivity() {
     private lateinit var repo: Repo
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
         controller.focusAdd()
         handleRemindIntent(intent)
+        Reminders.ensureScheduled(applicationContext)
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
     private fun showReminder(item: Item) {
         if (isFinishing) return
         ReminderDialog(this, item) { askNotificationPermission(force = true) }.show()
+        Reminders.ensureChannels(this)
     }
 
     /**
@@ -107,10 +110,16 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
     }
 
+    /**
+     * Ilk sefer sistem izin penceresi; reddedildiyse aciklama; artik sorulamiyorsa (iki kez red ya da ayarlardan
+     * kapali) [force] iken uygulamanin bildirim ayarlari acilir, dugme hicbir zaman sessiz kalmaz.
+     */
     private fun askNotificationPermission(force: Boolean = false) {
-        if (Build.VERSION.SDK_INT >= 33 &&
-            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (Reminders.hasNotifPermission(this)) {
+            if (force && !Reminders.canNotify(this)) openNotifSettings()
+            return
+        }
+        if (Build.VERSION.SDK_INT >= 33) {
             if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
                 // Daha once reddedildi: neden gerektigini soyle, sonra tekrar iste.
                 AlertDialog.Builder(this)
@@ -119,10 +128,18 @@ class MainActivity : AppCompatActivity() {
                     .setPositiveButton(R.string.notif_rationale_ok) { _, _ -> notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS) }
                     .setNegativeButton(R.string.close, null)
                     .show()
-            } else if (force || !notifAsked()) {
+            } else if (!notifAsked()) {
                 getSharedPreferences("nokta", Context.MODE_PRIVATE).edit().putBoolean("notif_asked", true).apply()
                 notifLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
+            } else if (force) openNotifSettings()
+        }
+    }
+
+    private fun openNotifSettings() {
+        Toast.makeText(this, R.string.notif_settings_toast, Toast.LENGTH_LONG).show()
+        val i = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        runCatching { startActivity(i) }.onFailure {
+            startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName")))
         }
     }
 
@@ -158,6 +175,9 @@ class MainActivity : AppCompatActivity() {
         BubbleService.setWanted(this, true)
         askNotificationPermission()
         BubbleService.start(this)
+        // Balon uygulama acikken gizlidir (ekrandaki dugmeleri kapatmasin); hemen gorunsun diye ana ekrana cikilir.
+        Toast.makeText(this, R.string.bubble_started, Toast.LENGTH_LONG).show()
+        moveTaskToBack(true)
     }
 
     private fun share() {

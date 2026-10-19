@@ -27,7 +27,7 @@
     <string name="bubble_desc_fmt">nokta listesini aç, %d öğe kaldı</string>
     <string name="notif_denied">Bildirim izni verilmedi. Balon çalışır ama bildirim çekmecesinde görünmez.</string>
     <string name="notif_rationale_title">Bildirim izni</string>
-    <string name="notif_rationale_body">Balon açıkken Android bir bildirim göstermek zorundadır. İzin vermezsen balon yine çalışır; bildirim görünmez.</string>
+    <string name="notif_rationale_body">Zil ile kurduğun hatırlatma ve alarmların ekrana düşmesi için bildirim izni gerekir. İzin vermezsen hatırlatmalar görünmez; balon yine çalışır.</string>
     <string name="notif_rationale_ok">Devam</string>
     <string name="perm_needed">Balonu açmak için önce "üstte görüntüle" izni gerekli.</string>
     <string name="share_backup">Metin olarak paylaş</string>
@@ -62,9 +62,16 @@
     <string name="remind_at_label">Alarm</string>
     <string name="remind_today_fmt">Bugün %1$s</string>
     <string name="remind_tomorrow_fmt">Yarın %1$s</string>
-    <string name="remind_exact_hint">Alarmın tam dakikasında çalması için izin gerekli.</string>
+    <string name="remind_exact_hint">Zamanında çalması için izin gerekli; yoksa Android geciktirir.</string>
     <string name="remind_exact_btn">İzni aç</string>
-    <string name="remind_notif_off">Bildirim izni kapalı. Kaydettikten sonra izin isteyeceğiz; izin vermezsen hatırlatma görünmez.</string>
+    <string name="remind_notif_off">Bildirimler kapalı; hatırlatma ve alarm görünmez.</string>
+    <string name="remind_notif_btn">Bildirimleri aç</string>
+    <string name="notif_settings_toast">"Bildirimlere izin ver"i aç. Ekranda açılması için "Kayan bildirim / Ekranda göster" de açık olsun.</string>
+    <string name="remind_exact_toast">nokta için "Alarm ve hatırlatıcı kurmaya izin ver"i aç, sonra geri dön.</string>
+    <string name="alarm_channel">Alarmlar</string>
+    <string name="alarm_channel_desc">Saatli alarm: alarm sesiyle, dokunana kadar çalar</string>
+    <string name="alarm_dismiss">Kapat</string>
+    <string name="bubble_started">Balon açıldı: ekranın sağ kenarında. Uygulama açıkken gizlenir.</string>
     <string name="remind_bad_min">1 ile 1440 arasında bir dakika yaz.</string>
     <string name="remind_remove">Kaldır</string>
     <string name="remind_removed">Hatırlatma kaldırıldı</string>

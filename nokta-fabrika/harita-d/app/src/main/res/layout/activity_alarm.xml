@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Alarm caldiginda kilit ekraninin ustunde acilan tam ekran: madde metni ve iki buyuk dugme. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alarm_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/alarm_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/dm_serif"
+        android:textColor="@color/ink"
+        android:textSize="64sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/plex_medium"
+        android:text="@string/remind_alarm_now"
+        android:textColor="@color/accent"
+        android:textSize="16sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/alarm_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/ink"
+            android:textSize="24sp" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/alarm_done"
+        style="@style/NoktaButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/remind_done"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/alarm_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/plex_medium"
+        android:gravity="center"
+        android:text="@string/alarm_dismiss"
+        android:textColor="@color/ink"
+        android:textSize="18sp" />
+</LinearLayout>

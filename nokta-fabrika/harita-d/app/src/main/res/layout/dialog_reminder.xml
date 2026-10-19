@@ -118,13 +118,31 @@
             android:text="@string/remind_exact_btn" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/notif_hint"
+    <LinearLayout
+        android:id="@+id/notif_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="@string/remind_notif_off"
-        android:textColor="@color/muted"
-        android:textSize="13sp"
-        android:visibility="gone" />
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingEnd="12dp"
+            android:text="@string/remind_notif_off"
+            android:textColor="@color/ink"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/notif_btn"
+            style="@style/NoktaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/remind_notif_btn" />
+    </LinearLayout>
 </LinearLayout>

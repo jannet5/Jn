@@ -30,3 +30,8 @@ Anket: şiddet/cinsellik/kumar yok, kullanıcı etkileşimi/paylaşım yok (yaln
 - [ ] Gizlilik politikasını yayınla, e-postayı doldur
 - [ ] Mağaza görselleri ve FGS videosu
 - [ ] targetSdk 36 (31 Ağustos 2026 şartı)
+
+
+## USE_FULL_SCREEN_INTENT (1.3.0)
+- Kullanim: kullanicinin zil ile kurdugu saatli alarm caldiginda ekran kapali/kilitliyken tam ekran alarm sayfasini acmak.
+- Play politikasi bu izni yalniz alarm ve arama uygulamalari icin otomatik verir. Beyan reddedilirse uygulama yine calisir: alarm, alarm sesiyle ust bildirim olarak duser (tam ekran acilmaz).

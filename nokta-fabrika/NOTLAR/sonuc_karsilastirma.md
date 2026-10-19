@@ -55,3 +55,13 @@ Mağaza ekran görüntüsü çekerken bulundu: bir satıra basılı tutup hareke
 ## 1.2.1
 - Klavye acik ve giris alani odaktayken klavyenin hemen sag ustunde ikinci bir "Ekle" (duzenlemede "Kaydet") belirir; ustteki Ekle yerinde kalir. Geri al cubugu bu dugmenin ustune kayar. Klavye kapaninca gizlenir.
 - Dogrulama: API 26 emulatorde gorundu, basinca ekledi, klavye kapaninca kayboldu. 43 test + lint temiz.
+
+## 1.3.0 (bildirim / alarm / balon, gercek telefon geri bildirimi)
+Android 15 emulatorunde (temiz kurulum) bulunan ve duzeltilenler:
+- Tam zamanli alarm izni Android 14+ te varsayilan KAPALI: alarm ve tekrar dakikalarca gecikiyordu. Uyari artik hem tekrar hem alarm icin gorunur, "Izni ac" dugmesi var; kaydederken izin yoksa izin ekrani dogrudan acilir. Izin verilince alarm `exactAllowReason=permission`, pencere 0 ile kuruldu; 1 dakikalik tekrar bildirimi zamaninda geldi (importance=4).
+- Bildirim izni bir kez kalici reddedilince dugme sessiz kaliyordu: artik uygulamanin bildirim ayarlari acilir. Ayarlardan kapatilan bildirim/kanal da algilanir (yalniz izin degil). Gerekce metni hatirlatmayi anlatir.
+- Saatli alarm artik gercek alarm: ayri "Alarmlar" kanali, alarm sesi (USAGE_ALARM), dokunana kadar tekrar eder (INSISTENT, en fazla 10 dk), ekran kapali/kilitliyken tam ekran alarm sayfasi acilir (Aldim / Kapat). API 26 emulatorde ekran kapaliyken 23:45 alarmi ekrani acti, "Aldim" sesi kesti, maddeyi tamamladi.
+- "Zorla durdur" / uretici temizleyicisi (Xiaomi vb.) tum alarmlari siliyordu ve geri kurulmuyordu (bildirim hic gelmiyordu). Alarm zamanlari kaydedilir; uygulama ya da balon her acildiginda ayni zamana yeniden kurulur. Dogrulama: zorla durdur -> 0 alarm, uygulama acilinca ayni saat (00:02:29) geri geldi.
+- Balon uygulama acikken gizli oldugu icin "Balonu goster" hicbir sey yapmiyor gibi gorunuyordu: artik ana ekrana cikilir, balon hemen gorunur, kisa aciklama gosterilir. Alarm ekraninda balon gizlenir.
+- Zile/silmeye biraz uzun basmak duzenleme moduna dusuruyordu: dugmelerde basili tutmak artik duzenleme acmaz.
+- 43 birim testi gecti, lint 0 hata.
