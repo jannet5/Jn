@@ -20,10 +20,11 @@ Web varlıkları, `KokenNative` köprüsü ve motor teslim edilenle aynı. Tesli
   - Köken 3 · Nişanyan Sözlük (yalnız köprüyle gelen kaynak)
   - Köken 4 · TDK Güncel Sözlük
   Yol haritası: `Türkçe kitap ← Osmanlı Türkçesi كتاب ← Arapça كتاب`.
-- Kanıt: `cdp-kitap.log` (ekran metni), `ekran-internet-kitap.png`.
+- "pijama" da aynı yolla arandı: sonuç ekranı geldi (Türkçe pijama ← Fransızca pyjama, Etimoloji Türkçe bloğu). Ekran görüntüsü: `ekran-internet-pijama.png`.
+- Kanıt: `cdp-kitap.log` (ekran metni), `ekran-internet-kitap.png`, `ekran-internet-pijama.png`.
 
 ## Eksik kalan
 - İngilizce Vikisözlük bu ortamdan hız sınırına (429) takılıyor; bu testte hep ulaşılamadı. Başarılı yolu telefonda görülmeli.
 - Etymonline yalnız İngilizce sözcüklerde sorulur; "kitap" için sorulmadı.
-- "pijama" ve "okul" aramaları bu oturumda tamamlanmadan zaman doldu (emülatör çok yavaş).
+- "okul" ve "Ahmet" bu emülatörde denenmedi (emülatör çok yavaş; arama başına ~1 dk).
 - Gerçek telefonda denenmedi.
