@@ -169,7 +169,7 @@ private fun Header(conversation: Conversation, appLabel: String, level: Level, o
             )
         }
         Spacer(Modifier.width(12.dp))
-        Column(Modifier.weight(1f)) {
+        Column(Modifier.weight(1f).padding(end = 10.dp)) {
             Text(
                 text = conversation.title,
                 style = MaterialTheme.typography.titleSmall,

@@ -13,6 +13,7 @@ fun TekPanelTheme(
     colors: BrandColors = Brand.colors,
     shapes: BrandShapes = Brand.shapes,
     motion: BrandMotion = Brand.motion,
+    typography: androidx.compose.material3.Typography = brandTypography(),
     content: @Composable () -> Unit,
 ) {
     val view = LocalView.current
@@ -44,6 +45,6 @@ fun TekPanelTheme(
         LocalBrandShapes provides shapes,
         LocalBrandMotion provides motion,
     ) {
-        MaterialTheme(colorScheme = scheme, typography = brandTypography(), content = content)
+        MaterialTheme(colorScheme = scheme, typography = typography, content = content)
     }
 }
