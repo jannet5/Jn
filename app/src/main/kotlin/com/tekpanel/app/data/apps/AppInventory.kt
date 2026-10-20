@@ -15,14 +15,14 @@ data class InstalledApp(val packageName: String, val label: String)
  * phone". Uses a `<queries><intent>` MAIN/LAUNCHER declaration instead of the restricted
  * QUERY_ALL_PACKAGES permission, so the Play listing needs no special permission declaration.
  */
-class AppInventory(private val context: Context) {
+open class AppInventory(private val context: Context) {
 
     @Volatile private var cached: List<InstalledApp> = emptyList()
 
     /** Latest known list without touching the package manager; empty until [refresh] ran once. */
     fun snapshot(): List<InstalledApp> = cached
 
-    suspend fun refresh(): List<InstalledApp> = withContext(Dispatchers.IO) {
+    open suspend fun refresh(): List<InstalledApp> = withContext(Dispatchers.IO) {
         val packageManager = context.packageManager
         val launcher = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
         val resolved = if (Build.VERSION.SDK_INT >= 33) {
