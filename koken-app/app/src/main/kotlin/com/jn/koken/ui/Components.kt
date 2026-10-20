@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.border
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -39,6 +41,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jn.koken.data.Mention
+import com.jn.koken.data.Step
 
 /** Uygulama simgesinin küçük çizimi: kökten dallanan iki dal */
 @Composable
@@ -159,6 +162,54 @@ fun Timeline(steps: List<Mention>, endLanguage: String, endWord: String) {
         }
     }
 }
+
+/**
+ * Oluşumun bir basamağı: üstte etiket (KÖK, FİİL, ATA, SÖZCÜK) + dil, ortada yazılış, altında anlam,
+ * "nasıl oluştu" cümlesi ve not. Kök basamağında harfler tek tek kutularda gösterilir.
+ */
+@Composable
+fun StepRow(step: Step, last: Boolean, markup: @Composable (String) -> androidx.compose.ui.text.AnnotatedString) {
+    val cs = MaterialTheme.colorScheme
+    val accent = if (step.isWord) cs.primary else if (step.label == "KÖK") cs.tertiaryOrSecondary() else cs.secondary
+    TimelineRow(last = last, dot = accent) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
+            Text(step.label, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold, letterSpacing = 1.sp, color = accent)
+            Text("·  ${step.language}", style = MaterialTheme.typography.labelLarge, color = cs.onSurfaceVariant)
+        }
+        if (step.tiles.isNotEmpty()) {
+            val tl = step.translit?.split("+")?.map { it.trim() }.orEmpty()
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
+                step.tiles.forEachIndexed { i, t ->
+                    if (i > 0) Text("+", style = MaterialTheme.typography.titleMedium, color = cs.onSurfaceVariant)
+                    Column(
+                        Modifier.border(1.5.dp, accent, RoundedCornerShape(12.dp)).background(cs.primaryContainer, RoundedCornerShape(12.dp))
+                            .padding(horizontal = Sp.lg, vertical = Sp.sm),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        Text(t, fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold, fontSize = 30.sp, lineHeight = 36.sp, color = cs.onPrimaryContainer)
+                        tl.getOrNull(i)?.let { Text(it, style = MaterialTheme.typography.labelMedium, fontStyle = FontStyle.Italic, color = cs.onPrimaryContainer) }
+                    }
+                }
+            }
+        } else {
+            Text(
+                step.form,
+                fontFamily = FontFamily.Serif, fontWeight = if (step.isWord) FontWeight.Bold else FontWeight.Normal,
+                fontSize = if (step.isWord) 30.sp else 24.sp, lineHeight = if (step.isWord) 36.sp else 32.sp,
+                textAlign = TextAlign.Left, color = cs.onSurface,
+            )
+            step.translit?.let {
+                Text(it, style = MaterialTheme.typography.bodyMedium, fontStyle = FontStyle.Italic, color = cs.onSurfaceVariant)
+            }
+        }
+        step.meaning?.let { Text(if (step.isWord || step.label == "KÖK") it.replaceFirstChar { c -> c.uppercase(java.util.Locale("tr", "TR")) } else "“$it”", style = MaterialTheme.typography.bodyLarge, color = cs.onSurface) }
+        step.how?.let { Text(markup(it), style = MaterialTheme.typography.bodyMedium, color = cs.primary, fontWeight = FontWeight.Medium) }
+        step.note?.let { Text(markup(it), style = MaterialTheme.typography.bodyMedium, color = cs.onSurfaceVariant) }
+        step.parts?.let { Text(markup(it), style = MaterialTheme.typography.bodyMedium, color = cs.onSurfaceVariant) }
+    }
+}
+
+private fun androidx.compose.material3.ColorScheme.tertiaryOrSecondary() = tertiary
 
 @Composable
 private fun TimelineRow(last: Boolean, dot: Color, content: @Composable () -> Unit) {

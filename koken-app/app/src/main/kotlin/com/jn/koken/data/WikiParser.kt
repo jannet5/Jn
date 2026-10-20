@@ -144,6 +144,8 @@ internal object EtymologyExtractor {
         val chain = ArrayList<Mention>()
         val related = ArrayList<Mention>()
         val parts = ArrayList<Mention>()
+        var partsOwner = -1
+        var ownerSet = false
 
         // Etiketleri önce topla ki aynı koddaki sonraki terimler adı bilsin
         val allToks = paragraphs.map { tokenize(it) }
@@ -178,7 +180,11 @@ internal object EtymologyExtractor {
                 when (kind) {
                     Kind.CHAIN -> if (pi == 0 && chain.none { it.text == m.text && it.langCode == m.langCode }) chain.add(m)
                     Kind.RELATED -> related.add(m)
-                    Kind.PART -> if (pi == 0) parts.add(m)
+                    Kind.PART -> if (pi == 0) {
+                        // "A, from B + C": B + C, kendisinden hemen önce gelen zincir basamağına aittir
+                        if (!ownerSet) { partsOwner = chain.size - 1; ownerSet = true }
+                        parts.add(m)
+                    }
                     Kind.OTHER -> Unit
                 }
             }
@@ -193,6 +199,7 @@ internal object EtymologyExtractor {
             related = related.take(12),
             parts = parts.take(6),
             lonelyLabel = lonely,
+            partsOwner = partsOwner,
         )
     }
 
@@ -206,7 +213,7 @@ internal object EtymologyExtractor {
 
 /** Vikisözlük (Türkçe ve İngilizce) sayfa gövdesi → diller, köken, anlamlar */
 object WiktionaryParser {
-    private val etyHeading = Regex("^(etymology|köken)(\\s*\\d+)?$", RegexOption.IGNORE_CASE)
+    private val etyHeading = Regex("^(etymology|köken|glyph origin)(\\s*\\d+)?$", RegexOption.IGNORE_CASE)
 
     private val pos = mapOf(
         "noun" to "İsim", "proper noun" to "Özel ad", "verb" to "Fiil", "adjective" to "Sıfat", "adverb" to "Zarf",
@@ -222,6 +229,16 @@ object WiktionaryParser {
         "kısaltma" to "Kısaltma", "harf" to "Harf", "simge" to "Simge", "ortaç" to "Ortaç", "sözcük" to "Sözcük",
         "ön ad" to "Sıfat", "eylem" to "Fiil", "belirteç" to "Zarf", "adıl" to "Zamir", "ilgeç" to "Edat", "ek" to "Ek",
     )
+
+    /** "…– see 電腦" / "simplified form of 電腦" gibi yönlendirme sayfalarında asıl maddenin başlığı; yoksa null */
+    fun stubTarget(html: String): String? {
+        val doc = Jsoup.parse(html)
+        val text = doc.text()
+        if (!(text.contains("simplified form of") || text.contains("– see ") || text.contains("- see "))) return null
+        return doc.select(".mw-parser-output a[title]").firstOrNull { a ->
+            a.attr("title").isNotBlank() && a.parents().any { it.hasAttr("lang") }
+        }?.attr("title")
+    }
 
     private enum class Mode { NONE, ETY, POS, SKIP }
 

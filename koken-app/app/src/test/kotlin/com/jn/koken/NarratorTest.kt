@@ -38,7 +38,9 @@ class NarratorTest {
         dump.append("\n######## $name\n[${s.badge}] ${s.word}\n")
         s.paras.forEach { dump.append("  ${it.label ?: "—"}: ${it.text.replace("\n", " | ")}\n") }
         dump.append("  YOLCULUK: " + s.timeline.joinToString(" <- ") { (if (it.isRoot) "KÖK " else "") + it.langName + ":" + it.text } + "\n")
-        File("build/story_dump.txt").appendText("\n######## $name\n[${s.badge}] ${s.word}\n" + s.paras.joinToString("") { "  ${it.label ?: "—"}: ${it.text.replace("\n", " | ")}\n" } + "  YOLCULUK: " + s.timeline.joinToString(" <- ") { (if (it.isRoot) "KÖK " else "") + it.langName + ":" + it.text } + "\n")
+        File("build/story_dump.txt").appendText("\n######## $name\n[${s.badge}] ${s.word} (${s.language}; diller=${s.languages})\n" + s.paras.joinToString("") { "  ${it.label ?: "—"}: ${it.text.replace("\n", " | ")}\n" } +
+            s.steps.joinToString("") { st -> "  ADIM ${st.label} [${st.language}] ${st.form} ${st.tiles} ${st.translit ?: ""} | anlam=${st.meaning} | nasıl=${st.how} | not=${st.note} | parça=${st.parts}\n" } +
+            "  YAZI: ${s.narration}\n")
     }
 
     private fun verbOf(d: DeepInfo, page: String): DeepInfo {
@@ -59,7 +61,7 @@ class NarratorTest {
         assertEquals("Arapça kökenli", s.badge)
         val meaning = s.paras[0].text
         assertEquals("⟦mümtaz⟧, ⟦seçkin⟧ demek.", meaning)
-        val t = s.paras[1].text
+        val t = s.narration!!
         assertTrue(t, t.startsWith("Arapçadan gelmiş. Arapçada sözcükler üç harfli köklerden türetilir; bu sözcüğün kök harfleri ⟦م + ي + ز⟧ (m + y + z)."))
         assertTrue(t, t.contains("Bu köke VIII. bâb (iftiʿâl) kalıbı uygulanınca ⟦اِمْتَازَ⟧ (imtāza) fiili oluşmuş: “TR[to be characterized or distinguished by]; TR[to surpass, to be superior]”."))
         assertTrue(t, t.contains("Bu fiilin etken ortacı (ism-i fâil) olan ⟦مُمْتَاز⟧ (mumtāz) ise “TR[excellent]; TR[distinguished, selected]; TR[privileged]” demek."))
@@ -80,7 +82,7 @@ class NarratorTest {
         val s = story(r, deep)
         record("Ahmet", s)
         assertTrue(s.paras[0].text, s.paras[0].text.startsWith("⟦Ahmet⟧, bir erkek ismi. ⟦TR["))
-        val t = s.paras[1].text
+        val t = s.narration!!
         assertTrue(t, t.startsWith("Arapçadan gelmiş."))
         assertTrue(t, t.contains("kök harfleri ⟦ح + م + د⟧ (ḥ + m + d)."))
         assertTrue(t, t.contains("Bu kökten ⟦حَمِيد⟧ (ḥamīd, “TR[praiseworthy; benign]”) türemiş."))
@@ -100,7 +102,7 @@ class NarratorTest {
         record("kitap", s)
         assertEquals("Arapça kökenli", s.badge)
         assertTrue(s.paras[0].text, s.paras[0].text.startsWith("⟦kitap⟧ şu anlama geliyor: Ciltli veya ciltsiz"))
-        val t = s.paras[1].text
+        val t = s.narration!!
         assertTrue(t, t.contains("kök harfleri ⟦ك + ت + ب⟧ (k + t + b)."))
         assertTrue(t, t.contains("Bu köke I. bâb (temel kalıp, faʿale) kalıbı uygulanınca ⟦كَتَبَ⟧ (kataba) fiili oluşmuş: “TR[to write, to inscribe]"))
         assertTrue(t, t.contains("Bu fiilin mastarı (fiil adı) olan ⟦كِتَاب⟧ (kitāb)"))
@@ -114,7 +116,7 @@ class NarratorTest {
         val s = story(r, deep)
         record("salary", s)
         assertEquals("Latince kökenli", s.badge)
-        val t = s.paras.last().text
+        val t = s.narration!!
         assertTrue(t, t.contains("Ardından Latinceye ⟦sal⟧ (“TR[salt]”) olarak geçmiş, ondan ⟦salārius⟧ (“TR[related to salt]”), ondan ⟦salārium⟧ (“TR[wages]”) olmuş."))
         assertTrue(t, t.contains("Daha sonra Eski Fransızcaya ⟦salaire⟧ olarak geçmiş."))
         assertTrue(t, t.contains("Derken Anglo-Norman'a ⟦salarie⟧ olarak geçmiş."))
@@ -154,7 +156,7 @@ class NarratorTest {
             root = com.jn.koken.data.Root("ء ل ف", "ʔ l f"),
         )
         val s = story(r, deep)
-        val t = s.paras.last().text
+        val t = s.narration!!
         assertTrue(t, !t.contains("Bu kökten ⟦𐩱𐩡𐩽⟧"))
         assertTrue(t, t.contains("ise Proto-Sinaitic ⟦𐩱𐩡𐩽⟧ (ʾlp) sözcüğünden gelmiş: “TR[name of the first letter of the Arabic alphabet]”."))
     }
@@ -197,5 +199,64 @@ class NarratorTest {
         assertTrue(s.paras.none { it.text.contains("A fixed amount of money") })
         val failed = Narrator.compose(r, null, emptyMap(), translating = false)
         assertTrue("çeviri olmazsa İngilizce kalmalı", failed.paras[0].text.contains("A fixed amount of money"))
+    }
+
+    @Test
+    fun olusum_adimlari_kokten_sozcuge_mumtaz() {
+        val r = LookupResult("mümtaz", wikt("tr_wikt_mumtaz.html", Source.WIKT_TR, "mümtaz"), wikt("en_mumtaz.html", Source.WIKT_EN, "mümtaz"), null)
+        val deep = verbOf(deepOf(r, "en_ar_mumtaz.html", "ممتاز")!!, "en_ar_verb_imtaza.html")
+        val steps = story(r, deep).steps
+        assertEquals(listOf("KÖK", "FİİL", "SÖZCÜK", "ATA", "BUGÜN"), steps.map { it.label })
+        assertEquals(listOf("م", "ي", "ز"), steps[0].tiles)
+        assertEquals("Köke VIII. bâb (iftiʿâl) kalıbı uygulanınca oluştu.", steps[1].how)
+        assertEquals("Bu fiilin etken ortacı (ism-i fâil) olarak oluştu.", steps[2].how)
+        assertEquals("Osmanlı Türkçesine geçti.", steps[3].how)
+        assertEquals("Türkçede bugünkü biçimini aldı.", steps.last().how)
+        assertTrue(steps.last().isWord)
+    }
+
+    @Test
+    fun kader_ata_fiilin_anlami_dogru_ayrilir() {
+        val r = LookupResult("kader", wikt("tr_wikt_kader.html", Source.WIKT_TR, "kader"), wikt("en_kader.html", Source.WIKT_EN, "kader"), null)
+        val deep = deepOf(r, "en_ar_qadar.html", "قدر")!!
+        val base = deep.chain.first()
+        assertEquals("قَدِرَ", base.text)
+        assertEquals("qadira", base.translit)
+        assertEquals("to be able to", base.gloss)
+        assertEquals("ق د ر", deep.root?.letters)
+        assertEquals("mastarı (fiil adı)", base.how)
+    }
+
+    @Test
+    fun ayni_yazilis_birden_cok_dilde_dil_secilir() {
+        val r = LookupResult("kader", wikt("tr_wikt_kader.html", Source.WIKT_TR, "kader"), wikt("en_kader.html", Source.WIKT_EN, "kader"), null)
+        val diller = Narrator.languagesOf(r)
+        assertEquals("Türkçe", diller.first())
+        assertTrue(diller.toString(), diller.size > 1)
+        val other = diller.first { it != "Türkçe" }
+        assertEquals(other, Narrator.compose(r, null, emptyMap(), translating = false, language = other).language)
+        assertEquals("Türkçe", Narrator.compose(r, null, emptyMap(), translating = false).language)
+    }
+
+    @Test
+    fun farsca_sozcukte_farsca_secilir_ve_basamaklar_dizilir() {
+        val r = LookupResult("دوست", null, wikt("en_fa_dust.html", Source.WIKT_EN, "دوست"), null)
+        val s = Narrator.compose(r, null, emptyMap(), translating = false)
+        assertEquals("Farsça", s.language)
+        assertEquals("Eski Farsça kökenli", s.badge)
+        assertEquals("KÖK", s.steps.first().label)
+        assertTrue(s.steps.last().isWord)
+        assertEquals("Farsçada bugünkü biçimini aldı.", s.steps.last().how)
+        assertTrue(s.steps.size >= 4)
+    }
+
+    @Test
+    fun bilesenler_dogru_basamaga_baglanir() {
+        val r = LookupResult("ordinateur", null, wikt("en_fr_ordinateur.html", Source.WIKT_EN, "ordinateur"), null)
+        val s = Narrator.compose(r, null, emptyMap(), translating = false)
+        val owner = s.steps.first { it.parts != null }
+        assertEquals("Latince", owner.language)
+        assertTrue(owner.parts!!, owner.parts!!.contains("ōrdināre") && owner.parts!!.contains("-tor"))
+        assertTrue(s.narration!!, s.narration!!.contains("Latince ⟦ōrdinātōrem⟧ sözcüğü ise ⟦ōrdināre⟧ ile ⟦-tor⟧ sözcüklerinin birleşmesinden oluşmuş."))
     }
 }

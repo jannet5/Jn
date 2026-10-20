@@ -7,7 +7,7 @@ Bir sözcük ya da isim yaz (örn. **Ahmet**, **mümtaz**, **kitap**). Uygulama 
 > Bu fiilin etken ortacı (ism-i fâil) olan **مُمْتَاز** (mumtāz) ise "mükemmel; seçkin; ayrıcalıklı" demek.
 > Sonra Osmanlı Türkçesine **ممتاز** olarak geçmiş. Türkçede ise **mümtaz** biçimini almış.
 
-Anlamı, kökü ve yolculuğu tek kartta; altında görsel "Yolculuğu" çizgisi (kök → fiil → ortaç → Türkçe).
+Anlamı üstte, altında "Oluşumu": sözcük kökten başlayıp yukarıdan aşağı adım adım belirir (kök harfleri → fiil → sözcük → bugünkü hâli). Her dilde çalışır; aynı yazılış birden çok dilde varsa dil seçilir.
 
 - **Hesap, API anahtarı, sunucu yok.** İnternet yeterli. Uygulama herkese açık sayfaları doğrudan çeker.
 - Tek izin: `INTERNET`.
@@ -15,7 +15,7 @@ Anlamı, kökü ve yolculuğu tek kartta; altında görsel "Yolculuğu" çizgisi
 
 ## Telefona kurmak
 
-`dist/Koken-1.2.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
+`dist/Koken-1.3.0.apk` dosyasını telefona indir ve aç. ("Bilinmeyen kaynaklardan yükleme"ye izin vermen istenebilir.)
 GitHub mobilde: dosyaya dokun → **Download raw file**.
 
 ## Nasıl çalışıyor?

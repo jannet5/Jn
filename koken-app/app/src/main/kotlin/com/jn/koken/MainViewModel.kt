@@ -26,6 +26,8 @@ sealed interface UiState {
         val deep: DeepInfo?,
         val translations: Map<String, String>,
         val busy: Boolean,
+        /** Aynı yazılış birden çok dilde varsa seçilen dil (null = en öncelikli dil) */
+        val language: String? = null,
     ) : UiState
     data class NotFound(val query: String) : UiState
     data class Error(val query: String, val rateLimited: Boolean) : UiState
@@ -60,13 +62,21 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     /** Önce eldekini göster, sonra kaynak sözcüğün sayfasını ve çevirileri ekleyerek anlatımı zenginleştir */
-    private suspend fun enrich(r: LookupResult) {
-        state = UiState.Result(r, null, emptyMap(), busy = true)
-        val deep = runCatching { lookup.deepen(r) }.getOrNull()
-        state = UiState.Result(r, deep, emptyMap(), busy = true)
-        val english = Narrator.englishStrings(r, deep)
+    private suspend fun enrich(r: LookupResult, language: String? = null) {
+        state = UiState.Result(r, null, emptyMap(), busy = true, language = language)
+        val deep = runCatching { lookup.deepen(r, language) }.getOrNull()
+        state = UiState.Result(r, deep, emptyMap(), busy = true, language = language)
+        val english = Narrator.englishStrings(r, deep, language)
         val tr = if (english.isEmpty()) emptyMap() else runCatching { translator.translate(english) }.getOrDefault(emptyMap())
-        state = UiState.Result(r, deep, tr, busy = false)
+        state = UiState.Result(r, deep, tr, busy = false, language = language)
+    }
+
+    /** Aynı yazılış birden çok dilde varsa seçilen dilin oluşumunu göster */
+    fun selectLanguage(language: String) {
+        val cur = state as? UiState.Result ?: return
+        if (cur.language == language) return
+        job?.cancel()
+        job = viewModelScope.launch { enrich(cur.data, language) }
     }
 
     fun clear() {

@@ -3,6 +3,10 @@ package com.jn.koken.ui
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -40,6 +44,7 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -78,6 +83,7 @@ import com.jn.koken.data.Source
 import com.jn.koken.data.WikiClient
 import com.jn.koken.data.WikipediaResult
 import com.jn.koken.data.WiktionaryResult
+import kotlinx.coroutines.delay
 import java.util.Locale
 
 private val EXAMPLES = listOf("Ahmet", "kitap", "salary", "Elif", "yoğurt", "telefon")
@@ -98,7 +104,7 @@ fun KokenApp(vm: MainViewModel) {
             when (val s = vm.state) {
                 UiState.Idle -> IdleView(vm.history, onPick = { focus.clearFocus(); vm.submit(it) })
                 is UiState.Loading -> LoadingView(s.query)
-                is UiState.Result -> ResultView(s, onRetry = { vm.submit(s.data.query) })
+                is UiState.Result -> ResultView(s, onRetry = { vm.submit(s.data.query) }, onLanguage = vm::selectLanguage)
                 is UiState.NotFound -> NotFoundView(s.query)
                 is UiState.Error -> ErrorView(s.rateLimited, onRetry = { vm.submit(s.query) })
             }
@@ -210,10 +216,10 @@ private fun WiktionaryResult?.hasEtymology(): Boolean =
 private enum class SourceTab(val label: String) { WT("Vikisözlük"), WE("Wiktionary EN"), WP("Vikipedi") }
 
 @Composable
-private fun ResultView(s: UiState.Result, onRetry: () -> Unit) {
+private fun ResultView(s: UiState.Result, onRetry: () -> Unit, onLanguage: (String) -> Unit) {
     val data = s.data
     // Anlatım: kaynak sayfa ve çeviriler geldikçe yeniden üretilir
-    val story = remember(data, s.deep, s.translations, s.busy) { Narrator.compose(data, s.deep, s.translations, s.busy) }
+    val story = remember(data, s.deep, s.translations, s.busy, s.language) { Narrator.compose(data, s.deep, s.translations, s.busy, s.language) }
     var details by rememberSaveable(data.query) { mutableStateOf(false) }
     val tabs = buildList {
         if (data.wiktTr != null) add(SourceTab.WT)
@@ -239,8 +245,9 @@ private fun ResultView(s: UiState.Result, onRetry: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(Sp.lg),
     ) {
         if (data.incomplete && !s.busy) item { IncompleteBanner(onRetry) }
-        item { StoryCard(story, s.busy) }
-        if (story.timeline.isNotEmpty()) item { JourneyCard(story) }
+        item { StoryCard(story, s.busy, onLanguage) }
+        item { FormationCard(story, s.busy) }
+        story.narration?.let { n -> if (!s.busy) item { NarrationCard(n) } }
         if (story.related.isNotEmpty()) item { RelatedCard(story.related) }
         item {
             TextButton(onClick = { details = !details }, modifier = Modifier.heightIn(min = 48.dp)) {
@@ -284,7 +291,8 @@ private fun ResultView(s: UiState.Result, onRetry: () -> Unit) {
 
 /** Ana kart: sözcük + "şu anlama geliyor, kökü şu, şöyle gelmiş" diye düz Türkçe anlatım */
 @Composable
-private fun StoryCard(story: Story, busy: Boolean) {
+@OptIn(ExperimentalLayoutApi::class)
+private fun StoryCard(story: Story, busy: Boolean, onLanguage: (String) -> Unit) {
     KokenCard {
         Text(
             story.word,
@@ -293,6 +301,21 @@ private fun StoryCard(story: Story, busy: Boolean) {
         )
         story.badge?.let {
             Pill(it, container = MaterialTheme.colorScheme.primary, content = MaterialTheme.colorScheme.onPrimary)
+        }
+        if (story.languages.size > 1) {
+            Column(verticalArrangement = Arrangement.spacedBy(Sp.xs)) {
+                SectionLabel("Bu yazılış ${story.languages.size} dilde var")
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
+                    story.languages.take(10).forEach { l ->
+                        val on = l == story.language
+                        Pill(
+                            l, onClick = { onLanguage(l) },
+                            container = if (on) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primaryContainer,
+                            content = if (on) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onPrimaryContainer,
+                        )
+                    }
+                }
+            }
         }
         story.paras.forEachIndexed { i, p ->
             Column(verticalArrangement = Arrangement.spacedBy(Sp.xs)) {
@@ -345,11 +368,64 @@ private fun markup(text: String): AnnotatedString {
     }
 }
 
+/**
+ * Oluşum: sözcük kökünden başlayarak yukarıdan aşağı adım adım "yaratılır".
+ * Her basamak sırayla belirir (ilk gösterimde); "Baştan oynat" ile tekrar izlenir.
+ */
 @Composable
-private fun JourneyCard(story: Story) {
+private fun FormationCard(story: Story, busy: Boolean) {
     KokenCard {
-        SectionLabel("Yolculuğu")
-        Timeline(story.timeline, story.endLanguage, story.word)
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+            SectionLabel("Oluşumu · kökten bugüne")
+        }
+        if (busy) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Sp.sm)) {
+                CircularProgressIndicator(Modifier.size(16.dp), strokeWidth = 2.dp, color = MaterialTheme.colorScheme.primary)
+                Text("Kökten başlayarak hazırlanıyor…", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+            return@KokenCard
+        }
+        if (story.steps.isEmpty()) {
+            Text(
+                "Bu sözcüğün kaynaklarda köken bilgisi yok. Aşağıdan kaynak ayrıntılarına bakabilirsin.",
+                style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            return@KokenCard
+        }
+        var played by rememberSaveable(story.word, story.language) { mutableStateOf(false) }
+        var replay by remember { mutableIntStateOf(0) }
+        var shown by remember(story.steps, replay) { mutableIntStateOf(if (played && replay == 0) story.steps.size else 0) }
+        LaunchedEffect(story.steps, replay) {
+            if (shown >= story.steps.size) return@LaunchedEffect
+            for (i in shown + 1..story.steps.size) {
+                delay(if (i == 1) 250L else 700L)
+                shown = i
+            }
+            played = true
+        }
+        Column {
+            story.steps.forEachIndexed { i, st ->
+                AnimatedVisibility(
+                    visible = i < shown,
+                    enter = fadeIn(tween(450)) + expandVertically(tween(450)),
+                ) { StepRow(st, last = i == story.steps.lastIndex, markup = { markup(it) }) }
+            }
+        }
+        if (shown >= story.steps.size) {
+            TextButton(onClick = { replay++ }, modifier = Modifier.heightIn(min = 48.dp)) { Text("▶ Baştan oynat") }
+        }
+    }
+}
+
+/** Aynı oluşumun düz yazı hâli (okumayı sevenler için) */
+@Composable
+private fun NarrationCard(narration: String) {
+    var open by rememberSaveable(narration) { mutableStateOf(false) }
+    Column(verticalArrangement = Arrangement.spacedBy(Sp.sm)) {
+        TextButton(onClick = { open = !open }, modifier = Modifier.heightIn(min = 48.dp)) {
+            Text(if (open) "Yazı olarak okumayı gizle ▴" else "Yazı olarak oku ▾")
+        }
+        if (open) KokenCard { Text(markup(narration), fontSize = 17.sp, lineHeight = 27.sp, color = MaterialTheme.colorScheme.onSurface) }
     }
 }
 

@@ -13,8 +13,8 @@ android {
         applicationId = "com.jn.koken"
         minSdk = 26
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.2.0"
+        versionCode = 4
+        versionName = "1.3.0"
     }
 
     // Yerel/geliştirme imzası: temiz bir checkout'tan release APK üretilebilsin diye (README'ye bak)

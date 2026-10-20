@@ -48,10 +48,21 @@ class Lookup(private val client: WikiClient = WikiClient()) {
             val b = async { firstExisting(Source.WIKT_EN.host) }
             a.await() to b.await()
         }
-        val (trW, enW) = withContext(Dispatchers.Default) {
+        val (trW, enW0) = withContext(Dispatchers.Default) {
             val t = trA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_TR, trA.title, ok.pageUrl) }.getOrNull() }
             val e = enA.ok?.let { ok -> runCatching { WiktionaryParser.parse(ok.html, Source.WIKT_EN, enA.title, ok.pageUrl) }.getOrNull() }
             t to e
+        }
+        // "電腦'e bak" gibi yönlendirme sayfalarını (örn. sadeleştirilmiş Çince) bir kez takip et
+        var enW = enW0
+        if (enW == null && enA.ok != null) {
+            val tgt = WiktionaryParser.stubTarget(enA.ok.html)
+            if (tgt != null && tgt != enA.title) {
+                val f = client.fetch(Source.WIKT_EN.host, tgt) as? Fetch.Ok
+                if (f != null) enW = withContext(Dispatchers.Default) {
+                    runCatching { WiktionaryParser.parse(f.html, Source.WIKT_EN, tgt, f.pageUrl) }.getOrNull()
+                }
+            }
         }
         // Vikipedi sadece isimlerde ya da Vikisözlük'te hiç kayıt yokken gerekir: sıradan sözcükler için büyük sayfayı çekme
         val wpF: Fetch? = if (Narrator.wantsWikipedia(trW, enW)) client.fetch(Source.WIKI_TR.host, q) else null
@@ -71,30 +82,61 @@ class Lookup(private val client: WikiClient = WikiClient()) {
         return if (incomplete) Outcome.Failed(q, trA.rateLimited || enA.rateLimited || wpFailed?.code == 429) else Outcome.NotFound(q)
     }
 
-    /**
-     * Zincirin en eski gerçek sözcüğünün (örn. Arapça مُمْتَاز) kendi sayfasını da çekip
-     * kaynak dildeki anlamını, atalarını ve kökünü bulur. Başarısız olursa null (anlatım bunsuz da çalışır).
-     */
-    suspend fun deepen(r: LookupResult): DeepInfo? {
-        val target = Narrator.chainOf(r).lastOrNull { !it.langName.startsWith("Proto") && !it.isRoot } ?: return null
+    /** Bir atanın kendi sayfasından anlam, ataları ve kökü çıkarır; sayfa/bölüm yoksa null */
+    private suspend fun fetchDeep(target: Mention): DeepInfo? {
         val title = DeepBuilder.title(target) ?: return null
         val ok = client.fetch(Source.WIKT_EN.host, title) as? Fetch.Ok ?: return null
-        val deep = withContext(Dispatchers.Default) {
+        return withContext(Dispatchers.Default) {
             runCatching {
                 WiktionaryParser.parse(ok.html, Source.WIKT_EN, title, ok.pageUrl)?.let { DeepBuilder.build(target, it) }
             }.getOrNull()
-        } ?: return null
-        // Köke hangi kalıbın uygulandığını (VIII. bâb), mastarı ve ortacı bulmak için atası olan Arapça fiilin sayfasını da çek
+        }
+    }
+
+    /**
+     * Zincirin en eski gerçek sözcüğünün kendi sayfasını çekip kaynak dildeki anlamını, atalarını ve kökünü bulur.
+     * Arapça ise: fiil sayfası (kalıp/mastar/ortaç) ve kökün kendi bilgisi (anlamı, kökeni) de alınır.
+     * Diğer dillerde: daha eski atalar için en çok 2 kat daha geriye gidilir. Başarısız olursa null (anlatım bunsuz da çalışır).
+     */
+    suspend fun deepen(r: LookupResult, language: String? = null): DeepInfo? {
+        val target = Narrator.chainOf(r, language).lastOrNull { !it.langName.startsWith("Proto") && !it.isRoot } ?: return null
+        var deep = fetchDeep(target) ?: return null
         val base = deep.chain.firstOrNull()
         if (base != null && base.langCode == "ar") {
             val vt = DeepBuilder.title(base)
             val vf = if (vt != null) client.fetch(Source.WIKT_EN.host, vt) as? Fetch.Ok else null
-            if (vf != null) {
-                val verb = withContext(Dispatchers.Default) { runCatching { ArabicVerbParser.parse(vf.html, base) }.getOrNull() }
-                if (verb != null) return deep.copy(verb = verb)
+            val verb = vf?.let { f -> withContext(Dispatchers.Default) { runCatching { ArabicVerbParser.parse(f.html, base) }.getOrNull() } }
+            if (verb != null) deep = deep.copy(verb = verb)
+        }
+        if (deep.root != null) deep = deep.copy(rootInfo = rootInfoFor(deep))
+        if (deep.root == null) {
+            val seen = HashSet<String>().apply { add(target.langCode + target.text) }
+            repeat(2) {
+                val last = deep.chain.lastOrNull { !it.langName.startsWith("Proto") && !it.isRoot } ?: return deep
+                if (!seen.add(last.langCode + last.text)) return deep
+                val d2 = fetchDeep(last) ?: return deep
+                val fresh = d2.chain.filter { n -> deep.chain.none { it.text == n.text && it.langCode == n.langCode } }
+                if (fresh.isEmpty()) return deep
+                deep = deep.copy(chain = deep.chain + fresh)
             }
         }
         return deep
+    }
+
+    /** Kökün temel anlamı ve kökeni: I. bâb fiilinden (zaten elimizdeyse onu kullan, yoksa kök harflerinden sayfayı bul) */
+    private suspend fun rootInfoFor(deep: DeepInfo): RootInfo? {
+        val root = deep.root ?: return null
+        val v = deep.verb
+        if (v != null && v.form == "I") return RootInfo(v.verb, v.definitions, v.etymology?.chain.orEmpty(), v.etymology?.related.orEmpty())
+        val candidates = ArabicVerbParser.formICandidates(root.letters)
+        if (candidates.isEmpty()) return null
+        val pages = coroutineScope { candidates.map { c -> async { client.fetch(Source.WIKT_EN.host, c) } }.map { it.await() } }
+        for (f in pages) {
+            val ok = f as? Fetch.Ok ?: continue
+            val vi = withContext(Dispatchers.Default) { runCatching { ArabicVerbParser.parseFormI(ok.html, root.letters) }.getOrNull() } ?: continue
+            return RootInfo(vi.verb, vi.definitions, vi.etymology?.chain.orEmpty(), vi.etymology?.related.orEmpty())
+        }
+        return null
     }
 
     companion object {

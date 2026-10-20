@@ -21,6 +21,8 @@ object DeepBuilder {
         if (t.isEmpty() || t.startsWith("*") || m.isRoot) return null
         val s = when (m.langCode) {
             "la", "ang" -> t.map { latinMarks[it] ?: it }.joinToString("")
+            "zh", "cmn", "yue", "ja", "ko" -> t.substringBefore("/")
+            "ru", "uk", "be", "bg", "sr", "mk", "orv" -> t.replace("\u0301", "")
             else -> marks.replace(t, "")
         }
         return s.takeIf { it.isNotBlank() }
@@ -33,7 +35,7 @@ object DeepBuilder {
             "alternative form|obsolete spelling|misspelling|diminutive|elative)\\b.*\\bof\\b",
     )
     // "… of كَتَبَ (kataba) (form I)" içindeki gönderme verilen Arapça sözcük ve okunuşu
-    private val refTerm = Regex("\\bof\\s+(\\p{InArabic}+)\\s*\\(([^)]*)\\)")
+    private val refTerm = Regex("\\bof\\s+([\\p{L}\\p{M}'-]+)\\s*(?:\\(([^)]*)\\))?")
     private val formRef = Regex("\\(form ([IVX]+)\\)")
 
     fun build(target: Mention, page: WiktionaryResult): DeepInfo? {
@@ -63,8 +65,12 @@ object DeepBuilder {
             formHint = formRef.find(gramDef)?.groupValues?.get(1)
             if (chain.isEmpty()) {
                 refTerm.find(gramDef)?.let { m ->
+                    // "(qadira, “to be able to”)" → okunuş "qadira", anlam "to be able to"
+                    val inner = m.groupValues[2]
+                    val translit = inner.substringBefore(",").trim().takeIf { it.isNotBlank() && !it.startsWith("form ") && !it.startsWith("“") }
+                    val gloss = Regex("“([^”]+)”").find(inner)?.groupValues?.get(1)
                     chain = listOf(
-                        Mention(target.langCode, target.langName, m.groupValues[1], m.groupValues[2].takeIf { it.isNotBlank() }, null, Relation.DERIVED, how = how),
+                        Mention(target.langCode, target.langName, m.groupValues[1], translit, gloss, Relation.DERIVED, glossEn = gloss != null, how = how),
                     )
                 }
             } else if (chain[0].how == null && how != null) {

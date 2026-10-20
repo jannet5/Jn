@@ -2,43 +2,64 @@ package com.jn.koken.data
 
 import java.util.Locale
 
-/** Anlatımın bir paragrafı: isteğe bağlı küçük başlık + düz Türkçe metin (⟦kalın⟧ işaretli) */
+/** Kısa giriş paragrafı: isteğe bağlı küçük başlık + düz Türkçe metin (⟦kalın⟧ işaretli) */
 data class Para(val label: String?, val text: String)
 
-/** Sonuç ekranının ana içeriği: sanki biri anlatıyormuş gibi okunan metin + yolculuk */
+/** Oluşumun bir basamağı: yukarıdan aşağı, kökten sözcüğe. Metinlerde ⟦kalın⟧ işareti olabilir. */
+data class Step(
+    val label: String,                 // KÖK, FİİL, ATA, SÖZCÜK, BUGÜN
+    val language: String,
+    val form: String,
+    val tiles: List<String> = emptyList(), // kök harfleri (م · ي · ز)
+    val translit: String? = null,
+    val meaning: String? = null,       // Türkçe anlam
+    val how: String? = null,           // bu basamağın öncekinden nasıl oluştuğu
+    val note: String? = null,          // ek bilgi (kökün kökeni, akrabalar)
+    val parts: String? = null,         // "Bileşenleri: A + B"
+    val isWord: Boolean = false,       // sözcüğün bugünkü hâli (vurgulanır)
+)
+
+/** Sonuç ekranının içeriği */
 data class Story(
     val word: String,
     val badge: String?,
-    val paras: List<Para>,
+    val paras: List<Para>,             // kısa giriş: anlam (+ isimlerde Vikipedi anlatımı)
+    val narration: String?,            // yazı olarak tam anlatım (isteğe bağlı açılır)
+    val steps: List<Step>,             // yukarıdan aşağı oluşum
     /** en yakın → en eski (kök dahil) */
     val timeline: List<Mention>,
     val endLanguage: String,
     val related: List<Mention>,
-    /** Çeviri/ayrıntı hâlâ bekleniyor mu */
+    val languages: List<String>,       // bu yazılışın bulunduğu diller (seçici için)
+    val language: String,              // anlatılan dil
     val pending: Boolean,
 )
 
 /**
- * Toplanan verilerden (anlam, köken zinciri, kök, fiil kalıbı) düz Türkçe, akan bir anlatım üretir:
- * önce ne demek olduğu, sonra eskiden yeniye: kök harfleri → kalıp → sözcük → Türkçeye geçişi.
- * Kural tabanlıdır: yapay zekâ ya da anahtar yok; her cümle kaynak veriden gelir.
+ * Toplanan verilerden (anlam, köken zinciri, kök, fiil kalıbı) hem adım adım oluşumu (yukarıdan aşağı) hem de
+ * düz Türkçe bir anlatım üretir. Kural tabanlıdır: yapay zekâ ya da anahtar yok; her cümle kaynak veriden gelir.
  */
 object Narrator {
     private val trLocale = Locale("tr", "TR")
 
     private class Txt(val s: String, val en: Boolean)
 
+    private class G(
+        val word: String, val language: String, val pos: String?, val meanings: List<Txt>,
+        val block: EtymologyBlock?, val chain: List<Mention>, val hasWikt: Boolean,
+    )
+
     /** "م ي ز" → "م + ي + ز" */
     private fun plus(letters: String) = letters.trim().split(Regex("\\s+")).joinToString(" + ")
 
     /**
-     * Uzun İngilizce tanımı kısaltır: parantezleri at; "to mark on a surface, to write, to inscribe" gibi
+     * Uzun İngilizce tanımı kısaltır: parantez/köşeli parantezleri at; "to mark on a surface, to write, to inscribe" gibi
      * uzun açıklama + kısa eş anlamlılar varsa sadece kısa eş anlamlıları ("to write, to inscribe") tut.
      */
     internal fun shorten(d: String): String {
         var t = d
         repeat(2) { t = t.replace(Regex("\\s*\\([^()]*\\)"), "") }
-        t = t.replace(Regex("\\s+"), " ").trim()
+        t = t.replace(Regex("\\s*\\[[^\\]]*\\]"), "").replace(Regex("\\s+"), " ").trim()
         val parts = t.split(",").map { it.trim() }.filter { it.isNotEmpty() }
         if (parts.size > 1) {
             val short = parts.filter { it.split(" ").size <= 3 }
@@ -46,26 +67,27 @@ object Narrator {
         }
         return if (t.length <= 55) t else parts.firstOrNull().orEmpty().take(80)
     }
+
     private fun deepTxts(list: List<String>): List<Txt> = list.map { Txt(shorten(it), true) }.filter { it.s.isNotBlank() }.distinctBy { it.s }
 
-    private class G(
-        val word: String, val language: String, val pos: String?, val meanings: List<Txt>,
-        val block: EtymologyBlock?, val chain: List<Mention>, val hasWikt: Boolean,
-    )
+    /** Bu yazılışın bulunduğu diller (köken ya da anlamı olanlar), öncelik sırasıyla */
+    fun languagesOf(r: LookupResult): List<String> =
+        (r.wiktTr?.languages.orEmpty() + r.wiktEn?.languages.orEmpty())
+            .filter { l -> l.groups.any { it.etymology != null || it.entries.isNotEmpty() } }
+            .map { it.language }.distinct().sortedBy { LookupResult.languageRank(it) }
 
     /** Anlatılacak sözcüğün köken zinciri (en yakın → en eski) */
-    fun chainOf(r: LookupResult): List<Mention> = gather(r).chain
+    fun chainOf(r: LookupResult, language: String? = null): List<Mention> = gather(r, language).chain
 
-    private fun gather(r: LookupResult): G {
+    private fun gather(r: LookupResult, language: String? = null): G {
         val tr = r.wiktTr?.languages.orEmpty()
         val en = r.wiktEn?.languages.orEmpty()
         val word = r.wiktTr?.title ?: r.wiktEn?.title ?: r.wiki?.title ?: r.query
         val langs = (tr.map { it.language } + en.map { it.language }).distinct().sortedBy { LookupResult.languageRank(it) }
         fun etyOf(s: LanguageSection?): EtymologyBlock? = s?.groups?.firstNotNullOfOrNull { it.etymology }
         fun hasEty(l: String) = etyOf(tr.find { it.language == l }) != null || etyOf(en.find { it.language == l }) != null
-        // Önce Türkçe/İngilizce bölümü (köken bilgisi olan), yoksa köken bilgisi olan herhangi biri, yoksa ilk dil
-        val lang = langs.firstOrNull { LookupResult.languageRank(it) < 2 && hasEty(it) }
-            ?: langs.firstOrNull { hasEty(it) } ?: langs.firstOrNull() ?: "Türkçe"
+        // Seçilen dil; yoksa köken bilgisi olan en öncelikli dil (Türkçe, İngilizce, yaygın diller…); yoksa ilk dil
+        val lang = language?.takeIf { it in langs } ?: langs.firstOrNull { hasEty(it) } ?: langs.firstOrNull() ?: "Türkçe"
         val trSec = tr.find { it.language == lang }
         val enSec = en.find { it.language == lang }
         val trBlock = etyOf(trSec)
@@ -73,7 +95,7 @@ object Narrator {
         // Zinciri en uzun olan kaynak (eşitlikte Türkçe kaynak)
         val block = listOfNotNull(trBlock, enBlock).maxByOrNull { it.chain.size }
         var chain = block?.chain.orEmpty()
-        // İki kaynak aynı zinciri veriyorsa: Türkçe adları koru, eksik "devralındı/alıntı" bilgisini İngilizce kaynaktan tamamla
+        // İki kaynak aynı zinciri veriyorsa: Türkçe adları koru, eksik bilgiyi (devralındı/alıntı, harekeli yazım) İngilizce kaynaktan tamamla
         if (trBlock != null && enBlock != null && trBlock.chain.isNotEmpty() &&
             trBlock.chain.map { it.langCode } == enBlock.chain.map { it.langCode }
         ) {
@@ -97,8 +119,8 @@ object Narrator {
     }
 
     /** Çevrilmesi gereken İngilizce metinler */
-    fun englishStrings(r: LookupResult, deep: DeepInfo?): List<String> {
-        val g = gather(r)
+    fun englishStrings(r: LookupResult, deep: DeepInfo?, language: String? = null): List<String> {
+        val g = gather(r, language)
         val out = LinkedHashSet<String>()
         g.meanings.filter { it.en }.forEach { out += it.s }
         (g.chain + g.block?.parts.orEmpty()).forEach { m -> if (m.glossEn) m.gloss?.let { out += it } }
@@ -109,6 +131,10 @@ object Narrator {
             d.verb?.let { v ->
                 deepTxts(v.definitions).forEach { out += it.s }
                 if (v.verb.glossEn) v.verb.gloss?.let { out += it }
+            }
+            d.rootInfo?.let { ri ->
+                deepTxts(ri.definitions).forEach { out += it.s }
+                (ri.origin + ri.cognates).forEach { m -> if (m.glossEn) m.gloss?.let { out += it } }
             }
         }
         return out.toList()
@@ -136,9 +162,12 @@ object Narrator {
     /**
      * @param translations İngilizce → Türkçe çeviriler
      * @param translating çeviri sürüyor mu (sürüyorsa çevrilmemiş metinler gösterilmez)
+     * @param language anlatılacak dil (aynı yazılış birden çok dilde varsa); null = en öncelikli dil
      */
-    fun compose(r: LookupResult, deep: DeepInfo?, translations: Map<String, String>, translating: Boolean): Story {
-        val g = gather(r)
+    fun compose(
+        r: LookupResult, deep: DeepInfo?, translations: Map<String, String>, translating: Boolean, language: String? = null,
+    ): Story {
+        val g = gather(r, language)
         var pending = false
 
         // İngilizce metni Türkçesiyle değiştirir; çeviri beklenirken null, başarısızsa İngilizce kalır
@@ -150,7 +179,7 @@ object Narrator {
         }
         fun gloss(m: Mention): String? = m.gloss?.let { tx(it, m.glossEn) }
         fun b(s: String) = "⟦$s⟧"
-        // "**كِتَاب** (kitāb, “kitap”)"
+        // "⟦كِتَاب⟧ (kitāb, “kitap”)"
         fun term(m: Mention, withGloss: Boolean = true): String {
             val inside = listOfNotNull(m.translit, if (withGloss) gloss(m)?.let { "“$it”" } else null).joinToString(", ")
             return b(m.text) + if (inside.isNotEmpty()) " ($inside)" else ""
@@ -172,6 +201,8 @@ object Narrator {
         }
         fun quoted(list: List<Txt>, max: Int): String? =
             meanings(list)?.take(max)?.takeIf { it.isNotEmpty() }?.joinToString("; ")?.let { "“$it”" }
+        fun plain(list: List<Txt>, max: Int): String? =
+            meanings(list)?.take(max)?.takeIf { it.isNotEmpty() }?.joinToString("; ")
 
         val isName = g.pos == "Özel ad"
         val nameKind = if (isName) (genderOf(g.meanings) ?: "isim") else null
@@ -204,16 +235,22 @@ object Narrator {
         }
         p1?.let { paras += Para(null, it) }
 
-        // ---- 2) Nereden geldi: eskiden yeniye anlatım
+        // ---- 2) Köken zinciri (en yakın → en eski) ve hedef (derin bilginin sözcüğü)
         val chain = g.chain
         val targetIdx = if (deep != null) chain.indexOfLast { !it.langName.startsWith("Proto") && !it.isRoot } else -1
         val target = if (targetIdx >= 0) chain[targetIdx] else null
         val used = if (target != null) chain.take(targetIdx + 1) else chain
         val newer = if (target != null) chain.take(targetIdx).reversed() else emptyList() // hedeften sözcüğe doğru
         val finalRel = chain.firstOrNull()?.relation
+        val root = deep?.root
+        val base = deep?.chain?.firstOrNull()
+
+        // Aynı dilin eski evresi (Orta İngilizce → İngilizce, Osmanlı Türkçesi → Türkçe): devralma sayılır
+        fun lineage(prev: String?): Boolean = prev != null && prev != g.language && prev.contains(g.language)
+
+        // ================= Yazı olarak anlatım (eskiden yeniye) =================
         val sentences = ArrayList<String>()
 
-        /** Dil değiştirerek ilerleyen basamakları "Sonra …'e … olarak geçmiş" diye anlatır (eskiden yeniye) */
         fun passages(items: List<Mention>, startLang: String?, startIndex: Int): List<String> {
             val out = ArrayList<String>()
             val connectors = listOf("Sonra", "Ardından", "Daha sonra", "Derken")
@@ -238,9 +275,6 @@ object Narrator {
             return out
         }
 
-        // Aynı dilin eski evresi (Orta İngilizce → İngilizce, Osmanlı Türkçesi → Türkçe): devralma sayılır
-        fun lineage(prev: String?): Boolean = prev != null && prev != g.language && prev.contains(g.language)
-
         fun finalClause(prevLang: String?): String = when {
             g.language == prevLang -> "${TrSuffix.locative(g.language)} de ${b(g.word)} olmuş."
             finalRel == Relation.INHERITED || (finalRel == null && lineage(prevLang)) ->
@@ -249,7 +283,6 @@ object Narrator {
             else -> "Sonunda ${TrSuffix.dative(g.language)} ${b(g.word)} olarak geçmiş."
         }
 
-        val root = deep?.root
         if (chain.isEmpty() && origin != null) {
             sentences += "${TrSuffix.ablative(origin)} gelmiş."
         } else if (deep != null && target != null && root != null) {
@@ -259,7 +292,6 @@ object Narrator {
             sentences += (if (lang == "Arapça") "Arapçada sözcükler üç harfli köklerden türetilir; bu sözcüğün kök harfleri " else "Kök harfleri ") +
                 b(plus(root.letters)) + (root.translit?.let { " (${plus(it)})" } ?: "") + "."
             val tDefs = quoted(deepDefs, 3)
-            val base = deep.chain.firstOrNull()
             val v = deep.verb
             if (base != null && v != null) {
                 val vDefs = quoted(deepTxts(v.definitions), 2)
@@ -282,11 +314,15 @@ object Narrator {
             } else {
                 sentences += "Bu harflerden ${term(target, false)} olmuş" + (tDefs?.let { ": $it" } ?: "") + "."
             }
+            deep.rootInfo?.let { ri ->
+                val rm = plain(deepTxts(ri.definitions), 2)
+                if (rm != null) sentences += "Kökün temel anlamı: $rm."
+            }
             sentences += passages(newer, target.langName, 0)
             sentences += finalClause(newer.lastOrNull()?.langName ?: target.langName)
         } else if (chain.isNotEmpty()) {
-            // Kök bilgisi yoksa: zinciri eskiden yeniye anlat (aynı dildeki basamaklar birlikte)
-            val items = (if (deep != null && target != null) used else chain).reversed() + emptyList() // eski → yeni
+            // Kök harfi yoksa: zinciri eskiden yeniye anlat (aynı dildeki basamaklar birlikte)
+            val items = (if (deep != null && target != null) used else chain).reversed() // eski → yeni
             val deepOlder = if (deep != null && target != null) deep.chain.reversed() else emptyList()
             val all = deepOlder + items
             val groups = ArrayList<MutableList<Mention>>()
@@ -301,16 +337,88 @@ object Narrator {
             sentences += passages(groups.drop(1).flatten(), l0, 0)
             sentences += finalClause(all.last().langName)
         }
-        g.block?.parts?.takeIf { it.isNotEmpty() }?.let { parts ->
-            sentences += "Bu sözcük " + parts.joinToString(" ile ") { term(it) } + " sözcüklerinin birleşmesinden oluşmuş."
+        val partsOwner = g.block?.partsOwner ?: -1
+        val partsMentions = g.block?.parts.orEmpty()
+        if (partsMentions.isNotEmpty()) {
+            val ownerName = if (partsOwner in chain.indices) "${chain[partsOwner].langName} ${b(chain[partsOwner].text)}" else b(g.word)
+            val names = partsMentions.map { term(it) }
+            val joined = if (names.size == 1) names[0] else names.dropLast(1).joinToString(", ") + " ile " + names.last()
+            sentences += "$ownerName sözcüğü ise $joined sözcüklerinin birleşmesinden oluşmuş."
         }
-        if (sentences.isNotEmpty()) paras += Para(null, sentences.joinToString(" "))
+        val narration = sentences.joinToString(" ").ifBlank { null }
+
+        // ================= Adım adım oluşum: yukarıdan aşağı, kökten sözcüğe =================
+        val steps = ArrayList<Step>()
+        val fullChain = (if (target != null) used else chain) + deep?.chain.orEmpty() // en yakın → en eski
+        val ordered = fullChain.reversed()                                               // en eski → en yakın
+        val partsText = partsMentions.takeIf { it.isNotEmpty() }?.joinToString(" + ") { term(it) }?.let { "Bu sözcük şunların birleşimi: $it" }
+        val ownerItem = if (partsOwner in chain.indices) chain[partsOwner] else null
+        val deepMeaning = plain(deepDefs, 3)
+        val verbMeaning = deep?.verb?.let { plain(deepTxts(it.definitions), 2) }
+
+        if (root != null && deep != null && target != null) {
+            val ri = deep.rootInfo
+            val rm = ri?.let { plain(deepTxts(it.definitions), 2) }
+            val originNote = ri?.origin?.firstOrNull()?.let { "Kökün kökeni: ${it.langName} ${term(it)}." }
+            val cogNote = ri?.cognates?.take(3)?.takeIf { it.isNotEmpty() }
+                ?.joinToString(", ") { "${it.langName} ${b(it.text)}" }?.let { "Aynı kök başka dillerde de var: $it." }
+            steps += Step(
+                "KÖK", deep.term.langName, plus(root.letters), root.letters.trim().split(Regex("\\s+")), root.translit?.let { plus(it) },
+                rm, "${TrSuffix.locative(deep.term.langName)} sözcükler, anlamı taşıyan bu harflerden türetilir.",
+                listOfNotNull(originNote, cogNote).joinToString(" ").ifBlank { null },
+            )
+        }
+        var prev: Mention? = null
+        ordered.forEachIndexed { idx, m ->
+            val p = prev
+            val isBase = root != null && base != null && m === base
+            val how: String? = when {
+                p == null && root != null ->
+                    if (isBase && deep?.verb?.form != null) "Köke ${Derivation.formName(deep.verb.form)} kalıbı uygulanınca oluştu." else "Bu kökten türedi."
+                p == null -> null
+                p.how != null -> (if (deep?.verb != null && p === base) "Bu fiilin " else "Bunun ") + p.how + " olarak oluştu."
+                p.langName != m.langName -> when (p.relation) {
+                    Relation.BORROWED -> "${TrSuffix.dative(m.langName)} alıntı olarak geçti."
+                    Relation.INHERITED -> "${TrSuffix.locative(m.langName)} şu biçime dönüştü."
+                    else -> if (m.langName.startsWith("Proto")) "${TrSuffix.locative(m.langName)} şu biçime dönüştü." else "${TrSuffix.dative(m.langName)} geçti."
+                }
+                else -> "Ondan türetildi."
+            }
+            val meaning = when {
+                m === target -> deepMeaning ?: gloss(m)
+                isBase && verbMeaning != null -> verbMeaning
+                else -> gloss(m)
+            }
+            val label = when {
+                idx == 0 && root == null -> if (m.langName.startsWith("Proto")) "KÖK" else "EN ESKİ ATA"
+                isBase && deep?.verb != null -> "FİİL"
+                m === target && root != null -> "SÖZCÜK"
+                else -> "ATA"
+            }
+            steps += Step(label, m.langName, m.text, emptyList(), m.translit, meaning, how, null, if (m === ownerItem) partsText else null)
+            prev = m
+        }
+        val last = ordered.lastOrNull()
+        val finalHow = when {
+            last == null -> null
+            last.how != null -> "Bunun ${last.how} olarak oluştu."
+            last.langName == g.language -> "Ondan türetildi."
+            last.relation == Relation.BORROWED -> "${TrSuffix.dative(g.language)} alıntı olarak girdi."
+            last.relation == Relation.INHERITED || lineage(last.langName) -> "${TrSuffix.locative(g.language)} bugünkü biçimini aldı."
+            else -> "${TrSuffix.dative(g.language)} geçti."
+        }
+        if (ordered.isNotEmpty() || root != null) {
+            steps += Step(
+                "BUGÜN", g.language, g.word, emptyList(), null, ms?.firstOrNull(), finalHow, null,
+                if (partsOwner == -1) partsText else null, isWord = true,
+            )
+        }
 
         // ---- 3) Vikipedi'nin Türkçe anlatımı: isimlerde ya da Vikisözlük'te hiç kayıt yoksa
         val wikiLead = r.wiki?.paragraphs?.firstOrNull()
         if (wikiLead != null && (isName || !g.hasWikt)) paras += Para(if (g.hasWikt) "Vikipedi'ye göre" else null, wikiLead)
 
-        // ---- Yolculuk çizgisi (en yakın → en eski, kök dahil)
+        // ---- Eski çizgi (en yakın → en eski, kök dahil)
         val timeline = buildList {
             addAll(if (target != null) used else chain)
             deep?.let { d ->
@@ -326,9 +434,13 @@ object Narrator {
             word = g.word,
             badge = badgeLang?.let { "$it kökenli" },
             paras = paras,
+            narration = narration,
+            steps = steps,
             timeline = timeline,
             endLanguage = g.language,
             related = g.block?.related.orEmpty(),
+            languages = languagesOf(r),
+            language = g.language,
             pending = pending,
         )
     }

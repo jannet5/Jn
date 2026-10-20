@@ -36,6 +36,8 @@ data class EtymologyBlock(
     val parts: List<Mention>,
     /** Zincir yoksa, köken bölümünde tek başına yazılmış dil adı (örn. "Arapça") */
     val lonelyLabel: String? = null,
+    /** Bileşenlerin (A + B) ait olduğu zincir basamağı: -1 = sözcüğün kendisi, k = zincirdeki k. sözcük */
+    val partsOwner: Int = -1,
 ) {
     /** Zincirdeki en eski dil; "Proto-" (yeniden kurulmuş) dilleri atlanır */
     val originLanguage: String?
@@ -68,6 +70,15 @@ data class VerbInfo(
     val definitions: List<String>,
     val verbalNoun: Mention?,
     val activeParticiple: Mention?,
+    val etymology: EtymologyBlock? = null,
+)
+
+/** Kökün kendi bilgisi: I. bâb fiili, anlamı, kökeni (Proto-Sami…) ve başka dillerdeki akrabaları */
+data class RootInfo(
+    val verb: Mention?,
+    val definitions: List<String>,
+    val origin: List<Mention>,
+    val cognates: List<Mention>,
 )
 
 /** Zincirin en eski sözcüğünün kendi sayfasından alınan ek bilgi: kaynak dildeki anlam, atalar, kök ve fiil kalıbı */
@@ -78,6 +89,7 @@ data class DeepInfo(
     val root: Root?,
     val formHint: String? = null,
     val verb: VerbInfo? = null,
+    val rootInfo: RootInfo? = null,
 )
 
 data class WiktionaryResult(
@@ -131,11 +143,13 @@ data class LookupResult(
         }
 
     companion object {
-        /** Türkçe en önce, sonra İngilizce, sonra sayfadaki sıra (sıralama kararlıdır) */
-        fun languageRank(name: String): Int = when (name) {
-            "Türkçe" -> 0
-            "İngilizce" -> 1
-            else -> 2
-        }
+        /** Dil önceliği: Türkçe, İngilizce, sonra yaygın diller; kalanlar sayfadaki sırayla (sıralama kararlıdır) */
+        private val priority = listOf(
+            "Türkçe", "İngilizce", "Arapça", "Farsça", "Fransızca", "Almanca", "İtalyanca", "İspanyolca", "Rusça",
+            "Çince", "Mandarin Çincesi", "Japonca", "Korece", "Latince", "Eski Yunanca", "Yunanca", "Portekizce",
+            "Hintçe", "Sanskritçe", "İbranice", "Osmanlı Türkçesi",
+        )
+
+        fun languageRank(name: String): Int = priority.indexOf(name).let { if (it >= 0) it else priority.size }
     }
 }
