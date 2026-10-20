@@ -27,6 +27,12 @@
     <string name="reply_failed">Gönderilemedi. Yanıtlamak için uygulamayı aç.</string>
     <string name="open_source_failed">Uygulama açılamadı</string>
     <string name="copied">Kopyalandı</string>
+    <string name="message_truncated_note">Android uzun bildirimleri yaklaşık 1000 karakterde keser. Devamını uygulamada oku.</string>
+    <string name="oem_hint_xiaomi">Xiaomi: Ayarlar\'da TekPanel için Otomatik başlat\'ı aç ve pil tasarrufunu "Kısıtlama yok" yap. Menü adları telefonuna göre biraz değişebilir.</string>
+    <string name="oem_hint_huawei">Huawei / Honor: Ayarlar > Pil > Uygulama başlatma: TekPanel\'i "Elle yönet" yapıp üç seçeneğin üçünü de aç.</string>
+    <string name="oem_hint_samsung">Samsung: Ayarlar > Pil > Arka plan kullanım sınırları: TekPanel\'i "Uyuyan uygulamalar"dan çıkar, "Hiç uyutulmayan uygulamalar"a ekle.</string>
+    <string name="oem_hint_oppo">Oppo / Realme / OnePlus: Pil ayarlarında TekPanel\'in arka planda çalışmasına izin ver ve Otomatik başlatma\'yı aç.</string>
+    <string name="oem_hint_vivo">Vivo / iQOO: Ayarlar > Pil > Arka plan güç tüketimi: TekPanel\'in arka planda çalışmasına izin ver.</string>
     <string name="message_photo">Fotoğraf</string>
 
     <string name="menu_channels">Kanalları ayarla</string>

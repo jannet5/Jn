@@ -256,6 +256,15 @@ private fun MessageRow(
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
+                if (long && message.messageText.length >= ANDROID_TEXT_LIMIT_HINT) {
+                    // Android itself cuts a notification's text at 1024 characters; say so instead of looking broken.
+                    Text(
+                        text = stringResource(R.string.message_truncated_note),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = colors.textSecondary,
+                        modifier = Modifier.padding(top = 4.dp),
+                    )
+                }
                 if (message.picturePath != null && long) {
                     PictureThumb(message.picturePath, big = true, onClick = { onPicture(message.picturePath) })
                 }
@@ -402,6 +411,8 @@ private fun Footer(
         }
     }
 }
+
+private const val ANDROID_TEXT_LIMIT_HINT = 1000
 
 private fun previewOf(conversation: Conversation, photoLabel: String): String {
     val latest = conversation.latest

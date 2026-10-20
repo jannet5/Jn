@@ -67,6 +67,7 @@ fun MainContent(
     callbacks: MainCallbacks,
     showSupport: Boolean = false,
     trialDaysLeft: Int? = null,
+    oemHint: String? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val listState = rememberLazyListState()
@@ -129,7 +130,7 @@ fun MainContent(
                 }
                 if (state.listenerStalled) {
                     item(key = "stalled") {
-                        StalledBanner(onRestart = callbacks.onRestartListener, onBatterySettings = callbacks.onBatterySettings)
+                        StalledBanner(onRestart = callbacks.onRestartListener, onBatterySettings = callbacks.onBatterySettings, oemHint = oemHint)
                     }
                 }
                 if (state.loaded) {

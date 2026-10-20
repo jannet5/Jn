@@ -55,6 +55,7 @@ import com.tekpanel.app.ui.support.SupportSheet
 import com.tekpanel.app.ui.theme.Tek
 import com.tekpanel.app.util.AccessSettings
 import com.tekpanel.app.util.ListenerHealth
+import com.tekpanel.app.util.OemHints
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 
@@ -158,6 +159,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
         canReply = viewModel::canReply,
         actionTitles = viewModel::actionTitles,
         snackbarHostState = snackbar,
+        oemHint = remember { OemHints.hintFor(android.os.Build.MANUFACTURER)?.let { context.getString(it) } },
         showSupport = support.support.available,
         trialDaysLeft = (support.gate as? Gate.Notice)?.daysLeft,
         callbacks = MainCallbacks(
