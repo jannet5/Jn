@@ -7,4 +7,5 @@
     <exclude domain="database" path="tekpanel_inbox.db-wal" />
     <include domain="sharedpref" path="." />
     <include domain="file" path="datastore/" />
+    <exclude domain="file" path="media/" />
 </full-backup-content>

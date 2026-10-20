@@ -1,13 +1,8 @@
 package com.tekpanel.app.capture
 
 import android.app.Notification
-import android.app.PendingIntent
 import android.content.Intent
-import android.os.Build
-import android.os.UserHandle
-import android.service.notification.StatusBarNotification
 import androidx.core.app.NotificationCompat
-import androidx.core.app.Person
 import androidx.test.core.app.ApplicationProvider
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
@@ -16,14 +11,10 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 /**
- * Unlike [MessageNormalizerTest], this drives [NotificationExtractor] against *real*
- * `android.app.Notification`/`StatusBarNotification` objects built the same way WhatsApp/
- * Messenger/SMS apps build theirs (`NotificationCompat.Builder` + `MessagingStyle`, or
- * plain `bigText`), via Robolectric's simulation of the real Android framework classes.
- * This is not a substitute for a real device (no KVM/hardware virtualization is available
- * in this sandbox to run an emulator -- see docs/DECISIONS.md), but it is a materially
- * stronger check than hand-written `RawNotificationPayload` fixtures because the extraction
- * code path (extras bundle layout, MessagingStyle parsing) is exercised for real.
+ * Drives [NotificationExtractor] against *real* `android.app.Notification` objects built the way
+ * chat apps build them (`NotificationCompat.Builder` + `MessagingStyle`, or plain `bigText`),
+ * through Robolectric's simulation of the framework. Not a substitute for a real device, but far
+ * stronger than hand-written payloads because the extras layout and MessagingStyle parsing run for real.
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], application = android.app.Application::class)
@@ -31,47 +22,16 @@ class NotificationExtractorRobolectricTest {
 
     private val context = ApplicationProvider.getApplicationContext<android.content.Context>()
 
-    private fun wrap(notification: Notification, key: Int = 1): StatusBarNotification {
-        val pendingIntent = PendingIntent.getActivity(
-            context,
-            0,
-            Intent(Intent.ACTION_MAIN),
-            PendingIntent.FLAG_IMMUTABLE,
-        )
-        notification.contentIntent = pendingIntent
-        return StatusBarNotification(
-            context.packageName,
-            context.packageName,
-            key,
-            "tag$key",
-            android.os.Process.myUid(),
-            android.os.Process.myPid(),
-            0,
-            notification,
-            UserHandle.getUserHandleForUid(android.os.Process.myUid()),
-            System.currentTimeMillis(),
-        )
-    }
-
     @Test
-    fun `extracts sender and text from a real MessagingStyle notification`() {
-        val person = Person.Builder().setName("Ayşe Yılmaz").build()
-        val style = NotificationCompat.MessagingStyle(Person.Builder().setName("Me").build())
-            .addMessage("Randevu almak istiyorum", System.currentTimeMillis() - 60_000, person)
-            .addMessage("Yarın 14:00 uygun mu?", System.currentTimeMillis(), person)
+    fun `extracts every message of a real MessagingStyle notification with its timestamp`() {
+        val sbn = FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("Randevu almak istiyorum" to 1_000L, "Yarın 14:00 uygun mu?" to 2_000L))
 
-        val notification = NotificationCompat.Builder(context, "channel")
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setStyle(style)
-            .setContentTitle("Ayşe Yılmaz")
-            .build()
+        val payload = NotificationExtractor.extract(context, sbn)
+        val normalized = MessageNormalizer.normalize(payload)!!
 
-        val payload = NotificationExtractor.extract(wrap(notification))
-
-        assertThat(payload.messagingStyleMessages).isNotEmpty()
-        val normalized = MessageNormalizer.normalize(payload)
-        assertThat(normalized?.senderName).isEqualTo("Ayşe Yılmaz")
-        assertThat(normalized?.messageText).isEqualTo("Yarın 14:00 uygun mu?")
+        assertThat(normalized.conversationTitle).isEqualTo("Ayşe Yılmaz")
+        assertThat(normalized.messages.map { it.messageText }).containsExactly("Randevu almak istiyorum", "Yarın 14:00 uygun mu?").inOrder()
+        assertThat(normalized.messages.map { it.timestampMillis }).containsExactly(1_000L, 2_000L).inOrder()
         assertThat(payload.hasContentIntent).isTrue()
         assertThat(payload.notificationKey).isNotEmpty()
     }
@@ -82,17 +42,13 @@ class NotificationExtractorRobolectricTest {
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentTitle("Mehmet Demir")
             .setContentText("kısa önizleme")
-            .setStyle(
-                NotificationCompat.BigTextStyle()
-                    .bigText("Saç kesimi için yarın uygun musunuz?"),
-            )
+            .setStyle(NotificationCompat.BigTextStyle().bigText("Saç kesimi için yarın uygun musunuz?"))
             .build()
 
-        val payload = NotificationExtractor.extract(wrap(notification, key = 2))
-        val normalized = MessageNormalizer.normalize(payload)
+        val normalized = MessageNormalizer.normalize(NotificationExtractor.extract(context, FakeSbn.wrap(context, "com.whatsapp", notification, id = 2)))!!
 
-        assertThat(normalized?.senderName).isEqualTo("Mehmet Demir")
-        assertThat(normalized?.messageText).isEqualTo("Saç kesimi için yarın uygun musunuz?")
+        assertThat(normalized.messages.single().senderName).isEqualTo("Mehmet Demir")
+        assertThat(normalized.messages.single().messageText).isEqualTo("Saç kesimi için yarın uygun musunuz?")
     }
 
     @Test
@@ -104,42 +60,32 @@ class NotificationExtractorRobolectricTest {
             .setContentTitle("3 new messages")
             .build()
 
-        val payload = NotificationExtractor.extract(wrap(notification, key = 3))
-
-        assertThat(payload.isGroupSummary).isTrue()
+        assertThat(NotificationExtractor.extract(context, FakeSbn.wrap(context, "com.whatsapp", notification, id = 3)).isGroupSummary).isTrue()
     }
 
     @Test
-    fun `two independently built notifications with the same content produce the same fingerprint`() {
-        fun build(): Notification = NotificationCompat.Builder(context, "channel")
+    fun `a group conversation is flagged as a group`() {
+        val style = NotificationCompat.MessagingStyle(androidx.core.app.Person.Builder().setName("Me").build())
+            .setConversationTitle("Kuaför Müşterileri")
+            .setGroupConversation(true)
+            .addMessage("selam", 1_000L, androidx.core.app.Person.Builder().setName("Ali").build())
+        val notification = NotificationCompat.Builder(context, "channel")
             .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("Can Öz")
-            .setContentText("Merhaba, ürün stokta var mı?")
+            .setStyle(style)
             .build()
 
-        val payloadA = NotificationExtractor.extract(wrap(build(), key = 4))
-        val payloadB = NotificationExtractor.extract(wrap(build(), key = 4))
+        val payload = NotificationExtractor.extract(context, FakeSbn.wrap(context, "com.whatsapp", notification, id = 6))
+        val normalized = MessageNormalizer.normalize(payload)!!
 
-        val a = MessageNormalizer.normalize(payloadA)!!
-        val b = MessageNormalizer.normalize(payloadB)!!
-        val fingerprintA = Fingerprint.of(payloadA.packageName, a.senderName, a.messageText, payloadA.postTimeEpochMillis)
-        val fingerprintB = Fingerprint.of(payloadB.packageName, b.senderName, b.messageText, payloadB.postTimeEpochMillis)
-
-        assertThat(fingerprintA).isEqualTo(fingerprintB)
+        assertThat(payload.isGroupConversation).isTrue()
+        assertThat(normalized.conversationTitle).isEqualTo("Kuaför Müşterileri")
+        assertThat(normalized.messages.single().senderName).isEqualTo("Ali")
     }
 
     /**
-     * Multiple independent notification-reader projects report crashes parsing
-     * `EXTRA_MESSAGES` on some OEM ROMs (see docs/DECISIONS.md §8). This test puts a
-     * malformed `EXTRA_MESSAGES` array (Parcelables that are not `Bundle`s) on a real
-     * notification: `androidx.core:core:1.13.1`'s own `getMessagesFromBundleArray` already
-     * guards this with an `instanceof Bundle` check (confirmed by inspecting its bytecode --
-     * see DECISIONS.md), so this does not currently throw. What this test actually verifies
-     * is the resulting behavior either way: MessagingStyle parsing yields nothing usable, and
-     * [NotificationExtractor]/[MessageNormalizer] correctly fall back to bigText instead of
-     * losing the notification -- the property [NotificationExtractor.extract]'s try/catch
-     * exists to protect if a future/older androidx version, or the Binder/IPC boundary this
-     * sandbox cannot exercise, ever does throw here.
+     * Some OEM ROMs ship malformed `EXTRA_MESSAGES`. androidx already guards the per-message parsing,
+     * and [NotificationExtractor] wraps the call too; either way the notification must fall back to
+     * the title/bigText instead of being lost.
      */
     @Test
     fun `falls back to bigText when MessagingStyle parsing yields nothing usable`() {
@@ -148,15 +94,34 @@ class NotificationExtractorRobolectricTest {
             .setContentTitle("Zeynep Aksu")
             .setStyle(NotificationCompat.BigTextStyle().bigText("Ürün ne zaman kargoya verilir?"))
             .build()
-        // EXTRA_MESSAGES should hold a Bundle[]; this holds Parcelables that are not Bundles,
-        // matching the shape of malformed data reported in the wild (see docstring above).
         notification.extras.putParcelableArray(Notification.EXTRA_MESSAGES, arrayOf(Intent()))
 
-        val payload = NotificationExtractor.extract(wrap(notification, key = 5))
-        val normalized = MessageNormalizer.normalize(payload)
+        val payload = NotificationExtractor.extract(context, FakeSbn.wrap(context, "com.whatsapp", notification, id = 5))
+        val normalized = MessageNormalizer.normalize(payload)!!
 
         assertThat(payload.messagingStyleMessages).isEmpty()
-        assertThat(normalized?.senderName).isEqualTo("Zeynep Aksu")
-        assertThat(normalized?.messageText).isEqualTo("Ürün ne zaman kargoya verilir?")
+        assertThat(normalized.messages.single().senderName).isEqualTo("Zeynep Aksu")
+        assertThat(normalized.messages.single().messageText).isEqualTo("Ürün ne zaman kargoya verilir?")
+    }
+
+    @Test
+    fun `finds the inline reply action and the content intent of a live notification`() {
+        val remoteInput = androidx.core.app.RemoteInput.Builder("reply_key").setLabel("Yanıtla").build()
+        val replyPending = android.app.PendingIntent.getBroadcast(context, 0, Intent("reply"), android.app.PendingIntent.FLAG_MUTABLE)
+        val action = NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Yanıtla", replyPending)
+            .addRemoteInput(remoteInput)
+            .build()
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle("Can")
+            .setContentText("selam")
+            .addAction(action)
+            .build()
+        val sbn = FakeSbn.wrap(context, "com.whatsapp", notification, id = 7)
+
+        val live = LiveActionRegistry.fromNotification(sbn.notification)
+
+        assertThat(live.canReply).isTrue()
+        assertThat(live.contentIntent).isNotNull()
     }
 }

@@ -1,34 +1,29 @@
 package com.tekpanel.app.capture
 
 /**
- * Short-lived in-memory half of CAP-07's duplicate guard.
+ * Short-lived in-memory half of the duplicate guard.
  *
- * This is a fast pre-check so a burst of near-simultaneous updates to the same notification
- * never even reaches Room; it is *not* the source of truth. The unique indices on
- * [com.tekpanel.app.data.local.InboxMessageEntity] are, since this cache is empty again after
- * a process restart and a listener reconnect re-enumerates currently active notifications.
+ * It is a fast pre-check so a burst of near-simultaneous updates to the same notification never
+ * even reaches Room; it is *not* the source of truth. The unique fingerprint index on
+ * [com.tekpanel.app.data.local.InboxMessageEntity] is, since this cache is empty again after a
+ * process restart and a listener reconnect re-enumerates currently active notifications.
+ *
+ * It deliberately keys on the message fingerprint only, never on the notification key: chat apps
+ * keep one notification per conversation and update it for every new message, so the key stays
+ * the same across different messages.
  */
-class DuplicateGuard(private val maxEntries: Int = 500) {
+class DuplicateGuard(private val maxEntries: Int = 1000) {
 
-    private val seenKeys = LinkedHashSet<String>()
-    private val seenFingerprints = LinkedHashSet<String>()
-
-    @Synchronized
-    fun isLikelyDuplicate(notificationKey: String?, fingerprint: String): Boolean {
-        if (notificationKey != null && seenKeys.contains(notificationKey)) return true
-        return seenFingerprints.contains(fingerprint)
-    }
+    private val seen = LinkedHashSet<String>()
 
     @Synchronized
-    fun remember(notificationKey: String?, fingerprint: String) {
-        if (notificationKey != null) rememberInto(seenKeys, notificationKey)
-        rememberInto(seenFingerprints, fingerprint)
-    }
+    fun isKnown(fingerprint: String): Boolean = seen.contains(fingerprint)
 
-    private fun rememberInto(set: LinkedHashSet<String>, value: String) {
-        set.add(value)
-        while (set.size > maxEntries) {
-            val oldest = set.iterator()
+    @Synchronized
+    fun remember(fingerprint: String) {
+        seen.add(fingerprint)
+        while (seen.size > maxEntries) {
+            val oldest = seen.iterator()
             if (oldest.hasNext()) {
                 oldest.next()
                 oldest.remove()
@@ -37,8 +32,5 @@ class DuplicateGuard(private val maxEntries: Int = 500) {
     }
 
     @Synchronized
-    fun clear() {
-        seenKeys.clear()
-        seenFingerprints.clear()
-    }
+    fun clear() = seen.clear()
 }

@@ -1,13 +1,27 @@
 package com.tekpanel.app.util
 
+import android.app.NotificationManager
+import android.content.ComponentName
 import android.content.Context
+import android.os.Build
 import androidx.core.app.NotificationManagerCompat
+import com.tekpanel.app.capture.TekPanelNotificationListenerService
 
-/** CAP-01: whether the user has granted TekPanel notification access, checked on demand. */
+/**
+ * Whether the user has granted TekPanel notification access, checked on demand. Three signals,
+ * any of which counts: the framework's direct answer (API 27+), the enabled-listener list, and
+ * the listener actually being bound right now. Relying on only one of them is what makes an app
+ * keep asking for a permission it already has on some ROMs.
+ */
 class NotificationAccessChecker(private val context: Context) {
 
     fun isGranted(): Boolean {
-        val enabledPackages = NotificationManagerCompat.getEnabledListenerPackages(context)
-        return context.packageName in enabledPackages
+        if (TekPanelNotificationListenerService.connected) return true
+        if (Build.VERSION.SDK_INT >= 27) {
+            val manager = context.getSystemService(NotificationManager::class.java)
+            val component = ComponentName(context, TekPanelNotificationListenerService::class.java)
+            if (runCatching { manager.isNotificationListenerAccessGranted(component) }.getOrDefault(false)) return true
+        }
+        return context.packageName in NotificationManagerCompat.getEnabledListenerPackages(context)
     }
 }

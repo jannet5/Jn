@@ -5,22 +5,19 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
- * Room row backing [com.tekpanel.app.domain.model.InboxMessage] (spec CAP-08).
+ * Room row backing [com.tekpanel.app.domain.model.InboxMessage].
  *
- * Two unique indices implement CAP-07's duplicate guard at the persistence layer, as a
- * backstop behind the in-memory cache in [com.tekpanel.app.capture.DuplicateGuard]:
- * - [notificationKey] is unique when present (SQLite allows multiple NULLs through a unique
- *   index, so SHARE-captured rows without a notification key are unaffected).
- * - [fingerprint] is always unique, covering listener reconnect re-enumeration and any case
- *   where the OS reuses/omits a notification key.
+ * [fingerprint] is unique and is the persistence-layer duplicate guard. The notification key is
+ * deliberately NOT unique: chat apps update one notification per conversation for every new
+ * message, so the key repeats across genuinely different messages.
  */
 @Entity(
     tableName = "inbox_messages",
     indices = [
-        Index(value = ["notificationKey"], unique = true),
         Index(value = ["fingerprint"], unique = true),
-        Index(value = ["channelId"]),
+        Index(value = ["sourcePackage"]),
         Index(value = ["state"]),
+        Index(value = ["conversationKey"]),
     ],
 )
 data class InboxMessageEntity(
@@ -28,12 +25,18 @@ data class InboxMessageEntity(
     val notificationKey: String?,
     val fingerprint: String,
     val sourcePackage: String,
-    val channelId: String,
+    val conversationKey: String,
+    val conversationTitle: String,
+    val isGroupConversation: Boolean,
     val senderName: String,
     val messageText: String,
     val receivedAtEpochMillis: Long,
     val capturedAtEpochMillis: Long,
     val captureMethod: String,
     val state: String,
-    val canOpenLiveConversation: Boolean,
+    val avatarPath: String?,
+    val picturePath: String?,
 )
+
+/** Row of the per-app message counters used to rank and badge channels. */
+data class PackageCount(val sourcePackage: String, val total: Int, val unread: Int, val lastAt: Long)

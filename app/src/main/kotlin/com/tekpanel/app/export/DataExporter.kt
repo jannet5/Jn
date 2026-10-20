@@ -13,7 +13,8 @@ import kotlinx.serialization.json.Json
  */
 @Serializable
 data class ExportedMessage(
-    val channelId: String,
+    val sourcePackage: String,
+    val conversationTitle: String,
     val senderName: String,
     val messageText: String,
     val receivedAtEpochMillis: Long,
@@ -23,7 +24,7 @@ data class ExportedMessage(
 
 @Serializable
 data class ExportPayload(
-    val exportFormatVersion: Int = 1,
+    val exportFormatVersion: Int = 2,
     val exportedAtEpochMillis: Long,
     val messages: List<ExportedMessage>,
 )
@@ -42,7 +43,8 @@ class DataExporter(private val inboxRepository: InboxRepository) {
     }
 
     private fun InboxMessage.toExported() = ExportedMessage(
-        channelId = channelId,
+        sourcePackage = sourcePackage,
+        conversationTitle = conversationTitle,
         senderName = senderName,
         messageText = messageText,
         receivedAtEpochMillis = receivedAt.toEpochMilli(),

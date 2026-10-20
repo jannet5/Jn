@@ -6,42 +6,32 @@ import org.junit.Test
 class DuplicateGuardTest {
 
     @Test
-    fun `a fresh key and fingerprint are not duplicates`() {
-        val guard = DuplicateGuard()
-        assertThat(guard.isLikelyDuplicate("key1", "fp1")).isFalse()
+    fun `unknown fingerprint is not a duplicate`() {
+        assertThat(DuplicateGuard().isKnown("a")).isFalse()
     }
 
     @Test
-    fun `remembers by notification key`() {
+    fun `remembered fingerprint is a duplicate`() {
         val guard = DuplicateGuard()
-        guard.remember("key1", "fp1")
-        assertThat(guard.isLikelyDuplicate("key1", "fp-different")).isTrue()
+        guard.remember("a")
+        assertThat(guard.isKnown("a")).isTrue()
     }
 
     @Test
-    fun `remembers by fingerprint even with a different or missing key`() {
-        val guard = DuplicateGuard()
-        guard.remember("key1", "fp1")
-        assertThat(guard.isLikelyDuplicate(null, "fp1")).isTrue()
-        assertThat(guard.isLikelyDuplicate("key-different", "fp1")).isTrue()
-    }
-
-    @Test
-    fun `evicts the oldest entries past the configured capacity`() {
+    fun `oldest entries are evicted past the cap`() {
         val guard = DuplicateGuard(maxEntries = 2)
-        guard.remember("key1", "fp1")
-        guard.remember("key2", "fp2")
-        guard.remember("key3", "fp3")
-
-        assertThat(guard.isLikelyDuplicate("key1", "fp1")).isFalse()
-        assertThat(guard.isLikelyDuplicate("key3", "fp3")).isTrue()
+        guard.remember("a")
+        guard.remember("b")
+        guard.remember("c")
+        assertThat(guard.isKnown("a")).isFalse()
+        assertThat(guard.isKnown("c")).isTrue()
     }
 
     @Test
     fun `clear forgets everything`() {
         val guard = DuplicateGuard()
-        guard.remember("key1", "fp1")
+        guard.remember("a")
         guard.clear()
-        assertThat(guard.isLikelyDuplicate("key1", "fp1")).isFalse()
+        assertThat(guard.isKnown("a")).isFalse()
     }
 }

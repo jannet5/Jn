@@ -1,30 +1,25 @@
 package com.tekpanel.app.capture
 
 import android.app.Notification
+import android.content.Context
 import android.service.notification.StatusBarNotification
 import androidx.core.app.NotificationCompat
 
 /**
- * Converts a live `StatusBarNotification` into a [RawNotificationPayload] (spec CAP-04).
+ * Converts a live `StatusBarNotification` into a [RawNotificationPayload].
  *
- * This is the only class in the capture pipeline that touches Android notification
- * framework APIs directly; everything it produces is plain data so the rest of the
- * pipeline is unit-testable without Robolectric.
+ * This is the only class in the capture pipeline (besides [AndroidNotificationMedia]) that
+ * touches the notification framework directly; everything it produces is plain data so the
+ * rest of the pipeline is unit-testable without Robolectric.
  */
 object NotificationExtractor {
 
-    fun extract(sbn: StatusBarNotification): RawNotificationPayload {
+    fun extract(context: Context, sbn: StatusBarNotification): RawNotificationPayload {
         val notification = sbn.notification
         val extras = notification.extras
 
-        // Multiple independent notification-reader projects report crashes parsing
-        // EXTRA_MESSAGES on some OEM ROMs (see docs/DECISIONS.md §8); the androidx.core
-        // version this project pins (1.13.1) already guards the per-message parsing against
-        // that specific failure (verified by inspecting its bytecode -- see DECISIONS.md),
-        // but this call still crosses a real Binder/IPC boundary in production, which this
-        // sandbox cannot fully exercise either. This try/catch is cheap, harmless insurance
-        // for whatever isn't covered: if it ever does throw, we still want the title/bigText
-        // below intact instead of losing the whole notification.
+        // Some OEM ROMs throw while parsing EXTRA_MESSAGES. If it ever does, the title/text
+        // below must still survive instead of losing the whole notification.
         val messagingStyle = try {
             NotificationCompat.MessagingStyle.extractMessagingStyleFromNotification(notification)
         } catch (_: Exception) {
@@ -35,8 +30,17 @@ object NotificationExtractor {
             ?.map { it.toString() }
             ?: emptyList()
 
-        val isGroupSummary = (notification.flags and Notification.FLAG_GROUP_SUMMARY) != 0
-        val isOngoing = (notification.flags and Notification.FLAG_ONGOING_EVENT) != 0
+        val lines = messagingStyle?.messages.orEmpty().mapIndexed { index, message ->
+            MessagingLine(
+                sender = message.person?.name?.toString(),
+                text = message.text?.toString().orEmpty(),
+                timestampMillis = message.timestamp,
+                hasPicture = message.dataUri != null && message.dataMimeType?.startsWith("image/") == true,
+                index = index,
+            )
+        }
+
+        val hasBigPicture = extras.containsKey(Notification.EXTRA_PICTURE) || extras.containsKey("android.pictureIcon")
 
         return RawNotificationPayload(
             notificationKey = sbn.key,
@@ -46,14 +50,17 @@ object NotificationExtractor {
             text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString(),
             bigText = extras.getCharSequence(Notification.EXTRA_BIG_TEXT)?.toString(),
             textLines = textLines,
-            conversationTitle = extras.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE)?.toString(),
-            messagingStyleMessages = messagingStyle?.messages.orEmpty().map { message ->
-                MessagingLine(sender = message.person?.name?.toString(), text = message.text?.toString().orEmpty())
-            },
+            conversationTitle = (messagingStyle?.conversationTitle
+                ?: extras.getCharSequence(Notification.EXTRA_CONVERSATION_TITLE))?.toString(),
+            isGroupConversation = messagingStyle?.isGroupConversation
+                ?: extras.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION, false),
+            messagingStyleMessages = lines,
             category = notification.category,
-            isGroupSummary = isGroupSummary,
-            isOngoing = isOngoing,
+            isGroupSummary = (notification.flags and Notification.FLAG_GROUP_SUMMARY) != 0,
+            isOngoing = (notification.flags and Notification.FLAG_ONGOING_EVENT) != 0,
             hasContentIntent = notification.contentIntent != null,
+            hasBigPicture = hasBigPicture,
+            media = AndroidNotificationMedia(context.applicationContext, sbn),
         )
     }
 }

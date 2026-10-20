@@ -3,25 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-        CAP-02 / spec 3.5: only the known, supported messaging package catalog is queried.
-        No QUERY_ALL_PACKAGES permission is requested. Add new supported packages here
-        as the catalog in SourceAppCatalog.kt is updated.
+        Channels are "any app on the phone", so the app list is read through the launcher intent
+        (every app with a launcher icon) instead of the restricted QUERY_ALL_PACKAGES permission.
     -->
     <queries>
-        <package android:name="com.whatsapp" />
-        <package android:name="com.whatsapp.w4b" />
-        <package android:name="com.instagram.android" />
-        <package android:name="com.zhiliaoapp.musically" />
-        <package android:name="com.ss.android.ugc.trill" />
-        <package android:name="com.twitter.android" />
-        <package android:name="com.facebook.orca" />
-        <package android:name="com.facebook.katana" />
-        <package android:name="org.telegram.messenger" />
-        <package android:name="org.telegram.messenger.web" />
-        <package android:name="com.google.android.apps.messaging" />
-        <package android:name="com.samsung.android.messaging" />
-        <package android:name="com.android.mms" />
-        <package android:name="com.miui.mms" />
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
     </queries>
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />

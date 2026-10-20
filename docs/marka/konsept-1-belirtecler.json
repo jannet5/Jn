@@ -1,0 +1,34 @@
+{
+  "ad": "Gece Mürekkebi",
+  "fikir": "Dağınık bildirimler tek bir sakin yüzeye toplanır; yalnızca yeni olan ışıldar.",
+  "renkler": {
+    "arkaplan": "#0C0E12",
+    "yuzey": "#14171C",
+    "yuzeyYuksek": "#1C2027",
+    "cizgi": "#2A2F38",
+    "metin": "#F3EFE7",
+    "metinIkincil": "#A8A397",
+    "vurgu": "#EDB04C",
+    "vurguUstu": "#1A1207",
+    "tehlike": "#EC7A6E",
+    "basari": "#74C79C",
+    "ikonArkaplan": "#0C0E12"
+  },
+  "tipografi": {
+    "baslik": "Manrope",
+    "govde": "Inter",
+    "mono": null
+  },
+  "kose": {
+    "kart": 16,
+    "balon": 18,
+    "dugme": 10
+  },
+  "hareket": {
+    "genislemeMs": 460,
+    "kaybolmaMs": 360,
+    "yayDamping": 0.75,
+    "yaySertlik": 200
+  },
+  "karanlikMi": true
+}

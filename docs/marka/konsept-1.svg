@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+<title>TekPanel · Konsept 1 · Gece Mürekkebi</title>
+<rect width="1200" height="1500" fill="#0C0E12"/>
+<path d="M86 40H102.45A12 12 0 0 1 114.32 53.8A28 28 0 0 0 146.2 85.68A12 12 0 0 1 160 97.55V114A26 26 0 0 1 134 140H86A26 26 0 0 1 60 114V66A26 26 0 0 1 86 40Z" fill="#EDB04C"/><path d="M124 58A18 18 0 1 0 160 58A18 18 0 1 0 124 58Z" fill="#F3EFE7"/>
+<text x="105" y="114" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="62" font-weight="800" fill="#1A1207" text-anchor="middle">1</text>
+<text x="196" y="92" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="52" font-weight="800" fill="#F3EFE7" letter-spacing="-1.2">Gece Mürekkebi</text>
+<text x="197" y="128" font-family="Inter, 'DM Sans', sans-serif" font-size="19" font-weight="400" fill="#A8A397">Dağınık bildirimler tek bir sakin yüzeye toplanır; yalnızca yeni olan ışıldar.</text>
+<text x="1140" y="60" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end">TekPanel marka panosu</text>
+<text x="1140" y="80" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="400" fill="#A8A397" text-anchor="end">Koyu tema · tek vurgu · Manrope + Inter</text>
+<text x="60" y="190" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Logo</text><line x1="109.8" y1="185" x2="740" y2="185" stroke="#2A2F38" stroke-width="1"/>
+<rect x="60" y="206" width="264" height="334" rx="16" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<path d="M129.76 240H158.72A21.12 21.12 0 0 1 179.6 264.29A49.28 49.28 0 0 0 235.71 320.4A21.12 21.12 0 0 1 260 341.28V370.24A45.76 45.76 0 0 1 214.24 416H129.76A45.76 45.76 0 0 1 84 370.24V285.76A45.76 45.76 0 0 1 129.76 240Z" fill="#F3EFE7"/><path d="M196.64 271.68A31.68 31.68 0 1 0 260 271.68A31.68 31.68 0 1 0 196.64 271.68Z" fill="#EDB04C"/>
+<g fill="none" stroke="#A8A397" stroke-width="1" stroke-opacity="0.55" stroke-dasharray="3 3"><rect x="84" y="240" width="176" height="176"/><circle cx="228.3" cy="271.7" r="49.3"/><line x1="76" y1="424" x2="268" y2="232"/></g>
+<text x="84" y="450" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="800" fill="#F3EFE7" letter-spacing="-0.2">Çentikli panel</text>
+<text x="84" y="472" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="400" fill="#A8A397">Bildirimin toplandığı tek yer.</text>
+<text x="84" y="492" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="400" fill="#A8A397">Çentik avatar rozetinde de var.</text>
+<text x="84" y="514" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" fill-opacity="0.75" style="font-variant-numeric: tabular-nums">çentik r 28 · nokta r 18 · boşluk 10</text>
+<rect x="340" y="206" width="400" height="160" rx="16" fill="#0C0E12" stroke="#2A2F38" stroke-width="1"/>
+<path d="M384.04 228H392.92A6.48 6.48 0 0 1 399.33 235.45A15.12 15.12 0 0 0 416.55 252.67A6.48 6.48 0 0 1 424 259.08V267.96A14.04 14.04 0 0 1 409.96 282H384.04A14.04 14.04 0 0 1 370 267.96V242.04A14.04 14.04 0 0 1 384.04 228Z" fill="#F3EFE7"/><path d="M404.56 237.72A9.72 9.72 0 1 0 424 237.72A9.72 9.72 0 1 0 404.56 237.72Z" fill="#EDB04C"/>
+<text x="440" y="273" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="50" font-weight="800" fill="#F3EFE7" letter-spacing="-1">Tek</text><text x="522.5" y="273" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="50" font-weight="500" fill="#F3EFE7" letter-spacing="-1">Panel</text>
+<text x="370" y="326" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EFE7">Koyu zemin</text>
+<text x="370" y="344" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">nokta #EDB04C</text>
+<path d="M556.48 296H564.38A5.76 5.76 0 0 1 570.07 302.62A13.44 13.44 0 0 0 585.38 317.93A5.76 5.76 0 0 1 592 323.62V331.52A12.48 12.48 0 0 1 579.52 344H556.48A12.48 12.48 0 0 1 544 331.52V308.48A12.48 12.48 0 0 1 556.48 296Z" fill="#F3EFE7"/><path d="M574.72 304.64A8.64 8.64 0 1 0 592 304.64A8.64 8.64 0 1 0 574.72 304.64Z" fill="#EDB04C"/>
+<text x="600" y="342" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">48 px</text>
+<path d="M654.24 320H658.19A2.88 2.88 0 0 1 661.04 323.31A6.72 6.72 0 0 0 668.69 330.96A2.88 2.88 0 0 1 672 333.81V337.76A6.24 6.24 0 0 1 665.76 344H654.24A6.24 6.24 0 0 1 648 337.76V326.24A6.24 6.24 0 0 1 654.24 320Z" fill="#F3EFE7"/><path d="M663.36 324.32A4.32 4.32 0 1 0 672 324.32A4.32 4.32 0 1 0 663.36 324.32Z" fill="#EDB04C"/>
+<text x="680" y="342" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">24 px</text>
+<rect x="340" y="380" width="400" height="160" rx="16" fill="#F3EFE7"/>
+<path d="M384.04 402H392.92A6.48 6.48 0 0 1 399.33 409.45A15.12 15.12 0 0 0 416.55 426.67A6.48 6.48 0 0 1 424 433.08V441.96A14.04 14.04 0 0 1 409.96 456H384.04A14.04 14.04 0 0 1 370 441.96V416.04A14.04 14.04 0 0 1 384.04 402Z" fill="#0C0E12"/><path d="M404.56 411.72A9.72 9.72 0 1 0 424 411.72A9.72 9.72 0 1 0 404.56 411.72Z" fill="#C98200"/>
+<text x="440" y="447" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="50" font-weight="800" fill="#0C0E12" letter-spacing="-1">Tek</text><text x="522.5" y="447" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="50" font-weight="500" fill="#0C0E12" letter-spacing="-1">Panel</text>
+<text x="370" y="500" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#0C0E12">Açık zemin</text>
+<text x="370" y="518" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#5E5A52">nokta #C98200</text>
+<path d="M556.48 470H564.38A5.76 5.76 0 0 1 570.07 476.62A13.44 13.44 0 0 0 585.38 491.93A5.76 5.76 0 0 1 592 497.62V505.52A12.48 12.48 0 0 1 579.52 518H556.48A12.48 12.48 0 0 1 544 505.52V482.48A12.48 12.48 0 0 1 556.48 470Z" fill="#0C0E12"/><path d="M574.72 478.64A8.64 8.64 0 1 0 592 478.64A8.64 8.64 0 1 0 574.72 478.64Z" fill="#C98200"/>
+<text x="600" y="516" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E5A52">48 px</text>
+<path d="M654.24 494H658.19A2.88 2.88 0 0 1 661.04 497.31A6.72 6.72 0 0 0 668.69 504.96A2.88 2.88 0 0 1 672 507.81V511.76A6.24 6.24 0 0 1 665.76 518H654.24A6.24 6.24 0 0 1 648 511.76V500.24A6.24 6.24 0 0 1 654.24 494Z" fill="#0C0E12"/><path d="M663.36 498.32A4.32 4.32 0 1 0 672 498.32A4.32 4.32 0 1 0 663.36 498.32Z" fill="#C98200"/>
+<text x="680" y="516" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E5A52">24 px</text>
+<text x="770" y="190" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Uygulama ikonu</text><line x1="899.7" y1="185" x2="1140" y2="185" stroke="#2A2F38" stroke-width="1"/>
+<rect x="770" y="206" width="370" height="334" rx="16" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<clipPath id="ic1"><circle cx="833" cy="278" r="46"/></clipPath><g clip-path="url(#ic1)"><rect x="787" y="232" width="92" height="92" fill="#0C0E12"/><g transform="translate(764 209) scale(1.2778)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#F3EFE7"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#EDB04C"/></g></g><circle cx="833" cy="278" r="46" fill="none" stroke="#2A2F38" stroke-width="1"/>
+<clipPath id="ic2"><rect x="909" y="232" width="92" height="92" rx="23.9"/></clipPath><g clip-path="url(#ic2)"><rect x="909" y="232" width="92" height="92" fill="#0C0E12"/><g transform="translate(886 209) scale(1.2778)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#F3EFE7"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#EDB04C"/></g></g><rect x="909" y="232" width="92" height="92" rx="23.9" fill="none" stroke="#2A2F38" stroke-width="1"/>
+<clipPath id="ic3"><path d="M1123 278L1123 289.3L1122.9 293.2L1122.9 296.1L1122.8 298.5L1122.6 300.6L1122.4 302.4L1122.2 304.1L1122 305.6L1121.7 307L1121.4 308.3L1121.1 309.5L1120.7 310.6L1120.4 311.7L1119.9 312.7L1119.5 313.6L1119 314.5L1118.4 315.3L1117.8 316.1L1117.2 316.9L1116.6 317.6L1115.9 318.2L1115.1 318.8L1114.3 319.4L1113.5 320L1112.6 320.5L1111.7 320.9L1110.7 321.4L1109.6 321.7L1108.5 322.1L1107.3 322.4L1106 322.7L1104.6 323L1103.1 323.2L1101.4 323.4L1099.6 323.6L1097.5 323.8L1095.1 323.9L1092.2 323.9L1088.3 324L1077 324L1065.7 324L1061.8 323.9L1058.9 323.9L1056.5 323.8L1054.4 323.6L1052.6 323.4L1050.9 323.2L1049.4 323L1048 322.7L1046.7 322.4L1045.5 322.1L1044.4 321.7L1043.3 321.4L1042.3 320.9L1041.4 320.5L1040.5 320L1039.7 319.4L1038.9 318.8L1038.1 318.2L1037.4 317.6L1036.8 316.9L1036.2 316.1L1035.6 315.3L1035 314.5L1034.5 313.6L1034.1 312.7L1033.6 311.7L1033.3 310.6L1032.9 309.5L1032.6 308.3L1032.3 307L1032 305.6L1031.8 304.1L1031.6 302.4L1031.4 300.6L1031.2 298.5L1031.1 296.1L1031.1 293.2L1031 289.3L1031 278L1031 266.7L1031.1 262.8L1031.1 259.9L1031.2 257.5L1031.4 255.4L1031.6 253.6L1031.8 251.9L1032 250.4L1032.3 249L1032.6 247.7L1032.9 246.5L1033.3 245.4L1033.6 244.3L1034.1 243.3L1034.5 242.4L1035 241.5L1035.6 240.7L1036.2 239.9L1036.8 239.1L1037.4 238.4L1038.1 237.8L1038.9 237.2L1039.7 236.6L1040.5 236L1041.4 235.5L1042.3 235.1L1043.3 234.6L1044.4 234.3L1045.5 233.9L1046.7 233.6L1048 233.3L1049.4 233L1050.9 232.8L1052.6 232.6L1054.4 232.4L1056.5 232.2L1058.9 232.1L1061.8 232.1L1065.7 232L1077 232L1088.3 232L1092.2 232.1L1095.1 232.1L1097.5 232.2L1099.6 232.4L1101.4 232.6L1103.1 232.8L1104.6 233L1106 233.3L1107.3 233.6L1108.5 233.9L1109.6 234.3L1110.7 234.6L1111.7 235.1L1112.6 235.5L1113.5 236L1114.3 236.6L1115.1 237.2L1115.9 237.8L1116.6 238.4L1117.2 239.1L1117.8 239.9L1118.4 240.7L1119 241.5L1119.5 242.4L1119.9 243.3L1120.4 244.3L1120.7 245.4L1121.1 246.5L1121.4 247.7L1121.7 249L1122 250.4L1122.2 251.9L1122.4 253.6L1122.6 255.4L1122.8 257.5L1122.9 259.9L1122.9 262.8L1123 266.7Z"/></clipPath><g clip-path="url(#ic3)"><rect x="1031" y="232" width="92" height="92" fill="#0C0E12"/><g transform="translate(1008 209) scale(1.2778)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#F3EFE7"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#EDB04C"/></g></g><path d="M1123 278L1123 289.3L1122.9 293.2L1122.9 296.1L1122.8 298.5L1122.6 300.6L1122.4 302.4L1122.2 304.1L1122 305.6L1121.7 307L1121.4 308.3L1121.1 309.5L1120.7 310.6L1120.4 311.7L1119.9 312.7L1119.5 313.6L1119 314.5L1118.4 315.3L1117.8 316.1L1117.2 316.9L1116.6 317.6L1115.9 318.2L1115.1 318.8L1114.3 319.4L1113.5 320L1112.6 320.5L1111.7 320.9L1110.7 321.4L1109.6 321.7L1108.5 322.1L1107.3 322.4L1106 322.7L1104.6 323L1103.1 323.2L1101.4 323.4L1099.6 323.6L1097.5 323.8L1095.1 323.9L1092.2 323.9L1088.3 324L1077 324L1065.7 324L1061.8 323.9L1058.9 323.9L1056.5 323.8L1054.4 323.6L1052.6 323.4L1050.9 323.2L1049.4 323L1048 322.7L1046.7 322.4L1045.5 322.1L1044.4 321.7L1043.3 321.4L1042.3 320.9L1041.4 320.5L1040.5 320L1039.7 319.4L1038.9 318.8L1038.1 318.2L1037.4 317.6L1036.8 316.9L1036.2 316.1L1035.6 315.3L1035 314.5L1034.5 313.6L1034.1 312.7L1033.6 311.7L1033.3 310.6L1032.9 309.5L1032.6 308.3L1032.3 307L1032 305.6L1031.8 304.1L1031.6 302.4L1031.4 300.6L1031.2 298.5L1031.1 296.1L1031.1 293.2L1031 289.3L1031 278L1031 266.7L1031.1 262.8L1031.1 259.9L1031.2 257.5L1031.4 255.4L1031.6 253.6L1031.8 251.9L1032 250.4L1032.3 249L1032.6 247.7L1032.9 246.5L1033.3 245.4L1033.6 244.3L1034.1 243.3L1034.5 242.4L1035 241.5L1035.6 240.7L1036.2 239.9L1036.8 239.1L1037.4 238.4L1038.1 237.8L1038.9 237.2L1039.7 236.6L1040.5 236L1041.4 235.5L1042.3 235.1L1043.3 234.6L1044.4 234.3L1045.5 233.9L1046.7 233.6L1048 233.3L1049.4 233L1050.9 232.8L1052.6 232.6L1054.4 232.4L1056.5 232.2L1058.9 232.1L1061.8 232.1L1065.7 232L1077 232L1088.3 232L1092.2 232.1L1095.1 232.1L1097.5 232.2L1099.6 232.4L1101.4 232.6L1103.1 232.8L1104.6 233L1106 233.3L1107.3 233.6L1108.5 233.9L1109.6 234.3L1110.7 234.6L1111.7 235.1L1112.6 235.5L1113.5 236L1114.3 236.6L1115.1 237.2L1115.9 237.8L1116.6 238.4L1117.2 239.1L1117.8 239.9L1118.4 240.7L1119 241.5L1119.5 242.4L1119.9 243.3L1120.4 244.3L1120.7 245.4L1121.1 246.5L1121.4 247.7L1121.7 249L1122 250.4L1122.2 251.9L1122.4 253.6L1122.6 255.4L1122.8 257.5L1122.9 259.9L1122.9 262.8L1123 266.7Z" fill="none" stroke="#2A2F38" stroke-width="1"/>
+<text x="833" y="344" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Daire</text>
+<text x="955" y="344" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Yuvarlatılmış kare</text>
+<text x="1077" y="344" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Squircle</text>
+<text x="787" y="378" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EFE7">Tek renkli (themed)</text>
+<clipPath id="ic4"><circle cx="833" cy="438" r="46"/></clipPath><g clip-path="url(#ic4)"><rect x="787" y="392" width="92" height="92" fill="#D9D2C1"/><g transform="translate(764 369) scale(1.2778)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#26231B"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#26231B"/></g></g><circle cx="833" cy="438" r="46" fill="none" stroke="none" stroke-width="1"/>
+<clipPath id="ic5"><rect x="909" y="392" width="92" height="92" rx="23.9"/></clipPath><g clip-path="url(#ic5)"><rect x="909" y="392" width="92" height="92" fill="#2C3038"/><g transform="translate(886 369) scale(1.2778)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#E6DEC8"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#E6DEC8"/></g></g><rect x="909" y="392" width="92" height="92" rx="23.9" fill="none" stroke="none" stroke-width="1"/>
+<rect x="1031" y="392" width="92" height="92" rx="24" fill="#0C0E12" stroke="#2A2F38" stroke-width="1"/>
+<g transform="translate(1038.4 399.4) scale(0.7143)"><path d="M40.56 26H49.77A6.72 6.72 0 0 1 56.42 33.73A15.68 15.68 0 0 0 74.27 51.58A6.72 6.72 0 0 1 82 58.23V67.44A14.56 14.56 0 0 1 67.44 82H40.56A14.56 14.56 0 0 1 26 67.44V40.56A14.56 14.56 0 0 1 40.56 26Z" fill="#F3EFE7"/><path d="M61.84 36.08A10.08 10.08 0 1 0 82 36.08A10.08 10.08 0 1 0 61.84 36.08Z" fill="#F3EFE7"/></g>
+<text x="833" y="504" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Açık</text>
+<text x="955" y="504" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Koyu</text>
+<text x="1077" y="504" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" text-anchor="middle">Bildirim simgesi</text>
+<rect x="376" y="696" width="4" height="44" rx="2" fill="#2A2F38"/>
+<rect x="376" y="756" width="4" height="44" rx="2" fill="#2A2F38"/>
+<rect x="820" y="716" width="4" height="72" rx="2" fill="#2A2F38"/>
+<rect x="380" y="566" width="440" height="900" rx="58" fill="#15181E" stroke="#2A2F38" stroke-width="1.5"/>
+<clipPath id="scr"><rect x="0" y="0" width="420" height="880" rx="48"/></clipPath>
+<g transform="translate(390 576)"><g clip-path="url(#scr)">
+<rect x="0" y="0" width="420" height="880" rx="48" fill="#0C0E12"/>
+<text x="30" y="32" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="600" fill="#F3EFE7">21:42</text>
+<circle cx="210" cy="22" r="7.5" fill="#05060A"/>
+<rect x="318" y="27.8" width="3.6" height="3.2" rx="1" fill="#F3EFE7"/>
+<rect x="324" y="24.6" width="3.6" height="6.4" rx="1" fill="#F3EFE7"/>
+<rect x="330" y="21.4" width="3.6" height="9.6" rx="1" fill="#F3EFE7"/>
+<rect x="336" y="18.2" width="3.6" height="12.8" rx="1" fill="#2A2F38"/>
+<rect x="350" y="20" width="26" height="13" rx="4" fill="none" stroke="#A8A397" stroke-width="1.3"/>
+<rect x="352.5" y="22.5" width="17" height="8" rx="2" fill="#A8A397"/>
+<rect x="377" y="24" width="2" height="5" rx="1" fill="#A8A397"/>
+<path d="M27.28 68H31.89A3.36 3.36 0 0 1 35.21 71.86A7.84 7.84 0 0 0 44.14 80.79A3.36 3.36 0 0 1 48 84.11V88.72A7.28 7.28 0 0 1 40.72 96H27.28A7.28 7.28 0 0 1 20 88.72V75.28A7.28 7.28 0 0 1 27.28 68Z" fill="#F3EFE7"/><path d="M37.92 73.04A5.04 5.04 0 1 0 48 73.04A5.04 5.04 0 1 0 37.92 73.04Z" fill="#EDB04C"/>
+<text x="58" y="90" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="23" font-weight="800" fill="#F3EFE7" letter-spacing="-0.5">Tek</text><text x="95.9" y="90" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="23" font-weight="500" fill="#F3EFE7" letter-spacing="-0.5">Panel</text>
+<circle cx="180.4" cy="83" r="15" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<path d="M175.9 81L180.4 85.5L184.9 81" fill="none" stroke="#A8A397" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="402" y="88" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#EDB04C" text-anchor="end">2 yeni</text>
+<circle cx="351.7" cy="83.5" r="3.5" fill="#EDB04C"/>
+<rect x="16" y="118" width="74.8" height="36" rx="18" fill="#EDB04C"/>
+<text x="34" y="141" font-family="Inter, 'DM Sans', sans-serif" font-size="14" font-weight="700" fill="#1A1207">Tümü</text>
+<rect x="98.8" y="118" width="120.5" height="36" rx="18" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="116.8" cy="136" r="11" fill="#353B46"/><circle cx="116.8" cy="136" r="3.8" fill="#CFCABD"/>
+<text x="135.8" y="140.5" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">WhatsApp</text>
+<rect x="227.4" y="118" width="117.6" height="36" rx="18" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="245.4" cy="136" r="11" fill="#353B46"/><rect x="241.8" y="132.4" width="7.2" height="7.2" rx="1.8" fill="#CFCABD"/>
+<text x="264.4" y="140.5" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">Instagram</text>
+<rect x="353" y="118" width="82" height="36" rx="18" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="371" cy="136" r="11" fill="#353B46"/><path d="M371 131.4L375.6 136L371 140.6L366.4 136Z" fill="#CFCABD"/>
+<text x="390" y="140.5" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">SMS</text>
+<rect x="16" y="176" width="388" height="294" rx="16" fill="#1C2027" stroke="#363C47" stroke-width="1"/>
+<circle cx="54" cy="212" r="22" fill="#2A2F38"/><text x="54" y="217.5" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" text-anchor="middle">ÇŞ</text><circle cx="70" cy="228" r="10" fill="#353B46" stroke="#1C2027" stroke-width="3"/><circle cx="70" cy="228" r="3.8" fill="#CFCABD"/><text x="88" y="207" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Çağrı Şahin</text><rect x="184.1" y="192.5" width="22" height="18" rx="9" fill="#353B46"/><text x="195.1" y="205.2" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="600" fill="#F3EFE7" text-anchor="middle">2</text><circle cx="381" cy="201.5" r="4" fill="#EDB04C"/>
+<text x="88" y="263" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#F3EFE7">Sipariş ne zaman gelir?</text>
+<text x="88" y="292" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">21:34</text>
+<rect x="310" y="275" width="62" height="24" rx="10" fill="none" stroke="#2A2F38" stroke-width="1"/><text x="341" y="291" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" text-anchor="middle">Okundu</text>
+<line x1="88" y1="307" x2="372" y2="307" stroke="#2A2F38"/>
+<text x="88" y="331" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#F3EFE7">Kargo takip numarasını yazar mısınız?</text>
+<text x="88" y="352" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#F3EFE7">Hafta sonu evde olmayacağım, kapıya</text>
+<text x="88" y="373" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#F3EFE7">bırakılırsa sorun olur.</text>
+<text x="88" y="402" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">21:36</text>
+<rect x="310" y="385" width="62" height="24" rx="10" fill="none" stroke="#2A2F38" stroke-width="1"/><text x="341" y="401" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" text-anchor="middle">Okundu</text>
+<rect x="88" y="421" width="96" height="32" rx="10" fill="none" stroke="#EDB04C" stroke-width="1.2"/>
+<text x="136" y="442" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#EDB04C" text-anchor="middle">Yanıtla</text>
+<!-- kart1 bitiş: 291 -->
+<rect x="16" y="480" width="388" height="100" rx="16" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="54" cy="516" r="22" fill="#2A2F38"/><text x="54" y="521.5" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" text-anchor="middle">ED</text><circle cx="70" cy="532" r="10" fill="#353B46" stroke="#14171C" stroke-width="3"/><rect x="66.4" y="528.4" width="7.2" height="7.2" rx="1.8" fill="#CFCABD"/><text x="88" y="511" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Elif Demir</text><rect x="168.4" y="496.5" width="22" height="18" rx="9" fill="#353B46"/><text x="179.4" y="509.2" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="600" fill="#F3EFE7" text-anchor="middle">3</text><circle cx="381" cy="505.5" r="4" fill="#EDB04C"/>
+<text x="88" y="534" font-family="Inter, 'DM Sans', sans-serif" font-size="14" font-weight="400" fill="#A8A397">Randevuyu cumaya alabilir miyiz? Saat…</text>
+<text x="88" y="562" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">21:12</text>
+<rect x="310" y="544" width="62" height="24" rx="10" fill="none" stroke="#2A2F38" stroke-width="1"/><text x="341" y="560" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" text-anchor="middle">Okundu</text>
+<rect x="16" y="590" width="388" height="100" rx="16" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="54" cy="626" r="22" fill="#2A2F38"/><text x="54" y="631.5" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" text-anchor="middle">YA</text><circle cx="70" cy="642" r="10" fill="#353B46" stroke="#14171C" stroke-width="3"/><path d="M70 637.4L74.6 642L70 646.6L65.4 642Z" fill="#CFCABD"/><text x="88" y="621" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Yaren Aydın</text>
+<text x="88" y="644" font-family="Inter, 'DM Sans', sans-serif" font-size="14" font-weight="400" fill="#A8A397">Ürün kodu 4412 için beden tablosunu…</text>
+<text x="88" y="672" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">20:47</text>
+<rect x="310" y="654" width="62" height="24" rx="10" fill="none" stroke="#2A2F38" stroke-width="1"/><text x="341" y="670" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" text-anchor="middle">Okundu</text>
+<rect x="16" y="700" width="388" height="100" rx="16" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<circle cx="54" cy="736" r="22" fill="#2A2F38"/><text x="54" y="741.5" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" text-anchor="middle">MK</text><circle cx="70" cy="752" r="10" fill="#353B46" stroke="#14171C" stroke-width="3"/><path d="M70 747.6L74.2 755.4L65.8 755.4Z" fill="#CFCABD"/><text x="88" y="731" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Mert Kaya</text>
+<text x="88" y="754" font-family="Inter, 'DM Sans', sans-serif" font-size="14" font-weight="400" fill="#A8A397">Fiyat listesi için teşekkürler, yarın uğrarım.</text>
+<text x="88" y="782" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">19:55</text>
+<rect x="310" y="764" width="62" height="24" rx="10" fill="none" stroke="#2A2F38" stroke-width="1"/><text x="341" y="780" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" text-anchor="middle">Okundu</text>
+<rect x="16.5" y="810.5" width="387" height="40" rx="12" fill="none" stroke="#A8A397" stroke-opacity="0.4" stroke-dasharray="4 4"/>
+<text x="210" y="834" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="middle" fill-opacity="0.85">güvenli boşluk · 80 dp</text>
+<rect x="150" y="866" width="120" height="4.5" rx="2.25" fill="#F3EFE7" fill-opacity="0.55"/>
+</g></g>
+<text x="60" y="580" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Renkler</text><line x1="129.4" y1="575" x2="350" y2="575" stroke="#2A2F38" stroke-width="1"/>
+<rect x="60" y="598" width="28" height="28" rx="8" fill="#0C0E12" stroke="#3A404B" stroke-width="1"/>
+<text x="100" y="610" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Arka plan</text>
+<text x="100" y="625" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#0C0E12 · mürekkep · ikon zemini</text>
+<rect x="60" y="634" width="28" height="28" rx="8" fill="#14171C" stroke="#3A404B" stroke-width="1"/>
+<text x="100" y="646" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Yüzey</text>
+<text x="100" y="661" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#14171C · kart</text>
+<rect x="60" y="670" width="28" height="28" rx="8" fill="#1C2027" stroke="#3A404B" stroke-width="1"/>
+<text x="100" y="682" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Yükseltilmiş yüzey</text>
+<text x="100" y="697" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#1C2027 · açık kart, menü</text>
+<rect x="60" y="706" width="28" height="28" rx="8" fill="#2A2F38" stroke="#3A404B" stroke-width="1"/>
+<text x="100" y="718" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Çizgi</text>
+<text x="100" y="733" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#2A2F38 · ince ayraç, çerçeve</text>
+<rect x="60" y="742" width="28" height="28" rx="8" fill="#F3EFE7"/>
+<text x="100" y="754" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Ana metin</text>
+<text x="100" y="769" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#F3EFE7</text>
+<text x="350" y="754" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">16,8 : 1</text>
+<text x="350" y="769" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">arka planda</text>
+<rect x="60" y="778" width="28" height="28" rx="8" fill="#A8A397"/>
+<text x="100" y="790" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">İkincil metin</text>
+<text x="100" y="805" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#A8A397</text>
+<text x="350" y="790" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">7,7 : 1</text>
+<text x="350" y="805" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">arka planda</text>
+<rect x="60" y="814" width="28" height="28" rx="8" fill="#EDB04C"/>
+<text x="100" y="826" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Vurgu</text>
+<text x="100" y="841" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#EDB04C · kehribar</text>
+<text x="350" y="826" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">10,0 : 1</text>
+<text x="350" y="841" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">arka planda</text>
+<rect x="60" y="850" width="28" height="28" rx="8" fill="#1A1207" stroke="#3A404B" stroke-width="1"/>
+<text x="100" y="862" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Vurgu üstü metin</text>
+<text x="100" y="877" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#1A1207</text>
+<text x="350" y="862" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">9,6 : 1</text>
+<text x="350" y="877" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">vurgu üstünde</text>
+<rect x="60" y="886" width="28" height="28" rx="8" fill="#EC7A6E"/>
+<text x="100" y="898" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Tehlike</text>
+<text x="100" y="913" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#EC7A6E</text>
+<text x="350" y="898" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">7,0 : 1</text>
+<text x="350" y="913" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">arka planda</text>
+<rect x="60" y="922" width="28" height="28" rx="8" fill="#74C79C"/>
+<text x="100" y="934" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="600" fill="#F3EFE7">Başarı</text>
+<text x="100" y="949" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" style="font-variant-numeric: tabular-nums">#74C79C</text>
+<text x="350" y="934" font-family="Inter, 'DM Sans', sans-serif" font-size="13" font-weight="700" fill="#F3EFE7" text-anchor="end" style="font-variant-numeric: tabular-nums">9,6 : 1</text>
+<text x="350" y="949" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">arka planda</text>
+<line x1="60" y1="960" x2="350" y2="960" stroke="#2A2F38"/>
+<text x="60" y="980" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">Gövde metni eşiği 4,5 : 1. Ana ve ikincil</text>
+<text x="60" y="996" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">metin bu eşiğin çok üstünde.</text>
+<text x="60" y="1018" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#F3EFE7">Kehribar yalnızca “yeni” ve “ana eylem” içindir.</text>
+<text x="60" y="1034" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">Denge: yüzey %92 · metin %5 · kehribar %3</text>
+<text x="60" y="1066" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Hareket</text><line x1="131.8" y1="1061" x2="350" y2="1061" stroke="#2A2F38" stroke-width="1"/>
+<rect x="60" y="1090" width="84" height="58" rx="12" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<line x1="68" y1="1104.5" x2="136" y2="1104.5" stroke="#3A404B" stroke-dasharray="3 3"/><path d="M68 1136L69.1 1135.7L70.3 1134.9L71.4 1133.7L72.5 1132.2L73.7 1130.5L74.8 1128.7L75.9 1126.7L77.1 1124.8L78.2 1122.8L79.3 1120.9L80.5 1119.1L81.6 1117.3L82.7 1115.7L83.9 1114.2L85 1112.8L86.1 1111.5L87.3 1110.3L88.4 1109.2L89.5 1108.3L90.7 1107.5L91.8 1106.8L92.9 1106.1L94.1 1105.6L95.2 1105.2L96.3 1104.8L97.5 1104.5L98.6 1104.2L99.7 1104L100.9 1103.9L102 1103.8L103.1 1103.7L104.3 1103.7L105.4 1103.6L106.5 1103.6L107.7 1103.6L108.8 1103.7L109.9 1103.7L111.1 1103.8L112.2 1103.8L113.3 1103.9L114.5 1103.9L115.6 1104L116.7 1104L117.9 1104.1L119 1104.1L120.1 1104.2L121.3 1104.2L122.4 1104.3L123.5 1104.3L124.7 1104.3L125.8 1104.4L126.9 1104.4L128.1 1104.4L129.2 1104.4L130.3 1104.5L131.5 1104.5L132.6 1104.5L133.7 1104.5L134.9 1104.5L136 1104.5" fill="none" stroke="#EDB04C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="1110" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">Kart genişleme</text>
+<text x="160" y="1128" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">460 ms · yay</text>
+<text x="160" y="1143" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">sönüm 0,75 · sertlik 200</text>
+<rect x="60" y="1186" width="84" height="58" rx="12" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<line x1="68" y1="1200.5" x2="136" y2="1200.5" stroke="#3A404B" stroke-dasharray="3 3"/><path d="M68 1232L69.1 1231.9L70.3 1231.6L71.4 1231.1L72.5 1230.2L73.7 1228.9L74.8 1227.1L75.9 1225L77.1 1222.9L78.2 1221L79.3 1219.2L80.5 1217.6L81.6 1216.3L82.7 1215L83.9 1213.9L85 1212.9L86.1 1212L87.3 1211.1L88.4 1210.3L89.5 1209.6L90.7 1209L91.8 1208.3L92.9 1207.8L94.1 1207.2L95.2 1206.7L96.3 1206.3L97.5 1205.8L98.6 1205.4L99.7 1205.1L100.9 1204.7L102 1204.4L103.1 1204.1L104.3 1203.8L105.4 1203.5L106.5 1203.2L107.7 1203L108.8 1202.8L109.9 1202.5L111.1 1202.3L112.2 1202.2L113.3 1202L114.5 1201.8L115.6 1201.7L116.7 1201.5L117.9 1201.4L119 1201.3L120.1 1201.2L121.3 1201.1L122.4 1201L123.5 1200.9L124.7 1200.8L125.8 1200.8L126.9 1200.7L128.1 1200.7L129.2 1200.6L130.3 1200.6L131.5 1200.6L132.6 1200.5L133.7 1200.5L134.9 1200.5L136 1200.5" fill="none" stroke="#EDB04C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="1206" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">Okundu ile kaybolma</text>
+<text x="160" y="1224" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">solma 240 ms, boşluk 360 ms</text>
+<text x="160" y="1239" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">cubic-bezier(0.2, 0, 0, 1)</text>
+<rect x="60" y="1282" width="84" height="58" rx="12" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<line x1="68" y1="1296.5" x2="136" y2="1296.5" stroke="#3A404B" stroke-dasharray="3 3"/><path d="M68 1328L69.1 1328L70.3 1327.9L71.4 1327.7L72.5 1327.4L73.7 1326.9L74.8 1326.4L75.9 1325.6L77.1 1324.7L78.2 1323.6L79.3 1322.2L80.5 1320.7L81.6 1319.1L82.7 1317.5L83.9 1315.9L85 1314.3L86.1 1312.9L87.3 1311.6L88.4 1310.4L89.5 1309.3L90.7 1308.3L91.8 1307.4L92.9 1306.5L94.1 1305.7L95.2 1305L96.3 1304.3L97.5 1303.7L98.6 1303.1L99.7 1302.6L100.9 1302.1L102 1301.6L103.1 1301.2L104.3 1300.8L105.4 1300.4L106.5 1300L107.7 1299.7L108.8 1299.4L109.9 1299.1L111.1 1298.9L112.2 1298.6L113.3 1298.4L114.5 1298.2L115.6 1298L116.7 1297.8L117.9 1297.6L119 1297.5L120.1 1297.4L121.3 1297.2L122.4 1297.1L123.5 1297L124.7 1296.9L125.8 1296.8L126.9 1296.8L128.1 1296.7L129.2 1296.7L130.3 1296.6L131.5 1296.6L132.6 1296.6L133.7 1296.5L134.9 1296.5L136 1296.5" fill="none" stroke="#EDB04C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="1302" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">Kanal geçişi</text>
+<text x="160" y="1320" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">çapraz geçiş 280 ms</text>
+<text x="160" y="1335" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">kartlar 30 ms arayla 8 dp süzülür</text>
+<rect x="60" y="1378" width="84" height="58" rx="12" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<line x1="68" y1="1392.5" x2="136" y2="1392.5" stroke="#3A404B" stroke-dasharray="3 3"/><path d="M68 1424L69.1 1423.8L70.3 1423.2L71.4 1422.3L72.5 1421.2L73.7 1419.8L74.8 1418.3L75.9 1416.8L77.1 1415.1L78.2 1413.5L79.3 1411.8L80.5 1410.2L81.6 1408.6L82.7 1407L83.9 1405.5L85 1404.1L86.1 1402.8L87.3 1401.5L88.4 1400.4L89.5 1399.3L90.7 1398.3L91.8 1397.4L92.9 1396.6L94.1 1395.8L95.2 1395.2L96.3 1394.6L97.5 1394.1L98.6 1393.6L99.7 1393.2L100.9 1392.9L102 1392.6L103.1 1392.4L104.3 1392.2L105.4 1392L106.5 1391.9L107.7 1391.8L108.8 1391.7L109.9 1391.7L111.1 1391.6L112.2 1391.6L113.3 1391.6L114.5 1391.6L115.6 1391.7L116.7 1391.7L117.9 1391.7L119 1391.8L120.1 1391.8L121.3 1391.9L122.4 1391.9L123.5 1391.9L124.7 1392L125.8 1392L126.9 1392.1L128.1 1392.1L129.2 1392.2L130.3 1392.2L131.5 1392.2L132.6 1392.3L133.7 1392.3L134.9 1392.3L136 1392.4" fill="none" stroke="#EDB04C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="1398" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="600" fill="#F3EFE7">Yeni mesaj</text>
+<text x="160" y="1416" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">yay 400 ms · nokta 200 ms</text>
+<text x="160" y="1431" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">üstten 12 dp oturur</text>
+<text x="850" y="580" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Tipografi</text><line x1="929.6" y1="575" x2="1140" y2="575" stroke="#2A2F38" stroke-width="1"/>
+<rect x="850" y="598" width="140" height="78" rx="14" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<rect x="1000" y="598" width="140" height="78" rx="14" fill="#14171C" stroke="#2A2F38" stroke-width="1"/>
+<text x="866" y="646" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="#F3EFE7" letter-spacing="-1">Aa</text>
+<text x="866" y="665" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">Manrope · başlık</text>
+<text x="1016" y="646" font-family="Inter, 'DM Sans', sans-serif" font-size="44" font-weight="400" fill="#F3EFE7" letter-spacing="-1">Aa</text>
+<text x="1016" y="665" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="400" fill="#A8A397">Inter · gövde</text>
+<text x="850" y="710" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="19" font-weight="800" fill="#F3EFE7" letter-spacing="-0.3">Çağrı Şahin: Sipariş ne zaman</text>
+<text x="850" y="736" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="19" font-weight="800" fill="#F3EFE7" letter-spacing="-0.3">gelir? İyi akşamlar, ğ ş ı İ ö ü ç</text>
+<text x="850" y="768" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#A8A397">Çağrı Şahin: Sipariş ne zaman gelir? İyi</text>
+<text x="850" y="789" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#A8A397">akşamlar, ğ ş ı İ ö ü ç</text>
+<line x1="850" y1="806" x2="1140" y2="806" stroke="#2A2F38"/>
+<text x="850" y="826" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Başlık</text>
+<text x="1140" y="826" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">Manrope 800 · 26/32</text>
+<text x="850" y="860.7" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="800" fill="#F3EFE7" letter-spacing="-0.5">Her şey yolunda</text>
+<text x="850" y="889.2" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Alt başlık</text>
+<text x="1140" y="889.2" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">Manrope 700 · 16/22</text>
+<text x="850" y="914.4" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Çağrı Şahin</text>
+<text x="850" y="940.4" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Gövde</text>
+<text x="1140" y="940.4" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">Inter 400 · 14,5/21</text>
+<text x="850" y="964.2" font-family="Inter, 'DM Sans', sans-serif" font-size="14.5" font-weight="400" fill="#F3EFE7">Sipariş ne zaman gelir?</text>
+<text x="850" y="989.8" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Etiket</text>
+<text x="1140" y="989.8" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397" text-anchor="end">Inter 600 · 12/16</text>
+<text x="850" y="1011.2" font-family="Inter, 'DM Sans', sans-serif" font-size="12" font-weight="600" fill="#A8A397" letter-spacing="0.1">Okundu · 21:34</text>
+<!-- tipo son y: 1024.2 -->
+<text x="850" y="1066" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7">Ses ve üslup</text><line x1="954.4" y1="1061" x2="1140" y2="1061" stroke="#2A2F38" stroke-width="1"/>
+<text x="850" y="1098" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Boş durum</text>
+<text x="850" y="1116" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Her şey yolunda.</text>
+<text x="850" y="1138" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#A8A397">Yeni mesaj yok. Geldiğinde burada görünür.</text>
+<line x1="850" y1="1151" x2="1140" y2="1151" stroke="#2A2F38"/>
+<text x="850" y="1175" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">İzin açıklaması</text>
+<text x="850" y="1193" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#F3EFE7">Mesajları toplamak için bildirim erişimi</text>
+<text x="850" y="1212" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#F3EFE7">gerekir. Veriler telefondan çıkmaz.</text>
+<line x1="850" y1="1225" x2="1140" y2="1225" stroke="#2A2F38"/>
+<text x="850" y="1249" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Ekranı temizle</text>
+<text x="850" y="1267" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Ekran temizlensin mi?</text>
+<text x="850" y="1289" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#A8A397">Tüm mesajlar okundu sayılır.</text>
+<rect x="850" y="1304" width="68.9" height="28" rx="10" fill="none" stroke="#2A2F38" stroke-width="1.1"/>
+<text x="884.5" y="1322.5" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#A8A397" text-anchor="middle">Vazgeç</text>
+<rect x="926.9" y="1304" width="70.9" height="28" rx="10" fill="none" stroke="#EC7A6E" stroke-width="1.1"/>
+<text x="962.4" y="1322.5" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#EC7A6E" text-anchor="middle">Temizle</text>
+<line x1="850" y1="1336" x2="1140" y2="1336" stroke="#2A2F38"/>
+<text x="850" y="1360" font-family="Inter, 'DM Sans', sans-serif" font-size="11.5" font-weight="400" fill="#A8A397">Hata</text>
+<text x="850" y="1378" font-family="Manrope, 'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#F3EFE7" letter-spacing="-0.1">Bildirimler okunamıyor.</text>
+<text x="850" y="1400" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#A8A397">Erişim kapalı görünüyor. Ayarlardan</text>
+<text x="850" y="1419" font-family="Inter, 'DM Sans', sans-serif" font-size="13.5" font-weight="400" fill="#A8A397">açabilirsiniz.</text>
+<rect x="850" y="1434" width="88.2" height="28" rx="10" fill="none" stroke="#EDB04C" stroke-width="1.1"/>
+<text x="894.1" y="1452.5" font-family="Inter, 'DM Sans', sans-serif" font-size="12.5" font-weight="600" fill="#EDB04C" text-anchor="middle">Ayarları aç</text>
+<!-- ses son y: 1470 -->
+</svg>

@@ -1,6 +1,10 @@
 package com.tekpanel.app.domain.model
 
-/** Lifecycle state of an [InboxMessage] inside TekPanel's local store (CAP-08, CAP-12). */
+/**
+ * UNREAD is the only state shown in the inbox. READ means the user pressed "Okundu" on that
+ * message; HIDDEN means it was removed by "Ekranı tertemiz yap". Both leave the local store
+ * intact (so the duplicate guard keeps working) and can be undone for a short while.
+ */
 enum class MessageState {
     UNREAD,
     READ,

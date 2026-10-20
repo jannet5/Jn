@@ -2,37 +2,48 @@ package com.tekpanel.app.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val TekPanelColorScheme = darkColorScheme(
-    background = TekPanelColors.Background,
-    surface = TekPanelColors.Surface,
-    surfaceVariant = TekPanelColors.SurfaceRaised,
-    onBackground = TekPanelColors.TextPrimary,
-    onSurface = TekPanelColors.TextPrimary,
-    onSurfaceVariant = TekPanelColors.TextSecondary,
-    outline = TekPanelColors.Outline,
-    primary = TekPanelColors.Accent,
-    onPrimary = TekPanelColors.Background,
-    error = TekPanelColors.Danger,
-    onError = TekPanelColors.TextPrimary,
-)
-
 @Composable
-fun TekPanelTheme(content: @Composable () -> Unit) {
+fun TekPanelTheme(
+    colors: BrandColors = Brand.colors,
+    shapes: BrandShapes = Brand.shapes,
+    motion: BrandMotion = Brand.motion,
+    content: @Composable () -> Unit,
+) {
     val view = LocalView.current
     if (!view.isInEditMode) {
         val window = (view.context as? android.app.Activity)?.window
         window?.let {
-            WindowCompat.getInsetsController(it, view).isAppearanceLightStatusBars = false
-            WindowCompat.getInsetsController(it, view).isAppearanceLightNavigationBars = false
+            val controller = WindowCompat.getInsetsController(it, view)
+            controller.isAppearanceLightStatusBars = !colors.isDark
+            controller.isAppearanceLightNavigationBars = !colors.isDark
         }
     }
-    MaterialTheme(
-        colorScheme = TekPanelColorScheme,
-        typography = TekPanelTypography,
-        content = content,
-    )
+    val scheme = if (colors.isDark) {
+        darkColorScheme(
+            background = colors.background, surface = colors.surface, surfaceVariant = colors.surfaceHigh,
+            onBackground = colors.text, onSurface = colors.text, onSurfaceVariant = colors.textSecondary,
+            outline = colors.line, primary = colors.accent, onPrimary = colors.onAccent,
+            error = colors.danger, onError = colors.text,
+        )
+    } else {
+        lightColorScheme(
+            background = colors.background, surface = colors.surface, surfaceVariant = colors.surfaceHigh,
+            onBackground = colors.text, onSurface = colors.text, onSurfaceVariant = colors.textSecondary,
+            outline = colors.line, primary = colors.accent, onPrimary = colors.onAccent,
+            error = colors.danger, onError = colors.background,
+        )
+    }
+    CompositionLocalProvider(
+        LocalBrandColors provides colors,
+        LocalBrandShapes provides shapes,
+        LocalBrandMotion provides motion,
+    ) {
+        MaterialTheme(colorScheme = scheme, typography = brandTypography(), content = content)
+    }
 }

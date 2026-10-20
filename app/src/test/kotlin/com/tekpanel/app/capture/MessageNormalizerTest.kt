@@ -4,109 +4,115 @@ import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 
 /**
- * Payload shapes below mirror the documented structure of real WhatsApp/Instagram/TikTok
- * chat notifications (MessagingStyle for modern chat notifications, bigText/textLines for
- * the InboxStyle notifications older app versions and some OEM SMS apps still post). They
- * are representative fixtures, not a device capture -- see docs/DECISIONS.md for the
- * still-open item to validate against notifications from real installs of each app.
+ * Payload shapes mirror the documented structure of real chat notifications (MessagingStyle for
+ * modern chat apps, bigText/textLines for InboxStyle notifications that older versions and some
+ * OEM SMS apps still post). They are representative fixtures, not a device capture.
  */
 class MessageNormalizerTest {
 
-    private fun basePayload(
-        title: String? = null,
-        text: String? = null,
-        bigText: String? = null,
-        textLines: List<String> = emptyList(),
-        conversationTitle: String? = null,
-        messagingStyleMessages: List<MessagingLine> = emptyList(),
-    ) = RawNotificationPayload(
-        notificationKey = "key",
-        packageName = "com.whatsapp",
-        postTimeEpochMillis = 1_000_000L,
-        title = title,
-        text = text,
-        bigText = bigText,
-        textLines = textLines,
-        conversationTitle = conversationTitle,
-        messagingStyleMessages = messagingStyleMessages,
-        category = null,
-        isGroupSummary = false,
-        isOngoing = false,
-        hasContentIntent = true,
-    )
-
     @Test
-    fun `prefers the last MessagingStyle message over everything else`() {
-        val payload = basePayload(
+    fun `returns every MessagingStyle line, oldest first, each with its own timestamp`() {
+        val payload = payloadOf(
             title = "Ayşe Yılmaz",
             text = "old preview",
-            messagingStyleMessages = listOf(
-                MessagingLine(sender = "Ayşe Yılmaz", text = "Merhaba, randevu almak istiyorum"),
-                MessagingLine(sender = "Ayşe Yılmaz", text = "Yarın saat 14:00 uygun mu?"),
+            lines = listOf(
+                MessagingLine(sender = "Ayşe Yılmaz", text = "Merhaba, randevu almak istiyorum", timestampMillis = 100, index = 0),
+                MessagingLine(sender = "Ayşe Yılmaz", text = "Yarın saat 14:00 uygun mu?", timestampMillis = 200, index = 1),
             ),
         )
 
-        val result = MessageNormalizer.normalize(payload)
+        val result = MessageNormalizer.normalize(payload)!!
 
-        assertThat(result?.senderName).isEqualTo("Ayşe Yılmaz")
-        assertThat(result?.messageText).isEqualTo("Yarın saat 14:00 uygun mu?")
+        assertThat(result.conversationTitle).isEqualTo("Ayşe Yılmaz")
+        assertThat(result.messages.map { it.messageText }).containsExactly(
+            "Merhaba, randevu almak istiyorum",
+            "Yarın saat 14:00 uygun mu?",
+        ).inOrder()
+        assertThat(result.messages.map { it.timestampMillis }).containsExactly(100L, 200L).inOrder()
     }
 
     @Test
-    fun `falls back to bigText when there is no MessagingStyle`() {
-        val payload = basePayload(
-            title = "Mehmet Demir",
-            text = "Kısa önizleme",
-            bigText = "Mehmet Demir: Saç kesimi için ne zaman gelebilirim, yarın uygun musunuz?",
+    fun `group chat keeps the group name as conversation and each person as sender`() {
+        val payload = payloadOf(
+            title = "Kuaför Müşterileri",
+            conversationTitle = "Kuaför Müşterileri",
+            isGroup = true,
+            lines = listOf(
+                MessagingLine("Ali", "merhaba", 10, index = 0),
+                MessagingLine("Zeynep", "fiyat bilgisi alabilir miyim?", 20, index = 1),
+            ),
         )
 
-        val result = MessageNormalizer.normalize(payload)
+        val result = MessageNormalizer.normalize(payload)!!
 
-        assertThat(result?.senderName).isEqualTo("Mehmet Demir")
-        assertThat(result?.messageText).isEqualTo("Saç kesimi için ne zaman gelebilirim, yarın uygun musunuz?")
+        assertThat(result.isGroupConversation).isTrue()
+        assertThat(result.conversationTitle).isEqualTo("Kuaför Müşterileri")
+        assertThat(result.messages.map { it.senderName }).containsExactly("Ali", "Zeynep").inOrder()
     }
 
     @Test
-    fun `falls back to the last text line when there is no bigText`() {
-        val payload = basePayload(
+    fun `plain notification uses the longest of bigText and text so nothing is cut short`() {
+        val full = "Saç kesimi için ne zaman gelebilirim, yarın uygun musunuz? Cumartesi de olabilir, esnek davranabilirim."
+        val payload = payloadOf(title = "Mehmet Demir", text = full.take(40) + "…", bigText = "Mehmet Demir: $full")
+
+        val result = MessageNormalizer.normalize(payload)!!
+
+        assertThat(result.messages.single().messageText).isEqualTo(full)
+        assertThat(result.messages.single().senderName).isEqualTo("Mehmet Demir")
+    }
+
+    @Test
+    fun `plain text wins over a shorter bigText`() {
+        val payload = payloadOf(title = "Can Öz", text = "Merhaba, ürün stokta var mı? Rengi lacivert olanı arıyorum.", bigText = "Merhaba")
+
+        val result = MessageNormalizer.normalize(payload)!!
+
+        assertThat(result.messages.single().messageText).startsWith("Merhaba, ürün stokta var mı?")
+    }
+
+    @Test
+    fun `text lines become one message each with the sender split off`() {
+        val payload = payloadOf(
             title = "Grup: Kuaför Müşterileri",
-            textLines = listOf(
-                "Ali: merhaba",
-                "Zeynep: fiyat bilgisi alabilir miyim?",
-            ),
+            textLines = listOf("Ali: merhaba", "Zeynep: fiyat bilgisi alabilir miyim?"),
         )
 
-        val result = MessageNormalizer.normalize(payload)
+        val result = MessageNormalizer.normalize(payload)!!
 
-        assertThat(result?.senderName).isEqualTo("Zeynep")
-        assertThat(result?.messageText).isEqualTo("fiyat bilgisi alabilir miyim?")
-    }
-
-    @Test
-    fun `falls back to plain text as a last resort`() {
-        val payload = basePayload(title = "Can Öz", text = "Merhaba, ürün stokta var mı?")
-
-        val result = MessageNormalizer.normalize(payload)
-
-        assertThat(result?.senderName).isEqualTo("Can Öz")
-        assertThat(result?.messageText).isEqualTo("Merhaba, ürün stokta var mı?")
-    }
-
-    @Test
-    fun `returns null when there is no usable content at all`() {
-        val payload = basePayload(title = "Instagram", text = null)
-
-        val result = MessageNormalizer.normalize(payload)
-
-        assertThat(result).isNull()
+        assertThat(result.messages.map { it.senderName }).containsExactly("Ali", "Zeynep").inOrder()
+        assertThat(result.messages.last().messageText).isEqualTo("fiyat bilgisi alabilir miyim?")
     }
 
     @Test
     fun `strips a redundant sender colon prefix from plain text`() {
-        val payload = basePayload(title = "Selin Aksoy", text = "Selin Aksoy: siparişim ne zaman gelir?")
+        val payload = payloadOf(title = "Selin Aksoy", text = "Selin Aksoy: siparişim ne zaman gelir?")
 
-        val result = MessageNormalizer.normalize(payload)
+        val result = MessageNormalizer.normalize(payload)!!
 
-        assertThat(result?.messageText).isEqualTo("siparişim ne zaman gelir?")
+        assertThat(result.messages.single().messageText).isEqualTo("siparişim ne zaman gelir?")
+    }
+
+    @Test
+    fun `a picture-only line is kept even though it has no text`() {
+        val payload = payloadOf(
+            title = "Selin",
+            lines = listOf(MessagingLine("Selin", "", 5, hasPicture = true, index = 0)),
+        )
+
+        val result = MessageNormalizer.normalize(payload)!!
+
+        assertThat(result.messages.single().hasPicture).isTrue()
+    }
+
+    @Test
+    fun `big picture on a plain notification marks its message as having a picture`() {
+        val payload = payloadOf(title = "Selin", text = "foto gönderdi", hasBigPicture = true)
+
+        assertThat(MessageNormalizer.normalize(payload)!!.messages.single().hasPicture).isTrue()
+    }
+
+    @Test
+    fun `returns null when there is no usable content at all`() {
+        assertThat(MessageNormalizer.normalize(payloadOf(title = "Instagram", text = null))).isNull()
     }
 }

@@ -3,23 +3,24 @@ package com.tekpanel.app.domain.model
 import java.time.Instant
 
 /**
- * Common model every accepted capture is normalized into (spec CAP-05).
- *
- * [fingerprint] is a secondary duplicate-detection key derived from normalized
- * package + sender + message + a coarse time bucket, used when [notificationKey]
- * is unavailable or the listener reconnects and re-enumerates active notifications (CAP-07).
+ * A single captured message. [conversationKey] groups messages of the same chat/feed
+ * (package + normalized conversation title); [sourcePackage] is also the channel id, since
+ * a channel is simply an installed app the user chose to listen to.
  */
 data class InboxMessage(
     val id: String,
     val notificationKey: String?,
     val fingerprint: String,
     val sourcePackage: String,
-    val channelId: String,
+    val conversationKey: String,
+    val conversationTitle: String,
+    val isGroupConversation: Boolean,
     val senderName: String,
     val messageText: String,
     val receivedAt: Instant,
     val capturedAt: Instant,
     val captureMethod: CaptureMethod,
     val state: MessageState,
-    val canOpenLiveConversation: Boolean,
+    val avatarPath: String?,
+    val picturePath: String?,
 )

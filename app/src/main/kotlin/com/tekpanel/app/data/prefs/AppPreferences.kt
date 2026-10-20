@@ -5,7 +5,6 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.tekpanel.app.data.catalog.SourceAppCatalog
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -13,57 +12,65 @@ import kotlinx.coroutines.flow.map
 private val Context.dataStore by preferencesDataStore(name = "tekpanel_prefs")
 
 /**
- * Channel on/off state and small UI/onboarding flags (spec CAP-03, CAP-08).
+ * Channel selection and small UI flags. Message content always lives in Room, never here
+ * (data_extraction_rules.xml excludes the Room DB and media files from backups).
  *
- * Only preferences live here; message content always lives in Room (see
- * data_extraction_rules.xml, which excludes the Room DB but includes this DataStore file
- * from backups since none of these values are sensitive message content).
+ * A channel is simply an installed app's package name; the set below is "the apps the user
+ * wants to hear from". It is empty until [seedEnabledPackages] ran once on first launch.
  */
 class AppPreferences(context: Context) {
 
     private val dataStore = context.dataStore
 
     private object Keys {
-        val ENABLED_CHANNEL_IDS = stringSetPreferencesKey("enabled_channel_ids")
-        val ONBOARDING_COMPLETE = booleanPreferencesKey("onboarding_complete")
+        val ENABLED_PACKAGES = stringSetPreferencesKey("enabled_packages")
+        val SEEDED = booleanPreferencesKey("channels_seeded")
         val DIAGNOSTICS_UNLOCKED = booleanPreferencesKey("diagnostics_unlocked")
+        val ACCESS_HINT_DISMISSED = booleanPreferencesKey("access_hint_dismissed")
     }
 
-    /** Defaults to every installed channel being enabled the first time it's seen (CAP-03). */
-    val enabledChannelIds: Flow<Set<String>> = dataStore.data.map { prefs ->
-        prefs[Keys.ENABLED_CHANNEL_IDS] ?: SourceAppCatalog.ALL.map { it.id }.toSet()
-    }
+    val enabledPackages: Flow<Set<String>> = dataStore.data.map { it[Keys.ENABLED_PACKAGES] ?: emptySet() }
 
-    val onboardingComplete: Flow<Boolean> = dataStore.data.map { prefs ->
-        prefs[Keys.ONBOARDING_COMPLETE] ?: false
-    }
+    val channelsSeeded: Flow<Boolean> = dataStore.data.map { it[Keys.SEEDED] ?: false }
 
-    val diagnosticsUnlocked: Flow<Boolean> = dataStore.data.map { prefs ->
-        prefs[Keys.DIAGNOSTICS_UNLOCKED] ?: false
-    }
+    val diagnosticsUnlocked: Flow<Boolean> = dataStore.data.map { it[Keys.DIAGNOSTICS_UNLOCKED] ?: false }
 
-    suspend fun isChannelEnabledNow(channelId: String): Boolean = channelId in enabledChannelIds.first()
+    val accessHintDismissed: Flow<Boolean> = dataStore.data.map { it[Keys.ACCESS_HINT_DISMISSED] ?: false }
 
-    suspend fun setChannelEnabled(channelId: String, enabled: Boolean) {
+    suspend fun isChannelEnabledNow(packageName: String): Boolean = packageName in enabledPackages.first()
+
+    suspend fun setChannelEnabled(packageName: String, enabled: Boolean) {
         dataStore.edit { prefs ->
-            val current = prefs[Keys.ENABLED_CHANNEL_IDS] ?: SourceAppCatalog.ALL.map { it.id }.toSet()
-            prefs[Keys.ENABLED_CHANNEL_IDS] = if (enabled) current + channelId else current - channelId
+            val current = prefs[Keys.ENABLED_PACKAGES] ?: emptySet()
+            prefs[Keys.ENABLED_PACKAGES] = if (enabled) current + packageName else current - packageName
+            prefs[Keys.SEEDED] = true
         }
     }
 
-    suspend fun setAllChannelsEnabled(channelIds: Collection<String>, enabled: Boolean) {
+    suspend fun setChannelsEnabled(packageNames: Collection<String>, enabled: Boolean) {
         dataStore.edit { prefs ->
-            val current = prefs[Keys.ENABLED_CHANNEL_IDS] ?: SourceAppCatalog.ALL.map { it.id }.toSet()
-            prefs[Keys.ENABLED_CHANNEL_IDS] = if (enabled) current + channelIds else current - channelIds
+            val current = prefs[Keys.ENABLED_PACKAGES] ?: emptySet()
+            prefs[Keys.ENABLED_PACKAGES] = if (enabled) current + packageNames else current - packageNames.toSet()
+            prefs[Keys.SEEDED] = true
         }
     }
 
-    suspend fun setOnboardingComplete(complete: Boolean) {
-        dataStore.edit { prefs -> prefs[Keys.ONBOARDING_COMPLETE] = complete }
+    /** First launch only: pre-selects [defaults]. A no-op once the user (or a previous seed) chose. */
+    suspend fun seedEnabledPackages(defaults: Collection<String>) {
+        dataStore.edit { prefs ->
+            if (prefs[Keys.SEEDED] != true) {
+                prefs[Keys.ENABLED_PACKAGES] = (prefs[Keys.ENABLED_PACKAGES] ?: emptySet()) + defaults
+                prefs[Keys.SEEDED] = true
+            }
+        }
     }
 
     suspend fun setDiagnosticsUnlocked(unlocked: Boolean) {
         dataStore.edit { prefs -> prefs[Keys.DIAGNOSTICS_UNLOCKED] = unlocked }
+    }
+
+    suspend fun setAccessHintDismissed(dismissed: Boolean) {
+        dataStore.edit { prefs -> prefs[Keys.ACCESS_HINT_DISMISSED] = dismissed }
     }
 
     suspend fun clearAll() {

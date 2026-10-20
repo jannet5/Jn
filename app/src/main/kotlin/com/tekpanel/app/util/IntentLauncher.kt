@@ -3,9 +3,9 @@ package com.tekpanel.app.util
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import com.tekpanel.app.capture.LiveIntentRegistry
+import com.tekpanel.app.capture.LiveActionRegistry
 
-/** Outcome of a CAP-14 "open source" attempt, used to decide what feedback to show. */
+/** Outcome of an "open the source" attempt, used to decide what feedback to show. */
 enum class OpenSourceResult {
     OPENED_LIVE_CONVERSATION,
     OPENED_APP,
@@ -13,22 +13,26 @@ enum class OpenSourceResult {
 }
 
 /**
- * Implements the CAP-14 fallback order exactly as specified:
- * 1. the live notification `contentIntent`, if the process still holds it;
+ * Fallback order for "open this conversation":
+ * 1. the live notification `contentIntent`, if the process still holds it (jumps to the exact chat);
  * 2. otherwise a plain launch of the source app;
- * 3. otherwise report failure so the UI can show "Uygulama açılamadı".
+ * 3. otherwise report failure so the UI can say so.
  */
 class IntentLauncher(
     private val context: Context,
-    private val liveIntentRegistry: LiveIntentRegistry,
+    private val liveActionRegistry: LiveActionRegistry,
 ) {
 
-    fun openSource(messageId: String, packageName: String): OpenSourceResult {
-        liveIntentRegistry.get(messageId)?.let { pendingIntent ->
+    fun openConversation(conversationKey: String, packageName: String): OpenSourceResult {
+        liveActionRegistry.get(conversationKey)?.contentIntent?.let { pendingIntent ->
             if (trySendPendingIntent(pendingIntent)) return OpenSourceResult.OPENED_LIVE_CONVERSATION
         }
         return if (tryLaunchPackage(packageName)) OpenSourceResult.OPENED_APP else OpenSourceResult.FAILED
     }
+
+    fun canReply(conversationKey: String): Boolean = liveActionRegistry.get(conversationKey)?.canReply == true
+
+    fun reply(conversationKey: String, text: String): Boolean = liveActionRegistry.sendReply(context, conversationKey, text)
 
     private fun trySendPendingIntent(pendingIntent: PendingIntent): Boolean =
         try {

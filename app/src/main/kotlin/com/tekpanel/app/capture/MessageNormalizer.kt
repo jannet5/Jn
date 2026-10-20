@@ -1,70 +1,103 @@
 package com.tekpanel.app.capture
 
-/** Sender + message text chosen from a [RawNotificationPayload], ready for display. */
-data class NormalizedContent(val senderName: String, val messageText: String)
+/** One message pulled out of a notification, ready to be fingerprinted and stored. */
+data class NormalizedMessage(
+    val senderName: String,
+    val messageText: String,
+    val timestampMillis: Long?,
+    val lineIndex: Int?,
+    val hasPicture: Boolean,
+)
+
+/** Everything a notification says: which chat it belongs to and the messages inside it. */
+data class NormalizedNotification(
+    val conversationTitle: String,
+    val isGroupConversation: Boolean,
+    val messages: List<NormalizedMessage>,
+)
 
 /**
- * Picks the most complete, least-duplicated text out of a notification (spec CAP-05).
+ * Picks the most complete, least-duplicated text out of a notification.
  *
- * Real chat apps expose the same message through several overlapping fields at once
- * (`text`, `bigText`, `textLines`, `MessagingStyle`). The priority order below was chosen
- * because `MessagingStyle` (when present) is the most structured and least truncated source,
- * followed by `bigText` (the expanded form Android shows on long-press), then the most recent
- * `textLines` entry (older `InboxStyle` notifications), then plain `text` as a last resort.
+ * Chat apps expose the same message through several overlapping fields at once (`text`,
+ * `bigText`, `textLines`, `MessagingStyle`). `MessagingStyle` is the most structured and the
+ * only one that carries *every* recent message with its own timestamp, so every line is
+ * returned (an app keeps re-using one notification per chat, so reading only the newest line
+ * would silently lose messages that arrived in a burst). Without it, the longest of
+ * `bigText` / `text` is used so a long message is never cut at the collapsed length.
  */
 object MessageNormalizer {
 
-    fun normalize(payload: RawNotificationPayload): NormalizedContent? {
+    fun normalize(payload: RawNotificationPayload): NormalizedNotification? {
         fromMessagingStyle(payload)?.let { return it }
-        fromBigText(payload)?.let { return it }
         fromTextLines(payload)?.let { return it }
-        fromPlainText(payload)?.let { return it }
-        return null
+        return fromPlainText(payload)
     }
 
-    private fun fromMessagingStyle(payload: RawNotificationPayload): NormalizedContent? {
-        val last = payload.messagingStyleMessages.lastOrNull { it.text.isNotBlank() } ?: return null
-        val sender = last.sender?.takeIf { it.isNotBlank() }
-            ?: payload.conversationTitle?.takeIf { it.isNotBlank() }
-            ?: payload.title?.takeIf { it.isNotBlank() }
-            ?: return null
-        return NormalizedContent(senderName = sender.trim(), messageText = last.text.trim())
-    }
-
-    private fun fromBigText(payload: RawNotificationPayload): NormalizedContent? {
-        val bigText = payload.bigText?.takeIf { it.isNotBlank() } ?: return null
-        val sender = payload.conversationTitle?.takeIf { it.isNotBlank() }
-            ?: payload.title?.takeIf { it.isNotBlank() }
-            ?: return null
-        return NormalizedContent(senderName = sender.trim(), messageText = stripSenderPrefix(bigText, sender).trim())
-    }
-
-    private fun fromTextLines(payload: RawNotificationPayload): NormalizedContent? {
-        val lastLine = payload.textLines.lastOrNull { it.isNotBlank() } ?: return null
-        val separatorIndex = lastLine.indexOf(": ")
-        val (lineSender, lineText) = if (separatorIndex in 1 until lastLine.length - 2) {
-            lastLine.substring(0, separatorIndex) to lastLine.substring(separatorIndex + 2)
-        } else {
-            null to lastLine
+    private fun fromMessagingStyle(payload: RawNotificationPayload): NormalizedNotification? {
+        val lines = payload.messagingStyleMessages.filter { it.text.isNotBlank() || it.hasPicture }
+        if (lines.isEmpty()) return null
+        val title = conversationTitleOf(payload) ?: lines.last().sender?.takeIf { it.isNotBlank() } ?: return null
+        val fallbackSender = payload.title?.takeIf { it.isNotBlank() } ?: title
+        val messages = lines.map { line ->
+            NormalizedMessage(
+                senderName = (line.sender?.takeIf { it.isNotBlank() } ?: fallbackSender).trim(),
+                messageText = line.text.trim(),
+                timestampMillis = line.timestampMillis.takeIf { it > 0L },
+                lineIndex = line.index,
+                hasPicture = line.hasPicture,
+            )
         }
-        val sender = lineSender?.takeIf { it.isNotBlank() }
-            ?: payload.conversationTitle?.takeIf { it.isNotBlank() }
-            ?: payload.title?.takeIf { it.isNotBlank() }
-            ?: return null
-        return NormalizedContent(senderName = sender.trim(), messageText = lineText.trim())
+        return NormalizedNotification(title.trim(), payload.isGroupConversation, messages)
     }
 
-    private fun fromPlainText(payload: RawNotificationPayload): NormalizedContent? {
-        val text = payload.text?.takeIf { it.isNotBlank() } ?: return null
-        val sender = payload.conversationTitle?.takeIf { it.isNotBlank() }
-            ?: payload.title?.takeIf { it.isNotBlank() }
-            ?: return null
-        return NormalizedContent(senderName = sender.trim(), messageText = stripSenderPrefix(text, sender).trim())
+    private fun fromTextLines(payload: RawNotificationPayload): NormalizedNotification? {
+        val title = conversationTitleOf(payload) ?: return null
+        val lines = payload.textLines.filter { it.isNotBlank() }
+        if (lines.isEmpty()) return null
+        val messages = lines.map { line ->
+            val separator = line.indexOf(": ")
+            val hasSender = separator in 1 until line.length - 2
+            NormalizedMessage(
+                senderName = (if (hasSender) line.substring(0, separator) else title).trim(),
+                messageText = (if (hasSender) line.substring(separator + 2) else line).trim(),
+                timestampMillis = null,
+                lineIndex = null,
+                hasPicture = false,
+            )
+        }
+        return NormalizedNotification(title.trim(), payload.isGroupConversation, messages)
     }
+
+    private fun fromPlainText(payload: RawNotificationPayload): NormalizedNotification? {
+        val title = conversationTitleOf(payload) ?: return null
+        val raw = listOfNotNull(payload.bigText, payload.text)
+            .filter { it.isNotBlank() }
+            .maxByOrNull { it.length }
+            ?: return null
+        val body = stripSenderPrefix(raw.trim(), title)
+        if (body.isBlank()) return null
+        return NormalizedNotification(
+            conversationTitle = title.trim(),
+            isGroupConversation = payload.isGroupConversation,
+            messages = listOf(
+                NormalizedMessage(
+                    senderName = title.trim(),
+                    messageText = body,
+                    timestampMillis = null,
+                    lineIndex = null,
+                    hasPicture = payload.hasBigPicture,
+                ),
+            ),
+        )
+    }
+
+    private fun conversationTitleOf(payload: RawNotificationPayload): String? =
+        payload.conversationTitle?.takeIf { it.isNotBlank() } ?: payload.title?.takeIf { it.isNotBlank() }
 
     /** Some apps prefix the expanded text with "Sender: " again; drop the redundant prefix. */
     private fun stripSenderPrefix(text: String, sender: String): String {
-        val prefix = "$sender: "
+        val prefix = "${sender.trim()}: "
         return if (text.startsWith(prefix)) text.removePrefix(prefix) else text
     }
 }

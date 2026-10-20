@@ -1,57 +1,91 @@
 package com.tekpanel.app.data.repository
 
 import com.tekpanel.app.data.local.InboxMessageDao
+import com.tekpanel.app.data.local.PackageCount
 import com.tekpanel.app.data.local.toDomain
 import com.tekpanel.app.data.local.toEntity
+import com.tekpanel.app.data.media.MediaStore
+import com.tekpanel.app.domain.model.Conversation
 import com.tekpanel.app.domain.model.InboxMessage
 import com.tekpanel.app.domain.model.MessageState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.Duration
+import java.time.Instant
 
 /**
- * Single source of truth for [InboxMessage]s (spec CAP-08). Room is the only persistence
- * layer for message content; nothing here ever touches DataStore or leaves the device.
+ * Single source of truth for [InboxMessage]s. Room is the only persistence layer for message
+ * content; nothing here ever leaves the device.
  */
-class InboxRepository(private val dao: InboxMessageDao) {
+class InboxRepository(
+    private val dao: InboxMessageDao,
+    private val mediaStore: MediaStore,
+) {
 
-    fun observeActive(): Flow<List<InboxMessage>> =
-        dao.observeActive().map { rows -> rows.map { it.toDomain() } }
+    /** Unread messages grouped by conversation, conversations ordered by their newest message. */
+    fun observeConversations(): Flow<List<Conversation>> = dao.observeUnread().map { rows ->
+        rows.map { it.toDomain() }
+            .groupBy { it.conversationKey }
+            .map { (key, messages) ->
+                val newest = messages.last()
+                Conversation(
+                    key = key,
+                    sourcePackage = newest.sourcePackage,
+                    title = newest.conversationTitle,
+                    isGroup = newest.isGroupConversation,
+                    avatarPath = messages.lastOrNull { it.avatarPath != null }?.avatarPath,
+                    messages = messages,
+                )
+            }
+            .sortedByDescending { it.lastAt }
+    }
 
-    fun observeAll(): Flow<List<InboxMessage>> =
-        dao.observeAll().map { rows -> rows.map { it.toDomain() } }
+    fun observePackageCounts(): Flow<List<PackageCount>> = dao.observePackageCounts()
 
     fun observeUnreadCount(): Flow<Int> = dao.observeUnreadCount()
 
-    /** Returns true if [message] was newly inserted, false if a duplicate index rejected it. */
+    suspend fun exists(fingerprint: String): Boolean = dao.fingerprintExists(fingerprint)
+
+    /** Returns true if [message] was newly inserted, false if the fingerprint index rejected it. */
     suspend fun insertIfNew(message: InboxMessage): Boolean = dao.insertIfNew(message.toEntity()) != -1L
 
-    suspend fun findByFingerprint(fingerprint: String) = dao.findByFingerprint(fingerprint)?.toDomain()
-
-    suspend fun markState(id: String, state: MessageState) = dao.setState(id, state.name)
+    suspend fun markRead(ids: List<String>) {
+        if (ids.isNotEmpty()) dao.setStateForIds(ids, MessageState.READ.name)
+    }
 
     /**
-     * Hides every currently active message and returns their prior (id -> state) map so the
-     * caller can offer an undo (CAP-13).
+     * Hides every unread message of [packages] (null = all) and returns their prior (id -> state)
+     * map so the caller can offer an undo.
      */
-    suspend fun clearActive(currentActive: List<InboxMessage>): Map<String, String> {
-        val previousStates = currentActive.associate { it.id to it.state.name }
-        dao.hideAllActive()
-        return previousStates
+    suspend fun clearUnread(packages: Collection<String>?): Map<String, String> {
+        val ids = dao.unreadIds(allPackages = packages == null, packages = packages?.toList().orEmpty())
+        if (ids.isEmpty()) return emptyMap()
+        val previous = ids.chunked(SQLITE_VARIABLE_LIMIT).flatMap { dao.statesOf(it) }.associate { it.id to it.state }
+        ids.chunked(SQLITE_VARIABLE_LIMIT).forEach { dao.setStateForIds(it, MessageState.HIDDEN.name) }
+        return previous
     }
 
-    suspend fun clearActiveForChannel(channelId: String, currentActive: List<InboxMessage>): Map<String, String> {
-        val previousStates = currentActive.filter { it.channelId == channelId }.associate { it.id to it.state.name }
-        dao.hideAllActiveForChannel(channelId)
-        return previousStates
-    }
-
-    suspend fun undoClear(previousStates: Map<String, String>) {
+    suspend fun restoreStates(previousStates: Map<String, String>) {
         if (previousStates.isNotEmpty()) dao.restoreStates(previousStates)
+    }
+
+    /** Drops handled messages older than [keepFor] and the picture files nobody references any more. */
+    suspend fun prune(keepFor: Duration = Duration.ofDays(RETENTION_DAYS)) {
+        dao.pruneHandledBefore(Instant.now().minus(keepFor).toEpochMilli())
+        mediaStore.deleteUnreferenced(dao.referencedMediaPaths().toSet())
     }
 
     suspend fun exportSnapshot(): List<InboxMessage> = dao.getAllOnce().map { it.toDomain() }
 
     suspend fun countAll(): Int = dao.countAll()
 
-    suspend fun eraseAllMessages() = dao.deleteAll()
+    suspend fun eraseAllMessages() {
+        dao.deleteAll()
+        mediaStore.deleteAll()
+    }
+
+    private companion object {
+        const val RETENTION_DAYS = 14L
+        const val SQLITE_VARIABLE_LIMIT = 500
+    }
 }

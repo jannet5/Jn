@@ -4,12 +4,9 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import com.tekpanel.app.ui.theme.TekPanelColors
+import com.tekpanel.app.ui.theme.Tek
 
-/**
- * A short, plain confirm/cancel dialog (spec 3.4: destructive actions get a normal dialog,
- * never a search-bar-shaped surface).
- */
+/** A short, plain confirm/cancel dialog: destructive actions always get one. */
 @Composable
 fun ConfirmDialog(
     title: String,
@@ -18,6 +15,7 @@ fun ConfirmDialog(
     dismissLabel: String,
     onConfirm: () -> Unit,
     onDismiss: () -> Unit,
+    destructive: Boolean = true,
 ) {
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -25,16 +23,12 @@ fun ConfirmDialog(
         text = { Text(text = message) },
         confirmButton = {
             TextButton(onClick = onConfirm) {
-                Text(text = confirmLabel, color = TekPanelColors.Danger)
+                Text(text = confirmLabel, color = if (destructive) Tek.colors.danger else Tek.colors.accent)
             }
         },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = dismissLabel)
-            }
-        },
-        containerColor = TekPanelColors.SurfaceRaised,
-        titleContentColor = TekPanelColors.TextPrimary,
-        textContentColor = TekPanelColors.TextSecondary,
+        dismissButton = { TextButton(onClick = onDismiss) { Text(text = dismissLabel, color = Tek.colors.textSecondary) } },
+        containerColor = Tek.colors.surfaceHigh,
+        titleContentColor = Tek.colors.text,
+        textContentColor = Tek.colors.textSecondary,
     )
 }

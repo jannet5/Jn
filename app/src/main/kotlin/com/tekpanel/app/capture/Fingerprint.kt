@@ -1,32 +1,42 @@
 package com.tekpanel.app.capture
 
 import java.security.MessageDigest
+import java.text.Normalizer
+import java.util.Locale
 
 /**
- * Secondary duplicate-detection key (spec CAP-07): normalized package + sender + message +
- * a coarse time bucket, hashed so nothing readable ends up in logs or diagnostics exports.
+ * Duplicate-detection key: hashed so nothing readable ends up in logs or diagnostics, and
+ * stable across everything that can legitimately re-deliver the same message (a listener
+ * reconnect re-enumerating the shade, an app re-posting an unchanged notification).
  *
- * The 60-second bucket absorbs the few-hundred-ms jitter Android introduces when a
- * notification is updated in place (same content re-posted with a slightly later postTime)
- * without merging genuinely distinct messages sent a minute or more apart.
+ * - [forTimedMessage]: for `MessagingStyle` lines, which carry their own exact timestamp.
+ *   The exact timestamp (not a bucket) is used, so two real messages with the same text sent
+ *   seconds apart stay distinct while a re-delivery of one message always collapses.
+ * - [forUntimedMessage]: for plain notifications, which only have the post time. A 60-second
+ *   bucket absorbs the jitter Android adds when a notification is updated in place without
+ *   merging genuinely distinct messages sent a minute or more apart.
  */
 object Fingerprint {
 
     private const val TIME_BUCKET_MILLIS = 60_000L
 
-    fun of(packageName: String, senderName: String, messageText: String, postTimeEpochMillis: Long): String {
-        val bucket = postTimeEpochMillis / TIME_BUCKET_MILLIS
-        val normalized = listOf(
-            packageName.trim().lowercase(),
-            senderName.trim().lowercase(),
-            messageText.trim().lowercase(),
-            bucket.toString(),
-        ).joinToString("\u0000")
-        return sha256Hex(normalized)
-    }
+    fun forTimedMessage(packageName: String, conversationKey: String, senderName: String, messageText: String, timestampMillis: Long): String =
+        hash(packageName, conversationKey, senderName, messageText, "t$timestampMillis")
 
-    private fun sha256Hex(input: String): String {
-        val digest = MessageDigest.getInstance("SHA-256").digest(input.toByteArray(Charsets.UTF_8))
+    fun forUntimedMessage(packageName: String, conversationKey: String, senderName: String, messageText: String, postTimeEpochMillis: Long): String =
+        hash(packageName, conversationKey, senderName, messageText, "b${postTimeEpochMillis / TIME_BUCKET_MILLIS}")
+
+    /** Groups messages of one chat: package plus a case/diacritic-insensitive conversation title. */
+    fun conversationKey(packageName: String, conversationTitle: String): String =
+        packageName.trim().lowercase(Locale.ROOT) + "|" + normalizeKeyPart(conversationTitle)
+
+    private fun normalizeKeyPart(value: String): String =
+        Normalizer.normalize(value.trim().lowercase(Locale.ROOT), Normalizer.Form.NFKC)
+            .replace(Regex("\\s+"), " ")
+
+    private fun hash(vararg parts: String): String {
+        val normalized = parts.joinToString("\u0000") { normalizeKeyPart(it) }
+        val digest = MessageDigest.getInstance("SHA-256").digest(normalized.toByteArray(Charsets.UTF_8))
         return digest.joinToString(separator = "") { byte -> "%02x".format(byte) }
     }
 }

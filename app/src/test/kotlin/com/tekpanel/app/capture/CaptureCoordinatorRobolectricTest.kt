@@ -1,18 +1,14 @@
 package com.tekpanel.app.capture
 
-import android.app.Notification
-import android.app.PendingIntent
-import android.content.Intent
-import android.os.UserHandle
-import android.service.notification.StatusBarNotification
-import androidx.core.app.NotificationCompat
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.google.common.truth.Truth.assertThat
 import com.tekpanel.app.data.local.TekPanelDatabase
+import com.tekpanel.app.data.media.MediaStore
 import com.tekpanel.app.data.prefs.AppPreferences
 import com.tekpanel.app.data.repository.InboxRepository
 import com.tekpanel.app.diagnostics.DiagnosticsRecorder
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -22,111 +18,179 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 /**
- * End-to-end test of the full CAP-04..07 pipeline against a real in-memory Room database and
- * a real DataStore-backed [AppPreferences] (Robolectric gives us a working simulated
- * filesystem), fed with real `android.app.Notification` objects. This is the closest this
- * sandbox can get to "does a WhatsApp-shaped notification really end up in the inbox
- * exactly once" without a physical device or emulator (no KVM available here -- see
- * docs/DECISIONS.md for why an emulator isn't an option in this environment).
+ * End-to-end test of the whole capture pipeline against a real in-memory Room database, a real
+ * DataStore-backed [AppPreferences] and real `Notification` objects: the closest this sandbox gets
+ * to "does a chat-shaped notification really end up in the inbox exactly once".
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], application = android.app.Application::class)
 class CaptureCoordinatorRobolectricTest {
 
     private val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+    private lateinit var db: TekPanelDatabase
+    private lateinit var repository: InboxRepository
+    private lateinit var preferences: AppPreferences
+    private lateinit var mediaStore: MediaStore
 
-    // Robolectric's per-test Context is fresh, but DataStore's underlying file lives under
-    // context.filesDir, which is not guaranteed to be wiped between test methods in this
-    // class -- an earlier test's setChannelEnabled(false) was observed leaking into a later
-    // test's default-enabled assumption. Clearing before each test makes each one hermetic.
     @Before
-    fun resetPersistedPreferences() = runBlocking {
-        AppPreferences(context).clearAll()
+    fun setUp() = runBlocking {
+        preferences = AppPreferences(context)
+        preferences.clearAll()
+        db = Room.inMemoryDatabaseBuilder(context, TekPanelDatabase::class.java).allowMainThreadQueries().build()
+        mediaStore = MediaStore(context)
+        mediaStore.deleteAll()
+        repository = InboxRepository(db.inboxMessageDao(), mediaStore)
+        preferences.setChannelEnabled("com.whatsapp", true)
     }
 
-    private fun buildCoordinatorAndRepo(): Pair<CaptureCoordinator, InboxRepository> {
-        val db = Room.inMemoryDatabaseBuilder(context, TekPanelDatabase::class.java)
-            .allowMainThreadQueries()
-            .build()
-        val repository = InboxRepository(db.inboxMessageDao())
-        val coordinator = CaptureCoordinator(
-            filterEngine = MessageFilterEngine(),
-            duplicateGuard = DuplicateGuard(),
-            inboxRepository = repository,
-            appPreferences = AppPreferences(context),
-            diagnosticsRecorder = DiagnosticsRecorder(),
-            liveIntentRegistry = LiveIntentRegistry(),
-        )
-        return coordinator to repository
-    }
+    /** A fresh coordinator with an empty in-memory guard, like after a process restart. */
+    private fun coordinator() = CaptureCoordinator(
+        filterEngine = MessageFilterEngine(ownPackage = "com.tekpanel.app"),
+        duplicateGuard = DuplicateGuard(),
+        inboxRepository = repository,
+        appPreferences = preferences,
+        diagnosticsRecorder = DiagnosticsRecorder(),
+        liveActionRegistry = LiveActionRegistry(),
+        mediaStore = mediaStore,
+    )
 
-    private fun whatsAppNotification(text: String, key: Int): StatusBarNotification {
-        val notification = NotificationCompat.Builder(context, "channel")
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("Ayşe Yılmaz")
-            .setContentText(text)
-            .build()
-        val pendingIntent = PendingIntent.getActivity(context, 0, Intent(Intent.ACTION_MAIN), PendingIntent.FLAG_IMMUTABLE)
-        notification.contentIntent = pendingIntent
-        return StatusBarNotification(
-            "com.whatsapp",
-            "com.whatsapp",
-            key,
-            "tag$key",
-            android.os.Process.myUid(),
-            android.os.Process.myPid(),
-            0,
-            notification,
-            UserHandle.getUserHandleForUid(android.os.Process.myUid()),
-            System.currentTimeMillis(),
-        )
-    }
+    private suspend fun CaptureCoordinator.feed(sbn: android.service.notification.StatusBarNotification) =
+        handleNotification(NotificationExtractor.extract(context, sbn), LiveActionRegistry.fromNotification(sbn.notification))
 
     @Test
-    fun `a real WhatsApp-shaped notification lands in the inbox`() = runTest {
-        val (coordinator, repository) = buildCoordinatorAndRepo()
-        val sbn = whatsAppNotification("Merhaba, siparişim ne zaman gelir?", key = 1)
+    fun `a real chat-shaped notification lands in the inbox`() = runTest {
+        val stored = coordinator().feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe Yılmaz", "Merhaba, siparişim ne zaman gelir?"))
 
-        val accepted = coordinator.handleNotification(NotificationExtractor.extract(sbn), sbn.notification.contentIntent)
-
-        assertThat(accepted).isNotNull()
+        assertThat(stored).hasSize(1)
         assertThat(repository.countAll()).isEqualTo(1)
     }
 
     @Test
-    fun `re-processing the same notification on listener reconnect does not duplicate it`() = runTest {
-        val (coordinator, repository) = buildCoordinatorAndRepo()
-        val sbn = whatsAppNotification("Merhaba, siparişim ne zaman gelir?", key = 1)
-        val payload = NotificationExtractor.extract(sbn)
+    fun `re-processing the same notification does not duplicate it`() = runTest {
+        val coordinator = coordinator()
+        val sbn = FakeSbn.plain(context, "com.whatsapp", "Ayşe Yılmaz", "Merhaba, siparişim ne zaman gelir?")
 
-        // Simulates onListenerConnected() replaying getActiveNotifications() (CAP-07).
-        coordinator.handleNotification(payload, sbn.notification.contentIntent)
-        coordinator.handleNotification(payload, sbn.notification.contentIntent)
-        coordinator.handleNotification(payload, sbn.notification.contentIntent)
+        repeat(3) { coordinator.feed(sbn) }
 
         assertThat(repository.countAll()).isEqualTo(1)
     }
 
     @Test
-    fun `two distinct real notifications both land`() = runTest {
-        val (coordinator, repository) = buildCoordinatorAndRepo()
+    fun `REGRESSION - the same notification key carrying a new message stores the new message`() = runTest {
+        // Chat apps keep ONE notification per chat (same key) and update it for every message.
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("İlk mesaj" to 1_000L), id = 42))
+        coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("İlk mesaj" to 1_000L, "İkinci mesaj" to 2_000L), id = 42))
+        coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("İlk mesaj" to 1_000L, "İkinci mesaj" to 2_000L, "Üçüncü mesaj" to 3_000L), id = 42))
 
-        coordinator.handleNotification(NotificationExtractor.extract(whatsAppNotification("Merhaba", key = 1)), null)
-        coordinator.handleNotification(NotificationExtractor.extract(whatsAppNotification("İyi günler, fiyat bilgisi alabilir miyim?", key = 2)), null)
+        val conversations = repository.observeConversations().first()
+        assertThat(conversations).hasSize(1)
+        assertThat(conversations.single().messages.map { it.messageText }).containsExactly("İlk mesaj", "İkinci mesaj", "Üçüncü mesaj").inOrder()
+    }
+
+    @Test
+    fun `a burst of messages in one notification is stored once each, even after a process restart`() = runTest {
+        val sbn = FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("bir" to 1_000L, "iki" to 2_000L, "üç" to 3_000L))
+
+        coordinator().feed(sbn)
+        coordinator().feed(sbn) // brand-new in-memory guard: only the Room unique index can stop duplicates now
+
+        assertThat(repository.countAll()).isEqualTo(3)
+    }
+
+    @Test
+    fun `the same words sent twice at different times are two messages`() = runTest {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe", listOf("Tamam" to 1_000L), id = 1))
+        coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe", listOf("Tamam" to 1_000L, "Tamam" to 9_000L), id = 1))
 
         assertThat(repository.countAll()).isEqualTo(2)
     }
 
     @Test
-    fun `disabling the channel stops new captures without touching existing ones`() = runTest {
-        val (coordinator, repository) = buildCoordinatorAndRepo()
-        val preferences = AppPreferences(context)
+    fun `messages of different people become different conversations`() = runTest {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "selam", id = 1))
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Mehmet", "merhaba", id = 2))
 
-        coordinator.handleNotification(NotificationExtractor.extract(whatsAppNotification("Merhaba", key = 1)), null)
-        preferences.setChannelEnabled("whatsapp", enabled = false)
-        val secondResult = coordinator.handleNotification(NotificationExtractor.extract(whatsAppNotification("İkinci mesaj", key = 2)), null)
+        assertThat(repository.observeConversations().first()).hasSize(2)
+    }
 
-        assertThat(secondResult).isNull()
+    @Test
+    fun `disabling an app stops new captures without touching existing ones`() = runTest {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Merhaba", id = 1))
+        preferences.setChannelEnabled("com.whatsapp", false)
+
+        val second = coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "İkinci mesaj", id = 2, postTime = 5_000_000L))
+
+        assertThat(second).isEmpty()
         assertThat(repository.countAll()).isEqualTo(1)
+    }
+
+    @Test
+    fun `any app the user picked is captured, not only well-known chat apps`() = runTest {
+        preferences.setChannelEnabled("com.some.shop.app", true)
+
+        val stored = coordinator().feed(FakeSbn.plain(context, "com.some.shop.app", "Yeni sipariş", "Siparişiniz hazır"))
+
+        assertThat(stored).hasSize(1)
+        assertThat(stored.single().sourcePackage).isEqualTo("com.some.shop.app")
+    }
+
+    @Test
+    fun `an app the user did not pick is ignored`() = runTest {
+        val stored = coordinator().feed(FakeSbn.plain(context, "com.random.game", "Oyun", "Yeni görev!"))
+
+        assertThat(stored).isEmpty()
+        assertThat(repository.countAll()).isEqualTo(0)
+    }
+
+    @Test
+    fun `avatar and picture are stored once and referenced from the message`() = runTest {
+        val media = object : NotificationMedia {
+            override fun avatar(senderName: String?) = byteArrayOf(1, 2, 3)
+            override fun picture(lineIndex: Int?) = byteArrayOf(9, 9, 9, 9)
+        }
+        val coordinator = coordinator()
+        val raw = payloadOf(
+            title = "Ayşe",
+            lines = listOf(
+                MessagingLine("Ayşe", "bak", 1_000L, hasPicture = true, index = 0),
+                MessagingLine("Ayşe", "ikincisi", 2_000L, hasPicture = false, index = 1),
+            ),
+            media = media,
+        )
+
+        val stored = coordinator.handleNotification(raw, null)
+
+        assertThat(stored).hasSize(2)
+        assertThat(stored[0].avatarPath).isNotNull()
+        assertThat(stored[0].avatarPath).isEqualTo(stored[1].avatarPath) // same bytes, one file
+        assertThat(stored[0].picturePath).isNotNull()
+        assertThat(stored[1].picturePath).isNull()
+        assertThat(java.io.File(stored[0].picturePath!!).readBytes()).isEqualTo(byteArrayOf(9, 9, 9, 9))
+    }
+
+    @Test
+    fun `a picture-only message is kept`() = runTest {
+        val media = object : NotificationMedia {
+            override fun avatar(senderName: String?): ByteArray? = null
+            override fun picture(lineIndex: Int?) = byteArrayOf(5, 5)
+        }
+        val raw = payloadOf(title = "Selin", lines = listOf(MessagingLine("Selin", "", 1_000L, hasPicture = true, index = 0)), media = media)
+
+        val stored = coordinator().handleNotification(raw, null)
+
+        assertThat(stored).hasSize(1)
+        assertThat(stored.single().picturePath).isNotNull()
+    }
+
+    @Test
+    fun `shared text becomes a message in its own conversation`() = runTest {
+        val message = coordinator().handleSharedText("Bu müşteri sipariş istiyor", "com.whatsapp", "Paylaşım")
+
+        assertThat(message).isNotNull()
+        assertThat(repository.observeConversations().first()).hasSize(1)
     }
 }

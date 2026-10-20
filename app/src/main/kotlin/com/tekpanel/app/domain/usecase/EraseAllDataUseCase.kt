@@ -1,7 +1,7 @@
 package com.tekpanel.app.domain.usecase
 
 import com.tekpanel.app.capture.DuplicateGuard
-import com.tekpanel.app.capture.LiveIntentRegistry
+import com.tekpanel.app.capture.LiveActionRegistry
 import com.tekpanel.app.data.prefs.AppPreferences
 import com.tekpanel.app.data.repository.InboxRepository
 import com.tekpanel.app.diagnostics.DiagnosticsRecorder
@@ -15,14 +15,14 @@ class EraseAllDataUseCase(
     private val inboxRepository: InboxRepository,
     private val appPreferences: AppPreferences,
     private val duplicateGuard: DuplicateGuard,
-    private val liveIntentRegistry: LiveIntentRegistry,
+    private val liveActionRegistry: LiveActionRegistry,
     private val diagnosticsRecorder: DiagnosticsRecorder,
 ) {
     suspend operator fun invoke() {
         inboxRepository.eraseAllMessages()
         appPreferences.clearAll()
         duplicateGuard.clear()
-        liveIntentRegistry.clear()
+        liveActionRegistry.clear()
         diagnosticsRecorder.reset()
     }
 }

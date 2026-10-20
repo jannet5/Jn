@@ -2,60 +2,69 @@
 <resources>
     <string name="app_name">TekPanel</string>
 
-    <!-- Channel display names (spec CAP-02): never show a raw package name to the user. -->
-    <string name="channel_whatsapp">WhatsApp</string>
-    <string name="channel_whatsapp_business">WhatsApp Business</string>
-    <string name="channel_instagram">Instagram</string>
-    <string name="channel_tiktok">TikTok</string>
-    <string name="channel_x">X</string>
-    <string name="channel_messenger">Messenger</string>
-    <string name="channel_facebook">Facebook</string>
-    <string name="channel_telegram">Telegram</string>
-    <string name="channel_google_messages">Messages</string>
-    <string name="channel_samsung_messages">Samsung Messages</string>
-    <string name="channel_sms">SMS</string>
-    <string name="channel_xiaomi_messages">Xiaomi Messages</string>
-    <string name="share_channel_label">Shared</string>
-
-    <string name="action_open_source">Open source app</string>
-    <string name="action_mark_read">Done</string>
     <string name="filter_all">All</string>
-
-    <string name="onboarding_title">Turn on notification access</string>
-    <string name="onboarding_description">TekPanel shows new customer messages from WhatsApp, Instagram or any other channel you choose here — right when they arrive as a notification.</string>
-    <string name="onboarding_action">Open settings</string>
-
-    <string name="no_channels_installed_title">No supported app found</string>
-    <string name="no_channels_installed_description">Install WhatsApp, Instagram or another supported messaging app to start using TekPanel.</string>
-
-    <string name="no_channels_selected_title">No channel turned on</string>
-    <string name="no_channels_selected_description">Turn on at least one channel to see new messages here.</string>
-    <string name="action_open_channel_settings">Set up channels</string>
-
-    <string name="empty_inbox_title">Nothing yet</string>
-    <string name="empty_inbox_description">When a new message arrives from WhatsApp, Instagram or another channel you chose, it will show up here.</string>
-    <string name="no_messages_for_filter_title">No messages for this channel yet</string>
-
-    <string name="channel_settings_title">Set up channels</string>
-    <string name="action_enable_all_channels">Turn on all</string>
-    <string name="action_disable_all_channels">Turn off all</string>
-    <string name="action_export_data">Export local data (JSON)</string>
-    <string name="action_erase_all_data">Delete all local data</string>
-    <string name="action_open_diagnostics">Diagnostics</string>
-
-    <string name="action_undo">Undo</string>
-    <string name="open_source_failed">Couldn\'t open the app</string>
-
-    <string name="action_clear_screen">Clear screen</string>
-    <string name="clear_screen_confirm_title">Clear the screen?</string>
-    <string name="clear_screen_confirm_message">This removes the messages from this screen. It does not touch notifications on your phone.</string>
+    <string name="action_ok">OK</string>
+    <string name="action_close">Close</string>
     <string name="action_cancel">Cancel</string>
-    <string name="clear_screen_undo_label">Screen cleared</string>
+    <string name="action_undo">Undo</string>
+    <string name="action_add_channel">Add channel</string>
+    <string name="menu_open">Open menu</string>
+    <string name="menu_close">Close menu</string>
 
-    <string name="erase_all_confirm_title">Delete all local data?</string>
-    <string name="erase_all_confirm_message">This permanently deletes every message TekPanel has stored on this device, and resets your channel settings. This cannot be undone.</string>
+    <string name="action_clear_screen">Clean the screen</string>
+    <string name="clear_screen_confirm_title">Clean the screen?</string>
+    <string name="clear_screen_confirm_message">The messages shown here are marked as handled. Nothing is removed from your phone\'s own notifications, and you can undo right after.</string>
+    <string name="clear_screen_undo_label">Screen cleaned</string>
 
+    <string name="action_mark_read">Read</string>
+    <string name="action_mark_all_read">All read</string>
+    <string name="mark_read_undo_label">Marked as read</string>
+    <string name="action_open_in_app">Open in app</string>
+    <string name="action_reply">Reply</string>
+    <string name="action_send">Send</string>
+    <string name="reply_hint">Write a reply</string>
+    <string name="reply_sent">Reply sent</string>
+    <string name="reply_failed">Couldn\'t send it. Open the app to reply.</string>
+    <string name="open_source_failed">Couldn\'t open the app</string>
+    <string name="copied">Copied</string>
+    <string name="message_photo">Photo</string>
+
+    <string name="menu_channels">Set up channels</string>
+    <string name="menu_privacy">Your data stays on this phone</string>
+    <string name="menu_export">Export my messages</string>
+    <string name="menu_erase">Delete all my data</string>
+    <string name="menu_diagnostics">Diagnostics</string>
+
+    <string name="privacy_title">Your messages stay here</string>
+    <string name="privacy_body">TekPanel only reads notifications of the apps you pick, and keeps them in a private store on this phone. It has no internet permission, so it cannot send your messages anywhere. You can turn access off any time in Android settings.</string>
+
+    <string name="erase_all_confirm_title">Delete all data?</string>
+    <string name="erase_all_confirm_message">This permanently deletes every message TekPanel stored on this phone and resets your channel choices. It cannot be undone.</string>
     <string name="export_share_title">Export TekPanel data</string>
+
+    <string name="empty_inbox_title">All caught up</string>
+    <string name="empty_inbox_body">New customer messages show up here the moment they arrive.</string>
+    <string name="empty_filter_title">No messages from this app</string>
+    <string name="no_channels_title">Pick the apps to listen to</string>
+    <string name="no_channels_body">Choose where your customers write to you. Nothing leaves your phone.</string>
+
+    <string name="access_title">Turn on notification access</string>
+    <string name="access_body">That is how messages reach this screen. They stay on this phone.</string>
+    <string name="access_open">Open access settings</string>
+    <string name="access_howto">How?</string>
+    <string name="guide_title">Turning on notification access</string>
+    <string name="guide_why">Android only lets an app read notifications after you allow it once. It takes about 20 seconds.</string>
+    <string name="guide_step1">Tap \"Open access settings\". Android opens the right page.</string>
+    <string name="guide_step2">Find TekPanel in the list and switch it on.</string>
+    <string name="guide_step3">When Android asks, tap \"Allow\".</string>
+    <string name="guide_step4">Switch is grey and won\'t move? Android locks it for apps installed outside Google Play. Open App info, tap the three dots at the top right, choose \"Allow restricted settings\", then repeat step 2.</string>
+    <string name="guide_allow">Allow</string>
+    <string name="guide_open_app_info">Open app info</string>
+
+    <string name="picker_title">Set up channels</string>
+    <string name="picker_search_hint">Search apps</string>
+    <string name="picker_done">Done</string>
+    <string name="picker_none_found">No app found</string>
 
     <string name="share_intake_empty">Nothing to add</string>
     <string name="share_sender_label">Shared</string>
