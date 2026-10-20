@@ -110,6 +110,31 @@ class ListModelTest {
         assertTrue(m.items.isEmpty())
     }
 
+    @Test fun clearAllEmptiesAndUndoRestoresOrderAndState() {
+        val m = model("a", "b", "c"); m.toggle(m.items[1].id)
+        val before = m.items
+        assertEquals(3, m.clearAll())
+        assertTrue(m.items.isEmpty())
+        assertTrue(m.undo is Undo.ClearedAll)
+        m.add("yeni")
+        assertTrue(m.undoLast())
+        assertEquals(listOf("yeni", "a", "b", "c"), m.texts())
+        assertEquals(listOf(false, false, true, false), m.items.map { it.done })
+        assertEquals(m.items.size, m.items.map { it.id }.toSet().size)
+        assertEquals(0, ListModel().clearAll())
+        assertEquals(before.map { it.id }, m.items.drop(1).map { it.id })
+    }
+
+    @Test fun deletedItemIdIsNotReusedWhileUndoable() {
+        val m = model("a", "b")
+        val top = m.items.maxOf { it.id }
+        m.delete(top)
+        val added = m.add("c")!!
+        assertNotEquals(top, added.id)
+        m.undoLast()
+        assertEquals(m.items.size, m.items.map { it.id }.toSet().size)
+    }
+
     @Test fun exportFormat() {
         val m = model("süt", "ekmek"); m.toggle(m.items[1].id)
         assertEquals("[ ] süt\n[x] ekmek", m.export())

@@ -153,12 +153,14 @@ class MainActivity : AppCompatActivity() {
         m.menu.add(0, 2, 1, R.string.clear_done).isEnabled = repo.doneCount > 0
         m.menu.add(0, 3, 2, R.string.share_backup).isEnabled = repo.items.isNotEmpty()
         m.menu.add(0, 4, 3, R.string.import_clip)
+        m.menu.add(0, 5, 4, R.string.clear_all).isEnabled = repo.items.isNotEmpty()
         m.setOnMenuItemClickListener {
             when (it.itemId) {
                 1 -> toggleBubble(running)
                 2 -> repo.clearDone()
                 3 -> share()
                 4 -> importClip()
+                5 -> confirmClearAll()
             }
             true
         }
@@ -178,6 +180,18 @@ class MainActivity : AppCompatActivity() {
         // Balon uygulama acikken gizlidir (ekrandaki dugmeleri kapatmasin); hemen gorunsun diye ana ekrana cikilir.
         Toast.makeText(this, R.string.bubble_started, Toast.LENGTH_LONG).show()
         moveTaskToBack(true)
+    }
+
+    /** Tum listeyi siler; once sorar, sonra alttaki cubuktan geri alinabilir. */
+    private fun confirmClearAll() {
+        val n = repo.items.size
+        if (n == 0) return
+        AlertDialog.Builder(this)
+            .setTitle(R.string.clear_all_title)
+            .setMessage(getString(R.string.clear_all_body, n))
+            .setPositiveButton(R.string.clear_all_ok) { _, _ -> repo.clearAll() }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
 
     private fun share() {

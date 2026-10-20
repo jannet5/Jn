@@ -155,7 +155,11 @@ class ListController(
         }
         // Yeni oge en uste girer; liste en uste kayar ki eklenen gorunsun. Odak ve klavye korunur.
         val added = repo.add(add.text.toString())
-        if (added) showEditTipOnce()
+        if (added) {
+            showEditTipOnce()
+            // Kimlik eskiden silinmis bir ogeninkiyle ayni olabilir: ondan kalan hatirlatma yeni ogeye gecmesin.
+            repo.items.firstOrNull()?.id?.let { if (Reminders.has(ctx, it)) Reminders.clear(ctx, it) }
+        }
         val flow = AddFlow.after(added)
         if (flow.clearField) add.setText("")
         if (flow.scrollToTop) recycler.scrollToPosition(0)
@@ -202,12 +206,18 @@ class ListController(
         undoText.text = when (u) {
             is Undo.Deleted -> ctx.getString(R.string.undo_deleted)
             is Undo.ClearedDone -> ctx.getString(R.string.undo_cleared, u.removed.size)
+            is Undo.ClearedAll -> ctx.getString(R.string.undo_cleared_all, u.items.size)
         }
         undoBar.visibility = View.VISIBLE
-        dismissTask = Runnable { if (repo.undo === u) repo.dismissUndo() }.also { handler.postDelayed(it, UNDO_MS) }
+        // Tum listeyi silmek buyuk islem: geri alma suresi daha uzun.
+        val ms = if (u is Undo.ClearedAll) UNDO_ALL_MS else UNDO_MS
+        dismissTask = Runnable { if (repo.undo === u) repo.dismissUndo() }.also { handler.postDelayed(it, ms) }
     }
 
-    companion object { const val UNDO_MS = 6000L }
+    companion object {
+        const val UNDO_MS = 6000L
+        const val UNDO_ALL_MS = 10_000L
+    }
 
     private inner class DragCallback : ItemTouchHelper.Callback() {
         private var from = -1

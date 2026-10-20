@@ -6,6 +6,7 @@ import app.nokta.list.data.Item
 sealed class Undo {
     data class Deleted(val item: Item, val index: Int) : Undo()
     data class ClearedDone(val removed: List<Pair<Int, Item>>) : Undo()
+    data class ClearedAll(val items: List<Item>) : Undo()
 }
 
 /** Ekleme sonrasi giris alani davranisi (saf): odak ve klavye korunur, alan temizlenir, liste basa kayar. */
@@ -32,7 +33,16 @@ class ListModel(initial: List<Item> = emptyList()) {
     val doneCount: Int get() = list.count { it.done }
 
     private fun List<Item>.reindexed() = mapIndexed { i, it -> if (it.position == i) it else it.copy(position = i) }
-    private fun nextId() = (list.maxOfOrNull { it.id } ?: 0L) + 1
+    /** Geri alinabilir (silinmis) ogelerin kimligi de sayilir: geri gelen oge yeni eklenenle cakismaz. */
+    private fun nextId(): Long {
+        val held = when (val u = undo) {
+            is Undo.Deleted -> listOf(u.item)
+            is Undo.ClearedDone -> u.removed.map { it.second }
+            is Undo.ClearedAll -> u.items
+            null -> emptyList()
+        }
+        return ((list + held).maxOfOrNull { it.id } ?: 0L) + 1
+    }
 
     /** Bos/bosluk metni eklenmez. Yeni oge en uste girer (hizli ekleme sonucu hemen gorunur). */
     fun add(raw: String): Item? {
@@ -76,6 +86,15 @@ class ListModel(initial: List<Item> = emptyList()) {
         return removed.size
     }
 
+    /** Listeyi tamamen bosaltir; geri alinabilir. @return silinen oge sayisi. */
+    fun clearAll(): Int {
+        if (list.isEmpty()) return 0
+        undo = Undo.ClearedAll(list)
+        val n = list.size
+        list = emptyList()
+        return n
+    }
+
     fun move(from: Int, to: Int): Boolean {
         if (from == to || from !in list.indices || to !in list.indices) return false
         val m = list.toMutableList()
@@ -92,6 +111,8 @@ class ListModel(initial: List<Item> = emptyList()) {
             is Undo.Deleted -> m.add(u.index.coerceIn(0, m.size), u.item)
             // Artan indeksle ekleme: her ogenin eski konumu kendinden onceki eklemelerle tutarli kalir.
             is Undo.ClearedDone -> u.removed.sortedBy { it.first }.forEach { (idx, it) -> m.add(idx.coerceIn(0, m.size), it) }
+            // Silindikten sonra eklenenler ustte kalir, eski liste altina eski sirasiyla doner.
+            is Undo.ClearedAll -> m.addAll(u.items)
         }
         list = m.reindexed()
         undo = null

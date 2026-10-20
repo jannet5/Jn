@@ -62,6 +62,7 @@ class Repo(private val store: ItemStore, private val main: Handler = Handler(Loo
     fun edit(id: Long, text: String): Boolean = change { edit(id, text) }
     fun delete(id: Long) = change { delete(id) }
     fun clearDone() = change { clearDone() }
+    fun clearAll() = change { clearAll() }
     fun undoLast() = change { undoLast() }
     fun dismissUndo() { model.dismissUndo(); fire() }
     fun importText(text: String) = change { importText(text) }

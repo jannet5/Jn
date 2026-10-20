@@ -15,6 +15,11 @@
     <string name="menu">Menü</string>
     <string name="undo_deleted">Silindi</string>
     <string name="undo_cleared">%d tamamlanan silindi</string>
+    <string name="undo_cleared_all">Liste temizlendi (%d madde)</string>
+    <string name="clear_all">Tümünü sil</string>
+    <string name="clear_all_title">Tüm liste silinsin mi?</string>
+    <string name="clear_all_body">%d madde silinecek. Hemen ardından alttaki "Geri al" ile geri getirebilirsin.</string>
+    <string name="clear_all_ok">Hepsini sil</string>
     <string name="state_done">tamamlandı</string>
     <string name="state_open">tamamlanmadı</string>
     <string name="row_desc">%1$s, %2$s</string>

@@ -65,3 +65,8 @@ Android 15 emulatorunde (temiz kurulum) bulunan ve duzeltilenler:
 - Balon uygulama acikken gizli oldugu icin "Balonu goster" hicbir sey yapmiyor gibi gorunuyordu: artik ana ekrana cikilir, balon hemen gorunur, kisa aciklama gosterilir. Alarm ekraninda balon gizlenir.
 - Zile/silmeye biraz uzun basmak duzenleme moduna dusuruyordu: dugmelerde basili tutmak artik duzenleme acmaz.
 - 43 birim testi gecti, lint 0 hata.
+
+## 1.3.1
+- Menu > "Tumunu sil": onay sorulur ("N madde silinecek"), liste bosalir, alttaki cubuktan 10 sn icinde "Geri al" ile eski sirasiyla geri gelir (sonradan eklenenler ustte kalir).
+- Hata duzeltmesi: silinen ogenin kimligi geri alma suresince yeni ogeye verilebiliyordu (geri alinca ayni kimlikli iki oge). Kimlik verilirken geri alinabilir ogeler de sayilir; yeni ogeye eski kimlikten hatirlatma gecmez.
+- 45 birim testi, lint 0 hata. API 26 emulatorde sil -> "Liste temizlendi (2 madde)" -> Geri al -> iki oge geri geldi.
