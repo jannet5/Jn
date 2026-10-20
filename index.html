@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Köken</title>
+<meta name="description" content="Bir kelimenin kökenini bulun: hangi dilden geldi, nasıl değişti, hangi parçalardan oluştu.">
+<meta name="theme-color" content="#f5edda">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script>
+/* Tema: kaydedilmiş elle seçimi sayfa çizilmeden uygula (yanıp sönmeyi önler). */
+try {
+  var t = localStorage.getItem('koken.tema');
+  if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+} catch (e) { /* depolama kapalıysa sistem teması kalır */ }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Simge takımı: yalnız satır içi SVG, tek çizgi kalınlığı (CSS'te stroke-width:1.75) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 32 32"><path d="M16 3v10M16 13c0 5-7 5-9 14M16 13c0 5 7 5 9 14M16 13v14"/><circle cx="16" cy="3.5" r="1.6"/><circle cx="7" cy="27" r="1.6"/><circle cx="16" cy="27" r="1.6"/><circle cx="25" cy="27" r="1.6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 11-2.6-5.9M20 4v4.5h-4.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 13v6h14v-6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="M4 6h9M8.5 4v2M6 6c.5 3 2.5 5.5 5.5 7M11.5 6c-.5 3-3 6-7 7.5M13 20l4-9 4 9M14.4 17h5.2"/></symbol>
+    <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="M3 3l18 18M2 9a15 15 0 015-3M22 9a15 15 0 00-8-3.9M5.5 12.5a10 10 0 013.5-2M18.5 12.5a10 10 0 00-3-1.9M9 16a5 5 0 016 0M12 20h.01"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 17H2L12 3zM12 10v4.5M12 17.5h.01"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M12 21V9M12 13c-4 0-6-3-6-7 4 0 6 3 6 7zM12 16c3 0 5-2.5 5-6-3.5 0-5 2.5-5 6z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M12 4v15M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M5 16V5a1 1 0 011-1h9"/></symbol>
+  </defs>
+</svg>
+
+<div class="app">
+  <header class="top">
+    <a class="brand" href="./" id="brand" aria-label="Köken, ana sayfa">
+      <svg class="i" aria-hidden="true"><use href="#i-logo"/></svg><span>Köken</span>
+    </a>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">
+      <svg class="i" aria-hidden="true"><use id="themeUse" href="#i-moon"/></svg>
+    </button>
+  </header>
+
+  <div class="net-banner" id="netBanner" role="status" hidden>
+    <svg class="i" aria-hidden="true"><use href="#i-wifi-off"/></svg>
+    <span>Çevrimdışısınız. Kelime araması için internet gerekir.</span>
+  </div>
+
+  <main>
+    <h1 class="lead">Bir kelimenin <em>soyuna</em> inin.</h1>
+
+    <!-- Sayfadaki TEK birincil eylem: Ara -->
+    <form id="searchForm" role="search" novalidate autocomplete="off">
+      <label class="sr" for="q">Kökenini öğrenmek istediğiniz kelime</label>
+      <div class="search-row">
+        <div class="field">
+          <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+          <input id="q" name="q" type="search" inputmode="search" enterkeyhint="search" lang="tr"
+                 placeholder="Bir kelime yazın…" maxlength="100"
+                 autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="hint">
+          <button type="button" class="icon-btn" id="clearBtn" aria-label="Yazıyı temizle" hidden>
+            <svg class="i" aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+        </div>
+        <button type="submit" class="btn-primary" id="goBtn">Ara</button>
+      </div>
+      <p class="hint" id="hint" role="alert"></p>
+    </form>
+
+    <section class="recents" id="recents" aria-labelledby="recentsTitle" hidden>
+      <div class="recents-head">
+        <h2 class="eyebrow" id="recentsTitle">Son aramalar</h2>
+        <button type="button" class="link-btn" id="clearRecents">Temizle</button>
+      </div>
+      <ul class="chips" id="recentList"></ul>
+    </section>
+
+    <!-- Boş / yükleniyor / hata / sonuç burada çizilir -->
+    <div id="view" aria-live="polite"></div>
+  </main>
+
+  <footer class="foot">
+    Veriler Vikisözlük gibi açık kaynaklardan anlık çekilir; hesap ve sunucu yoktur.
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="etym.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
