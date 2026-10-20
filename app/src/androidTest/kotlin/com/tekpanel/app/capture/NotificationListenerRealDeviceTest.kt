@@ -6,6 +6,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
+import com.google.common.truth.Truth.assertWithMessage
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
@@ -87,47 +88,72 @@ class NotificationListenerRealDeviceTest {
         }
     }
 
+    /** Runs a shell command and waits for it to finish (closing the pipe early can kill the command). */
+    private fun shell(command: String): String =
+        android.os.ParcelFileDescriptor.AutoCloseInputStream(instrumentation.uiAutomation.executeShellCommand(command))
+            .use { it.readBytes().toString(Charsets.UTF_8) }
+
+    private suspend fun bindListenerAndPick(preferences: com.tekpanel.app.data.prefs.AppPreferences) {
+        val componentName = android.content.ComponentName(context, TekPanelNotificationListenerService::class.java)
+        shell("cmd notification allow_listener ${componentName.flattenToString()}")
+        android.service.notification.NotificationListenerService.requestRebind(componentName)
+        assertThat(pollUntilTrue(20_000) { TekPanelNotificationListenerService.connected }).isTrue()
+        preferences.setChannelEnabled("com.android.shell", true)
+    }
+
     /**
      * The real thing, end to end, on a real system: the OS binds our listener, a notification posted
      * by another package (the shell, standing in for WhatsApp) is delivered to it, and the message
-     * ends up in the real Room database exactly once, grouped under its conversation.
+     * ends up in the real Room database exactly once. The SAME notification key then carries a new
+     * message (what chat apps do for every new message) and that must be stored too.
      */
     @Test
-    fun aMessageFromAnotherAppFlowsThroughTheRealListenerIntoRoomExactlyOnce() = runBlocking {
-        // `cmd notification post --conversation/--message` only exists from Android 11 (API 30).
+    fun aSameKeyNotificationUpdateFlowsThroughTheRealListenerIntoRoom() = runBlocking {
+        val koin = org.koin.core.context.GlobalContext.get()
+        val repository = koin.get<com.tekpanel.app.data.repository.InboxRepository>()
+        val preferences = koin.get<com.tekpanel.app.data.prefs.AppPreferences>()
+        bindListenerAndPick(preferences)
+
+        val tag = "e2e-" + System.currentTimeMillis()
+        val log = StringBuilder()
+        fun post(text: String) {
+            log.append(shell("cmd notification post -S bigtext -t 'Ayse Yilmaz' $tag '$text'")).append('\n')
+        }
+
+        post("randevu almak istiyorum")
+        val first = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "randevu" in it } } }
+        assertWithMessage("first message never reached Room. shell said: $log").that(first).isTrue()
+
+        post("randevu almak istiyorum") // the very same notification delivered again
+        Thread.sleep(2_000)
+        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
+
+        post("cumartesi 14:00 uygun mu") // SAME tag/key, different text
+        val second = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "cumartesi" in it } } }
+        assertWithMessage("second message with the same key was lost. shell said: $log").that(second).isTrue()
+        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
+
+        preferences.setChannelEnabled("com.android.shell", false)
+        shell("cmd notification cancel $tag")
+    }
+
+    /** Same flow with a real MessagingStyle notification (needs `cmd notification post --conversation`, Android 11+). */
+    @Test
+    fun aMessagingStyleNotificationFlowsThroughTheRealListenerIntoRoom() = runBlocking {
         org.junit.Assume.assumeTrue(android.os.Build.VERSION.SDK_INT >= 30)
         val koin = org.koin.core.context.GlobalContext.get()
         val repository = koin.get<com.tekpanel.app.data.repository.InboxRepository>()
         val preferences = koin.get<com.tekpanel.app.data.prefs.AppPreferences>()
-        val componentName = android.content.ComponentName(context, TekPanelNotificationListenerService::class.java)
+        bindListenerAndPick(preferences)
 
-        instrumentation.uiAutomation.executeShellCommand("cmd notification allow_listener ${componentName.flattenToString()}").close()
-        android.service.notification.NotificationListenerService.requestRebind(componentName)
-        assertThat(pollUntilTrue(15_000) { TekPanelNotificationListenerService.connected }).isTrue()
-
-        preferences.setChannelEnabled("com.android.shell", true)
-        val tag = "e2e-" + System.currentTimeMillis()
-        fun post(vararg messages: String) {
-            val args = messages.joinToString(" ") { "--message '$it'" }
-            instrumentation.uiAutomation.executeShellCommand(
-                "cmd notification post -S messaging --conversation 'Ayse Yilmaz' $args $tag 'x'",
-            ).close()
-        }
-
-        post("Ayse:randevu almak istiyorum")
-        assertThat(pollUntilTrue(15_000) { runBlocking { messagesOf(repository).any { "randevu" in it } } }).isTrue()
-
-        post("Ayse:randevu almak istiyorum") // the very same notification delivered again
-        Thread.sleep(2_000)
-        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
-
-        // The chat app updates the SAME notification with a second message: it must be stored too.
-        post("Ayse:randevu almak istiyorum", "Ayse:cumartesi 14:00 uygun mu")
-        assertThat(pollUntilTrue(15_000) { runBlocking { messagesOf(repository).any { "cumartesi" in it } } }).isTrue()
-        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
+        val tag = "e2m-" + System.currentTimeMillis()
+        val out = shell("cmd notification post -S messaging --conversation 'Mehmet Demir' --message 'Mehmet:lacivert var mi' $tag 'x'")
+        val arrived = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "lacivert" in it } } }
+        val usage = if (arrived) "" else shell("cmd notification post")
+        assertWithMessage("messaging notification never reached Room. shell said: $out | usage: $usage").that(arrived).isTrue()
 
         preferences.setChannelEnabled("com.android.shell", false)
-        instrumentation.uiAutomation.executeShellCommand("cmd notification cancel $tag").close()
+        shell("cmd notification cancel $tag")
     }
 
     private suspend fun messagesOf(repository: com.tekpanel.app.data.repository.InboxRepository): List<String> =
