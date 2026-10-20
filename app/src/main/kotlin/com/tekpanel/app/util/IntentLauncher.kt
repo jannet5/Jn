@@ -30,6 +30,10 @@ class IntentLauncher(
         return if (tryLaunchPackage(packageName)) OpenSourceResult.OPENED_APP else OpenSourceResult.FAILED
     }
 
+    fun actionTitles(conversationKey: String): List<String> = liveActionRegistry.get(conversationKey)?.actions.orEmpty().map { it.title }
+
+    fun fireAction(conversationKey: String, index: Int): Boolean = liveActionRegistry.fireAction(conversationKey, index)
+
     fun canReply(conversationKey: String): Boolean = liveActionRegistry.get(conversationKey)?.canReply == true
 
     fun reply(conversationKey: String, text: String): Boolean = liveActionRegistry.sendReply(context, conversationKey, text)

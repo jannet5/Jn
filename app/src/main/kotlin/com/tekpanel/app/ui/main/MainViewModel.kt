@@ -184,6 +184,13 @@ class MainViewModel(
 
     fun canReply(conversationKey: String): Boolean = intentLauncher.canReply(conversationKey)
 
+    /** Labels of the source app's own buttons for this chat (e.g. "Mark as read"), while its notification is alive. */
+    fun actionTitles(conversationKey: String): List<String> = intentLauncher.actionTitles(conversationKey)
+
+    fun fireAction(conversationKey: String, index: Int) {
+        if (!intentLauncher.fireAction(conversationKey, index)) eventChannel.trySend(UiEvent.OpenFailed)
+    }
+
     fun reply(conversationKey: String, text: String) {
         val sent = text.isNotBlank() && intentLauncher.reply(conversationKey, text.trim())
         eventChannel.trySend(if (sent) UiEvent.ReplySent else UiEvent.ReplyFailed)

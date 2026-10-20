@@ -156,6 +156,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
         levelOf = { viewModel.levels[it] ?: Level.Collapsed },
         isLong = { id, default -> viewModel.lengthened[id] ?: default },
         canReply = viewModel::canReply,
+        actionTitles = viewModel::actionTitles,
         snackbarHostState = snackbar,
         showSupport = support.support.available,
         trialDaysLeft = (support.gate as? Gate.Notice)?.daysLeft,
@@ -194,6 +195,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
             },
             onPicture = { path -> viewerPath = path },
             onSupport = { menuOpen = false; showSupport = true },
+            onAppAction = viewModel::fireAction,
         ),
     )
 

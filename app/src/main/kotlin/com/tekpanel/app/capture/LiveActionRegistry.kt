@@ -7,11 +7,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 
+/** One of the sending app's own buttons (e.g. "Mark as read", "Like"), shown under its own label. */
+data class LiveAction(val title: String, val pendingIntent: PendingIntent)
+
 /** What can still be done with a chat while the sending app's notification is alive. */
 data class LiveConversation(
     val contentIntent: PendingIntent?,
     val replyAction: Notification.Action?,
     val replyInput: RemoteInput?,
+    val actions: List<LiveAction> = emptyList(),
 ) {
     val canReply: Boolean get() = replyAction?.actionIntent != null && replyInput != null
 }
@@ -45,6 +49,17 @@ class LiveActionRegistry(private val maxEntries: Int = 200) {
     @Synchronized
     fun clear() = byConversation.clear()
 
+    /** Fires the sending app's own button number [index] for this chat. @return false if it cannot be fired. */
+    fun fireAction(conversationKey: String, index: Int): Boolean {
+        val action = get(conversationKey)?.actions?.getOrNull(index) ?: return false
+        return try {
+            action.pendingIntent.send()
+            true
+        } catch (_: PendingIntent.CanceledException) {
+            false
+        }
+    }
+
     /** Sends [text] through the sending app's own reply action. @return false if it cannot be sent. */
     fun sendReply(context: Context, conversationKey: String, text: String): Boolean {
         val live = get(conversationKey) ?: return false
@@ -64,13 +79,19 @@ class LiveActionRegistry(private val maxEntries: Int = 200) {
     }
 
     companion object {
+        private const val MAX_ACTIONS = 3
+
         /** Picks the notification's free-text reply action, if the sending app offers one. */
         fun fromNotification(notification: Notification): LiveConversation {
             val reply = notification.actions.orEmpty().firstOrNull { action ->
                 action.actionIntent != null && action.remoteInputs.orEmpty().any { it.allowFreeFormInput }
             }
             val input = reply?.remoteInputs.orEmpty().firstOrNull { it.allowFreeFormInput }
-            return LiveConversation(notification.contentIntent, reply, input)
+            val buttons = notification.actions.orEmpty()
+                .filter { it.actionIntent != null && it.remoteInputs.isNullOrEmpty() && !it.title.isNullOrBlank() }
+                .map { LiveAction(it.title.toString(), it.actionIntent) }
+                .take(MAX_ACTIONS)
+            return LiveConversation(notification.contentIntent, reply, input, buttons)
         }
     }
 }

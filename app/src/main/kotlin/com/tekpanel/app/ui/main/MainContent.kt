@@ -50,6 +50,7 @@ class MainCallbacks(
     val onCopy: (String) -> Unit = {},
     val onPicture: (String) -> Unit = {},
     val onSupport: () -> Unit = {},
+    val onAppAction: (conversationKey: String, index: Int) -> Unit = { _, _ -> },
 )
 
 /** Layout of the one screen. No view model, no side effects: screenshot tests render it with fake state. */
@@ -61,6 +62,7 @@ fun MainContent(
     levelOf: (conversationKey: String) -> Level,
     isLong: (messageId: String, default: Boolean) -> Boolean,
     canReply: (conversationKey: String) -> Boolean,
+    actionTitles: (conversationKey: String) -> List<String>,
     snackbarHostState: SnackbarHostState,
     callbacks: MainCallbacks,
     showSupport: Boolean = false,
@@ -150,6 +152,8 @@ fun MainContent(
                         level = levelOf(conversation.key),
                         isLong = isLong,
                         canReply = canReply(conversation.key),
+                        actionTitles = if (levelOf(conversation.key) == Level.Full) actionTitles(conversation.key) else emptyList(),
+                        onAppAction = { index -> callbacks.onAppAction(conversation.key, index) },
                         onCycle = { callbacks.onCycle(conversation) },
                         onToggleMessage = callbacks.onToggleMessage,
                         onMarkRead = callbacks.onMarkRead,

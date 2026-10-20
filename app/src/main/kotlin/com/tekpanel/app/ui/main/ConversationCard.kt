@@ -68,6 +68,8 @@ fun ConversationCard(
     level: Level,
     isLong: (messageId: String, default: Boolean) -> Boolean,
     canReply: Boolean,
+    actionTitles: List<String>,
+    onAppAction: (index: Int) -> Unit,
     onCycle: () -> Unit,
     onToggleMessage: (messageId: String, currentlyLong: Boolean) -> Unit,
     onMarkRead: (ids: List<String>) -> Unit,
@@ -135,6 +137,8 @@ fun ConversationCard(
                         Footer(
                             conversation = conversation,
                             canReply = canReply,
+                            actionTitles = actionTitles,
+                            onAppAction = onAppAction,
                             onOpenApp = onOpenApp,
                             onReply = onReply,
                             onMarkAllRead = { onMarkRead(conversation.messages.map { it.id }) },
@@ -312,6 +316,8 @@ private fun ReadButton(onClick: () -> Unit) {
 private fun Footer(
     conversation: Conversation,
     canReply: Boolean,
+    actionTitles: List<String>,
+    onAppAction: (index: Int) -> Unit,
     onOpenApp: () -> Unit,
     onReply: (String) -> Unit,
     onMarkAllRead: () -> Unit,
@@ -351,6 +357,28 @@ private fun Footer(
                         contentDescription = stringResource(R.string.action_send),
                         tint = if (draft.isNotBlank()) colors.accent else colors.textSecondary,
                     )
+                }
+            }
+        }
+        if (actionTitles.isNotEmpty()) {
+            // The sending app's own buttons, exactly as it labelled them in its notification.
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                actionTitles.forEachIndexed { index, title ->
+                    Surface(
+                        onClick = { onAppAction(index) },
+                        shape = RoundedCornerShape(Tek.shapes.button),
+                        color = colors.surfaceHigh,
+                        border = BorderStroke(1.dp, colors.line),
+                    ) {
+                        Text(
+                            text = title,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = colors.text,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                        )
+                    }
                 }
             }
         }

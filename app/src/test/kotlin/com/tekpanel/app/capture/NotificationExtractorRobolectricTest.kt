@@ -124,4 +124,23 @@ class NotificationExtractorRobolectricTest {
         assertThat(live.canReply).isTrue()
         assertThat(live.contentIntent).isNotNull()
     }
+
+    @Test
+    fun `keeps the source app's own buttons but not its reply action`() {
+        fun pending(name: String) = android.app.PendingIntent.getBroadcast(context, name.hashCode(), Intent(name), android.app.PendingIntent.FLAG_IMMUTABLE)
+        val reply = NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Yanıtla", pending("reply"))
+            .addRemoteInput(androidx.core.app.RemoteInput.Builder("k").build()).build()
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle("Can").setContentText("selam")
+            .addAction(NotificationCompat.Action.Builder(android.R.drawable.ic_menu_view, "Okundu işaretle", pending("read")).build())
+            .addAction(reply)
+            .addAction(NotificationCompat.Action.Builder(android.R.drawable.ic_menu_add, "Beğen", pending("like")).build())
+            .build()
+
+        val live = LiveActionRegistry.fromNotification(FakeSbn.wrap(context, "com.whatsapp", notification, id = 8).notification)
+
+        assertThat(live.actions.map { it.title }).containsExactly("Okundu işaretle", "Beğen").inOrder()
+        assertThat(live.canReply).isTrue()
+    }
 }

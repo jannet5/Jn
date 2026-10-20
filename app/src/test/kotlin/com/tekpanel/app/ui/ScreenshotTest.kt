@@ -52,6 +52,7 @@ class ScreenshotTest {
                 levelOf = { levels[it] ?: Level.Collapsed },
                 isLong = { id, default -> if (id in long) true else default },
                 canReply = { canReply },
+                actionTitles = { listOf("Okundu işaretle", "Beğen") },
                 snackbarHostState = SnackbarHostState(),
                 callbacks = MainCallbacks(),
             )
