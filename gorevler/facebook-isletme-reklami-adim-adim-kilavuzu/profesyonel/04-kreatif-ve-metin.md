@@ -16,7 +16,10 @@
 
 ## 0. Karar sırası (her yeni kreatif partisinde)
 
-1. **Mevzuat kapısı (§11.3).** Türkiye'deki hastaya yönelik klinik, alkol, ilaç ya da bahis varsa kreatif üretme. Dur, insana sor.
+1. **Risk kapısı: Modül 09 §1'i uygula; kırmızı kapıdaysa kreatif üretme.** Kreatif özeti §11.3'te.
+   - **İstisnasız yasak → kreatif yok:** alkol; tütün, nargile, e-sigara, vape (nikotinsiz dahil) ve beşerî ilaç (md. 27/11); yasa dışı bahis, şans oyunu, kumar ve falcı, medyum, astrolog (md. 27/3); sohbet, arkadaşlık, eş bulma (md. 27/8); silah (md. 27/9); THC ve CBD (Modül 09 §1).
+   - **Dur, hukukçuya sor:** Türkiye'deki hastaya yönelik klinik ve sağlık meslek mensubu; avukat; kripto (Meta ön yetkisi + SPK kuralları); lisanslı şans oyunu.
+   - **İnsan onayı olmadan yayın yok:** kredi, finans, sigorta, yatırım; takviye; kilo verme; çekiliş (§5.3) ve Modül 09 §1'deki diğer sarı işler.
 2. **Brif:** persona, farkındalık seviyesi (§4.2), teklif (§5), açılış sayfası ya da WhatsApp karşılama metni.
 3. **Açı ve format seç.** Önceki partiden en az 2 eksende farklı olsun (§8.1).
 4. **Kanca yaz (§3):** her gövdeye 3–5 kanca.
@@ -37,7 +40,7 @@
 | K5 | **Sesli ve sessiz izlemeye birlikte** tasarla. Reels görüntülemelerinin %75'ten fazlası sesli; Akış'ın önemli kısmı sessiz. | [RESMİ] |
 | K6 | **Türkçe altyazıyı kendin yap.** Otomatik ve yapay zekâ altyazısı yalnız İngilizce. Videoya göm ya da `dosyaadi.tr_TR.srt` yükle. | [RESMİ] |
 | K7 | **Gerçek insan, gerçek ortam, telefon çekimi.** Stok görseli varsayılan yapma. | [RESMİ] 9:16+ses+insan+metin kullananlarda %16 düşük EBM (iç veri) |
-| K8 | **Ana varlık 9:16**, yanında 4:5 ve 1:1. Satış ve potansiyel müşteri kampanyalarında alan hariç tutma kalkıyor. | [RESMİ]; [PRATİSYEN] Loomer (*hesaba göre değişebilir*) |
+| K8 | **Ana varlık 9:16**, yanında 4:5 ve 1:1. **Etkileşim, Potansiyel müşteriler, Uygulama tanıtımı ve Satışlar** amaçlarında reklam seti düzeyinde elle alan seçimi kalkıyor; Bilinirlik ve Trafik'te sürüyor. Değişiklik kademeli açılıyor: sette alan seçimi hâlâ görünüyorsa hesap eski düzendedir. Kalan kontroller: reklamda **alan bazında varlık özelleştirmesi** (kırpma, metin, bağlantı), **alan değer kuralları** (alana göre teklifi artır/azalt) ve hesap kontrollerinde **amaca göre hesap düzeyinde alan hariç tutma**. | [RESMİ] reklam alanı ayarlarındaki yenilikler |
 | K9 | **Statik ve videoyu birlikte** kullan. | [RESMİ] %17 daha fazla dönüşüm yükselişi |
 | K10 | Merak tuzağı, sansasyon, "beğen/yorum yap" tuzağı kullanma: kalite puanı düşer, Sayfa ve alan adı "düşük kalite" ile ilişkilendirilebilir. | [RESMİ] |
 | K11 | Facebook Akışı alt bilgisinde **URL görünmüyor** (Mart 2026). Hedefi başlık ve görsel anlatsın. Bilinirlik ve erişim optimizasyonunda mobil Akış videosunda düğme de görünmez; CTA videonun içinde olsun. | [RESMİ] |
@@ -53,7 +56,8 @@
 | **4:5** | 1440×1800 (Facebook Akışı 4:5 minimumu) | Facebook ve Instagram Akışı görseli | Alt ve yan kenarlar [RESMİ] |
 | **1:1** | 1080×1080 | Döngü, Marketplace, masaüstü Akış | Alt ve yan kenarlar |
 
-- **Kural:** Oranları kendin yükle. Eksik oranı Meta kırpma, genişletme ve yapay zekâyla doldurur; otomatik kırpmayı önizlemede kontrol et [RESMİ]. "Güvenli bölge koruması" düğmesi sarı çerçeveyi gösterir.
+- **Kural:** Oranları kendin yükle. Eksik oranı Meta çoğu zaman kırpma, genişletme ve yapay zekâyla doldurur; otomatik kırpmayı önizlemede kontrol et [RESMİ]. "Güvenli bölge koruması" düğmesi sarı çerçeveyi gösterir.
+- **Kural: her alana uygun medya.** Meta'ya göre her reklam alanı için en az bir uygun medya gerekir. Medyanın oranı, süresi ya da türü alanı desteklemiyorsa reklam **o alanda yayınlanmaz**; Reklam Yöneticisi uyarı gösterir [RESMİ]. Uyarı varsa eksik oranı ya da kısa sürümü yükle. Bir alanda görünmek istemiyorsan bunu eksik medyayla değil, hesap düzeyinde amaca göre alan hariç tutmayla yap (K8; *sezgisel*).
 - **Dosya:** görsel PNG/JPG en fazla 30 MB; video MP4/MOV en fazla 4 GB [RESMİ].
 - **Süre:** Instagram Reels reklamı en fazla 15 dk; Facebook Hikayeler 1–120 sn [RESMİ]. Meta dönüşüm testi için **5–10 sn** öneriyor [RESMİ]; UGC için 15–30 sn yaygın (*sezgisel*).
 - **Reels:** lisanslı müzik kullanılamaz; Meta Ses Koleksiyonu ya da telifsiz müzik [RESMİ].
@@ -71,13 +75,13 @@
 
 **Kurallar:**
 - Aynı gövdeye 3–5 kanca tak; kancayı ekran yazısı + sesle ver.
-- Kancaların %60–70'i güvenilir türlerden (promosyonel, somut), %30–40'ı deneysel olsun (*sezgisel*).
+- Kancaların %60–70'i güvenilir türlerden (promosyonel, somut), %30–40'ı deneysel olsun (*sezgisel*). **Promosyonel, indirim demek değil:** fiyat çapası, yenilik, set, ek fayda ve kargo eşiği de bu gruptadır. Her partide yeni indirim kancası üretme; ardışık indirim önceki fiyatı geçersiz kılar (§5.3).
 - Motion 2026 verisinde somut ve promosyonel kancalar (indirim, fiyat çapası, yenilik, aciliyet) en çok kazananı üretti; ama veri Black Friday dönemini kapsıyor. Yalnız indirim kancası kitleyi çabuk yorar [PRATİSYEN].
 
 | # | Tür | Örnek | Uyarı |
 |---|---|---|---|
 | 1 | Fiyat çapası | "Kadıköy'de 2 kişilik serpme kahvaltı [650 TL]. Hafta içi 09–12." | Vergiler dahil TL, menüyle aynı |
-| 2 | Tarihli indirim | "Kaban [1.800 TL] yerine [1.440 TL] · 20–26 Ekim" | §5.3 (10 gün kuralı) |
+| 2 | Tarihli indirim | "Kaban [1.800 TL] yerine [1.440 TL] · 20–26 Ekim" | §5.3: önce 10 günlük fiyat geçmişi; önceki fiyat ve tarih görselde de |
 | 3 | Gerçek aciliyet | "Cumartesi için son [3] randevu saati kaldı." | Doğru değilse haksız uygulama |
 | 4 | Yenilik | "Yeni: [15] dakikada kuruyan kalıcı oje." | Süre ölçülmüş olmalı |
 | 5 | Demo | "Bu leke [40] saniyede çıkıyor mu? Deneyelim." | Kesintisiz çekim |
@@ -99,7 +103,7 @@
 | 21 | Biz ve diğerleri | "Platform yerine bizden sipariş verin: tatlı ikramı bizden." | Rakip adı/logosu yok (md. 8) |
 | 22 | Risk tersine çevirme | "Beden olmazsa [30] gün içinde değişim." | 14 günlük yasal cayma hakkı avantaj diye sunulamaz |
 | 23 | Mevsim | "Kış gelmeden kombi bakımı: Kasım randevuları açıldı." | — |
-| 24 | Duyuru | "Yeni şubemiz cumartesi açılıyor: ilk [100] kişiye kahve ikramı." | Bedavanın şartı ve adedi yazılı |
+| 24 | Duyuru | "Yeni şubemiz cumartesi açılıyor: ilk [100] kişiye kahve ikramı." | Bedavanın şartı ve adedi yazılı. Çekilişe dönüşürse §5.3 (insan onayı) |
 
 ---
 
@@ -157,10 +161,11 @@ Düğme listesi **amaç ve dönüşüm konumuna göre** değişir [RESMİ]. Aray
 - **Uyum:** Botoks, dolgu gibi tıbbi işlem yok; müşteri görseline yazılı rıza.
 
 **3. E-ticaret (moda)** · Teklif önce + sosyal kanıt · Site
-- **Birincil A:** "Su itici kaban [1.440 TL] (indirim öncesi [1.800 TL]). 20–26 Ekim, [500] adetle sınırlı. 36–48 beden, [1–2] iş günü kargo."
+- **Görsel/video yazısı:** "[1.800 TL] yerine [1.440 TL] · 20–26 Ekim · [500] adet". Okunur büyüklükte, güvenli bölgede.
+- **Birincil A:** "Su itici kaban [1.440 TL] (indirim öncesi [1.800 TL]). 20–26 Ekim, [500] adetle sınırlı. 36–48 beden, [1–2] iş günü kargo. Kargo [X TL], [Y TL] üzeri ücretsiz."
 - **Birincil B:** "'Bedeni tam oldu, kumaşı kalın.' Siparişi doğrulanmış [312] alıcının ortalama puanı [4,7]."
-- **Başlık:** "Kaban [1.440 TL] · 26 Ekim'e kadar" · **Açıklama:** "[1–2] iş günü kargo" · **CTA:** Şimdi alışveriş yap
-- **Uyum:** Önceki fiyat = aynı sitede son 10 günün en düşüğü; tarih ve adet yazılı.
+- **Başlık:** "[1.800 TL] yerine [1.440 TL] · 20–26 Ekim" · **Açıklama:** "[1–2] iş günü kargo" · **CTA:** Şimdi alışveriş yap
+- **Uyum:** Önceki fiyat = aynı sitede son 10 günün en düşüğü; son 10 günde başka kampanya varsa R o kampanyanın fiyatıdır (§5.3). Önceki fiyat, indirimli fiyat ve tarih görselde ve başlıkta birlikte. Kargo ücreti ya da ücretsiz kargo şartı yazılı (md. 13/5).
 
 **4. Yerel ev hizmeti** · Somut rakam · WhatsApp / arama
 - **Birincil:** "2+1 ev temizliği sabit [2.400 TL]: 2 kişilik ekip, yaklaşık [4] saat, malzeme bizden. Ataşehir, Kadıköy, Üsküdar. Fotoğraf gönderin, aynı gün fiyat verelim."
@@ -174,9 +179,9 @@ Düğme listesi **amaç ve dönüşüm konumuna göre** değişir [RESMİ]. Aray
 
 **6. Emlak** · Değer teklifi · Hızlı form
 - **Birincil A (portföy):** "Evinizi satmadan önce bölgedeki son satışlara göre ücretsiz değerleme yapalım. Yetki belgeli ofis, Maltepe ve Kartal. [24] saatte arıyoruz."
-- **Birincil B (ilan):** "Kartal 3+1, 125 m², deniz manzaralı: [8.950.000 TL]. Doğrulanmış ilan bağlantısı ilan sayfasında."
+- **Birincil B (ilan):** "Kartal 3+1, brüt [125] m² / net [110] m², deniz manzaralı: [8.950.000 TL]. EİDS doğrulamalı ilan: [ilan bağlantısı] · İlan no: [no]."
 - **Başlık:** "Maltepe'de ücretsiz değerleme" · **CTA:** Teklif al / Daha fazla bilgi
-- **Uyum:** İlan reklamında EİDS bağlantısı ve fiyat zorunlu; görseller o ilana ait; "garantili değer artışı" yok.
+- **Uyum:** İlan reklamında EİDS doğrulamalı ilan bağlantısı **paylaşımın kendisinde**, yani birincil metinde olmalı; fiyat da zorunlu [MEVZUAT, Bakanlık uygulaması]. Facebook Akışı alt bilgisinde URL görünmediği için (K11) hedef URL'ye güvenme. Fiyat yazılıysa brüt ve net alan da zorunlu (md. 27/5). Fotoğraf ve videolar yalnız o ilana ait olsun. "Garantili değer artışı" yok. Portföy, proje ya da değerleme reklamının "ilan" sayılıp sayılmadığı, yani EİDS bağlantısı isteyip istemediği *doğrulanmalı*.
 
 **7. Spor salonu** · Meslek + semt · WhatsApp
 - **Birincil:** "Ataşehir'de çalışanlar için 45 dakikalık öğle antrenmanı: 12.15 ve 13.00 grupları. İlk hafta deneme ücretsiz, eğitmen eşliğinde."
@@ -209,12 +214,17 @@ Düğme listesi **amaç ve dönüşüm konumuna göre** değişir [RESMİ]. Aray
 ### 5.3 Türkiye uyum kuralları [MEVZUAT]
 
 - **İndirim reklamı** (md. 14, 1.8.2026'dan beri): indirim öncesi fiyat, başlangıç ve bitiş tarihi ve sınırlıysa adet açıkça yazılır.
-- **Önceki fiyat** = indirimden önceki **10 gün** içindeki **en düşük** fiyat; çabuk bozulan mal ve hizmette bir önceki fiyat. 2022–2025 kaynaklarındaki "30 gün" artık geçersiz.
+- **Görünürlük (*sezgisel*, md. 14/1'deki "açık ve anlaşılır" şartının yorumu):** İndirimli fiyat nerede görünüyorsa (görsel, video, başlık) önceki fiyat ve tarih aralığı da **aynı yerde** görünsün. Hikayeler ve Reels'te birincil metin kısalır ya da hiç görünmeyebilir; başlık da tek başına gösterilebilir. Bu yüzden önceki fiyatı, indirimli fiyatı, tarihi ve sınırlıysa adedi görselin ya da videonun içine, okunur büyüklükte ve güvenli bölgeye yaz. Başlıkta yalnız indirimli fiyatı kullanma. Her alanı önizlemede kontrol et.
+- **Önceki fiyat (R)** = indirimin başlangıç gününden önceki **10 gün** içinde, aynı kanalda uygulanan **en düşük** fiyat. Çabuk bozulan mal ve hizmette bir önceki fiyattır. 2022–2025 kaynaklarındaki "30 gün" artık geçersiz.
 - **Kanal kuralı:** Önceki fiyat yalnız indirimin yapıldığı kanaldaki fiyattır. "2 al 1 öde", "500 TL üzeri %20" da kapsamda.
-- **Fiyat:** vergiler dahil TL. Taksitte toplam fiyat ve taksit sayısı okunur büyüklükte. "Bedava" şarta bağlıysa şart ana mesajda (md. 13).
+- **Ardışık indirim tuzağı:** R, önceki kampanyanın indirimli fiyatı olabilir. Bir indirim bittikten sonra 10 gün geçmeden yenisi başlarsa eski "önceki fiyat" ibaresi yanlış olur. Tek ve kesintisiz bir indirimde R başlangıç gününe göre sabittir; 10 günü aşması R'yi tek başına değiştirmez. Kampanyayı yeni tarihle uzatmanın yeni başlangıç sayılıp sayılmadığı *doğrulanmalı*. Temkinli yol: uzatmayı yeni indirim say, R'yi yeniden hesapla.
+  - **Örnek (*varsayım*):** Kaban 20–26 Ekim'de [1.440 TL] (önceki [1.800 TL]), 27 Ekim'den sonra yine [1.800 TL]. 3 Kasım'da [1.500 TL]'lik indirim başlatılırsa pencere 24 Ekim–2 Kasım olur, en düşük fiyat 1.440 TL'dir; R = 1.440 TL. 1.500 TL bunun üstünde kaldığı için indirim reklamı yapılamaz. "1.800 TL yerine" yazmak gerçekte olmayan bir indirim izlenimi verir (md. 14/2). Bu ürün için en erken yeni indirim günü 6 Kasım'dır (pencere 27 Ekim–5 Kasım, tümü 1.800 TL).
+  - **Kural:** İndirim kancası yazmadan önce o kanalın son 10 günlük fiyat geçmişini iste. Geçmiş yoksa indirim kancası üretme. Sık indirim yerine ek fayda, set ya da kargo eşiği öner (§5.2). Formül: Modül 09 §5.3.
+- **Fiyat:** vergiler dahil TL. Taksitte toplam fiyat ve taksit sayısı okunur büyüklükte. "Bedava" şarta bağlıysa şart ana mesajda (md. 13). **Teslim (kargo) ücreti** tüketiciye yansıyorsa tutarı, belli değilse nasıl hesaplandığı reklamda yazılır (md. 13/5). Ücretsizse şartı da yazılır ("[Y TL] üzeri ücretsiz").
 - **Sahte aciliyet** ve sahte "kapanıyoruz" her durumda haksız (Ek A-7, A-11). Doğrudan satış reklamında "son, sadece, sınırlı satış" ile teşvik yasak (md. 27/1); Meta reklamının bu kapsama girip girmediği belirsiz, kelime yerine gerçek tarih ve adet yaz.
 - **Yasal haklar** (14 günlük cayma) ekstra avantaj gibi sunulamaz (md. 7/7).
-- **Çekiliş/hediye:** ödül, adet, tarih, teslim koşulu yazılı (md. 15).
+- **Çekiliş: dur, insana sor.** Sosyal medya çekilişi için Milli Piyango İdaresi izni gerekebilir (Karşılığı Nakit Olmayan Piyangolar ve Çekilişler Hakkında Yönetmelik; *doğrulanmalı*, Modül 09 da doğrulamadı). Katılım şartı "beğen, yorum yap, etiketle, paylaş" olamaz; bu, K10'daki etkileşim tuzağıdır. Ödül, adet, başlangıç ve bitiş tarihi ve teslim koşulu yazılı olsun (md. 15).
+- **Hediye/promosyon** (çekilişsiz, "ilk 100 kişiye"): hediyenin miktarı ve geçerlilik süresi yazılı (md. 15).
 
 ### 5.4 Formüller (*türetilmiş*)
 
@@ -243,7 +253,7 @@ Blok süreleri Meta'nın "ilk 3 sn" ve "5–10 sn" önerilerine dayanır [RESMİ
 - **2–9 sn:** Logolu önlüklü ekip üyesi siler, ekranda kronometre. Ses: "Malzeme bizden, ekip sigortalı."
 - **9–13 sn:** Yazı: "2+1 ev · yaklaşık [4] saat · [2.400 TL] sabit". Ses: "Fotoğraf gönderin, aynı gün fiyat verelim."
 - **13–15 sn:** Telefonda WhatsApp ekranı. Ses: "WhatsApp'tan yazın." Logo sağ üstte, alt %35 boş.
-- **Varyasyon:** Aynı gövdeye 3 kanca (#5 demo, #18 POV, #1 fiyat çapası) → 3 reklam.
+- **Varyasyon:** Aynı gövdeye 3 kanca (#5 demo, #18 POV, #1 fiyat çapası). N < 50 ise bunlar tek reklamın 3 videosu olur; N ≥ 150 ise 3 ayrı reklam açılabilir (§8.2).
 
 **Üretim kontrolü:** altyazı gömülü ya da `.tr_TR.srt` · yazılar güvenli bölgede · ses Meta Ses Koleksiyonu'ndan ya da telifsiz · 4:5 kırpımı kontrol edildi.
 
@@ -280,7 +290,7 @@ UGC BRİFİ
 
 ### 8.1 "Farklı" ne demek?
 
-Meta çok benzer kreatifleri farklı tanımayabilir ve aynı kitleye gösterebilir. Bu erişimi kısar, "Kreatif sınırlandı" durumuna yol açabilir [RESMİ]. Sayısal benzerlik eşiği yok. Yeni kavram öncekinden **en az 2 eksende** ayrılsın (*sezgisel*):
+Meta çok benzer kreatifleri farklı tanımayabilir ve aynı kitleye gösterebilir. Bu erişimi kısar, "Kreatif sınırlandı" durumuna yol açabilir [RESMİ]. Bu durum yalnız tek kreatifli setlerde görünür (§9). Sayısal benzerlik eşiği yok. Yeni kavram öncekinden **en az 2 eksende** ayrılsın (*sezgisel*):
 
 | Eksen | Örnek |
 |---|---|
@@ -294,7 +304,9 @@ Meta çok benzer kreatifleri farklı tanımayabilir ve aynı kitleye gösterebil
 
 ### 8.2 Kaç kreatif?
 
-**Sabit sınırlar [RESMİ]:** set başına en fazla 50 reklam; reklam başına 10'a kadar medya; çok fazla reklam her reklamın gösterimini azaltır ve öğrenmeyi uzatır.
+**Sabit sınırlar [RESMİ]:** set başına en fazla 50 reklam; reklam başına 10'a kadar medya; çok fazla reklam her reklamın gösterimini azaltır ve öğrenmeyi uzatır. Meta, set başına reklam sayısını azaltmayı ve farklı varlıkları tek reklamda toplamayı öneriyor.
+
+**Sayfa başına reklam sınırı [RESMİ]:** Yayındaki ve incelemedeki reklamlar Sayfa başına sayılır. En yüksek harcamalı ayı 100.000 USD'nin altında kalan Sayfanın sınırı 250 reklamdır. O Sayfa adına reklam veren bütün hesaplar aynı sınırı paylaşır. Sınır aşılırsa yeni reklam yayınlanamaz ve mevcut reklamlarda kapatmak dışında düzenleme yapılamaz. Dinamik kreatif, Advantage+ katalog reklamı ve Advantage+ reklam alanlarındaki bir reklam, kaç kreatif içerirse içersin tek reklam sayılır. Eylül 2026'da bazı hesaplarda sınırın kalktığı bildirildi; Meta doğrulamadı [HABER, *hesaba göre değişebilir*]. Yeni partiden önce Meta Business Suite'teki "Sayfa Başına Reklam Sınırları" aracına bak.
 
 **Formül (*türetilmiş*):** **K ≈ (haftalık bütçe × test payı) ÷ (2–3 × hedef CPA)**. K, haftada test edilebilecek yeni kavram sayısıdır.
 - 2–3 × CPA kavram başına karar harcamasıdır [PRATİSYEN Foxwell, *sezgisel*].
@@ -302,17 +314,18 @@ Meta çok benzer kreatifleri farklı tanımayabilir ve aynı kitleye gösterebil
 - **Örnek:** Günlük 2.000 TL → haftalık 14.000 TL. Test payı %20 → 2.800 TL. CPA 300 TL → 2.800 ÷ 900 ≈ **3 kavram/hafta**.
 - **Eğer K < 1** → ayrı test yapma. Yeni kavramı mevcut sete ekle, iki hafta toplam sonuca bak [PRATİSYEN Loomer].
 
-| Durum (N = haftalık beklenen sonuç, Modül 02 F4) | Aktif kavram | Yeni parti | Dayanak (*sezgisel* sentez) |
-|---|---|---|---|
-| N < 50 | 2–3 (her biri 1 statik + 1 video, 3 oran) | 2 haftada bir, yalnız toplam sonuç kötüyse ya da yorgunluk görünürse | Loomer "1–2 fikirle başla"; Foxwell aylık 10 bin $ altı "ayda 1" |
-| 50 ≤ N < 150 | 3–5 | 1–2 haftada bir, 2–3 kavram | CTC ayda 8–12 ↔ Foxwell ayda 3–4 (çelişkili) |
-| N ≥ 150 | 5–10 | Her hafta 3–5+, bir kısmı kazananın türevi | Motion: kurumsalda haftada ~18,8 kreatif |
+| Durum (N = haftalık beklenen sonuç, Modül 02 F4) | Aktif kavram | Set başına reklam | Yeni parti | Dayanak (*sezgisel* sentez) |
+|---|---|---|---|---|
+| N < 50 | 2–3 (her biri 1 statik + 1 video, 3 oran) | **2–4.** Kanca, oran ve statik/video varyasyonları tek multimedya ya da esnek reklamın medyasıdır | 2 haftada bir, yalnız toplam sonuç kötüyse ya da yorgunluk görünürse | Loomer "1–2 fikirle başla"; Foxwell aylık 10 bin $ altı "ayda 1"; Meta reklam hacmi önerisi |
+| 50 ≤ N < 150 | 3–5 | 3–6; kavram başına bir reklam | 1–2 haftada bir, 2–3 kavram | CTC ayda 8–12 ↔ Foxwell ayda 3–4 (çelişkili); Modül 02 "3–5 reklamla başla" |
+| N ≥ 150 | 5–10 | En fazla ~10; kanca varyasyonları ayrı reklam olabilir | Her hafta 3–5+, bir kısmı kazananın türevi | Motion: kurumsalda haftada ~18,8 kreatif |
 
 Uzlaşma: neredeyse aynı varyasyonları değil, **gerçekten farklı kavramları** çoğalt.
 
 ### 8.3 Parti yapısı ve test
 
 - **Bir parti** = 2–3 kavram × (1 statik + 1 video) × 3 oran + 5 birincil metin + 5 başlık; video başına 3 kanca.
+- **Partinin kaç reklam olacağını N belirler (§8.2, *sezgisel*):** Her varyasyonu ayrı reklam yaparsan bir parti 8–12 reklama çıkar; bu, küçük hesapta Meta'nın reklam hacmi önerisine ters düşer. N < 50 ise her kavram **tek reklamdır**; statik, video, oranlar ve kancalar o reklamın medyası olur (en fazla 10). Bu durumda kancalar temiz karşılaştırılamaz; "Reklam kreatifi" kırılımı yalnız yön gösterir. N ≥ 150 ise kanca varyasyonları ayrı reklam olarak açılabilir. Her iki durumda da reklamları ekledikten sonra Sayfa başına sınırın altında kaldığını kontrol et (§8.2).
 - **Karşılaştırma:** kreatif testi aracı (2–5 reklam, eşit bütçe, çakışmasız, varsayılan 7 gün; yalnız "En yüksek hacim" teklifiyle çalıştığı bildiriliyor — resmi sayfa yok) ya da A/B testi (en az 7 gün, eşit bütçe, tek değişken) [RESMİ].
 - **Kararı toplam sonuca göre ver.** Kırılımda en çok harcayanı kapatma.
 
@@ -320,10 +333,13 @@ Uzlaşma: neredeyse aynı varyasyonları değil, **gerçekten farklı kavramlar�
 
 ## 9. Yorgunluk: belirtiler, teşhis, yenileme
 
+**Uygunluk [RESMİ]:** "Kreatif sınırlandı" ve "Kreatif yorgunluğu" durumları ile Meta'nın yorgunluk tavsiyeleri yalnız **tek kreatifli reklam setlerinde** çıkar. Advantage+ katalog, dinamik kreatif ve Advantage+ uygulama kampanyalarında çıkmaz. Bu modül sete birden çok reklam koyduğu için durum sinyali çoğu zaman **hiç gelmez**. Sinyal yoksa yorgunluk da yok sanma; çok reklamlı sette aşağıdaki "Çok reklamlı set" satırındaki yedek teşhisi kullan.
+
 | Gözlem | Önce kontrol et | Karar |
 |---|---|---|
-| **"Kreatif yorgunluğu"**: sonuç başı ücret geçmişin ≥2 katı [RESMİ] | Aynı görsel Sayfanın başka kampanyalarında da var mı? (Meta onları da sayar) | Eskisini **kapatmadan** belirgin farklı kavram ekle, kitleyi genişlet [RESMİ] |
-| **"Kreatif sınırlandı"**: geçmişten yüksek, 2 kattan az [RESMİ] | Setteki kreatifler benzer mi? | Farklı eksende kavram ekle (§8.1) |
+| **"Kreatif yorgunluğu"** (yalnız tek kreatifli set): sonuç başı ücret geçmişin ≥2 katı [RESMİ] | Aynı görsel Sayfanın başka kampanyalarında da var mı? (Meta onları da sayar) | Eskisini **kapatmadan** belirgin farklı kavram ekle, kitleyi genişlet [RESMİ] |
+| **"Kreatif sınırlandı"** (yalnız tek kreatifli set): geçmişten yüksek, 2 kattan az [RESMİ] | Setteki kreatifler benzer mi? | Farklı eksende kavram ekle (§8.1) |
+| **Çok reklamlı set, durum sinyali yok** (yedek teşhis, *sezgisel*): reklamın sonuç başı ücreti kendi 4 haftalık tabanının üstüne çıkıp yükseliyor. Meta'nın tek kreatifli set eşikleri uyarlanır: tabanın üstü "sınırlı", 2 katı ve üstü "yorgun" | Aynı reklamda 7 günlük sıklık artıyor mu, kanca oranı haftadan haftaya düşüyor mu? "Reklam kreatifi" kırılımında aynı varlıkta aynı seyir var mı? (Kırılım kademeli açılıyor, dinamik kreatif sonucunu içermez [RESMİ].) Sezon ve CPM değişti mi? Reklamın haftalık sonucu birkaç taneyse CPA yerine sıklık, kanca oranı ve TO eğilimine bak | Sıklık artışı ile kanca oranı düşüşü birlikte görülüyorsa yorgunluk say. Eskisini kapatmadan yeni kanca ya da kavram ekle (yenileme merdiveni) |
 | İlk 1–2 hafta parlak, sonra düşüş | **Kitle segmenti kırılımı:** ilk haftalarda mevcut müşteri/etkileşimli payı yüksek miydi? | Büyük olasılıkla sıcak kitle tükendi, yorgunluk değil [PRATİSYEN Loomer]. Yeni reklam açma döngüsüne girme |
 | 7 günlük sıklık artıyor + TO iki hafta düşüyor + CPA hedefin üstünde | Sezon/CPM, sayfa, stok, fiyat | Önce yeni kanca, olmazsa yeni açı (*sezgisel*) |
 | Kanca oranı haftadan haftaya düşüyor | CPM değişti mi? | İlk 3 saniyeyi değiştir |
@@ -351,7 +367,8 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 | Risk | İyileştirme | Karar |
 |---|---|---|
 | Düşük | Parlaklık/kontrast, döngü kartı sıralama, profil son kartı | Açık kalabilir, önizle |
-| Orta | Müzik, animasyon, detayları/ilgi odaklarını göster, özetler | Önizleyip karar ver |
+| Orta | Müzik, animasyon | Önizleyip karar ver |
+| Yüksek (TR'ye özel) | Detayları zaman içinde göster, İlgi odaklarını göster, Özetleri göster | Varsayılan açık olabilir. Siteden metin ve görsel çeker ya da yapay zekâyla özet yazar [RESMİ]. Gösterimden gösterime değiştiği için önizleme hepsini göstermez. **İndirim kampanyasında ve düzenlemeye tabi işte (kozmetik, gıda/takviye, eğitim, emlak, sağlık, finans) Kapalı.** Diğer işlerde açmadan önce siteyi tara: md. 14 bilgisi olmayan üstü çizili fiyat, eski fiyat, "en/tek/garanti" ya da sağlık beyanı varsa kapat |
 | Orta (TR'ye özel) | Alakalı yorumlar | **Kapalı**: doğrulanmamış yorum yasağıyla (md. 28/B-6) ilişkisi belirsiz |
 | Yüksek | Görsel ve arka plan oluştur, görsel/video rötuşları (yeni piksel), medya metnini iyileştir, metin iyileştirmeleri, eylem çağrısını iyileştir, çeviriler | **Kapalı**; çıktıyı görüp onaylamadan açma. "Eylem çağrısını iyileştir" Hikayelere "%X indirim" ekleyebilir → 10 gün kuralı riski |
 | Türkçede çalışmaz | Metin oluşturma, yapay zekâ altyazısı | Elle yaz, SRT yükle |
@@ -359,6 +376,7 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - **Hesap düzeyi:** Reklam ayarları > Reklam oluşturma > Kreatif özellikleri > **"Yeni kreatif özelliklerini test edin"**. İşaretliyse test aşamasındaki özellikler reklamda seçilmese de uygulanabilir [RESMİ].
 - **Belgelenmiş olaylar [HABER]:** bozuk ürün ve anatomi görselleri yayına çıktı; REI'nin bozuk bisiklet görseli yaklaşık bir hafta yayında kaldı. İnceleme sorumluluğu reklamverende.
 - Finans, sağlık, konut, istihdam ve siyaset reklamlarında üretken özellikler kısıtlı olabilir [RESMİ].
+- **Çeviriler:** "Seslendirme çevirileri" İngilizce seslendirmeli videoyu yapay zekâ dublajıyla başka dillere çevirir; hedef diller arasında **Türkçe var**. Metin ve bindirme çevirilerinde Türkçe hedef yok [RESMİ]. Bu durumda videodaki gerçek kişi, söylemediği Türkçe cümleleri yapay zekâ sesiyle söylüyor görünür. Dublaj sesinin konuşmacının sesine benzetilip benzetilmediği *doğrulanmalı*. Her iki durumda da md. 18/8 ve 27/12 riski var (§10.2). Dil kısıtlı işlerde çevirileri **kapalı** tut. Örnek: yetki belgeli sağlık turizminde reklam Türkçe dışı dilde ve yurt dışı kitleye olmalı; Türkçe dublaj bu istisnayı bozar (§11.3, *sezgisel*).
 
 ### 10.2 Her üretilmiş varlık için
 
@@ -366,8 +384,12 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - [ ] Anatomi ve fizik doğal (el, parmak, gölge).
 - [ ] Görseldeki Türkçe yazıda harf hatası yok.
 - [ ] Sonradan eklenmiş fiyat, indirim ya da iddia yok.
-- [ ] İnsandan ayırt edilemeyen yapay zekâ karakteri varsa kreatifte yazıyor: "Görseldeki kişi yapay zekâ ile oluşturulmuştur." (md. 18/8). Meta'nın menüdeki "Yapay zeka bilgileri" etiketinin yettiği doğrulanmadı.
-- [ ] Gerçek kişiye benzeyen kopya ürün önermiyor (md. 27/12); ünlü adı ya da yüzü yok.
+- [ ] **md. 18/8 iki durumu kapsar** ve ikisinde de açıklama "açık, anlaşılır ve ayırt edilebilir" olmalı:
+  - (a) Tüketicinin ekonomik davranışını önemli ölçüde etkileyecek biçimde yapay zekâ ya da yazılım kullanımı. Kapsamı belirsiz, *doğrulanmalı*. Temkinli okuma: satın alma kararını etkileyen bir varlık (ürün görseli, sahne, ses, özet) yapay zekâyla üretildiyse kreatifte yaz.
+  - (b) İnsandan ayırt edilemeyen yapay zekâ karakteri. Kreatifte yaz: "Görseldeki kişi yapay zekâ ile oluşturulmuştur."
+- [ ] **Yapay zekâ seslendirme ya da dublaj** (Meta seslendirme çevirisi dahil) kullanıldıysa kreatifte açıkça yazıyor. Gerçek bir kişinin sesi kopyalandıysa kişinin yazılı izni var. Yazılı izin yoksa kullanma.
+- [ ] Meta'nın "Yapay zeka bilgileri" etiketi çoğu durumda üç nokta > "Bu reklam hakkında" ekranında, bazı durumlarda "Reklam" etiketinin yanında görünür [RESMİ]. Reklamverenin kendi açıklamasını ekleyebildiği bölgeler (AB, Kaliforniya, New York, Hindistan, Tayvan) arasında Türkiye yok. Etiketin md. 18/8'i karşıladığı doğrulanmadı; ibareyi kreatife de yaz.
+- [ ] Gerçek kişinin yapay zekâ kopyası (görüntü ya da ses) ürünü kullanmış ya da öneriyor gibi gösterilmiyor (md. 27/12); ünlü adı, yüzü ya da sesi yok.
 - [ ] Müzik ve görsel lisanslı; gösterilen ürün açılış sayfasındakiyle aynı.
 - [ ] Yayındaki reklamlar haftada en az bir kez Gelişmiş önizleme > Advantage+ kreatifi sekmesinden denetleniyor (*sezgisel*).
 
@@ -409,10 +431,15 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 
 ### 11.3 Sektör kapıları
 
+Tam kapı **Modül 09 §1**'dedir. Bu bölüm kreatif için özettir; kırmızı kapıdaysan kreatif üretme.
+
+- **İstisnasız yasak, kreatif yok [MEVZUAT]:** alkol; tütün, nargile, e-sigara, vape (nikotinsiz dahil) ve beşerî ilaç (md. 27/11); yasa dışı bahis, şans oyunu, kumar ve falcı, medyum, astrolog (md. 27/3); sohbet, arkadaşlık, eş bulma (md. 27/8); silah (md. 27/9); THC ve CBD (Modül 09 §1).
+- **Dur, hukukçuya sor:** Türkiye'deki hastaya yönelik klinik ve sağlık meslek mensubu (aşağıda); avukat; kripto (Meta ön yetkisi + SPK kuralları); lisanslı şans oyunu.
 - **Klinik (diş, estetik, hekim):** Türkiye'deki hastaya ücretli reklam yok. Hasta görseli, önce–sonra, fiyat ve kampanya sponsorlu yayınlanamaz. Meta önce–sonraya 18+ ile izin verse de Türk mevzuatı bunu kapatıyor. İstisnalar: açılış ayı; yetki belgeli sağlık turizmi (Türkçe dışı dil, yurt dışı kitle, otomatik kitle kapalı).
 - **Alkol:** hem Meta hem yasa açısından yasak; restoran ve otel görsellerinde de gösterme.
 - **Kozmetik:** gıda dışı üründe sağlık beyanı yasak ("tedavi eder", "sivilceyi geçirir" yok). Meta'da kozmetik işlem ve kilo ürünleri 18+.
-- **Kurs:** öğrenci resmi ve bilgisi yok. **Emlak ilanı:** EİDS bağlantısı + fiyat. **Konaklama:** belge numarası.
+- **Kurs:** öğrenci resmi ve bilgisi yok. **Emlak ilanı:** EİDS doğrulamalı ilan bağlantısı paylaşımın içinde, fiyat, fiyat varsa brüt ve net alan (md. 27/5); görseller o ilana ait (§4.5). **Konaklama:** belge numarası.
+- **Kredi, finans, sigorta, yatırım; takviye; kilo verme; çekiliş:** insan onayı olmadan kreatif yayına çıkmaz. Takviyede sağlık beyanı ve kilo rakamı yok (§11.2). Çekilişte MPİ izni gerekebilir (§5.3).
 
 **Meta'nın onayı hukuki uygunluk kanıtı değildir.** Meta'nın kendi kuralı da yürürlükteki yasaya uymayı şart koşuyor [RESMİ]. 2026'da internet reklamı ihlalinin ceza aralığı **1.083.706–10.837.065 TL**; sonradan düzeltmek sorumluluğu kaldırmaz [MEVZUAT].
 
@@ -420,16 +447,21 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 
 ## 12. Yayın öncesi kreatif kontrol listesi
 
-- [ ] Mevzuat kapısı geçildi; gerekiyorsa insan onayı alındı.
-- [ ] Her kavramda 9:16, 4:5 ve 1:1 var; yazılar güvenli bölgede; Akış, Hikayeler ve Reels önizlendi.
+- [ ] Risk kapısı (Modül 09 §1) geçildi. İş istisnasız yasak listede değil: alkol, tütün/nargile/e-sigara/vape, beşerî ilaç, bahis/kumar, falcı/medyum, sohbet/arkadaşlık/eş bulma, silah, THC/CBD. Klinik, avukat, kripto, lisanslı şans oyunu, kredi/finans, takviye, kilo verme ve çekilişte yazılı insan onayı var.
+- [ ] Her kavramda 9:16, 4:5 ve 1:1 var; Reklam Yöneticisi'nde "alan desteklenmiyor" uyarısı yok; yazılar güvenli bölgede; Akış, Hikayeler ve Reels önizlendi.
 - [ ] İlk 1–3 sn'de kanca var; logo ekranı yok; ürün en az 2 kez görünüyor; sesli + görsel CTA var; Türkçe altyazı var.
 - [ ] 5 birincil metin + 5 başlık var, çelişmiyor; ilk satır teklifi söylüyor.
 - [ ] Köşeli parantezli sayıların hepsi belgeli veriyle dolduruldu ya da cümle çıkarıldı.
 - [ ] İndirimde önceki fiyat (10 gün, aynı kanal), tarih ve adet var; fiyat vergiler dahil TL.
+- [ ] Son 10 günün fiyat geçmişi kontrol edildi; önceki kampanya fiyatı R'yi düşürmüyor (§5.3).
+- [ ] İndirimli fiyat görselde, videoda ya da başlıkta görünüyorsa önceki fiyat ve tarih de aynı yerde görünüyor; başlıkta tek başına indirimli fiyat yok.
+- [ ] Fiyat varsa kargo ya da teslim ücreti, yoksa ücretsiz kargo şartı yazılı (md. 13/5).
+- [ ] Emlak ilanında EİDS bağlantısı birincil metinde, fiyat ve brüt/net alan yazılı, görseller o ilana ait.
 - [ ] Kişisel özellik iması ve "en/garanti/bedava" kalıbı yok; yorumlar doğrulanmış alıcıdan.
 - [ ] UGC'de "Reklam/Tanıtım" + reklamveren adı başta.
-- [ ] Advantage+ iyileştirmeleri tek tek kontrol edildi; yüksek riskliler kapalı; hesap düzeyi test kutusuna bakıldı.
-- [ ] Yeni parti öncekinden en az 2 eksende farklı; reklam sayısı §8.2 ile uyumlu.
+- [ ] Advantage+ iyileştirmeleri tek tek kontrol edildi; yüksek riskliler kapalı. İndirimde ve düzenlemeye tabi işte "Detayları zaman içinde göster", "İlgi odaklarını göster" ve "Özetleri göster" kapalı. Hesap düzeyi test kutusuna bakıldı.
+- [ ] Yapay zekâ ile üretilen insan, ses ya da dublaj kreatifte açıklandı; dil kısıtlı işte çeviriler kapalı.
+- [ ] Yeni parti öncekinden en az 2 eksende farklı. Set başına reklam sayısı N'ye uygun (§8.2). Sayfa başına reklam sınırı aşılmıyor.
 - [ ] Açılış sayfası ya da karşılama mesajı aynı teklifi söylüyor; adlar Modül 02 §10'a uygun.
 
 ---
@@ -437,10 +469,12 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 ## Doğrulanması gerekenler
 
 - **Kreatif testi aracı:** resmi yardım sayfası yok. 5/10 reklam sınırı, %20 bütçe önerisi ve "yalnız En yüksek hacim" şartı pratisyen gözlemi.
-- **Alan hariç tutmanın kalkması:** yalnız Loomer kaynaklı (Eylül 2026); kapsam ve takvim Meta belgesiyle doğrulanmadı.
 - **Multimedya reklam ve esnek format:** hangi hesapta hangisinin açık olduğu, varlık bazında raporlama.
 - **Advantage+ varsayılanları:** Meta sayfası ile Meta sözcüsünün açıklaması çelişiyor.
-- **Meta etiketleri ve Türk hukuku:** "Yapay zeka bilgileri" etiketi md. 18/8'i, ortaklık reklamı etiketi md. 23/A'yı karşılıyor mu? "Alakalı yorumlar" md. 28/B-6 kapsamında mı? Md. 27/1 Meta reklamına uygulanır mı?
+- **Meta etiketleri ve Türk hukuku:** "Yapay zeka bilgileri" etiketi md. 18/8'i, ortaklık reklamı etiketi md. 23/A'yı karşılıyor mu? "Alakalı yorumlar" md. 28/B-6 kapsamında mı? Md. 27/1 Meta reklamına uygulanır mı? Md. 18/8'in "ekonomik davranışı önemli ölçüde etkileyen yapay zekâ kullanımı" kısmı neleri kapsıyor? Meta'nın seslendirme çevirisi konuşmacının sesini kopyalıyor mu?
+- **İndirim ve çekiliş:** Kampanyayı yeni tarihle uzatmak md. 14/3 açısından yeni başlangıç mı? Sosyal medya çekilişinde MPİ izni 2026'da hâlâ gerekli mi, hangi ödül tutarına kadar muaf?
+- **Emlak:** Portföy, proje ve değerleme reklamı EİDS bağlantısı gerektiren "ilan" mı?
+- **Sayfa başına reklam sınırı:** Eylül 2026'da bazı hesaplarda kalktığı bildirildi; Meta duyurmadı.
 - **Kilo vermede önce–sonra:** Meta Şeffaflık Merkezi 22 Temmuz 2026'da güncellendi, kapsam net değil; sağlık/fitness kreatifinden önce canlı sayfaya bak.
 - **Türkçe destek:** yapay zekâ video, müzik, persona görseli ve sanal deneme özelliklerinin Türkiye'de kullanılabilirliği.
 - **Rakamlar ve eşikler:** Toluna çarpanları, %16 EBM, %17 yükseliş ve %75 sesli Reels için örneklem açıklanmıyor. Reels alt %35, kanca/tutma bantları, sıklık 2,5–3,5 ve 2–3 × CPA Meta kaynaklı değil.
@@ -478,7 +512,9 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - Reklam kreatifi kırılımı: https://www.facebook.com/business/help/243916866413404
 - Reklam hacmi: https://www.facebook.com/business/help/2720085414702598
 - Hesap sınırları: https://www.facebook.com/business/help/652738434773716
-- Kreatif yorgunluğu durumları: https://www.facebook.com/business/help/1346816142327858?locale=en_US
+- Kreatif yorgunluğu durumları ve uygunluk şartı (TR ve EN): https://www.facebook.com/business/help/1346816142327858?locale=en_US
+- Reklam alanı ayarlarındaki yenilikler: https://www.facebook.com/business/help/1546753450586085
+- Sayfa başına reklam sınırları: https://www.facebook.com/business/help/766697140509126
 - A/B testi: https://www.facebook.com/business/help/1738164643098669
 - Kişisel özellikler ilkesi: https://www.facebook.com/business/help/2557868957763449
 - Reklam kontrol listesi: https://www.facebook.com/business/help/757209948405699
@@ -503,6 +539,7 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - Emlak ilanlarında EİDS bağlantısı ve fiyat (Ticaret Bakanlığı uygulaması, haber): https://www.ekonomist.com.tr/gundem/sosyal-medyadaki-emlak-ve-arac-ilanlarina-siki-denetim-82-isletmeye-8-2-milyon-tl-ceza-78039
 - Belgesiz konaklama tanıtımı genelgesi 2026/4 (haber): https://www.alomaliye.com/2026/08/18/belgesiz-konaklama-ilanlarina-siki-denetim/
 - Özel öğretim kurumları reklamı, 5580 s. Kanun m. 7 (haber): https://www.gzt.com/ekonomi/anayasa-mahkemesi-emsal-karar-ozel-okullara-kesilen-5-kat-katlamali-ceza-hukmu-tarihe-karisiyor-egitim-haberleri-4223845
+- Sosyal medya çekilişleri ve MPİ izni (Karşılığı Nakit Olmayan Piyangolar ve Çekilişler Hakkında Yönetmelik; hukuk yazısı, güncelleme Aralık 2022): https://www.hukukihaber.net/sosyal-medyada-yapilan-cekilisler-yasal-midir-belirli-bir-yaptirimi-mevcut-mudur
 - Sosyal medya etkileyicileri kılavuzu (2021): https://iabtr.org/wp-content/uploads/2024/06/Sosyal-Medya-Etkileyicileri-Tarafindan-Yapilan-Ticari-Reklam-ve-Haksiz-Ticari-Uygulamalar-Hakkinda-Kilavuz1062021101250.pdf
 
 **[PRATİSYEN]:**
@@ -510,7 +547,7 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - Loomer, hacim stratejisi: https://pubcast.jonloomer.com/a-simple-volume-focused-ad-strategy/
 - Loomer, kreatif testi süreci: https://pubcast.jonloomer.com/make-creative-testing-part-of-your-process/
 - Loomer, yorgunluğun yanlış teşhisi: https://pubcast.jonloomer.com/why-you-are-misdiagnosing-creative-fatigue/
-- Loomer, alan kontrolünün kalkması: https://pubcast.jonloomer.com/what-does-the-removal-of-placement-control-mean/
+- Loomer, alan kontrolünün kalkması (arka plan; güncel kapsam Meta'nın reklam alanı ayarları sayfasında): https://pubcast.jonloomer.com/what-does-the-removal-of-placement-control-mean/
 - Loomer, kreatif testi aracı: https://www.jonloomer.com/meta-creative-testing/
 - Motion, Creative Benchmarks 2026: https://motionapp.com/library/research/creative-benchmarks-2026/
 - Motion, kanca taktikleri: https://motionapp.com/library/research/creative-benchmarks-2026/top-hook-tactics
@@ -525,3 +562,4 @@ Meta "bazı iyileştirmeler varsayılan açık olabilir" diyor; bazı markalar o
 - Multimedya reklamlar: https://www.socialmediatoday.com/news/meta-outlines-best-practices-for-ai-generated-multimedia-ads/823720/
 - İstenmeyen yapay zekâ kreatifi olayları: https://www.shopifreaks.com/meta-advantage-is-forcing-unwanted-ai-creative-on-brands/
 - REI olayı: https://www.gadgetreview.com/?p=388712
+- Sayfa başına 250 reklam sınırının bazı hesaplarda kalkması (Eylül 2026, Meta doğrulamadı): https://ppc.land/meta-drops-250-ad-page-cap-in-some-accounts-as-286-ads-keep-running/

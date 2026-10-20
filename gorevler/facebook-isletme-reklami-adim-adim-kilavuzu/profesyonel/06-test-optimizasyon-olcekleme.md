@@ -4,13 +4,13 @@
 
 ## Bu modülde
 
-- Tek değişkenli **test hipotezi** kalıbı, test aracı seçimi ve hacme göre **kreatif test kurgusu**.
+- Tek değişkenli **test hipotezi** kalıbı, hücre başına olaya göre **ölçülebilir fark tablosu**, test aracı seçimi ve hacme göre **kreatif test kurgusu**.
 - İlk **7 / 14 / 30 / 90 gün** için gün gün plan ve haftalık karar tablosu.
-- Aşamalı **kapatma kuralları** (3× / 5× CPA mantığı ve olasılık tablosu) ile **ölçekleme kuralları**: dikey ve yatay, adım büyüklüğü, bekleme süresi, geri dönüş, riskler.
+- Aşamalı **kapatma kuralları** (3× / 5× CPA mantığı ve olasılık tablosu) ile **ölçekleme kuralları**: dikey ve yatay, adım büyüklüğü, bekleme süresi, geri dönüş, riskler. WhatsApp, form ve telefon işlerinde CRM'e dayalı karar (§6.5).
 - **Öğrenme aşamasını koruma**, **kırılım etkisi** (breakdown effect) kontrol listesi ve 11.11, Kara Cuma, Ramazan 2027 için **sezon planı**.
 - Kopyalanabilir **değişiklik günlüğü** şablonu.
 
-**Etiketler:** **[RESMİ]** Meta'nın kendi sayfası. **[PRATİSYEN]** ajans, danışman ya da araç sağlayıcı (çıkar çatışması olabilir). **[HABER]** basın. *sezgisel* = ölçülmemiş pratisyen kuralı. *türetilmiş* = bu modülde yapılan aritmetik. *varsayım* = örnek rakam. **Genel uyarı:** Meta yalnızca süre (en az 7 gün), hacim (haftada ~50 sonuç) ve birkaç bütçe kuralı veriyor. "%20 artır", "3× CPA'da kapat" gibi eşiklerin hepsi pratisyen kuralıdır.
+**Etiketler:** **[RESMİ]** Meta'nın kendi sayfası. **[MEVZUAT]** Türk mevzuatı (ayrıntı Modül 09). **[PRATİSYEN]** ajans, danışman ya da araç sağlayıcı (çıkar çatışması olabilir). **[HABER]** basın. *sezgisel* = ölçülmemiş pratisyen kuralı. *türetilmiş* = bu modülde yapılan aritmetik. *varsayım* = örnek rakam. **Genel uyarı:** Meta yalnızca süre (en az 7 gün), hacim (haftada ~50 sonuç) ve birkaç bütçe kuralı veriyor. "%20 artır", "3× CPA'da kapat" gibi eşiklerin hepsi pratisyen kuralıdır.
 
 ---
 
@@ -40,11 +40,24 @@ Meta da ölçülebilir bir hipotez ve tek değişken istiyor [RESMİ].
 |---|---|
 | ID | `H-YYAA-NN`. Günlükte bu kimlikle anılır |
 | Değişken | **Tek değişken.** Çok değişkenli test yalnız "iki paketten hangisi?" sorusunu cevaplar; kazancın kaynağı bilinmez [RESMİ] |
-| Birincil metrik | Optimize edilen olayın sonuç başına ücreti ya da ROAS'ı. TO ve BGBM ikincil |
-| En küçük anlamlı fark | %15–20. Küçük bütçe daha küçük farkı ölçemez (*sezgisel*) |
-| Hücre başına olay | En az 20, mümkünse 50 (*sezgisel*; Meta'nın haftalık 50 eşiğinden esinli) |
+| Birincil metrik | Optimize edilen olayın sonuç başına ücreti ya da ROAS'ı. TO ve BGBM ikincil. Mesaj ve form işlerinde CRM'deki satış başı maliyet (§6.5) |
+| Beklenen fark ([%X]) | Aşağıdaki tablodan okunur: hücre başına olay sayısının ölçebildiği farktan küçük bir hedef yazılmaz |
+| Hücre başına olay | **Her hücrede ≥ 50 → karar testi.** **< 50 → yalnız "yön göstergesi":** ölçeklemeye ya da hesap çapında değişikliğe dayanak olmaz (*türetilmiş*, tablo) |
 | Süre | 7–30 gün. Karar süreci uzun işte 10–14 gün [RESMİ] |
-| Karar kuralı | Önceden yaz: "Güven ≥ %65 ve fark ≥ %15 ise B'ye geç, değilse A'da kal" |
+| Karar kuralı | Önceden yaz. **Karar testi:** "Her hücrede ≥ 50 olay, Meta güveni ≥ %65 (büyük kararda ≥ %90, §2) ve CPA farkı tablodaki eşiğin üstünde → B'ye geç; değilse A'da kal." **Yön göstergesi:** "Yalnız kolay geri alınan karar (ör. kreatifi ana sette açık bırakmak) ve CPA farkı ≥ 2 kat → B; değilse A" (*türetilmiş*) |
+
+**Hücre başına olay → ölçülebilir fark (*türetilmiş*).** Varsayım: 2 hücre, eşit harcama, olaylar bağımsız ve rastgele (Poisson), %95 güven (çift yönlü), %80 güç. CPA oranı = pahalı hücrenin CPA'sı ÷ ucuz hücrenin CPA'sı.
+
+| Her hücrede olay | Güvenle yakalanan en küçük CPA oranı | CPA düşüşü olarak | Gerçekte fark yokken (A/A) ≥ %15 CPA farkı görme olasılığı | A/A'da ≥ 2 kat fark görme olasılığı |
+|---|---|---|---|---|
+| 7 | ~4,5× | ~%78 | ~%76 | ~%20 |
+| 20 | ~2,4× | ~%59 | ~%61 | ~%3 |
+| 50 | ~1,75× | ~%43 | ~%42 | < %1 |
+| 100 | ~1,5× | ~%33 | ~%25 | ~%0 |
+| ~315 | 1,25× | %20 | ~%4 | ~%0 |
+| ~600 | 1,18× | %15 | < %1 | ~%0 |
+
+Okuma: hücre başına 20 satışlık bir test "B %15 daha ucuz" diyorsa bu büyük olasılıkla gürültüdür. %15–20'lik farkı ölçmek için hücre başına 300–600 olay gerekir; KOBİ hesabında bu çoğu zaman yoktur. 3 ya da daha çok hücrede yanlış "kazanan" olasılığı tablodakinden yüksektir. Meta'nın %65 güveni, klasik %95 güvenle aynı şey değildir (§2).
 
 **Bütçe formülü (*türetilmiş*; Flighted'in formülüyle aynı mantık [PRATİSYEN]):**
 
@@ -55,10 +68,11 @@ Test payı           = günlük test bütçesi ÷ hesabın günlük bütçesi   
 
 **Doldurulmuş örnekler (*varsayım*):**
 
-- **H-2610-01 (e-ticaret):** "Eğer ana videonun ilk 3 saniyesine 'ücretsiz iade' itirazını koyarsak satış CPA'sı en az %15 düşer, çünkü sohbetlerde en sık sorulan şey iade. Ölçüt: kreatif testi aracı, 2 hücre, 10 gün, hücre başına 20 satış."
-  - Bütçe: 2 × 20 × 200 TL ÷ 10 = **800 TL/gün**. Hesap günde 4.000 TL harcıyorsa pay %20, uygun.
-  - Hesap günde 2.000 TL harcıyorsa pay %40 olur. Süreyi 20 güne çıkar (400 TL/gün) ya da hücre hedefini 10 satışa indirip sonucu "yön göstergesi" diye kaydet.
-- **H-2610-02 (WhatsApp'tan satan yerel hizmet):** "Eğer optimizasyon olayını 'mesajlaşma konuşması'ndan 'mesajlaşma yoluyla potansiyel müşteri'ye çevirirsek iş başı maliyet düşer, çünkü sohbetlerin çoğu fiyat sorup kayboluyor. Ölçüt: A/B testi, eşit bütçe, 14 gün." Olaylar farklı olduğu için kararı CRM'deki iş başı maliyetle ver. Olayın hesapta açık olup olmadığı *doğrulanmalı* (Modül 02).
+- **H-2610-01 (e-ticaret):** "Eğer ana videonun ilk 3 saniyesine 'Beden olmazsa 30 gün içinde ücretsiz değişim' teklifini koyarsak satış CPA'sı belirgin biçimde düşer (bu hacimde ölçülebilen en küçük fark ≈ %43), çünkü sohbetlerde en sık sorulan şey beden ve değişim. Ölçüt: A/B testi (kreatif değişkeni), 2 hücre, 25 gün, hücre başına 50 satış." Teklif yalnız işletme bunu gerçekten sunuyorsa yazılır.
+  - **Neden "ücretsiz iade" değil?** 14 günlük cayma süresinde, satıcının belirttiği taşıyıcıyla (ya da taşıyıcı belirtilmemişse her durumda) iade masrafı tüketiciden alınamaz [MEVZUAT: Mesafeli Sözleşmeler Yönetmeliği md. 12/5, değişiklik RG 24.5.2025/32909]. Yasal hak reklamda fazladan sunulan bir avantaj gibi gösterilemez; yasal hakları satıcının avantajıymış gibi sunmak her durumda haksız ticari uygulama sayılır [MEVZUAT: Ticari Reklam ve Haksız Ticari Uygulamalar Yönetmeliği md. 7/7 ve Ek A-9]. **Kural:** Yasal haklar (14 gün cayma, cayma iadesinde kargo masrafı, garanti) kanca ya da avantaj olarak yazılmaz. Kanca ancak yasal hakkı aşan bir teklif olabilir: 30 gün değişim, kapıdan ücretsiz değişim gibi. Ayrıntı Modül 09 §5.2.
+  - Bütçe: 2 × 50 × 200 TL ÷ 25 = **800 TL/gün**. Hesap günde 4.000 TL harcıyorsa pay %20, uygun.
+  - Hesap günde 2.000 TL harcıyorsa pay %40 olur ve süreyi uzatmak 30 gün sınırını aşar. Hücre hedefini 20 satışa indir (2 × 20 × 200 ÷ 20 gün = 400 TL/gün, pay %20). Sonucu "yön göstergesi" diye kaydet: yalnız ≥ 2 kat CPA farkı kabul edilir ve sonuç ölçeklemeye dayanak olmaz.
+- **H-2610-02 (WhatsApp'tan satan yerel hizmet):** "Eğer optimizasyon olayını 'mesajlaşma konuşması'ndan 'mesajlaşma yoluyla potansiyel müşteri'ye çevirirsek iş başı maliyet düşer, çünkü sohbetlerin çoğu fiyat sorup kayboluyor. Ölçüt: A/B testi, eşit bütçe, 14 gün." Olaylar farklı olduğu için kararı CRM'deki iş başı maliyetle ver (§6.5). Kolların her birinde CRM'de 50'den az iş varsa sonuç yön göstergesidir. Olayın hesapta açık olup olmadığı *doğrulanmalı* (Modül 02).
 
 **Test sırası (büyük etkiden küçüğe, *sezgisel*):** (1) teklif/paket ve mesaj açısı, (2) format, (3) kanca, (4) optimizasyon olayı ve teklif stratejisi, (5) açılış sayfası. Kitle ve reklam alanı testleri en sona kalır. Meta'ya göre en iyi kaldıraç artık niş hedefleme değil, kreatif çeşitliliği [RESMİ].
 
@@ -81,7 +95,8 @@ Test payı           = günlük test bütçesi ÷ hesabın günlük bütçesi   
 - Test kitlesini aynı anda başka kampanyada kullanma.
 
 **Eğer-ise (*sezgisel*):**
-- Güven ≥ %65 ve karar kolay geri alınır (ör. kreatifi ana sete eklemek) → uygula.
+- Önce hücre başına olaya bak (§1 tablosu). Her hücrede 50'den az olay varsa Meta'nın güven yüzdesi ne olursa olsun sonuç **yön göstergesidir**. Yalnız kolay geri alınan kararda ve CPA farkı ≥ 2 kat ise uygula.
+- Her hücrede ≥ 50 olay, güven ≥ %65 ve karar kolay geri alınır (ör. kreatifi ana sete eklemek) → uygula.
 - Karar büyük (ör. tüm hesabın teklif stratejisi) ve güven < %90 → testi uzat ya da tekrarla. %65, klasik %95 standardına göre zayıf bir eşik.
 - "Kesin kazanan yok" → fark küçük. Mevcut durumu ya da ucuz seçeneği koru.
 
@@ -95,16 +110,17 @@ Test payı           = günlük test bütçesi ÷ hesabın günlük bütçesi   
 |---|---|---|
 | < 10 | **Test yok, portföy** | Tek set, 2–3 gerçekten farklı kavram. 2–4 haftalık toplam sonuca bak. Reklam bazında kapatma kuralı işlemez [PRATİSYEN] |
 | 10–50 | **Aynı sete parti ekle** | Toplam sonuç vasat ya da kötüyse 1–2 haftada bir, tamamen farklı 2–3 kavramlık parti. Bir hafta dokunma [PRATİSYEN Loomer] |
-| 50–150 | **Kreatif testi aracı, aynı sette** | Haftada bir test, 2–4 hücre, pay ≤ %20. Set hedefli teklifteyse araç çalışmaz → A/B testi ya da parti ekleme |
+| 50–150 | **Kreatif testi aracı, aynı sette** | Haftada bir test, 2–4 hücre, pay ≤ %20. Bu hacimde haftalık test **eleme** yapar, kazanan seçmez: hücre başına olay genelde 50'nin altında kalır, sonuç yön göstergesidir (§1). Set hedefli teklifteyse araç çalışmaz → A/B testi ya da parti ekleme |
 | > 150 | **Test → doğrulama → ana kampanya** | Reklam seti bütçeli ayrı test kampanyası; kazananlar doğrulama katmanına (ana bütçenin ~%20'si), sonra ana kampanyaya [PRATİSYEN Foxwell, Flighted] |
 
 **Çelişki:** CTC ayrı test bütçesi tutmuyor, yeni reklamı doğrudan ana kampanyaya koyuyor. Loomer, testte kazananın taşındığı yerde kazanmayabileceğini ve yapının şiştiğini yazıyor [PRATİSYEN]. **Varsayılan:** N ≤ 150 ise ayrı test kampanyası açma.
 
 **Doldurulmuş kurgu (*varsayım*):** Günlük 4.000 TL, hedef panel CPA 200 TL → N = 4.000 × 7 ÷ 200 = 140.
-- Pay %20 → haftada 5.600 TL. Kavram başına karar harcaması 3 × 200 = 600 TL → teorik üst sınır ~9 kavram (Modül 04 §8.2). Araç en fazla 5 hücre aldığı için pratikte haftada **bir test, 4 hücre**: hücre başına 1.400 TL ≈ 7 × CPA.
+- Pay %20 → haftada 5.600 TL. Kavram başına karar harcaması 3 × 200 = 600 TL → teorik üst sınır ~9 kavram (Modül 04 §8.2). Araç en fazla 5 hücre aldığı için pratikte haftada **bir test, 4 hücre**: hücre başına 1.400 TL ≈ 7 × CPA, yani **~7 satış**.
+- **Bu bir eleme testidir, sonucu yön göstergesidir.** Hücre başına ~7 satışla ancak ~4,5 katlık fark güvenle görülür; gerçekte fark yokken bile iki hücre arasında ~%20 olasılıkla 2 katlık fark çıkar, 4 hücrede bu daha da sık olur (§1 tablosu, *türetilmiş*).
 - Test bitmeden hücre kapatma; eşitlik bozulur.
-- **Kazanan:** güven ≥ %65 ve CPA, ana setin 7 günlük CPA'sına eşit ya da düşük.
-- Kazananı **aynı sette açık bırak.** Test bitince eşit harcama kalkar; sistem kazananı her zaman öne çıkarmayabilir [PRATİSYEN]. Toplam sonuç iyiyse dokunma.
+- **Aday (eleme kararı):** CPA, ana setin 7 günlük CPA'sına eşit ya da düşük ve hücreler içinde belirgin önde. Tek sonuç: aday **aynı sette açık kalır.** Test bitince eşit harcama kalkar; sistem adayı her zaman öne çıkarmayabilir [PRATİSYEN]. Toplam sonuç iyiyse dokunma. Bu karar kolay geri alınır, ölçeklemeye ya da hesap çapında değişikliğe dayanak olmaz.
+- **Doğrulama (hesap çapında karar gerekiyorsa, ör. yeni teklif açısını bütün kreatiflere taşımak):** 2 hücre, aday ↔ mevcut en iyi reklam, hücre başına 50 satış → 2 × 50 × 200 = 20.000 TL. %20 payla (5.600 TL/hafta) ≈ **25 gün**. "Kazanan"ı yalnız bu test seçer, §1'deki karar kuralıyla.
 - Başka kampanyaya taşıyacaksan çoğaltırken **mevcut etkileşimi gösterme** seçeneğiyle beğeni ve yorumları koru [RESMİ]. Kopya öğrenmeye sıfırdan başlar.
 
 ---
@@ -125,20 +141,20 @@ Takvim, Meta'nın 7 gün, 2 hafta ve 3 hafta önerilerinden türetilmiş bir sen
 | **2** | 24–48 saattir sıfır yayın varsa sebebi bul: ret, ödeme, düşük hedef, küçük kitle (Kurulum Kılavuzu §10) | Bütçe ya da hedef oynatma |
 | **3** | 72 saat doldu. Operasyonel sorun yoksa dokunma | Toplu düzenleme |
 | **4** | 1.000+ gösterim almış reklamın bağlantı TO'sunu hesap ortalamasıyla kıyasla; çok düşükse not al | TO'ya bakıp kapatma |
-| **5–6** | 0 dönüşümle 3 × hedef CPA'yı geçen **reklamı** kapat (§5.2) | Set kapatma, yeni set açma |
+| **5–6** | **Reklam** kapatma yalnız üç koşul birlikte sağlanırsa (§5.2 Aşama 4): (a) harcama 3 × hedef CPA'yı geçeli en az 72 saat oldu ve hâlâ 0 dönüşüm var; (b) set haftada ≥ 10 dönüşüm bekliyor (N ≥ 10); (c) hedef CPA ölçülmüş veriye dayanıyor (geçmiş kampanya ya da brifteki gerçek sipariş verisi, Modül 01), yalnız hesaplanmış bir hedef değil. Biri eksikse yalnız günlüğe not al, gün 8'de set düzeyinde karar ver (§4.4, §8) | Set kapatma, yeni set açma |
 | **7** | İlk haftanın ön okuması; günlüğe yaz | Karar. Son 48–72 saatin dönüşümleri henüz gelmemiş olabilir [PRATİSYEN] |
 | **8** | **1. hafta kararı**, kampanya/set düzeyinde (§4.4) | Kırılımda en çok harcayanı kapatma |
 | **9–10** | Değişiklik yapıldıysa dokunma. Bütçe arttıysa harcamanın yeni seviyeye çıktığını kontrol et | Başka türde ikinci değişiklik |
-| **11–12** | Ölçeklenen sette 3–4. gün kontrolü; koşul sağlanırsa ikinci adım (§6.2) | — |
+| **11–12** | Ölçeklenen sette 3–4. gün kontrolü; koşul sağlanırsa ikinci adım (§6.2). Bütçe adımıyla aynı gün parti ya da test eklendiyse ara adım yok (§6.1) | — |
 | **13–14** | 2. haftayı 1. haftayla kıyasla: ortalama ve marjinal CPA, sıklık, TO eğilimi. Taban çizgisini yaz | Hedefli teklife geçmek (2 hafta dolmadı) |
 
 ### 4.2 Gün 15–30
 
 | Gün | Yap |
 |---|---|
-| **15** | **2. hafta kararı.** 2 haftalık veri ve haftada 50+ sonuç varsa hedefli teklifi değerlendir: sonuç başına ücret hedefi = son 14 günün panel CPA'sı × 1,10–1,20, başabaşı geçmesin [RESMİ; Modül 02 §7]. En temiz geçiş A/B testiyle olur (en yüksek hacim ↔ hedef) |
+| **15** | **2. hafta kararı.** 2 haftalık veri ve set haftada 50+ sonuç alıyorsa hedefli teklifi değerlendir: sonuç başına ücret hedefi = son 14 günün panel CPA'sı × 1,10–1,20, başabaşı geçmesin [RESMİ; Modül 02 §7]. Meta'ya göre bu hedef set başına haftada 50–100+ dönüşümde en iyi çalışır [RESMİ]. **Geçiş yolu:** Set haftada **≥ 100 sonuç** alıyorsa A/B testiyle geç (en yüksek hacim ↔ hedef). A/B testi bütçeyi ve kitleyi ikiye böler; her kolun ~50+ sonuç alması gerekir. **100'ün altındaysa** test, hedefli kolu ~25 sonuçla yapay olarak dezavantajlı bırakır. Bu durumda mevcut sette yerinde geç (önemli düzenleme, §7), 7 gün dokunma, sonucu 14 günlük taban çizgisiyle kıyasla. Kötüleşirse en yüksek hacme dön (*sezgisel*). Kopya set açma: açık artırma çakışması (§6.3) |
 | **16–21** | Hedef değiştiyse 7 gün dokunma [RESMİ]. Kreatif testi sürüyorsa bitmesini bekle |
-| **22** | **3. hafta kararı.** Bütçe tamamen harcanıyor ve CPA hedefte → ölçekle (§6). Bütçe harcanmıyor (teklif kısıtlı) → hedefi %5–10 gevşet [RESMİ] |
+| **22** | **3. hafta kararı.** Bütçe tamamen harcanıyor ve CPA hedefte → §6.1 kapısından geçen setleri ölçekle (§6). Bu, **yalnız en yüksek hacimde kalan setler** içindir. Gün 15'te hedefli teklife geçen set en erken **gün 36'da** ölçeklenir, çünkü Meta ölçeklemeden önce en az 3 hafta yayın istiyor [RESMİ]. Hedefli sette bütçe harcanmıyorsa (teklif kısıtlı) → hedefi %5–10 gevşet [RESMİ] |
 | **23–28** | Haftada 50'ye yaklaşılamıyorsa setleri birleştir ya da daha sık gerçekleşen olaya in [RESMİ] |
 | **29–30** | **Aylık özet:** kazanan ve kaybeden açılar, ölçülmüş CPA, dönüşüm oranı, sepet tutarı. Modül 01 hedeflerini bunlarla güncelle |
 
@@ -146,9 +162,9 @@ Takvim, Meta'nın 7 gün, 2 hafta ve 3 hafta önerilerinden türetilmiş bir sen
 
 | Hafta | Odak |
 |---|---|
-| **5–6** (gün 31–44) | Kreatif ritmini oturt (Modül 04 §8.2). Haftalık ölçekleme döngüsü. Hedefli teklif 3 haftayı doldurduysa onu da ölçekle [RESMİ] |
+| **5–6** (gün 31–44) | Kreatif ritmini oturt (Modül 04 §8.2). Haftalık ölçekleme döngüsü. Hedefli teklif 3 haftayı doldurduysa onu da ölçekle [RESMİ]; gün 15'te geçen set için en erken gün 36 |
 | **7–8** (gün 45–58) | İlk **yatay** adım (§6.3). Değer optimizasyonu uygunsa A/B testiyle dene |
-| **9–10** (gün 59–72) | **Artırımlılık:** yükseliş testi ya da coğrafi kapatma testi (Modül 05 §11); yeniden hedefleme payını sorgula. Artımlı ilişkilendirme sütununu standart sütunla yan yana aç [RESMİ] |
+| **9–10** (gün 59–72) | **Artırımlılık:** yükseliş testi ya da coğrafi kapatma testi (Modül 05 §11); yeniden hedefleme payını sorgula. Artımlı ilişkilendirme sütunuyla kampanyaları **kendi aralarında** kıyasla, ör. yeni müşteri kampanyası ile yeniden hedefleme [RESMİ]. Artımlı sayıyı standart sayıya bölüp oran çıkarma; Meta farklı ilişkilendirme modellerini birbiriyle kıyaslamayı önermiyor. Sütun 1 Nisan 2025 öncesi tarih aralıklarında veri vermez [RESMİ]. Hesapta görünmesi *hesaba göre değişebilir* |
 | **11–12** (gün 73–86) | Yapı denetimi: set sayısı F5'i aşıyor mu, çakışma var mı, kurallar hâlâ doğru mu? Sonraki sezonun takvimi (§9) |
 | **13** (gün 87–90) | **Çeyrek raporu:** başlangıca göre CPA/ROAS, marjinal verim, kazanan açılar, açık hipotezler. Sonraki 90 günün test planı |
 
@@ -184,8 +200,8 @@ Takvim, Meta'nın 7 gün, 2 hafta ve 3 hafta önerilerinden türetilmiş bir sen
 | 0 | Hemen | Kırık izleme, yanlış URL ya da fiyat, uyum riski, ret [PRATİSYEN] |
 | 1 | 24–48 saat | Sıfır yayın ve sebebi çözülemiyor [PRATİSYEN] |
 | 2 | ~1.000 gösterim | Bağlantı TO'su hesap ortalamasının çok altında (ör. %1,5'e karşı %0,3). **Yalnız uyarı,** tek başına sebep değil (*sezgisel*) |
-| 3 | 50–200 tıklama | Aynı sayfaya giden diğer reklamlar dönüşürken bunun tıklamaları dönüşmüyor [PRATİSYEN] |
-| 4 | Harcama ≥ 3 × hedef CPA | **0 dönüşüm → kapat. 1 → 5×'e kadar bekle. 2 → sarı ışık** (Flighted 1× daha harcıyor; %95 güven için ~6× gerekir). **3+ → devam** [PRATİSYEN Flighted; olasılıklar *türetilmiş*] |
+| 3 | 50–200 tıklama | Aynı sayfaya giden diğer reklamlar dönüşürken bunun tıklamaları dönüşmüyor [PRATİSYEN AdManage]. **Yalnız uyarı;** kapatma ancak Aşama 4 koşulu da sağlanınca. Gerekçe (*türetilmiş*): TBM 5 TL ve CPA 200 TL iken 50 tıklama = 250 TL ≈ 1,25 × CPA eder. Bu harcamada iyi bir reklamın hiç dönüşüm almama olasılığı ~%29 |
+| 4 | Harcama ≥ 3 × hedef CPA ve eşik geçileli ≥ 72 saat (dönüşüm gecikmesi, §8 madde 5) | **0 dönüşüm → kapat** [PRATİSYEN Flighted]. **1 → 5 × hedef CPA'ya kadar bekle; orada hâlâ ≤ 1 ise kapat** (*türetilmiş*; Flighted 3×'te 0–1 dönüşümü kapatıyor). **2 ("sarı ışık") → 6,3 × hedef CPA'ya kadar bekle; orada hâlâ ≤ 2 ise kapat** (*türetilmiş*; Flighted 1 × CPA daha harcayıp karar veriyor). **3+ → reklam düzeyinde kapatma kuralı biter;** bundan sonra karar set toplamıyla verilir (§4.4, §8). Olasılıklar aşağıdaki tabloda |
 
 **Neden 3×? (*türetilmiş*)** Gerçek CPA'sı tam hedefte olan iyi bir reklamı yanlışlıkla kapatma olasılığı. Varsayım: dönüşümler bağımsız ve rastgele (Poisson), gecikme yok.
 
@@ -197,12 +213,13 @@ Takvim, Meta'nın 7 gün, 2 hafta ve 3 hafta önerilerinden türetilmiş bir sen
 | 5× | %0,7 | **%4,0** | %12,5 |
 | 6,3× | %0,2 | %1,3 | **%5,0** |
 
-1×'te kapatmak iyi reklamların üçte birinden fazlasını öldürür. Model, CPA'sı hedefin 1,5 katı olan vasat reklamı yakalamaz. Hedef CPA gerçekçi değilse iyi reklamları da kapattırır.
+1×'te kapatmak iyi reklamların üçte birinden fazlasını öldürür. Aşama 4'ün üç kontrol noktası (3× / 5× / 6,3×) tek tek ≤ %5 yanılır, ama birlikte iyi reklamların yaklaşık **%9'unu** yanlışlıkla kapatır. CPA'sı hedefin 2 katı olan kötü reklamın ise ancak ~%46'sını 6,3×'e kadar yakalar (*türetilmiş*, aynı varsayım). Model, CPA'sı hedefin 1,5 katı olan vasat reklamı yakalamaz. Hedef CPA gerçekçi değilse iyi reklamları da kapattırır. Vasat reklamı reklam düzeyinde avlama; sistem ona zaten az harcar [PRATİSYEN CTC]. Set toplamı kötüyse §4.4 ve §5.3'e göre davran.
 
 **İstisnalar (kapatma, bekle):**
 - Reklam setin bütçesinin çoğunu alıyor ve set toplamı hedefte → §8.
 - Haftada 10'dan az dönüşüm var → reklam kuralı güvenilmez; 2–4 haftalık hesap toplamına bak [PRATİSYEN].
 - İlk gün CPA'sının hedefin 2 katı olması tek başına sebep değil [PRATİSYEN].
+- İş WhatsApp, form ya da telefonla satıyor → bu tablo yerine §6.5.
 
 ### 5.3 Set ve kampanya: kapatma yerine geri çekme
 
@@ -230,12 +247,14 @@ Otomatik kapatmaya ancak bildirimler 4 hafta boyunca doğru çıkarsa geç (*sez
 
 ### 6.1 Giriş kapısı (hepsi "evet" olmalı)
 
-- [ ] Son 7 günde CPA ≤ hedef (ya da ROAS ≥ hedef), kampanya/set düzeyinde.
+- [ ] **Hacim ve süre (iki yoldan biri; yol N'ye göre seçilir, keyfe göre değil):**
+  - **Hacim yolu (N ≥ 50):** Son 7 tam günde set ya da kampanya düzeyinde **≥ 50 gerçekleşen sonuç** var ve "Öğrenme" durumu bitti. 7 tam günlük veri yeter.
+  - **Süre yolu (N < 50):** En az **14 tam günlük** veri var. CPA koşulu (aşağıda) son 14 günle okunur.
+- [ ] CPA ≤ hedef (ya da ROAS ≥ hedef), kampanya/set düzeyinde. Hacim yolunda son 7 gün, süre yolunda son 14 gün. Mesaj ve form işlerinde CRM'deki satış başı maliyetle okunur (§6.5).
 - [ ] Bütçe tamamen harcanıyor. Harcanmıyorsa bütçe artışı işe yaramaz; önce teklif, kitle ya da kreatif [RESMİ].
-- [ ] Haftada ≥ 50 sonuç ya da en az 2 tam haftalık veri var.
-- [ ] Hedefli teklif varsa kampanya en az **3 haftadır** yayında [RESMİ].
+- [ ] Hedefli teklif varsa set hedefli teklifle en az **3 haftadır (21 gün)** yayında [RESMİ].
 - [ ] Ölçüm sağlam; stok ve hizmet kapasitesi var (Modül 01 §4.3).
-- [ ] Son 7 günde başka önemli düzenleme yok.
+- [ ] Bütçe dışı son önemli düzenlemenin (§7) üzerinden en az 7 gün (168 saat) geçti. **Tek istisna, değişiklik günü:** haftalık kreatif partisi ya da kreatif testi, bütçe adımıyla **aynı oturumda** yapılabilir. 7 günlük sayaç ikisi için birlikte başlar. O hafta 3–4. gün ara adımı atılmaz ve test sürerken başka bütçe değişikliği yapılmaz. İki değişikliğin etkisi ayrılamaz; günlükte belirt (§10 kural 6) (*sezgisel*).
 
 ### 6.2 Dikey ölçekleme (bütçe artışı)
 
@@ -259,7 +278,7 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 
 | Hafta | Günlük bütçe | Haftalık harcama | Satış | Ort. CPA | Marjinal CPA | Karar |
 |---|---|---|---|---|---|---|
-| 1–2 | 1.500 | 10.500 | 52 | 202 | — | 2 hafta istikrarlı, kapı açık → +%25 → 1.875 |
+| 1–2 | 1.500 | 10.500 | 52 | 202 | — | 2 hafta istikrarlı, kapı açık (hacim yolu; 1. haftadan sonra da açıktı) → +%25 → 1.875 |
 | 3 | 1.875 | 13.125 | 63 | 208 | 2.625 ÷ 11 ≈ 239 | ≤ hedef → +%25 → 2.350 |
 | 4 | 2.350 | 16.450 | 72 | 228 | 3.325 ÷ 9 ≈ 369 | > başabaş → 1.875'e dön, yeni parti ekle |
 | 5 | 1.875 | 13.125 | 68 | 193 | — | Parti işe yaradı; bir hafta bekle, sonra +%20 |
@@ -274,9 +293,10 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 | Yeni **ürün grubu** ya da katalog kampanyası | Ayrı iş hedefi ve onu besleyecek bütçe varsa |
 | Yeni **bölge ya da ülke** | Önce aynı sette konumu genişlet; fiyat, kargo ya da dil farklıysa ayrı kampanya |
 | Yeni **dönüşüm konumu** (WhatsApp, form, arama) | Farklı olay ayrı kampanya ister |
-| Kanıtlanmış reklamlarla **Advantage+ satış** kampanyası | Ajansların "challenger/genişleme" adımı [PRATİSYEN CTC, Flighted] |
+| Kanıtlanmış reklamlarla ikinci (**challenger/genişleme**) kampanya | **Yalnız ana kampanya manuel ya da dar yapıdaysa.** Paketin varsayılan ana kampanyası zaten geniş ve Advantage+ ayarları açık bir satış kampanyası (Modül 02 §4, §5.4). "Advantage+ satış" ayrı bir ürün değil; Advantage+ hedef kitle, alan ve bütçe kullanan satış kampanyasının adı [RESMİ]. Ana kampanya böyleyse aynı reklamlarla ikinci bir Advantage+ satış kampanyası **açma**: aynı kitle, aynı reklam, açık artırmada yalnız biri yarışır [RESMİ]. Ajans kurgusu [PRATİSYEN Flighted, CTC] |
+| Ana kampanyada az harcama almış reklamlar için ayrı kampanya ya da ana kampanyanın **teklif üst sınırlı** kopyası | CTC'nin gerçek genişleme kurgusu: ana kampanyada hedef CPA'nın 3 katından az harcama alan reklamlar ayrı kampanyaya taşınır; ayrıca farklı maliyet kontrolüyle (teklif üst sınırı) bir kopya açılır [PRATİSYEN CTC]. Yalnız N ≥ 150 hesapta (*sezgisel*). Çakışma riski sürer: haftalık kontrolde kopyanın harcayıp harcayamadığına ve fırsat puanındaki açık artırma çakışması tavsiyesine bak [RESMİ]. Kopya harcayamıyorsa kapat, bütçeyi ana kampanyaya ver (§6.4) |
 
-**Yapma:** Kazanan seti aynı kitleyle kopyalamak. Benzer setler aynı açık artırmaya girince yalnız biri yarışır; kopya bütçesini harcayamayabilir ve öğrenmeden çıkamayabilir [RESMİ]. Foxwell yerinde artırmayı, Vaizle kopyayı daha güvenli buluyor [PRATİSYEN]. **Varsayılan:** yerinde artırma.
+**Yapma:** Kazanan seti aynı kitleyle ve aynı ayarlarla kopyalamak (tek istisna, yukarıdaki farklı maliyet kontrollü kopya; N ≥ 150 ve çakışma izlenerek). Benzer setler aynı açık artırmaya girince yalnız biri yarışır; kopya bütçesini harcayamayabilir ve öğrenmeden çıkamayabilir [RESMİ]. Foxwell yerinde artırmayı, Vaizle kopyayı daha güvenli buluyor [PRATİSYEN]. **Varsayılan:** yerinde artırma.
 
 **İleri seviye (N ≥ 150):** Bütçeyi beklenen harcamanın üstünde tut, verimi ROAS hedefi ya da teklif üst sınırıyla sınırla; sistem o getiri eşiğinde bulabildiği kadar harcar [PRATİSYEN CTC]. Risk: hedef çok sıkıysa harcama düşer.
 
@@ -289,6 +309,17 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 | Sıcak kitlenin tükenmesi | İlk haftalar parlak, sonra düşüş | Kitle segmenti kırılımı; yeni soğuk kitle kavramı [PRATİSYEN Loomer] |
 | Açık artırma çakışması | Kopya set harcamıyor | Kopyayı kapat, bütçeyi asıl sete ver [RESMİ] |
 | Kapasite, stok, nakit | Yanıt süresi uzuyor, iade artıyor; fatura panelin 1,05 katı | Bütçeyi kapasiteye bağla (Modül 01 §4.3); planı faturalı tutarla onayla (Kurulum Kılavuzu §9) |
+
+### 6.5 Mesaj, form ve telefon işlerinde kapatma ve ölçekleme
+
+§5 ve §6'nın eşikleri Meta'nın raporladığı optimizasyon olayına göre yazıldı. WhatsApp, form ya da telefonla satan işte ucuz "konuşma" ya da "potansiyel müşteri" kaliteli satış demek değildir; satış CRM'de ya da satış defterinde günler sonra görünür. Bu işlerde şu kurallar §5–6'nın önüne geçer (eşikler *sezgisel*):
+
+- **Karar metriği:** CRM'deki **satış (ya da iş) başı maliyet** = gerçek harcama ÷ reklam kaynaklı ödenmiş satış (Modül 05 §7.5, §8.3). Konuşma ya da potansiyel müşteri başına ücret yalnız **erken uyarıdır.** §5.2'deki 3× kuralını konuşma başı ücrete uygulamak kaliteyi ölçmez.
+- **Gecikme:** Karar penceresi = **en az 7 gün + satış döngüsü** (ilk mesajdan ödemeye geçen ortalama süre, brifte ölçülür, Modül 01 §1.6). Örnek: döngü 5 gün ise pazartesi kararı, 12 ile 6 gün önce arasındaki 7 günlük trafikten gelen satışlarla verilir; son 5 günün trafiği henüz satışa dönmemiş sayılır.
+- **Reklam düzeyinde kapatma:** Satış reklama eşlenebiliyorsa (önceden doldurulmuş mesajda kreatif kodu, kanal kuponu; Modül 05 §7.4) Aşama 4 mantığını satış başı maliyete uygula. Eşlenemiyorsa reklamı yalnız Aşama 0–2 sebepleriyle kapat; kalite kararı set düzeyinde verilir.
+- **Nitelik oranı:** Sohbet → satış ya da potansiyel müşteri → nitelikli oranını haftalık izle. Oran son 4 haftanın ortalamasından belirgin düşükse (ör. göreli %25+ düşüş) **bütçe artışı yok.** Konuşma başı ücret düşerken oran da düşüyorsa sistem ucuz ama ilgisiz sohbete kayıyor olabilir. Bu durumda optimizasyon olayını yükselt (Modül 05 §7.2, §8.2) ya da forma eleme sorusu ekle.
+- **Ölçekleme kapısı (§6.1):** "CPA ≤ hedef" satırı CRM'deki satış başı maliyetle okunur. Meta'daki sonuç sayısı yalnız hacim ve öğrenme koşulu içindir. Yanıt süresi uzuyorsa kapasite dolmuştur; bütçeyi artırma (Modül 01 §4.3).
+- **Örnek (*varsayım*, Modül 05 §7.5 rakamları):** Hafta 1'de 210 konuşma, 33 satış, oran %15,7, satış başı 223 TL. Hafta 2'de 260 konuşma (konuşma başı ücret düştü) ama 30 satış: oran %11,5, yani göreli −%27; aynı harcamayla satış başı ~245 TL. Panel daha iyi görünse de bütçe adımı atılmaz; önce yeni gelen sohbetlerin kaynağına bakılır.
 
 ---
 
@@ -340,12 +371,12 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 |---|---|---|---|
 | 11.11 | 11 Kasım 2026, çarşamba | 21–28 Ekim | ~28 Ekim |
 | Kara Cuma / Efsane Cuma | 27 Kasım 2026; Siber Pazartesi 30 Kasım. Türkiye'de kampanyalar Kasım boyunca sürüyor [HABER] | 6–13 Kasım | ~13 Kasım |
-| Ramazan | 8 Şubat – 8 Mart 2027 [HABER, Diyanet'e atıfla] | 18–25 Ocak 2027 | ~25 Ocak |
-| Ramazan Bayramı | 9–11 Mart 2027 [HABER] | — | — |
+| Ramazan | 8 Şubat – 8 Mart 2027 [HABER, Diyanet'e atıfla] | 18–25 Ocak 2027 (giriş alt zirvesi için) | İşin alt zirvesine göre (§9.2); giriş için ~25 Ocak |
+| Ramazan Bayramı | 9–11 Mart 2027 [HABER]; arefe 8 Mart | Son 10 gün alt zirvesi için ~8–15 Şubat | ~15 Şubat (§9.2) |
 | Anneler Günü + Kurban Bayramı | 9 Mayıs + 16–19 Mayıs 2027 [HABER]; iki dönem üst üste | 18–25 Nisan | ~25 Nisan |
 
 - **En geç yayın** = zirveden 2–3 hafta önce. Meta kampanyaları erken açmayı öneriyor ki öğrenme zirveden önce bitsin; gün sayısı vermiyor [RESMİ]. 2–3 hafta *sezgisel*.
-- **Kreatif dondurma** = zirveden ~2 hafta önce yeni kavram denemeyi bırak; sonra yalnız kanıtlanmış reklamların sezon sürümleri [PRATİSYEN Darkroom].
+- **Kreatif dondurma** = zirveden ~2 hafta önce yeni kavram denemeyi bırak; sonra yalnız kanıtlanmış reklamların sezon sürümleri [PRATİSYEN Darkroom]. Dondurma **yeni kavramı** durdurur, parti eklemeyi durdurmaz: Modül 04 §8.2'deki 1–2 haftalık ritim, kanıtlanmış açıların sezon sürümleriyle sürer (*sezgisel*).
 - Türkiye'de giyim aramaları Ramazan'dan ~2 hafta önce zirve yaptı (Microsoft Advertising, Bing arama verisi; Meta verisi değil).
 
 ### 9.2 Evreler (T = zirve günü; *sezgisel* sentez: Darkroom ve Meta 2026 tatil rehberi)
@@ -358,23 +389,38 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 | Zirve | T − 7 gün … T + 3 gün | Plana göre bütçe artışı; günlük kontrol önceden yazılmış sınırlarla |
 | Çıkış | T + 3 … 14 gün | Bütçeyi kademeli düşür. Aralık sonu–ocak başı görece ucuz; yeni müşteri için kullan [PRATİSYEN] |
 
+**Üst üste gelen zirveler (*sezgisel*):** İki zirve arasında **3 haftadan az** varsa tek sezon say. 11.11 ile Kara Cuma arasında 16 gün var, yani **Kasım tek sezondur.** 11.11'in çıkış evresi uygulanmaz. 11.11 zirve artışı biter bitmez (15 Kasım) bütçe, sezon planındaki taban seviyesine iner ve Kara Cuma zirve evresine (20 Kasım) kadar orada kalır. Çıkış evresi yalnız son zirveden sonra (Siber Pazartesi, 30 Kasım) başlar. Kurban Bayramı ile Anneler Günü (7 gün ara) de aynı kurala girer.
+
+**Ramazan alt evreleri (2027; *sezgisel*, Türkiye'ye özel Meta verisi yok):** Ramazan tek günlük zirve değil, ~4 haftalık bir dönem. Her alt zirvenin kendi T'si var. Dondurma **yalnız işin bağlı olduğu alt zirveden önceki 2 haftaya** uygulanır; diğer haftalarda normal parti ritmi sürer.
+
+| Alt evre | Tarih (2027) | Kimin için zirve | Dondurma |
+|---|---|---|---|
+| Giriş öncesi ve ilk hafta | ~25 Ocak – 14 Şubat (T ≈ 8 Şubat) | Gıda, market, ev ve iftar ürünleri. Microsoft'un 2025 Bing verisine göre Türkiye'de giyim aramaları da Ramazan başlangıcından ~2 hafta önce zirve yaptı [PRATİSYEN Microsoft; Meta verisi değil]; giyimde bu alt zirve için T ≈ 25 Ocak alınırsa dondurma ~11 Ocak'ta başlar | ~25 Ocak – 8 Şubat |
+| Orta | ~15 – 26 Şubat | Çoğu iş için ara dönem. Aynı veride finans aramaları Ramazan ortasında zirve yaptı [PRATİSYEN Microsoft] | Giriş işinde yok. Son 10 gün işinde dondurma 15 Şubat'ta başlar; bayramlık kavramlarının testi o güne kadar biter |
+| Son 10 gün ve bayramlık | ~27 Şubat – 7 Mart (T ≈ 1 Mart) | Giyim (bayramlık), hediye, tatlı ve çikolata | ~15 Şubat – 1 Mart |
+| Arefe ve bayram | 8 Mart; 9–11 Mart | Son dakika alışverişi, mağaza ve hizmet | Yok; son kargo kuralı geçerli (aşağıda) |
+
+İşin hangi alt zirveye bağlı olduğunu brifte yaz (Modül 01). Hem giriş hem son 10 gün önemliyse iki dondurma arasında (9–14 Şubat) en az bir yeni parti ekle.
+
+**Son kargo tarihi kuralı [MEVZUAT + *sezgisel*]:** "Bayrama yetiştir", "Yılbaşından önce kapında" gibi teslim vaadi içeren reklamlar için son sipariş tarihini önceden hesapla: zirve günü − (taşıyıcının en uzun teslim süresi + hazırlık süresi + 1 gün tampon). Bu tarih geçince vaadi içeren reklamları kapat ya da vaatsiz sürüme geç; değişikliği günlüğe `SEZON` olarak yaz. Dayanak: ön bilgilendirmedeki teslim süresi, reklamda taahhüt edilen süreyle uyumlu olmalı (Mesafeli Sözleşmeler Yönetmeliği md. 5/1-f); tutmayan teslim vaadi yanıltıcı reklam riskidir (Modül 09 §4 A8–A9).
+
 ### 9.3 Sezon içi kurallar
 
 - **BGBM artışı beklenir, CPA her zaman kötüleşmez.** ABD ağırlıklı bir veri setinde Kara Cuma haftası BGBM'si eylülün %59, Kara Cuma günü %84 üstündeydi; tıklama başına dönüşüm oranı +%48, satın alma başı maliyet −%20 oldu [PRATİSYEN Lebesgue]. Türkiye'ye özel sezon BGBM verisi bulunamadı. Hesabın geçen yılki aynı haftasını taban al.
 - **"BGBM neden arttı?"** sorusunu **Açık Artırma Rekabeti Değişimi** ölçümüyle cevapla: günün rekabetçi teklifini önceki 3 günün ortalamasıyla kıyaslar; %20'nin üstü anlamlı değişimdir [RESMİ].
 - **Yıllık kıyas tuzağı:** Meta tıklama ilişkilendirmesini 3 Mart 2026'da değiştirdi [RESMİ]. Kasım 2025 tamamen, Ramazan 2026 (≈19 Şubat–19 Mart) kısmen eski tanımla ölçüldü. Geçen yılla kıyası sipariş paneliyle yap (ölçüm kırılma tarihleri: Modül 05 §5.3).
 - **Bütçe artışını önceden planla.** Bütçe planlama (yüksek talep dönemleri) yalnız günlük bütçede çalışır; öğe başına en fazla 50 dönem, dönem en az 3 saat, dönem toplamı günlük bütçenin 8 katını aşamaz [RESMİ, geliştirici belgesi]. Arayüzde görünürlüğü ve öğrenmeye etkisi *doğrulanmalı*. Yoksa artışı zirveden 3–5 gün önce §6.2 adımlarıyla başlat (*sezgisel*).
-- **Zirvede 7 gün bekleyemezsin.** Sınırları önceden yaz. Örnek: "Günlük panel ROAS iki gün üst üste başabaşın altındaysa bir önceki bütçeye dön." Zirvede reklamı yalnız Aşama 0–1 sebepleriyle kapat (*sezgisel*).
+- **Zirvede 7 gün bekleyemezsin.** Sınırları önceden yaz. Örnek: "Günlük panel ROAS iki gün üst üste başabaşın altındaysa bir önceki bütçeye dön." Zirvede reklamı yalnız Aşama 0–1 sebepleriyle ve son kargo tarihi kuralıyla (§9.2) kapat (*sezgisel*).
 - **Süreli setler:** Başlangıç ve bitiş tarihi önceden girilmiş "kampanya dönemi" setleri kur [PRATİSYEN CTC]. 7 günden kısa sette öğrenmenin bitmesini bekleme.
 - **Ramazan:** İftar sonrasına saat kısıtı koyma; saat planı bütçenin harcanma biçimini değiştirir [RESMİ]. O saatlere uygun kreatif ve teklif kullan. Meta'nın 2022 Türkiye araştırmasına göre kullanıcılar Ramazan'da önce bilgilendirici içerik, sonra kampanya bekliyor [HABER; eski veri].
 - **Sezon sonrası:** Toplam bütçe düşürülürken yeni tutar "şimdiye kadar harcanan + son 2 günün harcamasının %10'u"ndan az olamaz [RESMİ]. Tek seferde değil kademeli in (*sezgisel*).
 
 **Doldurulmuş örnek: 19 Ekim 2026'da yayına giren e-ticaret hesabı (*varsayım*; gün 0 = 19 Ekim):**
 - **19–25 Ekim (gün 0–6):** §4.1 planı; 11.11 sürümleri hazırlanır.
-- **26 Ekim (gün 7):** 11.11 partisi aynı sete eklenir, çünkü dondurma 28 Ekim. Bütçeye dokunulmaz: §6.1 en az 2 hafta istiyor. 28 Ekim öğleden sonra ve 29 Ekim resmî tatil; o günlerin verisini not düşerek yorumla.
-- **2 Kasım (gün 14):** Kapı açıksa ilk bütçe adımı (§6.2). Hedefli teklife geçme: veri az ve sezon başlıyor.
-- **11 Kasım:** Plana göre artış, sınırlar devrede. **13 Kasım:** Kara Cuma için kreatif dondurma.
-- **20–30 Kasım:** İkinci zirve. 1 Aralık'tan itibaren kademeli düşüş.
+- **26 Ekim (gün 7, pazartesi değişiklik günü):** 11.11 partisi aynı sete eklenir, çünkü dondurma 28 Ekim. Bu takvimden doğan bir eylemdir, performans kararı değil. Kapı hacim yolundan açık: ilk hafta 52 satış, CPA 202 ≤ hedef 250 (§6.1). İki seçenek var: (a) partiyle aynı oturumda +%25 bütçe adımı, 7 günlük sayaç ikisi için birlikte başlar; (b) adımı bir sonraki değişiklik gününe bırakmak. Bu örnek (b)'yi seçiyor, çünkü gün 7'de son 48–72 saatin satışları eksik ve partinin 11.11 öncesi etkisi ayrı okunmak isteniyor. 28 Ekim öğleden sonra ve 29 Ekim resmî tatil; o günlerin verisini not düşerek yorumla.
+- **2 Kasım (gün 14):** Partinin üzerinden 7 gün geçti; kapı açıksa ilk bütçe adımı (§6.2). Hedefli teklife geçme: veri az ve sezon başlıyor.
+- **4–14 Kasım:** 11.11 zirve evresi; 11 Kasım'da plana göre artış, sınırlar devrede. **13 Kasım:** Kara Cuma için yeni kavram dondurması; parti ritmi sezon sürümleriyle sürer. **15–19 Kasım:** Kasım tek sezon (§9.2), çıkış yok; bütçe sezon tabanında.
+- **20–30 Kasım:** İkinci zirve. Teslim vaadi içeren reklamlar son kargo tarihinde kapanır (§9.2). 1 Aralık'tan itibaren kademeli düşüş.
 - **Ocak 2027:** Yeni müşteri ve Ramazan hazırlığı; Ramazan reklamları 18–25 Ocak'ta yayında.
 
 ---
@@ -399,7 +445,7 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 | 1 | 19.10.2026 10:00 | YZ | `2610_SAT_WEB_TUM_HAC-SB_Elbise_TR` | Yayın: 1.500 TL/gün, 4 reklam | — | Başlangıç | ~50 satış/hafta | 26.10 | 52 satış, CPA 202 | Devam |
 | 2 | 26.10.2026 10:15 | YZ | `GENIS_25plus-MUSharic_PUR_APL_ana` | 3 reklam eklendi (11.11 sürümü) | Evet | SEZON-1111 | 11.11'de CPA ≤ hedef | 2.11 | — | — |
 | 3 | 29.10.2026 | — | — | Resmî tatil | — | DIS | Trafik farklı | — | — | — |
-| 4 | 2.11.2026 10:00 | YZ | aynı set | Bütçe 1.500 → 1.875 (+%25) | Büyüklüğe göre | Ölçek adımı 1 | Marjinal CPA ≤ 250 | 5.11 / 9.11 | Marjinal ≈ 239; 5. satırla aynı hafta, etkiler ayrılamaz | +%25 |
+| 4 | 2.11.2026 10:30 | YZ | aynı set | Bütçe 1.500 → 1.875 (+%25) | Büyüklüğe göre | Ölçek adımı 1 | Marjinal CPA ≤ 250 | 5.11 / 9.11 | Marjinal ≈ 239; 5. satırla aynı hafta, etkiler ayrılamaz | +%25 |
 | 5 | 3.11.2026 09:00 | Müşteri | Site | Ücretsiz kargo eşiği 750 → 500 TL | Hayır (reklam dışı) | MUSTERI | Dönüşüm oranı ↑ | 10.11 | — | — |
 
 **Hipotez defteri** ayrı sekmede: ID, hipotez cümlesi, araç, tarih aralığı, hücreler, sonuç, güven, karar, öğrenilen ders. Kaybeden testleri de yaz; aynı açıyı yeniden denememek için gerekir.
@@ -412,8 +458,9 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 - [ ] Son bütçe adımından beri marjinal CPA hesaplandı (F7).
 - [ ] Yayın sütunu: öğrenme, öğrenmeyle sınırlı, kreatif sınırlandı ya da yorgunluğu.
 - [ ] Kapatma adayları §5.2 ve §8 listesinden geçti; ölçekleme adayları §6.1 kapısından.
-- [ ] Açık testlere erken müdahale edilmedi.
-- [ ] Önümüzdeki 3 haftada sezon zirvesi var mı (§9.1)?
+- [ ] Açık testlere erken müdahale edilmedi. Hücre başına 50'den az olayla biten testler "yön göstergesi" diye kaydedildi (§1).
+- [ ] Mesaj ve form işlerinde karar CRM'deki satış başı maliyetle ve nitelik oranıyla verildi (§6.5).
+- [ ] Önümüzdeki 3 haftada sezon zirvesi var mı (§9.1)? Teslim vaadi içeren reklamların son kargo tarihi yazılı mı (§9.2)?
 - [ ] Değişiklikler tek oturumda yapıldı ve günlüğe yazıldı.
 
 ---
@@ -422,6 +469,8 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 
 - **Kreatif testi aracı:** Resmi yardım sayfası yok. 5/10 hücre sınırı, %20 bütçe önerisi, 7 gün varsayılan ve yalnız "En yüksek hacim" koşulu pratisyen gözlemi.
 - **"Yayını bu reklama it":** Haziran 2026'da görülen test özelliği; hesaba göre değişebilir.
+- **Artımlı ilişkilendirme sütunu:** Her hesapta görünüp görünmediği belirsiz; 1 Nisan 2025 öncesi için veri yok.
+- **Ramazan alt evreleri ve son 10 gün zirvesi:** Türkiye'ye özel Meta verisi yok; tarihler *sezgisel*. Hesabın geçen yılki Ramazan verisiyle (Modül 05 §5.3 kırılma tarihlerine dikkat) doğrula.
 - **Bütçe planlama (yüksek talep dönemleri):** Yalnız API belgesi okundu. Arayüzde görünürlüğü ve öğrenmeye etkisi bilinmiyor.
 - **Otomatik kural koşulu "Harcanan tutar":** Meta'nın koşul listesinde yok; arayüzde kontrol et.
 - **Değişiklik geçmişi:** Arayüzdeki menü yolu ve saklama süresi resmi kaynakta bulunamadı.
@@ -470,6 +519,7 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 - Ücret koşullu kurallar: https://www.facebook.com/business/help/511107233420528
 - Toplam bütçe yüzdesi bildirimi: https://www.facebook.com/business/help/199955874257704
 - Artımlı ilişkilendirme sonuçları: https://www.facebook.com/business/help/1271619100603114
+- Advantage+ satış kampanyaları: https://www.facebook.com/business/help/1362234537597370
 
 **Meta, diğer [RESMİ]:**
 - Kreatif testleri (split testing), Marketing API: https://developers.facebook.com/docs/marketing-api/guides/split-testing
@@ -479,6 +529,10 @@ Meta yüzde vermiyor: 100→101 büyük olasılıkla öğrenmeyi sıfırlamaz, 1
 - 2026 tatil rehberi (11.06.2026): https://www.facebook.com/business/news/2026-winning-hearts-boosting-carts
 - Tıklama ilişkilendirmesi değişikliği (03.03.2026): https://www.facebook.com/business/news/click-attribution
 - Kreatif çeşitliliği ve Andromeda: https://www.facebook.com/business/news/the-creative-advantage-unlocking-the-power-of-diversification-with-meta-andromeda
+
+**Mevzuat [MEVZUAT]** (ayrıntı Modül 09):
+- Mesafeli Sözleşmeler Yönetmeliği, konsolide metin (md. 5/1-f teslim süresi; md. 12/5 iade masrafı, değişiklik RG 24.5.2025/32909): https://www.mevzuat.gov.tr/MevzuatMetin/yonetmelik/7.5.20237.pdf
+- Ticari Reklam ve Haksız Ticari Uygulamalar Yönetmeliği, konsolide metin (md. 7/7, Ek A-9): https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=20435&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5
 
 **Pratisyen [PRATİSYEN]:**
 - Jon Loomer, Meta Ads master brief (02.07.2026): https://www.jonloomer.com/meta-ads-master-brief/
