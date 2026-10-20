@@ -812,6 +812,8 @@
     var lang = firstLangOf(text);
     if (!lang) return null;
     var at = text.indexOf(lang);
+    // Verici dil ilk sözcük olmalı; metnin ortasında geçen dil (örn. "Kırım Tatarca ...") verici sayılmaz
+    if (text.replace(/^[\s"“”'‘’(]+/, '').indexOf(lang) !== 0) return null;
     var rest = text.slice(at + lang.length).replace(/^\s+/, '');
     var m = /^\S+\s+kökünden gelen\s+(\S+)/.exec(rest);
     var tok = m ? m[1] : (rest.split(/\s+/)[0] || '');
@@ -828,6 +830,8 @@
     // HTML özel karakterlerini (&lt; &#8594; &thinsp;) metne çevir
     var d = parseHtml(String(raw));
     var t = norm((d.body || d.documentElement).textContent).replace(/[\u200e\u200f\u202a-\u202e]/g, '');
+    // Sözlük dışı sözcüklerde API otomatik üretilmiş çöp metin döndürüyor (IPA, Heceleme, bağlantı): kayıt yok say
+    if (/IPA:|Heceleme|https?:\/\//.test(t)) return null;
     return t ? { name: j.word || '', text: t, lang: firstDonor(t) } : null;
   }
 
@@ -1086,7 +1090,7 @@
             var p = parseTdk(r.text);
             if (!p) { addSource('TDK Güncel Sözlük', u, false, s, 'kayıt yok'); return; }
             var txt = (p.lisan ? 'Köken dili: ' + p.lisan + '. ' : 'Türkçe kökenli (TDK\'da köken dili belirtilmemiş). ') + (p.gloss ? 'Anlam: ' + p.gloss : '');
-            attachExtra('Turkish', 'tdk', txt, qn, 'https://sozluk.gov.tr/', firstDonor(p.lisan || ''), p.gloss);
+            attachExtra('Turkish', 'tdk', txt, qn, 'https://www.sozluk.gov.tr/', firstDonor(p.lisan || ''), p.gloss);
             addSource('TDK Güncel Sözlük', u, true, s, null);
           } catch (e) { addSource('TDK Güncel Sözlük', u, false, s, String(e && e.message || e)); }
         })());
