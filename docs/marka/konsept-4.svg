@@ -1,0 +1,362 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+<title>TekPanel Konsept 4 - Editoryal Masa</title>
+<defs><clipPath id="ic1"><circle cx="84" cy="872" r="44"/></clipPath><clipPath id="ic2"><rect x="152" y="828" width="88" height="88" rx="22.88"/></clipPath><clipPath id="ic3"><path d="M308 828C342.32 828 352 837.68 352 872C352 906.32 342.32 916 308 916C273.68 916 264 906.32 264 872C264 837.68 273.68 828 308 828Z"/></clipPath><clipPath id="ic4"><path d="M84 960C118.32 960 128 969.68 128 1004C128 1038.32 118.32 1048 84 1048C49.68 1048 40 1038.32 40 1004C40 969.68 49.68 960 84 960Z"/></clipPath><clipPath id="ic5"><circle cx="196" cy="1004" r="44"/></clipPath><clipPath id="scr"><rect x="0" y="0" width="424" height="884" rx="48"/></clipPath></defs>
+<rect x="0" y="0" width="1200" height="1500" fill="#F3EEE3"/>
+<rect x="40" y="28" width="1120" height="3" fill="#1C1915"/>
+<rect x="40" y="34" width="1120" height="1" fill="#1C1915"/>
+<path d="M40 54H128L156 82V174H40Z" fill="#1C1915"/>
+<path d="M128 54L156 82H128Z" fill="#C93219"/>
+<text x="94" y="148" font-family="Newsreader, serif" font-size="104" font-weight="600" fill="#F3EEE3" text-anchor="middle">4</text>
+<text x="184" y="74" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#5E564A" letter-spacing="1.6">TEKPANEL MARKA YÖNÜ  ·  KONSEPT 4</text>
+<text x="184" y="129" font-family="Fraunces, 'Newsreader', serif" font-size="62" font-weight="600" fill="#1C1915">Editoryal Masa</text>
+<text x="184" y="158" font-family="Fraunces, 'Newsreader', serif" font-size="19" font-weight="400" fill="#1C1915">Sabah postası gibi: mesajlar bir gazete sayfası kadar</text>
+<text x="184" y="181" font-family="Fraunces, 'Newsreader', serif" font-size="19" font-weight="400" fill="#1C1915">düzenli, sakin ve okunur.</text>
+<rect x="836" y="54" width="324" height="1.4" fill="#1C1915"/>
+<text x="836" y="76" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" letter-spacing="0.4">Metafor</text>
+<text x="906" y="76" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#1C1915">Sabah postası, haber masası</text>
+<line x1="836" y1="86" x2="1160" y2="86" stroke="#D3C9B6" stroke-width="1" />
+<text x="836" y="108" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" letter-spacing="0.4">Zemin</text>
+<text x="906" y="108" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#1C1915">Sıcak kâğıt, mürekkep siyahı</text>
+<line x1="836" y1="118" x2="1160" y2="118" stroke="#D3C9B6" stroke-width="1" />
+<text x="836" y="140" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" letter-spacing="0.4">Vurgu</text>
+<text x="906" y="140" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#1C1915">Tek renk: zinober kırmızısı</text>
+<line x1="836" y1="150" x2="1160" y2="150" stroke="#D3C9B6" stroke-width="1" />
+<text x="836" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" letter-spacing="0.4">Yazı</text>
+<text x="906" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#1C1915">Fraunces başlık, Inter gövde</text>
+<line x1="836" y1="180" x2="1160" y2="180" stroke="#1C1915" stroke-width="0.8" />
+<line x1="40" y1="196" x2="1160" y2="196" stroke="#1C1915" stroke-width="0.8" />
+<line x1="366" y1="212" x2="366" y2="1152" stroke="#D3C9B6" stroke-width="1" />
+<line x1="834" y1="212" x2="834" y2="1152" stroke="#D3C9B6" stroke-width="1" />
+<rect x="40" y="212" width="312" height="1.4" fill="#1C1915"/>
+<text x="40" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">01</text>
+<text x="66" y="240" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Logo</text>
+<text x="352" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">T + katlanmış köşe</text>
+<rect x="40" y="252" width="312" height="176" fill="#FAF7F0" stroke="#D3C9B6" stroke-width="1"/>
+<rect x="68" y="296" width="105" height="110" fill="none" stroke="#C93219" stroke-width="0.8" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+<path d="M68 296L145.5 296L173 323.5L173 336L139.25 336L139.25 406L101.75 406L101.75 336L68 336Z" fill="#1C1915"/>
+<path d="M145.5 296L173 323.5L145.5 323.5Z" fill="#C93219"/>
+<text x="199" y="314" font-family="Fraunces, 'Newsreader', serif" font-size="19" font-weight="600" fill="#1C1915">T monogramı</text>
+<text x="199" y="338" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="400" fill="#5E564A">Köşedeki kıvrım hem</text>
+<text x="199" y="356" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="400" fill="#5E564A">zarfın ucu hem de</text>
+<text x="199" y="374" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="400" fill="#5E564A">okundu işareti.</text>
+<text x="52" y="272" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="500" fill="#5E564A" letter-spacing="0.3">Marka işareti</text>
+<rect x="40" y="438" width="312" height="100" fill="#FFFCF5" stroke="#D3C9B6" stroke-width="1"/>
+<text x="52" y="458" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="500" fill="#5E564A" letter-spacing="0.3">Açık zemin</text>
+<path d="M70.85 468.74L99.49 468.74L109.65 478.91L109.65 483.53L97.18 483.53L97.18 509.4L83.32 509.4L83.32 483.53L70.85 483.53Z" fill="#1C1915"/>
+<path d="M99.49 468.74L109.65 478.91L99.49 478.91Z" fill="#C93219"/>
+<text x="123.73" y="509.4" font-family="Fraunces, 'Newsreader', serif" font-size="44" font-weight="600" fill="#1C1915" letter-spacing="-0.4">TekPanel</text>
+<rect x="40" y="548" width="312" height="100" fill="#1C1915"/>
+<text x="52" y="568" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="500" fill="#BDB4A3" letter-spacing="0.3">Koyu zemin</text>
+<path d="M70.85 578.74L99.49 578.74L109.65 588.91L109.65 593.53L97.18 593.53L97.18 619.4L83.32 619.4L83.32 593.53L70.85 593.53Z" fill="#F3EEE3"/>
+<path d="M99.49 578.74L109.65 588.91L99.49 588.91Z" fill="#C93219"/>
+<text x="123.73" y="619.4" font-family="Fraunces, 'Newsreader', serif" font-size="44" font-weight="600" fill="#F3EEE3" letter-spacing="-0.4">TekPanel</text>
+<rect x="40" y="658" width="312" height="112" fill="#FAF7F0" stroke="#D3C9B6" stroke-width="1"/>
+<text x="52" y="678" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="500" fill="#5E564A" letter-spacing="0.3">Küçük boyut (1:1 piksel)</text>
+<rect x="54" y="686" width="60" height="60" fill="#FFFCF5" rx="4" stroke="#D3C9B6" stroke-width="1"/>
+<path d="M61.09 692L94.91 692L106.91 704L106.91 709.45L92.18 709.45L92.18 740L75.82 740L75.82 709.45L61.09 709.45Z" fill="#1C1915"/>
+<path d="M94.91 692L106.91 704L94.91 704Z" fill="#C93219"/>
+<rect x="126" y="686" width="60" height="60" fill="#1C1915" rx="4"/>
+<path d="M133.09 692L166.91 692L178.91 704L178.91 709.45L164.18 709.45L164.18 740L147.82 740L147.82 709.45L133.09 709.45Z" fill="#F3EEE3"/>
+<path d="M166.91 692L178.91 704L166.91 704Z" fill="#C93219"/>
+<text x="84" y="762" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="middle">48 px</text>
+<text x="156" y="762" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="middle">48 px</text>
+<path d="M212 708L234.55 708L242.55 716L242.55 719.64L232.73 719.64L232.73 740L221.82 740L221.82 719.64L212 719.64Z" fill="#1C1915"/>
+<path d="M234.55 708L242.55 716L234.55 716Z" fill="#C93219"/>
+<text x="227.27" y="762" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="middle">32</text>
+<path d="M270.55 716L287.45 716L293.45 722L293.45 724.73L286.09 724.73L286.09 740L277.91 740L277.91 724.73L270.55 724.73Z" fill="#1C1915"/>
+<path d="M287.45 716L293.45 722L287.45 722Z" fill="#C93219"/>
+<text x="282" y="762" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="middle">24</text>
+<path d="M321.45 724L332.73 724L336.73 728L336.73 729.82L331.82 729.82L331.82 740L326.36 740L326.36 729.82L321.45 729.82Z" fill="#1C1915"/>
+<path d="M332.73 724L336.73 728L332.73 728Z" fill="#C93219"/>
+<text x="329.09" y="762" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="middle">16 px</text>
+<rect x="40" y="788" width="312" height="1.4" fill="#1C1915"/>
+<text x="40" y="815" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">02</text>
+<text x="66" y="816" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Uygulama ikonu</text>
+<text x="352" y="815" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">108 dp</text>
+<g clip-path="url(#ic1)">
+<rect x="40" y="828" width="88" height="88" fill="#1C1915"/>
+<path d="M58.33 847.56L96.22 847.56L109.67 861L109.67 867.11L93.17 867.11L93.17 901.33L74.83 901.33L74.83 867.11L58.33 867.11Z" fill="#F3EEE3"/>
+<path d="M96.22 847.56L109.67 861L96.22 861Z" fill="#C93219"/>
+</g>
+<g clip-path="url(#ic2)">
+<rect x="152" y="828" width="88" height="88" fill="#1C1915"/>
+<path d="M170.33 847.56L208.22 847.56L221.67 861L221.67 867.11L205.17 867.11L205.17 901.33L186.83 901.33L186.83 867.11L170.33 867.11Z" fill="#F3EEE3"/>
+<path d="M208.22 847.56L221.67 861L208.22 861Z" fill="#C93219"/>
+</g>
+<g clip-path="url(#ic3)">
+<rect x="264" y="828" width="88" height="88" fill="#1C1915"/>
+<path d="M282.33 847.56L320.22 847.56L333.67 861L333.67 867.11L317.17 867.11L317.17 901.33L298.83 901.33L298.83 867.11L282.33 867.11Z" fill="#F3EEE3"/>
+<path d="M320.22 847.56L333.67 861L320.22 861Z" fill="#C93219"/>
+</g>
+<text x="84" y="934" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Daire</text>
+<text x="196" y="934" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Yuvarlak kare</text>
+<text x="308" y="934" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Squircle</text>
+<g clip-path="url(#ic4)">
+<rect x="40" y="960" width="88" height="88" fill="#E4DCCB"/>
+<path d="M58.33 979.56L96.22 979.56L109.67 993L109.67 999.11L93.17 999.11L93.17 1033.33L74.83 1033.33L74.83 999.11L58.33 999.11Z" fill="#1C1915"/>
+<path d="M96.22 979.56L109.67 993L96.22 993Z" fill="#1C1915" opacity="0.42"/>
+</g>
+<g clip-path="url(#ic5)">
+<rect x="152" y="960" width="88" height="88" fill="#3A342C"/>
+<path d="M170.33 979.56L208.22 979.56L221.67 993L221.67 999.11L205.17 999.11L205.17 1033.33L186.83 1033.33L186.83 999.11L170.33 999.11Z" fill="#F3EEE3"/>
+<path d="M208.22 979.56L221.67 993L208.22 993Z" fill="#F3EEE3" opacity="0.42"/>
+</g>
+<rect x="264" y="960" width="88" height="88" fill="#FAF7F0" stroke="#5E564A" stroke-width="0.8" stroke-opacity="0.6"/>
+<circle cx="308" cy="1004" r="29.33" fill="none" stroke="#5E564A" stroke-width="0.8" stroke-dasharray="2 2"/>
+<rect x="281.11" y="977.11" width="53.78" height="53.78" fill="none" stroke="#C93219" stroke-width="0.9" stroke-opacity="0.9"/>
+<path d="M290.89 987.7L316.15 987.7L325.11 996.67L325.11 1000.74L314.11 1000.74L314.11 1023.56L301.89 1023.56L301.89 1000.74L290.89 1000.74Z" fill="#1C1915"/>
+<path d="M316.15 987.7L325.11 996.67L316.15 996.67Z" fill="#C93219"/>
+<text x="84" y="1066" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Tek renkli · açık</text>
+<text x="196" y="1066" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Tek renkli · koyu</text>
+<text x="308" y="1066" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="middle">Güvenli alan</text>
+<text x="40" y="1094" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Ön plan 108 × 108 birim, önemli şekiller</text>
+<text x="40" y="1110" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">orta 66 × 66 alanın içinde. Zemin mürekkep,</text>
+<text x="40" y="1126" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">T kâğıt tonunda, kıvrım zinober.</text>
+<rect x="848" y="212" width="312" height="1.4" fill="#1C1915"/>
+<text x="848" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">03</text>
+<text x="874" y="240" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Renkler</text>
+<text x="1160" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">10 renk</text>
+<rect x="848" y="252" width="150" height="36" fill="#F3EEE3" rx="4" stroke="#B8AD98" stroke-width="1"/>
+<text x="858" y="275" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#1C1915" letter-spacing="0.4">#F3EEE3</text>
+<text x="848" y="304" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Arka plan</text>
+<rect x="1010" y="252" width="150" height="36" fill="#FAF7F0" rx="4" stroke="#B8AD98" stroke-width="1"/>
+<text x="1020" y="275" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#1C1915" letter-spacing="0.4">#FAF7F0</text>
+<text x="1010" y="304" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Yüzey</text>
+<rect x="848" y="312" width="150" height="36" fill="#FFFCF5" rx="4" stroke="#B8AD98" stroke-width="1"/>
+<text x="858" y="335" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#1C1915" letter-spacing="0.4">#FFFCF5</text>
+<text x="848" y="364" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Yükseltilmiş yüzey</text>
+<rect x="1010" y="312" width="150" height="36" fill="#D3C9B6" rx="4" stroke="#B8AD98" stroke-width="1"/>
+<text x="1020" y="335" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#1C1915" letter-spacing="0.4">#D3C9B6</text>
+<text x="1010" y="364" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Çizgi</text>
+<rect x="848" y="372" width="150" height="36" fill="#1C1915" rx="4" stroke="none" stroke-width="1"/>
+<text x="858" y="395" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EEE3" letter-spacing="0.4">#1C1915</text>
+<text x="848" y="424" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Ana metin</text>
+<rect x="1010" y="372" width="150" height="36" fill="#5E564A" rx="4" stroke="none" stroke-width="1"/>
+<text x="1020" y="395" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EEE3" letter-spacing="0.4">#5E564A</text>
+<text x="1010" y="424" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">İkincil metin</text>
+<rect x="848" y="432" width="150" height="36" fill="#C93219" rx="4" stroke="none" stroke-width="1"/>
+<text x="858" y="455" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EEE3" letter-spacing="0.4">#C93219</text>
+<text x="848" y="484" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Vurgu (zinober)</text>
+<rect x="1010" y="432" width="150" height="36" fill="#FFF8EE" rx="4" stroke="#B8AD98" stroke-width="1"/>
+<text x="1020" y="455" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#1C1915" letter-spacing="0.4">#FFF8EE</text>
+<text x="1010" y="484" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Vurgu üstü metin</text>
+<rect x="848" y="492" width="150" height="36" fill="#951A2D" rx="4" stroke="none" stroke-width="1"/>
+<text x="858" y="515" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EEE3" letter-spacing="0.4">#951A2D</text>
+<text x="848" y="544" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Tehlike</text>
+<rect x="1010" y="492" width="150" height="36" fill="#2F6B4B" rx="4" stroke="none" stroke-width="1"/>
+<text x="1020" y="515" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="600" fill="#F3EEE3" letter-spacing="0.4">#2F6B4B</text>
+<text x="1010" y="544" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Başarı</text>
+<text x="848" y="574" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" letter-spacing="0.3">Kontrast oranları (WCAG 2.2)</text>
+<line x1="848" y1="582" x2="1160" y2="582" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="596" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">Ana metin / arka plan</text>
+<text x="1122" y="596" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">15.1 : 1</text>
+<text x="1160" y="596" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#2F6B4B" text-anchor="end">AAA</text>
+<line x1="848" y1="601" x2="1160" y2="601" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="615" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">İkincil metin / arka plan</text>
+<text x="1122" y="615" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">6.2 : 1</text>
+<text x="1160" y="615" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" text-anchor="end">AA</text>
+<line x1="848" y1="620" x2="1160" y2="620" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="634" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">İkincil metin / yüzey</text>
+<text x="1122" y="634" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">6.8 : 1</text>
+<text x="1160" y="634" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" text-anchor="end">AA</text>
+<line x1="848" y1="639" x2="1160" y2="639" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="653" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">Vurgu üstü metin / vurgu</text>
+<text x="1122" y="653" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">5.0 : 1</text>
+<text x="1160" y="653" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" text-anchor="end">AA</text>
+<line x1="848" y1="658" x2="1160" y2="658" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="672" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">Vurgu / arka plan</text>
+<text x="1122" y="672" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">4.6 : 1</text>
+<text x="1160" y="672" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#5E564A" text-anchor="end">AA</text>
+<line x1="848" y1="677" x2="1160" y2="677" stroke="#D3C9B6" stroke-width="0.8" />
+<text x="848" y="691" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#1C1915">Tehlike / arka plan</text>
+<text x="1122" y="691" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">7.4 : 1</text>
+<text x="1160" y="691" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="600" fill="#2F6B4B" text-anchor="end">AAA</text>
+<rect x="848" y="716" width="312" height="1.4" fill="#1C1915"/>
+<text x="848" y="743" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">04</text>
+<text x="874" y="744" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Tipografi</text>
+<text x="1160" y="743" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">Türkçe karakter uyumlu</text>
+<text x="848" y="802" font-family="Fraunces, 'Newsreader', serif" font-size="60" font-weight="600" fill="#1C1915">Aa</text>
+<text x="1008" y="802" font-family="Inter, 'Instrument Sans', sans-serif" font-size="60" font-weight="500" fill="#1C1915">Aa</text>
+<text x="848" y="822" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Fraunces · başlık</text>
+<text x="1008" y="822" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A">Inter · gövde</text>
+<rect x="848" y="838" width="312" height="80" fill="#FFFCF5" rx="4" stroke="#D3C9B6" stroke-width="1"/>
+<text x="864" y="866" font-family="Fraunces, 'Newsreader', serif" font-size="21" font-weight="600" fill="#1C1915">Çağrı Şahin:</text>
+<text x="864" y="889" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="400" fill="#1C1915">Sipariş ne zaman gelir? İyi akşamlar,</text>
+<text x="864" y="908" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="400" fill="#1C1915">ğ ş ı İ ö ü ç</text>
+<line x1="848" y1="934" x2="1160" y2="934" stroke="#1C1915" stroke-width="0.8" />
+<text x="848" y="974" font-family="Fraunces, 'Newsreader', serif" font-size="30" font-weight="600" fill="#1C1915">Başlık</text>
+<text x="1160" y="974" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="end">Fraunces 600 · 30/34</text>
+<line x1="848" y1="990" x2="1160" y2="990" stroke="#D3C9B6" stroke-width="1" />
+<text x="848" y="1020" font-family="Fraunces, 'Newsreader', serif" font-size="19" font-weight="600" fill="#1C1915">Alt başlık</text>
+<text x="1160" y="1020" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="end">Fraunces 600 · 19/24</text>
+<line x1="848" y1="1036" x2="1160" y2="1036" stroke="#D3C9B6" stroke-width="1" />
+<text x="848" y="1066" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="400" fill="#1C1915">Gövde metni</text>
+<text x="1160" y="1066" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="end">Inter 400 · 15/22</text>
+<line x1="848" y1="1082" x2="1160" y2="1082" stroke="#D3C9B6" stroke-width="1" />
+<text x="848" y="1110" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" letter-spacing="0.3">Etiket · 19:42</text>
+<text x="1160" y="1110" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11" font-weight="400" fill="#5E564A" text-anchor="end">Inter 600 · 12/16</text>
+<rect x="380" y="212" width="440" height="1.4" fill="#1C1915"/>
+<text x="380" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">05</text>
+<text x="406" y="240" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Arayüz örneği</text>
+<text x="820" y="239" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">ana ekran · 440 × 900</text>
+<rect x="380" y="252" width="440" height="900" fill="#1C1915" rx="56"/>
+<rect x="381" y="253" width="438" height="898" fill="none" rx="55" stroke="#4A443B" stroke-width="1.2"/>
+<rect x="819" y="442" width="3" height="76" fill="#1C1915" rx="1.5"/>
+<rect x="819" y="542" width="3" height="44" fill="#1C1915" rx="1.5"/>
+<g transform="translate(388 260)" clip-path="url(#scr)">
+<rect x="0" y="0" width="424" height="884" fill="#F3EEE3"/>
+<text x="34" y="38" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="600" fill="#1C1915" style="font-feature-settings:'tnum' 1">9:41</text>
+<circle cx="212" cy="27" r="8.5" fill="#1C1915"/>
+<rect x="318" y="30" width="3.2" height="4" fill="#1C1915" rx="0.8"/>
+<rect x="323" y="27.5" width="3.2" height="6.5" fill="#1C1915" rx="0.8"/>
+<rect x="328" y="25" width="3.2" height="9" fill="#1C1915" rx="0.8"/>
+<rect x="333" y="22.5" width="3.2" height="11.5" fill="#1C1915" rx="0.8"/>
+<rect x="346" y="22.5" width="27" height="12.5" fill="none" rx="3.6" stroke="#1C1915" stroke-width="1.3"/>
+<rect x="348.6" y="25.1" width="17" height="7.3" fill="#1C1915" rx="1.6"/>
+<rect x="374.5" y="26" width="2.3" height="5.5" fill="#1C1915" rx="1"/>
+<path d="M24 66L40.91 66L46.91 72L46.91 74.73L39.55 74.73L39.55 90L31.36 90L31.36 74.73L24 74.73Z" fill="#1C1915"/>
+<path d="M40.91 66L46.91 72L40.91 72Z" fill="#C93219"/>
+<text x="56.91" y="90" font-family="Fraunces, 'Newsreader', serif" font-size="31" font-weight="600" fill="#1C1915" letter-spacing="-0.3">TekPanel</text>
+<text x="24" y="116" font-family="Inter, 'Instrument Sans', sans-serif" font-size="13" font-weight="400" fill="#5E564A">Salı, 20 Ekim  ·  7 okunmamış</text>
+<rect x="360" y="60" width="40" height="40" fill="none" rx="4" stroke="#1C1915" stroke-width="1" stroke-opacity="0.3"/>
+<path d="M374.5 78.5L380 84L385.5 78.5" fill="none" stroke="#1C1915" stroke-width="1.8" stroke-linecap="butt" stroke-linejoin="miter"/>
+<rect x="24" y="130" width="376" height="2" fill="#1C1915"/>
+<rect x="24" y="135" width="376" height="0.8" fill="#1C1915"/>
+<rect x="24" y="150" width="86" height="34" fill="#1C1915" rx="17"/>
+<text x="39" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="600" fill="#F3EEE3">Tümü</text>
+<circle cx="90" cy="167" r="9" fill="#C93219"/>
+<text x="90" y="171" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#FFF8EE" text-anchor="middle">7</text>
+<rect x="118" y="150" width="112" height="34" fill="none" rx="17" stroke="#1C1915" stroke-width="1" stroke-opacity="0.3"/>
+<circle cx="137" cy="167" r="5" fill="#1C1915"/>
+<text x="151" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="500" fill="#1C1915">WhatsApp</text>
+<rect x="238" y="150" width="114" height="34" fill="none" rx="17" stroke="#1C1915" stroke-width="1" stroke-opacity="0.3"/>
+<rect x="252.7" y="162.7" width="8.6" height="8.6" fill="#1C1915"/>
+<text x="271" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="500" fill="#1C1915">Instagram</text>
+<rect x="360" y="150" width="110" height="34" fill="none" rx="17" stroke="#1C1915" stroke-width="1" stroke-opacity="0.3"/>
+<path d="M379 161.75L384.25 170.9L373.75 170.9Z" fill="#1C1915"/>
+<text x="393" y="172" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="500" fill="#1C1915">Telegram</text>
+<text x="24" y="222" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Bugün</text>
+<line x1="82" y1="217.5" x2="400" y2="217.5" stroke="#D3C9B6" stroke-width="1" />
+<rect x="12" y="238" width="400" height="286" fill="#FFFCF5" rx="6" stroke="#1C1915" stroke-width="1" stroke-opacity="0.16"/>
+<rect x="12" y="252" width="3" height="258" fill="#C93219"/>
+<circle cx="54" cy="276" r="24" fill="#E1D7C3" stroke="#1C1915" stroke-width="1" stroke-opacity="0.15"/>
+<text x="51.6" y="280.8" font-family="Fraunces, 'Newsreader', serif" font-size="16.32" font-weight="600" fill="#1C1915" text-anchor="middle">ÇŞ</text>
+<rect x="61.72" y="283.72" width="22" height="22" fill="#FFFCF5" rx="7"/>
+<rect x="63.72" y="285.72" width="18" height="18" fill="#1C1915" rx="5"/>
+<circle cx="72.72" cy="294.72" r="3.8" fill="#F3EEE3"/>
+<text x="92" y="272" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Çağrı Şahin</text>
+<text x="92" y="292" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="400" fill="#5E564A">WhatsApp  ·  3 mesaj</text>
+<text x="396" y="272" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#5E564A" text-anchor="end" style="font-feature-settings:'tnum' 1">19:42</text>
+<line x1="28" y1="314" x2="396" y2="314" stroke="#D3C9B6" stroke-width="1" />
+<text x="28" y="342" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" style="font-feature-settings:'tnum' 1">19:38</text>
+<text x="76" y="342" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15.5" font-weight="400" fill="#1C1915">Sipariş ne zaman gelir?</text>
+<text x="28" y="376" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" style="font-feature-settings:'tnum' 1">19:40</text>
+<text x="76" y="376" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15.5" font-weight="400" fill="#1C1915">İyi akşamlar, dünkü kırmızı ceket</text>
+<text x="76" y="398" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15.5" font-weight="400" fill="#1C1915">için yazmıştım.</text>
+<text x="28" y="432" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" style="font-feature-settings:'tnum' 1">19:42</text>
+<text x="76" y="432" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15.5" font-weight="400" fill="#1C1915">Kargo takip numaranızı alabilir miyim?</text>
+<line x1="28" y1="460" x2="396" y2="460" stroke="#D3C9B6" stroke-width="1" />
+<text x="28" y="491" font-family="Inter, 'Instrument Sans', sans-serif" font-size="13" font-weight="600" fill="#5E564A" text-decoration="underline">Okundu</text>
+<rect x="300" y="470" width="96" height="36" fill="#C93219" rx="4"/>
+<text x="348" y="493.5" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14.5" font-weight="600" fill="#FFF8EE" text-anchor="middle">Yanıtla</text>
+<circle cx="17" cy="569" r="3.6" fill="#C93219"/>
+<circle cx="54" cy="569" r="23" fill="#D9CEB8" stroke="#1C1915" stroke-width="1" stroke-opacity="0.15"/>
+<text x="51.7" y="573.6" font-family="Fraunces, 'Newsreader', serif" font-size="15.64" font-weight="600" fill="#1C1915" text-anchor="middle">EY</text>
+<rect x="60.94" y="575.94" width="22" height="22" fill="#F3EEE3" rx="7"/>
+<rect x="62.94" y="577.94" width="18" height="18" fill="#1C1915" rx="5"/>
+<rect x="68.67" y="583.67" width="6.54" height="6.54" fill="#F3EEE3"/>
+<text x="92" y="563" font-family="Fraunces, 'Newsreader', serif" font-size="18.5" font-weight="600" fill="#1C1915">Elif Yıldırım</text>
+<text x="396" y="563" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#5E564A" text-anchor="end" style="font-feature-settings:'tnum' 1">19:15</text>
+<text x="92" y="586" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="400" fill="#5E564A">Yarın saat 15.00 için yer var mı?</text>
+<text x="396" y="586" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" text-decoration="underline">Okundu</text>
+<line x1="24" y1="612" x2="400" y2="612" stroke="#D3C9B6" stroke-width="1" />
+<circle cx="17" cy="651" r="3.6" fill="#C93219"/>
+<circle cx="54" cy="651" r="23" fill="#E6DDCB" stroke="#1C1915" stroke-width="1" stroke-opacity="0.15"/>
+<text x="51.7" y="655.6" font-family="Fraunces, 'Newsreader', serif" font-size="15.64" font-weight="600" fill="#1C1915" text-anchor="middle">MÖ</text>
+<rect x="60.94" y="657.94" width="22" height="22" fill="#F3EEE3" rx="7"/>
+<rect x="62.94" y="659.94" width="18" height="18" fill="#1C1915" rx="5"/>
+<path d="M71.94 664.95L75.93 671.9L67.95 671.9Z" fill="#F3EEE3"/>
+<text x="92" y="645" font-family="Fraunces, 'Newsreader', serif" font-size="18.5" font-weight="600" fill="#1C1915">Mehmet Öztürk</text>
+<text x="396" y="645" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#5E564A" text-anchor="end" style="font-feature-settings:'tnum' 1">18:52</text>
+<text x="92" y="668" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="400" fill="#5E564A">Fiyat listesini gönderir misiniz?</text>
+<text x="396" y="668" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" text-decoration="underline">Okundu</text>
+<line x1="24" y1="694" x2="400" y2="694" stroke="#D3C9B6" stroke-width="1" />
+<circle cx="17" cy="733" r="3.6" fill="#C93219"/>
+<circle cx="54" cy="733" r="23" fill="#DDD2BD" stroke="#1C1915" stroke-width="1" stroke-opacity="0.15"/>
+<text x="51.7" y="737.6" font-family="Fraunces, 'Newsreader', serif" font-size="15.64" font-weight="600" fill="#1C1915" text-anchor="middle">AD</text>
+<rect x="60.94" y="739.94" width="22" height="22" fill="#F3EEE3" rx="7"/>
+<rect x="62.94" y="741.94" width="18" height="18" fill="#1C1915" rx="5"/>
+<path d="M71.94 746.57L76.31 750.94L71.94 755.31L67.57 750.94Z" fill="#F3EEE3"/>
+<text x="92" y="727" font-family="Fraunces, 'Newsreader', serif" font-size="18.5" font-weight="600" fill="#1C1915">Ayşe Demir</text>
+<text x="396" y="727" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12.5" font-weight="500" fill="#5E564A" text-anchor="end" style="font-feature-settings:'tnum' 1">18:20</text>
+<text x="92" y="750" font-family="Inter, 'Instrument Sans', sans-serif" font-size="14" font-weight="400" fill="#5E564A">Perşembeye alabilir miyiz acaba?</text>
+<text x="396" y="750" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" text-decoration="underline">Okundu</text>
+<line x1="24" y1="800" x2="190" y2="800" stroke="#D3C9B6" stroke-width="1" />
+<line x1="234" y1="800" x2="400" y2="800" stroke="#D3C9B6" stroke-width="1" />
+<rect x="208" y="796" width="8" height="8" fill="#C93219"/>
+<rect x="162" y="864" width="100" height="4.5" fill="#1C1915" rx="2.2"/>
+</g>
+<rect x="40" y="1172" width="550" height="1.4" fill="#1C1915"/>
+<text x="40" y="1199" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">06</text>
+<text x="66" y="1200" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Hareket</text>
+<text x="590" y="1199" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">sayfa çevirme, çizgi çekme</text>
+<rect x="40" y="1220" width="60" height="42" fill="#FAF7F0" rx="3" stroke="#D3C9B6" stroke-width="1"/>
+<path d="M47 1255C56.2 1255 47 1227 93 1227" fill="none" stroke="#1C1915" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="93" cy="1227" r="2.8" fill="#C93219"/>
+<text x="116" y="1237" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Kart genişleme</text>
+<text x="116" y="1256" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Yükseklik açılır, mesajlar 40 ms arayla belirir.</text>
+<text x="590" y="1237" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">320 ms</text>
+<text x="590" y="1256" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="end">cubic-bezier(0.2, 0, 0, 1)</text>
+<line x1="40" y1="1274" x2="590" y2="1274" stroke="#D3C9B6" stroke-width="1" />
+<rect x="40" y="1284" width="60" height="42" fill="#FAF7F0" rx="3" stroke="#D3C9B6" stroke-width="1"/>
+<path d="M47 1319C60.8 1319 83.8 1314.8 93 1291" fill="none" stroke="#1C1915" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="93" cy="1291" r="2.8" fill="#C93219"/>
+<text x="116" y="1301" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Okundu ile kaybolma</text>
+<text x="116" y="1320" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Köşe kıvrılır, kart yukarı katlanıp kapanır.</text>
+<text x="590" y="1301" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">240 ms</text>
+<text x="590" y="1320" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="end">cubic-bezier(0.3, 0, 0.8, 0.15)</text>
+<line x1="40" y1="1338" x2="590" y2="1338" stroke="#D3C9B6" stroke-width="1" />
+<rect x="40" y="1348" width="60" height="42" fill="#FAF7F0" rx="3" stroke="#D3C9B6" stroke-width="1"/>
+<path d="M47 1383C60.8 1359.2 60.8 1355 93 1355" fill="none" stroke="#1C1915" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="93" cy="1355" r="2.8" fill="#C93219"/>
+<text x="116" y="1365" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Kanal geçişi</text>
+<text x="116" y="1384" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Dolgu balondan balona kayar, liste 16 dp çevrilir.</text>
+<text x="590" y="1365" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">280 ms</text>
+<text x="590" y="1384" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="end">yay · sönüm 0,9 · sertlik 380</text>
+<line x1="40" y1="1402" x2="590" y2="1402" stroke="#D3C9B6" stroke-width="1" />
+<rect x="40" y="1412" width="60" height="42" fill="#FAF7F0" rx="3" stroke="#D3C9B6" stroke-width="1"/>
+<path d="M47 1447C65.4 1447 56.2 1419 93 1419" fill="none" stroke="#1C1915" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="93" cy="1419" r="2.8" fill="#C93219"/>
+<text x="116" y="1429" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Çizgi çekme</text>
+<text x="116" y="1448" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Ayırıcılar soldan sağa çizilir, 40 ms kademeli.</text>
+<text x="590" y="1429" font-family="Inter, 'Instrument Sans', sans-serif" font-size="15" font-weight="600" fill="#1C1915" text-anchor="end" style="font-feature-settings:'tnum' 1">360 ms</text>
+<text x="590" y="1448" font-family="Inter, 'Instrument Sans', sans-serif" font-size="10.5" font-weight="400" fill="#5E564A" text-anchor="end">cubic-bezier(0.4, 0, 0.2, 1)</text>
+<rect x="610" y="1172" width="550" height="1.4" fill="#1C1915"/>
+<text x="610" y="1199" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#C93219" letter-spacing="0.6">07</text>
+<text x="636" y="1200" font-family="Fraunces, 'Newsreader', serif" font-size="20" font-weight="600" fill="#1C1915">Ses ve üslup</text>
+<text x="1160" y="1199" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="400" fill="#5E564A" text-anchor="end">okuryazar, sakin, net</text>
+<text x="626" y="1236" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#C93219">Boş durum</text>
+<text x="740" y="1236" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Bugünün postası temiz.</text>
+<text x="740" y="1253" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Yeni mesajlar geldikçe burada,</text>
+<text x="740" y="1268" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">geliş sırasıyla sizi bekler.</text>
+<line x1="610" y1="1274" x2="1160" y2="1274" stroke="#D3C9B6" stroke-width="1" />
+<text x="626" y="1300" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#C93219">İzin açıklaması</text>
+<text x="740" y="1300" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Bildirimlere erişim</text>
+<text x="740" y="1317" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">TekPanel mesajları yalnızca bildirimlerden okur.</text>
+<text x="740" y="1332" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Hiçbir şey telefonunuzdan çıkmaz.</text>
+<text x="1160" y="1300" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end" text-decoration="underline">İzni ver</text>
+<line x1="610" y1="1338" x2="1160" y2="1338" stroke="#D3C9B6" stroke-width="1" />
+<text x="626" y="1364" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#C93219">Ekranı temizle</text>
+<text x="740" y="1364" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Ekran temizlensin mi?</text>
+<text x="740" y="1381" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Konuşmalar okundu sayılır. Mesajlar kendi</text>
+<text x="740" y="1396" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">uygulamalarında durmaya devam eder.</text>
+<text x="1160" y="1364" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#951A2D" text-anchor="end">Temizle</text>
+<text x="1098" y="1364" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#1C1915" text-anchor="end">Vazgeç</text>
+<line x1="610" y1="1402" x2="1160" y2="1402" stroke="#D3C9B6" stroke-width="1" />
+<rect x="610" y="1410" width="3" height="48" fill="#951A2D"/>
+<text x="626" y="1428" font-family="Inter, 'Instrument Sans', sans-serif" font-size="11.5" font-weight="600" fill="#951A2D">Hata</text>
+<text x="740" y="1428" font-family="Fraunces, 'Newsreader', serif" font-size="17" font-weight="600" fill="#1C1915">Erişim kesildi.</text>
+<text x="740" y="1445" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Bildirim izni kapanmış olabilir.</text>
+<text x="740" y="1460" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="400" fill="#5E564A">Ayarlardan yeniden açalım.</text>
+<text x="1160" y="1428" font-family="Inter, 'Instrument Sans', sans-serif" font-size="12" font-weight="600" fill="#951A2D" text-anchor="end" text-decoration="underline">Ayarlara git</text>
+</svg>

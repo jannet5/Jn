@@ -53,6 +53,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // How the app asks for money: donate (default, nothing is ever locked) | trial_silent |
+        // trial_warn (the two A/B test variants). Chosen per build: -Pmonetization=trial_warn
+        buildConfigField("String", "MONETIZATION", "\"${providers.gradleProperty("monetization").getOrElse("donate")}\"")
     }
 
     buildTypes {
@@ -95,6 +99,18 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    // "sideload": the APK you can hand to anyone. No billing, no update library, and no network
+    // code at all, so the "your data never leaves the phone" promise is literally true.
+    // "play": the Google Play build. Adds Play Billing (supporter plans). Updates: Google Play updates
+    // the app by itself; the in-app update library is deliberately NOT used because it drags in the
+    // INTERNET permission (via Google Data Transport) and would break the "no internet" promise.
+    flavorDimensions += "dist"
+    productFlavors {
+        create("sideload") { dimension = "dist" }
+        create("play") { dimension = "dist" }
     }
 
     packaging {
@@ -145,6 +161,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+
+    "playImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")

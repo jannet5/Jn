@@ -104,6 +104,21 @@ class ScreenshotTest {
         shot("11-dinleme-duraklamis")
     }
 
+    @Test fun support_sheet() {
+        val plans = listOf(
+            com.tekpanel.app.monetization.SupportPlan("monthly", 1, "₺189,99", null),
+            com.tekpanel.app.monetization.SupportPlan("quarterly", 3, "₺379,99", 33),
+            com.tekpanel.app.monetization.SupportPlan("semiannual", 6, "₺759,99", 33),
+            com.tekpanel.app.monetization.SupportPlan("yearly", 12, "₺1.709,99", 25),
+        )
+        compose.setContent {
+            TekPanelTheme {
+                com.tekpanel.app.ui.support.SupportContent(plans = plans, supporter = false, trialEnded = false, onBuy = {}, onDismiss = {})
+            }
+        }
+        shot("12-destek-plani")
+    }
+
     @Test fun main_empty() {
         main(ScreenshotFixtures.state(tmp.newFolder(), empty = true))
         shot("08-bos")

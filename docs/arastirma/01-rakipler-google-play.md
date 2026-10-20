@@ -1,12 +1,12 @@
 # Google Play rakipleri: bildirim toplayıcılar ve gelen kutuları
-
 Araştırma kolu: play-rakipler
 
 Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 
 ## Kısa özet
 
-- 46 Play uygulaması incelendi. Kartı olanlar aşağıda.
+- Play'de 150'den fazla uygulama sayfası tarandı. 57'si aşağıda kartla
+  anlatılıyor (Play linkli).
 - Özellik sayımı için 20 bildirim uygulaması seçildi.
 - Pazarın gerçek talebi: "silinen mesajı gör" ve "görüldü atmadan oku".
   - WAMR 100M+, Notisave 10M+, Auto RDM 10M+ kurulum.
@@ -34,8 +34,8 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
     sayfasından ve geliştiricinin açıklama metninden aldım.
 - Türkiye mağazası (hl=tr, gl=TR) 8 uygulama için ayrıca okundu (TL fiyatlar).
 - Yorumlar: Play'in web arayüzünün kullandığı yorum ucu ile çekildi.
-  - 48 uygulama için "en alakalı" 100 + "en yeni" 100 yorum.
-  - Notisave için 1.559 benzersiz yorum.
+  - 47 uygulama için "en alakalı" 100 + "en yeni" 100 yorum (~8.000 satır).
+  - Notisave için ayrıca 1.559 benzersiz yorum.
   - Örnek rastgele değil. Sayılar yön gösterir, kesin oran değildir.
   - Tema sayıları anahtar kelime taramasıyla çıkarıldı (kaba).
 - Ekran görüntüleri: Play'deki mağaza görselleri indirildi, notlar alındı,
@@ -91,7 +91,11 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
   - Samsung Good Lock modülü (Galaxy Store, Play'de değil).
   - Play'de MakLab Apps'in "Notistar - Notification History" uygulaması.
 - "Unified Inbox" benzerleri: Chatter | Unified Inbox (1K+), iCloud-Ready Unified
-  Inbox (500+), respond.io, Spike. Hepsi e-posta veya bulut tabanlı.
+  Inbox (500+), Rasayel Inbox (1K+), respond.io, Spike. Hepsi bulut ve hesap
+  tabanlı (WhatsApp Business API, e-posta, ekip kutusu); bildirimden değil.
+  - https://play.google.com/store/apps/details?id=com.chatterapp
+  - https://play.google.com/store/apps/details?id=com.icloudready.unified_inbox
+  - https://play.google.com/store/apps/details?id=io.rasayel.app
 - Eskiden APUS Message Center vardı (bildirimleri tek yerde toplayan, hızlı
   cevaplı). Play'de artık bulunamadı (ABD mağazasında 404). Son sürüm 3.4.5,
   2019-2020.
@@ -288,7 +292,8 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 - Paket: org.hcilab.projects.nlog
 - Konum: Stuttgart Üniversitesi insan-bilgisayar etkileşimi grubunun araştırma
   projesi. Kaydeder, listeler, JSON olarak dışa aktarır.
-- Fiyat: ücretsiz, reklamsız (uygulama içi ürünler 1,99-5,49 dolar; ne olduğu doğrulanamadı).
+- Fiyat: ücretsiz, reklamsız. Uygulama içi ürünler 1,99-5,49 dolar (ne olduğu
+  doğrulanamadı).
 - Puan: 4,21 (3.386). İndirme: 500K+. Son güncelleme: Eylül 2019 (terk edilmiş).
 - Veri güvenliği: veri toplamıyor, paylaşmıyor.
 - Arayüz: en sade örnek. Liste: simge + başlık + metin. Ayrıntıda ham
@@ -542,6 +547,7 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 - Özellikler: kelime filtresi, uygulama bazlı kontrol, takvim, özel alarm
   (tam ekran / kayan), geçmiş, webhook, Wear OS, haftalık rapor.
 - Fiyat: reklamlı + ürünler 9,99-13,99 dolar. Puan: 3,91 (1.691). 50K+.
+- Veri güvenliği: paylaşım yok; uygulama etkinliği verisi toplanıyor.
 - Arayüz (mağaza görselleri): kural listesi, her satırda uygulama + etiketler
   ve anahtar. Kural formu: dahil / hariç anahtar kelimeler. Rapor ekranı: günlük
   ortalama, çubuk grafik, en çok bildirim gönderen uygulamalar.
@@ -557,6 +563,7 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 - Özellikler: balondan hızlı cevap, kilit ekranından erişim, bildirim
   geçmişi, uygulama kara listesi, yedekle-geri yükle (dosya).
 - Fiyat: ücretsiz, reklamsız, 0,89 dolar ürün. Puan: 3,79 (1.079). 100K+.
+- Veri güvenliği: paylaşım yok; bazı kişisel bilgi toplanıyor.
 - Aynı geliştiricinin ücretli kardeşi: notifyAI, 4,99 dolar, 100+ kurulum:
   https://play.google.com/store/apps/details?id=com.dowble.nbubble
 - Arayüz (mağaza görselleri): panel başlığı "Notifications - Swipe to act".
@@ -592,7 +599,9 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 ## B11) Notifiltr (Nalarin), kısaca
 
 - Link: https://play.google.com/store/apps/details?id=com.nalarin.notifiltration
-- Uygulama veya kelimeyle engelle + geçmiş. 3,64 (278). 1K+. 1,99-19,99 dolar.
+- Paket: com.nalarin.notifiltration. Uygulama veya kelimeyle engelle + geçmiş.
+  3,64 (278). 1K+. Ürünler 1,99-19,99 dolar. Veri: çökme günlüğü paylaşılıyor.
+  Arayüz ekran görüntüsü incelenmedi.
 - Yorum: "puan vermeden devam etmiyor" ve "susturmak için ömür boyu ödeme"
   (2026-04, 2026-07). Zorla puan istemek ve sert paywall tepkisi aldı.
 
@@ -640,6 +649,7 @@ Tarih: 20 Ekim 2026 (tüm sayılar bu tarihte Play'den okundu)
 - Aynı geliştirici (Firehawk, Notisave'in sahibi). Kardeşi: "Unseen - No Last
   Seen" 10M+, puan 4,56 (388.327): https://play.google.com/store/apps/details?id=com.tda.unseen
 - Puan: 4,44 (17.681). 5M+. Reklam + ürünler 0,99-99,99 dolar.
+- Veri güvenliği: cihaz kimliği gibi veriler üçüncü taraflarla paylaşılıyor.
 - Özellikler: bildirimlerden yedek, "tüm mesajlar tek yerde", galeri, arama
   ("kişi adı" veya "tam mesaj" seçerek), yedekten geri yükleme.
 - Arayüz (mağaza görselleri): üstte "Tüm Mesajlar - 98 bildirim ve mesaj"
@@ -768,6 +778,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 - Özellikler: ortak gelen kutu, yapay zekâ ajanı, sohbet atama, iç yorum
   ve @bahsetme, aramalar, yapay zekâ ile cevap taslağı ve çeviri.
 - Fiyat: uygulama ücretsiz, platform abonelik. Puan: 4,43 (353). 100K+.
+- Veri güvenliği: paylaşım yok; ad gibi kişisel bilgi toplanıyor.
 - Arayüz (mağaza görselleri): sohbet başlığında kişi + arama + onay. Altında
   "AI Agent" ve "Hot Lead" etiketi. Dahili yorum turuncu kutu. Gelen aramada
   "Reddet / Kabul" bandı.
@@ -782,6 +793,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 - Konum: WhatsApp Business API ekip gelen kutusu (hesap şart).
 - Özellikler: ortak ekip kutusu, yayın (broadcast), kampanya takibi, hızlı cevap.
 - Puan: 3,67 (969). 100K+. Yorum örneklemi ortalaması 2,32.
+- Veri güvenliği: paylaşım yok; uygulama etkinliği toplanıyor.
 - Arayüz (mağaza görselleri): üstte süzgeç kapsülleri: Tüm sohbetler,
   Aktif, Yayın, Atanmamış. Satırda durum etiketi: Çözüldü, Süresi doldu,
   Açık. Sohbette "/" yazınca hızlı cevap listesi. "Operatör seç" alt paneli
@@ -794,7 +806,15 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 
 - Link: https://play.google.com/store/apps/details?id=com.haptik.interakt
 - Paket: com.haptik.interakt
-- Ortak ekip kutusu, sohbet atama, otomasyon. Puan: 3,83 (2.412). 100K+.
+- Konum: Jio Haptik'in WhatsApp Business API ortak ekip kutusu. Hesap şart.
+- Özellikler: ortak ekip kutusu, sohbet atama, hazır cevaplar, etiketler,
+  otomasyon. Ürünler 0,49-21,99 dolar (plan türü belirsiz).
+- Puan: 3,83 (2.412). İndirme: 100K+. Veri: çökme günlüğü paylaşılıyor.
+- Arayüz (mağaza görselleri): üstte "Tüm sohbetler" açılır başlık + arama +
+  süz. Sekmeler: Açık | Kapalı. Satır: avatar + ad + önizleme + renkli etiket
+  (örn. "Ödeme sorunu", "Ürün teslim edilmedi") + saat. Süzgeç alt paneli:
+  "Atanan" ve "Konuşma etiketi". "/" yazınca hazır cevap listesi ("/Sipariş
+  teslimi", "/Yeni fiyat"). "Sohbeti ata" paneli: ekip listesi + arama.
 - Yorumlar (ortalama 2,25): "açık sohbetler bazen boş görünüyor" (2021-11),
   "PWA gibi yavaş, bildirim gecikmeli, kaçırılan sohbet" (2023-07),
   "sesli uyarı yok" (2025-08).
@@ -802,17 +822,31 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 ## D8) Callbell, Superchat, JivoChat (kısaca)
 
 - Callbell: https://play.google.com/store/apps/details?id=com.callbell.mobilechat
+  - Paket: com.callbell.mobilechat. İndirme 50K+. Ücretsiz uygulama, hesap ve
+    abonelik masaüstünden.
   - WhatsApp, Messenger, Instagram, Telegram ortak kutusu; masaüstü hesabı
-    şart. Puan 2,0 (209). Yorum: "WhatsApp entegrasyonu işe yaramadı, müşteri
+    şart. Puan 2,0 (209). Veri: ses kaydı, mesaj, kişiler paylaşılıyor
+    (Veri güvenliği sayfası). UI: ekran görüntüsü incelenmedi. Yorum: "WhatsApp entegrasyonu işe yaramadı, müşteri
     kaybettim" (2020-04). Seven: "küçük işletmede birden çok kişi aynı
     WhatsApp'ı kullanıyor" (2020-08).
 - Superchat: https://play.google.com/store/apps/details?id=com.superxsuperchat
+  - Paket: com.superxsuperchat. İndirme 50K+. Veri: paylaşım yok, bazı kişisel
+    bilgi toplanıyor.
   - WhatsApp, Instagram, e-posta, Telegram, SMS, Messenger. Puan 4,08 (193).
-    Yorum: "iptal etmek neredeyse imkânsız, tahsilata gönderildi, 109 euro"
+  - Arayüz: "Tüm gelen kutuları" + arama. Sekmeler: Açık | Ertelenen | Bitti.
+    Satırda avatar (köşede kanal rozeti), etiket kapsülleri (Pazarlama, Satış),
+    önizleme, saat, kırmızı okunmamış noktası. Yazarken yapay zekâ menüsü
+    (kısalt, yazım, ton, çevir).
+  - Yorum: "iptal etmek neredeyse imkânsız, tahsilata gönderildi, 109 euro"
     (2025-05).
 - JivoChat: https://play.google.com/store/apps/details?id=com.jivosite.mobile
-  - Web sitesi canlı sohbet + çok kanal. Puan 4,55 (23.983). 1M+. Yorum: giriş
-    sonrası sonsuz dönüyor (2021-03); mesaj 10 sn geç görünüyor (2019-08).
+  - Paket: com.jivosite.mobile. Web sitesi canlı sohbet + çok kanal.
+  - Puan 4,55 (23.983). 1M+. Veri: cihaz kimliği reklam/analitik için paylaşılıyor.
+  - Arayüz: alt çubukta 5 sekme: Inbox, Konuşmalarım, Ziyaretçiler, Ekip,
+    Arşiv. Inbox satırı: renkli avatar + ad + önizleme + yeşil okunmamış sayısı.
+    Üstte arama, telefon ve çevrimiçi/çevrimdışı anahtarı.
+  - Yorum: giriş sonrası sonsuz dönüyor (2021-03); mesaj 10 sn geç görünüyor
+    (2019-08).
 - Ortak desen: kurulumu hesap/API istiyor, abonelik iptali zor, mobil uygulama
   masaüstüne göre zayıf ve bildirim gecikmeli.
 
@@ -824,6 +858,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 - Özellikler: uygulama kısayolları ve web oturumları, iki hesap, parola kilidi,
   kullanım istatistiği.
 - Fiyat: reklam + 2,99-11,99 dolar ürün. Puan: 4,52 (25.050). 1M+.
+- Veri güvenliği: paylaşım yok olarak beyan ediyor.
 - Arayüz (mağaza görselleri): "My apps" ızgarası (simge + okunmamış rozeti),
   "Tüm uygulamalar" listesi (arama + kategori sekmeleri), açık uygulama
   sekmeleri yatay şeritte, parola kilidi tuş takımı.
@@ -838,11 +873,16 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 ## D10) Kısaca: Spike, SMS Organizer
 
 - Spike (e-posta + ekip sohbeti): https://play.google.com/store/apps/details?id=com.pingapp.app
-  - "Mesajı kişiye göre grupla" e-posta kutusu. 4,05 (19.296). 1M+.
-    Yorumlar: özellikler ödeme duvarının arkasına taşındı (2022-09).
+  - Paket: com.pingapp.app. "Mesajı kişiye göre grupla" e-posta kutusu.
+    4,05 (19.296). 1M+. Abonelik 7,99-144,99 dolar. Veri: e-posta adresi
+    analitik için paylaşılıyor. Arayüz: sohbet görünümlü e-posta, okundu
+    göstergesi; ekran görüntüsü ayrıntılı incelenmedi.
+  - Yorumlar: özellikler ödeme duvarının arkasına taşındı (2022-09).
 - SMS Organizer (Microsoft): https://play.google.com/store/apps/details?id=com.microsoft.android.smsorganizer
-  - SMS'i otomatik düzenler, hatırlatma çıkarır, cihazda çalışır. 1M+. Son
-    güncelleme Eylül 2024. Cihazda sınıflandırma fikrinin iyi örneği.
+  - Paket: com.microsoft.android.smsorganizer. SMS'i otomatik düzenler,
+    hatırlatma çıkarır, "kişisel veri çevrimiçi yüklenmez" diyor. 1M+. Son
+    güncelleme Eylül 2024. Veri: paylaşım yok. Cihazda sınıflandırma fikrinin
+    iyi örneği. Arayüz ekran görüntüsü incelenmedi.
 - Beklenmedik: eski APUS Message Center artık Play'de yok (yukarıda).
 
 # Grup E: telefon-PC ve çok cihaz
@@ -871,7 +911,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 - Özellikler: telefon bildirimlerini PC'de gör, kapatınca telefonda da kapanır,
   WhatsApp gibi uygulamalara PC'den cevap, SMS, dosya ve bağlantı paylaşımı.
 - Fiyat: ücretsiz + Pro (4,99-39,99 dolar). Puan: 4,23 (189.824). 5M+.
-  Son güncelleme: Ağustos 2025.
+  Son güncelleme: Ağustos 2025. Veri: paylaşım yok.
 - Tarihçe: 2015'te Pro planı (aylık 5 / yıllık 40 dolar) ve ücretsiz kotalar:
   https://cio.de/a/pushbullet-introduces-pro-plan-with-some-free-features-going-behind-the-paywall,3250742
   Güncel fiyatı doğrulayamadım (resmi sayfa yüklenmedi).
@@ -899,7 +939,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
   Android için PC ve telefonda aynı Microsoft hesabı şart. iPhone: bildirim
   ve mesaj sınırlı, "oturum tabanlı", telefon PC'ye bağlıyken geliyor.
   https://www.microsoft.com/en-us/windows/sync-across-your-devices
-- Puan: 3,9 (1.311.500). İndirme: 1B+.
+- Puan: 3,9 (1.311.500). İndirme: 1B+. Veri: paylaşım yok.
 - Yorumlar: "bağlantı sorunları, yeni telefonu bağlayamıyorum" (2026-02,
   1.576 faydalı). Aramada yankı (2024-11).
 
@@ -929,6 +969,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 ## F2) NotiRecall (RakshaLink Labs)
 
 - Link: https://play.google.com/store/apps/details?id=com.notirecall.app
+- Paket: com.notirecall.app. Veri: toplamıyor, paylaşmıyor.
 - 100+ kurulum. Ücretsiz katman: en çok 3 uygulama ve 7 gün; Pro ürün 7,99 dolar
   (tek seferlik görünüyor). Uygulama kilidi, bekletme süresi, hassas uygulamalar
   (banka, ödeme, parola) VARSAYILAN KAPALI, "yeni uygulama sen seçene kadar kapalı",
@@ -948,7 +989,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 ## F4) AI Notifications (Summaries) ve benzerleri
 
 - https://play.google.com/store/apps/details?id=cc.jamesturner.ai_notification_summaries
-  (1K+, 4,4 / 19 puan). "NotifAI - AI Summary" 100+, "Cortex-AI Notification
+  (paket aynı; 1K+, 4,4 / 19 puan; veri toplamıyor; ürünler 1,99-9,49 dolar). "NotifAI - AI Summary" 100+, "Cortex-AI Notification
   Manager" 500+. Cihazda mı bulutta mı özetlediği doğrulanamadı. Pazarda
   bildirim özetleme küçük ve yeni.
 
@@ -986,7 +1027,7 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
   - Paket adında "tenqube" geçiyor. Sahipliğin başka bir şirketten Firehawk'a
     geçtiği doğrulanamadı.
   - Firehawk'ın diğer ürünleri: Unseen Messenger (5M+) ve Unseen - No Last
-    Seen (10M+, 4,56 puan, 388.327 yorum).
+    Seen (10M+, 4,56 puan, 388.327 puan sayısı).
 - Puan 4,51 (104.915). İndirme 10M+ (sayfa verisinde ~43,8 milyon).
 - Son güncelleme: 14 Ocak 2026. İçerik: Herkes.
 - Fiyat: ücretsiz + reklam + uygulama içi ürünler 0,99-99,99 dolar
@@ -1013,6 +1054,15 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
 - Bildirim engelleme: "All apps" listesi, her uygulama için anahtar, arama.
   Açıklama: "Seçili uygulamaların bildirimleri durum çubuğunda engellenir".
 - Kilit: parola ve parmak izi.
+- Cevap yazma: Play metni söylemiyor ama yorumlar var. Kullanıcılar WhatsApp,
+  Instagram, Messenger mesajlarına uygulamadan cevap yazabildiğini anlatıyor
+  ("ilk uygulamayı açmadan cevaplıyorum", 2026-10; "son görülmem değişmeden
+  cevaplıyorum", 2021-08; 2018-12).
+  - Bazı sürümlerde cevap kutusu kayboldu (2020-02, 2022-05).
+  - "Arka plandan kaldırınca eski mesajlara cevap veremiyorum, sadece yeni
+    gelenlere" (2020-03). Çıkarım: cevap, canlı bildirimin cevap eylemine
+    bağlı çalışıyor; bildirim yaşamı bitince cevap da bitiyor.
+  - İstek/şikayet olarak da geçiyor (2019-03, 2020-05, 2020-07, 2025-03).
 - Eski sürüm (2019): New / All / Chat / SNS / Shop sekmeleri, uygulama başına
   kart, kartta zil simgesi (muhtemelen sustur), "(15 mesaj)" sayacı, New'da onay
   işareti ile temizle, koyu tema (MobileSyrup).
@@ -1070,7 +1120,8 @@ Dokununca ne oluyor:
   https://play.google.com/store/apps/details?id=com.tenqube.notisave
 - Yorumlardan fiyat (2026): 3 günlük deneme, sonra HAFTALIK. Rakamlar farklı:
   - "$14,99 hafta" (2026-04, 2026-06), "14,99 sterlin hafta" (2026-10),
-    "£14,99 / 20 dolar hafta" (2026-07), "14 CHF hafta" (2026-05), "€15 hafta ve VIP destek" (2026-05),
+    "£14,99 / 20 dolar hafta" (2026-07), "14 CHF hafta" (2026-05),
+    "€15 hafta ve VIP destek" (2026-05),
     "$18,99 hafta" (2026-02), "$23 hafta" (2026-10).
   - Eski "Ömür boyu Premium (reklamsız)" alanlar: güncellemeden sonra reklam
     görüyor ve "haftalık $4,99" istenmiş (2026-08).
@@ -1080,6 +1131,8 @@ Dokununca ne oluyor:
 ## Kullanıcıların sevdiği şeyler
 
 - Silinen mesajı okumak, görüldü atmadan okumak (2020-2025 yorumlarda çok).
+- Uygulamadan cevap yazabilmek (WhatsApp'ı açmadan): 2018-12, 2021-08,
+  2026-10 yorumları.
 - Bildirim çubuğunu temizleyip kaydı saklaması: "yer açılıyor, önemli DM'ler
   kalıyor" (2019-04, 100 faydalı).
 - Yıllarca arka planda sessiz çalışması: "4 yıldır kullanıyorum, sadece bir şey
@@ -1096,7 +1149,10 @@ Tema sayıları (kaba anahtar kelime taraması; bir yorum birden çok temada):
 - Reklam: 43. Abonelik ve fiyat: 39 (2026'da artıyor: 2026'daki 104 düşük
   puanlı yorumun 20'si reklam, 19'u fiyat, 17'si "çalışmıyor").
 Öne çıkan şikayetler:
-- Fotoğraf yok: yerine "Sent a photo" yazıyor (2021-12, 2.112 faydalı).
+- Fotoğraf: yerine "Sent a photo" yazıyor (2021-12, 2.112 faydalı); "yalnız
+  metin yedekleniyor, medya gönderen silmediği sürece görünüyor" (2026-02).
+  Ama 2018-12 ve 2020-08 yorumları "medyayı da kaydediyor" diyor; sürüme göre
+  değişmiş olabilir, tutarsız.
 - Bir süre sonra kayıt durur: "bir hafta çalıştı, sonra durdu" (2021-04,
   1.843 faydalı).
 - Çubuğu izinsiz boşaltması: "kurunca tüm okunmamış bildirimlerimi sildi,
@@ -1156,9 +1212,11 @@ Düşük puanlı (3 yıldız ve altı) yorumlardaki tema oranları. Kaba tarama.
   - Cevap verme: 107 (%8). Arayüz: 83 (%6).
 - Tüm 29 bildirim uygulamasında 3.684 yorumda ayrıca:
   - Medya/fotoğraf isteği %3,8. İzin sorunu %0,9. Yavaşlık/kasma %0,9.
-  - Cevap verme isteği yalnızca %0,1 (3 yorum).
+  - Cevap verme: Notisave'in 1.559 yorumunda ~13 yorum (%0,8) hem seviyor
+    hem özlüyor ("cevap kutusu kayboldu", "cevap yazabilsem 5 yıldız verirdim").
+    Diğer uygulamalarda neredeyse hiç anılmıyor.
   - Yani kasma önemli ama kategorinin ana derdi değil; ana dert güvenilirlik,
-    reklam ve fiyat.
+    reklam ve fiyat. Cevap verme küçük ama gerçek bir talep.
 - Aynı şikayet, birden çok bağımsız uygulamada tekrar ediyor (güvenilir bulgu):
   "bir süre sonra kayıt durur", "reklam ve haftalık fiyat", "fotoğraf yok",
   "izin tekrar kapanır", "tümünü seç yok".
@@ -1361,3 +1419,309 @@ Düşük puanlı (3 yıldız ve altı) yorumlardaki tema oranları. Kaba tarama.
   - https://9to5google.com/2024/09/12/android-15-sideloaded-apps-restrictions/
   - https://androidauthority.com/android-15-restricted-settings-sideloading-3481098
   - https://chromeunboxed.com/android-13-restricted-setting-feature-blocks-sideloaded-apps-from-notifications/
+
+# Türkiye pazarı notları (Play TR aramaları, 20 Ekim 2026)
+
+- "bildirim geçmişi" aramasında ilk 10 sonuç yerelleştirilmiş başlıklar
+  kullanıyor ("Bildirim Geçmişi", "Bildirim Geçmişi Günlüğü"): svprdga,
+  DroidNova, ZipoApps, ServeAny, LuckerDeveloper, BinaryScript, ThunderCraft,
+  Lufesu, NotiHub. Geliştirici adlarına göre hiçbiri Türk geliştirici değil
+  (adlardan çıkarım).
+- "bildirim kaydedici": Tiny Falcon "Bildirim Kaydedici" (4,4) birinci, Notisave
+  ikinci. "silinen mesajları gör": WAMR birinci ("WAMR: silinen mesajlar").
+  "bildirim yöneticisi": BinaryScript birinci.
+- "işletme mesaj paneli", "müşteri mesajları tek yerde", "whatsapp instagram
+  mesajları tek ekranda" aramalarında anlamlı bir yerli ürün çıkmadı. Sonuçlar
+  SMS uygulamaları, toplu mesaj göndericiler, WhatsApp Business ve Interakt.
+  Yani Türkçe konuşan küçük işletme için "mesaj paneli" boş görünüyor.
+- Yerli komşular: Bookio (randevu), TekPanel: Sipariş Yönetimi (sipariş),
+  Trendyol Satıcı Paneli. Mesajlar ve bildirimler için yerli bir ürün yok.
+- Türkçe aramalar şu kelimeleri gösteriyor: "bildirim geçmişi", "bildirim
+  kaydedici", "silinen mesajlar", "bildirim yöneticisi". Mağaza başlığı ve
+  açıklaması bunları içermeli.
+- TL fiyat çıpaları "Fiyat modelleri" bölümünde.
+- Ad çakışması: F5 kartı ("TekPanel: Sipariş Yönetimi").
+
+# 20 uygulamanın özellik sayımı (madde madde)
+
+Sayılan 20 bildirim uygulaması:
+Notisave, Notification History Log (ZipoApps), Recent Notification,
+Notification History Log (Arcangelo), Notifications archive, Norg,
+Notification History (svprdga), NotiSaver (HexCoders), NLog,
+Notification Manager - History (BinaryScript), Past Notifications,
+Notification History Pro, BuzzKill, FilterBox, Nap, DoNotNotify, WAMR,
+Auto RDM, Unseen Messenger, NotiWeave.
+
+Nasıl sayıldı:
+- Kanıt = Play metni, mağaza ekran görüntüsü veya yorum.
+- Kanıt bulamadığım özellik SAYILMADI. Yani sayılar alt sınır.
+- Uygulamaları çalıştırmadım, kod okumadım.
+
+Sayımlar:
+- Bildirim geçmişi kaydı: 20/20 (tanım gereği).
+- Arama: 14/20.
+  - Notisave, NHL-Zipo, NHL-Arcangelo, Archive, Norg, svprdga, HexCoders,
+    BinaryScript, Past Notifications, NH Pro, FilterBox, Nap, Unseen, NotiWeave.
+  - Yok veya kanıtsız: Recent Notification, NLog, BuzzKill, DoNotNotify, WAMR,
+    Auto RDM.
+- Uygulamaya veya tarihe göre süzme: 13/20.
+  - Notisave, NHL-Zipo, Recent, Archive, Norg, svprdga, HexCoders, BinaryScript,
+    Past Notifications, NH Pro, FilterBox, Nap, NotiWeave.
+- Uygulamaya göre gruplu liste: 9/20.
+  - Notisave, NHL-Zipo, Recent, Archive, Norg, HexCoders, BinaryScript,
+    Past Notifications, NH Pro.
+- Kişiye göre sohbet veya kişi listesi: 6/20.
+  - Notisave, HexCoders, WAMR, Auto RDM, Unseen, NotiWeave.
+  - Sohbet balonu görünümü kanıtlı: 4/20 (Notisave, HexCoders, WAMR, NotiWeave).
+- Aynı kişiyi uygulamalar arası birleştirme: 1/20 (NotiWeave, kendi iddiası).
+- Okunmamış/okundu durumu: 5/20.
+  - Notisave, HexCoders, Unseen, NotiWeave, Norg (toplu okundu, Premium).
+- Uygulama seçme veya kara liste: 19/20 (NLog hariç).
+- "Tümünü seç / seçimi kaldır" kanıtı: 1/20 (NHL-Zipo). WAMR'da yok şikayeti.
+  - Telefon-PC tarafında Bridge'de var (20'ye dahil değil).
+- Seçilenleri listede üste alma ("kullanımda" bölümü): 1/20 (NotiWeave).
+- Mesaj sayısına göre uygulama sıralama: kanıt bulunamadı, 0/20.
+  - Sayaç gösterenler var (NH Pro, Past Notifications "Count"), sıralayan yok.
+- Uygulama kilidi (parmak izi, yüz, parola): 3/20.
+  - Notisave, BinaryScript, FilterBox.
+- Dışa aktarma veya yedek: 9/20.
+  - NHL-Zipo, NHL-Arcangelo, Archive, NLog, Norg, BinaryScript (abonelik),
+    Nap, Auto RDM, Unseen.
+- Ana ekran widget'ı: 5/20.
+  - NHL-Zipo, Recent, Norg, NH Pro, FilterBox.
+- Bildirimi çubuktan kaldırıp kayıtta tutma: 8/20.
+  - Notisave, Archive, Norg, BinaryScript, BuzzKill, FilterBox, Nap, DoNotNotify.
+- Kural, anahtar kelime, regex: 3/20 tam.
+  - BuzzKill, FilterBox, DoNotNotify.
+  - Kısmi: Past Notifications (kelime yok say), NH Pro (filtre), Nap (zaman).
+- Fotoğraf/medya kaydı: 5/20 net.
+  - Archive, NHL-Zipo, WAMR, Auto RDM, Unseen.
+  - Notisave kısmi/tutarsız (yorumlar çelişiyor, yukarıda).
+- Konuşma görünümü ve medya birlikte, reklamsız: 0/20.
+  - Konuşma + medya olanlar (WAMR, Auto RDM, Unseen) hepsi reklamlı ve
+    "silinen mesaj" odaklı.
+- Uygulama içinden cevap verme: 1/20 kısmi (Notisave, yalnız yorumlara göre,
+  canlı bildirim eylemiyle).
+  - BuzzKill yalnız otomatik cevap kuralı. Norg'da kullanıcı istiyor (2020-11).
+  - Dışarıda var: nBubble, Notification Widget, Bridge, Beeper.
+- "Okundu yap" düğmesi (orijinal bildirimi okundu yapma): 0/20.
+  - Dışarıda var: nBubble, Notification Widget, Bridge.
+- Dokununca orijinal uygulamayı veya mesajı açma: 4/20 kanıtlı.
+  - Notisave, Recent, Norg, NH Pro. Bozuk bildirilen: HexCoders, NLog.
+- Kopyala veya paylaş: 6/20.
+  - Recent, NHL-Zipo, NHL-Arcangelo, Archive, NLog, NH Pro.
+- Favori, yıldız, sabitle: 4/20.
+  - NHL-Zipo, Norg, BinaryScript, Nap.
+- Eski kaydı otomatik silme (süre ayarı): 3/20.
+  - Recent, svprdga, NH Pro.
+- Yakalama durumu uyarısı: 1/20 (NHL-Zipo "yeni bildirim saklanamıyor").
+- Reklam: 12/20.
+  - Notisave, NHL-Zipo, NHL-Arcangelo, Archive, Norg, svprdga, HexCoders,
+    BinaryScript (etiket), Past Notifications, WAMR, Auto RDM, Unseen.
+- Veriyi 3. taraflarla paylaştığını beyan eden: 7/20.
+  - Notisave, NHL-Zipo, NHL-Arcangelo, svprdga, HexCoders, Auto RDM, Unseen.
+  - 13/20 paylaşmadığını beyan ediyor.
+- "İnternet erişimim yok" açık iddiası: 4/20.
+  - BuzzKill, Nap (tartışmalı), Recent, DoNotNotify.
+- Çevrimdışı yapay zekâ: 1/20 (FilterBox, spam engeli).
+- Tek seferlik ödeme seçeneği: 5/20.
+  - BuzzKill, NH Pro, Past Notifications (anahtar), FilterBox, BinaryScript.
+- Haftalık abonelik (yorumlarla doğrulanmış): 2/20 (Notisave, NHL-Zipo).
+- İşletme/müşteri odaklı sunum (randevu, sipariş, müşteri): 0/20.
+
+## Kimsede olmayan fırsat listesi
+
+Not: "kimsede yok" derken şunu kastediyorum: incelediğim 20 bildirim
+uygulamasında Play metni, görseller ve yorumlarda kanıt bulamadım.
+Uygulama içini görmedim.
+
+- İşletme sahibine dönük ürün (müşteri mesajı, sipariş, randevu dili): 0/20.
+  - Şirket hesabını susturmak için BuzzKill kullanan bir işletmeci yorumu var
+    (2024-09), yani ihtiyaç gerçek, ürün karşılığı yok.
+- Panelde görünür "Cevapla" ve "Okundu yap" düğmeleri: geçmiş uygulamalarında
+  yok (Notisave'de cevap yalnız yorumlarda anlatılıyor, "okundu yap" düğmesi
+  kanıtı yok).
+  - nBubble, Notification Widget, Bridge (ayrı kategori) açıkça yapıyor.
+- Konuşma görünümü + medya + reklamsız bir arada: 0/20.
+- Akıllı kanal seçici: Hepsini seç + arama + seçilenler üstte + mesaj sayısına
+  göre sıra + paket adı yok. Parçalar farklı uygulamalarda var; hepsi birden
+  hiçbirinde yok. Arcangelo paket adını gösteriyor, WAMR'da hepsini seç yok.
+- Cihazda sınıflandırma (sipariş, randevu, şikayet, sorular): 0/20. Çevrimdışı
+  yapay zekâ yalnız spam engeli için (FilterBox). Küçük AI özet uygulamaları
+  (1K+ ve altı) var.
+- Yakalama sağlığı: tek ekranda "çalışıyor mu" + tek dokunuşta düzelt + üreticiye
+  özel pil rehberi. Parçalar var (NHL-Zipo uyarısı, Auto RDM sınırlama listesi,
+  Glimpse self-test, NotiRecall durum kontrolü); bütünü yok.
+- Haftalık abonelik olmayan, reklamsız, "ücretsiz başla, sonra aylık veya tek
+  seferlik" net fiyat: kategoride kullanıcıların açıkça istediği ama sunulmayan
+  şey (Reddit ve Play yorumları).
+- Türkçe, yerel fiyat ve yerli işletme dili: yerli bir rakip yok.
+- Cihaz üstü "hatırlat, cevap bekliyor" (BuzzKill yapabiliyor ama kural kurmak
+  gerekiyor, "öğrenme eğrisi dik"): 1 tık sürümü yok.
+- Kısıtlı ayar (Android 13+) ve izin döngüsü için adım adım, ekran görüntülü
+  rehber: yorumlarda şikayet çok, çözüm sunan görülmedi (uygulama içini
+  görmediğim için doğrulanamadı).
+
+# Denenen ve çalışmayan yollar
+
+- Play paket adı tahmini: "com.weawow.notisave" 404 verdi. Doğru adı Play
+  aramasından buldum (com.tenqube.notisave). Tahmin yerine arama kullanıldı.
+- apkcombo.com: DNS çözülemedi (araç ve curl ile ulaşılamadı). Zaten APK
+  mirror'dan indirme yapılmayacaktı. Bilgi sayfası da açılmadı.
+- AlternativeTo, AppBrain, Product Hunt, APKPure, chrome-stats, Medium: doğrudan
+  erişimde 403 (bot koruması). Çözüm: arama özetlerini kullandım; bu yüzden
+  o bilgiler "tek kaynak" etiketli.
+- Reddit:
+  - Arama aracı reddit.com alanını engelledi (hata).
+  - reddit.com JSON ve old.reddit.com: 403. RSS: art arda denemede 429.
+  - pullpush.io: 429.
+  - Çalışan yol: arctic-shift Reddit arşivi API'si. Eksik: silinmiş
+    gönderi gövdeleri ("[removed]") okunamadı.
+- Lifehacker alanı arama aracında engelli; BuzzKill basın alıntıları Play
+  metninden ve geliştirici sitesinden, bağımsız doğrulanamadı.
+- exodus-privacy (izin/izleyici raporu): ağa çıkılamadı veya API kimlik
+  doğrulaması istedi. Gerçek izin listesine bu yüzden ulaşamadım; Play web
+  sayfasında da izin listesi yok. Sadece Veri güvenliği bilgisi var.
+- Pushbullet Pro sayfası yüklenmedi; güncel fiyat doğrulanamadı.
+- Hacker News (Algolia) ve StackExchange API çalıştı ama anlamlı sonuç
+  vermedi.
+- Play yorumları: resmi API yok. Web arayüzünün kullandığı ucu kullandım;
+  bu uç belgesiz, ileride değişebilir.
+- Play aramalarında "Flowbell": alakasız sonuç. Aynı adlı bir bildirim
+  uygulaması bulunamadı.
+- Google'ın resmi "Bildirim geçmişi" yardım sayfası arama sonuçlarında
+  çıkmadı; teknoloji sitelerine dayandım.
+- Ekran görüntülerinden "tıklayınca ne oluyor" bilgisi sınırlı: mağaza
+  görselleri tek kare. Dokunma davranışını yorumlardan ve metinden çıkardım.
+  Gerçek kullanım testi için uygulamaların kurulması gerekir (yapmadım).
+
+# Doğrulanamayanlar
+
+- Notisave'in Premium'unda tam olarak hangi özelliklerin kilitli olduğu.
+- Notisave'in güncel haftalık fiyatı (yorumlarda 4,99 ile 23 dolar arası).
+- "Notisave sahipliği Tenqube'den Firehawk'a geçti mi" sorusu.
+- Play'deki "gerçek kurulum" sayı alanının anlamı (sıralama için kullandım).
+- BuzzKill'in TIME ödülü ve Android Authority / Lifehacker alıntıları.
+- BuzzKill'in izin listesi (tek kaynak, üçüncü taraf özet).
+- Nap ve FilterBox'ın "internet yok / çevrimdışı" iddiaları (yorumlar çelişiyor).
+- Meta Business Suite gelen kutusunun WhatsApp Business uygulamasıyla tam
+  entegrasyonu.
+- Pushbullet'ın güncel fiyat ve kotaları.
+- Samsung NotiStar'ın güncel durumu (kaldırıldı mı).
+- iOS tarafında Apple'ın başka uygulamanın bildirimini okumaya dair resmi
+  belgesi ve AB bildirim iletme özelliğinin kesin yayın tarihi.
+- BinaryScript'in "reklam yok" metni ile Play'deki "reklam içerir" etiketi.
+- Notistar (MakLab) ve Samsung NotiStar arasında bir bağ var mı.
+- Huawei AppGallery ve Xiaomi GetApps'te rakip durumu.
+- Yorum tema oranları kaba anahtar kelime sayımıdır; rastgele örnek değil.
+
+# TekPanel için çıkarımlar
+
+## Ne yapalım
+
+- Yakalama güvenilirliğini 1 numaralı özellik yap.
+  - Neden: düşük puanlı yorumların %21-34'ü "kayıt durdu, bildirim gelmiyor"
+    (Notisave %28). Auto RDM'in kendi sınırlama listesi bunun nedenlerini
+    sayıyor.
+  - Nasıl: ana ekranda küçük "Yakalama: çalışıyor / durdu" göstergesi, durunca
+    tek dokunuşla düzelt; yeniden başlatma sonrası otomatik toparlanma; pil
+    muafiyeti için cihaz markasına özel kısa rehber; test bildirimi.
+  - Örnekler: Glimpse "self-test", NotiRecall "yakalama durumu".
+- Orijinal bildirime varsayılan olarak DOKUNMA (silme).
+  - Neden: Notisave kullanıcıları "okunmamışlarımı sildi, ek yer istemiştim"
+    diyor (2026-04); Reddit: "ek bir yer, yerine geçen değil".
+  - Çubuğu temizleme seçenek olsun, kapalı başlasın.
+- Fotoğrafı ve görseli sakla, dokununca büyüt.
+  - Neden: Notisave'de medya tutarsız ("Sent a photo", 2.112 faydalı).
+    Net olarak 5/20 rakipte var. Yorumların %3,8'i medya istiyor.
+- Kişi bazlı tek kutu, kutuya dokununca içindeki mesajlar genişlesin.
+  - Rakip kalıpları: Notisave'de uygulama kartı ve içinde "Yoda (15 mesaj)";
+    Norg'da satırda aşağı ok; Archive'da galeri; NotiWeave'de "Threads".
+  - Kurucunun isteği (tek kutu, üç dokunuşluk açılım) Norg'un alt paneli +
+    Notisave'in kart kalıbının birleşimi gibi düşünülebilir.
+- "Cevapla" ve "Okundu" düğmeleri kartın içinde, kullanıcı ayrı basınca çalışsın.
+  - Neden: nBubble ve Notification Widget bunu yapıyor (yorumlarda sevilen);
+    Notisave kullanıcıları da "WhatsApp'ı açmadan cevap" özelliğini seviyor,
+    kaybolunca şikayet ediyor (2020-02, 2022-05).
+    nBubble'da "dokununca WhatsApp açılıp mavi tik atıyor" şikayeti, kurucunun
+    "dokununca okundu sayılıyor" şikayetiyle aynı.
+  - Not: bunlar orijinal bildirimin eylemleri; bildirim silinmişse veya
+    uygulama arka plandan kaldırılmışsa eski mesaja cevap çalışmayabilir
+    (Notisave 2020-03 yorumu; çıkarım, test edilmeli). Orijinali silmeme
+    kararı bunu da korur.
+- Kanal (uygulama) seçicisi akıllı olsun.
+  - Hepsini seç ve seçimi kaldır (NHL-Zipo, Bridge), uygulama arama, açık
+    olanlar üstte (NotiWeave "kullanımda"), çok mesaj alan üstte, paket adı
+    gösterme (Arcangelo gösteriyor, kötü), cihazdaki gerçek simgeler.
+  - Neden: WAMR yorumu "tümünü seç yok, tek tek işaret" (786 faydalı).
+- İlk açılışı zorunlusuz yap; izin ekranını kısa tut.
+  - Neden: Notisave "izin iste, ayara götür, 'özellik yok' de, tekrar iste"
+    (326 faydalı) ve izin sonrası tekrar sorma yorumları.
+  - Android 13+ "Kısıtlı ayarlar" yalnız Play dışı kurulumda çıkar; APK ile
+    test veren kişiler için kısa, görsel rehber hazırla.
+  - Auto RDM'in "çalışmadığı durumlar" listesi gibi dürüst ve kısa bir not.
+- Fiyatı kategorinin hatasına karşı konumla.
+  - Haftalık abonelik yok, reklam yok. Neden: reklam ve haftalık fiyat 2026'da
+    Notisave'in düşük puanlarının başında.
+  - 3 gün deneme sektörde yaygın; şikayet denemeye değil, sonrasındaki
+    haftalık tahsilata ve iptal zorluğuna. Deneme sonunda fiyatı net göster,
+    iptali kolay yap.
+  - Aylık/3/6/12 aylık plana ek olarak tek seferlik veya ömür boyu seçeneğini
+    ve gönüllü destek seçeneğini değerlendir. Neden: Reddit "ücretsiz veya tek
+    seferlik, abonelikse düşük"; BuzzKill tek seferlik ve en yüksek puanlı;
+    NHL kullanıcısı "bağış seçeneği olsa desteklerdim".
+  - TL çıpaları: BuzzKill 66,99 TL tek sefer, FilterBox 91-165 TL, WAMR 105 TL.
+    Kurucunun ayda 5 dolarlık planı bu çıpalara göre pahalı algılanabilir.
+    Kurucunun 20'şer kişilik iki sürümlü deneme fikri (biri uyarısız) algıyı
+    ölçebilir; fiyat için ayrı bir deney gerekir.
+- Gizliliği kanıtlanabilir yap.
+  - "Veri toplamıyor, paylaşmıyor" Veri güvenliği beyanı + internet izni yok.
+  - Neden: rakiplerin 7/20'si veri paylaştığını beyan ediyor; yalnız 4/20
+    "internet yok" diyor; güven yorumları var (Glimpse'e övgü).
+- Mağaza metnini Türkçe aranan kelimelerle yaz.
+  - "bildirim geçmişi", "bildirim kaydedici", "bildirim yöneticisi".
+  - İşletme dili: "müşteri mesajlarını kaçırma, tek ekranda gör".
+  - "Silinen mesajı gör" çok aranıyor (WAMR 100M+) ama ana mesaj yapma:
+    kötüye kullanım yorumları (eski sevgili vb.) ve politika/itibar riski var.
+- Ad çakışmasını çöz.
+  - Play'de "TekPanel: Sipariş Yönetimi" (YYVZ LLC) zaten var, aynı sektör,
+    Türkiye. Marka taraması (TÜRKPATENT) ve alternatif ad önerisi gerekli.
+  - Benzer ad kalabalığı rakiplerde sorun: "Notisave" adı en az 4 listede taklit.
+- Cihaz test matrisine Samsung (S21/S23), Xiaomi, OnePlus, Motorola ve Pixel,
+  Android 12-15 ekle.
+  - Neden: şikayetler bu cihazlarda yoğun (BuzzKill S21 Ultra, Notistar S23
+    Ultra, Notification Widget Xiaomi, Notisave Moto/Gionee).
+- Küçük ama sevilen ekler: geri al (BuzzKill, FilterBox), hatırlat (BuzzKill),
+  hassas uygulamalar varsayılan kapalı (NotiRecall), uygulama kilidi (3/20),
+  kopyala ve paylaş (6/20; kurucu uzun basınca kopyala istiyor).
+- Yakın rakipleri izle: NotiWeave (kişi bazlı sohbet kutuları), Norg (alt panel),
+  BinaryScript (ücretsiz çekirdek + sadece dışa aktarma ücretli).
+- Android'in 24 saatlik yerleşik geçmişinin üstüne çık: uzun saklama, konuşma,
+  medya, eylemler. Kullanıcı "yerleşik olan yeter" diyebiliyor (2022-10).
+
+## Ne yapmayalım
+
+- Haftalık abonelik, sert ödeme duvarı, reklam, "puan ver" zorlaması.
+  - Neden: Notisave, NHL, BinaryScript, Notifiltr yorumlarında en sert tepkiler.
+  - Ödeme yapana reklam göstermek: "Ömür boyu aldım, şimdi reklam var"
+    (Notisave 2026-08).
+- Karmaşık kural motorunu ilk sürüme koyma.
+  - Neden: BuzzKill "öğrenme eğrisi dik", FilterBox "ilk bakışta bunaltıcı";
+    kurucu da sade ekran istiyor.
+- İlk sürümde internet izni ve bulut/PC eşitleme ekleme.
+  - Neden: "hiç internet izni yok" vaadi güçlü bir fark; Nap ve FilterBox
+    iddiası yüzünden şüphe yaşadı. PC talebi gerçek olabilir, ama ayrı karar
+    (KDE Connect gibi yerel ağ modeli).
+- iOS sürümü planlama. Apple başka uygulamanın bildirimini okutmuyor.
+- Bildirimi sessizce silme, kurulumda kullanıcı onayı olmadan veri boşaltma.
+- APK mirror ile rakip analizi. Zararlı yazılım ve telif riski.
+- Rakip arayüzlerini kopyalama. Bu kolda yalnız kalıplar öğrenildi; tasarım
+  kimliği ayrı üretilmeli.
+
+## Neden bu sırayla
+
+- En çok şikayet: güvenilirlik > reklam ve fiyat > eksik medya > izin
+  karmaşası. Cevap verme az anılıyor (Notisave'de ~%0,8) ama anılınca güçlü
+  (seviyor, kaybolunca şikayet ediyor). İşletme kullanımı için mantıklı;
+  ürünün işletme konumu ayrıca doğrulanmalı (örneğin 20 kullanıcıyla deneme).
+- Kimsede olmayan fırsat alanı: işletme odağı + konuşma + medya + dürüst fiyat.

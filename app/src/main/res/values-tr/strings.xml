@@ -35,8 +35,26 @@
     <string name="menu_erase">Tüm verilerimi sil</string>
     <string name="menu_diagnostics">Teşhis</string>
 
+    <string name="menu_support">TekPanel\'e destek ol</string>
+    <string name="support_title">TekPanel\'e destek ol</string>
+    <string name="support_body">TekPanel ödemeden tam çalışır. İşine yarıyorsa bir destek planı gelişmesine katkı olur. Hiçbir şey kilitlenmez.</string>
+    <string name="support_trial_over_title">TekPanel devam etsin</string>
+    <string name="support_trial_over_body">Ücretsiz günlerin bitti. TekPanel\'e destek olmak için bir plan seç ya da sonra devam et.</string>
+    <string name="support_thanks_title">TekPanel\'e destek olduğun için teşekkürler</string>
+    <string name="support_unavailable">Planlar şu an yüklenemedi. Google Play bağlantını kontrol edip tekrar dene.</string>
+    <string name="support_action">Google Play ile devam et</string>
+    <string name="support_fine_print">Ödemeyi Google Play alır. İstediğin an Play Store\'dan iptal edebilirsin.</string>
+    <string name="support_not_now">Şimdilik değil</string>
+    <string name="support_savings">%1$d%% tasarruf</string>
+    <plurals name="support_months">
+        <item quantity="one">%1$d ay</item>
+        <item quantity="other">%1$d ay</item>
+    </plurals>
+    <string name="support_trial_chip">%1$d ücretsiz gün kaldı</string>
+    <string name="privacy_no_internet">Bu sürümde internet izni hiç yok; yani dışarıya bir şey gönderemez.</string>
+    <string name="privacy_play_network">Bu sürümdeki tek ağ kullanımı Google Play\'e aittir (destek planları için); mesajların asla gönderilmez.</string>
     <string name="privacy_title">Mesajların burada kalır</string>
-    <string name="privacy_body">TekPanel yalnızca seçtiğin uygulamaların bildirimlerini okur ve bu telefondaki özel bir depoda tutar. İnternet izni yoktur; yani mesajlarını bir yere gönderemez. Erişimi istediğin an Android ayarlarından kapatabilirsin.</string>
+    <string name="privacy_body">TekPanel yalnızca seçtiğin uygulamaların bildirimlerini okur ve bu telefondaki özel bir depoda tutar. Mesajlarını hiçbir yere göndermez. Erişimi istediğin an Android ayarlarından kapatabilirsin.</string>
 
     <string name="erase_all_confirm_title">Tüm veriler silinsin mi?</string>
     <string name="erase_all_confirm_message">TekPanel\'in bu telefonda sakladığı tüm mesajlar kalıcı olarak silinir ve kanal seçimlerin sıfırlanır. Geri alınamaz.</string>

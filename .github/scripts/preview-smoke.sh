@@ -4,7 +4,7 @@
 # proves R8 didn't strip something Room/Koin/serialization need at runtime.
 set -euo pipefail
 
-APK=app/build/outputs/apk/preview/app-preview.apk
+APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
 PKG=com.tekpanel.app.preview
 LISTENER="$PKG/com.tekpanel.app.capture.TekPanelNotificationListenerService"
 

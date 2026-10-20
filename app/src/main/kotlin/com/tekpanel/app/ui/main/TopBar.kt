@@ -23,6 +23,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.BugReport
 import androidx.compose.material.icons.rounded.CleaningServices
 import androidx.compose.material.icons.rounded.DeleteForever
+import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.IosShare
 import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.material.icons.rounded.Lock
@@ -116,6 +117,8 @@ fun MenuPanel(
     onErase: () -> Unit,
     onDiagnostics: () -> Unit,
     modifier: Modifier = Modifier,
+    showSupport: Boolean = false,
+    onSupport: () -> Unit = {},
 ) {
     AnimatedVisibility(
         visible = open,
@@ -132,6 +135,7 @@ fun MenuPanel(
             Column(Modifier.padding(vertical = 6.dp), verticalArrangement = Arrangement.spacedBy(0.dp)) {
                 MenuItem(Icons.Rounded.Tune, stringResource(R.string.menu_channels), onChannels)
                 MenuItem(Icons.Rounded.Lock, stringResource(R.string.menu_privacy), onPrivacy)
+                if (showSupport) MenuItem(Icons.Rounded.Favorite, stringResource(R.string.menu_support), onSupport)
                 MenuItem(Icons.Rounded.IosShare, stringResource(R.string.menu_export), onExport)
                 MenuItem(Icons.Rounded.DeleteForever, stringResource(R.string.menu_erase), onErase, danger = true)
                 if (diagnosticsUnlocked) MenuItem(Icons.Rounded.BugReport, stringResource(R.string.menu_diagnostics), onDiagnostics)

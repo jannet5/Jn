@@ -49,6 +49,9 @@ import com.tekpanel.app.ui.access.AccessGuideSheet
 import com.tekpanel.app.ui.channels.ChannelPickerSheet
 import com.tekpanel.app.ui.common.ConfirmDialog
 import com.tekpanel.app.ui.diagnostics.DiagnosticsActivity
+import com.tekpanel.app.monetization.Gate
+import com.tekpanel.app.monetization.SupportViewModel
+import com.tekpanel.app.ui.support.SupportSheet
 import com.tekpanel.app.ui.theme.Tek
 import com.tekpanel.app.util.AccessSettings
 import com.tekpanel.app.util.ListenerHealth
@@ -64,12 +67,14 @@ private const val ACCESS_POLL_MS = 1_500L
  * expanded cards) and only then sends the app to the background.
  */
 @Composable
-fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
+fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: SupportViewModel = koinViewModel()) {
     val context = LocalContext.current
     val state by viewModel.state.collectAsState()
     val undo by viewModel.undo.collectAsState()
     val diagnosticsUnlocked by viewModel.diagnosticsUnlocked.collectAsState()
     val snackbar = remember { SnackbarHostState() }
+    val support by supportViewModel.state.collectAsState()
+    var showSupport by rememberSaveable { mutableStateOf(false) }
 
     var menuOpen by rememberSaveable { mutableStateOf(false) }
     var showPicker by rememberSaveable { mutableStateOf(false) }
@@ -152,6 +157,8 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
         isLong = { id, default -> viewModel.lengthened[id] ?: default },
         canReply = viewModel::canReply,
         snackbarHostState = snackbar,
+        showSupport = support.support.available,
+        trialDaysLeft = (support.gate as? Gate.Notice)?.daysLeft,
         callbacks = MainCallbacks(
             onTitleTap = {
                 val now = System.currentTimeMillis()
@@ -186,9 +193,25 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
                 viewModel.onCopied()
             },
             onPicture = { path -> viewerPath = path },
+            onSupport = { menuOpen = false; showSupport = true },
         ),
     )
 
+    // The sheet opens by itself only when a trial build's free days are over; otherwise only from the menu.
+    val paywallUp = support.gate is Gate.Paywall
+    if (showSupport || paywallUp) {
+        val activity = context as? Activity
+        SupportSheet(
+            plans = support.support.plans,
+            supporter = support.support.supporter,
+            trialEnded = paywallUp,
+            onBuy = { planId -> activity?.let { supportViewModel.buy(it, planId) } },
+            onDismiss = {
+                if (paywallUp) supportViewModel.dismissPaywall()
+                showSupport = false
+            },
+        )
+    }
     if (showPicker) ChannelPickerSheet(onDismiss = { showPicker = false })
     if (showGuide) {
         AccessGuideSheet(
@@ -230,7 +253,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
         AlertDialog(
             onDismissRequest = { showPrivacy = false },
             title = { Text(stringResource(R.string.privacy_title)) },
-            text = { Text(stringResource(R.string.privacy_body)) },
+            text = { Text(stringResource(R.string.privacy_body) + "\n\n" + stringResource(if (hasInternetPermission(context)) R.string.privacy_play_network else R.string.privacy_no_internet)) },
             confirmButton = { TextButton(onClick = { showPrivacy = false }) { Text(stringResource(R.string.action_ok), color = Tek.colors.accent) } },
             containerColor = Tek.colors.surfaceHigh,
             titleContentColor = Tek.colors.text,
@@ -238,6 +261,12 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
         )
     }
 }
+
+/** Reads the real manifest of the installed build, so the privacy line can never claim more than is true. */
+private fun hasInternetPermission(context: Context): Boolean = runCatching {
+    val info = context.packageManager.getPackageInfo(context.packageName, android.content.pm.PackageManager.GET_PERMISSIONS)
+    info.requestedPermissions?.contains(android.Manifest.permission.INTERNET) == true
+}.getOrDefault(false)
 
 private fun copyToClipboard(context: Context, text: String) {
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

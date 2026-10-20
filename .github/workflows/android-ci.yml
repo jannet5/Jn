@@ -22,15 +22,15 @@ jobs:
           java-version: "17"
       - name: Run JVM + Robolectric unit tests (also renders the UI screenshots)
         run: ./gradlew :app:testDebugUnitTest -Proborazzi.test.record=true --console=plain
-      - name: Merged manifest must not request INTERNET (privacy promise shown in the app)
+      - name: Sideload manifest must not request INTERNET (privacy promise shown in the app)
         run: |
-          ./gradlew :app:processDebugMainManifest --console=plain
-          M=$(find app/build -path '*merged_manifests/debug*' -name AndroidManifest.xml | head -1)
+          ./gradlew :app:processSideloadDebugMainManifest :app:processSideloadReleaseManifest --console=plain
+          M=$(find app/build -path '*merged_manifests/sideloadRelease/*' -name AndroidManifest.xml | head -1)
           echo "Checking $M"
           if grep -q "android.permission.INTERNET" "$M"; then echo "INTERNET permission found"; exit 1; fi
           grep -o 'uses-permission android:name="[^"]*"' "$M" | sort -u
       - name: Build debug and release APKs
-        run: ./gradlew :app:assembleDebug :app:assembleRelease --console=plain
+        run: ./gradlew :app:assembleSideloadDebug :app:assembleSideloadRelease :app:assemblePlayDebug --console=plain
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -67,7 +67,7 @@ jobs:
           arch: x86_64
           profile: pixel_5
           disable-animations: true
-          script: ./gradlew :app:connectedDebugAndroidTest --console=plain
+          script: ./gradlew :app:connectedSideloadDebugAndroidTest --console=plain
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -83,7 +83,7 @@ jobs:
           distribution: temurin
           java-version: "17"
       - name: Build minified preview APK
-        run: ./gradlew :app:assemblePreview --console=plain
+        run: ./gradlew :app:assembleSideloadPreview --console=plain
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -101,4 +101,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: tekpanel-preview-apk
-          path: app/build/outputs/apk/preview/app-preview.apk
+          path: app/build/outputs/apk/sideload/preview/app-sideload-preview.apk

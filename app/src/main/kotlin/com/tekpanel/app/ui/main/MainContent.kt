@@ -14,7 +14,11 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import com.tekpanel.app.R
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tekpanel.app.domain.model.Conversation
@@ -45,6 +49,7 @@ class MainCallbacks(
     val onReply: (conversationKey: String, text: String) -> Unit = { _, _ -> },
     val onCopy: (String) -> Unit = {},
     val onPicture: (String) -> Unit = {},
+    val onSupport: () -> Unit = {},
 )
 
 /** Layout of the one screen. No view model, no side effects: screenshot tests render it with fake state. */
@@ -58,6 +63,8 @@ fun MainContent(
     canReply: (conversationKey: String) -> Boolean,
     snackbarHostState: SnackbarHostState,
     callbacks: MainCallbacks,
+    showSupport: Boolean = false,
+    trialDaysLeft: Int? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val listState = rememberLazyListState()
@@ -83,6 +90,8 @@ fun MainContent(
                 onPrivacy = callbacks.onPrivacy,
                 onErase = callbacks.onErase,
                 onDiagnostics = callbacks.onDiagnostics,
+                showSupport = showSupport,
+                onSupport = callbacks.onSupport,
             )
 
             if (state.hasEnabledChannels) {
@@ -102,6 +111,15 @@ fun MainContent(
                 contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = bottomInset + 24.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
+                if (trialDaysLeft != null) {
+                    item(key = "trial-chip") {
+                        Text(
+                            text = stringResource(R.string.support_trial_chip, trialDaysLeft),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = Tek.colors.textSecondary,
+                        )
+                    }
+                }
                 if (!state.accessGranted) {
                     item(key = "access") {
                         AccessBanner(onOpenSettings = callbacks.onOpenSettings, onHowTo = callbacks.onHowTo)

@@ -3,6 +3,7 @@ package com.tekpanel.app.data.prefs
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
@@ -27,6 +28,7 @@ class AppPreferences(context: Context) {
         val SEEDED = booleanPreferencesKey("channels_seeded")
         val DIAGNOSTICS_UNLOCKED = booleanPreferencesKey("diagnostics_unlocked")
         val ACCESS_HINT_DISMISSED = booleanPreferencesKey("access_hint_dismissed")
+        val PAYWALL_DISMISSED_DAY = longPreferencesKey("paywall_dismissed_day")
     }
 
     val enabledPackages: Flow<Set<String>> = dataStore.data.map { it[Keys.ENABLED_PACKAGES] ?: emptySet() }
@@ -36,6 +38,13 @@ class AppPreferences(context: Context) {
     val diagnosticsUnlocked: Flow<Boolean> = dataStore.data.map { it[Keys.DIAGNOSTICS_UNLOCKED] ?: false }
 
     val accessHintDismissed: Flow<Boolean> = dataStore.data.map { it[Keys.ACCESS_HINT_DISMISSED] ?: false }
+
+    /** Epoch day on which the user pressed "not now" on the support sheet; it stays quiet for that day. */
+    val paywallDismissedDay: Flow<Long?> = dataStore.data.map { it[Keys.PAYWALL_DISMISSED_DAY] }
+
+    suspend fun setPaywallDismissedDay(day: Long) {
+        dataStore.edit { prefs -> prefs[Keys.PAYWALL_DISMISSED_DAY] = day }
+    }
 
     suspend fun isChannelEnabledNow(packageName: String): Boolean = packageName in enabledPackages.first()
 

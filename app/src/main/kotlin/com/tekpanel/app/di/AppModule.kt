@@ -16,6 +16,8 @@ import com.tekpanel.app.data.repository.InboxRepository
 import com.tekpanel.app.diagnostics.DiagnosticsRecorder
 import com.tekpanel.app.domain.usecase.EraseAllDataUseCase
 import com.tekpanel.app.export.DataExporter
+import com.tekpanel.app.monetization.Dist
+import com.tekpanel.app.monetization.SupportViewModel
 import com.tekpanel.app.ui.channels.ChannelPickerViewModel
 import com.tekpanel.app.ui.diagnostics.DiagnosticsViewModel
 import com.tekpanel.app.ui.main.MainViewModel
@@ -36,6 +38,7 @@ val appModule = module {
     single { MediaStore(get()) }
     single { MediaLoader() }
     single { NotificationAccessChecker(get()) }
+    single { Dist.purchaseGateway(androidContext()) }
 
     single { InboxRepository(get(), get()) }
     single { ChannelRepository(get(), get(), get()) }
@@ -55,5 +58,6 @@ val appModule = module {
         MainViewModel(get(), get(), get(), get(), get(), get(), get(), listenerHealthRestart = { ListenerHealth.restart(context) })
     }
     viewModel { ChannelPickerViewModel(get()) }
+    viewModel { SupportViewModel(get(), get(), androidContext()) }
     viewModel { DiagnosticsViewModel(get(), get(), get()) }
 }

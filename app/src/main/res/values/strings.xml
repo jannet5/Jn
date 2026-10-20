@@ -35,8 +35,26 @@
     <string name="menu_erase">Delete all my data</string>
     <string name="menu_diagnostics">Diagnostics</string>
 
+    <string name="menu_support">Support TekPanel</string>
+    <string name="support_title">Support TekPanel</string>
+    <string name="support_body">TekPanel works fully without paying. If it saves you time, a supporter plan helps keep it improving. Nothing is ever locked.</string>
+    <string name="support_trial_over_title">Keep TekPanel going</string>
+    <string name="support_trial_over_body">Your free days are over. Pick a plan to keep supporting TekPanel, or continue later.</string>
+    <string name="support_thanks_title">Thank you for supporting TekPanel</string>
+    <string name="support_unavailable">Plans could not be loaded right now. Check your connection to Google Play and try again.</string>
+    <string name="support_action">Continue with Google Play</string>
+    <string name="support_fine_print">Billed by Google Play. You can cancel any time in the Play Store.</string>
+    <string name="support_not_now">Not now</string>
+    <string name="support_savings">Save %1$d%%</string>
+    <plurals name="support_months">
+        <item quantity="one">%1$d month</item>
+        <item quantity="other">%1$d months</item>
+    </plurals>
+    <string name="support_trial_chip">%1$d free days left</string>
+    <string name="privacy_no_internet">This version has no internet permission at all, so it physically cannot send anything out.</string>
+    <string name="privacy_play_network">The only network use in this version belongs to Google Play (for supporter plans), never your messages.</string>
     <string name="privacy_title">Your messages stay here</string>
-    <string name="privacy_body">TekPanel only reads notifications of the apps you pick, and keeps them in a private store on this phone. It has no internet permission, so it cannot send your messages anywhere. You can turn access off any time in Android settings.</string>
+    <string name="privacy_body">TekPanel only reads notifications of the apps you pick, and keeps them in a private store on this phone. It never sends your messages anywhere. You can turn access off any time in Android settings.</string>
 
     <string name="erase_all_confirm_title">Delete all data?</string>
     <string name="erase_all_confirm_message">This permanently deletes every message TekPanel stored on this phone and resets your channel choices. It cannot be undone.</string>
