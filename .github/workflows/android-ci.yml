@@ -11,6 +11,11 @@ on:
     branches: ["**"]
   pull_request:
 
+# A newer push makes older runs pointless; cancel them so the emulator jobs do not pile up.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
@@ -20,6 +25,11 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
+      - name: Promise check - the app never touches the phone's own notifications
+        run: |
+          if grep -rn "cancelNotification\|cancelAllNotifications\|snoozeNotification" app/src/main; then
+            echo "TekPanel must never remove or snooze the user's own notifications"; exit 1
+          fi
       - name: Run JVM + Robolectric unit tests (also renders the UI screenshots)
         run: ./gradlew :app:testDebugUnitTest -Proborazzi.test.record=true --console=plain
       - name: Sideload manifest must not request INTERNET (privacy promise shown in the app)
