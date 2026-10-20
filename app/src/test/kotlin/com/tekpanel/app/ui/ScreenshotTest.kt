@@ -111,6 +111,9 @@ class ScreenshotTest {
             com.tekpanel.app.monetization.SupportPlan("quarterly", 3, "₺379,99", 33),
             com.tekpanel.app.monetization.SupportPlan("semiannual", 6, "₺759,99", 33),
             com.tekpanel.app.monetization.SupportPlan("yearly", 12, "₺1.709,99", 25),
+            com.tekpanel.app.monetization.SupportPlan("tip_small", 0, "₺39,99", null),
+            com.tekpanel.app.monetization.SupportPlan("tip_medium", 0, "₺119,99", null),
+            com.tekpanel.app.monetization.SupportPlan("tip_large", 0, "₺319,99", null),
         )
         compose.setContent {
             TekPanelTheme {

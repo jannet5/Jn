@@ -41,6 +41,11 @@
     <string name="support_trial_over_title">Keep TekPanel going</string>
     <string name="support_trial_over_body">Your free days are over. Pick a plan to keep supporting TekPanel, or continue later.</string>
     <string name="support_thanks_title">Thank you for supporting TekPanel</string>
+    <string name="support_recurring_header">Keep supporting every month or period</string>
+    <string name="support_tip_header">Or give once</string>
+    <string name="support_tip_small">Buy a tea</string>
+    <string name="support_tip_medium">Buy a coffee</string>
+    <string name="support_tip_large">Buy a lunch</string>
     <string name="support_unavailable">Plans could not be loaded right now. Check your connection to Google Play and try again.</string>
     <string name="support_action">Continue with Google Play</string>
     <string name="support_fine_print">Billed by Google Play. You can cancel any time in the Play Store.</string>

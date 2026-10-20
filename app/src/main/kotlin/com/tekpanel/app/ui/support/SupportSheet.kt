@@ -49,6 +49,7 @@ fun SupportSheet(
     trialEnded: Boolean,
     onBuy: (planId: String) -> Unit,
     onDismiss: () -> Unit,
+    thanked: Boolean = false,
 ) {
     ModalBottomSheet(
         onDismissRequest = onDismiss,
@@ -56,7 +57,7 @@ fun SupportSheet(
         containerColor = Tek.colors.background,
         contentColor = Tek.colors.text,
     ) {
-        SupportContent(plans, supporter, trialEnded, onBuy, onDismiss)
+        SupportContent(plans, supporter, trialEnded, onBuy, onDismiss, thanked)
     }
 }
 
@@ -67,16 +68,19 @@ fun SupportContent(
     trialEnded: Boolean,
     onBuy: (planId: String) -> Unit,
     onDismiss: () -> Unit,
+    thanked: Boolean = false,
 ) {
     val colors = Tek.colors
-    var selected by remember(plans) { mutableStateOf(plans.firstOrNull { it.months == 12 }?.id ?: plans.firstOrNull()?.id) }
+    val subscriptions = plans.filter { !it.isOneTime }
+    val tips = plans.filter { it.isOneTime }
+    var selected by remember(plans) { mutableStateOf(subscriptions.firstOrNull { it.months == 12 }?.id ?: subscriptions.firstOrNull()?.id) }
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState()).navigationBarsPadding().padding(horizontal = 20.dp).padding(bottom = 16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Text(
             text = stringResource(
-                if (supporter) R.string.support_thanks_title else if (trialEnded) R.string.support_trial_over_title else R.string.support_title,
+                if (supporter || thanked) R.string.support_thanks_title else if (trialEnded) R.string.support_trial_over_title else R.string.support_title,
             ),
             style = MaterialTheme.typography.titleLarge,
             color = colors.text,
@@ -89,10 +93,13 @@ fun SupportContent(
         if (plans.isEmpty()) {
             Text(stringResource(R.string.support_unavailable), style = MaterialTheme.typography.bodyMedium, color = colors.textSecondary)
         }
-        plans.forEach { plan ->
+        if (subscriptions.isNotEmpty()) {
+            Text(stringResource(R.string.support_recurring_header), style = MaterialTheme.typography.labelLarge, color = colors.textSecondary)
+        }
+        subscriptions.forEach { plan ->
             PlanRow(plan = plan, selected = plan.id == selected, onSelect = { selected = plan.id })
         }
-        if (plans.isNotEmpty()) {
+        if (subscriptions.isNotEmpty()) {
             Button(
                 onClick = { selected?.let(onBuy) },
                 modifier = Modifier.fillMaxWidth(),
@@ -100,6 +107,23 @@ fun SupportContent(
                 colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
             ) { Text(stringResource(R.string.support_action)) }
             Text(stringResource(R.string.support_fine_print), style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
+        }
+        if (tips.isNotEmpty()) {
+            Text(stringResource(R.string.support_tip_header), style = MaterialTheme.typography.labelLarge, color = colors.textSecondary)
+            tips.forEach { tip ->
+                Surface(
+                    onClick = { onBuy(tip.id) },
+                    shape = RoundedCornerShape(Tek.shapes.card),
+                    color = colors.surface,
+                    border = BorderStroke(1.dp, colors.line),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Row(Modifier.padding(horizontal = 16.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Text(tipLabel(tip.id), style = MaterialTheme.typography.titleSmall, color = colors.text, modifier = Modifier.weight(1f))
+                        Text(tip.priceText, style = MaterialTheme.typography.titleSmall, color = colors.text)
+                    }
+                }
+            }
         }
         TextButton(onClick = onDismiss, modifier = Modifier.fillMaxWidth()) {
             Text(stringResource(if (trialEnded && !supporter) R.string.support_not_now else R.string.action_close), color = colors.text)
@@ -141,3 +165,12 @@ private fun PlanRow(plan: SupportPlan, selected: Boolean, onSelect: () -> Unit) 
         }
     }
 }
+
+@Composable
+private fun tipLabel(id: String): String = stringResource(
+    when (id) {
+        "tip_small" -> R.string.support_tip_small
+        "tip_medium" -> R.string.support_tip_medium
+        else -> R.string.support_tip_large
+    },
+)

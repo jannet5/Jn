@@ -206,6 +206,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
         SupportSheet(
             plans = support.support.plans,
             supporter = support.support.supporter,
+            thanked = support.support.justThanked,
             trialEnded = paywallUp,
             onBuy = { planId -> activity?.let { supportViewModel.buy(it, planId) } },
             onDismiss = {

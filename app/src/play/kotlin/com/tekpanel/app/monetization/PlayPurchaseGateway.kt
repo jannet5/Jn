@@ -7,6 +7,7 @@ import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ConsumeParams
 import com.android.billingclient.api.PendingPurchasesParams
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
@@ -14,6 +15,7 @@ import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
 import com.android.billingclient.api.acknowledgePurchase
+import com.android.billingclient.api.consumePurchase
 import com.android.billingclient.api.queryProductDetails
 import com.android.billingclient.api.queryPurchasesAsync
 import kotlinx.coroutines.CoroutineScope
@@ -44,6 +46,7 @@ class PlayPurchaseGateway(private val context: Context) : PurchaseGateway, Purch
 
     private var details: ProductDetails? = null
     private val offerTokens = HashMap<String, String>()
+    private val tipDetails = HashMap<String, ProductDetails>()
 
     private val client: BillingClient = BillingClient.newBuilder(context)
         .setListener(this)
@@ -103,7 +106,24 @@ class PlayPurchaseGateway(private val context: Context) : PurchaseGateway, Purch
             }
             SupportPlan(id = id, months = months, priceText = phase.formattedPrice, savingsPercent = savings)
         }
-        _state.update { it.copy(plans = plans) }
+        _state.update { it.copy(plans = plans + loadTips()) }
+    }
+
+    /** One-time tips (consumable, can be given repeatedly): small / medium / large. */
+    private suspend fun loadTips(): List<SupportPlan> {
+        val params = QueryProductDetailsParams.newBuilder()
+            .setProductList(
+                TIP_IDS.map {
+                    QueryProductDetailsParams.Product.newBuilder().setProductId(it).setProductType(BillingClient.ProductType.INAPP).build()
+                },
+            )
+            .build()
+        val found = client.queryProductDetails(params).productDetailsList.orEmpty()
+        found.forEach { tipDetails[it.productId] = it }
+        return TIP_IDS.mapNotNull { id ->
+            val price = tipDetails[id]?.oneTimePurchaseOfferDetails?.formattedPrice ?: return@mapNotNull null
+            SupportPlan(id = id, months = 0, priceText = price, savingsPercent = null)
+        }
     }
 
     private suspend fun loadEntitlement() {
@@ -115,19 +135,15 @@ class PlayPurchaseGateway(private val context: Context) : PurchaseGateway, Purch
     }
 
     override fun buy(activity: Activity, planId: String) {
-        val product = details ?: return
-        val token = offerTokens[planId] ?: return
-        val flow = BillingFlowParams.newBuilder()
-            .setProductDetailsParamsList(
-                listOf(
-                    BillingFlowParams.ProductDetailsParams.newBuilder()
-                        .setProductDetails(product)
-                        .setOfferToken(token)
-                        .build(),
-                ),
-            )
-            .build()
-        client.launchBillingFlow(activity, flow)
+        val params = if (planId in TIP_IDS) {
+            val tip = tipDetails[planId] ?: return
+            BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(tip).build()
+        } else {
+            val product = details ?: return
+            val token = offerTokens[planId] ?: return
+            BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(product).setOfferToken(token).build()
+        }
+        client.launchBillingFlow(activity, BillingFlowParams.newBuilder().setProductDetailsParamsList(listOf(params)).build())
     }
 
     override fun onPurchasesUpdated(result: BillingResult, purchases: MutableList<Purchase>?) {
@@ -138,15 +154,21 @@ class PlayPurchaseGateway(private val context: Context) : PurchaseGateway, Purch
 
     private suspend fun handle(purchases: List<Purchase>) {
         val owned = purchases.filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
-        // Play refunds a purchase that is not acknowledged within 3 days.
-        owned.filter { !it.isAcknowledged }.forEach { purchase ->
+        val (tips, subs) = owned.partition { purchase -> purchase.products.any { it in TIP_IDS } }
+        // Play refunds a subscription that is not acknowledged within 3 days.
+        subs.filter { !it.isAcknowledged }.forEach { purchase ->
             client.acknowledgePurchase(AcknowledgePurchaseParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build())
         }
-        _state.update { it.copy(supporter = owned.isNotEmpty()) }
+        // A tip is consumed right away so the same amount can be given again.
+        tips.forEach { purchase ->
+            client.consumePurchase(ConsumeParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build())
+        }
+        _state.update { it.copy(supporter = subs.isNotEmpty(), justThanked = it.justThanked || tips.isNotEmpty()) }
     }
 
     companion object {
         const val PRODUCT_ID = "tekpanel_support"
+        val TIP_IDS = listOf("tip_small", "tip_medium", "tip_large")
         private val MONTHS_BY_BASE_PLAN = mapOf("monthly" to 1, "quarterly" to 3, "semiannual" to 6, "yearly" to 12)
     }
 }

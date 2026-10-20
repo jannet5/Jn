@@ -41,6 +41,11 @@
     <string name="support_trial_over_title">TekPanel devam etsin</string>
     <string name="support_trial_over_body">Ücretsiz günlerin bitti. TekPanel\'e destek olmak için bir plan seç ya da sonra devam et.</string>
     <string name="support_thanks_title">TekPanel\'e destek olduğun için teşekkürler</string>
+    <string name="support_recurring_header">Düzenli destek (iptal etmesi kolay)</string>
+    <string name="support_tip_header">Ya da bir kez ver</string>
+    <string name="support_tip_small">Bir çay ısmarla</string>
+    <string name="support_tip_medium">Bir kahve ısmarla</string>
+    <string name="support_tip_large">Bir yemek ısmarla</string>
     <string name="support_unavailable">Planlar şu an yüklenemedi. Google Play bağlantını kontrol edip tekrar dene.</string>
     <string name="support_action">Google Play ile devam et</string>
     <string name="support_fine_print">Ödemeyi Google Play alır. İstediğin an Play Store\'dan iptal edebilirsin.</string>

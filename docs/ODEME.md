@@ -33,6 +33,14 @@ menüsünden 1 / 3 / 6 / 12 aylık destek planları alınır. İstersen aynı ko
 4. Satın alma onayı: uygulama 3 gün dolmadan kendisi onaylar (acknowledge). Onaylanmazsa Play iade eder.
 5. Test: Ayarlar > Lisans testi'ne kendi Gmail'ini ekle; "iç test" kanalına AAB yükle; gerçek para çekilmez.
 
+## Tek seferlik destek (araştırmanın en çok istenen şeyi)
+
+- Rakip yorumlarında en sık dilek: "tek seferlik bağış seçeneği olsa desteklerdim" (bkz. araştırma 01, Fiyat modelleri).
+- Play Console > Para kazanma > Ürünler > Uygulama içi ürünler: 3 ürün, "tüketilebilir":
+  - `tip_small` ("Bir çay ısmarla"), `tip_medium` ("Bir kahve ısmarla"), `tip_large` ("Bir yemek ısmarla").
+  - Önerilen fiyat: 1 $ / 3 $ / 8 $ (Türkiye için TL'yi elle gir).
+- Uygulama satın alma sonrası ürünü hemen tüketir; aynı destek tekrar verilebilir.
+
 ## Deneme sürümleri (A/B, 20 + 20 kişi)
 
 - Üç mod, build sırasında seçilir: `-Pmonetization=donate | trial_silent | trial_warn`
