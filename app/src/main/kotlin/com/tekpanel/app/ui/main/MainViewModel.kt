@@ -32,9 +32,12 @@ class MainViewModel(
     private val preferences: AppPreferences,
     private val exporter: DataExporter,
     private val eraseAll: EraseAllDataUseCase,
+    private val listenerHealthRestart: () -> Unit,
 ) : ViewModel() {
 
     private val accessGranted = MutableStateFlow(accessChecker.isGranted())
+    private val listenerStalled = MutableStateFlow(false)
+    private var disconnectedSince = 0L
     private val selectedPackage = MutableStateFlow<String?>(null)
 
     /** Per-card open level and per-message "lengthened" flags; snapshot maps so only the touched card recomposes. */
@@ -55,7 +58,8 @@ class MainViewModel(
         channelRepository.observeAllChannels(),
         inboxRepository.observeConversations(),
         selectedPackage,
-    ) { granted, channels, conversations, selected ->
+        listenerStalled,
+    ) { granted, channels, conversations, selected, stalled ->
         val enabled = channels.filter { it.enabled }
         val bar = ChannelOrdering.barOrder(enabled).map { BarItem(it.packageName, it.label, it.unreadMessages) }
         val effectiveSelection = selected?.takeIf { sel -> bar.any { it.packageName == sel } }
@@ -73,6 +77,7 @@ class MainViewModel(
             conversations = visibleConversations,
             labels = labels,
             hasEnabledChannels = enabled.isNotEmpty(),
+            listenerStalled = granted && stalled,
         )
     }.flowOn(Dispatchers.Default).stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), MainUiState())
 
@@ -83,6 +88,21 @@ class MainViewModel(
 
     fun refreshAccess() {
         accessGranted.value = accessChecker.isGranted()
+        // Right after a launch the system needs a few seconds to bind; only call it stalled after a grace period.
+        if (accessChecker.isListenerBound()) {
+            disconnectedSince = 0L
+            listenerStalled.value = false
+        } else {
+            val now = System.currentTimeMillis()
+            if (disconnectedSince == 0L) disconnectedSince = now
+            listenerStalled.value = now - disconnectedSince > STALL_GRACE_MS
+        }
+    }
+
+    fun restartListener() {
+        disconnectedSince = System.currentTimeMillis()
+        listenerStalled.value = false
+        listenerHealthRestart()
     }
 
     fun refreshInstalledApps() {
@@ -188,5 +208,9 @@ class MainViewModel(
 
     fun unlockDiagnostics() {
         viewModelScope.launch { preferences.setDiagnosticsUnlocked(true) }
+    }
+
+    private companion object {
+        const val STALL_GRACE_MS = 10_000L
     }
 }

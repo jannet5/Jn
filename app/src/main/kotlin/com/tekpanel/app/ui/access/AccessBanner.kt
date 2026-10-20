@@ -48,3 +48,28 @@ fun AccessBanner(onOpenSettings: () -> Unit, onHowTo: () -> Unit, modifier: Modi
         }
     }
 }
+
+/** Access is on, but the phone stopped the background listener: restart it, and point to battery settings. */
+@Composable
+fun StalledBanner(onRestart: () -> Unit, onBatterySettings: () -> Unit, modifier: Modifier = Modifier) {
+    val colors = Tek.colors
+    Surface(
+        shape = RoundedCornerShape(Tek.shapes.card),
+        color = colors.surface,
+        border = BorderStroke(1.dp, colors.danger.copy(alpha = 0.6f)),
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(stringResource(R.string.stalled_title), style = MaterialTheme.typography.titleSmall, color = colors.text)
+            Text(stringResource(R.string.stalled_body), style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
+            Row(Modifier.padding(top = 10.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(
+                    onClick = onRestart,
+                    shape = RoundedCornerShape(Tek.shapes.button),
+                    colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
+                ) { Text(stringResource(R.string.stalled_restart)) }
+                TextButton(onClick = onBatterySettings) { Text(stringResource(R.string.stalled_battery), color = colors.text) }
+            }
+        }
+    }
+}

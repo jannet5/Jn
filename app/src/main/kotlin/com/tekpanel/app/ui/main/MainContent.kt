@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.tekpanel.app.domain.model.Conversation
 import com.tekpanel.app.ui.access.AccessBanner
+import com.tekpanel.app.ui.access.StalledBanner
 import com.tekpanel.app.ui.theme.Tek
 
 /** Every user action on the main screen, in one place, so the layout below stays a pure function of state. */
@@ -35,6 +36,8 @@ class MainCallbacks(
     val onAdd: () -> Unit = {},
     val onOpenSettings: () -> Unit = {},
     val onHowTo: () -> Unit = {},
+    val onRestartListener: () -> Unit = {},
+    val onBatterySettings: () -> Unit = {},
     val onCycle: (Conversation) -> Unit = {},
     val onToggleMessage: (messageId: String, currentlyLong: Boolean) -> Unit = { _, _ -> },
     val onMarkRead: (List<String>) -> Unit = {},
@@ -102,6 +105,11 @@ fun MainContent(
                 if (!state.accessGranted) {
                     item(key = "access") {
                         AccessBanner(onOpenSettings = callbacks.onOpenSettings, onHowTo = callbacks.onHowTo)
+                    }
+                }
+                if (state.listenerStalled) {
+                    item(key = "stalled") {
+                        StalledBanner(onRestart = callbacks.onRestartListener, onBatterySettings = callbacks.onBatterySettings)
                     }
                 }
                 if (state.loaded) {

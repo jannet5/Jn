@@ -52,6 +52,10 @@
     <string name="access_body">Mesajlar bu ekrana böyle ulaşır. Telefonunda kalır.</string>
     <string name="access_open">Erişimi aç</string>
     <string name="access_howto">Nasıl yapılır?</string>
+    <string name="stalled_title">Dinleme duraklamış</string>
+    <string name="stalled_body">Telefonun TekPanel\'i arka planda durdurmuş, yeni mesajlar gelmiyor. Yeniden başlat; pil ayarlarında TekPanel\'in arka planda çalışmasına da izin ver.</string>
+    <string name="stalled_restart">Yeniden başlat</string>
+    <string name="stalled_battery">Pil ayarları</string>
     <string name="guide_title">Bildirim erişimini açmak</string>
     <string name="guide_why">Android, bir uygulamanın bildirimleri okumasına ancak sen bir kez izin verince müsaade eder. Yaklaşık 20 saniye sürer.</string>
     <string name="guide_step1">\"Erişimi aç\"a dokun. Android doğru sayfayı açar.</string>

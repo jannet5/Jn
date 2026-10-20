@@ -51,6 +51,7 @@ import com.tekpanel.app.ui.common.ConfirmDialog
 import com.tekpanel.app.ui.diagnostics.DiagnosticsActivity
 import com.tekpanel.app.ui.theme.Tek
 import com.tekpanel.app.util.AccessSettings
+import com.tekpanel.app.util.ListenerHealth
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 
@@ -93,13 +94,11 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
         lifecycleOwner.lifecycle.addObserver(observer)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
-    LaunchedEffect(state.accessGranted, lifecycleOwner) {
-        if (!state.accessGranted) {
-            lifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                while (true) {
-                    viewModel.refreshAccess()
-                    delay(ACCESS_POLL_MS)
-                }
+    LaunchedEffect(lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            while (true) {
+                viewModel.refreshAccess()
+                delay(ACCESS_POLL_MS)
             }
         }
     }
@@ -175,6 +174,8 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
             onAdd = { showPicker = true },
             onOpenSettings = { AccessSettings.openNotificationAccess(context) },
             onHowTo = { showGuide = true },
+            onRestartListener = viewModel::restartListener,
+            onBatterySettings = { ListenerHealth.openBatterySettings(context) },
             onCycle = viewModel::cycle,
             onToggleMessage = viewModel::toggleLengthened,
             onMarkRead = { ids -> viewModel.markRead(ids, markReadLabel) },

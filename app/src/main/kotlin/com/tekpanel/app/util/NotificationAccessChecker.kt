@@ -15,6 +15,9 @@ import com.tekpanel.app.capture.TekPanelNotificationListenerService
  */
 class NotificationAccessChecker(private val context: Context) {
 
+    /** True while the system actually has the listener bound (notifications are being delivered). */
+    fun isListenerBound(): Boolean = TekPanelNotificationListenerService.connected
+
     fun isGranted(): Boolean {
         if (TekPanelNotificationListenerService.connected) return true
         if (Build.VERSION.SDK_INT >= 27) {

@@ -6,6 +6,8 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -74,16 +76,62 @@ class NotificationListenerRealDeviceTest {
             val activeSbn = pollForActiveNotification(id = 42, timeoutMillis = 5_000)
             assertThat(activeSbn).isNotNull()
 
-            val payload = NotificationExtractor.extract(activeSbn!!)
+            val payload = NotificationExtractor.extract(context, activeSbn!!)
             val normalized = MessageNormalizer.normalize(payload)
 
             assertThat(payload.packageName).isEqualTo(context.packageName)
-            assertThat(normalized?.senderName).isEqualTo("Gerçek Müşteri")
-            assertThat(normalized?.messageText).isEqualTo("Bu bildirim gerçek Android sistemi tarafından oluşturuldu")
+            assertThat(normalized?.conversationTitle).isEqualTo("Gerçek Müşteri")
+            assertThat(normalized?.messages?.single()?.messageText).isEqualTo("Bu bildirim gerçek Android sistemi tarafından oluşturuldu")
         } finally {
             NotificationManagerCompat.from(context).cancel(42)
         }
     }
+
+    /**
+     * The real thing, end to end, on a real system: the OS binds our listener, a notification posted
+     * by another package (the shell, standing in for WhatsApp) is delivered to it, and the message
+     * ends up in the real Room database exactly once, grouped under its conversation.
+     */
+    @Test
+    fun aMessageFromAnotherAppFlowsThroughTheRealListenerIntoRoomExactlyOnce() = runBlocking {
+        // `cmd notification post --conversation/--message` only exists from Android 11 (API 30).
+        org.junit.Assume.assumeTrue(android.os.Build.VERSION.SDK_INT >= 30)
+        val koin = org.koin.core.context.GlobalContext.get()
+        val repository = koin.get<com.tekpanel.app.data.repository.InboxRepository>()
+        val preferences = koin.get<com.tekpanel.app.data.prefs.AppPreferences>()
+        val componentName = android.content.ComponentName(context, TekPanelNotificationListenerService::class.java)
+
+        instrumentation.uiAutomation.executeShellCommand("cmd notification allow_listener ${componentName.flattenToString()}").close()
+        android.service.notification.NotificationListenerService.requestRebind(componentName)
+        assertThat(pollUntilTrue(15_000) { TekPanelNotificationListenerService.connected }).isTrue()
+
+        preferences.setChannelEnabled("com.android.shell", true)
+        val tag = "e2e-" + System.currentTimeMillis()
+        fun post(vararg messages: String) {
+            val args = messages.joinToString(" ") { "--message '$it'" }
+            instrumentation.uiAutomation.executeShellCommand(
+                "cmd notification post -S messaging --conversation 'Ayse Yilmaz' $args $tag 'x'",
+            ).close()
+        }
+
+        post("Ayse:randevu almak istiyorum")
+        assertThat(pollUntilTrue(15_000) { runBlocking { messagesOf(repository).any { "randevu" in it } } }).isTrue()
+
+        post("Ayse:randevu almak istiyorum") // the very same notification delivered again
+        Thread.sleep(2_000)
+        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
+
+        // The chat app updates the SAME notification with a second message: it must be stored too.
+        post("Ayse:randevu almak istiyorum", "Ayse:cumartesi 14:00 uygun mu")
+        assertThat(pollUntilTrue(15_000) { runBlocking { messagesOf(repository).any { "cumartesi" in it } } }).isTrue()
+        assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
+
+        preferences.setChannelEnabled("com.android.shell", false)
+        instrumentation.uiAutomation.executeShellCommand("cmd notification cancel $tag").close()
+    }
+
+    private suspend fun messagesOf(repository: com.tekpanel.app.data.repository.InboxRepository): List<String> =
+        repository.observeConversations().first().flatMap { it.messages }.map { it.messageText }
 
     private fun pollUntilTrue(timeoutMillis: Long, intervalMillis: Long = 500, condition: () -> Boolean): Boolean {
         val deadline = System.currentTimeMillis() + timeoutMillis

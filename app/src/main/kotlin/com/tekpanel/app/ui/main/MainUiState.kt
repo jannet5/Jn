@@ -17,6 +17,8 @@ data class MainUiState(
     val conversations: List<Conversation> = emptyList(),
     val labels: Map<String, String> = emptyMap(),
     val hasEnabledChannels: Boolean = false,
+    /** Access is granted but the system is not delivering notifications (listener unbound for a while). */
+    val listenerStalled: Boolean = false,
 )
 
 /** How much of a conversation card is open. */

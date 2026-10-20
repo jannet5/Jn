@@ -20,6 +20,7 @@ import com.tekpanel.app.ui.channels.ChannelPickerViewModel
 import com.tekpanel.app.ui.diagnostics.DiagnosticsViewModel
 import com.tekpanel.app.ui.main.MainViewModel
 import com.tekpanel.app.util.IntentLauncher
+import com.tekpanel.app.util.ListenerHealth
 import com.tekpanel.app.util.NotificationAccessChecker
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -49,7 +50,10 @@ val appModule = module {
     single { IntentLauncher(get(), get()) }
     single { EraseAllDataUseCase(get(), get(), get(), get(), get()) }
 
-    viewModel { MainViewModel(get(), get(), get(), get(), get(), get(), get()) }
+    viewModel {
+        val context = androidContext()
+        MainViewModel(get(), get(), get(), get(), get(), get(), get(), listenerHealthRestart = { ListenerHealth.restart(context) })
+    }
     viewModel { ChannelPickerViewModel(get()) }
     viewModel { DiagnosticsViewModel(get(), get(), get()) }
 }

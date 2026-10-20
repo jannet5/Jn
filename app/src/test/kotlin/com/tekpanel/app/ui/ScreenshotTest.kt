@@ -99,6 +99,11 @@ class ScreenshotTest {
         shot("07-izin-yok")
     }
 
+    @Test fun main_stalled() {
+        main(ScreenshotFixtures.state(tmp.newFolder()).copy(listenerStalled = true))
+        shot("11-dinleme-duraklamis")
+    }
+
     @Test fun main_empty() {
         main(ScreenshotFixtures.state(tmp.newFolder(), empty = true))
         shot("08-bos")

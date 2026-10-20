@@ -20,8 +20,15 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-      - name: Run JVM + Robolectric unit tests
-        run: ./gradlew :app:testDebugUnitTest --console=plain
+      - name: Run JVM + Robolectric unit tests (also renders the UI screenshots)
+        run: ./gradlew :app:testDebugUnitTest -Proborazzi.test.record=true --console=plain
+      - name: Merged manifest must not request INTERNET (privacy promise shown in the app)
+        run: |
+          ./gradlew :app:processDebugMainManifest --console=plain
+          M=$(find app/build -path '*merged_manifests/debug*' -name AndroidManifest.xml | head -1)
+          echo "Checking $M"
+          if grep -q "android.permission.INTERNET" "$M"; then echo "INTERNET permission found"; exit 1; fi
+          grep -o 'uses-permission android:name="[^"]*"' "$M" | sort -u
       - name: Build debug and release APKs
         run: ./gradlew :app:assembleDebug :app:assembleRelease --console=plain
       - uses: actions/upload-artifact@v4
@@ -29,9 +36,18 @@ jobs:
         with:
           name: unit-test-results
           path: app/build/reports/tests/testDebugUnitTest
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ui-screenshots
+          path: app/build/shots
 
   instrumented-tests:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        api-level: [26, 30, 34, 36]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -43,10 +59,10 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
-      - name: Run instrumented tests on a real accelerated emulator
+      - name: Run instrumented tests on a real accelerated emulator (API ${{ matrix.api-level }})
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
+          api-level: ${{ matrix.api-level }}
           target: google_apis
           arch: x86_64
           profile: pixel_5
@@ -55,7 +71,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: instrumented-test-results
+          name: instrumented-test-results-api${{ matrix.api-level }}
           path: app/build/outputs/androidTest-results
 
   preview-smoke:

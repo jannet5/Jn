@@ -975,3 +975,389 @@ ile farklı bir kategori. Yine de işletme sahibinin alternatifi bunlar.
   https://play.google.com/store/apps/details?id=com.sahan.notificationtracker
   https://play.google.com/store/apps/details?id=com.uzunlarweb.bildirimgecmisi
   https://play.google.com/store/apps/details?id=com.oguzrobotics.notificationreader
+
+# NOTISAVE DETAYI
+
+## Kimlik ve rakamlar
+
+- Ad: Notisave - Notification Log. Paket: com.tenqube.notisave
+- Play: https://play.google.com/store/apps/details?id=com.tenqube.notisave
+- Geliştirici (Play): Firehawk. Site: https://firehawk.ai/notisave
+  - Paket adında "tenqube" geçiyor. Sahipliğin başka bir şirketten Firehawk'a
+    geçtiği doğrulanamadı.
+  - Firehawk'ın diğer ürünleri: Unseen Messenger (5M+) ve Unseen - No Last
+    Seen (10M+, 4,56 puan, 388.327 yorum).
+- Puan 4,51 (104.915). İndirme 10M+ (sayfa verisinde ~43,8 milyon).
+- Son güncelleme: 14 Ocak 2026. İçerik: Herkes.
+- Fiyat: ücretsiz + reklam + uygulama içi ürünler 0,99-99,99 dolar
+  (Türkiye mağazasında 4,99-829,99 TL).
+- 2019'da MobileSyrup "Haftanın Uygulaması" yapmış:
+  https://mobilesyrup.com/2019/04/21/drowning-in-notifications-notisave-app-android-review/
+- iOS'ta aynı adla ayrı bir uygulama var ("Notisave: History Log", başka
+  geliştirici, "100% Fake" diyen ilk yorum, reklamlı):
+  https://apps.apple.com/app/id6748842428
+
+## Tüm özellikleri (Play metni, site, basın, ekran görüntüleri)
+
+- Tüm uygulamalardan gelen bildirimi otomatik kaydeder (bildirim erişimi ile).
+- "Okunmamış" ve "Kaydedilen" ayrımı. Özel gruplar sekme olarak durur
+  (görselde "Family", "Bank" gibi).
+- Kişi bazlı konuşma listesi ("Messages"): avatar, ad, son mesaj, saat,
+  sağda okunmamış sayısı. Konuşmaya girince sohbet balonları, gün başlıkları,
+  arama kutusu.
+- Silinen mesaj: görselde "This message was deleted." satırı.
+- "Görüldü atmadan oku": önizlemeyi uygulamayı açmadan okuma.
+- Arama; kelime, tarih, uygulamaya göre süzme (Play metni).
+- Sessiz mod: bildirimi durum çubuğunda göstermeden kaydeder. Çubukta tek
+  özet bildirimi kalır ("27 bildirim kaydedildi").
+- Bildirim engelleme: "All apps" listesi, her uygulama için anahtar, arama.
+  Açıklama: "Seçili uygulamaların bildirimleri durum çubuğunda engellenir".
+- Kilit: parola ve parmak izi.
+- Eski sürüm (2019): New / All / Chat / SNS / Shop sekmeleri, uygulama başına
+  kart, kartta zil simgesi (muhtemelen sustur), "(15 mesaj)" sayacı, New'da onay
+  işareti ile temizle, koyu tema (MobileSyrup).
+- Yedek, çoklu cihaz eşitleme: Play metninde yok. Kullanıcılar istiyor.
+- Web veya PC sürümü: bulunamadı.
+
+## Ana ekran düzeni
+
+Güncel arayüz (Play mağaza görselleri, 2026):
+- Üst: başlık + arama simgesi.
+- Sekmeler: Unread, Saved, özel gruplar.
+- Liste: uygulama kartı veya kişi satırı. Satırda avatar, köşede uygulama
+  simgesi, ad, tek satır önizleme, saat, sağda yuvarlak okunmamış sayısı.
+- Sohbet ekranı: sol üstte geri, arama; balonlar; en altta gün ayracı.
+- Görsellerde alt çubuk görünmüyor. Ayarlar ve engelleme listesi ayrı sayfa.
+- Kilit ekranı: sayısal tuş takımı + parmak izi.
+
+Eski arayüz ölçüleri (Play'deki 1080x1920 ham ekran görüntüsünden ölçtüm;
+3x yoğunluk, 360x640dp varsayımı, tahmini):
+- Üst bölge (durum çubuğu + başlık + sekmeler): ~143dp.
+- İlk kart ~146dp'den başlar.
+- Kart yan boşluğu 12dp. Kart genişliği ~335dp.
+- Kart yüksekliği ~154-156dp (3 satır sohbet).
+- Kartlar arası boşluk ~11-14dp.
+- Renkler: zemin açık gri, kart beyaza yakın (yaklaşık #F1F2F4 ve #FDFDFD).
+Güncel arayüz için tahmin (pazarlama görselinden, ±10%):
+- Sohbet satırı aralığı ~80dp. Avatar çapı ~44dp.
+- Pazarlama görseli gerçek ekranı birebir göstermeyebilir.
+
+Dokununca ne oluyor:
+- Bildirime dokununca ilgili uygulama açılır (MobileSyrup, 2019). Kurucunun
+  "dokununca okundu sayılıp kayboluyor" şikayeti burada okunma, uygulama
+  içindeki "okunmamış" mantığıyla ilgili olabilir (çıkarım, doğrulanamadı).
+- Konuşmaya dokununca sohbet ekranı. Çoklu seçim için her konuşmaya tek tek
+  dokunmak gerekiyor; "seç ve sürükle" isteği var (2023-02, 246 faydalı).
+
+## Ayarlar ve filtreler (yorum ve görsellerden)
+
+- Üç klasör mantığı (2019): Bildirimleri engelle, Bildirimleri kaydet, ve
+  üçüncüsü. Yorumlar:
+  - "Uygulama ekleme bir kez, sonra 'ekle' düğmesi kayboluyor" (2019-08, 902).
+  - "Bazı uygulamalar kendiliğinden Engelle klasörüne düşüyor, ayarı
+    değiştirsem de" (2021-02, 273 faydalı).
+  - "YouTube engelli ama bildirim çubuğunda görünmeye devam ediyor" (2024-02).
+- Kilit: "parola koyunca uygulama açılmıyor, boş ekran" (2022-12, 434; 2023-06;
+  2023-11).
+- Silme: tek tek seçerek. Toplu seçim zor (2023-02).
+- Sesli/vibrasyon, bildirim sesi: bilgi bulunamadı.
+
+## Ücretli özellikler
+
+- Play metni hangi özelliğin ücretli olduğunu yazmıyor.
+- Geliştirici yanıtı: "Reklamlar ücretsiz sürümde. Premium reklamsız. Premium
+  daha fazla özellik açar" (2026-06):
+  https://play.google.com/store/apps/details?id=com.tenqube.notisave
+- Yorumlardan fiyat (2026): 3 günlük deneme, sonra HAFTALIK. Rakamlar farklı:
+  - "$14,99 hafta" (2026-04, 2026-06), "14,99 sterlin hafta" (2026-10),
+    "£14,99 / 20 dolar hafta" (2026-07), "14 CHF hafta" (2026-05), "€15 hafta ve VIP destek" (2026-05),
+    "$18,99 hafta" (2026-02), "$23 hafta" (2026-10).
+  - Eski "Ömür boyu Premium (reklamsız)" alanlar: güncellemeden sonra reklam
+    görüyor ve "haftalık $4,99" istenmiş (2026-08).
+  - "Premium reklamı kaldırmıyor" iddiası (2026-07) doğrulanamadı.
+- Sonuç: fiyat bölgeye, teklife ve tarihe göre değişiyor. Tek kesin sayı yok.
+
+## Kullanıcıların sevdiği şeyler
+
+- Silinen mesajı okumak, görüldü atmadan okumak (2020-2025 yorumlarda çok).
+- Bildirim çubuğunu temizleyip kaydı saklaması: "yer açılıyor, önemli DM'ler
+  kalıyor" (2019-04, 100 faydalı).
+- Yıllarca arka planda sessiz çalışması: "4 yıldır kullanıyorum, sadece bir şey
+  silinince açarım" (2024-10).
+- Basit ve temiz arayüz. 2026'nın yeni yorumlarında 5 yıldız ağırlıklı:
+  831 yeni yorumdan 649'u 5 yıldız (örnek sapmalı, doğrulanamadı).
+
+## Sevmedikleri şeyler (1.559 yorum örneğinden)
+
+Tema sayıları (kaba anahtar kelime taraması; bir yorum birden çok temada):
+- "Kaydetmiyor, eksik, durdu": 441 yorum (~%28).
+- Silinen mesaj konusu: 254 (~%16). Fotoğraf/medya: 136 (~%9).
+- Gizlilik, kilit, izin, güven: 129 (~%8).
+- Reklam: 43. Abonelik ve fiyat: 39 (2026'da artıyor: 2026'daki 104 düşük
+  puanlı yorumun 20'si reklam, 19'u fiyat, 17'si "çalışmıyor").
+Öne çıkan şikayetler:
+- Fotoğraf yok: yerine "Sent a photo" yazıyor (2021-12, 2.112 faydalı).
+- Bir süre sonra kayıt durur: "bir hafta çalıştı, sonra durdu" (2021-04,
+  1.843 faydalı).
+- Çubuğu izinsiz boşaltması: "kurunca tüm okunmamış bildirimlerimi sildi,
+  uygulamada da göstermedi; ek bir yer istemiştim, yerine geçmesini değil"
+  (2026-04). "Çubuğu boşaltması rahatsız edici" (2020-04, 299 faydalı).
+- İzin döngüsü: "Bildirim erişimi iste, ayara götür, 'bu özellik cihazınızda
+  yok' de, tekrar iste" (2020-07, 326 faydalı).
+- Beyaz ekran: bildirim panelinden uygulamaya girince doğrulama, sonra beyaz
+  ekran, hiçbir şey açılmıyor (2022-12, 434).
+- Pil ve RAM: "~1 GB RAM, pil hızlı bitiyor" (2021-06), "pil" (2021-12).
+- Ağır ve aldatıcı reklamlar (2026-06). Bitmeyen onay (consent) ekranları,
+  "hepsinin seçimini kaldır" düğmesi yok (2026-05).
+- Güven: "çerez onayı GDPR'a uymuyor, kullanıcı verisini 3. taraflara
+  satıyor, aynı uygulamayı farklı adla yeniden yüklüyor" (2026-07, tek yorum,
+  doğrulanamadı).
+- Kötüye kullanım yorumları: "eski sevgilinin silinen mesajlarını okudum"
+  (2021-05). Bu tür kullanım mağaza itibarı ve politika riski taşır.
+
+## Sistem nasıl çalışıyor (çıkarım, kod okunmadı)
+
+- Android'in bildirim dinleme servisini kullanır. Gelen her bildirim yerel
+  veritabanına yazılır. Bu yüzden:
+  - Uygulama açıkken bildirim oluşmazsa kayıt yok ("mesajlaşma uygulamasını
+    kapat, sonra bildirimle gelsin", 2022-10 yorumu).
+  - Bildirimde resim yoksa sadece "Sent a photo" kalır.
+  - Silinen mesaj, o mesajın zaten kaydedilmiş bildirim kopyası olduğu için
+    görünür. Kurulumdan önceki mesajlar yok.
+- Bildirimi çubuktan kaldırıp tek özet bildirim bırakıyor (sessiz mod).
+  Kullanıcılar bu agresifliği sevmiyor.
+
+## Notisave'e karşı net fırsatlar
+
+- Reklamsız ve haftalıksız fiyat. Fotoğraf ve medya. Çubuğu varsayılan
+  olarak bozmama. Güvenilir kayıt durumu. İzin sihirbazı. Türkçe.
+- Kişi/konuşma düzeni zaten var; farkı işletme odağı ve hız olmalı.
+
+# Yorumlardan çıkan ortak sorunlar (sayılarla)
+
+Düşük puanlı (3 yıldız ve altı) yorumlardaki tema oranları. Kaba tarama.
+Örnek: uygulama başına ~200 yorum (en alakalı + en yeni).
+
+- Bildirim geçmişi uygulamaları (~13 uygulama, 625 düşük puanlı yorum):
+  - Kayıt eksik, durdu, çalışmıyor: 207 (%33).
+  - Abonelik ve fiyat: 123 (%20). Gizlilik, izin, güven: 84 (%13).
+  - Reklam: 80 (%13). Silinen mesaj beklentisi: 63 (%10).
+  - Arka plan ve yeniden başlatma: 39 (%6). Çökme: 35 (%6). Medya: 23 (%4).
+  - Arayüz ve tasarım: 20 (%3).
+- Yönetici/filtre uygulamaları (~13, 494 düşük yorum):
+  - Çalışmıyor: 142 (%29). Kural ve filtre sorunu: 95 (%19).
+  - Fiyat: 92 (%19). Gizlilik: 85 (%17). Arayüz: 50 (%10). Çökme: 47 (%10).
+- Silinen mesaj uygulamaları (3, 259 düşük yorum):
+  - Çalışmıyor: 89 (%34). Silinen mesaj: 84 (%32). Fiyat: 53 (%20).
+  - Medya: 43 (%17). Gizlilik: 34 (%13).
+- Gelen kutusu ve işletme uygulamaları (~18, 1.389 düşük yorum):
+  - Çalışmıyor/bildirim gelmiyor: 289 (%21). Çökme: 223 (%16).
+  - Fiyat: 174 (%13). Gizlilik: 144 (%10). Medya: 123 (%9).
+  - Cevap verme: 107 (%8). Arayüz: 83 (%6).
+- Tüm 29 bildirim uygulamasında 3.684 yorumda ayrıca:
+  - Medya/fotoğraf isteği %3,8. İzin sorunu %0,9. Yavaşlık/kasma %0,9.
+  - Cevap verme isteği yalnızca %0,1 (3 yorum).
+  - Yani kasma önemli ama kategorinin ana derdi değil; ana dert güvenilirlik,
+    reklam ve fiyat.
+- Aynı şikayet, birden çok bağımsız uygulamada tekrar ediyor (güvenilir bulgu):
+  "bir süre sonra kayıt durur", "reklam ve haftalık fiyat", "fotoğraf yok",
+  "izin tekrar kapanır", "tümünü seç yok".
+
+# Fiyat modelleri (gözlenen)
+
+- Haftalık abonelik: Notisave (3 gün deneme, ~15 dolar/hafta), Notification
+  History Log (ZipoApps, ~13-15 dolar/hafta). Tepkiler çok sert.
+- Aylık/yıllık/ömür boyu: BinaryScript (sadece dışa aktarma kilitli),
+  Notification History (svprdga, aylık ve yıllık; tepki var), Norg (Premium:
+  eski kayıt, reklamsız).
+- Tek seferlik: BuzzKill 3,99 dolar (66,99 TL), Notification History Pro 1,99,
+  Past Notifications Key 2,99, Notification Widget 5,99, FilterBox Pro ~4
+  (kullanıcı beyanı), NotiRecall Pro 7,99.
+- Ücretsiz ve reklamsız küçükler: Nap, DoNotNotify, Glimpse, NLog.
+- Reklam: 12/20.
+- Aylık: Beeper 9,99 dolar, Pushbullet 4,99 dolar, Bridge 0,99 dolar.
+- Kullanıcı sinyali:
+  - Reddit: "Ücretsiz veya tek seferlik olur. Abonelikse düşük olsun"
+    (2025-01).
+    https://www.reddit.com/r/androidapps/comments/1hqx5hv/app_that_stores_notification_history_and_can_view/
+  - Play (NHL): "Tek seferlik bağış seçeneği olsa desteklerdim; haftalık 369
+    peso (80 dolar/ay) delilik" (2025-04, 5 yıldız).
+  - BuzzKill 5 yıldız yorumu: "reklamsız iyi uygulamaya para vermek güzel".
+- Deneme: 3 gün + net fiyat ekranı sektörde yaygın (Notisave). Şikayet
+  denemeye değil, deneme sonrası haftalık tahsilata ve "iptal yolu yok"a.
+- TL çıpaları (Play TR, 20 Ekim 2026): BuzzKill 66,99 TL; FilterBox ürünleri
+  90,99-164,99 TL; WAMR 104,99 TL; Notisave ürünleri 4,99-829,99 TL;
+  BinaryScript 114,99-1.149,99 TL; Beeper 434,99-23.929,99 TL.
+
+# Google Play dışı mecralar
+
+## Android'in kendi bildirim geçmişi (en büyük "rakip")
+
+- Android 11 ve üstünde: Ayarlar > Bildirimler > Bildirim geçmişi. Varsayılan
+  KAPALI. Son 24 saati tutar. Açmadan önceki bildirimler yok. Parolayla
+  korunmuyor.
+  - https://9to5google.com/2022/04/13/what-is-notification-history/
+  - https://www.slashgear.com/1401276/how-to-access-android-notification-log
+- Resmî Google yardım sayfasını arama sonuçlarında bulamadım (doğrulanamadı);
+  bilgiler teknoloji sitelerinden.
+- Kullanıcılar bunu biliyor: "Android'in yerleşik geçmişi aynı işi yapıyor"
+  diyen Play yorumu (2022-10), Reddit'te "sadece uygulama adını gösteriyor,
+  bildirimi değil" (2020-08), "Samsung'da etkisiz" (2026-02).
+- Çıkarım: rakiplerin satış cümlesi "24 saatten uzun, aranabilir, kişiye göre".
+  TekPanel'in farkı bunun ötesinde olmalı (konuşma, medya, işletme).
+
+## F-Droid (açık kaynak mağaza)
+
+- Aramalar: https://search.f-droid.org/?q=notification+history ve benzerleri.
+- Bildirim kaydeden gerçek uygulama sayısı çok az. Bulduklarım:
+  - NotificationLog (de.jl.notificationlog): GPL-3.0 veya üstü. Bildirimleri
+    yerelde kaydeder, görüntüler, dışa aktarır, siler. Kod Codeberg'de,
+    son sürüm Ağustos 2025. AlternativeTo özetinde listenin başında geçiyor.
+    https://f-droid.org/en/packages/de.jl.notificationlog/
+    https://codeberg.org/jonas-l/notificationlog-android
+  - Notification Vault: GPL-3.0, çevrimdışı, AES-256 şifreli.
+    https://f-droid.org/en/packages/com.zygisk_enc.notivault/
+  - DoNotNotify: MIT, kural ve geçmiş.
+    https://f-droid.org/en/packages/com.donotnotify.donotnotify/
+  - SpeakThat!: GPL-3.0, bildirimi sesli okur.
+    https://f-droid.org/en/packages/com.micoyc.speakthat/
+  - KyuubiMask: Apache-2.0, ekran paylaşırken bildirimi gizler.
+    https://f-droid.org/en/packages/com.rtneg.kyuubimask/
+  - KDE Connect: GPL-3.0 (E3 kartı).
+- NLog (Stuttgart, Play'deki org.hcilab.projects.nlog) F-Droid'de yok (sayfa
+  404). Reddit'te F-Droid'den önerilen "Notification Log" yukarıdaki
+  de.jl.notificationlog (2020-08 yorumu, "FOSS, gizlilik sorunu yok").
+- Çıkarım: "gizlilik odaklı, açık kaynak, çevrimdışı" bölümünde az sayıda küçük
+  uygulama var. Kullanıcılar bunu arıyor ("açık kaynak daha iyi", Reddit
+  2026-02). TekPanel kapalı kaynak olsa da veri güvenliği beyanı ve internet
+  izni olmaması aynı kitleye hitap eder.
+- Lisans notu: bu uygulamaların kodu bu kolda okunmadı, kopyalanmadı.
+
+## AlternativeTo
+
+- Doğrudan erişim engelli (403). Yalnızca arama sonucu özetlerinden bilgi:
+  - "Notification History Alternatives": https://alternativeto.net/software/notification-history
+  - "Notification History Log Alternatives": https://alternativeto.net/software/notification-history-log
+  - NotiRecall: https://alternativeto.net/software/notirecall/about/
+  - BuzzKill (AlternativeTo'da "$3"): https://alternativeto.net/software/buzzkill/about
+- Özet: listelerde en üstte açık kaynak "NotificationLog" (F-Droid), ardından
+  Notifications Recovery ve Notification History Log. WhatsRemoved+ de
+  anılıyor. Bu özetler tek kaynak, ayrıntı doğrulanamadı.
+
+## Product Hunt
+
+- Doğrudan erişim engelli (403). Arama özetleri:
+  - Notification History Log (2017): https://www.producthunt.com/products/notification-history-log
+  - NotiBox (2016): https://www.producthunt.com/products/notibox
+  - Pinnit (2024): https://www.producthunt.com/products/pinnit-pin-track-notifications
+    Yorum: "Xiaomi Android 14'te geçmiş çöp bildirimle doluyor".
+- Çıkarım: kategori yıllardır var, yeni "lansman" heyecanı düşük; Play araması
+  ve Reddit önerisi daha belirleyici.
+
+## Reddit (arşiv API'si ile okundu)
+
+- Reddit'in kendi sitesine doğrudan erişim ve arama engelli veya sınırlı. Üçüncü
+  taraf Reddit arşivi (arctic-shift) ile r/androidapps, r/Android,
+  r/AndroidQuestions gönderileri okundu. Silinmiş (removed) gövdeler boş.
+- Konular ve bulgular:
+  - "Temiz bir bildirim geçmişi uygulaması?" (2026-02): "Galaxy S20'de yerleşik
+    geçmiş yetersiz, açık kaynak olsun." Cevaplar: BuzzKill ve bir FOSS
+    dinleyici. https://www.reddit.com/r/androidapps/comments/1r9fpvi/a_nice_and_clean_pplication_for_notification/
+  - "Uygulamaya göre görüntüleme" (2025-01): istenen: hepsini sakla, uygulamaya
+    göre süz, bazılarını yok say, kanal adını göster. "Ücretsiz veya tek
+    seferlik, abonelikse düşük". Önerilenler: BuzzKill, FilterBox, Past
+    Notifications, Samsung NotiStar.
+    https://www.reddit.com/r/androidapps/comments/1hqx5hv/app_that_stores_notification_history_and_can_view/
+  - "Bildirim geçmişi + paylaş menüsü" (2025-03): Nap, Pinnit, Recent
+    Notifications, Notifications archive. Bir yorum: "paylaşım bildirimin
+    ilk beş satırını alıyor" (hangi uygulama olduğu belirsiz).
+    https://www.reddit.com/r/androidapps/comments/1jf0ums/looking_for_an_app_with_notification_history_and/
+  - "Sistematik kaydet, kapat, uygulamaya göre süz" (2026-04): FilterBox ve
+    BuzzKill önerildi; pil tüketimi şart.
+    https://www.reddit.com/r/androidapps/comments/1srmlie/suggestions_for_apps_that_savelog_notification/
+  - "Tüm mesajları tek yerde gösteren bir mesaj merkezi var mı?" (2022-07):
+    "Beeper tam bu", DM Me. APUS Message Center "artık çalışmıyor".
+    https://www.reddit.com/r/androidapps/comments/w1iw06/are_there_any_allinone_message_centers_for/
+  - "Bildirim geçmişi Android'in az takdir edilen özelliği mi?" (r/AndroidQuestions,
+    2026-02): "iOS'ta yok."
+    https://www.reddit.com/r/AndroidQuestions/comments/1r1bw38/do_you_consider_notification_history_a_very/
+- Piyasa doygunluğu: 2026'da r/androidapps ve r/Android'de en az 5 farklı
+  küçük geliştirici "bildirim geçmişi uygulaması yaptım" gönderisi var
+  (NotiWeave, ReNotify, Notisaver ve adı geçmeyenler; bazıları tekrarlı). Örnek:
+  https://www.reddit.com/r/androidapps/comments/1x35h3t/i_made_my_notification_history_app_open_source/
+  Çıkarım: fark yaratmayan "geçmiş" uygulaması ölüme mahkûm; işletme odağı ve
+  kalite şart.
+
+## XDA ve diğer forum/haber
+
+- FilterBox tanıtım başlığı (kapalı): https://xdaforums.com/t/app-filterbox-powerful-notification-manager.4068543/
+- Glimpse Notifications (yıllardır süren başlık): https://xdaforums.com/t/app-glimpse-notifications.3090575/
+  Geliştirici "başka uygulamanın bildirimine dokunmam, sadece tetikleyici
+  olarak kullanırım" diyor (güven dili).
+- Notifications Logger (eski): https://xdaforums.com/t/app-4-0-notifications-logger.2859791/
+- Hacker News'te anlamlı tartışma bulunamadı (Pinnit Show HN, 2024):
+  https://news.ycombinator.com/item?id=41614548
+- Basın: MobileSyrup (Notisave 2019), schieb.de (Almanca rehber),
+  androidayuda.com, BGR:
+  https://www.schieb.de/745993/benachrichtigungen-bei-android-dauerhaft-archivieren
+  https://en.androidayuda.com/how-to-recover-a-notification-that-you-have-deleted-by-mistake-on-your-android/
+  https://www.bgr.com/2259167/hidden-setting-android-deleted-messages/
+
+## iOS karşılığı yok mu? Neden?
+
+- Gerçek bir karşılığı yok. Sebepler:
+  - iOS uygulama kum havuzu (sandbox): Apple mühendisi, başka uygulamaların
+    mesaj ve çağrı kayıtlarına erişim API'si verilmediğini yazmış. SMS yalnızca
+    istenmeyen mesaj filtresi gibi iki kısıtlı durumda ve kaydedilemez.
+    https://developer.apple.com/forums/thread/818261
+  - Başka uygulamanın bildirimini okuma konusunda doğrudan bir Apple belgesi
+    bulamadım (doğrulanamadı). Sonuç aynı: App Store'da çalışan bir benzeri yok.
+- İstisna: AB'de bildirimleri üçüncü taraf akıllı saatlere iletme (DMA
+  zorunluluğu). iOS 26.3 beta'da test edildi; haberler kamuya iOS 26.5 ile
+  açıldığını söylüyor (tarih doğrulanamadı). Tek cihaza, yalnız AB'de, aksesuar
+  üreticisinin desteğiyle. Başka uygulamaların bildirim geçmişi değil.
+  - https://heise.de/-10669113
+  - https://macrumors.com/2025/12/22/ios-26-3-dma-airpods-pairing
+  - https://mjtsai.com/blog/?p=50482
+- "Notisave: History Log" adlı iOS uygulaması mevcut ama nasıl çalıştığı
+  açıklanmıyor, ilk yorumu "100% Fake". Doğrulanamadı:
+  https://apps.apple.com/app/id6748842428
+- Beeper iOS'ta çalışıyor ama hesap girişi/köprü ile, bildirimden değil:
+  https://www.beeper.com/
+- Android'de olması: bildirim dinleme servisi ve kullanıcının açık izni var.
+- TekPanel ile ilişki: iOS sürümü planlanmamalı. "iOS'ta yok, çünkü Apple
+  izin vermiyor" cümlesi pazarlamada Android-özel avantaj olarak durabilir.
+
+## Web ve PC tarafı
+
+- Pushbullet (E2): bulut üzerinden PC'ye bildirim. Hesap ve sunucu gerekir.
+- KDE Connect (E3): yerel ağ, uçtan uca TLS, açık kaynak. Gizlilik açısından
+  TekPanel'e en yakın PC modeli.
+- Microsoft Phone Link (E4): Microsoft hesabı ister, PC Windows 11.
+  https://www.microsoft.com/en-us/windows/sync-across-your-devices
+- Bridge (E1): ucuz abonelik, bildirimi başka telefon/PC'ye yansıtıp
+  cevaplatıyor. https://play.google.com/store/apps/details?id=com.xitlabs.bridge
+- AirDroid (bildirim yansıtma + dosya): https://www.airdroid.com/
+- Join (João Dias): https://joaoapps.com/join/
+- Beeper masaüstü ve web (hesap tabanlı): https://www.beeper.com/
+- TekPanel ile ilişki:
+  - "Hiç internet izni yok" vaadi ile bulut tabanlı PC eşitleme çelişir.
+  - İleride istenirse yalnızca yerel ağ (QR ile eşleşen, KDE Connect gibi)
+    düşünülmeli. İlk sürümde yapma.
+  - Küçük işletme için PC'de görmek gerçek bir talep olabilir (Meta Business
+    Suite'in şikayetleri bunu gösteriyor); ama bu ayrı bir ürün kararı.
+
+## Diğer mağazalar ve ayna siteler (sadece bilgi sayfası)
+
+- Samsung Galaxy Store: Good Lock / NotiStar (A13 kartı).
+- Cafe Bazaar (İran), Notisave bilgi sayfası:
+  https://cafebazaar.ir/app/com.tenqube.notisave?l=en
+- apkcombo bilgi sayfası açılamadı (ağ erişimi engelli).
+- Huawei AppGallery ve Xiaomi GetApps kontrol edilmedi (doğrulanamadı).
+- Android 13+ "Kısıtlı ayarlar": Play dışından (APK ile) yüklenen uygulamalar
+  bildirim dinleme iznini doğrudan açamıyor; kullanıcı "Kısıtlı ayarlara izin
+  ver" demeli. Android 15'te daha sıkı. Kurucunun APK ile dağıtımı ve test için
+  önemli. Play'den yüklenirse sorun olmaz.
+  - https://9to5google.com/2024/09/12/android-15-sideloaded-apps-restrictions/
+  - https://androidauthority.com/android-15-restricted-settings-sideloading-3481098
+  - https://chromeunboxed.com/android-13-restricted-setting-feature-blocks-sideloaded-apps-from-notifications/

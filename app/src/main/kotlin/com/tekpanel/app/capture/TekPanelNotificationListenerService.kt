@@ -56,6 +56,8 @@ class TekPanelNotificationListenerService : NotificationListenerService() {
         connected = false
         selectionJob?.cancel()
         diagnosticsRecorder.onListenerDisconnected()
+        // The system unbound us (battery manager, ROM quirk, process restart): ask to be bound again.
+        runCatching { requestRebind(android.content.ComponentName(this, TekPanelNotificationListenerService::class.java)) }
     }
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {

@@ -52,6 +52,10 @@
     <string name="access_body">That is how messages reach this screen. They stay on this phone.</string>
     <string name="access_open">Open access settings</string>
     <string name="access_howto">How?</string>
+    <string name="stalled_title">Listening paused</string>
+    <string name="stalled_body">Your phone stopped TekPanel in the background, so new messages are not arriving. Restart it, and let TekPanel run in the background in battery settings.</string>
+    <string name="stalled_restart">Restart</string>
+    <string name="stalled_battery">Battery settings</string>
     <string name="guide_title">Turning on notification access</string>
     <string name="guide_why">Android only lets an app read notifications after you allow it once. It takes about 20 seconds.</string>
     <string name="guide_step1">Tap \"Open access settings\". Android opens the right page.</string>
