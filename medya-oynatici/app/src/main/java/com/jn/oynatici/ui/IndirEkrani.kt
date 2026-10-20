@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -117,6 +118,31 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
                 title = { Text(if (tur == Tur.MUZIK) "İnternetten MP3 indir" else "İnternetten video indir") }, // başlık
                 navigationIcon = { IconButton(onClick = { model.geri() }) { Icon(Icons.AutoMirrored.Rounded.ArrowBack, "Geri") } }, // geri
             )
+        },
+        bottomBar = { // ana buton ekranın altında sabit (uzun listede de görünür)
+            val c = cozulmus // çözülmüş link
+            if (c != null) Surface(color = MaterialTheme.colorScheme.surfaceContainer) {
+                Column(Modifier.fillMaxWidth().navigationBarsPadding().padding(16.dp)) {
+                    val v = if (tur == Tur.VIDEO) kalite else null // müzikte kalite yok
+                    val (yazi, etkin, tikla) = when (c.turu) {
+                        LinkTuru.TEK -> Triple("İndir", true) {
+                            baslat(IndirmeIsi(url = c.url, tur = tur, hedef = klasor, kalite = v, platform = c.platform))
+                        }
+                        LinkTuru.PROFIL -> Triple("Son ${sayi ?: "?"} içeriği indir", sayi != null) {
+                            baslat(IndirmeIsi(url = c.url, tur = tur, hedef = klasor, kalite = v, platform = c.platform,
+                                linkTuru = LinkTuru.PROFIL, sayi = sayi ?: 10, sekme = sekme))
+                        }
+                        LinkTuru.LISTE -> {
+                            val l = liste // liste
+                            Triple("Seçilenleri indir (${secili.size})", l != null && secili.isNotEmpty()) {
+                                if (l != null) baslat(IndirmeIsi(url = c.url, tur = tur, hedef = klasor, kalite = v, platform = c.platform,
+                                    linkTuru = LinkTuru.LISTE, listeAdi = l.ad, ogeler = secili.sorted().map { l.ogeler[it] }))
+                            }
+                        }
+                    }
+                    Button(onClick = tikla, enabled = etkin, modifier = Modifier.fillMaxWidth().height(52.dp)) { Text(yazi, fontWeight = FontWeight.SemiBold) }
+                }
+            }
         },
     ) { bosluk ->
         LazyColumn(
@@ -228,26 +254,6 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
                         "Hepsi tek bir klasöre iner: \"Ad, sayı içerik, ${cozulmus.platform.ad}\". İçine linklerin listesi (Linkler.txt) de konur.",
                         color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodySmall,
                     )
-                }
-                item { // tek ana buton
-                    val v = if (tur == Tur.VIDEO) kalite else null // müzikte kalite yok
-                    val (yazi, etkin, tikla) = when (cozulmus.turu) {
-                        LinkTuru.TEK -> Triple("İndir", true) {
-                            baslat(IndirmeIsi(url = cozulmus.url, tur = tur, hedef = klasor, kalite = v, platform = cozulmus.platform))
-                        }
-                        LinkTuru.PROFIL -> Triple("Son ${sayi ?: "?"} içeriği indir", sayi != null) {
-                            baslat(IndirmeIsi(url = cozulmus.url, tur = tur, hedef = klasor, kalite = v, platform = cozulmus.platform,
-                                linkTuru = LinkTuru.PROFIL, sayi = sayi ?: 10, sekme = sekme))
-                        }
-                        LinkTuru.LISTE -> {
-                            val l = liste // liste
-                            Triple("Seçilenleri indir (${secili.size})", l != null && secili.isNotEmpty()) {
-                                if (l != null) baslat(IndirmeIsi(url = cozulmus.url, tur = tur, hedef = klasor, kalite = v, platform = cozulmus.platform,
-                                    linkTuru = LinkTuru.LISTE, listeAdi = l.ad, ogeler = secili.sorted().map { l.ogeler[it] }))
-                            }
-                        }
-                    }
-                    Button(onClick = tikla, enabled = etkin, modifier = Modifier.fillMaxWidth().height(52.dp)) { Text(yazi, fontWeight = FontWeight.SemiBold) }
                 }
             }
         }
