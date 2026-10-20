@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,10 +16,12 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Movie
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,10 +51,14 @@ fun Uygulama(model: UygulamaModeli) {
             Sayfa.Calan -> CalanEkrani(model) // çalan müzik
             Sayfa.VideoIzle -> VideoEkrani(model) // video
             is Sayfa.Kirp -> KirpEkrani(model, sayfa.tur, sayfa.dosya) // kırpma
+            is Sayfa.Indir -> IndirEkrani(model, sayfa.tur, sayfa.klasor, sayfa.link) // internetten indirme
+            is Sayfa.Linkler -> LinklerEkrani(model, sayfa.klasor) // linkler
+            Sayfa.Hesaplar -> HesaplarEkrani(model) // hesaplar
+            is Sayfa.Giris -> GirisEkrani(model, sayfa.platform) // giriş sayfası
         }
     }
 
-    // YouTube'dan "Paylaş" ile link geldiyse: ses mi video mu diye sor
+    // YouTube, TikTok, Instagram... uygulamasından "Paylaş" ile link geldiyse: ses mi video mu diye sor
     model.paylasilanLink?.let { link ->
         AlertDialog(
             onDismissRequest = { model.paylasilanLink = null }, // dışına dokununca kapat
@@ -60,15 +67,17 @@ fun Uygulama(model: UygulamaModeli) {
             confirmButton = {
                 TextButton(onClick = { // video olarak
                     model.paylasilanLink = null // soruyu kapat
-                    model.bekleyenLink = link // indirme penceresine ver
-                    model.git(Sayfa.Liste(Tur.VIDEO, Kutuphane.kok(ctx, Tur.VIDEO))) // video bölümüne git
+                    val kok = Kutuphane.kok(ctx, Tur.VIDEO) // video bölümü
+                    model.git(Sayfa.Liste(Tur.VIDEO, kok)) // video bölümüne git (geri basınca orada kalsın)
+                    model.git(Sayfa.Indir(Tur.VIDEO, kok, link)) // indirme sayfasını linkle aç
                 }) { Text("Video") }
             },
             dismissButton = {
                 TextButton(onClick = { // müzik olarak
                     model.paylasilanLink = null // soruyu kapat
-                    model.bekleyenLink = link // indirme penceresine ver
-                    model.git(Sayfa.Liste(Tur.MUZIK, Kutuphane.kok(ctx, Tur.MUZIK))) // müzik bölümüne git
+                    val kok = Kutuphane.kok(ctx, Tur.MUZIK) // müzik bölümü
+                    model.git(Sayfa.Liste(Tur.MUZIK, kok)) // müzik bölümüne git
+                    model.git(Sayfa.Indir(Tur.MUZIK, kok, link)) // indirme sayfasını linkle aç
                 }) { Text("Müzik (MP3)") }
             },
         )
@@ -85,7 +94,10 @@ fun AnaEkran(model: UygulamaModeli) {
             Modifier.weight(1f).fillMaxWidth().padding(20.dp), // ekranın çoğunu kapla
             verticalArrangement = Arrangement.spacedBy(16.dp), // butonlar arası boşluk
         ) {
-            Text("Oynatıcı", fontSize = 28.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(bottom = 4.dp)) // başlık
+            Row(verticalAlignment = Alignment.CenterVertically) { // başlık satırı
+                Text("Oynatıcı", fontSize = 28.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f)) // başlık
+                IconButton(onClick = { model.git(Sayfa.Hesaplar) }) { Icon(Icons.Rounded.AccountCircle, "Hesaplar") } // giriş yapılan hesaplar
+            }
             BuyukButon("Müzik", "MP3 ve ses dosyaların", Icons.Rounded.MusicNote, Modifier.weight(1f)) { // müzik butonu
                 model.git(Sayfa.Liste(Tur.MUZIK, Kutuphane.kok(ctx, Tur.MUZIK))) // müzik bölümünü aç
             }

@@ -65,8 +65,8 @@ fun EkleMenusu(tur: Tur, kapat: () -> Unit, dosya: () -> Unit, klasor: () -> Uni
             MenuSatiri(Icons.Rounded.FolderOpen, "Klasör ekle", "Bütün klasörü olduğu gibi ekle") { kapat(); klasor() } // klasör
             MenuSatiri(Icons.Rounded.CreateNewFolder, "Yeni klasör", "Kendi klasörünü oluştur") { kapat(); yeniKlasor() } // yeni klasör
             MenuSatiri( // YouTube
-                Icons.Rounded.Download, "YouTube'dan indir",
-                if (tur == Tur.MUZIK) "Linki yapıştır, en kaliteli MP3 insin" else "Linki yapıştır, kaliteyi seç",
+                Icons.Rounded.Download, "İnternetten indir",
+                "YouTube, TikTok, Instagram, X, Pinterest: video, liste ya da profil linki",
             ) { kapat(); youtube() }
         }
     }
@@ -146,63 +146,4 @@ fun TasiPenceresi(tur: Tur, kok: File, oge: File, kapat: () -> Unit, tasi: (File
         confirmButton = {}, // onay butonu yok, listeden seçilir
         dismissButton = { TextButton(onClick = kapat) { Text("Vazgeç") } }, // vazgeç
     )
-}
-
-// Video kalite seçenekleri (null = en yüksek)
-private val kaliteler = listOf<Pair<String, Int?>>("144p" to 144, "240p" to 240, "360p" to 360, "480p" to 480, "720p" to 720, "1080p" to 1080, "En yüksek" to null)
-
-// YouTube indirme penceresi
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun IndirPenceresi(tur: Tur, hazirLink: String, kapat: () -> Unit, indir: (String, Int?) -> Unit) {
-    val ctx = LocalContext.current // pano erişimi için
-    var link by remember { mutableStateOf(hazirLink) } // yazılan link
-    var kalite by remember { mutableStateOf<Int?>(720) } // seçilen kalite (varsayılan 720p)
-    // Panoda YouTube linki varsa kendiliğinden yapıştır (kullanıcı uğraşmasın)
-    LaunchedEffect(Unit) { if (link.isBlank()) panoLinki(ctx)?.let { link = it } }
-    val gecerli = link.trim().startsWith("http") // link gibi görünüyor mu
-    val liste = gecerli && IndirmeMerkezi.listeMi(link) // oynatma listesi mi
-
-    AlertDialog(
-        onDismissRequest = kapat, // dışına dokununca kapat
-        title = { Text("YouTube'dan indir") }, // başlık
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedTextField( // link kutusu
-                    value = link, onValueChange = { link = it }, singleLine = true,
-                    label = { Text("Video ya da oynatma listesi linki") },
-                    trailingIcon = { IconButton(onClick = { panoLinki(ctx, herhangi = true)?.let { link = it } }) { Icon(Icons.Rounded.ContentPaste, "Yapıştır") } }, // yapıştır
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri, imeAction = ImeAction.Done),
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                if (liste) Text( // oynatma listesi bilgisi
-                    "Oynatma listesi: hepsi, listenin adıyla açılan bir klasöre inecek.",
-                    color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyMedium,
-                )
-                if (tur == Tur.MUZIK) { // müzikte kalite sorulmaz
-                    Text("En yüksek ses kalitesinde MP3 olarak iner.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
-                } else { // videoda kalite seçilir
-                    Text("Kalite", style = MaterialTheme.typography.titleSmall) // başlık
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) { // kalite çipleri
-                        kaliteler.forEach { (ad, deger) ->
-                            FilterChip(selected = kalite == deger, onClick = { kalite = deger }, label = { Text(ad) }) // tek çip
-                        }
-                    }
-                    Spacer(Modifier.height(0.dp)) // düzen
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(enabled = gecerli, onClick = { indir(link.trim(), if (tur == Tur.VIDEO) kalite else null); kapat() }) { Text("İndir") } // indir
-        },
-        dismissButton = { TextButton(onClick = kapat) { Text("Vazgeç") } }, // vazgeç
-    )
-}
-
-// Panodaki linki oku. herhangi=false ise sadece YouTube linklerini alır
-private fun panoLinki(ctx: Context, herhangi: Boolean = false): String? {
-    val pano = ctx.getSystemService(ClipboardManager::class.java) // pano servisi
-    val metin = pano.primaryClip?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.coerceToText(ctx)?.toString() ?: return null // panodaki yazı
-    val link = Regex("""https?://\S+""").find(metin)?.value ?: return if (herhangi) metin.trim() else null // içindeki link
-    return if (herhangi || link.contains("youtu")) link else null // YouTube linki mi
 }

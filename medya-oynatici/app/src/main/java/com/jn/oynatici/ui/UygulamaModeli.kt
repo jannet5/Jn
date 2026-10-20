@@ -14,6 +14,7 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
 import com.jn.oynatici.data.Kutuphane
+import com.jn.oynatici.data.Platform
 import com.jn.oynatici.data.Tur
 import kotlinx.coroutines.delay
 import java.io.File
@@ -25,14 +26,17 @@ sealed interface Sayfa {
     data object Calan : Sayfa // çalan müzik
     data object VideoIzle : Sayfa // tam ekran video
     data class Kirp(val tur: Tur, val dosya: File) : Sayfa // kırpma
+    data class Indir(val tur: Tur, val klasor: File, val link: String = "") : Sayfa // internetten indirme
+    data class Linkler(val klasor: File) : Sayfa // klasördeki linkler
+    data object Hesaplar : Sayfa // giriş yapılan hesaplar
+    data class Giris(val platform: Platform) : Sayfa // bir sitenin giriş sayfası
 }
 
 // Sayfalar arası ortak durum
 class UygulamaModeli(app: Application) : AndroidViewModel(app) {
     val yigin = mutableStateListOf<Sayfa>(Sayfa.Ana) // açık sayfalar (sonuncusu görünür)
     var oynatici by mutableStateOf<Player?>(null) // çalma servisine bağlı oynatıcı
-    var paylasilanLink by mutableStateOf<String?>(null) // YouTube'dan paylaşılan link
-    var bekleyenLink by mutableStateOf<String?>(null) // indirme penceresinde hazır gelecek link
+    var paylasilanLink by mutableStateOf<String?>(null) // başka uygulamadan "Paylaş" ile gelen link
 
     // Yeni sayfa aç
     fun git(sayfa: Sayfa) { yigin.add(sayfa) }

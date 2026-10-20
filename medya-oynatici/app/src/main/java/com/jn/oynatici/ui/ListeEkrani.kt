@@ -29,6 +29,7 @@ import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.DriveFileMove
 import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Folder
+import androidx.compose.material.icons.rounded.Link
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.Movie
 import androidx.compose.material.icons.rounded.MusicNote
@@ -47,6 +48,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -65,6 +67,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.jn.oynatici.data.Kutuphane
+import com.jn.oynatici.data.Platform
 import com.jn.oynatici.data.Tur
 import com.jn.oynatici.indir.Durum
 import com.jn.oynatici.indir.IndirmeMerkezi
@@ -73,8 +76,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-// Klasör içeriği: alt klasörler (kaç dosya içerdiğiyle) ve dosyalar
-private data class Icerik(val klasorler: List<Pair<File, Int>>, val dosyalar: List<File>)
+// Klasör içeriği: alt klasörler (kaç dosya içerdiği ve hangi siteden indiği ile), dosyalar ve link listesi
+private data class Icerik(val klasorler: List<Triple<File, Int, Platform?>>, val dosyalar: List<File>, val linkSayisi: Int)
 
 // Bir öğe üzerinde yapılabilecek işlemler
 private enum class Islem { AD, TASI, SIL }
@@ -91,7 +94,7 @@ fun ListeEkrani(model: UygulamaModeli, tur: Tur, klasor: File) {
     val icerik by produceState<Icerik?>(null, klasor, yenile, biten) { // klasörü arka planda oku
         value = withContext(Dispatchers.IO) {
             val (k, d) = Kutuphane.listele(tur, klasor) // klasörler ve dosyalar
-            Icerik(k.map { it to Kutuphane.dosyaSayisi(tur, it) }, d) // klasörlerin dosya sayısıyla
+            Icerik(k.map { Triple(it, Kutuphane.dosyaSayisi(tur, it), Platform.klasordenOku(it)) }, d, linkleriOku(klasor).size) // klasörlerin dosya sayısı ve sitesiyle
         }
     }
     val durum by calmaDurumu(model.oynatici) // mini oynatıcı için
@@ -99,13 +102,7 @@ fun ListeEkrani(model: UygulamaModeli, tur: Tur, klasor: File) {
     var mesgul by remember { mutableStateOf<String?>(null) } // "Ekleniyor 3/20" gibi bekleme yazısı
     var ekleMenusu by remember { mutableStateOf(false) } // ekleme menüsü açık mı
     var yeniKlasorPenceresi by remember { mutableStateOf(false) } // yeni klasör penceresi
-    var indirPenceresi by remember { mutableStateOf<String?>(null) } // indirme penceresi (içindeki hazır link)
     var secili by remember { mutableStateOf<Pair<File, Islem>?>(null) } // işlem yapılacak öğe
-
-    // Başka yerden (paylaşım) link geldiyse indirme penceresini hazır aç
-    LaunchedEffect(model.bekleyenLink) {
-        model.bekleyenLink?.let { indirPenceresi = it; model.bekleyenLink = null } // linki pencereye aktar
-    }
 
     // Ekleme işlerini ortak şekilde yürüt: bekleme yazısı göster, bitince sonucu söyle
     fun ekle(is_: (ilerleme: (Int, Int) -> Unit) -> Int) {
@@ -139,15 +136,25 @@ fun ListeEkrani(model: UygulamaModeli, tur: Tur, klasor: File) {
         bottomBar = { if (durum.varMi && !durum.video) MiniOynatici(model, durum) }, // müzik çalıyorsa mini oynatıcı
     ) { bosluk ->
         Column(Modifier.fillMaxSize().padding(bosluk)) {
-            IndirmeKartlari(tur) // devam eden indirmeler
+            IndirmeKartlari(model, tur) // devam eden indirmeler
             val ic = icerik // okunan içerik
             when {
                 ic == null -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() } // yükleniyor
-                ic.klasorler.isEmpty() && ic.dosyalar.isEmpty() -> BosDurum(tur) // boş klasör
+                ic.klasorler.isEmpty() && ic.dosyalar.isEmpty() && ic.linkSayisi == 0 -> BosDurum(tur) // boş klasör
                 else -> LazyColumn(contentPadding = PaddingValues(bottom = 96.dp)) { // liste (alttaki buton üstünü kapatmasın)
-                    items(ic.klasorler, key = { it.first.path }) { (k, sayi) -> // klasör satırları
+                    if (ic.linkSayisi > 0) item(key = "linkler") { // bu klasör internetten indiyse: linklerin listesi
+                        ListItem(
+                            headlineContent = { Text("Linkler") }, // başlık
+                            supportingContent = { Text("${ic.linkSayisi} içeriğin linki · dokun, kopyala ya da aç") }, // açıklama
+                            leadingContent = { OgeIkonu(Icons.Rounded.Link, true) }, // link ikonu
+                            colors = ListItemDefaults.colors(containerColor = MaterialTheme.colorScheme.background),
+                            modifier = Modifier.dokun { model.git(Sayfa.Linkler(klasor)) }, // link ekranını aç
+                        )
+                    }
+                    items(ic.klasorler, key = { it.first.path }) { (k, sayi, platform) -> // klasör satırları
                         OgeSatiri(
-                            ad = k.name, alt = "$sayi dosya", ikon = { OgeIkonu(Icons.Rounded.Folder, true) }, // klasör görünümü
+                            ad = k.name, alt = "$sayi dosya", // ad ve dosya sayısı
+                            ikon = { if (platform != null) PlatformIkonu(platform) else OgeIkonu(Icons.Rounded.Folder, true) }, // siteden indiyse site logosu
                             tikla = { model.git(Sayfa.Liste(tur, k)) }, // klasörü aç
                             kirp = null, // klasör kırpılamaz
                             islem = { secili = k to it }, // işlem seçildi
@@ -174,18 +181,11 @@ fun ListeEkrani(model: UygulamaModeli, tur: Tur, klasor: File) {
         dosya = { dosyaSec.launch(arrayOf(if (tur == Tur.MUZIK) "audio/*" else "video/*")) }, // dosya seç
         klasor = { klasorSec.launch(null) }, // klasör seç
         yeniKlasor = { yeniKlasorPenceresi = true }, // yeni klasör
-        youtube = { indirPenceresi = "" }, // YouTube penceresi
+        youtube = { model.git(Sayfa.Indir(tur, klasor)) }, // internetten indirme sayfası
     )
     // Yeni klasör adı penceresi
     if (yeniKlasorPenceresi) AdPenceresi("Yeni klasör", "", { yeniKlasorPenceresi = false }) { ad ->
         Kutuphane.yeniKlasor(klasor, ad); yenile++ // klasörü oluştur, listeyi yenile
-    }
-    // YouTube indirme penceresi
-    indirPenceresi?.let { hazirLink ->
-        IndirPenceresi(tur, hazirLink, { indirPenceresi = null }) { link, kalite ->
-            IndirmeMerkezi.ekle(ctx, link, tur, klasor, kalite) // indirmeyi başlat
-            Toast.makeText(ctx, "İndirme başladı", Toast.LENGTH_SHORT).show() // bilgi ver
-        }
     }
     // Seçili öğe üzerindeki işlem pencereleri
     secili?.let { (oge, islem) ->
@@ -262,7 +262,7 @@ private fun BosDurum(tur: Tur) {
         Text("Burası boş", style = MaterialTheme.typography.titleLarge) // başlık
         Spacer(Modifier.height(8.dp)) // boşluk
         Text( // açıklama
-            "Sağ alttaki \"Ekle\" ile telefonundan dosya ya da klasör ekleyebilir, YouTube'dan indirebilir veya yeni klasör açabilirsin.",
+            "Sağ alttaki \"Ekle\" ile telefonundan dosya ya da klasör ekleyebilir; YouTube, TikTok, Instagram, X ya da Pinterest'ten indirebilir veya yeni klasör açabilirsin.",
             textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
@@ -270,7 +270,7 @@ private fun BosDurum(tur: Tur) {
 
 // Bu bölümün devam eden / biten indirmeleri
 @Composable
-private fun IndirmeKartlari(tur: Tur) {
+private fun IndirmeKartlari(model: UygulamaModeli, tur: Tur) {
     val isler by IndirmeMerkezi.isler.collectAsState() // tüm işler
     isler.filter { it.tur == tur }.forEach { isi -> // sadece bu bölümünkiler
         Surface(
@@ -280,7 +280,7 @@ private fun IndirmeKartlari(tur: Tur) {
             Row(Modifier.padding(start = 16.dp, top = 12.dp, bottom = 12.dp, end = 4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f)) {
                     Text( // başlık: video adı ya da tür
-                        isi.baslik.ifEmpty { if (isi.liste) "Oynatma listesi" else "YouTube" },
+                        isi.baslik.ifEmpty { linkAciklamasi(isi.platform, isi.linkTuru, null) },
                         maxLines = 1, overflow = TextOverflow.Ellipsis, style = MaterialTheme.typography.titleSmall,
                     )
                     Text( // durum yazısı (hatalıysa kırmızı)
@@ -291,6 +291,9 @@ private fun IndirmeKartlari(tur: Tur) {
                         Spacer(Modifier.height(8.dp)) // boşluk
                         if (isi.yuzde > 0f) LinearProgressIndicator(progress = { isi.yuzde / 100f }, Modifier.fillMaxWidth()) // yüzdeli
                         else LinearProgressIndicator(Modifier.fillMaxWidth()) // belirsiz
+                    }
+                    if (isi.durum == Durum.HATA && isi.girisGerekli) { // giriş yapılmadığı için olmadıysa
+                        TextButton(onClick = { model.git(Sayfa.Giris(isi.platform)) }) { Text("${isi.platform.ad}'a giriş yap") } // giriş sayfası
                     }
                 }
                 IconButton(onClick = { // devam ediyorsa iptal, bittiyse kartı kapat
