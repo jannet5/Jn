@@ -82,7 +82,7 @@ Veri akışı (tek yön):
 
 ## 6. Nasıl uygulanır (yeni birine tarif)
 
-1. `./gradlew :app:testDebugUnitTest` → 70+ birim ve Robolectric testi, ekran görüntüleri
+1. `./gradlew :app:testSideloadDebugUnitTest` → 70+ birim ve Robolectric testi, ekran görüntüleri
    `app/build/shots/` altına çıkar (`-Proborazzi.test.record=true`).
 2. `./gradlew :app:assemblePreview` → küçültülmüş, sabit test anahtarıyla imzalı APK.
 3. GitHub Actions: emülatör matrisi (API 26/30/34/36) gerçek bildirim → Room uçtan uca testini

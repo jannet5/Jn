@@ -19,7 +19,7 @@ kararlar `docs/DECISIONS.md`'de, kalan işler `docs/ROADMAP.md`'de, yayın hazı
 ## Derleme ve test
 
 ```
-./gradlew :app:testDebugUnitTest   # 35 birim + Robolectric testi
+./gradlew :app:testSideloadDebugUnitTest   # 35 birim + Robolectric testi
 ./gradlew :app:assembleDebug        # kurulum yapılabilir debug APK
 ./gradlew :app:assembleRelease      # minified/shrink release APK (imzasız, bkz. docs/RELEASE.md)
 ./gradlew :app:bundleRelease        # Play Console'a yüklenecek .aab
