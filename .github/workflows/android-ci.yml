@@ -32,7 +32,7 @@ jobs:
             echo "TekPanel must never remove or snooze the user's own notifications"; exit 1
           fi
       - name: Run JVM + Robolectric unit tests (also renders the UI screenshots)
-        run: ./gradlew :app:testDebugUnitTest -Proborazzi.test.record=true --console=plain
+        run: ./gradlew :app:testSideloadDebugUnitTest :app:compilePlayDebugKotlin -Proborazzi.test.record=true --console=plain
       - name: Sideload manifest must not request INTERNET (privacy promise shown in the app)
         run: |
           ./gradlew :app:processSideloadDebugMainManifest :app:processSideloadReleaseManifest --console=plain
@@ -46,7 +46,7 @@ jobs:
         if: always()
         with:
           name: unit-test-results
-          path: app/build/reports/tests/testDebugUnitTest
+          path: app/build/reports/tests/testSideloadDebugUnitTest
       - uses: actions/upload-artifact@v4
         if: always()
         with:
