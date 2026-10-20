@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TekPanel is always dark (spec 3.4/5.1): base off the plain Dark theme, not DayNight. -->
-    <style name="Theme.TekPanel" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="android:windowBackground">@color/tekpanel_background</item>
-        <item name="android:statusBarColor">@color/tekpanel_background</item>
-        <item name="android:navigationBarColor">@color/tekpanel_background</item>
+    <!-- Sende is always dark (spec 3.4/5.1): base off the plain Dark theme, not DayNight. -->
+    <style name="Theme.Sende" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/sende_background</item>
+        <item name="android:statusBarColor">@color/sende_background</item>
+        <item name="android:navigationBarColor">@color/sende_background</item>
     </style>
 
-    <style name="Theme.TekPanel.Splash" parent="Theme.TekPanel">
-        <item name="windowSplashScreenBackground">@color/tekpanel_background</item>
+    <style name="Theme.Sende.Splash" parent="Theme.Sende">
+        <item name="windowSplashScreenBackground">@color/sende_background</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
-        <item name="postSplashScreenTheme">@style/Theme.TekPanel</item>
+        <item name="postSplashScreenTheme">@style/Theme.Sende</item>
     </style>
 
-    <style name="Theme.TekPanel.Transparent" parent="Theme.TekPanel">
+    <style name="Theme.Sende.Transparent" parent="Theme.Sende">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>

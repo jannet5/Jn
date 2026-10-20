@@ -29,7 +29,7 @@ jobs:
       - name: Promise check - the app never touches the phone's own notifications
         run: |
           if grep -rn "cancelNotification\|cancelAllNotifications\|snoozeNotification" app/src/main; then
-            echo "TekPanel must never remove or snooze the user's own notifications"; exit 1
+            echo "Sende must never remove or snooze the user's own notifications"; exit 1
           fi
       - name: Run JVM + Robolectric unit tests (also renders the UI screenshots)
         run: ./gradlew :app:testSideloadDebugUnitTest :app:compilePlayDebugKotlin -Proborazzi.test.record=true --console=plain
@@ -111,12 +111,12 @@ jobs:
           script: bash .github/scripts/preview-smoke.sh
       - uses: actions/upload-artifact@v4
         with:
-          name: tekpanel-preview-apk
+          name: sende-preview-apk
           path: app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
 
   # Publishes the newest sideloadable APK under one stable, login-free address that downloads
   # straight from GitHub's CDN:
-  #   https://github.com/jannet5/Jn/releases/download/son-surum/TekPanel.apk
+  #   https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk
   # Older assets are deleted so there is always exactly one current build (named with its date/time).
   release-apk:
     needs: [unit-tests]
@@ -145,11 +145,11 @@ jobs:
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
           STAMP=$(TZ=Europe/Istanbul date +'%d.%m.%y %H.%M')
           SHA=$(sha256sum "$APK" | cut -d' ' -f1)
-          cp "$APK" "TekPanel.apk"
-          cp "$APK" "TekPanel $STAMP.apk"
+          cp "$APK" "Sende.apk"
+          cp "$APK" "Sende $STAMP.apk"
           NOTES="Son sürüm: $STAMP (Türkiye saati) · commit ${GITHUB_SHA::7} · SHA-256 $SHA"
-          gh release view son-surum >/dev/null 2>&1 || gh release create son-surum --prerelease --title "TekPanel son sürüm" --notes "$NOTES" --target "$GITHUB_SHA"
+          gh release view son-surum >/dev/null 2>&1 || gh release create son-surum --prerelease --title "Sende son sürüm" --notes "$NOTES" --target "$GITHUB_SHA"
           gh release view son-surum --json assets -q '.assets[].name' | while IFS= read -r name; do gh release delete-asset son-surum "$name" -y; done
-          gh release upload son-surum "TekPanel.apk" "TekPanel $STAMP.apk"
-          gh release edit son-surum --notes "$NOTES" --title "TekPanel son sürüm ($STAMP)"
-          echo "https://github.com/${GITHUB_REPOSITORY}/releases/download/son-surum/TekPanel.apk"
+          gh release upload son-surum "Sende.apk" "Sende $STAMP.apk"
+          gh release edit son-surum --notes "$NOTES" --title "Sende son sürüm ($STAMP)"
+          echo "https://github.com/${GITHUB_REPOSITORY}/releases/download/son-surum/Sende.apk"

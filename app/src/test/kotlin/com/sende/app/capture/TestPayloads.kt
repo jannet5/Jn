@@ -1,0 +1,37 @@
+package com.sende.app.capture
+
+/** Builds a [RawNotificationPayload] with sensible defaults so each test states only what it cares about. */
+fun payloadOf(
+    packageName: String = "com.whatsapp",
+    key: String = "key",
+    postTime: Long = 1_000_000L,
+    title: String? = null,
+    text: String? = null,
+    bigText: String? = null,
+    textLines: List<String> = emptyList(),
+    conversationTitle: String? = null,
+    isGroup: Boolean = false,
+    lines: List<MessagingLine> = emptyList(),
+    category: String? = null,
+    isGroupSummary: Boolean = false,
+    isOngoing: Boolean = false,
+    hasBigPicture: Boolean = false,
+    media: NotificationMedia? = null,
+) = RawNotificationPayload(
+    notificationKey = key,
+    packageName = packageName,
+    postTimeEpochMillis = postTime,
+    title = title,
+    text = text,
+    bigText = bigText,
+    textLines = textLines,
+    conversationTitle = conversationTitle,
+    isGroupConversation = isGroup,
+    messagingStyleMessages = lines,
+    category = category,
+    isGroupSummary = isGroupSummary,
+    isOngoing = isOngoing,
+    hasContentIntent = true,
+    hasBigPicture = hasBigPicture,
+    media = media,
+)

@@ -1,15 +1,15 @@
-# TekPanel — kuruluma hazır APK'lar
+# Sende — kuruluma hazır APK'lar
 
-## Önerilen: `TekPanel-preview.apk` (2.5 MB)
+## Önerilen: `Sende-preview.apk` (2.5 MB)
 
 Küçültülmüş (R8) ama doğrudan kurulabilir sürüm — debug anahtarıyla imzalı, Google Play'e
 yüklenecek sürüm **değil**, test/kullanım içindir.
 
 | | |
 |---|---|
-| GitHub | https://raw.githubusercontent.com/jannet5/Jn/claude/tekpanel-greenfield-spec-6ngokp/dist/TekPanel-preview.apk |
-| jsDelivr (GitHub'dan bağımsız CDN) | https://cdn.jsdelivr.net/gh/jannet5/Jn@ac96d7a1772b1e64db8688541df9c7fe4c41471a/dist/TekPanel-preview.apk |
-| Paket | `com.tekpanel.app.preview`, versionName 0.1.0, minSdk 26 (Android 8+), targetSdk 36 |
+| GitHub | https://raw.githubusercontent.com/jannet5/Jn/claude/tekpanel-greenfield-spec-6ngokp/dist/Sende-preview.apk |
+| jsDelivr (GitHub'dan bağımsız CDN) | https://cdn.jsdelivr.net/gh/jannet5/Jn@ac96d7a1772b1e64db8688541df9c7fe4c41471a/dist/Sende-preview.apk |
+| Paket | `com.sende.app.preview`, versionName 0.1.0, minSdk 26 (Android 8+), targetSdk 36 |
 | Boyut | 2 545 292 bayt |
 | SHA-256 | `a78f7e20a921ca6529c96ea30511f1d70609f24e5c0cd52067153611c207c421` |
 | İmza | APK Signature Scheme v2, debug sertifikası |
@@ -23,7 +23,7 @@ bildirim erişimi verildi, dinleyici canlı listede görüldü, çökme yok
 Önceki `.apk` ve `.zip` bağlantıları kullanıcının telefonunda başarısız oldu; telefon
 tarafındaki hata noktası bilinmiyor.
 
-## Eski: `TekPanel-debug.apk` (21 MB) ve `TekPanel-debug.apk.zip`
+## Eski: `Sende-debug.apk` (21 MB) ve `Sende-debug.apk.zip`
 
 Aynı kodun küçültülmemiş debug derlemesi. SHA-256
 `3aac3ec4162c1e72bfe0150d7e64fa8f1e4b00ed09dc3e18802e2e2807a49ebd`.
@@ -38,6 +38,6 @@ Aynı kodun küçültülmemiş debug derlemesi. SHA-256
 
 ```
 ./gradlew :app:assemblePreview
-cp app/build/outputs/apk/preview/app-preview.apk dist/TekPanel-preview.apk
+cp app/build/outputs/apk/preview/app-preview.apk dist/Sende-preview.apk
 ```
 jsDelivr bağlantısı commit'e sabitlidir; dosya değişince yeni commit hash'iyle güncellenmeli.

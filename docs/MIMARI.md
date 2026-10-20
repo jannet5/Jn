@@ -1,4 +1,4 @@
-# TekPanel mimarisi: önceki hâl → değişiklik → son hâl → nasıl uygulanır
+# Sende mimarisi: önceki hâl → değişiklik → son hâl → nasıl uygulanır
 
 Bu belge telefonda okunsun diye geniş tablo içermez; her şey madde madde yazıldı.
 
@@ -51,7 +51,7 @@ Seçtiğin uygulamaların bildirimlerinden gelen müşteri mesajlarını, telefo
 ## 4. Son hâl (katmanlar)
 
 - `capture/` (Android'e en yakın katman)
-  - `TekPanelNotificationListenerService`: sistemin verdiği bildirimi alır, seçilen uygulama
+  - `SendeNotificationListenerService`: sistemin verdiği bildirimi alır, seçilen uygulama
     eklendiğinde kabuktaki mevcut bildirimleri tekrar işler.
   - `NotificationExtractor`, `AndroidNotificationMedia`: çerçeve nesnesi → düz veri.
   - `MessageNormalizer`, `MessageFilterEngine`, `PromotionalHeuristics`, `Fingerprint`,

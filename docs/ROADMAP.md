@@ -1,10 +1,10 @@
-# TekPanel — Yol Haritası (Sıfırdan → Google Play)
+# Sende — Yol Haritası (Sıfırdan → Google Play)
 
 Durum lejantı: ✅ bitti ve doğrulandı · 🟡 kod var, gerçek cihazda doğrulama bekliyor ·
 ⛔ bu ortamda yapılamaz, kullanıcı eylemi gerekiyor.
 
 ## Faz 0 — Proje iskeleti
-✅ Yeni özel repo, yeni Gradle/AGP/Kotlin/Compose projesi, `com.tekpanel.app`, minSdk 26,
+✅ Yeni özel repo, yeni Gradle/AGP/Kotlin/Compose projesi, `com.sende.app`, minSdk 26,
 targetSdk 34 (sonradan 36’ya yükseltildi, bkz. Faz 9). `./` kökünde gerçek bir Android projesi (eski kod/worktree yok).
 
 ## Faz 1 — Veri katmanı
@@ -85,9 +85,9 @@ RELEASE.md → "Yalnızca kullanıcının yapabileceği adımlar".
 
 ## Sıradaki somut adımlar (öncelik sırasıyla)
 
-1. **Gerçek hesapla gerçek cihaz testi.** `dist/TekPanel-preview.apk`'yı telefona kur
+1. **Gerçek hesapla gerçek cihaz testi.** `dist/Sende-preview.apk`'yı telefona kur
    (bağlantılar `dist/README.md`'de; olmazsa bilgisayardan `adb install -r`), bildirim erişimini aç, WhatsApp Business + Instagram'dan
-   gerçek mesaj gönder, TekPanel'e düşüp düşmediğini doğrula. Kod zaten bağımsız açık kaynak
+   gerçek mesaj gönder, Sende'ye düşüp düşmediğini doğrula. Kod zaten bağımsız açık kaynak
    projelerle çapraz doğrulanmış davranışa göre yazıldı (DECISIONS.md §8), yani beklenti
    "çalışır ama küçük ayarlar gerekebilir" — büyük bir yeniden yazım değil. Sorun bulunursa
    `MessageNormalizer`/`MessageFilterEngine` içinde hedefli düzeltme yapılır (kodun test

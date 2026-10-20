@@ -1,6 +1,6 @@
 # Ödeme ve destek planları (Google Play)
 
-Kısa karar: varsayılan sürüm ZORUNLU ödeme istemez. Hiçbir şey kilitlenmez. "TekPanel'e destek ol"
+Kısa karar: varsayılan sürüm ZORUNLU ödeme istemez. Hiçbir şey kilitlenmez. "Sende'ye destek ol"
 menüsünden 1 / 3 / 6 / 12 aylık destek planları alınır. İstersen aynı kodla iki deneme sürümü
 (3 gün sessiz, 3 gün uyarılı) ayrı test kanallarına yüklenebilir.
 
@@ -25,7 +25,7 @@ menüsünden 1 / 3 / 6 / 12 aylık destek planları alınır. İstersen aynı ko
 ## Play Console'da yapılacaklar (kullanıcı eylemi; ben hesabına giremem)
 
 1. Ürün: Para kazanma > Ürünler > Abonelikler > "Abonelik oluştur"
-   - Ürün kimliği: `tekpanel_support` (kodda `PlayPurchaseGateway.PRODUCT_ID`).
+   - Ürün kimliği: `sende_support` (kodda `PlayPurchaseGateway.PRODUCT_ID`).
 2. Aynı ürüne 4 temel plan ekle. Kimlikler tam olarak şunlar olmalı:
    - `monthly` (1 ay), `quarterly` (3 ay), `semiannual` (6 ay), `yearly` (12 ay).
    - Hepsi "otomatik yenilenen". Teklif (offer) EKLEME: uygulama yalnız teklifsiz temel planı gösterir.

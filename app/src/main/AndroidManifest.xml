@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name=".TekPanelApp"
+        android:name=".SendeApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -24,13 +24,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TekPanel"
+        android:theme="@style/Theme.Sende"
         tools:targetApi="34">
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.TekPanel.Splash"
+            android:theme="@style/Theme.Sende.Splash"
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -43,7 +43,7 @@
         <activity
             android:name=".capture.ShareIntakeActivity"
             android:exported="true"
-            android:theme="@style/Theme.TekPanel.Transparent"
+            android:theme="@style/Theme.Sende.Transparent"
             android:excludeFromRecents="true"
             android:noHistory="true">
             <intent-filter>
@@ -56,11 +56,11 @@
         <activity
             android:name=".ui.diagnostics.DiagnosticsActivity"
             android:exported="false"
-            android:theme="@style/Theme.TekPanel" />
+            android:theme="@style/Theme.Sende" />
 
         <!-- CAP-04: user must explicitly grant notification access in Android settings. -->
         <service
-            android:name=".capture.TekPanelNotificationListenerService"
+            android:name=".capture.SendeNotificationListenerService"
             android:exported="true"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">

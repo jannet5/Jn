@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TekPanel"
+rootProject.name = "Sende"
 include(":app")

@@ -1,4 +1,4 @@
-# TekPanel — Kod Kararları Günlüğü
+# Sende — Kod Kararları Günlüğü
 
 Bu dosya, şartnamenin (bkz. görev tanımı) kullanıcı kararı gerektirdiğini işaretlediği
 noktalarda hangi kararın alındığını ve nedenini kaydeder. Amaç: sonraki bir ajan veya
@@ -6,17 +6,23 @@ geliştirici "bu neden böyle?" sorusuna kod içinde değil burada cevap bulsun.
 
 ## 1. Uygulama adı, application ID, launcher adı
 
-**Soru kullanıcıya soruldu**, cevap: "Sende" (karar ajana bırakıldı).
+**Karar (kurucu, kesin): uygulamanın adı "Sende".** İlk soruda "Sende" demişti, sonra
+"Sende kanka" diye netleştirdi. Bundan önceki "TekPanel" adı yalnızca geçici çalışma adıydı.
 
-**Karar:**
-- Launcher/mağaza adı: **TekPanel**
-- Application ID: **com.tekpanel.app**
-- Geliştirme sırasında konuşulan "kaka" adı hiçbir yerde kullanılmadı; nihai marka her yerde TekPanel.
+- Launcher/mağaza adı: **Sende**
+- Application ID: **com.sende.app** (sideload derlemesi `.preview`, debug `.debug` soneki alır)
+- Kaynak paketi, sınıf adları, veritabanı adı, CI, belgeler: hepsi Sende'ye çevrildi.
+- Slogan önerisi: **"Mesajların Sende."** (Hem "yanında/sende" anlamı hem de "veri sende kalır" vaadi.)
 
-**Neden:** Şartname boyunca en ağırlıklı kullanılan isim TekPanel; "Sende" yanıtı açık bir
-tercih belirtmediği için şartnamenin kendi ağırlıklı ismine sadık kalındı. Bu, mağazaya
-çıkmadan önce marka/hukuk incelemesiyle değiştirilebilir; `applicationId` değişikliği o an
-yeni bir Play Console kaydı gerektireceği için mümkünse ilk yayından ÖNCE netleşmelidir.
+**Neden değişti:** Araştırma (docs/arastirma/01) Play'de "TekPanel: Sipariş Yönetimi" adında
+başka bir uygulama buldu (aynı sektör, aynı "tek ekranda" vaadi). Ad çakışması riski vardı.
+"Sende" hem kurucunun kendi seçimi hem de bu çakışmayı ortadan kaldırıyor.
+
+**Açık kalan dürüst not:** "sende" sık kullanılan bir Türkçe sözcük ("sende" = "sende var /
+sende duruyor"). Bu markaya hafıza kolaylığı verir ama Play'de arama ve marka tescili için
+ayırt edilebilirlik zayıflığı yaratabilir. Yayından önce TÜRKPATENT/WIPO marka taraması ve
+Play'de "Sende" araması yapılmalı (bkz. docs/MARKA_ADI_KONTROL.md). `applicationId` ilk yayından
+sonra değiştirilemez; bu yüzden karar ilk yayından ÖNCE kesinleşti.
 
 ## 2. Varsayılan dil ve yerelleştirme
 

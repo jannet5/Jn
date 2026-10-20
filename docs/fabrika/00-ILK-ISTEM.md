@@ -9,7 +9,7 @@ yanında `docs/fabrika/01-ADIMLAR.md` ve `docs/MIMARI.md` olsun.
 Sen kıdemli bir Android mühendisisin. Aşağıdaki ürünü SIFIRDAN yapacaksın.
 
 ÜRÜN
-TekPanel: kullanıcının seçtiği uygulamaların (WhatsApp, Instagram, TikTok, SMS ve telefondaki
+Sende: kullanıcının seçtiği uygulamaların (WhatsApp, Instagram, TikTok, SMS ve telefondaki
 HERHANGİ bir uygulama) bildirimlerinden gelen müşteri mesajlarını yakalayıp TEK, sade bir ekranda
 gösteren Android uygulaması. Hedef: Türkiye'de küçük işletme sahibi. Dünya çapında satılacak.
 Veri telefondan asla çıkmaz.

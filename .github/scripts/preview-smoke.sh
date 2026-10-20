@@ -5,21 +5,21 @@
 set -euo pipefail
 
 APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
-PKG=com.tekpanel.app.preview
-LISTENER="$PKG/com.tekpanel.app.capture.TekPanelNotificationListenerService"
+PKG=com.sende.app.preview
+LISTENER="$PKG/com.sende.app.capture.SendeNotificationListenerService"
 
 adb install -r "$APK"
 adb logcat -c
 
 adb shell cmd notification allow_listener "$LISTENER"
-adb shell am start -W -n "$PKG/com.tekpanel.app.MainActivity"
+adb shell am start -W -n "$PKG/com.sende.app.MainActivity"
 sleep 5
 
 # Share intake writes a real row through CaptureCoordinator -> Room in the minified build.
 # adb shell re-tokenizes on the device, so the multi-word extra needs its own inner quotes.
 adb shell am start -W -a android.intent.action.SEND -t text/plain \
   --es android.intent.extra.TEXT "'CI smoke paylasim'" \
-  -n "$PKG/com.tekpanel.app.capture.ShareIntakeActivity"
+  -n "$PKG/com.sende.app.capture.ShareIntakeActivity"
 sleep 5
 
 adb shell cmd notification post -S bigtext -t "CI" ci_tag "CI smoke bildirim"

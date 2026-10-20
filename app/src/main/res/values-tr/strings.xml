@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TekPanel</string>
+    <string name="app_name">Sende</string>
 
     <string name="filter_all">Tümü</string>
     <string name="action_ok">Tamam</string>
@@ -28,11 +28,11 @@
     <string name="open_source_failed">Uygulama açılamadı</string>
     <string name="copied">Kopyalandı</string>
     <string name="message_truncated_note">Android uzun bildirimleri yaklaşık 1000 karakterde keser. Devamını uygulamada oku.</string>
-    <string name="oem_hint_xiaomi">Xiaomi: Ayarlar\'da TekPanel için Otomatik başlat\'ı aç ve pil tasarrufunu "Kısıtlama yok" yap. Menü adları telefonuna göre biraz değişebilir.</string>
-    <string name="oem_hint_huawei">Huawei / Honor: Ayarlar > Pil > Uygulama başlatma: TekPanel\'i "Elle yönet" yapıp üç seçeneğin üçünü de aç.</string>
-    <string name="oem_hint_samsung">Samsung: Ayarlar > Pil > Arka plan kullanım sınırları: TekPanel\'i "Uyuyan uygulamalar"dan çıkar, "Hiç uyutulmayan uygulamalar"a ekle.</string>
-    <string name="oem_hint_oppo">Oppo / Realme / OnePlus: Pil ayarlarında TekPanel\'in arka planda çalışmasına izin ver ve Otomatik başlatma\'yı aç.</string>
-    <string name="oem_hint_vivo">Vivo / iQOO: Ayarlar > Pil > Arka plan güç tüketimi: TekPanel\'in arka planda çalışmasına izin ver.</string>
+    <string name="oem_hint_xiaomi">Xiaomi: Ayarlar\'da Sende için Otomatik başlat\'ı aç ve pil tasarrufunu "Kısıtlama yok" yap. Menü adları telefonuna göre biraz değişebilir.</string>
+    <string name="oem_hint_huawei">Huawei / Honor: Ayarlar > Pil > Uygulama başlatma: Sende\'yi "Elle yönet" yapıp üç seçeneğin üçünü de aç.</string>
+    <string name="oem_hint_samsung">Samsung: Ayarlar > Pil > Arka plan kullanım sınırları: Sende\'yi "Uyuyan uygulamalar"dan çıkar, "Hiç uyutulmayan uygulamalar"a ekle.</string>
+    <string name="oem_hint_oppo">Oppo / Realme / OnePlus: Pil ayarlarında Sende\'nin arka planda çalışmasına izin ver ve Otomatik başlatma\'yı aç.</string>
+    <string name="oem_hint_vivo">Vivo / iQOO: Ayarlar > Pil > Arka plan güç tüketimi: Sende\'nin arka planda çalışmasına izin ver.</string>
     <string name="message_photo">Fotoğraf</string>
 
     <string name="menu_channels">Kanalları ayarla</string>
@@ -41,12 +41,12 @@
     <string name="menu_erase">Tüm verilerimi sil</string>
     <string name="menu_diagnostics">Teşhis</string>
 
-    <string name="menu_support">TekPanel\'e destek ol</string>
-    <string name="support_title">TekPanel\'e destek ol</string>
-    <string name="support_body">TekPanel ödemeden tam çalışır. İşine yarıyorsa bir destek planı gelişmesine katkı olur. Hiçbir şey kilitlenmez.</string>
-    <string name="support_trial_over_title">TekPanel devam etsin</string>
-    <string name="support_trial_over_body">Ücretsiz günlerin bitti. TekPanel\'e destek olmak için bir plan seç ya da sonra devam et.</string>
-    <string name="support_thanks_title">TekPanel\'e destek olduğun için teşekkürler</string>
+    <string name="menu_support">Sende\'ye destek ol</string>
+    <string name="support_title">Sende\'ye destek ol</string>
+    <string name="support_body">Bu uygulama ödemeden tam çalışır. İşine yarıyorsa bir destek planı gelişmesine katkı olur. Hiçbir şey kilitlenmez.</string>
+    <string name="support_trial_over_title">Sende devam etsin</string>
+    <string name="support_trial_over_body">Ücretsiz günlerin bitti. Sende\'ye destek olmak için bir plan seç ya da sonra devam et.</string>
+    <string name="support_thanks_title">Sende\'ye destek olduğun için teşekkürler</string>
     <string name="support_recurring_header">Düzenli destek (iptal etmesi kolay)</string>
     <string name="support_tip_header">Ya da bir kez ver</string>
     <string name="support_tip_small">Bir çay ısmarla</string>
@@ -65,11 +65,11 @@
     <string name="privacy_no_internet">Bu sürümde internet izni hiç yok; yani dışarıya bir şey gönderemez.</string>
     <string name="privacy_play_network">Bu sürümdeki tek ağ kullanımı Google Play\'e aittir (destek planları için); mesajların asla gönderilmez.</string>
     <string name="privacy_title">Mesajların burada kalır</string>
-    <string name="privacy_body">TekPanel yalnızca seçtiğin uygulamaların bildirimlerini okur ve bu telefondaki özel bir depoda tutar. Mesajlarını hiçbir yere göndermez. Erişimi istediğin an Android ayarlarından kapatabilirsin.</string>
+    <string name="privacy_body">Bu uygulama yalnızca seçtiğin uygulamaların bildirimlerini okur ve bu telefondaki özel bir depoda tutar. Mesajlarını hiçbir yere göndermez. Erişimi istediğin an Android ayarlarından kapatabilirsin.</string>
 
     <string name="erase_all_confirm_title">Tüm veriler silinsin mi?</string>
-    <string name="erase_all_confirm_message">TekPanel\'in bu telefonda sakladığı tüm mesajlar kalıcı olarak silinir ve kanal seçimlerin sıfırlanır. Geri alınamaz.</string>
-    <string name="export_share_title">TekPanel verilerini dışa aktar</string>
+    <string name="erase_all_confirm_message">Sende\'nin bu telefonda sakladığı tüm mesajlar kalıcı olarak silinir ve kanal seçimlerin sıfırlanır. Geri alınamaz.</string>
+    <string name="export_share_title">Sende uygulamasının verilerini dışa aktar</string>
 
     <string name="empty_inbox_title">Her şey yolunda</string>
     <string name="empty_inbox_body">Yeni müşteri mesajları geldiği an burada görünür.</string>
@@ -82,13 +82,13 @@
     <string name="access_open">Erişimi aç</string>
     <string name="access_howto">Nasıl yapılır?</string>
     <string name="stalled_title">Dinleme duraklamış</string>
-    <string name="stalled_body">Telefonun TekPanel\'i arka planda durdurmuş, yeni mesajlar gelmiyor. Yeniden başlat; pil ayarlarında TekPanel\'in arka planda çalışmasına da izin ver.</string>
+    <string name="stalled_body">Telefonun Sende\'yi arka planda durdurmuş, yeni mesajlar gelmiyor. Yeniden başlat; pil ayarlarında Sende\'nin arka planda çalışmasına da izin ver.</string>
     <string name="stalled_restart">Yeniden başlat</string>
     <string name="stalled_battery">Pil ayarları</string>
     <string name="guide_title">Bildirim erişimini açmak</string>
     <string name="guide_why">Android, bir uygulamanın bildirimleri okumasına ancak sen bir kez izin verince müsaade eder. Yaklaşık 20 saniye sürer.</string>
     <string name="guide_step1">\"Erişimi aç\"a dokun. Android doğru sayfayı açar.</string>
-    <string name="guide_step2">Listede TekPanel\'i bul ve anahtarı aç.</string>
+    <string name="guide_step2">Listede Sende\'yi bul ve anahtarı aç.</string>
     <string name="guide_step3">Android sorunca \"İzin ver\"e dokun.</string>
     <string name="guide_step4">Anahtar gri ve oynamıyor mu? Android, Google Play dışından kurulan uygulamalarda bunu kilitler. Uygulama bilgisini aç, sağ üstteki üç noktaya dokun, \"Kısıtlanmış ayarlara izin ver\"i seç, sonra 2. adımı tekrarla.</string>
     <string name="guide_allow">İzin ver</string>
@@ -101,6 +101,6 @@
 
     <string name="share_intake_empty">Eklenecek bir şey yok</string>
     <string name="share_sender_label">Paylaşım</string>
-    <string name="share_intake_success">TekPanel\'e eklendi</string>
-    <string name="share_intake_duplicate">Zaten TekPanel\'de</string>
+    <string name="share_intake_success">Sende\'ye eklendi</string>
+    <string name="share_intake_duplicate">Zaten Sende\'de</string>
 </resources>

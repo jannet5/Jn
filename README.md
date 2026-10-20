@@ -1,4 +1,4 @@
-# TekPanel
+# Sende
 
 Android işletmecisinin telefonuna WhatsApp, Instagram, TikTok, Messenger, Telegram, X ve
 SMS gibi kanallardan gelen **yeni müşteri mesajlarını**, kullanıcının verdiği bildirim

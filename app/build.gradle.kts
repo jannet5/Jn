@@ -19,7 +19,7 @@ val releaseKeystoreProperties = Properties().apply {
 val hasReleaseSigningConfig = releaseKeystoreProperties.getProperty("storeFile") != null
 
 android {
-    namespace = "com.tekpanel.app"
+    namespace = "com.sende.app"
     compileSdk = 36
 
     signingConfigs {
@@ -27,9 +27,9 @@ android {
         // debug/preview APK can be updated in place no matter who built it.
         create("sideload") {
             storeFile = file("sideload-test.jks")
-            storePassword = "tekpanel-test"
+            storePassword = "sende-test"
             keyAlias = "sideload"
-            keyPassword = "tekpanel-test"
+            keyPassword = "sende-test"
         }
     }
 
@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.tekpanel.app"
+        applicationId = "com.sende.app"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -75,7 +75,7 @@ android {
         }
         // Minified like release (~2.5 MB vs ~21 MB debug) but signed with the debug key so it
         // can be sideloaded for testing. Separate applicationId so it never collides with a
-        // future Play-signed com.tekpanel.app install.
+        // future Play-signed com.sende.app install.
         create("preview") {
             initWith(getByName("release"))
             signingConfig = signingConfigs.getByName("sideload")
