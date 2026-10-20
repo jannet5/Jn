@@ -68,6 +68,15 @@ object Narrator {
         return if (t.length <= 55) t else parts.firstOrNull().orEmpty().take(80)
     }
 
+    /** Çeviriye gitmeden önce "[from 1955]" gibi köşeli notları ve son noktayı at (çeviri bozulmasın) */
+    private fun cleanEn(d: String): String = d.replace(Regex("\\s*\\[[^\\]]*\\]"), "").trim().trimEnd('.')
+
+    /** "(bilişim, bilişim) bilgisayar" → "(bilişim) bilgisayar": baştaki parantezli etiketteki tekrarları at */
+    private fun dedupeLabel(s: String): String = Regex("^\\(([^)]*)\\)").find(s)?.let { m ->
+        val parts = m.groupValues[1].split(",").map { it.trim() }.filter { it.isNotEmpty() }.distinctBy { it.lowercase(trLocale) }
+        "(" + parts.joinToString(", ") + ")" + s.substring(m.range.last + 1)
+    } ?: s
+
     private fun deepTxts(list: List<String>): List<Txt> = list.map { Txt(shorten(it), true) }.filter { it.s.isNotBlank() }.distinctBy { it.s }
 
     /** Bu yazılışın bulunduğu diller (köken ya da anlamı olanlar), öncelik sırasıyla */
@@ -114,7 +123,7 @@ object Narrator {
         fun firstEntry(s: LanguageSection?) = s?.groups?.flatMap { it.entries }?.firstOrNull { it.definitions.isNotEmpty() }
         val trEntry = firstEntry(trSec)
         val entry = trEntry ?: firstEntry(enSec)
-        val meanings = entry?.definitions.orEmpty().take(3).map { Txt(it, trEntry == null) }
+        val meanings = entry?.definitions.orEmpty().take(3).map { Txt(if (trEntry == null) cleanEn(it) else it, trEntry == null) }
         return G(word, lang, entry?.pos, meanings, block, chain, r.wiktTr != null || r.wiktEn != null)
     }
 
@@ -191,7 +200,7 @@ object Narrator {
         fun meanings(list: List<Txt>): List<String>? {
             val out = ArrayList<String>()
             for (t in list) {
-                val x = tx(t.s, t.en) ?: return null
+                val x = tx(t.s, t.en)?.let { dedupeLabel(it) } ?: return null
                 // Çeviri aynı parçayı iki kez verebilir ("üstün olmak, üstün olmak"): tekrarları at
                 val c = clean(x).split(Regex("\\s*[,;]\\s*")).filter { it.isNotBlank() }
                     .distinctBy { it.lowercase(trLocale) }.joinToString(", ")

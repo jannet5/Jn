@@ -259,4 +259,12 @@ class NarratorTest {
         assertTrue(owner.parts!!, owner.parts!!.contains("ōrdināre") && owner.parts!!.contains("-tor"))
         assertTrue(s.narration!!, s.narration!!.contains("Latince ⟦ōrdinātōrem⟧ sözcüğü ise ⟦ōrdināre⟧ ile ⟦-tor⟧ sözcüklerinin birleşmesinden oluşmuş."))
     }
+
+    @Test
+    fun ceviri_etiket_tekrari_atilir() {
+        val r = LookupResult("ordinateur", null, wikt("en_fr_ordinateur.html", Source.WIKT_EN, "ordinateur"), null)
+        val en = Narrator.englishStrings(r, null).first()
+        val st = Narrator.compose(r, null, mapOf(en to "(bilişim, bilişim) bilgisayar"), translating = false)
+        assertEquals("(bilişim) bilgisayar", st.steps.last().meaning?.replaceFirstChar { it.lowercase() })
+    }
 }
