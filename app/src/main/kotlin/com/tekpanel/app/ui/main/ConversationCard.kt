@@ -101,8 +101,8 @@ fun ConversationCard(
 
             if (level == Level.Collapsed) {
                 Row(
-                    modifier = Modifier.padding(start = 72.dp, end = 8.dp, bottom = 6.dp),
-                    verticalAlignment = Alignment.Bottom,
+                    modifier = Modifier.padding(start = 74.dp, end = 6.dp, bottom = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = previewOf(conversation, stringResource(R.string.message_photo)),
@@ -110,7 +110,7 @@ fun ConversationCard(
                         color = colors.textSecondary,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f).padding(bottom = 8.dp),
+                        modifier = Modifier.weight(1f),
                     )
                     ReadButton(onClick = { onMarkRead(conversation.messages.map { it.id }) })
                 }
@@ -153,7 +153,7 @@ private fun Header(conversation: Conversation, appLabel: String, level: Level, o
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(start = 14.dp, end = 14.dp, top = 14.dp, bottom = 8.dp),
+            .padding(start = 14.dp, end = 14.dp, top = 14.dp, bottom = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(Modifier.size(48.dp)) {
@@ -255,17 +255,22 @@ private fun MessageRow(
                 if (message.picturePath != null && long) {
                     PictureThumb(message.picturePath, big = true, onClick = { onPicture(message.picturePath) })
                 }
-                Text(
-                    text = TimeFormatter.relative(message.receivedAt).toString(),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = colors.textSecondary,
-                    modifier = Modifier.padding(top = 2.dp),
-                )
+                // Lengthened messages carry the Okundu button on their own bottom line so wide
+                // content (pictures, long text) keeps the full width of the box.
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 2.dp)) {
+                    Text(
+                        text = TimeFormatter.relative(message.receivedAt).toString(),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = colors.textSecondary,
+                        modifier = Modifier.weight(1f),
+                    )
+                    if (long) ReadButton(onClick = onMarkRead)
+                }
             }
             if (message.picturePath != null && !long) {
                 PictureThumb(message.picturePath, big = false, onClick = { onPicture(message.picturePath) })
             }
-            ReadButton(onClick = onMarkRead)
+            if (!long) ReadButton(onClick = onMarkRead)
         }
     }
 }

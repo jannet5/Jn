@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
@@ -25,12 +26,15 @@ import androidx.compose.ui.unit.sp
 import com.tekpanel.app.data.apps.AppIconLoader
 import com.tekpanel.app.data.media.MediaLoader
 import com.tekpanel.app.ui.theme.Tek
-import org.koin.compose.koinInject
+
+/** Loaders are provided once at the root (from Koin in the app, from fakes in screenshot tests). */
+val LocalAppIconLoader = compositionLocalOf<AppIconLoader> { error("AppIconLoader not provided") }
+val LocalMediaLoader = compositionLocalOf<MediaLoader> { error("MediaLoader not provided") }
 
 /** Decoded picture from app-private storage, or null while loading / when [path] is null. */
 @Composable
 fun rememberStoredImage(path: String?, maxPx: Int): State<ImageBitmap?> {
-    val loader: MediaLoader = koinInject()
+    val loader = LocalMediaLoader.current
     return produceState(initialValue = path?.let { loader.cached(it, maxPx) }, path, maxPx) {
         value = if (path == null) null else loader.load(path, maxPx)
     }
@@ -39,7 +43,7 @@ fun rememberStoredImage(path: String?, maxPx: Int): State<ImageBitmap?> {
 /** The *real* launcher icon of an installed app (WhatsApp looks like WhatsApp), as a round chip. */
 @Composable
 fun AppIcon(packageName: String, size: Dp, modifier: Modifier = Modifier) {
-    val loader: AppIconLoader = koinInject()
+    val loader = LocalAppIconLoader.current
     val icon by produceState(initialValue = loader.cached(packageName), packageName) {
         value = loader.load(packageName)
     }

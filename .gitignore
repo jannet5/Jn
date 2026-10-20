@@ -12,5 +12,8 @@ captures/
 *.jks
 *.keystore
 !docs/**/*.jks
+# Public TEST key for sideload/debug/preview builds only (same signature on every machine, so
+# updates install over each other). The real Play upload key is never committed.
+!app/sideload-test.jks
 !dist/*.apk
 release/keystore.properties

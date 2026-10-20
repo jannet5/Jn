@@ -1,5 +1,4 @@
 # GitHub rakipleri: açık kaynak bildirim uygulamaları
-
 Araştırma kolu: github-rakipler
 
 Tarih: 2026-10-20. Hazırlayan: araştırma ajanı (github-rakipler kolu).
@@ -18,23 +17,25 @@ Tarih: 2026-10-20. Hazırlayan: araştırma ajanı (github-rakipler kolu).
 ## Özet (önce bunu oku)
 
 - 26 proje bulundu, klonlandı ve incelendi (25 GitHub, 1 Codeberg).
-  Ek olarak ~15 proje bulundu ama klonlanmadı (bkz. "Klonlanmayanlar").
+  Ek olarak 16 proje bulundu ama klonlanmadı (bkz. "Klonlanmayanlar").
 - 13'ü derin okundu (dinleyici, depolama, dedup, canlı tutma dosyaları satır satır).
   Geri kalanı kısmen veya yüzeysel okundu. Her kartta "İnceleme" satırı var.
 - En önemli bulgu 1: bildirim dinleyicisi en çok üretici pil yönetimi yüzünden
   sessizce duruyor. Bu, en çok tekrar eden şikayet. [çoklu]
 - En önemli bulgu 2: Android, bildirim metnini 1024 karaktere kesiyor
   (Android 12 ve sonrası, Android 11'in geç sürümlerinden itibaren).
-  Kurucunun "mesaj yarım kalıyor" şikayetinin bir kısmı platform sınırıdır.
-  Bunu uygulama düzeltemez; kullanıcıya dürüstçe göstermek gerekir.
+  Kurucunun "mesaj yarım kalıyor" şikayetinin bir kısmı bu platform sınırı
+  olabilir [doğrulanamadı: kurucunun gördüğü vakalar]. Uygulama bunu
+  düzeltemez; kullanıcıya dürüstçe göstermek gerekir.
 - En önemli bulgu 3: açık kaynak rakiplerin hiçbiri küçük işletme iş akışına
   (müşteri, cevap bekliyor, randevu/sipariş) odaklanmıyor. Hepsi "kayıt tutucu",
   "filtre" veya "yönlendirici". Bu bizim boşluğumuz.
 - En önemli bulgu 4: 13 proje copyleft lisanslı (GPL/AGPL). Kodlarını ticari,
   kapalı kaynak TekPanel'e alamayız. Sadece fikir alırız.
-- TekPanel'in yakalama hattı (parmak izi, çift kayıt koruması, MessagingStyle,
-  canlı cevap) rakiplerin çoğundan olgun. Eksik olanlar: dinleyici sağlığı,
-  üretici rehberi, kaldırma nedeni (REASON), 1024 sınırı bildirimi.
+- TekPanel'in yakalama hattı (SHA-256 parmak izi + kalıcı benzersiz dizin,
+  MessagingStyle, canlı cevap) rakiplerin çoğundan olgun görünüyor (kanıt:
+  "Mimari karşılaştırma"). Eksik olanlar: dinleyici sağlığı, üretici rehberi,
+  kaldırma nedeni (REASON), 1024 sınırı bildirimi.
 
 ## Yöntem
 
@@ -63,8 +64,11 @@ Bunlar rakiplerin kodundan değil, Android'in kendi kaynak kodundan çıktı.
   güvenli tek metot.
   https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/service/notification/NotificationListenerService.java
 - Düşük RAM'li cihazlarda Android Q ve altında dinleyici bağlanamaz.
-  İş profilindeki dinleyiciler yok sayılır. (Aynı dosya, sınıf yorumu.)
-  Bu, voicenotify #174 ve notification-vault #26 şikayetlerini açıklıyor. [çoklu]
+  İş profilinde çalışan dinleyiciler yok sayılır. (Aynı dosya, sınıf yorumu.)
+  Not: voicenotify #174 ve notification-vault #26 iş profilindeki
+  uygulamaların bildirimleriyle ilgili; belge ise iş profilinde çalışan
+  dinleyiciyi anlatıyor. İkisi aynı şey değil; iş profili davranışı ayrıca
+  sınanmalı. [doğrulanamadı: ilişki]
 - Kaldırma nedeni kodları (REASON_CLICK=1, REASON_CANCEL=2, REASON_CANCEL_ALL=3,
   REASON_APP_CANCEL=8, REASON_TIMEOUT=19 ...) `onNotificationRemoved` ile gelir.
   (Aynı dosya.) Bildirimin tıklanarak mı, kaydırılarak mı, uygulama tarafından mı
@@ -77,10 +81,15 @@ Bunlar rakiplerin kodundan değil, Android'in kendi kaynak kodundan çıktı.
 - Metin sınırı: `Notification.Builder` başlık, metin, büyük metin ve
   MessagingStyle mesaj metnini `MAX_CHARSEQUENCE_LENGTH` ile keser.
   - android-8.0.0_r1: 5 * 1024 (5120 karakter)
+    https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-8.0.0_r1/core/java/android/app/Notification.java
   - android-10.0.0_r1: 5 * 1024
+    https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-10.0.0_r1/core/java/android/app/Notification.java
   - android-11.0.0_r1: 5 * 1024
   - android-11.0.0_r48: 1024
-  - android-12.0.0_r1, android-14.0.0_r1, main: 1024
+  - android-12.0.0_r1: 1024
+    https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-12.0.0_r1/core/java/android/app/Notification.java
+  - android-14.0.0_r1 ve main: 1024
+    https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-14.0.0_r1/core/java/android/app/Notification.java
   Android 13 etiketine bakılmadı. Bu sınır framework Builder yolunu kullanan
   uygulamalar için geçerli. Bir uygulama extras'a doğrudan yazarsa farklı
   olabilir; WhatsApp'ın kendi davranışı [doğrulanamadı].
@@ -144,12 +153,19 @@ ayrıca belirtildi.
     https://github.com/mitchib1440/SpeakThat/issues
   - SmsForwarder #718: kısayol bildirimi mesajı tekrarlıyor.
     https://github.com/pppscn/SmsForwarder/issues
-- İş profili ve ikinci kullanıcı. [çoklu]
+- İş profili uygulamalarının bildirimleri. [çoklu]
   - voicenotify #174: iş profili uygulamalarında kara liste çalışmıyor.
     https://github.com/pilot51/voicenotify/issues
   - notification-vault #26: iş profilinde WhatsApp görselleri yalnızca metin
     olarak kaydediliyor.
     https://github.com/snap24/notification-vault/issues
+- Bildirim içeriği gizli olduğu için yakalanamıyor. [çoklu]
+  - Watomatic sorun giderme: kaynak uygulamada parmak izi kilidi açıksa otomatik
+    cevap çalışmıyor.
+    https://github.com/adeekshith/watomatic/blob/e9a6416/README.md
+  - notisave rehberi: kaynak uygulama bildirim metnini göstermiyorsa
+    yakalanamaz; önce bunu kontrol et.
+    https://github.com/abhinavsha077/notisave/blob/3b1865c/docs/OEM_GUIDANCE.md
 - Kural/filtre çalışmıyor: notification-vault #20, #25; DoNotNotify #17, #20.
 - Medya ve depolama (Android 11+): WhatsDeleted #29, #35, #37.
 - Toplu işlem sessizce başarısız: notification-vault #28 (çok bildirimde
@@ -162,8 +178,9 @@ ayrıca belirtildi.
   #446, #392, #367.
   https://github.com/adeekshith/watomatic/issues
 - İzin kendiliğinden kapanıyor: SpeakThat #160 (erişilebilirlik izni).
-  Service-Keeper'ın varlığı da aynı riski gösteriyor (bazı cihazlar uygulamayı
-  `enabled_notification_listeners` listesinden siliyor). [çoklu, dolaylı]
+  Service-Keeper de sistem tarafından devre dışı bırakılan dinleyicileri geri
+  ekliyor; yani izin sessizce düşebiliyor. [çoklu, dolaylı]
+  https://github.com/mitchib1440/SpeakThat/issues
 
 ## Proje kartları
 
@@ -514,8 +531,8 @@ Yıldız sayıları 2026-10-20 tarihli GitHub sayfa okumasıdır.
 - Açık issue: 55. Test: 0. Arayüz: Compose. DB: Room.
 - İnceleme: kısmi (hizmet ve issue'lar).
 - Öğrendiğimiz 3 şey:
-  - Her filtre kararı bir `IgnoreReason` ile kaydediliyor ve kayıt ekranında
-    görünüyor. TekPanel'deki `FilterReason` ile aynı fikir; doğrulandı.
+  - Her filtre kararı bir `IgnoreReason` olarak bildirim bilgisine işleniyor.
+    TekPanel'deki `FilterReason` ile aynı fikir (listeleme ekranına bakılmadı).
     https://github.com/pilot51/voicenotify/blob/3cc5d9a/app/src/main/java/com/pilot51/voicenotify/Service.kt
   - Genel ayar + uygulama başı ayar birleşimi (`getCombinedSettings`).
   - "Aynı bildirimi n saniye içinde tekrar okuma" ayarı (ignoreRepeat).
@@ -739,8 +756,9 @@ Yıldız sayıları 2026-10-20 tarihli GitHub sayfa okumasıdır.
 
 ## Klonlanmayanlar (bulundu, düşük değer veya kapsam dışı)
 
-- Gadgetbridge (Codeberg) ve KDE Connect (KDE): bildirim yansıtma yapıyor ama
-  GitHub'da değil; bu turda klonlanmadı.
+- Gadgetbridge ve KDE Connect da bildirim yansıtır; depo adresleri bu turda
+  doğrulanmadı ve klonlanmadı. [doğrulanamadı] Tek kanıt: F-Droid'de
+  "Gadgetbridge projesi üzerine kurulu" Bangle.js eşlik uygulaması listesi.
   https://f-droid.org/en/packages/com.espruino.gadgetbridge.banglejs/
 - AN2Linux, Android 2 Linux Notifications: bildirimleri Linux'a yansıtır.
   https://f-droid.org/en/packages/dev.patri9ck.a2ln/
@@ -768,8 +786,8 @@ Yıldız sayıları 2026-10-20 tarihli GitHub sayfa okumasıdır.
 
 ## Mimari karşılaştırma
 
-Sayılar bu 26 proje içindir (al-rawi hariç tutulduğunda 25). Kaynaklar: yukarıdaki
-kartlar ve her projenin dosyaları.
+Sayılar 26 proje içindir; al-rawi'de dinleyici olmadığı için çoğu satırda
+sayılmaz. Kaynaklar: yukarıdaki kartlar ve her projenin dosyaları.
 
 - Arayüz teknolojisi
   - Compose ağırlıklı 13: notisave, pingbox, NotifPlus, ActivityTrace,
@@ -851,11 +869,13 @@ kartlar ve her projenin dosyaları.
   - Lisanssız 2: NotifPlus, al-rawi (kod yok sayılır; "tüm hakları saklıdır").
   - Karar: hiçbirinin kodunu kopyalamıyoruz. Copyleft olanlardan ise yapıyı bile
     birebir taklit etmemeliyiz; yalnız fikir ve genel teknik.
-- Bakım durumu
-  - Canlı (son commit son 30 gün): Alfio010, notisave, pingbox, SmartIsland,
-    DoNotNotify, NotiFilter, SpeakThat, karuhun, aggregator*, vault*, Service-Keeper*.
-    (* 30 günü biraz aşıyor.)
-  - Ölü: WhatsDeleted (2021), Viet200103 (2024), NotificationLog (2025-07).
+- Bakım durumu (bugün 2026-10-20)
+  - Son 30 gün içinde commit: Alfio010, DoNotNotify, pingbox, SmartIsland,
+    notisave, karuhun, NotiFilter, ReNotify, SpeakThat, aggregator,
+    Service-Keeper.
+  - 30-60 gün: ActivityTrace, vault, SmsForwarder, push-filter, NotifPlus (2 ay).
+  - Eski/terk: WhatsDeleted (2021), Viet200103 (2024), NotificationLog (2025-07),
+    QQ-Notify-Evolution (2025-07), message-mirror (2025-11).
   - 0-4 commitlik "yeni" projeler (notisave, NotifPlus, ReNotify, pingbox)
     büyük ihtimalle tek kişi, kısa sürede yazılmış; iddiaları test edilmemiş
     kabul edilmeli.
@@ -876,6 +896,7 @@ Her madde: fikir, hangi TekPanel dosyasına bağlanır, kaynak.
     ReNotify ListenerGuard (kartlarda bağlantılar var).
 - 2) Periyodik sağlık kontrolü + tek kullanıcı bildirimi
   - Bağlanacağı yer: yeni bir WorkManager işi (en az 15 dk, 30 dk makul).
+    TekPanel'de WorkManager bağımlılığı şu an yok; eklenmesi gerekir.
   - Kontrol: bildirim erişimi hâlâ verili mi (`enabled_notification_listeners`
     içinde paket var mı; Watomatic), son geri çağrı ne zaman (DoNotNotify).
     Sorun varsa 24 saatte en çok 1 yerel bildirim: "TekPanel mesajları şu an
@@ -902,6 +923,9 @@ Her madde: fikir, hangi TekPanel dosyasına bağlanır, kaynak.
     https://dontkillmyapp.com/xiaomi
     https://dontkillmyapp.com/samsung
     https://dontkillmyapp.com/oppo
+  - Rehbere "kaynak uygulamada bildirim içeriği gizli mi" kontrolü de girsin
+    (WhatsApp uygulama kilidi, kilit ekranında hassas içeriği gizleme).
+    Menü adları bu turda doğrulanmadı. [doğrulanamadı]
   - Türkiye'deki marka dağılımı bu kolun kapsamı dışında. [doğrulanamadı]
 - 5) Pil muafiyeti: yalnız genel liste
   - `Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS` kullan. Doğrudan
@@ -914,7 +938,7 @@ Her madde: fikir, hangi TekPanel dosyasına bağlanır, kaynak.
     `InboxMessageEntity`'ye `sourceRemovedReason` ve zaman.
   - Kullanım: REASON_CLICK = müşteri mesajı başka yerde açıldı; rozetle göster
     ("WhatsApp'ta açıldı"). Panelden otomatik silme YOK; kurucu "okundu"yu
-    yalnız kullanıcı basınca istiyor (ISTEKLER I-xx).
+    yalnız kullanıcı basınca istiyor (ISTEKLER I-40, I-41).
   - Kaynak: pingbox NotificationCaptureService, AOSP REASON_* sabitleri.
 - 7) Silinen müşteri mesajı
   - İşletme için değerli ("müşteri mesajı silip sipariş/randevu değiştirdi mi?").
@@ -981,7 +1005,8 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
 
 - Küçük işletme iş akışı: müşteri odaklı konuşma kutusu, "cevap bekliyor /
   cevaplandı", günlük özet. Rakiplerin hepsi kayıt tutucu, filtre veya
-  yönlendirici. Hiçbirinde müşteri, sipariş, randevu kavramı yok.
+  yönlendirici. Hiçbirinin .md dosyalarında "customer", "appointment",
+  "small business", "müşteri", "sipariş", "randevu" geçmiyor (26 klonda arandı).
   En yakın: pingbox (özet, hatırlatma, yıldızlama), Notification-HQ (mesajı
   gruba yönlendirme).
 - Kanal seçici deneyimi: kurucunun istediği "seçilenler üstte, en çok mesaj
@@ -990,6 +1015,10 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
   uygulamaları anahtarı; NotificationLog alfabetik / yeni / eski).
   "En çok mesaj gelen üstte" sıralaması bulunamadı.
   https://github.com/mitchib1440/SpeakThat/blob/1af2d9a/app/src/main/java/com/micoyc/speakthat/AppPickerActivity.kt
+  WhatsApp Business paketi (com.whatsapp.w4b) pingbox, SmartIsland ve
+  Notification-HQ'nun sabit paket listelerinde var; yani ayrı paket olarak
+  tanımak yeni değil. Kullanıcıya "iş / kişisel" ayrımı olarak sunan bulunamadı.
+  https://github.com/kushkumarkashyap7280/pingbox/blob/13f4d80/app/src/main/java/io/github/kushkumarkashyap7280/pingbox/data/Models.kt
 - Panelden doğrudan cevap: incelenenlerde RemoteInput'u yalnız Watomatic
   (otomatik cevap), SmartIsland (ada üzerinde) ve DoNotNotify (yığınlama
   kopyası) kullanıyor. Kayıt tutucuların hiçbiri cevap vermiyor. TekPanel'in
@@ -1024,8 +1053,9 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
 - Google IssueTracker 75414169 ("bilinen Android hatası", Automate grubunda
   anılıyor): giriş gerektiriyor, içeriği okunamadı.
 - Sophos yazısı (Android bildirim geçmişi ~100 karakter, birkaç saat, yeniden
-  başlatınca silinir iddiası): adres 301 ile 404'e gitti. İddia [doğrulanamadı];
-  rapora sayısal olarak alınmadı.
+  başlatınca silinir iddiası): adres yönlendirmelerden sonra ilgisiz bir blog
+  dizinine gitti. İddia [doğrulanamadı]; rapora sayısal olarak alınmadı.
+  https://news.sophos.com/?p=389133
 - Nevolution deposu (github.com/oasisfeng/nevo): 404.
 - "NotiStar GitHub": NotiStar Samsung'un kapalı kaynak Good Lock modülü; açık
   kaynak karşılığı bulunamadı. Yakın akraba: NotifPlus kendini "NotiStar tarzı
@@ -1062,7 +1092,7 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
 - Yakalama hattının "kendi kendini onarma" katmanını ekleyelim (kademeli
   rebind, sınırlı bileşen aç/kapat, 30 dk WorkManager kontrolü, tek bildirim).
   Neden: en çok tekrar eden şikayet bu; satış sonrası destek yükünü en çok
-  bu azaltır. [çoklu]
+  bunun azaltması beklenir (tahmin). [çoklu]
 - Sağlık durumunu kalıcı yapıp ana ekranda gösterelim; "test bildirimi"
   düğmesi ekleyelim. Neden: kullanıcı "çalışıyor mu" sorusunu kendi görsün;
   destek taleplerini keser (notisave, DoNotNotify).
@@ -1070,8 +1100,8 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
   Samsung / Xiaomi / Oppo cihazlarında bizim ekran görüntülerimizle doğrulayalım.
   Neden: dinleyici açılamayan kullanıcı ürünü iade eder.
 - 1024 karakter sınırını arayüzde dürüstçe gösterelim. Neden: kurucunun
-  "yarım mesaj" şikayetinin bir kısmı platform sınırı; söz verip tutamamaktan
-  iyidir.
+  "yarım mesaj" şikayetinin bir kısmı platform sınırı olabilir; söz verip
+  tutamamaktan iyidir.
 - `onNotificationRemoved` + REASON kaydedelim (yalnız bilgi rozeti). Neden:
   "müşteri mesajı başka yerde okundu" bilgisi iş akışı farkı yaratır
   (pingbox). Panelden otomatik silme yapmayalım.
@@ -1104,7 +1134,8 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
 - Tek devasa servis sınıfı (SpeakThat 8.500 satır). Neden: test edilemez.
 - Kalıcı debug log (voicenotify #168, #166). Neden: depolama aşınması ve CPU.
 - Copyleft koddan kopya ve başka ürünün adı. Neden: lisans ve marka riski;
-  13 projeden 13'ü GPL/AGPL. İzinli lisanslılar bile atıf ister; kopya yapmıyoruz.
+  26 projenin 13'ü GPL/AGPL. İzinli lisanslılar bile atıf ister; kopya
+  yapmıyoruz.
 - Doğrulanmamış büyük özellikleri (SQLCipher + HMAC + LCS) ilk sürüme
   doldurmak. Neden: notisave bile cihazda sınamadan "yayın şartı" diyor.
 - Ana ekranda regex veya "kural yazdırma" arayüzü. Neden: berber/kuaför
@@ -1112,8 +1143,7 @@ olabilir; Google Play kolu bunu ayrıca kontrol etmeli.
 
 ## Temizlik ve lisans notu
 
-- Klonlar yalnızca şu klasörde: 
-  /tmp/claude-0/-home-user-Jn/422ffb5b-fa2e-516a-a2cc-64c9eb14ac8a/scratchpad/arastirma/github-rakipler/clones
+- Klonlar yalnızca scratch klasöründe (arastirma/github-rakipler/clones).
 - Başkalarının ekran görüntüleri ve görsel tasarımları (README görselleri,
   mağaza ekran görüntüleri) not alındıktan sonra silindi; yalnız kod bırakıldı.
 - TekPanel deposunda bu dosyadan başka hiçbir dosya değiştirilmedi; commit ve

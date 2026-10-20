@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.serialization") version "2.0.21"
+    id("io.github.takahirom.roborazzi")
 }
 
 // Release signing reads from release/keystore.properties, which is git-ignored and never
@@ -20,6 +21,17 @@ val hasReleaseSigningConfig = releaseKeystoreProperties.getProperty("storeFile")
 android {
     namespace = "com.tekpanel.app"
     compileSdk = 36
+
+    signingConfigs {
+        // Public, intentionally non-secret key shared by every machine so a sideloaded
+        // debug/preview APK can be updated in place no matter who built it.
+        create("sideload") {
+            storeFile = file("sideload-test.jks")
+            storePassword = "tekpanel-test"
+            keyAlias = "sideload"
+            keyPassword = "tekpanel-test"
+        }
+    }
 
     if (hasReleaseSigningConfig) {
         signingConfigs {
@@ -55,13 +67,14 @@ android {
         debug {
             isMinifyEnabled = false
             applicationIdSuffix = ".debug"
+            signingConfig = signingConfigs.getByName("sideload")
         }
         // Minified like release (~2.5 MB vs ~21 MB debug) but signed with the debug key so it
         // can be sideloaded for testing. Separate applicationId so it never collides with a
         // future Play-signed com.tekpanel.app install.
         create("preview") {
             initWith(getByName("release"))
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("sideload")
             applicationIdSuffix = ".preview"
             matchingFallbacks += listOf("release")
         }
@@ -143,6 +156,10 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     testImplementation("org.robolectric:robolectric:4.13")
     testImplementation("androidx.test:core:1.6.1")
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.32.2")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-compose:1.32.2")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-junit-rule:1.32.2")
 
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")

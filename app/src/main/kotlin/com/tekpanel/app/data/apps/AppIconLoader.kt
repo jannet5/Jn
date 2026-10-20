@@ -21,6 +21,11 @@ class AppIconLoader(private val context: Context) {
 
     fun cached(packageName: String): ImageBitmap? = cache.get(packageName)
 
+    /** Seeds the cache (screenshot tests use it so the previews show icons without installing apps). */
+    fun prime(packageName: String, icon: ImageBitmap) {
+        cache.put(packageName, icon)
+    }
+
     suspend fun load(packageName: String): ImageBitmap? {
         cache.get(packageName)?.let { return it }
         return withContext(Dispatchers.IO) {

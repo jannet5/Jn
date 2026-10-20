@@ -144,102 +144,49 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel()) {
 
     val markReadLabel = stringResource(R.string.mark_read_undo_label)
     val clearedLabel = stringResource(R.string.clear_screen_undo_label)
-    val listState = rememberLazyListState()
 
-    Scaffold(
-        containerColor = Tek.colors.background,
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
-        snackbarHost = { SnackbarHost(snackbar, modifier = Modifier.padding(bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding())) },
-    ) { inner ->
-        Column(Modifier.fillMaxSize().padding(inner)) {
-            TopBar(
-                menuOpen = menuOpen,
-                canClear = state.conversations.isNotEmpty(),
-                onTitleTap = {
-                    val now = System.currentTimeMillis()
-                    if (now - firstTapAt > DIAGNOSTICS_WINDOW_MS) {
-                        firstTapAt = now
-                        titleTaps = 1
-                    } else if (++titleTaps >= DIAGNOSTICS_TAPS) {
-                        titleTaps = 0
-                        viewModel.unlockDiagnostics()
-                    }
-                },
-                onClear = { confirmClear = true },
-                onToggleMenu = { menuOpen = !menuOpen },
-            )
-            MenuPanel(
-                open = menuOpen,
-                diagnosticsUnlocked = diagnosticsUnlocked,
-                onChannels = { menuOpen = false; showPicker = true },
-                onExport = { menuOpen = false; viewModel.requestExport() },
-                onPrivacy = { menuOpen = false; showPrivacy = true },
-                onErase = { menuOpen = false; confirmErase = true },
-                onDiagnostics = { menuOpen = false; context.startActivity(Intent(context, DiagnosticsActivity::class.java)) },
-            )
-
-            if (state.hasEnabledChannels || state.bar.isNotEmpty()) {
-                ChannelBar(
-                    items = state.bar,
-                    selected = state.selectedPackage,
-                    totalUnread = state.totalUnread,
-                    onSelect = viewModel::select,
-                    onAdd = { showPicker = true },
-                    modifier = Modifier.padding(vertical = 8.dp),
-                )
-            }
-
-            val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-            LazyColumn(
-                state = listState,
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 8.dp, bottom = bottomInset + 24.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                if (!state.accessGranted) {
-                    item(key = "access") {
-                        AccessBanner(
-                            onOpenSettings = { AccessSettings.openNotificationAccess(context) },
-                            onHowTo = { showGuide = true },
-                        )
-                    }
+    MainContent(
+        state = state,
+        menuOpen = menuOpen,
+        diagnosticsUnlocked = diagnosticsUnlocked,
+        levelOf = { viewModel.levels[it] ?: Level.Collapsed },
+        isLong = { id, default -> viewModel.lengthened[id] ?: default },
+        canReply = viewModel::canReply,
+        snackbarHostState = snackbar,
+        callbacks = MainCallbacks(
+            onTitleTap = {
+                val now = System.currentTimeMillis()
+                if (now - firstTapAt > DIAGNOSTICS_WINDOW_MS) {
+                    firstTapAt = now
+                    titleTaps = 1
+                } else if (++titleTaps >= DIAGNOSTICS_TAPS) {
+                    titleTaps = 0
+                    viewModel.unlockDiagnostics()
                 }
-                if (state.loaded && state.accessGranted) {
-                    when {
-                        !state.hasEnabledChannels -> item(key = "empty-nochannel") {
-                            NoChannelsChosen(onPick = { showPicker = true }, modifier = Modifier.padding(top = 48.dp))
-                        }
-                        state.conversations.isEmpty() && state.selectedPackage == null -> item(key = "empty") {
-                            EmptyInbox(modifier = Modifier.padding(top = 48.dp))
-                        }
-                        state.conversations.isEmpty() -> item(key = "empty-filter") {
-                            EmptyForFilter(modifier = Modifier.padding(top = 48.dp))
-                        }
-                    }
-                }
-                items(state.conversations, key = { it.key }) { conversation ->
-                    ConversationCard(
-                        conversation = conversation,
-                        appLabel = state.labels[conversation.sourcePackage] ?: "",
-                        level = viewModel.levels[conversation.key] ?: Level.Collapsed,
-                        isLong = { id, default -> viewModel.lengthened[id] ?: default },
-                        canReply = viewModel.canReply(conversation.key),
-                        onCycle = { viewModel.cycle(conversation) },
-                        onToggleMessage = viewModel::toggleLengthened,
-                        onMarkRead = { ids -> viewModel.markRead(ids, markReadLabel) },
-                        onOpenApp = { viewModel.openConversation(conversation) },
-                        onReply = { text -> viewModel.reply(conversation.key, text) },
-                        onCopy = { text ->
-                            copyToClipboard(context, text)
-                            viewModel.onCopied()
-                        },
-                        onPicture = { path -> viewerPath = path },
-                        modifier = Modifier.animateItem(),
-                    )
-                }
-            }
-        }
-    }
+            },
+            onClear = { confirmClear = true },
+            onToggleMenu = { menuOpen = !menuOpen },
+            onChannels = { menuOpen = false; showPicker = true },
+            onExport = { menuOpen = false; viewModel.requestExport() },
+            onPrivacy = { menuOpen = false; showPrivacy = true },
+            onErase = { menuOpen = false; confirmErase = true },
+            onDiagnostics = { menuOpen = false; context.startActivity(Intent(context, DiagnosticsActivity::class.java)) },
+            onSelect = viewModel::select,
+            onAdd = { showPicker = true },
+            onOpenSettings = { AccessSettings.openNotificationAccess(context) },
+            onHowTo = { showGuide = true },
+            onCycle = viewModel::cycle,
+            onToggleMessage = viewModel::toggleLengthened,
+            onMarkRead = { ids -> viewModel.markRead(ids, markReadLabel) },
+            onOpenApp = viewModel::openConversation,
+            onReply = viewModel::reply,
+            onCopy = { text ->
+                copyToClipboard(context, text)
+                viewModel.onCopied()
+            },
+            onPicture = { path -> viewerPath = path },
+        ),
+    )
 
     if (showPicker) ChannelPickerSheet(onDismiss = { showPicker = false })
     if (showGuide) {

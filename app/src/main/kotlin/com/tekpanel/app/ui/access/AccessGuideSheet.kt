@@ -48,31 +48,38 @@ fun AccessGuideSheet(onOpenSettings: () -> Unit, onOpenAppInfo: () -> Unit, onDi
         containerColor = colors.background,
         contentColor = colors.text,
     ) {
-        Column(
-            modifier = Modifier.verticalScroll(rememberScrollState()).navigationBarsPadding().padding(horizontal = 20.dp).padding(bottom = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp),
-        ) {
-            Text(stringResource(R.string.guide_title), style = MaterialTheme.typography.titleLarge, color = colors.text)
-            Text(stringResource(R.string.guide_why), style = MaterialTheme.typography.bodyMedium, color = colors.textSecondary)
+        AccessGuideContent(onOpenSettings = onOpenSettings, onOpenAppInfo = onOpenAppInfo)
+    }
+}
 
-            Step(1, stringResource(R.string.guide_step1)) { MockButton(stringResource(R.string.access_open)) }
-            Step(2, stringResource(R.string.guide_step2)) { MockListWithSwitch(stringResource(R.string.app_name)) }
-            Step(3, stringResource(R.string.guide_step3)) { MockDialog(stringResource(R.string.guide_allow)) }
-            Step(4, stringResource(R.string.guide_step4)) { MockGreySwitch(stringResource(R.string.app_name)) }
+/** The guide's content as a plain composable (also what the screenshot tests render). */
+@Composable
+fun AccessGuideContent(onOpenSettings: () -> Unit, onOpenAppInfo: () -> Unit) {
+    val colors = Tek.colors
+    Column(
+        modifier = Modifier.verticalScroll(rememberScrollState()).navigationBarsPadding().padding(horizontal = 20.dp).padding(bottom = 20.dp),
+        verticalArrangement = Arrangement.spacedBy(14.dp),
+    ) {
+        Text(stringResource(R.string.guide_title), style = MaterialTheme.typography.titleLarge, color = colors.text)
+        Text(stringResource(R.string.guide_why), style = MaterialTheme.typography.bodyMedium, color = colors.textSecondary)
 
-            Button(
-                onClick = onOpenSettings,
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(Tek.shapes.button),
-                colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
-            ) { Text(stringResource(R.string.access_open)) }
-            OutlinedButton(
-                onClick = onOpenAppInfo,
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(Tek.shapes.button),
-                border = BorderStroke(1.dp, colors.line),
-            ) { Text(stringResource(R.string.guide_open_app_info), color = colors.text) }
-        }
+        Step(1, stringResource(R.string.guide_step1)) { MockButton(stringResource(R.string.access_open)) }
+        Step(2, stringResource(R.string.guide_step2)) { MockListWithSwitch(stringResource(R.string.app_name)) }
+        Step(3, stringResource(R.string.guide_step3)) { MockDialog(stringResource(R.string.guide_allow)) }
+        Step(4, stringResource(R.string.guide_step4)) { MockGreySwitch(stringResource(R.string.app_name)) }
+
+        Button(
+            onClick = onOpenSettings,
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(Tek.shapes.button),
+            colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
+        ) { Text(stringResource(R.string.access_open)) }
+        OutlinedButton(
+            onClick = onOpenAppInfo,
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(Tek.shapes.button),
+            border = BorderStroke(1.dp, colors.line),
+        ) { Text(stringResource(R.string.guide_open_app_info), color = colors.text) }
     }
 }
 

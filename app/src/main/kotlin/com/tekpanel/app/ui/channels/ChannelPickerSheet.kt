@@ -60,53 +60,72 @@ fun ChannelPickerSheet(onDismiss: () -> Unit, viewModel: ChannelPickerViewModel 
         containerColor = colors.background,
         contentColor = colors.text,
     ) {
-        Column(Modifier.navigationBarsPadding().padding(horizontal = 16.dp)) {
-            Text(stringResource(R.string.picker_title), style = MaterialTheme.typography.titleLarge, color = colors.text)
-            Spacer(Modifier.padding(top = 10.dp))
-            OutlinedTextField(
-                value = state.query,
-                onValueChange = viewModel::setQuery,
-                singleLine = true,
-                leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null, tint = colors.textSecondary) },
-                placeholder = { Text(stringResource(R.string.picker_search_hint), color = colors.textSecondary) },
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(Tek.shapes.button),
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = colors.accent,
-                    unfocusedBorderColor = colors.line,
-                    focusedTextColor = colors.text,
-                    unfocusedTextColor = colors.text,
-                    cursorColor = colors.accent,
-                ),
+        ChannelPickerContent(
+            state = state,
+            onQuery = viewModel::setQuery,
+            onToggle = viewModel::toggle,
+            onSetAllVisible = viewModel::setAllVisible,
+            onDone = onDismiss,
+        )
+    }
+}
+
+/** The sheet's content as a pure function of state (also what the screenshot tests render). */
+@Composable
+fun ChannelPickerContent(
+    state: PickerUiState,
+    onQuery: (String) -> Unit,
+    onToggle: (Channel) -> Unit,
+    onSetAllVisible: (Boolean) -> Unit,
+    onDone: () -> Unit,
+) {
+    val colors = Tek.colors
+    Column(Modifier.navigationBarsPadding().padding(horizontal = 16.dp)) {
+        Text(stringResource(R.string.picker_title), style = MaterialTheme.typography.titleLarge, color = colors.text)
+        Spacer(Modifier.padding(top = 10.dp))
+        OutlinedTextField(
+            value = state.query,
+            onValueChange = onQuery,
+            singleLine = true,
+            leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null, tint = colors.textSecondary) },
+            placeholder = { Text(stringResource(R.string.picker_search_hint), color = colors.textSecondary) },
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(Tek.shapes.button),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = colors.accent,
+                unfocusedBorderColor = colors.line,
+                focusedTextColor = colors.text,
+                unfocusedTextColor = colors.text,
+                cursorColor = colors.accent,
+            ),
+        )
+        Spacer(Modifier.padding(top = 6.dp))
+        SelectAllRow(
+            checked = state.allVisibleSelected,
+            onToggle = { onSetAllVisible(!state.allVisibleSelected) },
+        )
+        if (state.items.isEmpty() && !state.loading) {
+            Text(
+                stringResource(R.string.picker_none_found),
+                style = MaterialTheme.typography.bodyMedium,
+                color = colors.textSecondary,
+                modifier = Modifier.padding(vertical = 24.dp),
             )
-            Spacer(Modifier.padding(top = 6.dp))
-            SelectAllRow(
-                checked = state.allVisibleSelected,
-                onToggle = { viewModel.setAllVisible(!state.allVisibleSelected) },
-            )
-            if (state.items.isEmpty() && !state.loading) {
-                Text(
-                    stringResource(R.string.picker_none_found),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = colors.textSecondary,
-                    modifier = Modifier.padding(vertical = 24.dp),
-                )
-            }
-            LazyColumn(
-                modifier = Modifier.weight(1f, fill = false).heightIn(max = 520.dp),
-                contentPadding = PaddingValues(vertical = 4.dp),
-            ) {
-                items(state.items, key = { it.packageName }) { channel ->
-                    ChannelRow(channel = channel, onToggle = { viewModel.toggle(channel) }, modifier = Modifier.animateItem())
-                }
-            }
-            Button(
-                onClick = onDismiss,
-                modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
-                shape = RoundedCornerShape(Tek.shapes.button),
-                colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
-            ) { Text(stringResource(R.string.picker_done) + " (" + state.selectedCount + ")") }
         }
+        LazyColumn(
+            modifier = Modifier.weight(1f, fill = false).heightIn(max = 520.dp),
+            contentPadding = PaddingValues(vertical = 4.dp),
+        ) {
+            items(state.items, key = { it.packageName }) { channel ->
+                ChannelRow(channel = channel, onToggle = { onToggle(channel) }, modifier = Modifier.animateItem())
+            }
+        }
+        Button(
+            onClick = onDone,
+            modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
+            shape = RoundedCornerShape(Tek.shapes.button),
+            colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
+        ) { Text(stringResource(R.string.picker_done) + " (" + state.selectedCount + ")") }
     }
 }
 
