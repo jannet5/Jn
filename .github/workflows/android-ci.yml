@@ -6,10 +6,14 @@ name: Android CI
 # closest thing to "verified on a real, running Android system" this project gets without a
 # physical device (see docs/DECISIONS.md §3).
 
+# Notes and research files change often and cannot break the app; they must not restart (and so
+# cancel) the 15-minute emulator runs.
 on:
   push:
     branches: ["**"]
+    paths-ignore: ["docs/**", "**/*.md", "tools/**"]
   pull_request:
+    paths-ignore: ["docs/**", "**/*.md", "tools/**"]
   workflow_dispatch:
 
 # A newer push makes older runs pointless; cancel them so the emulator jobs do not pile up.
