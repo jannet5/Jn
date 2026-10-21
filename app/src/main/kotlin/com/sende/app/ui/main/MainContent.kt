@@ -68,9 +68,9 @@ fun MainContent(
     showSupport: Boolean = false,
     trialDaysLeft: Int? = null,
     oemHint: String? = null,
+    listState: androidx.compose.foundation.lazy.LazyListState = rememberLazyListState(),
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-    val listState = rememberLazyListState()
 
     Scaffold(
         containerColor = Tek.colors.background,
