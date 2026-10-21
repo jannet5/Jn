@@ -12,6 +12,7 @@ import com.sende.app.ui.main.Level
 import com.sende.app.ui.main.MainCallbacks
 import com.sende.app.ui.main.MainContent
 import com.sende.app.ui.main.MainUiState
+import com.sende.app.ui.theme.Brand
 import com.sende.app.ui.theme.SendeTheme
 import org.junit.Rule
 import org.junit.Test
@@ -43,8 +44,9 @@ class ScreenshotTest {
         long: Set<String> = emptySet(),
         menuOpen: Boolean = false,
         canReply: Boolean = true,
+        dark: Boolean = false,
     ) = compose.setContent {
-        SendeTheme { ScreenshotFixtures.WithIcons(context) {
+        SendeTheme(colors = if (dark) Brand.dark else Brand.light) { ScreenshotFixtures.WithIcons(context) {
             MainContent(
                 state = state,
                 menuOpen = menuOpen,
@@ -57,6 +59,12 @@ class ScreenshotTest {
                 callbacks = MainCallbacks(),
             )
         } }
+    }
+
+    @Test fun main_dark_theme() {
+        val state = ScreenshotFixtures.state(tmp.newFolder())
+        main(state, levels = mapOf(state.conversations.first().key to Level.Children), dark = true)
+        shot("13-koyu-tema")
     }
 
     @Test fun main_collapsed() {

@@ -1,6 +1,5 @@
 package com.sende.app.ui.theme
 
-import androidx.compose.animation.core.Spring
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -8,8 +7,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * The whole brand in one file. Everything the UI paints or animates comes from here, so choosing
- * another brand concept means replacing the values below and nothing else. Values mirror
+ * The brand vocabulary. Everything the UI paints or animates comes from these tokens; the values
+ * live in the generated `BrandTokens.kt` (tools/apply_brand.py), mirroring
  * `docs/marka/konsept-N-belirtecler.json` of the chosen concept.
  */
 @Immutable
@@ -38,31 +37,7 @@ data class BrandMotion(
     val springStiffness: Float,
 )
 
-object Brand {
-    /** Provisional concept 1 "Gece Mürekkebi" (near-black ink, one warm amber accent). */
-    val colors = BrandColors(
-        background = Color(0xFF0C0D10),
-        surface = Color(0xFF15171C),
-        surfaceHigh = Color(0xFF1D2027),
-        line = Color(0xFF2B2E37),
-        text = Color(0xFFF2F0EA),
-        textSecondary = Color(0xFFA6A7AF),
-        accent = Color(0xFFF2B544),
-        onAccent = Color(0xFF1A1405),
-        danger = Color(0xFFE5675F),
-        success = Color(0xFF58C58B),
-        isDark = true,
-    )
-    val shapes = BrandShapes(card = 20.dp, bubble = 28.dp, button = 14.dp)
-    val motion = BrandMotion(
-        expandMillis = 260,
-        dismissMillis = 220,
-        springDamping = Spring.DampingRatioLowBouncy,
-        springStiffness = Spring.StiffnessMediumLow,
-    )
-}
-
-val LocalBrandColors = staticCompositionLocalOf { Brand.colors }
+val LocalBrandColors = staticCompositionLocalOf { Brand.light }
 val LocalBrandShapes = staticCompositionLocalOf { Brand.shapes }
 val LocalBrandMotion = staticCompositionLocalOf { Brand.motion }
 

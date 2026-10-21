@@ -31,5 +31,18 @@
     "yayDamping": 0.6,
     "yaySertlik": 400
   },
-  "karanlikMi": false
+  "karanlikMi": false,
+  "koyuRenkler": {
+    "arkaplan": "#14110E",
+    "yuzey": "#1D1812",
+    "yuzeyYuksek": "#282119",
+    "cizgi": "#3D3327",
+    "metin": "#F3E9D8",
+    "metinIkincil": "#BCAE98",
+    "vurgu": "#7CCFBC",
+    "vurguUstu": "#0A2A26",
+    "tehlike": "#F2865A",
+    "basari": "#7CCFBC",
+    "ikonArkaplan": "#0E4F4A"
+  }
 }

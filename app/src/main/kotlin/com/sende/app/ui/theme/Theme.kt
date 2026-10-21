@@ -1,19 +1,21 @@
 package com.sende.app.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 @Composable
 fun SendeTheme(
-    colors: BrandColors = Brand.colors,
+    colors: BrandColors = if (isSystemInDarkTheme()) Brand.dark else Brand.light,
     shapes: BrandShapes = Brand.shapes,
     motion: BrandMotion = Brand.motion,
-    typography: androidx.compose.material3.Typography = brandTypography(),
+    typography: androidx.compose.material3.Typography = remember { brandTypography(BrandFontFamilies.heading, BrandFontFamilies.body) },
     content: @Composable () -> Unit,
 ) {
     val view = LocalView.current
