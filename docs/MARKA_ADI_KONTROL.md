@@ -12,8 +12,9 @@ Her bulgunun yanında kaynak vardır. Bakılamayan yer "doğrulanamadı" yazıld
 
 - Play'de tam adı "Sende" olan 2 uygulama var.
 - Bunlardan biri bizimle aynı alanda: müşteri mesajı, küçük işletme, WhatsApp.
-  - Ad: Sende. Geliştirici: GlobalSix LTDA (Brezilya sitesi). Play'de 1+ indirme.
+  - Ad: Sende. Geliştirici: GlobalSix LTDA (sitesi .br alan adlı). Play'de 1+ indirme.
   - Ama web sitesi canlı, ürün tanıtımı yapılıyor.
+  - Play aramasında çıkmıyor; ben paket adını tahmin ederek buldum.
 - Adında "Sende" geçen 9 uygulama daha var. Hiçbiri aynı alanda değil.
 - Alan adları: sende.com, sende.io, sende.co, sende.com.tr, getsende.com dolu.
   - sende.app süresi dolmuş, silinme sürecinde. Tahminen 9 Kasım 2026 civarı boşalır.
@@ -79,7 +80,7 @@ Kaynaklar:
 ### 2.3 Benzer yazımlı, aynı alanda olanlar
 
 Bunlar "Sende" değil ama yazılışı yakın ve WhatsApp/mesaj alanında:
-- Sendlio: WA Scheduler & Reply (Sendlio Productivity Tools). İletişim. 5.000+.
+- Sendlio: WA Scheduler & Reply (Sendlio Productivity Tools). Haberleşme. 5.000+.
 - Sendzyy: Whatsapp Business API (IFLORA INFO PVT LTD). Haberleşme. 100+.
 - Sends Messenger (ODESSYS TECH LTD). Sosyal. 5.000+.
 
@@ -89,12 +90,16 @@ Kaynaklar:
 
 ### 2.4 Aramada görünürlük (Play'in kendi sonuçları)
 
-- ABD mağazasında "sende" araması "send" uygulamalarıyla doldu (Send, Sendwave, Send Anywhere, Remitly, Tinder).
-  - Tam adı "Sende" olan iki uygulama ilk 20 sonuçta yoktu.
-  - Kaynak: https://play.google.com/store/search?q=sende&c=apps&hl=en&gl=US
-- Türkiye mağazasında aynı arama Hinge, Waze, Snapchat, Messenger gibi alakasız uygulamalar da getirdi.
-  - Gebze'nin "Sende" uygulaması varsayılan Türkçe aramada ilk sonuçlarda çıkmadı.
+- Türkiye mağazasında "sende" araması: ilk sonuç Gebze'nin "Sende" uygulaması.
+  - Sonra Sende Kibris, SendMe, Sıra Sende!, Sendmonee, Sende Gel Sürücü gelir.
+  - Listenin devamında Hinge, Waze, Snapchat, Messenger gibi alakasız uygulamalar var.
   - Kaynak: https://play.google.com/store/search?q=sende&c=apps&hl=tr&gl=TR
+- ABD mağazasında aynı arama "send" uygulamalarıyla doldu (Send, Sendwave, Send Anywhere, Remitly, Tinder).
+  - Tam adı "Sende" olan iki uygulama (Gebze, GlobalSix) ilk 20 sonuçta yoktu.
+  - Kaynak: https://play.google.com/store/search?q=sende&c=apps&hl=en&gl=US
+- GlobalSix'in "Sende" uygulaması hiçbir arama sayfasında çıkmadı (tr, en-TR, en-US, de-DE ve "sende mesaj/whatsapp/crm" gibi sorgular).
+  - Onu paket adını tahmin ederek buldum (com.sende.sende).
+  - Yani aramada çıkmayan, aynı adlı başka uygulamalar da olabilir: doğrulanamadı.
 - Yorum: tek başına "Sende" aramasında öne çıkmak zor. Ad, arama anahtar sözcüğü olarak zayıf.
 
 ### 2.5 App Store (ek, istenmemişti)
@@ -252,15 +257,16 @@ Kurucu için elle arama talimatı (telefon veya bilgisayar):
 - Slogan "Mesajların Sende." hem sahiplik hem "veri sende kalır" vaadi veriyor (bkz. docs/DECISIONS.md).
 - Mesajlaşma alanında olumlu çağrışım: Danca ve Norveççede "sende" = göndermek. Almancada "sende" = "gönderiyorum / gönder".
   - Kaynak: https://en.wiktionary.org/wiki/sende
-- Türkiye mağazasında "sende" arayan, uygulamaya "benimle, yanımda" anlamını verir. Yorum: sıcak, samimi ton.
+- Yorum: Türkçe konuşan için "sende" sıcak ve samimi bir ton taşır.
 
 ### Olumsuz yanlar
 
 - Ayırt edilebilirlik zayıf: yaygın günlük sözcük. Marka vekiline "yaygın sözcük olduğu için itiraz gelir mi?" diye sorulmalı. Bu soru hukuki görüş değildir, kontrol listesine eklendi.
-- Mağaza ve web aramasında gürültü (bölüm 2.4, 6 Türkçede).
+- Mağaza aramasında gürültü var (bölüm 2.4).
+- Yanlış yazım ("sen de" yerine "sende") ayrıca gürültü katar (bu bölümün başı).
 - Aynı ada sahip 2 Play uygulaması var, biri aynı alanda (bölüm 2.1).
 - Alan adlarının çoğu dolu (bölüm 3).
-- İngilizce konuşanlar "send" gibi okuyup arayabilir (Play'de "sende" araması "send" ile doldu, bölüm 2.4).
+- ABD mağazasında "sende" araması "send" sonuçlarıyla doldu (bölüm 2.4).
 
 ### Dünyada anlamı
 
@@ -330,6 +336,7 @@ Ek notlar:
 - sende.com, sende.app, usesende.com sitelerinin içeriği (ağ engeli).
 - sende.com.tr, sende.io, sende.co kayıt sahipleri ve tarihleri.
 - GlobalSix "Sende" uygulamasının iOS sürümü.
+- Play aramasında çıkmayan, aynı adlı başka uygulamaların olup olmadığı.
 - İsveççe, Portekizce, İspanyolca'da "sende" benzeri sözcükler.
 - com.sende.app paket adının başkasının taslağında olup olmadığı.
 
