@@ -23,7 +23,8 @@ object Listeleyici {
 
     // Seçim ekranı için oynatma listesi / panoyu getir (en fazla [sinir] öge)
     suspend fun listeGetir(ctx: Context, link: CozulmusLink, sinir: Int = 300): ListeSonucu =
-        ytdlpListe(ctx, link.url, sinir, null, link.platform, profil = false) // yt-dlp ile düz liste
+        if (link.platform == Platform.PINTEREST) pinterestListe(ctx, link.url, sinir, null, link.url.trimEnd('/').substringAfterLast('/')) // pano: gallery-dl
+        else ytdlpListe(ctx, link.url, sinir, null, link.platform, profil = false) // yt-dlp ile düz liste
 
     // Bir profilin / kanalın son [sayi] içeriğini getir
     suspend fun profilGetir(ctx: Context, isi: IndirmeIsi): ListeSonucu {
@@ -34,9 +35,9 @@ object Listeleyici {
                 ytdlpListe(ctx, isi.url.trimEnd('/') + "/" + bolum, isi.sayi, isi.id, isi.platform) // yt-dlp
             }
             Platform.TIKTOK -> ytdlpListe(ctx, isi.url, isi.sayi, isi.id, isi.platform) // TikTok profili (yt-dlp)
-            Platform.PINTEREST -> galeriListe(ctx, isi, isi.url.trimEnd('/') + "/_created/", kullanici) // Pinterest: kullanıcının oluşturduğu pinler
-            Platform.INSTAGRAM -> galeriListe( // Instagram: Reels ya da Gönderiler bölümü
-                ctx, isi, "https://www.instagram.com/$kullanici/" + (if (isi.sekme == Sekme.GONDERILER) "posts/" else "reels/"), kullanici,
+            Platform.PINTEREST -> pinterestListe(ctx, isi.url.trimEnd('/') + "/_created/", isi.sayi, isi.id, kullanici) // Pinterest: kullanıcının oluşturduğu pinler
+            Platform.INSTAGRAM -> ytdlpListe( // Instagram: Reels ya da Gönderiler bölümü (uygulamanın yt-dlp eklentisiyle, girişsiz)
+                ctx, "https://www.instagram.com/$kullanici/" + (if (isi.sekme == Sekme.GONDERILER) "posts/" else "reels/"), isi.sayi, isi.id, isi.platform,
             )
             Platform.X -> galeriListe(ctx, isi, "https://x.com/$kullanici/media", kullanici) // X: medya bölümü (giriş gerekir)
             Platform.DIGER -> ytdlpListe(ctx, isi.url, isi.sayi, isi.id, isi.platform) // diğer: yt-dlp ne bulursa
@@ -69,6 +70,10 @@ object Listeleyici {
             addOption("--extractor-args", "youtube:lang=tr") // YouTube başlıkları Türkçe gelsin (varsa)
             Cerezler.dosyaYolu(ctx)?.let { addOption("--cookies", it) } // giriş yapıldıysa çerezler
             if (platform == Platform.TIKTOK) addOption("--user-agent", Platform.FIREFOX_UA) // TikTok engeline takılmamak için
+            if (platform == Platform.INSTAGRAM) { // Instagram: eklenti ile girişsiz liste, sadece videolu gönderiler
+                addOption("--plugin-dirs", Motor.eklentiKlasoru(ctx)) // eklenti klasörü
+                addOption("--extractor-args", "instagramprofile:videos_only=true") // fotoğraf gönderilerini sayma
+            }
         }
         val cevap = try {
             YoutubeDL.getInstance().execute(istek, islemId, null) // çalıştır
@@ -106,7 +111,8 @@ object Listeleyici {
         }
         // Ad: liste için listenin başlığı, profil için kanal/kullanıcı adı
         val alanlar = if (profil) listOf("channel", "uploader", "playlist_uploader") else listOf("title", "playlist_title", "channel", "uploader")
-        val adaylar = (if (profil) listOf(kok.optString("channel"), ilkKanal) else emptyList()) + alanlar.map { kok.optString(it) } +
+        val adaylar = (if (profil && platform == Platform.INSTAGRAM) listOf(kok.optString("uploader")) else emptyList()) + // Instagram: tam ad
+            (if (profil) listOf(kok.optString("channel"), ilkKanal) else emptyList()) + alanlar.map { kok.optString(it) } +
             (if (profil) listOf(kok.optString("uploader_id"), kok.optString("title")) else emptyList()) // olası adlar (görünen ad önce)
         val ad = adaylar.firstOrNull { it.isNotBlank() && it != "null" } // ilk dolu alan
             ?.removeSuffix(" - Videos")?.removeSuffix(" - Shorts")?.removeSuffix(" - Live")?.removeSuffix(" - Videolar") // "Kanal - Videos" → "Kanal"
@@ -135,6 +141,29 @@ object Listeleyici {
             }
             else -> throw UnsupportedOperationException("${isi.platform.ad} profili henüz desteklenmiyor") // diğerleri aşağıda
         }
+    }
+
+    // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
+    private suspend fun pinterestListe(ctx: Context, url: String, n: Int, islemId: String?, yedekAd: String): ListeSonucu {
+        val arg = mutableListOf("-o", "ratelimit=abort") // sınır aşılırsa bekleme
+        Cerezler.dosyaYolu(ctx)?.let { arg += listOf("--cookies", it) } // giriş yapıldıysa çerezler
+        arg += listOf(
+            "--filter", "extension in ('mp4', 'm3u8')", // sadece videolar
+            "--range", "1-$n", // ilk N video (en yeniden eskiye)
+            "-N", "{id}\t{pinner[full_name]}\t{board[name]}\t{title|grid_title}\t{url}", // her pin için tek satır
+            url,
+        )
+        val cikti = Motor.galeriCalistir(ctx, arg, islemId) // çalıştır
+        val ogeler = mutableListOf<Oge>() // pinler
+        var kisi = "" // pinleyen kişinin adı
+        var pano = "" // pano adı
+        cikti.lineSequence().map { it.split('\t') }.filter { it.size >= 5 && it[4].startsWith("http") }.forEach { p -> // her geçerli satır
+            if (kisi.isBlank() && p[1].isNotBlank() && p[1] != "None") kisi = p[1] // kişi
+            if (pano.isBlank() && p[2].isNotBlank() && p[2] != "None") pano = p[2] // pano
+            ogeler += Oge("https://www.pinterest.com/pin/${p[0]}/", p[3].takeUnless { it == "None" } ?: "", medya = p[4]) // pin sayfası + video dosyası
+        }
+        val panoMu = !url.contains("/_created") // pano mu profil mi
+        return ListeSonucu((if (panoMu) pano else kisi).ifBlank { yedekAd }, ogeler.take(n)) // ad: pano adı ya da kişi adı
     }
 
     // gallery-dl'in "kimlik<TAB>ad<TAB>link" satırlarını çöz: aynı gönderiyi bir kez al, ilk N tanesini döndür

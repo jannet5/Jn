@@ -39,7 +39,37 @@ object Motor {
         }
     }
 
-    // ---------------- gallery-dl (Instagram, X, Pinterest profillerini listelemek için) ----------------
+    // yt-dlp eklentileri klasörü (Instagram eklentisi: girişsiz profil listeleme ve reels indirme)
+    fun eklentiKlasoru(ctx: Context): String {
+        val klasor = File(ctx.filesDir, "ytdlp-eklentileri").apply { mkdirs() } // hedef klasör
+        val hedef = File(klasor, "ig_plugins.zip") // eklenti paketi
+        val boyut = runCatching { ctx.assets.openFd("ytdlp-eklentileri/ig_plugins.zip").length }.getOrDefault(-1L) // paketli dosyanın boyutu
+        if (!hedef.isFile || hedef.length() != boyut) { // yoksa ya da uygulama güncellendiyse
+            ctx.assets.open("ytdlp-eklentileri/ig_plugins.zip").use { giris -> hedef.outputStream().use { giris.copyTo(it) } } // kopyala
+        }
+        return klasor.absolutePath // yt-dlp'ye --plugin-dirs ile verilir
+    }
+
+    // Kısa/paylaşım linkinin gittiği asıl adresi bul (örn. instagram.com/share/... → /reel/...)
+    suspend fun yonlendirmeyiCoz(url: String): String = withContext(Dispatchers.IO) {
+        var adres = url // şu anki adres
+        repeat(5) { // en fazla 5 yönlendirme
+            val baglanti = (java.net.URL(adres).openConnection() as java.net.HttpURLConnection).apply {
+                instanceFollowRedirects = false // yönlendirmeyi kendimiz takip edelim
+                requestMethod = "GET" // bazı siteler HEAD'i reddediyor
+                connectTimeout = 15000; readTimeout = 15000 // zaman aşımı
+                setRequestProperty("User-Agent", com.jn.oynatici.data.Platform.FIREFOX_UA) // tarayıcı gibi
+            }
+            val kod = runCatching { baglanti.responseCode }.getOrDefault(0) // cevap kodu
+            val yeni = baglanti.getHeaderField("Location") // yönlendirilen adres
+            baglanti.disconnect() // bağlantıyı kapat
+            if (kod !in 300..399 || yeni == null) return@withContext adres // yönlendirme yoksa bitti
+            adres = java.net.URL(java.net.URL(adres), yeni).toString() // göreli adresleri tamamla
+        }
+        adres // sonuç
+    }
+
+    // ---------------- gallery-dl (X ve Pinterest profillerini listelemek için) ----------------
     // gallery-dl saf Python; telefondaki (yt-dlp ile gelen) Python'la çalışır. Paket assets/gdl içinde gelir,
     // haftada bir PyPI'den yeni sürümü kendiliğinden indirilir (siteler değiştikçe güncel kalsın).
 

@@ -77,7 +77,7 @@ private val kaliteler = listOf<Pair<String, Int?>>("144p" to 144, "240p" to 240,
 // Profilden kaç içerik indirileceği için hazır seçenekler
 private val hazirSayilar = listOf(5, 10, 20, 50)
 // Giriş yapılmadan profil listesi alınamayan siteler
-private val profilIcinGirisGerekli = setOf(Platform.INSTAGRAM, Platform.X)
+private val profilIcinGirisGerekli = setOf(Platform.X)
 
 // İnternetten indirme sayfası: link yapıştır → ne olduğu anlaşılır → (liste ise seç, profil ise sayı seç) → indir
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)

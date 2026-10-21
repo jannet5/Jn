@@ -105,7 +105,8 @@ class IndirmeServisi : Service() {
         }
         try {
             if (!isi.toplu) { // tek içerik: bulunduğun klasöre
-                calistir(isi, YoutubeDLRequest(isi.url), isi.hedef, gecici, cerez, ilerleme, toplu = false) // indir
+                val adres = if (isi.platform == Platform.INSTAGRAM && isi.url.contains("/share/")) runCatching { Motor.yonlendirmeyiCoz(isi.url) }.getOrDefault(isi.url) else isi.url // paylaşım linkini çöz
+                calistir(isi, YoutubeDLRequest(adres), isi.hedef, gecici, cerez, ilerleme, toplu = false) // indir
                 IndirmeMerkezi.guncelle(isi.id) { it.copy(durum = Durum.BITTI, yuzde = 100f, bilgi = "İndirildi") } // başarılı
                 return true // tamam
             }
@@ -127,7 +128,8 @@ class IndirmeServisi : Service() {
             IndirmeMerkezi.guncelle(isi.id) { it.copy(baslik = klasor.name) } // kartta klasör adı görünsün
             ilerleme.toplam = liste.ogeler.size // "3/20" için toplam
             ilerleme.asamaBitir() // indirme aşamasına geç
-            val hata = runCatching { calistir(isi, YoutubeDLRequest(liste.ogeler.map { it.url }), klasor, gecici, cerez, ilerleme, toplu = true) }.exceptionOrNull() // hepsini indir
+            val hata = if (isi.platform == Platform.PINTEREST) pinterestIndir(isi, liste.ogeler, klasor, gecici, cerez, ilerleme) // Pinterest: tek tek
+            else runCatching { calistir(isi, YoutubeDLRequest(liste.ogeler.map { it.url }), klasor, gecici, cerez, ilerleme, toplu = true) }.exceptionOrNull() // hepsini indir
             if (hata is YoutubeDL.CanceledException) throw hata // iptal edildiyse aşağıda yakala
             // Sonuç: kaç içerik indi, klasör adını gerçek sayıyla güncelle
             val inen = Kutuphane.listele(isi.tur, klasor).second.size // inen medya dosyası sayısı
@@ -161,11 +163,28 @@ class IndirmeServisi : Service() {
         }
     }
 
+    // Pinterest pinlerini tek tek indir: sayı ile başlayan pinler sayfasından (H.264 seçilebilir), diğerleri doğrudan video dosyasından.
+    // Döndürdüğü: son hata (iptal hariç), hiç hata yoksa null.
+    private fun pinterestIndir(isi: IndirmeIsi, ogeler: List<Oge>, klasor: File, gecici: File, cerez: String?, ilerleme: Ilerleme): Throwable? {
+        var sonHata: Throwable? = null // son hata
+        ogeler.forEachIndexed { i, oge -> // her pin
+            if (IndirmeMerkezi.iptalMi(isi.id)) throw YoutubeDL.CanceledException() // iptal edildiyse dur
+            val pinNo = oge.url.trimEnd('/').substringAfterLast('/') // pin kimliği
+            val adres = if (pinNo.all(Char::isDigit) || oge.medya == null) oge.url else oge.medya // indirme adresi
+            val ad = "%03d - %s.%%(ext)s".format(i + 1, Kutuphane.guvenliAd(oge.baslik.ifBlank { "Pin $pinNo" }).take(90).replace("%", "%%")) // "001 - başlık.mp4"
+            ilerleme.toplam = ogeler.size // toplam
+            val hata = runCatching { calistir(isi, YoutubeDLRequest(adres), klasor, gecici, cerez, ilerleme, toplu = true, ciktiAdi = ad) }.exceptionOrNull() // indir
+            if (hata is YoutubeDL.CanceledException) throw hata // iptal
+            if (hata != null) sonHata = hata // hatayı sakla, diğerlerine devam
+        }
+        return sonHata // sonuç
+    }
+
     // Klasör adı: "Kanal adı, 20 içerik, Instagram"
     private fun klasorAdi(ad: String, sayi: Int, platform: Platform) = "$ad, $sayi içerik, ${platform.ad}"
 
     // yt-dlp'yi çalıştır ve çıktısından ilerlemeyi takip et
-    private fun calistir(isi: IndirmeIsi, istek: YoutubeDLRequest, klasor: File, gecici: File, cerez: String?, ilerleme: Ilerleme, toplu: Boolean) {
+    private fun calistir(isi: IndirmeIsi, istek: YoutubeDLRequest, klasor: File, gecici: File, cerez: String?, ilerleme: Ilerleme, toplu: Boolean, ciktiAdi: String? = null) {
         istek.apply {
             addOption("-P", klasor.absolutePath) // dosyaların ineceği klasör
             addOption("-P", "temp:${gecici.absolutePath}") // ara dosyalar buraya, klasör temiz kalsın
@@ -176,7 +195,13 @@ class IndirmeServisi : Service() {
             addOption("--no-playlist") // her link tek içerik olarak insin
             if (isi.platform != Platform.X) cerez?.let { addOption("--cookies", it) } // giriş yapılan hesapların çerezleri (X'in herkese açık gönderileri çerezsiz daha sağlam iniyor)
             if (isi.platform == Platform.TIKTOK) addOption("--user-agent", Platform.FIREFOX_UA) // TikTok engeline takılmamak için
-            if (toplu) { // tek klasöre çok içerik
+            if (isi.platform == Platform.INSTAGRAM) { // Instagram: girişsiz indirme eklentisi, istekler arası kısa bekleme
+                addOption("--plugin-dirs", Motor.eklentiKlasoru(this@IndirmeServisi)) // eklenti klasörü
+                addOption("--sleep-requests", "1") // Instagram'ı kızdırmamak için
+            }
+            if (ciktiAdi != null) { // dosya adı önceden belli (Pinterest)
+                addOption("-o", ciktiAdi) // verilen ad
+            } else if (toplu) { // tek klasöre çok içerik
                 addOption("--ignore-errors") // açılmayan (ya da fotoğraf olan) içerik olursa diğerlerine devam et
                 addOption("-o", "%(autonumber)03d - %(title).90B.%(ext)s") // "001 - başlık.mp4" (sıra = en yeniden eskiye / seçim sırası)
             } else if (isi.platform == Platform.X) {
@@ -193,7 +218,11 @@ class IndirmeServisi : Service() {
                 addOption("--audio-quality", "0") // en yüksek MP3 kalitesi
                 addOption("--embed-metadata") // başlık/sanatçı bilgisini dosyaya yaz
             } else { // video bölümü: seçilen kalitede MP4
-                addOption("-f", if (isi.platform == Platform.X) "best[protocol=https][ext=mp4]/bv*+ba/b" else "bv*+ba/b") // en iyi görüntü + ses (X'te tek parça MP4 tercih edilir)
+                addOption("-f", when (isi.platform) { // format seçimi
+                    Platform.X -> "best[protocol=https][ext=mp4]/bv*+ba/b" // X: tek parça MP4
+                    Platform.INSTAGRAM -> "b[ext=mp4]/bv*+ba/b" // Instagram: tek parça H.264 MP4
+                    else -> "bv*+ba/b" // diğerleri: en iyi görüntü + en iyi ses
+                })
                 val sirala = if (isi.kalite != null) "res:${isi.kalite},vcodec:h264,acodec:aac" else "res,vcodec:h264,acodec:aac" // kalite sınırı, telefon dostu kodek
                 addOption("-S", sirala) // format seçim sırası
                 addOption("--merge-output-format", "mp4") // her telefonda açılan MP4

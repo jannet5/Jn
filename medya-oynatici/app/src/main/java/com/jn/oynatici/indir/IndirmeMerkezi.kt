@@ -22,6 +22,7 @@ data class Oge(
     val url: String, // içeriğin https linki
     val baslik: String, // başlığı (yoksa boş)
     val sureSn: Double? = null, // süresi (biliniyorsa, saniye)
+    val medya: String? = null, // doğrudan video dosyası linki (Pinterest'te bazı pinler sadece böyle iner)
 )
 
 // Bir indirme işi: tek içerik, seçilmiş liste öğeleri ya da bir profilin son N içeriği
