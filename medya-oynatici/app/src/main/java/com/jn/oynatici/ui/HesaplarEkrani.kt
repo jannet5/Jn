@@ -91,11 +91,14 @@ fun GirisEkrani(model: UygulamaModeli, platform: Platform) {
     var yukleniyor by remember { mutableStateOf(true) } // sayfa yükleniyor mu
     var bitti by remember { mutableStateOf(false) } // giriş tamamlandı mı
 
-    // Anahtar çerez gelene kadar arada bir kontrol et; gelince kaydet ve kapat
+    // Sayfa açıldığındaki oturum değeri: zaten girişliyse hemen kapanmasın, ancak yeni bir giriş olunca kapansın
+    val ilkDeger = remember(platform) { Cerezler.anahtarDegeri(platform) }
+
+    // Anahtar çerez gelene (ya da değişene) kadar arada bir kontrol et; gelince kaydet ve kapat
     LaunchedEffect(Unit) {
         while (!bitti) {
             delay(1500) // 1,5 saniyede bir bak
-            if (Cerezler.girisVar(platform)) bitti = true // giriş oldu
+            if (Cerezler.girisVar(platform) && Cerezler.anahtarDegeri(platform) != ilkDeger) bitti = true // yeni giriş oldu
         }
         CookieManager.getInstance().flush() // çerezleri diske yaz
         Cerezler.dosyayaYaz(ctx) // indiriciler için dosyaya yaz

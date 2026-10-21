@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -44,8 +45,10 @@ fun Uygulama(model: UygulamaModeli) {
     val ctx = LocalContext.current // dosya klasörlerine erişim için
     BackHandler(enabled = model.yigin.size > 1) { model.geri() } // geri tuşu bir önceki sayfaya döner
 
+    val durumTutucu = rememberSaveableStateHolder() // her sayfanın yazılanları (link, sayı, kalite...) geri dönünce kaybolmasın
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { // arka plan + varsayılan yazı rengi (açık)
-        when (val sayfa = model.yigin.last()) { // görünür sayfa
+        val sayfa = model.yigin.last() // görünür sayfa
+        durumTutucu.SaveableStateProvider("${model.yigin.lastIndex}:$sayfa") { when (sayfa) { // sayfa + yığındaki yeri = ayrı durum
             Sayfa.Ana -> AnaEkran(model) // açılış
             is Sayfa.Liste -> ListeEkrani(model, sayfa.tur, sayfa.klasor) // klasör
             Sayfa.Calan -> CalanEkrani(model) // çalan müzik
@@ -55,7 +58,7 @@ fun Uygulama(model: UygulamaModeli) {
             is Sayfa.Linkler -> LinklerEkrani(model, sayfa.klasor) // linkler
             Sayfa.Hesaplar -> HesaplarEkrani(model) // hesaplar
             is Sayfa.Giris -> GirisEkrani(model, sayfa.platform) // giriş sayfası
-        }
+        } }
     }
 
     // YouTube, TikTok, Instagram... uygulamasından "Paylaş" ile link geldiyse: ses mi video mu diye sor
@@ -68,7 +71,7 @@ fun Uygulama(model: UygulamaModeli) {
                 TextButton(onClick = { // video olarak
                     model.paylasilanLink = null // soruyu kapat
                     val kok = Kutuphane.kok(ctx, Tur.VIDEO) // video bölümü
-                    model.git(Sayfa.Liste(Tur.VIDEO, kok)) // video bölümüne git (geri basınca orada kalsın)
+                    if (model.yigin.last() != Sayfa.Liste(Tur.VIDEO, kok)) model.git(Sayfa.Liste(Tur.VIDEO, kok)) // video bölümüne git (zaten oradaysa tekrar ekleme)
                     model.git(Sayfa.Indir(Tur.VIDEO, kok, link)) // indirme sayfasını linkle aç
                 }) { Text("Video") }
             },
@@ -76,7 +79,7 @@ fun Uygulama(model: UygulamaModeli) {
                 TextButton(onClick = { // müzik olarak
                     model.paylasilanLink = null // soruyu kapat
                     val kok = Kutuphane.kok(ctx, Tur.MUZIK) // müzik bölümü
-                    model.git(Sayfa.Liste(Tur.MUZIK, kok)) // müzik bölümüne git
+                    if (model.yigin.last() != Sayfa.Liste(Tur.MUZIK, kok)) model.git(Sayfa.Liste(Tur.MUZIK, kok)) // müzik bölümüne git (zaten oradaysa tekrar ekleme)
                     model.git(Sayfa.Indir(Tur.MUZIK, kok, link)) // indirme sayfasını linkle aç
                 }) { Text("Müzik (MP3)") }
             },

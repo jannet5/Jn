@@ -13,13 +13,14 @@ import java.net.URI
 object Cerezler {
 
     // Giriş yapılabilen siteler: giriş sayfası, çerezlerinin okunacağı adresler ve "giriş yapıldı" demek olan çerez
-    data class Site(val platform: Platform, val girisAdresi: String, val adresler: List<String>, val anahtarCerez: String)
+    // anahtarDeger: çerezin "giriş yapıldı" sayılması için alması gereken değer (null = boş olmaması yeter)
+    data class Site(val platform: Platform, val girisAdresi: String, val adresler: List<String>, val anahtarCerez: String, val anahtarDeger: String? = null)
 
     val siteler = listOf(
         Site(Platform.INSTAGRAM, "https://www.instagram.com/accounts/login/", listOf("https://www.instagram.com"), "sessionid"), // Instagram
         Site(Platform.X, "https://x.com/i/flow/login", listOf("https://x.com", "https://twitter.com"), "auth_token"), // X
         Site(Platform.TIKTOK, "https://www.tiktok.com/login", listOf("https://www.tiktok.com"), "sessionid"), // TikTok
-        Site(Platform.PINTEREST, "https://www.pinterest.com/login/", listOf("https://www.pinterest.com"), "_pinterest_sess"), // Pinterest
+        Site(Platform.PINTEREST, "https://www.pinterest.com/login/", listOf("https://www.pinterest.com"), "_auth", "1"), // Pinterest (_pinterest_sess girişsiz de geliyor; _auth=1 sadece girişte)
     )
 
     // Netscape biçimindeki çerez dosyası (indiricilere --cookies ile verilir)
@@ -31,7 +32,14 @@ object Cerezler {
     // Bu sitede giriş yapılmış mı (anahtar çerez var mı)
     fun girisVar(platform: Platform): Boolean {
         val site = siteler.find { it.platform == platform } ?: return false // giriş desteklenmeyen site
-        return site.adresler.any { adres -> cerezler(adres).any { it.first == site.anahtarCerez && it.second.isNotEmpty() } } // anahtar çerez dolu mu
+        val deger = anahtarDegeri(platform) ?: return false // anahtar çerez yok
+        return if (site.anahtarDeger != null) deger == site.anahtarDeger else deger.isNotEmpty() // beklenen değer mi / dolu mu
+    }
+
+    // Anahtar çerezin şu anki değeri (yoksa null) — giriş sayfası, değer değişince "giriş oldu" anlar
+    fun anahtarDegeri(platform: Platform): String? {
+        val site = siteler.find { it.platform == platform } ?: return null // site
+        return site.adresler.asSequence().flatMap { cerezler(it).asSequence() }.firstOrNull { it.first == site.anahtarCerez }?.second // ilk eşleşen
     }
 
     // Tüm sitelerin çerezlerini dosyaya yaz. Hiç çerez yoksa dosyayı siler ve null döner.

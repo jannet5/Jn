@@ -22,7 +22,7 @@ object LinkCozucu {
 
     // X ve Instagram'da kullanıcı adı olamayan, sitenin kendi sayfaları
     private val xAyrilmis = setOf("home", "explore", "search", "i", "settings", "notifications", "messages", "compose", "intent", "hashtag", "share", "login", "signup", "tos", "privacy")
-    private val igAyrilmis = setOf("p", "reel", "reels", "tv", "stories", "explore", "accounts", "direct", "about", "developer", "legal", "web")
+    private val igAyrilmis = setOf("p", "reel", "reels", "tv", "stories", "explore", "accounts", "direct", "about", "developer", "legal", "web", "share", "s", "highlights", "api", "graphql")
     private val pinAyrilmis = setOf("pin", "search", "ideas", "today", "settings", "business", "login", "_", "explore")
 
     fun coz(hamLink: String): CozulmusLink {

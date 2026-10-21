@@ -22,9 +22,9 @@ data class ListeSonucu(
 object Listeleyici {
 
     // Seçim ekranı için oynatma listesi / panoyu getir (en fazla [sinir] öge)
-    suspend fun listeGetir(ctx: Context, link: CozulmusLink, sinir: Int = 300): ListeSonucu =
-        if (link.platform == Platform.PINTEREST) pinterestListe(ctx, link.url, sinir, null, link.url.trimEnd('/').substringAfterLast('/')) // pano: gallery-dl
-        else ytdlpListe(ctx, link.url, sinir, null, link.platform, profil = false) // yt-dlp ile düz liste
+    suspend fun listeGetir(ctx: Context, link: CozulmusLink, sinir: Int = 300, islemId: String? = null): ListeSonucu =
+        if (link.platform == Platform.PINTEREST) pinterestListe(ctx, link.url, sinir, islemId, link.url.trimEnd('/').substringAfterLast('/')) // pano: gallery-dl
+        else ytdlpListe(ctx, link.url, sinir, islemId, link.platform, profil = false) // yt-dlp ile düz liste
 
     // Bir profilin / kanalın son [sayi] içeriğini getir
     suspend fun profilGetir(ctx: Context, isi: IndirmeIsi): ListeSonucu {

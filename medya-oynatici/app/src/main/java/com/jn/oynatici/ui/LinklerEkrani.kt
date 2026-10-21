@@ -26,12 +26,15 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.jn.oynatici.data.Platform
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 
 // Klasördeki Linkler.txt dosyasını okunur gösterir: dokun = içeriği aç, kopyala ikonu = linki kopyala
@@ -39,7 +42,7 @@ import java.io.File
 @Composable
 fun LinklerEkrani(model: UygulamaModeli, klasor: File) {
     val ctx = LocalContext.current // bağlam
-    val linkler = remember(klasor) { linkleriOku(klasor) } // dosyadaki linkler
+    val linkler by produceState(emptyList<String>(), klasor) { value = withContext(Dispatchers.IO) { linkleriOku(klasor) } } // dosyadaki linkler (arka planda okunur)
     // Panoya kopyala ve haber ver
     fun kopyala(metin: String, mesaj: String) {
         ctx.getSystemService(ClipboardManager::class.java).setPrimaryClip(ClipData.newPlainText("link", metin)) // panoya koy

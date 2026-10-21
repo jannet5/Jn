@@ -43,7 +43,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -69,6 +71,8 @@ import com.jn.oynatici.indir.IndirmeIsi
 import com.jn.oynatici.indir.IndirmeMerkezi
 import com.jn.oynatici.indir.ListeSonucu
 import com.jn.oynatici.indir.Listeleyici
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -85,10 +89,12 @@ private val profilIcinGirisGerekli = setOf(Platform.X)
 fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String) {
     val ctx = LocalContext.current // bağlam
     val kapsam = rememberCoroutineScope() // liste getirme işi için
-    var link by remember { mutableStateOf(hazirLink) } // yazılan link
-    var kalite by remember { mutableStateOf<Int?>(720) } // video kalitesi (varsayılan 720p)
-    var sayiYazi by remember { mutableStateOf("10") } // profilden kaç içerik (yazı olarak)
-    var sekme by remember { mutableStateOf<Sekme?>(null) } // profil bölümü
+    var link by rememberSaveable { mutableStateOf(hazirLink) } // yazılan link (giriş sayfasına gidip dönünce de kalır)
+    var kalite by rememberSaveable { mutableStateOf<Int?>(720) } // video kalitesi (varsayılan 720p)
+    var sayiYazi by rememberSaveable { mutableStateOf("10") } // profilden kaç içerik (yazı olarak)
+    var sekme by rememberSaveable { mutableStateOf<Sekme?>(null) } // profil bölümü
+    var listeIsi by remember { mutableStateOf<Job?>(null) } // süren liste getirme işi
+    val listeIslemId = remember { java.util.UUID.randomUUID().toString() } // liste getiren yt-dlp/gallery-dl işleminin kimliği (durdurmak için)
     var liste by remember { mutableStateOf<ListeSonucu?>(null) } // getirilen oynatma listesi
     val secili = remember { mutableStateListOf<Int>() } // listede seçili öğelerin sırası
     var listeGetiriliyor by remember { mutableStateOf(false) } // liste yükleniyor mu
@@ -99,10 +105,16 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
 
     val gecerli = link.trim().startsWith("http") // link gibi görünüyor mu
     val cozulmus = remember(link) { if (gecerli) LinkCozucu.coz(link) else null } // link ne
+    var oncekiLink by rememberSaveable { mutableStateOf<String?>(null) } // en son hangi link için ayar yapıldı
     LaunchedEffect(cozulmus?.url, cozulmus?.turu) { // link değişince önceki seçimleri sıfırla
+        listeyiDurdur(listeIsi, listeIslemId); listeIsi = null; listeGetiriliyor = false // süren liste getirmeyi durdur
         liste = null; secili.clear(); listeHatasi = null // liste temizle
-        sekme = cozulmus?.sekmeler?.firstOrNull() // ilk bölüm seçili gelsin
+        if (oncekiLink != cozulmus?.url) { // gerçekten başka bir link (geri dönüşte seçili bölüm korunur)
+            sekme = cozulmus?.sekmeler?.firstOrNull() // ilk bölüm seçili gelsin
+            oncekiLink = cozulmus?.url // hatırla
+        }
     }
+    DisposableEffect(Unit) { onDispose { listeyiDurdur(listeIsi, listeIslemId) } } // sayfadan çıkınca arka planda liste getirme kalmasın
     val sayi = sayiYazi.toIntOrNull()?.takeIf { it in 1..500 } // geçerli sayı
 
     // İndirmeyi başlat ve listeye dön
@@ -210,10 +222,12 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
                             listeHatasi?.let { Text(it, color = MaterialTheme.colorScheme.error) } // önceki hata
                             OutlinedButton(onClick = {
                                 listeGetiriliyor = true; listeHatasi = null // yükleniyor
-                                kapsam.launch {
-                                    runCatching { Listeleyici.listeGetir(ctx, cozulmus) } // listeyi getir
-                                        .onSuccess { sonuc -> liste = sonuc; secili.clear(); secili.addAll(sonuc.ogeler.indices) } // hepsi seçili gelsin
-                                        .onFailure { listeHatasi = Listeleyici.anlasilirHata(it.message ?: "") } // hata
+                                val istenen = cozulmus // hangi link için getiriliyor
+                                listeIsi = kapsam.launch {
+                                    val sonuc = runCatching { Listeleyici.listeGetir(ctx, istenen, islemId = listeIslemId) } // listeyi getir
+                                    if (!isActive) return@launch // bu arada link değiştiyse sonucu kullanma
+                                    sonuc.onSuccess { s -> liste = s; secili.clear(); secili.addAll(s.ogeler.indices) } // hepsi seçili gelsin
+                                        .onFailure { if (it !is kotlinx.coroutines.CancellationException) listeHatasi = Listeleyici.anlasilirHata(it.message ?: "") } // hata
                                     listeGetiriliyor = false // bitti
                                 }
                             }) { Text("Listeyi getir ve seç") }
@@ -258,6 +272,13 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
             }
         }
     }
+}
+
+// Süren liste getirme işini ve arkasındaki yt-dlp / gallery-dl işlemini durdur
+private fun listeyiDurdur(is_: Job?, islemId: String) {
+    is_?.cancel() // coroutine'i iptal et
+    runCatching { com.yausername.youtubedl_android.YoutubeDL.getInstance().destroyProcessById(islemId) } // yt-dlp işlemi
+    com.jn.oynatici.indir.Motor.galeriDurdur(islemId) // gallery-dl işlemi
 }
 
 // Küçük bölüm başlığı
