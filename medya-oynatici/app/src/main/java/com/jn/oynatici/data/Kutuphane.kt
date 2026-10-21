@@ -52,7 +52,21 @@ object Kutuphane {
     // Dosya adını güvenli hale getir
     fun guvenliAd(ad: String): String {
         val temiz = ad.replace(yasakKarakter, "_").trim().trim('.') // yasak karakterleri değiştir
-        return temiz.take(150).ifBlank { "adsiz" } // çok uzunsa kısalt, boşsa "adsiz"
+        return baytKes(temiz.take(150), 200).trim().ifBlank { "adsiz" } // çok uzunsa kısalt (dosya adı sınırı 255 bayt), boşsa "adsiz"
+    }
+
+    // Metni en fazla [enFazla] bayta (UTF-8) sığacak şekilde, harf bölmeden kısalt (Türkçe, emoji, Çince adlar için)
+    fun baytKes(metin: String, enFazla: Int): String {
+        val sonuc = StringBuilder() // sonuç
+        var bayt = 0 // şu ana kadarki bayt
+        var i = 0 // konum
+        while (i < metin.length) {
+            val kod = metin.codePointAt(i) // tam harf (emoji iki parça olabilir)
+            val uzunluk = String(Character.toChars(kod)).toByteArray(Charsets.UTF_8).size // bu harfin bayt boyu
+            if (bayt + uzunluk > enFazla) break // sığmıyorsa dur
+            sonuc.appendCodePoint(kod); bayt += uzunluk; i += Character.charCount(kod) // ekle
+        }
+        return sonuc.toString() // kısaltılmış metin
     }
 
     // Aynı isimde dosya varsa "ad (2).mp3" gibi boş bir isim bul
@@ -67,6 +81,15 @@ object Kutuphane {
             if (!aday.exists()) return aday // boşsa bunu kullan
             i++ // değilse bir sonrakine geç
         }
+    }
+
+    // Klasör için çakışmayan ad: "Ad", sonra "Ad (2)", "Ad (3)"... (klasör adındaki noktalar uzantı sayılmaz)
+    fun bosKlasor(ust: File, ad: String): File {
+        val temiz = guvenliAd(ad) // güvenli ad
+        var hedef = File(ust, temiz) // önce adın kendisi
+        var i = 2 // sayaç
+        while (hedef.exists()) { hedef = File(ust, "$temiz ($i)"); i++ } // boş olana kadar dene
+        return hedef // sonuç
     }
 
     // Yeni klasör oluştur

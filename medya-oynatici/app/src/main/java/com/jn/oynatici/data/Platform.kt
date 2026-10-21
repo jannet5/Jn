@@ -17,12 +17,13 @@ enum class Platform(val ad: String) {
         // Linkin hangi siteye ait olduğunu bul
         fun bul(url: String): Platform {
             val host = runCatching { URI(url.trim()).host?.lowercase() }.getOrNull() ?: return DIGER // alan adı
+            fun alan(vararg adlar: String) = adlar.any { host == it || host.endsWith(".$it") } // tam alan adı ya da alt alanı
             return when {
-                host.endsWith("youtube.com") || host == "youtu.be" -> YOUTUBE // YouTube
-                host.endsWith("tiktok.com") -> TIKTOK // TikTok
-                host.endsWith("instagram.com") -> INSTAGRAM // Instagram
-                host == "x.com" || host.endsWith(".x.com") || host.endsWith("twitter.com") -> X // X
-                host.contains("pinterest.") || host == "pin.it" -> PINTEREST // Pinterest (tr.pinterest.com dahil)
+                alan("youtube.com", "youtu.be", "youtube-nocookie.com") -> YOUTUBE // YouTube (m., music. dahil)
+                alan("tiktok.com") -> TIKTOK // TikTok
+                alan("instagram.com") -> INSTAGRAM // Instagram
+                alan("x.com", "twitter.com") -> X // X
+                host == "pin.it" || Regex("""(^|\.)pinterest\.(com|[a-z]{2,3}|co\.[a-z]{2}|com\.[a-z]{2})$""").containsMatchIn(host) -> PINTEREST // Pinterest (tr.pinterest.com, pinterest.co.uk dahil)
                 else -> DIGER // diğer
             }
         }

@@ -26,8 +26,19 @@ object Cerezler {
     // Netscape biçimindeki çerez dosyası (indiricilere --cookies ile verilir)
     fun dosya(ctx: Context) = File(ctx.filesDir, "cerezler.txt")
 
-    // Çerez dosyası varsa yolu (indiricilere verilir), yoksa null
+    // Çerez dosyası varsa yolu, yoksa null (sadece okumak için; indiricilere kopyası verilir)
     fun dosyaYolu(ctx: Context): String? = dosya(ctx).takeIf { it.isFile && it.length() > 40 }?.absolutePath
+
+    // İndiricilere verilecek kopya: yt-dlp ve gallery-dl iş bitince çerezleri dosyaya geri yazıyor;
+    // asıl dosyayı verirsek "Çıkış" yaptıktan sonra eski oturum geri gelebilirdi. Bu yüzden her seferinde ayrı kopya.
+    fun kopyaYolu(ctx: Context): String? {
+        val asil = dosya(ctx).takeIf { it.isFile && it.length() > 40 } ?: return null // çerez yoksa null
+        val klasor = File(ctx.cacheDir, "cerez-kopya").apply { mkdirs() } // kopyalar klasörü
+        klasor.listFiles()?.filter { System.currentTimeMillis() - it.lastModified() > 3 * 60 * 60 * 1000 }?.forEach { it.delete() } // 3 saatten eski kopyaları temizle
+        val kopya = File(klasor, "cerez-${java.util.UUID.randomUUID()}.txt") // yeni kopya
+        asil.copyTo(kopya, overwrite = true) // kopyala
+        return kopya.absolutePath // yol
+    }
 
     // Bu sitede giriş yapılmış mı (anahtar çerez var mı)
     fun girisVar(platform: Platform): Boolean {

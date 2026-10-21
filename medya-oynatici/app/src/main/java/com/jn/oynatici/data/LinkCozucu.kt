@@ -27,7 +27,7 @@ object LinkCozucu {
 
     fun coz(hamLink: String): CozulmusLink {
         var url = hamLink.trim() // boşlukları at
-        if (Platform.bul(url) == Platform.TIKTOK) url = url.replace("://m.tiktok.com/", "://www.tiktok.com/").replace("/photo/", "/video/") // yt-dlp'nin tanıdığı biçime çevir
+        if (Platform.bul(url) == Platform.TIKTOK) url = url.replace(Regex("""://m\.tiktok\.com/(?=@)"""), "://www.tiktok.com/").replace("/photo/", "/video/") // yt-dlp'nin tanıdığı biçime çevir (m.tiktok.com/v/... olduğu gibi kalır, kendisi yönlendirir)
         val platform = Platform.bul(url) // hangi site
         val uri = runCatching { URI(url) }.getOrNull() ?: return CozulmusLink(url, platform, LinkTuru.TEK) // çözülemezse tek say
         val parcalar = (uri.path ?: "").split('/').filter { it.isNotBlank() } // adres yolu parçaları
@@ -51,7 +51,10 @@ object LinkCozucu {
             ilk in setOf("channel", "c", "user") && p.size >= 2 -> "https://www.youtube.com/$ilk/${p[1]}" // /channel/UC.., /c/isim, /user/isim
             else -> null // değil
         } ?: return CozulmusLink(url, Platform.YOUTUBE, LinkTuru.TEK) // watch, shorts/ID, youtu.be/ID → tek
-        return CozulmusLink(kanalKoku, Platform.YOUTUBE, LinkTuru.PROFIL, ilk.removePrefix("@"), listOf(Sekme.VIDEOLAR, Sekme.SHORTS)) // kanal
+        val kullanici = if (ilk.startsWith("@")) ilk.removePrefix("@") else p[1] // görünen kullanıcı adı (/channel/ değil)
+        val sekmeIndeks = if (ilk.startsWith("@")) 1 else 2 // sekme hangi parçada
+        val sekmeler = if (p.getOrNull(sekmeIndeks) == "shorts") listOf(Sekme.SHORTS, Sekme.VIDEOLAR) else listOf(Sekme.VIDEOLAR, Sekme.SHORTS) // linkteki sekme önce
+        return CozulmusLink(kanalKoku, Platform.YOUTUBE, LinkTuru.PROFIL, kullanici, sekmeler) // kanal
     }
 
     private fun tiktok(url: String, host: String, p: List<String>): CozulmusLink {
@@ -62,11 +65,15 @@ object LinkCozucu {
         return CozulmusLink(url, Platform.TIKTOK, LinkTuru.TEK) // /@kullanici/video/ID vb.
     }
 
-    private fun instagram(url: String, p: List<String>): CozulmusLink {
+    private fun instagram(url: String, parcalar: List<String>): CozulmusLink {
+        val p = if (parcalar.firstOrNull() == "_u") parcalar.drop(1) else parcalar // instagram.com/_u/kullanici biçimi
         val ilk = p.firstOrNull() ?: return CozulmusLink(url, Platform.INSTAGRAM, LinkTuru.TEK) // ana sayfa
         if (ilk in igAyrilmis) return CozulmusLink(url, Platform.INSTAGRAM, LinkTuru.TEK) // /p/, /reel/ ... → tek gönderi
+        val iki = p.getOrNull(1) // ikinci parça
+        if (iki in setOf("p", "reel", "tv") || (iki == "reels" && p.size >= 3)) return CozulmusLink(url, Platform.INSTAGRAM, LinkTuru.TEK) // /kullanici/reel/ID → yine tek gönderi
+        val sekmeler = if (iki == "posts") listOf(Sekme.GONDERILER, Sekme.REELS) else listOf(Sekme.REELS, Sekme.GONDERILER) // linkteki bölüm önce seçili gelsin
         // /kullanici, /kullanici/reels, /kullanici/tagged → profil
-        return CozulmusLink("https://www.instagram.com/$ilk/", Platform.INSTAGRAM, LinkTuru.PROFIL, ilk, listOf(Sekme.REELS, Sekme.GONDERILER))
+        return CozulmusLink("https://www.instagram.com/$ilk/", Platform.INSTAGRAM, LinkTuru.PROFIL, ilk, sekmeler)
     }
 
     private fun x(url: String, p: List<String>): CozulmusLink {
@@ -76,12 +83,13 @@ object LinkCozucu {
     }
 
     private fun pinterest(url: String, host: String, p: List<String>): CozulmusLink {
-        if (host == "pin.it") return CozulmusLink(url, Platform.PINTEREST, LinkTuru.TEK) // kısa link → tek pin
+        if (host == "pin.it") return CozulmusLink(url, Platform.PINTEREST, LinkTuru.TEK) // kısa link (indirme sayfası önce asıl adresi çözer)
         val ilk = p.firstOrNull() ?: return CozulmusLink(url, Platform.PINTEREST, LinkTuru.TEK) // ana sayfa
         if (ilk in pinAyrilmis) return CozulmusLink(url, Platform.PINTEREST, LinkTuru.TEK) // /pin/ID → tek pin
         val ikinci = p.getOrNull(1) // ikinci parça
-        if (ikinci == null || ikinci.startsWith("_")) // /kullanici/ ya da /kullanici/_created/ → profil
-            return CozulmusLink("https://www.pinterest.com/$ilk/", Platform.PINTEREST, LinkTuru.PROFIL, ilk)
-        return CozulmusLink("https://www.pinterest.com/$ilk/$ikinci/", Platform.PINTEREST, LinkTuru.LISTE) // /kullanici/pano/ → pano (seçilebilir liste)
+        if (ikinci == null || ikinci.startsWith("_") || ikinci == "pins") // /kullanici/, /_created/, /_saved/, /pins/ → profil (linkteki bölüm korunur)
+            return CozulmusLink("https://www.pinterest.com/$ilk/" + (ikinci?.let { "$it/" } ?: ""), Platform.PINTEREST, LinkTuru.PROFIL, ilk)
+        val ucuncu = p.getOrNull(2)?.takeUnless { it.startsWith("_") || it in setOf("more_ideas", "organize", "organise") } // pano bölümü (section) varsa
+        return CozulmusLink("https://www.pinterest.com/$ilk/$ikinci/" + (ucuncu?.let { "$it/" } ?: ""), Platform.PINTEREST, LinkTuru.LISTE) // /kullanici/pano/[bölüm]/ → pano (seçilebilir liste)
     }
 }

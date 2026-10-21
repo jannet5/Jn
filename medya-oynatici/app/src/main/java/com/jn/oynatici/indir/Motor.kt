@@ -89,6 +89,13 @@ object Motor {
             ctx.assets.open("gdl/$ad").use { giris -> File(klasor, ad).outputStream().use { giris.copyTo(it) } }
         }
         isaret.writeText(paketSurum) // kopyalandı işareti
+        // Daha önce internetten inen sürüm, uygulamayla gelen yeni paketten eskiyse onu bırak (yoksa eski sürüm öncelik alırdı)
+        val tercih = ctx.getSharedPreferences("motor", Context.MODE_PRIVATE) // ayarlar
+        val indirilen = tercih.getString("galeri_surum", null) // internetten inen sürüm
+        if (indirilen != null && !surumBuyuk(indirilen, paketSurum)) {
+            File(klasor, "gallery_dl-guncel.whl").delete() // eski indirilen dosyayı sil
+            tercih.edit().remove("galeri_surum").apply() // kaydı temizle
+        }
     }
 
     // Kullanılacak gallery-dl: güncellenmiş sürüm varsa o, yoksa paketli olan
@@ -101,15 +108,18 @@ object Motor {
     suspend fun galeriGuncelle(ctx: Context) = withContext(Dispatchers.IO) {
         val tercih = ctx.getSharedPreferences("motor", Context.MODE_PRIVATE) // son güncelleme zamanı
         if (System.currentTimeMillis() - tercih.getLong("galeri_guncelleme", 0) < GALERI_GUNCELLEME_ARALIGI) return@withContext // yakın zamanda bakıldı
+        // Zaman aşımlı bağlantı (internet takılırsa sonsuza dek beklemesin)
+        fun ac(adres: String) = (java.net.URL(adres).openConnection() as java.net.HttpURLConnection).apply { connectTimeout = 15000; readTimeout = 30000 }
         runCatching {
-            val bilgi = org.json.JSONObject(java.net.URL("https://pypi.org/pypi/gallery-dl/json").readText()) // PyPI bilgisi
+            val bilgi = org.json.JSONObject(ac("https://pypi.org/pypi/gallery-dl/json").inputStream.bufferedReader().use { it.readText() }) // PyPI bilgisi
             val surum = bilgi.getJSONObject("info").getString("version") // en son sürüm
-            val mevcut = tercih.getString("galeri_surum", null) ?: ctx.assets.open("gdl/surum.txt").bufferedReader().readText().trim() // elimizdeki
+            val paketli = ctx.assets.open("gdl/surum.txt").bufferedReader().readText().trim() // uygulamayla gelen sürüm
+            val mevcut = tercih.getString("galeri_surum", null)?.takeIf { surumBuyuk(it, paketli) } ?: paketli // elimizdeki en yeni
             if (surumBuyuk(surum, mevcut)) { // daha yeniyse
                 val dosyalar = bilgi.getJSONArray("urls") // indirilebilir dosyalar
                 val teker = (0 until dosyalar.length()).map { dosyalar.getJSONObject(it) }.first { it.getString("packagetype") == "bdist_wheel" } // saf Python paketi
                 val gecici = File(galeriKlasoru(ctx), "indiriliyor.whl") // önce geçici dosyaya
-                java.net.URL(teker.getString("url")).openStream().use { giris -> gecici.outputStream().use { giris.copyTo(it) } } // indir
+                ac(teker.getString("url")).inputStream.use { giris -> gecici.outputStream().use { giris.copyTo(it) } } // indir
                 if (gecici.length() > 100_000) { gecici.renameTo(File(galeriKlasoru(ctx), "gallery_dl-guncel.whl")); tercih.edit().putString("galeri_surum", surum).apply() } // yerine koy
             }
             tercih.edit().putLong("galeri_guncelleme", System.currentTimeMillis()).apply() // bakıldı
@@ -128,6 +138,7 @@ object Motor {
     suspend fun galeriCalistir(ctx: Context, argumanlar: List<String>, islemId: String?): String = withContext(Dispatchers.IO) {
         hazirla(ctx) // Python hazır olsun
         galeriKur(ctx) // gallery-dl dosyaları hazır olsun
+        galeriGuncelle(ctx) // haftada bir PyPI'de yenisi var mı bak (zaman aşımlı; olmazsa paketli sürümle devam)
         val binDizini = File(ctx.applicationInfo.nativeLibraryDir) // native dosyalar
         val python = File(ctx.noBackupFilesDir, "youtubedl-android/packages/python/usr") // açılmış Python
         val sertifika = File(python, "etc/tls/cert.pem").absolutePath // güvenli bağlantı sertifikaları

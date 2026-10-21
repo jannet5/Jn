@@ -35,7 +35,14 @@ object Listeleyici {
                 ytdlpListe(ctx, isi.url.trimEnd('/') + "/" + bolum, isi.sayi, isi.id, isi.platform) // yt-dlp
             }
             Platform.TIKTOK -> ytdlpListe(ctx, isi.url, isi.sayi, isi.id, isi.platform) // TikTok profili (yt-dlp)
-            Platform.PINTEREST -> pinterestListe(ctx, isi.url.trimEnd('/') + "/_created/", isi.sayi, isi.id, kullanici) // Pinterest: kullanıcının oluşturduğu pinler
+            Platform.PINTEREST -> { // Pinterest: linkte bölüm (/_saved/ vb.) varsa o, yoksa kullanıcının oluşturduğu pinler
+                val kisi = isi.url.trimEnd('/').split('/').getOrNull(3) ?: kullanici // pinterest.com/<kişi>/...
+                val son = isi.url.trimEnd('/').substringAfterLast('/') // son parça
+                val bolumlu = son.startsWith("_") || son == "pins" // linkte bölüm var mı
+                if (bolumlu) pinterestListe(ctx, isi.url, isi.sayi, isi.id, kisi) // linkteki bölüm
+                else pinterestListe(ctx, isi.url.trimEnd('/') + "/_created/", isi.sayi, isi.id, kisi).takeIf { it.ogeler.isNotEmpty() } // oluşturduğu pinler
+                    ?: pinterestListe(ctx, isi.url.trimEnd('/') + "/pins/", isi.sayi, isi.id, kisi) // yoksa kaydettiği tüm pinler
+            }
             Platform.INSTAGRAM -> ytdlpListe( // Instagram: Reels ya da Gönderiler bölümü (uygulamanın yt-dlp eklentisiyle, girişsiz)
                 ctx, "https://www.instagram.com/$kullanici/" + (if (isi.sekme == Sekme.GONDERILER) "posts/" else "reels/"), isi.sayi, isi.id, isi.platform,
             )
@@ -68,7 +75,7 @@ object Listeleyici {
             addOption("-J") // sonucu tek bir JSON olarak ver
             addOption("-I", "1:$sinir") // ilk N öge (en yeniler)
             addOption("--extractor-args", "youtube:lang=tr") // YouTube başlıkları Türkçe gelsin (varsa)
-            Cerezler.dosyaYolu(ctx)?.let { addOption("--cookies", it) } // giriş yapıldıysa çerezler
+            Cerezler.kopyaYolu(ctx)?.let { addOption("--cookies", it) } // giriş yapıldıysa çerezler
             if (platform == Platform.TIKTOK) addOption("--user-agent", Platform.FIREFOX_UA) // TikTok engeline takılmamak için
             if (platform == Platform.INSTAGRAM) { // Instagram: eklenti ile girişsiz liste, sadece videolu gönderiler
                 addOption("--plugin-dirs", Motor.eklentiKlasoru(ctx)) // eklenti klasörü
@@ -127,7 +134,7 @@ object Listeleyici {
             "-o", "ratelimit=abort", // sınır aşılırsa 15 dakika bekleme, hemen hata ver
             "--cache-file", java.io.File(ctx.cacheDir, "gdl-onbellek.sqlite3").absolutePath, // oturum önbelleği
         )
-        Cerezler.dosyaYolu(ctx)?.let { ortak += listOf("--cookies", it) } // giriş yapıldıysa çerezler
+        Cerezler.kopyaYolu(ctx)?.let { ortak += listOf("--cookies", it) } // giriş yapıldıysa çerezler
         return when (isi.platform) {
             Platform.X -> {
                 // Medya bölümündeki videolar (en yeniden eskiye). Bir gönderide birden çok video olabileceği için 2 katı dosya istenir.
@@ -146,7 +153,7 @@ object Listeleyici {
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
     private suspend fun pinterestListe(ctx: Context, url: String, n: Int, islemId: String?, yedekAd: String): ListeSonucu {
         val arg = mutableListOf("-o", "ratelimit=abort") // sınır aşılırsa bekleme
-        Cerezler.dosyaYolu(ctx)?.let { arg += listOf("--cookies", it) } // giriş yapıldıysa çerezler
+        Cerezler.kopyaYolu(ctx)?.let { arg += listOf("--cookies", it) } // giriş yapıldıysa çerezler
         arg += listOf(
             "--filter", "extension in ('mp4', 'm3u8')", // sadece videolar
             "--range", "1-$n", // ilk N video (en yeniden eskiye)
@@ -162,7 +169,7 @@ object Listeleyici {
             if (pano.isBlank() && p[2].isNotBlank() && p[2] != "None") pano = p[2] // pano
             ogeler += Oge("https://www.pinterest.com/pin/${p[0]}/", p[3].takeUnless { it == "None" } ?: "", medya = p[4]) // pin sayfası + video dosyası
         }
-        val panoMu = !url.contains("/_created") // pano mu profil mi
+        val panoMu = !Regex("""pinterest\.[^/]+/[^/]+/(_|pins/)""").containsMatchIn(url) // /kişi/_created/, /_saved/, /pins/ ise profil // pano mu profil mi
         return ListeSonucu((if (panoMu) pano else kisi).ifBlank { yedekAd }, ogeler.take(n)) // ad: pano adı ya da kişi adı
     }
 
@@ -178,9 +185,11 @@ object Listeleyici {
     }
 
     // Teknik hatayı anlaşılır Türkçe metne çevir
-    fun anlasilirHata(ham: String): String = when {
-        ham.contains("login", true) || ham.contains("log in", true) || ham.contains("cookies", true) || ham.contains("authorization", true) ||
-            ham.contains("authenticat", true) || ham.contains("rate-limit", true) -> "Bu site giriş istiyor. Hesaplar'dan giriş yapıp tekrar dene." // giriş gerekli
+    fun anlasilirHata(ham: String, platform: Platform? = null): String = when {
+        ham.contains("Sign in to confirm", true) -> "YouTube şu an bu bağlantıyı engelledi, biraz sonra tekrar dene" // YouTube bot kontrolü
+        ham.contains("429") || ham.contains("Too Many Requests", true) || ham.contains("Please wait a few minutes", true) -> "Site çok fazla istek dedi, birkaç dakika sonra tekrar dene" // hız sınırı
+        girisHatasiMi(ham) -> if (platform != null && Cerezler.siteler.none { it.platform == platform }) "Bu içerik giriş istiyor (gizli ya da üyelere özel olabilir)" // giriş desteklenmeyen site
+            else "Bu site giriş istiyor. Hesaplar'dan giriş yapıp tekrar dene." // giriş gerekli
         ham.contains("Unsupported URL", true) || ham.contains("is not a valid URL", true) || ham.contains("No suitable extractor", true) -> "Bu link desteklenmiyor" // geçersiz link
         ham.contains("does not have a", true) && ham.contains("tab", true) -> "Bu kanalda o bölüm yok" // örn. Shorts yok
         ham.contains("not found", true) || ham.contains("404", true) || ham.contains("does not exist", true) -> "Bulunamadı (link ya da kullanıcı adı yanlış olabilir)" // yok

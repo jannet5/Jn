@@ -103,6 +103,12 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
     // Panoda desteklenen bir link varsa kendiliğinden yapıştır (kullanıcı uğraşmasın)
     LaunchedEffect(Unit) { if (link.isBlank()) panoLinki(ctx)?.let { link = it } }
 
+    // Kısa / paylaşım linklerini (pin.it, instagram.com/share/) asıl adrese çevir: pano mu pin mi, reel mi anlaşılsın
+    LaunchedEffect(link) {
+        val l = link.trim() // link
+        val kisa = l.startsWith("http") && (Regex("""^https?://pin\.it/""").containsMatchIn(l) || Regex("""instagram\.com/share/""").containsMatchIn(l)) // çözülmesi gereken mi
+        if (kisa) runCatching { com.jn.oynatici.indir.Motor.yonlendirmeyiCoz(l) }.getOrNull()?.takeIf { it != l && it.startsWith("http") }?.let { link = it } // asıl adres
+    }
     val gecerli = link.trim().startsWith("http") // link gibi görünüyor mu
     val cozulmus = remember(link) { if (gecerli) LinkCozucu.coz(link) else null } // link ne
     var oncekiLink by rememberSaveable { mutableStateOf<String?>(null) } // en son hangi link için ayar yapıldı
@@ -227,7 +233,7 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
                                     val sonuc = runCatching { Listeleyici.listeGetir(ctx, istenen, islemId = listeIslemId) } // listeyi getir
                                     if (!isActive) return@launch // bu arada link değiştiyse sonucu kullanma
                                     sonuc.onSuccess { s -> liste = s; secili.clear(); secili.addAll(s.ogeler.indices) } // hepsi seçili gelsin
-                                        .onFailure { if (it !is kotlinx.coroutines.CancellationException) listeHatasi = Listeleyici.anlasilirHata(it.message ?: "") } // hata
+                                        .onFailure { if (it !is kotlinx.coroutines.CancellationException) listeHatasi = Listeleyici.anlasilirHata(it.message ?: "", istenen.platform) } // hata
                                     listeGetiriliyor = false // bitti
                                 }
                             }) { Text("Listeyi getir ve seç") }

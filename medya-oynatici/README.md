@@ -87,6 +87,9 @@ Emülatörün interneti sunucunun proxy'sinden geçirildi; uygulamanın kendi yt
 | X tek gönderi (girişsiz) | ✅ H.264 MP4 |
 | Instagram profili `natgeo`, Reels, son 3 (girişsiz) | ✅ 3/3, "National Geographic, 3 içerik, Instagram" |
 | Pinterest panosu, listeden 2 tanesini seçip indirme | ✅ 2/2, H.264 720p, başlıklarıyla |
+| Pinterest profili `pinterest`, son 5 | ✅ 5/5, "Pinterest, 5 içerik, Pinterest" |
+| Instagram tek reel (`instagram.com/kullanici/reel/ID?igsh=…`) | ✅ tek içerik olarak tanındı ve indi |
+| Kod incelemesi (4 alan, her bulgu ayrı ajanla doğrulandı) | ✅ doğrulanan bulgular düzeltildi: iptal yarışları, X çerez denemesi, gönderi sayımı, klasör adı kesilmesi, bayt sınırı, çerez dosyasının geri yazılması, link tanıma hataları |
 | YouTube oynatma listesi seçim ekranı | ✅ 13 video listelendi, seçim çalışıyor (indirme bu sunucudan engelli) |
 | X profili | ⚠️ X girişi gerektiriyor; test hesabı olmadığı için denenmedi |
 | Uygulama içi giriş (WebView) | ⚠️ Emülatörün tarayıcısı internete çıkamadığı için denenmedi |
