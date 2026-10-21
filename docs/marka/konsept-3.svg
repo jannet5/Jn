@@ -1,0 +1,312 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500">
+<title>Sende, Konsept 3 Keskin Sinyal marka panosu</title>
+<desc>Sende için Keskin Sinyal konsepti: logo, uygulama ikonu, renkler, tipografi, arayüz örneği, hareket ve üslup.</desc>
+<defs><clipPath id="scr"><rect x="390" y="444" width="420" height="880" rx="42"/></clipPath></defs>
+<rect x="0" y="0" width="1200" height="1500" rx="0" fill="#121416"/>
+<rect x="48" y="48" width="88" height="88" rx="12" fill="#C8F23A"/>
+<text x="92" y="112" font-family="'Space Grotesk','Inter',sans-serif" font-size="60" font-weight="700" fill="#0D0F11" text-anchor="middle">3</text>
+<text x="160" y="90" font-family="'Space Grotesk','Inter',sans-serif" font-size="40" font-weight="600" fill="#EEF1F3" letter-spacing="-0.8">Keskin Sinyal</text>
+<text x="160" y="122" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="400" fill="#9CA5AD">Gelen mesaj tek bir iz boyunca iner ve düğümde durur: sende.</text>
+<text x="1152" y="90" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="500" fill="#EEF1F3" text-anchor="end">Bütün mesajlar tek yerde.</text>
+<text x="1152" y="112" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="400" fill="#9CA5AD" text-anchor="end">Veri hiçbir yere gitmeden sende kalır.</text>
+<rect x="48" y="156" width="592" height="246" rx="16" fill="#1A1D1F"/>
+<path d="M168.06 192L124.78 192L103.1 213.68L103.1 237.6L124.78 259.28L157.26 259.28L168.06 270.08L168.06 278.64L157.26 289.44L117.95 289.44L117.95 308L164.95 308L186.62 286.32L186.62 262.4L164.95 240.72L132.47 240.72L121.66 229.92L121.66 221.36L132.47 210.56L186.62 210.56Z" fill="#EEF1F3"/><path d="M103.1 278.3L132.8 278.3L132.8 308L103.1 308Z" fill="#C8F23A"/><path d="M239.65 310.32Q227.39 310.32 218.02 305.1Q208.66 299.88 203.44 290.35Q198.22 280.82 198.22 268.06V266.07Q198.22 253.15 203.36 243.7Q208.5 234.26 217.78 229.04Q227.06 223.82 239.15 223.82Q251.08 223.82 260.03 229.04Q268.98 234.26 273.95 243.7Q278.92 253.15 278.92 265.74V272.54H217.44Q217.78 282.15 224.24 287.95Q230.7 293.75 240.15 293.75Q249.43 293.75 253.9 289.69Q258.38 285.63 260.7 280.49L276.44 288.61Q274.12 293.09 269.73 298.14Q265.34 303.19 258.04 306.76Q250.75 310.32 239.65 310.32ZM217.61 258.12H259.54Q258.87 250 253.32 245.19Q247.77 240.39 238.99 240.39Q229.87 240.39 224.4 245.19Q218.94 250 217.61 258.12Z M297.09 308V226.14H315.81V237.57H318.63Q320.78 232.93 326.42 228.79Q332.05 224.65 343.49 224.65Q352.93 224.65 360.22 228.95Q367.51 233.26 371.57 240.89Q375.63 248.51 375.63 258.95V308H356.58V260.44Q356.58 250.5 351.69 245.61Q346.8 240.72 337.85 240.72Q327.74 240.72 321.94 247.43Q316.14 254.14 316.14 266.57V308Z M431.08 310.32Q421.14 310.32 412.52 305.43Q403.91 300.54 398.77 291.1Q393.63 281.65 393.63 268.39V265.74Q393.63 252.49 398.77 243.04Q403.91 233.59 412.44 228.71Q420.97 223.82 431.08 223.82Q438.71 223.82 444.01 225.64Q449.31 227.46 452.54 230.28Q455.77 233.1 457.6 236.41H460.41V192H479.31V308H460.75V297.23H457.93Q454.95 302.2 448.81 306.26Q442.68 310.32 431.08 310.32ZM436.72 293.75Q446.99 293.75 453.79 287.04Q460.58 280.33 460.58 267.9V266.24Q460.58 253.65 453.87 247.02Q447.16 240.39 436.72 240.39Q426.44 240.39 419.57 247.02Q412.69 253.65 412.69 266.24V267.9Q412.69 280.33 419.57 287.04Q426.44 293.75 436.72 293.75Z M539.56 310.32Q527.3 310.32 517.93 305.1Q508.57 299.88 503.35 290.35Q498.13 280.82 498.13 268.06V266.07Q498.13 253.15 503.27 243.7Q508.41 234.26 517.69 229.04Q526.97 223.82 539.06 223.82Q550.99 223.82 559.94 229.04Q568.89 234.26 573.86 243.7Q578.83 253.15 578.83 265.74V272.54H517.35Q517.69 282.15 524.15 287.95Q530.61 293.75 540.06 293.75Q549.34 293.75 553.81 289.69Q558.29 285.63 560.61 280.49L576.35 288.61Q574.03 293.09 569.64 298.14Q565.25 303.19 557.95 306.76Q550.66 310.32 539.56 310.32ZM517.52 258.12H559.45Q558.78 250 553.23 245.19Q547.68 240.39 538.9 240.39Q529.78 240.39 524.31 245.19Q518.85 250 517.52 258.12Z" fill="#EEF1F3"/>
+<text x="344" y="360" font-family="'Space Grotesk','Inter',sans-serif" font-size="30" font-weight="600" fill="#EEF1F3" text-anchor="middle" letter-spacing="-0.3">Mesajların <tspan fill="#C8F23A">Sende.</tspan></text>
+<text x="344" y="386" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD" text-anchor="middle">Your messages. Only on your phone.</text>
+<rect x="660" y="156" width="492" height="104" rx="16" fill="#F5F6F2"/>
+<path d="M824.1 180L803.95 180L793.86 190.09L793.86 201.23L803.95 211.32L819.07 211.32L824.1 216.35L824.1 220.33L819.07 225.36L800.77 225.36L800.77 234L822.65 234L832.74 223.91L832.74 212.77L822.65 202.68L807.53 202.68L802.5 197.65L802.5 193.67L807.53 188.64L832.74 188.64Z" fill="#0D0F11"/><path d="M793.86 220.18L807.68 220.18L807.68 234L793.86 234Z" fill="#4F6A00"/><path d="M857.42 235.08Q851.71 235.08 847.36 232.65Q843 230.22 840.57 225.78Q838.14 221.35 838.14 215.41V214.48Q838.14 208.47 840.53 204.07Q842.92 199.67 847.24 197.24Q851.56 194.81 857.19 194.81Q862.75 194.81 866.91 197.24Q871.08 199.67 873.39 204.07Q875.71 208.47 875.71 214.33V217.49H847.09Q847.24 221.97 850.25 224.67Q853.26 227.37 857.65 227.37Q861.97 227.37 864.06 225.48Q866.14 223.59 867.22 221.19L874.55 224.97Q873.47 227.06 871.42 229.41Q869.38 231.76 865.99 233.42Q862.59 235.08 857.42 235.08ZM847.16 210.78H866.68Q866.37 207 863.79 204.76Q861.2 202.53 857.11 202.53Q852.87 202.53 850.33 204.76Q847.78 207 847.16 210.78Z M884.16 234V195.89H892.88V201.21H894.19Q895.19 199.05 897.82 197.13Q900.44 195.2 905.76 195.2Q910.16 195.2 913.55 197.2Q916.95 199.21 918.84 202.76Q920.73 206.31 920.73 211.17V234H911.86V211.86Q911.86 207.23 909.58 204.96Q907.3 202.68 903.14 202.68Q898.43 202.68 895.73 205.8Q893.03 208.93 893.03 214.71V234Z M946.54 235.08Q941.91 235.08 937.9 232.8Q933.89 230.53 931.5 226.13Q929.1 221.73 929.1 215.56V214.33Q929.1 208.16 931.5 203.76Q933.89 199.36 937.86 197.09Q941.83 194.81 946.54 194.81Q950.09 194.81 952.56 195.66Q955.02 196.51 956.53 197.82Q958.03 199.13 958.88 200.67H960.19V180H968.99V234H960.35V228.99H959.04Q957.65 231.3 954.79 233.19Q951.94 235.08 946.54 235.08ZM949.16 227.37Q953.94 227.37 957.11 224.24Q960.27 221.12 960.27 215.33V214.56Q960.27 208.7 957.15 205.61Q954.02 202.53 949.16 202.53Q944.38 202.53 941.18 205.61Q937.98 208.7 937.98 214.56V215.33Q937.98 221.12 941.18 224.24Q944.38 227.37 949.16 227.37Z M997.04 235.08Q991.33 235.08 986.97 232.65Q982.61 230.22 980.18 225.78Q977.75 221.35 977.75 215.41V214.48Q977.75 208.47 980.14 204.07Q982.53 199.67 986.85 197.24Q991.17 194.81 996.8 194.81Q1002.36 194.81 1006.52 197.24Q1010.69 199.67 1013 204.07Q1015.32 208.47 1015.32 214.33V217.49H986.7Q986.85 221.97 989.86 224.67Q992.87 227.37 997.27 227.37Q1001.59 227.37 1003.67 225.48Q1005.75 223.59 1006.83 221.19L1014.16 224.97Q1013.08 227.06 1011.04 229.41Q1008.99 231.76 1005.6 233.42Q1002.2 235.08 997.04 235.08ZM986.78 210.78H1006.29Q1005.98 207 1003.4 204.76Q1000.82 202.53 996.73 202.53Q992.48 202.53 989.94 204.76Q987.39 207 986.78 210.78Z" fill="#0D0F11"/>
+<text x="678" y="180" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#4A535B">Açık zemin</text>
+<rect x="660" y="268" width="492" height="62" rx="16" fill="#1A1D1F"/>
+<text x="678" y="304" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">48 px</text>
+<path d="M744.4 282L729.47 282L722.0 289.47L722.0 297.73L729.47 305.2L740.67 305.2L744.4 308.93L744.4 311.87L740.67 315.6L727.12 315.6L727.12 322L743.33 322L750.8 314.53L750.8 306.27L743.33 298.8L732.13 298.8L728.4 295.07L728.4 292.13L732.13 288.4L750.8 288.4Z" fill="#EEF1F3"/><path d="M722.0 311.76L732.24 311.76L732.24 322L722.0 322Z" fill="#C8F23A"/><path d="M769.09 322.8Q764.86 322.8 761.63 321Q758.4 319.2 756.6 315.91Q754.8 312.63 754.8 308.23V307.54Q754.8 303.09 756.57 299.83Q758.34 296.57 761.54 294.77Q764.74 292.97 768.91 292.97Q773.03 292.97 776.11 294.77Q779.2 296.57 780.91 299.83Q782.63 303.09 782.63 307.43V309.77H761.43Q761.54 313.09 763.77 315.09Q766 317.09 769.26 317.09Q772.46 317.09 774 315.69Q775.54 314.29 776.34 312.51L781.77 315.31Q780.97 316.86 779.46 318.6Q777.94 320.34 775.43 321.57Q772.91 322.8 769.09 322.8ZM761.49 304.8H775.94Q775.71 302 773.8 300.34Q771.89 298.69 768.86 298.69Q765.71 298.69 763.83 300.34Q761.94 302 761.49 304.8Z M788.89 322V293.77H795.35V297.71H796.32Q797.06 296.11 799.01 294.69Q800.95 293.26 804.89 293.26Q808.15 293.26 810.66 294.74Q813.18 296.23 814.58 298.86Q815.98 301.49 815.98 305.09V322H809.41V305.6Q809.41 302.17 807.72 300.49Q806.03 298.8 802.95 298.8Q799.46 298.8 797.46 301.11Q795.46 303.43 795.46 307.71V322Z M835.1 322.8Q831.67 322.8 828.7 321.11Q825.73 319.43 823.95 316.17Q822.18 312.91 822.18 308.34V307.43Q822.18 302.86 823.95 299.6Q825.73 296.34 828.67 294.66Q831.61 292.97 835.1 292.97Q837.73 292.97 839.55 293.6Q841.38 294.23 842.5 295.2Q843.61 296.17 844.24 297.31H845.21V282H851.73V322H845.33V318.29H844.35Q843.33 320 841.21 321.4Q839.1 322.8 835.1 322.8ZM837.04 317.09Q840.58 317.09 842.93 314.77Q845.27 312.46 845.27 308.17V307.6Q845.27 303.26 842.95 300.97Q840.64 298.69 837.04 298.69Q833.5 298.69 831.13 300.97Q828.75 303.26 828.75 307.6V308.17Q828.75 312.46 831.13 314.77Q833.5 317.09 837.04 317.09Z M872.5 322.8Q868.27 322.8 865.05 321Q861.82 319.2 860.02 315.91Q858.22 312.63 858.22 308.23V307.54Q858.22 303.09 859.99 299.83Q861.76 296.57 864.96 294.77Q868.16 292.97 872.33 292.97Q876.45 292.97 879.53 294.77Q882.62 296.57 884.33 299.83Q886.05 303.09 886.05 307.43V309.77H864.85Q864.96 313.09 867.19 315.09Q869.42 317.09 872.67 317.09Q875.87 317.09 877.42 315.69Q878.96 314.29 879.76 312.51L885.19 315.31Q884.39 316.86 882.87 318.6Q881.36 320.34 878.85 321.57Q876.33 322.8 872.5 322.8ZM864.9 304.8H879.36Q879.13 302 877.22 300.34Q875.3 298.69 872.27 298.69Q869.13 298.69 867.25 300.34Q865.36 302 864.9 304.8Z" fill="#EEF1F3"/>
+<text x="928.1371428571429" y="304" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">24 px</text>
+<path d="M985.58 290L976.62 290L972.14 294.48L972.14 299.44L976.62 303.92L983.34 303.92L985.58 306.16L985.58 307.92L983.34 310.16L975.21 310.16L975.21 314L984.93 314L989.42 309.52L989.42 304.56L984.93 300.08L978.21 300.08L975.98 297.84L975.98 296.08L978.21 293.84L989.42 293.84Z" fill="#EEF1F3"/><path d="M972.14 307.86L978.28 307.86L978.28 314L972.14 314Z" fill="#C8F23A"/><path d="M1000.39 314.48Q997.85 314.48 995.91 313.4Q993.98 312.32 992.9 310.35Q991.82 308.38 991.82 305.74V305.33Q991.82 302.65 992.88 300.7Q993.94 298.74 995.86 297.66Q997.78 296.58 1000.29 296.58Q1002.75 296.58 1004.61 297.66Q1006.46 298.74 1007.49 300.7Q1008.51 302.65 1008.51 305.26V306.66H995.79Q995.86 308.65 997.2 309.85Q998.54 311.05 1000.49 311.05Q1002.41 311.05 1003.34 310.21Q1004.26 309.37 1004.74 308.31L1008 309.99Q1007.52 310.91 1006.61 311.96Q1005.7 313.01 1004.19 313.74Q1002.69 314.48 1000.39 314.48ZM995.83 303.68H1004.5Q1004.37 302 1003.22 301.01Q1002.07 300.01 1000.25 300.01Q998.37 300.01 997.23 301.01Q996.1 302 995.83 303.68Z M1012.27 314V297.06H1016.15V299.43H1016.73Q1017.17 298.47 1018.34 297.61Q1019.51 296.75 1021.87 296.75Q1023.83 296.75 1025.33 297.65Q1026.84 298.54 1027.68 300.11Q1028.52 301.69 1028.52 303.85V314H1024.58V304.16Q1024.58 302.1 1023.57 301.09Q1022.56 300.08 1020.71 300.08Q1018.61 300.08 1017.41 301.47Q1016.21 302.86 1016.21 305.43V314Z M1040 314.48Q1037.94 314.48 1036.16 313.47Q1034.37 312.46 1033.31 310.5Q1032.25 308.55 1032.25 305.81V305.26Q1032.25 302.51 1033.31 300.56Q1034.37 298.61 1036.14 297.59Q1037.9 296.58 1040 296.58Q1041.57 296.58 1042.67 296.96Q1043.77 297.34 1044.44 297.92Q1045.1 298.5 1045.48 299.19H1046.06V290H1049.97V314H1046.13V311.77H1045.55Q1044.93 312.8 1043.66 313.64Q1042.4 314.48 1040 314.48ZM1041.16 311.05Q1043.29 311.05 1044.69 309.66Q1046.1 308.27 1046.1 305.7V305.36Q1046.1 302.75 1044.71 301.38Q1043.32 300.01 1041.16 300.01Q1039.04 300.01 1037.61 301.38Q1036.19 302.75 1036.19 305.36V305.7Q1036.19 308.27 1037.61 309.66Q1039.04 311.05 1041.16 311.05Z M1062.44 314.48Q1059.9 314.48 1057.96 313.4Q1056.03 312.32 1054.95 310.35Q1053.87 308.38 1053.87 305.74V305.33Q1053.87 302.65 1054.93 300.7Q1055.99 298.74 1057.91 297.66Q1059.83 296.58 1062.34 296.58Q1064.8 296.58 1066.66 297.66Q1068.51 298.74 1069.54 300.7Q1070.56 302.65 1070.56 305.26V306.66H1057.84Q1057.91 308.65 1059.25 309.85Q1060.59 311.05 1062.54 311.05Q1064.46 311.05 1065.39 310.21Q1066.31 309.37 1066.79 308.31L1070.05 309.99Q1069.57 310.91 1068.66 311.96Q1067.75 313.01 1066.24 313.74Q1064.74 314.48 1062.44 314.48ZM1057.88 303.68H1066.55Q1066.42 302 1065.27 301.01Q1064.12 300.01 1062.3 300.01Q1060.42 300.01 1059.28 301.01Q1058.15 302 1057.88 303.68Z" fill="#EEF1F3"/>
+<rect x="660" y="338" width="492" height="62" rx="16" fill="#F5F6F2"/>
+<text x="678" y="374" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#4A535B">48 px</text>
+<path d="M744.4 352L729.47 352L722.0 359.47L722.0 367.73L729.47 375.2L740.67 375.2L744.4 378.93L744.4 381.87L740.67 385.6L727.12 385.6L727.12 392L743.33 392L750.8 384.53L750.8 376.27L743.33 368.8L732.13 368.8L728.4 365.07L728.4 362.13L732.13 358.4L750.8 358.4Z" fill="#0D0F11"/><path d="M722.0 381.76L732.24 381.76L732.24 392L722.0 392Z" fill="#4F6A00"/><path d="M769.09 392.8Q764.86 392.8 761.63 391Q758.4 389.2 756.6 385.91Q754.8 382.63 754.8 378.23V377.54Q754.8 373.09 756.57 369.83Q758.34 366.57 761.54 364.77Q764.74 362.97 768.91 362.97Q773.03 362.97 776.11 364.77Q779.2 366.57 780.91 369.83Q782.63 373.09 782.63 377.43V379.77H761.43Q761.54 383.09 763.77 385.09Q766 387.09 769.26 387.09Q772.46 387.09 774 385.69Q775.54 384.29 776.34 382.51L781.77 385.31Q780.97 386.86 779.46 388.6Q777.94 390.34 775.43 391.57Q772.91 392.8 769.09 392.8ZM761.49 374.8H775.94Q775.71 372 773.8 370.34Q771.89 368.69 768.86 368.69Q765.71 368.69 763.83 370.34Q761.94 372 761.49 374.8Z M788.89 392V363.77H795.35V367.71H796.32Q797.06 366.11 799.01 364.69Q800.95 363.26 804.89 363.26Q808.15 363.26 810.66 364.74Q813.18 366.23 814.58 368.86Q815.98 371.49 815.98 375.09V392H809.41V375.6Q809.41 372.17 807.72 370.49Q806.03 368.8 802.95 368.8Q799.46 368.8 797.46 371.11Q795.46 373.43 795.46 377.71V392Z M835.1 392.8Q831.67 392.8 828.7 391.11Q825.73 389.43 823.95 386.17Q822.18 382.91 822.18 378.34V377.43Q822.18 372.86 823.95 369.6Q825.73 366.34 828.67 364.66Q831.61 362.97 835.1 362.97Q837.73 362.97 839.55 363.6Q841.38 364.23 842.5 365.2Q843.61 366.17 844.24 367.31H845.21V352H851.73V392H845.33V388.29H844.35Q843.33 390 841.21 391.4Q839.1 392.8 835.1 392.8ZM837.04 387.09Q840.58 387.09 842.93 384.77Q845.27 382.46 845.27 378.17V377.6Q845.27 373.26 842.95 370.97Q840.64 368.69 837.04 368.69Q833.5 368.69 831.13 370.97Q828.75 373.26 828.75 377.6V378.17Q828.75 382.46 831.13 384.77Q833.5 387.09 837.04 387.09Z M872.5 392.8Q868.27 392.8 865.05 391Q861.82 389.2 860.02 385.91Q858.22 382.63 858.22 378.23V377.54Q858.22 373.09 859.99 369.83Q861.76 366.57 864.96 364.77Q868.16 362.97 872.33 362.97Q876.45 362.97 879.53 364.77Q882.62 366.57 884.33 369.83Q886.05 373.09 886.05 377.43V379.77H864.85Q864.96 383.09 867.19 385.09Q869.42 387.09 872.67 387.09Q875.87 387.09 877.42 385.69Q878.96 384.29 879.76 382.51L885.19 385.31Q884.39 386.86 882.87 388.6Q881.36 390.34 878.85 391.57Q876.33 392.8 872.5 392.8ZM864.9 374.8H879.36Q879.13 372 877.22 370.34Q875.3 368.69 872.27 368.69Q869.13 368.69 867.25 370.34Q865.36 372 864.9 374.8Z" fill="#0D0F11"/>
+<text x="928.1371428571429" y="374" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#4A535B">24 px</text>
+<path d="M985.58 360L976.62 360L972.14 364.48L972.14 369.44L976.62 373.92L983.34 373.92L985.58 376.16L985.58 377.92L983.34 380.16L975.21 380.16L975.21 384L984.93 384L989.42 379.52L989.42 374.56L984.93 370.08L978.21 370.08L975.98 367.84L975.98 366.08L978.21 363.84L989.42 363.84Z" fill="#0D0F11"/><path d="M972.14 377.86L978.28 377.86L978.28 384L972.14 384Z" fill="#4F6A00"/><path d="M1000.39 384.48Q997.85 384.48 995.91 383.4Q993.98 382.32 992.9 380.35Q991.82 378.38 991.82 375.74V375.33Q991.82 372.65 992.88 370.7Q993.94 368.74 995.86 367.66Q997.78 366.58 1000.29 366.58Q1002.75 366.58 1004.61 367.66Q1006.46 368.74 1007.49 370.7Q1008.51 372.65 1008.51 375.26V376.66H995.79Q995.86 378.65 997.2 379.85Q998.54 381.05 1000.49 381.05Q1002.41 381.05 1003.34 380.21Q1004.26 379.37 1004.74 378.31L1008 379.99Q1007.52 380.91 1006.61 381.96Q1005.7 383.01 1004.19 383.74Q1002.69 384.48 1000.39 384.48ZM995.83 373.68H1004.5Q1004.37 372 1003.22 371.01Q1002.07 370.01 1000.25 370.01Q998.37 370.01 997.23 371.01Q996.1 372 995.83 373.68Z M1012.27 384V367.06H1016.15V369.43H1016.73Q1017.17 368.47 1018.34 367.61Q1019.51 366.75 1021.87 366.75Q1023.83 366.75 1025.33 367.65Q1026.84 368.54 1027.68 370.11Q1028.52 371.69 1028.52 373.85V384H1024.58V374.16Q1024.58 372.1 1023.57 371.09Q1022.56 370.08 1020.71 370.08Q1018.61 370.08 1017.41 371.47Q1016.21 372.86 1016.21 375.43V384Z M1040 384.48Q1037.94 384.48 1036.16 383.47Q1034.37 382.46 1033.31 380.5Q1032.25 378.55 1032.25 375.81V375.26Q1032.25 372.51 1033.31 370.56Q1034.37 368.61 1036.14 367.59Q1037.9 366.58 1040 366.58Q1041.57 366.58 1042.67 366.96Q1043.77 367.34 1044.44 367.92Q1045.1 368.5 1045.48 369.19H1046.06V360H1049.97V384H1046.13V381.77H1045.55Q1044.93 382.8 1043.66 383.64Q1042.4 384.48 1040 384.48ZM1041.16 381.05Q1043.29 381.05 1044.69 379.66Q1046.1 378.27 1046.1 375.7V375.36Q1046.1 372.75 1044.71 371.38Q1043.32 370.01 1041.16 370.01Q1039.04 370.01 1037.61 371.38Q1036.19 372.75 1036.19 375.36V375.7Q1036.19 378.27 1037.61 379.66Q1039.04 381.05 1041.16 381.05Z M1062.44 384.48Q1059.9 384.48 1057.96 383.4Q1056.03 382.32 1054.95 380.35Q1053.87 378.38 1053.87 375.74V375.33Q1053.87 372.65 1054.93 370.7Q1055.99 368.74 1057.91 367.66Q1059.83 366.58 1062.34 366.58Q1064.8 366.58 1066.66 367.66Q1068.51 368.74 1069.54 370.7Q1070.56 372.65 1070.56 375.26V376.66H1057.84Q1057.91 378.65 1059.25 379.85Q1060.59 381.05 1062.54 381.05Q1064.46 381.05 1065.39 380.21Q1066.31 379.37 1066.79 378.31L1070.05 379.99Q1069.57 380.91 1068.66 381.96Q1067.75 383.01 1066.24 383.74Q1064.74 384.48 1062.44 384.48ZM1057.88 373.68H1066.55Q1066.42 372 1065.27 371.01Q1064.12 370.01 1062.3 370.01Q1060.42 370.01 1059.28 371.01Q1058.15 372 1057.88 373.68Z" fill="#0D0F11"/>
+<text x="48" y="450" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Uygulama ikonu</text>
+<line x1="48" y1="460" x2="340" y2="460" stroke="#30363B" stroke-width="1"/>
+<rect x="48" y="468" width="292" height="112" rx="14" fill="#232E3B"/>
+<text x="62" y="570" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#C9D1D8">Daire</text>
+<text x="152" y="570" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#C9D1D8">Yuvarlak kare</text>
+<text x="253" y="570" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#C9D1D8">Squircle</text>
+<circle cx="100" cy="516" r="36" fill="#C8F23A"/>
+<path d="M110.58 489.55L90.84 489.55L80.95 499.43L80.95 510.35L90.84 520.23L105.65 520.23L110.58 525.16L110.58 529.06L105.65 533.99L87.72 533.99L87.72 542.46L109.16 542.46L119.05 532.57L119.05 521.65L109.16 511.77L94.35 511.77L89.42 506.84L89.42 502.94L94.35 498.01L119.05 498.01Z" fill="#0D0F11"/><path d="M80.95 542.46L94.5 542.46L94.5 528.91L80.95 528.91Z" fill="#0D0F11"/>
+<rect x="158" y="480" width="72" height="72" rx="20" fill="#C8F23A"/>
+<path d="M204.58 489.55L184.84 489.55L174.95 499.43L174.95 510.35L184.84 520.23L199.65 520.23L204.58 525.16L204.58 529.06L199.65 533.99L181.72 533.99L181.72 542.46L203.16 542.46L213.05 532.57L213.05 521.65L203.16 511.77L188.35 511.77L183.42 506.84L183.42 502.94L188.35 498.01L213.05 498.01Z" fill="#0D0F11"/><path d="M174.95 542.46L188.5 542.46L188.5 528.91L174.95 528.91Z" fill="#0D0F11"/>
+<path d="M324.0 516L323.93 526.63L323.73 531L323.38 534.31L322.9 537.05L322.27 539.4L321.5 541.46L320.58 543.26L319.51 544.86L318.27 546.27L316.86 547.51L315.26 548.58L313.46 549.5L311.4 550.27L309.05 550.9L306.31 551.38L303.0 551.73L298.63 551.93L288.0 552L277.37 551.93L273.0 551.73L269.69 551.38L266.95 550.9L264.6 550.27L262.54 549.5L260.74 548.58L259.14 547.51L257.73 546.27L256.49 544.86L255.42 543.26L254.5 541.46L253.73 539.4L253.1 537.05L252.62 534.31L252.27 531L252.07 526.63L252.0 516L252.07 505.37L252.27 501L252.62 497.69L253.1 494.95L253.73 492.6L254.5 490.54L255.42 488.74L256.49 487.14L257.73 485.73L259.14 484.49L260.74 483.42L262.54 482.5L264.6 481.73L266.95 481.1L269.69 480.62L273.0 480.27L277.37 480.07L288.0 480L298.63 480.07L303.0 480.27L306.31 480.62L309.05 481.1L311.4 481.73L313.46 482.5L315.26 483.42L316.86 484.49L318.27 485.73L319.51 487.14L320.58 488.74L321.5 490.54L322.27 492.6L322.9 494.95L323.38 497.69L323.73 501L323.93 505.37Z" fill="#C8F23A"/>
+<path d="M298.58 489.55L278.84 489.55L268.95 499.43L268.95 510.35L278.84 520.23L293.65 520.23L298.58 525.16L298.58 529.06L293.65 533.99L275.72 533.99L275.72 542.46L297.16 542.46L307.05 532.57L307.05 521.65L297.16 511.77L282.35 511.77L277.42 506.84L277.42 502.94L282.35 498.01L307.05 498.01Z" fill="#0D0F11"/><path d="M268.95 542.46L282.5 542.46L282.5 528.91L268.95 528.91Z" fill="#0D0F11"/>
+<rect x="48" y="588" width="292" height="92" rx="14" fill="#E3DDD0"/>
+<circle cx="100" cy="634" r="36" fill="#C8F23A"/>
+<path d="M110.58 607.54L90.84 607.54L80.95 617.43L80.95 628.35L90.84 638.23L105.65 638.23L110.58 643.16L110.58 647.06L105.65 651.99L87.72 651.99L87.72 660.46L109.16 660.46L119.05 650.57L119.05 639.65L109.16 629.77L94.35 629.77L89.42 624.84L89.42 620.94L94.35 616.01L119.05 616.01Z" fill="#0D0F11"/><path d="M80.95 660.46L94.5 660.46L94.5 646.91L80.95 646.91Z" fill="#0D0F11"/>
+<rect x="158" y="598" width="72" height="72" rx="20" fill="#C8F23A"/>
+<path d="M204.58 607.54L184.84 607.54L174.95 617.43L174.95 628.35L184.84 638.23L199.65 638.23L204.58 643.16L204.58 647.06L199.65 651.99L181.72 651.99L181.72 660.46L203.16 660.46L213.05 650.57L213.05 639.65L203.16 629.77L188.35 629.77L183.42 624.84L183.42 620.94L188.35 616.01L213.05 616.01Z" fill="#0D0F11"/><path d="M174.95 660.46L188.5 660.46L188.5 646.91L174.95 646.91Z" fill="#0D0F11"/>
+<path d="M324.0 634L323.93 644.63L323.73 649L323.38 652.31L322.9 655.05L322.27 657.4L321.5 659.46L320.58 661.26L319.51 662.86L318.27 664.27L316.86 665.51L315.26 666.58L313.46 667.5L311.4 668.27L309.05 668.9L306.31 669.38L303.0 669.73L298.63 669.93L288.0 670L277.37 669.93L273.0 669.73L269.69 669.38L266.95 668.9L264.6 668.27L262.54 667.5L260.74 666.58L259.14 665.51L257.73 664.27L256.49 662.86L255.42 661.26L254.5 659.46L253.73 657.4L253.1 655.05L252.62 652.31L252.27 649L252.07 644.63L252.0 634L252.07 623.37L252.27 619L252.62 615.69L253.1 612.95L253.73 610.6L254.5 608.54L255.42 606.74L256.49 605.14L257.73 603.73L259.14 602.49L260.74 601.42L262.54 600.5L264.6 599.73L266.95 599.1L269.69 598.62L273.0 598.27L277.37 598.07L288.0 598L298.63 598.07L303.0 598.27L306.31 598.62L309.05 599.1L311.4 599.73L313.46 600.5L315.26 601.42L316.86 602.49L318.27 603.73L319.51 605.14L320.58 606.74L321.5 608.54L322.27 610.6L322.9 612.95L323.38 615.69L323.73 619L323.93 623.37Z" fill="#C8F23A"/>
+<path d="M298.58 607.54L278.84 607.54L268.95 617.43L268.95 628.35L278.84 638.23L293.65 638.23L298.58 643.16L298.58 647.06L293.65 651.99L275.72 651.99L275.72 660.46L297.16 660.46L307.05 650.57L307.05 639.65L297.16 629.77L282.35 629.77L277.42 624.84L277.42 620.94L282.35 616.01L307.05 616.01Z" fill="#0D0F11"/><path d="M268.95 660.46L282.5 660.46L282.5 646.91L268.95 646.91Z" fill="#0D0F11"/>
+<rect x="48" y="688" width="138" height="118" rx="14" fill="#3B4A36"/>
+<rect x="81" y="698" width="72" height="72" rx="20" fill="#D5E2B4"/>
+<path d="M127.58 707.54L107.84 707.54L97.95 717.43L97.95 728.35L107.84 738.23L122.65 738.23L127.58 743.16L127.58 747.06L122.65 751.99L104.72 751.99L104.72 760.46L126.16 760.46L136.05 750.57L136.05 739.65L126.16 729.77L111.35 729.77L106.42 724.84L106.42 720.94L111.35 716.01L136.05 716.01Z" fill="#1B2605"/><path d="M97.95 760.46L111.5 760.46L111.5 746.91L97.95 746.91Z" fill="#1B2605"/>
+<text x="117" y="792" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#D5E2B4" text-anchor="middle">Temalı simge</text>
+<rect x="202" y="688" width="138" height="118" rx="14" fill="#1A1D1F"/>
+<rect x="217" y="693" width="108" height="108" rx="8" fill="#C8F23A" opacity="0.14"/>
+<circle cx="271" cy="747" r="36" fill="none" stroke="#9CA5AD" stroke-width="1" stroke-dasharray="3 3"/>
+<circle cx="271" cy="747" r="33" fill="none" stroke="#C8F23A" stroke-width="1.2"/>
+<path d="M281.58 720.54L261.84 720.54L251.95 730.43L251.95 741.35L261.84 751.23L276.65 751.23L281.58 756.16L281.58 760.06L276.65 764.99L258.72 764.99L258.72 773.46L280.16 773.46L290.05 763.57L290.05 752.65L280.16 742.77L265.35 742.77L260.42 737.84L260.42 733.94L265.35 729.01L290.05 729.01Z" fill="#EEF1F3"/><path d="M251.95 773.46L265.5 773.46L265.5 759.91L251.95 759.91Z" fill="#EEF1F3"/>
+<text x="48" y="824" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">İşaret r = 33 dp güvenli daire içinde kalır.</text>
+<text x="48" y="854" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Tipografi</text>
+<line x1="48" y1="864" x2="340" y2="864" stroke="#30363B" stroke-width="1"/>
+<text x="48" y="886" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Başlık: Space Grotesk 600</text>
+<text x="48" y="916" font-family="'Space Grotesk','Inter',sans-serif" font-size="28" font-weight="600" fill="#EEF1F3" letter-spacing="-0.5">Çağrı Şahin</text>
+<text x="48" y="940" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Gövde: Inter 400</text>
+<text x="48" y="960" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#EEF1F3">Sipariş ne zaman gelir?</text>
+<text x="48" y="980" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#EEF1F3">İyi akşamlar, ğ ş ı İ ö ü ç Ğ Ş Ç Ö Ü</text>
+<text x="48" y="1010" font-family="'Space Grotesk','Inter',sans-serif" font-size="22" font-weight="700" fill="#EEF1F3">Marka</text>
+<text x="340" y="1010" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">22/28 · 700</text>
+<text x="48" y="1036" font-family="'Space Grotesk','Inter',sans-serif" font-size="16" font-weight="600" fill="#EEF1F3">Kişi adı</text>
+<text x="340" y="1036" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">16/22 · 600</text>
+<text x="48" y="1062" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#EEF1F3">Gövde</text>
+<text x="340" y="1062" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">14/20 · 400</text>
+<text x="48" y="1084" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">Önizleme</text>
+<text x="340" y="1084" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">14/20 · 400</text>
+<text x="48" y="1106" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Etiket</text>
+<text x="340" y="1106" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">12/16 · 500</text>
+<text x="48" y="1132" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Arapça: Noto Sans Arabic; RTL’de çizgi sağda.</text>
+<text x="48" y="1160" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Hareket</text>
+<line x1="48" y1="1170" x2="340" y2="1170" stroke="#30363B" stroke-width="1"/>
+<rect x="48" y="1182" width="40" height="40" rx="8" fill="#1A1D1F"/>
+<path d="M54 1216C59.6 1216.0 54.0 1188.0 82 1188" fill="none" stroke="#C8F23A" stroke-width="2" stroke-linecap="square"/>
+<text x="100" y="1196" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Kart genişleme</text>
+<text x="100" y="1213" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#EEF1F3">220 ms · cubic-bezier(.2, 0, 0, 1)</text>
+<text x="100" y="1230" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Mesaj kutuları 30 ms arayla açılır.</text>
+<rect x="48" y="1240" width="40" height="40" rx="8" fill="#1A1D1F"/>
+<path d="M54 1274C65.2 1274.0 82.0 1246.0 82 1246" fill="none" stroke="#C8F23A" stroke-width="2" stroke-linecap="square"/>
+<text x="100" y="1254" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Okundu ile kaybolma</text>
+<text x="100" y="1271" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#EEF1F3">160 ms · cubic-bezier(.4, 0, 1, 1)</text>
+<text x="100" y="1288" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Kutu solar, alttakiler yayla oturur.</text>
+<rect x="48" y="1298" width="40" height="40" rx="8" fill="#1A1D1F"/>
+<path d="M54 1332C62.4 1332.0 54.0 1304.0 82 1304" fill="none" stroke="#C8F23A" stroke-width="2" stroke-linecap="square"/>
+<text x="100" y="1312" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Kanal geçişi</text>
+<text x="100" y="1329" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#EEF1F3">140 ms · cubic-bezier(.3, 0, 0, 1)</text>
+<text x="100" y="1346" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Seçim kayar, liste 100 ms çapraz solar.</text>
+<rect x="48" y="1356" width="40" height="40" rx="8" fill="#1A1D1F"/>
+<path d="M54 1390C54.0 1390.0 82.0 1362.0 82 1362" fill="none" stroke="#C8F23A" stroke-width="2" stroke-linecap="square"/>
+<text x="100" y="1370" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Yeni mesaj izi</text>
+<text x="100" y="1387" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#EEF1F3">120 ms · linear</text>
+<text x="100" y="1404" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Kart kenarındaki çizgi yukarıdan çizilir.</text>
+<text x="860" y="450" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Renkler</text>
+<line x1="860" y1="460" x2="1152" y2="460" stroke="#30363B" stroke-width="1"/>
+<rect x="860" y="468" width="30" height="30" rx="8" fill="#121416" stroke="#667078" stroke-width="1"/>
+<text x="898" y="481" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#121416</text>
+<text x="898" y="496" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">arka plan</text>
+<rect x="1006" y="468" width="30" height="30" rx="8" fill="#1A1D1F" stroke="#30363B" stroke-width="1"/>
+<text x="1044" y="481" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#1A1D1F</text>
+<text x="1044" y="496" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">yüzey</text>
+<rect x="860" y="508" width="30" height="30" rx="8" fill="#23272A" stroke="#30363B" stroke-width="1"/>
+<text x="898" y="521" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#23272A</text>
+<text x="898" y="536" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">yükseltilmiş yüzey</text>
+<rect x="1006" y="508" width="30" height="30" rx="8" fill="#30363B" stroke="#30363B" stroke-width="1"/>
+<text x="1044" y="521" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#30363B</text>
+<text x="1044" y="536" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">çizgi</text>
+<rect x="860" y="548" width="30" height="30" rx="8" fill="#EEF1F3" stroke="#30363B" stroke-width="1"/>
+<text x="898" y="561" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#EEF1F3</text>
+<text x="898" y="576" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">ana metin</text>
+<rect x="1006" y="548" width="30" height="30" rx="8" fill="#9CA5AD" stroke="#30363B" stroke-width="1"/>
+<text x="1044" y="561" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#9CA5AD</text>
+<text x="1044" y="576" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">ikincil metin</text>
+<rect x="860" y="588" width="30" height="30" rx="8" fill="#C8F23A" stroke="#30363B" stroke-width="1"/>
+<text x="898" y="601" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#C8F23A</text>
+<text x="898" y="616" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">vurgu, ikon zemini</text>
+<rect x="1006" y="588" width="30" height="30" rx="8" fill="#0D0F11" stroke="#667078" stroke-width="1"/>
+<text x="1044" y="601" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#0D0F11</text>
+<text x="1044" y="616" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">vurgu üstü metin</text>
+<rect x="860" y="628" width="30" height="30" rx="8" fill="#FF6B5B" stroke="#30363B" stroke-width="1"/>
+<text x="898" y="641" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#FF6B5B</text>
+<text x="898" y="656" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">tehlike</text>
+<rect x="1006" y="628" width="30" height="30" rx="8" fill="#3FD9A0" stroke="#30363B" stroke-width="1"/>
+<text x="1044" y="641" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">#3FD9A0</text>
+<text x="1044" y="656" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">başarı</text>
+<text x="860" y="694" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Kontrast oranları</text>
+<line x1="860" y1="704" x2="1152" y2="704" stroke="#30363B" stroke-width="1"/>
+<rect x="860" y="704" width="22" height="18" rx="4" fill="#121416" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="718" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#EEF1F3" text-anchor="middle">A</text>
+<text x="892" y="718" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">ana metin / arka plan</text>
+<text x="1152" y="718" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">16,28:1</text>
+<rect x="860" y="724" width="22" height="18" rx="4" fill="#23272A" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="738" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#EEF1F3" text-anchor="middle">A</text>
+<text x="892" y="738" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">ana metin / yükseltilmiş yüzey</text>
+<text x="1152" y="738" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">13,27:1</text>
+<rect x="860" y="744" width="22" height="18" rx="4" fill="#121416" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="758" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#9CA5AD" text-anchor="middle">A</text>
+<text x="892" y="758" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">ikincil / arka plan</text>
+<text x="1152" y="758" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">7,38:1</text>
+<rect x="860" y="764" width="22" height="18" rx="4" fill="#1A1D1F" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="778" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#9CA5AD" text-anchor="middle">A</text>
+<text x="892" y="778" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">ikincil / yüzey</text>
+<text x="1152" y="778" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">6,78:1</text>
+<rect x="860" y="784" width="22" height="18" rx="4" fill="#23272A" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="798" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#9CA5AD" text-anchor="middle">A</text>
+<text x="892" y="798" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">ikincil / yükseltilmiş yüzey</text>
+<text x="1152" y="798" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">6,02:1</text>
+<rect x="860" y="804" width="22" height="18" rx="4" fill="#C8F23A" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="818" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#0D0F11" text-anchor="middle">A</text>
+<text x="892" y="818" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">vurgu üstü metin / vurgu</text>
+<text x="1152" y="818" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">14,83:1</text>
+<rect x="860" y="824" width="22" height="18" rx="4" fill="#121416" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="838" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#C8F23A" text-anchor="middle">A</text>
+<text x="892" y="838" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">vurgu / arka plan</text>
+<text x="1152" y="838" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">14,26:1</text>
+<rect x="860" y="844" width="22" height="18" rx="4" fill="#121416" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="858" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#FF6B5B" text-anchor="middle">A</text>
+<text x="892" y="858" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">tehlike / arka plan</text>
+<text x="1152" y="858" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">6,60:1</text>
+<rect x="860" y="864" width="22" height="18" rx="4" fill="#121416" stroke="#30363B" stroke-width="1"/>
+<text x="871" y="878" font-family="'Space Grotesk','Inter',sans-serif" font-size="12" font-weight="700" fill="#3FD9A0" text-anchor="middle">A</text>
+<text x="892" y="878" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#EEF1F3">başarı / arka plan</text>
+<text x="1152" y="878" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="end">10,24:1</text>
+<text x="860" y="904" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Gövde metni için eşik 4,5:1; hepsi geçer.</text>
+<text x="860" y="928" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Açık tema</text>
+<line x1="860" y1="938" x2="1152" y2="938" stroke="#30363B" stroke-width="1"/>
+<rect x="860" y="948" width="50" height="26" rx="8" fill="#F5F6F2" stroke="#30363B" stroke-width="1"/>
+<text x="860" y="990" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3">#F5F6F2</text>
+<text x="860" y="1005" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">zemin</text>
+<rect x="919" y="948" width="50" height="26" rx="8" fill="#FFFFFF" stroke="#30363B" stroke-width="1"/>
+<text x="919" y="990" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3">#FFFFFF</text>
+<text x="919" y="1005" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">yüzey</text>
+<rect x="978" y="948" width="50" height="26" rx="8" fill="#0D0F11" stroke="#30363B" stroke-width="1"/>
+<text x="978" y="990" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3">#0D0F11</text>
+<text x="978" y="1005" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">metin</text>
+<rect x="1037" y="948" width="50" height="26" rx="8" fill="#4A535B" stroke="#30363B" stroke-width="1"/>
+<text x="1037" y="990" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3">#4A535B</text>
+<text x="1037" y="1005" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">ikincil</text>
+<rect x="1096" y="948" width="50" height="26" rx="8" fill="#4F6A00" stroke="#30363B" stroke-width="1"/>
+<text x="1096" y="990" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3">#4F6A00</text>
+<text x="1096" y="1005" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">zeytin</text>
+<text x="860" y="1026" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Metin 17,7:1 · ikincil 7,2:1 · zeytin 5,7:1</text>
+<text x="860" y="1042" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Zeytin: açık zeminde yazı vurgusu.</text>
+<text x="860" y="1072" font-family="'Space Grotesk','Inter',sans-serif" font-size="18" font-weight="600" fill="#EEF1F3">Üslup</text>
+<line x1="860" y1="1082" x2="1152" y2="1082" stroke="#30363B" stroke-width="1"/>
+<rect x="860" y="1092" width="292" height="66" rx="12" fill="#1A1D1F"/>
+<circle cx="876" cy="1108" r="4" fill="#3FD9A0"/>
+<text x="888" y="1112" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Boş durum</text>
+<text x="876" y="1132" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3">Hepsi okundu.</text>
+<text x="876" y="1150" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Yeni mesaj gelince burada görünür.</text>
+<rect x="860" y="1166" width="292" height="82" rx="12" fill="#1A1D1F"/>
+<circle cx="876" cy="1182" r="4" fill="#C8F23A"/>
+<text x="888" y="1186" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">İzin açıklaması</text>
+<text x="876" y="1206" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3">Bildirim erişimi gerekli.</text>
+<text x="876" y="1224" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Mesajları bildirimlerden okuruz.</text>
+<text x="876" y="1240" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Hiçbir şey telefondan çıkmaz.</text>
+<rect x="860" y="1256" width="292" height="82" rx="12" fill="#1A1D1F"/>
+<circle cx="876" cy="1272" r="4" fill="#C8F23A"/>
+<text x="888" y="1276" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Ekranı temizle onayı</text>
+<text x="876" y="1296" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3">Ekran temizlensin mi?</text>
+<text x="876" y="1314" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Yalnızca Sende’deki liste silinir.</text>
+<text x="876" y="1330" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Uygulamalardaki mesajlar kalır.</text>
+<rect x="860" y="1346" width="292" height="82" rx="12" fill="#1A1D1F"/>
+<circle cx="876" cy="1362" r="4" fill="#FF6B5B"/>
+<text x="888" y="1366" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#9CA5AD">Hata</text>
+<text x="876" y="1386" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3">Bildirim erişimi kapalı.</text>
+<text x="876" y="1404" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Mesajlar gelmiyor. Erişimi açınca</text>
+<text x="876" y="1420" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">kaldığın yerden devam eder.</text>
+<rect x="380" y="434" width="440" height="900" rx="54" fill="#08090A" stroke="#30363B" stroke-width="2"/>
+<rect x="390" y="444" width="420" height="880" rx="44" fill="#121416"/>
+<g clip-path="url(#scr)">
+<text x="414" y="474" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3">14:20</text>
+<circle cx="600" cy="468" r="6" fill="#000"/>
+<rect x="748" y="463" width="22" height="11" rx="3" fill="none" stroke="#EEF1F3" stroke-width="1.2"/>
+<rect x="750.5" y="465.5" width="13" height="6" rx="1.5" fill="#EEF1F3"/>
+<rect x="771" y="466" width="2" height="5" rx="1" fill="#EEF1F3"/>
+<path d="M418.32 515L410.11 515L406.0 519.11L406.0 523.65L410.11 527.76L416.27 527.76L418.32 529.81L418.32 531.43L416.27 533.48L408.82 533.48L408.82 537L417.73 537L421.84 532.89L421.84 528.35L417.73 524.24L411.57 524.24L409.52 522.19L409.52 520.57L411.57 518.52L421.84 518.52Z" fill="#EEF1F3"/><path d="M406.0 531.37L411.63 531.37L411.63 537L406.0 537Z" fill="#C8F23A"/><path d="M431.9 537.44Q429.57 537.44 427.8 536.45Q426.02 535.46 425.03 533.65Q424.04 531.85 424.04 529.43V529.05Q424.04 526.6 425.01 524.81Q425.99 523.01 427.75 522.02Q429.51 521.03 431.8 521.03Q434.07 521.03 435.76 522.02Q437.46 523.01 438.4 524.81Q439.35 526.6 439.35 528.99V530.27H427.69Q427.75 532.1 428.97 533.2Q430.2 534.3 431.99 534.3Q433.75 534.3 434.6 533.53Q435.45 532.76 435.89 531.78L438.87 533.32Q438.43 534.17 437.6 535.13Q436.77 536.09 435.39 536.76Q434 537.44 431.9 537.44ZM427.72 527.54H435.67Q435.54 526 434.49 525.09Q433.44 524.18 431.77 524.18Q430.04 524.18 429.01 525.09Q427.97 526 427.72 527.54Z M442.79 537V521.47H446.34V523.64H446.88Q447.28 522.76 448.35 521.98Q449.42 521.19 451.59 521.19Q453.38 521.19 454.76 522.01Q456.15 522.83 456.92 524.27Q457.69 525.72 457.69 527.7V537H454.07V527.98Q454.07 526.09 453.15 525.17Q452.22 524.24 450.52 524.24Q448.6 524.24 447.5 525.51Q446.4 526.79 446.4 529.14V537Z M468.2 537.44Q466.32 537.44 464.68 536.51Q463.05 535.59 462.07 533.79Q461.1 532 461.1 529.49V528.99Q461.1 526.47 462.07 524.68Q463.05 522.89 464.67 521.96Q466.29 521.03 468.2 521.03Q469.65 521.03 470.65 521.38Q471.66 521.73 472.27 522.26Q472.89 522.79 473.23 523.42H473.77V515H477.35V537H473.83V534.96H473.29Q472.73 535.9 471.57 536.67Q470.4 537.44 468.2 537.44ZM469.27 534.3Q471.22 534.3 472.51 533.02Q473.8 531.75 473.8 529.39V529.08Q473.8 526.69 472.52 525.43Q471.25 524.18 469.27 524.18Q467.32 524.18 466.02 525.43Q464.71 526.69 464.71 529.08V529.39Q464.71 531.75 466.02 533.02Q467.32 534.3 469.27 534.3Z M488.78 537.44Q486.45 537.44 484.68 536.45Q482.9 535.46 481.91 533.65Q480.92 531.85 480.92 529.43V529.05Q480.92 526.6 481.89 524.81Q482.87 523.01 484.63 522.02Q486.39 521.03 488.68 521.03Q490.95 521.03 492.64 522.02Q494.34 523.01 495.28 524.81Q496.23 526.6 496.23 528.99V530.27H484.57Q484.63 532.1 485.85 533.2Q487.08 534.3 488.87 534.3Q490.63 534.3 491.48 533.53Q492.33 532.76 492.77 531.78L495.75 533.32Q495.31 534.17 494.48 535.13Q493.65 536.09 492.27 536.76Q490.88 537.44 488.78 537.44ZM484.6 527.54H492.55Q492.42 526 491.37 525.09Q490.32 524.18 488.65 524.18Q486.92 524.18 485.89 525.09Q484.85 526 484.6 527.54Z" fill="#EEF1F3"/>
+<rect x="546" y="502" width="188" height="40" rx="10" fill="#C8F23A"/>
+<g transform="translate(560 512)" fill="none" stroke="#0D0F11" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter"><path d="M13.5 1.5L9 8.5"/><path d="M4.5 9.5H13.5L12.5 17H5.5Z"/><path d="M9 12V17"/></g>
+<text x="586" y="527" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#0D0F11">Ekranı tertemiz yap</text>
+<path d="M762 520L770 528L778 520" fill="none" stroke="#9CA5AD" stroke-width="2" stroke-linecap="square"/>
+<rect x="406" y="556" width="100" height="38" rx="10" fill="#23272A" stroke="#C8F23A" stroke-width="1.5"/>
+<text x="420" y="581" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Tümü</text>
+<rect x="468" y="564" width="26" height="22" rx="7" fill="#C8F23A"/>
+<text x="481" y="580" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#0D0F11" text-anchor="middle">8</text>
+<rect x="516" y="556" width="142" height="38" rx="10" fill="#1A1D1F"/>
+<rect x="526" y="565" width="20" height="20" rx="6" fill="#1E4A3B"/><circle cx="536.0" cy="575.0" r="5.40" fill="#3FD9A0"/>
+<text x="554" y="581" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#EEF1F3">WhatsApp</text>
+<text x="646" y="581" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#9CA5AD" text-anchor="end">3</text>
+<rect x="666" y="556" width="200" height="38" rx="10" fill="#1A1D1F"/>
+<rect x="676" y="565" width="20" height="20" rx="6" fill="#17414A"/><circle cx="686.0" cy="575.0" r="5.60" fill="none" stroke="#4FD6E8" stroke-width="1.7"/><rect x="684.40" y="573.40" width="3.2" height="3.2" fill="#4FD6E8"/>
+<text x="704" y="581" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#EEF1F3">WhatsApp Business</text>
+<text x="854" y="581" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#9CA5AD" text-anchor="end">2</text>
+<rect x="406" y="606" width="388" height="350" rx="12" fill="#1A1D1F"/>
+<rect x="406" y="620" width="3" height="322" rx="1.5" fill="#C8F23A"/>
+<circle cx="442" cy="642" r="22" fill="#3A4A5C"/><text x="440" y="644" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3" text-anchor="middle">AY</text><rect x="448" y="648" width="22" height="22" rx="8" fill="#1A1D1F"/><rect x="449" y="649" width="20" height="20" rx="6" fill="#1E4A3B"/><circle cx="459.0" cy="659.0" r="5.40" fill="#3FD9A0"/>
+<text x="478" y="640" font-family="'Space Grotesk','Inter',sans-serif" font-size="16" font-weight="600" fill="#EEF1F3">Ayşe Yılmaz</text>
+<text x="478" y="658" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">WhatsApp</text>
+<text x="780" y="636" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">1 dk. önce</text>
+<rect x="756" y="644" width="24" height="20" rx="7" fill="#30363B"/>
+<text x="768" y="659" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="middle">3</text>
+<rect x="420" y="678" width="360" height="64" rx="10" fill="#23272A"/>
+<text x="434" y="698" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#EEF1F3">Merhaba, randevu almak istiyorum</text>
+<text x="434" y="734" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">12 dk. önce</text>
+<text x="766" y="734" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="420" y="748" width="360" height="64" rx="10" fill="#23272A"/>
+<text x="434" y="768" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#EEF1F3">Cumartesi saat 14:00 uygun mu? Saçımı</text>
+<text x="434" y="785" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#EEF1F3">kestirip boyatmak istiyorum…</text>
+<text x="434" y="804" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">4 dk. önce</text>
+<text x="766" y="804" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="420" y="818" width="360" height="64" rx="10" fill="#23272A"/>
+<text x="434" y="838" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#EEF1F3">Fiyatı da öğrenebilir miyim?</text>
+<text x="434" y="874" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">1 dk. önce</text>
+<text x="766" y="874" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="420" y="890" width="125.85546875" height="32" rx="8" fill="#23272A"/>
+<text x="434" y="911" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="500" fill="#EEF1F3">Okundu işaretle</text>
+<rect x="553.85546875" y="890" width="67.685546875" height="32" rx="8" fill="#23272A"/>
+<text x="567.85546875" y="911" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="500" fill="#EEF1F3">Beğen</text>
+<text x="420" y="944" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#EEF1F3">Uygulamada aç</text>
+<text x="531.7421875" y="944" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">·</text>
+<text x="545.7421875" y="944" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#EEF1F3">Yanıtla</text>
+<text x="780" y="944" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#EEF1F3" text-anchor="end">Hepsi okundu</text>
+<rect x="406" y="966" width="388" height="96" rx="12" fill="#1A1D1F"/>
+<circle cx="442" cy="1000" r="22" fill="#4B3A5C"/><text x="440" y="1002" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3" text-anchor="middle">GS</text><rect x="448" y="1006" width="22" height="22" rx="8" fill="#1A1D1F"/><rect x="449" y="1007" width="20" height="20" rx="6" fill="#17414A"/><circle cx="459.0" cy="1017.0" r="5.60" fill="none" stroke="#4FD6E8" stroke-width="1.7"/><rect x="457.40" y="1015.40" width="3.2" height="3.2" fill="#4FD6E8"/>
+<text x="478" y="998" font-family="'Space Grotesk','Inter',sans-serif" font-size="16" font-weight="600" fill="#EEF1F3">Güzellik Salonu Müşterileri</text>
+<text x="478" y="1015" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">WhatsApp Business</text>
+<text x="780" y="994" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">22 dk. önce</text>
+<rect x="756" y="1002" width="24" height="20" rx="7" fill="#30363B"/>
+<text x="768" y="1017" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="middle">2</text>
+<text x="478" y="1034" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">Can: Ben de öğleden sonra</text>
+<text x="478" y="1051" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">gelebilirim</text>
+<text x="780" y="1050" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="406" y="1072" width="388" height="96" rx="12" fill="#1A1D1F"/>
+<circle cx="442" cy="1106" r="22" fill="#5C4A3A"/><text x="440" y="1108" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3" text-anchor="middle">M</text><rect x="448" y="1112" width="22" height="22" rx="8" fill="#1A1D1F"/><rect x="449" y="1113" width="20" height="20" rx="6" fill="#4A2B5C"/><path d="M459.0 1117.0L465.0 1123.0L459.0 1129.0L453.0 1123.0Z" fill="#D79BFF"/>
+<text x="478" y="1104" font-family="'Space Grotesk','Inter',sans-serif" font-size="16" font-weight="600" fill="#EEF1F3">mehmet_demir</text>
+<text x="478" y="1121" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Instagram</text>
+<text x="780" y="1100" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">41 dk. önce</text>
+<rect x="756" y="1108" width="24" height="20" rx="7" fill="#30363B"/>
+<text x="768" y="1123" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="middle">1</text>
+<text x="478" y="1140" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">Bu modelin lacivert rengi</text>
+<text x="478" y="1157" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">var mı?</text>
+<text x="780" y="1156" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="406" y="1178" width="388" height="96" rx="12" fill="#1A1D1F"/>
+<circle cx="442" cy="1212" r="22" fill="#3A5C45"/><text x="440" y="1214" font-family="'Space Grotesk','Inter',sans-serif" font-size="15" font-weight="600" fill="#EEF1F3" text-anchor="middle">SA</text><rect x="448" y="1218" width="22" height="22" rx="8" fill="#1A1D1F"/><rect x="449" y="1219" width="20" height="20" rx="6" fill="#1F3F5C"/><path d="M459.0 1223.4L464.6 1233.76L453.4 1233.76Z" fill="#7CC0FF"/>
+<text x="478" y="1210" font-family="'Space Grotesk','Inter',sans-serif" font-size="16" font-weight="600" fill="#EEF1F3">Selin Aksoy</text>
+<text x="478" y="1227" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Telegram</text>
+<text x="780" y="1206" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="end">1 sa. önce</text>
+<rect x="756" y="1214" width="24" height="20" rx="7" fill="#30363B"/>
+<text x="768" y="1229" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#EEF1F3" text-anchor="middle">2</text>
+<text x="478" y="1246" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">Takip numarası gelmedi</text>
+<text x="478" y="1263" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#9CA5AD">hâlâ</text>
+<text x="780" y="1262" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="600" fill="#EEF1F3" text-anchor="end">Okundu</text>
+<rect x="540" y="1310" width="120" height="4" rx="2" fill="#EEF1F3"/>
+</g>
+<text x="600" y="1352" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD" text-anchor="middle">Liste, gezinme çubuğuna binmeyen boş alanla biter.</text>
+<rect x="380" y="1364" width="214" height="88" rx="14" fill="#1A1D1F"/>
+<text x="394" y="1388" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">İzin yok</text>
+<text x="394" y="1406" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Bildirim erişimi kapalı.</text>
+<rect x="394" y="1416" width="75.751953125" height="26" rx="8" fill="#C8F23A"/>
+<text x="404" y="1433" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#0D0F11">Erişimi aç</text>
+<rect x="606" y="1364" width="214" height="88" rx="14" fill="#1A1D1F"/>
+<text x="620" y="1388" font-family="'Space Grotesk','Inter',sans-serif" font-size="14" font-weight="600" fill="#EEF1F3">Dinleme durdu</text>
+<text x="620" y="1406" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="400" fill="#9CA5AD">Pil ayarı Sende’yi durdurdu.</text>
+<rect x="620" y="1416" width="106.326171875" height="26" rx="8" fill="#C8F23A"/>
+<text x="630" y="1433" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#0D0F11">Yeniden başlat</text>
+<rect x="732.326171875" y="1416" width="80.5859375" height="26" rx="8" fill="#23272A"/>
+<text x="742.326171875" y="1433" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="500" fill="#EEF1F3">Pil ayarları</text>
+</svg>

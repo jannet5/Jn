@@ -1,0 +1,75 @@
+{
+  "ad": "Sende",
+  "slogan": "Mesajların Sende.",
+  "fikir": "Gelen mesaj tek bir iz boyunca iner ve düğümde durur: sende. Logo, büyük harf yüksekliğinde tek izli bir S; yalnızca alt-soldaki düğüm renklidir, yani sende kalan mesaj. Sakin grafit zemin, tek limon vurgu, kenarlıksız yüzeyler.",
+  "renkler": {
+    "arkaplan": "#121416",
+    "yuzey": "#1A1D1F",
+    "yuzeyYuksek": "#23272A",
+    "cizgi": "#30363B",
+    "metin": "#EEF1F3",
+    "metinIkincil": "#9CA5AD",
+    "vurgu": "#C8F23A",
+    "vurguUstu": "#0D0F11",
+    "tehlike": "#FF6B5B",
+    "basari": "#3FD9A0",
+    "ikonArkaplan": "#C8F23A"
+  },
+  "renklerEk": {
+    "cizgiGuclu": "#667078",
+    "kanalRozet": {
+      "whatsapp": "#3FD9A0",
+      "whatsappBusiness": "#4FD6E8",
+      "instagram": "#D79BFF",
+      "telegram": "#7CC0FF"
+    },
+    "avatar": [
+      "#3A4A5C",
+      "#4B3A5C",
+      "#5C4A3A",
+      "#3A5C45"
+    ]
+  },
+  "acikTema": {
+    "arkaplan": "#F5F6F2",
+    "yuzey": "#FFFFFF",
+    "metin": "#0D0F11",
+    "metinIkincil": "#4A535B",
+    "vurgu": "#C8F23A",
+    "vurguUstu": "#0D0F11",
+    "vurguMetni": "#4F6A00"
+  },
+  "tipografi": {
+    "baslik": "Space Grotesk",
+    "govde": "Inter",
+    "mono": null
+  },
+  "kose": {
+    "kart": 12,
+    "balon": 8,
+    "dugme": 8
+  },
+  "aralik": [
+    4,
+    8,
+    12,
+    16,
+    24
+  ],
+  "hareket": {
+    "genislemeMs": 220,
+    "kaybolmaMs": 160,
+    "yayDamping": 0.9,
+    "yaySertlik": 800,
+    "kanalGecisMs": 140,
+    "kanalListeSolmaMs": 100,
+    "yeniMesajIziMs": 120,
+    "easing": {
+      "genisleme": "cubic-bezier(.2, 0, 0, 1)",
+      "kaybolma": "cubic-bezier(.4, 0, 1, 1)",
+      "kanalGecisi": "cubic-bezier(.3, 0, 0, 1)",
+      "yeniMesajIzi": "linear"
+    }
+  },
+  "karanlikMi": true
+}

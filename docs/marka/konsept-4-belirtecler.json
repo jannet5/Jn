@@ -1,0 +1,71 @@
+{
+  "ad": "Sende",
+  "slogan": "Mesajların Sende.",
+  "fikir": "Editoryal Masa: sabah postası. Her okunmamış konuşma kartı sağ üst köşesinde zinober bir sayfa katlaması taşır; 'Okundu' deyince köşe düzleşir. Aynı 45 derecelik katlama Sende işaretidir: serif S'nin üst ucu katlanmış bir köşe gibi zinober olur. Kâğıt tonlu zemin, mürekkep metin, tek zinober vurgu.",
+  "renkler": {
+    "arkaplan": "#F4EFE4",
+    "yuzey": "#FBF8F1",
+    "yuzeyYuksek": "#EBE4D3",
+    "cizgi": "#C9BFA7",
+    "metin": "#1B1814",
+    "metinIkincil": "#5C554A",
+    "vurgu": "#C4361B",
+    "vurguUstu": "#FFFBF2",
+    "tehlike": "#8A1F2D",
+    "basari": "#2D6A4F",
+    "ikonArkaplan": "#1B1814"
+  },
+  "tipografi": {
+    "baslik": "Fraunces",
+    "govde": "Instrument Sans",
+    "mono": null
+  },
+  "kose": {
+    "kart": 10,
+    "balon": 8,
+    "dugme": 8
+  },
+  "hareket": {
+    "genislemeMs": 320,
+    "kaybolmaMs": 260,
+    "yayDamping": 0.9,
+    "yaySertlik": 400
+  },
+  "karanlikMi": false,
+  "ek": {
+    "sloganEn": "Your messages. Only on your phone.",
+    "cizgiGuclu": "#8F8571",
+    "kanalTonlari": {
+      "whatsapp": "#4E7C3A",
+      "instagram": "#94405F",
+      "telegram": "#35739B",
+      "tiktok": "#1F7A74",
+      "sms": "#9A6B1C"
+    },
+    "kosePatlak": {
+      "kartDp": 16,
+      "aciklama": "Kart sağ üst köşesi 45 derece kesilir, zinober üçgen çizilir; yalnız okunmamışta.",
+      "aciDerece": 45
+    },
+    "okunduStili": "cerceveliYazi",
+    "okunduDokunmaAlaniDp": 48,
+    "hareketEk": {
+      "kanalGecisiMs": 240,
+      "koseKatlanmaMs": 180
+    },
+    "koyuTema": {
+      "arkaplan": "#1B1814",
+      "yuzey": "#24201A",
+      "yuzeyYuksek": "#2E2922",
+      "cizgi": "#3D372D",
+      "metin": "#F4EFE4",
+      "metinIkincil": "#B9AF9C",
+      "vurgu": "#E2573A",
+      "vurguUstu": "#1B1814",
+      "tehlike": "#E08A93",
+      "basari": "#6CBF95"
+    },
+    "kisiAdi": "Instrument Sans 600 16sp, tek satir",
+    "arapca": "Baslik Noto Naskh Arabic, govde Noto Sans Arabic"
+  }
+}

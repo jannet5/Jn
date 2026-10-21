@@ -1,19 +1,19 @@
 {
   "ad": "Sende",
   "slogan": "Mesajların Sende.",
-  "fikir": "Gece Mürekkebi: dağınık bildirimler neredeyse siyah, sakin tek bir yüzeyde toplanır; S bu yüzeyin kıvrılan şeridi, tek kehribar nokta yeni mesajdır.",
+  "fikir": "Tek mürekkep çizgisiyle çizilmiş S, ucundaki kehribar damla yeni mesaj; ekran gece mürekkebi, açılan kart kâğıt.",
   "renkler": {
-    "arkaplan": "#0B0C10",
-    "yuzey": "#13151B",
-    "yuzeyYuksek": "#1C1F27",
-    "cizgi": "#2A2E38",
+    "arkaplan": "#0A0E1B",
+    "yuzey": "#111628",
+    "yuzeyYuksek": "#1A2036",
+    "cizgi": "#2B3552",
     "metin": "#F3EFE7",
-    "metinIkincil": "#A5A196",
+    "metinIkincil": "#A4AABF",
     "vurgu": "#F0B240",
     "vurguUstu": "#1A1204",
-    "tehlike": "#EF7B6B",
+    "tehlike": "#F2877A",
     "basari": "#6CC08B",
-    "ikonArkaplan": "#0B0C10"
+    "ikonArkaplan": "#141B34"
   },
   "tipografi": {
     "baslik": "Manrope",
@@ -22,14 +22,75 @@
   },
   "kose": {
     "kart": 20,
-    "balon": 24,
-    "dugme": 16
+    "balon": 20,
+    "dugme": 18,
+    "mesaj": 14
   },
   "hareket": {
     "genislemeMs": 420,
     "kaybolmaMs": 320,
     "yayDamping": 0.8,
-    "yaySertlik": 380
+    "yaySertlik": 380,
+    "solmaMs": 140,
+    "kanalGecisMs": 260,
+    "secimBalonMs": 220,
+    "temizleToplamMs": 600,
+    "temizleAralikMs": 40,
+    "bosDurumMs": 300,
+    "mesajAralikMs": 40,
+    "ease": {
+      "kaybolma": [
+        0.3,
+        0,
+        0.8,
+        0.15
+      ],
+      "kanalGecisi": [
+        0.2,
+        0,
+        0,
+        1
+      ]
+    },
+    "not": "genislemeMs yaklaşık yerleşme süresidir; Compose yayında süreyi yayDamping ve yaySertlik belirler (sönüm 0.8, aşım yaklaşık %1,5)."
   },
-  "karanlikMi": true
+  "karanlikMi": true,
+  "ekRenkler": {
+    "cizgiGuclu": "#5A6585",
+    "acik": {
+      "kagit": "#F4F0E8",
+      "kagitIkincil": "#E9E3D5",
+      "murekkep": "#0B0E1A",
+      "metinIkincil": "#5B574E",
+      "vurgu": "#B86E00",
+      "vurguMetin": "#8A5200"
+    },
+    "kanal": {
+      "whatsapp": "#6BC48E",
+      "whatsappBusiness": "#4DB6AC",
+      "instagram": "#D983B3",
+      "telegram": "#6CB4EE",
+      "tiktok": "#93A0F2",
+      "sms": "#C2C7D6",
+      "diger": "#A4AABF"
+    },
+    "kural": {
+      "vurgu": "Kehribar yalnız okunmamış nokta, okunmamış sayaç ve tek birincil eylem içindir.",
+      "basari": "Yeşil yalnızca tamamlanma onayında (ör. Ekran temizlendi) kullanılır.",
+      "genisleyenKart": "Açılan konuşma kartı kâğıt (#F4F0E8) üstüne mürekkep (#0B0E1A) ile çizilir."
+    }
+  },
+  "kontrast": {
+    "metin/arkaplan": 16.8,
+    "metinIkincil/arkaplan": 8.3,
+    "metinIkincil/yuzeyYuksek": 7.0,
+    "vurguUstu/vurgu": 9.8,
+    "vurgu/arkaplan": 10.2,
+    "tehlike/arkaplan": 7.8,
+    "basari/arkaplan": 8.7,
+    "murekkep/kagit": 16.9,
+    "kagitIkincil/kagit": 6.3,
+    "vurguMetin/kagit": 5.6,
+    "vurguNokta/kagit": 3.5
+  }
 }

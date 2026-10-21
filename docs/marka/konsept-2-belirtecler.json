@@ -1,0 +1,35 @@
+{
+  "ad": "Sende",
+  "slogan": "Mesajların Sende.",
+  "fikir": "Esnaf tabelası: koyu yeşil zemine krem harf. S tek kesintisiz şerit; iki ucu aynı 35° kesikle biter, alt ucu mesaj balonunun kuyruğu gibidir. Kelime işaretindeki S de bu özel çizimdir. Tente çizgisi marka deseni; kiremit yalnızca okunmamış sayaç için ayrılmış tek uyarı rengidir.",
+  "renkler": {
+    "arkaplan": "#F6EEE1",
+    "yuzey": "#FFFBF3",
+    "yuzeyYuksek": "#EFE3CF",
+    "cizgi": "#C9B393",
+    "metin": "#2B1D14",
+    "metinIkincil": "#6A5646",
+    "vurgu": "#0E4F4A",
+    "vurguUstu": "#F6EEE1",
+    "tehlike": "#B03F1B",
+    "basari": "#0E4F4A",
+    "ikonArkaplan": "#0E4F4A"
+  },
+  "tipografi": {
+    "baslik": "Bricolage Grotesque",
+    "govde": "DM Sans",
+    "mono": "JetBrains Mono"
+  },
+  "kose": {
+    "kart": 18,
+    "balon": 22,
+    "dugme": 14
+  },
+  "hareket": {
+    "genislemeMs": 320,
+    "kaybolmaMs": 220,
+    "yayDamping": 0.6,
+    "yaySertlik": 400
+  },
+  "karanlikMi": false
+}

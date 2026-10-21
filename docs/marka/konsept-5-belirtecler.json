@@ -1,0 +1,53 @@
+{
+  "ad": "Sende",
+  "slogan": "Mesajların Sende.",
+  "fikir": "Dağınık mesaj parçaları tek bir S’de birleşir: iki parça, tek bir eğik kesikle ayrı. Alt parçanın keskin köşesi bir mesaj kuyruğudur. Kobalt ve mürekkep ana renk; mercan yalnızca okunmamış sayısı ve işaretin alt parçası içindir (metin rengi olarak kullanılmaz).",
+  "renkler": {
+    "arkaplan": "#F2EDE1",
+    "yuzey": "#FFFFFF",
+    "yuzeyYuksek": "#E9E3D4",
+    "cizgi": "#D9D1C0",
+    "metin": "#0E1330",
+    "metinIkincil": "#555A74",
+    "vurgu": "#1E35C8",
+    "vurguUstu": "#FFFFFF",
+    "tehlike": "#BA2727",
+    "basari": "#087048",
+    "ikonArkaplan": "#1E35C8",
+    "vurguIkincil": "#FF6B4A",
+    "vurguIkincilUstu": "#0E1330"
+  },
+  "koyuRenkler": {
+    "arkaplan": "#0E1330",
+    "yuzey": "#171D44",
+    "yuzeyYuksek": "#212857",
+    "cizgi": "#2E3669",
+    "metin": "#F4F0E6",
+    "metinIkincil": "#A7AECC",
+    "vurgu": "#93A2FF",
+    "vurguUstu": "#0E1330",
+    "tehlike": "#FF8F80",
+    "basari": "#4ED8A0",
+    "ikonArkaplan": "#1E35C8",
+    "vurguIkincil": "#FF6B4A",
+    "vurguIkincilUstu": "#0E1330"
+  },
+  "tipografi": {
+    "baslik": "Sora",
+    "govde": "Instrument Sans",
+    "mono": "JetBrains Mono",
+    "arapcaYedek": "Noto Sans Arabic"
+  },
+  "kose": {
+    "kart": 18,
+    "balon": 14,
+    "dugme": 14
+  },
+  "hareket": {
+    "genislemeMs": 320,
+    "kaybolmaMs": 220,
+    "yayDamping": 0.62,
+    "yaySertlik": 380
+  },
+  "karanlikMi": false
+}
