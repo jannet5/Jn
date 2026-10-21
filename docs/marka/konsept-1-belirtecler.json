@@ -1,0 +1,35 @@
+{
+  "ad": "Sende",
+  "slogan": "Mesajların Sende.",
+  "fikir": "Gece Mürekkebi: dağınık bildirimler neredeyse siyah, sakin tek bir yüzeyde toplanır; S bu yüzeyin kıvrılan şeridi, tek kehribar nokta yeni mesajdır.",
+  "renkler": {
+    "arkaplan": "#0B0C10",
+    "yuzey": "#13151B",
+    "yuzeyYuksek": "#1C1F27",
+    "cizgi": "#2A2E38",
+    "metin": "#F3EFE7",
+    "metinIkincil": "#A5A196",
+    "vurgu": "#F0B240",
+    "vurguUstu": "#1A1204",
+    "tehlike": "#EF7B6B",
+    "basari": "#6CC08B",
+    "ikonArkaplan": "#0B0C10"
+  },
+  "tipografi": {
+    "baslik": "Manrope",
+    "govde": "Inter",
+    "mono": null
+  },
+  "kose": {
+    "kart": 20,
+    "balon": 24,
+    "dugme": 16
+  },
+  "hareket": {
+    "genislemeMs": 420,
+    "kaybolmaMs": 320,
+    "yayDamping": 0.8,
+    "yaySertlik": 380
+  },
+  "karanlikMi": true
+}

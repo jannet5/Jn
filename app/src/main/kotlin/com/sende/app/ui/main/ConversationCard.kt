@@ -108,7 +108,7 @@ fun ConversationCard(
                 ) {
                     Text(
                         text = previewOf(conversation, stringResource(R.string.message_photo)),
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodyMedium.merge(ContentDirection),
                         color = colors.textSecondary,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
@@ -172,7 +172,7 @@ private fun Header(conversation: Conversation, appLabel: String, level: Level, o
         Column(Modifier.weight(1f).padding(end = 10.dp)) {
             Text(
                 text = conversation.title,
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.titleSmall.merge(ContentDirection),
                 color = colors.text,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -241,7 +241,7 @@ private fun MessageRow(
                 if (showSender) {
                     Text(
                         text = message.senderName,
-                        style = MaterialTheme.typography.labelMedium,
+                        style = MaterialTheme.typography.labelMedium.merge(ContentDirection),
                         color = colors.accent,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -250,7 +250,7 @@ private fun MessageRow(
                 if (message.messageText.isNotBlank()) {
                     Text(
                         text = message.messageText,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodyMedium.merge(ContentDirection),
                         color = colors.text,
                         maxLines = if (long) Int.MAX_VALUE else 2,
                         overflow = TextOverflow.Ellipsis,
@@ -413,6 +413,9 @@ private fun Footer(
 }
 
 private const val ANDROID_TEXT_LIMIT_HINT = 1000
+
+/** Customer text can be in any script, whatever the phone's language: each line picks its own direction. */
+private val ContentDirection = androidx.compose.ui.text.TextStyle(textDirection = androidx.compose.ui.text.style.TextDirection.Content)
 
 private fun previewOf(conversation: Conversation, photoLabel: String): String {
     val latest = conversation.latest
