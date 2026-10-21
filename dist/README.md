@@ -1,43 +1,47 @@
-# Sende — kuruluma hazır APK'lar
+# Sende — telefona kurulacak APK
 
-## Önerilen: `Sende-preview.apk` (2.5 MB)
+## Tek bağlantı (her zaman en yeni sürüm)
 
-Küçültülmüş (R8) ama doğrudan kurulabilir sürüm — debug anahtarıyla imzalı, Google Play'e
-yüklenecek sürüm **değil**, test/kullanım içindir.
+https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk
 
-| | |
-|---|---|
-| GitHub | https://raw.githubusercontent.com/jannet5/Jn/claude/tekpanel-greenfield-spec-6ngokp/dist/Sende-preview.apk |
-| jsDelivr (GitHub'dan bağımsız CDN) | https://cdn.jsdelivr.net/gh/jannet5/Jn@ac96d7a1772b1e64db8688541df9c7fe4c41471a/dist/Sende-preview.apk |
-| Paket | `com.sende.app.preview`, versionName 0.1.0, minSdk 26 (Android 8+), targetSdk 36 |
-| Boyut | 2 545 292 bayt |
-| SHA-256 | `a78f7e20a921ca6529c96ea30511f1d70609f24e5c0cd52067153611c207c421` |
-| İmza | APK Signature Scheme v2, debug sertifikası |
+- Hesap gerekmez, giriş yok. Telefonun tarayıcısında aç, indirme başlar.
+- Dosya GitHub'ın kendi sunucusundan "ek dosya" olarak iner (doğru dosya türü ve indirme başlığıyla).
+  Eski raw/jsDelivr bağlantılarında görülen "yüzde 100'de takılma" sorunu bu yolla beklenmiyor;
+  ama bunu henüz gerçek bir telefonda DENEMEDİM (aşağıya bak).
+- Mobil veriyle de iner (2,8 MB). Aynı ağda olmak gerekmez.
+- Her yeni değişiklikte CI bu bağlantıdaki dosyayı kendiliğinden yeniler ve eskisini siler.
+  Sürüm sayfası: https://github.com/jannet5/Jn/releases/tag/son-surum
+  Sayfanın açıklamasında yapı tarihi, saat (Türkiye saati) ve dosyanın SHA-256 değeri yazar.
 
-**Doğrulanan (2026-10-03):** iki adres de HTTP 200 ve aynı SHA-256'yı veriyor; CI'da
-(KVM'li Android 11 emülatörü, run 37161872623) kuruldu, açıldı, paylaşım ekranı açıldı,
-bildirim erişimi verildi, dinleyici canlı listede görüldü, çökme yok
-(`.github/scripts/preview-smoke.sh`).
+## Kurulum (1 dakika)
 
-**Doğrulanmayan (açık kabul maddesi):** gerçek bir telefonda indirme/kurulum/kullanım.
-Önceki `.apk` ve `.zip` bağlantıları kullanıcının telefonunda başarısız oldu; telefon
-tarafındaki hata noktası bilinmiyor.
+1. Bağlantıyı aç; indirme bitince dosyaya dokun.
+2. Android "bu kaynaktan kuruluma izin ver" derse izin ver (yalnızca bu kurulum için).
+3. Sende'yi aç. İlk ekranda zorunlu bir adım yok. Üstte "Bildirim erişimini aç" kartı çıkar:
+   düğmeye dokun, listede Sende'yi bul, anahtarı aç.
+4. Anahtar gri ve oynamıyorsa: Android 13+ APK'yı Play dışından kurduğun için kilitler.
+   Uygulama içindeki "Nasıl yapılır?" rehberi adımları gösterir: Uygulama bilgisi > sağ üst üç nokta >
+   "Kısıtlanmış ayarlara izin ver" > sonra anahtarı aç.
 
-## Eski: `Sende-debug.apk` (21 MB) ve `Sende-debug.apk.zip`
+## Güven: bu dosya neden zararsız
 
-Aynı kodun küçültülmemiş debug derlemesi. SHA-256
-`3aac3ec4162c1e72bfe0150d7e64fa8f1e4b00ed09dc3e18802e2e2807a49ebd`.
+- Bu APK'nın izin listesi çok kısa: yalnızca "açılışta yeniden bağlan" (RECEIVE_BOOT_COMPLETED).
+  İnternet izni YOK; yani mesajlarını bir yere gönderemez (CI her değişiklikte bunu denetler).
+- Aynı sabit imza anahtarıyla imzalıdır; sonraki sürümler üstüne kurulur, verilerin silinmez.
+- Paket adı: com.sende.app.preview. Google Play'e çıkacak sürüm ayrıdır (com.sende.app).
+- Doğrulama: indirdiğin dosyanın SHA-256 değeri, sürüm sayfasındaki değerle aynı olmalı.
 
-## Telefona kurma
+## Doğrulanan / doğrulanmayan (dürüst durum)
 
-1. Bağlantıyı telefonun tarayıcısında aç; indirme başlar.
-2. İndirilen dosyaya dokun. Android ilk seferde "bu kaynaktan kuruluma izin ver" diye sorabilir.
-3. Uygulamayı aç, bildirim erişimini ver, kanalları seç.
+- Doğrulandı: CI gerçek emülatörde bu APK'yı kuruyor, açıyor, dinleyiciyi bağlıyor, çökme yok
+  (`.github/scripts/preview-smoke.sh`). Bağlantı HTTP 302 ile GitHub'ın dosya sunucusuna gidiyor,
+  `Content-Disposition: attachment` ve `application/vnd.android.package-archive` başlıklarıyla.
+- Doğrulanmadı: gerçek bir telefonda indirme ve kullanım (bu ortamda telefon yok). Önceki
+  denemelerde telefonda indirme takılmıştı; yeni bağlantı farklı bir yol, sonucu sen söyleyeceksin.
 
-## Güncellemek
+## Elle üretmek isteyene
 
 ```
-./gradlew :app:assemblePreview
-cp app/build/outputs/apk/preview/app-preview.apk dist/Sende-preview.apk
+./gradlew :app:assembleSideloadPreview
+# çıktı: app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
 ```
-jsDelivr bağlantısı commit'e sabitlidir; dosya değişince yeni commit hash'iyle güncellenmeli.
