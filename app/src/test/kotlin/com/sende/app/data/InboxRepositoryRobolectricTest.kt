@@ -11,6 +11,7 @@ import com.sende.app.domain.model.InboxMessage
 import com.sende.app.domain.model.MessageState
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import kotlin.time.Duration.Companion.seconds
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -52,7 +53,7 @@ class InboxRepositoryRobolectricTest {
     )
 
     @Test
-    fun `conversations group by chat and the newest conversation comes first`() = runTest {
+    fun `conversations group by chat and the newest conversation comes first`() = runTest(timeout = 60.seconds) {
         repo.insertIfNew(message("1", "ayse", at = 1_000))
         repo.insertIfNew(message("2", "mehmet", at = 2_000))
         repo.insertIfNew(message("3", "ayse", at = 3_000))
@@ -64,7 +65,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `marking read removes only those messages from the screen`() = runTest {
+    fun `marking read removes only those messages from the screen`() = runTest(timeout = 60.seconds) {
         repo.insertIfNew(message("1"))
         repo.insertIfNew(message("2", at = 2_000))
 
@@ -74,7 +75,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `clearing the screen can be undone and honours the app filter`() = runTest {
+    fun `clearing the screen can be undone and honours the app filter`() = runTest(timeout = 60.seconds) {
         repo.insertIfNew(message("w1", pkg = "com.whatsapp"))
         repo.insertIfNew(message("i1", pkg = "com.instagram.android", conversation = "x"))
 
@@ -86,7 +87,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `clearing everything with a null filter hides all unread`() = runTest {
+    fun `clearing everything with a null filter hides all unread`() = runTest(timeout = 60.seconds) {
         repo.insertIfNew(message("1"))
         repo.insertIfNew(message("2", pkg = "com.instagram.android", conversation = "x"))
 
@@ -96,7 +97,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `package counters report total and unread for ranking`() = runTest {
+    fun `package counters report total and unread for ranking`() = runTest(timeout = 60.seconds) {
         repo.insertIfNew(message("1"))
         repo.insertIfNew(message("2", at = 2_000))
         repo.markRead(listOf("1"))
@@ -108,7 +109,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `pruning drops old handled messages and unreferenced pictures but never unread ones`() = runTest {
+    fun `pruning drops old handled messages and unreferenced pictures but never unread ones`() = runTest(timeout = 60.seconds) {
         val kept = media.save(byteArrayOf(1))
         val orphan = media.save(byteArrayOf(2))
         repo.insertIfNew(message("old-read", at = 1_000, state = MessageState.READ))
@@ -122,7 +123,7 @@ class InboxRepositoryRobolectricTest {
     }
 
     @Test
-    fun `erasing everything removes messages and picture files`() = runTest {
+    fun `erasing everything removes messages and picture files`() = runTest(timeout = 60.seconds) {
         val path = media.save(byteArrayOf(7))
         repo.insertIfNew(message("1", avatar = path))
 

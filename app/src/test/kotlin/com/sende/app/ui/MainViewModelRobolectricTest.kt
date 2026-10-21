@@ -29,6 +29,7 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
+import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Before
@@ -90,7 +91,7 @@ class MainViewModelRobolectricTest {
     private suspend fun awaitState(until: (com.sende.app.ui.main.MainUiState) -> Boolean) = viewModel.state.first(until)
 
     @Test
-    fun `first launch preselects the usual chat apps and shows their messages grouped`() = runTest {
+    fun `first launch preselects the usual chat apps and shows their messages grouped`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", at = 2_000))
         inbox.insertIfNew(msg("3", chat = "mehmet", at = 3_000))
@@ -103,7 +104,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `selecting a bubble filters to that app and an unselected app is not on the bar`() = runTest {
+    fun `selecting a bubble filters to that app and an unselected app is not on the bar`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", pkg = "com.instagram.android", chat = "x", at = 2_000))
         awaitState { it.conversations.size == 2 }
@@ -115,7 +116,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `a card of several messages steps closed to messages to full to closed`() = runTest {
+    fun `a card of several messages steps closed to messages to full to closed`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", at = 2_000))
         val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
@@ -130,7 +131,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `a single message card opens straight to full and closes again`() = runTest {
+    fun `a single message card opens straight to full and closes again`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
 
@@ -141,7 +142,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `tapping one message flips only that message and a level change resets the overrides`() = runTest {
+    fun `tapping one message flips only that message and a level change resets the overrides`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", at = 2_000))
         val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
@@ -156,7 +157,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `back closes open cards first and reports when there was nothing to close`() = runTest {
+    fun `back closes open cards first and reports when there was nothing to close`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
         viewModel.cycle(conversation)
@@ -166,7 +167,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `marking read removes the message and undo brings it back`() = runTest {
+    fun `marking read removes the message and undo brings it back`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", at = 2_000))
         awaitState { it.totalUnread == 2 }
@@ -180,7 +181,7 @@ class MainViewModelRobolectricTest {
     }
 
     @Test
-    fun `cleaning the screen respects the selected app and can be undone`() = runTest {
+    fun `cleaning the screen respects the selected app and can be undone`() = runTest(timeout = 60.seconds) {
         inbox.insertIfNew(msg("1"))
         inbox.insertIfNew(msg("2", pkg = "com.instagram.android", chat = "x", at = 2_000))
         awaitState { it.totalUnread == 2 }

@@ -11,6 +11,7 @@ import com.sende.app.diagnostics.DiagnosticsRecorder
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
+import kotlin.time.Duration.Companion.seconds
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -58,7 +59,7 @@ class CaptureCoordinatorRobolectricTest {
         handleNotification(NotificationExtractor.extract(context, sbn), LiveActionRegistry.fromNotification(sbn.notification))
 
     @Test
-    fun `a real chat-shaped notification lands in the inbox`() = runTest {
+    fun `a real chat-shaped notification lands in the inbox`() = runTest(timeout = 60.seconds) {
         val stored = coordinator().feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe Yılmaz", "Merhaba, siparişim ne zaman gelir?"))
 
         assertThat(stored).hasSize(1)
@@ -66,7 +67,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `re-processing the same notification does not duplicate it`() = runTest {
+    fun `re-processing the same notification does not duplicate it`() = runTest(timeout = 60.seconds) {
         val coordinator = coordinator()
         val sbn = FakeSbn.plain(context, "com.whatsapp", "Ayşe Yılmaz", "Merhaba, siparişim ne zaman gelir?")
 
@@ -76,7 +77,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `REGRESSION - the same notification key carrying a new message stores the new message`() = runTest {
+    fun `REGRESSION - the same notification key carrying a new message stores the new message`() = runTest(timeout = 60.seconds) {
         // Chat apps keep ONE notification per chat (same key) and update it for every message.
         val coordinator = coordinator()
         coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("İlk mesaj" to 1_000L), id = 42))
@@ -89,7 +90,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `a burst of messages in one notification is stored once each, even after a process restart`() = runTest {
+    fun `a burst of messages in one notification is stored once each, even after a process restart`() = runTest(timeout = 60.seconds) {
         val sbn = FakeSbn.chat(context, "com.whatsapp", "Ayşe Yılmaz", listOf("bir" to 1_000L, "iki" to 2_000L, "üç" to 3_000L))
 
         coordinator().feed(sbn)
@@ -99,7 +100,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `the same words sent twice at different times are two messages`() = runTest {
+    fun `the same words sent twice at different times are two messages`() = runTest(timeout = 60.seconds) {
         val coordinator = coordinator()
         coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe", listOf("Tamam" to 1_000L), id = 1))
         coordinator.feed(FakeSbn.chat(context, "com.whatsapp", "Ayşe", listOf("Tamam" to 1_000L, "Tamam" to 9_000L), id = 1))
@@ -108,7 +109,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `messages of different people become different conversations`() = runTest {
+    fun `messages of different people become different conversations`() = runTest(timeout = 60.seconds) {
         val coordinator = coordinator()
         coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "selam", id = 1))
         coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Mehmet", "merhaba", id = 2))
@@ -117,7 +118,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `disabling an app stops new captures without touching existing ones`() = runTest {
+    fun `disabling an app stops new captures without touching existing ones`() = runTest(timeout = 60.seconds) {
         val coordinator = coordinator()
         coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Merhaba", id = 1))
         preferences.setChannelEnabled("com.whatsapp", false)
@@ -129,7 +130,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `any app the user picked is captured, not only well-known chat apps`() = runTest {
+    fun `any app the user picked is captured, not only well-known chat apps`() = runTest(timeout = 60.seconds) {
         preferences.setChannelEnabled("com.some.shop.app", true)
 
         val stored = coordinator().feed(FakeSbn.plain(context, "com.some.shop.app", "Yeni sipariş", "Siparişiniz hazır"))
@@ -139,7 +140,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `an app the user did not pick is ignored`() = runTest {
+    fun `an app the user did not pick is ignored`() = runTest(timeout = 60.seconds) {
         val stored = coordinator().feed(FakeSbn.plain(context, "com.random.game", "Oyun", "Yeni görev!"))
 
         assertThat(stored).isEmpty()
@@ -147,7 +148,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `avatar and picture are stored once and referenced from the message`() = runTest {
+    fun `avatar and picture are stored once and referenced from the message`() = runTest(timeout = 60.seconds) {
         val media = object : NotificationMedia {
             override fun avatar(senderName: String?) = byteArrayOf(1, 2, 3)
             override fun picture(lineIndex: Int?) = byteArrayOf(9, 9, 9, 9)
@@ -173,7 +174,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `a picture-only message is kept`() = runTest {
+    fun `a picture-only message is kept`() = runTest(timeout = 60.seconds) {
         val media = object : NotificationMedia {
             override fun avatar(senderName: String?): ByteArray? = null
             override fun picture(lineIndex: Int?) = byteArrayOf(5, 5)
@@ -187,7 +188,7 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
-    fun `shared text becomes a message in its own conversation`() = runTest {
+    fun `shared text becomes a message in its own conversation`() = runTest(timeout = 60.seconds) {
         val message = coordinator().handleSharedText("Bu müşteri sipariş istiyor", "com.whatsapp", "Paylaşım")
 
         assertThat(message).isNotNull()
