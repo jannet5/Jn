@@ -108,7 +108,7 @@ class NotificationListenerRealDeviceTest {
      * message (what chat apps do for every new message) and that must be stored too.
      */
     @Test
-    fun aSameKeyNotificationUpdateFlowsThroughTheRealListenerIntoRoom() = runBlocking {
+    fun aSameKeyNotificationUpdateFlowsThroughTheRealListenerIntoRoom() = runBlocking<Unit> {
         val koin = org.koin.core.context.GlobalContext.get()
         val repository = koin.get<com.sende.app.data.repository.InboxRepository>()
         val preferences = koin.get<com.sende.app.data.prefs.AppPreferences>()
@@ -139,7 +139,7 @@ class NotificationListenerRealDeviceTest {
 
     /** Same flow with a real MessagingStyle notification (needs `cmd notification post --conversation`, Android 11+). */
     @Test
-    fun aMessagingStyleNotificationFlowsThroughTheRealListenerIntoRoom() = runBlocking {
+    fun aMessagingStyleNotificationFlowsThroughTheRealListenerIntoRoom() = runBlocking<Unit> {
         org.junit.Assume.assumeTrue(android.os.Build.VERSION.SDK_INT >= 30)
         val koin = org.koin.core.context.GlobalContext.get()
         val repository = koin.get<com.sende.app.data.repository.InboxRepository>()
