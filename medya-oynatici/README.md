@@ -22,20 +22,32 @@ Sunucu, hesap, giriş yok. İnternet sadece YouTube'dan indirirken gerekir.
 | Kendi klasörün | **Ekle → Yeni klasör** (örn. "Gitar videoları", "Filmler") |
 | Düzenleme | Satırdaki **⋮** (veya uzun bas): Kırp · Yeniden adlandır · Taşı · Sil |
 | Çalma | Dosyaya dokun → klasördeki diğerleri sıraya girer. Müzik ekran kapalıyken de çalar, bildirimde kontroller var |
-| YouTube → MP3 | Müzik bölümünde **Ekle → YouTube'dan indir**, linki yapıştır (panoda link varsa kendiliğinden gelir). Kalite sorulmaz: **en yüksek kalitede MP3** iner |
-| YouTube → Video | Video bölümünde aynı şekilde; **kalite sorulur** (144p … 1080p, En yüksek) ve MP4 iner |
-| Oynatma listesi | Liste linki verirsen hepsi iner ve **liste adıyla bir klasöre** toplanır (müzikte MP3, videoda seçtiğin kalitede) |
-| Paylaş ile indirme | YouTube uygulamasında **Paylaş → Oynatıcı** → "Müzik mi Video mu?" |
+| İnternetten indirme | **Ekle → İnternetten indir** (ya da YouTube/TikTok/Instagram/X/Pinterest uygulamasında **Paylaş → Oynatıcı**). Link yapıştır; panoda link varsa kendiliğinden gelir |
+| Desteklenen siteler | **YouTube, TikTok, Instagram, X (Twitter), Pinterest** ve yt-dlp'nin tanıdığı diğer siteler |
+| Müzik bölümü | Kalite sorulmaz: **en yüksek kalitede MP3** |
+| Video bölümü | **Kalite sorulur** (144p … 1080p, En yüksek), her telefonda açılan MP4 (H.264) |
+| Oynatma listesi / Pinterest panosu | **Listeyi getir ve seç**: içerikler işaretli liste olarak gelir, istediklerini seçersin (Hepsi / Hiçbiri) |
+| Kanal / profil linki | **"Son kaç içerik?"** sorulur (5/10/20/50 ya da yaz). YouTube'da **Videolar / Shorts**, Instagram'da **Reels / Gönderiler** seçilir |
+| Klasör | Hepsi tek klasöre iner: **"Kanal adı, 20 içerik, Instagram"**. Klasör ikonu sitenin logosu olur |
+| Linkler | Klasörün içine **Linkler.txt** konur (her içeriğin https linki alt alta). Uygulamada klasörün en üstündeki **Linkler** satırından kopyalayıp açabilirsin |
+| Hesaplar | Ana ekrandaki kişi ikonu: Instagram, X, TikTok, Pinterest'e uygulama içinden giriş (X profilleri için şart; diğerleri herkese açık içerikte girişsiz çalışıyor) |
 | Kırpma | **⋮ → Kırp**: iki tutamaçla aralık seç **veya** süreleri yaz (`1.28` – `2.16`, `1:28` de olur). **Orijinal silinmez**, kesit yeni dosya olarak kaydedilir: `Şarkı (1.28-2.16).mp3` |
 
 ## Nasıl çalışıyor (teknik)
 
 - **Kotlin + Jetpack Compose**, tek Activity, Material 3 koyu tema.
 - **Oynatma:** AndroidX Media3 (ExoPlayer + MediaSessionService → arka planda çalma, bildirim/kilit ekranı kontrolleri).
-- **YouTube indirme:** [youtubedl-android](https://github.com/yausername/youtubedl-android) — yt-dlp ve ffmpeg'i **telefonun içinde** çalıştırır (Seal gibi uygulamaların kullandığı kütüphane). YouTube sık değiştiği için uygulama yt-dlp'yi günde bir kendiliğinden günceller; indirme hata verirse önce güncelleyip bir kez daha dener.
-  - Müzik: `-f bestaudio -x --audio-format mp3 --audio-quality 0`
-  - Video: `-S res:<kalite>,vcodec:h264` + MP4 birleştirme (her telefonda açılsın diye H.264 tercih edilir)
-  - Liste: `%(playlist_title)s/001 - başlık.ext`
+- **İndirme:** [youtubedl-android](https://github.com/yausername/youtubedl-android) — yt-dlp ve ffmpeg'i **telefonun içinde** çalıştırır (Seal gibi uygulamaların kullandığı kütüphane). yt-dlp günde bir kendiliğinden güncellenir; indirme hata verirse önce güncelleyip bir kez daha dener.
+  - Müzik: `-f bestaudio -x --audio-format mp3 --audio-quality 0`; Video: `-S res:<kalite>,vcodec:h264` + MP4
+  - Liste/profil: önce `--flat-playlist -J -I 1:N` ile içerikler listelenir, seçilenler tek klasöre `001 - başlık.mp4` olarak iner
+- **Site başına yöntem** (araştırıp emülatörde denendi):
+  - YouTube kanal: `@kanal/videos` ya da `/shorts` (yt-dlp; çıplak kanal linki 3 sekmeyi karıştırdığı için sekme hep eklenir)
+  - TikTok: yt-dlp, **masaüstü Firefox kimliğiyle** (varsayılan kimlik TikTok'un engeline takılıyor); fotoğraf gönderileri ayıklanır
+  - Instagram: yt-dlp + uygulamayla gelen iki küçük **yt-dlp eklentisi** (`ytdlp-eklentileri-kaynak/`): girişsiz profil Reels/Gönderiler listesi ve curl_cffi olmadan reels indirme
+  - X: tek gönderi yt-dlp ile girişsiz; profil listesi **gallery-dl** ile ve **X girişi gerekir**
+  - Pinterest: pano ve profil listesi **gallery-dl** ile (girişsiz), video pinleri tek tek iner
+- **gallery-dl:** saf Python; telefondaki Python 3.12 ile çalışır (`assets/gdl`: gallery-dl + requests/urllib3/idna/certifi/charset_normalizer). Haftada bir PyPI'den yenisi kendiliğinden indirilir.
+- **Giriş:** sitenin kendi giriş sayfası WebView'de açılır; şifre uygulamaya kaydedilmez, oturum çerezi telefonda kalır ve indiricilere Netscape çerez dosyası olarak verilir.
 - **Kırpma:** video → Media3 Transformer (telefonun donanım kodlayıcısı, saniyesi saniyesine; olmazsa ffmpeg ile kopyalayarak). Ses → ffmpeg `-c copy` (yeniden kodlama yok, kalite kaybı yok).
 - **Dosyalar:** `Android/data/com.jn.oynatici/files/Muzik` ve `.../Video` altında gerçek klasörler. Not: uygulama silinirse bu dosyalar da silinir.
 
@@ -64,3 +76,17 @@ Gerçek release APK, Android 8.0 (API 26) emülatöründe kurulup uygulamanın k
 | Telefondaki yt-dlp motoru | ✅ Emülatörde ayağa kalkıp linki işledi |
 | yt-dlp seçenekleri (MP3 en iyi ses, ≤720p H.264, liste klasör adı) | ✅ Masaüstü yt-dlp ile doğrulandı |
 | **YouTube'dan gerçek indirme** | ⚠️ Test edilemedi: YouTube bu bulut sunucusunun IP'sine indirmede 403 veriyor. Gerçek telefonda (ev/mobil internet) denenmeli |
+
+### İnternetten indirme (2. sürüm) — emülatörde uygulamanın kendi ekranlarından
+
+Emülatörün interneti sunucunun proxy'sinden geçirildi; uygulamanın kendi yt-dlp / gallery-dl'i kullanıldı.
+
+| Test | Sonuç |
+|---|---|
+| TikTok profili `@tiktok`, son 3 | ✅ 3/3 video, "tiktok, 3 içerik, TikTok", TikTok logolu klasör, Linkler.txt 3 link |
+| X tek gönderi (girişsiz) | ✅ H.264 MP4 |
+| Instagram profili `natgeo`, Reels, son 3 (girişsiz) | ✅ 3/3, "National Geographic, 3 içerik, Instagram" |
+| Pinterest panosu, listeden 2 tanesini seçip indirme | ✅ 2/2, H.264 720p, başlıklarıyla |
+| YouTube oynatma listesi seçim ekranı | ✅ 13 video listelendi, seçim çalışıyor (indirme bu sunucudan engelli) |
+| X profili | ⚠️ X girişi gerektiriyor; test hesabı olmadığı için denenmedi |
+| Uygulama içi giriş (WebView) | ⚠️ Emülatörün tarayıcısı internete çıkamadığı için denenmedi |
