@@ -18,8 +18,9 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
   - 27 saf bildirim uygulamasının 20'si (%74) mavi veya turkuaz.
   - 35 bildirim ikonunun 21'i (%60) zil veya konuşma balonu çiziyor.
   - Ölçüm yöntemi ve kaynak listesi Bölüm 2'de.
-- Mesajlaşma tarafı mavi, yeşil ve mor. Boş kalan bölgeler: adaçayı, hardal,
-  vermilion (kırmızı-turuncu), mürdüm. Sende bu bölgelerden birine yaslanmalı.
+- Mesajlaşma tarafı mavi, yeşil ve mor. Görece boş bölgeler: mürdüm (en boş,
+  ΔE ~15), adaçayı (~12), hardal ve vermilion (ΔE 5-7, daha kalabalık).
+  Sende bu bölgelerden birine yaslanmalı.
 - Sende'nin mevcut 5 konseptinin ölçümü: K1 kehribarı (#F0B240) rakip
   FilterBox'ın sarısına yalnız ΔE 4,6 uzak. K4 zinoberi Akbank kırmızısına ΔE 4,5.
   Mevcut koyu zemin (#0C0D10), WhatsApp'ın koyu tuvaline ΔE 2,2 (WhatsApp rengi
@@ -97,7 +98,7 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 
 ### Ad: Sende
 
-- Anlam: Türkçede "sen" zamirinin bulunma hâli ("sende" = sende, sana ait).
+- Anlam: Türkçede "sen" zamirinin bulunma hâli (sende = "sana ait, yanında").
   Okunuşu /sænˈde/. Slogan "Mesajların Sende." bu anlamı doğrudan kullanıyor.
   - https://en.wiktionary.org/wiki/sende
 - Yazım tuzağı: "sen de" (sen de, you too) çok sık "sende" diye yanlış yazılıyor.
@@ -209,13 +210,13 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 
 ### Simge bulguları [görsel]
 
-- 35 bildirim ikonundan: 14 zil (düz, degrade, dişli, kalkanlı, saatli),
-  7 konuşma balonu, 4 liste çizgisi. Zil veya balon: 21 (%60).
-  - Ayrıca 1 yapay zekâ robotu (notifyAI), 1 jelatin "i" balonu.
+- 35 bildirim ikonundan: 14 zil (düz, degrade, dişli, kalkanlı, saatli;
+  biri zil tutan yapay zekâ robotu), 7 konuşma balonu (jelatin "i" balonu
+  dâhil), 4 liste çizgisi. Zil veya balon: 21 (%60).
 - 23 mesajlaşma ikonundan 7'si balon (WhatsApp, WhatsApp Business, Messenger,
   Google Mesajlar, LINE, Signal, Viber). Diğerleri harf, kelime işareti,
   maskot, uçak.
-- Notisave (10M+ kurulum, pazar lideri) degrade bir zil kullanıyor.
+- 10M+ kurulumlu Notisave degrade bir zil kullanıyor (kurulum sayısı 01'den).
 - İsim kalıbı: "Notisave, Notistar, NotiWeave, NotiRecall, Notifiltr,
   Notification ...". Kategori adlandırması da birbirine benziyor.
 
@@ -229,9 +230,9 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
   Discord logoları.
 - WAMR: sarı, yeşil, mavi, kırmızı düz renk blokları, heyecanlı insan
   fotoğrafı, "90.000.000+ downloads" yaprak rozetli ilk görsel.
-  - Play, grafiklerde "Million Downloads" gibi ifadeleri açıkça yasaklıyor
-    (Bölüm 11). Rozet kural dışı görünüyor.
-- Üçünde de cihaz çerçevesi var; Play ise cihaz görselini önermiyor.
+  - Play, grafiklerde "Million Downloads" gibi ifadeleri istemiyor
+    (Bölüm 11). Rozet bu öneriye aykırı görünüyor.
+- Üçünde de cihaz çerçevesi var; Play ise "cihaz görseli"ni önermiyor.
 - Dil: "deleted messages", "read without view receipts". Korku ve merak.
 
 ### Neden sıradan görünüyorlar [çıkarım]
@@ -295,8 +296,8 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 - WhatsApp: "telefon logosuna karışacak kadar benzer görsel" yasak; adı ürün
   adının parçası yapmak yasak. Yeşil telefon+balon yok.
   - https://www.meta.com/brand/resources/whatsapp/whatsapp-brand/
-- Google: başka bir uygulamanın simgesine yanıltıcı kadar benzeyen simge
-  "taklit" sayılır.
+- Google: başka bir uygulama, şirket veya ürünle ilişki varmış gibi yanıltan
+  simge, başlık ve öğeler "taklit" sayılır.
   - https://support.google.com/googleplay/android-developer/answer/9888374
 
 ### Sende için işaret ve yazı işareti [çıkarım]
@@ -338,9 +339,9 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 
 ### Rakip ve WhatsApp'a mesafe
 
-- WhatsApp ve Telegram yan yana duracağı için marka rengi bu renklere ΔE ≥ 20
-  uzak olmalı. 5 yönün ana renkleri en yakın mesajlaşma ikonuna 14-41 uzak
-  (Bölüm 13'te tek tek).
+- WhatsApp, Telegram, Instagram yan yana duracağı için marka rengi bu
+  renklere en az ΔE 14 uzak olsun (benim eşiğim, kaynaklı değil). 5 yönün
+  ana renkleri en yakın mesajlaşma ikonuna 14-41 uzak (Bölüm 13'te tek tek).
 - Koyu zemin: WhatsApp koyu tuvaline ΔE yaklaşık 4-8 uzak tut (düşük ışıkta
   zaten küçük sayılar çıkar); asıl fark ton (sıcak/soğuk) farkıyla gelir.
 
@@ -376,11 +377,12 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 
 - Capital 500'ün ilk 100 şirketinde mavi %37, kırmızı %24, yeşil %13 (2014).
   Uzmanlara göre mavi güven ve güç, yeşil gençlik ve doğallık, kırmızı enerji
-  ve dinamizm. Gri ve mavi "daha mesafeli, ciddi, güvenilir".
+  ve dinamizm.
   - https://www.capital.com.tr/yonetim/pazarlama/renkler-ne-diyor
 - Capital (2007): Türkiye'de ilk 100 şirketin logosunda baskın renk kırmızı.
   Bir uzman bunu "ekonomik ve siyasi sürekliliğin olmadığı ortamda markaların
-  endişesi" diye yorumluyor (görüş).
+  endişesi" diye yorumluyor (görüş). Aynı yazı: gri ve mavi tüketiciye "daha
+  mesafeli, daha ciddi, güvenilir" mesaj verir; turuncu gençlik ve teknoloji.
   - https://www.capital.com.tr/yonetim/pazarlama/logolar-neden-kirmizi
 - Takım renkleri: Fenerbahçe sarı-lacivert, Galatasaray sarı-kırmızı. Bir marka
   için bu çiftlerden kaçınma kuralı veya araştırması bulunamadı. [doğrulanamadı]
@@ -602,8 +604,9 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 - Temalı (monochrome) ikon: Android 13+'ta kullanıcı açarsa, tek katmanlı
   <monochrome> dosyası duvar kâğıdı rengiyle boyanır. Android 16 QPR2'den
   itibaren sistem, kendi katmanı olmayan uygulamalar için otomatik tema yapar.
-  Otomatik sonuç tasarlanandan farklı olabilir; kendi katmanını ver.
   - https://developer.android.com/develop/ui/views/launch/icon_design_adaptive
+  - Otomatik sonucun tasarlanandan farklı görünebileceği uyarısı bir blogdan
+    (arama özeti); yine de kendi katmanını ver [çıkarım].
   - Kural [blog, tek kaynak]: tek renk, yalnız alfa kanalı şekli belirler.
     - https://medium.com/@enikebraimoh/android-themed-icons-a-comprehensive-guide-3abb33ab51a7
       [arama özeti]
@@ -638,6 +641,10 @@ arayüz ve genel marka süreci için 06 numaralı dosyaya bak. Bu dosya onların
 Tümü [resmi]: https://support.google.com/googleplay/android-developer/answer/9866151
 (sayfayı doğrudan indirip okudum).
 
+- Okuma notu: sayfada "Requirements" (zorunlu; uymazsan kaldırma veya askıya
+  alma riski) ve "Highly recommended" (öneri; uymazsan sayfan etkilenmez ama
+  öne çıkma ve görsellerin kırpılması etkilenir) ayrı. Aşağıda ayırt ettim.
+
 - Uygulama simgesi: 512x512 px, 32 bit PNG (alfalı), en çok 1024 KB, sRGB;
   tam kare; Play köşe yuvarlaklığını (%30) ve gölgeyi ekler. "Sıralama, fiyat,
   Play kategorisi önerisi veren rozet veya yazı yok."
@@ -658,9 +665,12 @@ Tümü [resmi]: https://support.google.com/googleplay/android-developer/answer/9
     9:16 dikey (en az 1080x1920).
   - Gerçek uygulama deneyimini göster; ilk üç ekranda arayüz öncelikli.
   - Slogan yalnız gerekliyse ve görselin en çok %20'si.
-  - Yasak: "Best, #1, Top, New, Free, Discount, Sale, Million Downloads",
-    "Download now" gibi eylem çağrısı, kullanıcı yorumu, fiyat veya kampanya.
-  - Parmak veya "cihaz görseli" yok (cihaz çerçevesi dâhil; çabuk eskir).
+  - İstenmeyen (öneri): "Best, #1, Top, New, Free, Discount, Sale, Million
+    Downloads", "Download now" gibi eylem çağrısı, kullanıcı yorumu, fiyat
+    veya kampanya. Simge için aynı kural zorunlu.
+  - Parmak yok; "cihaz görseli" (device imagery) yok, çünkü çabuk eskir.
+    Cihaz çerçevesi bu sınıfa girer [çıkarım; sayfa "çerçeve" demiyor, yalnız
+    Wear OS için "cihaz çerçevesi koyma" diyor].
   - Üçüncü taraf marka logosu izinsiz yok.
   - Durum çubuğu temiz: bildirim ve operatör adı yok; pil ve ağ simgeleri dolu.
   - Yerelleştir; her görsele alt metin ekle.
@@ -680,7 +690,7 @@ Tümü [resmi]: https://support.google.com/googleplay/android-developer/answer/9
   grup, (3) "Sende kalır" güven görseli (veri cihazda).
 - Üçüncü taraf logoları: Sende'nin arayüzü gerçek uygulama ikonlarını telefondan
   çekiyor. Mağaza görsellerinde WhatsApp, Instagram ikonu belirgin olmasın
-  (WhatsApp: "kendi markanı değil WhatsApp'ı öne çıkarma"). Pazarlama
+  (WhatsApp kuralı: WhatsApp'ı malzemenin en belirgin öğesi yapma). Pazarlama
   görsellerinde kanal balonlarını nötr harf kutuları olarak çiz; gerçek
   ekran görüntüsünde ikonlar küçük kalsın. Play'in bunu nasıl yorumlayacağı
   doğrulanamadı.
@@ -732,24 +742,29 @@ yazılmış blog rakamları; reklam vermeden önce Ads Manager önizlemesiyle do
   eylem kampanyalarında eylem başına maliyet %4,8 daha düşük. Meta'nın kendi
   A/B testi, bağımsız doğrulama yok. "34,5% daha ucuz" iddiasını doğrulayamadım.
   - https://www.facebook.com/business/news/reels-ads-updates-performance-features-automated-creative-suitability-solutions
-- Videoda ilk 2-3 saniye ürünün arayüzünü göster; ses isteğe bağlı olsun,
-  altyazı koy; ekran kaydı ve gösteri tarzı videolar soyut marka videosundan
-  iyi çalışıyor (satıcı blogları, kontrollü veri yok).
+- Videoda ilk 2-3 saniye ürünün arayüzünü göster; ekran kaydı ve gösteri
+  tarzı videolar soyut marka videosundan iyi çalışıyor (satıcı blogları,
+  kontrollü veri yok, arama özeti; hangi cümlenin hangi sayfada olduğunu
+  tek tek doğrulamadım).
   - https://adlibrary.com/posts/meta-ads-for-app-install-campaigns [blog]
   - https://billo.app/blog/meta-ads-best-practices/ [blog]
+  - Ses isteğe bağlı olsun, altyazı koy: Meta'nın eski araştırmasından arama
+    özeti [tek kaynak, doğrulanamadı].
 - Reddit r/FacebookAds (Ekim 2026): "video bu yıl çoğu hesapta daha iyi, ama
   açı biçimden önemli; statikle açıyı ucuza test et, kazananı videoya çevir;
   videonun yalnız ilk 3 saniyesini değiştir."
   - https://www.reddit.com/r/FacebookAds/comments/1x5syyb/static_or_video/
     [topluluk, küçük örnek]
-- Uygulama reklamı karşılaştırması (325 reklam): sokak röportajı gibi gerçek
-  insan videosu "güven faktörü"ne işaret ediyor; çizgi film tanıtım ve "sayı
-  kartı" (stat card) daha ucuz üretiliyor. Reklam Kütüphanesi harcama göstermez;
-  neyin para kazandığı bilinmiyor.
+- İki rakip uygulamanın 325 reklamının karşılaştırması: Chargemap gerçek
+  sürücü röportajları ve görsel karışımı; Octopus %96 video, bunların %57'si
+  çizgi film tarzı uygulama gezintisi, %28'i sayı kartı. Bir yorumcu
+  röportajın "güven faktörü"nün daha büyük olduğunu söylüyor. Reklam
+  Kütüphanesi harcama göstermez; hangisinin para kazandığı bilinmiyor.
   - https://www.reddit.com/r/FacebookAds/comments/1x8n5to/i_analysed_325_ads_from_two_ev_charging_apps_same/
     [topluluk, tek analiz]
-- Her kavram için 3 farklı açı test et: özellik, sonuç, güven.
-  - https://semnexus.com/meta-ads-for-app-installs-the-2026-founder-playbook [blog]
+- Başlangıçta en az 3 ayrı kavram test et (biri özellik, biri sonuç, biri
+  güven). [çıkarım; satıcı blogları benzerini söylüyor ama sayfayı
+  doğrulamadım]
 
 ### Sende için reklam kalıpları [çıkarım]
 
@@ -762,8 +777,9 @@ yazılmış blog rakamları; reklam vermeden önce Ads Manager önizlemesiyle do
   izin: kişiden yazılı onay al.
 - Kalıp 4, güven kartı: "Mesajların cihazında kalır." + Veri güvenliği
   özetinin kısa hâli. İddia ölçülebilir olmalı.
-- Kalıp 5, A/B: aynı mesajı 3 yön renginde (kazanan yönü seçtikten sonra
-  değil, seçmeden önce küçük bütçeyle) test et. Hedef cihaz Android.
+- Kalıp 5, yön testi: kısa listedeki iki yönün görselini aynı mesajla, küçük
+  bütçeyle, yalnız Android cihazlara göster; tıklama ve kurulum maliyetini
+  karşılaştır. Marka yönü seçimi için ek veri olur; tek başına karar değil.
 - Yapma: "silinen mesajı gör", "görüldü atmadan oku" gibi iddia.
   - Kategorinin talebi bu ama (01, 03), Meta'nın gözetim/casus yazılım reklam
     politikası metnini okuyamadım [doğrulanamadı]; Play'in ve Meta'nın
@@ -821,7 +837,7 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
     Yeniden başlat."
 - Kime hitap eder: çok mesaj alıp gürültüden yorulan, gizliliğe önem veren
   işletme sahibi (salon sahibi, danışman, klinik, butik). Geceleri de telefona
-  bakanlar. Ödemeye en istekli segment [çıkarım].
+  bakanlar. Ödeme isteği daha yüksek olabilir (varsayım, ölçülmedi).
 - Riski
   - "Koyu zemin + tek vurgu" kalıbı, yapay zekâ görsel dilinde varsayılan
     sayılıyor (06, Anthropic yönergesi). Bilinçli kabul; farkı sıcak kömür,
@@ -853,12 +869,14 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
     metin olarak kullanılmaz; yalnız dolgu.
   - Koyu varyant: metin 15,2:1; ikincil 8,9:1; vurgu 9,6:1.
   - Rakip uzaklığı: hardal en yakın FilterBox'a (#FFAE00) ΔE 5,4; Headspace'e
-    6,5; VakıfBank'a ~7. Ayrışma renkten çok tente şekli ve yazıdan gelmeli.
+    6,5; Past Notifications'a 7,2; VakıfBank'a 7,3 (sahibinden'e 20,7).
+    Ayrışma renkten çok tente şekli ve yazıdan gelmeli.
 - Yazı çifti: başlık Parkinsans 600-800; gövde Nunito 500-600. İkisi OFL,
   RFN yok, ₺ var. ~170 KB. Yuvarlak uçlar sıcaklık verir.
 - Logo fikri: üst kenarı dükkân tentesi gibi dalgalı yuvarlak kare; içinde
   kalın, yuvarlak köşeli kakao S. Tente = "küçük işletme" (hedef kitle) ve
-  özgün (kategoride yok).
+  özgün (ölçtüğüm 118 ikonun hiçbirinde yok; Türk grubunu tek tek görsel
+  incelemedim).
 - İkon stili: Phosphor Bold, yuvarlak uç; seçili durumda dolgu (Fill).
   Biraz büyük (26 dp), cömert dokunma alanı.
 - Hareket karakteri: "Selam". Hafif zıplamalı. Kart açılışı Expressive
@@ -876,7 +894,7 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
     his için çok boşluk, az dekor, ağır kakao metin şart.
   - Hardal beyaz zeminde 2,1:1 olduğu için erişilebilirlik tuzağı: her hardal
     öğe dolgu + koyu metin.
-  - Sarı VakıfBank, sahibinden (#FFE800), FilterBox ile yakın; ΔE 5-7.
+  - Sarı-turuncu hardal FilterBox, Headspace, VakıfBank ile yakın (ΔE 5-7).
   - Sarı+lacivert (Fenerbahçe) veya sarı+kırmızı (Galatasaray) eşlemesinden
     kaçın; bu yüzden kakao seçildi. Takım çağrışımı için kural bulunamadı.
   - Çay bardağı gibi yerel semboller küreselde anlaşılmaz; tente evrensel.
@@ -926,7 +944,7 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
   - Soğuk ve teknik: esnaf için "karmaşık" ve yabancı hissettirebilir.
   - Mono etiket ve teknik hava yapay zekâ/geliştirici aracı kalıbı (06).
   - Kırmızı-turuncu "hata" çağrışımı taşır; hata durumunda ikonla ayır.
-  - Todoist, Gmail, Trendyol'a yakın bölge (ΔE 6-7).
+  - Todoist, Gmail, Vodafone, Hepsiburada, Trendyol'a yakın bölge (ΔE 6-9).
   - Mona/Plex RFN lisans yükü.
 - K3'ten fark: K3 koyu grafit + limon (#C8F23A) + Space Grotesk/Inter/JetBrains
   Mono (₺ yok). Burada açık gri + vermilion + Mona/Plex; koyu zemin WhatsApp'tan
@@ -1018,8 +1036,8 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
 - Riski
   - Mürdüm + şeftali Türkiye'de alışılmadık; "bağıran" görünüm güven ve
     premium hissi zayıflatabilir.
-  - Berber ve erkek esnaf için pembe-mor tonları uzak durdurabilir. Reklamın
-    hedef kitlesi erkek ağırlıklı (Instagram'da %53,5 erkek).
+  - Berber ve erkek esnaf için pembe-mor tonları uzak durdurabilir [çıkarım,
+    ölçülmedi]. Instagram kullanıcılarının %53,5'i erkek (DataReportal).
   - Kalın harf kırpması adaptive ikon 66 dp güvenli bölgeye sığmazsa tanınmaz.
   - Trend hızlı eskir (neo-grafik, afiş estetiği).
   - Unbounded geniş olduğu için dar başlıklarda taşar; Türkçe uzun kelimelerde
@@ -1172,6 +1190,9 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
 - Takım renkleri ve marka çağrışımı, markalarda sen/siz tercihi, berber ve
   kuaförde WhatsApp Business kullanım oranı: arandı, güvenilir kaynak
   bulunamadı.
+- Android bildirim küçük ikonunun boyutu (24 dp) ve beyaz-şeffaf kuralı: güncel
+  resmî sayfalarda yazmıyor (yalnız "durum çubuğunda tek renk" ve Android 12
+  renk kuralı var). Eski tasarım belgesinin yansısını kullandım.
 - Behance ve Dribbble: bu kolda açılmadı (06'da okuyucu proxyyle bakılmıştı).
 
 ## Doğrulanamayanlar ve güvenilirlik notları
@@ -1210,11 +1231,11 @@ Her yönün önceki konseptle ilişkisi "K-n'den fark" satırında.
 
 ## Temizlik ve lisans notu
 
-- İndirilen başkalarının görselleri (118 uygulama ikonu, 4 uygulamanın mağaza
-  ekran görüntüleri ve özet panoları) not alındıktan hemen sonra silindi.
-  Kalan: yalnız sayısal sonuçlar ve betikler.
-- İndirilen yazı tipi dosyaları (OFL) ve kırpılmış kopyalar ölçüm içindi; uygulamaya
-  eklenmedi ve çalışma klasöründen silindi.
+- İndirilen başkalarının görselleri (118 uygulama ikonu iki turda, 4 uygulamanın
+  mağaza ekran görüntüleri; üçünü açıp inceledim) ve oluşturduğum özet panoları
+  not alındıktan hemen sonra silindi. Kalan: yalnız sayısal sonuçlar ve betikler.
+- İndirilen yazı tipi dosyaları (OFL), kırpılmış kopyalar ve kendi çizdiğim
+  örnek sayfaları ölçüm içindi; uygulamaya eklenmedi, çalışma klasöründen silindi.
 - Başkasının kodu kopyalanmadı. Kaynak kod yalnız sabitleri okumak için açıldı:
   AndroidX (Apache-2.0), Material Color Utilities (Apache-2.0), google/fonts
   meta dosyaları ve OFL.txt metinleri.
