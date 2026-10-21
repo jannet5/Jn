@@ -24,6 +24,8 @@ data class DiagnosticsSnapshot(
     val totalAccepted: Int = 0,
     val totalDuplicatesSuppressed: Int = 0,
     val rejectedByReason: Map<FilterReason, Int> = emptyMap(),
+    /** Exception class and message of the last notification that failed to process; never message content. */
+    val lastError: String? = null,
 )
 
 class DiagnosticsRecorder {
@@ -70,7 +72,21 @@ class DiagnosticsRecorder {
         }
     }
 
+    fun onError(packageName: String, error: Throwable) {
+        _snapshot.update {
+            it.copy(
+                lastSeenPackage = packageName,
+                lastDecisionAt = Instant.now(),
+                lastError = error.javaClass.simpleName + ": " + error.message?.take(MAX_ERROR_LENGTH),
+            )
+        }
+    }
+
     fun reset() {
         _snapshot.value = DiagnosticsSnapshot()
+    }
+
+    private companion object {
+        const val MAX_ERROR_LENGTH = 200
     }
 }

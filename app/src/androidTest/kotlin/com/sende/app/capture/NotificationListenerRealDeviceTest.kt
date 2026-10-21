@@ -57,6 +57,9 @@ class NotificationListenerRealDeviceTest {
 
     @Test
     fun aRealOsDeliveredNotificationExtractsCorrectly() {
+        if (android.os.Build.VERSION.SDK_INT >= 33) {
+            instrumentation.uiAutomation.grantRuntimePermission(context.packageName, "android.permission.POST_NOTIFICATIONS")
+        }
         val channelId = "test-channel"
         val manager = context.getSystemService(NotificationManager::class.java)
         manager.createNotificationChannel(
@@ -93,6 +96,18 @@ class NotificationListenerRealDeviceTest {
         android.os.ParcelFileDescriptor.AutoCloseInputStream(instrumentation.uiAutomation.executeShellCommand(command))
             .use { it.readBytes().toString(Charsets.UTF_8) }
 
+    /** What the app itself decided about the last notification, so a failure explains itself. */
+    private fun whatTheAppSaw(): String {
+        val koin = org.koin.core.context.GlobalContext.get()
+        val snapshot = koin.get<com.sende.app.diagnostics.DiagnosticsRecorder>().snapshot.value
+        val posted = shell("dumpsys notification --noredact").lineSequence()
+            .filter { "pkg=com.android.shell" in it || "NotificationRecord" in it && "shell" in it }
+            .take(6).joinToString(" // ")
+        return "app saw: package=${snapshot.lastSeenPackage} decision=${snapshot.lastDecisionReason} " +
+            "accepted=${snapshot.totalAccepted} rejected=${snapshot.rejectedByReason} error=${snapshot.lastError} " +
+            "connected=${SendeNotificationListenerService.connected} | system records: $posted"
+    }
+
     private suspend fun bindListenerAndPick(preferences: com.sende.app.data.prefs.AppPreferences) {
         val componentName = android.content.ComponentName(context, SendeNotificationListenerService::class.java)
         shell("cmd notification allow_listener ${componentName.flattenToString()}")
@@ -122,7 +137,7 @@ class NotificationListenerRealDeviceTest {
 
         post("randevu almak istiyorum")
         val first = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "randevu" in it } } }
-        assertWithMessage("first message never reached Room. shell said: $log").that(first).isTrue()
+        assertWithMessage("first message never reached Room. shell said: $log | ${whatTheAppSaw()}").that(first).isTrue()
 
         post("randevu almak istiyorum") // the very same notification delivered again
         Thread.sleep(2_000)
@@ -130,7 +145,7 @@ class NotificationListenerRealDeviceTest {
 
         post("cumartesi 14:00 uygun mu") // SAME tag/key, different text
         val second = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "cumartesi" in it } } }
-        assertWithMessage("second message with the same key was lost. shell said: $log").that(second).isTrue()
+        assertWithMessage("second message with the same key was lost. shell said: $log | ${whatTheAppSaw()}").that(second).isTrue()
         assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
 
         preferences.setChannelEnabled("com.android.shell", false)
@@ -150,7 +165,7 @@ class NotificationListenerRealDeviceTest {
         val out = shell("cmd notification post -S messaging --conversation 'Mehmet Demir' --message 'Mehmet:lacivert var mi' $tag 'x'")
         val arrived = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "lacivert" in it } } }
         val usage = if (arrived) "" else shell("cmd notification post")
-        assertWithMessage("messaging notification never reached Room. shell said: $out | usage: $usage").that(arrived).isTrue()
+        assertWithMessage("messaging notification never reached Room. shell said: $out | usage: $usage | ${whatTheAppSaw()}").that(arrived).isTrue()
 
         preferences.setChannelEnabled("com.android.shell", false)
         shell("cmd notification cancel $tag")

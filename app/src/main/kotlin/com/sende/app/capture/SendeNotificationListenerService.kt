@@ -4,6 +4,7 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import com.sende.app.data.prefs.AppPreferences
 import com.sende.app.diagnostics.DiagnosticsRecorder
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -66,10 +67,15 @@ class SendeNotificationListenerService : NotificationListenerService() {
     }
 
     private suspend fun processSafely(sbn: StatusBarNotification) {
-        runCatching {
+        try {
             val payload = NotificationExtractor.extract(applicationContext, sbn)
             val live = LiveActionRegistry.fromNotification(sbn.notification)
             captureCoordinator.handleNotification(payload, live)
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (error: Exception) {
+            // One broken notification must never stop the listener; the cause stays visible in diagnostics.
+            diagnosticsRecorder.onError(sbn.packageName, error)
         }
     }
 

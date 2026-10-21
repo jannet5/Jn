@@ -42,6 +42,7 @@ fun DiagnosticsScreen(viewModel: DiagnosticsViewModel = koinViewModel()) {
             add("Toplam kabul edilen" to state.snapshot.totalAccepted.toString())
             add("Duplicate olarak elenen" to state.snapshot.totalDuplicatesSuppressed.toString())
             add("Room kayıt sayısı" to state.roomRowCount.toString())
+            state.snapshot.lastError?.let { add("Son hata" to it) }
             state.snapshot.rejectedByReason.forEach { (reason, count) ->
                 add("Red: ${reason.name}" to count.toString())
             }
