@@ -282,9 +282,10 @@ yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
   https://news.ycombinator.com/item?id=49917761
 - Para birimini değiştirmek için yeni hesap gerekiyor (hesap ülkesiyle
   birlikte para birimi sabitleniyor). Türkiye profili = TRY. Ödeme
-  profilinin ülkesinin de değişmediği Google Payments sayfasında yazıyor
-  (arama özeti). Sonradan yurt dışı şirkete geçmek için yeni hesap +
-  uygulama aktarımı gerekir. [resmi]
+  profilinin ülkesi de değişmez: "mevcut ödeme profilinin ülkesini
+  değiştiremezsin, yeni profil oluşturursun" (Google Payments sayfası,
+  22 Ekim 2026'da okudum). Sonradan yurt dışı şirkete geçmek için yeni
+  hesap + uygulama aktarımı gerekir. [resmi]
   https://support.google.com/googleplay/android-developer/answer/9023898
   https://support.google.com/paymentscenter/answer/9037801
 - Paket adı silinemez ve yeniden kullanılamaz. İç teste bile ilk yapı
@@ -415,8 +416,12 @@ yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
   aralıksız katılmış olmalı. [resmi]
 - Test kullanıcısı katılıp 14 günden önce çıkarsa SAYILMAZ. Çıkıp
   geri girerse 14 günün ardışık olması gerekir. [resmi]
-- Eşik eskiden 20'ydi; 11 Aralık 2024'te 12'ye indi. Resmi sayfa tarihi
-  yazmıyor (arama özeti, sayfayı açmadım). [blog]
+- Eşik eskiden 20'ydi, sonra 12'ye indi. İndirim tarihi kaynaklarda
+  tutarsız: ilk turda bir arama özetinde "11 Aralık 2024" okumuştum; ontest.app
+  yazısı (22 Ekim 2026'da açtım) "2025'te" diyor. Resmi sayfa tarih
+  yazmıyor. Önemli olan: güncel resmi sayı 12 (sayfayı 22 Ekim 2026'da
+  okudum); 20 diyen eski yazılar güncel değil. Bir dev.to yazısı (2026)
+  hâlâ "20" diyor; yanlış/eski. [blog, tarih doğrulanamadı]
   https://ontest.app/blog/google-play-12-testers-14-days-requirement-explained
 - Üretim (Production) ve ön kayıt (pre-registration) bu şart bitene kadar
   kapalı. Açık test (open testing) de ancak üretim erişiminden sonra
