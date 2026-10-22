@@ -151,6 +151,7 @@ class IndirmeServisi : Service() {
             val ozet = buildString { // sonuç yazısı
                 append("İndirildi: $inen/${liste.ogeler.size + liste.fotoSayisi}") // kaç tane
                 if (atlanan > 0) append(" · $atlanan fotoğraf gönderisi atlandı") // fotoğraflar
+                liste.uyari?.let { append(" · ").append(it) } // sitenin girişsiz gösterdiği sınır vb.
             }
             IndirmeMerkezi.guncelle(isi.id) { if (it.durum == Durum.INIYOR) it.copy(durum = Durum.BITTI, yuzde = 100f, bilgi = ozet, baslik = sonKlasor.name) else it } // başarılı
             return true // tamam

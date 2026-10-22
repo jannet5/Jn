@@ -16,6 +16,7 @@ data class ListeSonucu(
     val ad: String, // liste / kanal / kullanıcı adı
     val ogeler: List<Oge>, // indirilecek içerikler
     val fotoSayisi: Int = 0, // video olmadığı için listeden çıkarılan fotoğraf gönderisi sayısı
+    val uyari: String? = null, // sonuçla birlikte gösterilecek not (örn. sitenin girişsiz gösterdiği sınır)
 )
 
 // Oynatma listelerini ve profillerin son içeriklerini, indirmeden önce listeleyen yardımcı
@@ -127,9 +128,9 @@ object Listeleyici {
         return ListeSonucu(ad, ogeler.take(sinir), foto) // sonuç
     }
 
-    // gallery-dl ile X profilinin son videolu gönderilerinin linklerini al.
-    // Girişsiz: X'in misafir erişimiyle profilin "Gönderiler" bölümü (en yeniden eskiye) taranır, videolular alınır.
-    // ("Medya" bölümü misafire kapalı; giriş yapılmışsa o kullanılır, çerez geçersizse yine misafir olarak denenir.)
+    // X profilinin son videolu gönderilerinin linklerini al.
+    // Giriş yapılmışsa: gallery-dl ile "Medya" bölümü. Girişsiz: önce FxTwitter (Medya bölümü), olmazsa X'in misafir erişimiyle
+    // "Gönderiler" bölümü; X misafire en yenileri değil popülerleri verdiyse X'in yerleştirme akışı (son 20 gönderi).
     private suspend fun galeriListe(ctx: Context, isi: IndirmeIsi, url: String, kullanici: String): ListeSonucu {
         val n = isi.sayi // istenen sayı
         fun secenekler(cerez: String?, onbellek: java.io.File) = mutableListOf( // ortak seçenekler
@@ -151,13 +152,23 @@ object Listeleyici {
                 if (!girisHatasiMi(e.message ?: "")) throw e // giriş dışı hata (örn. kullanıcı yok)
             } // oturum düşmüşse aşağıda misafir olarak dene
         }
-        // Misafir anahtarının istek hakkı (15 dakikada 50 sayfa) anahtar başına: her listelemede yeni anahtar alınsın diye ayrı, geçici önbellek
+        // Girişsiz 1: FxTwitter (profilin Medya bölümü, en yeniden eskiye; servis yoksa ya da boşsa sıradaki yol)
+        XProfil.fxListe(kullanici, n) { IndirmeMerkezi.iptalMi(isi.id) }?.takeIf { it.ogeler.isNotEmpty() }?.let { return it }
+        // Girişsiz 2: X'in misafir erişimi. İstek hakkı (15 dakikada 50 sayfa) anahtar başına: her listelemede yeni anahtar alınsın diye ayrı, geçici önbellek
         val misafirOnbellek = java.io.File(ctx.cacheDir, "gdl-misafir-${java.util.UUID.randomUUID()}.sqlite3") // bu işe özel
-        return try {
+        val misafir = try {
             satirlardan(Motor.galeriCalistir(ctx, secenekler(null, misafirOnbellek) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
         } finally {
             ctx.cacheDir.listFiles { f -> f.name.startsWith(misafirOnbellek.name) }?.forEach { it.delete() } // işi bitince sil (yanındaki -journal dosyasıyla)
         }
+        if (!XProfil.siraBozukMu(misafir.ogeler.map { it.url })) return misafir // en yeniden eskiye geldiyse tamam
+        // Girişsiz 3: X bu profilde misafire popüler gönderileri verdi; X'in yerleştirme akışında son 20 gönderiye bak
+        val yerlestirme = runCatching { XProfil.yerlestirmeListe(kullanici, n) }.getOrNull() // son ~20 gönderi
+        if (yerlestirme != null && yerlestirme.ogeler.isNotEmpty()) return yerlestirme.copy(
+            ad = misafir.ad.ifBlank { yerlestirme.ad }, // görünen ad
+            uyari = if (yerlestirme.ogeler.size < n) "X girişsiz sadece son 20 gönderiye bakmaya izin verdi" else null, // az bulunduysa nedeni
+        )
+        return misafir.copy(ogeler = XProfil.yenidenEskiye(misafir.ogeler), uyari = "X bu profilde girişsiz en yenileri değil popüler gönderileri gösterdi") // son çare
     }
 
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
