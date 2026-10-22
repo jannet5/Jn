@@ -87,7 +87,10 @@ yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
   - [ölçüm]: kendi depomuzda ya da Play sayfalarında ben ölçtüm.
   - [blog]/[ticari]: kişisel blog veya hizmet satan site (çıkar çatışması
     olabilir; özellikle "12 tester" satan siteler).
-  - [forum]: R10, Technopat, Hacker News yorumları. Tek kişilik deneyim.
+  - [forum]: R10, Technopat, Hacker News, dev.to, B4X, Unity forumu
+    yorum ve yazıları. Tek kişilik deneyim; yazar kendi ürününü satıyor
+    olabilir (not edildi).
+  - [haber]: teknoloji/ekonomi haberi (XDA, Lowyat, Xataka, Bloomberg HT).
   - [çıkarım]: kaynakları birleştirip ben çıkardım.
   - [doğrulanamadı]: kaynağa ulaşamadım ya da kaynaklar çelişiyor.
 - İlk turda WebSearch günlük kotası dolmuştu, son bölümlerde yalnız
@@ -155,9 +158,19 @@ yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
   "hesap sahibi aktarımı" süreciyle değişebilir; gayriresmi devir
   yasak. (Politika duyurusu 15 Nisan 2026.) [resmi]
   https://support.google.com/googleplay/android-developer/answer/17517561
+  Resmi hesap sahibi aktarımı (sayfayı 22 Ekim 2026'da okudum): [resmi]
   https://support.google.com/googleplay/android-developer/answer/16909862
-  Bireysel hesap para kazanıyorsa doğrudan sahip aktarımına uygun değil
-  diye okuyorum (arama özeti; sayfa ayrıca okunmadı). [resmi, kısmen]
+  - Yalnız mevcut sahip başlatır; yeni sahip hesaba önceden kullanıcı
+    olarak eklenmiş olmalı ve kimliğini doğrulamalı. Bireysel hesapta yeni
+    sahip kimlik doğrulaması için yeni ödeme profili seçer/oluşturur.
+  - 7 günlük bekleme (güvenlik tutuşu); bu sürede hesaptaki herhangi biri
+    iptal edebilir. Sonra yeni sahip kurulum sihirbazını tamamlar.
+  - Hesap TÜRÜ değişmez (kişisel hesap kişisel kalır; tür seçimi sonradan
+    değiştirilemez, 14177239). Kişisel hesabı kuruluşa çevirmenin yolu
+    yok; çare yeni kuruluş hesabı + uygulama aktarımı. [resmi]
+  - Önceki turda "para kazanan bireysel hesap sahip aktarımına uygun değil"
+    diye bir arama özeti okumuştum; sayfada böyle bir kısıt YOK. Geri
+    aldım. [düzeltme]
 
 ### 2.2 Ücret ve kart
 
@@ -1507,10 +1520,9 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - Play manifestinden INTERNET'i çıkarmanın Billing'i bozup bozmadığı.
 - com.sende.app paket adının başka bir (yayınlanmamış) geliştiricide
   olup olmadığı. Yalnız ilk yüklemede belli olur.
-- Bireysel hesaptan kuruluş hesabına sahip aktarımı ("hesap sahibi
-  aktarımı") ile uygulama aktarımının tam kuralları: uygulama aktarımı
-  sayfası tam okundu; hesap sahibi aktarımı sayfası (16909862) arama
-  özetinden.
+- Uygulama aktarımında hedef hesap yeni açılmış bir KURULUŞ hesabıysa
+  (D-U-N-S doğrulaması sürerken) devir talebinin hemen işlenip
+  işlenmediği: sayfa "kayıt tamam" şartı koyuyor, başka ayrıntı yok.
 - API 37 için hedef API tarihi (31 Ağustos 2027 yalnız örüntüden tahmin).
 - Başvuru formunda "ücretli test sağlayıcı kullandın mı" sorusu var mı
   (resmi sayfada yok; bir dev.to yazısı var diyor).
