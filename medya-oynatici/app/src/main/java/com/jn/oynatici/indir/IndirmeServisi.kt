@@ -96,7 +96,7 @@ class IndirmeServisi : Service() {
         val cerez = runCatching { // giriş yapılan hesapların güncel çerezleri (kopyası: indirici geri yazarsa asıl dosya bozulmasın)
             Cerezler.dosyayaYaz(this)?.let { asil -> File(gecici, "cerez.txt").also { asil.copyTo(it, overwrite = true) }.absolutePath }
         }.getOrNull()
-        val cerezZorla = sonDeneme && isi.platform == Platform.X // X: ilk deneme çerezsiz; giriş isterse ikinci deneme çerezle
+        val cerezZorla = sonDeneme && isi.platform == Platform.X // X ikinci denemesi: çerez kullanımı ilk denemenin tersi (bkz. calistir)
         val ilerleme = Ilerleme() // ekranda gösterilen ilerleme bilgisi
         val sayac = kapsam.launch { // her saniye ekranı güncelle (dönüştürme sırasında da süre aksın, donmuş sanılmasın)
             while (isActive) {
@@ -233,7 +233,10 @@ class IndirmeServisi : Service() {
             addOption("--trim-filenames", "120") // çok uzun adları kısalt
             addOption("--newline") // ilerleme satır satır gelsin
             addOption("--no-playlist") // her link tek içerik olarak insin
-            if (isi.platform != Platform.X || cerezZorla) cerez?.let { addOption("--cookies", it) } // giriş yapılan hesapların çerezleri (X önce çerezsiz denenir: oturum düşmüşse bile herkese açık gönderiler insin)
+            // X: tek gönderi önce çerezsiz, giriş isterse çerezle denenir. Toplu indirmede X'e giriş yapıldıysa önce hesapla
+            // (girişle görülen hassas videolar da insin), oturum düşmüşse ikinci deneme çerezsiz olur.
+            val xCerezli = if (toplu) !cerezZorla && cerez != null && Cerezler.dosyadaGirisVar(cerez, Platform.X) else cerezZorla
+            if (isi.platform != Platform.X || xCerezli) cerez?.let { addOption("--cookies", it) } // giriş yapılan hesapların çerezleri
             if (isi.platform == Platform.TIKTOK) addOption("--user-agent", Platform.FIREFOX_UA) // TikTok engeline takılmamak için
             if (isi.platform == Platform.INSTAGRAM) { // Instagram: girişsiz indirme eklentisi, istekler arası kısa bekleme
                 addOption("--plugin-dirs", Motor.eklentiKlasoru(this@IndirmeServisi)) // eklenti klasörü

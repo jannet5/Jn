@@ -10,7 +10,7 @@ Açınca karşına iki büyük buton çıkar: **Müzik** ve **Video**. Gerisi o 
 2. Dosyaya dokun, "bilinmeyen kaynaklardan yüklemeye izin ver" de, kur.
 3. İlk açılışta bildirim izni ister (indirme ilerlemesi için) — izin ver.
 
-Sunucu, hesap, giriş yok. İnternet sadece YouTube'dan indirirken gerekir.
+Sunucu yok, hesap şart değil. İnternet sadece indirirken gerekir.
 
 ## Neler yapıyor
 
@@ -30,7 +30,7 @@ Sunucu, hesap, giriş yok. İnternet sadece YouTube'dan indirirken gerekir.
 | Kanal / profil linki | **"Son kaç içerik?"** sorulur (5/10/20/50 ya da yaz). YouTube'da **Videolar / Shorts**, Instagram'da **Reels / Gönderiler** seçilir |
 | Klasör | Hepsi tek klasöre iner: **"Kanal adı, 20 içerik, Instagram"**. Klasör ikonu sitenin logosu olur |
 | Linkler | Klasörün içine **Linkler.txt** konur (her içeriğin https linki alt alta). Uygulamada klasörün en üstündeki **Linkler** satırından kopyalayıp açabilirsin |
-| Hesaplar | Ana ekrandaki kişi ikonu: Instagram, X, TikTok, Pinterest'e uygulama içinden giriş (X profilleri için şart; diğerleri herkese açık içerikte girişsiz çalışıyor) |
+| Hesaplar | Ana ekrandaki kişi ikonu: Instagram, X, TikTok, Pinterest'e uygulama içinden giriş. **Şart değil**: herkese açık profiller ve gönderiler girişsiz iner; giriş sadece gizli hesaplar / yaş sınırlı içerik için |
 | Kırpma | **⋮ → Kırp**: iki tutamaçla aralık seç **veya** süreleri yaz (`1.28` – `2.16`, `1:28` de olur). **Orijinal silinmez**, kesit yeni dosya olarak kaydedilir: `Şarkı (1.28-2.16).mp3` |
 
 ## Nasıl çalışıyor (teknik)
@@ -44,7 +44,11 @@ Sunucu, hesap, giriş yok. İnternet sadece YouTube'dan indirirken gerekir.
   - YouTube kanal: `@kanal/videos` ya da `/shorts` (yt-dlp; çıplak kanal linki 3 sekmeyi karıştırdığı için sekme hep eklenir)
   - TikTok: yt-dlp, **masaüstü Firefox kimliğiyle** (varsayılan kimlik TikTok'un engeline takılıyor); fotoğraf gönderileri ayıklanır
   - Instagram: yt-dlp + uygulamayla gelen iki küçük **yt-dlp eklentisi** (`ytdlp-eklentileri-kaynak/`): girişsiz profil Reels/Gönderiler listesi ve curl_cffi olmadan reels indirme
-  - X: tek gönderi yt-dlp ile girişsiz; profil listesi **gallery-dl** ile ve **X girişi gerekir**
+  - X: tek gönderi yt-dlp ile girişsiz. Profilin son N videosu **girişsiz**, sırayla şu yollarla bulunur:
+    1. **FxTwitter API** (FxEmbed'in açık, ücretsiz API'si: `api.fxtwitter.com/2/profile/id:<kimlik>/media`): profilin "Medya" sekmesini en yeniden eskiye verir. Gerekli, çünkü X girişsiz ziyaretçiye çoğu kişisel hesabın (ör. MKBHD, MrBeast) en yeni gönderilerini değil, karışık sıralı eski popüler gönderilerini gösteriyor. Not: üçüncü taraf bir servis; ona sadece profil adı gider.
+    2. Olmazsa X'in **misafir erişimi** (gallery-dl `x.com/<kullanıcı>/tweets`, her seferinde yeni misafir anahtarı). Kurumsal hesaplarda (NASA, SpaceX…) en yeniden eskiye gelir.
+    3. Misafir erişim karışık sırada (popüler) geldiyse X'in **yerleştirme (embed) akışı** denenir; o da karışıksa bulunanlar indirilir ve kartta "en yeniler için X'e giriş yap" notu çıkar.
+    4. X'e giriş yapıldıysa doğrudan gallery-dl ile "Medya" sekmesi kullanılır.
   - Pinterest: pano ve profil listesi **gallery-dl** ile (girişsiz), video pinleri tek tek iner
 - **gallery-dl:** saf Python; telefondaki Python 3.12 ile çalışır (`assets/gdl`: gallery-dl + requests/urllib3/idna/certifi/charset_normalizer). Haftada bir PyPI'den yenisi kendiliğinden indirilir.
 - **Giriş:** sitenin kendi giriş sayfası WebView'de açılır; şifre uygulamaya kaydedilmez, oturum çerezi telefonda kalır ve indiricilere Netscape çerez dosyası olarak verilir.
@@ -91,5 +95,11 @@ Emülatörün interneti sunucunun proxy'sinden geçirildi; uygulamanın kendi yt
 | Instagram tek reel (`instagram.com/kullanici/reel/ID?igsh=…`) | ✅ tek içerik olarak tanındı ve indi |
 | Kod incelemesi (4 alan, her bulgu ayrı ajanla doğrulandı) | ✅ doğrulanan bulgular düzeltildi: iptal yarışları, X çerez denemesi, gönderi sayımı, klasör adı kesilmesi, bayt sınırı, çerez dosyasının geri yazılması, link tanıma hataları |
 | YouTube oynatma listesi seçim ekranı | ✅ 13 video listelendi, seçim çalışıyor (indirme bu sunucudan engelli) |
-| X profili | ⚠️ X girişi gerektiriyor; test hesabı olmadığı için denenmedi |
+| X profili `NASA`, son 5 (girişsiz) | ✅ 5/5, "NASA, 5 içerik, X", X logolu klasör, Linkler.txt |
+| X profili `SpaceX`, son 3, **Müzik (MP3)** (girişsiz) | ✅ 3/3 MP3 |
+| X profili `MKBHD` (X'in girişsiz popüler gösterdiği hesap), son 3 ve son 10 | ✅ FxTwitter ile gerçekten en yeni 3 / 10 video (21 Ekim'den geriye), "Marques Brownlee, 10 içerik, X" |
+| FxTwitter kapalıyken (ara proxy ile engellendi): `NASA` son 5 | ✅ misafir erişimle aynı en yeni 5 video |
+| FxTwitter kapalıyken: `MKBHD` son 5 | ✅ yedek yollar çalıştı; X sadece popülerleri verdiği için 4 video indi ve kartta "en yeniler için X'e giriş yap" notu çıktı |
+| Olmayan X kullanıcısı | ✅ "Bulunamadı (link ya da kullanıcı adı yanlış olabilir)" |
+| X'e giriş yapılmış haliyle profil | ⚠️ Test hesabı olmadığı için denenmedi (girişsiz yol yeterli) |
 | Uygulama içi giriş (WebView) | ⚠️ Emülatörün tarayıcısı internete çıkamadığı için denenmedi |
