@@ -115,7 +115,12 @@ class NotificationListenerRealDeviceTest {
 
     private suspend fun bindListenerAndPick(preferences: com.sende.app.data.prefs.AppPreferences) {
         val componentName = android.content.ComponentName(context, SendeNotificationListenerService::class.java)
-        shell("cmd notification allow_listener ${componentName.flattenToString()}")
+        if (android.os.Build.VERSION.SDK_INT >= 30) {
+            shell("cmd notification allow_listener ${componentName.flattenToString()}")
+        } else {
+            // Android 8 and 9 have no (working) allow_listener shell command; the secure setting is what it writes.
+            shell("settings put secure enabled_notification_listeners ${componentName.flattenToString()}")
+        }
         android.service.notification.NotificationListenerService.requestRebind(componentName)
         assertThat(pollUntilTrue(20_000) { SendeNotificationListenerService.connected }).isTrue()
         preferences.setChannelEnabled("com.android.shell", true)
