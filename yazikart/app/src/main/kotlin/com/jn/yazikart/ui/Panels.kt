@@ -69,11 +69,11 @@ import androidx.compose.material3.RangeSlider // iki tutamaçlı kaydırıcı
 import com.jn.yazikart.data.TextAlign // yatay hiza
 import com.jn.yazikart.data.VerticalPos // dikey konum
 
-private val SIDE = 16.dp // tüm uygulamada tek kenar boşluğu
+internal val SIDE = 16.dp // tüm uygulamada tek kenar boşluğu
 
 // Bölüm başlığı (küçük, soluk)
 @Composable
-private fun Label(text: String) {
+internal fun Label(text: String) {
     Text(
         text, // başlık metni
         style = MaterialTheme.typography.labelLarge, // küçük başlık
@@ -92,7 +92,7 @@ fun BackgroundPanel(
     onOpenSearch: () -> Unit, // internetten ara
     onPickGallery: () -> Unit, // galeriden seç
     onClearImage: () -> Unit, // resmi kaldır
-    video: VideoUi, // video durumu ve işleri
+    hasVideo: Boolean, // sırada video/fotoğraf var mı (karartma için)
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) { // alt alta
         Label("Zemin rengi") // başlık
@@ -112,9 +112,7 @@ fun BackgroundPanel(
                 Text("Galeriden") // etiket
             }
         }
-        VideoSection(online, video) // arka plan videoları
-
-        if (hasImage || video.hasVideo) { // resim ya da video varsa karartma
+        if (hasImage || hasVideo) { // resim ya da video varsa karartma
             Label("Karartma (yazı daha net okunsun)") // başlık
             Slider( // karartma kaydırıcısı
                 value = style.dim, // güncel değer
@@ -126,67 +124,6 @@ fun BackgroundPanel(
                 Icon(Icons.Default.Close, contentDescription = null) // ikon
                 Spacer(Modifier.width(8.dp)) // boşluk
                 Text("Görseli kaldır, sadece renk kalsın") // etiket
-            }
-        }
-    }
-}
-
-// Arka plan videoları: ekleme düğmeleri + her video için sıra, süre ayarı ve silme
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun VideoSection(online: Boolean, video: VideoUi) {
-    Spacer(Modifier.height(12.dp)) // bölümler arası boşluk
-    Label("Arka plan videosu") // başlık
-    Row(Modifier.padding(horizontal = SIDE), horizontalArrangement = Arrangement.spacedBy(12.dp)) { // yan yana iki buton
-        OutlinedButton(onClick = video.onSearch, enabled = online, modifier = Modifier.weight(1f).height(48.dp)) { // internetten video
-            Icon(if (online) Icons.Default.Movie else Icons.Default.WifiOff, contentDescription = null) // ikon
-            Spacer(Modifier.width(8.dp)) // boşluk
-            Text(if (online) "Video ara" else "İnternet yok") // etiket
-        }
-        OutlinedButton(onClick = video.onGallery, modifier = Modifier.weight(1f).height(48.dp)) { // galeriden video
-            Icon(Icons.Default.VideoLibrary, contentDescription = null) // ikon
-            Spacer(Modifier.width(8.dp)) // boşluk
-            Text("Galeriden") // etiket
-        }
-    }
-    if (!video.hasVideo) return // video yoksa liste gösterilmez
-    Text( // toplam süre
-        "${video.clips.size} video arka arkaya · toplam ${Clips.format(Clips.totalMs(video.clips))}", // örn. 2 video · 0:12
-        style = MaterialTheme.typography.bodyMedium, // gövde yazısı
-        color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
-        modifier = Modifier.padding(horizontal = SIDE), // kenar boşluğu
-    )
-    var trimIndex by remember { mutableStateOf<Int?>(null) } // hangi videonun kırpma penceresi açık
-    video.clips.forEachIndexed { i, clip -> // her video
-        Row(Modifier.fillMaxWidth().padding(horizontal = SIDE), verticalAlignment = Alignment.CenterVertically) { // video satırı
-            Text( // video adı ve aralığı
-                "${i + 1}. video · ${Clips.format(clip.startMs)}–${Clips.format(clip.endMs)} (${Clips.format(clip.lengthMs)})", // örn. 1. video · 0:02–0:07 (0:05)
-                style = MaterialTheme.typography.bodyLarge, // gövde yazısı
-                modifier = Modifier.weight(1f), // kalan genişlik
-            )
-            IconButton(onClick = { trimIndex = i }) { Icon(Icons.Default.ContentCut, contentDescription = "Süreyi ayarla") } // kırpma penceresi
-            if (i > 0) IconButton(onClick = { video.onMoveUp(i) }) { Icon(Icons.Default.ArrowUpward, contentDescription = "Yukarı al") } // sırayı değiştir
-            IconButton(onClick = { video.onRemove(i) }) { Icon(Icons.Default.Delete, contentDescription = "Videoyu kaldır") } // sil
-        }
-    }
-    val ti = trimIndex // açık pencerenin videosu
-    val tc = ti?.let { video.clips.getOrNull(it) } // o video (silindiyse null)
-    if (ti != null && tc != null) { // kırpma penceresi: sayfa kaydırılırken yanlışlıkla değişmesin diye ayrı pencerede
-        ModalBottomSheet(onDismissRequest = { video.onRangeDone(ti); trimIndex = null }) { // alttan açılan pencere
-            Column(Modifier.padding(horizontal = SIDE).padding(bottom = 32.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { // içerik
-                Text("${ti + 1}. videonun süresi", style = MaterialTheme.typography.titleMedium) // başlık
-                Text( // seçilen aralık
-                    "Başlangıç ${Clips.format(tc.startMs)} · Bitiş ${Clips.format(tc.endMs)} · Süre ${Clips.format(tc.lengthMs)}", // örn. Başlangıç 0:02 · Bitiş 0:07 · Süre 0:05
-                    style = MaterialTheme.typography.bodyMedium, // gövde yazısı
-                    color = MaterialTheme.colorScheme.onSurfaceVariant, // soluk
-                )
-                RangeSlider( // soldaki tutamaç başlangıç, sağdaki bitiş
-                    value = tc.startMs.toFloat()..tc.endMs.toFloat(), // güncel aralık
-                    onValueChange = { r -> video.onRange(ti, r.start.toLong(), r.endInclusive.toLong()) }, // kaydırırken
-                    onValueChangeFinished = { video.onRangeDone(ti) }, // bırakınca önizleme o videodan oynar
-                    valueRange = 0f..tc.durationMs.toFloat(), // videonun tamamı
-                )
-                Button(onClick = { video.onRangeDone(ti); trimIndex = null }, modifier = Modifier.fillMaxWidth().height(48.dp)) { Text("Tamam") } // kapat
             }
         }
     }

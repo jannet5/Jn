@@ -22,7 +22,11 @@ import androidx.media3.common.MediaItem // oynatıcıya verilecek video
 import androidx.media3.common.Player // oynatıcı ayarları
 import androidx.media3.exoplayer.ExoPlayer // video oynatıcı (önizleme)
 import com.jn.yazikart.data.Clips // video hesapları
-import com.jn.yazikart.data.VideoClip // video parçası
+import com.jn.yazikart.data.VideoClip // video / fotoğraf parçası
+import com.jn.yazikart.data.MusicTrack // müzik
+import com.jn.yazikart.video.Thumbs // videodan küçük kareler
+import androidx.media3.exoplayer.image.ImageOutput // önizlemede fotoğraf görüntüsü
+import android.provider.OpenableColumns // dosya adı okumak için
 import com.jn.yazikart.video.VideoDownloader // video indirme
 import com.jn.yazikart.video.VideoExporter // video dışa aktarma
 import java.io.File // dosyalar
@@ -62,89 +66,229 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     private var imageJob: Job? = null // süren resim indirme
     private var videoJob: Job? = null // süren video indirme / dışa aktarma
 
-    private val _clips = MutableStateFlow<List<VideoClip>>(emptyList()) // arka plandaki videolar (sırayla)
-    val clips: StateFlow<List<VideoClip>> = _clips.asStateFlow() // ekranın okuyacağı videolar
+    private val _clips = MutableStateFlow<List<VideoClip>>(emptyList()) // sıradaki videolar ve fotoğraflar
+    val clips: StateFlow<List<VideoClip>> = _clips.asStateFlow() // ekranın okuyacağı sıra
 
-    // Önizleme oynatıcısı: videolar arka arkaya, seçilen aralıklarla, sürekli tekrar oynar
-    val player: ExoPlayer = ExoPlayer.Builder(app).build().apply { // önizleme oynatıcısı
+    private val _thumbs = MutableStateFlow<Map<String, Bitmap>>(emptyMap()) // her parçanın küçük resmi (adres → resim)
+    val thumbs: StateFlow<Map<String, Bitmap>> = _thumbs.asStateFlow() // ekranın okuyacağı küçük resimler
+
+    private val _music = MutableStateFlow<MusicTrack?>(null) // altta çalan müzik
+    val music: StateFlow<MusicTrack?> = _music.asStateFlow() // ekranın okuyacağı müzik
+
+    private val _videoSound = MutableStateFlow(true) // videoların kendi sesi açık mı
+    val videoSound: StateFlow<Boolean> = _videoSound.asStateFlow() // ekranın okuyacağı ses ayarı
+
+    private val _photoFrame = MutableStateFlow<Bitmap?>(null) // önizlemede o an gösterilen fotoğraf
+    val photoFrame: StateFlow<Bitmap?> = _photoFrame.asStateFlow() // ekranın okuyacağı fotoğraf karesi
+    private val _showingPhoto = MutableStateFlow(false) // önizlemede şu an fotoğraf mı oynuyor
+    val showingPhoto: StateFlow<Boolean> = _showingPhoto.asStateFlow() // ekranın okuyacağı durum
+
+    // Müzik oynatıcısı: önizlemede sıranın altında çalar
+    val musicPlayer: ExoPlayer = ExoPlayer.Builder(app).build().apply { repeatMode = Player.REPEAT_MODE_ONE } // şarkı bitince başa döner
+
+    // Önizleme oynatıcısı: videolar ve fotoğraflar arka arkaya, seçilen sürelerle, sürekli tekrar oynar
+    val player: ExoPlayer = ExoPlayer.Builder(app).build().apply {
         repeatMode = Player.REPEAT_MODE_ALL // sürekli tekrar
-        addListener(object : Player.Listener { // oynatma hatası olursa
+        setImageOutput(object : ImageOutput { // fotoğraf sırası gelince görüntüsü buraya gelir
+            override fun onImageAvailable(presentationTimeUs: Long, bitmap: Bitmap) { _photoFrame.value = bitmap } // ekranda gösterilecek fotoğraf
+            override fun onDisabled() {} // bir şey yapma
+        })
+        addListener(object : Player.Listener {
             override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
-                _message.value = "Video önizlemesi oynatılamadı. Kaydetmeyi yine de deneyebilirsin." // kullanıcıya söyleniyor (siyah ekranda kalmasın)
+                _message.value = "Önizleme oynatılamadı. Kaydetmeyi yine de deneyebilirsin." // kullanıcıya söyleniyor (siyah ekranda kalmasın)
+            }
+            override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
+                _showingPhoto.value = mediaItem?.mediaId?.startsWith("foto") == true // sıradaki parça fotoğraf mı
+                if (currentMediaItemIndex == 0 && reason != Player.MEDIA_ITEM_TRANSITION_REASON_PLAYLIST_CHANGED) restartMusic() // sıra başa dönünce müzik de başa döner
             }
         })
     }
 
-    private val videoDir = File(app.cacheDir, "videolar") // internetten inen videoların klasörü
+    private val mediaDir = File(app.cacheDir, "videolar") // uygulamanın kopyaladığı/indirdiği videolar ve fotoğraflar
 
-    // Oynatıcıyı güncel video listesine göre yeniden kurar
+    // Oynatıcıyı güncel sıraya göre yeniden kurar
     private fun syncPlayer(seekToIndex: Int = 0) {
         val c = _clips.value // güncel liste
-        if (c.isEmpty()) { player.stop(); player.clearMediaItems(); return } // video yoksa oynatıcı boş
-        player.setMediaItems( // her parça kırpma aralığıyla
-            c.map { clip ->
-                MediaItem.Builder().setUri(clip.uri) // dosya
+        if (c.isEmpty()) { player.stop(); player.clearMediaItems(); musicPlayer.pause(); _showingPhoto.value = false; return } // boşsa oynatıcı boş
+        player.setMediaItems( // her parça
+            c.mapIndexed { i, clip ->
+                if (clip.isPhoto) MediaItem.Builder().setUri(clip.uri).setMediaId("foto$i").setImageDurationMs(clip.lengthMs).build() // fotoğraf: belirlenen süre
+                else MediaItem.Builder().setUri(clip.uri).setMediaId("video$i") // video
                     .setClippingConfiguration(MediaItem.ClippingConfiguration.Builder().setStartPositionMs(clip.startMs).setEndPositionMs(clip.endMs).build()) // aralık
                     .build() // hazır
             },
             seekToIndex.coerceIn(0, c.lastIndex), 0L, // değişen parçanın başından oynat
         )
+        player.volume = if (_videoSound.value) 1f else 0f // video sesi ayarı
         player.prepare() // hazırla
         player.play() // oynat
+        restartMusic() // müzik de baştan
     }
 
-    // Galeriden ya da internetten gelen videoyu listenin sonuna ekler
-    fun addVideo(uri: Uri) {
-        if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} video eklenebilir."; return } // sınır
+    // Müziği seçilen saniyeden yeniden başlatır (sıra başa dönünce)
+    private fun restartMusic() {
+        val m = _music.value ?: return // müzik yoksa bir şey yapma
+        if (_clips.value.isEmpty()) return // sıra yoksa müzik çalmaz
+        musicPlayer.seekTo(m.startMs) // seçilen saniye
+        musicPlayer.volume = m.volume // ses seviyesi
+        if (player.playWhenReady) musicPlayer.play() // önizleme oynuyorsa müzik de çalar
+    }
+
+    // Galeriden seçilen (ya da paylaşılan) fotoğrafları ve videoları sıranın sonuna ekler
+    fun addMedia(uris: List<Uri>, copyVideos: Boolean = false) {
         viewModelScope.launch { // iş başlıyor
-            val duration = withContext(Dispatchers.IO) { // süre okuma arka planda
-                runCatching { // hata olabilir
-                    MediaMetadataRetriever().run { // video bilgisi okuyucu
-                        try { setDataSource(getApplication(), uri); extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() } // süre (ms)
-                        finally { release() } // okuyucu kapatılıyor
-                    }
-                }.getOrNull() // okunamazsa null
+            var added = 0 // eklenen sayısı
+            for (uri in uris) { // her dosya
+                if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} parça eklenebilir."; break } // sınır
+                val type = getApplication<Application>().contentResolver.getType(uri).orEmpty() // dosya türü
+                val isImage = type.startsWith("image/") || (type.isEmpty() && uri.toString().substringBefore('?').lowercase().let { it.endsWith(".jpg") || it.endsWith(".jpeg") || it.endsWith(".png") || it.endsWith(".webp") }) // fotoğraf mı
+                val ok = if (isImage) addPhotoInternal(uri) else addVideoInternal(uri, copyVideos) // türüne göre ekleniyor
+                if (ok) added++ // sayaç
             }
-            if (duration == null || duration < Clips.MIN_LENGTH_MS) { _message.value = "Bu video açılamadı, başka birini dene."; return@launch } // geçersiz
-            _image.value = null // video varken resim kullanılmaz
-            _clips.update { it + VideoClip(uri.toString(), duration) } // listeye eklendi
-            syncPlayer(_clips.value.lastIndex) // yeni videodan oynamaya başla
-            _message.value = "Video eklendi (${Clips.format(duration)})" // bilgi
+            if (added > 0) { // en az biri eklendiyse
+                _image.value = null // sıra varken tek arka plan resmi kullanılmaz
+                syncPlayer(_clips.value.lastIndex - added + 1) // yeni eklenenlerin ilkinden oynat
+                _message.value = if (added == 1) "Eklendi" else "$added parça eklendi" // bilgi
+            } else if (uris.isNotEmpty()) _message.value = "Bu dosya açılamadı, başka birini dene." // hiçbiri eklenemedi
         }
     }
 
-    // Bir videonun oynama aralığını değiştirir (kaydırırken çağrılır; oynatıcı bırakınca güncellenir)
+    // Tek video ekler (internetten inen)
+    fun addVideo(uri: Uri) = addMedia(listOf(uri)) // ortak yol
+
+    // Fotoğrafı 1920 piksele küçültüp uygulamanın klasörüne kopyalar ve sıraya ekler (telefon yorulmasın, dosya hafif olsun)
+    private suspend fun addPhotoInternal(data: Any): Boolean {
+        val ctx = getApplication<Application>() // uygulama bağlamı
+        val req = ImageRequest.Builder(ctx).data(data).size(1920).allowHardware(false).build() // en fazla 1920 piksel, döndürme (EXIF) düzeltilmiş
+        val bmp = ((ctx.imageLoader.execute(req) as? SuccessResult)?.drawable as? BitmapDrawable)?.bitmap ?: return false // fotoğraf açılıyor
+        val file = File(mediaDir, "foto_${System.nanoTime()}.jpg") // kopya dosyası
+        withContext(Dispatchers.IO) { mediaDir.mkdirs(); file.outputStream().use { bmp.compress(Bitmap.CompressFormat.JPEG, 90, it) } } // kaydediliyor
+        val uri = Uri.fromFile(file).toString() // adres
+        _clips.update { it + Clips.photo(uri) } // sıraya eklendi (3 sn)
+        _thumbs.update { it + (uri to scaled(bmp, 240)) } // küçük resmi
+        return true // eklendi
+    }
+
+    // Videonun süresini okuyup sıraya ekler (paylaşılan videolar kaybolmasın diye kopyalanabilir)
+    private suspend fun addVideoInternal(source: Uri, copy: Boolean): Boolean {
+        val ctx = getApplication<Application>() // uygulama bağlamı
+        val uri = if (!copy) source else withContext(Dispatchers.IO) { // gerekirse kopya
+            runCatching {
+                mediaDir.mkdirs() // klasör
+                val f = File(mediaDir, "video_${System.nanoTime()}.mp4") // kopya dosyası
+                ctx.contentResolver.openInputStream(source)!!.use { input -> f.outputStream().use { input.copyTo(it) } } // kopyalanıyor
+                Uri.fromFile(f) // kopyanın adresi
+            }.getOrNull()
+        } ?: return false // kopyalanamadıysa
+        val duration = withContext(Dispatchers.IO) { // süre okuma arka planda
+            runCatching {
+                MediaMetadataRetriever().run { // video bilgisi okuyucu
+                    try { setDataSource(ctx, uri); extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() } // süre (ms)
+                    finally { release() } // okuyucu kapatılıyor
+                }
+            }.getOrNull() // okunamazsa null
+        }
+        if (duration == null || duration < Clips.MIN_LENGTH_MS) return false // geçersiz
+        val key = uri.toString() // adres
+        _clips.update { it + VideoClip(key, duration) } // sıraya eklendi
+        viewModelScope.launch(Dispatchers.IO) { Thumbs.frame(ctx, key, 0L, 240)?.let { b -> _thumbs.update { it + (key to b) } } } // küçük resim arka planda
+        return true // eklendi
+    }
+
+    // Google Görseller'den seçilen görseli sıraya fotoğraf olarak ekler
+    fun addPhotoFromWeb(url: String, onDone: () -> Unit) {
+        if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} parça eklenebilir."; return } // sınır
+        viewModelScope.launch { // iş başlıyor
+            _busy.value = "Görsel yükleniyor…" // gösterge
+            val data: Any = if (url.startsWith("data:image")) runCatching { Base64.decode(url.substringAfter(","), Base64.DEFAULT) }.getOrDefault(ByteArray(0)) else url // gömülü ya da adres
+            val ok = runCatching { addPhotoInternal(data) }.getOrDefault(false) // ekleniyor
+            _busy.value = null // gösterge kapandı
+            if (ok) { _image.value = null; syncPlayer(_clips.value.lastIndex); _message.value = "Fotoğraf sıraya eklendi"; onDone() } // başarılı
+            else _message.value = "Görsel indirilemedi, başka bir tane dene." // hata
+        }
+    }
+
+    // Küçük resim için ölçekler
+    private fun scaled(b: Bitmap, maxPx: Int): Bitmap {
+        val s = minOf(1f, maxPx.toFloat() / maxOf(b.width, b.height)) // oran
+        return if (s >= 1f) b else Bitmap.createScaledBitmap(b, (b.width * s).toInt().coerceAtLeast(1), (b.height * s).toInt().coerceAtLeast(1), true) // küçültülmüş
+    }
+
+    // Kırpma penceresi için videodan kareler (arka planda)
+    suspend fun stripFor(clip: VideoClip, count: Int): List<Bitmap?> = withContext(Dispatchers.IO) { Thumbs.strip(getApplication(), clip.uri, clip.durationMs, count, 200) } // şerit
+    suspend fun frameAt(clip: VideoClip, ms: Long): Bitmap? = withContext(Dispatchers.IO) { Thumbs.frame(getApplication(), clip.uri, ms, 720, exact = true) } // tam kare
+
+    // Bir parçanın aralığını / süresini değiştirir (kaydırırken çağrılır; bırakınca oynatıcı güncellenir)
     fun setClipRange(index: Int, startMs: Long, endMs: Long) {
         _clips.update { list -> list.mapIndexed { i, c -> if (i == index) Clips.clampRange(c, startMs, endMs) else c } } // aralık düzeltilip yazılıyor
     }
 
-    // Aralık ayarı bitince oynatıcıyı o videodan başlatır
+    // Aralık ayarı bitince oynatıcıyı o parçadan başlatır
     fun commitClipRange(index: Int) = syncPlayer(index) // değişen parçadan oynat
 
-    // Videoyu bir sıra yukarı alır
-    fun moveClipUp(index: Int) { _clips.update { Clips.moveUp(it, index) }; syncPlayer(index - 1) } // sıra değişti
+    // Parçayı sola (öne) ya da sağa (arkaya) taşır
+    fun moveClip(from: Int, to: Int) { _clips.update { Clips.move(it, from, to) }; syncPlayer(to.coerceIn(0, _clips.value.lastIndex.coerceAtLeast(0))) } // sıra değişti
+    fun moveClipUp(index: Int) = moveClip(index, index - 1) // bir öne
 
-    // Videoyu listeden çıkarır (internetten indiyse dosyasını da siler)
+    // Parçayı listeden çıkarır (uygulamanın kopyasıysa dosyasını da siler)
     fun removeClip(index: Int) {
         val c = _clips.value.getOrNull(index) ?: return // yoksa bir şey yapma
         _clips.update { it.filterIndexed { i, _ -> i != index } } // listeden çıkarıldı
-        Uri.parse(c.uri).path?.let { p -> if (p.startsWith(videoDir.absolutePath)) File(p).delete() } // indirilen dosya siliniyor
+        if (_clips.value.none { it.uri == c.uri }) { // başka yerde kullanılmıyorsa
+            _thumbs.update { it - c.uri } // küçük resmi silindi
+            Uri.parse(c.uri).path?.let { p -> if (p.startsWith(mediaDir.absolutePath)) File(p).delete() } // kopya dosya siliniyor
+        }
         syncPlayer() // oynatıcı güncelleniyor
     }
 
-    // Tüm videoları kaldırır
+    // Tüm sırayı kaldırır
     private fun clearVideos() {
         _clips.value = emptyList() // liste boş
+        _thumbs.value = emptyMap() // küçük resimler boş
         syncPlayer() // oynatıcı durdu
-        videoDir.listFiles()?.forEach { it.delete() } // indirilen dosyalar silindi
+        mediaDir.listFiles()?.forEach { it.delete() } // kopyalar silindi
     }
+
+    // Müzik seçer (telefondaki ses dosyası)
+    fun setMusic(uri: Uri) {
+        viewModelScope.launch { // iş başlıyor
+            val ctx = getApplication<Application>() // uygulama bağlamı
+            val info = withContext(Dispatchers.IO) { // bilgiler arka planda
+                runCatching {
+                    val name = ctx.contentResolver.query(uri, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: "Müzik" // dosya adı
+                    val dur = MediaMetadataRetriever().run { try { setDataSource(ctx, uri); extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() } finally { release() } } // süre
+                    name.substringBeforeLast('.') to dur // ad ve süre
+                }.getOrNull()
+            }
+            val dur = info?.second // süre
+            if (info == null || dur == null || dur < 1000) { _message.value = "Bu ses dosyası açılamadı."; return@launch } // geçersiz
+            val m = MusicTrack(uri.toString(), info.first, dur) // müzik
+            _music.value = m // kaydedildi
+            musicPlayer.setMediaItem(MediaItem.fromUri(uri)) // oynatıcıya verildi
+            musicPlayer.prepare() // hazırla
+            restartMusic() // sıra varsa çalmaya başlar
+            _message.value = "Müzik eklendi: ${m.name}" // bilgi
+        }
+    }
+
+    // Müziğin başlangıç saniyesini değiştirir (kaydırırken)
+    fun setMusicStart(ms: Long) { _music.update { it?.copy(startMs = ms.coerceIn(0L, (it.durationMs - 1000).coerceAtLeast(0L))) } } // sınır içinde
+    // Başlangıç ayarı bitince müziği oradan çal
+    fun commitMusicStart() = restartMusic() // yeniden başlat
+    // Müzik sesi
+    fun setMusicVolume(v: Float) { _music.update { it?.copy(volume = v.coerceIn(0f, 1f)) }; musicPlayer.volume = _music.value?.volume ?: 0f } // anında duyulur
+    // Müziği kaldır
+    fun removeMusic() { _music.value = null; musicPlayer.stop(); musicPlayer.clearMediaItems() } // sessiz
+    // Videoların kendi sesi açık/kapalı
+    fun setVideoSound(on: Boolean) { _videoSound.value = on; player.volume = if (on) 1f else 0f } // anında duyulur
 
     // İnternetteki videoyu indirip ekler (sitede oynayan videonun ya da sitenin "İndir" düğmesinin adresi)
     fun downloadVideo(url: String, userAgent: String, cookies: String?, referer: String?, onDone: () -> Unit) {
         if (videoJob?.isActive == true) return // zaten bir iş sürüyorsa bekle
+        if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} parça eklenebilir."; return } // sınır
         videoJob = viewModelScope.launch { // iş başlıyor
             _busy.value = "Video iniyor…" // gösterge
-            val dest = File(videoDir, "video_${System.currentTimeMillis()}.mp4") // hedef dosya
+            val dest = File(mediaDir, "video_${System.currentTimeMillis()}.mp4") // hedef dosya
             val result = runCatching { // hata yakalanıyor
                 VideoDownloader.download(url, userAgent, cookies, referer, dest) { done, total -> // indiriliyor
                     _busy.value = if (total > 0) "Video iniyor ${done / 1_048_576}/${total / 1_048_576} MB" else "Video iniyor ${done / 1_048_576} MB" // ilerleme
@@ -160,12 +304,12 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     // Videoyu (yazısıyla birlikte) MP4 olarak hazırlar
     private suspend fun exportVideo(out: File): File {
-        player.pause() // dışa aktarırken önizleme durur (telefon yorulmasın)
+        player.pause(); musicPlayer.pause() // dışa aktarırken önizleme durur (telefon yorulmasın)
         val s = _style.value // güncel stil
         val tf = FontCatalog.typeface(getApplication<Application>().assets, s.fontIndex, s.bold) // yazı tipi
         val overlay = withContext(Dispatchers.Default) { PostRenderer.renderOverlay(s, tf, FontCatalog.needsFakeBold(s.fontIndex, s.bold)) } // yazı katmanı
         out.parentFile?.mkdirs() // klasör hazırlanıyor
-        return VideoExporter.export(getApplication(), _clips.value, overlay, out) { p -> _busy.value = "Video hazırlanıyor %$p" } // birleştir + kırp + yazıyı bas
+        return VideoExporter.export(getApplication(), _clips.value, overlay, out, _music.value, _videoSound.value) { p -> _busy.value = "Video hazırlanıyor %$p" } // birleştir + kırp + yazıyı bas + müzik
     }
 
     // Videoyu galeriye kaydeder
@@ -181,7 +325,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
             tmp.delete() // geçici dosya silindi
             _busy.value = null // gösterge kapandı
             _message.value = msg // mesaj
-            player.play() // önizleme devam
+            resumePreview() // önizleme devam
         }
     }
 
@@ -199,14 +343,15 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
                 { f -> runCatching { ImageExporter.shareVideo(getApplication(), f) }.onFailure { _message.value = "Paylaşılamadı: ${it.message}" } }, // paylaş
                 { _message.value = "Video hazırlanamadı: ${it.message}" }, // hata
             )
+            resumePreview() // önizleme devam
         }
     }
 
     // Uygulama arka plana gidince / dönünce önizlemeyi durdur / sürdür
-    fun pausePreview() = player.pause() // durdur
-    fun resumePreview() { if (_clips.value.isNotEmpty() && videoJob?.isActive != true) player.play() } // sürdür
+    fun pausePreview() { player.pause(); musicPlayer.pause() } // durdur
+    fun resumePreview() { if (_clips.value.isNotEmpty() && videoJob?.isActive != true) { player.play(); if (_music.value != null) musicPlayer.play() } } // sürdür
 
-    override fun onCleared() { player.release(); super.onCleared() } // oynatıcı kapatılıyor
+    override fun onCleared() { player.release(); musicPlayer.release(); super.onCleared() } // oynatıcılar kapatılıyor
 
     // Stili değiştirir ve kaydeder
     fun updateStyle(change: (PostStyle) -> PostStyle) {
@@ -219,6 +364,8 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         imageJob?.cancel() // süren resim indirme durduruluyor
         videoJob?.cancel() // süren video işi durduruluyor
         clearVideos() // videolar kaldırılıyor
+        removeMusic() // müzik kaldırılıyor
+        setVideoSound(true) // video sesi açık
         _style.value = PostStyle() // stil varsayılana dönüyor
         store.save(_style.value) // varsayılan stil kaydediliyor (sonraki açılışta da temiz)
         _image.value = null // arka plan resmi kaldırılıyor

@@ -20,7 +20,10 @@ import androidx.media3.transformer.ExportResult // dışa aktarma sonucu
 import androidx.media3.transformer.ProgressHolder // ilerleme yüzdesi
 import androidx.media3.transformer.Transformer // video işleyici
 import com.google.common.collect.ImmutableList // media3'ün istediği liste türü
-import com.jn.yazikart.data.VideoClip // video parçası
+import com.jn.yazikart.data.VideoClip // video / fotoğraf parçası
+import com.jn.yazikart.data.MusicTrack // müzik
+import androidx.media3.common.audio.ChannelMixingAudioProcessor // ses seviyesi
+import androidx.media3.common.audio.ChannelMixingMatrix // ses seviyesi çarpanı
 import kotlinx.coroutines.suspendCancellableCoroutine // geri çağrıyı bekleme
 import java.io.File // çıktı dosyası
 import kotlin.coroutines.resume // başarıyla devam
@@ -34,9 +37,11 @@ object VideoExporter {
     // Dışa aktarır; bitince çıktı dosyasını döndürür. onProgress 0..100 arası yüzde alır.
     suspend fun export(
         context: Context, // uygulama bağlamı
-        clips: List<VideoClip>, // arka arkaya videolar
+        clips: List<VideoClip>, // arka arkaya videolar ve fotoğraflar
         overlay: Bitmap, // yazı + karartma katmanı (çıktı boyutunda)
         out: File, // çıktı MP4 dosyası
+        music: MusicTrack?, // altta çalacak müzik (yoksa null)
+        videoSound: Boolean, // videoların kendi sesi kalsın mı
         onProgress: (Int) -> Unit, // ilerleme
     ): File = suspendCancellableCoroutine { cont -> // işlem bitene kadar beklenir
         out.delete() // eski dosya varsa siliniyor
@@ -47,19 +52,39 @@ object VideoExporter {
                 OverlayEffect(ImmutableList.of(BitmapOverlay.createStaticBitmapOverlay(overlay))), // yazıyı üstüne bas
             ),
         )
-        val items = clips.map { c -> // her video parçası
-            val media = MediaItem.Builder() // video tanımı
-                .setUri(c.uri) // dosya
-                .setClippingConfiguration( // kırpma aralığı
-                    MediaItem.ClippingConfiguration.Builder()
-                        .setStartPositionMs(c.startMs) // başlangıç
-                        .setEndPositionMs(c.endMs) // bitiş
-                        .build()
-                )
-                .build() // tanım hazır
-            EditedMediaItem.Builder(media).setEffects(effects).build() // efektli parça
+        val items = clips.map { c -> // her parça
+            if (c.isPhoto) { // fotoğraf: belirlenen süre boyunca duran görüntü
+                val media = MediaItem.Builder().setUri(c.uri).setImageDurationMs(c.lengthMs).build() // fotoğraf tanımı
+                EditedMediaItem.Builder(media) // düzenlenmiş fotoğraf
+                    .setDurationUs(c.lengthMs * 1000) // ekranda kalma süresi
+                    .setFrameRate(30) // saniyede 30 kare videoya çevrilir
+                    .setEffects(effects) // boyutlandırma + yazı
+                    .build() // hazır
+            } else { // video: seçilen aralık
+                val media = MediaItem.Builder() // video tanımı
+                    .setUri(c.uri) // dosya
+                    .setClippingConfiguration( // kırpma aralığı
+                        MediaItem.ClippingConfiguration.Builder()
+                            .setStartPositionMs(c.startMs) // başlangıç
+                            .setEndPositionMs(c.endMs) // bitiş
+                            .build()
+                    )
+                    .build() // tanım hazır
+                EditedMediaItem.Builder(media).setEffects(effects).setRemoveAudio(!videoSound).build() // efektli parça (istenirse sesi kapalı)
+            }
         }
-        val composition = Composition.Builder(EditedMediaItemSequence(items)) // arka arkaya dizi
+        val sequences = mutableListOf(EditedMediaItemSequence(items)) // görüntü dizisi
+        if (music != null) { // müzik varsa ikinci dizi olarak altta çalar
+            val volume = ChannelMixingAudioProcessor().apply { // müzik sesini ayarlayan işlemci
+                for (ch in 1..2) putChannelMixingMatrix(ChannelMixingMatrix.create(ch, ch).scaleBy(music.volume)) // tek ve çift kanallı sesler için
+            }
+            val track = MediaItem.Builder().setUri(music.uri) // şarkı
+                .setClippingConfiguration(MediaItem.ClippingConfiguration.Builder().setStartPositionMs(music.startMs).build()) // seçilen saniyeden başlar
+                .build() // hazır
+            val musicItem = EditedMediaItem.Builder(track).setRemoveVideo(true).setEffects(Effects(listOf(volume), emptyList())).build() // sadece ses, ayarlı seviyede
+            sequences += EditedMediaItemSequence(listOf(musicItem), true) // video bitene kadar tekrar eder
+        }
+        val composition = Composition.Builder(sequences) // görüntü dizisi + (varsa) müzik
             .experimentalSetForceAudioTrack(true) // sesi olmayan video olsa bile birleştirme çalışsın (sessiz ses eklenir)
             .setHdrMode(Composition.HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_OPEN_GL) // HDR telefon videoları normale çevrilir (renkler bozulmasın)
             .build() // birleştirme hazır

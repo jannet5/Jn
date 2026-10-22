@@ -72,8 +72,7 @@ fun FullscreenScreen(
     image: Bitmap?, // arka plan resmi
     onStyle: ((PostStyle) -> PostStyle) -> Unit, // stil değiştir
     onClose: () -> Unit, // tam ekrandan çık
-    hasVideo: Boolean = false, // arka planda video var mı
-    player: androidx.media3.common.Player? = null, // video oynatıcısı
+    video: VideoUi? = null, // sıra (video/fotoğraf), oynatıcı ve müzik
 ) {
     BackHandler(onBack = onClose) // telefonun geri tuşu tam ekrandan çıkarır
     var controls by rememberSaveable { mutableStateOf(true) } // düğmeler görünüyor mu
@@ -101,7 +100,7 @@ fun FullscreenScreen(
             val w = min(maxWidth, maxHeight * ratio) // ekrana sığan en büyük genişlik
             Box(Modifier.width(w).height(w / ratio)) { // görsel + kılavuz çizgileri üst üste
                 PostSurface(
-                    style, image, hasVideo, player, // görsel ya da video ve ayarları
+                    style, image, video, // görsel ya da sıra ve ayarlar
                     Modifier.fillMaxSize(), // görsel ekranı kaplıyor
                     canvasModifier = Modifier // yazı katmanındaki dokunmalar
                         .pointerInput(Unit) { // dokunmalar
