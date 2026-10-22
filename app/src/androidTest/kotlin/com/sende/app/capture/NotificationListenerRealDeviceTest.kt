@@ -136,8 +136,9 @@ class NotificationListenerRealDeviceTest {
 
         val tag = "e2e-" + System.currentTimeMillis()
         val log = StringBuilder()
+        // UiAutomation.executeShellCommand does not interpret quotes: every argument must be one word.
         fun post(text: String) {
-            log.append(shell("cmd notification post -S bigtext -t 'Ayse Yilmaz' $tag '$text'")).append('\n')
+            log.append(shell("cmd notification post -S bigtext -t Ayse_Yilmaz $tag ${text.replace(' ', '-')}")).append('\n')
         }
 
         post("randevu almak istiyorum")
@@ -167,7 +168,7 @@ class NotificationListenerRealDeviceTest {
         bindListenerAndPick(preferences)
 
         val tag = "e2m-" + System.currentTimeMillis()
-        val out = shell("cmd notification post -S messaging --conversation 'Mehmet Demir' --message 'Mehmet:lacivert var mi' $tag 'x'")
+        val out = shell("cmd notification post -S messaging --conversation Mehmet_Demir --message Mehmet:lacivert-var-mi $tag x")
         val arrived = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "lacivert" in it } } }
         val usage = if (arrived) "" else shell("cmd notification post")
         assertWithMessage("messaging notification never reached Room. ${whatTheAppSaw()} | shell said: ${oneLine(out)} | usage: ${oneLine(usage)}").that(arrived).isTrue()
