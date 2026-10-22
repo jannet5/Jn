@@ -56,7 +56,7 @@
     <string name="support_action">Google Play ile devam et</string>
     <string name="support_fine_print">Ödemeyi Google Play alır. İstediğin an Play Store\'dan iptal edebilirsin.</string>
     <string name="support_not_now">Şimdilik değil</string>
-    <string name="support_savings">%1$d%% tasarruf</string>
+    <string name="support_savings">%%%1$d tasarruf</string>
     <plurals name="support_months">
         <item quantity="one">%1$d ay</item>
         <item quantity="other">%1$d ay</item>
@@ -103,4 +103,5 @@
     <string name="share_sender_label">Paylaşım</string>
     <string name="share_intake_success">Sende\'ye eklendi</string>
     <string name="share_intake_duplicate">Zaten Sende\'de</string>
+    <string name="time_just_now">Şimdi</string>
 </resources>

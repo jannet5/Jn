@@ -19,6 +19,7 @@ import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -75,7 +76,7 @@ fun ChannelBar(
                 shape = CircleShape,
                 color = Tek.colors.surface,
                 border = BorderStroke(1.dp, Tek.colors.line),
-                modifier = Modifier.size(40.dp),
+                modifier = Modifier.minimumInteractiveComponentSize().size(40.dp),
             ) {
                 androidx.compose.foundation.layout.Box(contentAlignment = Alignment.Center) {
                     Icon(
@@ -98,6 +99,7 @@ private fun Bubble(label: String, selected: Boolean, unread: Int, icon: String?,
         color = if (selected) colors.accent.copy(alpha = 0.16f) else colors.surface,
         border = BorderStroke(1.dp, if (selected) colors.accent else colors.line),
         modifier = Modifier
+            .minimumInteractiveComponentSize()
             .height(40.dp)
             .clip(RoundedCornerShape(Tek.shapes.bubble))
             .clickable(role = Role.Tab, onClick = onClick)

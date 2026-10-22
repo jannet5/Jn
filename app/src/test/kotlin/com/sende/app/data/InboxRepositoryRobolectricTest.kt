@@ -112,6 +112,7 @@ class InboxRepositoryRobolectricTest {
     fun `pruning drops old handled messages and unreferenced pictures but never unread ones`() = runTest(timeout = 60.seconds) {
         val kept = media.save(byteArrayOf(1))
         val orphan = media.save(byteArrayOf(2))
+        File(orphan).setLastModified(System.currentTimeMillis() - 60 * 60 * 1000L) // long since forgotten
         repo.insertIfNew(message("old-read", at = 1_000, state = MessageState.READ))
         repo.insertIfNew(message("old-unread", at = 1_000, avatar = kept))
 
@@ -120,6 +121,18 @@ class InboxRepositoryRobolectricTest {
         assertThat(repo.countAll()).isEqualTo(1) // only the unread one survives
         assertThat(File(kept).exists()).isTrue()
         assertThat(File(orphan).exists()).isFalse()
+    }
+
+    @Test
+    fun `pruning keeps recently handled messages and a picture a capture is still saving`() = runTest(timeout = 60.seconds) {
+        val justSaved = media.save(byteArrayOf(3)) // saved a moment ago, its row is not in Room yet
+        repo.insertIfNew(message("recent-read", at = System.currentTimeMillis(), state = MessageState.READ))
+        repo.insertIfNew(message("exactly-old-hidden", at = System.currentTimeMillis() - Duration.ofDays(15).toMillis(), state = MessageState.HIDDEN))
+
+        repo.prune(Duration.ofDays(14))
+
+        assertThat(repo.countAll()).isEqualTo(1)
+        assertThat(File(justSaved).exists()).isTrue()
     }
 
     @Test

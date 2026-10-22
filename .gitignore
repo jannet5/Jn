@@ -17,3 +17,5 @@ captures/
 !app/sideload-test.jks
 !dist/*.apk
 release/keystore.properties
+# The private distribution key and the one-line secret made from it (tools/make_release_key.sh)
+release/

@@ -97,4 +97,5 @@
         <item quantity="many">%1$d شهرًا</item>
         <item quantity="other">%1$d شهر</item>
     </plurals>
+    <string name="time_just_now">الآن</string>
 </resources>

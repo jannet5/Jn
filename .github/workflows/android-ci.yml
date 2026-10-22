@@ -45,7 +45,7 @@ jobs:
           if grep -q "android.permission.INTERNET" "$M"; then echo "INTERNET permission found"; exit 1; fi
           grep -o 'uses-permission android:name="[^"]*"' "$M" | sort -u
       - name: Build debug and release APKs
-        run: ./gradlew :app:assembleSideloadDebug :app:assembleSideloadRelease :app:assemblePlayDebug --console=plain
+        run: ./gradlew :app:assembleSideloadDebug :app:assembleSideloadRelease :app:assemblePlayDebug :app:assemblePlayRelease --console=plain
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -123,7 +123,8 @@ jobs:
   #   https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk
   # Older assets are deleted so there is always exactly one current build (named with its date/time).
   release-apk:
-    needs: [unit-tests]
+    # Only a build that passed everything may become the public "latest" file.
+    needs: [unit-tests, preview-smoke, instrumented-tests]
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/tekpanel-greenfield-spec-6ngokp'
     runs-on: ubuntu-latest
     permissions:
@@ -136,7 +137,19 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-      - name: Build the minified, shared-key-signed sideload APK
+      - name: Unpack the private signing key (only when the repository secret exists)
+        env:
+          SENDE_SIGNING_B64: ${{ secrets.SENDE_SIGNING_B64 }}
+        run: |
+          if [ -n "$SENDE_SIGNING_B64" ]; then
+            mkdir -p "$RUNNER_TEMP/sende-signing"
+            echo "$SENDE_SIGNING_B64" | base64 -d | tar xz -C "$RUNNER_TEMP/sende-signing"
+            echo "SENDE_SIGNING_DIR=$RUNNER_TEMP/sende-signing" >> "$GITHUB_ENV"
+            echo "Signing with the private distribution key."
+          else
+            echo "No SENDE_SIGNING_B64 secret: signing with the PUBLIC test key (see tools/make_release_key.sh)."
+          fi
+      - name: Build the minified, signed sideload APK
         run: ./gradlew :app:assembleSideloadPreview --console=plain
       - name: Verify the APK before publishing it
         run: |
@@ -149,11 +162,16 @@ jobs:
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
           STAMP=$(TZ=Europe/Istanbul date +'%d.%m.%y %H.%M')
           SHA=$(sha256sum "$APK" | cut -d' ' -f1)
+          CERT=$("$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK" | grep "SHA-256 digest" | head -1 | sed 's/.*: //')
+          if [ -n "${SENDE_SIGNING_DIR:-}" ]; then SIGN="özel anahtar"; else SIGN="herkese açık TEST anahtarı"; fi
           cp "$APK" "Sende.apk"
           cp "$APK" "Sende $STAMP.apk"
-          NOTES="Son sürüm: $STAMP (Türkiye saati) · commit ${GITHUB_SHA::7} · SHA-256 $SHA"
+          NOTES="Son sürüm: $STAMP (Türkiye saati) · commit ${GITHUB_SHA::7} · yapı ${GITHUB_RUN_NUMBER} · imza: $SIGN ($CERT) · SHA-256 $SHA"
           gh release view son-surum >/dev/null 2>&1 || gh release create son-surum --prerelease --title "Sende son sürüm" --notes "$NOTES" --target "$GITHUB_SHA"
-          gh release view son-surum --json assets -q '.assets[].name' | while IFS= read -r name; do gh release delete-asset son-surum "$name" -y; done
-          gh release upload son-surum "Sende.apk" "Sende $STAMP.apk"
+          # Upload the new files first (replacing the stable name in place), only then remove the old dated copies:
+          # the link never points at nothing, even if this job is cancelled half way.
+          gh release upload son-surum "Sende.apk" "Sende $STAMP.apk" --clobber
+          KEEP="Sende.apk|Sende.${STAMP// /.}.apk"
+          gh release view son-surum --json assets -q '.assets[].name' | grep -Ev "^($KEEP)$" | while IFS= read -r name; do gh release delete-asset son-surum "$name" -y; done
           gh release edit son-surum --notes "$NOTES" --title "Sende son sürüm ($STAMP)"
           echo "https://github.com/${GITHUB_REPOSITORY}/releases/download/son-surum/Sende.apk"

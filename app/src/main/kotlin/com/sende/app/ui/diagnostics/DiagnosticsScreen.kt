@@ -35,7 +35,6 @@ fun DiagnosticsScreen(viewModel: DiagnosticsViewModel = koinViewModel()) {
             add("Bildirim erişimi" to if (state.snapshot.notificationAccessGranted) "Açık" else "Kapalı")
             add("Dinleyici bağlı mı" to if (state.snapshot.listenerConnected) "Bağlı" else "Bağlı değil")
             add("Son bağlanma" to (state.snapshot.lastConnectedAt?.toString() ?: "-"))
-            add("Son görülen paket" to (state.snapshot.lastSeenPackage ?: "-"))
             add("Son karar" to (state.snapshot.lastDecisionReason?.name ?: "-"))
             add("Son karar zamanı" to (state.snapshot.lastDecisionAt?.toString() ?: "-"))
             add("Son kabul zamanı" to (state.snapshot.lastAcceptedAt?.toString() ?: "-"))

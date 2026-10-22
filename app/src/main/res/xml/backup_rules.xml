@@ -5,6 +5,7 @@
     <exclude domain="database" path="sende_inbox.db" />
     <exclude domain="database" path="sende_inbox.db-shm" />
     <exclude domain="database" path="sende_inbox.db-wal" />
+    <exclude domain="database" path="sende_inbox.db-journal" />
     <include domain="sharedpref" path="." />
     <include domain="file" path="." />
     <exclude domain="file" path="media/" />

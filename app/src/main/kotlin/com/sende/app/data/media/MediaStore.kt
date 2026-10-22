@@ -29,8 +29,10 @@ class MediaStore(context: Context) {
 
     /** Removes every stored file that is not in [referencedPaths]; returns how many were removed. */
     suspend fun deleteUnreferenced(referencedPaths: Set<String>): Int = withContext(Dispatchers.IO) {
+        // Files younger than a few minutes may belong to a capture that has not reached Room yet.
+        val cutoff = System.currentTimeMillis() - FRESH_FILE_MILLIS
         dir.listFiles().orEmpty()
-            .filter { it.absolutePath !in referencedPaths }
+            .filter { it.absolutePath !in referencedPaths && it.lastModified() < cutoff }
             .count { it.delete() }
     }
 
@@ -38,4 +40,8 @@ class MediaStore(context: Context) {
 
     private fun sha256(bytes: ByteArray): String =
         MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }
+
+    private companion object {
+        const val FRESH_FILE_MILLIS = 10 * 60 * 1000L
+    }
 }

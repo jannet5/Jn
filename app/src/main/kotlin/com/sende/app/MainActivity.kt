@@ -8,6 +8,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.sende.app.ui.common.LocalAppIconLoader
 import com.sende.app.ui.common.LocalMediaLoader
+import com.sende.app.ui.common.ProvideClock
 import com.sende.app.ui.main.MainScreen
 import com.sende.app.ui.theme.SendeTheme
 import org.koin.compose.koinInject
@@ -23,8 +24,10 @@ class MainActivity : ComponentActivity() {
                 LocalAppIconLoader provides koinInject(),
                 LocalMediaLoader provides koinInject(),
             ) {
-                SendeTheme {
-                    MainScreen()
+                ProvideClock {
+                    SendeTheme {
+                        MainScreen()
+                    }
                 }
             }
         }

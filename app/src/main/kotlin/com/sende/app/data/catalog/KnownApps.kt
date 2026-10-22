@@ -19,6 +19,13 @@ object KnownApps {
         "com.zhiliaoapp.musically",
         "com.ss.android.ugc.trill",
         "com.twitter.android",
+    )
+
+    /**
+     * Text-message apps: ranked high in the picker but NOT pre-selected, because SMS carries bank and
+     * login codes that Sende would otherwise store without the user ever having chosen to.
+     */
+    val SMS: Set<String> = setOf(
         "com.google.android.apps.messaging",
         "com.samsung.android.messaging",
         "com.android.mms",
@@ -26,7 +33,7 @@ object KnownApps {
     )
 
     /** Popular chat/mail apps: not pre-selected, but ranked above the alphabetical tail. */
-    val POPULAR: Set<String> = DEFAULT_ON + setOf(
+    val POPULAR: Set<String> = DEFAULT_ON + SMS + setOf(
         "com.facebook.katana",
         "org.thoughtcrime.securesms",
         "com.viber.voip",

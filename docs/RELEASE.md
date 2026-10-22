@@ -1,175 +1,145 @@
-# Sende — Yayın Belgesi
+# Sende — Yayın belgesi
 
-## 1. Bu oturumun derleme kanıtı
+Bu belge "nasıl derlenir, nasıl imzalanır, Play'e ne yazılır, kim ne yapar" sorularının güncel
+cevabıdır. Ayrıntılı araştırma: `docs/arastirma/09-google-play-yayin-rehberi-turkiye.md`
+(hesap, kapalı test, politika, ret riski). Eski sürümlerin tablosu ve dosya eşlemesi kaldırıldı;
+kodun güncel yapısı için `docs/MIMARI.md`.
 
-| Artifact | Tarih (UTC) | Boyut | SHA-256 |
-|---|---|---|---|
-| `Sende-debug-20260927.apk` | 2026-09-27 | 21 415 087 bayt | `3ec247332af172dcad1b88ae0ca00d5749de8e8288fe4aefacec17801e5f0115` |
-| `Sende-release-unsigned-20260927.apk` | 2026-09-27 | 2 552 452 bayt | `0a5fafd249a9281bc1938e20c579962ff1cea18fb5ce12a4a85dc13b503ae0b9` |
+## 1. İki sürüm, üç komut
 
-Nasıl üretildi (tekrarlanabilir):
+- `sideload`: telefona doğrudan kurulan APK. İnternet izni YOK, ödeme kodu yok.
+- `play`: Google Play sürümü. Play Billing (destek planları) var. Billing kütüphanesi
+  kendiliğinden INTERNET izni getirir (ölçüldü, `docs/SORUNLAR_COZUMLER.md` S-14). Uygulama
+  kodu mesaj verisini ağa göndermez; bu fark gizlilik metninde açıkça yazılı (§4).
+
+Komutlar (kökten):
 ```
-./gradlew :app:testDebugUnitTest :app:assembleDebug :app:assembleRelease
-sha256sum app/build/outputs/apk/debug/app-debug.apk
-sha256sum app/build/outputs/apk/release/app-release-unsigned.apk
+./gradlew :app:testSideloadDebugUnitTest                 # birim + ekran görüntüsü testleri
+./gradlew :app:assembleSideloadPreview                   # telefona kurulacak küçültülmüş APK
+./gradlew :app:bundlePlayRelease -PversionCode=12        # Play'e yüklenecek AAB
 ```
-Debug APK doğrudan `adb install -r Sende-debug-20260927.apk` ile bir Android telefona
-kurulabilir (bildirim erişimi izni ister). Release APK henüz **imzasızdır** (bkz. §5) —
-Play Console'a bu haliyle yüklenemez, önce gerçek bir anahtarla imzalanmalıdır.
+- APK çıktısı: `app/build/outputs/apk/sideload/preview/app-sideload-preview.apk`
+  (paket adı `com.sende.app.preview`).
+- AAB çıktısı: `app/build/outputs/bundle/playRelease/app-play-release.aab`.
+- `versionCode`: CI'da koşu numarasıdır (her APK öncekinin güncellemesi olur). Play yüklemesinde
+  her seferinde artan bir sayıyı elle ver (`-PversionCode=N`). `versionName` şimdilik `0.1.0`.
+- Ekranların PNG'leri `app/build/shots/` altına düşer (`-Proborazzi.test.record=true`).
 
-Testler: **35/35 geçti** (JVM/Robolectric, `./gradlew test`). 27'si saf JVM birim testleri
-(`MessageNormalizerTest`, `MessageFilterEngineTest`, `FingerprintTest`, `DuplicateGuardTest`);
-9'u Robolectric ile gerçek `android.app.Notification`/`StatusBarNotification` nesneleri ve
-gerçek bellek-içi Room veritabanı kullanan uçtan uca testler
-(`NotificationExtractorRobolectricTest`, `CaptureCoordinatorRobolectricTest`).
+## 2. Otomatik kontroller (her push, `.github/workflows/android-ci.yml`)
 
-Ayrıca **gerçek, hızlandırılmış bir Android emülatöründe** (bu sandbox'ta değil — GitHub
-Actions'ın KVM'li runner'larında, bkz. `.github/workflows/android-ci.yml`) 2 instrumented
-test daha var (`NotificationListenerRealDeviceTest`): bildirim erişimi gerçekten veriliyor,
-`SendeNotificationListenerService` gerçek sisteme gerçekten bağlanıyor, gerçek OS-üretimi
-bir bildirim doğru ayrıştırılıyor. Son doğrulanmış çalıştırma:
-https://github.com/jannet5/Jn/actions/runs/36496578477 (her push'ta otomatik tekrar çalışır).
+- Birim + Robolectric + ekran görüntüsü testleri (130'dan fazla test).
+- Sideload manifestinde INTERNET izni olmadığının denetimi; "kullanıcının kendi bildirimini
+  silme/erteleme kodu yok" denetimi.
+- Play sürümünün R8'li release derlemesi (kural eksikliği burada patlar).
+- Gerçek emülatörde (Android 8, 11, 14, 16): dinleyici gerçekten bağlanıyor mu, başka uygulamadan
+  gelen bildirim Room'a tam bir kez düşüyor mu, aynı anahtarla gelen yeni mesaj kaybolmuyor mu.
+  (Android 8'de çapraz uygulama senaryoları atlanır: `cmd notification post` Android 11'de gelir.)
+- Küçültülmüş APK'nın emülatörde kurulup açılması (`.github/scripts/preview-smoke.sh`).
+- Hepsi geçerse `son-surum` yayını güncellenir:
+  `https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk`.
 
-`MessageNormalizer`'ın alan önceliği (MessagingStyle > bigText > textLines > text) ayrıca
-WhatsApp/Instagram bildirimlerini okuyan bağımsız açık kaynak projelerle çapraz doğrulandı
-(bkz. DECISIONS.md §8) — hâlâ eksik olan, gerçek bir hesapla gerçek bir telefonda anlık
-doğrulama (bkz. ROADMAP.md).
+## 3. Üç ayrı imza anahtarı (karıştırma)
 
-## 2. Şartname → kod eşleme tablosu (CAP-01..17)
+1. **Herkese açık TEST anahtarı** (`app/sideload-test.jks`, şifre `sende-test`, depoda). Yalnız
+   debug ve emülatör testleri içindir. Bununla imzalı APK'yı herkes "güncelleme" diye üretebilir;
+   kimseye güven vermez.
+2. **Dağıtım anahtarı** (özel). Başkalarına verdiğin APK'yı imzalar. Bir kerelik kurulum:
+   `bash tools/make_release_key.sh` çıktısındaki tek satırı GitHub'a `SENDE_SIGNING_B64` adlı
+   depo sırrı olarak ekle (Settings > Secrets and variables > Actions). CI bunu görünce APK'yı
+   onunla imzalar ve sürüm notuna parmak izini yazar. Anahtar dosyalarını güvenli yerde yedekle:
+   kaybedersen kurulu kopyalar güncellenemez. Anahtarı ilk gerçek kullanıcıdan ÖNCE kur;
+   sonradan değişirse herkes uygulamayı silip yeniden kurmak zorunda kalır.
+3. **Play yükleme anahtarı** (özel, Play App Signing ile). `release/keystore.properties`:
+   ```
+   storeFile=release/sende-upload.jks
+   storePassword=...
+   keyAlias=sende
+   keyPassword=...
+   ```
+   (`storeFile` depo köküne göre yazılır; `release/` git'e girmez.) Anahtarı üret:
+   ```
+   keytool -genkeypair -v -keystore release/sende-upload.jks -alias sende \
+     -keyalg RSA -keysize 4096 -validity 10000
+   ```
+   Dosya yokken `assemblePlayRelease` imzasız çıkar (derlenir ama kurulmaz).
 
-| Madde | Karşılayan dosya(lar) |
-|---|---|
-| CAP-01 Bildirim erişimi | `ui/inbox/EmptyStates.kt` (`NotificationAccessMissingState`), `util/NotificationAccessChecker.kt` |
-| CAP-02 Kurulu kanalları keşfetme | `data/catalog/SourceAppCatalog.kt`, `InstalledAppDetector.kt`, manifest `<queries>` |
-| CAP-03 Kanal seçimi | `data/prefs/AppPreferences.kt`, `data/repository/ChannelRepository.kt`, `ui/channels/*` |
-| CAP-04 Bildirim yakalama | `capture/SendeNotificationListenerService.kt`, `NotificationExtractor.kt` |
-| CAP-05 Normalizasyon | `capture/MessageNormalizer.kt`, `domain/model/InboxMessage.kt` |
-| CAP-06 Filtreleme | `capture/MessageFilterEngine.kt`, `PromotionalHeuristics.kt` |
-| CAP-07 Duplicate önleme | `capture/Fingerprint.kt`, `DuplicateGuard.kt`, `data/local/InboxMessageEntity.kt` (unique index) |
-| CAP-08 Kalıcı yerel inbox | `data/local/SendeDatabase.kt`, `res/xml/data_extraction_rules.xml` |
-| CAP-09 Tek ekran | `ui/inbox/InboxScreen.kt` |
-| CAP-10 Mesaj kartı | `ui/inbox/MessageCard.kt` |
-| CAP-11 Kanal filtreleri | `ui/inbox/ChannelFilterRow.kt` |
-| CAP-12 Okundu/kaldırma | `InboxViewModel.markRead`, `MessageCard.kt` |
-| CAP-13 Ekranı tertemiz yap | `InboxViewModel.clearActive/undoClear`, `ui/common/ConfirmDialog.kt` |
-| CAP-14 Kaynağa gitme | `util/IntentLauncher.kt`, `capture/LiveIntentRegistry.kt` |
-| CAP-15 ACTION_SEND yedek | `capture/ShareIntakeActivity.kt` |
-| CAP-16 Tanılama | `diagnostics/DiagnosticsRecorder.kt`, `ui/diagnostics/*` |
-| CAP-17 Dışa aktar/sil | `export/DataExporter.kt`, `domain/usecase/EraseAllDataUseCase.kt` |
+## 4. Gizlilik politikası (taslak; yayından önce hukuki gözden geçirme)
 
-## 3. Gizlilik politikası (taslak — EN, yayından önce hukuki gözden geçirme önerilir)
+Barındırma: herkese açık bir URL'de, PDF değil (GitHub Pages yeterli). Mağazada VE uygulama
+içinde bağlantı olmalı.
 
-> **Sende Privacy Policy (draft)**
->
-> Sende reads notifications from messaging apps you explicitly choose, using Android's
-> Notification Access permission, which you can revoke at any time in Android Settings.
-> Sende stores the notification's visible title, message text, sender name, source app,
-> and timestamp **only on your device**, in a local database. Sende does not have a
-> server, does not send any data over the network, and does not use analytics or
-> advertising SDKs. Notification content is excluded from Android's automatic cloud backup.
-> You can export your local data as a JSON file at any time (you choose where it goes), and
-> you can permanently delete all local data from the app's channel settings. Uninstalling
-> the app deletes all of its local data. Sende does not access message history inside
-> the source apps, does not log in to any account, and cannot read messages that never
-> produced a visible notification.
+**Türkçe**
+> Sende, yalnızca senin seçtiğin uygulamaların bildirimlerini, Android'in "Bildirim erişimi" izniyle
+> okur; izni ayarlardan istediğin an kapatabilirsin. Bildirimdeki başlığı, mesaj metnini, gönderen
+> adını, varsa profil fotoğrafını ve gelen resmi, kaynak uygulamayı ve zamanı YALNIZCA telefonunda,
+> yerel bir veritabanında ve uygulamanın kendi dosyalarında saklar. Sende'nin sunucusu yoktur,
+> mesaj verini ağa göndermez; reklam veya analiz yazılımı içermez. Bu veriler Android'in bulut
+> yedeğine girmez. Kanal listesini göstermek için telefondaki uygulamaların adlarını ve simgelerini
+> okur (bu liste de cihazdan çıkmaz). Verini dışa aktarabilir veya uygulama içinden tamamen
+> silebilirsin; uygulamayı kaldırınca hepsi silinir. Sende kaynak uygulamalardaki geçmiş mesajlara
+> erişmez, hiçbir hesabına giriş yapmaz, bildirimleri silmez ve ertelemez.
+> Google Play sürümünde, destek planları için Google Play Faturalandırma kullanılır; bu bağlantıyı
+> Google yönetir ve mesaj verin ona verilmez.
 
-**Not:** Play Console, uygulamayı yayınlamadan önce bu politikanın herkese açık bir URL'de
-barındırılmasını zorunlu kılar (Play Console → App content → Privacy policy). Bu, kullanıcı
-tarafından bir web sayfasına (örn. GitHub Pages, basit bir statik sayfa) konmalıdır.
+**English**
+> Sende reads notifications only from apps you choose, through Android's Notification Access
+> permission, which you can turn off at any time. It stores the visible title, message text, sender
+> name, the sender's profile picture and any picture in the notification, the source app and the
+> time ONLY on your phone, in a local database and the app's own files. Sende has no server, does
+> not send your message data over the network and contains no advertising or analytics code. This
+> data is excluded from Android's cloud backup. To show your channel list it reads the names and
+> icons of the apps on your phone (that list never leaves the device either). You can export or
+> delete everything inside the app; uninstalling removes it all. Sende does not read message
+> history inside other apps, never logs in to your accounts, and never dismisses or snoozes your
+> notifications. In the Google Play version, supporter plans use Google Play Billing; Google
+> operates that connection and your message data is never passed to it.
 
-## 4. Data safety (Play Console formu) eşlemesi
+## 5. Play "Veri güvenliği" formu (Console'da asıl kaynak Google'ın tanımıdır)
 
-Play Console'un "Data safety" formundaki sorulara verilecek dürüst cevaplar:
+Google'ın tanımında "toplamak" verinin cihazdan dışarı iletilmesidir; yalnız cihazda işlenen
+veri beyan edilmez. Bu yüzden önerilen cevaplar:
 
-- **Veri toplanıyor mu?** Evet — ama cihaz dışına **hiç gönderilmiyor**.
-- **Toplanan veri türleri:** Messages (bildirim başlığı/metni/gönderen adı) — yalnızca
-  cihazda saklanıyor, sunucuya iletilmiyor.
-- **Veri paylaşılıyor mu?** Hayır.
-- **Veri şifreli iletiliyor mu?** Uygulanamaz — ağ iletimi yok.
-- **Kullanıcı veri silme isteyebilir mi?** Evet, uygulama içinden ("Tüm yerel veriyi sil").
-- **Bu veri toplama isteğe bağlı mı?** Kullanıcı hangi kanalların dinleneceğini seçer;
-  bildirim erişimi izni olmadan hiçbir veri okunmaz.
+- Veri toplanıyor mu: HAYIR (mesajlar, kişi adları, fotoğraflar yalnız cihazda).
+- Veri paylaşılıyor mu: HAYIR.
+- Güvenlik: veri iletilmediği için "şifreli iletim" uygulanamaz; kullanıcı verisini silme yolu
+  uygulama içinde (Menü > Tüm yerel veriyi sil).
+- Billing kütüphanesinin kendi veri akışı için Console'daki soruları Google'ın yönergesine göre
+  işaretle (satın alma bilgisi); emin olmadığında Play desteğine sor. (İlk taslakta "Mesajlar
+  toplanıyor: Evet" yazıyordu; yanlıştı ve mağazada gereksiz uyarı çıkarırdı.)
+- "İnternet izni yok" cümlesi YALNIZCA sideload APK için doğrudur; Play mağaza metnine yazma.
 
-## 5. İmzalama (release keystore)
+## 6. Mağaza metni (taslak; ayrıntı ve karakter ölçümleri: araştırma 09 §10)
 
-Bu depoya **hiçbir zaman** gerçek bir keystore veya şifre commit edilmemelidir (`.gitignore`
-bunu zaten engelliyor: `*.jks`, `*.keystore`, `release/keystore.properties`).
+- Başlık: `Sende: Müşteri Mesajları` (24). Başlıkta WhatsApp/Instagram adı geçmez (marka kuralı).
+- Kısa açıklama (≤80): `Müşteri bildirimlerin tek sade ekranda. Verilerin telefonunda kalır.`
+- Uzun açıklama: önceki taslaktaki madde işaretleri geçerli (kanal seçimi, tam mesaj, okundu,
+  dışa aktar/sil, sunucu yok); en alta "WhatsApp, Instagram ve diğer adlar ilgili sahiplerine
+  aittir; Sende bunlarla bağlantılı değildir" notu. "Silinen mesajı gör" gibi vaatler YOK.
+- Ekran görüntüleri: uydurma müşteri adlarıyla, uygulama logoları öne çıkmadan
+  (`app/build/shots/` altındakilerden üretilir; çerçeveli sürümler marka çalışmasında).
 
-Adımlar (kullanıcının kendi güvenli makinesinde/ortamında):
-```
-keytool -genkeypair -v -keystore release/sende-release.jks \
-  -alias sende -keyalg RSA -keysize 2048 -validity 10000
-```
-Sonra `release/keystore.properties` dosyasını oluşturun (bu dosya git'e girmez):
-```
-storeFile=sende-release.jks
-storePassword=<gerçek şifre>
-keyAlias=sende
-keyPassword=<gerçek şifre>
-```
-`app/build.gradle.kts` bu dosya varsa otomatik olarak `release` build type'ına imzalama
-uygular; dosya yoksa `assembleRelease` imzasız üretir (bu oturumdaki gibi). Anahtarı ve
-şifreleri kaybetmeyin — Play App Signing kullanılsa bile yükleme anahtarınız (upload key)
-kaybolursa Google ile destek süreci gerekir.
+## 7. Senin yapacakların (ajan yapamaz)
 
-AAB üretimi (Play Console `.aab` ister, `.apk` değil):
-```
-./gradlew :app:bundleRelease
-```
+Ayrıntılı kontrol listesi: `docs/arastirma/09-google-play-yayin-rehberi-turkiye.md` sonu.
+Kritik yol, kısaca:
 
-## 6. Mağaza listeleme metinleri (taslak)
+1. Mali müşavire hesap türünü sor (kişisel mi, şirket/şahıs şirketi mi); para kazanınca kişisel
+   hesapta tam adresin mağazada görünür.
+2. Yalnız bu iş için yeni bir Google hesabı + Play Console kaydı (25 USD, bir kez).
+3. Kimlik ve cihaz doğrulaması.
+4. Yeni kişisel hesapta: en az 12 test kullanıcısı, 14 gün kesintisiz kapalı test, sonra
+   "üretim erişimi" başvurusu (≈4 hafta). Gerçek esnaflardan 15–20 kişi bul.
+5. Gizlilik politikasını bir URL'ye koy; Veri güvenliği ve içerik derecelendirme formlarını §5'e
+   göre doldur.
+6. §3'teki 2. ve 3. anahtarı üret, yedekle, AAB'yi yükle.
+7. Marka/ad taraması: Play'de "Sende" adlı başka bir uygulama var (`docs/MARKA_ADI_KONTROL.md`);
+   TÜRKPATENT/WIPO taramasını yaptır.
 
-### English
-- **Short description (80 char max):** New customer messages from WhatsApp, Instagram &
-  more — in one screen.
-- **Full description:**
-  Sende collects new customer messages from the messaging and social apps you choose —
-  WhatsApp, WhatsApp Business, Instagram, TikTok, Messenger, Facebook, Telegram, X, and
-  SMS — into one simple screen on your phone.
-  
-  No more checking five apps to see if a customer wrote to you. Sende reads only the
-  notifications you already receive, keeps everything on your device, and never logs into
-  any of your accounts.
-  
-  • Choose exactly which apps Sende watches
-  • See the full message, not a cut-off preview
-  • Mark a message done, or open the real app in one tap
-  • Export or delete your local data anytime
-  • Nothing is ever sent to a server — Sende has none
+## 8. Yayın öncesi son kontrol
 
-### Türkçe
-- **Kısa açıklama (80 karakter):** WhatsApp, Instagram ve daha fazlasından yeni müşteri
-  mesajları — tek ekranda.
-- **Tam açıklama:**
-  Sende, seçtiğin mesajlaşma ve sosyal medya uygulamalarından — WhatsApp, WhatsApp
-  Business, Instagram, TikTok, Messenger, Facebook, Telegram, X ve SMS — gelen yeni müşteri
-  mesajlarını telefonunda tek, sade bir ekranda toplar.
-
-  Müşterin yazdı mı diye beş uygulamayı tek tek açmana gerek yok. Sende yalnızca zaten
-  aldığın bildirimleri okur, her şeyi cihazında tutar ve hiçbir hesabına giriş yapmaz.
-
-  • Sende'nin hangi uygulamaları izleyeceğini sen seç
-  • Kesilmiş önizleme değil, mesajın tamamını gör
-  • Bir dokunuşla okundu işaretle veya gerçek uygulamayı aç
-  • Yerel verini istediğin an dışa aktar veya sil
-  • Hiçbir şey bir sunucuya gönderilmez — Sende'nin sunucusu yok
-
-## 7. Yalnızca kullanıcının yapabileceği adımlar (⛔ ajan bunları yapamaz)
-
-Bunların hepsi Google'ın gerçek bir insan kimliği ve ödeme yöntemi istediği adımlardır:
-
-1. [play.google.com/console](https://play.google.com/console) üzerinden geliştirici hesabı
-   aç, 25$ tek seferlik kayıt ücretini öde.
-2. Geliştirici Dağıtım Sözleşmesi'ni kabul et, kimlik doğrulamasını (D-U-N-S/kimlik belgesi
-   vb.) tamamla.
-3. Yeni uygulama oluştur, §6'daki metinleri ve bir gizlilik politikası URL'sini gir.
-4. İçerik derecelendirme anketini doldur (Sende için beklenen sonuç: geniş yaş grubu,
-   kullanıcı tarafından üretilen içerik yok).
-5. Data safety formunu §4'teki eşlemeye göre doldur.
-6. §5'e göre imzalanmış bir `.aab` üret ve yükle.
-7. Ülke/fiyatlandırma seç (öneri: ücretsiz, tüm ülkeler veya hedeflenen TR/FR/BAE pazarları).
-8. İncelemeye gönder.
-
-Bu adımların her biri tamamlandığında, bu depodaki kod ve belgeler bir sonraki oturumda
-yardımcı olmak için hazır: örneğin "Play Console'dan şu hata geldi" denirse hata mesajıyla
-birlikte devam edilebilir.
+- [ ] CI'ın tamamı yeşil, `son-surum` APK'sı telefonda kurulup denendi.
+- [ ] Gerçek WhatsApp / Instagram bildirimiyle uçtan uca deneme (yalnız gerçek telefonda yapılabilir).
+- [ ] Sideload manifestinde INTERNET yok; Play manifestindeki ağ izinleri gizlilik metniyle uyumlu.
+- [ ] Birleşmiş manifestlerde eski "tekpanel" kalıntısı yok (`./gradlew clean` sonrası bak).
+- [ ] Gizlilik politikası URL'si canlı; uygulamadan bağlantı çalışıyor.
+- [ ] Kapalı test: 12+ kişi, 14 gün, geri bildirim kaydı tutuldu.

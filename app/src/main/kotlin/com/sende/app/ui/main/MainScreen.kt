@@ -192,8 +192,10 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
             onOpenApp = viewModel::openConversation,
             onReply = viewModel::reply,
             onCopy = { text ->
-                copyToClipboard(context, text)
-                viewModel.onCopied()
+                if (text.isNotBlank()) {
+                    copyToClipboard(context, text)
+                    viewModel.onCopied()
+                }
             },
             onPicture = { path -> viewerPath = path },
             onSupport = { menuOpen = false; showSupport = true },
@@ -275,5 +277,8 @@ private fun hasInternetPermission(context: Context): Boolean = runCatching {
 
 private fun copyToClipboard(context: Context, text: String) {
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    clipboard.setPrimaryClip(ClipData.newPlainText("message", text))
+    val clip = ClipData.newPlainText("message", text)
+    // Customer messages can hold codes and addresses: keep them out of clipboard previews and history.
+    clip.description.extras = android.os.PersistableBundle().apply { putBoolean("android.content.extra.IS_SENSITIVE", true) }
+    clipboard.setPrimaryClip(clip)
 }

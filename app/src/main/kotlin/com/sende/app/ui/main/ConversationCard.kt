@@ -57,6 +57,7 @@ import com.sende.app.ui.common.AppIcon
 import com.sende.app.ui.common.Avatar
 import com.sende.app.ui.common.rememberStoredImage
 import com.sende.app.ui.theme.Tek
+import com.sende.app.ui.common.LocalNow
 import com.sende.app.util.TimeFormatter
 
 /**
@@ -125,7 +126,11 @@ fun ConversationCard(
                             )
                             .wrapContentHeight(Alignment.CenterVertically),
                     )
-                    ReadButton(onClick = { onMarkRead(conversation.messages.map { it.id }) })
+                    // The collapsed card shows one message but stands for all of them: say so.
+                    ReadButton(
+                        label = stringResource(if (conversation.count > 1) R.string.action_mark_all_read else R.string.action_mark_read),
+                        onClick = { onMarkRead(conversation.messages.map { it.id }) },
+                    )
                 }
             } else {
                 Column(
@@ -198,7 +203,7 @@ private fun Header(conversation: Conversation, appLabel: String, level: Level, o
         }
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = TimeFormatter.relative(conversation.lastAt).toString(),
+                text = TimeFormatter.relative(conversation.lastAt, LocalNow.current, stringResource(R.string.time_just_now)).toString(),
                 style = MaterialTheme.typography.labelSmall,
                 color = colors.textSecondary,
             )
@@ -283,7 +288,7 @@ private fun MessageRow(
                 // content (pictures, long text) keeps the full width of the box.
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 2.dp)) {
                     Text(
-                        text = TimeFormatter.relative(message.receivedAt).toString(),
+                        text = TimeFormatter.relative(message.receivedAt, LocalNow.current, stringResource(R.string.time_just_now)).toString(),
                         style = MaterialTheme.typography.labelSmall,
                         color = colors.textSecondary,
                         modifier = Modifier.weight(1f),
@@ -313,7 +318,7 @@ private fun PictureThumb(path: String, big: Boolean, onClick: () -> Unit) {
         if (bitmap != null) {
             Image(
                 bitmap = bitmap,
-                contentDescription = null,
+                contentDescription = stringResource(R.string.message_photo),
                 contentScale = if (big) ContentScale.FillWidth else ContentScale.Crop,
                 modifier = if (big) Modifier.fillMaxWidth() else Modifier.size(48.dp),
             )
@@ -322,10 +327,10 @@ private fun PictureThumb(path: String, big: Boolean, onClick: () -> Unit) {
 }
 
 @Composable
-private fun ReadButton(onClick: () -> Unit) {
+private fun ReadButton(onClick: () -> Unit, label: String = stringResource(R.string.action_mark_read)) {
     TextButton(onClick = onClick, contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = 10.dp, vertical = 4.dp)) {
         Text(
-            text = stringResource(R.string.action_mark_read),
+            text = label,
             style = MaterialTheme.typography.labelMedium,
             color = Tek.colors.accent,
         )

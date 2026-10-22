@@ -10,13 +10,22 @@ plugins {
 }
 
 // Release signing reads from release/keystore.properties, which is git-ignored and never
-// committed (see docs/RELEASE.md "İmzalama"). Falls back to debug signing when absent so
-// `assembleRelease` still works for local/CI builds before a real release key exists.
+// committed (see docs/RELEASE.md "İmzalama"). When it is absent the release build is simply
+// left unsigned (it still compiles and minifies, so CI can check R8; it cannot be installed).
 val releaseKeystoreProperties = Properties().apply {
     val propsFile = rootProject.file("release/keystore.properties")
     if (propsFile.exists()) propsFile.inputStream().use { load(it) }
 }
 val hasReleaseSigningConfig = releaseKeystoreProperties.getProperty("storeFile") != null
+
+// The private key for the APK that is handed to people. CI unpacks it from a repository secret into
+// SENDE_SIGNING_DIR (tools/make_release_key.sh explains the one-time setup); anywhere else the public
+// test key below is used, which is fine for your own phone but proves nothing to anyone else.
+val distSigningDir = System.getenv("SENDE_SIGNING_DIR")?.let { file(it) }
+    ?.takeIf { it.resolve("sende-dist.jks").exists() && it.resolve("sende-dist.properties").exists() }
+val distSigningProperties = Properties().apply {
+    distSigningDir?.resolve("sende-dist.properties")?.inputStream()?.use { load(it) }
+}
 
 android {
     namespace = "com.sende.app"
@@ -30,6 +39,17 @@ android {
             storePassword = "sende-test"
             keyAlias = "sideload"
             keyPassword = "sende-test"
+        }
+    }
+
+    if (distSigningDir != null) {
+        signingConfigs {
+            create("distribution") {
+                storeFile = distSigningDir.resolve("sende-dist.jks")
+                storePassword = distSigningProperties.getProperty("storePassword")
+                keyAlias = distSigningProperties.getProperty("keyAlias")
+                keyPassword = distSigningProperties.getProperty("keyPassword")
+            }
         }
     }
 
@@ -77,12 +97,12 @@ android {
             applicationIdSuffix = ".debug"
             signingConfig = signingConfigs.getByName("sideload")
         }
-        // Minified like release (~2.5 MB vs ~21 MB debug) but signed with the debug key so it
-        // can be sideloaded for testing. Separate applicationId so it never collides with a
-        // future Play-signed com.sende.app install.
+        // Minified like release (~2.5 MB vs ~21 MB debug) and signed so it can be sideloaded: with the
+        // private distribution key when CI has it, else the public test key. Separate applicationId so
+        // it never collides with a future Play-signed com.sende.app install.
         create("preview") {
             initWith(getByName("release"))
-            signingConfig = signingConfigs.getByName("sideload")
+            signingConfig = signingConfigs.findByName("distribution") ?: signingConfigs.getByName("sideload")
             applicationIdSuffix = ".preview"
             matchingFallbacks += listOf("release")
         }
