@@ -324,7 +324,9 @@ yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
 ### 3.2 Türkiye vergi rejimi (ticari kaynaklar; çelişki var)
 
 - Uyarı: aşağıdakiler vergi danışmanlığı sitelerinden. Hukuki/mali görüş
-  değil; mali müşavir şart. İki kaynak 2026 üst sınırı farklı veriyor.
+  değil; mali müşavir şart. İlk turda iki kaynak 2026 üst sınırını farklı
+  veriyordu; ikinci turda 5,3 mn TL olarak netleşti (aşağıda). Diğer
+  çelişkiler (GİB özelgesi / Danıştay) hâlâ açık.
 - Yol 1, bireysel + özel banka hesabı (GVK Mükerrer 20/B): vergi
   dairesinden "Sosyal İçerik Üreticiliği ve Mobil Uygulama
   Geliştiriciliği İstisna Belgesi" alınır, Türkiye'de özel hesap açılır.
@@ -1583,8 +1585,9 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   sayıldığı belirsiz.
 - YAP: Bir test takip tablosu tut (kişi, Play hesabı e-postası, katıldığı
   gün, son görüldüğü gün, ne denedi, ne dedi). Her 3-4 günde bir pasif
-  olanlara yaz; 5 günden fazla sessizse yenisini ekle. Neden: gerçek örnekte
-  iki ret "pasif kullanıcı" yüzündendi, üçüncüde (aktif takip) geçti.
+  olanlara yaz; 5 günden fazla sessizse yenisini ekle. Neden: 4.4'teki
+  örnekte (tek kaynak) iki ret "yetersiz etkileşim"di, üçüncüde (aktif
+  takip) geçti.
 - YAP: Davet metnine "Bağlantıya tıkla, 'Test kullanıcısı ol' de, Play'den
   kur, 14 gün çıkma, haftada en az 2 kez aç" yaz. Neden: yalnız e-posta
   listesine eklemek yetmez, kişi bağlantıdan kendisi katılmalı.
@@ -1650,25 +1653,34 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 
 - YAP: Başlık "Sende: Müşteri Mesajları" (24), kısa açıklama 77
   karakter; TR öncelikli, EN/AR/FR sonra. Neden: Türkçe "müşteri mesajları"
-  aramasında ürün yok (21 Ekim 2026 gözlemi); baş terimlerde (bildirim
-  geçmişi) kalabalık.
+  aramasında bizim gibi bir ürün yok (21-22 Ekim 2026 gözlemi); baş
+  terimlerde (bildirim geçmişi) kalabalık. Not: "Shopxare: Müşteri
+  Mesajları" aynı kalıbı kullanıyor (canlı destek gelen kutusu); kısa
+  açıklamada "bildirimlerin" vurgusu şart. Yedek: "Sende: Bildirim ve
+  Mesajlar" (27).
 - YAP: Uzun açıklamada "bildirim geçmişi/kaydedici/yöneticisi" birer kez,
-  marka notu en altta.
-- YAP: Mağaza deneyi (listing experiment) ile ikon/ekran görüntüsü
-  A/B; ama önce yayın.
+  marka notu en altta. Neden: Play Türkçe ek varyantlarını büyük ölçüde
+  aynı sayıyor (10.2b); "bildirimler/bildirimi" diye yığma.
+- YAP: Mağaza deneyi (listing experiment) ile ikon/ekran görüntüsü/açıklama
+  A/B; ama yalnız YAYINDAKİ uygulamada ve başlık denenmez. Önce yayın.
+- YAP: Sürüm notlarını dil başına ≤500 karakterde tut (TR/EN/AR/FR);
+  "puan ver" gibi eylem çağrısı yazma.
 
 ## Kurucunun yapacağı adımlar (kontrol listesi)
 
 - [ ] 1. Hesap türü kararı: kişisel (hızlı) mı kuruluş mu? (mali müşavire sor)
-- [ ] 2. Mali müşavire sor: 20/B istisnası mı şahıs şirketi mi; stopaj;
-      ETBİS; KVKK/VERBİS; Play ödemesinin banka hesabına akışı.
+- [ ] 2. Mali müşavire sor: 20/B istisnası mı (2026 sınırı 5.300.000 TL;
+      aşılırsa kazancın tamamı beyan) şahıs şirketi mi; stopaj; ETBİS;
+      KVKK/VERBİS; Play ödemesinin (aylık ~15'i, TRY) banka hesabına akışı.
 - [ ] 3. Yalnız bu iş için yeni bir Google hesabı aç (2 adımlı doğrulama açık).
 - [ ] 4. Play Console'a kaydol: 25 USD (uluslararası/online işleme açık,
       prepaid olmayan kart).
 - [ ] 5. Kimlik belgesi hazırla (geçerli, renkli, net, fotokopi değil; ad/adres
       ödeme profiliyle aynı).
 - [ ] 6. Cihaz doğrulaması: Android 10+ gerçek telefonda Play Console mobil
-      uygulaması.
+      uygulaması. Ardından iletişim e-postası + telefonu tek kullanımlık
+      kodla doğrula (Android developer verification bildirimleri için de
+      gerekli).
 - [ ] 7. (Kuruluş yolu) D-U-N-S başvurusunu ücretsiz kanaldan yap; web sitesi
       doğrulaması.
 - [ ] 8. Ödeme profili / satıcı hesabı, banka doğrulaması (5 güne kadar),
@@ -1684,7 +1696,9 @@ https://support.google.com/googleplay/android-developer/answer/9859655
        Veri güvenliği).
 - [ ] 13. Gizlilik politikasını herkese açık bir adreste yayınla (PDF değil).
 - [ ] 14. Kapalı test kanalı/kanalları aç; 15-20 gerçek esnafı davet et;
-       "14 gün boyunca çıkma" talimatını ver.
+       "14 gün boyunca çıkma" talimatını ver. Davet bağlantısı yalnız
+       kanal "Yayınlandı" olunca çıkar; bağlantı birkaç saat gecikebilir.
+       Her kişinin bağlantıdan KATILDIĞINI tek tek kontrol et.
 - [ ] 15. Ülke listesine test kullanıcılarının Play ülkesini ekle (Türkiye).
 - [ ] 16. 14 gün boyunca en az 2 güncelleme yükle; geri bildirimi bir dosyada topla.
 - [ ] 17. Lisans test hesaplarını ekle; 4 abonelik planı (monthly, quarterly,
@@ -1699,6 +1713,16 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - [ ] 22. Gerçek telefonda GitHub APK'sını kurup Play Protect davranışını dene
        ve sonucu bana yaz.
 - [ ] 23. (Opsiyonel) DSA trader beyanı kararı: AB'ye açmadan önce.
+- [ ] 24. Üretim erişimi formunu sayı ve sürüm numarasıyla doldur (kaç kişi
+       14 günü tamamladı, hangi sürümde hangi geri bildirimi çözdük).
+       Reddedilirse yeniden başvurmadan ÖNCE bana ret metnini ilet.
+- [ ] 25. Ret e-postası gelirse: cümleyi aynen kaydet, Policy status sayfasına
+       bak, düzelt, yeniden gönder. Google'ın yeniden gönderim yönergesi
+       "destek ekibinden yanıt beklemeden" göndermeye izin veriyor (bir
+       dev.to yazısının alıntısı; yönergeyi kendim açmadım). Tüm yayın
+       kanallarındaki uyumsuz paketleri de devre dışı bırak, yoksa
+       yeniden gönderim başarısız olur.
+- [ ] 26. Her sürümde Sürüm notları ≤500 karakter/dil; "puan ver" yazma.
 
 ## Bizim hazırlayıp vereceğimiz dosyalar (kontrol listesi)
 
@@ -1728,4 +1752,19 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - [ ] 14. Developer verification kontrol listesi (paket adı, anahtar, kayıt
       adımları).
 - [ ] 15. `play-policy-insights` taraması çıktısı (araştırma 07).
-- [ ] 16. Sürüm notları (TR/EN) ve ilk 7 gün izleme listesi (vitals, yorum).
+- [ ] 16. Sürüm notları (TR/EN/AR/FR, her biri ≤500 karakter, sayaç betiği)
+      ve ilk 7 gün izleme listesi (vitals, yorum).
+- [ ] 17. Test kullanıcısı takip tablosu şablonu (kişi, Play e-postası, katılım
+      günü, son görülme, ne denedi, geri bildirim, ek tarih) + haftalık
+      yoklama mesajı şablonu.
+- [ ] 18. Tanılama ekranına, mesaj İÇERİĞİ olmayan, yalnız sayaç içeren
+      "kullanım özeti" paylaşımı (test kullanıcısı bize gönderir). SDK yok.
+- [ ] 19. İnceleyici notuna "kurulu uygulama listesi neden okunur, dışarı
+      gitmez" paragrafı; politika ve izin öncesi ekranla birebir aynı cümle.
+- [ ] 20. Mağaza metninde Meta/WhatsApp ifadesi denetimi (başlıkta yok; düz
+      metin, bir kez; "silinen mesaj" vaadi yok; marka notu).
+- [ ] 21. Ret karşılama kitabı: ret e-postasındaki politika adı → hangi form
+      bölümü → düzeltme → tekrar gönderim; Policy status ve App content
+      denetim listesi.
+- [ ] 22. İlk yüklemeden önce paket adı denetimi: com.sende.app kesinleşti mi,
+      sideload için ayrı applicationId kararı verildi mi.
