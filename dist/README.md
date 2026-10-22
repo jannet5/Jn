@@ -28,6 +28,7 @@ https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk
 - Bu APK'nın izin listesi çok kısa: yalnızca "açılışta yeniden bağlan" (RECEIVE_BOOT_COMPLETED).
   İnternet izni YOK; yani mesajlarını bir yere gönderemez (CI her değişiklikte bunu denetler).
 - Aynı sabit imza anahtarıyla imzalıdır; sonraki sürümler üstüne kurulur, verilerin silinmez.
+  Her yapının sürüm numarası (versionCode) CI koşu numarasıdır; yani her yeni APK bir öncekinin güncellemesi sayılır.
 - Paket adı: com.sende.app.preview. Google Play'e çıkacak sürüm ayrıdır (com.sende.app).
 - Doğrulama: indirdiğin dosyanın SHA-256 değeri, sürüm sayfasındaki değerle aynı olmalı.
 

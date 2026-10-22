@@ -48,7 +48,11 @@ android {
         applicationId = "com.sende.app"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
+        // CI passes its run number, so every published APK is a valid in-place update over the last one
+        // (Android only accepts an update whose versionCode is not lower). Play uploads: -PversionCode=N.
+        versionCode = (findProperty("versionCode") as String?)?.toIntOrNull()
+            ?: System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull()
+            ?: 1
         versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
