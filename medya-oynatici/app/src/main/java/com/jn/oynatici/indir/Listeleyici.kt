@@ -132,10 +132,10 @@ object Listeleyici {
     // ("Medya" bölümü misafire kapalı; giriş yapılmışsa o kullanılır, çerez geçersizse yine misafir olarak denenir.)
     private suspend fun galeriListe(ctx: Context, isi: IndirmeIsi, url: String, kullanici: String): ListeSonucu {
         val n = isi.sayi // istenen sayı
-        fun secenekler(cerez: String?) = mutableListOf( // ortak seçenekler
+        fun secenekler(cerez: String?, onbellek: java.io.File) = mutableListOf( // ortak seçenekler
             "-o", "ratelimit=abort", // sınır aşılırsa 15 dakika bekleme, o ana kadar bulunanlarla devam et
             "-o", "retweets=false", "-o", "quoted=false", "-o", "pinned=false", // sadece kendi gönderileri (sabitlenmiş gönderi sırayı bozmasın)
-            "--cache-file", java.io.File(ctx.cacheDir, "gdl-onbellek.sqlite3").absolutePath, // misafir anahtarı önbelleği
+            "--cache-file", onbellek.absolutePath, // oturum önbelleği
             "--filter", "type in ('video','animated_gif')", // sadece videolar
             "--range", "1-${n * 2}", // en fazla 2N dosya (bir gönderide birden çok video olabilir; sonra gönderiye göre tekilleştirilir)
             "-N", "{tweet_id}\t{user[nick]}\thttps://x.com/{author[name]}/status/{tweet_id}", // her dosya için tek satır
@@ -143,7 +143,7 @@ object Listeleyici {
         val cerez = Cerezler.kopyaYolu(ctx) // çerez dosyası (varsa)
         if (cerez != null && Cerezler.dosyadaGirisVar(cerez, Platform.X)) { // X'e giriş yapılmış: Medya bölümü daha hızlı
             try {
-                val sonuc = satirlardan(Motor.galeriCalistir(ctx, secenekler(cerez) + "$url/media", isi.id), n, kullanici) // girişli liste
+                val sonuc = satirlardan(Motor.galeriCalistir(ctx, secenekler(cerez, java.io.File(ctx.cacheDir, "gdl-onbellek.sqlite3")) + "$url/media", isi.id), n, kullanici) // girişli liste
                 if (sonuc.ogeler.isNotEmpty()) return sonuc // bulunduysa bitti
             } catch (e: YoutubeDL.CanceledException) {
                 throw e // iptal
@@ -151,7 +151,13 @@ object Listeleyici {
                 if (!girisHatasiMi(e.message ?: "")) throw e // giriş dışı hata (örn. kullanıcı yok)
             } // oturum düşmüşse aşağıda misafir olarak dene
         }
-        return satirlardan(Motor.galeriCalistir(ctx, secenekler(null) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
+        // Misafir anahtarının istek hakkı (15 dakikada 50 sayfa) anahtar başına: her listelemede yeni anahtar alınsın diye ayrı, geçici önbellek
+        val misafirOnbellek = java.io.File(ctx.cacheDir, "gdl-misafir-${java.util.UUID.randomUUID()}.sqlite3") // bu işe özel
+        return try {
+            satirlardan(Motor.galeriCalistir(ctx, secenekler(null, misafirOnbellek) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
+        } finally {
+            ctx.cacheDir.listFiles { f -> f.name.startsWith(misafirOnbellek.name) }?.forEach { it.delete() } // işi bitince sil (yanındaki -journal dosyasıyla)
+        }
     }
 
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
