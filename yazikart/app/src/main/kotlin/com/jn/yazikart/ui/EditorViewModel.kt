@@ -31,7 +31,10 @@ import com.jn.yazikart.video.VideoDownloader // video indirme
 import com.jn.yazikart.video.VideoExporter // video dışa aktarma
 import java.io.File // dosyalar
 import kotlinx.coroutines.Dispatchers // arka plan iş parçacıkları
+import kotlinx.coroutines.CancellationException // iptal sinyali (yakalanıp yutulmaz)
 import kotlinx.coroutines.Job // iptal edilebilir iş
+import kotlinx.coroutines.sync.Mutex // parçaların sıraya tek tek girmesi için kilit
+import kotlinx.coroutines.sync.withLock // kilidi kullanma
 import kotlinx.coroutines.flow.MutableStateFlow // değiştirilebilir durum
 import kotlinx.coroutines.flow.SharingStarted // akış paylaşım ayarı
 import kotlinx.coroutines.flow.StateFlow // okunabilir durum
@@ -65,6 +68,9 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     private var imageJob: Job? = null // süren resim indirme
     private var videoJob: Job? = null // süren video indirme / dışa aktarma
+    private val addLock = Mutex() // galeriden / indirilen parçalar sıraya tek tek girer (en çok 10 kuralı bozulmasın)
+    private var inForeground = true // uygulama ekranda mı (arka plandayken önizleme kendiliğinden çalmaz)
+    private var exporting = false // video hazırlanıyor mu (hazırlanırken önizleme çalmaz)
 
     private val _clips = MutableStateFlow<List<VideoClip>>(emptyList()) // sıradaki videolar ve fotoğraflar
     val clips: StateFlow<List<VideoClip>> = _clips.asStateFlow() // ekranın okuyacağı sıra
@@ -109,7 +115,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     // Oynatıcıyı güncel sıraya göre yeniden kurar
     private fun syncPlayer(seekToIndex: Int = 0) {
         val c = _clips.value // güncel liste
-        if (c.isEmpty()) { player.stop(); player.clearMediaItems(); musicPlayer.pause(); _showingPhoto.value = false; return } // boşsa oynatıcı boş
+        if (c.isEmpty()) { player.stop(); player.clearMediaItems(); musicPlayer.pause(); _showingPhoto.value = false; _photoFrame.value = null; return } // boşsa oynatıcı boş
         player.setMediaItems( // her parça
             c.mapIndexed { i, clip ->
                 if (clip.isPhoto) MediaItem.Builder().setUri(clip.uri).setMediaId("foto$i").setImageDurationMs(clip.lengthMs).build() // fotoğraf: belirlenen süre
@@ -121,15 +127,26 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         )
         player.volume = if (_videoSound.value) 1f else 0f // video sesi ayarı
         player.prepare() // hazırla
-        player.play() // oynat
+        if (inForeground && !exporting) player.play() // ekrandaysa oynat (arka plandayken ya da kayıt sürerken sessizce hazır bekler)
         restartMusic() // müzik de baştan
     }
 
-    // Müziği seçilen saniyeden yeniden başlatır (sıra başa dönünce)
+    // Müziği seçilen saniyeden başlayacak şekilde oynatıcıya yükler (önizleme, kayıtla aynı parçayı çalar)
+    private fun loadMusicItem() {
+        val m = _music.value ?: return // müzik yoksa bir şey yapma
+        musicPlayer.setMediaItem(
+            MediaItem.Builder().setUri(m.uri)
+                .setClippingConfiguration(MediaItem.ClippingConfiguration.Builder().setStartPositionMs(m.startMs).build()) // seçilen saniyeden
+                .build(),
+        )
+        musicPlayer.prepare() // hazırla
+    }
+
+    // Müziği baştan çalar (sıra başa dönünce); parça zaten seçilen saniyeden başladığı için 0'a gitmek yeterli
     private fun restartMusic() {
         val m = _music.value ?: return // müzik yoksa bir şey yapma
         if (_clips.value.isEmpty()) return // sıra yoksa müzik çalmaz
-        musicPlayer.seekTo(m.startMs) // seçilen saniye
+        musicPlayer.seekTo(0) // parçanın başı
         musicPlayer.volume = m.volume // ses seviyesi
         if (player.playWhenReady) musicPlayer.play() // önizleme oynuyorsa müzik de çalar
     }
@@ -137,19 +154,21 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     // Galeriden seçilen (ya da paylaşılan) fotoğrafları ve videoları sıranın sonuna ekler
     fun addMedia(uris: List<Uri>, copyVideos: Boolean = false) {
         viewModelScope.launch { // iş başlıyor
-            var added = 0 // eklenen sayısı
-            for (uri in uris) { // her dosya
-                if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} parça eklenebilir."; break } // sınır
-                val type = getApplication<Application>().contentResolver.getType(uri).orEmpty() // dosya türü
-                val isImage = type.startsWith("image/") || (type.isEmpty() && uri.toString().substringBefore('?').lowercase().let { it.endsWith(".jpg") || it.endsWith(".jpeg") || it.endsWith(".png") || it.endsWith(".webp") }) // fotoğraf mı
-                val ok = if (isImage) addPhotoInternal(uri) else addVideoInternal(uri, copyVideos) // türüne göre ekleniyor
-                if (ok) added++ // sayaç
+            addLock.withLock { // aynı anda gelen eklemeler sırayla girer
+                var added = 0 // eklenen sayısı
+                for (uri in uris) { // her dosya
+                    if (_clips.value.size >= Clips.MAX_CLIPS) { _message.value = "En fazla ${Clips.MAX_CLIPS} parça eklenebilir."; break } // sınır
+                    val type = getApplication<Application>().contentResolver.getType(uri).orEmpty() // dosya türü
+                    val isImage = type.startsWith("image/") || (type.isEmpty() && uri.toString().substringBefore('?').lowercase().let { it.endsWith(".jpg") || it.endsWith(".jpeg") || it.endsWith(".png") || it.endsWith(".webp") }) // fotoğraf mı
+                    val ok = attempt { if (isImage) addPhotoInternal(uri) else addVideoInternal(uri, copyVideos) }.getOrDefault(false) // türüne göre ekleniyor (bozuk dosya atlanır)
+                    if (ok) added++ // sayaç
+                }
+                if (added > 0) { // en az biri eklendiyse
+                    _image.value = null // sıra varken tek arka plan resmi kullanılmaz
+                    syncPlayer(_clips.value.lastIndex - added + 1) // yeni eklenenlerin ilkinden oynat
+                    _message.value = if (added == 1) "Eklendi" else "$added parça eklendi" // bilgi
+                } else if (uris.isNotEmpty()) _message.value = "Bu dosya açılamadı, başka birini dene." // hiçbiri eklenemedi
             }
-            if (added > 0) { // en az biri eklendiyse
-                _image.value = null // sıra varken tek arka plan resmi kullanılmaz
-                syncPlayer(_clips.value.lastIndex - added + 1) // yeni eklenenlerin ilkinden oynat
-                _message.value = if (added == 1) "Eklendi" else "$added parça eklendi" // bilgi
-            } else if (uris.isNotEmpty()) _message.value = "Bu dosya açılamadı, başka birini dene." // hiçbiri eklenemedi
         }
     }
 
@@ -188,10 +207,12 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
                 }
             }.getOrNull() // okunamazsa null
         }
-        if (duration == null || duration < Clips.MIN_LENGTH_MS) return false // geçersiz
+        if (duration == null || duration < Clips.MIN_LENGTH_MS) { deleteCopy(uri.toString()); return false } // geçersiz: kopyası silinir
         val key = uri.toString() // adres
         _clips.update { it + VideoClip(key, duration) } // sıraya eklendi
-        viewModelScope.launch(Dispatchers.IO) { Thumbs.frame(ctx, key, 0L, 240)?.let { b -> _thumbs.update { it + (key to b) } } } // küçük resim arka planda
+        viewModelScope.launch(Dispatchers.IO) { // küçük resim arka planda
+            Thumbs.frame(ctx, key, 0L, 240)?.let { b -> _thumbs.update { m -> if (_clips.value.any { it.uri == key }) m + (key to b) else m } } // parça hâlâ sırada ise
+        }
         return true // eklendi
     }
 
@@ -201,7 +222,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         viewModelScope.launch { // iş başlıyor
             _busy.value = "Görsel yükleniyor…" // gösterge
             val data: Any = if (url.startsWith("data:image")) runCatching { Base64.decode(url.substringAfter(","), Base64.DEFAULT) }.getOrDefault(ByteArray(0)) else url // gömülü ya da adres
-            val ok = runCatching { addPhotoInternal(data) }.getOrDefault(false) // ekleniyor
+            val ok = addLock.withLock { attempt { addPhotoInternal(data) }.getOrDefault(false) } // sıraya tek tek girerek ekleniyor
             _busy.value = null // gösterge kapandı
             if (ok) { _image.value = null; syncPlayer(_clips.value.lastIndex); _message.value = "Fotoğraf sıraya eklendi"; onDone() } // başarılı
             else _message.value = "Görsel indirilemedi, başka bir tane dene." // hata
@@ -227,7 +248,12 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     fun commitClipRange(index: Int) = syncPlayer(index) // değişen parçadan oynat
 
     // Parçayı sola (öne) ya da sağa (arkaya) taşır
-    fun moveClip(from: Int, to: Int) { _clips.update { Clips.move(it, from, to) }; syncPlayer(to.coerceIn(0, _clips.value.lastIndex.coerceAtLeast(0))) } // sıra değişti
+    fun moveClip(from: Int, to: Int) {
+        val before = _clips.value // eski sıra
+        _clips.update { Clips.move(it, from, to) } // taşınıyor
+        if (_clips.value == before) return // yer değişmediyse önizleme baştan başlamasın
+        syncPlayer(to.coerceIn(0, _clips.value.lastIndex.coerceAtLeast(0))) // sıra değişti
+    }
     fun moveClipUp(index: Int) = moveClip(index, index - 1) // bir öne
 
     // Parçayı listeden çıkarır (uygulamanın kopyasıysa dosyasını da siler)
@@ -236,7 +262,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         _clips.update { it.filterIndexed { i, _ -> i != index } } // listeden çıkarıldı
         if (_clips.value.none { it.uri == c.uri }) { // başka yerde kullanılmıyorsa
             _thumbs.update { it - c.uri } // küçük resmi silindi
-            Uri.parse(c.uri).path?.let { p -> if (p.startsWith(mediaDir.absolutePath)) File(p).delete() } // kopya dosya siliniyor
+            deleteCopy(c.uri) // kopya dosya siliniyor
         }
         syncPlayer() // oynatıcı güncelleniyor
     }
@@ -245,8 +271,24 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     private fun clearVideos() {
         _clips.value = emptyList() // liste boş
         _thumbs.value = emptyMap() // küçük resimler boş
+        _photoFrame.value = null // son fotoğraf karesi de bırakılır
         syncPlayer() // oynatıcı durdu
-        mediaDir.listFiles()?.forEach { it.delete() } // kopyalar silindi
+        if (videoJob?.isActive != true) mediaDir.listFiles()?.forEach { it.delete() } // kopyalar silindi (indirme / kayıt sürüyorsa dosyaları silme)
+    }
+
+    // Uygulamanın kendi kopyasıysa dosyasını siler (galeri dosyasına dokunmaz); indirme ya da kayıt sürerken silmez
+    private fun deleteCopy(uri: String) {
+        if (videoJob?.isActive == true) return // iş sürüyor: dosya okunuyor olabilir
+        Uri.parse(uri).path?.let { p -> if (p.startsWith(mediaDir.absolutePath)) File(p).delete() }
+    }
+
+    // runCatching gibi hatayı yakalar ama iptali (ör. "Baştan başla") yutmaz
+    private suspend fun <T> attempt(block: suspend () -> T): Result<T> = try {
+        Result.success(block())
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        Result.failure(e)
     }
 
     // Müzik seçer (telefondaki ses dosyası)
@@ -264,8 +306,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
             if (info == null || dur == null || dur < 1000) { _message.value = "Bu ses dosyası açılamadı."; return@launch } // geçersiz
             val m = MusicTrack(uri.toString(), info.first, dur) // müzik
             _music.value = m // kaydedildi
-            musicPlayer.setMediaItem(MediaItem.fromUri(uri)) // oynatıcıya verildi
-            musicPlayer.prepare() // hazırla
+            loadMusicItem() // oynatıcıya verildi (seçilen saniyeden)
             restartMusic() // sıra varsa çalmaya başlar
             _message.value = "Müzik eklendi: ${m.name}" // bilgi
         }
@@ -274,7 +315,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
     // Müziğin başlangıç saniyesini değiştirir (kaydırırken)
     fun setMusicStart(ms: Long) { _music.update { it?.copy(startMs = ms.coerceIn(0L, (it.durationMs - 1000).coerceAtLeast(0L))) } } // sınır içinde
     // Başlangıç ayarı bitince müziği oradan çal
-    fun commitMusicStart() = restartMusic() // yeniden başlat
+    fun commitMusicStart() { loadMusicItem(); restartMusic() } // yeni başlangıçla yükle ve baştan çal
     // Müzik sesi
     fun setMusicVolume(v: Float) { _music.update { it?.copy(volume = v.coerceIn(0f, 1f)) }; musicPlayer.volume = _music.value?.volume ?: 0f } // anında duyulur
     // Müziği kaldır
@@ -289,7 +330,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         videoJob = viewModelScope.launch { // iş başlıyor
             _busy.value = "Video iniyor…" // gösterge
             val dest = File(mediaDir, "video_${System.currentTimeMillis()}.mp4") // hedef dosya
-            val result = runCatching { // hata yakalanıyor
+            val result = attempt { // hata yakalanıyor (iptal edilirse yakalamaz)
                 VideoDownloader.download(url, userAgent, cookies, referer, dest) { done, total -> // indiriliyor
                     _busy.value = if (total > 0) "Video iniyor ${done / 1_048_576}/${total / 1_048_576} MB" else "Video iniyor ${done / 1_048_576} MB" // ilerleme
                 }
@@ -304,12 +345,17 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
 
     // Videoyu (yazısıyla birlikte) MP4 olarak hazırlar
     private suspend fun exportVideo(out: File): File {
-        player.pause(); musicPlayer.pause() // dışa aktarırken önizleme durur (telefon yorulmasın)
-        val s = _style.value // güncel stil
-        val tf = FontCatalog.typeface(getApplication<Application>().assets, s.fontIndex, s.bold) // yazı tipi
-        val overlay = withContext(Dispatchers.Default) { PostRenderer.renderOverlay(s, tf, FontCatalog.needsFakeBold(s.fontIndex, s.bold)) } // yazı katmanı
-        out.parentFile?.mkdirs() // klasör hazırlanıyor
-        return VideoExporter.export(getApplication(), _clips.value, overlay, out, _music.value, _videoSound.value) { p -> _busy.value = "Video hazırlanıyor %$p" } // birleştir + kırp + yazıyı bas + müzik
+        exporting = true // dışa aktarma sürerken önizleme çalmaz (ön plana dönülse bile)
+        try {
+            player.pause(); musicPlayer.pause() // dışa aktarırken önizleme durur (telefon yorulmasın)
+            val s = _style.value // güncel stil
+            val tf = FontCatalog.typeface(getApplication<Application>().assets, s.fontIndex, s.bold) // yazı tipi
+            val overlay = withContext(Dispatchers.Default) { PostRenderer.renderOverlay(s, tf, FontCatalog.needsFakeBold(s.fontIndex, s.bold)) } // yazı katmanı
+            out.parentFile?.mkdirs() // klasör hazırlanıyor
+            return VideoExporter.export(getApplication(), _clips.value, overlay, out, _music.value, _videoSound.value) { p -> _busy.value = "Video hazırlanıyor %$p" } // birleştir + kırp + yazıyı bas + müzik
+        } finally {
+            exporting = false // bitti (başarılı ya da hatalı)
+        }
     }
 
     // Videoyu galeriye kaydeder
@@ -318,14 +364,14 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
         videoJob = viewModelScope.launch { // ana iş parçacığında (video işleyici bunu ister)
             _busy.value = "Video hazırlanıyor…" // gösterge
             val tmp = File(getApplication<Application>().cacheDir, "disari/YaziKart.mp4") // geçici çıktı
-            val msg = runCatching { // hata yakalanıyor
+            val msg = attempt { // hata yakalanıyor (iptal edilirse yakalamaz)
                 exportVideo(tmp) // hazırla
                 withContext(Dispatchers.IO) { ImageExporter.saveVideoToGallery(getApplication(), tmp) } // galeriye kopyala
             }.fold({ "Video galeriye kaydedildi (Filmler/YaziKart)" }, { "Video kaydedilemedi: ${it.message}" }) // sonuç
             tmp.delete() // geçici dosya silindi
             _busy.value = null // gösterge kapandı
             _message.value = msg // mesaj
-            resumePreview() // önizleme devam
+            playPreview() // önizleme devam
         }
     }
 
@@ -337,19 +383,25 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
             val dir = File(getApplication<Application>().cacheDir, "paylas") // paylaşım klasörü
             withContext(Dispatchers.IO) { dir.listFiles()?.forEach { it.delete() } } // eski paylaşımlar temizleniyor
             val out = File(dir, ImageExporter.fileName(com.jn.yazikart.data.ExportFormat.PNG).replace(".png", ".mp4")) // tarihli ad
-            val result = runCatching { exportVideo(out) } // hazırla
+            val result = attempt { exportVideo(out) } // hazırla (iptal edilirse yakalamaz)
             _busy.value = null // gösterge kapandı
             result.fold( // sonuca göre
                 { f -> runCatching { ImageExporter.shareVideo(getApplication(), f) }.onFailure { _message.value = "Paylaşılamadı: ${it.message}" } }, // paylaş
                 { _message.value = "Video hazırlanamadı: ${it.message}" }, // hata
             )
-            resumePreview() // önizleme devam
+            playPreview() // önizleme devam
         }
     }
 
     // Uygulama arka plana gidince / dönünce önizlemeyi durdur / sürdür
-    fun pausePreview() { player.pause(); musicPlayer.pause() } // durdur
-    fun resumePreview() { if (_clips.value.isNotEmpty() && videoJob?.isActive != true) { player.play(); if (_music.value != null) musicPlayer.play() } } // sürdür
+    fun pausePreview() { inForeground = false; player.pause(); musicPlayer.pause() } // durdur
+    fun resumePreview() { inForeground = true; playPreview() } // sürdür
+    // Ekrandaysa ve sıra doluysa önizlemeyi (ve müziği) oynatır; dışa aktarma bitince de bunu çağırır
+    private fun playPreview() {
+        if (!inForeground || exporting || _clips.value.isEmpty()) return // arka plandaysa, kayıt sürüyorsa ya da boşsa çalma
+        player.play()
+        if (_music.value != null) musicPlayer.play()
+    }
 
     override fun onCleared() { player.release(); musicPlayer.release(); super.onCleared() } // oynatıcılar kapatılıyor
 
@@ -385,6 +437,7 @@ class EditorViewModel(app: Application) : AndroidViewModel(app) {
                 BitmapFactory.decodeByteArray(bytes, 0, bytes.size) // resme çevriliyor
             }.getOrNull() // hata olursa null
             if (bmp != null) { // başarılıysa
+                imageJob?.cancel() // eski bir resim yüklemesi sonradan bu seçimin üstüne yazmasın
                 clearVideos() // resim seçildi: videolar kaldırılır
                 _image.value = bmp // arka plan oldu
                 _message.value = "Küçük önizleme alındı. Daha net olması için görsele dokunup büyüyünce basılı tut." // ipucu

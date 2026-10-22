@@ -278,14 +278,14 @@ private fun FilmStrip(
         Box(Modifier.width(with(density) { sx.toDp() }).fillMaxHeight().background(Color.Black.copy(alpha = 0.65f))) // seçim dışı (sol)
         Box(Modifier.offset { IntOffset(ex.roundToInt(), 0) }.width(with(density) { (widthPx - ex).coerceAtLeast(0f).toDp() }).fillMaxHeight().background(Color.Black.copy(alpha = 0.65f))) // seçim dışı (sağ)
         Box(Modifier.offset { IntOffset(sx.roundToInt(), 0) }.width(with(density) { (ex - sx).coerceAtLeast(0f).toDp() }).fillMaxHeight().border(2.dp, Color.White)) // seçim çerçevesi
-        Handle(
+        Handle( // başlangıç tutamacı: bitiş çizgisini geçemez (ters çevrilirse bitiş de kaymasın)
             x = sx, widthPx = widthPx, d = d, isStart = true,
-            getBase = { latest.startMs }, onRange = { ms -> onRangeNow(ms, latest.endMs) },
+            getBase = { latest.startMs }, onRange = { ms -> onRangeNow(ms.coerceAtMost(latest.endMs - Clips.MIN_LENGTH_MS), latest.endMs) },
             onStart = { active = true }, onEnd = { active = null; onDoneNow() },
         )
-        Handle(
+        Handle( // bitiş tutamacı: başlangıç çizgisinin gerisine geçemez
             x = ex, widthPx = widthPx, d = d, isStart = false,
-            getBase = { latest.endMs }, onRange = { ms -> onRangeNow(latest.startMs, ms) },
+            getBase = { latest.endMs }, onRange = { ms -> onRangeNow(latest.startMs, ms.coerceAtLeast(latest.startMs + Clips.MIN_LENGTH_MS)) },
             onStart = { active = false }, onEnd = { active = null; onDoneNow() },
         )
     }
@@ -308,16 +308,15 @@ private fun Handle(
     val onStartNow by rememberUpdatedState(onStart) // güncel
     val onEndNow by rememberUpdatedState(onEnd) // güncel
     val baseNow by rememberUpdatedState(getBase) // güncel başlangıç değeri
-    val handleDp = 14.dp // tutamaç genişliği
-    val handlePx = with(density) { handleDp.toPx() } // piksel
+    val touchDp = 48.dp // dokunma alanı (parmağa yetecek kadar geniş)
+    val touchPx = with(density) { touchDp.toPx() } // piksel
     var base by remember { mutableFloatStateOf(0f) } // sürükleme başlangıcındaki zaman (ms)
     var acc by remember { mutableFloatStateOf(0f) } // parmağın kat ettiği mesafe (piksel)
     Box(
         Modifier
-            .offset { IntOffset((x - handlePx / 2).roundToInt(), 0) } // tutamaç çerçevenin kenarında
-            .width(handleDp)
+            .offset { IntOffset((x - touchPx / 2).roundToInt(), 0) } // dokunma alanı tutamacın ortasında
+            .width(touchDp)
             .fillMaxHeight()
-            .background(Color.White)
             .pointerInput(isStart) { // sürükleme
                 detectHorizontalDragGestures(
                     onDragStart = { base = baseNow().toFloat(); acc = 0f; onStartNow() }, // başladı
@@ -331,7 +330,10 @@ private fun Handle(
                     },
                 )
             },
-    )
+        contentAlignment = Alignment.Center, // görünen çubuk ortada
+    ) {
+        Box(Modifier.width(14.dp).fillMaxHeight().background(Color.White)) // görünen beyaz çubuk
+    }
 }
 
 // Müzik: seç, başlangıç saniyesi, ses seviyesi, kaldır

@@ -77,6 +77,7 @@ object VideoExporter {
         if (music != null) { // müzik varsa ikinci dizi olarak altta çalar
             val volume = ChannelMixingAudioProcessor().apply { // müzik sesini ayarlayan işlemci
                 for (ch in 1..2) putChannelMixingMatrix(ChannelMixingMatrix.create(ch, ch).scaleBy(music.volume)) // tek ve çift kanallı sesler için
+                for (ch in 3..8) putChannelMixingMatrix(stereoDownmix(ch, music.volume)) // 5.1 gibi çok kanallı müzikler stereoya indirilir (yoksa dışa aktarma hata verir)
             }
             val track = MediaItem.Builder().setUri(music.uri) // şarkı
                 .setClippingConfiguration(MediaItem.ClippingConfiguration.Builder().setStartPositionMs(music.startMs).build()) // seçilen saniyeden başlar
@@ -117,5 +118,13 @@ object VideoExporter {
         transformer.start(composition, out.absolutePath) // işlem başlıyor
         handler.post(poll) // ilerleme sorgusu başlıyor
         cont.invokeOnCancellation { handler.post { handler.removeCallbacks(poll); transformer.cancel(); out.delete() } } // iptal edilirse durdur
+    }
+
+    // Çok kanallı sesi (ch kanal) stereoya indirir ve sesi ayarlar. Sol çıkış: çift sıradaki kanallar, sağ çıkış: tek sıradakiler.
+    private fun stereoDownmix(ch: Int, volume: Float): ChannelMixingMatrix {
+        val perSide = (ch + 1) / 2 // bir kulağa katılan kanal sayısı (toplam ses taşmasın diye bölünür)
+        // katsayılar giriş kanalına göre sıralı: [giriş][çıkış] (çıkış 0 = sol, 1 = sağ)
+        val coefficients = FloatArray(ch * 2) { k -> if (k / 2 % 2 == k % 2) volume / perSide else 0f } // aynı tarafa denk gelen kanal
+        return ChannelMixingMatrix(ch, 2, coefficients) // ch kanal → 2 kanal
     }
 }

@@ -10,19 +10,22 @@ import androidx.compose.foundation.layout.BoxWithConstraints // eldeki alanı ö
 import androidx.compose.foundation.layout.Column // alt alta yerleşim
 import androidx.compose.foundation.layout.Row // yan yana yerleşim
 import androidx.compose.foundation.layout.Spacer // boşluk
+import androidx.compose.foundation.layout.WindowInsets // ekran boşlukları
+import androidx.compose.foundation.layout.imePadding // klavye açılınca içeriği yukarı kaldırır
+import androidx.compose.foundation.layout.statusBars // durum çubuğu boşluğu
 import androidx.compose.foundation.layout.fillMaxSize // tüm alan
 import androidx.compose.foundation.layout.fillMaxWidth // tam genişlik
 import androidx.compose.foundation.layout.height // yükseklik
 import androidx.compose.foundation.layout.navigationBarsPadding // alt çubuk boşluğu
 import androidx.compose.foundation.layout.padding // dış boşluk
 import androidx.compose.foundation.layout.size // boyut
-import androidx.compose.foundation.layout.statusBarsPadding // durum çubuğu boşluğu
 import androidx.compose.foundation.layout.width // genişlik
 import androidx.compose.foundation.rememberScrollState // kaydırma durumu
 import androidx.compose.foundation.shape.CircleShape // daire
 import androidx.compose.foundation.shape.RoundedCornerShape // yuvarlak köşe
 import androidx.compose.foundation.verticalScroll // dikey kaydırma
 import androidx.compose.material.icons.Icons // ikon seti
+import androidx.compose.material.icons.filled.Check // onay ikonu (yazı bitince)
 import androidx.compose.material.icons.filled.Download // indir ikonu
 import androidx.compose.material.icons.filled.Edit // düzenle ikonu
 import androidx.compose.material.icons.filled.Fullscreen // tam ekran ikonu
@@ -35,6 +38,7 @@ import androidx.compose.material3.Icon // ikon
 import androidx.compose.material3.IconButton // ikon buton
 import androidx.compose.material3.MaterialTheme // tema
 import androidx.compose.material3.OutlinedButton // ikincil buton
+import androidx.compose.material3.OutlinedTextField // yazı kutusu
 import androidx.compose.material3.Scaffold // ekran iskeleti
 import androidx.compose.material3.ScrollableTabRow // kaydırılabilir sekmeler
 import androidx.compose.material3.SnackbarHost // alt mesaj alanı
@@ -55,6 +59,8 @@ import androidx.compose.runtime.setValue // durum yazma
 import androidx.compose.ui.Alignment // hizalama
 import androidx.compose.ui.Modifier // değiştiriciler
 import androidx.compose.ui.draw.clip // kırpma
+import androidx.compose.ui.focus.FocusRequester // yazı kutusunun odağı
+import androidx.compose.ui.focus.focusRequester // odak bağlayıcı
 import androidx.compose.ui.graphics.Color // renk
 import androidx.compose.ui.platform.LocalConfiguration // ekran ölçüleri
 import androidx.compose.ui.platform.LocalFocusManager // odak yöneticisi
@@ -112,20 +118,15 @@ fun EditorScreen(
         )
     }
 
-    if (editingText) { // yazı düzenleme: klavye hemen açılır, önizleme arkada anında değişir
-        TextEditSheet(
-            text = style.text, // güncel yazı
-            onText = { t -> onStyle { it.copy(text = t) } }, // her harfte stil güncellenir
-            onDismiss = { editingText = false }, // kapanınca
-        )
-    }
+    val textFocus = remember { FocusRequester() } // yazı kutusunun odağı (önizlemeye dokununca klavye açılır)
+    LaunchedEffect(editingText) { if (editingText) runCatching { textFocus.requestFocus() } } // kutu çıkınca odak → klavye
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) }, // mesaj alanı
         containerColor = MaterialTheme.colorScheme.background, // arka plan
-        bottomBar = { ActionBar(onSave, onShare, busy != null) }, // alt eylem çubuğu
+        contentWindowInsets = WindowInsets.statusBars, // yalnızca üst boşluk (alt kısım aşağıdaki Column'da klavyeye göre ayarlanır)
     ) { inner ->
-        Column(Modifier.fillMaxSize().padding(inner).statusBarsPadding()) { // sabit üst kısım + kaydırılabilir ayarlar
+        Column(Modifier.fillMaxSize().padding(inner).imePadding()) { // klavye açılınca tüm içerik (Kaydet dahil) yukarı kayar
             Row( // üst çubuk: solda ad, sağda "baştan başla"
                 Modifier.fillMaxWidth().padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp), // kenar boşlukları
                 verticalAlignment = Alignment.CenterVertically, // dikey ortalı
@@ -140,11 +141,26 @@ fun EditorScreen(
                 onFullscreen = onFullscreen,
                 onEditText = { editingText = true },
                 video = video,
+                editing = editingText,
             )
-            TextButton(onClick = { editingText = true }, modifier = Modifier.align(Alignment.CenterHorizontally)) { // yazıyı düzenleme düğmesi
-                Icon(Icons.Default.Edit, contentDescription = null) // kalem
+            TextButton( // yazıyı düzenleme düğmesi: düzenlerken "Tamam" olur
+                onClick = { if (editingText) { editingText = false; focus.clearFocus() } else editingText = true },
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            ) {
+                Icon(if (editingText) Icons.Default.Check else Icons.Default.Edit, contentDescription = null) // kalem ya da onay
                 Spacer(Modifier.width(6.dp)) // boşluk
-                Text("Yazıyı düzenle") // etiket
+                Text(if (editingText) "Tamam" else "Yazıyı düzenle") // etiket
+            }
+            if (editingText) { // yazı kutusu: klavye açılınca hemen burada, önizlemenin altında; yazdıkça önizleme değişir
+                OutlinedTextField(
+                    value = style.text, // güncel yazı
+                    onValueChange = { t -> onStyle { it.copy(text = t) } }, // her harfte stil güncellenir
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp).focusRequester(textFocus), // tam genişlik, odak
+                    placeholder = { Text("Yazını buraya yaz…") }, // ipucu
+                    minLines = 1, // en az bir satır
+                    maxLines = 3, // en çok üç satır (klavye altında yer kalsın)
+                    shape = RoundedCornerShape(12.dp), // yuvarlak köşe
+                )
             }
             ScrollableTabRow( // sekmeler (sabit)
                 selectedTabIndex = tab,
@@ -152,7 +168,7 @@ fun EditorScreen(
                 edgePadding = 16.dp,
             ) {
                 listOf("Arka plan", "Sıra ve müzik", "Yazı tipi", "Yazı", "Boyut").forEachIndexed { i, t -> // beş sekme
-                    Tab(selected = tab == i, onClick = { tab = i }, text = { Text(t) }) // tek sekme
+                    Tab(selected = tab == i, onClick = { tab = i; scope.launch { scroll.scrollTo(0) } }, text = { Text(t) }) // tek sekme (yeni sekme en üstten açılır)
                 }
             }
             Column( // yalnızca bu alan kayar; önizleme yerinde kalır
@@ -166,6 +182,7 @@ fun EditorScreen(
                     else -> SizePanel(style, onStyle, video.hasVideo) // görsel boyutu
                 }
             }
+            ActionBar(onSave, onShare, busy != null) // alt eylem çubuğu (en altta, klavye açılınca yukarı çıkar)
         }
     }
 }
@@ -179,10 +196,11 @@ private fun Preview(
     onFullscreen: () -> Unit,
     onEditText: () -> Unit,
     video: VideoUi,
+    editing: Boolean, // yazı yazılıyor mu (klavye açıkken önizleme küçülür ki yazı kutusu sığsın)
 ) {
     BoxWithConstraints(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp), contentAlignment = Alignment.Center) { // ortalı alan
         val ratio = style.aspect.width.toFloat() / style.aspect.height // en/boy oranı
-        val maxH = (LocalConfiguration.current.screenHeightDp * 0.36f).dp // önizleme ekran yüksekliğinin en çok %36'sı (ayarlar altta kalsın)
+        val maxH = (LocalConfiguration.current.screenHeightDp * (if (editing) 0.2f else 0.36f)).dp // önizleme ekran yüksekliğinin en çok %36'sı (yazarken %20)
         val w = min(maxWidth, maxH * ratio) // genişlik: alan ya da yükseklik sınırı hangisi küçükse
         Box(
             Modifier.width(w).height(w / ratio) // oranlı kutu
