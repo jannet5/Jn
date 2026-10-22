@@ -46,7 +46,19 @@ Seçtiğin uygulamaların bildirimlerinden gelen müşteri mesajlarını, telefo
 - Dinleyici sağlığı: bağlantı kopunca kendini yeniden bağlar; bağlı değilse "Dinleme
   duraklamış" uyarısı çıkar (rakiplerin 1 numaralı şikâyeti: yakalama sessizce duruyor).
 - Arayüz: tek ekran. Menü ok işaretinin arkasında; "Kanalları ayarla" yalnız seçiciyi açar.
-- Marka tek dosyada (`ui/theme/Brand.kt`); renk, köşe, hareket oradan gelir.
+- Marka veriyle gelir: `docs/marka/konsept-N-belirtecler.json` → `tools/apply_brand.py N` →
+  `BrandTokens.kt` (açık + koyu renkler, köşe, hareket), gömülü yazı tipleri, uyarlanabilir ve
+  tek renkli (themed) ikon, pencere/açılış rengi. Konsept değiştirmek = betiği başka numarayla çalıştırmak.
+- Zamansız satırlar (düz metin, InboxStyle) için `UntimedLineTracker`: bildirim anahtarı başına
+  önceki satır listesi tutulur, yalnız yeni eklenen satırlar mesaj sayılır. Eski satırlar tekrar
+  eklenmez; bildirim kapanınca (`onNotificationRemoved`) unutulur, aynı kelime yeniden gelirse yeni mesajdır.
+- Telefon sahibinin kendi yanıtı (`MessagingStyle` içinde kendi kişisi) müşteri mesajı sayılmaz.
+- Canlı yayın uyarısı filtresi tam cümle ister ("ali_veli canlı yayında."); uzun müşteri mesajı ya
+  da sohbet başlığı yanlışlıkla elenmez.
+- Dışa aktarma bir dosyadır (`FileProvider`, önbellekte tek dosya); Intent'e metin sığdırılmaz.
+- "Ekranı tertemiz yap" yalnız ekranda görünen mesajları gizler; kapalı kanalların mesajlarına dokunmaz.
+- Paylaşılan metin ("Sende'ye gönder") her zaman "Paylaşılan" kaynağında görünür, kanal seçimi gerekmez.
+- SMS uygulamaları seçicide üstte ama ilk açılışta SEÇİLİ gelmez (banka/giriş kodları).
 
 ## 4. Son hâl (katmanlar)
 
@@ -75,19 +87,23 @@ Veri akışı (tek yön):
 
 ## 5. Gizlilik sözleşmesi (kodda zorlanan)
 
-- Manifest'te INTERNET izni yok; CI birleşmiş manifest'te bunu denetler.
+- Sideload sürümünün manifestinde INTERNET izni yok; CI birleşmiş manifestte (release VE elden verilen
+  preview) bunu, ve APK'nın izin listesinin yalnız "açılışta yeniden bağlan" olduğunu denetler.
+- Play sürümünde Billing kütüphanesi INTERNET getirir; uygulama kodu mesaj verisini ağa göndermez
+  (gizlilik metni bunu açıkça söyler, `docs/RELEASE.md` §4).
 - Mesaj veritabanı ve medya dosyaları bulut yedeğinden ve cihaz aktarımından hariç.
 - Teşhis kaydı mesaj içeriği tutmaz (yalnızca sayaçlar).
 - Dışa aktarma yalnızca kullanıcı paylaşım sayfasından seçerse dışarı çıkar.
 
 ## 6. Nasıl uygulanır (yeni birine tarif)
 
-1. `./gradlew :app:testSideloadDebugUnitTest` → 70+ birim ve Robolectric testi, ekran görüntüleri
-   `app/build/shots/` altına çıkar (`-Proborazzi.test.record=true`).
-2. `./gradlew :app:assemblePreview` → küçültülmüş, sabit test anahtarıyla imzalı APK.
-3. GitHub Actions: emülatör matrisi (API 26/30/34/36) gerçek bildirim → Room uçtan uca testini
-   çalıştırır.
-4. Marka değiştirmek: yalnız `ui/theme/Brand.kt` ve yazı tipi dosyaları.
+1. `bash tools/kapilar.sh` → tüm yerel kapılar tek komutta (yasak kod denetimi, 135+ birim /
+   Robolectric / ergonomi / ekran görüntüsü testi, Lint, Play R8 derlemesi, elden verilen APK'nın
+   izin listesi ve imzası). Ayrıntı: `docs/TEST_SISTEMI.md`.
+2. `./gradlew :app:assembleSideloadPreview` → küçültülmüş, imzalı APK (CI'da koşu numarası sürüm kodu).
+3. GitHub Actions: emülatör matrisi (Android 8/11/14/16) gerçek bildirim → Room uçtan uca testini
+   çalıştırır; hepsi geçerse `son-surum` APK'sı yayınlanır.
+4. Marka değiştirmek: `python3 tools/apply_brand.py <1-5>`.
 
 ## 7. Bilinen sınırlar (dürüst liste)
 

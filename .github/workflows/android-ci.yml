@@ -163,6 +163,20 @@ jobs:
           head -3 signer.txt
           unzip -p "$APK" AndroidManifest.xml >/dev/null
           ls -l "$APK"
+          # The handed-out APK may ask for nothing but "reconnect after boot".
+          "$ANDROID_HOME"/build-tools/*/aapt2 dump permissions "$APK" | sed -n "s/^uses-permission: name='\([^']*\)'.*/\1/p" | sort > perms.txt
+          cat perms.txt
+          if grep -Ev '^android.permission.RECEIVE_BOOT_COMPLETED$|DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION$' perms.txt; then
+            echo "Permission outside the allow-list"; exit 1
+          fi
+      - name: Antivirus scan of the APK (ClamAV)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq clamav > /dev/null
+          sudo systemctl stop clamav-freshclam || true
+          sudo freshclam --quiet
+          clamscan --infected --no-summary app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
+          echo "ClamAV: no known malware signature in the APK."
       - name: Publish release asset
         run: |
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
