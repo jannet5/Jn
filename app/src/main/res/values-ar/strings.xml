@@ -66,7 +66,7 @@
     <string name="no_channels_title">اختر التطبيقات التي تريد الاستماع إليها</string>
     <string name="no_channels_body">اختر المكان الذي يراسلك منه عملاؤك. لا شيء يغادر هاتفك.</string>
     <string name="access_title">فعّل الوصول إلى الإشعارات</string>
-    <string name="access_body">هكذا تصل الرسائل إلى هذه الشاشة. وتبقى على هذا الهاتف.</string>
+    <string name="access_body">يقرأ Sende إشعارات التطبيقات التي تختارها (اسم المرسل ونص الرسالة) ويعرضها هنا. لا شيء يغادر هذا الهاتف.</string>
     <string name="access_open">فتح إعدادات الوصول</string>
     <string name="access_howto">كيف؟</string>
     <string name="stalled_title">الاستماع متوقف مؤقتًا</string>

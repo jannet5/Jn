@@ -66,7 +66,7 @@
     <string name="no_channels_title">Choisissez les apps à écouter</string>
     <string name="no_channels_body">Choisissez où vos clients vous écrivent. Rien ne quitte votre téléphone.</string>
     <string name="access_title">Activer l\'accès aux notifications</string>
-    <string name="access_body">C\'est ainsi que les messages arrivent sur cet écran. Ils restent sur ce téléphone.</string>
+    <string name="access_body">Sende lit les notifications des applications que vous choisissez (nom de l\'expéditeur et texte du message) et les affiche ici. Rien ne quitte ce téléphone.</string>
     <string name="access_open">Ouvrir les réglages d\'accès</string>
     <string name="access_howto">Comment ?</string>
     <string name="stalled_title">Écoute en pause</string>
