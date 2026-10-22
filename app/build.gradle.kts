@@ -80,7 +80,11 @@ android {
 
         // How the app asks for money: donate (default, nothing is ever locked) | trial_silent |
         // trial_warn (the two A/B test variants). Chosen per build: -Pmonetization=trial_warn
-        buildConfigField("String", "MONETIZATION", "\"${providers.gradleProperty("monetization").getOrElse("donate")}\"")
+        val monetization = providers.gradleProperty("monetization").getOrElse("donate")
+        require(monetization in setOf("donate", "trial_silent", "trial_warn")) {
+            "-Pmonetization must be donate, trial_silent or trial_warn (got '$monetization')"
+        }
+        buildConfigField("String", "MONETIZATION", "\"$monetization\"")
     }
 
     buildTypes {

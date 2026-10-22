@@ -104,4 +104,5 @@
     <string name="share_intake_success">Sende\'ye eklendi</string>
     <string name="share_intake_duplicate">Zaten Sende\'de</string>
     <string name="time_just_now">Şimdi</string>
+    <string name="export_failed">Dışa aktarma hazırlanamadı.</string>
 </resources>

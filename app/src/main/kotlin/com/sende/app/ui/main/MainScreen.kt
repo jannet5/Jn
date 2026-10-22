@@ -57,6 +57,8 @@ import com.sende.app.util.AccessSettings
 import com.sende.app.util.ListenerHealth
 import com.sende.app.util.OemHints
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.koin.androidx.compose.koinViewModel
 
 private const val DIAGNOSTICS_TAPS = 7
@@ -121,6 +123,7 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
     val replySentText = stringResource(R.string.reply_sent)
     val replyFailedText = stringResource(R.string.reply_failed)
     val exportTitle = stringResource(R.string.export_share_title)
+    val exportFailedText = stringResource(R.string.export_failed)
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
@@ -129,11 +132,9 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
                 UiEvent.ReplySent -> snackbar.showSnackbar(replySentText)
                 UiEvent.ReplyFailed -> snackbar.showSnackbar(replyFailedText)
                 is UiEvent.ExportReady -> {
-                    val send = Intent(Intent.ACTION_SEND).apply {
-                        type = "application/json"
-                        putExtra(Intent.EXTRA_TEXT, event.json)
-                    }
-                    context.startActivity(Intent.createChooser(send, exportTitle))
+                    // A file, not EXTRA_TEXT: a long inbox does not fit in an Intent (Binder limit ~1 MB).
+                    val shared = runCatching { shareExport(context, event.json, exportTitle) }
+                    if (shared.isFailure) snackbar.showSnackbar(exportFailedText)
                 }
             }
         }
@@ -281,4 +282,21 @@ private fun copyToClipboard(context: Context, text: String) {
     // Customer messages can hold codes and addresses: keep them out of clipboard previews and history.
     clip.description.extras = android.os.PersistableBundle().apply { putBoolean("android.content.extra.IS_SENSITIVE", true) }
     clipboard.setPrimaryClip(clip)
+}
+
+/** Writes the export to a temporary file and hands it to the share sheet; older exports are removed first. */
+private suspend fun shareExport(context: Context, json: String, title: String) {
+    val uri = withContext(Dispatchers.IO) {
+        val dir = java.io.File(context.cacheDir, "export").apply { mkdirs() }
+        dir.listFiles().orEmpty().forEach { it.delete() }
+        val file = java.io.File(dir, "sende-export.json")
+        file.writeText(json)
+        androidx.core.content.FileProvider.getUriForFile(context, context.packageName + ".files", file)
+    }
+    val send = Intent(Intent.ACTION_SEND).apply {
+        type = "application/json"
+        putExtra(Intent.EXTRA_STREAM, uri)
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+    }
+    context.startActivity(Intent.createChooser(send, title))
 }

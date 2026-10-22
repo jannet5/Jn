@@ -69,6 +69,17 @@
             </intent-filter>
         </service>
 
+        <!-- Lets the export reach the share sheet as a file (a long inbox does not fit in an Intent). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <receiver
             android:name=".capture.BootRestartReceiver"
             android:exported="false">

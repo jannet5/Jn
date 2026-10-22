@@ -95,4 +95,5 @@
         <item quantity="other">%1$d mois</item>
     </plurals>
     <string name="time_just_now">À l\'instant</string>
+    <string name="export_failed">Impossible de préparer l\'export.</string>
 </resources>

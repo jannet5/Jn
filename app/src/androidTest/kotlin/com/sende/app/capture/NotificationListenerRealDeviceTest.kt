@@ -36,6 +36,12 @@ class NotificationListenerRealDeviceTest {
     private val instrumentation = InstrumentationRegistry.getInstrumentation()
     private val context = instrumentation.targetContext
 
+    /** A previous run's messages must never satisfy (or break) this run's assertions. */
+    @org.junit.Before
+    fun cleanInbox() = runBlocking<Unit> {
+        org.koin.core.context.GlobalContext.get().get<com.sende.app.data.repository.InboxRepository>().eraseAllMessages()
+    }
+
     @Test
     fun notificationListenerServiceBindsOnARealSystemOnceAccessIsGranted() {
         val componentName = android.content.ComponentName(context, SendeNotificationListenerService::class.java)
@@ -53,6 +59,9 @@ class NotificationListenerRealDeviceTest {
             context.packageName in NotificationManagerCompat.getEnabledListenerPackages(context)
         }
         assertThat(granted).isTrue()
+        // The setting alone proves nothing: the real system must actually have bound the service.
+        assertWithMessage("the system never bound SendeNotificationListenerService")
+            .that(pollUntilTrue(timeoutMillis = 20_000) { SendeNotificationListenerService.connected }).isTrue()
     }
 
     @Test
@@ -164,8 +173,12 @@ class NotificationListenerRealDeviceTest {
         val first = pollUntilTrue(20_000) { runBlocking { messagesOf(repository).any { "randevu" in it } } }
         assertWithMessage("first message never reached Room. ${whatTheAppSaw()} | shell said: ${oneLine(log.toString())}").that(first).isTrue()
 
+        val diagnostics = koin.get<com.sende.app.diagnostics.DiagnosticsRecorder>()
+        val duplicatesBefore = diagnostics.snapshot.value.totalDuplicatesSuppressed
         post("randevu almak istiyorum") // the very same notification delivered again
-        Thread.sleep(2_000)
+        // Wait for the pipeline to SAY it recognised the repeat, instead of sleeping and hoping.
+        assertWithMessage("the repeat was never processed. ${whatTheAppSaw()}")
+            .that(pollUntilTrue(20_000) { diagnostics.snapshot.value.totalDuplicatesSuppressed > duplicatesBefore }).isTrue()
         assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
 
         post("cumartesi 14:00 uygun mu") // SAME tag/key, different text

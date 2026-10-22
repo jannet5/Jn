@@ -25,16 +25,20 @@ sleep 5
 adb shell cmd notification post -S bigtext -t "CI" ci_tag "CI smoke bildirim"
 sleep 3
 
-if adb logcat -d | grep -q "FATAL EXCEPTION"; then
+# Dump the log to a file first: grep -q closing a pipe early would kill adb and, under pipefail,
+# make a healthy run look like a failure (or hide a crash).
+adb logcat -d > logcat.txt
+if grep -q "FATAL EXCEPTION" logcat.txt; then
   echo "CRASH detected:"
-  adb logcat -d | grep -A40 "FATAL EXCEPTION"
+  grep -A40 "FATAL EXCEPTION" logcat.txt
   exit 1
 fi
 
 adb shell pidof "$PKG" >/dev/null || { echo "app process is not running"; exit 1; }
 
-LISTENERS=$(adb shell dumpsys notification | grep -A10 "Live notification listeners" || true)
+adb shell dumpsys notification > dumpsys.txt
+LISTENERS=$(grep -A10 "Live notification listeners" dumpsys.txt || true)
 echo "$LISTENERS"
-echo "$LISTENERS" | grep -q "$PKG" || { echo "notification listener is not bound"; exit 1; }
+case "$LISTENERS" in *"$PKG"*) ;; *) echo "notification listener is not bound"; exit 1 ;; esac
 
 echo "PREVIEW SMOKE OK"

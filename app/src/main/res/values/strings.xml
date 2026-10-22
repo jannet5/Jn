@@ -104,4 +104,5 @@
     <string name="share_intake_success">Added to Sende</string>
     <string name="share_intake_duplicate">Already in Sende</string>
     <string name="time_just_now">Just now</string>
+    <string name="export_failed">Couldn\'t prepare the export.</string>
 </resources>

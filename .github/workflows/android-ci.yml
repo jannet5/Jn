@@ -39,11 +39,15 @@ jobs:
         run: ./gradlew :app:testSideloadDebugUnitTest :app:compilePlayDebugKotlin -Proborazzi.test.record=true --console=plain
       - name: Sideload manifest must not request INTERNET (privacy promise shown in the app)
         run: |
-          ./gradlew :app:processSideloadDebugMainManifest :app:processSideloadReleaseManifest --console=plain
-          M=$(find app/build -path '*merged_manifests/sideloadRelease/*' -name AndroidManifest.xml | head -1)
-          echo "Checking $M"
-          if grep -q "android.permission.INTERNET" "$M"; then echo "INTERNET permission found"; exit 1; fi
-          grep -o 'uses-permission android:name="[^"]*"' "$M" | sort -u
+          ./gradlew :app:processSideloadDebugMainManifest :app:processSideloadReleaseManifest :app:processSideloadPreviewManifest --console=plain
+          # Release is what the code ships; Preview is the APK that is actually handed out.
+          for variant in sideloadRelease sideloadPreview; do
+            M=$(find app/build -path "*merged_manifests/$variant/*" -name AndroidManifest.xml | head -1)
+            test -n "$M" || { echo "no merged manifest for $variant"; exit 1; }
+            echo "Checking $M"
+            if grep -q "android.permission.INTERNET" "$M"; then echo "INTERNET permission found in $variant"; exit 1; fi
+            grep -o 'uses-permission android:name="[^"]*"' "$M" | sort -u
+          done
       - name: Build debug and release APKs
         run: ./gradlew :app:assembleSideloadDebug :app:assembleSideloadRelease :app:assemblePlayDebug :app:assemblePlayRelease --console=plain
       - uses: actions/upload-artifact@v4
@@ -125,7 +129,7 @@ jobs:
   release-apk:
     # Only a build that passed everything may become the public "latest" file.
     needs: [unit-tests, preview-smoke, instrumented-tests]
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/claude/tekpanel-greenfield-spec-6ngokp'
+    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/claude/tekpanel-greenfield-spec-6ngokp' || github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -154,7 +158,9 @@ jobs:
       - name: Verify the APK before publishing it
         run: |
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
-          "$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK" | head -3
+          set -o pipefail
+          "$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK" > signer.txt
+          head -3 signer.txt
           unzip -p "$APK" AndroidManifest.xml >/dev/null
           ls -l "$APK"
       - name: Publish release asset

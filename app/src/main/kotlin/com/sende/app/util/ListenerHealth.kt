@@ -21,8 +21,15 @@ object ListenerHealth {
         val component = ComponentName(context, SendeNotificationListenerService::class.java)
         val packageManager = context.packageManager
         runCatching {
-            packageManager.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP)
-            packageManager.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP)
+            try {
+                packageManager.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP)
+            } finally {
+                // However the first call ended, the component must be switched back on: a listener left
+                // disabled would never capture again.
+                runCatching {
+                    packageManager.setComponentEnabledSetting(component, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP)
+                }
+            }
         }
         runCatching { NotificationListenerService.requestRebind(component) }
     }

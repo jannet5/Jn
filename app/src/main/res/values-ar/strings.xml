@@ -98,4 +98,5 @@
         <item quantity="other">%1$d شهر</item>
     </plurals>
     <string name="time_just_now">الآن</string>
+    <string name="export_failed">تعذّر تجهيز التصدير.</string>
 </resources>
