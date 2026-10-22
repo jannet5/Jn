@@ -69,6 +69,14 @@ class InboxRepository(
         return previous
     }
 
+    /** Hides exactly [ids] and returns their prior (id -> state) map so the caller can offer an undo. */
+    suspend fun hideMessages(ids: List<String>): Map<String, String> {
+        if (ids.isEmpty()) return emptyMap()
+        val previous = ids.chunked(SQLITE_VARIABLE_LIMIT).flatMap { dao.statesOf(it) }.associate { it.id to it.state }
+        ids.chunked(SQLITE_VARIABLE_LIMIT).forEach { dao.setStateForIds(it, MessageState.HIDDEN.name) }
+        return previous
+    }
+
     suspend fun restoreStates(previousStates: Map<String, String>) {
         if (previousStates.isNotEmpty()) dao.restoreStates(previousStates)
     }

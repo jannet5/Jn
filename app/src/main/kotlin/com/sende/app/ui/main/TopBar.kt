@@ -66,9 +66,12 @@ fun TopBar(
             text = stringResource(R.string.app_name),
             style = MaterialTheme.typography.titleLarge,
             color = colors.text,
-            modifier = Modifier.weight(1f).clickable(onClick = onTitleTap),
+            // Natural width, measured first: at 200% text size the clear button wraps instead of squeezing the name.
+            modifier = Modifier.clickable(onClick = onTitleTap),
             maxLines = 1,
+            softWrap = false,
         )
+        Spacer(Modifier.weight(1f))
         Surface(
             onClick = onClear,
             enabled = canClear,

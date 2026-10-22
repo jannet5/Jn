@@ -194,4 +194,55 @@ class MainViewModelRobolectricTest {
         viewModel.undo()
         awaitState { it.totalUnread == 2 }
     }
+
+    @Test
+    fun `cleaning the screen leaves the messages of switched-off channels alone`() = runTest(timeout = 60.seconds) {
+        inbox.insertIfNew(msg("1"))
+        inbox.insertIfNew(msg("2", pkg = "com.instagram.android", chat = "x", at = 2_000))
+        awaitState { it.totalUnread == 2 }
+        prefs.setChannelEnabled("com.instagram.android", false)
+        awaitState { state -> state.bar.none { it.packageName == "com.instagram.android" } }
+
+        viewModel.clearScreen("temizlendi")
+        awaitState { it.totalUnread == 0 }
+
+        prefs.setChannelEnabled("com.instagram.android", true)
+        assertThat(awaitState { it.totalUnread == 1 }.conversations.single().sourcePackage).isEqualTo("com.instagram.android")
+    }
+
+    @Test
+    fun `text shared into Sende is shown although it belongs to no channel`() = runTest(timeout = 60.seconds) {
+        inbox.insertIfNew(msg("1", pkg = com.sende.app.capture.CaptureCoordinator.SHARE_FALLBACK_PACKAGE, chat = "Paylasilan").copy(captureMethod = CaptureMethod.SHARE))
+
+        val state = awaitState { it.conversations.isNotEmpty() }
+
+        assertThat(state.conversations.single().sourcePackage).isEqualTo(com.sende.app.capture.CaptureCoordinator.SHARE_FALLBACK_PACKAGE)
+    }
+
+    @Test
+    fun `a card whose messages were all read forgets it was open`() = runTest(timeout = 60.seconds) {
+        inbox.insertIfNew(msg("1"))
+        val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
+        viewModel.cycle(conversation)
+
+        viewModel.markRead(listOf("1"), "label")
+        awaitState { it.totalUnread == 0 }
+
+        assertThat(viewModel.levels[conversation.key]).isNull()
+        assertThat(viewModel.collapseAll()).isFalse() // back must not be swallowed by a card that no longer exists
+    }
+
+    @Test
+    fun `a new message in a chat that was fully read arrives closed`() = runTest(timeout = 60.seconds) {
+        inbox.insertIfNew(msg("1"))
+        val conversation = awaitState { it.conversations.isNotEmpty() }.conversations.single()
+        viewModel.cycle(conversation)
+        viewModel.markRead(listOf("1"), "label")
+        awaitState { it.totalUnread == 0 }
+
+        inbox.insertIfNew(msg("2", at = 5_000))
+        awaitState { it.totalUnread == 1 }
+
+        assertThat(viewModel.levels[conversation.key]).isNull()
+    }
 }

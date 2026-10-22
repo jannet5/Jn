@@ -3,6 +3,7 @@ package com.sende.app.ui.main
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sende.app.capture.CaptureCoordinator
 import com.sende.app.data.prefs.AppPreferences
 import com.sende.app.data.repository.ChannelRepository
 import com.sende.app.data.repository.InboxRepository
@@ -64,8 +65,10 @@ class MainViewModel(
         val bar = ChannelOrdering.barOrder(enabled).map { BarItem(it.packageName, it.label, it.unreadMessages) }
         val effectiveSelection = selected?.takeIf { sel -> bar.any { it.packageName == sel } }
         val labels = channels.associate { it.packageName to it.label }
+        val enabledPackages = enabled.map { it.packageName }.toSet()
         val visibleConversations = conversations.filter { conversation ->
-            conversation.sourcePackage in enabled.map { it.packageName }.toSet() &&
+            // Text the user shared into Sende has no channel to switch on: it is always shown.
+            (conversation.sourcePackage in enabledPackages || conversation.sourcePackage == CaptureCoordinator.SHARE_FALLBACK_PACKAGE) &&
                 (effectiveSelection == null || conversation.sourcePackage == effectiveSelection)
         }
         MainUiState(
@@ -139,16 +142,28 @@ class MainViewModel(
 
     /** Back-button step: closes whatever is open. @return true if something was closed. */
     fun collapseAll(): Boolean {
+        // Entries of cards or messages that no longer exist must not make the back button do nothing.
+        val shown = state.value.conversations
+        levels.keys.retainAll(shown.map { it.key }.toSet())
+        lengthened.keys.retainAll(shown.flatMap { c -> c.messages.map { it.id } }.toSet())
         if (levels.isEmpty() && lengthened.isEmpty()) return false
         levels.clear()
         lengthened.clear()
         return true
     }
 
+    /** Messages that were handled take their open/closed state with them; a card whose messages all went closes. */
+    private fun forgetOpenState(messageIds: Collection<String>) {
+        val gone = messageIds.toSet()
+        gone.forEach { lengthened.remove(it) }
+        state.value.conversations.filter { c -> c.messages.all { it.id in gone } }.forEach { levels.remove(it.key) }
+    }
+
     // ---- handling messages -------------------------------------------------------------
 
     fun markRead(ids: List<String>, label: String) {
         if (ids.isEmpty()) return
+        forgetOpenState(ids)
         viewModelScope.launch {
             val previous = ids.associateWith { "UNREAD" }
             inboxRepository.markRead(ids)
@@ -156,9 +171,13 @@ class MainViewModel(
         }
     }
 
+    /** Hides exactly the messages on screen (the selected channel, or everything shown), nothing else. */
     fun clearScreen(label: String) {
+        val ids = state.value.conversations.flatMap { c -> c.messages.map { it.id } }
+        if (ids.isEmpty()) return
+        forgetOpenState(ids)
         viewModelScope.launch {
-            val previous = inboxRepository.clearUnread(selectedPackage.value?.let { listOf(it) })
+            val previous = inboxRepository.hideMessages(ids)
             if (previous.isNotEmpty()) _undo.value = UndoRequest(previous, label)
         }
     }
@@ -191,9 +210,11 @@ class MainViewModel(
         if (!intentLauncher.fireAction(conversationKey, index)) eventChannel.trySend(UiEvent.OpenFailed)
     }
 
-    fun reply(conversationKey: String, text: String) {
+    /** @return true if the source app accepted the reply; the caller keeps the draft when it did not. */
+    fun reply(conversationKey: String, text: String): Boolean {
         val sent = text.isNotBlank() && intentLauncher.reply(conversationKey, text.trim())
         eventChannel.trySend(if (sent) UiEvent.ReplySent else UiEvent.ReplyFailed)
+        return sent
     }
 
     fun onCopied() {

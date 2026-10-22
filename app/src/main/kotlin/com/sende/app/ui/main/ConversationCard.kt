@@ -15,6 +15,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -74,7 +77,7 @@ fun ConversationCard(
     onToggleMessage: (messageId: String, currentlyLong: Boolean) -> Unit,
     onMarkRead: (ids: List<String>) -> Unit,
     onOpenApp: () -> Unit,
-    onReply: (String) -> Unit,
+    onReply: (String) -> Boolean,
     onCopy: (String) -> Unit,
     onPicture: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -112,7 +115,15 @@ fun ConversationCard(
                         color = colors.textSecondary,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f),
+                        // The whole card opens from its text too; long-press copies the newest message.
+                        modifier = Modifier
+                            .weight(1f)
+                            .heightIn(min = 40.dp)
+                            .combinedClickable(
+                                onClick = onCycle,
+                                onLongClick = { conversation.messages.lastOrNull()?.let { onCopy(it.messageText) } },
+                            )
+                            .wrapContentHeight(Alignment.CenterVertically),
                     )
                     ReadButton(onClick = { onMarkRead(conversation.messages.map { it.id }) })
                 }
@@ -321,6 +332,7 @@ private fun ReadButton(onClick: () -> Unit) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun Footer(
     conversation: Conversation,
@@ -328,7 +340,7 @@ private fun Footer(
     actionTitles: List<String>,
     onAppAction: (index: Int) -> Unit,
     onOpenApp: () -> Unit,
-    onReply: (String) -> Unit,
+    onReply: (String) -> Boolean,
     onMarkAllRead: () -> Unit,
 ) {
     val colors = Tek.colors
@@ -355,9 +367,11 @@ private fun Footer(
                 )
                 IconButton(
                     onClick = {
-                        onReply(draft)
-                        draft = ""
-                        replying = false
+                        // The draft only goes away once the app accepted it; a failed send keeps the words.
+                        if (onReply(draft)) {
+                            draft = ""
+                            replying = false
+                        }
                     },
                     enabled = draft.isNotBlank(),
                 ) {
@@ -371,7 +385,7 @@ private fun Footer(
         }
         if (actionTitles.isNotEmpty()) {
             // The sending app's own buttons, exactly as it labelled them in its notification.
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 actionTitles.forEachIndexed { index, title ->
                     Surface(
                         onClick = { onAppAction(index) },
@@ -391,7 +405,10 @@ private fun Footer(
                 }
             }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(4.dp), verticalAlignment = Alignment.CenterVertically) {
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(0.dp),
+        ) {
             TextButton(onClick = onOpenApp) {
                 Icon(Icons.AutoMirrored.Rounded.OpenInNew, contentDescription = null, tint = colors.text, modifier = Modifier.size(16.dp))
                 Spacer(Modifier.width(6.dp))
@@ -402,7 +419,6 @@ private fun Footer(
                     Text(stringResource(R.string.action_reply), style = MaterialTheme.typography.labelLarge, color = colors.accent)
                 }
             }
-            Spacer(Modifier.weight(1f))
             if (conversation.count > 1) {
                 TextButton(onClick = onMarkAllRead) {
                     Text(stringResource(R.string.action_mark_all_read), style = MaterialTheme.typography.labelLarge, color = colors.accent)

@@ -28,9 +28,9 @@
     <string name="open_source_failed">Uygulama açılamadı</string>
     <string name="copied">Kopyalandı</string>
     <string name="message_truncated_note">Android uzun bildirimleri yaklaşık 1000 karakterde keser. Devamını uygulamada oku.</string>
-    <string name="oem_hint_xiaomi">Xiaomi: Ayarlar\'da Sende için Otomatik başlat\'ı aç ve pil tasarrufunu "Kısıtlama yok" yap. Menü adları telefonuna göre biraz değişebilir.</string>
-    <string name="oem_hint_huawei">Huawei / Honor: Ayarlar > Pil > Uygulama başlatma: Sende\'yi "Elle yönet" yapıp üç seçeneğin üçünü de aç.</string>
-    <string name="oem_hint_samsung">Samsung: Ayarlar > Pil > Arka plan kullanım sınırları: Sende\'yi "Uyuyan uygulamalar"dan çıkar, "Hiç uyutulmayan uygulamalar"a ekle.</string>
+    <string name="oem_hint_xiaomi">Xiaomi: Ayarlar\'da Sende için Otomatik başlat\'ı aç ve pil tasarrufunu “Kısıtlama yok” yap. Menü adları telefonuna göre biraz değişebilir.</string>
+    <string name="oem_hint_huawei">Huawei / Honor: Ayarlar > Pil > Uygulama başlatma: Sende\'yi “Elle yönet” yapıp üç seçeneğin üçünü de aç.</string>
+    <string name="oem_hint_samsung">Samsung: Ayarlar > Pil > Arka plan kullanım sınırları: Sende\'yi “Uyuyan uygulamalar”dan çıkar, “Hiç uyutulmayan uygulamalar”a ekle.</string>
     <string name="oem_hint_oppo">Oppo / Realme / OnePlus: Pil ayarlarında Sende\'nin arka planda çalışmasına izin ver ve Otomatik başlatma\'yı aç.</string>
     <string name="oem_hint_vivo">Vivo / iQOO: Ayarlar > Pil > Arka plan güç tüketimi: Sende\'nin arka planda çalışmasına izin ver.</string>
     <string name="message_photo">Fotoğraf</string>

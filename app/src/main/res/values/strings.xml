@@ -28,9 +28,9 @@
     <string name="open_source_failed">Couldn\'t open the app</string>
     <string name="copied">Copied</string>
     <string name="message_truncated_note">Android cuts long notifications at about 1,000 characters. Open the app to read the rest.</string>
-    <string name="oem_hint_xiaomi">Xiaomi: in Settings turn on Autostart for Sende, and set its battery saver to "No restrictions". Menu names can differ slightly on your phone.</string>
-    <string name="oem_hint_huawei">Huawei / Honor: Settings > Battery > App launch: set Sende to "Manage manually" and switch all three options on.</string>
-    <string name="oem_hint_samsung">Samsung: Settings > Battery > Background usage limits: take Sende out of "Sleeping apps" and add it to "Never sleeping apps".</string>
+    <string name="oem_hint_xiaomi">Xiaomi: in Settings turn on Autostart for Sende, and set its battery saver to “No restrictions”. Menu names can differ slightly on your phone.</string>
+    <string name="oem_hint_huawei">Huawei / Honor: Settings > Battery > App launch: set Sende to “Manage manually” and switch all three options on.</string>
+    <string name="oem_hint_samsung">Samsung: Settings > Battery > Background usage limits: take Sende out of “Sleeping apps” and add it to “Never sleeping apps”.</string>
     <string name="oem_hint_oppo">Oppo / Realme / OnePlus: allow Sende to run in the background and turn Auto-launch on in the battery settings.</string>
     <string name="oem_hint_vivo">Vivo / iQOO: Settings > Battery > Background power consumption: allow Sende to run in the background.</string>
     <string name="message_photo">Photo</string>

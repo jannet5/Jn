@@ -4,6 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
@@ -19,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.sende.app.R
+import com.sende.app.capture.CaptureCoordinator
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sende.app.domain.model.Conversation
@@ -46,7 +52,7 @@ class MainCallbacks(
     val onToggleMessage: (messageId: String, currentlyLong: Boolean) -> Unit = { _, _ -> },
     val onMarkRead: (List<String>) -> Unit = {},
     val onOpenApp: (Conversation) -> Unit = {},
-    val onReply: (conversationKey: String, text: String) -> Unit = { _, _ -> },
+    val onReply: (conversationKey: String, text: String) -> Boolean = { _, _ -> true },
     val onCopy: (String) -> Unit = {},
     val onPicture: (String) -> Unit = {},
     val onSupport: () -> Unit = {},
@@ -77,7 +83,14 @@ fun MainContent(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         snackbarHost = { SnackbarHost(snackbarHostState, modifier = Modifier.padding(bottom = bottomInset)) },
     ) { inner ->
-        Column(Modifier.fillMaxSize().padding(inner)) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(inner)
+                // Landscape and cut-outs: keep clear of the side bars; the reply field rides above the keyboard.
+                .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal))
+                .imePadding(),
+        ) {
             TopBar(
                 menuOpen = menuOpen,
                 canClear = state.conversations.isNotEmpty(),
@@ -149,7 +162,8 @@ fun MainContent(
                 items(state.conversations, key = { it.key }) { conversation ->
                     ConversationCard(
                         conversation = conversation,
-                        appLabel = state.labels[conversation.sourcePackage] ?: "",
+                        appLabel = state.labels[conversation.sourcePackage]
+                            ?: if (conversation.sourcePackage == CaptureCoordinator.SHARE_FALLBACK_PACKAGE) stringResource(R.string.share_sender_label) else "",
                         level = levelOf(conversation.key),
                         isLong = isLong,
                         canReply = canReply(conversation.key),

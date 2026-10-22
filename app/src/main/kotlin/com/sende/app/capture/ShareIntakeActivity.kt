@@ -33,9 +33,10 @@ class ShareIntakeActivity : ComponentActivity() {
             return
         }
 
-        // Activity.getReferrer() is the OS-supported way to learn the calling package for an
-        // ACTION_SEND without trusting extras the caller could spoof.
-        val sourcePackageHint = referrer?.host
+        // Shared text always lands under its own "Shared" source. The referrer is deliberately not
+        // used: any caller can put a referrer extra of its choosing into the intent, so it would let
+        // another app file messages under, say, WhatsApp.
+        val sourcePackageHint: String? = null
 
         lifecycleScope.launch {
             val senderLabel = getString(R.string.share_sender_label)
