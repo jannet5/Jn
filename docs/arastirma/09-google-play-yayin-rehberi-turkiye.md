@@ -1538,8 +1538,9 @@ https://support.google.com/googleplay/android-developer/answer/9859655
     dönüyor; yeni hedef hesap 25 USD; yalnız resmi "uygulama aktarımı"
     yolu (gayriresmi hesap devri yasak, Nisan 2026 politikası).
   - Karar kuralı (benim önerim): kuruluş/şirket 6-8 hafta içinde hazır
-    olacaksa DOĞRUDAN Yol B (testi iki kez yaşamamak için; D-U-N-S'yi
-    beklerken uygulamayı iç testte geliştir). Hazır olmayacaksa Yol A.
+    olacaksa DOĞRUDAN Yol B (aktarım işlemi, ek 25 USD ve kişisel adresin
+    mağazada görünmesi riskinden kaçınmak için; D-U-N-S'yi beklerken
+    uygulamayı iç testte geliştir). Hazır olmayacaksa Yol A.
     Çünkü Yol A'da test + inceleme zaten ~4 hafta, aktarım ek işlem
     ve ek 25 USD; Yol B'de ise kapalı test şartı muhtemelen yok ama
     resmi olarak doğrulanamadı. [çıkarım]
@@ -1580,6 +1581,13 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   yaptık). Neden: form "nasıl topladın, özetle" diyor.
 - YAP: İki A/B kanalını da ≥15 kişiyle açık tut. Neden: hangisinin
   sayıldığı belirsiz.
+- YAP: Bir test takip tablosu tut (kişi, Play hesabı e-postası, katıldığı
+  gün, son görüldüğü gün, ne denedi, ne dedi). Her 3-4 günde bir pasif
+  olanlara yaz; 5 günden fazla sessizse yenisini ekle. Neden: gerçek örnekte
+  iki ret "pasif kullanıcı" yüzündendi, üçüncüde (aktif takip) geçti.
+- YAP: Davet metnine "Bağlantıya tıkla, 'Test kullanıcısı ol' de, Play'den
+  kur, 14 gün çıkma, haftada en az 2 kez aç" yaz. Neden: yalnız e-posta
+  listesine eklemek yetmez, kişi bağlantıdan kendisi katılmalı.
 - YAPMA: 14. günden önce başvurma; testi duraklatma.
 
 ### Politika ve ret riski
