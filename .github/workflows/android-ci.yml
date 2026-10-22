@@ -159,12 +159,14 @@ jobs:
         run: |
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
           set -o pipefail
-          "$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK" > signer.txt
+          # Several build-tools versions are installed: pick one, a glob would expand to several paths.
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          "$BT/apksigner" verify --print-certs "$APK" > signer.txt
           head -3 signer.txt
           unzip -p "$APK" AndroidManifest.xml >/dev/null
           ls -l "$APK"
           # The handed-out APK may ask for nothing but "reconnect after boot".
-          "$ANDROID_HOME"/build-tools/*/aapt2 dump permissions "$APK" | sed -n "s/^uses-permission: name='\([^']*\)'.*/\1/p" | sort > perms.txt
+          "$BT/aapt2" dump permissions "$APK" | sed -n "s/^uses-permission: name='\([^']*\)'.*/\1/p" | sort > perms.txt
           cat perms.txt
           if grep -Ev '^android.permission.RECEIVE_BOOT_COMPLETED$|DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION$' perms.txt; then
             echo "Permission outside the allow-list"; exit 1
@@ -182,7 +184,9 @@ jobs:
           APK=app/build/outputs/apk/sideload/preview/app-sideload-preview.apk
           STAMP=$(TZ=Europe/Istanbul date +'%d.%m.%y %H.%M')
           SHA=$(sha256sum "$APK" | cut -d' ' -f1)
-          CERT=$("$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK" | grep "SHA-256 digest" | head -1 | sed 's/.*: //')
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          "$BT/apksigner" verify --print-certs "$APK" > signer.txt
+          CERT=$(grep "SHA-256 digest" signer.txt | head -1 | sed 's/.*: //')
           if [ -n "${SENDE_SIGNING_DIR:-}" ]; then SIGN="özel anahtar"; else SIGN="herkese açık TEST anahtarı"; fi
           cp "$APK" "Sende.apk"
           cp "$APK" "Sende $STAMP.apk"
