@@ -83,4 +83,34 @@ class MessageFilterEngineTest {
         )
         assertThat(reason).isEqualTo(FilterReason.ACCEPTED)
     }
+
+    @Test
+    fun `rejects a short live-broadcast alert`() {
+        val reason = engine.decide(
+            payloadOf(packageName = "com.instagram.android"),
+            content(sender = "ali_veli", text = "ali_veli canlı yayında."),
+            channelEnabled = true,
+        )
+        assertThat(reason).isEqualTo(FilterReason.LIVE_OR_PROMOTIONAL_HEURISTIC)
+    }
+
+    @Test
+    fun `keeps a customer message that merely contains the words canli yayinda`() {
+        val reason = engine.decide(
+            payloadOf(packageName = "com.instagram.android"),
+            content(sender = "Deniz Kaya", text = "Dün canlı yayında gördüğüm elbisenin fiyatı nedir?"),
+            channelEnabled = true,
+        )
+        assertThat(reason).isEqualTo(FilterReason.ACCEPTED)
+    }
+
+    @Test
+    fun `keeps a message in a chat whose title contains the words canli yayinda`() {
+        val reason = engine.decide(
+            payloadOf(packageName = "com.instagram.android", title = "Canlı Yayında Satış Grubu"),
+            content(sender = "Deniz Kaya", text = "Sipariş vermek istiyorum"),
+            channelEnabled = true,
+        )
+        assertThat(reason).isEqualTo(FilterReason.ACCEPTED)
+    }
 }

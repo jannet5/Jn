@@ -109,6 +109,79 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
+    fun `an updated multi-line notification that lists the old lines again stores only the new line`() = runTest(timeout = 60.seconds) {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.inbox(context, "com.whatsapp", "Ayşe", listOf("merhaba", "fiyat?"), postTime = 1_000L))
+        coordinator.feed(FakeSbn.inbox(context, "com.whatsapp", "Ayşe", listOf("merhaba", "fiyat?", "adres?"), postTime = 200_000L))
+
+        val texts = repository.observeConversations().first().single().messages.map { it.messageText }
+        assertThat(texts).containsExactly("merhaba", "fiyat?", "adres?").inOrder()
+    }
+
+    @Test
+    fun `the same word again after the notification was dismissed is a new message`() = runTest(timeout = 60.seconds) {
+        val coordinator = coordinator()
+        val first = FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Evet", id = 7, postTime = 1_000L)
+        coordinator.feed(first)
+        coordinator.forget(first.key)
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Evet", id = 7, postTime = 400_000L))
+
+        assertThat(repository.countAll()).isEqualTo(2)
+    }
+
+    @Test
+    fun `the same single line delivered again while the notification stays is not stored twice`() = runTest(timeout = 60.seconds) {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Evet", id = 7, postTime = 1_000L))
+        coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "Evet", id = 7, postTime = 61_000L))
+
+        assertThat(repository.countAll()).isEqualTo(1)
+    }
+
+    @Test
+    fun `a multi-line notification seen again after a restart does not store its old lines twice`() = runTest(timeout = 60.seconds) {
+        val now = System.currentTimeMillis()
+        coordinator().feed(FakeSbn.inbox(context, "com.whatsapp", "Ayşe", listOf("merhaba", "fiyat?"), postTime = now - 120_000L))
+        // New process: the in-memory tracker is empty and the app re-posted with a later time.
+        coordinator().feed(FakeSbn.inbox(context, "com.whatsapp", "Ayşe", listOf("merhaba", "fiyat?", "adres?"), postTime = now))
+
+        assertThat(repository.countAll()).isEqualTo(3)
+    }
+
+    @Test
+    fun `the phone owner's own reply is never stored as a customer message`() = runTest(timeout = 60.seconds) {
+        coordinator().feed(
+            FakeSbn.chatWithOwner(context, "com.whatsapp", "Ayşe", listOf(Triple("Merhaba", 1_000L, false), Triple("Hemen gönderiyorum", 2_000L, true))),
+        )
+
+        val texts = repository.observeConversations().first().single().messages.map { it.messageText }
+        assertThat(texts).containsExactly("Merhaba")
+    }
+
+    @Test
+    fun `an owner line without a person is recognised when the customer is named`() = runTest(timeout = 60.seconds) {
+        coordinator().feed(
+            FakeSbn.chatWithOwner(
+                context, "com.whatsapp", "Ayşe",
+                listOf(Triple("Merhaba", 1_000L, false), Triple("Hemen gönderiyorum", 2_000L, true)),
+                ownerHasPerson = false,
+            ),
+        )
+
+        assertThat(repository.countAll()).isEqualTo(1)
+    }
+
+    @Test
+    fun `a notification that only carries the owner's own words stores nothing`() = runTest(timeout = 60.seconds) {
+        val stored = coordinator().feed(
+            FakeSbn.chatWithOwner(context, "com.whatsapp", "Ayşe", listOf(Triple("Hemen gönderiyorum", 2_000L, true))),
+        )
+
+        assertThat(stored).isEmpty()
+        assertThat(repository.countAll()).isEqualTo(0)
+    }
+
+    @Test
     fun `messages of different people become different conversations`() = runTest(timeout = 60.seconds) {
         val coordinator = coordinator()
         coordinator.feed(FakeSbn.plain(context, "com.whatsapp", "Ayşe", "selam", id = 1))

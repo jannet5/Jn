@@ -17,8 +17,21 @@ interface InboxMessageDao {
     @Query("SELECT EXISTS(SELECT 1 FROM inbox_messages WHERE fingerprint = :fingerprint)")
     suspend fun fingerprintExists(fingerprint: String): Boolean
 
-    /** Everything the main screen shows: unread messages, newest last inside a conversation. */
-    @Query("SELECT * FROM inbox_messages WHERE state = 'UNREAD' ORDER BY receivedAtEpochMillis ASC, capturedAtEpochMillis ASC LIMIT 3000")
+    @Query(
+        "SELECT EXISTS(SELECT 1 FROM inbox_messages WHERE conversationKey = :conversationKey AND senderName = :senderName " +
+            "AND messageText = :messageText AND receivedAtEpochMillis >= :sinceMillis)",
+    )
+    suspend fun contentExistsSince(conversationKey: String, senderName: String, messageText: String, sinceMillis: Long): Boolean
+
+    /**
+     * Everything the main screen shows: the newest 3000 unread messages, oldest first so the newest is
+     * last inside a conversation. (The limit keeps the newest, never the oldest.)
+     */
+    @Query(
+        "SELECT * FROM (SELECT * FROM inbox_messages WHERE state = 'UNREAD' " +
+            "ORDER BY receivedAtEpochMillis DESC, capturedAtEpochMillis DESC LIMIT 3000) " +
+            "ORDER BY receivedAtEpochMillis ASC, capturedAtEpochMillis ASC",
+    )
     fun observeUnread(): Flow<List<InboxMessageEntity>>
 
     @Query(

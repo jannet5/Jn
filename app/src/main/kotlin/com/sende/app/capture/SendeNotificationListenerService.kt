@@ -66,6 +66,11 @@ class SendeNotificationListenerService : NotificationListenerService() {
         serviceScope.launch { processSafely(sbn) }
     }
 
+    override fun onNotificationRemoved(sbn: StatusBarNotification) {
+        super.onNotificationRemoved(sbn)
+        captureCoordinator.forget(sbn.key)
+    }
+
     private suspend fun processSafely(sbn: StatusBarNotification) {
         try {
             val payload = NotificationExtractor.extract(applicationContext, sbn)

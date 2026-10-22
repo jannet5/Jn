@@ -28,6 +28,11 @@ class CaptureCoordinator(
     private val mediaStore: MediaStore,
 ) {
 
+    private val untimedLines = UntimedLineTracker()
+
+    /** The notification left the shade: its next appearance (same words included) is a new message. */
+    fun forget(notificationKey: String) = untimedLines.forget(notificationKey)
+
     /** @return the messages that were newly stored (empty when filtered or already known). */
     suspend fun handleNotification(payload: RawNotificationPayload, live: LiveConversation?): List<InboxMessage> {
         val channelEnabled = appPreferences.isChannelEnabledNow(payload.packageName)
@@ -44,7 +49,27 @@ class CaptureCoordinator(
 
         val stored = mutableListOf<InboxMessage>()
         val avatarBySender = HashMap<String, String?>()
-        for (message in normalized.messages) {
+
+        // Lines without their own timestamp: only the ones this delivery added to the notification are new.
+        val untimedAt = normalized.messages.indices.filter { normalized.messages[it].timestampMillis == null }
+        val untimedDiff = if (untimedAt.isEmpty()) null else untimedLines.diff(
+            payload.notificationKey,
+            untimedAt.map { normalized.messages[it].let { m -> m.senderName + "\u0000" + m.messageText } },
+        )
+        val freshUntimed = untimedDiff?.newIndices?.map { untimedAt[it] }?.toSet().orEmpty()
+
+        for ((position, message) in normalized.messages.withIndex()) {
+            if (message.timestampMillis == null) {
+                val alreadySeen = position !in freshUntimed ||
+                    // After a restart the old lines of a multi-line notification look new: skip the ones stored recently.
+                    (untimedDiff!!.firstSighting && untimedAt.size > 1 && inboxRepository.hasSameContentSince(
+                        conversationKey, message.senderName, message.messageText, System.currentTimeMillis() - REPLAY_WINDOW_MILLIS,
+                    ))
+                if (alreadySeen) {
+                    diagnosticsRecorder.onDecision(payload.packageName, FilterReason.DUPLICATE_BY_FINGERPRINT)
+                    continue
+                }
+            }
             val fingerprint = if (message.timestampMillis != null) {
                 Fingerprint.forTimedMessage(payload.packageName, conversationKey, message.senderName, message.messageText, message.timestampMillis)
             } else {
@@ -57,11 +82,12 @@ class CaptureCoordinator(
             }
 
             val (avatarPath, picturePath) = withContext(Dispatchers.IO) {
+                // A full disk or a broken image must never cost the customer's words.
                 val avatar = avatarBySender.getOrPut(message.senderName) {
-                    payload.media?.avatar(message.senderName)?.let { mediaStore.save(it) }
+                    runCatching { payload.media?.avatar(message.senderName)?.let { mediaStore.save(it) } }.getOrNull()
                 }
                 val picture = if (message.hasPicture) {
-                    payload.media?.picture(message.lineIndex)?.let { mediaStore.save(it) }
+                    runCatching { payload.media?.picture(message.lineIndex)?.let { mediaStore.save(it) } }.getOrNull()
                 } else {
                     null
                 }
@@ -141,6 +167,7 @@ class CaptureCoordinator(
 
     companion object {
         private const val MAX_SHARED_TEXT_LENGTH = 10_000
+        private const val REPLAY_WINDOW_MILLIS = 6 * 60 * 60 * 1000L
         const val SHARE_FALLBACK_PACKAGE = "sende.share"
     }
 }

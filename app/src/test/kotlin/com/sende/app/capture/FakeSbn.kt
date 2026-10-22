@@ -49,4 +49,39 @@ object FakeSbn {
             .build()
         return wrap(context, packageName, notification, id, messages.maxOf { it.second })
     }
+
+    /** A plain multi-line (InboxStyle) notification: no timestamps, old lines are listed again on every update. */
+    fun inbox(context: Context, packageName: String, title: String, lines: List<String>, id: Int = 1, postTime: Long = System.currentTimeMillis()): StatusBarNotification {
+        val style = NotificationCompat.InboxStyle().also { inbox -> lines.forEach { inbox.addLine(it) } }
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(lines.last())
+            .setStyle(style)
+            .build()
+        return wrap(context, packageName, notification, id, postTime)
+    }
+
+    /** A chat where some lines were written by the phone's owner (an inline reply shown in the shade). */
+    fun chatWithOwner(
+        context: Context,
+        packageName: String,
+        chatTitle: String,
+        messages: List<Triple<String, Long, Boolean>>,
+        ownerHasPerson: Boolean = true,
+        id: Int = 1,
+    ): StatusBarNotification {
+        val customer = Person.Builder().setName(chatTitle).build()
+        val owner = Person.Builder().setName("Me").build()
+        val style = NotificationCompat.MessagingStyle(owner)
+        messages.forEach { (text, at, fromOwner) ->
+            style.addMessage(text, at, if (fromOwner) (if (ownerHasPerson) owner else null) else customer)
+        }
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(chatTitle)
+            .setStyle(style)
+            .build()
+        return wrap(context, packageName, notification, id, messages.maxOf { it.second })
+    }
 }

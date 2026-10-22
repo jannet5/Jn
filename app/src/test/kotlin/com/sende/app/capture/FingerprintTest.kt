@@ -22,16 +22,16 @@ class FingerprintTest {
     }
 
     @Test
-    fun `untimed fingerprint absorbs sub-minute re-posts of the same notification`() {
+    fun `untimed fingerprint is stable for the same delivery replayed`() {
         val a = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 60_000L)
-        val b = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 60_500L)
+        val b = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 60_000L)
         assertThat(a).isEqualTo(b)
     }
 
     @Test
-    fun `untimed fingerprint separates identical text sent minutes apart`() {
+    fun `untimed fingerprint separates the same text delivered at different times`() {
         val a = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 60_000L)
-        val b = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 180_000L)
+        val b = Fingerprint.forUntimedMessage("com.whatsapp", key, "Ayşe", "Merhaba", 60_001L)
         assertThat(a).isNotEqualTo(b)
     }
 

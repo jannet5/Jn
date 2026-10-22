@@ -46,6 +46,10 @@ class InboxRepository(
 
     suspend fun exists(fingerprint: String): Boolean = dao.fingerprintExists(fingerprint)
 
+    /** True if the same words from the same sender in the same chat were stored since [sinceMillis]. */
+    suspend fun hasSameContentSince(conversationKey: String, senderName: String, messageText: String, sinceMillis: Long): Boolean =
+        dao.contentExistsSince(conversationKey, senderName, messageText, sinceMillis)
+
     /** Returns true if [message] was newly inserted, false if the fingerprint index rejected it. */
     suspend fun insertIfNew(message: InboxMessage): Boolean = dao.insertIfNew(message.toEntity()) != -1L
 

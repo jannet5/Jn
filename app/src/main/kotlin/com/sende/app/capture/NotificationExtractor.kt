@@ -30,13 +30,24 @@ object NotificationExtractor {
             ?.map { it.toString() }
             ?: emptyList()
 
+        val styleUser = messagingStyle?.user
+        // A message without a Person is the phone owner's only when the app names everyone else.
+        val othersAreNamed = messagingStyle?.messages.orEmpty().any { it.person != null }
         val lines = messagingStyle?.messages.orEmpty().mapIndexed { index, message ->
+            val person = message.person
+            val fromUser = if (person == null) {
+                othersAreNamed
+            } else {
+                (person.key != null && person.key == styleUser?.key) ||
+                    (!person.name.isNullOrBlank() && person.name.toString() == styleUser?.name?.toString())
+            }
             MessagingLine(
-                sender = message.person?.name?.toString(),
+                sender = person?.name?.toString(),
                 text = message.text?.toString().orEmpty(),
                 timestampMillis = message.timestamp,
                 hasPicture = message.dataUri != null && message.dataMimeType?.startsWith("image/") == true,
                 index = index,
+                fromUser = fromUser,
             )
         }
 

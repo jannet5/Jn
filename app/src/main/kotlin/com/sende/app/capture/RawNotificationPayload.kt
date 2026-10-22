@@ -28,13 +28,18 @@ data class RawNotificationPayload(
     val media: NotificationMedia? = null,
 )
 
-/** One line of a `MessagingStyle` conversation, oldest to newest. [index] addresses its picture. */
+/**
+ * One line of a `MessagingStyle` conversation, oldest to newest. [index] addresses its picture.
+ * [fromUser] marks the phone owner's own words (their inline reply shown in the same notification):
+ * those are never a customer message.
+ */
 data class MessagingLine(
     val sender: String?,
     val text: String,
     val timestampMillis: Long = 0L,
     val hasPicture: Boolean = false,
     val index: Int = 0,
+    val fromUser: Boolean = false,
 )
 
 /**

@@ -15,7 +15,7 @@ class PromotionalHeuristics {
     fun looksNonCustomer(payload: RawNotificationPayload, normalized: NormalizedNotification): Boolean {
         if (isGenericBrandSender(payload.packageName, normalized)) return true
         val latest = normalized.messages.lastOrNull()?.messageText
-        if (matchesLiveBroadcastPhrase(latest) || matchesLiveBroadcastPhrase(payload.title)) return true
+        if (matchesLiveBroadcastPhrase(latest)) return true
         return false
     }
 
@@ -25,18 +25,19 @@ class PromotionalHeuristics {
         return generic.any { it.equals(sender, ignoreCase = true) }
     }
 
+    /**
+     * Live-broadcast alerts are one short sentence, optionally led by the broadcaster's name
+     * ("ali_veli canlı yayında."). A customer message that merely contains the words, or a chat whose
+     * title contains them, is a real message and must never match.
+     */
     private fun matchesLiveBroadcastPhrase(text: String?): Boolean {
-        val haystack = text?.lowercase() ?: return false
-        return liveBroadcastPhrases.any { haystack.contains(it) }
+        val sentence = text?.trim()?.lowercase() ?: return false
+        return liveBroadcastSentence.matches(sentence)
     }
 
     companion object {
-        private val liveBroadcastPhrases = listOf(
-            "canlı yayına başladı",
-            "canlı yayında",
-            "started a live video",
-            "is live now",
-            "went live",
+        private val liveBroadcastSentence = Regex(
+            "^(\\S+( \\S+){0,3}\\s+)?(canlı yayına başladı|canlı yayında|started a live video|is live now|is live|went live)[.!]?$",
         )
     }
 }

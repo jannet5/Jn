@@ -29,13 +29,15 @@ data class NormalizedNotification(
 object MessageNormalizer {
 
     fun normalize(payload: RawNotificationPayload): NormalizedNotification? {
+        // A conversation holding only the phone owner's own words says nothing a customer wrote.
+        if (payload.messagingStyleMessages.isNotEmpty() && payload.messagingStyleMessages.all { it.fromUser }) return null
         fromMessagingStyle(payload)?.let { return it }
         fromTextLines(payload)?.let { return it }
         return fromPlainText(payload)
     }
 
     private fun fromMessagingStyle(payload: RawNotificationPayload): NormalizedNotification? {
-        val lines = payload.messagingStyleMessages.filter { it.text.isNotBlank() || it.hasPicture }
+        val lines = payload.messagingStyleMessages.filter { !it.fromUser && (it.text.isNotBlank() || it.hasPicture) }
         if (lines.isEmpty()) return null
         val title = conversationTitleOf(payload) ?: lines.last().sender?.takeIf { it.isNotBlank() } ?: return null
         val fallbackSender = payload.title?.takeIf { it.isNotBlank() } ?: title

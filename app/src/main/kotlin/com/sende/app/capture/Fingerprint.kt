@@ -12,19 +12,17 @@ import java.util.Locale
  * - [forTimedMessage]: for `MessagingStyle` lines, which carry their own exact timestamp.
  *   The exact timestamp (not a bucket) is used, so two real messages with the same text sent
  *   seconds apart stay distinct while a re-delivery of one message always collapses.
- * - [forUntimedMessage]: for plain notifications, which only have the post time. A 60-second
- *   bucket absorbs the jitter Android adds when a notification is updated in place without
- *   merging genuinely distinct messages sent a minute or more apart.
+ * - [forUntimedMessage]: for plain notifications, which only have the post time. The exact post
+ *   time identifies one delivery (a listener replay carries the original time); which lines of an
+ *   updated notification are new is decided before this, by [UntimedLineTracker].
  */
 object Fingerprint {
-
-    private const val TIME_BUCKET_MILLIS = 60_000L
 
     fun forTimedMessage(packageName: String, conversationKey: String, senderName: String, messageText: String, timestampMillis: Long): String =
         hash(packageName, conversationKey, senderName, messageText, "t$timestampMillis")
 
     fun forUntimedMessage(packageName: String, conversationKey: String, senderName: String, messageText: String, postTimeEpochMillis: Long): String =
-        hash(packageName, conversationKey, senderName, messageText, "b${postTimeEpochMillis / TIME_BUCKET_MILLIS}")
+        hash(packageName, conversationKey, senderName, messageText, "p$postTimeEpochMillis")
 
     /** Groups messages of one chat: package plus a case/diacritic-insensitive conversation title. */
     fun conversationKey(packageName: String, conversationTitle: String): String =
