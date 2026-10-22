@@ -1610,6 +1610,16 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   QUERY_ALL_PACKAGES. Neden: ek beyan, haftalarca inceleme, ret riski.
 - DENE: Play manifestinden INTERNET'i çıkarmayı iç testte dene. Neden:
   "dinleyici + internet" kombinasyonu şüphe çeker. Billing bozulursa geri al.
+- YAP: Kurulu uygulama listesini (MAIN/LAUNCHER sorgusu) üç yerde aynı
+  cümleyle açıkla: izin öncesi ekran, gizlilik politikası, inceleyici notu.
+  Neden: Package Visibility politikası bu envanteri "hassas veri" sayıyor.
+- YAPMA: Play sürümüne reklam/analitik/çökme-raporlama SDK'sı koyma
+  (Billing dışında ağ kodu yok). Neden: Unity forumundaki gerçek reddin
+  sebebi SDK'ydı; "veri toplanmıyor" vaadi de bozulur.
+- YAP: Meta tarafında dar dur: yalnız okuma, otomatik cevap yok, WhatsApp
+  adı düz metin ve bir kez. Neden: 2018'de Notification Listener
+  kullanan uygulamalar WhatsApp'tan hukuki mektup aldı, biri Play'den
+  kalktı.
 
 ### Teknik
 
