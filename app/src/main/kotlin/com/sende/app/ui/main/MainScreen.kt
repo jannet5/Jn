@@ -185,6 +185,8 @@ fun MainScreen(viewModel: MainViewModel = koinViewModel(), supportViewModel: Sup
             onAdd = { showPicker = true },
             onOpenSettings = { AccessSettings.openNotificationAccess(context) },
             onHowTo = { showGuide = true },
+            onAccessNotNow = { viewModel.setAccessHintDismissed(true) },
+            onAccessReopen = { viewModel.setAccessHintDismissed(false) },
             onRestartListener = viewModel::restartListener,
             onBatterySettings = { ListenerHealth.openBatterySettings(context) },
             onCycle = viewModel::cycle,

@@ -149,6 +149,62 @@ class CaptureCoordinatorRobolectricTest {
     }
 
     @Test
+    fun `REAL-APP REGRESSION - a text rewritten as first, first-second, first-second-third stores three messages`() = runTest(timeout = 60.seconds) {
+        // Found on a virtual phone with the stock Messaging app: one notification whose text grows with every SMS.
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba", id = 5, postTime = 1_000L))
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun", id = 5, postTime = 2_000L))
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun\nBir de çocuk sandalyesi", id = 5, postTime = 3_000L))
+
+        val texts = repository.observeConversations().first().single().messages.map { it.messageText }
+        assertThat(texts).containsExactly("Merhaba", "Saat 19:00 olsun", "Bir de çocuk sandalyesi").inOrder()
+    }
+
+    @Test
+    fun `the grown text posted again under another notification key is not stored twice`() = runTest(timeout = 60.seconds) {
+        val now = System.currentTimeMillis()
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba", id = 5, postTime = now - 30_000L))
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun", id = 5, postTime = now - 20_000L))
+        // The app rebuilt its notifications: the whole conversation again, under a new key.
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun", id = 6, postTime = now))
+
+        assertThat(repository.countAll()).isEqualTo(2)
+    }
+
+    @Test
+    fun `the grown text cancelled and posted again is not stored twice`() = runTest(timeout = 60.seconds) {
+        val now = System.currentTimeMillis()
+        val coordinator = coordinator()
+        val grown = FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun", id = 5, postTime = now - 20_000L)
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba", id = 5, postTime = now - 30_000L))
+        coordinator.feed(grown)
+        coordinator.forget(grown.key)
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "555-1234", "Merhaba\nSaat 19:00 olsun", id = 5, postTime = now))
+
+        assertThat(repository.countAll()).isEqualTo(2)
+    }
+
+    @Test
+    fun `one customer message that really has several lines stays one message`() = runTest(timeout = 60.seconds) {
+        val address = "Adres:\nGül Sokak 5\nKadıköy"
+        val stored = coordinator().feed(FakeSbn.bigText(context, "com.whatsapp", "Ayşe", address, id = 9))
+
+        assertThat(stored).hasSize(1)
+        assertThat(stored.single().messageText).isEqualTo(address)
+    }
+
+    @Test
+    fun `a replaced text that shares nothing with the old one is one new message`() = runTest(timeout = 60.seconds) {
+        val coordinator = coordinator()
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "Ayşe", "Merhaba", id = 9, postTime = 1_000L))
+        coordinator.feed(FakeSbn.bigText(context, "com.whatsapp", "Ayşe", "Adres:\nGül Sokak 5", id = 9, postTime = 2_000L))
+
+        val texts = repository.observeConversations().first().single().messages.map { it.messageText }
+        assertThat(texts).containsExactly("Merhaba", "Adres:\nGül Sokak 5")
+    }
+
+    @Test
     fun `the phone owner's own reply is never stored as a customer message`() = runTest(timeout = 60.seconds) {
         coordinator().feed(
             FakeSbn.chatWithOwner(context, "com.whatsapp", "Ayşe", listOf(Triple("Merhaba", 1_000L, false), Triple("Hemen gönderiyorum", 2_000L, true))),

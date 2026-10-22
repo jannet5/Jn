@@ -79,7 +79,10 @@
 
     <string name="access_title">Bildirim erişimini aç</string>
     <string name="access_body">Sende, seçtiğin uygulamaların bildirimlerini (gönderen adı ve mesaj metni) okuyup burada gösterir. Hiçbir şey telefondan çıkmaz.</string>
-    <string name="access_open">Erişimi aç</string>
+    <string name="access_open">Kabul ediyorum, erişimi aç</string>
+    <string name="access_not_now">Şimdi değil</string>
+    <string name="access_collapsed">Bildirim erişimi kapalı</string>
+    <string name="access_collapsed_open">Aç</string>
     <string name="access_howto">Nasıl yapılır?</string>
     <string name="stalled_title">Dinleme duraklamış</string>
     <string name="stalled_body">Telefonun Sende\'yi arka planda durdurmuş, yeni mesajlar gelmiyor. Yeniden başlat; pil ayarlarında Sende\'nin arka planda çalışmasına da izin ver.</string>

@@ -108,6 +108,11 @@ class ScreenshotTest {
         shot("07-izin-yok")
     }
 
+    @Test fun main_access_not_now() {
+        main(ScreenshotFixtures.state(tmp.newFolder(), accessGranted = false, empty = true).copy(accessHintDismissed = true))
+        shot("12-izin-simdi-degil")
+    }
+
     @Test fun main_stalled() {
         main(ScreenshotFixtures.state(tmp.newFolder()).copy(listenerStalled = true))
         shot("11-dinleme-duraklamis")

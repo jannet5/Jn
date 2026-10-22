@@ -14,6 +14,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -26,7 +27,7 @@ import com.sende.app.ui.theme.Tek
  * and a "how" link for the visual guide.
  */
 @Composable
-fun AccessBanner(onOpenSettings: () -> Unit, onHowTo: () -> Unit, modifier: Modifier = Modifier) {
+fun AccessBanner(onOpenSettings: () -> Unit, onHowTo: () -> Unit, onNotNow: () -> Unit, modifier: Modifier = Modifier) {
     val colors = Tek.colors
     Surface(
         shape = RoundedCornerShape(Tek.shapes.card),
@@ -37,14 +38,43 @@ fun AccessBanner(onOpenSettings: () -> Unit, onHowTo: () -> Unit, modifier: Modi
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(stringResource(R.string.access_title), style = MaterialTheme.typography.titleSmall, color = colors.text)
             Text(stringResource(R.string.access_body), style = MaterialTheme.typography.bodySmall, color = colors.textSecondary)
-            Row(Modifier.padding(top = 10.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(
-                    onClick = onOpenSettings,
-                    shape = RoundedCornerShape(Tek.shapes.button),
-                    colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
-                ) { Text(stringResource(R.string.access_open)) }
+            // Explicit consent first, an equal-weight way out second: declining is allowed and the app keeps working.
+            Button(
+                onClick = onOpenSettings,
+                shape = RoundedCornerShape(Tek.shapes.button),
+                colors = ButtonDefaults.buttonColors(containerColor = colors.accent, contentColor = colors.onAccent),
+                modifier = Modifier.padding(top = 10.dp),
+            ) { Text(stringResource(R.string.access_open)) }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                TextButton(onClick = onNotNow) { Text(stringResource(R.string.access_not_now), color = colors.text) }
                 TextButton(onClick = onHowTo) { Text(stringResource(R.string.access_howto), color = colors.text) }
             }
+        }
+    }
+}
+
+/** After "not now": one quiet line, never the full card again, with a way back. */
+@Composable
+fun AccessCollapsed(onReopen: () -> Unit, modifier: Modifier = Modifier) {
+    val colors = Tek.colors
+    Surface(
+        shape = RoundedCornerShape(Tek.shapes.card),
+        color = colors.surface,
+        border = BorderStroke(1.dp, colors.accent.copy(alpha = 0.3f)),
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        Row(
+            Modifier.padding(start = 16.dp, end = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Text(
+                stringResource(R.string.access_collapsed),
+                style = MaterialTheme.typography.bodySmall,
+                color = colors.textSecondary,
+                modifier = Modifier.weight(1f),
+            )
+            TextButton(onClick = onReopen) { Text(stringResource(R.string.access_collapsed_open), color = colors.text) }
         }
     }
 }

@@ -245,4 +245,15 @@ class MainViewModelRobolectricTest {
 
         assertThat(viewModel.levels[conversation.key]).isNull()
     }
+
+    @Test
+    fun `not now on the access card is remembered and can be taken back`() = runTest(timeout = 60.seconds) {
+        assertThat(awaitState { it.loaded }.accessHintDismissed).isFalse()
+
+        viewModel.setAccessHintDismissed(true)
+        assertThat(awaitState { it.accessHintDismissed }.accessHintDismissed).isTrue()
+
+        viewModel.setAccessHintDismissed(false)
+        assertThat(awaitState { !it.accessHintDismissed }.accessHintDismissed).isFalse()
+    }
 }

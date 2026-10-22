@@ -24,6 +24,11 @@ başka bir sohbette/yapay zekada aynen tekrarlanabilir. Her katman bir soruyu ce
 7. **Küçültülmüş APK duman testi (`preview-smoke.sh`).** R8'li APK emülatöre kurulur, açılır,
    paylaşım girişiyle Room'a yazılır, çökme ve dinleyici bağlantısı denetlenir. Soru: "R8 bir şeyi
    kırdı mı?"
+7b. **Sanal telefon + gerçek SMS uygulaması (`tools/sanal-telefon.sh`, CI işi `virtual-phone`).** Android 11
+   AOSP emülatöründe sistemin kendi Messaging uygulaması `adb emu sms send` ile gerçek bildirim kurar; betik
+   Sende'yi kurar, dinleyici iznini verir, kanalları seçer, 4 SMS gönderir ve ekrandaki yazıları okuyarak
+   sayaç, kart içeriği, geri tuşu ve çökme/ANR kontrolü yapar; ekran görüntüsü ve günlük bırakır
+   (`docs/kanit/sanal-telefon/`). Soru: "gerçek bir uygulamanın bildirim biçimiyle çalışıyor mu?" (S-23 bunu buldu.)
 8. **Güvenlik/izin kapıları.** Sideload manifestinde INTERNET yok; elden verilen APK'nın izin listesi
    yalnız "açılışta yeniden bağlan"; "kullanıcının kendi bildirimini silme/erteleme" kodu yok;
    ClamAV taraması (CI'da, yayından önce). Soru: "güvenilir mi?"

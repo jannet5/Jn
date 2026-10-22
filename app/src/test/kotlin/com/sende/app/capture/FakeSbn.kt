@@ -30,6 +30,17 @@ object FakeSbn {
         return wrap(context, packageName, notification, id, postTime)
     }
 
+    /** An expanded (BigTextStyle) notification: some SMS apps rewrite its text as "first\nsecond" for every new message. */
+    fun bigText(context: Context, packageName: String, title: String, text: String, id: Int = 1, postTime: Long = System.currentTimeMillis()): StatusBarNotification {
+        val notification = NotificationCompat.Builder(context, "channel")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(text.lines().first())
+            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
+            .build()
+        return wrap(context, packageName, notification, id, postTime)
+    }
+
     /** A chat notification with several messages, like WhatsApp's one-notification-per-chat. */
     fun chat(
         context: Context,

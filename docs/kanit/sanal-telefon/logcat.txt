@@ -1,0 +1,845 @@
+--------- beginning of main
+10-22 16:00:24.861  1707  2189 I OpenGLRenderer: Davey! duration=2726ms; Flags=0, IntendedVsync=1801291624769, Vsync=1803658291341, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1803669872943, AnimationStart=1803669883456, PerformTraversalsStart=1803696729365, DrawStart=1803840055857, SyncQueued=1803853299542, SyncStart=1803855936628, IssueDrawCommandsStart=1803871230622, SwapBuffers=1803998893160, FrameCompleted=1804020464032, DequeueBufferDuration=2722344, QueueBufferDuration=17486811, GpuCompleted=0, 
+10-22 16:00:24.867  1546  1564 W system_server: Long monitor contention with owner ActivityManager (1572) at void com.android.server.am.ActivityManagerService.notifyPackageUse(java.lang.String, int)(ActivityManagerService.java:3134) waiters=0 in void com.android.server.am.ActivityManagerService.dispatchUidsChanged() for 1.220s
+--------- beginning of system
+10-22 16:00:24.913  1546  1564 W Looper  : Slow dispatch took 1267ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-22 16:00:25.127  1546  1564 W Looper  : Slow dispatch took 164ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=31
+10-22 16:00:25.154  1546  1563 W Looper  : Drained
+10-22 16:00:25.238  1546  1578 D KernelCpuUidUserSysTimeReader: Removing uids 1037-1037
+10-22 16:00:25.472  3083  3528 I MediaProvider: Begin Intent { act=android.intent.action.PACKAGE_DATA_CLEARED dat=package:com.android.messaging flg=0x1000010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService (has extras) }
+10-22 16:00:25.542  3083  3528 I MediaProvider: End Intent { act=android.intent.action.PACKAGE_DATA_CLEARED dat=package:com.android.messaging flg=0x1000010 cmp=com.android.providers.media.module/com.android.providers.media.MediaService (has extras) }
+10-22 16:00:25.264  1546  1578 D KernelCpuUidUserSysTimeReader: Removing uids 1037-1037
+10-22 16:00:26.963  1546  4684 I ConditionProviders:  Allowing condition provider com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService
+10-22 16:00:26.970  1546  4684 I NotificationListeners:  Allowing notification listener com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService
+10-22 16:00:26.976  1546  4684 V NotificationListeners: enabling notification listener for 0: ComponentInfo{com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService}
+10-22 16:00:26.984  1546  4684 V NotificationListeners: binding: Intent { act=android.service.notification.NotificationListenerService cmp=com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService (has extras) }
+10-22 16:00:27.013  1546  4684 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10131; state: DISABLED
+10-22 16:00:27.027  1546  1573 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10131; state: ENABLED
+10-22 16:00:27.072  4765  4768 I cmd     : oneway function results will be dropped but finished with status OK and parcel size 4
+10-22 16:00:27.323  1465  1465 D Zygote  : Forked child process 4771
+10-22 16:00:27.631  1546  1573 W ActivityManager: Slow operation: 628ms so far, now at startProcess: returned from zygote!
+10-22 16:00:27.659  1546  1573 W ActivityManager: Slow operation: 657ms so far, now at startProcess: done updating battery stats
+10-22 16:00:27.673  1546  1573 W ActivityManager: Slow operation: 665ms so far, now at startProcess: building log message
+10-22 16:00:27.674  1546  1573 I ActivityManager: Start proc 4771:com.sende.app.preview/u0a131 for service {com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService}
+10-22 16:00:27.674  1546  1573 W ActivityManager: Slow operation: 672ms so far, now at startProcess: starting to update pids map
+10-22 16:00:27.682  1546  1573 W ActivityManager: Slow operation: 680ms so far, now at startProcess: done updating pids map
+10-22 16:00:27.766  1546  1581 W ProcessCpuTracker: Failed to stat(/proc/4765): android.system.ErrnoException: stat failed: ENOENT (No such file or directory)
+10-22 16:00:27.790  1546  1581 W ProcessCpuTracker: Skipping unknown process pid 4765
+10-22 16:00:27.847  4771  4771 W nde.app.previe: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:00:28.067   413   452 I adbd    : jdwp connection from 4771
+10-22 16:00:28.286  1546  4684 W ActivityManager: Slow operation: 60ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+10-22 16:00:28.792  4771  4771 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-22 16:00:29.443  1546  1546 V NotificationListeners: 0 notification listener service connected: ComponentInfo{com.sende.app.preview/com.sende.app.capture.SendeNotificationListenerService}
+10-22 16:00:28.804  4771  4771 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-22 16:00:29.526  1546  1566 D EventSequenceValidator: Transition from ACTIVITY_FINISHED to INTENT_STARTED
+10-22 16:00:29.568  1546  4684 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=com.sende.app.preview/com.sende.app.MainActivity} from uid 2000
+10-22 16:00:29.684   448   658 E IPCThreadState: binder thread pool (1 threads) starved for 146 ms
+10-22 16:00:29.956   427   427 I perfetto: ing_service_impl.cc:758 Configured tracing session 8, #sources:1, duration:5000 ms, #buffers:1, total buffer size:4096 KB, total sessions:1, uid:1071 session name: ""
+10-22 16:00:30.084   424   424 I perfetto: probes_producer.cc:230  Ftrace setup (target_buf=8)
+10-22 16:00:30.271   424   424 I perfetto: ftrace_procfs.cc:176    enabled ftrace
+--------- beginning of kernel
+10-22 16:00:30.289     0     0 W perfetto: enabled ftrace
+10-22 16:00:30.344  4771  4785 I nde.app.previe: Background young concurrent copying GC freed 11800(794KB) AllocSpace objects, 0(0B) LOS objects, 92% free, 1961KB/25MB, paused 24.776ms total 555.117ms
+10-22 16:00:30.393  1546  1563 W system_server: Long monitor contention with owner Binder:1546_17 (4684) at void com.android.server.wm.TaskChangeNotificationController.forAllLocalListeners(com.android.server.wm.TaskChangeNotificationController$TaskStackConsumer, android.os.Message)(TaskChangeNotificationController.java:351) waiters=0 in void com.android.server.wm.WindowManagerService.monitor() for 563ms
+10-22 16:00:30.414  1546  1566 W system_server: Long monitor contention with owner Binder:1546_17 (4684) at void com.android.server.wm.TaskChangeNotificationController.forAllLocalListeners(com.android.server.wm.TaskChangeNotificationController$TaskStackConsumer, android.os.Message)(TaskChangeNotificationController.java:351) waiters=1 in void com.android.server.wm.TaskChangeNotificationController.forAllRemoteListeners(com.android.server.wm.TaskChangeNotificationController$TaskStackConsumer, android.os.Message) for 548ms
+10-22 16:00:30.441  1546  1567 W system_server: Long monitor contention with owner Binder:1546_17 (4684) at void com.android.server.wm.TaskChangeNotificationController.forAllLocalListeners(com.android.server.wm.TaskChangeNotificationController$TaskStackConsumer, android.os.Message)(TaskChangeNotificationController.java:351) waiters=2 in void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long) for 469ms
+10-22 16:00:30.476  4795  4797 I cmd     : oneway function results will be dropped but finished with status OK and parcel size 4
+10-22 16:00:30.503  1546  1563 W Looper  : Slow dispatch took 686ms android.fg h=android.os.Handler c=com.android.server.Watchdog$HandlerChecker@59f92d0 m=0
+10-22 16:00:30.668  1546  2003 W InputReader: Device virtio_input_multi_touch_7 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.685  1546  2003 W InputReader: Device virtio_input_multi_touch_4 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.686  1546  2003 W InputReader: Device virtio_input_multi_touch_5 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.686  1546  2003 W InputReader: Device virtio_input_multi_touch_2 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.686  1546  2003 W InputReader: Device virtio_input_multi_touch_8 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.687  1546  2003 W InputReader: Device virtio_input_multi_touch_9 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.687  1546  2003 W InputReader: Device virtio_input_multi_touch_10 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.687  1546  2003 W InputReader: Device virtio_input_multi_touch_3 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.687  1546  2003 W InputReader: Device virtio_input_multi_touch_6 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.688  1546  2003 W InputReader: Device virtio_input_multi_touch_11 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.723  1546  2003 W InputReader: Device virtio_input_multi_touch_7 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.723  1546  2003 W InputReader: Device virtio_input_multi_touch_4 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.723  1546  2003 W InputReader: Device virtio_input_multi_touch_5 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.724  1546  2003 W InputReader: Device virtio_input_multi_touch_2 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.724  1546  2003 W InputReader: Device virtio_input_multi_touch_8 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.724  1546  2003 W InputReader: Device virtio_input_multi_touch_9 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.724  1546  2003 W InputReader: Device virtio_input_multi_touch_10 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.729  1546  2003 W InputReader: Device virtio_input_multi_touch_3 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.730  1546  2003 W InputReader: Device virtio_input_multi_touch_6 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.730  1546  2003 W InputReader: Device virtio_input_multi_touch_11 is associated with display ADISPLAY_ID_NONE.
+10-22 16:00:30.872  1546  1563 W system_server: Long monitor contention with owner Binder:1546_8 (2003) at void com.android.server.wm.TaskChangeNotificationController.forAllLocalListeners(com.android.server.wm.TaskChangeNotificationController$TaskStackConsumer, android.os.Message)(TaskChangeNotificationController.java:351) waiters=0 in com.android.server.wm.WindowProcessController com.android.server.wm.ActivityTaskManagerService$LocalService.getTopApp() for 277ms
+10-22 16:00:30.995  1546  1563 W Looper  : Slow delivery took 667ms android.fg h=android.os.Handler c=<recycled PooledLambda@57bf736> m=0
+10-22 16:00:30.995  1546  1563 W Looper  : Slow dispatch took 491ms android.fg h=android.os.Handler c=<recycled PooledLambda@57bf736> m=0
+10-22 16:00:30.998  1546  1566 W system_server: Long monitor contention with owner android.fg (1563) at boolean com.android.server.am.ActivityManagerService.unbindService(android.app.IServiceConnection)(ActivityManagerService.java:15196) waiters=0 in void com.android.server.am.ActivityManagerService$LocalService.updateCpuStats() for 426ms
+10-22 16:00:31.072  1546  1564 W Looper  : Slow dispatch took 139ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=31
+10-22 16:00:31.143  1546  1566 D EventSequenceValidator: Transition from INTENT_STARTED to ACTIVITY_LAUNCHED
+10-22 16:00:31.244  1546  1564 W Looper  : Slow dispatch took 172ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-22 16:00:31.315  4771  4812 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-22 16:00:31.339   448   658 E IPCThreadState: binder thread pool (1 threads) starved for 206 ms
+10-22 16:00:31.382  4771  4812 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-22 16:00:31.487  4771  4812 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-22 16:00:31.761  1546  2003 W system_server: Long monitor contention with owner PackageManager (1588) at void com.android.server.pm.PackageManagerService$PackageHandler.doHandleMessage(android.os.Message)(PackageManagerService.java:1797) waiters=0 in int com.android.server.pm.permission.PermissionManagerService.checkUidPermission(java.lang.String, int) for 681ms
+10-22 16:00:31.767  1546  1567 W system_server: Long monitor contention with owner PackageManager (1588) at void com.android.server.pm.PackageManagerService$PackageHandler.doHandleMessage(android.os.Message)(PackageManagerService.java:1797) waiters=1 in boolean com.android.server.pm.PackageManagerService$PackageManagerInternalImpl.isPackageSuspended(java.lang.String, int) for 605ms
+10-22 16:00:31.770  1546  1571 W system_server: Long monitor contention with owner PackageManager (1588) at void com.android.server.pm.PackageManagerService$PackageHandler.doHandleMessage(android.os.Message)(PackageManagerService.java:1797) waiters=2 in int com.android.server.pm.PackageManagerService.getPackageUidInternal(java.lang.String, int, int, int) for 519ms
+10-22 16:00:31.796  1546  1566 W system_server: Long monitor contention with owner android.anim (1567) at int com.android.server.wm.WindowManagerService.addWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.view.DisplayCutout$ParcelableWrapper, android.view.InputChannel, android.view.InsetsState, android.view.InsetsSourceControl[], int)(WindowManagerService.java:1730) waiters=0 in void com.android.server.wm.ActivityMetricsLogger.checkVisibility(com.android.server.wm.Task, com.android.server.wm.ActivityRecord) for 556ms
+10-22 16:00:31.876  1546  1567 I Choreographer: Skipped 83 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:31.914  1546  1567 I Choreographer: Skipped 45 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:32.179   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:00:32.718  1546  1567 I Choreographer: Skipped 49 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:33.040  1546  2077 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowSurfacePlacer$Traverser.run()(WindowSurfacePlacer.java:59) waiters=1 in void com.android.server.wm.ActivityTaskManagerService.reportSizeConfigurations(android.os.IBinder, int[], int[], int[]) for 272ms
+10-22 16:00:33.298  1546  1566 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long)(WindowAnimator.java:111) waiters=2 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 155ms
+10-22 16:00:33.310  1546  1564 W Looper  : Slow dispatch took 353ms android.ui h=com.android.server.wm.DisplayPolicy$PolicyHandler c=com.android.server.wm.-$$Lambda$DisplayPolicy$HbdRZfPpJ53Wnk7_Ueb0ycyz_AQ@d1f4884 m=0
+10-22 16:00:33.358  1546  1564 W Looper  : Slow delivery took 311ms android.ui h=com.android.server.wm.BarController$BarHandler c=com.android.server.wm.-$$Lambda$StatusBarController$1$3FiQ0kybPCSlgcNJkCsNm5M12iA@882486d m=0
+10-22 16:00:33.502  1546  2694 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-22 16:00:34.718  4771  4805 W nde.app.previe: Long monitor contention with owner DefaultDispatcher-worker-4 (4806) at android.view.Display android.app.ResourcesManager.getAdjustedDisplay(int, android.view.DisplayAdjustments)(ResourcesManager.java:303) waiters=0 in android.content.res.Resources android.app.ResourcesManager.createResources(android.os.IBinder, android.content.res.ResourcesKey, java.lang.ClassLoader) for 167ms
+10-22 16:00:35.082   424   424 I perfetto: probes_producer.cc:329  Producer stop (id=8)
+10-22 16:00:35.106   424   424 I perfetto: ftrace_procfs.cc:183    disabled ftrace
+10-22 16:00:35.123     0     0 W perfetto: disabled ftrace
+10-22 16:00:35.147   427   427 I perfetto: ng_service_impl.cc:1948 Tracing session 8 ended, total sessions:0
+10-22 16:00:35.524  4771  4810 D HostConnection: HostConnection::get() New Host Connection established 0x736d79d98c10, tid 4810
+10-22 16:00:35.612  4771  4810 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:00:35.640   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.configstore@1.0::ISurfaceFlingerConfigs/default in either framework or device manifest.
+10-22 16:00:35.654  4771  4810 D EGL_emulation: eglCreateContext: 0x736d69dbf1f0: maj 3 min 0 rcv 3
+10-22 16:00:35.660  4771  4810 D EGL_emulation: eglMakeCurrent: 0x736d69dbf1f0: ver 3 0 (tinfo 0x736d09de2200) (first time)
+10-22 16:00:35.727   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3f8000000 0x3f89a4000]
+10-22 16:00:35.740   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device manifest.
+10-22 16:00:35.742  4771  4810 I Gralloc4: mapper 4.x is not supported
+10-22 16:00:35.754  4771  4810 D HostConnection: createUnique: call
+10-22 16:00:35.755  4771  4810 D HostConnection: HostConnection::get() New Host Connection established 0x736d79d99390, tid 4810
+10-22 16:00:35.756  4771  4810 D goldfish-address-space: allocate: Ask for block of size 0x100
+10-22 16:00:35.756  4771  4810 D goldfish-address-space: allocate: ioctl allocate returned offset 0x3f7ffe000 size 0x2000
+10-22 16:00:35.942  4771  4810 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:00:35.993   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3fa846000 0x3fb1ea000]
+10-22 16:00:36.031   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3fe690000 0x3ff034000]
+10-22 16:00:36.507   541   541 E netmgr  : qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:network' service: Invalid argument
+10-22 16:00:36.508   541   541 E netmgr  : Failed to open QEMU pipe 'qemud:network': Invalid argument
+10-22 16:00:37.125  4771  4810 I OpenGLRenderer: Davey! duration=3513ms; Flags=1, IntendedVsync=1812741635538, Vsync=1812891635532, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1812899076422, AnimationStart=1812899082196, PerformTraversalsStart=1812899084972, DrawStart=1815145644955, SyncQueued=1815262646610, SyncStart=1815286894520, IssueDrawCommandsStart=1815287679609, SwapBuffers=1816175937230, FrameCompleted=1816279410846, DequeueBufferDuration=11413920, QueueBufferDuration=9116308, GpuCompleted=12, 
+10-22 16:00:37.222  4771  4771 I Choreographer: Skipped 200 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:37.562  1546  1566 D EventSequenceValidator: Transition from ACTIVITY_LAUNCHED to ACTIVITY_FINISHED
+10-22 16:00:37.691  1546  1571 D ArtManagerInternalImpl: /data/misc/iorapd/com.sende.app.preview/1/com.sende.app.MainActivity/compiled_traces/compiled_trace.pb doesn't exist
+10-22 16:00:37.767  1546  1571 I ActivityTaskManager: Displayed com.sende.app.preview/com.sende.app.MainActivity: +7s702ms
+10-22 16:00:37.947  4771  4810 I OpenGLRenderer: Davey! duration=4030ms; Flags=0, IntendedVsync=1813041632225, Vsync=1816374965425, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1816381811281, AnimationStart=1816381850932, PerformTraversalsStart=1816853334520, DrawStart=1816897372051, SyncQueued=1816905037351, SyncStart=1816939179991, IssueDrawCommandsStart=1816939548091, SwapBuffers=1816966022789, FrameCompleted=1817105906516, DequeueBufferDuration=869321, QueueBufferDuration=7378038, GpuCompleted=32772522036388713, 
+10-22 16:00:38.024  4771  4823 D ProfileInstaller: Installing profile for com.sende.app.preview
+10-22 16:00:38.062   364   404 W ServiceManager: Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10131 pid=4771
+10-22 16:00:38.063   364   404 D PermissionCache: checking android.permission.ACCESS_SURFACE_FLINGER for uid=10131 => denied (22293 us)
+10-22 16:00:38.188  1546  1564 W Looper  : Drained
+10-22 16:00:38.307   545   545 E wifi_forwarder: qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:wififorward' service: Invalid argument
+10-22 16:00:38.335   545   545 E wifi_forwarder: RemoteConnection failed to initialize: RemoteConnection failed to open pipe
+10-22 16:00:38.375   448   658 E IPCThreadState: binder thread pool (1 threads) starved for 874 ms
+10-22 16:00:38.514  4771  4821 W nde.app.previe: Long monitor contention with owner arch_disk_io_0 (4814) at android.database.sqlite.SQLiteConnection android.database.sqlite.SQLiteConnectionPool.waitForConnection(java.lang.String, int, android.os.CancellationSignal)(SQLiteConnectionPool.java:702) waiters=0 in void android.database.sqlite.SQLiteConnectionPool.releaseConnection(android.database.sqlite.SQLiteConnection) for 178ms
+10-22 16:00:38.760  1546  1564 W Looper  : Slow dispatch took 169ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-22 16:00:38.761  1546  1563 W Looper  : Drained
+10-22 16:00:38.928  1707  2189 I OpenGLRenderer: Davey! duration=762ms; Flags=0, IntendedVsync=1817308290795, Vsync=1817591624117, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1817607417458, AnimationStart=1817607427612, PerformTraversalsStart=1817699422300, DrawStart=1817713087418, SyncQueued=1817866610340, SyncStart=1817883606690, IssueDrawCommandsStart=1817884382432, SwapBuffers=1818059489663, FrameCompleted=1818087510918, DequeueBufferDuration=1301526, QueueBufferDuration=19323539, GpuCompleted=0, 
+10-22 16:00:39.968     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=300000 cc=10 chg=a
+10-22 16:00:40.274  4771  4771 I Choreographer: Skipped 46 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:40.412  4771  4810 I OpenGLRenderer: Davey! duration=966ms; Flags=0, IntendedVsync=1818583290744, Vsync=1818583290744, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1818593328802, AnimationStart=1818593336015, PerformTraversalsStart=1818631273939, DrawStart=1818631773398, SyncQueued=1819334625993, SyncStart=1819355578545, IssueDrawCommandsStart=1819363767439, SwapBuffers=1819516344275, FrameCompleted=1819571197227, DequeueBufferDuration=7450615, QueueBufferDuration=8253172, GpuCompleted=0, 
+10-22 16:00:40.524  4771  4810 I OpenGLRenderer: Davey! duration=880ms; Flags=0, IntendedVsync=1818658290741, Vsync=1819424957377, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1819434617789, AnimationStart=1819434646995, PerformTraversalsStart=1819448525546, DrawStart=1819448946236, SyncQueued=1819449558694, SyncStart=1819594067862, IssueDrawCommandsStart=1819598956383, SwapBuffers=1819643407515, FrameCompleted=1819683018154, DequeueBufferDuration=3986535, QueueBufferDuration=17271790, GpuCompleted=206158430240, 
+10-22 16:00:41.890  4816  4816 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:00:41.940  4816  4816 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:00:41.935  4816  4816 W app_process: type=1400 audit(0.0:97): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:41.943  4816  4816 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:00:41.944  4816  4816 I AndroidRuntime: Using default boot image
+10-22 16:00:41.939  4816  4816 W app_process: type=1400 audit(0.0:98): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:41.939  4816  4816 W app_process: type=1400 audit(0.0:99): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:41.948  4816  4816 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:00:41.948  4816  4816 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:00:41.959  4816  4816 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:00:41.947  4816  4816 W app_process: type=1400 audit(0.0:100): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:42.071  4816  4816 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:00:43.248  4816  4816 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:00:43.255  4816  4816 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:00:43.422  4816  4816 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:00:43.492  4816  4816 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:00:43.563  4816  4816 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:00:43.998  4816  4816 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:00:44.220  4816  4816 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:00:44.473  1546  1546 W Looper  : Slow dispatch took 119ms main h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=com.android.server.accessibility.-$$Lambda$UiAutomationManager$UiAutomationService$z2oxrodQt4ZxyzsfB6p_GYgwxqk@370e549 m=0
+10-22 16:00:44.657  4816  4838 V UiAutomation: Init UiAutomation@e4926e8[id=1, flags=0]
+10-22 16:00:46.340  1546  4684 D CompatibilityChangeReporter: Compat change id reported: 149924527; UID 2000; state: ENABLED
+10-22 16:00:46.356  1546  4684 D CompatibilityChangeReporter: Compat change id reported: 132649864; UID 2000; state: DISABLED
+10-22 16:00:46.827  4816  4816 W AccessibilityNodeInfoDumper: Fetch time: 580ms
+10-22 16:00:46.839  1546  3290 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@3237113
+10-22 16:00:46.851  4816  4838 V UiAutomation: Init UiAutomation@e4926e8[id=-1, flags=0]
+10-22 16:00:47.028  4816  4816 D AndroidRuntime: Shutting down VM
+10-22 16:00:50.220  4844  4844 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:00:50.267  4844  4844 W app_process: type=1400 audit(0.0:101): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:50.274  4844  4844 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:00:50.271  4844  4844 W app_process: type=1400 audit(0.0:102): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:50.271  4844  4844 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:00:50.279  4844  4844 W app_process: type=1400 audit(0.0:104): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:50.275  4844  4844 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:00:50.276  4844  4844 I AndroidRuntime: Using default boot image
+10-22 16:00:50.276  4844  4844 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:00:50.278  4844  4844 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:00:50.282  4844  4844 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:00:50.394  4844  4844 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:00:51.462  4844  4844 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:00:51.464  4844  4844 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:00:51.574  4844  4844 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:00:51.610  4844  4844 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:00:51.805  4844  4844 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:00:51.943  4844  4844 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:00:52.154  4844  4844 D AndroidRuntime: Shutting down VM
+10-22 16:00:52.256  4844  4844 W app_process: Suspending all threads took: 14.948ms
+10-22 16:00:52.479  1546  1936 D WifiNl80211Manager: Scan result ready event
+10-22 16:00:52.480  1546  1936 D WifiNative: Scan result ready event
+10-22 16:00:52.942  4771  4810 I OpenGLRenderer: Davey! duration=822ms; Flags=0, IntendedVsync=1831274978902, Vsync=1831291645568, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1831299516798, AnimationStart=1831299524325, PerformTraversalsStart=1831795322621, DrawStart=1831795653231, SyncQueued=1831846109484, SyncStart=1831849681203, IssueDrawCommandsStart=1831851657477, SwapBuffers=1832050168356, FrameCompleted=1832100738970, DequeueBufferDuration=9620056, QueueBufferDuration=25765058, GpuCompleted=7888105825026532969, 
+10-22 16:00:53.670   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:00:53.719   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3f9348000 0x3f9cec000]
+10-22 16:00:53.724   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3ff034000 0x3ff9d8000]
+10-22 16:00:53.798  4771  4810 I OpenGLRenderer: Davey! duration=1677ms; Flags=1, IntendedVsync=1831274978902, Vsync=1831291645568, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1831299516798, AnimationStart=1831299524325, PerformTraversalsStart=1831795322621, DrawStart=1832884253917, SyncQueued=1832927511591, SyncStart=1832932329839, IssueDrawCommandsStart=1832932828379, SwapBuffers=1832941464263, FrameCompleted=1832956909425, DequeueBufferDuration=4512020, QueueBufferDuration=2518419, GpuCompleted=25, 
+10-22 16:00:53.818  4771  4771 I Choreographer: Skipped 97 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:54.300  4771  4810 I OpenGLRenderer: Davey! duration=2084ms; Flags=1, IntendedVsync=1831358319110, Vsync=1832974985712, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1832978143628, AnimationStart=1832978152325, PerformTraversalsStart=1833229214906, DrawStart=1833377519321, SyncQueued=1833389363858, SyncStart=1833406137777, IssueDrawCommandsStart=1833406550253, SwapBuffers=1833425488762, FrameCompleted=1833459285928, DequeueBufferDuration=12695920, QueueBufferDuration=2809138, GpuCompleted=0, 
+10-22 16:00:55.626  4771  4810 I OpenGLRenderer: Davey! duration=1538ms; Flags=0, IntendedVsync=1833241623491, Vsync=1833591623477, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1833607848809, AnimationStart=1833607856312, PerformTraversalsStart=1833711272897, DrawStart=1833750467079, SyncQueued=1834429559985, SyncStart=1834434446829, IssueDrawCommandsStart=1834435258805, SwapBuffers=1834775499432, FrameCompleted=1834784855155, DequeueBufferDuration=1204893, QueueBufferDuration=2735980, GpuCompleted=0, 
+10-22 16:00:55.880  4771  4771 I Choreographer: Skipped 84 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:56.424  4771  4771 I Choreographer: Skipped 31 frames!  The application may be doing too much work on its main thread.
+10-22 16:00:56.579  4771  4810 I OpenGLRenderer: Davey! duration=2103ms; Flags=0, IntendedVsync=1833624956809, Vsync=1835024956753, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1835039677069, AnimationStart=1835039686228, PerformTraversalsStart=1835217327719, DrawStart=1835217970787, SyncQueued=1835287120352, SyncStart=1835296777086, IssueDrawCommandsStart=1835297604990, SwapBuffers=1835622591107, FrameCompleted=1835737855250, DequeueBufferDuration=84067095, QueueBufferDuration=15273503, GpuCompleted=5, 
+10-22 16:00:56.930  4771  4810 I OpenGLRenderer: Davey! duration=1015ms; Flags=0, IntendedVsync=1835058305118, Vsync=1835574971764, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1835588819663, AnimationStart=1835588834134, PerformTraversalsStart=1835764978333, DrawStart=1835765288170, SyncQueued=1835905580630, SyncStart=1835920824254, IssueDrawCommandsStart=1835928667704, SwapBuffers=1836076996631, FrameCompleted=1836088842862, DequeueBufferDuration=5973042, QueueBufferDuration=2705134, GpuCompleted=8123050397348868, 
+10-22 16:00:59.342  4866  4866 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:00:59.391  4866  4866 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:00:59.387  4866  4866 W app_process: type=1400 audit(0.0:105): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:59.395  4866  4866 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:00:59.395  4866  4866 I AndroidRuntime: Using default boot image
+10-22 16:00:59.396  4866  4866 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:00:59.391  4866  4866 W app_process: type=1400 audit(0.0:106): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:59.391  4866  4866 W app_process: type=1400 audit(0.0:107): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:59.396  4866  4866 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:00:59.407  4866  4866 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:00:59.403  4866  4866 W app_process: type=1400 audit(0.0:108): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:00:59.508  4866  4866 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:01:00.130  1707  1707 D KeyguardClockSwitch: Updating clock: 401
+10-22 16:01:00.944  4866  4866 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:01:00.947  4866  4866 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:01:01.068  4866  4866 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:01:01.113  4866  4866 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:01:01.135  4866  4866 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:01:01.411  4866  4866 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:01:01.661  4866  4866 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:01:01.983  4866  4882 V UiAutomation: Init UiAutomation@db8024a[id=2, flags=0]
+10-22 16:01:03.592  4866  4866 W AccessibilityNodeInfoDumper: Fetch time: 168ms
+10-22 16:01:03.602  1546  1936 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@9983747
+10-22 16:01:03.610  4866  4882 V UiAutomation: Init UiAutomation@db8024a[id=-1, flags=0]
+10-22 16:01:03.772  4866  4866 D AndroidRuntime: Shutting down VM
+10-22 16:01:06.828  4887  4887 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:01:06.880  4887  4887 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:01:06.885  4887  4887 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:01:06.886  4887  4887 I AndroidRuntime: Using default boot image
+10-22 16:01:06.887  4887  4887 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:01:06.887  4887  4887 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:01:06.875  4887  4887 W app_process: type=1400 audit(0.0:109): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:06.879  4887  4887 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:01:06.883  4887  4887 W app_process: type=1400 audit(0.0:111): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:06.895  4887  4887 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:01:06.891  4887  4887 W app_process: type=1400 audit(0.0:112): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:07.004  4887  4887 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:01:08.128  4887  4887 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:01:08.137  4887  4887 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:01:08.395  4887  4887 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:01:08.436  4887  4887 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:01:08.652  4887  4887 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:01:08.788  4887  4887 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:01:09.008  4887  4887 D AndroidRuntime: Shutting down VM
+10-22 16:01:10.067  4771  4771 I Choreographer: Skipped 47 frames!  The application may be doing too much work on its main thread.
+10-22 16:01:10.258  4771  4810 I OpenGLRenderer: Davey! duration=1026ms; Flags=0, IntendedVsync=1848375024806, Vsync=1848375024806, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1848382507414, AnimationStart=1848382514398, PerformTraversalsStart=1848663191324, DrawStart=1849139936421, SyncQueued=1849198945971, SyncStart=1849214596325, IssueDrawCommandsStart=1849215383308, SwapBuffers=1849396921853, FrameCompleted=1849417017053, DequeueBufferDuration=8285816, QueueBufferDuration=2786740, GpuCompleted=8066395234130722671, 
+10-22 16:01:10.645  4771  4810 I OpenGLRenderer: Davey! duration=1353ms; Flags=0, IntendedVsync=1848441701497, Vsync=1849225034799, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1849227241868, AnimationStart=1849227249850, PerformTraversalsStart=1849668611789, DrawStart=1849668837116, SyncQueued=1849687614037, SyncStart=1849696453648, IssueDrawCommandsStart=1849697047834, SwapBuffers=1849794964541, FrameCompleted=1849804520971, DequeueBufferDuration=3003260, QueueBufferDuration=3497713, GpuCompleted=28, 
+10-22 16:01:10.730  4771  4810 I OpenGLRenderer: Davey! duration=1333ms; Flags=0, IntendedVsync=1848441701497, Vsync=1849225034799, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1849227241868, AnimationStart=1849227249850, PerformTraversalsStart=1849668611789, DrawStart=1849704527745, SyncQueued=1849705452196, SyncStart=1849819147735, IssueDrawCommandsStart=1849819547795, SwapBuffers=1849864290841, FrameCompleted=1849888887462, DequeueBufferDuration=6423344, QueueBufferDuration=7354409, GpuCompleted=-1569068880212886724, 
+10-22 16:01:15.598   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3fc9a4000 0x3fd348000]
+10-22 16:01:15.648   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device manifest.
+10-22 16:01:15.656  4904  4904 I Gralloc4: mapper 4.x is not supported
+10-22 16:01:15.757  4904  4904 D HostConnection: createUnique: call
+10-22 16:01:15.762  4904  4904 D HostConnection: HostConnection::get() New Host Connection established 0x72ad48f0d390, tid 4904
+10-22 16:01:15.763  4904  4904 D goldfish-address-space: allocate: Ask for block of size 0x100
+10-22 16:01:15.764  4904  4904 D goldfish-address-space: allocate: ioctl allocate returned offset 0x3f7ffe000 size 0x2000
+10-22 16:01:15.852  4904  4904 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:01:21.132  4906  4906 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:01:21.202  4906  4906 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:01:21.203  4906  4906 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:01:21.203  4906  4906 I AndroidRuntime: Using default boot image
+10-22 16:01:21.204  4906  4906 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:01:21.204  4906  4906 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:01:21.195  4906  4906 W app_process: type=1400 audit(0.0:113): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:21.199  4906  4906 W app_process: type=1400 audit(0.0:114): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:21.214  4906  4906 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:01:21.199  4906  4906 W app_process: type=1400 audit(0.0:115): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:21.211  4906  4906 W app_process: type=1400 audit(0.0:116): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:01:21.323  4906  4906 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:01:22.304  4906  4906 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:01:22.308  4906  4906 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:01:22.416  4906  4906 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:01:22.461  4906  4906 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:01:22.668  4906  4906 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:01:22.791  4906  4906 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:01:22.895  1546  1564 D AutofillManagerService: onBackKeyPressed()
+10-22 16:01:22.935  4906  4906 D AndroidRuntime: Shutting down VM
+10-22 16:01:23.506  1546  1566 W system_server: Long monitor contention with owner Binder:1546_5 (1614) at void com.android.server.wm.WindowManagerService.removeWindow(com.android.server.wm.Session, android.view.IWindow)(WindowManagerService.java:1895) waiters=1 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 256ms
+10-22 16:01:27.289  1546  3411 W ActivityManager: Slow operation: 73ms so far, now at getContentProviderImpl: after updateOomAdj
+10-22 16:01:27.290  1546  3411 W ActivityManager: Slow operation: 73ms so far, now at getContentProviderImpl: done!
+10-22 16:01:27.511  3530  3779 I BlockedNumbers: isBlocked: NOT BLOCKED; number=*****34, e164=
+10-22 16:01:27.979  1546  1563 W Looper  : Slow dispatch took 123ms android.fg h=android.os.Handler c=<recycled PooledLambda@9be693> m=0
+10-22 16:01:28.013  1546  1572 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10103; state: DISABLED
+10-22 16:01:28.029  1546  1573 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10103; state: DISABLED
+10-22 16:01:28.120  1465  1465 D Zygote  : Forked child process 4921
+10-22 16:01:28.187  1546  1563 W Looper  : Slow delivery took 236ms android.fg h=android.os.Handler c=<recycled PooledLambda@b435624> m=0
+10-22 16:01:28.242  1546  1573 W ActivityManager: Slow operation: 234ms so far, now at startProcess: returned from zygote!
+10-22 16:01:28.252  1546  1573 W ActivityManager: Slow operation: 245ms so far, now at startProcess: done updating battery stats
+10-22 16:01:28.255  4921  4921 W droid.messagin: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:01:28.281  1546  1573 W ActivityManager: Slow operation: 273ms so far, now at startProcess: building log message
+10-22 16:01:28.294  1546  1573 I ActivityManager: Start proc 4921:com.android.messaging/u0a103 for broadcast {com.android.messaging/com.android.messaging.receiver.SmsDeliverReceiver}
+10-22 16:01:28.295  1546  1573 W ActivityManager: Slow operation: 287ms so far, now at startProcess: starting to update pids map
+10-22 16:01:28.296  1546  1573 W ActivityManager: Slow operation: 289ms so far, now at startProcess: done updating pids map
+10-22 16:01:28.350  1546  1563 W Looper  : Slow dispatch took 161ms android.fg h=android.os.Handler c=<recycled PooledLambda@ac4618c> m=0
+10-22 16:01:28.410   413   452 I adbd    : jdwp connection from 4921
+10-22 16:01:28.572  1546  1563 W Looper  : Slow dispatch took 133ms android.fg h=android.os.Handler c=<recycled PooledLambda@c8fb1b9> m=0
+10-22 16:01:28.589  1546  3411 W ActivityManager: Slow operation: 60ms so far, now at attachApplicationLocked: immediately after bindApplication
+10-22 16:01:28.590  1546  3411 W ActivityManager: Slow operation: 74ms so far, now at attachApplicationLocked: after updateLruProcessLocked
+10-22 16:01:28.602  1546  3411 W ActivityManager: Slow operation: 86ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+10-22 16:01:28.619  1546  3411 W ActivityManager: Slow operation: 103ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
+10-22 16:01:28.754  4921  4921 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.test.base.jar
+10-22 16:01:28.755  4921  4921 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.hidl.base-V1.0-java.jar
+10-22 16:01:28.755  4921  4921 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.hidl.manager-V1.0-java.jar
+10-22 16:01:28.756  4921  4921 D ApplicationLoaders: Returning zygote-cached class loader: /system/framework/android.hidl.base-V1.0-java.jar
+10-22 16:01:28.764  1546  1563 W Looper  : Slow dispatch took 182ms android.fg h=android.os.Handler c=<recycled PooledLambda@b49d193> m=0
+10-22 16:01:28.811  4921  4921 I droid.messagin: The ClassLoaderContext is a special shared library.
+10-22 16:01:28.868  1546  1563 W Looper  : Slow dispatch took 104ms android.fg h=android.os.Handler c=<recycled PooledLambda@76e058> m=0
+10-22 16:01:28.879  1546  1563 W Looper  : Drained
+10-22 16:01:28.876  4921  4921 I droid.messagin: The ClassLoaderContext is a special shared library.
+10-22 16:01:28.888  4921  4921 D nativeloader: classloader namespace configured for unbundled product apk. library_path=/product/app/messaging/lib/x86_64:/product/lib64:/system/product/lib64
+10-22 16:01:28.962  4921  4921 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-22 16:01:28.964  4921  4921 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+10-22 16:01:29.008  4921  4921 I TetheringManager: registerTetheringEventCallback:com.android.messaging
+10-22 16:01:29.208  4921  4940 D TelephonyRegistryManager: onSubscriptionsChangedListener callback received.
+10-22 16:01:29.228  4921  4944 I MessagingApp: Upgrading shared prefs from -1 to 1
+10-22 16:01:29.779  4921  4944 W MessagingApp: canonicalizeMccMnc: invalid mccmnc:null ,null
+10-22 16:01:29.886  4921  4944 I MessagingApp: Carrier configs loaded: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, mmsCloseConnection=true, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}] from resources+system for subId=1
+10-22 16:01:30.045  3424  3447 I m.android.phon: Background concurrent copying GC freed 48757(3630KB) AllocSpace objects, 0(0B) LOS objects, 49% free, 2572KB/5144KB, paused 213us total 351.137ms
+10-22 16:01:30.059  4921  4921 V MessagingApp: SmsReceiver.deliverSmsMessages
+10-22 16:01:30.151  1546  1565 I DropBoxManagerService: add tag=system_app_strictmode isTagEnabled=true flags=0x2
+10-22 16:01:30.335  4921  4921 D CompatibilityChangeReporter: Compat change id reported: 147600208; UID 10103; state: DISABLED
+10-22 16:01:30.845  4921  4945 W MessagingApp: canonicalizeMccMnc: invalid mccmnc:null ,null
+10-22 16:01:30.926  4921  4945 I MessagingApp: Carrier configs loaded: Bundle[{httpSocketTimeout=60000, aliasMinChars=2, smsToMmsTextThreshold=-1, enableSMSDeliveryReports=true, maxMessageTextSize=-1, supportMmsContentDisposition=true, enabledTransID=false, aliasEnabled=false, supportHttpCharsetHeader=false, allowAttachAudio=true, smsToMmsTextLengthThreshold=-1, recipientLimit=2147483647, uaProfTagName=x-wap-profile, aliasMaxChars=48, maxImageHeight=1944, enableMMSDeliveryReports=false, userAgent=, mmsCloseConnection=true, config_cellBroadcastAppLinks=true, maxSubjectLength=40, httpParams=, enableGroupMms=true, emailGatewayNumber=, maxMessageSize=1048576, naiSuffix=, enableMMSReadReports=false, maxImageWidth=2592, uaProfUrl=, enabledMMS=false, enabledNotifyWapMMSC=false, sendMultipartSmsAsSeparateMessages=false, enableMultipartSMS=true}] from resources+system for subId=1
+10-22 16:01:31.040  4921  4946 W MessagingApp: Rebuilt databases: reseting related state
+10-22 16:01:31.089  4921  4947 W droid.messagin: Long monitor contention with owner AsyncTask #2 (4946) at com.android.messaging.datamodel.m com.android.messaging.datamodel.i.d()(SourceFile:5) waiters=0 in com.android.messaging.datamodel.m com.android.messaging.datamodel.i.d() for 480ms
+10-22 16:01:31.116  4921  4947 I MessagingAppDataModel: Fixup: Send failed - 0 Download failed - 0
+10-22 16:01:31.599  4921  4945 I MessagingAppDataModel: SyncMessagesAction: Starting batch for messages from -1 to 1792684889163 (message update limit = 80, message scan limit = 4000)
+10-22 16:01:33.058  4921  4947 W droid.messagin: Long monitor contention with owner AsyncTask #2 (4946) at int java.util.zip.ZipFile$ZipFileInputStream.read(byte[], int, int)(ZipFile.java:816) waiters=0 in java.util.zip.ZipEntry java.util.zip.ZipFile.getEntry(java.lang.String) for 1.029s
+10-22 16:01:33.994  4921  4941 I droid.messagin: Waiting for a blocking GC ProfileSaver
+10-22 16:01:34.213  4921  4941 I droid.messagin: Waiting for a blocking GC ProfileSaver
+10-22 16:01:34.227  4921  4941 I droid.messagin: WaitForGcToComplete blocked ProfileSaver on RunEmptyCheckpoint for 233.486ms
+10-22 16:01:36.121  3530  3654 I BlockedNumbers: isBlocked: NOT BLOCKED; number=*****34, e164=
+10-22 16:01:36.542   541   541 E netmgr  : qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:network' service: Invalid argument
+10-22 16:01:36.542   541   541 E netmgr  : Failed to open QEMU pipe 'qemud:network': Invalid argument
+10-22 16:01:36.736  4921  4921 V MessagingApp: SmsReceiver.deliverSmsMessages
+10-22 16:01:30.283  1546  1565 I chatty  : uid=1000(system) android.io identical 1 line
+10-22 16:01:30.316  1546  1565 I DropBoxManagerService: add tag=system_app_strictmode isTagEnabled=true flags=0x2
+10-22 16:01:36.797  1546  1563 W Looper  : Slow dispatch took 237ms android.fg h=android.os.Handler c=<recycled PooledLambda@37b4ef> m=0
+10-22 16:01:36.846  1546  1563 W Looper  : Slow delivery took 249ms android.fg h=android.os.Handler c=<recycled PooledLambda@7fc7a4c> m=0
+10-22 16:01:36.968  1546  1563 W Looper  : Slow dispatch took 121ms android.fg h=android.os.Handler c=<recycled PooledLambda@c8fb1b9> m=0
+10-22 16:01:37.116  1546  1563 W Looper  : Slow dispatch took 144ms android.fg h=android.os.Handler c=<recycled PooledLambda@76e058> m=0
+10-22 16:01:37.327  1546  1563 W Looper  : Slow dispatch took 180ms android.fg h=android.os.Handler c=<recycled PooledLambda@b49d193> m=0
+10-22 16:01:37.499  1546  1563 W Looper  : Slow dispatch took 171ms android.fg h=android.os.Handler c=<recycled PooledLambda@e13bfd> m=0
+10-22 16:01:37.695  1546  1563 W Looper  : Slow dispatch took 195ms android.fg h=android.os.Handler c=<recycled PooledLambda@ac4618c> m=0
+10-22 16:01:37.875  1546  1563 W Looper  : Slow dispatch took 178ms android.fg h=android.os.Handler c=<recycled PooledLambda@b435624> m=0
+10-22 16:01:38.104  1546  1563 W Looper  : Slow dispatch took 228ms android.fg h=android.os.Handler c=<recycled PooledLambda@1c790eb> m=0
+10-22 16:01:38.123  1546  1563 W Looper  : Drained
+10-22 16:01:38.169  1546  1564 W Looper  : Slow dispatch took 102ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-22 16:01:38.234   545   545 E wifi_forwarder: qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:wififorward' service: Invalid argument
+10-22 16:01:38.234   545   545 E wifi_forwarder: RemoteConnection failed to initialize: RemoteConnection failed to open pipe
+10-22 16:01:38.384  4921  4947 I MessagingAppDataModel: ReceiveSmsMessageAction: Received SMS message 1 in conversation 1, uri = content://sms/7
+10-22 16:01:38.387  4921  4947 I MessagingAppDataModel: ProcessPendingMessagesAction: Scheduling pending messages
+10-22 16:01:39.325  4921  4947 I MessagingAppNotif: Notifying for conversation 1; tag = com.android.messaging:sms:, type = 0
+10-22 16:01:39.416  4921  4947 W MessagingAppDataModel: Used 7915ms for ReceiveSmsMessageAction#executeAction
+10-22 16:01:39.485  2192  3345 D androidtc: Initializing SystemTextClassifier, type = System
+10-22 16:01:39.555  2192  2192 W id.ext.service: Core platform API violation: Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z from /apex/com.android.extservices/priv-app/ExtServices/ExtServices.apk using linking
+10-22 16:01:39.596  1546  1546 D NotificationService: 0|com.android.messaging|0|com.android.messaging:sms:|10103: granting content://settings/system/notification_sound
+10-22 16:01:39.642  1546  1546 I chatty  : uid=1000(system) Binder:1546_3 identical 2 lines
+10-22 16:01:39.651  1546  1546 D NotificationService: 0|com.android.messaging|0|com.android.messaging:sms:|10103: granting content://settings/system/notification_sound
+10-22 16:01:39.684  1546  1546 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-22 16:01:39.696  1546  1546 W Looper  : Slow dispatch took 161ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$PostNotificationRunnable@81aeddd m=0
+10-22 16:01:40.233  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:01:40.286  1707  1707 W NotifBindPipeline: Row is not set so pipeline will not run. notif = 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:01:40.854  1546  1563 W Looper  : Slow delivery took 255ms android.fg h=com.android.server.AppStateTracker$MyHandler c=null m=11
+10-22 16:01:41.064  1546  1546 W Looper  : Slow delivery took 297ms main h=android.app.PropertyInvalidatedCache$AutoCorker$1 c=null m=0
+10-22 16:01:41.065  1546  1546 W Looper  : Slow dispatch took 217ms main h=android.app.PropertyInvalidatedCache$AutoCorker$1 c=null m=0
+10-22 16:01:41.532  1546  1563 W Looper  : Drained
+10-22 16:01:41.543  1546  1546 W Looper  : Drained
+10-22 16:01:43.552  1546  1564 W Looper  : Slow dispatch took 220ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=31
+10-22 16:01:43.698  4771  4771 I Choreographer: Skipped 99 frames!  The application may be doing too much work on its main thread.
+10-22 16:01:44.030  4771  4810 I OpenGLRenderer: Davey! duration=2193ms; Flags=0, IntendedVsync=1880974954915, Vsync=1880991621581, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1880994306793, AnimationStart=1880994411002, PerformTraversalsStart=1881317208415, DrawStart=1881324902917, SyncQueued=1882814394983, SyncStart=1882829064619, IssueDrawCommandsStart=1882850293793, SwapBuffers=1883099819716, FrameCompleted=1883183504915, DequeueBufferDuration=11207262, QueueBufferDuration=44824998, GpuCompleted=249661751296, 
+10-22 16:01:44.279  4771  4810 I OpenGLRenderer: Davey! duration=1975ms; Flags=0, IntendedVsync=1881191621573, Vsync=1882841621507, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1882857833875, AnimationStart=1882857841568, PerformTraversalsStart=1882964822047, DrawStart=1882965166485, SyncQueued=1882967131397, SyncStart=1883237591783, IssueDrawCommandsStart=1883238079586, SwapBuffers=1883391334269, FrameCompleted=1883437870627, DequeueBufferDuration=10276791, QueueBufferDuration=10856304, GpuCompleted=-4735894424392593330, 
+10-22 16:01:44.676  1546  3411 W ActivityManager: Slow operation: 221ms so far, now at getContentProviderImpl: after updateOomAdj
+10-22 16:01:44.687  1546  3411 W ActivityManager: Slow operation: 231ms so far, now at getContentProviderImpl: done!
+10-22 16:01:45.745  3530  3779 I BlockedNumbers: isBlocked: NOT BLOCKED; number=*****34, e164=
+10-22 16:01:46.132  1707  1707 D StatusBar: disable<e i a s b h r c s > disable2<q i n >
+10-22 16:01:46.167  1707  1707 W TouchableRegionManager: onHeadsUpPinnedModeChanged
+10-22 16:01:47.582  1707  1707 I Choreographer: Skipped 90 frames!  The application may be doing too much work on its main thread.
+10-22 16:01:47.659  1546  1563 W Looper  : Slow dispatch took 287ms android.fg h=android.os.Handler c=<recycled PooledLambda@37b4ef> m=0
+10-22 16:01:47.716  1546  1563 W Looper  : Slow delivery took 290ms android.fg h=android.os.Handler c=<recycled PooledLambda@9be693> m=0
+10-22 16:01:47.838  1546  1563 W Looper  : Slow dispatch took 112ms android.fg h=android.os.Handler c=<recycled PooledLambda@b435624> m=0
+10-22 16:01:47.868  4921  4921 V MessagingApp: SmsReceiver.deliverSmsMessages
+10-22 16:01:47.955  1546  1564 W system_server: Long monitor contention with owner Binder:1546_A (2077) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, long, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.view.DisplayCutout$ParcelableWrapper, android.util.MergedConfiguration, android.view.SurfaceControl, android.view.InsetsState, android.view.InsetsSourceControl[], android.graphics.Point, android.view.SurfaceControl)(WindowManagerService.java:2446) waiters=0 in void com.android.server.wm.ActivityTaskManagerService$LocalService.onUidRemovedFromPendingTempWhitelist(int) for 140ms
+10-22 16:01:48.040  1546  1564 W Looper  : Slow dispatch took 183ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=68
+10-22 16:01:48.160  1546  1563 W Looper  : Slow dispatch took 233ms android.fg h=android.os.Handler c=<recycled PooledLambda@e13bfd> m=0
+10-22 16:01:48.523  1546  1563 W Looper  : Slow dispatch took 317ms android.fg h=android.os.Handler c=<recycled PooledLambda@b49d193> m=0
+10-22 16:01:48.656  1546  1567 W system_server: Long monitor contention with owner Binder:1546_16 (3411) at android.content.res.Configuration com.android.server.wm.ActivityTaskManagerService.getGlobalConfigurationForPid(int)(ActivityTaskManagerService.java:976) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long) for 177ms
+10-22 16:01:48.728  1546  1571 W ActivityManager: Slow operation: 66ms so far, now at getContentProviderImpl: after updateLruProcess
+10-22 16:01:48.728  1546  1571 W ActivityManager: Slow operation: 66ms so far, now at getContentProviderImpl: before updateOomAdj
+10-22 16:01:48.742  1546  1571 W ActivityManager: Slow operation: 80ms so far, now at getContentProviderImpl: after updateOomAdj
+10-22 16:01:48.743  1546  1571 W ActivityManager: Slow operation: 80ms so far, now at getContentProviderImpl: done!
+10-22 16:01:48.950  1546  1563 W Looper  : Slow dispatch took 427ms android.fg h=android.os.Handler c=<recycled PooledLambda@76e058> m=0
+10-22 16:01:49.048  1707  1707 I Choreographer: Skipped 43 frames!  The application may be doing too much work on its main thread.
+10-22 16:01:49.104  1707  2189 I OpenGLRenderer: Davey! duration=3027ms; Flags=1, IntendedVsync=1885224954745, Vsync=1886724954685, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1886741766242, AnimationStart=1886741775444, PerformTraversalsStart=1886753779398, DrawStart=1887947294521, SyncQueued=1888007046142, SyncStart=1888017225267, IssueDrawCommandsStart=1888031881739, SwapBuffers=1888219001591, FrameCompleted=1888262742059, DequeueBufferDuration=12915515, QueueBufferDuration=24409830, GpuCompleted=0, 
+10-22 16:01:49.485   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:01:49.609  1546  1563 W Looper  : Slow dispatch took 585ms android.fg h=android.os.Handler c=<recycled PooledLambda@c8fb1b9> m=0
+10-22 16:01:49.661   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f9348000 0x3f9cec000]
+10-22 16:01:49.667   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3ff034000 0x3ff9d8000]
+10-22 16:01:49.831  1546  1563 W Looper  : Slow dispatch took 221ms android.fg h=android.os.Handler c=<recycled PooledLambda@cf2444f> m=0
+10-22 16:01:49.870  4921  4947 I MessagingAppDataModel: SyncMessagesAction: Updated local database (took 10421 ms). Added 6 SMS, added 0 MMS, deleted 0 messages.
+10-22 16:01:49.975  1707  2189 I OpenGLRenderer: Davey! duration=1646ms; Flags=1, IntendedVsync=1887474954655, Vsync=1888191621293, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1888210751003, AnimationStart=1888210765671, PerformTraversalsStart=1888287125152, DrawStart=1888823076073, SyncQueued=1889010598222, SyncStart=1889022444052, IssueDrawCommandsStart=1889034796837, SwapBuffers=1889088176317, FrameCompleted=1889133029643, DequeueBufferDuration=3776511, QueueBufferDuration=18585389, GpuCompleted=0, 
+10-22 16:01:50.075  1707  1707 I Choreographer: Skipped 55 frames!  The application may be doing too much work on its main thread.
+10-22 16:01:50.131  1707  2189 I OpenGLRenderer: Davey! duration=1777ms; Flags=1, IntendedVsync=1887474954655, Vsync=1888191621293, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1888210751003, AnimationStart=1888210765671, PerformTraversalsStart=1888287125152, DrawStart=1889150189081, SyncQueued=1889151500345, SyncStart=1889189127853, IssueDrawCommandsStart=1889189410390, SwapBuffers=1889248855124, FrameCompleted=1889290362000, DequeueBufferDuration=12389425, QueueBufferDuration=27750758, GpuCompleted=0, 
+10-22 16:01:50.236  1546  1566 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowSurfacePlacer$Traverser.run()(WindowSurfacePlacer.java:59) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 171ms
+10-22 16:01:50.249  1546  2003 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowSurfacePlacer$Traverser.run()(WindowSurfacePlacer.java:59) waiters=1 in void com.android.server.wm.WindowManagerService.reportSystemGestureExclusionChanged(com.android.server.wm.Session, android.view.IWindow, java.util.List) for 145ms
+10-22 16:01:50.266  1707  2189 I OpenGLRenderer: Davey! duration=1053ms; Flags=0, IntendedVsync=1888308311441, Vsync=1889224978071, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1889234893888, AnimationStart=1889234902298, PerformTraversalsStart=1889235131993, DrawStart=1889261940485, SyncQueued=1889262232629, SyncStart=1889325074918, IssueDrawCommandsStart=1889326271825, SwapBuffers=1889363793621, FrameCompleted=1889424639097, DequeueBufferDuration=999181, QueueBufferDuration=31408287, GpuCompleted=0, 
+10-22 16:01:50.801  3424  3447 I m.android.phon: Background young concurrent copying GC freed 26537(2123KB) AllocSpace objects, 0(0B) LOS objects, 47% free, 2704KB/5144KB, paused 121us total 162.507ms
+10-22 16:01:50.908   480   480 E livelock: sample 11.957s
+10-22 16:01:50.924  4921  4947 I MessagingAppDataModel: SyncMessagesAction: All messages now in sync
+10-22 16:01:50.932  4921  4947 W MessagingAppDataModel: Used 11477ms for SyncMessagesAction#processBackgroundResponse
+10-22 16:01:51.520  1546  1563 W Looper  : Drained
+10-22 16:01:51.748  1707  1707 W TouchableRegionManager: onHeadsUpPinnedModeChanged
+10-22 16:01:51.906  3530  3779 I BlockedNumbers: isBlocked: NOT BLOCKED; number=*****76, e164=
+10-22 16:01:52.809  1707  1707 D StatusBar: disable<e i a s b h r c s > disable2<q i n >
+10-22 16:01:53.454  1546  1566 W system_server: Long monitor contention with owner Binder:1546_14 (3290) at android.content.res.Configuration com.android.server.wm.ActivityTaskManagerService.getGlobalConfigurationForPid(int)(ActivityTaskManagerService.java:976) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 152ms
+10-22 16:01:53.732  1546  1563 W Looper  : Slow dispatch took 429ms android.fg h=android.os.Handler c=<recycled PooledLambda@9be693> m=0
+10-22 16:01:53.791  4921  4921 V MessagingApp: SmsReceiver.deliverSmsMessages
+10-22 16:01:53.824  1546  1563 W Looper  : Slow delivery took 433ms android.fg h=android.os.Handler c=<recycled PooledLambda@37b4ef> m=0
+10-22 16:01:53.834  4921  4947 I MessagingAppDataModel: ReceiveSmsMessageAction: Received SMS message 8 in conversation 1, uri = content://sms/8
+10-22 16:01:53.835  4921  4947 I MessagingAppDataModel: ProcessPendingMessagesAction: Scheduling pending messages
+10-22 16:01:53.968  1546  1563 W Looper  : Slow dispatch took 139ms android.fg h=android.os.Handler c=<recycled PooledLambda@c8fb1b9> m=0
+10-22 16:01:54.192  1546  1563 W Looper  : Slow dispatch took 208ms android.fg h=android.os.Handler c=<recycled PooledLambda@76e058> m=0
+10-22 16:01:54.309  1546  1563 W Looper  : Slow dispatch took 116ms android.fg h=android.os.Handler c=<recycled PooledLambda@b49d193> m=0
+10-22 16:01:54.433  1546  1563 W Looper  : Slow dispatch took 122ms android.fg h=android.os.Handler c=<recycled PooledLambda@e13bfd> m=0
+10-22 16:01:54.470  1546  1556 I system_server: Background young concurrent copying GC freed 174580(9041KB) AllocSpace objects, 56(2168KB) LOS objects, 50% free, 10MB/21MB, paused 13.533ms total 1.555s
+10-22 16:01:54.678  1546  1563 W Looper  : Slow dispatch took 244ms android.fg h=android.os.Handler c=<recycled PooledLambda@ac4618c> m=0
+10-22 16:01:54.871  1546  1563 W Looper  : Slow dispatch took 191ms android.fg h=android.os.Handler c=<recycled PooledLambda@1c790eb> m=0
+10-22 16:01:54.990  4921  4947 I MessagingAppNotif: Notifying for conversation 1; tag = com.android.messaging:sms:, type = 0
+10-22 16:01:54.991  1546  1563 W Looper  : Slow dispatch took 113ms android.fg h=android.os.Handler c=<recycled PooledLambda@d1114c4> m=0
+10-22 16:01:55.077  2192  3345 D androidtc: Initializing SystemTextClassifier, type = System
+10-22 16:01:55.087  4921  4947 W MessagingAppDataModel: Used 4131ms for ReceiveSmsMessageAction#executeAction
+10-22 16:01:55.273  1546  1546 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-22 16:01:55.536  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:01:55.744  2192  4432 I txtClsf : actions-suggestions.cc:1301: Not enough locale matches.
+10-22 16:01:55.774  2192  4432 W id.ext.service: Core platform API violation: Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z from /apex/com.android.extservices/priv-app/ExtServices/ExtServices.apk using linking
+10-22 16:01:56.182  1546  1936 W ActivityManager: Slow operation: 76ms so far, now at getContentProviderImpl: after updateOomAdj
+10-22 16:01:56.183  1546  1936 W ActivityManager: Slow operation: 77ms so far, now at getContentProviderImpl: done!
+10-22 16:01:56.197  1546  1563 W Looper  : Drained
+10-22 16:01:56.723  1707  1707 D StatusBar: disable<e i a s b h r c s > disable2<q i n >
+10-22 16:01:56.751  1707  1707 W TouchableRegionManager: onHeadsUpPinnedModeChanged
+10-22 16:01:57.392  4921  4947 I MessagingAppDataModel: ReceiveSmsMessageAction: Received SMS message 9 in conversation 1, uri = content://sms/9
+10-22 16:01:57.393  4921  4947 I MessagingAppDataModel: ProcessPendingMessagesAction: Scheduling pending messages
+10-22 16:01:57.614  1707  2189 I OpenGLRenderer: Davey! duration=1105ms; Flags=1, IntendedVsync=1895658293660, Vsync=1896124960308, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1896128911111, AnimationStart=1896128918612, PerformTraversalsStart=1896130795942, DrawStart=1896639169531, SyncQueued=1896646297060, SyncStart=1896655448947, IssueDrawCommandsStart=1896664766273, SwapBuffers=1896730762759, FrameCompleted=1896772565274, DequeueBufferDuration=22931101, QueueBufferDuration=12797836, GpuCompleted=0, 
+10-22 16:01:57.873   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:01:57.927   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f9348000 0x3f9cec000]
+10-22 16:01:57.949   320   320 D goldfish-address-space: claimShared: Ask to claim region [0x3ff034000 0x3ff9d8000]
+10-22 16:01:58.142  1707  2189 I OpenGLRenderer: Davey! duration=815ms; Flags=1, IntendedVsync=1896458287629, Vsync=1896758287617, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1896765124403, AnimationStart=1896765130909, PerformTraversalsStart=1896811063960, DrawStart=1897167526127, SyncQueued=1897211915341, SyncStart=1897239256388, IssueDrawCommandsStart=1897252743394, SwapBuffers=1897275753835, FrameCompleted=1897301349127, DequeueBufferDuration=897121, QueueBufferDuration=2093870, GpuCompleted=0, 
+10-22 16:01:58.259  1546  1564 W Looper  : Slow dispatch took 113ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=31
+10-22 16:01:58.480  4921  4947 I MessagingAppNotif: Notifying for conversation 1; tag = com.android.messaging:sms:, type = 0
+10-22 16:01:58.555  2192  3345 D androidtc: Initializing SystemTextClassifier, type = System
+10-22 16:01:58.568  4921  4947 W MessagingAppDataModel: Used 3457ms for ReceiveSmsMessageAction#executeAction
+10-22 16:01:58.722  2192  4448 W id.ext.service: Core platform API violation: Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z from /apex/com.android.extservices/priv-app/ExtServices/ExtServices.apk using linking
+10-22 16:01:58.740  1546  1546 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-22 16:01:58.907  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:01:58.914  1707  1707 D InterruptionStateProvider: No heads up: unimportant notification: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:01:59.104  1707  1707 W TouchableRegionManager: onHeadsUpPinnedModeChanged
+10-22 16:02:00.175  1707  1707 D StatusBar: disable<e i a s b h r c s > disable2<q i n >
+10-22 16:02:00.179  1707  2189 I OpenGLRenderer: Davey! duration=706ms; Flags=1, IntendedVsync=1898558287545, Vsync=1898741620871, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1898747130891, AnimationStart=1898747136878, PerformTraversalsStart=1898966564864, DrawStart=1899163522909, SyncQueued=1899183837275, SyncStart=1899257258217, IssueDrawCommandsStart=1899258518527, SwapBuffers=1899269989230, FrameCompleted=1899338541545, DequeueBufferDuration=19376617, QueueBufferDuration=9725500, GpuCompleted=0, 
+10-22 16:02:00.878  4921  4947 I MessagingAppDataModel: ReceiveSmsMessageAction: Received SMS message 10 in conversation 3, uri = content://sms/10
+10-22 16:02:00.879  4921  4947 I MessagingAppDataModel: ProcessPendingMessagesAction: Scheduling pending messages
+10-22 16:02:00.980  1707  1707 D KeyguardClockSwitch: Updating clock: 402
+10-22 16:02:01.579  4921  4947 I MessagingAppNotif: Notifying for conversation null; tag = com.android.messaging:sms:, type = 0
+10-22 16:02:01.737  4921  4947 I MessagingAppNotif: Notifying for conversation 3; tag = com.android.messaging:sms::3, type = 0
+10-22 16:02:01.813  2192  3345 D androidtc: Initializing SystemTextClassifier, type = System
+10-22 16:02:01.864  2192  2192 W id.ext.service: Core platform API violation: Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z from /apex/com.android.extservices/priv-app/ExtServices/ExtServices.apk using linking
+10-22 16:02:02.095  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:02:02.090  1546  1546 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-22 16:02:02.105  1546  1546 W Looper  : Slow dispatch took 120ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$PostNotificationRunnable@3ac8856 m=0
+10-22 16:02:02.110  1707  1707 D InterruptionStateProvider: No heads up: unimportant notification: 0|com.android.messaging|0|com.android.messaging:sms:|10103
+10-22 16:02:02.579  4921  4947 I MessagingAppNotif: Notifying for conversation 1; tag = com.android.messaging:sms::1, type = 0
+10-22 16:02:02.702  1546  1546 W Looper  : Slow dispatch took 121ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$EnqueueNotificationRunnable@a8470d7 m=0
+10-22 16:02:02.798  2192  3345 D androidtc: Initializing SystemTextClassifier, type = System
+10-22 16:02:02.832  4921  4947 W MessagingAppDataModel: Used 4255ms for ReceiveSmsMessageAction#executeAction
+10-22 16:02:02.940  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms::3|10103
+10-22 16:02:02.997  1707  1707 D InterruptionStateProvider: No heads up: unimportant notification: 0|com.android.messaging|0|com.android.messaging:sms::3|10103
+10-22 16:02:03.020  1546  1546 W NotificationHistory: Attempted to add notif for locked/gone/disabled user 0
+10-22 16:02:03.082  1546  1546 W Looper  : Slow dispatch took 165ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$PostNotificationRunnable@916a3cf m=0
+10-22 16:02:03.086  1546  1564 W Looper  : Slow dispatch took 105ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-22 16:02:03.174  2192  4448 W id.ext.service: Core platform API violation: Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z from /apex/com.android.extservices/priv-app/ExtServices/ExtServices.apk using linking
+10-22 16:02:03.197  1546  1546 W Looper  : Slow delivery took 207ms main h=com.android.server.notification.NotificationManagerService$WorkerHandler c=com.android.server.notification.NotificationManagerService$NotificationListeners$2@5a7015c m=0
+10-22 16:02:03.440  4771  4810 I OpenGLRenderer: Davey! duration=835ms; Flags=0, IntendedVsync=1901741620751, Vsync=1901741620751, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1901756773374, AnimationStart=1901756779769, PerformTraversalsStart=1901901333460, DrawStart=1901901600563, SyncQueued=1902506887178, SyncStart=1902528197211, IssueDrawCommandsStart=1902528903814, SwapBuffers=1902570276599, FrameCompleted=1902598595552, DequeueBufferDuration=1282403, QueueBufferDuration=13246000, GpuCompleted=7309905145177899008, 
+10-22 16:02:03.659  1707  1707 D InterruptionStateProvider: No bubble up: not allowed to bubble: 0|com.android.messaging|0|com.android.messaging:sms::1|10103
+10-22 16:02:03.683  1707  1707 D InterruptionStateProvider: No heads up: unimportant notification: 0|com.android.messaging|0|com.android.messaging:sms::1|10103
+10-22 16:02:06.196  1707  1707 I Choreographer: Skipped 46 frames!  The application may be doing too much work on its main thread.
+10-22 16:02:06.523  1707  2189 I OpenGLRenderer: Davey! duration=1093ms; Flags=0, IntendedVsync=1904574961701, Vsync=1905341628337, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=1905355718282, AnimationStart=1905355727670, PerformTraversalsStart=1905361029128, DrawStart=1905621571546, SyncQueued=1905623400896, SyncStart=1905636427083, IssueDrawCommandsStart=1905637131561, SwapBuffers=1905667012246, FrameCompleted=1905681522382, DequeueBufferDuration=5995760, QueueBufferDuration=7256783, GpuCompleted=0, 
+10-22 16:02:06.860   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:02:06.924   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device manifest.
+10-22 16:02:06.934  4956  4956 I Gralloc4: mapper 4.x is not supported
+10-22 16:02:07.032  4956  4956 D HostConnection: createUnique: call
+10-22 16:02:07.035  4956  4956 D HostConnection: HostConnection::get() New Host Connection established 0x785a7fcd0f90, tid 4956
+10-22 16:02:07.036  4956  4956 D goldfish-address-space: allocate: Ask for block of size 0x100
+10-22 16:02:07.037  4956  4956 D goldfish-address-space: allocate: ioctl allocate returned offset 0x3f7ffe000 size 0x2000
+10-22 16:02:07.190  4956  4956 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:02:12.292  4959  4959 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:12.342  4959  4959 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:12.343  4959  4959 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:12.343  4959  4959 I AndroidRuntime: Using default boot image
+10-22 16:02:12.344  4959  4959 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:12.344  4959  4959 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:12.335  4959  4959 W app_process: type=1400 audit(0.0:117): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:12.339  4959  4959 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:02:12.339  4959  4959 W app_process: type=1400 audit(0.0:119): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:12.364  4959  4959 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:12.359  4959  4959 W app_process: type=1400 audit(0.0:120): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:12.467  4959  4959 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:13.417  4959  4959 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:13.420  4959  4959 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:13.530  4959  4959 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:13.603  4959  4959 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:13.807  1546  1546 W Looper  : Drained
+10-22 16:02:13.630  4959  4959 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:13.872  4959  4959 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:13.994  4959  4959 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:02:14.200  4959  4975 V UiAutomation: Init UiAutomation@e160a3b[id=3, flags=0]
+10-22 16:02:16.032  4959  4959 W AccessibilityNodeInfoDumper: Fetch time: 248ms
+10-22 16:02:16.068  1546  1731 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@50d748
+10-22 16:02:16.087  4959  4975 V UiAutomation: Init UiAutomation@e160a3b[id=-1, flags=0]
+10-22 16:02:16.334  4959  4959 D AndroidRuntime: Shutting down VM
+10-22 16:02:16.451  4959  4959 W app_process: Suspending all threads took: 15.482ms
+10-22 16:02:19.218  4979  4979 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:19.270  4979  4979 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:19.272  4979  4979 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:19.272  4979  4979 I AndroidRuntime: Using default boot image
+10-22 16:02:19.267  4979  4979 W app_process: type=1400 audit(0.0:121): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:19.277  4979  4979 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:19.277  4979  4979 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:19.280  4979  4979 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:19.267  4979  4979 W app_process: type=1400 audit(0.0:122): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:19.267  4979  4979 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:02:19.275  4979  4979 W app_process: type=1400 audit(0.0:124): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:19.387  4979  4979 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:20.529  4979  4979 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:20.533  4979  4979 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:20.652  4979  4979 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:20.692  4979  4979 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:20.716  4979  4979 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:20.935  4979  4979 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:21.056  4979  4979 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:02:21.279  4979  4995 V UiAutomation: Init UiAutomation@88431a[id=4, flags=0]
+10-22 16:02:22.780  4979  4979 W AccessibilityNodeInfoDumper: Fetch time: 228ms
+10-22 16:02:22.814  1546  1936 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@e256e24
+10-22 16:02:22.823  4979  4995 V UiAutomation: Init UiAutomation@88431a[id=-1, flags=0]
+10-22 16:02:23.018  1546  2003 W system_server: Long monitor contention with owner Binder:1546_6 (1731) at void com.android.server.accessibility.AccessibilityWindowManager.removeAccessibilityInteractionConnection(android.view.IWindow)(AccessibilityWindowManager.java:1040) waiters=1 in void com.android.server.accessibility.AccessibilityWindowManager.removeAccessibilityInteractionConnection(android.view.IWindow) for 136ms
+10-22 16:02:23.103  4979  4979 D AndroidRuntime: Shutting down VM
+10-22 16:02:26.336  4999  4999 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:26.386  4999  4999 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:26.389  4999  4999 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:26.390  4999  4999 I AndroidRuntime: Using default boot image
+10-22 16:02:26.383  4999  4999 W app_process: type=1400 audit(0.0:125): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:26.383  4999  4999 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:02:26.387  4999  4999 W app_process: type=1400 audit(0.0:127): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:26.396  4999  4999 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:26.396  4999  4999 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:26.399  4999  4999 W app_process: type=1400 audit(0.0:128): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:26.403  4999  4999 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:26.519  4999  4999 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:27.478  4999  4999 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:27.480  4999  4999 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:27.598  4999  4999 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:27.640  4999  4999 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:27.660  4999  4999 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:27.862  4999  4999 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:28.003  4999  4999 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:02:28.392  4999  5015 V UiAutomation: Init UiAutomation@2fa7bf9[id=5, flags=0]
+10-22 16:02:29.916  4999  4999 W AccessibilityNodeInfoDumper: Fetch time: 229ms
+10-22 16:02:29.974  1546  3411 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@3dd6145
+10-22 16:02:30.002  4999  5015 V UiAutomation: Init UiAutomation@2fa7bf9[id=-1, flags=0]
+10-22 16:02:30.216  4999  4999 D AndroidRuntime: Shutting down VM
+10-22 16:02:30.261  1546  1546 W Looper  : Slow dispatch took 179ms main h=android.os.Handler c=android.view.accessibility.-$$Lambda$AccessibilityManager$yzw5NYY7_MfAQ9gLy3mVllchaXo@2ada8f2 m=0
+10-22 16:02:33.355  5019  5019 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:33.399  5019  5019 W app_process: type=1400 audit(0.0:129): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:33.406  5019  5019 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:33.407  5019  5019 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:33.407  5019  5019 I AndroidRuntime: Using default boot image
+10-22 16:02:33.408  5019  5019 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:33.408  5019  5019 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:33.403  5019  5019 W app_process: type=1400 audit(0.0:130): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:33.403  5019  5019 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:02:33.415  5019  5019 W app_process: type=1400 audit(0.0:132): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:33.417  5019  5019 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:33.519  5019  5019 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:34.590  5019  5019 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:34.594  5019  5019 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:34.703  5019  5019 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:34.743  5019  5019 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:34.766  5019  5019 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:34.983  5019  5019 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:35.166  5019  5019 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:02:35.435  5019  5035 V UiAutomation: Init UiAutomation@56cb4d8[id=6, flags=0]
+10-22 16:02:36.556   541   541 E netmgr  : qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:network' service: Invalid argument
+10-22 16:02:36.562   541   541 E netmgr  : Failed to open QEMU pipe 'qemud:network': Invalid argument
+10-22 16:02:36.978  5019  5019 W AccessibilityNodeInfoDumper: Fetch time: 183ms
+10-22 16:02:36.999  1546  1614 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@1dbf5c0
+10-22 16:02:37.004  5019  5035 V UiAutomation: Init UiAutomation@56cb4d8[id=-1, flags=0]
+10-22 16:02:37.288  5019  5019 D AndroidRuntime: Shutting down VM
+10-22 16:02:37.357  1546  1546 W Looper  : Slow dispatch took 173ms main h=android.os.Handler c=android.view.accessibility.-$$Lambda$AccessibilityManager$yzw5NYY7_MfAQ9gLy3mVllchaXo@86c6831 m=0
+10-22 16:02:38.306   545   545 E wifi_forwarder: qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:wififorward' service: Invalid argument
+10-22 16:02:38.307   545   545 E wifi_forwarder: RemoteConnection failed to initialize: RemoteConnection failed to open pipe
+10-22 16:02:40.636  5039  5039 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:40.720  5039  5039 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:40.726  5039  5039 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:40.726  5039  5039 I AndroidRuntime: Using default boot image
+10-22 16:02:40.728  5039  5039 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:40.728  5039  5039 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:40.715  5039  5039 W app_process: type=1400 audit(0.0:133): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:40.723  5039  5039 I chatty  : uid=2000(shell) app_process identical 2 lines
+10-22 16:02:40.735  5039  5039 W app_process: type=1400 audit(0.0:136): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:40.745  5039  5039 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:40.861  5039  5039 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:42.192  5039  5039 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:42.198  5039  5039 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:42.363  5039  5039 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:42.404  5039  5039 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:42.659  5039  5039 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:42.795  5039  5039 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:02:43.138  5039  5039 D AndroidRuntime: Shutting down VM
+10-22 16:02:48.669  5054  5054 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:48.727  5054  5054 W app_process: type=1400 audit(0.0:137): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:48.736  5054  5054 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:48.739  5054  5054 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:48.740  5054  5054 I AndroidRuntime: Using default boot image
+10-22 16:02:48.731  5054  5054 W app_process: type=1400 audit(0.0:138): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:48.735  5054  5054 W app_process: type=1400 audit(0.0:139): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:48.740  5054  5054 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:48.743  5054  5054 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:48.751  5054  5054 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:48.747  5054  5054 W app_process: type=1400 audit(0.0:140): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:48.854  5054  5054 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:49.806  5054  5054 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:49.808  5054  5054 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:49.916  5054  5054 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:49.955  5054  5054 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:49.976  5054  5054 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:50.170  5054  5054 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:50.294  5054  5054 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:02:50.619  5054  5070 V UiAutomation: Init UiAutomation@cf3c0ff[id=7, flags=0]
+10-22 16:02:52.423  5054  5054 W AccessibilityNodeInfoDumper: Fetch time: 521ms
+10-22 16:02:52.439  1546  3290 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@4cd7b16
+10-22 16:02:52.452  5054  5070 V UiAutomation: Init UiAutomation@cf3c0ff[id=-1, flags=0]
+10-22 16:02:52.584  5054  5054 D AndroidRuntime: Shutting down VM
+10-22 16:02:55.500  5074  5074 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:02:55.567  5074  5074 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:02:55.573  5074  5074 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:02:55.574  5074  5074 I AndroidRuntime: Using default boot image
+10-22 16:02:55.575  5074  5074 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:02:55.576  5074  5074 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:02:55.559  5074  5074 W app_process: type=1400 audit(0.0:141): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:55.563  5074  5074 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:02:55.571  5074  5074 W app_process: type=1400 audit(0.0:143): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:55.597  5074  5074 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:02:55.587  5074  5074 W app_process: type=1400 audit(0.0:144): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:02:55.749  5074  5074 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:02:56.851  5074  5074 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:02:56.860  5074  5074 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:02:56.982  5074  5074 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:02:57.022  5074  5074 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:02:57.224  5074  5074 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:02:57.346  5074  5074 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:02:57.499  5074  5074 D AndroidRuntime: Shutting down VM
+10-22 16:03:00.051  1707  1707 D KeyguardClockSwitch: Updating clock: 403
+10-22 16:03:02.661   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:03:02.701   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device manifest.
+10-22 16:03:02.710  5091  5091 I Gralloc4: mapper 4.x is not supported
+10-22 16:03:02.820  5091  5091 D HostConnection: createUnique: call
+10-22 16:03:02.830  5091  5091 D HostConnection: HostConnection::get() New Host Connection established 0x756e952e6390, tid 5091
+10-22 16:03:02.833  5091  5091 D goldfish-address-space: allocate: Ask for block of size 0x100
+10-22 16:03:02.834  5091  5091 D goldfish-address-space: allocate: ioctl allocate returned offset 0x3f7ffe000 size 0x2000
+10-22 16:03:02.917  5091  5091 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:03:10.145  5093  5093 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:03:10.210  5093  5093 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:03:10.218  5093  5093 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:03:10.218  5093  5093 I AndroidRuntime: Using default boot image
+10-22 16:03:10.219  5093  5093 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:03:10.219  5093  5093 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:03:10.226  5093  5093 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:03:10.203  5093  5093 W app_process: type=1400 audit(0.0:145): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:10.215  5093  5093 I chatty  : uid=2000(shell) app_process identical 2 lines
+10-22 16:03:10.223  5093  5093 W app_process: type=1400 audit(0.0:148): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:10.354  5093  5093 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:03:11.301  5093  5093 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:03:11.303  5093  5093 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:03:11.418  5093  5093 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:03:11.468  5093  5093 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:11.486  5093  5093 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:11.684  5093  5093 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:03:11.804  5093  5093 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:03:12.269  5093  5109 V UiAutomation: Init UiAutomation@6ed0605[id=8, flags=0]
+10-22 16:03:12.396  1546  1546 W Looper  : Slow dispatch took 138ms main h=android.os.Handler c=android.view.accessibility.-$$Lambda$AccessibilityManager$yzw5NYY7_MfAQ9gLy3mVllchaXo@df98987 m=0
+10-22 16:03:12.455  1546  1614 W system_server: Long monitor contention with owner Binder:1546_7 (1936) at java.util.ArrayList com.android.server.accessibility.AccessibilityManagerService$AccessibilityDisplayListener.getValidDisplayList()(AccessibilityManagerService.java:3097) waiters=0 in int com.android.server.accessibility.AccessibilityWindowManager.addAccessibilityInteractionConnection(android.view.IWindow, android.os.IBinder, android.view.accessibility.IAccessibilityInteractionConnection, java.lang.String, int) for 108ms
+10-22 16:03:12.492  1546  3411 W system_server: Long monitor contention with owner Binder:1546_7 (1936) at java.util.ArrayList com.android.server.accessibility.AccessibilityManagerService$AccessibilityDisplayListener.getValidDisplayList()(AccessibilityManagerService.java:3097) waiters=2 in int com.android.server.accessibility.AccessibilityWindowManager.addAccessibilityInteractionConnection(android.view.IWindow, android.os.IBinder, android.view.accessibility.IAccessibilityInteractionConnection, java.lang.String, int) for 158ms
+10-22 16:03:12.620  1546  1546 W Looper  : Slow dispatch took 151ms main h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=<recycled PooledLambda@e13bfd> m=0
+10-22 16:03:12.622  1546  1546 W Looper  : Slow delivery took 207ms main h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=<recycled PooledLambda@d1114c4> m=0
+10-22 16:03:13.828  1546  1546 W Looper  : Drained
+10-22 16:03:14.275  5093  5093 W AccessibilityNodeInfoDumper: Fetch time: 512ms
+10-22 16:03:14.292  1546  1936 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@1d30c08
+10-22 16:03:14.299  5093  5109 V UiAutomation: Init UiAutomation@6ed0605[id=-1, flags=0]
+10-22 16:03:14.483  5093  5093 D AndroidRuntime: Shutting down VM
+10-22 16:03:14.527  1546  1546 W Looper  : Slow dispatch took 128ms main h=com.android.server.accessibility.AccessibilityManagerService$MainHandler c=<recycled PooledLambda@e13bfd> m=0
+10-22 16:03:18.191  5113  5113 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:03:18.263  5113  5113 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:03:18.265  5113  5113 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:03:18.270  5113  5113 I AndroidRuntime: Using default boot image
+10-22 16:03:18.271  5113  5113 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:03:18.272  5113  5113 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:03:18.259  5113  5113 W app_process: type=1400 audit(0.0:149): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:18.267  5113  5113 I chatty  : uid=2000(shell) app_process identical 2 lines
+10-22 16:03:18.275  5113  5113 W app_process: type=1400 audit(0.0:152): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:18.284  5113  5113 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:03:18.508  5113  5113 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:03:19.534  5113  5113 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:03:19.536  5113  5113 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:03:19.644  5113  5113 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:03:19.682  5113  5113 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:19.704  5113  5113 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:19.903  5113  5113 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:03:20.038  5113  5113 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:03:20.339  5113  5129 V UiAutomation: Init UiAutomation@c01d94d[id=9, flags=0]
+10-22 16:03:22.202  5113  5113 W AccessibilityNodeInfoDumper: Fetch time: 576ms
+10-22 16:03:22.213  1546  3411 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@ba0227f
+10-22 16:03:22.223  5113  5129 V UiAutomation: Init UiAutomation@c01d94d[id=-1, flags=0]
+10-22 16:03:22.384  5113  5113 D AndroidRuntime: Shutting down VM
+10-22 16:03:25.248  5133  5133 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:03:25.299  5133  5133 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:03:25.295  5133  5133 W app_process: type=1400 audit(0.0:153): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:25.295  5133  5133 W app_process: type=1400 audit(0.0:154): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:25.302  5133  5133 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:03:25.302  5133  5133 I AndroidRuntime: Using default boot image
+10-22 16:03:25.303  5133  5133 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:03:25.303  5133  5133 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:03:25.299  5133  5133 W app_process: type=1400 audit(0.0:155): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:25.307  5133  5133 W app_process: type=1400 audit(0.0:156): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:25.310  5133  5133 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:03:25.415  5133  5133 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:03:26.509  5133  5133 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:03:26.512  5133  5133 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:03:26.646  5133  5133 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:03:26.711  5133  5133 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:26.744  5133  5133 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:27.026  5133  5133 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:03:27.223  5133  5133 D AndroidRuntime: Calling main entry com.android.commands.uiautomator.Launcher
+10-22 16:03:27.709  5133  5149 V UiAutomation: Init UiAutomation@e74122c[id=10, flags=0]
+10-22 16:03:29.707  5133  5133 W AccessibilityNodeInfoDumper: Fetch time: 515ms
+10-22 16:03:29.719  1546  1731 W WindowManager: removeWindowToken: Attempted to remove non-existing token: android.os.Binder@987dee4
+10-22 16:03:29.731  5133  5149 V UiAutomation: Init UiAutomation@e74122c[id=-1, flags=0]
+10-22 16:03:29.930  5133  5133 D AndroidRuntime: Shutting down VM
+10-22 16:03:30.226  1546  1563 W Looper  : Slow dispatch took 217ms android.fg h=android.os.Handler c=com.android.server.Watchdog$HandlerChecker@59f92d0 m=0
+10-22 16:03:32.560  1546  1731 D WifiNl80211Manager: Scan result ready event
+10-22 16:03:32.565  1546  1731 D WifiNative: Scan result ready event
+10-22 16:03:33.518  5153  5153 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:03:33.603  5153  5153 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:03:33.608  5153  5153 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:03:33.608  5153  5153 I AndroidRuntime: Using default boot image
+10-22 16:03:33.599  5153  5153 W app_process: type=1400 audit(0.0:157): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:33.599  5153  5153 W app_process: type=1400 audit(0.0:158): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:33.621  5153  5153 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:03:33.622  5153  5153 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:03:33.607  5153  5153 W app_process: type=1400 audit(0.0:159): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:33.635  5153  5153 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:03:33.631  5153  5153 W app_process: type=1400 audit(0.0:160): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:33.808  5153  5153 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:03:35.160  5153  5153 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:03:35.164  5153  5153 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:03:35.279  5153  5153 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:03:35.322  5153  5153 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:35.534  5153  5153 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:03:35.658  5153  5153 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:03:35.766  1546  1564 D AutofillManagerService: onBackKeyPressed()
+10-22 16:03:35.814  5153  5153 D AndroidRuntime: Shutting down VM
+10-22 16:03:36.583   541   541 E netmgr  : qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:network' service: Invalid argument
+10-22 16:03:36.586   541   541 E netmgr  : Failed to open QEMU pipe 'qemud:network': Invalid argument
+10-22 16:03:38.320   545   545 E wifi_forwarder: qemu_pipe_open_ns:62: Could not connect to the 'pipe:qemud:wififorward' service: Invalid argument
+10-22 16:03:38.324   545   545 E wifi_forwarder: RemoteConnection failed to initialize: RemoteConnection failed to open pipe
+10-22 16:01:39.954     0     0 I chatty  : uid=0(root) logd identical 1 line
+10-22 16:02:39.889     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=300000 cc=10 chg=a
+10-22 16:03:39.909     0     0 W healthd : battery l=100 v=5000 t=25.0 h=2 st=2 c=900000 fc=300000 cc=10 chg=a
+10-22 16:03:41.072   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:03:41.136   178   178 I hwservicemanager: getTransport: Cannot find entry android.hardware.graphics.mapper@4.0::IMapper/default in either framework or device manifest.
+10-22 16:03:41.148  5170  5170 I Gralloc4: mapper 4.x is not supported
+10-22 16:03:41.255  5170  5170 D HostConnection: createUnique: call
+10-22 16:03:41.260  5170  5170 D HostConnection: HostConnection::get() New Host Connection established 0x7e60af4cf810, tid 5170
+10-22 16:03:41.262  5170  5170 D goldfish-address-space: allocate: Ask for block of size 0x100
+10-22 16:03:41.262  5170  5170 D goldfish-address-space: allocate: ioctl allocate returned offset 0x3f7ffe000 size 0x2000
+10-22 16:03:41.354  5170  5170 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:03:47.493  5172  5172 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-22 16:03:47.546  5172  5172 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-22 16:03:47.539  5172  5172 W app_process: type=1400 audit(0.0:161): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:47.547  5172  5172 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-22 16:03:47.548  5172  5172 I AndroidRuntime: Using default boot image
+10-22 16:03:47.552  5172  5172 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-22 16:03:47.552  5172  5172 I AndroidRuntime: Leaving lock profiling enabled
+10-22 16:03:47.543  5172  5172 W app_process: type=1400 audit(0.0:162): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:47.543  5172  5172 I chatty  : uid=2000(shell) app_process identical 1 line
+10-22 16:03:47.559  5172  5172 W app_process: type=1400 audit(0.0:164): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9648 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-22 16:03:47.564  5172  5172 E libc    : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-22 16:03:47.678  5172  5172 I app_process: Core platform API reporting enabled, enforcing=false
+10-22 16:03:49.891  5172  5172 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-22 16:03:49.902  5172  5172 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-22 16:03:50.270  5172  5172 W app_process: Unexpected CPU variant for X86 using defaults: x86_64
+10-22 16:03:50.332  5172  5172 I app_process: The ClassLoaderContext is a special shared library.
+10-22 16:03:50.820  5172  5172 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-22 16:03:51.174  5172  5172 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-22 16:03:51.354  1546  1564 D AutofillManagerService: onBackKeyPressed()
+10-22 16:03:51.386  1546  2077 I ActivityTaskManager: moveTaskToBack: Task{1e4e824 #10 visible=true type=standard mode=fullscreen translucent=false A=10131:com.sende.app.preview U=0 StackId=10 sz=1}
+10-22 16:03:51.630  1546  2077 W InputReader: Device virtio_input_multi_touch_7 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.637  1546  2077 W InputReader: Device virtio_input_multi_touch_4 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.638  1546  2077 W InputReader: Device virtio_input_multi_touch_5 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.638  1546  2077 W InputReader: Device virtio_input_multi_touch_2 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.639  1546  2077 W InputReader: Device virtio_input_multi_touch_8 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.639  1546  2077 W InputReader: Device virtio_input_multi_touch_9 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.640  1546  2077 W InputReader: Device virtio_input_multi_touch_10 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.640  1546  2077 W InputReader: Device virtio_input_multi_touch_3 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.641  1546  2077 W InputReader: Device virtio_input_multi_touch_6 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.645  1546  2077 W InputReader: Device virtio_input_multi_touch_11 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.659  1546  2077 W InputReader: Device virtio_input_multi_touch_7 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.659  1546  2077 W InputReader: Device virtio_input_multi_touch_4 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.660  1546  2077 W InputReader: Device virtio_input_multi_touch_5 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.660  1546  2077 W InputReader: Device virtio_input_multi_touch_2 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.667  1546  2077 W InputReader: Device virtio_input_multi_touch_8 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.667  1546  2077 W InputReader: Device virtio_input_multi_touch_9 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.668  1546  2077 W InputReader: Device virtio_input_multi_touch_10 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.668  1546  2077 W InputReader: Device virtio_input_multi_touch_3 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.669  1546  2077 W InputReader: Device virtio_input_multi_touch_6 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.677  1546  2077 W InputReader: Device virtio_input_multi_touch_11 is associated with display ADISPLAY_ID_NONE.
+10-22 16:03:51.717  1546  1566 W system_server: Long monitor contention with owner Binder:1546_A (2077) at boolean com.android.server.wm.ActivityTaskManagerService.moveActivityTaskToBack(android.os.IBinder, boolean)(ActivityTaskManagerService.java:2324) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 300ms
+10-22 16:03:51.719  1546  1567 W system_server: Long monitor contention with owner Binder:1546_A (2077) at boolean com.android.server.wm.ActivityTaskManagerService.moveActivityTaskToBack(android.os.IBinder, boolean)(ActivityTaskManagerService.java:2324) waiters=1 in void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long) for 269ms
+10-22 16:03:51.748  5172  5172 D AndroidRuntime: Shutting down VM
+10-22 16:03:52.702  1546  1566 W system_server: Long monitor contention with owner Binder:1546_7 (1936) at android.content.res.Configuration com.android.server.wm.ActivityTaskManagerService.getGlobalConfigurationForPid(int)(ActivityTaskManagerService.java:976) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 281ms
+10-22 16:03:52.877  1546  1564 W Looper  : Slow dispatch took 184ms android.ui h=com.android.server.wm.DisplayPolicy$PolicyHandler c=com.android.server.wm.-$$Lambda$DisplayPolicy$HbdRZfPpJ53Wnk7_Ueb0ycyz_AQ@b4620b9 m=0
+10-22 16:03:52.919   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f89a4000 0x3f9348000]
+10-22 16:03:53.033   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3f9348000 0x3f9cec000]
+10-22 16:03:53.075   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3ff034000 0x3ff9d8000]
+10-22 16:03:53.306  2038  3305 I OpenGLRenderer: Davey! duration=1137ms; Flags=1, IntendedVsync=2011291616369, Vsync=2011474949695, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=2011481318690, AnimationStart=2011481329214, PerformTraversalsStart=2011481334936, DrawStart=2012177609733, SyncQueued=2012240876821, SyncStart=2012266508704, IssueDrawCommandsStart=2012320656432, SwapBuffers=2012387719303, FrameCompleted=2012454540638, DequeueBufferDuration=1146363, QueueBufferDuration=35177589, GpuCompleted=3328208731614163761, 
+10-22 16:03:53.559   320   365 D goldfish-address-space: claimShared: Ask to claim region [0x3fc9a4000 0x3fd348000]
+10-22 16:03:53.825  1546  1564 W Looper  : Slow dispatch took 132ms android.ui h=com.android.server.wm.DisplayPolicy$PolicyHandler c=com.android.server.wm.-$$Lambda$DisplayPolicy$HbdRZfPpJ53Wnk7_Ueb0ycyz_AQ@2ea7cfe m=0
+10-22 16:03:53.848  1546  1566 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long)(WindowAnimator.java:111) waiters=0 in void com.android.server.wm.WindowManagerService$H.handleMessage(android.os.Message) for 485ms
+10-22 16:03:53.871  1546  1936 W system_server: Long monitor contention with owner android.anim (1567) at void com.android.server.wm.WindowAnimator.lambda$new$1$WindowAnimator(long)(WindowAnimator.java:111) waiters=1 in int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, long, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.view.DisplayCutout$ParcelableWrapper, android.util.MergedConfiguration, android.view.SurfaceControl, android.view.InsetsState, android.view.InsetsSourceControl[], android.graphics.Point, android.view.SurfaceControl) for 505ms
+10-22 16:03:54.195  1546  1566 W system_server: Long monitor contention with owner Binder:1546_16 (3411) at int com.android.server.wm.WindowManagerService.relayoutWindow(com.android.server.wm.Session, android.view.IWindow, int, android.view.WindowManager$LayoutParams, int, int, int, int, long, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.graphics.Rect, android.view.DisplayCutout$ParcelableWrapper, android.util.MergedConfiguration, android.view.SurfaceControl, android.view.InsetsState, android.view.InsetsSourceControl[], android.graphics.Point, android.view.SurfaceControl)(WindowManagerService.java:2446) waiters=1 in boolean com.android.server.wm.WindowProcessController.isPreviousProcess() for 142ms
+10-22 16:03:54.257   364   364 E Layer   : [Surface(name=Task=10)/@0xc01e7ec - animation-leash#0] No local sync point found
+10-22 16:03:54.259   364   364 E Layer   : [Surface(name=Task=10)/@0xc01e7ec - animation-leash#0] No local sync point found
+10-22 16:03:54.259   364   364 E Layer   : [Surface(name=Task=1)/@0x5e39ca6 - animation-leash#0] No local sync point found
+10-22 16:03:54.527  1546  1546 W Looper  : Slow dispatch took 144ms main h=android.os.Handler c=com.android.server.statusbar.-$$Lambda$StatusBarManagerService$dQguzfF4tEgBOj3Pr8MpGRN8HT0@97f2dd6 m=0
+10-22 16:03:54.259   364   364 E Layer   : [Surface(name=Task=1)/@0x5e39ca6 - animation-leash#0] No local sync point found
+10-22 16:03:54.916  1707  2189 I OpenGLRenderer: Davey! duration=775ms; Flags=0, IntendedVsync=2013291616289, Vsync=2013374949619, OldestInputEvent=9223372036854775807, NewestInputEvent=0, HandleInputStart=2013387269626, AnimationStart=2013387276978, PerformTraversalsStart=2013449526740, DrawStart=2013506890091, SyncQueued=2013747904503, SyncStart=2013755579654, IssueDrawCommandsStart=2013763810570, SwapBuffers=2013923270733, FrameCompleted=2014074546415, DequeueBufferDuration=21167638, QueueBufferDuration=28433193, GpuCompleted=0, 
+10-22 16:03:55.236  1546  2325 D HostConnection: HostConnection::get() New Host Connection established 0x736d79d9cf90, tid 2325
+10-22 16:03:55.584  1546  2325 D HostConnection: HostComposition ext ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_native_sync_v2 ANDROID_EMU_dma_v1 ANDROID_EMU_direct_mem ANDROID_EMU_host_composition_v1 ANDROID_EMU_host_composition_v2 ANDROID_EMU_vulkan ANDROID_EMU_deferred_vulkan_commands ANDROID_EMU_vulkan_null_optional_strings ANDROID_EMU_vulkan_create_resources_with_requirements ANDROID_EMU_YUV_Cache ANDROID_EMU_vulkan_ignored_handles ANDROID_EMU_has_shared_slots_host_memory_allocator ANDROID_EMU_vulkan_free_memory_sync ANDROID_EMU_vulkan_shader_float16_int8 ANDROID_EMU_vulkan_async_queue_submit ANDROID_EMU_sync_buffer_data ANDROID_EMU_vulkan_async_qsri ANDROID_EMU_read_color_buffer_dma ANDROID_EMU_hwc_color_transform GL_OES_EGL_image_external_essl3 GL_OES_vertex_array_object GL_KHR_texture_compression_astc_ldr ANDROID_EMU_host_side_tracing ANDROID_EMU_gles_max_version_3_0 
+10-22 16:03:55.630  1546  2325 D EGL_emulation: eglCreateContext: 0x736d69e75c80: maj 3 min 0 rcv 3
+10-22 16:03:55.644  1546  2325 D EGL_emulation: eglMakeCurrent: 0x736d69e75c80: ver 3 0 (tinfo 0x736d09e80750) (first time)
+10-22 16:03:56.036  1707  1723 I ndroid.systemu: NativeAlloc concurrent copying GC freed 76959(3671KB) AllocSpace objects, 13(260KB) LOS objects, 49% free, 7829KB/15MB, paused 888us total 902.226ms
+10-22 16:03:56.935   480   480 W livelock: sample 9.012s
+10-22 16:04:00.023     0     0 D logd    : logdr: UID=2000 GID=2000 PID=5196 n tail=0 logMask=99 pid=0 start=0ns timeout=0ns
+10-22 16:04:00.108  1707  1707 D KeyguardClockSwitch: Updating clock: 404

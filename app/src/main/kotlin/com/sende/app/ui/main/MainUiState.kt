@@ -11,6 +11,8 @@ data class BarItem(val packageName: String, val label: String, val unread: Int)
 data class MainUiState(
     val loaded: Boolean = false,
     val accessGranted: Boolean = true,
+    /** The user chose "not now" on the access card: it shrinks to one quiet line instead of asking again. */
+    val accessHintDismissed: Boolean = false,
     val bar: List<BarItem> = emptyList(),
     val selectedPackage: String? = null,
     val totalUnread: Int = 0,

@@ -7,6 +7,12 @@ data class NormalizedMessage(
     val timestampMillis: Long?,
     val lineIndex: Int?,
     val hasPicture: Boolean,
+    /**
+     * Set only for plain-text notifications: the text split into its non-blank lines. Some apps keep one
+     * notification per chat and rewrite its text as "first\nsecond\nthird" for every new message, so the
+     * lines tell [CaptureCoordinator] which of them are new.
+     */
+    val blockLines: List<String>? = null,
 )
 
 /** Everything a notification says: which chat it belongs to and the messages inside it. */
@@ -89,6 +95,7 @@ object MessageNormalizer {
                     timestampMillis = null,
                     lineIndex = null,
                     hasPicture = payload.hasBigPicture,
+                    blockLines = body.lines().map { it.trim() }.filter { it.isNotEmpty() },
                 ),
             ),
         )

@@ -37,6 +37,7 @@ class MainViewModel(
 ) : ViewModel() {
 
     private val accessGranted = MutableStateFlow(accessChecker.isGranted())
+    private val accessFlags = combine(accessGranted, preferences.accessHintDismissed) { granted, dismissed -> granted to dismissed }
     private val listenerStalled = MutableStateFlow(false)
     private var disconnectedSince = 0L
     private val selectedPackage = MutableStateFlow<String?>(null)
@@ -55,12 +56,12 @@ class MainViewModel(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     val state: StateFlow<MainUiState> = combine(
-        accessGranted,
+        accessFlags,
         channelRepository.observeAllChannels(),
         inboxRepository.observeConversations(),
         selectedPackage,
         listenerStalled,
-    ) { granted, channels, conversations, selected, stalled ->
+    ) { (granted, hintDismissed), channels, conversations, selected, stalled ->
         val enabled = channels.filter { it.enabled }
         val bar = ChannelOrdering.barOrder(enabled).map { BarItem(it.packageName, it.label, it.unreadMessages) }
         val effectiveSelection = selected?.takeIf { sel -> bar.any { it.packageName == sel } }
@@ -74,6 +75,7 @@ class MainViewModel(
         MainUiState(
             loaded = true,
             accessGranted = granted,
+            accessHintDismissed = hintDismissed,
             bar = bar,
             selectedPackage = effectiveSelection,
             totalUnread = bar.sumOf { it.unread },
@@ -100,6 +102,11 @@ class MainViewModel(
             if (disconnectedSince == 0L) disconnectedSince = now
             listenerStalled.value = now - disconnectedSince > STALL_GRACE_MS
         }
+    }
+
+    /** "Not now" on the access card (true) or "turn it on after all" from the shrunk line (false). */
+    fun setAccessHintDismissed(dismissed: Boolean) {
+        viewModelScope.launch { preferences.setAccessHintDismissed(dismissed) }
     }
 
     fun restartListener() {

@@ -79,7 +79,10 @@
 
     <string name="access_title">Turn on notification access</string>
     <string name="access_body">Sende reads the notifications of the apps you choose (sender name and message text) and shows them here. Nothing leaves this phone.</string>
-    <string name="access_open">Open access settings</string>
+    <string name="access_open">I agree — turn on access</string>
+    <string name="access_not_now">Not now</string>
+    <string name="access_collapsed">Notification access is off</string>
+    <string name="access_collapsed_open">Turn on</string>
     <string name="access_howto">How?</string>
     <string name="stalled_title">Listening paused</string>
     <string name="stalled_body">Your phone stopped Sende in the background, so new messages are not arriving. Restart it, and let Sende run in the background in battery settings.</string>

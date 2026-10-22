@@ -31,7 +31,10 @@ class CaptureCoordinator(
     private val untimedLines = UntimedLineTracker()
 
     /** The notification left the shade: its next appearance (same words included) is a new message. */
-    fun forget(notificationKey: String) = untimedLines.forget(notificationKey)
+    fun forget(notificationKey: String) {
+        untimedLines.forget(notificationKey)
+        untimedLines.forget(BLOCK_PREFIX + notificationKey)
+    }
 
     /** @return the messages that were newly stored (empty when filtered or already known). */
     suspend fun handleNotification(payload: RawNotificationPayload, live: LiveConversation?): List<InboxMessage> {
@@ -50,16 +53,22 @@ class CaptureCoordinator(
         val stored = mutableListOf<InboxMessage>()
         val avatarBySender = HashMap<String, String?>()
 
+        // Plain text that an app rewrites with every message ("a", "a\nb", "a\nb\nc"): only the new lines count.
+        val block = settleBlock(payload.notificationKey, conversationKey, normalized)
+        val messages = block?.messages ?: normalized.messages
+
         // Lines without their own timestamp: only the ones this delivery added to the notification are new.
-        val untimedAt = normalized.messages.indices.filter { normalized.messages[it].timestampMillis == null }
+        val untimedAt = if (block != null) emptyList() else messages.indices.filter { messages[it].timestampMillis == null }
         val untimedDiff = if (untimedAt.isEmpty()) null else untimedLines.diff(
             payload.notificationKey,
-            untimedAt.map { normalized.messages[it].let { m -> m.senderName + "\u0000" + m.messageText } },
+            untimedAt.map { messages[it].let { m -> m.senderName + "\u0000" + m.messageText } },
         )
         val freshUntimed = untimedDiff?.newIndices?.map { untimedAt[it] }?.toSet().orEmpty()
 
-        for ((position, message) in normalized.messages.withIndex()) {
-            if (message.timestampMillis == null) {
+        if (block != null && messages.isEmpty()) diagnosticsRecorder.onDecision(payload.packageName, FilterReason.DUPLICATE_BY_FINGERPRINT)
+
+        for ((position, message) in messages.withIndex()) {
+            if (message.timestampMillis == null && block == null) {
                 val alreadySeen = position !in freshUntimed ||
                     // After a restart the old lines of a multi-line notification look new: skip the ones stored recently.
                     (untimedDiff!!.firstSighting && untimedAt.size > 1 && inboxRepository.hasSameContentSince(
@@ -126,6 +135,35 @@ class CaptureCoordinator(
     }
 
     /**
+     * Decides which messages a plain-text notification really adds, or null when it is not plain text.
+     *
+     * - First sighting: the whole text is one message (a customer's multi-line address stays one message),
+     *   unless the same words were stored recently, which is a re-post under another key or after a restart.
+     * - Update whose first lines repeat the previous text: only the lines after the overlap are new, each its own message.
+     * - Update with unrelated text: the whole new text is one message.
+     */
+    private suspend fun settleBlock(notificationKey: String, conversationKey: String, normalized: NormalizedNotification): NormalizedNotification? {
+        val message = normalized.messages.singleOrNull()?.takeIf { it.blockLines != null } ?: return null
+        val lines = message.blockLines!!
+        val sender = message.senderName
+        val diff = untimedLines.diff(BLOCK_PREFIX + notificationKey, lines.map { sender + "\u0000" + it })
+        val settled = when {
+            diff.firstSighting -> {
+                // A single line may legitimately repeat ("Evet" again after the notification was dismissed); a
+                // multi-line text that was stored a moment ago is a re-post.
+                val since = System.currentTimeMillis() - REPLAY_WINDOW_MILLIS
+                val known = lines.size > 1 &&
+                    (inboxRepository.hasSameContentSince(conversationKey, sender, message.messageText, since) ||
+                        lines.all { inboxRepository.hasSameContentSince(conversationKey, sender, it, since) })
+                if (known) emptyList() else listOf(message)
+            }
+            diff.newIndices.size == lines.size -> listOf(message)
+            else -> diff.newIndices.map { message.copy(messageText = lines[it], blockLines = null) }
+        }
+        return normalized.copy(messages = settled)
+    }
+
+    /**
      * Text shared into Sende from another app via ACTION_SEND. [sourcePackageHint] comes from
      * `Activity.getReferrer()`, the supported way to identify the calling app; [senderLabel] is a
      * caller-supplied, already-localized placeholder shown when there is no real sender identity.
@@ -166,6 +204,7 @@ class CaptureCoordinator(
     }
 
     companion object {
+        private const val BLOCK_PREFIX = "block:"
         private const val MAX_SHARED_TEXT_LENGTH = 10_000
         private const val REPLAY_WINDOW_MILLIS = 6 * 60 * 60 * 1000L
         const val SHARE_FALLBACK_PACKAGE = "sende.share"

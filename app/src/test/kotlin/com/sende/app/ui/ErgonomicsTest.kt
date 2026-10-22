@@ -95,6 +95,11 @@ class ErgonomicsTest {
         assertEveryControlIsThumbSized()
     }
 
+    @Test fun `collapsed permission line is thumb sized`() {
+        render(ScreenshotFixtures.state(tmp.newFolder(), accessGranted = false, empty = true).copy(accessHintDismissed = true))
+        assertEveryControlIsThumbSized()
+    }
+
     @Test fun `controls stay thumb sized at 200 percent text`() {
         compose.setContent {
             val density = androidx.compose.ui.platform.LocalDensity.current

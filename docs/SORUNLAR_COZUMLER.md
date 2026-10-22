@@ -3,6 +3,22 @@
 Her kayıt: ne oldu → asıl neden → ne yaptım → kanıt. En yeni en üstte.
 Aynı hata iki kez yaşanmasın diye "yeni kural" satırı var.
 
+## S-23: Gerçek SMS uygulaması aynı mesajı birikmiş metinle yeniden yazıyor (sanal telefonda bulundu)
+- Ne oldu: Android 11 sanal telefonda gerçek Messaging uygulamasına 3 SMS gönderdim; Sende 4 kart gösterdi.
+  Tek sohbet varken uygulama tek bildirim kullanıp metni her SMS'te büyütüyor: "a", "a\nb", "a\nb\nc".
+  Sende her hâlini ayrı mesaj saydı. İkinci sohbet gelince uygulama bildirimlerini yeniden kurdu ve son
+  büyümüş metin yeni anahtarla bir kez daha kaydoldu.
+- Neden: düz metin yolunda "bu bildirimde ne eklendi" kararı yoktu (yalnız InboxStyle/textLines için vardı).
+  Hiçbir birim testi bu biçimi öngörmemişti; yalnız gerçek uygulama gösterdi.
+- Çözüm: düz metin satırlara bölünür (`NormalizedMessage.blockLines`); `CaptureCoordinator.settleBlock`:
+  ilk görülüşte tüm metin tek mesaj (müşterinin çok satırlı adresi bölünmez), son 6 saatte aynı metin ya da
+  tüm satırları kayıtlıysa yeniden gönderi sayılıp atlanır; güncellemede yalnız çakışmadan sonraki satırlar,
+  her biri ayrı mesaj; ilgisiz yeni metin tek yeni mesaj. Tek satırlı tekrar ("Evet" iki kez) korunur.
+- Kanıt: `CaptureCoordinatorRobolectricTest` içinde 5 yeni "REAL-APP" testi; düzeltilmiş APK aynı senaryoda
+  sanal telefonda yeniden denendi (`docs/kanit/sanal-telefon/`).
+- Yeni kural: yakalama mantığı yalnız elle yazılmış bildirimlerle değil, en az bir gerçek uygulamanın ürettiği
+  bildirimlerle de denenir (CI: `tools/sanal-telefon.sh`).
+
 ## S-22: Aynı kelimeyi iki kez yazan müşterinin ikinci mesajı kayboluyordu (ve eski satırlar geri geliyordu)
 - Ne oldu (bağımsız denetim buldu): zamansız bildirimlerde tekrar koruması "gönderilme dakikası" kovasına
   bağlıydı. Aynı dakikada gelen iki "Evet" tek mesaj sayılıyordu; çok satırlı bildirim güncellenince

@@ -1,0 +1,12 @@
+== virtual phone check, 2026-10-22T15:59:34Z ==
+android sdk: 30
+ok:   4 unread in total for 4 SMS
+ok:   sender 555-1234 shown
+ok:   sender 555-9876 shown
+ok:   "Merhaba, yarin icin..." appears once
+ok:   "Saat 19:00 olsun..." appears once
+ok:   "Bir de cocuk sandalyesi..." appears once
+ok:   second back press sent Sende to the background
+ok:   process still alive after back
+ok:   no crash or ANR in logcat
+ALL CHECKS PASSED

@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sende.app.domain.model.Conversation
 import com.sende.app.ui.access.AccessBanner
+import com.sende.app.ui.access.AccessCollapsed
 import com.sende.app.ui.access.StalledBanner
 import com.sende.app.ui.theme.Tek
 
@@ -46,6 +47,8 @@ class MainCallbacks(
     val onAdd: () -> Unit = {},
     val onOpenSettings: () -> Unit = {},
     val onHowTo: () -> Unit = {},
+    val onAccessNotNow: () -> Unit = {},
+    val onAccessReopen: () -> Unit = {},
     val onRestartListener: () -> Unit = {},
     val onBatterySettings: () -> Unit = {},
     val onCycle: (Conversation) -> Unit = {},
@@ -138,7 +141,15 @@ fun MainContent(
                 }
                 if (!state.accessGranted) {
                     item(key = "access") {
-                        AccessBanner(onOpenSettings = callbacks.onOpenSettings, onHowTo = callbacks.onHowTo)
+                        if (state.accessHintDismissed) {
+                            AccessCollapsed(onReopen = callbacks.onAccessReopen)
+                        } else {
+                            AccessBanner(
+                                onOpenSettings = callbacks.onOpenSettings,
+                                onHowTo = callbacks.onHowTo,
+                                onNotNow = callbacks.onAccessNotNow,
+                            )
+                        }
                     }
                 }
                 if (state.listenerStalled) {

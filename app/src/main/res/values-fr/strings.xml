@@ -67,7 +67,10 @@
     <string name="no_channels_body">Choisissez où vos clients vous écrivent. Rien ne quitte votre téléphone.</string>
     <string name="access_title">Activer l\'accès aux notifications</string>
     <string name="access_body">Sende lit les notifications des applications que vous choisissez (nom de l\'expéditeur et texte du message) et les affiche ici. Rien ne quitte ce téléphone.</string>
-    <string name="access_open">Ouvrir les réglages d\'accès</string>
+    <string name="access_open">J\'accepte — activer l\'accès</string>
+    <string name="access_not_now">Pas maintenant</string>
+    <string name="access_collapsed">L\'accès aux notifications est désactivé</string>
+    <string name="access_collapsed_open">Activer</string>
     <string name="access_howto">Comment ?</string>
     <string name="stalled_title">Écoute en pause</string>
     <string name="stalled_body">Votre téléphone a arrêté Sende en arrière-plan : les nouveaux messages n\'arrivent plus. Relancez-le et autorisez Sende à s\'exécuter en arrière-plan dans les réglages de batterie.</string>
