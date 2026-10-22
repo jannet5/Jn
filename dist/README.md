@@ -5,6 +5,7 @@
 https://github.com/jannet5/Jn/releases/download/son-surum/Sende.apk
 
 - Hesap gerekmez, giriş yok. Telefonun tarayıcısında aç, indirme başlar.
+- Başka bir ekrandan açmak istersen QR: `dist/Sende-apk-qr.png` (telefonun kamerasıyla okut).
 - Dosya GitHub'ın kendi sunucusundan "ek dosya" olarak iner (doğru dosya türü ve indirme başlığıyla).
   Eski raw/jsDelivr bağlantılarında görülen "yüzde 100'de takılma" sorunu bu yolla beklenmiyor;
   ama bunu henüz gerçek bir telefonda DENEMEDİM (aşağıya bak).
