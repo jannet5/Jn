@@ -46,7 +46,7 @@ object Listeleyici {
             Platform.INSTAGRAM -> ytdlpListe( // Instagram: Reels ya da Gönderiler bölümü (uygulamanın yt-dlp eklentisiyle, girişsiz)
                 ctx, "https://www.instagram.com/$kullanici/" + (if (isi.sekme == Sekme.GONDERILER) "posts/" else "reels/"), isi.sayi, isi.id, isi.platform,
             )
-            Platform.X -> galeriListe(ctx, isi, "https://x.com/$kullanici/media", kullanici) // X: medya bölümü (giriş gerekir)
+            Platform.X -> galeriListe(ctx, isi, "https://x.com/$kullanici", kullanici) // X: girişsiz "Gönderiler" bölümü (girişliyse "Medya")
             Platform.DIGER -> ytdlpListe(ctx, isi.url, isi.sayi, isi.id, isi.platform) // diğer: yt-dlp ne bulursa
         }
     }
@@ -127,27 +127,31 @@ object Listeleyici {
         return ListeSonucu(ad, ogeler.take(sinir), foto) // sonuç
     }
 
-    // gallery-dl ile profilin son içeriklerinin linklerini al (Instagram, X, Pinterest)
+    // gallery-dl ile X profilinin son videolu gönderilerinin linklerini al.
+    // Girişsiz: X'in misafir erişimiyle profilin "Gönderiler" bölümü (en yeniden eskiye) taranır, videolular alınır.
+    // ("Medya" bölümü misafire kapalı; giriş yapılmışsa o kullanılır, çerez geçersizse yine misafir olarak denenir.)
     private suspend fun galeriListe(ctx: Context, isi: IndirmeIsi, url: String, kullanici: String): ListeSonucu {
         val n = isi.sayi // istenen sayı
-        val ortak = mutableListOf( // her sitede ortak seçenekler
-            "-o", "ratelimit=abort", // sınır aşılırsa 15 dakika bekleme, hemen hata ver
-            "--cache-file", java.io.File(ctx.cacheDir, "gdl-onbellek.sqlite3").absolutePath, // oturum önbelleği
-        )
-        Cerezler.kopyaYolu(ctx)?.let { ortak += listOf("--cookies", it) } // giriş yapıldıysa çerezler
-        return when (isi.platform) {
-            Platform.X -> {
-                // Medya bölümündeki videolar (en yeniden eskiye). Bir gönderide birden çok video olabileceği için 2 katı dosya istenir.
-                val cikti = Motor.galeriCalistir(ctx, ortak + listOf(
-                    "--filter", "type in ('video','animated_gif')", // sadece videolar
-                    "--range", "1-${n * 2}", // en fazla 2N dosya (sonra gönderiye göre tekilleştirilir)
-                    "-N", "{tweet_id}\t{user[nick]}\thttps://x.com/{author[name]}/status/{tweet_id}", // her dosya için tek satır
-                    url,
-                ), isi.id)
-                satirlardan(cikti, n, kullanici) // çöz
-            }
-            else -> throw UnsupportedOperationException("${isi.platform.ad} profili henüz desteklenmiyor") // diğerleri aşağıda
+        fun secenekler(cerez: String?) = mutableListOf( // ortak seçenekler
+            "-o", "ratelimit=abort", // sınır aşılırsa 15 dakika bekleme, o ana kadar bulunanlarla devam et
+            "-o", "retweets=false", "-o", "quoted=false", "-o", "pinned=false", // sadece kendi gönderileri (sabitlenmiş gönderi sırayı bozmasın)
+            "--cache-file", java.io.File(ctx.cacheDir, "gdl-onbellek.sqlite3").absolutePath, // misafir anahtarı önbelleği
+            "--filter", "type in ('video','animated_gif')", // sadece videolar
+            "--range", "1-${n * 2}", // en fazla 2N dosya (bir gönderide birden çok video olabilir; sonra gönderiye göre tekilleştirilir)
+            "-N", "{tweet_id}\t{user[nick]}\thttps://x.com/{author[name]}/status/{tweet_id}", // her dosya için tek satır
+        ).apply { cerez?.let { addAll(listOf("--cookies", it)) } }
+        val cerez = Cerezler.kopyaYolu(ctx) // çerez dosyası (varsa)
+        if (cerez != null && Cerezler.dosyadaGirisVar(cerez, Platform.X)) { // X'e giriş yapılmış: Medya bölümü daha hızlı
+            try {
+                val sonuc = satirlardan(Motor.galeriCalistir(ctx, secenekler(cerez) + "$url/media", isi.id), n, kullanici) // girişli liste
+                if (sonuc.ogeler.isNotEmpty()) return sonuc // bulunduysa bitti
+            } catch (e: YoutubeDL.CanceledException) {
+                throw e // iptal
+            } catch (e: Exception) {
+                if (!girisHatasiMi(e.message ?: "")) throw e // giriş dışı hata (örn. kullanıcı yok)
+            } // oturum düşmüşse aşağıda misafir olarak dene
         }
+        return satirlardan(Motor.galeriCalistir(ctx, secenekler(null) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
     }
 
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
@@ -187,12 +191,12 @@ object Listeleyici {
     // Teknik hatayı anlaşılır Türkçe metne çevir
     fun anlasilirHata(ham: String, platform: Platform? = null): String = when {
         ham.contains("Sign in to confirm", true) -> "YouTube şu an bu bağlantıyı engelledi, biraz sonra tekrar dene" // YouTube bot kontrolü
-        ham.contains("429") || ham.contains("Too Many Requests", true) || ham.contains("Please wait a few minutes", true) -> "Site çok fazla istek dedi, birkaç dakika sonra tekrar dene" // hız sınırı
+        ham.contains("429") || ham.contains("Too Many Requests", true) || ham.contains("Please wait a few minutes", true) || ham.contains("Rate limit exceeded", true) -> "Site çok fazla istek dedi, birkaç dakika sonra tekrar dene" // hız sınırı
         girisHatasiMi(ham) -> if (platform != null && Cerezler.siteler.none { it.platform == platform }) "Bu içerik giriş istiyor (gizli ya da üyelere özel olabilir)" // giriş desteklenmeyen site
             else "Bu site giriş istiyor. Hesaplar'dan giriş yapıp tekrar dene." // giriş gerekli
         ham.contains("Unsupported URL", true) || ham.contains("is not a valid URL", true) || ham.contains("No suitable extractor", true) -> "Bu link desteklenmiyor" // geçersiz link
         ham.contains("does not have a", true) && ham.contains("tab", true) -> "Bu kanalda o bölüm yok" // örn. Shorts yok
-        ham.contains("not found", true) || ham.contains("404", true) || ham.contains("does not exist", true) -> "Bulunamadı (link ya da kullanıcı adı yanlış olabilir)" // yok
+        ham.contains("not found", true) || ham.contains("could not be found", true) || ham.contains("404", true) || ham.contains("does not exist", true) -> "Bulunamadı (link ya da kullanıcı adı yanlış olabilir)" // yok
         ham.contains("Private", true) -> "Bu içerik/profil gizli" // gizli
         ham.contains("Unable to download", true) || ham.contains("Failed to resolve", true) || ham.contains("timed out", true) || ham.contains("Network", true) -> "İnternet bağlantısını kontrol et" // internet
         else -> ham.lineSequence().firstOrNull { it.contains("ERROR") || it.contains("error", true) }?.substringAfter("ERROR:")?.trim()?.take(160)

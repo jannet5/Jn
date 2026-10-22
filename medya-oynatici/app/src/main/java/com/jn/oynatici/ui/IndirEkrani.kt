@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
@@ -66,7 +65,6 @@ import com.jn.oynatici.data.Platform
 import com.jn.oynatici.data.Sekme
 import com.jn.oynatici.data.Tur
 import com.jn.oynatici.data.Zaman
-import com.jn.oynatici.indir.Cerezler
 import com.jn.oynatici.indir.IndirmeIsi
 import com.jn.oynatici.indir.IndirmeMerkezi
 import com.jn.oynatici.indir.ListeSonucu
@@ -80,8 +78,6 @@ import java.io.File
 private val kaliteler = listOf<Pair<String, Int?>>("144p" to 144, "240p" to 240, "360p" to 360, "480p" to 480, "720p" to 720, "1080p" to 1080, "En yüksek" to null)
 // Profilden kaç içerik indirileceği için hazır seçenekler
 private val hazirSayilar = listOf(5, 10, 20, 50)
-// Giriş yapılmadan profil listesi alınamayan siteler
-private val profilIcinGirisGerekli = setOf(Platform.X)
 
 // İnternetten indirme sayfası: link yapıştır → ne olduğu anlaşılır → (liste ise seç, profil ise sayı seç) → indir
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
@@ -192,10 +188,6 @@ fun IndirEkrani(model: UygulamaModeli, tur: Tur, klasor: File, hazirLink: String
                         Text(linkAciklamasi(cozulmus.platform, cozulmus.turu, cozulmus.kullanici), style = MaterialTheme.typography.titleMedium) // "Instagram profili · @kullanici"
                     }
                 }
-                // Profil indirmek için giriş gerekiyorsa uyar
-                if (cozulmus.turu == LinkTuru.PROFIL && cozulmus.platform in profilIcinGirisGerekli && !Cerezler.girisVar(cozulmus.platform)) item {
-                    GirisUyarisi(cozulmus.platform) { model.git(Sayfa.Giris(cozulmus.platform)) }
-                }
                 if (cozulmus.turu == LinkTuru.PROFIL) {
                     if (cozulmus.sekmeler.isNotEmpty()) item { // bölüm seçimi (Reels / Gönderiler, Videolar / Shorts)
                         Baslik("Hangi bölüm?")
@@ -290,18 +282,6 @@ private fun listeyiDurdur(is_: Job?, islemId: String) {
 // Küçük bölüm başlığı
 @Composable
 private fun Baslik(yazi: String) = Text(yazi, style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(bottom = 6.dp))
-
-// "Bu profil için giriş gerekiyor" kutusu
-@Composable
-fun GirisUyarisi(platform: Platform, girisYap: () -> Unit) {
-    Surface(shape = RoundedCornerShape(16.dp), color = MaterialTheme.colorScheme.secondaryContainer, modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("${platform.ad} profilleri için giriş yapman gerekiyor. Bir kere giriş yapman yeter.", Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium)
-            Spacer(Modifier.width(8.dp))
-            Button(onClick = girisYap) { Text("Giriş yap") }
-        }
-    }
-}
 
 // Linkin ne olduğunu anlatan kısa yazı
 fun linkAciklamasi(platform: Platform, turu: LinkTuru, kullanici: String?): String = when (turu) {

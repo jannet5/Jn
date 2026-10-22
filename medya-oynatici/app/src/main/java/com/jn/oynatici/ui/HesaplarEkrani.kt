@@ -59,7 +59,7 @@ fun HesaplarEkrani(model: UygulamaModeli) {
     ) { bosluk ->
         Column(Modifier.fillMaxSize().padding(bosluk)) {
             Text( // açıklama
-                "Instagram ve X profillerinden indirmek için çoğu zaman giriş gerekir. Giriş, sitenin kendi sayfasında yapılır; " +
+                "Herkese açık profiller ve gönderiler girişsiz iner. Giriş sadece gizli hesaplar ya da yaş sınırlı içerikler için gerekir. Giriş, sitenin kendi sayfasında yapılır; " +
                     "şifren uygulamaya kaydedilmez, sadece oturum çerezi bu telefonda kalır.",
                 color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),

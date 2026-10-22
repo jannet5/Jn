@@ -47,6 +47,17 @@ object Cerezler {
         return if (site.anahtarDeger != null) deger == site.anahtarDeger else deger.isNotEmpty() // beklenen değer mi / dolu mu
     }
 
+    // Çerez dosyasında bu sitenin girişi var mı (arka planda CookieManager'a dokunmadan bakmak için)
+    fun dosyadaGirisVar(yol: String, platform: Platform): Boolean {
+        val site = siteler.find { it.platform == platform } ?: return false // site
+        val alanlar = site.adresler.mapNotNull { URI(it).host?.removePrefix("www.") }.toSet() // "x.com", "twitter.com"
+        return runCatching { File(yol).readLines() }.getOrDefault(emptyList()).any { satir -> // her çerez satırı
+            val p = satir.split('\t') // alan, ..., ad, değer
+            p.size >= 7 && p[0].removePrefix(".").removePrefix("www.") in alanlar && p[5] == site.anahtarCerez &&
+                (if (site.anahtarDeger != null) p[6] == site.anahtarDeger else p[6].isNotEmpty()) // anahtar çerez dolu mu
+        }
+    }
+
     // Anahtar çerezin şu anki değeri (yoksa null) — giriş sayfası, değer değişince "giriş oldu" anlar
     fun anahtarDegeri(platform: Platform): String? {
         val site = siteler.find { it.platform == platform } ?: return null // site

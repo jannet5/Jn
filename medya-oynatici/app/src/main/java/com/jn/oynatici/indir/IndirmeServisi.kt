@@ -232,7 +232,7 @@ class IndirmeServisi : Service() {
             addOption("--trim-filenames", "120") // çok uzun adları kısalt
             addOption("--newline") // ilerleme satır satır gelsin
             addOption("--no-playlist") // her link tek içerik olarak insin
-            if (isi.platform != Platform.X || cerezZorla || toplu) cerez?.let { addOption("--cookies", it) } // giriş yapılan hesapların çerezleri (X'in tek gönderisi önce çerezsiz denenir; X profili zaten giriş ister)
+            if (isi.platform != Platform.X || cerezZorla) cerez?.let { addOption("--cookies", it) } // giriş yapılan hesapların çerezleri (X önce çerezsiz denenir: oturum düşmüşse bile herkese açık gönderiler insin)
             if (isi.platform == Platform.TIKTOK) addOption("--user-agent", Platform.FIREFOX_UA) // TikTok engeline takılmamak için
             if (isi.platform == Platform.INSTAGRAM) { // Instagram: girişsiz indirme eklentisi, istekler arası kısa bekleme
                 addOption("--plugin-dirs", Motor.eklentiKlasoru(this@IndirmeServisi)) // eklenti klasörü
