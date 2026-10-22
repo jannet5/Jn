@@ -1,96 +1,122 @@
 # Sende: fiyat, deneme ve destek (bağış) kararı
 Araştırma kolu: para-kazanma
 
-- Tarih: 21 Ekim 2026. Bu dosya bir karar belgesidir; koda dokunulmadı.
+- Tarih: 22 Ekim 2026. Bu dosya bir karar belgesidir; koda dokunulmadı.
+- Bu sürüm 21 Ekim taslağının ikinci geçişidir. İlk geçişte arama
+  kotası dolmuştu; şimdi Stack Overflow, GitHub issue, Hacker News
+  ve 2026 vakaları eklendi. Öneri bu kanıta göre güncellendi.
 - Okuma sırası: "Kısa cevap", sonra "ÖNERİ" (bölüm 11), sonra
   "Teknik şartname" (bölüm 12). Geri kalanı kanıt ve gerekçedir.
 
 ## Kısa cevap
 
-- Model: "Açık çekirdek + isteğe bağlı Sende Pro + bahşiş".
+- Model: "Açık çekirdek + Sende Pro + destek ürünü (bahşiş)".
   - Mesajı yakalamak, okumak, geçmiş HER ZAMAN ücretsiz kalır.
   - Pro yalnızca zaman kazandıran iş araçlarını açar.
-  - Neden: saf bağışın geliri büyük olasılıkla çok düşük kalır
-    (yayınlanmış veri bulunamadı), sert kilit ise bu kategoride güveni
-    ve puanı yakar. Orta yol ikisini dengeler.
-- Deneme: 7 gün, kartsız, uygulama içinde (yerel) ve AÇIKÇA söylenen.
-  - "Hiçbir şey söylemeden 3 gün" önerilmez (gerekçe: bölüm 6-b).
+  - Neden: saf bağış çok az gelir getirir (bölüm 5-b), sert kilit
+    bu kategoride güveni ve puanı yakar (bölüm 5, 10).
+- Deneme: 7 gün, kartsız, uygulama içinde (yerel), AÇIKÇA söylenen.
+  - "Hiçbir şey söylemeden 3 gün" önerilmez (bölüm 6-b).
 - Ödeme: Play sürümünde yalnız Google Play Billing (zorunlu).
   - Sideload (APK) sürümünde ödeme alınamaz.
-- Planlar: 3 görünür plan (aylık, 6 aylık, yıllık) + 3 bahşiş.
-  - Kurucunun 1/3/6/12 basamağı tutarsız (bölüm 6-a); sadeleştirildi.
-- Başlangıç fiyatı (TL, KDV dahil, VARSAYIM): 129,99 / 519,99 / 779,99.
-  - Bahşiş: 49,99 / 99,99 / 249,99. İlk 8 haftada gözden geçirilir.
-- Bağış: Play sürümünde yalnız "tüketilebilir ürün" (bahşiş).
-  - Uygulama içinden dışarı bağış linki koyma: politika yasağı.
-  - Metinde "bağış" yerine "destek" de.
-- 20+20 kişilik A/B: dönüşümü ÖLÇEMEZ. Sadece anlaşılırlık ve güven
-  testi olarak kullan (bölüm 8).
-- INTERNET izni: Billing'in kendisi istemiyor; Data Transport istiyor.
-  İzni çıkarmayı dene (bölüm 3), ama önce cihazda sına.
-- Dürüst gelir beklentisi: abonelik uygulamaları için medyan yaklaşık
-  1.000 kurulum başına 100 dolar (14. gün). Bölüm 5.
+- Pro ürünleri (3): Aylık, Yıllık, Ömür boyu (tek seferlik).
+  - Kurucunun 1/3/6/12 basamağı tutarsız ve Paycell gibi operatör
+    faturası sınırlarına takılır (bölüm 6-a, 4-b).
+- Başlangıç fiyatı (TL, KDV dahil, VARSAYIM):
+  - Aylık 99,99; Yıllık 599,99; Ömür boyu 999,99.
+  - Destek ürünleri: 49,99 / 99,99 / 249,99.
+  - Önceki taslak aylık 129,99 diyordu; yeni TL çıpaları
+    nedeniyle indirildi (bölüm 4-b). İlk 8 haftada gözden geçir.
+- Bağış: Play sürümünde dışarı bağış linki YOK. 2026'da bile
+  reddediliyor (AnkiDroid, 28 Ağustos 2026; bölüm 1-b).
+  - Yol: tüketilebilir ürün. Kelime "destek", karşılığında küçük
+    bir "Destekçi" rozeti (işlev vermeyen).
+- 20+20 kişilik A/B: dönüşümü ÖLÇEMEZ. Anlaşılırlık ve güven
+  testi olarak kullan (bölüm 6-d, 8).
+- INTERNET izni: Billing'in kendisi istemiyor, Data Transport
+  istiyor. Çıkarmayı dene, ama KANITLANMADI: iki bağımsız kaynak da
+  cihazda denemedi (bölüm 3). Yedek plan: eş uygulama (bölüm 3).
+- Dürüst gelir beklentisi: abonelik uygulamaları için kabaca 1.000
+  kurulum başına 100 dolar (14. gün). Saf bağışta bunun kabaca onda
+  biri (kaba çıkarım). Bölüm 5.
+
+İlk taslaktan değişenler:
+- Yeni kanıt: bağışta 6 bağımsız vaka (2016-2026), tek seferlik
+  ürünlerde Play fiyat deneyi var, Paycell işlem sınırı 300 TL,
+  Billing INTERNET konusunda 2 bağımsız kaynak, eş uygulama örneği.
+- Yeni öneri: 6 aylık plan çıktı, "Ömür boyu" girdi, fiyatlar
+  düştü, 15% hizmet bedeli kaydı (Account Group) eklendi.
 
 ## Okuma notu ve sınırlar
 
 - Etiketler:
-  - [resmi] Google/Android/Firebase resmi sayfası, bu kolda açıldı.
+  - [resmi] Google/Android/Firebase/TCMB resmi sayfası, bu kolda açıldı.
   - [ölçüm] Kendim indirip/okuyup ölçtüm (Maven paketleri, TCMB XML).
   - [çoklu] Birden çok bağımsız kaynakta aynı bulgu.
+  - [forum] Geliştirici/kullanıcı topluluğu (SO, GitHub, HN, LWN).
   - [tek] Tek kaynak; sağlama yapılamadı.
   - [çıkarım] Benim yorumum veya hesabım.
   - [doğrulanamadı] Bulunamadı veya kanıtlanamadı.
-- ÖNEMLİ SINIR: bu oturumun web arama kotası (200) başka ajanlarla
-  paylaşılıyor ve çalışma ortasında doldu.
-  - Sonuç: Reddit, Stack Overflow, XDA, GitHub issue taraması bu kolda
-    YAPILAMADI. Kota dolunca arama motorlarını başka yoldan kullanmadım.
-  - Yerine: bilinen adreslerin doğrudan açılması (resmi dokümanlar,
-    RevenueCat/Adapty raporları, TCMB, Maven) ve önceki kolların (01, 03)
-    bulduğu kullanıcı yorumları.
-  - Forum kanıtı isteyen maddeler "doğrulanamadı" diye işaretli.
-  - Devam edilecekse yeni bir mesajla arama yeniden başlatılabilir.
-- Lisans notu: Billing AAR'ı "Android SDK Lisansı", Data Transport
-  Apache-2.0 (POM dosyalarında yazıyor). Yalnızca manifest ve sınıf
-  adlarına baktım; kod kopyalanmadı.
-  - https://dl.google.com/android/maven2/com/android/billingclient/billing/8.0.0/billing-8.0.0.pom
-  - https://dl.google.com/android/maven2/com/google/android/datatransport/transport-backend-cct/3.1.8/transport-backend-cct-3.1.8.pom
+- Kaynak erişimi bu geçişte:
+  - Çalışan: genel arama, WebFetch, Stack Exchange API, HN Algolia
+    API, GitHub issue/PR sayfaları, Google/Android yardım sayfaları.
+  - ÇALIŞMAYAN: Reddit (arama süzgeci, RSS ve old.reddit engelli)
+    ve XDA'dan bulgu çıkmadı. Reddit cümleleri önceki kollardan
+    (01, 03) gelir ve [tek] sayılır.
+  - WebFetch özetleyicisi küçük bir model. Kritik metinler (politika,
+    ücret, kayıt, doğrulama, kanun) curl ile indirilip okundu.
+- Lisans notu:
+  - Billing AAR'ı "Android SDK Lisansı", Data Transport Apache-2.0
+    (POM dosyalarında yazıyor). Yalnız manifest ve sınıf adlarına
+    baktım; kod kopyalanmadı.
+    https://dl.google.com/android/maven2/com/android/billingclient/billing/8.0.0/billing-8.0.0.pom
+    https://dl.google.com/android/maven2/com/google/android/datatransport/transport-backend-cct/3.1.8/transport-backend-cct-3.1.8.pom
+  - Simple Thank You: GPL-3.0-only (F-Droid sayfası). Fossify Thank
+    You sayfası lisans adı vermiyor. Eş uygulama fikri için YALNIZ
+    sayfa metinlerini okudum, kod okumadım ve kopyalamadım.
+  - AnkiDroid, StreetComplete, andOTP, HoldMyTrack, audio-blackbox:
+    yalnız issue/PR tartışmalarını okudum, kod okumadım.
 
 ## 1. Google Play ödeme politikası
 
-- Dijital ürün için Play Billing zorunlu: ücretli indirme (Bölüm 1) ve
-  uygulamada özellik/içerik/hizmet satışı (Bölüm 2). Örnekler arasında
-  abonelik, "reklamsız sürüm" gibi uygulama işlevi ve bulut yazılım var.
-  [resmi]
+- Dijital ürün için Play Billing zorunlu: ücretli indirme ve
+  uygulamada özellik/içerik/hizmet satışı. Örnekler arasında
+  "reklamsız sürüm", "ücretsiz sürümde olmayan yeni özellikler" ve
+  abonelik var. Metin 22 Ekim 2026'da indirilip okundu. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/9858738
   - https://support.google.com/googleplay/android-developer/answer/10281818
-- Play Billing'in KULLANILMAYACAĞI durumlar (Bölüm 3): fiziksel mal ve
-  hizmet, "vergiden muaf bağışlar", kişiler arası ödeme, açık artırma.
-  Bağış bu politikada yalnız bu ifadeyle geçiyor: "tax exempt donations".
-  [resmi]
+- Play Billing'in KULLANILMAYACAĞI durumlar: fiziksel mal ve
+  hizmet, "kişiler arası ödemeler, açık artırma ve vergiden muaf
+  bağışlar" ("tax exempt donations"). [resmi]
   - https://support.google.com/googleplay/android-developer/answer/9858738
 - Yorum: "vergiden muaf bağış" kâr amacı gütmeyen kuruluş mantığıdır.
-  Bir ticari geliştiricinin kendi uygulaması için istediği paranın bu
-  muafiyete girdiğine dair cümle bulunmadı. [çıkarım]
+  Ticari bir geliştiricinin kendi uygulaması için istediği paranın bu
+  muafiyete girdiğine dair cümle yok. [çıkarım; bölüm 1-b doğruluyor]
 - SSS'de bahşiş: bahşişin %100'ü "yaratıcıya" gidiyor ve karşılığında
-  dijital içerik/hizmet verilmiyorsa kişiler arası ödeme sayılıyor,
-  Play Billing gerekmiyor. Bu cümle içerik üreticileri için yazılmış;
-  bir uygulamanın kendi geliştiricisine bahşişe uygulanıp uygulanmadığı
-  belli değil. [resmi + doğrulanamadı]
+  dijital içerik/hizmet (çıkartma, rozet, özel emoji dahil)
+  verilmiyorsa kişiler arası ödeme sayılıyor, Play Billing gerekmiyor;
+  "bunlardan biri doğru değilse Play Billing kullanılmalı". Cümle
+  içerik üreticileri için yazılmış. Play üzerinden ödeme alınca %100
+  yaratıcıya gitmez (hizmet bedeli kesilir) ve rozet gibi bir şey
+  verirsen koşul zaten bozulur. Sonuç: bizim için pratik yol Play
+  Billing. [resmi + çıkarım]
   - https://support.google.com/googleplay/android-developer/answer/10281818
-- Uygulama içinden Play dışı ödeme yöntemine yönlendirmek yasak
-  (Bölüm 4): link, buton, webview, mesaj, reklam, kayıt akışı dahil.
-  SSS: "alternatif ödemeye götürebilecek bir web sayfasına doğrudan link"
-  de yasak. Yalnız hesap yönetimi, gizlilik, yardım merkezi linkleri
-  serbest. Uygulamanın DIŞINDA başka satın alma seçeneklerini anlatmak
+- Uygulama içinden Play dışı ödeme yöntemine yönlendirmek yasak:
+  link, buton, webview, mesaj, reklam, kayıt akışı dahil. SSS:
+  "alternatif ödemeye götürebilecek bir web sayfasına doğrudan link"
+  de yasak. Uygulamanın DIŞINDA başka satın alma seçeneklerini anlatmak
   serbest. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/10281818
-- Bölüm 8 ve 9: "uygun ülkelerde" alternatif fatura ve harici link
-  programları var. Sayfa ülke adı vermiyor. Türkiye'nin uygun olup
-  olmadığı bulunamadı. [doğrulanamadı]
-  - https://support.google.com/googleplay/android-developer/answer/9858738
+- "Uygun ülkelerde" alternatif fatura ve harici link programları var.
+  Türkiye'nin uygun olup olmadığı politika sayfasında yazmıyor.
+  Hizmet bedeli sayfasındaki takvimde "genişletilmiş fatura seçeneği"
+  yalnız AB/BK/ABD (30 Haziran 2026), AU/JP (30 Eylül 2026), Güney
+  Kore (31 Aralık 2026) ve "dünyanın geri kalanı" (30 Eylül 2027) için
+  geçiyor. Türkiye adıyla anılmıyor; 2027'ye düşeceği ÇIKARIMDIR.
+  [resmi + çıkarım]
+  - https://support.google.com/googleplay/android-developer/answer/16954621
 - Play DIŞINDA dağıtılan uygulama (APK, kendi site) Play Billing
   kullanmak zorunda değil; iade ve destek doğrudan verilebilir. [resmi]
-  - https://support.google.com/googleplay/android-developer/answer/10281818
 - Fiyat şeffaflığı: uygulamadaki fiyat Play'in ödeme ekranındaki fiyatla
   aynı olmalı; anlatılan özellik ek ücret istiyorsa mağaza girdisi bunu
   söylemeli. [resmi]
@@ -107,19 +133,82 @@ Araştırma kolu: para-kazanma
 - Çıkarım: Play sürümünde bağış = tüketilebilir uygulama içi ürün
   (bahşiş). Kodda zaten var (`tip_small/medium/large`). [çıkarım]
 
-## 2. Play Billing 7/8/9 ile abonelik
+### 1-b. Bağış ve bahşiş: gerçek vakalar (2016-2026)
+
+- Soru: "Uygulama içine dış bağış linki koyabilir miyim?" Cevap, altı
+  bağımsız vakada aynı: HAYIR. [çoklu + forum]
+  - 2016: Stack Overflow'da bir geliştirici, Google Play ekibinin
+    cevabını aktarıyor: bağış yalnız doğrulanmış kâr amacı gütmeyen
+    kuruluşlar için; aksi halde bağış işlevini kaldır, Play Billing
+    veya ücretli uygulama kullan. (Cevap tarihi 12 Şubat 2016.)
+    https://stackoverflow.com/questions/17783664
+  - 2020: Stack Overflow'da başka bir geliştirici, önce PayPal.me
+    linki, sonra KENDİ sitesindeki bağış alt sayfasına link verdi;
+    iki kez reddedildi. (Cevap tarihi 3 Kasım 2020.)
+    https://stackoverflow.com/questions/33270564
+  - Ekim 2019: andOTP Play'den kaldırıldı; çözüm "play" derleme
+    çeşidinden bağış linklerini çıkarmak. 19 Ekim'de geri döndü.
+    https://github.com/andOTP/andOTP/issues/396
+  - Nisan 2021: Pixel Wheels (ücretsiz oyun) bağış linki yüzünden
+    reddedildi. Hacker News yorumlarında "bağış Play'de gri alan".
+    https://news.ycombinator.com/item?id=26761594
+    https://news.ycombinator.com/item?id=21270739 (Ekim 2019)
+  - Şubat 2022: StreetComplete, bağış linki içeren GitHub ana sayfasına
+    link verdiği için bile reddedildi; link kalkınca yayına döndü.
+    https://github.com/streetcomplete/StreetComplete/issues/3768
+  - 29 Ağustos 2026: AnkiDroid. Google'ın bildirimleri 20 Temmuz,
+    6, 7 ve 28 Ağustos 2026. Open Collective bağış linki yüzünden
+    güncelleme reddedildi. Vakıf 501(c)(6) belgesi gönderdi; Google
+    "kâr amacı gütmeyen ve vergiden muaf" saymadı. Ekip 31 Ağustos'ta
+    "play" çeşidinden bağış linklerini çıkardı.
+    https://github.com/ankidroid/Anki-Android/issues/21656
+    https://gigazine.net/gsc_news/en/20260902-ankidroid-google-play-policy-violation/
+  - 2 Ekim 2026: HoldMyTrack, "Play'in ödeme politikası dışarı
+    yönlendirmeye izin vermiyor" diyerek Bağış'ı Play sürümünden çıkardı;
+    web APK'sında kaldı.
+    https://github.com/HoldMyTrack/holdmytrack/pull/160
+- Önemli ayrıntı (AnkiDroid, 2026): Google'ın bildirimi seçenekleri
+  sayıyor: bağış işlevini kaldır, "bağışları Google Play'in uygulama
+  içi satın alma sistemiyle topla", ABD alternatif ödeme programı veya
+  harici içerik linkleri programına gir. Yani uygulama içi satın alma
+  yolu Google'ın kendi saydığı yol. (Ekibin aktarımı; Google'ın ham
+  e-postası görülmedi.) [forum]
+  - https://github.com/ankidroid/Anki-Android/issues/21656
+- Risk (tek kaynak): aynı konuda bir yorumcu (22 Eylül 2026)
+  "bağış politikası ihlali" diye "uygulamayla ilgisiz bir bahşiş
+  kutusu" için de uyarı aldıklarını yazdı. Bahşişin uygulama içi
+  satın alma mı dış ödeme mi olduğu yazılmamış; Google'ın o konuda ne
+  dediği yok. Yorumcu "Play uygulamayı sıkılaştırıyor" diye tahmin
+  ediyor (kanıtsız). [tek, ayrıntı yok]
+  - https://github.com/ankidroid/Anki-Android/issues/21656
+- Sonuçlar: [çıkarım]
+  - Play sürümünde dış bağış/Patreon/Open Collective linki YOK. Hesap
+    askıya alma riski var, kazanç küçük.
+  - Bahşiş yalnız Play Billing ile ve "ürün" gibi sunulur: ad "Çay
+    ısmarla", karşılığında küçük, işlevsiz bir "Destekçi" rozeti.
+    Böylece ödeme normal bir dijital öğe satışı olur; "bağış" olmaz.
+    (andOTP tartışmasında bir yorumcu da bağış yerine küçük bir ücretli
+    özellik önermişti.)
+  - Sideload sürümü Play kuralına tabi değil; ama iki sürümün
+    davranışı ayrışmasın diye ilk sürümde link konmuyor.
+  - İlk incelemede bahşiş reddedilirse ürünler kaldırılır; bu geri
+    dönülebilir bir risk.
+
+## 2. Play Billing 7/8/9 ile abonelik ve tek seferlik ürün
 
 - Sürümler: 7.0.0 (14 Mayıs 2024) prepaid planlar ve
   `PendingPurchasesParams`; 8.0.0 (30 Haziran 2025)
-  `enableAutoServiceReconnection`, "tek seferlik ürün" adı;
+  `enableAutoServiceReconnection`, "tek seferlik ürün" adı ve tek
+  seferlik ürünlerde çoklu satın alma seçeneği/teklif;
   9.0.0 (19 Mayıs 2026); 9.1.0 (18 Haziran 2026). [resmi]
   - https://developer.android.com/google/play/billing/release-notes
-- Zorunlu sürüm takvimi: 7 için son tarih 31 Ağustos 2026 (uzatma 1
-  Kasım 2026); 8 için 31 Ağustos 2027; 9 için 31 Ağustos 2028.
-  Yani şu an yeni sürüm yüklemek için 8+ gerekir. [resmi]
+- Zorunlu sürüm takvimi (yeni uygulama ve güncelleme son tarihi):
+  7 için 31 Ağustos 2026 (uzatma 1 Kasım 2026); 8 için 31 Ağustos
+  2027 (uzatma 1 Kasım 2027); 9 için 31 Ağustos 2028. Yani şu an
+  yeni sürüm yüklemek için 8+ gerekir. [resmi]
   - https://developer.android.com/google/play/billing/deprecation-faq
-  - Bizde `billing-ktx:8.0.0` var (build.gradle.kts, satır 165): 2027
-    Ağustos'a kadar yeterli. [ölçüm]
+  - Bizde `billing-ktx:8.0.0` var (app/build.gradle.kts, satır 165):
+    2027 Ağustos'a kadar yeterli. [ölçüm]
 - Yapı: abonelik ürünü, altında base plan'lar, altında teklifler (offer).
   [resmi]
   - Base plan türleri: otomatik yenilenen, prepaid, taksitli (taksit
@@ -151,12 +240,18 @@ Araştırma kolu: para-kazanma
   - https://www.revenuecat.com/docs/subscription-guidance/subscription-offers/google-play-offers
   - https://community.revenuecat.com/sdks-51/cannot-see-free-trial-offer-for-a-google-play-subscription-2917
   - https://developer.android.com/google/play/billing/test
+- "Ömür boyu" = tek seferlik, tüketilmeyen ürün: satın alma 3 gün içinde
+  onaylanmalı (`acknowledgePurchase`), yoksa Play iade eder ve hakkı
+  geri alır. Bahşiş = tüketilebilir ürün: `consumeAsync` ile tüketilir
+  (aynı çağrı onayı da yapar); tüketilmezse aynı ürün tekrar satın
+  alınamaz. İkisini KARIŞTIRMA: ömür boyu ürünü tüketirsen hak biter.
+  [resmi]
+  - https://developer.android.com/google/play/billing/integrate
 - Prepaid plan: otomatik yenilenmez, uzatmak için "top-up" gerekir.
   Top-up daima tam fiyatla; 3 gün içinde onaylanmazsa iade edilir ve
   kalan abonelik iptal olur. `enablePrepaidPlans()` 7.0.0'dan beri var;
   8.0.0 paketinde de var. [resmi + ölçüm]
   - https://developer.android.com/google/play/billing/subscriptions
-  - https://developer.android.com/google/play/billing/release-notes
 - Yaşam döngüsü: aktif, ödeme sorunu (grace), askıda (hold), duraklatılmış,
   iptal edilmiş (süre sonuna kadar hak sürer), bitmiş. İstemcide
   `queryPurchasesAsync`: grace dönemi "aktif" döner, hold dönmez, iptal
@@ -184,17 +279,20 @@ Araştırma kolu: para-kazanma
 - Mevcut koddaki notlar (okuma sonucu): [ölçüm]
   - `PlayPurchaseGateway` yalnız teklifsiz base plan'ı gösteriyor
     (`offerId == null`), yalnız SUBS sorguluyor, ürün kimliği
-    `sende_support`.
+    `sende_support`. Ömür boyu için INAPP sorgusu eklenmeli.
   - Dokümana göre `queryPurchasesAsync` her `onResume`'da da çağrılmalı
     (yeni PURCHASED durumuna geçen satın almalar için). Kodda yalnız
     bağlantı kurulunca çağrılıyor.
+  - `TrialPolicy.TRIAL_DAYS = 3`; deneme başlangıcı
+    `firstInstallTime` (SupportViewModel.kt, satır 32).
   - https://developer.android.com/google/play/billing/integrate
 
 ## 3. İnternet izni olmadan faturalama
 
-- Kısa cevap: ödeme akışı için uygulamanın INTERNET izni GEREKMİYOR;
-  izin Billing'in telemetri bağımlılığından geliyor. Çıkarılıp
-  çıkarılamayacağı cihazda sınanmadı. [ölçüm + doğrulanamadı]
+- Kısa cevap: ödeme akışı için uygulamanın INTERNET izni GEREKMİYOR
+  görünüyor; izin Billing'in telemetri bağımlılığından geliyor.
+  Çıkarılınca cihazda çalıştığı HİÇBİR kaynakta kanıtlanmadı.
+  [ölçüm + çoklu + doğrulanamadı]
 - Ölçüm 1: Billing 7.1.1, 8.0.0 ve 9.1.0 AAR'larının kendi manifestinde
   yalnız `com.android.vending.BILLING` izni var, INTERNET yok. Manifest
   Play Store'un `InAppBillingService.BIND` hizmetine bağlanmayı
@@ -219,39 +317,87 @@ Araştırma kolu: para-kazanma
   the backend" hata günlüğü var; ağ hatası yakalanıyor gibi görünüyor.
   Bu, izin yokken çökmeyeceğini KANITLAMAZ. [ölçüm + çıkarım]
   - https://dl.google.com/android/maven2/com/google/android/datatransport/transport-backend-cct/3.1.8/transport-backend-cct-3.1.8.aar
+- Bağımsız kaynak 1 (Stack Overflow, soru 7 Ekim 2023): "Billing 6.0
+  INTERNET iznini getiriyor, kaçınılabilir mi?" Soran da kaynağı
+  `transport-backend-cct:3.1.8` olarak buluyor (bizimle aynı).
+  En çok oy alan cevap (10 oy, 5 Kasım 2023): `tools:node="remove"` ile
+  izin çıkarılabilir; "en azından test hesabıyla satın alma işlevini
+  etkilemiyor gibi, üretimde denemedim." [forum, tek cevap]
+  - https://stackoverflow.com/questions/77248121
+- Bağımsız kaynak 2 (GitHub issue, 15 Ekim 2026, audio-blackbox #441):
+  "internet izni yok" sözü veren başka bir proje aynı soruyu araştırmış.
+  Aynı kök nedeni buluyor (Billing 6.0.0'dan beri). `tools:node=
+  "remove"` ile birleşik manifestten INTERNET'in düştüğünü DERLEMEDE
+  doğrulamış; cihazda denememiş. Sahibi "izinle yayınla" kararı verip
+  "internet izni yok" iddiasını geri çekmiş. Data Safety etkisini
+  çözememiş. [forum, tek proje]
+  - https://github.com/alexandre-machado/audio-blackbox/issues/441
 - Seçenekler:
   - A) Olduğu gibi bırak (ODEME.md'deki mevcut karar). Bu durumda
     mağazada "internet izni yok" cümlesi Play sürümü için YANLIŞ olur.
   - B) Play flavor manifestine `tools:node="remove"` ile INTERNET'i
-    (önce yalnız onu) çıkar. Telemetri çalışmaz, ödeme akışı etkilenmez
-    beklentisi. Risk: ACCESS_NETWORK_STATE'in iş zamanlayıcıyla bağı
-    doğrulanamadı; bu yüzden onu şimdilik bırak. [çıkarım]
+    (önce yalnız onu) çıkar. Ödeme akışı etkilenmez beklentisi;
+    Billing'in telemetrisi sessizce başarısız olur beklentisi.
+    ACCESS_NETWORK_STATE'i şimdilik bırak (iş zamanlayıcıyla bağı
+    doğrulanamadı). [çıkarım]
   - C) `transport-*` bağımlılığını dışla: Billing sınıfı bunları
     kullanıyor, çalışma anında NoClassDefFoundError riski. ÖNERİLMEZ.
     [çıkarım]
+  - D) Eş uygulama (Billing kütüphanesi YOK): aşağıya bak.
 - B için test planı (gerçek cihaz, iç test kanalı, lisans test hesabı):
   - Birleşmiş manifestte INTERNET yok mu (`aapt dump permissions`).
   - Bağlan, ürünleri sorgula, test kartıyla al, onayla, `queryPurchasesAsync`.
   - Uçak modunda da `queryPurchasesAsync` (çevrimdışı davranış
-    belgelenmemiş; Play Store önbelleğine mi bakıyor sınanmalı).
+    belgelenmemiş; bkz. aşağı).
   - logcat'te `SecurityException` ve `EACCES` ara.
   - API 26, 30, 34, 36 en az birer cihaz/emülatör (Play imajlı).
+  - Karar: sorunsuzsa B'yi uygula ve CI'a izin denetimi ekle; bir
+    sorun veya Data Safety belirsizliği çıkarsa A'ya dön ve gizlilik
+    cümlesini dürüstçe değiştir ("Ödeme için Google Play kullanılır").
+- Çevrimdışı yetki kontrolü: resmi doküman `queryPurchasesAsync`
+  çevrimdışıyken ne yapar demiyor (indirilen integrate/subscriptions/
+  lifecycle sayfalarında "cache/offline" geçmiyor). Stack Overflow'da
+  (15 Ağustos 2019, 1 oy) "yetkiyi yerelde sakla" öneriliyor; audio-
+  blackbox da aynı sonuca varıyor. Bu yüzden "sticky PRO" tasarımı
+  (bölüm 12-b). [resmi sessiz + forum]
+  - https://stackoverflow.com/questions/57152748
+- Seçenek D ayrıntısı, eş uygulama ("Sende Teşekkür"): [forum + çıkarım]
+  - Örnek: Simple Mobile Tools'un "Simple Thank You" uygulaması ve
+    halefi Fossify Thank You. Ücretli ayrı bir uygulama; yüklüyse
+    ana uygulamalarda tüm özellikler açılıyor. F-Droid sayfası:
+    izin yok, GPL-3.0-only, "iade olmasın diye en az bir gün yüklü
+    tut" uyarısı (sürüm 5.8.0, 27 Ekim 2023). Fossify sayfası: "internet
+    izni istemez", kurulu uygulamaları imza kontrolüyle listeler,
+    GitHub sürümü v1.3.0 (30 Ocak 2026).
+    https://f-droid.org/packages/com.simplemobiletools.thankyou/
+    https://www.fossify.org/apps/thank-you/
+  - Artı: Billing kütüphanesi ve INTERNET izni hiç gerekmez; Play ve
+    sideload manifestleri aynı kalır; abonelik yaşam döngüsü kodu yok.
+  - Eksi: yalnız tek seferlik fiyat (abonelik yok); ücretli uygulamaya
+    Play denemesi yok (yerel deneme ana uygulamada olur); iki mağaza
+    girdisi, kullanıcı kafası karışır; Google'ın bu kalıba bakışı bu
+    kolda doğrulanamadı; satış/yorum verisi yok.
+  - Karar: B başarısız olur VE kurucu "internet izni yok" sözünü
+    aboneliklerden önemli sayarsa yedek plan. Şimdilik önerilmez.
 - Veri güvenliği formu: "toplamak" = veriyi cihazdan dışarı göndermek.
   Yalnız cihazda işlenen veri toplama sayılmaz. İzin listesi ile veri
   güvenliği bölümü ayrı şeylerdir. Ödeme bilgisini uygulama görmüyorsa
-  beyan gerekmez; satın alma geçmişi uygulamaya gelirse düşünülmeli.
-  [resmi]
+  beyan gerekmez; Billing'in kendi telemetrisinin "toplama" sayılıp
+  sayılmadığını Google'ın hiçbir sayfası söylemiyor. [resmi + doğrulanamadı]
   - https://support.google.com/googleplay/android-developer/answer/10787469
 - Güven bağlamı: önceki kol, Reddit'te en çok oy alan güven cümlesinin
   "Buzzkill. İnternet erişim izni bile yok." olduğunu bulmuştu
   (03 ve 08 kolu; bu kolda yeniden açılamadı). [tek]
   - https://www.reddit.com/r/androidapps/comments/pokkkt/_/hcx7sof/
 
-## 4. Türkiye: kur, vergi, hizmet bedeli
+## 4. Türkiye: kur, vergi, hizmet bedeli, ödeme yöntemi
+
+### 4-a. Kur, enflasyon, vergi, hizmet bedeli
 
 - Kur: TCMB 21.10.2026 döviz satış 49,6015 TL/USD; bir yıl önce
   (21.10.2025) 41,9626. Dolar kuru bir yılda %18,2 yükseldi (TL'nin
-  dolar karşısında değer kaybı yaklaşık %15). [ölçüm + hesap]
+  dolar karşısında değer kaybı yaklaşık %15). Kur 22 Ekim'de yeniden
+  çekildi, bülten hâlâ 21.10.2026. [ölçüm + hesap]
   - https://www.tcmb.gov.tr/kurlar/today.xml
   - https://www.tcmb.gov.tr/kurlar/202510/21102025.xml
 - Enflasyon: yıllık TÜFE Eylül 2026 %29,73; Eylül 2025 %33,29.
@@ -260,15 +406,14 @@ Araştırma kolu: para-kazanma
 - Alım gücü çıpası: 2026 net asgari ücret 28.075 TL (brüt 33.030).
   [tek: Vikipedi, T24'e dayanıyor]
   - https://tr.wikipedia.org/wiki/T%C3%BCrkiye%27de_asgari_%C3%BCcret
-  - Hesap: kurucunun 5 dolarlık aylık planı ≈ 248 TL ≈ net asgari
-    ücretin %0,88'i. [çıkarım]
 - Play'de TRY: Türkiye hem geliştirici hem satıcı kaydı için destekli,
   varsayılan para birimi TRY. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/9306917
 - Fiyat girişi: girdiğin fiyat taban olur, yerel fiyat dönüştürülür,
   ülke bazında elle fiyat verilebilir. Dönüşüm "fiyatı girdiğin günün
   kuruyla" yapılır, kendiliğinden güncellenmez; elle yenilemek gerekir.
-  Sonuç: TL fiyatı sabit kalırsa dolar karşılığı eriyor. [resmi + çıkarım]
+  Sonuç: TL fiyatı sabit kalırsa dolar karşılığı eriyor. Sayfa, Türkiye
+  için en düşük/en yüksek fiyat aralığını vermiyor. [resmi + çıkarım]
   - https://support.google.com/googleplay/android-developer/answer/6334373
 - Mevcut abonelerin fiyatı eski kalır; fiyat artışı "kabul et/reddet"
   (opt-in/opt-out) rejimiyle yapılır. TL zammı abonelere bedava geçmez.
@@ -298,33 +443,93 @@ Araştırma kolu: para-kazanma
     https://mukellef.co/blog/?p=2592
   - Bir 2026 özelgesinin (İstanbul Defterdarlığı, 30.01.2026) ihracat
     istisnasını uygulama içi satın almada reddettiği iddiası arama
-    özetinden geldi; birincil kaynak açılamadı. [doğrulanamadı]
-- Hizmet bedeli (Türkiye için yeni takvim gelene kadar geçerli olan):
-  abonelik %15 (gelir ne olursa olsun); diğer işlemlerde "15% katmanı"
-  için ilk 1 milyon dolara %15, üstüne %30. Katmana kayıt gerekip
-  gerekmediği sayfada açık değil. [resmi + doğrulanamadı]
+    özetinden geldi (bu geçişte de aynı özet çıktı); birincil kaynak
+    açılamadı. [doğrulanamadı]
+- Hizmet bedeli, Türkiye için BUGÜN geçerli olan ("kalan pazarlar"
+  satırı; sayfa 22 Ekim 2026'da indirilip okundu): [resmi]
+  - Otomatik yenilenen abonelik: %15, yıllık gelirden bağımsız.
+  - Diğer işlemler (ömür boyu, bahşiş): "15% katmanına kayıtlı"
+    geliştirici için ilk 1 milyon dolara %15, üstüne %30.
+  - KAYIT ŞART: katman otomatik değil. Ödeme profili + Hesap Grubu
+    (Account Group) kurup 15% şartlarını kabul etmek gerekiyor.
+    Kayıtsız kalırsan "diğer işlemler" %30'dan başlar. Bu, ömür boyu
+    ve bahşiş gelirini doğrudan etkiler.
   - https://support.google.com/googleplay/android-developer/answer/112622
-- Yeni takvim: AB, Birleşik Krallık, ABD 30 Haziran 2026; Avustralya ve
-  Japonya 30 Eylül 2026; Güney Kore 31 Aralık 2026; "dünyanın geri
-  kalanı" 30 Eylül 2027. Yeni oranlar: abonelik %10; yıllık kazancın
-  ilk 1 milyon dolarında her tür işlem %10; tek seferlik yeni kurulumda
-  %20, mevcutta %25; ayrıca %5 "fatura ücreti" (şimdilik yalnız AU, JP,
-  ABD, BK, AB için; diğerleri "yakında"). Türkiye adıyla anılmıyor;
-  "geri kalan dünya"ya düşeceği bir ÇIKARIMDIR. [resmi + çıkarım]
+  - https://support.google.com/googleplay/android-developer/answer/10632485
+- Yeni takvim (4 Mart 2026'da duyuruldu): AB, Birleşik Krallık, ABD
+  30 Haziran 2026; Avustralya ve Japonya 30 Eylül 2026; Güney Kore
+  31 Aralık 2026; "dünyanın geri kalanı" 30 Eylül 2027. Yeni oranlar:
+  abonelik %10; yıllık kazancın ilk 1 milyon dolarında her tür işlem
+  %10; tek seferlik yeni kurulumda %20, mevcutta %25; ayrıca "fatura
+  ücreti" (AU, JP, ABD, BK, AB için %5; diğer bölgeler için "ayrıntılar
+  yakında"). Türkiye adıyla anılmıyor; "geri kalan dünya"ya düşeceği
+  bir ÇIKARIMDIR; yani 30 Eylül 2027'ye kadar eski oranlar sürer ve
+  Türkiye'nin fatura ücreti henüz belli değil. [resmi + çıkarım]
   - https://support.google.com/googleplay/android-developer/answer/16954621
-- Kaba net hesabı (VARSAYIM: KDV %20 fiyatın içinde, %15 hizmet bedeli
-  KDV'siz tutardan alınır; bu taban Türkiye için doğrulanamadı):
-  - 129,99 TL → geliştiriciye ≈ 92 TL (≈ 1,86 dolar).
-  - 779,99 TL → ≈ 552 TL (≈ 11,1 dolar).
-  - 49,99 TL bahşiş → ≈ 35 TL.
-  [çıkarım]
+- Kaba net hesabı (VARSAYIM: KDV %20 fiyatın içinde, hizmet bedeli
+  KDV'siz tutardan alınır; bu taban Türkiye için doğrulanamadı;
+  kur 49,60; DST'nin kimin payından düştüğü bilinmiyor): [çıkarım]
+  - Aylık 99,99 TL → KDV'siz 83,33 → %15 sonrası ≈ 70,8 TL (≈ 1,43 $).
+  - Yıllık 599,99 TL → ≈ 425 TL (≈ 8,57 $).
+  - Ömür boyu 999,99 TL → ≈ 708 TL (≈ 14,3 $); katmana kayıtsızsa %30
+    ile ≈ 583 TL (≈ 11,8 $).
+  - Bahşiş 49,99 / 99,99 / 249,99 TL → ≈ 35 / 71 / 177 TL
+    (≈ 0,71 / 1,43 / 3,57 $).
 - Prepaid planın hizmet bedeli sınıfı (otomatik yenilenen gibi %15 mi,
   "tek seferlik" gibi mi) bulunamadı. Yeni takvimde "yinelenen" ile
   "yinelenmeyen" ayrı oranlandığı için prepaid riskli. [doğrulanamadı]
 
+### 4-b. Türkiye'de ödeme yöntemi ve alım gücü çıpaları
+
+- Operatör faturası (Paycell/Turkcell) Play'de kart girmeden ödeme
+  imkânı veriyor. Turkcell'in sayfasında (tarihsiz, alt bilgi 2026):
+  [resmi, operatör]
+  - İşlem başı sınır 300 TL.
+  - Aylık sınır: faturalı hat 200-1.100 TL, faturasız hat 500 TL.
+  - 90 günden yeni faturalı hat için aylık sınır 60 TL.
+  - Sınırlar iş yerine göre değişebiliyor. Abonelik desteği sayfada
+    yazmıyor. Vodafone ve Türk Telekom sınırları bulunamadı.
+  - https://www.turkcell.com.tr/servisler/eglence/turkcell-mobil-odeme-google-play
+  - Sonuç: yalnız operatör faturası olan bir kullanıcı 300 TL'nin
+    üstündeki bir planı (yıllık, ömür boyu, kurucunun 3/6/12 ayı)
+    AYNI ANDA alamaz. Bu kullanıcı payı bilinmiyor [doğrulanamadı];
+    ama aylık plan ve bahşişler (< 300 TL) erişilebilir kalmalı.
+    [çıkarım]
+- Kart dışı yöntemlerin Play'deki Türkiye durumunu Google'ın "ödeme
+  yöntemleri" sayfası net vermedi (Türkiye bir ülke listesinde geçiyor,
+  listenin başlığı sayfa metninden çıkmadı). [doğrulanamadı]
+  - https://support.google.com/googleplay/answer/2651410
+- Operatör faturasında "izinsiz Google Play harcaması" şikâyetleri var
+  (bireysel anlatımlar, genel veri değil). Aboneliklerde "kandırıldım"
+  algısı riski. [tek, anekdot]
+  - https://www.sikayetvar.com/turkcell/izinsiz-google-play-islemleriyle-3000-tl-fatura-soku
+- Tüketici TL çıpaları (en yakın ölçüm, hepsi tüketici uygulaması):
+  - WhatsApp Plus (süs/kişiselleştirme aboneliği): Türkiye'de aylık
+    41,99 TL, 1 ay ücretsiz deneme (Teknoblog, 18 Haziran 2026). [tek]
+    https://www.teknoblog.com/whatsapp-plus-turkiye-fiyati-aciklandi/
+  - BirGün (5 Ağustos 2026): dijital abonelik örnek ücretleri 79, 99,
+    199 TL; ING Türkiye araştırmasına göre katılımcıların %36'sı
+    otomatik ödemeli aboneliğini unutmuş (örneklem sayısı yazmıyor).
+    [tek]
+    https://www.birgun.net/haber/odemeler-kucuk-yuk-buyuk-unutulan-abonelikler-butceyi-zorluyor-727579
+  - Kategori (Play TR, 20 Ekim 2026, 01 kolu): BuzzKill tek seferlik
+    66,99 TL, FilterBox 90,99-164,99 TL, WAMR 104,99 TL. [tek]
+  - Sonuç: aylık 99,99 TL, bu çıpaların orta-üst bandında; WhatsApp
+    Plus'ın 2,4 katı. Küçük işletme sahibi tüketiciden fazla öder
+    varsayımı VAR ama KANITI yok. Berber/kuaför randevu yazılımı
+    fiyatları arandı, bulunamadı. [çıkarım + doğrulanamadı]
+- Pazar: StatCounter Eylül 2026, Türkiye mobil işletim sistemi payı
+  Android %76,99, iOS %23 (web trafiği ölçümü, satış değil). [resmi
+  ölçüm sitesi]
+  - https://gs.statcounter.com/os-market-share/mobile/turkey
+- Türkiye'ye özel uygulama içi satın alma geliri/ödeme isteği verisi
+  (Sensor Tower, data.ai) bulunamadı. Adapty "Türkiye en hızlı
+  büyüyen üç pazardan biri" diyor, rakam yok (bölüm 5). [doğrulanamadı]
+
 ## 5. Dönüşüm ve gelir verileri
 
-RevenueCat "State of Subscription Apps 2026" (web özeti): [resmi rapor]
+RevenueCat "State of Subscription Apps 2026" (web sayfası, 22 Ekim 2026'da
+yeniden açıldı; 2025 verisi, bazı rakamlar 2026 başına kadar): [resmi rapor]
   - https://www.revenuecat.com/state-of-subscription-apps/
 - Sert paywall (indirme sonrası 35. günde ücretliye geçen oranı) medyan
   %10,7; freemium %2,1. 14. gün kurulum başına gelir: sert paywall
@@ -332,37 +537,42 @@ RevenueCat "State of Subscription Apps 2026" (web özeti): [resmi rapor]
 - İndirmeden denemeye (30 gün): İş (Business) %9,1; Araçlar (Utilities)
   %6,5. Bölge: Kuzey Amerika %7,1; diğer bölgeler %3,0-3,7.
 - Denemeden ücretliye medyan, deneme uzunluğuna göre: 4 gün ve altı
-  %25,5; 5-9 gün %37,4; 10-16 gün %35,4; 17-32 gün %42,5.
-- 3 günlük denemelerdeki iptallerin %84'ü 0-1. günde (7 günlükte %64).
+  %25,5; 5-9 gün %37,4; 17-32 gün %42,5 (10-16 gün %35,4, sayfada
+  okunaksız).
+- 3 günlük denemelerdeki iptallerin %84'ü 0-1. günde (7 günlükte %64);
+  3 günlükte %55,4'ü 0. günde.
 - MEA bölgesi (Türkiye'nin hangi bölgeye sayıldığı sayfada açık
-  değil [doğrulanamadı]): denemeden ücretliye ≈ %20-23; indirmeden
-  denemeye %3,0-3,7; dönüşümlerin %63,5'i 0. günde; 14. gün kurulum
-  başına gelir ≈ 0,10 dolar; aylık plan payı ≈ %52-55, yıllık payı en
-  düşük bölge.
+  değil [doğrulanamadı]): denemeden ücretliye %19,5 (Kuzey Amerika
+  %34,2); indirmeden denemeye %3,0-3,7; dönüşümlerin %63,5'i 0. günde;
+  14. gün kurulum başına gelir Latin Amerika, MEA ve "diğer" kümesinde
+  "yaklaşık 0,10 dolar etrafında"; aylık plan payı %52, yıllık payı en
+  düşük.
 - Fiyat çıpaları: yıllık medyan 34,80 dolar; aylık medyan 7-8 dolar
   (özet metin 10 dolar da diyor, tutarsız). Hindistan/Güneydoğu Asya:
-  aylık 3,75, yıllık 18,32 dolar; bu bölgelerde fiyatlar üst pazarların
-  yaklaşık %46-54'ü.
-- Google Play'de iptallerin %31'i ödeme başarısızlığından (App Store
-  %14).
-- Uygulamaların %23,2'si abonelik + ömür boyu sunuyor; dörtte biri ömür
-  boyu plan sunuyor.
+  aylık 3,75, yıllık 18,32 dolar (bölgelerin en düşüğü).
+- Google Play'de iptallerin yaklaşık %31'i ödeme başarısızlığından
+  (App Store %14).
+- Para kazanma karması: abonelik tek başına %63,5; abonelik + ömür
+  boyu %23,2; tüketilebilir ürün içerenler %10,7; üçü birden %2,5.
+  Yani uygulamaların yaklaşık dörtte biri ömür boyu plan sunuyor.
+- Rapor bahşiş (tip) verisi içermiyor.
 
-RevenueCat "State of Subscription Apps 2025" (web özeti): [resmi rapor]
+RevenueCat "State of Subscription Apps 2025" (önceki geçişte okundu,
+bu geçişte yeniden açılmadı; web özeti): [resmi rapor]
   - https://www.revenuecat.com/state-of-subscription-apps-2025/
 - Sert paywall %12,11, freemium %2,18 (35. gün). Sert paywall iade oranı
   %5,8, freemium %3,4.
 - 60. gün kurulum başına gelir: App Store 0,38 dolar, Google Play 0,14.
   Teklif kullanımı: App Store %17,6; Google Play %7,3.
 - 1. yıl elde tutma: yıllık %44,1; aylık %17,0; haftalık %3,4.
-- Yıllık planlarda ucuz fiyat grubu %53,7 elde tutma.
 
-Adapty "State of In-App Subscriptions 2026": [resmi rapor]
+Adapty "State of In-App Subscriptions 2026" (22 Ekim 2026'da
+doğrulandı): [resmi rapor]
   - https://adapty.io/state-of-in-app-subscriptions/
 - Kurulumdan denemeye %10,9; denemeden ücretliye %25,6; yıllık medyan
-  38,42 dolar; aylık 12,99 dolar. Fiyatlar ülkeler arası ~4 kat değişiyor.
-  Türkiye "en hızlı büyüyen üç pazardan biri" (Japonya, Meksika ile);
-  Türkiye'ye özel rakam yok.
+  38,42 dolar; aylık 12,99 dolar (2025 verisi). Fiyatlar ülkeler arası
+  ~4 kat değişiyor. "En hızlı büyüyen pazarlar Japonya, Meksika ve
+  Türkiye"; Türkiye'ye özel rakam yok.
 - Sert paywall'ın abone başına ömür boyu değeri yumuşak paywall'dan
   %21 yüksek.
 
@@ -370,32 +580,71 @@ Ne diyor, ne demiyor: [çıkarım]
 - Sert paywall 5 kat dönüşüm veriyor; ama bu ölçümler zaten paywall'ı
   seçmiş abonelik uygulamalarından. "Mesajlarına erişim izni isteyen"
   güvene dayalı bir araç için aynı sonuç geçmez (aşağıda kullanıcı sesi).
-- Yayınlanmış bir "saf bağış / bahşiş" dönüşüm oranı BULUNAMADI.
-  [doğrulanamadı] Freemium medyanının (%2,1) altında olacağını varsaymak
-  makul ama kaynaksız bir tahmindir.
 - Beklenti büyüklüğü (abonelik uygulamaları medyanı): 14. günde kurulum
-  başına ≈ 0,10 dolar (MEA/geri kalan dünya). Yani 1.000 kurulum ≈ 100
-  dolar; 10.000 kurulum ≈ 1.000 dolar. Google Play'in 60. gün medyanı
-  0,14 dolar. [çıkarım, kaba]
+  başına ≈ 0,10 dolar (MEA/geri kalan dünya kümesi). Yani 1.000 kurulum
+  ≈ 100 dolar; 10.000 kurulum ≈ 1.000 dolar. Google Play'in 60. gün
+  medyanı 0,14 dolar. [çıkarım, kaba]
 - Okunuşu: ayda 1.000 dolar için ayda yaklaşık 10.000 yeni kurulum
   gerekir. Bu yüzden Play sıralaması (puan, yorum) gelirin asıl
   kaldıracı. [çıkarım]
 
+### 5-b. Saf bağış/bahşiş ne getirir? (yayınlanmış veri çok az)
+
+- Kural: bir "saf bağış dönüşüm oranı" raporu BULUNAMADI. Elde
+  yalnız dağınık, eski veya satıcı iddiası rakamlar var. [doğrulanamadı]
+- IronSource KudosKits (uygulama içi "teşekkür" ödemesi, TechCrunch,
+  29 Kasım 2013): şirket, altı ayda kullanıcıların %0,58'inin ödeme
+  yaptığını, ortalama 2,10 dolar olduğunu söyledi; TechCrunch rakamı
+  doğrulamadı ("sözde"). [tek, satıcı iddiası, eski]
+  https://techcrunch.com/2013/11/29/ironsource-announces-kudoskits/
+- Docear (açık kaynak literatür yönetimi, yazı 20 Kasım 2013): iki
+  yılda 33 bağışçı, 434 dolar; "birkaç bin aktif kullanıcı". Ortalama
+  13,16 dolar. [tek, eski]
+  https://isg.beel.org/blog/tag/statistics
+- FairMail geliştiricisi (LWN yorumu, 10 Kasım 2024): "kullanıcıların
+  yüzde birinin küçük bir kesri uygulamayı destekliyor"; maliyetleri
+  karşılamaya yetiyor. Aynı konudaki "en çok %1-5 bağış yapar"
+  yorumu (31 Ekim 2024) kaynaksız tahmin; gerçek proje verisiyle
+  uyuşmuyor. [forum]
+  https://lwn.net/Articles/996453/
+- Garmin Connect IQ geliştirici forumu (tarihsiz, "2 yıldan eski";
+  Android DEĞİL, saat uygulamaları): yaklaşık 2.500 indirmeye 15
+  bağış (~100 euro); 130 binden fazla indirmeye 50 dolardan az; bir
+  geliştirici "bağış artırma çabası hâlâ zarar" diyor; 3-5 dolarlık
+  ücretli uygulamaları ve 30 günlük denemesi için "dönüşüm %20-30"
+  diyor (deneme kullanıcılarından). [forum, tek, tarihsiz]
+  https://forums.garmin.com/developer/connect-iq/f/discussion/354118/boost-donations---monetization
+- Okunuşu: bağış oranı büyük olasılıkla %1'in altında, ortalama tutar
+  1-13 dolar. Kaba hesap: %0,5 x 2 dolar ≈ 0,01 dolar/kurulum; bu,
+  abonelik medyanının (≈ 0,10 dolar) yaklaşık onda biri. Yani 1.000
+  kurulumda ≈ 10 dolar. [çıkarım, çok kaba; kaynakları farklı
+  dönem/platform]
+- Zamanlama etkisi: RevenueCat'in bahşiş rehberi kademeli üç bahşiş
+  (1,99 / 4,99 / 9,99 dolar) öneriyor ve kullanıcıların birden çok
+  seçenek sunulunca daha yüksekleri seçtiğini söylüyor (rakam yok).
+  [tek, anekdot]
+  https://www.revenuecat.com/blog/engineering/building-a-tip-jar-feature-with-revenuecat
+- appopportunity.com (8 Mart 2026) "bağışlar iyi niyet geliri" diyor
+  ama hiçbir rakamın kaynağı yok; kullanmadım. [kaynaksız]
+
 Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Play'de 9/17 rakipte abonelik/fiyat şikâyeti (275 eşleşme, ~%8);
   Notification History Log'da düşük puanların yaklaşık üçte biri.
-  [çoklu, 03 kolu] 
+  [çoklu, 03 kolu]
   - docs/arastirma/03-sikayetler-ve-firsatlar.md (bölüm K8)
 - "Reklamı kaldırmak için haftalık 18,99 dolar mı?" (Notisave, 2026).
   - https://play.google.com/store/apps/details?id=com.tenqube.notisave&reviewId=01cf1e13-a168-47c4-8d45-decd41ccda49
-- "Denemeden sonra ücretlendirilmek istemiyorum ama uygulamada iptal yolu
-  yok" (Auto RDM, 2021).
+- "Denemeden sonra ücretlendirilmek istemiyorum ama uygulamada iptal
+  yolu yok" (Auto RDM, 2021).
   - https://play.google.com/store/apps/details?id=com.softinit.iquitos.mainapp&reviewId=1f3072c8-d4a8-4a8a-ac02-2711b26aa77d
 - Reddit: "Ücretsiz veya tek seferlik olur, abonelikse düşük olsun"
   (2025-01).
   - https://www.reddit.com/r/androidapps/comments/1hqx5hv/app_that_stores_notification_history_and_can_view/
 - Notification History Log, 2025-04: "Tek seferlik bağış seçeneği olsa
   desteklerdim" (5 yıldız; 01 kolu). [tek]
+- Tek seferlik ödeme sunan rakipler 5/20 (BuzzKill, NH Pro, Past
+  Notifications anahtarı, FilterBox, BinaryScript); haftalık abonelik
+  2/20 ve en sert tepkiyi alıyor (01 kolu). [çoklu]
 - BuzzKill: 3,99 dolar ücretli indirme, 4,70 puan (3.004 yorum), 100K+
   kurulum; yorum "bir kahveden vazgeç, reklamsız iyi uygulamaya öde"
   (01 kolu). [tek; Play sayfası bu kolda açılamadı]
@@ -404,10 +653,6 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
   şikâyet (01 kolu). [tek]
 - Recent Notification saklama süresini 3 güne indirince öfke (03 kolu).
   - https://play.google.com/store/apps/details?id=com.libin.notification&reviewId=d2bda8d6-540b-4390-83ad-6354202c9a2a
-- Türkiye TL çıpaları (Play TR, 20 Ekim 2026, 01 kolu): BuzzKill 66,99
-  TL, FilterBox 90,99-164,99 TL, WAMR 104,99 TL. BuzzKill'in TL fiyatı
-  eski kurdan kalmış (3,99 dolar ≈ 198 TL olmalıydı); yani TL çıpalar
-  "eski fiyat" izlenimi verir. [çıkarım]
 
 ## 6. Kurucunun planı üzerine dürüst değerlendirme
 
@@ -418,21 +663,33 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Aylık eşdeğer: 5,00 / 3,33 / 3,33 / 3,75 dolar. Yani 12 aylık plan,
   3 ve 6 aylıktan AYLIK bazda PAHALI. Basamak tutarsız; kullanıcı
   3 aylığı seçer, yıllık satılmaz. [çıkarım]
+- Kategori çıpası: kurucunun 1 ayı (248 TL), kategorideki en bilinen
+  tek seferlik uygulamanın (BuzzKill, 66,99 TL) 3,7 katı; yıllık planı
+  (2.232 TL) 33 katı. Pro bir iş aracı olmadıkça savunması zor. [çıkarım]
 - Piyasa oranı: yıllık medyan / aylık medyan ≈ 3,5-5 kat (RevenueCat
   34,80 / 7-10) ve ≈ 3,0 kat (Adapty 38,42 / 12,99). Kurucunun "12 ay =
   9 ay" oranı bunun yaklaşık iki-üç katı; yıllık plan cazip görünmez.
   [çıkarım; medyanlar farklı uygulamalardan]
   - https://www.revenuecat.com/state-of-subscription-apps/
   - https://adapty.io/state-of-in-app-subscriptions/
+- Operatör faturası sınırı (300 TL/işlem, bölüm 4-b): kurucunun 3, 6
+  ve 12 aylık planları (496 / 992 / 2.232 TL) bu yolla ALINAMAZ.
+  Yalnız aylık plan alınır. [çıkarım; kullanıcı payı bilinmiyor]
 - Dört seçenek tek ekranda seçim yorgunluğu yapar; RevenueCat'e göre
   MEA'da aylık pay yüksek, yıllık pay en düşük: kısa taahhüt isteyen
   bir kitle. [çıkarım]
 - Play kuralı: yıllık plan en belirgin yerde "aylık fiyat" diye
   gösterilemez; toplam fiyat öne çıkmalı. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/9900533
-- Öneri: 3 plan (aylık, 6 aylık, yıllık), basamak düzenli:
-  6 aylık = 4 ayın parası (%33 indirim; kurucunun kendi formülü),
-  yıllık = 6 ayın parası (%50 indirim). 3 aylık plan görünürden çıkar.
+- Öneri: 3 Pro ürünü (bölüm 11): Aylık, Yıllık, Ömür boyu.
+  - Yıllık = 6 ayın parası (%50 indirim). Kurucunun "12 ay = 9 ay"
+    yerine; çünkü 12 ay = 9 ay oranı aylıktan sapmıyor.
+  - Ömür boyu = 10 ayın parası. Gerekçe: kategorinin tek seferlik
+    tercihi (5/20 rakip, Reddit), sunucu maliyeti olmaması, kod
+    sadeliği, Play fiyat deneyinin yalnız tek seferlik ürünlerde
+    çalışması (bölüm 8).
+  - 3 ve 6 aylık planlar çıktı: üçüncü bir seçim yükü; yıllıkla
+    ömür boyu arasında sıkışıyorlar.
 
 ### 6-b. "Hiçbir şey söylemeden 3 gün" deneme
 
@@ -450,10 +707,11 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
     doğrudan konusu değil, ama sürpriz paywall bu ruha ters. [çıkarım]
     https://support.google.com/googleplay/android-developer/answer/9900533
   - Türkiye'de mesafeli sözleşme mevzuatı (Mesafeli Sözleşmeler
-    Yönetmeliği) var; bu kolda yalnız cayma süresi (madde 9) ve cayma
-    istisnası (madde 15) metni görüldü. Fiyat/süre ön bilgilendirme
-    yükümlülüğü (madde 5) bu kolda DOĞRULANAMADI. Platform satıcı olduğu
-    için asıl yük Google'da, ama tüketici öfkesi bizde. [kısmen çıkarım]
+    Yönetmeliği) var; bu kolda yalnız 2014 metninden cayma süresi
+    (madde 9) ve cayma istisnası (madde 15) görüldü; sonraki
+    değişiklikler okunmadı. Fiyat/süre ön bilgilendirme yükümlülüğü
+    (madde 5) DOĞRULANAMADI. Platform satıcı olduğu için asıl yük
+    Google'da, ama tüketici öfkesi bizde. [kısmen çıkarım]
     https://www.resmigazete.gov.tr/eskiler/2014/11/20141127-6.htm
   - Kategori kanıtı: sürpriz sınır ve kilit en çok öfke toplayan şey
     (Recent Notification, Notification Widget, FilterBox yorumları).
@@ -474,6 +732,14 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Sideload (APK) sürümünde Play Billing yok; orada ödeme alınamaz.
   APK kamuya açık kalırsa Pro bedava dağılır. Karar: APK yalnız test ve
   güven için; kamuya açık satış yolu Play. [çıkarım]
+- Sideload'ın geleceği: Android geliştirici doğrulaması 30 Eylül 2026'da
+  Brezilya, Endonezya, Singapur, Tayland'da başladı; "2027 ve sonrası"
+  küresel genişleme duyuruldu. Türkiye ilk dalgada değil. Play'deki
+  uygulamaları Google otomatik kaydediyor (%99); Play dışı dağıtılan
+  APK için Console'dan elle kayıt gerekiyor. Sonuç: APK'yı 2027'ye
+  kadar kayıt altına al; yoksa sertifikalı cihazlarda kurulum
+  zorlaşır (ileri akışla hâlâ mümkün). [resmi + çıkarım]
+  - https://developer.android.com/developer-verification
 - Play dışında satış (örn. çevrimdışı lisans anahtarı) politika
   açısından serbest ama Play sürümünden ona link vermek yasak. Android
   imza için `SHA256withECDSA` öneriliyor; ek sistem, bu aşamada gerek
@@ -500,30 +766,57 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Doğru kullanım: kalitatif test. Sorular: "Fiyat ekranı sizi şaşırttı
   mı?", "Kandırılmış hissettiniz mi?", "Bu uygulamaya güvenir misiniz?",
   "Play'de ödeme yönteminiz var mı?". (Son soru önemli: Play denemesi
-  ve aboneliği için geçerli ödeme yöntemi gerekir.) [çıkarım]
+  ve aboneliği için geçerli ödeme yöntemi gerekir; operatör faturası
+  kullanıyorsa 300 TL sınırı.) [çıkarım]
+- Bonus: Yeni KİŞİSEL geliştirici hesabı (13 Kasım 2023'ten sonra
+  açılan) üretime çıkmak için kapalı testte en az 12 testçiyi 14 gün
+  kesintisiz opt-in tutmak zorunda. 20 kişilik kanal bu şartı karşılar:
+  iki kanal kullanırsan HER BİRİNDE en az 12 olsun. Kurumsal hesapta
+  bu şart yok. [resmi; iki kanalda sayımın nasıl yapıldığı belirsiz]
+  - https://support.google.com/googleplay/android-developer/answer/14151465
 
 ### 6-e. "Zorunlu olmasın, bağış alsak mı?"
 
-- Evet bahşiş alınır, ama tek başına bir iş modeli değildir. Play'de
-  yol: tüketilebilir ürün. Gerekçe bölüm 1. [resmi + çıkarım]
-- Yapılmaması gereken: uygulama içinde dış bağış sitesine link (Bölüm 4
-  yasağı). [resmi]
-  - https://support.google.com/googleplay/android-developer/answer/9858738
+- Evet, bahşiş alınır; ama tek başına bir iş modeli değildir (bölüm
+  5-b: ≈ onda biri). Play'de yol: tüketilebilir ürün. [resmi + çıkarım]
+- Yapılmaması gereken: uygulama içinde dış bağış sitesine link, Patreon,
+  Open Collective. 2016'dan 2026'ya altı bağımsız vakada reddedildi
+  veya geliştiriciyi sürüm çıkarmaktan alıkoydu (bölüm 1-b). [çoklu]
 - Kelime: Türkiye'de "bağış/yardım toplama" 2860 sayılı Yardım Toplama
-  Kanunu'na takılabilir; kanun metnine ulaşılamadı (PDF okunamadı).
-  Güvenli yol: "bağış" değil "destek"; bahşiş bir ürün satışı gibi
-  sunulur ("Çay ısmarla"). Hukuki görüş al. [doğrulanamadı]
+  Kanunu'na takılabilir. Resmî metin (mevzuat.gov.tr PDF'i, bu geçişte
+  okundu; Türkçe karakter kodlu yazı tipi yüzünden elle çözüldü): [resmi]
+  - Madde 3: yardım, "kamu yararına uygun olarak, amaçlarını
+    gerçekleştirmek, muhtaç kişilere yardım sağlamak ve kamu
+    hizmetlerinden bir veya birkaçını gerçekleştirmek veya destek
+    olmak" için toplanır.
+  - Madde 5: toplama şekilleri arasında "bilgileri otomatik ya da
+    elektronik olarak işleme tâbi tutmuş sistemler" de sayılıyor.
+  - Madde 6: "Kişiler ve kuruluşlar, yetkili makamdan izin almadan
+    yardım toplayamazlar." 24 Aralık 2020'de (7262) eklenen fıkra:
+    internette izinsiz toplamada içerik 24 saatte kaldırılmazsa erişim
+    engeli için sulh ceza hâkimliğine başvurulur.
+  - Madde 29 (7262 ile): izinsiz toplamaya 5.000-100.000 TL, internet
+    ortamında 10.000-200.000 TL idari para cezası (metinde yazan
+    tutarlar; yeniden değerleme ile güncel tutar farklı olabilir
+    [doğrulanamadı]). Bir fıkra Anayasa Mahkemesi'nin 18.1.2024
+    tarihli kararıyla iptal edilmiş.
+    https://www.mevzuat.gov.tr/MevzuatMetin/1.5.2860.pdf
+  - Yorum: kanun "kamu yararı" amaçlı toplamayı anlatıyor. Bir
+    geliştiricinin kendi ürünü için sattığı "çay ısmarla" ürünü
+    büyük olasılıkla bu kapsamda değil; ama "bağış/yardım" kelimesi ve
+    kutu/IBAN akışı dikkat çekebilir. Güvenli yol: "destek" ve ürün
+    sunumu. Hukuki görüş al. [çıkarım, hukuki tavsiye değil]
 - Kimin bahşiş vereceği: rakip yorumlarında "bağış seçeneği olsa
   desteklerdim" gibi cümleler var ama sayısı küçük (tek/az kaynak).
   [tek, 01 kolu]
-- Bağış/bahşiş gelir hedefini karşılamaz (bölüm 5). Ama güveni artırır
+- Bağış/bahşiş gelir hedefini karşılamaz (bölüm 5-b). Ama güveni artırır
   ve yorumlarda "adil" algısı yaratır. Bu yüzden Pro'nun YANINA konur,
   yerine değil. [çıkarım]
 
 ## 7. Yerel deneme ve sömürü (veri silip yeniden deneme)
 
 - `firstInstallTime`: "uygulamanın ilk kurulduğu an". Mevcut kod
-  deneme başlangıcını buradan alıyor (SupportViewModel.kt, satır 31).
+  deneme başlangıcını buradan alıyor (SupportViewModel.kt, satır 32).
   [resmi + ölçüm]
   - https://developer.android.com/reference/android/content/pm/PackageInfo
 - Kaldır-yeniden kur yeni bir `firstInstallTime` verir; yani deneme
@@ -556,10 +849,15 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
   algılayabilir) ama kart ister ve ücretliye otomatik döner. [resmi]
   - https://developer.android.com/google/play/billing/subscriptions
   - https://support.google.com/googleplay/android-developer/answer/12154973
+- Bağımsız not: "silip yeniden kur" sorununu başka platformlarda da
+  geliştiriciler yaşıyor (ör. Garmin forumunda deneme modu); tartışmalarda
+  tek sağlam çözüm sunucu tarafı kayıt. Bizde sunucu yok; bu yüzden
+  sömürü kabul edilen bir kayıp. [forum, tek]
+  - https://forums.garmin.com/developer/connect-iq/f/discussion/257559/deleting-re-loading-to-get-around-trial-mode
 - ASIL nokta: çekirdek ücretsiz kalıyorsa "sömürünün maliyeti" ~0'dır.
-  Sömüren kişi Pro özelliklerini 7 gün daha görür, hepsi bu. Sert kilit
-  yoksa sömürü önleme için mühendislik harcamaya değmez; Çözüm 1 ve saat
-  önlemi yeterli. [çıkarım]
+  Sömüren kişi Pro özelliklerini 7 gün daha görür, hepsi bu. Sert
+  kilit yoksa sömürü önleme için mühendislik harcamaya değmez; Çözüm 1
+  ve saat önlemi yeterli. [çıkarım]
 
 ## 8. A/B testini Play'de yapmanın yolları
 
@@ -569,6 +867,31 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
   deneyi ya da 5 yerelleştirilmiş deney, en çok 2 varyant, 6 ay sonra
   otomatik biter. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/6227309
+- Play Console FİYAT DENEYLERİ var (ilk geçişte bulunamamıştı).
+  [resmi]
+  - Yalnız aktif TEK SEFERLİK ürünler için; abonelik anılmıyor.
+    Yani bahşiş ve "ömür boyu" fiyatı test edilir, aylık/yıllık
+    abonelik fiyatı test EDİLEMEZ.
+  - "Merchant" (satıcı) geliştirici şart; Mağaza varlığını yönet ve
+    finansal veri izinleri gerekir.
+  - Kullanıcılar kontrol ve varyantlar arasında eşit bölünür; bir
+    kullanıcı deney boyunca tek fiyat görür. En çok 2 varyant + kontrol;
+    ülke/bölge başına aynı anda bir deney; duraklatılamaz; en uzun 6
+    ay; anlamlılığa varınca 14 gün sonra fiyatlar eski haline döner.
+  - Güven düzeyi varsayılan %90 (%70-99 seçilir); asgari saptanabilir
+    etki varsayılan %30 (%5 aralıklarla %5-50). Kod değişikliği
+    gerekmez; INTERNET gerekmez (ödeme zaten Play üzerinden).
+  - Deneme yapılacak ülkede bir sürüm (iç test dahil) yayınlanmış ve
+    yerel para birimi destekli olmalı. Türkiye açıkça anılmıyor,
+    yerel para birimi TRY destekli (bölüm 4-a). Anlamlılık ülkeler
+    birleştirilerek hesaplanır; yalnız Türkiye için tek ülke seç.
+  - Mayıs 2023 duyurusunda Space Ape "satın almalar %20-40 arttı"
+    diyor (geliştirici beyanı, doğrulanmamış).
+  - https://support.google.com/googleplay/android-developer/answer/13343030
+  - https://android-developers.googleblog.com/2023/05/price-experiments-in-play-console.html
+  - Sonuç: %30 etkiyi %90 güvenle yakalamak için yüzlerce alıcı
+    gerekir; ilk haftalarda anlamsız. Lansmandan aylar sonra, ömür
+    boyu ve bahşiş için kullan. [çıkarım]
 - Farklı sürümleri farklı gruplara vermek: kapalı test kanalları.
   [resmi]
   - Aynı anda birden çok kapalı test olabilir; testçiler e-posta
@@ -577,11 +900,6 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
     alır. İç testteki kullanıcı kapalı/açık yapıyı alamaz.
   - Liste kapasiteleri geniş (kapalı testte liste başına 2.000 kişi).
   - https://support.google.com/googleplay/android-developer/answer/9845334
-- Yeni kişisel geliştirici hesabında üretime çıkmak için kapalı testte
-  en az 12 testçi, 14 gün kesintisiz opt-in şart. İki ayrı kanalda
-  sayımın nasıl yapıldığı belli değil; 20+20 bu şartı karşılar gibi
-  duruyor. [resmi + doğrulanamadı]
-  - https://support.google.com/googleplay/android-developer/answer/14151465
 - Firebase Remote Config bu işi görür ama değerleri Firebase arka ucundan
   ağ üzerinden çeker (REST API bağımlılığı) ve koşullu hedefleme için
   Google Analytics ister. INTERNET gerektirir, "internet izni yok"
@@ -591,12 +909,8 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
   ülke; ücretsiz denemeden ücretliye dönüşüm kartı; elde tutma. Uygulama
   SÜRÜMÜ kırılımı belirtilmemiş. [resmi]
   - https://support.google.com/googleplay/android-developer/answer/7391949
-- Play'in "fiyat deneyi" özelliği: Console yardım sayfalarında (Para
-  kazanma konu listesi, "Merchandising and optimization" sayfası)
-  bulunamadı. [doğrulanamadı]
-  - https://support.google.com/googleplay/android-developer/answer/16973687
-- Önerilen sunucusuz A/B tasarımı (lansmandan sonra, binlerce kurulumda):
-  [çıkarım]
+- Önerilen sunucusuz abonelik A/B tasarımı (lansmandan sonra,
+  binlerce kurulumda): [çıkarım]
   - TEK build, tek kanal. Uygulama ilk açılışta yerelde rastgele kova
     (A/B) seçer ve saklar. Hiçbir veri dışarı gitmez.
   - Varyantı Play raporunda ayırmak için aynı fiyatlı ikinci base plan
@@ -633,6 +947,9 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Onaylanmayan yeni abonelik 3 günde otomatik iade (kod hemen onaylıyor).
   [resmi]
   - https://developer.android.com/google/play/billing/lifecycle/subscriptions
+- Ömür boyu ürününde iade: Play iade edince `queryPurchasesAsync`
+  ürünü artık döndürmez; uygulama hakkı o zaman düşürür (OK sonuç ve
+  ürün yok). [resmi + çıkarım]
 - Sistem davranışı: iade/süre bitişi/hold olunca `queryPurchasesAsync`
   satın almayı artık döndürmez; uygulama hakkı kendiliğinden düşürür.
   Bunun için her ön plana gelişte (`onResume`) yenile. [resmi + çıkarım]
@@ -645,7 +962,7 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - İade oranı referansı: sert paywall %5,8, freemium %3,4 (RevenueCat
   2025). [resmi rapor]
   - https://www.revenuecat.com/state-of-subscription-apps-2025/
-- KDV: bölüm 4. Kullanıcıya gösterilen fiyat vergi dahildir; faturayı
+- KDV: bölüm 4-a. Kullanıcıya gösterilen fiyat vergi dahildir; faturayı
   Google keser (satıcı Google).
 - Destek e-postası: önceki kol "iade/destek e-postasına 24 saatte cevap"
   demişti (Auto RDM örneği). Hem mağaza girdisine hem uygulamaya yaz.
@@ -662,16 +979,20 @@ Dayatma ne demek (üç ayrı şey):
 - Sürpriz tahsilat: Play denemesinin kartı çekmesi, iptal yolunu
   saklamak.
 
-Üç model:
+Üç model, sayılarla (kaba, bölüm 5): [çıkarım]
 - Model 1: Saf destek (bağış + bahşiş, hiçbir şey kilitli değil).
   - Artı: en yüksek güven, en az risk, "dayatma yok" tam karşılanır.
-  - Eksi: gelir büyük olasılıkla en düşük; kaynaklı veri yok [çıkarım].
+  - Eksi: 1.000 kurulumda kabaca 10 dolar (%0,5 x 2 dolar); abonelik
+    medyanının onda biri. Yayınlanmış veri yok, tahmin.
 - Model 2 (ÖNERİLEN): Açık çekirdek + Pro + bahşiş.
   - Artı: ücretsiz kısım "hostage" yok; Pro değer anında kendiliğinden
     sunulur; gelir ölçülebilir; bahşiş güveni korur.
   - Eksi: Pro'ya değerli bir şey koymak gerek (ürün kararı).
+  - Beklenti: freemium medyanı %2,1; ödeme yapanlar için Pro net
+    fiyatı bölüm 4-a'da. 1.000 kurulumda kabaca 50-100 dolar.
 - Model 3: Deneme sonrası sert paywall.
-  - Artı: veriye göre en yüksek dönüşüm (5 kat).
+  - Artı: veriye göre en yüksek dönüşüm (5 kat; sert %10,7 vs freemium
+    %2,1) ve %21 daha yüksek abone başı ömür boyu değer (Adapty).
   - Eksi: kurucunun kendi tercihine ters; kategoride paywall en çok
     şikâyet edilen şey; yeni uygulamanın ilk puanlarını bozar;
     Play sıralaması düşer. Lansmanda ÖNERİLMEZ. [çıkarım]
@@ -686,63 +1007,84 @@ Dengeyi kuran üç kural (Model 2'yi "dayatmasız" yapan):
   Nedeni: sonradan sıkılaştırma öfke topluyor: Recent Notification
   saklama süresini düşürünce, Notisave ömür boyu alanlara reklam
   gösterince ("Ömür boyu aldım, şimdi reklam var", 2026-08).
-  [çıkarım; 01 ve 03 kolu yorumları, tek tek kaynaklar]
+  Ömür boyu ürününe ASLA reklam eklenmez. [çıkarım; 01 ve 03 kolu
+  yorumları, tek tek kaynaklar]
   - https://play.google.com/store/apps/details?id=com.libin.notification&reviewId=d2bda8d6-540b-4390-83ad-6354202c9a2a
 - Kural 3 (rahatsız etme tavanı): kendiliğinden çıkan teklif en çok
   ayda bir ve toplam 3 kez; "bir daha gösterme" her zaman var. Başka
   her yerde teklif, kullanıcı bir Pro özelliğine dokununca çıkar.
   [çıkarım]
+  - Garmin forumundaki bir geliştirici de "yarı rahatsız edici ekran
+    iyi taktik değil" diyor. [forum, tek]
 
 Gelir hedefine dürüst bakış: [çıkarım]
 - Saf bağışın "çok kişiye satış" hedefini karşıladığına dair hiçbir veri
-  bulunamadı; abonelik medyanı bile mütevazı (bölüm 5). "Dayatma olmasın"
-  tercihi, kurucu farkında olsun olmasın, gelirin büyük kısmını masadan
-  kaldırma ihtimali taşır.
+  bulunamadı; bulunan dağınık rakamlar bağış oranını %1'in altında
+  gösteriyor (bölüm 5-b). "Dayatma olmasın" tercihi, kurucu farkında
+  olsun olmasın, gelirin büyük kısmını masadan kaldırma ihtimali taşır.
 - Pro modelinde bile beklenti mütevazı: ~1.000 kurulum = ~100 dolar
-  (14. gün medyan). Ayda 1.000 dolar için ayda yaklaşık 10.000 yeni
-  kurulum gerekir. Çözüm fiyat artırmak değil; kurulum ve puan.
+  (14. gün medyan, abonelik uygulamaları). Ayda 1.000 dolar için ayda
+  yaklaşık 10.000 yeni kurulum gerekir. Çözüm fiyat artırmak değil;
+  kurulum ve puan.
+- Türkiye fiyat seviyesi bunu daha da küçültür: aylık Pro'dan geliştirici
+  eline ≈ 1,4 dolar kalır (bölüm 4-a). 1.000 dolar/ay için, aylık
+  plan olsaydı ≈ 700 ödeyen gerekirdi. Bu yüzden Yıllık ve Ömür boyu
+  seçenekleri gelir için aylıktan daha önemli. [çıkarım]
 - "Dayatmasız" olmak, uzun vadede kurulum ve puan getirir: kategori
   yorumları paywall ve abonelik baskısına çok sert tepki veriyor
   (bölüm 5). Bu yüzden Model 2, kısa vadede biraz gelir bırakıp uzun
   vadede sıralamayı kazandırır.
 - Kurucuya açık soru (ürün kararı): "Pro'ya hangi 2-3 özellik girer?"
-  Bu cevap gelire en çok etki eden tek karardır.
+  Bu cevap gelire en çok etki eden tek karardır. Pro yalnız "bildirim
+  geçmişi araçları" olursa (rakiplerin tek seferlik 67-165 TL bandı),
+  aylık 99,99 TL savunulamaz; o durumda tek ürün olarak "Ömür boyu"
+  299,99 TL civarı mantıklıdır. Pro gerçek iş aracı olursa (hazır
+  cevap, müşteri notu, sipariş/randevu yakalama) bölüm 11'deki
+  fiyatlar savunulabilir. [çıkarım]
 
 ## 11. ÖNERİ
 
-Model: "Açık çekirdek + Sende Pro + bahşiş" (Model 2).
+Model: "Açık çekirdek + Sende Pro + destek ürünü" (Model 2).
 
 Deneme:
 - 7 gün, kartsız, yerel. İlk açılışta tek satır bilgi; son 2 günde
   sakin bir çip; 7. günden sonra tek seferlik "deneme bitti" kartı.
 - Süre dolunca hiçbir veri kaybolmaz; yalnız Pro özellikleri kilitlenir.
 - Play'in kendi ücretsiz denemesi (kart ister, otomatik döner) v1'de
-  KULLANILMAZ. Gerekçe: güven, kartsızlık, politika yükü. [çıkarım]
+  KULLANILMAZ. Gerekçe: güven, kartsızlık, politika yükü, operatör
+  faturası kullanıcıları. [çıkarım]
 
-Planlar ve başlangıç fiyatları (TL, KDV dahil; İLK 8 HAFTA GÖZDEN GEÇİR):
-- Aylık: 129,99 TL (≈ 2,62 dolar)
-- 6 aylık: 519,99 TL (4 ayın parası; %33 indirim; ≈ 10,5 dolar)
-- Yıllık: 779,99 TL (6 ayın parası; %50 indirim; ≈ 15,7 dolar)
-- Bahşiş: 49,99 / 99,99 / 249,99 TL (≈ 1 / 2 / 5 dolar)
+Pro ürünleri ve başlangıç fiyatları (TL, KDV dahil; İLK 8 HAFTA GÖZDEN
+GEÇİR; hepsi VARSAYIM):
+- Aylık (abonelik): 99,99 TL (≈ 2,02 dolar). Tek giriş fiyatı;
+  operatör faturası sınırının (300 TL) altında.
+- Yıllık (abonelik): 599,99 TL (6 ayın parası; %50 indirim;
+  ≈ 12,10 dolar). Varsayılan seçili, "en iyi değer".
+- Ömür boyu (tek seferlik): 999,99 TL (10 ayın parası;
+  ≈ 20,16 dolar). Yıllığa göre ~20. ayda kendini öder.
+- Destek ürünleri (tüketilebilir): 49,99 / 99,99 / 249,99 TL
+  (≈ 1 / 2 / 5 dolar).
 - Nasıl türedi (varsayım, kesin değil): [çıkarım]
-  - Kurucunun dolar fiyatları TL çıpalara göre çok yüksek (aylık 248 TL
-    ile BuzzKill 67 TL, FilterBox 91-165 TL).
-  - RevenueCat'te Hindistan/Güneydoğu Asya aylık medyan 3,75, yıllık 18,32
-    dolar; önerilen aylık bunun ~%70'i, yıllık ~%86'sı. Türkiye'ye özel
-    veri yok; bu bir üst-alt sınır çıpasıdır.
-  - Net asgari ücretin %0,46'sı (aylık).
-  - Yıllık = 6 ay: piyasa yıllık/aylık oranına (3-5 kat) hâlâ biraz
-    pahalı ama kurucunun 9 katından çok daha yakın; yıllık plan cazip
-    kalır.
+  - Kurucunun dolar fiyatları TL çıpalara göre çok yüksek (aylık 248
+    TL ile BuzzKill 67 TL, FilterBox 91-165 TL, WhatsApp Plus 41,99 TL).
+  - Türkiye aylık abonelik örnekleri 79-199 TL bandında (BirGün,
+    5 Ağustos 2026); 99,99 bandın alt-orta kesimi.
+  - RevenueCat'te Hindistan/Güneydoğu Asya aylık medyan 3,75, yıllık
+    18,32 dolar; önerilen aylık bunun ~%54'ü, yıllık ~%66'sı. Türkiye'ye
+    özel veri yok; bu bir alt-üst sınır çıpasıdır.
+  - Net asgari ücretin %0,36'sı (aylık).
+  - İlk taslaktaki 129,99 TL'den indirme nedeni: Türkiye'ye özel
+    tüketici çıpaları Hindistan/Güneydoğu Asya vekilinden daha
+    ilgili; fark küçük, asıl belirleyici Pro'nun içeriği.
 - Yeniden fiyatlama kuralı: dolar kuru bir yılda %18 yükseldi, TÜFE
   %29,7. Her 6 ayda bir TRY fiyatını elle yenile. Mevcut abonelere zam
-  onay ister (bölüm 4); bu yüzden lansmanda çok düşük başlama.
+  onay ister (bölüm 4-a); bu yüzden lansmanda çok düşük başlama.
+  Ömür boyu ve bahşiş fiyatı yeni alıcılar için serbestçe güncellenir.
 - İsteğe bağlı lansman teklifi: "yeni müşteri kazanımı" uygunluklu bir
   teklif (örn. ilk dönem %50). Play şartları açıkça yazılmalı (bölüm 1).
-- "Ömür boyu" (tek seferlik) v1'de YOK. Gerekçe: LTV'yi sınırlar,
-  fiyat doğrulanmadı; ama Reddit'te sürekli istenen şey, ilk 3 ayın
-  verisine göre yeniden değerlendir. Eklenirse reklam asla eklenmez.
-  [çıkarım]
+- 3 ve 6 aylık planlar: YOK (bölüm 6-a). 3 aylık plan yalnız
+  operatör faturası payı büyük çıkarsa 249,99 TL ile denenebilir.
+- Haftalık plan, reklam, ücretli kullanıcıya reklam: ASLA.
 
 Pro'ya girecekler (kurucu seçer; aday liste): [çıkarım]
 - Toplu dışa aktarma (CSV/metin). Tek konuşmayı paylaşma ücretsiz.
@@ -751,17 +1093,29 @@ Pro'ya girecekler (kurucu seçer; aday liste): [çıkarım]
 - Gelecek iş araçları: hazır cevaplar (03 kolu ikinci sürüm adayı),
   müşteri notu/etiket, telefon/IBAN algılama.
 - Hiçbiri yoksa v1'de "Pro" yerine "Destek" konumla (rozet, tema) ve
-  gerçek kilitleri v1.x'te YENİ özelliklerle ekle.
+  gerçek kilitleri v1.x'te YENİ özelliklerle ekle; bu durumda tek
+  ürün "Ömür boyu" 299,99 TL (bölüm 10).
 
 Bağış/bahşiş:
 - Üç tüketilebilir ürün. Menüde ve Pro sayfasının altında. "Bağış"
   değil "Çay ısmarla / Kahve / Yemek". Uygulama satın almadan sonra
-  hemen tüketir (mevcut kod yapıyor).
+  hemen tüketir (mevcut kod yapıyor). Karşılığında küçük, işlevsiz bir
+  "Destekçi" rozeti; tüketilmiş satın alma geri yüklenemeyeceği için
+  rozet yerelde saklanır (yeniden kurulumda yedekle gelir).
 - Dışa link yok. Sideload'da bile ilk sürümde link koyma (iki sürümün
-  davranışı ayrışmasın).
+  davranışı ayrışmasın). İnceleme tip kutusunu reddederse ürünler
+  kaldırılır, Pro etkilenmez.
+
+Play Console işleri (önce bunlar):
+- Satıcı (merchant) profili ve Türkiye vergi bilgisi (mali müşavir).
+- Hesap Grubu + 15% hizmet bedeli kaydı (bölüm 4-a): ömür boyu ve
+  bahşiş için %30 yerine %15.
+- Geliştirici doğrulaması kaydı (APK için, bölüm 6-c).
 
 20+20 testi:
-- Anlaşılırlık ve güven testi olarak yap (bölüm 6-d, 8).
+- Anlaşılırlık ve güven testi olarak yap (bölüm 6-d, 8). Aynı
+  kanallar yeni kişisel hesap için zorunlu 12 testçi/14 gün şartını
+  da karşılar.
 - Karar kriteri dönüşüm değil: "kandırıldım" diyen var mı.
 
 Lansman sonrası izleme (Play Console, uygulama içi analitik yok):
@@ -770,6 +1124,8 @@ Lansman sonrası izleme (Play Console, uygulama içi analitik yok):
   [çıkarım]
 - İlk 2.000 kurulumda ödeme yapan oranı %0,5'in altındaysa Pro kapsamını
   ve fiyatı yeniden düşün. Eşik benim yargım. [çıkarım]
+- Binlerce kurulumdan sonra: ömür boyu ve bahşiş fiyatı için Play fiyat
+  deneyi aç (bölüm 8).
 
 ## 12. Teknik şartname (uygulayacak kişi için)
 
@@ -782,12 +1138,15 @@ Lansman sonrası izleme (Play Console, uygulama içi analitik yok):
   - Ürün kimliği en çok 40 karakter, ad 55 karakter. [resmi]
     https://support.google.com/googleplay/android-developer/answer/140504
 - Base plan'lar (hepsi otomatik yenilenen):
-  - `monthly` (1 ay), `semiannual` (6 ay), `yearly` (1 yıl).
-  - `quarterly` tanımlanmaz (kodda eşlemede kalabilir, zararsız).
+  - `monthly` (1 ay), `yearly` (1 yıl).
+  - `quarterly`, `semiannual` tanımlanmaz (kodda eşlemede kalabilir,
+    zararsız).
 - Teklif: v1'de yok. (Lansman teklifi istenirse "yeni müşteri kazanımı".)
 - Grace ve hold: Console varsayılanları; geri satın alma (resubscribe)
   açık. [resmi]
   https://support.google.com/googleplay/android-developer/answer/140504
+- Tek seferlik ürün (tüketilmeyen): `sende_pro_lifetime` ("Ömür boyu").
+  Tek satın alma seçeneği; 3 gün içinde onayla. Tüketme.
 - Tüketilebilir ürünler: `tip_small`, `tip_medium`, `tip_large`.
 - Prepaid (v1'de yok): `p3m`, `p12m` ileride; engeller: bitiş tarihi
   istemcide yok, teklif eklenemez, hizmet bedeli sınıfı belirsiz.
@@ -807,16 +1166,19 @@ Lansman sonrası izleme (Play Console, uygulama içi analitik yok):
 Girdiler:
 - `trialStart`: DataStore'da kalıcı; `min(firstInstallTime, kayıtlı)`.
 - `lastSeen`: görülen en büyük saat; `now = max(saat, lastSeen)`.
-- Play durumu `entitled: Boolean?` (null = bilinmiyor), `lastEntitledAt`.
-- Sayaçlar: `nudgeCount`, `lastNudgeDay`.
+- Play durumu: `subActive: Boolean?` (SUBS sorgusu) ve
+  `lifetimeOwned: Boolean?` (INAPP sorgusu); null = bilinmiyor.
+  `lastEntitledAt`: son BAŞARILI sorguda yetkinin görüldüğü an.
+- Sayaçlar: `nudgeCount`, `lastNudgeDay`; `supporterBadge` (bahşiş).
 
 Durumlar:
 - TRIAL (gün 0..6): her şey açık. Gün 0: tek satır bilgi. Gün 5-6:
   "Pro denemen N gün sonra bitiyor" çipi.
 - FREE (gün 7+, Pro yok): çekirdek açık. Pro özellikleri kilitli.
   7. günün ilk ön plan açılışında TEK SEFERLİK "Deneme bitti" kartı.
-- PRO: `queryPurchasesAsync` `sende_pro` için PURCHASED döndürüyor
-  (grace dönemi dahil; Play onu aktif döndürür).
+- PRO: `subActive` veya `lifetimeOwned` doğru (grace dönemi dahil;
+  Play onu aktif döndürür). Kaynak (abonelik/ömür boyu) ayrıca tutulur,
+  yalnız ekranda gösterilir.
 - PENDING: satın alma bekliyor (yavaş ödeme yöntemi). Hak VERİLMEZ;
   "Ödemen onay bekliyor" yazılır. Onay gelince `onResume` yenilemesi
   PRO'ya geçirir. [resmi]
@@ -827,20 +1189,27 @@ Durumlar:
 Geçişler:
 - TRIAL → FREE: `now - trialStart >= 7 gün`.
 - FREE/TRIAL → PRO: Play satın alma döndürür.
-- PRO → FREE: Play sorgusu BAŞARILI (OK) ve satın alma yok (iade,
-  süre bitişi, hold, pause). Hata kodlarında (NETWORK_ERROR,
+- PRO → FREE: HER İKİ sorgu da BAŞARILI (OK) ve ikisinde de satın alma
+  yok (iade, süre bitişi, hold, pause). Hata kodlarında (NETWORK_ERROR,
   SERVICE_UNAVAILABLE, SERVICE_DISCONNECTED) durum DEĞİŞMEZ; son bilinen
-  PRO en çok 14 gün korunur (`lastEntitledAt`). [tasarım]
+  PRO en çok 30 gün korunur (`lastEntitledAt`). 30 gün tasarım
+  tercihidir: çevrimdışı yetki davranışı belgelenmemiş (bölüm 3).
+  [tasarım]
 - Yenileme zamanları: uygulama açılışı, her `onResume`, satın alma
   sonrası, "Satın alımları kontrol et" düğmesi.
 - Tek sayaç kuralı: kendiliğinden teklif en çok 30 günde bir, toplam
   3 kez; kullanıcı "bir daha gösterme" derse sıfır. Bahşiş hiçbir durum
-  değiştirmez (yalnız teşekkür).
+  değiştirmez (yalnız teşekkür ve rozet).
+- Satın alma işleme: ürün kimliğine göre dallan. `tip_*` → rozeti
+  yaz, sonra `consumeAsync`. `sende_pro_lifetime` → onayla, TÜKETME.
+  `sende_pro` → onayla.
 
 Uygulama biçimi:
 - Saf Kotlin işlev önerisi: `ProPolicy.resolve(inputs): ProState`.
 - Birim testleri: gün 0, 6, 7, saat geri alma, hata kodunda sticky PRO,
-  iade sonrası düşme, PENDING, fail-open, nudge tavanı.
+  iade sonrası düşme, PENDING, fail-open, nudge tavanı, ömür boyu
+  sorgusu başarısızken abonelik düşmemesi, bahşişin durumu
+  değiştirmemesi.
 
 ### 12-c. Ekranlar ve kısa metinler
 
@@ -848,14 +1217,16 @@ Uygulama biçimi:
   "Aktif", "Ücretsiz"). Rakamlar yerelde hesaplanır.
 - Pro sayfası (alt sayfa):
   - Başlık: "Sende Pro". Alt metin tek cümle (değer).
-  - 3 plan kartı: ad (Aylık / 6 aylık / Yıllık), TOPLAM fiyat büyük,
-    küçük satırda yenileme dönemi ("Her ay / 6 ayda bir / yılda bir
-    otomatik yenilenir"), indirim etiketi. Yıllık varsayılan seçili.
+  - 3 plan kartı: Yıllık (varsayılan seçili, "En iyi değer"),
+    Aylık, Ömür boyu. Her kartta TOPLAM fiyat büyük; küçük satırda
+    dönem: "Her ay otomatik yenilenir" / "Yılda bir otomatik
+    yenilenir" / "Tek seferlik. Abonelik değildir." İndirim etiketi.
     Aylık eşdeğer fiyat gösterilecekse küçük ve ikincil (politika).
   - Düğme: "Pro'ya geç". Altında: "Ödemeyi Google Play alır. İstediğin
-    an iptal edebilirsin." + "Aboneliği yönet" bağlantısı (derin bağlantı)
-    + "Satın alımları kontrol et".
-  - Bahşiş bölümü: üç satır, fiyatlı. Teşekkür mesajı.
+    an iptal edebilirsin." (abonelik için) + "Aboneliği yönet"
+    bağlantısı (derin bağlantı) + "Satın alımları kontrol et".
+  - Destek bölümü: üç satır, fiyatlı ("Çay ısmarla" vb.). Teşekkür
+    mesajı ve rozet. "Bağış" kelimesi YOK.
   - Kapat düğmesi. Zorla açılan sayfa yok (Kural 3 dışında).
 - İlk açılış bilgi satırı: "İlk 7 gün tüm özellikler açık. Sonra temel
   kullanım ücretsiz kalır; Pro isteğe bağlıdır."
@@ -878,10 +1249,11 @@ Uygulama biçimi:
 - `TrialPolicy.kt`: `TRIAL_DAYS = 7`; `Gate.Paywall` günlük kapanmayı
   kaldır; `Gate.ProLocked` ekle; `trialStart` ve `lastSeen` parametreleri.
 - `AppPreferences`: `trialStartMillis`, `lastSeenMillis`, `lastEntitledAt`,
-  `nudgeCount`, `lastNudgeDay`.
+  `nudgeCount`, `lastNudgeDay`, `supporterBadge`.
 - `SupportViewModel.kt`: `firstInstallTime` yerine kalıcı `trialStart`.
-- `PlayPurchaseGateway.kt`: `PRODUCT_ID = "sende_pro"`; `onResume`
-  yenilemesi; PENDING işleme; hata kodunda sticky; derin bağlantı.
+- `PlayPurchaseGateway.kt`: `PRODUCT_ID = "sende_pro"`; INAPP sorgusu
+  ve `sende_pro_lifetime`; `onResume` yenilemesi; PENDING işleme;
+  hata kodunda sticky; derin bağlantı; ürün kimliğine göre onayla/tüket.
   Prepaid eklenirse `enablePrepaidPlans()`.
 - `build.gradle.kts`: `monetization` varsayılanı `donate` kalsın; yeni
   mod adı `pro` (7 gün + Pro). A/B modları test için dursun.
@@ -892,7 +1264,8 @@ Uygulama biçimi:
   ```
   Önce cihazda sına (bölüm 3). Sonra CI'daki izin denetimini Play için
   de ekle.
-- Dize dosyaları: TR, EN, FR, AR (yenileme satırları, deneme metinleri).
+- Dize dosyaları: TR, EN, FR, AR (yenileme satırları, deneme metinleri,
+  ömür boyu açıklaması, rozet).
 - Testler: `TrialPolicyTest` güncellenir; Robolectric ekran görüntüsü:
   Pro sayfası (3 plan, boş plan, PENDING), deneme çipi; birim test: fiyat
   basamağının tek yönlü olması (aylık eşdeğer azalır).
@@ -900,111 +1273,151 @@ Uygulama biçimi:
 
 ## Denenen ve çalışmayan yollar
 
-- Web arama kotası: 200 aramalık oturum kotası çalışma ortasında doldu
-  (başka ajanlarla paylaşımlı). Kota dolmadan yalnızca 4 arama
-  yapabildim (Play ödeme politikası, hizmet bedeli, Türkiye vergisi,
-  teklif uygunluğu). Kota dolunca arama motorlarını başka araçla (curl
-  vb.) veya site içi arama uçlarıyla kullanmadım. Sonuç: Reddit, Stack
-  Overflow, XDA, GitHub issue taraması eksik; sonraki mesajla
-  tamamlanabilir.
-- Reddit doğrudan açma: engelli ("unable to fetch"). Önceki kol da JSON
-  ve old.reddit için 403/429 bulmuştu. Üçüncü taraf arşiv kullanmadım
-  (kota kuralı). Reddit cümleleri 01/03 kollarından, [tek].
-- Play mağaza sayfaları (BuzzKill, Simple Mobile Tools "Thank You"):
-  içerik gelmedi veya 404. Bu yüzden rakip fiyat/puan bilgileri önceki
-  koldan alındı.
+- Reddit: arama süzgeci (`reddit.com`) 400 verdi ("domain erişilemez");
+  RSS 429; old.reddit.com 403 ("Blocked" sayfası); WebFetch önceden
+  "unable to fetch" demişti. Üçüncü taraf arşiv kullanmadım. Reddit
+  cümleleri 01/03 kollarından, [tek].
+- Stack Overflow: arama süzgeci (`stackoverflow.com`) aynı 400'ü
+  verdi. Stack Exchange API (anonim) çalıştı. Tam metin aramada tüm
+  kelimeler aranıyor, uzun sorgular boş döndü; etiketli kısa
+  sorgular işe yaradı. Ortak IP kotası birkaç dakikada 287'den 159'a
+  düştü; bu yüzden yaklaşık 15 çağrıyla sınırlı kaldım.
+- XDA: arama özetlerinde XDA'ya ait bulgu çıkmadı. [doğrulanamadı]
+- Hacker News Algolia API: çalıştı ama yorumlar gürültülü; yalnız
+  2019 ve 2021 başlık sayfaları kullanıldı.
+- GitHub: arama sayfası WebFetch ile kısmen okunabildi; issue/PR
+  sayfaları açıldı. API ve token kullanılmadı (kural).
+- Play mağaza sayfaları (BuzzKill, Simple Thank You): içerik gelmedi
+  veya 404. Rakip fiyat/puan bilgileri önceki koldan; Thank You için
+  F-Droid ve Fossify sayfaları kullanıldı.
 - Mesafeli Sözleşmeler Yönetmeliği: mevzuat.gov.tr sayfası 404 verdi;
-  Resmî Gazete dizininden 2014 metnine ulaşıldı (güncel değişiklikler
-  yok). Yardım Toplama Kanunu: Vikipedi 404, mevzuat PDF'i sıkıştırılmış
-  olup okunamadı (PDF aracı yok). Sonuç: 2860 sayılı kanun
-  doğrulanamadı.
-- Google Play ödeme yöntemleri sayfası: Türkiye girdisi (operatör
-  faturası, Play bakiyesi) okunamadı. Android `JobInfo`, `ANDROID_ID`
-  ve `PackageInfo` sayfaları çok uzun olduğundan özetleyici kısmen
-  başarısız oldu; PackageInfo ve Settings.Secure metinleri curl ile
-  indirilip doğrudan okundu.
-- Play Console "fiyat deneyleri" yardım sayfası bulunamadı (konu listeleri
-  ve "Merchandising" sayfası bunu içermiyor).
-- 2025 RevenueCat sayfası PDF'in tamamı değil, web özeti; deneme türleri
-  (kartlı/kartsız) ve Türkiye'ye özel rakamlar yok.
+  Resmî Gazete dizininden yalnız 2014 metnine ulaşıldı, sonraki
+  değişiklikler okunmadı.
+- Yardım Toplama Kanunu: ilk geçişte PDF okunamamıştı. Bu geçişte
+  mevzuat.gov.tr PDF'i indirildi; makinede PDF aracı yok, küçük bir
+  Python ayrıştırıcısı yazıldı. Yazı tipi glif kodlu olduğu için
+  Türkçe karakterlerin bir kısmı bağlamdan çözüldü. İlgili maddeler
+  elle okundu. Alomaliye'deki kopyayla uyumlu.
+- Google "ödeme yöntemleri" sayfası: Türkiye bir ülke listesinde
+  geçiyor, ama listenin neye ait olduğu sayfa metninden çıkmadı.
+  Operatör faturası için Turkcell sayfası kullanıldı; Vodafone ve
+  Türk Telekom bulunamadı.
+- Berber/kuaför/KOBİ randevu ve mesaj yazılımı TL fiyatları: arama
+  sonuç vermedi.
+- Sensor Tower/data.ai Türkiye uygulama içi satın alma geliri:
+  bulunamadı; yalnız küresel ve oyun rakamları çıktı.
+- Play fiyat aralıkları (Türkiye için asgari/azami): yardım sayfası
+  aralık vermiyor.
+- Android geliştirici doğrulaması için Android Authority makalesi 403
+  verdi; resmi developer.android.com sayfası kullanıldı.
+- Çevrimdışı `queryPurchasesAsync` davranışı: resmi sayfalarda yok;
+  cihazda sınanmadı.
+- RevenueCat 2025 sayfası PDF'in tamamı değil, web özeti; bu geçişte
+  yeniden açılmadı. Deneme türleri (kartlı/kartsız) ve Türkiye'ye özel
+  rakamlar yok.
 
 ## Doğrulanamayan veya bulunamayan şeyler
 
-- Saf bağış/bahşiş dönüşüm oranı için yayınlanmış veri.
-- Türkiye'nin Bölüm 8/9 (alternatif fatura/harici link) programına uygun
-  olup olmadığı.
+- Saf bağış/bahşiş dönüşüm oranı için derli toplu yayınlanmış veri
+  (yalnız 2013-2024 dağınık rakamlar).
+- Türkiye'nin alternatif fatura/harici link programlarına ne zaman
+  gireceği (çıkarım: 30 Eylül 2027).
 - Bahşiş SSS cümlesinin bir uygulama geliştiricisi için geçerli olup
-  olmadığı.
+  olmadığı; Google'ın bahşiş kutusunu "bağış politikası" ile
+  işaretleyip işaretlemediği (tek yorum, ayrıntı yok).
 - Google Play'in Türkiye'de DST'yi geliştirici payına nasıl yansıttığı,
-  hizmet bedelinin KDV'siz tutardan alınıp alınmadığı, 15% katmanına
-  kayıt gerekip gerekmediği, prepaid planın hizmet bedeli sınıfı.
+  hizmet bedelinin KDV'siz tutardan alınıp alınmadığı, prepaid planın
+  hizmet bedeli sınıfı, Türkiye için yeni "fatura ücreti".
 - Kurucunun kendi KDV/vergi durumu (kaynaklar çelişkili).
 - INTERNET izni çıkarıldığında Billing akışının çökmeden çalıştığı
-  (cihazda sınanmadı), çevrimdışı `queryPurchasesAsync` davranışı.
+  (cihazda sınanmadı; iki kaynak da sınamadı), çevrimdışı
+  `queryPurchasesAsync` davranışı, Billing telemetrisinin Data Safety
+  etkisi.
 - `clear data`'nın `firstInstallTime`'a etkisi (yalnız çıkarım).
-- Türkiye'de Play ödeme yöntemleri (kart, operatör faturası, hediye
-  kartı) ve hedef kitlenin ödeme yöntemi sahipliği.
-- Yardım Toplama Kanunu'nun bahşiş/destek ürünleri için etkisi.
+- Türkiye'de operatör faturası kullanan Play alıcılarının payı;
+  Vodafone/Türk Telekom işlem sınırları; Turkcell sınırlarının tarihi.
+- Yardım Toplama Kanunu'nun bahşiş/destek ürünleri için etkisi (yalnız
+  çıkarım); ceza tutarlarının güncel yeniden değerlenmiş hâli.
 - RevenueCat'in Türkiye'yi hangi bölgeye saydığı.
+- Eş uygulama kalıbının Google Play politikası açısından bugünkü durumu
+  ve satış verisi.
+- Küçük işletme sahibinin tüketiciden fazla ödeyeceği varsayımı için
+  kanıt.
 
 ## Sende için çıkarımlar
 
 Ne yapalım:
-- Modeli "açık çekirdek + Pro + bahşiş" yap; çekirdeği (yakalama,
-  okuma, geçmiş) hiçbir koşulda kilitleme.
-  - Neden: saf bağış gelir getirmez, sert paywall kategoride güveni ve
-    puanı bozar. Orta yol ikisini dengeler (bölüm 5, 10).
+- Modeli "açık çekirdek + Pro + destek ürünü" yap; çekirdeği
+  (yakalama, okuma, geçmiş) hiçbir koşulda kilitleme.
+  - Neden: saf bağış gelir getirmez (bölüm 5-b), sert paywall
+    kategoride güveni ve puanı bozar. Orta yol ikisini dengeler
+    (bölüm 5, 10).
 - Pro sınırını LANSMANDAN ÖNCE çiz ve sonradan sadece kullanıcı lehine
-  oynat.
+  oynat. Ömür boyu ürününe asla reklam ekleme.
   - Neden: sonradan sıkılaştırma öfke topluyor ("ömür boyu aldım,
     şimdi reklam var"; Recent Notification'ın süre kısıtlaması; 01 ve
     03 kolu, tek tek kaynaklar).
 - Denemeyi 7 gün, kartsız ve yerel yap; açıkça söyle (tek sakin satır).
   - Neden: 4 gün altı deneme dönüşümü düşük (%25,5 vs %37,4); sessiz
     paywall hem Play ruhuna hem güvene ters (bölüm 6-b).
-- Planları 3'e indir (aylık, 6 aylık, yıllık) ve basamağı tek yönlü
-  yap: 129,99 / 519,99 / 779,99 TL (varsayım).
+- Pro ürünlerini 3'e indir: Aylık 99,99, Yıllık 599,99, Ömür boyu
+  999,99 TL (varsayım). 3 ve 6 aylık plan yok.
   - Neden: kurucunun 12 aylık planı 3 ve 6 aylıktan aylık bazda pahalı;
-    yıllık/aylık oranı piyasanın ~2 katı (bölüm 6-a).
+    operatör faturası 300 TL/işlem sınırı uzun planları keser;
+    kategori tek seferlik sever (bölüm 6-a, 4-b).
 - Fiyatı toplam olarak göster, aylık eşdeğeri küçük tut; iptal bağlantısı
   ve yenileme dönemi ekranda olsun.
   - Neden: Play yıllık planı "aylık fiyatla" öne çıkarmayı yasaklıyor ve
     uygulamada iptal yolu istiyor (bölüm 1).
 - Bahşişi tüketilebilir ürün olarak tut (tip_small/medium/large),
-  "bağış" kelimesini kullanma.
-  - Neden: Play yolu bu; dışa bağış linki politika ihlali; Türkiye'de
-    yardım toplama hukuku belirsiz (bölüm 6-e).
+  "bağış" kelimesini kullanma, küçük işlevsiz rozet ver.
+  - Neden: Play yolu bu; dışa bağış linki 2016-2026 arası altı vakada
+    reddedildi; Google'ın kendi bildirimi uygulama içi satın almayı
+    sayıyor; Türkiye'de yardım toplama hukuku belirsiz (bölüm 1-b, 6-e).
+- Play Console'da Hesap Grubu kurup 15% hizmet bedeli katmanına KAYIT ol.
+  - Neden: kayıtsız "diğer işlemler" %30'dan başlıyor; ömür boyu ve
+    bahşiş gelirini doğrudan etkiler (bölüm 4-a).
 - Deneme başlangıcını DataStore'a da yaz (Auto Backup ile geri gelir),
   saat geri almaya karşı `lastSeen` tut.
   - Neden: ucuz, sunucusuz ve yeterli; çekirdek ücretsiz olduğu için
     daha fazlası boşa mühendislik (bölüm 7).
-- `queryPurchasesAsync`'i her `onResume`'da çağır; PENDING'i yönet;
-  hata kodunda son bilinen PRO'yu 14 gün koru; Play yoksa fail-open.
+- `queryPurchasesAsync`'i her `onResume`'da çağır (SUBS ve INAPP);
+  PENDING'i yönet; hata kodunda son bilinen PRO'yu 30 gün koru; Play
+  yoksa fail-open. Ömür boyu ürününü tüketme, bahşişi tüket.
   - Neden: iade/hold kendiliğinden düşsün, ödeme yapan kullanıcı ağ
     hatasında kilitlenmesin (bölüm 2, 12-b).
 - INTERNET iznini Play sürümünde çıkarmayı iç test kanalında gerçek
-  cihazla sına; çalışırsa uygula ve CI'a ekle.
+  cihazla sına; çalışırsa uygula ve CI'a ekle; çalışmazsa sözü dürüstçe
+  değiştir. Eş uygulama yedek plan.
   - Neden: "izin yok" en çok oy alan güven cümlesi; izin Billing'in
-    kendisinden değil Data Transport'tan geliyor (bölüm 3).
+    kendisinden değil Data Transport'tan geliyor; ama kimse cihazda
+    kanıtlamadı (bölüm 3).
 - Google Play fiyatını TRY'de ELLE gir ve 6 ayda bir yenile.
   - Neden: Play kuru girdiğin günde donduruyor, dolar kuru bir yılda
-    %18 yükseldi, enflasyon %29,7 (bölüm 4).
+    %18 yükseldi, enflasyon %29,7 (bölüm 4-a).
 - Mali müşavire danış (KDV/stopaj, ihracat istisnası) lansmandan önce.
-  - Neden: kaynaklar çelişkili (bölüm 4).
+  - Neden: kaynaklar çelişkili (bölüm 4-a).
 - 20+20 testini algı/anlaşılırlık testi olarak yap; "ödeme yöntemin var
-  mı" sorusunu ekle.
+  mı" sorusunu ekle; aynı kanalları zorunlu 12 testçi/14 gün şartı için
+  kullan.
   - Neden: dönüşümü ölçecek örnek yok, lisans testçisi gerçek para
     ödemiyor (bölüm 6-d).
+- APK'yı Android geliştirici doğrulamasına kaydet (2027 öncesi).
+  - Neden: Play dışı dağıtım 2027'de zorlaşıyor (bölüm 6-c).
 
 Ne yapmayalım:
 - Tek başına saf bağışla ya da "hiçbir şey söylemeden 3 gün" ile
   başlama.
+  - Neden: saf bağış ≈ abonelik medyanının onda biri (bölüm 5-b);
+    sessiz paywall güveni yakar (bölüm 6-b).
 - Sert paywall koyma; günlük açılan kapatılabilir paywall'ı (mevcut
   `trial_*`) kullanma; o da bir dayatmadır.
 - Firebase Remote Config, analitik veya reklam SDK'sı ekleme.
   - Neden: INTERNET vaadini bozar; Remote Config ağdan çeker (bölüm 8).
-- Uygulama içinden dış ödeme/bağış sitesine link verme (Play sürümü).
-  - Neden: Payments politikası Bölüm 4 (bölüm 1).
+- Uygulama içinden dış ödeme/bağış sitesine link verme (Play sürümü);
+  "sadece web sitemize link" hilesine de güvenme.
+  - Neden: Payments politikası; StreetComplete ve Stack Overflow
+    vakalarında web sayfası linki bile reddedildi (bölüm 1-b).
 - Haftalık plan ekleme, reklam gösterme, ücretli kullanıcıya reklam.
   - Neden: kategori şikâyetlerinin başı (bölüm 5).
 - Public APK'yı Pro'nun bedava yolu olarak bırakma; APK'yı test/güven
@@ -1012,13 +1425,17 @@ Ne yapmayalım:
   - Neden: sideload'da Billing yok (bölüm 6-c).
 - Play'in ücretsiz denemesini (kart isteyen, otomatik dönen) v1'de
   kullanma.
-  - Neden: kartsızlık ve güven; ayrıca ödeme yöntemi sahipliği
-    belirsiz (bölüm 2, 6-d).
+  - Neden: kartsızlık ve güven; ayrıca ödeme yöntemi sahipliği ve
+    operatör faturası sınırı belirsiz (bölüm 2, 4-b, 6-d).
+- Kurucunun 3/6/12 aylık planlarını olduğu gibi yayınlama.
+  - Neden: tutarsız basamak, kategori çıpasının çok üstünde, operatör
+    faturasıyla alınamaz (bölüm 6-a).
 
 Sonraki adımlar (kurucu için kısa liste):
-- 1) Pro'ya hangi 2-3 özellik girer, karar ver.
-- 2) Play Console'da `sende_pro` ve 3 tüketilebilir ürünü kur, TL
-  fiyatları gir.
-- 3) INTERNET izin sınaması (iç test).
+- 1) Pro'ya hangi 2-3 özellik girer, karar ver (en büyük etki).
+- 2) Play Console: merchant profili, Hesap Grubu + 15% kaydı,
+  `sende_pro` (monthly, yearly), `sende_pro_lifetime`, 3 bahşiş
+  ürünü, TL fiyatlar.
+- 3) INTERNET izin sınaması (iç test, gerçek cihaz).
 - 4) Mali müşavir görüşmesi.
 - 5) 20+20 kalitatif test, sonra üretim.
