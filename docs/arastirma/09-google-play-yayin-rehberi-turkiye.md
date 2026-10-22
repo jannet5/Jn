@@ -1203,8 +1203,20 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   OPPO, vivo, Transsion) kurulumlarda kayıt zorunlu — YALNIZ Brezilya,
   Endonezya, Singapur, Tayland. [resmi]
   https://developer.android.com/developer-verification/guides
+- AYNI TARİH, Play tarafı (politika takvimi, 15 Temmuz 2026 duyurusu):
+  "Play Console Requirements" politikası gereği 30 Eylül 2026'dan itibaren
+  tüm Play paketleri kayıtlı olmalı; kayıtsız paketler Play'den kaldırılır.
+  Play'deki uygulamaların %99'u otomatik kaydedilmiş. Play'de dağıtıyorsan
+  tüm form faktörleri (telefon, TV, saat...) kayıtlı olmalı. Yeni
+  uygulamalar için de otomatik kayıt denenir. [resmi]
+  https://support.google.com/googleplay/android-developer/table/12921780
+  https://developer.android.com/developer-verification/guides/faq
 - 2027: kapsam küresel. Kesin tarih yok. Türkiye ilk dalgada değil. [resmi]
   https://developer.android.com/developer-verification
+  Bir Türkçe haber başlığı da "doğrulama 2027'de Türkiye'ye geliyor"
+  diyor (sayfayı açmadım, yalnız arama özeti; resmi kaynak değil).
+  [haber, doğrulanamadı]
+  https://pasqualepillitteri.it/tr/news/21034/android-apk-kapiyi-kapatiyor-dogrulama-turkiye-2027
 - Sideload (doğrudan indirme, başka mağaza) 30 Eylül 2026'da etkilenmedi:
   katılımcı mağaza değil. 2027'ye kadar kayıt önerilir. [resmi]
   https://developer.android.com/developer-verification/guides/faq
@@ -1227,6 +1239,10 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   doğrulatmak yeterli; paket adı otomatik kaydedilir. Kaydedilemezse
   elle "anahtar ekle + imzalı APK ile talep" yolu var. [resmi]
   https://support.google.com/googleplay/android-developer/answer/16984799
+  Kayıt durumu bildirimleri YALNIZ kimlik doğrulaması tamamlandıysa
+  gelir; bu yüzden hesabı açar açmaz kimliği tamamla. D-U-N-S süresi
+  burada "28 güne kadar" (3 Eylül 2025 SSS), Play yardım sayfasında "30
+  güne kadar"; ikisini de planla.
 - Paket adı çatışması: otomatik kayıt kuralı: kurulumların %50'sinden
   fazlasını taşıyan anahtar önceliklidir; hiçbir anahtarda 50 kurulum
   yoksa "ilk gelen alır". Yani com.sende.app'i Play'de erken oluşturup
@@ -1269,7 +1285,13 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   olduğundan bu seçenek bize uymaz; karar mali müşavirde. [ticari]
   https://remotevergi.com/app-store-play-store-vergi/
 - Türkiye dağıtım ve fiyat aralığı tablosu dinamik sayfada; okunamadı.
-  TRY alt fiyat sınırı [doğrulanamadı]. Console, geçersiz fiyatı reddeder.
+  TRY alt fiyat sınırı 2026 için [doğrulanamadı]. Console, geçersiz fiyatı
+  reddeder. Tek bulunan rakam 2015'ten: Google, Türkiye dahil 17 ülkede
+  asgari uygulama/uygulama içi ürün fiyatını 2,00 TL'den 0,59 TL'ye
+  indirmişti (Android Developers Blog, Kasım 2015). 11 yıllık, TRY enflasyonu
+  yüzünden bugün geçerli değildir; kullanma.
+  https://android-developers.googleblog.com/2015/11/minimum-purchase-price-for-apps-and-in.html
+  https://webrazzi.com/2015/11/18/google-playde-taban-fiyat-059-tlye-dustu/
   https://support.google.com/googleplay/android-developer/answer/10532353
 
 ### 13.2 Fiyat
@@ -1394,6 +1416,19 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - Sideload engeli (Play Protect, "kısıtlanmış ayar"). Çare: Play ana yol.
 - Billing kütüphanesi eskir (Ağustos 2027 → 9). Çare: Kotlin 2.3 planı.
 - Test anahtarıyla dağıtım. Çare: ayrı özel anahtar.
+- "Yetersiz etkileşim" ile kapalı test reddi (4.4'te gerçek örnek). Çare:
+  15-20 kişi, kullanım takibi (Play istatistikleri + Tanılama özeti),
+  pasif kişiyi 3-5 günde yenisiyle değiştir, form cevaplarında sayı ve
+  sürüm numarası ver.
+- Meta/WhatsApp tarafı (2018'de Can't Talk Play'den kalktı). Çare: yalnız
+  okuyan, cevap göndermeyen, "silinen mesaj" vaadi vermeyen konum; mağazada
+  WhatsApp adı düz metin ve bir kez.
+- Kurulu uygulama listesi (Package Visibility) ve SDK taraması (Unity
+  forumu, Eylül 2025). Çare: Play sürümünde reklam/analitik SDK yok; liste
+  nedeni açıklama + politika + inceleyici notunda yazılı.
+- Paket kaydı (30 Eylül 2026'dan beri zorunlu). Çare: kimliği hemen
+  doğrulat; ilk yüklemeden sonra Android developer verification
+  sayfasında durumu kontrol et.
 
 ## Denenen ve çalışmayan yollar
 
