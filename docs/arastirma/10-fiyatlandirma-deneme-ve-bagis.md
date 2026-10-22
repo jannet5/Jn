@@ -34,8 +34,9 @@ Araştırma kolu: para-kazanma
 - 20+20 kişilik A/B: dönüşümü ÖLÇEMEZ. Anlaşılırlık ve güven
   testi olarak kullan (bölüm 6-d, 8).
 - INTERNET izni: Billing'in kendisi istemiyor, Data Transport
-  istiyor. Çıkarmayı dene, ama KANITLANMADI: iki bağımsız kaynak da
-  cihazda denemedi (bölüm 3). Yedek plan: eş uygulama (bölüm 3).
+  istiyor. Çıkarmayı dene, ama cihazda KENDİN kanıtla: bir cevap
+  "test hesabıyla çalıştı, üretimde denemedim" diyor, bir proje
+  yalnız derlemeyi doğruladı (bölüm 3). Yedek plan: eş uygulama.
 - Dürüst gelir beklentisi: abonelik uygulamaları için kabaca 1.000
   kurulum başına 100 dolar (14. gün). Saf bağışta bunun kabaca onda
   biri (kaba çıkarım). Bölüm 5.
@@ -291,7 +292,8 @@ Araştırma kolu: para-kazanma
 
 - Kısa cevap: ödeme akışı için uygulamanın INTERNET izni GEREKMİYOR
   görünüyor; izin Billing'in telemetri bağımlılığından geliyor.
-  Çıkarılınca cihazda çalıştığı HİÇBİR kaynakta kanıtlanmadı.
+  Çıkarılınca üretimde çalıştığı HİÇBİR kaynakta kanıtlanmadı; yalnız
+  bir cevap test hesabıyla çalıştığını söylüyor.
   [ölçüm + çoklu + doğrulanamadı]
 - Ölçüm 1: Billing 7.1.1, 8.0.0 ve 9.1.0 AAR'larının kendi manifestinde
   yalnız `com.android.vending.BILLING` izni var, INTERNET yok. Manifest
@@ -601,27 +603,29 @@ Ne diyor, ne demiyor: [çıkarım]
   yılda 33 bağışçı, 434 dolar; "birkaç bin aktif kullanıcı". Ortalama
   13,16 dolar. [tek, eski]
   https://isg.beel.org/blog/tag/statistics
-- FairMail geliştiricisi (LWN yorumu, 10 Kasım 2024): "kullanıcıların
-  yüzde birinin küçük bir kesri uygulamayı destekliyor"; maliyetleri
-  karşılamaya yetiyor. Aynı konudaki "en çok %1-5 bağış yapar"
-  yorumu (31 Ekim 2024) kaynaksız tahmin; gerçek proje verisiyle
-  uyuşmuyor. [forum]
+- FairMail geliştiricisi (LWN yorumu, 10 Kasım 2024): kullanıcıların
+  "yüzde birinin küçük bir kesri" (yani %1'in çok altı) uygulamayı
+  destekliyor; yine de maliyetleri karşılamaya yetiyor. Aynı
+  konudaki "en çok %1-5 bağış yapar" yorumu (31 Ekim 2024) kaynaksız
+  tahmin; gerçek proje verisiyle uyuşmuyor. [forum]
   https://lwn.net/Articles/996453/
 - Garmin Connect IQ geliştirici forumu (tarihsiz, "2 yıldan eski";
   Android DEĞİL, saat uygulamaları): yaklaşık 2.500 indirmeye 15
   bağış (~100 euro); 130 binden fazla indirmeye 50 dolardan az; bir
-  geliştirici "bağış artırma çabası hâlâ zarar" diyor; 3-5 dolarlık
-  ücretli uygulamaları ve 30 günlük denemesi için "dönüşüm %20-30"
-  diyor (deneme kullanıcılarından). [forum, tek, tarihsiz]
+  geliştirici "bağış artırma çabası hâlâ zarar" diyor; Windows için
+  3-5 dolarlık ücretli uygulamaları ve 30 günlük denemesi için
+  "dönüşüm %20-30" diyor (neyin oranı olduğu belirsiz).
+  [forum, tek, tarihsiz]
   https://forums.garmin.com/developer/connect-iq/f/discussion/354118/boost-donations---monetization
 - Okunuşu: bağış oranı büyük olasılıkla %1'in altında, ortalama tutar
   1-13 dolar. Kaba hesap: %0,5 x 2 dolar ≈ 0,01 dolar/kurulum; bu,
   abonelik medyanının (≈ 0,10 dolar) yaklaşık onda biri. Yani 1.000
   kurulumda ≈ 10 dolar. [çıkarım, çok kaba; kaynakları farklı
   dönem/platform]
-- Zamanlama etkisi: RevenueCat'in bahşiş rehberi kademeli üç bahşiş
-  (1,99 / 4,99 / 9,99 dolar) öneriyor ve kullanıcıların birden çok
-  seçenek sunulunca daha yüksekleri seçtiğini söylüyor (rakam yok).
+- Kademe etkisi: RevenueCat'in bahşiş rehberi (24 Ekim 2025, 11 Mart
+  2026'da güncellendi) kademeli üç bahşiş (1,99 / 4,99 / 9,99 dolar)
+  öneriyor; örnek uygulamada oyuncuların birden çok seçenek
+  sunulunca daha yüksek bahşişleri seçtiğini söylüyor (rakam yok).
   [tek, anekdot]
   https://www.revenuecat.com/blog/engineering/building-a-tip-jar-feature-with-revenuecat
 - appopportunity.com (8 Mart 2026) "bağışlar iyi niyet geliri" diyor
@@ -736,9 +740,11 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
   Brezilya, Endonezya, Singapur, Tayland'da başladı; "2027 ve sonrası"
   küresel genişleme duyuruldu. Türkiye ilk dalgada değil. Play'deki
   uygulamaları Google otomatik kaydediyor (%99); Play dışı dağıtılan
-  APK için Console'dan elle kayıt gerekiyor. Sonuç: APK'yı 2027'ye
-  kadar kayıt altına al; yoksa sertifikalı cihazlarda kurulum
-  zorlaşır (ileri akışla hâlâ mümkün). [resmi + çıkarım]
+  APK için ayrı bir geliştirici kaydı gerekiyor (Play'de de olan
+  uygulamayı Play Console'dan elle kaydedebilirsin). Sonuç: APK'yı
+  2027'ye kadar kayıt altına al; yoksa sertifikalı cihazlarda kurulum
+  zorlaşır (Google "ileri akış"la güçlü kullanıcıya kurulum izni
+  vereceğini söylüyor). [resmi + çıkarım]
   - https://developer.android.com/developer-verification
 - Play dışında satış (örn. çevrimdışı lisans anahtarı) politika
   açısından serbest ama Play sürümünden ona link vermek yasak. Android
@@ -989,7 +995,8 @@ Dayatma ne demek (üç ayrı şey):
     sunulur; gelir ölçülebilir; bahşiş güveni korur.
   - Eksi: Pro'ya değerli bir şey koymak gerek (ürün kararı).
   - Beklenti: freemium medyanı %2,1; ödeme yapanlar için Pro net
-    fiyatı bölüm 4-a'da. 1.000 kurulumda kabaca 50-100 dolar.
+    fiyatı bölüm 4-a'da. 1.000 kurulumda en çok ≈ 100 dolar
+    (abonelik uygulamaları medyanı); freemium bunun altında kalabilir.
 - Model 3: Deneme sonrası sert paywall.
   - Artı: veriye göre en yüksek dönüşüm (5 kat; sert %10,7 vs freemium
     %2,1) ve %21 daha yüksek abone başı ömür boyu değer (Adapty).
@@ -1329,10 +1336,11 @@ Uygulama biçimi:
   hizmet bedelinin KDV'siz tutardan alınıp alınmadığı, prepaid planın
   hizmet bedeli sınıfı, Türkiye için yeni "fatura ücreti".
 - Kurucunun kendi KDV/vergi durumu (kaynaklar çelişkili).
-- INTERNET izni çıkarıldığında Billing akışının çökmeden çalıştığı
-  (cihazda sınanmadı; iki kaynak da sınamadı), çevrimdışı
-  `queryPurchasesAsync` davranışı, Billing telemetrisinin Data Safety
-  etkisi.
+- INTERNET izni çıkarıldığında Billing akışının üretimde çökmeden
+  çalıştığı (bir Stack Overflow cevabı yalnız test hesabıyla denedi;
+  bir proje yalnız derlemeyi doğruladı; biz cihazda sınamadık),
+  çevrimdışı `queryPurchasesAsync` davranışı, Billing telemetrisinin
+  Data Safety etkisi.
 - `clear data`'nın `firstInstallTime`'a etkisi (yalnız çıkarım).
 - Türkiye'de operatör faturası kullanan Play alıcılarının payı;
   Vodafone/Türk Telekom işlem sınırları; Turkcell sınırlarının tarihi.
@@ -1390,7 +1398,7 @@ Ne yapalım:
   cihazla sına; çalışırsa uygula ve CI'a ekle; çalışmazsa sözü dürüstçe
   değiştir. Eş uygulama yedek plan.
   - Neden: "izin yok" en çok oy alan güven cümlesi; izin Billing'in
-    kendisinden değil Data Transport'tan geliyor; ama kimse cihazda
+    kendisinden değil Data Transport'tan geliyor; ama üretimde kimse
     kanıtlamadı (bölüm 3).
 - Google Play fiyatını TRY'de ELLE gir ve 6 ayda bir yenile.
   - Neden: Play kuru girdiğin günde donduruyor, dolar kuru bir yılda
