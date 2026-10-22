@@ -1079,6 +1079,46 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   org.gebze.bel.sende). "Sende" tek başına anlam taşımıyor, ASO'da zayıf;
   başlıkta açıklayıcı ek şart. [ölçüm]
 
+### 10.2b Ek ölçümler (22 Ekim 2026, aynı yöntem)
+
+- Sınırlar: tek gün, tek makine (çıkış ağı Türkiye'de değil; yalnız
+  hl=tr ve gl=TR parametresi verdim). Kişiselleştirme ve konum yanlılığı
+  olabilir. Mutlak sıralama değil, örüntü okuyun. [ölçüm]
+- Ek (çekim eki) testi: "bildirim geçmişi" ve "bildirim geçmişleri"
+  aramaları 30'ar sonuç verdi, 21'i ORTAK; ilk 5 aynı uygulamalardan ama
+  sırası farklı. Yani Play Türkçe ekleri büyük ölçüde aynı kavram sayıyor.
+  Sonuç: "bildirim / bildirimler / bildirimleri" diye yığma yapma; doğal
+  cümlede bir kez geçmesi yeterli görünüyor. [ölçüm, tek gün]
+- Dil karışması: Türkçe sorguda İngilizce başlıklı uygulamalar da çıkıyor
+  (ör. "bildirim geçmişi" için "Notification History" 6. sırada). Play
+  anlam/çeviri eşleştirmesi yapıyor gibi; nedeni açıklama ya da etiket de
+  olabilir. [ölçüm + çıkarım]
+- Başlık etkisi uyumlu: "bildirim geçmişi" aramasında ilk 5 sonucun
+  başlığında bu ifade geçiyor. Bu nedensellik kanıtı değil, yalnız uyum. [ölçüm]
+- İlk 5 sonuç, seçili sorgular (başlık | paket):
+  - "müşteri mesajları": WaMessage Bulk WP Toplu Mesaj; JivoChat –Canlı
+    Destek Sistemi; Chatfuel: Auto Reply AI for WA; Shopxare: Müşteri
+    Mesajları; Aircall. Hepsi toplu mesaj, canlı destek ya da CRM.
+  - "işletme mesajları": WhatsApp Business ilk; sonra toplu mesaj
+    araçları.
+  - "silinen mesajları gör": ilk 6'nın hepsi "silinen mesaj" uygulaması
+    (WAMR: silinen mesajlar, Silinen Mesajları Görüntüle...). Kalabalık
+    ve politika açısından riskli konum. KULLANMA.
+  - "whatsapp bildirim" ve "whatsapp business bildirim": ilk iki sonuç
+    WhatsApp'ın kendisi. Marka adıyla yarışmak anlamsız ve riskli.
+  - "bildirim kaydedici": Bildirim Kaydedici (com.tinyfalcon...), Notisave,
+    Notifications History - Notix, Bildirimleri kaydet. Kalabalık.
+  - "randevu mesajları": 50 sonuç; MHRS, Randevumuz, RandevuApp...
+    Randevu uygulamaları. "esnaf mesaj" sonuçları alakasız.
+- Başlık notu: "Shopxare: Müşteri Mesajları" (com.shopxare.app) zaten
+  "[Ad]: Müşteri Mesajları" kalıbını kullanıyor; ekip için müşteri
+  mesajlaşma gelen kutusu (canlı destek) olarak tanıtıyor. Bizim önerilen
+  başlık aynı kelime çiftini taşıyor. Karışmayı azaltmak için açıklamada
+  "bildirimlerinden" vurgusu şart; başlık alternatifi:
+  "Sende: Bildirim ve Mesajlar" (27) ya da "Sende: Mesaj Bildirimleri" (25).
+  Başlık mağaza deneyiyle test EDİLEMEZ (yalnız grafik ve açıklama metni
+  denenir); başlığı güncellemeyle değiştirebilirsin. [çıkarım]
+
 ### 10.3 Önerilen yerleşim (karakter sayıları ölçüldü)
 
 - Başlık (≤30): "Sende: Müşteri Mesajları" (24). Ana kelime "mesaj",
