@@ -9,14 +9,21 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
 
-// X profilinin son videolu gönderilerini girişsiz bulan yardımcılar.
-// X, girişsiz ziyaretçiye çoğu kişisel hesabın en yeni gönderilerini değil popüler gönderilerini gösteriyor; bu yüzden sırayla:
-// 1) FxTwitter API (FxEmbed'in açık API'si): profilin "Medya" sekmesini en yeniden eskiye, sayfa sayfa verir.
-// 2) Olmazsa X'in misafir erişimi (gallery-dl, "Gönderiler" bölümü) — Listeleyici'de.
-// 3) Misafir erişim popüler gönderileri verdiyse X'in kendi yerleştirme (embed) akışı: son 20 gönderi.
+// X'ten girişsiz video bulan yardımcılar.
+// X, girişsiz ziyaretçiye çoğu kişisel hesabın en yeni gönderilerini değil popüler gönderilerini gösteriyor ve
+// profil akışlarını (Medya, Yanıtlar, Arama) hesapsız hiç açmıyor; hesapsız açık olan tek şey tek gönderi okumak.
+// Bu işi yapan açık kaynak projeler (FxEmbed/FxTwitter, BetterTwitFix/vxtwitter, Nitter) kendi sunucularındaki X hesaplarıyla bakıyor.
+// Kullanıcı hiç giriş yapmasın diye bu ücretsiz servislerin birkaçı sırayla denenir; biri kapanırsa diğeri devreye girer:
+// 1) FxTwitter: profilin "Medya" sekmesi, en yeniden eskiye, sayfa sayfa.
+// 2) X'in kendi misafir erişimi (gallery-dl, "Gönderiler") — Listeleyici'de; kurumsal hesaplarda en yeniden eskiye gelir.
+// 3) vxtwitter: profilin son ~20 gönderisi (misafir erişim popülerleri verdiyse ya da açılmadıysa).
+// 4) X'in yerleştirme (embed) akışı.
+// Tek gönderide yt-dlp açamazsa FxTwitter / vxtwitter'dan videonun doğrudan MP4 adresi alınır.
 object XProfil {
 
-    private const val FX = "https://api.fxtwitter.com/2/profile/" // FxTwitter profil adresi
+    private const val FX_KOK = "https://api.fxtwitter.com/2/" // FxTwitter API kökü
+    private const val FX = FX_KOK + "profile/" // FxTwitter profil adresi
+    private const val VX = "https://api.vxtwitter.com/" // vxtwitter API kökü (tarayıcı kimliğiyle gelinirse Cloudflare engeli çıkıyor)
     private const val FX_KIMLIK = "OynaticiApp/1.0" // FxTwitter tarayıcı kimliği istemiyor, uygulama adı yeterli
     private const val TARAYICI = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0" // X sayfaları için
 
@@ -51,6 +58,61 @@ object XProfil {
             imlec = sonraki // devam
         }
         ListeSonucu(kisi.optString("name").ifBlank { ekranAdi }, bulunan.values.toList()) // sonuç
+    }
+
+    // vxtwitter ile profilin son ~20 gönderisinden videolu olanlar (en yeniden eskiye, video adresleriyle). Olmazsa null.
+    suspend fun vxListe(kullanici: String, n: Int): ListeSonucu? = withContext(Dispatchers.IO) {
+        val kok = json(VX + URLEncoder.encode(kullanici, "UTF-8") + "?with_tweets=true", FX_KIMLIK) ?: return@withContext null // profil + son gönderiler
+        if (kok.optBoolean("protected")) return@withContext null // gizli hesap
+        val gonderiler = kok.optJSONArray("latest_tweets") ?: return@withContext null // son gönderiler
+        val ekranAdi = kok.optString("screen_name").ifBlank { kullanici } // @kullanici
+        val sira = mutableListOf<Long>() // geldiği sıra (kontrol için)
+        val bulunan = mutableListOf<Pair<Long, Oge>>() // (kimlik, öge)
+        for (i in 0 until gonderiler.length()) {
+            val t = gonderiler.optJSONObject(i) ?: continue // gönderi
+            if (!t.optString("user_screen_name").equals(ekranAdi, ignoreCase = true) || !t.isNull("retweetURL")) continue // kendi gönderisi, yeniden paylaşım değil
+            val id = t.optString("tweetID").toLongOrNull() ?: continue // kimlik
+            sira += id // sırayı kaydet
+            val medya = t.optJSONArray("media_extended") ?: continue // medya
+            if ((0 until medya.length()).none { medya.optJSONObject(it)?.optString("type") in setOf("video", "gif") }) continue // video yok
+            bulunan += id to Oge("https://x.com/$ekranAdi/status/$id", "") // link
+        }
+        if (siraBozuk(sira)) return@withContext null // en yeniden eskiye değilse işe yaramaz
+        ListeSonucu(kok.optString("name").ifBlank { ekranAdi }, bulunan.sortedByDescending { it.first }.map { it.second }.take(n)) // sonuç
+    }
+
+    // Bir gönderinin videolarının doğrudan MP4 adresleri (kaliteye en yakın) ve gönderenin adı. Bulunamazsa boş liste.
+    data class Videolar(val ad: String, val adresler: List<String>)
+    suspend fun dogrudanVideolar(gonderiNo: String, kalite: Int?): Videolar = withContext(Dispatchers.IO) {
+        json(FX_KOK + "status/" + gonderiNo, FX_KIMLIK)?.optJSONObject("status")?.let { s -> // önce FxTwitter (kalite basamaklarıyla)
+            val videolar = s.optJSONObject("media")?.optJSONArray("videos") // videolar
+            val adresler = (0 until (videolar?.length() ?: 0)).mapNotNull { i ->
+                videolar!!.optJSONObject(i)?.takeIf { it.optString("type") in setOf("video", "gif") }?.let { mp4Sec(it, kalite) } // en uygun MP4
+            }
+            if (adresler.isNotEmpty()) return@withContext Videolar(s.optJSONObject("author")?.optString("name").orEmpty(), adresler)
+        }
+        json(VX + "i/status/" + gonderiNo, FX_KIMLIK)?.let { v -> // sonra vxtwitter (sadece en yüksek kalite)
+            val medya = v.optJSONArray("media_extended") // medya
+            val adresler = (0 until (medya?.length() ?: 0)).mapNotNull { i ->
+                medya!!.optJSONObject(i)?.takeIf { it.optString("type") in setOf("video", "gif") }?.optString("url")?.takeIf { it.startsWith("https://") } // video adresi
+            }
+            if (adresler.isNotEmpty()) return@withContext Videolar(v.optString("user_name"), adresler)
+        }
+        Videolar("", emptyList()) // bulunamadı
+    }
+
+    // FxTwitter video bilgisinden seçilen kaliteye (kısa kenar, örn. 720) en yakın MP4: altındaki en iyisi, yoksa en küçüğü
+    private fun mp4Sec(video: JSONObject, kalite: Int?): String? {
+        val formatlar = video.optJSONArray("formats") // kalite basamakları
+        val mp4ler = (0 until (formatlar?.length() ?: 0)).mapNotNull { formatlar!!.optJSONObject(it) }
+            .filter { it.optString("container") == "mp4" && it.optString("url").startsWith("https://") } // sadece MP4
+            .map { f ->
+                val boyut = Regex("""/(\d+)x(\d+)/""").find(f.optString("url"))?.groupValues // "1280x720" adresin içinde
+                Triple(f.optString("url"), boyut?.let { minOf(it[1].toInt(), it[2].toInt()) } ?: 0, f.optString("bitrate").toLongOrNull() ?: 0L) // (adres, kısa kenar, bit hızı)
+            }
+        if (mp4ler.isEmpty()) return video.optString("url").takeIf { it.startsWith("https://") } // basamak yoksa verilen adres
+        val uygun = if (kalite == null) mp4ler else mp4ler.filter { it.second <= kalite } // kalite sınırı
+        return (uygun.maxWithOrNull(compareBy({ it.second }, { it.third })) ?: mp4ler.minByOrNull { it.second })?.first // en iyisi
     }
 
     // X'in yerleştirme (embed) akışı: profilin son ~20 gönderisinden videolu olanlar (en yeniden eskiye). Olmazsa null.

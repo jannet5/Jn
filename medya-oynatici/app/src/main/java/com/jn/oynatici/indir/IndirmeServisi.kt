@@ -111,7 +111,11 @@ class IndirmeServisi : Service() {
         try {
             if (!isi.toplu) { // tek içerik: bulunduğun klasöre
                 val adres = if (isi.platform == Platform.INSTAGRAM && isi.url.contains("/share/")) runCatching { Motor.yonlendirmeyiCoz(isi.url) }.getOrDefault(isi.url) else isi.url // paylaşım linkini çöz
-                calistir(isi, YoutubeDLRequest(adres), isi.hedef, gecici, cerez, ilerleme, toplu = false, cerezZorla = cerezZorla) // indir
+                try {
+                    calistir(isi, YoutubeDLRequest(adres), isi.hedef, gecici, cerez, ilerleme, toplu = false, cerezZorla = cerezZorla) // indir
+                } catch (e: Exception) { // X: yt-dlp açamadıysa videonun doğrudan MP4 adresiyle dene (giriş istemeden)
+                    if (e is YoutubeDL.CanceledException || isi.platform != Platform.X || xDogrudanIndir(isi, adres, isi.hedef, gecici, ilerleme, null) == 0) throw e
+                }
                 IndirmeMerkezi.guncelle(isi.id) { if (it.durum == Durum.INIYOR) it.copy(durum = Durum.BITTI, yuzde = 100f, bilgi = "İndirildi") else it } // başarılı (bu arada iptal edildiyse dokunma)
                 return true // tamam
             }
@@ -139,6 +143,7 @@ class IndirmeServisi : Service() {
             val hata = if (isi.platform == Platform.PINTEREST) pinterestIndir(isi, liste.ogeler, klasor, gecici, cerez, ilerleme) // Pinterest: tek tek
             else runCatching { calistir(isi, YoutubeDLRequest(liste.ogeler.map { it.url }), klasor, gecici, cerez, ilerleme, toplu = true, cerezZorla = cerezZorla) }.exceptionOrNull() // hepsini indir
             if (hata is YoutubeDL.CanceledException) throw hata // iptal edildiyse aşağıda yakala
+            if (isi.platform == Platform.X) xEksikleriTamamla(isi, liste.ogeler, klasor, gecici, ilerleme) // X: inmeyen gönderileri doğrudan MP4 ile tamamla
             // Sonuç: kaç içerik (gönderi) indi, klasör adını gerçek sayıyla güncelle
             val inen = inenGonderiSayisi(gecici, isi, klasor) // inen gönderi sayısı
             val sonKlasor = klasoruToparla(klasor, ad, isi, inen) // boşsa sil, değilse gerçek sayıyla adlandır
@@ -169,12 +174,44 @@ class IndirmeServisi : Service() {
             val giris = Listeleyici.girisHatasiMi(mesaj) && isi.platform in Cerezler.siteler.map { it.platform } // giriş gerekli mi
             val xCerezleDene = isi.platform == Platform.X && giris && cerez != null // X: giriş isteyen gönderi, bir de çerezle denensin
             if (!sonDeneme && (!giris || xCerezleDene)) return false // bir kez daha denensin (yt-dlp güncellenerek)
-            IndirmeMerkezi.guncelle(isi.id) { it.copy(durum = Durum.HATA, bilgi = hataMetni(mesaj, isi.platform), girisGerekli = giris) } // hata göster
+            IndirmeMerkezi.guncelle(isi.id) { it.copy(durum = Durum.HATA, bilgi = hataMetni(mesaj, isi.platform), girisGerekli = giris && isi.platform != Platform.X) } // hata göster (X'te giriş önerilmez)
             return true // vazgeç
         } finally {
             sayac.cancel() // saniye sayacını durdur
             gecici.deleteRecursively() // geçici dosyaları sil
             IndirmeMerkezi.bitti() // ekran listeyi yenilesin
+        }
+    }
+
+    // X gönderisinin videolarını doğrudan MP4 adresinden indir (FxTwitter / vxtwitter verir). [sira] verilirse toplu klasör adlandırması.
+    // Döndürdüğü: inen dosya sayısı.
+    private suspend fun xDogrudanIndir(isi: IndirmeIsi, adres: String, klasor: File, gecici: File, ilerleme: Ilerleme, sira: Int?): Int {
+        val no = Regex("""/status(?:es)?/(\d+)""").find(adres)?.groupValues?.get(1) ?: return 0 // gönderi numarası
+        val videolar = runCatching { XProfil.dogrudanVideolar(no, if (isi.tur == Tur.MUZIK) null else isi.kalite) }.getOrNull() ?: return 0 // MP4 adresleri
+        val kisi = Kutuphane.baytKes(Kutuphane.guvenliAd(videolar.ad.ifBlank { adres.substringAfter("://").split('/').getOrNull(1) ?: "X" }).take(40), 80).replace("%", "%%") // gönderen
+        var inen = 0 // inen dosya
+        videolar.adresler.forEachIndexed { i, mp4 ->
+            if (IndirmeMerkezi.iptalMi(isi.id)) throw YoutubeDL.CanceledException() // iptal
+            val ek = if (videolar.adresler.size > 1) " - ${i + 1}" else "" // çok videolu gönderide " - 2"
+            val ad = (sira?.let { "%03d - ".format(it + i) } ?: "") + "$kisi - $no$ek.%(ext)s" // "Kişi - numara.mp4" (toplu: "004 - Kişi - numara.mp4")
+            val hata = runCatching { calistir(isi, YoutubeDLRequest(mp4), klasor, gecici, null, ilerleme, toplu = false, ciktiAdi = ad) }.exceptionOrNull() // indir
+            if (hata is YoutubeDL.CanceledException) throw hata // iptal
+            if (hata == null) inen++ // oldu
+        }
+        return inen
+    }
+
+    // Toplu X indirmesinde yt-dlp'nin indiremediği gönderileri doğrudan MP4 ile tamamla (inenler listesine de yazar, sayı doğru çıksın)
+    private suspend fun xEksikleriTamamla(isi: IndirmeIsi, ogeler: List<Oge>, klasor: File, gecici: File, ilerleme: Ilerleme) {
+        val liste = File(gecici, "inenler.txt") // inen gönderiler
+        fun no(link: String) = Regex("""/status(?:es)?/(\d+)""").find(link)?.groupValues?.get(1) // gönderi numarası
+        val inenler = runCatching { liste.readLines() }.getOrDefault(emptyList()).mapNotNull(::no).toSet() // inenlerin numaraları
+        var sira = Kutuphane.listele(isi.tur, klasor).second.size + 1 // sıradaki dosya numarası
+        for (oge in ogeler) {
+            val n = no(oge.url) ?: continue // numara
+            if (n in inenler) continue // zaten indi
+            val inen = xDogrudanIndir(isi, oge.url, klasor, gecici, ilerleme, sira) // doğrudan indir
+            if (inen > 0) { sira += inen; runCatching { liste.appendText(oge.url + "\n") } } // say
         }
     }
 
@@ -341,6 +378,7 @@ class IndirmeServisi : Service() {
     private fun hataMetni(ham: String, platform: Platform): String = when {
         ham.contains("looks truncated", true) || ham.contains("Incomplete YouTube ID", true) -> "Link eksik görünüyor, tamamını yapıştır" // yarım link
         ham.contains("Sign in to confirm", true) -> "YouTube giriş istiyor, biraz sonra tekrar dene" // YouTube bot kontrolü
+        platform == Platform.X && Listeleyici.girisHatasiMi(ham) -> "Bu gönderi herkese açık değil (gizli hesap ya da silinmiş olabilir)" // X'te giriş önerilmez
         Listeleyici.girisHatasiMi(ham) && platform in Cerezler.siteler.map { it.platform } -> "${platform.ad} giriş istiyor. Giriş yapıp tekrar dene." // giriş gerekli
         ham.contains("No video formats found", true) || ham.contains("There is no video in this", true) -> "Bu gönderide video yok (fotoğraf)" // fotoğraf
         ham.contains("Private video", true) -> "Bu video gizli" // gizli video

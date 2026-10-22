@@ -128,9 +128,8 @@ object Listeleyici {
         return ListeSonucu(ad, ogeler.take(sinir), foto) // sonuç
     }
 
-    // X profilinin son videolu gönderilerinin linklerini al.
-    // Giriş yapılmışsa: gallery-dl ile "Medya" bölümü. Girişsiz: önce FxTwitter (Medya bölümü), olmazsa X'in misafir erişimiyle
-    // "Gönderiler" bölümü; X misafire en yenileri değil popülerleri verdiyse X'in yerleştirme akışı (son 20 gönderi).
+    // X profilinin son videolu gönderilerinin linklerini al (sıra ve nedenleri XProfil'in başında).
+    // Giriş yapılmışsa (isteğe bağlı) gallery-dl ile "Medya" bölümü; kullanıcıdan hiçbir zaman giriş istenmez.
     private suspend fun galeriListe(ctx: Context, isi: IndirmeIsi, url: String, kullanici: String): ListeSonucu {
         val n = isi.sayi // istenen sayı
         fun secenekler(cerez: String?, onbellek: java.io.File) = mutableListOf( // ortak seçenekler
@@ -156,23 +155,24 @@ object Listeleyici {
         XProfil.fxListe(kullanici, n) { IndirmeMerkezi.iptalMi(isi.id) }?.takeIf { it.ogeler.isNotEmpty() }?.let { return it }
         // Girişsiz 2: X'in misafir erişimi. İstek hakkı (15 dakikada 50 sayfa) anahtar başına: her listelemede yeni anahtar alınsın diye ayrı, geçici önbellek
         val misafirOnbellek = java.io.File(ctx.cacheDir, "gdl-misafir-${java.util.UUID.randomUUID()}.sqlite3") // bu işe özel
-        // Girişsiz 3: X'in yerleştirme (embed) akışı, son ~20 gönderi (sırası karışıksa / alınamazsa null)
-        suspend fun yerlestirme(): ListeSonucu? = runCatching { XProfil.yerlestirmeListe(kullanici, n) }.getOrNull()?.takeIf { it.ogeler.isNotEmpty() }
-            ?.let { it.copy(uyari = if (it.ogeler.size < n) "X girişsiz sadece son 20 gönderiye bakmaya izin verdi" else null) } // az bulunduysa nedeni
+        // Girişsiz 3-4: vxtwitter, sonra X'in yerleştirme (embed) akışı; ikisi de son ~20 gönderiye bakar (sırası karışıksa / alınamazsa null)
+        suspend fun yerlestirme(): ListeSonucu? = (runCatching { XProfil.vxListe(kullanici, n) }.getOrNull()?.takeIf { it.ogeler.isNotEmpty() }
+            ?: runCatching { XProfil.yerlestirmeListe(kullanici, n) }.getOrNull()?.takeIf { it.ogeler.isNotEmpty() })
+            ?.let { it.copy(uyari = if (it.ogeler.size < n) "Son 20 gönderide ${it.ogeler.size} video vardı" else null) } // az bulunduysa nedeni
         val misafir = try {
             satirlardan(Motor.galeriCalistir(ctx, secenekler(null, misafirOnbellek) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
         } catch (e: YoutubeDL.CanceledException) {
             throw e // iptal
         } catch (e: Exception) {
-            yerlestirme()?.let { return it } // misafir anahtarı alınamadı vb.: yerleştirme akışı
+            yerlestirme()?.let { return it } // misafir anahtarı alınamadı vb.: diğer yollar
             throw e // o da olmadı: asıl hatayı göster (kullanıcı yok, gizli hesap...)
         } finally {
             ctx.cacheDir.listFiles { f -> f.name.startsWith(misafirOnbellek.name) }?.forEach { it.delete() } // işi bitince sil (yanındaki -journal dosyasıyla)
         }
         if (!XProfil.siraBozukMu(misafir.ogeler.map { it.url })) return misafir // en yeniden eskiye geldiyse tamam
-        // X bu profilde misafire popüler gönderileri verdi: yerleştirme akışı en yenileri veriyorsa onu kullan
+        // X bu profilde misafire popüler gönderileri verdi: diğer yollar en yenileri veriyorsa onları kullan
         yerlestirme()?.let { return it.copy(ad = misafir.ad.ifBlank { it.ad }) }
-        return misafir.copy(ogeler = XProfil.yenidenEskiye(misafir.ogeler), uyari = "X bu profilde girişsiz en yenileri değil popüler gönderileri gösterdi; en yeniler için Hesaplar'dan X'e giriş yap") // son çare
+        return misafir.copy(ogeler = XProfil.yenidenEskiye(misafir.ogeler), uyari = "X bu profilde sadece popüler videoları gösterdi") // son çare (FxTwitter ve vxtwitter ikisi birden kapalıysa)
     }
 
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
@@ -213,6 +213,7 @@ object Listeleyici {
     fun anlasilirHata(ham: String, platform: Platform? = null): String = when {
         ham.contains("Sign in to confirm", true) -> "YouTube şu an bu bağlantıyı engelledi, biraz sonra tekrar dene" // YouTube bot kontrolü
         ham.contains("429") || ham.contains("Too Many Requests", true) || ham.contains("Please wait a few minutes", true) || ham.contains("Rate limit exceeded", true) -> "Site çok fazla istek dedi, birkaç dakika sonra tekrar dene" // hız sınırı
+        platform == Platform.X && girisHatasiMi(ham) -> "Bu X hesabı gizli ya da kısıtlı, herkese açık değil" // X'te giriş önerilmez
         girisHatasiMi(ham) -> if (platform != null && Cerezler.siteler.none { it.platform == platform }) "Bu içerik giriş istiyor (gizli ya da üyelere özel olabilir)" // giriş desteklenmeyen site
             else "Bu site giriş istiyor. Hesaplar'dan giriş yapıp tekrar dene." // giriş gerekli
         ham.contains("Unsupported URL", true) || ham.contains("is not a valid URL", true) || ham.contains("No suitable extractor", true) -> "Bu link desteklenmiyor" // geçersiz link
