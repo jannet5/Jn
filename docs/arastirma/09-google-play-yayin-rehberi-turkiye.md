@@ -1483,9 +1483,12 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 ## Doğrulanamayanlar (toplu liste)
 
 - Türkiye'nin Play Protect "gelişmiş dolandırıcılık koruması" pazarlarında
-  olup olmadığı.
-- Kuruluş hesabının kapalı test şartından resmen muaf olduğu (resmi sayfa
-  yalnız kişisel hesapları sayıyor).
+  olup olmadığı (bilinen: Hindistan, Singapur, Tayland, Brezilya, Malezya;
+  Türkiye hiçbir kaynakta geçmiyor ama "değil" kanıtı da yok).
+- Kuruluş hesabının kapalı test şartından resmen muaf olduğu: resmi sayfa
+  yalnız "13 Kasım 2023'ten sonra açılan kişisel hesapları" sayıyor;
+  kuruluşun muaf olduğunu birkaç ticari/blog kaynak söylüyor (Choicely,
+  dev.to, Türkçe rehberler).
 - Türkiye'de Google'ın kabul ettiği kimlik/kuruluş belgesi listesi.
 - Google'ın Türkiye geliştiricilerinden stopaj kesip kesmediği; Türkiye
   için TRY asgari fiyat; "15% katmanı" kaydının otomatik olup olmadığı.
@@ -1514,9 +1517,6 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - Android 17'de NotificationListener davranış değişikliği (ayrı kol: 04).
 - Play'in Türkçe çekim eklerini nasıl işlediğine dair resmi kaynak (yalnız
   kendi ölçümüm var).
-- Kapalı test şartının kuruluş hesabı için resmen muaf olduğu: resmi
-  sayfa yalnız "13 Kasım 2023'ten sonra açılan kişisel hesapları" sayıyor.
-  Dört bağımsız ticari/blog kaynak kuruluşun muaf olduğunu söylüyor.
 
 ## Sende için çıkarımlar
 
@@ -1532,6 +1532,17 @@ https://support.google.com/googleplay/android-developer/answer/9859655
     Şirket hazır olunca uygulamayı kuruluş hesabına aktar, sonra
     destek planlarını aç. Bedeli: kapalı testte abonelik A/B ölçümü
     (20+20 kişi) yapılamaz; ikisinden birini seçmek gerekir. [çıkarım]
+    Aktarım notları (resmi, 22 Ekim 2026): test grupları taşınmaz (üretime
+    çıktıktan sonra zaten gerekmez); kullanıcı, puan, yorum, App content
+    cevapları ve paket kaydı uygulamayla gider; destek 2 iş günü içinde
+    dönüyor; yeni hedef hesap 25 USD; yalnız resmi "uygulama aktarımı"
+    yolu (gayriresmi hesap devri yasak, Nisan 2026 politikası).
+  - Karar kuralı (benim önerim): kuruluş/şirket 6-8 hafta içinde hazır
+    olacaksa DOĞRUDAN Yol B (testi iki kez yaşamamak için; D-U-N-S'yi
+    beklerken uygulamayı iç testte geliştir). Hazır olmayacaksa Yol A.
+    Çünkü Yol A'da test + inceleme zaten ~4 hafta, aktarım ek işlem
+    ve ek 25 USD; Yol B'de ise kapalı test şartı muhtemelen yok ama
+    resmi olarak doğrulanamadı. [çıkarım]
   - Yol B, temiz: şahıs şirketi/şirket + D-U-N-S + kuruluş hesabı. Neden:
     kurucu çok kişiye satmak istiyor; telefon/adres iş bilgisi olur; kapalı
     test şartı resmi sayfada yok [çıkarım]. Risk: D-U-N-S 30 güne kadar.
@@ -1540,7 +1551,16 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - YAP: Uygulamayı "ücretsiz" oluştur. Neden: ücretliye çevrilemez.
 - YAPMA: hesap satın alma/kiralama, sahte belge, tester satın alma. Neden:
   politika ihlali; bağlantılı hesaplar da kapanır; geri dönüş yok.
-- YAP: Play Console'a sık gir; hesabı canlı tut (180 gün kuralı).
+- YAP: Play Console'a sık gir; hesabı canlı tut (180 gün kuralı; telefon
+  ve e-postayı doğrulanmış tut).
+- YAP: Vergi sorusunu mali müşavire SAYILARLA götür: (1) 20/B istisnasında
+  2026 sınırı 5.300.000 TL (4. gelir dilimi), aşılırsa kazancın tamamı
+  beyan edilir; (2) şahıs şirketi hizmet ihracatı iddiası GİB özelgesiyle
+  tartışmalı; (3) Google ödemesi aylık, ~ayın 15'inde TRY ile gelir.
+  Hukuki/mali görüş benden değil. Neden: ticari kaynaklar çelişkili.
+- YAP: Kimlik doğrulamasını (hesap + Android developer verification)
+  hesabı açar açmaz bitir. Neden: 30 Eylül 2026'dan beri paket kaydı
+  zorunlu, bildirimler kimlik doğrulaması tamamlanınca gelir.
 - YAP: Paket adını (com.sende.app) ilk yüklemeden ÖNCE kesinleştir. Neden:
   sonra değişmez, silinemez.
 
