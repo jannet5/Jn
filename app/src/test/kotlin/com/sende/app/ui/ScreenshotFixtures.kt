@@ -50,10 +50,10 @@ object ScreenshotFixtures {
 
     /** Wraps [content] in a Koin whose icon/media loaders are pre-filled with stand-in icons (real ones come from the phone). */
     @androidx.compose.runtime.Composable
-    fun WithIcons(context: Context, content: @androidx.compose.runtime.Composable () -> Unit) {
+    fun WithIcons(context: Context, extraIcons: Map<String, Int> = emptyMap(), content: @androidx.compose.runtime.Composable () -> Unit) {
         val icons = androidx.compose.runtime.remember {
             AppIconLoader(context).also { loader ->
-                iconColors.forEach { (pkg, color) ->
+                (iconColors + extraIcons).forEach { (pkg, color) ->
                     loader.prime(pkg, iconBitmap(color, pkg.substringAfterLast('.').take(1).uppercase()).asImageBitmap())
                 }
             }
@@ -154,5 +154,51 @@ object ScreenshotFixtures {
         Channel(TELEGRAM, "Telegram", false, 9, 0, 0, true),
         Channel("com.some.shop.app", "Mağaza Paneli", false, 0, 0, 0, false),
         Channel("com.android.chrome", "Chrome", false, 0, 0, 0, false),
+    )
+
+    // ---- store graphics: the same screens with invented channel names, so no real app brand is shown ----
+
+    private val storePackages = mapOf(
+        WHATSAPP to "store.mesajlar",
+        WHATSAPP_BUSINESS to "store.siparis",
+        INSTAGRAM to "store.vitrin",
+        TELEGRAM to "store.takip",
+    )
+    val storeIconColors = mapOf(
+        "store.mesajlar" to 0xFF2F7D6B.toInt(),
+        "store.siparis" to 0xFFB05A2F.toInt(),
+        "store.vitrin" to 0xFF7A4E9C.toInt(),
+        "store.takip" to 0xFF3B6EA5.toInt(),
+        "store.kasa" to 0xFFC49A2C.toInt(),
+        "store.rehber" to 0xFF5F6B73.toInt(),
+    )
+    private val storeLabels = mapOf(
+        "store.mesajlar" to "Mesajlar", "store.siparis" to "Siparişler", "store.vitrin" to "Vitrin", "store.takip" to "Takip",
+    )
+
+    fun storeState(pictureDir: File, selected: String? = null): MainUiState {
+        val all = conversations(pictureDir).map { conversation ->
+            val pkg = storePackages.getValue(conversation.sourcePackage)
+            conversation.copy(
+                sourcePackage = pkg,
+                key = conversation.key.replace(conversation.sourcePackage, pkg),
+                messages = conversation.messages.map { it.copy(sourcePackage = pkg, conversationKey = it.conversationKey.replace(it.sourcePackage, pkg)) },
+            )
+        }
+        val shown = if (selected == null) all else all.filter { it.sourcePackage == selected }
+        val storeBar = bar.map { BarItem(storePackages.getValue(it.packageName), storeLabels.getValue(storePackages.getValue(it.packageName)), it.unread) }
+        return MainUiState(
+            loaded = true, accessGranted = true, bar = storeBar, selectedPackage = selected,
+            totalUnread = storeBar.sumOf { it.unread }, conversations = shown, labels = storeLabels, hasEnabledChannels = true,
+        )
+    }
+
+    fun storePickerChannels(): List<Channel> = listOf(
+        Channel("store.mesajlar", "Mesajlar", true, 148, 3, 0, true),
+        Channel("store.siparis", "Siparişler", true, 61, 2, 0, true),
+        Channel("store.vitrin", "Vitrin", true, 23, 1, 0, true),
+        Channel("store.takip", "Takip", false, 9, 0, 0, true),
+        Channel("store.kasa", "Kasa", false, 0, 0, 0, false),
+        Channel("store.rehber", "Rehber", false, 0, 0, 0, false),
     )
 }
