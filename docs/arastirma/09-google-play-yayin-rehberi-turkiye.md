@@ -1445,16 +1445,40 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   Console ülke belge listesi 16501669/15633622): sayfa içeriği JavaScript
   ile yükleniyor, Türkiye satırı okunamadı. Yerine Console akışına
   bakmayı önerdim.
-- Google'ın DSA "trader" yardım sayfası: iki arama ve tahmini sayfa
-  numaralarıyla bulunamadı. Üçüncü taraf kaynaklarla yetindim.
-- Bildirim dinleyiciye özgü ret hikâyesi: Stack Overflow API (3 sorgu), HN
-  (birkaç sorgu), GitHub issue araması sonuç vermedi.
-- "Reddedildim, şöyle çözdüm" (üretim erişimi): birinci elden bağımsız
-  hikâye bulunamadı; çıkanların çoğu tester satan sitelerin pazarlaması.
-- WebSearch kotası doldu (200 sorgu); WhatsApp marka sayfasını doğrudan
-  okudum, ama "mağaza açıklaması" özel kuralı sayfada yok.
+- Google'ın DSA "trader" yardım sayfası: ilk turda iki arama; ikinci turda
+  üç arama daha (support.google.com ile sınırlı dahil) ve Play Console
+  yardım sayfalarının tam metni (hesap bilgileri, ülke gereklilikleri,
+  Geliştirici Program Politikası) tarandı: "trader" sözcüğü bu sayfalarda
+  geçmiyor. Üçüncü taraf kaynaklarla yetindim. 5. denemede bıraktım.
+- Bildirim dinleyiciye özgü "Play politikası yüzünden reddedildim" hikâyesi:
+  Stack Overflow API (3 sorgu), HN (birkaç sorgu), GitHub issue araması ve
+  ikinci turda 3 genel arama sonuç vermedi. Bulunan tek bildirim
+  dinleyici + Play olayı 2018'deki WhatsApp/Can't Talk olayıdır (8.4).
+- "Reddedildim, şöyle çözdüm" (üretim erişimi): ikinci turda dev.to'da
+  bir tane (chakshusoft) bulundu; çıkanların çoğu hâlâ tester satan sitelerin
+  pazarlaması. Medium'daki (levelup.gitconnected.com) "12 tester tax"
+  yazısı WebFetch'te 403 verdi; 1 deneme + 1 arama, vazgeçtim.
+- Reddit: ikinci turda WebSearch "reddit.com" alan adını engelledi (API
+  400 hatası: alan adına erişilemiyor). Tekrar denemedim.
+- Stack Overflow: WebSearch bu alan adını da engelledi.
+- Play arama önerileri (market.android.com/suggest/SuggRequest): 404 verdi,
+  eski uç nokta kapanmış. Bir daha denemedim. Yerine store/search sayfasını
+  doğrudan indirdim; o çalıştı.
+- Android Authority makalesi (gelişmiş akış): WebFetch 403.
+- Türkiye için kişisel hesapta kabul edilen kimlik belgeleri: Türkçe sayfanın
+  statik kısmında yalnız kuruluş belgeleri var; ülke satırı dinamik. 2 deneme
+  (İngilizce + Türkçe sayfa), vazgeçtim.
+- Play Protect gelişmiş koruma ülke listesi: resmi sayfa "seçili pazarlar"
+  diyor; iki arama sonrası liste çıkmadı (Hindistan, Singapur, Tayland,
+  Brezilya, Malezya geçiyor, Türkiye geçmiyor).
+- Türkçe ek (morfoloji) için Google Play'e özel ASO kaynağı: iki arama,
+  yalnız genel blog çıktı. Yerine kendim ölçtüm (10.2b).
+- WhatsApp marka sayfasını doğrudan okudum, ama "mağaza açıklaması" özel
+  kuralı sayfada yok.
 - Play arama hacmi: Play kendi arama hacmini vermiyor. Anahtar kelime
   tercihleri yalnız sıralama gözlemi + ticari ASO yazılarına dayanıyor.
+- Başlığı "Sende: ..." ile A/B test etmek: mağaza deneyleri başlığı
+  denemiyor (yalnız grafik ve açıklama); bu yol zaten yok.
 
 ## Doğrulanamayanlar (toplu liste)
 
@@ -1467,18 +1491,32 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   için TRY asgari fiyat; "15% katmanı" kaydının otomatik olup olmadığı.
 - ETBİS, VERBİS/KVKK yükümlülüğünün Play üzerinden uygulama içi satışa
   uygulanıp uygulanmadığı.
-- GİB-Danıştay ihtilafının Ekim 2026 itibarıyla son durumu; 2026 hasılat
-  üst sınırının doğru rakamı (5,3 mn mı 6,5 mn mı).
+- GİB-Danıştay ihtilafının Ekim 2026 itibarıyla son durumu (özelge 30 Ocak
+  2026 ve Danıştay 21 Ekim 2025 iddiaları yalnız ticari sitelerde; ben
+  özelge/karar metnini görmedim).
+- 20/B tebliğinin resmi (GİB) metni: sınır ve %15 tevkifat bilgileri
+  ticari/mali müşavir sitelerinden; 5,3 mn TL için ek olarak Resmi
+  Gazete'deki tarife haberi (Bloomberg HT) var.
 - Şahıs şirketinin D-U-N-S alıp alamayacağı.
-- Google Play'in DSA trader beyan adımları.
+- Google Play'in DSA trader beyan adımları (resmi sayfa bulunamadı).
 - Play manifestinden INTERNET'i çıkarmanın Billing'i bozup bozmadığı.
 - com.sende.app paket adının başka bir (yayınlanmamış) geliştiricide
   olup olmadığı. Yalnız ilk yüklemede belli olur.
-- Hesap türünün sonradan değiştirilememesi ile hesap aktarımı arasındaki
-  tam kurallar (aktarım sayfası arama özetinden okundu).
-- API 37 ve sonrası için hedef API tarihi.
-- "What's new" karakter sınırı.
+- Bireysel hesaptan kuruluş hesabına sahip aktarımı ("hesap sahibi
+  aktarımı") ile uygulama aktarımının tam kuralları: uygulama aktarımı
+  sayfası tam okundu; hesap sahibi aktarımı sayfası (16909862) arama
+  özetinden.
+- API 37 için hedef API tarihi (31 Ağustos 2027 yalnız örüntüden tahmin).
+- Başvuru formunda "ücretli test sağlayıcı kullandın mı" sorusu var mı
+  (resmi sayfada yok; bir dev.to yazısı var diyor).
+- Play Console'un test kullanıcısı "etkileşim" eşiği (8/12 gibi iddialar
+  kaynaksız).
 - Android 17'de NotificationListener davranış değişikliği (ayrı kol: 04).
+- Play'in Türkçe çekim eklerini nasıl işlediğine dair resmi kaynak (yalnız
+  kendi ölçümüm var).
+- Kapalı test şartının kuruluş hesabı için resmen muaf olduğu: resmi
+  sayfa yalnız "13 Kasım 2023'ten sonra açılan kişisel hesapları" sayıyor.
+  Dört bağımsız ticari/blog kaynak kuruluşun muaf olduğunu söylüyor.
 
 ## Sende için çıkarımlar
 
