@@ -105,12 +105,49 @@ class NotificationListenerRealDeviceTest {
         val snapshot = koin.get<com.sende.app.diagnostics.DiagnosticsRecorder>().snapshot.value
         val posted = oneLine(
             shell("dumpsys notification --noredact").lineSequence()
-                .filter { "pkg=com.android.shell" in it || ("NotificationRecord" in it && "shell" in it) }
+                .filter { "NotificationRecord" in it && "pkg=$foreignPackage" in it }
                 .take(4).joinToString(" // "),
         ).take(600)
         return "app saw: package=${snapshot.lastSeenPackage} decision=${snapshot.lastDecisionReason} " +
             "accepted=${snapshot.totalAccepted} rejected=${snapshot.rejectedByReason} error=${snapshot.lastError} " +
             "connected=${SendeNotificationListenerService.connected} | system records: $posted"
+    }
+
+    /**
+     * The "other app" that posts customer messages. From Android 11 the shell can post for us
+     * (`cmd notification post`); Android 8-10 have no such command, so there the test APK (a
+     * different package from the app under test) posts the notification itself.
+     */
+    private val shellCanPost = android.os.Build.VERSION.SDK_INT >= 30
+    private val foreignPackage: String
+        get() = if (shellCanPost) "com.android.shell" else instrumentation.context.packageName
+
+    private fun postFromAnotherApp(tag: String, title: String, text: String): String {
+        if (shellCanPost) {
+            // UiAutomation.executeShellCommand does not interpret quotes: every argument must be one word.
+            return shell("cmd notification post -S bigtext -t ${title.replace(' ', '_')} $tag ${text.replace(' ', '-')}")
+        }
+        val other = instrumentation.context
+        val manager = other.getSystemService(NotificationManager::class.java)
+        manager.createNotificationChannel(
+            android.app.NotificationChannel("e2e-foreign", "E2E", NotificationManager.IMPORTANCE_DEFAULT),
+        )
+        val notification = NotificationCompat.Builder(other, "e2e-foreign")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(text)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
+            .build()
+        manager.notify(tag, 1, notification)
+        return "posted by ${other.packageName}"
+    }
+
+    private fun cancelFromAnotherApp(tag: String) {
+        if (shellCanPost) {
+            shell("cmd notification cancel $tag")
+        } else {
+            instrumentation.context.getSystemService(NotificationManager::class.java).cancel(tag, 1)
+        }
     }
 
     private suspend fun bindListenerAndPick(preferences: com.sende.app.data.prefs.AppPreferences) {
@@ -123,7 +160,7 @@ class NotificationListenerRealDeviceTest {
         }
         android.service.notification.NotificationListenerService.requestRebind(componentName)
         assertThat(pollUntilTrue(20_000) { SendeNotificationListenerService.connected }).isTrue()
-        preferences.setChannelEnabled("com.android.shell", true)
+        preferences.setChannelEnabled(foreignPackage, true)
     }
 
     /**
@@ -141,9 +178,8 @@ class NotificationListenerRealDeviceTest {
 
         val tag = "e2e-" + System.currentTimeMillis()
         val log = StringBuilder()
-        // UiAutomation.executeShellCommand does not interpret quotes: every argument must be one word.
         fun post(text: String) {
-            log.append(shell("cmd notification post -S bigtext -t Ayse_Yilmaz $tag ${text.replace(' ', '-')}")).append('\n')
+            log.append(postFromAnotherApp(tag, "Ayse Yilmaz", text)).append('\n')
         }
 
         post("randevu almak istiyorum")
@@ -159,8 +195,8 @@ class NotificationListenerRealDeviceTest {
         assertWithMessage("second message with the same key was lost. ${whatTheAppSaw()} | shell said: ${oneLine(log.toString())}").that(second).isTrue()
         assertThat(messagesOf(repository).count { "randevu" in it }).isEqualTo(1)
 
-        preferences.setChannelEnabled("com.android.shell", false)
-        shell("cmd notification cancel $tag")
+        preferences.setChannelEnabled(foreignPackage, false)
+        cancelFromAnotherApp(tag)
     }
 
     /** Same flow with a real MessagingStyle notification (needs `cmd notification post --conversation`, Android 11+). */

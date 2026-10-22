@@ -1,7 +1,9 @@
 # Google Play yayın rehberi: Türkiye'den dünyaya (2026)
 Araştırma kolu: play-yayin
 
-Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
+Tarih: 21 Ekim 2026 (ilk tur) ve 22 Ekim 2026 (ikinci tur: doğrulama,
+eksik kalanlar, gerçek hayat hikâyeleri). Resmi sayfalar bu iki günde
+yeniden okundu; sayıların yanındaki tarih kaynağın kendi tarihidir.
 
 ## Kısa özet
 
@@ -45,6 +47,35 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
 - Hesabı "ücretsiz uygulama" olarak oluştur: ücretsiz uygulama sonradan
   ücretli yapılamaz. Bizim plan (ücretsiz + destek planları) buna uyuyor. [resmi]
 
+### İkinci turda (22 Ekim 2026) netleşen / eklenen
+
+- Bildirim dinleyici + WhatsApp geçmişi: Temmuz 2018'de WhatsApp'ın
+  avukatları, Android'in standart Notification Listener ve Direct Reply
+  API'sini kullanan Can't Talk ve DirectChat'e dava tehdidiyle mektup
+  gönderdi; Can't Talk Play'den kalktı. WhatsRemoved+ da Play'den atıldı,
+  WhatsApp bildirimi desteğini bırakınca döndü (tek kaynak). Eski olay
+  (2018), ama "Meta tarafı" riskini gösteriyor. [haber, 3 bağımsız kaynak]
+  https://www.xda-developers.com/whatsapp-sends-cease-desist-apps-native-android-api/
+  https://lowyat.net/2018/165604/whatsapp-files-cease-desist-orders-against-apps-that-dont-use-its-apis
+  https://www.xatakandroid.com/comunicacion-y-mensajeria/whatsapp-empieza-combatir-apps-que-muestran-mensajes-que-hayan-sido-borrados
+- 20/B istisnasının 2026 üst sınırı çelişkisi çözüldü: 5.300.000 TL
+  (gelir vergisi tarifesinin 4. dilim üst sınırı; Resmi Gazete'de
+  31 Aralık 2025 duyuruldu). "6,5 milyon" tahmindi. [haber + ticari]
+- Play paket kaydı: 30 Eylül 2026'dan beri tüm Play paketleri kayıtlı
+  olmalı, aksi halde Play'den kaldırılır. Yeni uygulamalar otomatik
+  kaydedilmeye çalışılır; kimlik doğrulaması şart. [resmi]
+  https://support.google.com/googleplay/android-developer/answer/16984799
+- Uygulamayı sonra başka hesaba devretmek mümkün ama TEST GRUPLARI
+  taşınmaz; kapalı test kullanıcıları yeniden katılmak zorunda kalabilir.
+  Destek devir talebine 2 iş günü içinde dönüyor. [resmi]
+  https://support.google.com/googleplay/android-developer/answer/6230247
+- Kapalı testte "yetersiz etkileşim" reddi gerçek: bir geliştirici iki kez
+  reddedilip üçüncüde (yakın takip ve hızlı değişimle) geçti. [forum,
+  tek kaynak, yazar kendi aracını satıyor]
+- Play TR aramasında Türkçe ek varyantları (geçmişi / geçmişleri) büyük
+  oranda aynı sonucu veriyor (ölçtüm, 30 sonucun 21'i ortak). [ölçüm]
+- "What's new" sınırı resmi sayfada: dil başına 500 Unicode karakter. [resmi]
+
 ## Nasıl araştırdım (yöntem ve güvenilirlik)
 
 - Resmi Google sayfaları: anonim curl ile tam metin indirip okudum.
@@ -59,7 +90,14 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   - [forum]: R10, Technopat, Hacker News yorumları. Tek kişilik deneyim.
   - [çıkarım]: kaynakları birleştirip ben çıkardım.
   - [doğrulanamadı]: kaynağa ulaşamadım ya da kaynaklar çelişiyor.
-- WebSearch günlük kotası doldu. Son bölümlerde yalnız doğrudan sayfa okudum.
+- İlk turda WebSearch günlük kotası dolmuştu, son bölümlerde yalnız
+  doğrudan sayfa okumuştum. İkinci turda (22 Ekim) WebSearch çalıştı; ilk
+  turdaki "arama özetinden okudum" notlarının çoğunu sayfanın kendisini
+  indirip kapattım. Hâlâ özetten kalanlar ayrıca işaretli.
+- Play TR arama ölçümü: kendi komutumla play.google.com/store/search
+  (hl=tr, gl=TR) sayfasını anonim indirip sonuçları saydım. Ham sonuç
+  scratch klasöründe (tr_search_2026-10-22.json). Kişiselleştirme ve
+  deney farkları olabilir; tek günlük, tek konumlu ölçüm. [ölçüm]
 - Kod kopyalanmadı. Başkasının koduna bakılmadı; GitHub issue'lar yalnız
   okundu (lisans notu gerekmiyor).
 - Bilmediğim şeyi uydurmadım; "Doğrulanamayanlar" bölümünde toplu liste var.
@@ -94,14 +132,32 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
 - Hesap türü kayıt sırasında seçilir; sonradan değiştirilemez deniyor.
   Çare: yeni hesap açıp uygulamayı resmi yolla aktarmak. [resmi]
   https://support.google.com/googleplay/android-developer/answer/14177239
-- Uygulama aktarımında abonelikler uygulamayla taşınır; aktarımdan önceki
-  siparişler eski hesapta kalır (iade orada yapılır). Bu özet arama
-  sonucundan; sayfanın kendisini ayrıca okumadım. [resmi, kısmen]
+- Uygulamayı başka geliştirici hesabına devretmek (sayfayı tam okudum): [resmi]
   https://support.google.com/googleplay/android-developer/answer/6230247
-- Hesap sahibi aktarımı: bireysel geliştirici hesabı para kazanıyorsa
-  doğrudan sahip aktarımına uygun değil; yeni hesap + uygulama aktarımı
-  gerekir. [resmi, arama özeti]
+  - Kullanıcılar, istatistikler, yorumlar, puanlar, abonelikler, içerik
+    derecelendirme, mağaza girdisi, App content cevapları ve geliştirici
+    doğrulaması için kayıtlı paket adı + anahtarlar uygulamayla gider.
+  - Devirden ÖNCE oluşan siparişler eski hesapta kalır (iade orada yapılır).
+  - Test grupları (iç, kapalı, açık) TAŞINMAZ. Kapalı test gruplarını yeni
+    hesapta yeniden kurarsın; kullanıcılar yeniden katılmak zorunda kalabilir.
+  - Hedef hesap kayıtlı ve aktif olmalı; uygulama içi ürün varsa hedefte
+    aktif ödeme profili şart. Hedefte farklı varsayılan para birimi varsa
+    uygulama içi ürünlü uygulama devirden sonra "yayından kalkar", fiyatları
+    doğrulayıp yeniden yayınlarsın. İkisi de Türkiye/TRY ise bu uyarı bize
+    uymuyor gibi görünüyor ama sayfa bunu açıkça söylemiyor. [çıkarım]
+  - Yeni hedef hesap açarsan 25 USD ücret; eski hesabı kapatırsan destek
+    o hesabın kayıt ücretini iade edebiliyor. Destek, devir talebine
+    2 iş günü içinde yanıt veriyor.
+  - Play App Signing'de hedef hesap yeni yükleme anahtarı ya da yeni imza
+    anahtarı isteyebilir (güvenlik kaygısı varsa).
+- Hesap sahibi aktarımı: Nisan 2026 duyurusuyla yeni "Hesap Aktarımları"
+  politikası geldi: geliştirici hesabının sahipliği yalnız resmi
+  "hesap sahibi aktarımı" süreciyle değişebilir; gayriresmi devir
+  yasak. (Politika duyurusu 15 Nisan 2026.) [resmi]
+  https://support.google.com/googleplay/android-developer/answer/17517561
   https://support.google.com/googleplay/android-developer/answer/16909862
+  Bireysel hesap para kazanıyorsa doğrudan sahip aktarımına uygun değil
+  diye okuyorum (arama özeti; sayfa ayrıca okunmadı). [resmi, kısmen]
 
 ### 2.2 Ücret ve kart
 
@@ -131,9 +187,20 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
 - Belgedeki ad/adres ödeme profiliyle BİREBİR aynı olmalı. Uyuşmazlık
   varsa doğrulama sırasında profil güncellenebilir. [resmi]
   https://support.google.com/googleplay/android-developer/answer/15633622
-- Türkiye için kabul edilen belge listesi dinamik bir sayfada; metne
-  gelmedi. [doğrulanamadı] Play Console doğrulama akışı kendi listesini
-  gösterir. Önce o akışa bak.
+- Türkiye için KİŞİSEL hesapta kabul edilen belge listesi dinamik bir
+  sayfada; metne gelmedi. [doğrulanamadı] Play Console doğrulama akışı
+  kendi listesini gösterir. Önce o akışa bak.
+- Türkçe sayfanın statik kısmından (22 Ekim 2026) genel çerçeve: [resmi]
+  https://support.google.com/googleplay/android-developer/answer/15633622?hl=tr
+  - Gerekli belgeler "ödeme profilindeki ülkeye" göre belirlenir.
+  - Kuruluş hesabı iki tür belge ister: (1) tescil belgesi: kuruluş/tescil
+    belgesi, ticari sicil kaydı örneği, işletme ruhsatı veya vergi
+    sertifikası; (2) yetkili temsilcinin fotoğraflı kimliği: pasaport,
+    nüfus cüzdanı, sürücü belgesi veya kalıcı ikamet kartı.
+  - Kimlik herhangi bir ülkeye ait olabilir; yetkili temsilci yasal yetkisi
+    olan kişi (müdür, yasal temsilci vb.).
+  - Türkiye'de vergi levhasının "vergi sertifikası" sayılıp sayılmadığı
+    sayfada yazmıyor. [doğrulanamadı]
 - Cihaz doğrulaması (yeni kişisel hesap): gerçek, root'suz, en az Android
   10 bir telefon; Play Console mobil uygulamasında hesap sahibi olarak
   "Doğrula"; 1 dakikadan kısa. [resmi]
@@ -189,10 +256,13 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   https://support.google.com/googleplay/android-developer/answer/9023898
 - "Birden çok ret, uygulamanın askıya alınmasına yol açabilir." [resmi]
   https://support.google.com/googleplay/android-developer/answer/15191715
-- Pasif hesap kapatma: hesap 1 yıldan eski, uygulaması yok ya da toplam
-  kurulumu 1000'den az VE son 180 günde Console kullanılmamışsa bildirim
-  (60/30/7 gün) sonrası kapanır. Arama özetinden; sayfayı ayrıca
-  okumadım. [resmi, kısmen]
+- Pasif hesap kapatma (sayfayı 22 Ekim 2026'da okudum): kayıt ücreti iade
+  edilmeden kapanır. Kriter A (uygulamasız): hesap 1 yıldan eski ve hiç
+  uygulama incelemeye göndermemiş. Kriter B (uygulamalı): hesap 1 yıldan
+  eski, tüm uygulamaların toplam ömür boyu kurulumu 1.000'den az, telefon ve
+  e-posta doğrulanmamış VE son 180 günde Play Console kullanılmamış (sayfa
+  maddeleri bağlaçsız listeliyor; ben hepsini birlikte aranan koşullar
+  diye okudum). Doğrulanmış, canlı bir hesap B kriterine girmez. [resmi]
   https://support.google.com/googleplay/android-developer/answer/11605267
 - Bir Hacker News yorumcusu (Ekim 2026) bitmiş uygulaması olduğu hâlde
   hesabının "hareketsizlikten" kapandığını yazıyor. Tek kişilik anlatım. [forum]
@@ -233,6 +303,16 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
 - Vergi bilgisi Google Payments Center > Ayarlar'dan girilir; "herkesin
   vermesi gerekmez". Google vergi tavsiyesi vermez. [resmi]
   https://support.google.com/paymentscenter/answer/13401799
+- Ödeme takvimi: bir ayın siparişleri sonraki ayın yaklaşık 15'inde
+  ödenir; bankaya geçmesi birkaç gün sürebilir. Yerel para birimiyle
+  ödeme alan satıcılar için asgari bakiye 1 USD karşılığıdır (wire
+  transferde 100 USD). Türkiye satırı: kayıt evet, satıcı evet, para
+  birimi TRY. [resmi, 22 Ekim 2026'da okundu]
+  https://support.google.com/googleplay/android-developer/answer/137997
+  https://support.google.com/googleplay/android-developer/answer/9306917
+  "TRY'de 20 TL eşik" diyen bir Ekşi Sözlük girdisi var; tarihsiz, tek
+  kişi, resmi sayfa farklı söylüyor (1 USD karşılığı). Kullanma. [forum,
+  güvenilmez]
 - Hizmet bedeli (Türkiye "diğer pazarlar" grubunda): otomatik yenilenen
   abonelikte %15; diğer satışlarda yıllık ilk 1 milyon USD için %15,
   üstü %30. (ABD/AB/Birleşik Krallık için 30 Haziran 2026'dan beri yeni
@@ -251,8 +331,21 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   Banka %15 stopaj keser; beyanname/defter yok iddiası. [ticari]
   https://remotevergi.com/app-store-play-store-vergi/
   https://vergimerkezi.com.tr/mobile-app-developer-vergi-rehberi/
-  - 2026 hasılat üst sınırı: biri 5.300.000 TL, diğeri "tahmini
-    6.500.000 TL" diyor. ÇELİŞKİ. [doğrulanamadı]
+  - 2026 hasılat üst sınırı: 5.300.000 TL. İlk turda iki kaynak çelişiyordu
+    (5,3 mn ve "tahmini 6,5 mn"); ikinci turda çözdüm: bu sınır gelir vergisi
+    tarifesinin 4. gelir diliminin üst sınırına bağlı, 2026 için
+    4.300.000 TL'den 5.300.000 TL'ye çıkarıldı (Bloomberg HT, 31 Aralık
+    2025; Resmi Gazete 5. mükerrer). remotevergi sayfası da 5.300.000 TL
+    yazıyor (son güncelleme 11 Mayıs 2026). "6,5 mn" rakamı yeniden
+    değerleme açıklanmadan önceki bir tahmin; kullanma. [haber + ticari]
+    https://www.bloomberght.com/2026-da-uygulanacak-gelir-vergisi-tarifeleri-belli-oldu-3765170
+    https://www.fatiharas.com/gvk-mukerrer-madde-20-b-sosyal-icerik-ureticiligi-istisnasi/
+  - Sınır aşılırsa kazancın TAMAMI (yalnız aşan kısım değil) yıllık
+    beyannameyle beyan edilir; bankanın kestiği %15 mahsup edilir. İstisna
+    gerçek kişilere tanınıyor; kurumlar vergisi mükellefi (ör. limited
+    şirket) yararlanamaz. Tebliğin kendisini (GİB) okumadım; bu iki
+    madde ticari/mali müşavir sitelerinden. [ticari, tek tek]
+    https://www.fatiharas.com/gvk-mukerrer-madde-20-b-sosyal-icerik-ureticiligi-istisnasi/
   - Reklam giderleri bu yolda düşülemez. Bağ-Kur primi kişiye ait. [ticari]
 - Yol 2, şahıs şirketi + hizmet ihracatı: KVK 10/1-ğ ve GVK 89/13,
   %100 indirim; e-Arşiv faturası yurt dışı muhatabına; KDV %0 (kod 302).
@@ -321,7 +414,8 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
     kullanımına benziyor muydu (farklar); geri bildirimi özetle ve nasıl
     topladığını yaz.
   - Uygulaman hakkında: hedef kitle ("olabildiğince somut"); değer
-    önerisi; ilk yıl tahmini kurulum aralığı.
+    önerisi; ilk yıl tahmini kurulum aralığı. Bu bölümün cevapları
+    mağazada gösterilmez; görünürlüğü ve program uygunluğunu etkilemez.
   - Üretime hazırlık: testten öğrenip neyi değiştirdin; üretime hazır
     olduğuna nasıl karar verdin.
   [resmi]
@@ -378,7 +472,70 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   (ör. "%5 çökme kesin ret") ticari. [ticari]
   https://12-testers-for-14-days.github.io/guides/google-play-production-access-requirements/
 - Bağımsız, birinci elden "üretim erişimi reddedildim, şöyle çözdüm"
-  anlatısı bulamadım. Reddit erişilemedi. [doğrulanamadı]
+  anlatısı: ilk turda bulamamıştım; ikinci turda iki tane buldum ve
+  aşağıda 4.4'te yazdım. İkisi de tek kişilik ve kendi ürününü satan
+  yazarlardan. Reddit hâlâ erişilemiyor. [forum]
+
+### 4.4 Gerçek hayat: kapalı test hikâyeleri (22 Ekim 2026'da okundu)
+
+- Hikâye 1, REDDEDİLDİ ve çözdü. Yazar: chakshusoft (dev.to, "7 Haziran";
+  sayfada yıl yok, 2026 görünüyor). [forum, tek kaynak]
+  https://dev.to/chakshusoft/i-wasted-6-weeks-on-google-plays-closed-testing-heres-what-finally-worked-41h8
+  - Tur 1: ~12 arkadaş/aile katıldı. 5. günde ~3 kişi kullanıyordu. 14.
+    günde başvurdu, "testers did not show sufficient engagement" ile
+    reddedildi.
+  - Tur 2: Reddit/Discord'dan ~25 kişi. Çoğu bir kez kurup sildi. 15.
+    günde başvurdu, aynı sebeple yine reddedildi. Bir aydan fazla gitti.
+  - Tur 3: 22 kişi. Her gün kimin aktif olduğuna baktı, pasif iki kişiye
+    yazdı, 10. günde düşen birini hemen yenisiyle değiştirdi. 14. günde
+    başvurdu, ONAYLANDI.
+  - Çıkarım: yalnız sayı değil, kullanım izi ve pasifi erken fark etmek.
+  - Uyarılar: yazar kendi izleme SDK'sını satıyor. "20 test kullanıcısı"
+    diyor; resmi sayfa 12 diyor (ben doğruladım), yani bu yazarın yorumu.
+- Hikâye 2, reddedilmeden geçti. Yazar: Ingrid (dev.to, 7 Eylül 2025).
+  [forum, tek kaynak]
+  https://dev.to/ingrid_dev/how-to-find-12-testers-for-your-android-app-2o54
+  - Arkadaş/aile: 4-5 kurulum, yarısı birkaç günde sildi ("kibarlıktan
+    kurdular"). Reddit paylaşımı saatler içinde moderatörce silindi.
+  - Test takas uygulamasıyla 2 günde 14 kişi, 14 gün sonunda ~60 kişi.
+    14 günde 6 sürüm yükledi. Başvurudan 2 gün sonra onay.
+  - Yazar "12 kişiyle girip reddedilenler, aylarca bekleyenler var" diyor;
+    bu kulaktan dolma.
+- Tester takas/satış hizmeti yazarları (Can Dizdar/TestFi, dev.to, 15 ve
+  17 Ekim, yıl sayfada yok, 2026 verisine atıf yapıyor): [ticari, çıkar var]
+  https://dev.to/founder_can/how-to-get-12-testers-for-google-play-closed-testing-with-numbers-from-112-closed-tests-40nl
+  https://dev.to/founder_can/google-plays-production-access-form-question-by-question-what-to-write-after-your-14-day-closed-4052
+  - Kendi 112 kapalı testinde 12. kuruluma medyan süre 63,6 saat (kendi
+    verisi, bağımsız doğrulanmamış). 14 gün SAYAÇ test kullanıcısı
+    başınadır: yedek biri gelirse onun 14 günü kendi başlar. (Resmi SSS ile
+    uyumlu: "çıkıp tekrar girenin 14 günü ardışık olmalı".)
+  - Başvuru formunda "ücretli test sağlayıcı kullandın mı" sorusu olduğunu
+    yazıyor; resmi sayfada böyle bir soru YOK. [doğrulanamadı]
+  - Form cevap önerisi: sayı ve sürüm numarası ver; "çok ilgiliydiler" gibi
+    sıfat verme. Bu öneri mantıklı; resmi form da "hangi özellikleri
+    kullandılar, üretim kullanımına benzedi mi, geri bildirimi nasıl
+    topladın" diye soruyor. [resmi + blog]
+- RevenueCat rehberi (3 Temmuz 2025): sayaç test AKTİF olunca başlar;
+  ilk gün "hello world" bile yüklensin; kişi bağlantıdan KATILMAZSA liste
+  tek başına yetmez. [blog, bilinen şirket]
+  https://www-docs.revenuecat.com/blog/engineering/google-play-14-day
+- Doğrulanamayan iddia: "Play Console kullanıcı etkileşim süresi/günlük
+  aktif kullanıcıyı ölçüyor; 12 kişiden ~8'i 14 günün 5-7'sinde açmalı"
+  (dev.to, "17 Mayıs", yazar test kullanıcısı bulma hizmeti satıyor).
+  Yazar eşiğin "yayımlanmadığını, tahmin olduğunu" kendisi yazıyor.
+  Resmi sayfada böyle bir sayı yok. KESİN KURAL OLARAK ALMA. [forum]
+  https://dev.to/tizoc_araujo_3cd9fb67191f/google-play-closed-testing-rejected-for-insufficient-engagement-what-that-actually-means-in-2026-ion
+  Ama resmi sayfa "yetersiz test kullanıcısı etkileşimi"ni ek test
+  sebebi olarak SAYIYOR (bölüm 4.1), o yüzden etkileşimi gerçekten üret.
+- Sende'ye özel zorluk: analitik/izleme SDK'sı koymayan (sideload'da
+  INTERNET yok; Play'de yalnız Billing yüzünden var) bir uygulamada
+  kullanım izini bu yazarlar gibi SDK'yla göremeyiz. SDK eklemek "veri
+  toplanmıyor" vaadini de bozar. Çare: (1)
+  Play Console'un kendi istatistikleri (kurulum, etkin cihaz); (2) bizde
+  zaten gizli Tanılama ekranı (7 dokunuş) ve JSON dışa aktarma var
+  (ROADMAP Faz 6); ona mesaj İÇERİĞİ olmayan, yalnız sayaç içeren bir
+  "kullanım özeti" paylaşımı eklenip test kullanıcısı onu bize yollayabilir;
+  (3) haftalık kısa "bu hafta ne yaptın" mesajı. [çıkarım]
 
 ## 5. Test kanalları ve davet linki mantığı
 
@@ -395,6 +552,12 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   https://support.google.com/googleplay/android-developer/answer/9845334
 - İlk yayından sonra bağlantının testçilere ulaşması "birkaç saat"
   sürebilir. [resmi]
+- Davet (opt-in) bağlantısı yalnız uygulama durumu "Yayınlandı"
+  (Published) iken görünür; "Taslak" veya "Yayın bekliyor" durumunda
+  görünmez. Her test kullanıcısı bağlantıdan kendisi katılmalı (listeye
+  eklenmek tek başına yetmez). Bağlantıda geri bildirim e-postası/URL'si
+  gösterilir; onu mutlaka doldur. [resmi]
+  https://support.google.com/googleplay/android-developer/answer/9845334
 - Açık test: Play'de görünür, herkes katılabilir; ancak üretim erişimi
   sonrasında açılır. Test kullanıcısı geri bildirimi herkese açık puanı
   ETKİLEMEZ. [resmi]
@@ -419,7 +582,14 @@ Tarih: 21 Ekim 2026 (tüm sayfalar bu tarihte okundu)
   https://support.google.com/googleplay/android-developer/answer/11926878
 - Bizde: compileSdk 36, targetSdk 36, minSdk 26. Uygun. [ölçüm]
   /home/user/Jn/app/build.gradle.kts
+- Uzatma: Console'da bir uzatma formu açılıyor, 1 Kasım 2026'ya kadar.
+  Biz zaten 36'yı hedeflediğimiz için gerekmez. [resmi, 22 Ekim 2026]
 - Bir sonraki hedef (API 37) için resmi tarih sayfada yok. [doğrulanamadı]
+  Android 17 (API 37) 16 Haziran 2026'da kararlı çıktı (Android Authority,
+  özet; sayfa açılmadı). Önceki örüntü (API 35: 31 Ağu 2025; API 36:
+  31 Ağu 2026) yıllık bir adım gösteriyor; yani API 37 için 31 Ağustos
+  2027 beklenebilir. Bu TAHMİN, kaynak değil. [çıkarım]
+  https://androidauthority.com/android-17-release-date-3639790
 
 ### 6.2 AAB ve imzalama
 
@@ -516,6 +686,35 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   - Play sürümünde Google Play Faturalandırma kütüphanesinin ağ
     kullandığı ve mesaj verisi göndermediği.
   - İletişim e-postası. Türkçe + İngilizce sürüm.
+- Kurulu uygulama listesi (ayrıntı, 22 Ekim 2026'da politika metninden):
+  [resmi] https://support.google.com/googleplay/android-developer/answer/17517561
+  - Politika "Package (App) Visibility" bölümü: cihazdan sorgulanan kurulu
+    uygulama envanteri KİŞİSEL ve HASSAS veri sayılır; envantere görünürlük
+    uygulamanın temel işleviyle doğrudan ilgili olmalı.
+  - QUERY_ALL_PACKAGES yalnız belirli kullanım durumlarında; "daha dar bir
+    görünürlük bildirimi" mümkünse kullanılamaz. Ayrıca "geniş görünürlüğe
+    yaklaşan alternatif yöntemler de kullanıcıya dönük temel işlevle
+    sınırlı". Bizim `<queries>` içindeki MAIN/LAUNCHER sorgusu tam olarak
+    bu "alternatif yöntem" sınıfına girebilir; savunma: kullanıcı HERHANGİ
+    bir uygulamayı kanal seçebilsin diye liste, ürünün temel işlevi. [çıkarım]
+  - Sonuç: bu listenin neden okunduğunu uygulama içi açıklamada, gizlilik
+    politikasında ve inceleyici notunda ayrıca yaz. Listenin dışarı
+    gitmediğini her yerde aynı cümleyle söyle.
+- Gerçek hayat, "kurulu uygulama bilgisi" reddi (Unity forumu, Eylül 2025):
+  [forum, birden çok geliştirici ama tek başlık]
+  https://discussions.unity.com/t/google-policy-issue-issue-found-apk-requires-prominent-disclosure-upload-of-users-installed-application-information/1683666
+  - Birkaç geliştirici "Your app is uploading users' Installed Application
+    information without a prominent disclosure" iletisiyle reddedildi;
+    süre 6 gün (14 Eylül'de bildirim, 20 Eylül son tarih).
+  - Şüphelenilen sebep: reklam aracı SDK'sının (ironSource/LevelPlay)
+    getInstalledApplications çağrısı. Geliştiriciler kendi kodlarında
+    veri göndermediklerini söylüyordu, yine de ret geldi.
+  - Çözüm yolları: SDK'yı kaldırmak (kabul edildi); ya da onay penceresi
+    ekleyip Veri güvenliği formunda "Evet" demek (geçti). Dışarıdan kanıt:
+    bu kod taraması gerçek ve SDK kaynaklı.
+  - Sende için ders: Play sürümünde reklam/analitik SDK'sı OLMAMALI;
+    Billing dışında ağ kodu olmamalı. Kurulu uygulama sorgusu bizim kodda
+    ve açıklanmış olmalı. [çıkarım]
 
 ### 7.2 Uygulama erişimi (App access) ve inceleyici notu
 
@@ -602,7 +801,8 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   yok (arattım). SMS okumak için READ_SMS ASLA ekleme. [resmi + çıkarım]
   https://support.google.com/googleplay/android-developer/answer/9888170
 - QUERY_ALL_PACKAGES kullanmıyoruz; MAIN/LAUNCHER sorgusu yeterli.
-  İyi karar. [ölçüm]
+  İyi karar, ama bu sorgu da "geniş görünürlüğe yaklaşan yöntem" sayılıp
+  temel işlevle gerekçelendirilmeli (bkz. 7.1). [ölçüm + çıkarım]
 - Pil muafiyeti (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) ve erişilebilirlik
   servisi ile "canlı tutma" EKLEME: ayrı politika riski (araştırma 05). [resmi]
 
@@ -699,6 +899,19 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   başında 185 pazar, ~2,8 milyar cihaz" diyor ama liste vermiyor (blog,
   Google kaynağı yok). Türkiye'nin içinde olup olmadığı [doğrulanamadı]. [blog]
   https://bayton.org/android/android-enterprise-faq/enhanced-fraud-protection-enterprise/
+- 22 Ekim 2026 yeniden okuma: resmi sayfa pazarları yine ADLANDIRMIYOR
+  ("seçili pazarlarda etkin"). Bilinen yayılma: Hindistan pilotu (Ekim
+  2024), Singapur, Tayland, Brezilya ve Malezya (Lowyat, 28 Nisan 2026:
+  "Malezya'daki tüm Android kullanıcıları"). Türkiye hiçbir kaynakta
+  GEÇMİYOR; "dahil değil" kanıtı da yok. [resmi + haber]
+  https://developers.google.com/android/play-protect/warning-dev-guidance
+  https://www.lowyat.net/2026/391257/google-rolls-out-enhanced-fraud-protection-play-protect/
+- Aynı resmi sayfadaki "izinli kullanım" listesi: bildirim dinleyici için
+  yalnız "giyilebilir donanıma bildirim aktaran sağlık ve fitness
+  uygulamaları" sayılıyor. Sende bu kapsamda DEĞİL; yani Sende, Play
+  Protect'in seçili pazarlarda internetten (tarayıcı, mesaj, dosya
+  yöneticisi) kurulumunu engelleyebileceği sınıfa girer. Kullanıcıya dönük
+  geçersiz kılma yolu belgelenmemiş. [resmi]
 - Yönetilen Google Play veya Play'den kurulum etkilenmiyor. Bu, sideload'ı
   ikincil yol yapmak için ayrı bir sebep. [blog]
 - Test için: Türkiye SIM'li gerçek bir telefonda GitHub bağlantısından
@@ -710,9 +923,37 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 
 ### 8.4 Gerçek hayat: reddedilme hikâyeleri ve benzer uygulamalar
 
-- Bildirim dinleyiciye özgü, birinci elden "Play reddetti / kaldırdı"
-  anlatısı bulamadım (Stack Overflow API, Hacker News, GitHub issue
-  taramaları). [doğrulanamadı]
+- Bildirim dinleyiciye özgü, "Play politikası yüzünden reddetti" anlatısı
+  (belirgin açıklama, izin beyanı vb.) hâlâ bulunamadı: Stack Overflow API,
+  Hacker News, GitHub issue taramaları ve ikinci turdaki ek aramalar
+  (NotificationListenerService + "prominent disclosure"/"declaration"
+  birleşimleri). Arama motoru yalnız genel "belirgin açıklama" yazıları
+  döndürdü. [doğrulanamadı]
+- AMA tarihsel, bildirim dinleyiciye özgü bir "Play'den kaldırıldı" olayı
+  var (Temmuz 2018). Sebep Play politikası değil, WhatsApp'ın şartları:
+  [haber, 3 kaynak]
+  - 3 Temmuz 2018 (XDA): WhatsApp'ın avukatları Can't Talk ve DirectChat
+    geliştiricilerine mektup gönderdi: WhatsApp bağlantılı işlevi kaldırın
+    ya da dava. İkisi de "standart Android API'si: Notification Listener ve
+    Direct Reply" kullanıyor. Can't Talk Play'den kaldırıldı; DirectChat
+    kaldı.
+    https://www.xda-developers.com/whatsapp-sends-cease-desist-apps-native-android-api/
+  - 5 Temmuz 2018 (Lowyat): iddialar belirsiz; tek net talep WhatsApp'a
+    bağlanan işlevi kaldırmak. Şirketler yorum yapmadı.
+    https://lowyat.net/2018/165604/whatsapp-files-cease-desist-orders-against-apps-that-dont-use-its-apis
+  - 7 Temmuz 2018 (Xataka): WhatsRemoved+ "doğrudan Play'den atıldı";
+    Google'ın gerekçesi diye "WhatsApp'a müdahale eden/müdahaleye izin
+    veren uygulama şartlarını ihlal eder" aktarılıyor (DDA madde 4.9).
+    WhatsApp bildirimi desteğini çıkarınca geri dönmüş. Bu detay yalnız
+    Xataka'da; bağımsız doğrulayamadım. [tek kaynak]
+    https://www.xatakandroid.com/comunicacion-y-mensajeria/whatsapp-empieza-combatir-apps-que-muestran-mensajes-que-hayan-sido-borrados
+  - XDA yazısı, WhatsApp adının mağaza açıklamasında geçmesinin marka
+    sorunu olabileceğini de söylüyor (görüş, kanıt değil).
+  - Bugün (2026) WAMR gibi benzer uygulamalar Play'de yayında; yani olay
+    sistematik bir yasak değil. Ama Sende WhatsApp mesajlarını okuyan bir
+    uygulama olduğu için aynı yönden risk (Meta ya da Play'e şikâyet)
+    sıfır değil. Cevabımız: yalnız OKUR, otomatik cevap/gönderme yok,
+    WhatsApp'ı API ile kullanmaz, "silinen mesajı gör" vaadi yok. [çıkarım]
 - İki GitHub projesi tam bu konuyu "bilinmeyen" olarak planlıyor: biri
   "bildirim dinleyici politika denetimi" ve "Play'de ekstra inceleme"
   uyarısı koymuş, diğeri "bildirim erişimi için Play ne istiyor" sorusunu
@@ -728,6 +969,19 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   açıklama ekleyince onaylanmış. Sayfa bot korumalı; arama özetinden.
   [forum, tek kaynak]
   https://xdaforums.com/t/how-to-address-issue-found-missing-prominent-disclosure-when-publish-app-to-playstore.4554619/
+- Üst üste üç ret, hepsi düzeltilip 6 günde geçti (B4X forumu, 25-31 Mayıs
+  2021; konu eski ama süreç tipik). [forum, tek kaynak]
+  https://b4x.com/android/forum/threads/missing-information-in-prominent-disclosure.131063/page-2
+  - Ret 1: "belirgin açıklama, konum çalışma zamanı izninden ÖNCE
+    görünmeli ve hangi özelliklerin konumu kullandığını söylemeli".
+  - Ret 2 (27 Mayıs): izin incelemesi iletisi; forumdaki öneri: yalnız
+    versionCode değil versionName da artırılsın (kesin değil).
+  - Ret 3 (28 Mayıs, sürüm 83): "gizlilik politikanız şartlara uymuyor":
+    aktif URL, PDF olmayan, düzenlenemeyen, konumu anlatan ve hem mağazadan
+    hem uygulamadan bağlantılı bir sayfa istendi. 31 Mayıs'ta yayına çıktı.
+  - Ders: ret e-postasındaki cümleyi aynen çöz; her turda üç şeyi birlikte
+    kontrol et: açıklama metni + izinden önce görünüm, politika URL'si,
+    mağaza + uygulama içi bağlantı. [çıkarım]
 - 2019 HN yorumu: SMS özelliği çıkarılan yeni sürüm yüklenince bile
   Console "reddedildi" durumundan çıkmamış; eski bir test kanalındaki
   sürüm izni taşıdığı için; geliştirici yeni uygulama açmak zorunda
@@ -773,7 +1027,13 @@ https://support.google.com/googleplay/android-developer/answer/9859655
   https://support.google.com/googleplay/android-developer/answer/18258653
 - Google'ın görsellerinizi tanıtımda kullanabilmesi için lisans verirsiniz
   (DDA madde 6). [resmi]
-- Sürüm notu (What's new) karakter sınırını bu kolda doğrulamadım. [doğrulanamadı]
+- Sürüm notu (What's new): dil başına en fazla 500 Unicode karakter;
+  promosyon amaçlı olamaz, kullanıcıdan eylem istemez ("puan ver" vb.
+  yok). Dil etiketleri ayrı satırlarda yazılır. Bir dilde aşım tüm
+  sürümü bloke edebilir (blog). [resmi, 22 Ekim 2026]
+  https://support.google.com/googleplay/android-developer/answer/9859348
+- Mağazada herkese görünen geliştirici bilgisi: kişisel hesapta yasal ad,
+  ülke, geliştirici e-postası (bkz. 2.3). Kuruluşta ayrıca telefon.
 - Uzun açıklamada kaçınılacak: uzun anahtar kelime listeleri, tekrar,
   "veri karşılaştırması". Kısa tut: uzunluk ve tekrar da ihlal
   sayılabilir. [resmi]
@@ -838,9 +1098,13 @@ https://support.google.com/googleplay/android-developer/answer/9859655
 - Mevcut RELEASE.md taslağı iyi ama: (1) kanal adlarını başa koyuyor,
   (2) "Hiçbir şey bir sunucuya gönderilmez" doğru, "hiçbir şey ağa
   çıkmaz" Play sürümünde yanlış olurdu. İkisini düzeltelim. [ölçüm]
-- Mağaza deneyleri: Play Console "store listing experiments" ile
-  başlık/ikon/ekran görüntüsü A/B yapılabilir; 7-14 gün, güven düzeyi
-  ~%90 gibi. Kaynak ticari, resmi sayfayı okumadım. [blog, doğrulanamadı]
+- Mağaza deneyleri (resmi sayfa, 22 Ekim 2026): yalnız YAYINDAKİ
+  uygulamalar için. Aynı anda ya bir "varsayılan grafik" deneyi (ikon,
+  öne çıkan görsel, ekran görüntüleri) ya da en fazla beş "yerelleştirilmiş"
+  deney (grafik + açıklama metni, en fazla beş dilde). En fazla 2 varyant.
+  Sonuç "daha fazla veri gerekli" çıkabilir. Yani üretime çıkmadan
+  yapılamaz, ilk gün için plan değil. [resmi]
+  https://support.google.com/googleplay/android-developer/answer/12053285
 
 ## 11. İnceleme süreleri ve sık ret nedenleri
 
