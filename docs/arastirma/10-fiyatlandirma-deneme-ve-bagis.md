@@ -42,7 +42,7 @@ Araştırma kolu: para-kazanma
   biri (kaba çıkarım). Bölüm 5.
 
 İlk taslaktan değişenler:
-- Yeni kanıt: bağışta 6 bağımsız vaka (2016-2026), tek seferlik
+- Yeni kanıt: bağışta 7 bağımsız vaka (2016-2026), tek seferlik
   ürünlerde Play fiyat deneyi var, Paycell işlem sınırı 300 TL,
   Billing INTERNET konusunda 2 bağımsız kaynak, eş uygulama örneği.
 - Yeni öneri: 6 aylık plan çıktı, "Ömür boyu" girdi, fiyatlar
@@ -136,8 +136,9 @@ Araştırma kolu: para-kazanma
 
 ### 1-b. Bağış ve bahşiş: gerçek vakalar (2016-2026)
 
-- Soru: "Uygulama içine dış bağış linki koyabilir miyim?" Cevap, altı
-  bağımsız vakada aynı: HAYIR. [çoklu + forum]
+- Soru: "Uygulama içine dış bağış linki koyabilir miyim?" Cevap, yedi
+  bağımsız vakada aynı: HAYIR (altısında Google reddetti/kaldırdı,
+  birinde geliştirici önceden çıkardı). [çoklu + forum]
   - 2016: Stack Overflow'da bir geliştirici, Google Play ekibinin
     cevabını aktarıyor: bağış yalnız doğrulanmış kâr amacı gütmeyen
     kuruluşlar için; aksi halde bağış işlevini kaldır, Play Billing
@@ -786,8 +787,8 @@ Kullanıcı sesi (önceki kollar; bu kolda yeniden açılamadı): [tek/çoklu]
 - Evet, bahşiş alınır; ama tek başına bir iş modeli değildir (bölüm
   5-b: ≈ onda biri). Play'de yol: tüketilebilir ürün. [resmi + çıkarım]
 - Yapılmaması gereken: uygulama içinde dış bağış sitesine link, Patreon,
-  Open Collective. 2016'dan 2026'ya altı bağımsız vakada reddedildi
-  veya geliştiriciyi sürüm çıkarmaktan alıkoydu (bölüm 1-b). [çoklu]
+  Open Collective. 2016'dan 2026'ya yedi bağımsız vakada reddedildi,
+  kaldırıldı veya önceden çıkarıldı (bölüm 1-b). [çoklu]
 - Kelime: Türkiye'de "bağış/yardım toplama" 2860 sayılı Yardım Toplama
   Kanunu'na takılabilir. Resmî metin (mevzuat.gov.tr PDF'i, bu geçişte
   okundu; Türkçe karakter kodlu yazı tipi yüzünden elle çözüldü): [resmi]
@@ -1379,8 +1380,8 @@ Ne yapalım:
     uygulamada iptal yolu istiyor (bölüm 1).
 - Bahşişi tüketilebilir ürün olarak tut (tip_small/medium/large),
   "bağış" kelimesini kullanma, küçük işlevsiz rozet ver.
-  - Neden: Play yolu bu; dışa bağış linki 2016-2026 arası altı vakada
-    reddedildi; Google'ın kendi bildirimi uygulama içi satın almayı
+  - Neden: Play yolu bu; dışa bağış linki 2016-2026 arası yedi vakada
+    reddedildi/çıkarıldı; Google'ın kendi bildirimi uygulama içi satın almayı
     sayıyor; Türkiye'de yardım toplama hukuku belirsiz (bölüm 1-b, 6-e).
 - Play Console'da Hesap Grubu kurup 15% hizmet bedeli katmanına KAYIT ol.
   - Neden: kayıtsız "diğer işlemler" %30'dan başlıyor; ömür boyu ve
