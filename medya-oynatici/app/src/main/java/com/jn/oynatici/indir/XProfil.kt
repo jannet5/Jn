@@ -60,25 +60,32 @@ object XProfil {
         val girdiler = runCatching { JSONObject(veri).getJSONObject("props").getJSONObject("pageProps").getJSONObject("timeline").getJSONArray("entries") }.getOrNull() ?: return@withContext null // akış
         var ad = "" // görünen ad
         val bulunan = mutableListOf<Pair<Long, Oge>>() // (kimlik, öge)
+        val sira = mutableListOf<Long>() // profil sahibinin tüm gönderileri, geldiği sırayla (sıra kontrolü için)
         for (i in 0 until girdiler.length()) {
             val t = girdiler.optJSONObject(i)?.optJSONObject("content")?.optJSONObject("tweet") ?: continue // gönderi
             if (t.has("retweeted_status")) continue // yeniden paylaşım değil
             val yazar = t.optJSONObject("user") // gönderen
             if (!yazar?.optString("screen_name").equals(kullanici, ignoreCase = true)) continue // profilin sahibi
+            t.optString("id_str").toLongOrNull()?.let { sira += it } // sırayı kaydet
             val medya = t.optJSONObject("extended_entities")?.optJSONArray("media") ?: continue // medyası yoksa atla
             if ((0 until medya.length()).none { medya.optJSONObject(it)?.optString("type") in setOf("video", "animated_gif") }) continue // video yok
             val id = t.optString("id_str").toLongOrNull() ?: continue // kimlik
             if (ad.isEmpty()) ad = yazar?.optString("name").orEmpty() // ad
             bulunan += id to Oge("https://x.com/${yazar?.optString("screen_name") ?: kullanici}/status/$id", "") // link
         }
+        // Bazı hesaplarda bu akış da girişsiz ziyaretçiye en yenileri değil popüler gönderileri (karışık sırayla) veriyor: o zaman işe yaramaz
+        if (siraBozuk(sira)) return@withContext null
         ListeSonucu(ad.ifBlank { kullanici }, bulunan.sortedByDescending { it.first }.map { it.second }.distinctBy { it.url }.take(n)) // en yeniden eskiye
     }
 
     // gallery-dl'in misafir listesinde sıra bozuk mu (X en yenileri değil "popüler" gönderileri verdiyse sıra karışık gelir).
     // Gönderi kimliği zamanı içerir; bir gönderiden sonra 1 günden daha YENİ bir gönderi geliyorsa sıra bozuktur
     // (aynı konudaki zincir gönderileri dakikalar içinde ters sırada gelebiliyor, onları sayma).
-    fun siraBozukMu(linkler: List<String>): Boolean {
-        val zamanlar = linkler.mapNotNull { it.substringAfterLast('/').toLongOrNull()?.shr(22) } // milisaniye (X'in başlangıcından beri)
+    fun siraBozukMu(linkler: List<String>): Boolean = siraBozuk(linkler.mapNotNull { it.substringAfterLast('/').toLongOrNull() })
+
+    // Gönderi kimlikleri en yeniden eskiye mi (bkz. siraBozukMu)
+    private fun siraBozuk(kimlikler: List<Long>): Boolean {
+        val zamanlar = kimlikler.map { it shr 22 } // milisaniye (X'in başlangıcından beri)
         if (zamanlar.size < 2) return false // karşılaştıracak yok
         val bozuk = zamanlar.zipWithNext().count { (once, sonra) -> sonra - once > 24L * 60 * 60 * 1000 } // geriye değil ileriye giden çiftler
         return bozuk * 4 > zamanlar.size - 1 // çiftlerin dörtte birinden fazlası

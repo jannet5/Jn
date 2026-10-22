@@ -156,19 +156,23 @@ object Listeleyici {
         XProfil.fxListe(kullanici, n) { IndirmeMerkezi.iptalMi(isi.id) }?.takeIf { it.ogeler.isNotEmpty() }?.let { return it }
         // Girişsiz 2: X'in misafir erişimi. İstek hakkı (15 dakikada 50 sayfa) anahtar başına: her listelemede yeni anahtar alınsın diye ayrı, geçici önbellek
         val misafirOnbellek = java.io.File(ctx.cacheDir, "gdl-misafir-${java.util.UUID.randomUUID()}.sqlite3") // bu işe özel
+        // Girişsiz 3: X'in yerleştirme (embed) akışı, son ~20 gönderi (sırası karışıksa / alınamazsa null)
+        suspend fun yerlestirme(): ListeSonucu? = runCatching { XProfil.yerlestirmeListe(kullanici, n) }.getOrNull()?.takeIf { it.ogeler.isNotEmpty() }
+            ?.let { it.copy(uyari = if (it.ogeler.size < n) "X girişsiz sadece son 20 gönderiye bakmaya izin verdi" else null) } // az bulunduysa nedeni
         val misafir = try {
             satirlardan(Motor.galeriCalistir(ctx, secenekler(null, misafirOnbellek) + "$url/tweets", isi.id), n, kullanici) // girişsiz (misafir) liste
+        } catch (e: YoutubeDL.CanceledException) {
+            throw e // iptal
+        } catch (e: Exception) {
+            yerlestirme()?.let { return it } // misafir anahtarı alınamadı vb.: yerleştirme akışı
+            throw e // o da olmadı: asıl hatayı göster (kullanıcı yok, gizli hesap...)
         } finally {
             ctx.cacheDir.listFiles { f -> f.name.startsWith(misafirOnbellek.name) }?.forEach { it.delete() } // işi bitince sil (yanındaki -journal dosyasıyla)
         }
         if (!XProfil.siraBozukMu(misafir.ogeler.map { it.url })) return misafir // en yeniden eskiye geldiyse tamam
-        // Girişsiz 3: X bu profilde misafire popüler gönderileri verdi; X'in yerleştirme akışında son 20 gönderiye bak
-        val yerlestirme = runCatching { XProfil.yerlestirmeListe(kullanici, n) }.getOrNull() // son ~20 gönderi
-        if (yerlestirme != null && yerlestirme.ogeler.isNotEmpty()) return yerlestirme.copy(
-            ad = misafir.ad.ifBlank { yerlestirme.ad }, // görünen ad
-            uyari = if (yerlestirme.ogeler.size < n) "X girişsiz sadece son 20 gönderiye bakmaya izin verdi" else null, // az bulunduysa nedeni
-        )
-        return misafir.copy(ogeler = XProfil.yenidenEskiye(misafir.ogeler), uyari = "X bu profilde girişsiz en yenileri değil popüler gönderileri gösterdi") // son çare
+        // X bu profilde misafire popüler gönderileri verdi: yerleştirme akışı en yenileri veriyorsa onu kullan
+        yerlestirme()?.let { return it.copy(ad = misafir.ad.ifBlank { it.ad }) }
+        return misafir.copy(ogeler = XProfil.yenidenEskiye(misafir.ogeler), uyari = "X bu profilde girişsiz en yenileri değil popüler gönderileri gösterdi; en yeniler için Hesaplar'dan X'e giriş yap") // son çare
     }
 
     // Pinterest pano/profil: gallery-dl ile sadece video pinleri listele (girişsiz çalışır)
